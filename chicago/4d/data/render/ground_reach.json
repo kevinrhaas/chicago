@@ -1,0 +1,226 @@
+{
+  "schema": 1,
+  "_doc": "WHAT THE GROUND COSTS A DOWNTOWN FRAME, AND WHAT THE HAZE-TOTAL REACH TAKES OFF IT (T-1244, split out of T-1154). T-1154 found the five downtown stands over all three scene-detail ceilings at both viewports and asked which of the nine days after the last PASS put them there. This file is the answer and the first trim against it. GENERATED readings, pasted from the two instruments named below; nothing here is computed by hand.",
+  "ticket": "T-1244",
+  "parent": "T-1154",
+  "read_on": "2026-09-17",
+  "instruments": {
+    "frame": "tools/measure_detail_ceilings.mjs --only desktop, on the published mirror",
+    "layers": "tools/measure_layer_share.mjs --only desktop --tiers full,light, the same mirror in the same sitting. Its whole-frame figures reproduce the ceiling instrument's to the triangle at every stand and tier read here, which is why the two can be read together."
+  },
+  "what_this_is_not": "NOT a ceiling reading, and NOT the close of T-1154. The stands below are all still OVER. What is measured here is (a) which layer the overage is, and (b) what one rule takes off it. The remaining trim is T-1245.",
+  "the_bisect": {
+    "question": "tools/dev-smoke-state.json's newest desktop part-4 reading is a PASS of 2026-09-06T00:44:54Z, so the breach arrived in the nine days after it.",
+    "answer": "The ground. Its modelled box went from 2,020 x 800 m to 2,020 x 4,920 m in those days at an unchanged 2.5 m sample -- 6.1 times the area -- and nothing about the ground is a function of distance or of the scene-detail tier, so all of it is submitted from everywhere. Read off the committed heightfield meta at each commit that moved it; no measurement was needed to find the change, only to price it.",
+    "commits": [
+      {
+        "commit": "ebea45208",
+        "date": "2026-09-12",
+        "ticket": "T-0939",
+        "cols": 809,
+        "rows": 321,
+        "box_local_enu_m": {
+          "e": [
+            -320.0,
+            400.0
+          ],
+          "n": [
+            -400.0,
+            400.0
+          ]
+        },
+        "note": "the state the 6 September PASS was taken on"
+      },
+      {
+        "commit": "ca5b071aa",
+        "date": "2026-09-12",
+        "ticket": "T-0219",
+        "cols": 809,
+        "rows": 373,
+        "box_local_enu_m": {
+          "e": [
+            -320.0,
+            1700.0
+          ],
+          "n": [
+            -530.0,
+            400.0
+          ]
+        },
+        "note": "the heightfield reaches Madison Street"
+      },
+      {
+        "commit": "aedc409e4",
+        "date": "2026-09-14",
+        "ticket": "T-1123",
+        "cols": 809,
+        "rows": 661,
+        "box_local_enu_m": {
+          "e": [
+            -320.0,
+            1700.0
+          ],
+          "n": [
+            -530.0,
+            1120.0
+          ]
+        },
+        "note": "the modelled ground reaches Kinzie's Addition"
+      },
+      {
+        "commit": "9b232f7ba",
+        "date": "2026-09-14",
+        "ticket": "T-0464",
+        "cols": 809,
+        "rows": 1969,
+        "box_local_enu_m": {
+          "e": [
+            -320.0,
+            1700.0
+          ],
+          "n": [
+            -3800.0,
+            1120.0
+          ]
+        },
+        "note": "the ground reaches Twenty-Second Street -- the single largest step, 2.98x the samples"
+      }
+    ],
+    "ground_mesh_triangles": 1028798,
+    "ground_mesh_triangles_by_northing": {
+      "-4000..-3000": 152505,
+      "-3000..-2000": 193510,
+      "-2000..-1000": 149658,
+      "-1000..-530": 73774,
+      "-530..-200": 94440,
+      "-200..200": 135809,
+      "200..600": 103835,
+      "600..1200": 124321
+    },
+    "ground_mesh_note": "Counted straight off assets/gltf/terrain__e1834_harbor_cut.glb. 569,447 triangles -- 55.4 per cent of the whole ground -- lie south of local_n -530, which is ground that did not exist on 6 September. At Lake and Market 96.7 per cent of the whole mesh was inside one frustum before the reach."
+  },
+  "the_rule": {
+    "where": "renderers/web/js/terrain.js hazeReachM(), applied by updateGroundReach()",
+    "statement": "A ground tile is held back when the NEAREST point of its world bounding sphere is further than the distance at which the scene's FogExp2 leaves under one part in 255 of a surface's own colour -- sqrt(ln 255) / density. The threshold is the 8-bit channel: beyond it the ground cannot move a pixel it is drawn into.",
+    "fog_density": 0.00125,
+    "steps": 255,
+    "reach_m": 1883.2,
+    "camera_far_m": 3000,
+    "applies_at": "every tier, because the argument is visibility and not expense",
+    "not_a_claim": "Nothing is un-built, re-graded or moved. surfaceHeight() and walkableHeight() read the heightfield and never the mesh, so footing, water, flora roots and every anchored record are untouched; a visitor walking south gets each tile back as they approach it."
+  },
+  "desktop_1280x800": {
+    "frame_triangles": {
+      "full": {
+        "ceiling": 1460000,
+        "before": {
+          "sauganash_26": 1716593,
+          "lake_at_canal": 1978979,
+          "the_forks": 1852280,
+          "from_above": 1520873,
+          "lake_and_market": 1878412
+        },
+        "after": {
+          "sauganash_26": 1661275,
+          "lake_at_canal": 1933485,
+          "the_forks": 1806896,
+          "from_above": 1520869,
+          "lake_and_market": 1832607
+        }
+      },
+      "balanced": {
+        "ceiling": 1280000,
+        "before": {
+          "sauganash_26": 1634526,
+          "lake_at_canal": 1808928,
+          "the_forks": 1701447,
+          "from_above": 1385454,
+          "lake_and_market": 1798205
+        },
+        "after": {
+          "sauganash_26": 1579208,
+          "lake_at_canal": 1763434,
+          "the_forks": 1656063,
+          "from_above": 1385450,
+          "lake_and_market": 1752400
+        }
+      },
+      "light": {
+        "ceiling": 825000,
+        "before": {
+          "sauganash_26": 1326509,
+          "lake_at_canal": 1371435,
+          "the_forks": 1214329,
+          "from_above": 1033778,
+          "lake_and_market": 1432679
+        },
+        "after": {
+          "sauganash_26": 1271191,
+          "lake_at_canal": 1325941,
+          "the_forks": 1168945,
+          "from_above": 1033774,
+          "lake_and_market": 1386874
+        }
+      }
+    },
+    "terrain_share": {
+      "full": {
+        "before": {
+          "lake_at_canal": 844817,
+          "lake_and_market": 994528,
+          "the_forks": 678118,
+          "from_above": 494680
+        },
+        "after": {
+          "lake_at_canal": 799323,
+          "lake_and_market": 948723,
+          "the_forks": 632734,
+          "from_above": 494676
+        }
+      },
+      "light": {
+        "before": {
+          "lake_at_canal": 844817,
+          "lake_and_market": 994528
+        },
+        "after": {
+          "lake_at_canal": 799323,
+          "lake_and_market": 948723
+        }
+      }
+    },
+    "the_frame_after_by_layer": {
+      "note": "The whole reading is tools/measure_layer_share.mjs's; the two worst stands are written out here because they are what T-1245 has to move.",
+      "light/lake_and_market": {
+        "terrain": 948723,
+        "frontage": 145832,
+        "structures": 81434,
+        "streets": 50378,
+        "sun": 36654,
+        "enclosures": 33626,
+        "yard-ground": 8753,
+        "yard": 7056,
+        "signage": 2464,
+        "boats": 1600,
+        "wharves": 1524
+      },
+      "full/lake_at_canal": {
+        "terrain": 799323,
+        "frontage": 341224,
+        "structures": 267322,
+        "trees": 205428,
+        "sun": 197522,
+        "enclosures": 165576,
+        "yard": 64684,
+        "streets": 50378,
+        "flora": 21933,
+        "yard-ground": 8753,
+        "boats": 3200,
+        "wharves": 3048,
+        "signage": 2464,
+        "wells": 140
+      }
+    }
+  },
+  "what_is_left": "The reach takes about 45,500 triangles off every eye-level downtown stand and four off the aerial, and every stand is still over. The reason is measured and it is not the rule: the ground's culling grid cuts a 7,340 x 10,240 m mesh into 5 x 8, so a tile's bounding sphere has a radius of 950 to 2,000 m and a NEAREST-point test at 1,883 m can only reject the outermost few. T-1245 owns re-cutting the grid so the reach can bite, and T-0466's own reading (data/render/ground_tiling_budget.json) already measured 12 x 12 as 58,287 triangles better for fifteen more draw calls -- a candidate that was not bought when there was no reach to pay for it, and is a different proposition now."
+}

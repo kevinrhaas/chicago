@@ -1,0 +1,28 @@
+id: newspaper-chicago-american
+title: Chicago American, June-August 1835
+description: >
+  Scanned issues of the Chicago American newspaper, split into monthly
+  PDFs. A superseded single combined PDF (same content, pre-split) is
+  also kept in the local archive for reference but was not republished
+  separately.
+redistribution_status: public
+copyright_status: public-domain
+internet_archive:
+  item: chicago1835-newspaper-chicago-american
+  url: https://archive.org/details/chicago1835-newspaper-chicago-american
+files:
+  - name: ChicagoAmerican Jun1835.pdf
+    bytes: 82736711
+    sha256: c59238d8758b07f79a56c5eeeccc201906bf36e022f7893b71ca019f537bcf9f
+  - name: ChicagoAmerican Jul1835.pdf
+    bytes: 86750442
+    sha256: 98f04c1bb46d8906f3fdaeff8958a8f1300f43870fde27791963b1bd0e6c2f60
+  - name: ChicagoAmerican Aug1835.pdf
+    bytes: 108447418
+    sha256: 22c8fc02351a82743d88cb027ef533af1c5424947e394a0bf296bf98ce9a5f97
+superseded_duplicate:
+  name: ChicagoAmerican Jun1835-Aug1835.pdf
+  bytes: 277921567
+  sha256: a34cfb2891bdbddfb488684c61cf1230b717b8914ed10e39b1a0048bfc807bc2
+  note: Same 52 pages as the 3 files above, combined into one PDF. Not uploaded separately.
+local_archive_path: projects/archive/data/chicago/reference/newspapers/ChicagoAmerican/

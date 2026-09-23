@@ -1,0 +1,236 @@
+{
+  "schema": 1,
+  "issue_id": "chicago_democrat_1834_01_21",
+  "extracted": "2026-08-28",
+  "extracted_by": "hand, T-0310 — the Democrat read, January 1834",
+  "note": "Vol. I No. 9, and the issue with the two dated events this month turns on: the Engineer's report on the harbour works — begun, and barely begun, in the season of 1833 — and the dedication of the Presbyterian church, a building finished and opened eighteen months before the scene date.",
+  "claims": [
+    {
+      "id": "c001",
+      "kind": "infrastructure",
+      "reading": "transcription_mediated",
+      "quote": "|The fotlon ion to the Hat pig | bor at this place, iv takon from the Report 4\n‘1g, | the Engineer. ia | Te being impossible to command the servi ofan engineer officer at this place, the w NS. vere given in charge to the commanding of pot] cor at Fort Dearborn. Owing to the positiy tell of Chicago, considerable difficulty was exp wo | rienced in the early part of the eeacon in pro} sn't| curing suitable materiale ani workinen to con} mence ; as almost ovary. thing but timber e stone, had to be drawn from Dutlato. 1 and frat proposals received on the invitation 0 Fe) commanding officer through the publ | or | were rejvoted because of their exorbi\nsay [3 Proposals we nou ually contracts made for the eupply of a sn aly | quantity of stone and tim re With 9 vil\npountry, wh ry and 7 ton, than with: the hope of doi the | way of construction during the The | But little hs becn done, the Me, | to collect sone materials” est, | f0 construct a sinall portion of A commencement in a position lik ever, of great vale, and linpes aro od of bet lo 10. prosecute o} the} advantage Hie noxt wor! uh se aseeaelee nee] Th tan, | for publication last week but owini: hon| ded state of our columns we we em} cessity of deterring ‘the publs nted| eck, : tht} Dedication of the Preobyterinn ped] ft will be gratifying 20: those uim-| ing for the prosperity of-tho. West, for| tliat in this early history of Chi",
+      "normalized": "The follo[wing account of the] [Har]bor at this place, is taken from the Report [of] the Engineer: 'It being impossible to command the servi[ces] of an engineer officer at this place, the w[orks] were given in charge to the commanding of[fi]cer at Fort Dearborn. Owing to the positi[on] of Chicago, considerable difficulty was exp[e]rienced in the early part of the [s]eason in pro[c]uring suitable materials and workmen to com[m]ence; as almost every[ ]thing but timber [and] stone, had to be drawn from Bu[ff]alo. [The] fir[s]t proposals received on the invitation o[f the] commanding officer through the publ[ic press] were rej[e]cted because of their exorbi[tance …] Proposals we[re renewed and] […] contracts made for the supply of a sm[all] quantity of stone and tim[ber …] But little h[a]s been done, [beyond] to collect some materials [and] to construct a small portion of [it]. A commencement in a position lik[e this is, how]ever, of great val[u]e, and h[o]pes are [entertain]ed of be[ing ab]le to prosecute [it to] advantage [t]he next [season].'",
+      "locator": {
+        "artifact_role": "primary",
+        "issue_page": 2,
+        "column": 6,
+        "lines": [
+          479,
+          489
+        ],
+        "lines_of_claim": [
+          479,
+          481,
+          487,
+          489
+        ],
+        "interleaved": true
+      },
+      "entities": [],
+      "notes": "THE FIRST SEASON OF THE HARBOUR WORKS, IN THE ENGINEER'S OWN REPORT — and it is the other end of the story the Democrat tells in August 1834, when the North Pier is being run across the sand-bar (1834-08-13, claim c001 there). What this says about the winter of 1833-34 is that ALMOST NOTHING HAD BEEN BUILT: no engineer officer could be spared, so the commanding officer at Fort Dearborn ran the work; materials and workmen could not be got; everything but timber and stone had to come from Buffalo; the first proposals were rejected as exorbitant; and when contracts were finally made they were for a small quantity of stone and timber. 'But little has been done' beyond collecting materials and constructing a small portion. FOR A RECONSTRUCTION STANDING IN 1835 THIS IS THE DATED FLOOR: the works begin here, essentially unbuilt in January 1834, and are a pier crossing the bar by August. Anything the scene shows at the river mouth has to sit between those two readings. The lines are interleaved with the political column beside them and the four named here are the ones the report can be followed through; three inside the range (483, 485) are single stray words and are excluded."
+    },
+    {
+      "id": "c002",
+      "kind": "building",
+      "reading": "transcription_mediated",
+      "quote": "pountry, wh ry and 7 ton, than with: the hope of doi the | way of construction during the The | But little hs becn done, the Me, | to collect sone materials” est, | f0 construct a sinall portion of A commencement in a position lik ever, of great vale, and linpes aro od of bet lo 10. prosecute o} the} advantage Hie noxt wor! uh se aseeaelee nee] Th tan, | for publication last week but owini: hon| ded state of our columns we we em} cessity of deterring ‘the publs nted| eck, : tht} Dedication of the Preobyterinn ped] ft will be gratifying 20: those uim-| ing for the prosperity of-tho. West, for| tliat in this early history of Chi\njon, | audience assoinbled to'dedicate this hme y of | the eervice of Almighty God. joe |” ‘The order of oxereises wan as follis's+ rvod} 1, Introductory: Prayers. shit]. 2. Reading the 'ecriplures. ne thar | lected was the prayer of ution, at the dem am-{ ation of the tample :'¢ Chironicl jom-|\" 3, Hymn, ‘Phe following pioce, wr her-| the occasion by Mr. G,'N' Sproat,of this syan sung?» i DEDICATION. HYMN, Go of the glorious sorlde above Refore thy gracious throne we bow; O} wend the Spirit of thy love, ‘Aud smile upon thy childreu now,",
+      "normalized": "Dedication of the P[r]e[s]byterian [Church]. It will be gratifying to those [interest]ing for the prosperity of the West, [to know] that in this early history of Chi[cago … an] audience assembled to dedicate this h[ouse to] the service of Almighty God. The order of exercises was as follo[w]s: 1. Introductory Prayer[.] 2. Reading the Scriptures[. The passage se]lected was the prayer of [Solomon at the dedic]ation of the temple: 2 Chronicl[es …] 3. Hymn. The following piece, wr[itten for] the occasion by Mr. G. N. Sproat, of this [place, was] sung: DEDICATION HYMN. 'G[o]d of the glorious world[s] above, [Be]fore thy gracious throne we bow; O! [s]end the Spirit of thy love, And smile upon thy children now. We dedicate this house to Thee, To Thee these hallowed walls we ra[ise]; O! deign to s[en]d thy Spirit down, And fill these earthly courts with p[raise].'",
+      "locator": {
+        "artifact_role": "primary",
+        "issue_page": 2,
+        "column": 6,
+        "lines": [
+          489,
+          491
+        ],
+        "lines_of_claim": [
+          489,
+          491
+        ],
+        "interleaved": true
+      },
+      "entities": [
+        {
+          "as_printed": "Mr. G,'N' Sproat",
+          "normalized": "G. N. Sproat",
+          "role": "author of the dedication hymn, of this place"
+        }
+      ],
+      "notes": "A CHURCH BUILDING IS DEDICATED IN CHICAGO IN JANUARY 1834, and the paper prints the order of service and the hymn written for it. This is a BUILDING claim before it is anything else: 'we dedicate this house to Thee, to Thee these hallowed walls we raise' is a finished structure with walls, opened for worship eighteen months before the scene date — so the Presbyterian meeting house stands in 1835 and the reconstruction has a date for when it started standing. It is corroborated one week later as a working public room: the Chicago Temperance Society meets at 'the Presbyterian Meeting house, 6 o'clock P.M.' on 30 January (1834-01-28, claim c002 there). WHAT IS NOT CLAIMED is where it stood, how big it was or what it was built of; none of that is in the notice, and none of it is supplied. G. N. Sproat, who wrote the hymn, is named 'of this place' and is minted as a resident."
+    },
+    {
+      "id": "c003",
+      "kind": "business",
+      "reading": "transcription_mediated",
+      "quote": "26, 1608. i wed ‘and for Sale,\nStore on the corner of South 1 Clark-streets, Ciicago, Hl. id assortment of Funcy aud Sta-\nP GOODS, y & Glass Ware, RE aud CUTTLERY,\n: Fer and Cloth CABS, ing, Yarn and Wicking, Shirting, Blankets, &e. &ebo nold at the lowost prices for\nProdace. ae W. KIMBALL, 33, 2: Soap and Candle FACTORY. NIEL ELSTON & CO, mm the public, that they bave the Manufacture of Soap and uctuality and atten Gon ping constantly om cnt ofall. doxeriptions of Hard Wye and other Candles, to enapne a id for Tuldove, in any quantity = use Ashes. te",
+      "normalized": "[Just Recei]ved and for Sale, [at the New] Store on the corner of South [Water and] Clark-streets, C[h]icago, Ill. [a splend]id assortment of Fancy and Sta[ple] [DRY] GOODS, [Crocker]y & Glass Ware, [HARDWA]RE and CUTTLERY, [Men's and Boys' F]ur and Cloth CA[P]S, [Cotton Batt]ing, Yarn and Wicking, [Sheeting and] Shirting, Blankets, &c. &c. [all of which will] be sold at the lowest prices for [Cash or Country] Produce. W. KIMBALL.",
+      "locator": {
+        "artifact_role": "primary",
+        "issue_page": 3,
+        "column": 6,
+        "lines": [
+          985,
+          993
+        ],
+        "lines_of_claim": [
+          985,
+          987,
+          989,
+          991,
+          993
+        ],
+        "interleaved": true
+      },
+      "entities": [
+        {
+          "as_printed": "W. KIMBALL.",
+          "normalized": "W. Kimball",
+          "role": "proprietor",
+          "occupations": [
+            "merchant"
+          ],
+          "associated_places": [
+            "the corner of South Water and Clark streets"
+          ]
+        }
+      ],
+      "business": {
+        "name": "W. Kimball's New Store",
+        "proprietors": [
+          "W. Kimball"
+        ],
+        "trade": "dry goods and general merchant",
+        "goods": [
+          "dry goods",
+          "crockery",
+          "glass ware",
+          "hardware",
+          "cutlery",
+          "caps",
+          "cotton batting",
+          "yarn",
+          "wicking",
+          "sheeting",
+          "shirting",
+          "blankets"
+        ],
+        "street": "South Water Street",
+        "placement": {
+          "class": "corner",
+          "anchor": "the corner of South Water and Clark streets",
+          "offset_text": "Store on the corner of South 1 Clark-streets, Ciicago, Hl. id assortment of Funcy aud Sta-",
+          "offset_normalized": "the New Store on the corner of South [Water and] Clark-streets",
+          "street": "South Water Street"
+        }
+      },
+      "notes": "A SECOND BUSINESS AT THE DEMOCRAT'S OWN CORNER. W. Kimball's New Store is on the corner of South Water and Clark streets — the same corner the paper's imprint gives for the building it is printed in (1834-01-07, claim c006) — so that corner carries at least two addresses in January 1834 and is the busiest documented intersection in this reading pass. The stock is the general assortment of the period, and the terms are the frontier's: cash OR country produce. The advertisement is repeated verbatim in the following issue (1834-01-28, page 4, lines 1005-1009), where the corner reads whole."
+    },
+    {
+      "id": "c004",
+      "kind": "building",
+      "reading": "transcription_mediated",
+      "quote": "For Sale,\nOT No 3, in Block 120, in the School Section, | For terms apply to\n21. RUYNE & CO.",
+      "normalized": "For Sale, [L]OT No 3, in Block 120, in the School Section. For terms apply to [Jan.] 21. [P]RUYNE & CO.",
+      "locator": {
+        "artifact_role": "primary",
+        "issue_page": 3,
+        "column": 4,
+        "lines": [
+          729,
+          733
+        ],
+        "lines_of_claim": [
+          729,
+          731,
+          733
+        ],
+        "interleaved": true
+      },
+      "entities": [
+        {
+          "as_printed": "RUYNE & CO.",
+          "normalized": "[P]ruyne & Co.",
+          "role": "agent"
+        }
+      ],
+      "ad_copy_date": {
+        "verbatim": "21. RUYNE & CO.",
+        "iso": "1834-01-21"
+      },
+      "notes": "A LOT IN THE SCHOOL SECTION, BY BLOCK NUMBER — Block 120, Lot 3 — offered in January 1834 and still offered in August (1834-08-13, page 3 column 4). This is the school section, section 16, being sold off lot by lot through the town's own newspaper, and it is a plat-level placement of the kind the corpus rarely yields. Nothing here says anything is BUILT on it; the claim is a parcel on the market, which is what the south-west quarter of this town largely was in 1834."
+    },
+    {
+      "id": "c005",
+      "kind": "event",
+      "reading": "transcription_mediated",
+      "quote": "May! May!? Hay???\nPe SALE, a quantity of good HAY, in or small qaantitics, six miles from Chicagor Enquire of Wn. Taylor, three miles outh of this town, oF 7 af B. JONES, Chicago, Jin, 23, 183:",
+      "normalized": "Hay! Hay!! Hay!!! [FOR] SALE, a quantity of good HAY, in [large] or small q[u]antit[ie]s, six miles from Chicago[.] Enquire of W[m]. Taylor, three miles [s]outh of this town, or of B. JONES, Chicago, J[a]n. 2[1], 183[4].",
+      "locator": {
+        "artifact_role": "primary",
+        "issue_page": 3,
+        "column": 4,
+        "lines": [
+          735,
+          737
+        ],
+        "lines_of_claim": [
+          735,
+          737
+        ],
+        "interleaved": true
+      },
+      "entities": [
+        {
+          "as_printed": "Wn. Taylor",
+          "normalized": "Wm. Taylor",
+          "role": "seller, three miles south of this town"
+        },
+        {
+          "as_printed": "B. JONES",
+          "normalized": "B. Jones",
+          "role": "agent",
+          "occupations": [
+            "forwarding and commission merchant"
+          ]
+        }
+      ],
+      "notes": "HAY IS BEING CUT AND SOLD SIX MILES OUT, and enquiry is made of a man three miles south of the town. Two distances from the town centre in one small advertisement, which is the sort of thing a reconstruction of the ground BEYOND the plat has almost nothing else of: prairie hay as a traded crop within a morning's haul, and a settler established three miles south by January 1834. B. Jones, the town agent for it, is the same forwarding and commission merchant whose own advertisement runs in this month's issues."
+    },
+    {
+      "id": "c006",
+      "kind": "person",
+      "reading": "transcription_mediated",
+      "quote": "Administrator's Notice.\n'robate, for Cook county, and State of Illi- Lois, on tho fifth day of May next, for the rotleinent of the eatate of John B. Chevallier, deeased, at which time and place all persons inervsted in said extate can attend, if thoy think roper.—-Dated Jun. 15, 1844, »\nLOUIS’ P. CHEVALLIER,",
+      "normalized": "Administrator's Notice. [I S]HALL apply at the office of the Court of [P]robate for Cook county, and State of Illi[n]ois, on the fifth day of May next, for the [s]et[t]lement of the estate of John B. Chevallier, dec[e]ased, at which time and place all persons in[te]rested in said estate can attend, if they think [p]roper. — Dated Jan. 15, 183[4]. LOUIS P. CHEVALLIER.",
+      "locator": {
+        "artifact_role": "primary",
+        "issue_page": 3,
+        "column": 4,
+        "lines": [
+          739,
+          745
+        ],
+        "lines_of_claim": [
+          739,
+          743,
+          745
+        ],
+        "interleaved": true
+      },
+      "entities": [
+        {
+          "as_printed": "John B. Chevallier",
+          "normalized": "John B. Chevallier",
+          "role": "deceased"
+        },
+        {
+          "as_printed": "LOUIS’ P. CHEVALLIER",
+          "normalized": "Louis P. Chevallier",
+          "role": "administrator"
+        }
+      ],
+      "notes": "A DEATH IN THE FRENCH TRADING COMMUNITY. John B. Chevallier is dead by January 1834 and Louis P. Chevallier is settling the estate through the Cook County probate court. The Chevalliers belong to the older, pre-town population of this place, which the reconstruction has to represent alongside the Yankee merchants filling the advertising columns — and this is the kind of record that says such a family was still here, still holding property, at the moment the town incorporated. The date printed as '1844' is read 1834 from the notice's own 'Jan. 15' and from the issue it stands in; the OCR's '1844' is a recognition error and is bracketed."
+    }
+  ]
+}

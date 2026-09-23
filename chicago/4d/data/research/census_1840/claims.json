@@ -1,0 +1,79 @@
+{
+ "schema": 1,
+ "domain": "census_1840",
+ "what": "Hand-authored claims read out of the 1840 census page images. A claim states one thing the sheet says, with the verbatim reading it rests on and where on the deposit to find it. Names of household heads are NOT claims — they are records, and they live in pages/*.json; a claim here is something the sheet says ABOUT the enumeration or about the town.",
+ "schema_owner": "T-0492 is defining the shared research-domain shape (a CLOSED kind vocabulary, the quote-rebuild gate, the crosswalk file). It was still open when this file was written, so the fields below are the newspaper pipeline's fields under their newspaper names and are expected to be re-homed by T-0492 rather than to stand as a rival schema.",
+ "scene_relation": "later_evidence_only",
+ "claims": [
+  {
+   "id": "census1840-recapitulation-city-of-chicago",
+   "kind": "population",
+   "town_finding": true,
+   "reading": "scan_verified",
+   "quote": "Two Recapitulations at the end of the Book population 3850.  by James Robinson    4470 — City of Chicago    8320",
+   "normalized": "Two recapitulations at the end of the book: population 3850, by James Robinson; 4470, City of Chicago; 8320.",
+   "locator": "chicago/reference/census1840/33S7-9YYJ-95F.jpg — printed page 206, written across the ruled area, lower left",
+   "source": "census_1840_chicago_familysearch_images",
+   "confidence": "documented",
+   "says": "The enumeration book's own recapitulation separates the City of Chicago from the rest of the county: 4,470 for the city, 3,850 for the remainder, 8,320 added. The addition is internally consistent (3850 + 4470 = 8320), which is why the three figures are read as written rather than each guessed at.",
+   "what_it_does_not_say": "nothing about 1835. Chicago's population in 1835 is a different question and this figure may not be extrapolated back to it. It is recorded because it fixes the size of the town five years after the scene, in the enumerator's own hand rather than from a published abstract.",
+   "note": "4,470 is also the published 1840 figure for the city of Chicago, so the sheet and the printed abstract agree. That agreement is a check on the READING, not new evidence."
+  },
+  {
+   "id": "census1840-division-assistant-marshal",
+   "kind": "office_holder",
+   "town_finding": true,
+   "reading": "scan_verified",
+   "quote": "The above returns of Enumeration made by Assistant Marshal S. W. Sherman appointed to take th[at] of Cook County State of Illinois I have examined and Certify to be Correct —",
+   "normalized": "The above returns of enumeration made by Assistant Marshal S. W. Sherman, appointed to take that of Cook County, State of Illinois, I have examined and certify to be correct.",
+   "locator": "chicago/reference/census1840/33S7-9YYJ-95F.jpg — printed page 206, upper ruled area",
+   "source": "census_1840_chicago_familysearch_images",
+   "confidence": "documented",
+   "says": "The man who walked Chicago in 1840 and wrote these sheets was Assistant Marshal S. W. Sherman — the same name printed in the heading of every left sheet in this group. The enumeration order that pages/*.json preserves is HIS walking order.",
+   "what_it_does_not_say": "nothing about which streets he walked, or in what order the divisions were taken."
+  },
+  {
+   "id": "census1840-certifier",
+   "kind": "office_holder",
+   "town_finding": false,
+   "reading": "scan_verified",
+   "quote": "Mary Prittyman.",
+   "normalized": "Mary Prittyman",
+   "locator": "chicago/reference/census1840/33S7-9YYJ-95F.jpg — printed page 206, signature to the certificate",
+   "source": "census_1840_chicago_familysearch_images",
+   "confidence": "inferred",
+   "reasoning": "the signature is legible as a name but not certainly as THIS name: the given name reads Mary or Mars and the surname Prittyman or Pettyman. It is recorded as inferred, with both readings stated, rather than as documented — the letters, not the identity, are what is uncertain.",
+   "says": "the certifying officer of the Cook County returns signed the recapitulation page.",
+   "what_it_does_not_say": "nothing about who this person was, or what office they held."
+  },
+  {
+   "id": "census1840-recapitulation-sheet-printed-237",
+   "kind": "population",
+   "town_finding": true,
+   "reading": "scan_verified",
+   "quote": "4470",
+   "normalized": "The grand total written at the foot of the recapitulation sheet, printed page 237: 4,470 persons.",
+   "locator": "chicago/reference/census1840/33S7-9YYJ-V2.jpg — printed page 237, the TOTAL column of the grand-total row at the foot of the leaf, below a double rule",
+   "source": "census_1840_chicago_familysearch_images",
+   "confidence": "documented",
+   "says": "One of the 'Two Recapitulations at the end of the Book' that the certificate page names is IN THE DEPOSIT, and this is it. The sheet was inventoried as a continuation sheet whose TOTAL column carried three-figure numbers; it carries no household at all. Thirty ruled lines each hold a DIVISION TOTAL of 70 to 201 persons, gathered into six blocks, each block closed by a ruled footing that adds it — four of the six footings close exactly on the lines above them (1164, 1320, 294, 1137) — and the foot of the leaf carries 4,470, which is the figure the certificate page writes as '4470 — City of Chicago'. The occupation columns of that same grand-total row give the city's employment in 1840: agriculture 25, commerce 182, manufactures and trades 744, navigation of the ocean 1, navigation of canals, lakes and rivers 44, learned professions and engineers 73, mining none; and its schools, 11 primary and common schools with 397 scholars.",
+   "what_it_does_not_say": "nothing about 1835. This is a dated 1840 aggregate and may not be extrapolated back to the scene year, and it names nobody: no line of it is a household, so no resident may be minted from it and no IPUMS serial may be hung on any of its lines.",
+   "note": "The six blocks as read sum to 4,466 against the 4,470 written at the foot — a residual of 4 that THIS READING DOES NOT RESOLVE. Four of the six footings close exactly, so the discrepancy sits in the one footing that is illegible under two crossing rules (its three lines sum to 362), in the lone line of 189 that stands between two rules with no footing of its own, or in a leaf the deposit does not hold. The reading is filed with the residual open rather than with a digit adjusted to close it. Full transcription and the measurement that separates this sheet from a continuation sheet: data/research/census_1840/pages/33S7-9YYJ-V2.json (T-0529).",
+   "ticket": "T-0529"
+  }
+ ],
+ "negative_searches": [
+  {
+   "source": "chicago/reference/census1840/ images 1-25",
+   "query": "any street, lot or address written on a household line",
+   "date": "2026-09-03",
+   "result": "none. The 1840 schedule has no address column and none of the 25 images carries a marginal address. Recorded so a later pass does not re-look."
+  },
+  {
+   "source": "chicago/reference/census1840/ images 1-25",
+   "query": "a trade or occupation written beside a household head's name",
+   "date": "2026-09-03",
+   "result": "none by name. Occupation is present only as the six INDUSTRY count columns on the continuation sheets, which are unread in this pass and are the sibling tickets' work."
+  }
+ ]
+}

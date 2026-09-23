@@ -1,0 +1,163 @@
+{
+  "id": "town_dooryard_pickets",
+  "name": "The town's dooryard garden pickets",
+  "aka": [
+    "the garden plots",
+    "the kitchen gardens"
+  ],
+  "kind": "garden",
+  "scene": "1835",
+  "target_date": "1835-07-01",
+  "generated_by": "tools/generate_dooryard_pickets.py",
+  "generated_from": [
+    "data/traces/vectors/thompson_lots.json",
+    "data/sidecars/1835/*.json",
+    "data/structures/*.json"
+  ],
+  "belongs_to": [],
+  "belongs_to_rule": {
+    "_doc": "WHOSE FENCE THIS IS. Every run below carries a `belongs_to` naming the lot it bounds, the committed buildings standing on that lot, and the households the committed household index puts in those buildings — a home by `lives_at`, a workplace by `works_at`, which is this dataset's business join because a business here IS a structure with a trade on its `function`. Where a single line divides two lots it belongs to both and each entry says which side of the run that owner's ground lies on, as a bearing off the committed plat.",
+    "derived_by": "tools/enclosure_owners.py",
+    "derived_from": [
+      "data/traces/vectors/thompson_lots.json",
+      "data/sidecars/1835/*.json",
+      "data/residents/index.json"
+    ],
+    "confidence": "derived",
+    "counts": {
+      "runs_joined_to_a_household": 1,
+      "runs_bounding_structures_only": 0,
+      "households_that_gained_a_fence": 1,
+      "lots_named": 1,
+      "households": [
+        "hh_harmon_elijah_d"
+      ]
+    },
+    "not_joined_on_the_occupants_prose": {
+      "_doc": "THE JOIN DOES NOT READ `occupants`, and this is the count of what it passed over. A structure record's occupants block is prose that often names a household id; most of those ids belong to households the 2026-09-02 synthesis removed and the index no longer holds (T-0516), and a mention is not an occupancy — philo_carpenter_log_shop names hh_chappel_eliza_mir in a sentence whose own value says no occupant is attested there. Joining on it would hand ground to the wrong household while looking like evidence, so the refusals above stand and this is what they cost.",
+      "structures_naming_a_household_in_prose": 1,
+      "household_ids_so_named": 1,
+      "of_those_the_index_still_holds": 1,
+      "of_those_naming_a_household_that_no_longer_exists": 0
+    },
+    "refusals": "`refused: no_household_names_this_ground` IS THE REFUSAL, and here is the reason it stands for, stated once because it is the same reason every time. A run with no household is not blank and is not guessed at: it names the structures whose ground it bounds and carries a `refused` line giving the reason, which is the same reason for every one of them — the household layer holds a real `lives_at` for 20 of its 1,380 households and a real `works_at` for 50, all of them at named landmarks, so most improved lots in this town have buildings no household record names. That is a gap in the address work (T-0514), not in this join, and the join picks up whatever the sweep lands without a line of the rule changing.",
+    "record_belongs_to": "The record-level `belongs_to` above stays empty ON PURPOSE. It is the field the hand-authored yards use to say which ONE building a whole enclosure record is the yard of — the Sauganash's, the Western's — and these records are town-wide: they hold the fences of scores of lots and belong to no single structure. The ownership this ticket asked for is on the runs, where it can be right."
+  },
+  "documented_range": {
+    "from": "1835-01-01",
+    "to": "1835-12-31",
+    "confidence": "reconstructed",
+    "sources": [],
+    "note": "THE RANGE IS THE SCENE YEAR AND NOTHING MORE. No source dates a garden fence in this town, because no source mentions one. The range is a housekeeping bound so that this record answers the same date gate every other record answers, and it should not be read as evidence that these fences went up in 1835 or came down in 1836."
+  },
+  "existence": {
+    "value": true,
+    "confidence": "reconstructed",
+    "sources": [
+      "kurz_allison_1893"
+    ],
+    "note": "NOTHING ATTESTS A GARDEN FENCE ON ANY LOT IN THIS TOWN, and this record does not claim one. What is attested is a TREATMENT, on the far bank and on a plate drawn decades later: the Kinzie-view lithograph shows the long low house with its piazza, a row of Lombardy poplars and PICKET-FENCED GARDEN PLOTS. A tier-5 retrospective view may drive massing, materials and setting and may never drive a coordinate, which is precisely how it is used here: the plate says what a garden fence in this place looked like, and the RULE in tools/generate_dooryard_pickets.py says which lots get one. The claim this record makes is 'the town's house lots are drawn with the plate's treatment', not 'these households kept gardens'. THE SOURCE IS NAMED SINCE 2026-09-13 (T-0055), AND THE PLATE TURNED OUT TO BE ONE THIS PROJECT ALREADY HELD. This block used to read 'SOURCES IS DELIBERATELY EMPTY AND THAT IS THE FINDING: this project holds NO source record for the Kinzie-view plate', because the plate reached the repository as an owner-supplied crop with a README and nothing else (data/sources/assets/prefire_views_kevin_2026_08/p6_1.png, plate '12'). It is PANEL 12 of `kurz_allison_1893` — Kurz & Allison, 'Chicago In Early Days, 1779-1857' (1893), a chromolithograph of fifteen numbered vignettes the project has held as a source record since before this layer existed. The match is measured, not recognised: the crop and the sheet's lower-left vignette both carry the printed numeral '12.'; the sheet's own key reads 'No. 12.  The Old Kinzie Mansion, built 1832.  Population 310.'; and a normalised cross-correlation of the crop against the committed sheet peaks at 0.797 on that vignette against 0.341 anywhere in the control panel. So the old finding was right that nothing was cited and wrong that nothing existed — the record was here and no line joined it. WHAT THAT DOES NOT DO is strengthen this fence. The plate is still tier 5, still published fifty-eight years after the scene date, still of a house on the north bank that this scene excludes, and it still bounds a treatment and attests nothing about these lots; the confidence above stays 'reconstructed' for exactly the reasons it always did. What it changes is that a reader can now reach the Library of Congress sheet instead of a 391-pixel crop, and that the plate's rights are settled on the object — its own foot carries 'Copyrighted 1893 by Kurz & Allison', long expired, so the image this layer leans on is public domain."
+  },
+  "runs": [
+    {
+      "id": "blk_randolph_franklin_lot2",
+      "path_local_enu_m": [
+        [
+          244.7,
+          -278.98
+        ],
+        [
+          253.23,
+          -279.05
+        ],
+        [
+          253.2,
+          -285.15
+        ],
+        [
+          244.66,
+          -285.08
+        ],
+        [
+          244.7,
+          -278.98
+        ]
+      ],
+      "belongs_to": [
+        {
+          "lot": "blk_randolph_franklin_lot2",
+          "structures": [
+            "harmon_log_cabin"
+          ],
+          "households": [
+            {
+              "id": "hh_harmon_elijah_d",
+              "held_as": "home",
+              "at": "harmon_log_cabin"
+            }
+          ]
+        }
+      ],
+      "note": "THE HOUSE LOT: blk_randolph_franklin lot 2 of the platted grid, holding harmon_log_cabin (dwelling) and nothing else. IT PASSES THE RULE THIS RECORD IS BUILT ON — one building on the lot, a dwelling by archetype and by function, and a household recorded as living in it — and the rule is the answer to 'why this lot': no source puts a garden here or anywhere else in the town. THE RECTANGLE IS DERIVED AND NOT PLACED: 8.53 x 6.10 m at the back of the lot, 0.914 m inside the rear and side lot lines, 3.048 m or more clear of the house's own back face, and centred on the house. Every metre of it comes from data/traces/vectors/thompson_lots.json and this building's committed footprint; the SIZE of the plot and its position at the rear are the invention, and they are the same for every lot on this record. THE CEILING ON THE PLOT — 28 x 20 ft — is invented twice over: nothing states a garden's size, and the number is additionally bounded by the renderer's own triangle budget, because a paled fence is thousands of small boxes and this layer draws in one pass. docs/LIBERTIES.md L129 claims that, on the precedent of L121."
+    }
+  ],
+  "openings": [
+    {
+      "id": "blk_randolph_franklin_lot2_gate",
+      "on": "dooryard",
+      "at_local_enu_m": [
+        248.97,
+        -279.02
+      ],
+      "width_m": 1.067,
+      "confidence": "reconstructed",
+      "note": "INVENTED, like every gateway on this layer. A garden that is worked daily from the house has a way in from the house, so the gap is centred in the side that faces the back door; 3 ft 6 in is a person with a hoe or a basket, not a team. NO GATE LEAF IS DRAWN — the fence simply stops, the way it does at the wagon yard and the pound, because a hung gate would be an invention on top of an invention."
+    }
+  ],
+  "form": {
+    "fence_type": {
+      "value": "picket",
+      "confidence": "reconstructed",
+      "note": "INVENTED, and it is the one value on this record with a picture behind it. The Kinzie-view plate — panel 12 of `kurz_allison_1893`, identified in the existence note — shows PICKETS: close-set vertical pales, not the open horizontal rails this layer draws at the wagon yard and the pound, and that difference is the whole point of the distinction: a rail fence turns a team and a picket fence keeps poultry out of the vegetables. The plate is tier 5 and it is of a house on the north bank that this scene excludes, so it bounds a treatment and attests nothing about these lots."
+    },
+    "height_m": {
+      "value": 1.22,
+      "confidence": "reconstructed",
+      "note": "INVENTED. 1.22 m is 4 ft, recorded converted. Nothing attests a height. The bound is the use, read against the two fences already in this dataset: a garden pale turns poultry and a rooting hog off a bed of vegetables, which needs less than the Western Hotel's 4 ft 6 in yard fence (that one turns a hitched team) and far less than the pound's 6 ft (that one holds a beast that means to leave). Four feet is the least that does the garden's job. A Chicago or Cook County lawful-fence ordinance of the 1830s would replace this number outright, and this project holds none."
+    },
+    "rail_courses": {
+      "value": 2,
+      "confidence": "reconstructed",
+      "note": "INVENTED. Two stringers is what a pale fence of this height is built on — the pales carry the closure and the rails only hold them in line, which is the opposite of the rail fences on this layer, where the courses ARE the fence. Nothing attests a count."
+    },
+    "post_spacing_m": {
+      "value": 2.44,
+      "confidence": "reconstructed",
+      "note": "INVENTED. 2.44 m is 8 ft, the same bay as the pound, because it is the same reason — the span a sawn rail of the period is cut to carry. Nothing attests a bay."
+    },
+    "post_size_m": {
+      "value": 0.1,
+      "confidence": "reconstructed",
+      "note": "INVENTED. A 0.10 m post is a 4-inch stick, the lightest on this layer and lighter than the yard fence's 0.14 m: a garden fence is not leaned on by anything heavier than a gardener. Nothing attests it."
+    },
+    "picket_width_m": {
+      "value": 0.089,
+      "confidence": "reconstructed",
+      "note": "INVENTED. 0.089 m is 3.5 in — a riven or sawn pale off the same pile of stuff the town's frame houses are boarded from. Nothing attests a pale, its width, or that these fences were made of sawn timber at all."
+    },
+    "picket_gap_m": {
+      "value": 0.089,
+      "confidence": "reconstructed",
+      "note": "INVENTED. A pale-wide gap is the rhythm the Kinzie-view plate reads as at the scale it is drawn, and it is the number that decides whether this fence looks like a wall or like a fence. Nothing attests it. It is recorded here rather than left to the renderer for the same reason the post rhythm is: the number a visitor is looking at should be one this file states."
+    }
+  },
+  "ground": {
+    "value": "cultivated garden ground",
+    "confidence": "reconstructed",
+    "geometry": "drawn",
+    "treatment": "dooryard_garden",
+    "note": "DRAWN SINCE 2026-08-21 (T-0067). This block used to read 'NOT DRAWN, AND SAYING SO IS THE POINT' — the ground inside these fences was the prairie sward the flora layer plants everywhere else in the town, which made a garden fence a rectangle of pales around nothing. The owner named exactly that on 2026-08-18: 'fences around properties inside the fence would not be wild prairie but curated lawn and garden or animal pens'. So the sward is suppressed inside every plot on this record and renderers/web/js/yards.js lays `dooryard_garden` in its place: short kept green over the plot, a bank of tilled beds in rows on the side away from the gateway, and a trodden path in from the gateway itself. NO NEW COORDINATE IS AUTHORED FOR ANY OF IT — every run on this record already closes a ring, and the ground is that ring; the beds and the path are derived inside it from the plot's own axes and this record's own gateway, and both are clipped to the ring so neither can escape its fence. WHAT IS STILL TRUE IS THE OLD ADMISSION'S REASON: a kitchen garden is beds and bare earth and a crop that changes with the month, and nothing states what was grown on any lot in this town. The treatment is therefore graded reconstructed like the fence over it, it disappears with the rest of that tier, and docs/LIBERTIES.md L158 claims the scheme on the precedent of L129."
+  },
+  "refused": [],
+  "research_note": "THE EVIDENCE HERE IS A TREATMENT AND NOT A LOCATION, which is why this record is generated from a rule instead of authored lot by lot. Read the rule in tools/generate_dooryard_pickets.py — it is the answer to 'why this lot' and it is enforced on every commit, because tools/check.sh re-derives this file byte for byte. In short: one building on a platted lot, a dwelling by archetype and by function, a household living in it, and room at the back for a plot that hits nothing. WHAT THE CLAUSES COST is visible in the count — the platted grid holds 144 lots and this record fences a fraction of them, because most lots hold more than one building or none, and the town's house lots outside the 19 platted blocks (the West Division approaches, the reservation, the North Division) have no lot geometry to derive a plot from at all. WHAT WOULD CHANGE IT: a Chicago or Cook County fence ordinance of the 1830s, which would settle the height and probably the pale rhythm; any tax, insurance or sale description of a town lot naming a garden or a fence; and the North Division street control docs/ROADMAP.md S9 still records as owed, which is what keeps two thirds of the plat off this grid."
+}

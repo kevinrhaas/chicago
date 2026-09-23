@@ -1,0 +1,337 @@
+{
+  "schema": "research-spend-rulings-v1",
+  "_doc": "DERIVED, T-1298, by tools/spend_remainder_rulings.py from the books corpus beside it and the residents layer it names -- run --check to re-derive it. The written ruling on the remainder of T-1236: every unit the ledger's own derivation leaves unresolved and owns to T-1298. tools/research_spend_ledger.py reads this file beside the hand-authored spend_rulings.json, at the point where it would otherwise leave a unit open, so a ruling here can only close a unit nothing else has closed and can never overturn an assertion, a later_only or a refusal the readings themselves carry. NOTHING HERE EDITS A RESIDENT, MINTS A PERSON, MOVES A CONFIDENCE OR INVENTS A CITATION, and nothing here decides the blocked letter-list question of T-0660 -> T-0691. A hand-off is not a spend: it names the open ticket whose field owns the finding, and that ticket closing turns this file red, which is the point.",
+  "ticket": "T-1298",
+  "generated_by": "tools/spend_remainder_rulings.py",
+  "counts": {
+    "a_ground_reading_describes_the_site_not_a_record": 16,
+    "a_town_reading_with_no_record_to_write": 6,
+    "the_market_and_the_port_in_aggregate": 5,
+    "the_reading_is_earlier_than_the_scene_and_does_not_reach_it": 34
+  },
+  "rules": {
+    "a_ground_reading_describes_the_site_not_a_record": {
+      "disposition": "aggregate_only",
+      "statement": "The unit is a LANDSCAPE reading: it describes the site -- its timber, its prairie, its streams, its shore, the naming of a river -- and names no person, household, business or structure record for the person ledger to write. That is the answer, not a deferral: a ground reading is committed chronology for the terrain and shore work, which cites it where it bears, and the spend ledger's honest disposition for it is that it is good in AGGREGATE and attaches to no record. This ruling neither cites it for the ground tickets nor invents a terrain fact from it."
+    },
+    "a_town_reading_with_no_record_to_write": {
+      "disposition": "aggregate_only",
+      "statement": "The unit is an in-window reading ABOUT THE TOWN rather than about a person: a society, a public event, a civic act, a weather or an institution note, dated 1835 or undated, naming no record this layer holds. It is not refused -- it is true and it is in the window -- and it is not handed on, because there is no structured record for it to land on. It is spent in aggregate as scene chronology, which is a finished answer."
+    },
+    "the_market_and_the_port_in_aggregate": {
+      "disposition": "aggregate_only",
+      "statement": "The unit is a PRICE or a SHIPPING reading -- a marine journal's arrivals and clearances, a wholesale list by the cask, a freight or a rate. This is the question T-1298 was asked to answer: what a reading of the harbour or the price of flour does for the 1835 scene when no person unit owns it. It sizes the town's trade -- what came in, in what bottoms, and what it cost -- and it names no person, household, business or structure record, so the person ledger has nothing to write from it. It is true, it is spent in aggregate, and it is closed: the scene reads it as texture and the vessels and stocks it counts are not thereby minted as records."
+    },
+    "the_reading_is_earlier_than_the_scene_and_does_not_reach_it": {
+      "disposition": "refused",
+      "statement": "The reading's own `describes_date` is earlier than 1835 and its content does not reach the scene date: an event, a notice, an appearance, a civic act or a household described in 1812, 1818, 1821, 1827, 1830 or 1833 is a fact about that year. Under the ladder ratified 2026-09-03 a source LATER than the scene date corroborates and never promotes, and an EARLIER source does not promote either -- a man, a society or a house at Chicago in 1827 is not thereby at Chicago in 1835. The reading stands as committed chronology; no card is edited, nothing is minted, and the ground, harbour and structure layers keep it exactly as they have it."
+    }
+  },
+  "rulings": [
+    {
+      "unit": "books:data/research/books/claims/american_fur_company_hurlbut.json#claims/bk_afc_014",
+      "rule": "the_market_and_the_port_in_aggregate",
+      "note": "american_fur_company_hurlbut bk_afc_014: a shipping reading dated 1821-09-13. It reads: “An outfit consigned to James Kinzie, for the joint account of himself and the American Fur Company, for the trade of Milwaukee, sent to Chicago; shipped from Michilimackinac in the schooner Ann, …”"
+    },
+    {
+      "unit": "books:data/research/books/claims/fergus_26_29_first_half.json#claims/bk_fer_022",
+      "rule": "a_ground_reading_describes_the_site_not_a_record",
+      "note": "fergus_26_29_first_half bk_fer_022: a landscape reading dated before 1833 (the villages and the naming); 1884 (Beckwith's note). It reads: “The Des Plaines is given its Potawatomi name, 'the tree from which the water flows', and its French name is derived from a variety of maple growing along its banks.”"
+    },
+    {
+      "unit": "books:data/research/books/claims/fergus_26_29_first_half.json#claims/bk_fer_027",
+      "rule": "a_ground_reading_describes_the_site_not_a_record",
+      "note": "fergus_26_29_first_half bk_fer_027: a landscape reading dated 1821. It reads: “Schoolcraft, arriving in August 1821, crossed the south branch of the Chicago, emerged from the forest skirting it, and came out on the extensive level plain stretching along the lake shore.”"
+    },
+    {
+      "unit": "books:data/research/books/claims/fergus_26_29_first_half.json#claims/bk_fer_029",
+      "rule": "the_reading_is_earlier_than_the_scene_and_does_not_reach_it",
+      "note": "fergus_26_29_first_half bk_fer_029: a event reading whose own describes_date is “1821”, earlier than the scene date. It reads: “Between two and three thousand Indians, chiefly Potawatomi, Ottawa and Chippewa, were assembled at Chicago for the 1821 treaty, and the Indian department issued provisions daily to about three …”"
+    },
+    {
+      "unit": "books:data/research/books/claims/fergus_26_29_first_half.json#claims/bk_fer_050",
+      "rule": "the_reading_is_earlier_than_the_scene_and_does_not_reach_it",
+      "note": "fergus_26_29_first_half bk_fer_050: a civic reading whose own describes_date is “1834 (institution); 1839 (incorporation); 1843 (the entry)”, earlier than the scene date. It reads: “The Chicago Lyceum was instituted on 2 December 1834 and incorporated on 27 February 1839.”"
+    },
+    {
+      "unit": "books:data/research/books/claims/fergus_26_29_second_half.json#claims/bk_fer2_004",
+      "rule": "a_town_reading_with_no_record_to_write",
+      "note": "fergus_26_29_second_half bk_fer2_004: a civic reading dated 1835 (the session of 1834-35), in the window and naming no record this layer holds. It reads: “The Illinois legislature of 1834-35 adjourned without acting on Governor Duncan's recommendations on education or on the canal.”"
+    },
+    {
+      "unit": "books:data/research/books/claims/fergus_26_29_second_half.json#claims/bk_fer2_005",
+      "rule": "a_town_reading_with_no_record_to_write",
+      "note": "fergus_26_29_second_half bk_fer2_005: a civic reading dated December 1835, in the window and naming no record this layer holds. It reads: “A special session of the Illinois legislature was called to assemble on the first Monday of December 1835, mainly to reapportion representation under the state census taken that year.”"
+    },
+    {
+      "unit": "books:data/research/books/claims/fergus_26_29_second_half.json#claims/bk_fer2_019",
+      "rule": "a_ground_reading_describes_the_site_not_a_record",
+      "note": "fergus_26_29_second_half bk_fer2_019: a landscape reading dated the winter of 1830-31. It reads: “Of the winter of the deep snow in Illinois: the snow stood above the window-sills, and a heavy sleet-storm formed a crust hard enough that for several days the household rode over the worm fences …”"
+    },
+    {
+      "unit": "books:data/research/books/claims/hubbard_autobiography_1911.json#claims/bk_hub_015",
+      "rule": "the_reading_is_earlier_than_the_scene_and_does_not_reach_it",
+      "note": "hubbard_autobiography_1911 bk_hub_015: a appearance reading whose own describes_date is “1834-1835”, earlier than the scene date. It reads: “There were only about five or six hundred inhabitants in the village when the brick building went up, and it was christened 'Hubbard's Folly'.”"
+    },
+    {
+      "unit": "books:data/research/books/claims/hubbard_autobiography_1911.json#claims/bk_hub_016",
+      "rule": "the_market_and_the_port_in_aggregate",
+      "note": "hubbard_autobiography_1911 bk_hub_016: a shipping reading dated 1835-05-25. It reads: “On 25 May 1835 the brig Illinois lay off Chicago unable to enter the harbour, and her passengers — the Gale family, the Fernando Jones family and others — were carried ashore by French Canadians in …”"
+    },
+    {
+      "unit": "books:data/research/books/claims/hubbard_autobiography_1911.json#claims/bk_hub_018",
+      "rule": "the_market_and_the_port_in_aggregate",
+      "note": "hubbard_autobiography_1911 bk_hub_018: a shipping reading dated 1835. It reads: “Gale asserts that the Illinois's cargo was the first cargo of general freight ever landed in Chicago.”"
+    },
+    {
+      "unit": "books:data/research/books/claims/hubbard_autobiography_1911.json#claims/bk_hub_022",
+      "rule": "a_town_reading_with_no_record_to_write",
+      "note": "hubbard_autobiography_1911 bk_hub_022: a notice reading dated 1835-10-10, in the window and naming no record this layer holds. It reads: “The Chicago American of 10 October 1835 reported that G. S. Hubbard had ordered a fire engine and apparatus from the East on his own responsibility, and urged citizens to form a fire company.”"
+    },
+    {
+      "unit": "books:data/research/books/claims/hubbard_autobiography_1911.json#claims/bk_hub_023",
+      "rule": "the_reading_is_earlier_than_the_scene_and_does_not_reach_it",
+      "note": "hubbard_autobiography_1911 bk_hub_023: a event reading whose own describes_date is “1827”, earlier than the scene date. It reads: “McIlvaine dates the fire at Fort Dearborn that Hubbard swam the river to fight to 1827, during the Winnebago War.”"
+    },
+    {
+      "unit": "books:data/research/books/claims/hubbard_autobiography_1911.json#claims/bk_hub_025",
+      "rule": "the_reading_is_earlier_than_the_scene_and_does_not_reach_it",
+      "note": "hubbard_autobiography_1911 bk_hub_025: a civic reading whose own describes_date is “1833-1834”, earlier than the scene date. It reads: “Chicago was incorporated as a town in 1833, and by an act adopted 11 February 1834 the corporate limits were extended to take in all land east of State Street to the lake shore from Chicago Avenue to …”"
+    },
+    {
+      "unit": "books:data/research/books/claims/hubbard_autobiography_1911.json#claims/bk_hub_026",
+      "rule": "the_reading_is_earlier_than_the_scene_and_does_not_reach_it",
+      "note": "hubbard_autobiography_1911 bk_hub_026: a civic reading whose own describes_date is “1834-08-11”, earlier than the scene date. It reads: “At the election of 11 August 1834 Gurdon Hubbard was chosen a town trustee, serving with John Kinzie, E. Goodrich, J. K. Boyer and J. S. C. Hogan.”"
+    },
+    {
+      "unit": "books:data/research/books/claims/hubbard_autobiography_1911.json#claims/bk_hub_029",
+      "rule": "a_ground_reading_describes_the_site_not_a_record",
+      "note": "hubbard_autobiography_1911 bk_hub_029: a landscape reading dated 1818-1824. It reads: “Hubbard's own closing address at the ground-breaking remembered canoes as the only craft on Illinois waters, and the trader attempting the Chicago portage wading waist-deep in the morass of Mud Lake …”"
+    },
+    {
+      "unit": "books:data/research/books/claims/hubbard_autobiography_1911.json#claims/bk_hub_030",
+      "rule": "a_town_reading_with_no_record_to_write",
+      "note": "hubbard_autobiography_1911 bk_hub_030: a civic reading dated 1830s, in the window and naming no record this layer holds. It reads: “A government land office was established in Chicago to sell the canal lands; everybody dealt in land, every man carried real estate on the side, and Chicago lots were bandied about like wheat on the …”"
+    },
+    {
+      "unit": "books:data/research/books/claims/hubbard_autobiography_1911.json#claims/bk_hub_031",
+      "rule": "the_market_and_the_port_in_aggregate",
+      "note": "hubbard_autobiography_1911 bk_hub_031: a price reading dated 1835-03. It reads: “In about March 1835 Hubbard, with Russell and Mather, bought the eighty acres later known as Russell & Mather's addition — bounded south by Kinzie Street, east by the river, north by Chicago Avenue, …”"
+    },
+    {
+      "unit": "books:data/research/books/claims/hubbard_autobiography_1911.json#claims/bk_hub_033",
+      "rule": "the_market_and_the_port_in_aggregate",
+      "note": "hubbard_autobiography_1911 bk_hub_033: a price reading dated 1835. It reads: “A few months after the $5,000 purchase Hubbard, in New York, had a plat engraved from memory and sold half the tract at public auction for $80,000 without any actual subdivision of the land.”"
+    },
+    {
+      "unit": "books:data/research/books/claims/hubbard_autobiography_1911.json#claims/bk_hub_034",
+      "rule": "the_reading_is_earlier_than_the_scene_and_does_not_reach_it",
+      "note": "hubbard_autobiography_1911 bk_hub_034: a event reading whose own describes_date is “1827; 1832”, earlier than the scene date. It reads: “Of the four wars of Hubbard's lifetime, the Winnebago War of 1827 centred at Fort Dearborn, and in the Black Hawk War of 1832 he acted as scout and furnished provisions, ammunition and transport …”"
+    },
+    {
+      "unit": "books:data/research/books/claims/hubbard_autobiography_1911.json#claims/bk_hub_044",
+      "rule": "a_ground_reading_describes_the_site_not_a_record",
+      "note": "hubbard_autobiography_1911 bk_hub_044: a landscape reading dated 1818-10-01. It reads: “At Douglas Grove, where the prairie could be seen through the oak woods, Hubbard climbed a tree and saw his first prairie — waving grass intermingled with a rich profusion of wild flowers.”"
+    },
+    {
+      "unit": "books:data/research/books/claims/hubbard_autobiography_1911.json#claims/bk_hub_045",
+      "rule": "a_ground_reading_describes_the_site_not_a_record",
+      "note": "hubbard_autobiography_1911 bk_hub_045: a landscape reading dated 1818-10-01. It reads: “From the same tree: the grove of Blue Island in the distance, the timber on the Desplaines beyond it, a herd of wild deer, and a pair of red foxes emerging from the grass within gunshot.”"
+    },
+    {
+      "unit": "books:data/research/books/claims/hubbard_autobiography_1911.json#claims/bk_hub_046",
+      "rule": "the_reading_is_earlier_than_the_scene_and_does_not_reach_it",
+      "note": "hubbard_autobiography_1911 bk_hub_046: a appearance reading whose own describes_date is “1818-10-01”, earlier than the scene date. It reads: “Looking north from the grove Hubbard saw the whitewashed buildings of Fort Dearborn sparkling in the sunshine.”"
+    },
+    {
+      "unit": "books:data/research/books/claims/hubbard_autobiography_1911.json#claims/bk_hub_047",
+      "rule": "the_reading_is_earlier_than_the_scene_and_does_not_reach_it",
+      "note": "hubbard_autobiography_1911 bk_hub_047: a event reading whose own describes_date is “1818-10-01”, earlier than the scene date. It reads: “Hubbard took the trail to the fort, found the party camped on the north side of the river near what is now State Street, was ferried across by a soldier, and so entered Chicago on 1 October 1818.”"
+    },
+    {
+      "unit": "books:data/research/books/claims/hubbard_autobiography_1911.json#claims/bk_hub_051",
+      "rule": "the_reading_is_earlier_than_the_scene_and_does_not_reach_it",
+      "note": "hubbard_autobiography_1911 bk_hub_051: a event reading whose own describes_date is “1812-1823”, earlier than the scene date. It reads: “The fort was evacuated 15 August 1812 by Capt. N. Heald and destroyed by the Indians the same day; rebuilt on the old site in June 1816 by Capt. Hezekiah Bradley; occupied until October 1823, when it …”"
+    },
+    {
+      "unit": "books:data/research/books/claims/hubbard_autobiography_1911.json#claims/bk_hub_052",
+      "rule": "the_reading_is_earlier_than_the_scene_and_does_not_reach_it",
+      "note": "hubbard_autobiography_1911 bk_hub_052: a event reading whose own describes_date is “1828-1836”, earlier than the scene date. It reads: “Re-occupied 3 October 1828; troops withdrawn 20 May 1831; re-occupied 17 June 1832; vacated 11 July 1832; re-occupied 1 October 1832; and finally abandoned 29 December 1836.”"
+    },
+    {
+      "unit": "books:data/research/books/claims/hubbard_autobiography_1911.json#claims/bk_hub_059",
+      "rule": "a_ground_reading_describes_the_site_not_a_record",
+      "note": "hubbard_autobiography_1911 bk_hub_059: a landscape reading dated 1818. It reads: “West and a little south of the fort was the military barn; adjoining it on the east the fort garden of about four acres, which fronted the fort on the south and whose eastern fence joined the field …”"
+    },
+    {
+      "unit": "books:data/research/books/claims/hubbard_autobiography_1911.json#claims/bk_hub_062",
+      "rule": "the_reading_is_earlier_than_the_scene_and_does_not_reach_it",
+      "note": "hubbard_autobiography_1911 bk_hub_062: a appearance reading whose own describes_date is “1818”, earlier than the scene date. It reads: “On the east side the river was four to five hundred feet from the pickets, part of that distance a low sandy beach where rude wash-houses had been built and the men and women of the garrison did the …”"
+    },
+    {
+      "unit": "books:data/research/books/claims/hubbard_autobiography_1911.json#claims/bk_hub_064",
+      "rule": "a_ground_reading_describes_the_site_not_a_record",
+      "note": "hubbard_autobiography_1911 bk_hub_064: a landscape reading dated 1818-1827. It reads: “For a quarter of a mile from the Factor House there was no fence, building or other obstruction between the government-field fence and the river or lake; another house of hewn logs stood twelve …”"
+    },
+    {
+      "unit": "books:data/research/books/claims/hubbard_autobiography_1911.json#claims/bk_hub_067",
+      "rule": "a_ground_reading_describes_the_site_not_a_record",
+      "note": "hubbard_autobiography_1911 bk_hub_067: a landscape reading dated 1818. It reads: “Between the river and the lake, running south to The Pines, was a narrow strip of sand formed by the north-east winds gradually forcing the river mouth south of its natural and original outlet at …”"
+    },
+    {
+      "unit": "books:data/research/books/claims/hubbard_autobiography_1911.json#claims/bk_hub_068",
+      "rule": "the_reading_is_earlier_than_the_scene_and_does_not_reach_it",
+      "note": "hubbard_autobiography_1911 bk_hub_068: a event reading whose own describes_date is “1828”, earlier than the scene date. It reads: “In the spring of 1828, with the river in flood, the officer commanding the fort had his men cut a ditch through the spit at the beginning of the bend parallel with the north side of the fort; it was …”"
+    },
+    {
+      "unit": "books:data/research/books/claims/hubbard_autobiography_1911.json#claims/bk_hub_069",
+      "rule": "a_ground_reading_describes_the_site_not_a_record",
+      "note": "hubbard_autobiography_1911 bk_hub_069: a landscape reading dated 1828-1830s. It reads: “The ever-shifting sand soon filled the channel again and the river mouth worked south to about where Madison Street now is.”"
+    },
+    {
+      "unit": "books:data/research/books/claims/hubbard_autobiography_1911.json#claims/bk_hub_071",
+      "rule": "the_reading_is_earlier_than_the_scene_and_does_not_reach_it",
+      "note": "hubbard_autobiography_1911 bk_hub_071: a appearance reading whose own describes_date is “1818-1823”, earlier than the scene date. It reads: “The officers fished and hunted; deer, red fox and wild-fowl were abundant; foxes were dug out of the sand-hills and loosed on the sand-bar at the river's outlet to be chased by hounds with men posted …”"
+    },
+    {
+      "unit": "books:data/research/books/claims/hubbard_autobiography_1911.json#claims/bk_hub_073",
+      "rule": "a_ground_reading_describes_the_site_not_a_record",
+      "note": "hubbard_autobiography_1911 bk_hub_073: a landscape reading dated 1818. It reads: “The wild onion grew in great quantities along the banks of the river and the leek abounded in the adjoining woods, and Hubbard held that Chicago took its name from the onion and not from the skunk.”"
+    },
+    {
+      "unit": "books:data/research/books/claims/hubbard_autobiography_1911.json#claims/bk_hub_074",
+      "rule": "a_ground_reading_describes_the_site_not_a_record",
+      "note": "hubbard_autobiography_1911 bk_hub_074: a landscape reading dated 1818. It reads: “What is now the North Branch was then known as River Guarie, after the first trader who followed La Salle, and the field he cultivated was still traceable on the prairie by the distinct marks of the …”"
+    },
+    {
+      "unit": "books:data/research/books/claims/hubbard_autobiography_1911.json#claims/bk_hub_075",
+      "rule": "a_ground_reading_describes_the_site_not_a_record",
+      "note": "hubbard_autobiography_1911 bk_hub_075: a landscape reading dated 1818-10. It reads: “After a few days at Chicago the brigade struck camp and went up the lagoon — now the South Branch — camping near the present commencement of the Illinois and Michigan Canal, preparing to pass the …”"
+    },
+    {
+      "unit": "books:data/research/books/claims/hubbard_autobiography_1911.json#claims/bk_hub_076",
+      "rule": "a_ground_reading_describes_the_site_not_a_record",
+      "note": "hubbard_autobiography_1911 bk_hub_076: a landscape reading dated 1818. It reads: “Mud Lake drained partly into the Aux Plaines and partly through a narrow crooked channel into the South Branch, and only in very wet seasons was there enough water to float an empty boat; the mud was …”"
+    },
+    {
+      "unit": "books:data/research/books/claims/hubbard_autobiography_1911.json#claims/bk_hub_079",
+      "rule": "the_reading_is_earlier_than_the_scene_and_does_not_reach_it",
+      "note": "hubbard_autobiography_1911 bk_hub_079: a event reading whose own describes_date is “1812”, earlier than the scene date. It reads: “Pierre Le Claire carried the news of the war of 1812, sent by Major Robert Forsythe to his uncle Mr John Kinzie at Chicago, walking from the mouth of the St Joseph River around Lake Michigan.”"
+    },
+    {
+      "unit": "books:data/research/books/claims/hubbard_autobiography_1911.json#claims/bk_hub_080",
+      "rule": "the_reading_is_earlier_than_the_scene_and_does_not_reach_it",
+      "note": "hubbard_autobiography_1911 bk_hub_080: a event reading whose own describes_date is “1812”, earlier than the scene date. It reads: “Ninety miles in one continuous walk: Le Claire reached Mr Kinzie's, ate his supper, and crossed over the river to report to the officers of Fort Dearborn before nine o'clock at night.”"
+    },
+    {
+      "unit": "books:data/research/books/claims/hubbard_autobiography_1911.json#claims/bk_hub_086",
+      "rule": "the_reading_is_earlier_than_the_scene_and_does_not_reach_it",
+      "note": "hubbard_autobiography_1911 bk_hub_086: a event reading whose own describes_date is “1825”, earlier than the scene date. It reads: “On the third day Hubbard reached Chicago and reported to Mr Kinzie, finding that Kinzie had already sent two men in a canoe to meet him at Peoria with a list of the goods required.”"
+    },
+    {
+      "unit": "books:data/research/books/claims/hubbard_autobiography_1911.json#claims/bk_hub_088",
+      "rule": "the_reading_is_earlier_than_the_scene_and_does_not_reach_it",
+      "note": "hubbard_autobiography_1911 bk_hub_088: a civic reading whose own describes_date is “1827-07”, earlier than the scene date. It reads: “At the breaking out of the Winnebago war, early in July 1827, Fort Dearborn was without military occupation.”"
+    },
+    {
+      "unit": "books:data/research/books/claims/hubbard_autobiography_1911.json#claims/bk_hub_091",
+      "rule": "the_reading_is_earlier_than_the_scene_and_does_not_reach_it",
+      "note": "hubbard_autobiography_1911 bk_hub_091: a event reading whose own describes_date is “1828 as printed; 1827 by the rest of the book”, earlier than the scene date. It reads: “The annual payment of the Pottawatomie Indians occurred in September of the year 1828; a large body assembled to receive their annuity and left afterwards for their villages, except a portion of Big …”"
+    },
+    {
+      "unit": "books:data/research/books/claims/hubbard_autobiography_1911.json#claims/bk_hub_092",
+      "rule": "the_reading_is_earlier_than_the_scene_and_does_not_reach_it",
+      "note": "hubbard_autobiography_1911 bk_hub_092: a event reading whose own describes_date is “1827-07”, earlier than the scene date. It reads: “The night after the payment there was a dance in the soldiers' barracks; a violent storm of wind and rain arose, and about midnight the quarters were struck by lightning and totally consumed, …”"
+    },
+    {
+      "unit": "books:data/research/books/claims/hubbard_autobiography_1911.json#claims/bk_hub_093",
+      "rule": "the_reading_is_earlier_than_the_scene_and_does_not_reach_it",
+      "note": "hubbard_autobiography_1911 bk_hub_093: a appearance reading whose own describes_date is “1827-07”, earlier than the scene date. It reads: “The sleeping inmates of Mr Kinzie's house on the opposite bank were roused by Mrs Helm's cry of fire, she having seen the flames from her window.”"
+    },
+    {
+      "unit": "books:data/research/books/claims/hubbard_autobiography_1911.json#claims/bk_hub_094",
+      "rule": "the_reading_is_earlier_than_the_scene_and_does_not_reach_it",
+      "note": "hubbard_autobiography_1911 bk_hub_094: a event reading whose own describes_date is “1827-07”, earlier than the scene date. It reads: “Entering by the north gate, Hubbard and Robert Kinzie turned to saving the guard-house; Mr Kinzie rolled himself in a wet blanket and got on the roof while about forty men and women formed a line to …”"
+    },
+    {
+      "unit": "books:data/research/books/claims/hubbard_autobiography_1911.json#claims/bk_hub_095",
+      "rule": "the_reading_is_earlier_than_the_scene_and_does_not_reach_it",
+      "note": "hubbard_autobiography_1911 bk_hub_095: a appearance reading whose own describes_date is “1827-07”, earlier than the scene date. It reads: “The party left the breakfast table for the piazza of Mr Kinzie's house and saw, about where Wells Street now crosses the river, a light birch-bark canoe manned by thirteen men approaching to a …”"
+    },
+    {
+      "unit": "books:data/research/books/claims/hubbard_autobiography_1911.json#claims/bk_hub_096",
+      "rule": "the_reading_is_earlier_than_the_scene_and_does_not_reach_it",
+      "note": "hubbard_autobiography_1911 bk_hub_096: a event reading whose own describes_date is “1827-07”, earlier than the scene date. It reads: “Governor Cass stayed at Chicago only a few hours before coasting back to Green Bay, and as soon as he left the inhabitants of Chicago assembled for consultation, suspecting Big Foot of acting in …”"
+    },
+    {
+      "unit": "books:data/research/books/claims/hubbard_autobiography_1911.json#claims/bk_hub_098",
+      "rule": "the_reading_is_earlier_than_the_scene_and_does_not_reach_it",
+      "note": "hubbard_autobiography_1911 bk_hub_098: a event reading whose own describes_date is “1827-07”, earlier than the scene date. It reads: “On Shaub-e-nee's report the inhabitants of Chicago were greatly excited and assembled for consultation fearing an attack; Hubbard proposed sending to the Wabash for help and offered himself as …”"
+    },
+    {
+      "unit": "books:data/research/books/claims/hubbard_autobiography_1911.json#claims/bk_hub_099",
+      "rule": "the_reading_is_earlier_than_the_scene_and_does_not_reach_it",
+      "note": "hubbard_autobiography_1911 bk_hub_099: a event reading whose own describes_date is “1827-08”, earlier than the scene date. It reads: “Hubbard reached Fort Dearborn on the seventh day after leaving; the Danville company re-organised there to about a hundred and fifty men under Morgan, and at the end of thirty days, news coming of …”"
+    },
+    {
+      "unit": "books:data/research/books/claims/hubbard_autobiography_1911.json#claims/bk_hub_103",
+      "rule": "the_reading_is_earlier_than_the_scene_and_does_not_reach_it",
+      "note": "hubbard_autobiography_1911 bk_hub_103: a event reading whose own describes_date is “1830-12”, earlier than the scene date. It reads: “Hubbard's drove reached Chicago in about thirty days through snow two feet deep on the level and four or five in the drifts; he killed and delivered his pork and started back to Iroquois with empty …”"
+    },
+    {
+      "unit": "books:data/research/books/claims/hubbard_autobiography_1911.json#claims/bk_hub_104",
+      "rule": "the_reading_is_earlier_than_the_scene_and_does_not_reach_it",
+      "note": "hubbard_autobiography_1911 bk_hub_104: a notice reading whose own describes_date is “1830-11”, earlier than the scene date. It reads: “The closing editorial note states that the narrative brings Hubbard's story down to November 1830, where it ends abruptly, having covered just one third of his life, and that the Introduction merely …”"
+    },
+    {
+      "unit": "books:data/research/books/claims/hubbard_letter_1827_07_25.json#claims/bk_hub_100",
+      "rule": "the_reading_is_earlier_than_the_scene_and_does_not_reach_it",
+      "note": "hubbard_letter_1827_07_25 bk_hub_100: a notice reading whose own describes_date is “1827-07-25”, earlier than the scene date. It reads: “A letter from Hubbard to his sister Elizabeth at Middletown, Conn., headed 'Chicago, July 25, 1827', reports that Governor Cass surprised them on the 21st with the first news of the Winnebago …”"
+    },
+    {
+      "unit": "books:data/research/books/claims/moses_kirkland_history_of_chicago_v1.json#claims/bk_mose1_006",
+      "rule": "a_town_reading_with_no_record_to_write",
+      "note": "moses_kirkland_history_of_chicago_v1 bk_mose1_006: a civic reading dated the count was taken between 1 September and December 1835 — …, in the window and naming no record this layer holds. It reads: “The State census taken between 1 September and December 1835 showed the population of Chicago at 3,297, and counted forty-four stores (dry goods, hardware and groceries), two book stores, four …”"
+    },
+    {
+      "unit": "books:data/research/books/claims/moses_kirkland_history_of_chicago_v1.json#claims/bk_mose1_010",
+      "rule": "the_reading_is_earlier_than_the_scene_and_does_not_reach_it",
+      "note": "moses_kirkland_history_of_chicago_v1 bk_mose1_010: a household reading whose own describes_date is “from May 1833; the passage does not say how long the …”, earlier than the scene date. It reads: “A second detachment of troops for the garrison arrived in May 1833 bringing, besides soldiers and munitions, the Reverend Jeremiah Porter and the nucleus of a Protestant church. Peck extended to him …”"
+    },
+    {
+      "unit": "books:data/research/books/claims/moses_kirkland_history_of_chicago_v1.json#claims/bk_mose1_011",
+      "rule": "the_reading_is_earlier_than_the_scene_and_does_not_reach_it",
+      "note": "moses_kirkland_history_of_chicago_v1 bk_mose1_011: a household reading whose own describes_date is “from December 1833; no end date is given, and the same page …”, earlier than the scene date. It reads: “In December 1833 John Dean Caton hired from Doctor Temple the back room and attic of Temple's \"Temple Building\", using the attic as a bedroom and the back room as an office, and sub-let desk-room in …”"
+    },
+    {
+      "unit": "books:data/research/books/claims/moses_kirkland_history_of_chicago_v1.json#claims/bk_mose1_015",
+      "rule": "a_ground_reading_describes_the_site_not_a_record",
+      "note": "moses_kirkland_history_of_chicago_v1 bk_mose1_015: a landscape reading dated the winter of 1834-5 — the winter IMMEDIATELY BEFORE the scene date of 1835-07-01. It reads: “The winter of 1834-5 at Chicago was an open winter with little snow; front doors stood open all winter and cattle lived on grass on the river bank.”"
+    },
+    {
+      "unit": "books:data/research/books/claims/moses_kirkland_history_of_chicago_v1.json#claims/bk_mose1_016",
+      "rule": "the_reading_is_earlier_than_the_scene_and_does_not_reach_it",
+      "note": "moses_kirkland_history_of_chicago_v1 bk_mose1_016: a civic reading whose own describes_date is “10 August 1833 for the meeting; \"one of the first permanent …”, earlier than the scene date. It reads: “The late Alexander N. Fullerton was one of the first permanent settlers in Chicago, and one of the twenty-eight voters in the entire adult male population who met on 10 August 1833 to decide the …”"
+    },
+    {
+      "unit": "books:data/research/books/claims/moses_kirkland_history_of_chicago_v1.json#claims/bk_mose1_018",
+      "rule": "the_reading_is_earlier_than_the_scene_and_does_not_reach_it",
+      "note": "moses_kirkland_history_of_chicago_v1 bk_mose1_018: a notice reading whose own describes_date is “1833 for William Jones's purchase; the school section sale …”, earlier than the scene date. It reads: “William Jones, father of Fernando Jones, was the first NON-RESIDENT to buy vacant lots in Chicago from the original purchaser — lots 2 and 7 in block 17, one fronting on Water Street and the other on …”"
+    },
+    {
+      "unit": "books:data/research/books/claims/moses_kirkland_history_of_chicago_v1.json#claims/bk_mose1_020",
+      "rule": "a_town_reading_with_no_record_to_write",
+      "note": "moses_kirkland_history_of_chicago_v1 bk_mose1_020: a civic reading dated 7 October 1835 — THREE MONTHS AND SIX DAYS AFTER the scene …, in the window and naming no record this layer holds. It reads: “On 7 October 1835 the trustees determined to buy two fire-hooks with chains and ropes, two sixteen-foot ladders, four axes and four hand-saws, at a cost of $29.63. On the same date the \"Pioneer\" Hook …”"
+    },
+    {
+      "unit": "books:data/research/books/claims/moses_kirkland_history_of_chicago_v2.json#claims/bk_mose2_012",
+      "rule": "a_ground_reading_describes_the_site_not_a_record",
+      "note": "moses_kirkland_history_of_chicago_v2 bk_mose2_012: a landscape reading dated Freeman died of typhoid fever in December 1834 (line 34267 of the same passage), so the burial and the fence are December 1834 or shortly after — BEFORE the scene date of 1835-07-01. It reads: “Rev. Allen B. Freeman was buried in a little burial ground near the north branch on the west side, on what was at that time an open prairie. A modest headboard marked his grave, which was surrounded …”"
+    },
+    {
+      "unit": "books:data/research/books/claims/moses_kirkland_history_of_chicago_v2.json#claims/bk_mose2_019",
+      "rule": "the_reading_is_earlier_than_the_scene_and_does_not_reach_it",
+      "note": "moses_kirkland_history_of_chicago_v2 bk_mose2_019: a event reading whose own describes_date is “October 1833 — BEFORE the scene date of 1835-07-01”, earlier than the scene date. It reads: “In October 1833 the Chicago school section was sold under the administration of Richard J. Hamilton, in compliance with a petition of three-fourths of the legal voters of the township, realizing …”"
+    }
+  ]
+}

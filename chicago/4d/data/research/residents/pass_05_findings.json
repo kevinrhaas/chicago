@@ -1,0 +1,458 @@
+{
+  "_doc": "Completed T-0479 fifth-cohort resident research. Every frozen manifest member has a resolved outcome; documented no-corroboration is a negative-search receipt, not evidence of nonexistence.",
+  "ticket": "T-0479",
+  "reviewed_on": "2026-09-02",
+  "status": "complete",
+  "default_summary": "No reliable record found in the reviewed repository newspaper/reference corpus, Chicago directories, digitized county/local histories, institutional pages and broad exact-name/variant searches could be tied to this person by more than the recorded name. This is a documented no-find, not evidence that the person did not exist.",
+  "query_templates": [
+    "\"{name}\" Chicago 1835",
+    "\"{name}\" Illinois 1834 1835",
+    "\"{name}\" Chicago directory 1839",
+    "\"{name}\" genealogy occupation migration"
+  ],
+  "search_scope": [
+    "repository Chicago Democrat transcriptions and resident/source records",
+    "Fergus Chicago directories, especially 1839 and 1843",
+    "Cook/Will/Kane/Kendall/La Salle/Greene county and municipal histories",
+    "institutional and historical-society sources",
+    "broad exact-name and justified OCR/spelling-variant web searches"
+  ],
+  "completed_person_ids": [
+    "pratt_oscar",
+    "kercheval_gholson",
+    "kimball_walter",
+    "lampman_henry_s",
+    "hall_benjamin",
+    "murphy_harriet",
+    "taylor_charles",
+    "temple_peter",
+    "wright_john_s",
+    "dalton_edward",
+    "damels_samuel",
+    "darling_daniel",
+    "day_ann_airs",
+    "dean_james_l",
+    "demotte_lenac",
+    "dilbee_david_b",
+    "dykine_elias_s",
+    "fadhams_ddward",
+    "failor_william",
+    "fitzlugh_daniel_i",
+    "food_alonzo_c",
+    "forceman_robert_r",
+    "humphrey_fre_lemuel",
+    "gabbs_james_i1",
+    "gariner_joseph",
+    "gilman_eli",
+    "glen_james_l",
+    "jaines_gooding",
+    "goodsough_harriet_m",
+    "gordon_william",
+    "gould_a_b",
+    "green_damel_m",
+    "david_harris",
+    "harrison_caleb",
+    "hart_edwin_c",
+    "hartman_peter",
+    "hateh_betsey",
+    "hickcox_joseph",
+    "holliday_william",
+    "holmes_hiram",
+    "hopkins_henry",
+    "hugunin_leonard_c",
+    "hasslen_daniel",
+    "howland_daniel",
+    "newton_daniel",
+    "robian_daniel_o",
+    "platt_daniel",
+    "roberson_daniel",
+    "ayers_david",
+    "bigelow_david",
+    "dickson_david",
+    "groover_david",
+    "harris_david",
+    "dimmick_e",
+    "simons_e",
+    "conte_e_w",
+    "rogers_edward_a",
+    "coleman_edward_b",
+    "poor_edward",
+    "trimble_edward",
+    "maynard_elias",
+    "dix_elijah",
+    "garton_elijah",
+    "hazzard_elisha_h",
+    "pearce_eliza",
+    "preston_esther",
+    "turner_ezekiel",
+    "berger_f_c",
+    "morland_f_h",
+    "plumer_f",
+    "freeman_ford",
+    "perry_francis",
+    "burlingame_geo_a",
+    "parmlee_george_b",
+    "gifford_hezekiah"
+  ],
+  "pending_person_ids": [],
+  "outcome_counts": {
+    "corroborated_enrichment": 5,
+    "candidate_identity": 13,
+    "no_corroboration": 57
+  },
+  "overrides": {
+    "pratt_oscar": {
+      "outcome": "no_corroboration",
+      "summary": "The exact-name and variant sweep did not identify a reliable Chicago/Cook County record that can be tied to this printer by an address, date, occupation-specific linkage or relative. This documented no-find is not evidence that Oscar Pratt did not exist.",
+      "sources": [],
+      "candidates": []
+    },
+    "kercheval_gholson": {
+      "outcome": "corroborated_enrichment",
+      "summary": "The 1833 treaty transcription names Gholson Kercheval of Chicago in a federal payment clause, while the contemporary town record identifies him among Chicago's early civic actors. This corroborates the exact person, Chicago connection and treaty-service chronology; it does not prove a specific household or 1 July 1835 roof.",
+      "sources": [
+        "okstate_treaty_chicago_1833",
+        "chicagology_prefire278"
+      ],
+      "candidates": []
+    },
+    "kimball_walter": {
+      "outcome": "corroborated_enrichment",
+      "summary": "The project's 26 November 1833 Chicago Democrat source records W. Kimball's New Store at the South Water/Clark junction. The unusual initial-plus-surname form matches the resident record and strengthens the merchant identity, but does not safely expand the initial or prove scene-date occupancy.",
+      "sources": [
+        "chicago_democrat_1833_11_26"
+      ],
+      "candidates": []
+    },
+    "lampman_henry_s": {
+      "outcome": "corroborated_enrichment",
+      "summary": "A historical compilation states that Tyler K. Blodgett's spring 1833 north-side brickyard engaged Henry S. Lampman, then of Ann Arbor, as a workman; it calls him Chicago's first brickmaker. This adds a trade and Michigan-origin lead while leaving household membership and 1 July 1835 address unresolved.",
+      "sources": [
+        "chicagology_chicago_brick"
+      ],
+      "candidates": []
+    },
+    "hall_benjamin": {
+      "outcome": "no_corroboration",
+      "summary": "The exact-name and variant sweep did not yield a dated Chicago/Cook County record with a discriminator beyond this common name. No occupation, kinship, address or migration fact is promoted; this documented no-find is not evidence of nonexistence.",
+      "sources": [],
+      "candidates": []
+    },
+    "murphy_harriet": {
+      "outcome": "candidate_identity",
+      "summary": "An 1883 early-Chicago hotel feature records Mrs. Murphy as a knowledgeable witness to the Green Tree, and later history places Harriet and John Murphy managing the United States Hotel by 1836. The exact female name and hotel chronology are useful, but the later management date is not silently back-projected to the 1 July 1835 household.",
+      "sources": [
+        "chicagology_prefire127"
+      ],
+      "candidates": [
+        {
+          "name": "Harriet Murphy, later United States Hotel manager",
+          "assessment": "strong",
+          "asserted": false,
+          "basis": "Named early-Chicago hotel witness and later 1836 hotel chronology.",
+          "conflicts": [
+            "The management evidence begins in 1836; it does not establish her 1835 roof or maiden name."
+          ],
+          "sources": [
+            "chicagology_prefire127"
+          ],
+          "candidate_id": "cand_harriet_murphy_us_hotel"
+        }
+      ]
+    },
+    "taylor_charles": {
+      "outcome": "no_corroboration",
+      "summary": "The exact-name and variant sweep surfaced several later Charles H. Taylor records but no dated Chicago/Cook County discriminator that safely separates this resident from namesakes. No marriage, occupation or household fact is promoted.",
+      "sources": [],
+      "candidates": []
+    },
+    "temple_peter": {
+      "outcome": "no_corroboration",
+      "summary": "The exact-name and variant sweep found multiple unrelated Peter Temple genealogical records but no reliable Chicago/Cook County record tied to Dr Peter Temple in this household. The name remains unresolved rather than merged with a namesake.",
+      "sources": [],
+      "candidates": []
+    },
+    "wright_john_s": {
+      "outcome": "corroborated_enrichment",
+      "summary": "The Chicago Public Library finding aid identifies John S. Wright's Chicago land purchases and original-town lots; Augustine W. Wright's 1885 In Memoriam further anchors the exact Chicago figure and his early chronology. Later deed dates are not back-projected to 1835.",
+      "sources": [
+        "cpl_john_s_wright_papers",
+        "wright_in_memoriam_1885"
+      ],
+      "candidates": []
+    },
+    "hugunin_leonard_c": {
+      "outcome": "corroborated_enrichment",
+      "summary": "The Old Settlers of Chicago proceedings record Leonard C. Hugunin as arriving 17 August 1833, and the 1839 Chicago directory lists Leonard C. Hugunin as a speculator. The rare full name, dated Chicago arrival and later directory continuity independently corroborate the postal-list person without adding an unproved 1 July 1835 address.",
+      "sources": [
+        "chicago_old_settlers_hugunin_1883",
+        "fergus_chicago_directory_1839"
+      ],
+      "candidates": []
+    },
+    "dalton_edward": {
+      "outcome": "candidate_identity",
+      "summary": "An 1840 census index places an Edward Dalton in Chicago's First Ward. Same exact name and later Chicago geography make this a useful continuity candidate, but the five-year gap and lack of an occupation, address or family bridge prevent asserting that he is the 1835 postal-list person.",
+      "sources": [
+        "dalton_1840_chicago_census_index"
+      ],
+      "candidates": [
+        {
+          "name": "Edward Dalton, Chicago First Ward in 1840 census index",
+          "assessment": "moderate",
+          "asserted": false,
+          "basis": "Exact name and Chicago geography five years after the postal return.",
+          "conflicts": [
+            "Index-only access path; no independent bridge from the 1835 postal entry to the 1840 household."
+          ],
+          "sources": [
+            "dalton_1840_chicago_census_index"
+          ],
+          "candidate_id": "cand_edward_dalton_chicago_1840"
+        }
+      ]
+    },
+    "jaines_gooding": {
+      "outcome": "candidate_identity",
+      "summary": "Will County histories identify Deacon James Gooding, who settled Gooding's Grove in 1832 when the area was still Cook County. The printed 'Jaines' form is plausibly an OCR/transcription variant of James and the chronology is regional, but no source directly links this pioneer to the Chicago waiting letter.",
+      "sources": [
+        "will_homer_history_1907"
+      ],
+      "candidates": [
+        {
+          "name": "James Gooding of Gooding's Grove",
+          "assessment": "moderate",
+          "asserted": false,
+          "basis": "Plausible Jaines/James transcription variant plus exact surname and 1832 Cook County settlement.",
+          "conflicts": [
+            "Gooding's Grove was a hinterland settlement; no source bridges the pioneer to the Chicago post-office item."
+          ],
+          "sources": [
+            "will_homer_history_1907"
+          ],
+          "candidate_id": "cand_james_gooding_grove"
+        }
+      ]
+    },
+    "gould_a_b": {
+      "outcome": "candidate_identity",
+      "summary": "The 1843 Chicago directory lists Ambrose B. Gould, sailor, resident on Indiana between Pine and St. Clair. Matching initials and surname plus later Chicago residence make a useful candidate, but the eight-year gap and absence of another discriminator keep the identification unasserted.",
+      "sources": [
+        "fergus_chicago_directory_1843"
+      ],
+      "candidates": [
+        {
+          "name": "Ambrose B. Gould, Chicago sailor in 1843",
+          "assessment": "moderate",
+          "asserted": false,
+          "basis": "A. B. initials, surname and later Chicago directory residence.",
+          "conflicts": [
+            "Eight-year gap after the postal entry; no source explicitly expands the 1835 initials or connects the records."
+          ],
+          "sources": [
+            "fergus_chicago_directory_1843"
+          ],
+          "candidate_id": "cand_ambrose_b_gould_1843"
+        }
+      ]
+    },
+    "hateh_betsey": {
+      "outcome": "candidate_identity",
+      "summary": "La Salle County history records Betsey Hatch of Connecticut marrying Bradish Cummings in 1836. 'Hateh' is a plausible OCR/transcription error for Hatch and the person is in northern Illinois immediately after the target period, but no source connects her to Chicago or the 1835 letter.",
+      "sources": [
+        "lasalle_history_betsey_hatch_1836"
+      ],
+      "candidates": [
+        {
+          "name": "Betsey Hatch of La Salle County",
+          "assessment": "moderate",
+          "asserted": false,
+          "basis": "Plausible Hateh/Hatch reading, exact given name and northern-Illinois chronology.",
+          "conflicts": [
+            "Documented in La Salle County in 1836, not Chicago; no postal or kinship bridge."
+          ],
+          "sources": [
+            "lasalle_history_betsey_hatch_1836"
+          ],
+          "candidate_id": "cand_betsey_hatch_lasalle"
+        }
+      ]
+    },
+    "holliday_william": {
+      "outcome": "candidate_identity",
+      "summary": "Greene County history places a William Holliday, a Kentucky-born physician, in White Hall by 1834. The exact name and Illinois chronology warrant retaining the record as a candidate, but White Hall is strong competing geography and no evidence links the physician to the Chicago postal item.",
+      "sources": [
+        "greene_history_william_holliday_1834"
+      ],
+      "candidates": [
+        {
+          "name": "Dr. William Holliday of White Hall, Illinois",
+          "assessment": "weak",
+          "asserted": false,
+          "basis": "Exact name and Illinois presence by 1834.",
+          "conflicts": [
+            "White Hall, Greene County is competing geography; the common name and lack of a Chicago bridge make identity weak."
+          ],
+          "sources": [
+            "greene_history_william_holliday_1834"
+          ],
+          "candidate_id": "cand_william_holliday_white_hall"
+        }
+      ]
+    },
+    "newton_daniel": {
+      "outcome": "candidate_identity",
+      "summary": "La Salle County history identifies Daniel Newton as arriving from Ohio in 1835 and becoming an Ottawa hardware merchant and Methodist preacher. Exact name, same-year northern-Illinois migration and distinctive later occupations make a strong regional candidate, but Ottawa residence and absence of a postal bridge prevent promotion.",
+      "sources": [
+        "lasalle_history_daniel_newton_1835"
+      ],
+      "candidates": [
+        {
+          "name": "Daniel Newton of Ottawa",
+          "assessment": "strong",
+          "asserted": false,
+          "basis": "Exact name, 1835 arrival from Ohio and documented northern-Illinois chronology.",
+          "conflicts": [
+            "The source places him in Ottawa; nothing links him directly to the Chicago post-office entry."
+          ],
+          "sources": [
+            "lasalle_history_daniel_newton_1835"
+          ],
+          "candidate_id": "cand_daniel_newton_ottawa"
+        }
+      ]
+    },
+    "platt_daniel": {
+      "outcome": "candidate_identity",
+      "summary": "Kendall County history identifies Daniel Platt as an early Lisbon Township settler in the 1833–1834 period. Exact name and northern-Illinois chronology are useful, but the documented residence is outside Chicago and no source links him to the waiting letter.",
+      "sources": [
+        "kendall_history_daniel_platt"
+      ],
+      "candidates": [
+        {
+          "name": "Daniel Platt of Lisbon Township / Plattville",
+          "assessment": "moderate",
+          "asserted": false,
+          "basis": "Exact name and 1833–1834 northern-Illinois settlement chronology.",
+          "conflicts": [
+            "Documented outside Chicago; no postal, occupation or kinship bridge to the letter-list person."
+          ],
+          "sources": [
+            "kendall_history_daniel_platt"
+          ],
+          "candidate_id": "cand_daniel_platt_lisbon"
+        }
+      ]
+    },
+    "dimmick_e": {
+      "outcome": "candidate_identity",
+      "summary": "The 1839 Chicago directory lists Edward Dimmick, painter, of Wayman & Dimmick. The surname and E. initial match a later Chicago resident, but several Dimmick men occur in regional records and the 1835 postal entry does not expand the initial, so Edward remains an unasserted candidate.",
+      "sources": [
+        "fergus_chicago_directory_1839"
+      ],
+      "candidates": [
+        {
+          "name": "Edward Dimmick, Chicago painter in 1839",
+          "assessment": "strong",
+          "asserted": false,
+          "basis": "Matching initial/surname and documented later Chicago occupation.",
+          "conflicts": [
+            "The 1835 entry supplies only E. Dimmick; other E-named Dimmicks exist and no direct bridge identifies Edward."
+          ],
+          "sources": [
+            "fergus_chicago_directory_1839"
+          ],
+          "candidate_id": "cand_edward_dimmick_1839"
+        }
+      ]
+    },
+    "poor_edward": {
+      "outcome": "candidate_identity",
+      "summary": "Will County history identifies Edward Poor as an early Homer Township settler who had come from Indiana in spring 1831 and served in the Black Hawk War. Exact name and Cook/Will regional chronology make him a useful candidate, but his documented hinterland residence is not a Chicago identity bridge.",
+      "sources": [
+        "will_homer_history_1907"
+      ],
+      "candidates": [
+        {
+          "name": "Edward Poor of Homer/New Lenox Township",
+          "assessment": "moderate",
+          "asserted": false,
+          "basis": "Exact name and documented northeastern-Illinois presence before 1835.",
+          "conflicts": [
+            "Homer/New Lenox is competing residence; no source directly ties him to the Chicago post-office item."
+          ],
+          "sources": [
+            "will_homer_history_1907"
+          ],
+          "candidate_id": "cand_edward_poor_homer"
+        }
+      ]
+    },
+    "trimble_edward": {
+      "outcome": "candidate_identity",
+      "summary": "Kane County history records Edward Trimble with a claim near the Fox River/Geneva settlement by the 1834–1835 period and notes his marriage to a daughter of Payne. Exact name and regional chronology are useful, but the Fox River claim is competing geography and no Chicago postal bridge is present.",
+      "sources": [
+        "kane_history_geneva_edward_trimble"
+      ],
+      "candidates": [
+        {
+          "name": "Edward Trimble of early Geneva Township",
+          "assessment": "moderate",
+          "asserted": false,
+          "basis": "Exact name and documented Fox River claim in the target period.",
+          "conflicts": [
+            "Geneva Township is competing geography; no independent evidence ties this claimant to the Chicago letter."
+          ],
+          "sources": [
+            "kane_history_geneva_edward_trimble"
+          ],
+          "candidate_id": "cand_edward_trimble_geneva"
+        }
+      ]
+    },
+    "garton_elijah": {
+      "outcome": "candidate_identity",
+      "summary": "Kane County history places Elijah Garton, his wife and six children at Round Grove/St. Charles on 8 May 1834. Exact name and target-period northern-Illinois presence justify retaining the record, but the documented Fox River residence and lack of a Chicago bridge prevent assertion.",
+      "sources": [
+        "kane_history_st_charles_1904"
+      ],
+      "candidates": [
+        {
+          "name": "Elijah Garton of Round Grove / St. Charles",
+          "assessment": "strong",
+          "asserted": false,
+          "basis": "Exact uncommon name and dated 8 May 1834 regional settlement.",
+          "conflicts": [
+            "Documented at the Fox River settlement rather than Chicago; no source connects him to the waiting letter."
+          ],
+          "sources": [
+            "kane_history_st_charles_1904"
+          ],
+          "candidate_id": "cand_elijah_garton_st_charles"
+        }
+      ]
+    },
+    "gifford_hezekiah": {
+      "outcome": "candidate_identity",
+      "summary": "The City of Elgin states that Hezekiah Gifford first arrived in 1834 and returned with James Gifford in April 1835 to settle permanently at Elgin. The exact uncommon name and target-period proximity make a strong candidate, but the source establishes competing Elgin residence rather than Chicago identity.",
+      "sources": [
+        "elgin_history_gifford"
+      ],
+      "candidates": [
+        {
+          "name": "Hezekiah Gifford, co-founder of Elgin",
+          "assessment": "strong",
+          "asserted": false,
+          "basis": "Exact uncommon name with documented 1834 arrival and April 1835 permanent Fox River settlement.",
+          "conflicts": [
+            "The source places him at Elgin by the scene date; no independent evidence links that settler to the Chicago postal entry."
+          ],
+          "sources": [
+            "elgin_history_gifford"
+          ],
+          "candidate_id": "cand_hezekiah_gifford_elgin"
+        }
+      ]
+    }
+  }
+}

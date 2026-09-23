@@ -1,0 +1,103 @@
+{
+  "id": "south_pier",
+  "name": "South Pier",
+  "aka": [
+    "the south pier of the Chicago harbour works"
+  ],
+  "archetype": "pier_crib",
+  "phases": [
+    {
+      "id": "crib_1835",
+      "documented_range": {
+        "from": "1835-06-01",
+        "to": "1835-07-31",
+        "confidence": "inferred",
+        "sources": [
+          "andreas_1884_v1",
+          "wikipedia_chicago_river"
+        ],
+        "note": "A STRUCTURE UNDER CONTINUOUS EXTENSION HAS NO STABLE PHASE, AND THIS RANGE IS TWO MONTHS WIDE FOR THE SAME REASON THE NORTH PIER'S IS. Andreas has the south pier 'extended 500 ft in 1835, total 700 ft', so this structure more than trebled during the season this scene sits in the middle of and no state of it lasted a fortnight. What the phase carries is a length INTERPOLATED FOR 1835-07-01, wrong by a growing margin either side of it, and the range is set to the two months around the target rather than to the pier's life. A scene at any other date finds no phase covering it and reports this structure as excluded, which is the correct answer: it stood, and this record does not say how long it was. Adding an 1834 phase and an 1836 phase is the fix and widening this one is not; both are writable from the same two sources and neither is written, because this project's first scene is 1835."
+      },
+      "position": {
+        "utm_e": 448288.62,
+        "utm_n": 4637648.28,
+        "rotation_deg": 13.5,
+        "symbolic_location": "The south side of the 1834 cut through the sand bar, running from the Fort Dearborn reservation's shore at the river mouth east-south-east into Lake Michigan.",
+        "confidence": "inferred",
+        "sources": [
+          "wright_1834"
+        ],
+        "note": "MEASURED OFF THE SAME TWO RED LINES AS THE NORTH PIER, AND THIS IS THE SOUTHERN OF THEM. Wright 1834 draws the harbour as two red lines with HARBOR lettered between them and a flow arrow running east down the channel between them; the southern line is this pier's inner face. Both were read at native resolution off the BPL master scan (commonwealth:js957744g) and transformed by the fitted affine recorded in data/traces/gcp/wright_1834_gcps.json — the same transform tools/rederive_datum.py checks the datum against, not a second georeference. METHOD AND RESULT. The southern line's landward end reads at resource pixel (3171, 1498), which is local E +1215.9, N +252.5. The line runs at 103.5 degrees from grid north against the northern line's 103.4, so the two are parallel to a tenth of a degree, and the perpendicular distance between them is 64.2 m against a documented entrance width of 200 ft (61.0 m). Two lines that come out parallel and four per cent from a figure neither of them supplied is the check that says the right pair was read. Picking precision about 5 resource pixels, or 3.5 m, on top of the sheet's plus or minus 20 m. The value recorded here is the footprint polygon's own origin: the landward end of the measured inner face. The crib is built SOUTH of it, away from the channel, which is why this record's polygon runs from v = -7.62 to v = 0 where the north pier's runs from 0 to +7.62 — the measured line is the channel side of both structures and they stand on opposite sides of it. Facade bearing 13.5 is the axis bearing less 90, this archetype's convention. THE DRAFTED LENGTH IS NOT USED, and on this pier the reason is at its starkest: the southern line runs about 1,165 ft on the sheet, and the south pier did not reach that length until after 1837. Wright drew the works as authorised. See form.length_m. THE POSITION WAS ALSO 900 m OUTSIDE THE MODELLED GROUND WHEN THIS NOTE WAS WRITTEN; the committed heightfield stopped at local E +320. It was extended east to E +1700 on 2026-08-11 and there is modelled ground here now — the ground_contact block was regraded the same day, from `outside_modelled_ground` to `approach_not_modelled`, and that is the reason which survives: the pier stands over water with no modelled approach at either end (corrected 2026-08-22 under T-0010).",
+        "derivation": {
+          "method": "not_derivable",
+          "reason": "This placement predates the derivation module. Its provenance and reasoning are recorded in position.note, but no machine-checkable derivation block has been authored for it yet."
+        }
+      },
+      "footprint": {
+        "polygon": [
+          [
+            0.0,
+            -7.62
+          ],
+          [
+            121.92,
+            -7.62
+          ],
+          [
+            121.92,
+            0.0
+          ],
+          [
+            0.0,
+            0.0
+          ]
+        ],
+        "confidence": "reconstructed",
+        "note": "ONE AXIS IS AN INTERPOLATION AND THE OTHER IS AN INVENTION, SO THE DRAWN SHAPE IS CONJECTURAL. The length, 121.92 m, is 400 ft, interpolated between two year-end figures that are themselves in dispute — argued on form.length_m. The width, 7.62 m, is 25 ft and is nobody's measurement: see form.width_m. Least-confident wins over a polygon as it does over a mesh, so the outline is graded by its weaker axis and the confidence view renders the whole pier as massing. A reader should take from this shape that the harbour works ran into the lake from here on this line, and nothing at all from how far or how wide it is drawn. THE POLYGON RUNS ON THE NEGATIVE SIDE OF THE MEASURED LINE, from v = -7.62 to v = 0, because that line is the pier's CHANNEL face and the structure stands south of it. Building it the other way would put a 25-ft crib inside a 200-ft entrance and narrow the harbour by an eighth. NO SOURCE IS CITED ON THIS BLOCK, DELIBERATELY. The measured axis is argued in this note and cited on the position, which is where the survey reading belongs; a conjectural block carrying a source_id would claim Wright supports a shape he cannot."
+      },
+      "form": {
+        "length_m": {
+          "value": 121.92,
+          "confidence": "inferred",
+          "sources": [
+            "andreas_1884_v1",
+            "wikipedia_chicago_river"
+          ],
+          "note": "FOUR HUNDRED FEET, AN INTERPOLATION BETWEEN TWO YEAR-END FIGURES, AND THE EARLIER OF THE TWO IS ITSELF DISPUTED. IT IS NOT DOCUMENTED. THE END OF THE ARITHMETIC THAT IS NOT IN DOUBT. Andreas: the south pier 'was extended 500 ft in 1835, total 700 ft' by the close of the season (Andreas I, scan pp. 487 and 489, per docs/research/04-structures-south.md section 3). THE END THAT IS. Two figures are on the table for where 1835 started. Wikipedia's summary of the harbour works gives the south pier at about 200 ft at the end of 1834. Andreas himself, earlier in the same account, has 400 to 500 ft of the south pier built in the fall of 1833 under Major Bender before he resigned on 31 October 1833 (Andreas I, scan pp. 261 and 487). Those cannot both be true unless the pier lost a third to a half of its length between 1833 and 1835, which nothing reached reports. THE DISPUTE IS RECORDED AND NOT AVERAGED, and it is settled here by Andreas against Andreas rather than by preferring one author. His own 1835 sentence contains the arithmetic: extended 500 ft in 1835 to a total of 700 ft leaves 200 ft standing at the start of the season. That agrees exactly with Wikipedia's end-of-1834 figure, from a source that did not derive it from him. So two independent statements converge on 200 ft and one earlier statement in the same volume disagrees with both — the most likely reading being that the fall-1833 figure describes work attempted or contracted rather than pier standing, or that a first season's cribs did not survive the February 1834 storm that breached the bar. Neither of those is evidenced, and the point of recording the conflict is that it stays open. AVERAGING THE TWO WOULD HAVE BEEN THE WRONG MOVE: 200 and 450 average to 325, a number no source states and no reasoning supports, and it would have hidden a disagreement that is more informative than either figure. HOW 1 JULY WAS PLACED. From 200 ft at the end of 1834 to 700 ft at the end of 1835 is 500 ft in a season. Straight calendar interpolation puts 1 July at 450 ft; a season-weighted reading, because crib work runs roughly April to November, puts perhaps a third of the season's work in the water by then and gives about 365 ft. docs/research/04-structures-south.md section 3 reaches 'roughly 300-500 ft' independently. Four hundred feet is the middle of that band and sits between the two arithmetics. THE ERROR BAR IS THE BAND: anything from 300 to 500 ft is equally consistent, which is plus or minus 30 m on a 122 m structure — a quarter of its own length, and the reason the footprint is graded on it. WHAT WOULD REPLACE ALL OF THIS: the Chief Engineer's annual report for 1835, or the House Document series."
+        },
+        "width_m": {
+          "value": 7.62,
+          "confidence": "reconstructed",
+          "note": "TWENTY-FIVE FEET, AND NOBODY MEASURED IT — the same invention the north pier carries, from the same archetype constant, so that both structures inherit one guess a reader can find in one place rather than two that could drift apart. Not one source reached states how wide either Chicago pier was in the 1830s, and the master survey cannot supply it: Wright 1834 is drawn at about 1:7,200, where a 25-ft crib is 0.13 mm on the paper and about a fifth of the width of the pen that drew the pier line. The red bands on that sheet are line weight; measuring one would be measuring the draughtsman's nib. The only argument behind the number is that a gravity crib standing in open lake and carrying a working deck cannot be narrow, which supports 'not narrow' and not twenty-five feet. Graded conjectural, and the footprint it draws is graded with it. WHAT WOULD SETTLE IT: J. D. Graham's 1857 and 1858 hydrographic surveys of the Chicago bar, named in docs/research/01-terrain-hydrology.md, or any specification or voucher for the crib work."
+        },
+        "deck_height_m": {
+          "value": 1.524,
+          "confidence": "inferred",
+          "note": "FIVE FEET ABOVE THE WATER, FROM A BAND WITH NO CITATION UNDER IT. docs/research/01-terrain-hydrology.md zone 24 gives '~+4 to +6' ft for the north pier's deck and cites nothing; zone 25 gives the south pier no height at all. So this value is doubly borrowed — the middle of an uncited band, stated of the other pier — and it is recorded inferred for exactly that reason. It is retained because the two piers were built in the same works, in the same seasons, by the same supervisors, to hold the same channel, and because the alternative is having no height for a structure whose whole visible form is a horizontal line above the lake. An error of a foot here is an error of a fifth in the only dimension the eye can check."
+        },
+        "construction": {
+          "value": "timber_crib",
+          "confidence": "inferred",
+          "note": "LOG CRIBS SUNK AND FILLED WITH STONE, INFERRED FROM PERIOD AND REGIONAL PRACTICE AND NOT STATED BY ANY SOURCE RECORD THIS PROJECT HOLDS. docs/research/01-terrain-hydrology.md names the north pier 'timber crib' without a citation and gives the south pier no construction at all; the texts held here supply the works' chronology, appropriations, supervisors and lengths and never say what the piers were made of. Timber cribbing sunk and stone-filled is how Great Lakes harbour piers of the 1830s were built, it is what was available to a works run out of a frontier garrison with unlimited timber and no cement, and it is what the town's own bridge builders used for abutments in the same years. A reading, not a report. WHAT WOULD SETTLE IT: the Chief Engineer's annual reports, or the 1833-35 contracts for the Chicago harbour appropriation."
+        }
+      },
+      "ground_contact": {
+        "state": "approach_not_modelled",
+        "note": "REGRADED 2026-08-11, and the change of word is the whole point. This phase declared `outside_modelled_ground` because when it was written there was no terrain here at all. S2e has since extended the heightfield east to E +1700, so there IS ground now — and this structure still does not reach it, for the older and more ordinary reason that it stands over water with no modelled approach at either end. A visitor reading the old word would have been told the ground is missing when it is the ramp that is missing. THE PARAGRAPH THAT FOLLOWED WAS WRITTEN BEFORE THE REGRADE ABOVE AND IS SUPERSEDED BY IT, kept because it is the reasoning the regrade overturned: \"NO GROUND EXISTS UNDER ANY PART OF THIS STRUCTURE. The committed heightfield is a 640 m box centred on the forks, stopping at local E +320; this pier runs from local E +1216 to about E +1335, nine hundred metres beyond it. There is no reservation shore at its root and no lake around it in the modelled epoch.\" The box is 2,020 x 800 m now and reaches E +1700; the field under this pier's root reads about -0.02 m, which is the waterline at the root of a pier and is what the traced shore puts there. What is still absent is the APPROACH, not the ground (corrected 2026-08-22 under T-0010). The archetype's GROUND_CONTACT declaration is 'ends' and is half wrong by construction, because a pier lands at its root and never at its head; that costs nothing while both ends are outside the box and will need a one-ended mode in the checker when they are not. See generators/archetypes/pier_crib_params.py. WHAT WOULD HAVE SETTLED IT HAS LANDED: docs/ROADMAP.md S2e extended the heightfield east on 2026-08-11, so this pier's root can now be checked against a traced shore, and what remains is a one-ended contact mode in the checker and a modelled approach. Admitted in docs/LIBERTIES.md."
+      },
+      "change_note": "The one phase this record carries: the south pier as it stood in the summer of 1835, a timber crib line running east-south-east from the reservation shore on the south side of the cut, roughly four hundred feet long and about to be extended by five hundred more before the season closed. A snapshot of a structure that was longer every month, and the documented_range says so."
+    }
+  ],
+  "function": {
+    "value": "harbour_works",
+    "confidence": "attested",
+    "sources": [
+      "andreas_1884_v1",
+      "wikipedia_chicago_river",
+      "chicago_architecture_history_115"
+    ],
+    "note": "The southern of the two piers holding open the 1834 cut through the sand bar. It was the first of the works to be begun: the harbour improvement started on the south side of the river in June 1833 under Major George Bender, commandant of Fort Dearborn, with Henry S. Handy as assistant superintendent, before the north pier was carried out 'a like distance' in the spring of 1834. It is the shorter pier throughout the period — the drift runs south along this coast, so the north pier is the weather pier and takes the sand, and this one holds the other bank of the channel."
+  },
+  "research_note": "THE SHORTER OF THE TWO HARBOUR PIERS, THE FIRST TO BE BEGUN, AND THE ONE WHOSE STARTING FIGURE IS IN DISPUTE. WHAT IS MEASURED. Wright 1834 draws the harbour as two red lines with HARBOR lettered between them; this record's position and bearing come from the southern of them, read at native resolution off the BPL master scan through the same fitted affine that fixes this project's datum. The two lines run at 103.5 and 103.4 degrees from grid north — parallel to a tenth of a degree — and stand 64.2 m apart against a documented 200 ft entrance, which is 61.0 m. That four-per-cent agreement, between a segmented survey line and a textual figure that share no evidence, is what licenses the alignment at inferred rather than conjectural. WHAT IS NOT MEASURED, AND WHY THE SHEET CANNOT HELP. The southern drafted line runs about 1,165 ft, which this pier did not reach until after 1837 — the sheet draws the harbour as authorised, not as built. And at 1:7,200 a 25-ft crib is a fifth of a pen width, so the drawn band carries no thickness at all. Length and width therefore come from elsewhere, and only one of them comes from evidence. THE CONFLICT THIS RECORD EXISTS TO HOLD OPEN. Andreas gives 400 to 500 ft of south pier built in the fall of 1833 under Major Bender; Wikipedia's summary gives the south pier at about 200 ft at the end of 1834; and Andreas's own 1835 sentence — 'extended 500 ft in 1835, total 700 ft' — implies 200 ft standing when that season began. So it is Andreas against Andreas, with an outside source agreeing with his arithmetic rather than with his narrative. The 200 ft reading is adopted because two independent statements converge on it, and the fall-1833 figure is recorded rather than discarded: the likeliest explanations are that it describes work contracted or attempted rather than pier standing, or that a first season's cribs did not survive the February 1834 storm that breached the bar — and neither is evidenced, so the disagreement stays on the record. IT WAS NOT AVERAGED, and that is deliberate: 200 and 450 average to 325, a number nobody states and nothing supports, and the average would have concealed the more interesting fact that a compiler contradicts himself about this pier fifty years after the event. THE LENGTH FOR 1 JULY IS AN INTERPOLATION, graded inferred, with the arithmetic on form.length_m: 200 ft at the end of 1834, 700 ft at the end of 1835, 1 July placed at 400 ft on a season-weighted rather than a calendar reading, inside the 300-500 ft band docs/research/04-structures-south.md reaches independently. The band is a quarter of the structure's own length, which is what an interpolation looks like when it is honest. THE WIDTH IS AN INVENTION shared with the north pier, admitted in docs/LIBERTIES.md. AND LIKE ITS NEIGHBOUR THIS STRUCTURE STANDS ENTIRELY OFF THE MODELLED WORLD, at local E +1216 to +1335 against a heightfield that stops at E +320. docs/ROADMAP.md S2e is the unit that fixes it, from vectors already traced and committed.",
+  "review_required": false
+}

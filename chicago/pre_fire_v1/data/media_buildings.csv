@@ -1,0 +1,19 @@
+media_building_id,media_id,building_id,relationship,confidence,notes
+MB-WOLF-NYPL-WOLFTAVERN,MEDIA-BLDG-WOLFPOINT-NYPL-1867,CHI-PRE1830-033,depicts,high,Wolf Tavern is explicitly identified as the building at left in the source caption.
+MB-WOLF-NYPL-MILLER,MEDIA-BLDG-WOLFPOINT-NYPL-1867,CHI-PRE1830-032,depicts,high,Miller House is explicitly identified as the building at right in the source caption.
+MB-WOLF-ANDREAS-WOLFTAVERN,MEDIA-BLDG-WOLFPOINT-ANDREAS-1884,CHI-PRE1830-033,depicts_contextually,medium,Later imagined reconstruction of the two Wolf Point tavern structures.
+MB-WOLF-ANDREAS-MILLER,MEDIA-BLDG-WOLFPOINT-ANDREAS-1884,CHI-PRE1830-032,depicts_contextually,medium,Later imagined reconstruction of the two Wolf Point tavern structures.
+MB-WOLF-POSTCARD-WOLFTAVERN,MEDIA-BLDG-WOLFPOINT-NEWBERRY-POSTCARD,CHI-PRE1830-033,depicts_contextually,low,Retrospective scene associated with Wolf Point; exact building detail is not independently established.
+MB-WOLF-POSTCARD-MILLER,MEDIA-BLDG-WOLFPOINT-NEWBERRY-POSTCARD,CHI-PRE1830-032,depicts_contextually,low,Retrospective scene associated with Wolf Point; exact building detail is not independently established.
+MB-SAUGANASH-ANDREAS,MEDIA-BLDG-SAUGANASH-ANDREAS-1884,CHI-B1830-005,depicts,high,Repository metadata identifies the Sauganash Hotel and the adjoining drugstore structure.
+MB-GREEN-TREE-1859,MEDIA-BLDG-GREEN-TREE-1859,CHI-B1830-012,depicts,high,Repository metadata identifies the Green Tree Tavern under its later West Lake Street House name.
+MB-KINZIE-HOUSE-1857,MEDIA-BLDG-KINZIE-HOUSE-1857,CHI-PRE1830-002,depicts,medium,Published caption identifies the Point du Sable house during Kinzie family occupancy.
+MB-KURZ-SAUGANASH,MEDIA-BLDG-KURZ-ALLISON-EARLY-DAYS,CHI-B1830-005,depicts,medium,"Panel 14, keyed 'The Sauganash Hotel. Built in 1831.' Shows a two-story frame block with an attached single-story log wing and no full-width gallery."
+MB-KURZ-GREENTREE,MEDIA-BLDG-KURZ-ALLISON-EARLY-DAYS,CHI-B1830-012,depicts,medium,"Panel 11, keyed 'The Green Tree Hotel, cor. West Lake and Canal St. Built in 1833.'"
+MB-KURZ-FORT2,MEDIA-BLDG-KURZ-ALLISON-EARLY-DAYS,CHI-PRE1830-020,depicts,medium,"Panel 5, keyed 'Fort Dearborn, as rebuilt 1835. Population 3,265.' Shows the picket palisade, a galleried barracks range and a blockhouse."
+MB-KURZ-FORT1,MEDIA-BLDG-KURZ-ALLISON-EARLY-DAYS,CHI-PRE1830-015,depicts_contextually,low,"Panel 1, keyed 'Old Fort Dearborn. Erected 1803.' A retrospective impression of the first fort."
+MB-KURZ-KINZIE,MEDIA-BLDG-KURZ-ALLISON-EARLY-DAYS,CHI-PRE1830-002,depicts_contextually,low,"Panel 12, keyed 'The Old Kinzie Mansion, built 1832.' The 1832 date contradicts the documentary record, in which the house was derelict by then; treat the panel as an impression only."
+MB-KURZ-DUSABLE,MEDIA-BLDG-KURZ-ALLISON-EARLY-DAYS,CHI-PRE1830-002,depicts_contextually,low,"Panel 2, keyed 'The First Cabin, built 1779, by Jean Baptiste Point de Saible.' A retrospective impression, not an architectural record."
+MB-KURZ-BLOCKHOUSE,MEDIA-BLDG-KURZ-ALLISON-EARLY-DAYS,CHI-B1830-002,depicts_contextually,low,Panel 15 shows the lighthouse beside the last Fort Dearborn blockhouse in 1857 - the 1832 tower's successor context.
+MB-LAKE1820-FORT2,MEDIA-BLDG-CHICAGO-FROM-LAKE-1820S,CHI-PRE1830-020,depicts,medium,The palisaded compound on the south bank is the second Fort Dearborn.
+MB-SITE1779-DUSABLE,MEDIA-BLDG-SITE-1779-ANDREAS,CHI-PRE1830-002,depicts_contextually,low,Inset shows the du Sable cabin; the plate describes itself as an imaginary view.

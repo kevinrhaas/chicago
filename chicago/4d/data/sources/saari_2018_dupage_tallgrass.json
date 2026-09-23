@@ -1,0 +1,36 @@
+{
+  "id": "saari_2018_dupage_tallgrass",
+  "type": "photograph",
+  "citation": "Saari, Cassi. Restored tallgrass prairie in DuPage County, Illinois. Photograph, 24 July 2018. Wikimedia Commons, CC BY-SA 4.0.",
+  "author": "Cassi Saari (Wikimedia Commons user Hyperik)",
+  "date": "2018-07-24",
+  "describes_date": "2018-07-24",
+  "repository": "Wikimedia Commons",
+  "url": "https://commons.wikimedia.org/wiki/File:Restored_tallgrass_prairie_in_DuPage_County,_Illinois.jpg",
+  "archived_url": "https://upload.wikimedia.org/wikipedia/commons/5/54/Restored_tallgrass_prairie_in_DuPage_County%2C_Illinois.jpg",
+  "locator": "the full frame, 4032x3024; committed verbatim at data/sources/assets/saari_2018_dupage_tallgrass/dupage_tallgrass_2018-07-24.jpg (SHA-1 0da00f1178e7790b04c05364d78f7cb6a43992ae)",
+  "tier": 4,
+  "rights_status": "cleared",
+  "rights_note": "CC BY-SA 4.0, attribution required, no endorsement implied. Committed BYTE-FOR-BYTE UNMODIFIED, so this repository redistributes the licensed work rather than an adaptation and the ShareAlike term is not triggered by its presence here. Anything DERIVED from it - a crop, a resample, a texture, a colour LUT - is an adaptation and would have to be released under CC BY-SA 4.0 itself. This project derives no asset from it: it is measured, not sampled. assets/LICENSES.md carries the row and the same restriction, and tools/publish.sh does not copy data/sources/, so the file is not redistributed on the published site at all.",
+  "rights_checked": {
+    "date": "2026-08-15",
+    "method": "Wikimedia Commons API imageinfo/extmetadata for the file page: LicenseShortName 'CC BY-SA 4.0', License 'cc-by-sa-4.0', UsageTerms 'Creative Commons Attribution-Share Alike 4.0', LicenseUrl https://creativecommons.org/licenses/by-sa/4.0, AttributionRequired true, Restrictions empty, Credit 'Own work', Artist 'cassi saari (Hyperik)'. The file was then retrieved from upload.wikimedia.org and its SHA-1 compared to the SHA-1 the API reports for the page's current version - 0da00f1178e7790b04c05364d78f7cb6a43992ae, 3,251,548 bytes - so the committed bytes are provably the bytes the licence statement is attached to.",
+    "outcome": "cleared for verbatim redistribution with attribution; NOT cleared for asset derivation, which would carry the ShareAlike obligation. The project's CC0/CC-BY-only default in assets/LICENSES.md is deliberately excepted here and the exception is recorded there."
+  },
+  "asset_use": "cross_check",
+  "verified": true,
+  "access_notes": "Retrieved 2026-08-15 from Wikimedia Commons. EXIF: Samsung SM-G930V, 2018-07-24 09:32:25 local, 26 mm 35 mm-equivalent, f/1.7, 1/3225 s, ISO 50, orientation 1 (upright, unrotated). The camera's own timestamp corroborates the Commons DateTimeOriginal, which is what makes the July phenology first-hand rather than asserted.",
+  "note": "THE CALIBRATION REFERENCE. This is the photograph the renderer's sky is measured against - the file the world.js comments call 'bar/dupage_tallgrass_2018-07-24.jpg', which until now existed only in a working directory and in nobody's checkout. Committing it is what makes those numbers checkable.\n\nEvery figure world.js quotes was re-measured from THIS file on 2026-08-15 and reproduces (`python3 tools/measure_reference.py`). Sky/land step found per column by an 8-row luminance drop; median step row 820 of 3024. Band immediately above the step: measured sRGB (137,162,187) against the quoted (136,163,192). Sky by elevation, using the frame geometry below: 14.4 deg (97,151,208) against (101,153,209); 8 deg (119,163,206) against (125,165,205); 4 deg (133,166,201) against (137,166,200). The residual is a few units in red and blue, consistent with this re-measurement averaging the full frame width where the original sampled at the shot's own azimuth. Nothing in the renderer was changed to make them agree.\n\nTHE FRAME IS SOLVED, which is the part that outlives this record. The 26 mm equivalent gives a 53.1 deg vertical field over 3024 px = 57.0 px/deg, and the horizon sits at row 820, so the elevation of any pixel is (820 - row) / 57.0 degrees and the frame reaches 14.4 deg above the horizon and 38.7 deg below. That also lands the camera pitch at -12.1 deg, which was established independently by the 2026-08-10 prairie sweep as 'the reference photographer had tilted down ~12 deg' - two derivations of the same number that never saw each other.",
+  "what_it_supplies": [
+    "the July clear-sky colour of this latitude by elevation, in sRGB, over 0-14.4 deg above the horizon - the anchor for SKY_EXPOSURE and HORIZON_RESTORE in renderers/web/js/world.js",
+    "the horizon-sky colour distance converges on, sRGB (136,163,192), which terrain.js and world.js both use as the haze target",
+    "a real July tallgrass sward at a known sun elevation, for tree-mass and ground contrast comparisons measured through the same code that measures a render (tools/critic_metrics.mjs)",
+    "a solved frame: 57.0 px/deg vertical, horizon at row 820, so any future measurement can state the elevation it was taken at instead of guessing"
+  ],
+  "what_it_does_not_supply": [
+    "the flower load of unmanaged 1835 prairie - it is a RESTORATION PLANTING on a former agricultural field, and seed mixes are bought for being forb-rich. This photograph must not be quoted for that number. R-W4c(b1) CORRECTED THIS ENTRY on 2026-08-15: it previously said 'the 2026-08-10 sweep measured 12.91 % here against 1.79-5.54 % on a never-plowed remnant, and the honest target is 4-6 %', and neither figure survives checking. 12.91 % does not reproduce - the committed recipe (tools/critic_metrics.mjs) reads 5.54 % on this frame, 7.02 % on its nearest quarter and 25.82 % with its two tests reordered - and NO never-plowed remnant photograph is committed to this repository, so 1.79-5.54 % cites nothing. That sentence was the only place in data/sources/ where the remnant appeared, which is how a target came to rest on a source that does not exist. There is no 4-6 % target; see docs/ROADMAP.md R-W4c(b1) and run tools/measure_bloom_target.mjs",
+    "an anti-sun sky. The frame looks within about 19 deg of the sun's azimuth, and world.js records that fitting an azimuth term needs a SECOND verified July photograph shot away from the sun. This file is not it",
+    "the species composition of 1835 Chicago prairie - it is a modern planting in DuPage County, 50 km west of the scene, and the flora dataset is sourced from the plant lists, not from this frame",
+    "anything about 1835. It is a modern physical analogue used for calibration; its tier is a placement on this project's evidence scale, not a claim that it testifies to the scene date"
+  ]
+}

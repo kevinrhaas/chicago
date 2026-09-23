@@ -1,0 +1,29 @@
+{
+  "id": "chicago_architecture_history_115",
+  "type": "website",
+  "citation": "Schroeder, Ken. \"1.15 Improving the Mouth of the River.\" Chicago Architecture History, 9 February 2022.",
+  "author": "Ken Schroeder",
+  "date": "2022-02-09",
+  "describes_date": "1803-1840",
+  "url": "https://chicagoarchitecturehistory.com/2022/02/09/1-15-improving-the-mouth-of-the-river/",
+  "archived_url": "https://web.archive.org/web/20251206131901/https://chicagoarchitecturehistory.com/2022/02/09/1-15-improving-the-mouth-of-the-river/",
+  "tier": 4,
+  "rights_status": "check_required",
+  "asset_use": "cross_check",
+  "verified": true,
+  "note": "Carries the single most usable pair of elevation figures found for the original town site: the ground east of State Street lay nine to ten feet above the surface of the lake, while west of State Street it sloped down to the river in a level plain elevated only two to three feet above the river. Also the original soil profile of the business district (about 1 ft black loam over 3-4 ft of saturated fine sand over 8-12 ft of impervious blue clay) and the 1816 Long and 1830 Howard harbour proposals. Secondary synthesis by an architect-historian, not a primary survey. Read in full at its own locator on 2026-08-11, which established from the page what had previously been inferred from a quotation: it gives no citation for those figures or for any other, and carries no footnote, endnote or numbered reference anywhere in it — the entire apparatus is a closing 'Further reading' line naming Andreas, plus two image captions crediting Sprague (JSAH, December 1981) and Mayer and Wade. That is why every elevation derived from it in this project is tagged inferred rather than documented. It stays at tier 4 and nothing lifts it: `date` is the article's own publication date, so this record dates a document rather than a retrieval, and that document is a 2022 synthesis. It declares no `transcribes` for the reason given under what_it_does_not_supply — the one document it reprints, it will not name. See docs/RESEARCH/surface_materials_south_division.md.",
+  "access_notes": "Reached originally through docs/research/01-terrain-hydrology.md, which quotes it verbatim; re-fetched and read in full at its own locator on 2026-08-11 and checked against the Internet Archive capture of 2025-12-06 now recorded in archived_url — both copies carry every quoted passage and the same absent apparatus. What stood in archived_url until then was a Wayback WILDCARD search URL (/web/20240416000000*/), which resolves to a calendar of captures rather than to a capture. Nothing in this project checks what an archived_url resolves TO, so it passed every run; it was the only one of its kind in data/sources/.",
+  "what_it_supplies": [
+    "ground elevation of the plain west of State Street relative to the river",
+    "ground elevation of the ridge belt east of State Street relative to the lake",
+    "original soil profile of the business district",
+    "a verbatim quotation of John Mills Van Osdel, named on the page as Chicago's first architect, on the ground he built in: saturated sand that 'could not pass downward into the clay, nor laterally', and 'a majority of the earlier frame buildings rested on posts sunk through the quicksand to the clay'. He attests the ORDER of the strata and the failure of the ground to drain"
+  ],
+  "what_it_does_not_supply": [
+    "any contour or spot level",
+    "bank heights at the forks",
+    "a citation trail for its own elevation figures — nor for anything else on the page, which carries no references at all",
+    "an attribution for the Van Osdel quotation: no publication, no date, no page, which is why this record can declare no `transcribes` — that field's rung is a judgement about a named, dated document and the page names none",
+    "any witness for the three thicknesses in the soil profile — the foot of black loam, the three to four feet of quicksand and the eight to twelve feet of blue clay are the 2022 author's alone; Van Osdel gives no loam and no dimension"
+  ]
+}

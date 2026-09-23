@@ -1,0 +1,427 @@
+{
+  "schema": 1,
+  "issue_id": "chicago_democrat_1834_08_27",
+  "extracted": "2026-08-28",
+  "extracted_by": "hand, T-0290 — the Democrat read, August 1834",
+  "note": "Vol. I No. 39, the last of the month. THE FIRST STEAMBOAT IN A CHICAGO MARINE LIST IN THIS CORPUS clears for Michigan City here, eight days after the paper reported a hundred hands on the North Pier. Two claims are new trades for the town — a book and stationery store announced as opening on 26 August, and a clerk advertising himself through the post office — and one is the paper's own imprint, which places the Democrat at the corner of South Water and Clark streets nine months after the only other witness this project has for it. The issue also carries a St. Louis reward advertisement for a man held as a slave; it is extracted for what it is, and its subject is not minted as a person because the notice cuts his name after one letter. Page 3 columns 2 and 3 carry the town; pages 1, 2 and 4 are advertising, national reprint and the town ordinances, all of them woven two columns to a row.",
+  "claims": [
+    {
+      "kind": "shipping",
+      "normalized": "MARINE L[I]ST. PORT OF CHICAGO. [ARRIVED.] A[u]g. 21. S[l]oop Westward H[o], Banks, [Mil]wa[u]ke[e] / [2]1. S[chr.] […] [2]1. S. B. Michiga[n], Pe[a]se, O[s]we[g]o. / [2]1. B[r]i[g] Detroit, / [2]5. Sloop Lorain, Kimball, Cleave[land] / CLEARED. A[u]g. [2]3. Schr. Hi[r]am, Bas[s]e[tt], B[u]f[fa]lo. / [2]3. S. B. Michigan, Pease, Mich[igan] City, / 22. Schr. [uncertain: Hogain, Fr(?)] / 22. Sloop Dart, B[a]rnard, St. Jo[se]p[h] / Westward Ho, Banks, / [2]2. Sch[r.] J[uliet, Shooks,] Detroit / [Ju]liet, Shook[s] / Norton, Oliver, B[uffalo]",
+      "locator": {
+        "artifact_role": "primary",
+        "issue_page": 3,
+        "column": 2,
+        "lines": [
+          2670,
+          2705
+        ],
+        "lines_of_claim": [
+          2670,
+          2672,
+          2675,
+          2677,
+          2679,
+          2680,
+          2681,
+          2683,
+          2685,
+          2688,
+          2689,
+          2690,
+          2691,
+          2692,
+          2693,
+          2695,
+          2696,
+          2698,
+          2699,
+          2702,
+          2703,
+          2705
+        ],
+        "interleaved": true
+      },
+      "entities": [
+        {
+          "as_printed": "e5. Stoop Lorain, Kimball, Cleave",
+          "normalized": "Kimball",
+          "role": "master of the sloop Lorain"
+        },
+        {
+          "as_printed": "H1. s. B. Michigau, PensOevege.",
+          "normalized": "Pease",
+          "role": "master of the steamboat Michigan"
+        }
+      ],
+      "notes": "THE LAST MARINE LIST OF THE MONTH, AND THE FIRST STEAMBOAT IN IT: the S. B. Michigan, Pease master, in from Oswego on the 21st and out for Michigan City on the 23rd. A steamboat entering this port in August 1834 is a claim about the depth over the bar that the harbor editorial of 1834-08-13 (claim c002 there) was hoping for, and it arrives eight days after that editorial. The Westward Ho, the Dart, the Hiram and the Juliet are all repeat callers from the previous fortnight. THE COLUMN IS THE WORST-WOVEN OF THE FOUR marine lists — the political essay beside it puts a word on nearly every second line — so the dates arrive as 'H1.', 'e5.' and 'Ang. 93.' and are read from their positions in the sequence; each is bracketed.",
+      "reading": "transcription_mediated",
+      "id": "c001",
+      "quote": "MARINE LEST.\nPORT OF CHICAGO.\nAng. 21. Seop Westward He, Banks,\nwalker.\n[uncertain: 81. cr]\nH1. s. B. Michigau, PensOevege.\n31. Beli. Detroit,\ne5. Stoop Lorain, Kimball, Cleave\nCLEARED.\nAng. 93. Schr. Hizam, Basesst, Boftslo.\n[uncertain: eC. S. B.]\nCity,\nMichigan,\nPease,\nMich\n22. Schr.\nHogain, Fr\n22. Sloop Dart, Bernard, St. Joaopt\nWestward Ho, Banks,\n[uncertain: 2. Scir. Joine a Detroit]\naliet, Shook\nNorton, Oliver, Bias"
+    },
+    {
+      "kind": "business",
+      "normalized": "Chicago Wholesale and Ret[ail] Book & Stationary Store […] that they purpose opening a Store […] [an exten]sive and well [as]sorted stock of […] received from Philadelphia, and others from N[ew York …] [T]he store is in [uncertain: brontese and homeo havel] […] [uncertain: (New) York and Boston are asset surr] […] Chi[ca]go, Aug. 26, 1834.",
+      "locator": {
+        "artifact_role": "primary",
+        "issue_page": 3,
+        "column": 3,
+        "lines": [
+          2840,
+          2853
+        ],
+        "lines_of_claim": [
+          2840,
+          2842,
+          2844,
+          2846,
+          2848,
+          2849,
+          2851,
+          2853
+        ],
+        "interleaved": true
+      },
+      "ad_copy_date": {
+        "verbatim": "Chieugo, Aug. 26, 1834.",
+        "iso": "1834-08-26"
+      },
+      "entities": [],
+      "business": {
+        "name": "Chicago Wholesale and Retail Book & Stationary Store",
+        "proprietors": [],
+        "trade": "bookseller and stationer",
+        "goods": [
+          "books",
+          "stationery"
+        ],
+        "street": null,
+        "placement": {
+          "class": "none",
+          "anchor": null,
+          "offset_text": null,
+          "street": null
+        }
+      },
+      "notes": "A BOOKSELLER OPENS IN CHICAGO, DATED 26 AUGUST 1834 — 'Chicago Wholesale and Retail Book & Stationary Store', stock received from Philadelphia and New York, announced as a Store they 'purpose opening', which puts the trade in the town within days of this issue. THE PROPRIETORS ARE LOST with the woven half of the column, and so is the address: the line that should carry it reads 'lue store is in brontese and homeo havel', which is two columns of type on one row and is quoted here exactly as it stands rather than guessed at. THE CLAIM IS THE TRADE AND ITS DATE. A town that supports a stationer is a town with clerks, and the reconstruction's South Water and Lake frontages have had no bookseller on them. THE HOUSE IS RUSSELL & CLIFT, AND THIS ENTRY STILL STANDS APART FROM THEIRS ON PURPOSE (T-0327). This is the FIRST printing of the copartnership notice the firm signs “RUSSELL & CLIFT” a week later: 1834-09-03 page 3 column 3 carries the same heading, the same copy date “Chicago, Aug. 26, 1834”, the same body down to “received from Philadelphia, and others from New York and Boston”, and the two surnames this printing lost with the woven half of the column. The identity is therefore documented rather than guessed. It is NOT joined here, because joining it means declaring that two differently-named gazetteer entries are one firm, and the gazetteer has a declared merge rule for PERSONS only — `identity.json` — and none for firms. That gap is T-0304. Until it closes, this entry keeps the only name its own printing gives, and this note carries the relation.",
+      "reading": "transcription_mediated",
+      "id": "c002",
+      "quote": "Chicago Wholesale and Ret\nBook & Stationary Store\nthat they purpose opening a Store\nsive and well sasorted stock of\nreceived from Philadelphia, and others from N\nlue store is in brontese and homeo havel\n[uncertain: Pork and Boston are asset surr]\nChieugo, Aug. 26, 1834."
+    },
+    {
+      "kind": "event",
+      "normalized": "Attention!!! [An e]lection will be h[e]l[d] o[n] the third Saturday in Sep[tem]ber next, [at the] Mansion-House in Chi[cago], for two […] Battalion […] regiment in [Cook] [c]ounty […] [Oak] Woo[ds] […] [of] including the settlements i[n] [t]he [Des]plaines river and north [of Chi]cago, O[a]k Woods, and […] [the] o[th]er Battalion will co[mprise the rest] […] Aug. 26, 183[4]",
+      "locator": {
+        "artifact_role": "primary",
+        "issue_page": 3,
+        "column": 3,
+        "lines": [
+          2789,
+          2815
+        ],
+        "lines_of_claim": [
+          2789,
+          2791,
+          2792,
+          2793,
+          2794,
+          2796,
+          2797,
+          2799,
+          2801,
+          2802,
+          2803,
+          2806,
+          2807,
+          2809,
+          2810,
+          2811,
+          2812,
+          2815
+        ],
+        "interleaved": true
+      },
+      "ad_copy_date": {
+        "verbatim": "Ang. 26, 1831",
+        "iso": "1834-08-26"
+      },
+      "entities": [],
+      "notes": "THE COUNTY'S MILITIA REGIMENT IS BEING DIVIDED INTO TWO BATTALIONS, and the notice draws the line geographically: one battalion takes in the settlements on the DES PLAINES RIVER and NORTH OF CHICAGO and the OAK WOODS; the other takes the rest. THE ELECTION IS HELD AT HADDOCK'S MANSION-HOUSE — the third time in this month's run that the town's business is transacted in that building (the Board of Trustees' election notice of 1834-08-06, and the land auction of 1834-08-13, claim c007 there). For this reconstruction the Mansion House is the town's public room, and three separate notices in one month say so. 'OAK WOODS' also settles the supply made in the auction-store street claim of 1834-08-20 (c005 there).",
+      "reading": "transcription_mediated",
+      "id": "c003",
+      "quote": "Attention!!!\n[uncertain: selection will he hola]\nop the third Saturday in Sop\nMansion-House in\n, Chi\nber next, for two\nBattalion\nregiment in\nounty trot\nOak Woo\n• part of\nof including the settlements ir\nhe asapiain river and north\ncago,\nUnk Woods,\nand\nof'er Battalion will cor\nAng. 26, 1831"
+    },
+    {
+      "kind": "notice",
+      "normalized": "School Land Patents. A[L]L those having made payment in full […] [uncertain: Comr.] School Lands Coo[k] co. [A]ug. 20, 183[4].",
+      "locator": {
+        "artifact_role": "primary",
+        "issue_page": 3,
+        "column": 3,
+        "lines": [
+          2817,
+          2825
+        ],
+        "lines_of_claim": [
+          2817,
+          2819,
+          2820,
+          2823,
+          2825
+        ],
+        "interleaved": true
+      },
+      "ad_copy_date": {
+        "verbatim": "4ug. 20, 1831.",
+        "iso": "1834-08-20"
+      },
+      "entities": [],
+      "notes": "THE SCHOOL SECTION IS STILL BEING CONVEYED IN AUGUST 1834: the Commissioner of School Lands for Cook county calling in those who have paid in full to take their patents. Section 16 was sold off from 1833 and the lots in it are advertised through this whole run — 'Block 120, in the School Section' (1834-08-06, claim c015 there), 'Blocks in School Section Nos. 123, 125, 136, 126, 127 and 91' (1834-08-13, claim c007 there). This notice is the administrative other half of those sales and dates the patents to the same month. The heading and the signature survive; the body is cut away by the woven column and nothing of it is supplied.",
+      "reading": "transcription_mediated",
+      "id": "c004",
+      "quote": "School Land Patents.\nA\nI.L those having made payment in full\nComr. School Lands Cool co\n4ug. 20, 1831."
+    },
+    {
+      "kind": "notice",
+      "normalized": "[… ran away … a man of] the name of D[…] [on the] 15th inst[ant …] [uncertain: (a) ill face]: rather low of speech, and dra[wling …] very polite; had on when he r[an away …] Took with him a handsome four year old [horse,] [a]bout 15 hands one inch high, had no sho[es on …] [… a hundred dollars] reward will be paid to any p[erson] [w]ho will [t]ake up said horse and slave and retur[n them …] or one hundred […] without the ho[rs]e[…] WM. H. ASHLE[Y] [St.] Louis, A[ug]. 17, 1834.",
+      "locator": {
+        "artifact_role": "primary",
+        "issue_page": 3,
+        "column": 3,
+        "lines": [
+          2761,
+          2788
+        ],
+        "lines_of_claim": [
+          2763,
+          2764,
+          2768,
+          2771,
+          2772,
+          2773,
+          2777,
+          2779,
+          2780,
+          2782,
+          2783,
+          2784,
+          2785,
+          2786,
+          2788
+        ],
+        "interleaved": true
+      },
+      "ad_copy_date": {
+        "verbatim": "Louis, Ant. 17, 1834.",
+        "iso": "1834-08-17"
+      },
+      "entities": [
+        {
+          "as_printed": "WM. HI. ASHLE",
+          "normalized": "Wm. H. Ashley",
+          "role": "advertiser",
+          "associated_places": [
+            "St. Louis"
+          ]
+        }
+      ],
+      "notes": "A ST. LOUIS ADVERTISEMENT OFFERING A REWARD FOR A MAN HELD AS A SLAVE, PRINTED IN THIS TOWN'S NEWSPAPER IN AUGUST 1834. It is extracted because it is what the Democrat printed, and because a reconstruction whose standard is that a visitor can tell which parts we made up cannot quietly leave out the parts of the record that are hard to look at. WHAT IT STATES: a man escaped on the 15th instant, described by his speech and his manner; he took a four-year-old horse of about fifteen hands with no shoes; a reward is offered for the return of 'said horse and slave', with a lesser sum without the horse; it is signed Wm. H. Ashley and dated St. Louis, 17 August 1834. THE ADVERTISEMENT IS NOT ABOUT CHICAGO and nothing in it places anybody in this town — Illinois was a free state and this notice is a Missouri owner's, running in a lake-port paper because the escape route ran north. THE ESCAPED MAN'S NAME IS CUT AFTER ONE LETTER ('the name of D') and is NOT supplied. He is not minted as a person: this file will not put a man into a gazetteer under an initial an advertisement gave him.",
+      "reading": "transcription_mediated",
+      "id": "c005",
+      "quote": "the name of D\n15th inst\nill face: rather low of speech, and dra\nvery polite; had on when he r\nTook with him a handsome four year oid I\nbout 15 hands one inch high, had no shot\noe reward will be paid to\n*no will inke up said\nany p\nhorse and slave\nand retur\nor one hundred\nWithout the hore, did ai\nWM. HI. ASHLE\nLouis, Ant. 17, 1834."
+    },
+    {
+      "kind": "notice",
+      "normalized": "Wants[.] A SITUATION [a]s Clerk in a Dry Go[ods or] Grocery Store[, by] a young man who [is …] [uncertain: (acqu)ainted with the (business)] […] a good hand, and is well acquainted with [it …] Good refere[n]ces can be [g]iven. N. B. A letter addr[essed …] […] Post Office […] will be punctual[ly attended] to. A[u]g 23, 183[4].",
+      "locator": {
+        "artifact_role": "primary",
+        "issue_page": 3,
+        "column": 2,
+        "lines": [
+          2709,
+          2725
+        ],
+        "lines_of_claim": [
+          2709,
+          2711,
+          2712,
+          2713,
+          2714,
+          2715,
+          2716,
+          2718,
+          2720,
+          2722,
+          2723,
+          2724,
+          2725
+        ],
+        "interleaved": true
+      },
+      "ad_copy_date": {
+        "verbatim": "Ang 23, 1831.",
+        "iso": "1834-08-23"
+      },
+      "entities": [],
+      "notes": "A CLERK ADVERTISING HIMSELF, WHICH IS THE OTHER SIDE OF EVERY 'WANTED' NOTICE IN THIS RUN — the steam mill wanting a sawyer and an engineer, the printing office wanting journeymen. He asks to be written to THROUGH THE POST OFFICE, which is the town's only reliable address for a man with no shop of his own, and is the same office the postmaster's store stands beside (1834-08-13 claim c017, 1834-08-20 claim c007). The notice is woven with the marine list above it, so the applicant's name — if it was printed at all — does not survive.",
+      "reading": "transcription_mediated",
+      "id": "c006",
+      "quote": "Wants,\nA\nSITUATION se Clerk in a Dry Go\n[uncertain: tenurinted with the Merene Reameer]\nGrocery Store n vonny man who t\n[uncertain: heir forder particular ene this o]\na good hand, and is well acquainted with\nGood referetices can be risen.\nN. B. A letter addr\nPost Office\nwill be panctual\n[uncertain: SCueen to.]\nAng 23, 1831."
+    },
+    {
+      "kind": "building",
+      "normalized": "For Sale. [A] GOOD com[f]ortable D[welling …] contiguous to th[e …] Apply to [uncertain: (…) PRUY(NE)] [A]ug. [26].",
+      "locator": {
+        "artifact_role": "primary",
+        "issue_page": 3,
+        "column": 2,
+        "lines": [
+          2749,
+          2758
+        ],
+        "lines_of_claim": [
+          2749,
+          2752,
+          2754,
+          2756,
+          2757,
+          2758
+        ],
+        "interleaved": true
+      },
+      "entities": [],
+      "notes": "A DWELLING FOR SALE, PLACED BY WHAT IT STANDS NEXT TO AND NOTHING ELSE — 'contiguous to th[e …]' — and the noun is cut away with the column. THE CLAIM IS DELIBERATELY WEAK AND IS KEPT for the shape it records: this paper's ordinary way of placing a house in 1834 is by contiguity to something a reader already knows, and four of this month's five building notices do it (Fort Dearborn, the Post Office, the Presbyterian Church, the drawbridge). THE SELLER IS PROBABLY PRUYNE, whose name survives as 'PRUY' in the merged line; he advertises a school-section lot in the same run. It is marked uncertain and no business block is attached.",
+      "reading": "transcription_mediated",
+      "id": "c007",
+      "quote": "For Sale.\nGOOD constortable Do\ncontiguous to th\nApply to\n[uncertain: SERIOD GIVE PRUY]\ndug. Test."
+    },
+    {
+      "kind": "business",
+      "normalized": "[N]AILS — A consignment of 150 keg[s Eas]tern Nails, assor[t]ed [s]izes, for [sale at the store] corner of […] and [Cl]ar[k …] HUBBARD [& Co.]",
+      "locator": {
+        "artifact_role": "primary",
+        "issue_page": 3,
+        "column": 2,
+        "lines": [
+          2741,
+          2746
+        ],
+        "lines_of_claim": [
+          2741,
+          2742,
+          2743,
+          2744,
+          2745,
+          2746
+        ],
+        "interleaved": true
+      },
+      "entities": [],
+      "business": {
+        "name": "Hubbard & Co.",
+        "proprietors": [],
+        "trade": "commission and forwarding merchants",
+        "goods": [
+          "nails"
+        ],
+        "street": null,
+        "placement": {
+          "class": "corner",
+          "anchor": "a corner with Clark street, unread on this line",
+          "anchor_unread": true,
+          "offset_text": "corner of\nand char",
+          "offset_normalized": "corner of […] and [Cl]ar[k]",
+          "street": null
+        }
+      },
+      "notes": "A CORNER THIS PAPER GIVES AND THIS TRANSCRIPTION CANNOT FINISH: 'corner of' on one line, 'and char' on the next, with the first street lost between them. CLARK IS THE READING for 'char' — it is the cross street of every corner named in this run — and the other half is NOT supplied, so the placement's anchor says plainly that one of the two streets is unread. HUBBARD & CO. ARE PLACED ELSEWHERE IN THE CORPUS ('opposite to Fort Dearborn' in the 1834-07-02 run), so this may be a second store or a second reading, and the claim does not choose. THE CONSIGNMENT ITSELF IS THE OTHER HALF: 150 kegs of eastern nails, assorted sizes, landed in Chicago in August 1834 — the fastenings the balloon frame is made of, arriving by the keg.",
+      "reading": "transcription_mediated",
+      "id": "c008",
+      "quote": "AILS-A consignment of 150 keg\ntern Nails, assoried vizes,\nfor\ncorner of\nand char\nHUBBARD E"
+    },
+    {
+      "kind": "notice",
+      "normalized": "[T]HE DEM[OC]RAT [i]s published every Tuesday, in the [buildin]g […] [at] Chi[ca]go, Co[o]k co. Il[l]. […] corner of South Water and Clark st[r]ee[ts] […] TERMS. […] I. The Chicago Democrat is printed on an [im]perial sheet, and afforded to subscribers at [two dollars and fifty cents, payable in advance]",
+      "locator": {
+        "artifact_role": "primary",
+        "issue_page": 4,
+        "column": 6,
+        "lines": [
+          4442,
+          4456
+        ],
+        "lines_of_claim": [
+          4442,
+          4445,
+          4448,
+          4449,
+          4452,
+          4455,
+          4456
+        ],
+        "interleaved": true
+      },
+      "entities": [],
+      "business": {
+        "name": "The Chicago Democrat",
+        "proprietors": [
+          "John Calhoun"
+        ],
+        "trade": "newspaper and printing office",
+        "goods": [],
+        "street": "South Water Street",
+        "placement": {
+          "class": "corner",
+          "anchor": "the corner of South Water and Clark streets",
+          "offset_text": "[uncertain: Chiesgo, Cock co. I!l. in the balang o]\n[uncertain: corner of South Water and Clark stzee]",
+          "offset_normalized": "[at] Chi[ca]go, Co[o]k co. Il[l]. […] corner of South Water and Clark st[r]ee[ts]",
+          "street": "South Water Street"
+        }
+      },
+      "notes": "THE PAPER PLACES ITSELF, A SECOND TIME AND NINE MONTHS LATER THAN THE FIRST. This project's record for the Chicago Democrat office (data/structures/chicago_democrat_office.json) rests on the first issue of 1833-11-26 and on Andreas; the imprint at the foot of this issue says the paper was still printed at the CORNER OF SOUTH WATER AND CLARK STREETS in August 1834, which is what a second witness is for — it does not move the building, it dates the tenancy. THE IMPRINT ALSO PRICES THE PAPER: an imperial sheet, published every Tuesday, at two dollars fifty in advance (the figure is on line 4459, in the woven half, and is bracketed here rather than quoted). THE COLUMN CARRIES THE TOWN ORDINANCES woven through it line by line, which is why only seven of the fifteen lines in the range belong to this claim.",
+      "reading": "transcription_mediated",
+      "id": "c009",
+      "quote": "[uncertain: SHE DOMOBAT]\n[uncertain: Is published every Tuesday, in the siing]\n[uncertain: Chiesgo, Cock co. I!l. in the balang o]\n[uncertain: corner of South Water and Clark stzee]\nTERMS\n1. The Chicago Democrat is printed on an\n[uncertain: perial sheet, and afforded to subecribere at]"
+    },
+    {
+      "id": "c010",
+      "kind": "business",
+      "reading": "transcription_mediated",
+      "quote": "House and Land olgest.\n2%\nOTS purchased and Sold or by comm\nBuilding Lots for sale, in the towna",
+      "normalized": "House and Land [A]g[en]t. […] [L]OTS purchased and Sold or by comm[ission.] […] Building Lots for sale, in the town a[nd] [School section. …]",
+      "locator": {
+        "artifact_role": "primary",
+        "issue_page": 3,
+        "column": 4,
+        "lines": [
+          3036,
+          3039
+        ],
+        "lines_of_claim": [
+          3036,
+          3037,
+          3038,
+          3039
+        ],
+        "interleaved": true
+      },
+      "business": {
+        "name": "W. G. Blanchard",
+        "proprietors": [
+          "W. G. Blanchard"
+        ],
+        "trade": "house and land agent",
+        "goods": [],
+        "street": null,
+        "placement": {
+          "class": "none",
+          "anchor": null,
+          "offset_text": null,
+          "offset_normalized": null,
+          "street": null
+        }
+      },
+      "notes": "ONE IMPRESSION OF THE STANDING LAKE STREET LAND-AGENCY CARD. The Democrat sets this advertisement, word for word the same, in every issue from 1834-05-14 to 1834-10-01 — twenty consecutive weeks, eighteen of which set the line ‘purchased and Sold, or by commi[s]sion’ recognisably (T-1051). The card is identified by its copy and not by its display line: the same trade (‘House and Land Agent’), the same offer of building lots in the town and the School Section, the same houses to let, and the same office on Lake street opposite Dr. Temple's. Four lines of the card survive and the rest of it is gone: the display line, the houses to let and the whole address are not in this column. 3037 ('2%') is quoted where it stands because excluding it would hide the interleave, and the lot count it may be a fragment of is not read from it. THE PROPRIETOR'S NAME IS NOT READ HERE and none is supplied into the quote: the record's ‘W. G. Blanchard’ stands on T-0408's reading of the two impressions whose columns are NOT Tesseract fallbacks (1834-07-16 line 5527, 1834-09-17 line 3292) and on identity.json's declared firm merge, not on this impression. This printing is recorded as silent about placement."
+    }
+  ]
+}

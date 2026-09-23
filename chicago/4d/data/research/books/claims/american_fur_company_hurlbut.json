@@ -1,0 +1,812 @@
+{
+  "schema": 1,
+  "domain": "books",
+  "source_id": "chicago_antiquities_american_fur_co",
+  "_doc": "HAND-AUTHORED, T-0575. Hurlbut's Chicago Antiquities pages 28-36 - the chapter on the American Fur Company at Chicago - read as claims about the trade the town actually carried. THE CHAPTER HAS TWO VOICES AND EVERY CLAIM SAYS WHICH IT IS: Hurlbut compiling in 1881, and Gurdon S. Hubbard remembering inside quotation marks at sixty years' distance; a third layer, the Michilimackinac outfit book of 1821-22, is a period record printed verbatim. Nothing here is payload. No structure, asset, resident or household record was changed on this ticket, and the readings that argue for such a change are written as proposals in the ticket and in follow-on tickets, never done here. THE LATEST CHICAGO EVENT IN THE WHOLE CHAPTER IS 1828: under the ladder ratified 2026-09-03 a source later than 1835 corroborates, enriches and dates, and never makes an 1835 resident - and a source EARLIER than 1835 does not make one either. Every quote is rebuilt out of data/research/books/text/hurlbut_chicago_antiquities_28_36.txt by tools/research_domains.py --check and fails on one changed character.",
+  "generated_by": "hand - T-0575",
+  "claims": [
+    {
+      "id": "bk_afc_001",
+      "kind": "business",
+      "reading": "transcription_mediated",
+      "quote": "During the existence of the American\nFur Company , Chicago was at times the home or head-quarters of various of\nits agents; Hubbard, Beaubien, Crafts and the Kinzies, at least, sojourned here more or less.",
+      "normalized": "Hurlbut opens the chapter by naming the American Fur Company's Chicago men: Hubbard, Beaubien, Crafts and the Kinzies, who were at Chicago as its agents' home or head-quarters at various times, and none of whom he says was here throughout.",
+      "locator": {
+        "text_file": "hurlbut_chicago_antiquities_28_36.txt",
+        "spans": [
+          {
+            "line": 8,
+            "from": 0,
+            "to": 36
+          },
+          {
+            "line": 9,
+            "from": 0,
+            "to": 74
+          },
+          {
+            "line": 10,
+            "from": 0,
+            "to": 93
+          }
+        ],
+        "list": "hurlbut_chicago_antiquities_1881_pp28_36",
+        "page_range": "28-36",
+        "url": "https://genealogytrails.com/ill/americanfurco.html",
+        "original": "Henry H. Hurlbut, Chicago Antiquities (Chicago, 1881), pages 28-36. The transcription marks no page breaks, so the page WITHIN that range is not named."
+      },
+      "describes_date": "1817-1834 (the company's existence, as Hurlbut frames it; his Chicago detail runs 1818-1828)",
+      "entities": [
+        "American Fur Company",
+        "Hubbard",
+        "Beaubien",
+        "Crafts",
+        "the Kinzies"
+      ],
+      "town_finding": true,
+      "notes": "THE FOUR NAMES ARE BARE SURNAMES HERE AND NOTHING IS MERGED ON THEM: a surname-only merge is always a refusal in this project, and the refusals are written out in data/research/books/crosswalk.json. The chapter names three of the four in full further down - 'Gurdon S. Hubbard, Esq.', 'Jean Baptiste Beaubien', 'Mr. John Crafts' - and those namings, not this sentence, are what the merges rest on. 'the Kinzies' is plural and is never resolved: this project holds John Harris Kinzie, James Kinzie and Robert A. Kinzie as separate residents and the sentence chooses among none of them. Note also the limit Hurlbut puts on his own claim - 'sojourned here more or less' is not residence."
+    },
+    {
+      "id": "bk_afc_002",
+      "kind": "infrastructure",
+      "reading": "transcription_mediated",
+      "quote": "By the way of Chicago\nwas the thoroughfare to the Illinois, St. Louis and below.",
+      "normalized": "Chicago was the thoroughfare - the route - to the Illinois river, St. Louis and the country below.",
+      "locator": {
+        "text_file": "hurlbut_chicago_antiquities_28_36.txt",
+        "spans": [
+          {
+            "line": 10,
+            "from": 94,
+            "to": 115
+          },
+          {
+            "line": 11,
+            "from": 0,
+            "to": 58
+          }
+        ],
+        "list": "hurlbut_chicago_antiquities_1881_pp28_36",
+        "page_range": "28-36",
+        "url": "https://genealogytrails.com/ill/americanfurco.html",
+        "original": "Henry H. Hurlbut, Chicago Antiquities (Chicago, 1881), pages 28-36. The transcription marks no page breaks, so the page WITHIN that range is not named."
+      },
+      "describes_date": "1810s-1830s",
+      "entities": [
+        "Chicago",
+        "the Illinois",
+        "St. Louis"
+      ],
+      "town_finding": true,
+      "notes": "A statement about what Chicago WAS FOR in the fur-trade decades: a way through, not a destination. It is the same argument as bk_afc_003 seen from the other side, and together they are the size argument this ticket was opened for. It bears on the portage and river traffic the scene shows and on nothing that can be placed at a coordinate."
+    },
+    {
+      "id": "bk_afc_003",
+      "kind": "business",
+      "reading": "transcription_mediated",
+      "quote": "While Mackinaw had been for more than a century the\nstorehouse and great trading post of the fur dealers, Chicago was the port and point of a very limited district\nof distribution.",
+      "normalized": "Hurlbut's judgement of the fur trade at Chicago: Mackinac had been the fur dealers' storehouse and great trading post for more than a century, and Chicago was only the port and point of a very limited district of distribution.",
+      "locator": {
+        "text_file": "hurlbut_chicago_antiquities_28_36.txt",
+        "spans": [
+          {
+            "line": 11,
+            "from": 59,
+            "to": 110
+          },
+          {
+            "line": 12,
+            "from": 0,
+            "to": 111
+          },
+          {
+            "line": 13,
+            "from": 0,
+            "to": 16
+          }
+        ],
+        "list": "hurlbut_chicago_antiquities_1881_pp28_36",
+        "page_range": "28-36",
+        "url": "https://genealogytrails.com/ill/americanfurco.html",
+        "original": "Henry H. Hurlbut, Chicago Antiquities (Chicago, 1881), pages 28-36. The transcription marks no page breaks, so the page WITHIN that range is not named."
+      },
+      "describes_date": "1810s-1830s",
+      "entities": [
+        "Mackinaw",
+        "American Fur Company"
+      ],
+      "town_finding": true,
+      "notes": "SUPERSEDES gt_005 in data/research/genealogytrails/claims/town_findings_genealogytrails.json, which is the same sentence filed in passing while the site was being graded. It is not deleted there; it is marked superseded, and this is the full reading of it in the domain that owns books. HURLBUT IS THE ONE SPEAKING, in 1881, not Hubbard - a judgement written forty-six years after the scene, and filed as a judgement. Its weight comes from Hubbard agreeing with it independently at bk_afc_012 in his own words. It is a size argument about how much fur-trade apparatus the scene should show, and nothing moves on it without the reasoning going into docs/LIBERTIES.md."
+    },
+    {
+      "id": "bk_afc_004",
+      "kind": "person",
+      "reading": "transcription_mediated",
+      "quote": "Among those who proved their capability was Gurdon S. Hubbard, Esq. then\na youth of sixteen. He was born in Windsor, Vt., in 1802 and parents were Elizur and Abigail (Sage) Hubbard.\nMr. Hubbard left Montreal, were his parents then lived, May 13, 1818, reaching Mackinaw, July 4 and first arrived\nat Chicago on the last day of October or first day of November of that year.",
+      "normalized": "Gurdon S. Hubbard was among the Montreal clerks the American Fur Company brought to Mackinaw in 1817-18 who proved capable, then a youth of sixteen; born at Windsor, Vermont, in 1802 to Elizur and Abigail (Sage) Hubbard; left Montreal 13 May 1818, reached Mackinaw 4 July, and first arrived at Chicago on the last day of October or the first day of November 1818.",
+      "locator": {
+        "text_file": "hurlbut_chicago_antiquities_28_36.txt",
+        "spans": [
+          {
+            "line": 31,
+            "from": 39,
+            "to": 111
+          },
+          {
+            "line": 32,
+            "from": 0,
+            "to": 108
+          },
+          {
+            "line": 33,
+            "from": 0,
+            "to": 113
+          },
+          {
+            "line": 34,
+            "from": 0,
+            "to": 76
+          }
+        ],
+        "list": "hurlbut_chicago_antiquities_1881_pp28_36",
+        "page_range": "28-36",
+        "url": "https://genealogytrails.com/ill/americanfurco.html",
+        "original": "Henry H. Hurlbut, Chicago Antiquities (Chicago, 1881), pages 28-36. The transcription marks no page breaks, so the page WITHIN that range is not named."
+      },
+      "describes_date": "1818",
+      "entities": [
+        "Gurdon S. Hubbard",
+        "Elizur Hubbard",
+        "Abigail (Sage) Hubbard"
+      ],
+      "town_finding": true,
+      "notes": "THE MOST DIRECTLY USEFUL SENTENCE IN THE CHAPTER for a record this project already holds, and it is filed as a claim and acted on nowhere. data/residents/households/hh_hubbard_gurdon.json grades Hubbard's arrival year 1818 as RECONSTRUCTED and says so in as many words: 'the year could not be traced to a sentence here, so it is carried as a conjecture citing nothing and flagged for a later parcel to fix or delete.' This is that sentence, and it gives the day as well as the year. Changing the grade is a resident-record edit, which is not this ticket's demonstration; it is proposed in T-0575 and carries its own ticket. Note what it does NOT say: arriving at Chicago in 1818 is not residing at Chicago in 1835, and under the ladder ratified 2026-09-03 a source later than 1835 never makes an 1835 resident on its own. WHOSE VOICE THIS IS, since the resident record now rests on it: HURLBUT'S, not Hubbard's. The quotation marks in which Hubbard speaks open four lines further down at 'Having entire charge of the management of the company in the West'; everything here is the compiler writing in 1881 in the third person ('Mr. Hubbard left Montreal'), which is the rung-4 layer of this source record and not the rung-2 recollection. T-0594 spent the claim on that footing and graded the arrival inferred rather than attested for exactly this reason."
+    },
+    {
+      "id": "bk_afc_005",
+      "kind": "business",
+      "reading": "transcription_mediated",
+      "quote": "In 1828 he purchased of the Fur Company\ntheir entire interest in the trade of Illinois.",
+      "normalized": "In 1828 Gurdon S. Hubbard purchased the American Fur Company's entire interest in the trade of Illinois.",
+      "locator": {
+        "text_file": "hurlbut_chicago_antiquities_28_36.txt",
+        "spans": [
+          {
+            "line": 34,
+            "from": 77,
+            "to": 116
+          },
+          {
+            "line": 35,
+            "from": 0,
+            "to": 47
+          }
+        ],
+        "list": "hurlbut_chicago_antiquities_1881_pp28_36",
+        "page_range": "28-36",
+        "url": "https://genealogytrails.com/ill/americanfurco.html",
+        "original": "Henry H. Hurlbut, Chicago Antiquities (Chicago, 1881), pages 28-36. The transcription marks no page breaks, so the page WITHIN that range is not named."
+      },
+      "describes_date": "1828",
+      "entities": [
+        "Gurdon S. Hubbard",
+        "American Fur Company"
+      ],
+      "town_finding": true,
+      "notes": "SEVEN YEARS BEFORE THE SCENE THE ILLINOIS TRADE STOPPED BEING THE COMPANY'S. Whatever fur-trade apparatus stands in this town in 1835 is Hubbard's own business and not an outpost of a New York corporation, and a signboard or a card saying otherwise would be wrong. Read with bk_afc_013 - Astor sold out in 1834 - it is the second reason the words 'American Fur Company' should not appear anywhere in the 1835 scene."
+    },
+    {
+      "id": "bk_afc_006",
+      "kind": "shipping",
+      "reading": "transcription_mediated",
+      "quote": "These boats were the Canadian\nbatteaux, principally used in those days in transferring goods to upper St. Lawrence river and its tributaries,\nmanned by four oarsmen and a steersman, capacity about six tons.",
+      "normalized": "The company's boats were the Canadian batteaux then principally used to move goods on the upper St. Lawrence and its tributaries, manned by four oarsmen and a steersman, of about six tons capacity.",
+      "locator": {
+        "text_file": "hurlbut_chicago_antiquities_28_36.txt",
+        "spans": [
+          {
+            "line": 40,
+            "from": 82,
+            "to": 111
+          },
+          {
+            "line": 41,
+            "from": 0,
+            "to": 111
+          },
+          {
+            "line": 42,
+            "from": 0,
+            "to": 64
+          }
+        ],
+        "list": "hurlbut_chicago_antiquities_1881_pp28_36",
+        "page_range": "28-36",
+        "url": "https://genealogytrails.com/ill/americanfurco.html",
+        "original": "Henry H. Hurlbut, Chicago Antiquities (Chicago, 1881), pages 28-36. The transcription marks no page breaks, so the page WITHIN that range is not named."
+      },
+      "describes_date": "1817-1822",
+      "entities": [
+        "American Fur Company"
+      ],
+      "town_finding": false,
+      "notes": "town_finding is FALSE and the claim is filed anyway, which is what that field is for. Hubbard is describing the St. Lawrence and the Montreal-to-Mackinaw leg, not the Chicago river, and this project has no evidence that a batteau of this description was ever seen here. It is recorded because a six-ton boat with five men is the unit the whole trade was measured in, and a later run reaching for a scale of river craft should find the number already read rather than reach for the same page again."
+    },
+    {
+      "id": "bk_afc_007",
+      "kind": "building",
+      "reading": "transcription_mediated",
+      "quote": "Mr. John Crafts was a trader sent\nto Chicago by a Mr. Conant, of Detroit; was here at the (new) organization of the American Fur Company. His trading\nhouse was located about half a mile below Bridgeport, (\"Hardscrabble\" - the same premises, where in April\n1812, two murders were committed by the Indians) on the north side of the river, (south branch) and had, up to\n1819, full control of this section, without opposition from the American Fur Company, sending outfits to Rock River\nand other points within a range say of a hundred miles of Chicago.",
+      "normalized": "John Crafts was sent to Chicago as a trader by a Mr. Conant of Detroit and was here when the American Fur Company was newly organised. His trading house stood about half a mile below Bridgeport, at the premises called Hardscrabble where two murders were committed by Indians in April 1812, on the north side of the south branch of the river; and up to 1819 he had full control of this section without opposition from the company, sending outfits to Rock River and other points within about a hundred miles of Chicago.",
+      "locator": {
+        "text_file": "hurlbut_chicago_antiquities_28_36.txt",
+        "spans": [
+          {
+            "line": 57,
+            "from": 78,
+            "to": 111
+          },
+          {
+            "line": 58,
+            "from": 0,
+            "to": 115
+          },
+          {
+            "line": 59,
+            "from": 0,
+            "to": 105
+          },
+          {
+            "line": 60,
+            "from": 0,
+            "to": 110
+          },
+          {
+            "line": 61,
+            "from": 0,
+            "to": 115
+          },
+          {
+            "line": 62,
+            "from": 0,
+            "to": 66
+          }
+        ],
+        "list": "hurlbut_chicago_antiquities_1881_pp28_36",
+        "page_range": "28-36",
+        "url": "https://genealogytrails.com/ill/americanfurco.html",
+        "original": "Henry H. Hurlbut, Chicago Antiquities (Chicago, 1881), pages 28-36. The transcription marks no page breaks, so the page WITHIN that range is not named."
+      },
+      "describes_date": "circa 1816-1819",
+      "entities": [
+        "Mr. John Crafts",
+        "Mr. Conant",
+        "American Fur Company",
+        "Hardscrabble",
+        "Bridgeport"
+      ],
+      "town_finding": true,
+      "notes": "A BUILDING, PLACED IN PROSE, AND OUTSIDE THIS SCENE TWICE OVER. 'About half a mile below Bridgeport' is roughly four miles up the south branch from the town this project models, which is off the reconstruction's ground entirely; and the house is Crafts's up to 1819, sixteen years before the scene date. Nothing is drawn from it. What it is good for is the CATCHMENT: outfits to Rock River and 'within a range say of a hundred miles of Chicago' is a measured statement of how far the Chicago trade reached, and it is Hubbard's, not Hurlbut's. Note that 'Bridgeport' is the name of a place that did not exist in 1835 - Hubbard is locating a house of 1818 by a landmark of 1881, which is a habit of recollection this project should expect and not repeat."
+    },
+    {
+      "id": "bk_afc_008",
+      "kind": "building",
+      "reading": "transcription_mediated",
+      "quote": "In the fall of 1819, the company transferred\nJean Baptiste Beaubien from Milwaukee to this point, for the purpose of opposing Mr. Crafts. He erected his trading\nhouses at the mouth of Chicago River, then about the foot of Harrison Street.",
+      "normalized": "In the autumn of 1819 the American Fur Company moved Jean Baptiste Beaubien from Milwaukee to Chicago to oppose Crafts, and he built his trading houses at the mouth of the Chicago river, then about the foot of Harrison Street.",
+      "locator": {
+        "text_file": "hurlbut_chicago_antiquities_28_36.txt",
+        "spans": [
+          {
+            "line": 62,
+            "from": 67,
+            "to": 111
+          },
+          {
+            "line": 63,
+            "from": 0,
+            "to": 115
+          },
+          {
+            "line": 64,
+            "from": 0,
+            "to": 77
+          }
+        ],
+        "list": "hurlbut_chicago_antiquities_1881_pp28_36",
+        "page_range": "28-36",
+        "url": "https://genealogytrails.com/ill/americanfurco.html",
+        "original": "Henry H. Hurlbut, Chicago Antiquities (Chicago, 1881), pages 28-36. The transcription marks no page breaks, so the page WITHIN that range is not named."
+      },
+      "describes_date": "1819",
+      "entities": [
+        "Jean Baptiste Beaubien",
+        "Mr. Crafts",
+        "American Fur Company",
+        "Milwaukee"
+      ],
+      "town_finding": true,
+      "notes": "THE ONE PLACEMENT HERE THAT LANDS ON THIS PROJECT'S OWN GROUND, and it is a placement of 1819 and not of 1835. 'The mouth of Chicago River, THEN about the foot of Harrison Street' is Hurlbut telling his 1881 reader that the mouth had moved: the river ran south behind the beach bar before the 1834 harbour cut, and the old mouth is about a mile south of the new one. That agrees with what this project already models and is a corroboration of the pre-cut river mouth from a source it was not taken from. It is NOT evidence for any structure standing in 1835: sixteen years and a rebuilt river separate the two, and data/residents/households/hh_beaubien_jean_baptiste.json already places Beaubien at jb_beaubien_homestead by 1835 on Andreas. Nothing is drawn, moved or added."
+    },
+    {
+      "id": "bk_afc_009",
+      "kind": "building",
+      "reading": "transcription_mediated",
+      "quote": "In 1822, Crafts succumbed, and engaged\nhimself to the American Fur Company bought from the U.S. the Factory House, located just south of Fort Dearborn,\nto which Beaubien removed his family.",
+      "normalized": "In 1822 Crafts gave way and engaged himself to the American Fur Company, which bought the Factory House from the United States - it stood just south of Fort Dearborn - and Beaubien moved his family into it.",
+      "locator": {
+        "text_file": "hurlbut_chicago_antiquities_28_36.txt",
+        "spans": [
+          {
+            "line": 64,
+            "from": 78,
+            "to": 116
+          },
+          {
+            "line": 65,
+            "from": 0,
+            "to": 112
+          },
+          {
+            "line": 66,
+            "from": 0,
+            "to": 37
+          }
+        ],
+        "list": "hurlbut_chicago_antiquities_1881_pp28_36",
+        "page_range": "28-36",
+        "url": "https://genealogytrails.com/ill/americanfurco.html",
+        "original": "Henry H. Hurlbut, Chicago Antiquities (Chicago, 1881), pages 28-36. The transcription marks no page breaks, so the page WITHIN that range is not named."
+      },
+      "describes_date": "1822",
+      "entities": [
+        "Mr. Crafts",
+        "American Fur Company",
+        "Jean Baptiste Beaubien",
+        "Factory House",
+        "Fort Dearborn"
+      ],
+      "town_finding": true,
+      "notes": "THE HOUSE THIS PROJECT CALLS jb_beaubien_homestead, thirteen years before the scene, and the sentence names its origin: it was the United States factory (the government trading house), sold to the American Fur Company in 1822, and Beaubien moved into it. docs/RESEARCH/jb_beaubien_homestead.md is the file that should carry this. Hurlbut's sentence is ungrammatical as transcribed - 'engaged himself to the American Fur Company bought from the U.S. the Factory House' - and the reading above supplies the missing 'which', which is exactly why the verbatim quote is kept beside it. NOTHING IS CHANGED IN THE STRUCTURE RECORD ON THIS TICKET; the proposal is written into T-0575."
+    },
+    {
+      "id": "bk_afc_010",
+      "kind": "person",
+      "reading": "transcription_mediated",
+      "quote": "Crafts died here of bilious fever in December, of I think the year 1823.",
+      "normalized": "Crafts died at Chicago of bilious fever in December, Hubbard thinks of the year 1823.",
+      "locator": {
+        "text_file": "hurlbut_chicago_antiquities_28_36.txt",
+        "spans": [
+          {
+            "line": 66,
+            "from": 38,
+            "to": 110
+          }
+        ],
+        "list": "hurlbut_chicago_antiquities_1881_pp28_36",
+        "page_range": "28-36",
+        "url": "https://genealogytrails.com/ill/americanfurco.html",
+        "original": "Henry H. Hurlbut, Chicago Antiquities (Chicago, 1881), pages 28-36. The transcription marks no page breaks, so the page WITHIN that range is not named."
+      },
+      "describes_date": "1823-12 (as recalled, with the source's own 'I think')",
+      "entities": [
+        "Mr. Crafts"
+      ],
+      "town_finding": true,
+      "notes": "A DEATH AT CHICAGO, AND THE SOURCE HEDGES ITS OWN DATE. It matters twice. First, it is why no John Crafts is in the 1835 town and none should be added: he was twelve years dead. Second, it CONFLICTS with the only other reading this project holds of the same death - data/research/old_settlers/death_notices.json fdn0137 prints 'Crafts, John, died 1825.' out of Fergus's obituary of the old settlers. Two years apart, one a recollection carrying 'I think' and one a printed list. THIS READING DOES NOT ADJUDICATE BETWEEN THEM: both are recorded, the disagreement is stated in the crosswalk, and neither man enters the town."
+    },
+    {
+      "id": "bk_afc_011",
+      "kind": "person",
+      "reading": "transcription_mediated",
+      "quote": "Up to this date, Mr. John Kinzie was not in any business connected with the American Fur Company, but confined\nhimself to his trade, silversmith, making Indian trinkets. At the death of Mr. Crafts, he acted as agent for the\nAmerican Fur Company. He had no goods, as Mr. Beaubien bought out the Company's right of trade with the Indians.",
+      "normalized": "Up to Crafts's death John Kinzie had no business connected with the American Fur Company and kept to his trade of silversmith, making Indian trinkets; at Crafts's death he acted as the company's agent, but had no goods, because Beaubien had bought out the company's right of trade with the Indians.",
+      "locator": {
+        "text_file": "hurlbut_chicago_antiquities_28_36.txt",
+        "spans": [
+          {
+            "line": 67,
+            "from": 0,
+            "to": 110
+          },
+          {
+            "line": 68,
+            "from": 0,
+            "to": 112
+          },
+          {
+            "line": 69,
+            "from": 0,
+            "to": 112
+          }
+        ],
+        "list": "hurlbut_chicago_antiquities_1881_pp28_36",
+        "page_range": "28-36",
+        "url": "https://genealogytrails.com/ill/americanfurco.html",
+        "original": "Henry H. Hurlbut, Chicago Antiquities (Chicago, 1881), pages 28-36. The transcription marks no page breaks, so the page WITHIN that range is not named."
+      },
+      "describes_date": "circa 1822-1823",
+      "entities": [
+        "Mr. John Kinzie",
+        "Mr. Crafts",
+        "American Fur Company",
+        "Mr. Beaubien"
+      ],
+      "town_finding": true,
+      "notes": "THIS IS JOHN KINZIE THE ELDER, WHO DIED IN 1828, AND HE IS NOT John Harris Kinzie, WHO IS IN THIS TOWN. The two are father and son, they share a surname and a given name, and conflating them is the standard error about early Chicago; the refusal is written out in data/research/books/crosswalk.json rather than left as silence. The reading itself is an OCCUPATION, and a specific one - silversmith, making Indian trinkets - for a man this project does not model, in a trade it shows nowhere. Filed as a town finding because it says what the Chicago trade actually consisted of: a silversmith with no goods, acting as agent for a company whose right of trade somebody else had bought."
+    },
+    {
+      "id": "bk_afc_012",
+      "kind": "business",
+      "reading": "transcription_mediated",
+      "quote": "By this Time there was a very limited trade there; in fact, this place never had been preeminent as a trading-post,\nas this was not the Indian hunting-ground.",
+      "normalized": "Hubbard's own judgement: by about 1823 the trade at Chicago was very limited, and in fact Chicago had never been preeminent as a trading post, because this was not the Indians' hunting ground.",
+      "locator": {
+        "text_file": "hurlbut_chicago_antiquities_28_36.txt",
+        "spans": [
+          {
+            "line": 70,
+            "from": 0,
+            "to": 115
+          },
+          {
+            "line": 71,
+            "from": 0,
+            "to": 42
+          }
+        ],
+        "list": "hurlbut_chicago_antiquities_1881_pp28_36",
+        "page_range": "28-36",
+        "url": "https://genealogytrails.com/ill/americanfurco.html",
+        "original": "Henry H. Hurlbut, Chicago Antiquities (Chicago, 1881), pages 28-36. The transcription marks no page breaks, so the page WITHIN that range is not named."
+      },
+      "describes_date": "circa 1823, and retrospectively the whole period before it",
+      "entities": [
+        "American Fur Company"
+      ],
+      "town_finding": true,
+      "notes": "THE STRONGEST FORM OF THE SIZE ARGUMENT IN THE CHAPTER, and the reason the ticket was worth a run. It is not Hurlbut the compiler but Gurdon S. Hubbard, inside quotation marks, and Hubbard ran the Illinois trade - the man best placed to overstate it says it was never much. It agrees with bk_afc_003 from a different mouth. What follows for the reconstruction is a QUESTION and not an instruction: how much fur-trade apparatus - packs, presses, warehouse frontage, signboards naming the trade - should a town of 1835 show if the trade was small in 1823 and Hubbard had bought its Illinois interest out in 1828. Nothing here answers it and nothing was changed; the answer belongs in docs/LIBERTIES.md with its reasoning, and it has its own ticket."
+    },
+    {
+      "id": "bk_afc_013",
+      "kind": "business",
+      "reading": "transcription_mediated",
+      "quote": "In 1834, Mr. Astor, being advanced in\nyears, sold out the stock of the company, and transferred the charter to Ramsey Crooks and his associates, whereupon\nMr. C. was elected president of the company. Reverses, however, compelled an assignment in 1842 and with it the\ndeath of the American Fur Company.",
+      "normalized": "In 1834 Astor, being old, sold the company's stock and transferred the charter to Ramsey Crooks and his associates, and Crooks was elected president; reverses forced an assignment in 1842 and with it the death of the American Fur Company.",
+      "locator": {
+        "text_file": "hurlbut_chicago_antiquities_28_36.txt",
+        "spans": [
+          {
+            "line": 88,
+            "from": 74,
+            "to": 111
+          },
+          {
+            "line": 89,
+            "from": 0,
+            "to": 116
+          },
+          {
+            "line": 90,
+            "from": 0,
+            "to": 111
+          },
+          {
+            "line": 91,
+            "from": 0,
+            "to": 34
+          }
+        ],
+        "list": "hurlbut_chicago_antiquities_1881_pp28_36",
+        "page_range": "28-36",
+        "url": "https://genealogytrails.com/ill/americanfurco.html",
+        "original": "Henry H. Hurlbut, Chicago Antiquities (Chicago, 1881), pages 28-36. The transcription marks no page breaks, so the page WITHIN that range is not named."
+      },
+      "describes_date": "1834, with the company's end in 1842",
+      "entities": [
+        "John Jacob Astor",
+        "Ramsey Crooks",
+        "American Fur Company"
+      ],
+      "town_finding": true,
+      "notes": "THE ONLY SENTENCE IN THE CHAPTER THAT TOUCHES THE YEAR BEFORE THE SCENE. In 1835 the American Fur Company still existed and was seven years from its assignment, but Astor was out of it and it had been under Crooks for a year. With bk_afc_005 - Hubbard bought the Illinois interest in 1828 - it settles what this town may say about the company: nothing about Astor, nothing about a company house here, and no signboard bearing the name."
+    },
+    {
+      "id": "bk_afc_014",
+      "kind": "shipping",
+      "reading": "transcription_mediated",
+      "quote": "Consignment to address of Jamie Kinzie for account of him and the American Fur Company;\nfor trade of Milliwaki, to Chicago.\nShipped per Schooner Ann, Capt. Ransom from Michilimackinac, to Chicago. 13 Sept., 1821.",
+      "normalized": "An outfit consigned to James Kinzie, for the joint account of himself and the American Fur Company, for the trade of Milwaukee, sent to Chicago; shipped from Michilimackinac in the schooner Ann, Captain Ransom, on 13 September 1821.",
+      "locator": {
+        "text_file": "hurlbut_chicago_antiquities_28_36.txt",
+        "spans": [
+          {
+            "line": 158,
+            "from": 0,
+            "to": 87
+          },
+          {
+            "line": 159,
+            "from": 0,
+            "to": 35
+          },
+          {
+            "line": 160,
+            "from": 0,
+            "to": 88
+          }
+        ],
+        "list": "hurlbut_chicago_antiquities_1881_pp28_36",
+        "page_range": "28-36",
+        "url": "https://genealogytrails.com/ill/americanfurco.html",
+        "original": "Henry H. Hurlbut, Chicago Antiquities (Chicago, 1881), pages 28-36. The transcription marks no page breaks, so the page WITHIN that range is not named."
+      },
+      "describes_date": "1821-09-13",
+      "entities": [
+        "Jamie Kinzie",
+        "American Fur Company",
+        "Schooner Ann",
+        "Capt. Ransom",
+        "Milliwaki"
+      ],
+      "town_finding": true,
+      "notes": "A DATED VESSEL ARRIVAL AT CHICAGO, out of the company's own invoice book and not out of anybody's memory - the best-evidenced thing in the chapter. It is fourteen years before the scene and no vessel is added to anything. Its value is that it is a NAMED SHIP with a NAMED MASTER on a NAMED DAY at this port, which is the shape of evidence this project's shipping records are built from, and the schooner Ann and Capt. Ransom appear nowhere else in it. The orthography is the transcription's and the invoice book's: 'Jamie Kinzie', 'Milliwaki'. Hurlbut's own bracketed gloss identifies the consignee - see bk_afc_015."
+    },
+    {
+      "id": "bk_afc_015",
+      "kind": "person",
+      "reading": "transcription_mediated",
+      "quote": "[The late James Kinzie, formerly of Chicago, and half brother of the late John\nH. Kinzie.]",
+      "normalized": "Hurlbut's bracketed note: the consignee was the late James Kinzie, formerly of Chicago, half brother of the late John H. Kinzie.",
+      "locator": {
+        "text_file": "hurlbut_chicago_antiquities_28_36.txt",
+        "spans": [
+          {
+            "line": 161,
+            "from": 0,
+            "to": 78
+          },
+          {
+            "line": 162,
+            "from": 0,
+            "to": 11
+          }
+        ],
+        "list": "hurlbut_chicago_antiquities_1881_pp28_36",
+        "page_range": "28-36",
+        "url": "https://genealogytrails.com/ill/americanfurco.html",
+        "original": "Henry H. Hurlbut, Chicago Antiquities (Chicago, 1881), pages 28-36. The transcription marks no page breaks, so the page WITHIN that range is not named."
+      },
+      "describes_date": "1821 (the consignment); the note is Hurlbut writing in 1881, after both men were dead",
+      "entities": [
+        "James Kinzie",
+        "John H. Kinzie"
+      ],
+      "town_finding": true,
+      "notes": "HURLBUT'S OWN IDENTIFICATION, and it is what carries 'Jamie Kinzie' in the invoice book to a man. It also states a relationship between two people this project models as separate residents - hh_kinzie_james and hh_kinzie_john_h - and the relationship is HALF brother, which is the correct and easily-lost form: they had the same father and different mothers. The merge of the invoice spelling to the named man is written in the crosswalk. Nothing in data/residents/ was edited by this reading ON T-0575; T-0597 then spent it, writing the half-brother relationship onto kinzie_james and kinzie_john_h as a cited book_evidence row quoting this claim, at rung G5 — no grade, arrival, placement or membership moved. The relationship ITSELF is the reciprocal `kin` row T-0704 added to both households on the strength of this claim; the book_evidence row is the reading that row cites."
+    },
+    {
+      "id": "bk_afc_016",
+      "kind": "person",
+      "reading": "transcription_mediated",
+      "quote": "Jean Bt. Beaubien, for his trade at Milliwakie.\n[The late Col. J.B. Beaubien, of Chicago.]",
+      "normalized": "An outfit to Jean Bt. Beaubien for his trade at Milwaukee, with Hurlbut's bracketed note that this is the late Col. J. B. Beaubien of Chicago.",
+      "locator": {
+        "text_file": "hurlbut_chicago_antiquities_28_36.txt",
+        "spans": [
+          {
+            "line": 185,
+            "from": 0,
+            "to": 47
+          },
+          {
+            "line": 186,
+            "from": 0,
+            "to": 42
+          }
+        ],
+        "list": "hurlbut_chicago_antiquities_1881_pp28_36",
+        "page_range": "28-36",
+        "url": "https://genealogytrails.com/ill/americanfurco.html",
+        "original": "Henry H. Hurlbut, Chicago Antiquities (Chicago, 1881), pages 28-36. The transcription marks no page breaks, so the page WITHIN that range is not named."
+      },
+      "describes_date": "1822 (the outfit is undated on the page and sits among entries of 1822); the note is Hurlbut writing in 1881",
+      "entities": [
+        "Jean Bt. Beaubien",
+        "Col. J.B. Beaubien",
+        "Milliwakie"
+      ],
+      "town_finding": true,
+      "notes": "THE COMPANY'S OWN BOOK NAMING BEAUBIEN, three years after it had moved him to Chicago, still outfitting him for MILWAUKEE. Hurlbut's gloss - 'The late Col. J.B. Beaubien, of Chicago' - is the same title this project's resident record carries, 'Col. Jean Baptiste Beaubien'. The entry is undated in the transcription; the entries either side of it are of 1822 and the describes_date says so rather than asserting a day the page does not give."
+    },
+    {
+      "id": "bk_afc_017",
+      "kind": "person",
+      "reading": "transcription_mediated",
+      "quote": "William H. Wallace for trade of Lower Wasbash and its dep. 22 August, 1821.\n[This gentleman was a Scotchman, and it understood to have died in Chicago about\n1826.",
+      "normalized": "An outfit to William H. Wallace for the trade of the lower Wabash, 22 August 1821, with Hurlbut's note that Wallace was a Scotchman understood to have died in Chicago about 1826.",
+      "locator": {
+        "text_file": "hurlbut_chicago_antiquities_28_36.txt",
+        "spans": [
+          {
+            "line": 135,
+            "from": 0,
+            "to": 75
+          },
+          {
+            "line": 136,
+            "from": 0,
+            "to": 80
+          },
+          {
+            "line": 137,
+            "from": 0,
+            "to": 5
+          }
+        ],
+        "list": "hurlbut_chicago_antiquities_1881_pp28_36",
+        "page_range": "28-36",
+        "url": "https://genealogytrails.com/ill/americanfurco.html",
+        "original": "Henry H. Hurlbut, Chicago Antiquities (Chicago, 1881), pages 28-36. The transcription marks no page breaks, so the page WITHIN that range is not named."
+      },
+      "describes_date": "1821 (the outfit); circa 1826 (the death)",
+      "entities": [
+        "William H. Wallace"
+      ],
+      "town_finding": true,
+      "notes": "A DEATH AT CHICAGO NINE YEARS BEFORE THE SCENE, and Hurlbut hedges it himself - 'it understood to have died in Chicago about 1826'. Recorded because a named man dying at a town of a few dozen households is worth having on file, and because this project holds no William H. Wallace at all: nothing is added. The bracketed note goes on to say a manuscript of his 1810 journey to the Northwest coast was deposited with the Chicago Historical Society, which means it burned in 1871; that half of the note is not quoted here because it is about a document and not about the town."
+    },
+    {
+      "id": "bk_afc_018",
+      "kind": "business",
+      "reading": "transcription_mediated",
+      "quote": "We will close this article by giving a catalogue of goods furnished for trade of the\nChicago country, fifty-three years ago:\nArm bands, blankets, broad cord, blue cloth, brown Russia sheeting, blue bernagore handkerchiefs,\nblack silk do., black ribbon, boxwood combs, barrel biscuit, black bottles, boys' roram hats, brass jewsharps,\nbeads, blue cloth, trwers, blue cloth capotes, beaver shot, balls, black wampum, barrel salt, colored ribbon, colored\ngartering, crimson bed-lace, cartouche knives, colored cock feathers, cod lines, colored worsted thread, cotton-wick\nballs, cow bells, covered copper kettles, common needles, cotton bandanna handkerchiefs, duck shot, darning needles,\nembossed serge, English playing cards, embossed brooches, ear wheels, furniture cotton, fox tail feathers, flour,\nfine steels, gun flints, girls' worsted hose, gorgets, gunpowder, gurrahs, highland striped gartering, hawk's bills,\nhair trucks, half axes, highwines, hose hand sleds, Irish lines, Indian calico handkerchiefs, ingrain ribbon, ivory\ncombs, ingrain worsted thread, ink powder, japanned quart jacks, kettle chains, knee straps, London scots gartering,\nlarge round ear bobs, looking glasses, mock garnets, maitre de rels, men's shirts, men's imitation beaver hats,\nmoon paper, narrow cord, nun's thread, nails, northwest guns, printed cotton shawls, plain bath rings, pen knives,\npierced brooches, portage collars, pepper, pins, pipes, pork, scarlet cloth, shoes, spotted swan skin, silk ferrets,\nscarlet milled caps, scalping knives, St. Lawrence shells, stone rings, sturgeon twine, stitching thread, snuff,\nsnuff boxes, snaffle bridles, stirrup irons, two sheeting, therick, tomahawks, tobacco, vermillion, white crash\nbrushes, white molton, waist straps, white wampum, whiskey.",
+      "normalized": "Hurlbut closes the chapter with a catalogue of the goods furnished for the trade of the Chicago country fifty-three years before he wrote - about 1828 - running to roughly 130 named articles, from arm bands and blankets through northwest guns and scalping knives to vermillion, wampum and whiskey.",
+      "locator": {
+        "text_file": "hurlbut_chicago_antiquities_28_36.txt",
+        "spans": [
+          {
+            "line": 195,
+            "from": 0,
+            "to": 84
+          },
+          {
+            "line": 196,
+            "from": 0,
+            "to": 39
+          },
+          {
+            "line": 197,
+            "from": 0,
+            "to": 97
+          },
+          {
+            "line": 198,
+            "from": 0,
+            "to": 110
+          },
+          {
+            "line": 199,
+            "from": 0,
+            "to": 117
+          },
+          {
+            "line": 200,
+            "from": 0,
+            "to": 116
+          },
+          {
+            "line": 201,
+            "from": 0,
+            "to": 116
+          },
+          {
+            "line": 202,
+            "from": 0,
+            "to": 113
+          },
+          {
+            "line": 203,
+            "from": 0,
+            "to": 116
+          },
+          {
+            "line": 204,
+            "from": 0,
+            "to": 115
+          },
+          {
+            "line": 205,
+            "from": 0,
+            "to": 116
+          },
+          {
+            "line": 206,
+            "from": 0,
+            "to": 111
+          },
+          {
+            "line": 207,
+            "from": 0,
+            "to": 114
+          },
+          {
+            "line": 208,
+            "from": 0,
+            "to": 116
+          },
+          {
+            "line": 209,
+            "from": 0,
+            "to": 112
+          },
+          {
+            "line": 210,
+            "from": 0,
+            "to": 111
+          },
+          {
+            "line": 211,
+            "from": 0,
+            "to": 59
+          }
+        ],
+        "list": "hurlbut_chicago_antiquities_1881_pp28_36",
+        "page_range": "28-36",
+        "url": "https://genealogytrails.com/ill/americanfurco.html",
+        "original": "Henry H. Hurlbut, Chicago Antiquities (Chicago, 1881), pages 28-36. The transcription marks no page breaks, so the page WITHIN that range is not named."
+      },
+      "describes_date": "circa 1828 (fifty-three years before the 1881 printing; the arithmetic is this project's, and Hurlbut may have drafted the essay earlier than he printed it)",
+      "entities": [
+        "American Fur Company",
+        "the Chicago country"
+      ],
+      "town_finding": true,
+      "notes": "WHAT AN INDIAN-TRADE STORE AT CHICAGO ACTUALLY HELD, itemised, from the company's own book. It is the best answer in the chapter to a question the reconstruction currently settles by feel: cloth, blankets, capotes and hats; guns, flints, powder, ball and shot; kettles, axes, knives, needles, thread and awls; beads, brooches, gorgets, arm bands, wampum, ear bobs, looking glasses and vermillion; and flour, pork, salt, pepper, biscuit, snuff, tobacco, highwines and whiskey. Two things it is not. It is 1828 and not 1835, seven years and one treaty before the scene, and Hurlbut says it is for 'the trade of the Chicago country' - a district, not a shop on South Water Street. Nothing is modelled or lettered from it here; the proposal is in T-0575."
+    },
+    {
+      "id": "bk_afc_019",
+      "kind": "price",
+      "reading": "transcription_mediated",
+      "quote": "we need suggest no comparison with the Agency dwelling of the\nAmerican Fur Company at Mackinaw, where the expenses charged for the year 1821 were only $678.49. in that account;\nhowever, we notice the following entries: 31 ¼ gallons Tenerifte Wine; 4 ½ gallons Port Wine; 10\ngallons best Madeira; 70 ½ gallons Red wine; nine gallons brandy; one barrel flour.",
+      "normalized": "Hurlbut's aside on the Mackinaw agency dwelling: its charged expenses for 1821 were only $678.49, and that account nevertheless includes 31 1/4 gallons of Teneriffe wine, 4 1/2 of port, 10 of best Madeira, 70 1/2 of red wine, nine gallons of brandy and one barrel of flour.",
+      "locator": {
+        "text_file": "hurlbut_chicago_antiquities_28_36.txt",
+        "spans": [
+          {
+            "line": 191,
+            "from": 40,
+            "to": 101
+          },
+          {
+            "line": 192,
+            "from": 0,
+            "to": 114
+          },
+          {
+            "line": 193,
+            "from": 0,
+            "to": 96
+          },
+          {
+            "line": 194,
+            "from": 0,
+            "to": 83
+          }
+        ],
+        "list": "hurlbut_chicago_antiquities_1881_pp28_36",
+        "page_range": "28-36",
+        "url": "https://genealogytrails.com/ill/americanfurco.html",
+        "original": "Henry H. Hurlbut, Chicago Antiquities (Chicago, 1881), pages 28-36. The transcription marks no page breaks, so the page WITHIN that range is not named."
+      },
+      "describes_date": "1821",
+      "entities": [
+        "American Fur Company",
+        "Mackinaw"
+      ],
+      "town_finding": false,
+      "notes": "town_finding is FALSE: this is the Mackinaw agency house and not Chicago, and nothing in it may be read across. It is filed because it is the only PRICED line in the chapter and because the ratio in it - 125 gallons of wine and spirits against one barrel of flour, inside a year's expenses of $678.49 - is a calibration a later run may want when it asks what a company house was and what it was for. If it is ever used for Chicago it will be an invention and will belong in docs/LIBERTIES.md."
+    }
+  ]
+}

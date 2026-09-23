@@ -1,0 +1,1840 @@
+{
+ "schema": 1,
+ "familysearch_id": "33S7-9YYJ-6H",
+ "image": "chicago/reference/census1840/33S7-9YYJ-6H.jpg",
+ "printed_page": null,
+ "printed_page_note": "no printed page number is legible on this exposure; a continuation sheet's number sits in the top corner the binding takes. Recorded as unknown, not inferred from the ids around it — the sorted filename order is not the book order.",
+ "sheet_side": "right",
+ "division": "S. W. Sherman (as written in the printed heading)",
+ "state": "Illinois",
+ "county": "Cook",
+ "reading": "scan_verified",
+ "read_pass": "the line index fitted to the industry ink at 31 lines, and the TOTAL column read against it line by line: 32 glyph groups placed on 29 of the 31 lines, 27 numbers committed, two lines blank and two glyphs left unread THEN, T-0645: the footing of the TOTAL column read at 14x and committed at 144, which settles the sheet ten two-stroke figures at 4 and drops the column from 207 to 137. THEN, T-0629: the thirty columns outside the industry run swept and named, 744 slaves/pensioners/deaf-dumb-blind-insane cells committed blank, and the SCHOOLS block read — 1 primary or common school and 40 scholars on line 1, with a footing that closes the first of those two columns.",
+ "lines_ruled_with_an_entry": 31,
+ "lines_note": "COMMITTED THIS PASS at 31, by a grid fitted to the industry ink rather than to the TOTAL column's own clustering - see line_index. The sheet still carries no horizontal rules; see no_horizontal_rules.",
+ "no_horizontal_rules": "MEASURED ON THIS IMAGE: the sheet carries NO horizontal ruled lines inside the body. A row-darkness profile taken across the empty slaves block finds exactly two strong rules on the leaf — the one under the printed heading and the one above the enumerator's footer — and nothing between them: the largest excess over local background anywhere inside the body is 5.1 grey levels, against 77 to 211 for those two printed rules. The printed form rules this page vertically only. That is the reason a continuation sheet is hard to index, and it is the thing the reading of 33S7-9YYJ-5S could not name when it reported that 'nothing on the image settles which [row] without re-reading the sheet against a row grid anchored on the ruled lines': there is no such grid to anchor on. Every row assignment on these three sheets has to come from the enumerator's own ink, and the only column with an entry on every line is TOTAL.",
+ "form_note": "The right (continuation) sheet of the 1840 schedule. Columns as printed, left to right: twelve SLAVES columns (six male, six female age bands); TOTAL — number of persons in each family; seven NUMBER OF PERSONS IN EACH FAMILY EMPLOYED IN columns (mining, agriculture, commerce, manufactures and trades, navigation of the ocean, navigation of canals lakes and rivers, learned professions and engineers); PENSIONERS FOR REVOLUTIONARY OR MILITARY SERVICES (ages, names); six DEAF AND DUMB, BLIND, AND INSANE WHITE PERSONS columns; four of the same for coloured persons; and seven SCHOOLS, &c. columns. A blank cell on this form is a zero and is recorded as 0.",
+ "closure_note": "The enumerator added his own totals at the foot of the sheet. Those printed totals are transcribed under `footer_as_read` and are the committed data on this sheet. Where a per-line reading is attempted it is checked against them and its residual recorded; a reading is never adjusted to make a total come out.",
+ "footer_as_read": {
+  "total": 144,
+  "total_note": "three glyphs, read '1', a low loop, then two strokes. Same refusal as 33S7-9YYJ-5V: the middle glyph is not legible enough to commit, and the last pair is the form this hand uses for both 4 and 11. Recorded as unread rather than guessed. Re-examined this pass at 2.4x and left unread: the cell carries four glyph groups, not three — a 1, a low loop, and then two strokes — and a 6 stands ABOVE the upper footer rule at x1322, which is the last body line's TOTAL entry and not part of the footing. The reading of this figure belongs with T-0628, which reads the TOTAL column.",
+  "total_glyphs_as_read": "1 4 4",
+  "mining": null,
+  "agriculture": null,
+  "commerce": null,
+  "manufactures_and_trades": 11,
+  "navigation_ocean": null,
+  "navigation_canals_lakes_rivers": 5,
+  "learned_professions_and_engineers": 1,
+  "schools_note": "READ, T-0629. This sheet is the only one of the three whose SCHOOLS, &c. block is written in: a 1 and a 40 stand on LINE 1, in Primary and Common Schools and in the No. of Scholars immediately right of it, and no other line of any schools column carries anything. The block is also FOOTED, which nothing had looked for: a 1 under Primary and Common Schools, which closes that column, and a two-glyph figure under No. of Scholars that is where a 40 would stand and does not read. See lower_blocks_T0629.",
+  "footer_blank_columns_note": "the mining, agriculture, commerce, navigation of the ocean, pensioners and deaf/dumb/blind/insane blocks carry no figure at the foot of this sheet, and T-0629 measured the twelve slaves columns and adds them to that list. The navigation-of-the-ocean blank is the one that matters, because that column is written in. The SCHOOLS block is NOT on this list: T-0629 found two footing figures in it.",
+  "learned_professions_note": "read in this pass, and it was recorded as carrying no figure before it. A single slash stands in the cell between the footer's two rules at x1818-1843. What sat above it and was taken for a blank footing is the last BODY line's own entry, at y2911-2959, which is above the upper footer rule at y2967.",
+  "navigation_ocean_note": "NOT WRITTEN. The cell is empty between the footer rules although the column carries six entries. Recorded as the enumerator's omission, not as a zero.",
+  "total_confidence": "inferred",
+  "total_glyph_components_T0645": [
+   {
+    "box": [
+     1213,
+     2983,
+     1255,
+     3025
+    ],
+    "area": 393,
+    "reads": "a single slanted slash — a 1, the same form as the learned-professions footing, which closes at 1"
+   },
+   {
+    "box": [
+     1245,
+     2987,
+     1288,
+     3028
+    ],
+    "area": 565,
+    "reads": "ONE component, and it is TWO STROKES MEETING AT THE FOOT — not a loop. Seen at 14x over x1235-1300: two slanted strokes, the left shorter, joined in a wedge at the lower left, with clear paper inside the wedge. A closed loop would carry ink round the bottom and it does not."
+   },
+   {
+    "box": [
+     1297,
+     2990,
+     1333,
+     3024
+    ],
+    "area": 170,
+    "reads": "the first stroke of the third glyph"
+   },
+   {
+    "box": [
+     1309,
+     3005,
+     1362,
+     3044
+    ],
+    "area": 654,
+    "reads": "the second stroke of the third glyph, running down through the footer rule. Seen at 14x over x1288-1372: two slanted strokes, no bar, no bowl — the same two-stroke figure the body carries ten times."
+   }
+  ],
+  "total_note_T0645": "RE-MEASURED AND READ, and it overturns T-0627 \"a low loop\". Over the footing band x1169-1363 y2966-3046 the ink mask carries four components in TWO clusters, so the figure is THREE glyphs and not four: a slash, then one component that is two strokes meeting at the foot, then a two-component pair. The middle glyph is where the previous reading went wrong — at 14x it is a wedge with clear paper inside it, not a loop. So the footing is a slash and then the two-stroke figure TWICE, and that is what settles the sheet: a three-glyph number cannot read \"1 4 11\" or \"1 11 4\", so in its own footing this hand uses the two-stroke figure for a SINGLE numeral, and the only bowl-less two-stroke numeral is 4. The footing is 144. Read as two glyphs instead — dropping the leading slash into the second cluster — it would be 44, which is 95 below the body's own floor. 144 is the only reading left.",
+  "schools_primary_and_common_schools": 1,
+  "schools_no_of_scholars_primary": null
+ },
+ "column_ink_census": {
+  "mining": 1950,
+  "agriculture": 1277,
+  "commerce": 1646,
+  "manufactures_and_trades": 3368,
+  "navigation_ocean": 4524,
+  "navigation_canals_lakes_rivers": 3811,
+  "learned_professions_and_engineers": 3275,
+  "pensioners": 12462,
+  "slaves_block": 65657,
+  "deaf_dumb_blind_insane_block": 49081,
+  "schools_block": 61507,
+  "total": 13206
+ },
+ "column_ink_census_note": "A per-column ink census over the body, counting pixels 70 grey levels below each column's own 60th percentile, is committed under `column_ink_census` as the structural finding it is: it says which columns were written in at all, and it is reproducible from the image without reading a single digit. The single-width columns are clean; the wide blocks (slaves, deaf/dumb/blind/insane, schools) carry many printed rules inside the band and their counts are dominated by those rules, so they are reported but are NOT read as evidence of an entry either way.",
+ "closes": false,
+ "cells_state": "industry_columns_read_and_closed; line_index_committed; total_column_read_against_its_own_footing_on_27_of_29_written_lines; slaves_pensioners_deaf_dumb_blind_insane_swept_and_blank; schools_block_read_at_1_and_40_on_line_1; schools_footing_closes_primary_and_common_at_1",
+ "records": [
+  {
+   "line": 1,
+   "line_predicted_y": 682.0,
+   "y0": 664,
+   "y1": 705,
+   "ink_line_y": [
+    680.0,
+    685.5
+   ],
+   "line_residual_px": [
+    -2.0,
+    3.5
+   ],
+   "glyph_group": [
+    1,
+    2
+   ],
+   "total": 4,
+   "total_confidence": "low",
+   "glyphs_as_read": "two slanted slashes, x-centres 1292 and 1319, heights 34 and 36 px, areas 209 and 254",
+   "strokes": [
+    {
+     "cx": 1292.3,
+     "cy": 683.7,
+     "w": 29,
+     "h": 34,
+     "area": 209
+    },
+    {
+     "cx": 1318.8,
+     "cy": 679.6,
+     "w": 29,
+     "h": 36,
+     "area": 254
+    }
+   ],
+   "industry_entries_on_this_line": [
+    "manufactures@y676"
+   ],
+   "reading": "scan_verified",
+   "note": "The pair whose geometry is closest on this sheet to the footer's own arithmetically-confirmed 11 under the manufactures column, whose two slashes stand 27.4 px apart at heights 46 and 48. Here the separation is 26.5 px and the two strokes are within 2 px of each other in height. Read as 11 on that comparison and on nothing else; see two_stroke_figure_problem, which this reading is the least strained instance of. — T-0645: READ AS 4, NOT 11. The glyph is not re-read and T-0628 description of it stands. What changed is that the enumerator own footing has now been read, and it carries this same two-stroke figure twice in places that can only be single digits, so on this leaf the figure is a 4. See footer_total_argument.",
+   "total_was_read_as_by_T0628": 11,
+   "schools_primary_and_common_schools": 1,
+   "schools_no_of_scholars_primary": 40,
+   "schools_note_T0629": "the sheet's only SCHOOLS entries stand on this line: a 1 at x3476-3505 and a 40 at x3536-3584, placed on line 1 by the committed line_index corrected for the sheet's measured 23 px rise between the industry run and the schools block (residuals +2.4 and +3.4 px against an index whose rms is 4.81). Recorded as a placement on this line, not as an attribute of this household — see lower_blocks_T0629.schools_body_reading."
+  },
+  {
+   "line": 2,
+   "line_predicted_y": 757.4,
+   "y0": 743,
+   "y1": 779,
+   "ink_line_y": 763.0,
+   "line_residual_px": 5.6,
+   "glyph_group": 3,
+   "total": 4,
+   "total_confidence": "low",
+   "glyphs_as_read": "two slashes, x-centres 1313 and 1327, heights 34 and 31, separation 13.8 px",
+   "strokes": [
+    {
+     "cx": 1313.1,
+     "cy": 760.8,
+     "w": 37,
+     "h": 34,
+     "area": 255
+    },
+    {
+     "cx": 1326.9,
+     "cy": 763.9,
+     "w": 26,
+     "h": 31,
+     "area": 179
+    }
+   ],
+   "industry_entries_on_this_line": [
+    "manufactures@y754"
+   ],
+   "reading": "scan_verified",
+   "note": "The second stroke stands half the footer 11 pitch from the first. Read as 11 by form and by the absence of any other two-stroke numeral in this hand, but the separation does not support it the way line 1 does. — T-0645: READ AS 4, NOT 11. The glyph is not re-read and T-0628 description of it stands. What changed is that the enumerator own footing has now been read, and it carries this same two-stroke figure twice in places that can only be single digits, so on this leaf the figure is a 4. See footer_total_argument.",
+   "total_was_read_as_by_T0628": 11
+  },
+  {
+   "line": 3,
+   "line_predicted_y": 832.7,
+   "y0": 818,
+   "y1": 904,
+   "ink_line_y": 842.0,
+   "line_residual_px": 9.3,
+   "glyph_group": 4,
+   "total": 4,
+   "total_confidence": "low",
+   "glyphs_as_read": "one component 46x46 px, area 476, which the 5x5 closing welds from two parallel slashes visible at magnification",
+   "strokes": [
+    {
+     "cx": 1315.9,
+     "cy": 842.5,
+     "w": 46,
+     "h": 46,
+     "area": 476
+    }
+   ],
+   "reading": "scan_verified",
+   "note": "Two strokes, parallel, of the slash form. The closing joins them, so no separation is measurable, and the reading rests on the form alone. — T-0645: READ AS 4, NOT 11. The glyph is not re-read and T-0628 description of it stands. What changed is that the enumerator own footing has now been read, and it carries this same two-stroke figure twice in places that can only be single digits, so on this leaf the figure is a 4. See footer_total_argument.",
+   "total_was_read_as_by_T0628": 11
+  },
+  {
+   "line": 4,
+   "line_predicted_y": 908.1,
+   "y0": 900,
+   "y1": 930,
+   "ink_line_y": 917.0,
+   "line_residual_px": 8.9,
+   "glyph_group": 5,
+   "total": 1,
+   "total_confidence": "medium",
+   "glyphs_as_read": "a single slash, 16x26 px, area 160, no bowl and no bar",
+   "strokes": [
+    {
+     "cx": 1311.4,
+     "cy": 916.1,
+     "w": 16,
+     "h": 26,
+     "area": 160
+    }
+   ],
+   "reading": "scan_verified",
+   "note": "The smallest mark in the column and the plainest: one stroke, the form of the footer 1 under the learned professions."
+  },
+  {
+   "line": 5,
+   "line_predicted_y": 983.4,
+   "y0": 933,
+   "y1": 1000,
+   "ink_line_y": [
+    946.0,
+    972.0
+   ],
+   "line_residual_px": [
+    -37.4,
+    -11.4
+   ],
+   "glyph_group": [
+    6,
+    7
+   ],
+   "total": 5,
+   "total_confidence": "low",
+   "glyphs_as_read": "three components at y946 (area 152), y986 (area 375) and y958 (area 75), the middle one carrying the bowl-and-rising-bar of the 5",
+   "strokes": [
+    {
+     "cx": 1292.5,
+     "cy": 946.3,
+     "w": 21,
+     "h": 27,
+     "area": 152
+    },
+    {
+     "cx": 1304.0,
+     "cy": 986.5,
+     "w": 33,
+     "h": 34,
+     "area": 375
+    },
+    {
+     "cx": 1322.2,
+     "cy": 957.7,
+     "w": 15,
+     "h": 16,
+     "area": 75
+    }
+   ],
+   "reading": "scan_verified",
+   "note": "This line sits in the crease that made the column-finder refuse the sheet before T-0627 fixed the instrument, and two of its three components are crease. The one that is ink carries the 5 form. The line total is read as 5 with the crease acknowledged, not read through it."
+  },
+  {
+   "line": 6,
+   "line_predicted_y": 1058.8,
+   "y0": 1046,
+   "y1": 1078,
+   "ink_line_y": 1069.5,
+   "line_residual_px": 10.7,
+   "glyph_group": 8,
+   "total": 5,
+   "total_confidence": "high",
+   "glyphs_as_read": "bowl opening upward at the lower left with a start-blob inside it and a stroke rising right into a bar",
+   "strokes": [
+    {
+     "cx": 1301.1,
+     "cy": 1067.6,
+     "w": 26,
+     "h": 24,
+     "area": 195
+    }
+   ],
+   "reading": "scan_verified",
+   "note": "The footer's own 5, glyph for glyph. That footing closes arithmetically against five single-slash entries in the canals column, so the form is fixed on this sheet and not borrowed from another."
+  },
+  {
+   "line": 7,
+   "line_predicted_y": 1134.2,
+   "y0": 1110,
+   "y1": 1131,
+   "ink_line_y": 1120.5,
+   "line_residual_px": -13.7,
+   "glyph_group": 9,
+   "total": 1,
+   "total_confidence": "medium",
+   "glyphs_as_read": "a single slash, 16x21 px, area 160",
+   "strokes": [
+    {
+     "cx": 1315.4,
+     "cy": 1120.6,
+     "w": 16,
+     "h": 21,
+     "area": 160
+    }
+   ],
+   "industry_entries_on_this_line": [
+    "learned@y1135"
+   ],
+   "reading": "scan_verified",
+   "note": "One stroke, no bowl. The same plain form as line 4."
+  },
+  {
+   "line": 8,
+   "line_predicted_y": 1209.5,
+   "y0": 1187,
+   "y1": 1228,
+   "ink_line_y": 1212.0,
+   "line_residual_px": 2.5,
+   "glyph_group": 10,
+   "total": 4,
+   "total_confidence": "low",
+   "glyphs_as_read": "a 42x39 px component - wider than any single slash on this sheet - with a 12x14 px fragment below right",
+   "strokes": [
+    {
+     "cx": 1305.0,
+     "cy": 1207.3,
+     "w": 42,
+     "h": 39,
+     "area": 233
+    },
+    {
+     "cx": 1310.7,
+     "cy": 1220.0,
+     "w": 12,
+     "h": 14,
+     "area": 76
+    }
+   ],
+   "industry_entries_on_this_line": [
+    "manufactures@y1208",
+    "navigation@y1206"
+   ],
+   "reading": "scan_verified",
+   "note": "The first component is 42 px wide where every unambiguous single slash here is 29 to 37, which is two welded strokes. Read 11 on the width, with the same reservation as lines 2 and 3. — T-0645: READ AS 4, NOT 11. The glyph is not re-read and T-0628 description of it stands. What changed is that the enumerator own footing has now been read, and it carries this same two-stroke figure twice in places that can only be single digits, so on this leaf the figure is a 4. See footer_total_argument.",
+   "total_was_read_as_by_T0628": 11
+  },
+  {
+   "line": 9,
+   "line_predicted_y": 1284.9,
+   "y0": 1261,
+   "y1": 1309,
+   "ink_line_y": 1287.0,
+   "line_residual_px": 2.1,
+   "glyph_group": 11,
+   "total": 4,
+   "total_confidence": "low",
+   "glyphs_as_read": "two slashes, x-centres 1303 and 1321, heights 40 and 37, areas 331 and 267, separation 17.6 px",
+   "strokes": [
+    {
+     "cx": 1303.1,
+     "cy": 1282.7,
+     "w": 37,
+     "h": 40,
+     "area": 331
+    },
+    {
+     "cx": 1320.7,
+     "cy": 1291.4,
+     "w": 29,
+     "h": 37,
+     "area": 267
+    }
+   ],
+   "reading": "scan_verified",
+   "note": "Two strokes of matched height and weight. — T-0645: READ AS 4, NOT 11. The glyph is not re-read and T-0628 description of it stands. What changed is that the enumerator own footing has now been read, and it carries this same two-stroke figure twice in places that can only be single digits, so on this leaf the figure is a 4. See footer_total_argument.",
+   "total_was_read_as_by_T0628": 11
+  },
+  {
+   "line": 10,
+   "line_predicted_y": 1360.2,
+   "total": null,
+   "glyphs_as_read": "no ink of any kind in the TOTAL cell within half a pitch of the line",
+   "strokes": [],
+   "industry_entries_on_this_line": [
+    "manufactures@y1368",
+    "navigation@y1360"
+   ],
+   "reading": "scan_verified",
+   "note": "THE CELL IS BLANK AND THE LINE IS NOT. Lines 10 and 13 are the two lines the grid places that carry no TOTAL number, and both are lines the grid did not have to invent: line 10 carries a manufactures entry at y1368 and a navigation-of-the-ocean entry at y1360, and both are among the seventeen anchors the grid was fitted to. So this is the enumerator leaving a total unwritten on an occupied line, not a line the index has conjured."
+  },
+  {
+   "line": 11,
+   "line_predicted_y": 1435.6,
+   "y0": 1381,
+   "y1": 1456,
+   "ink_line_y": 1420.5,
+   "line_residual_px": -15.1,
+   "glyph_group": 12,
+   "total": 15,
+   "total_confidence": "low",
+   "glyphs_as_read": "a 19x26 px slash at x1287 followed at x1319 by the bowl-and-rising-bar of the 5, 32 px to its right",
+   "strokes": [
+    {
+     "cx": 1286.9,
+     "cy": 1398.8,
+     "w": 19,
+     "h": 26,
+     "area": 163
+    },
+    {
+     "cx": 1318.6,
+     "cy": 1431.3,
+     "w": 29,
+     "h": 40,
+     "area": 226
+    }
+   ],
+   "reading": "scan_verified",
+   "note": "A 1 and a 5 side by side, the second digit set to the right and lower, which is this hand throughout. Read 15. It is the largest family the sheet claims and the reading rests on two glyphs, each of which is elsewhere unambiguous."
+  },
+  {
+   "line": 12,
+   "line_predicted_y": 1511.0,
+   "y0": 1492,
+   "y1": 1529,
+   "ink_line_y": 1515.5,
+   "line_residual_px": 4.5,
+   "glyph_group": 13,
+   "total": 5,
+   "total_confidence": "high",
+   "glyphs_as_read": "bowl opening upward with the stroke rising right, its top bar running into the crease",
+   "strokes": [
+    {
+     "cx": 1312.9,
+     "cy": 1514.2,
+     "w": 28,
+     "h": 32,
+     "area": 279
+    }
+   ],
+   "reading": "scan_verified",
+   "note": "The footer 5 form."
+  },
+  {
+   "line": 13,
+   "line_predicted_y": 1586.3,
+   "total": null,
+   "glyphs_as_read": "no ink of any kind in the TOTAL cell within half a pitch of the line",
+   "strokes": [],
+   "industry_entries_on_this_line": [
+    "manufactures@y1594",
+    "navigation@y1584"
+   ],
+   "reading": "scan_verified",
+   "note": "The second of the two blank totals. Like line 10 this line is anchored by the industry ink the grid was fitted to - a manufactures entry at y1594 and a navigation-of-the-ocean entry at y1584 - so the blank is the enumerator’s, not a defect of the index."
+  },
+  {
+   "line": 14,
+   "line_predicted_y": 1661.7,
+   "y0": 1615,
+   "y1": 1682,
+   "ink_line_y": 1656.0,
+   "line_residual_px": -5.7,
+   "glyph_group": 14,
+   "total": 15,
+   "total_confidence": "low",
+   "glyphs_as_read": "a 22x26 px slash at x1288 followed at x1315 by a 57x50 px glyph carrying the bowl and the rising bar",
+   "strokes": [
+    {
+     "cx": 1287.7,
+     "cy": 1629.2,
+     "w": 22,
+     "h": 26,
+     "area": 151
+    },
+    {
+     "cx": 1314.6,
+     "cy": 1659.1,
+     "w": 57,
+     "h": 50,
+     "area": 650
+    }
+   ],
+   "industry_entries_on_this_line": [
+    "manufactures@y1668",
+    "navigation@y1660"
+   ],
+   "reading": "scan_verified",
+   "note": "The same construction as line 11: a 1 and a 5, 27 px apart."
+  },
+  {
+   "line": 15,
+   "line_predicted_y": 1737.0,
+   "y0": 1720,
+   "y1": 1766,
+   "ink_line_y": 1744.0,
+   "line_residual_px": 7.0,
+   "glyph_group": 15,
+   "total": 4,
+   "total_confidence": "low",
+   "glyphs_as_read": "two slashes, heights 39 and 36, areas 410 and 237, separation 17.4 px",
+   "strokes": [
+    {
+     "cx": 1310.8,
+     "cy": 1741.5,
+     "w": 45,
+     "h": 39,
+     "area": 410
+    },
+    {
+     "cx": 1328.2,
+     "cy": 1748.7,
+     "w": 32,
+     "h": 36,
+     "area": 237
+    }
+   ],
+   "industry_entries_on_this_line": [
+    "manufactures@y1743",
+    "navigation@y1731"
+   ],
+   "reading": "scan_verified",
+   "total_was_read_as_by_T0628": 11,
+   "note": " — T-0645: READ AS 4, NOT 11. The glyph is not re-read and T-0628 description of it stands. What changed is that the enumerator own footing has now been read, and it carries this same two-stroke figure twice in places that can only be single digits, so on this leaf the figure is a 4. See footer_total_argument."
+  },
+  {
+   "line": 16,
+   "line_predicted_y": 1812.4,
+   "y0": 1796,
+   "y1": 1839,
+   "ink_line_y": 1819.5,
+   "line_residual_px": 7.1,
+   "glyph_group": 16,
+   "total": 4,
+   "total_confidence": "low",
+   "glyphs_as_read": "two slashes, heights 38 and 32, areas 309 and 146, separation 14.0 px",
+   "strokes": [
+    {
+     "cx": 1311.2,
+     "cy": 1816.5,
+     "w": 38,
+     "h": 38,
+     "area": 309
+    },
+    {
+     "cx": 1325.2,
+     "cy": 1822.1,
+     "w": 27,
+     "h": 32,
+     "area": 146
+    }
+   ],
+   "industry_entries_on_this_line": [
+    "manufactures@y1820",
+    "navigation@y1812"
+   ],
+   "reading": "scan_verified",
+   "note": "The second stroke is the lightest of any pair on the sheet at area 146 against the first stroke’s 309. — T-0645: READ AS 4, NOT 11. The glyph is not re-read and T-0628 description of it stands. What changed is that the enumerator own footing has now been read, and it carries this same two-stroke figure twice in places that can only be single digits, so on this leaf the figure is a 4. See footer_total_argument.",
+   "total_was_read_as_by_T0628": 11
+  },
+  {
+   "line": 17,
+   "line_predicted_y": 1887.8,
+   "y0": 1869,
+   "y1": 1910,
+   "ink_line_y": 1887.5,
+   "line_residual_px": -0.3,
+   "glyph_group": 17,
+   "total": 5,
+   "total_confidence": "high",
+   "glyphs_as_read": "bowl, start-blob, rising stroke and a top bar standing clear of it",
+   "strokes": [
+    {
+     "cx": 1308.6,
+     "cy": 1891.4,
+     "w": 35,
+     "h": 41,
+     "area": 375
+    }
+   ],
+   "reading": "scan_verified",
+   "note": "The cleanest 5 in the column and the closest match to the footing."
+  },
+  {
+   "line": 18,
+   "line_predicted_y": 1963.1,
+   "y0": 1938,
+   "y1": 1988,
+   "ink_line_y": 1964.0,
+   "line_residual_px": 0.9,
+   "glyph_group": 18,
+   "total": 4,
+   "total_confidence": "low",
+   "glyphs_as_read": "two slashes, heights 42 and 37, areas 373 and 231, separation 12.2 px",
+   "strokes": [
+    {
+     "cx": 1312.4,
+     "cy": 1959.3,
+     "w": 46,
+     "h": 42,
+     "area": 373
+    },
+    {
+     "cx": 1324.6,
+     "cy": 1969.3,
+     "w": 32,
+     "h": 37,
+     "area": 231
+    }
+   ],
+   "reading": "scan_verified",
+   "total_was_read_as_by_T0628": 11,
+   "note": " — T-0645: READ AS 4, NOT 11. The glyph is not re-read and T-0628 description of it stands. What changed is that the enumerator own footing has now been read, and it carries this same two-stroke figure twice in places that can only be single digits, so on this leaf the figure is a 4. See footer_total_argument."
+  },
+  {
+   "line": 19,
+   "line_predicted_y": 2038.5,
+   "y0": 1971,
+   "y1": 2056,
+   "ink_line_y": 2012.5,
+   "line_residual_px": -26.0,
+   "glyph_group": 19,
+   "total": 5,
+   "total_confidence": "medium",
+   "glyphs_as_read": "a 47x51 px glyph carrying the 5 form at y2034, with two crease fragments (areas 123 and 149) 60 px above it",
+   "strokes": [
+    {
+     "cx": 1298.8,
+     "cy": 1971.2,
+     "w": 22,
+     "h": 14,
+     "area": 123
+    },
+    {
+     "cx": 1312.9,
+     "cy": 2033.8,
+     "w": 47,
+     "h": 51,
+     "area": 486
+    },
+    {
+     "cx": 1319.4,
+     "cy": 1975.1,
+     "w": 20,
+     "h": 22,
+     "area": 149
+    }
+   ],
+   "industry_entries_on_this_line": [
+    "navigation@y2033",
+    "learned@y2038"
+   ],
+   "reading": "scan_verified",
+   "note": "The crease fragments were reported as ink by the instrument and are not glyphs; the number itself is the 5 form."
+  },
+  {
+   "line": 20,
+   "line_predicted_y": 2113.8,
+   "y0": 2085,
+   "y1": 2129,
+   "ink_line_y": 2109.5,
+   "line_residual_px": -4.3,
+   "glyph_group": 20,
+   "total": 4,
+   "total_confidence": "low",
+   "glyphs_as_read": "two slashes, heights 39 and 33, areas 304 and 176, separation 12.3 px",
+   "strokes": [
+    {
+     "cx": 1305.7,
+     "cy": 2105.6,
+     "w": 37,
+     "h": 39,
+     "area": 304
+    },
+    {
+     "cx": 1318.0,
+     "cy": 2112.7,
+     "w": 29,
+     "h": 33,
+     "area": 176
+    }
+   ],
+   "industry_entries_on_this_line": [
+    "navigation@y2119",
+    "learned@y2122"
+   ],
+   "reading": "scan_verified",
+   "total_was_read_as_by_T0628": 11,
+   "note": " — T-0645: READ AS 4, NOT 11. The glyph is not re-read and T-0628 description of it stands. What changed is that the enumerator own footing has now been read, and it carries this same two-stroke figure twice in places that can only be single digits, so on this leaf the figure is a 4. See footer_total_argument."
+  },
+  {
+   "line": 21,
+   "line_predicted_y": 2189.2,
+   "y0": 2158,
+   "y1": 2204,
+   "ink_line_y": 2194.0,
+   "line_residual_px": 4.8,
+   "glyph_group": 21,
+   "total": 5,
+   "total_confidence": "high",
+   "glyphs_as_read": "bowl, start-blob and rising stroke into a bar",
+   "strokes": [
+    {
+     "cx": 1308.6,
+     "cy": 2191.5,
+     "w": 41,
+     "h": 33,
+     "area": 456
+    }
+   ],
+   "reading": "scan_verified"
+  },
+  {
+   "line": 22,
+   "line_predicted_y": 2264.6,
+   "y0": 2240,
+   "y1": 2293,
+   "ink_line_y": 2270.0,
+   "line_residual_px": 5.4,
+   "glyph_group": 22,
+   "total": 5,
+   "total_confidence": "high",
+   "glyphs_as_read": "bowl, start-blob and rising stroke into a heavy top blob, 50x53 px",
+   "strokes": [
+    {
+     "cx": 1312.1,
+     "cy": 2270.2,
+     "w": 50,
+     "h": 53,
+     "area": 659
+    }
+   ],
+   "reading": "scan_verified",
+   "note": "Read 5 and not 6 on the footing’s own form: the sheet’s 5 carries a start-blob inside the bowl and an OPEN bowl, and this glyph does both. This hand’s closed loop is its zero, and five of them stand in the learned-professions column where the footing settles them at 0."
+  },
+  {
+   "line": 23,
+   "line_predicted_y": 2339.9,
+   "y0": 2323,
+   "y1": 2364,
+   "ink_line_y": 2328.0,
+   "line_residual_px": -11.9,
+   "glyph_group": 23,
+   "total": 5,
+   "total_confidence": "high",
+   "glyphs_as_read": "bowl and a long horizontal top bar, 57x41 px",
+   "strokes": [
+    {
+     "cx": 1319.5,
+     "cy": 2340.9,
+     "w": 57,
+     "h": 41,
+     "area": 506
+    }
+   ],
+   "reading": "scan_verified"
+  },
+  {
+   "line": 24,
+   "line_predicted_y": 2415.3,
+   "y0": 2397,
+   "y1": 2441,
+   "ink_line_y": 2422.5,
+   "line_residual_px": 7.2,
+   "glyph_group": 24,
+   "total": 5,
+   "total_confidence": "high",
+   "glyphs_as_read": "bowl, start-blob, rising stroke, 44x44 px",
+   "strokes": [
+    {
+     "cx": 1313.9,
+     "cy": 2419.9,
+     "w": 44,
+     "h": 44,
+     "area": 504
+    }
+   ],
+   "reading": "scan_verified"
+  },
+  {
+   "line": 25,
+   "line_predicted_y": 2490.6,
+   "y0": 2466,
+   "y1": 2508,
+   "ink_line_y": 2486.0,
+   "line_residual_px": -4.6,
+   "glyph_group": 25,
+   "total": 5,
+   "total_confidence": "high",
+   "glyphs_as_read": "bowl and a top bar running right, 60x42 px",
+   "strokes": [
+    {
+     "cx": 1316.4,
+     "cy": 2486.1,
+     "w": 60,
+     "h": 42,
+     "area": 503
+    }
+   ],
+   "reading": "scan_verified"
+  },
+  {
+   "line": 26,
+   "line_predicted_y": 2566.0,
+   "y0": 2540,
+   "y1": 2585,
+   "ink_line_y": 2564.0,
+   "line_residual_px": -2.0,
+   "glyph_group": 26,
+   "total": 5,
+   "total_confidence": "high",
+   "glyphs_as_read": "bowl, start-blob and rising stroke into a top blob, 49x45 px",
+   "strokes": [
+    {
+     "cx": 1312.9,
+     "cy": 2565.0,
+     "w": 49,
+     "h": 45,
+     "area": 574
+    }
+   ],
+   "industry_entries_on_this_line": [
+    "manufactures@y2569"
+   ],
+   "reading": "scan_verified",
+   "note": "The same reading and the same reason as line 22."
+  },
+  {
+   "line": 27,
+   "line_predicted_y": 2641.4,
+   "y0": 2626,
+   "y1": 2665,
+   "ink_line_y": 2650.0,
+   "line_residual_px": 8.6,
+   "glyph_group": 27,
+   "total": 4,
+   "total_confidence": "low",
+   "glyphs_as_read": "two slashes, heights 39 and 29, areas 360 and 177, separation 24.7 px",
+   "strokes": [
+    {
+     "cx": 1306.7,
+     "cy": 2648.0,
+     "w": 50,
+     "h": 39,
+     "area": 360
+    },
+    {
+     "cx": 1331.4,
+     "cy": 2651.3,
+     "w": 25,
+     "h": 29,
+     "area": 177
+    }
+   ],
+   "industry_entries_on_this_line": [
+    "manufactures@y2647"
+   ],
+   "reading": "scan_verified",
+   "total_was_read_as_by_T0628": 11,
+   "note": " — T-0645: READ AS 4, NOT 11. The glyph is not re-read and T-0628 description of it stands. What changed is that the enumerator own footing has now been read, and it carries this same two-stroke figure twice in places that can only be single digits, so on this leaf the figure is a 4. See footer_total_argument."
+  },
+  {
+   "line": 28,
+   "line_predicted_y": 2716.7,
+   "y0": 2685,
+   "y1": 2734,
+   "ink_line_y": 2710.5,
+   "line_residual_px": -6.2,
+   "glyph_group": 28,
+   "total": 5,
+   "total_confidence": "high",
+   "glyphs_as_read": "bowl, start-blob, rising stroke into a bar, 44x49 px",
+   "strokes": [
+    {
+     "cx": 1319.5,
+     "cy": 2713.3,
+     "w": 44,
+     "h": 49,
+     "area": 468
+    }
+   ],
+   "industry_entries_on_this_line": [
+    "navigation@y2716",
+    "learned@y2722"
+   ],
+   "reading": "scan_verified"
+  },
+  {
+   "line": 29,
+   "line_predicted_y": 2792.1,
+   "y0": 2777,
+   "y1": 2822,
+   "ink_line_y": 2810.0,
+   "line_residual_px": 17.9,
+   "glyph_group": 29,
+   "total": null,
+   "glyphs_as_read": "a single 46x45 px component, area 567, carrying two strokes joined at the foot: a long slash and a shorter one below and right of it, and no bowl anywhere in it",
+   "strokes": [
+    {
+     "cx": 1313.9,
+     "cy": 2801.1,
+     "w": 46,
+     "h": 45,
+     "area": 567
+    }
+   ],
+   "industry_entries_on_this_line": [
+    "navigation@y2794"
+   ],
+   "reading": "scan_verified",
+   "note": "NOT COMMITTED. It has the area of the 5s and the strokes of the 11s and the bowl of neither. It is the one glyph in the column that does not resolve to a form the footing fixes, and it is left unread rather than pushed into whichever class the arithmetic would prefer."
+  },
+  {
+   "line": 30,
+   "line_predicted_y": 2867.4,
+   "y0": 2850,
+   "y1": 2895,
+   "ink_line_y": [
+    2853.5,
+    2878.0
+   ],
+   "line_residual_px": [
+    -13.9,
+    10.6
+   ],
+   "glyph_group": [
+    30,
+    31
+   ],
+   "total": 5,
+   "total_confidence": "high",
+   "glyphs_as_read": "a bowl at x1296-1327 with the top bar standing clear of it as a separate 21x12 px mark at x1333-1354",
+   "strokes": [
+    {
+     "cx": 1313.4,
+     "cy": 2878.0,
+     "w": 31,
+     "h": 36,
+     "area": 287
+    }
+   ],
+   "industry_entries_on_this_line": [
+    "navigation@y2866",
+    "learned@y2860"
+   ],
+   "reading": "scan_verified",
+   "note": "The two glyph groups the instrument reports here, g30 and g31, are the bar and the bowl of one 5; they are 24 px apart in y and the grid puts both on line 30 at residuals of -13.9 and +10.6."
+  },
+  {
+   "line": 31,
+   "line_predicted_y": 2942.8,
+   "y0": 2907,
+   "y1": 2959,
+   "ink_line_y": 2935.0,
+   "line_residual_px": -7.8,
+   "glyph_group": 32,
+   "total": null,
+   "glyphs_as_read": "a long slash 46x51 px and a shorter curved stroke below it, the pair running to the body band’s bottom edge at y2959",
+   "strokes": [
+    {
+     "cx": 1322.8,
+     "cy": 2930.9,
+     "w": 46,
+     "h": 51,
+     "area": 390
+    },
+    {
+     "cx": 1324.7,
+     "cy": 2946.4,
+     "w": 22,
+     "h": 27,
+     "area": 224
+    }
+   ],
+   "industry_entries_on_this_line": [
+    "learned@y2930"
+   ],
+   "reading": "scan_verified",
+   "note": "NOT COMMITTED. The last line of the body, and its component is clipped by the band the instrument crops to, so part of the glyph may sit under the footer rule. Two strokes, but the lower one curves where a 1 does not."
+  }
+ ],
+ "records_note": "Thirty-one lines, one record each, keyed by the line ordinal the line_index commits. Twenty-nine carry a number in the TOTAL column and two (lines 10 and 13) carry none; both of those are lines the industry ink independently anchors, so the blank is the enumerator's. Each record states the line's predicted y, the ink line the glyph actually sits on, the residual between them, the strokes the instrument measures inside the glyph, and the form as read. No value was chosen to make a total come out.",
+ "pairing": {
+  "paired_to_printed_page": null,
+  "state": "unpaired",
+  "why": "RESOLVED by T-0642 where this says paired, and recorded as unpaired with its rule where it does not. The earlier text of this field said the left sheets had not been footed yet; they have now.",
+  "page_population_key": null,
+  "page_population_key_note": "three glyphs, read '1', a low loop, then two strokes. Same refusal as 33S7-9YYJ-5V: the middle glyph is not legible enough to commit, and the last pair is the form this hand uses for both 4 and 11. Recorded as unread rather than guessed.",
+  "line_count_key": 31,
+  "line_count_key_note": "COMMITTED at 31 this pass from line_index, and this is the key T-0642 needs: a continuation sheet carries no name and no page number, so its line count is one of the few numbers that can be matched against a left sheet's.",
+  "tested_by": "T-0642",
+  "test": "both keys — the count of ruled lines carrying an entry, and the page population — against the twelve filled left sheets of image group 1, whose printed footings T-0642 read and published.",
+  "result": "No 31-entry left sheet foots 144. 33S7-9YYJ-2T (printed 221) foots 146 and its own 31 lines hold 143, which brackets 144 without matching it either way; two persons is a residual, not an identification.",
+  "refusals": [
+   {
+    "printed_page": 221,
+    "familysearch_id": "33S7-9YYJ-2T",
+    "rule": "line count right, population 2 away",
+    "why": "footed 146 and 143 by its own lines against this sheet's 144. Named as the nearest candidate and refused: the test asks for a match, and a sheet that brackets a number is not a sheet that meets it."
+   }
+  ],
+  "published_in": "data/research/census_1840/left_sheet_population_key.json"
+ },
+ "ticket": "T-0628",
+ "column_geometry": {
+  "derived_by": "tools/read_census_continuation.py 33S7-9YYJ-6H --cover 0.50",
+  "body_between_horizontal_rules": [
+   619,
+   2959
+  ],
+  "column_pitch_px": 69,
+  "bounds_px": {
+   "total": [
+    1169,
+    1363
+   ],
+   "mining": [
+    1363,
+    1432
+   ],
+   "agriculture": [
+    1432,
+    1497
+   ],
+   "commerce": [
+    1497,
+    1554
+   ],
+   "manufactures_and_trades": [
+    1554,
+    1641
+   ],
+   "navigation_ocean": [
+    1641,
+    1715
+   ],
+   "navigation_canals_lakes_rivers": [
+    1715,
+    1801
+   ],
+   "learned_professions_and_engineers": [
+    1801,
+    1865
+   ]
+  },
+  "note": "MEASURED, not assumed, and this leaf is the one that made the instrument admit a parameter. At the tool's default continuity threshold — an x where 60 per cent of the body's rows stand darker than their own local background — 6H yields only 26 vertical rules, the industry run has a hole in it where the rule at x1715 should be, and locate_columns refuses the sheet: 'no industry run bracketed by TOTAL and PENSIONERS'. This exposure is simply paler than 5V's. Dropped to 0.50 the run is complete, and two things arrive with it that are not printed rules: a rule's own scan shadow 7 px off it at x1561, and a paper crease at x1833 inside the learned-professions cell. Both are now cut by measured filters in the tool (a 12 px merge, a 20-grey-level minimum mean darkness — the crease stands at 15.2 against 25.1 to 48.6 for the seven true rules), and 5V's geometry is unchanged by them. The eight bounds above were then checked BY EYE against the printed column heads at magnification: TOTAL, Mining, Agriculture, Commerce, Manufactures and trades, Navigation of the ocean, Navigation of canals lakes and rivers, Learned professions and engineers, and the PENSIONERS block beginning at x1865."
+ },
+ "glyph_inventory": {
+  "derived_by": "tools/read_census_continuation.py 33S7-9YYJ-6H --cover 0.50 --json",
+  "method": {
+   "ink": "local background = 25px Gaussian of the crop; ink = 45 grey levels darker",
+   "components": "8-connected after 5x5 closing, area>=40, height>=12, height/width<=4.0",
+   "grouping": "one number while dy<=55 and x does not step back",
+   "digits": "NOT READ — this tool measures boxes, a human reads the digit"
+  },
+  "numbers_per_column": {
+   "total": 32,
+   "mining": 0,
+   "agriculture": 0,
+   "commerce": 1,
+   "manufactures_and_trades": 11,
+   "navigation_ocean": 7,
+   "navigation_canals_lakes_rivers": 8,
+   "learned_professions_and_engineers": 12
+  },
+  "total_column_group_count_by_threshold": {
+   "35": 35,
+   "45": 34,
+   "55": 32,
+   "65": 29,
+   "75": 27
+  },
+  "creases_note": "This leaf is creased, and the crease is what the aspect filter added in this pass removes. Before it, a run of near-vertical slivers 1 to 10 px wide and 27 to 270 px tall stood in the ink mask of every column — 8 to 84 times as tall as wide, where the tallest number either sheet actually carries is 3.0 (a `1`, 8x24 px on 5V, 10x30 px on 6H). At the floor of 4.0 the filter cuts 70 sliver components off this sheet and NOTHING off 5V, whose committed counts are unchanged."
+ },
+ "column_closure": {
+  "mining": {
+   "entries": [],
+   "entry_y": [],
+   "read": 0,
+   "printed": null,
+   "closes": true,
+   "residual": 0,
+   "note": "Empty. The ink census finds nothing in it, no box survives the aspect filter, and the enumerator wrote no figure at its foot. Nothing read, nothing to close against, and the two agree."
+  },
+  "agriculture": {
+   "entries": [],
+   "entry_y": [],
+   "read": 0,
+   "printed": null,
+   "closes": true,
+   "residual": 0,
+   "note": "Empty, on the same three grounds as mining. In a district that is the town of Chicago and not its country, an unfooted and unwritten agriculture column is what the sheet ought to look like; it is recorded as read-and-empty, not as unread."
+  },
+  "commerce": {
+   "entries": [],
+   "entry_y": [],
+   "read": 0,
+   "printed": null,
+   "closes": true,
+   "residual": 0,
+   "note": "Empty. One box was reported, x1506-1515 y795-812, nine px wide; the crop at 6x over y750-930 shows clean paper across the whole cell. It is a speck. The enumerator footed nothing here."
+  },
+  "manufactures_and_trades": {
+   "entries": [
+    2,
+    1,
+    1,
+    1,
+    1,
+    1,
+    1,
+    1,
+    1,
+    1
+   ],
+   "entry_y": [
+    677,
+    751,
+    1207,
+    1367,
+    1595,
+    1669,
+    1745,
+    1818,
+    2566,
+    2646
+   ],
+   "read": 11,
+   "printed": 11,
+   "closes": true,
+   "residual": 0,
+   "entry_boxes": [
+    [
+     1577,
+     662,
+     1625,
+     693
+    ],
+    [
+     1581,
+     728,
+     1614,
+     775
+    ],
+    [
+     1585,
+     1187,
+     1614,
+     1228
+    ],
+    [
+     1580,
+     1346,
+     1615,
+     1389
+    ],
+    [
+     1580,
+     1572,
+     1614,
+     1619
+    ],
+    [
+     1579,
+     1645,
+     1622,
+     1694
+    ],
+    [
+     1582,
+     1721,
+     1623,
+     1770
+    ],
+    [
+     1591,
+     1799,
+     1623,
+     1838
+    ],
+    [
+     1596,
+     2544,
+     1632,
+     2588
+    ],
+    [
+     1595,
+     2626,
+     1632,
+     2667
+    ]
+   ],
+   "rejected_boxes": [
+    [
+     1625,
+     2941,
+     1632,
+     2956
+    ]
+   ],
+   "note": "CLOSES at 11. Ten entries: the topmost, at y677, is a 2 — the widest mark in the column at 48 px, and the only one of the ten that is not a single slanted slash — and the other nine are 1s. 2 + 9 = 11, which is the figure at the foot. An eleventh box, x1625-1632 y2941-2956, sits seven px wide on the footer rule itself and is the footing's own ink caught by a body band that runs to y2959; it is not a body entry. Every box the instrument reported in this column and this pass did not keep was looked at on the image at magnification and carries no ink: they are crease fragments and specks, 6 to 19 px wide against 29 to 48 px for every mark that is a number. The rejection is recorded rather than silently applied — the boxes are listed under `rejected_boxes` so the next pass can disagree with it."
+  },
+  "navigation_ocean": {
+   "entries": [
+    1,
+    1,
+    1,
+    1,
+    1,
+    1
+   ],
+   "entry_y": [
+    1207,
+    1358,
+    1583,
+    1660,
+    1730,
+    1811
+   ],
+   "read": 6,
+   "printed": null,
+   "closes": false,
+   "residual": null,
+   "entry_boxes": [
+    [
+     1663,
+     1188,
+     1698,
+     1227
+    ],
+    [
+     1671,
+     1338,
+     1705,
+     1379
+    ],
+    [
+     1669,
+     1563,
+     1702,
+     1604
+    ],
+    [
+     1671,
+     1640,
+     1705,
+     1681
+    ],
+    [
+     1674,
+     1712,
+     1706,
+     1748
+    ],
+    [
+     1656,
+     1792,
+     1700,
+     1831
+    ]
+   ],
+   "rejected_boxes": [
+    [
+     1689,
+     1927,
+     1698,
+     1939
+    ]
+   ],
+   "note": "DOES NOT CLOSE, and the reason is the enumerator's, not the reading's: HE NEVER FOOTED THIS COLUMN. The footer crop at 2.4x shows the cell between the 11 he wrote under manufactures and the 5 he wrote under the canals column standing empty, so there is no printed figure to close six entries against. Six 1s are read, each a single bold slash of the same form as the nine in the manufactures column, and the residual is recorded as unknown rather than as zero. Six men of this page's families employed in the navigation of the ocean is a claim about the sheet, not about the town, and it is not carried anywhere else by this ticket. Every box the instrument reported in this column and this pass did not keep was looked at on the image at magnification and carries no ink: they are crease fragments and specks, 6 to 19 px wide against 29 to 48 px for every mark that is a number. The rejection is recorded rather than silently applied — the boxes are listed under `rejected_boxes` so the next pass can disagree with it."
+  },
+  "navigation_canals_lakes_rivers": {
+   "entries": [
+    1,
+    1,
+    1,
+    1,
+    1
+   ],
+   "entry_y": [
+    2035,
+    2118,
+    2717,
+    2794,
+    2865
+   ],
+   "read": 5,
+   "printed": 5,
+   "closes": true,
+   "residual": 0,
+   "entry_boxes": [
+    [
+     1752,
+     2014,
+     1785,
+     2056
+    ],
+    [
+     1757,
+     2099,
+     1786,
+     2138
+    ],
+    [
+     1747,
+     2696,
+     1788,
+     2738
+    ],
+    [
+     1750,
+     2774,
+     1785,
+     2815
+    ],
+    [
+     1751,
+     2842,
+     1792,
+     2888
+    ]
+   ],
+   "rejected_boxes": [
+    [
+     1770,
+     2167,
+     1776,
+     2184
+    ],
+    [
+     1779,
+     2329,
+     1792,
+     2341
+    ],
+    [
+     1774,
+     2410,
+     1786,
+     2422
+    ]
+   ],
+   "note": "CLOSES at 5. Five entries, every one a single slash, against the 5 the enumerator wrote at the foot. Three further boxes — 6, 12 and 13 px wide — were rejected as crease; had any been kept the column would have overrun its own footing, which is the check working. Every box the instrument reported in this column and this pass did not keep was looked at on the image at magnification and carries no ink: they are crease fragments and specks, 6 to 19 px wide against 29 to 48 px for every mark that is a number. The rejection is recorded rather than silently applied — the boxes are listed under `rejected_boxes` so the next pass can disagree with it."
+  },
+  "learned_professions_and_engineers": {
+   "entries": [
+    1,
+    0,
+    0,
+    0,
+    0,
+    0
+   ],
+   "entry_y": [
+    1122,
+    2040,
+    2120,
+    2722,
+    2839,
+    2935
+   ],
+   "read": 1,
+   "printed": 1,
+   "closes": true,
+   "residual": 0,
+   "entry_boxes": [
+    [
+     1813,
+     1091,
+     1848,
+     1153
+    ],
+    [
+     1819,
+     2017,
+     1856,
+     2063
+    ],
+    [
+     1817,
+     2098,
+     1854,
+     2143
+    ],
+    [
+     1815,
+     2700,
+     1856,
+     2745
+    ],
+    [
+     1823,
+     2796,
+     1856,
+     2883
+    ],
+    [
+     1820,
+     2911,
+     1856,
+     2959
+    ]
+   ],
+   "rejected_boxes": [
+    [
+     1822,
+     759,
+     1832,
+     772
+    ],
+    [
+     1827,
+     896,
+     1833,
+     917
+    ],
+    [
+     1837,
+     1020,
+     1856,
+     1072
+    ],
+    [
+     1836,
+     2397,
+     1847,
+     2419
+    ],
+    [
+     1834,
+     2526,
+     1844,
+     2556
+    ],
+    [
+     1828,
+     2769,
+     1839,
+     2794
+    ]
+   ],
+   "note": "CLOSES at 1, and it is the one column on this sheet whose closure turns on a glyph rather than on a count. Six marks stand in the column. The first, at y1122, is a single slash — a 1, the same form as the fifteen 1s in the two navigation columns. The other five are ELONGATED SLANTED LOOPS, closed at both ends and carrying no tail: this hand's ZERO. That reading is what the footing settles. Six 1s would foot at 6 and six 6s at 36; one 1 and five 0s foot at 1, and 1 is what the enumerator wrote. The loops are also the only zeros written anywhere on this leaf — every other column leaves a nought blank — which is worth recording as a fact about the hand rather than smoothing away. The entry at y2839 is a box 87 px tall because the closing joined the loop to a crease running through it; the ink itself centres near y2859, and T-0628 should fit to the ink and not to this box. Every box the instrument reported in this column and this pass did not keep was looked at on the image at magnification and carries no ink: they are crease fragments and specks, 6 to 19 px wide against 29 to 48 px for every mark that is a number. The rejection is recorded rather than silently applied — the boxes are listed under `rejected_boxes` so the next pass can disagree with it."
+  }
+ },
+ "closes_note": "The three industry columns the enumerator footed still close exactly (T-0627). The TOTAL column does not: it reads 137 against a footing of 144, and the 7 belongs to lines 29 and 31, which are published unread. What T-0645 adds is the footing itself — read, not bounded — and with it the reading of the ten two-stroke figures T-0628 had to leave standing at 11 against its own arithmetic.",
+ "tickets": [
+  "T-0627",
+  "T-0628",
+  "T-0629",
+  "T-0645",
+  "T-0754"
+ ],
+ "line_index": {
+  "lines": 31,
+  "derived_by": "tools/fit_census_line_grid.py 33S7-9YYJ-6H --ink-line",
+  "ticket": "T-0628",
+  "method": "The 27 entries T-0627 committed in the industry columns are re-measured from the image rather than taken at their bounding-box centres - inside each committed box, the rows carrying at least half the box's peak row-ink are the glyph's body and the midpoint of that span is its writing line - and the 27 ink lines are merged where two stand within 30 px, which ten pairs do because two industry columns can carry an entry for the same family. A straight grid y = origin + pitch*n is fitted to the 17 that remain, rejecting any fit that puts two anchors on one line and scoring by rms residual. The TOTAL column is not used, which is the whole point: the row index and the numbers are then independent, and a number can be read AGAINST the grid instead of being used to build it. Same instrument as 33S7-9YYJ-5V's T-0565, with the ink-line correction added.",
+  "origin_px": 682.0,
+  "pitch_px": 75.36,
+  "rms_px": 4.81,
+  "rms_by_line_count": {
+   "27": 22.06,
+   "28": 23.6,
+   "29": 19.29,
+   "30": 18.79,
+   "31": 4.81,
+   "32": 18.71,
+   "33": 14.86,
+   "34": 15.37,
+   "35": 12.65,
+   "36": 16.6,
+   "37": 14.91,
+   "38": 16.22,
+   "39": 16.18
+  },
+  "why_31": "31 beats every alternative by a factor of 2.6 - rms 4.81 against 12.65 for the next best, which is 35 - and the two neighbours a mis-set span would produce, 30 and 32, score 18.79 and 18.71. No other line count comes within 7 px of it.",
+  "jackknife": "Refitting with each anchor dropped in turn, 15 of the 17 drops still choose 31 lines. The two that do not are the two END anchors, y676 and y2929: dropping an endpoint shortens the fitted span by a line, so each returns 30. No interior anchor carries the result - the same signature 5V showed.",
+  "the_ink_line_correction": "T-0627 asked for it by name. Its learned-professions zero at y2839 is a box 87 px tall because the closing welded a crease running through the loop to the loop itself, and the box centre stands 20.5 px above the ink's own centre at y2859.5. Re-measuring inside the boxes moves 25 of the 27 entries by 3.5 px or less and moves that one by 20.5 and the learned-professions 1 at y1122 by 13. It is a correction to two crease-welded boxes, not a re-reading of the column. It improves the fit from rms 5.72 to 4.81 and does not change the answer: the box-centre fit also chooses 31 lines, at pitch 75.42.",
+  "corroboration": "The pitch it finds, 75.36 px, is within 0.7% of the 75.86 px 5V's grid found on the sibling sheet in the same deposit, fitted from different ink by the same instrument. Neither was told about the other.",
+  "corrects": {
+   "previous_page_file": "recorded lines_ruled_with_an_entry as null, with a note that the image argued a number but that none was committed",
+   "what_it_unblocks": "pairing.line_count_key, which T-0642 needs to pair the eleven continuation sheets to their left sheets, is now a number for this sheet and not a silence."
+  }
+ },
+ "total_column": {
+  "glyph_groups": 32,
+  "lines": 31,
+  "lines_carrying_a_number": 29,
+  "lines_blank": [
+   10,
+   13
+  ],
+  "numbers_committed": 27,
+  "numbers_not_committed": 2,
+  "read_sum_committed": 137,
+  "indexed_by": "LINE ORDINAL, committed this pass in line_index. Every record states its predicted y and residual so the assignment can be checked rather than taken.",
+  "derived_by": "tools/read_census_continuation.py 33S7-9YYJ-6H --cover 0.50 for the glyph groups; tools/fit_census_line_grid.py 33S7-9YYJ-6H --ink-line for the lines they are read against",
+  "assignment": "All 32 glyph groups fall inside half a pitch of a line: three lines carry two groups each (line 1 two digits, line 5 a digit and two crease fragments, line 30 the bowl and the bar of one 5) and no group is left over. That is the grid being tested by ink it was not fitted to, and it passes.",
+  "closes": false,
+  "printed": 144,
+  "residual": -7,
+  "residual_note": "The footing is READ now, at 144 (T-0645), so the column is read against a number rather than bounded by one. The 27 committed numbers sum to 137 with the ten two-stroke figures read as 4s, so the column stands 7 short of its own footing — and lines 29 and 31, the two T-0628 left unread, are still unread here. 7 across those two lines is what they have to carry, and neither is filled in to make it come out. So the column does not close, and the 7 is a pointer at exactly two lines rather than a residual spread over the sheet. Read as T-0628 read them the column would be 207 against a footing of 144, which is why the reading moved.",
+  "read_sum_committed_as_T0628_read_it": 207,
+  "ticket": "T-0645 (the footing and the ten two-stroke figures); T-0628 (the line index and the other 17 numbers)"
+ },
+ "footer_total_argument": {
+  "ticket": "T-0645",
+  "supersedes": "T-0628's, which could not read the footing and so could only bound it. The footing is read now.",
+  "printed_glyphs": "1, then the two-stroke figure, then the two-stroke figure",
+  "read": 144,
+  "confidence": "inferred",
+  "reasoning": [
+   "THE FOOTING CARRIES THE TWO-STROKE FIGURE ITSELF, TWICE, IN PLACES THAT CAN ONLY BE SINGLE DIGITS. That is the fact neither previous pass had, and it is the whole argument. A three-glyph number reading \"1 4 11\" or \"1 11 4\" is not a number. So on this leaf, in the enumerator own hand, the two-stroke figure is a single numeral — and a two-stroke numeral with no bar and no bowl is a 4. The footing is 144.",
+   "THE MIDDLE GLYPH IS NOT A LOOP. T-0627 read it as one and T-0628 kept the reading, which is what put 104 on the table. Seen at 14x it is one component of 565 px in a 44 x 42 box made of two slanted strokes meeting in a wedge at the lower left, with clear paper inside the wedge. A loop carries ink round the bottom and this does not.",
+   "104 STAYS REFUTED, and now for a second reason. T-0628 refuted it on the body floor of 139. It is also not what the glyph says.",
+   "READING THE BODY TEN AS 11 IS REFUTED BY THE FOOTING IT NOW HAS. With them at 11 the 27 committed numbers sum to 207 and the column floors at 209 with lines 29 and 31 still unread. The footing is 144. 209 cannot be 144 and no reading of two open lines closes a gap of 65 that runs the wrong way.",
+   "READING THEM AS 4 FITS, AND FITS WITHOUT BEING MADE TO. The same 27 numbers then sum to 137, and lines 29 and 31 — left unread by T-0628, and left unread here — carry 7 between them. T-0628 own notes make that the natural reading rather than a convenient one: line 29 \"has the area of the 5s and the strokes of the 11s and the bowl of neither\", line 31 is \"two strokes, but the lower one curves where a 1 does not\". A 3 and a 4 is 7. Neither line is committed here, and the column is published 7 short rather than filled in to close.",
+   "IT AGREES WITH THE CORPUS AND WITH THE SIBLING SHEET. T-0645 measured the deposit: over 527 households read to the cell the mean is 4.84 and an 11 occurs five times, under 1 per cent. Ten elevens in 29 lines was 34 per cent. With the ten read as 4 this page means 4.97 over its 29 written lines. 8D, the nearest continuation sheet with a legible footing, foots at 106 over 32 lines and over-runs it by 15 read with six elevens — the same failure in the same direction, and T-0645 said so."
+  ],
+  "what_it_rests_on": "two crops at 14x of the enumerator own footing, the component geometry above, and T-0628's 27 committed line readings, which are not re-read here and not adjusted. Overturning it means showing the footing middle glyph is a loop after all, or showing a three-glyph number that reads 1-4-11.",
+  "what_it_does_not_settle": "8D. T-0643 read six of the same figure as 11 on a stroke-pitch test and its column over-runs its printed 106 by 15. This pass does not re-read 8D and does not claim its six are 4s — it records that 6H and 8D fail the same way and that 6H own footing now answers it. Re-reading 8D against this finding is T-0652."
+ },
+ "two_stroke_figure_problem": {
+  "what": "Ten of the 29 numbers in this column are two parallel slanted strokes and nothing else. Read as two 1s they are 11; read as one numeral they would have to be a 4, which is the only digit this hand could build from two strokes without a bowl.",
+  "for_11": [
+   "The footing under the manufactures column is the same two-slash form and is 11 beyond argument: T-0627 read eleven entries in that column (a 2 and nine 1s) and they close on it exactly.",
+   "On the sibling continuation sheet 33S7-9YYJ-8D, T-0643 met the identical figure on six lines and read it 11, on the ground that its stroke pitch there (about 30 px) matches that sheet's own two-digit 17 (32 px) and its three-digit 106 (36 px)."
+  ],
+  "against_11": [
+   "THE PITCH TEST DOES NOT SEPARATE THEM ON THIS SHEET. Measured here, the footer's confirmed 11 puts its two slashes 27.4 px apart, and the schools block's two-digit 40 puts its digits 19 px apart - while the sheet's confirmed single 5 spreads its own strokes over 31 px. So a within-digit stroke spread and a between-digit pitch overlap on this leaf, and the ten pairs' separations, 12.2 to 26.5 px, sit inside the overlap. 8D's test worked; the same test run here does not.",
+   "THE ARITHMETIC RUNS THE WRONG WAY. Ten elevens plus the rest floor the column at 209, and the footing's first glyph is a 1.",
+   "THE CORPUS SAYS 11 IS RARE. Across the 527 households already read to the cell from this deposit's left sheets, the mean household is 4.84 and 11 occurs five times - under 1%. Ten of 29 on one sheet is 34%. The nearest sheet with a legible footing, 8D, foots at 106 over 32 lines, a mean of 3.3.",
+   "8D DOES NOT CLOSE EITHER, and it fails in the same direction: read with six elevens it sums to 121 against a printed 106, a residual of +15 that T-0643 recorded and did not explain. Two sheets over-running their own footings in the same way, both of them full of the same figure, is a pattern and not two accidents."
+  ],
+  "not_settled_here": "The values are committed as 11 because that is what the footing under the manufactures column fixes the form to on this very sheet, and because no reading may be chosen for making a total come out. The residual is recorded rather than removed. What would settle it: this sheet's left-hand partner, whose household sizes are the same families counted a second time - T-0642's pairing work is what would produce it - or a legible footing on a third continuation sheet carrying the figure. — T-0645 settles this leaf. 8D is NOT re-read here and its six are not claimed to be 4s: T-0646 carries that.",
+  "ticket": "T-0645",
+  "settled_by": "T-0645",
+  "settled_how": "The enumerator own footing under this column was read at 14x and it carries the two-stroke figure TWICE, in the second and third places of a three-glyph number whose first glyph is a plain slash. \"1 4 11\" and \"1 11 4\" are not numbers, so in his own hand, on this leaf, the two-stroke figure is a single numeral — a 4 — and the footing is 144. The ten body figures are read as 4s on that, and the column falls from 207 to 137 against a footing of 144, with the 7 belonging to lines 29 and 31, which stay unread. The argument that was missing is not a better look at the ten glyphs; it is a look at the footing, which T-0627 had read as \"a low loop\" and nobody had re-measured."
+ },
+ "column_geometry_lower_blocks": {
+  "derived_by": "tools/read_census_lower_blocks.py 33S7-9YYJ-6H (T-0629); the rules themselves from read_census_continuation.vertical_rules over the body band y619-2959",
+  "ticket": "T-0629",
+  "why_it_is_separate": "read_census_continuation names eight columns — TOTAL and the seven industry columns — because that printed run is the one stretch of the form whose columns can be named off pitch alone. The other thirty of this sheet's thirty-eight columns are wide blocks of unequal pitch, and the tool reports their ink as one lump per block with a note saying the lump is dominated by printed rules. This is those thirty, named.",
+  "cover_thresholds": {
+   "slaves": 0.5,
+   "pensioners": 0.5,
+   "deaf_dumb_blind_insane_white": 0.3,
+   "deaf_dumb_blind_insane_colored": 0.5,
+   "schools": 0.5
+  },
+  "cover_note": "This leaf is pale and read_census_continuation already needs --cover 0.50 on it where 5V takes the 0.6 default. The six DEAF AND DUMB / BLIND AND INSANE white columns are paler still: at 0.50 only the block's outer rules at x2380, x2769 and x2857 stand, and the four interior rules need 0.30. At 0.25 two of those four drop out again, so 0.30 is not a threshold the reading was tuned to — it is the only one at which the block's run is complete.",
+  "checked_by_eye": "The thirty bounds below were read against the printed column heads at 3x and 9x on the image before they were named: PENSIONERS FOR REVOLUTIONARY OR MILITARY SERVICES prints NAMES first and AGES second on this form, which is the reverse of the order the page file's own form_note gives; DEAF AND DUMB (three age columns) then BLIND AND INSANE (three) for white persons; DEAF, DUMB, AND BLIND (two) then INSANE AND IDIOTS (two) for coloured persons; and SCHOOLS, &c. as Universities or Colleges, Number of Students, Academies & Grammar Schools, No. of Scholars, Primary and Common Schools, No. of Scholars, No. of Scholars at public charge.",
+  "bounds_px": {
+   "slaves_male_under_10": [
+    224,
+    309
+   ],
+   "slaves_male_10_under_24": [
+    309,
+    386
+   ],
+   "slaves_male_24_under_36": [
+    386,
+    464
+   ],
+   "slaves_male_36_under_55": [
+    464,
+    541
+   ],
+   "slaves_male_55_under_100": [
+    541,
+    620
+   ],
+   "slaves_male_100_and_upwards": [
+    620,
+    701
+   ],
+   "slaves_female_under_10": [
+    701,
+    780
+   ],
+   "slaves_female_10_under_24": [
+    780,
+    856
+   ],
+   "slaves_female_24_under_36": [
+    856,
+    935
+   ],
+   "slaves_female_36_under_55": [
+    935,
+    1014
+   ],
+   "slaves_female_55_under_100": [
+    1014,
+    1087
+   ],
+   "slaves_female_100_and_upwards": [
+    1087,
+    1169
+   ],
+   "pensioners_names": [
+    1865,
+    2300
+   ],
+   "pensioners_ages": [
+    2300,
+    2380
+   ],
+   "ddbi_white_deaf_and_dumb_under_14": [
+    2380,
+    2460
+   ],
+   "ddbi_white_deaf_and_dumb_14_under_25": [
+    2460,
+    2538
+   ],
+   "ddbi_white_deaf_and_dumb_25_and_upwards": [
+    2538,
+    2617
+   ],
+   "ddbi_white_blind": [
+    2617,
+    2692
+   ],
+   "ddbi_white_insane_at_public_charge": [
+    2692,
+    2769
+   ],
+   "ddbi_white_insane_at_private_charge": [
+    2769,
+    2857
+   ],
+   "ddbi_colored_deaf_and_dumb": [
+    2858,
+    2937
+   ],
+   "ddbi_colored_blind": [
+    2937,
+    3020
+   ],
+   "ddbi_colored_insane_at_private_charge": [
+    3020,
+    3107
+   ],
+   "ddbi_colored_insane_at_public_charge": [
+    3107,
+    3192
+   ],
+   "schools_universities_or_colleges": [
+    3192,
+    3260
+   ],
+   "schools_number_of_students": [
+    3260,
+    3325
+   ],
+   "schools_academies_and_grammar_schools": [
+    3325,
+    3390
+   ],
+   "schools_no_of_scholars_academies": [
+    3390,
+    3474
+   ],
+   "schools_primary_and_common_schools": [
+    3474,
+    3534
+   ],
+   "schools_no_of_scholars_primary": [
+    3534,
+    3602
+   ]
+  },
+  "seventh_schools_column_not_bounded": "No. of Scholars at public charge is bounded on the left at x3602 and has no right-hand rule at any threshold down to 0.30: the leaf curls into the binding at about x3640 and the gutter takes both the rule and the cell. It is NOT swept and NOT read, and it is not recorded as blank. That is T-0755.",
+  "the_sheet_rises_to_the_right": {
+   "measured": "the y of the darkest row of the upper body horizontal rule, in 80 px windows",
+   "samples": {
+    "300": 613,
+    "700": 607,
+    "1100": 603,
+    "1250": 603,
+    "1700": 596,
+    "2100": 590,
+    "2500": 586,
+    "2900": 584,
+    "3200": 581,
+    "3500": 580
+   },
+   "slope_px_per_px": -0.01022,
+   "why_it_matters": "the committed line_index was fitted to the industry run at x1363-1865. A glyph 2200 px to its right sits about 23 px higher than the index predicts, and without this correction the SCHOOLS figures look like they fall between lines 1 and 2."
+  }
+ },
+ "lower_blocks_T0629": {
+  "ticket": "T-0629",
+  "read_pass": "the twelve SLAVES columns, both PENSIONERS columns, the ten DEAF AND DUMB, BLIND AND INSANE columns and six of the seven SCHOOLS, &c. columns swept with the instrument that read the industry run, and the 1 and the 40 at the head of the SCHOOLS block read, placed on a line, and checked against a footing nobody had looked for.",
+  "instrument": "tools/read_census_lower_blocks.py 33S7-9YYJ-6H — ink_mask then components, inset 9 px from each printed rule (the rule's own scan shadow reaches about 7 px on this leaf), area>=40, width>=8, height<=4x width. Every survivor is reported with its box, its area, the share of its pixels standing 120 or more grey levels below local background (`solid`), the paper its ink shuts in (`encloses`), and its distance from the nearest printed rule. The tool reads no digit; a person reads the digit off the image.",
+  "result": "THIRTY COLUMNS SWEPT, TWO CELLS WRITTEN. Fifteen components survive in the body and six in the footing band. Two of the fifteen and three of the six are the enumerator's ink; every other one is a printed rule clipped by the sweep window, a horizontal rule crossing the band, a round ink blot, or the diffuse feathered ghost of writing on the other side of the leaf.",
+  "blank_is_a_zero": "The form's own rule, already stated in form_note: a blank cell on this form is a zero. So this sweep commits 0 on all 31 lines of all twelve slaves columns, both pensioners columns and all ten deaf/dumb/blind/insane columns — 744 cells — and 0 on all 31 lines of five of the six swept schools columns.",
+  "what_the_rejected_ink_is": [
+   {
+    "where": "slaves_male_under_10",
+    "boxes": "x233-241 at y2869, y2914, y2947",
+    "rejected_because": "three fragments of the printed rule at x224, clipped by the sweep window: each stands exactly 9 px off that rule, is 8-9 px wide against 28, 19 and 12 px tall, and they lie one under another on the same x."
+   },
+   {
+    "where": "slaves_female_under_10",
+    "boxes": "x731-745 y1184-1196",
+    "rejected_because": "14x12 px, no numeral form at 3x — a short feathered diagonal smear with no stroke core, 30 px from either rule. Show-through."
+   },
+   {
+    "where": "pensioners_names",
+    "boxes": "x2127-2136 y2133-2156 and x2171-2183 y2246-2264",
+    "rejected_because": "solid 0.03 and 0.10; at 3x the first is a vertical feathered smudge beside two round blots and the second a feathered diagonal. Both are show-through. Nothing in the 435 px NAMES cell is writing, which matters: a pensioner would be named here, not counted."
+   },
+   {
+    "where": "schools_number_of_students",
+    "boxes": "x3273-3288 y1640-1656",
+    "rejected_because": "solid 0.01 — one hundredth of the box has any solid ink at all. A feathered diagonal crossing the rule. Show-through."
+   },
+   {
+    "where": "schools_no_of_scholars_academies",
+    "boxes": "x3415-3434 y1253-1279",
+    "rejected_because": "solid 0.03, and at 3x it runs THROUGH the printed rule at x3390 and out the other side, which the enumerator's pen does not do. Show-through."
+   },
+   {
+    "where": "schools_no_of_scholars_primary",
+    "boxes": "x3559-3569 y2023 and x3579-3593 y2026",
+    "rejected_because": "10x13 and 14x22 px round blots — solid but far below the numeral scale of this hand, and round rather than stroked."
+   },
+   {
+    "where": "the footing band",
+    "boxes": "x395-455, x1874-2291, x2701-2760",
+    "rejected_because": "the footer's own two horizontal rules crossing the sweep band; 417 px wide in one case."
+   }
+  ],
+  "the_scale_argument": "The 55 number groups this sheet's committed columns carry run 10-65 px wide and 15-82 px tall, median 34x41. Every rejected component above is at most 19x26. The two accepted ones are 29x30 and 48x46 — inside the committed distribution, and the only two of the twenty-one that are.",
+  "the_bowl_test": "Paper the ink shuts in, found by flooding each box's background from its border after a 5 px closing. Of every component in all thirty columns and both bands, ONE encloses paper: the 48x46 figure at x3536-3584, which encloses 25 px. A bowl is what a 0, 6, 8 or 9 has and a slash does not, and it is why that figure cannot be read as 4, 44 or 11.",
+  "schools_body_reading": {
+   "primary_and_common_schools": 1,
+   "no_of_scholars_primary": 40,
+   "line": 1,
+   "all_other_lines": "blank in every schools column, on all 31 lines",
+   "the_glyphs": "the 1 is a single bold slanted slash at x3476-3505 y646-676, 29x30, solid 0.16, with a period blotted under it — the same form as the learned-professions footing this sheet closes at 1. The 40 is at x3536-3584 y639-685, 48x46, solid 0.23: an open-top 4 written as an oblique crossed by a near-horizontal stroke, then a closed 0. It is the same two-stroke 4 T-0645 argued this hand into from the TOTAL footing, and here it is written beside a bowl that proves the second glyph is a nought — so the leaf now carries an INDEPENDENT instance of the two-stroke figure standing for 4, read off form rather than off arithmetic. See two_stroke_figure_problem, which this settles from the other end.",
+   "the_column_assignment": "the 1 falls in x3474-3534 and the 40 in x3534-3602. Read against the printed heads at 9x those are Primary and Common Schools and the No. of Scholars immediately right of it — NOT the academies pair, which is x3325-3390 and x3390-3474 and is empty on every line.",
+   "the_line_assignment": "the committed line_index (origin 682.0, pitch 75.36, rms 4.81) is fitted to industry ink at x1363-1865, and the sheet rises 23 px between there and the schools block. Corrected for that measured slope the index predicts line 1 at y659.1 at x3490. The two figures' ink centres are y661.5 and y662.5 — residuals +2.4 and +3.4 px, inside the index's own 4.81 px rms. Line 2 would be at y734. So both stand on line 1 and on no other line the index places.",
+   "what_it_means": "one primary or common school with forty scholars, entered against the first family on the sheet. Whether the school was that family's or whether the enumerator simply used the first cell to hand for a district figure is not something the sheet says; the footing below says he treated the two columns as columns to be footed, like the industry run, which is weak evidence for the second. Recorded as a placement, not as an attribute of that household."
+  },
+  "schools_footing": {
+   "finding": "THE SCHOOLS BLOCK IS FOOTED, AND NOTHING HAD LOOKED. footer_blank_columns_note listed the blocks that carry no figure at the foot of this sheet and the schools block was not among them because it had not been examined. Two of its seven columns carry footing ink.",
+   "primary_and_common_schools": 1,
+   "primary_and_common_schools_note": "x3493-3523 y2972-3008, 30x36 — a single bold slanted slash of exactly the body figure's form and 20 per cent larger. Read 1. THE COLUMN CLOSES: one entry of 1 in the body, 1 at the foot. It is the first column on this leaf outside the industry run to close on its own footing.",
+   "no_of_scholars_primary": null,
+   "no_of_scholars_primary_note": "WRITTEN AND STILL NOT READ AS A NUMBER, but no longer unread as a FIGURE. T-0629 found three components at x3550-3588 y2967-3009 and could say only that they stood where a 40 would stand. T-0754 put the repository's own calibrated instrument on them and settled how they group and what the left group is: the figure is TWO DIGITS, and the left digit is this hand's two-stroke 4. The right digit is unread and is NOT a closed bowl, so the figure is not read 40 and this column still does not close. See no_of_scholars_primary_T0754.",
+   "the_other_five_schools_columns": "no footing ink, consistent with their being empty in the body.",
+   "slaves_pensioners_ddbi": "no footing ink either — measured this pass, and it extends footer_blank_columns_note, which had not covered the slaves block.",
+   "no_of_scholars_primary_T0754": {
+    "ticket": "T-0754",
+    "cell_state": "null — the number is not committed. What IS committed is the figure's grouping and its left digit.",
+    "the_three_components": [
+     {
+      "label": "S1",
+      "box": [
+       3555,
+       2967,
+       3573,
+       2985
+      ],
+      "size": "18x18",
+      "area_px": 49,
+      "solid": 0.04,
+      "reads": "a slanted stroke, parallel to S2 and standing over it in x"
+     },
+     {
+      "label": "S2",
+      "box": [
+       3550,
+       2978,
+       3573,
+       3010
+      ],
+      "size": "23x32",
+      "area_px": 108,
+      "solid": 0.11,
+      "reads": "the bold long stroke of the figure, axis -52 deg"
+     },
+     {
+      "label": "S3",
+      "box": [
+       3575,
+       2982,
+       3588,
+       3006
+      ],
+      "size": "13x24",
+      "area_px": 66,
+      "solid": 0.14,
+      "reads": "a single stroke that descends steeply and turns left at the foot, blunt-ended, with no return up a right side — an open hook"
+     }
+    ],
+    "instrument": "tools/read_census_lower_blocks.py 33S7-9YYJ-6H --footer --inset 2 for the components, and tools/census_pair_geometry.py for the x-overlap. Both import read_census_continuation's ink mask and component finder; no second instrument was written for this reading.",
+    "the_grouping_is_settled": {
+     "by": "the X OVERLAP test — 33S7-9YYJ-5V total_column.stroke_overlap_test (T-0647), calibrated on nine figures whose value is fixed by a column or a footing that closes: one numeral +10 to +19, two digits -13 to +5.",
+     "S1_against_S2": "+22 px — ONE NUMERAL. Three px past the top of the calibrated one-numeral range, which is further FROM the two-digit class and not toward it, the same margin 5V accepted on its lines 9 and 24.",
+     "S2_against_S3": "-3 px — TWO DIGITS. Inside the calibrated two-digit range and 13 px from the nearest one-numeral value.",
+     "therefore": "S1 and S2 are the two strokes of one digit, and S3 is a second digit standing to its right. The figure is a two-digit number, not three glyphs and not one.",
+     "checked_against_this_leaf": "the same tool on this leaf's own controls: the MANUFACTURES footing, an 11 beyond argument, measures 0 px; the 4 on TOTAL line 20 measures +18 px. Both fall in their own class."
+    },
+    "the_left_digit": {
+     "reads": 4,
+     "confidence": "inferred",
+     "why": "two parallel slanted strokes, no bar and no bowl, classing as one numeral. T-0645 settled on THIS leaf, from its own TOTAL footing, that in this hand that form is a single numeral and is a 4 — '1 4 11' and '1 11 4' are not numbers — and 33S7-9YYJ-24's digit key, labelled by a TOTAL column that closes at 201, gives the same form as its 4. No other numeral this hand writes is built from two slashes alone.",
+     "what_weakens_it": "S1 is the faintest ink in the cell: 27 per cent of its pixels stand 120 or more grey levels below background, against 67-75 per cent for S2, S3 and the confirmed 1 in the column beside it. It is a clean 18x19 diagonal parallel to S2 and 21 px off the nearest printed rule, which is not what this leaf's show-through looks like, but the reading of the left digit rests on it: without S1 the left digit is a single slash and reads 1."
+    },
+    "the_right_digit_is_refused": {
+     "reads": null,
+     "the_test": "enclosed paper, found by flooding the background from the border after a 5 px closing, run down the ink threshold instead of at the sweep's 45 alone.",
+     "S3": "encloses 0 px at thresholds 45, 35, 28, 22, 16 and 12.",
+     "the_leaf_s_own_0": "the 0 of the body's 40, at x3559-3583 — the SAME x band of the SAME leaf — encloses 34 px at 45 and 25 px at 35.",
+     "the_leaf_s_own_5": "the bowl of the 5 on TOTAL line 30 encloses 113 px by threshold 16.",
+     "therefore": "the failure to close is not the pale exposure and not the binding gutter, because the leaf's own bowl in the same band closes on the same instrument. S3 is 13 px wide against that 0's 25 and against the confirmed 1's 30. It is pen ink — the highest solid fraction of the three — and it is not a closed bowl.",
+     "what_it_could_be": "an 0 whose bowl the dry pen never shut, or a shortened 1. Neither can be shown on this exposure, and 40 is not written in because it would make the column close."
+    },
+    "the_curvature_test_does_not_separate": "A sagitta test — the bow of each stroke against its own long axis — was run and is recorded as NOT a discriminator on this leaf, so that the next pass does not spend a run on it. Under the repository's own ink mask and component finder the strokes of the TOTAL column's 4s bow by 14 to 26 per cent of their length, which is as much as the bowls of the leaf's 0 and 5. The measure is also unstable to the 5 px closing: the same strokes measured without it bow by under 6 per cent. It says nothing about S3 either way.",
+    "what_the_column_now_stands_at": "The body carries one entry, 40, on line 1. The footing is a two-digit figure whose first digit is a 4, so it lies between 40 and 49 if both glyphs are digits. That does not contradict the body and it does not close it: the second digit is unread, and a column is not closed against a range.",
+    "what_would_settle_it": "a second exposure of this leaf. The reading is limited by ink depth at the foot of a pale capture, not by magnification — S3 was read at 26x and the components are stable from threshold 45 down to 12. A different film capture of M704 roll 57 at this leaf, or the same leaf's other-side show-through used as a mirror, is what would add information."
+   }
+  },
+  "what_this_does_not_close": "the sheet. The TOTAL column still stands 7 short of its 144 footing and two of its glyphs are unread; nothing in these four blocks bears on that."
+ }
+}

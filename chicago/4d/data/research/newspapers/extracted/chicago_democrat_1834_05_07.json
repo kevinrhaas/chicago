@@ -1,0 +1,463 @@
+{
+  "schema": 1,
+  "issue_id": "chicago_democrat_1834_05_07",
+  "extracted": "2026-08-28",
+  "extracted_by": "hand, T-0314 — the Democrat read, May 1834",
+  "note": "Vol. I No. 23. The advertising page of the town in the first week of May 1834: a small building to let described by its doors and windows, two forwarding houses placed against Fort Dearborn, a tinsmith placed a few doors below one of them, and the port's marine list. The Laughton estate runs through the whole month and starts here.",
+  "claims": [
+    {
+      "id": "c001",
+      "kind": "shipping",
+      "reading": "transcription_mediated",
+      "quote": "MARINE LIS\nARRIVED.\nMay l. Scir. Waite Pureon. Da\n• Scar. Fander to Dasid Ca\n[uncertain: Scar. Oraton]\nante, Cleas\nCLEARED.\nMoy it Bels White Pigeon, Di\n[uncertain: Sir: Wear Dell]",
+      "normalized": "MARINE LIS[T]. ARRIVED. May 1. Sch[oone]r. White P[ige]on, Da[vis …] Sc[hoone]r. Fa[wn?], to David Ca[rver …] [Schooner Oregon …] ante, Clea[red] CLEARED. Ma[y] 1[.] B[rig?] White Pigeon, D[avis …] [Schooner Wave? Dell?]",
+      "locator": {
+        "artifact_role": "primary",
+        "issue_page": 3,
+        "column": 1,
+        "lines": [
+          2621,
+          2629
+        ]
+      },
+      "entities": [
+        {
+          "as_printed": "David Ca",
+          "normalized": "David Carver",
+          "role": "consignee",
+          "occupations": [
+            "merchant"
+          ],
+          "associated_places": [
+            "Chicago"
+          ]
+        }
+      ],
+      "notes": "THE PORT'S OWN COLUMN, and the first of two marine lists this month. It is badly cut — the White Pigeon is entered arriving and clearing on the same date, and the second hull's rig is illegible — so it is claimed for the FACT OF THE TRAFFIC and not for its figures. David Carver, who advertises flour and lumber three columns away, is named here as a consignee, which is the corpus's first sight of a Chicago merchant taking delivery off a named hull. The 28 May list (chicago_democrat_1834_05_28 c001) is legible and carries the month's real count."
+    },
+    {
+      "id": "c002",
+      "kind": "notice",
+      "reading": "transcription_mediated",
+      "quote": "$30 REWAR\nward wit Store Sent there w\nON the 24 or 33\nsid return often for the detecti\nChirago, May 5, 1834.",
+      "normalized": "$30 REWAR[D …] ward […] Store […] there w[ere …] ON the 2[8]d or 3[0]d […] s[a]id return […] often for the detecti[on …] Chi[c]ago, May 5, 1834.",
+      "locator": {
+        "artifact_role": "primary",
+        "issue_page": 3,
+        "column": 1,
+        "lines": [
+          2653,
+          2657
+        ]
+      },
+      "ad_copy_date": {
+        "verbatim": "Chirago, May 5, 1834.",
+        "iso": "1834-05-05"
+      },
+      "notes": "A BREAK-IN AT A CHICAGO STORE at the end of April 1834, thirty dollars offered for the detection. The victim's name is lost in the cut and IS NOT SUPPLIED; the 28 May issue carries what is probably the same hand's second notice, at $250 in specie, and the two are NOT merged — the amounts differ and nothing on either line joins them. Kept because a town where a store is worth robbing and a reward is worth printing is a town with goods standing in it overnight."
+    },
+    {
+      "id": "c003",
+      "kind": "business",
+      "reading": "transcription_mediated",
+      "quote": "le and Retail\nISU, ne\nMessrs. Nacberry & Dole's, | Nh 0n0\nr would inform the public,\nn hand and is now receiving Also, a\nment of April 2\non and Copper Ware. J\nVG STOVES,\ned patterns, with furniture. | FOrere\nortment of wi\nough §- Plough Castings, ;\nbe found the prairie plough)\n“&e. He will alsofarnah| Agen\not Mill castings, and Mill REFER\nof which will be dispo-| RR. Por\naes R- Por\neG. W. KEENEY, | &: 2.",
+      "normalized": "[Wholesa]le and Retail […] Messrs. N[ew]berry & Dole's, […] [the subscribe]r would inform the public, [that he has o]n hand and is now receiving […] [an extensive assort]ment of [Tin, Sheet] Iron and Copper Ware. [COOKI]NG STOVES, [of the most approv]ed patterns, with furniture. [Also, a general ass]ortment of [Hollow Ware, Pl]ough & Plough Castings, [among which may] be found the prairie plough[, …] &c. He will also f[ur]n[is]h [to order, all kinds of] Mill castings, and Mill [irons …] [all] of which will be dispo[sed] [of at reasonable pric]es. G. W. KEENEY.",
+      "locator": {
+        "artifact_role": "primary",
+        "issue_page": 3,
+        "column": 3,
+        "lines": [
+          2805,
+          2821
+        ]
+      },
+      "entities": [
+        {
+          "as_printed": "G. W. KEENEY",
+          "normalized": "G. W. Keeney",
+          "role": "proprietor",
+          "occupations": [
+            "tinsmith",
+            "founder"
+          ],
+          "associated_places": [
+            "Chicago"
+          ]
+        }
+      ],
+      "business": {
+        "name": "G. W. Keeney",
+        "trade": "tin, sheet iron and copper ware; cooking stoves; plough and mill castings",
+        "placement": {
+          "class": "relative",
+          "anchor": "Newberry & Dole's store",
+          "offset_text": "A fe[w] doors bel[ow] Messrs. N[ew]berry & Dole's"
+        },
+        "address_text": "A fe[w] doors bel[ow] Messrs. N[ew]berry & Dole's"
+      },
+      "notes": "THE TOWN'S IRONMONGER, AND THE ONLY MAY 1834 TRADE THAT NEEDS A FIRE. Keeney makes tin, sheet iron and copper ware, sells cooking stoves 'with furniture', and — the line that matters for a reconstruction — casts PLOUGHS AND MILL IRONS to order. A shop that furnishes mill castings is a shop with a forge in or behind it, which is a roof feature and a smoke source, not just a frontage. The placement is relative and is the paper's own words: a few doors below Newberry & Dole's, who stand opposite Fort Dearborn (claim c008), so the whole run is anchored to the fort's frontage. The same advertisement stands again on 28 May in a cleaner column."
+    },
+    {
+      "id": "c004",
+      "kind": "business",
+      "reading": "transcription_mediated",
+      "quote": "solution.\nGuopisc\nhip heretofore existing be- L nt D\nbers, under the firm off 7\nhis day dissolved by mutual] GMFriT\nons having claims against] Ssurm &\nlebted, are reauested to call\nwith Asahel Pierce, who}  Jomxsr¢\n2 the same. Fanxsw\n| PIERCE,\nsi. aBBorr, | ,, 0 Ke\nhis Wants\nbe continued at the old atand April 1:",
+      "normalized": "[Dis]solution. [The co-partners]hip heretofore existing be[tween the subscri]bers, under the firm of [Pierce & Abbott, is t]his day dissolved by mutual [consent. All pers]ons having claims against [said firm, and all in]debted, are requested to call [and liquidate …] with Asahel Pierce, who [is duly authorized to settle] the same. [ASAHEL] PIERCE, [TITU]S H. ABBOTT. […] [The business will] be continued at the old stand [by ASAHEL PIERCE.]",
+      "locator": {
+        "artifact_role": "primary",
+        "issue_page": 3,
+        "column": 3,
+        "lines": [
+          2822,
+          2834
+        ]
+      },
+      "entities": [
+        {
+          "as_printed": "ASAHEL PIERCE",
+          "normalized": "Asahel Pierce",
+          "role": "surviving partner, continues at the old stand",
+          "occupations": [
+            "merchant"
+          ],
+          "associated_places": [
+            "Chicago"
+          ]
+        },
+        {
+          "as_printed": "TITUS H. ABBOT",
+          "normalized": "Titus H. Abbott",
+          "role": "retiring partner",
+          "occupations": [
+            "merchant"
+          ],
+          "associated_places": [
+            "Chicago"
+          ]
+        }
+      ],
+      "business": {
+        "name": "Pierce & Abbott (dissolved; continued by Asahel Pierce)",
+        "trade": "unstated — the notice names no trade",
+        "placement": {
+          "class": "none"
+        }
+      },
+      "ad_copy_date": {
+        "verbatim": "Chicago, May 5, 1834.",
+        "iso": "1834-05-05"
+      },
+      "notes": "A PARTNERSHIP ENDS AND THE PREMISES DO NOT. 'Continued at the old stand' is the phrase this corpus most needs: it says the SHOP is the durable thing and the firm name on it is not, so a storefront carried forward from an 1834 reading into the 1835 scene survives a change of proprietor. Pierce takes it on alone. No address is printed, so the placement is none rather than guessed — the same notice is reprinted on 28 May and adds nothing."
+    },
+    {
+      "id": "c005",
+      "kind": "building",
+      "reading": "transcription_mediated",
+      "quote": ") LET, 2\nIALL building, suitable for\noffice or a si\nfamily,\n. Newberry & Dole’s| poe\nel doors, andsome Window] OPER E?\nf A.\nSWEET. ACG:",
+      "normalized": "TO LET, [a] S[M]ALL building, suitable for [an] office or a s[mall] family, [near …] Newberry & Dole's[, with pan]el doors, [h]andsome Window[s …] […] SWEET.",
+      "locator": {
+        "artifact_role": "primary",
+        "issue_page": 3,
+        "column": 3,
+        "lines": [
+          2835,
+          2842
+        ]
+      },
+      "entities": [
+        {
+          "as_printed": "SWEET",
+          "normalized": "[…] Sweet",
+          "role": "advertiser letting the building"
+        }
+      ],
+      "notes": "THE MONTH'S BEST SINGLE BUILDING DESCRIPTION, and it is small. A building that can be either AN OFFICE OR A SMALL FAMILY'S HOUSE is at the bottom of the size range this reconstruction deals — one room or two — and the advertiser thinks its PANEL DOORS and handsome WINDOWS worth the price of type, which in a town of squared logs is a claim to being finished joinery rather than a claim to being large. It stands near Newberry & Dole's, so it is on the fort's side of South Water among the forwarding houses. The advertiser's given name is lost; SWEET is not supplied further."
+    },
+    {
+      "id": "c006",
+      "kind": "notice",
+      "reading": "transcription_mediated",
+      "quote": "\\OTICE. Honea\nthe Au Plaine river, about} Barxrn.\nove Laughton’s two Mures,|  Oxiver |\n1, and bridles about their} Carvin |\nma light chesnut color,| James B.\nthe forehead, a small scar Also, WI\nbout two inches in length, 6\nthe top of her back, caused| MDa°y\nt thirteen or fourteen hands\nen years old. The other,\nspot in the forehead\nApril, 18\nhe nose, hind feet white,| ww im ,\nick caused by saddle gauls, | Mis A @\n; a\nre old, and about four-\nh. Whoever will give i\nnares, or return then to ESP.\ner's settlement, on Dupage Chie\nM warded. he has take\nSALISBURY. | in his line v",
+      "normalized": "[N]OTICE. […] the Au Plaine river, about […] [ab]ove Laughton's two [m]ares, […] and bridles about their […] […] a light chesnut color, […] the forehead, a small scar […] [a]bout two inches in length, […] the top of her back, caused […] [abou]t thirteen or fourteen hands […] […]en years old. The other, […] spot in the forehead […] […] he nose, hind feet white, […]ick caused by saddle gauls, […] […] re old, and about four[teen hands hig]h. Whoever will give i[nformation of the] […] [m]ares, or return them to […] […]er's settlement, on Dupage […] [shall be re]warded. […] SALISBURY.",
+      "locator": {
+        "artifact_role": "primary",
+        "issue_page": 3,
+        "column": 3,
+        "lines": [
+          2844,
+          2864
+        ]
+      },
+      "entities": [
+        {
+          "as_printed": "SALISBURY",
+          "normalized": "[…] Salisbury",
+          "role": "advertiser, of a settlement on the DuPage",
+          "associated_places": [
+            "Du Page river"
+          ]
+        },
+        {
+          "as_printed": "Laughton's",
+          "normalized": "Laughton's",
+          "role": "landmark on the Au Plaine (Des Plaines) river",
+          "associated_places": [
+            "Au Plaine river"
+          ]
+        }
+      ],
+      "notes": "TWO STRAYED MARES, AND THE GEOGRAPHY IS THE POINT. The notice fixes its ground by 'Laughton's' on the Au Plaine (Des Plaines) river and by a settlement on the DuPage — the same Laughton tavern the estate notices in this issue and through the month are settling, so the family's name is the landmark travellers west of town steer by. The horse descriptions are quoted for their own sake: light chestnut, thirteen or fourteen hands, saddle-gall marks. Working animals at that size are what the town's wagons and hitching posts are scaled to."
+    },
+    {
+      "id": "c007",
+      "kind": "person",
+      "reading": "transcription_mediated",
+      "quote": "1, that the undorsign-\nt letters of Administration,\ntate of Barnardus H.!— —_\ncounty of Cook, deceased. | Temp\n10, or having claims against\nnotified and required to\n+ or to the court of Pro-\nof Cook, for settlement, |\nrom the date hereof—Da- 7\nJ day of May, 1224, sctbds\nSOPHIA LAUGHTON,\nis non of the estate of Bar-\nt, deceased.",
+      "normalized": "[Notice is hereby given] that the undersign[ed has this day taken ou]t letters of Administration, [on the es]tate of Barnardus H. [Laughton, late of the] county of Cook, deceased. [All persons indebted theret]o, or having claims against [said estate, are hereby] notified and required to [make payment to me] or to the court of Pro[bate of the county] of Cook, for settlement, [within nine months f]rom the date hereof — Da[ted at Chicago this 2]d day of May, 1[8]34. SOPHIA LAUGHTON, [Administratrix de bon]is non of the estate of Bar[nardus H. Laughton], deceased.",
+      "locator": {
+        "artifact_role": "primary",
+        "issue_page": 3,
+        "column": 3,
+        "lines": [
+          2882,
+          2894
+        ]
+      },
+      "entities": [
+        {
+          "as_printed": "SOPHIA LAUGHTON",
+          "normalized": "Sophia Laughton",
+          "role": "administratrix de bonis non",
+          "associated_places": [
+            "Chicago",
+            "Au Plaine river"
+          ]
+        },
+        {
+          "as_printed": "Barnardus H.",
+          "normalized": "Barnardus H. Laughton",
+          "role": "deceased, late of the county of Cook",
+          "occupations": [
+            "tavern keeper"
+          ],
+          "associated_places": [
+            "Au Plaine river"
+          ]
+        }
+      ],
+      "ad_copy_date": {
+        "verbatim": "d day of May, 1224",
+        "iso": "1834-05-02"
+      },
+      "notes": "BARNARDUS H. LAUGHTON IS DEAD BY 2 MAY 1834, and his widow Sophia takes the administration. This dates a landmark: the Laughton place on the Au Plaine that the estray notice in this same column steers by (claim c006) is, from this month, an estate being wound up, and on 14 May its household goods are sold at the dwelling house itself (chicago_democrat_1834_05_14 c005). Read together the three notices put a named occupied dwelling west of town and then empty it inside four weeks — which is exactly the kind of window ruling 3 asks a survival liberty to cite. A SECOND Laughton estate, David's, is in probate in the adjoining column of the same page, so the two must not be merged: the paper distinguishes them and so does this reading."
+    },
+    {
+      "id": "c008",
+      "kind": "business",
+      "reading": "transcription_mediated",
+      "quote": "JOHN H. KINZIE,\narding & Commission\nJERCHANT,\nnt for the Troy & trie Line,\nGRIFFiTE & Co. Troy N. Y\ngents for Troy and Enie Line.\nToN & STAHt., Galenn, II.\nSwOrTH & Brusu. Green Bor MT\nSalt,\nWin-\nCash, at\n14, 1834.\nE, opposite to Port Dearborn",
+      "normalized": "JOHN H. KINZIE, [Forw]arding & Commission [M]ERCHANT, [Age]nt for the Troy & [E]rie Line, GRIFFiTE & Co. Troy N. Y[.] [A]gents for Troy and E[r]ie Line. [WESTON? & STAH]t., Galen[a], Il[l.] [ELLS]wORTH & BrUSU. Green B[ay] M[.] T[.] Salt, […] Win[dow glass? …] Cash, at […] [May] 14, 1834. […]E, opposite to Port Dearborn",
+      "locator": {
+        "artifact_role": "primary",
+        "issue_page": 3,
+        "column": 4,
+        "lines": [
+          2962,
+          2974
+        ]
+      },
+      "entities": [
+        {
+          "as_printed": "JOHN H. KINZIE",
+          "normalized": "John H. Kinzie",
+          "role": "proprietor",
+          "occupations": [
+            "forwarding and commission merchant"
+          ],
+          "associated_places": [
+            "Chicago",
+            "Fort Dearborn"
+          ]
+        }
+      ],
+      "business": {
+        "name": "John H. Kinzie",
+        "trade": "forwarding and commission merchant; agent, Troy & Erie Line",
+        "placement": {
+          "class": "relative",
+          "anchor": "Fort Dearborn",
+          "offset_text": "opposite to Port Dearborn"
+        },
+        "address_text": "opposite to Port Dearborn"
+      },
+      "ad_copy_date": {
+        "verbatim": "14, 1834.",
+        "iso": "1834-05-14"
+      },
+      "notes": "THE FORT IS AN ADDRESS. Kinzie does not name a street; he names the fort and stands opposite it, and so does Newberry & Dole in the very next advertisement (claim c008). That is two of the town's principal forwarding houses placing themselves off Fort Dearborn rather than off the street grid, in May 1834 — which is evidence about what a visitor's eye used as the fixed point, and it is the same phrase both houses are still using in the 1835 issues this corpus already holds. The agency list (Troy N.Y., Galena, Green Bay) is what the frontage was for: this is a lake-and-canal freight house, not a shop. 'Port Dearborn' is the OCR's reading of Fort Dearborn and is left as printed."
+    },
+    {
+      "id": "c009",
+      "kind": "business",
+      "reading": "transcription_mediated",
+      "quote": "EWBERRY & DOLE,\nSTORAGE,\narding & Commission\nMERCHANTS.\ngAGO-ILLINOIS,\nents for the Merchauts Line.",
+      "normalized": "[N]EWBERRY & DOLE, STORAGE, [Forw]arding & Commission MERCHANTS, [CHI]CAGO-ILLINOIS, [Ag]ents for the Merchauts Line.",
+      "locator": {
+        "artifact_role": "primary",
+        "issue_page": 3,
+        "column": 4,
+        "lines": [
+          2975,
+          2980
+        ]
+      },
+      "entities": [
+        {
+          "as_printed": "NEWBERRY & DOLE",
+          "normalized": "Newberry & Dole",
+          "role": "firm",
+          "occupations": [
+            "forwarding and commission merchants"
+          ],
+          "associated_places": [
+            "Chicago",
+            "Fort Dearborn"
+          ]
+        }
+      ],
+      "business": {
+        "name": "Newberry & Dole",
+        "trade": "storage, forwarding and commission merchants; agents, Merchants Line",
+        "placement": {
+          "class": "street_only",
+          "street": "unstated — the firm places itself by Fort Dearborn, not by a street"
+        },
+        "address_text": "CHICAGO-ILLINOIS"
+      },
+      "notes": "THE OTHER FORWARDING HOUSE, and the town's most-cited address in this month's paper: the tinsmith is 'a few doors below' it (claim c003), the building to let is near it (claim c005), and on 28 May a new store opens one door from it on Dearborn street (chicago_democrat_1834_05_28 c004). Newberry & Dole is functioning as the town's coordinate origin in the advertising columns, and its own address is given as the fort — in the 14 May printing of this same advertisement the line 'opposite to Fort Dearborn' sits over it (chicago_democrat_1834_05_14 c007). STORAGE is set first and largest, so the premises are a warehouse before they are anything else."
+    },
+    {
+      "id": "c010",
+      "kind": "business",
+      "reading": "transcription_mediated",
+      "quote": "[uncertain: THO CARPETUB,]\nCHICAGO-ILL.\nnano, & eneral assork-\nDRUGS AND\nIEDICINES,\n, Paints, Dye-stulks,\n[uncertain: -1L.SO_]\nGroceries, Glass, Nails, de\n. 1833.\nperance Almanac for\n1584.\nand for sale whole.\nPHILO CARPENTER.",
+      "normalized": "[PHILO CARPENTER,] CHICAGO-ILL. […] [has on h]and[, a g]eneral assor[t]ment [of] DRUGS AND [M]EDICINES, [Oils], Paints, Dye-stu[ff]s, [ALSO] Groceries, Glass, Nails, [&]c. […] 1833. [Tem]perance Almanac for 1[8]34. […] and for sale whole[sale.] PHILO CARPENTER.",
+      "locator": {
+        "artifact_role": "primary",
+        "issue_page": 3,
+        "column": 4,
+        "lines": [
+          2996,
+          3008
+        ]
+      },
+      "entities": [
+        {
+          "as_printed": "PHILO CARPENTER.",
+          "normalized": "Philo Carpenter",
+          "role": "proprietor",
+          "occupations": [
+            "druggist"
+          ],
+          "associated_places": [
+            "Chicago"
+          ]
+        }
+      ],
+      "business": {
+        "name": "Philo Carpenter",
+        "trade": "druggist; drugs, medicines, oils, paints, dye-stuffs, groceries, glass and nails",
+        "placement": {
+          "class": "street_only",
+          "street": "unstated"
+        },
+        "address_text": "CHICAGO-ILL."
+      },
+      "notes": "THE TOWN'S DRUGGIST, and the only May 1834 advertiser who sells a book. Carpenter's stock is the mixed frontier chemist's — drugs, paints, dye-stuffs, oils — with groceries, glass and nails beside them, which is a fair description of what a single shopfront had to carry. The TEMPERANCE ALMANAC FOR 1834 is worth its own line: it is a printed object for sale in Chicago and it dates and names the town's temperance interest. No address is printed in this issue, so the placement is street_only on the town itself."
+    },
+    {
+      "id": "c011",
+      "kind": "price",
+      "reading": "transcription_mediated",
+      "quote": "onsignimen\n0. BARRELS WHISK\nior 20 10 do. CIDER.\nBBS bushels Dried Apples.\n20 boxes 5 by 10 Gone\n10 do 7by 9 do,\nLt @ kegs Butter.\n= A fow bushels Clorer Seed. _,\nA small assortment of Groceries, e«\n*| Brandy, St. Rum, P.\nCoffee, Molasses, Soap, &e\nWINDOW SASH kept constant\nfrom the Factory at Detroit, ;\nJ. K. BOT:\nChicago, April 22, 1834.\nN. B. Wanted, white Raga, old Pe\nthers, and a few white Mouse Skins, i\nfor Tin Ware or cash, Also, Fur s\nbought and sold,",
+      "normalized": "[C]onsignmen[t …] [10]0 BARRELS WHISK[EY …] [super]ior 20 […] do. CIDER. […] BBS bushels Dried Apples. 20 boxes 5 by 10 G[lass.] 10 do 7 by 9 do[.] […] kegs Butter. A few bushels Clo[v]er Seed. A small assortment of Groceries, […] Brandy, St. Rum, P[…] Coffee, Molasses, Soap, &c[.] WINDOW SASH kept constant[ly] from the Factory at Detroit. J. K. BOT[SFORD.] Chicago, April 22, 1834. N. B. Wanted, white Ra[g]s, old [Fea]thers, and a few white Mo[u]se Skins, i[n exchange] for Tin Ware or cash. Also, Fur[s] bought and sold.",
+      "locator": {
+        "artifact_role": "primary",
+        "issue_page": 3,
+        "column": 5,
+        "lines": [
+          3023,
+          3041
+        ]
+      },
+      "entities": [
+        {
+          "as_printed": "J. K. BOT:",
+          "normalized": "J. K. Botsford",
+          "role": "proprietor",
+          "occupations": [
+            "merchant"
+          ],
+          "associated_places": [
+            "Chicago"
+          ]
+        }
+      ],
+      "business": {
+        "name": "J. K. Botsford",
+        "trade": "consignment goods; whiskey, cider, dried apples, glass, groceries; window sash from Detroit",
+        "placement": {
+          "class": "street_only",
+          "street": "unstated"
+        },
+        "address_text": "Chicago"
+      },
+      "ad_copy_date": {
+        "verbatim": "Chicago, April 22, 1834.",
+        "iso": "1834-04-22"
+      },
+      "notes": "WINDOW SASH KEPT CONSTANTLY, FROM THE FACTORY AT DETROIT — the single most useful line in the month for how the town's buildings were finished. Sash is not being made in Chicago in May 1834; it arrives by lake from Detroit and is held in stock. Glazing is therefore a bought import in standard sizes, and the sizes are printed beside it: 5 by 10 and 7 by 9 glass, twenty boxes and ten. Those are the panes a Chicago window of 1834 is made of, and they bound what any glazed opening in this reconstruction may be. The same column's postscript wants rags, feathers and white mouse skins in exchange for tin ware, which is how far the cash economy did not reach."
+    },
+    {
+      "id": "c012",
+      "kind": "price",
+      "reading": "transcription_mediated",
+      "quote": "2, TIMBER.\n2 subscribers having this da:\n‘4\n. | May be wanted, from 12 to 60 f. in |\n| from 6 to 14 in square.\nTHRills supplied on short notice.\nAp'l. 22. P PRUYNE",
+      "normalized": "[…] TIMBER. [The] subscribers having this da[y …] […] May be wanted, from 12 to 60 f[eet] in [length,] from 6 to 14 in square. [T]H[e]ills supplied on short notice. Ap'l. 22. P[.] PRUYNE[.]",
+      "locator": {
+        "artifact_role": "primary",
+        "issue_page": 3,
+        "column": 5,
+        "lines": [
+          3042,
+          3048
+        ]
+      },
+      "entities": [
+        {
+          "as_printed": "P PRUYNE",
+          "normalized": "P. Pruyne",
+          "role": "proprietor",
+          "occupations": [
+            "timber merchant"
+          ],
+          "associated_places": [
+            "Chicago"
+          ]
+        }
+      ],
+      "business": {
+        "name": "P. Pruyne",
+        "trade": "timber merchant; squared timber and thills",
+        "placement": {
+          "class": "none"
+        }
+      },
+      "ad_copy_date": {
+        "verbatim": "Ap'l. 22.",
+        "iso": "1834-04-22"
+      },
+      "notes": "THE TOWN'S TIMBER IS SOLD BY THE STICK AND THE STICKS ARE SIZED. Twelve to sixty feet long, six to fourteen inches square: that is the range of squared structural timber a Chicago builder could buy off the yard in the spring of 1834, and the top of it — sixty feet — is longer than any single member the reconstruction currently builds. It bounds what a warehouse's sills and a wharf's stringers may plausibly be, and it says the material is SQUARE rather than round, which is a silhouette question. Pruyne also advertises a house for sale on the Lasalle and Lake corner three issues later (chicago_democrat_1834_05_21 c001)."
+    }
+  ]
+}

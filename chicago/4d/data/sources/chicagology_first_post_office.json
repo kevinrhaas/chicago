@@ -1,0 +1,33 @@
+{
+  "id": "chicagology_first_post_office",
+  "type": "website",
+  "citation": "\"Chicago's First Post Office.\" Chicagology, transcribing J. Seymour Currey, \"U. S. Government and Post Office Buildings,\" Fort Dearborn Magazine, December 1922.",
+  "date": "accessed 2026-08-10",
+  "describes_date": "1831-1837",
+  "url": "https://chicagology.com/chicagopostoffice/firstpostoffice/",
+  "tier": 4,
+  "rights_status": "check_required",
+  "asset_use": "cross_check",
+  "verified": true,
+  "note": "Source for: the post office established at Chicago 31 March 1831 with Jonathan N. Bailey as postmaster; the office kept 'in a log building about where South Water street intersects Lake street, near the east end of the bridge', with John S. C. Hogan keeping a store in the same building; Bailey succeeded by Hogan 2 November 1832; Sidney Abell appointed 3 March 1837 and the office removed in May of that year to Bigelow's Building on Clark. WHERE IT DISAGREES WITH ANDREAS, ANDREAS IS FOLLOWED: this page has Hogan moving the office to 'the south west corner of Franklin and South Water streets' on succeeding Bailey in November 1832, while Andreas says twice, in two independently written passages, that the office stayed at Lake and South Water until about July 1834 and gives the building's size there. See docs/RESEARCH/hogan_store.md § 3. READ IN FULL 2026-08-11 AND THE RUNG IS CONFIRMED AT 4 RATHER THAN MOVED — the first of these pages to be read and left where it stood, which is the outcome docs/ROADMAP.md meant by 'unread rather than wrong'. Currey's article is printed under its own attribution line and is a 1922 historian's compilation, ninety years after the events, naming its authorities inline where it has them: Bross's history, M. H. Putney's 'Historical Notes', Mrs. Neville on Green Bay, E. O. Gale's reminiscences. For the post-office facts above it names none. Later scholarship, rung 4, outranked by Andreas at 3 exactly as this record already had it. THE FINDING IS THE OTHER PARAGRAPH, and it is why the 66 ft figure is no longer attributed to Currey here or in data/traces/street_control.json. The sentence giving Thompson's 1830 plat 'straight streets uniformly 66 feet wide (the length of a surveyor's chain) with alleys 16 feet wide' cannot be read off this page as Currey's, on three grounds: it interrupts a strictly chronological post-office narrative, dropping between the 1832 and the 1837 sentences; its subject is a survey rather than a building, which is not what an article titled 'U. S. Government and Post Office Buildings' is about; and it is the one paragraph on the page that names no authority while using diction no 1922 Chicago writer would use ('downstate Randolph County', and the parenthetical chain gloss). It is therefore left UNDECLARED — unattributed website prose sits off the ladder altogether rather than at the rung of the article it was set beside. That costs the dissent nothing it had not already lost: it was excluded by measurement on 2026-08-10, eight platted corridors reading 75.7-92.8 ft off both 1834 sheets. But it moves the dissent from 'a 1922 historian disagrees with the survey annotation' to 'a website sentence nobody can source disagrees with it', which is a different thing to weigh, and it is the reason the 66 ft is recorded rather than deleted. See docs/RESEARCH/evidence_tiers_round_three.md § 2.",
+  "access_notes": "Site carries no license statement and the page reprints a 1922 magazine article. Treat as a transcription aid, not a rights source; nothing may be derived from it as an asset.",
+  "archived_url": "https://web.archive.org/web/20260517202635/https://chicagology.com/chicagopostoffice/firstpostoffice/",
+  "transcribes": [
+    {
+      "work": "J. Seymour Currey, 'U. S. Government and Post Office Buildings', Fort Dearborn Magazine — the establishment of the post office at Chicago and its first three keepers",
+      "date": "1922-12",
+      "tier": 4,
+      "note": "Carries the post office's establishment on 31 March 1831 under Jonathan N. Bailey, the log building at South Water and Lake with Hogan's store in it, the succession of Hogan on 2 November 1832 and of Sidney Abell on 3 March 1837 — the chronology behind data/structures/hogan_store.json, where Andreas is preferred at every point the two differ. A 1922 compilation naming no authority for these particular facts: later scholarship, rung 4. The 66 ft plat sentence lower on the page is NOT part of this article and is not declared."
+    }
+  ],
+  "what_it_supplies": [
+    "the post office's establishment date, 31 March 1831, and its first three postmasters",
+    "a log building at the intersection of South Water and Lake, near the east end of the bridge, with Hogan's store in it",
+    "the mail schedule year by year, 1831-1837, quoted from M. H. Putney's 'Historical Notes'"
+  ],
+  "what_it_does_not_supply": [
+    "the Thompson 1830 street module — the 66 ft sentence on this page carries no attribution and is not Currey's article; see the note",
+    "any dimension of the log building; that comes from Andreas, twice, at twenty by forty-five feet",
+    "a reliable date for the office leaving Lake and South Water: it says November 1832, Andreas says about July 1834 in two independent passages"
+  ]
+}

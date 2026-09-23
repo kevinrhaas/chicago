@@ -1,0 +1,48 @@
+{
+  "schema": 1,
+  "_doc": "Hand-authored. The search T-0583 required for the register of the Second Presbyterian Church of Chicago, 1842-92, positive and negative alike. A negative is evidence; an unrecorded search is work the next sweep repeats. The sibling of search_log.json, which records T-0503's second-reading search for St Mary's baptisms.",
+  "generated_by": "hand — T-0583",
+  "ticket": "T-0583",
+  "searched_on": "2026-09-05",
+  "what_was_wanted": "The work behind a citation, not a work in the abstract. T-0570 read the Newberry Library's genealogical card index and 54 of its Chicago cards cite `Chicago, Ill. Second Presb. Ch., 1842-92. (Grant, J. B.) 1892: 192`. The index is a finding aid and never a source of facts, so the citation had to be resolved to a book this project could read, or recorded as unreachable.",
+  "the_cards_that_asked_for_it": {
+    "count": 54,
+    "distinct_surname_keys": 54,
+    "example": "nbi_v01_0046 — `Aiken | Chicago, III. Second Presb. Ch , 1842-92. (GranF`",
+    "note": "The surname keys are the index's own OCR and are mangled — `blatchtord`, `ogdon`, `phelpa`, `hnymorid` — but the run of them is legible as Aiken, Barker, Barrett, Blatchford, Butler, Carter, Cass, Cone, Cook, Ely, Forsyth, Gillespie, Hawley, Haven, Kent, Lewis, Mather, McDonald, McDowell, Mason, Meeker, Moore, Nelson, Nichols, Ogden, Olmstead, Patterson, Peck, Phelps, Pitkin, Pike, Purington, Raymond, Reed, Rogers, Ross and the rest. Several are 1835 Chicago surnames."
+  },
+  "probes": [
+    {
+      "source": "Internet Archive advanced search",
+      "query": "q=\"Second Presbyterian Church\" AND Chicago",
+      "url": "https://archive.org/advancedsearch.php",
+      "result": "17 items. Three of them are the same 1892 semi-centennial volume, digitised three times: secondpresbyterian00chic (Princeton Theological Seminary, 468 files, 25 file entries), secondpresbyteri00chic (470 images) and secondpresbyter00illgoog (the Google scan, 465 images). Its title is exactly the span the Newberry card gives — June 1st, 1842, to June 1st, 1892 — and its editor is John C. Grant, whose name stands on printed page 130 of the volume and in the list of session clerks. The card's `(Grant, J. B.)` is the index's OCR of `(Grant, J. C.)`.",
+      "outcome": "POSITIVE — the work is reachable, and it is this one"
+    },
+    {
+      "source": "The volume's own table of contents, printed page ix",
+      "query": "the line the Newberry card's page number should land in",
+      "result": "`List of Members of the Church, 1842-1892, . 153`. Printed page 192, the number on the cards, falls inside that list — in its third roll, NAMES OF MEMBERS DISMISSED, DECEASED OR ORDAINED TO THE MINISTRY. The card is pointing at the roll, not at the narrative.",
+      "outcome": "positive — the citation resolves to a page, and the page is a roll of members"
+    },
+    {
+      "source": "secondpresbyterian00chic_djvu.txt — the committed flat OCR",
+      "query": "does the flat text carry the roll in printed order?",
+      "result": "NO, and this is why the reading is not made off it. Of 1,361 lines carrying `Profession.` or `Letter.`, only 672 stand between a name and a date in reading order; the rest are shuffled, because archive.org reads a four-column table in the order the scanner met the ink. Printed page 192 runs `King, Edward / Letter. / October 31, 1855. / Dismissed. / W. / Profession. / Dismissed. / King, Henry / September i, 1858.` — two printed rows inside one another.",
+      "outcome": "negative for the flat text, and it is what sent the reading to the word coordinates in the djvu XML"
+    },
+    {
+      "source": "The other two digitisations",
+      "query": "collation",
+      "result": "NOT COLLATED. secondpresbyteri00chic and secondpresbyter00illgoog are the same 1892 printing and would give a second reading of any line this one refuses. Twenty-six admission dates are refused here, so the collation is worth a later pass; it was not made, and saying so is the point of this entry.",
+      "outcome": "not attempted — named so a later run does not re-search for it"
+    },
+    {
+      "source": "The session records themselves",
+      "query": "the manuscript behind the printed roll",
+      "result": "NOT SOUGHT. What the Newberry card cites and what is read here is the PRINTED roll of 1892. Where the manuscript session books are — the congregation, the Presbyterian Historical Society, the Chicago History Museum — was not established.",
+      "outcome": "not attempted"
+    }
+  ],
+  "conclusion": "FOUND, AND READ. The work the Newberry cards cite is the Second Presbyterian Church of Chicago's own semi-centennial volume of 1892, and its list of members 1842-1892 is now in data/research/church/. What it can say about 1835 is bounded and is stated in the records file: the roll opens seven years after the scene date, so it is later evidence in every line, and the crosswalk beside it proposes nothing and mints nobody."
+}

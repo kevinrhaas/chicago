@@ -1,0 +1,32 @@
+{
+  "id": "dearborn_street_bridge_1834_engraving",
+  "type": "illustration",
+  "citation": "\"Old Dearborn Street (Old Point) Bridge\" — wood engraving, lettered in a panel across the foot of the plate and signed BAKER–CO at the lower right. Reproduced on Chicagology, \"Dearborn Street Bridges\", captioned \"First Dearborn Street bridge in 1834\".",
+  "author": "unsigned but for the engraver's mark BAKER–CO; the draughtsman is not named",
+  "date": "undated on the plate; a wood engraving of a bridge that stood 1834-1839, so made in retrospect",
+  "describes_date": "1834-1839",
+  "repository": "reproduced on chicagology.com; the original print's holding institution is not stated there",
+  "url": "https://chicagology.com/harbor/riverbridges/dearbornstreetbridges/",
+  "archived_url": "http://web.archive.org/web/20260217032420/https://chicagology.com/harbor/riverbridges/dearbornstreetbridges/",
+  "locator": "The plate captioned \"First Dearborn Street bridge in 1834\", above the Chicago Tribune editorial of 15 February 1880; image file dearbornno11834.jpg.",
+  "tier": 5,
+  "rights_status": "check_required",
+  "rights_note": "A 19th-century wood engraving, so out of copyright on age; the reproduction carries no licence statement. Cite in text; derive no asset from it until the print is located with its terms stated.",
+  "asset_use": "cross_check",
+  "verified": true,
+  "note": "IMAGE 3 OF THE OWNER'S BRIEF OF 2026-08-18, identified. The brief describes it as \"The Dearborn Street drawbridge, view two (engraving). Same bridge from farther out: masts crowd the reach below the bridge; a light/beacon structure near the mouth; low warehouses on the banks.\" The plate at this locator was retrieved and read on 2026-08-22 and carries all three, which is what settles it against the brief's view one: the reach below the bridge is crowded with the masts and yards of moored schooners, a tapering light tower stands on the far shore beside a long low shed roof, and low warehouses run along the bank behind it. The bridge itself is drawn as the brief's view one describes — twin timber gallows frames standing above the deck with chains falling from their heads to the leaves, a railed deck, timber approaches on cribbing, and a full-rigged vessel close alongside at the right.\n\nWHICH IMAGE IS WHICH, STATED HONESTLY. The brief holds two engravings of this bridge and this record claims only one of them. Image 3 is claimed because the beacon and the warehouse row are on this plate and the brief names them only for image 3. Image 2 — the closer view — is NOT identified by this record and remains open; see the identification table in data/sources/assets/owner_brief_2026_08_18/README.md.\n\nRETROSPECTIVE, AND NOT BY A LITTLE. The bridge stood from 1834 until the Common Council had it chopped to pieces in 1839; the engraving titles itself \"OLD Dearborn Street (Old Point) Bridge\", which is a title given after the thing was old. It is tier 5 for the same reason every plate in this brief is: it may drive form and setting as `inferred` and may never drive a coordinate.\n\nWHAT THE PROJECT ALREADY TOOK FROM IT, by path: the drawbridge's A-braced frames, its chains, its deck rail and its butted leaves (changelog v223), and the four freight sheds on the north bank at the crossing (v224, which cites this plate for what such a building looked like and explicitly not for where one stood). The written accounts this project holds — chicagology_dearborn_st_bridges and old_settlers_bridges_1883 — give the bridge its length, its sixty-foot opening and its gallows pattern and say nothing about a chain, a rail, a brace or a leaf. This plate is where those four came from.",
+  "what_it_supplies": [
+    "twin timber gallows frames standing above the deck, braced, with a chain falling from each head to the draw",
+    "a railed deck carried the length of the crossing on timber cribbing",
+    "the draw drawn as two leaves butted at the centre of the opening",
+    "schooner-rigged vessels moored in the reach immediately below the bridge, masts crowding it",
+    "a tapering light or beacon structure on the shore near the mouth",
+    "low warehouses and long shed roofs standing along the river bank"
+  ],
+  "what_it_does_not_supply": [
+    "any coordinate, footprint outline or dimension — including where on the bank any warehouse stood",
+    "a leaf raised: the plate draws the draw closed, and how the leaves were lifted is not shown",
+    "a date of its own, or the year of the scene it draws within the bridge's 1834-1839 life",
+    "the identity of the brief's other Dearborn drawbridge engraving, which this record does not claim"
+  ]
+}

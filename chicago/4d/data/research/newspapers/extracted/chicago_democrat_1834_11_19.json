@@ -1,0 +1,614 @@
+{
+  "schema": 1,
+  "issue_id": "chicago_democrat_1834_11_19",
+  "extracted": "2026-08-28",
+  "extracted_by": "hand, T-0293 — the Democrat read, November 1834",
+  "note": "Vol. I No. 51. The town is on page 3 column 2 — which is the richest single column of the month: the committee of twenty, two marriages, an obituary out of Fort Dearborn, a dancing school and the marine list all stand in it — and on page 4, where the standing advertisements run. No letter list of any post office stands in this issue. AMENDED 2026-08-29 by T-0350: c012 added — the SECOND of seven printings of D. Weaver's notice of a building on Lot 2, block 1, North Water street, on page 3 column 3, cut with `locator.spans` out of an alternating pair of physical columns.",
+  "claims": [
+    {
+      "id": "c001",
+      "kind": "event",
+      "reading": "transcription_mediated",
+      "quote": "ed to meet at the Exchange Coffee House,\natarday evening, Noy. 22, at G o'clock. FE tho +\ngeneral and punctual attendance of all the of pap\n[uncertain: niltes are requested, Nov. 19. proparty ?]\n0 following gentlemen constitute the above | German b;\n[uncertain: mittee, viz: Messrs. T. J, V. Owen, R. 1, |? Pediar.]\nilton, JohnH. Kinzie, G. 8. Hubbard, | PLying to\nGoodhue, Doct, J.T. Tomple, E. K. Hub- | Ssement,\nJ. H. Collins, James Kinzie, Doct. E. 8.| - EF\ntly, G. W. Dole, G. W. Snow, P. Pruyne, «\nihotn, 8. Clyboura, A. Loyd, M.S. Han: | PRUE\nsyram King, Gi. Kercheval. Wat",
+      "normalized": "[The committee are request]ed to meet at the Exchange Coffee House, [on S]aturday evening, Nov. 22, at 6 o'clock. [A general and punctual attendance of all the [com]mit[tee] are requested. Nov. 19. [The] following gentlemen constitute the above [com]mittee, viz: Messrs. T. J. V. Owen, R. J. [Ham]ilton, John H. Kinzie, G. S. Hubbard, [… ]Goodhue, Doct. J. T. Temple, E. K. Hub[bard], J. H. Collins, James Kinzie, Doct. E. S. [K]i[mber]ly, G. W. Dole, G. W. Snow, P. Pruyne, [… Cly]bo[ur]n, S. Clybour[n], A. Loyd, M. S. Han[cock?], [H]yram King, G. Kercheval.",
+      "locator": {
+        "artifact_role": "primary",
+        "issue_page": 3,
+        "column": 2,
+        "lines": [
+          2415,
+          2426
+        ],
+        "interleaved": true
+      },
+      "entities": [
+        {
+          "as_printed": "T. J, V. Owen",
+          "normalized": "T. J. V. Owen",
+          "role": "committee member"
+        },
+        {
+          "as_printed": "R. 1, ilton",
+          "normalized": "R. J. Hamilton",
+          "role": "committee member"
+        },
+        {
+          "as_printed": "JohnH. Kinzie",
+          "normalized": "John H. Kinzie",
+          "role": "committee member"
+        },
+        {
+          "as_printed": "G. 8. Hubbard",
+          "normalized": "G. S. Hubbard",
+          "role": "committee member"
+        },
+        {
+          "as_printed": "Goodhue",
+          "normalized": "[…] Goodhue",
+          "role": "committee member"
+        },
+        {
+          "as_printed": "Doct, J.T. Tomple",
+          "normalized": "J. T. Temple",
+          "role": "committee member",
+          "occupations": [
+            "physician"
+          ]
+        },
+        {
+          "as_printed": "E. K. Hub-",
+          "normalized": "E. K. Hubbard",
+          "role": "committee member"
+        },
+        {
+          "as_printed": "J. H. Collins",
+          "normalized": "J. H. Collins",
+          "role": "committee member",
+          "occupations": [
+            "attorney"
+          ]
+        },
+        {
+          "as_printed": "James Kinzie",
+          "normalized": "James Kinzie",
+          "role": "committee member"
+        },
+        {
+          "as_printed": "Doct. E. 8. tly",
+          "normalized": "Doct. E. S. [Kimber]ly",
+          "role": "committee member",
+          "occupations": [
+            "physician"
+          ]
+        },
+        {
+          "as_printed": "G. W. Dole",
+          "normalized": "G. W. Dole",
+          "role": "committee member",
+          "occupations": [
+            "merchant"
+          ]
+        },
+        {
+          "as_printed": "G. W. Snow",
+          "normalized": "G. W. Snow",
+          "role": "committee member"
+        },
+        {
+          "as_printed": "P. Pruyne",
+          "normalized": "P. Pruyne",
+          "role": "committee member",
+          "occupations": [
+            "merchant"
+          ]
+        },
+        {
+          "as_printed": "8. Clyboura",
+          "normalized": "S. Clybourn",
+          "role": "committee member"
+        },
+        {
+          "as_printed": "A. Loyd",
+          "normalized": "A. Loyd",
+          "role": "committee member"
+        },
+        {
+          "as_printed": "M.S. Han:",
+          "normalized": "M. S. Han[cock?]",
+          "role": "committee member"
+        },
+        {
+          "as_printed": "syram King",
+          "normalized": "Hyram King",
+          "role": "committee member"
+        },
+        {
+          "as_printed": "Gi. Kercheval",
+          "normalized": "G. Kercheval",
+          "role": "committee member"
+        }
+      ],
+      "notes": "A COMMITTEE OF THE TOWN, NAMED MAN BY MAN, MEETING AT THE EXCHANGE COFFEE HOUSE ON SATURDAY 22 NOVEMBER 1834 AT SIX O'CLOCK. Eighteen names survive legibly out of what the running head calls a committee of twenty; the nineteenth is cut to a fragment before 'S. Clybourn' and is not guessed at. This is the single densest roster of corroborated residents in the month — not letter-list names but men the paper puts in a room on a dated evening — and it names the Exchange Coffee House for the second time in three weeks, after the trustees met there on 3 November. Two readings are supplied and marked: 'Doct. E. S.' with the surname cut is read as Kimberly, the physician of that name in the town, and 'M. S. Han:' is left with a query. The paragraph above the roster is the call to meet; the two are quoted together because the segmenter interleaves them."
+    },
+    {
+      "id": "c002",
+      "kind": "event",
+      "reading": "transcription_mediated",
+      "quote": "MARRIED, sy\n‘this town, on the 13th inst. by I. Harmon| 7\n| Mr. Gxonax Cappy, to Miss Eanty Oarps. | which the\n\\ this place on the morning of tho 18th inst. | P°=t door\nvy Catvwent, Chief of the United Nations iS\nttawa, Potawatamie and Chippewa Indians, | _ Chicas\"\nJavqva Le Grasp, of the Potewatamic Na-| we ropy\nNS Ti",
+      "normalized": "MARRIED, [in] this town, on the 13th inst. by [J]. Harmon, [Esq.] Mr. GEORGE CAPPY, to Miss E[m]ily [C]a[p]ps. [Also, in] this place on the morning of the 18th inst. [… CA]LUMET, Chief of the United Nations [of] Ottawa, Potawatamie and Chippewa Indians, [to] JAQUA LE GRAND, of the Potawatamie Na[tion].",
+      "locator": {
+        "artifact_role": "primary",
+        "issue_page": 3,
+        "column": 2,
+        "lines": [
+          2450,
+          2457
+        ],
+        "interleaved": true
+      },
+      "entities": [
+        {
+          "as_printed": "Gxonax Cappy",
+          "normalized": "George Cappy",
+          "role": "married"
+        },
+        {
+          "as_printed": "Eanty Oarps",
+          "normalized": "Emily [C]a[p]ps",
+          "role": "married"
+        },
+        {
+          "as_printed": "Catvwent",
+          "normalized": "Calumet",
+          "role": "married"
+        },
+        {
+          "as_printed": "Javqva Le Grasp",
+          "normalized": "Jaqua Le Grand",
+          "role": "married"
+        }
+      ],
+      "notes": "TWO MARRIAGES IN ONE NOTICE AND THE SECOND IS THE REASON IT IS EXTRACTED: on 18 November 1834 the paper records the marriage of Calumet, whom it calls Chief of the United Nations of Ottawa, Potawatomi and Chippewa Indians, and Jaqua Le Grand of the Potawatomi Nation — Native people named as residents of the town by the town's own newspaper, eleven weeks after the 1833 treaty and while the annual payment was still being made here. The officiant's line for the second marriage is cut and it is NOT assumed to be the same man who married the first couple. Both names are recorded as the paper spells them, with the OCR's own confusions bracketed; no identity merge is proposed for either, and neither is claimed to be documented anywhere else in this corpus. 'J. Harmon' is set 'I. Harmon' and is corrected as a recognition-class error."
+    },
+    {
+      "id": "c003",
+      "kind": "event",
+      "reading": "transcription_mediated",
+      "quote": "OBITUARY. apd\nIre. Manx Baxuny, consort of Capt. J. M. Enieagm,\nley, U.S. A., and daughterof Mr. Rob-|er, Nov.\n, late of the city of Baltimore, departed this | ————\nin Fort Dearborn, Chicago, at 10 o'clock | SEGN\nM. of the 16th inst. in the 32d ycor of her\n, Undera protracted WIness at two years,\nsupported hereelf with great fortitude, but, | JESS\nappily did not seek to the merey of Ged, ots\nthe grace of her Saviour, for suppert and and Pas .\nfort, until within a. shori time of her de- Laaguueeh\nse, Some days before her death, she was\nuzht to realize her need of Divine Mercy, | for Ties,\nsought afier it with minch fervor, Norjand Dress\nshe seek in vain. Her friende have reason |os, aad ds\nzust, that God heard her fervont prayer— | 29xorme!\nntinicsted a sence of his favor, and has ta- abie'yo th\ner to himself, She his left a bereaved | \"Wig\nband, fosr children, anda large circle Of] jnstructe\nnds, tomourn her departors. . Her remains | or attend\nre attenttd to the grave on the 172h inst. | tion will\nthe officers of the garrison, and a arge num\nof citizera; and were interred according Chicayy\ntho burial gervice of the Methodist Episco-| ~~\",\nChurch, A fareral xersion will be deliv- LL ty\ndon the ocensinn, at the Methodist Chapel! PATH\nthe morning of next Sapbath.—Com. 1",
+      "normalized": "OBITUARY. Mrs. MARY BAXLEY, consort of Capt. J. M. [Bax]ley, U. S. A., and daughter of Mr. Rob[ert …], late of the city of Baltimore, departed this [life] in Fort Dearborn, Chicago, at 10 o'clock [A.] M. of the 16th inst. in the 32d year of her [life. U]nder a protracted [i]llness of two years, [she] supported herself with great fortitude, but, [unh]appily did not seek to the mercy of G[o]d, [or] the grace of her Saviour, for supp[o]rt and [com]fort, until within a short time of her de[cea]se. […] Her remains [we]re atten[de]d to the grave on the 17[t]h inst. [by] the officers of the garrison, and a [l]arge num[ber] of citize[n]s; and were interred according [to] the burial service of the Methodist Episco[pa]l Church. A f[u]neral s[e]r[m]on will be deliv[ere]d on the occasion, at the Methodist Chapel [on] the morning of next S[a]bbath. — Com.",
+      "locator": {
+        "artifact_role": "primary",
+        "issue_page": 3,
+        "column": 2,
+        "lines": [
+          2459,
+          2485
+        ],
+        "interleaved": true
+      },
+      "entities": [
+        {
+          "as_printed": "Manx Baxuny",
+          "normalized": "Mary Baxley",
+          "role": "deceased"
+        },
+        {
+          "as_printed": "Capt. J. M. ley, U.S. A.",
+          "normalized": "Capt. J. M. Baxley",
+          "role": "mentioned",
+          "occupations": [
+            "army officer"
+          ]
+        }
+      ],
+      "notes": "A DEATH INSIDE FORT DEARBORN, A BURIAL BY THE GARRISON AND THE CITIZENS TOGETHER, AND A FUNERAL SERMON APPOINTED AT THE METHODIST CHAPEL. The chapel is the claim's value to the model: the town has a Methodist meeting house in November 1834 that is distinct from the Presbyterian church used for the temperance and library meetings, and the paper names both within the month. Mrs. Baxley's memoir, read at her funeral by the pastor of the Methodist Episcopal Church, is printed in the next issue (1834-11-26 page 2), which corroborates both the chapel and her name. Her father's surname is cut at the column edge and is left unsupplied; the age is read as the 32d year."
+    },
+    {
+      "id": "c004",
+      "kind": "business",
+      "reading": "transcription_mediated",
+      "quote": "DANCING. a Fy 3\nest A. MARSHALL has tho honor of an- c ,\nBP nouncing to the Ladics and Gentlemen of 1 elt\nhieago and vicinity, that his First Quarters »\n‘ition in the above polite accomplishment, will ast\nommence on Friday tho 2lat inst. at Mossra.\nlahnson & Stevens’ Assembly Room, (Now- ar\nfark THovss) one door north of the Exchange| Box\nSofloe House. ‘Thore wishing to become pu: Filb\nils will ploase loave. their address at tho E:x-| Por\nhange Caffve House, where .they will bo duly Cay\nionored. aes ¢ Lor\nHours of Tuition tor Missca and young Mas Sta\ners, fron? antil 5 o'clock, P. SI; and from 6 ‘\nuntil 9 for tho elder class of Gentlemen. Ae\nNor. 19, 1834.—3w5l.\nJ. A. M, respectfully Lec ba the company; Ag\nof his patrons, ‘and thosé who wish to patronize) trimi\nhis School to attend on Friday evening, where) nail s\nthey can enjoy themsclros ina fow sets of | nugul\nQuadritles. Mekots may bo had of J. A. Mar-| combs\nshall for one dollar each. fing",
+      "normalized": "DANCING. [Mr.] A. MARSHALL has the honor of announcing to the Ladies and Gentlemen of [C]hicago and vicinity, that his First Quarter's [Tu]ition in the above polite accomplishment, will [c]ommence on Friday the 21st inst. at Messrs. [J]ohnson & Stevens' Assembly Room, (New-[Y]ork House) one door north of the Exchange [C]offee House. Those wishing to become pu[p]ils will please leave their address at the Ex[c]hange Co[ff]ee House, where they will be duly honored. Hours of Tuition for Miss[e]s and young Mas[t]ers, from 2 until 5 o'clock, P. M; and from 6 until 9 for the elder class of Gentlemen. Nov. 19, 1834. — 3w51. J. A. M. respectfully [requests? ]the company of his patrons, and those who wish to patronize his School to attend on Friday evening, where they can enjoy themselves in a few sets of Quadrilles. [T]ickets may be had of J. A. Marshall for one dollar each.",
+      "locator": {
+        "artifact_role": "primary",
+        "issue_page": 3,
+        "column": 2,
+        "lines": [
+          2514,
+          2535
+        ],
+        "interleaved": true
+      },
+      "entities": [
+        {
+          "as_printed": "A. MARSHALL",
+          "normalized": "J. A. Marshall",
+          "role": "proprietor",
+          "occupations": [
+            "dancing master"
+          ]
+        },
+        {
+          "as_printed": "lahnson & Stevens",
+          "normalized": "Johnson & Stevens",
+          "role": "mentioned",
+          "occupations": [
+            "tavern keepers"
+          ]
+        }
+      ],
+      "notes": "A DANCING SCHOOL OPENING ON FRIDAY 21 NOVEMBER 1834, AND THE ROOM IT USES IS THE FIND: Messrs. Johnson & Stevens' Assembly Room, in the New-York House, ONE DOOR NORTH OF THE EXCHANGE COFFEE HOUSE. That is a second named public house fixed against the Exchange, and an assembly room inside it — a room type this reconstruction has nothing else for. Tuition hours run 2 to 5 for misses and young masters and 6 to 9 for the elder class of gentlemen; tickets a dollar. The initials are 'A. MARSHALL' in the heading and 'J. A. M.' and 'J. A. Marshall' in the postscript, so the fuller form is taken.",
+      "business": {
+        "name": "J. A. Marshall's dancing school",
+        "proprietors": [
+          "J. A. Marshall"
+        ],
+        "trade": "dancing school",
+        "goods": [],
+        "street": null,
+        "placement": {
+          "class": "relative",
+          "anchor": "the Exchange Coffee House",
+          "offset_text": "fark THovss) one door north of the Exchange"
+        }
+      }
+    },
+    {
+      "id": "c005",
+      "kind": "shipping",
+      "reading": "transcription_mediated",
+      "quote": "J MARINE LIST. £9 Diy\nAS rorT OF CHICAGO. Lp Far\nree | Some of\nv.19, ARRIVED. domestic\nSchr. Phillipy, Howe, St. Joseph. hair exit\ntd Napoleon, Stuart, Buffalo. labs y\n“In Grange, Cushwa, do. mdi\n“White Pigcon, Disbrow, do. Porgh e\n“  Jeflerson, Hagunin, French Creek. | bossed\ne. 19, CLEARED. quality\nSchr. Phillips, Howe, Millwalkec. patter}\n“ Napoleon, Stuart, Buffalo. Ungs,'t\n“La Grange, Cushwa, do. twill'd\n“White Pigeon, Disbrow, do yin. St. J. | SMB t\n“  Jefferaon, Hugunin, French Creek, N. | sii, Bi\nY. vin, Green Bay, [reir",
+      "normalized": "MARINE LIST. PORT OF CHICAGO. [No]v. 19. ARRIVED. Schr. Phillip[s], Howe, St. Joseph. [Schr.] Napoleon, Stuart, Buffalo. [La] Grange, Cushwa, do. White Pig[e]on, Disbrow, do. Jeff[e]rson, Hagunin, French Creek. [No]v. 19. CLEARED. Schr. Phillips, Howe, Mi[l]lwa[u]kee. Napoleon, Stuart, Buffalo. La Grange, Cushwa, do. White Pigeon, Disbrow, do. via St. J[oseph]. Jeffer[s]on, Hugunin, French Creek, N. Y. via Green Bay.",
+      "locator": {
+        "artifact_role": "primary",
+        "issue_page": 3,
+        "column": 2,
+        "lines": [
+          2487,
+          2502
+        ],
+        "interleaved": true
+      },
+      "entities": [
+        {
+          "as_printed": "Howe",
+          "normalized": "Howe",
+          "role": "vessel master",
+          "occupations": [
+            "schooner master"
+          ]
+        },
+        {
+          "as_printed": "Stuart",
+          "normalized": "Stuart",
+          "role": "vessel master",
+          "occupations": [
+            "schooner master"
+          ]
+        },
+        {
+          "as_printed": "Cushwa",
+          "normalized": "Cushwa",
+          "role": "vessel master",
+          "occupations": [
+            "schooner master"
+          ]
+        },
+        {
+          "as_printed": "Disbrow",
+          "normalized": "Disbrow",
+          "role": "vessel master",
+          "occupations": [
+            "schooner master"
+          ]
+        },
+        {
+          "as_printed": "Hagunin",
+          "normalized": "Hugunin",
+          "role": "vessel master",
+          "occupations": [
+            "schooner master"
+          ]
+        }
+      ],
+      "notes": "FIVE SCHOONERS IN AND FIVE OUT ON ONE DAY IN THE LAST WEEKS OF THE 1834 SEASON — St. Joseph, Buffalo twice, French Creek in New York by way of Green Bay, and Milwaukee. The list is what the harbour looked like from the wharves the model carries, and the master's name is the only person each vessel gives. 'Hagunin' in the arrivals and 'Hugunin' in the clearances are the same master on the same day and the second spelling is taken; both are kept in `as_printed`."
+    },
+    {
+      "id": "c006",
+      "kind": "notice",
+      "reading": "transcription_mediated",
+      "quote": "Strayed, cipal\npeer the subscriber, in Auguat last, a red] sclor\nand white work (XK; white on the belly suad\nand near flank, a new hoof on the near fore | cour\nfoot, erariah faco, wbort tail, about nine years In\nold, formerly belonging to the garrison at Chi-| cles\ncago, Whoever will give information or return Cay\nie inh Te acolo carpe |\ntal be pai le cl\nE JOHN LUDBY. {Sho\nNor. 19, 1834.—3051. eu",
+      "normalized": "Strayed, [from] the subscriber, in August last, a red and white work OX; white on the belly and near flank, a new hoof on the near fore foot, [b]ra[nd]ed face, [sh]ort tail, about nine years old, formerly belonging to the garrison at Chicago. Whoever will give information or return [the ox … shall] be paid […] JOHN LUDBY. Nov. 19, 1834. — 3w51.",
+      "locator": {
+        "artifact_role": "primary",
+        "issue_page": 3,
+        "column": 2,
+        "lines": [
+          2550,
+          2560
+        ],
+        "interleaved": true
+      },
+      "entities": [
+        {
+          "as_printed": "JOHN LUDBY",
+          "normalized": "John Ludby",
+          "role": "advertiser"
+        }
+      ],
+      "notes": "AN OX 'FORMERLY BELONGING TO THE GARRISON AT CHICAGO', in a town whose fort had been evacuated: the animal is nine years old and has passed from the army into private hands, which is the sort of detail that dates the fort's wind-down without arguing about it. John Ludby signs the notice on the day of publication."
+    },
+    {
+      "id": "c007",
+      "kind": "business",
+      "reading": "transcription_mediated",
+      "quote": "oye] Blacksmith Work.\n| Glass PIERCZ & FRENCII,\nHT, BRESPECTEULLY inform the citizens of t\ntown of Chicago and its neighboring «:\n=-—— | tlements, that they are carr ing on the Hla\nfic. amith business, in‘ the old shop formerly ove\ninform pied by Piereo and Abbott, on the corner of La\nlasge, | 284 Canal streeta, opposite the Chicago Hou\nMessrs, | Where they Will keep on hand and Manufactu\nStoam|t0.order, Prairie Ploughs, Edye Tools, ant\n‘be en- | Other work in their line of business, By onde\n[uncertain: lumber | ?°F# to please, they nope le secure a share]\nPINE | Patronage, Chicago, 25, 1834.",
+      "normalized": "Blacksmith Work. PIERC[E] & FRENCH, RESPECTFULLY inform the citizens of t[he] town of Chicago and its neighboring s[et]tlements, that they are carr[y]ing on the [B]la[ck]smith business, in the old shop formerly oc[cu]pied by Pierce and Abbott, on the corner of La[Salle] and Canal street[s], opposite the Chicago Hou[se]. Where they will keep on hand and Manufactu[re] to order, Prairie Ploughs, Ed[g]e Tools, an[d] other work in their line of business. By ende[avor]s to please, they [ho]pe [to] secure a share [of] Patronage. Chicago, [Nov.?] 25, 1834.",
+      "locator": {
+        "artifact_role": "primary",
+        "issue_page": 4,
+        "column": 3,
+        "lines": [
+          3603,
+          3615
+        ]
+      },
+      "entities": [
+        {
+          "as_printed": "PIERCZ & FRENCII",
+          "normalized": "Pierce & French",
+          "role": "proprietor",
+          "occupations": [
+            "blacksmith"
+          ]
+        },
+        {
+          "as_printed": "Piereo and Abbott",
+          "normalized": "Pierce & Abbott",
+          "role": "mentioned",
+          "occupations": [
+            "blacksmith"
+          ]
+        }
+      ],
+      "notes": "A SHOP WITH A HISTORY, ON A NAMED CORNER, ACROSS FROM A NAMED HOTEL: the old shop formerly occupied by Pierce and Abbott, on the corner of LaSalle and Canal streets, opposite the Chicago House. Three things at once — a succession of firms in one building, a corner, and a second anchor to check it against — which makes it the best-evidenced blacksmith placement the corpus has yet produced. Note what it implies about the building: it is old enough in 1834 to be called 'the old shop' and to have had a previous tenancy. The dateline's month is cut; the day is the 25th and the issue is the 19th, so the month is left with a query rather than read as November.",
+      "business": {
+        "name": "Pierce & French",
+        "proprietors": [
+          "Pierce & French"
+        ],
+        "trade": "blacksmith",
+        "goods": [
+          "prairie ploughs",
+          "edge tools"
+        ],
+        "street": null,
+        "placement": {
+          "class": "corner",
+          "anchor": "LaSalle and Canal streets, opposite the Chicago House"
+        }
+      }
+    },
+    {
+      "id": "c008",
+      "kind": "business",
+      "reading": "transcription_mediated",
+      "quote": "proces: Biacksmithing Busines\nh is too MATTHIAS MASON & CO\nARRIES on the above business ina\niC various branches, on Main-street,\nGate, | Bile the Tremont Houre, where they inte:\nb Satti-) beep, roady made, all kinds of Shoes, Ch\n‘lannels, | ge 'he. ‘Work dono on the shorteiten\n10 cloths snd moat liberal terme.\nmis, cal-! Chicago, Nor. 26, 1223.",
+      "normalized": "Blacksmithing Busines[s]. MATTHIAS MASON & CO. [C]ARRIES on the above business in a[ll its] various branches, on Main-street, [oppos]ite the Tremont House, where they inte[nd to] [k]eep, ready made, all kinds of Shoes, Ch[ains, &]c. &c. Work done on the shorte[st notice and on the] most liberal terms. Chicago, Nov. 26, 18[3]3.",
+      "locator": {
+        "artifact_role": "primary",
+        "issue_page": 4,
+        "column": 4,
+        "lines": [
+          3661,
+          3669
+        ]
+      },
+      "entities": [
+        {
+          "as_printed": "MATTHIAS MASON & CO",
+          "normalized": "Matthias Mason & Co",
+          "role": "proprietor",
+          "occupations": [
+            "blacksmith"
+          ]
+        }
+      ],
+      "notes": "'ON MAIN-STREET, OPPOSITE THE TREMONT HOUSE' — AND CHICAGO HAS NO MAIN STREET. The words are printed as they stand and are NOT corrected to Dearborn or Lake here; the anchor is the Tremont House and it is the anchor, not the street name, that the placement rests on. Two possibilities are open and neither is chosen: the paper is using 'Main street' loosely for the town's principal street, or the compositor set it for a street name he mis-read. The copy date is 26 November 1833, a year to the day before this month, so the shop stands opposite the Tremont for at least a year. The same advertisement is set 'THOMAS MASON A Co.' by the segmenter in 1834-11-05, and MATTHIAS is taken from this fuller printing.",
+      "business": {
+        "name": "Matthias Mason & Co",
+        "proprietors": [
+          "Matthias Mason & Co"
+        ],
+        "trade": "blacksmith",
+        "goods": [
+          "horse shoes",
+          "chains"
+        ],
+        "street": null,
+        "placement": {
+          "class": "relative",
+          "anchor": "the Tremont House",
+          "offset_text": "iC various branches, on Main-street,"
+        }
+      },
+      "ad_copy_date": {
+        "verbatim": "Chicago, Nor. 26, 1223.",
+        "iso": "1833-11-26"
+      }
+    },
+    {
+      "id": "c009",
+      "kind": "business",
+      "reading": "transcription_mediated",
+      "quote": "eased | J. S. C. HOGAN,\nhe, um- | FFERS at Wolesale and Retail, at his §\nLassort-| oO in South Water Street, one door b\nthe Post Office,\nfare, Dry Goods, Grocerics,\ntment. Hardware, Crockery and Glass Wat\nsizes. | Also—a quantity of Shy 10, and 7 by 9 Win\nGlass and Sash.",
+      "normalized": "J. S. C. HOGAN, [O]FFERS at W[h]olesale and Retail, at his S[tore] in South Water Street, one door b[elow] the Post Office, [dry] Goods, Groceries, Hardware, Crockery and Glass Wa[re]. Also — a quantity of 8 by 10, and 7 by 9 Win[dow] Glass and Sash.",
+      "locator": {
+        "artifact_role": "primary",
+        "issue_page": 4,
+        "column": 4,
+        "lines": [
+          3671,
+          3678
+        ]
+      },
+      "entities": [
+        {
+          "as_printed": "J. S. C. HOGAN,",
+          "normalized": "J. S. C. Hogan",
+          "role": "proprietor",
+          "occupations": [
+            "merchant",
+            "postmaster"
+          ]
+        }
+      ],
+      "notes": "THE POSTMASTER'S OWN STORE, ONE DOOR BELOW THE POST OFFICE, ON SOUTH WATER STREET — which places the POST OFFICE as much as it places the store. John S. C. Hogan is the man who signs the Chicago letter lists this corpus mints residents from, and he is the fixture of claim c002 of the scene-date issue; here, eight months earlier, his shop is fixed against the office he keeps. The quoted lines carry a fragment of the neighbouring column ('Lassort-') because the segmenter interleaves them; the reading takes only the words that belong to this notice.",
+      "business": {
+        "name": "J. S. C. Hogan",
+        "proprietors": [
+          "J. S. C. Hogan"
+        ],
+        "trade": "dry goods, groceries, hardware, crockery and glass ware",
+        "goods": [
+          "dry goods",
+          "groceries",
+          "hardware",
+          "crockery",
+          "glass ware",
+          "window glass",
+          "sash"
+        ],
+        "street": "South Water Street",
+        "placement": {
+          "class": "relative",
+          "anchor": "the Post Office",
+          "offset_text": "Lassort-| oO in South Water Street, one door b"
+        }
+      }
+    },
+    {
+      "id": "c010",
+      "kind": "business",
+      "reading": "transcription_mediated",
+      "quote": "For Sale.\nOT No. 7; in block No, 16, one lot ¢\nL Haddock's Tavern, on Lake street, |\n‘| town of Chicago. There is on aaid Jot a\nand Mo-| Dwelling-House and fino well. For term\nquire of G. SPRID\nChicago, Sept. 3, 1821.",
+      "normalized": "For Sale. [L]OT No. 7, in block No. 16, one lot e[ast of] [Hadd]ock's Tavern, on Lake street, [in the] town of Chicago. There is on said lot a [large] Dwelling-House and fine well. For term[s en]quire of G. SPRI[NG]. Chicago, Sept. 3, 183[4].",
+      "locator": {
+        "artifact_role": "primary",
+        "issue_page": 4,
+        "column": 4,
+        "lines": [
+          3636,
+          3642
+        ]
+      },
+      "entities": [
+        {
+          "as_printed": "G. SPRID",
+          "normalized": "G. Spring",
+          "role": "advertiser"
+        },
+        {
+          "as_printed": "L Haddock's Tavern",
+          "normalized": "Haddock's Tavern",
+          "role": "mentioned"
+        }
+      ],
+      "notes": "A LOT WITH ITS NUMBER, ITS BLOCK, ITS STREET AND ITS NEIGHBOUR: lot 7 in block 16, one lot east of Haddock's Tavern on Lake Street, with a large dwelling house and a fine well standing on it. Block and lot numbers are the one thing that ties a newspaper placement straight into the plat this model is built on, and this is the only one the month prints. The tavern's name is cut to 'ack'n Tavern' in 1834-11-12 and stands as 'Haddock's Tavern' here, which is where the reading comes from. G. Spring is the attorney of 1834-11-12 c008 advertising a property, not a second man."
+    },
+    {
+      "id": "c011",
+      "kind": "business",
+      "reading": "transcription_mediated",
+      "quote": "BER J received att for sale, Lithog\na ’ Iayw of tbo Town of Shieae: inel\nShoe is the Scliuai Section: “Kinzie’s oe ition,”\nstreet, ee tly exe 5\n$: Delete seetlay Se nee yb & FORSY!\nBring’, ea ove VS TRS ¢\nUS | They can wise be found at the office\n2 or ite- “Chicago Democrat.””",
+      "normalized": "[Town Maps. J]ust received and for sale, Lithog[raphic] [M]aps of the Town of [Chicago], incl[uding] the School Section, “Kinzie's [Add]ition,” [and Wabansia,] handsomely exe[cuted]. [KINZIE] & FORSY[TH]. They can [al]so be found at the office of the “Chicago Democrat.”",
+      "locator": {
+        "artifact_role": "primary",
+        "issue_page": 4,
+        "column": 4,
+        "lines": [
+          3628,
+          3635
+        ]
+      },
+      "entities": [
+        {
+          "as_printed": "yb & FORSY!",
+          "normalized": "Kinzie & Forsyth",
+          "role": "proprietor",
+          "occupations": [
+            "map publisher"
+          ]
+        }
+      ],
+      "notes": "LITHOGRAPHIC MAPS OF THE TOWN — including the School Section, Kinzie's Addition and Wabansia — sold in Chicago in November 1834 and also to be had at the Democrat's office. The claim matters twice over: it is a contemporary map of exactly the ground this reconstruction covers, advertised by name, and it fixes the Democrat's office as a place of retail business. The heading is shredded in this column and is read from the same advertisement in 1834-11-05 page 3 column 6, which prints 'Town Maps.' clear.",
+      "business": {
+        "name": "Kinzie & Forsyth",
+        "proprietors": [
+          "Kinzie & Forsyth"
+        ],
+        "trade": "lithographic town maps",
+        "goods": [
+          "maps of the town of Chicago"
+        ],
+        "street": null,
+        "placement": {
+          "class": "relative",
+          "anchor": "the office of the Chicago Democrat",
+          "offset_text": "They can wise be found at the office"
+        }
+      }
+    },
+    {
+      "id": "c012",
+      "kind": "building",
+      "reading": "transcription_mediated",
+      "quote": "or Sale or To Let,\nbuilding on Lot 2, in bl\nter street. Apply ae 1, e8 Norte\no, Nor. 12, 1884.—50",
+      "normalized": "[F]or Sale or To Let, [THE] building on Lot 2, in bl[ock 1, on North Wa]ter street. Apply [to D. WEAVER.] [Chicag]o, No[v]. 12, 18[uncertain: 84 / 34].—50 — after “Apply” the line carries “ae 1, e8 Norte”, a second damaged impression of “ock 1, on North” that the segmenter has folded into the same line; it stands in the quote and is not read as new matter.",
+      "locator": {
+        "artifact_role": "primary",
+        "issue_page": 3,
+        "column": 3,
+        "lines": [
+          2578,
+          2581
+        ],
+        "lines_of_claim": [
+          2578,
+          2579,
+          2580,
+          2581
+        ],
+        "interleaved": true,
+        "spans": [
+          {
+            "line": 2578,
+            "from": 0,
+            "to": 18
+          },
+          {
+            "line": 2579,
+            "from": 0,
+            "to": 24
+          },
+          {
+            "line": 2580,
+            "from": 0,
+            "to": 32
+          },
+          {
+            "line": 2581,
+            "from": 0,
+            "to": 20
+          }
+        ]
+      },
+      "entities": [],
+      "notes": "THE SECOND PRINTING OF D. WEAVER'S STANDING NOTICE, AND THE SECOND OF THE TWO T-0328 DID NOT HAVE. Page 3 column 3 here is one of the alternating pairs: each line carries this column on the left and another advertisement's on the right, so the claim is cut with `locator.spans` (T-0261) rather than quoting whole lines — line 2578 whole would say “or Sale or To Let, : _Ottarea, Ml.”, and the tail of it belongs to somebody else.\n\nNO ENTITY IS RECORDED, BECAUSE THIS SETTING NAMES NOBODY. The line that should carry “Apply to D. WEAVER.” loses the name to the weave. The notice is identified as Weaver's on its own body text and its key, not on a name read in from another issue: “For Sale or To Let,” over “building on Lot 2, in bl[ock 1] … [North Wa]ter street. Apply”, under the dateline “Nov. 12, 1834.—50” — the same words, the same lot, the same street and the same insertion key as the six other printings. Identification `inferred` on that match; a person minted from another column's setting would be a person this column never named, which is the discipline 1834-12-10 c011 states.\n\nIT IS ALSO A WITNESS ON THE LOT NUMBER, and it reads 2 in a body line whose only damage is the cut at the column edge. That makes five settings reading Lot 2 against 1834-12-17's one reading 9, with 1834-11-12 printing no digit. T-0328's reading is strengthened, not changed, and is not reopened here.\n\nTHE COPY DATE IS 12 NOVEMBER 1834, DECIDED BY T-0350 OVER SEVEN PRINTINGS AND BY THE PAPER'S OWN INSERTION KEY. The advertisement ran SEVEN times, not five: it opens in Vol. I No. 50 of 1834-11-12 (c015) and No. 51 of 1834-11-19 (c012), two settings T-0328's tally did not have because neither is findable by the advertiser's name — 1834-11-12 sets it “D. WEAVE.R” and the surviving span of 1834-11-19 prints no name at all. They were found by searching the run for the notice's own body text instead. The datelines across the seven: Nov. 12 at 1834-11-12, 1834-11-19, 1834-11-26 and 1834-12-03; Nov. 13 at 1834-12-17; Nov. 19 at 1834-12-24; and no legible day or month at 1834-12-10. Four to one to one.\n\nAND THE TALLY IS NOT WHAT DECIDES IT — THE ADVERTISEMENT'S OWN KEY DOES. Every legible setting tails its dateline with the figure 50: “1834.—50” at 1834-11-19 and “1881-50” at 1834-11-26, “1831. SO” at 1834-12-03, “1631.—00” at 1834-12-10, “1834-SD” at 1834-12-24 and “1831 -5)” at 1834-11-12. In this paper that trailing figure is not part of the date: it is THE NUMBER OF THE ISSUE THE COPY IS KEYED TO, the first number published on or after the dateline. It is checkable on other advertisers in the same columns — J. Bates's blacksmith-tools notice sets “Nov. 5, 1834.—49” and Vol. I No. 49 was published on 5 November; a For Sale notice sets “Nov. 26, 1834-52” against No. 52 of 26 November; two December notices set “Dec. 16, 1834.-3” and “Dec. 11, 1834.-3” against Vol. II No. 3, the first number published after either date. Vol. I No. 50 was published on 12 NOVEMBER 1834, so a key of 50 admits only a dateline falling after 5 November and on or before 12 November. Nov. 13 and Nov. 19 both fall outside it and would key 51; Nov. 12 is the only one of the three readings the key allows, and it is the reading four of the seven settings print.\n\nTHE KEY IS A FUNCTION OF THE DATELINE, NOT A CLAIM ABOUT FIRST APPEARANCE, and that distinction is kept because one of the four control notices breaks the looser version: Bates's “Nov. 5, 1834.—49” does not itself stand in No. 49 of 5 November, but first appears in No. 50. The key records the week the copy was handed in. For this notice the two coincide anyway — it is absent from No. 49 of 1834-11-05 and from No. 48 of 1834-10-29 (checked; the “For Sale or Rent” standing in both is G. Blanshard's, a different notice), and it first stands in No. 50.\n\nTHE TICKET'S DOUBT IS ANSWERED RATHER THAN OVERRIDDEN. T-0350 weighed 12 against 19 partly on the ground that Nov. 12 would be a fortnight before the notice's first appearance where Nov. 19 would be a week. Both halves rested on 1834-11-26 being the first appearance; it is the third. Dated 12 November the notice is dated the day it first ran, which is the same-day pattern “Nov. 5, 1834.—49” and “Nov. 26, 1834-52” show.\n\nNOTHING IS AMENDED TO AGREE WITH ANYTHING. Every printing keeps its own verbatim dateline, including the two that read 13 and 19, and each claim's `ad_copy_date.verbatim` is that setting's own text. The dossier is docs/RESEARCH/weaver_building_north_water_block_1.md.",
+      "ad_copy_date": {
+        "verbatim": "o, Nor. 12, 1884.—50",
+        "iso": "1834-11-12"
+      }
+    }
+  ]
+}

@@ -1,0 +1,86 @@
+{
+  "target_date": "1835-07-01",
+
+  "datum": {
+    "crs": "EPSG:26916",
+    "origin_lat": 41.8885,
+    "origin_lon": -87.6385,
+    "verified": false,
+    "note": "PLACEHOLDER. Approximate position of the Chicago River forks at Wolf Point. Must be fixed against georeferenced hathaway_1834 and wright_1834 before any geometry is generated. The validator fails while verified is false, by design."
+  },
+
+  "structures": [
+    {
+      "id": "sauganash_hotel",
+      "name": "Sauganash Hotel",
+      "aka": ["Eagle Exchange Tavern", "Beaubien's tavern"],
+      "archetype": "frame_tavern",
+
+      "documented_range": {
+        "from": "1831-01-01",
+        "to": "1837-12-31",
+        "confidence": "conjectural",
+        "note": "PLACEHOLDER RANGE — not yet researched. Mark documented and narrow once construction and alteration dates are confirmed from andreas_1884_v1 and period newspaper sources. Do not widen this range to make the build pass."
+      },
+
+      "position": {
+        "utm_e": 0.0,
+        "utm_n": 0.0,
+        "rotation_deg": 0.0,
+        "confidence": "conjectural",
+        "note": "PLACEHOLDER. Derive from hathaway_1834 once the datum origin is verified. The building stood at the forks at Wolf Point; the map shows an individual structure rectangle there."
+      },
+
+      "footprint": {
+        "polygon": [[0, 0], [12, 0], [12, 8], [0, 8]],
+        "confidence": "conjectural",
+        "note": "PLACEHOLDER rectangle. Replace with a footprint traced from hathaway_1834 and reconciled against any dimensional description in andreas_1884_v1."
+      },
+
+      "form": {
+        "stories": {
+          "value": 2,
+          "confidence": "conjectural",
+          "note": "PLACEHOLDER — verify against period illustration."
+        },
+        "wall_height_m": {
+          "value": 5.5,
+          "confidence": "conjectural",
+          "note": "PLACEHOLDER. Record the original figure in feet here once sourced."
+        },
+        "roof_type": {
+          "value": "gable",
+          "confidence": "conjectural",
+          "note": "PLACEHOLDER."
+        },
+        "construction": {
+          "value": "balloon_frame",
+          "confidence": "inferred",
+          "sources": ["andreas_1884_v1"],
+          "note": "Balloon framing was developed in Chicago in 1832-33 and became the dominant local method for frame construction. Inference from period and region, not from direct attestation for this building. Confirm — an earlier structure may be braced-frame or log-cored."
+        },
+        "gallery": {
+          "value": true,
+          "confidence": "conjectural",
+          "note": "PLACEHOLDER. Surviving images of the Sauganash are later reconstructions and illustrations rather than photographs, and they disagree. See research_note."
+        }
+      },
+
+      "function": {
+        "value": "tavern_inn",
+        "confidence": "conjectural",
+        "note": "PLACEHOLDER pending citation. Well attested in the literature; needs a specific page reference before promotion to documented."
+      },
+
+      "occupants": {
+        "value": "Mark Beaubien",
+        "confidence": "conjectural",
+        "note": "PLACEHOLDER pending citation."
+      },
+
+      "research_note": "MILESTONE 0 TEMPLATE — every attribute here is a placeholder and the record is deliberately mostly conjectural so the validator's warnings fire. Expect the central research problem to be that the surviving images are later reconstructions that disagree with each other; document the disagreement in docs/RESEARCH.md, pick the best-attested reading, and state the reasoning in the relevant note fields rather than silently choosing.",
+
+      "review_required": false
+    }
+  ]
+}

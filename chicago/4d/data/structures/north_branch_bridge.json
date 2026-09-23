@@ -1,0 +1,169 @@
+{
+  "id": "north_branch_bridge",
+  "name": "North Branch Bridge",
+  "aka": [
+    "the first bridge over the North Branch",
+    "Kinzie Street bridge #1",
+    "Miller's bridge"
+  ],
+  "archetype": "bridge_timber",
+  "phases": [
+    {
+      "id": "log_1832",
+      "documented_range": {
+        "from": "1832-06-01",
+        "to": "1839-12-31",
+        "confidence": "inferred",
+        "sources": [
+          "chicagology_kinzie_bridge",
+          "chicagology_prefire252",
+          "chicagology_lastwardance"
+        ],
+        "note": "THE BUILD DATE IS DISPUTED BY A YEAR AND THE DISPUTE DOES NOT REACH THE SCENE. Andreas: 'In the summer of 1832 Samuel Miller ... built the first bridge over the North Branch.' Charles Cleaver, recalled in 1893, gives the winter of 1831-32. Summer 1832 is adopted, on the ground that Cleaver did not reach Chicago until October 1833 — so his date is hearsay reported sixty years later, while Andreas's is a compiler's date from the 1880s working over the town's own records. Either way the bridge stood well before 1835-07-01 and this record models one phase. THE END OF THE RANGE IS THE ONLY ONE THIS PROJECT HAS THAT IS ACTUALLY ATTESTED: the Kinzie Street chronology closes bridge #1 in 1839, superseded by a pontoon swing. That is a table's summary rather than Andreas's prose, so the range carries the same inferred tag as its opening. What the range does NOT claim is that the structure was unchanged across it — see the form notes: a bridge described as useless for teams in 1833 carried a large procession in August 1835, and nothing reached records what happened in between."
+      },
+      "position": {
+        "utm_e": 446955.2,
+        "utm_n": 4637656.3,
+        "rotation_deg": 0.0,
+        "symbolic_location": "Across the North Branch on the Kinzie Street alignment, its west landing near the south-east corner of Kinzie and Canal Streets.",
+        "confidence": "inferred",
+        "derivation": {
+          "method": "traced_waterline",
+          "control": "kinzie_canal",
+          "centreline": {
+            "axis": "n",
+            "control_variance_m": 2.93
+          },
+          "ends": {
+            "epoch": "e1834_harbor_cut",
+            "faces": [
+              "west",
+              "east"
+            ]
+          },
+          "note": "A crossing is derived differently from a corner and this states both halves. ALONG the street: the deck's centreline northing comes from the Kinzie and Canal intersection. ACROSS the water: the deck's two ends stand where the traced 1834 waterline crosses that northing — not where the modern banks are — which is what makes this the one footprint in the dataset whose length is measured rather than assumed. THE VARIANCE IS DECLARED, NOT ABSORBED: the deck sits 2.93 m south of the control point recorded in data/traces/street_control.json, because the bridge was placed from a three-node average of the same crossing the georeference had averaged over five. Moving the deck onto the recorded control re-derives the span, and the span is a mesh parameter, so it is a re-bake rather than a bookkeeping edit. See docs/RESEARCH/street_module_1830.md § 3."
+        },
+        "sources": [
+          "chicagology_kinzie_bridge",
+          "chicagology_lastwardance",
+          "wright_1834",
+          "osm_streets_2026"
+        ],
+        "note": "PLACED 2026-08-10, AND THE CORNER IS DOCUMENTED WHERE THE COORDINATE IS DERIVED, so the tag follows the weaker half — the same rule the Green Tree's placement uses. Andreas locates the bridge 'near the southeast corner of Kinzie and Canal streets, in the vicinity of the present bridge of the Chicago & Northwestern Railroad Company'; the war-dance account of 18 August 1835 corroborates the line by having a procession cross the North Branch bridge and then turn south along West Water Street in front of the Green Tree and Wolf Point taverns. Method: the modern Kinzie and Canal intersection centre was read from OpenStreetMap (three shared nodes, mean 41.889068 N, -87.640156 W = EPSG:26916 E 446891.7, N 4637657.8, local N +262.0), and Kinzie Street is one of the streets that survives on its 1835 alignment. The DECK CENTRELINE is set on that northing and its ends are set where the traced 1834 waterline crosses it — not where the modern banks are, because the modern channel is a dredged and walled successor and using it would put the abutments on nineteenth-century engineering. The value recorded here is the footprint polygon's own origin, which is the deck's south-west corner (west end, upstream side), per docs/GLB-CONTRACT.md. Facade bearing 0: this archetype's convention is that a deck at rotation 0 runs east-west with its upstream side north, and the Kinzie alignment runs east-west. WHAT THE CORNER DOES NOT SAY: modern Canal Street at this northing lies 63 m WEST of the traced 1834 west bank, so 'the south-east corner of Kinzie and Canal' is where the approach began and not where the bridge did. That gap is a fact about the two streets, not an error bar. Working uncertainty about 20 m from the georeference, plus the trace's own; along the street the position is better constrained than across it, because the crossing has to meet both banks."
+      },
+      "footprint": {
+        "polygon": [
+          [
+            0.0,
+            0.0
+          ],
+          [
+            71.83,
+            0.0
+          ],
+          [
+            71.83,
+            3.048
+          ],
+          [
+            0.0,
+            3.048
+          ]
+        ],
+        "confidence": "inferred",
+        "sources": [
+          "chicagology_prefire252",
+          "wright_1834"
+        ],
+        "note": "THE DECK OUTLINE, AND THE ONLY FOOTPRINT IN THIS DATASET THAT IS NOT A PLACEHOLDER — both of its dimensions come from something. The width, 3.048 m, is Cleaver's 'These bridges were ten feet wide', recorded here in its original unit. The length, 71.83 m, is MEASURED rather than chosen: it is the distance between the two traced 1834 waterlines along the Kinzie alignment, read off data/terrain/epochs/e1834_harbor_cut/river.geojson at the crossing station (west bank local E -117.52, east bank local E -45.69), which is the same Wright 1834 segmentation the ground and the river are built from. It agrees with the reach's drafted mean width of 72.9 m to about a metre. THE SPAN IS THEREFORE AN OVERSTATEMENT OF THE CLEAR SPAN, deliberately and by an unrecorded amount: Cleaver puts the abutments 'in the shallow water near the banks', which is inside the drawn line, and nobody recorded how far inside. Landing the deck exactly on the traced waterline was chosen because that line is the one thing here that is evidence — the terrain surface crosses Z=0 along it by construction — and an inset would have added a second invention on top of the first. Carried uncertainty: the georeference's plus or minus 20 m, which is larger than the difference being argued about."
+      },
+      "form": {
+        "construction": {
+          "value": "log",
+          "confidence": "attested",
+          "sources": [
+            "chicagology_kinzie_bridge",
+            "chicagology_prefire252"
+          ],
+          "note": "Andreas: 'It was formed of stringers.' Cleaver: 'The abutments were built of heavy logs.' Two independent accounts, both describing round or hewn timber rather than framed carpentry, which is what this archetype's 'log' value means."
+        },
+        "width_m": {
+          "value": 3.048,
+          "confidence": "attested",
+          "sources": [
+            "chicagology_prefire252"
+          ],
+          "note": "TEN FEET, from Charles Cleaver, of both branch bridges. This is the only dimension of any structure in this dataset that a source actually states, and it is worth saying why it is trusted at tier 2: Cleaver was recalling a bridge he had used and had driven a team across, and a width is the kind of number a user of a narrow bridge remembers. Recorded as 3.048 m exactly, being the conversion and not a rounding."
+        },
+        "clearance_m": {
+          "value": 1.83,
+          "confidence": "attested",
+          "sources": [
+            "old_settlers_bridges_1883"
+          ],
+          "note": "PROMOTED 2026-08-10 WITH ITS RE-BAKE, AND THE REASON IS BETTER THAN THE NUMBER. Andreas prints at the foot of pp. 631-632 a statement signed by J. D. Caton, John Bates, Charles Cleaver and John Noble: 'These were both wagon bridges, and were about six feet above the water, so that teams passed under them on the ice freely.' The clearance is not a builder's convenience — it is the winter road under the deck, stated by four men who used the crossing. The VALUE does not move; only the confidence does, and a confidence float is a mesh input (see generators/mesh_inputs.py), so this promotion could not land without the geometry beside it, which is why it waited one slice. What it changes in the view is real rather than cosmetic: clearance is one of the attributes that says what this structure WAS, so the deck and the stringers come out of the half-dithered state the inferred tag put them in. WHAT THE TAG SAID BEFORE, kept because the reasoning was right at the time: the project's crossings dossier, docs/research/03-structures-north.md section 5, gives both branch bridges as 'about 10 ft wide, clearing the water by about 6 ft' and tags the pair as documented. The width is documented and now has its source; the clearance does not. Searching the transcriptions that carry the rest of this bridge's evidence returns the width, the log abutments, the stringers and the 1832 date, and nothing anywhere about a height above the water. The number is kept because it is the dossier's and because it is plausible for a stringer bridge crossing shallow water with cribbed abutments, but it is recorded as INFERRED until the page behind it is found. THE DEMOTION WAS CORRECT AND SO WAS THE DOSSIER: the figure was right, the tag was ahead of any page this project could point at, and the honest state in between was the weaker one."
+        },
+        "abutments": {
+          "value": true,
+          "confidence": "attested",
+          "sources": [
+            "chicagology_prefire252",
+            "old_settlers_bridges_1883"
+          ],
+          "note": "'The abutments were built of heavy logs in the shallow water near the banks.' Specific, and independently signed twice: Cleaver said it in the Tribune in 1893 and the same sentence stands in the 1883 statement he had signed with Caton, Bates and Noble ten years earlier — so it is one man's memory corroborated by three, not two witnesses. The ends were carried on log cribs standing OUT IN THE WATER rather than on dry-land bearings. It was called 'the one structural statement anybody made about these bridges' here until 2026-08-10, when the rest of the statement it comes from was found."
+        },
+        "pier_kind": {
+          "value": "bent",
+          "confidence": "attested",
+          "sources": [
+            "old_settlers_bridges_1883",
+            "chicagology_prefire252",
+            "chicagology_kinzie_bridge"
+          ],
+          "note": "CORRECTED 2026-08-10 FROM 'crib', WITH ITS RE-BAKE. This record picked a disagreement and picked it wrong, and the source that settles it was signed by the eyewitness the losing argument leaned on. The 1883 old-settlers statement printed at Andreas pp. 631-632 — Caton, Bates, CLEAVER and Noble — says 'both bridges were built on abutments and two \"bents\"', and describes them: 'The bents were of four heavy logs, resting on the bottom, in deeper water.' So 'Bent' in the Kinzie Street page's chronology table is not a modern type-word applied down a column, as the superseded reasoning assumed; it is very probably that table reading this footnote, and it is the settlers' own word. WHAT THE MESH CAN AND CANNOT SHOW OF IT: the archetype now builds four heavy logs under a cap at each support, which is the count and the heaviness the sentence gives. 'Resting on the bottom' is the other half of it and is invisible here — this project models neither the riverbed nor anything more than half a metre below the waterline, so a bent stood on the bed and a bent driven into it are the same picture above water. The distinction lives in this note. THE SUPERSEDED REASONING, kept because it is what an honest reading of the thinner evidence looked like: A DISAGREEMENT PICKED WITH REASONING RATHER THAN SILENTLY. Cleaver describes heavy logs standing in shallow water, which is a crib — a log box, sunk and filled. The Kinzie Street page's chronology table instead types the bridge 'Wood, Fixed, Bent', and a bent is framed and usually pile-borne. Crib is adopted because Cleaver is an eyewitness describing what he saw and the table is a modern editorial classification applied uniformly down a column covering six bridges and a century. THE INFERENCE IS THE STEP FROM ABUTMENTS TO PIERS, not the choice between the two words: Cleaver describes the ends, nobody describes the middle, and this record assumes the intermediate supports were built the way the ends were. That last sentence is the one the footnote overturned: somebody did describe the middle."
+        },
+        "pier_count": {
+          "value": 2,
+          "confidence": "attested",
+          "sources": [
+            "old_settlers_bridges_1883"
+          ],
+          "note": "TWO, AND IT REPLACES FIFTEEN. The 1883 old-settlers statement at Andreas pp. 631-632 says both branch bridges 'were built on abutments and two \"bents\"', with 'stringers of heavy logs stretched from the abutments to the bents, and between the bents' — a three-span crossing, stated twice over in one sentence. The attribute this replaces was pier_spacing_m, and the change is a different PARAMETER rather than a different number: a spacing is a builder's convenience that no witness would remember, a count is what a user of a bridge does remember, and dividing a span by the archetype's 4.5 m default is what put fifteen supports in a river that had two. bridge_timber now takes pier_count and falls back to a spacing only where nobody described the middle. WHAT IS STILL THE ARCHETYPE'S IS WHERE THEY STAND: the letter puts the bents 'in deeper water' between abutments 'in the shallow water near the banks' and gives no station for either, so the two are built at the third points of the span because that is what a builder would do, not because anybody wrote it down. The confidence chip on this row grades HOW MANY and nothing else — docs/LIBERTIES.md L31 is the only place the positions are admitted. THE ORIGINAL NOTE ON THE ATTRIBUTE THIS SUPERSEDES, which is the reasoning the invention was made under: NOT ATTESTED IN ANY FORM. Nothing reached says how many supports this bridge had, how far apart they stood, or whether it had any at all between its abutments. It must have had some — 71.83 m is far beyond any log stringer — but the number is the archetype's default, retained deliberately rather than replaced by a fresh guess, and it sets the bay count at 16 and therefore puts 15 cribs in the river. That was the most conspicuous invention in this structure and it was answerable all along, in a footnote under a paragraph this project had been quoting for weeks."
+        },
+        "deck_kind": {
+          "value": "puncheon",
+          "confidence": "attested",
+          "sources": [
+            "old_settlers_bridges_1883"
+          ],
+          "note": "STATED 2026-08-10, AND IT WAS THE ARCHETYPE'S UNTIL THEN. 'On these stringers puncheons or split logs were laid for a floor' — the 1883 old-settlers statement. bridge_timber has built a puncheon deck since it was written, so the mesh does not change on this attribute alone; what changes is that the floor is now the record's claim rather than a default nobody could see or check. That distinction is the whole of docs/LIBERTIES.md L20's lesson: a value the generator does not read is a value that can be silently wrong, and a value stated in prose and not in a field is a value the walkthrough cannot show. The archetype's other reading is 'plank', sawn stock, which nothing in this dataset carries."
+        },
+        "stringer_count": {
+          "value": 4,
+          "confidence": "inferred",
+          "note": "THE 1835 READING OF A BRIDGE THAT CHANGED. Andreas describes the 1832 structure as 'formed of stringers and only fitted for foot passengers' and 'useless for teams' even in the summer of 1833; six and a half weeks after this scene's date a procession of hundreds crossed it, and Cleaver remembered driving over it. Something was rebuilt or widened between 1833 and 1835 and no source reached says what. Four stringers under a full-width deck is the later, load-carrying reading, chosen because the scene date is 1835-07-01 and the evidence for 1835 is a crowd on the deck. The alternative — the 1832 walkway, two stringers and a plank — is a defensible model of a different year and would be the right value in an 1833 scene."
+        },
+        "railing": {
+          "value": false,
+          "confidence": "inferred",
+          "sources": [
+            "old_settlers_bridges_1883"
+          ],
+          "note": "AN ARGUMENT FROM SILENCE HAS BECOME AN ARGUMENT AGAINST A TIMELINE, and the value survives it. The 1883 old-settlers statement at Andreas pp. 631-632 says the branch bridges were 'about ten feet wide and without railings, for the first few years, after which guards, or railings, were added'. For a scene dated 1835-07-01, three years after the build, 'the first few years' covers the scene date on the most natural reading and the value stays false — but it is now a reading of a stated sequence rather than an absence of evidence, and it is the kind of phrase that will not settle a particular July on its own. If a date for the guards is ever found and it falls before July 1835, this attribute flips. THE ORIGINAL REASONING, unchanged and still the argument for why the absence is stated rather than defaulted: No source reached mentions a railing on either branch bridge; the descriptions that exist run the other way, toward a causeway of logs rather than a piece of engineering. A railed deck reads to a visitor as considered infrastructure and an unrailed one reads as a plank over water, so adding one to look finished would change what the scene says about how developed the town was. The counter-argument is on the record in generators/archetypes/bridge_timber.py: a procession of hundreds crossing an unrailed deck nearly two metres above water is an alarming picture, and that is an argument about the 1835 rebuild rather than evidence about a railing."
+        }
+      },
+      "change_note": "The single phase this structure has: a log stringer bridge on cribbed abutments, carrying the Kinzie Street line across the North Branch. The 1832 walkway and whatever it became by 1835 are modelled as one phase because no source dates the change; the form attributes take the 1835 reading and say so."
+    }
+  ],
+  "function": {
+    "value": "river_crossing",
+    "confidence": "attested",
+    "sources": [
+      "chicagology_kinzie_bridge",
+      "chicagology_lastwardance"
+    ],
+    "note": "A public crossing, and the town's first bridge of any kind — it replaced the Miller-Clybourn ferry that had run across the same water between Miller's house and the Wolf Point Tavern since 1829. By the scene date it is the link between the West Division's Canal Street frontage and the north bank."
+  },
+  "research_note": "THE FIRST BRIDGE IN CHICAGO, and the first structure in this dataset that is not a building. It is also the first record here whose dimensions come from evidence rather than from a placeholder: ten feet wide is Charles Cleaver's, and the 71.83 m span is measured off the traced 1834 waterline at the Kinzie Street alignment rather than guessed. THREE DISAGREEMENTS ARE RECORDED RATHER THAN RESOLVED AWAY. The build date: Andreas says summer 1832 and Cleaver says winter 1831-32, and Cleaver was not in Chicago until October 1833, so Andreas is adopted. The capacity: Andreas has it 'only fitted for foot passengers' and 'useless for teams' as late as the summer of 1833, while Cleaver 'remembered driving across the first bridge over the North Branch' and a procession of hundreds crossed it on 18 August 1835 — so it was rebuilt or widened in between and nothing says when or how; the form attributes take the 1835 reading. The pier type: an eyewitness describing heavy logs in shallow water against a modern table's type-word 'Bent'. WHAT THIS RECORD CORRECTS IN THE PROJECT'S OWN RESEARCH: the crossings dossier tags both the width and the six-foot clearance as documented, and only the width could be traced to a source. The clearance is recorded as inferred here and the archetype's docstring is corrected to match. See docs/RESEARCH/north_branch_bridge.md. AND THEN, ON 2026-08-10, THE FOOTNOTE UNDER THAT PROSE WAS READ. Andreas prints at the foot of pp. 631-632 a statement signed by four men who used these bridges — J. D. Caton, John Bates, Charles Cleaver and John Noble, late in the fall of 1883 — describing how they were built: abutments of logs in the shallow water, TWO BENTS of four heavy logs resting on the bottom in deeper water, stringers from the abutments to the bents and between them, puncheons or split logs for a floor, about ten feet wide, no railings for the first few years, and about six feet above the water so that teams passed under them on the ice. It is source old_settlers_bridges_1883 and it is the only description anybody wrote of how these crossings were put together. FOUR ATTRIBUTES OF THIS RECORD WERE BEHIND THAT EVIDENCE FOR ONE SLICE AND ARE NOW LEVEL WITH IT, corrected on 2026-08-10 with the re-bake that had to travel with them: clearance_m is documented, pier_kind is 'bent', pier_spacing_m is gone and pier_count is 2, and the deck the archetype used to supply silently is stated as puncheon. Every one of them is a mesh input, so none could move without the GLB moving too, which is why the finding and the repair are two commits rather than one. WHAT THE REPAIR DID NOT SETTLE, and it is the interesting residue: the letter gives a count and never a station, so the two bents stand at the third points because that is what a builder would do — the confidence chip on pier_count grades how many and says nothing about where, exactly as the chimney counts do on the six buildings (docs/LIBERTIES.md L26, and L31 for these). And the stringer runs between supports are now 23.9 m each, longer than any timber anybody was moving, so they were spliced somewhere and nothing says where; the mesh shows a single log per bay. docs/RESEARCH/north_branch_bridge.md section 6 carries the finding, docs/STATUS.md section 24 carries the repair.",
+  "review_required": false
+}

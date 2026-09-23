@@ -1,0 +1,548 @@
+{
+  "_doc": "Read the thirteen streets of Kinzie's Addition off Wright's 1834 survey.\n\n    tools/read_kinzie_addition_streets.py           print the reading\n    tools/read_kinzie_addition_streets.py --write   write data/traces/kinzie_addition_street_grid.json\n    tools/read_kinzie_addition_streets.py --check   re-read the sheet and compare with the committed file\n\nWHY A TOOL AND NOT A TABLE OF NUMBERS. A street on a manuscript plat is two ruled\nlines with nothing between them, and where those lines fall is a fact about the\nraster that anyone can re-measure. Picking them by eye off a crop is a reading\nonly the picker can defend; projecting the ink of a window onto one axis and\ntaking the peaks is a reading the next person can re-run and disagree with by a\nnumber. Every corridor edge in the committed file came out of `_rules()` below,\nand `--check` re-derives all of them.\n\nTHE SHEET is the National Archives / Historic Urban Plans facsimile registered as\n`wright_1834_nara_hup` (5050 x 6628 px at 600 dpi), because at that resolution the\nAddition's ruled lines separate cleanly; the BPL master this project traces is\n4204 x 5166. Readings are carried to local ENU through the NA sheet's OWN affine —\nnot through the scan-to-scan transform, which would spend 8.5 px of residual to\nreach a frame this reading does not need. The two routes were compared while this\nwas written and differ by under 0.2 m across the whole Addition.\n\nWHAT THE READING IS AND IS NOT. It gives the plat's MODULE — the tier pitch, the\ncolumn pitch, the corridor widths, the order and extent of the streets — to a\nfraction of a metre, because those are differences measured inside one corner of\none sheet. It does NOT give the Addition's SEATING on modern ground: the sheet's\nown fit carries 16.2 m of RMS residual and its drawn grid runs about 1.2 deg off\nthe bearing the committed town grid takes from modern control over a 1,420 m\nbaseline. So `data/streets/1835.json` seats the module on the two committed lines\nthe Addition shares with the town it adjoins — Michigan Street (`michigan_north`)\nand Wolcott Street (`wolcott`) — and this file records what that seating cost.",
+  "ticket": "T-1060 (piece 1 of T-0789)",
+  "raster": {
+    "working_copy": "chicago/pre_fire_v1/maps/images/1834-wright-map.jpg",
+    "width": 5050,
+    "height": 6628,
+    "dpi": 600,
+    "sha256": "dbb92c0188881d9b6cdf84801b9185a5715496a328125bde895a04058b173266",
+    "source_id": "wright_1834_nara_hup"
+  },
+  "registration": "data/traces/gcp/wright_1834_nara_hup_gcps.json, `fit` (NA pixel -> EPSG:26916, RMS 16.19 m on eight control points)",
+  "method": "tools/read_kinzie_addition_streets.py — ink projected onto one axis over the windows below, sharp narrow peaks taken as ruled lines, a street's corridor taken as the pair of rules bracketing its slot. `--check` re-derives every pixel here from the raster.",
+  "windows": [
+    {
+      "id": "col_west",
+      "axis": "east-west rules",
+      "crop_px": [
+        2965,
+        1080,
+        3095,
+        2060
+      ],
+      "shear": 0.0176,
+      "through": "blocks 48, 39, 36, 27, 24 — the column immediately east of Wolcott Street"
+    },
+    {
+      "id": "col_east",
+      "axis": "east-west rules",
+      "crop_px": [
+        3465,
+        1080,
+        3560,
+        2060
+      ],
+      "shear": 0.0176,
+      "through": "blocks 45, 42, 33, 30, 21 — the column immediately east of Pine Street"
+    },
+    {
+      "id": "row_superior",
+      "axis": "north-south rules",
+      "crop_px": [
+        2900,
+        1150,
+        3660,
+        1225
+      ],
+      "shear": -0.006,
+      "through": "the Superior tier, blocks 51-54"
+    },
+    {
+      "id": "row_ontario",
+      "axis": "north-south rules",
+      "crop_px": [
+        2900,
+        1525,
+        3660,
+        1600
+      ],
+      "shear": -0.006,
+      "through": "the Ontario-Ohio tier, blocks 27-31"
+    },
+    {
+      "id": "row_ohio",
+      "axis": "north-south rules",
+      "crop_px": [
+        2900,
+        1650,
+        3660,
+        1725
+      ],
+      "shear": -0.006,
+      "through": "the Ohio-Indiana tier, blocks 20-25"
+    }
+  ],
+  "readings": {
+    "east_west": {
+      "superior": [
+        {
+          "window": "col_west",
+          "ref_px_x": 2965,
+          "rule_px_y": [
+            1111.9,
+            1142.5
+          ],
+          "corridor_m": 22.07,
+          "corridor_ft": 72.4,
+          "centre_local_enu_m": [
+            836.1,
+            994.3
+          ]
+        }
+      ],
+      "huron": [
+        {
+          "window": "col_west",
+          "ref_px_x": 2965,
+          "rule_px_y": [
+            1236.4,
+            1266.1
+          ],
+          "corridor_m": 21.42,
+          "corridor_ft": 70.3,
+          "centre_local_enu_m": [
+            837.0,
+            904.8
+          ]
+        },
+        {
+          "window": "col_east",
+          "ref_px_x": 3465,
+          "rule_px_y": [
+            1245.9,
+            1275.8
+          ],
+          "corridor_m": 21.57,
+          "corridor_ft": 70.8,
+          "centre_local_enu_m": [
+            1189.7,
+            911.7
+          ]
+        }
+      ],
+      "erie": [
+        {
+          "window": "col_west",
+          "ref_px_x": 2965,
+          "rule_px_y": [
+            1358.4,
+            1388.4
+          ],
+          "corridor_m": 21.64,
+          "corridor_ft": 71.0,
+          "centre_local_enu_m": [
+            837.9,
+            816.7
+          ]
+        },
+        {
+          "window": "col_east",
+          "ref_px_x": 3465,
+          "rule_px_y": [
+            1367.5,
+            1396.7
+          ],
+          "corridor_m": 21.06,
+          "corridor_ft": 69.1,
+          "centre_local_enu_m": [
+            1190.6,
+            824.2
+          ]
+        }
+      ],
+      "ontario": [
+        {
+          "window": "col_west",
+          "ref_px_x": 2965,
+          "rule_px_y": [
+            1481.6,
+            1516.5
+          ],
+          "corridor_m": 25.17,
+          "corridor_ft": 82.6,
+          "centre_local_enu_m": [
+            838.9,
+            726.1
+          ]
+        },
+        {
+          "window": "col_east",
+          "ref_px_x": 3465,
+          "rule_px_y": [
+            1491.9,
+            1522.7
+          ],
+          "corridor_m": 22.21,
+          "corridor_ft": 72.9,
+          "centre_local_enu_m": [
+            1191.6,
+            733.9
+          ]
+        }
+      ],
+      "ohio": [
+        {
+          "window": "col_west",
+          "ref_px_x": 2965,
+          "rule_px_y": [
+            1608.9,
+            1639.9
+          ],
+          "corridor_m": 22.36,
+          "corridor_ft": 73.4,
+          "centre_local_enu_m": [
+            839.8,
+            635.7
+          ]
+        },
+        {
+          "window": "col_east",
+          "ref_px_x": 3465,
+          "rule_px_y": [
+            1617.9,
+            1646.0
+          ],
+          "corridor_m": 20.27,
+          "corridor_ft": 66.5,
+          "centre_local_enu_m": [
+            1192.5,
+            644.0
+          ]
+        }
+      ],
+      "indiana": [
+        {
+          "window": "col_west",
+          "ref_px_x": 2965,
+          "rule_px_y": [
+            1729.2,
+            1764.5
+          ],
+          "corridor_m": 25.46,
+          "corridor_ft": 83.5,
+          "centre_local_enu_m": [
+            840.7,
+            547.4
+          ]
+        },
+        {
+          "window": "col_east",
+          "ref_px_x": 3465,
+          "rule_px_y": [
+            1738.0,
+            1771.4
+          ],
+          "corridor_m": 24.09,
+          "corridor_ft": 79.0,
+          "centre_local_enu_m": [
+            1193.4,
+            555.5
+          ]
+        }
+      ],
+      "illinois": [
+        {
+          "window": "col_west",
+          "ref_px_x": 2965,
+          "rule_px_y": [
+            1855.3,
+            1887.0
+          ],
+          "corridor_m": 22.86,
+          "corridor_ft": 75.0,
+          "centre_local_enu_m": [
+            841.6,
+            457.7
+          ]
+        },
+        {
+          "window": "col_east",
+          "ref_px_x": 3465,
+          "rule_px_y": [
+            1864.5,
+            1895.6
+          ],
+          "corridor_m": 22.43,
+          "corridor_ft": 73.6,
+          "centre_local_enu_m": [
+            1194.3,
+            465.1
+          ]
+        }
+      ],
+      "michigan": [
+        {
+          "window": "col_west",
+          "ref_px_x": 2965,
+          "rule_px_y": [
+            1978.6,
+            2009.5
+          ],
+          "corridor_m": 22.29,
+          "corridor_ft": 73.1,
+          "centre_local_enu_m": [
+            842.6,
+            369.1
+          ]
+        }
+      ]
+    },
+    "north_south": {
+      "wolcott": [
+        {
+          "window": "row_superior",
+          "ref_px_y": 1150,
+          "rule_px_x": [
+            2943.0,
+            2972.7
+          ],
+          "corridor_m": 20.96,
+          "corridor_ft": 68.8,
+          "centre_local_enu_m": [
+            831.2,
+            977.6
+          ]
+        }
+      ],
+      "cass": [
+        {
+          "window": "row_superior",
+          "ref_px_y": 1150,
+          "rule_px_x": [
+            3100.0,
+            3130.2
+          ],
+          "corridor_m": 21.32,
+          "corridor_ft": 69.9,
+          "centre_local_enu_m": [
+            942.1,
+            982.0
+          ]
+        },
+        {
+          "window": "row_ontario",
+          "ref_px_y": 1525,
+          "rule_px_x": [
+            3097.6,
+            3131.0
+          ],
+          "corridor_m": 23.57,
+          "corridor_ft": 77.3,
+          "centre_local_enu_m": [
+            944.4,
+            711.5
+          ]
+        },
+        {
+          "window": "row_ohio",
+          "ref_px_y": 1650,
+          "rule_px_x": [
+            3096.3,
+            3129.0
+          ],
+          "corridor_m": 23.08,
+          "corridor_ft": 75.7,
+          "centre_local_enu_m": [
+            944.1,
+            621.3
+          ]
+        }
+      ],
+      "rush": [
+        {
+          "window": "row_superior",
+          "ref_px_y": 1150,
+          "rule_px_x": [
+            3257.7,
+            3290.0
+          ],
+          "corridor_m": 22.8,
+          "corridor_ft": 74.8,
+          "centre_local_enu_m": [
+            1054.1,
+            986.4
+          ]
+        },
+        {
+          "window": "row_ohio",
+          "ref_px_y": 1650,
+          "rule_px_x": [
+            3254.5,
+            3286.7
+          ],
+          "corridor_m": 22.73,
+          "corridor_ft": 74.6,
+          "centre_local_enu_m": [
+            1055.5,
+            625.7
+          ]
+        }
+      ],
+      "pine": [
+        {
+          "window": "row_superior",
+          "ref_px_y": 1150,
+          "rule_px_x": [
+            3412.7,
+            3450.0
+          ],
+          "corridor_m": 26.33,
+          "corridor_ft": 86.4,
+          "centre_local_enu_m": [
+            1165.2,
+            990.7
+          ]
+        },
+        {
+          "window": "row_ohio",
+          "ref_px_y": 1650,
+          "rule_px_x": [
+            3414.0,
+            3445.4
+          ],
+          "corridor_m": 22.16,
+          "corridor_ft": 72.7,
+          "centre_local_enu_m": [
+            1167.7,
+            630.1
+          ]
+        }
+      ],
+      "sand": [
+        {
+          "window": "row_ontario",
+          "ref_px_y": 1525,
+          "rule_px_x": [
+            3571.1,
+            3605.7
+          ],
+          "corridor_m": 24.42,
+          "corridor_ft": 80.1,
+          "centre_local_enu_m": [
+            1278.7,
+            724.6
+          ]
+        },
+        {
+          "window": "row_ohio",
+          "ref_px_y": 1650,
+          "rule_px_x": [
+            3572.0,
+            3604.5
+          ],
+          "corridor_m": 22.94,
+          "corridor_ft": 75.3,
+          "centre_local_enu_m": [
+            1279.6,
+            634.4
+          ]
+        }
+      ]
+    }
+  },
+  "module": {
+    "tier_pitch_m": {
+      "mean": 89.32,
+      "sd": 1.07,
+      "n": 12,
+      "samples": [
+        88.6,
+        89.7,
+        88.3,
+        90.4,
+        90.6,
+        88.1,
+        89.5,
+        90.4,
+        88.5,
+        89.9,
+        90.3,
+        87.5
+      ],
+      "note": "centre to centre of consecutive east-west corridors — the north-south module of the plat"
+    },
+    "column_pitch_m": {
+      "mean": 111.56,
+      "sd": 0.48,
+      "n": 7,
+      "samples": [
+        110.9,
+        112.0,
+        111.1,
+        111.43,
+        111.4,
+        112.2,
+        111.9
+      ],
+      "note": "centre to centre of consecutive north-south corridors"
+    },
+    "corridor_read_ft": {
+      "mean": 74.5,
+      "sd": 4.9,
+      "n": 24
+    }
+  },
+  "control": {
+    "lake": {
+      "ref_px_x": 2380,
+      "rule_px_y": [
+        2621.3,
+        2658.2
+      ],
+      "corridor_m": 26.61,
+      "corridor_ft": 87.3,
+      "platted_ft": 80.0
+    },
+    "randolph": {
+      "ref_px_x": 2380,
+      "rule_px_y": [
+        2811.9,
+        2844.5
+      ],
+      "corridor_m": 23.51,
+      "corridor_ft": 77.1,
+      "platted_ft": 80.0
+    },
+    "washington": {
+      "ref_px_x": 2380,
+      "rule_px_y": [
+        3004.3,
+        3038.7
+      ],
+      "corridor_m": 24.81,
+      "corridor_ft": 81.4,
+      "platted_ft": 80.0
+    }
+  },
+  "control_summary": {
+    "original_town_platted_ft": 80.0,
+    "original_town_read_ft": {
+      "mean": 81.9,
+      "sd": 5.1,
+      "n": 3
+    },
+    "method_over_read": 1.024,
+    "addition_over_original_town": 0.909,
+    "addition_corridor_ft": 72.7,
+    "addition_corridor_m": 22.17,
+    "reading": "The Addition's corridors are not measured against a ruler, they are measured against the Original Town's on the same sheet by the same method — which is the only comparison the sheet can settle. The method reads a platted 80 ft corridor wide, so the Addition's raw read is scaled by the ratio rather than taken at face value."
+  },
+  "extent": {
+    "_doc": "Which streets reach where, from the rules the windows found and did not find. A street absent from a window is absent from the sheet there: the detector that found Pine at every tier found no Sand above Huron, and that is the evidence for Sand's north end.",
+    "sand": "present at the Michigan-Illinois, Illinois-Indiana, Ontario-Erie and Erie-Huron tiers; ABSENT at the Huron-Superior tier. Sand Street ends on Huron Street, which is what the sheet draws: block 44 above it is cut by the shore.",
+    "pine": "present at every tier read, including Huron-Superior. Pine runs the full height of the Addition.",
+    "east_of_sand": "Wright carries the east-west streets east of Sand Street to the lake shore, across the shore-cut blocks 20, 31, 32, 43, 44, 45 and 54. That reach is NOT committed here: where a street meets the shore is the shore trace's question (T-0799, T-0800), and a street line may not claim ground this reading has not measured.",
+    "south_of_michigan": "The river tier — blocks 1-7 and the numbered water lots on the north bank — is T-1063's. The north-south streets are committed from Michigan Street northward only.",
+    "west_of_wolcott": "A narrow tier of blocks stands west of Wolcott Street between it and the Addition's west boundary rule (NA pixel x 2918 at the Ontario-Ohio tier), about 17 m wide. It is a block question, not a street one, and it is T-1061's."
+  },
+  "seating": {
+    "_doc": "The module above is seated on the two committed streets the Addition shares with the town it adjoins, rather than on this sheet's own fit.",
+    "why": "The NA fit carries 16.19 m RMS on eight control points, and the grid it draws in this corner runs about 1.2 deg off the bearing the committed town grid takes from modern control over a 1,420 m baseline. Read straight through the fit, Michigan Street lands 19.8 m south of `michigan_north`, which is the same street. A reading that puts a street twice in two places is not a reading; the sheet's strength is the module and the committed grid's strength is the seating, and each is used for what it is good at.",
+    "east_west_datum": "michigan_north in data/streets/1835.json",
+    "north_south_datum": "wolcott in data/streets/1835.json",
+    "residual_michigan_m": 19.8,
+    "residual_wolcott_m": 6.5,
+    "bearing_note": "Each new street takes the bearing of its own family's committed datum, so the Addition's streets are parallel to the town's. The sheet's own bearing for them is recorded in `windows[].shear` and is not used for geometry."
+  }
+}

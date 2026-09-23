@@ -1,0 +1,196 @@
+{
+  "_doc": "Ground control for the Wright 1834 map. Pixel coordinates are in the RESOURCE space of the BPL/Digital Commonwealth IIIF image (commonwealth:js957744g, 4204 x 5166 px) — the same space the Allmaps annotation uses. Picked by hand from gridded crops at 3x zoom; estimated picking precision +/- 4 px (~3 m).",
+  "raster": {
+    "iiif_image": "https://iiif.digitalcommonwealth.org/iiif/2/commonwealth:js957744g",
+    "width": 4204,
+    "height": 5166,
+    "working_copy_sha256": "fffec7788ef8f37f04c346c48a757bd298a29b1da15eb3705e527d643d48bfb1",
+    "note": "BPL also publishes a georeferenced GeoTIFF derivative; this project fits its own transform from the GCPs below and archives the BPL Allmaps annotation alongside for provenance."
+  },
+  "control_source": "Modern control from OpenStreetMap via the Overpass API, fetched 2026-08-09. Multi-node crossings averaged (max spread 6.4 m). OSM data is (c) OpenStreetMap contributors, ODbL — see data/sources/osm_streets_2026.json.",
+  "gcps": [
+    {
+      "id": "G1",
+      "map_feature": "State St & Madison St",
+      "feature_note": "PLSS section corner: sections 9/10/15/16, T39N R14E. The town plat's SE corner; Madison's line continues east as the reservation's south boundary.",
+      "pixel": [
+        2607,
+        2572
+      ],
+      "modern": {
+        "lat": 41.8820455,
+        "lon": -87.6278089,
+        "osm_node_ids": [
+          27446720
+        ],
+        "nodes_averaged": 1,
+        "utm_e": 447910.33,
+        "utm_n": 4636870.53
+      },
+      "residual_m": 13.9
+    },
+    {
+      "id": "G2",
+      "map_feature": "Wolcott St & Ohio St",
+      "feature_note": "Kinzie's Addition; Wolcott is today's North State Street.",
+      "pixel": [
+        2620,
+        972
+      ],
+      "modern": {
+        "lat": 41.8924761,
+        "lon": -87.6280935,
+        "osm_node_ids": [
+          258023464
+        ],
+        "nodes_averaged": 1,
+        "utm_e": 447895.2,
+        "utm_n": 4638028.79
+      },
+      "residual_m": 9.5
+    },
+    {
+      "id": "G3",
+      "map_feature": "LaSalle St & Randolph St",
+      "feature_note": "NW corner of the Public Square block.",
+      "pixel": [
+        2057,
+        2180
+      ],
+      "modern": {
+        "lat": 41.8845065,
+        "lon": -87.6324648,
+        "osm_node_ids": [
+          10923165759,
+          10923165760,
+          10929181429,
+          10929181430
+        ],
+        "nodes_averaged": 4,
+        "utm_e": 447526.04,
+        "utm_n": 4637146.61
+      },
+      "residual_m": 15.1
+    },
+    {
+      "id": "G4",
+      "map_feature": "Clark St & Washington St",
+      "feature_note": "SE corner of the Public Square block. Sits in a visibly warped region of the sheet — the expected outlier.",
+      "pixel": [
+        2292,
+        2347
+      ],
+      "modern": {
+        "lat": 41.8832047,
+        "lon": -87.6309328,
+        "osm_node_ids": [
+          28290281,
+          10922644192
+        ],
+        "nodes_averaged": 2,
+        "utm_e": 447652.09,
+        "utm_n": 4637001.14
+      },
+      "residual_m": 32.7
+    },
+    {
+      "id": "G5",
+      "map_feature": "Canal St & Lake St",
+      "feature_note": "West side; blocks 22/29 straddle Lake, block 22 cut diagonally by the river.",
+      "pixel": [
+        1197,
+        1955
+      ],
+      "modern": {
+        "lat": 41.8857338,
+        "lon": -87.6398656,
+        "osm_node_ids": [
+          258020603
+        ],
+        "nodes_averaged": 1,
+        "utm_e": 446913.03,
+        "utm_n": 4637287.42
+      },
+      "residual_m": 1.8
+    },
+    {
+      "id": "G6",
+      "map_feature": "Cass St & Illinois St",
+      "feature_note": "Cass is today's North Wabash Avenue; the reserved Kinzie Block lies immediately south.",
+      "pixel": [
+        2742,
+        1203
+      ],
+      "modern": {
+        "lat": 41.8908948,
+        "lon": -87.6266902,
+        "osm_node_ids": [
+          12941645398
+        ],
+        "nodes_averaged": 1,
+        "utm_e": 448010.33,
+        "utm_n": 4637852.37
+      },
+      "residual_m": 23.0
+    },
+    {
+      "id": "G7",
+      "map_feature": "Rush St & Ohio St",
+      "feature_note": "Kinzie's Addition.",
+      "pixel": [
+        2942,
+        950
+      ],
+      "modern": {
+        "lat": 41.8925217,
+        "lon": -87.6254098,
+        "osm_node_ids": [
+          736861647
+        ],
+        "nodes_averaged": 1,
+        "utm_e": 448117.87,
+        "utm_n": 4638032.22
+      },
+      "residual_m": 13.0
+    },
+    {
+      "id": "G8",
+      "map_feature": "Wolcott St & Kinzie St",
+      "feature_note": "Kinzie marked with the boundary shading as the original town's north edge.",
+      "pixel": [
+        2624,
+        1470
+      ],
+      "modern": {
+        "lat": 41.8892588,
+        "lon": -87.6280074,
+        "osm_node_ids": [
+          2294339314
+        ],
+        "nodes_averaged": 1,
+        "utm_e": 447899.73,
+        "utm_n": 4637671.53
+      },
+      "residual_m": 12.6
+    }
+  ],
+  "fit": {
+    "type": "affine, least squares, pixel -> EPSG:26916",
+    "coefficients": {
+      "a": 0.6982791158401785,
+      "b": 0.004304544711975522,
+      "c": 446067.7504505769,
+      "d": 0.014424894547793133,
+      "e": -0.7245629571406699,
+      "f": 4638688.114617579
+    },
+    "rms_m": 17.5,
+    "scale_m_per_px": {
+      "x": 0.6983,
+      "y": 0.7246
+    },
+    "rotation_deg": 1.18,
+    "axis_scale_difference_pct": 3.7,
+    "note": "The 3.7% x/y scale difference is real paper stretch in the lithograph, not an artifact. Largest residual (32.7 m, Clark & Washington) coincides with visible local warp in the sheet around the Public Square. The BPL Allmaps 3-point transform, evaluated against this same independent control, gives RMS 25.9 m with max 56.8 m — the reason this denser fit exists."
+  }
+}

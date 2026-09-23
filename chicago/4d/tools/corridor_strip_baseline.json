@@ -1,0 +1,42 @@
+{
+ "_doc": "T-0419. The band the re-centred South Water corridor opens, and what branch A would cost the plat grid. Written by tools/measure_corridor_strip.py --write-baseline; the fork is the owner's and this file only pins the figures it is asked about.",
+ "tool": "tools/measure_corridor_strip.py",
+ "reading": {
+  "streets": {
+   "south_water": {
+    "offset_m": 8.58,
+    "bands": {
+     "abandoned": {
+      "area_m2": 6132.2,
+      "dry_pct": 99.1,
+      "lots": 0,
+      "structures": [
+       "hogan_store",
+       "lasalle_slough_crossing",
+       "newberry_dole_warehouse",
+       "slough_log_bridge"
+      ]
+     },
+     "claimed": {
+      "area_m2": 6132.2,
+      "dry_pct": 46.0,
+      "lots": 0,
+      "structures": [
+       "dearborn_street_drawbridge"
+      ]
+     }
+    }
+   }
+  },
+  "counterfactual": {
+   "blocks_after": 18,
+   "lots_after": 136,
+   "lots_recut": 32,
+   "blocks_lost": [
+    "blk_south_water_lasalle"
+   ],
+   "roofs_on_moved_blocks": 53,
+   "roofs_on_lost_blocks": 18
+  }
+ }
+}

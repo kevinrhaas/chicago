@@ -1,0 +1,194 @@
+{
+  "id": "cobweb_castle",
+  "name": "Indian Agency House",
+  "aka": [
+    "Cobweb Castle",
+    "the Agency House",
+    "the Government agency-house"
+  ],
+  "archetype": "log_dwelling",
+  "phases": [
+    {
+      "id": "log_1820",
+      "documented_range": {
+        "from": "1820-01-01",
+        "to": "1835-12-31",
+        "confidence": "inferred",
+        "sources": [
+          "andreas_1884_v1",
+          "kinzie_waubun_1856"
+        ],
+        "note": "THE START IS THE COMPLETION OF A BUILDING SOMEBODY ELSE BEGAN. Andreas's chronology enters \"'Cobweb Castle,' completed by Dr. Wolcott\" against 1820, the year Wolcott was appointed agent, and his narrative says Wolcott 'finished and resided in a building commenced during Judge Jouett's incumbency' — Jouett was agent 1816-18. So the fabric is older than 1820 by up to four years and this range does not claim the earlier part. THE FORM THIS RECORD MODELS IS LATER STILL: the centre, two wings and two tails are Wau-Bun's description of 1831, and Wau-Bun says in as many words that the wings and tails were ADDITIONS made when 'there was found no more room for additions at the sides'. A record that split those additions into phases would have to invent their dates; instead the phase runs from 1820 and carries the 1831 form throughout, which overstates the building's size in the 1820s. THE END OF THE RANGE IS THE HONEST MINIMUM AND IT IS THE WEAKEST THING HERE. No source reached gives this building a fate. It is on this project's own watch_list in data/exclusions.json for that reason: standing and in civilian occupation in the autumn of 1832, when Andreas has Colonel Hamilton residing in 'the old Indian agency-house', and nothing after. The agency itself wound down through the 1833 treaty and the 1835 removal, and an agency house whose agency has gone is exactly the kind of building that comes down without anyone writing it down. Presence on 1835-07-01 is an inference from continuity, not a finding. If evidence turns up that it was gone, this record leaves the scene and moves to data/exclusions.json."
+      },
+      "position": {
+        "utm_e": 447886.7,
+        "utm_n": 4637517.8,
+        "rotation_deg": 180.0,
+        "symbolic_location": "South-west corner of Wolcott Street and North Water Street (today N State St and the north bank of the main stem), at the foot of State Street, north bank of the main stem east of the forks.",
+        "confidence": "inferred",
+        "sources": [
+          "kinzie_waubun_1856",
+          "andreas_1884_v1",
+          "wright_1834",
+          "osm_streets_2026"
+        ],
+        "note": "PLACED 2026-08-11. THE CORNER IS DOCUMENTED TWICE AND THE COORDINATE IS DERIVED, so the tag follows the weaker half — the rule the Sauganash and Green Tree placements use. Wau-Bun: 'It stood at what is now the southwest corner of Wolcott and N. Water Streets.' Andreas, independently: 'the agency-house on the north side of the river, near where now is the foot of North State Street', with his footnote citing Wau-Bun for the same corner. METHOD, in three steps. (1) Wolcott Street is today's N State Street; its modern centreline was read from OpenStreetMap through the Kinzie intersection (EPSG:26916 E 447899.73, N 4637671.53, local E +827.0, N +275.7) and carried south on the fitted bearing of the OSM centreline, giving E +830 at this northing and a west kerb 12.2 m west of it, half an 80 ft platted street. (2) North Water Street and the 1834 north bank were read off the Wright 1834 sheet at the project's own fitted affine (tools/wright_px.py, the same transform tools/rederive_datum.py checks the datum against): the north-bank block row's south line, which is North Water Street's north kerb, runs at local N +128 to +132 between E +624 and E +812, and the drawn north bank of the main stem runs at local N +98 over the same stretch. So the platted street occupies a strip about 30 m deep between the block row and the water. (3) The building's south face is set 15 m north of that bank line and its east face 4 m west of the State Street kerb. THE 15 M IS EVIDENCE, NOT A GUESS, AND IT IS SOFT: Andreas prints the testimony of Charles Jouett's daughter, Mrs. Susan M. Callis, who came here in 1816 and describes the agency house of that period as 'a log building of two large rooms, about twenty steps from the river bank, on the north side'. Twenty steps is 15-18 m. Two inferences ride on it — that a step is about three-quarters of a metre, and that the house Mrs. Callis describes is the one Wolcott finished, which Andreas's 'commenced during Judge Jouett's incumbency' supports and nobody states. WHAT THE SOUTH-WEST QUADRANT ACTUALLY IS: on the 1834 sheet there is no block in it. West of Wolcott the ground south of North Water Street is the riverbank itself, so the building sits on the bank between the platted street and the water rather than on a corner lot — which is what Wau-Bun describes from the other side: 'when, in the process of the town's improvement, a street was maliciously opened directly in the rear of the building, the whole establishment, with its comical little adjuncts, was a constant source of amusement to the passers-by.' The house predates the plat by a decade and the street was laid out behind it. That same sentence is the evidence for the facade bearing recorded here, 180, due south onto the river: the street opened at the REAR, so the front faced the water, which is also how the fort's people reached it — Wau-Bun has the intercourse between the garrison and the Agency House kept up by canoe. UNCERTAINTY: about 20 m from the georeference (data/datum.json records ~17.5 m RMS and calls 20 m the working figure), plus the reading of the 1834 sheet by eye at about 5 m, plus whatever 'twenty steps' is worth. Treat the across-bank axis as the softer one. A LARGER CAVEAT THAN ALL OF THOSE, AND IT IS DISCHARGED. When this note was written the building stood about 500 m east of the modelled terrain box and there was no modelled ground under it at all. The e1834_harbor_cut heightfield was extended east on 2026-08-11 to local E -320..+1700, N -400..+400 — docs/LIBERTIES.md L17 is revised to say so — and this position has stood on traced ground at about +1.35 m above the summer-1835 water surface ever since, which is why this phase carries no ground_contact declaration. Corrected 2026-08-22 under T-0010; walked in the real page by tools/measure_east_band.mjs.",
+        "derivation": {
+          "method": "not_derivable",
+          "reason": "This placement predates the derivation module. Its provenance and reasoning are recorded in position.note, but no machine-checkable derivation block has been authored for it yet."
+        }
+      },
+      "footprint": {
+        "polygon": [
+          [
+            0,
+            4
+          ],
+          [
+            4,
+            4
+          ],
+          [
+            4,
+            3
+          ],
+          [
+            4.5,
+            3
+          ],
+          [
+            4.5,
+            0
+          ],
+          [
+            6,
+            0
+          ],
+          [
+            6,
+            3
+          ],
+          [
+            7,
+            3
+          ],
+          [
+            7,
+            0
+          ],
+          [
+            8.5,
+            0
+          ],
+          [
+            8.5,
+            3
+          ],
+          [
+            9,
+            3
+          ],
+          [
+            9,
+            4
+          ],
+          [
+            13,
+            4
+          ],
+          [
+            13,
+            8
+          ],
+          [
+            9,
+            8
+          ],
+          [
+            9,
+            9
+          ],
+          [
+            4,
+            9
+          ],
+          [
+            4,
+            8
+          ],
+          [
+            0,
+            8
+          ]
+        ],
+        "confidence": "reconstructed",
+        "note": "PLACEHOLDER. THE SHAPE CARRIES EVIDENCE AND EVERY NUMBER IN IT IS INVENTED, and the two must not be confused — the same distinction miller_house's footprint note draws. What is attested is the composition, from the only description of this building anybody wrote: 'a substantial, compact little building of logs hewed and squared, with a centre, two wings, and, strictly speaking, two tails, since, when there was found no more room for additions at the sides, they were placed in the rear, whereon a vacant spot could be found. These appendages did not mar the symmetry of the whole, as viewed from the front.' This polygon is that sentence drawn: a centre block projecting one metre forward of two flanking wings, so the front reads symmetrical, and two tails running back from the rear of the centre. The dimensions — a 5 m centre, 4 m wings, 1.5 m tails, a 13 x 9 m envelope — are chosen to suit the words 'compact little building' and are supported by nothing. Mrs. Callis's 'two large rooms' describes the house in 1816, before the wings and tails, and is the only interior evidence of any kind. NOTE WHAT THE MESH DOES WITH THIS: the log_dwelling archetype masses the polygon's BOUNDING BOX, so the visitor sees a plain 13 x 9 m rectangle and the composition this polygon draws is not built — the re-entrant corners beside the tails and beside the wings are filled in. That is admitted in docs/LIBERTIES.md rather than hidden, and it is the same limitation L27 records for Miller's house. To resolve: any plan, any dimension, or the Chicago Democrat's advertisements for the agency's buildings."
+      },
+      "form": {
+        "construction": {
+          "value": "log",
+          "confidence": "attested",
+          "sources": [
+            "kinzie_waubun_1856",
+            "andreas_1884_v1"
+          ],
+          "note": "Wau-Bun: 'a substantial, compact little building of logs hewed and squared'. Andreas, recording David McKee's account of the north side when he arrived in 1823: 'All these houses were of logs — the agency-house being afterward clapboarded part way up.' Hewn and squared log is exactly what this archetype builds. The clapboarding is recorded separately under `cladding`, where the record can say that the mesh does not show it."
+        },
+        "cladding": {
+          "value": "clapboard_part_way_up",
+          "confidence": "attested",
+          "sources": [
+            "andreas_1884_v1"
+          ],
+          "note": "'the agency-house being afterward clapboarded part way up' — David McKee's recollection, printed by Andreas. This is an unusually specific finish for a building at this date and it is genuinely odd: siding taken part of the way up a log wall and no further, presumably to weather the lower courses. WHEN it was done is not stated beyond 'afterward', i.e. after 1823, so whether the boards were there on the scene date is not attested either.",
+          "geometry": "simplified"
+        },
+        "plan_composition": {
+          "value": "centre, two wings, two rear tails",
+          "confidence": "attested",
+          "sources": [
+            "kinzie_waubun_1856"
+          ],
+          "note": "Wau-Bun's phrase, kept verbatim as a value because it is the single best-attested fact about this building and because the footprint polygon that draws it is not what the mesh is built from. The record states the composition; the model shows a rectangle.",
+          "geometry": "absent"
+        },
+        "stories": {
+          "value": 1,
+          "confidence": "inferred",
+          "note": "Not attested. 'Compact little building' and 'two large rooms' both read as a single storey, and a building that grew by adding wings at the sides and tails at the rear is a building that could not grow upward — which is the argument. The counter-example is in the same book: the FIRST agency house, built beside old Fort Dearborn in 1803-4 on the south side, was 'a two-story log building, covered with split oak siding'. That is a different building and it is why this value is inference rather than type."
+        },
+        "wall_height_m": {
+          "value": 2.6,
+          "confidence": "inferred",
+          "note": "No figure is attested. 2.6 m is about 8 ft 6 in: one storey of hewn-log wall at the course counts this project uses for the Miller house's log core, plus a sill. What is inferred is the range, not the centimetre."
+        },
+        "roof_type": {
+          "value": "gable",
+          "confidence": "reconstructed",
+          "note": "THE ONE THING WAU-BUN SAYS ABOUT THIS ROOF IS THAT IT WAS NOT ORDINARY: 'There were pleasant, happy hours passed under its odd-shaped roof.' Odd-shaped is what a centre with two wings and two tails produces — a roof of intersecting ridges, valleys and lean-tos that grew with the additions. The archetype builds one gable over one rectangle, so the model shows the opposite of what the source says, and the value is tagged conjectural because a gable here is a substitution rather than a reading. Left as `gable` rather than `shed` because a gable is the only one of the two forms this archetype offers that a log building of this size would carry."
+        },
+        "roof_pitch_deg": {
+          "value": 35.0,
+          "confidence": "inferred",
+          "note": "No pitch is attested. 35 degrees is this archetype's mid-range for a low log building roofed in riven shakes. Inferred from construction practice, not measured, and inherited by a roof form the record has already said is wrong (see roof_type)."
+        },
+        "chimneys": {
+          "value": 2,
+          "confidence": "inferred",
+          "note": "Not attested. Two is inferred from the plan the sources give rather than from the building: a centre with two wings, holding the agent's office and household — in 1831 that household was J. H. Kinzie's mother, two sisters and brother as well — is more rooms than one hearth heats through a Chicago winter. The COUNT is the inference; where the stacks stand, how big they are and what they are made of are the archetype's, which is the standing admission in docs/LIBERTIES.md L26."
+        }
+      },
+      "change_note": "The United States Indian Agency house on the north bank as Wau-Bun describes it in 1831: hewn squared log, a centre with two wings and two rear tails, clapboarded part way up at some point after 1823, standing at the foot of State Street with its front to the river and — by 1831 — a platted street opened across its back. The changes of occupancy after Wolcott's death in 1830 are changes of USE and do not open new phases."
+    }
+  ],
+  "function": {
+    "value": "agency_house_residence",
+    "confidence": "inferred",
+    "sources": [
+      "andreas_1884_v1"
+    ],
+    "note": "NOT AN OPERATING INDIAN AGENCY BUILDING AT THE SCENE DATE, most likely, and that is the fact this record has least evidence for. Andreas has it 'left unoccupied by the death of Dr. Wolcott' in 1830, then in the autumn of 1832 describes 'the old Indian agency-house in which Colonel Hamilton then resided' — Colonel R. J. Hamilton, the county's clerk and commissioner of school lands, living in it as a private house while the agency's business ran down through the 1833 treaty. Nothing reached says who was in it in July 1835 or what it was being used for, so the value records a residence and this record carries no occupants block rather than guessing at one."
+  },
+  "research_note": "THE OLDEST BUILDING STANDING ON THE NORTH BANK IN THIS SCENE, if it was standing: begun under Charles Jouett's agency (1816-18), finished and lived in by Dr. Alexander Wolcott from about 1820, nicknamed Cobweb Castle during his bachelor years, and described once — in Wau-Bun, of 1831 — in the sentence that gives this record its shape. TWO SOURCES AGREE ON THE CORNER and neither gives a dimension. WHAT WRITING THIS RECORD ADDED TO THE PROJECT'S DOSSIER, all from Andreas vol. 1 read at full text rather than through the index: the footnote at p. 103 citing Wau-Bun for the corner; McKee's 'the agency-house being afterward clapboarded part way up'; Mrs. Callis's 'a log building of two large rooms, about twenty steps from the river bank, on the north side' for the Jouett-era house; and the 1830 recollection that 'the Government agency-house, known as \"Cobweb Castle,\" was left unoccupied by the death of Dr. Wolcott. In its vicinity were small log buildings occupied by the blacksmith, Mr. McKee, and Billy Caldwell' — which is the corroboration for Wau-Bun's ring of employees' log residences and for this project's blacksmith_shop_state_st record. THE RECORD IS FLAGGED review_required BECAUSE OF WHAT THIS BUILDING WAS: the United States Indian Agency at Chicago, the administrative seat of the process that ended in the removal of the Potawatomi in August 1835, six weeks after the scene date. AGENTS.md places that subject under a standing constraint: nothing here depicts, stages or narrates it, and any interpretive text hung on this building needs review before a scene carrying it is released. See docs/RESEARCH/cobweb_castle.md.",
+  "review_required": true
+}

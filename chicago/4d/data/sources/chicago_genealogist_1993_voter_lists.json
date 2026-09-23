@@ -1,0 +1,25 @@
+{
+  "id": "chicago_genealogist_1993_voter_lists",
+  "type": "article",
+  "citation": "\"Early Chicago Voter Lists\", transcribed by Ingrid Latimer Schulz, IRAD intern. Chicago Genealogist, Summer 1993, Vol. XXV, No. 4. Chicago Genealogical Society.",
+  "author": "Ingrid Latimer Schulz (transcriber)",
+  "date": "1993",
+  "describes_date": "1833-1835",
+  "repository": "Chicago Genealogical Society",
+  "locator": "Vol. XXV, No. 4 (Summer 1993). No page numbers are given by the republication, and the issue itself is not held by this project.",
+  "tier": 1,
+  "rights_status": "check_required",
+  "rights_note": "A 1993 periodical. The transcribed 1833-1835 town records are public domain; the issue's own typography and apparatus are not, and nothing from it is reproduced here — this record exists to name the link in the chain, not to quote it.",
+  "asset_use": "inventory",
+  "verified": false,
+  "access_notes": "NOT VERIFIED. The issue has not been seen. Everything known about it is what the Genealogy Trails page states about its own source, and that statement is the only evidence for the attribution to Schulz and to IRAD. Verifying it means a copy of Chicago Genealogist XXV/4.",
+  "what_it_supplies": [
+    "the attribution of the transcription — who made it, from what repository, and when it was published",
+    "the intermediate step between the IRAD originals and the web text this project actually reads"
+  ],
+  "what_it_does_not_supply": [
+    "any text, because the issue is not held here — every word read in this project comes from the Genealogy Trails republication",
+    "any statement of method: how the transcription was made, or what was done with a doubtful hand"
+  ],
+  "note": "Recorded so the chain of custody is written down rather than assumed. The grade `transcription_mediated` exists for exactly this: two hands stand between this project and the poll book, and this record is the second of them."
+}

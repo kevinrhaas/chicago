@@ -1,0 +1,222 @@
+{
+ "id": "hh_egan_william_b",
+ "name": "The Egan household",
+ "division": "south",
+ "head": "egan_william_b",
+ "arrival": {
+  "value": "1833-10-01",
+  "confidence": "attested",
+  "sources": [
+   "andreas_1884_v1"
+  ],
+  "note": "'In the fall of 1833' - season precision, carried as the first day of the season this project reads as autumn. The MONTH is not evidence.",
+  "precision": "season"
+ },
+ "party_size_on_arrival": {
+  "value": 2,
+  "confidence": "attested",
+  "sources": [
+   "andreas_1884_v1"
+  ],
+  "note": "His wife 'accompanied the Doctor in his pilgrimage to this city'. Two is the party the source describes."
+ },
+ "origin": {
+  "value": "County Kerry, Ireland, by way of Lancashire, Dublin, Quebec, Montreal, New York, Virginia and Newark",
+  "confidence": "attested",
+  "sources": [
+   "andreas_1884_v1"
+  ],
+  "note": "Andreas traces the whole route: born near Lake Killarney; at fifteen to Lancashire to study; London; back to Dublin for lectures; 'then embarked for Canada'; a teaching post at Quebec, then Montreal and New York, then the grammar school of the University of Virginia, where he also attended medical lectures; licensed in New Jersey in the spring of 1830 and practising at Newark and New York. THE LONGEST ATTESTED MIGRATION IN THE DATASET and a reminder that 'origin' for this population is often a chain."
+ },
+ "reason_for_coming": {
+  "value": "Confidence in the future of a new western town",
+  "confidence": "inferred",
+  "sources": [
+   "andreas_1884_v1"
+  ],
+  "note": "Andreas states the disposition rather than the decision: 'In the Doctor's unfailing confidence in the future of Chicago; in the unhesitating manner with which he embarked his means upon the then ebb-tide of the city's prosperity, he was a typical pioneer.' That is a characterisation written fifty years later, not a statement of why he came, and the grade says so."
+ },
+ "lives_at": {
+  "value": null,
+  "confidence": "reconstructed",
+  "note": "Not attested. Egan's Row on the Tremont block is his own building work and is later than the scene date's evidence; nothing places him in a house on 1 July 1835."
+ },
+ "works_at": {
+  "value": null,
+  "confidence": "reconstructed",
+  "note": "Not attested. This dataset holds no physician's office as a structure, which is itself a finding: the town had eight doctors at the end of 1833 and not one of their premises is in data/structures/."
+ },
+ "present_on_scene_date": {
+  "value": "present",
+  "confidence": "inferred",
+  "sources": [
+   "andreas_1884_v1"
+  ],
+  "note": "On the town's health committee from August 1834 and orating at the canal ground-breaking in July 1836; no absence is recorded between."
+ },
+ "persons": [
+  {
+   "id": "egan_william_b",
+   "name": "Dr William Bradshaw Egan",
+   "relationship": "head",
+   "grade": "attested",
+   "sex": "male",
+   "birth_year": {
+    "value": 1808,
+    "confidence": "attested",
+    "sources": [
+     "andreas_1884_v1"
+    ],
+    "note": "28 September 1808."
+   },
+   "age_on_scene_date": {
+    "value": 26,
+    "confidence": "attested",
+    "sources": [
+     "andreas_1884_v1"
+    ],
+    "note": "26 on 1 July 1835."
+   },
+   "occupation": {
+    "value": "physician",
+    "confidence": "attested",
+    "sources": [
+     "andreas_1884_v1"
+    ],
+    "note": "One of the eight physicians Andreas counts at the close of 1833. He studied surgery and medicine in Lancashire under a Dr Maguire, attended lectures in Dublin and 'walked' the Dublin Lying-in Hospital, and was licensed by the medical board of New Jersey in the spring of 1830.",
+    "derived_from": "roles",
+    "roles_at_scene_date": [
+     "physician"
+    ]
+   },
+   "sources": [
+    "andreas_1884_v1",
+    "chicago_voter_lists_1833_1835_irad",
+    "fergus_chicago_directory_1839",
+    "isa_public_domain_land_tract_sales"
+   ],
+   "note": "BORN NEAR LAKE KILLARNEY, COUNTY KERRY, IRELAND, 28 SEPTEMBER 1808 - the best-documented foreign origin in the parcel. Andreas: 'In the fall of 1833 Dr. William Bradshaw Egan came to the city.' He was appointed to the health committee for the South Division on 22 August 1834 and delivered the oration when ground was broken for the Illinois & Michigan Canal on 4 July 1836. He bought the Tremont House block from General Beaubien and built five houses on it, known as Egan's Row - which is why a physician is also one of the town's builders. THE TOWN'S OWN ROLLS, 1833-1835 — CORROBORATION, NOT A GRADE. The early Chicago voter and tax lists held by the Illinois Regional Archives Depository name this person 2 times: Tax list of the Town of Chicago, 1833 — “Egan, William Bradshaw” (tax_1833_028, line 80); Election returns — poll list of 1834, filed 11 August 1834 — “Egan, William Bradshaw” (poll_1834_038, line 207). These are the town's own contemporary paper rather than a recollection of it, and each appearance says that a man of that name stood on that roll in that year — no more. The reading is twice mediated (Schulz's transcription, then Genealogy Trails' republication) and this project has not seen the IRAD originals. Under the ratified ladder (T-0513) the 1835 poll with a second independent source is attested, the 1835 poll alone or a 1833/1834 list with another source is inferred, and a single appearance with nothing else is a projected resident. This pass WRITES THE EVIDENCE AND MOVES NO GRADE — T-0515 applies the ladder against every source at once. Identity by the crosswalk's own rule: one resident of the surname 'Egan' agrees with the entry's forenames; 2 bearer(s) of the surname were considered. (data/research/civic/voter_crosswalk.json). FERGUS 1839'S LATER LISTS — 1837 AND 1839 EVIDENCE, NEVER AN 1835 FACT. Fergus' Chicago Directory for 1839 names this person 1 time in its two later lists: the poll of Chicago's first city election, 2 May 1837 — “William B. Egan” (f1839_v0600, printed page 45, ward 6, voting for William B. Ogden). What a match may carry, and it is short: that the man was in Chicago on 2 May 1837 and in that ward. It is written as 1837 evidence with describes_date 1837-05-02, never as an 1835 fact, and the person's grade does not move on this alone. Under the ratified ladder a second contemporary source is what lifts projected_resident, and a poll twenty-two months after the scene date is a second source about CONTINUED RESIDENCE, not about July 1835. The ward is a location in the CITY of 1837, whose six wards are drawn on printed page 46; it is not a location in the town of 1835 and does not place a house. Identity by the crosswalk's own rule: Surname 'Egan' folds to the same string as the 1837 entry's, and the given name of both begins W. (data/research/directories/fergus_1839_election_crosswalk_1835.json and fergus_1839_register_crosswalk_1835.json). This pass WRITES THE EVIDENCE AND MOVES NO GRADE. Under the ratified ladder (T-0513) a second independent source is what lifts a projected resident, and a poll twenty-two months after the scene date — or a register four years after it — is a second source about CONTINUED RESIDENCE rather than about July 1835. T-0515 applies the ladder against every source at once; this pass hands it the evidence and not the verdict. THE FEDERAL LAND TRACT SALES — A PURCHASE, AND NEVER A RESIDENCE. The Illinois State Archives' Public Domain Land Tract Sales register enters this person 43 times, as “EGAN WILLIAM B”, “EGAN W B”, “EGAN WILLIAM”, 1835-09-03 to 1836-06-26: 6 federal land entries — E2NE sec 20 T38N R14E; E2SE sec 32 T38N R14E; E2SW sec 20 T38N R14E; NW sec 20 T38N R14E; SE sec 20 T38N R14E; SW sec 36 T38N R14E and 37 lots in the platted town — lot 1 of block 26 in the town the register codes CHIOTV (L1BL26CHIOTV, as printed); lot 1 of block 27 in the town the register codes CHIOTV (L1BL27CHIOTV, as printed); lot 1 of block 47 in the town the register codes CHIOT (L1BL47CHIOT, as printed); lot 10 of block 46 in the town the register codes CHIOTV (L10B46CHIOTV, as printed); lot 10 of block 47 in the town the register codes CHIOT (L10B47CHIOT, as printed); lot 2 of block 25 in the town the register codes CHIOTV (L2BL25CHIOTV, as printed); lot 2 of block 26 in the town the register codes CHIOTV (L2BL26CHIOTV, as printed); lot 2 of block 27 in the town the register codes CHIOTV (L2BL27CHIOTV, as printed); lot 2 of block 47 in the town the register codes CHIOT (L2BL47CHIOT, as printed); lot 3 of block 25 in the town the register codes CHIOTV (L3BL25CHIOTV, as printed); lot 3 of block 26 in the town the register codes CHIOTV (L3BL26CHIOTV, as printed); lot 3 of block 27 in the town the register codes CHIOTV (L3BL27CHIOTV, as printed); lot 3 of block 46 in the town the register codes CHIOTV (L3BL46CHIOTV, as printed); lot 3 of block 47 in the town the register codes CHIOTV (L3BL47CHIOTV, as printed); lot 4 of block 25 in the town the register codes CHIOTV (L4BL25CHIOTV, as printed); lot 4 of block 26 in the town the register codes CHIOTV (L4BL26CHIOTV, as printed); lot 4 of block 27 in the town the register codes CHIOTV (L4BL27CHIOTV, as printed); lot 4 of block 45 in the town the register codes CHIOTV (L4BL45CHIOTV, as printed); lot 4 of block 47 in the town the register codes CHIOTV (L4BL47CHIOTV, as printed); lot 5 of block 25 in the town the register codes CHIOTV (L5BL25CHIOTV, as printed); lot 5 of block 26 in the town the register codes CHIOTV (L5BL26CHIOTV, as printed); lot 5 of block 27 in the town the register codes CHIOTV (L5BL27CHIOTV, as printed); lot 5 of block 45 in the town the register codes CHIOT (L5BL45CHIOT, as printed); lot 5 of block 46 in the town the register codes CHIOTV (L5BL46CHIOTV, as printed); lot 5 of block 47 in the town the register codes CHIOTV (L5BL47CHIOTV, as printed); lot 6 of block 25 in the town the register codes CHIOTV (L6BL25CHIOTV, as printed); lot 6 of block 26 in the town the register codes CHIOTV (L6BL26CHIOTV, as printed); lot 6 of block 27 in the town the register codes CHIOTV (L6BL27CHIOTV, as printed); lot 6 of block 47 in the town the register codes CHIOTV (L6BL47CHIOTV, as printed); lot 7 of block 25 in the town the register codes CHIOTV (L7BL25CHIOTV, as printed); lot 7 of block 45 in the town the register codes CHIOTV (L7BL45CHIOTV, as printed); lot 7 of block 46 in the town the register codes CHIOTV (L7BL46CHIOTV, as printed); lot 7 of block 47 in the town the register codes CHIOTV (L7BL47CHIOTV, as printed); lot 8 of block 25 in the town the register codes CHIOTV (L8BL25CHIOTV, as printed); lot 8 of block 35 in the town the register codes CHIOT (L8BL35CHIOT, as printed); lot 8 of block 47 in the town the register codes CHIOTV (L8BL47CHIOTV, as printed); lot 9 of block 47 in the town the register codes CHIOTV (L9BL47CHIOTV, as printed), 720.00 acres stated in all, for $67210.00 (ls0624, ls0625, ls0626, ls0627, ls0687, ls0716, ls1085, ls1086, ls1087, ls1088, ls1089, ls1090, ls1091, ls1092, ls1093, ls1094, ls1095, ls1096, ls1097, ls1098, ls1099, ls1100, ls1101, ls1102, ls1103, ls1104, ls1105, ls1106, ls1107, ls1108, ls1109, ls1110, ls1111, ls1112, ls1113, ls1114, ls1115, ls1116, ls1117, ls1118, ls1119, ls1083, ls1084). THE REGISTER'S OWN RESIDENCE COLUMN READS UNKNOWN on these rows: a county, a state or nothing, and never a town, which is why a purchase here places nobody. THE TOWN LOTS ARE THE PLAT ITSELF, AND THEY ARE NOT ACRES: Cook County's register describes them by lot and block in a platted town and gives them no section, no township and no acreage at all, so they add nothing to the acre figure above and $66310.00 to the money. This project does not expand the register's town codes, so which addition a lot stands in is carried as the code and not as a name. It is still a purchase and it still places nobody. A purchase and nothing more. It dates and places a transaction; it proposes no residence, and under the ratified ladder it corroborates rather than mints. Identity by the crosswalk's own rule: EGAN WILLIAM B matches Dr William Bradshaw Egan: the forename names Dr William Bradshaw Egan of the 2 people of this surname, and the forename agrees in full. (data/research/land_sales/resident_crosswalk.json). This pass WRITES THE EVIDENCE AND MOVES NO GRADE. Under the ratified ladder (T-0513) a second independent source is what lifts a projected resident, and a land entry is a second source about a TRANSACTION rather than about who was living at Chicago on 1 July 1835 — a man may buy a quarter-section he never sees. T-0515 applies the ladder against every source at once; this pass hands it the evidence and not the verdict.",
+   "resident_research": {
+    "programme": "resident-research-2026",
+    "ticket": "T-0509",
+    "outcome": "corroborated",
+    "reviewed_on": "2026-09-05",
+    "asserted_identity": true,
+    "evidence_for": "forenames agree initial for initial: entry 'William Bradshaw Egan' against resident 'Dr William Bradshaw Egan'",
+    "source_ids": [
+     "chicago_voter_lists_1833_1835_irad",
+     "chicagology_prefire112",
+     "fergus_chicago_directory_1839"
+    ],
+    "refusals": [
+     {
+      "regraded_on": "2026-09-04",
+      "rule": "G2b",
+      "withheld": "the downgrade to inferred",
+      "reason": "This card rests on 3 thing(s) the consolidation did not read — andreas_1884_v1, fergus_chicago_directory_1839, isa_public_domain_land_tract_sales. G2b fired on the seven domains the ladder reads and says nothing about the evidence outside them, so the grade stands. The same reasoning the ladder's own G5 gives for abstaining (T-0515)."
+     }
+    ],
+    "summary": "The 1833 tax list and the 1834 poll both print the whole name 'Egan, William Bradshaw' — the middle name in full, which is as strong a discriminator as this corpus offers. Fergus 1839 then prints 'Egan, Dr. William B., real estate dealer, bds. City Hotel' and the 1837 election return 'William B. Egan'."
+   },
+   "roles": [
+    {
+     "role": "physician",
+     "kind": "profession",
+     "as_printed": null,
+     "from": "1673",
+     "to": "1857",
+     "precision": "source_span",
+     "dated_by": "source_describes_date",
+     "covers_scene_date": true,
+     "confidence": "attested",
+     "sources": [
+      "andreas_1884_v1"
+     ],
+     "claim": null,
+     "note": "THE BOUND IS THE SOURCE'S, NOT THE MAN'S. This role is carried by the card's 1835 occupation block and is dated by what the cited source or sources are ABOUT, which is why `precision` can be no better than the span they cover. The span reaches 1835, so this role stands in the scene-date view. The printing the trade was read off is not on the card and is fetched by T-1254."
+    }
+   ]
+  },
+  {
+   "id": "egan_emeline",
+   "name": "Emeline Egan",
+   "relationship": "wife",
+   "grade": "attested",
+   "sex": "female",
+   "occupation": {
+    "value": "none_recorded",
+    "confidence": "reconstructed",
+    "note": "No source records an occupation for this person. This is the ABSENCE of a record rather than a claim that they did no work — the sources of 1835 name the occupations of household heads and almost never those of wives, children or the people counted with them."
+   },
+   "sources": [
+    "andreas_1884_v1"
+   ],
+   "note": "NAMED, DATED AND PLACED ON THE JOURNEY, which is rare. Andreas: 'On January 21, 1832, he was married to Miss Emeline Mahbutt, who accompanied the Doctor in his pilgrimage to this city.' The surname is printed 'Malib.tt' in the scanned text and is read here as Mahbutt; the reading is uncertain and the forename is not.",
+   "resident_research": {
+    "programme": "resident-research-2026",
+    "ticket": "T-0509",
+    "outcome": "no_corroboration",
+    "reviewed_on": "2026-09-05",
+    "asserted_identity": false,
+    "evidence_for": "No reliable record found in the reviewed contemporary, institutional, local-history and index searches could be tied to this person by more than the recorded name. This is a documented no-find, not evidence that the person did not exist.",
+    "notes": "Candidate facts remain unasserted until a source bridges the candidate to the historical record by more than name similarity.",
+    "summary": "Nothing reviewed in this pass corroborates Emeline Egan from outside the record already held: the chicago tribune 1882 04 25 old settler deaths, fergus chicago directory 1843, norris directory 1844 agreement is a surname-only refusal.",
+    "source_ids": [
+     "andreas_1884_v1"
+    ]
+   }
+  }
+ ],
+ "touches_removal": false,
+ "review_required": false,
+ "research_note": "AN IRISH DOCTOR WHO ARRIVED FOURTEEN MONTHS BEFORE THE HARBOUR MADE THE TOWN, and the record in this parcel that best answers K1's 'why they came' by refusing to answer it. Every stage of his journey from Kerry is documented; the motive for the last leg is not, and what stands in for it is a biographer's admiring sentence from 1884. THE GAP THIS HOUSEHOLD EXPOSES: eight physicians are documented in the 1833 town and this dataset contains no doctor's office, no apothecary's back room and no hospital outside the fort. That is a structures gap the residents layer has just made visible, which is what it is for.",
+ "directories": {
+  "note": "LATER EVIDENCE, BESIDE THE 1835 CLAIMS AND NOT INSIDE THEM. A Chicago directory of 1839, 1843 or 1844 meets somebody of this name and this pass records what it prints. Under the ratified ladder a directory read after 1835 can corroborate that a person attested here was still in Chicago and can print a trade or a street the 1835 record never had; on its own it makes nobody a resident of 1835. Nothing on this person's 1835 record was regraded, moved, dated or given an occupation by this entry. WHAT THIS PASS RULED ONTO THIS HOUSEHOLD, named so the ruling can be found again: each volume below is followed by the printed entries it set against this person and the status the crosswalk ruled them at — a single entry carries what its own `could_carry` declares, and an ambiguous or contested match carries nothing and is shown so that the silence is legible. egan_william_b, Fergus's Chicago directory of 1839 — f1839_e0445 (a single entry); egan_william_b, Fergus's Chicago directory of 1843 — f1843_e0898 (a single entry); egan_william_b, Norris's Chicago directory of 1844 — n1844_e0562 (a single entry).",
+  "sources": [
+   "fergus_chicago_directory_1839",
+   "fergus_chicago_directory_1843",
+   "norris_directory_1844"
+  ],
+  "people": [
+   {
+    "person_id": "egan_william_b",
+    "address_later": {
+     "value": "res Clark",
+     "confidence": "attested",
+     "describes_date": 1843,
+     "sources": [
+      "fergus_chicago_directory_1843"
+     ],
+     "note": "Fergus's Chicago directory of 1843 prints this address against this person, in the entry quoted on the card: 'Egan, Wm. Bradshaw. physician, recorder, etc., 68 Clark, res Clark [died October 27, 1860, aged 52]'. It is evidence about 1843, written here as 1843's and read back onto no 1835 claim. Under the ratified ladder a directory read after 1835 can corroborate that a person attested here was still in Chicago and can print a trade or a street the 1835 record never had; on its own it makes nobody a resident of 1835. Nothing on this person's 1835 record was regraded, moved, dated or given an occupation by this entry. The value is the volume's own line, split by its crosswalk on the entry's punctuation. These volumes set the trade first and its qualifiers after it on the same line, so the split may carry an employer, a market or a corner along with the trade. The printed entry is quoted beside the value for exactly that reason: the split is checkable against it, and neither is read into an 1835 claim."
+    },
+    "back_projection": {
+     "outcome": "refused",
+     "clause": "2",
+     "value": null,
+     "describes_date": 1843,
+     "read_back_years": 8,
+     "placement": null,
+     "position_local_enu_m": null,
+     "sources": [
+      "fergus_chicago_directory_1843"
+     ],
+     "note": "REFUSED, AND THE REFUSAL IS THE RECORD. Fergus's Chicago directory of 1843 prints an address against this name in 1843 and this pass will not carry it back to 1835. The directory prints this as a RESIDENCE — its own `res`, `bds`, `house` or Norris's `h` — and this pass positions businesses. Reading a home address as a shop door would be the pass answering a question nobody asked it. The residence half is T-0669. A refusal is written here rather than dropped so that a later run can see the address was read and ruled on, not missed (docs/ADDRESS-BACK-PROJECTION.md, clause 2)."
+    },
+    "residence_back_projection": {
+     "outcome": "placed",
+     "clause": "R4 and R5",
+     "kind": "resides",
+     "value": "Clark Street",
+     "confidence": "reconstructed",
+     "describes_date": 1843,
+     "read_back_years": 8,
+     "placement": "face",
+     "sources": [
+      "fergus_chicago_directory_1843"
+     ],
+     "note": "A LATER HOME ADDRESS, READ BACKWARDS 8 YEARS. The street is not an 1835 reading: Fergus's Chicago directory of 1843 printed where this person lived in 1843, and this pass carries it back to the scene date because nothing in the 1835 corpus says where the house stood. What is claimed is the street FACE and nothing narrower — no lot, no roof, no door count, and no corner even where the volume prints one — and the grade is `reconstructed`, this dataset's word for a figure the reconstruction supplies rather than a source. Clark Street stands in 1835 under that name and in that place, and the entry prints it as this person's home. So the placement is the FACE and nothing narrower, and no roof is dealt. A home is carried back on a weaker argument than a shop is: a shopfront is capital sunk into one street's trade and a lodging is a month's rent, which is why this policy claims less than docs/ADDRESS-BACK-PROJECTION.md does from the same volume. The rule is docs/RESIDENCE-BACK-PROJECTION.md and the liberty is L223; a reader who thinks 8 years is too far to carry a house should read the grade as the disagreement being invited."
+    }
+   }
+  ]
+ }
+}

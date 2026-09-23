@@ -1,0 +1,556 @@
+{
+  "schema": 1,
+  "issue_id": "chicago_democrat_1834_06_25",
+  "extracted": "2026-08-29",
+  "extracted_by": "hand, T-0315 — the Democrat read, June 1834",
+  "note": "Vol. I No. 30, the last number of Volume I and the last issue of T-0258's thirty. Page 3 columns 1-2 are the fresh advertising and are NOT interleaved; columns 3-6 and the whole of page 4 are, and badly — this issue carries 266 uncertainty markers, the most of the four. Pages 1-2 are the Bank controversy and the Illinois-Michigan boundary argument. NO POST-OFFICE LETTER LIST: all twenty-four columns were read, not searched. THE ISSUE'S OWN NEWS is a school, a Fourth of July meeting, two new firms and the Indian Agent's removal notice, all datelined 20-25 June and none of them in the previous week's paper.",
+  "claims": [
+    {
+      "id": "c001",
+      "kind": "building",
+      "reading": "transcription_mediated",
+      "quote": "| MISS WATITB,\na HO has just arrived from Edinb\nte! V capital of Scotland, begs to inti\nshe intends to open a Boarding and Da\n| | for Young Ladies, in Chicago, on Ran\n4, in a building nearly in rear of the Pres\nid} Church, between Clark and Dearborn s'\n«| Monday the 30th inst. : ;\n: She gives Lessons in English Reading\nHer terms are moderate. Testime\ncharacter and qualifications for Teach\nbe given if required. Chicago, June 24,",
+      "normalized": "MISS WA[I]TE, who has just arrived from Edinb[urgh, the] capital of Scotland, begs to inti[mate that] she intends to open a Boarding and Da[y School] for Young Ladies, in Chicago, on Ran[dolph-st.,] in a building nearly in rear of the Pres[byterian] Church, between Clark and Dearborn s[treets, on] Monday the 30th inst. She gives Lessons in English Reading [, Gram]mar, Geography, with the use of the [Globes,] Writing, all sorts of plain and Ornamen[tal Nee]d[le]work and Fancy Work, Oriental Draw[ing, and] Enamel Painting. Her terms are moderate. Testimo[nials of] character and qualifications for Teach[ing will] be given if required. Chicago, June 24, [1834.]",
+      "locator": {
+        "artifact_role": "primary",
+        "issue_page": 3,
+        "column": 1,
+        "lines": [
+          2433,
+          2448
+        ],
+        "lines_of_claim": [
+          2433,
+          2434,
+          2435,
+          2436,
+          2437,
+          2438,
+          2439,
+          2440,
+          2441,
+          2446,
+          2447,
+          2448
+        ]
+      },
+      "entities": [
+        {
+          "as_printed": "MISS WATITB",
+          "normalized": "Miss Waite",
+          "role": "proprietor",
+          "occupations": [
+            "schoolmistress"
+          ],
+          "associated_places": [
+            "Randolph Street",
+            "Clark Street",
+            "Dearborn Street"
+          ]
+        }
+      ],
+      "ad_copy_date": {
+        "verbatim": "be given if required. Chicago, June 24,",
+        "iso": "1834-06-24"
+      },
+      "notes": "A BUILDING PLACED BY ANOTHER BUILDING, AND BOTH ARE ON THE GROUND: a school opening on Monday 30 June 1834 'on Randolph[-street], in a building nearly in rear of the Presbyterian Church, between Clark and Dearborn'. That fixes the Presbyterian Church to the Randolph block between Clark and Dearborn and puts a second structure behind it, which is the only backlot building the June reading finds. The school itself is one of the seventy-five raised this spring or an existing room taken over — the notice does not say which. THE MISTRESS ARRIVED FROM EDINBURGH within weeks of advertising, which is the emigration the same month's editorial describes, at the scale of one person. The surname is 'WATITB' in the heading and is read Waite; no forename is printed, and 'Miss Waite' is minted as it stands rather than guessed at."
+    },
+    {
+      "id": "c002",
+      "kind": "event",
+      "reading": "transcription_mediated",
+      "quote": "of | Fourth of July,\nFRAME citizens of Ch\n- requested to me\n+H, Haddock’s Mansiot\non Wednesday the %\nat7 o'clock, P. M. to\nve | rangements for Celebrating the 4th of\nChicago, June 24, 1834.",
+      "normalized": "Fourth of July. T[HE] citizens of Ch[icago are] requested to me[et at] H. Haddock's Mansio[n House] on Wednesday the 2[5th inst.] at 7 o'clock, P. M. to [make ar]rangements for Celebrating the 4th of [July.] Chicago, June 24, 1834.",
+      "locator": {
+        "artifact_role": "primary",
+        "issue_page": 3,
+        "column": 1,
+        "lines": [
+          2425,
+          2432
+        ],
+        "lines_of_claim": [
+          2425,
+          2426,
+          2427,
+          2428,
+          2429,
+          2430,
+          2431,
+          2432
+        ]
+      },
+      "entities": [
+        {
+          "as_printed": "H, Haddock",
+          "normalized": "H. Haddock",
+          "role": "subject",
+          "occupations": [
+            "tavern keeper"
+          ],
+          "associated_places": [
+            "Lake Street"
+          ]
+        }
+      ],
+      "ad_copy_date": {
+        "verbatim": "Chicago, June 24, 1834.",
+        "iso": "1834-06-24"
+      },
+      "notes": "A THIRD NAME FOR THE SAME HOUSE. The Board of Trustees met 'at the house of E. Haddock' on 6 June (1834-06-18 claim c002); a lot is sold 'one lot east of Haddock's Tavern, on Lake street' on 18 June (that issue's claim c006); and here the citizens are called to 'H. Haddock's Mansion House' on 25 June. Tavern, house and Mansion House are the same establishment named three ways in three weeks, and the initial is E. once and H. twice — a reading this pass records and does not resolve, because 'Haddock's Mansion House' on Lake Street is placeable whichever initial is right. THE MEETING IS THE TOWN'S PUBLIC ASSEMBLY ROOM in practice: a tavern is where Chicago's civic business happened in 1834."
+    },
+    {
+      "id": "c003",
+      "kind": "business",
+      "reading": "transcription_mediated",
+      "quote": "}in Boston PHILO CARP]\neath of his| Wholesale & Retai\nt to grand AT THY, SiG OF THE Gon\ni South Water Street, ¢\nS just ree\nfers for sal\nhing will! be put up with care and fidelity\n4, 1834. Chicago, June 25, 1834,",
+      "normalized": "PHILO CARP[ENTER,] Wholesale & Retai[l Druggist,] AT TH[E] SI[GN] OF THE GO[LDEN MORTAR,] South Water Street, C[hicago …] [ha]s just rec[eived and of]fers for sal[e … ] [everyt]hing will be put up with care and fidelity. Chicago, June 25, 1834.",
+      "locator": {
+        "artifact_role": "primary",
+        "issue_page": 3,
+        "column": 2,
+        "lines": [
+          2575,
+          2614
+        ],
+        "lines_of_claim": [
+          2575,
+          2577,
+          2578,
+          2579,
+          2580,
+          2581,
+          2613,
+          2614
+        ]
+      },
+      "entities": [
+        {
+          "as_printed": "PHILO CARP]",
+          "normalized": "Philo Carpenter",
+          "role": "proprietor",
+          "occupations": [
+            "druggist"
+          ],
+          "associated_places": [
+            "South Water Street"
+          ]
+        }
+      ],
+      "ad_copy_date": {
+        "verbatim": "4, 1834. Chicago, June 25, 1834,",
+        "iso": "1834-06-25"
+      },
+      "business": {
+        "name": "Philo Carpenter",
+        "proprietors": [
+          "Philo Carpenter"
+        ],
+        "trade": "wholesale and retail druggist",
+        "goods": [
+          "Boots and Shoes",
+          "Drugs",
+          "Dye-Stuffs",
+          "Dry Groceries",
+          "Glassware",
+          "Medicines",
+          "Nails",
+          "Oils",
+          "Paints",
+          "School Books"
+        ],
+        "street": "South Water Street",
+        "placement": {
+          "class": "street_only",
+          "anchor": null,
+          "offset_text": null,
+          "offset_normalized": null,
+          "street": "South Water Street"
+        }
+      },
+      "notes": "A SIGNBOARD NAMED IN THE PAPER — 'AT THE SIGN OF THE GOLDEN MORTAR' — which is the only trade sign the June reading recovers, and a druggist's mortar is a device a reconstruction can actually letter and hang. Carpenter is already in the corpus from the scan-verified record of Vol. I No. 1, where he keeps drugs and medicines; this notice adds the sign and the street. THE SIGN LINE IS BADLY CUT: 'AT THY, SiG OF THE Gon' with the next words in the interleaved half beside it, and the reading GOLDEN MORTAR is a supply from the trade and the surviving 'Go', not a letter-level reading — it is bracketed for that reason and should be confirmed against a page image before anything is lettered from it. The placement stays street_only: South Water Street with no offset."
+    },
+    {
+      "id": "c004",
+      "kind": "business",
+      "reading": "transcription_mediated",
+      "quote": "| NEW stron\n| KINZIE & HALL,\nRWAVE pe received by recent ar\ncomplete aud splendid assortment\n| which they will sell as cheap as can be\nfatany Store in Chicago. The Goods a\n| open at their Store, one door eust from t\nner of Lake and Canal streets, (near the\n| Whero they invite the public generally, ar\n\\theinselves, June 24, 1834.\ni Chicago, June 20), 1",
+      "normalized": "NEW STOR[E.] KINZIE & HALL, [h]ave [just] received by recent ar[rivals a] complete and splendid assortment [of] DRY GOODS, Hardware and Grocer[ies,] which they will sell as cheap as can be [bought] at any Store in Chicago. The Goods a[re now] open at their Store, one door east from t[he cor]ner of Lake and Canal streets, (near the [Point,]) where they invite the public generally, a[nd their] old friends in particular, to call and exam[ine for] themselves, June 24, 1834. Chicago, June 2[4], 1[834.]",
+      "locator": {
+        "artifact_role": "primary",
+        "issue_page": 3,
+        "column": 1,
+        "lines": [
+          2507,
+          2520
+        ],
+        "lines_of_claim": [
+          2507,
+          2508,
+          2509,
+          2510,
+          2513,
+          2514,
+          2515,
+          2516,
+          2517,
+          2519,
+          2520
+        ]
+      },
+      "entities": [
+        {
+          "as_printed": "KINZIE & HALL",
+          "normalized": "Kinzie & Hall",
+          "role": "proprietor",
+          "occupations": [
+            "merchant"
+          ],
+          "associated_places": [
+            "Lake Street",
+            "Canal Street"
+          ]
+        }
+      ],
+      "ad_copy_date": {
+        "verbatim": "i Chicago, June 20), 1",
+        "iso": "1834-06-24"
+      },
+      "business": {
+        "name": "Kinzie & Hall",
+        "proprietors": [
+          "Kinzie & Hall"
+        ],
+        "trade": "dry goods, hardware and groceries",
+        "goods": [
+          "Dry Goods",
+          "Groceries",
+          "Hardware"
+        ],
+        "street": "Lake Street",
+        "placement": {
+          "class": "relative",
+          "anchor": "the corner of Lake and Canal streets",
+          "offset_text": "| open at their Store, one door eust from t\nner of Lake and Canal streets, (near the",
+          "offset_normalized": "open at their Store, one door east from the corner of Lake and Canal streets, (near the [Point])",
+          "street": "Lake Street"
+        }
+      },
+      "notes": "A NEW STORE ON A CORNER THE CORPUS ALREADY KNOWS: one door east of Lake and Canal, which is Goss & Cobb's 'old stand' corner (1834-06-04 claim c001). Two named businesses now stand within a door of each other at the west end of Lake Street. THE PARENTHESIS IS THE PROBLEM AND THE PRIZE: the line reads '(near the' and the word after it is in the interleaved half beside it and is not recoverable. 'Point' is the reading the geography supports — Lake and Canal is at Wolf Point — but it is a supply, it is bracketed, and no claim is built on it. What stands unbracketed is the offset and the two street names."
+    },
+    {
+      "id": "c005",
+      "kind": "business",
+      "reading": "transcription_mediated",
+      "quote": "Blacksmith Work.\n| MERCE & FRENCH,\n4 ESPECTFULLY inform the citizen\n* of Chicago and its neighbori\nat they are i chee, on the\nin the old shop formerly\nMoree and Abbott, on the corner o\n‘al streets, opposite the Chicago\nthey will keep on hand and maout\nt Prairie Ploughs, Edge Tools, :\n‘t work in their line of business. By\n* te please, they hope to secure a s!\npatronage. Chicago, hs 25, 1834.",
+      "normalized": "Blacksmith Work. [PI]ERCE & FRENCH, [r]espectfully inform the citizen[s] of Chicago and its neighbori[ng country, th]at they are [now at work,] on the [old ground,] in the old shop formerly [occupied by] [Pi]erce and Abbott, on the corner o[f … Can]al streets, opposite the Chicago [… where] they will keep on hand and manu[facture] [Ox Chains,] Prairie Ploughs, Edge Tools, [and all other kinds of] work in their line of business. By [an endeavour] to please, they hope to secure a s[hare of public] patronage. Chicago, [June] 25, 1834.",
+      "locator": {
+        "artifact_role": "primary",
+        "issue_page": 3,
+        "column": 1,
+        "lines": [
+          2521,
+          2533
+        ],
+        "lines_of_claim": [
+          2521,
+          2522,
+          2523,
+          2524,
+          2525,
+          2526,
+          2527,
+          2528,
+          2529,
+          2530,
+          2531,
+          2532,
+          2533
+        ]
+      },
+      "entities": [
+        {
+          "as_printed": "MERCE & FRENCH",
+          "normalized": "Pierce & French",
+          "role": "proprietor",
+          "occupations": [
+            "blacksmith"
+          ],
+          "associated_places": [
+            "Canal Street"
+          ]
+        }
+      ],
+      "ad_copy_date": {
+        "verbatim": "patronage. Chicago, hs 25, 1834.",
+        "iso": "1834-06-25"
+      },
+      "business": {
+        "name": "Pierce & French",
+        "proprietors": [
+          "Asahel Pierce",
+          "French"
+        ],
+        "trade": "blacksmithing and edge tool making",
+        "goods": [
+          "Edge Tools",
+          "Ox Chains",
+          "Prairie Ploughs"
+        ],
+        "street": "Canal Street",
+        "placement": {
+          "class": "corner",
+          "anchor": "the corner of [—] and Canal streets",
+          "offset_text": "in the old shop formerly\nMoree and Abbott, on the corner o\n‘al streets, opposite the Chicago",
+          "offset_normalized": "in the old shop formerly [occupied by] Pierce and Abbott, on the corner of [—] and Canal streets, opposite the Chicago [—]",
+          "street": "Canal Street"
+        }
+      },
+      "notes": "THE SUCCESSOR TO THE FIRM DISSOLVED ON 5 MAY, and it names the building: 'the old shop formerly [occupied by] Pierce and Abbott' (the dissolution is 1834-06-11 claim c003). So a blacksmith's shop that existed before May 1834 is still standing and working in late June under a new partnership — a continuity of STRUCTURE, not just of trade, which is what a reconstruction needs. THE CORNER IS HALF-READ. The line gives '...al streets' and the interleaving takes the first street name; Canal is the only street in the plat ending in 'al' and is read with confidence, its partner is not read at all, and 'opposite the Chicago [—]' loses its object the same way. So the placement is recorded as a corner on Canal Street with the anchor stated as far as the page carries it and a dash where the paper is unreadable. Nothing is invented to fill either gap. French's forename is not printed."
+    },
+    {
+      "id": "c006",
+      "kind": "business",
+      "reading": "transcription_mediated",
+      "quote": "r | Dissolution.\nHE pertnership heretofore existing |\nthe undersigned, is this day disxa\nmutual consent. Chicago, June 21, 183-\nJ. B. TUTTL\nWM. H. BRO\nThe business will be continued as usu\nJ.B. TUT’",
+      "normalized": "Dissolution. [T]HE partnership heretofore existing [between] the undersigned, is this day dis[solved by] mutual consent. Chicago, June 21, 183[4.] J. B. TUTTL[E,] WM. H. BRO[WN.] The business will be continued as usu[al by] J. B. TUT[TLE.]",
+      "locator": {
+        "artifact_role": "primary",
+        "issue_page": 3,
+        "column": 1,
+        "lines": [
+          2495,
+          2502
+        ],
+        "lines_of_claim": [
+          2495,
+          2496,
+          2497,
+          2498,
+          2499,
+          2500,
+          2501,
+          2502
+        ]
+      },
+      "entities": [
+        {
+          "as_printed": "J. B. TUTTL",
+          "normalized": "J. B. Tuttle",
+          "role": "proprietor",
+          "occupations": [
+            "grocer"
+          ],
+          "associated_places": [
+            "Dearborn Street"
+          ]
+        },
+        {
+          "as_printed": "WM. H. BRO",
+          "normalized": "Wm. H. Brown",
+          "role": "proprietor",
+          "occupations": [
+            "grocer"
+          ],
+          "associated_places": [
+            "Dearborn Street"
+          ]
+        }
+      ],
+      "ad_copy_date": {
+        "verbatim": "mutual consent. Chicago, June 21, 183-",
+        "iso": "1834-06-21"
+      },
+      "business": {
+        "name": "Tuttle & Brown",
+        "proprietors": [
+          "J. B. Tuttle",
+          "Wm. H. Brown"
+        ],
+        "trade": "groceries",
+        "goods": [],
+        "street": "Dearborn Street",
+        "placement": {
+          "class": "relative",
+          "anchor": "Messrs. Newberry & Dole's store",
+          "offset_text": "the undersigned, is this day disxa",
+          "offset_normalized": "[the Dearborn Street store one door south of Messrs. Newberry & Dole's]",
+          "street": "Dearborn Street"
+        }
+      },
+      "contradicts": true,
+      "notes": "RULING 3'S VETO, TWENTY-FIVE DAYS AFTER THE FIRM ADVERTISED ITS OPENING. Tuttle & Brown announce a new store one door south of Newberry & Dole on 27 May (1834-06-04 claim c011) and dissolve on 21 June, with J. B. Tuttle continuing alone. THE STAND IS NOT NAMED IN THIS NOTICE — the placement carried here is the opening advertisement's and is bracketed as such in the offset field, so the dissolution and the address stay attached to the same business record without this claim pretending to state an address it does not. A grocery that lasted under four weeks is worth its own note about how fast this town's storefronts changed hands in 1834."
+    },
+    {
+      "id": "c007",
+      "kind": "notice",
+      "reading": "transcription_mediated",
+      "quote": "| Deum Found,\n| EFT near the house of the subse\n| A Lake street, about two weeks\ny EERUNK, containing clothing, &c.\nM the top of the Trunk are the initials of\n»}D., with brass letters. The owner wi\njeall, prove property and take it away.\n‘| N.FLH\n: | Chicago, June 24, 1834.",
+      "normalized": "Trunk Found. [L]EFT near the house of the subscri[ber on] Lake street, about two weeks [since, a] TRUNK, containing clothing, &c. [On] the top of the Trunk are the initials of [W. K.] D., with brass letters. The owner wi[ll please] call, prove property and take it away. N. F. H[URD.] Chicago, June 24, 1834.",
+      "locator": {
+        "artifact_role": "primary",
+        "issue_page": 3,
+        "column": 1,
+        "lines": [
+          2464,
+          2473
+        ],
+        "lines_of_claim": [
+          2464,
+          2465,
+          2466,
+          2467,
+          2468,
+          2469,
+          2470,
+          2471,
+          2473
+        ]
+      },
+      "entities": [
+        {
+          "as_printed": "N.FLH",
+          "normalized": "N. F. Hurd",
+          "role": "advertiser"
+        }
+      ],
+      "ad_copy_date": {
+        "verbatim": ": | Chicago, June 24, 1834.",
+        "iso": "1834-06-24"
+      },
+      "notes": "A DWELLING ON LAKE STREET identified only as the advertiser's own house, and a small street-life detail worth keeping: a trunk left standing near it for a fortnight and advertised rather than kept. The initials on the trunk lid are cut ('of W.K.' at the line break) and are not read; the advertiser's own surname is set 'N. F. HURD' in the interleaved half beside line 2471 and is taken from there."
+    },
+    {
+      "id": "c008",
+      "kind": "notice",
+      "reading": "transcription_mediated",
+      "quote": "Isptan Acxscy,\nChicago, June 21, 133\nTHERE AS, by the Second\ncle of the Treaty of Chicago,\n6th of September, ish, it is provide\nthe United Nations of Chippewa, Ottaw:\n| Pottawatame Indians, shall be pert\nto retain possession of all that part 9\ncountry ceded, lying North of the bout\nline of the State of Illinois, for the te\nthree years, without molestation or inte\nTherefore Public Notice is hereby ¢\nTo all persons, not to intrude on sai\nded lands, and such as may have se\nthereon, (except licenced traaders,) are\nquired to removed therefrom within the §\nof thirty days from the date hereof.\nTH. J. V. OWED\nIndian Ag",
+      "normalized": "Indian Agency, Chicago, June 21, 183[4]. WHEREAS, by the Second [Arti]cle of the Treaty of Chicago, [of the 2]6th of September, 18[33], it is provide[d that] the United Nations of Chippewa, Ottawa [and] Pottawatam[ie] Indians, shall be per[mitted] to retain possession of all that part [of the] country ceded, lying North of the bound[ary] line of the State of Illinois, for the te[rm of] three years, without molestation or inte[rrup]tion, and under the protection of the la[ws of] the United States. Therefore Public Notice is hereby [given,] to all persons, not to intrude on sai[d ce]ded lands, and such as may have se[ttled] thereon, (except licenced tra[d]ers,) are [re]quired to remove[] therefrom within the [space] of thirty days from the date hereof. [… ] TH. J. V. OWE[N,] Indian Ag[ent.]",
+      "locator": {
+        "artifact_role": "primary",
+        "issue_page": 3,
+        "column": 1,
+        "lines": [
+          2538,
+          2569
+        ],
+        "lines_of_claim": [
+          2538,
+          2539,
+          2540,
+          2541,
+          2542,
+          2543,
+          2544,
+          2545,
+          2546,
+          2547,
+          2548,
+          2551,
+          2552,
+          2553,
+          2554,
+          2555,
+          2556,
+          2568,
+          2569
+        ]
+      },
+      "entities": [
+        {
+          "as_printed": "TH. J. V. OWED",
+          "normalized": "T. J. V. Owen",
+          "role": "advertiser",
+          "occupations": [
+            "indian agent",
+            "president of the board of trustees"
+          ]
+        }
+      ],
+      "ad_copy_date": {
+        "verbatim": "Chicago, June 21, 133",
+        "iso": "1834-06-21"
+      },
+      "notes": "THE TREATY OF CHICAGO ENFORCED FROM AN OFFICE IN THE TOWN, thirteen months before the scene date and by the same man who signs the town ordinances as president of the Board of Trustees (1834-06-18 claim c004). The notice states the three-year retention north of the Illinois line and orders every settler off the ceded lands within thirty days, and a second paragraph permits Indians who have planted on the ceded land inside the state to stay 'until they shall have harvested their crops'. PLANTED FIELDS INSIDE THE STATE IN JUNE 1834 is a fact about the ground this reconstruction covers, stated by the official whose business it was to know. The removal it enforces is the reason the 1835 town looks the way it does, and it belongs in the record as the Agency printed it."
+    },
+    {
+      "id": "c009",
+      "kind": "notice",
+      "reading": "transcription_mediated",
+      "quote": "Wanted,\n“ BOY, fifteen or sixteen years of a;\n1-| 2B apprentice to the Tailoring Busin\nis | comming well recommended will meet wi\njy | encouragements by applying to oie\nj &. LINC\n0, June 23, 1834.",
+      "normalized": "Wanted, [A] BOY, fifteen or sixteen years of a[ge, as an] apprentice to the Tailoring Busin[ess; one] c[o]mming well recommended will meet wi[th good] encouragements by applying to [… ] [S.] LINC[OLN.] [Chicag]o, June 23, 1834.",
+      "locator": {
+        "artifact_role": "primary",
+        "issue_page": 3,
+        "column": 1,
+        "lines": [
+          2457,
+          2463
+        ],
+        "lines_of_claim": [
+          2457,
+          2458,
+          2459,
+          2460,
+          2461,
+          2462,
+          2463
+        ]
+      },
+      "entities": [
+        {
+          "as_printed": "&. LINC",
+          "normalized": "S. Lincoln",
+          "role": "advertiser",
+          "occupations": [
+            "tailor"
+          ]
+        }
+      ],
+      "ad_copy_date": {
+        "verbatim": "0, June 23, 1834.",
+        "iso": "1834-06-23"
+      },
+      "notes": "A THIRD TAILOR IN THE TOWN taking an apprentice, alongside E. L. Thrall at Charles Taylor's old stand on South Water Street. The advertiser's initial is cut to '&.' at the line head and read S. from the surviving 'LINC'; the surname is Lincoln and the initial is a supply, so no strong identification should be built on it. Apprenticing a boy of fifteen or sixteen is the labour arrangement behind a trade shop of this date and is the reason it is kept."
+    },
+    {
+      "id": "c010",
+      "kind": "business",
+      "reading": "transcription_mediated",
+      "quote": "e For Sale,\nFIRST rate CARRIAGE and HA\n/M-with Eliptic Springs, prepared f\n«| one or two horses, Persons Wishing toy\n| Wil please eallon Mr. John K. Hoye\nlit can be seen, and price made known, «\n“! plication to the subscriber Mr. Bos\n1) South Water-ctreet. WM. ANDRI\na} Chi tne 2A, IRB4",
+      "normalized": "For Sale, [A] FIRST rate CARRIAGE and HA[RNESS,] with Eliptic Springs, prepared f[or either] one or two horses. Persons wishing to [purchase] will please call on Mr. John K. Hoy[t?, where] it can be seen, and price made known, [or by ap]plication to the subscriber Mr. Bos[worth?,] South Water-street. WM. ANDR[EWS.] Chi[cago, Ju]ne 2[4], 1834.",
+      "locator": {
+        "artifact_role": "primary",
+        "issue_page": 3,
+        "column": 1,
+        "lines": [
+          2475,
+          2483
+        ],
+        "lines_of_claim": [
+          2475,
+          2476,
+          2477,
+          2478,
+          2479,
+          2480,
+          2481,
+          2482,
+          2483
+        ]
+      },
+      "entities": [
+        {
+          "as_printed": "WM. ANDRI",
+          "normalized": "Wm. Andrews",
+          "role": "advertiser"
+        }
+      ],
+      "ad_copy_date": {
+        "verbatim": "a} Chi tne 2A, IRB4",
+        "iso": "1834-06-24"
+      },
+      "notes": "A CARRIAGE WITH ELLIPTIC SPRINGS FOR SALE IN CHICAGO IN JUNE 1834 — a sprung private carriage rather than a farm waggon, which is a different vehicle to draw and a different kind of owner. THE TWO INTERMEDIARIES ARE NOT SAFELY READ: 'Mr. John K. Hoye' and 'Mr. Bos' are what the lines carry, both cut at the column edge, and the surnames Hoyt and Bosworth are marked with question marks in the normalized reading because neither is recoverable at letter level. NO PERSON IS MINTED for either; only the advertiser Wm. Andrews, whose name survives whole in the interleaved half beside line 2482. What is unbracketed is that the second man is on South Water Street."
+    }
+  ]
+}

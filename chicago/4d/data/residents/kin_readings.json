@@ -1,0 +1,35 @@
+{
+ "schema": "chicago4d.kin_readings.v1",
+ "ticket": "T-0734",
+ "_doc": "AUTHORED. A kinship a person READ in prose the survey's patterns cannot reach, recorded as a statement so it becomes a proposal like any other and is answered in kin_rulings.json. This is the seam PR #947 found and this file is that finding kept. IT IS NOT A PLACE TO ASSERT A TIE: every entry carries the exact `quote` and the `where` it stands, tools/survey_stated_kin.py --check REFUSES any entry whose quote is not actually present at that path in the committed tree, and the statement it produces still has to resolve both ends against the residents layer and still has to be ruled. What this file buys is only the right to be ASKED about a sentence a regex cannot parse; it buys nothing about the answer.",
+ "why_a_pattern_cannot_read_these": "The survey reads `<relation> of <Name>` and, since T-0734's second pass, `his|her <relation> <Name>`. Both are one relation and one name. Andreas states the Harmon parentage as a LIST — 'lists his five surviving children: Charles Loomis Harmon, Isaac Dewey Harmon, Harriet Harmon, Lucretia Harmon, and Welthyan Loomis Harmon' — which is one subject and five others, and a regex fitted to that sentence would be fitted to that sentence. Writing the reading down is more honest than pretending a machine derived it.",
+ "readings": [
+  {
+   "id": "read_harmon_charles_l__son__harmon_elijah_d",
+   "where": "data/residents/households/hh_harmon_brothers.json",
+   "quote": "Andreas's life of Dr Elijah Dewey Harmon lists his five surviving children: 'Charles Loomis Harmon, Isaac Dewey Harmon, Harriet Harmon, Lucretia Harmon, and Welthyan Loomis Harmon.'",
+   "source": "andreas_1884_v1",
+   "subject": {"household": "hh_harmon_brothers", "person": "harmon_charles_l"},
+   "relation": "son",
+   "other": {"household": "hh_harmon_elijah_d", "person": "harmon_elijah_d"}
+  },
+  {
+   "id": "read_harmon_isaac_d__son__harmon_elijah_d",
+   "where": "data/residents/households/hh_harmon_brothers.json",
+   "quote": "Andreas's life of Dr Elijah Dewey Harmon lists his five surviving children: 'Charles Loomis Harmon, Isaac Dewey Harmon, Harriet Harmon, Lucretia Harmon, and Welthyan Loomis Harmon.'",
+   "source": "andreas_1884_v1",
+   "subject": {"household": "hh_harmon_brothers", "person": "harmon_isaac_d"},
+   "relation": "son",
+   "other": {"household": "hh_harmon_elijah_d", "person": "harmon_elijah_d"}
+  },
+  {
+   "id": "read_taylor_augustine__brother__taylor_anson_h",
+   "where": "data/research/residents/pass_02_findings.json",
+   "quote": "Chicago History Museum identifies Augustine Deodat Taylor as designer and builder of St. Mary's in 1833 using balloon-frame construction, while keeping him distinct from brother Anson who hauled lumber.",
+   "source": "encyclopedia_chicago_church_architecture",
+   "subject": {"household": "hh_taylor_augustine", "person": "taylor_augustine"},
+   "relation": "brother",
+   "other": {"household": "hh_taylor_anson", "person": "taylor_anson_h"}
+  }
+ ]
+}

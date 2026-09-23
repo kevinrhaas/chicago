@@ -1,0 +1,37 @@
+{
+  "schema": 1,
+  "_doc": "Hand-authored for T-0498. The ruling on each town finding in claims/schedule_town_findings.json — what this project did with it, including where the answer is 'nothing, and here is why'. Named *_crosswalk.json because that is the shape tools/measure_research_spend.py reads a ruling out of, and a finding nobody ruled on is exactly what that instrument exists to catch.",
+  "source_id": "census_1830_peoria_county_chicago_precinct",
+  "ticket": "T-0498",
+  "note": "NONE of these outcomes is `matched` or `candidate`, and that is deliberate rather than evasive. Those two outcomes mean a ruling put a named person on a town card, and the second hop of the spend instrument then requires the card to have learned it. T-0498 is forbidden to mint or regrade — T-0514 and T-0515 own that hop — so a ruling here that claimed either word would be claiming work this ticket must not do.",
+  "rulings": [
+    {
+      "claim_id": "census1830_town_001",
+      "kind": "civic",
+      "outcome": "kept_as_town_finding",
+      "source_id": "census_1830_peoria_county_chicago_precinct",
+      "rule": "The garrison line is kept as a fact about the FORM of the settlement in 1830 — the fort counted as one household of the district beside Clybourn and Wolcott — and is ruled to place nobody. It names no soldier, and Major John Fowle is the officer commanding rather than a head of family. Nothing in data/structures/ changes on it: Fort Dearborn's 1835 buildings rest on their own sources and a census line five years earlier does not touch them."
+    },
+    {
+      "claim_id": "census1830_town_002",
+      "kind": "household",
+      "outcome": "open_question_for_t0513",
+      "source_id": "census_1830_peoria_county_chicago_precinct",
+      "rule": "Two LaFramboise households stood at the forks in 1830 and the town's 825 households carry no LaFramboise at all. This is ruled OPEN, not spent: it is either a family that had gone by 1835 or a hole in the reconstruction, and the schedule alone cannot say which. T-0513 has the ladder and the other sources; the finding is written down here so it reaches that run instead of being rediscovered."
+    },
+    {
+      "claim_id": "census1830_town_003",
+      "kind": "civic",
+      "outcome": "kept_as_town_finding",
+      "source_id": "census_1830_peoria_county_chicago_precinct",
+      "rule": "The rule ruled under William See is kept as evidence about the enumerator's ROUND and is ruled to bear on no street, boundary or division. A pause in a walk is not a line on the ground, and reading it as one is exactly the error docs/RESEARCH/chicago_1830_claims.md warns about for Andreas's 1830 map."
+    },
+    {
+      "claim_id": "census1830_town_004",
+      "kind": "civic",
+      "outcome": "kept_as_town_finding",
+      "source_id": "census_1830_peoria_county_chicago_precinct",
+      "rule": "That the schedule never writes 'Chicago' is ruled to bind this project's own language: the domain, the source record and the records file all call it the Peoria and Putnam district, and no artifact here calls it 'the 1830 census of Chicago'. It changes no town data because it is a fact about the document."
+    }
+  ]
+}

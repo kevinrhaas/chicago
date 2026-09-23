@@ -1,0 +1,421 @@
+{
+ "type": "FeatureCollection",
+ "name": "lake_shore_below_twelfth",
+ "crs": {
+  "type": "name",
+  "properties": {
+   "name": "urn:ogc:def:crs:EPSG::26916"
+  }
+ },
+ "_doc": "The PRE-FILL shore of Lake Michigan from Twelfth Street to the terrain box's south wall, traced from REES & RUCKER, MAP OF CHICAGO AND VICINITY, 1849 by tools/trace_lake_shore_rees_1849.py. The second geometry taken from the one sheet in this corpus that reaches Cermak Road; see data/traces/gcp/rees_rucker_1849_gcps.json for the fit (14 section corners, RMS 25.0 m). THIS IS NOT THE MODERN LAKEFRONT, which is landfill along the whole of this reach. The sheet is fourteen years later than the scene and on a SHORE that interval is not neutral: the 1833-35 piers starved this coast of littoral drift and it eroded westward, so this line is a LOWER BOUND on the 1835 shore's easting -- the water's edge of 1835 stood at or east of it. The bound is measured, not asserted: see `measured.overlap`. Every vertex is INFERRED and every vertex is also south of `evidence_limit`, which writes it CONF_CONJECTURAL; the field carries the more conservative of the two. This replaces the held easting recorded as the lake's half of L239.",
+ "measured": {
+  "easting_m": {
+   "at_splice": 1298.9,
+   "at_floor": 1689.6,
+   "min": 1298.9,
+   "max": 1689.2
+  },
+  "trend": "the shore falls away to the SOUTH-EAST: it gains 390 m of easting over the 1640 m from the splice to the box floor, a bearing about 13 degrees east of south. The held easting this replaces claimed a shore that ran dead straight down a single easting for the whole of it, and at the floor it stood the water 342 m west of where this sheet draws it.",
+  "method": "the west edge of the lake's wave hatching, found as a density STEP -- mean ink density 24 px east of a column minus mean density 24 px west -- carried down the rows by a dynamic programme at most 3 px wide a row, then snapped to the drawn pen stroke by the ink-weighted centroid within 7 px. The snap moved the line 4.0 px east on average.",
+  "seam": {
+   "at_n_m": -2159.9,
+   "wright_1834_e_m": 1347.5,
+   "rees_1849_e_m": 1298.9,
+   "step_m": -48.6,
+   "note": "the two surveys do NOT meet inside the fit's 25.0 m RMS here, and are not claimed to. The step is west, which is the direction the erosion runs, and its size is what the overlap below measures at this station."
+  },
+  "overlap": {
+   "stations_n_m": [
+    -1300.0,
+    -1400.0,
+    -1500.0,
+    -1600.0,
+    -1700.0,
+    -1800.0,
+    -1900.0,
+    -2000.0
+   ],
+   "wright_1834_e_m": [
+    1361.7,
+    1349.2,
+    1337.9,
+    1329.2,
+    1323.7,
+    1317.3,
+    1315.0,
+    1317.2
+   ],
+   "rees_1849_e_m": [
+    1227.3,
+    1227.0,
+    1228.5,
+    1231.1,
+    1237.3,
+    1238.6,
+    1253.5,
+    1267.2
+   ],
+   "offset_m": [
+    -134.4,
+    -122.2,
+    -109.4,
+    -98.1,
+    -86.4,
+    -78.7,
+    -61.5,
+    -50.0
+   ],
+   "mean_offset_m": -92.6,
+   "note": "the 860 m where this sheet and Wright's overlap, measured after the trace was run and with the fit untouched. The 1849 line reads WEST of the 1834 line at every station, by 134 m at N -1300 tapering to 50 m at N -2000. docs/research/01-terrain-hydrology.md sec 4 documents why and by how much: the piers trapped the southward littoral drift, the 1836 canal commissioners' map put this shore about 400 ft east of Michigan Avenue and by the 1850s it had cut back to within about 50 ft of it -- roughly 350 ft, 107 m. The measured mean is -92.6 m. The taper is the signature of erosion downdrift of a barrier, worst against the structure and dying away with distance, and it is why the committed reach -- which begins further south again -- carries the smaller bound."
+  }
+ },
+ "features": [
+  {
+   "type": "Feature",
+   "id": "lake_shore_below_twelfth",
+   "properties": {
+    "kind": "shore",
+    "name": "Pre-fill Lake Michigan shore below Twelfth Street",
+    "crest_ft_above_datum": null,
+    "confidence": "inferred",
+    "note": "The west edge of the lake's wave hatching on Rees & Rucker 1849, snapped to the drawn stroke. The run's north end is N -2159.9, the declared row at which tools/trace_shoreline.py's Wright 1834 run `south_shore_harbor_reach` ends and the row terrain_spec's deleted `southern_lake.beyond_the_trace` held its easting from. The two runs abut on that row rather than within a tolerance, and they DISAGREE ON IT by 49 m -- see `measured.seam` and the tool's docstring: the step is the documented post-pier erosion of this shore between 1835 and 1849, left in the data rather than blended out. The south end is 10 m past the box floor at N -3800.0, which is the box and not the shore: the sheet runs on another mile and a quarter.",
+    "sources": [
+     "rees_rucker_1849"
+    ]
+   },
+   "geometry": {
+    "type": "LineString",
+    "coordinates": [
+     [
+      448371.56,
+      4635235.34
+     ],
+     [
+      448374.75,
+      4635223.08
+     ],
+     [
+      448378.79,
+      4635202.63
+     ],
+     [
+      448383.7,
+      4635182.19
+     ],
+     [
+      448389.58,
+      4635161.76
+     ],
+     [
+      448395.68,
+      4635141.34
+     ],
+     [
+      448400.23,
+      4635120.89
+     ],
+     [
+      448405.89,
+      4635100.46
+     ],
+     [
+      448411.14,
+      4635080.02
+     ],
+     [
+      448416.23,
+      4635059.59
+     ],
+     [
+      448421.25,
+      4635039.15
+     ],
+     [
+      448422.27,
+      4635018.66
+     ],
+     [
+      448427.67,
+      4634998.23
+     ],
+     [
+      448433.67,
+      4634977.8
+     ],
+     [
+      448439.22,
+      4634957.37
+     ],
+     [
+      448442.98,
+      4634936.92
+     ],
+     [
+      448445.49,
+      4634916.45
+     ],
+     [
+      448450.87,
+      4634896.01
+     ],
+     [
+      448456.93,
+      4634875.59
+     ],
+     [
+      448463.0,
+      4634855.16
+     ],
+     [
+      448468.06,
+      4634834.72
+     ],
+     [
+      448471.6,
+      4634814.27
+     ],
+     [
+      448475.8,
+      4634793.82
+     ],
+     [
+      448484.59,
+      4634773.42
+     ],
+     [
+      448490.23,
+      4634752.99
+     ],
+     [
+      448492.87,
+      4634732.53
+     ],
+     [
+      448492.77,
+      4634712.03
+     ],
+     [
+      448496.13,
+      4634691.57
+     ],
+     [
+      448501.76,
+      4634671.14
+     ],
+     [
+      448506.27,
+      4634650.7
+     ],
+     [
+      448518.57,
+      4634630.34
+     ],
+     [
+      448531.7,
+      4634609.99
+     ],
+     [
+      448524.55,
+      4634589.42
+     ],
+     [
+      448525.19,
+      4634568.93
+     ],
+     [
+      448530.97,
+      4634548.5
+     ],
+     [
+      448535.95,
+      4634528.06
+     ],
+     [
+      448541.31,
+      4634507.62
+     ],
+     [
+      448546.99,
+      4634487.19
+     ],
+     [
+      448545.97,
+      4634466.69
+     ],
+     [
+      448546.24,
+      4634446.19
+     ],
+     [
+      448559.1,
+      4634425.84
+     ],
+     [
+      448567.7,
+      4634405.44
+     ],
+     [
+      448571.82,
+      4634384.99
+     ],
+     [
+      448576.29,
+      4634364.55
+     ],
+     [
+      448579.9,
+      4634344.1
+     ],
+     [
+      448582.9,
+      4634323.63
+     ],
+     [
+      448589.25,
+      4634303.21
+     ],
+     [
+      448594.96,
+      4634282.78
+     ],
+     [
+      448601.14,
+      4634262.35
+     ],
+     [
+      448605.51,
+      4634241.91
+     ],
+     [
+      448609.15,
+      4634221.45
+     ],
+     [
+      448615.22,
+      4634201.03
+     ],
+     [
+      448619.16,
+      4634180.58
+     ],
+     [
+      448622.37,
+      4634160.12
+     ],
+     [
+      448625.54,
+      4634139.66
+     ],
+     [
+      448632.14,
+      4634119.24
+     ],
+     [
+      448637.0,
+      4634098.8
+     ],
+     [
+      448642.86,
+      4634078.37
+     ],
+     [
+      448648.56,
+      4634057.93
+     ],
+     [
+      448654.75,
+      4634037.51
+     ],
+     [
+      448660.51,
+      4634017.08
+     ],
+     [
+      448663.19,
+      4633996.61
+     ],
+     [
+      448665.41,
+      4633976.14
+     ],
+     [
+      448669.73,
+      4633955.7
+     ],
+     [
+      448676.04,
+      4633935.27
+     ],
+     [
+      448682.73,
+      4633914.85
+     ],
+     [
+      448687.61,
+      4633894.41
+     ],
+     [
+      448690.59,
+      4633873.95
+     ],
+     [
+      448694.86,
+      4633853.5
+     ],
+     [
+      448700.38,
+      4633833.07
+     ],
+     [
+      448705.67,
+      4633812.63
+     ],
+     [
+      448712.28,
+      4633792.21
+     ],
+     [
+      448718.55,
+      4633771.79
+     ],
+     [
+      448721.35,
+      4633751.33
+     ],
+     [
+      448725.04,
+      4633730.87
+     ],
+     [
+      448730.57,
+      4633710.44
+     ],
+     [
+      448735.54,
+      4633690.0
+     ],
+     [
+      448741.52,
+      4633669.57
+     ],
+     [
+      448746.77,
+      4633649.14
+     ],
+     [
+      448754.53,
+      4633628.73
+     ],
+     [
+      448761.94,
+      4633608.32
+     ],
+     [
+      448758.05,
+      4633587.78
+     ]
+    ]
+   }
+  }
+ ]
+}

@@ -1,0 +1,26 @@
+{
+  "id": "hathaway_1834",
+  "type": "map",
+  "citation": "Hathaway, Joshua. Chicago with the School Section, Wabansia, and Kinzie's Addition. 1834.",
+  "author": "Joshua Hathaway",
+  "date": "1834",
+  "describes_date": "1834",
+  "repository": "Library of Congress, Geography and Map Division (also Newberry Library, Graff 1817)",
+  "locator": "LOC call no. G4104.C6G4 1820 .H2; JP2 6536 x 9318 px",
+  "url": "https://www.loc.gov/item/2008621683/",
+  "tier": 1,
+  "rights_status": "public_domain",
+  "asset_use": "geometry",
+  "verified": false,
+  "note": "The extent envelope: the original plat PLUS the School Section, Wabansia and Kinzie's Addition — the five parcels that roughly doubled the platted area, and the correct envelope for an 1835 model. Commissioned by John H. Kinzie to facilitate lot sales. CORRECTION, verified 2026-08-09 at native LOC resolution: this map does NOT show buildings. The widely repeated claim (carried into this project's own brief) that 'small rectangles denote individual buildings, bold rectangles fully built-up blocks' is FALSE for this sheet. Inspected at the forks and across the built-up South Water blocks 17-21 at full resolution, it is a pure cadastral lot plat: block outlines, numbered lots 1-8, street names and survey bearings, and nothing else. What it is genuinely excellent for is STREET AND LOT GEOMETRY — exact block dimensions and lot subdivision, which lets a building documented at a named corner be placed precisely on that corner. It cannot supply footprints. CATALOGING TRAP: the Library of Congress dates this '[1820?]' and the call number encodes 1820; Hathaway was born in 1810. Record the discrepancy, do not silently correct it.",
+  "access_notes": "Use the LOC JP2/IIIF (tile.loc.gov, master TIFF ~174 MB), NOT the Newberry surrogate — the Newberry published only a single 1.9 MB JPEG to Internet Archive (archive.org/details/nby_157756), which is insufficient for warping.",
+  "what_it_supplies": [
+    "street geometry",
+    "block and lot subdivision",
+    "platted extent"
+  ],
+  "what_it_does_not_supply": [
+    "building footprints",
+    "building locations"
+  ]
+}

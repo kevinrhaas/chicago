@@ -1,0 +1,261 @@
+{
+ "schema": 1,
+ "state": "Illinois",
+ "county": "Cook",
+ "division": "S. W. Sherman (as written in the printed heading)",
+ "reading": "scan_verified",
+ "read_pass": "names (T-0496)",
+ "cells_state": "not_read",
+ "cells_not_read_why": "This pass read the NAMES only. The 26 free-white and 12 free-coloured age-band columns of this leaf are unread and are left to the ticket that reads them, on the grid method T-0532 and T-0552 used. Nothing here may be taken as a zero: an unread column is unread.",
+ "familysearch_id": "33SQ-GYYJ-RJ",
+ "image": "chicago/reference/census1840/33SQ-GYYJ-RJ.jpg",
+ "printed_page": 233,
+ "sheet_side": "left",
+ "lines_ruled_with_an_entry": 31,
+ "lines_are": "Thirty-one ruled lines carry an entry and the thirty-second is the enumerator's footing rule. Every line was looked at; none is blank between the first and the last.",
+ "records": [
+  {
+   "line": 1,
+   "as_read": "Mrs. Eliza Haight",
+   "normalized": "Eliza Haight",
+   "name_confidence": "medium",
+   "note": "the honorific is written Mrs; the surname's terminal letters run into a flourish",
+   "reading": "scan_verified"
+  },
+  {
+   "line": 2,
+   "as_read": "Wm. H. La[?]rabee",
+   "normalized": "William H. Larrabee",
+   "name_confidence": "low",
+   "note": "one letter of the surname is lost under the line above",
+   "reading": "scan_verified"
+  },
+  {
+   "line": 3,
+   "as_read": "Mrs. Nancy Greenwood",
+   "normalized": "Nancy Greenwood",
+   "name_confidence": "medium",
+   "reading": "scan_verified"
+  },
+  {
+   "line": 4,
+   "as_read": "Wm. Pea[?]s[?]n",
+   "normalized": "William Pearson",
+   "name_confidence": "low",
+   "note": "two positions in the surname are unread; Pearson and Pearsons both fit the length",
+   "reading": "scan_verified"
+  },
+  {
+   "line": 5,
+   "as_read": "M. W. Brackett",
+   "normalized": "M. W. Brackett",
+   "name_confidence": "medium",
+   "note": "the first initial is M or W; the surname is unambiguous",
+   "reading": "scan_verified"
+  },
+  {
+   "line": 6,
+   "as_read": "Henry Smith",
+   "normalized": "Henry Smith",
+   "name_confidence": "medium",
+   "reading": "scan_verified"
+  },
+  {
+   "line": 7,
+   "as_read": "Robt. Shepard",
+   "normalized": "Robert Shepard",
+   "name_confidence": "medium",
+   "reading": "scan_verified"
+  },
+  {
+   "line": 8,
+   "as_read": "Alan[?]s C. Wood",
+   "normalized": "Alanson C. Wood",
+   "name_confidence": "low",
+   "note": "the given name's middle is unread; Alanson is the reading the surviving letters carry",
+   "reading": "scan_verified"
+  },
+  {
+   "line": 9,
+   "as_read": "Edw. H. Rogers",
+   "normalized": "Edward H. Rogers",
+   "name_confidence": "medium",
+   "reading": "scan_verified"
+  },
+  {
+   "line": 10,
+   "as_read": "Henry Ha[?][?]son",
+   "normalized": "Henry Ha[?]son",
+   "name_confidence": "low",
+   "note": "two positions in the surname are unread; Harrison and Hanson both fit",
+   "reading": "scan_verified"
+  },
+  {
+   "line": 11,
+   "as_read": "Wm. W. Saltonstall",
+   "normalized": "William W. Saltonstall",
+   "name_confidence": "medium",
+   "reading": "scan_verified"
+  },
+  {
+   "line": 12,
+   "as_read": "Geo. W. Dole",
+   "normalized": "George W. Dole",
+   "name_confidence": "medium",
+   "note": "the surname's initial is a looped D or C",
+   "reading": "scan_verified"
+  },
+  {
+   "line": 13,
+   "as_read": "G[?]a[?]w Rathb[?]l[?]",
+   "normalized": "[?] Rathb[?]",
+   "name_confidence": "low",
+   "note": "the given name is largely unread; the surname begins Rathb- and ends in a doubled terminal, so Rathbun and Rathbull both fit",
+   "reading": "scan_verified"
+  },
+  {
+   "line": 14,
+   "as_read": "[?]han[?] L. Goodrich",
+   "normalized": "[?] L. Goodrich",
+   "name_confidence": "low",
+   "note": "the given name is unread at two positions; the surname is legible",
+   "reading": "scan_verified"
+  },
+  {
+   "line": 15,
+   "as_read": "W[m] Foreman",
+   "normalized": "William Foreman",
+   "name_confidence": "low",
+   "note": "the surname's second letter is o or r, so Foreman and Freeman both fit",
+   "reading": "scan_verified"
+  },
+  {
+   "line": 16,
+   "as_read": "Anthony Co[?]a[?]",
+   "normalized": "Anthony Co[?]a[?]",
+   "name_confidence": "low",
+   "note": "the surname's initial is a large looped C or G and two positions are unread",
+   "reading": "scan_verified"
+  },
+  {
+   "line": 17,
+   "as_read": "David Kenni[?][?]",
+   "normalized": "David Kennison",
+   "name_confidence": "low",
+   "note": "the surname's tail runs into a flourish; Kennison is the reading the surviving letters carry and it is kept as a reading, not as an identification",
+   "reading": "scan_verified"
+  },
+  {
+   "line": 18,
+   "as_read": "[?]. W. Brown",
+   "normalized": "[?] W. Brown",
+   "name_confidence": "medium",
+   "note": "the first initial is unread; the surname is unambiguous",
+   "reading": "scan_verified"
+  },
+  {
+   "line": 19,
+   "as_read": "Edward H. Rudd",
+   "normalized": "Edward H. Rudd",
+   "name_confidence": "low",
+   "note": "the surname is four letters ending in a doubled d; Rudd and Budd both fit",
+   "reading": "scan_verified"
+  },
+  {
+   "line": 20,
+   "as_read": "Ste[?]hen Ca[?]hi[?]",
+   "normalized": "Stephen Ca[?]hi[?]",
+   "name_confidence": "low",
+   "note": "the surname is unread at two positions",
+   "reading": "scan_verified"
+  },
+  {
+   "line": 21,
+   "as_read": "Sam[?] M[?]hia[?]",
+   "normalized": "Samuel M[?]",
+   "name_confidence": "low",
+   "note": "the surname is a Mc- or Mi- form and is unread past its second letter",
+   "reading": "scan_verified"
+  },
+  {
+   "line": 22,
+   "as_read": "[?] C. Ann Chase",
+   "normalized": "C. Ann Chase",
+   "name_confidence": "low",
+   "note": "the first token is unread and may be an honorific; the surname is legible",
+   "reading": "scan_verified"
+  },
+  {
+   "line": 23,
+   "as_read": "Wm. S. Whitin[?]",
+   "normalized": "William S. Whiting",
+   "name_confidence": "low",
+   "note": "the surname's terminal is unread; a second word below the name may read Junr",
+   "reading": "scan_verified"
+  },
+  {
+   "line": 24,
+   "as_read": "P[h]illi[?] [?] Marshall",
+   "normalized": "Phillip Marshall",
+   "name_confidence": "low",
+   "note": "the given name and the middle initial are unread at three positions; the surname is legible",
+   "reading": "scan_verified"
+  },
+  {
+   "line": 25,
+   "as_read": "Moses Milt[?]n",
+   "normalized": "Moses Milton",
+   "name_confidence": "low",
+   "note": "one position of the surname is unread",
+   "reading": "scan_verified"
+  },
+  {
+   "line": 26,
+   "as_read": "John Russ",
+   "normalized": "John Russ",
+   "name_confidence": "low",
+   "note": "the surname is three or four letters; Russ and Ross both fit",
+   "reading": "scan_verified"
+  },
+  {
+   "line": 27,
+   "as_read": "Noah [?]a[?]nt[?]n",
+   "normalized": "Noah [?]",
+   "name_confidence": "low",
+   "note": "the surname is unread at three positions",
+   "reading": "scan_verified"
+  },
+  {
+   "line": 28,
+   "as_read": "[?]er Barkin[?]il[?]",
+   "normalized": "[?] Barkenhill",
+   "name_confidence": "low",
+   "note": "the given name is unread; the surname reads Barkin- or Barken- with an unread terminal",
+   "reading": "scan_verified"
+  },
+  {
+   "line": 29,
+   "as_read": "Warner L. [?]",
+   "normalized": "Warner L. [?]",
+   "name_confidence": "low",
+   "note": "the surname is swallowed by a large circular flourish that also crosses the line below",
+   "reading": "scan_verified"
+  },
+  {
+   "line": 30,
+   "as_read": "[?]ah[?] Murphy",
+   "normalized": "John Murphy",
+   "name_confidence": "low",
+   "note": "the given name is unread at two positions; the surname is legible",
+   "reading": "scan_verified"
+  },
+  {
+   "line": 31,
+   "as_read": "[?]as. Johnson",
+   "normalized": "[?] Johnson",
+   "name_confidence": "low",
+   "note": "the given name is an abbreviation unread at its head; the surname is legible",
+   "reading": "scan_verified"
+  }
+ ]
+}

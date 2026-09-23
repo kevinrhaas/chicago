@@ -1,0 +1,1069 @@
+{
+  "schema": "research-spend-rulings-v1",
+  "_doc": "DERIVED, T-1297, by tools/spend_name_on_a_roll_rulings.py from the records, claims and crosswalks beside it — run --check to re-derive it. The written ruling on the 200 heads of family of the 1830 Peoria & Putnam division read against the town's households, and the four findings about the schedule itself: every unit of this domain the research-spend ledger leaves unresolved. tools/research_spend_ledger.py reads this file beside the hand-authored data/research/spend_rulings.json, at the point where it would otherwise leave a unit open, so a ruling here can only close a unit nothing else has closed and can never overturn an assertion, a later_only or a refusal the readings themselves carry. NOTHING HERE EDITS A RESIDENT, MINTS A PERSON, MOVES A CONFIDENCE OR REOPENS AN IDENTITY A CROSSWALK RULED. A hand-off is not a spend: it names the open ticket whose field owns the finding, and that ticket closing turns this file red, which is the point.",
+  "ticket": "T-1297",
+  "generated_by": "tools/spend_name_on_a_roll_rulings.py",
+  "counts": {
+    "the_1830_line_bounds_a_held_residents_presence": 14,
+    "the_1830_line_names_the_garrison_and_not_a_person": 1,
+    "the_1830_schedule_describes_its_own_making": 2,
+    "the_1830_surname_only_match_was_refused_in_the_crosswalk": 63,
+    "the_1830_surname_stands_in_no_town_household": 121,
+    "the_1830_surname_variant_is_a_candidate_and_not_a_merge": 1,
+    "the_1830_town_finding_is_earlier_evidence": 2
+  },
+  "rules": {
+    "the_1830_line_bounds_a_held_residents_presence": {
+      "disposition": "unresolved",
+      "ticket": "T-1169",
+      "statement": "The 1830 schedule enters this head of family in the enumerator's division headed 'Peoria & Putnam Counties & Territory attached', and the resident crosswalk finds a person in the town whose surname AND given name both agree. The crosswalk carries that agreement as EARLIER EVIDENCE and says in terms that it grades nothing on its own. Under the evidence ladder ratified 2026-09-03 a source EARLIER than the scene date corroborates and dates and never promotes — a man at Chicago in 1830 or 1832 is not thereby at Chicago on 1 July 1835 — and a source LATER than it does not promote either. What the line gives is a bound — this person was in the district in the summer of 1830, five years before the scene — and the arrival pass draws arrivals from bounds. The unit is handed on unasserted and the identity is neither re-opened nor hardened."
+    },
+    "the_1830_surname_variant_is_a_candidate_and_not_a_merge": {
+      "disposition": "unresolved",
+      "ticket": "T-1169",
+      "statement": "The given names agree and the surnames differ only by a silent terminal e or a doubled consonant, and the crosswalk is explicit that this is a CANDIDATE and never a merge. This file does not make the identification either. What it does is carry the row forward with the identity still open, because IF the identification is made the 1830 line becomes a bound on that person's presence and the arrival pass is where a bound is weighed. Nothing is upgraded, and the candidate remains a candidate."
+    },
+    "the_1830_line_names_the_garrison_and_not_a_person": {
+      "disposition": "refused",
+      "statement": "The line enters the United States garrison of Fort Dearborn as a single household under its commanding officer. It is not a person and may never reach one: the schedule names no soldier, and the officer is named as commanding rather than enumerated as a head of family. Ruled here so that the one row on these leaves which can never be crosswalked is not left looking unexamined."
+    },
+    "the_1830_surname_stands_in_no_town_household": {
+      "disposition": "refused",
+      "statement": "No person in the town's households carries this surname at all. The crosswalk states the three readings that remain open — the man had gone by 1835, or he lived in the part of the division that was never Chicago (the Fox River and Du Page settlements are inside it, and the schedule never writes the word Chicago), or he is somebody the reconstruction has not found — and it settles none of them. Under the evidence ladder ratified 2026-09-03 a source EARLIER than the scene date corroborates and dates and never promotes — a man at Chicago in 1830 or 1832 is not thereby at Chicago on 1 July 1835 — and a source LATER than it does not promote either. On all three readings the 1830 line asserts no 1835 fact, mints nobody and edits no card, and the answer to what this unit spends into the town is NOTHING. That is a complete answer here rather than a deferral, and the row stays in the reading for any later evidence to reach."
+    },
+    "the_1830_surname_only_match_was_refused_in_the_crosswalk": {
+      "disposition": "refused",
+      "statement": "The crosswalk has already refused this row by name: the 1830 reading shares only a surname with the town person or persons it was set beside, and a surname match is a clue and not an identity. The refusal was written down so that the next sweep would not make the same match again, and the ledger now carries it instead of reading the row as work nobody has looked at."
+    },
+    "the_1830_town_finding_is_earlier_evidence": {
+      "disposition": "refused",
+      "statement": "The claim is a town finding read off the 1830 schedule — who was enumerated as one household, and which households stood at the forks in that year. Under the evidence ladder ratified 2026-09-03 a source EARLIER than the scene date corroborates and dates and never promotes — a man at Chicago in 1830 or 1832 is not thereby at Chicago on 1 July 1835 — and a source LATER than it does not promote either. The finding is committed chronology of the place five years before the scene, and the town it describes is the town of 1830; it asserts nothing about 1 July 1835 and mints nobody into it."
+    },
+    "the_1830_schedule_describes_its_own_making": {
+      "disposition": "refused",
+      "statement": "The claim is a finding about the MANUSCRIPT rather than about the town: a heavy rule the enumerator drew under one line and the wider spacing after it, and the fact that in 1830 Chicago had no county of its own and the schedule never writes the word Chicago. These are readings of how the document was made and what it covers, kept so the source's shape cannot be forgotten. They name no person and raise no structure, so the person ledger refuses them while the findings stand where the reading put them."
+    }
+  },
+  "rulings": [
+    {
+      "unit": "census_1830:data/research/census_1830/records/schedule_chicago_1830.json#records/census1830_n576_001",
+      "rule": "the_1830_surname_stands_in_no_town_household",
+      "note": "The 1830 schedule, leaf n576 entry 1, in the division headed 'Peoria & Putnam Counties & Territory attached', enters 'Augustus Langworthy' read as 'AUGUSTUS LANGWORTHY'. No person in the town's 825 households carries this surname. Either the man had gone by 1835, or he lived in the part of the district that was never Chicago — the Fox River and Du Page settlements are in it too — or he is somebody the reconstruction has not found. All three are findings and none of them is settled here."
+    },
+    {
+      "unit": "census_1830:data/research/census_1830/records/schedule_chicago_1830.json#records/census1830_n576_002",
+      "rule": "the_1830_surname_stands_in_no_town_household",
+      "note": "The 1830 schedule, leaf n576 entry 2, in the division headed 'Peoria & Putnam Counties & Territory attached', enters 'John Hamlin' read as 'JOHN HAMLIN'. No person in the town's 825 households carries this surname. Either the man had gone by 1835, or he lived in the part of the district that was never Chicago — the Fox River and Du Page settlements are in it too — or he is somebody the reconstruction has not found. All three are findings and none of them is settled here."
+    },
+    {
+      "unit": "census_1830:data/research/census_1830/records/schedule_chicago_1830.json#records/census1830_n576_003",
+      "rule": "the_1830_surname_stands_in_no_town_household",
+      "note": "The 1830 schedule, leaf n576 entry 3, in the division headed 'Peoria & Putnam Counties & Territory attached', enters 'John L Bogardus' read as 'JOHN L BOGARDUS'. No person in the town's 825 households carries this surname. Either the man had gone by 1835, or he lived in the part of the district that was never Chicago — the Fox River and Du Page settlements are in it too — or he is somebody the reconstruction has not found. All three are findings and none of them is settled here."
+    },
+    {
+      "unit": "census_1830:data/research/census_1830/records/schedule_chicago_1830.json#records/census1830_n576_004",
+      "rule": "the_1830_surname_stands_in_no_town_household",
+      "note": "The 1830 schedule, leaf n576 entry 4, in the division headed 'Peoria & Putnam Counties & Territory attached', enters 'Abner Eades' read as 'ABNER EADES'. No person in the town's 825 households carries this surname. Either the man had gone by 1835, or he lived in the part of the district that was never Chicago — the Fox River and Du Page settlements are in it too — or he is somebody the reconstruction has not found. All three are findings and none of them is settled here."
+    },
+    {
+      "unit": "census_1830:data/research/census_1830/records/schedule_chicago_1830.json#records/census1830_n576_005",
+      "rule": "the_1830_surname_stands_in_no_town_household",
+      "note": "The 1830 schedule, leaf n576 entry 5, in the division headed 'Peoria & Putnam Counties & Territory attached', enters 'Seth Fulton' read as 'SETH FULTON'. No person in the town's 825 households carries this surname. Either the man had gone by 1835, or he lived in the part of the district that was never Chicago — the Fox River and Du Page settlements are in it too — or he is somebody the reconstruction has not found. All three are findings and none of them is settled here."
+    },
+    {
+      "unit": "census_1830:data/research/census_1830/records/schedule_chicago_1830.json#records/census1830_n576_006",
+      "rule": "the_1830_surname_stands_in_no_town_household",
+      "note": "The 1830 schedule, leaf n576 entry 6, in the division headed 'Peoria & Putnam Counties & Territory attached', enters 'George Sharp' read as 'GEORGE SHARP'. No person in the town's 825 households carries this surname. Either the man had gone by 1835, or he lived in the part of the district that was never Chicago — the Fox River and Du Page settlements are in it too — or he is somebody the reconstruction has not found. All three are findings and none of them is settled here."
+    },
+    {
+      "unit": "census_1830:data/research/census_1830/records/schedule_chicago_1830.json#records/census1830_n576_007",
+      "rule": "the_1830_surname_stands_in_no_town_household",
+      "note": "The 1830 schedule, leaf n576 entry 7, in the division headed 'Peoria & Putnam Counties & Territory attached', enters 'John Donaldson' read as 'JOHN DONALDSON'. No person in the town's 825 households carries this surname. Either the man had gone by 1835, or he lived in the part of the district that was never Chicago — the Fox River and Du Page settlements are in it too — or he is somebody the reconstruction has not found. All three are findings and none of them is settled here."
+    },
+    {
+      "unit": "census_1830:data/research/census_1830/records/schedule_chicago_1830.json#records/census1830_n576_008",
+      "rule": "the_1830_surname_stands_in_no_town_household",
+      "note": "The 1830 schedule, leaf n576 entry 8, in the division headed 'Peoria & Putnam Counties & Territory attached', enters 'Levi McCormick' read as 'LEVI MCCORMICK'. No person in the town's 825 households carries this surname. Either the man had gone by 1835, or he lived in the part of the district that was never Chicago — the Fox River and Du Page settlements are in it too — or he is somebody the reconstruction has not found. All three are findings and none of them is settled here."
+    },
+    {
+      "unit": "census_1830:data/research/census_1830/records/schedule_chicago_1830.json#records/census1830_n576_009",
+      "rule": "the_1830_surname_only_match_was_refused_in_the_crosswalk",
+      "note": "The 1830 schedule, leaf n576 entry 9, in the division headed 'Peoria & Putnam Counties & Territory attached', enters 'Isaac Waters' read as 'ISAAC WATERS'. The 1830 reading 'Isaac Waters' shares only a surname with the town person(s) Asury Waters (hh_waters_asury). A surname match is a clue and not an identity, so it is REFUSED rather than merged, and the refusal is written down so the next sweep does not make the same match again."
+    },
+    {
+      "unit": "census_1830:data/research/census_1830/records/schedule_chicago_1830.json#records/census1830_n576_010",
+      "rule": "the_1830_surname_stands_in_no_town_household",
+      "note": "The 1830 schedule, leaf n576 entry 10, in the division headed 'Peoria & Putnam Counties & Territory attached', enters 'John Nicholson' read as 'JOHN NICHOLSON'. No person in the town's 825 households carries this surname. Either the man had gone by 1835, or he lived in the part of the district that was never Chicago — the Fox River and Du Page settlements are in it too — or he is somebody the reconstruction has not found. All three are findings and none of them is settled here."
+    },
+    {
+      "unit": "census_1830:data/research/census_1830/records/schedule_chicago_1830.json#records/census1830_n576_011",
+      "rule": "the_1830_surname_only_match_was_refused_in_the_crosswalk",
+      "note": "The 1830 schedule, leaf n576 entry 11, in the division headed 'Peoria & Putnam Counties & Territory attached', enters 'Henry B Stillman' read as 'HENRY B STILLMAN'. The 1830 reading 'Henry B Stillman' shares only a surname with the town person(s) Josiah Stillman (hh_stillman_josiah). A surname match is a clue and not an identity, so it is REFUSED rather than merged, and the refusal is written down so the next sweep does not make the same match again."
+    },
+    {
+      "unit": "census_1830:data/research/census_1830/records/schedule_chicago_1830.json#records/census1830_n576_012",
+      "rule": "the_1830_surname_stands_in_no_town_household",
+      "note": "The 1830 schedule, leaf n576 entry 12, in the division headed 'Peoria & Putnam Counties & Territory attached', enters 'David Ridgeway' read as 'DAVID RIDGEWAY'. No person in the town's 825 households carries this surname. Either the man had gone by 1835, or he lived in the part of the district that was never Chicago — the Fox River and Du Page settlements are in it too — or he is somebody the reconstruction has not found. All three are findings and none of them is settled here."
+    },
+    {
+      "unit": "census_1830:data/research/census_1830/records/schedule_chicago_1830.json#records/census1830_n576_013",
+      "rule": "the_1830_surname_only_match_was_refused_in_the_crosswalk",
+      "note": "The 1830 schedule, leaf n576 entry 13, in the division headed 'Peoria & Putnam Counties & Territory attached', enters 'Emily Caldwell' read as 'EMILY CALDWELL'. The 1830 reading 'Emily Caldwell' shares only a surname with the town person(s) Billy Caldwell (Sauganash) (hh_caldwell_billy). A surname match is a clue and not an identity, so it is REFUSED rather than merged, and the refusal is written down so the next sweep does not make the same match again."
+    },
+    {
+      "unit": "census_1830:data/research/census_1830/records/schedule_chicago_1830.json#records/census1830_n576_014",
+      "rule": "the_1830_surname_only_match_was_refused_in_the_crosswalk",
+      "note": "The 1830 schedule, leaf n576 entry 14, in the division headed 'Peoria & Putnam Counties & Territory attached', enters 'Vincent Barton' read as 'VINCENT BARTON'. The 1830 reading 'Vincent Barton' shares only a surname with the town person(s) James Barton (hh_barton_james). A surname match is a clue and not an identity, so it is REFUSED rather than merged, and the refusal is written down so the next sweep does not make the same match again."
+    },
+    {
+      "unit": "census_1830:data/research/census_1830/records/schedule_chicago_1830.json#records/census1830_n576_015",
+      "rule": "the_1830_surname_stands_in_no_town_household",
+      "note": "The 1830 schedule, leaf n576 entry 15, in the division headed 'Peoria & Putnam Counties & Territory attached', enters 'John G Trial' read as 'JOHN G TRIAL'. No person in the town's 825 households carries this surname. Either the man had gone by 1835, or he lived in the part of the district that was never Chicago — the Fox River and Du Page settlements are in it too — or he is somebody the reconstruction has not found. All three are findings and none of them is settled here."
+    },
+    {
+      "unit": "census_1830:data/research/census_1830/records/schedule_chicago_1830.json#records/census1830_n576_016",
+      "rule": "the_1830_surname_stands_in_no_town_household",
+      "note": "The 1830 schedule, leaf n576 entry 16, in the division headed 'Peoria & Putnam Counties & Territory attached', enters 'William Duffield' read as 'WILLIAM DUFFIELD'. No person in the town's 825 households carries this surname. Either the man had gone by 1835, or he lived in the part of the district that was never Chicago — the Fox River and Du Page settlements are in it too — or he is somebody the reconstruction has not found. All three are findings and none of them is settled here."
+    },
+    {
+      "unit": "census_1830:data/research/census_1830/records/schedule_chicago_1830.json#records/census1830_n576_017",
+      "rule": "the_1830_surname_stands_in_no_town_household",
+      "note": "The 1830 schedule, leaf n576 entry 17, in the division headed 'Peoria & Putnam Counties & Territory attached', enters 'Aquilla Moffitt' read as 'AQUILLA MOFFITT'. No person in the town's 825 households carries this surname. Either the man had gone by 1835, or he lived in the part of the district that was never Chicago — the Fox River and Du Page settlements are in it too — or he is somebody the reconstruction has not found. All three are findings and none of them is settled here."
+    },
+    {
+      "unit": "census_1830:data/research/census_1830/records/schedule_chicago_1830.json#records/census1830_n576_018",
+      "rule": "the_1830_surname_only_match_was_refused_in_the_crosswalk",
+      "note": "The 1830 schedule, leaf n576 entry 18, in the division headed 'Peoria & Putnam Counties & Territory attached', enters 'Samuel Clark' read as 'SAMUEL CLARK'. The 1830 reading 'Samuel Clark' shares only a surname with the town person(s) Erastus Clark (hh_clark_erastus); John A Clark (hh_clark_john_a); John K Clark (hh_clark_john_k); Timothy J Clark (hh_clark_timothy_j). A surname match is a clue and not an identity, so it is REFUSED rather than merged, and the refusal is written down so the next sweep does not make the same match again."
+    },
+    {
+      "unit": "census_1830:data/research/census_1830/records/schedule_chicago_1830.json#records/census1830_n576_019",
+      "rule": "the_1830_surname_stands_in_no_town_household",
+      "note": "The 1830 schedule, leaf n576 entry 19, in the division headed 'Peoria & Putnam Counties & Territory attached', enters 'Samuel Langley' read as 'SAMUEL LANGLEY'. No person in the town's 825 households carries this surname. Either the man had gone by 1835, or he lived in the part of the district that was never Chicago — the Fox River and Du Page settlements are in it too — or he is somebody the reconstruction has not found. All three are findings and none of them is settled here."
+    },
+    {
+      "unit": "census_1830:data/research/census_1830/records/schedule_chicago_1830.json#records/census1830_n576_020",
+      "rule": "the_1830_surname_stands_in_no_town_household",
+      "note": "The 1830 schedule, leaf n576 entry 20, in the division headed 'Peoria & Putnam Counties & Territory attached', enters 'John Birkett' read as 'JOHN BIRKETT'. No person in the town's 825 households carries this surname. Either the man had gone by 1835, or he lived in the part of the district that was never Chicago — the Fox River and Du Page settlements are in it too — or he is somebody the reconstruction has not found. All three are findings and none of them is settled here."
+    },
+    {
+      "unit": "census_1830:data/research/census_1830/records/schedule_chicago_1830.json#records/census1830_n576_021",
+      "rule": "the_1830_surname_stands_in_no_town_household",
+      "note": "The 1830 schedule, leaf n576 entry 21, in the division headed 'Peoria & Putnam Counties & Territory attached', enters 'George Moets' read as 'GEORGE MOETS'. No person in the town's 825 households carries this surname. Either the man had gone by 1835, or he lived in the part of the district that was never Chicago — the Fox River and Du Page settlements are in it too — or he is somebody the reconstruction has not found. All three are findings and none of them is settled here."
+    },
+    {
+      "unit": "census_1830:data/research/census_1830/records/schedule_chicago_1830.json#records/census1830_n576_022",
+      "rule": "the_1830_surname_stands_in_no_town_household",
+      "note": "The 1830 schedule, leaf n576 entry 22, in the division headed 'Peoria & Putnam Counties & Territory attached', enters 'Jefferson Taliaferro' read as 'JEFFERSON TALIAFERRO'. No person in the town's 825 households carries this surname. Either the man had gone by 1835, or he lived in the part of the district that was never Chicago — the Fox River and Du Page settlements are in it too — or he is somebody the reconstruction has not found. All three are findings and none of them is settled here."
+    },
+    {
+      "unit": "census_1830:data/research/census_1830/records/schedule_chicago_1830.json#records/census1830_n576_023",
+      "rule": "the_1830_surname_stands_in_no_town_household",
+      "note": "The 1830 schedule, leaf n576 entry 23, in the division headed 'Peoria & Putnam Counties & Territory attached', enters 'George Love' read as 'GEORGE LOVE'. No person in the town's 825 households carries this surname. Either the man had gone by 1835, or he lived in the part of the district that was never Chicago — the Fox River and Du Page settlements are in it too — or he is somebody the reconstruction has not found. All three are findings and none of them is settled here."
+    },
+    {
+      "unit": "census_1830:data/research/census_1830/records/schedule_chicago_1830.json#records/census1830_n576_024",
+      "rule": "the_1830_surname_stands_in_no_town_household",
+      "note": "The 1830 schedule, leaf n576 entry 24, in the division headed 'Peoria & Putnam Counties & Territory attached', enters 'John Boyle' read as 'JOHN BOYLE'. No person in the town's 825 households carries this surname. Either the man had gone by 1835, or he lived in the part of the district that was never Chicago — the Fox River and Du Page settlements are in it too — or he is somebody the reconstruction has not found. All three are findings and none of them is settled here."
+    },
+    {
+      "unit": "census_1830:data/research/census_1830/records/schedule_chicago_1830.json#records/census1830_n576_025",
+      "rule": "the_1830_surname_stands_in_no_town_household",
+      "note": "The 1830 schedule, leaf n576 entry 25, in the division headed 'Peoria & Putnam Counties & Territory attached', enters 'Nancy Vanmater' read as 'NANCY VANMATER'. No person in the town's 825 households carries this surname. Either the man had gone by 1835, or he lived in the part of the district that was never Chicago — the Fox River and Du Page settlements are in it too — or he is somebody the reconstruction has not found. All three are findings and none of them is settled here."
+    },
+    {
+      "unit": "census_1830:data/research/census_1830/records/schedule_chicago_1830.json#records/census1830_n576_026",
+      "rule": "the_1830_surname_stands_in_no_town_household",
+      "note": "The 1830 schedule, leaf n576 entry 26, in the division headed 'Peoria & Putnam Counties & Territory attached', enters 'Stephen Carrel' read as 'STEPHEN CARREL'. No person in the town's 825 households carries this surname. Either the man had gone by 1835, or he lived in the part of the district that was never Chicago — the Fox River and Du Page settlements are in it too — or he is somebody the reconstruction has not found. All three are findings and none of them is settled here."
+    },
+    {
+      "unit": "census_1830:data/research/census_1830/records/schedule_chicago_1830.json#records/census1830_n576_027",
+      "rule": "the_1830_surname_stands_in_no_town_household",
+      "note": "The 1830 schedule, leaf n576 entry 27, in the division headed 'Peoria & Putnam Counties & Territory attached', enters 'Samuel Clifton' read as 'SAMUEL CLIFTON'. No person in the town's 825 households carries this surname. Either the man had gone by 1835, or he lived in the part of the district that was never Chicago — the Fox River and Du Page settlements are in it too — or he is somebody the reconstruction has not found. All three are findings and none of them is settled here."
+    },
+    {
+      "unit": "census_1830:data/research/census_1830/records/schedule_chicago_1830.json#records/census1830_n576_028",
+      "rule": "the_1830_surname_only_match_was_refused_in_the_crosswalk",
+      "note": "The 1830 schedule, leaf n576 entry 28, in the division headed 'Peoria & Putnam Counties & Territory attached', enters 'Hiram Cleaveland' read as 'HIRAM CLEAVELAND'. The 1830 reading 'Hiram Cleaveland' shares only a surname with the town person(s) Wm. P. Cleaveland (hh_cleaveland_wm_p). A surname match is a clue and not an identity, so it is REFUSED rather than merged, and the refusal is written down so the next sweep does not make the same match again."
+    },
+    {
+      "unit": "census_1830:data/research/census_1830/records/schedule_chicago_1830.json#records/census1830_n576_029",
+      "rule": "the_1830_surname_only_match_was_refused_in_the_crosswalk",
+      "note": "The 1830 schedule, leaf n576 entry 29, in the division headed 'Peoria & Putnam Counties & Territory attached', enters 'Cornelius Doty' read as 'CORNELIUS DOTY'. The 1830 reading 'Cornelius Doty' shares only a surname with the town person(s) J. D. Doty (hh_doty_j_d). A surname match is a clue and not an identity, so it is REFUSED rather than merged, and the refusal is written down so the next sweep does not make the same match again."
+    },
+    {
+      "unit": "census_1830:data/research/census_1830/records/schedule_chicago_1830.json#records/census1830_n576_030",
+      "rule": "the_1830_surname_only_match_was_refused_in_the_crosswalk",
+      "note": "The 1830 schedule, leaf n576 entry 30, in the division headed 'Peoria & Putnam Counties & Territory attached', enters 'John Cleaveland' read as 'JOHN CLEAVELAND'. The 1830 reading 'John Cleaveland' shares only a surname with the town person(s) Wm. P. Cleaveland (hh_cleaveland_wm_p). A surname match is a clue and not an identity, so it is REFUSED rather than merged, and the refusal is written down so the next sweep does not make the same match again."
+    },
+    {
+      "unit": "census_1830:data/research/census_1830/records/schedule_chicago_1830.json#records/census1830_n576_031",
+      "rule": "the_1830_surname_only_match_was_refused_in_the_crosswalk",
+      "note": "The 1830 schedule, leaf n576 entry 31, in the division headed 'Peoria & Putnam Counties & Territory attached', enters 'Hugh Montgomery' read as 'HUGH MONTGOMERY'. The 1830 reading 'Hugh Montgomery' shares only a surname with the town person(s) L. W. Montgomery (hh_montgomery_l_w); W Montgomery (hh_montgomery_w). A surname match is a clue and not an identity, so it is REFUSED rather than merged, and the refusal is written down so the next sweep does not make the same match again."
+    },
+    {
+      "unit": "census_1830:data/research/census_1830/records/schedule_chicago_1830.json#records/census1830_n576_032",
+      "rule": "the_1830_surname_only_match_was_refused_in_the_crosswalk",
+      "note": "The 1830 schedule, leaf n576 entry 32, in the division headed 'Peoria & Putnam Counties & Territory attached', enters 'Resolved Cleaveland' read as 'RESOLVED CLEAVELAND'. The 1830 reading 'Resolved Cleaveland' shares only a surname with the town person(s) Wm. P. Cleaveland (hh_cleaveland_wm_p). A surname match is a clue and not an identity, so it is REFUSED rather than merged, and the refusal is written down so the next sweep does not make the same match again."
+    },
+    {
+      "unit": "census_1830:data/research/census_1830/records/schedule_chicago_1830.json#records/census1830_n576_033",
+      "rule": "the_1830_surname_only_match_was_refused_in_the_crosswalk",
+      "note": "The 1830 schedule, leaf n576 entry 33, in the division headed 'Peoria & Putnam Counties & Territory attached', enters 'Simon Reed' read as 'SIMON REED'. The 1830 reading 'Simon Reed' shares only a surname with the town person(s) J. W. Reed (hh_inf_joiner_north_02); S W Reed (hh_reed_s_w); Thomas Reed (hh_reed_thomas); William Reed (hh_reed_william). A surname match is a clue and not an identity, so it is REFUSED rather than merged, and the refusal is written down so the next sweep does not make the same match again."
+    },
+    {
+      "unit": "census_1830:data/research/census_1830/records/schedule_chicago_1830.json#records/census1830_n576_034",
+      "rule": "the_1830_surname_only_match_was_refused_in_the_crosswalk",
+      "note": "The 1830 schedule, leaf n576 entry 34, in the division headed 'Peoria & Putnam Counties & Territory attached', enters 'Samuel Reed' read as 'SAMUEL REED'. The 1830 reading 'Samuel Reed' shares only a surname with the town person(s) J. W. Reed (hh_inf_joiner_north_02); S W Reed (hh_reed_s_w); Thomas Reed (hh_reed_thomas); William Reed (hh_reed_william). A surname match is a clue and not an identity, so it is REFUSED rather than merged, and the refusal is written down so the next sweep does not make the same match again."
+    },
+    {
+      "unit": "census_1830:data/research/census_1830/records/schedule_chicago_1830.json#records/census1830_n576_035",
+      "rule": "the_1830_line_bounds_a_held_residents_presence",
+      "note": "The 1830 schedule, leaf n576 entry 35, in the division headed 'Peoria & Putnam Counties & Territory attached', enters 'Thomas Reed' read as 'THOMAS REED'. Surname and given name both agree between the 1830 reading 'Thomas Reed' and the town person 'Thomas Reed' in household hh_reed_thomas. The 1830 line is carried as EARLIER EVIDENCE for that person and grades nothing on its own. The household is hh_reed_thomas."
+    },
+    {
+      "unit": "census_1830:data/research/census_1830/records/schedule_chicago_1830.json#records/census1830_n576_036",
+      "rule": "the_1830_surname_only_match_was_refused_in_the_crosswalk",
+      "note": "The 1830 schedule, leaf n576 entry 36, in the division headed 'Peoria & Putnam Counties & Territory attached', enters 'Reuben Sprague' read as 'REUBEN SPRAGUE'. The 1830 reading 'Reuben Sprague' shares only a surname with the town person(s) Willinm B. Sprague (hh_sprague_willinm_b). A surname match is a clue and not an identity, so it is REFUSED rather than merged, and the refusal is written down so the next sweep does not make the same match again."
+    },
+    {
+      "unit": "census_1830:data/research/census_1830/records/schedule_chicago_1830.json#records/census1830_n576_037",
+      "rule": "the_1830_surname_stands_in_no_town_household",
+      "note": "The 1830 schedule, leaf n576 entry 37, in the division headed 'Peoria & Putnam Counties & Territory attached', enters 'Gershom Sillman' read as 'GERSHOM SILLMAN'. No person in the town's 825 households carries this surname. Either the man had gone by 1835, or he lived in the part of the district that was never Chicago — the Fox River and Du Page settlements are in it too — or he is somebody the reconstruction has not found. All three are findings and none of them is settled here."
+    },
+    {
+      "unit": "census_1830:data/research/census_1830/records/schedule_chicago_1830.json#records/census1830_n576_038",
+      "rule": "the_1830_surname_stands_in_no_town_household",
+      "note": "The 1830 schedule, leaf n576 entry 38, in the division headed 'Peoria & Putnam Counties & Territory attached', enters 'Lewis Hallock' read as 'LEWIS HALLOCK'. No person in the town's 825 households carries this surname. Either the man had gone by 1835, or he lived in the part of the district that was never Chicago — the Fox River and Du Page settlements are in it too — or he is somebody the reconstruction has not found. All three are findings and none of them is settled here."
+    },
+    {
+      "unit": "census_1830:data/research/census_1830/records/schedule_chicago_1830.json#records/census1830_n576_039",
+      "rule": "the_1830_surname_stands_in_no_town_household",
+      "note": "The 1830 schedule, leaf n576 entry 39, in the division headed 'Peoria & Putnam Counties & Territory attached', enters 'Hiram McCurrey' read as 'HIRAM MCCURREY'. No person in the town's 825 households carries this surname. Either the man had gone by 1835, or he lived in the part of the district that was never Chicago — the Fox River and Du Page settlements are in it too — or he is somebody the reconstruction has not found. All three are findings and none of them is settled here."
+    },
+    {
+      "unit": "census_1830:data/research/census_1830/records/schedule_chicago_1830.json#records/census1830_n576_040",
+      "rule": "the_1830_surname_stands_in_no_town_household",
+      "note": "The 1830 schedule, leaf n576 entry 40, in the division headed 'Peoria & Putnam Counties & Territory attached', enters 'Nicholas Sturm' read as 'NICHOLAS STURM'. No person in the town's 825 households carries this surname. Either the man had gone by 1835, or he lived in the part of the district that was never Chicago — the Fox River and Du Page settlements are in it too — or he is somebody the reconstruction has not found. All three are findings and none of them is settled here."
+    },
+    {
+      "unit": "census_1830:data/research/census_1830/records/schedule_chicago_1830.json#records/census1830_n576_041",
+      "rule": "the_1830_surname_only_match_was_refused_in_the_crosswalk",
+      "note": "The 1830 schedule, leaf n576 entry 41, in the division headed 'Peoria & Putnam Counties & Territory attached', enters 'Samuel Merrill' read as 'SAMUEL MERRILL'. The 1830 reading 'Samuel Merrill' shares only a surname with the town person(s) George W Merrill (hh_merrill_george_w); Winthrop Merrill (hh_merrill_winthrop). A surname match is a clue and not an identity, so it is REFUSED rather than merged, and the refusal is written down so the next sweep does not make the same match again."
+    },
+    {
+      "unit": "census_1830:data/research/census_1830/records/schedule_chicago_1830.json#records/census1830_n576_042",
+      "rule": "the_1830_surname_only_match_was_refused_in_the_crosswalk",
+      "note": "The 1830 schedule, leaf n576 entry 42, in the division headed 'Peoria & Putnam Counties & Territory attached', enters 'Mary Thomas' read as 'MARY THOMAS'. The 1830 reading 'Mary Thomas' shares only a surname with the town person(s) Frederick Thomas (hh_thomas_frederick). A surname match is a clue and not an identity, so it is REFUSED rather than merged, and the refusal is written down so the next sweep does not make the same match again."
+    },
+    {
+      "unit": "census_1830:data/research/census_1830/records/schedule_chicago_1830.json#records/census1830_n576_043",
+      "rule": "the_1830_surname_stands_in_no_town_household",
+      "note": "The 1830 schedule, leaf n576 entry 43, in the division headed 'Peoria & Putnam Counties & Territory attached', enters 'Moses Clifton' read as 'MOSES CLIFTON'. No person in the town's 825 households carries this surname. Either the man had gone by 1835, or he lived in the part of the district that was never Chicago — the Fox River and Du Page settlements are in it too — or he is somebody the reconstruction has not found. All three are findings and none of them is settled here."
+    },
+    {
+      "unit": "census_1830:data/research/census_1830/records/schedule_chicago_1830.json#records/census1830_n576_044",
+      "rule": "the_1830_surname_stands_in_no_town_household",
+      "note": "The 1830 schedule, leaf n576 entry 44, in the division headed 'Peoria & Putnam Counties & Territory attached', enters 'John Ridgeway' read as 'JOHN RIDGEWAY'. No person in the town's 825 households carries this surname. Either the man had gone by 1835, or he lived in the part of the district that was never Chicago — the Fox River and Du Page settlements are in it too — or he is somebody the reconstruction has not found. All three are findings and none of them is settled here."
+    },
+    {
+      "unit": "census_1830:data/research/census_1830/records/schedule_chicago_1830.json#records/census1830_n576_045",
+      "rule": "the_1830_surname_stands_in_no_town_household",
+      "note": "The 1830 schedule, leaf n576 entry 45, in the division headed 'Peoria & Putnam Counties & Territory attached', enters 'Nathaniel Sharp' read as 'NATHANIEL SHARP'. No person in the town's 825 households carries this surname. Either the man had gone by 1835, or he lived in the part of the district that was never Chicago — the Fox River and Du Page settlements are in it too — or he is somebody the reconstruction has not found. All three are findings and none of them is settled here."
+    },
+    {
+      "unit": "census_1830:data/research/census_1830/records/schedule_chicago_1830.json#records/census1830_n576_046",
+      "rule": "the_1830_surname_only_match_was_refused_in_the_crosswalk",
+      "note": "The 1830 schedule, leaf n576 entry 46, in the division headed 'Peoria & Putnam Counties & Territory attached', enters 'Mosier Allen' read as 'MOSIER ALLEN'. The 1830 reading 'Mosier Allen' shares only a surname with the town person(s) Edward Richards Allen (hh_allen_edward_richards); Lieut. James Allen (hh_allen_lieut_james); William Allen (hh_allen_william). A surname match is a clue and not an identity, so it is REFUSED rather than merged, and the refusal is written down so the next sweep does not make the same match again."
+    },
+    {
+      "unit": "census_1830:data/research/census_1830/records/schedule_chicago_1830.json#records/census1830_n576_047",
+      "rule": "the_1830_surname_stands_in_no_town_household",
+      "note": "The 1830 schedule, leaf n576 entry 47, in the division headed 'Peoria & Putnam Counties & Territory attached', enters 'James Warker' read as 'JAMES WARKER'. No person in the town's 825 households carries this surname. Either the man had gone by 1835, or he lived in the part of the district that was never Chicago — the Fox River and Du Page settlements are in it too — or he is somebody the reconstruction has not found. All three are findings and none of them is settled here."
+    },
+    {
+      "unit": "census_1830:data/research/census_1830/records/schedule_chicago_1830.json#records/census1830_n576_048",
+      "rule": "the_1830_surname_stands_in_no_town_household",
+      "note": "The 1830 schedule, leaf n576 entry 48, in the division headed 'Peoria & Putnam Counties & Territory attached', enters 'Daniel Hunkle' read as 'DANIEL HUNKLE'. No person in the town's 825 households carries this surname. Either the man had gone by 1835, or he lived in the part of the district that was never Chicago — the Fox River and Du Page settlements are in it too — or he is somebody the reconstruction has not found. All three are findings and none of them is settled here."
+    },
+    {
+      "unit": "census_1830:data/research/census_1830/records/schedule_chicago_1830.json#records/census1830_n576_049",
+      "rule": "the_1830_surname_stands_in_no_town_household",
+      "note": "The 1830 schedule, leaf n576 entry 49, in the division headed 'Peoria & Putnam Counties & Territory attached', enters 'Jesse Egman' read as 'JESSE EGMAN'. No person in the town's 825 households carries this surname. Either the man had gone by 1835, or he lived in the part of the district that was never Chicago — the Fox River and Du Page settlements are in it too — or he is somebody the reconstruction has not found. All three are findings and none of them is settled here."
+    },
+    {
+      "unit": "census_1830:data/research/census_1830/records/schedule_chicago_1830.json#records/census1830_n576_050",
+      "rule": "the_1830_surname_only_match_was_refused_in_the_crosswalk",
+      "note": "The 1830 schedule, leaf n576 entry 50, in the division headed 'Peoria & Putnam Counties & Territory attached', enters 'Joseph Walker' read as 'JOSEPH WALKER'. The 1830 reading 'Joseph Walker' shares only a surname with the town person(s) George E. Walker (hh_walker_george_e); George H Walker (hh_walker_george_h); James Walker (hh_walker_james); Jeremiah Walker (hh_walker_jeremiah). A surname match is a clue and not an identity, so it is REFUSED rather than merged, and the refusal is written down so the next sweep does not make the same match again."
+    },
+    {
+      "unit": "census_1830:data/research/census_1830/records/schedule_chicago_1830.json#records/census1830_n576_051",
+      "rule": "the_1830_surname_stands_in_no_town_household",
+      "note": "The 1830 schedule, leaf n576 entry 51, in the division headed 'Peoria & Putnam Counties & Territory attached', enters 'William Dufield' read as 'WILLIAM DUFIELD'. No person in the town's 825 households carries this surname. Either the man had gone by 1835, or he lived in the part of the district that was never Chicago — the Fox River and Du Page settlements are in it too — or he is somebody the reconstruction has not found. All three are findings and none of them is settled here."
+    },
+    {
+      "unit": "census_1830:data/research/census_1830/records/schedule_chicago_1830.json#records/census1830_n576_052",
+      "rule": "the_1830_surname_stands_in_no_town_household",
+      "note": "The 1830 schedule, leaf n576 entry 52, in the division headed 'Peoria & Putnam Counties & Territory attached', enters 'Thomas Sickmore' read as 'THOMAS SICKMORE'. No person in the town's 825 households carries this surname. Either the man had gone by 1835, or he lived in the part of the district that was never Chicago — the Fox River and Du Page settlements are in it too — or he is somebody the reconstruction has not found. All three are findings and none of them is settled here."
+    },
+    {
+      "unit": "census_1830:data/research/census_1830/records/schedule_chicago_1830.json#records/census1830_n576_053",
+      "rule": "the_1830_surname_stands_in_no_town_household",
+      "note": "The 1830 schedule, leaf n576 entry 53, in the division headed 'Peoria & Putnam Counties & Territory attached', enters 'Stephen Stratton' read as 'STEPHEN STRATTON'. No person in the town's 825 households carries this surname. Either the man had gone by 1835, or he lived in the part of the district that was never Chicago — the Fox River and Du Page settlements are in it too — or he is somebody the reconstruction has not found. All three are findings and none of them is settled here."
+    },
+    {
+      "unit": "census_1830:data/research/census_1830/records/schedule_chicago_1830.json#records/census1830_n576_054",
+      "rule": "the_1830_surname_only_match_was_refused_in_the_crosswalk",
+      "note": "The 1830 schedule, leaf n576 entry 54, in the division headed 'Peoria & Putnam Counties & Territory attached', enters 'John Holcomb' read as 'JOHN HOLCOMB'. The 1830 reading 'John Holcomb' shares only a surname with the town person(s) Samuel B. Holcomb (hh_holcomb_samuel_b). A surname match is a clue and not an identity, so it is REFUSED rather than merged, and the refusal is written down so the next sweep does not make the same match again."
+    },
+    {
+      "unit": "census_1830:data/research/census_1830/records/schedule_chicago_1830.json#records/census1830_n576_055",
+      "rule": "the_1830_surname_only_match_was_refused_in_the_crosswalk",
+      "note": "The 1830 schedule, leaf n576 entry 55, in the division headed 'Peoria & Putnam Counties & Territory attached', enters 'Dorcus Holcomb' read as 'DORCUS HOLCOMB'. The 1830 reading 'Dorcus Holcomb' shares only a surname with the town person(s) Samuel B. Holcomb (hh_holcomb_samuel_b). A surname match is a clue and not an identity, so it is REFUSED rather than merged, and the refusal is written down so the next sweep does not make the same match again."
+    },
+    {
+      "unit": "census_1830:data/research/census_1830/records/schedule_chicago_1830.json#records/census1830_n578_001",
+      "rule": "the_1830_surname_only_match_was_refused_in_the_crosswalk",
+      "note": "The 1830 schedule, leaf n578 entry 1, in the division headed 'Peoria & Putnam Counties & Territory attached', enters 'Rice Smith' read as 'RICE SMITH'. The 1830 reading 'Rice Smith' shares only a surname with the town person(s) E Kirby Smith (hh_smith_e_kirby); Elded Smith (hh_smith_elded); George Smith (hh_smith_george); Jeremiah Smith (hh_smith_jeremiah); L W Smith (hh_smith_l_w); Lawrence Smith (hh_smith_lawrence); Matthias Smith (hh_smith_matthias); William Smith (hh_smith_william); William V Smith (hh_smith_william_v). A surname match is a clue and not an identity, so it is REFUSED rather than merged, and the refusal is written down so the next sweep does not make the same match again."
+    },
+    {
+      "unit": "census_1830:data/research/census_1830/records/schedule_chicago_1830.json#records/census1830_n578_002",
+      "rule": "the_1830_surname_stands_in_no_town_household",
+      "note": "The 1830 schedule, leaf n578 entry 2, in the division headed 'Peoria & Putnam Counties & Territory attached', enters 'Isaac Egman' read as 'ISAAC EGMAN'. No person in the town's 825 households carries this surname. Either the man had gone by 1835, or he lived in the part of the district that was never Chicago — the Fox River and Du Page settlements are in it too — or he is somebody the reconstruction has not found. All three are findings and none of them is settled here."
+    },
+    {
+      "unit": "census_1830:data/research/census_1830/records/schedule_chicago_1830.json#records/census1830_n578_003",
+      "rule": "the_1830_surname_only_match_was_refused_in_the_crosswalk",
+      "note": "The 1830 schedule, leaf n578 entry 3, in the division headed 'Peoria & Putnam Counties & Territory attached', enters 'James P Harkness' read as 'JAMES P HARKNESS'. The 1830 reading 'James P Harkness' shares only a surname with the town person(s) J. P. Harkness (hh_harkness_j_p). A surname match is a clue and not an identity, so it is REFUSED rather than merged, and the refusal is written down so the next sweep does not make the same match again."
+    },
+    {
+      "unit": "census_1830:data/research/census_1830/records/schedule_chicago_1830.json#records/census1830_n578_004",
+      "rule": "the_1830_surname_stands_in_no_town_household",
+      "note": "The 1830 schedule, leaf n578 entry 4, in the division headed 'Peoria & Putnam Counties & Territory attached', enters 'George Griggs' read as 'GEORGE GRIGGS'. No person in the town's 825 households carries this surname. Either the man had gone by 1835, or he lived in the part of the district that was never Chicago — the Fox River and Du Page settlements are in it too — or he is somebody the reconstruction has not found. All three are findings and none of them is settled here."
+    },
+    {
+      "unit": "census_1830:data/research/census_1830/records/schedule_chicago_1830.json#records/census1830_n578_005",
+      "rule": "the_1830_surname_stands_in_no_town_household",
+      "note": "The 1830 schedule, leaf n578 entry 5, in the division headed 'Peoria & Putnam Counties & Territory attached', enters 'Charles Olsen' read as 'CHARLES OLSEN'. No person in the town's 825 households carries this surname. Either the man had gone by 1835, or he lived in the part of the district that was never Chicago — the Fox River and Du Page settlements are in it too — or he is somebody the reconstruction has not found. All three are findings and none of them is settled here."
+    },
+    {
+      "unit": "census_1830:data/research/census_1830/records/schedule_chicago_1830.json#records/census1830_n578_006",
+      "rule": "the_1830_surname_stands_in_no_town_household",
+      "note": "The 1830 schedule, leaf n578 entry 6, in the division headed 'Peoria & Putnam Counties & Territory attached', enters 'Absolom Coy' read as 'ABSOLOM COY'. No person in the town's 825 households carries this surname. Either the man had gone by 1835, or he lived in the part of the district that was never Chicago — the Fox River and Du Page settlements are in it too — or he is somebody the reconstruction has not found. All three are findings and none of them is settled here."
+    },
+    {
+      "unit": "census_1830:data/research/census_1830/records/schedule_chicago_1830.json#records/census1830_n578_007",
+      "rule": "the_1830_surname_only_match_was_refused_in_the_crosswalk",
+      "note": "The 1830 schedule, leaf n578 entry 7, in the division headed 'Peoria & Putnam Counties & Territory attached', enters 'William Scott' read as 'WILLIAM SCOTT'. The 1830 reading 'William Scott' shares only a surname with the town person(s) John Scott (hh_scott_john). A surname match is a clue and not an identity, so it is REFUSED rather than merged, and the refusal is written down so the next sweep does not make the same match again."
+    },
+    {
+      "unit": "census_1830:data/research/census_1830/records/schedule_chicago_1830.json#records/census1830_n578_008",
+      "rule": "the_1830_surname_only_match_was_refused_in_the_crosswalk",
+      "note": "The 1830 schedule, leaf n578 entry 8, in the division headed 'Peoria & Putnam Counties & Territory attached', enters 'Isaac Preston' read as 'ISAAC PRESTON'. The 1830 reading 'Isaac Preston' shares only a surname with the town person(s) Esther Preston (hh_preston_esther); Stephen II. Preston (hh_preston_stephen_ii). A surname match is a clue and not an identity, so it is REFUSED rather than merged, and the refusal is written down so the next sweep does not make the same match again."
+    },
+    {
+      "unit": "census_1830:data/research/census_1830/records/schedule_chicago_1830.json#records/census1830_n578_009",
+      "rule": "the_1830_surname_only_match_was_refused_in_the_crosswalk",
+      "note": "The 1830 schedule, leaf n578 entry 9, in the division headed 'Peoria & Putnam Counties & Territory attached', enters 'Elijah Preston' read as 'ELIJAH PRESTON'. The 1830 reading 'Elijah Preston' shares only a surname with the town person(s) Esther Preston (hh_preston_esther); Stephen II. Preston (hh_preston_stephen_ii). A surname match is a clue and not an identity, so it is REFUSED rather than merged, and the refusal is written down so the next sweep does not make the same match again."
+    },
+    {
+      "unit": "census_1830:data/research/census_1830/records/schedule_chicago_1830.json#records/census1830_n578_010",
+      "rule": "the_1830_surname_only_match_was_refused_in_the_crosswalk",
+      "note": "The 1830 schedule, leaf n578 entry 10, in the division headed 'Peoria & Putnam Counties & Territory attached', enters 'David Smith' read as 'DAVID SMITH'. The 1830 reading 'David Smith' shares only a surname with the town person(s) E Kirby Smith (hh_smith_e_kirby); Elded Smith (hh_smith_elded); George Smith (hh_smith_george); Jeremiah Smith (hh_smith_jeremiah); L W Smith (hh_smith_l_w); Lawrence Smith (hh_smith_lawrence); Matthias Smith (hh_smith_matthias); William Smith (hh_smith_william); William V Smith (hh_smith_william_v). A surname match is a clue and not an identity, so it is REFUSED rather than merged, and the refusal is written down so the next sweep does not make the same match again."
+    },
+    {
+      "unit": "census_1830:data/research/census_1830/records/schedule_chicago_1830.json#records/census1830_n578_011",
+      "rule": "the_1830_surname_stands_in_no_town_household",
+      "note": "The 1830 schedule, leaf n578 entry 11, in the division headed 'Peoria & Putnam Counties & Territory attached', enters 'Joseph Walker senr' read as 'JOSEPH WALKER SENR'. No person in the town's 825 households carries this surname. Either the man had gone by 1835, or he lived in the part of the district that was never Chicago — the Fox River and Du Page settlements are in it too — or he is somebody the reconstruction has not found. All three are findings and none of them is settled here."
+    },
+    {
+      "unit": "census_1830:data/research/census_1830/records/schedule_chicago_1830.json#records/census1830_n578_012",
+      "rule": "the_1830_surname_stands_in_no_town_household",
+      "note": "The 1830 schedule, leaf n578 entry 12, in the division headed 'Peoria & Putnam Counties & Territory attached', enters 'Johnson Thurman' read as 'JOHNSON THURMAN'. No person in the town's 825 households carries this surname. Either the man had gone by 1835, or he lived in the part of the district that was never Chicago — the Fox River and Du Page settlements are in it too — or he is somebody the reconstruction has not found. All three are findings and none of them is settled here."
+    },
+    {
+      "unit": "census_1830:data/research/census_1830/records/schedule_chicago_1830.json#records/census1830_n578_013",
+      "rule": "the_1830_surname_only_match_was_refused_in_the_crosswalk",
+      "note": "The 1830 schedule, leaf n578 entry 13, in the division headed 'Peoria & Putnam Counties & Territory attached', enters 'Timothy Gridley' read as 'TIMOTHY GRIDLEY'. The 1830 reading 'Timothy Gridley' shares only a surname with the town person(s) Harriet Gridley (hh_gridley_harriet). A surname match is a clue and not an identity, so it is REFUSED rather than merged, and the refusal is written down so the next sweep does not make the same match again."
+    },
+    {
+      "unit": "census_1830:data/research/census_1830/records/schedule_chicago_1830.json#records/census1830_n578_014",
+      "rule": "the_1830_surname_stands_in_no_town_household",
+      "note": "The 1830 schedule, leaf n578 entry 14, in the division headed 'Peoria & Putnam Counties & Territory attached', enters 'George Frith' read as 'GEORGE FRITH'. No person in the town's 825 households carries this surname. Either the man had gone by 1835, or he lived in the part of the district that was never Chicago — the Fox River and Du Page settlements are in it too — or he is somebody the reconstruction has not found. All three are findings and none of them is settled here."
+    },
+    {
+      "unit": "census_1830:data/research/census_1830/records/schedule_chicago_1830.json#records/census1830_n578_015",
+      "rule": "the_1830_surname_stands_in_no_town_household",
+      "note": "The 1830 schedule, leaf n578 entry 15, in the division headed 'Peoria & Putnam Counties & Territory attached', enters 'John Wortman' read as 'JOHN WORTMAN'. No person in the town's 825 households carries this surname. Either the man had gone by 1835, or he lived in the part of the district that was never Chicago — the Fox River and Du Page settlements are in it too — or he is somebody the reconstruction has not found. All three are findings and none of them is settled here."
+    },
+    {
+      "unit": "census_1830:data/research/census_1830/records/schedule_chicago_1830.json#records/census1830_n578_016",
+      "rule": "the_1830_surname_stands_in_no_town_household",
+      "note": "The 1830 schedule, leaf n578 entry 16, in the division headed 'Peoria & Putnam Counties & Territory attached', enters 'Thomas Vickers' read as 'THOMAS VICKERS'. No person in the town's 825 households carries this surname. Either the man had gone by 1835, or he lived in the part of the district that was never Chicago — the Fox River and Du Page settlements are in it too — or he is somebody the reconstruction has not found. All three are findings and none of them is settled here."
+    },
+    {
+      "unit": "census_1830:data/research/census_1830/records/schedule_chicago_1830.json#records/census1830_n578_017",
+      "rule": "the_1830_surname_stands_in_no_town_household",
+      "note": "The 1830 schedule, leaf n578 entry 17, in the division headed 'Peoria & Putnam Counties & Territory attached', enters 'Gelotius Mark' read as 'GELOTIUS MARK'. No person in the town's 825 households carries this surname. Either the man had gone by 1835, or he lived in the part of the district that was never Chicago — the Fox River and Du Page settlements are in it too — or he is somebody the reconstruction has not found. All three are findings and none of them is settled here."
+    },
+    {
+      "unit": "census_1830:data/research/census_1830/records/schedule_chicago_1830.json#records/census1830_n578_018",
+      "rule": "the_1830_surname_only_match_was_refused_in_the_crosswalk",
+      "note": "The 1830 schedule, leaf n578 entry 18, in the division headed 'Peoria & Putnam Counties & Territory attached', enters 'Ashbell Merrill' read as 'ASHBELL MERRILL'. The 1830 reading 'Ashbell Merrill' shares only a surname with the town person(s) George W Merrill (hh_merrill_george_w); Winthrop Merrill (hh_merrill_winthrop). A surname match is a clue and not an identity, so it is REFUSED rather than merged, and the refusal is written down so the next sweep does not make the same match again."
+    },
+    {
+      "unit": "census_1830:data/research/census_1830/records/schedule_chicago_1830.json#records/census1830_n578_019",
+      "rule": "the_1830_surname_stands_in_no_town_household",
+      "note": "The 1830 schedule, leaf n578 entry 19, in the division headed 'Peoria & Putnam Counties & Territory attached', enters 'George Sigler' read as 'GEORGE SIGLER'. No person in the town's 825 households carries this surname. Either the man had gone by 1835, or he lived in the part of the district that was never Chicago — the Fox River and Du Page settlements are in it too — or he is somebody the reconstruction has not found. All three are findings and none of them is settled here."
+    },
+    {
+      "unit": "census_1830:data/research/census_1830/records/schedule_chicago_1830.json#records/census1830_n578_020",
+      "rule": "the_1830_surname_only_match_was_refused_in_the_crosswalk",
+      "note": "The 1830 schedule, leaf n578 entry 20, in the division headed 'Peoria & Putnam Counties & Territory attached', enters 'John Morrow' read as 'JOHN MORROW'. The 1830 reading 'John Morrow' shares only a surname with the town person(s) Jeremiah Morrow (hh_morrow_jeremiah). A surname match is a clue and not an identity, so it is REFUSED rather than merged, and the refusal is written down so the next sweep does not make the same match again."
+    },
+    {
+      "unit": "census_1830:data/research/census_1830/records/schedule_chicago_1830.json#records/census1830_n578_021",
+      "rule": "the_1830_surname_stands_in_no_town_household",
+      "note": "The 1830 schedule, leaf n578 entry 21, in the division headed 'Peoria & Putnam Counties & Territory attached', enters 'Stephen French' read as 'STEPHEN FRENCH'. No person in the town's 825 households carries this surname. Either the man had gone by 1835, or he lived in the part of the district that was never Chicago — the Fox River and Du Page settlements are in it too — or he is somebody the reconstruction has not found. All three are findings and none of them is settled here."
+    },
+    {
+      "unit": "census_1830:data/research/census_1830/records/schedule_chicago_1830.json#records/census1830_n578_022",
+      "rule": "the_1830_surname_only_match_was_refused_in_the_crosswalk",
+      "note": "The 1830 schedule, leaf n578 entry 22, in the division headed 'Peoria & Putnam Counties & Territory attached', enters 'Sylvanus Moor' read as 'SYLVANUS MOOR'. The 1830 reading 'Sylvanus Moor' shares only a surname with the town person(s) Ebenezer S More (hh_more_ebenezer_s); Henry Moore (hh_moore_henry). A surname match is a clue and not an identity, so it is REFUSED rather than merged, and the refusal is written down so the next sweep does not make the same match again."
+    },
+    {
+      "unit": "census_1830:data/research/census_1830/records/schedule_chicago_1830.json#records/census1830_n578_023",
+      "rule": "the_1830_surname_stands_in_no_town_household",
+      "note": "The 1830 schedule, leaf n578 entry 23, in the division headed 'Peoria & Putnam Counties & Territory attached', enters 'John B Dodge' read as 'JOHN B DODGE'. No person in the town's 825 households carries this surname. Either the man had gone by 1835, or he lived in the part of the district that was never Chicago — the Fox River and Du Page settlements are in it too — or he is somebody the reconstruction has not found. All three are findings and none of them is settled here."
+    },
+    {
+      "unit": "census_1830:data/research/census_1830/records/schedule_chicago_1830.json#records/census1830_n578_024",
+      "rule": "the_1830_surname_only_match_was_refused_in_the_crosswalk",
+      "note": "The 1830 schedule, leaf n578 entry 24, in the division headed 'Peoria & Putnam Counties & Territory attached', enters 'Benjamin Smith' read as 'BENJAMIN SMITH'. The 1830 reading 'Benjamin Smith' shares only a surname with the town person(s) E Kirby Smith (hh_smith_e_kirby); Elded Smith (hh_smith_elded); George Smith (hh_smith_george); Jeremiah Smith (hh_smith_jeremiah); L W Smith (hh_smith_l_w); Lawrence Smith (hh_smith_lawrence); Matthias Smith (hh_smith_matthias); William Smith (hh_smith_william); William V Smith (hh_smith_william_v). A surname match is a clue and not an identity, so it is REFUSED rather than merged, and the refusal is written down so the next sweep does not make the same match again."
+    },
+    {
+      "unit": "census_1830:data/research/census_1830/records/schedule_chicago_1830.json#records/census1830_n578_025",
+      "rule": "the_1830_surname_only_match_was_refused_in_the_crosswalk",
+      "note": "The 1830 schedule, leaf n578 entry 25, in the division headed 'Peoria & Putnam Counties & Territory attached', enters 'John C Owen' read as 'JOHN C OWEN'. The 1830 reading 'John C Owen' shares only a surname with the town person(s) J V Owen (hh_owen_j_v); Thomas Jefferson Vance Owen (hh_owen_thomas_jv). A surname match is a clue and not an identity, so it is REFUSED rather than merged, and the refusal is written down so the next sweep does not make the same match again."
+    },
+    {
+      "unit": "census_1830:data/research/census_1830/records/schedule_chicago_1830.json#records/census1830_n578_026",
+      "rule": "the_1830_surname_stands_in_no_town_household",
+      "note": "The 1830 schedule, leaf n578 entry 26, in the division headed 'Peoria & Putnam Counties & Territory attached', enters 'Isaac B Essex' read as 'ISAAC B ESSEX'. No person in the town's 825 households carries this surname. Either the man had gone by 1835, or he lived in the part of the district that was never Chicago — the Fox River and Du Page settlements are in it too — or he is somebody the reconstruction has not found. All three are findings and none of them is settled here."
+    },
+    {
+      "unit": "census_1830:data/research/census_1830/records/schedule_chicago_1830.json#records/census1830_n578_027",
+      "rule": "the_1830_surname_stands_in_no_town_household",
+      "note": "The 1830 schedule, leaf n578 entry 27, in the division headed 'Peoria & Putnam Counties & Territory attached', enters 'Harris Munroe' read as 'HARRIS MUNROE'. No person in the town's 825 households carries this surname. Either the man had gone by 1835, or he lived in the part of the district that was never Chicago — the Fox River and Du Page settlements are in it too — or he is somebody the reconstruction has not found. All three are findings and none of them is settled here."
+    },
+    {
+      "unit": "census_1830:data/research/census_1830/records/schedule_chicago_1830.json#records/census1830_n578_028",
+      "rule": "the_1830_surname_stands_in_no_town_household",
+      "note": "The 1830 schedule, leaf n578 entry 28, in the division headed 'Peoria & Putnam Counties & Territory attached', enters 'Joel Hicks' read as 'JOEL HICKS'. No person in the town's 825 households carries this surname. Either the man had gone by 1835, or he lived in the part of the district that was never Chicago — the Fox River and Du Page settlements are in it too — or he is somebody the reconstruction has not found. All three are findings and none of them is settled here."
+    },
+    {
+      "unit": "census_1830:data/research/census_1830/records/schedule_chicago_1830.json#records/census1830_n578_029",
+      "rule": "the_1830_surname_stands_in_no_town_household",
+      "note": "The 1830 schedule, leaf n578 entry 29, in the division headed 'Peoria & Putnam Counties & Territory attached', enters 'Jeriab Root' read as 'JERIAB ROOT'. No person in the town's 825 households carries this surname. Either the man had gone by 1835, or he lived in the part of the district that was never Chicago — the Fox River and Du Page settlements are in it too — or he is somebody the reconstruction has not found. All three are findings and none of them is settled here."
+    },
+    {
+      "unit": "census_1830:data/research/census_1830/records/schedule_chicago_1830.json#records/census1830_n578_030",
+      "rule": "the_1830_surname_stands_in_no_town_household",
+      "note": "The 1830 schedule, leaf n578 entry 30, in the division headed 'Peoria & Putnam Counties & Territory attached', enters 'Samuel Reed junr' read as 'SAMUEL REED JUNR'. No person in the town's 825 households carries this surname. Either the man had gone by 1835, or he lived in the part of the district that was never Chicago — the Fox River and Du Page settlements are in it too — or he is somebody the reconstruction has not found. All three are findings and none of them is settled here."
+    },
+    {
+      "unit": "census_1830:data/research/census_1830/records/schedule_chicago_1830.json#records/census1830_n578_031",
+      "rule": "the_1830_surname_only_match_was_refused_in_the_crosswalk",
+      "note": "The 1830 schedule, leaf n578 entry 31, in the division headed 'Peoria & Putnam Counties & Territory attached', enters 'Francis Thomas' read as 'FRANCIS THOMAS'. The 1830 reading 'Francis Thomas' shares only a surname with the town person(s) Frederick Thomas (hh_thomas_frederick). A surname match is a clue and not an identity, so it is REFUSED rather than merged, and the refusal is written down so the next sweep does not make the same match again."
+    },
+    {
+      "unit": "census_1830:data/research/census_1830/records/schedule_chicago_1830.json#records/census1830_n578_032",
+      "rule": "the_1830_surname_only_match_was_refused_in_the_crosswalk",
+      "note": "The 1830 schedule, leaf n578 entry 32, in the division headed 'Peoria & Putnam Counties & Territory attached', enters 'Ezekiel Thomas' read as 'EZEKIEL THOMAS'. The 1830 reading 'Ezekiel Thomas' shares only a surname with the town person(s) Frederick Thomas (hh_thomas_frederick). A surname match is a clue and not an identity, so it is REFUSED rather than merged, and the refusal is written down so the next sweep does not make the same match again."
+    },
+    {
+      "unit": "census_1830:data/research/census_1830/records/schedule_chicago_1830.json#records/census1830_n578_033",
+      "rule": "the_1830_surname_stands_in_no_town_household",
+      "note": "The 1830 schedule, leaf n578 entry 33, in the division headed 'Peoria & Putnam Counties & Territory attached', enters 'William Hammett' read as 'WILLIAM HAMMETT'. No person in the town's 825 households carries this surname. Either the man had gone by 1835, or he lived in the part of the district that was never Chicago — the Fox River and Du Page settlements are in it too — or he is somebody the reconstruction has not found. All three are findings and none of them is settled here."
+    },
+    {
+      "unit": "census_1830:data/research/census_1830/records/schedule_chicago_1830.json#records/census1830_n578_034",
+      "rule": "the_1830_surname_stands_in_no_town_household",
+      "note": "The 1830 schedule, leaf n578 entry 34, in the division headed 'Peoria & Putnam Counties & Territory attached', enters 'Mahlin Lupton' read as 'MAHLIN LUPTON'. No person in the town's 825 households carries this surname. Either the man had gone by 1835, or he lived in the part of the district that was never Chicago — the Fox River and Du Page settlements are in it too — or he is somebody the reconstruction has not found. All three are findings and none of them is settled here."
+    },
+    {
+      "unit": "census_1830:data/research/census_1830/records/schedule_chicago_1830.json#records/census1830_n578_035",
+      "rule": "the_1830_surname_stands_in_no_town_household",
+      "note": "The 1830 schedule, leaf n578 entry 35, in the division headed 'Peoria & Putnam Counties & Territory attached', enters 'John Hammett' read as 'JOHN HAMMETT'. No person in the town's 825 households carries this surname. Either the man had gone by 1835, or he lived in the part of the district that was never Chicago — the Fox River and Du Page settlements are in it too — or he is somebody the reconstruction has not found. All three are findings and none of them is settled here."
+    },
+    {
+      "unit": "census_1830:data/research/census_1830/records/schedule_chicago_1830.json#records/census1830_n578_036",
+      "rule": "the_1830_surname_stands_in_no_town_household",
+      "note": "The 1830 schedule, leaf n578 entry 36, in the division headed 'Peoria & Putnam Counties & Territory attached', enters 'Hiram McLaughlin' read as 'HIRAM MCLAUGHLIN'. No person in the town's 825 households carries this surname. Either the man had gone by 1835, or he lived in the part of the district that was never Chicago — the Fox River and Du Page settlements are in it too — or he is somebody the reconstruction has not found. All three are findings and none of them is settled here."
+    },
+    {
+      "unit": "census_1830:data/research/census_1830/records/schedule_chicago_1830.json#records/census1830_n578_037",
+      "rule": "the_1830_surname_stands_in_no_town_household",
+      "note": "The 1830 schedule, leaf n578 entry 37, in the division headed 'Peoria & Putnam Counties & Territory attached', enters 'Joseph B Meredith' read as 'JOSEPH B MEREDITH'. No person in the town's 825 households carries this surname. Either the man had gone by 1835, or he lived in the part of the district that was never Chicago — the Fox River and Du Page settlements are in it too — or he is somebody the reconstruction has not found. All three are findings and none of them is settled here."
+    },
+    {
+      "unit": "census_1830:data/research/census_1830/records/schedule_chicago_1830.json#records/census1830_n578_038",
+      "rule": "the_1830_surname_stands_in_no_town_household",
+      "note": "The 1830 schedule, leaf n578 entry 38, in the division headed 'Peoria & Putnam Counties & Territory attached', enters 'John Fraker' read as 'JOHN FRAKER'. No person in the town's 825 households carries this surname. Either the man had gone by 1835, or he lived in the part of the district that was never Chicago — the Fox River and Du Page settlements are in it too — or he is somebody the reconstruction has not found. All three are findings and none of them is settled here."
+    },
+    {
+      "unit": "census_1830:data/research/census_1830/records/schedule_chicago_1830.json#records/census1830_n578_039",
+      "rule": "the_1830_surname_stands_in_no_town_household",
+      "note": "The 1830 schedule, leaf n578 entry 39, in the division headed 'Peoria & Putnam Counties & Territory attached', enters 'Charles Boyd' read as 'CHARLES BOYD'. No person in the town's 825 households carries this surname. Either the man had gone by 1835, or he lived in the part of the district that was never Chicago — the Fox River and Du Page settlements are in it too — or he is somebody the reconstruction has not found. All three are findings and none of them is settled here."
+    },
+    {
+      "unit": "census_1830:data/research/census_1830/records/schedule_chicago_1830.json#records/census1830_n578_040",
+      "rule": "the_1830_surname_stands_in_no_town_household",
+      "note": "The 1830 schedule, leaf n578 entry 40, in the division headed 'Peoria & Putnam Counties & Territory attached', enters 'Timothy Perkins' read as 'TIMOTHY PERKINS'. No person in the town's 825 households carries this surname. Either the man had gone by 1835, or he lived in the part of the district that was never Chicago — the Fox River and Du Page settlements are in it too — or he is somebody the reconstruction has not found. All three are findings and none of them is settled here."
+    },
+    {
+      "unit": "census_1830:data/research/census_1830/records/schedule_chicago_1830.json#records/census1830_n578_041",
+      "rule": "the_1830_surname_only_match_was_refused_in_the_crosswalk",
+      "note": "The 1830 schedule, leaf n578 entry 41, in the division headed 'Peoria & Putnam Counties & Territory attached', enters 'Amos Leonard' read as 'AMOS LEONARD'. The 1830 reading 'Amos Leonard' shares only a surname with the town person(s) Anson Leonard (hh_leonard_anson); N Leonard (hh_leonard_n). A surname match is a clue and not an identity, so it is REFUSED rather than merged, and the refusal is written down so the next sweep does not make the same match again."
+    },
+    {
+      "unit": "census_1830:data/research/census_1830/records/schedule_chicago_1830.json#records/census1830_n578_042",
+      "rule": "the_1830_surname_stands_in_no_town_household",
+      "note": "The 1830 schedule, leaf n578 entry 42, in the division headed 'Peoria & Putnam Counties & Territory attached', enters 'Leonard Roth' read as 'LEONARD ROTH'. No person in the town's 825 households carries this surname. Either the man had gone by 1835, or he lived in the part of the district that was never Chicago — the Fox River and Du Page settlements are in it too — or he is somebody the reconstruction has not found. All three are findings and none of them is settled here."
+    },
+    {
+      "unit": "census_1830:data/research/census_1830/records/schedule_chicago_1830.json#records/census1830_n578_043",
+      "rule": "the_1830_surname_stands_in_no_town_household",
+      "note": "The 1830 schedule, leaf n578 entry 43, in the division headed 'Peoria & Putnam Counties & Territory attached', enters 'Robert Sattlegent' read as 'ROBERT SATTLEGENT'. No person in the town's 825 households carries this surname. Either the man had gone by 1835, or he lived in the part of the district that was never Chicago — the Fox River and Du Page settlements are in it too — or he is somebody the reconstruction has not found. All three are findings and none of them is settled here."
+    },
+    {
+      "unit": "census_1830:data/research/census_1830/records/schedule_chicago_1830.json#records/census1830_n578_044",
+      "rule": "the_1830_surname_stands_in_no_town_household",
+      "note": "The 1830 schedule, leaf n578 entry 44, in the division headed 'Peoria & Putnam Counties & Territory attached', enters 'John Hayes' read as 'JOHN HAYES'. No person in the town's 825 households carries this surname. Either the man had gone by 1835, or he lived in the part of the district that was never Chicago — the Fox River and Du Page settlements are in it too — or he is somebody the reconstruction has not found. All three are findings and none of them is settled here."
+    },
+    {
+      "unit": "census_1830:data/research/census_1830/records/schedule_chicago_1830.json#records/census1830_n578_045",
+      "rule": "the_1830_surname_stands_in_no_town_household",
+      "note": "The 1830 schedule, leaf n578 entry 45, in the division headed 'Peoria & Putnam Counties & Territory attached', enters 'Joab Henson' read as 'JOAB HENSON'. No person in the town's 825 households carries this surname. Either the man had gone by 1835, or he lived in the part of the district that was never Chicago — the Fox River and Du Page settlements are in it too — or he is somebody the reconstruction has not found. All three are findings and none of them is settled here."
+    },
+    {
+      "unit": "census_1830:data/research/census_1830/records/schedule_chicago_1830.json#records/census1830_n578_046",
+      "rule": "the_1830_surname_only_match_was_refused_in_the_crosswalk",
+      "note": "The 1830 schedule, leaf n578 entry 46, in the division headed 'Peoria & Putnam Counties & Territory attached', enters 'William Davis' read as 'WILLIAM DAVIS'. The 1830 reading 'William Davis' shares only a surname with the town person(s) Abissinia Davis (hh_davis_abissinia); George Davis (hh_davis_george); John Davis (hh_davis_john); T. O. Davis (hh_davis_t_o). A surname match is a clue and not an identity, so it is REFUSED rather than merged, and the refusal is written down so the next sweep does not make the same match again."
+    },
+    {
+      "unit": "census_1830:data/research/census_1830/records/schedule_chicago_1830.json#records/census1830_n578_047",
+      "rule": "the_1830_surname_only_match_was_refused_in_the_crosswalk",
+      "note": "The 1830 schedule, leaf n578 entry 47, in the division headed 'Peoria & Putnam Counties & Territory attached', enters 'Loucian Fullerton' read as 'LOUCIAN FULLERTON'. The 1830 reading 'Loucian Fullerton' shares only a surname with the town person(s) Alexander N. Fullerton (hh_fullerton_alexander). A surname match is a clue and not an identity, so it is REFUSED rather than merged, and the refusal is written down so the next sweep does not make the same match again."
+    },
+    {
+      "unit": "census_1830:data/research/census_1830/records/schedule_chicago_1830.json#records/census1830_n578_048",
+      "rule": "the_1830_surname_stands_in_no_town_household",
+      "note": "The 1830 schedule, leaf n578 entry 48, in the division headed 'Peoria & Putnam Counties & Territory attached', enters 'Enoch Maderon' read as 'ENOCH MADERON'. No person in the town's 825 households carries this surname. Either the man had gone by 1835, or he lived in the part of the district that was never Chicago — the Fox River and Du Page settlements are in it too — or he is somebody the reconstruction has not found. All three are findings and none of them is settled here."
+    },
+    {
+      "unit": "census_1830:data/research/census_1830/records/schedule_chicago_1830.json#records/census1830_n578_049",
+      "rule": "the_1830_surname_only_match_was_refused_in_the_crosswalk",
+      "note": "The 1830 schedule, leaf n578 entry 49, in the division headed 'Peoria & Putnam Counties & Territory attached', enters 'Samuel Lapsley' read as 'SAMUEL LAPSLEY'. The 1830 reading 'Samuel Lapsley' shares only a surname with the town person(s) John A. Lapsley (hh_lapsley_john_a). A surname match is a clue and not an identity, so it is REFUSED rather than merged, and the refusal is written down so the next sweep does not make the same match again."
+    },
+    {
+      "unit": "census_1830:data/research/census_1830/records/schedule_chicago_1830.json#records/census1830_n578_050",
+      "rule": "the_1830_line_bounds_a_held_residents_presence",
+      "note": "The 1830 schedule, leaf n578 entry 50, in the division headed 'Peoria & Putnam Counties & Territory attached', enters 'Joseph S Reynolds' read as 'JOSEPH S REYNOLDS'. Surname and given name both agree between the 1830 reading 'Joseph S Reynolds' and the town person 'Joseph Reynolds' in household hh_reynolds_joseph. The 1830 line is carried as EARLIER EVIDENCE for that person and grades nothing on its own. The household is hh_reynolds_joseph."
+    },
+    {
+      "unit": "census_1830:data/research/census_1830/records/schedule_chicago_1830.json#records/census1830_n578_051",
+      "rule": "the_1830_surname_stands_in_no_town_household",
+      "note": "The 1830 schedule, leaf n578 entry 51, in the division headed 'Peoria & Putnam Counties & Territory attached', enters 'Robert Bassford' read as 'ROBERT BASSFORD'. No person in the town's 825 households carries this surname. Either the man had gone by 1835, or he lived in the part of the district that was never Chicago — the Fox River and Du Page settlements are in it too — or he is somebody the reconstruction has not found. All three are findings and none of them is settled here."
+    },
+    {
+      "unit": "census_1830:data/research/census_1830/records/schedule_chicago_1830.json#records/census1830_n578_052",
+      "rule": "the_1830_surname_only_match_was_refused_in_the_crosswalk",
+      "note": "The 1830 schedule, leaf n578 entry 52, in the division headed 'Peoria & Putnam Counties & Territory attached', enters 'Abner Young' read as 'ABNER YOUNG'. The 1830 reading 'Abner Young' shares only a surname with the town person(s) Gideon Young (hh_young_gideon); Richard M Young (hh_young_richard_m). A surname match is a clue and not an identity, so it is REFUSED rather than merged, and the refusal is written down so the next sweep does not make the same match again."
+    },
+    {
+      "unit": "census_1830:data/research/census_1830/records/schedule_chicago_1830.json#records/census1830_n578_053",
+      "rule": "the_1830_surname_only_match_was_refused_in_the_crosswalk",
+      "note": "The 1830 schedule, leaf n578 entry 53, in the division headed 'Peoria & Putnam Counties & Territory attached', enters 'Jedaciah V Woolley' read as 'JEDACIAH V WOOLLEY'. The 1830 reading 'Jedaciah V Woolley' shares only a surname with the town person(s) Jeddiah Wooley (hh_wooley_jeddiah); Jedidiah Wooley (hh_wooley_jedidiah). A surname match is a clue and not an identity, so it is REFUSED rather than merged, and the refusal is written down so the next sweep does not make the same match again."
+    },
+    {
+      "unit": "census_1830:data/research/census_1830/records/schedule_chicago_1830.json#records/census1830_n578_054",
+      "rule": "the_1830_surname_stands_in_no_town_household",
+      "note": "The 1830 schedule, leaf n578 entry 54, in the division headed 'Peoria & Putnam Counties & Territory attached', enters 'Henry Broomsback' read as 'HENRY BROOMSBACK'. No person in the town's 825 households carries this surname. Either the man had gone by 1835, or he lived in the part of the district that was never Chicago — the Fox River and Du Page settlements are in it too — or he is somebody the reconstruction has not found. All three are findings and none of them is settled here."
+    },
+    {
+      "unit": "census_1830:data/research/census_1830/records/schedule_chicago_1830.json#records/census1830_n578_055",
+      "rule": "the_1830_surname_stands_in_no_town_household",
+      "note": "The 1830 schedule, leaf n578 entry 55, in the division headed 'Peoria & Putnam Counties & Territory attached', enters 'Anthony Pitzer' read as 'ANTHONY PITZER'. No person in the town's 825 households carries this surname. Either the man had gone by 1835, or he lived in the part of the district that was never Chicago — the Fox River and Du Page settlements are in it too — or he is somebody the reconstruction has not found. All three are findings and none of them is settled here."
+    },
+    {
+      "unit": "census_1830:data/research/census_1830/records/schedule_chicago_1830.json#records/census1830_n578_056",
+      "rule": "the_1830_surname_stands_in_no_town_household",
+      "note": "The 1830 schedule, leaf n578 entry 56, in the division headed 'Peoria & Putnam Counties & Territory attached', enters 'Roger Selcolt' read as 'ROGER SELCOLT'. No person in the town's 825 households carries this surname. Either the man had gone by 1835, or he lived in the part of the district that was never Chicago — the Fox River and Du Page settlements are in it too — or he is somebody the reconstruction has not found. All three are findings and none of them is settled here."
+    },
+    {
+      "unit": "census_1830:data/research/census_1830/records/schedule_chicago_1830.json#records/census1830_n580_001",
+      "rule": "the_1830_surname_only_match_was_refused_in_the_crosswalk",
+      "note": "The 1830 schedule, leaf n580 entry 1, in the division headed 'Peoria & Putnam Counties & Territory attached', enters 'John Green' read as 'JOHN GREEN'. The 1830 reading 'John Green' shares only a surname with the town person(s) Damel M. Green (hh_green_damel_m); J Green (hh_green_j); Mary Green (hh_green_mary). A surname match is a clue and not an identity, so it is REFUSED rather than merged, and the refusal is written down so the next sweep does not make the same match again."
+    },
+    {
+      "unit": "census_1830:data/research/census_1830/records/schedule_chicago_1830.json#records/census1830_n580_002",
+      "rule": "the_1830_surname_stands_in_no_town_household",
+      "note": "The 1830 schedule, leaf n580 entry 2, in the division headed 'Peoria & Putnam Counties & Territory attached', enters 'Edmond Weed' read as 'EDMOND WEED'. No person in the town's 825 households carries this surname. Either the man had gone by 1835, or he lived in the part of the district that was never Chicago — the Fox River and Du Page settlements are in it too — or he is somebody the reconstruction has not found. All three are findings and none of them is settled here."
+    },
+    {
+      "unit": "census_1830:data/research/census_1830/records/schedule_chicago_1830.json#records/census1830_n580_003",
+      "rule": "the_1830_surname_only_match_was_refused_in_the_crosswalk",
+      "note": "The 1830 schedule, leaf n580 entry 3, in the division headed 'Peoria & Putnam Counties & Territory attached', enters 'John Dougherty' read as 'JOHN DOUGHERTY'. The 1830 reading 'John Dougherty' shares only a surname with the town person(s) Joan Dougherty (hh_dougherty_joan). A surname match is a clue and not an identity, so it is REFUSED rather than merged, and the refusal is written down so the next sweep does not make the same match again."
+    },
+    {
+      "unit": "census_1830:data/research/census_1830/records/schedule_chicago_1830.json#records/census1830_n580_004",
+      "rule": "the_1830_surname_stands_in_no_town_household",
+      "note": "The 1830 schedule, leaf n580 entry 4, in the division headed 'Peoria & Putnam Counties & Territory attached', enters 'Walter Sehry' read as 'WALTER SEHRY'. No person in the town's 825 households carries this surname. Either the man had gone by 1835, or he lived in the part of the district that was never Chicago — the Fox River and Du Page settlements are in it too — or he is somebody the reconstruction has not found. All three are findings and none of them is settled here."
+    },
+    {
+      "unit": "census_1830:data/research/census_1830/records/schedule_chicago_1830.json#records/census1830_n580_005",
+      "rule": "the_1830_surname_only_match_was_refused_in_the_crosswalk",
+      "note": "The 1830 schedule, leaf n580 entry 5, in the division headed 'Peoria & Putnam Counties & Territory attached', enters 'William Parcel' read as 'WILLIAM PARCEL'. The 1830 reading 'William Parcel' shares only a surname with the town person(s) Aaron Parcel (hh_parcel_aaron). A surname match is a clue and not an identity, so it is REFUSED rather than merged, and the refusal is written down so the next sweep does not make the same match again."
+    },
+    {
+      "unit": "census_1830:data/research/census_1830/records/schedule_chicago_1830.json#records/census1830_n580_006",
+      "rule": "the_1830_surname_only_match_was_refused_in_the_crosswalk",
+      "note": "The 1830 schedule, leaf n580 entry 6, in the division headed 'Peoria & Putnam Counties & Territory attached', enters 'James Vaughn' read as 'JAMES VAUGHN'. The 1830 reading 'James Vaughn' shares only a surname with the town person(s) Alison B. Vaughn (hh_vaughn_alison_b). A surname match is a clue and not an identity, so it is REFUSED rather than merged, and the refusal is written down so the next sweep does not make the same match again."
+    },
+    {
+      "unit": "census_1830:data/research/census_1830/records/schedule_chicago_1830.json#records/census1830_n580_007",
+      "rule": "the_1830_surname_only_match_was_refused_in_the_crosswalk",
+      "note": "The 1830 schedule, leaf n580 entry 7, in the division headed 'Peoria & Putnam Counties & Territory attached', enters 'Hugh Walker' read as 'HUGH WALKER'. The 1830 reading 'Hugh Walker' shares only a surname with the town person(s) George E. Walker (hh_walker_george_e); George H Walker (hh_walker_george_h); James Walker (hh_walker_james); Jeremiah Walker (hh_walker_jeremiah). A surname match is a clue and not an identity, so it is REFUSED rather than merged, and the refusal is written down so the next sweep does not make the same match again."
+    },
+    {
+      "unit": "census_1830:data/research/census_1830/records/schedule_chicago_1830.json#records/census1830_n580_008",
+      "rule": "the_1830_surname_only_match_was_refused_in_the_crosswalk",
+      "note": "The 1830 schedule, leaf n580 entry 8, in the division headed 'Peoria & Putnam Counties & Territory attached', enters 'William Skammershorn' read as 'WILLIAM SCHERMERHORN'. The 1830 reading 'William Skammershorn' shares only a surname with the town person(s) M. L. Schermerhorn (hh_schermerhorn_m_l). A surname match is a clue and not an identity, so it is REFUSED rather than merged, and the refusal is written down so the next sweep does not make the same match again."
+    },
+    {
+      "unit": "census_1830:data/research/census_1830/records/schedule_chicago_1830.json#records/census1830_n580_009",
+      "rule": "the_1830_surname_stands_in_no_town_household",
+      "note": "The 1830 schedule, leaf n580 entry 9, in the division headed 'Peoria & Putnam Counties & Territory attached', enters 'Rectel Vermett' read as 'RECTEL VERMETT'. No person in the town's 825 households carries this surname. Either the man had gone by 1835, or he lived in the part of the district that was never Chicago — the Fox River and Du Page settlements are in it too — or he is somebody the reconstruction has not found. All three are findings and none of them is settled here."
+    },
+    {
+      "unit": "census_1830:data/research/census_1830/records/schedule_chicago_1830.json#records/census1830_n580_010",
+      "rule": "the_1830_surname_stands_in_no_town_household",
+      "note": "The 1830 schedule, leaf n580 entry 10, in the division headed 'Peoria & Putnam Counties & Territory attached', enters 'Frederick Coontryman' read as 'FREDERICK COONTRYMAN'. No person in the town's 825 households carries this surname. Either the man had gone by 1835, or he lived in the part of the district that was never Chicago — the Fox River and Du Page settlements are in it too — or he is somebody the reconstruction has not found. All three are findings and none of them is settled here."
+    },
+    {
+      "unit": "census_1830:data/research/census_1830/records/schedule_chicago_1830.json#records/census1830_n580_011",
+      "rule": "the_1830_line_bounds_a_held_residents_presence",
+      "note": "The 1830 schedule, leaf n580 entry 11, in the division headed 'Peoria & Putnam Counties & Territory attached', enters 'James Kinzie' read as 'JAMES KINZIE'. Surname and given name both agree between the 1830 reading 'James Kinzie' and the town person 'James Kinzie' in household hh_kinzie_james. The 1830 line is carried as EARLIER EVIDENCE for that person and grades nothing on its own. The household is hh_kinzie_james."
+    },
+    {
+      "unit": "census_1830:data/research/census_1830/records/schedule_chicago_1830.json#records/census1830_n580_012",
+      "rule": "the_1830_line_bounds_a_held_residents_presence",
+      "note": "The 1830 schedule, leaf n580 entry 12, in the division headed 'Peoria & Putnam Counties & Territory attached', enters 'Billy Caldwell' read as 'BILLY CALDWELL'. Surname and given name both agree between the 1830 reading 'Billy Caldwell' and the town person 'Billy Caldwell (Sauganash)' in household hh_caldwell_billy. The 1830 line is carried as EARLIER EVIDENCE for that person and grades nothing on its own. The household is hh_caldwell_billy."
+    },
+    {
+      "unit": "census_1830:data/research/census_1830/records/schedule_chicago_1830.json#records/census1830_n580_013",
+      "rule": "the_1830_surname_only_match_was_refused_in_the_crosswalk",
+      "note": "The 1830 schedule, leaf n580 entry 13, in the division headed 'Peoria & Putnam Counties & Territory attached', enters 'Jedediah Woolley' read as 'JEDEDIAH WOOLLEY'. The 1830 reading 'Jedediah Woolley' shares only a surname with the town person(s) Jeddiah Wooley (hh_wooley_jeddiah); Jedidiah Wooley (hh_wooley_jedidiah). A surname match is a clue and not an identity, so it is REFUSED rather than merged, and the refusal is written down so the next sweep does not make the same match again."
+    },
+    {
+      "unit": "census_1830:data/research/census_1830/records/schedule_chicago_1830.json#records/census1830_n580_014",
+      "rule": "the_1830_line_bounds_a_held_residents_presence",
+      "note": "The 1830 schedule, leaf n580 entry 14, in the division headed 'Peoria & Putnam Counties & Territory attached', enters 'James Walker' read as 'JAMES WALKER'. Surname and given name both agree between the 1830 reading 'James Walker' and the town person 'James Walker' in household hh_walker_james. The 1830 line is carried as EARLIER EVIDENCE for that person and grades nothing on its own. The household is hh_walker_james."
+    },
+    {
+      "unit": "census_1830:data/research/census_1830/records/schedule_chicago_1830.json#records/census1830_n580_015",
+      "rule": "the_1830_surname_only_match_was_refused_in_the_crosswalk",
+      "note": "The 1830 schedule, leaf n580 entry 15, in the division headed 'Peoria & Putnam Counties & Territory attached', enters 'Barnabas Laughton' read as 'BARNABAS LAUGHTON'. The 1830 reading 'Barnabas Laughton' shares only a surname with the town person(s) David Laughton (hh_laughton_david); Sophia Laughton (hh_laughton_sophia). A surname match is a clue and not an identity, so it is REFUSED rather than merged, and the refusal is written down so the next sweep does not make the same match again."
+    },
+    {
+      "unit": "census_1830:data/research/census_1830/records/schedule_chicago_1830.json#records/census1830_n580_016",
+      "rule": "the_1830_surname_stands_in_no_town_household",
+      "note": "The 1830 schedule, leaf n580 entry 16, in the division headed 'Peoria & Putnam Counties & Territory attached', enters 'John Wellmacker' read as 'JOHN WELLMACKER'. No person in the town's 825 households carries this surname. Either the man had gone by 1835, or he lived in the part of the district that was never Chicago — the Fox River and Du Page settlements are in it too — or he is somebody the reconstruction has not found. All three are findings and none of them is settled here."
+    },
+    {
+      "unit": "census_1830:data/research/census_1830/records/schedule_chicago_1830.json#records/census1830_n580_017",
+      "rule": "the_1830_surname_stands_in_no_town_household",
+      "note": "The 1830 schedule, leaf n580 entry 17, in the division headed 'Peoria & Putnam Counties & Territory attached', enters 'John Brawley' read as 'JOHN BRAWLEY'. No person in the town's 825 households carries this surname. Either the man had gone by 1835, or he lived in the part of the district that was never Chicago — the Fox River and Du Page settlements are in it too — or he is somebody the reconstruction has not found. All three are findings and none of them is settled here."
+    },
+    {
+      "unit": "census_1830:data/research/census_1830/records/schedule_chicago_1830.json#records/census1830_n580_018",
+      "rule": "the_1830_surname_stands_in_no_town_household",
+      "note": "The 1830 schedule, leaf n580 entry 18, in the division headed 'Peoria & Putnam Counties & Territory attached', enters 'Solomon Wishom' read as 'SOLOMON WISHOM'. No person in the town's 825 households carries this surname. Either the man had gone by 1835, or he lived in the part of the district that was never Chicago — the Fox River and Du Page settlements are in it too — or he is somebody the reconstruction has not found. All three are findings and none of them is settled here."
+    },
+    {
+      "unit": "census_1830:data/research/census_1830/records/schedule_chicago_1830.json#records/census1830_n580_019",
+      "rule": "the_1830_surname_stands_in_no_town_household",
+      "note": "The 1830 schedule, leaf n580 entry 19, in the division headed 'Peoria & Putnam Counties & Territory attached', enters 'John Vernosdal' read as 'JOHN VERNOSDAL'. No person in the town's 825 households carries this surname. Either the man had gone by 1835, or he lived in the part of the district that was never Chicago — the Fox River and Du Page settlements are in it too — or he is somebody the reconstruction has not found. All three are findings and none of them is settled here."
+    },
+    {
+      "unit": "census_1830:data/research/census_1830/records/schedule_chicago_1830.json#records/census1830_n580_020",
+      "rule": "the_1830_surname_stands_in_no_town_household",
+      "note": "The 1830 schedule, leaf n580 entry 20, in the division headed 'Peoria & Putnam Counties & Territory attached', enters 'George Barkee' read as 'GEORGE BARKEE'. No person in the town's 825 households carries this surname. Either the man had gone by 1835, or he lived in the part of the district that was never Chicago — the Fox River and Du Page settlements are in it too — or he is somebody the reconstruction has not found. All three are findings and none of them is settled here."
+    },
+    {
+      "unit": "census_1830:data/research/census_1830/records/schedule_chicago_1830.json#records/census1830_n580_021",
+      "rule": "the_1830_surname_only_match_was_refused_in_the_crosswalk",
+      "note": "The 1830 schedule, leaf n580 entry 21, in the division headed 'Peoria & Putnam Counties & Territory attached', enters 'Samuel Thompson' read as 'SAMUEL THOMPSON'. The 1830 reading 'Samuel Thompson' shares only a surname with the town person(s) John Thompson (hh_thompson_john); Lieut J L Thompson (hh_thompson_lieut_j_l); O I Thompson (hh_thompson_o_i). A surname match is a clue and not an identity, so it is REFUSED rather than merged, and the refusal is written down so the next sweep does not make the same match again."
+    },
+    {
+      "unit": "census_1830:data/research/census_1830/records/schedule_chicago_1830.json#records/census1830_n580_022",
+      "rule": "the_1830_surname_stands_in_no_town_household",
+      "note": "The 1830 schedule, leaf n580 entry 22, in the division headed 'Peoria & Putnam Counties & Territory attached', enters 'William See' read as 'WILLIAM SEE'. No person in the town's 825 households carries this surname. Either the man had gone by 1835, or he lived in the part of the district that was never Chicago — the Fox River and Du Page settlements are in it too — or he is somebody the reconstruction has not found. All three are findings and none of them is settled here."
+    },
+    {
+      "unit": "census_1830:data/research/census_1830/records/schedule_chicago_1830.json#records/census1830_n580_023",
+      "rule": "the_1830_line_bounds_a_held_residents_presence",
+      "note": "The 1830 schedule, leaf n580 entry 23, in the division headed 'Peoria & Putnam Counties & Territory attached', enters 'James Lawrence' read as 'JAMES LAWRENCE'. Surname and given name both agree between the 1830 reading 'James Lawrence' and the town person 'James R. Lawrence' in household hh_lawrence_james_r. The 1830 line is carried as EARLIER EVIDENCE for that person and grades nothing on its own. The household is hh_lawrence_james_r."
+    },
+    {
+      "unit": "census_1830:data/research/census_1830/records/schedule_chicago_1830.json#records/census1830_n580_024",
+      "rule": "the_1830_surname_stands_in_no_town_household",
+      "note": "The 1830 schedule, leaf n580 entry 24, in the division headed 'Peoria & Putnam Counties & Territory attached', enters 'Julius Paren' read as 'JULIUS PAREN'. No person in the town's 825 households carries this surname. Either the man had gone by 1835, or he lived in the part of the district that was never Chicago — the Fox River and Du Page settlements are in it too — or he is somebody the reconstruction has not found. All three are findings and none of them is settled here."
+    },
+    {
+      "unit": "census_1830:data/research/census_1830/records/schedule_chicago_1830.json#records/census1830_n580_025",
+      "rule": "the_1830_surname_stands_in_no_town_household",
+      "note": "The 1830 schedule, leaf n580 entry 25, in the division headed 'Peoria & Putnam Counties & Territory attached', enters 'John Paylin' read as 'JOHN PAYLIN'. No person in the town's 825 households carries this surname. Either the man had gone by 1835, or he lived in the part of the district that was never Chicago — the Fox River and Du Page settlements are in it too — or he is somebody the reconstruction has not found. All three are findings and none of them is settled here."
+    },
+    {
+      "unit": "census_1830:data/research/census_1830/records/schedule_chicago_1830.json#records/census1830_n580_026",
+      "rule": "the_1830_surname_stands_in_no_town_household",
+      "note": "The 1830 schedule, leaf n580 entry 26, in the division headed 'Peoria & Putnam Counties & Territory attached', enters 'Peter Murer' read as 'PETER MURER'. No person in the town's 825 households carries this surname. Either the man had gone by 1835, or he lived in the part of the district that was never Chicago — the Fox River and Du Page settlements are in it too — or he is somebody the reconstruction has not found. All three are findings and none of them is settled here."
+    },
+    {
+      "unit": "census_1830:data/research/census_1830/records/schedule_chicago_1830.json#records/census1830_n580_027",
+      "rule": "the_1830_line_bounds_a_held_residents_presence",
+      "note": "The 1830 schedule, leaf n580 entry 27, in the division headed 'Peoria & Putnam Counties & Territory attached', enters 'Alexander Robinson' read as 'ALEXANDER ROBINSON'. Surname and given name both agree between the 1830 reading 'Alexander Robinson' and the town person 'Alexander Robinson (Che-che-pin-qua)' in household hh_robinson_alexander. The 1830 line is carried as EARLIER EVIDENCE for that person and grades nothing on its own. The household is hh_robinson_alexander."
+    },
+    {
+      "unit": "census_1830:data/research/census_1830/records/schedule_chicago_1830.json#records/census1830_n580_028",
+      "rule": "the_1830_line_bounds_a_held_residents_presence",
+      "note": "The 1830 schedule, leaf n580 entry 28, in the division headed 'Peoria & Putnam Counties & Territory attached', enters 'Mark Beaubien' read as 'MARK BEAUBIEN'. Surname and given name both agree between the 1830 reading 'Mark Beaubien' and the town person 'Mark Beaubien' in household hh_beaubien_mark. The 1830 line is carried as EARLIER EVIDENCE for that person and grades nothing on its own. The household is hh_beaubien_mark."
+    },
+    {
+      "unit": "census_1830:data/research/census_1830/records/schedule_chicago_1830.json#records/census1830_n580_029",
+      "rule": "the_1830_surname_stands_in_no_town_household",
+      "note": "The 1830 schedule, leaf n580 entry 29, in the division headed 'Peoria & Putnam Counties & Territory attached', enters 'Joseph LaFramboy' read as 'JOSEPH LAFRAMBOISE'. No person in the town's 825 households carries this surname. Either the man had gone by 1835, or he lived in the part of the district that was never Chicago — the Fox River and Du Page settlements are in it too — or he is somebody the reconstruction has not found. All three are findings and none of them is settled here."
+    },
+    {
+      "unit": "census_1830:data/research/census_1830/records/schedule_chicago_1830.json#records/census1830_n580_030",
+      "rule": "the_1830_surname_stands_in_no_town_household",
+      "note": "The 1830 schedule, leaf n580 entry 30, in the division headed 'Peoria & Putnam Counties & Territory attached', enters 'Clouded L Framboy' read as 'CLAUDE LAFRAMBOISE'. No person in the town's 825 households carries this surname. Either the man had gone by 1835, or he lived in the part of the district that was never Chicago — the Fox River and Du Page settlements are in it too — or he is somebody the reconstruction has not found. All three are findings and none of them is settled here."
+    },
+    {
+      "unit": "census_1830:data/research/census_1830/records/schedule_chicago_1830.json#records/census1830_n580_031",
+      "rule": "the_1830_surname_stands_in_no_town_household",
+      "note": "The 1830 schedule, leaf n580 entry 31, in the division headed 'Peoria & Putnam Counties & Territory attached', enters 'John B Seco' read as 'JOHN B SECO'. No person in the town's 825 households carries this surname. Either the man had gone by 1835, or he lived in the part of the district that was never Chicago — the Fox River and Du Page settlements are in it too — or he is somebody the reconstruction has not found. All three are findings and none of them is settled here."
+    },
+    {
+      "unit": "census_1830:data/research/census_1830/records/schedule_chicago_1830.json#records/census1830_n580_032",
+      "rule": "the_1830_surname_stands_in_no_town_household",
+      "note": "The 1830 schedule, leaf n580 entry 32, in the division headed 'Peoria & Putnam Counties & Territory attached', enters 'John Mann' read as 'JOHN MANN'. No person in the town's 825 households carries this surname. Either the man had gone by 1835, or he lived in the part of the district that was never Chicago — the Fox River and Du Page settlements are in it too — or he is somebody the reconstruction has not found. All three are findings and none of them is settled here."
+    },
+    {
+      "unit": "census_1830:data/research/census_1830/records/schedule_chicago_1830.json#records/census1830_n580_033",
+      "rule": "the_1830_surname_stands_in_no_town_household",
+      "note": "The 1830 schedule, leaf n580 entry 33, in the division headed 'Peoria & Putnam Counties & Territory attached', enters 'David McRae' read as 'DAVID MCRAE'. No person in the town's 825 households carries this surname. Either the man had gone by 1835, or he lived in the part of the district that was never Chicago — the Fox River and Du Page settlements are in it too — or he is somebody the reconstruction has not found. All three are findings and none of them is settled here."
+    },
+    {
+      "unit": "census_1830:data/research/census_1830/records/schedule_chicago_1830.json#records/census1830_n580_034",
+      "rule": "the_1830_surname_stands_in_no_town_household",
+      "note": "The 1830 schedule, leaf n580 entry 34, in the division headed 'Peoria & Putnam Counties & Territory attached', enters 'Michael Walsh' read as 'MICHAEL WALSH'. No person in the town's 825 households carries this surname. Either the man had gone by 1835, or he lived in the part of the district that was never Chicago — the Fox River and Du Page settlements are in it too — or he is somebody the reconstruction has not found. All three are findings and none of them is settled here."
+    },
+    {
+      "unit": "census_1830:data/research/census_1830/records/schedule_chicago_1830.json#records/census1830_n580_035",
+      "rule": "the_1830_surname_stands_in_no_town_household",
+      "note": "The 1830 schedule, leaf n580 entry 35, in the division headed 'Peoria & Putnam Counties & Territory attached', enters 'Joseph Pepper' read as 'JOSEPH PEPPER'. No person in the town's 825 households carries this surname. Either the man had gone by 1835, or he lived in the part of the district that was never Chicago — the Fox River and Du Page settlements are in it too — or he is somebody the reconstruction has not found. All three are findings and none of them is settled here."
+    },
+    {
+      "unit": "census_1830:data/research/census_1830/records/schedule_chicago_1830.json#records/census1830_n580_036",
+      "rule": "the_1830_line_bounds_a_held_residents_presence",
+      "note": "The 1830 schedule, leaf n580 entry 36, in the division headed 'Peoria & Putnam Counties & Territory attached', enters 'John B Beaubien' read as 'JEAN BAPTISTE BEAUBIEN'. Surname and given name both agree between the 1830 reading 'John B Beaubien' and the town person 'Col. Jean Baptiste Beaubien' in household hh_beaubien_jean_baptiste. The 1830 line is carried as EARLIER EVIDENCE for that person and grades nothing on its own. The household is hh_beaubien_jean_baptiste."
+    },
+    {
+      "unit": "census_1830:data/research/census_1830/records/schedule_chicago_1830.json#records/census1830_n580_037",
+      "rule": "the_1830_surname_only_match_was_refused_in_the_crosswalk",
+      "note": "The 1830 schedule, leaf n580 entry 37, in the division headed 'Peoria & Putnam Counties & Territory attached', enters 'C W Eels' read as 'C W EELS'. The 1830 reading 'C W Eels' shares only a surname with the town person(s) Thomas S. Eels (hh_inf_tailor_north_02). A surname match is a clue and not an identity, so it is REFUSED rather than merged, and the refusal is written down so the next sweep does not make the same match again."
+    },
+    {
+      "unit": "census_1830:data/research/census_1830/records/schedule_chicago_1830.json#records/census1830_n580_038",
+      "rule": "the_1830_surname_stands_in_no_town_household",
+      "note": "The 1830 schedule, leaf n580 entry 38, in the division headed 'Peoria & Putnam Counties & Territory attached', enters 'William Webster' read as 'WILLIAM WEBSTER'. No person in the town's 825 households carries this surname. Either the man had gone by 1835, or he lived in the part of the district that was never Chicago — the Fox River and Du Page settlements are in it too — or he is somebody the reconstruction has not found. All three are findings and none of them is settled here."
+    },
+    {
+      "unit": "census_1830:data/research/census_1830/records/schedule_chicago_1830.json#records/census1830_n580_039",
+      "rule": "the_1830_surname_only_match_was_refused_in_the_crosswalk",
+      "note": "The 1830 schedule, leaf n580 entry 39, in the division headed 'Peoria & Putnam Counties & Territory attached', enters 'Samuel Watkins' read as 'SAMUEL WATKINS'. The 1830 reading 'Samuel Watkins' shares only a surname with the town person(s) John Watkins (hh_watkins_john). A surname match is a clue and not an identity, so it is REFUSED rather than merged, and the refusal is written down so the next sweep does not make the same match again."
+    },
+    {
+      "unit": "census_1830:data/research/census_1830/records/schedule_chicago_1830.json#records/census1830_n582_001",
+      "rule": "the_1830_surname_stands_in_no_town_household",
+      "note": "The 1830 schedule, leaf n582 entry 1, in the division headed 'Peoria & Putnam Counties & Territory attached', enters 'Samuel Chavelier' read as 'SAMUEL CHAVELIER'. No person in the town's 825 households carries this surname. Either the man had gone by 1835, or he lived in the part of the district that was never Chicago — the Fox River and Du Page settlements are in it too — or he is somebody the reconstruction has not found. All three are findings and none of them is settled here."
+    },
+    {
+      "unit": "census_1830:data/research/census_1830/records/schedule_chicago_1830.json#records/census1830_n582_002",
+      "rule": "the_1830_surname_only_match_was_refused_in_the_crosswalk",
+      "note": "The 1830 schedule, leaf n582 entry 2, in the division headed 'Peoria & Putnam Counties & Territory attached', enters 'Horatio G Smith' read as 'HORATIO G SMITH'. The 1830 reading 'Horatio G Smith' shares only a surname with the town person(s) E Kirby Smith (hh_smith_e_kirby); Elded Smith (hh_smith_elded); George Smith (hh_smith_george); Jeremiah Smith (hh_smith_jeremiah); L W Smith (hh_smith_l_w); Lawrence Smith (hh_smith_lawrence); Matthias Smith (hh_smith_matthias); William Smith (hh_smith_william); William V Smith (hh_smith_william_v). A surname match is a clue and not an identity, so it is REFUSED rather than merged, and the refusal is written down so the next sweep does not make the same match again."
+    },
+    {
+      "unit": "census_1830:data/research/census_1830/records/schedule_chicago_1830.json#records/census1830_n582_003",
+      "rule": "the_1830_surname_variant_is_a_candidate_and_not_a_merge",
+      "note": "The 1830 schedule, leaf n582 entry 3, in the division headed 'Peoria & Putnam Counties & Territory attached', enters 'Archibald Clybourn' read as 'ARCHIBALD CLYBOURN'. The given names agree and the surnames differ only by a silent terminal e or a doubled consonant: the 1830 reading 'Archibald Clybourn' against the town person 'Archibald Clybourne'. CANDIDATE, not a merge — the identification is T-0513's to make with the rest of the evidence in front of it. The household weighed was hh_clybourne_archibald."
+    },
+    {
+      "unit": "census_1830:data/research/census_1830/records/schedule_chicago_1830.json#records/census1830_n582_004",
+      "rule": "the_1830_line_bounds_a_held_residents_presence",
+      "note": "The 1830 schedule, leaf n582 entry 4, in the division headed 'Peoria & Putnam Counties & Territory attached', enters 'John K Clark' read as 'JOHN K CLARK'. Surname and given name both agree between the 1830 reading 'John K Clark' and the town person 'John A Clark' in household hh_clark_john_a. The 1830 line is carried as EARLIER EVIDENCE for that person and grades nothing on its own. The household is hh_clark_john_a."
+    },
+    {
+      "unit": "census_1830:data/research/census_1830/records/schedule_chicago_1830.json#records/census1830_n582_005",
+      "rule": "the_1830_surname_only_match_was_refused_in_the_crosswalk",
+      "note": "The 1830 schedule, leaf n582 entry 5, in the division headed 'Peoria & Putnam Counties & Territory attached', enters 'Willard Scott' read as 'WILLARD SCOTT'. The 1830 reading 'Willard Scott' shares only a surname with the town person(s) John Scott (hh_scott_john). A surname match is a clue and not an identity, so it is REFUSED rather than merged, and the refusal is written down so the next sweep does not make the same match again."
+    },
+    {
+      "unit": "census_1830:data/research/census_1830/records/schedule_chicago_1830.json#records/census1830_n582_006",
+      "rule": "the_1830_surname_stands_in_no_town_household",
+      "note": "The 1830 schedule, leaf n582 entry 6, in the division headed 'Peoria & Putnam Counties & Territory attached', enters 'Jeremiah Brownell' read as 'JEREMIAH BROWNELL'. No person in the town's 825 households carries this surname. Either the man had gone by 1835, or he lived in the part of the district that was never Chicago — the Fox River and Du Page settlements are in it too — or he is somebody the reconstruction has not found. All three are findings and none of them is settled here."
+    },
+    {
+      "unit": "census_1830:data/research/census_1830/records/schedule_chicago_1830.json#records/census1830_n582_007",
+      "rule": "the_1830_line_names_the_garrison_and_not_a_person",
+      "note": "The 1830 schedule, leaf n582 entry 7, in the division headed 'Peoria & Putnam Counties & Territory attached', enters 'U S Garrison Fort Dearborn — Maj John Fowle Commr' read as 'U.S. GARRISON, FORT DEARBORN'. 'U S Garrison Fort Dearborn — Maj John Fowle Commr' is the United States garrison entered as one household under its commanding officer. It is not a person and may never reach one: the line names no soldier, and Major John Fowle is named as the officer commanding rather than enumerated as a head of family. Ruled here so the one record on these leaves that can never be crosswalked is not left looking unexamined."
+    },
+    {
+      "unit": "census_1830:data/research/census_1830/records/schedule_chicago_1830.json#records/census1830_n582_008",
+      "rule": "the_1830_surname_only_match_was_refused_in_the_crosswalk",
+      "note": "The 1830 schedule, leaf n582 entry 8, in the division headed 'Peoria & Putnam Counties & Territory attached', enters 'Jonathan Nash Bailey' read as 'JONATHAN NASH BAILEY'. The 1830 reading 'Jonathan Nash Bailey' shares only a surname with the town person(s) Amos Bailey (hh_bailey_amos); Bennet Bailey (hh_bailey_bennet). A surname match is a clue and not an identity, so it is REFUSED rather than merged, and the refusal is written down so the next sweep does not make the same match again."
+    },
+    {
+      "unit": "census_1830:data/research/census_1830/records/schedule_chicago_1830.json#records/census1830_n582_009",
+      "rule": "the_1830_line_bounds_a_held_residents_presence",
+      "note": "The 1830 schedule, leaf n582 entry 9, in the division headed 'Peoria & Putnam Counties & Territory attached', enters 'Alexander Wolcott' read as 'ALEXANDER WOLCOTT'. Surname and given name both agree between the 1830 reading 'Alexander Wolcott' and the town person 'Alexander Wolcott' in household hh_wolcott_alexander. The 1830 line is carried as EARLIER EVIDENCE for that person and grades nothing on its own. The household is hh_wolcott_alexander."
+    },
+    {
+      "unit": "census_1830:data/research/census_1830/records/schedule_chicago_1830.json#records/census1830_n582_010",
+      "rule": "the_1830_surname_stands_in_no_town_household",
+      "note": "The 1830 schedule, leaf n582 entry 10, in the division headed 'Peoria & Putnam Counties & Territory attached', enters 'Joseph Perkee' read as 'JOSEPH PERKEE'. No person in the town's 825 households carries this surname. Either the man had gone by 1835, or he lived in the part of the district that was never Chicago — the Fox River and Du Page settlements are in it too — or he is somebody the reconstruction has not found. All three are findings and none of them is settled here."
+    },
+    {
+      "unit": "census_1830:data/research/census_1830/records/schedule_chicago_1830.json#records/census1830_n582_011",
+      "rule": "the_1830_surname_stands_in_no_town_household",
+      "note": "The 1830 schedule, leaf n582 entry 11, in the division headed 'Peoria & Putnam Counties & Territory attached', enters 'Stephen Forbs' read as 'STEPHEN FORBS'. No person in the town's 825 households carries this surname. Either the man had gone by 1835, or he lived in the part of the district that was never Chicago — the Fox River and Du Page settlements are in it too — or he is somebody the reconstruction has not found. All three are findings and none of them is settled here."
+    },
+    {
+      "unit": "census_1830:data/research/census_1830/records/schedule_chicago_1830.json#records/census1830_n582_012",
+      "rule": "the_1830_line_bounds_a_held_residents_presence",
+      "note": "The 1830 schedule, leaf n582 entry 12, in the division headed 'Peoria & Putnam Counties & Territory attached', enters 'Samuel Miller' read as 'SAMUEL MILLER'. Surname and given name both agree between the 1830 reading 'Samuel Miller' and the town person 'Samuel Miller' in household hh_miller_samuel. The 1830 line is carried as EARLIER EVIDENCE for that person and grades nothing on its own. The household is hh_miller_samuel."
+    },
+    {
+      "unit": "census_1830:data/research/census_1830/records/schedule_chicago_1830.json#records/census1830_n582_013",
+      "rule": "the_1830_surname_only_match_was_refused_in_the_crosswalk",
+      "note": "The 1830 schedule, leaf n582 entry 13, in the division headed 'Peoria & Putnam Counties & Territory attached', enters 'Stephen J Scott' read as 'STEPHEN J SCOTT'. The 1830 reading 'Stephen J Scott' shares only a surname with the town person(s) John Scott (hh_scott_john). A surname match is a clue and not an identity, so it is REFUSED rather than merged, and the refusal is written down so the next sweep does not make the same match again."
+    },
+    {
+      "unit": "census_1830:data/research/census_1830/records/schedule_chicago_1830.json#records/census1830_n582_014",
+      "rule": "the_1830_surname_stands_in_no_town_household",
+      "note": "The 1830 schedule, leaf n582 entry 14, in the division headed 'Peoria & Putnam Counties & Territory attached', enters 'Antoine Uilmet' read as 'ANTOINE OUILMETTE'. No person in the town's 825 households carries this surname. Either the man had gone by 1835, or he lived in the part of the district that was never Chicago — the Fox River and Du Page settlements are in it too — or he is somebody the reconstruction has not found. All three are findings and none of them is settled here."
+    },
+    {
+      "unit": "census_1830:data/research/census_1830/records/schedule_chicago_1830.json#records/census1830_n582_015",
+      "rule": "the_1830_line_bounds_a_held_residents_presence",
+      "note": "The 1830 schedule, leaf n582 entry 15, in the division headed 'Peoria & Putnam Counties & Territory attached', enters 'Russel E Heacock' read as 'RUSSEL E HEACOCK'. Surname and given name both agree between the 1830 reading 'Russel E Heacock' and the town person 'Russel E. Heacock' in household hh_heacock_russel_e. The 1830 line is carried as EARLIER EVIDENCE for that person and grades nothing on its own. The household is hh_heacock_russel_e."
+    },
+    {
+      "unit": "census_1830:data/research/census_1830/records/schedule_chicago_1830.json#records/census1830_n582_016",
+      "rule": "the_1830_surname_stands_in_no_town_household",
+      "note": "The 1830 schedule, leaf n582 entry 16, in the division headed 'Peoria & Putnam Counties & Territory attached', enters 'Joseph Norman' read as 'JOSEPH NORMAN'. No person in the town's 825 households carries this surname. Either the man had gone by 1835, or he lived in the part of the district that was never Chicago — the Fox River and Du Page settlements are in it too — or he is somebody the reconstruction has not found. All three are findings and none of them is settled here."
+    },
+    {
+      "unit": "census_1830:data/research/census_1830/records/schedule_chicago_1830.json#records/census1830_n582_017",
+      "rule": "the_1830_surname_only_match_was_refused_in_the_crosswalk",
+      "note": "The 1830 schedule, leaf n582 entry 17, in the division headed 'Peoria & Putnam Counties & Territory attached', enters 'William Berry' read as 'WILLIAM BERRY'. The 1830 reading 'William Berry' shares only a surname with the town person(s) Benjamin / Berry (hh_berry_benjamin). A surname match is a clue and not an identity, so it is REFUSED rather than merged, and the refusal is written down so the next sweep does not make the same match again."
+    },
+    {
+      "unit": "census_1830:data/research/census_1830/records/schedule_chicago_1830.json#records/census1830_n582_018",
+      "rule": "the_1830_surname_only_match_was_refused_in_the_crosswalk",
+      "note": "The 1830 schedule, leaf n582 entry 18, in the division headed 'Peoria & Putnam Counties & Territory attached', enters 'Aaron Friend' read as 'AARON FRIEND'. The 1830 reading 'Aaron Friend' shares only a surname with the town person(s) Charles Friend (hh_friend_charles). A surname match is a clue and not an identity, so it is REFUSED rather than merged, and the refusal is written down so the next sweep does not make the same match again."
+    },
+    {
+      "unit": "census_1830:data/research/census_1830/records/schedule_chicago_1830.json#records/census1830_n582_019",
+      "rule": "the_1830_surname_only_match_was_refused_in_the_crosswalk",
+      "note": "The 1830 schedule, leaf n582 entry 19, in the division headed 'Peoria & Putnam Counties & Territory attached', enters 'Joseph Brown' read as 'JOSEPH BROWN'. The 1830 reading 'Joseph Brown' shares only a surname with the town person(s) Hanna E Brown (hh_brown_hanna_e); Jesse B Brown (hh_brown_jesse_b); Lemuel Brown (hh_brown_lemuel); Mrs Rufus Brown (hh_brown_rufus); Rufus Brown (hh_brown_rufus); William H Brown (hh_brown_william_h). A surname match is a clue and not an identity, so it is REFUSED rather than merged, and the refusal is written down so the next sweep does not make the same match again."
+    },
+    {
+      "unit": "census_1830:data/research/census_1830/records/schedule_chicago_1830.json#records/census1830_n582_020",
+      "rule": "the_1830_surname_only_match_was_refused_in_the_crosswalk",
+      "note": "The 1830 schedule, leaf n582 entry 20, in the division headed 'Peoria & Putnam Counties & Territory attached', enters 'Lewis Kercheval' read as 'LEWIS KERCHEVAL'. The 1830 reading 'Lewis Kercheval' shares only a surname with the town person(s) Benjamin Kercheval (hh_kercheval_benjamin); Gholson Kercheval (hh_kercheval_gholson). A surname match is a clue and not an identity, so it is REFUSED rather than merged, and the refusal is written down so the next sweep does not make the same match again."
+    },
+    {
+      "unit": "census_1830:data/research/census_1830/records/schedule_chicago_1830.json#records/census1830_n582_021",
+      "rule": "the_1830_surname_stands_in_no_town_household",
+      "note": "The 1830 schedule, leaf n582 entry 21, in the division headed 'Peoria & Putnam Counties & Territory attached', enters 'Armstead Runyon' read as 'ARMSTEAD RUNYON'. No person in the town's 825 households carries this surname. Either the man had gone by 1835, or he lived in the part of the district that was never Chicago — the Fox River and Du Page settlements are in it too — or he is somebody the reconstruction has not found. All three are findings and none of them is settled here."
+    },
+    {
+      "unit": "census_1830:data/research/census_1830/records/schedule_chicago_1830.json#records/census1830_n582_022",
+      "rule": "the_1830_surname_stands_in_no_town_household",
+      "note": "The 1830 schedule, leaf n582 entry 22, in the division headed 'Peoria & Putnam Counties & Territory attached', enters 'Thomas K Coval' read as 'THOMAS K COVAL'. No person in the town's 825 households carries this surname. Either the man had gone by 1835, or he lived in the part of the district that was never Chicago — the Fox River and Du Page settlements are in it too — or he is somebody the reconstruction has not found. All three are findings and none of them is settled here."
+    },
+    {
+      "unit": "census_1830:data/research/census_1830/records/schedule_chicago_1830.json#records/census1830_n582_023",
+      "rule": "the_1830_surname_only_match_was_refused_in_the_crosswalk",
+      "note": "The 1830 schedule, leaf n582 entry 23, in the division headed 'Peoria & Putnam Counties & Territory attached', enters 'Philip Scott' read as 'PHILIP SCOTT'. The 1830 reading 'Philip Scott' shares only a surname with the town person(s) John Scott (hh_scott_john). A surname match is a clue and not an identity, so it is REFUSED rather than merged, and the refusal is written down so the next sweep does not make the same match again."
+    },
+    {
+      "unit": "census_1830:data/research/census_1830/records/schedule_chicago_1830.json#records/census1830_n582_024",
+      "rule": "the_1830_surname_only_match_was_refused_in_the_crosswalk",
+      "note": "The 1830 schedule, leaf n582 entry 24, in the division headed 'Peoria & Putnam Counties & Territory attached', enters 'Seth Scott' read as 'SETH SCOTT'. The 1830 reading 'Seth Scott' shares only a surname with the town person(s) John Scott (hh_scott_john). A surname match is a clue and not an identity, so it is REFUSED rather than merged, and the refusal is written down so the next sweep does not make the same match again."
+    },
+    {
+      "unit": "census_1830:data/research/census_1830/records/schedule_chicago_1830.json#records/census1830_n582_025",
+      "rule": "the_1830_surname_stands_in_no_town_household",
+      "note": "The 1830 schedule, leaf n582 entry 25, in the division headed 'Peoria & Putnam Counties & Territory attached', enters 'William Mice' read as 'WILLIAM MICE'. No person in the town's 825 households carries this surname. Either the man had gone by 1835, or he lived in the part of the district that was never Chicago — the Fox River and Du Page settlements are in it too — or he is somebody the reconstruction has not found. All three are findings and none of them is settled here."
+    },
+    {
+      "unit": "census_1830:data/research/census_1830/records/schedule_chicago_1830.json#records/census1830_n582_026",
+      "rule": "the_1830_surname_stands_in_no_town_household",
+      "note": "The 1830 schedule, leaf n582 entry 26, in the division headed 'Peoria & Putnam Counties & Territory attached', enters 'John B Gunner' read as 'JOHN B GUNNER'. No person in the town's 825 households carries this surname. Either the man had gone by 1835, or he lived in the part of the district that was never Chicago — the Fox River and Du Page settlements are in it too — or he is somebody the reconstruction has not found. All three are findings and none of them is settled here."
+    },
+    {
+      "unit": "census_1830:data/research/census_1830/records/schedule_chicago_1830.json#records/census1830_n582_027",
+      "rule": "the_1830_surname_stands_in_no_town_household",
+      "note": "The 1830 schedule, leaf n582 entry 27, in the division headed 'Peoria & Putnam Counties & Territory attached', enters 'James Emmett' read as 'JAMES EMMETT'. No person in the town's 825 households carries this surname. Either the man had gone by 1835, or he lived in the part of the district that was never Chicago — the Fox River and Du Page settlements are in it too — or he is somebody the reconstruction has not found. All three are findings and none of them is settled here."
+    },
+    {
+      "unit": "census_1830:data/research/census_1830/records/schedule_chicago_1830.json#records/census1830_n582_028",
+      "rule": "the_1830_surname_only_match_was_refused_in_the_crosswalk",
+      "note": "The 1830 schedule, leaf n582 entry 28, in the division headed 'Peoria & Putnam Counties & Territory attached', enters 'Joseph Johnson' read as 'JOSEPH JOHNSON'. The 1830 reading 'Joseph Johnson' shares only a surname with the town person(s) Lathrop Johnson (hh_johnson_lathrop); Samuel Johnson (hh_johnson_samuel); Sanford Johnson (hh_johnson_sanford); Seth Johnson (hh_johnson_seth). A surname match is a clue and not an identity, so it is REFUSED rather than merged, and the refusal is written down so the next sweep does not make the same match again."
+    },
+    {
+      "unit": "census_1830:data/research/census_1830/records/schedule_chicago_1830.json#records/census1830_n584_001",
+      "rule": "the_1830_surname_stands_in_no_town_household",
+      "note": "The 1830 schedule, leaf n584 entry 1, in the division headed 'Peoria & Putnam Counties & Territory attached', enters 'Reuben Flagg' read as 'REUBEN FLAGG'. No person in the town's 825 households carries this surname. Either the man had gone by 1835, or he lived in the part of the district that was never Chicago — the Fox River and Du Page settlements are in it too — or he is somebody the reconstruction has not found. All three are findings and none of them is settled here."
+    },
+    {
+      "unit": "census_1830:data/research/census_1830/records/schedule_chicago_1830.json#records/census1830_n584_002",
+      "rule": "the_1830_surname_stands_in_no_town_household",
+      "note": "The 1830 schedule, leaf n584 entry 2, in the division headed 'Peoria & Putnam Counties & Territory attached', enters 'John Cooper' read as 'JOHN COOPER'. No person in the town's 825 households carries this surname. Either the man had gone by 1835, or he lived in the part of the district that was never Chicago — the Fox River and Du Page settlements are in it too — or he is somebody the reconstruction has not found. All three are findings and none of them is settled here."
+    },
+    {
+      "unit": "census_1830:data/research/census_1830/records/schedule_chicago_1830.json#records/census1830_n584_003",
+      "rule": "the_1830_line_bounds_a_held_residents_presence",
+      "note": "The 1830 schedule, leaf n584 entry 3, in the division headed 'Peoria & Putnam Counties & Territory attached', enters 'Timothy B Clark' read as 'TIMOTHY B CLARK'. Surname and given name both agree between the 1830 reading 'Timothy B Clark' and the town person 'Timothy J Clark' in household hh_clark_timothy_j. The 1830 line is carried as EARLIER EVIDENCE for that person and grades nothing on its own. The household is hh_clark_timothy_j."
+    },
+    {
+      "unit": "census_1830:data/research/census_1830/records/schedule_chicago_1830.json#records/census1830_n584_004",
+      "rule": "the_1830_surname_only_match_was_refused_in_the_crosswalk",
+      "note": "The 1830 schedule, leaf n584 entry 4, in the division headed 'Peoria & Putnam Counties & Territory attached', enters 'Pierce Hawley' read as 'PIERCE HAWLEY'. The 1830 reading 'Pierce Hawley' shares only a surname with the town person(s) Oscar L. Hawley (hh_hawley_oscar_l). A surname match is a clue and not an identity, so it is REFUSED rather than merged, and the refusal is written down so the next sweep does not make the same match again."
+    },
+    {
+      "unit": "census_1830:data/research/census_1830/records/schedule_chicago_1830.json#records/census1830_n584_005",
+      "rule": "the_1830_surname_only_match_was_refused_in_the_crosswalk",
+      "note": "The 1830 schedule, leaf n584 entry 5, in the division headed 'Peoria & Putnam Counties & Territory attached', enters 'Bailey Hobson' read as 'BAILEY HOBSON'. The 1830 reading 'Bailey Hobson' shares only a surname with the town person(s) Jesse Hobson (hh_hobson_jesse). A surname match is a clue and not an identity, so it is REFUSED rather than merged, and the refusal is written down so the next sweep does not make the same match again."
+    },
+    {
+      "unit": "census_1830:data/research/census_1830/records/schedule_chicago_1830.json#records/census1830_n584_006",
+      "rule": "the_1830_surname_stands_in_no_town_household",
+      "note": "The 1830 schedule, leaf n584 entry 6, in the division headed 'Peoria & Putnam Counties & Territory attached', enters 'Jacob Kite' read as 'JACOB KITE'. No person in the town's 825 households carries this surname. Either the man had gone by 1835, or he lived in the part of the district that was never Chicago — the Fox River and Du Page settlements are in it too — or he is somebody the reconstruction has not found. All three are findings and none of them is settled here."
+    },
+    {
+      "unit": "census_1830:data/research/census_1830/records/schedule_chicago_1830.json#records/census1830_n584_007",
+      "rule": "the_1830_surname_stands_in_no_town_household",
+      "note": "The 1830 schedule, leaf n584 entry 7, in the division headed 'Peoria & Putnam Counties & Territory attached', enters 'Samuel Grove' read as 'SAMUEL GROVE'. No person in the town's 825 households carries this surname. Either the man had gone by 1835, or he lived in the part of the district that was never Chicago — the Fox River and Du Page settlements are in it too — or he is somebody the reconstruction has not found. All three are findings and none of them is settled here."
+    },
+    {
+      "unit": "census_1830:data/research/census_1830/records/schedule_chicago_1830.json#records/census1830_n584_008",
+      "rule": "the_1830_surname_stands_in_no_town_household",
+      "note": "The 1830 schedule, leaf n584 entry 8, in the division headed 'Peoria & Putnam Counties & Territory attached', enters 'Jacob Grove' read as 'JACOB GROVE'. No person in the town's 825 households carries this surname. Either the man had gone by 1835, or he lived in the part of the district that was never Chicago — the Fox River and Du Page settlements are in it too — or he is somebody the reconstruction has not found. All three are findings and none of them is settled here."
+    },
+    {
+      "unit": "census_1830:data/research/census_1830/records/schedule_chicago_1830.json#records/census1830_n584_009",
+      "rule": "the_1830_surname_stands_in_no_town_household",
+      "note": "The 1830 schedule, leaf n584 entry 9, in the division headed 'Peoria & Putnam Counties & Territory attached', enters 'Joseph Grove' read as 'JOSEPH GROVE'. No person in the town's 825 households carries this surname. Either the man had gone by 1835, or he lived in the part of the district that was never Chicago — the Fox River and Du Page settlements are in it too — or he is somebody the reconstruction has not found. All three are findings and none of them is settled here."
+    },
+    {
+      "unit": "census_1830:data/research/census_1830/records/schedule_chicago_1830.json#records/census1830_n584_010",
+      "rule": "the_1830_surname_stands_in_no_town_household",
+      "note": "The 1830 schedule, leaf n584 entry 10, in the division headed 'Peoria & Putnam Counties & Territory attached', enters 'David Shaver' read as 'DAVID SHAVER'. No person in the town's 825 households carries this surname. Either the man had gone by 1835, or he lived in the part of the district that was never Chicago — the Fox River and Du Page settlements are in it too — or he is somebody the reconstruction has not found. All three are findings and none of them is settled here."
+    },
+    {
+      "unit": "census_1830:data/research/census_1830/records/schedule_chicago_1830.json#records/census1830_n584_011",
+      "rule": "the_1830_surname_stands_in_no_town_household",
+      "note": "The 1830 schedule, leaf n584 entry 11, in the division headed 'Peoria & Putnam Counties & Territory attached', enters 'William Parr' read as 'WILLIAM PARR'. No person in the town's 825 households carries this surname. Either the man had gone by 1835, or he lived in the part of the district that was never Chicago — the Fox River and Du Page settlements are in it too — or he is somebody the reconstruction has not found. All three are findings and none of them is settled here."
+    },
+    {
+      "unit": "census_1830:data/research/census_1830/records/schedule_chicago_1830.json#records/census1830_n584_012",
+      "rule": "the_1830_surname_stands_in_no_town_household",
+      "note": "The 1830 schedule, leaf n584 entry 12, in the division headed 'Peoria & Putnam Counties & Territory attached', enters 'David Grove' read as 'DAVID GROVE'. No person in the town's 825 households carries this surname. Either the man had gone by 1835, or he lived in the part of the district that was never Chicago — the Fox River and Du Page settlements are in it too — or he is somebody the reconstruction has not found. All three are findings and none of them is settled here."
+    },
+    {
+      "unit": "census_1830:data/research/census_1830/records/schedule_chicago_1830.json#records/census1830_n584_013",
+      "rule": "the_1830_surname_stands_in_no_town_household",
+      "note": "The 1830 schedule, leaf n584 entry 13, in the division headed 'Peoria & Putnam Counties & Territory attached', enters 'Matthias Trumbo' read as 'MATTHIAS TRUMBO'. No person in the town's 825 households carries this surname. Either the man had gone by 1835, or he lived in the part of the district that was never Chicago — the Fox River and Du Page settlements are in it too — or he is somebody the reconstruction has not found. All three are findings and none of them is settled here."
+    },
+    {
+      "unit": "census_1830:data/research/census_1830/records/schedule_chicago_1830.json#records/census1830_n584_014",
+      "rule": "the_1830_surname_stands_in_no_town_household",
+      "note": "The 1830 schedule, leaf n584 entry 14, in the division headed 'Peoria & Putnam Counties & Territory attached', enters 'James McCarty' read as 'JAMES MCCARTY'. No person in the town's 825 households carries this surname. Either the man had gone by 1835, or he lived in the part of the district that was never Chicago — the Fox River and Du Page settlements are in it too — or he is somebody the reconstruction has not found. All three are findings and none of them is settled here."
+    },
+    {
+      "unit": "census_1830:data/research/census_1830/records/schedule_chicago_1830.json#records/census1830_n584_015",
+      "rule": "the_1830_surname_stands_in_no_town_household",
+      "note": "The 1830 schedule, leaf n584 entry 15, in the division headed 'Peoria & Putnam Counties & Territory attached', enters 'Benjamin Baumfielde' read as 'BENJAMIN BAUMFIELDE'. No person in the town's 825 households carries this surname. Either the man had gone by 1835, or he lived in the part of the district that was never Chicago — the Fox River and Du Page settlements are in it too — or he is somebody the reconstruction has not found. All three are findings and none of them is settled here."
+    },
+    {
+      "unit": "census_1830:data/research/census_1830/records/schedule_chicago_1830.json#records/census1830_n584_016",
+      "rule": "the_1830_surname_stands_in_no_town_household",
+      "note": "The 1830 schedule, leaf n584 entry 16, in the division headed 'Peoria & Putnam Counties & Territory attached', enters 'James Wallace' read as 'JAMES WALLACE'. No person in the town's 825 households carries this surname. Either the man had gone by 1835, or he lived in the part of the district that was never Chicago — the Fox River and Du Page settlements are in it too — or he is somebody the reconstruction has not found. All three are findings and none of them is settled here."
+    },
+    {
+      "unit": "census_1830:data/research/census_1830/records/schedule_chicago_1830.json#records/census1830_n584_017",
+      "rule": "the_1830_surname_stands_in_no_town_household",
+      "note": "The 1830 schedule, leaf n584 entry 17, in the division headed 'Peoria & Putnam Counties & Territory attached', enters 'Thomas Essex senr' read as 'THOMAS ESSEX SENR'. No person in the town's 825 households carries this surname. Either the man had gone by 1835, or he lived in the part of the district that was never Chicago — the Fox River and Du Page settlements are in it too — or he is somebody the reconstruction has not found. All three are findings and none of them is settled here."
+    },
+    {
+      "unit": "census_1830:data/research/census_1830/records/schedule_chicago_1830.json#records/census1830_n584_018",
+      "rule": "the_1830_surname_stands_in_no_town_household",
+      "note": "The 1830 schedule, leaf n584 entry 18, in the division headed 'Peoria & Putnam Counties & Territory attached', enters 'Thomas Essex junr' read as 'THOMAS ESSEX JUNR'. No person in the town's 825 households carries this surname. Either the man had gone by 1835, or he lived in the part of the district that was never Chicago — the Fox River and Du Page settlements are in it too — or he is somebody the reconstruction has not found. All three are findings and none of them is settled here."
+    },
+    {
+      "unit": "census_1830:data/research/census_1830/records/schedule_chicago_1830.json#records/census1830_n584_019",
+      "rule": "the_1830_surname_stands_in_no_town_household",
+      "note": "The 1830 schedule, leaf n584 entry 19, in the division headed 'Peoria & Putnam Counties & Territory attached', enters 'David Cooper' read as 'DAVID COOPER'. No person in the town's 825 households carries this surname. Either the man had gone by 1835, or he lived in the part of the district that was never Chicago — the Fox River and Du Page settlements are in it too — or he is somebody the reconstruction has not found. All three are findings and none of them is settled here."
+    },
+    {
+      "unit": "census_1830:data/research/census_1830/records/schedule_chicago_1830.json#records/census1830_n584_020",
+      "rule": "the_1830_surname_stands_in_no_town_household",
+      "note": "The 1830 schedule, leaf n584 entry 20, in the division headed 'Peoria & Putnam Counties & Territory attached', enters 'Benjamin Essex' read as 'BENJAMIN ESSEX'. No person in the town's 825 households carries this surname. Either the man had gone by 1835, or he lived in the part of the district that was never Chicago — the Fox River and Du Page settlements are in it too — or he is somebody the reconstruction has not found. All three are findings and none of them is settled here."
+    },
+    {
+      "unit": "census_1830:data/research/census_1830/records/schedule_chicago_1830.json#records/census1830_n584_021",
+      "rule": "the_1830_surname_stands_in_no_town_household",
+      "note": "The 1830 schedule, leaf n584 entry 21, in the division headed 'Peoria & Putnam Counties & Territory attached', enters 'Aquilla Wren' read as 'AQUILLA WREN'. No person in the town's 825 households carries this surname. Either the man had gone by 1835, or he lived in the part of the district that was never Chicago — the Fox River and Du Page settlements are in it too — or he is somebody the reconstruction has not found. All three are findings and none of them is settled here."
+    },
+    {
+      "unit": "census_1830:data/research/census_1830/records/schedule_chicago_1830.json#records/census1830_n584_022",
+      "rule": "the_1830_surname_stands_in_no_town_household",
+      "note": "The 1830 schedule, leaf n584 entry 22, in the division headed 'Peoria & Putnam Counties & Territory attached', enters 'John Essex' read as 'JOHN ESSEX'. No person in the town's 825 households carries this surname. Either the man had gone by 1835, or he lived in the part of the district that was never Chicago — the Fox River and Du Page settlements are in it too — or he is somebody the reconstruction has not found. All three are findings and none of them is settled here."
+    },
+    {
+      "unit": "census_1830:data/research/census_1830/claims/schedule_town_findings.json#claims/census1830_town_001",
+      "rule": "the_1830_town_finding_is_earlier_evidence",
+      "note": "The 1830 schedule of the Peoria & Putnam division. Claim census1830_town_001, a civic finding dated 1830: \"The United States garrison of Fort Dearborn was enumerated in 1830 as a single household under Major John Fowle, commanding.\""
+    },
+    {
+      "unit": "census_1830:data/research/census_1830/claims/schedule_town_findings.json#claims/census1830_town_002",
+      "rule": "the_1830_town_finding_is_earlier_evidence",
+      "note": "The 1830 schedule of the Peoria & Putnam division. Claim census1830_town_002, a household finding dated 1830: \"Two LaFramboise households stood at the forks in 1830, entered on consecutive lines: Joseph, and a second head the enumerator writes 'Clouded' for Claude.\""
+    },
+    {
+      "unit": "census_1830:data/research/census_1830/claims/schedule_town_findings.json#claims/census1830_town_003",
+      "rule": "the_1830_schedule_describes_its_own_making",
+      "note": "The 1830 schedule of the Peoria & Putnam division. Claim census1830_town_003, a civic finding dated 1830: \"A heavy rule is drawn under William See on leaf n580 and the hand spaces wider after it: the enumerator marking a break in his round.\""
+    },
+    {
+      "unit": "census_1830:data/research/census_1830/claims/schedule_town_findings.json#claims/census1830_town_004",
+      "rule": "the_1830_schedule_describes_its_own_making",
+      "note": "The 1830 schedule of the Peoria & Putnam division. Claim census1830_town_004, a civic finding dated 1830: \"In 1830 Chicago had no county of its own: the settlement was enumerated inside the district headed 'Peoria & Putnam Counties & Territory attached', and the schedule never writes the word Chicago.\""
+    }
+  ]
+}

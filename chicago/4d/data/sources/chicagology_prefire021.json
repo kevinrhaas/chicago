@@ -1,0 +1,32 @@
+{
+  "id": "chicagology_prefire021",
+  "type": "website",
+  "citation": "\"Tremont House.\" Chicagology. Compiling city-directory entries 1846-1870, an uncredited building summary, Chicago Illustrated (January 1866) by James W. Sheahan, and a reader's letter headed \"THE FOUR TREMONTS\", Chicago Tribune, 2 February 1874.",
+  "date": "accessed 2026-08-11",
+  "describes_date": "1833-1871",
+  "locator": "The uncredited \"Building Summary\" paragraph beginning \"The first Tremont House, a three-story wooden building\"; the Chicago Illustrated, January 1866 section; and the Chicago Tribune, 2 February 1874 letter \"THE FOUR TREMONTS\" with its sub-heads \"The Muddy Days\" and \"The First Fire\".",
+  "url": "https://chicagology.com/prefire/prefire021/",
+  "archived_url": "https://web.archive.org/web/20260411172619/https://chicagology.com/prefire/prefire021/",
+  "tier": 4,
+  "rights_status": "check_required",
+  "asset_use": "cross_check",
+  "verified": true,
+  "note": "THE SOURCE OF \"A MERE SHELL\", AND IT IS AN 1874 LETTER TO A NEWSPAPER. Verbatim, under the Tribune date of 2 February 1874: \"In 1833 there was built upon the northwest corner of Lake and Dearborn streets an unpretending frame structure known as the Tremont House, and the following year Ira Couch became its proprietor. He found the house a mere shell, without any sidewalk around it, and poorly furnished, as none of the rooms were entirely carpeted, little pieces in front of the bed being considered sufficient for anyone; and very many of the beds were minus one pleasant luxury, a pillow.\" And under \"The Muddy Days\": \"Around this corner, in early spring-time, it was impossible to drive the stage, and the passengers had to walk some two blocks; on account if the marshy state of the ground, the horses could not navigate\" (the \"if\" for \"of\" is the page's). And under \"The First Fire\": \"In the fall of 1839, the Tremont House was first consumed by fire.\"\n\nTHE STOREY COUNT IS WEAKER THAN THE DOSSIER MAKES IT LOOK. docs/research/04-structures-south.md line 155 records the height as contested and says \"chicagology and Wikipedia say three-story wooden\", and adopts three. On this page the ONLY sentence giving a storey count is the uncredited editorial summary: \"The first Tremont House, a three-story wooden building at the northwest corner of Lake and Dearborn streets, was built in 1833.\" Neither period text on the page counts storeys. The 1874 letter says \"an unpretending frame structure\". Chicago Illustrated (January 1866) says \"The first house making any pretensions to the character of a hotel was a wooden structure, called the 'Tremont House,' on the north-west corner of Lake and Dearborn streets, owned and kept by the brothers Couch.\" So chicagology's three storeys is one modern uncredited sentence, not a witness, and it should not be weighed as though it were independent of Wikipedia. What the page's period texts DO agree on, twice and separately, is the north-west corner and frame construction.\n\nDO NOT READ THE PAGE HEADER. Its metadata block says \"Address: SE corner of Lake and Dearborn Streets\" and \"Architect: John M. Van Osdel\". Both belong to the later Tremonts - Van Osdel's is the 1850 brick house - and the header flatly contradicts every body text on the same page about the first building. The header also gives \"Tremont I (1833-1839), Tremont II (1839-1849)\" while the 1874 letter in the body has Couch erecting Tremont No. 2 \"in 1841\". Take the corner and the dates from the body, not the header.\n\nTIER 4 GRADES THIS WEB PAGE, NOT THE MATERIAL IT REPRINTS. A modern compilation quoting an older text is still a modern compilation: the transcription is unpaginated, uncredited editorial prose sits beside the quoted matter with no typographic break, and nothing here can be collated against a printed page. Where a claim taken from this page is load-bearing, re-read it in the underlying volume and cite that record instead.",
+  "access_notes": "Site carries no license statement. Treat as a transcription aid, not a rights source; nothing may be derived from it as an asset.",
+  "what_it_supplies": [
+    "built 1833 at the north-west corner of Lake and Dearborn streets",
+    "frame / wooden construction, twice attested in period texts on the page",
+    "\"a mere shell, without any sidewalk around it\", poorly furnished, rooms not entirely carpeted, beds often without a pillow",
+    "Ira Couch became proprietor the year after it was built, i.e. 1834",
+    "the corner impassable to the stage in early spring, passengers walking some two blocks",
+    "destroyed by fire in the fall of 1839",
+    "kept by the Couch brothers (Chicago Illustrated, 1866)"
+  ],
+  "what_it_does_not_supply": [
+    "an independent storey count - the only one on the page is an uncredited modern summary sentence",
+    "any dimension, plan or roof form",
+    "the builder's name (Alanson Sweet is not on this page)",
+    "the first proprietor Starr Foot, or the 1835 sale to Mallory & Able",
+    "anything reliable in its header metadata block, which describes the later Tremonts"
+  ]
+}

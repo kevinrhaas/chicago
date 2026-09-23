@@ -1,0 +1,21 @@
+id: project-walkthroughs
+title: Chicago 1835 Reconstruction Project Walkthroughs
+creator: Kevin Haas
+date: 2026
+description: >
+  Full-resolution screen-recording walkthroughs of the Chicago 1835
+  reconstruction project (Polecat). Smaller compressed .mp4 derivatives
+  of these same recordings are committed alongside this file.
+redistribution_status: public
+copyright_status: project-documentation
+internet_archive:
+  item: chicago1835-project-walkthroughs
+  url: https://archive.org/details/chicago1835-project-walkthroughs
+files:
+  - name: Screen Recording 2026-08-24 at 1.51.40 PM.mov
+    bytes: 130878088
+    sha256: 7497cece44f577a6f416ccc2ed6db04e5807f31d0aeb4d0dc3d1cd66da5d23a4
+  - name: Screen Recording 2026-08-31 at 5.10.18 PM.mov
+    bytes: 377916523
+    sha256: 9382d2a0196231d2b04a7c10e54b2530b774a13dc5a51c7d83759f2d1a6e71c5
+local_archive_path: projects/archive/data/chicago/reference/walkthroughs/

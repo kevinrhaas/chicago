@@ -1,0 +1,254 @@
+{
+  "id": "fort_dearborn_us_factors_house",
+  "phase": "us_factors_house_1818",
+  "name": "U.S. Factor's House",
+  "aka": [
+    "the Factor House",
+    "the Factory House",
+    "the United States factory"
+  ],
+  "archetype": "log_dwelling",
+  "asset": "gltf/fort_dearborn_us_factors_house__us_factors_house_1818.glb",
+  "scene": "1835",
+  "target_date": "1835-07-01",
+  "documented_range": {
+    "from": "1818-01-01",
+    "to": "1836-12-29",
+    "confidence": "inferred",
+    "sources": [
+      "hubbard_autobiography_1911",
+      "chicago_antiquities_american_fur_co",
+      "harrison_1830_river_mouth"
+    ],
+    "note": "THREE WITNESSES ACROSS EIGHTEEN YEARS, AND NOT ONE OF THEM DATES THE BUILDING. The range opens 1 January 1818 because that is the year Gurdon Hubbard reached Chicago and the year his inventory of the place describes (`bk_hub_063`, leaf 76, printed p. 38); the house he found was older — he has Jouett in it as United States factor 'from 1804 to about the year 1810' and John Dean succeeding him 'at the second construction of the fort' — so 1818 IS A FLOOR ON THE RECORD AND NOT A CONSTRUCTION DATE, and no source this project holds gives one. What stands between that floor and the scene is two further sightings: Hurlbut has the American Fur Company buy 'the Factory House, located just south of Fort Dearborn' from the United States in 1822 and Jean Baptiste Beaubien move his family into it (`bk_afc_009`), and the Harrison plan of 24 February 1830 letters `U.S. Factor's House` against the three blocks this record's position is read from.\n\nIT CLOSES 29 DECEMBER 1836, the evacuation, and that is the same floor every Fort Dearborn record here carries rather than a demolition: nothing attests when the reservation's buildings came down.\n\nWHAT CARRIES THE SCENE DATE OF 1 JULY 1835 is the middle of that range and not either end. A building three independent texts have standing in 1818, 1822 and 1830 is standing five years after the last of them unless something says it stopped, and nothing does. THAT ARGUMENT IS STRONGER HERE THAN AT THE OUT BUILDINGS NEXT DOOR, which rest on the plate alone; it is still an argument from silence about the last five years, and the grade says so. A fourth fact bears on the same five years without being read as occupancy: the Illinois land-sale register has John Baptist Baubian entering this ground on 28 May 1835, five weeks before the scene — a pre-emption entry over the reservation, which is a transaction and not a sighting of a house."
+  },
+  "change_note": "ONE PHASE, AND THE BUILDING CHANGED HANDS TWICE INSIDE IT. Jouett to Dean at the second construction of the fort, then the United States to the American Fur Company in 1822 with Beaubien moving in; not one of the three witnesses describes any change to the fabric, so nothing here is dated to those transfers. The name on the record is the plate's, which is the name the sheet letters.",
+  "placement": {
+    "local_e": 1152.2,
+    "local_n": 36.4,
+    "rotation_deg": 320.0,
+    "position_confidence": "inferred",
+    "position_sources": [
+      "harrison_1830_river_mouth",
+      "hubbard_autobiography_1911"
+    ],
+    "position_note": "THE PLATE GIVES THE COORDINATE AND HUBBARD CORROBORATES THE GROUND. Read off the 1830 Harrison plan by the transform T-0883 stated and T-0882 reused, unchanged and not re-derived here: Internet Archive leaf n242 of historyofchicago01andr (Andreas, History of Chicago, vol. 1, p. 113), rotated 90 degrees anticlockwise so the sheet's own true-north arrow stands vertical, 2715 x 2003 px, anchor pixel (1445, 644) on the committed palisade centre at local E +1152.0, N +221.0, at 0.33528 m/px. The full reading, its per-block pixels and its four checks are `data/traces/harrison_1830_us_factors_house.json`; this note does not repeat them.\n\nTHE PIXEL. The plate letters `U.S. Factor's House` in three lines against THREE solid blocks, and this record is block A — the one the label touches, and the largest. Its ink centres at pixel (1445.6, 1194.5), which is 0.2 m east and 184.6 m south of the enclosure centre: local ENU (1152.2, 36.4), UTM 448224.90 E, 4637432.20 N. CARRY +/-20 % on size and +/-25 m on position, exactly as every plate-derived record here does — the sheet has no scale bar and its own source record says it is used for arrangement and proportion rather than absolute size.\n\nWHY BLOCK A AND NOT THE GROUP CENTRE. The label stands beside A and could as easily name all three (the trace says so and does not pretend otherwise), but A is what this record builds, so A's own ink is what it stands on. The group centre is 6.7 m away — well inside the +/-25 m this plate carries — so nothing turns on the choice except honesty about which pixels were measured.\n\nWHERE IT STANDS RELATIVE TO THE FORT AND THE ROAD. 152 m south of the palisade's southernmost corner and 182 m south of its centre: outside the pickets, inside the fence line `bk_hub_060` runs from river to river, about 48 m south of the Gate the same plate letters in that fence, and east of the road band whose north-west edge is the committed garrison garden's south-east face. That is where Hubbard independently puts it — 'Just east of the road, and adjoining the fence running east to the river' — and Hubbard never saw this plate.\n\nTHE BEARING IS THE DRAWN ONE; WHICH LONG WALL IS THE FRONT IS NOT. The block's long axis runs at 40 degrees anticlockwise from east, which is a bearing of 50 degrees, and that is measured. `rotation_deg` 320 faces the facade north-west, onto the road the house stood 'just east of'; the opposite choice, 140, gives the identical footprint and moves only the openings. It is INVENTED and it is covered at L231.\n\nIT IS NOT `jb_beaubien_homestead`. That record stands at local (1133.2, 177.8), 139.7 m north of this one, and carried this building's identity as an alias until T-0894 measured the separation. The alias came off there; this is the ground the plate actually letters.",
+    "symbolic_location": "On the Fort Dearborn reservation 152 m south of the palisade's nearest corner, east of the only road out of the fort and off the garrison garden's southern corner.",
+    "uncertainty_m": 20,
+    "placement_provisional": false,
+    "vertical_anchor": "terrain",
+    "walk_surface_m": null
+  },
+  "footprint": {
+    "polygon": [
+      [
+        0,
+        0
+      ],
+      [
+        20.4,
+        0
+      ],
+      [
+        20.4,
+        7.9
+      ],
+      [
+        0,
+        7.9
+      ]
+    ],
+    "confidence": "inferred",
+    "sources": [
+      "harrison_1830_river_mouth"
+    ],
+    "note": "NO SOURCE GIVES THIS BUILDING A DIMENSION. 20.4 x 7.9 m is block A's own principal extents on the plate — about 67 x 26 ft at the derived 1.10 ft/px — and it wants the same +/-20 % as everything else off this sheet. THE BLOCK IS DRAWN AS A HEAVY OUTLINED BAR whose engraved fill has broken up on this impression, so the second moments were taken over the outline and the surviving fill together and the figure is the BAR, not a wall thickness; it is a ceiling on the building rather than an estimate of it. The long side runs at bearing 50 degrees as drawn. THE SIZE IS THE ONE MEASURED THING THAT ARGUES FOR THE IDENTIFICATION rather than merely surviving it: 67 x 26 ft is a government trading house with a store and a dwelling in it, and it is the only one of the plate's three blocks that Hubbard's two storeys will fit."
+  },
+  "attributes": {
+    "construction": {
+      "value": "log",
+      "confidence": "attested",
+      "sources": [
+        "hubbard_autobiography_1911"
+      ],
+      "note": "ATTESTED IN THE WORD, and it is the rarest thing on this record. `bk_hub_063`: 'a two-story, SQUARED-LOG structure'. Squared — hewn, not round — is what this archetype builds, so the fabric here is read and not invented, which is the difference between this building and the two out buildings 130 m north of it whose `log` is recorded at L228 as pure default."
+    },
+    "stories": {
+      "value": 2,
+      "confidence": "inferred",
+      "sources": [
+        "hubbard_autobiography_1911"
+      ],
+      "note": "HUBBARD SAYS TWO STOREYS OF THE FACTOR HOUSE; THIS RECORD SAYS THEY ARE BLOCK A'S, AND THAT SECOND STEP IS THE INFERENCE. The prose names one building — 'the \"Factor House\", a two-story, squared-log structure' — and the plate letters that name against three blocks, so which of the three carries the storeys is not on the sheet. A is taken to be it on two grounds stated rather than assumed: the label's first letter stands about 2 m clear of A's north-east end and touches no other block, and A at 20.4 x 7.9 m is the only one of the three a two-storey dwelling-and-store will fit (B is a 16.6 x 5.1 m bar set across it, C is 6.7 x 5.0 m). Neither ground is proof and the grade is `inferred` because of it. THE ALTERNATIVE THE TICKET ALLOWED — 'not determinable, so the storey count is inferred from the type' — would have put ONE storey here on no evidence at all while a witness was sitting on the shelf saying two; taking the witness and writing down exactly how far it had to be carried is the better of the two answers, and this note is that distance."
+    },
+    "wall_height_m": {
+      "value": 5.2,
+      "confidence": "reconstructed",
+      "note": "NO HEIGHT IS ATTESTED for this building or for any building at this post. 5.2 m is two storeys of about 8 ft 6 in in the clear, the archetype's own band for a two-storey log core. Invented."
+    },
+    "roof_type": {
+      "value": "gable",
+      "confidence": "reconstructed",
+      "note": "Not attested. Gable is the archetype's default and the only alternative it builds is a shed, which is not a form a two-storey dwelling takes. Invented."
+    },
+    "roof_pitch_deg": {
+      "value": 35.0,
+      "confidence": "reconstructed",
+      "note": "No pitch is attested for any building at this fort. Invented, at the archetype's default."
+    },
+    "chimneys": {
+      "value": 1,
+      "confidence": "reconstructed",
+      "note": "No stack is attested. One is the archetype's default and the smallest claim available for a heated two-storey dwelling; a 20 m building could as easily have carried two, and the record does not guess upward. Invented."
+    },
+    "function": {
+      "value": "trading house",
+      "confidence": "attested",
+      "sources": [
+        "hubbard_autobiography_1911",
+        "chicago_antiquities_american_fur_co",
+        "harrison_1830_river_mouth"
+      ],
+      "note": "THE FUNCTION IS THE NAME AND EVERY WITNESS USES IT. A United States factory was the government's own trading house — the post at which the Indian trade was carried on the government's account — and all three sources name it as such: the plate letters `U.S. Factor's House`, Hubbard has it occupied 'by a Mr. Jouett, United States factor', and Hurlbut has the American Fur Company buying 'the Factory House' from the United States. WHAT IS NOT CLAIMED IS WHAT WENT ON INSIDE IT IN 1835. The factory system was abolished in 1822, which is the same year Hurlbut has the building sold out of government hands; by the scene date this is a private house that used to be a trading house, and nothing this project holds says whether any trade was still carried on in it."
+    },
+    "land_owner": {
+      "value": "The ground was entered by John Baptist Baubian, 28 May 1835",
+      "confidence": "inferred",
+      "sources": [
+        "isa_public_domain_land_tract_sales"
+      ],
+      "note": "THE UNITED STATES RESERVATION. This is the same tract L108 already derives for `1835_no_build_ground.json` — from G1, Madison's line and the traced waterline — so the polygon is inherited rather than built again, and `check.sh` already re-derives it. The register's own row is the second, independent witness to the date L108 quotes from Andreas: Beaubien's pre-emption, 28 May 1835, five weeks before the scene date. The derived polygon is short of the documented 75.69 acres for the reasons L108 states, and is a floor rather than the reservation. WHETHER THE ENTRY HELD IS NOT READ HERE: it was disputed, and this row records the entry the register carries and nothing about its outcome. THE MARGIN IS 102 m: this footprint stands that far inside the tract's nearest boundary, which is more than twice the working horizontal uncertainty of anything traced off the 1834 sheets (about 20 m), so the assignment survives the error the construction carries. WHAT THIS ROW CLAIMS AND WHAT IT DOES NOT. It claims that the tract the Illinois State Archives' land-sale register describes contains this structure's committed position — the patent for this ground was ENTERED by this man on this date. It does not claim he still held the ground on 1 July 1835, that he lived here, or that he ever stood on it: a sale is a transaction, and the register's only column about residence names a county. THE SECTION LINES ARE CONSTRUCTED, NOT TRACED (L219): the grid is carried from the single PLSS corner at State & Madison, on the plat's own east-west bearing, in nominal one-mile squares."
+    }
+  },
+  "residents": [],
+  "citations": [
+    {
+      "source_id": "chicago_antiquities_american_fur_co",
+      "citation": "Henry H. Hurlbut, Chicago Antiquities: Comprising original items and relations, letters, extracts, and notes pertaining to early Chicago (Chicago, 1881), pages 28-36 — the chapter on the American Fur Company and Chicago. It names Hubbard, Beaubien, Crafts and the Kinzies as the company's Chicago men, prints Gurdon S. Hubbard's own account of how the trade here was organised and how small it was, and closes with extracts from a surviving Michilimackinac outfit book of 1821-22 and a catalogue of the goods furnished for the trade of the Chicago country.",
+      "url": "https://genealogytrails.com/ill/americanfurco.html",
+      "archived_url": "",
+      "tier": 1,
+      "tier_label": "period/eyewitness",
+      "transcribes": [
+        {
+          "work": "Gurdon S. Hubbard's account of the American Fur Company in the West, quoted at length and in quotation marks by Hurlbut — the organisation of the brigades, John Crafts at Hardscrabble, Beaubien's removal from Milwaukee, the Factory House, Crafts's death, John Kinzie the silversmith, and Hubbard's judgement that 'this place never had been preeminent as a trading-post'",
+          "date": "Undated within the chapter; Hubbard was alive and in Chicago when Hurlbut printed it in 1881, and he is describing 1818-1823 at sixty years' distance",
+          "tier": 2,
+          "note": "A near-primary recollection by the man who ran the Illinois trade, and the rung this record is graded on. It is a recollection and not a record: it dates Crafts's death 'in December, of I think the year 1823', and the 'I think' is the source's own."
+        },
+        {
+          "work": "An outward-invoice book of the American Fur Company's Michilimackinac agency, 1821 and 1822, then in private hands at Chicago — outfits by trader, destination and date, the agency dwelling's 1821 expenses, and a catalogue of goods for the Chicago country",
+          "date": "1821-1822",
+          "tier": 1,
+          "note": "A period business record, and Hurlbut prints extracts from it verbatim with the orthography kept. He also records that every other book of the company that lady saved went to the Chicago Historical Society and burned in 1871, so these extracts are what survives of them. This project has read the extracts only, at two removes."
+        },
+        {
+          "work": "Henry H. Hurlbut's own connecting narrative — Astor's rise, the Southwest Company, Astoria, Ramsey Crooks's career, and the judgement that Chicago was 'the port and point of a very limited district of distribution'",
+          "date": "1881",
+          "tier": 4,
+          "note": "Later compilation written forty-six years after the scene. Where Hurlbut is the one speaking, the claim says so, and his sizing judgement is filed as a judgement."
+        }
+      ],
+      "what_it_supplies": [
+        "the size of the fur trade at Chicago, stated twice and by two different men — Hurlbut's 'a very limited district of distribution' and Hubbard's own 'this place never had been preeminent as a trading-post, as this was not the Indian hunting-ground'",
+        "a dated arrival for Gurdon S. Hubbard: Montreal 13 May 1818, Mackinaw 4 July, Chicago the last day of October or first day of November of that year",
+        "the sequence of the Chicago trade houses — Crafts at Hardscrabble to 1819, Beaubien's trading houses at the old river mouth about the foot of Harrison Street from 1819, the Factory House south of Fort Dearborn bought from the U.S. in 1822",
+        "John Kinzie the elder's trade, in his own son-in-law's circle's words: silversmith, making Indian trinkets, and not in the company's business until Crafts died",
+        "that Astor sold the company in 1834 and it was assigned in 1842 — so no Astor company stood behind the Chicago trade in the scene year",
+        "a catalogue of the goods actually furnished for the trade of the Chicago country, about 130 named articles",
+        "one dated vessel arrival: the Schooner Ann, Capt. Ransom, from Michilimackinac to Chicago, 13 September 1821"
+      ],
+      "what_it_does_not_supply": [
+        "anything about 1835. The latest Chicago event in the chapter is 1828 and the latest company event 1842; the scene year is not described at all",
+        "any building this project could trace. Crafts's house is 'about half a mile below Bridgeport' and Beaubien's trading houses are at a river mouth the 1834 harbour cut has already moved — both are placements in prose, not on a sheet",
+        "a residence for anybody in 1835. Every person named here is named for what they did in the 1810s and 1820s",
+        "page numbers. The transcription runs pages 28-36 together with no breaks marked",
+        "reliable orthography for the outfit book, and it says so: 'Pains have been taken to carefully follow the orthography' is a claim about fidelity to the manuscript, not about the manuscript being right — 'Jamie Kinzie', 'Milliwaki', 'Lower Wasbash' and 'Achoolcraft' are all on the page"
+      ]
+    },
+    {
+      "source_id": "harrison_1830_river_mouth",
+      "citation": "Harrison, F., Jr., Ass't U.S. Civil Engineer. \"Map of the Mouth of Chicago River, drawn for the Purpose of showing the proposed Harbor Improvements. With additions and changes suggested by the Memory of Early Settlers. The original received and approved by William Howard, U.S. Civil Engineer, February 24, 1830.\" Reproduced in Andreas, A. T., History of Chicago, vol. 1 (Chicago, 1884), p. 113.",
+      "url": "https://archive.org/details/historyofchicago01andr/page/n242/mode/1up",
+      "archived_url": "",
+      "tier": 2,
+      "tier_label": "near-primary recollection",
+      "what_it_supplies": [
+        "the fort's plan arrangement: a quadrangular picket enclosure, corner works, four ranges, two gates",
+        "which building stood on which side of the parade",
+        "the relative proportions of the enclosure and the buildings in it",
+        "the fort's rotation relative to true north",
+        "the named ground around the fort: garrison garden, cultivated field, barn, wash house, well, shop, cemetery, ferry"
+      ],
+      "what_it_does_not_supply": [
+        "any dimension in feet - there is no scale bar",
+        "elevations, heights, roof forms or materials",
+        "the state of the fort in 1835 - it is five years earlier",
+        "a separation between the 1830 survey and the settler-memory additions the plate admits to"
+      ]
+    },
+    {
+      "source_id": "hubbard_autobiography_1911",
+      "citation": "Gurdon Saltonstall Hubbard, The Autobiography of Gurdon Saltonstall Hubbard, Pa-pa-ma-ta-be, \"The Swift Walker\", with an Introduction by Caroline M. McIlvaine, Librarian of the Chicago Historical Society (Chicago: R. R. Donnelley & Sons Company, The Lakeside Press, Christmas 1911) — The Lakeside Classics. Read in full for its Chicago material before 1836: the front matter, McIlvaine's Introduction (pages ix-xxvii), and Hubbard's own narrative at pages 27-41, 135-138, 141-144, 153-159, 165-174 and 178-182. Hubbard's letter of 25 July 1827, printed as a note at page 174, is a separate source record.",
+      "url": "https://archive.org/details/autobiographyofg00hubb",
+      "archived_url": "https://archive.org/download/autobiographyofg00hubb/autobiographyofg00hubb_djvu.txt",
+      "tier": 2,
+      "tier_label": "near-primary recollection",
+      "transcribes": [
+        {
+          "work": "Hubbard's own autobiographical narrative — his engagement with the American Fur Company at Montreal and Mackinaw, the voyage of September 1818, his first entry into Chicago on 1 October 1818, the fort and its neighbours as he first saw them, the Chicago portage and Mud Lake, Hubbard's Trail, the trading posts of the Illinois River, and the Winnebago Scare of 1827 — ending abruptly at November 1830",
+          "date": "Written in the 1880s; printed 1888 and again 1911. Describes 1818-1830.",
+          "tier": 2,
+          "note": "A participant's recollection at more than fifty years' distance, and the rung most of this reading sits on. It is a recollection and not a record: the Fort Dearborn measurements are paces remembered, the payment of page 167 is dated to the wrong year, and the commanders' list is Hubbard's own search of the War Department records, which he says failed for the years after June 1833. The Winnebago Scare section (pages 166-174) is footnoted as coming not from the Diary but 'from statements by Mr. Hubbard in Chicago Historical Series, No. 10', which is one remove further."
+        },
+        {
+          "work": "Caroline M. McIlvaine's Introduction, pages ix-xxvii — a 1911 review of the fifty-six years the Autobiography does not cover, compiled from letters, memoranda, contemporaries' reminiscences and printed history, and quoting E. O. Gale's Reminiscences of Early Chicago, The Chicago American of 10 October 1835, the Sunday Times of 24 October 1875 and Henry E. Hamilton's 1907 biographical sketch",
+          "date": "1911",
+          "tier": 4,
+          "note": "EVERY STATEMENT THIS PROJECT TAKES ABOUT 1834, 1835 OR 1836 COMES FROM HERE AND NOT FROM HUBBARD. The brick building at La Salle and South Water, the five or six hundred inhabitants, the brig Illinois of 25 May 1835, the Green Tree Tavern, the fire engine, the Russell & Mather purchase, the canal commissioners and the water-works are all McIlvaine's, written seventy-six years after the scene, and several are quotations at a further remove. A run reaching for 'Hubbard on 1835' is reaching for McIlvaine."
+        },
+        {
+          "work": "Editorial notes by Henry E. Hamilton, signed H. E. H., inserted in square brackets in the narrative — including the note at page 178 that the hog-driving of 1829-30 'was the beginning of the packing industry in Chicago' — and the publishers' preface and closing note",
+          "date": "1888 (the notes); 1911 (the preface and the closing note, the latter signed C. M. M.)",
+          "tier": 4,
+          "note": "Compiler's judgements, sixty years after the events, printed inside the narrative's own type. bk_hub_101 and bk_hub_104 are read from this layer and say so."
+        }
+      ],
+      "what_it_supplies": [
+        "Fort Dearborn's occupation chronology, dated to the day, from its establishment in 1804 to its final abandonment on 29 December 1836 — which puts the scene year inside a continuous garrison running from 1 October 1832",
+        "a full description of the second fort as a man who lived beside it in 1818 remembered it: fourteen-foot oak pickets, a block house at the south-west corner and a bastion at the north-west, whitewashed stockade and buildings, the officers' quarters outside the pickets with a piazza at second-storey level, the soldiers' quarters, the sutler's store in the north-east corner, two gates, two ten-foot guardhouses, a two-storey commissary storehouse and a brick magazine",
+        "the fort's surroundings: a four-acre garden, a military barn, a field running half a mile south, the ONE road, a fence line closed from river to river, the well by the south gate, and wash-houses on the sandy beach east of the pickets",
+        "the Factor House — two storeys, squared logs, a split-picket fence, Jouett to about 1810 and then John Dean — and the American Fur Company's round-log storehouse built by John Craft and occupied after his death by Jean Baptiste Beaubien",
+        "John Kinzie's house described from inside it: a long log cabin with a rude piazza, fronting the river directly opposite the fort, with a window that had a sight-line to the fort at night — the piazza confirmed again nine years later",
+        "a complete building count for the whole of the present Cook County in 1818: the fort's group, the Factor House, the Fur Company storehouse, Hardscrabble, Ouilmette's cabin and Kinzie's house, and nothing else",
+        "the river mouth's history — its natural outlet at the fort, its southward migration behind a sand spit driven by north-east winds, its position at The Pines a mile south as late as 1827, the soldiers' cut of spring 1828 and the sand's refilling of it",
+        "landscape: the prairie seen from Douglas Grove, the Blue Island grove and the Desplaines timber, wild onion and leek along the river, wild rice and head-high grass at Mud Lake, the old cultivated field on the River Guarie still legible as cornhills, and prairie fires dangerous enough to sink boats against",
+        "Hubbard's Trail, dated by the man who cut it (1822 to Danville, extended north to Chicago in 1824) and the State road from Vincennes to Chicago ordered in the winter of 1833-34 that adopted most of it",
+        "the settlement's size taken sideways: about forty men and women turned out to fight the fort fire in 1827, and a majority of the men at the fort that summer were Hubbard's own employees",
+        "for 1835, at one remove through McIlvaine: the brig Illinois lightered ashore on 25 May because the harbour could not take her, the passengers going on to the Green Tree Tavern, the Chicago American of 10 October 1835 on Hubbard's fire engine, and the March 1835 purchase of the eighty acres of Russell & Mather's addition for $5,000",
+        "one period document, and it is graded separately: Hubbard's letter to his sister headed 'Chicago, July 25, 1827', at data/sources/hubbard_letter_1827_07_25.json"
+      ],
+      "what_it_does_not_supply": [
+        "Hubbard's own eyewitness on 1835. HIS NARRATIVE ENDS IN NOVEMBER 1830 and the closing note says so in as many words; the book's 1835 is Caroline McIlvaine's, written in 1911",
+        "any plat position, lot, or measured coordinate. Every placement here is prose — 'west and a little south of the fort', 'about where Wells street now crosses the river' — and several are given in streets that did not exist when the thing described did",
+        "reliable dimensions. 'A square of about six hundred feet' for the Fort Dearborn stockade is a pace-estimate at sixty years' distance and is much larger than the fort this project reconstructs",
+        "a consistent account of the officers' quarters: page 36 puts them outside the pickets and built of hewn logs, page 167 puts the commanding officers' former quarters in a brick building just within the north stockade and the log quarters within the pickets on the west. The book contradicts itself and this project does not resolve it",
+        "the right year for the Pottawatomie payment and the fort fire: page 167 prints 1828 where the section heading, the surrounding narrative and Hubbard's own dated letter all say July 1827",
+        "the names of the officers commanding Fort Dearborn after 19 June 1833 — Hubbard says he could not find them in the War Department records, so the source names nobody in command during the scene year",
+        "a residence for anybody in 1835. Every person Hubbard names, he names for what they did between 1812 and 1830",
+        "page images. This reading is of the Internet Archive's OCR text of the scan, corroborated against the deposited PDF's own text layer; no claim here is scan_verified"
+      ]
+    },
+    {
+      "source_id": "isa_public_domain_land_tract_sales",
+      "citation": "Illinois State Archives, Illinois Public Domain Land Tract Sales Database (Springfield: Office of the Secretary of State).",
+      "url": "https://apps.ilsos.gov/isa/landSalesSearch.do",
+      "archived_url": "",
+      "tier": 1,
+      "tier_label": "period/eyewitness"
+    }
+  ],
+  "research_note": "PLACED UNDER T-1036, OUT OF A READING THAT REFUSED TO PLACE IT. T-0894 measured the three blocks the 1830 Harrison plan letters `U.S. Factor's House` and deliberately built nothing, because the plate gives arrangement and a +/-20 % size and no material, no roof, no opening and no way to say which block carries Hubbard's two storeys. This ticket is that refusal re-examined with the prose read alongside the plate instead of after it, and two of the four gaps close: `bk_hub_063` gives the fabric in a word — SQUARED-LOG — and gives the storeys, and the size of block A is what lets the storeys be attached to a particular block rather than to a group. The roof and the openings do not close and are invented at L231.\n\nWHY ONE BLOCK AND NOT THREE. The label touches A; both prose witnesses describe ONE building and neither mentions a group; A is the only one of the three that a two-storey squared-log dwelling-and-store fits. B (16.6 x 5.1 m, set across A 12 m to the north-west) and C (6.7 x 5.0 m, 15 m to the south-west) are DRAWN AND UNLETTERED, and they are refused as fabric rather than omitted: a government factory had a store, a warehouse, a stable and a smith about it, the sheet says something stood on those two footprints, and it cannot say which of those things either was. Building them would be two invented buildings hung on one label — the shape `docs/RESEARCH/fort_dearborn.md` refuses for the Well and the Cultivated Field, and the shape this ticket exists to avoid. Their measurements are banked in the trace so a source that names them turns a footprint into a building without re-reading the plate.\n\nAND THE SPLIT-PICKET FENCE IS NOT BUILT. `bk_hub_063` gives the Factor House 'a neat split-picket fence' and the Jouett grave 50 m away got its fence built off the same clause at L229, so the refusal needs its reason on the record. Three things separate the two cases. FIRST, THE PLATE'S SILENCE MEANS SOMETHING HERE AND MEANS NOTHING THERE: this sheet draws the three blocks and draws no enclosure round any of them, while it DOES draw the garrison garden's zigzag fence and John Crafts's Lot's property lines — at the grave it drew a name and nothing else, so its silence about a fence carried no weight. SECOND, A GRAVE PLOT HAS A SIZE AND A HOUSE YARD DOES NOT: L229 invented 10 x 8 ft around a burial, which is the size a burial is; the extent of a yard round a 20 m building is unbounded by anything, so the invention would be the largest single dimension on this ticket rather than its smallest. THIRD, HUBBARD IS DESCRIBING 1818 — the fence is a government establishment's, and the house had been thirteen years in private hands by the scene date. THIS IS NOT A JUDGEMENT THAT THERE WAS NO FENCE. It is a statement that this project cannot say where it ran; `docs/RESEARCH/fort_dearborn.md` § 7 carries it as attested-and-not-built, and a plat or a survey that draws the yard turns it into an enclosure record beside the grave's.\n\nWHAT IS WEAK, STATED PLAINLY. The position is one plate, five years before the scene, with no scale bar, admitting on its own face to 'additions and changes suggested by the Memory of Early Settlers'. The size is a ceiling read off broken ink. The storeys are a witness carried one step across a label. Everything above the eave is invented. WHAT IS STRONG is that three independent texts put a building of this kind on this ground, that the transform lands the garrison garden within 2.3 m of where it is already committed, and that the prose and the plate agree about the road without either having seen the other. WHAT WOULD IMPROVE IT: a factory return or an Office of Indian Trade inventory for Chicago 1805-1822, a post return naming the building, the 1835 pre-emption case papers over the reservation, or any second plan of this ground.",
+  "research_doc": "",
+  "review_required": false
+}

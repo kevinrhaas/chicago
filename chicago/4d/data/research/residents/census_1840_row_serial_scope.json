@@ -1,0 +1,27 @@
+{
+  "source_workbook": "Chicago_1835_Best_Resident_Set_Research_v4.xlsx",
+  "printed_pages_under_review": [229, 230, 231, 232, 233, 234, 235],
+  "named_household_head_rows_under_review": 210,
+  "best_resident_set_rows_with_serial": 117,
+  "confirmed_1835_identity_bridges_in_v4": [
+    {
+      "canonical_name": "John Murphy",
+      "census_page": 233,
+      "census_row": 30,
+      "serial": 5102066,
+      "identity_confidence": "high",
+      "serial_mapping_confidence": "provisional-high",
+      "household_1840": {"persons": 6, "children_under_10": 2, "male": 3, "female": 3}
+    },
+    {
+      "canonical_name": "William Hanford Adams",
+      "census_page": 229,
+      "census_row": 9,
+      "serial": 5101954,
+      "identity_confidence": "high",
+      "serial_mapping_confidence": "high provisional",
+      "household_1840": {"persons": 2, "children_under_10": 0, "male": 1, "female": 1}
+    }
+  ],
+  "note": "The 117 serial-bearing workbook rows are not 117 validated 1835 resident links. V4 adjudicates only two as direct/high-confidence 1835 identity bridges; the remainder retain candidate/later-only status unless independently bridged."
+}

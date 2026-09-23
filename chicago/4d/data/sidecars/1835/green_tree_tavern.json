@@ -1,0 +1,323 @@
+{
+  "id": "green_tree_tavern",
+  "phase": "frame_1833",
+  "name": "Green Tree Tavern",
+  "aka": [
+    "Green Tree House",
+    "Chicago Hotel (from 1844)"
+  ],
+  "archetype": "frame_tavern",
+  "asset": "gltf/green_tree_tavern__frame_1833.glb",
+  "scene": "1835",
+  "target_date": "1835-07-01",
+  "documented_range": {
+    "from": "1833-01-01",
+    "to": "1880-12-31",
+    "confidence": "attested",
+    "sources": [
+      "chicagology_prefire127",
+      "drloih_hotels",
+      "drloih_wolf_point"
+    ],
+    "note": "Built 1833 by James Kinzie — 'the first structure ever erected in the place for hotel purposes' — and standing at the north-east corner of Lake and Canal until it was moved in 1880 to 35 and 37 Milwaukee Avenue to clear the site for the Jones & Laughlin works. Both ends are attested, which is why a forty-seven-year span is tagged documented rather than being a research gap in disguise. IT IS STILL TOO LONG TO BE ONE FORM-STATE, and that is a known limitation: John Gray, landlord 1838-41, recalls 'a low one-story addition to the right, the same as on the left', so the building demonstrably grew, and nothing dates those additions. The phase should be split the moment they can be dated. A second, smaller conflict: chicagology's Green Tree page dates the move to 1880, while its Town of Chicago page, written in 1883, says the building was 'removed two years ago', i.e. 1881. Immaterial to the 1835 scene. The carpenter is disputed too — chicagology names 'Philo Cobb', DRLOIH names Silas B. Cobb, who is the historically real person and is almost certainly correct."
+  },
+  "change_note": "Built 1833 as the first building in Chicago put up specifically to be a hotel. The phase carries the two-storey core as built; the low one-storey side additions attested by 1838-41 are recorded on the record but not in the geometry, because nothing dates them.",
+  "placement": {
+    "local_e": -135.3,
+    "local_n": -96.2,
+    "rotation_deg": 270.0,
+    "position_confidence": "inferred",
+    "position_sources": [
+      "chicagology_prefire127",
+      "drloih_hotels",
+      "osm_streets_2026"
+    ],
+    "position_note": "PLACED 2026-08-09. The corner is documented and agreed by two independent sources — chicagology gives 'Northeast Corner of Lake and Canal Streets' and DRLOIH gives 'the N.E. corner of what is now Lake and Canal Streets' — but the COORDINATE is derived, so the tag follows the weaker half. Method, the same as the Sauganash's: the modern intersection centre was read from OpenStreetMap (EPSG:26916 E 446913.0, N 4637287.4) and the footprint offset 12.2 m east and 12.2 m north of it, half an 80 ft platted street in each direction, so that the building's west face sits on the Canal frontage and its south face on the Lake frontage of a north-east corner lot. No extra depth offset is needed on either axis because the footprint origin is already its south-west corner. Working uncertainty about 20 m, which is the georeference's, not an additional guess. Facade bearing 270, due west onto Canal: F. H. Taylor's recollection is explicit — 'The fornt was on Canal street and this side was on Lake' — with the long elevation on Lake and, per John Gray, a second entrance 'on the Lake street front about the middle of the long side'. RESIDUAL UNCERTAINTY WORTH RECORDING, because it is larger than the georeference's: DRLOIH's article title gives the corner as 'Lake and West Water Streets' and glosses West Water as 'now Canal Street'. Historically West Water Street ran along the west bank and Canal Street lay one block further west, and the modern geometry agrees — modern Canal at Lake is about 146 m back from the modern west-bank line, a full block. If the tavern actually stood on the riverbank street rather than on Canal, it belongs about 145 m east of where this record puts it. The Canal reading is adopted because both detailed sources name Canal in modern terms and one of them says 'what is now'. The check that would settle it is the lot geometry on Wright 1834 or Hathaway 1834, which is exactly what those sheets are good for.",
+    "symbolic_location": "North-east corner of Lake Street and Canal Street (historically Lake and West Water), one block west of the river on the west bank; front on Canal, long side on Lake.",
+    "uncertainty_m": 20,
+    "placement_provisional": false,
+    "vertical_anchor": "terrain",
+    "walk_surface_m": null
+  },
+  "footprint": {
+    "polygon": [
+      [
+        0,
+        0
+      ],
+      [
+        7.62,
+        0
+      ],
+      [
+        7.62,
+        12.19
+      ],
+      [
+        0,
+        12.19
+      ]
+    ],
+    "confidence": "inferred",
+    "sources": [
+      "chicagology_prefire127"
+    ],
+    "note": "DERIVED FROM THE ATTESTED INTERIOR, not invented and not measured. This is the only footprint in the parcel with a textual basis. The arithmetic, in the original units: guest chambers 'about 12x12' feet, so a depth of two 12 ft ranks plus board partitions gives about 25 ft = 7.62 m; a hall 'divided the house' with the entrance 'about the middle of the long side', so the length is two end blocks either side of a hall of about 8 ft, and each end block must hold a 12 ft room plus partitions, giving about 40 ft = 12.19 m. The bar-room occupied one whole end, which is consistent. WHAT IS ATTESTED IS THE MODULE, NOT THE COUNT: no source gives the building's overall length or width, and a plan with three rooms rather than two on one side would make it about 52 ft. Treat the length as plus or minus about 20 per cent and the depth as firmer. The polygon is the two-storey core only — the 'low one-story addition to the right, the same as on the left' that John Gray recalls is NOT included, because its size is unattested and its date is unknown. The c. 1859 photograph (chm_green_tree_1859) would settle the overall dimensions from the proportions of a known-height building; it has not been seen."
+  },
+  "attributes": {
+    "stories": {
+      "value": 2,
+      "confidence": "attested",
+      "sources": [
+        "chicagology_prefire127",
+        "drloih_hotels"
+      ],
+      "note": "'a two-story frame building' (DRLOIH), and chicagology's witnesses use the second floor throughout — 'a stairway in this hall led to the second floor'."
+    },
+    "construction": {
+      "value": "braced_frame",
+      "confidence": "inferred",
+      "sources": [
+        "chicagology_prefire127",
+        "drloih_hotels",
+        "chicagology_prefire278"
+      ],
+      "note": "DISPUTED, AND THE DISPUTE HAS A NAME ATTACHED TO IT. Two sources call the Green Tree a two-storey frame building outright. Against that, chicagology's Town of Chicago page reports that W. H. Stow — the man who built the Western Hotel two blocks south — 'did claim that the Green Tree was originally of logs and it was not until years afterward that it was covered with weatherboarding and given the appearance of a frame building.' Frame is adopted because it is the reading of both detailed accounts and because the interior the witnesses describe is a framed interior: board partitions, a stair hall, whitewashed plank walls, chambers laid out on a 12 ft module. The log-core claim is one man's recollection, recorded second-hand, about a rival's house, and it is carried in this record as log_core so it is not lost. Braced versus balloon is separately unattested: balloon framing appeared in Chicago in 1832-33, so an 1833 building could be either, and braced_frame is the conservative reading for the earlier date."
+    },
+    "log_core": {
+      "value": false,
+      "confidence": "inferred",
+      "sources": [
+        "chicagology_prefire278"
+      ],
+      "note": "Records the rejected reading so it stays visible. W. H. Stow claimed the Green Tree was originally of logs and weatherboarded only years later. Adopted as false for the reasons in the construction note; if it is true, the 1835 building is a weatherboarded log structure rather than a frame one, which changes the wall section but not the massing, the plan or the placement.",
+      "geometry": "record_only"
+    },
+    "cladding": {
+      "value": "clapboard",
+      "confidence": "inferred",
+      "note": "Not directly attested for this building. Clapboard is the standard cladding for a frame building of this type and period, and the competing log-core account calls the covering 'weatherboarding', which is the same thing under another name — so both readings of the construction converge on a lapped horizontal board exterior.",
+      "geometry": "simplified"
+    },
+    "paint": {
+      "value": "unpainted",
+      "confidence": "inferred",
+      "sources": [
+        "chicagology_prefire127"
+      ],
+      "note": "A CORRECTION TO A CLAIM IN CIRCULATION. The Green Tree is sometimes described as whitewashed, including in this project's own research summary, but the attested whitewash is INTERIOR: Edwin Gale writes that 'The walls, ceilings, and board partitions had evidently received a coat of whitewash when the house was built'. Nothing describes the exterior finish. Unpainted weathered clapboard is the reading adopted, and it is positively supported by the Sauganash's white paint being remarkable at Wolf Point in 1831 — if the Green Tree had been painted white two years later, the contrast the sources draw would be weaker. Not attested either way; the c. 1859 photograph would settle it."
+    },
+    "wall_height_m": {
+      "value": 5.0,
+      "confidence": "inferred",
+      "sources": [
+        "chicagology_prefire127"
+      ],
+      "note": "THE BEST-FOUNDED WALL HEIGHT IN THE DATASET, because a ceiling height is actually attested: 'Seven and one-half feet is rather low for a hotel ceiling.' Two storeys at 7 1/2 ft = 15 ft, plus floor structure between them and a sill course, gives about 16 1/2 ft = 5.0 m to the plate. The 7 1/2 ft is documented; the allowance for joists and sill is the inference."
+    },
+    "roof_type": {
+      "value": "gable",
+      "confidence": "attested",
+      "sources": [
+        "chicagology_prefire127"
+      ],
+      "note": "John Gray: 'There should also be a small attic window in the gable end, for we used the attic, too.' A gable end with a window in it is a direct attestation of the roof form — one of the few in this dataset that is not typological. With the front on Canal and the long side on Lake, the gable ends face east and west and the ridge runs east-west along Lake Street."
+    },
+    "roof_pitch_deg": {
+      "value": 38.0,
+      "confidence": "inferred",
+      "note": "No pitch is attested. 38 degrees is mid-range for period gable framing and leaves an attic tall enough to lodge people in, which the sources say it did."
+    },
+    "fenestration": {
+      "value": "small_paned_sash",
+      "confidence": "inferred",
+      "sources": [
+        "chicagology_prefire127"
+      ],
+      "note": "The PANE CHARACTER is attested — a guest chamber 'about 12x12, with two windows 6x8', small-paned sash, plus 'a small attic window in the gable end'. Two windows per 12 ft chamber on a 40 x 25 ft two-storey block implies a regularly fenestrated elevation. Since T-0083 the ARRANGEMENT is carried by elevation_scheme, read off plate '11'; this value still states the pane character, which the plate agrees with — 6-over-6 sash in even bays.",
+      "geometry": "simplified"
+    },
+    "elevation_scheme": {
+      "value": "gable_front",
+      "confidence": "inferred",
+      "sources": [
+        "chicagology_prefire127"
+      ],
+      "note": "THE BUILDING FRONTS ON A GABLE END, AND ITS EVEN BAYS RUN ALONG THE EAVES ELEVATIONS. Two halves, separately grounded. That the front is a gable end is a join of attested facts already in this record: the front on Canal (F. H. Taylor), the long side on Lake, and the gable ends facing east and west (John Gray's attic window note, and the roof_type note's own reading). The bay ARRANGEMENT — even 6-over-6 sash in regular bays along the long elevation, doors and attic lights on the gable faces — is read off plate '11' of the owner's 2026-08-11 reference set, committed at data/sources/assets/prefire_views_kevin_2026_08/p6_0.png: a tier-5 retrospective view, which may drive fenestration rhythm as inferred and may never drive a coordinate. The plate is not yet held as a source record (T-0075 owns that), so the citation is a committed path. The BAY COUNT is the archetype's arithmetic on the footprint, not the plate's — the plate draws a longer building than the footprint's attested room-module can carry (its note admits ±20%), and the count follows the footprint: docs/LIBERTIES.md L152."
+    },
+    "side_entrance": {
+      "value": "south",
+      "confidence": "inferred",
+      "sources": [
+        "chicagology_prefire127"
+      ],
+      "note": "THE DOOR IS ATTESTED; THE COMPASS READING IS DERIVED. John Gray describes a second entrance 'on the Lake street front about the middle of the long side', with the hall and stairway behind it. Lake Street lies along this record's south face by the same placement derivation the position note argues, so the attested door resolves to the south eaves elevation — the tag follows the weaker (derived) half, the same rule the position itself uses."
+    },
+    "chimney_placement": {
+      "value": "gable_ends",
+      "confidence": "inferred",
+      "note": "END CHIMNEYS AT BOTH GABLES. Plate '11' of the owner's 2026-08-11 reference set (committed at data/sources/assets/prefire_views_kevin_2026_08/p6_0.png, and its sibling Braunhold view written up as image 6 of data/sources/assets/owner_brief_2026_08_18/README.md) draws one stack at each end of the ridge — a tier-5 retrospective view driving massing as inferred. The plates are not yet held as source records (T-0075), so the citation is a committed path. This replaces the archetype's frontage-fraction arrangement, which on this deeper-than-wide footprint had left both stacks standing OFF the ridge on the roof slopes — the before frame of T-0083 shows it. The COUNT stays the chimneys attribute's own inference; docs/LIBERTIES.md L21 (the town chimney arrangement) and L152 say what is invented here."
+    },
+    "rear_ell": {
+      "value": true,
+      "confidence": "reconstructed",
+      "sources": [
+        "chicagology_prefire127"
+      ],
+      "note": "THE LOW ADDITION, BUILT AT THE REAR AND DECLARED. John Gray, landlord 1838-41, attests 'a low one-story addition to the right, the same as on the left'; the 1838 Braunhold engraving (owner_brief_2026_08_18 README, image 6) draws 'a lower gabled wing at the left with a wide (carriage) door', and plate '11' (prefire_views_kevin_2026_08/p6_0.png) draws the low gabled wing with the ship masts behind it. WHETHER A WING STOOD ON 1835-07-01 IS NOT ATTESTED — Gray describes the house three to six years after the scene date — so this is a reconstruction under the owner's 2026-08-18 standing ruling, sized by the views and claimed at docs/LIBERTIES.md L152. WHY THE REAR END AND ONLY THE REAR: Gray names additions at BOTH ends, but this record's committed placement puts the west face ON Canal Street's east frontage with zero offset, so the street end has no ground to build on — only the east (rear, yard) end does. That asymmetry is itself evidence worth recording: a west wing fits the ground only under the 'Lake and West Water' placement reading the position note carries as this record's largest residual uncertainty. If that reading ever wins, the second wing goes up with the move. The wing the views draw beside masts is consistent with either."
+    },
+    "gallery": {
+      "value": false,
+      "confidence": "reconstructed",
+      "note": "NO EVIDENCE EITHER WAY, and unlike the Sauganash there is no retrospective depiction in the project's hands to reason from. The witnesses describe two entrances — the front on Canal and one 'about the middle of the long side' on Lake — without mentioning a porch, veranda or gallery, which is weak negative evidence at best, since they were correcting a drawing rather than inventorying the elevation. False is the default, not a finding. The c. 1859 photograph (chm_green_tree_1859) settles this the moment anyone opens it."
+    },
+    "side_additions": {
+      "value": true,
+      "confidence": "inferred",
+      "sources": [
+        "chicagology_prefire127"
+      ],
+      "note": "John Gray, landlord 1838-41, correcting a drawing of the house: 'There should also be a low one-story addition to the right, the same as on the left.' So by the end of the 1830s the two-storey core had a low single-storey addition at each end. WHETHER THEY EXISTED ON 1835-07-01 IS NOT ATTESTED — Gray's testimony describes the building three to six years after the scene date — which is why this is inferred and why the additions stay out of the footprint polygon. SINCE T-0083 the rear (east) one is BUILT, at the reconstructed tier, as form.rear_ell — see that attribute for why only the rear end has ground to build on. This value stays the testimony record for BOTH ends; the street-end addition remains unbuilt.",
+      "geometry": "simplified"
+    },
+    "chimneys": {
+      "value": 2,
+      "confidence": "inferred",
+      "note": "Not attested in text. A tavern with a bar-room at one end, a parlour, a dining room clearable for dancing and chambers above needed more than one fireplace, and two stacks is the normal disposition for a 40 ft block with a central hall. The number is inference — and since T-0083 it agrees with plate '11', which draws exactly two. WHERE they stand is carried by chimney_placement."
+    },
+    "siding_exposure_m": {
+      "value": 0.14,
+      "confidence": "reconstructed",
+      "note": "INVENTED WITHIN A STOCK SET, NOT DERIVED. No source states the exposed face of any Chicago building's siding. The value is one of four period mill sidings — 4.5, 5, 5.5 or 6 in to the weather; this record wears 5.5 in — dealt by tools/deal_siding_stock.py: keyed to the phase's construction season, because buildings sided from the same season's shipments of St Joseph sawn lumber tend toward one stock, then advanced so no frame building within 60 m shares this one's. The separation is the surface variety T-0049 reconstructs, not a claim about 1835. docs/LIBERTIES.md L148 owns the invention."
+    },
+    "function": {
+      "value": "tavern_inn",
+      "confidence": "attested",
+      "sources": [
+        "chicagology_prefire127",
+        "drloih_hotels"
+      ],
+      "note": "In operation as a public house throughout the scene window: bar-room serving as office and reception, dining room cleared for dancing, chambers above and lodging in the attic when full. Renamed the Chicago Hotel by 1844, which is after the scene date and is a change of sign, not of trade."
+    },
+    "occupants": {
+      "value": "Chester Ingersoll, landlord",
+      "confidence": "attested",
+      "sources": [
+        "chicagology_prefire127"
+      ],
+      "note": "Ingersoll's tenancy is given as 1834-1837, which covers 1835-07-01, with Martin M. Ford associated. DRLOIH's list — 'initially by David Clark and then by Edward Parsons' — carries no dates and is compatible rather than contradictory: Clark (or Clock) is named elsewhere as the landlord who opened the house in 1833, before Ingersoll."
+    }
+  },
+  "residents": [
+    {
+      "household": "hh_ingersoll_chester",
+      "name": "The Ingersoll household",
+      "division": "west",
+      "relation": "lived and worked here",
+      "why": "The building record has his tenancy running 1834-1837, which covers the scene date, and a landlord of this period lived in his house. Inferred rather than documented because the tenancy dates are the building record's reading of two sources that do not agree about who opened the house.",
+      "sources": [
+        "andreas_1884_v1",
+        "drloih_hotels"
+      ],
+      "basis": "",
+      "persons": [
+        {
+          "name": "Chester Ingersoll",
+          "relationship": "head",
+          "grade": "attested",
+          "occupation": "tavern_keeper",
+          "note": "A DOCUMENTED RESIDENT IN A CONTEMPORARY NEWSPAPER, which is worth more than any amount of Andreas. Two further things fix him in the town in this period: his house was the district polling place on 9 December 1833, and a travelling ventriloquist named Kenworthy advertised in the Democrat of 10 June 1834 the close of an engagement at 'the Travelers' Home, a hotel kept by Chester Ingersoll, on Wolf Point'. THE FEDERAL LAND TRACT SALES — A PURCHASE, AND NEVER A RESIDENCE. The Illinois State Archives' Public Domain Land Tract Sales register enters this person 2 times, as “INGERSOLL CHESTER”, 1833-10-24 to 1835-06-26: 1 federal land entry — SW sec 28 T39N R13E and 1 parcel of the school section — BL37 of the school section (sec 16 T39N R14E), as read, 163.79 acres stated in all, for $253.10 (ls0246, ls0849). THE REGISTER'S OWN RESIDENCE COLUMN READS UNKNOWN on these rows: a county, a state or nothing, and never a town, which is why a purchase here places nobody. THE SCHOOL-SECTION ROWS ARE GROUND INSIDE THE TOWN, NOT FARMLAND: section 16 of T39N R14E was platted and sold off by lot and by block at the sale of 1833, which is why the register states 0000.00 acres against most of them. Ground inside the town is nearer to this reconstruction than a quarter-section is, and it is still a purchase: the register names a purchaser and never an occupant, and nothing here puts this person on that ground. A purchase and nothing more. It dates and places a transaction; it proposes no residence, and under the ratified ladder it corroborates rather than mints. Identity by the crosswalk's own rule: INGERSOLL CHESTER matches Chester Ingersoll: the forename names Chester Ingersoll of the 1 person of this surname, and the forename agrees in full. (data/research/land_sales/resident_crosswalk.json). This pass WRITES THE EVIDENCE AND MOVES NO GRADE. Under the ratified ladder (T-0513) a second independent source is what lifts a projected resident, and a land entry is a second source about a TRANSACTION rather than about who was living at Chicago on 1 July 1835 — a man may buy a quarter-section he never sees. T-0515 applies the ladder against every source at once; this pass hands it the evidence and not the verdict."
+        }
+      ],
+      "research_note": "A TAVERN KEEPER WHO MOVED HOUSE INSIDE THE DATASET'S OWN WINDOW, which is why the two buildings he is attached to must not be collapsed. In 1833-34 he kept the old Wolf Point house under the sign of the Travelers' Home; by the scene date this project's building record has him at the Green Tree. Both are in data/structures/ and only the second is linked here. THE ARRIVAL IS A NEWSPAPER DATE, NOT A JOURNEY: 4 October 1833 is when his copy was dated, and it bounds his arrival from above and not at all from below."
+    }
+  ],
+  "citations": [
+    {
+      "source_id": "andreas_1884_v1",
+      "citation": "Andreas, A. T. History of Chicago: From the Earliest Period to the Present Time. Vol. 1. Chicago: A. T. Andreas, 1884.",
+      "url": "https://archive.org/details/historyofchicago01andr",
+      "archived_url": "",
+      "tier": 3,
+      "tier_label": "compiled secondary (Andreas)"
+    },
+    {
+      "source_id": "chicagology_prefire127",
+      "citation": "\"Green Tree Tavern.\" Chicagology. Transcribing the Inter Ocean of 1 July 1883 — the old-settlers hotel feature, in which named witnesses who had lived in the house are shown a sketch of it and asked to correct it — and Edwin O. Gale's Reminiscences of Early Chicago and Vicinity (1902), around nine city directories 1839-1885 and Chicago Tribune notices of the 1880 move and the 1902 collapse.",
+      "url": "https://chicagology.com/prefire/prefire127/",
+      "archived_url": "https://web.archive.org/web/20260217122931/https://chicagology.com/prefire/prefire127/",
+      "tier": 2,
+      "tier_label": "near-primary recollection",
+      "transcribes": [
+        {
+          "work": "Inter Ocean, 'Old Chicago' — the early-hotels feature on the Green Tree: interviews with F. H. Taylor (in Chicago from 1834, lodged in the west one-storey addition), John Gray (landlord 1838-41) and Mrs. Murphy of the United States Hotel, each shown the S. W. Fallis sketch and asked to correct it",
+          "date": "1883-07-01",
+          "tier": 2,
+          "note": "Carries every Green Tree claim in this dataset: the function and occupants, the two-storey block with a divided hall and a stairway to the second floor, the gable with an attic window that fixes the roof form, and the dated span. Recollection by men who lived in the house, taken down in print — rung 2, not the reporter's rung."
+        },
+        {
+          "work": "Edwin O. Gale, Reminiscences of Early Chicago and Vicinity — the Green Tree bar-room chapter",
+          "date": "1902",
+          "tier": 2,
+          "note": "Gale reached Chicago in 1835 and describes the bar-room from inside: the room module ('about 12x12, with two windows 6x8'), the whitewashed walls, ceilings and board partitions, and the seven-and-a-half-foot ceiling the record's storey height is reasoned from. A participant writing his own recollection — rung 2."
+        }
+      ],
+      "what_it_supplies": [
+        "interior room module and ceiling height",
+        "plan and circulation",
+        "which street the front faced",
+        "roof form (gable end with attic window)",
+        "landlord chronology",
+        "the 1880 move and 1902 demolition"
+      ],
+      "what_it_does_not_supply": [
+        "overall building dimensions in feet",
+        "exterior finish or colour",
+        "the date the one-story side additions were built"
+      ]
+    },
+    {
+      "source_id": "chicagology_prefire278",
+      "citation": "\"Town of Chicago.\" Chicagology. Transcribing the Inter Ocean of 22 July 1883 — 'Old Chicago: The Town in 1833', which carries both the town's incorporation record and 'The Old Western Hotel', an interview feature with named old settlers who used the house.",
+      "url": "https://chicagology.com/prefire/prefire278/",
+      "archived_url": "https://web.archive.org/web/20260308051207/https://chicagology.com/prefire/prefire278/",
+      "tier": 2,
+      "tier_label": "near-primary recollection",
+      "transcribes": [
+        {
+          "work": "Inter Ocean, 'Old Chicago: The Town in 1833' — the section headed 'The Old Western Hotel: First Frame House on the West Side', with the reporter's description of the surviving fragment and interviews with old settlers and with the builder's son",
+          "date": "1883-07-22",
+          "tier": 2,
+          "note": "Carries all four Western Hotel claims in this dataset — the farmers' and teamsters' house, W. H. Stow as builder and proprietor, the original two storeys, and the large stable and wagon yard with entrances from both streets — and it carries the dispute over the build date that keeps the dated range at `inferred`. Men recalling a house they used: rung 2."
+        }
+      ]
+    },
+    {
+      "source_id": "drloih_hotels",
+      "citation": "\"A Chronology of Early Chicago Area Hotels.\" Digital Research Library of Illinois History Journal.",
+      "url": "https://drloihjournal.blogspot.com/2022/07/chronology-of-early-chicago-area-hotels.html",
+      "archived_url": "",
+      "tier": 4,
+      "tier_label": "later scholarship"
+    },
+    {
+      "source_id": "drloih_wolf_point",
+      "citation": "\"The Beginning of Wolf Point in Chicago, Illinois, including the history of the Wolf Point Tavern.\" Digital Research Library of Illinois History Journal.",
+      "url": "https://drloihjournal.blogspot.com/2018/11/wolf-point-beginnings-in-chicago-illinois.html",
+      "archived_url": "",
+      "tier": 4,
+      "tier_label": "later scholarship"
+    },
+    {
+      "source_id": "osm_streets_2026",
+      "citation": "OpenStreetMap contributors. Street centerline intersection nodes for downtown Chicago, retrieved via the Overpass API, 2026-08-09.",
+      "url": "https://www.openstreetmap.org/",
+      "archived_url": "https://overpass-api.de/",
+      "tier": 4,
+      "tier_label": "later scholarship"
+    }
+  ],
+  "research_note": "THE BEST-DOCUMENTED BUILDING IN THIS DATASET, and it is documented from the inside out — which is the opposite of the usual situation here and is worth understanding. The Green Tree survived until 1902, long enough for people who had slept in it to be asked what it was like in print: John Gray, who kept it 1838-41, Edwin O. Gale, who was put up in a chamber 'about 12x12, with two windows 6x8', and F. H. Taylor, who fixed which street the front was on. From them come the room module, the 7 1/2 ft ceilings, the board partitions, the interior whitewash, the dividing hall and its stairway, the bar-room at one end, the attic used for lodging, the gable-end attic window and the low one-storey additions at each end. What none of them gives is an overall dimension, so even here the footprint is a derivation from the room module rather than a measurement. IT ALSO SURVIVED LONG ENOUGH TO BE PHOTOGRAPHED, about 1859, at its original corner — the closest thing to direct visual evidence for any Wolf Point building. Note the caveat carefully, because the version in circulation is wrong: the 1859 plate PREDATES the 1880 move and shows the tavern where it was built, so what stands between it and the scene date is twenty-six years of alteration, not forty-seven years and a move. That plate has not been seen for this record and it is the single highest-value open lead in the parcel: it would settle the overall dimensions, the exterior finish and the gallery in one look. CONFLICTS RECORDED: frame throughout versus a log core weatherboarded later, a claim attributable to W. H. Stow personally; the carpenter, Philo Cobb versus Silas B. Cobb; the move dated 1880 versus 1881; and, the largest in metres, whether 'Lake and Canal' or 'Lake and West Water' names the corner, which are a full block apart. See docs/RESEARCH/green_tree_tavern.md.",
+  "research_doc": "docs/RESEARCH/green_tree_tavern.md",
+  "review_required": false
+}

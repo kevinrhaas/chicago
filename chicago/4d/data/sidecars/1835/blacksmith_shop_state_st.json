@@ -1,0 +1,173 @@
+{
+  "id": "blacksmith_shop_state_st",
+  "phase": "log_1823",
+  "name": "Government Blacksmith Shop",
+  "aka": [
+    "David McKee's blacksmith shop",
+    "the agency smithy"
+  ],
+  "archetype": "log_dwelling",
+  "asset": "gltf/blacksmith_shop_state_st__log_1823.glb",
+  "scene": "1835",
+  "target_date": "1835-07-01",
+  "documented_range": {
+    "from": "1823-01-01",
+    "to": "1835-12-31",
+    "confidence": "inferred",
+    "sources": [
+      "andreas_1884_v1",
+      "kinzie_waubun_1856"
+    ],
+    "note": "NO SOURCE DATES THIS BUILDING AT EITHER END; both dates are the honest bounds of what is attested. THE START: Andreas says only 'After the second Fort Dearborn was built, David McKee was appointed Government blacksmith, his shop being situated near the Agency House, at the foot of State Street' — the fort was rebuilt in 1816 — but the same book fixes McKee's arrival: he was engaged as the agency blacksmith the 1821 treaty required and, by his own recollection, reached Fort Dearborn in June 1823, finding 'but two houses on the north side of the river' and building the fourth himself. 1823 is therefore the first year the shop can have stood under him, and the range opens there rather than at 1816. THE END IS THE HONEST MINIMUM. The shop is attested standing around 1830 — 'In its vicinity were small log buildings occupied by the blacksmith, Mr. McKee, and Billy Caldwell' — and in 1831 Wau-Bun still describes the ring of agency log residences with a blacksmith among them. After that nothing. McKee himself had other work by then; he was carrying the Government mail to Fort Wayne monthly from 1827-28 and later farmed on the Des Plaines. A GOVERNMENT SMITH WAS STILL OWED TO THE POTAWATOMI IN 1835 under the 1821 and 1833 treaties, which is the argument for the shop still standing on the scene date, and it is an argument about an obligation rather than about a building. Tagged inferred for that reason."
+  },
+  "change_note": "The Government blacksmith's shop of the Chicago agency, standing near the agency house at the foot of State Street from about 1823, when David McKee arrived to fill the post the 1821 treaty required. McKee's later work as mail-carrier and his removal to the Des Plaines are changes of occupation and do not open new phases.",
+  "placement": {
+    "local_e": 769.0,
+    "local_n": 119.0,
+    "rotation_deg": 180.0,
+    "position_confidence": "inferred",
+    "position_sources": [
+      "andreas_1884_v1",
+      "kinzie_waubun_1856"
+    ],
+    "position_note": "PLACED 2026-08-11 AGAINST ANOTHER BUILDING, NOT AGAINST THE GROUND. What is attested is proximity and a foot of a street: Andreas, 'his shop being situated near the Agency House, at the foot of State Street'; the 1825 tax list gloss, 'David McKee lived on the North Side, near the agency-house of Dr. Wolcott'; the Scott family notice, 'lived on the north side of the river near the foot of what is now North State Street'; and Wau-Bun's ring — 'Around the Agency House were grouped a collection of log buildings, the residences of the different persons in the employ of Government ... blacksmith, striker, and laborers.' Method: this record's coordinate is set 32 m west of this project's cobweb_castle placement, on the same riverbank strip, its south face 16 m north of the drawn 1834 bank. THE DIRECTION AND THE DISTANCE ARE INVENTED. 'Near' is unquantified and no source says which side of the agency house the smithy stood on; west was chosen because it keeps the shop inside the ring the sources describe and off the State Street frontage, and it could as easily have been north or east. Working uncertainty about 40 m — the georeference's 20 m plus the unquantified 'near'. A COMPETING PLACEMENT IS ON THE RECORD AND IS NOT ADOPTED: one of Andreas's recollections of the 1820s puts 'the blacksmith shop of David McKee and Joseph Porthick (Porthier)' next to a double log house 'nearly opposite the fort' occupied jointly by John Kinzie and Alexander Wolcott, which is the Kinzie house cluster some 400 m further east. Three statements name the agency house or the foot of State Street against that one, so the outlier is treated as a conflation of the two north-bank clusters. Facade bearing 180, due south, follows the agency house it is grouped with; nothing states it. There is no modelled terrain under this building — it stands about 450 m east of the terrain box.",
+    "symbolic_location": "North side, near the Agency House at the foot of State Street, on the riverbank strip west of the agency house.",
+    "uncertainty_m": 20,
+    "placement_provisional": false,
+    "vertical_anchor": "terrain",
+    "walk_surface_m": null
+  },
+  "footprint": {
+    "polygon": [
+      [
+        0,
+        0
+      ],
+      [
+        6,
+        0
+      ],
+      [
+        6,
+        4.5
+      ],
+      [
+        0,
+        4.5
+      ]
+    ],
+    "confidence": "reconstructed",
+    "sources": [],
+    "note": "PLACEHOLDER — NO DIMENSION IS ATTESTED. 6 x 4.5 m is about 20 x 15 ft, a one-fire smithy: room for a forge, an anvil and a horse. Every number is invented. Andreas's one editorial remark about the scale of the place — 'David McKee's little shop and scant kit of tools bore but a slight family resemblance to the machine shops and rolling mills of to-day' — is the whole of the evidence for 'small', and it is a comparison, not a measurement."
+  },
+  "attributes": {
+    "construction": {
+      "value": "log",
+      "confidence": "attested",
+      "sources": [
+        "kinzie_waubun_1856",
+        "andreas_1884_v1"
+      ],
+      "note": "Wau-Bun describes the buildings round the agency house as 'a collection of log buildings, the residences of the different persons in the employ of Government ... blacksmith, striker, and laborers'; Andreas records the 1830 north bank as having 'small log buildings occupied by the blacksmith, Mr. McKee, and Billy Caldwell' in the agency house's vicinity, and McKee's own account of the houses he found and built there — 'All these houses were of logs'. Note that the first two describe the blacksmith's RESIDENCE among the group; that the shop was of the same fabric is the reading, and it is the only fabric anybody reports on this ground in these years."
+    },
+    "stories": {
+      "value": 1,
+      "confidence": "inferred",
+      "note": "Not attested, and about as safe as an inference gets: a smithy is a single tall room with a forge in it, and every building in this group is described as small and log."
+    },
+    "wall_height_m": {
+      "value": 2.4,
+      "confidence": "inferred",
+      "note": "No figure is attested. 2.4 m is about 8 ft, a single-pen log wall — the same reading this project gives the Sauganash's 1829 cabin. A working smithy might well have been built taller to carry the heat and the smoke, which is an argument nobody's source makes and which would raise this number if it were ever attested."
+    },
+    "roof_type": {
+      "value": "gable",
+      "confidence": "inferred",
+      "note": "Not attested. Gable is the near-universal roof form for log construction of this type, period and region."
+    },
+    "roof_pitch_deg": {
+      "value": 35.0,
+      "confidence": "inferred",
+      "note": "No pitch is attested. 35 degrees is the archetype's mid-range for a low log building roofed in riven shakes. Inferred from construction practice, not measured."
+    },
+    "chimneys": {
+      "value": 1,
+      "confidence": "inferred",
+      "note": "Not attested, and the reasoning here is a trade's rather than a household's: a forge has to vent, so a smithy carries a stack whatever else it lacks. WHAT THE MODEL SHOWS IS A DOMESTIC CHIMNEY. The archetype builds one 0.96 m square shaft with a corbelled head against the gable end — the same stack it builds on a dwelling — so nothing in the mesh distinguishes a forge flue from a cabin's fireplace, and nothing in the mesh says a smithy. That is admitted in docs/LIBERTIES.md rather than hidden."
+    },
+    "function": {
+      "value": "blacksmith_shop",
+      "confidence": "attested",
+      "sources": [
+        "andreas_1884_v1"
+      ],
+      "note": "'David McKee was appointed Government blacksmith, his shop being situated near the Agency House, at the foot of State Street' — Andreas, opening his chapter on the town's early manufactories with it, since a blacksmith is where the manufacturing history of the place starts. WHO WAS WORKING IT ON THE SCENE DATE IS UNATTESTED: McKee had been carrying the mail since 1827-28, the 1830-31 agency staffing lists him as blacksmith with Joseph Porthier as striker, and nothing reached names a smith here in 1835. The record therefore carries no occupants block."
+    }
+  },
+  "residents": [
+    {
+      "household": "hh_mckee_david",
+      "name": "The McKee household",
+      "division": "north",
+      "relation": "worked here",
+      "why": "The government blacksmith shop of the agency establishment, which is what this structure record IS. THE PARCEL'S BEST NEW OCCUPANT LINK: a building that had nobody in it now has the man the treaty paid for.",
+      "sources": [
+        "andreas_1884_v1"
+      ],
+      "basis": "",
+      "persons": [
+        {
+          "name": "David McKee",
+          "relationship": "head",
+          "grade": "attested",
+          "occupation": "blacksmith",
+          "note": "HE IS THE NAMED OCCUPANT THIS DATASET'S GOVERNMENT SMITHY HAS BEEN MISSING. data/structures/blacksmith_shop_state_st.json describes 'a building known only as a clause in other people's sentences' with an empty occupants field; McKee is the man in the clause. Andreas's list of the settlement's residents puts 'small log buildings occupied by the blacksmith, Mr. McKee, and Billy Caldwell' in the vicinity of Cobweb Castle, and he signed the 1832 militia agreement. OLD SETTLERS, 1882 — A DATE OF DEATH, AND NOTHING ABOUT 1835. John Wentworth's roll of old settlers who had died since 1 January 1881, kept for the Calumet Club and printed in the Chicago Tribune of 25 April 1882, carries “David McKee, April 9, 1881.”. That corroborates a Chicago residence before 1840 and fixes the END of this life, which this record did not carry; it is not an arrival and it places nobody in the town on 1 July 1835. Under the ratified ladder (T-0513) a later recollection corroborates, enriches and dates and cannot lift a rung by itself, so this record's GRADE IS UNCHANGED by it: T-0513 consolidates the identity and T-0515 regrades. Identity by rule OS1 — surname and spelled-out forename agree, one bearer (data/research/old_settlers/crosswalk.json). THE FEDERAL LAND TRACT SALES — A PURCHASE, AND NEVER A RESIDENCE. The Illinois State Archives' Public Domain Land Tract Sales register enters this person 2 times, as “MCKEE DAVID”, 1830-09-27: 2 lots in the platted town — lot 1 of block 5 in the town the register codes CHIOT (L1BL5CHIOT, as printed); lot 7 of block 4 in the town the register codes CHIOT (L7BL4CHIOT, as printed), 0.00 acres stated in all, for $61.00 (ls1359, ls1360). THE REGISTER'S OWN RESIDENCE COLUMN READS UNKNOWN on these rows: a county, a state or nothing, and never a town, which is why a purchase here places nobody. THE TOWN LOTS ARE THE PLAT ITSELF, AND THEY ARE NOT ACRES: Cook County's register describes them by lot and block in a platted town and gives them no section, no township and no acreage at all, so they add nothing to the acre figure above and $61.00 to the money. This project does not expand the register's town codes, so which addition a lot stands in is carried as the code and not as a name. It is still a purchase and it still places nobody. A purchase and nothing more. It dates and places a transaction; it proposes no residence, and under the ratified ladder it corroborates rather than mints. Identity by the crosswalk's own rule: MCKEE DAVID matches David McKee: the forename names David McKee of the 1 person of this surname, and the forename agrees in full. (data/research/land_sales/resident_crosswalk.json). This pass WRITES THE EVIDENCE AND MOVES NO GRADE. Under the ratified ladder (T-0513) a second independent source is what lifts a projected resident, and a land entry is a second source about a TRANSACTION rather than about who was living at Chicago on 1 July 1835 — a man may buy a quarter-section he never sees. T-0515 applies the ladder against every source at once; this pass hands it the evidence and not the verdict."
+        }
+      ],
+      "research_note": "THE MAN THE 1821 TREATY PAID TO SHOE POTAWATOMI HORSES, AT AN ANVIL THIS PROJECT MODELS. This household exists to close a loop the structures layer left open, and the presence field is where the honesty is: the shop is in the scene and the smith may not have been. STANDING CONSTRAINT. AGENTS.md: the final removal of the Potawatomi from Chicago occurred in August 1835, inside this project's first target year and six weeks AFTER the scene date; Native presence, representation and depiction are not research gaps to be filled by inference, and v1 ships no human figures at all. This record is a dataset entry that states what named sources say about a named person and adds nothing. It carries review_required so that no scene containing it can be marked released before the consultation the project has committed to."
+    },
+    {
+      "household": "hh_porthier_joseph",
+      "name": "The Porthier household",
+      "division": "north",
+      "relation": "worked here",
+      "why": "The same shop as McKee. Two named men at one anvil is the only documented workplace pairing in the parcel.",
+      "sources": [
+        "andreas_1884_v1"
+      ],
+      "basis": "",
+      "persons": [
+        {
+          "name": "Joseph Porthier",
+          "relationship": "head",
+          "grade": "attested",
+          "occupation": "blacksmith",
+          "note": "A WAGE-EARNING ASSISTANT, WHICH THIS DATASET HAS ALMOST NONE OF, and a member of a family the 1833 treaty names: the schedule of payments in lieu of reservations carries 'Victoire Porthier and her children, $700'. Andreas's chapter on the early settlement treats the Mirandeau and Porthier families together as part of the French and mixed-descent community at Chicago. T-0478 adds a dated February-March 1835 migration to Milwaukee, resolving scene-date absence without inferring ancestry from the surname."
+        }
+      ],
+      "research_note": "THE ONLY DOCUMENTED STRIKER IN THE DATASET, and a reminder of how the documented population is skewed. Andreas names hundreds of proprietors and perhaps a dozen employees; this man is in the record only because the agency's payroll was a matter of federal accounting. T-0478 found a dated migration sequence: Porthier left Chicago February 27, 1835, briefly returned for means, left again March 21, and reached Milwaukee March 23. STANDING CONSTRAINT. AGENTS.md: the final removal of the Potawatomi from Chicago occurred in August 1835, inside this project's first target year and six weeks AFTER the scene date; Native presence, representation and depiction are not research gaps to be filled by inference, and v1 ships no human figures at all. This record states only what named sources say about a named person. It carries review_required so that no scene containing it can be marked released before the consultation the project has committed to."
+    }
+  ],
+  "citations": [
+    {
+      "source_id": "andreas_1884_v1",
+      "citation": "Andreas, A. T. History of Chicago: From the Earliest Period to the Present Time. Vol. 1. Chicago: A. T. Andreas, 1884.",
+      "url": "https://archive.org/details/historyofchicago01andr",
+      "archived_url": "",
+      "tier": 3,
+      "tier_label": "compiled secondary (Andreas)"
+    },
+    {
+      "source_id": "kinzie_waubun_1856",
+      "citation": "Kinzie, Juliette A. M. Wau-Bun: The 'Early Day' in the North-West. New York: Derby & Jackson, 1856.",
+      "url": "https://www.authorama.com/wau-bun-19.html",
+      "archived_url": "https://archive.org/details/waubunearlydayin00kinzbyu",
+      "tier": 2,
+      "tier_label": "near-primary recollection"
+    }
+  ],
+  "research_note": "A BUILDING KNOWN ONLY AS A CLAUSE IN OTHER PEOPLE'S SENTENCES, and one of the few in this dataset whose existence rests on four independent statements while nothing at all is known of its shape. It belongs to the agency establishment: the 1821 treaty obliged the Government to keep a blacksmith at Chicago for the Potawatomi, McKee was hired for that and arrived in 1823, and Wau-Bun's ring of log residences round Cobweb Castle is the same cluster seen from 1831. THE RECORD IS FLAGGED review_required for the reason AGENTS.md gives: the smithy exists because of a treaty obligation to the Potawatomi, and that is Indigenous history whatever the building looked like. Nothing here depicts or narrates it. WHAT WOULD UPGRADE THE RECORD: agency accounts or the Indian Office's returns, which paid for the shop and its iron and would describe both; failing that, any of the recollections that place the north-bank cluster building by building. See docs/RESEARCH/blacksmith_shop_state_st.md.",
+  "research_doc": "docs/RESEARCH/blacksmith_shop_state_st.md",
+  "review_required": true,
+  "review_reason": "THE RECORD IS FLAGGED review_required for the reason AGENTS.md gives: the smithy exists because of a treaty obligation to the Potawatomi, and that is Indigenous history whatever the building looked like."
+}

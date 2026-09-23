@@ -1,0 +1,159 @@
+{
+ "id": "z07_bur_oak_savanna",
+ "zone": 7,
+ "name": "Bur oak savanna, low-ridge groves and the horizon timber",
+ "dossier": "docs/research/02-flora.md § ZONE 7",
+ "scene_date": "1835-07-01",
+ "palette": "july_oak_savanna",
+ "reads_as": "scattered open-grown bur oaks with short boles and huge horizontal limbs standing on a sunlit grassy floor; at distance, a dark line on a flat horizon",
+ "plantable_in_scene": false,
+ "cover": {"matrix_fraction":0.9,"bare_soil_fraction":0.05,"standing_water_fraction":0.0},
+ "ground": {"rgb":[92,96,58],"wet_rgb":[74,78,50]},
+ "extent": {
+  "kind": "everywhere",
+  "box": {"e":[-2600,-600],"n":[-6400,-4400]},
+  "priority": 10,
+  "confidence": "inferred",
+  "sources": ["chicagology_prefire273"],
+  "note": "NOT PLANTABLE IN THIS SCENE. The box is a bounding rectangle for the grove up the South Branch at Hardscrabble (Lee's Place, later Bridgeport), the only West Side timber Andreas names, about 5.6 km SSW of the forks. It lies far outside the 640 m heightfield, so nothing matches it and the sward renderer plants nothing. The grove's real outline was never traced and this rectangle is not one; the horizon timber that this community actually supplies to the scene is placed by the tree renderer from the dossier's named-grove table by bearing and distance, not from this extent."
+ },
+ "species": [
+  {
+   "id": "quercus_macrocarpa",
+   "binomial": "Quercus macrocarpa",
+   "common": "bur oak",
+   "role": "tree",
+   "form": "tree_open_crown",
+   "abundance": {"density_per_ha":[1,20]},
+   "height_m": [14,18],
+   "width_m": [15,22],
+   "july": {
+    "phenology": "vegetative",
+    "foliage_rgb": [80,106,52],
+    "inflorescence": null,
+    "appearance": "Open-grown: short bole, huge horizontal limbs, wide flat crown, blackened fire-scarred bark to 1-2 m. This silhouette is the signature of the 1835 Chicago horizon."
+   },
+   "confidence": "attested",
+   "sources": ["mcbride_bowles_2007","bowles_mcbride_1994_barrens"],
+   "note": "4-20 trees/ha in closed savanna, locally 1-4/ha in open savanna, spacing 25-50 m."
+  },
+  {
+   "id": "quercus_alba",
+   "binomial": "Quercus alba",
+   "common": "white oak",
+   "role": "tree",
+   "form": "tree_open_crown",
+   "abundance": {"density_per_ha":[2,10]},
+   "height_m": [16,22],
+   "width_m": [12,18],
+   "july": {
+    "phenology": "vegetative",
+    "foliage_rgb": [90,114,62],
+    "inflorescence": null,
+    "appearance": "Mixed into the bur oak, pale flaky bark."
+   },
+   "confidence": "attested",
+   "sources": ["mcbride_bowles_2007"]
+  },
+  {
+   "id": "schizachyrium_scoparium",
+   "binomial": "Schizachyrium scoparium",
+   "common": "little bluestem",
+   "role": "matrix",
+   "form": "grass_clump",
+   "abundance": {"cover_fraction":[0.3,0.45]},
+   "height_m": [0.3,0.6],
+   "width_m": [0.2,0.35],
+   "july": {
+    "phenology": "vegetative",
+    "foliage_rgb": [112,132,104],
+    "inflorescence": null,
+    "appearance": "Blue-green bunches making a sunlit grassy floor under the canopy — not shaded leaf litter."
+   },
+   "confidence": "attested",
+   "sources": ["white_1994_savanna_terms"]
+  },
+  {
+   "id": "elymus_canadensis",
+   "binomial": "Elymus canadensis",
+   "common": "Canada wild rye",
+   "role": "matrix",
+   "form": "grass_arching",
+   "abundance": {"cover_fraction":[0.1,0.2]},
+   "height_m": [0.8,1.2],
+   "width_m": [0.25,0.45],
+   "width_provenance": {
+    "confidence": "inferred",
+    "sources": ["swink_wilhelm_1994"],
+    "note": "WHAT ONE DRAWN PLANT COVERS ON THE GROUND, added for ROADMAP K49(c) so this record's cover_fraction can be read as a count of plants. Reasoned from the two committed clumps standing beside it in this same record: Schizachyrium scoparium at [0.20, 0.35] m and Andropogon gerardii at [0.30, 0.60] m. § ZONE 7 names all three plus Carex pensylvanica as one \"graminoid ground matrix\" at 0.3-0.9 m, and Canada wild rye stands between the two in height, so its clump is taken between them. No source states the width."
+   },
+   "july": {
+    "phenology": "flowering",
+    "foliage_rgb": [104,126,78],
+    "inflorescence": {"shape":"spike","rgb":[178,180,138],"height_frac":0.9,"size_m":[0.1,0.18]},
+    "appearance": "Thick nodding bristly spikes, green going straw — the one savanna grass that does head up in July."
+   },
+   "confidence": "inferred",
+   "sources": ["swink_wilhelm_1994"],
+   "note": "Dossier names Elymus in the savanna ground matrix without a species; E. canadensis is the regional member and the identification is this record's."
+  },
+  {
+   "id": "carex_pensylvanica",
+   "binomial": "Carex pensylvanica",
+   "common": "Pennsylvania sedge",
+   "role": "matrix",
+   "form": "sedge_tussock",
+   "abundance": {"cover_fraction":[0.1,0.25]},
+   "height_m": [0.15,0.3],
+   "width_m": [0.15,0.3],
+   "july": {
+    "phenology": "past_bloom",
+    "foliage_rgb": [96,124,70],
+    "inflorescence": {"shape":"spike","rgb":[126,126,92],"height_frac":0.7,"size_m":[0.015,0.03],"fruit":true},
+    "appearance": "Fine soft sedge mat under the oaks, fruited and going lax."
+   },
+   "confidence": "attested",
+   "sources": ["white_1994_savanna_terms"]
+  },
+  {
+   "id": "andropogon_gerardii",
+   "binomial": "Andropogon gerardii",
+   "common": "big bluestem",
+   "role": "matrix",
+   "form": "grass_clump",
+   "abundance": {"cover_fraction":[0.1,0.2]},
+   "height_m": [0.8,1.2],
+   "width_m": [0.3,0.6],
+   "july": {
+    "phenology": "vegetative",
+    "foliage_rgb": [96,118,88],
+    "inflorescence": null,
+    "appearance": "Leafy vegetative clumps in the sunnier openings."
+   },
+   "confidence": "attested",
+   "sources": ["white_1994_savanna_terms"]
+  },
+  {
+   "id": "corylus_americana",
+   "binomial": "Corylus americana",
+   "common": "American hazel",
+   "role": "shrub_low",
+   "form": "shrub_low",
+   "abundance": {"cover_fraction":[0.1,0.25]},
+   "height_m": [1.5,3.0],
+   "width_m": [1.5,3.0],
+   "july": {
+    "phenology": "fruiting",
+    "foliage_rgb": [94,122,62],
+    "inflorescence": {"shape":"nut_husk","rgb":[162,178,108],"height_frac":0.7,"size_m":[0.03,0.05],"fruit":true},
+    "appearance": "Patchy clumps repeatedly set back by fire; green husked nuts."
+   },
+   "confidence": "attested",
+   "sources": ["mcbride_bowles_2007"]
+  }
+ ],
+ "confidence": "attested",
+ "sources": ["chicagology_prefire273","white_1994_savanna_terms"],
+ "note": "This silhouette is the signature of the 1835 Chicago horizon. Fire evidence belongs on 20-40 per cent of boles: blackened bark to 1-2 m, basal fire scars and charred stumps, which the surveyors noted repeatedly.",
+ "review_required": false
+}

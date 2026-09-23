@@ -1,0 +1,159 @@
+{
+ "id": "hh_inf_tavern_keeper_north_01",
+ "name": "Evidence-only household — J. Shrigley",
+ "division": "unplaced",
+ "head": "inf_tavern_keeper_north_01",
+ "arrival": {
+  "value": "1834-10-08",
+  "confidence": "inferred",
+  "sources": [
+   "chicago_democrat_1833_1835"
+  ],
+  "note": "A BOUND FROM THE PAPER, NOT AN ARRIVAL. The corpus first prints him at the Democrat of 8 October 1834, column 6, so he is in the town's paper by 1834-10-08 and at no stated time before it; nothing reached says when he came. The household used to carry the scene date as its bound, because nothing dated a hypothesised household — this is the same claim made against evidence instead of against the date the town is being counted on. Last printed 1834-10-08.",
+  "precision": "not_later_than"
+ },
+ "party_size_on_arrival": {
+  "value": null,
+  "confidence": "reconstructed",
+  "note": "Not claimed. The layer infers households, not families: the person entries here are the ones the trade argument requires and nothing counts wives or children, because counting them would multiply a hypothesis by an invention."
+ },
+ "origin": {
+  "value": null,
+  "confidence": "reconstructed",
+  "note": "Not claimed. Where a hypothesised resident came from is unknowable by construction, and the documented layer's origins (Vermont, Washington, Ann Arbor) are evidence about those men and not a distribution to sample from."
+ },
+ "reason_for_coming": {
+  "value": null,
+  "confidence": "reconstructed",
+  "note": "Not claimed for the person. The reason the HOUSEHOLD is in the dataset is the trade argument in research_note, which is a statement about the town and not about a motive."
+ },
+ "lives_at": {
+  "value": null,
+  "confidence": "reconstructed",
+  "note": "T-0489: former dwelling assignment came from the retired reconstructed-household programme; real resident retained unplaced."
+ },
+ "works_at": {
+  "value": null,
+  "confidence": "reconstructed",
+  "note": "T-0489: no workplace is assigned from a reconstructed household; later placement requires evidence."
+ },
+ "present_on_scene_date": {
+  "value": "present",
+  "confidence": "reconstructed",
+  "note": "Presence on the scene date IS the hypothesis: this household exists in the dataset because the town of 1 July 1835 demonstrably needed households of this trade. It is not a finding about anybody's whereabouts."
+ },
+ "persons": [
+  {
+   "id": "inf_tavern_keeper_north_01",
+   "name": "J. Shrigley",
+   "relationship": "head",
+   "grade": "attested",
+   "ladder_rule": "G1b",
+   "occupation": {
+    "value": "tavern_keeper",
+    "confidence": "attested",
+    "sources": [
+     "chicago_democrat_1833_1835"
+    ],
+    "note": "THE TRADE IS THE PAPER'S, NOT THE CENSUS'S. The corpus reads him as tavern keeper, at the Democrat of 8 October 1834, column 6. This record used to carry the occupation census's argument for the trade instead — that a town of this size needs so many of them — which is why the household exists; it is no longer why this man holds the trade. Where the corpus prints more than one trade for him, they are all recorded here and the household's is the one the register matched.",
+    "derived_from": "roles",
+    "roles_at_scene_date": [
+     "tavern_keeper"
+    ]
+   },
+   "note": "A DOCUMENTED MAN ON A RECONSTRUCTED ROOF. The papers name him and this household's dwelling does not: what is attested is the person and his trade, and what remains the reconstruction's is everything about where he lived. He is printed as 'J. Shrigley' and the corpus reads his trade as tavern keeper. Cited at the Democrat of 8 October 1834, column 6. THIS ROOF DID NOT COME FROM HIS RECORD. The household was raised by the occupation census because the town of 3,265 people in 398 dwellings needed a tavern keeper and no documented one was available; the register (data/research/newspapers/register_1835.json, action `replace_invented`) is what says one now is. The dwelling's existence, position and footprint are unchanged and still conjectural, and nothing here claims he slept in it — only that the town's need for this trade is met by a man the papers name rather than by one this project invented. The invented name this record used to carry, and its name_basis block, are retired: an invented name is not kept beside a documented one. No figure is drawn (docs/LIBERTIES.md L1); the placement is L205. He is placed nowhere in particular by his own record, which is the condition of taking ANY roof of his trade — a man the papers put on a named street takes only a roof the plat stands on that street (T-0367), and one they place somewhere this scene cannot honour is refused outright. READ THROUGH A TRANSCRIPTION, not a scan: the owner's ruling of 2026-08-28 grades a transcription-mediated reading as documented, and the source record for the run states that standard and its limits. A scan read that confirms or corrects the name upgrades this entry. THE TOWN'S OWN ROLLS, 1833-1835 — CORROBORATION, NOT A GRADE. The early Chicago voter and tax lists held by the Illinois Regional Archives Depository name this person 1 time: Tax list of the Town of Chicago, 1833 — “Shrigley, John” (tax_1833_094, line 146). These are the town's own contemporary paper rather than a recollection of it, and each appearance says that a man of that name stood on that roll in that year — no more. The reading is twice mediated (Schulz's transcription, then Genealogy Trails' republication) and this project has not seen the IRAD originals. Under the ratified ladder (T-0513) the 1835 poll with a second independent source is attested, the 1835 poll alone or a 1833/1834 list with another source is inferred, and a single appearance with nothing else is a projected resident. This pass WRITES THE EVIDENCE AND MOVES NO GRADE — T-0515 applies the ladder against every source at once. Identity by the crosswalk's own rule: one resident of the surname 'Shrigley' agrees with the entry's forenames; 1 bearer(s) of the surname were considered. (data/research/civic/voter_crosswalk.json). THE FEDERAL LAND TRACT SALES — A PURCHASE, AND NEVER A RESIDENCE. The Illinois State Archives' Public Domain Land Tract Sales register enters this person 1 time, as “SHRIGLEY JOHN”, 1835-06-27: 1 federal land entry — W2NE sec 17 T40N R14E, 80.00 acres stated in all, for $108.00 (ls0526). THE REGISTER'S OWN RESIDENCE COLUMN READS UNKNOWN on these rows: a county, a state or nothing, and never a town, which is why a purchase here places nobody. A purchase and nothing more. It dates and places a transaction; it proposes no residence, and under the ratified ladder it corroborates rather than mints. Identity by the crosswalk's own rule: SHRIGLEY JOHN matches J. Shrigley: the forename names J. Shrigley of the 1 person of this surname, and the forename agrees as an initial only. (data/research/land_sales/resident_crosswalk.json). This pass WRITES THE EVIDENCE AND MOVES NO GRADE. Under the ratified ladder (T-0513) a second independent source is what lifts a projected resident, and a land entry is a second source about a TRANSACTION rather than about who was living at Chicago on 1 July 1835 — a man may buy a quarter-section he never sees. T-0515 applies the ladder against every source at once; this pass hands it the evidence and not the verdict.",
+   "sources": [
+    "chicago_democrat_1833_1835",
+    "chicago_voter_lists_1833_1835_irad",
+    "fergus_chicago_directory_1843",
+    "isa_public_domain_land_tract_sales"
+   ],
+   "civic_evidence": [
+    {
+     "list": "tax_1833",
+     "as_read": "Shrigley, John",
+     "locator": "tax_1833",
+     "record_id": "tax_1833_094",
+     "describes_date": "1833",
+     "source": "chicago_voter_lists_1833_1835_irad",
+     "rule": "G1b"
+    }
+   ],
+   "book_evidence": [
+    {
+     "list": "directory_1843",
+     "as_read": "Shrigley, John",
+     "locator": "alphabetical directory",
+     "record_id": "f1843_e2263",
+     "describes_date": "1843",
+     "source": "fergus_chicago_directory_1843",
+     "rule": "G1b"
+    }
+   ],
+   "press_evidence": [
+    {
+     "list": "newspaper_1833_1835",
+     "as_read": "John Shrigley",
+     "locator": "chicago_democrat_1834_08_13#c005",
+     "record_id": "person_john_shrigley",
+     "describes_date": "1834-08-13",
+     "source": "chicago_democrat_1833_1835",
+     "rule": "G1b"
+    },
+    {
+     "list": "newspaper_1833_1835",
+     "as_read": "J. Shrigley",
+     "locator": "chicago_democrat_1834_10_08#c006",
+     "record_id": "person_j_shrigley",
+     "describes_date": "1834-10-08",
+     "source": "chicago_democrat_1833_1835",
+     "rule": "G1b"
+    }
+   ],
+   "resident_research": {
+    "programme": "resident-research-2026",
+    "ticket": "T-0493",
+    "outcome": "no_corroboration_yet",
+    "reviewed_on": "",
+    "asserted_identity": false,
+    "evidence_for": "forenames agree initial for initial: entry 'John Shrigley' against resident 'J. Shrigley'",
+    "source_ids": [
+     "chicago_voter_lists_1833_1835_irad"
+    ]
+   },
+   "roles": [
+    {
+     "role": "tavern_keeper",
+     "kind": "trade",
+     "as_printed": null,
+     "from": "1833-11",
+     "to": "1835-08",
+     "precision": "source_span",
+     "dated_by": "source_describes_date",
+     "covers_scene_date": true,
+     "confidence": "attested",
+     "sources": [
+      "chicago_democrat_1833_1835"
+     ],
+     "claim": null,
+     "note": "THE BOUND IS THE SOURCE'S, NOT THE MAN'S. This role is carried by the card's 1835 occupation block and is dated by what the cited source or sources are ABOUT, which is why `precision` can be no better than the span they cover. The span reaches 1835, so this role stands in the scene-date view. The printing the trade was read off is not on the card and is fetched by T-1254."
+    }
+   ]
+  }
+ ],
+ "touches_removal": false,
+ "review_required": false,
+ "research_note": "RECONSTRUCTED HOUSEHOLD - first of 1 tavern keeper households in this layer, in the north division. Seven tavern and hotel keepers are documented and the schedule allows ten inn or tavern roofs. One further keeper is inferred, for the single anonymous T1 roof the North Division parcel placed - a small inn on the north side, which the documented layer does not reach. METHOD: the count comes from the occupation census in data/reconstruction/1835_inferred_household_programme.json, which calibrates every trade against three things this project already holds - the 1835 town census (3,265 people, 398 dwellings), Andreas's roster of the fall of 1833 (about fifty named people, most with a trade, in a settlement of some 350), and the reconstruction specification's roof schedule, whose workshop and store family targets are treated as the ceiling on a trade rather than as its measure. Every count is stated NET of the documented layer: this dataset infers a tradesman only where it cannot name one. RETIRED AN INVENTED NAME (T-0264). This household was raised by the occupation census and named from the invented-name pools. The newspaper register matched it to J. Shrigley, a documented tavern keeper the corpus names 1 time(s) and places nowhere in particular, and he now holds the roof. What changed is WHO: the argument for the household, its dwelling and its position are untouched and still the reconstruction's, and the person's grade is `inferred` — a real man with reconstructed details — rather than `attested`, which would claim the dwelling too. tools/replace_invented_residents.py derives this deal and prints every candidate it refused. T-0489: reconstructed occupancy retired; evidence-based person retained and unplaced.",
+ "directories": {
+  "note": "LATER EVIDENCE, BESIDE THE 1835 CLAIMS AND NOT INSIDE THEM. A Chicago directory of 1839, 1843 or 1844 meets somebody of this name and this pass records what it prints. Under the ratified ladder a directory read after 1835 can corroborate that a person attested here was still in Chicago and can print a trade or a street the 1835 record never had; on its own it makes nobody a resident of 1835. Nothing on this person's 1835 record was regraded, moved, dated or given an occupation by this entry. WHAT THIS PASS RULED ONTO THIS HOUSEHOLD, named so the ruling can be found again: each volume below is followed by the printed entries it set against this person and the status the crosswalk ruled them at — a single entry carries what its own `could_carry` declares, and an ambiguous or contested match carries nothing and is shown so that the silence is legible. inf_tavern_keeper_north_01, Fergus's Chicago directory of 1839 — f1839_e1342 (a single entry); inf_tavern_keeper_north_01, Fergus's Chicago directory of 1843 — f1843_e2263 (a single entry).",
+  "sources": [
+   "fergus_chicago_directory_1839",
+   "fergus_chicago_directory_1843"
+  ],
+  "people": [
+   {
+    "person_id": "inf_tavern_keeper_north_01"
+   }
+  ]
+ }
+}

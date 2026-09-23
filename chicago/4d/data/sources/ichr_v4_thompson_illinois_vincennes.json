@@ -1,0 +1,41 @@
+{
+  "id": "ichr_v4_thompson_illinois_vincennes",
+  "type": "article",
+  "citation": "Joseph J. Thompson, \"The Illinois Part of the Diocese of Vincennes\", Illinois Catholic Historical Review, vol. 4 (July 1921 - April 1922), pages 253-265. Read here at pages 256-259 only: the succession of priests at Chicago from St. Cyr through Schaefer to O'Meara, the location of the first Catholic church at what is now State and Lake Streets, the ground it stood on, and its later removal to Michigan Avenue and Madison Street.",
+  "author": "Joseph J. Thompson, signing at Chicago. His footnotes cite Gilbert J. Garraghan, The Catholic Church in Chicago, 1673-1871 (1921), throughout, and Bishop Quarter's Diary once.",
+  "date": "1921-1922",
+  "describes_date": "1833-1841 in the passage read; the sentence this project came for describes June 1837 and looks back to a building put up in 1833",
+  "repository": "Internet Archive, item illinoiscatholic04unse_1. This project holds no deposit copy of the volume and nobody in it has handled the printed Review.",
+  "url": "https://archive.org/details/illinoiscatholic04unse_1",
+  "archived_url": "https://archive.org/download/illinoiscatholic04unse_1/illinoiscatholic04unse_1_djvu.txt",
+  "locator": "chicago/4d/data/research/books/text/ichr_v4_1921_22.txt - the whole volume's OCR, byte-identical to the Internet Archive's own djvu output at the archived_url, fetched 2026-09-05 (sha256 d7dcf68530d6872d2c8def2a66053171b32cbf2ed1d294c38dd6e4cafd6e5c02, 290,298 bytes, the same byte count T-0503 recorded when it fetched the same file on 2026-09-04). Every claim's locator names its inclusive line range in that file and the PRINTED PAGE it sits on, read off the running heads: the head '256 JOSEPH J. THOMPSON' is line 1759, 'ILLINOIS PART OF THE DIOCESE OF VINCENNES 257' is line 1968, '258 JOSEPH J. THOMPSON' is line 2031, 'ILLINOIS PART OF THE DIOCESE OF VINCENNES 259' is line 2088, and '260 JOSEPH J. THOMPSON' is line 2139 - so page 256 is lines 1760-1967, page 257 is 1969-2030, page 258 is 2032-2087 and page 259 is 2089-2138.",
+  "tier": 4,
+  "rights_status": "public_domain",
+  "asset_use": "text_only",
+  "verified": true,
+  "transcribes": [
+    {
+      "work": "Gilbert J. Garraghan, The Catholic Church in Chicago, 1673-1871 (Chicago: Loyola University Press, 1921)",
+      "date": "1921",
+      "tier": 4,
+      "note": "THE ARTICLE IS MOSTLY A DIGEST OF GARRAGHAN AND SAYS SO IN ITS OWN FOOTNOTES - pages 71, 90, 97, 102, 103 and 106 are cited by number in the run read here. Thompson is therefore not an independent witness to Garraghan; where he adds detail Garraghan is not credited with, the footnote goes silent, and the sentence this project came for - the church at State and Lake, the Canal Commissioners' ground, the $10,000 valuation - carries NO footnote at all. This project does not hold Garraghan and cannot say which of those words are his."
+    }
+  ],
+  "access_notes": "Fetched 2026-09-05 with curl -L from the archived_url. NO PAGE IMAGE WAS READ: this is the Internet Archive's machine OCR of the volume, so every claim taken from it is graded transcription_mediated and none is scan_verified. The OCR of this run is legible but not clean - it prints 'Iraneus' for Irenaeus, 'Schaefer' and 'Shaefer' within nine lines of each other, 'to to remain', 'suecessor', 'alos' and 'Was in possession' - and every quote is committed WITH those faults, because the verbatim gate rebuilds them character for character out of the committed text and the smoothed reading lives in `normalized`.",
+  "what_it_supplies": [
+    "A SECOND INDEPENDENT PRINTING of where the first Catholic church stood: 'near the southwest corner of what is now State and Lake Streets'. The project already held the same quadrant and the same hedge word from chicagology_prefire216's Andreas transcription; this is a different author in a different book saying it again, and it names the location a second time nine lines later as 'the State-Lake location'.",
+    "WHOSE GROUND IT WAS: the church stood 'upon ground controlled by the Canal Commissioners', and had not been bought when O'Meara arrived. On the scene date the congregation occupied a canal lot it did not own.",
+    "The auction that ended it, with a figure the project did not have: the valuation was 'fixed at $10,000', the Catholics could not raise it, and 'the lot was purchased by a private party'.",
+    "A TERMINUS POST QUEM FOR THE REMOVAL, which is what this article is worth to a scene dated 1835-07-01: the church was still standing at State and Lake when O'Meara came, and the same article dates his arrival to 'the early or middle part of June, 1837'.",
+    "The destination of the removal - 'the northwest corner of Michigan Avenue and Madison Street' - bought from the government for $262.00 with a quitclaim deed from Jean Baptiste Beaubien.",
+    "The succession dates at Chicago: St. Cyr sent 1833 and 'remained until April 17, 1837'; Schaefer arrived in the fall of 1836 and died at Chicago 2 October 1837; O'Meara arrived early or mid June 1837; St. Palais arrived December 1839."
+  ],
+  "what_it_does_not_supply": [
+    "THE LOT. 'Near the southwest corner' is the same hedge the project already carries, and this article does not say which canal lot in that quadrant, nor how far back from the corner. It cannot narrow the westward error the structure record states.",
+    "Any dimension, material, plan, orientation or appearance of the church. The article calls it 'the little church' and nothing more; the belfry, the bell and the rear addition it does describe are all AFTER the removal and therefore after the scene.",
+    "THE DATE OF THE REMOVAL. The article names the canal auction as the cause and dates neither the auction nor the move.",
+    "Anything about 1835 in particular. The passage looks back from June 1837 at a building put up in 1833 and says nothing about the years between.",
+    "An independent voice. The run read here footnotes Garraghan on six of its pages and this project does not hold Garraghan."
+  ],
+  "note": "THE APPARATUS IS NOT IN `transcribes`, AND THE REASON IS THE TIER RULE. Thompson's footnotes reach past Garraghan to the parish records of St. Mary's Church and to Bishop Quarter's Diary, and both are period documents. This article does not TRANSCRIBE either — it cites them at one remove and prints not a word of them — so listing them would lend this 1921 digest a rung it does not carry, which is exactly what the validator's tier gate exists to stop. What the volume does print of the parish book is St. Cyr's marriage and death register, and that is a different source record: data/sources/st_cyr_register_ichr_v4.json, read through a Genealogy Trails transcription rather than through this scan. Two records of one volume, by two routes. THE ARTICLE IS 1921 AND THE SENTENCE IS RETROSPECTIVE TWICE OVER: Thompson writes in 1921, about what O'Meara found in 1837, using the street names of 1921 ('what is now State and Lake Streets'). It is a corroboration of a placement this project already made and must never be cited as the evidence that made it. THE FIRST CATHOLIC CHURCH IS ALREADY IN THE SCENE - data/structures/st_marys_church.json, placed 2026-08-11 on the south-west quadrant of Lake and State - and nothing in data/structures/, data/residents/ or data/assets/ was edited by this reading."
+}

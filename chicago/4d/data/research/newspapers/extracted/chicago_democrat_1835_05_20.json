@@ -1,0 +1,2699 @@
+{
+ "schema": 1,
+ "issue_id": "chicago_democrat_1835_05_20",
+ "extracted": "2026-08-29",
+ "extracted_by": "hand, T-0326",
+ "note": "THE PAPER COMES BACK. Vol. II No. 5 again — the source visibly repeats the January number and corpus.json preserves it — printed on the newsprint the 03-25 Extra said would arrive with the first vessels, four pages of six columns and 4,234 transcribed lines. Pages 1 and 2 are the Democratic meetings of April and May reprinted from four counties and the national canvass; pages 3 and 4 are the town: the editor's own 'CHICAGO' column, the advertising, the Chicago letter list of 31 March 1835, and the canal act on page 4.\n\nTHE MONTH'S CENTREPIECE IS THE LETTER LIST AND RULING 1 APPLIES IN FULL. It is Chicago's own post office — 'Cook Co., Illinois, on the 31st day of March, 1835' — so every listed name mints a resident candidate, flagged `letter_list_only`. 257 names are minted at c013 and how they were read out of two interleaved printed sub-columns is set out in that claim's note, including the twenty-five entries this pass refused to mint.\n\nAND THE ADVERTISING PLACES STOREFRONTS. Nine of the twelve business claims here carry a `relative` or `corner` placement — Curtiss first door west of Jones, King & Co.; Collins & Caton two doors east of the Baptist Church; Hogan one door below the Post Office; Montgomery next door to P. Cohen's; Taylor a few rods north of Newberry & Dole's; Wilson next door to the city boot, shoe and leather store; the tinner at the corner of Dearborn and Lake; Spring first door north of the Tremont House; and the Democrat itself over Jones & King. That is the raw material T-0263 and T-0306 need and it is the reason this issue is worth its length.",
+ "claims": [
+  {
+   "id": "c001",
+   "kind": "building",
+   "reading": "transcription_mediated",
+   "quote": "GREAT DEMOCRATIC MEETING.\nTn pursuance of previous public notice, a\nlarge and respectable Meeting of the Demo-\ncratic friends of the National Administration\nof the town of Chicago, was hel at the Ex.\nchange Coffee House in said town, on Tues-\nday Evening, April 13, 1835.\nhe meeting was called to order by Col,\n- J. V. Owen, and on motion H. HUGUNIN\nwas called to the Chair, and J. W. E.prepce\nand J. C. GOODHUE appointed Secretaries.",
+   "normalized": "GREAT DEMOCRATIC MEETING. [I]n pursuance of previous public notice, a large and respectable Meeting of the Democratic friends of the National Administration of the town of Chicago, was hel[d] at the Ex[change] Coffee House in said town, on Tuesday Evening, April 13, 1835. [T]he meeting was called to order by Col. [T.] J. V. Owen, and on motion H. HUGUNIN was called to the Chair, and J. W. E[ldre]d[g]e and J. C. GOODHUE appointed Secretaries.",
+   "locator": {
+    "artifact_role": "primary",
+    "issue_page": 1,
+    "column": 3,
+    "lines": [
+     356,
+     377
+    ],
+    "lines_of_claim": [
+     356,
+     358,
+     359,
+     360,
+     361,
+     362,
+     363,
+     365,
+     367,
+     368,
+     369
+    ],
+    "interleaved": true
+   },
+   "entities": [
+    {
+     "as_printed": "Col, - J. V. Owen",
+     "normalized": "Col. T. J. V. Owen",
+     "role": "called the meeting to order",
+     "associated_places": [
+      "Chicago"
+     ]
+    },
+    {
+     "as_printed": "H. HUGUNIN",
+     "normalized": "Hiram Hugunin",
+     "role": "chairman of the meeting",
+     "associated_places": [
+      "Chicago"
+     ]
+    },
+    {
+     "as_printed": "J. W. E.prepce",
+     "normalized": "J. W. Eldredge",
+     "role": "secretary of the meeting",
+     "associated_places": [
+      "Chicago"
+     ]
+    },
+    {
+     "as_printed": "J. C. GOODHUE",
+     "normalized": "J. C. Goodhue",
+     "role": "secretary of the meeting",
+     "associated_places": [
+      "Chicago"
+     ]
+    }
+   ],
+   "notes": "THE EXCHANGE COFFEE HOUSE IS WHERE THE TOWN MET, and this is the first of three meetings in this reading range held in it (the town-election caucus of 1835-06-06 is the second, 1835-06-10 col. 5; by 1835-06-24 the Democrats have moved to the Eagle Coffee House, Trowbridge's). Russell E. Heacock's advertisement in the following week's paper puts the Exchange Coffee House at the CORNER OF LAKE AND FRANKLIN STREETS — 'Office in the 2d story, opposite the Exchange Coffee House, corner of Lake and Franklin-sts' — which is what makes it placeable, and that claim rather than this one carries the placement.\n\nTHE NAMES ARE READ THROUGH BAD TYPE AND SAY SO. 'hel' for 'held', 'Ex.' + 'change' broken across the column edge, 'E.prepce' for 'Eldredge' (settled from line 546, which signs the proceedings 'J.W. ELDREDGE, & Secretaries'), and 'Col, - J. V. Owen' for 'Col. T. J. V. Owen' (settled from line 376 and line 492, both of which print 'T. J. V. Owen'). The dozen further names in the committee lists at lines 375-376 and 513-527 are not minted here: they are the same men and the reading adds nothing a placement can use, and every one of them recurs in the advertising columns where they are minted with their trades."
+  },
+  {
+   "id": "c002",
+   "kind": "street",
+   "reading": "transcription_mediated",
+   "quote": "CHICAGO,\n* We have not room nor time to. say so mue\nag we we woull aboutewr town. Every thin\njabout us looks flourishing and prosperous-\nlwhichever way we turn our eyes they encour\nler new buildings and new business. AN givis\nevidence ofan sccesvion of population aad e1\nerpriso hitherto cuknown even here. Buty\nleatninenced thin article solely for the purpose\ncalling tie public mind to things whieh requi\nimmediate attention, First, the gutters oug!\nto be drained, and the sunken spots in the v\ncant lots ail about the buildisgs of this tow\njstiould be either filled up or drained immediat\nly, ‘There is nothing more importont to the {\ni ture proaperily of Uhis town than its charact\ni fo Aealth, and we venture to say that there\nNota considerable town on the Atlantic whi\nwould pot be visited witha pestilence with h\nthe predisposing causes which exist hore at th\nmoment, and all of which right be removed\nan expense of a few hundreds of dollars, Sh:\nit be done. Second, we wish to inquire whet\ner itis not Ume something waa done to proty\nthe town from the ravages of fire.. So far as y\nare advised thero is not even a fre bucket\nChicago.",
+   "normalized": "CHICAGO. We have not room nor time to say so muc[h] a[s] we would about our town. Every thing about us looks flourishing and prosperous — whichever way we turn our eyes they encoun[t]er new buildings and new business. All giv[es] evidence of an accession of population and en[t]erprise hitherto [un]known even here. But [we] commenced this article solely for the purpose [of] calling the public mind to things which requi[re] immediate attention. First, the gutters ough[t] to be drained, and the sunken spots in the va[c]ant lots all about the buildings of this town [s]hould be either filled up or drained immediate[l]y. There is nothing more important to the fu[tu]re prosperity of this town than its charact[er] fo[r] health […] Second, we wish to inquire wheth[er] it is not time something was done to prote[ct] the town from the ravages of fire. So far as w[e] are advised there is not even a f[i]re bucket [in] Chicago.",
+   "locator": {
+    "artifact_role": "primary",
+    "issue_page": 2,
+    "column": 4,
+    "lines": [
+     1547,
+     1573
+    ],
+    "lines_of_claim": [
+     1547,
+     1548,
+     1549,
+     1550,
+     1551,
+     1552,
+     1553,
+     1554,
+     1555,
+     1556,
+     1557,
+     1558,
+     1559,
+     1560,
+     1561,
+     1562,
+     1563,
+     1564,
+     1565,
+     1566,
+     1567,
+     1568,
+     1569,
+     1570,
+     1571,
+     1572,
+     1573
+    ]
+   },
+   "notes": "THE STATE OF THE TOWN'S SURFACE, SIX WEEKS BEFORE THE SCENE DATE, from the man who walked it. Three facts a reconstruction can use and none of them flattering: GUTTERS exist and are not draining; the VACANT LOTS between and around the buildings hold sunken water-filled spots; and there is NOT ONE FIRE BUCKET in Chicago. The last is the strongest — a bare negative assertion about the town's equipment, hedged only by 'so far as we are advised', printed by a resident editor who would be contradicted in a week if he were wrong.\n\nIT GETS WORSE BEFORE IT IS ACTED ON. The 1835-06-17 issue repeats the complaint in far stronger terms (barrels of putrid meat in a building in the most populous quarter; 'Our streets would disgrace a piggery') and the town meeting at the Presbyterian church that same week resolves to have the Trustees cleanse the streets. So the condition described here is the condition through May and June 1835, not a passing complaint. 'new buildings and new business' in the first sentence is the other half of the same picture and agrees with the Lake House and Rezigue-house notices of June."
+  },
+  {
+   "id": "c003",
+   "kind": "event",
+   "reading": "transcription_mediated",
+   "quote": "A friend has just informed us, that our town\nElection under the pew law, takes place the fret\nMonday in June, or next Monday week!",
+   "normalized": "A friend has just informed us, that our town Election under the [n]ew law, takes place the f[i]r[s]t Monday in June, or next Monday week!",
+   "locator": {
+    "artifact_role": "primary",
+    "issue_page": 2,
+    "column": 5,
+    "lines": [
+     1653,
+     1655
+    ]
+   },
+   "notes": "The first Monday in June 1835 is the 1st. The election did NOT happen then: 1835-06-10 reports it 'postponed, or adjourned, some how or other, from time to time, for the purpose of procuring a copy of the law', and 1835-06-24 still has no copy. So the town was operating at the scene date under Trustees elected under the OLD charter, which is what the 1835-06-17 town meeting means when it asks 'the present Trustees' to act."
+  },
+  {
+   "id": "c004",
+   "kind": "event",
+   "reading": "transcription_mediated",
+   "quote": "Wo perevive in the ligt of titles of laws pa\naed by the last Legislature, one changing\npowers of the corporation of Chicago. | It\nunderatoad, from those who know more of the\nthings than we do, that we, the people, are.\nApprove or reject this charter sometime in Jus\nnext, and yet eo far aa we aro advised, thero\nNot acopy of this law nearer the town of Chic\ngo, than the office of Mr. Sccrctary Prev.\nVandalia; nor any ‘likelihood that it. willl\nnearer until we are called upon to approve.",
+   "normalized": "W[e] perc[ei]ve in the li[s]t of titles of laws pa[ss]ed by the last Legislature, one changing [the] powers of the corporation of Chicago. It [is] understood, from those who know more of these things than we do, that we, the people, are [to] approve or reject this charter sometime in Ju[ne] next, and yet so far as we are advised, there [is] not a copy of this law nearer the town of Chica[g]o, than the office of Mr. Secretary [Field, at] Vandalia […]",
+   "locator": {
+    "artifact_role": "primary",
+    "issue_page": 2,
+    "column": 4,
+    "lines": [
+     1616,
+     1626
+    ],
+    "lines_of_claim": [
+     1616,
+     1617,
+     1618,
+     1619,
+     1620,
+     1621,
+     1622,
+     1623,
+     1624,
+     1625,
+     1626
+    ]
+   },
+   "notes": "THE TOWN CHARTER OF 1835 EXISTS IN LAW AND NOT IN CHICAGO. This is the first of three printings of the same grievance — here, at 1835-06-10 ('We are advised that no copy has yet been received'), and at 1835-06-24, where the editor names Secretary Field and says the act 'is [not] yet received' after the corporation itself ordered it months since. At the scene date the enlarged corporation is therefore un-adopted and the town is still governed under its 1833 trustee charter. 'Mr. Sccrctary Prev.' is read as Secretary Field on the warrant of the 1835-06-24 column, which prints the name in full as a heading."
+  },
+  {
+   "id": "c005",
+   "kind": "price",
+   "reading": "transcription_mediated",
+   "quote": ") Weunderstand that abont eight millions f\nhunired thousand dutlars have been subecribe\nfor stock in the Bank; about $350,000 of whi\nWere subserihed in tis place. ‘The ambunt a",
+   "normalized": "[We] understand that about eight millions f[ive] hun[d]red thousand d[o]llars have been subscribe[d] for stock in the Bank; about $350,000 of whi[ch] were subscribed in t[h]is place.",
+   "locator": {
+    "artifact_role": "primary",
+    "issue_page": 2,
+    "column": 4,
+    "lines": [
+     1577,
+     1580
+    ],
+    "lines_of_claim": [
+     1577,
+     1578,
+     1579,
+     1580
+    ]
+   },
+   "notes": "$350,000 of State Bank of Illinois stock subscribed IN CHICAGO in the spring of 1835, against $8,500,000 for the whole state — about four per cent, from a town the same paper says holds a few thousand people. It is a measure of how much money was standing in the place in the weeks before the land sale, and it is the editor's understanding rather than a return: 'We understand that'. The commissioners' own journal, printed entire in the 1835-06-24 issue, is the document that could settle the figure and it is not read here."
+  },
+  {
+   "id": "c006",
+   "kind": "shipping",
+   "reading": "transcription_mediated",
+   "quote": "Sloop Westward ilo, Banks. Millwalkee.\nSchr, White Pyoon, Neel, Grand river\n“ lose Sath, Dran, Shipsegsm.\nLa Grange, Chauehota, st Josrph\n\n“a dease Sinith, Danks, Shipwagas\n’ 8. B. ewberry Fort, wy Bt. Sie\n. Sehr La Grange, Chanclvia, do.\n« Philbpy Howe, daz\n, # Sutiet, hheoka, fda,\n; o Pigron, Noel, Grand rieee\n\nsh. Newbercy Part. © 2. Feseph,\nY} May t. sche Commodore, Cul DETROIT.\naon Newkerry Port, t 168 ph,\nSehy While Pigesn, Nock, Grand river.\nSloop Westward Ho, Ranks, Millwalkee.\nBrig. john Kintie, Goover, Detroit\n’ Schr, Sean, ~ on, Cote anat,\n& Hellen, Chase,\n\nt i: Mareaco, Dingley, Detroit,\nNapoleon, at 4, Cleavdand\na. White Pisean, Nueb, st. rn\n% - Hrilen, Chace, 4",
+   "normalized": "[Marine list, arrivals and clearances at Chicago, late April to 1 May 1835:] Sloop Westward Ho, Banks, M[i]lwa[u]kee. Schr. White Pigeon, Noel, Grand river. [Schr.] Jesse Smith, Dun[can], Ship[wa]g[a]n. [Schr.] La Grange, Chauchois, St. Joseph. [Schr.] Jesse Smith, Banks, Shipwagan. [Schr.] S. B. Newberry, Port, [St. Joseph]. Schr. La Grange, Chauchois, do. [Schr.] Philips, Howe, do. [Schr.] Sutlej, [Ch]e[e]k[s], do. [Schr.] Pigeon, Noel, Grand river. Sch. Newberry, Port, St. Joseph. May 1. Schr. Commodore, Cul[len], DETROIT. [Schr.] Newberry, Port, St. Joseph. Schr. White Pigeon, Noel, Grand river. Sloop Westward Ho, Banks, M[i]lwa[u]kee. Brig John Kinzie, G[r]over, Detroit. Schr. Swan, [Dunc]an, [do.] [Schr.] Hellen, Chase, [do.] [Schr.] Marengo, Dingley, Detroit. [Schr.] Napoleon, [Rathbun], Cleveland. [Schr.] White Pigeon, N[oe]l, St. [Joseph]. [Schr.] Hellen, Chase, do.",
+   "locator": {
+    "artifact_role": "primary",
+    "issue_page": 3,
+    "column": 2,
+    "lines": [
+     2212,
+     2236
+    ],
+    "lines_of_claim": [
+     2212,
+     2213,
+     2214,
+     2215,
+     2216,
+     2217,
+     2218,
+     2219,
+     2220,
+     2221,
+     2222,
+     2223,
+     2224,
+     2225,
+     2226,
+     2227,
+     2228,
+     2229,
+     2230,
+     2231,
+     2232,
+     2233,
+     2234,
+     2235,
+     2236
+    ],
+    "interleaved": true
+   },
+   "notes": "THE FIRST MARINE LIST OF THE 1835 SEASON, and the smallest: a sloop, a brig and nine or ten schooners working Milwaukee, Grand River, St. Joseph, Shipwagan (Chippewa?) and Detroit. Compare 1835-06-10, where fourteen arrivals are listed for the single day of 7 June and the editor counts twelve vessels anchored off the bar at once. The list's own structure is lost — the transcription interleaves the arrival and clearance halves and the date column is shredded — so only the hulls, masters and ports are read, and NO date is assigned to any individual entry except the one line that prints 'May t.' The brig JOHN KINZIE is worth the note: a Chicago name on a Detroit-trading hull, and she is back in the 1835-06-10 list."
+  },
+  {
+   "id": "c007",
+   "kind": "business",
+   "reading": "transcription_mediated",
+   "quote": "i]. Wanted munediateiy.\nat N apprentice at this office to the printin\ntuincas. A good opportunity is offeres\nai by an immediate application.\ne May 20th, 163",
+   "normalized": "Wanted immediately, [a]n apprentice at this office to the printing [b]usiness. A good opportunity is offere[d] by an immediate application. May 20th, 18[35].",
+   "locator": {
+    "artifact_role": "primary",
+    "issue_page": 3,
+    "column": 2,
+    "lines": [
+     2238,
+     2243
+    ],
+    "lines_of_claim": [
+     2238,
+     2239,
+     2241,
+     2242,
+     2243
+    ],
+    "interleaved": true
+   },
+   "business": {
+    "name": "Chicago Democrat printing office",
+    "proprietors": [
+     "John Calhoun"
+    ],
+    "trade": "newspaper and job printing",
+    "goods": [
+     "newspapers",
+     "books",
+     "pamphlets",
+     "blanks",
+     "cards"
+    ],
+    "street": "South Water Street",
+    "placement": {
+     "class": "relative",
+     "anchor": "Messrs. Jones & King's hardware store",
+     "offset_text": "over Meserg Jones & King Hard",
+     "offset_normalized": "over Messrs. Jones & King['s] Hard[ware store]",
+     "street": "South Water Street"
+    }
+   },
+   "ad_copy_date": {
+    "verbatim": "May 20th, 163",
+    "iso": "1835-05-20"
+   },
+   "entities": [
+    {
+     "as_printed": "J. CALHOUN",
+     "normalized": "John Calhoun",
+     "role": "proprietor",
+     "occupations": [
+      "printer",
+      "newspaper publisher"
+     ],
+     "associated_places": [
+      "Chicago"
+     ]
+    }
+   ],
+   "notes": "THE DEMOCRAT'S OWN SHOP, AND WHERE IT STOOD. The placement is NOT in this advertisement — it is in the paper's colophon on page 4 column 6, lines 4177-4180: 'Is published every W[ednesday] […] Chicago, Cook co. Ill. […] over Meserg Jones & King Hard[ware]'. Jones, King & Co.'s own advertisement of 1835-05-26 has them 'receiving by Brig Illinois' a hardware and stove stock, and J. Curtiss's advertisement puts Jones, King & Co. on SOUTH WATER STREET ('Office in South Water-street, first [door] west of Messrs. Jones, King & Co.'). So the Democrat was printed in an upper room over a South Water Street hardware store, which is a placeable workshop and not just a masthead. The street is carried on that chain and the anchor text is quoted from the colophon rather than invented.\n\nWHAT THE SHOP WANTED. An apprentice printer in May and, from 1835-05-25, 'A FIRST rate BAKER; one who is well acquainted with the business' — the baker advertisement also says 'Enquire at this office', which is the paper acting as an employment exchange for somebody else, not baking. It is not read as the Democrat's own trade."
+  },
+  {
+   "id": "c008",
+   "kind": "business",
+   "reading": "transcription_mediated",
+   "quote": "BT OTECE. —The co-partnesship heretofo:\nexisting between D, O. Robinson and\nA Neff, is thie day dinsolved by inutual consen\nall persons haying dealings with said firms, w\nplease to call on D. O, Robinson for setilomen\nty b. 0, ROBINSON,\nR. A. NEFF.",
+   "normalized": "[N]OTICE.—The co-partnership heretofo[re] existing between D. O. Robinson and [R.] A. Neff, is this day dissolved by mutual consen[t;] all persons having dealings with said firm, w[ill] please to call on D. O. Robinson for settlemen[t.] D. O. ROBINSON, R. A. NEFF.",
+   "locator": {
+    "artifact_role": "primary",
+    "issue_page": 3,
+    "column": 2,
+    "lines": [
+     2245,
+     2256
+    ],
+    "lines_of_claim": [
+     2245,
+     2247,
+     2249,
+     2251,
+     2253,
+     2255,
+     2256
+    ],
+    "interleaved": true
+   },
+   "business": {
+    "name": "D. O. Robinson and R. A. Neff",
+    "proprietors": [
+     "D. O. Robinson",
+     "R. A. Neff"
+    ],
+    "trade": "[not stated in the notice]",
+    "goods": [],
+    "street": null,
+    "placement": {
+     "class": "none"
+    }
+   },
+   "ad_copy_date": {
+    "verbatim": "Chicago, May 11, 1835.——305,",
+    "iso": "1835-05-11"
+   },
+   "entities": [
+    {
+     "as_printed": "D. O. ROBINSON",
+     "normalized": "D. O. Robinson",
+     "role": "proprietor",
+     "associated_places": [
+      "Chicago"
+     ]
+    },
+    {
+     "as_printed": "R. A. NEFF",
+     "normalized": "R. A. Neff",
+     "role": "proprietor",
+     "associated_places": [
+      "Chicago"
+     ]
+    }
+   ],
+   "notes": "RULING 3'S VETO, EXERCISED. A dissolution notice is one of the three things that can contradict a business's survival to the scene date, and this one does it explicitly and on a date — 11 May 1835, seven weeks before. The partnership is therefore NOT standing on 1 July 1835 and nothing in the model should carry its name; D. O. Robinson individually may well be, since he is the one settling the accounts, and he is minted as a person. THE TRADE IS NOT STATED, so this firm cannot be given a storefront even if it had survived. The verbatim dateline is read off line 2372 of the following week's reprint of the same notice, where it prints cleanly; in THIS printing the date sits outside the quoted lines."
+  },
+  {
+   "id": "c009",
+   "kind": "business",
+   "reading": "transcription_mediated",
+   "quote": "hich 1. CURTISS,\nnot; Attoraey and Counsellor at Law, @\nSOLICITOR IN CHANCERY,\naa CHICAGO, ILLINOIS.\nsree, Or Fin South Water-stzeet, first\nave, § west of Messrs. Joxus, Kine & Co,\n+) May 16, 1835.5",
+   "normalized": "J. CURTISS, Attorney and Counsellor at Law, [and] SOLICITOR IN CHANCERY, CHICAGO, ILLINOIS. O[F]FI[CE] in South Water-street, first [door] west of Messrs. JONES, KING & Co. [up stairs.] May 18, 1835.",
+   "locator": {
+    "artifact_role": "primary",
+    "issue_page": 3,
+    "column": 2,
+    "lines": [
+     2294,
+     2300
+    ],
+    "lines_of_claim": [
+     2294,
+     2295,
+     2296,
+     2297,
+     2298,
+     2299,
+     2300
+    ],
+    "interleaved": true
+   },
+   "business": {
+    "name": "J. Curtiss",
+    "proprietors": [
+     "J. Curtiss"
+    ],
+    "trade": "attorney and counsellor at law, and solicitor in chancery",
+    "goods": [],
+    "street": "South Water Street",
+    "placement": {
+     "class": "relative",
+     "anchor": "Messrs. Jones, King & Co.",
+     "offset_text": "Or Fin South Water-stzeet, first\nave, § west of Messrs. Joxus, Kine & Co,",
+     "offset_normalized": "O[FFICE] in South Water-street, first [door] west of Messrs. Jones, King & Co.",
+     "street": "South Water Street"
+    }
+   },
+   "ad_copy_date": {
+    "verbatim": "May 16, 1835.5",
+    "iso": "1835-05-18"
+   },
+   "entities": [
+    {
+     "as_printed": "J. CURTISS",
+     "normalized": "J. Curtiss",
+     "role": "proprietor",
+     "occupations": [
+      "attorney",
+      "counsellor at law",
+      "solicitor in chancery"
+     ],
+     "associated_places": [
+      "South Water Street",
+      "Chicago"
+     ]
+    }
+   ],
+   "notes": "ONE DOOR WEST OF JONES, KING & CO., UP STAIRS, ON SOUTH WATER STREET. The strongest placement in the issue: a named anchor, a direction, a distance of one door and a floor. The '(up stairs.)' is broken across the interleave — line 2302 reads 'leep | stairs' and it is NOT quoted here — but the following week's printing (1835-05-27, lines 2410-2412) sets it cleanly as 'FFICE in South Water-street, firat d[oor] west of Messrs. Jones, Kina & Co, [up] atsirs' and that is where the floor comes from.\n\nTHE DATELINE IS READ AS 18 MAY. This printing sets 'May 16, 1835' and the four later printings all set 'May 18, 1835'; 18 is taken on the majority and the discrepancy is recorded rather than silently smoothed.\n\nJ. Curtiss is the same man who moved the resolutions at the April Democratic meeting and who is Secretary of the town meeting of 1835-06-16 — the town's lawyer-politician, and now placed."
+  },
+  {
+   "id": "c010",
+   "kind": "building",
+   "reading": "transcription_mediated",
+   "quote": "0 LEP—! Store, |} en\nDwelling and a large ho\nsuitable fora Boarding House. }\ni C. I CHAPMAN",
+   "normalized": "[T]O LET — [a] Store, [a] Dwelling and a large ho[use] suitable for a Boarding House. [Enquire of] C. H. CHAPMAN.",
+   "locator": {
+    "artifact_role": "primary",
+    "issue_page": 3,
+    "column": 2,
+    "lines": [
+     2280,
+     2283
+    ],
+    "lines_of_claim": [
+     2280,
+     2281,
+     2282,
+     2283
+    ],
+    "interleaved": true
+   },
+   "entities": [
+    {
+     "as_printed": "C. I CHAPMAN",
+     "normalized": "C. H. Chapman",
+     "role": "the person letting the three buildings",
+     "associated_places": [
+      "Chicago"
+     ]
+    }
+   ],
+   "notes": "THREE BUILDINGS IN ONE HAND AND NONE OF THEM PLACED. A store, a dwelling and a large house 'suitable for a Boarding House' — the last is the interesting one, because it is offered as a boarding house without being one yet, in the month the same paper says every room in the public houses is taken and strangers are sleeping on floors (1835-06-17). No street is named in any of the four printings, so nothing here can be placed; it is recorded as building STOCK. 'C. I CHAPMAN' is read as C. H. Chapman on the warrant of the 1835-05-27 printing (line 2396), which sets 'C. H. CHAPMAN'."
+  },
+  {
+   "id": "c011",
+   "kind": "business",
+   "reading": "transcription_mediated",
+   "quote": "i hi, pectic aes connexion in. busir\nUND between the subsssiber and Win. H. Bro\nnot was claved the Ist of January last. ‘The ¢\nnt, Lupou the debts duc the firm o Russoll $ Bro\nJae land ales the subseriber, will bo received by\n, 4, jand good andsufficient discharges given there\na Pr. t. RUssELt\nthe) Chisago, May 49, 1535.-—3w5,",
+   "normalized": "[N]OT[ICE.—T]he connexion in busi[ness] between the subs[c]riber and Wm. H. Brown was clo[s]ed the 1st of January last. The c[ash] upon the debts due the firm o[f] Russ[e]ll & Bro[wn], [and also] the subscriber, will be received by [him] and good and sufficient discharges given there[for.] P. [T.] RUSSELL. Ch[i]cago, May [1]9, 1835.",
+   "locator": {
+    "artifact_role": "primary",
+    "issue_page": 3,
+    "column": 2,
+    "lines": [
+     2285,
+     2292
+    ],
+    "lines_of_claim": [
+     2285,
+     2286,
+     2287,
+     2288,
+     2289,
+     2290,
+     2291,
+     2292
+    ],
+    "interleaved": true
+   },
+   "business": {
+    "name": "Russell & Brown",
+    "proprietors": [
+     "P. T. Russell",
+     "Wm. H. Brown"
+    ],
+    "trade": "[not stated in the notice]",
+    "goods": [],
+    "street": null,
+    "placement": {
+     "class": "none"
+    }
+   },
+   "ad_copy_date": {
+    "verbatim": "Chisago, May 49, 1535.-—3w5,",
+    "iso": "1835-05-19"
+   },
+   "entities": [
+    {
+     "as_printed": "Win. H. Bro",
+     "normalized": "Wm. H. Brown",
+     "role": "former partner",
+     "associated_places": [
+      "Chicago"
+     ]
+    },
+    {
+     "as_printed": "Pr. t. RUssELt",
+     "normalized": "P. T. Russell",
+     "role": "proprietor",
+     "associated_places": [
+      "Chicago"
+     ]
+    }
+   ],
+   "notes": "THE SECOND VETO IN THE SAME COLUMN, and an earlier one: Russell & Brown closed on 1 January 1835, six months before the scene date. Trade unstated again, so again nothing to place. Recorded because ruling 3 turns on exactly these notices and because Wm. H. Brown is a name the town keeps — the 1835-06-24 letter list and the later record both carry him."
+  },
+  {
+   "id": "c012",
+   "kind": "building",
+   "reading": "transcription_mediated",
+   "quote": "4M. Randoiph-street, nearly oppo-\nnite the pubis square. Enquiry at\nthis office.",
+   "normalized": "[A HOUSE pleasantly situate on] Randolph-street, nearly opposite the pub[lic] square. Enquir[e] at this office.",
+   "locator": {
+    "artifact_role": "primary",
+    "issue_page": 3,
+    "column": 3,
+    "lines": [
+     2311,
+     2313
+    ],
+    "lines_of_claim": [
+     2311,
+     2312,
+     2313
+    ],
+    "interleaved": true
+   },
+   "notes": "A HOUSE FACING THE PUBLIC SQUARE, and the anchor is a surveyed feature rather than another building — the block reserved on the plat, which the reconstruction already stands on. The advertisement's own head is cut off in this printing; 1835-06-04 (lines 2465-2469) sets it whole as 'For Sale, A HOUSE pleasantly situate on Randolph-street, nearly opposite the public square. Enquiry at this office' and the head is supplied from there in brackets. It runs unchanged in all five issues from 1835-05-20 to 1835-06-17 — for sale, not sold, through the whole of the land-sale boom, which is itself worth noticing.\n\nNO SIDE OF THE STREET AND NO LOT, so this places a house to a BLOCK FACE and no finer: the Randolph Street frontage opposite the public square. That is enough to say a dwelling stood there and not enough to say which one."
+  },
+  {
+   "id": "c013",
+   "kind": "person",
+   "reading": "transcription_mediated",
+   "quote": "a ago, Cook Go, Mlinvis, om the Stat: day\not March, 1895,:\nA, Kirby, Hannaa’ W,\nAllger, William Kent, Alexander:C,\nArrasmith, dames Kittnidge, Joho P,\nAllen, Edward Koaggs, Jamen\nAllen, E. King, Elm’ A.\nAiama, Joseph Kirby, Haonah a,\nAinbrose, Joshua E.8 * lap ee\nAllan, Richard B. Luce, William\nAndrus, Tomas Lucae, Robsrd\nAtkins, Jearuin Lewin, W. Y,\nBR. Lee, John I..\nBullen, Jeduthan 2 Langer, Jacob\nButtertield, Zimry Loveland, Robert,\nBarrows, Mary Luene, Ann\nBomgarten, Moritz 2 Lozser, Mr.\nBennet, Lyman 2 Lamb, Caleb\nBarton Wooster J, Lamb, Adan\nBritain, Hiram Z. 2 Lathrop, Samuel 8.\nBertholf, Marcus Leg, George\nBleke, Levi Loring, Wm,\nBradstreet, Athert G.4 M-\nBrown, Lemuel Moore, John,\nBrown, Clarrisa M’Ewen, Win. Bs\nBush, Riley Mason, Matthias\nBrown, Harriet BE, Martin, Patrick\n‘Bartlett, Charles H, 3 Milow, John\nBrown, Adam Miller, Jesse\nBandle, William Milated, Jobn\nBeach William HH, M’Fadin, James\nBrown, Joseph N, Morley, Janies\nBoardnan, W. E. Mitchell, Henry\nBailey, Bennet Maynard, Elias\nBench, Reuben Micliriski, Mr.\nBeaubien, M. B, Moore, Neleon\nBrookes, Samuel. Moore, James\nBarry, John S, Musgrave, Jehn\nBane, George B, Murry, Alanzo 2\nBarton, Ratus Morrison, T. M.\nJandle, Ann Mack, Stephen\nBennett, Amos Meigs, David\nBennett, Hiram 8, Miner, Amanda 2\nBerger, F.C, Mackie, James\nBrown, Schuyler Merrill, Winthrop\nGC Miller, John\nCurtin, L. G. Miller, Marshall\nChureh, Benjamin M'Lean, John Y.\nChilds, Sarah Merals, Wasiinston\nj Carpenter, Gilbert M’Kean, Joseph,\n1 Covalt, Enos Malone, Patrick\nCrandal, Alva Minard, Ira 2\nCooley, Sinan Mecker, Joeeph\nCook, Harvey Matthews, James G,\nCompart & Coquillard, N,\nChase A, R, Nelson, John M, &\niain, dohn 8 Newton, Daniel\noy, Orenge Natta, John V,\nConant, Rben Osbern, Wm.\nCooley, Hdward W.2 Quthet, Daniel 3\nConter, Willard Pr,\nPaddock, Jane\nChesnut, Jules\ni Cobins, Jeredat Paliner, N. HH.\n(Chadwick, Juseph Page, Preierick W, 2\nCarpenter, Mir. Parker, Manson\nCarter, J Parkes, Curtis\nPaine, Seth 2\nin Preston, Esther\nClark, John A, Parmlee, George B,\nChancie, Joseph Puller, Ludwell\nCutler, Morris Paige B. R.\nEse cil, Archibald | Pank, Wm. W.\nChevalier, Louis P, Parcel, Aaron\nChase, Bnoch Poke, Fdinund\nClark, Baldwin T. Phelps, Jamea H.\n» Pearsons, Hiram\nDean, Janies 1. Robersun, Daniel —\nDoane, Seth B, Riddle, Mr.\nDavie, Jobu Rowley, Herman A.\nDudley, John Jr. Ritchey, James\n.| Doel, Asa Riwchard, Charles J.\nDustin, Thomas Rathburn, Amos\nDunn, Dangerfield — Rice, Samuel\n') Downer, Pierce Risley, Horace\nDowner, Stephen Reeder, Henry\nra Reed, ‘Thomas\nBester, James 8 Richards, Charles 7,\nEvans, Sciota 2 Russel, John\nEnrly. Henry A. Rogers, Exward A.\nwins, J. 2. Renwick, Pheopilus\nEager, [iram Romer, Carl\nEvert, J. 8. 8.\nKF. Schermertorn, M. L,\nFolliott, Jonathan Skinner, EP.\nVorbes, Stephan Sricher, Jobn\nFoster, Culeb Smith, George\nFaller, Porter Stephens, §* co.\nFowler, James W. Squire, George\nFowler, Albert Senture, Antoine\n\"| Pord, Ebenezer Stevens, Layent\nFreewsn, Ford Spring, ‘Thornas O.\n8! Gooding, Win, @ Stules, David\n#1 Galuoha, Russell L, Stevens, I.\n1} Galusha, Jacob A. Shelden, Oliveann\nT) Goodrich, Grant 2 Steward, Joseph\n+} Goodell, Nancey Ann Sioan, Doughirs\nGoddard, Mr, Starne, Shepard\nGoiltrey, T. Shoup, Michael\nGilbert, Jonathan Schnuder, P..\nGrom, Qranto 2 Sammons, Ricard\nGleazen, Joseph Stevens, lenac\n» | Galusha, Jacob Saith, Jeremish\nGoodrich § Abell, South, Orange\nGardner, Juno B, Sinith, Henry’\nGarton, Ehjsh Shintatfo, James\nGibbe, James H. Simons, E,\nGoddard, Wa. H. Steele, Richard\nGooding Jasper. A. vy,\nGifford, Hezekiah Torst, Janes\nGunn, Medad Hh Taylor, Justin\nGarland, J. J. Todd, Hugh &\nH. ‘Thomas, John\nHutehins, Nathan‘ Titcomb, ‘Timothy\nHolder, Jexse Tilman, Mr.\nHow, Phineas 4 Tobdell, Joseph\nHult, Jeremiah 8, Titterington, Charl\nHiil, Issac L. Thompsond, John\nHall, Cynthia ‘fucker, Alexr. H. ot\nHolmes, Cyrenius Taylor, Deodat\nHoward, Elbert Tuttle, James B.\nHugunin, Leonard C,\nHouse, Chester Vanderbogart, H.\nHonks, Juines C, Vantleet, Jolin\nHickok, Nelson. Yardon, George\n{Low af Whittier, Vaseeur, Noel\n1 Hobson, Jesse Vann, Angeline\nAlarris, James Volk, John\nHarris, David W,\nunt, William Wood, Wm\nHolcomb, Samuel B. Woods, Jobn He:\nHarrison, Wooster Weatover, Roy K,\nHolliday, Wow 8 Whi",
+   "normalized": "[List of Letters remaining in the Post Office at Chic]ago, Cook Co[unty], Illinois, on the 31st day of March, 1835. [Two printed sub-columns, A–H and K–W, interleaved line by line by the scan; the 257 names read out of them are the entities of this claim, each carrying its printed form and its normalized reading.]",
+   "locator": {
+    "artifact_role": "primary",
+    "issue_page": 3,
+    "column": 5,
+    "lines": [
+     2699,
+     2877
+    ],
+    "lines_of_claim": [
+     2700,
+     2702,
+     2703,
+     2705,
+     2707,
+     2709,
+     2710,
+     2711,
+     2712,
+     2713,
+     2714,
+     2715,
+     2717,
+     2718,
+     2719,
+     2720,
+     2721,
+     2722,
+     2723,
+     2724,
+     2726,
+     2727,
+     2728,
+     2729,
+     2730,
+     2731,
+     2733,
+     2734,
+     2735,
+     2736,
+     2737,
+     2738,
+     2739,
+     2741,
+     2742,
+     2743,
+     2744,
+     2745,
+     2746,
+     2747,
+     2748,
+     2749,
+     2750,
+     2751,
+     2752,
+     2753,
+     2754,
+     2755,
+     2756,
+     2757,
+     2758,
+     2759,
+     2761,
+     2762,
+     2763,
+     2765,
+     2766,
+     2768,
+     2772,
+     2773,
+     2774,
+     2775,
+     2777,
+     2778,
+     2780,
+     2782,
+     2784,
+     2786,
+     2787,
+     2789,
+     2791,
+     2793,
+     2795,
+     2797,
+     2798,
+     2800,
+     2801,
+     2803,
+     2804,
+     2805,
+     2806,
+     2807,
+     2808,
+     2809,
+     2810,
+     2811,
+     2812,
+     2813,
+     2814,
+     2815,
+     2816,
+     2817,
+     2818,
+     2819,
+     2820,
+     2821,
+     2822,
+     2823,
+     2824,
+     2825,
+     2826,
+     2827,
+     2829,
+     2831,
+     2833,
+     2834,
+     2835,
+     2837,
+     2838,
+     2839,
+     2840,
+     2841,
+     2843,
+     2845,
+     2846,
+     2847,
+     2848,
+     2849,
+     2850,
+     2851,
+     2852,
+     2853,
+     2855,
+     2856,
+     2857,
+     2859,
+     2860,
+     2861,
+     2862,
+     2863,
+     2864,
+     2865,
+     2866,
+     2867,
+     2868,
+     2869,
+     2870,
+     2871,
+     2872,
+     2873,
+     2874,
+     2875,
+     2876
+    ],
+    "interleaved": true
+   },
+   "letter_list_only": true,
+   "entities": [
+    {
+     "as_printed": "Kirby, Hannaa’ W,",
+     "normalized": "Hannah W. Kirby",
+     "role": "named in the list of letters remaining in the Post Office at Chicago, 31 March 1835"
+    },
+    {
+     "as_printed": "Allger, William",
+     "normalized": "William Allger",
+     "role": "named in the list of letters remaining in the Post Office at Chicago, 31 March 1835"
+    },
+    {
+     "as_printed": "Kent, Alexander:C,",
+     "normalized": "Alexander C. Kent",
+     "role": "named in the list of letters remaining in the Post Office at Chicago, 31 March 1835"
+    },
+    {
+     "as_printed": "Arrasmith, dames",
+     "normalized": "James Arrasmith",
+     "role": "named in the list of letters remaining in the Post Office at Chicago, 31 March 1835"
+    },
+    {
+     "as_printed": "Kittnidge, Joho P,",
+     "normalized": "John P. Kittridge",
+     "role": "named in the list of letters remaining in the Post Office at Chicago, 31 March 1835"
+    },
+    {
+     "as_printed": "Allen, Edward",
+     "normalized": "Edward Allen",
+     "role": "named in the list of letters remaining in the Post Office at Chicago, 31 March 1835"
+    },
+    {
+     "as_printed": "Koaggs, Jamen",
+     "normalized": "James Knaggs",
+     "role": "named in the list of letters remaining in the Post Office at Chicago, 31 March 1835"
+    },
+    {
+     "as_printed": "Allen, E.",
+     "normalized": "E. Allen",
+     "role": "named in the list of letters remaining in the Post Office at Chicago, 31 March 1835"
+    },
+    {
+     "as_printed": "King, Elm’ A.",
+     "normalized": "[uncertain: Elm.] A. King",
+     "role": "named in the list of letters remaining in the Post Office at Chicago, 31 March 1835"
+    },
+    {
+     "as_printed": "Aiama, Joseph",
+     "normalized": "Joseph [uncertain: Adams]",
+     "role": "named in the list of letters remaining in the Post Office at Chicago, 31 March 1835"
+    },
+    {
+     "as_printed": "Kirby, Haonah a,",
+     "normalized": "Hannah A. Kirby",
+     "role": "named in the list of letters remaining in the Post Office at Chicago, 31 March 1835"
+    },
+    {
+     "as_printed": "Ainbrose, Joshua",
+     "normalized": "Joshua Ambrose",
+     "role": "named in the list of letters remaining in the Post Office at Chicago, 31 March 1835"
+    },
+    {
+     "as_printed": "Allan, Richard B.",
+     "normalized": "Richard B. Allan",
+     "role": "named in the list of letters remaining in the Post Office at Chicago, 31 March 1835"
+    },
+    {
+     "as_printed": "Luce, William",
+     "normalized": "William Luce",
+     "role": "named in the list of letters remaining in the Post Office at Chicago, 31 March 1835"
+    },
+    {
+     "as_printed": "Andrus, Tomas",
+     "normalized": "Thomas Andrus",
+     "role": "named in the list of letters remaining in the Post Office at Chicago, 31 March 1835"
+    },
+    {
+     "as_printed": "Lucae, Robsrd",
+     "normalized": "Robert Lucas",
+     "role": "named in the list of letters remaining in the Post Office at Chicago, 31 March 1835"
+    },
+    {
+     "as_printed": "Atkins, Jearuin",
+     "normalized": "[uncertain: Jearuin] Atkins",
+     "role": "named in the list of letters remaining in the Post Office at Chicago, 31 March 1835"
+    },
+    {
+     "as_printed": "Lewin, W. Y,",
+     "normalized": "W. Y. Lewin",
+     "role": "named in the list of letters remaining in the Post Office at Chicago, 31 March 1835"
+    },
+    {
+     "as_printed": "Lee, John I..",
+     "normalized": "John I. Lee",
+     "role": "named in the list of letters remaining in the Post Office at Chicago, 31 March 1835"
+    },
+    {
+     "as_printed": "Bullen, Jeduthan 2",
+     "normalized": "Jeduthan Bullen",
+     "role": "named in the list of letters remaining in the Post Office at Chicago, 31 March 1835"
+    },
+    {
+     "as_printed": "Langer, Jacob",
+     "normalized": "Jacob Langer",
+     "role": "named in the list of letters remaining in the Post Office at Chicago, 31 March 1835"
+    },
+    {
+     "as_printed": "Buttertield, Zimry",
+     "normalized": "Zimry Butterfield",
+     "role": "named in the list of letters remaining in the Post Office at Chicago, 31 March 1835"
+    },
+    {
+     "as_printed": "Loveland, Robert,",
+     "normalized": "Robert Loveland",
+     "role": "named in the list of letters remaining in the Post Office at Chicago, 31 March 1835"
+    },
+    {
+     "as_printed": "Barrows, Mary",
+     "normalized": "Mary Barrows",
+     "role": "named in the list of letters remaining in the Post Office at Chicago, 31 March 1835"
+    },
+    {
+     "as_printed": "Luene, Ann",
+     "normalized": "[uncertain: Luene], Ann",
+     "role": "named in the list of letters remaining in the Post Office at Chicago, 31 March 1835"
+    },
+    {
+     "as_printed": "Bomgarten, Moritz 2",
+     "normalized": "Moritz Bomgarten",
+     "role": "named in the list of letters remaining in the Post Office at Chicago, 31 March 1835"
+    },
+    {
+     "as_printed": "Lozser, Mr.",
+     "normalized": "Mr. Lozser",
+     "role": "named in the list of letters remaining in the Post Office at Chicago, 31 March 1835"
+    },
+    {
+     "as_printed": "Bennet, Lyman 2",
+     "normalized": "Lyman Bennet",
+     "role": "named in the list of letters remaining in the Post Office at Chicago, 31 March 1835"
+    },
+    {
+     "as_printed": "Lamb, Caleb",
+     "normalized": "Caleb Lamb",
+     "role": "named in the list of letters remaining in the Post Office at Chicago, 31 March 1835"
+    },
+    {
+     "as_printed": "Barton Wooster J,",
+     "normalized": "Wooster J. Barton",
+     "role": "named in the list of letters remaining in the Post Office at Chicago, 31 March 1835"
+    },
+    {
+     "as_printed": "Lamb, Adan",
+     "normalized": "Adam Lamb",
+     "role": "named in the list of letters remaining in the Post Office at Chicago, 31 March 1835"
+    },
+    {
+     "as_printed": "Britain, Hiram Z. 2",
+     "normalized": "Hiram Z. Britain",
+     "role": "named in the list of letters remaining in the Post Office at Chicago, 31 March 1835"
+    },
+    {
+     "as_printed": "Lathrop, Samuel 8.",
+     "normalized": "Samuel S. Lathrop",
+     "role": "named in the list of letters remaining in the Post Office at Chicago, 31 March 1835"
+    },
+    {
+     "as_printed": "Bertholf, Marcus",
+     "normalized": "Marcus Bertholf",
+     "role": "named in the list of letters remaining in the Post Office at Chicago, 31 March 1835"
+    },
+    {
+     "as_printed": "Leg, George",
+     "normalized": "George Lee",
+     "role": "named in the list of letters remaining in the Post Office at Chicago, 31 March 1835"
+    },
+    {
+     "as_printed": "Bleke, Levi",
+     "normalized": "Levi Blake",
+     "role": "named in the list of letters remaining in the Post Office at Chicago, 31 March 1835"
+    },
+    {
+     "as_printed": "Loring, Wm,",
+     "normalized": "Wm. Loring",
+     "role": "named in the list of letters remaining in the Post Office at Chicago, 31 March 1835"
+    },
+    {
+     "as_printed": "Bradstreet, Athert G.",
+     "normalized": "Albert G. Bradstreet",
+     "role": "named in the list of letters remaining in the Post Office at Chicago, 31 March 1835"
+    },
+    {
+     "as_printed": "Brown, Lemuel",
+     "normalized": "Lemuel Brown",
+     "role": "named in the list of letters remaining in the Post Office at Chicago, 31 March 1835"
+    },
+    {
+     "as_printed": "Moore, John,",
+     "normalized": "John Moore",
+     "role": "named in the list of letters remaining in the Post Office at Chicago, 31 March 1835"
+    },
+    {
+     "as_printed": "Brown, Clarrisa",
+     "normalized": "Clarrisa Brown",
+     "role": "named in the list of letters remaining in the Post Office at Chicago, 31 March 1835"
+    },
+    {
+     "as_printed": "M’Ewen, Win. Bs",
+     "normalized": "Wm. B. M'Ewen",
+     "role": "named in the list of letters remaining in the Post Office at Chicago, 31 March 1835"
+    },
+    {
+     "as_printed": "Bush, Riley",
+     "normalized": "Riley Bush",
+     "role": "named in the list of letters remaining in the Post Office at Chicago, 31 March 1835"
+    },
+    {
+     "as_printed": "Mason, Matthias",
+     "normalized": "Matthias Mason",
+     "role": "named in the list of letters remaining in the Post Office at Chicago, 31 March 1835"
+    },
+    {
+     "as_printed": "Brown, Harriet BE,",
+     "normalized": "Harriet E. Brown",
+     "role": "named in the list of letters remaining in the Post Office at Chicago, 31 March 1835"
+    },
+    {
+     "as_printed": "Martin, Patrick",
+     "normalized": "Patrick Martin",
+     "role": "named in the list of letters remaining in the Post Office at Chicago, 31 March 1835"
+    },
+    {
+     "as_printed": "‘Bartlett, Charles H,",
+     "normalized": "Charles H. Bartlett",
+     "role": "named in the list of letters remaining in the Post Office at Chicago, 31 March 1835"
+    },
+    {
+     "as_printed": "3 Milow, John",
+     "normalized": "John Milow",
+     "role": "named in the list of letters remaining in the Post Office at Chicago, 31 March 1835"
+    },
+    {
+     "as_printed": "Brown, Adam",
+     "normalized": "Adam Brown",
+     "role": "named in the list of letters remaining in the Post Office at Chicago, 31 March 1835"
+    },
+    {
+     "as_printed": "Miller, Jesse",
+     "normalized": "Jesse Miller",
+     "role": "named in the list of letters remaining in the Post Office at Chicago, 31 March 1835"
+    },
+    {
+     "as_printed": "Bandle, William",
+     "normalized": "William Bandle",
+     "role": "named in the list of letters remaining in the Post Office at Chicago, 31 March 1835"
+    },
+    {
+     "as_printed": "Milated, Jobn",
+     "normalized": "John [uncertain: Milsted]",
+     "role": "named in the list of letters remaining in the Post Office at Chicago, 31 March 1835"
+    },
+    {
+     "as_printed": "Beach William HH,",
+     "normalized": "William H. Beach",
+     "role": "named in the list of letters remaining in the Post Office at Chicago, 31 March 1835"
+    },
+    {
+     "as_printed": "M’Fadin, James",
+     "normalized": "James M'Fadin",
+     "role": "named in the list of letters remaining in the Post Office at Chicago, 31 March 1835"
+    },
+    {
+     "as_printed": "Brown, Joseph N,",
+     "normalized": "Joseph N. Brown",
+     "role": "named in the list of letters remaining in the Post Office at Chicago, 31 March 1835"
+    },
+    {
+     "as_printed": "Morley, Janies",
+     "normalized": "James Morley",
+     "role": "named in the list of letters remaining in the Post Office at Chicago, 31 March 1835"
+    },
+    {
+     "as_printed": "Boardnan, W. E.",
+     "normalized": "W. E. Boardman",
+     "role": "named in the list of letters remaining in the Post Office at Chicago, 31 March 1835"
+    },
+    {
+     "as_printed": "Mitchell, Henry",
+     "normalized": "Henry Mitchell",
+     "role": "named in the list of letters remaining in the Post Office at Chicago, 31 March 1835"
+    },
+    {
+     "as_printed": "Bailey, Bennet",
+     "normalized": "Bennet Bailey",
+     "role": "named in the list of letters remaining in the Post Office at Chicago, 31 March 1835"
+    },
+    {
+     "as_printed": "Maynard, Elias",
+     "normalized": "Elias Maynard",
+     "role": "named in the list of letters remaining in the Post Office at Chicago, 31 March 1835"
+    },
+    {
+     "as_printed": "Bench, Reuben",
+     "normalized": "Reuben Bench",
+     "role": "named in the list of letters remaining in the Post Office at Chicago, 31 March 1835"
+    },
+    {
+     "as_printed": "Micliriski, Mr.",
+     "normalized": "[uncertain: Micliriski], Mr.",
+     "role": "named in the list of letters remaining in the Post Office at Chicago, 31 March 1835"
+    },
+    {
+     "as_printed": "Beaubien, M. B,",
+     "normalized": "M. B. Beaubien",
+     "role": "named in the list of letters remaining in the Post Office at Chicago, 31 March 1835"
+    },
+    {
+     "as_printed": "Moore, Neleon",
+     "normalized": "Nelson Moore",
+     "role": "named in the list of letters remaining in the Post Office at Chicago, 31 March 1835"
+    },
+    {
+     "as_printed": "Brookes, Samuel.",
+     "normalized": "Samuel Brookes",
+     "role": "named in the list of letters remaining in the Post Office at Chicago, 31 March 1835"
+    },
+    {
+     "as_printed": "Moore, James",
+     "normalized": "James Moore",
+     "role": "named in the list of letters remaining in the Post Office at Chicago, 31 March 1835"
+    },
+    {
+     "as_printed": "Barry, John S,",
+     "normalized": "John S. Barry",
+     "role": "named in the list of letters remaining in the Post Office at Chicago, 31 March 1835"
+    },
+    {
+     "as_printed": "Musgrave, Jehn",
+     "normalized": "John Musgrave",
+     "role": "named in the list of letters remaining in the Post Office at Chicago, 31 March 1835"
+    },
+    {
+     "as_printed": "Bane, George B,",
+     "normalized": "George B. Bane",
+     "role": "named in the list of letters remaining in the Post Office at Chicago, 31 March 1835"
+    },
+    {
+     "as_printed": "Murry, Alanzo 2",
+     "normalized": "Alonzo Murry",
+     "role": "named in the list of letters remaining in the Post Office at Chicago, 31 March 1835"
+    },
+    {
+     "as_printed": "Barton, Ratus",
+     "normalized": "Rufus Barton",
+     "role": "named in the list of letters remaining in the Post Office at Chicago, 31 March 1835"
+    },
+    {
+     "as_printed": "Morrison, T. M.",
+     "normalized": "T. M. Morrison",
+     "role": "named in the list of letters remaining in the Post Office at Chicago, 31 March 1835"
+    },
+    {
+     "as_printed": "Jandle, Ann",
+     "normalized": "Ann Bandle",
+     "role": "named in the list of letters remaining in the Post Office at Chicago, 31 March 1835"
+    },
+    {
+     "as_printed": "Mack, Stephen",
+     "normalized": "Stephen Mack",
+     "role": "named in the list of letters remaining in the Post Office at Chicago, 31 March 1835"
+    },
+    {
+     "as_printed": "Bennett, Amos",
+     "normalized": "Amos Bennett",
+     "role": "named in the list of letters remaining in the Post Office at Chicago, 31 March 1835"
+    },
+    {
+     "as_printed": "Meigs, David",
+     "normalized": "David Meigs",
+     "role": "named in the list of letters remaining in the Post Office at Chicago, 31 March 1835"
+    },
+    {
+     "as_printed": "Bennett, Hiram 8,",
+     "normalized": "Hiram S. Bennett",
+     "role": "named in the list of letters remaining in the Post Office at Chicago, 31 March 1835"
+    },
+    {
+     "as_printed": "Miner, Amanda 2",
+     "normalized": "Amanda Miner",
+     "role": "named in the list of letters remaining in the Post Office at Chicago, 31 March 1835"
+    },
+    {
+     "as_printed": "Berger, F.C,",
+     "normalized": "F.C. Berger",
+     "role": "named in the list of letters remaining in the Post Office at Chicago, 31 March 1835"
+    },
+    {
+     "as_printed": "Mackie, James",
+     "normalized": "James Mackie",
+     "role": "named in the list of letters remaining in the Post Office at Chicago, 31 March 1835"
+    },
+    {
+     "as_printed": "Brown, Schuyler",
+     "normalized": "Schuyler Brown",
+     "role": "named in the list of letters remaining in the Post Office at Chicago, 31 March 1835"
+    },
+    {
+     "as_printed": "Merrill, Winthrop",
+     "normalized": "Winthrop Merrill",
+     "role": "named in the list of letters remaining in the Post Office at Chicago, 31 March 1835"
+    },
+    {
+     "as_printed": "Miller, John",
+     "normalized": "John Miller",
+     "role": "named in the list of letters remaining in the Post Office at Chicago, 31 March 1835"
+    },
+    {
+     "as_printed": "Curtin, L. G.",
+     "normalized": "L. G. Curtin",
+     "role": "named in the list of letters remaining in the Post Office at Chicago, 31 March 1835"
+    },
+    {
+     "as_printed": "Miller, Marshall",
+     "normalized": "Marshall Miller",
+     "role": "named in the list of letters remaining in the Post Office at Chicago, 31 March 1835"
+    },
+    {
+     "as_printed": "Chureh, Benjamin",
+     "normalized": "Benjamin Church",
+     "role": "named in the list of letters remaining in the Post Office at Chicago, 31 March 1835"
+    },
+    {
+     "as_printed": "M'Lean, John Y.",
+     "normalized": "John Y. M'Lean",
+     "role": "named in the list of letters remaining in the Post Office at Chicago, 31 March 1835"
+    },
+    {
+     "as_printed": "Childs, Sarah",
+     "normalized": "Sarah Childs",
+     "role": "named in the list of letters remaining in the Post Office at Chicago, 31 March 1835"
+    },
+    {
+     "as_printed": "Merals, Wasiinston",
+     "normalized": "[uncertain: Merals], Washington",
+     "role": "named in the list of letters remaining in the Post Office at Chicago, 31 March 1835"
+    },
+    {
+     "as_printed": "j Carpenter, Gilbert",
+     "normalized": "Gilbert Carpenter",
+     "role": "named in the list of letters remaining in the Post Office at Chicago, 31 March 1835"
+    },
+    {
+     "as_printed": "M’Kean, Joseph,",
+     "normalized": "Joseph M'Kean",
+     "role": "named in the list of letters remaining in the Post Office at Chicago, 31 March 1835"
+    },
+    {
+     "as_printed": "1 Covalt, Enos",
+     "normalized": "Enos Covalt",
+     "role": "named in the list of letters remaining in the Post Office at Chicago, 31 March 1835"
+    },
+    {
+     "as_printed": "Malone, Patrick",
+     "normalized": "Patrick Malone",
+     "role": "named in the list of letters remaining in the Post Office at Chicago, 31 March 1835"
+    },
+    {
+     "as_printed": "Crandal, Alva",
+     "normalized": "Alva Crandal",
+     "role": "named in the list of letters remaining in the Post Office at Chicago, 31 March 1835"
+    },
+    {
+     "as_printed": "Minard, Ira 2",
+     "normalized": "Ira Minard",
+     "role": "named in the list of letters remaining in the Post Office at Chicago, 31 March 1835"
+    },
+    {
+     "as_printed": "Cooley, Sinan",
+     "normalized": "[uncertain: Sinan] Cooley",
+     "role": "named in the list of letters remaining in the Post Office at Chicago, 31 March 1835"
+    },
+    {
+     "as_printed": "Mecker, Joeeph",
+     "normalized": "Joseph Meeker",
+     "role": "named in the list of letters remaining in the Post Office at Chicago, 31 March 1835"
+    },
+    {
+     "as_printed": "Cook, Harvey",
+     "normalized": "Harvey Cook",
+     "role": "named in the list of letters remaining in the Post Office at Chicago, 31 March 1835"
+    },
+    {
+     "as_printed": "Matthews, James G,",
+     "normalized": "James G. Matthews",
+     "role": "named in the list of letters remaining in the Post Office at Chicago, 31 March 1835"
+    },
+    {
+     "as_printed": "Compart & Coquillard,",
+     "normalized": "Compart & Coquillard",
+     "role": "named in the list of letters remaining in the Post Office at Chicago, 31 March 1835"
+    },
+    {
+     "as_printed": "Chase A, R,",
+     "normalized": "A. R. Chase",
+     "role": "named in the list of letters remaining in the Post Office at Chicago, 31 March 1835"
+    },
+    {
+     "as_printed": "Nelson, John M, &",
+     "normalized": "John M. Nelson",
+     "role": "named in the list of letters remaining in the Post Office at Chicago, 31 March 1835"
+    },
+    {
+     "as_printed": "Newton, Daniel",
+     "normalized": "Daniel Newton",
+     "role": "named in the list of letters remaining in the Post Office at Chicago, 31 March 1835"
+    },
+    {
+     "as_printed": "Natta, John V,",
+     "normalized": "[uncertain: Natta], John V.",
+     "role": "named in the list of letters remaining in the Post Office at Chicago, 31 March 1835"
+    },
+    {
+     "as_printed": "Conant, Rben",
+     "normalized": "Reuben Conant",
+     "role": "named in the list of letters remaining in the Post Office at Chicago, 31 March 1835"
+    },
+    {
+     "as_printed": "Osbern, Wm.",
+     "normalized": "Wm. Osborn",
+     "role": "named in the list of letters remaining in the Post Office at Chicago, 31 March 1835"
+    },
+    {
+     "as_printed": "Cooley, Hdward W.2",
+     "normalized": "Edward W. Cooley",
+     "role": "named in the list of letters remaining in the Post Office at Chicago, 31 March 1835"
+    },
+    {
+     "as_printed": "Quthet, Daniel 3",
+     "normalized": "[uncertain: Quthet], Daniel",
+     "role": "named in the list of letters remaining in the Post Office at Chicago, 31 March 1835"
+    },
+    {
+     "as_printed": "Conter, Willard",
+     "normalized": "Willard Conter",
+     "role": "named in the list of letters remaining in the Post Office at Chicago, 31 March 1835"
+    },
+    {
+     "as_printed": "Paddock, Jane",
+     "normalized": "Jane Paddock",
+     "role": "named in the list of letters remaining in the Post Office at Chicago, 31 March 1835"
+    },
+    {
+     "as_printed": "Chesnut, Jules",
+     "normalized": "Jules Chesnut",
+     "role": "named in the list of letters remaining in the Post Office at Chicago, 31 March 1835"
+    },
+    {
+     "as_printed": "i Cobins, Jeredat",
+     "normalized": "[uncertain: Jeredat Cobins]",
+     "role": "named in the list of letters remaining in the Post Office at Chicago, 31 March 1835"
+    },
+    {
+     "as_printed": "Paliner, N. HH.",
+     "normalized": "N. H. Palmer",
+     "role": "named in the list of letters remaining in the Post Office at Chicago, 31 March 1835"
+    },
+    {
+     "as_printed": "(Chadwick, Juseph",
+     "normalized": "Joseph Chadwick",
+     "role": "named in the list of letters remaining in the Post Office at Chicago, 31 March 1835"
+    },
+    {
+     "as_printed": "Page, Preierick W, 2",
+     "normalized": "Frederick W. Page",
+     "role": "named in the list of letters remaining in the Post Office at Chicago, 31 March 1835"
+    },
+    {
+     "as_printed": "Carpenter, Mir.",
+     "normalized": "Mr. Carpenter",
+     "role": "named in the list of letters remaining in the Post Office at Chicago, 31 March 1835"
+    },
+    {
+     "as_printed": "Parker, Manson",
+     "normalized": "Manson Parker",
+     "role": "named in the list of letters remaining in the Post Office at Chicago, 31 March 1835"
+    },
+    {
+     "as_printed": "Carter, J",
+     "normalized": "J. Carter",
+     "role": "named in the list of letters remaining in the Post Office at Chicago, 31 March 1835"
+    },
+    {
+     "as_printed": "Parkes, Curtis",
+     "normalized": "Curtis Parkes",
+     "role": "named in the list of letters remaining in the Post Office at Chicago, 31 March 1835"
+    },
+    {
+     "as_printed": "Paine, Seth 2",
+     "normalized": "Seth Paine",
+     "role": "named in the list of letters remaining in the Post Office at Chicago, 31 March 1835"
+    },
+    {
+     "as_printed": "in Preston, Esther",
+     "normalized": "Esther Preston",
+     "role": "named in the list of letters remaining in the Post Office at Chicago, 31 March 1835"
+    },
+    {
+     "as_printed": "Clark, John A,",
+     "normalized": "John A. Clark",
+     "role": "named in the list of letters remaining in the Post Office at Chicago, 31 March 1835"
+    },
+    {
+     "as_printed": "Parmlee, George B,",
+     "normalized": "George B. Parmlee",
+     "role": "named in the list of letters remaining in the Post Office at Chicago, 31 March 1835"
+    },
+    {
+     "as_printed": "Chancie, Joseph",
+     "normalized": "Joseph Chancie",
+     "role": "named in the list of letters remaining in the Post Office at Chicago, 31 March 1835"
+    },
+    {
+     "as_printed": "Puller, Ludwell",
+     "normalized": "[uncertain: Puller], Ludwell",
+     "role": "named in the list of letters remaining in the Post Office at Chicago, 31 March 1835"
+    },
+    {
+     "as_printed": "Cutler, Morris",
+     "normalized": "Morris Cutler",
+     "role": "named in the list of letters remaining in the Post Office at Chicago, 31 March 1835"
+    },
+    {
+     "as_printed": "Paige B. R.",
+     "normalized": "B. R. Paige",
+     "role": "named in the list of letters remaining in the Post Office at Chicago, 31 March 1835"
+    },
+    {
+     "as_printed": "Pank, Wm. W.",
+     "normalized": "[uncertain: Pank], Wm. W.",
+     "role": "named in the list of letters remaining in the Post Office at Chicago, 31 March 1835"
+    },
+    {
+     "as_printed": "Chevalier, Louis P,",
+     "normalized": "Louis P. Chevalier",
+     "role": "named in the list of letters remaining in the Post Office at Chicago, 31 March 1835"
+    },
+    {
+     "as_printed": "Parcel, Aaron",
+     "normalized": "Aaron Parcel",
+     "role": "named in the list of letters remaining in the Post Office at Chicago, 31 March 1835"
+    },
+    {
+     "as_printed": "Chase, Bnoch",
+     "normalized": "Enoch Chase",
+     "role": "named in the list of letters remaining in the Post Office at Chicago, 31 March 1835"
+    },
+    {
+     "as_printed": "Poke, Fdinund",
+     "normalized": "Edmund [uncertain: Poke]",
+     "role": "named in the list of letters remaining in the Post Office at Chicago, 31 March 1835"
+    },
+    {
+     "as_printed": "Clark, Baldwin T.",
+     "normalized": "Baldwin T. Clark",
+     "role": "named in the list of letters remaining in the Post Office at Chicago, 31 March 1835"
+    },
+    {
+     "as_printed": "Phelps, Jamea H.",
+     "normalized": "James H. Phelps",
+     "role": "named in the list of letters remaining in the Post Office at Chicago, 31 March 1835"
+    },
+    {
+     "as_printed": "» Pearsons, Hiram",
+     "normalized": "Hiram Pearsons",
+     "role": "named in the list of letters remaining in the Post Office at Chicago, 31 March 1835"
+    },
+    {
+     "as_printed": "Dean, Janies 1.",
+     "normalized": "James Dean",
+     "role": "named in the list of letters remaining in the Post Office at Chicago, 31 March 1835"
+    },
+    {
+     "as_printed": "Robersun, Daniel —",
+     "normalized": "Daniel Roberson",
+     "role": "named in the list of letters remaining in the Post Office at Chicago, 31 March 1835"
+    },
+    {
+     "as_printed": "Doane, Seth B,",
+     "normalized": "Seth B. Doane",
+     "role": "named in the list of letters remaining in the Post Office at Chicago, 31 March 1835"
+    },
+    {
+     "as_printed": "Riddle, Mr.",
+     "normalized": "Mr. Riddle",
+     "role": "named in the list of letters remaining in the Post Office at Chicago, 31 March 1835"
+    },
+    {
+     "as_printed": "Davie, Jobu",
+     "normalized": "John Davis",
+     "role": "named in the list of letters remaining in the Post Office at Chicago, 31 March 1835"
+    },
+    {
+     "as_printed": "Rowley, Herman A.",
+     "normalized": "Herman A. Rowley",
+     "role": "named in the list of letters remaining in the Post Office at Chicago, 31 March 1835"
+    },
+    {
+     "as_printed": "Dudley, John Jr.",
+     "normalized": "John Dudley, jr.",
+     "role": "named in the list of letters remaining in the Post Office at Chicago, 31 March 1835"
+    },
+    {
+     "as_printed": "Ritchey, James",
+     "normalized": "James Ritchey",
+     "role": "named in the list of letters remaining in the Post Office at Chicago, 31 March 1835"
+    },
+    {
+     "as_printed": ".| Doel, Asa",
+     "normalized": "Asa Doel",
+     "role": "named in the list of letters remaining in the Post Office at Chicago, 31 March 1835"
+    },
+    {
+     "as_printed": "Riwchard, Charles J.",
+     "normalized": "[uncertain: Riwchard], Charles J.",
+     "role": "named in the list of letters remaining in the Post Office at Chicago, 31 March 1835"
+    },
+    {
+     "as_printed": "Dustin, Thomas",
+     "normalized": "Thomas Dustin",
+     "role": "named in the list of letters remaining in the Post Office at Chicago, 31 March 1835"
+    },
+    {
+     "as_printed": "Rathburn, Amos",
+     "normalized": "Amos Rathburn",
+     "role": "named in the list of letters remaining in the Post Office at Chicago, 31 March 1835"
+    },
+    {
+     "as_printed": "Dunn, Dangerfield —",
+     "normalized": "Dangerfield Dunn",
+     "role": "named in the list of letters remaining in the Post Office at Chicago, 31 March 1835"
+    },
+    {
+     "as_printed": "Rice, Samuel",
+     "normalized": "Samuel Rice",
+     "role": "named in the list of letters remaining in the Post Office at Chicago, 31 March 1835"
+    },
+    {
+     "as_printed": "') Downer, Pierce",
+     "normalized": "Pierce Downer",
+     "role": "named in the list of letters remaining in the Post Office at Chicago, 31 March 1835"
+    },
+    {
+     "as_printed": "Risley, Horace",
+     "normalized": "Horace Risley",
+     "role": "named in the list of letters remaining in the Post Office at Chicago, 31 March 1835"
+    },
+    {
+     "as_printed": "Downer, Stephen",
+     "normalized": "Stephen Downer",
+     "role": "named in the list of letters remaining in the Post Office at Chicago, 31 March 1835"
+    },
+    {
+     "as_printed": "Reeder, Henry",
+     "normalized": "Henry Reeder",
+     "role": "named in the list of letters remaining in the Post Office at Chicago, 31 March 1835"
+    },
+    {
+     "as_printed": "ra Reed, ‘Thomas",
+     "normalized": "Thomas Reed",
+     "role": "named in the list of letters remaining in the Post Office at Chicago, 31 March 1835"
+    },
+    {
+     "as_printed": "Bester, James 8",
+     "normalized": "[uncertain: Bester], James",
+     "role": "named in the list of letters remaining in the Post Office at Chicago, 31 March 1835"
+    },
+    {
+     "as_printed": "Richards, Charles 7,",
+     "normalized": "Charles T. Richards",
+     "role": "named in the list of letters remaining in the Post Office at Chicago, 31 March 1835"
+    },
+    {
+     "as_printed": "Evans, Sciota 2",
+     "normalized": "Sciota Evans",
+     "role": "named in the list of letters remaining in the Post Office at Chicago, 31 March 1835"
+    },
+    {
+     "as_printed": "Russel, John",
+     "normalized": "John Russel",
+     "role": "named in the list of letters remaining in the Post Office at Chicago, 31 March 1835"
+    },
+    {
+     "as_printed": "Enrly. Henry A.",
+     "normalized": "Henry A. Early",
+     "role": "named in the list of letters remaining in the Post Office at Chicago, 31 March 1835"
+    },
+    {
+     "as_printed": "Rogers, Exward A.",
+     "normalized": "Edward A. Rogers",
+     "role": "named in the list of letters remaining in the Post Office at Chicago, 31 March 1835"
+    },
+    {
+     "as_printed": "Renwick, Pheopilus",
+     "normalized": "Theophilus Renwick",
+     "role": "named in the list of letters remaining in the Post Office at Chicago, 31 March 1835"
+    },
+    {
+     "as_printed": "Eager, [iram",
+     "normalized": "Hiram Eager",
+     "role": "named in the list of letters remaining in the Post Office at Chicago, 31 March 1835"
+    },
+    {
+     "as_printed": "Romer, Carl",
+     "normalized": "Carl Romer",
+     "role": "named in the list of letters remaining in the Post Office at Chicago, 31 March 1835"
+    },
+    {
+     "as_printed": "Evert, J. 8.",
+     "normalized": "J. S. Evert",
+     "role": "named in the list of letters remaining in the Post Office at Chicago, 31 March 1835"
+    },
+    {
+     "as_printed": "Schermertorn, M. L,",
+     "normalized": "M. L. Schermerhorn",
+     "role": "named in the list of letters remaining in the Post Office at Chicago, 31 March 1835"
+    },
+    {
+     "as_printed": "Folliott, Jonathan",
+     "normalized": "Jonathan Folliott",
+     "role": "named in the list of letters remaining in the Post Office at Chicago, 31 March 1835"
+    },
+    {
+     "as_printed": "Skinner, EP.",
+     "normalized": "E. P. Skinner",
+     "role": "named in the list of letters remaining in the Post Office at Chicago, 31 March 1835"
+    },
+    {
+     "as_printed": "Vorbes, Stephan",
+     "normalized": "Stephen Forbes",
+     "role": "named in the list of letters remaining in the Post Office at Chicago, 31 March 1835"
+    },
+    {
+     "as_printed": "Sricher, Jobn",
+     "normalized": "[uncertain: Sricher], John",
+     "role": "named in the list of letters remaining in the Post Office at Chicago, 31 March 1835"
+    },
+    {
+     "as_printed": "Foster, Culeb",
+     "normalized": "Caleb Foster",
+     "role": "named in the list of letters remaining in the Post Office at Chicago, 31 March 1835"
+    },
+    {
+     "as_printed": "Smith, George",
+     "normalized": "George Smith",
+     "role": "named in the list of letters remaining in the Post Office at Chicago, 31 March 1835"
+    },
+    {
+     "as_printed": "Faller, Porter",
+     "normalized": "Porter Fuller",
+     "role": "named in the list of letters remaining in the Post Office at Chicago, 31 March 1835"
+    },
+    {
+     "as_printed": "Stephens, §* co.",
+     "normalized": "Stephens & Co.",
+     "role": "named in the list of letters remaining in the Post Office at Chicago, 31 March 1835"
+    },
+    {
+     "as_printed": "Fowler, James W.",
+     "normalized": "James W. Fowler",
+     "role": "named in the list of letters remaining in the Post Office at Chicago, 31 March 1835"
+    },
+    {
+     "as_printed": "Squire, George",
+     "normalized": "George Squire",
+     "role": "named in the list of letters remaining in the Post Office at Chicago, 31 March 1835"
+    },
+    {
+     "as_printed": "Fowler, Albert",
+     "normalized": "Albert Fowler",
+     "role": "named in the list of letters remaining in the Post Office at Chicago, 31 March 1835"
+    },
+    {
+     "as_printed": "Senture, Antoine",
+     "normalized": "[uncertain: Senture], Antoine",
+     "role": "named in the list of letters remaining in the Post Office at Chicago, 31 March 1835"
+    },
+    {
+     "as_printed": "\"| Pord, Ebenezer",
+     "normalized": "Ebenezer Ford",
+     "role": "named in the list of letters remaining in the Post Office at Chicago, 31 March 1835"
+    },
+    {
+     "as_printed": "Stevens, Layent",
+     "normalized": "[uncertain: Layent] Stevens",
+     "role": "named in the list of letters remaining in the Post Office at Chicago, 31 March 1835"
+    },
+    {
+     "as_printed": "Freewsn, Ford",
+     "normalized": "Ford Freeman",
+     "role": "named in the list of letters remaining in the Post Office at Chicago, 31 March 1835"
+    },
+    {
+     "as_printed": "Spring, ‘Thornas O.",
+     "normalized": "Thomas O. Spring",
+     "role": "named in the list of letters remaining in the Post Office at Chicago, 31 March 1835"
+    },
+    {
+     "as_printed": "8! Gooding, Win,",
+     "normalized": "Wm. Gooding",
+     "role": "named in the list of letters remaining in the Post Office at Chicago, 31 March 1835"
+    },
+    {
+     "as_printed": "@ Stules, David",
+     "normalized": "David Stiles",
+     "role": "named in the list of letters remaining in the Post Office at Chicago, 31 March 1835"
+    },
+    {
+     "as_printed": "#1 Galuoha, Russell L,",
+     "normalized": "Russell L. Galusha",
+     "role": "named in the list of letters remaining in the Post Office at Chicago, 31 March 1835"
+    },
+    {
+     "as_printed": "Stevens, I.",
+     "normalized": "I. Stevens",
+     "role": "named in the list of letters remaining in the Post Office at Chicago, 31 March 1835"
+    },
+    {
+     "as_printed": "1} Galusha, Jacob A.",
+     "normalized": "Jacob A. Galusha",
+     "role": "named in the list of letters remaining in the Post Office at Chicago, 31 March 1835"
+    },
+    {
+     "as_printed": "Shelden, Oliveann",
+     "normalized": "Oliveann Sheldon",
+     "role": "named in the list of letters remaining in the Post Office at Chicago, 31 March 1835"
+    },
+    {
+     "as_printed": "T) Goodrich, Grant 2",
+     "normalized": "Grant Goodrich",
+     "role": "named in the list of letters remaining in the Post Office at Chicago, 31 March 1835"
+    },
+    {
+     "as_printed": "Steward, Joseph",
+     "normalized": "Joseph Steward",
+     "role": "named in the list of letters remaining in the Post Office at Chicago, 31 March 1835"
+    },
+    {
+     "as_printed": "+} Goodell, Nancey Ann",
+     "normalized": "Nancey Ann Goodell",
+     "role": "named in the list of letters remaining in the Post Office at Chicago, 31 March 1835"
+    },
+    {
+     "as_printed": "Sioan, Doughirs",
+     "normalized": "Douglass Sloan",
+     "role": "named in the list of letters remaining in the Post Office at Chicago, 31 March 1835"
+    },
+    {
+     "as_printed": "Goddard, Mr,",
+     "normalized": "Mr. Goddard",
+     "role": "named in the list of letters remaining in the Post Office at Chicago, 31 March 1835"
+    },
+    {
+     "as_printed": "Starne, Shepard",
+     "normalized": "[uncertain: Starne], Shepard",
+     "role": "named in the list of letters remaining in the Post Office at Chicago, 31 March 1835"
+    },
+    {
+     "as_printed": "Goiltrey, T.",
+     "normalized": "T. Godfrey",
+     "role": "named in the list of letters remaining in the Post Office at Chicago, 31 March 1835"
+    },
+    {
+     "as_printed": "Shoup, Michael",
+     "normalized": "Michael Shoup",
+     "role": "named in the list of letters remaining in the Post Office at Chicago, 31 March 1835"
+    },
+    {
+     "as_printed": "Gilbert, Jonathan",
+     "normalized": "Jonathan Gilbert",
+     "role": "named in the list of letters remaining in the Post Office at Chicago, 31 March 1835"
+    },
+    {
+     "as_printed": "Schnuder, P..",
+     "normalized": "[uncertain: Schnuder], P.",
+     "role": "named in the list of letters remaining in the Post Office at Chicago, 31 March 1835"
+    },
+    {
+     "as_printed": "Grom, Qranto 2",
+     "normalized": "[uncertain: Qranto Grom]",
+     "role": "named in the list of letters remaining in the Post Office at Chicago, 31 March 1835"
+    },
+    {
+     "as_printed": "Sammons, Ricard",
+     "normalized": "Richard Sammons",
+     "role": "named in the list of letters remaining in the Post Office at Chicago, 31 March 1835"
+    },
+    {
+     "as_printed": "Gleazen, Joseph",
+     "normalized": "Joseph Gleason",
+     "role": "named in the list of letters remaining in the Post Office at Chicago, 31 March 1835"
+    },
+    {
+     "as_printed": "Stevens, lenac",
+     "normalized": "Isaac Stevens",
+     "role": "named in the list of letters remaining in the Post Office at Chicago, 31 March 1835"
+    },
+    {
+     "as_printed": "» | Galusha, Jacob",
+     "normalized": "Jacob Galusha",
+     "role": "named in the list of letters remaining in the Post Office at Chicago, 31 March 1835"
+    },
+    {
+     "as_printed": "Saith, Jeremish",
+     "normalized": "Jeremiah Smith",
+     "role": "named in the list of letters remaining in the Post Office at Chicago, 31 March 1835"
+    },
+    {
+     "as_printed": "Goodrich § Abell,",
+     "normalized": "Goodrich & Abell",
+     "role": "named in the list of letters remaining in the Post Office at Chicago, 31 March 1835"
+    },
+    {
+     "as_printed": "South, Orange",
+     "normalized": "Orange South",
+     "role": "named in the list of letters remaining in the Post Office at Chicago, 31 March 1835"
+    },
+    {
+     "as_printed": "Gardner, Juno B,",
+     "normalized": "John B. Gardner",
+     "role": "named in the list of letters remaining in the Post Office at Chicago, 31 March 1835"
+    },
+    {
+     "as_printed": "Sinith, Henry’",
+     "normalized": "Henry Smith",
+     "role": "named in the list of letters remaining in the Post Office at Chicago, 31 March 1835"
+    },
+    {
+     "as_printed": "Garton, Ehjsh",
+     "normalized": "Elijah Garton",
+     "role": "named in the list of letters remaining in the Post Office at Chicago, 31 March 1835"
+    },
+    {
+     "as_printed": "Shintatfo, James",
+     "normalized": "[uncertain: Shintatfo], James",
+     "role": "named in the list of letters remaining in the Post Office at Chicago, 31 March 1835"
+    },
+    {
+     "as_printed": "Gibbe, James H.",
+     "normalized": "James H. Gibbs",
+     "role": "named in the list of letters remaining in the Post Office at Chicago, 31 March 1835"
+    },
+    {
+     "as_printed": "Simons, E,",
+     "normalized": "E. Simons",
+     "role": "named in the list of letters remaining in the Post Office at Chicago, 31 March 1835"
+    },
+    {
+     "as_printed": "Goddard, Wa. H.",
+     "normalized": "Wm. H. Goddard",
+     "role": "named in the list of letters remaining in the Post Office at Chicago, 31 March 1835"
+    },
+    {
+     "as_printed": "Steele, Richard",
+     "normalized": "Richard Steele",
+     "role": "named in the list of letters remaining in the Post Office at Chicago, 31 March 1835"
+    },
+    {
+     "as_printed": "Gooding Jasper. A.",
+     "normalized": "Jasper A. Gooding",
+     "role": "named in the list of letters remaining in the Post Office at Chicago, 31 March 1835"
+    },
+    {
+     "as_printed": "Gifford, Hezekiah",
+     "normalized": "Hezekiah Gifford",
+     "role": "named in the list of letters remaining in the Post Office at Chicago, 31 March 1835"
+    },
+    {
+     "as_printed": "Torst, Janes",
+     "normalized": "[uncertain: Torst], James",
+     "role": "named in the list of letters remaining in the Post Office at Chicago, 31 March 1835"
+    },
+    {
+     "as_printed": "Gunn, Medad Hh",
+     "normalized": "Medad H. Gunn",
+     "role": "named in the list of letters remaining in the Post Office at Chicago, 31 March 1835"
+    },
+    {
+     "as_printed": "Taylor, Justin",
+     "normalized": "Justin Taylor",
+     "role": "named in the list of letters remaining in the Post Office at Chicago, 31 March 1835"
+    },
+    {
+     "as_printed": "Garland, J. J.",
+     "normalized": "J. J. Garland",
+     "role": "named in the list of letters remaining in the Post Office at Chicago, 31 March 1835"
+    },
+    {
+     "as_printed": "Todd, Hugh &",
+     "normalized": "Hugh Todd",
+     "role": "named in the list of letters remaining in the Post Office at Chicago, 31 March 1835"
+    },
+    {
+     "as_printed": "‘Thomas, John",
+     "normalized": "John Thomas",
+     "role": "named in the list of letters remaining in the Post Office at Chicago, 31 March 1835"
+    },
+    {
+     "as_printed": "Hutehins, Nathan‘",
+     "normalized": "Nathan Hutchins",
+     "role": "named in the list of letters remaining in the Post Office at Chicago, 31 March 1835"
+    },
+    {
+     "as_printed": "Titcomb, ‘Timothy",
+     "normalized": "Timothy Titcomb",
+     "role": "named in the list of letters remaining in the Post Office at Chicago, 31 March 1835"
+    },
+    {
+     "as_printed": "Holder, Jexse",
+     "normalized": "Jesse Holder",
+     "role": "named in the list of letters remaining in the Post Office at Chicago, 31 March 1835"
+    },
+    {
+     "as_printed": "Tilman, Mr.",
+     "normalized": "Mr. Tilman",
+     "role": "named in the list of letters remaining in the Post Office at Chicago, 31 March 1835"
+    },
+    {
+     "as_printed": "How, Phineas 4",
+     "normalized": "Phineas How",
+     "role": "named in the list of letters remaining in the Post Office at Chicago, 31 March 1835"
+    },
+    {
+     "as_printed": "Tobdell, Joseph",
+     "normalized": "[uncertain: Tobdell], Joseph",
+     "role": "named in the list of letters remaining in the Post Office at Chicago, 31 March 1835"
+    },
+    {
+     "as_printed": "Hult, Jeremiah 8,",
+     "normalized": "Jeremiah S. Hull",
+     "role": "named in the list of letters remaining in the Post Office at Chicago, 31 March 1835"
+    },
+    {
+     "as_printed": "Titterington, Charl",
+     "normalized": "Charl[es] Titterington",
+     "role": "named in the list of letters remaining in the Post Office at Chicago, 31 March 1835"
+    },
+    {
+     "as_printed": "Hiil, Issac L.",
+     "normalized": "Isaac L. Hill",
+     "role": "named in the list of letters remaining in the Post Office at Chicago, 31 March 1835"
+    },
+    {
+     "as_printed": "Thompsond, John",
+     "normalized": "John Thompson",
+     "role": "named in the list of letters remaining in the Post Office at Chicago, 31 March 1835"
+    },
+    {
+     "as_printed": "Hall, Cynthia",
+     "normalized": "Cynthia Hall",
+     "role": "named in the list of letters remaining in the Post Office at Chicago, 31 March 1835"
+    },
+    {
+     "as_printed": "‘fucker, Alexr. H. ot",
+     "normalized": "Alexr. H. Tucker",
+     "role": "named in the list of letters remaining in the Post Office at Chicago, 31 March 1835"
+    },
+    {
+     "as_printed": "Holmes, Cyrenius",
+     "normalized": "Cyrenius Holmes",
+     "role": "named in the list of letters remaining in the Post Office at Chicago, 31 March 1835"
+    },
+    {
+     "as_printed": "Taylor, Deodat",
+     "normalized": "Deodat Taylor",
+     "role": "named in the list of letters remaining in the Post Office at Chicago, 31 March 1835"
+    },
+    {
+     "as_printed": "Howard, Elbert",
+     "normalized": "Elbert Howard",
+     "role": "named in the list of letters remaining in the Post Office at Chicago, 31 March 1835"
+    },
+    {
+     "as_printed": "Tuttle, James B.",
+     "normalized": "James B. Tuttle",
+     "role": "named in the list of letters remaining in the Post Office at Chicago, 31 March 1835"
+    },
+    {
+     "as_printed": "Hugunin, Leonard C,",
+     "normalized": "Leonard C. Hugunin",
+     "role": "named in the list of letters remaining in the Post Office at Chicago, 31 March 1835"
+    },
+    {
+     "as_printed": "House, Chester",
+     "normalized": "Chester House",
+     "role": "named in the list of letters remaining in the Post Office at Chicago, 31 March 1835"
+    },
+    {
+     "as_printed": "Vanderbogart, H.",
+     "normalized": "H. Vanderbogart",
+     "role": "named in the list of letters remaining in the Post Office at Chicago, 31 March 1835"
+    },
+    {
+     "as_printed": "Honks, Juines C,",
+     "normalized": "[uncertain: Honks], James C.",
+     "role": "named in the list of letters remaining in the Post Office at Chicago, 31 March 1835"
+    },
+    {
+     "as_printed": "Vantleet, Jolin",
+     "normalized": "John Van Fleet",
+     "role": "named in the list of letters remaining in the Post Office at Chicago, 31 March 1835"
+    },
+    {
+     "as_printed": "Hickok, Nelson.",
+     "normalized": "Nelson Hickok",
+     "role": "named in the list of letters remaining in the Post Office at Chicago, 31 March 1835"
+    },
+    {
+     "as_printed": "Yardon, George",
+     "normalized": "[uncertain: Yardon], George",
+     "role": "named in the list of letters remaining in the Post Office at Chicago, 31 March 1835"
+    },
+    {
+     "as_printed": "Vaseeur, Noel",
+     "normalized": "Noel Vasseur",
+     "role": "named in the list of letters remaining in the Post Office at Chicago, 31 March 1835"
+    },
+    {
+     "as_printed": "1 Hobson, Jesse",
+     "normalized": "Jesse Hobson",
+     "role": "named in the list of letters remaining in the Post Office at Chicago, 31 March 1835"
+    },
+    {
+     "as_printed": "Vann, Angeline",
+     "normalized": "Angeline Vann",
+     "role": "named in the list of letters remaining in the Post Office at Chicago, 31 March 1835"
+    },
+    {
+     "as_printed": "Alarris, James",
+     "normalized": "James Harris",
+     "role": "named in the list of letters remaining in the Post Office at Chicago, 31 March 1835"
+    },
+    {
+     "as_printed": "Volk, John",
+     "normalized": "John Volk",
+     "role": "named in the list of letters remaining in the Post Office at Chicago, 31 March 1835"
+    },
+    {
+     "as_printed": "Harris, David",
+     "normalized": "David Harris",
+     "role": "named in the list of letters remaining in the Post Office at Chicago, 31 March 1835"
+    },
+    {
+     "as_printed": "unt, William",
+     "normalized": "William Hunt",
+     "role": "named in the list of letters remaining in the Post Office at Chicago, 31 March 1835"
+    },
+    {
+     "as_printed": "Wood, Wm",
+     "normalized": "Wm. Wood",
+     "role": "named in the list of letters remaining in the Post Office at Chicago, 31 March 1835"
+    },
+    {
+     "as_printed": "Holcomb, Samuel B.",
+     "normalized": "Samuel B. Holcomb",
+     "role": "named in the list of letters remaining in the Post Office at Chicago, 31 March 1835"
+    },
+    {
+     "as_printed": "Woods, Jobn He:",
+     "normalized": "John H. Woods",
+     "role": "named in the list of letters remaining in the Post Office at Chicago, 31 March 1835"
+    },
+    {
+     "as_printed": "Harrison, Wooster",
+     "normalized": "Wooster Harrison",
+     "role": "named in the list of letters remaining in the Post Office at Chicago, 31 March 1835"
+    },
+    {
+     "as_printed": "Weatover, Roy K,",
+     "normalized": "Roy K. Westover",
+     "role": "named in the list of letters remaining in the Post Office at Chicago, 31 March 1835"
+    },
+    {
+     "as_printed": "Holliday, Wow 8",
+     "normalized": "[uncertain: Wow S.] Holliday",
+     "role": "named in the list of letters remaining in the Post Office at Chicago, 31 March 1835"
+    }
+   ],
+   "notes": "THE PEOPLE OF CHICAGO ON 31 MARCH 1835, AS THE POST OFFICE HAD THEM — the densest record of who was here that this corpus holds for the three months before the scene date, and RULING 1 APPLIES IN FULL: this is Chicago's own office ('Cook Co, Illinois'), so every listed name mints a resident candidate and every entity here carries `letter_list_only`.\n\nHOW THE LIST WAS READ, because it was not simply transcribed. The printed list runs in TWO narrow sub-columns inside one segmented column, A–H on the left and K–W on the right, and the segmenter has woven them line by line: line 2705 is 'Allger, William Kent, Alexander:C,' and is two people, not one. The boundary was found for each line and the two halves separated; where the automatic boundary was wrong it was corrected by hand line by line and the correction is recorded in the tool that built this claim. `lines_of_claim` names only the lines a name was read from, so the quote is exactly the list and not the column.\n\nTHE COUNT, STATED. 257 names minted. TWENTY-FIVE further half-lines were NOT minted and this is why: eight are the alphabet's own section letters standing alone ('A,', 'BR.', 'GC', 'H.', 'KF.', 'M-', 'N,', 'W,'); fourteen are OCR debris or a fragment with no recoverable surname ('emt, Sarah', 'oy, Orenge', 'iain, dohn 8', 'Ese cil, Archibald', '{Low af Whittier', 'd G. Sesotler'); two are truncated at the column edge ('Whi', 'Hallam. 3,11.'); and one, 'Dunham, ai. A', has a surname but no readable forename. Refusing them is the point: 257 is what the transcription supports and NOT necessarily what was printed. Twenty-six of the 257 carry an `[uncertain: …]` inside their normalized reading because the printed form will not resolve to a name with confidence, and those are minted with the doubt attached rather than smoothed into a plausible name.\n\nWHAT THE LIST IS AND IS NOT. A name on it is somebody the post office was holding a letter for on 31 March 1835 — good evidence of presence or recent presence, not proof of residence on 1 July, and no evidence at all of a trade or an address. Several entries carry the office's own duplicate count ('Bullen, Jeduthan 2', 'Murry, Alanzo 2', 'Quthet, Daniel 3'), which means more than one letter was waiting and is dropped from the normalized name while staying in the printed form. Three entries are FIRMS and not persons — 'Compart & Coquillard', 'Goodrich & Abell', 'Stephens & Co.' — and they are minted as they stand, because a firm holding mail is a firm doing business here; Goodrich & Abell and the Goodrich of the 1835-06-24 advertising column are very likely the same house and T-0304's firm-merge rule is what should settle that, not this pass.\n\nCROSS-HITS WORTH THE NEXT PASS'S TIME. At least a dozen of these names are also advertisers or officers in the same file — Beaubien, Hugunin, Goodrich, Gooding, Bradstreet, Grant Goodrich, Jasper A. Gooding — and their `letter_list_only` flag will therefore be recomputed to false by the compiler the moment the two readings are merged under T-0299's identity work. That is the compiler's job and nothing is hand-set here."
+  },
+  {
+   "id": "c014",
+   "kind": "business",
+   "reading": "transcription_mediated",
+   "quote": "REMOVAL.\nCOLLENS & CATON,\nATTORNEYS & COUNSELLORS AT LAW,\nOFFICE twedent eant of the Raptist Church\nAnd Solleitors in chancery.\nup stairs, South Water-street.\nChicago, JAme 4, 4834.\nJAMES 1. COLLINS.\nJ. DRAM CATON.",
+   "normalized": "REMOVAL. COLLINS & CATON, ATTORNEYS & COUNSELLORS AT LAW, [a]nd Solicitors in chancery. OFFICE [two doors] east of the [B]aptist Church, up stairs, South Water-street. Chicago, J[u]ne 4, 1834. JAMES [H.] COLLINS. J. D[E]AN CATON.",
+   "locator": {
+    "artifact_role": "primary",
+    "issue_page": 3,
+    "column": 6,
+    "lines": [
+     2890,
+     2901
+    ],
+    "lines_of_claim": [
+     2890,
+     2891,
+     2892,
+     2893,
+     2894,
+     2895,
+     2896,
+     2900,
+     2901
+    ],
+    "interleaved": true
+   },
+   "business": {
+    "name": "Collins & Caton",
+    "proprietors": [
+     "James H. Collins",
+     "J. Dean Caton"
+    ],
+    "trade": "attorneys and counsellors at law, and solicitors in chancery",
+    "goods": [],
+    "street": "South Water Street",
+    "placement": {
+     "class": "relative",
+     "anchor": "the Baptist Church",
+     "offset_text": "OFFICE twedent eant of the Raptist Church",
+     "offset_normalized": "OFFICE [two doors] east of the Baptist Church, up stairs, South Water-street",
+     "street": "South Water Street"
+    }
+   },
+   "ad_copy_date": {
+    "verbatim": "Chicago, JAme 4, 4834.",
+    "iso": "1834-06-04"
+   },
+   "entities": [
+    {
+     "as_printed": "JAMES 1. COLLINS",
+     "normalized": "James H. Collins",
+     "role": "proprietor",
+     "occupations": [
+      "attorney",
+      "counsellor at law"
+     ],
+     "associated_places": [
+      "South Water Street",
+      "Chicago"
+     ]
+    },
+    {
+     "as_printed": "J. DRAM CATON",
+     "normalized": "J. Dean Caton",
+     "role": "proprietor",
+     "occupations": [
+      "attorney",
+      "counsellor at law"
+     ],
+     "associated_places": [
+      "South Water Street",
+      "Chicago"
+     ]
+    }
+   ],
+   "notes": "A CHURCH USED AS A STREET ANCHOR, which is the most useful kind: the Baptist meeting house is already a documented building in this corpus (T-0310 read School District No. 2's trustee election held in it in January 1834) and an office 'east of' it 'up stairs' on South Water Street is a second storey over a South Water frontage a short distance east of a known structure.\n\nTHE OFFSET IS DAMAGED AND IS NOT INVENTED. 'twedent eant' is read as 'two doors east': 'eant'→'east' is unambiguous from the sentence, and 'twedent' is 'two do[ors]' run together with the segmenter's noise. The following week's printing (1835-05-27 line 2430) sets 'FFICEtwo door east of the Baptist Chu[rch]', which confirms 'two door[s] east' and is why the supply is bracketed rather than guessed. The advertisement is headed REMOVAL and dated 4 June 1834, so this is where the firm moved TO, nearly a year before the scene date, and it is still running unchanged on 1835-06-17.\n\nJ. Dean Caton sat on the resolutions committee at the April 1835 Democratic meeting in this same issue."
+  },
+  {
+   "id": "c015",
+   "kind": "building",
+   "reading": "transcription_mediated",
+   "quote": "To Rent:\nLARGF, and handsome-\nly finished Store of 20 by\n45 feet, including counting\nroom.\nAlso, three beautiful\nrooms suitable for officer.\nThe sbove are sita-\nated in the handsomest part of Chicago, tin\n\"Kinzie's Addition\" to\nthis town.) and hy tar\nthe best finished rooms in the place.\nFur tcrmos\napply to\nJOHN H. KINZIE\nOd. 1. 1631.",
+   "normalized": "To Rent: [A] LARGE and handsomely finished Store of 20 by 45 feet, including counting room. Also, three beautiful rooms suitable for office[s]. The above are situated in the handsomest part of Chicago, [in] \"Kinzie's Addition\" to this town,) and by far the best finished rooms in the place. For terms apply to JOHN H. KINZIE. O[c]t. 1, 183[4].",
+   "locator": {
+    "artifact_role": "primary",
+    "issue_page": 3,
+    "column": 6,
+    "lines": [
+     2902,
+     2917
+    ],
+    "lines_of_claim": [
+     2902,
+     2903,
+     2904,
+     2905,
+     2906,
+     2907,
+     2908,
+     2909,
+     2910,
+     2911,
+     2912,
+     2913,
+     2914,
+     2915,
+     2916,
+     2917
+    ],
+    "interleaved": true
+   },
+   "entities": [
+    {
+     "as_printed": "JOHN H. KINZIE",
+     "normalized": "John H. Kinzie",
+     "role": "the person letting the store and rooms",
+     "associated_places": [
+      "Kinzie's Addition",
+      "Chicago"
+     ]
+    }
+   ],
+   "notes": "A STORE 20 BY 45 FEET WITH A COUNTING ROOM, AND THREE OFFICE ROOMS OVER OR BESIDE IT, IN KINZIE'S ADDITION — the only measured commercial building in this whole reading range, and the measurement is the reason to keep it. 900 square feet of shop floor with the counting room INCLUDED in the 20×45, which sets an upper bound on the selling floor, in a two-storey building (the three rooms are let separately as offices, so they are not the shop).\n\nWHICH BUILDING. Kinzie's Addition is north of the river's main branch; John H. Kinzie is letting it and by June 1835 he has ANOTHER new one — Henry Moore advertises his law office 'in John H. Kinzie's new building' on 1835-06-04 and 'in J. H. Kinzie's new store' on 1835-06-24. Whether those are the same structure as this one is NOT settled here: this notice is dated 1 October 1834 and calls it finished, Moore's calls his NEW eight months later, and two Kinzie buildings in the Addition is at least as likely as one. A reconstruction should not fuse them on this evidence.\n\n'the handsomest part of Chicago' is the advertiser's own puff and is quoted, not believed."
+  },
+  {
+   "id": "c016",
+   "kind": "business",
+   "reading": "transcription_mediated",
+   "quote": "J. S. C. HOGAN,\nFFERS at Wholsule and Retuil, at his Storo\nin Bouth Water Strect, one door below\nthe Post Office,\nDry Goods, Groceries,\nHardware, Crockery and Glass Ware.\nAlso—a quantity of 8by 10, and 7 by 9-Windere\nGlass and Sush.\nJody 301, TH31.",
+   "normalized": "J. S. C. HOGAN, [O]FFERS at Wholesale and Retail, at his Store in South Water Street, one door below the Post Office, Dry Goods, Groceries, Hardware, Crockery and Glass Ware. Also—a quantity of 8 by 10, and 7 by 9 Windo[w] Glass and Sash. […] J[ul]y 30, 1834.",
+   "locator": {
+    "artifact_role": "primary",
+    "issue_page": 3,
+    "column": 6,
+    "lines": [
+     2927,
+     2951
+    ],
+    "lines_of_claim": [
+     2927,
+     2928,
+     2929,
+     2930,
+     2931,
+     2932,
+     2933,
+     2934,
+     2951
+    ],
+    "interleaved": true
+   },
+   "business": {
+    "name": "J. S. C. Hogan",
+    "proprietors": [
+     "John S. C. Hogan"
+    ],
+    "trade": "dry goods, groceries, hardware, crockery and glass ware, wholesale and retail",
+    "goods": [
+     "Dry Goods",
+     "Groceries",
+     "Hardware",
+     "Crockery",
+     "Glass Ware",
+     "Window Glass",
+     "Sash",
+     "Sole Leather",
+     "Upper Leather",
+     "Calf and Kip Skins",
+     "corn Baskets",
+     "Castings",
+     "Potash and Sugar Kettles",
+     "Pots",
+     "Dish and Tea Kettles",
+     "Harrow Teeth",
+     "Stoves"
+    ],
+    "street": "South Water Street",
+    "placement": {
+     "class": "relative",
+     "anchor": "the Post Office",
+     "offset_text": "in Bouth Water Strect, one door below\nthe Post Office,",
+     "offset_normalized": "in South Water Street, one door below the Post Office",
+     "street": "South Water Street"
+    }
+   },
+   "ad_copy_date": {
+    "verbatim": "Jody 301, TH31.",
+    "iso": "1834-07-30"
+   },
+   "entities": [
+    {
+     "as_printed": "J. S. C. HOGAN",
+     "normalized": "John S. C. Hogan",
+     "role": "proprietor",
+     "occupations": [
+      "merchant",
+      "postmaster"
+     ],
+     "associated_places": [
+      "South Water Street",
+      "Chicago"
+     ]
+    }
+   ],
+   "notes": "THE POSTMASTER'S OWN STORE, ONE DOOR BELOW THE POST OFFICE, ON SOUTH WATER STREET. That is the best anchor in the corpus for the post office itself: Hogan signed the 1 January 1834 letter list as postmaster (T-0310) and the 1835-05-27 marriage notice still calls him 'Postmaster, Chicago Ill.', so the office and his shop stood one door apart on South Water Street through the whole period this pass covers. Two placements can now be chained off it — Hogan's own, and anything else placed against the Post Office.\n\n'below' IS A DIRECTION AND IT IS NOT RESOLVED HERE. On a street running along a river, 'below' is downstream, which on South Water Street means EAST toward the lake — but the paper never says so, and Chicago usage of the word in 1835 is exactly the sort of thing this corpus should establish rather than assume. The placement records the paper's word and leaves the compass to a later pass with more witnesses.\n\nTHE STOCK IS A HARDWARE AND DRY-GOODS STORE'S, and the four tons of Massillon castings — potash and sugar kettles, pots, dish and tea kettles, harrow teeth, stoves — say what a Chicago store's back room actually held. The window glass in two sizes, 8×10 and 7×9, with sash, is the most directly usable fact in the whole advertisement for a reconstruction: those are the panes going into Chicago houses in 1834-35."
+  },
+  {
+   "id": "c017",
+   "kind": "business",
+   "reading": "transcription_mediated",
+   "quote": "Boot & Shoe Minking.\nI tuberiber having recently commenced\nthe above businees, next door to P. Co-\nben's Store, will be kept ou hand\n• goud assortment of\nBOOTS,\nsuited to the call of the country. Gentlemen\nwishing Fine Boots, water proct, will be accom-\nmodated with the best materials, and fashiona-\nble style. Most kinds of'work kept constantly\non hand, or made to order on short notice.\nL. W. MONTGOMERY.\nChiengo, Der. 16, 1833.",
+   "normalized": "Boot & Shoe M[a]king. [The su]bscriber having recently commenced the above business, next door to P. Co[h]en's Store, will be kept on hand [a] good assortment of BOOTS, suited to the call of the country. Gentlemen wishing Fine Boots, water pro[o]f, will be accommodated with the best materials, and fashionable style. Most kinds of work kept constantly on hand, or made to order on short notice. L. W. MONTGOMERY. Chi[c]ago, De[c]. 16, 1833.",
+   "locator": {
+    "artifact_role": "primary",
+    "issue_page": 3,
+    "column": 6,
+    "lines": [
+     2952,
+     2964
+    ],
+    "lines_of_claim": [
+     2952,
+     2953,
+     2954,
+     2955,
+     2956,
+     2957,
+     2958,
+     2959,
+     2960,
+     2961,
+     2962,
+     2963,
+     2964
+    ],
+    "interleaved": true
+   },
+   "business": {
+    "name": "L. W. Montgomery",
+    "proprietors": [
+     "L. W. Montgomery"
+    ],
+    "trade": "boot and shoe making",
+    "goods": [
+     "Boots",
+     "fine water-proof boots",
+     "shoes"
+    ],
+    "street": "South Water Street",
+    "placement": {
+     "class": "relative",
+     "anchor": "P. Cohen's Store",
+     "offset_text": "the above businees, next door to P. Co-\nben's Store,",
+     "offset_normalized": "next door to P. Co[h]en's Store",
+     "street": "South Water Street"
+    }
+   },
+   "ad_copy_date": {
+    "verbatim": "Chiengo, Der. 16, 1833.",
+    "iso": "1833-12-16"
+   },
+   "entities": [
+    {
+     "as_printed": "L. W. MONTGOMERY",
+     "normalized": "L. W. Montgomery",
+     "role": "proprietor",
+     "occupations": [
+      "boot and shoe maker"
+     ],
+     "associated_places": [
+      "South Water Street",
+      "Chicago"
+     ]
+    }
+   ],
+   "notes": "A SHOEMAKER'S SHOP NEXT DOOR TO PETER COHEN'S, WHICH IS ON SOUTH WATER STREET. The street is not in this advertisement — it is chained off Cohen, whose own standing advertisement is the fixture T-0257 built its schema against and reads 'at his store [be]low Messrs. Newberry and Dole's on south water street'. Cohen is still trading at the scene date ('New and Cheap Goods […] AT HIS OLD STAND. PETER COHEN', 1835-06-11), so the anchor holds, and 'next door' is the tightest offset in the corpus.\n\nDATED DECEMBER 1833 AND STILL RUNNING IN MAY 1835, which is eighteen months of a standing insertion, so ruling 3 gives it survival to the scene date without a liberty. Note that a SECOND Montgomery, an auctioneer, opens a commission and auction house on South Water Street in the 1835-06-24 issue with a first sale on 1 July 1835 — the same surname on the same street in the same month, and this pass does NOT merge them."
+  },
+  {
+   "id": "c018",
+   "kind": "business",
+   "reading": "transcription_mediated",
+   "quote": "IY GOODS.\nJ L. WILSON & CO.\nA Pre Goods, Groceries, Haricure Crockery.\nRE now opening an extensive stock of\n.fr.;-calicoes,\ncloths, sattinette, circassians,\nflannels, sheetings, Tickings, de.\nReady made\nclothing.\nCoflee, ten, sugar, pepper, spice, liquors, dec.\nShovele, pades, braa kettles, batta, screwe,\nsaws, wrought iron hinger, &e.\nTROY NAILS, and Windme Gluss.\nDearlorn st. next door to the *cily boot shoe and\nleather store. Chicago. Sett. 18:34.\n42",
+   "normalized": "D[R]Y GOODS. J. L. WILSON & CO. [Dry Goods, Groceries, Hardware, Crockery. A]RE now opening an extensive stock of [&]c.: calicoes, cloths, sattinet[t]s, circassians, flannels, sheetings, Tickings, &c. Ready made clothing. Coffee, tea, sugar, pepper, spice, liquors, &c. Shovel[s], [s]pades, bra[ss] kettles, b[o]tts, screw[s], saws, wrought iron hinge[s], &c. TROY NAILS, and Wind[ow] Glass. Dearborn st. next door to the \"city boot[,] shoe and leather store.\" Chicago, Sept. 1834.",
+   "locator": {
+    "artifact_role": "primary",
+    "issue_page": 3,
+    "column": 6,
+    "lines": [
+     3000,
+     3015
+    ],
+    "lines_of_claim": [
+     3000,
+     3001,
+     3002,
+     3003,
+     3004,
+     3005,
+     3006,
+     3007,
+     3008,
+     3009,
+     3010,
+     3011,
+     3012,
+     3013,
+     3014,
+     3015
+    ],
+    "interleaved": true
+   },
+   "business": {
+    "name": "J. L. Wilson & Co.",
+    "proprietors": [
+     "J. L. Wilson"
+    ],
+    "trade": "dry goods, groceries, hardware and crockery",
+    "goods": [
+     "calicoes",
+     "cloths",
+     "sattinetts",
+     "circassians",
+     "flannels",
+     "sheetings",
+     "tickings",
+     "ready made clothing",
+     "coffee",
+     "tea",
+     "sugar",
+     "pepper",
+     "spice",
+     "liquors",
+     "shovels",
+     "spades",
+     "brass kettles",
+     "screws",
+     "saws",
+     "wrought iron hinges",
+     "Troy nails",
+     "window glass"
+    ],
+    "street": "Dearborn Street",
+    "placement": {
+     "class": "relative",
+     "anchor": "the city boot, shoe and leather store",
+     "offset_text": "Dearlorn st. next door to the *cily boot shoe and\nleather store.",
+     "offset_normalized": "Dearborn st. next door to the \"city boot[,] shoe and leather store\"",
+     "street": "Dearborn Street"
+    }
+   },
+   "ad_copy_date": {
+    "verbatim": "Chicago. Sett. 18:34.",
+    "iso": "1834-09-01"
+   },
+   "entities": [
+    {
+     "as_printed": "J L. WILSON & CO.",
+     "normalized": "J. L. Wilson & Co.",
+     "role": "proprietor",
+     "occupations": [
+      "merchant"
+     ],
+     "associated_places": [
+      "Dearborn Street",
+      "Chicago"
+     ]
+    }
+   ],
+   "notes": "A DEARBORN STREET STORE PLACED AGAINST A TRADE SIGN RATHER THAN A NAME — 'the city boot, shoe and leather store', in quotation marks, which is the neighbour's own signboard. Wm. H. Taylor's advertisement three columns away is headed 'Boot, Shoe & Leather Store' and puts him 'on Dearborn street, a few rods north of Messrs Newberry & Dole's Store', so the two are almost certainly neighbours and Taylor's is almost certainly the shop quoted here. THAT IS NOT ASSERTED AS FACT: Taylor never uses the words 'city boot' and a second leather store on Dearborn is possible, so the anchor is recorded as the paper prints it and the identification is left for a pass that can test it.\n\nTHE FIRM'S NAME IS EXACTLY WHAT T-0304 IS ABOUT. This printing sets 'J L. WILSON & CO.'; 1835-05-27 sets 'J, L. WILSON & CO.'; 1835-06-04 sets 'J. L. WILSON' alone. T-0304 asks whether the gazetteer should merge firms the way it merges persons, and this is a live case — no merge is performed here.\n\nThe date '1834-09-01' is a MONTH, not a day: the dateline prints only 'Sept. 1834' and the first of the month is used as the ISO form, which is the convention this epic has followed for month-only datelines."
+  },
+  {
+   "id": "c019",
+   "kind": "business",
+   "reading": "transcription_mediated",
+   "quote": "Tin, Sheet tron and Store\nTlE subecriber would repertfally inforen\nCORNER OF IKAHBORN AND LANE-STRATI.\nhis friends and the public in pensral, that\nhe has commenced the abore bariness, and that\nApril 99, 1634.",
+   "normalized": "Tin, Sheet Iron and Stove [manufactory.] [T]he subscriber would respec[t]fully inform [his friends and the public in general, that] CORNER OF [DEARBORN] AND LA[K]E-STREET[,] he has commenced the abo[ve] b[us]iness […] April [2]9, 183[5].",
+   "locator": {
+    "artifact_role": "primary",
+    "issue_page": 3,
+    "column": 6,
+    "lines": [
+     3031,
+     3038
+    ],
+    "lines_of_claim": [
+     3031,
+     3033,
+     3034,
+     3035,
+     3036,
+     3038
+    ],
+    "interleaved": true
+   },
+   "business": {
+    "name": "[tin, sheet iron and stove manufactory, proprietor not recovered]",
+    "proprietors": [],
+    "trade": "tin, sheet iron and stove work",
+    "goods": [
+     "tin ware",
+     "sheet iron work",
+     "stoves"
+    ],
+    "street": "Dearborn Street",
+    "placement": {
+     "class": "corner",
+     "anchor": "the corner of Dearborn and Lake streets",
+     "offset_text": "CORNER OF IKAHBORN AND LANE-STRATI.",
+     "offset_normalized": "CORNER OF [DEARBORN] AND LA[K]E-STREET",
+     "street": "Dearborn Street"
+    }
+   },
+   "notes": "A CORNER PLACEMENT — Dearborn and Lake — AND NO PROPRIETOR. The advertisement is shredded by the interleave: the trade heading, the address line and the opening sentence survive, the signature does not, and lines 3032, 3037 and 3039-3043 in the cited range belong to other advertisements and are excluded. 'IKAHBORN' is Dearborn and 'LANE-STRATI' is Lake-street, both letter-class errors the surrounding column supports (Dearborn and Lake are the two streets this column names most often).\n\nWHY IT IS KEPT WITHOUT A NAME. A `corner` placement is one of the two classes that can put a storefront on the ground, and this is the only one in the issue. An unnamed tinsmith on the corner of Dearborn and Lake in the spring of 1835 is a placeable TRADE even if the man cannot be named — a tin and sheet-iron shop has a distinctive frontage — and naming him is a job for the page images or for a later issue that prints the signature cleanly. Jones, King & Co. advertise on 1835-06-17 for 'one copper smith, and one tin and sheet iron worker', which shows the trade was scarce and in demand in the town that month."
+  },
+  {
+   "id": "c020",
+   "kind": "business",
+   "reading": "transcription_mediated",
+   "quote": ",cather Store\nWa. H. TAYLOR,\nAS opened an extensive Boot, Shoe a1\nLeather Store, on Dearborn sircet,\nfew rods north of Mess:s Newborry §+ Dok\nStore, where may be fonad a great variety,\nns good stock, ag ean be found ut the “1\nst.” which he oflers at Wholesale or R\nail, nt the lowest prices, consisting of\n600 pairs men’s cotrse BOOTS;\n\nof} S00 fo, do. fine do\n\nni goo. do, do, coarse SHOES;\n\nnH) g90 do, do, tine do;\n\nS00 do. Taties Gaiter, Pruneila: ond M\n\"! rocco Boots;\n\n299 do, do. eslf do;\n500 do, — do, prunella, kid and ecal She\n2n0 de, children’s Boote nnd Shoes;\n\n40 do. jolknt’'s Bootees;\nSole und Upper Leather, of first quality,\nod} sale cheap lor cash.\nMY. HLT, ill manufaeture to arder,\n{the shortevt notice, all. kinds of Boots a\nof| Shoes, which he will warrant of the best\nbo | Jenther and workinanship,\nat| Chicago, July 8, 1854,",
+   "normalized": "[Boot, Shoe &] Leather Store. WM. H. TAYLOR [H]AS opened an extensive Boot, Shoe and Leather Store, on Dearborn street, [a] few rods north of Mess[rs] Newberry & Dole's Store, where may be found a great variety, of as good stock, as can be found at the \"[Far] West,\" which he offers at Wholesale or Retail, at the lowest prices, consisting of 500 pairs men's coarse BOOTS; 300 do. do. fine do.; 800 do. do. coarse SHOES; 800 do. do. fine do; 300 do. Ladies Gaiter, Prunella and Morocco Boots; 200 do. do. calf do.; 500 do. do. prunella, kid and seal Shoes; 200 do. children's Boots and Shoes; 50 do. infant's Bootees; Sole and Upper Leather, of first quality, for sale cheap for cash. W. H. T. will manufacture to order, on the shortest notice, all kinds of Boots and Shoes, which he will warrant of the best of leather and workmanship. Chicago, July 8, 1834.",
+   "locator": {
+    "artifact_role": "primary",
+    "issue_page": 3,
+    "column": 4,
+    "lines": [
+     2632,
+     2663
+    ],
+    "lines_of_claim": [
+     2632,
+     2633,
+     2634,
+     2635,
+     2636,
+     2637,
+     2638,
+     2639,
+     2640,
+     2641,
+     2642,
+     2643,
+     2644,
+     2645,
+     2646,
+     2647,
+     2648,
+     2649,
+     2650,
+     2651,
+     2652,
+     2653,
+     2654,
+     2655,
+     2656,
+     2657,
+     2658,
+     2659,
+     2660,
+     2661,
+     2662,
+     2663
+    ],
+    "interleaved": true
+   },
+   "business": {
+    "name": "Wm. H. Taylor",
+    "proprietors": [
+     "Wm. H. Taylor"
+    ],
+    "trade": "boot, shoe and leather store, wholesale and retail, and boots and shoes made to order",
+    "goods": [
+     "men's coarse boots",
+     "men's fine boots",
+     "coarse shoes",
+     "fine shoes",
+     "ladies' gaiter, prunella and morocco boots",
+     "calf boots",
+     "prunella, kid and seal shoes",
+     "children's boots and shoes",
+     "infants' bootees",
+     "sole leather",
+     "upper leather"
+    ],
+    "street": "Dearborn Street",
+    "placement": {
+     "class": "relative",
+     "anchor": "Messrs. Newberry & Dole's Store",
+     "offset_text": "Leather Store, on Dearbsrn street, a\nfew rods north of Mess:s Newborry §+ Dok\nStore,",
+     "offset_normalized": "on Dearborn street, a few rods north of Messrs. Newberry & Dole's Store",
+     "street": "Dearborn Street"
+    }
+   },
+   "ad_copy_date": {
+    "verbatim": "Chicago, July 8, 1854,",
+    "iso": "1834-07-08"
+   },
+   "entities": [
+    {
+     "as_printed": "WM. H. TAYLOR",
+     "normalized": "Wm. H. Taylor",
+     "role": "proprietor",
+     "occupations": [
+      "boot and shoe maker",
+      "leather dealer"
+     ],
+     "associated_places": [
+      "Dearborn Street",
+      "Chicago"
+     ]
+    }
+   ],
+   "notes": "A FEW RODS NORTH OF NEWBERRY & DOLE'S, ON DEARBORN STREET — and Newberry & Dole is the corpus's best-attested anchor, the same house Peter Cohen places himself below on South Water Street in T-0257's fixture. A ROD IS 16½ FEET, so 'a few rods' is somewhere between about 50 and 130 feet: a real distance with real error bars, which is better than most of what this epic can offer and is recorded as the paper's own words rather than converted.\n\nTHE STOCK IS A COUNT AND THAT IS THE POINT. 3,350 pairs of boots and shoes in one Chicago store in 1834, itemised by kind, plus sole and upper leather in bulk and bespoke work to order. It is the largest itemised inventory in this reading range and it says what scale a Dearborn Street storefront operated at.\n\nAlmost certainly the '\"city boot[,] shoe and leather store\"' that J. L. Wilson & Co. place themselves next door to on the same street — see that claim's note for why the identification is not asserted."
+  },
+  {
+   "id": "c021",
+   "kind": "building",
+   "reading": "transcription_mediated",
+   "quote": "‘arriage & Sleigh Making\nHE subseribers reepectfully inform thect\nizens of Chicago and ils vieuuty,\ny have erceted a large and cominodings be\n, fora shop, on Randolph street, and ae\npared Lo excente all orders in the Comey\nSleigh winking business, on the mos) ke\nable terms.: ‘ f\nREPAIRING done on short notice\n; BRIGGS & HUMPHREY\n\nfugust 13, AY",
+   "normalized": "[C]arriage & Sleigh Making. [T]he subscribers respectfully inform the c[it]izens of Chicago and its vicinity, [that the]y have erected a large and commodious b[uil]d[ing], for a shop, on Randolph street, and a[re pre]pared to execute all orders in the C[arriage] [and] Sleigh making business, on the most [reason]able terms. REPAIRING done on short notice. BRIGGS & HUMPHREY[.] [A]ugust 13, [1834].",
+   "locator": {
+    "artifact_role": "primary",
+    "issue_page": 4,
+    "column": 6,
+    "lines": [
+     4156,
+     4167
+    ],
+    "lines_of_claim": [
+     4156,
+     4157,
+     4158,
+     4159,
+     4160,
+     4161,
+     4162,
+     4163,
+     4164,
+     4165,
+     4166,
+     4167
+    ],
+    "interleaved": true
+   },
+   "business": {
+    "name": "Briggs & Humphrey",
+    "proprietors": [
+     "Briggs",
+     "Humphrey"
+    ],
+    "trade": "carriage and sleigh making, and repairing",
+    "goods": [
+     "carriages",
+     "sleighs"
+    ],
+    "street": "Randolph Street",
+    "placement": {
+     "class": "street_only",
+     "street": "Randolph Street"
+    }
+   },
+   "ad_copy_date": {
+    "verbatim": "fugust 13, AY",
+    "iso": "1834-08-13"
+   },
+   "entities": [
+    {
+     "as_printed": "BRIGGS & HUMPHREY",
+     "normalized": "Briggs & Humphrey",
+     "role": "proprietor",
+     "occupations": [
+      "carriage maker",
+      "sleigh maker"
+     ],
+     "associated_places": [
+      "Randolph Street",
+      "Chicago"
+     ]
+    }
+   ],
+   "notes": "A PURPOSE-BUILT WORKSHOP ON RANDOLPH STREET, ERECTED FOR THE TRADE. 'they have erected a large and commodious building, for a shop' is a BUILDING claim before it is a business one: not a storefront taken over but a structure put up in 1834 to be a carriage and sleigh manufactory, on Randolph Street, by named proprietors. A carriage shop is a large-doored, high-bayed building unlike anything else this corpus places, and Randolph Street in 1834-35 is otherwise thinly documented — the only other Randolph frontage in this reading range is the house opposite the public square.\n\nNO OFFSET AND NO CROSS STREET, so the placement class is `street_only` and it stays that way; 'large and commodious' is the advertiser's word and no dimension is given anywhere in the five printings. Forenames are not printed in any of them, so the partners are minted by surname alone."
+  },
+  {
+   "id": "c022",
+   "kind": "business",
+   "reading": "transcription_mediated",
+   "quote": "SPRING.\n“AND COUNSELLOR AT LA®\nAnd Soliciter in Chancery. é\nFFICE. frat door north from the Trea\nHouse, on Dearburn-strest.\nhieago, Dee 3, VA.",
+   "normalized": "[GILES] SPRING, ATTORNEY AND COUNSELLOR AT LA[W] [a]nd Solicitor in Chancery. [O]FFICE, first d[oo]r north from the Tre[mont] House, on Dearborn-street. [C]hi[c]ago, Dec. 3, 18[34].",
+   "locator": {
+    "artifact_role": "primary",
+    "issue_page": 4,
+    "column": 6,
+    "lines": [
+     4169,
+     4175
+    ],
+    "lines_of_claim": [
+     4170,
+     4171,
+     4172,
+     4173,
+     4174,
+     4175
+    ],
+    "interleaved": true
+   },
+   "business": {
+    "name": "Giles Spring",
+    "proprietors": [
+     "Giles Spring"
+    ],
+    "trade": "attorney and counsellor at law, and solicitor in chancery",
+    "goods": [],
+    "street": "Dearborn Street",
+    "placement": {
+     "class": "relative",
+     "anchor": "the Tremont House",
+     "offset_text": "FFICE. frat door north from the Trea\nHouse, on Dearburn-strest.",
+     "offset_normalized": "OFFICE, first door north from the Tre[mont] House, on Dearborn-street",
+     "street": "Dearborn Street"
+    }
+   },
+   "ad_copy_date": {
+    "verbatim": "hieago, Dee 3, VA.",
+    "iso": "1834-12-03"
+   },
+   "entities": [
+    {
+     "as_printed": "SPRING",
+     "normalized": "Giles Spring",
+     "role": "proprietor",
+     "occupations": [
+      "attorney",
+      "counsellor at law",
+      "solicitor in chancery"
+     ],
+     "associated_places": [
+      "Dearborn Street",
+      "Chicago"
+     ]
+    }
+   ],
+   "notes": "THE TREMONT HOUSE, ON DEARBORN STREET, USED AS AN ANCHOR — and this is the only appearance of the Tremont in the eight issues read here. It matters twice over: it places Spring's office one door north of it, and it puts the Tremont itself on Dearborn Street in December 1834, which is a fact about a landmark building the reconstruction cares about independently of the lawyer. 'Trea House' is read as Tremont House because the type is broken at the column edge and no other Chicago house of the period fits 'Tre—'; T-0330's fragment 'opposite the Tremont House' is the neighbouring problem in this same epic.\n\nTHE FORENAME IS SUPPLIED AND FLAGGED. The transcription prints only 'SPRING' above the trade line — 'Gio SPRING' in 1835-05-27, which is 'Giles' misread. Giles Spring is the Chicago attorney of the period and the reading is stated here rather than silently adopted; if a later witness contradicts it, the entity is the thing to fix."
+  },
+  {
+   "id": "c023",
+   "kind": "business",
+   "reading": "transcription_mediated",
+   "quote": "Insurance Dy Fire\nMMHTE subscribers havine hangs\nAgents tor the Tour rite eo\ntpany of the city of Nowyor ne\nago and the viemity, wil ie bes ‘\nanist loss by Fire, on tedzonable iheeny *\ndaly 1 saee an HUBBARD ry",
+   "normalized": "Insurance [b]y Fire. [T]he subscribers having [been appointed] Agents for the [Howard In]s[urance] [Com]pany of the city of New[-]Y[o]r[k], [for Chi]ca[g]o and the vicinity, will [insure] [ag]ainst loss by Fire, on r[e]a[s]onable [terms.] [J]uly 1[.] HUBBARD [& Co.]",
+   "locator": {
+    "artifact_role": "primary",
+    "issue_page": 4,
+    "column": 6,
+    "lines": [
+     4059,
+     4066
+    ],
+    "lines_of_claim": [
+     4059,
+     4060,
+     4061,
+     4062,
+     4063,
+     4064,
+     4066
+    ],
+    "interleaved": true
+   },
+   "business": {
+    "name": "Hubbard & Co.",
+    "proprietors": [
+     "Hubbard"
+    ],
+    "trade": "wholesale and retail dry goods, groceries, hardware and crockery, and agents for the Howard Insurance Company of New York",
+    "goods": [
+     "Dry Goods",
+     "Groceries",
+     "Hardware",
+     "Crockery",
+     "fire insurance"
+    ],
+    "street": "La Salle Street",
+    "placement": {
+     "class": "none"
+    }
+   },
+   "entities": [
+    {
+     "as_printed": "HUBBARD",
+     "normalized": "Hubbard & Co.",
+     "role": "proprietor",
+     "occupations": [
+      "merchant",
+      "insurance agent"
+     ],
+     "associated_places": [
+      "Chicago"
+     ]
+    }
+   ],
+   "notes": "FIRE INSURANCE IS BEING WRITTEN IN CHICAGO IN 1835, and by a dry-goods house rather than an insurance office — which is what an agency was. Set beside the same issue's 'there is not even a fire bucket in Chicago' it is the whole shape of the town's fire risk: no municipal means of putting a fire out, and a New York company selling cover against it over a shop counter. The 1835-06-17 issue adds a second, the North Western Fire and Marine of Oswego, with Capt. Hiram Hugunin as its Chicago agent.\n\nTHE COMPANY'S NAME IS BADLY BROKEN HERE and is supplied from the 1835-05-27 printing (line 3846), which sets 'the Howard [Insurance] Company of the city of New-York'. NO PLACEMENT: the street is carried from Magie & Wilkinson's 1835-06-11 notice, which locates 'Hubbard & Co's. brick store' in LA SALLE STREET, but that is a different claim's evidence and the placement class here stays `none` rather than borrowing it. Hubbard & Co's BRICK store is one of only two buildings in this reading range whose material the papers state."
+  }
+ ]
+}

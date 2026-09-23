@@ -1,0 +1,1106 @@
+{
+  "schema": "attribute_tiers/1",
+  "generated_by": "tools/migrate_attribute_tiers.py",
+  "_doc": "T-1158. Which tier every attribute of every household and person stands on - attested, inferred, reconstructed, or unknown, meaning nothing is asserted yet - together with every genuinely reconstructed value and the basis it rests on. DERIVED from the committed cards: rebuild with --build, and --check refuses a hand-edit and a card that has moved under it. renderers/web/js/attribute-tiers.js derives the same tier for the card a visitor opens, and tools/check_attribute_tiers.mjs holds the two answers together.",
+  "vocabulary": {
+    "tiers": [
+      "attested",
+      "inferred",
+      "reconstructed",
+      "unknown"
+    ],
+    "basis_kinds": [
+      "model",
+      "rule"
+    ],
+    "replaceable_kinds": [
+      "person",
+      "household",
+      "business"
+    ],
+    "not_asserted_values": [
+      null,
+      "",
+      "none_recorded"
+    ]
+  },
+  "counts": {
+    "cards": 1258,
+    "blocks": 10499,
+    "tiers_written_on_the_card": 0,
+    "by_tier": {
+      "attested": 584,
+      "inferred": 2561,
+      "reconstructed": 40,
+      "unknown": 7314
+    },
+    "by_attribute": {
+      "arrival": {
+        "attested": 52,
+        "inferred": 1200,
+        "reconstructed": 6,
+        "unknown": 0
+      },
+      "directories.people[].address_later": {
+        "attested": 162,
+        "inferred": 0,
+        "reconstructed": 0,
+        "unknown": 0
+      },
+      "directories.people[].back_projection": {
+        "attested": 0,
+        "inferred": 0,
+        "reconstructed": 18,
+        "unknown": 0
+      },
+      "directories.people[].occupation_later": {
+        "attested": 134,
+        "inferred": 0,
+        "reconstructed": 0,
+        "unknown": 0
+      },
+      "directories.people[].residence_back_projection": {
+        "attested": 0,
+        "inferred": 0,
+        "reconstructed": 10,
+        "unknown": 0
+      },
+      "kin[]": {
+        "attested": 12,
+        "inferred": 12,
+        "reconstructed": 0,
+        "unknown": 0
+      },
+      "lives_at": {
+        "attested": 8,
+        "inferred": 12,
+        "reconstructed": 0,
+        "unknown": 1238
+      },
+      "origin": {
+        "attested": 11,
+        "inferred": 11,
+        "reconstructed": 1,
+        "unknown": 1235
+      },
+      "party_size_on_arrival": {
+        "attested": 3,
+        "inferred": 9,
+        "reconstructed": 0,
+        "unknown": 1246
+      },
+      "persons[].age_on_scene_date": {
+        "attested": 7,
+        "inferred": 2,
+        "reconstructed": 0,
+        "unknown": 0
+      },
+      "persons[].biographical_evidence.age_on_1835_07_01": {
+        "attested": 0,
+        "inferred": 2,
+        "reconstructed": 0,
+        "unknown": 0
+      },
+      "persons[].biographical_evidence.birth_year": {
+        "attested": 2,
+        "inferred": 0,
+        "reconstructed": 0,
+        "unknown": 0
+      },
+      "persons[].birth_year": {
+        "attested": 7,
+        "inferred": 3,
+        "reconstructed": 0,
+        "unknown": 0
+      },
+      "persons[].occupation": {
+        "attested": 119,
+        "inferred": 9,
+        "reconstructed": 0,
+        "unknown": 1154
+      },
+      "persons[].profile_facts[]": {
+        "attested": 1,
+        "inferred": 39,
+        "reconstructed": 0,
+        "unknown": 0
+      },
+      "present_on_scene_date": {
+        "attested": 22,
+        "inferred": 1231,
+        "reconstructed": 5,
+        "unknown": 0
+      },
+      "reason_for_coming": {
+        "attested": 12,
+        "inferred": 13,
+        "reconstructed": 0,
+        "unknown": 1233
+      },
+      "works_at": {
+        "attested": 32,
+        "inferred": 18,
+        "reconstructed": 0,
+        "unknown": 1208
+      }
+    },
+    "reconstructed_by_basis": {
+      "address_back_projection": 18,
+      "arrival_bound_from_the_record": 1,
+      "arrival_earliest_year_forced": 4,
+      "arrival_uncited_literature": 1,
+      "inferred_household_hypothesis": 5,
+      "origin_uncited_literature": 1,
+      "residence_back_projection": 10
+    }
+  },
+  "reconstructed": [
+    {
+      "card": "hh_adams_william_h",
+      "attribute": "arrival",
+      "value": "1835-12-31",
+      "precision": "not_later_than",
+      "confidence": "reconstructed",
+      "tier": "reconstructed",
+      "note": "NOT AN ARRIVAL DATE, AND THE RECORD HAD NONE AT ALL. The recovered v4 research places William H. Adams on an 1835 Chicago poll list; it does not say when the poll was taken, and nothing in the corpus says when he came. The only thing the evidence bears is that he was in Chicago at some point during 1835, so the value carried here is the last day that evidence can reach, at 'not_later_than' precision — the same shape the town's letter-list arrivals take, and a bound rather than a date. Whether he was standing here on 1 July 1835 is the open question present_on_scene_date records as uncertain. The block arrived from PR #670 with a null value and no precision, which the gate could not read.",
+      "basis": {
+        "kind": "rule",
+        "id": "arrival_bound_from_the_record",
+        "note": "Not an arrival date. The evidence bears only that the person was at Chicago at some point in the year, so the value is the last day that evidence can reach, at `not_later_than` precision — a bound rather than a date."
+      },
+      "replaceable_by": {
+        "kind": "person",
+        "match": "a dated source that says when this person came to Chicago"
+      }
+    },
+    {
+      "card": "hh_beaubien_mark",
+      "attribute": "arrival",
+      "value": "1826",
+      "confidence": "reconstructed",
+      "tier": "reconstructed",
+      "note": "NOT ATTESTED HERE. Beaubien is in the settlement well before the town exists - he is a ferryman by 1831 and has built the Sauganash by 1829-31 - but no passage reached gives the year he came. 1826 is the figure in general circulation and it is carried as a conjecture that cites nothing, precisely so that a reader can see it is not evidence.",
+      "precision": "year",
+      "basis": {
+        "kind": "rule",
+        "id": "arrival_uncited_literature",
+        "note": "The year is the figure in general circulation in the Chicago literature and no passage this project holds gives it, so it is carried as a conjecture that cites nothing."
+      },
+      "replaceable_by": {
+        "kind": "person",
+        "match": "a dated source that says when this person came to Chicago"
+      }
+    },
+    {
+      "card": "hh_beaubien_mark",
+      "attribute": "directories.people[].back_projection",
+      "outcome": "placed",
+      "clause": "3 and 4",
+      "value": "Lake Street",
+      "confidence": "reconstructed",
+      "tier": "reconstructed",
+      "describes_date": 1839,
+      "read_back_years": 4,
+      "placement": "face",
+      "position_local_enu_m": null,
+      "sources": [
+        "fergus_chicago_directory_1839"
+      ],
+      "note": "A LATER ADDRESS, READ BACKWARDS 4 YEARS. The door is not an 1835 reading: Fergus's Chicago directory of 1839 printed it in 1839, and this pass carries it back to the scene date because the 1835 record attests a trade for this person and nothing in the corpus places it better. What is claimed is the street face and nothing narrower — no lot, no roof, no door count — and the grade is `reconstructed`, which is this dataset's word for a figure the reconstruction supplies rather than a source. Lake Street stands in 1835 under that name and in that place. The directory gives a street and nothing this pass can resolve narrower, so the placement is the FACE — the unit the owner's ruling of 2026-08-29 says a street name constrains — and no roof is dealt. The rule this stands on is docs/ADDRESS-BACK-PROJECTION.md and the liberty is L218; a reader who thinks 4 years is too far to carry a shop should read the grade as the disagreement being invited.",
+      "basis": {
+        "kind": "rule",
+        "id": "address_back_projection",
+        "note": "The work address is a later directory's, carried back to the scene window under docs/ADDRESS-BACK-PROJECTION.md (liberty L218) rather than read from an 1835 source. What is claimed is the street face and nothing narrower."
+      },
+      "replaceable_by": {
+        "kind": "person",
+        "match": "an 1835-window source that gives this person a Chicago work address"
+      }
+    },
+    {
+      "card": "hh_brown_lemuel",
+      "attribute": "directories.people[].back_projection",
+      "outcome": "placed",
+      "clause": "3 and 4",
+      "value": "Randolph Street",
+      "confidence": "reconstructed",
+      "tier": "reconstructed",
+      "describes_date": 1839,
+      "read_back_years": 4,
+      "placement": "anchored",
+      "position_local_enu_m": [
+        697.3,
+        -258.1
+      ],
+      "sources": [
+        "fergus_chicago_directory_1839"
+      ],
+      "note": "A LATER ADDRESS, READ BACKWARDS 4 YEARS. The door is not an 1835 reading: Fergus's Chicago directory of 1839 printed it in 1839, and this pass carries it back to the scene date because the 1835 record attests a trade for this person and nothing in the corpus places it better. What is claimed is a point on the street face, anchored on a crossing the directory names but at a distance from it this pass does not claim and nothing narrower — no lot, no roof, no door count — and the grade is `reconstructed`, which is this dataset's word for a figure the reconstruction supplies rather than a source. Randolph Street and Dearborn Street both stand in 1835 under those names, and the directory sets the door against that crossing without claiming the corner — it prints 'near' — so the point is the crossing and the distance from it is not a claim this pass makes. The rule this stands on is docs/ADDRESS-BACK-PROJECTION.md and the liberty is L218; a reader who thinks 4 years is too far to carry a shop should read the grade as the disagreement being invited.",
+      "basis": {
+        "kind": "rule",
+        "id": "address_back_projection",
+        "note": "The work address is a later directory's, carried back to the scene window under docs/ADDRESS-BACK-PROJECTION.md (liberty L218) rather than read from an 1835 source. What is claimed is the street face and nothing narrower."
+      },
+      "replaceable_by": {
+        "kind": "person",
+        "match": "an 1835-window source that gives this person a Chicago work address"
+      }
+    },
+    {
+      "card": "hh_church_thomas",
+      "attribute": "arrival",
+      "value": "1834",
+      "confidence": "reconstructed",
+      "tier": "reconstructed",
+      "note": "NOT ATTESTED. The store he built is 'the first store building on Lake Street' and this project's building record dates it to the mid-1830s; 1834 is the earliest year that reading supports and it is a guess.",
+      "precision": "year",
+      "basis": {
+        "kind": "rule",
+        "id": "arrival_earliest_year_forced",
+        "note": "No source dates the coming. The value is the earliest year the committed evidence forces, carried at the precision the note states."
+      },
+      "replaceable_by": {
+        "kind": "person",
+        "match": "a dated source that says when this person came to Chicago"
+      }
+    },
+    {
+      "card": "hh_cohen_peter",
+      "attribute": "directories.people[].back_projection",
+      "outcome": "placed",
+      "clause": "3 and 4",
+      "value": "South Water Street",
+      "confidence": "reconstructed",
+      "tier": "reconstructed",
+      "describes_date": 1839,
+      "read_back_years": 4,
+      "placement": "face",
+      "position_local_enu_m": null,
+      "sources": [
+        "fergus_chicago_directory_1839"
+      ],
+      "note": "A LATER ADDRESS, READ BACKWARDS 4 YEARS. The door is not an 1835 reading: Fergus's Chicago directory of 1839 printed it in 1839, and this pass carries it back to the scene date because the 1835 record attests a trade for this person and nothing in the corpus places it better. What is claimed is the street face and nothing narrower — no lot, no roof, no door count — and the grade is `reconstructed`, which is this dataset's word for a figure the reconstruction supplies rather than a source. South Water Street stands in 1835 under that name and in that place. The directory gives a street and nothing this pass can resolve narrower, so the placement is the FACE — the unit the owner's ruling of 2026-08-29 says a street name constrains — and no roof is dealt. The rule this stands on is docs/ADDRESS-BACK-PROJECTION.md and the liberty is L218; a reader who thinks 4 years is too far to carry a shop should read the grade as the disagreement being invited.",
+      "basis": {
+        "kind": "rule",
+        "id": "address_back_projection",
+        "note": "The work address is a later directory's, carried back to the scene window under docs/ADDRESS-BACK-PROJECTION.md (liberty L218) rather than read from an 1835 source. What is claimed is the street face and nothing narrower."
+      },
+      "replaceable_by": {
+        "kind": "person",
+        "match": "an 1835-window source that gives this person a Chicago work address"
+      }
+    },
+    {
+      "card": "hh_collins_j_h",
+      "attribute": "directories.people[].residence_back_projection",
+      "outcome": "placed",
+      "clause": "R4 and R5",
+      "kind": "resides",
+      "value": "Lake Street",
+      "confidence": "reconstructed",
+      "tier": "reconstructed",
+      "describes_date": 1843,
+      "read_back_years": 8,
+      "placement": "face",
+      "sources": [
+        "fergus_chicago_directory_1843"
+      ],
+      "note": "A LATER HOME ADDRESS, READ BACKWARDS 8 YEARS. The street is not an 1835 reading: Fergus's Chicago directory of 1843 printed where this person lived in 1843, and this pass carries it back to the scene date because nothing in the 1835 corpus says where the house stood. What is claimed is the street FACE and nothing narrower — no lot, no roof, no door count, and no corner even where the volume prints one — and the grade is `reconstructed`, this dataset's word for a figure the reconstruction supplies rather than a source. Lake Street stands in 1835 under that name and in that place, and the entry prints it as this person's home. So the placement is the FACE and nothing narrower, and no roof is dealt. A home is carried back on a weaker argument than a shop is: a shopfront is capital sunk into one street's trade and a lodging is a month's rent, which is why this policy claims less than docs/ADDRESS-BACK-PROJECTION.md does from the same volume. The rule is docs/RESIDENCE-BACK-PROJECTION.md and the liberty is L223; a reader who thinks 8 years is too far to carry a house should read the grade as the disagreement being invited.",
+      "basis": {
+        "kind": "rule",
+        "id": "residence_back_projection",
+        "note": "The home address is a later directory's, carried back to the scene window under docs/RESIDENCE-BACK-PROJECTION.md (liberty L223) rather than read from an 1835 source. What is claimed is the street face and nothing narrower."
+      },
+      "replaceable_by": {
+        "kind": "person",
+        "match": "an 1835-window source that gives this person a Chicago home address"
+      }
+    },
+    {
+      "card": "hh_curtiss_j",
+      "attribute": "directories.people[].back_projection",
+      "outcome": "placed",
+      "clause": "3 and 4",
+      "value": "Lake Street",
+      "confidence": "reconstructed",
+      "tier": "reconstructed",
+      "describes_date": 1839,
+      "read_back_years": 4,
+      "placement": "face",
+      "position_local_enu_m": null,
+      "sources": [
+        "fergus_chicago_directory_1839"
+      ],
+      "note": "A LATER ADDRESS, READ BACKWARDS 4 YEARS. The door is not an 1835 reading: Fergus's Chicago directory of 1839 printed it in 1839, and this pass carries it back to the scene date because the 1835 record attests a trade for this person and nothing in the corpus places it better. What is claimed is the street face and nothing narrower — no lot, no roof, no door count — and the grade is `reconstructed`, which is this dataset's word for a figure the reconstruction supplies rather than a source. Lake Street stands in 1835 under that name and in that place. The directory gives a street and nothing this pass can resolve narrower, so the placement is the FACE — the unit the owner's ruling of 2026-08-29 says a street name constrains — and no roof is dealt. The rule this stands on is docs/ADDRESS-BACK-PROJECTION.md and the liberty is L218; a reader who thinks 4 years is too far to carry a shop should read the grade as the disagreement being invited.",
+      "basis": {
+        "kind": "rule",
+        "id": "address_back_projection",
+        "note": "The work address is a later directory's, carried back to the scene window under docs/ADDRESS-BACK-PROJECTION.md (liberty L218) rather than read from an 1835 source. What is claimed is the street face and nothing narrower."
+      },
+      "replaceable_by": {
+        "kind": "person",
+        "match": "an 1835-window source that gives this person a Chicago work address"
+      }
+    },
+    {
+      "card": "hh_davis_john",
+      "attribute": "arrival",
+      "value": "1835",
+      "confidence": "reconstructed",
+      "tier": "reconstructed",
+      "note": "NOT ATTESTED. He is documented in the town in 1835 and nothing dates his coming. The value is the earliest year the evidence forces and it is graded conjectural; the attested fact is in present_on_scene_date, not here.",
+      "precision": "year",
+      "basis": {
+        "kind": "rule",
+        "id": "arrival_earliest_year_forced",
+        "note": "No source dates the coming. The value is the earliest year the committed evidence forces, carried at the precision the note states."
+      },
+      "replaceable_by": {
+        "kind": "person",
+        "match": "a dated source that says when this person came to Chicago"
+      }
+    },
+    {
+      "card": "hh_dole_george_w",
+      "attribute": "origin",
+      "value": "Connecticut, by way of Detroit",
+      "confidence": "reconstructed",
+      "tier": "reconstructed",
+      "note": "NOT ATTESTED IN ANYTHING THIS PROJECT HOLDS. Dole's New England origin and his Detroit connection through Oliver Newberry are widely repeated in the Chicago literature and could not be traced to a source in this dataset, so the value is carried as a conjecture, cites nothing, and is flagged for a later parcel to settle or delete. T-0396 WEAKENS THIS FURTHER (2026-09-12) AND IT IS RECORDED RATHER THAN QUIETLY KEPT: half of the received story is the partnership with Oliver Newberry of Detroit, and that partnership is now REFUSED — the firm's own card prints Oliver Newberry as its Detroit reference, not as its partner. So 'by way of Detroit' has lost the one thing the literature offered in its support. The value is left standing because it was already `reconstructed`, cites nothing, and is flagged for a later parcel to settle or delete; this note is the reason that parcel should expect to delete it.",
+      "basis": {
+        "kind": "rule",
+        "id": "origin_uncited_literature",
+        "note": "The origin is repeated in the Chicago literature and could not be traced to a source this project holds, so it is carried as a conjecture that cites nothing."
+      },
+      "replaceable_by": {
+        "kind": "person",
+        "match": "a source that says where this person came from"
+      }
+    },
+    {
+      "card": "hh_egan_william_b",
+      "attribute": "directories.people[].residence_back_projection",
+      "outcome": "placed",
+      "clause": "R4 and R5",
+      "kind": "resides",
+      "value": "Clark Street",
+      "confidence": "reconstructed",
+      "tier": "reconstructed",
+      "describes_date": 1843,
+      "read_back_years": 8,
+      "placement": "face",
+      "sources": [
+        "fergus_chicago_directory_1843"
+      ],
+      "note": "A LATER HOME ADDRESS, READ BACKWARDS 8 YEARS. The street is not an 1835 reading: Fergus's Chicago directory of 1843 printed where this person lived in 1843, and this pass carries it back to the scene date because nothing in the 1835 corpus says where the house stood. What is claimed is the street FACE and nothing narrower — no lot, no roof, no door count, and no corner even where the volume prints one — and the grade is `reconstructed`, this dataset's word for a figure the reconstruction supplies rather than a source. Clark Street stands in 1835 under that name and in that place, and the entry prints it as this person's home. So the placement is the FACE and nothing narrower, and no roof is dealt. A home is carried back on a weaker argument than a shop is: a shopfront is capital sunk into one street's trade and a lodging is a month's rent, which is why this policy claims less than docs/ADDRESS-BACK-PROJECTION.md does from the same volume. The rule is docs/RESIDENCE-BACK-PROJECTION.md and the liberty is L223; a reader who thinks 8 years is too far to carry a house should read the grade as the disagreement being invited.",
+      "basis": {
+        "kind": "rule",
+        "id": "residence_back_projection",
+        "note": "The home address is a later directory's, carried back to the scene window under docs/RESIDENCE-BACK-PROJECTION.md (liberty L223) rather than read from an 1835 source. What is claimed is the street face and nothing narrower."
+      },
+      "replaceable_by": {
+        "kind": "person",
+        "match": "an 1835-window source that gives this person a Chicago home address"
+      }
+    },
+    {
+      "card": "hh_fullerton_alexander",
+      "attribute": "directories.people[].back_projection",
+      "outcome": "placed",
+      "clause": "3 and 4",
+      "value": "North Water Street",
+      "confidence": "reconstructed",
+      "tier": "reconstructed",
+      "describes_date": 1839,
+      "read_back_years": 4,
+      "placement": "face",
+      "position_local_enu_m": null,
+      "sources": [
+        "fergus_chicago_directory_1839"
+      ],
+      "note": "A LATER ADDRESS, READ BACKWARDS 4 YEARS. The door is not an 1835 reading: Fergus's Chicago directory of 1839 printed it in 1839, and this pass carries it back to the scene date because the 1835 record attests a trade for this person and nothing in the corpus places it better. What is claimed is the street face and nothing narrower — no lot, no roof, no door count — and the grade is `reconstructed`, which is this dataset's word for a figure the reconstruction supplies rather than a source. North Water Street stands in 1835 under that name and in that place. The directory gives a street and nothing this pass can resolve narrower, so the placement is the FACE — the unit the owner's ruling of 2026-08-29 says a street name constrains — and no roof is dealt. The rule this stands on is docs/ADDRESS-BACK-PROJECTION.md and the liberty is L218; a reader who thinks 4 years is too far to carry a shop should read the grade as the disagreement being invited.",
+      "basis": {
+        "kind": "rule",
+        "id": "address_back_projection",
+        "note": "The work address is a later directory's, carried back to the scene window under docs/ADDRESS-BACK-PROJECTION.md (liberty L218) rather than read from an 1835 source. What is claimed is the street face and nothing narrower."
+      },
+      "replaceable_by": {
+        "kind": "person",
+        "match": "an 1835-window source that gives this person a Chicago work address"
+      }
+    },
+    {
+      "card": "hh_funk_absolom",
+      "attribute": "directories.people[].residence_back_projection",
+      "outcome": "placed",
+      "clause": "R4 and R5",
+      "kind": "resides",
+      "value": "Wells Street",
+      "confidence": "reconstructed",
+      "tier": "reconstructed",
+      "describes_date": 1843,
+      "read_back_years": 8,
+      "placement": "face",
+      "sources": [
+        "fergus_chicago_directory_1843"
+      ],
+      "note": "A LATER HOME ADDRESS, READ BACKWARDS 8 YEARS. The street is not an 1835 reading: Fergus's Chicago directory of 1843 printed where this person lived in 1843, and this pass carries it back to the scene date because nothing in the 1835 corpus says where the house stood. What is claimed is the street FACE and nothing narrower — no lot, no roof, no door count, and no corner even where the volume prints one — and the grade is `reconstructed`, this dataset's word for a figure the reconstruction supplies rather than a source. Wells Street stands in 1835 under that name and in that place, and the entry prints it as this person's home. The volume narrows it further — it names Washington Street and Randolph Street — and clause R5 declines to take the point: a corner or a run between two crossings is a fact about the numbered grid of the 1840s, and a house moves more than a shopfront does. So the placement is the FACE and nothing narrower, and no roof is dealt. A home is carried back on a weaker argument than a shop is: a shopfront is capital sunk into one street's trade and a lodging is a month's rent, which is why this policy claims less than docs/ADDRESS-BACK-PROJECTION.md does from the same volume. The rule is docs/RESIDENCE-BACK-PROJECTION.md and the liberty is L223; a reader who thinks 8 years is too far to carry a house should read the grade as the disagreement being invited.",
+      "basis": {
+        "kind": "rule",
+        "id": "residence_back_projection",
+        "note": "The home address is a later directory's, carried back to the scene window under docs/RESIDENCE-BACK-PROJECTION.md (liberty L223) rather than read from an 1835 source. What is claimed is the street face and nothing narrower."
+      },
+      "replaceable_by": {
+        "kind": "person",
+        "match": "an 1835-window source that gives this person a Chicago home address"
+      }
+    },
+    {
+      "card": "hh_gale_stephen_f",
+      "attribute": "directories.people[].back_projection",
+      "outcome": "placed",
+      "clause": "3 and 4",
+      "value": "Lake Street",
+      "confidence": "reconstructed",
+      "tier": "reconstructed",
+      "describes_date": 1839,
+      "read_back_years": 4,
+      "placement": "face",
+      "position_local_enu_m": null,
+      "sources": [
+        "fergus_chicago_directory_1839"
+      ],
+      "note": "A LATER ADDRESS, READ BACKWARDS 4 YEARS. The door is not an 1835 reading: Fergus's Chicago directory of 1839 printed it in 1839, and this pass carries it back to the scene date because the 1835 record attests a trade for this person and nothing in the corpus places it better. What is claimed is the street face and nothing narrower — no lot, no roof, no door count — and the grade is `reconstructed`, which is this dataset's word for a figure the reconstruction supplies rather than a source. Lake Street stands in 1835 under that name and in that place. The directory gives a street and nothing this pass can resolve narrower, so the placement is the FACE — the unit the owner's ruling of 2026-08-29 says a street name constrains — and no roof is dealt. The rule this stands on is docs/ADDRESS-BACK-PROJECTION.md and the liberty is L218; a reader who thinks 4 years is too far to carry a shop should read the grade as the disagreement being invited.",
+      "basis": {
+        "kind": "rule",
+        "id": "address_back_projection",
+        "note": "The work address is a later directory's, carried back to the scene window under docs/ADDRESS-BACK-PROJECTION.md (liberty L218) rather than read from an 1835 source. What is claimed is the street face and nothing narrower."
+      },
+      "replaceable_by": {
+        "kind": "person",
+        "match": "an 1835-window source that gives this person a Chicago work address"
+      }
+    },
+    {
+      "card": "hh_haddock_edward",
+      "attribute": "arrival",
+      "value": "1835",
+      "confidence": "reconstructed",
+      "tier": "reconstructed",
+      "note": "NOT ATTESTED AND VERY LIKELY EARLIER. Nothing dates Haddock's arrival at Chicago; what is dated is his tenancy of a tavern ending in 1835. A year-precision 1835 value would straddle the scene date, so the earliest year the evidence permits is used and the whole field is graded conjectural. TO RESOLVE: Dexter Graves's household and the marriage that made Haddock his son-in-law would date this properly.",
+      "precision": "year",
+      "basis": {
+        "kind": "rule",
+        "id": "arrival_earliest_year_forced",
+        "note": "No source dates the coming. The value is the earliest year the committed evidence forces, carried at the precision the note states."
+      },
+      "replaceable_by": {
+        "kind": "person",
+        "match": "a dated source that says when this person came to Chicago"
+      }
+    },
+    {
+      "card": "hh_hamilton_richard_j",
+      "attribute": "directories.people[].back_projection",
+      "outcome": "placed",
+      "clause": "3 and 4",
+      "value": "Clark Street",
+      "confidence": "reconstructed",
+      "tier": "reconstructed",
+      "describes_date": 1839,
+      "read_back_years": 4,
+      "placement": "corner",
+      "position_local_enu_m": [
+        574.3,
+        -257.1
+      ],
+      "sources": [
+        "fergus_chicago_directory_1839"
+      ],
+      "note": "A LATER ADDRESS, READ BACKWARDS 4 YEARS. The door is not an 1835 reading: Fergus's Chicago directory of 1839 printed it in 1839, and this pass carries it back to the scene date because the 1835 record attests a trade for this person and nothing in the corpus places it better. What is claimed is the corner where the two streets cross and nothing narrower — no lot, no roof, no door count — and the grade is `reconstructed`, which is this dataset's word for a figure the reconstruction supplies rather than a source. Clark Street and Randolph Street both stand in 1835 under those names, and the directory sets the door AT their corner, which is the point where the two committed centrelines cross. The rule this stands on is docs/ADDRESS-BACK-PROJECTION.md and the liberty is L218; a reader who thinks 4 years is too far to carry a shop should read the grade as the disagreement being invited.",
+      "basis": {
+        "kind": "rule",
+        "id": "address_back_projection",
+        "note": "The work address is a later directory's, carried back to the scene window under docs/ADDRESS-BACK-PROJECTION.md (liberty L218) rather than read from an 1835 source. What is claimed is the street face and nothing narrower."
+      },
+      "replaceable_by": {
+        "kind": "person",
+        "match": "an 1835-window source that gives this person a Chicago work address"
+      }
+    },
+    {
+      "card": "hh_holbrook_john",
+      "attribute": "directories.people[].back_projection",
+      "outcome": "placed",
+      "clause": "3 and 4",
+      "value": "South Water Street",
+      "confidence": "reconstructed",
+      "tier": "reconstructed",
+      "describes_date": 1839,
+      "read_back_years": 4,
+      "placement": "face",
+      "position_local_enu_m": null,
+      "sources": [
+        "fergus_chicago_directory_1839"
+      ],
+      "note": "A LATER ADDRESS, READ BACKWARDS 4 YEARS. The door is not an 1835 reading: Fergus's Chicago directory of 1839 printed it in 1839, and this pass carries it back to the scene date because the 1835 record attests a trade for this person and nothing in the corpus places it better. What is claimed is the street face and nothing narrower — no lot, no roof, no door count — and the grade is `reconstructed`, which is this dataset's word for a figure the reconstruction supplies rather than a source. South Water Street stands in 1835 under that name and in that place. The directory gives a street and nothing this pass can resolve narrower, so the placement is the FACE — the unit the owner's ruling of 2026-08-29 says a street name constrains — and no roof is dealt. The rule this stands on is docs/ADDRESS-BACK-PROJECTION.md and the liberty is L218; a reader who thinks 4 years is too far to carry a shop should read the grade as the disagreement being invited.",
+      "basis": {
+        "kind": "rule",
+        "id": "address_back_projection",
+        "note": "The work address is a later directory's, carried back to the scene window under docs/ADDRESS-BACK-PROJECTION.md (liberty L218) rather than read from an 1835 source. What is claimed is the street face and nothing narrower."
+      },
+      "replaceable_by": {
+        "kind": "person",
+        "match": "an 1835-window source that gives this person a Chicago work address"
+      }
+    },
+    {
+      "card": "hh_inf_cooper_north_04",
+      "attribute": "present_on_scene_date",
+      "value": "present",
+      "confidence": "reconstructed",
+      "tier": "reconstructed",
+      "note": "Presence on the scene date IS the hypothesis: this household exists in the dataset because the town of 1 July 1835 demonstrably needed households of this trade. It is not a finding about anybody's whereabouts.",
+      "basis": {
+        "kind": "rule",
+        "id": "inferred_household_hypothesis",
+        "note": "Presence on the scene date IS this household's hypothesis: the record exists because the town of 1 July 1835 demonstrably needed a household of this trade."
+      },
+      "replaceable_by": {
+        "kind": "household",
+        "match": "a source that puts this household at Chicago on 1 July 1835, or takes it away"
+      }
+    },
+    {
+      "card": "hh_inf_joiner_north_02",
+      "attribute": "present_on_scene_date",
+      "value": "present",
+      "confidence": "reconstructed",
+      "tier": "reconstructed",
+      "note": "Presence on the scene date IS the hypothesis: this household exists in the dataset because the town of 1 July 1835 demonstrably needed households of this trade. It is not a finding about anybody's whereabouts.",
+      "basis": {
+        "kind": "rule",
+        "id": "inferred_household_hypothesis",
+        "note": "Presence on the scene date IS this household's hypothesis: the record exists because the town of 1 July 1835 demonstrably needed a household of this trade."
+      },
+      "replaceable_by": {
+        "kind": "household",
+        "match": "a source that puts this household at Chicago on 1 July 1835, or takes it away"
+      }
+    },
+    {
+      "card": "hh_inf_physician_south_01",
+      "attribute": "directories.people[].back_projection",
+      "outcome": "placed",
+      "clause": "3 and 4",
+      "value": "Dearborn Street",
+      "confidence": "reconstructed",
+      "tier": "reconstructed",
+      "describes_date": 1839,
+      "read_back_years": 4,
+      "placement": "anchored",
+      "position_local_enu_m": [
+        698.2,
+        -115.4
+      ],
+      "sources": [
+        "fergus_chicago_directory_1839"
+      ],
+      "note": "A LATER ADDRESS, READ BACKWARDS 4 YEARS. The door is not an 1835 reading: Fergus's Chicago directory of 1839 printed it in 1839, and this pass carries it back to the scene date because the 1835 record attests a trade for this person and nothing in the corpus places it better. What is claimed is a point on the street face, anchored on a crossing the directory names but at a distance from it this pass does not claim and nothing narrower — no lot, no roof, no door count — and the grade is `reconstructed`, which is this dataset's word for a figure the reconstruction supplies rather than a source. Dearborn Street and Lake Street both stand in 1835 under those names, and the directory sets the door against that crossing without claiming the corner — it prints 'north of' — so the point is the crossing and the distance from it is not a claim this pass makes. The rule this stands on is docs/ADDRESS-BACK-PROJECTION.md and the liberty is L218; a reader who thinks 4 years is too far to carry a shop should read the grade as the disagreement being invited.",
+      "basis": {
+        "kind": "rule",
+        "id": "address_back_projection",
+        "note": "The work address is a later directory's, carried back to the scene window under docs/ADDRESS-BACK-PROJECTION.md (liberty L218) rather than read from an 1835 source. What is claimed is the street face and nothing narrower."
+      },
+      "replaceable_by": {
+        "kind": "person",
+        "match": "an 1835-window source that gives this person a Chicago work address"
+      }
+    },
+    {
+      "card": "hh_inf_physician_south_01",
+      "attribute": "present_on_scene_date",
+      "value": "present",
+      "confidence": "reconstructed",
+      "tier": "reconstructed",
+      "note": "Presence on the scene date IS the hypothesis: this household exists in the dataset because the town of 1 July 1835 demonstrably needed households of this trade. It is not a finding about anybody's whereabouts.",
+      "basis": {
+        "kind": "rule",
+        "id": "inferred_household_hypothesis",
+        "note": "Presence on the scene date IS this household's hypothesis: the record exists because the town of 1 July 1835 demonstrably needed a household of this trade."
+      },
+      "replaceable_by": {
+        "kind": "household",
+        "match": "a source that puts this household at Chicago on 1 July 1835, or takes it away"
+      }
+    },
+    {
+      "card": "hh_inf_tailor_north_02",
+      "attribute": "present_on_scene_date",
+      "value": "present",
+      "confidence": "reconstructed",
+      "tier": "reconstructed",
+      "note": "Presence on the scene date IS the hypothesis: this household exists in the dataset because the town of 1 July 1835 demonstrably needed households of this trade. It is not a finding about anybody's whereabouts.",
+      "basis": {
+        "kind": "rule",
+        "id": "inferred_household_hypothesis",
+        "note": "Presence on the scene date IS this household's hypothesis: the record exists because the town of 1 July 1835 demonstrably needed a household of this trade."
+      },
+      "replaceable_by": {
+        "kind": "household",
+        "match": "a source that puts this household at Chicago on 1 July 1835, or takes it away"
+      }
+    },
+    {
+      "card": "hh_inf_tavern_keeper_north_01",
+      "attribute": "present_on_scene_date",
+      "value": "present",
+      "confidence": "reconstructed",
+      "tier": "reconstructed",
+      "note": "Presence on the scene date IS the hypothesis: this household exists in the dataset because the town of 1 July 1835 demonstrably needed households of this trade. It is not a finding about anybody's whereabouts.",
+      "basis": {
+        "kind": "rule",
+        "id": "inferred_household_hypothesis",
+        "note": "Presence on the scene date IS this household's hypothesis: the record exists because the town of 1 July 1835 demonstrably needed a household of this trade."
+      },
+      "replaceable_by": {
+        "kind": "household",
+        "match": "a source that puts this household at Chicago on 1 July 1835, or takes it away"
+      }
+    },
+    {
+      "card": "hh_johnson_seth",
+      "attribute": "directories.people[].residence_back_projection",
+      "outcome": "placed",
+      "clause": "R4 and R5",
+      "kind": "resides",
+      "value": "Washington Street",
+      "confidence": "reconstructed",
+      "tier": "reconstructed",
+      "describes_date": 1843,
+      "read_back_years": 8,
+      "placement": "face",
+      "sources": [
+        "fergus_chicago_directory_1843"
+      ],
+      "note": "A LATER HOME ADDRESS, READ BACKWARDS 8 YEARS. The street is not an 1835 reading: Fergus's Chicago directory of 1843 printed where this person lived in 1843, and this pass carries it back to the scene date because nothing in the 1835 corpus says where the house stood. What is claimed is the street FACE and nothing narrower — no lot, no roof, no door count, and no corner even where the volume prints one — and the grade is `reconstructed`, this dataset's word for a figure the reconstruction supplies rather than a source. Washington Street stands in 1835 under that name and in that place, and the entry prints it as this person's home. The volume narrows it further — it names La Salle Street — and clause R5 declines to take the point: a corner or a run between two crossings is a fact about the numbered grid of the 1840s, and a house moves more than a shopfront does. So the placement is the FACE and nothing narrower, and no roof is dealt. A home is carried back on a weaker argument than a shop is: a shopfront is capital sunk into one street's trade and a lodging is a month's rent, which is why this policy claims less than docs/ADDRESS-BACK-PROJECTION.md does from the same volume. The rule is docs/RESIDENCE-BACK-PROJECTION.md and the liberty is L223; a reader who thinks 8 years is too far to carry a house should read the grade as the disagreement being invited.",
+      "basis": {
+        "kind": "rule",
+        "id": "residence_back_projection",
+        "note": "The home address is a later directory's, carried back to the scene window under docs/RESIDENCE-BACK-PROJECTION.md (liberty L223) rather than read from an 1835 source. What is claimed is the street face and nothing narrower."
+      },
+      "replaceable_by": {
+        "kind": "person",
+        "match": "an 1835-window source that gives this person a Chicago home address"
+      }
+    },
+    {
+      "card": "hh_jordan_j_b",
+      "attribute": "directories.people[].residence_back_projection",
+      "outcome": "placed",
+      "clause": "R4 and R5",
+      "kind": "resides",
+      "value": "Washington Street",
+      "confidence": "reconstructed",
+      "tier": "reconstructed",
+      "describes_date": 1843,
+      "read_back_years": 8,
+      "placement": "face",
+      "sources": [
+        "fergus_chicago_directory_1843"
+      ],
+      "note": "A LATER HOME ADDRESS, READ BACKWARDS 8 YEARS. The street is not an 1835 reading: Fergus's Chicago directory of 1843 printed where this person lived in 1843, and this pass carries it back to the scene date because nothing in the 1835 corpus says where the house stood. What is claimed is the street FACE and nothing narrower — no lot, no roof, no door count, and no corner even where the volume prints one — and the grade is `reconstructed`, this dataset's word for a figure the reconstruction supplies rather than a source. Washington Street stands in 1835 under that name and in that place, and the entry prints it as this person's home. The volume narrows it further — it names Franklin Street and Market Street — and clause R5 declines to take the point: a corner or a run between two crossings is a fact about the numbered grid of the 1840s, and a house moves more than a shopfront does. So the placement is the FACE and nothing narrower, and no roof is dealt. A home is carried back on a weaker argument than a shop is: a shopfront is capital sunk into one street's trade and a lodging is a month's rent, which is why this policy claims less than docs/ADDRESS-BACK-PROJECTION.md does from the same volume. The rule is docs/RESIDENCE-BACK-PROJECTION.md and the liberty is L223; a reader who thinks 8 years is too far to carry a house should read the grade as the disagreement being invited.",
+      "basis": {
+        "kind": "rule",
+        "id": "residence_back_projection",
+        "note": "The home address is a later directory's, carried back to the scene window under docs/RESIDENCE-BACK-PROJECTION.md (liberty L223) rather than read from an 1835 source. What is claimed is the street face and nothing narrower."
+      },
+      "replaceable_by": {
+        "kind": "person",
+        "match": "an 1835-window source that gives this person a Chicago home address"
+      }
+    },
+    {
+      "card": "hh_king_nehemiah",
+      "attribute": "directories.people[].residence_back_projection",
+      "outcome": "placed",
+      "clause": "R4 and R5",
+      "kind": "resides",
+      "value": "Lake Street",
+      "confidence": "reconstructed",
+      "tier": "reconstructed",
+      "describes_date": 1844,
+      "read_back_years": 9,
+      "placement": "face",
+      "sources": [
+        "norris_directory_1844"
+      ],
+      "note": "A LATER HOME ADDRESS, READ BACKWARDS 9 YEARS. The street is not an 1835 reading: Norris's Chicago directory of 1844 printed where this person lived in 1844, and this pass carries it back to the scene date because nothing in the 1835 corpus says where the house stood. What is claimed is the street FACE and nothing narrower — no lot, no roof, no door count, and no corner even where the volume prints one — and the grade is `reconstructed`, this dataset's word for a figure the reconstruction supplies rather than a source. Lake Street stands in 1835 under that name and in that place, and the entry prints it as this person's home. So the placement is the FACE and nothing narrower, and no roof is dealt. A home is carried back on a weaker argument than a shop is: a shopfront is capital sunk into one street's trade and a lodging is a month's rent, which is why this policy claims less than docs/ADDRESS-BACK-PROJECTION.md does from the same volume. The rule is docs/RESIDENCE-BACK-PROJECTION.md and the liberty is L223; a reader who thinks 9 years is too far to carry a house should read the grade as the disagreement being invited.",
+      "basis": {
+        "kind": "rule",
+        "id": "residence_back_projection",
+        "note": "The home address is a later directory's, carried back to the scene window under docs/RESIDENCE-BACK-PROJECTION.md (liberty L223) rather than read from an 1835 source. What is claimed is the street face and nothing narrower."
+      },
+      "replaceable_by": {
+        "kind": "person",
+        "match": "an 1835-window source that gives this person a Chicago home address"
+      }
+    },
+    {
+      "card": "hh_kinzie_james",
+      "attribute": "directories.people[].back_projection",
+      "outcome": "placed",
+      "clause": "3 and 4",
+      "value": "Canal Street",
+      "confidence": "reconstructed",
+      "tier": "reconstructed",
+      "describes_date": 1839,
+      "read_back_years": 4,
+      "placement": "face",
+      "position_local_enu_m": null,
+      "sources": [
+        "fergus_chicago_directory_1839"
+      ],
+      "note": "A LATER ADDRESS, READ BACKWARDS 4 YEARS. The door is not an 1835 reading: Fergus's Chicago directory of 1839 printed it in 1839, and this pass carries it back to the scene date because the 1835 record attests a trade for this person and nothing in the corpus places it better. What is claimed is the street face and nothing narrower — no lot, no roof, no door count — and the grade is `reconstructed`, which is this dataset's word for a figure the reconstruction supplies rather than a source. Canal Street stands in 1835 under that name and in that place. The directory gives a street and nothing this pass can resolve narrower, so the placement is the FACE — the unit the owner's ruling of 2026-08-29 says a street name constrains — and no roof is dealt. The rule this stands on is docs/ADDRESS-BACK-PROJECTION.md and the liberty is L218; a reader who thinks 4 years is too far to carry a shop should read the grade as the disagreement being invited.",
+      "basis": {
+        "kind": "rule",
+        "id": "address_back_projection",
+        "note": "The work address is a later directory's, carried back to the scene window under docs/ADDRESS-BACK-PROJECTION.md (liberty L218) rather than read from an 1835 source. What is claimed is the street face and nothing narrower."
+      },
+      "replaceable_by": {
+        "kind": "person",
+        "match": "an 1835-window source that gives this person a Chicago work address"
+      }
+    },
+    {
+      "card": "hh_lacey_j_s",
+      "attribute": "directories.people[].residence_back_projection",
+      "outcome": "placed",
+      "clause": "R4 and R5",
+      "kind": "resides",
+      "value": "North Water Street",
+      "confidence": "reconstructed",
+      "tier": "reconstructed",
+      "describes_date": 1843,
+      "read_back_years": 8,
+      "placement": "face",
+      "sources": [
+        "fergus_chicago_directory_1843"
+      ],
+      "note": "A LATER HOME ADDRESS, READ BACKWARDS 8 YEARS. The street is not an 1835 reading: Fergus's Chicago directory of 1843 printed where this person lived in 1843, and this pass carries it back to the scene date because nothing in the 1835 corpus says where the house stood. What is claimed is the street FACE and nothing narrower — no lot, no roof, no door count, and no corner even where the volume prints one — and the grade is `reconstructed`, this dataset's word for a figure the reconstruction supplies rather than a source. North Water Street stands in 1835 under that name and in that place, and the entry prints it as this person's home. The volume narrows it further — it names Dearborn Street and Wolcott Street — and clause R5 declines to take the point: a corner or a run between two crossings is a fact about the numbered grid of the 1840s, and a house moves more than a shopfront does. So the placement is the FACE and nothing narrower, and no roof is dealt. A home is carried back on a weaker argument than a shop is: a shopfront is capital sunk into one street's trade and a lodging is a month's rent, which is why this policy claims less than docs/ADDRESS-BACK-PROJECTION.md does from the same volume. The rule is docs/RESIDENCE-BACK-PROJECTION.md and the liberty is L223; a reader who thinks 8 years is too far to carry a house should read the grade as the disagreement being invited.",
+      "basis": {
+        "kind": "rule",
+        "id": "residence_back_projection",
+        "note": "The home address is a later directory's, carried back to the scene window under docs/RESIDENCE-BACK-PROJECTION.md (liberty L223) rather than read from an 1835 source. What is claimed is the street face and nothing narrower."
+      },
+      "replaceable_by": {
+        "kind": "person",
+        "match": "an 1835-window source that gives this person a Chicago home address"
+      }
+    },
+    {
+      "card": "hh_lloyd_alexander",
+      "attribute": "directories.people[].residence_back_projection",
+      "outcome": "placed",
+      "clause": "R4 and R5",
+      "kind": "resides",
+      "value": "Wells Street",
+      "confidence": "reconstructed",
+      "tier": "reconstructed",
+      "describes_date": 1844,
+      "read_back_years": 9,
+      "placement": "face",
+      "sources": [
+        "norris_directory_1844"
+      ],
+      "note": "A LATER HOME ADDRESS, READ BACKWARDS 9 YEARS. The street is not an 1835 reading: Norris's Chicago directory of 1844 printed where this person lived in 1844, and this pass carries it back to the scene date because nothing in the 1835 corpus says where the house stood. What is claimed is the street FACE and nothing narrower — no lot, no roof, no door count, and no corner even where the volume prints one — and the grade is `reconstructed`, this dataset's word for a figure the reconstruction supplies rather than a source. Wells Street stands in 1835 under that name and in that place, and the entry prints it as this person's home. The volume narrows it further — it names Lake Street and Randolph Street — and clause R5 declines to take the point: a corner or a run between two crossings is a fact about the numbered grid of the 1840s, and a house moves more than a shopfront does. So the placement is the FACE and nothing narrower, and no roof is dealt. A home is carried back on a weaker argument than a shop is: a shopfront is capital sunk into one street's trade and a lodging is a month's rent, which is why this policy claims less than docs/ADDRESS-BACK-PROJECTION.md does from the same volume. The rule is docs/RESIDENCE-BACK-PROJECTION.md and the liberty is L223; a reader who thinks 9 years is too far to carry a house should read the grade as the disagreement being invited.",
+      "basis": {
+        "kind": "rule",
+        "id": "residence_back_projection",
+        "note": "The home address is a later directory's, carried back to the scene window under docs/RESIDENCE-BACK-PROJECTION.md (liberty L223) rather than read from an 1835 source. What is claimed is the street face and nothing narrower."
+      },
+      "replaceable_by": {
+        "kind": "person",
+        "match": "an 1835-window source that gives this person a Chicago home address"
+      }
+    },
+    {
+      "card": "hh_marsh_silvester",
+      "attribute": "directories.people[].residence_back_projection",
+      "outcome": "placed",
+      "clause": "R4 and R5",
+      "kind": "resides",
+      "value": "North Water Street",
+      "confidence": "reconstructed",
+      "tier": "reconstructed",
+      "describes_date": 1844,
+      "read_back_years": 9,
+      "placement": "face",
+      "sources": [
+        "norris_directory_1844"
+      ],
+      "note": "A LATER HOME ADDRESS, READ BACKWARDS 9 YEARS. The street is not an 1835 reading: Norris's Chicago directory of 1844 printed where this person lived in 1844, and this pass carries it back to the scene date because nothing in the 1835 corpus says where the house stood. What is claimed is the street FACE and nothing narrower — no lot, no roof, no door count, and no corner even where the volume prints one — and the grade is `reconstructed`, this dataset's word for a figure the reconstruction supplies rather than a source. North Water Street stands in 1835 under that name and in that place, and the entry prints it as this person's home. So the placement is the FACE and nothing narrower, and no roof is dealt. A home is carried back on a weaker argument than a shop is: a shopfront is capital sunk into one street's trade and a lodging is a month's rent, which is why this policy claims less than docs/ADDRESS-BACK-PROJECTION.md does from the same volume. The rule is docs/RESIDENCE-BACK-PROJECTION.md and the liberty is L223; a reader who thinks 9 years is too far to carry a house should read the grade as the disagreement being invited.",
+      "basis": {
+        "kind": "rule",
+        "id": "residence_back_projection",
+        "note": "The home address is a later directory's, carried back to the scene window under docs/RESIDENCE-BACK-PROJECTION.md (liberty L223) rather than read from an 1835 source. What is claimed is the street face and nothing narrower."
+      },
+      "replaceable_by": {
+        "kind": "person",
+        "match": "an 1835-window source that gives this person a Chicago home address"
+      }
+    },
+    {
+      "card": "hh_marshall_j_a",
+      "attribute": "directories.people[].back_projection",
+      "outcome": "placed",
+      "clause": "3 and 4",
+      "value": "South Water Street",
+      "confidence": "reconstructed",
+      "tier": "reconstructed",
+      "describes_date": 1839,
+      "read_back_years": 4,
+      "placement": "face",
+      "position_local_enu_m": null,
+      "sources": [
+        "fergus_chicago_directory_1839"
+      ],
+      "note": "A LATER ADDRESS, READ BACKWARDS 4 YEARS. The door is not an 1835 reading: Fergus's Chicago directory of 1839 printed it in 1839, and this pass carries it back to the scene date because the 1835 record attests a trade for this person and nothing in the corpus places it better. What is claimed is the street face and nothing narrower — no lot, no roof, no door count — and the grade is `reconstructed`, which is this dataset's word for a figure the reconstruction supplies rather than a source. South Water Street stands in 1835 under that name and in that place. The directory gives a street and nothing this pass can resolve narrower, so the placement is the FACE — the unit the owner's ruling of 2026-08-29 says a street name constrains — and no roof is dealt. The rule this stands on is docs/ADDRESS-BACK-PROJECTION.md and the liberty is L218; a reader who thinks 4 years is too far to carry a shop should read the grade as the disagreement being invited.",
+      "basis": {
+        "kind": "rule",
+        "id": "address_back_projection",
+        "note": "The work address is a later directory's, carried back to the scene window under docs/ADDRESS-BACK-PROJECTION.md (liberty L218) rather than read from an 1835 source. What is claimed is the street face and nothing narrower."
+      },
+      "replaceable_by": {
+        "kind": "person",
+        "match": "an 1835-window source that gives this person a Chicago work address"
+      }
+    },
+    {
+      "card": "hh_meeker_joseph",
+      "attribute": "directories.people[].back_projection",
+      "outcome": "placed",
+      "clause": "3 and 4",
+      "value": "Clark Street",
+      "confidence": "reconstructed",
+      "tier": "reconstructed",
+      "describes_date": 1839,
+      "read_back_years": 4,
+      "placement": "face",
+      "position_local_enu_m": null,
+      "sources": [
+        "fergus_chicago_directory_1839"
+      ],
+      "note": "A LATER ADDRESS, READ BACKWARDS 4 YEARS. The door is not an 1835 reading: Fergus's Chicago directory of 1839 printed it in 1839, and this pass carries it back to the scene date because the 1835 record attests a trade for this person and nothing in the corpus places it better. What is claimed is the street face and nothing narrower — no lot, no roof, no door count — and the grade is `reconstructed`, which is this dataset's word for a figure the reconstruction supplies rather than a source. Clark Street stands in 1835 under that name and in that place. The directory gives a street and nothing this pass can resolve narrower, so the placement is the FACE — the unit the owner's ruling of 2026-08-29 says a street name constrains — and no roof is dealt. The rule this stands on is docs/ADDRESS-BACK-PROJECTION.md and the liberty is L218; a reader who thinks 4 years is too far to carry a shop should read the grade as the disagreement being invited.",
+      "basis": {
+        "kind": "rule",
+        "id": "address_back_projection",
+        "note": "The work address is a later directory's, carried back to the scene window under docs/ADDRESS-BACK-PROJECTION.md (liberty L218) rather than read from an 1835 source. What is claimed is the street face and nothing narrower."
+      },
+      "replaceable_by": {
+        "kind": "person",
+        "match": "an 1835-window source that gives this person a Chicago work address"
+      }
+    },
+    {
+      "card": "hh_montgomery_l_w",
+      "attribute": "directories.people[].residence_back_projection",
+      "outcome": "placed",
+      "clause": "R4 and R5",
+      "kind": "resides",
+      "value": "Market Street",
+      "confidence": "reconstructed",
+      "tier": "reconstructed",
+      "describes_date": 1843,
+      "read_back_years": 8,
+      "placement": "face",
+      "sources": [
+        "fergus_chicago_directory_1843"
+      ],
+      "note": "A LATER HOME ADDRESS, READ BACKWARDS 8 YEARS. The street is not an 1835 reading: Fergus's Chicago directory of 1843 printed where this person lived in 1843, and this pass carries it back to the scene date because nothing in the 1835 corpus says where the house stood. What is claimed is the street FACE and nothing narrower — no lot, no roof, no door count, and no corner even where the volume prints one — and the grade is `reconstructed`, this dataset's word for a figure the reconstruction supplies rather than a source. Market Street stands in 1835 under that name and in that place, and the entry prints it as this person's home. So the placement is the FACE and nothing narrower, and no roof is dealt. A home is carried back on a weaker argument than a shop is: a shopfront is capital sunk into one street's trade and a lodging is a month's rent, which is why this policy claims less than docs/ADDRESS-BACK-PROJECTION.md does from the same volume. The rule is docs/RESIDENCE-BACK-PROJECTION.md and the liberty is L223; a reader who thinks 8 years is too far to carry a house should read the grade as the disagreement being invited.",
+      "basis": {
+        "kind": "rule",
+        "id": "residence_back_projection",
+        "note": "The home address is a later directory's, carried back to the scene window under docs/RESIDENCE-BACK-PROJECTION.md (liberty L223) rather than read from an 1835 source. What is claimed is the street face and nothing narrower."
+      },
+      "replaceable_by": {
+        "kind": "person",
+        "match": "an 1835-window source that gives this person a Chicago home address"
+      }
+    },
+    {
+      "card": "hh_moore_henry",
+      "attribute": "directories.people[].back_projection",
+      "outcome": "placed",
+      "clause": "3 and 4",
+      "value": "Clark Street",
+      "confidence": "reconstructed",
+      "tier": "reconstructed",
+      "describes_date": 1839,
+      "read_back_years": 4,
+      "placement": "face",
+      "position_local_enu_m": null,
+      "sources": [
+        "fergus_chicago_directory_1839"
+      ],
+      "note": "A LATER ADDRESS, READ BACKWARDS 4 YEARS. The door is not an 1835 reading: Fergus's Chicago directory of 1839 printed it in 1839, and this pass carries it back to the scene date because the 1835 record attests a trade for this person and nothing in the corpus places it better. What is claimed is the street face and nothing narrower — no lot, no roof, no door count — and the grade is `reconstructed`, which is this dataset's word for a figure the reconstruction supplies rather than a source. Clark Street stands in 1835 under that name and in that place. The directory gives a street and nothing this pass can resolve narrower, so the placement is the FACE — the unit the owner's ruling of 2026-08-29 says a street name constrains — and no roof is dealt. The rule this stands on is docs/ADDRESS-BACK-PROJECTION.md and the liberty is L218; a reader who thinks 4 years is too far to carry a shop should read the grade as the disagreement being invited.",
+      "basis": {
+        "kind": "rule",
+        "id": "address_back_projection",
+        "note": "The work address is a later directory's, carried back to the scene window under docs/ADDRESS-BACK-PROJECTION.md (liberty L218) rather than read from an 1835 source. What is claimed is the street face and nothing narrower."
+      },
+      "replaceable_by": {
+        "kind": "person",
+        "match": "an 1835-window source that gives this person a Chicago work address"
+      }
+    },
+    {
+      "card": "hh_myers_frederick",
+      "attribute": "directories.people[].back_projection",
+      "outcome": "placed",
+      "clause": "3 and 4",
+      "value": "North Water Street",
+      "confidence": "reconstructed",
+      "tier": "reconstructed",
+      "describes_date": 1839,
+      "read_back_years": 4,
+      "placement": "face",
+      "position_local_enu_m": null,
+      "sources": [
+        "fergus_chicago_directory_1839"
+      ],
+      "note": "A LATER ADDRESS, READ BACKWARDS 4 YEARS. The door is not an 1835 reading: Fergus's Chicago directory of 1839 printed it in 1839, and this pass carries it back to the scene date because the 1835 record attests a trade for this person and nothing in the corpus places it better. What is claimed is the street face and nothing narrower — no lot, no roof, no door count — and the grade is `reconstructed`, which is this dataset's word for a figure the reconstruction supplies rather than a source. North Water Street stands in 1835 under that name and in that place. The directory gives a street and nothing this pass can resolve narrower, so the placement is the FACE — the unit the owner's ruling of 2026-08-29 says a street name constrains — and no roof is dealt. The rule this stands on is docs/ADDRESS-BACK-PROJECTION.md and the liberty is L218; a reader who thinks 4 years is too far to carry a shop should read the grade as the disagreement being invited.",
+      "basis": {
+        "kind": "rule",
+        "id": "address_back_projection",
+        "note": "The work address is a later directory's, carried back to the scene window under docs/ADDRESS-BACK-PROJECTION.md (liberty L218) rather than read from an 1835 source. What is claimed is the street face and nothing narrower."
+      },
+      "replaceable_by": {
+        "kind": "person",
+        "match": "an 1835-window source that gives this person a Chicago work address"
+      }
+    },
+    {
+      "card": "hh_porthier_joseph",
+      "attribute": "arrival",
+      "value": "1830",
+      "confidence": "reconstructed",
+      "tier": "reconstructed",
+      "note": "NOT ATTESTED. He is a member of the agency establishment under Owen, whose agency runs from 1831; the Porthier family is at Chicago earlier. 1830 is the earliest year this project can argue and it cites nothing.",
+      "precision": "year",
+      "basis": {
+        "kind": "rule",
+        "id": "arrival_earliest_year_forced",
+        "note": "No source dates the coming. The value is the earliest year the committed evidence forces, carried at the precision the note states."
+      },
+      "replaceable_by": {
+        "kind": "person",
+        "match": "a dated source that says when this person came to Chicago"
+      }
+    },
+    {
+      "card": "hh_sabine_wm",
+      "attribute": "directories.people[].back_projection",
+      "outcome": "placed",
+      "clause": "3 and 4",
+      "value": "Lake Street",
+      "confidence": "reconstructed",
+      "tier": "reconstructed",
+      "describes_date": 1839,
+      "read_back_years": 4,
+      "placement": "face",
+      "position_local_enu_m": null,
+      "sources": [
+        "fergus_chicago_directory_1839"
+      ],
+      "note": "A LATER ADDRESS, READ BACKWARDS 4 YEARS. The door is not an 1835 reading: Fergus's Chicago directory of 1839 printed it in 1839, and this pass carries it back to the scene date because the 1835 record attests a trade for this person and nothing in the corpus places it better. What is claimed is the street face and nothing narrower — no lot, no roof, no door count — and the grade is `reconstructed`, which is this dataset's word for a figure the reconstruction supplies rather than a source. Lake Street stands in 1835 under that name and in that place. The directory gives a street and nothing this pass can resolve narrower, so the placement is the FACE — the unit the owner's ruling of 2026-08-29 says a street name constrains — and no roof is dealt. The rule this stands on is docs/ADDRESS-BACK-PROJECTION.md and the liberty is L218; a reader who thinks 4 years is too far to carry a shop should read the grade as the disagreement being invited.",
+      "basis": {
+        "kind": "rule",
+        "id": "address_back_projection",
+        "note": "The work address is a later directory's, carried back to the scene window under docs/ADDRESS-BACK-PROJECTION.md (liberty L218) rather than read from an 1835 source. What is claimed is the street face and nothing narrower."
+      },
+      "replaceable_by": {
+        "kind": "person",
+        "match": "an 1835-window source that gives this person a Chicago work address"
+      }
+    },
+    {
+      "card": "hh_smith_george",
+      "attribute": "directories.people[].back_projection",
+      "outcome": "placed",
+      "clause": "3 and 4",
+      "value": "North Water Street",
+      "confidence": "reconstructed",
+      "tier": "reconstructed",
+      "describes_date": 1839,
+      "read_back_years": 4,
+      "placement": "face",
+      "position_local_enu_m": null,
+      "sources": [
+        "fergus_chicago_directory_1839"
+      ],
+      "note": "A LATER ADDRESS, READ BACKWARDS 4 YEARS. The door is not an 1835 reading: Fergus's Chicago directory of 1839 printed it in 1839, and this pass carries it back to the scene date because the 1835 record attests a trade for this person and nothing in the corpus places it better. What is claimed is the street face and nothing narrower — no lot, no roof, no door count — and the grade is `reconstructed`, which is this dataset's word for a figure the reconstruction supplies rather than a source. North Water Street stands in 1835 under that name and in that place. The directory gives a street and nothing this pass can resolve narrower, so the placement is the FACE — the unit the owner's ruling of 2026-08-29 says a street name constrains — and no roof is dealt. The rule this stands on is docs/ADDRESS-BACK-PROJECTION.md and the liberty is L218; a reader who thinks 4 years is too far to carry a shop should read the grade as the disagreement being invited.",
+      "basis": {
+        "kind": "rule",
+        "id": "address_back_projection",
+        "note": "The work address is a later directory's, carried back to the scene window under docs/ADDRESS-BACK-PROJECTION.md (liberty L218) rather than read from an 1835 source. What is claimed is the street face and nothing narrower."
+      },
+      "replaceable_by": {
+        "kind": "person",
+        "match": "an 1835-window source that gives this person a Chicago work address"
+      }
+    },
+    {
+      "card": "hh_stewart_r",
+      "attribute": "directories.people[].back_projection",
+      "outcome": "placed",
+      "clause": "3 and 4",
+      "value": "Lake Street",
+      "confidence": "reconstructed",
+      "tier": "reconstructed",
+      "describes_date": 1839,
+      "read_back_years": 4,
+      "placement": "face",
+      "position_local_enu_m": null,
+      "sources": [
+        "fergus_chicago_directory_1839"
+      ],
+      "note": "A LATER ADDRESS, READ BACKWARDS 4 YEARS. The door is not an 1835 reading: Fergus's Chicago directory of 1839 printed it in 1839, and this pass carries it back to the scene date because the 1835 record attests a trade for this person and nothing in the corpus places it better. What is claimed is the street face and nothing narrower — no lot, no roof, no door count — and the grade is `reconstructed`, which is this dataset's word for a figure the reconstruction supplies rather than a source. Lake Street stands in 1835 under that name and in that place. The directory gives a street and nothing this pass can resolve narrower, so the placement is the FACE — the unit the owner's ruling of 2026-08-29 says a street name constrains — and no roof is dealt. The rule this stands on is docs/ADDRESS-BACK-PROJECTION.md and the liberty is L218; a reader who thinks 4 years is too far to carry a shop should read the grade as the disagreement being invited.",
+      "basis": {
+        "kind": "rule",
+        "id": "address_back_projection",
+        "note": "The work address is a later directory's, carried back to the scene window under docs/ADDRESS-BACK-PROJECTION.md (liberty L218) rather than read from an 1835 source. What is claimed is the street face and nothing narrower."
+      },
+      "replaceable_by": {
+        "kind": "person",
+        "match": "an 1835-window source that gives this person a Chicago work address"
+      }
+    },
+    {
+      "card": "hh_wright_john",
+      "attribute": "directories.people[].back_projection",
+      "outcome": "placed",
+      "clause": "3 and 4",
+      "value": "North Water Street",
+      "confidence": "reconstructed",
+      "tier": "reconstructed",
+      "describes_date": 1839,
+      "read_back_years": 4,
+      "placement": "face",
+      "position_local_enu_m": null,
+      "sources": [
+        "fergus_chicago_directory_1839"
+      ],
+      "note": "A LATER ADDRESS, READ BACKWARDS 4 YEARS. The door is not an 1835 reading: Fergus's Chicago directory of 1839 printed it in 1839, and this pass carries it back to the scene date because the 1835 record attests a trade for this person and nothing in the corpus places it better. What is claimed is the street face and nothing narrower — no lot, no roof, no door count — and the grade is `reconstructed`, which is this dataset's word for a figure the reconstruction supplies rather than a source. North Water Street stands in 1835 under that name and in that place. The directory gives a street and nothing this pass can resolve narrower, so the placement is the FACE — the unit the owner's ruling of 2026-08-29 says a street name constrains — and no roof is dealt. The rule this stands on is docs/ADDRESS-BACK-PROJECTION.md and the liberty is L218; a reader who thinks 4 years is too far to carry a shop should read the grade as the disagreement being invited.",
+      "basis": {
+        "kind": "rule",
+        "id": "address_back_projection",
+        "note": "The work address is a later directory's, carried back to the scene window under docs/ADDRESS-BACK-PROJECTION.md (liberty L218) rather than read from an 1835 source. What is claimed is the street face and nothing narrower."
+      },
+      "replaceable_by": {
+        "kind": "person",
+        "match": "an 1835-window source that gives this person a Chicago work address"
+      }
+    }
+  ]
+}

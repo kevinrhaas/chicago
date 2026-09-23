@@ -1,0 +1,26 @@
+{
+  "id": "census_1840_chicago_familysearch_images",
+  "type": "manuscript",
+  "citation": "1840 U.S. Census, population schedules, Chicago, Cook County, Illinois \u2014 FamilySearch digital images of the enumerator's sheets, division of S. W. Sherman.",
+  "date": "1840",
+  "describes_date": "1840",
+  "locator": "chicago/reference/census1840/ \u2014 74 distinct JPEG page images in 75 files (33S7-9YYJ-*, 33SQ-GYYJ-*, 33S7-9YYN-*, 33SQ-GYYN-*); '33S7-9YYJ-9WF (1).jpg' is a byte-identical second copy of '33S7-9YYJ-9WF.jpg' and is not a distinct page",
+  "repository": "FamilySearch, collection 1786457 (login-walled); the images are held in this repository's read-only reference deposit",
+  "tier": 1,
+  "rights_status": "public_domain",
+  "asset_use": "text_only",
+  "verified": true,
+  "what_it_supplies": [
+    "the names of heads of families as written, in enumeration order",
+    "each household's line position on its printed page",
+    "the 13 free-white male and 13 free-white female age-band tallies",
+    "free coloured male and female counts",
+    "on the continuation sheets: the family total, the six industry columns, pensioners for revolutionary or military service, deaf/dumb/blind, and the schools and illiteracy columns"
+  ],
+  "what_it_does_not_supply": [
+    "any address, street or lot",
+    "any member of a household other than its head, by name",
+    "any statement about 1835 \u2014 it is later evidence and cannot on its own place a person in the scene"
+  ],
+  "note": "The senior reading for this census. Where the recovered v4 workbook transcription (census_1840_chicago_v4_research) and these sheets disagree, the sheet is taken as senior and both readings are kept \u2014 see data/research/census_1840/crosswalk_670.json."
+}

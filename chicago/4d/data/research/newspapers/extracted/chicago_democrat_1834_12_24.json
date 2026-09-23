@@ -1,0 +1,508 @@
+{
+  "schema": 1,
+  "issue_id": "chicago_democrat_1834_12_24",
+  "extracted": "2026-08-29",
+  "extracted_by": "hand, T-0294 — the Democrat read, December 1834",
+  "note": "Vol. II No. 4, the last number of the month and the year. Page 3 column 5 is the only Tesseract fallback in the issue and it is the single most legible column of the whole month — one physical column, full sentences — and it carries the month's legal business: two estates administered, a chancery order returnable at the Court House at Chicago, and an auction of a dead man's stock and furniture at Bates' Auction Room on the last Wednesday of the year. NO POST-OFFICE LETTER LIST OF ANY OFFICE STANDS IN THIS ISSUE. AMENDED BY T-0328 on 2026-08-29: the lot number c012 disagrees with 1834-12-17 c006 about is settled at LOT 2, on three earlier printings of the same standing advertisement that no page image was needed to read.",
+  "claims": [
+    {
+      "id": "c001",
+      "kind": "business",
+      "reading": "transcription_mediated",
+      "quote": "Auction Notice.\nGARRETT,\nChieago, and the adjscent towns, that he\nuns taken a Store in\nSouth-Water street\nBusineas in general,\nin all its various branches,\nstion nne commissio\nand will keep constantly on hand a general as\nsortment of\nDr Soods and Shoes, ready madle Clothst\nGoods, Groceries, Hardear, Crockery,\nwill st\nany\nime attend out deor sales\nCountry dealers will find it much to\nBalca shall be peremsorily. Small\ntheir interest to purchase\ntheir goods bere,\nwill have publi\nns often as twice\nweek,\nfresh sapply of seasonable\ndi2t. B. Public notice will be given in time pri-\nor to sales.\nDee. 16, 1834.-3",
+      "normalized": "Auction Notice. [A.] GARRETT [respectfully informs the citizens of] Chicago, and the adjacent towns, that he [has] taken a Store in South-Water street[, … for the purpose of carrying on the Au]ction and Commissio[n] Business in general, in all its various branches, and will keep constantly on hand a general as[s]ortment of Dry [Goods, Boots] and Shoes, ready ma[d]e Cloth[ing, … ] Goods, Groceries, Hard[w]ar[e], Crockery, and whatever else may [offer. He] will at any [t]ime attend out d[o]or sales [… Country dealers will find it much to] their interest to purchase their goods here, [… ] [Sa]l[e]s shall be peremptorily [made, … ] will have publi[c sales] as often as twice in [a] week, [… ] with a fresh supply of seasonable [goods … ] N. B. Public notice will be given in time prior to sales. Dec. 16, 1834. — 3",
+      "locator": {
+        "artifact_role": "primary",
+        "issue_page": 3,
+        "column": 3,
+        "lines": [
+          3162,
+          3202
+        ],
+        "lines_of_claim": [
+          3162,
+          3164,
+          3165,
+          3166,
+          3167,
+          3168,
+          3169,
+          3170,
+          3171,
+          3172,
+          3173,
+          3174,
+          3176,
+          3177,
+          3178,
+          3180,
+          3181,
+          3183,
+          3184,
+          3187,
+          3188,
+          3193,
+          3195,
+          3200,
+          3201,
+          3202
+        ],
+        "interleaved": true
+      },
+      "entities": [
+        {
+          "as_printed": "GARRETT,",
+          "normalized": "A. Garrett",
+          "role": "proprietor",
+          "occupations": [
+            "auction and commission merchant"
+          ]
+        }
+      ],
+      "notes": "THE FULL TEXT OF THE NOTICE WHOSE FIRST PRINTING IS CLAIMED AT 1834-12-17 c001, AND IT IS THE ONE THAT SAYS WHAT THE SHOP DID: public sales twice a week, out-door sales on request, peremptory terms, and public notice before each. Twice-weekly auctions are a quantity of street activity a reconstruction can actually stage. THE PLACEMENT ANCHOR IS CARRIED OVER FROM THE 17 DECEMBER PRINTING and its offset text is quoted from there, because this setting keeps the street and loses “near the bridge”; recording the business twice with the same anchor is what makes the two printings one storefront in the gazetteer rather than two. Garrett's is the only NEW Chicago storefront the month announces.",
+      "ad_copy_date": {
+        "verbatim": "Dee. 16, 1834.-3",
+        "iso": "1834-12-16"
+      },
+      "business": {
+        "name": "A. Garrett",
+        "proprietors": [
+          "A. Garrett"
+        ],
+        "trade": "auction and commission",
+        "goods": [
+          "dry goods",
+          "groceries",
+          "hardware",
+          "crockery",
+          "boots and shoes",
+          "ready made clothing"
+        ],
+        "street": "South Water street",
+        "placement": {
+          "class": "relative",
+          "anchor": "the bridge",
+          "offset_text": "lridge, for the parp"
+        }
+      }
+    },
+    {
+      "id": "c002",
+      "kind": "infrastructure",
+      "reading": "transcription_mediated",
+      "quote": "ITIZENS intending to\nto the Lyceum, are requeated\nmake donations ofbook:\nEntrance\nfirst door north of\nthe office\nMesers. Jones & King south water street.\nsoon as convenient, that the committee on the\nis desirable that such books should be left as\nLibrary may act understandingly in the pur-\nchase of new works.\nDec. 17.",
+      "normalized": "[C]ITIZENS intending to make donations of book[s] to the Lyceum, are requested [to leave them at] the office [of] Messrs. Jones & King, south water street. Entrance first door north of [… It] is desirable that such books should be left as soon as convenient, that the committee on the Library may act understandingly in the purchase of new works. Dec. 17.",
+      "locator": {
+        "artifact_role": "primary",
+        "issue_page": 3,
+        "column": 3,
+        "lines": [
+          3134,
+          3145
+        ]
+      },
+      "entities": [
+        {
+          "as_printed": "Mesers. Jones & King",
+          "normalized": "Jones & King",
+          "role": "host"
+        }
+      ],
+      "notes": "THE LIBRARY THE TOWN VOTED FOR IN NOVEMBER IS COLLECTING BOOKS BY CHRISTMAS, AND IT HAS AN ADDRESS. T-0293 read the founding call at 1834-11-26 c001 — a meeting of citizens favourable to the establishment of a Library and Reading Room, at the Presbyterian church, on Thursday 27 November — and the notice here is what came of it four weeks later: a committee, a purchasing plan, and a drop-off point at Messrs. Jones & King's office on south water street, entrance first door north of something the column cut away. So the Lyceum's library begins life inside a hardware merchant's counting room, and Jones & King's office gets a documented street and a documented door — the only placement evidence this corpus carries for that firm. The clause is set in two woven half-columns here and the unshuffling is stated in `normalized`; the 1834-12-17 printing (page 3 column 2) is the worse witness and is not claimed.",
+      "ad_copy_date": {
+        "verbatim": "Dec. 17.",
+        "iso": "1834-12-17"
+      }
+    },
+    {
+      "id": "c003",
+      "kind": "notice",
+      "reading": "transcription_mediated",
+      "quote": "Administrator's Notice.\n- ETTERS of Administration upon the es- We\nA tate of Daniel Outhet, deceased, having\non granted to the undersigned, by tho eourt Sq\nProbate of Cook county + all porsons having\nima against ssid estate, aro requosted to file V\nem in the office of tho Judge of Probate for},\nid county, within nine months fiom this date, ” se\ndi all persons owing said estate are requested —-\nmake immediate payments to tho undersign-\n.——Dee, 1, 1834, G, W, SNOW,\nibtic Adm'r uf Caok co. and Adm'r. of the cs- A\ntate of D. Outhet, dec’ d.—-1wA, qn",
+      "normalized": "Administrator's Notice. [L]ETTERS of Administration upon the es[tate of] Daniel Outhet, deceased, having [be]en granted to the undersigned, by the court of Probate of Cook county: all persons having [cla]ims against said estate, are requested to file [th]em in the office of the Judge of Probate for [sa]id county, within nine months from this date, [an]d all persons owing said estate are requested [to] make immediate payments to the undersigned. — Dec. 1, 1834. G. W. SNOW, [P]ublic Adm'r of Cook co. and Adm'r. of the [es]tate of D. Outhet, dec'd. — 1w4.",
+      "locator": {
+        "artifact_role": "primary",
+        "issue_page": 3,
+        "column": 5,
+        "lines": [
+          3442,
+          3454
+        ]
+      },
+      "entities": [
+        {
+          "as_printed": "Daniel Outhet",
+          "normalized": "Daniel Outhet",
+          "role": "decedent"
+        },
+        {
+          "as_printed": "G, W, SNOW,",
+          "normalized": "G. W. Snow",
+          "role": "official",
+          "occupations": [
+            "Public Administrator of Cook county"
+          ]
+        }
+      ],
+      "notes": "A DEATH IN THE TOWN, AND THE COUNTY'S PUBLIC ADMINISTRATOR TAKING IT ON — which is what happens when there is no widow or executor to do it. G. W. Snow administers TWO estates in this one issue, Outhet's and David Laughton's (c005), both dated 1 December 1834, so the first week of the month buried at least two men in Cook county. The Judge of Probate's office is named as a place claims are filed at, which puts another county room in the town beside the Clerk of the Circuit Court's (1834-12-03 c011). Nine months from 1 December runs to September 1835, past the scene date, so both estates are still open on 1 July 1835.",
+      "ad_copy_date": {
+        "verbatim": ".——Dee, 1, 1834, G, W, SNOW,",
+        "iso": "1834-12-01"
+      }
+    },
+    {
+      "id": "c004",
+      "kind": "event",
+      "reading": "transcription_mediated",
+      "quote": "Administrator’s Notice. |g;\nY he be old at Public Auction, at Bates’ 2\nAuction Room in Chicago, on Wednes-\nxy the 31st of December inst. at 10 o’cleck A.\n|; all the personal properity of Dimicl Outhet, | sale\nveased, consisting ot Stock, Furniture, &e.| | &\nec, 3, 1834, G. W. SNOW, |ar5\nUblie ‘Adm'r of Cook co. and: Adm'r of the eatate| J\nof D, Outhet, doc'd.—lwa. —_—\nN. B. A credit of six months willbe givenon|\nams over fivo dollars, by giving approved secu-\nty,",
+      "normalized": "Administrator's Notice. [Will] be [s]old at Public Auction, at Bates' Auction Room in Chicago, on Wednes[da]y the 31st of December inst. at 10 o'clock A.[M.,] all the personal prope[r]ty of D[a]niel Outhet, [de]ceased, consisting of Stock, Furniture, &c. [D]ec. 3, 1834, G. W. SNOW, [P]ublic Adm'r of Cook co. and Adm'r of the estate of D. Outhet, dec'd. — 1w4. N. B. A credit of six months will be given on [su]ms over five dollars, by giving approved secu[ri]ty.",
+      "locator": {
+        "artifact_role": "primary",
+        "issue_page": 3,
+        "column": 5,
+        "lines": [
+          3456,
+          3467
+        ]
+      },
+      "entities": [
+        {
+          "as_printed": "G. W. SNOW,",
+          "normalized": "G. W. Snow",
+          "role": "official",
+          "occupations": [
+            "Public Administrator of Cook county"
+          ]
+        }
+      ],
+      "notes": "A DATED, TIMED, PLACED EVENT — ten o'clock on the morning of Wednesday 31 December 1834, at Bates' Auction Room in Chicago — which is the kind of thing a walkable reconstruction can actually stage. It also names a room the gazetteer did not have: BATES' AUCTION ROOM, distinct from David Carver's auction and commission store on South Water street (1834-12-03 c010's neighbour on page 4) and from A. Garrett's new store near the bridge (c001), so Chicago supports THREE auction rooms in December 1834. J. Bates jr. already stands in the gazetteer with an auction store anchored on “the Street leading from the draw-bridge to the oak woods and Blue Island”; this notice does not repeat that placement and none is asserted here. Six months' credit on anything over five dollars is the issue's clearest statement of how little cash the town had.",
+      "ad_copy_date": {
+        "verbatim": "ec, 3, 1834, G. W. SNOW, |ar5",
+        "iso": "1834-12-03"
+      }
+    },
+    {
+      "id": "c005",
+      "kind": "notice",
+      "reading": "transcription_mediated",
+      "quote": "Administrator’s Notice. 4 |\nBeen of Administration upon the ea| 19}\ntate of Darid Lasghton, deecasod, havin bes\neen granted to the undersigned by the court of| gy)\nrobate of Cook eounty: all persons having | 9q ,\nlnims againet said cstate are requested to fle\nhem in the office of the Seige of Probate for]\naid county, within nine montks from this date, | —\nnd all persons owing said estato are roquested\no make immediate payment to tho undersign>\nd.— Dee, 1, 1804, G. W, SNOW, ny\nPublic Adm’r of Cook eo. and Adm'r, of the e-",
+      "normalized": "Administrator's Notice. [Letters] of Administration upon the e[s]tate of D[av]id La[u]ghton, deceased, having been granted to the undersigned by the court of [P]robate of Cook county: all persons having [c]laims against said estate are requested to f[i]le [t]hem in the office of the [Judge] of Probate for [s]aid county, within nine mont[h]s from this date, [a]nd all persons owing said estate are requested [t]o make immediate payment to the undersigne[d]. — Dec. 1, 18[3]4. G. W. SNOW, Public Adm'r of Cook co. and Adm'r. of the e[state of D. Laughton, dec'd.]",
+      "locator": {
+        "artifact_role": "primary",
+        "issue_page": 3,
+        "column": 5,
+        "lines": [
+          3469,
+          3480
+        ]
+      },
+      "entities": [
+        {
+          "as_printed": "Darid Lasghton",
+          "normalized": "David Laughton",
+          "role": "decedent"
+        },
+        {
+          "as_printed": "G, W, SNOW,",
+          "normalized": "G. W. Snow",
+          "role": "official",
+          "occupations": [
+            "Public Administrator of Cook county"
+          ]
+        }
+      ],
+      "notes": "DAVID LAUGHTON IS DEAD BEFORE THE SCENE DATE, AND THE PAPER SAYS SO IN PLAIN PROBATE LANGUAGE. The Laughtons kept the tavern and trading house on the Des Plaines west of the town, on the road every traveller from the south and west came in on; a reconstruction of July 1835 that puts him behind that bar would be putting a dead man there. This is exactly the class of fact the epic exists to catch — not a new building, but a correction to who was alive in the scene — and it is documented, dated 1 December 1834, and administered by the county rather than by a family, which is itself a fact about the household. The second printing of the same notice stands at 1834-12-03 page 3 column 2 in a badly interleaved column; this is the legible witness.",
+      "ad_copy_date": {
+        "verbatim": "d.— Dee, 1, 1804, G, W, SNOW, ny",
+        "iso": "1834-12-01"
+      }
+    },
+    {
+      "id": "c006",
+      "kind": "infrastructure",
+      "reading": "transcription_mediated",
+      "quote": "ICHAEL P. Weeem, J 0-  % Pipette\nNHIS day care th plant, by har soi wit\n, and it appoaring to the satisfaction of\nir, that the defendants Michael P. Welch, is|\nan inhabitant ofthis State, and he having\nenter his appearance therein,\ned, on motion of the said plaintiff, by hor 80-| ecuti\nsonally, be and appear before tho Judgo- o:\nCireut Court in and for the county peed 2\n| state of Illinois, on or before the first day ;\nhe next terin therdof, to be holden in tho F\nurt House at Chicago, on the fourteenth day| — jul\nMay next, to answer tha, charge and alloga- |\n1s, in the said complainants bill, which fas\nn exhibited against him in the said court, on !\nChancery side thereof, the samo will be A\nenas confessed by him, and the matters/lish r\nr ordered, that a copy of this order, be pub-|-=~\nied, in the Chicago Democrat, a public nows- ry\ner printed in the town of Chicago and atate\nIllinois, for tour weeks successively, the first Ianta\nertion thereof to be made, within sixty days,|__ ul\nm_ the date hereof; and that this cause be)”\nstinued until the next term of this court.\nWitness the Hon. Richard M. Young, Judge AT\nthe fifth Judicial Circuit, and the Clerks pri-\n¢ seal, noseal of office being provided, at Chie oO\nro this Sth day of December, A. D. 1834. eet\nA truc copy. A\nRICHARD I, HAMILTON, [t. He\nClerk of Cook Cirewit Court, 5th Jud. Cir,| Oe",
+      "normalized": "[M]ICHAEL P. W[elch … ] TH[I]S day ca[m]e th[e comp]lainant, by h[e]r soli[ci]t[o]r, and it appearing to the satisfaction of [the Cou]rt, that the defendant[,] Michael P. Welch, is [not] an inhabitant of this State, and he having [failed to] enter his appearance therein, [agreeably to] the law and the rules of this Court, it is or[der]ed, on motion of the said plaintiff, by her soli[ci]tor, [that un]less the said defendant shall [per]sonally be and appear before the Judge o[f the] Circuit Court in and for the county [aforesaid and] state of Illinois, on or before the first day [of t]he next term thereof, to be holden in the [Co]urt House at Chicago, on the fourteenth day [of] May next, to answer the charge and allega[tio]ns in the said complainant's bill, which has [bee]n exhibited against him in the said court, on [the] Chancery side thereof, the same will be [tak]en as confessed by him, and the matters [the]rein decreed, and accordingly: and it is fur[the]r ordered, that a copy of this order be pub[l]ished in the Chicago Democrat, a public news[pap]er printed in the town of Chicago and state [of] Illinois, for four weeks successively, the first [ins]ertion thereof to be made within sixty days [fro]m the date hereof; and that this cause be [con]tinued until the next term of this court. Witness the Hon. Richard M. Young, Judge [of] the fifth Judicial Circuit, and the Clerk's pri[vat]e seal, no seal of office being provided, at Chi[ca]go this 8th day of December, A. D. 1834. A tru[e] copy. RICHARD [J.] HAMILTON, Clerk of Cook Circuit Court, 5th Jud. Cir.",
+      "locator": {
+        "artifact_role": "primary",
+        "issue_page": 3,
+        "column": 5,
+        "lines": [
+          3408,
+          3441
+        ],
+        "lines_of_claim": [
+          3408,
+          3409,
+          3410,
+          3411,
+          3412,
+          3413,
+          3415,
+          3417,
+          3418,
+          3419,
+          3420,
+          3421,
+          3422,
+          3423,
+          3424,
+          3425,
+          3426,
+          3428,
+          3429,
+          3430,
+          3431,
+          3432,
+          3433,
+          3434,
+          3435,
+          3436,
+          3437,
+          3438,
+          3439,
+          3440,
+          3441
+        ],
+        "interleaved": true
+      },
+      "entities": [
+        {
+          "as_printed": "Michael P. Welch, is|",
+          "normalized": "Michael P. Welch",
+          "role": "defendant"
+        },
+        {
+          "as_printed": "Hon. Richard M. Young, Judge",
+          "normalized": "Richard M. Young",
+          "role": "official",
+          "occupations": [
+            "Judge of the fifth Judicial Circuit"
+          ]
+        },
+        {
+          "as_printed": "RICHARD I, HAMILTON, [t.",
+          "normalized": "Richard J. Hamilton",
+          "role": "official",
+          "occupations": [
+            "Clerk of the Cook Circuit Court"
+          ]
+        }
+      ],
+      "notes": "THE COURT HOUSE AT CHICAGO IS NAMED AS THE PLACE THE NEXT TERM WILL BE HOLDEN, ON 14 MAY 1835 — six weeks before the scene date — SO THERE IS A COURT HOUSE, and the county's own order says so. That is a public building this reconstruction has to account for. The order carries a second fact about the town, and it is a poorer one: the Clerk seals it with his PRIVATE seal, “no seal of office being provided”, so Cook county in December 1834 has a court house and no county seal. It also documents the Democrat's legal-notice business — four weeks' publication, first insertion within sixty days — which is a large part of what kept the paper alive. The date is read as the 8th where the transcription sets “Sth”; the column is cut at its right edge throughout and the fragments of the neighbouring column are quoted with the lines, which is why the quote carries stray letters the normalized reading does not.",
+      "ad_copy_date": {
+        "verbatim": "ro this Sth day of December, A. D. 1834. eet",
+        "iso": "1834-12-08"
+      }
+    },
+    {
+      "id": "c007",
+      "kind": "notice",
+      "reading": "transcription_mediated",
+      "quote": "Notice.\nA LL persons indebted to A. Clybourn by noto\nopen account, are requested to make\npayment: and all notes or accounta\nthe 10th of January not\nleft with Collins\n[uncertain: TOSCELYBOURN]\nChicago, Dec. 23, 1834.—3w4.",
+      "normalized": "Notice. A[L]L persons indebted to A. Clybourn by note [or] open account, are requested to make [immediate] payment: and all notes or accounts [unpaid on] the 10th of January [will be] left with Collins [& Caton for collection.] [A.] CLYBOURN. Chicago, Dec. 23, 1834. — 3w4.",
+      "locator": {
+        "artifact_role": "primary",
+        "issue_page": 3,
+        "column": 3,
+        "lines": [
+          3126,
+          3133
+        ]
+      },
+      "entities": [
+        {
+          "as_printed": "[uncertain: TOSCELYBOURN]",
+          "normalized": "A. Clybourn",
+          "role": "advertiser"
+        },
+        {
+          "as_printed": "left with Collins",
+          "normalized": "Collins",
+          "role": "agent"
+        }
+      ],
+      "notes": "THE TOWN'S DEBT-COLLECTION MACHINERY, NAMED. Clybourn's threat is to put his paper in the hands of “Collins” after 10 January, and the gazetteer already carries Collins & Caton, attorneys and counsellors at law and solicitors in chancery, up stairs on South Water street. The surname alone is what is printed, so the person minted is “Collins” and NOT the firm; joining them would need a stated merge rule, and the whole-name key means the two cannot coalesce by accident. Read beside the Bates' auction notice's six months' credit (c004) and the two cautions against purchasing notes (1834-12-03 c010, 1834-12-10's Sweet notice at c010 here) it is the same picture from three sides: almost nothing in Chicago in December 1834 is paid for in cash.",
+      "ad_copy_date": {
+        "verbatim": "Chicago, Dec. 23, 1834.—3w4.",
+        "iso": "1834-12-23"
+      }
+    },
+    {
+      "id": "c008",
+      "kind": "notice",
+      "reading": "transcription_mediated",
+      "quote": "red, bnt if\nanuary, we will be under th\ndo not on or before the first of\nessity of proceeding as the law directe, with-\ndisagreeabl\nut further notice.\nJ. HI. MULFORD.\nDec. 23, 1834.",
+      "normalized": "[… those indebted are requested to call and settle, and if they] do not on or before the first of [J]anuary, we will be under th[e disagreeable nec]essity of proceeding as the law directs, with[o]ut further notice. J. H. MULFORD. Dec. 23, 1834.",
+      "locator": {
+        "artifact_role": "primary",
+        "issue_page": 3,
+        "column": 3,
+        "lines": [
+          3118,
+          3125
+        ]
+      },
+      "entities": [
+        {
+          "as_printed": "J. HI. MULFORD.",
+          "normalized": "J. H. Mulford",
+          "role": "advertiser"
+        }
+      ],
+      "notes": "THE SAME DAY AS CLYBOURN'S, AND THE SAME DEADLINE. Two of the town's tradesmen call in their books on 23 December 1834 with a first-of-January cut-off, which is a year-end convention and also a measure of how much of the year's trade was still outstanding. Mulford is the watchmaker and jeweller of 1834-12-03 c012, the one hiring Indian silver workers in September; three months later he is threatening suit. The head of the notice is cut away above line 3118 and the opening clause is supplied in brackets from the standard form the same column uses twice.",
+      "ad_copy_date": {
+        "verbatim": "Dec. 23, 1834.",
+        "iso": "1834-12-23"
+      }
+    },
+    {
+      "id": "c009",
+      "kind": "notice",
+      "reading": "transcription_mediated",
+      "quote": "STRAYED or STOLEN, from Chicag\n$10\nREWARD.\nTwo,\nbright Sorrel HORSE, with a ball\npaces and trots; a little Cat 1\ne necked ; and is\na When lost.\nson bringing bac\nfor horse and thief.\nA CLY BOUR:\nNot. 29, 1831.-4w52.",
+      "normalized": "STRAYED or STOLEN, from Chicag[o … ] $10 REWARD. [… ] [a] bright Sorrel HORSE, with a bal[d face … ] paces and trots; a little [f]at [and thin] necked; and is [… ] when lost. [Any per]son bringing back [the horse … shall receive the above reward, or $ … ] for horse and thief. A. CLYBOUR[N.] No[v]. 29, 183[4]. — 4w52.",
+      "locator": {
+        "artifact_role": "primary",
+        "issue_page": 3,
+        "column": 3,
+        "lines": [
+          3259,
+          3276
+        ],
+        "lines_of_claim": [
+          3259,
+          3260,
+          3261,
+          3262,
+          3264,
+          3265,
+          3268,
+          3269,
+          3271,
+          3274,
+          3275,
+          3276
+        ],
+        "interleaved": true
+      },
+      "entities": [
+        {
+          "as_printed": "A CLY BOUR:",
+          "normalized": "A. Clybourn",
+          "role": "advertiser"
+        }
+      ],
+      "notes": "THE FOURTH CLYBOURN STOCK NOTICE IN TWO MONTHS AND THE FIRST WHERE THE ANIMAL WAS TAKEN FROM THE TOWN ITSELF. T-0293 read two in November — the branded strays two miles out and a stolen horse — and noted that the surrounding country used “A. Clybourn, at Chicago” as the address for stock matters. This one runs four weeks from 29 November, overlapping his debt-collection notice of 23 December (c006) in the same column, so the December reader saw Archibald Clybourn twice on one page: once chasing a horse and once chasing money.",
+      "ad_copy_date": {
+        "verbatim": "Not. 29, 1831.-4w52.",
+        "iso": "1834-11-29"
+      }
+    },
+    {
+      "id": "c010",
+      "kind": "notice",
+      "reading": "transcription_mediated",
+      "quote": "Estray Steer.\ninto\nof November last a re\nSTEER;\nlargo two gear old.\nThe own\ner is regested\nto prove property, pay charges\nJEREMIAH SMITH.\nDer. 16, 1831-3",
+      "normalized": "Estray Steer. [Came in]to [the enclosure of the subscriber … the … ] of November last a re[d] STEER; [a] large two year old. The own[e]r is re[qu]ested to prove property, pay charges [and take him away]. JEREMIAH SMITH. De[c]. 16, 183[4] — 3",
+      "locator": {
+        "artifact_role": "primary",
+        "issue_page": 3,
+        "column": 3,
+        "lines": [
+          3208,
+          3219
+        ],
+        "lines_of_claim": [
+          3208,
+          3209,
+          3212,
+          3213,
+          3214,
+          3215,
+          3216,
+          3217,
+          3218,
+          3219
+        ],
+        "interleaved": true
+      },
+      "entities": [
+        {
+          "as_printed": "JEREMIAH SMITH.",
+          "normalized": "Jeremiah Smith",
+          "role": "advertiser"
+        }
+      ],
+      "notes": "THE THIRD ESTRAY OF THE MONTH AFTER WENTWORTH'S OXEN (1834-12-10 c003) AND THE CLYBOURN NOTICES, AND ALL OF THEM ARE PENNED IN NOVEMBER. Loose cattle in the last weeks before hard frost is a seasonal fact rather than a set of separate accidents: the harvest is off, fences are down, and animals drift. Three separate freeholders print notices about it in four issues, which for a town this size means loose stock was a normal winter condition of the streets and the prairie edge — something a reconstruction of the scene should not leave empty.",
+      "ad_copy_date": {
+        "verbatim": "Der. 16, 1831-3",
+        "iso": "1834-12-16"
+      }
+    },
+    {
+      "id": "c011",
+      "kind": "notice",
+      "reading": "transcription_mediated",
+      "quote": "he sinount of said note is between ninety\none hundred dollars.\nSaid note was paid in the\nfulfill the engagement.\nDecember, 10, 1833.\nALANSON SWEET.",
+      "normalized": "[T]he amount of said note is between ninety and one hundred dollars. Said note was paid in the [… and I forbid all persons trading for it, the holder having failed to] fulfil the engagement. December 10, 183[4]. ALANSON SWEET.",
+      "locator": {
+        "artifact_role": "primary",
+        "issue_page": 3,
+        "column": 4,
+        "lines": [
+          3303,
+          3310
+        ],
+        "lines_of_claim": [
+          3303,
+          3304,
+          3305,
+          3308,
+          3309,
+          3310
+        ]
+      },
+      "entities": [
+        {
+          "as_printed": "ALANSON SWEET.",
+          "normalized": "Alanson Sweet",
+          "role": "advertiser"
+        }
+      ],
+      "notes": "A THIRD CAUTION AGAINST A NOTE IN ONE MONTH, AND THIS ONE CARRIES A FIGURE — between ninety and one hundred dollars, which the fuller printings at 1834-12-10 page 3 column 2 and 1834-12-17 page 3 column 3 set as “I gave John A. […]” on the first day of August last, the note not given up on an exchange at his boarding house. THE PRINTED YEAR IS 1833 AND IT IS READ AS 1834: the notice first appears in the number of 10 December 1834, runs three weeks, and describes events of “the first day of August last”, so an 1833 dateline would put it in print sixteen months before the fact. The reading is stated here rather than corrected in the quote, which stands verbatim.",
+      "ad_copy_date": {
+        "verbatim": "December, 10, 1833.",
+        "iso": "1834-12-10"
+      }
+    },
+    {
+      "id": "c012",
+      "kind": "building",
+      "reading": "transcription_mediated",
+      "quote": "For sate r To Let,\nTHE building on Lot 2, in block 1, on Nort\nChicago, Nor. 19, 1834-SD. WEAVER.\nWater street.\nApply to",
+      "normalized": "For [s]a[l]e [o]r To Let, THE building on Lot 2, in block 1, on Nort[h] Water street. Apply to [D.] WEAVER. Chicago, Nov. 19 [overruled: the copy date is Nov. 12 — four of seven printings and the notice's own insertion key, see notes], 1834. — [5]D.",
+      "locator": {
+        "artifact_role": "primary",
+        "issue_page": 3,
+        "column": 4,
+        "lines": [
+          3378,
+          3382
+        ]
+      },
+      "entities": [
+        {
+          "as_printed": "D. WEAVER.",
+          "normalized": "D. Weaver",
+          "role": "advertiser"
+        }
+      ],
+      "notes": "THE SECOND WITNESS TO THE BUILDING CLAIMED AT 1834-12-17 c006, AND IT READS THE LOT NUMBER DIFFERENTLY. Here it is Lot 2; a week earlier it is Lot 9. Both printings are Vision-set and neither is the obviously better reading, so BOTH are claimed, each quoting its own digit, and neither is amended to agree with the other — an agreement manufactured between two transcriptions is not evidence. Block 1 on North Water street is common to both, and that much is safe. The page images settle the digit in one look and this run files the ticket for it.\n\nRESOLVED BY T-0328 ON 2026-08-29, AND WITHOUT THE PAGE IMAGES: THE LOT IS 2. This claim and 1834-12-17 c006 were not the only witnesses. D. Weaver's advertisement is a STANDING one and it ran five times — 1834-11-26 c010, 1834-12-03 c025, 1834-12-10 c012, 1834-12-17 c006 and this one — from the last number of Vol. I into the fourth of Vol. II. FOUR of those five settings read Lot 2 and ONE reads Lot 9, and the one is 1834-12-17, whose lot line also drops the t out of 'Norh' and whose dateline is the least legible of the five. The four are four separate scans of four separate impressions, so their agreement is not one transcription copied — it is four independent readings of the digit, three of them in an otherwise clean body line ('ling on Lot 2, in block 1, on North'; 'SuE building on Lot 2, in block 1, on North'; 'on Lot 2, in block 1, on North'). Nothing here is amended to agree with anything: every printing keeps its own verbatim quote, including the one that reads 9.\n\nAND THE DATELINE GOES THE SAME WAY AS THE LOT, BY T-0350 ON 2026-08-29. This is the printing the ledger's copy date came from: `ad_copy_date.iso` read 1834-11-19 here and at 1834-12-17, and both were written before the five other printings were known. It now reads 1834-11-12. `verbatim` still holds this setting's own “Chicago, Nor. 19, 1834-SD. WEAVER.” and `normalized` still shows the losing 19 — the last of seven settings is the last place to look for the copy date of a notice that had been standing for six weeks by the time it was set.\n\nTHE COPY DATE IS 12 NOVEMBER 1834, DECIDED BY T-0350 OVER SEVEN PRINTINGS AND BY THE PAPER'S OWN INSERTION KEY. The advertisement ran SEVEN times, not five: it opens in Vol. I No. 50 of 1834-11-12 (c015) and No. 51 of 1834-11-19 (c012), two settings T-0328's tally did not have because neither is findable by the advertiser's name — 1834-11-12 sets it “D. WEAVE.R” and the surviving span of 1834-11-19 prints no name at all. They were found by searching the run for the notice's own body text instead. The datelines across the seven: Nov. 12 at 1834-11-12, 1834-11-19, 1834-11-26 and 1834-12-03; Nov. 13 at 1834-12-17; Nov. 19 at 1834-12-24; and no legible day or month at 1834-12-10. Four to one to one.\n\nAND THE TALLY IS NOT WHAT DECIDES IT — THE ADVERTISEMENT'S OWN KEY DOES. Every legible setting tails its dateline with the figure 50: “1834.—50” at 1834-11-19 and “1881-50” at 1834-11-26, “1831. SO” at 1834-12-03, “1631.—00” at 1834-12-10, “1834-SD” at 1834-12-24 and “1831 -5)” at 1834-11-12. In this paper that trailing figure is not part of the date: it is THE NUMBER OF THE ISSUE THE COPY IS KEYED TO, the first number published on or after the dateline. It is checkable on other advertisers in the same columns — J. Bates's blacksmith-tools notice sets “Nov. 5, 1834.—49” and Vol. I No. 49 was published on 5 November; a For Sale notice sets “Nov. 26, 1834-52” against No. 52 of 26 November; two December notices set “Dec. 16, 1834.-3” and “Dec. 11, 1834.-3” against Vol. II No. 3, the first number published after either date. Vol. I No. 50 was published on 12 NOVEMBER 1834, so a key of 50 admits only a dateline falling after 5 November and on or before 12 November. Nov. 13 and Nov. 19 both fall outside it and would key 51; Nov. 12 is the only one of the three readings the key allows, and it is the reading four of the seven settings print.\n\nTHE KEY IS A FUNCTION OF THE DATELINE, NOT A CLAIM ABOUT FIRST APPEARANCE, and that distinction is kept because one of the four control notices breaks the looser version: Bates's “Nov. 5, 1834.—49” does not itself stand in No. 49 of 5 November, but first appears in No. 50. The key records the week the copy was handed in. For this notice the two coincide anyway — it is absent from No. 49 of 1834-11-05 and from No. 48 of 1834-10-29 (checked; the “For Sale or Rent” standing in both is G. Blanshard's, a different notice), and it first stands in No. 50.\n\nTHE TICKET'S DOUBT IS ANSWERED RATHER THAN OVERRIDDEN. T-0350 weighed 12 against 19 partly on the ground that Nov. 12 would be a fortnight before the notice's first appearance where Nov. 19 would be a week. Both halves rested on 1834-11-26 being the first appearance; it is the third. Dated 12 November the notice is dated the day it first ran, which is the same-day pattern “Nov. 5, 1834.—49” and “Nov. 26, 1834-52” show.\n\nNOTHING IS AMENDED TO AGREE WITH ANYTHING. Every printing keeps its own verbatim dateline, including the two that read 13 and 19, and each claim's `ad_copy_date.verbatim` is that setting's own text. The dossier is docs/RESEARCH/weaver_building_north_water_block_1.md.",
+      "ad_copy_date": {
+        "verbatim": "Chicago, Nor. 19, 1834-SD. WEAVER.",
+        "iso": "1834-11-12"
+      }
+    }
+  ]
+}

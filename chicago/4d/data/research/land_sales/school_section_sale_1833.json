@@ -1,0 +1,302 @@
+{
+ "schema": 1,
+ "domain": "land_sales",
+ "source_id": "isa_public_domain_land_tract_sales",
+ "generated_by": "tools/school_section_sale.py --build",
+ "question": "T-1017 — is buying at the town's OWN school-section sale a check on a town-side name, or still a bare name?",
+ "the_ruling_is_not_here": "This file is the arithmetic. The ruling is hand-authored at data/research/land_sales/resident_rulings.json -> questions_ruled -> T-1017, and reasoned out at docs/RESEARCH/school_section_sale_1833.md.",
+ "the_sale": {
+  "what_names_it": "the register's own type_of_sale code, not a date range this project chose: SC and section 16 of T39N R14E are the same rows, and --self-test holds that",
+  "type_of_sale_code": "SC",
+  "tracts": [
+   {
+    "township": "39N",
+    "range": "14E",
+    "section": "16",
+    "meridian": "3"
+   }
+  ],
+  "dates": [
+   "1833-10-22",
+   "1833-10-23",
+   "1833-10-24",
+   "1833-10-25"
+  ],
+  "rows": 337,
+  "purchaser_spellings": 105,
+  "total_price": 39844.85,
+  "rows_sold_as_town_lots_with_no_acreage_stated": 252,
+  "what_the_ground_fetched": {
+   "rows": 85,
+   "acres": 302.18,
+   "price": 15559.1,
+   "per_acre": 51.49,
+   "compare_with": {
+    "CN": {
+     "rows": 24,
+     "acres": 2139.56,
+     "price": 5975.74,
+     "per_acre": 2.79
+    },
+    "FD": {
+     "rows": 592,
+     "acres": 54729.85,
+     "price": 79402.76,
+     "per_acre": 1.45
+    }
+   }
+  },
+  "volumes_and_pages": [
+   "817/027",
+   "817/028",
+   "817/029",
+   "818/008",
+   "818/009",
+   "818/010"
+  ]
+ },
+ "the_rest_of_the_register": {
+  "rows": 1235,
+  "purchaser_spellings_not_also_at_the_sale": 542,
+  "acres": 56869.41,
+  "total_price": 1484444.83
+ },
+ "largest_hands_at_the_sale": [
+  {
+   "purchaser_as_read": "HALE EBENEZER",
+   "rows": 26,
+   "acres": 4.66,
+   "total_price": 2288.0,
+   "stands_as": "refused_against_a_rival"
+  },
+  {
+   "purchaser_as_read": "HALE JOHN",
+   "rows": 26,
+   "acres": 4.98,
+   "total_price": 2360.0,
+   "stands_as": "refused_against_a_rival"
+  },
+  {
+   "purchaser_as_read": "PEARSONS HIRAM",
+   "rows": 18,
+   "acres": 37.02,
+   "total_price": 4118.0,
+   "stands_as": "upheld"
+  },
+  {
+   "purchaser_as_read": "BRONSON ARTHUR",
+   "rows": 13,
+   "acres": 0.0,
+   "total_price": 1309.0,
+   "stands_as": "upheld"
+  },
+  {
+   "purchaser_as_read": "BROSON ARTHUR",
+   "rows": 12,
+   "acres": 0.0,
+   "total_price": 962.0,
+   "stands_as": "surname_absent"
+  },
+  {
+   "purchaser_as_read": "BOYER JOHN K",
+   "rows": 9,
+   "acres": 0.0,
+   "total_price": 747.0,
+   "stands_as": "upheld"
+  },
+  {
+   "purchaser_as_read": "HEACOCK RUSSEL E",
+   "rows": 8,
+   "acres": 17.29,
+   "total_price": 581.0,
+   "stands_as": "upheld"
+  },
+  {
+   "purchaser_as_read": "TEMPLE JOHN T",
+   "rows": 8,
+   "acres": 30.31,
+   "total_price": 1107.0,
+   "stands_as": "upheld"
+  },
+  {
+   "purchaser_as_read": "WRIGHT JOHN",
+   "rows": 8,
+   "acres": 0.0,
+   "total_price": 965.0,
+   "stands_as": "refused_against_a_rival"
+  },
+  {
+   "purchaser_as_read": "BLANCHARD GURTREY",
+   "rows": 6,
+   "acres": 0.0,
+   "total_price": 547.0,
+   "stands_as": "named"
+  },
+  {
+   "purchaser_as_read": "HUQUEUIN HIRAM",
+   "rows": 6,
+   "acres": 0.0,
+   "total_price": 470.0,
+   "stands_as": "surname_absent"
+  },
+  {
+   "purchaser_as_read": "NEWBERRY WALTER S",
+   "rows": 6,
+   "acres": 20.48,
+   "total_price": 809.0,
+   "stands_as": "refused_against_a_rival"
+  }
+ ],
+ "the_town_side": {
+  "measured_against": "data/research/land_sales/resident_crosswalk.json",
+  "note": "These readings move whenever a ruling is made or the residents layer grows, so a later run that rules on this domain must re-run --build. That coupling is deliberate: it is what keeps the figures the ruling quotes from going quietly stale.",
+  "at_the_sale": {
+   "purchaser_spellings": 105,
+   "readings": {
+    "upheld": 49,
+    "named": 1,
+    "match_refused": 0,
+    "match_unruled": 0,
+    "refused_against_a_rival": 42,
+    "surname_absent": 13
+   },
+   "share_upheld_pct": 46.7,
+   "share_surname_absent_pct": 12.4
+  },
+  "everywhere_else": {
+   "purchaser_spellings": 542,
+   "readings": {
+    "upheld": 86,
+    "named": 0,
+    "match_refused": 0,
+    "match_unruled": 5,
+    "refused_against_a_rival": 241,
+    "surname_absent": 210
+   },
+   "share_upheld_pct": 15.9,
+   "share_surname_absent_pct": 38.7
+  }
+ },
+ "surnames_the_layer_holds_nobody_of": {
+  "count": 13,
+  "purchasers": [
+   "BARCKENBILE CHRISTIA",
+   "BARNES HAMILTON",
+   "BIAS GARRET",
+   "BIAS GARRETT",
+   "BROSON ARTHUR",
+   "CAMPEAU DANIEL J",
+   "HUQUEUIN HIRAM",
+   "JAMIESON STLOUIS T",
+   "STOSE CLEMENTS",
+   "SWIGLEY JOHN",
+   "VANDERBURG WILLIAM H",
+   "WEED EDMUND",
+   "WORTHINGHAM WILLIAM"
+  ]
+ },
+ "surnames_the_sale_itself_prints_more_than_once": {
+  "count": 20,
+  "surnames": {
+   "BIAS": [
+    "BIAS GARRET",
+    "BIAS GARRETT"
+   ],
+   "BLANCHARD": [
+    "BLANCHARD F G",
+    "BLANCHARD F G AS",
+    "BLANCHARD GURTREY"
+   ],
+   "BOND": [
+    "BOND ELI A",
+    "BOND HEMAN"
+   ],
+   "COOK": [
+    "COOK JOSIAH P",
+    "COOK THOMAS"
+   ],
+   "DOLE": [
+    "DOLE",
+    "DOLE GEORGE W"
+   ],
+   "FOOT": [
+    "FOOT JOHN",
+    "FOOT STAN"
+   ],
+   "GOODRICH": [
+    "GOODRICH CHAUNCEY",
+    "GOODRICH EBENEZER"
+   ],
+   "HADDOCK": [
+    "HADDOCK E H",
+    "HADDOCK EDWARD H"
+   ],
+   "HALE": [
+    "HALE EBENEZER",
+    "HALE JOHN"
+   ],
+   "HARMON": [
+    "HARMON CHARLES L",
+    "HARMON ISAAC",
+    "HARMON ISAAC D"
+   ],
+   "JONES": [
+    "JONES BENJAMIN",
+    "JONES WILLARD",
+    "JONES WILLIAM"
+   ],
+   "KIMBERLEY": [
+    "KIMBERLEY EDMUND S",
+    "KIMBERLEY IRA"
+   ],
+   "KIMBERLY": [
+    "KIMBERLY J E",
+    "KIMBERLY S A"
+   ],
+   "MORRISON": [
+    "MORRISON EZEKIEL",
+    "MORRISON ORSEMUS"
+   ],
+   "NEWBERRY": [
+    "NEWBERRY",
+    "NEWBERRY WALTER S"
+   ],
+   "NOBLE": [
+    "NOBLE JOHN",
+    "NOBLE MARK JR"
+   ],
+   "PRUYNE": [
+    "PRUYNE P",
+    "PRUYNE P AND CO",
+    "PRUYNE PETER"
+   ],
+   "VANDERBOGERT": [
+    "VANDERBOGERT HENRY",
+    "VANDERBOGERT JOHN AS"
+   ],
+   "WILLIAMS": [
+    "WILLIAMS GILES AS",
+    "WILLIAMS GORDON S"
+   ],
+   "WRIGHT": [
+    "WRIGHT JOHN",
+    "WRIGHT T G"
+   ]
+  }
+ },
+ "rulings_that_already_cite_the_sale": {
+  "total": 49,
+  "by_ruling": {
+   "named": 1,
+   "refused": 10,
+   "upheld": 38
+  },
+  "tickets": [
+   "T-0850",
+   "T-0990",
+   "T-0993",
+   "T-1034"
+  ],
+  "note": "The sale is named in reasoning on both sides already — it is the corroboration in an uphold and the thing refused to carry a row in a refusal. What it has never been is the ground."
+ }
+}

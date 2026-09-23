@@ -1,0 +1,122 @@
+{
+  "id": "council_house",
+  "name": "Council House",
+  "aka": [
+    "Billy Caldwell's log council-house",
+    "the Indian agency council house"
+  ],
+  "archetype": "log_dwelling",
+  "phases": [
+    {
+      "id": "log_1834",
+      "documented_range": {
+        "from": "1834-01-01",
+        "to": "1835-12-31",
+        "confidence": "inferred",
+        "sources": [
+          "andreas_1884_v1",
+          "chicagology_lastwardance"
+        ],
+        "note": "THE SCENE DATE IS BRACKETED BY TWO ATTESTATIONS AND NAMED BY NEITHER. Before it: Andreas, on the Methodist society organised in 1834, 'For a time services were held in various places — in Billy Caldwell's log council-house, in Chester Ingersoll's tavern, or in Watkins's school-house' — a sentence set in 1834, before the congregation's own frame building was contracted on 30 June that year. After it: the Chicago Tribune's account of 18 August 1835, six and a half weeks past the scene date, has the assembly for the last war dance form 'at the \"Council House\" on the north side of the river'. A building in use in 1834 and in use in August 1835 was standing in between unless something took it down and put it back, which nothing says. THAT INFERENCE IS THE STRONGEST THING IN THIS RECORD AND IT CARRIES A JOIN: Andreas's 'Billy Caldwell's log council-house' and the Tribune's 'Council House' are treated as the same building, on the grounds that both are a council house on the north side in the same two years and neither source knows of a second one. Neither source makes the identification, and if they are two buildings then this record's construction comes from one and its position from the other. The range opens on 1 January 1834 as the earliest day the attested year allows — the treaty council of September 1833 on the same Tribune page mentions 'the council house' too, which may push the building earlier, and the page does not say it is this one — and closes at the end of 1835 as this record's claim horizon."
+      },
+      "position": {
+        "utm_e": 448009.7,
+        "utm_n": 4637628.8,
+        "rotation_deg": 180.0,
+        "symbolic_location": "North side of the river, east of State Street and west of the Lake House site at the north-east corner of Rush and Water Streets.",
+        "confidence": "reconstructed",
+        "note": "THE COORDINATE IS A POINT CHOSEN INSIDE AN ATTESTED BAND, WHICH IS NOT A DERIVATION, so it is tagged conjectural and cites no sources — the rule this project applied to the Walker meeting house. THE BAND IS REAL AND IT IS WIDE. The Tribune: the dancers 'assembled at the \"Council House\" on the north side of the river, east of the present State street and west of the \"Lake House,\" a hotel which was at the northeast corner of Rush and Water streets'. State Street is local E +827 in this project's frame; Rush Street, from the modern OpenStreetMap intersection used as ground control for the 1834 sheets, is local E +1045. So the source bounds the building inside a 215 m stretch of the north bank and says nothing else about where in it. This record places it near the middle of that stretch, on the bank a little north of the drawn 1834 waterline, and the along-bank position is good to no better than ±110 m — five times the georeference's own uncertainty and the largest positional error in this dataset. The sidecar's flat uncertainty_m of 20 badly understates it; that is admitted in docs/LIBERTIES.md. Facade bearing 180, due south to the river, is the bank's orientation and nothing more; no source says which way the building faced. There is no modelled terrain under it — it stands about 620 m east of the terrain box.",
+        "derivation": {
+          "method": "not_derivable",
+          "reason": "This placement predates the derivation module. Its provenance and reasoning are recorded in position.note, but no machine-checkable derivation block has been authored for it yet."
+        }
+      },
+      "footprint": {
+        "polygon": [
+          [
+            0,
+            0
+          ],
+          [
+            12,
+            0
+          ],
+          [
+            12,
+            7
+          ],
+          [
+            0,
+            7
+          ]
+        ],
+        "confidence": "reconstructed",
+        "note": "PLACEHOLDER — NOTHING WHATEVER IS ATTESTED ABOUT THIS BUILDING'S SIZE OR PLAN. 12 x 7 m is about 40 x 23 ft: one room long enough to seat a council and a congregation, since the two uses the sources record for it are a treaty council and Methodist services. Every number is invented and the rectangle is a rectangle because no source describes a plan."
+      },
+      "form": {
+        "construction": {
+          "value": "log",
+          "confidence": "attested",
+          "sources": [
+            "andreas_1884_v1"
+          ],
+          "note": "'in Billy Caldwell's LOG council-house' — Andreas, and the only word anybody wrote about this building's fabric. It rides on the identification argued at documented_range: if Andreas's council house and the Tribune's are two buildings, this attribute describes the other one."
+        },
+        "stories": {
+          "value": 1,
+          "confidence": "inferred",
+          "note": "Not attested. A council house is a hall — one tall room — and every log building in this quarter is described as single-storey. Inference from the type and the use, not from a statement."
+        },
+        "wall_height_m": {
+          "value": 2.6,
+          "confidence": "inferred",
+          "note": "No figure is attested. 2.6 m is about 8 ft 6 in: a single-storey log wall at the course counts this project uses elsewhere on this bank. A room built for assemblies might have been raised higher, which nothing says."
+        },
+        "roof_type": {
+          "value": "gable",
+          "confidence": "inferred",
+          "note": "Not attested. Gable is the near-universal roof form for log construction of this type, period and region."
+        },
+        "roof_pitch_deg": {
+          "value": 35.0,
+          "confidence": "inferred",
+          "note": "No pitch is attested. 35 degrees is the archetype's mid-range for a low log building roofed in riven shakes. Inferred from construction practice, not measured."
+        },
+        "chimneys": {
+          "value": 1,
+          "confidence": "inferred",
+          "note": "Not attested. One is the minimum for a room used for winter services and the normal number for a single-pen log building. The COUNT is the inference; position, size and material are the archetype's — docs/LIBERTIES.md L26."
+        }
+      },
+      "change_note": "The log council house standing on the north bank in the two years either side of the scene date: used by the Methodist society for services in 1834 while they built their own house, and the place the assembly of 18 August 1835 formed at. Its uses are not phases and this record models only the building."
+    }
+  ],
+  "function": {
+    "value": "council_house",
+    "confidence": "attested",
+    "sources": [
+      "chicagology_lastwardance",
+      "andreas_1884_v1"
+    ],
+    "note": "Both sources name the building by its function and neither describes what happened inside it in a way this record repeats. WHAT THIS RECORD DOES NOT DO, and the reason it is flagged review_required: the events the sources attach to this building — the treaty council of 1833 and the gathering of 18 August 1835 — are the removal of the Potawatomi from Chicago, which AGENTS.md places under a standing constraint. Nothing in this dataset depicts, stages or narrates them, and the scene date is six and a half weeks before the second. What is modelled is a log building on a bank."
+  },
+  "research_note": "BUILT ON A JOIN BETWEEN TWO SOURCES, AND THE JOIN IS THE RECORD'S WEAKEST POINT AFTER ITS POSITION. The project's dossier had only the Tribune's account of 18 August 1835 — an existence six weeks AFTER the scene date and no description of the building at all. Reading Andreas at full text turned up the other half: 'For a time services were held in various places — in Billy Caldwell's log council-house, in Chester Ingersoll's tavern, or in Watkins's school-house', which puts a log council house on the north side in 1834, a year BEFORE the scene date, and gives the only word anybody wrote about its fabric. Existence on 1835-07-01 is therefore bracketed rather than extrapolated. THE POSITION IS THE PROBLEM: 'east of the present State street and west of the \"Lake House\"' bounds it inside 215 m of riverbank and no source narrows it further, so the coordinate is a choice inside a band and is tagged conjectural. WHAT WOULD UPGRADE IT: any source naming a street, a corner or a lot — the Chicago Democrat's notices of agency business are the likeliest place, and the 1835 Wabansia and Kinzie's Addition plat would settle which lots were built on. See docs/RESEARCH/council_house.md.",
+  "review_required": true,
+  "land_owner": {
+    "value": "The ground was entered by Robert A Kenzie, 7 May 1831",
+    "confidence": "reconstructed",
+    "sources": [
+      "isa_public_domain_land_tract_sales"
+    ],
+    "note": "KINZIE'S ADDITION. The north fraction of section 10 is the section north of the river, which is why the register prints 102.29 acres and not a quarter's 160. It is resolved as the section's own grid box clipped to the committed north bank of the main stem (`e1834_harbor_cut/shoreline.geojson`), so no boundary here is authored. The two rows the register carries for it — one plain, one with the school-section marker — are the same entry printed twice. THE REGISTER SPELLS THE PURCHASER MORE THAN ONE WAY for this same tract — Robert A Kenzie; Robert A Kinzie — and the spellings are carried rather than merged, which is the land_sales crosswalk's standing rule: tract agreement is where two spellings MIGHT be one man and is never proof that they are. THE MARGIN IS ONLY 40 m, which is inside the working horizontal uncertainty of the georeference (about 20 m) doubled, so the grade drops a tier: the tract is right if the constructed line is, and nothing here proves the line to better than that. WHAT THIS ROW CLAIMS AND WHAT IT DOES NOT. It claims that the tract the Illinois State Archives' land-sale register describes contains this structure's committed position — the patent for this ground was ENTERED by this man on this date. It does not claim he still held the ground on 1 July 1835, that he lived here, or that he ever stood on it: a sale is a transaction, and the register's only column about residence names a county. THE SECTION LINES ARE CONSTRUCTED, NOT TRACED (L219): the grid is carried from the single PLSS corner at State & Madison, on the plat's own east-west bearing, in nominal one-mile squares.",
+    "tract": "the north fraction of section 10",
+    "entries": [
+      "ls0058",
+      "ls0059"
+    ],
+    "date_purchased": "1831-05-07",
+    "type_of_sale": "federal land sale (cash entry)",
+    "margin_m": 39.8,
+    "generated_by": "tools/resolve_land_tracts.py --build"
+  }
+}

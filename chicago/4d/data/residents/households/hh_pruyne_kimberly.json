@@ -1,0 +1,441 @@
+{
+ "id": "hh_pruyne_kimberly",
+ "name": "The Pruyne and Kimberly partnership household",
+ "division": "south",
+ "head": "pruyne_peter",
+ "arrival": {
+  "value": "1832",
+  "confidence": "attested",
+  "sources": [
+   "andreas_1884_v1",
+   "history_medicine_chicago_kimberly_maxwell"
+  ],
+  "note": "Kimberly's year is independently stated as 1832. Pruyne's own arrival is dated only by his shop - 'early in 1833' - and the household takes the earlier of the two because that is when it first existed in the town.",
+  "precision": "year"
+ },
+ "party_size_on_arrival": {
+  "value": null,
+  "confidence": "reconstructed",
+  "note": "Not attested."
+ },
+ "origin": {
+  "value": null,
+  "confidence": "reconstructed",
+  "note": "Not attested."
+ },
+ "reason_for_coming": {
+  "value": null,
+  "confidence": "reconstructed",
+  "note": "Not attested."
+ },
+ "lives_at": {
+  "value": null,
+  "confidence": "reconstructed",
+  "note": "Not attested for either man. Note that this is a BUSINESS household rather than a domestic one - see the research note."
+ },
+ "works_at": {
+  "value": "pruyne_kimball_drugstore",
+  "confidence": "inferred",
+  "sources": [
+   "andreas_1884_v1",
+   "history_medicine_chicago_kimberly_maxwell"
+  ],
+  "note": "The partnership is documented; that it was trading on 1 July 1835 specifically is the inference, since the retrospective sources do not supply a transaction on that exact day."
+ },
+ "present_on_scene_date": {
+  "value": "present",
+  "confidence": "inferred",
+  "sources": [
+   "andreas_1884_v1",
+   "history_medicine_chicago_kimberly_maxwell"
+  ],
+  "note": "Pruyne is married at Chicago on 20 August 1835, seven weeks after the scene date; Kimberly is continuously in the town's medical and public life through this period."
+ },
+ "persons": [
+  {
+   "id": "pruyne_peter",
+   "name": "Peter Pruyne",
+   "relationship": "head",
+   "grade": "attested",
+   "ladder_rule": "G1a",
+   "sex": "male",
+   "occupation": {
+    "value": "druggist",
+    "confidence": "attested",
+    "sources": [
+     "andreas_1884_v1",
+     "history_medicine_chicago_kimberly_maxwell"
+    ],
+    "note": "Early in 1833 Peter Pruyne and Edmund Stoughton Kimberly opened Chicago's second drug store.",
+    "derived_from": "roles",
+    "roles_at_scene_date": [
+     "druggist"
+    ]
+   },
+   "sources": [
+    "andreas_1884_v1",
+    "chicago_voter_lists_1833_1835_irad",
+    "fergus_chicago_directory_1839",
+    "history_medicine_chicago_kimberly_maxwell",
+    "isa_public_domain_land_tract_sales"
+   ],
+   "note": "Andreas adds a dated domestic fact in a footnote: on August 20, 1835 Peter Pruyne married Rebecca, only daughter of Silas W. Sherman. That is seven weeks after the scene date, so on July 1 Rebecca Sherman is not silently added to this business household. FERGUS 1839'S LATER LISTS — 1837 AND 1839 EVIDENCE, NEVER AN 1835 FACT. Fergus' Chicago Directory for 1839 names this person 1 time in its two later lists: the poll of Chicago's first city election, 2 May 1837 — “Peter Pruyne,” (f1839_v0036, printed page 41, ward 1, voting for William B. Ogden). What a match may carry, and it is short: that the man was in Chicago on 2 May 1837 and in that ward. It is written as 1837 evidence with describes_date 1837-05-02, never as an 1835 fact, and the person's grade does not move on this alone. Under the ratified ladder a second contemporary source is what lifts projected_resident, and a poll twenty-two months after the scene date is a second source about CONTINUED RESIDENCE, not about July 1835. The ward is a location in the CITY of 1837, whose six wards are drawn on printed page 46; it is not a location in the town of 1835 and does not place a house. Identity by the crosswalk's own rule: Surname 'Pruyne' folds to the same string as the 1837 entry's, and the given name of both begins P. (data/research/directories/fergus_1839_election_crosswalk_1835.json and fergus_1839_register_crosswalk_1835.json). This pass WRITES THE EVIDENCE AND MOVES NO GRADE. Under the ratified ladder (T-0513) a second independent source is what lifts a projected resident, and a poll twenty-two months after the scene date — or a register four years after it — is a second source about CONTINUED RESIDENCE rather than about July 1835. T-0515 applies the ladder against every source at once; this pass hands it the evidence and not the verdict. THE FEDERAL LAND TRACT SALES — A PURCHASE, AND NEVER A RESIDENCE. The Illinois State Archives' Public Domain Land Tract Sales register enters this person 7 times, as “PRUYNE P”, “PRUYNE PETER”, 1833-10-24 to 1836-06-24: 2 federal land entries — E2SW sec 30 T39N R13E; W2NW sec 30 T39N R13E and 2 lots in the platted town — lot 2 of block 58 in the town the register codes CHIOT (L2BL58CHIOT, as printed); lot 3 of block 17 in the town the register codes CHIOT (L3B17CHIOT, as printed) and 3 parcels of the school section — lot 1 of block 23 of the school section (sec 16 T39N R14E); lot 3 of block 119 of the school section (sec 16 T39N R14E); lot 8 of block 23 of the school section (sec 16 T39N R14E), 167.83 acres stated in all, for $17153.79 (ls0321, ls0323, ls0324, ls0858, ls0859, ls1436, ls1437). THE REGISTER'S OWN RESIDENCE COLUMN READS UNKNOWN on these rows: a county, a state or nothing, and never a town, which is why a purchase here places nobody. THE SCHOOL-SECTION ROWS ARE GROUND INSIDE THE TOWN, NOT FARMLAND: section 16 of T39N R14E was platted and sold off by lot and by block at the sale of 1833, which is why the register states 0000.00 acres against most of them. Ground inside the town is nearer to this reconstruction than a quarter-section is, and it is still a purchase: the register names a purchaser and never an occupant, and nothing here puts this person on that ground. THE TOWN LOTS ARE THE PLAT ITSELF, AND THEY ARE NOT ACRES: Cook County's register describes them by lot and block in a platted town and gives them no section, no township and no acreage at all, so they add nothing to the acre figure above and $16750.00 to the money. This project does not expand the register's town codes, so which addition a lot stands in is carried as the code and not as a name. It is still a purchase and it still places nobody. A purchase and nothing more. It dates and places a transaction; it proposes no residence, and under the ratified ladder it corroborates rather than mints. Identity by the crosswalk's own rule: PRUYNE P matches Peter Pruyne: the forename names Peter Pruyne of the 1 person of this surname, and the forename agrees as an initial only. (data/research/land_sales/resident_crosswalk.json). This pass WRITES THE EVIDENCE AND MOVES NO GRADE. Under the ratified ladder (T-0513) a second independent source is what lifts a projected resident, and a land entry is a second source about a TRANSACTION rather than about who was living at Chicago on 1 July 1835 — a man may buy a quarter-section he never sees. T-0515 applies the ladder against every source at once; this pass hands it the evidence and not the verdict.",
+   "resident_research": {
+    "programme": "resident-research-2026",
+    "ticket": "T-0478",
+    "outcome": "no_corroboration_yet",
+    "reviewed_on": "",
+    "asserted_identity": false,
+    "evidence_for": "Medical/pharmaceutical histories independently identify Peter Pruyne and Edmund Stoughton Kimberly as operators of Chicago's second drug store from early 1833. The business partnership strengthens Pruyne's profile but does not by itself establish a dwelling.",
+    "notes": "Medical/pharmaceutical histories independently identify Peter Pruyne and Edmund Stoughton Kimberly as operators of Chicago's second drug store from early 1833. The business partnership strengthens Pruyne's profile but does not by itself establish a dwelling.",
+    "source_ids": [
+     "history_medicine_chicago_kimberly_maxwell"
+    ]
+   },
+   "merge_ruling": [
+    {
+     "ticket": "T-1132",
+     "verdict": "undecided",
+     "rule": "U1",
+     "cluster": "pruyne-pryne",
+     "weighed_against": [
+      "pryne_peter"
+     ],
+     "referred_to": "T-1135",
+     "for_merge": "Peter Pruyne is one of the better-documented men in the town — with Edmund Stoughton Kimberly he opened Chicago's second drug store early in 1833; he bought lot 1 of block 23 and lot 3 of block 119 of the school section on 24 and 25 October 1833 and town lots after; he married Rebecca Sherman on 20 August 1835; he polled in ward 1 at the first city election of 2 May 1837; Genealogy Trails' early-settler death notices print 'Pruyne, Peter, died November, 1839'. A man of that standing is one the town's own tax and poll rolls should carry, and the only entry of the stem on any of them is “Pryne, Peter” — tax_1833_086 (line 138), poll_1834_091 (line 260) and poll_1835_060 (line 347). The resident layer holds exactly one card of each spelling and no other bearer of the stem at all.",
+     "against_merge": "THE PAGE C9 ASKS FOR DOES NOT EXIST, and C9's demonstration is its load-bearing clause. No publication reached is caught setting both spellings. The IRAD rolls print Pryne three times and Pruyne never. The ISA land register prints 'PRUYNE P', 'PRUYNE P AND CO' and 'PRUYNE PETER' eighteen times and Pryne never. The whole deposited 1833-1835 newspaper run prints the stem 239 times, every one of them Pruyne. Moses & Kirkland print Pruyne and Pruyn; Fergus prints Pruyne. The two bodies of evidence never touch: the town's rolls know only Pryne, and the books, the press and the register know only Pruyne. Folding on what is left — one letter — is precisely what T-1001 measured and refused. AND THE TWO SPELLINGS APPEAR ON ONE SITE WITHOUT MEETING ON ONE PAGE: Genealogy Trails carries 'Pruyne, Peter' in earlysettlerobits and 'Pryne, Peter' in polllist, but those are its transcriptions of two different ORIGINALS, and a republisher's inconsistency across two documents is not a printer's inconsistency inside one, which is the thing C9 asks for."
+    }
+   ],
+   "civic_evidence": [
+    {
+     "list": "tax_1833",
+     "as_read": "Pryne, Peter",
+     "locator": "tax_1833",
+     "record_id": "tax_1833_086",
+     "describes_date": "1833",
+     "source": "chicago_voter_lists_1833_1835_irad",
+     "rule": "G1a"
+    },
+    {
+     "list": "poll_1834",
+     "as_read": "Pryne, Peter",
+     "locator": "poll_1834",
+     "record_id": "poll_1834_091",
+     "describes_date": "1834",
+     "source": "chicago_voter_lists_1833_1835_irad",
+     "rule": "G1a"
+    },
+    {
+     "list": "poll_1835",
+     "as_read": "Pryne, Peter",
+     "locator": "poll_1835",
+     "record_id": "poll_1835_060",
+     "describes_date": "1835",
+     "source": "chicago_voter_lists_1833_1835_irad",
+     "rule": "G1a"
+    }
+   ],
+   "merged_from": [
+    {
+     "ticket": "T-1135",
+     "rule": "C14",
+     "cluster": "pruyne-pryne",
+     "cards": [
+      "pryne_peter"
+     ],
+     "note": "THE UNION OF THE CARDS THIS PERSON WAS SPLIT ACROSS. The sources and evidence blocks above include everything the folded cards cited; each folded record is kept whole under data/residents/merged/ and is redirected by index.json's `merged` table. The reasoning for the merge is in data/residents/card_merge_rulings.json."
+    }
+   ],
+   "roles": [
+    {
+     "role": "druggist",
+     "kind": "trade",
+     "as_printed": null,
+     "from": "1673",
+     "to": "1857",
+     "precision": "source_span",
+     "dated_by": "source_describes_date",
+     "covers_scene_date": true,
+     "confidence": "attested",
+     "sources": [
+      "andreas_1884_v1",
+      "history_medicine_chicago_kimberly_maxwell"
+     ],
+     "claim": null,
+     "note": "THE BOUND IS THE SOURCE'S, NOT THE MAN'S. This role is carried by the card's 1835 occupation block and is dated by what the cited source or sources are ABOUT, which is why `precision` can be no better than the span they cover. The span reaches 1835, so this role stands in the scene-date view. The printing the trade was read off is not on the card and is fetched by T-1254."
+    }
+   ]
+  },
+  {
+   "id": "kimberly_edmund_s",
+   "name": "Dr Edmund Stoughton Kimberly",
+   "relationship": "partner",
+   "grade": "attested",
+   "ladder_rule": "G1a",
+   "sex": "male",
+   "birth_year": {
+    "value": 1803,
+    "confidence": "attested",
+    "sources": [
+     "history_medicine_chicago_kimberly_maxwell"
+    ],
+    "note": "T-0478 replaces the age-at-death arithmetic with an explicit biographical date: Edmund Stoughton Kimberly was born at Troy, New York, April 7, 1803."
+   },
+   "age_on_scene_date": {
+    "value": 32,
+    "confidence": "attested",
+    "sources": [
+     "history_medicine_chicago_kimberly_maxwell"
+    ],
+    "note": "Born April 7, 1803, so he was 32 on July 1, 1835."
+   },
+   "occupation": {
+    "value": "physician",
+    "confidence": "attested",
+    "sources": [
+     "andreas_1884_v1",
+     "history_medicine_chicago_kimberly_maxwell"
+    ],
+    "note": "Kimberly moved to Chicago in 1832, practiced medicine, and was the other half of the town's second drug store.",
+    "derived_from": "roles",
+    "roles_at_scene_date": [
+     "physician"
+    ]
+   },
+   "sources": [
+    "andreas_1884_v1",
+    "census_1840_chicago_familysearch_images",
+    "chicago_democrat_1833_1835",
+    "chicago_voter_lists_1833_1835_irad",
+    "history_medicine_chicago_kimberly_maxwell",
+    "isa_public_domain_land_tract_sales"
+   ],
+   "note": "T-0478 adds exact birth data and independent biography: born April 7, 1803 at Troy, New York; Union College graduate; medical training in New York; married Marie Theresa Ellis May 16, 1829; moved to Chicago in 1832. He was clerk of the August 5, 1833 incorporation meeting and one of the first town trustees. THE TOWN'S OWN ROLLS, 1833-1835 — CORROBORATION, NOT A GRADE. The early Chicago voter and tax lists held by the Illinois Regional Archives Depository name this person 2 times: Tax list of the Town of Chicago, 1833 — “Kimberly, Edmund S.” (tax_1833_057, line 109); Election returns — poll list of 1834, filed 11 August 1834 — “Kimberly, Dr. E. S.” (poll_1834_063, line 232). These are the town's own contemporary paper rather than a recollection of it, and each appearance says that a man of that name stood on that roll in that year — no more. The reading is twice mediated (Schulz's transcription, then Genealogy Trails' republication) and this project has not seen the IRAD originals. Under the ratified ladder (T-0513) the 1835 poll with a second independent source is attested, the 1835 poll alone or a 1833/1834 list with another source is inferred, and a single appearance with nothing else is a projected resident. This pass WRITES THE EVIDENCE AND MOVES NO GRADE — T-0515 applies the ladder against every source at once. Identity by the crosswalk's own rule: one resident of the surname 'Kimberly' agrees with the entry's forenames; 1 bearer(s) of the surname were considered. (data/research/civic/voter_crosswalk.json). THE FEDERAL LAND TRACT SALES — A PURCHASE, AND NEVER A RESIDENCE. The Illinois State Archives' Public Domain Land Tract Sales register enters this person 4 times, as “KIMBERLEY EDMUND S”, “KIMBERLY EDMUND S”, “KIMBERLY E S”, 1833-10-25 to 1836-09-05: 1 federal land entry — E2SE sec 32 T39N R14E and 2 lots in the platted town — lot 5 of block 1 in the town the register codes CHI (L5BL1CHI, as printed); lot 9 of block 48 in the town the register codes CHIOTV (L9BL48CHIOTV, as printed) and 1 parcel of the school section — lot 6 of block 119 of the school section (sec 16 T39N R14E), 80.00 acres stated in all, for $5042.00 (ls0263, ls0479, ls1281, ls1282). THE REGISTER'S OWN RESIDENCE COLUMN READS UNKNOWN on these rows: a county, a state or nothing, and never a town, which is why a purchase here places nobody. THE SCHOOL-SECTION ROWS ARE GROUND INSIDE THE TOWN, NOT FARMLAND: section 16 of T39N R14E was platted and sold off by lot and by block at the sale of 1833, which is why the register states 0000.00 acres against most of them. Ground inside the town is nearer to this reconstruction than a quarter-section is, and it is still a purchase: the register names a purchaser and never an occupant, and nothing here puts this person on that ground. THE TOWN LOTS ARE THE PLAT ITSELF, AND THEY ARE NOT ACRES: Cook County's register describes them by lot and block in a platted town and gives them no section, no township and no acreage at all, so they add nothing to the acre figure above and $4300.00 to the money. This project does not expand the register's town codes, so which addition a lot stands in is carried as the code and not as a name. It is still a purchase and it still places nobody. A purchase and nothing more. It dates and places a transaction; it proposes no residence, and under the ratified ladder it corroborates rather than mints. Identity by the crosswalk's own rule: KIMBERLEY EDMUND S matches Dr Edmund Stoughton Kimberly: the forename names Dr Edmund Stoughton Kimberly of the 1 person of this surname, and the forename agrees in full. The surname reaches him through a ruled card merge and not off his card: the town held kimberley_ed until data/residents/card_merge_rulings.json folded it onto this person, and the register's spelling is the one that card carried. (data/research/land_sales/resident_crosswalk.json). This pass WRITES THE EVIDENCE AND MOVES NO GRADE. Under the ratified ladder (T-0513) a second independent source is what lifts a projected resident, and a land entry is a second source about a TRANSACTION rather than about who was living at Chicago on 1 July 1835 — a man may buy a quarter-section he never sees. T-0515 applies the ladder against every source at once; this pass hands it the evidence and not the verdict. THE 1840 FEDERAL CENSUS — A HEAD FIVE YEARS AFTER THE SCENE, AND NEVER AN 1835 FACT. The 1840 federal census of Chicago, read line by line off the left sheets in this repository, carries 1 head of this name — “Ed. Kimberley” (33S7-9YYJ-99F, printed page 234, line 3). This project has ruled the head a CANDIDATE and no more: the name agrees and is unique on both sides, but nothing independent of the name was found. A candidate is not an identity — nothing is asserted from it, no household of 1840 is carried back, and the ruling is recorded so that a reader can see it was made rather than missed. Under the rule that decided it (L6b reached_through_a_card_merge_caps_at_candidate), by the crosswalk's own ladder (data/research/census_1840/resident_crosswalk.json). LATER EVIDENCE ONLY. The ratified grading ladder binds: an 1839 or 1840 appearance alone is never an 1835 resident, and 1840 household composition is never back-projected to the 1835-07-01 scene. This pass WRITES THE EVIDENCE AND MOVES NO GRADE. Under the ratified ladder (T-0513) a second independent source is what lifts a projected resident, and an 1840 head is a second source about CONTINUED RESIDENCE rather than about who was living at Chicago on 1 July 1835. T-0515 applies the ladder against every source at once; this pass hands it the evidence and not the verdict.",
+   "resident_research": {
+    "programme": "resident-research-2026",
+    "ticket": "T-0493",
+    "outcome": "no_corroboration_yet",
+    "reviewed_on": "",
+    "asserted_identity": false,
+    "evidence_for": "forenames agree initial for initial: entry 'Dr. E. S. Kimberly' against resident 'Dr Edmund Stoughton Kimberly'",
+    "source_ids": [
+     "chicago_voter_lists_1833_1835_irad"
+    ],
+    "refusals": [
+     {
+      "regraded_on": "2026-09-04",
+      "rule": "G2b",
+      "withheld": "the downgrade to inferred",
+      "reason": "This card rests on 3 thing(s) the consolidation did not read — andreas_1884_v1, chicago_democrat_1833_1835, history_medicine_chicago_kimberly_maxwell. G2b fired on the seven domains the ladder reads and says nothing about the evidence outside them, so the grade stands. The same reasoning the ladder's own G5 gives for abstaining (T-0515)."
+     }
+    ]
+   },
+   "civic_evidence": [
+    {
+     "list": "poll_1833",
+     "as_read": "Kimberly, Ed. S.",
+     "locator": "poll_1833",
+     "record_id": "poll_1833_016",
+     "describes_date": "1833",
+     "source": "chicago_voter_lists_1833_1835_irad",
+     "rule": "G3"
+    },
+    {
+     "list": "poll_1834",
+     "as_read": "Kimberly, Edmund L.",
+     "locator": "poll_1834",
+     "record_id": "poll_1834_064",
+     "describes_date": "1834",
+     "source": "chicago_voter_lists_1833_1835_irad",
+     "rule": "G1a"
+    },
+    {
+     "list": "poll_1835",
+     "as_read": "Kimberly, Edmund L.",
+     "locator": "poll_1835",
+     "record_id": "poll_1835_039",
+     "describes_date": "1835",
+     "source": "chicago_voter_lists_1833_1835_irad",
+     "rule": "G1a"
+    }
+   ],
+   "press_evidence": [
+    {
+     "list": "newspaper_1833_1835",
+     "as_read": "E. S. Kimberly",
+     "locator": "chicago_democrat_1835_07_01#c010",
+     "record_id": "person_e_s_kimberly",
+     "describes_date": "1835-07-01",
+     "source": "chicago_democrat_1833_1835",
+     "rule": "G1b"
+    },
+    {
+     "list": "newspaper_1833_1835",
+     "as_read": "E. S. Kimberley",
+     "locator": "chicago_democrat_1835_07_01#c011",
+     "record_id": "person_e_s_kimberley",
+     "describes_date": "1835-07-01",
+     "source": "chicago_democrat_1833_1835",
+     "rule": "G1b"
+    }
+   ],
+   "merged_from": [
+    {
+     "ticket": "T-1001",
+     "rule": "C9",
+     "cluster": "kimberley",
+     "cards": [
+      "kimberley_ed"
+     ],
+     "note": "THE UNION OF THE CARDS THIS PERSON WAS SPLIT ACROSS. The sources and evidence blocks above include everything the folded cards cited; each folded record is kept whole under data/residents/merged/ and is redirected by index.json's `merged` table. The reasoning for the merge is in data/residents/card_merge_rulings.json."
+    },
+    {
+     "ticket": "T-0839",
+     "rule": "C0",
+     "cluster": "kimberly",
+     "cards": [
+      "kimberly_e_s",
+      "kimberly_ed_s",
+      "kimberly_edmund_l"
+     ],
+     "note": "THE UNION OF THE CARDS THIS PERSON WAS SPLIT ACROSS. The sources and evidence blocks above include everything the folded cards cited; each folded record is kept whole under data/residents/merged/ and is redirected by index.json's `merged` table. The reasoning for the merge is in data/residents/card_merge_rulings.json."
+    }
+   ],
+   "census_evidence": [
+    {
+     "list": "census_1840",
+     "as_read": "Ed. Kimberley",
+     "locator": "234:3",
+     "record_id": "33S7-9YYJ-99F:3",
+     "describes_date": "1840",
+     "source": "census_1840_chicago_familysearch_images",
+     "rule": "G1b"
+    }
+   ],
+   "roles": [
+    {
+     "role": "physician",
+     "kind": "profession",
+     "as_printed": null,
+     "from": "1673",
+     "to": "1857",
+     "precision": "source_span",
+     "dated_by": "source_describes_date",
+     "covers_scene_date": true,
+     "confidence": "attested",
+     "sources": [
+      "andreas_1884_v1",
+      "history_medicine_chicago_kimberly_maxwell"
+     ],
+     "claim": null,
+     "note": "THE BOUND IS THE SOURCE'S, NOT THE MAN'S. This role is carried by the card's 1835 occupation block and is dated by what the cited source or sources are ABOUT, which is why `precision` can be no better than the span they cover. The span reaches 1835, so this role stands in the scene-date view. The printing the trade was read off is not on the card and is fetched by T-1254."
+    }
+   ]
+  }
+ ],
+ "touches_removal": false,
+ "review_required": false,
+ "research_note": "A PARTNERSHIP RECORDED AS A HOUSEHOLD, WHICH IS A COMPROMISE AND IS FLAGGED AS ONE. Nothing says Pruyne and Kimberly shared a roof; what is documented is that they opened a shop together. They are grouped because the alternative - two single-person households, each pointing at the same building - would double the household count without adding a person, and because the schema's relationship vocabulary carries 'partner' precisely for this. ANY LATER USE THAT TREATS A HOUSEHOLD AS A DWELLING UNIT MUST READ THIS FIELD: lives_at is null here on purpose, and the household should not be given a dwelling by the inferred phase until the two men are separated. A NAME COLLISION KEPT SEPARATE: the W. Kimball who advertised dry goods at South Water and Clark in the Democrat of 26 November 1833 is a different trade and, on the evidence, a different man; he has his own household here.",
+ "old_settler_deaths": {
+  "the_header_admission": "Names, places * , dates, and ages at death\nof some of Chicago's Old Settlers, prior to 1843, and other well - known citizens who arrived after 1843, together\nwith others prominently connected with Illinois history:",
+  "note": "LATER EVIDENCE OF A DEATH, BESIDE THE 1835 CLAIMS AND NOT INSIDE THEM. Fergus's 1843 directory (1896) prints an obituary list of old settlers, and one of its entries meets somebody of this name. THE HEADER OF THE LIST IS QUOTED ABOVE, and it is the limit the whole reading turns on. It does not mean the person was in Chicago in 1835, and it does not mean they arrived before 1843 — the list's own header, quoted above, says it also names citizens who arrived later and others merely 'prominently connected with Illinois history'. A match means one thing: a name in the 1835 layer and a name in this list agree on surname and first initial, and the list gives that name a death date and an age. The date and the interval are the payload. Whatever is carried is carried as evidence of a DEATH and of an interval the birth falls in, never as an 1835 fact and never as a grade. T-0513 consolidates and T-0514/T-0515 apply; this file changes no record. This pass WRITES THE EVIDENCE AND MOVES NO GRADE. A death notice printed in 1896 says a person of this name died on a day; under the ratified ladder (T-0513) that is later evidence about a DEATH, and it is never an 1835 residence. T-0515 applies the ladder against every source at once; this pass hands it the evidence and not the verdict.",
+  "sources": [
+   "fergus_1843_old_settler_death_notices"
+  ],
+  "people": [
+   {
+    "person_id": "pruyne_peter",
+    "matched_as": "Peter Pruyne",
+    "matched_by": "Surname 'Pruyne' folds to the same string as the entry's, and the given name of both begins P.",
+    "matched_on_initial_only": false,
+    "resident_given_is_initial_only": false,
+    "entry_given_as_read": "Peter",
+    "entry_given_is_initial_only": false,
+    "the_agreement": "a surname and a forename spelled out on both sides",
+    "record_id": "fdn0531",
+    "trade_or_office": null,
+    "manner_of_death": "died",
+    "place_of_death": null,
+    "death_date": "1839-11",
+    "age_as_printed": null,
+    "birth_year_earliest": null,
+    "birth_year_latest": null,
+    "birth_year_arithmetic": null,
+    "as_read": "Pruyne, Peter, died November, 1839"
+   }
+  ]
+ },
+ "directories": {
+  "note": "LATER EVIDENCE, BESIDE THE 1835 CLAIMS AND NOT INSIDE THEM. A Chicago directory of 1839, 1843 or 1844 meets somebody of this name and this pass records what it prints. Under the ratified ladder a directory read after 1835 can corroborate that a person attested here was still in Chicago and can print a trade or a street the 1835 record never had; on its own it makes nobody a resident of 1835. Nothing on this person's 1835 record was regraded, moved, dated or given an occupation by this entry. WHAT THIS PASS RULED ONTO THIS HOUSEHOLD, named so the ruling can be found again: each volume below is followed by the printed entries it set against this person and the status the crosswalk ruled them at — a single entry carries what its own `could_carry` declares, and an ambiguous or contested match carries nothing and is shown so that the silence is legible. kimberly_edmund_s, Fergus's Chicago directory of 1839 — f1839_e0850 (a single entry); kimberly_edmund_s, Fergus's Chicago directory of 1843 — f1843_e1488 (a single entry); kimberly_edmund_s, Norris's Chicago directory of 1844 — n1844_e1019 (a single entry); pruyne_peter, Fergus's Chicago directory of 1839 — f1839_e1199 (a single entry).",
+  "sources": [
+   "fergus_chicago_directory_1839",
+   "fergus_chicago_directory_1843",
+   "norris_directory_1844"
+  ],
+  "people": [
+   {
+    "person_id": "kimberly_edmund_s",
+    "address_later": {
+     "value": "res. N. Water st next Lake House",
+     "confidence": "attested",
+     "describes_date": 1839,
+     "sources": [
+      "fergus_chicago_directory_1839"
+     ],
+     "note": "Fergus's Chicago directory of 1839 prints this address against this person, in the entry quoted on the card: 'Kimberly, Dr. Edmund S., res. N. Water st next Lake House'. It is evidence about 1839, written here as 1839's and read back onto no 1835 claim. Under the ratified ladder a directory read after 1835 can corroborate that a person attested here was still in Chicago and can print a trade or a street the 1835 record never had; on its own it makes nobody a resident of 1835. Nothing on this person's 1835 record was regraded, moved, dated or given an occupation by this entry. The value is the volume's own line, split by its crosswalk on the entry's punctuation. These volumes set the trade first and its qualifiers after it on the same line, so the split may carry an employer, a market or a corner along with the trade. The printed entry is quoted beside the value for exactly that reason: the split is checkable against it, and neither is read into an 1835 claim."
+    },
+    "back_projection": {
+     "outcome": "already_better_placed",
+     "clause": "2",
+     "value": null,
+     "describes_date": 1839,
+     "read_back_years": 4,
+     "placement": null,
+     "position_local_enu_m": null,
+     "sources": [
+      "fergus_chicago_directory_1839"
+     ],
+     "note": "NOT READ BACK, BECAUSE SOMETHING BETTER ALREADY STANDS. Fergus's Chicago directory of 1839 prints an address against this name in 1839, and it is left where it is. An 1835 placement already stands: this household works at `pruyne_kimball_drugstore`, and clause 2 says an attested 1835 placement always beats a door printed 4 years later. The later address stays on the record as 1839's evidence and moves nothing."
+    },
+    "residence_back_projection": {
+     "outcome": "refused",
+     "clause": "R4",
+     "kind": "resides",
+     "value": null,
+     "describes_date": 1839,
+     "read_back_years": 4,
+     "placement": null,
+     "sources": [
+      "fergus_chicago_directory_1839"
+     ],
+     "note": "REFUSED, AND THE REFUSAL IS THE RECORD. Fergus's Chicago directory of 1839 prints where this person lived in 1839 and this pass will not carry it back to 1835. The entry names a public house by its sign — where this person boarded, not a street they lived on. A house of 1843 is a building, and resolving a building printed eight years after the scene onto 1835 ground is a second reading this pass does not make: it would have to identify the house, date it to 1835 and place it, and each of those is its own source question. A refusal is written here rather than dropped so that a later run can see the address was read and ruled on, not missed (docs/RESIDENCE-BACK-PROJECTION.md, clause R4)."
+    }
+   },
+   {
+    "person_id": "pruyne_peter",
+    "address_later": {
+     "value": "South Water street",
+     "confidence": "attested",
+     "describes_date": 1839,
+     "sources": [
+      "fergus_chicago_directory_1839"
+     ],
+     "note": "Fergus's Chicago directory of 1839 prints this address against this person, in the entry quoted on the card: 'Pruyne, Peter, druggist and apothecary, South Water street'. It is evidence about 1839, written here as 1839's and read back onto no 1835 claim. Under the ratified ladder a directory read after 1835 can corroborate that a person attested here was still in Chicago and can print a trade or a street the 1835 record never had; on its own it makes nobody a resident of 1835. Nothing on this person's 1835 record was regraded, moved, dated or given an occupation by this entry. The value is the volume's own line, split by its crosswalk on the entry's punctuation. These volumes set the trade first and its qualifiers after it on the same line, so the split may carry an employer, a market or a corner along with the trade. The printed entry is quoted beside the value for exactly that reason: the split is checkable against it, and neither is read into an 1835 claim."
+    },
+    "back_projection": {
+     "outcome": "already_better_placed",
+     "clause": "2",
+     "value": null,
+     "describes_date": 1839,
+     "read_back_years": 4,
+     "placement": null,
+     "position_local_enu_m": null,
+     "sources": [
+      "fergus_chicago_directory_1839"
+     ],
+     "note": "NOT READ BACK, BECAUSE SOMETHING BETTER ALREADY STANDS. Fergus's Chicago directory of 1839 prints an address against this name in 1839, and it is left where it is. An 1835 placement already stands: this household works at `pruyne_kimball_drugstore`, and clause 2 says an attested 1835 placement always beats a door printed 4 years later. The later address stays on the record as 1839's evidence and moves nothing."
+    }
+   }
+  ]
+ }
+}

@@ -1,0 +1,329 @@
+{
+ "schema": 1,
+ "familysearch_id": "33S7-9YYJ-5S",
+ "image": "chicago/reference/census1840/33S7-9YYJ-5S.jpg",
+ "printed_page": null,
+ "printed_page_note": "no printed page number is on this exposure; recorded as unknown, not inferred.",
+ "sheet_side": "right",
+ "division": "S. W. Sherman (as written in the printed heading)",
+ "state": "Illinois",
+ "county": "Cook",
+ "reading": "scan_verified",
+ "read_pass": "continuation cells — ATTEMPTED, NOT COMMITTED",
+ "lines_ruled_with_an_entry": 29,
+ "lines_note": "29 lines carry an entry. coverage.json's inventory said 28, to the nearest line; 29 is the count from the ink itself, and it is the count the attempted reading below is indexed on. It is the one number on this sheet this pass is confident of.",
+ "form_note": "The right (continuation) sheet of the 1840 schedule. Columns as printed, left to right: twelve SLAVES columns (six male, six female age bands); TOTAL — number of persons in each family; seven NUMBER OF PERSONS IN EACH FAMILY EMPLOYED IN columns (mining, agriculture, commerce, manufactures and trades, navigation of the ocean, navigation of canals lakes and rivers, learned professions and engineers); PENSIONERS FOR REVOLUTIONARY OR MILITARY SERVICES (ages, names); six DEAF AND DUMB, BLIND, AND INSANE WHITE PERSONS columns; four of the same for coloured persons; and seven SCHOOLS, &c. columns. A blank cell on this form is a zero and is recorded as 0.",
+ "right_edge_note": "The form's last column — white persons over 20 years of age who cannot read and write — sits beyond the right edge of the exposure on this image, where the leaf curves into the gutter. It is not recorded here, in either direction: the sheet does not say it is empty.",
+ "closure_note": "The enumerator added his own columns at the foot of the sheet. Those printed totals are transcribed under `footer_as_read` and every committed column is checked against them in `column_closure`. A column that does not close keeps its residual and its reading is NOT adjusted to make the total come out — the residual is the finding.",
+ "footer_as_read": {
+  "total": 189,
+  "mining": null,
+  "agriculture": 10,
+  "commerce": 1,
+  "manufactures_and_trades": 15,
+  "navigation_ocean": null,
+  "navigation_canals_lakes_rivers": 2,
+  "learned_professions_and_engineers": 1,
+  "primary_common_schools": 1,
+  "primary_common_scholars": 42,
+  "footer_blank_columns_note": "the slaves, pensioners and deaf/dumb/blind/insane blocks carry no figure at the foot of this sheet"
+ },
+ "closes": false,
+ "cells_state": "read_does_not_close",
+ "closes_note": "THIS SHEET WAS READ AND IS NOT COMMITTED. The scan is the faintest of the three in this pass and the hand's two-digit family totals sit hard against the column rule; the reading below sums to 183 persons against the enumerator's printed 189, and the agriculture column reads 12 against a printed 10. Two columns that far apart mean the row indexing itself is in doubt over part of the sheet, not that two glyphs are wrong, so committing the values as `cells` would be committing an alignment this pass cannot demonstrate. The project's rule is that a half-read row is worse than an unread one, so `cells` is null on every line and the reading is kept below as an ATTEMPT — the next run starts from it instead of from nothing, and cannot mistake it for data. What IS committed here is the sheet's own printed footer row and its exact line count, both of which are legible.",
+ "attempted_reading": {
+  "state": "not committed — see closes_note",
+  "totals_by_line": [
+   19,
+   5,
+   5,
+   6,
+   5,
+   5,
+   5,
+   9,
+   3,
+   7,
+   6,
+   1,
+   7,
+   5,
+   6,
+   25,
+   2,
+   2,
+   5,
+   5,
+   5,
+   7,
+   3,
+   3,
+   5,
+   9,
+   9,
+   5,
+   4
+  ],
+  "industry_by_line": {
+   "2": {
+    "agriculture": 3,
+    "navigation_canals_lakes_rivers": 1
+   },
+   "5": {
+    "agriculture": 2
+   },
+   "11": {
+    "agriculture": 1
+   },
+   "13": {
+    "agriculture": 1
+   },
+   "14": {
+    "agriculture": 1
+   },
+   "15": {
+    "manufactures_and_trades": 3
+   },
+   "16": {
+    "agriculture": 2,
+    "manufactures_and_trades": 7,
+    "learned_professions_and_engineers": 1
+   },
+   "17": {
+    "commerce": 1
+   },
+   "18": {
+    "agriculture": 1,
+    "manufactures_and_trades": 1
+   },
+   "19": {
+    "agriculture": 1,
+    "manufactures_and_trades": 1
+   },
+   "21": {
+    "navigation_canals_lakes_rivers": 1
+   },
+   "23": {
+    "manufactures_and_trades": 1
+   },
+   "25": {
+    "manufactures_and_trades": 1
+   },
+   "28": {
+    "manufactures_and_trades": 1
+   }
+  },
+  "read_totals": {
+   "total": 183,
+   "agriculture": 12,
+   "navigation_canals_lakes_rivers": 2,
+   "manufactures_and_trades": 15,
+   "learned_professions_and_engineers": 1,
+   "commerce": 1
+  },
+  "residual_against_footer": {
+   "total": -6,
+   "agriculture": 2,
+   "commerce": 0,
+   "manufactures_and_trades": 0,
+   "navigation_canals_lakes_rivers": 0,
+   "learned_professions_and_engineers": 0
+  },
+  "where_it_is_weakest": "lines 17 to 19. The reading was taken in two overlapping passes and the boundary between them falls there; agriculture closes at 10 if lines 18 and 19 belong to the first pass and at 12 if they belong to the second, and nothing on the image settles which without re-reading the sheet against a row grid anchored on the ruled lines rather than on the ink."
+ },
+ "pairing": {
+  "paired_to_printed_page": null,
+  "state": "unpaired",
+  "why": "RESOLVED by T-0642 where this says paired, and recorded as unpaired with its rule where it does not. The earlier text of this field said the left sheets had not been footed yet; they have now.",
+  "page_population_key": 189,
+  "line_count_key": 29,
+  "tested_by": "T-0642",
+  "test": "both keys — the count of ruled lines carrying an entry, and the page population — against the twelve filled left sheets of image group 1, whose printed footings T-0642 read and published.",
+  "result": "33S7-9YYJ-B3 (printed 226) is the ONLY left sheet in the group with 29 entries, so the line-count key selects it uniquely - and the population refuses it: B3 foots 184 and its own lines hold 185, against this sheet's 189. Four or five persons is more than a pairing may absorb, so it is left unpaired with its one candidate named. This sheet's own per-line reading was never committed either (183 against the footed 189), which is a second reason not to force it.",
+  "refusals": [
+   {
+    "printed_page": 226,
+    "familysearch_id": "33S7-9YYJ-B3",
+    "rule": "line count unique, population 5 short",
+    "why": "the only 29-entry left sheet in the group, and the strongest unconfirmed candidate in this file. B3's twenty-one previously unread footings were read this pass and twenty of them are blank, so its key cannot rise to 189 from unread ink."
+   }
+  ],
+  "published_in": "data/research/census_1840/left_sheet_population_key.json"
+ },
+ "records": [
+  {
+   "line": 1,
+   "reading": "scan_verified",
+   "cells": null,
+   "cells_state": "read_does_not_close"
+  },
+  {
+   "line": 2,
+   "reading": "scan_verified",
+   "cells": null,
+   "cells_state": "read_does_not_close"
+  },
+  {
+   "line": 3,
+   "reading": "scan_verified",
+   "cells": null,
+   "cells_state": "read_does_not_close"
+  },
+  {
+   "line": 4,
+   "reading": "scan_verified",
+   "cells": null,
+   "cells_state": "read_does_not_close"
+  },
+  {
+   "line": 5,
+   "reading": "scan_verified",
+   "cells": null,
+   "cells_state": "read_does_not_close"
+  },
+  {
+   "line": 6,
+   "reading": "scan_verified",
+   "cells": null,
+   "cells_state": "read_does_not_close"
+  },
+  {
+   "line": 7,
+   "reading": "scan_verified",
+   "cells": null,
+   "cells_state": "read_does_not_close"
+  },
+  {
+   "line": 8,
+   "reading": "scan_verified",
+   "cells": null,
+   "cells_state": "read_does_not_close"
+  },
+  {
+   "line": 9,
+   "reading": "scan_verified",
+   "cells": null,
+   "cells_state": "read_does_not_close"
+  },
+  {
+   "line": 10,
+   "reading": "scan_verified",
+   "cells": null,
+   "cells_state": "read_does_not_close"
+  },
+  {
+   "line": 11,
+   "reading": "scan_verified",
+   "cells": null,
+   "cells_state": "read_does_not_close"
+  },
+  {
+   "line": 12,
+   "reading": "scan_verified",
+   "cells": null,
+   "cells_state": "read_does_not_close"
+  },
+  {
+   "line": 13,
+   "reading": "scan_verified",
+   "cells": null,
+   "cells_state": "read_does_not_close"
+  },
+  {
+   "line": 14,
+   "reading": "scan_verified",
+   "cells": null,
+   "cells_state": "read_does_not_close"
+  },
+  {
+   "line": 15,
+   "reading": "scan_verified",
+   "cells": null,
+   "cells_state": "read_does_not_close"
+  },
+  {
+   "line": 16,
+   "reading": "scan_verified",
+   "cells": null,
+   "cells_state": "read_does_not_close"
+  },
+  {
+   "line": 17,
+   "reading": "scan_verified",
+   "cells": null,
+   "cells_state": "read_does_not_close"
+  },
+  {
+   "line": 18,
+   "reading": "scan_verified",
+   "cells": null,
+   "cells_state": "read_does_not_close"
+  },
+  {
+   "line": 19,
+   "reading": "scan_verified",
+   "cells": null,
+   "cells_state": "read_does_not_close"
+  },
+  {
+   "line": 20,
+   "reading": "scan_verified",
+   "cells": null,
+   "cells_state": "read_does_not_close"
+  },
+  {
+   "line": 21,
+   "reading": "scan_verified",
+   "cells": null,
+   "cells_state": "read_does_not_close"
+  },
+  {
+   "line": 22,
+   "reading": "scan_verified",
+   "cells": null,
+   "cells_state": "read_does_not_close"
+  },
+  {
+   "line": 23,
+   "reading": "scan_verified",
+   "cells": null,
+   "cells_state": "read_does_not_close"
+  },
+  {
+   "line": 24,
+   "reading": "scan_verified",
+   "cells": null,
+   "cells_state": "read_does_not_close"
+  },
+  {
+   "line": 25,
+   "reading": "scan_verified",
+   "cells": null,
+   "cells_state": "read_does_not_close"
+  },
+  {
+   "line": 26,
+   "reading": "scan_verified",
+   "cells": null,
+   "cells_state": "read_does_not_close"
+  },
+  {
+   "line": 27,
+   "reading": "scan_verified",
+   "cells": null,
+   "cells_state": "read_does_not_close"
+  },
+  {
+   "line": 28,
+   "reading": "scan_verified",
+   "cells": null,
+   "cells_state": "read_does_not_close"
+  },
+  {
+   "line": 29,
+   "reading": "scan_verified",
+   "cells": null,
+   "cells_state": "read_does_not_close"
+  }
+ ]
+}

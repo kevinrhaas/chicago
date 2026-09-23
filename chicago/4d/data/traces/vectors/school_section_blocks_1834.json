@@ -1,0 +1,7707 @@
+{
+  "_doc": "Derive the School Section's block grid, its twelve east-west streets and its three\nreservations from J. S. Wright's 1834 survey, read on the National Archives / Historic\nUrban Plans reproduction registered by T-0787.\n\nThe section is the mile square of Section 16, T39N R14E — the school section the state\nsold in October 1833 — bounded by Madison Street on the north, State Street on the east\nand, a mile from each, the lines that later carried Twelfth Street and Halsted Street.\nWright draws it whole, ruled into a grid and numbered, and this project has never held\nany of it: no block, no street, and no ground for the 125 land-sale rows that name its\nblock numbers.\n\nMETHOD, and it is a MEASUREMENT off the sheet rather than a re-use of Thompson's module.\n\n  1. The scan is resampled into scene coordinates (local ENU metres, EPSG:26916 through\n     data/datum.json) using the affine in data/traces/gcp/wright_1834_nara_hup_gcps.json.\n     That deskews the drawing: the plat's own north-south and east-west rules become the\n     axes of the sampled raster, so a ruled line is a peak in a one-dimensional darkness\n     profile and nothing has to be traced by hand.\n  2. Every line of the grid was picked as the centroid of that peak, in six independent\n     bands along its length, and the median taken. Where a street is drawn as a pair of\n     rules the pair gives the corridor its drawn width; where the draughtsman drew one\n     line the width is not recoverable from the sheet and the platted standard is used.\n  3. The measured line table is then anchored on the section itself. Madison and State\n     cross at a PLSS section corner — sections 9/10/15/16 — which is GCP G1 of the\n     registration, and the section is a statute mile on a side. The measured interior\n     lines are rescaled linearly onto that exact square. Residuals are reported below\n     and in docs/RESEARCH/school_section_grid_1834.md.\n\nWHAT IS MEASURED AND WHAT IS ADOPTED. The measured east-west span of the grid falls 6.3 m\nSHORT of the statute mile, four tenths of one per cent; the measured north-south span\noverruns it by 49.3 m, three per cent. That asymmetry is the registration's own finding\nshowing at the bottom of the sheet: it measured 5.2 per cent x/y anisotropy on this scan\nagainst 3.7 per cent on the BPL copy, and the extra stretch is in the long axis, along\nwhich the manuscript was torn and backed. The section is a mile on the ground whatever\nthe paper does, so the grid is anchored on the section and not on the paper.\n\nRun:  python3 tools/generate_school_section_grid.py [--check]",
+  "id": "school_section_blocks_1834",
+  "generated_by": "tools/generate_school_section_grid.py",
+  "ticket": "T-0797",
+  "source": "wright_1834_nara_hup",
+  "raster": {
+    "path": "chicago/pre_fire_v1/maps/images/1834-wright-map.jpg",
+    "sha256": "dbb92c0188881d9b6cdf84801b9185a5715496a328125bde895a04058b173266",
+    "width": 5050,
+    "height": 6628,
+    "dpi": 600
+  },
+  "registration": "data/traces/gcp/wright_1834_nara_hup_gcps.json",
+  "anchor": {
+    "corner": "State Street and Madison Street, the PLSS corner of sections 9/10/15/16, T39N R14E, and GCP G1 of the registration",
+    "corner_local_enu_m": [
+      841.86,
+      -519.05
+    ],
+    "north": -519.054,
+    "east": 841.858,
+    "south": -2128.398,
+    "west": -767.486,
+    "side_m": 1609.344
+  },
+  "residuals": {
+    "measured_east_west_span_m": 1603.04,
+    "measured_north_south_span_m": 1658.65,
+    "statute_mile_m": 1609.344,
+    "east_west_departure_m": -6.3,
+    "north_south_departure_m": 49.31,
+    "north_south_departure_pct": 3.06,
+    "finding": "The sheet's east-west span of the section falls 6.3 m short of the statute mile, four tenths of one per cent, and its north-south span overruns it by 49.3 m, three per cent. That is the registration's own 5.2 per cent x/y anisotropy showing at the bottom of the sheet, on the axis the manuscript was torn and backed along, and it is why this grid is anchored on the section rather than on the paper. It is also a figure worth carrying back to the fit: a y-scale three per cent long over a mile is larger than any block."
+  },
+  "grid": {
+    "columns": 13,
+    "rows": 12,
+    "cells": 156,
+    "blocks": 142,
+    "cells_without_a_block": 10,
+    "cells_shared_by_a_block": 4,
+    "note": "Thirteen tiers of blocks north to south and twelve east to west make 156 cells. Ten of them are the South Branch and carry no block; four more are the east halves of blocks 73, 74, 83 and 84, each of which spans two cells because Market Street stops at Adams. 156 - 10 - 4 = 142.",
+    "how_the_lines_run": {
+      "committed": "level and plumb — every east-west line carries one northing end to end and every north-south line one easting",
+      "measurement": "data/traces/vectors/school_section_tier_skew_1834.json",
+      "measured_by": "tools/measure_school_section_tier_skew.py",
+      "east_west_median_tilt_deg": 0.573,
+      "north_south_median_tilt_deg": 0.669,
+      "lines_tilting_the_same_way": "13 of 13 east-west and 14 of 14 north-south",
+      "cardinal_control_mean_tilt_deg": 0.692,
+      "interior_mean_tilt_deg": 0.556,
+      "finding": "THE RULED LINES ARE NOT LEVEL ON THIS SHEET AND THE TILT IS NOT WRIGHT'S (T-0959). The line tables below carry only the MEDIAN of the bands each line was measured in, and a median cannot say whether the bands trended; re-measuring with the bands kept shows every line of both families tilting the same way. Two steps rule on it, and neither assumes anything about what Wright drew. FIRST, a rotation of the drawing under its registration tilts the two families equally and OPPOSITELY — a same-signed tilt in both is not a rotation but a grid that has stopped being square. SECOND, the section's four PLSS boundaries run true north and true east ON THE GROUND by definition, and one of their corners is GCP G1 of this very fit; measured exactly as the interior lines are, they tilt +0.692 degrees in this frame against +0.556 for the interior. A frame that tilts its own cardinal control is telling you about itself. The mechanism is the fit's non-conformality: two axis scales 6.2 per cent apart at 1.894 degrees of rotation, under which a right angle ruled on the paper comes out at 91.62. So the tilt leaves with the rest of the registration's distortion when the measured lines are rescaled onto the section's statute-mile square, and the committed lines are level and plumb because the section is, not because a median was carried.",
+      "what_this_refuses": "PR #978 (closed under T-0930) drew the eight unnamed tiers with 25.7 m of rise over 1,588 m — 0.93 degrees, inside the spread measured here — and graded them `attested`. It is this artefact read as evidence. A tilt that the registration puts on lines the PLSS guarantees are cardinal is not attested by the survey, and `attested` is not earned by it. `inferred` is what the committed lines carry and what they have now been shown to deserve."
+    },
+    "ns_lines": [
+      {
+        "i": 0,
+        "measured": -768.14,
+        "drawn_w": 15.12,
+        "bands": 6,
+        "sheet_name": null,
+        "role": "section line (west)",
+        "adopted": -767.486,
+        "anchor_shift_m": 0.65,
+        "corridor_width_m": 20.117
+      },
+      {
+        "i": 1,
+        "measured": -648.2,
+        "drawn_w": null,
+        "bands": 0,
+        "sheet_name": null,
+        "role": "interior",
+        "adopted": -647.074,
+        "anchor_shift_m": 1.13,
+        "corridor_width_m": 20.117
+      },
+      {
+        "i": 2,
+        "measured": -508.13,
+        "drawn_w": 16.08,
+        "bands": 5,
+        "sheet_name": "Des Plaines",
+        "role": "interior",
+        "adopted": -506.454,
+        "anchor_shift_m": 1.68,
+        "corridor_width_m": 20.117
+      },
+      {
+        "i": 3,
+        "measured": -382.15,
+        "drawn_w": 20.49,
+        "bands": 6,
+        "sheet_name": "Jefferson",
+        "role": "interior",
+        "adopted": -379.978,
+        "anchor_shift_m": 2.17,
+        "corridor_width_m": 20.117
+      },
+      {
+        "i": 4,
+        "measured": -270.51,
+        "drawn_w": 19.71,
+        "bands": 6,
+        "sheet_name": "Clinton",
+        "role": "interior",
+        "adopted": -267.899,
+        "anchor_shift_m": 2.61,
+        "corridor_width_m": 20.117
+      },
+      {
+        "i": 5,
+        "measured": -147.95,
+        "drawn_w": 21.61,
+        "bands": 6,
+        "sheet_name": "Canal",
+        "role": "interior",
+        "adopted": -144.857,
+        "anchor_shift_m": 3.09,
+        "corridor_width_m": 20.117
+      },
+      {
+        "i": 6,
+        "measured": -41.8,
+        "drawn_w": null,
+        "bands": 0,
+        "sheet_name": null,
+        "role": "interior",
+        "adopted": -38.29,
+        "anchor_shift_m": 3.51,
+        "corridor_width_m": 20.117
+      },
+      {
+        "i": 7,
+        "measured": 67.4,
+        "drawn_w": null,
+        "bands": 0,
+        "sheet_name": "Market",
+        "role": "interior",
+        "adopted": 71.34,
+        "anchor_shift_m": 3.94,
+        "corridor_width_m": 20.117
+      },
+      {
+        "i": 8,
+        "measured": 203.9,
+        "drawn_w": null,
+        "bands": 0,
+        "sheet_name": null,
+        "role": "interior",
+        "adopted": 208.377,
+        "anchor_shift_m": 4.48,
+        "corridor_width_m": 20.117
+      },
+      {
+        "i": 9,
+        "measured": 346.36,
+        "drawn_w": 20.41,
+        "bands": 4,
+        "sheet_name": "Wells",
+        "role": "interior",
+        "adopted": 351.397,
+        "anchor_shift_m": 5.04,
+        "corridor_width_m": 20.117
+      },
+      {
+        "i": 10,
+        "measured": 459.6,
+        "drawn_w": null,
+        "bands": 0,
+        "sheet_name": null,
+        "role": "interior",
+        "adopted": 465.082,
+        "anchor_shift_m": 5.48,
+        "corridor_width_m": 20.117
+      },
+      {
+        "i": 11,
+        "measured": 577.59,
+        "drawn_w": 21.15,
+        "bands": 6,
+        "sheet_name": "Clark",
+        "role": "interior",
+        "adopted": 583.536,
+        "anchor_shift_m": 5.95,
+        "corridor_width_m": 20.117
+      },
+      {
+        "i": 12,
+        "measured": 698.7,
+        "drawn_w": null,
+        "bands": 0,
+        "sheet_name": null,
+        "role": "interior",
+        "adopted": 705.122,
+        "anchor_shift_m": 6.42,
+        "corridor_width_m": 20.117
+      },
+      {
+        "i": 13,
+        "measured": 834.9,
+        "drawn_w": null,
+        "bands": 0,
+        "sheet_name": null,
+        "role": "section line (east), State Street",
+        "adopted": 841.858,
+        "anchor_shift_m": 6.96,
+        "corridor_width_m": 20.117
+      }
+    ],
+    "ew_lines": [
+      {
+        "j": 0,
+        "measured": -545.99,
+        "drawn_w": 16.75,
+        "bands": 6,
+        "sheet_name": "Madison",
+        "adopted": -519.054,
+        "anchor_shift_m": 26.94,
+        "corridor_width_m": 24.384
+      },
+      {
+        "j": 1,
+        "measured": -686.96,
+        "drawn_w": 25.21,
+        "bands": 8,
+        "sheet_name": "Monroe",
+        "adopted": -655.833,
+        "anchor_shift_m": 31.13,
+        "corridor_width_m": 24.384
+      },
+      {
+        "j": 2,
+        "measured": -832.66,
+        "drawn_w": 23.34,
+        "bands": 8,
+        "sheet_name": "Adams",
+        "adopted": -797.202,
+        "anchor_shift_m": 35.46,
+        "corridor_width_m": 24.384
+      },
+      {
+        "j": 3,
+        "measured": -979.93,
+        "drawn_w": 21.72,
+        "bands": 8,
+        "sheet_name": "Jackson",
+        "adopted": -940.094,
+        "anchor_shift_m": 39.84,
+        "corridor_width_m": 24.384
+      },
+      {
+        "j": 4,
+        "measured": -1129.4,
+        "drawn_w": 25.0,
+        "bands": 8,
+        "sheet_name": null,
+        "adopted": -1085.121,
+        "anchor_shift_m": 44.28,
+        "corridor_width_m": 24.384
+      },
+      {
+        "j": 5,
+        "measured": -1280.5,
+        "drawn_w": null,
+        "bands": 0,
+        "sheet_name": null,
+        "adopted": -1231.73,
+        "anchor_shift_m": 48.77,
+        "corridor_width_m": 24.384
+      },
+      {
+        "j": 6,
+        "measured": -1399.14,
+        "drawn_w": 24.07,
+        "bands": 8,
+        "sheet_name": null,
+        "adopted": -1346.843,
+        "anchor_shift_m": 52.3,
+        "corridor_width_m": 24.384
+      },
+      {
+        "j": 7,
+        "measured": -1545.43,
+        "drawn_w": 25.19,
+        "bands": 4,
+        "sheet_name": null,
+        "adopted": -1488.784,
+        "anchor_shift_m": 56.65,
+        "corridor_width_m": 24.384
+      },
+      {
+        "j": 8,
+        "measured": -1660.67,
+        "drawn_w": 16.84,
+        "bands": 8,
+        "sheet_name": null,
+        "adopted": -1600.598,
+        "anchor_shift_m": 60.07,
+        "corridor_width_m": 24.384
+      },
+      {
+        "j": 9,
+        "measured": -1808.4,
+        "drawn_w": null,
+        "bands": 0,
+        "sheet_name": null,
+        "adopted": -1743.937,
+        "anchor_shift_m": 64.46,
+        "corridor_width_m": 24.384
+      },
+      {
+        "j": 10,
+        "measured": -1924.45,
+        "drawn_w": 13.66,
+        "bands": 8,
+        "sheet_name": null,
+        "adopted": -1856.537,
+        "anchor_shift_m": 67.91,
+        "corridor_width_m": 24.384
+      },
+      {
+        "j": 11,
+        "measured": -2077.6,
+        "drawn_w": null,
+        "bands": 0,
+        "sheet_name": null,
+        "adopted": -2005.134,
+        "anchor_shift_m": 72.47,
+        "corridor_width_m": 24.384
+      },
+      {
+        "j": 12,
+        "measured": -2204.64,
+        "drawn_w": null,
+        "bands": 0,
+        "sheet_name": "section line (south)",
+        "adopted": -2128.398,
+        "anchor_shift_m": 76.24,
+        "corridor_width_m": 24.384
+      }
+    ],
+    "corridor_widths": {
+      "east_west_m": 24.384,
+      "north_south_m": 20.117,
+      "note": "Adopted, not measured per line. Where the sheet draws a corridor with two rules their separation was measured: the east-west median is 23.3 m and the north-south 20.4 m, against the 80 ft and 66 ft the 1830 plats use. The standards are adopted and the drawn separation is kept per line as `drawn_w`, because the scatter of individual picks is +/- 5 m and no single one is worth more than the standard."
+    }
+  },
+  "numbering": {
+    "scheme": "Serpentine, tier by tier: 1-12 down the westernmost, 13-24 back up the next, and so on to 131-141 up the easternmost. The two corner blocks the sheet marks 'Reserved' carry no numeral and take 1 and 142 from the sequence.",
+    "read_on_the_sheet": 140,
+    "supplied_by_the_sequence": 2,
+    "corroboration": "The October 1833 sale resolves 217 of its section-16 rows to a block number, and the 27 distinct blocks it names are EXACTLY the blocks read here in the four northern rows, with the two reserved corners missing from both. That is a second witness to the reading, made by a different hand in a different record."
+  },
+  "sale_test": {
+    "rows_in_section_16": 337,
+    "rows_resolving_to_a_block": 217,
+    "blocks_sold": [
+      2,
+      23,
+      24,
+      25,
+      26,
+      47,
+      48,
+      49,
+      50,
+      70,
+      71,
+      72,
+      79,
+      80,
+      81,
+      82,
+      83,
+      84,
+      93,
+      94,
+      95,
+      96,
+      117,
+      118,
+      119,
+      120,
+      141
+    ],
+    "first_date": "1833-10-22",
+    "last_date": "1833-10-25"
+  },
+  "numbering_cross_check": {
+    "against": "data/traces/school_section_block_numbering.json",
+    "ticket": "T-0875",
+    "cells_compared": 142,
+    "disagreements": 0,
+    "note": "Two independent readings of the same sheet, made hours apart by runs that could not see each other — one off the resampled raster, one off the sheet's own pixels — agree on all 142 numerals, cell for cell. This module gates on that agreement: if the two ever diverge it refuses to run. The four cells this module holds and that reading does not are the east halves of blocks 73, 74, 83 and 84, which span two cells apiece here because Market Street stops at Adams."
+  },
+  "summary": {
+    "blocks": 142,
+    "reserved": [
+      1,
+      87,
+      88,
+      142
+    ],
+    "cut_by_south_branch": [
+      70,
+      71,
+      73,
+      74,
+      78,
+      83,
+      84,
+      85,
+      86,
+      87,
+      88
+    ],
+    "total_block_area_m2": 1670010.1
+  },
+  "blocks": [
+    {
+      "block_number": 1,
+      "id": "blk_school_section_1",
+      "cells": [
+        [
+          0,
+          0
+        ]
+      ],
+      "boundary_local_enu_m": [
+        [
+          -757.43,
+          -531.25
+        ],
+        [
+          -657.13,
+          -531.25
+        ],
+        [
+          -657.13,
+          -643.64
+        ],
+        [
+          -757.43,
+          -643.64
+        ]
+      ],
+      "area_m2": 11272.7,
+      "frontage_m": 100.29,
+      "depth_m": 112.4,
+      "numeral": {
+        "read": null,
+        "confidence": "inferred",
+        "on_sheet": false,
+        "source": "wright_1834_nara_hup",
+        "crop_na_pixels": {
+          "x": 682,
+          "y": 3155,
+          "w": 144,
+          "h": 161
+        },
+        "note": "The sheet writes 'Reserved' across this block and no numeral. 1 is supplied by the serpentine sequence, which runs 1-12 down this westernmost tier with 2 in the block immediately south. The October 1833 sale sells lots in every other block of the two northern tiers and none here, which is the reservation's own corroboration."
+      },
+      "bounded_by": {
+        "north": "madison",
+        "south": "monroe",
+        "west": "school_section_line_0",
+        "east": "school_section_line_1"
+      },
+      "geometry_confidence": "inferred",
+      "reserved": true
+    },
+    {
+      "block_number": 2,
+      "id": "blk_school_section_2",
+      "cells": [
+        [
+          0,
+          1
+        ]
+      ],
+      "boundary_local_enu_m": [
+        [
+          -757.43,
+          -668.03
+        ],
+        [
+          -657.13,
+          -668.03
+        ],
+        [
+          -657.13,
+          -785.01
+        ],
+        [
+          -757.43,
+          -785.01
+        ]
+      ],
+      "area_m2": 11733.0,
+      "frontage_m": 100.29,
+      "depth_m": 116.98,
+      "numeral": {
+        "read": "2",
+        "confidence": "documented",
+        "on_sheet": true,
+        "source": "wright_1834_nara_hup",
+        "crop_na_pixels": {
+          "x": 680,
+          "y": 3345,
+          "w": 144,
+          "h": 168
+        },
+        "note": null
+      },
+      "bounded_by": {
+        "north": "monroe",
+        "south": "adams",
+        "west": "school_section_line_0",
+        "east": "school_section_line_1"
+      },
+      "geometry_confidence": "inferred"
+    },
+    {
+      "block_number": 3,
+      "id": "blk_school_section_3",
+      "cells": [
+        [
+          0,
+          2
+        ]
+      ],
+      "boundary_local_enu_m": [
+        [
+          -757.43,
+          -809.39
+        ],
+        [
+          -657.13,
+          -809.39
+        ],
+        [
+          -657.13,
+          -927.9
+        ],
+        [
+          -757.43,
+          -927.9
+        ]
+      ],
+      "area_m2": 11885.7,
+      "frontage_m": 100.29,
+      "depth_m": 118.51,
+      "numeral": {
+        "read": "3",
+        "confidence": "documented",
+        "on_sheet": true,
+        "source": "wright_1834_nara_hup",
+        "crop_na_pixels": {
+          "x": 678,
+          "y": 3541,
+          "w": 144,
+          "h": 170
+        },
+        "note": null
+      },
+      "bounded_by": {
+        "north": "adams",
+        "south": "jackson",
+        "west": "school_section_line_0",
+        "east": "school_section_line_1"
+      },
+      "geometry_confidence": "inferred"
+    },
+    {
+      "block_number": 4,
+      "id": "blk_school_section_4",
+      "cells": [
+        [
+          0,
+          3
+        ]
+      ],
+      "boundary_local_enu_m": [
+        [
+          -757.43,
+          -952.29
+        ],
+        [
+          -657.13,
+          -952.29
+        ],
+        [
+          -657.13,
+          -1072.93
+        ],
+        [
+          -757.43,
+          -1072.93
+        ]
+      ],
+      "area_m2": 12099.8,
+      "frontage_m": 100.29,
+      "depth_m": 120.64,
+      "numeral": {
+        "read": "4",
+        "confidence": "documented",
+        "on_sheet": true,
+        "source": "wright_1834_nara_hup",
+        "crop_na_pixels": {
+          "x": 676,
+          "y": 3739,
+          "w": 144,
+          "h": 173
+        },
+        "note": null
+      },
+      "bounded_by": {
+        "north": "jackson",
+        "south": "school_section_tier_4_south_of_madison",
+        "west": "school_section_line_0",
+        "east": "school_section_line_1"
+      },
+      "geometry_confidence": "inferred"
+    },
+    {
+      "block_number": 5,
+      "id": "blk_school_section_5",
+      "cells": [
+        [
+          0,
+          4
+        ]
+      ],
+      "boundary_local_enu_m": [
+        [
+          -757.43,
+          -1097.31
+        ],
+        [
+          -657.13,
+          -1097.31
+        ],
+        [
+          -657.13,
+          -1219.54
+        ],
+        [
+          -757.43,
+          -1219.54
+        ]
+      ],
+      "area_m2": 12258.4,
+      "frontage_m": 100.29,
+      "depth_m": 122.22,
+      "numeral": {
+        "read": "5",
+        "confidence": "documented",
+        "on_sheet": true,
+        "source": "wright_1834_nara_hup",
+        "crop_na_pixels": {
+          "x": 674,
+          "y": 3940,
+          "w": 144,
+          "h": 175
+        },
+        "note": null
+      },
+      "bounded_by": {
+        "north": "school_section_tier_4_south_of_madison",
+        "south": "school_section_tier_5_south_of_madison",
+        "west": "school_section_line_0",
+        "east": "school_section_line_1"
+      },
+      "geometry_confidence": "inferred"
+    },
+    {
+      "block_number": 6,
+      "id": "blk_school_section_6",
+      "cells": [
+        [
+          0,
+          5
+        ]
+      ],
+      "boundary_local_enu_m": [
+        [
+          -757.43,
+          -1243.92
+        ],
+        [
+          -657.13,
+          -1243.92
+        ],
+        [
+          -657.13,
+          -1334.65
+        ],
+        [
+          -757.43,
+          -1334.65
+        ]
+      ],
+      "area_m2": 9099.7,
+      "frontage_m": 100.29,
+      "depth_m": 90.73,
+      "numeral": {
+        "read": "6",
+        "confidence": "documented",
+        "on_sheet": true,
+        "source": "wright_1834_nara_hup",
+        "crop_na_pixels": {
+          "x": 672,
+          "y": 4143,
+          "w": 143,
+          "h": 131
+        },
+        "note": null
+      },
+      "bounded_by": {
+        "north": "school_section_tier_5_south_of_madison",
+        "south": "school_section_tier_6_south_of_madison",
+        "west": "school_section_line_0",
+        "east": "school_section_line_1"
+      },
+      "geometry_confidence": "inferred"
+    },
+    {
+      "block_number": 7,
+      "id": "blk_school_section_7",
+      "cells": [
+        [
+          0,
+          6
+        ]
+      ],
+      "boundary_local_enu_m": [
+        [
+          -757.43,
+          -1359.03
+        ],
+        [
+          -657.13,
+          -1359.03
+        ],
+        [
+          -657.13,
+          -1476.59
+        ],
+        [
+          -757.43,
+          -1476.59
+        ]
+      ],
+      "area_m2": 11790.4,
+      "frontage_m": 100.29,
+      "depth_m": 117.56,
+      "numeral": {
+        "read": "7",
+        "confidence": "documented",
+        "on_sheet": true,
+        "source": "wright_1834_nara_hup",
+        "crop_na_pixels": {
+          "x": 670,
+          "y": 4303,
+          "w": 144,
+          "h": 168
+        },
+        "note": null
+      },
+      "bounded_by": {
+        "north": "school_section_tier_6_south_of_madison",
+        "south": "school_section_tier_7_south_of_madison",
+        "west": "school_section_line_0",
+        "east": "school_section_line_1"
+      },
+      "geometry_confidence": "inferred"
+    },
+    {
+      "block_number": 8,
+      "id": "blk_school_section_8",
+      "cells": [
+        [
+          0,
+          7
+        ]
+      ],
+      "boundary_local_enu_m": [
+        [
+          -757.43,
+          -1500.98
+        ],
+        [
+          -657.13,
+          -1500.98
+        ],
+        [
+          -657.13,
+          -1588.41
+        ],
+        [
+          -757.43,
+          -1588.41
+        ]
+      ],
+      "area_m2": 8768.8,
+      "frontage_m": 100.29,
+      "depth_m": 87.43,
+      "numeral": {
+        "read": "8",
+        "confidence": "documented",
+        "on_sheet": true,
+        "source": "wright_1834_nara_hup",
+        "crop_na_pixels": {
+          "x": 669,
+          "y": 4499,
+          "w": 143,
+          "h": 127
+        },
+        "note": null
+      },
+      "bounded_by": {
+        "north": "school_section_tier_7_south_of_madison",
+        "south": "school_section_tier_8_south_of_madison",
+        "west": "school_section_line_0",
+        "east": "school_section_line_1"
+      },
+      "geometry_confidence": "inferred"
+    },
+    {
+      "block_number": 9,
+      "id": "blk_school_section_9",
+      "cells": [
+        [
+          0,
+          8
+        ]
+      ],
+      "boundary_local_enu_m": [
+        [
+          -757.43,
+          -1612.79
+        ],
+        [
+          -657.13,
+          -1612.79
+        ],
+        [
+          -657.13,
+          -1731.74
+        ],
+        [
+          -757.43,
+          -1731.74
+        ]
+      ],
+      "area_m2": 11930.5,
+      "frontage_m": 100.29,
+      "depth_m": 118.95,
+      "numeral": {
+        "read": "9",
+        "confidence": "documented",
+        "on_sheet": true,
+        "source": "wright_1834_nara_hup",
+        "crop_na_pixels": {
+          "x": 667,
+          "y": 4654,
+          "w": 144,
+          "h": 170
+        },
+        "note": null
+      },
+      "bounded_by": {
+        "north": "school_section_tier_8_south_of_madison",
+        "south": "school_section_tier_9_south_of_madison",
+        "west": "school_section_line_0",
+        "east": "school_section_line_1"
+      },
+      "geometry_confidence": "inferred"
+    },
+    {
+      "block_number": 10,
+      "id": "blk_school_section_10",
+      "cells": [
+        [
+          0,
+          9
+        ]
+      ],
+      "boundary_local_enu_m": [
+        [
+          -757.43,
+          -1756.13
+        ],
+        [
+          -657.13,
+          -1756.13
+        ],
+        [
+          -657.13,
+          -1844.35
+        ],
+        [
+          -757.43,
+          -1844.35
+        ]
+      ],
+      "area_m2": 8847.6,
+      "frontage_m": 100.29,
+      "depth_m": 88.22,
+      "numeral": {
+        "read": "10",
+        "confidence": "documented",
+        "on_sheet": true,
+        "source": "wright_1834_nara_hup",
+        "crop_na_pixels": {
+          "x": 665,
+          "y": 4853,
+          "w": 143,
+          "h": 128
+        },
+        "note": null
+      },
+      "bounded_by": {
+        "north": "school_section_tier_9_south_of_madison",
+        "south": "school_section_tier_10_south_of_madison",
+        "west": "school_section_line_0",
+        "east": "school_section_line_1"
+      },
+      "geometry_confidence": "inferred"
+    },
+    {
+      "block_number": 11,
+      "id": "blk_school_section_11",
+      "cells": [
+        [
+          0,
+          10
+        ]
+      ],
+      "boundary_local_enu_m": [
+        [
+          -757.43,
+          -1868.73
+        ],
+        [
+          -657.13,
+          -1868.73
+        ],
+        [
+          -657.13,
+          -1992.94
+        ],
+        [
+          -757.43,
+          -1992.94
+        ]
+      ],
+      "area_m2": 12457.9,
+      "frontage_m": 100.29,
+      "depth_m": 124.21,
+      "numeral": {
+        "read": "11",
+        "confidence": "documented",
+        "on_sheet": true,
+        "source": "wright_1834_nara_hup",
+        "crop_na_pixels": {
+          "x": 663,
+          "y": 5009,
+          "w": 144,
+          "h": 178
+        },
+        "note": null
+      },
+      "bounded_by": {
+        "north": "school_section_tier_10_south_of_madison",
+        "south": "school_section_tier_11_south_of_madison",
+        "west": "school_section_line_0",
+        "east": "school_section_line_1"
+      },
+      "geometry_confidence": "inferred"
+    },
+    {
+      "block_number": 12,
+      "id": "blk_school_section_12",
+      "cells": [
+        [
+          0,
+          11
+        ]
+      ],
+      "boundary_local_enu_m": [
+        [
+          -757.43,
+          -2017.33
+        ],
+        [
+          -657.13,
+          -2017.33
+        ],
+        [
+          -657.13,
+          -2116.21
+        ],
+        [
+          -757.43,
+          -2116.21
+        ]
+      ],
+      "area_m2": 9917.1,
+      "frontage_m": 100.29,
+      "depth_m": 98.88,
+      "numeral": {
+        "read": "12",
+        "confidence": "documented",
+        "on_sheet": true,
+        "source": "wright_1834_nara_hup",
+        "crop_na_pixels": {
+          "x": 661,
+          "y": 5215,
+          "w": 144,
+          "h": 142
+        },
+        "note": null
+      },
+      "bounded_by": {
+        "north": "school_section_tier_11_south_of_madison",
+        "south": null,
+        "west": "school_section_line_0",
+        "east": "school_section_line_1"
+      },
+      "geometry_confidence": "inferred"
+    },
+    {
+      "block_number": 13,
+      "id": "blk_school_section_13",
+      "cells": [
+        [
+          1,
+          11
+        ]
+      ],
+      "boundary_local_enu_m": [
+        [
+          -637.02,
+          -2017.33
+        ],
+        [
+          -516.51,
+          -2017.33
+        ],
+        [
+          -516.51,
+          -2116.21
+        ],
+        [
+          -637.02,
+          -2116.21
+        ]
+      ],
+      "area_m2": 11915.4,
+      "frontage_m": 120.5,
+      "depth_m": 98.88,
+      "numeral": {
+        "read": "13",
+        "confidence": "documented",
+        "on_sheet": true,
+        "source": "wright_1834_nara_hup",
+        "crop_na_pixels": {
+          "x": 832,
+          "y": 5221,
+          "w": 172,
+          "h": 144
+        },
+        "note": null
+      },
+      "bounded_by": {
+        "north": "school_section_tier_11_south_of_madison",
+        "south": null,
+        "west": "school_section_line_1",
+        "east": "des_plaines_school_section"
+      },
+      "geometry_confidence": "inferred"
+    },
+    {
+      "block_number": 14,
+      "id": "blk_school_section_14",
+      "cells": [
+        [
+          1,
+          10
+        ]
+      ],
+      "boundary_local_enu_m": [
+        [
+          -637.02,
+          -1868.73
+        ],
+        [
+          -516.51,
+          -1868.73
+        ],
+        [
+          -516.51,
+          -1992.94
+        ],
+        [
+          -637.02,
+          -1992.94
+        ]
+      ],
+      "area_m2": 14968.2,
+      "frontage_m": 120.5,
+      "depth_m": 124.21,
+      "numeral": {
+        "read": "14",
+        "confidence": "documented",
+        "on_sheet": true,
+        "source": "wright_1834_nara_hup",
+        "crop_na_pixels": {
+          "x": 833,
+          "y": 5015,
+          "w": 173,
+          "h": 179
+        },
+        "note": null
+      },
+      "bounded_by": {
+        "north": "school_section_tier_10_south_of_madison",
+        "south": "school_section_tier_11_south_of_madison",
+        "west": "school_section_line_1",
+        "east": "des_plaines_school_section"
+      },
+      "geometry_confidence": "inferred"
+    },
+    {
+      "block_number": 15,
+      "id": "blk_school_section_15",
+      "cells": [
+        [
+          1,
+          9
+        ]
+      ],
+      "boundary_local_enu_m": [
+        [
+          -637.02,
+          -1756.13
+        ],
+        [
+          -516.51,
+          -1756.13
+        ],
+        [
+          -516.51,
+          -1844.35
+        ],
+        [
+          -637.02,
+          -1844.35
+        ]
+      ],
+      "area_m2": 10630.4,
+      "frontage_m": 120.5,
+      "depth_m": 88.22,
+      "numeral": {
+        "read": "15",
+        "confidence": "documented",
+        "on_sheet": true,
+        "source": "wright_1834_nara_hup",
+        "crop_na_pixels": {
+          "x": 836,
+          "y": 4859,
+          "w": 172,
+          "h": 129
+        },
+        "note": null
+      },
+      "bounded_by": {
+        "north": "school_section_tier_9_south_of_madison",
+        "south": "school_section_tier_10_south_of_madison",
+        "west": "school_section_line_1",
+        "east": "des_plaines_school_section"
+      },
+      "geometry_confidence": "inferred"
+    },
+    {
+      "block_number": 16,
+      "id": "blk_school_section_16",
+      "cells": [
+        [
+          1,
+          8
+        ]
+      ],
+      "boundary_local_enu_m": [
+        [
+          -637.02,
+          -1612.79
+        ],
+        [
+          -516.51,
+          -1612.79
+        ],
+        [
+          -516.51,
+          -1731.74
+        ],
+        [
+          -637.02,
+          -1731.74
+        ]
+      ],
+      "area_m2": 14334.5,
+      "frontage_m": 120.5,
+      "depth_m": 118.95,
+      "numeral": {
+        "read": "16",
+        "confidence": "documented",
+        "on_sheet": true,
+        "source": "wright_1834_nara_hup",
+        "crop_na_pixels": {
+          "x": 837,
+          "y": 4661,
+          "w": 173,
+          "h": 171
+        },
+        "note": null
+      },
+      "bounded_by": {
+        "north": "school_section_tier_8_south_of_madison",
+        "south": "school_section_tier_9_south_of_madison",
+        "west": "school_section_line_1",
+        "east": "des_plaines_school_section"
+      },
+      "geometry_confidence": "inferred"
+    },
+    {
+      "block_number": 17,
+      "id": "blk_school_section_17",
+      "cells": [
+        [
+          1,
+          7
+        ]
+      ],
+      "boundary_local_enu_m": [
+        [
+          -637.02,
+          -1500.98
+        ],
+        [
+          -516.51,
+          -1500.98
+        ],
+        [
+          -516.51,
+          -1588.41
+        ],
+        [
+          -637.02,
+          -1588.41
+        ]
+      ],
+      "area_m2": 10535.7,
+      "frontage_m": 120.5,
+      "depth_m": 87.43,
+      "numeral": {
+        "read": "17",
+        "confidence": "documented",
+        "on_sheet": true,
+        "source": "wright_1834_nara_hup",
+        "crop_na_pixels": {
+          "x": 839,
+          "y": 4506,
+          "w": 172,
+          "h": 128
+        },
+        "note": null
+      },
+      "bounded_by": {
+        "north": "school_section_tier_7_south_of_madison",
+        "south": "school_section_tier_8_south_of_madison",
+        "west": "school_section_line_1",
+        "east": "des_plaines_school_section"
+      },
+      "geometry_confidence": "inferred"
+    },
+    {
+      "block_number": 18,
+      "id": "blk_school_section_18",
+      "cells": [
+        [
+          1,
+          6
+        ]
+      ],
+      "boundary_local_enu_m": [
+        [
+          -637.02,
+          -1359.03
+        ],
+        [
+          -516.51,
+          -1359.03
+        ],
+        [
+          -516.51,
+          -1476.59
+        ],
+        [
+          -637.02,
+          -1476.59
+        ]
+      ],
+      "area_m2": 14166.1,
+      "frontage_m": 120.5,
+      "depth_m": 117.56,
+      "numeral": {
+        "read": "18",
+        "confidence": "documented",
+        "on_sheet": true,
+        "source": "wright_1834_nara_hup",
+        "crop_na_pixels": {
+          "x": 841,
+          "y": 4309,
+          "w": 173,
+          "h": 169
+        },
+        "note": null
+      },
+      "bounded_by": {
+        "north": "school_section_tier_6_south_of_madison",
+        "south": "school_section_tier_7_south_of_madison",
+        "west": "school_section_line_1",
+        "east": "des_plaines_school_section"
+      },
+      "geometry_confidence": "inferred"
+    },
+    {
+      "block_number": 19,
+      "id": "blk_school_section_19",
+      "cells": [
+        [
+          1,
+          5
+        ]
+      ],
+      "boundary_local_enu_m": [
+        [
+          -637.02,
+          -1243.92
+        ],
+        [
+          -516.51,
+          -1243.92
+        ],
+        [
+          -516.51,
+          -1334.65
+        ],
+        [
+          -637.02,
+          -1334.65
+        ]
+      ],
+      "area_m2": 10933.2,
+      "frontage_m": 120.5,
+      "depth_m": 90.73,
+      "numeral": {
+        "read": "19",
+        "confidence": "documented",
+        "on_sheet": true,
+        "source": "wright_1834_nara_hup",
+        "crop_na_pixels": {
+          "x": 843,
+          "y": 4150,
+          "w": 172,
+          "h": 132
+        },
+        "note": null
+      },
+      "bounded_by": {
+        "north": "school_section_tier_5_south_of_madison",
+        "south": "school_section_tier_6_south_of_madison",
+        "west": "school_section_line_1",
+        "east": "des_plaines_school_section"
+      },
+      "geometry_confidence": "inferred"
+    },
+    {
+      "block_number": 20,
+      "id": "blk_school_section_20",
+      "cells": [
+        [
+          1,
+          4
+        ]
+      ],
+      "boundary_local_enu_m": [
+        [
+          -637.02,
+          -1097.31
+        ],
+        [
+          -516.51,
+          -1097.31
+        ],
+        [
+          -516.51,
+          -1219.54
+        ],
+        [
+          -637.02,
+          -1219.54
+        ]
+      ],
+      "area_m2": 14728.5,
+      "frontage_m": 120.5,
+      "depth_m": 122.22,
+      "numeral": {
+        "read": "20",
+        "confidence": "documented",
+        "on_sheet": true,
+        "source": "wright_1834_nara_hup",
+        "crop_na_pixels": {
+          "x": 845,
+          "y": 3946,
+          "w": 173,
+          "h": 176
+        },
+        "note": null
+      },
+      "bounded_by": {
+        "north": "school_section_tier_4_south_of_madison",
+        "south": "school_section_tier_5_south_of_madison",
+        "west": "school_section_line_1",
+        "east": "des_plaines_school_section"
+      },
+      "geometry_confidence": "inferred"
+    },
+    {
+      "block_number": 21,
+      "id": "blk_school_section_21",
+      "cells": [
+        [
+          1,
+          3
+        ]
+      ],
+      "boundary_local_enu_m": [
+        [
+          -637.02,
+          -952.29
+        ],
+        [
+          -516.51,
+          -952.29
+        ],
+        [
+          -516.51,
+          -1072.93
+        ],
+        [
+          -637.02,
+          -1072.93
+        ]
+      ],
+      "area_m2": 14537.9,
+      "frontage_m": 120.5,
+      "depth_m": 120.64,
+      "numeral": {
+        "read": "21",
+        "confidence": "documented",
+        "on_sheet": true,
+        "source": "wright_1834_nara_hup",
+        "crop_na_pixels": {
+          "x": 847,
+          "y": 3745,
+          "w": 173,
+          "h": 174
+        },
+        "note": null
+      },
+      "bounded_by": {
+        "north": "jackson",
+        "south": "school_section_tier_4_south_of_madison",
+        "west": "school_section_line_1",
+        "east": "des_plaines_school_section"
+      },
+      "geometry_confidence": "inferred"
+    },
+    {
+      "block_number": 22,
+      "id": "blk_school_section_22",
+      "cells": [
+        [
+          1,
+          2
+        ]
+      ],
+      "boundary_local_enu_m": [
+        [
+          -637.02,
+          -809.39
+        ],
+        [
+          -516.51,
+          -809.39
+        ],
+        [
+          -516.51,
+          -927.9
+        ],
+        [
+          -637.02,
+          -927.9
+        ]
+      ],
+      "area_m2": 14280.7,
+      "frontage_m": 120.5,
+      "depth_m": 118.51,
+      "numeral": {
+        "read": "22",
+        "confidence": "documented",
+        "on_sheet": true,
+        "source": "wright_1834_nara_hup",
+        "crop_na_pixels": {
+          "x": 849,
+          "y": 3547,
+          "w": 173,
+          "h": 171
+        },
+        "note": null
+      },
+      "bounded_by": {
+        "north": "adams",
+        "south": "jackson",
+        "west": "school_section_line_1",
+        "east": "des_plaines_school_section"
+      },
+      "geometry_confidence": "inferred"
+    },
+    {
+      "block_number": 23,
+      "id": "blk_school_section_23",
+      "cells": [
+        [
+          1,
+          1
+        ]
+      ],
+      "boundary_local_enu_m": [
+        [
+          -637.02,
+          -668.03
+        ],
+        [
+          -516.51,
+          -668.03
+        ],
+        [
+          -516.51,
+          -785.01
+        ],
+        [
+          -637.02,
+          -785.01
+        ]
+      ],
+      "area_m2": 14097.1,
+      "frontage_m": 120.5,
+      "depth_m": 116.98,
+      "numeral": {
+        "read": "23",
+        "confidence": "documented",
+        "on_sheet": true,
+        "source": "wright_1834_nara_hup",
+        "crop_na_pixels": {
+          "x": 851,
+          "y": 3351,
+          "w": 173,
+          "h": 169
+        },
+        "note": null
+      },
+      "bounded_by": {
+        "north": "monroe",
+        "south": "adams",
+        "west": "school_section_line_1",
+        "east": "des_plaines_school_section"
+      },
+      "geometry_confidence": "inferred"
+    },
+    {
+      "block_number": 24,
+      "id": "blk_school_section_24",
+      "cells": [
+        [
+          1,
+          0
+        ]
+      ],
+      "boundary_local_enu_m": [
+        [
+          -637.02,
+          -531.25
+        ],
+        [
+          -516.51,
+          -531.25
+        ],
+        [
+          -516.51,
+          -643.64
+        ],
+        [
+          -637.02,
+          -643.64
+        ]
+      ],
+      "area_m2": 13544.1,
+      "frontage_m": 120.5,
+      "depth_m": 112.4,
+      "numeral": {
+        "read": "24",
+        "confidence": "documented",
+        "on_sheet": true,
+        "source": "wright_1834_nara_hup",
+        "crop_na_pixels": {
+          "x": 853,
+          "y": 3162,
+          "w": 172,
+          "h": 162
+        },
+        "note": null
+      },
+      "bounded_by": {
+        "north": "madison",
+        "south": "monroe",
+        "west": "school_section_line_1",
+        "east": "des_plaines_school_section"
+      },
+      "geometry_confidence": "inferred"
+    },
+    {
+      "block_number": 25,
+      "id": "blk_school_section_25",
+      "cells": [
+        [
+          2,
+          0
+        ]
+      ],
+      "boundary_local_enu_m": [
+        [
+          -496.4,
+          -531.25
+        ],
+        [
+          -390.04,
+          -531.25
+        ],
+        [
+          -390.04,
+          -643.64
+        ],
+        [
+          -496.4,
+          -643.64
+        ]
+      ],
+      "area_m2": 11954.2,
+      "frontage_m": 106.36,
+      "depth_m": 112.4,
+      "numeral": {
+        "read": "25",
+        "confidence": "documented",
+        "on_sheet": true,
+        "source": "wright_1834_nara_hup",
+        "crop_na_pixels": {
+          "x": 1052,
+          "y": 3169,
+          "w": 152,
+          "h": 162
+        },
+        "note": null
+      },
+      "bounded_by": {
+        "north": "madison",
+        "south": "monroe",
+        "west": "des_plaines_school_section",
+        "east": "jefferson_school_section"
+      },
+      "geometry_confidence": "inferred"
+    },
+    {
+      "block_number": 26,
+      "id": "blk_school_section_26",
+      "cells": [
+        [
+          2,
+          1
+        ]
+      ],
+      "boundary_local_enu_m": [
+        [
+          -496.4,
+          -668.03
+        ],
+        [
+          -390.04,
+          -668.03
+        ],
+        [
+          -390.04,
+          -785.01
+        ],
+        [
+          -496.4,
+          -785.01
+        ]
+      ],
+      "area_m2": 12442.3,
+      "frontage_m": 106.36,
+      "depth_m": 116.98,
+      "numeral": {
+        "read": "26",
+        "confidence": "documented",
+        "on_sheet": true,
+        "source": "wright_1834_nara_hup",
+        "crop_na_pixels": {
+          "x": 1050,
+          "y": 3359,
+          "w": 152,
+          "h": 168
+        },
+        "note": null
+      },
+      "bounded_by": {
+        "north": "monroe",
+        "south": "adams",
+        "west": "des_plaines_school_section",
+        "east": "jefferson_school_section"
+      },
+      "geometry_confidence": "inferred"
+    },
+    {
+      "block_number": 27,
+      "id": "blk_school_section_27",
+      "cells": [
+        [
+          2,
+          2
+        ]
+      ],
+      "boundary_local_enu_m": [
+        [
+          -496.4,
+          -809.39
+        ],
+        [
+          -390.04,
+          -809.39
+        ],
+        [
+          -390.04,
+          -927.9
+        ],
+        [
+          -496.4,
+          -927.9
+        ]
+      ],
+      "area_m2": 12604.3,
+      "frontage_m": 106.36,
+      "depth_m": 118.51,
+      "numeral": {
+        "read": "27",
+        "confidence": "documented",
+        "on_sheet": true,
+        "source": "wright_1834_nara_hup",
+        "crop_na_pixels": {
+          "x": 1048,
+          "y": 3555,
+          "w": 152,
+          "h": 170
+        },
+        "note": null
+      },
+      "bounded_by": {
+        "north": "adams",
+        "south": "jackson",
+        "west": "des_plaines_school_section",
+        "east": "jefferson_school_section"
+      },
+      "geometry_confidence": "inferred"
+    },
+    {
+      "block_number": 28,
+      "id": "blk_school_section_28",
+      "cells": [
+        [
+          2,
+          3
+        ]
+      ],
+      "boundary_local_enu_m": [
+        [
+          -496.4,
+          -952.29
+        ],
+        [
+          -390.04,
+          -952.29
+        ],
+        [
+          -390.04,
+          -1072.93
+        ],
+        [
+          -496.4,
+          -1072.93
+        ]
+      ],
+      "area_m2": 12831.4,
+      "frontage_m": 106.36,
+      "depth_m": 120.64,
+      "numeral": {
+        "read": "28",
+        "confidence": "documented",
+        "on_sheet": true,
+        "source": "wright_1834_nara_hup",
+        "crop_na_pixels": {
+          "x": 1046,
+          "y": 3753,
+          "w": 153,
+          "h": 173
+        },
+        "note": null
+      },
+      "bounded_by": {
+        "north": "jackson",
+        "south": "school_section_tier_4_south_of_madison",
+        "west": "des_plaines_school_section",
+        "east": "jefferson_school_section"
+      },
+      "geometry_confidence": "inferred"
+    },
+    {
+      "block_number": 29,
+      "id": "blk_school_section_29",
+      "cells": [
+        [
+          2,
+          4
+        ]
+      ],
+      "boundary_local_enu_m": [
+        [
+          -496.4,
+          -1097.31
+        ],
+        [
+          -390.04,
+          -1097.31
+        ],
+        [
+          -390.04,
+          -1219.54
+        ],
+        [
+          -496.4,
+          -1219.54
+        ]
+      ],
+      "area_m2": 12999.6,
+      "frontage_m": 106.36,
+      "depth_m": 122.22,
+      "numeral": {
+        "read": "29",
+        "confidence": "documented",
+        "on_sheet": true,
+        "source": "wright_1834_nara_hup",
+        "crop_na_pixels": {
+          "x": 1044,
+          "y": 3954,
+          "w": 153,
+          "h": 175
+        },
+        "note": null
+      },
+      "bounded_by": {
+        "north": "school_section_tier_4_south_of_madison",
+        "south": "school_section_tier_5_south_of_madison",
+        "west": "des_plaines_school_section",
+        "east": "jefferson_school_section"
+      },
+      "geometry_confidence": "inferred"
+    },
+    {
+      "block_number": 30,
+      "id": "blk_school_section_30",
+      "cells": [
+        [
+          2,
+          5
+        ]
+      ],
+      "boundary_local_enu_m": [
+        [
+          -496.4,
+          -1243.92
+        ],
+        [
+          -390.04,
+          -1243.92
+        ],
+        [
+          -390.04,
+          -1334.65
+        ],
+        [
+          -496.4,
+          -1334.65
+        ]
+      ],
+      "area_m2": 9649.8,
+      "frontage_m": 106.36,
+      "depth_m": 90.73,
+      "numeral": {
+        "read": "30",
+        "confidence": "documented",
+        "on_sheet": true,
+        "source": "wright_1834_nara_hup",
+        "crop_na_pixels": {
+          "x": 1042,
+          "y": 4157,
+          "w": 152,
+          "h": 132
+        },
+        "note": null
+      },
+      "bounded_by": {
+        "north": "school_section_tier_5_south_of_madison",
+        "south": "school_section_tier_6_south_of_madison",
+        "west": "des_plaines_school_section",
+        "east": "jefferson_school_section"
+      },
+      "geometry_confidence": "inferred"
+    },
+    {
+      "block_number": 31,
+      "id": "blk_school_section_31",
+      "cells": [
+        [
+          2,
+          6
+        ]
+      ],
+      "boundary_local_enu_m": [
+        [
+          -496.4,
+          -1359.03
+        ],
+        [
+          -390.04,
+          -1359.03
+        ],
+        [
+          -390.04,
+          -1476.59
+        ],
+        [
+          -496.4,
+          -1476.59
+        ]
+      ],
+      "area_m2": 12503.2,
+      "frontage_m": 106.36,
+      "depth_m": 117.56,
+      "numeral": {
+        "read": "31",
+        "confidence": "documented",
+        "on_sheet": true,
+        "source": "wright_1834_nara_hup",
+        "crop_na_pixels": {
+          "x": 1040,
+          "y": 4317,
+          "w": 152,
+          "h": 169
+        },
+        "note": null
+      },
+      "bounded_by": {
+        "north": "school_section_tier_6_south_of_madison",
+        "south": "school_section_tier_7_south_of_madison",
+        "west": "des_plaines_school_section",
+        "east": "jefferson_school_section"
+      },
+      "geometry_confidence": "inferred"
+    },
+    {
+      "block_number": 32,
+      "id": "blk_school_section_32",
+      "cells": [
+        [
+          2,
+          7
+        ]
+      ],
+      "boundary_local_enu_m": [
+        [
+          -496.4,
+          -1500.98
+        ],
+        [
+          -390.04,
+          -1500.98
+        ],
+        [
+          -390.04,
+          -1588.41
+        ],
+        [
+          -496.4,
+          -1588.41
+        ]
+      ],
+      "area_m2": 9298.9,
+      "frontage_m": 106.36,
+      "depth_m": 87.43,
+      "numeral": {
+        "read": "32",
+        "confidence": "documented",
+        "on_sheet": true,
+        "source": "wright_1834_nara_hup",
+        "crop_na_pixels": {
+          "x": 1039,
+          "y": 4513,
+          "w": 152,
+          "h": 127
+        },
+        "note": null
+      },
+      "bounded_by": {
+        "north": "school_section_tier_7_south_of_madison",
+        "south": "school_section_tier_8_south_of_madison",
+        "west": "des_plaines_school_section",
+        "east": "jefferson_school_section"
+      },
+      "geometry_confidence": "inferred"
+    },
+    {
+      "block_number": 33,
+      "id": "blk_school_section_33",
+      "cells": [
+        [
+          2,
+          8
+        ]
+      ],
+      "boundary_local_enu_m": [
+        [
+          -496.4,
+          -1612.79
+        ],
+        [
+          -390.04,
+          -1612.79
+        ],
+        [
+          -390.04,
+          -1731.74
+        ],
+        [
+          -496.4,
+          -1731.74
+        ]
+      ],
+      "area_m2": 12651.8,
+      "frontage_m": 106.36,
+      "depth_m": 118.95,
+      "numeral": {
+        "read": "33",
+        "confidence": "documented",
+        "on_sheet": true,
+        "source": "wright_1834_nara_hup",
+        "crop_na_pixels": {
+          "x": 1037,
+          "y": 4668,
+          "w": 152,
+          "h": 171
+        },
+        "note": null
+      },
+      "bounded_by": {
+        "north": "school_section_tier_8_south_of_madison",
+        "south": "school_section_tier_9_south_of_madison",
+        "west": "des_plaines_school_section",
+        "east": "jefferson_school_section"
+      },
+      "geometry_confidence": "inferred"
+    },
+    {
+      "block_number": 34,
+      "id": "blk_school_section_34",
+      "cells": [
+        [
+          2,
+          9
+        ]
+      ],
+      "boundary_local_enu_m": [
+        [
+          -496.4,
+          -1756.13
+        ],
+        [
+          -390.04,
+          -1756.13
+        ],
+        [
+          -390.04,
+          -1844.35
+        ],
+        [
+          -496.4,
+          -1844.35
+        ]
+      ],
+      "area_m2": 9382.5,
+      "frontage_m": 106.36,
+      "depth_m": 88.22,
+      "numeral": {
+        "read": "34",
+        "confidence": "documented",
+        "on_sheet": true,
+        "source": "wright_1834_nara_hup",
+        "crop_na_pixels": {
+          "x": 1035,
+          "y": 4867,
+          "w": 152,
+          "h": 128
+        },
+        "note": null
+      },
+      "bounded_by": {
+        "north": "school_section_tier_9_south_of_madison",
+        "south": "school_section_tier_10_south_of_madison",
+        "west": "des_plaines_school_section",
+        "east": "jefferson_school_section"
+      },
+      "geometry_confidence": "inferred"
+    },
+    {
+      "block_number": 35,
+      "id": "blk_school_section_35",
+      "cells": [
+        [
+          2,
+          10
+        ]
+      ],
+      "boundary_local_enu_m": [
+        [
+          -496.4,
+          -1868.73
+        ],
+        [
+          -390.04,
+          -1868.73
+        ],
+        [
+          -390.04,
+          -1992.94
+        ],
+        [
+          -496.4,
+          -1992.94
+        ]
+      ],
+      "area_m2": 13211.1,
+      "frontage_m": 106.36,
+      "depth_m": 124.21,
+      "numeral": {
+        "read": "35",
+        "confidence": "documented",
+        "on_sheet": true,
+        "source": "wright_1834_nara_hup",
+        "crop_na_pixels": {
+          "x": 1033,
+          "y": 5023,
+          "w": 153,
+          "h": 178
+        },
+        "note": null
+      },
+      "bounded_by": {
+        "north": "school_section_tier_10_south_of_madison",
+        "south": "school_section_tier_11_south_of_madison",
+        "west": "des_plaines_school_section",
+        "east": "jefferson_school_section"
+      },
+      "geometry_confidence": "inferred"
+    },
+    {
+      "block_number": 36,
+      "id": "blk_school_section_36",
+      "cells": [
+        [
+          2,
+          11
+        ]
+      ],
+      "boundary_local_enu_m": [
+        [
+          -496.4,
+          -2017.33
+        ],
+        [
+          -390.04,
+          -2017.33
+        ],
+        [
+          -390.04,
+          -2116.21
+        ],
+        [
+          -496.4,
+          -2116.21
+        ]
+      ],
+      "area_m2": 10516.7,
+      "frontage_m": 106.36,
+      "depth_m": 98.88,
+      "numeral": {
+        "read": "36",
+        "confidence": "documented",
+        "on_sheet": true,
+        "source": "wright_1834_nara_hup",
+        "crop_na_pixels": {
+          "x": 1031,
+          "y": 5229,
+          "w": 152,
+          "h": 143
+        },
+        "note": null
+      },
+      "bounded_by": {
+        "north": "school_section_tier_11_south_of_madison",
+        "south": null,
+        "west": "des_plaines_school_section",
+        "east": "jefferson_school_section"
+      },
+      "geometry_confidence": "inferred"
+    },
+    {
+      "block_number": 37,
+      "id": "blk_school_section_37",
+      "cells": [
+        [
+          3,
+          11
+        ]
+      ],
+      "boundary_local_enu_m": [
+        [
+          -369.92,
+          -2017.33
+        ],
+        [
+          -277.96,
+          -2017.33
+        ],
+        [
+          -277.96,
+          -2116.21
+        ],
+        [
+          -369.92,
+          -2116.21
+        ]
+      ],
+      "area_m2": 9093.2,
+      "frontage_m": 91.96,
+      "depth_m": 98.88,
+      "numeral": {
+        "read": "37",
+        "confidence": "documented",
+        "on_sheet": true,
+        "source": "wright_1834_nara_hup",
+        "crop_na_pixels": {
+          "x": 1210,
+          "y": 5236,
+          "w": 132,
+          "h": 142
+        },
+        "note": null
+      },
+      "bounded_by": {
+        "north": "school_section_tier_11_south_of_madison",
+        "south": null,
+        "west": "jefferson_school_section",
+        "east": "clinton_school_section"
+      },
+      "geometry_confidence": "inferred"
+    },
+    {
+      "block_number": 38,
+      "id": "blk_school_section_38",
+      "cells": [
+        [
+          3,
+          10
+        ]
+      ],
+      "boundary_local_enu_m": [
+        [
+          -369.92,
+          -1868.73
+        ],
+        [
+          -277.96,
+          -1868.73
+        ],
+        [
+          -277.96,
+          -1992.94
+        ],
+        [
+          -369.92,
+          -1992.94
+        ]
+      ],
+      "area_m2": 11422.9,
+      "frontage_m": 91.96,
+      "depth_m": 124.21,
+      "numeral": {
+        "read": "38",
+        "confidence": "documented",
+        "on_sheet": true,
+        "source": "wright_1834_nara_hup",
+        "crop_na_pixels": {
+          "x": 1212,
+          "y": 5030,
+          "w": 132,
+          "h": 177
+        },
+        "note": null
+      },
+      "bounded_by": {
+        "north": "school_section_tier_10_south_of_madison",
+        "south": "school_section_tier_11_south_of_madison",
+        "west": "jefferson_school_section",
+        "east": "clinton_school_section"
+      },
+      "geometry_confidence": "inferred"
+    },
+    {
+      "block_number": 39,
+      "id": "blk_school_section_39",
+      "cells": [
+        [
+          3,
+          9
+        ]
+      ],
+      "boundary_local_enu_m": [
+        [
+          -369.92,
+          -1756.13
+        ],
+        [
+          -277.96,
+          -1756.13
+        ],
+        [
+          -277.96,
+          -1844.35
+        ],
+        [
+          -369.92,
+          -1844.35
+        ]
+      ],
+      "area_m2": 8112.5,
+      "frontage_m": 91.96,
+      "depth_m": 88.22,
+      "numeral": {
+        "read": "39",
+        "confidence": "documented",
+        "on_sheet": true,
+        "source": "wright_1834_nara_hup",
+        "crop_na_pixels": {
+          "x": 1214,
+          "y": 4874,
+          "w": 132,
+          "h": 127
+        },
+        "note": null
+      },
+      "bounded_by": {
+        "north": "school_section_tier_9_south_of_madison",
+        "south": "school_section_tier_10_south_of_madison",
+        "west": "jefferson_school_section",
+        "east": "clinton_school_section"
+      },
+      "geometry_confidence": "inferred"
+    },
+    {
+      "block_number": 40,
+      "id": "blk_school_section_40",
+      "cells": [
+        [
+          3,
+          8
+        ]
+      ],
+      "boundary_local_enu_m": [
+        [
+          -369.92,
+          -1612.79
+        ],
+        [
+          -277.96,
+          -1612.79
+        ],
+        [
+          -277.96,
+          -1731.74
+        ],
+        [
+          -369.92,
+          -1731.74
+        ]
+      ],
+      "area_m2": 10939.3,
+      "frontage_m": 91.96,
+      "depth_m": 118.95,
+      "numeral": {
+        "read": "40",
+        "confidence": "documented",
+        "on_sheet": true,
+        "source": "wright_1834_nara_hup",
+        "crop_na_pixels": {
+          "x": 1216,
+          "y": 4675,
+          "w": 132,
+          "h": 170
+        },
+        "note": null
+      },
+      "bounded_by": {
+        "north": "school_section_tier_8_south_of_madison",
+        "south": "school_section_tier_9_south_of_madison",
+        "west": "jefferson_school_section",
+        "east": "clinton_school_section"
+      },
+      "geometry_confidence": "inferred"
+    },
+    {
+      "block_number": 41,
+      "id": "blk_school_section_41",
+      "cells": [
+        [
+          3,
+          7
+        ]
+      ],
+      "boundary_local_enu_m": [
+        [
+          -369.92,
+          -1500.98
+        ],
+        [
+          -277.96,
+          -1500.98
+        ],
+        [
+          -277.96,
+          -1588.41
+        ],
+        [
+          -369.92,
+          -1588.41
+        ]
+      ],
+      "area_m2": 8040.3,
+      "frontage_m": 91.96,
+      "depth_m": 87.43,
+      "numeral": {
+        "read": "41",
+        "confidence": "documented",
+        "on_sheet": true,
+        "source": "wright_1834_nara_hup",
+        "crop_na_pixels": {
+          "x": 1218,
+          "y": 4520,
+          "w": 132,
+          "h": 126
+        },
+        "note": null
+      },
+      "bounded_by": {
+        "north": "school_section_tier_7_south_of_madison",
+        "south": "school_section_tier_8_south_of_madison",
+        "west": "jefferson_school_section",
+        "east": "clinton_school_section"
+      },
+      "geometry_confidence": "inferred"
+    },
+    {
+      "block_number": 42,
+      "id": "blk_school_section_42",
+      "cells": [
+        [
+          3,
+          6
+        ]
+      ],
+      "boundary_local_enu_m": [
+        [
+          -369.92,
+          -1359.03
+        ],
+        [
+          -277.96,
+          -1359.03
+        ],
+        [
+          -277.96,
+          -1476.59
+        ],
+        [
+          -369.92,
+          -1476.59
+        ]
+      ],
+      "area_m2": 10810.8,
+      "frontage_m": 91.96,
+      "depth_m": 117.56,
+      "numeral": {
+        "read": "42",
+        "confidence": "documented",
+        "on_sheet": true,
+        "source": "wright_1834_nara_hup",
+        "crop_na_pixels": {
+          "x": 1220,
+          "y": 4324,
+          "w": 132,
+          "h": 168
+        },
+        "note": null
+      },
+      "bounded_by": {
+        "north": "school_section_tier_6_south_of_madison",
+        "south": "school_section_tier_7_south_of_madison",
+        "west": "jefferson_school_section",
+        "east": "clinton_school_section"
+      },
+      "geometry_confidence": "inferred"
+    },
+    {
+      "block_number": 43,
+      "id": "blk_school_section_43",
+      "cells": [
+        [
+          3,
+          5
+        ]
+      ],
+      "boundary_local_enu_m": [
+        [
+          -369.92,
+          -1243.92
+        ],
+        [
+          -277.96,
+          -1243.92
+        ],
+        [
+          -277.96,
+          -1334.65
+        ],
+        [
+          -369.92,
+          -1334.65
+        ]
+      ],
+      "area_m2": 8343.6,
+      "frontage_m": 91.96,
+      "depth_m": 90.73,
+      "numeral": {
+        "read": "43",
+        "confidence": "documented",
+        "on_sheet": true,
+        "source": "wright_1834_nara_hup",
+        "crop_na_pixels": {
+          "x": 1222,
+          "y": 4164,
+          "w": 132,
+          "h": 131
+        },
+        "note": null
+      },
+      "bounded_by": {
+        "north": "school_section_tier_5_south_of_madison",
+        "south": "school_section_tier_6_south_of_madison",
+        "west": "jefferson_school_section",
+        "east": "clinton_school_section"
+      },
+      "geometry_confidence": "inferred"
+    },
+    {
+      "block_number": 44,
+      "id": "blk_school_section_44",
+      "cells": [
+        [
+          3,
+          4
+        ]
+      ],
+      "boundary_local_enu_m": [
+        [
+          -369.92,
+          -1097.31
+        ],
+        [
+          -277.96,
+          -1097.31
+        ],
+        [
+          -277.96,
+          -1219.54
+        ],
+        [
+          -369.92,
+          -1219.54
+        ]
+      ],
+      "area_m2": 11240.0,
+      "frontage_m": 91.96,
+      "depth_m": 122.22,
+      "numeral": {
+        "read": "44",
+        "confidence": "documented",
+        "on_sheet": true,
+        "source": "wright_1834_nara_hup",
+        "crop_na_pixels": {
+          "x": 1223,
+          "y": 3961,
+          "w": 132,
+          "h": 174
+        },
+        "note": null
+      },
+      "bounded_by": {
+        "north": "school_section_tier_4_south_of_madison",
+        "south": "school_section_tier_5_south_of_madison",
+        "west": "jefferson_school_section",
+        "east": "clinton_school_section"
+      },
+      "geometry_confidence": "inferred"
+    },
+    {
+      "block_number": 45,
+      "id": "blk_school_section_45",
+      "cells": [
+        [
+          3,
+          3
+        ]
+      ],
+      "boundary_local_enu_m": [
+        [
+          -369.92,
+          -952.29
+        ],
+        [
+          -277.96,
+          -952.29
+        ],
+        [
+          -277.96,
+          -1072.93
+        ],
+        [
+          -369.92,
+          -1072.93
+        ]
+      ],
+      "area_m2": 11094.6,
+      "frontage_m": 91.96,
+      "depth_m": 120.64,
+      "numeral": {
+        "read": "45",
+        "confidence": "documented",
+        "on_sheet": true,
+        "source": "wright_1834_nara_hup",
+        "crop_na_pixels": {
+          "x": 1225,
+          "y": 3760,
+          "w": 132,
+          "h": 172
+        },
+        "note": null
+      },
+      "bounded_by": {
+        "north": "jackson",
+        "south": "school_section_tier_4_south_of_madison",
+        "west": "jefferson_school_section",
+        "east": "clinton_school_section"
+      },
+      "geometry_confidence": "inferred"
+    },
+    {
+      "block_number": 46,
+      "id": "blk_school_section_46",
+      "cells": [
+        [
+          3,
+          2
+        ]
+      ],
+      "boundary_local_enu_m": [
+        [
+          -369.92,
+          -809.39
+        ],
+        [
+          -277.96,
+          -809.39
+        ],
+        [
+          -277.96,
+          -927.9
+        ],
+        [
+          -369.92,
+          -927.9
+        ]
+      ],
+      "area_m2": 10898.3,
+      "frontage_m": 91.96,
+      "depth_m": 118.51,
+      "numeral": {
+        "read": "46",
+        "confidence": "documented",
+        "on_sheet": true,
+        "source": "wright_1834_nara_hup",
+        "crop_na_pixels": {
+          "x": 1228,
+          "y": 3562,
+          "w": 132,
+          "h": 169
+        },
+        "note": null
+      },
+      "bounded_by": {
+        "north": "adams",
+        "south": "jackson",
+        "west": "jefferson_school_section",
+        "east": "clinton_school_section"
+      },
+      "geometry_confidence": "inferred"
+    },
+    {
+      "block_number": 47,
+      "id": "blk_school_section_47",
+      "cells": [
+        [
+          3,
+          1
+        ]
+      ],
+      "boundary_local_enu_m": [
+        [
+          -369.92,
+          -668.03
+        ],
+        [
+          -277.96,
+          -668.03
+        ],
+        [
+          -277.96,
+          -785.01
+        ],
+        [
+          -369.92,
+          -785.01
+        ]
+      ],
+      "area_m2": 10758.2,
+      "frontage_m": 91.96,
+      "depth_m": 116.98,
+      "numeral": {
+        "read": "47",
+        "confidence": "documented",
+        "on_sheet": true,
+        "source": "wright_1834_nara_hup",
+        "crop_na_pixels": {
+          "x": 1230,
+          "y": 3366,
+          "w": 132,
+          "h": 167
+        },
+        "note": null
+      },
+      "bounded_by": {
+        "north": "monroe",
+        "south": "adams",
+        "west": "jefferson_school_section",
+        "east": "clinton_school_section"
+      },
+      "geometry_confidence": "inferred"
+    },
+    {
+      "block_number": 48,
+      "id": "blk_school_section_48",
+      "cells": [
+        [
+          3,
+          0
+        ]
+      ],
+      "boundary_local_enu_m": [
+        [
+          -369.92,
+          -531.25
+        ],
+        [
+          -277.96,
+          -531.25
+        ],
+        [
+          -277.96,
+          -643.64
+        ],
+        [
+          -369.92,
+          -643.64
+        ]
+      ],
+      "area_m2": 10336.1,
+      "frontage_m": 91.96,
+      "depth_m": 112.4,
+      "numeral": {
+        "read": "48",
+        "confidence": "documented",
+        "on_sheet": true,
+        "source": "wright_1834_nara_hup",
+        "crop_na_pixels": {
+          "x": 1232,
+          "y": 3176,
+          "w": 132,
+          "h": 161
+        },
+        "note": null
+      },
+      "bounded_by": {
+        "north": "madison",
+        "south": "monroe",
+        "west": "jefferson_school_section",
+        "east": "clinton_school_section"
+      },
+      "geometry_confidence": "inferred"
+    },
+    {
+      "block_number": 49,
+      "id": "blk_school_section_49",
+      "cells": [
+        [
+          4,
+          0
+        ]
+      ],
+      "boundary_local_enu_m": [
+        [
+          -257.84,
+          -531.25
+        ],
+        [
+          -154.92,
+          -531.25
+        ],
+        [
+          -154.92,
+          -643.64
+        ],
+        [
+          -257.84,
+          -643.64
+        ]
+      ],
+      "area_m2": 11568.3,
+      "frontage_m": 102.92,
+      "depth_m": 112.4,
+      "numeral": {
+        "read": "49",
+        "confidence": "documented",
+        "on_sheet": true,
+        "source": "wright_1834_nara_hup",
+        "crop_na_pixels": {
+          "x": 1391,
+          "y": 3182,
+          "w": 148,
+          "h": 161
+        },
+        "note": null
+      },
+      "bounded_by": {
+        "north": "madison",
+        "south": "monroe",
+        "west": "clinton_school_section",
+        "east": "canal_school_section"
+      },
+      "geometry_confidence": "inferred"
+    },
+    {
+      "block_number": 50,
+      "id": "blk_school_section_50",
+      "cells": [
+        [
+          4,
+          1
+        ]
+      ],
+      "boundary_local_enu_m": [
+        [
+          -257.84,
+          -668.03
+        ],
+        [
+          -154.92,
+          -668.03
+        ],
+        [
+          -154.92,
+          -785.01
+        ],
+        [
+          -257.84,
+          -785.01
+        ]
+      ],
+      "area_m2": 12040.7,
+      "frontage_m": 102.92,
+      "depth_m": 116.98,
+      "numeral": {
+        "read": "50",
+        "confidence": "documented",
+        "on_sheet": true,
+        "source": "wright_1834_nara_hup",
+        "crop_na_pixels": {
+          "x": 1388,
+          "y": 3372,
+          "w": 148,
+          "h": 168
+        },
+        "note": null
+      },
+      "bounded_by": {
+        "north": "monroe",
+        "south": "adams",
+        "west": "clinton_school_section",
+        "east": "canal_school_section"
+      },
+      "geometry_confidence": "inferred"
+    },
+    {
+      "block_number": 51,
+      "id": "blk_school_section_51",
+      "cells": [
+        [
+          4,
+          2
+        ]
+      ],
+      "boundary_local_enu_m": [
+        [
+          -257.84,
+          -809.39
+        ],
+        [
+          -154.92,
+          -809.39
+        ],
+        [
+          -154.92,
+          -927.9
+        ],
+        [
+          -257.84,
+          -927.9
+        ]
+      ],
+      "area_m2": 12197.4,
+      "frontage_m": 102.92,
+      "depth_m": 118.51,
+      "numeral": {
+        "read": "51",
+        "confidence": "documented",
+        "on_sheet": true,
+        "source": "wright_1834_nara_hup",
+        "crop_na_pixels": {
+          "x": 1386,
+          "y": 3568,
+          "w": 148,
+          "h": 170
+        },
+        "note": null
+      },
+      "bounded_by": {
+        "north": "adams",
+        "south": "jackson",
+        "west": "clinton_school_section",
+        "east": "canal_school_section"
+      },
+      "geometry_confidence": "inferred"
+    },
+    {
+      "block_number": 52,
+      "id": "blk_school_section_52",
+      "cells": [
+        [
+          4,
+          3
+        ]
+      ],
+      "boundary_local_enu_m": [
+        [
+          -257.84,
+          -952.29
+        ],
+        [
+          -154.92,
+          -952.29
+        ],
+        [
+          -154.92,
+          -1072.93
+        ],
+        [
+          -257.84,
+          -1072.93
+        ]
+      ],
+      "area_m2": 12417.2,
+      "frontage_m": 102.92,
+      "depth_m": 120.64,
+      "numeral": {
+        "read": "52",
+        "confidence": "documented",
+        "on_sheet": true,
+        "source": "wright_1834_nara_hup",
+        "crop_na_pixels": {
+          "x": 1384,
+          "y": 3766,
+          "w": 148,
+          "h": 173
+        },
+        "note": null
+      },
+      "bounded_by": {
+        "north": "jackson",
+        "south": "school_section_tier_4_south_of_madison",
+        "west": "clinton_school_section",
+        "east": "canal_school_section"
+      },
+      "geometry_confidence": "inferred"
+    },
+    {
+      "block_number": 53,
+      "id": "blk_school_section_53",
+      "cells": [
+        [
+          4,
+          4
+        ]
+      ],
+      "boundary_local_enu_m": [
+        [
+          -257.84,
+          -1097.31
+        ],
+        [
+          -154.92,
+          -1097.31
+        ],
+        [
+          -154.92,
+          -1219.54
+        ],
+        [
+          -257.84,
+          -1219.54
+        ]
+      ],
+      "area_m2": 12579.9,
+      "frontage_m": 102.92,
+      "depth_m": 122.22,
+      "numeral": {
+        "read": "53",
+        "confidence": "documented",
+        "on_sheet": true,
+        "source": "wright_1834_nara_hup",
+        "crop_na_pixels": {
+          "x": 1382,
+          "y": 3967,
+          "w": 148,
+          "h": 175
+        },
+        "note": null
+      },
+      "bounded_by": {
+        "north": "school_section_tier_4_south_of_madison",
+        "south": "school_section_tier_5_south_of_madison",
+        "west": "clinton_school_section",
+        "east": "canal_school_section"
+      },
+      "geometry_confidence": "inferred"
+    },
+    {
+      "block_number": 54,
+      "id": "blk_school_section_54",
+      "cells": [
+        [
+          4,
+          5
+        ]
+      ],
+      "boundary_local_enu_m": [
+        [
+          -257.84,
+          -1243.92
+        ],
+        [
+          -154.92,
+          -1243.92
+        ],
+        [
+          -154.92,
+          -1334.65
+        ],
+        [
+          -257.84,
+          -1334.65
+        ]
+      ],
+      "area_m2": 9338.3,
+      "frontage_m": 102.92,
+      "depth_m": 90.73,
+      "numeral": {
+        "read": "54",
+        "confidence": "documented",
+        "on_sheet": true,
+        "source": "wright_1834_nara_hup",
+        "crop_na_pixels": {
+          "x": 1380,
+          "y": 4170,
+          "w": 147,
+          "h": 131
+        },
+        "note": null
+      },
+      "bounded_by": {
+        "north": "school_section_tier_5_south_of_madison",
+        "south": "school_section_tier_6_south_of_madison",
+        "west": "clinton_school_section",
+        "east": "canal_school_section"
+      },
+      "geometry_confidence": "inferred"
+    },
+    {
+      "block_number": 55,
+      "id": "blk_school_section_55",
+      "cells": [
+        [
+          4,
+          6
+        ]
+      ],
+      "boundary_local_enu_m": [
+        [
+          -257.84,
+          -1359.03
+        ],
+        [
+          -154.92,
+          -1359.03
+        ],
+        [
+          -154.92,
+          -1476.59
+        ],
+        [
+          -257.84,
+          -1476.59
+        ]
+      ],
+      "area_m2": 12099.6,
+      "frontage_m": 102.92,
+      "depth_m": 117.56,
+      "numeral": {
+        "read": "55",
+        "confidence": "documented",
+        "on_sheet": true,
+        "source": "wright_1834_nara_hup",
+        "crop_na_pixels": {
+          "x": 1378,
+          "y": 4330,
+          "w": 148,
+          "h": 169
+        },
+        "note": null
+      },
+      "bounded_by": {
+        "north": "school_section_tier_6_south_of_madison",
+        "south": "school_section_tier_7_south_of_madison",
+        "west": "clinton_school_section",
+        "east": "canal_school_section"
+      },
+      "geometry_confidence": "inferred"
+    },
+    {
+      "block_number": 56,
+      "id": "blk_school_section_56",
+      "cells": [
+        [
+          4,
+          7
+        ]
+      ],
+      "boundary_local_enu_m": [
+        [
+          -257.84,
+          -1500.98
+        ],
+        [
+          -154.92,
+          -1500.98
+        ],
+        [
+          -154.92,
+          -1588.41
+        ],
+        [
+          -257.84,
+          -1588.41
+        ]
+      ],
+      "area_m2": 8998.8,
+      "frontage_m": 102.92,
+      "depth_m": 87.43,
+      "numeral": {
+        "read": "56",
+        "confidence": "documented",
+        "on_sheet": true,
+        "source": "wright_1834_nara_hup",
+        "crop_na_pixels": {
+          "x": 1377,
+          "y": 4526,
+          "w": 147,
+          "h": 127
+        },
+        "note": null
+      },
+      "bounded_by": {
+        "north": "school_section_tier_7_south_of_madison",
+        "south": "school_section_tier_8_south_of_madison",
+        "west": "clinton_school_section",
+        "east": "canal_school_section"
+      },
+      "geometry_confidence": "inferred"
+    },
+    {
+      "block_number": 57,
+      "id": "blk_school_section_57",
+      "cells": [
+        [
+          4,
+          8
+        ]
+      ],
+      "boundary_local_enu_m": [
+        [
+          -257.84,
+          -1612.79
+        ],
+        [
+          -154.92,
+          -1612.79
+        ],
+        [
+          -154.92,
+          -1731.74
+        ],
+        [
+          -257.84,
+          -1731.74
+        ]
+      ],
+      "area_m2": 12243.4,
+      "frontage_m": 102.92,
+      "depth_m": 118.95,
+      "numeral": {
+        "read": "57",
+        "confidence": "documented",
+        "on_sheet": true,
+        "source": "wright_1834_nara_hup",
+        "crop_na_pixels": {
+          "x": 1375,
+          "y": 4681,
+          "w": 148,
+          "h": 170
+        },
+        "note": null
+      },
+      "bounded_by": {
+        "north": "school_section_tier_8_south_of_madison",
+        "south": "school_section_tier_9_south_of_madison",
+        "west": "clinton_school_section",
+        "east": "canal_school_section"
+      },
+      "geometry_confidence": "inferred"
+    },
+    {
+      "block_number": 58,
+      "id": "blk_school_section_58",
+      "cells": [
+        [
+          4,
+          9
+        ]
+      ],
+      "boundary_local_enu_m": [
+        [
+          -257.84,
+          -1756.13
+        ],
+        [
+          -154.92,
+          -1756.13
+        ],
+        [
+          -154.92,
+          -1844.35
+        ],
+        [
+          -257.84,
+          -1844.35
+        ]
+      ],
+      "area_m2": 9079.7,
+      "frontage_m": 102.92,
+      "depth_m": 88.22,
+      "numeral": {
+        "read": "58",
+        "confidence": "documented",
+        "on_sheet": true,
+        "source": "wright_1834_nara_hup",
+        "crop_na_pixels": {
+          "x": 1373,
+          "y": 4880,
+          "w": 147,
+          "h": 128
+        },
+        "note": null
+      },
+      "bounded_by": {
+        "north": "school_section_tier_9_south_of_madison",
+        "south": "school_section_tier_10_south_of_madison",
+        "west": "clinton_school_section",
+        "east": "canal_school_section"
+      },
+      "geometry_confidence": "inferred"
+    },
+    {
+      "block_number": 59,
+      "id": "blk_school_section_59",
+      "cells": [
+        [
+          4,
+          10
+        ]
+      ],
+      "boundary_local_enu_m": [
+        [
+          -257.84,
+          -1868.73
+        ],
+        [
+          -154.92,
+          -1868.73
+        ],
+        [
+          -154.92,
+          -1992.94
+        ],
+        [
+          -257.84,
+          -1992.94
+        ]
+      ],
+      "area_m2": 12784.7,
+      "frontage_m": 102.92,
+      "depth_m": 124.21,
+      "numeral": {
+        "read": "59",
+        "confidence": "documented",
+        "on_sheet": true,
+        "source": "wright_1834_nara_hup",
+        "crop_na_pixels": {
+          "x": 1371,
+          "y": 5036,
+          "w": 148,
+          "h": 178
+        },
+        "note": null
+      },
+      "bounded_by": {
+        "north": "school_section_tier_10_south_of_madison",
+        "south": "school_section_tier_11_south_of_madison",
+        "west": "clinton_school_section",
+        "east": "canal_school_section"
+      },
+      "geometry_confidence": "inferred"
+    },
+    {
+      "block_number": 60,
+      "id": "blk_school_section_60",
+      "cells": [
+        [
+          4,
+          11
+        ]
+      ],
+      "boundary_local_enu_m": [
+        [
+          -257.84,
+          -2017.33
+        ],
+        [
+          -154.92,
+          -2017.33
+        ],
+        [
+          -154.92,
+          -2116.21
+        ],
+        [
+          -257.84,
+          -2116.21
+        ]
+      ],
+      "area_m2": 10177.2,
+      "frontage_m": 102.92,
+      "depth_m": 98.88,
+      "numeral": {
+        "read": "60",
+        "confidence": "documented",
+        "on_sheet": true,
+        "source": "wright_1834_nara_hup",
+        "crop_na_pixels": {
+          "x": 1369,
+          "y": 5242,
+          "w": 147,
+          "h": 143
+        },
+        "note": null
+      },
+      "bounded_by": {
+        "north": "school_section_tier_11_south_of_madison",
+        "south": null,
+        "west": "clinton_school_section",
+        "east": "canal_school_section"
+      },
+      "geometry_confidence": "inferred"
+    },
+    {
+      "block_number": 61,
+      "id": "blk_school_section_61",
+      "cells": [
+        [
+          5,
+          11
+        ]
+      ],
+      "boundary_local_enu_m": [
+        [
+          -134.8,
+          -2017.33
+        ],
+        [
+          -48.35,
+          -2017.33
+        ],
+        [
+          -48.35,
+          -2116.21
+        ],
+        [
+          -134.8,
+          -2116.21
+        ]
+      ],
+      "area_m2": 8548.2,
+      "frontage_m": 86.45,
+      "depth_m": 98.88,
+      "numeral": {
+        "read": "61",
+        "confidence": "documented",
+        "on_sheet": true,
+        "source": "wright_1834_nara_hup",
+        "crop_na_pixels": {
+          "x": 1543,
+          "y": 5249,
+          "w": 124,
+          "h": 142
+        },
+        "note": null
+      },
+      "bounded_by": {
+        "north": "school_section_tier_11_south_of_madison",
+        "south": null,
+        "west": "canal_school_section",
+        "east": "school_section_line_6"
+      },
+      "geometry_confidence": "inferred"
+    },
+    {
+      "block_number": 62,
+      "id": "blk_school_section_62",
+      "cells": [
+        [
+          5,
+          10
+        ]
+      ],
+      "boundary_local_enu_m": [
+        [
+          -134.8,
+          -1868.73
+        ],
+        [
+          -48.35,
+          -1868.73
+        ],
+        [
+          -48.35,
+          -1992.94
+        ],
+        [
+          -134.8,
+          -1992.94
+        ]
+      ],
+      "area_m2": 10738.3,
+      "frontage_m": 86.45,
+      "depth_m": 124.21,
+      "numeral": {
+        "read": "62",
+        "confidence": "documented",
+        "on_sheet": true,
+        "source": "wright_1834_nara_hup",
+        "crop_na_pixels": {
+          "x": 1545,
+          "y": 5043,
+          "w": 124,
+          "h": 177
+        },
+        "note": null
+      },
+      "bounded_by": {
+        "north": "school_section_tier_10_south_of_madison",
+        "south": "school_section_tier_11_south_of_madison",
+        "west": "canal_school_section",
+        "east": "school_section_line_6"
+      },
+      "geometry_confidence": "inferred"
+    },
+    {
+      "block_number": 63,
+      "id": "blk_school_section_63",
+      "cells": [
+        [
+          5,
+          9
+        ]
+      ],
+      "boundary_local_enu_m": [
+        [
+          -134.8,
+          -1756.13
+        ],
+        [
+          -48.35,
+          -1756.13
+        ],
+        [
+          -48.35,
+          -1844.35
+        ],
+        [
+          -134.8,
+          -1844.35
+        ]
+      ],
+      "area_m2": 7626.3,
+      "frontage_m": 86.45,
+      "depth_m": 88.22,
+      "numeral": {
+        "read": "63",
+        "confidence": "documented",
+        "on_sheet": true,
+        "source": "wright_1834_nara_hup",
+        "crop_na_pixels": {
+          "x": 1547,
+          "y": 4887,
+          "w": 124,
+          "h": 127
+        },
+        "note": null
+      },
+      "bounded_by": {
+        "north": "school_section_tier_9_south_of_madison",
+        "south": "school_section_tier_10_south_of_madison",
+        "west": "canal_school_section",
+        "east": "school_section_line_6"
+      },
+      "geometry_confidence": "inferred"
+    },
+    {
+      "block_number": 64,
+      "id": "blk_school_section_64",
+      "cells": [
+        [
+          5,
+          8
+        ]
+      ],
+      "boundary_local_enu_m": [
+        [
+          -134.8,
+          -1612.79
+        ],
+        [
+          -48.35,
+          -1612.79
+        ],
+        [
+          -48.35,
+          -1731.74
+        ],
+        [
+          -134.8,
+          -1731.74
+        ]
+      ],
+      "area_m2": 10283.7,
+      "frontage_m": 86.45,
+      "depth_m": 118.95,
+      "numeral": {
+        "read": "64",
+        "confidence": "documented",
+        "on_sheet": true,
+        "source": "wright_1834_nara_hup",
+        "crop_na_pixels": {
+          "x": 1549,
+          "y": 4688,
+          "w": 124,
+          "h": 170
+        },
+        "note": null
+      },
+      "bounded_by": {
+        "north": "school_section_tier_8_south_of_madison",
+        "south": "school_section_tier_9_south_of_madison",
+        "west": "canal_school_section",
+        "east": "school_section_line_6"
+      },
+      "geometry_confidence": "inferred"
+    },
+    {
+      "block_number": 65,
+      "id": "blk_school_section_65",
+      "cells": [
+        [
+          5,
+          7
+        ]
+      ],
+      "boundary_local_enu_m": [
+        [
+          -134.8,
+          -1500.98
+        ],
+        [
+          -48.35,
+          -1500.98
+        ],
+        [
+          -48.35,
+          -1588.41
+        ],
+        [
+          -134.8,
+          -1588.41
+        ]
+      ],
+      "area_m2": 7558.4,
+      "frontage_m": 86.45,
+      "depth_m": 87.43,
+      "numeral": {
+        "read": "65",
+        "confidence": "documented",
+        "on_sheet": true,
+        "source": "wright_1834_nara_hup",
+        "crop_na_pixels": {
+          "x": 1551,
+          "y": 4533,
+          "w": 124,
+          "h": 126
+        },
+        "note": null
+      },
+      "bounded_by": {
+        "north": "school_section_tier_7_south_of_madison",
+        "south": "school_section_tier_8_south_of_madison",
+        "west": "canal_school_section",
+        "east": "school_section_line_6"
+      },
+      "geometry_confidence": "inferred"
+    },
+    {
+      "block_number": 66,
+      "id": "blk_school_section_66",
+      "cells": [
+        [
+          5,
+          6
+        ]
+      ],
+      "boundary_local_enu_m": [
+        [
+          -134.8,
+          -1359.03
+        ],
+        [
+          -48.35,
+          -1359.03
+        ],
+        [
+          -48.35,
+          -1476.59
+        ],
+        [
+          -134.8,
+          -1476.59
+        ]
+      ],
+      "area_m2": 10162.9,
+      "frontage_m": 86.45,
+      "depth_m": 117.56,
+      "numeral": {
+        "read": "66",
+        "confidence": "documented",
+        "on_sheet": true,
+        "source": "wright_1834_nara_hup",
+        "crop_na_pixels": {
+          "x": 1553,
+          "y": 4336,
+          "w": 124,
+          "h": 168
+        },
+        "note": null
+      },
+      "bounded_by": {
+        "north": "school_section_tier_6_south_of_madison",
+        "south": "school_section_tier_7_south_of_madison",
+        "west": "canal_school_section",
+        "east": "school_section_line_6"
+      },
+      "geometry_confidence": "inferred"
+    },
+    {
+      "block_number": 67,
+      "id": "blk_school_section_67",
+      "cells": [
+        [
+          5,
+          5
+        ]
+      ],
+      "boundary_local_enu_m": [
+        [
+          -134.8,
+          -1243.92
+        ],
+        [
+          -48.35,
+          -1243.92
+        ],
+        [
+          -48.35,
+          -1334.65
+        ],
+        [
+          -134.8,
+          -1334.65
+        ]
+      ],
+      "area_m2": 7843.6,
+      "frontage_m": 86.45,
+      "depth_m": 90.73,
+      "numeral": {
+        "read": "67",
+        "confidence": "documented",
+        "on_sheet": true,
+        "source": "wright_1834_nara_hup",
+        "crop_na_pixels": {
+          "x": 1555,
+          "y": 4177,
+          "w": 124,
+          "h": 130
+        },
+        "note": null
+      },
+      "bounded_by": {
+        "north": "school_section_tier_5_south_of_madison",
+        "south": "school_section_tier_6_south_of_madison",
+        "west": "canal_school_section",
+        "east": "school_section_line_6"
+      },
+      "geometry_confidence": "inferred"
+    },
+    {
+      "block_number": 68,
+      "id": "blk_school_section_68",
+      "cells": [
+        [
+          5,
+          4
+        ]
+      ],
+      "boundary_local_enu_m": [
+        [
+          -134.8,
+          -1097.31
+        ],
+        [
+          -48.35,
+          -1097.31
+        ],
+        [
+          -48.35,
+          -1219.54
+        ],
+        [
+          -134.8,
+          -1219.54
+        ]
+      ],
+      "area_m2": 10566.3,
+      "frontage_m": 86.45,
+      "depth_m": 122.22,
+      "numeral": {
+        "read": "68",
+        "confidence": "documented",
+        "on_sheet": true,
+        "source": "wright_1834_nara_hup",
+        "crop_na_pixels": {
+          "x": 1557,
+          "y": 3974,
+          "w": 124,
+          "h": 174
+        },
+        "note": null
+      },
+      "bounded_by": {
+        "north": "school_section_tier_4_south_of_madison",
+        "south": "school_section_tier_5_south_of_madison",
+        "west": "canal_school_section",
+        "east": "school_section_line_6"
+      },
+      "geometry_confidence": "inferred"
+    },
+    {
+      "block_number": 69,
+      "id": "blk_school_section_69",
+      "cells": [
+        [
+          5,
+          3
+        ]
+      ],
+      "boundary_local_enu_m": [
+        [
+          -134.8,
+          -952.29
+        ],
+        [
+          -48.35,
+          -952.29
+        ],
+        [
+          -48.35,
+          -1072.93
+        ],
+        [
+          -134.8,
+          -1072.93
+        ]
+      ],
+      "area_m2": 10429.6,
+      "frontage_m": 86.45,
+      "depth_m": 120.64,
+      "numeral": {
+        "read": "69",
+        "confidence": "documented",
+        "on_sheet": true,
+        "source": "wright_1834_nara_hup",
+        "crop_na_pixels": {
+          "x": 1559,
+          "y": 3773,
+          "w": 124,
+          "h": 172
+        },
+        "note": null
+      },
+      "bounded_by": {
+        "north": "jackson",
+        "south": "school_section_tier_4_south_of_madison",
+        "west": "canal_school_section",
+        "east": "school_section_line_6"
+      },
+      "geometry_confidence": "inferred"
+    },
+    {
+      "block_number": 70,
+      "id": "blk_school_section_70",
+      "cells": [
+        [
+          5,
+          2
+        ]
+      ],
+      "boundary_local_enu_m": [
+        [
+          -134.8,
+          -809.39
+        ],
+        [
+          -48.35,
+          -809.39
+        ],
+        [
+          -48.35,
+          -927.9
+        ],
+        [
+          -134.8,
+          -927.9
+        ]
+      ],
+      "area_m2": 10245.1,
+      "frontage_m": 86.45,
+      "depth_m": 118.51,
+      "numeral": {
+        "read": "70",
+        "confidence": "documented",
+        "on_sheet": true,
+        "source": "wright_1834_nara_hup",
+        "crop_na_pixels": {
+          "x": 1561,
+          "y": 3574,
+          "w": 124,
+          "h": 169
+        },
+        "note": null
+      },
+      "bounded_by": {
+        "north": "adams",
+        "south": "jackson",
+        "west": "canal_school_section",
+        "east": "school_section_line_6"
+      },
+      "geometry_confidence": "reconstructed",
+      "open_side": "east",
+      "bank_pending": "The South Branch crosses this block and its east side is the drawn bank, not a ruled line. The rectangle here is the block's CELL in the grid; T-0794 commits the bank and closes it."
+    },
+    {
+      "block_number": 71,
+      "id": "blk_school_section_71",
+      "cells": [
+        [
+          5,
+          1
+        ]
+      ],
+      "boundary_local_enu_m": [
+        [
+          -134.8,
+          -668.03
+        ],
+        [
+          -48.35,
+          -668.03
+        ],
+        [
+          -48.35,
+          -785.01
+        ],
+        [
+          -134.8,
+          -785.01
+        ]
+      ],
+      "area_m2": 10113.4,
+      "frontage_m": 86.45,
+      "depth_m": 116.98,
+      "numeral": {
+        "read": "71",
+        "confidence": "documented",
+        "on_sheet": true,
+        "source": "wright_1834_nara_hup",
+        "crop_na_pixels": {
+          "x": 1563,
+          "y": 3379,
+          "w": 124,
+          "h": 167
+        },
+        "note": null
+      },
+      "bounded_by": {
+        "north": "monroe",
+        "south": "adams",
+        "west": "canal_school_section",
+        "east": "school_section_line_6"
+      },
+      "geometry_confidence": "reconstructed",
+      "open_side": "east",
+      "bank_pending": "The South Branch crosses this block and its east side is the drawn bank, not a ruled line. The rectangle here is the block's CELL in the grid; T-0794 commits the bank and closes it."
+    },
+    {
+      "block_number": 72,
+      "id": "blk_school_section_72",
+      "cells": [
+        [
+          5,
+          0
+        ]
+      ],
+      "boundary_local_enu_m": [
+        [
+          -134.8,
+          -531.25
+        ],
+        [
+          -48.35,
+          -531.25
+        ],
+        [
+          -48.35,
+          -643.64
+        ],
+        [
+          -134.8,
+          -643.64
+        ]
+      ],
+      "area_m2": 9716.6,
+      "frontage_m": 86.45,
+      "depth_m": 112.4,
+      "numeral": {
+        "read": "72",
+        "confidence": "documented",
+        "on_sheet": true,
+        "source": "wright_1834_nara_hup",
+        "crop_na_pixels": {
+          "x": 1565,
+          "y": 3189,
+          "w": 124,
+          "h": 160
+        },
+        "note": null
+      },
+      "bounded_by": {
+        "north": "madison",
+        "south": "monroe",
+        "west": "canal_school_section",
+        "east": "school_section_line_6"
+      },
+      "geometry_confidence": "inferred"
+    },
+    {
+      "block_number": 73,
+      "id": "blk_school_section_73",
+      "cells": [
+        [
+          6,
+          8
+        ],
+        [
+          7,
+          8
+        ]
+      ],
+      "boundary_local_enu_m": [
+        [
+          -28.23,
+          -1612.79
+        ],
+        [
+          198.32,
+          -1612.79
+        ],
+        [
+          198.32,
+          -1731.74
+        ],
+        [
+          -28.23,
+          -1731.74
+        ]
+      ],
+      "area_m2": 26949.0,
+      "frontage_m": 226.55,
+      "depth_m": 118.95,
+      "numeral": {
+        "read": "73",
+        "confidence": "documented",
+        "on_sheet": true,
+        "source": "wright_1834_nara_hup",
+        "crop_na_pixels": {
+          "x": 1700,
+          "y": 4694,
+          "w": 323,
+          "h": 177
+        },
+        "note": null
+      },
+      "bounded_by": {
+        "north": "school_section_tier_8_south_of_madison",
+        "south": "school_section_tier_9_south_of_madison",
+        "west": "school_section_line_6",
+        "east": "school_section_line_8"
+      },
+      "geometry_confidence": "reconstructed",
+      "open_side": "east",
+      "bank_pending": "The South Branch crosses this block and its east side is the drawn bank, not a ruled line. The rectangle here is the block's CELL in the grid; T-0794 commits the bank and closes it."
+    },
+    {
+      "block_number": 74,
+      "id": "blk_school_section_74",
+      "cells": [
+        [
+          6,
+          9
+        ],
+        [
+          7,
+          9
+        ]
+      ],
+      "boundary_local_enu_m": [
+        [
+          -28.23,
+          -1756.13
+        ],
+        [
+          198.32,
+          -1756.13
+        ],
+        [
+          198.32,
+          -1844.35
+        ],
+        [
+          -28.23,
+          -1844.35
+        ]
+      ],
+      "area_m2": 19985.3,
+      "frontage_m": 226.55,
+      "depth_m": 88.22,
+      "numeral": {
+        "read": "74",
+        "confidence": "documented",
+        "on_sheet": true,
+        "source": "wright_1834_nara_hup",
+        "crop_na_pixels": {
+          "x": 1698,
+          "y": 4892,
+          "w": 322,
+          "h": 135
+        },
+        "note": null
+      },
+      "bounded_by": {
+        "north": "school_section_tier_9_south_of_madison",
+        "south": "school_section_tier_10_south_of_madison",
+        "west": "school_section_line_6",
+        "east": "school_section_line_8"
+      },
+      "geometry_confidence": "reconstructed",
+      "open_side": "east",
+      "bank_pending": "The South Branch crosses this block and its east side is the drawn bank, not a ruled line. The rectangle here is the block's CELL in the grid; T-0794 commits the bank and closes it."
+    },
+    {
+      "block_number": 75,
+      "id": "blk_school_section_75",
+      "cells": [
+        [
+          6,
+          10
+        ]
+      ],
+      "boundary_local_enu_m": [
+        [
+          -28.23,
+          -1868.73
+        ],
+        [
+          61.28,
+          -1868.73
+        ],
+        [
+          61.28,
+          -1992.94
+        ],
+        [
+          -28.23,
+          -1992.94
+        ]
+      ],
+      "area_m2": 11118.6,
+      "frontage_m": 89.51,
+      "depth_m": 124.21,
+      "numeral": {
+        "read": "75",
+        "confidence": "documented",
+        "on_sheet": true,
+        "source": "wright_1834_nara_hup",
+        "crop_na_pixels": {
+          "x": 1696,
+          "y": 5048,
+          "w": 129,
+          "h": 177
+        },
+        "note": null
+      },
+      "bounded_by": {
+        "north": "school_section_tier_10_south_of_madison",
+        "south": "school_section_tier_11_south_of_madison",
+        "west": "school_section_line_6",
+        "east": "market_school_section_south"
+      },
+      "geometry_confidence": "inferred"
+    },
+    {
+      "block_number": 76,
+      "id": "blk_school_section_76",
+      "cells": [
+        [
+          6,
+          11
+        ]
+      ],
+      "boundary_local_enu_m": [
+        [
+          -28.23,
+          -2017.33
+        ],
+        [
+          61.28,
+          -2017.33
+        ],
+        [
+          61.28,
+          -2116.21
+        ],
+        [
+          -28.23,
+          -2116.21
+        ]
+      ],
+      "area_m2": 8850.9,
+      "frontage_m": 89.51,
+      "depth_m": 98.88,
+      "numeral": {
+        "read": "76",
+        "confidence": "documented",
+        "on_sheet": true,
+        "source": "wright_1834_nara_hup",
+        "crop_na_pixels": {
+          "x": 1694,
+          "y": 5254,
+          "w": 128,
+          "h": 142
+        },
+        "note": null
+      },
+      "bounded_by": {
+        "north": "school_section_tier_11_south_of_madison",
+        "south": null,
+        "west": "school_section_line_6",
+        "east": "market_school_section_south"
+      },
+      "geometry_confidence": "inferred"
+    },
+    {
+      "block_number": 77,
+      "id": "blk_school_section_77",
+      "cells": [
+        [
+          7,
+          11
+        ]
+      ],
+      "boundary_local_enu_m": [
+        [
+          81.4,
+          -2017.33
+        ],
+        [
+          198.32,
+          -2017.33
+        ],
+        [
+          198.32,
+          -2116.21
+        ],
+        [
+          81.4,
+          -2116.21
+        ]
+      ],
+      "area_m2": 11561.0,
+      "frontage_m": 116.92,
+      "depth_m": 98.88,
+      "numeral": {
+        "read": "77",
+        "confidence": "inferred",
+        "on_sheet": true,
+        "source": "wright_1834_nara_hup",
+        "crop_na_pixels": {
+          "x": 1850,
+          "y": 5260,
+          "w": 167,
+          "h": 143
+        },
+        "note": "The second glyph is written without a crossbar and reads as either 7 or 1 at 3x. 77 is adopted: 71 is read in ink two tiers west in the second row, the sequence runs 73-76 down the tier to the west and back up this one through 78 immediately north, and the 1833 sale, which reached only the four northern rows, sells in neither."
+      },
+      "bounded_by": {
+        "north": "school_section_tier_11_south_of_madison",
+        "south": null,
+        "west": "market_school_section_south",
+        "east": "school_section_line_8"
+      },
+      "geometry_confidence": "inferred"
+    },
+    {
+      "block_number": 78,
+      "id": "blk_school_section_78",
+      "cells": [
+        [
+          7,
+          10
+        ]
+      ],
+      "boundary_local_enu_m": [
+        [
+          81.4,
+          -1868.73
+        ],
+        [
+          198.32,
+          -1868.73
+        ],
+        [
+          198.32,
+          -1992.94
+        ],
+        [
+          81.4,
+          -1992.94
+        ]
+      ],
+      "area_m2": 14523.0,
+      "frontage_m": 116.92,
+      "depth_m": 124.21,
+      "numeral": {
+        "read": "78",
+        "confidence": "documented",
+        "on_sheet": true,
+        "source": "wright_1834_nara_hup",
+        "crop_na_pixels": {
+          "x": 1852,
+          "y": 5054,
+          "w": 168,
+          "h": 178
+        },
+        "note": null
+      },
+      "bounded_by": {
+        "north": "school_section_tier_10_south_of_madison",
+        "south": "school_section_tier_11_south_of_madison",
+        "west": "market_school_section_south",
+        "east": "school_section_line_8"
+      },
+      "geometry_confidence": "reconstructed",
+      "open_side": "west",
+      "bank_pending": "The South Branch crosses this block and its west side is the drawn bank, not a ruled line. The rectangle here is the block's CELL in the grid; T-0794 commits the bank and closes it."
+    },
+    {
+      "block_number": 79,
+      "id": "blk_school_section_79",
+      "cells": [
+        [
+          6,
+          1
+        ]
+      ],
+      "boundary_local_enu_m": [
+        [
+          -28.23,
+          -668.03
+        ],
+        [
+          61.28,
+          -668.03
+        ],
+        [
+          61.28,
+          -785.01
+        ],
+        [
+          -28.23,
+          -785.01
+        ]
+      ],
+      "area_m2": 10471.6,
+      "frontage_m": 89.51,
+      "depth_m": 116.98,
+      "numeral": {
+        "read": "79",
+        "confidence": "documented",
+        "on_sheet": true,
+        "source": "wright_1834_nara_hup",
+        "crop_na_pixels": {
+          "x": 1714,
+          "y": 3384,
+          "w": 129,
+          "h": 167
+        },
+        "note": null
+      },
+      "bounded_by": {
+        "north": "monroe",
+        "south": "adams",
+        "west": "school_section_line_6",
+        "east": "market_school_section"
+      },
+      "geometry_confidence": "inferred"
+    },
+    {
+      "block_number": 80,
+      "id": "blk_school_section_80",
+      "cells": [
+        [
+          6,
+          0
+        ]
+      ],
+      "boundary_local_enu_m": [
+        [
+          -28.23,
+          -531.25
+        ],
+        [
+          61.28,
+          -531.25
+        ],
+        [
+          61.28,
+          -643.64
+        ],
+        [
+          -28.23,
+          -643.64
+        ]
+      ],
+      "area_m2": 10060.8,
+      "frontage_m": 89.51,
+      "depth_m": 112.4,
+      "numeral": {
+        "read": "80",
+        "confidence": "documented",
+        "on_sheet": true,
+        "source": "wright_1834_nara_hup",
+        "crop_na_pixels": {
+          "x": 1716,
+          "y": 3195,
+          "w": 129,
+          "h": 161
+        },
+        "note": null
+      },
+      "bounded_by": {
+        "north": "madison",
+        "south": "monroe",
+        "west": "school_section_line_6",
+        "east": "market_school_section"
+      },
+      "geometry_confidence": "inferred"
+    },
+    {
+      "block_number": 81,
+      "id": "blk_school_section_81",
+      "cells": [
+        [
+          7,
+          0
+        ]
+      ],
+      "boundary_local_enu_m": [
+        [
+          81.4,
+          -531.25
+        ],
+        [
+          198.32,
+          -531.25
+        ],
+        [
+          198.32,
+          -643.64
+        ],
+        [
+          81.4,
+          -643.64
+        ]
+      ],
+      "area_m2": 13141.3,
+      "frontage_m": 116.92,
+      "depth_m": 112.4,
+      "numeral": {
+        "read": "81",
+        "confidence": "documented",
+        "on_sheet": true,
+        "source": "wright_1834_nara_hup",
+        "crop_na_pixels": {
+          "x": 1871,
+          "y": 3201,
+          "w": 167,
+          "h": 162
+        },
+        "note": "The numeral is written TWICE inside this block, side by side, and both readings give 81. Recorded as read; the doubling is the draughtsman's."
+      },
+      "bounded_by": {
+        "north": "madison",
+        "south": "monroe",
+        "west": "market_school_section",
+        "east": "school_section_line_8"
+      },
+      "geometry_confidence": "inferred"
+    },
+    {
+      "block_number": 82,
+      "id": "blk_school_section_82",
+      "cells": [
+        [
+          7,
+          1
+        ]
+      ],
+      "boundary_local_enu_m": [
+        [
+          81.4,
+          -668.03
+        ],
+        [
+          198.32,
+          -668.03
+        ],
+        [
+          198.32,
+          -785.01
+        ],
+        [
+          81.4,
+          -785.01
+        ]
+      ],
+      "area_m2": 13677.8,
+      "frontage_m": 116.92,
+      "depth_m": 116.98,
+      "numeral": {
+        "read": "82",
+        "confidence": "documented",
+        "on_sheet": true,
+        "source": "wright_1834_nara_hup",
+        "crop_na_pixels": {
+          "x": 1869,
+          "y": 3390,
+          "w": 167,
+          "h": 168
+        },
+        "note": "A second numeral stands beside this one and is lost under an ink blot. The numeral read here is 82 and it is clear; what the blot covers is not recoverable."
+      },
+      "bounded_by": {
+        "north": "monroe",
+        "south": "adams",
+        "west": "market_school_section",
+        "east": "school_section_line_8"
+      },
+      "geometry_confidence": "inferred"
+    },
+    {
+      "block_number": 83,
+      "id": "blk_school_section_83",
+      "cells": [
+        [
+          6,
+          2
+        ],
+        [
+          7,
+          2
+        ]
+      ],
+      "boundary_local_enu_m": [
+        [
+          -28.23,
+          -809.39
+        ],
+        [
+          198.32,
+          -809.39
+        ],
+        [
+          198.32,
+          -927.9
+        ],
+        [
+          -28.23,
+          -927.9
+        ]
+      ],
+      "area_m2": 26847.9,
+      "frontage_m": 226.55,
+      "depth_m": 118.51,
+      "numeral": {
+        "read": "83",
+        "confidence": "documented",
+        "on_sheet": true,
+        "source": "wright_1834_nara_hup",
+        "crop_na_pixels": {
+          "x": 1712,
+          "y": 3580,
+          "w": 323,
+          "h": 177
+        },
+        "note": null
+      },
+      "bounded_by": {
+        "north": "adams",
+        "south": "jackson",
+        "west": "school_section_line_6",
+        "east": "school_section_line_8"
+      },
+      "geometry_confidence": "reconstructed",
+      "open_side": "west",
+      "bank_pending": "The South Branch crosses this block and its west side is the drawn bank, not a ruled line. The rectangle here is the block's CELL in the grid; T-0794 commits the bank and closes it."
+    },
+    {
+      "block_number": 84,
+      "id": "blk_school_section_84",
+      "cells": [
+        [
+          6,
+          3
+        ],
+        [
+          7,
+          3
+        ]
+      ],
+      "boundary_local_enu_m": [
+        [
+          -28.23,
+          -952.29
+        ],
+        [
+          198.32,
+          -952.29
+        ],
+        [
+          198.32,
+          -1072.93
+        ],
+        [
+          -28.23,
+          -1072.93
+        ]
+      ],
+      "area_m2": 27331.5,
+      "frontage_m": 226.55,
+      "depth_m": 120.64,
+      "numeral": {
+        "read": "84",
+        "confidence": "documented",
+        "on_sheet": true,
+        "source": "wright_1834_nara_hup",
+        "crop_na_pixels": {
+          "x": 1710,
+          "y": 3778,
+          "w": 323,
+          "h": 179
+        },
+        "note": null
+      },
+      "bounded_by": {
+        "north": "jackson",
+        "south": "school_section_tier_4_south_of_madison",
+        "west": "school_section_line_6",
+        "east": "school_section_line_8"
+      },
+      "geometry_confidence": "reconstructed",
+      "open_side": "west",
+      "bank_pending": "The South Branch crosses this block and its west side is the drawn bank, not a ruled line. The rectangle here is the block's CELL in the grid; T-0794 commits the bank and closes it."
+    },
+    {
+      "block_number": 85,
+      "id": "blk_school_section_85",
+      "cells": [
+        [
+          8,
+          9
+        ]
+      ],
+      "boundary_local_enu_m": [
+        [
+          218.44,
+          -1756.13
+        ],
+        [
+          341.34,
+          -1756.13
+        ],
+        [
+          341.34,
+          -1844.35
+        ],
+        [
+          218.44,
+          -1844.35
+        ]
+      ],
+      "area_m2": 10842.1,
+      "frontage_m": 122.9,
+      "depth_m": 88.22,
+      "numeral": {
+        "read": "85",
+        "confidence": "documented",
+        "on_sheet": true,
+        "source": "wright_1834_nara_hup",
+        "crop_na_pixels": {
+          "x": 2048,
+          "y": 4906,
+          "w": 175,
+          "h": 129
+        },
+        "note": null
+      },
+      "bounded_by": {
+        "north": "school_section_tier_9_south_of_madison",
+        "south": "school_section_tier_10_south_of_madison",
+        "west": "school_section_line_8",
+        "east": "wells_school_section"
+      },
+      "geometry_confidence": "reconstructed",
+      "open_side": "west",
+      "bank_pending": "The South Branch crosses this block and its west side is the drawn bank, not a ruled line. The rectangle here is the block's CELL in the grid; T-0794 commits the bank and closes it."
+    },
+    {
+      "block_number": 86,
+      "id": "blk_school_section_86",
+      "cells": [
+        [
+          8,
+          8
+        ]
+      ],
+      "boundary_local_enu_m": [
+        [
+          218.44,
+          -1612.79
+        ],
+        [
+          341.34,
+          -1612.79
+        ],
+        [
+          341.34,
+          -1731.74
+        ],
+        [
+          218.44,
+          -1731.74
+        ]
+      ],
+      "area_m2": 14619.9,
+      "frontage_m": 122.9,
+      "depth_m": 118.95,
+      "numeral": {
+        "read": "86",
+        "confidence": "documented",
+        "on_sheet": true,
+        "source": "wright_1834_nara_hup",
+        "crop_na_pixels": {
+          "x": 2050,
+          "y": 4707,
+          "w": 176,
+          "h": 172
+        },
+        "note": null
+      },
+      "bounded_by": {
+        "north": "school_section_tier_8_south_of_madison",
+        "south": "school_section_tier_9_south_of_madison",
+        "west": "school_section_line_8",
+        "east": "wells_school_section"
+      },
+      "geometry_confidence": "reconstructed",
+      "open_side": "west",
+      "bank_pending": "The South Branch crosses this block and its west side is the drawn bank, not a ruled line. The rectangle here is the block's CELL in the grid; T-0794 commits the bank and closes it."
+    },
+    {
+      "block_number": 87,
+      "id": "blk_school_section_87",
+      "cells": [
+        [
+          8,
+          7
+        ]
+      ],
+      "boundary_local_enu_m": [
+        [
+          218.44,
+          -1500.98
+        ],
+        [
+          341.34,
+          -1500.98
+        ],
+        [
+          341.34,
+          -1588.41
+        ],
+        [
+          218.44,
+          -1588.41
+        ]
+      ],
+      "area_m2": 10745.5,
+      "frontage_m": 122.9,
+      "depth_m": 87.43,
+      "numeral": {
+        "read": "87",
+        "confidence": "documented",
+        "on_sheet": true,
+        "source": "wright_1834_nara_hup",
+        "crop_na_pixels": {
+          "x": 2052,
+          "y": 4552,
+          "w": 175,
+          "h": 128
+        },
+        "note": null
+      },
+      "bounded_by": {
+        "north": "school_section_tier_7_south_of_madison",
+        "south": "school_section_tier_8_south_of_madison",
+        "west": "school_section_line_8",
+        "east": "wells_school_section"
+      },
+      "geometry_confidence": "reconstructed",
+      "open_side": "west",
+      "bank_pending": "The South Branch crosses this block and its west side is the drawn bank, not a ruled line. The rectangle here is the block's CELL in the grid; T-0794 commits the bank and closes it.",
+      "reserved": true
+    },
+    {
+      "block_number": 88,
+      "id": "blk_school_section_88",
+      "cells": [
+        [
+          8,
+          6
+        ]
+      ],
+      "boundary_local_enu_m": [
+        [
+          218.44,
+          -1359.03
+        ],
+        [
+          341.34,
+          -1359.03
+        ],
+        [
+          341.34,
+          -1476.59
+        ],
+        [
+          218.44,
+          -1476.59
+        ]
+      ],
+      "area_m2": 14448.2,
+      "frontage_m": 122.9,
+      "depth_m": 117.56,
+      "numeral": {
+        "read": "88",
+        "confidence": "documented",
+        "on_sheet": true,
+        "source": "wright_1834_nara_hup",
+        "crop_na_pixels": {
+          "x": 2053,
+          "y": 4355,
+          "w": 176,
+          "h": 170
+        },
+        "note": null
+      },
+      "bounded_by": {
+        "north": "school_section_tier_6_south_of_madison",
+        "south": "school_section_tier_7_south_of_madison",
+        "west": "school_section_line_8",
+        "east": "wells_school_section"
+      },
+      "geometry_confidence": "reconstructed",
+      "open_side": "west",
+      "bank_pending": "The South Branch crosses this block and its west side is the drawn bank, not a ruled line. The rectangle here is the block's CELL in the grid; T-0794 commits the bank and closes it.",
+      "reserved": true
+    },
+    {
+      "block_number": 89,
+      "id": "blk_school_section_89",
+      "cells": [
+        [
+          8,
+          5
+        ]
+      ],
+      "boundary_local_enu_m": [
+        [
+          218.44,
+          -1243.92
+        ],
+        [
+          341.34,
+          -1243.92
+        ],
+        [
+          341.34,
+          -1334.65
+        ],
+        [
+          218.44,
+          -1334.65
+        ]
+      ],
+      "area_m2": 11150.9,
+      "frontage_m": 122.9,
+      "depth_m": 90.73,
+      "numeral": {
+        "read": "89",
+        "confidence": "documented",
+        "on_sheet": true,
+        "source": "wright_1834_nara_hup",
+        "crop_na_pixels": {
+          "x": 2055,
+          "y": 4196,
+          "w": 176,
+          "h": 132
+        },
+        "note": null
+      },
+      "bounded_by": {
+        "north": "school_section_tier_5_south_of_madison",
+        "south": "school_section_tier_6_south_of_madison",
+        "west": "school_section_line_8",
+        "east": "wells_school_section"
+      },
+      "geometry_confidence": "inferred"
+    },
+    {
+      "block_number": 90,
+      "id": "blk_school_section_90",
+      "cells": [
+        [
+          8,
+          4
+        ]
+      ],
+      "boundary_local_enu_m": [
+        [
+          218.44,
+          -1097.31
+        ],
+        [
+          341.34,
+          -1097.31
+        ],
+        [
+          341.34,
+          -1219.54
+        ],
+        [
+          218.44,
+          -1219.54
+        ]
+      ],
+      "area_m2": 15021.8,
+      "frontage_m": 122.9,
+      "depth_m": 122.22,
+      "numeral": {
+        "read": "90",
+        "confidence": "documented",
+        "on_sheet": true,
+        "source": "wright_1834_nara_hup",
+        "crop_na_pixels": {
+          "x": 2057,
+          "y": 3993,
+          "w": 176,
+          "h": 176
+        },
+        "note": null
+      },
+      "bounded_by": {
+        "north": "school_section_tier_4_south_of_madison",
+        "south": "school_section_tier_5_south_of_madison",
+        "west": "school_section_line_8",
+        "east": "wells_school_section"
+      },
+      "geometry_confidence": "inferred"
+    },
+    {
+      "block_number": 91,
+      "id": "blk_school_section_91",
+      "cells": [
+        [
+          8,
+          3
+        ]
+      ],
+      "boundary_local_enu_m": [
+        [
+          218.44,
+          -952.29
+        ],
+        [
+          341.34,
+          -952.29
+        ],
+        [
+          341.34,
+          -1072.93
+        ],
+        [
+          218.44,
+          -1072.93
+        ]
+      ],
+      "area_m2": 14827.4,
+      "frontage_m": 122.9,
+      "depth_m": 120.64,
+      "numeral": {
+        "read": "91",
+        "confidence": "documented",
+        "on_sheet": true,
+        "source": "wright_1834_nara_hup",
+        "crop_na_pixels": {
+          "x": 2059,
+          "y": 3792,
+          "w": 176,
+          "h": 174
+        },
+        "note": null
+      },
+      "bounded_by": {
+        "north": "jackson",
+        "south": "school_section_tier_4_south_of_madison",
+        "west": "school_section_line_8",
+        "east": "wells_school_section"
+      },
+      "geometry_confidence": "inferred"
+    },
+    {
+      "block_number": 92,
+      "id": "blk_school_section_92",
+      "cells": [
+        [
+          8,
+          2
+        ]
+      ],
+      "boundary_local_enu_m": [
+        [
+          218.44,
+          -809.39
+        ],
+        [
+          341.34,
+          -809.39
+        ],
+        [
+          341.34,
+          -927.9
+        ],
+        [
+          218.44,
+          -927.9
+        ]
+      ],
+      "area_m2": 14565.0,
+      "frontage_m": 122.9,
+      "depth_m": 118.51,
+      "numeral": {
+        "read": "92",
+        "confidence": "documented",
+        "on_sheet": true,
+        "source": "wright_1834_nara_hup",
+        "crop_na_pixels": {
+          "x": 2061,
+          "y": 3594,
+          "w": 176,
+          "h": 171
+        },
+        "note": null
+      },
+      "bounded_by": {
+        "north": "adams",
+        "south": "jackson",
+        "west": "school_section_line_8",
+        "east": "wells_school_section"
+      },
+      "geometry_confidence": "inferred"
+    },
+    {
+      "block_number": 93,
+      "id": "blk_school_section_93",
+      "cells": [
+        [
+          8,
+          1
+        ]
+      ],
+      "boundary_local_enu_m": [
+        [
+          218.44,
+          -668.03
+        ],
+        [
+          341.34,
+          -668.03
+        ],
+        [
+          341.34,
+          -785.01
+        ],
+        [
+          218.44,
+          -785.01
+        ]
+      ],
+      "area_m2": 14377.8,
+      "frontage_m": 122.9,
+      "depth_m": 116.98,
+      "numeral": {
+        "read": "93",
+        "confidence": "documented",
+        "on_sheet": true,
+        "source": "wright_1834_nara_hup",
+        "crop_na_pixels": {
+          "x": 2064,
+          "y": 3398,
+          "w": 176,
+          "h": 169
+        },
+        "note": null
+      },
+      "bounded_by": {
+        "north": "monroe",
+        "south": "adams",
+        "west": "school_section_line_8",
+        "east": "wells_school_section"
+      },
+      "geometry_confidence": "inferred"
+    },
+    {
+      "block_number": 94,
+      "id": "blk_school_section_94",
+      "cells": [
+        [
+          8,
+          0
+        ]
+      ],
+      "boundary_local_enu_m": [
+        [
+          218.44,
+          -531.25
+        ],
+        [
+          341.34,
+          -531.25
+        ],
+        [
+          341.34,
+          -643.64
+        ],
+        [
+          218.44,
+          -643.64
+        ]
+      ],
+      "area_m2": 13813.8,
+      "frontage_m": 122.9,
+      "depth_m": 112.4,
+      "numeral": {
+        "read": "94",
+        "confidence": "documented",
+        "on_sheet": true,
+        "source": "wright_1834_nara_hup",
+        "crop_na_pixels": {
+          "x": 2066,
+          "y": 3208,
+          "w": 176,
+          "h": 162
+        },
+        "note": null
+      },
+      "bounded_by": {
+        "north": "madison",
+        "south": "monroe",
+        "west": "school_section_line_8",
+        "east": "wells_school_section"
+      },
+      "geometry_confidence": "inferred"
+    },
+    {
+      "block_number": 95,
+      "id": "blk_school_section_95",
+      "cells": [
+        [
+          9,
+          0
+        ]
+      ],
+      "boundary_local_enu_m": [
+        [
+          361.46,
+          -531.25
+        ],
+        [
+          455.02,
+          -531.25
+        ],
+        [
+          455.02,
+          -643.64
+        ],
+        [
+          361.46,
+          -643.64
+        ]
+      ],
+      "area_m2": 10516.7,
+      "frontage_m": 93.57,
+      "depth_m": 112.4,
+      "numeral": {
+        "read": "95",
+        "confidence": "documented",
+        "on_sheet": true,
+        "source": "wright_1834_nara_hup",
+        "crop_na_pixels": {
+          "x": 2268,
+          "y": 3216,
+          "w": 134,
+          "h": 161
+        },
+        "note": null
+      },
+      "bounded_by": {
+        "north": "madison",
+        "south": "monroe",
+        "west": "wells_school_section",
+        "east": "school_section_line_10"
+      },
+      "geometry_confidence": "inferred"
+    },
+    {
+      "block_number": 96,
+      "id": "blk_school_section_96",
+      "cells": [
+        [
+          9,
+          1
+        ]
+      ],
+      "boundary_local_enu_m": [
+        [
+          361.46,
+          -668.03
+        ],
+        [
+          455.02,
+          -668.03
+        ],
+        [
+          455.02,
+          -785.01
+        ],
+        [
+          361.46,
+          -785.01
+        ]
+      ],
+      "area_m2": 10946.1,
+      "frontage_m": 93.57,
+      "depth_m": 116.98,
+      "numeral": {
+        "read": "96",
+        "confidence": "documented",
+        "on_sheet": true,
+        "source": "wright_1834_nara_hup",
+        "crop_na_pixels": {
+          "x": 2266,
+          "y": 3405,
+          "w": 134,
+          "h": 167
+        },
+        "note": null
+      },
+      "bounded_by": {
+        "north": "monroe",
+        "south": "adams",
+        "west": "wells_school_section",
+        "east": "school_section_line_10"
+      },
+      "geometry_confidence": "inferred"
+    },
+    {
+      "block_number": 97,
+      "id": "blk_school_section_97",
+      "cells": [
+        [
+          9,
+          2
+        ]
+      ],
+      "boundary_local_enu_m": [
+        [
+          361.46,
+          -809.39
+        ],
+        [
+          455.02,
+          -809.39
+        ],
+        [
+          455.02,
+          -927.9
+        ],
+        [
+          361.46,
+          -927.9
+        ]
+      ],
+      "area_m2": 11088.6,
+      "frontage_m": 93.57,
+      "depth_m": 118.51,
+      "numeral": {
+        "read": "97",
+        "confidence": "documented",
+        "on_sheet": true,
+        "source": "wright_1834_nara_hup",
+        "crop_na_pixels": {
+          "x": 2264,
+          "y": 3601,
+          "w": 134,
+          "h": 169
+        },
+        "note": null
+      },
+      "bounded_by": {
+        "north": "adams",
+        "south": "jackson",
+        "west": "wells_school_section",
+        "east": "school_section_line_10"
+      },
+      "geometry_confidence": "inferred"
+    },
+    {
+      "block_number": 98,
+      "id": "blk_school_section_98",
+      "cells": [
+        [
+          9,
+          3
+        ]
+      ],
+      "boundary_local_enu_m": [
+        [
+          361.46,
+          -952.29
+        ],
+        [
+          455.02,
+          -952.29
+        ],
+        [
+          455.02,
+          -1072.93
+        ],
+        [
+          361.46,
+          -1072.93
+        ]
+      ],
+      "area_m2": 11288.3,
+      "frontage_m": 93.57,
+      "depth_m": 120.64,
+      "numeral": {
+        "read": "98",
+        "confidence": "documented",
+        "on_sheet": true,
+        "source": "wright_1834_nara_hup",
+        "crop_na_pixels": {
+          "x": 2262,
+          "y": 3799,
+          "w": 134,
+          "h": 172
+        },
+        "note": null
+      },
+      "bounded_by": {
+        "north": "jackson",
+        "south": "school_section_tier_4_south_of_madison",
+        "west": "wells_school_section",
+        "east": "school_section_line_10"
+      },
+      "geometry_confidence": "inferred"
+    },
+    {
+      "block_number": 99,
+      "id": "blk_school_section_99",
+      "cells": [
+        [
+          9,
+          4
+        ]
+      ],
+      "boundary_local_enu_m": [
+        [
+          361.46,
+          -1097.31
+        ],
+        [
+          455.02,
+          -1097.31
+        ],
+        [
+          455.02,
+          -1219.54
+        ],
+        [
+          361.46,
+          -1219.54
+        ]
+      ],
+      "area_m2": 11436.3,
+      "frontage_m": 93.57,
+      "depth_m": 122.22,
+      "numeral": {
+        "read": "99",
+        "confidence": "documented",
+        "on_sheet": true,
+        "source": "wright_1834_nara_hup",
+        "crop_na_pixels": {
+          "x": 2260,
+          "y": 4000,
+          "w": 134,
+          "h": 174
+        },
+        "note": null
+      },
+      "bounded_by": {
+        "north": "school_section_tier_4_south_of_madison",
+        "south": "school_section_tier_5_south_of_madison",
+        "west": "wells_school_section",
+        "east": "school_section_line_10"
+      },
+      "geometry_confidence": "inferred"
+    },
+    {
+      "block_number": 100,
+      "id": "blk_school_section_100",
+      "cells": [
+        [
+          9,
+          5
+        ]
+      ],
+      "boundary_local_enu_m": [
+        [
+          361.46,
+          -1243.92
+        ],
+        [
+          455.02,
+          -1243.92
+        ],
+        [
+          455.02,
+          -1334.65
+        ],
+        [
+          361.46,
+          -1334.65
+        ]
+      ],
+      "area_m2": 8489.4,
+      "frontage_m": 93.57,
+      "depth_m": 90.73,
+      "numeral": {
+        "read": "100",
+        "confidence": "documented",
+        "on_sheet": true,
+        "source": "wright_1834_nara_hup",
+        "crop_na_pixels": {
+          "x": 2258,
+          "y": 4204,
+          "w": 134,
+          "h": 131
+        },
+        "note": null
+      },
+      "bounded_by": {
+        "north": "school_section_tier_5_south_of_madison",
+        "south": "school_section_tier_6_south_of_madison",
+        "west": "wells_school_section",
+        "east": "school_section_line_10"
+      },
+      "geometry_confidence": "inferred"
+    },
+    {
+      "block_number": 101,
+      "id": "blk_school_section_101",
+      "cells": [
+        [
+          9,
+          6
+        ]
+      ],
+      "boundary_local_enu_m": [
+        [
+          361.46,
+          -1359.03
+        ],
+        [
+          455.02,
+          -1359.03
+        ],
+        [
+          455.02,
+          -1476.59
+        ],
+        [
+          361.46,
+          -1476.59
+        ]
+      ],
+      "area_m2": 10999.6,
+      "frontage_m": 93.57,
+      "depth_m": 117.56,
+      "numeral": {
+        "read": "101",
+        "confidence": "documented",
+        "on_sheet": true,
+        "source": "wright_1834_nara_hup",
+        "crop_na_pixels": {
+          "x": 2256,
+          "y": 4363,
+          "w": 134,
+          "h": 168
+        },
+        "note": null
+      },
+      "bounded_by": {
+        "north": "school_section_tier_6_south_of_madison",
+        "south": "school_section_tier_7_south_of_madison",
+        "west": "wells_school_section",
+        "east": "school_section_line_10"
+      },
+      "geometry_confidence": "inferred"
+    },
+    {
+      "block_number": 102,
+      "id": "blk_school_section_102",
+      "cells": [
+        [
+          9,
+          7
+        ]
+      ],
+      "boundary_local_enu_m": [
+        [
+          361.46,
+          -1500.98
+        ],
+        [
+          455.02,
+          -1500.98
+        ],
+        [
+          455.02,
+          -1588.41
+        ],
+        [
+          361.46,
+          -1588.41
+        ]
+      ],
+      "area_m2": 8180.7,
+      "frontage_m": 93.57,
+      "depth_m": 87.43,
+      "numeral": {
+        "read": "102",
+        "confidence": "documented",
+        "on_sheet": true,
+        "source": "wright_1834_nara_hup",
+        "crop_na_pixels": {
+          "x": 2254,
+          "y": 4560,
+          "w": 134,
+          "h": 126
+        },
+        "note": null
+      },
+      "bounded_by": {
+        "north": "school_section_tier_7_south_of_madison",
+        "south": "school_section_tier_8_south_of_madison",
+        "west": "wells_school_section",
+        "east": "school_section_line_10"
+      },
+      "geometry_confidence": "inferred"
+    },
+    {
+      "block_number": 103,
+      "id": "blk_school_section_103",
+      "cells": [
+        [
+          9,
+          8
+        ]
+      ],
+      "boundary_local_enu_m": [
+        [
+          361.46,
+          -1612.79
+        ],
+        [
+          455.02,
+          -1612.79
+        ],
+        [
+          455.02,
+          -1731.74
+        ],
+        [
+          361.46,
+          -1731.74
+        ]
+      ],
+      "area_m2": 11130.4,
+      "frontage_m": 93.57,
+      "depth_m": 118.95,
+      "numeral": {
+        "read": "103",
+        "confidence": "documented",
+        "on_sheet": true,
+        "source": "wright_1834_nara_hup",
+        "crop_na_pixels": {
+          "x": 2252,
+          "y": 4715,
+          "w": 134,
+          "h": 170
+        },
+        "note": null
+      },
+      "bounded_by": {
+        "north": "school_section_tier_8_south_of_madison",
+        "south": "school_section_tier_9_south_of_madison",
+        "west": "wells_school_section",
+        "east": "school_section_line_10"
+      },
+      "geometry_confidence": "inferred"
+    },
+    {
+      "block_number": 104,
+      "id": "blk_school_section_104",
+      "cells": [
+        [
+          9,
+          9
+        ]
+      ],
+      "boundary_local_enu_m": [
+        [
+          361.46,
+          -1756.13
+        ],
+        [
+          455.02,
+          -1756.13
+        ],
+        [
+          455.02,
+          -1844.35
+        ],
+        [
+          361.46,
+          -1844.35
+        ]
+      ],
+      "area_m2": 8254.2,
+      "frontage_m": 93.57,
+      "depth_m": 88.22,
+      "numeral": {
+        "read": "104",
+        "confidence": "documented",
+        "on_sheet": true,
+        "source": "wright_1834_nara_hup",
+        "crop_na_pixels": {
+          "x": 2251,
+          "y": 4914,
+          "w": 134,
+          "h": 127
+        },
+        "note": null
+      },
+      "bounded_by": {
+        "north": "school_section_tier_9_south_of_madison",
+        "south": "school_section_tier_10_south_of_madison",
+        "west": "wells_school_section",
+        "east": "school_section_line_10"
+      },
+      "geometry_confidence": "inferred"
+    },
+    {
+      "block_number": 105,
+      "id": "blk_school_section_105",
+      "cells": [
+        [
+          9,
+          10
+        ]
+      ],
+      "boundary_local_enu_m": [
+        [
+          361.46,
+          -1868.73
+        ],
+        [
+          455.02,
+          -1868.73
+        ],
+        [
+          455.02,
+          -1992.94
+        ],
+        [
+          361.46,
+          -1992.94
+        ]
+      ],
+      "area_m2": 11622.4,
+      "frontage_m": 93.57,
+      "depth_m": 124.21,
+      "numeral": {
+        "read": "105",
+        "confidence": "documented",
+        "on_sheet": true,
+        "source": "wright_1834_nara_hup",
+        "crop_na_pixels": {
+          "x": 2249,
+          "y": 5070,
+          "w": 134,
+          "h": 177
+        },
+        "note": null
+      },
+      "bounded_by": {
+        "north": "school_section_tier_10_south_of_madison",
+        "south": "school_section_tier_11_south_of_madison",
+        "west": "wells_school_section",
+        "east": "school_section_line_10"
+      },
+      "geometry_confidence": "inferred"
+    },
+    {
+      "block_number": 106,
+      "id": "blk_school_section_106",
+      "cells": [
+        [
+          9,
+          11
+        ]
+      ],
+      "boundary_local_enu_m": [
+        [
+          361.46,
+          -2017.33
+        ],
+        [
+          455.02,
+          -2017.33
+        ],
+        [
+          455.02,
+          -2116.21
+        ],
+        [
+          361.46,
+          -2116.21
+        ]
+      ],
+      "area_m2": 9252.0,
+      "frontage_m": 93.57,
+      "depth_m": 98.88,
+      "numeral": {
+        "read": "106",
+        "confidence": "documented",
+        "on_sheet": true,
+        "source": "wright_1834_nara_hup",
+        "crop_na_pixels": {
+          "x": 2247,
+          "y": 5276,
+          "w": 134,
+          "h": 142
+        },
+        "note": null
+      },
+      "bounded_by": {
+        "north": "school_section_tier_11_south_of_madison",
+        "south": null,
+        "west": "wells_school_section",
+        "east": "school_section_line_10"
+      },
+      "geometry_confidence": "inferred"
+    },
+    {
+      "block_number": 107,
+      "id": "blk_school_section_107",
+      "cells": [
+        [
+          10,
+          11
+        ]
+      ],
+      "boundary_local_enu_m": [
+        [
+          475.14,
+          -2017.33
+        ],
+        [
+          573.48,
+          -2017.33
+        ],
+        [
+          573.48,
+          -2116.21
+        ],
+        [
+          475.14,
+          -2116.21
+        ]
+      ],
+      "area_m2": 9723.5,
+      "frontage_m": 98.34,
+      "depth_m": 98.88,
+      "numeral": {
+        "read": "107",
+        "confidence": "documented",
+        "on_sheet": true,
+        "source": "wright_1834_nara_hup",
+        "crop_na_pixels": {
+          "x": 2408,
+          "y": 5282,
+          "w": 141,
+          "h": 142
+        },
+        "note": null
+      },
+      "bounded_by": {
+        "north": "school_section_tier_11_south_of_madison",
+        "south": null,
+        "west": "school_section_line_10",
+        "east": "clark_school_section"
+      },
+      "geometry_confidence": "inferred"
+    },
+    {
+      "block_number": 108,
+      "id": "blk_school_section_108",
+      "cells": [
+        [
+          10,
+          10
+        ]
+      ],
+      "boundary_local_enu_m": [
+        [
+          475.14,
+          -1868.73
+        ],
+        [
+          573.48,
+          -1868.73
+        ],
+        [
+          573.48,
+          -1992.94
+        ],
+        [
+          475.14,
+          -1992.94
+        ]
+      ],
+      "area_m2": 12214.8,
+      "frontage_m": 98.34,
+      "depth_m": 124.21,
+      "numeral": {
+        "read": "108",
+        "confidence": "documented",
+        "on_sheet": true,
+        "source": "wright_1834_nara_hup",
+        "crop_na_pixels": {
+          "x": 2410,
+          "y": 5076,
+          "w": 141,
+          "h": 177
+        },
+        "note": null
+      },
+      "bounded_by": {
+        "north": "school_section_tier_10_south_of_madison",
+        "south": "school_section_tier_11_south_of_madison",
+        "west": "school_section_line_10",
+        "east": "clark_school_section"
+      },
+      "geometry_confidence": "inferred"
+    },
+    {
+      "block_number": 109,
+      "id": "blk_school_section_109",
+      "cells": [
+        [
+          10,
+          9
+        ]
+      ],
+      "boundary_local_enu_m": [
+        [
+          475.14,
+          -1756.13
+        ],
+        [
+          573.48,
+          -1756.13
+        ],
+        [
+          573.48,
+          -1844.35
+        ],
+        [
+          475.14,
+          -1844.35
+        ]
+      ],
+      "area_m2": 8674.9,
+      "frontage_m": 98.34,
+      "depth_m": 88.22,
+      "numeral": {
+        "read": "109",
+        "confidence": "documented",
+        "on_sheet": true,
+        "source": "wright_1834_nara_hup",
+        "crop_na_pixels": {
+          "x": 2412,
+          "y": 4920,
+          "w": 141,
+          "h": 128
+        },
+        "note": null
+      },
+      "bounded_by": {
+        "north": "school_section_tier_9_south_of_madison",
+        "south": "school_section_tier_10_south_of_madison",
+        "west": "school_section_line_10",
+        "east": "clark_school_section"
+      },
+      "geometry_confidence": "inferred"
+    },
+    {
+      "block_number": 110,
+      "id": "blk_school_section_110",
+      "cells": [
+        [
+          10,
+          8
+        ]
+      ],
+      "boundary_local_enu_m": [
+        [
+          475.14,
+          -1612.79
+        ],
+        [
+          573.48,
+          -1612.79
+        ],
+        [
+          573.48,
+          -1731.74
+        ],
+        [
+          475.14,
+          -1731.74
+        ]
+      ],
+      "area_m2": 11697.6,
+      "frontage_m": 98.34,
+      "depth_m": 118.95,
+      "numeral": {
+        "read": "110",
+        "confidence": "documented",
+        "on_sheet": true,
+        "source": "wright_1834_nara_hup",
+        "crop_na_pixels": {
+          "x": 2413,
+          "y": 4721,
+          "w": 141,
+          "h": 170
+        },
+        "note": null
+      },
+      "bounded_by": {
+        "north": "school_section_tier_8_south_of_madison",
+        "south": "school_section_tier_9_south_of_madison",
+        "west": "school_section_line_10",
+        "east": "clark_school_section"
+      },
+      "geometry_confidence": "inferred"
+    },
+    {
+      "block_number": 111,
+      "id": "blk_school_section_111",
+      "cells": [
+        [
+          10,
+          7
+        ]
+      ],
+      "boundary_local_enu_m": [
+        [
+          475.14,
+          -1500.98
+        ],
+        [
+          573.48,
+          -1500.98
+        ],
+        [
+          573.48,
+          -1588.41
+        ],
+        [
+          475.14,
+          -1588.41
+        ]
+      ],
+      "area_m2": 8597.6,
+      "frontage_m": 98.34,
+      "depth_m": 87.43,
+      "numeral": {
+        "read": "111",
+        "confidence": "documented",
+        "on_sheet": true,
+        "source": "wright_1834_nara_hup",
+        "crop_na_pixels": {
+          "x": 2416,
+          "y": 4566,
+          "w": 141,
+          "h": 127
+        },
+        "note": null
+      },
+      "bounded_by": {
+        "north": "school_section_tier_7_south_of_madison",
+        "south": "school_section_tier_8_south_of_madison",
+        "west": "school_section_line_10",
+        "east": "clark_school_section"
+      },
+      "geometry_confidence": "inferred"
+    },
+    {
+      "block_number": 112,
+      "id": "blk_school_section_112",
+      "cells": [
+        [
+          10,
+          6
+        ]
+      ],
+      "boundary_local_enu_m": [
+        [
+          475.14,
+          -1359.03
+        ],
+        [
+          573.48,
+          -1359.03
+        ],
+        [
+          573.48,
+          -1476.59
+        ],
+        [
+          475.14,
+          -1476.59
+        ]
+      ],
+      "area_m2": 11560.2,
+      "frontage_m": 98.34,
+      "depth_m": 117.56,
+      "numeral": {
+        "read": "112",
+        "confidence": "documented",
+        "on_sheet": true,
+        "source": "wright_1834_nara_hup",
+        "crop_na_pixels": {
+          "x": 2417,
+          "y": 4369,
+          "w": 141,
+          "h": 168
+        },
+        "note": null
+      },
+      "bounded_by": {
+        "north": "school_section_tier_6_south_of_madison",
+        "south": "school_section_tier_7_south_of_madison",
+        "west": "school_section_line_10",
+        "east": "clark_school_section"
+      },
+      "geometry_confidence": "inferred"
+    },
+    {
+      "block_number": 113,
+      "id": "blk_school_section_113",
+      "cells": [
+        [
+          10,
+          5
+        ]
+      ],
+      "boundary_local_enu_m": [
+        [
+          475.14,
+          -1243.92
+        ],
+        [
+          573.48,
+          -1243.92
+        ],
+        [
+          573.48,
+          -1334.65
+        ],
+        [
+          475.14,
+          -1334.65
+        ]
+      ],
+      "area_m2": 8922.0,
+      "frontage_m": 98.34,
+      "depth_m": 90.73,
+      "numeral": {
+        "read": "113",
+        "confidence": "documented",
+        "on_sheet": true,
+        "source": "wright_1834_nara_hup",
+        "crop_na_pixels": {
+          "x": 2419,
+          "y": 4210,
+          "w": 141,
+          "h": 131
+        },
+        "note": null
+      },
+      "bounded_by": {
+        "north": "school_section_tier_5_south_of_madison",
+        "south": "school_section_tier_6_south_of_madison",
+        "west": "school_section_line_10",
+        "east": "clark_school_section"
+      },
+      "geometry_confidence": "inferred"
+    },
+    {
+      "block_number": 114,
+      "id": "blk_school_section_114",
+      "cells": [
+        [
+          10,
+          4
+        ]
+      ],
+      "boundary_local_enu_m": [
+        [
+          475.14,
+          -1097.31
+        ],
+        [
+          573.48,
+          -1097.31
+        ],
+        [
+          573.48,
+          -1219.54
+        ],
+        [
+          475.14,
+          -1219.54
+        ]
+      ],
+      "area_m2": 12019.2,
+      "frontage_m": 98.34,
+      "depth_m": 122.22,
+      "numeral": {
+        "read": "114",
+        "confidence": "documented",
+        "on_sheet": true,
+        "source": "wright_1834_nara_hup",
+        "crop_na_pixels": {
+          "x": 2421,
+          "y": 4007,
+          "w": 141,
+          "h": 175
+        },
+        "note": null
+      },
+      "bounded_by": {
+        "north": "school_section_tier_4_south_of_madison",
+        "south": "school_section_tier_5_south_of_madison",
+        "west": "school_section_line_10",
+        "east": "clark_school_section"
+      },
+      "geometry_confidence": "inferred"
+    },
+    {
+      "block_number": 115,
+      "id": "blk_school_section_115",
+      "cells": [
+        [
+          10,
+          3
+        ]
+      ],
+      "boundary_local_enu_m": [
+        [
+          475.14,
+          -952.29
+        ],
+        [
+          573.48,
+          -952.29
+        ],
+        [
+          573.48,
+          -1072.93
+        ],
+        [
+          475.14,
+          -1072.93
+        ]
+      ],
+      "area_m2": 11863.6,
+      "frontage_m": 98.34,
+      "depth_m": 120.64,
+      "numeral": {
+        "read": "115",
+        "confidence": "documented",
+        "on_sheet": true,
+        "source": "wright_1834_nara_hup",
+        "crop_na_pixels": {
+          "x": 2423,
+          "y": 3806,
+          "w": 141,
+          "h": 173
+        },
+        "note": null
+      },
+      "bounded_by": {
+        "north": "jackson",
+        "south": "school_section_tier_4_south_of_madison",
+        "west": "school_section_line_10",
+        "east": "clark_school_section"
+      },
+      "geometry_confidence": "inferred"
+    },
+    {
+      "block_number": 116,
+      "id": "blk_school_section_116",
+      "cells": [
+        [
+          10,
+          2
+        ]
+      ],
+      "boundary_local_enu_m": [
+        [
+          475.14,
+          -809.39
+        ],
+        [
+          573.48,
+          -809.39
+        ],
+        [
+          573.48,
+          -927.9
+        ],
+        [
+          475.14,
+          -927.9
+        ]
+      ],
+      "area_m2": 11653.7,
+      "frontage_m": 98.34,
+      "depth_m": 118.51,
+      "numeral": {
+        "read": "116",
+        "confidence": "documented",
+        "on_sheet": true,
+        "source": "wright_1834_nara_hup",
+        "crop_na_pixels": {
+          "x": 2425,
+          "y": 3608,
+          "w": 141,
+          "h": 170
+        },
+        "note": null
+      },
+      "bounded_by": {
+        "north": "adams",
+        "south": "jackson",
+        "west": "school_section_line_10",
+        "east": "clark_school_section"
+      },
+      "geometry_confidence": "inferred"
+    },
+    {
+      "block_number": 117,
+      "id": "blk_school_section_117",
+      "cells": [
+        [
+          10,
+          1
+        ]
+      ],
+      "boundary_local_enu_m": [
+        [
+          475.14,
+          -668.03
+        ],
+        [
+          573.48,
+          -668.03
+        ],
+        [
+          573.48,
+          -785.01
+        ],
+        [
+          475.14,
+          -785.01
+        ]
+      ],
+      "area_m2": 11503.9,
+      "frontage_m": 98.34,
+      "depth_m": 116.98,
+      "numeral": {
+        "read": "117",
+        "confidence": "documented",
+        "on_sheet": true,
+        "source": "wright_1834_nara_hup",
+        "crop_na_pixels": {
+          "x": 2427,
+          "y": 3412,
+          "w": 141,
+          "h": 167
+        },
+        "note": null
+      },
+      "bounded_by": {
+        "north": "monroe",
+        "south": "adams",
+        "west": "school_section_line_10",
+        "east": "clark_school_section"
+      },
+      "geometry_confidence": "inferred"
+    },
+    {
+      "block_number": 118,
+      "id": "blk_school_section_118",
+      "cells": [
+        [
+          10,
+          0
+        ]
+      ],
+      "boundary_local_enu_m": [
+        [
+          475.14,
+          -531.25
+        ],
+        [
+          573.48,
+          -531.25
+        ],
+        [
+          573.48,
+          -643.64
+        ],
+        [
+          475.14,
+          -643.64
+        ]
+      ],
+      "area_m2": 11052.6,
+      "frontage_m": 98.34,
+      "depth_m": 112.4,
+      "numeral": {
+        "read": "118",
+        "confidence": "documented",
+        "on_sheet": true,
+        "source": "wright_1834_nara_hup",
+        "crop_na_pixels": {
+          "x": 2429,
+          "y": 3222,
+          "w": 141,
+          "h": 161
+        },
+        "note": null
+      },
+      "bounded_by": {
+        "north": "madison",
+        "south": "monroe",
+        "west": "school_section_line_10",
+        "east": "clark_school_section"
+      },
+      "geometry_confidence": "inferred"
+    },
+    {
+      "block_number": 119,
+      "id": "blk_school_section_119",
+      "cells": [
+        [
+          11,
+          0
+        ]
+      ],
+      "boundary_local_enu_m": [
+        [
+          593.59,
+          -531.25
+        ],
+        [
+          695.06,
+          -531.25
+        ],
+        [
+          695.06,
+          -643.64
+        ],
+        [
+          593.59,
+          -643.64
+        ]
+      ],
+      "area_m2": 11404.7,
+      "frontage_m": 101.47,
+      "depth_m": 112.4,
+      "numeral": {
+        "read": "119",
+        "confidence": "documented",
+        "on_sheet": true,
+        "source": "wright_1834_nara_hup",
+        "crop_na_pixels": {
+          "x": 2597,
+          "y": 3228,
+          "w": 145,
+          "h": 161
+        },
+        "note": null
+      },
+      "bounded_by": {
+        "north": "madison",
+        "south": "monroe",
+        "west": "clark_school_section",
+        "east": "school_section_line_12"
+      },
+      "geometry_confidence": "inferred"
+    },
+    {
+      "block_number": 120,
+      "id": "blk_school_section_120",
+      "cells": [
+        [
+          11,
+          1
+        ]
+      ],
+      "boundary_local_enu_m": [
+        [
+          593.59,
+          -668.03
+        ],
+        [
+          695.06,
+          -668.03
+        ],
+        [
+          695.06,
+          -785.01
+        ],
+        [
+          593.59,
+          -785.01
+        ]
+      ],
+      "area_m2": 11870.4,
+      "frontage_m": 101.47,
+      "depth_m": 116.98,
+      "numeral": {
+        "read": "120",
+        "confidence": "documented",
+        "on_sheet": true,
+        "source": "wright_1834_nara_hup",
+        "crop_na_pixels": {
+          "x": 2595,
+          "y": 3418,
+          "w": 146,
+          "h": 168
+        },
+        "note": null
+      },
+      "bounded_by": {
+        "north": "monroe",
+        "south": "adams",
+        "west": "clark_school_section",
+        "east": "school_section_line_12"
+      },
+      "geometry_confidence": "inferred"
+    },
+    {
+      "block_number": 121,
+      "id": "blk_school_section_121",
+      "cells": [
+        [
+          11,
+          2
+        ]
+      ],
+      "boundary_local_enu_m": [
+        [
+          593.59,
+          -809.39
+        ],
+        [
+          695.06,
+          -809.39
+        ],
+        [
+          695.06,
+          -927.9
+        ],
+        [
+          593.59,
+          -927.9
+        ]
+      ],
+      "area_m2": 12024.9,
+      "frontage_m": 101.47,
+      "depth_m": 118.51,
+      "numeral": {
+        "read": "121",
+        "confidence": "documented",
+        "on_sheet": true,
+        "source": "wright_1834_nara_hup",
+        "crop_na_pixels": {
+          "x": 2593,
+          "y": 3614,
+          "w": 146,
+          "h": 170
+        },
+        "note": null
+      },
+      "bounded_by": {
+        "north": "adams",
+        "south": "jackson",
+        "west": "clark_school_section",
+        "east": "school_section_line_12"
+      },
+      "geometry_confidence": "inferred"
+    },
+    {
+      "block_number": 122,
+      "id": "blk_school_section_122",
+      "cells": [
+        [
+          11,
+          3
+        ]
+      ],
+      "boundary_local_enu_m": [
+        [
+          593.59,
+          -952.29
+        ],
+        [
+          695.06,
+          -952.29
+        ],
+        [
+          695.06,
+          -1072.93
+        ],
+        [
+          593.59,
+          -1072.93
+        ]
+      ],
+      "area_m2": 12241.5,
+      "frontage_m": 101.47,
+      "depth_m": 120.64,
+      "numeral": {
+        "read": "122",
+        "confidence": "documented",
+        "on_sheet": true,
+        "source": "wright_1834_nara_hup",
+        "crop_na_pixels": {
+          "x": 2591,
+          "y": 3812,
+          "w": 146,
+          "h": 173
+        },
+        "note": null
+      },
+      "bounded_by": {
+        "north": "jackson",
+        "south": "school_section_tier_4_south_of_madison",
+        "west": "clark_school_section",
+        "east": "school_section_line_12"
+      },
+      "geometry_confidence": "inferred"
+    },
+    {
+      "block_number": 123,
+      "id": "blk_school_section_123",
+      "cells": [
+        [
+          11,
+          4
+        ]
+      ],
+      "boundary_local_enu_m": [
+        [
+          593.59,
+          -1097.31
+        ],
+        [
+          695.06,
+          -1097.31
+        ],
+        [
+          695.06,
+          -1219.54
+        ],
+        [
+          593.59,
+          -1219.54
+        ]
+      ],
+      "area_m2": 12402.0,
+      "frontage_m": 101.47,
+      "depth_m": 122.22,
+      "numeral": {
+        "read": "123",
+        "confidence": "documented",
+        "on_sheet": true,
+        "source": "wright_1834_nara_hup",
+        "crop_na_pixels": {
+          "x": 2589,
+          "y": 4013,
+          "w": 146,
+          "h": 175
+        },
+        "note": null
+      },
+      "bounded_by": {
+        "north": "school_section_tier_4_south_of_madison",
+        "south": "school_section_tier_5_south_of_madison",
+        "west": "clark_school_section",
+        "east": "school_section_line_12"
+      },
+      "geometry_confidence": "inferred"
+    },
+    {
+      "block_number": 124,
+      "id": "blk_school_section_124",
+      "cells": [
+        [
+          11,
+          5
+        ]
+      ],
+      "boundary_local_enu_m": [
+        [
+          593.59,
+          -1243.92
+        ],
+        [
+          695.06,
+          -1243.92
+        ],
+        [
+          695.06,
+          -1334.65
+        ],
+        [
+          593.59,
+          -1334.65
+        ]
+      ],
+      "area_m2": 9206.2,
+      "frontage_m": 101.47,
+      "depth_m": 90.73,
+      "numeral": {
+        "read": "124",
+        "confidence": "documented",
+        "on_sheet": true,
+        "source": "wright_1834_nara_hup",
+        "crop_na_pixels": {
+          "x": 2587,
+          "y": 4216,
+          "w": 145,
+          "h": 131
+        },
+        "note": null
+      },
+      "bounded_by": {
+        "north": "school_section_tier_5_south_of_madison",
+        "south": "school_section_tier_6_south_of_madison",
+        "west": "clark_school_section",
+        "east": "school_section_line_12"
+      },
+      "geometry_confidence": "inferred"
+    },
+    {
+      "block_number": 125,
+      "id": "blk_school_section_125",
+      "cells": [
+        [
+          11,
+          6
+        ]
+      ],
+      "boundary_local_enu_m": [
+        [
+          593.59,
+          -1359.03
+        ],
+        [
+          695.06,
+          -1359.03
+        ],
+        [
+          695.06,
+          -1476.59
+        ],
+        [
+          593.59,
+          -1476.59
+        ]
+      ],
+      "area_m2": 11928.5,
+      "frontage_m": 101.47,
+      "depth_m": 117.56,
+      "numeral": {
+        "read": "125",
+        "confidence": "documented",
+        "on_sheet": true,
+        "source": "wright_1834_nara_hup",
+        "crop_na_pixels": {
+          "x": 2585,
+          "y": 4376,
+          "w": 146,
+          "h": 168
+        },
+        "note": null
+      },
+      "bounded_by": {
+        "north": "school_section_tier_6_south_of_madison",
+        "south": "school_section_tier_7_south_of_madison",
+        "west": "clark_school_section",
+        "east": "school_section_line_12"
+      },
+      "geometry_confidence": "inferred"
+    },
+    {
+      "block_number": 126,
+      "id": "blk_school_section_126",
+      "cells": [
+        [
+          11,
+          7
+        ]
+      ],
+      "boundary_local_enu_m": [
+        [
+          593.59,
+          -1500.98
+        ],
+        [
+          695.06,
+          -1500.98
+        ],
+        [
+          695.06,
+          -1588.41
+        ],
+        [
+          593.59,
+          -1588.41
+        ]
+      ],
+      "area_m2": 8871.5,
+      "frontage_m": 101.47,
+      "depth_m": 87.43,
+      "numeral": {
+        "read": "126",
+        "confidence": "documented",
+        "on_sheet": true,
+        "source": "wright_1834_nara_hup",
+        "crop_na_pixels": {
+          "x": 2583,
+          "y": 4572,
+          "w": 145,
+          "h": 127
+        },
+        "note": null
+      },
+      "bounded_by": {
+        "north": "school_section_tier_7_south_of_madison",
+        "south": "school_section_tier_8_south_of_madison",
+        "west": "clark_school_section",
+        "east": "school_section_line_12"
+      },
+      "geometry_confidence": "inferred"
+    },
+    {
+      "block_number": 127,
+      "id": "blk_school_section_127",
+      "cells": [
+        [
+          11,
+          8
+        ]
+      ],
+      "boundary_local_enu_m": [
+        [
+          593.59,
+          -1612.79
+        ],
+        [
+          695.06,
+          -1612.79
+        ],
+        [
+          695.06,
+          -1731.74
+        ],
+        [
+          593.59,
+          -1731.74
+        ]
+      ],
+      "area_m2": 12070.2,
+      "frontage_m": 101.47,
+      "depth_m": 118.95,
+      "numeral": {
+        "read": "127",
+        "confidence": "documented",
+        "on_sheet": true,
+        "source": "wright_1834_nara_hup",
+        "crop_na_pixels": {
+          "x": 2581,
+          "y": 4727,
+          "w": 146,
+          "h": 170
+        },
+        "note": null
+      },
+      "bounded_by": {
+        "north": "school_section_tier_8_south_of_madison",
+        "south": "school_section_tier_9_south_of_madison",
+        "west": "clark_school_section",
+        "east": "school_section_line_12"
+      },
+      "geometry_confidence": "inferred"
+    },
+    {
+      "block_number": 128,
+      "id": "blk_school_section_128",
+      "cells": [
+        [
+          11,
+          9
+        ]
+      ],
+      "boundary_local_enu_m": [
+        [
+          593.59,
+          -1756.13
+        ],
+        [
+          695.06,
+          -1756.13
+        ],
+        [
+          695.06,
+          -1844.35
+        ],
+        [
+          593.59,
+          -1844.35
+        ]
+      ],
+      "area_m2": 8951.2,
+      "frontage_m": 101.47,
+      "depth_m": 88.22,
+      "numeral": {
+        "read": "128",
+        "confidence": "documented",
+        "on_sheet": true,
+        "source": "wright_1834_nara_hup",
+        "crop_na_pixels": {
+          "x": 2580,
+          "y": 4926,
+          "w": 145,
+          "h": 128
+        },
+        "note": null
+      },
+      "bounded_by": {
+        "north": "school_section_tier_9_south_of_madison",
+        "south": "school_section_tier_10_south_of_madison",
+        "west": "clark_school_section",
+        "east": "school_section_line_12"
+      },
+      "geometry_confidence": "inferred"
+    },
+    {
+      "block_number": 129,
+      "id": "blk_school_section_129",
+      "cells": [
+        [
+          11,
+          10
+        ]
+      ],
+      "boundary_local_enu_m": [
+        [
+          593.59,
+          -1868.73
+        ],
+        [
+          695.06,
+          -1868.73
+        ],
+        [
+          695.06,
+          -1992.94
+        ],
+        [
+          593.59,
+          -1992.94
+        ]
+      ],
+      "area_m2": 12603.8,
+      "frontage_m": 101.47,
+      "depth_m": 124.21,
+      "numeral": {
+        "read": "129",
+        "confidence": "documented",
+        "on_sheet": true,
+        "source": "wright_1834_nara_hup",
+        "crop_na_pixels": {
+          "x": 2578,
+          "y": 5082,
+          "w": 146,
+          "h": 178
+        },
+        "note": null
+      },
+      "bounded_by": {
+        "north": "school_section_tier_10_south_of_madison",
+        "south": "school_section_tier_11_south_of_madison",
+        "west": "clark_school_section",
+        "east": "school_section_line_12"
+      },
+      "geometry_confidence": "inferred"
+    },
+    {
+      "block_number": 130,
+      "id": "blk_school_section_130",
+      "cells": [
+        [
+          11,
+          11
+        ]
+      ],
+      "boundary_local_enu_m": [
+        [
+          593.59,
+          -2017.33
+        ],
+        [
+          695.06,
+          -2017.33
+        ],
+        [
+          695.06,
+          -2116.21
+        ],
+        [
+          593.59,
+          -2116.21
+        ]
+      ],
+      "area_m2": 10033.2,
+      "frontage_m": 101.47,
+      "depth_m": 98.88,
+      "numeral": {
+        "read": "130",
+        "confidence": "documented",
+        "on_sheet": true,
+        "source": "wright_1834_nara_hup",
+        "crop_na_pixels": {
+          "x": 2576,
+          "y": 5288,
+          "w": 145,
+          "h": 143
+        },
+        "note": null
+      },
+      "bounded_by": {
+        "north": "school_section_tier_11_south_of_madison",
+        "south": null,
+        "west": "clark_school_section",
+        "east": "school_section_line_12"
+      },
+      "geometry_confidence": "inferred"
+    },
+    {
+      "block_number": 131,
+      "id": "blk_school_section_131",
+      "cells": [
+        [
+          12,
+          11
+        ]
+      ],
+      "boundary_local_enu_m": [
+        [
+          715.18,
+          -2017.33
+        ],
+        [
+          831.8,
+          -2017.33
+        ],
+        [
+          831.8,
+          -2116.21
+        ],
+        [
+          715.18,
+          -2116.21
+        ]
+      ],
+      "area_m2": 11531.2,
+      "frontage_m": 116.62,
+      "depth_m": 98.88,
+      "numeral": {
+        "read": "131",
+        "confidence": "documented",
+        "on_sheet": true,
+        "source": "wright_1834_nara_hup",
+        "crop_na_pixels": {
+          "x": 2748,
+          "y": 5295,
+          "w": 167,
+          "h": 143
+        },
+        "note": null
+      },
+      "bounded_by": {
+        "north": "school_section_tier_11_south_of_madison",
+        "south": null,
+        "west": "school_section_line_12",
+        "east": "state_school_section"
+      },
+      "geometry_confidence": "inferred"
+    },
+    {
+      "block_number": 132,
+      "id": "blk_school_section_132",
+      "cells": [
+        [
+          12,
+          10
+        ]
+      ],
+      "boundary_local_enu_m": [
+        [
+          715.18,
+          -1868.73
+        ],
+        [
+          831.8,
+          -1868.73
+        ],
+        [
+          831.8,
+          -1992.94
+        ],
+        [
+          715.18,
+          -1992.94
+        ]
+      ],
+      "area_m2": 14485.6,
+      "frontage_m": 116.62,
+      "depth_m": 124.21,
+      "numeral": {
+        "read": "132",
+        "confidence": "documented",
+        "on_sheet": true,
+        "source": "wright_1834_nara_hup",
+        "crop_na_pixels": {
+          "x": 2750,
+          "y": 5089,
+          "w": 167,
+          "h": 178
+        },
+        "note": null
+      },
+      "bounded_by": {
+        "north": "school_section_tier_10_south_of_madison",
+        "south": "school_section_tier_11_south_of_madison",
+        "west": "school_section_line_12",
+        "east": "state_school_section"
+      },
+      "geometry_confidence": "inferred"
+    },
+    {
+      "block_number": 133,
+      "id": "blk_school_section_133",
+      "cells": [
+        [
+          12,
+          9
+        ]
+      ],
+      "boundary_local_enu_m": [
+        [
+          715.18,
+          -1756.13
+        ],
+        [
+          831.8,
+          -1756.13
+        ],
+        [
+          831.8,
+          -1844.35
+        ],
+        [
+          715.18,
+          -1844.35
+        ]
+      ],
+      "area_m2": 10287.7,
+      "frontage_m": 116.62,
+      "depth_m": 88.22,
+      "numeral": {
+        "read": "133",
+        "confidence": "documented",
+        "on_sheet": true,
+        "source": "wright_1834_nara_hup",
+        "crop_na_pixels": {
+          "x": 2752,
+          "y": 4933,
+          "w": 167,
+          "h": 129
+        },
+        "note": null
+      },
+      "bounded_by": {
+        "north": "school_section_tier_9_south_of_madison",
+        "south": "school_section_tier_10_south_of_madison",
+        "west": "school_section_line_12",
+        "east": "state_school_section"
+      },
+      "geometry_confidence": "inferred"
+    },
+    {
+      "block_number": 134,
+      "id": "blk_school_section_134",
+      "cells": [
+        [
+          12,
+          8
+        ]
+      ],
+      "boundary_local_enu_m": [
+        [
+          715.18,
+          -1612.79
+        ],
+        [
+          831.8,
+          -1612.79
+        ],
+        [
+          831.8,
+          -1731.74
+        ],
+        [
+          715.18,
+          -1731.74
+        ]
+      ],
+      "area_m2": 13872.3,
+      "frontage_m": 116.62,
+      "depth_m": 118.95,
+      "numeral": {
+        "read": "134",
+        "confidence": "documented",
+        "on_sheet": true,
+        "source": "wright_1834_nara_hup",
+        "crop_na_pixels": {
+          "x": 2754,
+          "y": 4734,
+          "w": 167,
+          "h": 171
+        },
+        "note": null
+      },
+      "bounded_by": {
+        "north": "school_section_tier_8_south_of_madison",
+        "south": "school_section_tier_9_south_of_madison",
+        "west": "school_section_line_12",
+        "east": "state_school_section"
+      },
+      "geometry_confidence": "inferred"
+    },
+    {
+      "block_number": 135,
+      "id": "blk_school_section_135",
+      "cells": [
+        [
+          12,
+          7
+        ]
+      ],
+      "boundary_local_enu_m": [
+        [
+          715.18,
+          -1500.98
+        ],
+        [
+          831.8,
+          -1500.98
+        ],
+        [
+          831.8,
+          -1588.41
+        ],
+        [
+          715.18,
+          -1588.41
+        ]
+      ],
+      "area_m2": 10196.0,
+      "frontage_m": 116.62,
+      "depth_m": 87.43,
+      "numeral": {
+        "read": "135",
+        "confidence": "documented",
+        "on_sheet": true,
+        "source": "wright_1834_nara_hup",
+        "crop_na_pixels": {
+          "x": 2756,
+          "y": 4579,
+          "w": 167,
+          "h": 127
+        },
+        "note": null
+      },
+      "bounded_by": {
+        "north": "school_section_tier_7_south_of_madison",
+        "south": "school_section_tier_8_south_of_madison",
+        "west": "school_section_line_12",
+        "east": "state_school_section"
+      },
+      "geometry_confidence": "inferred"
+    },
+    {
+      "block_number": 136,
+      "id": "blk_school_section_136",
+      "cells": [
+        [
+          12,
+          6
+        ]
+      ],
+      "boundary_local_enu_m": [
+        [
+          715.18,
+          -1359.03
+        ],
+        [
+          831.8,
+          -1359.03
+        ],
+        [
+          831.8,
+          -1476.59
+        ],
+        [
+          715.18,
+          -1476.59
+        ]
+      ],
+      "area_m2": 13709.4,
+      "frontage_m": 116.62,
+      "depth_m": 117.56,
+      "numeral": {
+        "read": "136",
+        "confidence": "documented",
+        "on_sheet": true,
+        "source": "wright_1834_nara_hup",
+        "crop_na_pixels": {
+          "x": 2757,
+          "y": 4382,
+          "w": 167,
+          "h": 169
+        },
+        "note": null
+      },
+      "bounded_by": {
+        "north": "school_section_tier_6_south_of_madison",
+        "south": "school_section_tier_7_south_of_madison",
+        "west": "school_section_line_12",
+        "east": "state_school_section"
+      },
+      "geometry_confidence": "inferred"
+    },
+    {
+      "block_number": 137,
+      "id": "blk_school_section_137",
+      "cells": [
+        [
+          12,
+          5
+        ]
+      ],
+      "boundary_local_enu_m": [
+        [
+          715.18,
+          -1243.92
+        ],
+        [
+          831.8,
+          -1243.92
+        ],
+        [
+          831.8,
+          -1334.65
+        ],
+        [
+          715.18,
+          -1334.65
+        ]
+      ],
+      "area_m2": 10580.7,
+      "frontage_m": 116.62,
+      "depth_m": 90.73,
+      "numeral": {
+        "read": "137",
+        "confidence": "documented",
+        "on_sheet": true,
+        "source": "wright_1834_nara_hup",
+        "crop_na_pixels": {
+          "x": 2760,
+          "y": 4223,
+          "w": 167,
+          "h": 132
+        },
+        "note": null
+      },
+      "bounded_by": {
+        "north": "school_section_tier_5_south_of_madison",
+        "south": "school_section_tier_6_south_of_madison",
+        "west": "school_section_line_12",
+        "east": "state_school_section"
+      },
+      "geometry_confidence": "inferred"
+    },
+    {
+      "block_number": 138,
+      "id": "blk_school_section_138",
+      "cells": [
+        [
+          12,
+          4
+        ]
+      ],
+      "boundary_local_enu_m": [
+        [
+          715.18,
+          -1097.31
+        ],
+        [
+          831.8,
+          -1097.31
+        ],
+        [
+          831.8,
+          -1219.54
+        ],
+        [
+          715.18,
+          -1219.54
+        ]
+      ],
+      "area_m2": 14253.6,
+      "frontage_m": 116.62,
+      "depth_m": 122.22,
+      "numeral": {
+        "read": "138",
+        "confidence": "documented",
+        "on_sheet": true,
+        "source": "wright_1834_nara_hup",
+        "crop_na_pixels": {
+          "x": 2761,
+          "y": 4020,
+          "w": 167,
+          "h": 176
+        },
+        "note": null
+      },
+      "bounded_by": {
+        "north": "school_section_tier_4_south_of_madison",
+        "south": "school_section_tier_5_south_of_madison",
+        "west": "school_section_line_12",
+        "east": "state_school_section"
+      },
+      "geometry_confidence": "inferred"
+    },
+    {
+      "block_number": 139,
+      "id": "blk_school_section_139",
+      "cells": [
+        [
+          12,
+          3
+        ]
+      ],
+      "boundary_local_enu_m": [
+        [
+          715.18,
+          -952.29
+        ],
+        [
+          831.8,
+          -952.29
+        ],
+        [
+          831.8,
+          -1072.93
+        ],
+        [
+          715.18,
+          -1072.93
+        ]
+      ],
+      "area_m2": 14069.2,
+      "frontage_m": 116.62,
+      "depth_m": 120.64,
+      "numeral": {
+        "read": "139",
+        "confidence": "documented",
+        "on_sheet": true,
+        "source": "wright_1834_nara_hup",
+        "crop_na_pixels": {
+          "x": 2763,
+          "y": 3819,
+          "w": 167,
+          "h": 174
+        },
+        "note": null
+      },
+      "bounded_by": {
+        "north": "jackson",
+        "south": "school_section_tier_4_south_of_madison",
+        "west": "school_section_line_12",
+        "east": "state_school_section"
+      },
+      "geometry_confidence": "inferred"
+    },
+    {
+      "block_number": 140,
+      "id": "blk_school_section_140",
+      "cells": [
+        [
+          12,
+          2
+        ]
+      ],
+      "boundary_local_enu_m": [
+        [
+          715.18,
+          -809.39
+        ],
+        [
+          831.8,
+          -809.39
+        ],
+        [
+          831.8,
+          -927.9
+        ],
+        [
+          715.18,
+          -927.9
+        ]
+      ],
+      "area_m2": 13820.3,
+      "frontage_m": 116.62,
+      "depth_m": 118.51,
+      "numeral": {
+        "read": "140",
+        "confidence": "documented",
+        "on_sheet": true,
+        "source": "wright_1834_nara_hup",
+        "crop_na_pixels": {
+          "x": 2765,
+          "y": 3621,
+          "w": 167,
+          "h": 171
+        },
+        "note": null
+      },
+      "bounded_by": {
+        "north": "adams",
+        "south": "jackson",
+        "west": "school_section_line_12",
+        "east": "state_school_section"
+      },
+      "geometry_confidence": "inferred"
+    },
+    {
+      "block_number": 141,
+      "id": "blk_school_section_141",
+      "cells": [
+        [
+          12,
+          1
+        ]
+      ],
+      "boundary_local_enu_m": [
+        [
+          715.18,
+          -668.03
+        ],
+        [
+          831.8,
+          -668.03
+        ],
+        [
+          831.8,
+          -785.01
+        ],
+        [
+          715.18,
+          -785.01
+        ]
+      ],
+      "area_m2": 13642.6,
+      "frontage_m": 116.62,
+      "depth_m": 116.98,
+      "numeral": {
+        "read": "141",
+        "confidence": "documented",
+        "on_sheet": true,
+        "source": "wright_1834_nara_hup",
+        "crop_na_pixels": {
+          "x": 2768,
+          "y": 3425,
+          "w": 167,
+          "h": 168
+        },
+        "note": null
+      },
+      "bounded_by": {
+        "north": "monroe",
+        "south": "adams",
+        "west": "school_section_line_12",
+        "east": "state_school_section"
+      },
+      "geometry_confidence": "inferred"
+    },
+    {
+      "block_number": 142,
+      "id": "blk_school_section_142",
+      "cells": [
+        [
+          12,
+          0
+        ]
+      ],
+      "boundary_local_enu_m": [
+        [
+          715.18,
+          -531.25
+        ],
+        [
+          831.8,
+          -531.25
+        ],
+        [
+          831.8,
+          -643.64
+        ],
+        [
+          715.18,
+          -643.64
+        ]
+      ],
+      "area_m2": 13107.4,
+      "frontage_m": 116.62,
+      "depth_m": 112.4,
+      "numeral": {
+        "read": null,
+        "confidence": "inferred",
+        "on_sheet": false,
+        "source": "wright_1834_nara_hup",
+        "crop_na_pixels": {
+          "x": 2770,
+          "y": 3235,
+          "w": 167,
+          "h": 162
+        },
+        "note": "The sheet writes 'Reserved' across this block and no numeral. 142 is supplied by the sequence: the easternmost tier runs 131 at the south up to 141 in the block immediately south of this one. The ticket that asked for this work called this block 119; 119 is read on the sheet one tier WEST of it, and 141 sits between them. The 1833 sale sells lots in 119, 120 and 141 and none here."
+      },
+      "bounded_by": {
+        "north": "madison",
+        "south": "monroe",
+        "west": "school_section_line_12",
+        "east": "state_school_section"
+      },
+      "geometry_confidence": "inferred",
+      "reserved": true
+    }
+  ]
+}

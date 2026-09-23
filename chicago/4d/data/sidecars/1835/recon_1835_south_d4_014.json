@@ -1,0 +1,193 @@
+{
+  "id": "recon_1835_south_d4_014",
+  "phase": "inferred_1835",
+  "name": "Reconstructed D4 two-room frame cottage #014",
+  "aka": [],
+  "archetype": "frame_dwelling",
+  "asset": "gltf/recon_1835_south_d4_014__inferred_1835.glb",
+  "scene": "1835",
+  "target_date": "1835-07-01",
+  "documented_range": {
+    "from": "1835-01-01",
+    "to": "1835-12-31",
+    "confidence": "reconstructed",
+    "sources": [],
+    "note": "This is an anonymous count-unit created to begin the July 1835 aggregate roof target. No evidence establishes that this particular building existed."
+  },
+  "change_note": "Reconstructed anonymous July 1835 infill. It may later be replaced by a named, better-evidenced roof through an explicit inventory substitution.",
+  "placement": {
+    "local_e": 665.376,
+    "local_n": -136.334,
+    "rotation_deg": 0.465,
+    "position_confidence": "reconstructed",
+    "position_sources": [],
+    "position_note": "PARTY-LINE FRONTAGE, DERIVED FROM THE COMMITTED PLAT (T-0077). This building does not stand where a northing in the recipe put it: it stands on the north face of blk_lake_clark, whose line and bearing are read from the block boundary in data/traces/vectors/thompson_lots.json — the same committed geometry the lot grid and the corridor gate are derived from. Its front wall is set 0.80 m back from that lot line, the alignment the two frontage buildings already standing on this face use, and its east wall is fixed by the west wall of recon_1835_south_d5_016, which it shares a party line with. The bearing is the face's own, and this placement carries none of the jitter the parcel's interior rows carry, because a shared party wall is one wall and cannot wander. WHAT IS INVENTED IS STILL EVERYTHING THAT MATTERS: that a building stood here at all, which building it was, and that these particular units stood shoulder to shoulder. What the plate supports is the TREATMENT — a continuous storefront row on the town's principal street rather than detached cottages set back on grass — and the treatment is what this placement takes from it. Standing on a derived block face is not standing on a recovered lot.",
+    "symbolic_location": "Anonymous reconstructed roof standing on the north frontage of the South Division block between Clark and Dearborn, in the party-line row at Lake and Dearborn",
+    "uncertainty_m": 20,
+    "placement_provisional": false,
+    "vertical_anchor": "terrain",
+    "walk_surface_m": null
+  },
+  "footprint": {
+    "polygon": [
+      [
+        0,
+        0
+      ],
+      [
+        6.319,
+        0
+      ],
+      [
+        6.319,
+        8.25
+      ],
+      [
+        0,
+        8.25
+      ]
+    ],
+    "confidence": "reconstructed",
+    "sources": [],
+    "note": "A 6.32 × 8.25 m rectangle sampled deterministically inside the D4 family band; no individual dimensions are documented."
+  },
+  "attributes": {
+    "stories": {
+      "value": 1,
+      "confidence": "reconstructed",
+      "sources": [
+        "owner_chicago_1835_reconstruction_spec_2026"
+      ],
+      "note": "INVENTED, NOT DERIVED. A typology value from the reconstruction spec, not a reading of evidence about this particular building — there is no particular building. The spec is cited because the invention is bounded by it. Type-level choice within the D4 band in the 2026 reconstruction specification; it is not evidence for this anonymous instance."
+    },
+    "wall_height_m": {
+      "value": 2.486,
+      "confidence": "reconstructed",
+      "sources": [
+        "owner_chicago_1835_reconstruction_spec_2026"
+      ],
+      "note": "INVENTED, NOT DERIVED. A typology value from the reconstruction spec, not a reading of evidence about this particular building — there is no particular building. The spec is cited because the invention is bounded by it. Type-level choice within the D4 band in the 2026 reconstruction specification; it is not evidence for this anonymous instance."
+    },
+    "roof_type": {
+      "value": "gable",
+      "confidence": "reconstructed",
+      "sources": [
+        "owner_chicago_1835_reconstruction_spec_2026"
+      ],
+      "note": "INVENTED, NOT DERIVED. A typology value from the reconstruction spec, not a reading of evidence about this particular building — there is no particular building. The spec is cited because the invention is bounded by it. Type-level choice within the D4 band in the 2026 reconstruction specification; it is not evidence for this anonymous instance."
+    },
+    "roof_pitch_deg": {
+      "value": 37.7,
+      "confidence": "reconstructed",
+      "sources": [
+        "owner_chicago_1835_reconstruction_spec_2026"
+      ],
+      "note": "INVENTED, NOT DERIVED. A typology value from the reconstruction spec, not a reading of evidence about this particular building — there is no particular building. The spec is cited because the invention is bounded by it. Type-level choice within the D4 band in the 2026 reconstruction specification; it is not evidence for this anonymous instance."
+    },
+    "construction": {
+      "value": "balloon_frame",
+      "confidence": "reconstructed",
+      "sources": [
+        "owner_chicago_1835_reconstruction_spec_2026"
+      ],
+      "note": "INVENTED, NOT DERIVED. A typology value from the reconstruction spec, not a reading of evidence about this particular building — there is no particular building. The spec is cited because the invention is bounded by it. Type-level choice within the D4 band in the 2026 reconstruction specification; it is not evidence for this anonymous instance."
+    },
+    "plan": {
+      "value": "hall_parlour",
+      "confidence": "reconstructed",
+      "sources": [
+        "owner_chicago_1835_reconstruction_spec_2026"
+      ],
+      "note": "INVENTED, NOT DERIVED. A typology value from the reconstruction spec, not a reading of evidence about this particular building — there is no particular building. The spec is cited because the invention is bounded by it. NOT BOUNDED BY THE SPECIFICATION, and the sentence above about the invention being bounded does not hold for this value: the D4 family's key geometry parameters do not speak to an interior plan, so there is nothing here for a citation to point at. The value is the reconstruction generator's type default; it is not evidence for this anonymous instance."
+    },
+    "bays": {
+      "value": 3,
+      "confidence": "reconstructed",
+      "sources": [
+        "owner_chicago_1835_reconstruction_spec_2026"
+      ],
+      "note": "INVENTED, NOT DERIVED. A typology value from the reconstruction spec, not a reading of evidence about this particular building — there is no particular building. The spec is cited because the invention is bounded by it. Type-level choice within the D4 band in the 2026 reconstruction specification; it is not evidence for this anonymous instance."
+    },
+    "chimneys": {
+      "value": 1,
+      "confidence": "reconstructed",
+      "sources": [
+        "owner_chicago_1835_reconstruction_spec_2026"
+      ],
+      "note": "INVENTED, NOT DERIVED. A typology value from the reconstruction spec, not a reading of evidence about this particular building — there is no particular building. The spec is cited because the invention is bounded by it. NOT BOUNDED BY THE SPECIFICATION, and the sentence above about the invention being bounded does not hold for this value: the D4 family's key geometry parameters do not speak to chimneys, so there is nothing here for a citation to point at. The value is the reconstruction generator's type default; it is not evidence for this anonymous instance."
+    },
+    "paint": {
+      "value": "unpainted",
+      "confidence": "reconstructed",
+      "sources": [
+        "owner_chicago_1835_reconstruction_spec_2026"
+      ],
+      "note": "INVENTED, NOT DERIVED. A typology value from the reconstruction spec, not a reading of evidence about this particular building — there is no particular building. The spec is cited because the invention is bounded by it. NOT BOUNDED BY THE SPECIFICATION, and the sentence above about the invention being bounded does not hold for this value: the D4 family's key geometry parameters do not speak to paint or finish, so there is nothing here for a citation to point at. The value is the reconstruction generator's type default; it is not evidence for this anonymous instance."
+    },
+    "porch": {
+      "value": "stoop",
+      "confidence": "reconstructed",
+      "sources": [
+        "owner_chicago_1835_reconstruction_spec_2026"
+      ],
+      "note": "INVENTED, NOT DERIVED. A typology value from the reconstruction spec, not a reading of evidence about this particular building — there is no particular building. The spec is cited because the invention is bounded by it. NOT BOUNDED BY THE SPECIFICATION, and the sentence above about the invention being bounded does not hold for this value: the D4 family's key geometry parameters do not speak to a porch, so there is nothing here for a citation to point at. The value is the reconstruction generator's type default; it is not evidence for this anonymous instance."
+    },
+    "siding_exposure_m": {
+      "value": 0.14,
+      "confidence": "reconstructed",
+      "note": "INVENTED WITHIN A STOCK SET, NOT DERIVED. No source states the exposed face of any Chicago building's siding. The value is one of four period mill sidings — 4.5, 5, 5.5 or 6 in to the weather; this roof wears 5.5 in — dealt in this building's own parcel recipe: drawn from the set on this record's stable key, then advanced so that no roof of the parcel standing within 60 m hangs the same course. It is NOT keyed to a construction season the way the named buildings' stocks are: this record's 1835-01-01 is the programme's count-unit convention and not a date anything was built, so keying to it would deal every anonymous roof in the town one stock. The separation is the surface variety T-0049 reconstructs, not a claim about 1835. docs/LIBERTIES.md L148 owns the invention and the recipe half is recorded beside it, under `tools/siding_stock.py`."
+    },
+    "function": {
+      "value": "two-room frame cottage",
+      "confidence": "reconstructed",
+      "sources": [
+        "owner_chicago_1835_reconstruction_spec_2026"
+      ],
+      "note": "INVENTED, NOT DERIVED. A typology value from the reconstruction spec, not a reading of evidence about this particular building — there is no particular building. The spec is cited because the invention is bounded by it. Assigned from the D4 production family to satisfy the aggregate South Division mix; no occupant or individual use is known."
+    }
+  },
+  "residents": [],
+  "citations": [
+    {
+      "source_id": "owner_chicago_1835_reconstruction_spec_2026",
+      "citation": "Chicago · July 1835: Building Inventory and Architectural Reconstruction Specification. Prepared for Kevin Haas, August 2026.",
+      "url": "",
+      "archived_url": "",
+      "tier": 5,
+      "tier_label": "modern retrospective illustration/reconstruction",
+      "what_it_supplies": [
+        "A 665-roof production target with independently reconcilable group, district, level, and construction totals.",
+        "Thirty-five architectural family definitions with dimensional and massing bands.",
+        "District character, spacing, variation, finish, and chronology constraints for a July 1835 reconstruction.",
+        "A required distinction between named documentary landmarks and anonymous inferred infill."
+      ],
+      "what_it_does_not_supply": [
+        "A surviving July 1835 building census or parcel-by-parcel roof register.",
+        "Exact locations, dimensions, appearance, occupants, or construction dates for anonymous roofs.",
+        "Authority to replace stronger building-specific evidence already represented in the dataset."
+      ]
+    }
+  ],
+  "research_note": "RECONSTRUCTED / GENERATED, NOT AN ATTESTED NAMED BUILDING. Family and aggregate district role follow the owner-supplied 2026 specification; exact presence, location, footprint, finish and instance-level form are interpretive.",
+  "research_doc": "docs/RESEARCH/inferred_infill_1835.md",
+  "review_required": false,
+  "reconstruction": {
+    "status": "inferred_anonymous",
+    "family": "D4",
+    "district": "south",
+    "inventory_class": "principal_functional",
+    "programme_phase": "phase1_south_mixed_blocks",
+    "source_id": "owner_chicago_1835_reconstruction_spec_2026",
+    "sequence": 14,
+    "finish_key": "fresh_timber",
+    "roof_condition": "patched",
+    "age_state": "established",
+    "frontage": {
+      "block": "blk_lake_clark",
+      "face": "north",
+      "setback_m": 0.8,
+      "abuts": "recon_1835_south_d5_016",
+      "why": "T-0077, the owner's ask of 2026-08-18 on the Tremont House street scene: \"there should be more and denser buildings. this is important.\" He sent the plate of this corner — a continuous two-storey storefront row, shoulder to shoulder on shared party lines — beside a screenshot of this same corner in the render, where the Tremont stands alone on open grass. Four of this row's anonymous roofs stood in the Clark-Dearborn block SEVENTEEN TO TWENTY-FOUR METRES behind the Lake Street frontage, each nudged off the line by its own jitter, which is the shape of a distribution and not of a street. They now stand ON the frontage: the line, its bearing and the corner they pack back from are read from the committed block boundary in data/traces/vectors/thompson_lots.json, and this file authors no coordinate for any of them. The 0.80 m setback is not a measurement — it is the line the two frontage buildings ALREADY standing on this face (inf_bakery_lake and inf_butcher_market) use, adopted so the street wall is one wall rather than three. No roof is added, moved out of its block, renamed or re-dimensioned: the parcel still deals 40 principal and 8 ancillary, and every id and band is the one it was."
+    }
+  }
+}

@@ -1,0 +1,883 @@
+{
+  "_doc": "Read Wabansia's river-front water lots off Wright's 1834 survey, as a lot strip.\n\n    tools/read_wabansia_water_lots.py               print the reading\n    tools/read_wabansia_water_lots.py --write       write the trace\n    tools/read_wabansia_water_lots.py --check       re-derive it from the committed pixels\n    tools/read_wabansia_water_lots.py --check-sheet  re-measure every rule off the raster\n    tools/read_wabansia_water_lots.py --self-test   break each assertion and watch it fire\n\nWHAT THIS FILE IS AND IS NOT. It is the READING of the triangular water-lot tract wedged\nbetween Wabansia's east column of blocks and the North Branch \u2014 the strip T-1074 named as\n\"not read, and somebody else's\". Every number below is a PIXEL statement about\nchicago/pre_fire_v1/maps/images/1834-wright-map.jpg. It authors NO ground: seating\nWabansia on modern ground is T-1070's, and nothing here should be read as having done it.\n\nWHY A LOT STRIP AND NOT A GRID, which is the whole reason this tract needed its own\nticket. Wabansia's blocks are a grid and T-1074 could read them as one: tiers crossed by\ncolumns, every cell the rectangle two rules leave. This tract is not. Its lot rules run\nPARALLEL TO THE RIVER, at a raster dx/dy of 0.45 \u2014 about N24E \u2014 while the tract's west\nboundary runs very nearly straight north-south at x 1255, a fiftieth of a pixel of drift\nper pixel of y. Two lines that are not parallel open a wedge, and the wedge is the tract: nothing\nat the apex, four ranks of lots wide at Kinzie Street. So the ranks do not all exist over\nthe same ground, and a rank BEGINS, geometrically, where the west boundary has drawn far\nenough away from that rank's own east rule to leave room for one lot. That derivation is\nin `ranks[].north_tip_px_y` and `--check` re-derives it rather than trusting the table.\n\nTHE READING, rank by rank, east to west, with the run written in Wright's own hand:\n\n    rank            rules (sheared x at y 1900)        cells   figures read\n    river front     rule b 1210 .. the bank               13    1-13, south to north\n    second          rule c 1154 .. rule b                  9    14-22, north to south\n    third           rule d 1065 .. rule c                  8    25, 26, 27, 28, four refused\n    corner wedge    the west boundary .. rule d            3    none legible\n\nwhich makes the strip a BOUSTROPHEDON like the block grid beside it, and turning the same\nway: it starts at the south-east corner, where Kinzie Street meets the North Branch, runs\nNORTH up the river front to 13 at the tract's apex, turns west and runs SOUTH down the\nsecond rank to 22 at Kinzie Street again, and turns west once more.\n\nTHE RULE CLOSES TWO RANKS AND NOT THE THIRD, and that is the finding worth carrying out of\nhere. 1-13 and 14-22 are what Wright writes, cell for cell, in the order the rule puts\nthem. The rule then hands the third rank's southernmost cell 23 \u2014 and Wright writes 25\nthere, with 26, 27 and 28 rising north of it. TWO FIGURES ARE UNACCOUNTED FOR. Either the\ncorner wedge is numbered before the third rank, which would put 23 and 24 on the ground\nWright's Kinzie Street band has obliterated, or he skipped two \u2014 as this same sheet skips\nFOUR between Kinzie's Addition's 54 and Wabansia's 59 (T-1074). Both readings fit every\nlegible figure in the strip and nothing here separates them, so `run.disagreement` records\nthe gap and refuses to choose.\n\nWHAT THE SHEET WILL NOT SETTLE, and is refused here rather than guessed. TWENTY-SIX of\nthe strip's thirty-three cells carry a figure this reading will stand behind. The other\nseven are the tract's south-west corner and the third rank's north end, and they are\ncrossed by three things at once: Wright's Kinzie Street band, the tract's own red\nboundary wash, and the west boundary rule drawn hard against the block grid. At 600 dpi\ntheir figures are ink and not numerals. TWENTY-THREE AND TWENTY-FOUR are the two the run\nmost wants \u2014 they are what stands between 22 at the foot of the second rank and 25 at the\nfoot of the third \u2014 and neither is legible. This file does NOT put them on a cell. A\nrecorded plat of Wabansia, or the Democrat selling a numbered water lot there, would.\n\nTHE TWO NAMES WRIGHT LETTERS INSIDE THE TRACT, and what the strip's geometry says about\nthem. T-1068 read `Kain` and `Water` off the registered scan and recorded them as names\nonly, with a note that Wright \"letters a Water Street inside the triangle, fronting the\nNorth Branch, as he does on both banks downstream\". The strip refuses the second half of\nthat. Both names sit in CORRIDORS THAT CROSS THE STRIP \u2014 gaps that open in every rank at\nonce, running with the lot lines and square to the ranks, from the block grid to the\nwater. Neither runs along the river. Kain's gap stands between lots 10 and 9 on the river\nfront and between 15 and 16 in the second rank; Water's between 6 and 5, between 19 and\n20, and between 27 and 26. That is a measurement, not a re-reading of the lettering: the\nnames are T-1068's and stand. What changes is what they are names OF.\n",
+  "ticket": "T-1077",
+  "raster": {
+    "working_copy": "chicago/pre_fire_v1/maps/images/1834-wright-map.jpg",
+    "width": 5050,
+    "height": 6628,
+    "dpi": 600,
+    "sha256": "dbb92c0188881d9b6cdf84801b9185a5715496a328125bde895a04058b173266",
+    "source_id": "wright_1834_nara_hup"
+  },
+  "registration": {
+    "gcp_file": "data/traces/gcp/wright_1834_nara_hup_gcps.json",
+    "rms_m": 16.02
+  },
+  "method": {
+    "shear": 0.45,
+    "shear_reference_px_y": 1530.0,
+    "blocks_from": "data/traces/wabansia_block_numbering.json (T-1074)",
+    "names_from": "data/traces/wabansia_streets.json (T-1068)",
+    "discrimination": "a rank rule runs with the river and is a constant in sheared x; the tract's west boundary runs north-south and is not, and the wedge the two open is what decides how many ranks stand on any piece of this ground"
+  },
+  "bounds": {
+    "west_boundary": {
+      "raster_x_at_1900": 1255.3,
+      "drift_per_px_y": 0.02
+    },
+    "west_boundary_note": "very nearly straight north-south on the raster, and the line every rank diverges from. It stands some 40 px east of the block grid's own east rule (T-1074 \u00a7 columns C east), so the two are not the same line and what lies between them is the north-south street that reading refused to name",
+    "apex_px_y": 1546.0,
+    "kinzie_px_y": 2070.0,
+    "bank_stations_px": [
+      [
+        1665,
+        1279.0
+      ],
+      [
+        1722,
+        1286.0
+      ],
+      [
+        1792,
+        1285.0
+      ],
+      [
+        1838,
+        1283.0
+      ],
+      [
+        1895,
+        1288.0
+      ],
+      [
+        1970,
+        1307.0
+      ],
+      [
+        2015,
+        1318.0
+      ],
+      [
+        2047,
+        1338.0
+      ]
+    ]
+  },
+  "rank_rules": {
+    "b": {
+      "sheared_x_at_1900": 1209.8,
+      "drift_per_px_y": 0.1
+    },
+    "c": {
+      "sheared_x_at_1900": 1154.4,
+      "drift_per_px_y": 0.078
+    },
+    "d": {
+      "sheared_x_at_1900": 1065.0,
+      "drift_per_px_y": 0.05
+    }
+  },
+  "ranks": [
+    {
+      "id": "river_front",
+      "west_rule": "b",
+      "east_rule": "the North Branch bank",
+      "north_tip_px_y": 1546.0,
+      "south_line_px_y": 2070.0,
+      "length_px": 524.0,
+      "cells": 13,
+      "depth_px_at_mid": 83.7,
+      "depth_m_at_mid": 59.08,
+      "depth_ft_raw": 193.8,
+      "depth_ft_controlled": 189.3
+    },
+    {
+      "id": "second",
+      "west_rule": "c",
+      "east_rule": "b",
+      "north_tip_px_y": 1671.7,
+      "south_line_px_y": 2070.0,
+      "length_px": 398.3,
+      "cells": 9,
+      "depth_px_at_mid": 54.8,
+      "depth_m_at_mid": 38.65,
+      "depth_ft_raw": 126.8,
+      "depth_ft_controlled": 123.8
+    },
+    {
+      "id": "third",
+      "west_rule": "d",
+      "east_rule": "c",
+      "north_tip_px_y": 1770.9,
+      "south_line_px_y": 2070.0,
+      "length_px": 299.1,
+      "cells": 8,
+      "depth_px_at_mid": 90.0,
+      "depth_m_at_mid": 63.5,
+      "depth_ft_raw": 208.3,
+      "depth_ft_controlled": 203.5
+    },
+    {
+      "id": "corner",
+      "west_rule": "tract west boundary",
+      "east_rule": "d",
+      "north_tip_px_y": 1949.6,
+      "south_line_px_y": 2070.0,
+      "length_px": 120.4,
+      "cells": 3,
+      "depth_px_at_mid": 28.9,
+      "depth_m_at_mid": 20.4,
+      "depth_ft_raw": 66.9,
+      "depth_ft_controlled": 65.4
+    }
+  ],
+  "lots": [
+    {
+      "figure": 1,
+      "rank": "river_front",
+      "mid_px": [
+        1555.0,
+        2064.0
+      ],
+      "sheared_x": 1314.7,
+      "rank_bounds_sheared_x": [
+        1226.2,
+        1338.0
+      ],
+      "numeral_crop_px": [
+        1533.0,
+        2048.0,
+        1577.0,
+        2080.0
+      ],
+      "legibility": "obliterated",
+      "confidence": "inferred",
+      "note": "The strip's south-east corner cell, where Wright's Kinzie Street band, the tract's boundary wash and the river bank all cross. A stroke stands in it; a figure does not resolve. It is the one cell the run can carry without choosing: the river front holds thirteen cells, twelve of them read 2-13 rising northward, and this is the end the run starts from. Graded `inferred` for that and not upgraded."
+    },
+    {
+      "figure": 2,
+      "rank": "river_front",
+      "mid_px": [
+        1528.0,
+        2038.0
+      ],
+      "sheared_x": 1299.4,
+      "rank_bounds_sheared_x": [
+        1223.6,
+        1332.4
+      ],
+      "numeral_crop_px": [
+        1506.0,
+        2022.0,
+        1550.0,
+        2054.0
+      ],
+      "legibility": "clear",
+      "confidence": "documented"
+    },
+    {
+      "figure": 3,
+      "rank": "river_front",
+      "mid_px": [
+        1507.0,
+        2008.0
+      ],
+      "sheared_x": 1291.9,
+      "rank_bounds_sheared_x": [
+        1220.6,
+        1316.3
+      ],
+      "numeral_crop_px": [
+        1485.0,
+        1992.0,
+        1529.0,
+        2024.0
+      ],
+      "legibility": "clear",
+      "confidence": "documented"
+    },
+    {
+      "figure": 4,
+      "rank": "river_front",
+      "mid_px": [
+        1480.0,
+        1970.0
+      ],
+      "sheared_x": 1282.0,
+      "rank_bounds_sheared_x": [
+        1216.8,
+        1307.0
+      ],
+      "numeral_crop_px": [
+        1458.0,
+        1954.0,
+        1502.0,
+        1986.0
+      ],
+      "legibility": "clear",
+      "confidence": "documented"
+    },
+    {
+      "figure": 5,
+      "rank": "river_front",
+      "mid_px": [
+        1455.0,
+        1938.0
+      ],
+      "sheared_x": 1271.4,
+      "rank_bounds_sheared_x": [
+        1213.6,
+        1298.9
+      ],
+      "numeral_crop_px": [
+        1433.0,
+        1922.0,
+        1477.0,
+        1954.0
+      ],
+      "legibility": "clear",
+      "confidence": "documented"
+    },
+    {
+      "figure": 6,
+      "rank": "river_front",
+      "mid_px": [
+        1400.0,
+        1858.0
+      ],
+      "sheared_x": 1252.4,
+      "rank_bounds_sheared_x": [
+        1205.6,
+        1284.8
+      ],
+      "numeral_crop_px": [
+        1378.0,
+        1842.0,
+        1422.0,
+        1874.0
+      ],
+      "legibility": "clear",
+      "confidence": "documented"
+    },
+    {
+      "figure": 7,
+      "rank": "river_front",
+      "mid_px": [
+        1390.0,
+        1820.0
+      ],
+      "sheared_x": 1259.5,
+      "rank_bounds_sheared_x": [
+        1201.8,
+        1283.8
+      ],
+      "numeral_crop_px": [
+        1368.0,
+        1804.0,
+        1412.0,
+        1836.0
+      ],
+      "legibility": "clear",
+      "confidence": "documented"
+    },
+    {
+      "figure": 8,
+      "rank": "river_front",
+      "mid_px": [
+        1365.0,
+        1785.0
+      ],
+      "sheared_x": 1250.2,
+      "rank_bounds_sheared_x": [
+        1198.3,
+        1285.1
+      ],
+      "numeral_crop_px": [
+        1343.0,
+        1769.0,
+        1387.0,
+        1801.0
+      ],
+      "legibility": "clear",
+      "confidence": "documented"
+    },
+    {
+      "figure": 9,
+      "rank": "river_front",
+      "mid_px": [
+        1355.0,
+        1745.0
+      ],
+      "sheared_x": 1258.2,
+      "rank_bounds_sheared_x": [
+        1194.3,
+        1285.7
+      ],
+      "numeral_crop_px": [
+        1333.0,
+        1729.0,
+        1377.0,
+        1761.0
+      ],
+      "legibility": "clear",
+      "confidence": "documented"
+    },
+    {
+      "figure": 10,
+      "rank": "river_front",
+      "mid_px": [
+        1320.0,
+        1688.0
+      ],
+      "sheared_x": 1248.9,
+      "rank_bounds_sheared_x": [
+        1188.6,
+        1281.8
+      ],
+      "numeral_crop_px": [
+        1298.0,
+        1672.0,
+        1342.0,
+        1704.0
+      ],
+      "legibility": "faint",
+      "confidence": "documented",
+      "note": "Read again at 10x: the second glyph is a closed round bowl with no bar over it, which is this hand's 0 and not its 5 \u2014 Wright's 5 carries a flat top bar and an open bowl, as the 5 on the river front four cells south does."
+    },
+    {
+      "figure": 11,
+      "rank": "river_front",
+      "mid_px": [
+        1305.0,
+        1652.0
+      ],
+      "sheared_x": 1250.1,
+      "rank_bounds_sheared_x": [
+        1185.0,
+        1279.0
+      ],
+      "numeral_crop_px": [
+        1283.0,
+        1636.0,
+        1327.0,
+        1668.0
+      ],
+      "legibility": "clear",
+      "confidence": "documented"
+    },
+    {
+      "figure": 12,
+      "rank": "river_front",
+      "mid_px": [
+        1266.0,
+        1605.0
+      ],
+      "sheared_x": 1232.2,
+      "rank_bounds_sheared_x": [
+        1180.3,
+        1279.0
+      ],
+      "numeral_crop_px": [
+        1244.0,
+        1589.0,
+        1288.0,
+        1621.0
+      ],
+      "legibility": "clear",
+      "confidence": "documented"
+    },
+    {
+      "figure": 13,
+      "rank": "river_front",
+      "mid_px": [
+        1268.0,
+        1558.0
+      ],
+      "sheared_x": 1255.4,
+      "rank_bounds_sheared_x": [
+        1175.6,
+        1279.0
+      ],
+      "numeral_crop_px": [
+        1246.0,
+        1542.0,
+        1290.0,
+        1574.0
+      ],
+      "legibility": "clear",
+      "confidence": "documented",
+      "note": "The apex cell, a triangle rather than a lot: the tract's two boundaries close on it."
+    },
+    {
+      "figure": 14,
+      "rank": "second",
+      "mid_px": [
+        1250.0,
+        1700.0
+      ],
+      "sheared_x": 1173.5,
+      "rank_bounds_sheared_x": [
+        1138.8,
+        1189.8
+      ],
+      "numeral_crop_px": [
+        1228.0,
+        1684.0,
+        1272.0,
+        1716.0
+      ],
+      "legibility": "pinched",
+      "confidence": "inferred",
+      "note": "The second rank's north tip, a cell some 30 px deep and 12 px wide where the west boundary has only just cleared the rule. Two strokes stand in it and neither resolves at 600 dpi. The figure is the run's, not the ink's, and is graded for it."
+    },
+    {
+      "figure": 15,
+      "rank": "second",
+      "mid_px": [
+        1253.0,
+        1730.0
+      ],
+      "sheared_x": 1163.0,
+      "rank_bounds_sheared_x": [
+        1141.1,
+        1192.8
+      ],
+      "numeral_crop_px": [
+        1231.0,
+        1714.0,
+        1275.0,
+        1746.0
+      ],
+      "legibility": "pinched",
+      "confidence": "inferred",
+      "note": "The same as 14 one cell south, and refused for the same reason: a mark the width of the cell, not a numeral. Carried by the run between 14 and 16."
+    },
+    {
+      "figure": 16,
+      "rank": "second",
+      "mid_px": [
+        1290.0,
+        1783.0
+      ],
+      "sheared_x": 1176.2,
+      "rank_bounds_sheared_x": [
+        1145.3,
+        1198.1
+      ],
+      "numeral_crop_px": [
+        1268.0,
+        1767.0,
+        1312.0,
+        1799.0
+      ],
+      "legibility": "clear",
+      "confidence": "documented"
+    },
+    {
+      "figure": 17,
+      "rank": "second",
+      "mid_px": [
+        1315.0,
+        1822.0
+      ],
+      "sheared_x": 1183.6,
+      "rank_bounds_sheared_x": [
+        1148.3,
+        1202.0
+      ],
+      "numeral_crop_px": [
+        1293.0,
+        1806.0,
+        1337.0,
+        1838.0
+      ],
+      "legibility": "clear",
+      "confidence": "documented"
+    },
+    {
+      "figure": 18,
+      "rank": "second",
+      "mid_px": [
+        1331.0,
+        1858.0
+      ],
+      "sheared_x": 1183.4,
+      "rank_bounds_sheared_x": [
+        1151.1,
+        1205.6
+      ],
+      "numeral_crop_px": [
+        1309.0,
+        1842.0,
+        1353.0,
+        1874.0
+      ],
+      "legibility": "clear",
+      "confidence": "documented"
+    },
+    {
+      "figure": 19,
+      "rank": "second",
+      "mid_px": [
+        1345.0,
+        1898.0
+      ],
+      "sheared_x": 1179.4,
+      "rank_bounds_sheared_x": [
+        1154.2,
+        1209.6
+      ],
+      "numeral_crop_px": [
+        1323.0,
+        1882.0,
+        1367.0,
+        1914.0
+      ],
+      "legibility": "clear",
+      "confidence": "documented"
+    },
+    {
+      "figure": 20,
+      "rank": "second",
+      "mid_px": [
+        1377.0,
+        1962.0
+      ],
+      "sheared_x": 1182.6,
+      "rank_bounds_sheared_x": [
+        1159.2,
+        1216.0
+      ],
+      "numeral_crop_px": [
+        1355.0,
+        1946.0,
+        1399.0,
+        1978.0
+      ],
+      "legibility": "faint",
+      "confidence": "documented",
+      "note": "Written small against the cell's north line, under the tail of Wright's `Water`. Two glyphs, the second a closed bowl: 20, and the rank's run puts it between 19 and 21."
+    },
+    {
+      "figure": 21,
+      "rank": "second",
+      "mid_px": [
+        1390.0,
+        2005.0
+      ],
+      "sheared_x": 1176.2,
+      "rank_bounds_sheared_x": [
+        1162.6,
+        1220.3
+      ],
+      "numeral_crop_px": [
+        1368.0,
+        1989.0,
+        1412.0,
+        2021.0
+      ],
+      "legibility": "clear",
+      "confidence": "documented"
+    },
+    {
+      "figure": 22,
+      "rank": "second",
+      "mid_px": [
+        1410.0,
+        2040.0
+      ],
+      "sheared_x": 1180.5,
+      "rank_bounds_sheared_x": [
+        1165.3,
+        1223.8
+      ],
+      "numeral_crop_px": [
+        1388.0,
+        2024.0,
+        1432.0,
+        2056.0
+      ],
+      "legibility": "clear",
+      "confidence": "documented"
+    },
+    {
+      "figure": 25,
+      "rank": "third",
+      "mid_px": [
+        1334.0,
+        2038.0
+      ],
+      "sheared_x": 1105.4,
+      "rank_bounds_sheared_x": [
+        1071.9,
+        1165.2
+      ],
+      "numeral_crop_px": [
+        1312.0,
+        2022.0,
+        1356.0,
+        2054.0
+      ],
+      "legibility": "clear",
+      "confidence": "documented"
+    },
+    {
+      "figure": 26,
+      "rank": "third",
+      "mid_px": [
+        1316.0,
+        2000.0
+      ],
+      "sheared_x": 1104.5,
+      "rank_bounds_sheared_x": [
+        1070.0,
+        1162.2
+      ],
+      "numeral_crop_px": [
+        1294.0,
+        1984.0,
+        1338.0,
+        2016.0
+      ],
+      "legibility": "clear",
+      "confidence": "documented"
+    },
+    {
+      "figure": 27,
+      "rank": "third",
+      "mid_px": [
+        1285.0,
+        1930.0
+      ],
+      "sheared_x": 1105.0,
+      "rank_bounds_sheared_x": [
+        1066.5,
+        1156.7
+      ],
+      "numeral_crop_px": [
+        1263.0,
+        1914.0,
+        1307.0,
+        1946.0
+      ],
+      "legibility": "clear",
+      "confidence": "documented"
+    },
+    {
+      "figure": 28,
+      "rank": "third",
+      "mid_px": [
+        1262.0,
+        1900.0
+      ],
+      "sheared_x": 1095.5,
+      "rank_bounds_sheared_x": [
+        1065.0,
+        1154.4
+      ],
+      "numeral_crop_px": [
+        1240.0,
+        1884.0,
+        1284.0,
+        1916.0
+      ],
+      "legibility": "faint",
+      "confidence": "documented",
+      "note": "Half a stroke lighter than the 27 one cell south and crowded against the boundary wash; two closed bowls in the second glyph, no descender, so it is an 8."
+    }
+  ],
+  "pitch": [
+    {
+      "rank": "river_front",
+      "adjacent_pairs": 10,
+      "pitch_m": 30.66,
+      "pitch_ft_raw": 100.6,
+      "pitch_ft_controlled": 98.2
+    },
+    {
+      "rank": "second",
+      "adjacent_pairs": 6,
+      "pitch_m": 28.89,
+      "pitch_ft_raw": 94.8,
+      "pitch_ft_controlled": 92.6
+    },
+    {
+      "rank": "third",
+      "adjacent_pairs": 2,
+      "pitch_m": 28.28,
+      "pitch_ft_raw": 92.8,
+      "pitch_ft_controlled": 90.6
+    }
+  ],
+  "corridors": [
+    {
+      "id": "kain",
+      "name_on_sheet": "Kain",
+      "name_from": "data/traces/wabansia_streets.json \u00a7 water_lot_tract_streets (T-1068)",
+      "bearing": "across the strip, square to the ranks and with the lot lines",
+      "gaps": [
+        {
+          "rank": "river_front",
+          "between": [
+            10,
+            9
+          ],
+          "px_y": [
+            1706.0,
+            1740.0
+          ],
+          "width_px": 34.0,
+          "width_m": 26.51,
+          "rank_bounds_sheared_x": [
+            1192.1,
+            1286.0
+          ]
+        },
+        {
+          "rank": "second",
+          "between": [
+            15,
+            16
+          ],
+          "px_y": [
+            1745.0,
+            1768.0
+          ],
+          "width_px": 23.0,
+          "width_m": 17.93,
+          "rank_bounds_sheared_x": [
+            1143.2,
+            1195.5
+          ]
+        }
+      ],
+      "crosses_ranks": [
+        "river_front",
+        "second"
+      ]
+    },
+    {
+      "id": "water",
+      "name_on_sheet": "Water",
+      "name_from": "data/traces/wabansia_streets.json \u00a7 water_lot_tract_streets (T-1068)",
+      "bearing": "across the strip, square to the ranks and with the lot lines",
+      "gaps": [
+        {
+          "rank": "river_front",
+          "between": [
+            6,
+            5
+          ],
+          "px_y": [
+            1872.0,
+            1918.0
+          ],
+          "width_px": 46.0,
+          "width_m": 35.87,
+          "rank_bounds_sheared_x": [
+            1209.3,
+            1288.0
+          ]
+        },
+        {
+          "rank": "second",
+          "between": [
+            19,
+            20
+          ],
+          "px_y": [
+            1915.0,
+            1948.0
+          ],
+          "width_px": 33.0,
+          "width_m": 25.73,
+          "rank_bounds_sheared_x": [
+            1156.9,
+            1213.0
+          ]
+        },
+        {
+          "rank": "third",
+          "between": [
+            27,
+            26
+          ],
+          "px_y": [
+            1948.0,
+            1985.0
+          ],
+          "width_px": 37.0,
+          "width_m": 28.85,
+          "rank_bounds_sheared_x": [
+            1068.3,
+            1159.6
+          ]
+        }
+      ],
+      "crosses_ranks": [
+        "river_front",
+        "second",
+        "third"
+      ]
+    }
+  ],
+  "run": {
+    "legs": [
+      {
+        "rank": "river_front",
+        "from": 1,
+        "to": 13,
+        "direction": "south to north",
+        "closed_by_the_sheet": true
+      },
+      {
+        "rank": "second",
+        "from": 14,
+        "to": 22,
+        "direction": "north to south",
+        "closed_by_the_sheet": true
+      }
+    ],
+    "first": 1,
+    "cells": 33,
+    "rule": "a boustrophedon from the south-east corner, north up the river front and south down the rank behind it, turning west at each end",
+    "disagreement": {
+      "rank": "third",
+      "run_would_give_its_foot": 23,
+      "sheet_reads_at_its_foot": 25,
+      "unaccounted": [
+        23,
+        24
+      ],
+      "readings_on_offer": [
+        "the corner wedge's cells are numbered before the third rank's, which would put 23 and 24 on ground the Kinzie Street band has obliterated",
+        "Wright skipped two, as this same sheet skips four between Kinzie's Addition's 54 and Wabansia's 59 (T-1074, data/traces/wabansia_block_numbering.json \u00a7 arithmetic)"
+      ],
+      "refused": "this file does not choose. Both readings are consistent with every legible figure in the strip, and nothing on the sheet separates them."
+    }
+  },
+  "refused": {
+    "figures": [
+      23,
+      24
+    ],
+    "cells": 7,
+    "where": "the tract's south-west corner and the third rank's north end \u2014 seven cells in all, four in the third rank above 28 and three in the corner wedge",
+    "why": "Wright's Kinzie Street band, the tract's red boundary wash and the west boundary rule drawn hard against the block grid all cross this ground, and at 600 dpi what stands in those cells is ink rather than numerals",
+    "what_would_settle_it": "a recorded plat of Wabansia, or a Democrat notice selling a numbered water lot in the tract with its rank named"
+  },
+  "control_summary": {
+    "method_over_read": 1.024,
+    "original_town_read_ft": {
+      "mean": 81.9,
+      "sd": 5.1,
+      "n": 3
+    }
+  },
+  "not_read": [
+    "the seating of any of this on modern ground (T-1070)",
+    "the tract polygon the legend colours red (T-0792)",
+    "whether the strip's lots were sold, and to whom, before 1 July 1835 (T-0790)",
+    "the figures in the third rank above 28 and in the corner wedge, refused above"
+  ]
+}

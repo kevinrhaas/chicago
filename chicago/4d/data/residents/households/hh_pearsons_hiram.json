@@ -1,0 +1,183 @@
+{
+ "id": "hh_pearsons_hiram",
+ "name": "The Pearsons household",
+ "division": "south",
+ "head": "pearsons_hiram",
+ "arrival": {
+  "value": "1833-03-01",
+  "confidence": "attested",
+  "sources": [
+   "andreas_1884_v1"
+  ],
+  "note": "'Came in spring of 1833' - season precision, carried as the first day this project reads as spring.",
+  "precision": "season"
+ },
+ "party_size_on_arrival": {
+  "value": null,
+  "confidence": "reconstructed",
+  "note": "Not attested in anything this project holds."
+ },
+ "origin": {
+  "value": null,
+  "confidence": "reconstructed",
+  "note": "Not attested in anything this project holds."
+ },
+ "reason_for_coming": {
+  "value": null,
+  "confidence": "reconstructed",
+  "note": "Not attested in anything this project holds."
+ },
+ "lives_at": {
+  "value": null,
+  "confidence": "reconstructed",
+  "note": "Not attested in anything this project holds."
+ },
+ "works_at": {
+  "value": null,
+  "confidence": "reconstructed",
+  "note": "NOT MODELLED. No premises for this man is named in any source reached and none is in data/structures/."
+ },
+ "present_on_scene_date": {
+  "value": "present",
+  "confidence": "inferred",
+  "sources": [
+   "andreas_1884_v1"
+  ],
+  "note": "Treasurer of the city from 1837 and an alderman from its first election; continuous in the record on either side of the scene date."
+ },
+ "persons": [
+  {
+   "id": "pearsons_hiram",
+   "name": "Hiram Pearsons",
+   "relationship": "head",
+   "grade": "attested",
+   "ladder_rule": "G1b",
+   "sex": "male",
+   "occupation": {
+    "value": "speculator",
+    "confidence": "attested",
+    "sources": [
+     "andreas_1884_v1"
+    ],
+    "note": "NO TRADE IS GIVEN. The roster says 'Hiram Pearson, came in spring of 1833'; Andreas's city rosters make him treasurer of Chicago in 1837, 1838 and 1839 and an alderman in 1837. 'Speculator' is this project's reading of a man who arrived in the spring before the land craze and ended as the city's treasurer, and it is a period-correct occupation that Andreas himself uses for others on the same page.",
+    "derived_from": "roles",
+    "roles_at_scene_date": [
+     "speculator"
+    ]
+   },
+   "sources": [
+    "andreas_1884_v1",
+    "chicago_voter_lists_1833_1835_irad",
+    "isa_public_domain_land_tract_sales"
+   ],
+   "note": "Andreas vol. 1, printed p. 132 (scan p. 281), 'an imperfect list of the denizens of the town in the fall of 1833, not before named'. It gives a name, a trade and usually an arrival year, and it is a retrospective of 1884: a YEAR off it is documented, a MONTH is not, and it says nothing whatever about 1835. THE TOWN'S OWN ROLLS, 1833-1835 — CORROBORATION, NOT A GRADE. The early Chicago voter and tax lists held by the Illinois Regional Archives Depository name this person 1 time: Election returns — poll list of 1834, filed 11 August 1834 — “Pearsons, Hiram” (poll_1834_087, line 256). These are the town's own contemporary paper rather than a recollection of it, and each appearance says that a man of that name stood on that roll in that year — no more. The reading is twice mediated (Schulz's transcription, then Genealogy Trails' republication) and this project has not seen the IRAD originals. Under the ratified ladder (T-0513) the 1835 poll with a second independent source is attested, the 1835 poll alone or a 1833/1834 list with another source is inferred, and a single appearance with nothing else is a projected resident. This pass WRITES THE EVIDENCE AND MOVES NO GRADE — T-0515 applies the ladder against every source at once. Identity by the crosswalk's own rule: one resident of the surname 'Pearsons' agrees with the entry's forenames; 1 bearer(s) of the surname were considered. (data/research/civic/voter_crosswalk.json). THE FEDERAL LAND TRACT SALES — A PURCHASE, AND NEVER A RESIDENCE. The Illinois State Archives' Public Domain Land Tract Sales register enters this person 51 times, as “PEARSONS HIRAM”, “PEARSONS H”, “PEARSON HIRAM”, 1833-10-22 to 6/22/1836: 26 federal land entries — E2NE sec 10 T39N R13E; E2NE sec 14 T39N R13E; E2NE sec 26 T39N R13E; E2NW sec 10 T39N R13E; E2NW sec 24 T39N R13E; E2NW sec 26 T38N R14E; E2SE sec 08 T39N R13E; E2SE sec 10 T39N R13E; E2SE sec 14 T39N R13E; E2SW sec 02 T39N R13E; E2SW sec 03 T39N R13E; E2SW sec 10 T39N R13E; NW sec 04 T39N R14E; SE sec 04 T39N R13E; SW sec 04 T39N R13E; SW sec 26 T38N R14E; W2NE sec 10 T39N R13E; W2NE sec 14 T39N R13E; W2NE sec 26 T39N R13E; W2NW sec 10 T39N R13E; W2NW sec 20 T39N R13E; W2NW sec 26 T38N R14E; W2NW sec 27 T38N R14E; W2SE sec 10 T39N R13E; W2SE sec 14 T39N R13E; W2SW sec 03 T39N R13E and 6 lots in the platted town — lot 10 of block 1 in the town the register codes CHIV (L10BL1CHIV, as printed); lot 7 of block 1 in the town the register codes CHI (L7BL1CHI, as printed); lot 8 of block 1 in the town the register codes CHIV (L8BL1CHIV, as printed); lot 8 of block 36 in the town the register codes CHIOT (L8BL36CHIOT, as printed); lot 8 of block 37 in the town the register codes CHIOT (L8BL37CHIOT, as printed); lot 9 of block 1 in the town the register codes CHIV (L9BL1CHIV, as printed) and 18 parcels of the school section — 06126 of the school section (sec 16 T39N R14E), as read; BL123 of the school section (sec 16 T39N R14E), as read; BL125 of the school section (sec 16 T39N R14E), as read; BL127 of the school section (sec 16 T39N R14E), as read; BL135 of the school section (sec 16 T39N R14E), as read; BL136 of the school section (sec 16 T39N R14E), as read; BL138 of the school section (sec 16 T39N R14E), as read; BL139 of the school section (sec 16 T39N R14E), as read; BL140 of the school section (sec 16 T39N R14E), as read; BL91 of the school section (sec 16 T39N R14E), as read; BL92 of the school section (sec 16 T39N R14E), as read; lot 1 of block 83 of the school section (sec 16 T39N R14E); lot 2 of block 83 of the school section (sec 16 T39N R14E); lot 3 of block 83 of the school section (sec 16 T39N R14E); lot 4 of block 141 of the school section (sec 16 T39N R14E); lot 4 of block 83 of the school section (sec 16 T39N R14E); lot 5 of block 141 of the school section (sec 16 T39N R14E); lot 6 of block 141 of the school section (sec 16 T39N R14E), 1877.02 acres stated in all, for $40296.00 (ls0012, ls0013, ls0301, ls0302, ls0303, ls0304, ls0305, ls0306, ls0307, ls0308, ls0309, ls0310, ls0311, ls0312, ls0313, ls0314, ls0315, ls0316, ls0317, ls0318, ls0664, ls0665, ls0666, ls0671, ls0748, ls0753, ls0754, ls0818, ls1407, ls0742, ls0747, ls0772, ls0781, ls0782, ls0783, ls0784, ls0785, ls0786, ls0787, ls0802, ls0803, ls0804, ls0805, ls0835, ls0843, ls0844, ls1406, ls1402, ls1403, ls1404, ls1405). THE REGISTER'S OWN RESIDENCE COLUMN READS COOK, UNKNOWN on these rows: a county, a state or nothing, and never a town, which is why a purchase here places nobody. THE SCHOOL-SECTION ROWS ARE GROUND INSIDE THE TOWN, NOT FARMLAND: section 16 of T39N R14E was platted and sold off by lot and by block at the sale of 1833, which is why the register states 0000.00 acres against most of them. Ground inside the town is nearer to this reconstruction than a quarter-section is, and it is still a purchase: the register names a purchaser and never an occupant, and nothing here puts this person on that ground. THE TOWN LOTS ARE THE PLAT ITSELF, AND THEY ARE NOT ACRES: Cook County's register describes them by lot and block in a platted town and gives them no section, no township and no acreage at all, so they add nothing to the acre figure above and $33010.00 to the money. This project does not expand the register's town codes, so which addition a lot stands in is carried as the code and not as a name. It is still a purchase and it still places nobody. The register states this purchaser's residence as COOK, so the sale is contemporary evidence that a man of this name lived in Cook County on the date of sale. It is not evidence that he lived in the town. A purchase and nothing more. It dates and places a transaction; it proposes no residence, and under the ratified ladder it corroborates rather than mints. Identity by the crosswalk's own rule: PEARSONS HIRAM matches Hiram Pearsons: the forename names Hiram Pearsons of the 1 person of this surname, and the forename agrees in full. (data/research/land_sales/resident_crosswalk.json). This pass WRITES THE EVIDENCE AND MOVES NO GRADE. Under the ratified ladder (T-0513) a second independent source is what lifts a projected resident, and a land entry is a second source about a TRANSACTION rather than about who was living at Chicago on 1 July 1835 — a man may buy a quarter-section he never sees. T-0515 applies the ladder against every source at once; this pass hands it the evidence and not the verdict.",
+   "resident_research": {
+    "programme": "resident-research-2026",
+    "ticket": "T-0510",
+    "outcome": "corroborated",
+    "reviewed_on": "2026-09-05",
+    "asserted_identity": true,
+    "evidence_for": "PEARSONS HIRAM matches Hiram Pearsons: the residents layer holds exactly one person of the surname and the forename agrees in full. PEARSONS H matches Hiram Pearsons: the residents layer holds exactly one person of the surname and the forename agrees as an initial only. one resident of the surname 'Pearsons' agrees with the entry's forenames; 1 bearer(s) of the surname were considered.",
+    "evidence_against": "Refused twice over. No candidate reaches 'Pearson' by an exact surname key - every one of them came through the OCR similarity window, so the heading is not certainly 'Pearson' at all. And if it were, a heading against Hiram Pearsons would still be a surname against a person, which is always a refusal here. Refused. All 1 card(s) heading 'Pearson' name Illinois and neither Chicago nor Cook County, so the lead against Hiram Pearson; Hiram Pearson; Hiram Pearsons stands on a surname with the locality actively absent - the one thing beyond the name that a card could have contributed. Refused twice over. No candidate reaches 'Pearson' by an exact surname key - every one of them came through the OCR similarity window, so the heading is not certainly 'Pearson' at all. And if it were, a heading against Hiram Pearsons would still be a surname against a person, which is always a refusal here. Ruled on the card 'Pearson | \"•amaeTajteyaa. mm ... j , , , ,U, L 1 1 ,„ L' against Hiram P",
+    "summary": "Independently corroborated. Hiram Pearsons agrees, forename for forename or initial for initial, with a record outside the post-office lists in the town's 1833 tax and 1834/1835 poll lists, the Fergus 1839/1843 and Norris 1844 directories, the Illinois public-domain land tract sales. PEARSONS HIRAM matches Hiram Pearsons: the residents layer holds exactly one person of the surname and the forename agrees in full.",
+    "notes": "FERGUS 26-29, AS PRINTED: \"Pearsons, Hiram, speculator, bds Tremont House [died, Almeda, Cal., August 11, 1868, aged 57]\". The 1843 directory prints the exact name with a death date and age that put birth about 1811. Research only. Later-volume readings are recorded here and NOT promoted: T-0513 consolidates and T-0514/T-0515 apply.",
+    "source_ids": [
+     "chicago_democrat_1833_1835",
+     "chicago_voter_lists_1833_1835_irad",
+     "fergus_chicago_directory_1839",
+     "fergus_chicago_directory_1843",
+     "fergus_historical_series_26_29",
+     "isa_public_domain_land_tract_sales",
+     "norris_directory_1844"
+    ]
+   },
+   "civic_evidence": [
+    {
+     "list": "poll_1833",
+     "as_read": "Pearson, Hiram",
+     "locator": "poll_1833",
+     "record_id": "poll_1833_022",
+     "describes_date": "1833",
+     "source": "chicago_voter_lists_1833_1835_irad",
+     "rule": "G2b"
+    },
+    {
+     "list": "tax_1833",
+     "as_read": "Pearson, Hiram",
+     "locator": "tax_1833",
+     "record_id": "tax_1833_082",
+     "describes_date": "1833",
+     "source": "chicago_voter_lists_1833_1835_irad",
+     "rule": "G2b"
+    }
+   ],
+   "merged_from": [
+    {
+     "ticket": "T-1132",
+     "rule": "C9",
+     "cluster": "pearson-pearsons",
+     "cards": [
+      "pearson_hiram"
+     ],
+     "note": "THE UNION OF THE CARDS THIS PERSON WAS SPLIT ACROSS. The sources and evidence blocks above include everything the folded cards cited; each folded record is kept whole under data/residents/merged/ and is redirected by index.json's `merged` table. The reasoning for the merge is in data/residents/card_merge_rulings.json."
+    }
+   ],
+   "roles": [
+    {
+     "role": "speculator",
+     "kind": "trade",
+     "as_printed": null,
+     "from": "1673",
+     "to": "1857",
+     "precision": "source_span",
+     "dated_by": "source_describes_date",
+     "covers_scene_date": true,
+     "confidence": "attested",
+     "sources": [
+      "andreas_1884_v1"
+     ],
+     "claim": null,
+     "note": "THE BOUND IS THE SOURCE'S, NOT THE MAN'S. This role is carried by the card's 1835 occupation block and is dated by what the cited source or sources are ABOUT, which is why `precision` can be no better than the span they cover. The span reaches 1835, so this role stands in the scene-date view. The printing the trade was read off is not on the card and is fetched by T-1254."
+    }
+   ]
+  }
+ ],
+ "touches_removal": false,
+ "review_required": false,
+ "research_note": "ONE OF THE TWELVE WHO VOTED TO INCORPORATE THE TOWN on 5 August 1833 - Andreas prints the poll and 'Hiram Pearsons' is on it - and one of the twenty-eight electors five days later. The surname is spelled both Pearson and Pearsons within two pages of each other and this record uses the form on the incorporation poll. THE OCCUPATION IS THE WEAKEST FIELD HERE and is graded documented only because the office-holding is; a source that names his business should replace it.",
+ "directories": {
+  "note": "LATER EVIDENCE, BESIDE THE 1835 CLAIMS AND NOT INSIDE THEM. A Chicago directory of 1839, 1843 or 1844 meets somebody of this name and this pass records what it prints. Under the ratified ladder a directory read after 1835 can corroborate that a person attested here was still in Chicago and can print a trade or a street the 1835 record never had; on its own it makes nobody a resident of 1835. Nothing on this person's 1835 record was regraded, moved, dated or given an occupation by this entry. WHAT THIS PASS RULED ONTO THIS HOUSEHOLD, named so the ruling can be found again: each volume below is followed by the printed entries it set against this person and the status the crosswalk ruled them at — a single entry carries what its own `could_carry` declares, and an ambiguous or contested match carries nothing and is shown so that the silence is legible. pearsons_hiram, Fergus's Chicago directory of 1839 — f1839_e1154 (a single entry); pearsons_hiram, Fergus's Chicago directory of 1843 — f1843_e1971 (a single entry); pearsons_hiram, Norris's Chicago directory of 1844 — n1844_e1405 (a single entry).",
+  "sources": [
+   "fergus_chicago_directory_1839",
+   "fergus_chicago_directory_1843",
+   "norris_directory_1844"
+  ],
+  "people": [
+   {
+    "person_id": "pearsons_hiram",
+    "address_later": {
+     "value": "North Dearborn street",
+     "confidence": "attested",
+     "describes_date": 1839,
+     "sources": [
+      "fergus_chicago_directory_1839"
+     ],
+     "note": "Fergus's Chicago directory of 1839 prints this address against this person, in the entry quoted on the card: 'Pearsons, Col. Hiram, real estate dealer, North Dearborn street'. It is evidence about 1839, written here as 1839's and read back onto no 1835 claim. Under the ratified ladder a directory read after 1835 can corroborate that a person attested here was still in Chicago and can print a trade or a street the 1835 record never had; on its own it makes nobody a resident of 1835. Nothing on this person's 1835 record was regraded, moved, dated or given an occupation by this entry. The value is the volume's own line, split by its crosswalk on the entry's punctuation. These volumes set the trade first and its qualifiers after it on the same line, so the split may carry an employer, a market or a corner along with the trade. The printed entry is quoted beside the value for exactly that reason: the split is checkable against it, and neither is read into an 1835 claim."
+    },
+    "back_projection": {
+     "outcome": "refused",
+     "clause": "3",
+     "value": null,
+     "describes_date": 1839,
+     "read_back_years": 4,
+     "placement": null,
+     "position_local_enu_m": null,
+     "sources": [
+      "fergus_chicago_directory_1839"
+     ],
+     "note": "REFUSED, AND THE REFUSAL IS THE RECORD. Fergus's Chicago directory of 1839 prints an address against this name in 1839 and this pass will not carry it back to 1835. Dearborn Street in the 1835 layer runs from Madison to the south bank and stops there. A north-side street of that name is later; the north-side street on that meridian in 1835 is Wolcott. A refusal is written here rather than dropped so that a later run can see the address was read and ruled on, not missed (docs/ADDRESS-BACK-PROJECTION.md, clause 3)."
+    }
+   }
+  ]
+ }
+}

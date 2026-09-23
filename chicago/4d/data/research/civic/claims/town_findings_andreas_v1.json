@@ -1,0 +1,306 @@
+{
+  "schema": 1,
+  "_doc": "Town findings read out of Andreas vol. 1 while sweeping it for second sources for the men on the 1835 poll list (T-0493). The owner asked that anything a source yields about the town — businesses, structures, landscape, streets, appearance — be kept as it is found rather than looked for again later, and these are that. EXTENDED BY T-0592: claims c012-c014 are the water question — the town's one public well, the water carts that answered it instead, and the waterworks that did not exist yet — read out of the same file under the same sha256.",
+  "source_id": "andreas_1884_v1",
+  "corpus": {
+    "item": "historyofchicago01andr",
+    "url": "https://dn760009.eu.archive.org/0/items/historyofchicago01andr/historyofchicago01andr_djvu.txt",
+    "sha256": "e842bdadb9385be2e3e673b7191520ddcd20fb035b7229cf829eb516c9a95687",
+    "committed": false,
+    "why_not_committed": "5 MB of OCR of a book this repository does not hold. Every quote below is cut verbatim out of the flattened text of the file with this sha256, and carries its offset."
+  },
+  "reading_note": "Graded transcription_mediated, not scan_verified: this is archive.org's OCR of the printed page, machine-read and not checked against the image by eye. Its damage is left in the quotes deliberately — 'hekl' for 'held', 'sluugh' for 'slough' — because a tidied quote cannot be found again.",
+  "claims": [
+    {
+      "id": "c001",
+      "kind": "civic",
+      "reading": "transcription_mediated",
+      "quote": "\" Publick notice is hereby given that an election will be holden at the house of Mark Beaubien, on Saturday, the loth day of August, at II o'clock in the forenoon of that day, for the purpose of choosing five trustees of the Town of Chicago. \" Chicago, August 5, 1833. \" E. S. Kimberly, Town Clerk. \" X. B. — The poll will close at one o'clock.\"",
+      "normalized": "The election notice of 5 August 1833, printed over the name of E. S. Kimberly, Town Clerk: the poll for five trustees of the Town of Chicago was to be held at the house of Mark Beaubien on Saturday 10 August, opening at eleven in the forenoon and closing at one o'clock. This is WHERE the first poll list was taken — Mark Beaubien's house, the Sauganash — and it is a two-hour poll.",
+      "locator": {
+        "item": "historyofchicago01andr",
+        "text": "historyofchicago01andr_djvu.txt",
+        "offset_in_flattened_text": 1201597,
+        "how_to_find": "flatten the OCR with re.sub(r'\\s+', ' ', text) and search for the quote verbatim"
+      },
+      "describes_date": "1833-08-05",
+      "entities": [
+        "Mark Beaubien",
+        "E. S. Kimberly",
+        "Town of Chicago"
+      ],
+      "town_finding": true,
+      "notes": "The OCR reads 'the loth day of August' for 'the 10th' and 'II o'clock' for '11 o'clock'; the quote keeps the damage and the normalized reading repairs it. Mark Beaubien's house is the Sauganash, which this reconstruction already stands."
+    },
+    {
+      "id": "c002",
+      "kind": "civic",
+      "reading": "transcription_mediated",
+      "quote": "The first election of Town Trustees was held at the house of Mark Beaubien, .■\\ugust 10. It is believed that every legal voter of Chicago cast his vote on that occasion. They numbered twenty-eight.",
+      "normalized": "Andreas says twenty-eight men voted at the first town election, on 10 August 1833, at Mark Beaubien's house. THE POLL LIST READ BY THIS TICKET PRINTS THIRTY NAMES. The two cannot both be right and nothing here resolves them: Andreas may be counting the electors entitled rather than the names enrolled, or the transcription may carry the judges and clerks of the election among the voters. Recorded as an open discrepancy, not repaired.",
+      "locator": {
+        "item": "historyofchicago01andr",
+        "text": "historyofchicago01andr_djvu.txt",
+        "offset_in_flattened_text": 861404,
+        "how_to_find": "flatten the OCR with re.sub(r'\\s+', ' ', text) and search for the quote verbatim"
+      },
+      "describes_date": "1833-08-10",
+      "entities": [
+        "Mark Beaubien"
+      ],
+      "town_finding": false,
+      "notes": "This is the strongest external check the 1833 poll list has, and it does not agree with it. It also bears on T-0493's own arithmetic: the ticket asserted 346 entries across the four lists, the deposit and the live publication both print 345, and Andreas would make the first list smaller still. T-0542 (2026-09-04): searched for a count of the 10 August 1833 voters outside Andreas and found none — see claims/town_findings_voter_lists.json v004 for what was read. The discrepancy stands, unrepaired."
+    },
+    {
+      "id": "c003",
+      "kind": "civic",
+      "reading": "transcription_mediated",
+      "quote": "The follow- ing were elected Trustees: T. ]'. V. Owen, 26 votes; George \\V. Dole, 26 votes; Madore B. Beaubien, 23 votes; John Miller, 20 votes; E. S. Kimberlv, 20 votes.",
+      "normalized": "The five trustees elected on 10 August 1833 and their votes: T. J. V. Owen 26, George W. Dole 26, Madore B. Beaubien 23, John Miller 20, E. S. Kimberly 20. All five stand on the poll list this ticket reads — 'Owen, Col. T. J. V.', 'Dole, George W.', 'Beaubien, Medard', 'Miller, John', 'Kimberly, Ed. S.' — which is an internal check the list passes.",
+      "locator": {
+        "item": "historyofchicago01andr",
+        "text": "historyofchicago01andr_djvu.txt",
+        "offset_in_flattened_text": 861602,
+        "how_to_find": "flatten the OCR with re.sub(r'\\s+', ' ', text) and search for the quote verbatim"
+      },
+      "describes_date": "1833-08-10",
+      "entities": [
+        "T. J. V. Owen",
+        "George W. Dole",
+        "Madore B. Beaubien",
+        "John Miller",
+        "E. S. Kimberly"
+      ],
+      "town_finding": true,
+      "notes": "Twenty-six votes of twenty-eight (Andreas) or of thirty (the list) is a near-unanimous town. 'Beaubien, Medard' and Andreas's 'Madore B. Beaubien' are the same man under two spellings, AND THE MERGE IS NOW MADE: T-1026 folds `beaubien_medard` onto `beaubien_madore` in data/residents/card_merge_rulings.json, cluster `beaubien-medard`, under rule C12 — two spellings on one closed roll, resolved by exhaustion over the roll. This claim's own internal check is that ruling's first leg: all five trustees stand on the poll list, and the only unaccounted Beaubien among its thirty names is Medard. The note that used to end 'the merge is not made here' is what T-1026 was filed to answer."
+    },
+    {
+      "id": "c004",
+      "kind": "building",
+      "reading": "transcription_mediated",
+      "quote": "It was ordered by the Board that meetings should be held at the house of Mark Beaubien, on the first Wednesday in each month, at seven o'clock p. m., beginning with Wednesday, September 4, 1S33.",
+      "normalized": "From 4 September 1833 the Board of Trustees met at Mark Beaubien's house on the first Wednesday of each month at seven in the evening. The Sauganash was the town's meeting place as well as its polling place.",
+      "locator": {
+        "item": "historyofchicago01andr",
+        "text": "historyofchicago01andr_djvu.txt",
+        "offset_in_flattened_text": 1203841,
+        "how_to_find": "flatten the OCR with re.sub(r'\\s+', ' ', text) and search for the quote verbatim"
+      },
+      "describes_date": "1833-09-04",
+      "entities": [
+        "Mark Beaubien",
+        "Board of Trustees"
+      ],
+      "town_finding": true,
+      "notes": "A use of a building the reconstruction already stands, on a stated day and hour."
+    },
+    {
+      "id": "c005",
+      "kind": "civic",
+      "reading": "transcription_mediated",
+      "quote": "The second election was hekl .\\ugust 11, 1834, at which time J. H. Kinzie, G. S. Hubbard, E. Goodrich, J. K. liover, anti John S. C. llogan were chosen Trustees.",
+      "normalized": "The second town election was held on 11 August 1834, and J. H. Kinzie, G. S. Hubbard, E. Goodrich, J. K. Boyer and John S. C. Hogan were chosen trustees. This corroborates the 1834 list's own heading, 'Filed 11 August 1834', from a source outside the transcription.",
+      "locator": {
+        "item": "historyofchicago01andr",
+        "text": "historyofchicago01andr_djvu.txt",
+        "offset_in_flattened_text": 1206684,
+        "how_to_find": "flatten the OCR with re.sub(r'\\s+', ' ', text) and search for the quote verbatim"
+      },
+      "describes_date": "1834-08-11",
+      "entities": [
+        "J. H. Kinzie",
+        "G. S. Hubbard",
+        "E. Goodrich",
+        "J. K. Boyer",
+        "John S. C. Hogan"
+      ],
+      "town_finding": true,
+      "notes": "OCR damage: 'hekl' for 'held', 'liover' for 'Boyer', 'llogan' for 'Hogan', 'anti' for 'and'."
+    },
+    {
+      "id": "c006",
+      "kind": "civic",
+      "reading": "transcription_mediated",
+      "quote": "The third election was held in July, 1835, and re- sulted as follows: H. Hugunin, President;",
+      "normalized": "The third town election was held in July 1835 and returned H. Hugunin as President of the Board. CORROBORATED AND MADE EXACT BY THE TOWN'S OWN NEWSPAPER (T-0542): the Chicago Democrat announced the election of Trustees under the new charter for 'Friday of this week' on 8 July 1835 and reported on 15 July that it 'took place on Friday last'. The third town election was FRIDAY 10 JULY 1835 — nine days AFTER this reconstruction's 1835-07-01 scene date. Andreas's town chapter is right.",
+      "locator": {
+        "item": "historyofchicago01andr",
+        "text": "historyofchicago01andr_djvu.txt",
+        "offset_in_flattened_text": 1208305,
+        "how_to_find": "flatten the OCR with re.sub(r'\\s+', ' ', text) and search for the quote verbatim"
+      },
+      "describes_date": "1835-07",
+      "entities": [
+        "H. Hugunin"
+      ],
+      "town_finding": true,
+      "notes": "The eight men Andreas names as elected are the men the Democrat's return names as standing, Sherman included, which is the check that this passage and that return describe the same event (claims/town_election_1835_democrat.json d003). Only three of those eight stand among the 85 on the 1835 poll list, and the reason is now known: that list is not this election's poll book — its 85 names cannot have cast the 124 and 142 votes the return records (v003)."
+    },
+    {
+      "id": "c007",
+      "kind": "civic",
+      "reading": "transcription_mediated",
+      "quote": "The town of Chicago was incorporated .August 5, 1S33, and the first town election was held .-Vugust 10; but no mention is made of the election of a Constable until at the third election of town oHicers, which occurred .Au- gust 5, 1S35.",
+      "normalized": "The same volume, two hundred pages later, dates the THIRD town election to 5 August 1835 — not July. T-0542 RESOLVED THE CONTRADICTION IN THE TOWN CHAPTER'S FAVOUR: the popular election was Friday 10 July 1835 on the newspaper's own announcement and report. What fell on 5 August 1835 is the newly elected board's own sitting — the day it passed the town's ordinance code, over 'H. HUGUNIN, Pres't' (claims/town_election_1835_democrat.json d004). Andreas's sentence here is about the first mention of the election of a Constable, and on either reading of it — a conflation of the board's meeting with the poll, or 'election of town officers' meaning the board choosing the officers the charter gives it — the popular election does not move off 10 July.",
+      "locator": {
+        "item": "historyofchicago01andr",
+        "text": "historyofchicago01andr_djvu.txt",
+        "offset_in_flattened_text": 1405857,
+        "how_to_find": "flatten the OCR with re.sub(r'\\s+', ' ', text) and search for the quote verbatim"
+      },
+      "describes_date": "1835-08-05",
+      "entities": [
+        "O. Morrison"
+      ],
+      "town_finding": true,
+      "notes": "The contradiction WAS the finding and is now closed. The circumstantial argument from the August dates of the 1833 and 1834 elections is not merely weak but wrong-footed: the act of 1835 moved the annual town election to the first Monday in June (d005), and the 1835 poll was late only because no copy of that act could be had in Chicago and the election was adjourned from time to time through June (d001). The half of Andreas's sentence about a Constable is NOT corroborated — the ordinance code as transcribed names none."
+    },
+    {
+      "id": "c008",
+      "kind": "infrastructure",
+      "reading": "transcription_mediated",
+      "quote": "During this month also the limits of the town were extended to embrace the tract bounded by the lake on the east and State Street on the west, Ohio Street on the north and Jackson Street on the south. The corporate limits were again extended, by virtue of an act adopted February 11, 1834, so as to include all land lying east of State Street to the lake shore, from Chicago Avenue and Twelfth Street, except the milita- ry- reservation, which lay from the river south to Madi- son Street.",
+      "normalized": "The town's corporate limits in two steps: extended in November 1833 to the lake on the east, State Street on the west, Ohio Street on the north and Jackson Street on the south; and again by an act of 11 February 1834 to all land east of State Street to the lake shore between Chicago Avenue and Twelfth Street, excepting the military reservation, which ran from the river south to Madison Street. These are the limits standing on the 1835 scene date.",
+      "locator": {
+        "item": "historyofchicago01andr",
+        "text": "historyofchicago01andr_djvu.txt",
+        "offset_in_flattened_text": 1206194,
+        "how_to_find": "flatten the OCR with re.sub(r'\\s+', ' ', text) and search for the quote verbatim"
+      },
+      "describes_date": "1834-02-11",
+      "entities": [
+        "State Street",
+        "Ohio Street",
+        "Jackson Street",
+        "Chicago Avenue",
+        "Twelfth Street",
+        "Madison Street"
+      ],
+      "town_finding": true,
+      "notes": "Directly relevant to T-0436, which records that the corporation's limits have no committed geometry and that the fire ordinance binds only inside them. This is a boundary in named streets, which is exactly what that ticket wants."
+    },
+    {
+      "id": "c009",
+      "kind": "landscape",
+      "reading": "transcription_mediated",
+      "quote": "The first financial obligation incurred by the town was for §60, borrowed in October, 1834, to dram State Street and redeem a large sluugh.",
+      "normalized": "The town's first debt, in October 1834, was sixty dollars borrowed to drain State Street and redeem a large slough. State Street stood over standing water within a year of the scene date.",
+      "locator": {
+        "item": "historyofchicago01andr",
+        "text": "historyofchicago01andr_djvu.txt",
+        "offset_in_flattened_text": 1207306,
+        "how_to_find": "flatten the OCR with re.sub(r'\\s+', ' ', text) and search for the quote verbatim"
+      },
+      "describes_date": "1834-10",
+      "entities": [
+        "State Street"
+      ],
+      "town_finding": true,
+      "notes": "OCR: '§60' for '$60', 'dram' for 'drain', 'sluugh' for 'slough'. A wet-ground fact on a named street, of the kind T-0027 and the heightfield work read."
+    },
+    {
+      "id": "c010",
+      "kind": "building",
+      "reading": "transcription_mediated",
+      "quote": "During the fall of the year C1835,) a one-story and basement brick court-house was erected on the north- east corner of the square, on Clark and Randolph streets.",
+      "normalized": "A one-storey brick court-house with a basement was built in the autumn of 1835 on the north-east corner of the public square, at Clark and Randolph streets: county offices below, and above one oblong court-room seating two hundred.",
+      "locator": {
+        "item": "historyofchicago01andr",
+        "text": "historyofchicago01andr_djvu.txt",
+        "offset_in_flattened_text": 1208872,
+        "how_to_find": "flatten the OCR with re.sub(r'\\s+', ' ', text) and search for the quote verbatim"
+      },
+      "describes_date": "1835",
+      "entities": [
+        "Clark Street",
+        "Randolph Street",
+        "public square"
+      ],
+      "town_finding": true,
+      "notes": "AFTER the 1 July 1835 scene date — autumn 1835 — so it must NOT be built into the scene. Recorded because the corner it stands on is in the reconstruction and a later run will otherwise find this passage and mistake it for 1835 fabric."
+    },
+    {
+      "id": "c011",
+      "kind": "civic",
+      "reading": "transcription_mediated",
+      "quote": "Among them were the establishment, in June, of a permanent Board of Health; the creation, in November, of a Fire Department; the borrowing, in June, of §2,000, with which to improve the sanitary condition of the place, as a preventive against the threatened invasion of cholera; and the adoption, in August, of a lengthy and comprehensive code of local laws.",
+      "normalized": "The town's measures of 1835: a permanent Board of Health in June, a Fire Department in November, two thousand dollars borrowed in June to improve the sanitary condition of the place against a threatened cholera invasion, and a comprehensive code of local laws adopted in August.",
+      "locator": {
+        "item": "historyofchicago01andr",
+        "text": "historyofchicago01andr_djvu.txt",
+        "offset_in_flattened_text": 1207502,
+        "how_to_find": "flatten the OCR with re.sub(r'\\s+', ' ', text) and search for the quote verbatim"
+      },
+      "describes_date": "1835",
+      "entities": [
+        "Board of Health",
+        "Fire Department"
+      ],
+      "town_finding": true,
+      "notes": "The June items stand before the 1 July 1835 scene date; the August and November ones do not. Cholera was a live fear in the town that June."
+    },
+    {
+      "id": "c012",
+      "kind": "civic",
+      "reading": "transcription_mediated",
+      "quote": "Water Works. — The first public effort made by Chicago to assist her inhabitants to a supply of fresh water, dates from November lo, 1834, when the Board of Trustees paid $95.50 for the digging of a well in Kinzie's addition.",
+      "normalized": "The town's first public act about drinking water was a WELL: on 10 November 1834 the Board of Trustees paid $95.50 for the digging of a well in Kinzie's Addition. It is the only public well this project has found, it is eight months before the scene date, and its position is given as an addition and not as a lot.",
+      "locator": {
+        "item": "historyofchicago01andr",
+        "text": "historyofchicago01andr_djvu.txt",
+        "offset_in_flattened_text": 1274369,
+        "how_to_find": "flatten the OCR with re.sub(r'\\s+', ' ', text) and search for the quote verbatim"
+      },
+      "describes_date": "1834-11-10",
+      "entities": [
+        "Board of Trustees",
+        "Kinzie's Addition",
+        "Town of Chicago"
+      ],
+      "town_finding": true,
+      "notes": "READ FOR T-0592, which asked what this town does about wells. This is the town acting on the question with money, and the sum is small enough to say what was bought: one well, dug, for $95.50. WHAT IT DOES NOT GIVE IS A POSITION. 'Kinzie's addition' is the North Division subdivision, not a lot and not a corner, so nothing here can be drawn; it is recorded so the next run does not have to find it again. The OCR reads 'November lo' for 'November 10' and the quote keeps the damage."
+    },
+    {
+      "id": "c013",
+      "kind": "civic",
+      "reading": "transcription_mediated",
+      "quote": "But the settlers early cast longing eyes towards the lake, reahzing that that source of water supply was the true one and not to be compared to the sluggish and unprepossessing river. For some years private enterprise reaped a comfortable little financial harvest in the operation of water carts, which ran to and from the lake. These carts were two wheeled vehicles, upon which hogsheads were mounted. Having driven into the lake, generally at the foot of Randolph Street, the watermen loaded up their reservoirs by means of pails, and then commenced their journeys ** around town.\" Backing their carts up to the doors of their customers* houses, with a short leathern hose they filled the barrels or other receptacles placed there for the purpose. The price per barrel varied, according to competition, from five to ten cents.",
+      "normalized": "HOW CHICAGO GOT ITS WATER BETWEEN THE ONE PUBLIC WELL AND THE WATERWORKS: not from wells, and not from the river, but from the lake by cart. Two-wheeled vehicles carrying a mounted hogshead were driven into the lake, generally at the foot of Randolph Street, filled by pail, and driven round the town; the waterman backed up to a customer's door and ran the water off through a short leathern hose into barrels set there for it. Five to ten cents the barrel, according to competition.",
+      "locator": {
+        "item": "historyofchicago01andr",
+        "text": "historyofchicago01andr_djvu.txt",
+        "offset_in_flattened_text": 1274580,
+        "how_to_find": "flatten the OCR with re.sub(r'\\s+', ' ', text) and search for the quote verbatim"
+      },
+      "describes_date": "1835",
+      "entities": [
+        "Randolph Street",
+        "Lake Michigan",
+        "Chicago River"
+      ],
+      "town_finding": true,
+      "notes": "THE ANSWER TO T-0592'S QUESTION, and it is not a well. Andreas puts the cart trade between the public well of November 1834 and the Hydraulic Company's works of 1842, so July 1835 falls inside 'for some years' — but the sentence dates nothing itself, and this claim therefore carries `describes_date` 1835 as the span it brackets and NOT as a statement that a cart ran on the scene date. It is a retrospective account written in 1884 of a trade nobody minuted. Anything drawn from it — a cart, a hogshead, a barrel at a door, the watering place at the foot of Randolph — would be `inferred` at best and is filed as its own ticket rather than taken here. The OCR reads 'reahzing' for 'realizing' and mangles two quotation marks; the quote keeps the damage."
+    },
+    {
+      "id": "c014",
+      "kind": "civic",
+      "reading": "transcription_mediated",
+      "quote": "January 18, 1836, the State Legislature passed a law incorporating the Chicago Hydraulic Company. [...] Although incorporated, the panic of 1837 so disarranged the affairs of the new company that it did not get fairly to work until 1S40 [...] Not until the spring of 1842 was this first water works system completed.",
+      "normalized": "Chicago had no waterworks of any kind until the spring of 1842. The Chicago Hydraulic Company was not incorporated until 18 January 1836 — six months after the scene date — was stalled by the panic of 1837, and did not finish its reservoir at Lake Street and Michigan Avenue until 1842.",
+      "locator": {
+        "item": "historyofchicago01andr",
+        "text": "historyofchicago01andr_djvu.txt",
+        "offset_in_flattened_text": 1275634,
+        "how_to_find": "flatten the OCR with re.sub(r'\\s+', ' ', text) and search for the quote verbatim"
+      },
+      "describes_date": "1836-01-18",
+      "entities": [
+        "Chicago Hydraulic Company",
+        "Lake Street",
+        "Michigan Avenue"
+      ],
+      "town_finding": true,
+      "notes": "THE CLOSING BRACKET on the water question, and the reason the answer for July 1835 cannot be a system: the town's first waterworks is a year off being chartered and seven years off working. Quoted with elisions across a passage of about 1,000 characters; the offset is the first sentence and the later sentences follow it in the same section. The OCR reads '1S40' for '1840'."
+    }
+  ]
+}

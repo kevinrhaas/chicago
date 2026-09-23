@@ -1,0 +1,195 @@
+{
+  "ticket": "T-1078",
+  "reach_rows": [
+    320,
+    1251
+  ],
+  "iiif_region_sha256": "109d0a8b47f3e4d8d0e35bf659d8cf518be70064a9932991587ed13b46c88fe3",
+  "map_scale_m_per_px": 0.7115,
+  "channel_px": {
+    "before": 94762,
+    "bank_wash_only": 95249,
+    "after": 97532
+  },
+  "bank_wash_puts_back_on_the_east_bank": false,
+  "before": {
+    "east": {
+      "rows": 932,
+      "median_m": 1.42,
+      "p90_m": 8.54,
+      "max_m": 32.73,
+      "rows_over_10m": 81,
+      "stretches": [
+        [
+          728,
+          779
+        ],
+        [
+          1222,
+          1251
+        ]
+      ],
+      "rows_outside_the_ink": 0,
+      "worst_outside_the_ink_m": 0.0,
+      "outside_stretches": []
+    },
+    "west": {
+      "rows": 932,
+      "median_m": 3.56,
+      "p90_m": 8.54,
+      "max_m": 35.58,
+      "rows_over_10m": 63,
+      "stretches": [
+        [
+          698,
+          706
+        ],
+        [
+          712,
+          712
+        ],
+        [
+          786,
+          808
+        ],
+        [
+          817,
+          843
+        ],
+        [
+          877,
+          880
+        ]
+      ],
+      "rows_outside_the_ink": 42,
+      "worst_outside_the_ink_m": 14.23,
+      "outside_stretches": [
+        [
+          707,
+          710
+        ],
+        [
+          715,
+          717
+        ],
+        [
+          809,
+          816
+        ],
+        [
+          922,
+          939
+        ],
+        [
+          948,
+          951
+        ],
+        [
+          1247,
+          1251
+        ]
+      ]
+    }
+  },
+  "after": {
+    "east": {
+      "rows": 932,
+      "median_m": 1.42,
+      "p90_m": 6.4,
+      "max_m": 14.94,
+      "rows_over_10m": 51,
+      "stretches": [
+        [
+          728,
+          779
+        ]
+      ],
+      "rows_outside_the_ink": 0,
+      "worst_outside_the_ink_m": 0.0,
+      "outside_stretches": []
+    },
+    "west": {
+      "rows": 932,
+      "median_m": 2.85,
+      "p90_m": 7.83,
+      "max_m": 20.63,
+      "rows_over_10m": 35,
+      "stretches": [
+        [
+          698,
+          706
+        ],
+        [
+          712,
+          712
+        ],
+        [
+          822,
+          843
+        ],
+        [
+          877,
+          880
+        ]
+      ],
+      "rows_outside_the_ink": 34,
+      "worst_outside_the_ink_m": 9.96,
+      "outside_stretches": [
+        [
+          707,
+          710
+        ],
+        [
+          715,
+          717
+        ],
+        [
+          922,
+          939
+        ],
+        [
+          948,
+          951
+        ],
+        [
+          1247,
+          1251
+        ]
+      ]
+    }
+  },
+  "bank_wash_fragments_put_back": [
+    274
+  ],
+  "west_leak_test": {
+    "budget_m": 14.23,
+    "rows_outside_the_ink": 34,
+    "worst_outside_the_ink_m": 9.96,
+    "rows_worse_than_before": 0,
+    "worst_deepening_m": 0.0,
+    "rows": []
+  },
+  "splice_row": {
+    "row": 1251,
+    "before_east": {
+      "boundary_resource_x": 1188,
+      "ink_resource_x": 1234,
+      "inside_the_ink_m": 32.73
+    },
+    "before_west": {
+      "boundary_resource_x": 1117,
+      "ink_resource_x": 1120,
+      "inside_the_ink_m": -2.13
+    },
+    "after_east": {
+      "boundary_resource_x": 1225,
+      "ink_resource_x": 1234,
+      "inside_the_ink_m": 6.4
+    },
+    "after_west": {
+      "boundary_resource_x": 1117,
+      "ink_resource_x": 1120,
+      "inside_the_ink_m": -2.13
+    }
+  }
+}

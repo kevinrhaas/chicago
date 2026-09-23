@@ -1,0 +1,168 @@
+{
+  "note": "T-0016 — what each GATED road band read, so movement against it can be reported in either direction. A record, NOT a bar: the gate is ROAD_MIN_DELTA_L / ROAD_MIN_PERCEPTIBLE / ROAD_MIN_PROBES in smoke_renderer.mjs and nothing here changes it. A band below its bar is still banked, marked failingGateWhenBanked, so it can be watched for further collapse. Re-bank with `--update-road-bands`, which MERGES: a run banks the bands it measured and leaves the rest alone, because the road bands live in stage 3 and a full unfiltered pass does not fit the ten-minute command ceiling (T-0121).",
+  "bands": {
+    "desktop/from_above/100-250": {
+      "medianDeltaL": 2.6,
+      "opaqueDeltaL": 8.3,
+      "perceptible": 0.9375,
+      "weber": 0.11598,
+      "groundL": 48.4,
+      "nBare": 16
+    },
+    "desktop/from_above/250-600": {
+      "medianDeltaL": 2.19,
+      "opaqueDeltaL": 5.72,
+      "perceptible": 0.6637,
+      "weber": 0.09639,
+      "groundL": 50.5,
+      "nBare": 342
+    },
+    "desktop/lake_market/100-250": {
+      "medianDeltaL": 2.47,
+      "opaqueDeltaL": 4.48,
+      "perceptible": 1,
+      "weber": 0.10574,
+      "groundL": 51.5,
+      "nBare": 44
+    },
+    "desktop/lake_market/2-40": {
+      "medianDeltaL": 2.43,
+      "opaqueDeltaL": 3.2,
+      "perceptible": 0.7,
+      "weber": 0.1151,
+      "groundL": 49.3,
+      "nBare": 10
+    },
+    "desktop/lake_market/250-600": {
+      "medianDeltaL": 6.48,
+      "opaqueDeltaL": 5.13,
+      "perceptible": 1,
+      "weber": 0.2497,
+      "groundL": 55,
+      "nBare": 96
+    },
+    "desktop/lake_market/40-100": {
+      "medianDeltaL": 2.4,
+      "opaqueDeltaL": 4.58,
+      "perceptible": 0.8667,
+      "weber": 0.10468,
+      "groundL": 50.6,
+      "nBare": 15
+    },
+    "desktop/south_water/100-250": {
+      "medianDeltaL": 2.35,
+      "opaqueDeltaL": 3.83,
+      "perceptible": 0.5116,
+      "weber": 0.10315,
+      "groundL": 48.8,
+      "nBare": 43,
+      "failingGateWhenBanked": true
+    },
+    "desktop/south_water/2-40": {
+      "medianDeltaL": 3.43,
+      "opaqueDeltaL": 4.52,
+      "perceptible": 0.7,
+      "weber": 0.14023,
+      "groundL": 50.5,
+      "nBare": 10
+    },
+    "desktop/south_water/250-600": {
+      "medianDeltaL": 4.21,
+      "opaqueDeltaL": 4.04,
+      "perceptible": 0.6768,
+      "weber": 0.17797,
+      "groundL": 53.6,
+      "nBare": 99
+    },
+    "desktop/south_water/40-100": {
+      "medianDeltaL": 2.99,
+      "opaqueDeltaL": 5.35,
+      "perceptible": 0.8,
+      "weber": 0.1289,
+      "groundL": 50.9,
+      "nBare": 15
+    },
+    "mobile/from_above/100-250": {
+      "medianDeltaL": 2.56,
+      "opaqueDeltaL": 7.88,
+      "perceptible": 0.85,
+      "weber": 0.11611,
+      "groundL": 47.6,
+      "nBare": 60
+    },
+    "mobile/from_above/250-600": {
+      "medianDeltaL": 2.05,
+      "opaqueDeltaL": 4.61,
+      "perceptible": 0.544,
+      "weber": 0.09222,
+      "groundL": 49.4,
+      "nBare": 182,
+      "failingGateWhenBanked": true
+    },
+    "mobile/lake_market/100-250": {
+      "medianDeltaL": 2.71,
+      "opaqueDeltaL": 5.36,
+      "perceptible": 1,
+      "weber": 0.1158,
+      "groundL": 51.4,
+      "nBare": 43
+    },
+    "mobile/lake_market/2-40": {
+      "medianDeltaL": 2.47,
+      "opaqueDeltaL": 2.55,
+      "perceptible": 0.6,
+      "weber": 0.11164,
+      "groundL": 48.6,
+      "nBare": 10
+    },
+    "mobile/lake_market/250-600": {
+      "medianDeltaL": 1.97,
+      "opaqueDeltaL": 3.83,
+      "perceptible": 0.9905,
+      "weber": 0.08263,
+      "groundL": 53.5,
+      "nBare": 105
+    },
+    "mobile/lake_market/40-100": {
+      "medianDeltaL": 2.93,
+      "opaqueDeltaL": 4.97,
+      "perceptible": 0.9333,
+      "weber": 0.12693,
+      "groundL": 50.6,
+      "nBare": 15
+    },
+    "mobile/south_water/100-250": {
+      "medianDeltaL": 1.77,
+      "opaqueDeltaL": 3.17,
+      "perceptible": 0.3333,
+      "weber": 0.07949,
+      "groundL": 49.8,
+      "nBare": 42,
+      "failingGateWhenBanked": true
+    },
+    "mobile/south_water/2-40": {
+      "medianDeltaL": 3.77,
+      "opaqueDeltaL": 4.49,
+      "perceptible": 0.9,
+      "weber": 0.157,
+      "groundL": 51,
+      "nBare": 10
+    },
+    "mobile/south_water/250-600": {
+      "medianDeltaL": 7.01,
+      "opaqueDeltaL": 4.52,
+      "perceptible": 0.9684,
+      "weber": 0.28387,
+      "groundL": 53.3,
+      "nBare": 95
+    },
+    "mobile/south_water/40-100": {
+      "medianDeltaL": 3.08,
+      "opaqueDeltaL": 5.35,
+      "perceptible": 0.8667,
+      "weber": 0.13254,
+      "groundL": 50.6,
+      "nBare": 15
+    }
+  }
+}

@@ -1,0 +1,235 @@
+{
+  "$note": "T-0649. The banked reading of the Eliza Chappel shore drawing and of the 1838 harbour-light plate by tools/measure_chappel_shore_lighthouse.py. Both sheets are committed and cannot change, so this exists for two reasons: CI installs no image library and would otherwise skip the reading in silence, and a detector edit that quietly moves a reading is a thing this project has been bitten by (T-0197). Regenerate with --write-baseline, and only ever with the reason in the commit. T-1083: the `town` block here is the drift BASE only. It is arithmetic over data/structures/*.json, not over either raster, and the tool re-derives it live on every run \u2014 so a record that moves is caught with or without an image library. Re-derived 2026-09-12 because T-1065 (#1189) put the lighthouse on Wright's own glyph and nothing re-banked this with it.",
+  "reading": {
+    "adults": {
+      "bank_hatted_man": {
+        "drawn_height_px": 55,
+        "foot_y": 295,
+        "top_y": 240,
+        "window": [
+          372,
+          386,
+          232,
+          296
+        ]
+      },
+      "doorway_woman": {
+        "drawn_height_px": 59,
+        "foot_y": 281,
+        "top_y": 222,
+        "window": [
+          562,
+          578,
+          222,
+          282
+        ]
+      },
+      "shore_man_left": {
+        "drawn_height_px": 65,
+        "foot_y": 359,
+        "top_y": 294,
+        "window": [
+          318,
+          340,
+          288,
+          360
+        ]
+      },
+      "shore_man_right": {
+        "drawn_height_px": 61,
+        "foot_y": 355,
+        "top_y": 294,
+        "window": [
+          386,
+          420,
+          288,
+          356
+        ]
+      }
+    },
+    "cabin": {
+      "apex": [
+        561,
+        158
+      ],
+      "rake_residual_px": 1.07,
+      "rake_slope": -1.1064,
+      "ridge_residual_px": 2.78,
+      "ridge_samples": 37,
+      "ridge_slope": -0.1005,
+      "window": [
+        500,
+        640,
+        140,
+        232
+      ]
+    },
+    "control_tower": {
+      "finial_y": 44,
+      "gallery_band": [
+        75,
+        76
+      ],
+      "gallery_overhang": 1.208,
+      "gallery_width_px": 29,
+      "occluded_below_gallery": true,
+      "shaft_width_px": 24,
+      "why_no_taper": "the tower's right edge runs into foliage below the gallery on this sheet, so no width below the gallery is a tower width",
+      "window": [
+        584,
+        620,
+        44,
+        130
+      ]
+    },
+    "face_courses": {
+      "baseline_px": 33,
+      "correlation": 0.625,
+      "left_window": [
+        510,
+        516,
+        228,
+        272
+      ],
+      "right_window": [
+        543,
+        549,
+        228,
+        272
+      ],
+      "shift_px": 2.5,
+      "shift_resolution_px": 0.25,
+      "slope": 0.07576
+    },
+    "ground_line": {
+      "$note": "the two feet are measured independently and the HIGHER is taken, because a foot can only be drawn too low by grass and never too high by anything",
+      "ground_y": 233,
+      "left": {
+        "foot_y": 241,
+        "runs": 2,
+        "window": [
+          103,
+          119,
+          216,
+          242
+        ]
+      },
+      "right": {
+        "foot_y": 233,
+        "runs": 2,
+        "window": [
+          140,
+          153,
+          216,
+          244
+        ]
+      }
+    },
+    "horizon": {
+      "fit_residual_px": 2.47,
+      "fit_slope": -0.00844,
+      "kept": 63,
+      "samples": 71,
+      "window": [
+        220,
+        432,
+        195,
+        245
+      ],
+      "y": 215,
+      "y_uncertainty_px": 3
+    },
+    "lintel": {
+      "residual_px": 0.358,
+      "run_px": 33,
+      "samples": 33,
+      "slope": -0.01015,
+      "window": [
+        550,
+        583,
+        213,
+        221
+      ],
+      "y_at_door_centre": 216.75
+    },
+    "tower": {
+      "axis_x": 129,
+      "edge_error_px": 1,
+      "finial_y": 185,
+      "foot_is_drawn": false,
+      "gallery_band": [
+        192,
+        196
+      ],
+      "gallery_overhang": 1.25,
+      "gallery_width_px": 15,
+      "last_lit_row": 221,
+      "shaft_rows": [
+        198,
+        216
+      ],
+      "shaft_width_px": 12,
+      "window": [
+        119,
+        139,
+        180,
+        236
+      ]
+    },
+    "tower_flanks": {
+      "left": {
+        "columns_in_window": 41,
+        "columns_with_built_ink": 14,
+        "longest_sustained_run_px": 0,
+        "sustained_floor_px": 16,
+        "tallest_rise_px": 9,
+        "window": [
+          78,
+          119,
+          200,
+          244
+        ]
+      },
+      "right": {
+        "columns_in_window": 57,
+        "columns_with_built_ink": 34,
+        "longest_sustained_run_px": 7,
+        "sustained_floor_px": 16,
+        "tallest_rise_px": 23,
+        "window": [
+          139,
+          196,
+          200,
+          244
+        ]
+      }
+    },
+    "town": {
+      "lighthouse_utm": [
+        448128.29,
+        4637568.34
+      ],
+      "palisade_span_m": 53.0,
+      "palisade_to_light_m": 71.4,
+      "sauganash_bearing_to_light_deg": 72.4,
+      "sauganash_range_m": 1001.2,
+      "sauganash_utm": [
+        447174.1,
+        4637265.2
+      ],
+      "tower_documented_m": 12.19
+    },
+    "waterline": {
+      "residual_px": 1.47,
+      "samples": 24,
+      "slope": 0.2757,
+      "window": [
+        72,
+        120,
+        205,
+        275
+      ],
+      "y_at_tower": 249
+    }
+  }
+}

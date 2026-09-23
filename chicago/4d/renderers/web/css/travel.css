@@ -1,0 +1,19 @@
+/* travel.css — the Travel section of the drawer. Owned by the travel feature;
+   walk.css stays the base and drawer.css styles `.seg` / `.travel-banner`.
+   Both themes: only tokens from walk.css :root / [data-theme="light"]. */
+
+/* The two segmented questions read as one block; the speeds note hangs off
+   the second and the head-bob toggle sits with it, not floating below. */
+.panel-body[data-panel="travel"] > .field + .field { margin-top: 14px; }
+
+#travel-note {
+  margin: 6px 0 10px;
+  font-variant-numeric: tabular-nums;
+  color: var(--ink-dim);
+  line-height: 1.45;
+}
+#travel-note:empty { display: none; }
+
+/* The closing note: the honest frame for the paces. A hair more air above it
+   so it reads as a footnote to the controls rather than another setting. */
+.panel-body[data-panel="travel"] > .legend-note:last-child { margin-top: 14px; }

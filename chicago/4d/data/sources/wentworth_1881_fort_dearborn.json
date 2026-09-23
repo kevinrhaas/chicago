@@ -1,0 +1,30 @@
+{
+  "id": "wentworth_1881_fort_dearborn",
+  "type": "book",
+  "citation": "Wentworth, John. \"Fort Dearborn: An Address delivered at the unveiling of the memorial tablet to mark the site of the Fort, Saturday afternoon, May 21, 1881.\" Fergus' Historical Series No. 16. Chicago: Fergus Printing Company, 1881. With the key to Alexander Hesler's 1855 photograph and Robert Fergus's signed addendum to the 1850 von Schneidau daguerreotype.",
+  "author": "John Wentworth; addendum by Robert Fergus",
+  "date": "1881",
+  "describes_date": "1803-1856",
+  "url": "https://chicagology.com/prefire/prefire052/",
+  "archived_url": "http://web.archive.org/web/20260209092824/https://chicagology.com/prefire/prefire052/",
+  "locator": "the 1855 Hesler woodcut key; Robert Fergus's addendum to the 1850 daguerreotype; the commandants list; the Adjutant-General's returns quoted in the address",
+  "tier": 2,
+  "rights_status": "public_domain",
+  "asset_use": "inventory",
+  "verified": true,
+  "note": "THE ONLY SOURCE REACHED THAT GIVES A DIMENSION OF ANY PART OF THE SECOND FORT. The 1855 photograph key: 'the Commandant's Quarters, A (brick, about 25x50 ft.), and the Officers' Quarters, B (wood, about 30x60 ft,), occupying the north-west corner of the enclosure. C is the parade-ground (80x200 ft.); D is the Sutler's; E is the north gate.' Robert Fergus's addendum to the 1850 view adds the arrangement round the parade - 'the commandant's, officers', and sutler's quarters on the west, and the building where the artillery was housed, the soldier's barracks, and the storehouse on the east' - and the state of the compound by then: 'The whole Fort enclosure was surrounded by a rough-board fence, white-washed, about 6 feet high; the pickets having been removed at an earlier date. The kitchen-garden was in the south-west corner of the enclosure.' READ THE DATES BEFORE USING ANY OF IT. Wentworth arrived in Chicago 25 October 1836, six weeks before the garrison marched out, and both illustrations he keys are of the fort AFTER it ceased to be a military post: the board fence, the turnstile from Michigan Avenue, the sun-dial knoll and the 400 ft parade all belong to the 1850s compound, not to the stockaded fort of 1835. The address also reprints, from Chicago Magazine March 1857, a description of the FIRST fort that is regularly misapplied to the second - two blockhouses at the south-east and north-west corners, a sally-port to the river, three pieces of light artillery - and that page says in terms that it is describing the fort 'previous to 1812' and that it 'was somewhat different in its structure from its successor'. See docs/RESEARCH/fort_dearborn.md section 6.",
+  "access_notes": "Consulted as reprinted in full by chicagology.com, which reproduces the Fergus pamphlet's text together with the 1855 Hesler woodcut, the 1850 von Schneidau daguerreotype, the 1856 daguerreotype and the Chicago Magazine engravings. Page numbers of the printed pamphlet were not established; cite by the block of text, not by page.",
+  "what_it_supplies": [
+    "the commandant's quarters at about 25 x 50 ft, brick",
+    "the officers' quarters at about 30 x 60 ft, wood, at the north-west corner",
+    "a parade ground 80 ft wide",
+    "which buildings stood on which side of the parade",
+    "the commandants of the second fort by date",
+    "the date the pickets came down is NOT given - only that it was 'at an earlier date' than 1850"
+  ],
+  "what_it_does_not_supply": [
+    "the stockade's dimensions",
+    "anything about the fort in 1835 that is not inferred backwards from an 1850 or 1855 image",
+    "a reliable division between first-fort and second-fort description - the pamphlet reprints both and readers routinely mix them"
+  ]
+}

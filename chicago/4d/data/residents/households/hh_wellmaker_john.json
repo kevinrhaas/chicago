@@ -1,0 +1,175 @@
+{
+ "id": "hh_wellmaker_john",
+ "name": "The Wellmaker household — a name the town's own records carry",
+ "division": "unplaced",
+ "head": "wellmaker_john",
+ "source_pass": "civic",
+ "arrival": {
+  "value": "1832-12-31",
+  "confidence": "inferred",
+  "sources": [
+   "blackhawk_war_chicago_enrollments_isa",
+   "chicago_democrat_1833_1835",
+   "chicago_voter_lists_1833_1835_irad",
+   "fergus_1843_old_settler_death_notices",
+   "st_cyr_register_ichr_v4"
+  ],
+  "note": "A BOUND FROM THE RECORD, NOT AN ARRIVAL. muster_1832 names this person at Chicago by 31 December 1832 and nothing says when they came. The bound is at or before the scene date, so the person was at Chicago by 1 July 1835 on this record's own evidence.",
+  "precision": "not_later_than"
+ },
+ "party_size_on_arrival": {
+  "value": null,
+  "confidence": "reconstructed",
+  "note": "Not attested."
+ },
+ "origin": {
+  "value": null,
+  "confidence": "reconstructed",
+  "note": "Not attested."
+ },
+ "reason_for_coming": {
+  "value": null,
+  "confidence": "reconstructed",
+  "note": "Not attested."
+ },
+ "lives_at": {
+  "value": null,
+  "confidence": "reconstructed",
+  "note": "Not attested: the lists that name this person give no address. The placement sweep assigns homes once the resident list is complete (T-0514, the owner's own sequencing) and this pass will not guess one."
+ },
+ "works_at": {
+  "value": null,
+  "confidence": "reconstructed",
+  "note": "Not attested. No trade is recorded here, so there is no premises to seek; T-0633 is where a later directory's address gets back-projected."
+ },
+ "present_on_scene_date": {
+  "value": "present",
+  "confidence": "inferred",
+  "sources": [
+   "blackhawk_war_chicago_enrollments_isa",
+   "chicago_democrat_1833_1835",
+   "chicago_voter_lists_1833_1835_irad",
+   "fergus_1843_old_settler_death_notices",
+   "st_cyr_register_ichr_v4"
+  ],
+  "note": "THE RECORD BRACKETS THE DAY. This person is named at Chicago at or before 1 July 1835 and named again at or after it, so the sources reach across the scene date rather than stopping at one side of it. Inferred, not documented: no source says where they were on the day."
+ },
+ "persons": [
+  {
+   "id": "wellmaker_john",
+   "name": "John Wellmaker",
+   "relationship": "head",
+   "grade": "attested",
+   "civic_mint": true,
+   "ladder_rule": "G1b",
+   "occupation": {
+    "value": "none_recorded",
+    "confidence": "reconstructed",
+    "note": "No source in this pass's evidence records an occupation for this person. A poll list, a tax list, a muster roll and a baptismal entry each print a name and no trade, and where a later directory prints one it is a trade of 1843 — T-0633 is the rule for back-projecting that, and this pass does not have it."
+   },
+   "sources": [
+    "blackhawk_war_chicago_enrollments_isa",
+    "chicago_democrat_1833_1835",
+    "chicago_voter_lists_1833_1835_irad",
+    "fergus_1843_old_settler_death_notices",
+    "isa_public_domain_land_tract_sales",
+    "st_cyr_register_ichr_v4"
+   ],
+   "note": "A CONTEMPORARY CHICAGO PAPER OF 1833-1835 PRINTS THIS PERSON BY NAME IN THE TOWN. Read from church_after_1835, death_notice, muster_1832, newspaper_1833_1835, poll_1834, tax_1833. THE GRADE IS THE OWNER'S RATIFIED LADDER OF 2026-09-03 (G1b), applied to every identity at once by tools/consolidate_resident_evidence.py and spent onto this card by tools/mint_civic_residents.py; the evidence blocks below carry the reading AS READ, its locator and the record it came from, so the page can be gone back to. WHAT IS RECONSTRUCTED: everything except the person and the sources — no dwelling, no trade, no origin, no family, no party. A BOUND FROM THE RECORD, NOT AN ARRIVAL. muster_1832 names this person at Chicago by 31 December 1832 and nothing says when they came. The bound is at or before the scene date, so the person was at Chicago by 1 July 1835 on this record's own evidence. No figure is drawn (L1). THE FEDERAL LAND TRACT SALES — A PURCHASE, AND NEVER A RESIDENCE. The Illinois State Archives' Public Domain Land Tract Sales register enters this person 4 times, as “WELLMAKER JOHN”, 1830-09-27: 4 lots in the platted town — lot 1 of block 14 in the town the register codes CHIOT (L1B14CHIOT, as printed); lot 2 of block 14 in the town the register codes CHIOT (L2B14CHIOT, as printed); lot 7 of block 14 in the town the register codes CHIOT (L7B14CHIOT, as printed); lot 8 of block 14 in the town the register codes CHIOT (L8B14CHIOT, as printed), 0.00 acres stated in all, for $94.00 (ls1530, ls1531, ls1532, ls1533). THE REGISTER'S OWN RESIDENCE COLUMN READS UNKNOWN on these rows: a county, a state or nothing, and never a town, which is why a purchase here places nobody. THE TOWN LOTS ARE THE PLAT ITSELF, AND THEY ARE NOT ACRES: Cook County's register describes them by lot and block in a platted town and gives them no section, no township and no acreage at all, so they add nothing to the acre figure above and $94.00 to the money. This project does not expand the register's town codes, so which addition a lot stands in is carried as the code and not as a name. It is still a purchase and it still places nobody. A purchase and nothing more. It dates and places a transaction; it proposes no residence, and under the ratified ladder it corroborates rather than mints. Identity by the crosswalk's own rule: WELLMAKER JOHN matches John Wellmaker: the forename names John Wellmaker of the 1 person of this surname, and the forename agrees in full. (data/research/land_sales/resident_crosswalk.json). This pass WRITES THE EVIDENCE AND MOVES NO GRADE. Under the ratified ladder (T-0513) a second independent source is what lifts a projected resident, and a land entry is a second source about a TRANSACTION rather than about who was living at Chicago on 1 July 1835 — a man may buy a quarter-section he never sees. T-0515 applies the ladder against every source at once; this pass hands it the evidence and not the verdict. THE TOWN'S OWN ROLLS, 1833-1835 — CORROBORATION, NOT A GRADE. The early Chicago voter and tax lists held by the Illinois Regional Archives Depository name this person 2 times: Tax list of the Town of Chicago, 1833 — “Wellmaker, John” (tax_1833_106, line 158); Election returns — poll list of 1834, filed 11 August 1834 — “Wellmaker, John” (poll_1834_112, line 281). These are the town's own contemporary paper rather than a recollection of it, and each appearance says that a man of that name stood on that roll in that year — no more. The reading is twice mediated (Schulz's transcription, then Genealogy Trails' republication) and this project has not seen the IRAD originals. Under the ratified ladder (T-0513) the 1835 poll with a second independent source is attested, the 1835 poll alone or a 1833/1834 list with another source is inferred, and a single appearance with nothing else is a projected resident. This pass WRITES THE EVIDENCE AND MOVES NO GRADE — T-0515 applies the ladder against every source at once. Identity by the crosswalk's own rule: one resident of the surname 'Wellmaker' agrees with the entry's forenames; 1 bearer(s) of the surname were considered. (data/research/civic/voter_crosswalk.json).",
+   "civic_evidence": [
+    {
+     "list": "muster_1832",
+     "as_read": "WELLMAKER, JOHN",
+     "locator": "muster",
+     "record_id": "blackhawk_1832_132",
+     "describes_date": "1832",
+     "source": "blackhawk_war_chicago_enrollments_isa",
+     "rule": "G1b"
+    },
+    {
+     "list": "tax_1833",
+     "as_read": "Wellmaker, John",
+     "locator": "tax_1833",
+     "record_id": "tax_1833_106",
+     "describes_date": "1833",
+     "source": "chicago_voter_lists_1833_1835_irad",
+     "rule": "G1b"
+    },
+    {
+     "list": "poll_1834",
+     "as_read": "Wellmaker, John",
+     "locator": "poll_1834",
+     "record_id": "poll_1834_112",
+     "describes_date": "1834",
+     "source": "chicago_voter_lists_1833_1835_irad",
+     "rule": "G1b"
+    }
+   ],
+   "church_evidence": [
+    {
+     "list": "church_after_1835",
+     "as_read": "John Wellmaker",
+     "locator": "witness",
+     "record_id": "st_cyr_marriage_011_6",
+     "describes_date": "1836-04-04",
+     "source": "st_cyr_register_ichr_v4",
+     "rule": "G1b"
+    }
+   ],
+   "book_evidence": [
+    {
+     "list": "death_notice",
+     "as_read": "Wellmaker, John",
+     "locator": "W",
+     "record_id": "fdn0717",
+     "describes_date": "not read from this record",
+     "source": "fergus_1843_old_settler_death_notices",
+     "rule": "G1b"
+    }
+   ],
+   "press_evidence": [
+    {
+     "list": "newspaper_1833_1835",
+     "as_read": "John Wellmaker",
+     "locator": "chicago_democrat_1833_12_10#c008",
+     "record_id": "person_john_wellmaker",
+     "describes_date": "1833-12-10",
+     "source": "chicago_democrat_1833_1835",
+     "rule": "G1b"
+    }
+   ]
+  }
+ ],
+ "touches_removal": false,
+ "review_required": false,
+ "research_note": "MINTED FROM THE CONSOLIDATED CIVIC, CHURCH, PRESS, BOOK AND CENSUS EVIDENCE (T-0513, T-0514). THE HOUSEHOLD IS A CONTAINER, NOT AN ARGUMENT: every other record here is written unattested in its own block, because the lists that name this person name a person and not a family. What is claimed is that the sources cited on the member below name them at Chicago, and the grade is the owner's ratified ladder applied by tools/consolidate_resident_evidence.py --build and spent by tools/mint_civic_residents.py, which prints every refusal. docs/LIBERTIES.md L215 carries the liberty and the tension with L213.",
+ "old_settler_deaths": {
+  "the_header_admission": "Names, places * , dates, and ages at death\nof some of Chicago's Old Settlers, prior to 1843, and other well - known citizens who arrived after 1843, together\nwith others prominently connected with Illinois history:",
+  "note": "LATER EVIDENCE OF A DEATH, BESIDE THE 1835 CLAIMS AND NOT INSIDE THEM. Fergus's 1843 directory (1896) prints an obituary list of old settlers, and one of its entries meets somebody of this name. THE HEADER OF THE LIST IS QUOTED ABOVE, and it is the limit the whole reading turns on. It does not mean the person was in Chicago in 1835, and it does not mean they arrived before 1843 — the list's own header, quoted above, says it also names citizens who arrived later and others merely 'prominently connected with Illinois history'. A match means one thing: a name in the 1835 layer and a name in this list agree on surname and first initial, and the list gives that name a death date and an age. The date and the interval are the payload. Whatever is carried is carried as evidence of a DEATH and of an interval the birth falls in, never as an 1835 fact and never as a grade. T-0513 consolidates and T-0514/T-0515 apply; this file changes no record. This pass WRITES THE EVIDENCE AND MOVES NO GRADE. A death notice printed in 1896 says a person of this name died on a day; under the ratified ladder (T-0513) that is later evidence about a DEATH, and it is never an 1835 residence. T-0515 applies the ladder against every source at once; this pass hands it the evidence and not the verdict.",
+  "sources": [
+   "fergus_1843_old_settler_death_notices"
+  ],
+  "people": [
+   {
+    "person_id": "wellmaker_john",
+    "matched_as": "John Wellmaker",
+    "matched_by": "Surname 'Wellmaker' folds to the same string as the entry's, and the given name of both begins J.",
+    "matched_on_initial_only": false,
+    "resident_given_is_initial_only": false,
+    "entry_given_as_read": "John",
+    "entry_given_is_initial_only": false,
+    "the_agreement": "a surname and a forename spelled out on both sides",
+    "record_id": "fdn0717",
+    "trade_or_office": null,
+    "manner_of_death": "died",
+    "place_of_death": "Hickory Creek, Ill., first German in Chicago, (baker).",
+    "death_date": null,
+    "age_as_printed": null,
+    "birth_year_earliest": null,
+    "birth_year_latest": null,
+    "birth_year_arithmetic": null,
+    "as_read": "Wellmaker, John, died, Hickory Creek, Ill., first German in Chicago, (baker)."
+   }
+  ]
+ }
+}

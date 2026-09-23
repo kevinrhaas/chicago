@@ -1,0 +1,41 @@
+{
+  "id": "chicagology_prefire127",
+  "type": "website",
+  "citation": "\"Green Tree Tavern.\" Chicagology. Transcribing the Inter Ocean of 1 July 1883 — the old-settlers hotel feature, in which named witnesses who had lived in the house are shown a sketch of it and asked to correct it — and Edwin O. Gale's Reminiscences of Early Chicago and Vicinity (1902), around nine city directories 1839-1885 and Chicago Tribune notices of the 1880 move and the 1902 collapse.",
+  "date": "accessed 2026-08-10",
+  "describes_date": "1833-1902",
+  "url": "https://chicagology.com/prefire/prefire127/",
+  "tier": 2,
+  "transcribes": [
+    {
+      "work": "Inter Ocean, 'Old Chicago' — the early-hotels feature on the Green Tree: interviews with F. H. Taylor (in Chicago from 1834, lodged in the west one-storey addition), John Gray (landlord 1838-41) and Mrs. Murphy of the United States Hotel, each shown the S. W. Fallis sketch and asked to correct it",
+      "date": "1883-07-01",
+      "tier": 2,
+      "note": "Carries every Green Tree claim in this dataset: the function and occupants, the two-storey block with a divided hall and a stairway to the second floor, the gable with an attic window that fixes the roof form, and the dated span. Recollection by men who lived in the house, taken down in print — rung 2, not the reporter's rung."
+    },
+    {
+      "work": "Edwin O. Gale, Reminiscences of Early Chicago and Vicinity — the Green Tree bar-room chapter",
+      "date": "1902",
+      "tier": 2,
+      "note": "Gale reached Chicago in 1835 and describes the bar-room from inside: the room module ('about 12x12, with two windows 6x8'), the whitewashed walls, ceilings and board partitions, and the seven-and-a-half-foot ceiling the record's storey height is reasoned from. A participant writing his own recollection — rung 2."
+    }
+  ],
+  "rights_status": "check_required",
+  "asset_use": "cross_check",
+  "verified": true,
+  "note": "THE BEST-DOCUMENTED BUILDING INTERIOR IN THIS DATASET, and the reason is that the Green Tree survived long enough to be remembered in print by people who had slept in it. Named witnesses, not anonymous compilation: F. H. Taylor on the plan — 'The fornt was on Canal street and this side was on Lake' (sic, the page's own typo); John Gray on the circulation — 'A hall divided the house and a stairway in this hall led to the second floor', the entrance 'on the Lake street front about the middle of the long side', the bar-room occupying a whole end, 'a small attic window in the gable end, for we used the attic, too', and 'a low one-story addition to the right, the same as on the left'; Edwin O. Gale on a guest chamber 'about 12x12, with two windows 6x8' whose 'walls, ceilings, and board partitions had evidently received a coat of whitewash when the house was built'; and an editor's note that 'Seven and one-half feet is rather low for a hotel ceiling'. Also: built 1833 by James Kinzie, carpenter named here as Philo Cobb (DRLOIH says Silas B. Cobb, who is the historically real person); landlord Chester Ingersoll 1834-37; moved 1880 from Lake and Canal to 35 and 37 Milwaukee Avenue for the Jones & Laughlin works; collapsed and demolished August 1902. RE-READ 2026-08-10 AND REGRADED FROM TIER 4 TO TIER 2, on what the page carries rather than on what hosts it: an 1883 newspaper interview with a man who kept the house is a near-primary recollection whatever site reprints it, which is the grade this dataset already gives chicagology_prefire252 for the same reason. The transcribed documents are declared in `transcribes` so the rung is re-derivable. THREE LIMITS WORTH STATING. The whitewash is INTERIOR — walls, ceilings and partitions — and says nothing about the exterior finish, a distinction that has been lost in at least one secondary summary of this page. The witnesses are recalling the building from the late 1830s and 1840s, a few years after the 1835 scene date, and at fifty years' remove; Gale's 'when the house was built' is what ties the fabric he describes back to 1833. And the page itself says the recollections disagree — 'these differences of opinion will show how difficult it will be to ever write the history of Chicago completely' — so tier 2 grades the KIND of evidence and not its unanimity. The city directories and the Tribune and Inter Ocean notices around the interviews are period documents in their own right; no claim in this dataset rests on them, so they are apparatus here and are not declared.",
+  "archived_url": "https://web.archive.org/web/20260217122931/https://chicagology.com/prefire/prefire127/",
+  "what_it_supplies": [
+    "interior room module and ceiling height",
+    "plan and circulation",
+    "which street the front faced",
+    "roof form (gable end with attic window)",
+    "landlord chronology",
+    "the 1880 move and 1902 demolition"
+  ],
+  "what_it_does_not_supply": [
+    "overall building dimensions in feet",
+    "exterior finish or colour",
+    "the date the one-story side additions were built"
+  ]
+}

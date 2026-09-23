@@ -1,0 +1,35 @@
+{
+  "id": "baptisthistoryhomepage",
+  "type": "website",
+  "citation": "\"Early Chicago Baptist Churches and Ministers.\" Baptist History Homepage. A verbatim transcription of A. T. Andreas, History of Chicago, Volume 1 (1884), pp. 315-325, from the Google Books scan, scanned and formatted by Jim Duvall.",
+  "date": "accessed 2026-08-11",
+  "describes_date": "1833-1883",
+  "locator": "Section \"The First Baptist Church\", first paragraph - Andreas vol. 1, p. 315; the transcription's own next page marker, [p. 316], falls three paragraphs later. The transcription carries print page markers [p. 316] through [p. 325] and closes with its own source statement.",
+  "url": "https://baptisthistoryhomepage.com/illinois.chicg.bp.chs.mns.html",
+  "archived_url": "https://web.archive.org/web/20240526195448/http://baptisthistoryhomepage.com/illinois.chicg.bp.chs.mns.html",
+  "tier": 4,
+  "rights_status": "public_domain",
+  "rights_note": "The transcribed text is Andreas, History of Chicago, vol. 1 (1884), pp. 315-325 - public domain by age, and independently readable in the volume scans (archive.org historyofchicago01andr / historyofchicago01inandr). The transcription and page layout are Baptist History Homepage's. Nothing is derived from this page as an asset; anything that needs to be would go to the volume scan instead.",
+  "asset_use": "cross_check",
+  "verified": true,
+  "note": "THE TEMPLE BUILDING, VERBATIM: \"In a few weeks the building was erected near the corner of Franklin and South Water streets. It was a two-story frame structure, the upper story for school, the lower for religious purposes, and cost about nine hundred dollars. With the exception of Rev. Jesse Walker's log house at the Point, this was the first house built for religious worship in Chicago. It was designated as the 'Temple Building,' and was used by the Methodists, Presbyterians and Baptists alike until the Presbyterian church was ready for occupancy.\"\n\nIT IS DATED BY THREE ARRIVALS, WHICH IS BETTER THAN A YEAR. Dr John T. Temple \"with his wife and four children, reached Chicago about the 4th of July, 1833\", attended Presbyterian services in Fort Dearborn, and \"started a subscription for a building, heading it with one hundred dollars\". The building went up \"in a few weeks\". Then: \"When Rev. Allen B. Freeman, with his wife, arrived on the 16th of August, he found the church building ready for use.\" The church itself was organised later still - \"The First Baptist Church was organized October 19, 1833, with nineteen members\" - and the fourteen founders present are named. So the structure is standing by mid-August 1833, nearly two years before the scene date, and the shared denominational use ends when \"the Presbyterian church was dedicated January 4. 1834\".\n\nA PRECISION THE DOSSIER SOFTENED IN THE WRONG DIRECTION. The page says \"NEAR the corner of Franklin and South Water streets\". docs/research/04-structures-south.md lines 130 and 220 render this as \"corner of Franklin and South Water\" and \"Franklin & South Water\". The page does not say \"at\" and does not say which of the four corners. Position is inferred, not documented, from this source.\n\nIT ALSO CROSS-CHECKS walker_meeting_house: Jesse Walker's log house at the Point is named here as the ONLY house built for religious worship in Chicago earlier than this one.\n\nWHY TIER 4 AND NOT 3, EVEN THOUGH THIS IS THE CLEANEST TRANSCRIPTION IN THE SET. The tier grades the web page. What makes this one better than its siblings is that it states its source exactly - \"[From Alfred T. Andreas, History of Chicago, Volume 1, 1884, pp. 315-325. Document from Google Books On-line. Scanned and formatted by Jim Duvall.]\" - and keeps the print page numbers inline, so any sentence here can be collated against the volume line for line. That is a checkability advantage, not a tier promotion: it is still a retyped text with no editorial apparatus, and Andreas himself is held separately at andreas_1884_v1. Where a claim taken from here is load-bearing, collate it - this page makes that cheap, which is exactly why it should be done.",
+  "what_it_supplies": [
+    "two storeys, frame construction",
+    "upper storey for school, lower for religious purposes",
+    "cost about nine hundred dollars",
+    "erected NEAR the corner of Franklin and South Water streets",
+    "standing and ready for use by 16 August 1833",
+    "subscription started and headed with $100 by Dr John T. Temple, who reached Chicago about 4 July 1833",
+    "the name \"Temple Building\"",
+    "shared use by Methodists, Presbyterians and Baptists until the Presbyterian church was dedicated 4 January 1834",
+    "the First Baptist Church organised 19 October 1833 with nineteen members, fourteen founders named",
+    "that only Jesse Walker's log house at the Point was built for worship earlier"
+  ],
+  "what_it_does_not_supply": [
+    "which corner of Franklin and South Water",
+    "any dimension in feet",
+    "roof form, fenestration, finish or orientation",
+    "how long the building stood, or its fate",
+    "Grenville T. Sproat's school, which is not on this page"
+  ]
+}

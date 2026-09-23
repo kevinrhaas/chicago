@@ -1,0 +1,122 @@
+{
+  "id": "log_jail",
+  "phase": "log_1833",
+  "name": "Log jail",
+  "aka": [
+    "the first Cook County jail",
+    "the log gaol on the court-house square"
+  ],
+  "archetype": "outbuilding",
+  "asset": "gltf/log_jail__log_1833.glb",
+  "scene": "1835",
+  "target_date": "1835-07-01",
+  "documented_range": {
+    "from": "1833-10-01",
+    "to": "1835-12-31",
+    "confidence": "inferred",
+    "sources": [
+      "andreas_1884_v1"
+    ],
+    "note": "Andreas: 'During the fall of 1833, the citizens felt that something more metropolitan was required than the estray pen', and a log jail was built (docs/research/04-structures-south.md section 7, from Andreas I scan pp. 367 and 1243). A SEASON IS THE WHOLE OF THE DATING. 1833-10-01 is the middle of a northern-Illinois autumn and is a bound rather than a date; the building is standing well before the scene date on any reading of 'fall'. THE END IS A HOUSEKEEPING BOUND, NOT A DEMOLITION DATE - nothing reached says when this jail came down or was replaced, and 1835-12-31 is the ordinary continuity cut at the scene year this dataset uses where a fate is unattested."
+  },
+  "change_note": "The log jail the citizens put up on the north-west corner of the court-house square in the fall of 1833, because the estray pen at the other corner of the same block had until then been the town's only place of confinement. Standing on 1835-07-01. No change of fabric is attested inside the phase.",
+  "placement": {
+    "local_e": 465.51,
+    "local_n": -274.57,
+    "rotation_deg": 0.0,
+    "position_confidence": "inferred",
+    "position_sources": [
+      "andreas_1884_v1",
+      "osm_streets_2026"
+    ],
+    "position_note": "PLACED 2026-08-11. THE CORNER IS DOCUMENTED AND THE COORDINATE IS DERIVED, so the tag follows the weaker half. Andreas puts the log jail on 'the northwest corner of the court-house square'. The public square is the block bounded by Randolph Street on the north, Washington Street on the south, Clark Street on the east and LaSalle Street on the west - the block this project's own ground control identifies as such in data/traces/gcp/wright_1834_gcps.json, where LaSalle and Randolph is labelled 'NW corner of the Public Square block' and Clark and Washington 'SE corner of the Public Square block'. Its four inside corners were computed for this parcel from modern OpenStreetMap intersection centres fetched 2026-08-11, offset 12.2 m into the block on each axis, half of an 80 ft street per Hathaway 1834: NW 447538.25 / 4637130.78, NE 447639.27 / 4637130.25, SW 447541.20 / 4637018.49, SE 447639.80 / 4637018.05, which makes the block about 101 x 112 m. The jail's own north-west corner is set on the square's north-west corner, so the footprint origin - which is the building's south-west corner - sits its own depth south of it. THIS IS A CORNER OF A BLOCK, NOT A LOT, so it is a weaker statement than the corner-lot placements elsewhere in this dataset: nothing says how far into the block the building stood, whether it was set back from either street line, or which way it faced. WORKING UNCERTAINTY ABOUT 20 M from the georeference (data/datum.json: 17.5 m RMS on Wright 1834, 3.7 per cent paper stretch), plus an unquantified setback into the block. Facade bearing 0, due north onto Randolph, CONVENTION RATHER THAN EVIDENCE - a jail at the north-west corner could as reasonably have faced west onto LaSalle or inward onto the square, and nothing attests it. The square itself in 1835 was otherwise an open, unimproved prairie block, fenced or not; no fence, path or improvement of the block is modelled. RECONCILED WITH THE COMMITTED PLAT 2026-08-28 (T-0246), AND THE CLAIM DID NOT MOVE - ONLY THE LINE IT WAS DERIVED AGAINST. The method above found the square's north-west corner by taking modern OpenStreetMap intersection centres, fetched 2026-08-11, and stepping 12.2 m into the block on each axis. That is not this project's own Randolph Street: the committed centreline in data/streets/1835.json, offset by half the committed 80 ft corridor, is what tools/generate_plat_lots.py builds every platted block edge from, and it is the line every derived layer in this scene reads. Measured against it with tools/measure_corridor_intrusion.py, this footprint's north wall stood 3.48 m OUT PAST blk_randolph_lasalle's Randolph frontage line, in the platted roadway, with its centroid inside the corridor - deeper than any of the four Lake Street records T-0196 looked at - and tools/generate_frontage_works.py refused two steps of Randolph's plank walk, 0.0 to 10.4 m along that face, naming this building in the refusal. THE REPAIR IS THIS RECORD'S OWN METHOD RUN AGAINST THIS PROJECT'S OWN LINE: the footprint is translated 4.981 m along the face's inward normal - dE -0.040 m, dN -4.981 m in local ENU, so UTM E 447538.25 N 4637126.21 becomes E 447538.21 N 4637121.23 - which leaves its north wall 1.50 m back from the committed frontage line. THE SQUARE IS NOT SUBDIVIDED, so there is no lot line to stand off: 1.50 m is plat_occupancy.LOT_MARGIN_M, the plat module's own margin off a boundary, and it is the same figure the reconciled South Water and Lake records took off their lot lines (T-0127, T-0198, T-0199). NOTHING ALONG THE STREET MOVED: the along-face position, the block, the corner and the side are untouched, and so is the confidence grade - re-deriving a coordinate from better geometry is not new evidence, and Andreas's 'northwest corner of the court-house square' is what it always was. WHAT THIS DOES NOT REPAIR: the 20 m working uncertainty stated above is unchanged and dwarfs this 4.98 m, so the move is a reconciliation between two of this project's own lines and not a claim to have located the jail better. The facade bearing stays 0 while this face runs at 0.46 degrees, which leaves the front wall between 1.50 and 1.55 m back across its width; that skew is not corrected here, because rotating a record is a second claim and this one is a repair.",
+    "symbolic_location": "North-west corner of the court-house square (the public square bounded by Randolph, Clark, Washington and LaSalle), at the Randolph and LaSalle end; fronting north onto Randolph.",
+    "uncertainty_m": 20,
+    "placement_provisional": false,
+    "vertical_anchor": "terrain",
+    "walk_surface_m": null
+  },
+  "footprint": {
+    "polygon": [
+      [
+        0,
+        0
+      ],
+      [
+        6.096,
+        0
+      ],
+      [
+        6.096,
+        4.572
+      ],
+      [
+        0,
+        4.572
+      ]
+    ],
+    "confidence": "reconstructed",
+    "sources": [],
+    "note": "INVENTED. NO SOURCE REACHED GIVES THIS BUILDING A DIMENSION, a plan, or a number of cells. 6.096 x 4.572 m is 20 x 15 ft, recorded converted with the original figures stated per data/datum.json's units rule. The only constraint the evidence offers is relative and it runs in both directions: the jail was built because something more metropolitan was required than the estray pen, so it is a more substantial thing than a stock pound; and it was itself superseded within a few years, so it was small. A 20 x 15 ft log box is a two-cell lock-up and is the smallest thing that answers both. Nothing else about the shape is a finding: the plain rectangle, the proportion and the scale are all this record's."
+  },
+  "attributes": {
+    "construction": {
+      "value": "log",
+      "confidence": "attested",
+      "sources": [
+        "andreas_1884_v1"
+      ],
+      "note": "The building is named a LOG jail in the only description this project has of it, which makes the material the single best-attested thing about it. THE PLATE NOW SETTLES THE SECOND HALF OF IT: the engraving of the first Cook County jail in the owner's 2026-08-18 brief (data/sources/assets/owner_brief_2026_08_18/README.md, image 1) draws squared timber laid horizontally — 'a low log jail — squared timber, near-flat roof' — which is hewn log in courses with notched corners, exactly what this archetype builds for this value (generators/common/logwork.py). Until 2026-08-21 this note said hewn-versus-round was unattested and the archetype's hewn wall was a convention standing where evidence should be; the plate is that evidence, at tier 5, for the FABRIC and not for any dimension. Whether the walls were single or doubled, and whether they were lined inside, nothing reached says. The plate is a TIER 5 PICTORIAL held here as the brief's written record rather than a committed binary — the images were supplied in-session and T-0075 owns identifying them against the Andreas plate numbering and creating the source record — so it is cited by path, the way this dataset's other brief-driven attributes are (green_tree_tavern chimneys, image 6). The value's own grade is unchanged: 'log' was attested by Andreas before the plate and still is."
+    },
+    "roof_type": {
+      "value": "gable",
+      "confidence": "inferred",
+      "note": "GABLE IS KEPT, AND THE PLATE IS WHY THE PITCH MOVED RATHER THAN THE FORM. The engraving of the first cook county jail in the owner's 2026-08-18 brief (data/sources/assets/owner_brief_2026_08_18/readme.md, image 1) draws a near-flat roof. That is a statement about PITCH — this record's roof_pitch_deg now carries it — and it is not a statement about whether the roof fell one way or two: the brief holds the plate as a written description, and 'near-flat' distinguishes neither. So the form stays what it was reasoned to on 2026-08-11, and the reasoning is unchanged: gable is the near-universal roof form for log construction of this type, period and region, and it is what this project's other log buildings carry. The archetype would default a building this shallow to a shed roof, which is a covering appropriate to a lean-to; a purpose-built county jail is stated as gabled rather than left to that default. Typological derivation, not a measurement — and a single-slope reading of the same plate would be a legitimate rival that nothing this project holds can settle."
+    },
+    "roof_pitch_deg": {
+      "value": 12.0,
+      "confidence": "inferred",
+      "note": "12 DEGREES, THE PLATE'S NEAR-FLAT ROOF INSTEAD OF THIS ARCHETYPE'S DEFAULT. Superseded 2026-08-21. The value was 32.0 — the outbuilding archetype's own gable default, kept deliberately on 2026-08-11 because nothing attested a pitch and a fresh guess would have looked like a finding. The engraving of the first cook county jail in the owner's 2026-08-18 brief (data/sources/assets/owner_brief_2026_08_18/readme.md, image 1) is that evidence, and it is about this particular building: 'a low log jail — squared timber, near-flat roof'. A convention loses to a picture of the thing itself, so the pitch comes down. 12 degrees is the reading of 'near-flat' at this building's scale — 0.49 m of rise over the 2.29 m half-span, a cap on a box rather than a cabin's gable, and the whole building 0.94 m lower to its ridge than it stood yesterday. NOT LOWER THAN THAT, and the floor is the covering: this archetype roofs an outbuilding in boards laid down the slope rather than shingles (generators/archetypes/outbuilding.py _roof_plane), and a lapped board roof weighted or nailed down is the frontier form that goes near-flat where a riven-shake field cannot — the archetype's own note puts shakes at about 18 degrees minimum. WHAT IS INFERRED IS THAT THE PITCH IS LOW, NOT THAT IT IS 12: no plate can be measured to a degree, and a tier-5 pictorial may drive form and never a dimension of the ground."
+    },
+    "wall_height_m": {
+      "value": 2.66,
+      "confidence": "inferred",
+      "note": "No figure is attested. 2.66 m is about 8 ft 9 in to the plate: a man's standing height with a header over the door and a course or two above it, which is what a lock-up needs and no more. It is also, to the centimetre, what this archetype's own size-aware default computes for a 20 x 15 ft footprint, and it is kept deliberately. THE PLATE CORROBORATES THE DIRECTION AND DOES NOT REPLACE THE NUMBER: the engraving of the first Cook County jail in the owner's 2026-08-18 brief (data/sources/assets/owner_brief_2026_08_18/README.md, image 1) draws a low, squat building, which is what a 2.66 m wall under a near-flat roof already is, and moving the figure to match a picture that carries no scale would be inventing a measurement out of an impression. What is inferred is that the height falls in this range, not that it is exactly 2.66 m. The squatness the plate shows is carried by roof_pitch_deg, which is the attribute the plate can actually speak to."
+    },
+    "door": {
+      "value": "man",
+      "confidence": "inferred",
+      "note": "Not attested. `door` in this archetype names what has to get through the opening rather than whether there was one. A jail takes a person through in hand and nothing else - no horse, no wagon - so the man-door class is the reading, and it is the only one whose 1.88 m clear height fits under this wall. Where the door stood, what it was made of, and whether it was barred or grated is not attested and is the archetype's default."
+    },
+    "function": {
+      "value": "jail",
+      "confidence": "attested",
+      "sources": [
+        "andreas_1884_v1"
+      ],
+      "note": "Purpose-built for confinement, and it is the building that ended the practice recorded on the estray_pen record - prisoners held in the stock pound for want of anywhere else. Cook County was organised in 1831 and the county's business was conducted in rented rooms; this is the first purpose-built county structure of any kind and it precedes the court-house on the same block by about two years."
+    }
+  },
+  "residents": [],
+  "citations": [
+    {
+      "source_id": "andreas_1884_v1",
+      "citation": "Andreas, A. T. History of Chicago: From the Earliest Period to the Present Time. Vol. 1. Chicago: A. T. Andreas, 1884.",
+      "url": "https://archive.org/details/historyofchicago01andr",
+      "archived_url": "",
+      "tier": 3,
+      "tier_label": "compiled secondary (Andreas)"
+    },
+    {
+      "source_id": "osm_streets_2026",
+      "citation": "OpenStreetMap contributors. Street centerline intersection nodes for downtown Chicago, retrieved via the Overpass API, 2026-08-09.",
+      "url": "https://www.openstreetmap.org/",
+      "archived_url": "https://overpass-api.de/",
+      "tier": 4,
+      "tier_label": "later scholarship"
+    }
+  ],
+  "research_note": "A DOCUMENTED BUILDING WITH ONE DOCUMENTED ATTRIBUTE. What is attested is that it was a jail, that it was of logs, that it went up in the fall of 1833, and that it stood at the north-west corner of the court-house square. Everything else in this record - every dimension, the roof, the wall height, the door, the bearing - is inference or invention, and the confidence view will show it as such. THE RECORD IS WORTH HAVING ANYWAY, and this is the clearest case in the parcel for the working policy behind it: on 1835-07-01 the public square carried three things, a pound, a jail and (probably) a court-house, and a square rendered empty is a stronger and more misleading claim than a square carrying three honestly-graded conjectural boxes. ARCHETYPE CHOICE: outbuilding rather than log_dwelling, and the difference is not cosmetic. log_dwelling reads a storey count, a loft, a chimney count and a sign, and builds a dwelling's openings; outbuilding builds a plain box with one door sized by what has to get through it, and refuses a storey count outright. A jail is the second of those. The archetype's own family list - stable, shed, barn, smokehouse, privy, crib, woodshed - does not name a jail, and that is a gap in the vocabulary rather than a reason to build the wrong thing. WHAT THE PLATE ADDED, 2026-08-21 (T-0070, the owner asking that the jail 'should be made more accurate' to its engraving): a tier-5 pictorial of this building, written up as image 1 of the 2026-08-18 brief, which the record did not have when it was placed. It reached two attributes and no others. The roof came down from the archetype's 32-degree gable default to 12 degrees, because the plate draws a near-flat roof and a convention loses to a picture of the thing itself; the construction note stopped calling hewn-versus-round unattested, because the plate draws squared timber laid horizontally. It reached NEITHER dimension nor coordinate, and it may not: a tier-5 pictorial drives form, materials and massing as inferred and never a footprint outline or a position. So the footprint is still invented and still says so. WHAT WOULD UPGRADE THIS RECORD, in order of value: any county order or contract for the jail's construction, which is the kind of document that carries a dimension, a cost or a specification for the logs; Andreas vol. 1 at page-image level around scan pp. 367 and 1243, which is where the prose transcribed into this project's dossier sits; and the Cook County Sheriff's own published jail history, cited in the dossier and not yet held as a source record here.",
+  "research_doc": "",
+  "review_required": false
+}

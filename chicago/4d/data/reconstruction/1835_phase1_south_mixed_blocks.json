@@ -1,0 +1,257 @@
+{
+  "id": "phase1_south_mixed_blocks",
+  "district": "south",
+  "density_zone": "B",
+  "description": "First anonymous infill parcel in five platted blocks between Franklin and State, south of Lake and north of Randolph. Alternating open lots remain intentional.",
+  "source_id": "owner_chicago_1835_reconstruction_spec_2026",
+  "principal_functional": 40,
+  "ancillary": 8,
+  "rows": [
+    {
+      "id": "lake_front",
+      "local_n": -151.0,
+      "placements": [
+        [
+          226,
+          "D3"
+        ],
+        [
+          244,
+          "D4"
+        ],
+        [
+          266,
+          "C1"
+        ],
+        [
+          292,
+          "D5"
+        ],
+        [
+          348,
+          "D2"
+        ],
+        [
+          367,
+          "D4"
+        ],
+        [
+          390,
+          "C2"
+        ],
+        [
+          418,
+          "D3"
+        ],
+        [
+          470,
+          "D4"
+        ],
+        [
+          491,
+          "C1"
+        ],
+        [
+          516,
+          "D5"
+        ],
+        [
+          542,
+          "D6"
+        ],
+        [
+          594,
+          "D3",
+          {
+            "abut_west_of": "inf_butcher_market"
+          }
+        ],
+        [
+          616,
+          "D4",
+          {
+            "abut_west_of": "recon_1835_south_d5_016"
+          }
+        ],
+        [
+          641,
+          "C3",
+          {
+            "corner": "east",
+            "clear_m": 1.0
+          }
+        ],
+        [
+          668,
+          "D5",
+          {
+            "abut_west_of": "recon_1835_south_c3_015"
+          }
+        ],
+        [
+          716,
+          "D3"
+        ],
+        [
+          739,
+          "C1"
+        ],
+        [
+          765,
+          "D4"
+        ],
+        [
+          793,
+          "D6"
+        ]
+      ],
+      "frontage": {
+        "block": "blk_lake_clark",
+        "face": "north",
+        "setback_m": 0.8,
+        "why": "T-0077, the owner's ask of 2026-08-18 on the Tremont House street scene: \"there should be more and denser buildings. this is important.\" He sent the plate of this corner — a continuous two-storey storefront row, shoulder to shoulder on shared party lines — beside a screenshot of this same corner in the render, where the Tremont stands alone on open grass. Four of this row's anonymous roofs stood in the Clark-Dearborn block SEVENTEEN TO TWENTY-FOUR METRES behind the Lake Street frontage, each nudged off the line by its own jitter, which is the shape of a distribution and not of a street. They now stand ON the frontage: the line, its bearing and the corner they pack back from are read from the committed block boundary in data/traces/vectors/thompson_lots.json, and this file authors no coordinate for any of them. The 0.80 m setback is not a measurement — it is the line the two frontage buildings ALREADY standing on this face (inf_bakery_lake and inf_butcher_market) use, adopted so the street wall is one wall rather than three. No roof is added, moved out of its block, renamed or re-dimensioned: the parcel still deals 40 principal and 8 ancillary, and every id and band is the one it was.",
+        "runs": "Two, and the break between them is deliberate. The corner run packs west from the block's own Dearborn corner — the two-storey store at the corner, because the corner of Lake and Dearborn is the most valuable frontage on this face and a two-storey store is what the plate puts on it, which is a typology and not a finding — and the second butts the westernmost cottage onto the standing butcher's market. Between them is a 3.6 m gangway, the width the two runs leave rather than a figure anyone chose, and the plate draws exactly such breaks between blocks of its row."
+      }
+    },
+    {
+      "id": "block_interior",
+      "local_n": -194.0,
+      "placements": [
+        [
+          229,
+          "D1"
+        ],
+        [
+          253,
+          "D3"
+        ],
+        [
+          283,
+          "W1"
+        ],
+        [
+          350,
+          "D2"
+        ],
+        [
+          377,
+          "D4"
+        ],
+        [
+          407,
+          "W2"
+        ],
+        [
+          473,
+          "D3"
+        ],
+        [
+          501,
+          "D5"
+        ],
+        [
+          533,
+          "W3"
+        ],
+        [
+          596,
+          "D4"
+        ],
+        [
+          625,
+          "D6"
+        ],
+        [
+          659,
+          "W4"
+        ],
+        [
+          719,
+          "D1"
+        ],
+        [
+          748,
+          "D5"
+        ],
+        [
+          780,
+          "D7"
+        ]
+      ]
+    },
+    {
+      "id": "randolph_approach",
+      "local_n": -231.0,
+      "placements": [
+        [
+          239,
+          "C2"
+        ],
+        [
+          361,
+          "C3"
+        ],
+        [
+          482,
+          "F1"
+        ],
+        [
+          604,
+          "F2"
+        ],
+        [
+          728,
+          "C3"
+        ]
+      ]
+    },
+    {
+      "id": "rear_yards",
+      "local_n": -175.0,
+      "yard_group": "lake_front_rear_yards",
+      "note": "REVISED 2026-08-13 (ROADMAP K7 phase two). These eight ancillary placements were originally spaced on the block PITCH - 314, 438, 560, 687, 810 - which put one of them at the eastern edge of every block, a building's width from the next platted street. Four of the eight reached into the roadway and the other four cleared it by 1.4-2.1 m, which is nothing against this dataset's own 20 m georeference: the four that passed were the three privies and a small shed, and they passed by being small rather than by being placed. Each now stands directly behind the easternmost principal roof of its own block - the same local E as that roof, 24 m behind it - because a rear yard belongs to a lot and a lot belongs to a house. Positions were conjectural before and are conjectural after; clearing the roadway is not standing on a recovered lot.",
+      "placements": [
+        [
+          292,
+          "A3"
+        ],
+        [
+          418,
+          "A4"
+        ],
+        [
+          542,
+          "A3"
+        ],
+        [
+          668,
+          "A5"
+        ],
+        [
+          793,
+          "A3"
+        ]
+      ]
+    },
+    {
+      "id": "deep_yards",
+      "local_n": -215.0,
+      "yard_group": "block_interior_service_yards",
+      "note": "REVISED 2026-08-13 with the rear yards above, by the same rule and for the same reason: each of the three service buildings stands behind the easternmost principal roof of the block_interior row in its own block, 21 m behind it, rather than at the block's edge. The stable and the barn are the two largest ancillary footprints in the parcel and were the two deepest intrusions here.",
+      "placements": [
+        [
+          283,
+          "A1"
+        ],
+        [
+          533,
+          "A2"
+        ],
+        [
+          780,
+          "A4"
+        ]
+      ]
+    }
+  ]
+}

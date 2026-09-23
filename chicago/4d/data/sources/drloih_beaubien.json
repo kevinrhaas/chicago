@@ -1,0 +1,24 @@
+{
+  "id": "drloih_beaubien",
+  "type": "website",
+  "citation": "\"The History of Chicagoan Mark Beaubien, the Hospitality Guru began in 1830.\" Digital Research Library of Illinois History Journal.",
+  "date": "posted June 2018; accessed 2026-09-04",
+  "describes_date": "1826-1881",
+  "url": "https://drloihjournal.blogspot.com/2018/06/the-history-of-chicagoan-mark-beaubien-hospitality-guru.html",
+  "tier": 4,
+  "rights_status": "check_required",
+  "asset_use": "cross_check",
+  "verified": true,
+  "what_it_supplies": [
+    "THE TENANCY OF THE LOG CABIN BESIDE THE SAUGANASH, in one sentence and in order: \"In the late summer of 1832, he rented his original log cabin, adjacent to his 'Sauganash Tavern,' to the newly arrived Philo Carpenter for use as - Chicago's 1st - drugstore. An ardent enemy of alcohol, Carpenter soon moved out. Mark next rented the space to John S. Wright, and in 1833, the cabin became a school under Eliza Chappel's direction.\"",
+    "THE CAPTION THAT IDENTIFIES THE ANNEX: under the engraving this project measures, \"The Sauganash Hotel. The log cabin on the left was Chicago's first drugstore.\" That is what joins the log annex in the plate to the building data/structures/philo_carpenter_log_shop.json holds, which had been drawn as a separate building AND as an attached wing of the hotel until T-0626.",
+    "The hotel's move off the platted street to \"the southeast corner of Market Street (North Wacker Drive) and Lake Street\", with the lots — 3 and 4 in block 31, bought from the government in 1830."
+  ],
+  "what_it_does_not_supply": [
+    "No dimension and no plan, for either the cabin or the frame block.",
+    "No build date for the frame block beyond 1831, and nothing at all about the cabin after 1834 — so it says what the building had BEEN by the scene date and not what it was then.",
+    "No footnote for any of it."
+  ],
+  "note": "SAME AUTHOR AND SAME CAVEAT AS drloih_hotels: dense, useful and UNFOOTNOTED, and that record's own note lists three places where the site disagrees with better-supported sources. Used here to generate leads and to corroborate, never as sole evidence — the tenancy chain it carries is stated on the records as REPORTED BY THIS PAGE and graded inferred, and it is corroborated at its Chappel end by drloih_chappell and at its Carpenter end by Andreas' independent 16 x 20 ft log drug store on Lake Street near the river.",
+  "access_notes": "No Wayback snapshot was sought or found on 2026-09-04, so archived_url is absent rather than fabricated. Unfootnoted blogspot source; treat as leads only."
+}

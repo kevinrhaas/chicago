@@ -1,0 +1,195 @@
+{
+ "id": "hh_jones_benjamin",
+ "name": "The Jones household",
+ "division": "south",
+ "head": "jones_benjamin",
+ "arrival": {
+  "value": "1833-11-07",
+  "confidence": "attested",
+  "sources": [
+   "andreas_1884_v1"
+  ],
+  "note": "Not_later_than precision on the day the trustees appointed him street commissioner. His advertisements in the same month corroborate the presence and not the arrival.",
+  "precision": "not_later_than"
+ },
+ "party_size_on_arrival": {
+  "value": null,
+  "confidence": "reconstructed",
+  "note": "Not attested in anything this project holds."
+ },
+ "origin": {
+  "value": null,
+  "confidence": "reconstructed",
+  "note": "Not attested in anything this project holds."
+ },
+ "reason_for_coming": {
+  "value": null,
+  "confidence": "reconstructed",
+  "note": "Not attested in anything this project holds."
+ },
+ "lives_at": {
+  "value": null,
+  "confidence": "reconstructed",
+  "note": "Not attested in anything this project holds."
+ },
+ "works_at": {
+  "value": "h_jones_store",
+  "confidence": "attested",
+  "sources": [
+   "andreas_1884_v1",
+   "chicago_democrat_1833_11_26"
+  ],
+  "note": "data/structures/h_jones_store.json carries 'Jones, grocer and provision merchant' as its occupants and rests on the same advertisement."
+ },
+ "present_on_scene_date": {
+  "value": "uncertain",
+  "confidence": "inferred",
+  "sources": [
+   "andreas_1884_v1"
+  ],
+  "note": "He resigned a town office for ill health in 1833-34 and nothing reached follows him to 1835. A resignation for ill health is the one biographical fact in the parcel that argues AGAINST assuming continuity, and the value follows it."
+ },
+ "persons": [
+  {
+   "id": "jones_benjamin",
+   "name": "Benjamin Jones",
+   "relationship": "head",
+   "grade": "attested",
+   "ladder_rule": "G1b",
+   "sex": "male",
+   "occupation": {
+    "value": "none_recorded",
+    "confidence": "reconstructed",
+    "later_occupation": {
+     "value": "grocer",
+     "describes_date": 1839,
+     "confidence": "attested",
+     "sources": [
+      "fergus_chicago_directory_1839"
+     ],
+     "note": "NONE RECORDED FOR 1835 — AND A TRADE IS RECORDED FOR 1839. This is a POINTER at `directories.people[].occupation_later` on this same record, derived by `tools/qualify_later_trades.py` and holding nothing that block does not already say. It is not a claim about the scene date: the 1835 occupation above still reads `none_recorded`, its grade has not moved, and no premises has been sought on the strength of it, because a directory of 1839 is evidence about 1839. It is written because the field a reader consults was asserting an absence this file contradicts three lines further down, and \"no trade anywhere\" and \"no trade in the scene window, one printed 1839\" are not the same fact (T-0693)."
+    },
+    "sources": [
+     "chicago_democrat_1833_11_26"
+    ],
+    "note": "NO TRADE IS RECORDED FOR 1835-07-01, AND ONE IS RECORDED FOR ANOTHER YEAR. The trade this field used to carry — `grocer` — is not gone: it stands in `roles[]` with the bound its sources permit, and `withdrawn_from_scene_date` above carries the audit's verdict for withdrawing it. The 1835 field asserts what the sources reach, which here is nothing, because no source cited for the trade describes 1835 (T-0837's write rule, T-0872's measurement, T-0991's repair, made by tools/derive_resident_roles.py).",
+    "withdrawn_from_scene_date": {
+     "value": "grocer",
+     "confidence": "attested",
+     "verdict": "pre_scene_printing",
+     "ticket": "T-0991",
+     "note": "A grocery and provision store, Chicago Democrat, 26 November 1833. The register's later readings of this man print `forwarding_and_commission` (21 January to 16 July 1834), not `grocer`, and neither reaches the scene window."
+    },
+    "derived_from": "roles",
+    "roles_at_scene_date": []
+   },
+   "sources": [
+    "andreas_1884_v1",
+    "chicago_democrat_1833_11_26",
+    "chicago_tribune_1882_04_25_old_settler_deaths",
+    "chicago_voter_lists_1833_1835_irad",
+    "isa_public_domain_land_tract_sales"
+   ],
+   "note": "APPOINTED THE TOWN'S FIRST STREET COMMISSIONER ON 7 NOVEMBER 1833 and resigned before his term expired: Andreas, 'It was during these days that Benjamin Jones was appointed Street Commissioner, but on account of ill-health resigned before his term expired, and was succeeded by O. Morrison and Silas W. Sherman.' His health is the only medical fact about any private resident in this parcel. The Chicago Democrat of 26 November 1833 is the only contemporary Chicago document this project holds; an advertiser in it was paying to be found, which makes it strong evidence of existence and address in November 1833 and weak evidence of survival to 1 July 1835, nineteen months and about 2,400 people later. OLD SETTLERS, 1882 — A DATE OF DEATH, AND NOTHING ABOUT 1835. John Wentworth's roll of old settlers who had died since 1 January 1881, kept for the Calumet Club and printed in the Chicago Tribune of 25 April 1882, carries “Benjamin Jones, Aug. 11, 1881.”. That corroborates a Chicago residence before 1840 and fixes the END of this life, which this record did not carry; it is not an arrival and it places nobody in the town on 1 July 1835. Under the ratified ladder (T-0513) a later recollection corroborates, enriches and dates and cannot lift a rung by itself, so this record's GRADE IS UNCHANGED by it: T-0513 consolidates the identity and T-0515 regrades. Identity by rule OS1 — surname and spelled-out forename agree, one bearer (data/research/old_settlers/crosswalk.json). THE TOWN'S OWN ROLLS, 1833-1835 — CORROBORATION, NOT A GRADE. The early Chicago voter and tax lists held by the Illinois Regional Archives Depository name this person 1 time: Election returns — poll list of 1834, filed 11 August 1834 — “Jones, Benjamin” (poll_1834_060, line 229). These are the town's own contemporary paper rather than a recollection of it, and each appearance says that a man of that name stood on that roll in that year — no more. The reading is twice mediated (Schulz's transcription, then Genealogy Trails' republication) and this project has not seen the IRAD originals. Under the ratified ladder (T-0513) the 1835 poll with a second independent source is attested, the 1835 poll alone or a 1833/1834 list with another source is inferred, and a single appearance with nothing else is a projected resident. This pass WRITES THE EVIDENCE AND MOVES NO GRADE — T-0515 applies the ladder against every source at once. Identity by the crosswalk's own rule: one resident of the surname 'Jones' agrees with the entry's forenames; 1 bearer(s) of the surname were considered. (data/research/civic/voter_crosswalk.json). THE FEDERAL LAND TRACT SALES — A PURCHASE, AND NEVER A RESIDENCE. The Illinois State Archives' Public Domain Land Tract Sales register enters this person 5 times, as “JONES BENJAMIN”, 1833-10-22 to 1836-06-22: 1 lot in the platted town — lot 7 of block 35 in the town the register codes CHIOT (L7BL35CHIOT, as printed) and 4 parcels of the school section — BL121 of the school section (sec 16 T39N R14E), as read; lot 2 of block 117 of the school section (sec 16 T39N R14E); lot 4 of block 23 of the school section (sec 16 T39N R14E); lot 4 of block 80 of the school section (sec 16 T39N R14E), 0.00 acres stated in all, for $7133.00 (ls0254, ls0255, ls0256, ls0257, ls1263). THE REGISTER'S OWN RESIDENCE COLUMN READS UNKNOWN on these rows: a county, a state or nothing, and never a town, which is why a purchase here places nobody. THE SCHOOL-SECTION ROWS ARE GROUND INSIDE THE TOWN, NOT FARMLAND: section 16 of T39N R14E was platted and sold off by lot and by block at the sale of 1833, which is why the register states 0000.00 acres against most of them. Ground inside the town is nearer to this reconstruction than a quarter-section is, and it is still a purchase: the register names a purchaser and never an occupant, and nothing here puts this person on that ground. THE TOWN LOTS ARE THE PLAT ITSELF, AND THEY ARE NOT ACRES: Cook County's register describes them by lot and block in a platted town and gives them no section, no township and no acreage at all, so they add nothing to the acre figure above and $6000.00 to the money. This project does not expand the register's town codes, so which addition a lot stands in is carried as the code and not as a name. It is still a purchase and it still places nobody. A purchase and nothing more. It dates and places a transaction; it proposes no residence, and under the ratified ladder it corroborates rather than mints. Identity by the crosswalk's own rule: JONES BENJAMIN matches Benjamin Jones: the forename names Benjamin Jones of the 6 people of this surname, and the forename agrees in full. (data/research/land_sales/resident_crosswalk.json). This pass WRITES THE EVIDENCE AND MOVES NO GRADE. Under the ratified ladder (T-0513) a second independent source is what lifts a projected resident, and a land entry is a second source about a TRANSACTION rather than about who was living at Chicago on 1 July 1835 — a man may buy a quarter-section he never sees. T-0515 applies the ladder against every source at once; this pass hands it the evidence and not the verdict.",
+   "resident_research": {
+    "programme": "resident-research-2026",
+    "ticket": "T-0510",
+    "outcome": "corroborated",
+    "reviewed_on": "2026-09-05",
+    "asserted_identity": true,
+    "evidence_for": "one resident of the surname 'Jones' agrees with the entry's forenames; 1 bearer(s) of the surname were considered. Surname 'Jones' folds to the same string as the 1844 entry's, and the given name of both begins B. Surname 'Jones' folds to the same string as the 1839 entry's, and the given name of both begins B.",
+    "evidence_against": "The surname 'Jones' is in Fergus's death notices and no entry under it carries the initial 'B' of 'Benjamin Jones'. A surname-only agreement is a refusal, here as everywhere: the list prints eleven Smiths. Refused twice over. No candidate reaches 'Jone' by an exact surname key - every one of them came through the OCR similarity window, so the heading is not certainly 'Jone' at all. And if it were, a heading against Benjamin Jones would still be a surname against a person, which is always a refusal here. Refused twice over. No candidate reaches 'Jone' by an exact surname key - every one of them came through the OCR similarity window, so the heading is not certainly 'Jone' at all. And if it were, a heading against D. E. Jones; Willard Jones; Benjamin Jones; Willard Jones; Willard Jones would still be a surname against a person, which is always a refusal here.",
+    "summary": "Independently corroborated. Benjamin Jones agrees, forename for forename or initial for initial, with a record outside the post-office lists in the town's 1833 tax and 1834/1835 poll lists, the Fergus 1839/1843 and Norris 1844 directories, the old-settler rolls and Fergus's death notices. one resident of the surname 'Jones' agrees with the entry's forenames; 1 bearer(s) of the surname were considered.",
+    "notes": "FERGUS 26-29, AS PRINTED: \"Jones, Benj. (B. J. & Co.), res 109 Randolph, bet Clark and Dearborn [died, Manitowoc, Wis., August 11, 1881, aged 87]\". The 1843 directory prints the name in the firm B. Jones & Co. with a death date and age that put birth about 1794. The surname is one of the town's commonest and the agreement is on the forename initial only, so the reading enriches without settling. Research only. Later-volume readings are recorded here and NOT promoted: T-0513 consolidates and T-0514/T-0515 apply.",
+    "source_ids": [
+     "chicago_democrat_1833_1835",
+     "chicago_tribune_1882_04_25_old_settler_deaths",
+     "chicago_voter_lists_1833_1835_irad",
+     "fergus_chicago_directory_1839",
+     "fergus_historical_series_26_29",
+     "norris_directory_1844"
+    ]
+   },
+   "roles": [
+    {
+     "role": "grocer",
+     "kind": "trade",
+     "as_printed": null,
+     "from": "1833-11",
+     "to": "1833-11",
+     "precision": "month",
+     "dated_by": "source_describes_date",
+     "covers_scene_date": false,
+     "confidence": "attested",
+     "sources": [
+      "chicago_democrat_1833_11_26"
+     ],
+     "claim": null,
+     "note": "A DATED ROLE THAT DOES NOT REACH THE SCENE DATE (T-0991, withdrawn from the 1835 field by tools/derive_resident_roles.py). No source cited for this trade describes 1835, so it is retained here with the bound its evidence permits and the 1835 compatibility view reads `none_recorded` instead. tools/audit_scene_window_trades.py's verdict is `pre_scene_printing`: A grocery and provision store, Chicago Democrat, 26 November 1833. The register's later readings of this man print `forwarding_and_commission` (21 January to 16 July 1834), not `grocer`, and neither reaches the scene window."
+    },
+    {
+     "role": null,
+     "kind": "trade",
+     "as_printed": "grocer",
+     "from": "1839",
+     "to": "1839",
+     "precision": "year",
+     "dated_by": "printing_year",
+     "covers_scene_date": false,
+     "confidence": "attested",
+     "sources": [
+      "fergus_chicago_directory_1839"
+     ],
+     "claim": null,
+     "note": "A TRADE PRINTED AGAINST THIS NAME IN A LATER VOLUME, and this row says which year rather than leaving it to a pointer (T-0693, carried here by tools/derive_resident_roles.py). `role` is null because the directory's wording has not been adjudicated into the closed vocabulary — the printing is what the source gives and the printing is what is kept. T-1254 is where the controlled term is ruled on. It is not a claim about 1835-07-01 and never becomes one: the year is 1839."
+    }
+   ]
+  }
+ ],
+ "touches_removal": false,
+ "review_required": false,
+ "research_note": "THE TOWN'S FIRST STREET COMMISSIONER, WHICH IS A JOB THIS DATASET'S GROUND LAYER SHOULD CARE ABOUT: the ordinances of 7 November 1833 that he was appointed to enforce are the same ones that document timber, stone, brick, boxes and barrels stacked in the streets and hogs running at large. He is the man who was supposed to stop it, and he was ill.",
+ "directories": {
+  "note": "LATER EVIDENCE, BESIDE THE 1835 CLAIMS AND NOT INSIDE THEM. A Chicago directory of 1839, 1843 or 1844 meets somebody of this name and this pass records what it prints. Under the ratified ladder a directory read after 1835 can corroborate that a person attested here was still in Chicago and can print a trade or a street the 1835 record never had; on its own it makes nobody a resident of 1835. Nothing on this person's 1835 record was regraded, moved, dated or given an occupation by this entry. WHAT THIS PASS RULED ONTO THIS HOUSEHOLD, named so the ruling can be found again: each volume below is followed by the printed entries it set against this person and the status the crosswalk ruled them at — a single entry carries what its own `could_carry` declares, and an ambiguous or contested match carries nothing and is shown so that the silence is legible. jones_benjamin, Fergus's Chicago directory of 1839 — f1839_e0807 (a single entry); jones_benjamin, Norris's Chicago directory of 1844 — n1844_e0971 (a single entry); jones_benjamin, the advertising cards in Norris's directory of 1844 — n1844_ad0054 (a single entry).",
+  "sources": [
+   "fergus_chicago_directory_1839",
+   "norris_directory_1844"
+  ],
+  "people": [
+   {
+    "person_id": "jones_benjamin",
+    "occupation_later": {
+     "value": "grocer",
+     "confidence": "attested",
+     "describes_date": 1839,
+     "sources": [
+      "fergus_chicago_directory_1839"
+     ],
+     "note": "Fergus's Chicago directory of 1839 prints this trade against this person, in the entry quoted on the card: 'Jones, Benjamin, grocer, South Water street'. It is evidence about 1839, written here as 1839's and read back onto no 1835 claim. Under the ratified ladder a directory read after 1835 can corroborate that a person attested here was still in Chicago and can print a trade or a street the 1835 record never had; on its own it makes nobody a resident of 1835. Nothing on this person's 1835 record was regraded, moved, dated or given an occupation by this entry. The value is the volume's own line, split by its crosswalk on the entry's punctuation. These volumes set the trade first and its qualifiers after it on the same line, so the split may carry an employer, a market or a corner along with the trade. The printed entry is quoted beside the value for exactly that reason: the split is checkable against it, and neither is read into an 1835 claim."
+    },
+    "address_later": {
+     "value": "South Water street",
+     "confidence": "attested",
+     "describes_date": 1839,
+     "sources": [
+      "fergus_chicago_directory_1839"
+     ],
+     "note": "Fergus's Chicago directory of 1839 prints this address against this person, in the entry quoted on the card: 'Jones, Benjamin, grocer, South Water street'. It is evidence about 1839, written here as 1839's and read back onto no 1835 claim. Under the ratified ladder a directory read after 1835 can corroborate that a person attested here was still in Chicago and can print a trade or a street the 1835 record never had; on its own it makes nobody a resident of 1835. Nothing on this person's 1835 record was regraded, moved, dated or given an occupation by this entry. The value is the volume's own line, split by its crosswalk on the entry's punctuation. These volumes set the trade first and its qualifiers after it on the same line, so the split may carry an employer, a market or a corner along with the trade. The printed entry is quoted beside the value for exactly that reason: the split is checkable against it, and neither is read into an 1835 claim."
+    },
+    "back_projection": {
+     "outcome": "already_better_placed",
+     "clause": "2",
+     "value": null,
+     "describes_date": 1839,
+     "read_back_years": 4,
+     "placement": null,
+     "position_local_enu_m": null,
+     "sources": [
+      "fergus_chicago_directory_1839"
+     ],
+     "note": "NOT READ BACK, BECAUSE SOMETHING BETTER ALREADY STANDS. Fergus's Chicago directory of 1839 prints an address against this name in 1839, and it is left where it is. An 1835 placement already stands: this household works at `h_jones_store`, and clause 2 says an attested 1835 placement always beats a door printed 4 years later. The later address stays on the record as 1839's evidence and moves nothing."
+    }
+   }
+  ]
+ }
+}

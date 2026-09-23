@@ -1,0 +1,842 @@
+{
+  "schema": 1,
+  "issue_id": "chicago_american_1835_06_27",
+  "extracted": "2026-08-28",
+  "extracted_by": "hand, T-0261 — the Chicago American read, June to August 1835",
+  "note": "Volume I, Number 4, and the densest local column of the run: page 3 column 5 carries twenty advertisements in fifty lines. New to the corpus here — a livery partnership dissolving, an auction room on South Water Street west of J. Wright's holding its first sale ON THE SCENE DATE, a vacant corner lot named by lot and block, a wholesale wine and liquor store in Dearborn Street, a tailoring shop, School District No. 2's Meeting House, and Philo Carpenter's drug store. Page 3 column 6 puts the American's own office on the record a second time, as a place subscriptions are taken.",
+  "claims": [
+    {
+      "id": "c001",
+      "kind": "notice",
+      "reading": "transcription_mediated",
+      "quote": "[From the Sangamon Jow Stare Basx oy [ntix0 The following ia w list of th of the Biate Bank of Wlinois, ar Branchea, The Directors ’ hs mined to establish branches and Chieago, but the officers f. slitutions have not been made moant of sto¢k subscribed was lionvaeven thousand Gre hundr We learn that the bank has | the brick building on the squa the court house, which will be | banking hours, and shat the fn into aperation within sree or { Srate Bexx. ‘Thoinas Mather, President,",
+      "normalized": "[From the Sangamon Jou[rnal]. STATE BANK OF ILLINO[IS]. The following is a list of th[e officers] of the State Bank of Illinois a[nd its] Branches. The Directors [have deter]mined to establish branches [at … ] and Chicago, but the officers [of those in]stitutions have not been made [known … the a]mount of stock subscribed was [… mil]lion[ and s]even thousand [five] hundr[ed …] We learn that the bank has [taken] the brick building on the squa[re, near] the court house, which will be [fitted up for] banking hours, and that [it will go] into operation within [th]ree or [four … ] STATE BANK. Thomas Mather, President.",
+      "locator": {
+        "artifact_role": "primary",
+        "issue_page": 1,
+        "column": 5,
+        "lines": [
+          108,
+          108
+        ],
+        "lines_of_claim": [
+          108
+        ],
+        "interleaved": true,
+        "spans": [
+          {
+            "line": 108,
+            "from": 0,
+            "to": 482
+          }
+        ]
+      },
+      "entities": [
+        {
+          "as_printed": "‘Thoinas Mather",
+          "normalized": "Thomas Mather",
+          "role": "mentioned",
+          "occupations": [],
+          "associated_places": []
+        }
+      ],
+      "notes": "NO BANK IN CHICAGO AT THE SCENE DATE, and this is the notice that says so. The State Bank of Illinois has DETERMINED to establish a branch at Chicago and 'the officers of those institutions have not been made known' — so five days before 1835-07-01 the branch exists as a decision and not as a building, an officer or a counter. READ THE DATELINE BEFORE READING THE BUILDING. This paragraph is reprinted 'From the Sangamon Jou[rnal]', and the brick building on the square near the court house that the bank has taken is SPRINGFIELD'S square and SPRINGFIELD'S court house, not Chicago's. Chicago in June 1835 has neither a brick bank nor a court house — the Circuit Court sits here (1835-08-22) and the county court-house is not built until the autumn. The trap is worth writing down because a search of this corpus for 'the square' and 'the court house' finds this sentence first, and a reader in a hurry would put a brick bank on the Public Square. It is also why the letter-list sweep across the American's thirteen issues returned exactly one hit for 'list of' and it was this: a list of bank officers, in another town."
+    },
+    {
+      "id": "c002",
+      "kind": "business",
+      "reading": "transcription_mediated",
+      "quote": "Keel, cer KRAL ‘usthoes jouw indke town ol ‘and quelorswoltable (or dervllinge * fow excellent Parma'itt the cous VED, Oud ox «wo Career So\nVe Irina ith, 1835. stely——a ere Apply 10 < ROCKWELL, Bouth Wate ant",
+      "normalized": "[Real Estate. …] houses [in] the town o[f Chicago] and [lots] suitable for dwellings, [a] few excellent Farm[s] i[n] the coun[ty …] Apply to […] ROCKWELL, [S]outh Wate[r street]",
+      "locator": {
+        "artifact_role": "primary",
+        "issue_page": 3,
+        "column": 4,
+        "lines": [
+          318,
+          321
+        ],
+        "lines_of_claim": [
+          318,
+          321
+        ],
+        "interleaved": true,
+        "spans": [
+          {
+            "line": 318,
+            "from": 0,
+            "to": 139
+          },
+          {
+            "line": 321,
+            "from": 0,
+            "to": 68
+          }
+        ]
+      },
+      "entities": [
+        {
+          "as_printed": "ROCKWELL",
+          "normalized": "Rockwell",
+          "role": "advertiser",
+          "occupations": [],
+          "associated_places": [
+            "South Water Street"
+          ]
+        }
+      ],
+      "business": {
+        "name": "Rockwell, cabinet furniture warehouse",
+        "proprietors": [],
+        "trade": "cabinet furniture",
+        "goods": [],
+        "street": "South Water Street",
+        "placement": {
+          "class": "street_only",
+          "anchor": null,
+          "offset_text": "Apply 10 < ROCKWELL, Bouth Wate ant",
+          "offset_normalized": "Apply to […] ROCKWELL, [S]outh Wate[r street]",
+          "street": "South Water Street"
+        }
+      },
+      "notes": "THE STREET THREE PRINTINGS OF ROCKWELL'S FURNITURE CARD WOULD NOT GIVE UP, and it arrives in a different advertisement: a real-estate notice offering houses, dwelling lots and county farms, directing applicants to 'ROCKWELL, South Water street'. THE IDENTIFICATION IS STATED, NOT ASSUMED: this is a bare surname on a land notice and the furniture warehouse is a bare surname on a trade card, in the same paper in the same weeks, and the gazetteer will compile them into ONE business because that is the name both carry. If a second Rockwell is ever found in this corpus, this claim is the one to come back to. The street is recorded on the business; the stand's own address in the furniture card ('at the stand on [?] street, formerly occupied by Cla[?]') is still cut in every printing and is NOT assumed to be this one."
+    },
+    {
+      "id": "c003",
+      "kind": "building",
+      "reading": "transcription_mediated",
+      "quote": "oS TO-LET—\nA. #. | s, fh Hease on Lake si cap ea\nAlso for sabe, 40 scrca of exce 5 Mr, | eittinted om rhe east half of the n: }\nof wortion 4, in township No, 37 No, 19, want of ube third principal",
+      "normalized": "TO LET — [a …] H[o]use on Lake s[treet …] Also for sa[l]e, 40 a[c]r[e]s of exce[llent land] sit[ua]ted on the east half of the n[orth …] of [s]ection 4, in township No. 37 [north, range] No. 19, w[e]st of the third principal [meridian].",
+      "locator": {
+        "artifact_role": "primary",
+        "issue_page": 3,
+        "column": 5,
+        "lines": [
+          324,
+          327
+        ],
+        "lines_of_claim": [
+          324,
+          325,
+          326,
+          327
+        ],
+        "interleaved": true,
+        "spans": [
+          {
+            "line": 324,
+            "from": 0,
+            "to": 10
+          },
+          {
+            "line": 325,
+            "from": 0,
+            "to": 37
+          },
+          {
+            "line": 326,
+            "from": 0,
+            "to": 78
+          },
+          {
+            "line": 327,
+            "from": 0,
+            "to": 68
+          }
+        ]
+      },
+      "entities": [],
+      "notes": "A HOUSE ON LAKE STREET, TO LET, in the week before the scene date — and a legal land description beside it that this project can actually resolve. Township 37 North, Range 19 [East], third principal meridian is the survey the town itself sits in, so the forty acres are county land within a few miles of the plat. THE RANGE'S DIRECTION IS THE PROBLEM: the transcription reads 'want of ube third principal', which is 'west of the third principal meridian', and Range 19 WEST of the third principal meridian is nowhere near Chicago while Range 19 EAST is Lake Township. The reading is quoted as printed and the discrepancy is recorded rather than corrected — a single-pass OCR 'want'/'east' confusion is likely and unproven, and this project does not silently move forty acres across a state."
+    },
+    {
+      "id": "c004",
+      "kind": "shipping",
+      "reading": "transcription_mediated",
+      "quote": "“THE STEAMDOA\nae c wise ilies apt. Awe Es ave\nPh, | place, on Wednesday the Sth day\n‘The United States in $75 tos b\nwith | perior ectommédations, tend lyn ‘speed by any bost on the Lakes,\nhe will leave’ bere ow. ber rev!\n‘the 18th July. For treigh: or paa\nsre 2 SOHN IL. KI",
+      "normalized": "THE STEAMBOA[T UNITED STATES …] Capt. […] [will le]ave [this] place on Wednesday the [8]th day […] The United States i[s] [3]75 to[n]s b[urthen], with [su]perior [ac]commodations, and […] speed by any bo[a]t on the Lakes. […] [S]he will leave here on her re[turn …] the 18th July. For frei[ght] or pa[ssage apply to] JOHN [H]. KI[NZIE]",
+      "locator": {
+        "artifact_role": "primary",
+        "issue_page": 3,
+        "column": 5,
+        "lines": [
+          330,
+          337
+        ],
+        "lines_of_claim": [
+          330,
+          331,
+          332,
+          333,
+          334,
+          335,
+          336,
+          337
+        ],
+        "interleaved": true,
+        "spans": [
+          {
+            "line": 330,
+            "from": 0,
+            "to": 13
+          },
+          {
+            "line": 331,
+            "from": 0,
+            "to": 31
+          },
+          {
+            "line": 332,
+            "from": 0,
+            "to": 37
+          },
+          {
+            "line": 333,
+            "from": 0,
+            "to": 31
+          },
+          {
+            "line": 334,
+            "from": 0,
+            "to": 71
+          },
+          {
+            "line": 335,
+            "from": 0,
+            "to": 32
+          },
+          {
+            "line": 336,
+            "from": 0,
+            "to": 34
+          },
+          {
+            "line": 337,
+            "from": 0,
+            "to": 17
+          }
+        ]
+      },
+      "entities": [
+        {
+          "as_printed": "SOHN IL. KI",
+          "normalized": "John H. Kinzie",
+          "role": "advertiser",
+          "occupations": [],
+          "associated_places": []
+        }
+      ],
+      "notes": "A 375-TON LAKE STEAMER CALLING AT CHICAGO ON A PUBLISHED SCHEDULE — out on Wednesday the 8th and back on the 18th of July — with John H. Kinzie as the agent freight and passage are applied to. Two things this settles. The Kinzie cards on 1835-06-20 signed across three spellings are the same man and his initials are J. H., which this signature confirms independently. And the river's steamboat traffic in the weeks around the scene date is not occasional: this project can now name three steamers (Thomas Jefferson, Michigan, United States) with three different Chicago agents. THE CAPTAIN'S NAME IS DESTROYED ('apt. Awe Es ave') and is not guessed."
+    },
+    {
+      "id": "c005",
+      "kind": "notice",
+      "reading": "transcription_mediated",
+      "quote": "ea Notice. MEETING of the Eloctora AW sist Nu, 2, will bo held at th\ning Houreon Saturday, July 11h P.M, farthe parpose of filling wi offices of one Trustee, Callector. easioned by their removal iram the\nHANS CROCK 1895.",
+      "normalized": "Notice. [A] MEETING of the Electo[r]s [of School Di]s[trict] N[o]. 2 will be held at th[e … Meet]ing House on Saturday, July 11[t]h [at … o'clock] P.M., for the purpose of filling [the] offices of one Trustee[,] C[o]llector [and … oc]casioned by their removal from the [district]. HANS CROCK[ER] 18[3]5.",
+      "locator": {
+        "artifact_role": "primary",
+        "issue_page": 3,
+        "column": 5,
+        "lines": [
+          350,
+          352
+        ],
+        "lines_of_claim": [
+          350,
+          351,
+          352
+        ],
+        "interleaved": true,
+        "spans": [
+          {
+            "line": 350,
+            "from": 37,
+            "to": 105
+          },
+          {
+            "line": 351,
+            "from": 0,
+            "to": 134
+          },
+          {
+            "line": 352,
+            "from": 0,
+            "to": 16
+          }
+        ]
+      },
+      "entities": [
+        {
+          "as_printed": "HANS CROCK",
+          "normalized": "Hans Crocker",
+          "role": "signatory",
+          "occupations": [],
+          "associated_places": []
+        }
+      ],
+      "notes": "A SECOND SCHOOL DISTRICT, AND A SECOND PUBLIC BUILDING. District No. 2 meets in a 'Meeting House' — the word before it is cut, so this claim does NOT say which meeting house, and in particular does not say it is the Presbyterian Church that District No. 4 meets in on 1835-06-20. Two districts, two buildings, one of them named and one not. WHY THE OFFICES ARE VACANT is the human detail: the trustee and collector have left the district, which is the kind of movement a town growing by hundreds a month produces. The surname is cut after 'CROCK' and completed to Crocker, bracketed."
+    },
+    {
+      "id": "c006",
+      "kind": "notice",
+      "reading": "transcription_mediated",
+      "quote": "ri Notice, Tv Co.pertpgrehip beretofurs tween Lithtop Johnson and J the Livery Business, in this day di Chicngg; June 15, 1835,\n445, LATuROP",
+      "normalized": "Notice. T[he] Co-p[a]rt[ne]rship heretofore [existing be]tween L[a]thro[p] Johnson and J[…] [in] the Livery Business, i[s] this day di[ssolved …] Chicag[o], June 15, 1835. […] LAT[H]ROP [JOHNSON]",
+      "locator": {
+        "artifact_role": "primary",
+        "issue_page": 3,
+        "column": 5,
+        "lines": [
+          353,
+          355
+        ],
+        "lines_of_claim": [
+          353,
+          355
+        ],
+        "interleaved": true,
+        "spans": [
+          {
+            "line": 353,
+            "from": 0,
+            "to": 127
+          },
+          {
+            "line": 355,
+            "from": 0,
+            "to": 12
+          }
+        ]
+      },
+      "entities": [
+        {
+          "as_printed": "Lithtop Johnson",
+          "normalized": "Lathrop Johnson",
+          "role": "signatory",
+          "occupations": [
+            "liveryman"
+          ],
+          "associated_places": []
+        }
+      ],
+      "contradicts": true,
+      "ad_copy_date": {
+        "verbatim": "Chicngg; June 15, 1835,",
+        "iso": "1835-06-15"
+      },
+      "business": {
+        "name": "Lathrop Johnson & Co., livery",
+        "proprietors": [
+          "Lathrop Johnson"
+        ],
+        "trade": "livery",
+        "goods": [],
+        "street": null,
+        "placement": {
+          "class": "none",
+          "anchor": null,
+          "offset_text": null,
+          "offset_normalized": null,
+          "street": null
+        }
+      },
+      "notes": "A LIVERY BUSINESS IN CHICAGO IN JUNE 1835 — the first this corpus has, and the trade implies a stable and a yard the town model has no documented instance of. It is recorded through its DISSOLUTION, so `contradicts` is set and the partnership does not stand at the scene date; what the notice documents positively is that the trade was being carried on here until 1835-06-15. THE SECOND PARTNER IS A SINGLE LETTER, 'J', and is not identified. Note the shape of the evidence: two of the run's four business dissolutions (this and Goss & Cobb) are the only reason those trades are documented at all, because neither firm's own advertisement survives in the American."
+    },
+    {
+      "id": "c007",
+      "kind": "street",
+      "reading": "transcription_mediated",
+      "quote": "TO MERCHANTS AND SPEC a MARK THIS JHE subscriber offers for aale vacant ot onthe comes of L\nstteot, being lot No, 4 ia Block 3 known that chin is the tnoet eligib ver (which is wanted) of a larger yet bere, and fur Stores it ja equall the abers as pol sold previous to th\n— sith he ext Opie smalljots to suit\n‘or terms, apply to §\n‘Chicago, pio 27, 1838. ae",
+      "normalized": "TO MERCHANTS AND SPEC[ULATORS] — MARK THIS. [T]HE subscriber offers for [s]ale [a] vacant [l]ot on the co[rn]e[r] of L[…] st[r]eet, being lot No. 4 i[n] Block 3[…] known that th[i]s is the [m]o[s]t eligib[le …] (which is wanted) of a larger [size than any] yet here, and f[o]r Stores it i[s] equall[y …] the ab[ov]e [if] not sold previous to th[e …] […] [w]ith [th]e [r]e[st] […] small[ ]ots to suit […] [F]or terms, apply to […] Chicago, [June] 27, 183[5].",
+      "locator": {
+        "artifact_role": "primary",
+        "issue_page": 3,
+        "column": 5,
+        "lines": [
+          355,
+          359
+        ],
+        "lines_of_claim": [
+          355,
+          356,
+          357,
+          358,
+          359
+        ],
+        "interleaved": true,
+        "spans": [
+          {
+            "line": 355,
+            "from": 19,
+            "to": 110
+          },
+          {
+            "line": 356,
+            "from": 0,
+            "to": 179
+          },
+          {
+            "line": 357,
+            "from": 0,
+            "to": 36
+          },
+          {
+            "line": 358,
+            "from": 0,
+            "to": 21
+          },
+          {
+            "line": 359,
+            "from": 0,
+            "to": 26
+          }
+        ]
+      },
+      "entities": [],
+      "ad_copy_date": {
+        "verbatim": "‘Chicago, pio 27, 1838. ae",
+        "iso": "1835-06-27"
+      },
+      "notes": "A LOT NAMED BY LOT AND BLOCK, which is the grain this project's plat work actually uses — 'lot No. 4 in Block 3[?]', a vacant corner lot the advertiser says is the most eligible in town and equally good for stores. WHAT CANNOT BE USED YET: the street name is cut to the single letter 'L' (Lake, LaSalle and Lake are all live candidates and the plat has all of them), and the block number is cut after '3'. So the claim records a documented VACANCY on a named corner lot in June 1835 without being able to say which corner — and that is still worth holding, because the next witness that completes either half makes it placeable. Recorded as `street` rather than `building` precisely because the lot is vacant."
+    },
+    {
+      "id": "c008",
+      "kind": "business",
+      "reading": "transcription_mediated",
+      "quote": "NEW BSTABLISHME 35 1 1 29 1416 81 15 41.350639 Avetion & Commissic 1 35 1 2 1 60 1436 20 12 65.294891 HE subscriber has tahen the H Cacwr, Som Weta me 1 35 1 4 1 31 1466 35 9 55.885433 woet of J. Wrights, for the purpose 1 35 1 5 1 29 1481 6 8 24.807617 ‘8 Gyneral Commiation and Anctio 1 35 1 6 1 0 1497 12 10 56.847992 i, | Hid first Public Sale will take place 1 35 1 7 1 13 1504 2 3 49.165134 |\nduy the lat day of July, Persous de ving Merchandizo, Real Estate, To ‘dispoved of, will please furmeh the Avetion Room prior to the lat July June 97, W. MONT",
+      "normalized": "NEW ESTABLISHME[NT]. Auction & Commissi[on]. [T]HE subscriber has ta[k]en the H[ouse …] Cor[ner], Sou[th] W[a]te[r street …] w[e]st of J. Wright's, for the purpose [of carrying on] a G[e]neral Commi[ss]ion and Auctio[n business]. Hi[s] first Public Sale will take place [on … the] la[s]t day of July. Person[s] de[si]ring Merchandize, Real Estate, [&c.] to [be] dispo[s]ed of will please furni[s]h the Auction Room prior to the la[s]t July. June [27]. W. MONT[GOMERY?]",
+      "locator": {
+        "artifact_role": "primary",
+        "issue_page": 3,
+        "column": 5,
+        "lines": [
+          360,
+          361
+        ],
+        "lines_of_claim": [
+          360,
+          361
+        ],
+        "interleaved": true,
+        "spans": [
+          {
+            "line": 360,
+            "from": 0,
+            "to": 398
+          },
+          {
+            "line": 361,
+            "from": 0,
+            "to": 158
+          }
+        ]
+      },
+      "entities": [],
+      "ad_copy_date": {
+        "verbatim": "June 97, W. MONT",
+        "iso": "1835-06-27"
+      },
+      "business": {
+        "name": "a new auction and commission room, South Water Street",
+        "proprietors": [],
+        "trade": "auction and commission",
+        "goods": [],
+        "street": "South Water Street",
+        "placement": {
+          "class": "relative",
+          "anchor": "J. Wright's",
+          "offset_text": "woet of J. Wrights, for the purpose",
+          "offset_normalized": "w[e]st of J. Wright's",
+          "street": "South Water Street"
+        }
+      },
+      "notes": "A SOUTH WATER STREET AUCTION ROOM OPENING IN THE WEEK OF THE SCENE DATE, and the placement is the good kind: a named neighbour, J. Wright's, with the new room WEST of it, on a street corner the same sentence half-names. THE SALE DATE IS AMBIGUOUS AND IS NOT RESOLVED: 'Hid first Public Sale will take place' runs into 'duy the lat day of July' across the line break, which is either 'the 1st day of July' — the scene date itself — or 'the last day of July', and the same phrase repeats in the next sentence with the same ambiguity. Both readings are consistent with the characters and this project does not need it to be the scene date badly enough to decide it. THE PROPRIETOR is cut after 'W. MONT' and no person is minted. The quoted line carries the segmenter's coordinate telemetry inside the advertisement, which is why it stands in the verbatim quote."
+    },
+    {
+      "id": "c009",
+      "kind": "business",
+      "reading": "transcription_mediated",
+      "quote": "NEW FASHION A’ Tailoring Establish HE wabectibor, Inte ol the City. ma | FE gokeerive | Shop in Frank eter street, bogs leave most reepe der his services to the citizens or | aatronnding country, end hopes by » on | 2 busisens and promplness of execu 9 chare ‘of public pat, Chicago, 27s June, 1 Aut EDWARD",
+      "normalized": "NEW FASHIONA[BLE] Tailoring Establish[ment]. [T]HE [su]b[s]c[ri]b[e]r, late o[f] the City […] Shop in Frank[uncertain: eter — the rest of the street name] street, b[e]gs leave most re[s]pe[ctfully to ten]der his services to the citizens o[f Chicago and the] [s]u[r]ro[u]nding country, and hopes by [attention t]o busi[n]es[s] and promp[t]ness of execu[tion to merit a] [s]hare of public pat[ronage]. Chicago, 27[th] June, 1[835]. EDWARD […]",
+      "locator": {
+        "artifact_role": "primary",
+        "issue_page": 3,
+        "column": 5,
+        "lines": [
+          361,
+          361
+        ],
+        "lines_of_claim": [
+          361
+        ],
+        "interleaved": true,
+        "spans": [
+          {
+            "line": 361,
+            "from": 163,
+            "to": 469
+          }
+        ]
+      },
+      "entities": [],
+      "ad_copy_date": {
+        "verbatim": "Chicago, 27s June, 1",
+        "iso": "1835-06-27"
+      },
+      "business": {
+        "name": "a new tailoring establishment, Chicago, June 1835",
+        "proprietors": [],
+        "trade": "tailoring",
+        "goods": [],
+        "street": null,
+        "placement": {
+          "class": "none",
+          "anchor": null,
+          "offset_text": null,
+          "offset_normalized": null,
+          "street": null
+        }
+      },
+      "notes": "A TAILOR SETTING UP IN THE WEEK OF THE SCENE DATE, and the street is nearly there and not there. 'Shop in Frank eter street' has a street name beginning 'Frank' — Franklin Street is on the plat and is the obvious completion — but 'eter' between it and 'street' belongs to something and cannot be accounted for, so the placement is `none` and the fragment stays inside `[uncertain: …]`. A shop placed on Franklin Street on this evidence would be a guess dressed as a citation. The proprietor's forename 'EDWARD' survives and the surname does not, so no person is minted."
+    },
+    {
+      "id": "c010",
+      "kind": "business",
+      "reading": "transcription_mediated",
+      "quote": "NEW WHOLESALE Wine and Liquory Denrdorn Stree PIFVHE subscrrber bas juss receives Tes and Ligroxs, which very reduced prices, EC. BR, Chicugo, June 24, 1835.",
+      "normalized": "NEW WHOLESALE Wine and Liquor[s]. De[a]rborn Stree[t]. THE subscr[i]ber ha[s] jus[t] receive[d …] [Wines] and Liquors, which [he offers at] very reduced prices. E. C. B[…]. Chicago, June 24, 1835.",
+      "locator": {
+        "artifact_role": "primary",
+        "issue_page": 3,
+        "column": 5,
+        "lines": [
+          361,
+          361
+        ],
+        "lines_of_claim": [
+          361
+        ],
+        "interleaved": true,
+        "spans": [
+          {
+            "line": 361,
+            "from": 499,
+            "to": 656
+          }
+        ]
+      },
+      "entities": [],
+      "ad_copy_date": {
+        "verbatim": "Chicugo, June 24, 1835.",
+        "iso": "1835-06-24"
+      },
+      "business": {
+        "name": "a wholesale wine and liquor store, Dearborn Street",
+        "proprietors": [],
+        "trade": "wholesale wine and liquors",
+        "goods": [
+          "Liquors",
+          "Wines"
+        ],
+        "street": "Dearborn Street",
+        "placement": {
+          "class": "street_only",
+          "anchor": null,
+          "offset_text": "Denrdorn Stree",
+          "offset_normalized": "De[a]rborn Stree[t]",
+          "street": "Dearborn Street"
+        }
+      },
+      "notes": "THE SECOND DEARBORN STREET FRONTAGE IN THE RUN, after Tuthill King's clothing store — and unlike his, this one gives the street as its whole address, printed as a heading under the trade. A wholesale wine and liquor house is a warehouse-shaped business and Dearborn runs from the river, which is worth noting for whoever eventually decides what the Dearborn frontage was made of. The proprietor's initials survive as 'E. C. B' and the surname does not."
+    },
+    {
+      "id": "c011",
+      "kind": "business",
+      "reading": "transcription_mediated",
+      "quote": "ad The Cholera El: FIFE mabecrber offers for tale the abora article—'tis thet pop\nN | 94 the, Fire King’s Specific, a most t cariain preventive and care of that waalignant disease, the Aspuyelate: Cholera. —_ FREDERICK THO\n2 Drvggiat, Water wteg\nChicago, Tung 94, 1835,",
+      "normalized": "The Cholera El[ixir]. [T]HE [su]b[s]criber offers for [s]ale the abo[v]e article — 'tis th[e] pop[ular …] the Fire King's Specific, a most […] c[e]r[t]ain preventive and c[u]re of that [m]alignant disease, the As[p]hyxiate[d] Cholera. FREDERICK THO[MAS], Dr[u]ggi[s]t, Water [s]t[r]e[et]. Chicago, [J]un[e] [2]4, 1835.",
+      "locator": {
+        "artifact_role": "primary",
+        "issue_page": 3,
+        "column": 5,
+        "lines": [
+          362,
+          365
+        ],
+        "lines_of_claim": [
+          362,
+          363,
+          364,
+          365
+        ],
+        "interleaved": true,
+        "spans": [
+          {
+            "line": 362,
+            "from": 0,
+            "to": 81
+          },
+          {
+            "line": 363,
+            "from": 0,
+            "to": 140
+          },
+          {
+            "line": 364,
+            "from": 0,
+            "to": 22
+          },
+          {
+            "line": 365,
+            "from": 0,
+            "to": 23
+          }
+        ]
+      },
+      "entities": [],
+      "ad_copy_date": {
+        "verbatim": "Chicago, Tung 94, 1835,",
+        "iso": "1835-06-24"
+      },
+      "business": {
+        "name": "Frederick Thomas, drugs and paints",
+        "proprietors": [],
+        "trade": "drugs, paints, chemicals, perfumery and dye stuffs",
+        "goods": [
+          "Patent Medicines"
+        ],
+        "street": "Water Street",
+        "placement": {
+          "class": "street_only",
+          "anchor": null,
+          "offset_text": "2 Drvggiat, Water wteg",
+          "offset_normalized": "Dr[u]ggi[s]t, Water [s]t[r]e[et]",
+          "street": "Water Street"
+        }
+      },
+      "notes": "CHOLERA IS BEING ADVERTISED AGAINST IN CHICAGO IN JUNE 1835, by name, as a malignant disease a specific is sold for — which is town texture of a kind no building can carry and this corpus should hold. 'Asphyxiated cholera' is the period's own term for the collapsed stage of the disease and is quoted, not modernised. The advertiser is the same Frederick Thomas whose store 1835-06-20 places a little west of the bridge in Water street, and the signature here repeats the street."
+    },
+    {
+      "id": "c012",
+      "kind": "business",
+      "reading": "transcription_mediated",
+      "quote": "Paints, Of) and Var\nWhite Lead Linseed Oil,\nRed do. Sperm Oil\nSpanish Brown = Summer da. t | do White Whale do,\nVeostion Red Neatafoo do, Bprace, Yellow © ‘Tanner do,\nYellow Ochre Fish O81 Rove, Pith Copal Varia Gold and Silver Leaf Transparpos\nSkoge of Witte eed, rena xi ite clean nte Eaate, Chiengn, Juae 37, 1635, POT-38-088. DER Dred apni. Far ale\nHUBBARD & Chicago, June!17, 1835,",
+      "normalized": "Paints, O[il] and Var[nish]: White Lead, Red do., Spanish Brown, do. White, Ve[n]e[t]ian Red, [S]pr[u]ce Yellow, Yellow Ochre, Ro[s]e P[in]k, Gold and Silver Leaf; Linseed Oil, Sperm Oil, Summer d[o]., Whale do., Neat[s]foo[t] do., Tanner['s] do., Fish O[i]l, Copal Varni[sh], Transpar[ent …]; [K]e[g]s of W[h]ite [L]ead […] Chi[ca]g[o], J[u]ne [2]7, 183[5]. POT[-]A[SH …] For [s]ale [by] HUBBARD & [CO.] Chicago, June 17, 1835.",
+      "locator": {
+        "artifact_role": "primary",
+        "issue_page": 3,
+        "column": 5,
+        "lines": [
+          366,
+          373
+        ],
+        "lines_of_claim": [
+          366,
+          367,
+          368,
+          369,
+          370,
+          371,
+          372,
+          373
+        ],
+        "interleaved": true,
+        "spans": [
+          {
+            "line": 366,
+            "from": 0,
+            "to": 19
+          },
+          {
+            "line": 367,
+            "from": 0,
+            "to": 23
+          },
+          {
+            "line": 368,
+            "from": 0,
+            "to": 17
+          },
+          {
+            "line": 369,
+            "from": 0,
+            "to": 49
+          },
+          {
+            "line": 370,
+            "from": 0,
+            "to": 54
+          },
+          {
+            "line": 371,
+            "from": 0,
+            "to": 77
+          },
+          {
+            "line": 372,
+            "from": 0,
+            "to": 107
+          },
+          {
+            "line": 373,
+            "from": 0,
+            "to": 33
+          }
+        ]
+      },
+      "entities": [],
+      "ad_copy_date": {
+        "verbatim": "Chiengn, Juae 37, 1635,",
+        "iso": "1835-06-27"
+      },
+      "business": {
+        "name": "Hubbard & Co., forwarding and commission merchants",
+        "proprietors": [],
+        "trade": "forwarding and commission merchants",
+        "goods": [
+          "Copal Varnish",
+          "Linseed Oil",
+          "Pot-Ash",
+          "Sperm Oil",
+          "White Lead",
+          "Yellow Ochre"
+        ],
+        "street": null,
+        "placement": {
+          "class": "none",
+          "anchor": null,
+          "offset_text": null,
+          "offset_normalized": null,
+          "street": null
+        }
+      },
+      "notes": "THE PAINT SHELF OF A CHICAGO STORE IN JUNE 1835, listed pigment by pigment: white lead, red lead, Spanish brown, Venetian red, spruce yellow, yellow ochre, rose pink, gold and silver leaf, and six oils. That is a directly usable material list — this project paints buildings and has been reasoning about their colour from period practice in general rather than from what was for sale in this town in this month. TWO ADVERTISEMENTS ARE QUOTED TOGETHER and the reason is the segmenter: the pot-ash notice signed by Hubbard & Co. begins in the middle of line 372, inside the paint list's last line, and the paint list's own signature is destroyed there. THE PAINTS ARE NOT HUBBARD'S. This claim first attributed them to Hubbard & Co., on the only signature the passage carries, and reading forward one week refuted it: the identical list runs on 1835-07-04 page 3 column 6 lines 339-341 signed 'PHILO CARPENTER, Chicago, June 27, 1835' — the same copy date as this printing, which is what identifies the two as one advertisement. The goods are therefore recorded on Carpenter's business, and only the pot-ash notice beginning inside line 372 belongs to Hubbard & Co. The wrong reading is left recorded here rather than quietly swapped, because it is the exact shape of mistake this column invites."
+    },
+    {
+      "id": "c013",
+      "kind": "business",
+      "reading": "transcription_mediated",
+      "quote": "A ne aE 2. if Druge, Medicines, Dye Wooils,\nra DYE STUPFS, Ac. B | A asinine nd\nail, an dxsenetsd nssonimeat “—— | Medicines, Dye Biull, &e, Se; among which ore the, %\nAllon “\nIpecac\nLiquorice Ball dy Refined do Rot\nPink Root Cream Terter Salphute du, Senng Raoberh Bpint Tarpention ree ‘Lamp Bie!. Seatmony. lot | Silver Black Lead P } at | | Lemon Syrup | P; German Wine Bitters Perfumery r Essentia} Oily ‘Tooth Powder and Phate ~~ 4 Sargical Ineirumente Trusses 1 Fuetommeinrs Russia Esng Glace | 1 27 1 14 1 1 1890 24 14 0.000000 ro Nit. Sitver American do, 1 27 1 15 1 0 1908 23 7 61.967957 own | Exirsct Heobane fue Pill Map, | 1 27 1 16 1 2 1918 20 11 5.892731 and] Druggieis, merchants and a gthers will find it 1 27 1 17 1 2 1932 20 10 81.053581 and | for their advantage to call before they purchase 1 27 1 18 1 0 1948 22 8 94.359497 atic | elsewhere, PHILO CARPENTER.",
+      "normalized": "Drug[s], Medicines, Dye Woo[d]s, DYE STU[F]FS, &c. […] a[n] [a]s[so]r[t]e[d] [a]ss[ort]me[nt of Drugs and] Medicines, Dye [St]u[ff]s, &c., &c.; among which are the [following]: A[l]o[e]s, Ipecac, Liquorice Ball, d[o]. Refined, do. Ro[o]t, [Red Precipitate], Pink Root, Cream T[a]r[t]er, S[u]lphate d[o]., Senn[a], R[h]u[b]arb, [S]p[i]r[i]t T[u]rpentine, Lamp B[la]ck, Sca[m]mony, Silver, Black Lead, Lemon Syrup, German Wine Bitters, Perfumery, Essential Oil[s], Tooth Powder and P[as]te, S[u]rgical In[st]rument[s], Trusses, […] Russia I[si]ng[la]ss, […] Nit. Si[l]ver, American do., E[x]tr[a]ct He[nb]ane, [Bl]ue Pill Ma[ss]. Druggi[st]s, merchants and o[t]hers will find it for their advantage to call before they purchase elsewhere. PHILO CARPENTER.",
+      "locator": {
+        "artifact_role": "primary",
+        "issue_page": 3,
+        "column": 6,
+        "lines": [
+          393,
+          400
+        ],
+        "lines_of_claim": [
+          393,
+          394,
+          395,
+          396,
+          397,
+          398,
+          400
+        ],
+        "interleaved": true,
+        "spans": [
+          {
+            "line": 393,
+            "from": 0,
+            "to": 43
+          },
+          {
+            "line": 394,
+            "from": 0,
+            "to": 35
+          },
+          {
+            "line": 395,
+            "from": 0,
+            "to": 87
+          },
+          {
+            "line": 396,
+            "from": 0,
+            "to": 7
+          },
+          {
+            "line": 397,
+            "from": 0,
+            "to": 6
+          },
+          {
+            "line": 398,
+            "from": 0,
+            "to": 32
+          },
+          {
+            "line": 400,
+            "from": 0,
+            "to": 663
+          }
+        ]
+      },
+      "entities": [
+        {
+          "as_printed": "PHILO CARPENTER",
+          "normalized": "Philo Carpenter",
+          "role": "proprietor",
+          "occupations": [
+            "druggist"
+          ],
+          "associated_places": []
+        }
+      ],
+      "business": {
+        "name": "Philo Carpenter, drugs and medicines",
+        "proprietors": [
+          "Philo Carpenter"
+        ],
+        "trade": "drugs, medicines, dye woods and dye stuffs",
+        "goods": [
+          "Dye Stuffs",
+          "Dye Woods",
+          "Perfumery",
+          "Surgical Instruments",
+          "Trusses"
+        ],
+        "street": null,
+        "placement": {
+          "class": "none",
+          "anchor": null,
+          "offset_text": null,
+          "offset_normalized": null,
+          "street": null
+        }
+      },
+      "notes": "A SECOND DRUGGIST, FULLY NAMED: Philo Carpenter, selling wholesale to other druggists and merchants. So the town supports two drug stores three weeks before the scene date, one of them supplying the trade. WHAT THIS DOES AND DOES NOT SETTLE ABOUT 'CARPENTER'. 1835-06-13 signs a leather stock 'CABPRNTYS' and 1835-06-20 signs a window-glass consignment 'CARPEN', both cut, and neither was minted as a person. This claim does NOT merge them into Philo Carpenter: a druggist selling harness leather and crown glass is possible in a frontier town and is not documented, and the surname alone is not identity — the same rule that keeps 'Cohen, P.' and 'Cohen, J.' apart. Those two businesses stay under their own names in the gazetteer and this note is where the question is recorded. NO ADDRESS is printed."
+    },
+    {
+      "id": "c014",
+      "kind": "notice",
+      "reading": "transcription_mediated",
+      "quote": "well | rue Ts Tina Comunas,” may be obtained at Te: | the office othe SHCAGO AWERIBAN wha; “ subseriptions will be raceived, rf",
+      "normalized": "[… ] may be obtained at the office o[f] the [C]HICAGO A[M]ERI[C]AN, wh[ere] subscriptions will be received.",
+      "locator": {
+        "artifact_role": "primary",
+        "issue_page": 3,
+        "column": 6,
+        "lines": [
+          392,
+          392
+        ],
+        "lines_of_claim": [
+          392
+        ],
+        "interleaved": true,
+        "spans": [
+          {
+            "line": 392,
+            "from": 0,
+            "to": 127
+          }
+        ]
+      },
+      "entities": [],
+      "notes": "THE AMERICAN'S OWN OFFICE, ON THE RECORD A SECOND TIME AND FOR A SECOND REASON: 1835-06-20 places it two doors from Frederick Thomas's store a little west of the bridge in Water street, and this line has it functioning as a counter — eastern periodicals sold over it and subscriptions taken. The ticket asks for the paper's establishment to be extracted like any other business, and between these two claims it is: a second newspaper office, trading, with a placement, from June 1835."
+    }
+  ]
+}

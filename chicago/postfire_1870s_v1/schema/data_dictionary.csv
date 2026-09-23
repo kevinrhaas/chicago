@@ -1,0 +1,146 @@
+table,column,type,nullable,description
+data/annual_stock_estimates.csv,estimate_id,text,yes,"See methodology; estimate id. Blank means not established, never zero."
+data/annual_stock_estimates.csv,year_start,text,yes,"See methodology; year start. Blank means not established, never zero."
+data/annual_stock_estimates.csv,year_end,text,yes,"See methodology; year end. Blank means not established, never zero."
+data/annual_stock_estimates.csv,estimate_date_precision,text,yes,"See methodology; estimate date precision. Blank means not established, never zero."
+data/annual_stock_estimates.csv,geography,text,yes,"See methodology; geography. Blank means not established, never zero."
+data/annual_stock_estimates.csv,metric,text,yes,"See methodology; metric. Blank means not established, never zero."
+data/annual_stock_estimates.csv,value,text,yes,Reported central or exact aggregate value.
+data/annual_stock_estimates.csv,value_min,text,yes,Explicit or interpreted lower bound when the source is approximate.
+data/annual_stock_estimates.csv,value_max,text,yes,Explicit or interpreted upper bound when the source is approximate.
+data/annual_stock_estimates.csv,unit,text,yes,Unit exactly qualifying an aggregate metric.
+data/annual_stock_estimates.csv,source_key,text,yes,Foreign key to sources.csv.
+data/annual_stock_estimates.csv,source_locator,text,yes,"See methodology; source locator. Blank means not established, never zero."
+data/annual_stock_estimates.csv,interpretation,text,yes,"See methodology; interpretation. Blank means not established, never zero."
+data/annual_stock_estimates.csv,confidence,text,yes,"Record-level assessment: high, medium, or low."
+data/annual_stock_estimates.csv,needs_review,text,yes,"Boolean string marking unresolved chronology, identity, location, or source conflict."
+data/assertions.csv,assertion_id,text,yes,"See methodology; assertion id. Blank means not established, never zero."
+data/assertions.csv,building_id,text,yes,Stable package identifier for a normalized building or project record.
+data/assertions.csv,field_name,text,yes,"See methodology; field name. Blank means not established, never zero."
+data/assertions.csv,asserted_value,text,yes,"See methodology; asserted value. Blank means not established, never zero."
+data/assertions.csv,source_keys,text,yes,Semicolon-separated supporting source keys for a field assertion.
+data/assertions.csv,confidence,text,yes,"Record-level assessment: high, medium, or low."
+data/assertions.csv,needs_review,text,yes,"Boolean string marking unresolved chronology, identity, location, or source conflict."
+data/assertions.csv,research_note,text,yes,"See methodology; research note. Blank means not established, never zero."
+data/building_events.csv,building_event_id,text,yes,"See methodology; building event id. Blank means not established, never zero."
+data/building_events.csv,building_id,text,yes,Stable package identifier for a normalized building or project record.
+data/building_events.csv,event_type,text,yes,"See methodology; event type. Blank means not established, never zero."
+data/building_events.csv,event_date,text,yes,Historical date/range retained as text.
+data/building_events.csv,date_precision,text,yes,Precision/evidence qualifier for an event date.
+data/building_events.csv,cause,text,yes,"See methodology; cause. Blank means not established, never zero."
+data/building_events.csv,description,text,yes,"See methodology; description. Blank means not established, never zero."
+data/building_names.csv,building_name_id,text,yes,"See methodology; building name id. Blank means not established, never zero."
+data/building_names.csv,building_id,text,yes,Stable package identifier for a normalized building or project record.
+data/building_names.csv,name,text,yes,"See methodology; name. Blank means not established, never zero."
+data/building_names.csv,name_type,text,yes,"See methodology; name type. Blank means not established, never zero."
+data/building_names.csv,sequence,text,yes,"See methodology; sequence. Blank means not established, never zero."
+data/building_relationships.csv,relationship_id,text,yes,"See methodology; relationship id. Blank means not established, never zero."
+data/building_relationships.csv,from_building_id,text,yes,"See methodology; from building id. Blank means not established, never zero."
+data/building_relationships.csv,to_building_id,text,yes,"See methodology; to building id. Blank means not established, never zero."
+data/building_relationships.csv,to_building_name,text,yes,"See methodology; to building name. Blank means not established, never zero."
+data/building_relationships.csv,relationship_type,text,yes,"See methodology; relationship type. Blank means not established, never zero."
+data/building_relationships.csv,resolution_status,text,yes,"See methodology; resolution status. Blank means not established, never zero."
+data/building_relationships.csv,notes,text,yes,"Research synthesis, conflicts, exclusions, and interpretation."
+data/building_sources.csv,building_source_id,text,yes,"See methodology; building source id. Blank means not established, never zero."
+data/building_sources.csv,building_id,text,yes,Stable package identifier for a normalized building or project record.
+data/building_sources.csv,source_key,text,yes,Foreign key to sources.csv.
+data/building_sources.csv,relationship,text,yes,"See methodology; relationship. Blank means not established, never zero."
+data/buildings.csv,building_id,text,yes,Stable package identifier for a normalized building or project record.
+data/buildings.csv,research_record_id,text,yes,Identifier assigned in the independent annual research tranche.
+data/buildings.csv,research_year,text,yes,Calendar-year tranche in which the record was researched; not necessarily completion year.
+data/buildings.csv,canonical_name,text,yes,"Preferred historical or current name, with phase distinctions where material."
+data/buildings.csv,year_started,text,yes,Documented or bounded construction-start date retained as text.
+data/buildings.csv,year_completed,text,yes,Documented or bounded completion date retained as text.
+data/buildings.csv,completion_precision,text,yes,Evidence/precision qualifier for construction chronology.
+data/buildings.csv,year_opened,text,yes,Documented opening or first occupancy date; never silently substituted for completion.
+data/buildings.csv,year_demolished,text,yes,Documented or bounded loss/demolition date retained as text.
+data/buildings.csv,demolition_precision,text,yes,Evidence/precision qualifier for loss chronology.
+data/buildings.csv,demolition_cause,text,yes,"Documented reason for loss, replacement, relocation, or destruction."
+data/buildings.csv,status,text,yes,Current or last-known physical status of this building/phase.
+data/buildings.csv,address_historical,text,yes,Contemporary street/site description; street numbering may predate renumbering.
+data/buildings.csv,address_modern,text,yes,Modern address or site equivalence when independently resolved.
+data/buildings.csv,latitude,text,yes,WGS84 latitude for a resolved site or landmark polygon centroid.
+data/buildings.csv,longitude,text,yes,WGS84 longitude for a resolved site or landmark polygon centroid.
+data/buildings.csv,building_type,text,yes,Broad physical or functional type.
+data/buildings.csv,original_use,text,yes,Documented use at completion/opening.
+data/buildings.csv,architect_or_builder,text,yes,"Documented designer, engineer, contractor, or builder; roles preserved in text."
+data/buildings.csv,owner_or_developer,text,yes,"Documented commissioning owner, institution, company, or developer."
+data/buildings.csv,structural_system,text,yes,Documented primary material/system; blank means not established.
+data/buildings.csv,stories,text,yes,Reported number of stories; retained as text where sources conflict or qualify.
+data/buildings.csv,height_ft,text,yes,"Reported height in feet; blank is unknown, never zero."
+data/buildings.csv,construction_or_event_type,text,yes,"Whether the annual evidence concerns new work, rebuild, addition, conversion, start, completion, or another phase."
+data/buildings.csv,predecessor_or_rebuild_of,text,yes,Name-level predecessor/rebuild statement pending or supporting cross-period entity resolution.
+data/buildings.csv,postfire_code_context,text,yes,"Source-specific observation about fire limits, construction rules, or safety context."
+data/buildings.csv,notes,text,yes,"Research synthesis, conflicts, exclusions, and interpretation."
+data/buildings.csv,confidence,text,yes,"Record-level assessment: high, medium, or low."
+data/buildings.csv,needs_review,text,yes,"Boolean string marking unresolved chronology, identity, location, or source conflict."
+data/media.csv,media_id,text,yes,"See methodology; media id. Blank means not established, never zero."
+data/media.csv,building_id,text,yes,Stable package identifier for a normalized building or project record.
+data/media.csv,media_type,text,yes,"See methodology; media type. Blank means not established, never zero."
+data/media.csv,title,text,yes,"See methodology; title. Blank means not established, never zero."
+data/media.csv,depicted_year,text,yes,"See methodology; depicted year. Blank means not established, never zero."
+data/media.csv,source_url,text,yes,"See methodology; source url. Blank means not established, never zero."
+data/media.csv,local_path,text,yes,Package-relative path to a local derivative.
+data/media.csv,rights_statement,text,yes,Reuse/copyright status recorded for the local or referenced media.
+data/media.csv,credit_line,text,yes,"See methodology; credit line. Blank means not established, never zero."
+data/media.csv,notes,text,yes,"Research synthesis, conflicts, exclusions, and interpretation."
+data/potential_cross_year_matches.csv,match_group_id,text,yes,"See methodology; match group id. Blank means not established, never zero."
+data/potential_cross_year_matches.csv,normalized_name,text,yes,"See methodology; normalized name. Blank means not established, never zero."
+data/potential_cross_year_matches.csv,building_ids,text,yes,"See methodology; building ids. Blank means not established, never zero."
+data/potential_cross_year_matches.csv,research_years,text,yes,"See methodology; research years. Blank means not established, never zero."
+data/potential_cross_year_matches.csv,canonical_names,text,yes,"See methodology; canonical names. Blank means not established, never zero."
+data/potential_cross_year_matches.csv,resolution_status,text,yes,"See methodology; resolution status. Blank means not established, never zero."
+data/potential_cross_year_matches.csv,notes,text,yes,"Research synthesis, conflicts, exclusions, and interpretation."
+data/sources.csv,source_key,text,yes,Foreign key to sources.csv.
+data/sources.csv,title,text,yes,"See methodology; title. Blank means not established, never zero."
+data/sources.csv,author,text,yes,"See methodology; author. Blank means not established, never zero."
+data/sources.csv,publisher,text,yes,"See methodology; publisher. Blank means not established, never zero."
+data/sources.csv,publication_date,text,yes,"See methodology; publication date. Blank means not established, never zero."
+data/sources.csv,url,text,yes,"See methodology; url. Blank means not established, never zero."
+data/sources.csv,source_type,text,yes,"See methodology; source type. Blank means not established, never zero."
+data/sources.csv,reliability_tier,text,yes,"See methodology; reliability tier. Blank means not established, never zero."
+data/sources.csv,locator,text,yes,"See methodology; locator. Blank means not established, never zero."
+data/sources.csv,accessed_at,text,yes,"See methodology; accessed at. Blank means not established, never zero."
+data/sources.csv,rights_notes,text,yes,"See methodology; rights notes. Blank means not established, never zero."
+data/sources.csv,notes,text,yes,"Research synthesis, conflicts, exclusions, and interpretation."
+maps/map_references.csv,map_id,text,yes,"See methodology; map id. Blank means not established, never zero."
+maps/map_references.csv,reference_year,text,yes,"Year represented by the historical map, not digitization/publication metadata year."
+maps/map_references.csv,map_date,text,yes,"See methodology; map date. Blank means not established, never zero."
+maps/map_references.csv,date_precision,text,yes,Precision/evidence qualifier for an event date.
+maps/map_references.csv,title,text,yes,"See methodology; title. Blank means not established, never zero."
+maps/map_references.csv,creator,text,yes,"See methodology; creator. Blank means not established, never zero."
+maps/map_references.csv,publisher,text,yes,"See methodology; publisher. Blank means not established, never zero."
+maps/map_references.csv,map_type,text,yes,"See methodology; map type. Blank means not established, never zero."
+maps/map_references.csv,coverage,text,yes,"See methodology; coverage. Blank means not established, never zero."
+maps/map_references.csv,shows_building_footprints,text,yes,"See methodology; shows building footprints. Blank means not established, never zero."
+maps/map_references.csv,georeference_status,text,yes,Whether the image has been spatially calibrated for GIS use.
+maps/map_references.csv,source_url,text,yes,"See methodology; source url. Blank means not established, never zero."
+maps/map_references.csv,local_image_path,text,yes,"See methodology; local image path. Blank means not established, never zero."
+maps/map_references.csv,width_px,text,yes,"See methodology; width px. Blank means not established, never zero."
+maps/map_references.csv,height_px,text,yes,"See methodology; height px. Blank means not established, never zero."
+maps/map_references.csv,rights_statement,text,yes,Reuse/copyright status recorded for the local or referenced media.
+maps/map_references.csv,credit_line,text,yes,"See methodology; credit line. Blank means not established, never zero."
+maps/map_references.csv,reliability,text,yes,"See methodology; reliability. Blank means not established, never zero."
+maps/map_references.csv,notes,text,yes,"Research synthesis, conflicts, exclusions, and interpretation."
+maps/city_and_land_events.csv,event_id,text,yes,"See methodology; event id. Blank means not established, never zero."
+maps/city_and_land_events.csv,effective_start,text,yes,"See methodology; effective start. Blank means not established, never zero."
+maps/city_and_land_events.csv,effective_end,text,yes,"See methodology; effective end. Blank means not established, never zero."
+maps/city_and_land_events.csv,event_type,text,yes,"See methodology; event type. Blank means not established, never zero."
+maps/city_and_land_events.csv,feature_or_name,text,yes,"See methodology; feature or name. Blank means not established, never zero."
+maps/city_and_land_events.csv,description,text,yes,"See methodology; description. Blank means not established, never zero."
+maps/city_and_land_events.csv,spatial_status,text,yes,"See methodology; spatial status. Blank means not established, never zero."
+maps/city_and_land_events.csv,source_url,text,yes,"See methodology; source url. Blank means not established, never zero."
+maps/city_and_land_events.csv,confidence,text,yes,"Record-level assessment: high, medium, or low."
+maps/city_and_land_events.csv,needs_review,text,yes,"Boolean string marking unresolved chronology, identity, location, or source conflict."
+maps/city_and_land_events.csv,modeling_instruction,text,yes,"See methodology; modeling instruction. Blank means not established, never zero."
+maps/annual_city_model.csv,model_year,text,yes,"See methodology; model year. Blank means not established, never zero."
+maps/annual_city_model.csv,map_ids,text,yes,"See methodology; map ids. Blank means not established, never zero."
+maps/annual_city_model.csv,city_extent_state,text,yes,"See methodology; city extent state. Blank means not established, never zero."
+maps/annual_city_model.csv,shoreline_and_water_state,text,yes,"See methodology; shoreline and water state. Blank means not established, never zero."
+maps/annual_city_model.csv,transportation_state,text,yes,"See methodology; transportation state. Blank means not established, never zero."
+maps/annual_city_model.csv,fire_or_disaster_layer,text,yes,"See methodology; fire or disaster layer. Blank means not established, never zero."
+maps/annual_city_model.csv,built_form_interpretation,text,yes,"See methodology; built form interpretation. Blank means not established, never zero."
+maps/annual_city_model.csv,geometry_status,text,yes,"See methodology; geometry status. Blank means not established, never zero."
+maps/annual_city_model.csv,modeling_instruction,text,yes,"See methodology; modeling instruction. Blank means not established, never zero."
+maps/annual_city_model.csv,confidence,text,yes,"Record-level assessment: high, medium, or low."
+maps/annual_city_model.csv,needs_review,text,yes,"Boolean string marking unresolved chronology, identity, location, or source conflict."

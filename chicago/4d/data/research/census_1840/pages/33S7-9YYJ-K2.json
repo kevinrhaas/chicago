@@ -1,0 +1,634 @@
+{
+ "schema": 1,
+ "familysearch_id": "33S7-9YYJ-K2",
+ "image": "chicago/reference/census1840/33S7-9YYJ-K2.jpg",
+ "printed_page": null,
+ "printed_page_note": "no printed page number is legible on this exposure - a continuation sheet carries its number in the corner the binding takes. The sheet is nevertheless placed: T-0656 paired it to printed page 230 on both keys and this pass tests that pairing line by line.",
+ "sheet_side": "right",
+ "division": null,
+ "division_note": "the printed heading reads '... by the Marshal of the [___] District (or Territory) of Illinois'; the district name is written in and is not read by this pass. Recorded unread rather than inferred from the sheets around it.",
+ "state": "Illinois",
+ "county": "Cook",
+ "reading": "scan_verified",
+ "ticket": "T-0742 (piece 1 of the split of T-0657); the ask is T-0528 and before it T-0495",
+ "read_pass": "The row index committed at 31 lines from the sequence of the TOTAL column's own groups, corroborated by the fifteen lines the written industry columns anchor independently; then the TOTAL column read line by line at magnification against a glyph key taken off this leaf's own footing and its own unambiguous industry entries; then the industry columns read. 26 of the 31 lines carry a committed figure and five are recorded unread.",
+ "lines_ruled_with_an_entry": 31,
+ "lines_note": "31, and it is the figure T-0656 counted two ways off a magnified strip and off tools/census_total_column.py. This pass reaches it a third way and the argument is in line_index.",
+ "line_index": {
+  "committed": "line n is the n-th group of the TOTAL column, for n = 1 to 29; the 30th group stands over lines 30 and 31.",
+  "why_not_a_uniform_grid": "A uniform 31-line grid fitted between the leaf's two horizontal rules (y 608 and y 2892, pitch 73.7 px) assigns all 30 groups to distinct lines and leaves line 4 empty - but its residuals run +29 px at the head of the leaf to -34 px in the middle and back to +32 px at the foot, which is a warped leaf and not a row structure. The empty line 4 is that warp, not a blank line: the gaps between consecutive group centres are 44.5 to 90.5 px against a mean of 75.1, so nowhere on this column does the hand skip a line. The sequence is therefore the index and the fitted grid is refused.",
+  "independent_check": "The leaf's written industry columns place 15 entries, and all fifteen fall within 9.5 px of the centre of the group their own y selects, against a line pitch of 75 px. The six components the pass refuses as printed rule or smear sit 18 to 49 px off, which is how they were told apart from ink. Those 15 lines are anchored without reference to the TOTAL column's grouping at all.",
+  "group_centre_gaps_px": [
+   64.5,
+   90.5,
+   77.0,
+   76.0,
+   74.0,
+   77.5,
+   80.5,
+   70.0,
+   88.0,
+   65.0,
+   82.0,
+   82.0,
+   66.0,
+   84.5,
+   77.5,
+   70.0,
+   74.0,
+   83.0,
+   73.0,
+   78.5,
+   73.0,
+   75.5,
+   78.5,
+   78.5,
+   68.5,
+   76.5,
+   82.0,
+   44.5,
+   67.0
+  ]
+ },
+ "form_note": "The right (continuation) sheet of the 1840 population schedule: twelve SLAVES columns, TOTAL - number of persons in each family, seven NUMBER OF PERSONS IN EACH FAMILY EMPLOYED IN columns, PENSIONERS FOR REVOLUTIONARY OR MILITARY SERVICES, ten DEAF AND DUMB, BLIND, AND INSANE columns and seven SCHOOLS, &c. columns. On this leaf only TOTAL and three of the seven industry columns are written in; the slaves, pensioners, deaf/dumb/blind/insane and schools blocks carry no ink and no figure at the foot, and this pass reads them as not written rather than as zeros.",
+ "glyph_key": {
+  "what": "the forms this reading leans on, every one of them taken off this leaf and not off another sheet's hand.",
+  "1": "a single slant with no bowl. Ten of this leaf's fifteen industry entries are this form and nothing else, and the TOTAL footing opens and closes with it.",
+  "2": "a cursive 2 - a top curl running down into a flat base. It stands alone in commerce at line 26 and in manufactures at line 28, where nothing else can be meant.",
+  "5": "a bowl under a horizontal top bar. It is the middle glyph of the TOTAL footing, which reads 1-5-1.",
+  "12": "a slant then the cursive 2, the second glyph set higher and to the right. Written that way in manufactures at line 24.",
+  "the_two_stroke_figure": "two parallel slants. This deposit has met it on 5V and 6H and has recorded both times that it is the leaf's 4 and is within reach of 11. Every cell read from it here is committed low.",
+  "the_closed_loop": "a closed elongated loop with an ascender. Read 6 here, and the reading is committed low: this hand's 3 is two stacked bowls (line 20) but at body scale a 3 whose upper bowl closes is the same outline."
+ },
+ "method": "tools/read_census_continuation.py for the column geometry, the ink mask and the glyph components; the digits read by a human off magnified, slant-corrected crops of those component boxes. No digit is read by a tool.",
+ "method_calibration": {
+  "what": "before this leaf was read, the same crop-and-read method was run blind against eight figures of 33S7-9YYJ-6H, whose TOTAL column is already committed in this directory.",
+  "result": "seven of the eight reproduced the committed figure, including both of its two-stroke 4s, its 1, its 15 and three of its 5s. The eighth (6H line 12, committed 5 high) read as a single stroke on the crop this pass took and is not reconciled here.",
+  "why_it_is_recorded": "a reading method that has never been tested against a known answer is an opinion. This one has been, once, and 7/8 is what it scored."
+ },
+ "footer_as_read": {
+  "total": 151,
+  "total_glyphs_as_read": "1 5 1 - a slant, a bowl under a horizontal top bar, a slant standing against the cell's right rule",
+  "total_confidence": "documented",
+  "total_note": "read at 8x. This is the figure T-0656 read off the same cell and it is unchanged.",
+  "commerce": 3,
+  "manufactures_and_trades": 24,
+  "learned_professions_and_engineers": 1,
+  "mining": null,
+  "agriculture": null,
+  "navigation_ocean": null,
+  "navigation_canals_lakes_rivers": null,
+  "footer_blank_columns_note": "mining, agriculture and both navigation columns carry no figure at the foot, and none of them carries ink in the body either."
+ },
+ "closure": {
+  "lines_committed": 26,
+  "lines_unread": 5,
+  "committed_sum": 115,
+  "printed_footing": 151,
+  "residual_note": "The 26 committed lines sum to 115 against a printed footing of 151, leaving 36 for the five unread lines - lines 2, 24, 29, 30 and 31. That is a mean of 7.2 a line where the committed lines average 4.4, which is consistent with lines 2 and 24 both being two-figure numbers, as their glyphs say they are. Nothing here is adjusted to make the footing come out: the five unread lines stay unread.",
+  "industry_closure": "The manufactures column's twelve committed entries sum to 24 against its printed footing of 24 - it closes exactly. Commerce reads 1 + 2 = 3 against a printed 3 and closes. The learned professions read 1 against a printed 1 and closes. All three written industry columns close on the enumerator's own arithmetic, which is what says the row index and the cell reading are sound."
+ },
+ "pairing_test": {
+  "pair_under_test": "33S7-9YYJ-NY, printed page 230, paired by T-0656 on both keys",
+  "how": "NY's committed per-line free-person counts against this pass's TOTAL column, line for line, and at four neighbouring offsets. The two readings were made independently - NY's in PR #523, this one here - and neither was adjusted toward the other.",
+  "row_offset_test": {
+   "-2": "4 of 25",
+   "-1": "1 of 25",
+   "0": "20 of 26",
+   "+1": "2 of 26",
+   "+2": "4 of 26"
+  },
+  "result": "20 of the 26 lines this pass commits carry the same figure as NY's own line at offset 0, with no insertion or deletion anywhere in the sequence. The best neighbouring offset scores 4. A wrong pairing does not look like this and neither does a drifted one.",
+  "sums": "over those same 26 lines this reading totals 115 and NY totals 114: the six disagreements net to one person.",
+  "the_six_disagreements": [
+   {
+    "line": 1,
+    "here": 6,
+    "NY": 3,
+    "why": "the closed loop, committed low for exactly this doubt"
+   },
+   {
+    "line": 4,
+    "here": 5,
+    "NY": 8,
+    "why": "a bowl under a broken bar read 5; an 8 whose lower bowl carries the bar has the same outline at this scale"
+   },
+   {
+    "line": 7,
+    "here": 6,
+    "NY": 3,
+    "why": "the closed loop again"
+   },
+   {
+    "line": 11,
+    "here": 4,
+    "NY": 6,
+    "why": "the two-stroke figure, committed low"
+   },
+   {
+    "line": 13,
+    "here": 5,
+    "NY": 3,
+    "why": "a bowl under a broken bar"
+   },
+   {
+    "line": 14,
+    "here": 4,
+    "NY": 6,
+    "why": "the two-stroke figure, committed low"
+   }
+  ],
+  "the_disagreements_are_not_random": "Every one of the six falls on a cell this pass had already marked low or medium before the comparison was made, and five of the six are one of the two forms the glyph key names as unresolved. Not one of them is a high-confidence cell. That is the shape of a reading whose own confidences are honest.",
+  "what_it_settles": "T-0656 paired this sheet to printed 230 on the two keys and on a sequence screen taken off an UNCOMMITTED strip reading, and said so plainly. That screen is now replaced by a committed reading and the pairing survives it. The pairing is not upgraded by this pass - it was already carried by both keys - but the third witness it rested on is evidence now instead of a strip.",
+  "what_it_does_not_settle": "nothing here attaches a household figure to a name. The pairing says which left sheet this leaf continues; T-0505 and T-0514 are where an 1840 household reaches a person."
+ },
+ "records": [
+  {
+   "line": 1,
+   "total_group": 1,
+   "total_group_box": [
+    1609,
+    651,
+    1662,
+    697
+   ],
+   "total_group_components": 1,
+   "total": 6,
+   "total_confidence": "low",
+   "total_glyphs_as_read": "a closed elongated loop with an ascender curling right. Read 6. The leaf writes 3 and 6 with the same outline at body scale and the two are told apart only by whether the upper bowl closes; here it does not resolve, so the figure is committed at the reading the stroke order gives and its confidence says how far that carries.",
+   "industry_components_refused": {
+    "learned_professions_and_engineers": "a fragment of the printed heading rule, 49 px off the nearest line centre. Not ink.",
+    "navigation_ocean": "two fragments of the printed heading rule and of the column rule, 42 px and 5 px off the nearest line centre. Not ink - and the enumerator footed no figure for this column either."
+   }
+  },
+  {
+   "line": 2,
+   "total_group": 2,
+   "total_group_box": [
+    1549,
+    701,
+    1650,
+    776
+   ],
+   "total_group_components": 2,
+   "total": null,
+   "total_confidence": "unread",
+   "total_glyphs_as_read": "two glyphs inside one group: an upper-right narrow closed loop and a lower-left bowl under a top bar. Either a two-figure number written with its second digit below and to the left of its first - the habit this deposit has recorded before - or two lines' ink caught by one group. Not committed."
+  },
+  {
+   "line": 3,
+   "total_group": 3,
+   "total_group_box": [
+    1619,
+    809,
+    1662,
+    849
+   ],
+   "total_group_components": 1,
+   "total": 2,
+   "total_confidence": "high",
+   "total_glyphs_as_read": "the cursive 2 this leaf calibrates itself: the same form stands alone in the commerce column at line 27 and again in manufactures at line 29."
+  },
+  {
+   "line": 4,
+   "total_group": 4,
+   "total_group_box": [
+    1621,
+    887,
+    1661,
+    925
+   ],
+   "total_group_components": 1,
+   "total": 5,
+   "total_confidence": "medium",
+   "total_glyphs_as_read": "a bowl under a top bar - the 5 of the leaf's own TOTAL footing - with the bar broken away from the bowl by the ink mask.",
+   "industry_as_read": {
+    "manufactures_and_trades": 1
+   }
+  },
+  {
+   "line": 5,
+   "total_group": 5,
+   "total_group_box": [
+    1616,
+    964,
+    1650,
+    1000
+   ],
+   "total_group_components": 1,
+   "total": 5,
+   "total_confidence": "medium",
+   "total_glyphs_as_read": "as line 4.",
+   "industry_as_read": {
+    "manufactures_and_trades": 1
+   }
+  },
+  {
+   "line": 6,
+   "total_group": 6,
+   "total_group_box": [
+    1614,
+    1039,
+    1656,
+    1073
+   ],
+   "total_group_components": 1,
+   "total": 2,
+   "total_confidence": "high",
+   "total_glyphs_as_read": "the calibrated 2."
+  },
+  {
+   "line": 7,
+   "total_group": 7,
+   "total_group_box": [
+    1608,
+    1112,
+    1658,
+    1155
+   ],
+   "total_group_components": 1,
+   "total": 6,
+   "total_confidence": "low",
+   "total_glyphs_as_read": "the same outline as line 1 and carrying the same 3/6 doubt.",
+   "industry_as_read": {
+    "manufactures_and_trades": 1
+   }
+  },
+  {
+   "line": 8,
+   "total_group": 8,
+   "total_group_box": [
+    1613,
+    1198,
+    1644,
+    1230
+   ],
+   "total_group_components": 1,
+   "total": 5,
+   "total_confidence": "medium",
+   "total_glyphs_as_read": "bowl under a broken top bar."
+  },
+  {
+   "line": 9,
+   "total_group": 9,
+   "total_group_box": [
+    1594,
+    1270,
+    1660,
+    1298
+   ],
+   "total_group_components": 1,
+   "total": 12,
+   "total_confidence": "high",
+   "total_glyphs_as_read": "a single slant then the calibrated 2 - the same two-glyph pairing the manufactures column writes at line 24, where it is unambiguous."
+  },
+  {
+   "line": 10,
+   "total_group": 10,
+   "total_group_box": [
+    1613,
+    1357,
+    1647,
+    1387
+   ],
+   "total_group_components": 1,
+   "total": 5,
+   "total_confidence": "medium",
+   "total_glyphs_as_read": "bowl under a broken top bar."
+  },
+  {
+   "line": 11,
+   "total_group": 11,
+   "total_group_box": [
+    1623,
+    1414,
+    1670,
+    1460
+   ],
+   "total_group_components": 1,
+   "total": 4,
+   "total_confidence": "low",
+   "total_glyphs_as_read": "two parallel slants. This leaf writes 4 as two strokes and the form is inside reach of 11; the deposit has recorded the same ambiguity on 6H and 5V.",
+   "industry_as_read": {
+    "manufactures_and_trades": 1
+   }
+  },
+  {
+   "line": 12,
+   "total_group": 12,
+   "total_group_box": [
+    1611,
+    1503,
+    1656,
+    1535
+   ],
+   "total_group_components": 1,
+   "total": 2,
+   "total_confidence": "high",
+   "total_glyphs_as_read": "the calibrated 2."
+  },
+  {
+   "line": 13,
+   "total_group": 13,
+   "total_group_box": [
+    1605,
+    1580,
+    1658,
+    1622
+   ],
+   "total_group_components": 1,
+   "total": 5,
+   "total_confidence": "medium",
+   "total_glyphs_as_read": "bowl under a broken top bar.",
+   "industry_as_read": {
+    "manufactures_and_trades": 1
+   }
+  },
+  {
+   "line": 14,
+   "total_group": 14,
+   "total_group_box": [
+    1618,
+    1643,
+    1656,
+    1691
+   ],
+   "total_group_components": 1,
+   "total": 4,
+   "total_confidence": "low",
+   "total_glyphs_as_read": "two parallel slants; the 4/11 doubt of line 11."
+  },
+  {
+   "line": 15,
+   "total_group": 15,
+   "total_group_box": [
+    1601,
+    1732,
+    1642,
+    1771
+   ],
+   "total_group_components": 1,
+   "total": 5,
+   "total_confidence": "medium",
+   "total_glyphs_as_read": "bowl under a broken top bar.",
+   "industry_as_read": {
+    "commerce": 1
+   }
+  },
+  {
+   "line": 16,
+   "total_group": 16,
+   "total_group_box": [
+    1607,
+    1809,
+    1656,
+    1849
+   ],
+   "total_group_components": 1,
+   "total": 2,
+   "total_confidence": "high",
+   "total_glyphs_as_read": "the calibrated 2."
+  },
+  {
+   "line": 17,
+   "total_group": 17,
+   "total_group_box": [
+    1607,
+    1881,
+    1661,
+    1917
+   ],
+   "total_group_components": 1,
+   "total": 2,
+   "total_confidence": "high",
+   "total_glyphs_as_read": "the calibrated 2."
+  },
+  {
+   "line": 18,
+   "total_group": 18,
+   "total_group_box": [
+    1617,
+    1953,
+    1659,
+    1993
+   ],
+   "total_group_components": 1,
+   "total": 1,
+   "total_confidence": "high",
+   "total_glyphs_as_read": "a single slant, and the single slant is the form of every one of this leaf's fourteen manufactures entries.",
+   "industry_as_read": {
+    "manufactures_and_trades": 1
+   },
+   "industry_components_refused": {
+    "commerce": "two faint smears against the column rule, 18 px above and 18 px below the line centre and far paler than any committed entry. Below this pass's threshold for an entry."
+   }
+  },
+  {
+   "line": 19,
+   "total_group": 19,
+   "total_group_box": [
+    1612,
+    2033,
+    1670,
+    2079
+   ],
+   "total_group_components": 1,
+   "total": 4,
+   "total_confidence": "low",
+   "total_glyphs_as_read": "two parallel slants; the 4/11 doubt."
+  },
+  {
+   "line": 20,
+   "total_group": 20,
+   "total_group_box": [
+    1609,
+    2109,
+    1661,
+    2149
+   ],
+   "total_group_components": 2,
+   "total": 3,
+   "total_confidence": "medium",
+   "total_glyphs_as_read": "two bowls stacked, the upper open - this leaf's 3, and distinct from the single closed loop of lines 1 and 7.",
+   "industry_as_read": {
+    "learned_professions_and_engineers": 1
+   }
+  },
+  {
+   "line": 21,
+   "total_group": 21,
+   "total_group_box": [
+    1607,
+    2181,
+    1655,
+    2234
+   ],
+   "total_group_components": 1,
+   "total": 9,
+   "total_confidence": "medium",
+   "total_glyphs_as_read": "a loop with a descending tail.",
+   "industry_as_read": {
+    "manufactures_and_trades": 1
+   }
+  },
+  {
+   "line": 22,
+   "total_group": 22,
+   "total_group_box": [
+    1620,
+    2259,
+    1655,
+    2302
+   ],
+   "total_group_components": 1,
+   "total": 6,
+   "total_confidence": "low",
+   "total_glyphs_as_read": "the closed elongated loop of line 1.",
+   "industry_as_read": {
+    "manufactures_and_trades": 1
+   }
+  },
+  {
+   "line": 23,
+   "total_group": 23,
+   "total_group_box": [
+    1611,
+    2337,
+    1671,
+    2375
+   ],
+   "total_group_components": 1,
+   "total": 5,
+   "total_confidence": "medium",
+   "total_glyphs_as_read": "bowl under a broken top bar.",
+   "industry_as_read": {
+    "manufactures_and_trades": 1
+   }
+  },
+  {
+   "line": 24,
+   "total_group": 24,
+   "total_group_box": [
+    1597,
+    2414,
+    1660,
+    2455
+   ],
+   "total_group_components": 2,
+   "total": null,
+   "total_confidence": "unread",
+   "total_glyphs_as_read": "a slant and a small closed glyph: a two-figure number this pass will not settle. The manufactures column carries 12 on this same line, so whatever the figure is the family is at least twelve, and no one-digit reading of this cell can stand.",
+   "industry_as_read": {
+    "manufactures_and_trades": 12
+   }
+  },
+  {
+   "line": 25,
+   "total_group": 25,
+   "total_group_box": [
+    1613,
+    2495,
+    1671,
+    2531
+   ],
+   "total_group_components": 1,
+   "total": 5,
+   "total_confidence": "medium",
+   "total_glyphs_as_read": "bowl under a broken top bar.",
+   "industry_as_read": {
+    "manufactures_and_trades": 1
+   }
+  },
+  {
+   "line": 26,
+   "total_group": 26,
+   "total_group_box": [
+    1593,
+    2552,
+    1668,
+    2611
+   ],
+   "total_group_components": 3,
+   "total": 4,
+   "total_confidence": "low",
+   "total_glyphs_as_read": "three components on one line; read as two strokes and a stray, the 4 form.",
+   "industry_as_read": {
+    "commerce": 2
+   }
+  },
+  {
+   "line": 27,
+   "total_group": 27,
+   "total_group_box": [
+    1620,
+    2639,
+    1662,
+    2677
+   ],
+   "total_group_components": 1,
+   "total": 2,
+   "total_confidence": "high",
+   "total_glyphs_as_read": "the calibrated 2."
+  },
+  {
+   "line": 28,
+   "total_group": 28,
+   "total_group_box": [
+    1608,
+    2722,
+    1655,
+    2758
+   ],
+   "total_group_components": 1,
+   "total": 4,
+   "total_confidence": "low",
+   "total_glyphs_as_read": "two parallel slants; the 4/11 doubt.",
+   "industry_as_read": {
+    "manufactures_and_trades": 2
+   }
+  },
+  {
+   "line": 29,
+   "total_group": 29,
+   "total_group_box": [
+    1496,
+    2759,
+    1655,
+    2810
+   ],
+   "total_group_components": 2,
+   "total": null,
+   "total_confidence": "unread",
+   "total_glyphs_as_read": "two components, the left one beginning 100 px to the left of every other entry in the column. Not separated from line 30's ink by this pass and not committed."
+  },
+  {
+   "line": 30,
+   "total_group": 30,
+   "total_group_box": [
+    1603,
+    2811,
+    1653,
+    2892
+   ],
+   "total_group_components": 2,
+   "total": null,
+   "total_confidence": "unread",
+   "total_glyphs_as_read": "the column's last group stands 81 px tall - more than one line pitch - and holds two glyphs over the last two ruled lines. This pass does not divide it, so lines 30 and 31 are both recorded unread."
+  },
+  {
+   "line": 31,
+   "total_group": 30,
+   "total_group_box": [
+    1603,
+    2811,
+    1653,
+    2892
+   ],
+   "total_group_components": 2,
+   "total": null,
+   "total_confidence": "unread",
+   "total_glyphs_as_read": "the column's last group stands 81 px tall - more than one line pitch - and holds two glyphs over the last two ruled lines. This pass does not divide it, so lines 30 and 31 are both recorded unread.",
+   "note": "no group of its own: the column's last group spans lines 30 and 31 and this pass does not divide it."
+  }
+ ]
+}

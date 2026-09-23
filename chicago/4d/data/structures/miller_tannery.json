@@ -1,0 +1,110 @@
+{
+  "id": "miller_tannery",
+  "name": "John Miller's Tannery",
+  "aka": [
+    "John Miller's log house",
+    "Chicago's first recorded factory"
+  ],
+  "archetype": "log_dwelling",
+  "phases": [
+    {
+      "id": "log_1831",
+      "documented_range": {
+        "from": "1831-01-01",
+        "to": "1835-12-31",
+        "confidence": "inferred",
+        "sources": [
+          "drloih_wolf_point",
+          "andreas_1884_v1"
+        ],
+        "note": "THE YEAR IS ATTESTED AND THE MONTH IS NOT, so the range opens on 1 January 1831 rather than claiming a build date. DRLOIH: 'In 1831 John Miller built a log house near his brother's tavern that he used as a tannery, Chicago's first recorded factory.' Andreas, independently and with a direction the other source lacks: 'John Miller, brother of Samuel, the landlord, came in 1831, and run a tannery just north of Miller's tavern.' THE END OF THE RANGE IS THE HONEST MINIMUM, NOT A FATE. Nothing reached follows this building past its founding: Andreas adds a partner, 'Benjamin Hall, tanner, a partner of John Miller, who came in 1832', and then the trade drops out of the record, while Samuel Miller — the brother whose tavern fixes this building's position — 'sold the tavern and moved away following the death of his wife in 1832'. So the anchor moved on three years before the scene date and the tannery's own survival rests on the ordinary continuity argument: a standing building stands until something says otherwise. Tagged inferred for that reason."
+      },
+      "position": {
+        "utm_e": 447086.7,
+        "utm_n": 4637473.8,
+        "rotation_deg": 180.0,
+        "symbolic_location": "North bank at the forks, just north of Samuel Miller's house and tavern, on the point of land between the North Branch and the main stem.",
+        "confidence": "inferred",
+        "sources": [
+          "andreas_1884_v1",
+          "drloih_wolf_point"
+        ],
+        "note": "PLACED 2026-08-11, AND IT IS A POSITION RELATIVE TO ANOTHER RECORD RATHER THAN TO ANY SURVIVING FEATURE. Andreas gives the direction — 'run a tannery just north of Miller's tavern' — and DRLOIH gives only proximity, 'near his brother's tavern'. Method: this project's own miller_house placement (local E +14, N +61, its north face on N +61) is taken as the anchor and this building is set 11.5 m north of that face on the same easting, so its south wall faces the tavern across a yard. THIS INHERITS EVERY UNCERTAINTY THE MILLER HOUSE CARRIES AND ADDS ONE. That record's own note says no surviving intersection locates it, that its coordinate comes from the datum origin and modern bank geometry, and that the along-bank axis is the softer one; on top of that, the 11.5 m separation recorded here is invented outright — 'just north' fixes a direction and no distance. Working uncertainty about 40 m, which is the Miller house's ~20 m plus the separation. WHY NORTH AND NOT INTO THE WATER: the point of land here is narrow, and the modelled 1834 waterline puts the North Branch about 40 m west of this building and the main stem about 15 m south of the tavern, so 'just north' is also the only direction with ground in it. A tannery is a nuisance trade — bark, lime and hides — and putting it behind the tavern rather than between the tavern and the water is consistent with that, but no source says so and it is not offered as evidence. Facade bearing 180, due south onto the tavern yard, inferred from nothing better than the building it is described against; nothing states which way it faced.",
+        "derivation": {
+          "method": "not_derivable",
+          "reason": "This placement predates the derivation module. Its provenance and reasoning are recorded in position.note, but no machine-checkable derivation block has been authored for it yet."
+        }
+      },
+      "footprint": {
+        "polygon": [
+          [
+            0,
+            0
+          ],
+          [
+            7,
+            0
+          ],
+          [
+            7,
+            5.5
+          ],
+          [
+            0,
+            5.5
+          ]
+        ],
+        "confidence": "reconstructed",
+        "note": "PLACEHOLDER — NO DIMENSION IS ATTESTED and neither is the plan. What the sources give is a category: 'a log house ... that he used as a tannery'. 7 x 5.5 m is an ordinary single-pen log house of the type and period, chosen so that the building reads as a house put to a trade rather than as a purpose-built works, which is what the sources describe. Every number is invented. NOTE ALSO WHAT IS NOT DRAWN: a tannery is its yard — bark mill, lime pits, tan vats, drying sheds, and a water supply — and none of that is in this polygon or in the model. The record models the log house the sources name and nothing else. To resolve: any account of Miller and Hall's tanyard, or the Chicago Democrat's advertisements."
+      },
+      "form": {
+        "construction": {
+          "value": "log",
+          "confidence": "attested",
+          "sources": [
+            "drloih_wolf_point",
+            "andreas_1884_v1"
+          ],
+          "note": "'built a log house near his brother's tavern that he used as a tannery' (DRLOIH). Andreas calls it a tannery and does not describe the fabric, so the log statement rests on the one source; it is consistent with everything else standing at the forks in 1831."
+        },
+        "stories": {
+          "value": 1,
+          "confidence": "inferred",
+          "note": "Not attested. A single-pen log house is the near-universal form at the forks in 1831, and a building put to a trade is the last one anybody would raise a second storey on. Inference from the type, not from a statement about this building."
+        },
+        "wall_height_m": {
+          "value": 2.5,
+          "confidence": "inferred",
+          "note": "No figure is attested. 2.5 m is about 8 ft: one storey of hewn-log wall plus a sill, the same reading and the same number this project gives Hogan's store and the Walker meeting house."
+        },
+        "roof_type": {
+          "value": "gable",
+          "confidence": "inferred",
+          "note": "Not attested. Gable is the near-universal roof form for log construction of this type, period and region."
+        },
+        "roof_pitch_deg": {
+          "value": 35.0,
+          "confidence": "inferred",
+          "note": "No pitch is attested. 35 degrees is the archetype's mid-range for a low single-storey log building roofed in riven shakes. Inferred from construction practice, not measured."
+        },
+        "chimneys": {
+          "value": 1,
+          "confidence": "inferred",
+          "note": "Not attested, and nothing describes a stack on this building. One is the normal number for a single-pen log house and the minimum for a building worked through Chicago winters. The COUNT is the inference; position, size and material are the archetype's — docs/LIBERTIES.md L26."
+        }
+      },
+      "change_note": "The log house John Miller built in 1831 just north of his brother's tavern and used as a tannery — the settlement's first recorded manufactory. The arrival of Benjamin Hall as his partner in 1832 is a change of business and does not open a new phase."
+    }
+  ],
+  "function": {
+    "value": "tannery",
+    "confidence": "attested",
+    "sources": [
+      "drloih_wolf_point",
+      "andreas_1884_v1"
+    ],
+    "note": "'a log house ... that he used as a tannery, Chicago's first recorded factory' (DRLOIH); 'run a tannery just north of Miller's tavern' (Andreas). The function is the best-attested thing about this building and the model cannot show it: what stands is a log house, because a log house is what was built and because the yard that made it a tannery is not modelled. WHETHER IT WAS STILL TANNING ON 1835-07-01 IS UNATTESTED — Andreas's tanner partner arrives in 1832 and the trade then disappears from the record — so this value states what the building was for, not what it was doing on the scene date."
+  },
+  "research_note": "THE SETTLEMENT'S FIRST FACTORY, AND A ONE-SENTENCE BUILDING: two sources, one sentence each, and between them a year, a builder, a fabric, a use and a direction. The direction is the find that placed it — Andreas's 'just north of Miller's tavern', which the project's dossier did not carry; docs/research/03-structures-north.md § 3.1 had only DRLOIH's 'near his brother's tavern'. Andreas also names the partner, Benjamin Hall, tanner, who came in 1832. EVERYTHING DIMENSIONAL IS INVENTED and the record says so attribute by attribute. The building is placed against another record rather than against the ground, so it moves if the Miller house moves. See docs/RESEARCH/miller_tannery.md.",
+  "review_required": false
+}

@@ -1,0 +1,30 @@
+id: newspaper-cpl-initial-scans
+title: Chicago Democrat - Initial CPL Scan Batch
+description: >
+  Earlier/initial batch of Chicago Democrat scans and a verbatim
+  transcription from the Chicago Public Library digitization effort,
+  superseded in part by the organized per-year Chicago Democrat items
+  (see ../ChicagoDemocrat/1833.yaml etc.) but kept for reference. The
+  small transcription .docx in this folder is committed alongside this
+  file.
+redistribution_status: public
+copyright_status: public-domain
+internet_archive:
+  item: chicago1835-newspaper-cpl-initial-scans
+  url: https://archive.org/details/chicago1835-newspaper-cpl-initial-scans
+files:
+  - name: ChiDemo.pdf
+    bytes: 14441722
+    sha256: fcf0864713e69d40476955d8e3fd9fea6c20f142f11bfa31d33dbf57930a159c
+  - name: ChiDemogem.pdf
+    bytes: 27550
+    sha256: a256d96b9ee33a1161f57d149ec68ee9012a87ad5883dc17d737425f2304aaee
+  - name: ChiDemo_Verbatim_Transcription.pdf
+    bytes: 42794
+    sha256: c0a06e12ff1bd831d265fab71298ea0fa3f50ce360a4fb4a12d6cb72ca3e8b6b
+duplicate_not_uploaded:
+  name: Chicago_Democrat_1833_Transcription.pdf
+  bytes: 27550
+  sha256: a256d96b9ee33a1161f57d149ec68ee9012a87ad5883dc17d737425f2304aaee
+  note: Byte-identical to ChiDemogem.pdf.
+local_archive_path: projects/archive/data/chicago/reference/newspapers/cpl-initial/

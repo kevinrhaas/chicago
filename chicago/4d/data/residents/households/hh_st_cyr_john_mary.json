@@ -1,0 +1,160 @@
+{
+ "id": "hh_st_cyr_john_mary",
+ "name": "The presbytery household at St Mary's",
+ "division": "south",
+ "head": "st_cyr_john_mary",
+ "arrival": {
+  "value": "1833",
+  "confidence": "attested",
+  "sources": [
+   "andreas_1884_v1"
+  ],
+  "note": "Ordained priest 6 April 1833 and sent to Chicago that year, where the society was organised in May 1833. The month of his own arrival is not given, so year precision.",
+  "precision": "year"
+ },
+ "party_size_on_arrival": {
+  "value": 1,
+  "confidence": "inferred",
+  "sources": [
+   "andreas_1884_v1"
+  ],
+  "note": "A priest sent to a mission. No companion is named."
+ },
+ "origin": {
+  "value": "Lyons, France, by way of St Louis and St Mary's of the Barrens, Missouri",
+  "confidence": "attested",
+  "sources": [
+   "andreas_1884_v1"
+  ],
+  "note": "The route is given date by date, which makes this the most precisely traced origin in the parcel after Egan's."
+ },
+ "reason_for_coming": {
+  "value": "Sent by Bishop Rosati to a congregation that had asked for a priest",
+  "confidence": "attested",
+  "sources": [
+   "andreas_1884_v1"
+  ],
+  "note": "Andreas states the mechanism: the Catholics of Chicago were increasing and were desirous of a pastor, and the Bishop of St Louis supplied one."
+ },
+ "lives_at": {
+  "value": "st_marys_church",
+  "confidence": "inferred",
+  "sources": [
+   "andreas_1884_v1"
+  ],
+  "note": "The church at the south-west corner of Lake and State is his charge and this dataset holds no separate presbytery. A priest of a mission church of this period commonly lodged at or beside it; not stated."
+ },
+ "works_at": {
+  "value": "st_marys_church",
+  "confidence": "attested",
+  "sources": [
+   "andreas_1884_v1"
+  ],
+  "note": "data/structures/st_marys_church.json already carries him as pastor."
+ },
+ "associated_with": [
+  {
+   "kind": "home",
+   "place_or_structure_id": "st_marys_church",
+   "resolves_to": "structure",
+   "from": null,
+   "to": null,
+   "undated": true,
+   "tier": "inferred",
+   "source_id": "andreas_1884_v1",
+   "note": "The church at the south-west corner of Lake and State is his charge and this dataset holds no separate presbytery; a priest of a mission church of this period commonly lodged at or beside it. Not stated, and not dated, so the row is inferred and undated."
+  },
+  {
+   "kind": "church",
+   "place_or_structure_id": "st_marys_church",
+   "resolves_to": "structure",
+   "from": "1833",
+   "to": null,
+   "tier": "attested",
+   "source_id": "andreas_1884_v1",
+   "note": "The structure record already carries him as pastor. He was ordained 6 April 1833 and sent to Chicago that year, where the society was organised in May, so the charge is dated to the year and no finer. TWO ROWS, ONE ROOF, TWO TIERS: he is attested at this building as its priest and only inferred to have lodged in it, and the pair of singular fields above grades them the same way without being able to say why they differ."
+  }
+ ],
+ "present_on_scene_date": {
+  "value": "present",
+  "confidence": "inferred",
+  "sources": [
+   "andreas_1884_v1"
+  ],
+  "note": "Pastor from 1833 until after 1837 with no recorded absence."
+ },
+ "persons": [
+  {
+   "id": "st_cyr_john_mary",
+   "name": "Rev. John Mary Irenaeus St Cyr",
+   "relationship": "head",
+   "grade": "attested",
+   "sex": "male",
+   "birth_year": {
+    "value": 1803,
+    "confidence": "attested",
+    "sources": [
+     "andreas_1884_v1"
+    ],
+    "note": "2 November 1803."
+   },
+   "age_on_scene_date": {
+    "value": 31,
+    "confidence": "attested",
+    "sources": [
+     "andreas_1884_v1"
+    ],
+    "note": "31 on 1 July 1835."
+   },
+   "occupation": {
+    "value": "priest",
+    "confidence": "attested",
+    "sources": [
+     "andreas_1884_v1"
+    ],
+    "note": "First priest of St Mary's, the first Catholic society organised in Chicago, formed in May 1833 - the first of the town's three churches of that year.",
+    "derived_from": "roles",
+    "roles_at_scene_date": [
+     "priest"
+    ]
+   },
+   "sources": [
+    "andreas_1884_v1"
+   ],
+   "note": "BORN AT LYONS, FRANCE, 2 NOVEMBER 1803, AND EDUCATED THERE. Andreas: 'He left France in June, 1831, reached St. Louis August 1, of the same year, and was there made a subdeacon. He was ordained at St. Mary's the Barrens by Bishop Rosatti in 1832, and on April 6, 1833, was by the same Bishop ordained priest.' He was sent to Chicago because 'Catholics were increasing in numbers in Chicago, and were becoming desirous' of a priest - a petition answered, not a migration chosen. He was succeeded by Father O'Meara only after 1837, so he is the pastor across the whole scene window.",
+   "resident_research": {
+    "programme": "resident-research-2026",
+    "ticket": "T-0478",
+    "outcome": "no_corroboration_yet",
+    "reviewed_on": "",
+    "asserted_identity": false,
+    "evidence_for": "Catholic institutional history independently places John Mary Irenaeus St. Cyr's appointment to Chicago in 1833, first Mass and first church construction, with recall in 1837. The bounded ministry strongly corroborates his presence during 1835.",
+    "notes": "Catholic institutional history independently places John Mary Irenaeus St. Cyr's appointment to Chicago in 1833, first Mass and first church construction, with recall in 1837. The bounded ministry strongly corroborates his presence during 1835.",
+    "source_ids": [
+     "catholic_chicago_st_cyr_1833"
+    ]
+   },
+   "roles": [
+    {
+     "role": "priest",
+     "kind": "profession",
+     "as_printed": null,
+     "from": "1673",
+     "to": "1857",
+     "precision": "source_span",
+     "dated_by": "source_describes_date",
+     "covers_scene_date": true,
+     "confidence": "attested",
+     "sources": [
+      "andreas_1884_v1"
+     ],
+     "claim": null,
+     "note": "THE BOUND IS THE SOURCE'S, NOT THE MAN'S. This role is carried by the card's 1835 occupation block and is dated by what the cited source or sources are ABOUT, which is why `precision` can be no better than the span they cover. The span reaches 1835, so this role stands in the scene-date view. The printing the trade was read off is not on the card and is fetched by T-1254."
+    }
+   ]
+  }
+ ],
+ "touches_removal": false,
+ "review_required": false,
+ "research_note": "THE ONLY CATHOLIC HOUSEHOLD IN THIS PARCEL AND ONE OF ITS BEST-DATED, which is a lopsided result worth stating: St Cyr's own movements are documented to the day while the congregation he came for - the Catholics who were 'increasing in numbers' and petitioned for him - is a body of people this dataset cannot name at all. THAT CONGREGATION IS THE LARGEST SINGLE POPULATION THE INFERRED PHASE HAS TO ACCOUNT FOR on the south side, and the church building is the evidence that it existed. A note for that phase: the lumber for the twenty-five by thirty-five foot church came by scow from St Joseph, Michigan, at $12 per thousand, and Anson Taylor hauled it from the schooner with his own team - three named trades in one sentence about one building."
+}

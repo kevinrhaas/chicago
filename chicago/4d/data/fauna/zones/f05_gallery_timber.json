@@ -1,0 +1,425 @@
+{
+ "id": "f05_gallery_timber",
+ "zone": 5,
+ "name": "Gallery timber along the river",
+ "habitat": "gallery_timber",
+ "dossier": "docs/research/08-fauna.md \u00a7\u00a7 1.4, 2.6",
+ "scene_date": "1835-07-01",
+ "reads_as": "a shaded timber belt along the water where the birds are heard and not seen, wood duck slipping along under the branches, and mink working the bank",
+ "in_modelled_extent": true,
+ "extent_from": {
+  "flora_zone": "z05_riverbank_timber"
+ },
+ "soundscape": {
+  "dawn_chorus": "reduced",
+  "hero": [
+   "contopus_virens",
+   "hylocichla_mustelina"
+  ],
+  "note": "This is where a July dawn chorus comes closest to existing \u2014 and it is a THIN one. Wood thrush and wood-pewee still sing on 1 July; oriole, catbird and wren have largely stopped, and jays and flycatchers only call. Two singers and a great deal of calling is the honest July timber, not a wall of song."
+ },
+ "species": [
+  {
+   "id": "aix_sponsa",
+   "binomial": "Aix sponsa",
+   "common": "wood duck",
+   "class": "bird",
+   "activity": "crepuscular",
+   "active_periods": [
+    "dawn",
+    "dusk"
+   ],
+   "july": {
+    "status": {
+     "value": "flightless_moult",
+     "confidence": "inferred",
+     "note": "A timbered-river-margin breeder, and like the other ducks in simultaneous wing moult by early July."
+    },
+    "presence": {
+     "value": "visible",
+     "confidence": "inferred",
+     "note": "Slipping along under overhanging timber rather than out in the open."
+    },
+    "abundance": {
+     "value": "uncommon",
+     "confidence": "inferred",
+     "note": "Habitat reading."
+    },
+    "max_group": 10,
+    "vocalization": "call_only",
+    "behaviour": "A hen with ducklings threading the shaded bank under overhanging branches; a rising squeal as the birds slip away upriver on the water.",
+    "appearance": "The drake is in eclipse and drab; the hen's white eye-ring is the reliable mark.",
+    "trace": null
+   },
+   "confidence": "inferred",
+   "note": "Same July gate as the other waterfowl: the birds are here, they are dull, and they do not fly."
+  },
+  {
+   "id": "butorides_virescens",
+   "binomial": "Butorides virescens",
+   "common": "green heron",
+   "class": "bird",
+   "activity": "diurnal",
+   "active_periods": [
+    "dawn",
+    "day",
+    "dusk"
+   ],
+   "july": {
+    "status": {
+     "value": "breeding_resident",
+     "confidence": "inferred",
+     "note": "Herons are named in the regional wet-prairie assemblage."
+    },
+    "presence": {
+     "value": "visible_and_audible",
+     "confidence": "inferred",
+     "note": "Hunts the shaded shallows and announces itself when flushed."
+    },
+    "abundance": {
+     "value": "frequent",
+     "confidence": "inferred",
+     "note": "Habitat reading."
+    },
+    "max_group": 1,
+    "vocalization": "call_only",
+    "behaviour": "A small dark heron crouched on a leaning limb over the water, then a loud skeow as it flies off low.",
+    "appearance": "Small, dark, chestnut-necked, with orange legs.",
+    "trace": null
+   },
+   "confidence": "inferred",
+   "note": "Habitat inference from the shaded river margin; the regional assemblage names herons without separating the species."
+  },
+  {
+   "id": "procyon_lotor",
+   "binomial": "Procyon lotor",
+   "common": "raccoon",
+   "class": "mammal",
+   "activity": "nocturnal",
+   "active_periods": [
+    "dusk",
+    "night"
+   ],
+   "july": {
+    "status": {
+     "value": "year_round_resident",
+     "confidence": "inferred",
+     "note": "Raccoon is in the Chicago Academy of Sciences regional retrospective, which has no source record in data/sources/."
+    },
+    "presence": {
+     "value": "visible",
+     "confidence": "inferred",
+     "note": "One of the two mammals the dossier calls most likely to be seen in town, and it is seen at night, at the water's edge and at refuse."
+    },
+    "abundance": {
+     "value": "common",
+     "confidence": "inferred",
+     "note": "Regional; no local count."
+    },
+    "max_group": 4,
+    "vocalization": "call_only",
+    "behaviour": "A female with kits working the waterline after dark, turning stones and washing food; churring and squabbling among the young.",
+    "appearance": "Grey, masked, ringed tail.",
+    "trace": null
+   },
+   "confidence": "inferred",
+   "note": "A CORRECTION MADE WHILE WRITING THIS RECORD. Wau-Bun's list of the Chicago fur trade names 'beaver, otter, marten, mink, silver-gray and red fox, wolf, bear, and wild-cat, musk-rat, and smoked deer-skins' \u2014 and raccoon is NOT in it. The only support is the regional retrospective, which has no source record, so this animal is graded inferred and cites nothing, even though the dossier tags it [DOC, regional]."
+  },
+  {
+   "id": "neogale_vison",
+   "binomial": "Neogale vison",
+   "common": "American mink",
+   "class": "mammal",
+   "activity": "crepuscular",
+   "active_periods": [
+    "dawn",
+    "dusk",
+    "night"
+   ],
+   "july": {
+    "status": {
+     "value": "year_round_resident",
+     "confidence": "attested",
+     "sources": [
+      "kinzie_waubun_1856"
+     ],
+     "note": "Wau-Bun names 'brown and black mink' among the furs taken at Chicago, which is direct evidence of the animal at this place in the trade era."
+    },
+    "presence": {
+     "value": "visible",
+     "confidence": "inferred",
+     "note": "A single animal bounding the bank line and slipping into the water; seen briefly if at all."
+    },
+    "abundance": {
+     "value": "sparse",
+     "confidence": "inferred",
+     "note": "Mink hold long linear territories along a bank, so one animal per long stretch is the correct density."
+    },
+    "max_group": 1,
+    "vocalization": "silent",
+    "behaviour": "A dark low animal bounding along the bank in a series of arches, in and out of the water, gone in seconds.",
+    "appearance": "Small, dark chocolate-brown, long-bodied, with a white chin patch.",
+    "trace": null
+   },
+   "confidence": "attested",
+   "sources": [
+    "kinzie_waubun_1856"
+   ],
+   "note": "Wau-Bun's fur list names 'brown and black mink' among the species taken at Chicago, which is a near-contemporary record of the animal at this place. It describes 1831, and it is a trade list rather than a field observation, so the animal is documented and its behaviour on 1 July 1835 is not."
+  },
+  {
+   "id": "hylocichla_mustelina",
+   "binomial": "Hylocichla mustelina",
+   "common": "wood thrush",
+   "class": "bird",
+   "activity": "crepuscular",
+   "active_periods": [
+    "dawn",
+    "dusk"
+   ],
+   "july": {
+    "status": {
+     "value": "breeding_resident",
+     "confidence": "inferred",
+     "note": "The Academy retrospective's bird section is a bare taxonomic count \u2014 nine thrushes, one bluebird, three warblers, one chickadee for northern Illinois \u2014 so no 1830s Chicago bird list survives in anything the project can reach. This is a habitat inference from the oak and floodplain timber, not a record."
+    },
+    "presence": {
+     "value": "audible",
+     "confidence": "inferred",
+     "note": "Sings from inside the canopy and is seldom seen."
+    },
+    "abundance": {
+     "value": "frequent",
+     "confidence": "inferred",
+     "note": "Habitat reading."
+    },
+    "max_group": 1,
+    "vocalization": "song_full",
+    "behaviour": "Sound only in most conditions: a fluting ee-oh-lay from inside the timber at first light and again at dusk.",
+    "appearance": "Warm brown above, boldly spotted below; the bird stays in shade.",
+    "trace": null
+   },
+   "confidence": "inferred",
+   "note": "One of the small set still in full song on 1 July \u2014 wood thrushes sing into late July, and the dawn and dusk song periods are the correct July window rather than all day."
+  },
+  {
+   "id": "contopus_virens",
+   "binomial": "Contopus virens",
+   "common": "eastern wood-pewee",
+   "class": "bird",
+   "activity": "diurnal",
+   "active_periods": [
+    "dawn",
+    "day",
+    "dusk"
+   ],
+   "july": {
+    "status": {
+     "value": "breeding_resident",
+     "confidence": "inferred",
+     "note": "Habitat inference from the gallery timber, as for wood thrush."
+    },
+    "presence": {
+     "value": "audible",
+     "confidence": "inferred",
+     "note": "Sings from mid-canopy through the middle of the day."
+    },
+    "abundance": {
+     "value": "common",
+     "confidence": "inferred",
+     "note": "Habitat reading."
+    },
+    "max_group": 2,
+    "vocalization": "song_full",
+    "behaviour": "Sound only in most conditions: a slow burry pee-a-wee whistled from mid-canopy through the hottest, quietest part of the day.",
+    "appearance": "Plain grey-olive flycatcher on an exposed inner branch.",
+    "trace": null
+   },
+   "confidence": "inferred",
+   "note": "The pewee is the July bird par excellence: it sings on through midday and into August when almost everything else has stopped, which is exactly why it is graded full song here and most of the list is not."
+  },
+  {
+   "id": "myiarchus_crinitus",
+   "binomial": "Myiarchus crinitus",
+   "common": "great crested flycatcher",
+   "class": "bird",
+   "activity": "diurnal",
+   "active_periods": [
+    "dawn",
+    "day"
+   ],
+   "july": {
+    "status": {
+     "value": "breeding_resident",
+     "confidence": "inferred",
+     "note": "Habitat inference from the timber."
+    },
+    "presence": {
+     "value": "audible",
+     "confidence": "inferred",
+     "note": "Loud and high in the canopy; heard far more than seen."
+    },
+    "abundance": {
+     "value": "frequent",
+     "confidence": "inferred",
+     "note": "Habitat reading."
+    },
+    "max_group": 2,
+    "vocalization": "call_only",
+    "behaviour": "Sound only in most conditions: a loud rising wheep from high in the canopy, repeated.",
+    "appearance": "Grey-throated, yellow-bellied, rufous in the tail.",
+    "trace": null
+   },
+   "confidence": "inferred",
+   "note": "Habitat inference from the timber. No 1830s Chicago bird list survives in anything the project can reach, so every passerine in this dataset rests on habitat reasoning rather than on a record."
+  },
+  {
+   "id": "troglodytes_aedon",
+   "binomial": "Troglodytes aedon",
+   "common": "house wren",
+   "class": "bird",
+   "activity": "diurnal",
+   "active_periods": [
+    "dawn",
+    "day",
+    "dusk"
+   ],
+   "july": {
+    "status": {
+     "value": "breeding_resident",
+     "confidence": "inferred",
+     "note": "Habitat inference from timber edge and dooryards."
+    },
+    "presence": {
+     "value": "audible",
+     "confidence": "inferred",
+     "note": "Constant and invisible in the tangle."
+    },
+    "abundance": {
+     "value": "common",
+     "confidence": "inferred",
+     "note": "Habitat reading."
+    },
+    "max_group": 2,
+    "vocalization": "song_reduced",
+    "behaviour": "Sound only in most conditions: a bubbling scolding chatter from a brush tangle at the timber edge.",
+    "appearance": "Tiny, brown, cocked tail.",
+    "trace": null
+   },
+   "confidence": "inferred",
+   "note": "Wrens sing into July for second broods but the output is falling; graded reduced."
+  },
+  {
+   "id": "dumetella_carolinensis",
+   "binomial": "Dumetella carolinensis",
+   "common": "gray catbird",
+   "class": "bird",
+   "activity": "diurnal",
+   "active_periods": [
+    "dawn",
+    "day",
+    "dusk"
+   ],
+   "july": {
+    "status": {
+     "value": "breeding_resident",
+     "confidence": "inferred",
+     "note": "Habitat inference from dense shrubby river-edge growth."
+    },
+    "presence": {
+     "value": "audible",
+     "confidence": "inferred",
+     "note": "Skulks in thickets; the mewing call is the encounter."
+    },
+    "abundance": {
+     "value": "common",
+     "confidence": "inferred",
+     "note": "Habitat reading."
+    },
+    "max_group": 2,
+    "vocalization": "call_only",
+    "behaviour": "Sound only in most conditions: a cat-like mew from inside a thicket, with the bird shifting position as it calls.",
+    "appearance": "Slate grey with a black cap and a rusty vent.",
+    "trace": null
+   },
+   "confidence": "inferred",
+   "note": "Catbird song thins sharply through July; the mew persists all summer, so calls rather than song is the correct July state."
+  },
+  {
+   "id": "icterus_galbula",
+   "binomial": "Icterus galbula",
+   "common": "Baltimore oriole",
+   "class": "bird",
+   "activity": "diurnal",
+   "active_periods": [
+    "dawn",
+    "day"
+   ],
+   "july": {
+    "status": {
+     "value": "breeding_resident",
+     "confidence": "inferred",
+     "note": "Habitat inference from the tall riverside elms and cottonwoods."
+    },
+    "presence": {
+     "value": "visible",
+     "confidence": "inferred",
+     "note": "The colour carries where the song no longer does \u2014 an oriole in July is seen rather than heard."
+    },
+    "abundance": {
+     "value": "frequent",
+     "confidence": "inferred",
+     "note": "Habitat reading."
+    },
+    "max_group": 2,
+    "vocalization": "call_only",
+    "behaviour": "A flame-orange bird moving through the high outer branches with fledged young, giving a dry chatter; the pendant nest visible in a drooping outer limb.",
+    "appearance": "Male fire-orange and black; female duller olive-orange.",
+    "trace": null
+   },
+   "confidence": "inferred",
+   "note": "THE JULY GATE ON THIS SPECIES IS THE SONG. Oriole song largely stops by early July as the young fledge \u2014 a whistling oriole in this scene would be a May bird."
+  },
+  {
+   "id": "culicidae_spp",
+   "binomial": "Culicidae spp.",
+   "common": "mosquitoes",
+   "class": "insect",
+   "activity": "crepuscular",
+   "active_periods": [
+    "dawn",
+    "dusk",
+    "night"
+   ],
+   "july": {
+    "status": {
+     "value": "breeding_resident",
+     "confidence": "inferred",
+     "note": "Shaded, still, wet river margin is the worst of it; see the marsh record for the sourcing problem."
+    },
+    "presence": {
+     "value": "not_perceptible",
+     "confidence": "inferred",
+     "note": "Not renderable at scale; the human response is out of scope under L1."
+    },
+    "abundance": {
+     "value": "abundant",
+     "confidence": "inferred",
+     "note": "Maximal."
+    },
+    "max_group": 0,
+    "vocalization": "non_vocal",
+    "behaviour": "Nothing is drawn.",
+    "appearance": "Not shown.",
+    "trace": null
+   },
+   "confidence": "inferred",
+   "note": "The only Chicago-specific mosquito testimony the dossier found sits on a page that returned HTTP 403, so the wording is unverified and it has no source record. Andreas is not and never will be a source for it: full-text searches for mosquito, mosquitoes and musquitoes all return zero hits."
+  }
+ ],
+ "confidence": "attested",
+ "note": "Wau-Bun's list of the furs taken at Chicago \u2014 'beaver, otter, marten, mink, silver-gray and red fox, wolf, bear, and wild-cat, musk-rat, and smoked deer-skins' \u2014 is the one near-contemporary species list for this place, and mink is the species it supports here. The bird list is habitat inference: no 1830s Chicago bird list survives in anything the project can reach.",
+ "sources": [
+  "kinzie_waubun_1856"
+ ]
+}

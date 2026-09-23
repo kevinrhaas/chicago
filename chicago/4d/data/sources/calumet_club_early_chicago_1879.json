@@ -1,0 +1,30 @@
+{
+ "id": "calumet_club_early_chicago_1879",
+ "type": "book",
+ "citation": "Early Chicago: Reception to the Settlers of Chicago Prior to 1840, by the Calumet Club, of Chicago, Tuesday Evening, May 27, 1879 (Chicago: Calumet Club, 1879) — the printed proceedings of the FIRST old-settlers' reception, with the registry of settlers who signed it.",
+ "author": "The Calumet Club of Chicago",
+ "date": "1879",
+ "describes_date": "1803-1879, chiefly 1816-1840",
+ "repository": "Internet Archive, identifier earlychicagorece00calu (two further copies: cu31924028806707, earlychicagorecep00calu)",
+ "locator": "the passage after the speeches: “of the settlers of Chicago prior to 1840, one hundred and forty-nine registered their names out of the large number invited”, with the tables of “the places of birth, the years of arrival, and ages of those who signed the registry”",
+ "url": "https://archive.org/details/earlychicagorece00calu",
+ "archived_url": "https://archive.org/download/earlychicagorece00calu/earlychicagorece00calu_djvu.txt",
+ "tier": 2,
+ "rights_status": "public_domain",
+ "rights_note": "Chicago, 1879: a United States imprint long out of copyright.",
+ "asset_use": "text_only",
+ "verified": true,
+ "access_notes": "READ, T-0577. The OCR text layer was read first, at the locator above: it is sound in the prose and MANGLED in the tables, so the register of pages 84-90 and the three aggregate tables of page 72 were read off the PAGE IMAGES instead — the item's own text PDF, rendered at 300 dpi and rotated upright, because the register is set sideways on the page. The transcription is committed at data/research/old_settlers/text/calumet_club_1879_registry.txt and the gate (tools/old_settlers.py --check) rebuilds every reading out of it. Note that the YEARS OF ARRIVAL table, previously recorded here as unreadable, is perfectly legible on the plate; only the OCR of it is destroyed.",
+ "what_it_supplies": [
+  "the date, host and criterion of the first reception, 27 May 1879",
+  "the club's own count of 149 settlers who registered during the evening",
+  "the printed REGISTER itself, pages 84-90: 159 entries, each with the man's name, his own date of arrival in Chicago, his birthplace, his age and his 1879 post-office address — the only roster in the series that dates its people",
+  "the three aggregate tables of printed page 72 — places of birth, years of arrival and ages — each summing to 149, read off the plate rather than the OCR"
+ ],
+ "what_it_does_not_supply": [
+  "a residence in 1835. A date of arrival here is what the man said in 1879, forty to sixty years after the fact, and the club's criterion reaches to the end of 1839",
+  "which of the 159 printed entries are the 'few [who] called afterward and signed the registry' and are therefore outside the 149 the tables count — the plate does not mark them, and this project does not guess",
+  "an address in 1835: the register's fifth column is the 1879 post-office address"
+ ],
+ "note": "The one reception in the series whose roster dates its people, and the reason it was worth a run of its own. Read under T-0577."
+}

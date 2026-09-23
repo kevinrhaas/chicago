@@ -1,0 +1,18 @@
+id: story-of-chicago
+title: The Story of Chicago
+creator: Joseph Kirkland
+date: 1892
+description: >
+  Joseph Kirkland's The Story of Chicago (1892), scanned from Missouri
+  Valley Special Collections, Kansas City Public Library. Used as a
+  source in the Chicago 1830s research corpus.
+redistribution_status: public
+copyright_status: public-domain
+internet_archive:
+  item: chicago1835-story-of-chicago-kirkland
+  url: https://archive.org/details/chicago1835-story-of-chicago-kirkland
+files:
+  - name: 4586954.pdf
+    bytes: 532889219
+    sha256: fa560d1a1b43aa81db7aed29ebbd3531d1a8607948e47e7c91fc0ee80535b736
+local_archive_path: projects/archive/data/chicago/reference/story-of-chicago/

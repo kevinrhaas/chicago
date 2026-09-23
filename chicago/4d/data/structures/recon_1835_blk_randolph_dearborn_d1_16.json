@@ -1,0 +1,150 @@
+{
+  "id": "recon_1835_blk_randolph_dearborn_d1_16",
+  "name": "Reconstructed D1 older log dwelling #16",
+  "archetype": "log_dwelling",
+  "phases": [
+    {
+      "id": "inferred_1835",
+      "documented_range": {
+        "from": "1835-01-01",
+        "to": "1835-12-31",
+        "confidence": "reconstructed",
+        "note": "Anonymous count-unit toward the July 1835 665-roof programme. No evidence establishes that this particular building existed, and no source names an occupant of this lot."
+      },
+      "position": {
+        "utm_e": 447802.187,
+        "utm_n": 4637023.258,
+        "rotation_deg": 180.47,
+        "symbolic_location": "Anonymous reconstructed roof in the South Division block bounded by Randolph, State, Washington and Dearborn; standing ON the Washington Street frontage itself, one unit of the party-line row along it",
+        "confidence": "reconstructed",
+        "note": "PARTY-LINE FRONTAGE, DERIVED FROM THE COMMITTED PLAT (T-0078). This building does not stand centred on a lot at a typology setback: it stands ON the south face of blk_randolph_dearborn, the block's Washington Street frontage, whose line and bearing are read from the block boundary in data/traces/vectors/thompson_lots.json — the same committed geometry the lot grid and the corridor gate are derived from. Its front wall is 1.50 m back from that lot line, which is the closest line the plat module's own margin allows and is not a measurement of this frontage, and its west wall is fixed by the east wall of recon_1835_blk_randolph_dearborn_d3_15, which it shares a party line with. The bearing is the face's own, so the front looks square at Washington Street. The run carries no lateral offset, because a shared party wall is one wall and cannot wander. WHAT IS INVENTED IS STILL EVERYTHING THAT MATTERS: that a building stood here at all, which building it was, and that these particular units stood shoulder to shoulder. What the 1834 South Water Street view supports is the TREATMENT — a continuous working row of party walls rather than detached cottages set back on grass. The treatment is what this placement takes from it, and a run standing on any other face of the town is borrowing it from that one street: the view draws a row, it does not place this row. Standing on a derived block face is not standing on a recovered lot, and the side lot lines this row crosses were always conjectural.",
+        "derivation": {
+          "method": "not_derivable",
+          "reason": "No parcel-by-parcel July 1835 roof register survives in the supplied evidence, and no lot in this block is numbered."
+        }
+      },
+      "footprint": {
+        "polygon": [
+          [
+            0,
+            0
+          ],
+          [
+            5.736,
+            0
+          ],
+          [
+            5.736,
+            7.486
+          ],
+          [
+            0,
+            7.486
+          ]
+        ],
+        "confidence": "reconstructed",
+        "note": "A 5.74 × 7.49 m rectangle sampled deterministically inside the D1 family's authored footprint band; no individual dimensions are documented."
+      },
+      "form": {
+        "stories": {
+          "value": 1,
+          "confidence": "reconstructed",
+          "sources": [
+            "owner_chicago_1835_reconstruction_spec_2026"
+          ],
+          "note": "INVENTED, NOT DERIVED. This value comes from a typology in the reconstruction spec — what a building of this kind was ordinarily like — and NOT from evidence about this particular building, because there is no particular building: the structure itself is an invention filling a demonstrable need of the town. The spec is cited because the invention is bounded by it, which is what makes it defensible rather than arbitrary; the GRADE is the bottom tier because nothing here is a reading of a source about this thing. Type-level choice within the D1 band in the supplied reconstruction specification; it is not evidence for this anonymous instance."
+        },
+        "wall_height_m": {
+          "value": 2.563,
+          "confidence": "reconstructed",
+          "sources": [
+            "owner_chicago_1835_reconstruction_spec_2026"
+          ],
+          "note": "INVENTED, NOT DERIVED. This value comes from a typology in the reconstruction spec — what a building of this kind was ordinarily like — and NOT from evidence about this particular building, because there is no particular building: the structure itself is an invention filling a demonstrable need of the town. The spec is cited because the invention is bounded by it, which is what makes it defensible rather than arbitrary; the GRADE is the bottom tier because nothing here is a reading of a source about this thing. Type-level choice within the D1 band in the supplied reconstruction specification; it is not evidence for this anonymous instance."
+        },
+        "roof_type": {
+          "value": "gable",
+          "confidence": "reconstructed",
+          "sources": [
+            "owner_chicago_1835_reconstruction_spec_2026"
+          ],
+          "note": "INVENTED, NOT DERIVED. This value comes from a typology in the reconstruction spec — what a building of this kind was ordinarily like — and NOT from evidence about this particular building, because there is no particular building: the structure itself is an invention filling a demonstrable need of the town. The spec is cited because the invention is bounded by it, which is what makes it defensible rather than arbitrary; the GRADE is the bottom tier because nothing here is a reading of a source about this thing. Type-level choice within the D1 band in the supplied reconstruction specification; it is not evidence for this anonymous instance."
+        },
+        "roof_pitch_deg": {
+          "value": 34.3,
+          "confidence": "reconstructed",
+          "sources": [
+            "owner_chicago_1835_reconstruction_spec_2026"
+          ],
+          "note": "INVENTED, NOT DERIVED. This value comes from a typology in the reconstruction spec — what a building of this kind was ordinarily like — and NOT from evidence about this particular building, because there is no particular building: the structure itself is an invention filling a demonstrable need of the town. The spec is cited because the invention is bounded by it, which is what makes it defensible rather than arbitrary; the GRADE is the bottom tier because nothing here is a reading of a source about this thing. Type-level choice within the D1 band in the supplied reconstruction specification; it is not evidence for this anonymous instance."
+        },
+        "construction": {
+          "value": "log",
+          "confidence": "reconstructed",
+          "sources": [
+            "owner_chicago_1835_reconstruction_spec_2026"
+          ],
+          "note": "INVENTED, NOT DERIVED. This value comes from a typology in the reconstruction spec — what a building of this kind was ordinarily like — and NOT from evidence about this particular building, because there is no particular building: the structure itself is an invention filling a demonstrable need of the town. The spec is cited because the invention is bounded by it, which is what makes it defensible rather than arbitrary; the GRADE is the bottom tier because nothing here is a reading of a source about this thing. Type-level choice within the D1 band in the supplied reconstruction specification; it is not evidence for this anonymous instance."
+        },
+        "loft": {
+          "value": true,
+          "confidence": "reconstructed",
+          "sources": [
+            "owner_chicago_1835_reconstruction_spec_2026"
+          ],
+          "note": "INVENTED, NOT DERIVED. This value comes from a typology in the reconstruction spec — what a building of this kind was ordinarily like — and NOT from evidence about this particular building, because there is no particular building: the structure itself is an invention filling a demonstrable need of the town. The spec is cited because the invention is bounded by it, which is what makes it defensible rather than arbitrary; the GRADE is the bottom tier because nothing here is a reading of a source about this thing. Type-level choice within the D1 band in the supplied reconstruction specification; it is not evidence for this anonymous instance."
+        },
+        "chimneys": {
+          "value": 1,
+          "confidence": "reconstructed",
+          "sources": [
+            "owner_chicago_1835_reconstruction_spec_2026"
+          ],
+          "note": "INVENTED, NOT DERIVED. This value comes from a typology in the reconstruction spec — what a building of this kind was ordinarily like — and NOT from evidence about this particular building, because there is no particular building: the structure itself is an invention filling a demonstrable need of the town. The spec is cited because the invention is bounded by it, which is what makes it defensible rather than arbitrary; the GRADE is the bottom tier because nothing here is a reading of a source about this thing. Type-level choice within the D1 band in the supplied reconstruction specification; it is not evidence for this anonymous instance."
+        }
+      },
+      "change_note": "Reconstructed anonymous July 1835 block infill; a better-evidenced named roof substitutes for a compatible count-unit rather than increasing the 665-roof total."
+    }
+  ],
+  "function": {
+    "value": "older log dwelling",
+    "confidence": "reconstructed",
+    "sources": [
+      "owner_chicago_1835_reconstruction_spec_2026"
+    ],
+    "note": "INVENTED, NOT DERIVED. This value comes from a typology in the reconstruction spec — what a building of this kind was ordinarily like — and NOT from evidence about this particular building, because there is no particular building: the structure itself is an invention filling a demonstrable need of the town. The spec is cited because the invention is bounded by it, which is what makes it defensible rather than arbitrary; the GRADE is the bottom tier because nothing here is a reading of a source about this thing. Assigned from the D1 family to satisfy the block's scheduled mix; no occupant or individual use is known."
+  },
+  "occupants": {
+    "value": "S. Abell, attorney and counsellor — attorney, counsellor and land conveyancer",
+    "confidence": "reconstructed",
+    "sources": [
+      "chicago_american_1835",
+      "chicago_democrat_1833_1835"
+    ],
+    "note": "SEATED BY THE STREET-FACE ADOPTION POLICY (docs/STREET-FACE-ADOPTION.md, the owner's ruling of 2026-08-29 for T-0354, extended 2026-08-30 for T-0416; liberty L212). The newspaper register places this business on Dearborn Street AND NOTHING NARROWER — 2 printings, 1835-06-24 to 1835-08-01, claims chicago_american_1835_08_01#c003, chicago_democrat_1835_06_24#c006 — so it takes the STREET FACE and not a lot. THE ROOF ENDS ITS PLATTED TIER AGAINST Dearborn Street, so it is a corner building and stands on that street as well as on the one its lot faces — the owner's ruling of 2026-08-30 (T-0416). Nothing about the roof changed and no geometry was raised to seat this business. WHICH roof on that face it is given is an allocation by tools/adopt_street_faces.py and not a reading of any source, and nothing here says this business stood nearer the corner than any other on the same face. THE ROOF'S OWN EXISTENCE, POSITION AND FOOTPRINT REMAIN CONJECTURAL and are unchanged by the adoption: the business is documented, the building under it is not, and this attribute is graded `reconstructed` because the invented part is the whole of the placement."
+  },
+  "reconstruction": {
+    "status": "inferred_anonymous",
+    "family": "D1",
+    "district": "south",
+    "inventory_class": "principal_functional",
+    "programme_phase": "phase3_platted_block_randolph_dearborn_third_deal",
+    "source_id": "owner_chicago_1835_reconstruction_spec_2026",
+    "block_id": "blk_randolph_dearborn",
+    "stands_on": "frontage",
+    "fronts": "washington",
+    "sequence": 16,
+    "finish_key": "ochre",
+    "roof_condition": "fresh",
+    "age_state": "new",
+    "frontage": {
+      "block": "blk_randolph_dearborn",
+      "face": "south",
+      "setback_m": 1.5,
+      "abuts": "recon_1835_blk_randolph_dearborn_d3_15",
+      "why": "T-0143, the succession T-0105 owes. THE BLOCK'S BUSINESS FACE IS FULL, so the clause of the core density standard that tightens a commercial frontage has nothing left to bind here: the first deal and T-0105 between them took every free lot on Randolph, and the two lots this block has left are both on the Washington tier. WHAT DOES BIND IS THE STANDARD'S THIRD CLAUSE, and this is the first parcel in the project able to demonstrate it — T-0105 recorded in writing that lot 4 was an interior lot and the corner clause had nothing to bind on. Lot 1 is the block's one free CORNER lot, the south-west one, and it fronts Washington along its long edge and Dearborn Street along its short one. THE FACE IS MEASURED RATHER THAN ASSUMED, by the command T-A14 made of it — tools/measure_street_frontage.py randolph washington dearborn state — and on the committed dataset Washington carries 1 documented record and no inferred household while DEARBORN carries 6 and 1. So the ground this row is built to is not valuable because of the street it fronts; it is valuable because of the street it stands at the end of, and Dearborn in July 1835 is the only crossing of the main stem. The row is packed WEST to that corner rather than east away from it, which is exactly what `corner: west` is for, and it is graded on T-A11's end rule read the same way T-0105 read it: the best roof nearest the crossing. NO COORDINATE IS AUTHORED: the line, its bearing, the lot's own stretch of it and the end the run packs toward are all read from the committed block boundary in data/traces/vectors/thompson_lots.json, and the 1.5 m setback is the plat module's own lot margin rather than a measurement of this frontage. The Washington face carries no committed street wall for the run to adopt — the two roofs already standing on that tier are one-per-lot placements set back inside their own lots — so this run is the first line on the face and states the margin rather than adopting one."
+    }
+  },
+  "research_note": "RECONSTRUCTED / GENERATED, NOT AN ATTESTED NAMED BUILDING. The block, its scheduled roof count and its family mix follow the 665-roof programme; exact presence, lot, position, footprint, finish and instance-level form are interpretive.",
+  "review_required": false
+}

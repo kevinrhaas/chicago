@@ -1,0 +1,38 @@
+name: Census bridge generated outputs
+
+on:
+  pull_request:
+    paths:
+      - 'chicago/4d/data/census/**'
+      - 'chicago/4d/data/research/residents/census_1840_identity_bridges.csv'
+      - 'chicago/4d/data/residents/households/**'
+      - 'chicago/4d/tools/apply_census_1840_bridges.py'
+      - '.github/workflows/census-bridge-generate.yml'
+
+jobs:
+  generate:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.11'
+      - name: Apply census bridge generator
+        run: python chicago/4d/tools/apply_census_1840_bridges.py
+      - name: Pack generated outputs
+        run: |
+          tar -czf census-bridge-generated.tgz \
+            chicago/4d/data/residents/index.json \
+            chicago/4d/data/residents/households/hh_murphy_john.json \
+            chicago/4d/data/residents/households/hh_miller_john.json \
+            chicago/4d/data/residents/households/hh_adams_william_h.json \
+            chicago/4d/data/research/residents/synthesis_2026_09_02.json \
+            chicago/4d/docs/RESEARCH/resident-household-synthesis-2026-09-02.md
+      # The four site/chicago/4d/data/residents/ paths this used to pack came off the
+      # list with T-0938: the published mirror is untracked and generated, this
+      # generator no longer writes it (tools/publish.sh is its one writer), and `tar`
+      # would fail outright on paths a checkout does not contain.
+      - uses: actions/upload-artifact@v4
+        with:
+          name: census-bridge-generated
+          path: census-bridge-generated.tgz

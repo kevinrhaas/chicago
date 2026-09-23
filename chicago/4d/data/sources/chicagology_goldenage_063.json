@@ -1,0 +1,52 @@
+{
+  "id": "chicagology_goldenage_063",
+  "type": "website",
+  "citation": "Chicagology, “Calumet Club” (Golden Age page 063) — a compilation reprinting the Chicago Tribune's reporting of the Calumet Club's annual receptions to the Old Settlers of Chicago, with the club's own building descriptions.",
+  "date": "accessed 2026-09-03",
+  "describes_date": "1832-1893",
+  "locator": "the three 1882 Chicago Tribune documents on the page: “Chicago Tribune, April 25, 1882 — THE OLD SETTLERS. Deaths During the Year.”; the Capt. Thomas S. Eells interview; and the report of the fourth annual reception with the list “Names of Old Settlers Present, Residents and of Age Prior to 1840”",
+  "url": "https://chicagology.com/goldenage/goldenage063/",
+  "archived_url": "http://web.archive.org/web/20260611041246/https://chicagology.com/goldenage/goldenage063/",
+  "tier": 2,
+  "rights_status": "public_domain",
+  "rights_note": "What is used here is the Chicago Tribune of 1882 and The Chicago Clubs Illustrated of 1888 — United States imprints long out of copyright. Chicagology's own editorial apparatus is NOT reproduced in this repository; data/research/old_settlers/text/ carries the three Tribune documents and nothing else from the page.",
+  "asset_use": "text_only",
+  "verified": true,
+  "transcribes": [
+    {
+      "work": "Chicago Tribune, “THE OLD SETTLERS. Deaths During the Year.” — the fourth annual reception announced for 18 May, and John Wentworth's list of old settlers dead since 1 January 1881",
+      "date": "April 25, 1882",
+      "tier": 2,
+      "note": "The forty names this project reads as the death roll."
+    },
+    {
+      "work": "Chicago Tribune, interview with Capt. Thomas S. Eells of Jacksonville, Fla., who came to Chicago in 1832 with Gurdon S. Hubbard",
+      "date": "May 17, 1882 (the page's dateline reads 1892)",
+      "tier": 2,
+      "note": "The Mansion House at 50 cents for a blanket, the North Side's few white wooden houses and one brick-and-stone building, Kinzie's white house by Clark street bridge, no buildings on the south bank until Dearborn street, and the Indian camps — all of 1832, three years before the scene."
+    },
+    {
+      "work": "Chicago Tribune, report of the Calumet Club's fourth annual reception to the Old Settlers of Chicago, with the list “Names of Old Settlers Present, Residents and of Age Prior to 1840” and the speeches of Vice-President J. W. Doane and the Hon. John Wentworth",
+      "date": "May 19, 1882 (the page's dateline reads 1892)",
+      "tier": 2,
+      "note": "The roster this pass read: 128 printed entries against the report's own count of 118 guests in the house, 414 known old settlers, 35 deaths in the year, 160 guests at the third reception."
+    },
+    {
+      "work": "The Chicago Clubs Illustrated (Chicago: Lanward Publishing Company)",
+      "date": "1888",
+      "tier": 3,
+      "note": "Used for one fact only: that the club, organised in 1878, “occupied for the first few years of its existence the residence of the late General Anson Stager, at the corner of Michigan Avenue and Eighteenth Street” — which is where the receptions of 1879-1882 were held."
+    }
+  ],
+  "what_it_supplies": [
+    "the names on two 1882 rolls of Chicago's pre-1840 settlers, and the club's criterion for being on them",
+    "the reception SERIES: which reception was which, how many attended, and how many had died",
+    "Eells's 1832 description of the town, which is a townscape claim three years early"
+  ],
+  "what_it_does_not_supply": [
+    "any year of arrival for the 1882 guests — the roster gives each guest's 1882 post-office address and no arrival date",
+    "any 1835 residence: the addresses printed are where these men lived in 1882, forty-seven years after the scene date",
+    "an 1835 resident. The club's criterion reaches to 31 December 1839, so a name on this page cannot by itself put anyone in the town on 1 July 1835"
+  ],
+  "note": "A POINTER, AT THE RUNG OF WHAT IT QUOTES. THE PAGE'S DATELINES FOR TWO OF THESE DOCUMENTS READ 1892 AND THE DOCUMENTS ARE OF 1882. The page heads the Eells interview \"Chicago Tribune, May 17, 1892\" and the reception report \"Chicago Tribune, May 19, 1892\", and prints Eells's own bequest over the date \"May 18, 1892\". Six things inside the text put all three in 1882: the Tribune of 25 April 1882 announces the FOURTH annual reception for 18 May and the report calls itself the fourth; Eells says \"I came here fifty years ago\" of 1832; he gives his birth as 1814 and his age as 68; he says the razor-hone left with him \"in Chicago in 1833\" has been kept \"forty-nine years\"; he calls Gurdon S. Hubbard, born 1802, \"over 80 years of age\" and dines with him the next day, which no 1892 interview could do; and the death roll he shares the page with is Wentworth's list of 1881-82. The dates carried in these records are therefore 1882, and the page's own datelines are recorded here rather than followed."
+}

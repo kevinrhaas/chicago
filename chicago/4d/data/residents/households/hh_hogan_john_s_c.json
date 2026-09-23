@@ -1,0 +1,198 @@
+{
+ "id": "hh_hogan_john_s_c",
+ "name": "The Hogan household",
+ "division": "south",
+ "head": "hogan_john_s_c",
+ "arrival": {
+  "value": "1832",
+  "confidence": "attested",
+  "sources": [
+   "andreas_1884_v1"
+  ],
+  "note": "'Came in 1832'.",
+  "precision": "year"
+ },
+ "party_size_on_arrival": {
+  "value": null,
+  "confidence": "reconstructed",
+  "note": "Not attested."
+ },
+ "origin": {
+  "value": null,
+  "confidence": "reconstructed",
+  "note": "Not attested."
+ },
+ "reason_for_coming": {
+  "value": null,
+  "confidence": "reconstructed",
+  "note": "Not attested."
+ },
+ "lives_at": {
+  "value": null,
+  "confidence": "reconstructed",
+  "note": "Not attested."
+ },
+ "works_at": {
+  "value": "hogan_store",
+  "confidence": "attested",
+  "sources": [
+   "andreas_1884_v1",
+   "chicagology_first_post_office"
+  ],
+  "note": "The log building at the intersection of South Water and Lake, near the east end of the bridge, with Hogan's store in it and the post office in the store. Twenty by forty-five feet, which Andreas gives as an aside about how little room the town's mail needed."
+ },
+ "present_on_scene_date": {
+  "value": "present",
+  "confidence": "attested",
+  "sources": [
+   "andreas_1884_v1"
+  ],
+  "note": "Resigned the treasurership in June 1835, four weeks before the scene date."
+ },
+ "persons": [
+  {
+   "id": "hogan_john_s_c",
+   "name": "John S. C. Hogan",
+   "relationship": "head",
+   "grade": "attested",
+   "ladder_rule": "G1b",
+   "sex": "male",
+   "occupation": {
+    "value": "postmaster",
+    "confidence": "attested",
+    "sources": [
+     "andreas_1884_v1"
+    ],
+    "note": "'John S. C. Hogan, Postmaster, came in 1832'. He also kept a store in the same log building, which is why this dataset's hogan_store record is both a shop and the place where Chicago's mail began.",
+    "derived_from": "roles",
+    "roles_at_scene_date": [
+     "postmaster"
+    ]
+   },
+   "sources": [
+    "andreas_1884_v1",
+    "chicago_american_1835",
+    "chicago_democrat_1833_1835",
+    "chicago_voter_lists_1833_1835_irad"
+   ],
+   "note": "IN OFFICE ACROSS THE SCENE DATE AND DOCUMENTED RESIGNING FROM ANOTHER ONE IN THE SCENE MONTH'S NEIGHBOUR. He was one of the twelve who voted for incorporation on 5 August 1833, an elector on the 10th, a candidate who took three votes, a trustee elected in 1834 and the town's treasurer that year - and Andreas: 'John S. C. Hogan voluntarily ceased to act as Treasurer, in June, 1835, because the corporation was determined, as a sanitary measure, to borrow $2,000 in order to have the streets cleared up.' THAT IS THE MONTH BEFORE THE SCENE DATE and it is one of the sharpest dated acts by any named resident inside the scene season. Andreas vol. 1, printed p. 132 (scan p. 281), 'an imperfect list of the denizens of the town in the fall of 1833, not before named' - a name, a trade and usually an arrival year, compiled fifty years after the fact. THE TOWN'S OWN ROLLS, 1833-1835 — CORROBORATION, NOT A GRADE. The early Chicago voter and tax lists held by the Illinois Regional Archives Depository name this person 3 times: Poll list of the first election of the Board of Trustees of the Town of Chicago, 10 August 1833 — “Hogan, John S. C.” (poll_1833_015, line 36); Tax list of the Town of Chicago, 1833 — “Hogan, John S. C.” (tax_1833_045, line 97); Election returns — poll list of 1834, filed 11 August 1834 — “Hogan, John S. C.” (poll_1834_054, line 223). These are the town's own contemporary paper rather than a recollection of it, and each appearance says that a man of that name stood on that roll in that year — no more. The reading is twice mediated (Schulz's transcription, then Genealogy Trails' republication) and this project has not seen the IRAD originals. Under the ratified ladder (T-0513) the 1835 poll with a second independent source is attested, the 1835 poll alone or a 1833/1834 list with another source is inferred, and a single appearance with nothing else is a projected resident. This pass WRITES THE EVIDENCE AND MOVES NO GRADE — T-0515 applies the ladder against every source at once. Identity by the crosswalk's own rule: one resident of the surname 'Hogan' agrees with the entry's forenames; 1 bearer(s) of the surname were considered. (data/research/civic/voter_crosswalk.json).",
+   "resident_research": {
+    "programme": "resident-research-2026",
+    "ticket": "T-0510",
+    "outcome": "corroborated",
+    "reviewed_on": "2026-09-05",
+    "asserted_identity": true,
+    "evidence_for": "McIlvaine's list of the town trustees chosen at the election of 11 August 1834 names 'J. S. C. Hogan'. This project's resident record is John S. C. Hogan, graded attested — 'John S. C. Hogan, Postmaster, came in 1832'. Three initials and a surname against a given name and the same three-part sequence, in the same town, in a civic list two years after this project's own record has him arriving. Ini The 1843 directory's post-office history at leaf 419 says the eastern mail was received 'in a one-horse wagon, weekly - John Stephen Coates Hogan, postmaster', in the year after 1832. This project holds the resident John S. C. Hogan, graded attested, whose occupation note reads 'John S. C. Hogan, Postmaster, came in 1832' and whose store is this dataset's hogan_store, 'both a shop and the place wh one resident of the surname 'Hogan' agrees with the entry's forenames; 1 bearer(s) of the surname were considered.",
+    "evidence_against": "Surname 'Hogan' folds to the same string as the 1839 entry's, and the given name of both begins J. CONTESTED: 3 residents of 1835 meet this one 1839 entry on that rule, and at most one of them is the person printed. The match is not made. Surname 'Hogan' folds to the same string as the 1843 entry's, and the given name of both begins J. CONTESTED: 3 residents of 1835 meet this one 1843 entry on that rule, and at most one of them is the person printed. The match is not made. Surname 'Hogan' folds to the same string as the 1844 entry's, and the given name of both begins J. CONTESTED: 2 residents of 1835 meet this one 1844 entry on that rule, and at most one of them is the man printed. The match is not made.",
+    "summary": "Independently corroborated. John S. C. Hogan agrees, forename for forename or initial for initial, with a record outside the post-office lists in the held book corpus, the town's 1833 tax and 1834/1835 poll lists, the Fergus 1839/1843 and Norris 1844 directories. McIlvaine's list of the town trustees chosen at the election of 11 August 1834 names 'J. S. C. Hogan'. This project's resident record is John S. C. Hogan, graded attested — 'John S. C. Hogan, Postmaster, came in 1832'. Three initials and a surname against a given name and the same three-part sequence, in the same town, in a civic list two years after this project's own record has him arriving. Ini",
+    "notes": "FERGUS 26-29, AS PRINTED: \"Hogan, John Stephen Coates, ex postmaster, bds Charles L. P. Hogan [died, Boonville, Mo., December 2, 1868, aged 63]\". The 1843 directory resolves the initials S. C. to Stephen Coates and prints the postmastership. THE SAME VOLUME'S OBITUARY LIST CONTRADICTS ITSELF: 'Hogan, John Stephen Coates, early postmaster, died, Memphis, Tenn., 1866' — a different place and a different year. Both readings are recorded; neither is asserted. Research only. Later-volume readings are recorded here and NOT promoted: T-0513 consolidates and T-0514/T-0515 apply.",
+    "source_ids": [
+     "chicago_democrat_1833_1835",
+     "chicago_voter_lists_1833_1835_irad",
+     "fergus_chicago_directory_1839",
+     "fergus_historical_series_26_29"
+    ]
+   },
+   "press_evidence": [
+    {
+     "list": "newspaper_1833_1835",
+     "as_read": "J. S. C. Hogan",
+     "locator": "chicago_american_1835_07_04#c007",
+     "record_id": "person_j_s_c_hogan",
+     "describes_date": "1834-02-11",
+     "source": "chicago_american_1835",
+     "rule": "G1b"
+    },
+    {
+     "list": "newspaper_1833_1835",
+     "as_read": "Hogan, J. S. C.",
+     "locator": "chicago_democrat_1834_09_03#c023",
+     "record_id": "person_hogan_j_s_c",
+     "describes_date": "1834-09-03",
+     "source": "chicago_democrat_1833_1835",
+     "rule": "G1b"
+    }
+   ],
+   "merged_from": [
+    {
+     "ticket": "T-0839",
+     "rule": "C2",
+     "cluster": "hogan",
+     "cards": [
+      "hogan_j_s_c"
+     ],
+     "note": "THE UNION OF THE CARDS THIS PERSON WAS SPLIT ACROSS. The sources and evidence blocks above include everything the folded cards cited; each folded record is kept whole under data/residents/merged/ and is redirected by index.json's `merged` table. The reasoning for the merge is in data/residents/card_merge_rulings.json."
+    }
+   ],
+   "merge_ruling": [
+    {
+     "ticket": "T-0839",
+     "verdict": "distinct",
+     "rule": "D2",
+     "cluster": "hogan",
+     "weighed_against": [
+      "hogan_john"
+     ],
+     "for_merge": "Surname and forename agree exactly, which is why the candidate test raises it.",
+     "against_merge": "hh_hogan_john was minted from st_cyr_death_03_1, where John Hogan is the DECEDENT, and the register dates that death to October 1834. John S. C. Hogan is documented in the town as postmaster and keeping his store on the scene date of 1 July 1835 and is named on the 1833-1835 voter rolls. A man cannot be buried in 1834 and vote in 1835: these are two men, and the ruling is written onto both cards so no later pass folds the postmaster onto his own namesake's burial."
+    }
+   ],
+   "roles": [
+    {
+     "role": "postmaster",
+     "kind": "office",
+     "as_printed": null,
+     "from": "1673",
+     "to": "1857",
+     "precision": "source_span",
+     "dated_by": "source_describes_date",
+     "covers_scene_date": true,
+     "confidence": "attested",
+     "sources": [
+      "andreas_1884_v1"
+     ],
+     "claim": null,
+     "note": "THE BOUND IS THE SOURCE'S, NOT THE MAN'S. This role is carried by the card's 1835 occupation block and is dated by what the cited source or sources are ABOUT, which is why `precision` can be no better than the span they cover. The span reaches 1835, so this role stands in the scene-date view. The printing the trade was read off is not on the card and is fetched by T-1254."
+    }
+   ]
+  }
+ ],
+ "touches_removal": false,
+ "review_required": false,
+ "research_note": "A POSTMASTER WHO RESIGNED A SECOND OFFICE ON PRINCIPLE FOUR WEEKS BEFORE THE SCENE DATE, which is as close as this dataset gets to knowing what a documented resident was thinking in June 1835. The $2,000 he would not borrow was to be spent clearing the streets against an expected cholera - so the sanitary state of the town in the scene summer is documented through the man who objected to paying for it.",
+ "directories": {
+  "note": "LATER EVIDENCE, BESIDE THE 1835 CLAIMS AND NOT INSIDE THEM. A Chicago directory of 1839, 1843 or 1844 meets somebody of this name and this pass records what it prints. Under the ratified ladder a directory read after 1835 can corroborate that a person attested here was still in Chicago and can print a trade or a street the 1835 record never had; on its own it makes nobody a resident of 1835. Nothing on this person's 1835 record was regraded, moved, dated or given an occupation by this entry. WHAT THIS PASS RULED ONTO THIS HOUSEHOLD, named so the ruling can be found again: each volume below is followed by the printed entries it set against this person and the status the crosswalk ruled them at — a single entry carries what its own `could_carry` declares, and an ambiguous or contested match carries nothing and is shown so that the silence is legible. hogan_john_s_c, Fergus's Chicago directory of 1839 — f1839_e0706 (a single entry); hogan_john_s_c, Fergus's Chicago directory of 1843 — f1843_e1294 (a single entry); hogan_john_s_c, Norris's Chicago directory of 1844 — n1844_e0868 (a single entry).",
+  "sources": [
+   "fergus_chicago_directory_1839",
+   "fergus_chicago_directory_1843",
+   "norris_directory_1844"
+  ],
+  "people": [
+   {
+    "person_id": "hogan_john_s_c",
+    "address_later": {
+     "value": "236 Lake street",
+     "confidence": "attested",
+     "describes_date": 1839,
+     "sources": [
+      "fergus_chicago_directory_1839"
+     ],
+     "note": "Fergus's Chicago directory of 1839 prints this address against this person, in the entry quoted on the card: 'Hogan, John S. C., dry goods and groceries, 236 Lake street'. It is evidence about 1839, written here as 1839's and read back onto no 1835 claim. Under the ratified ladder a directory read after 1835 can corroborate that a person attested here was still in Chicago and can print a trade or a street the 1835 record never had; on its own it makes nobody a resident of 1835. Nothing on this person's 1835 record was regraded, moved, dated or given an occupation by this entry. The value is the volume's own line, split by its crosswalk on the entry's punctuation. These volumes set the trade first and its qualifiers after it on the same line, so the split may carry an employer, a market or a corner along with the trade. The printed entry is quoted beside the value for exactly that reason: the split is checkable against it, and neither is read into an 1835 claim."
+    },
+    "back_projection": {
+     "outcome": "already_better_placed",
+     "clause": "2",
+     "value": null,
+     "describes_date": 1839,
+     "read_back_years": 4,
+     "placement": null,
+     "position_local_enu_m": null,
+     "sources": [
+      "fergus_chicago_directory_1839"
+     ],
+     "note": "NOT READ BACK, BECAUSE SOMETHING BETTER ALREADY STANDS. Fergus's Chicago directory of 1839 prints an address against this name in 1839, and it is left where it is. An 1835 placement already stands: this household works at `hogan_store`, and clause 2 says an attested 1835 placement always beats a door printed 4 years later. The later address stays on the record as 1839's evidence and moves nothing."
+    }
+   }
+  ]
+ }
+}

@@ -1,0 +1,140 @@
+{
+  "$schema_note": "AUTHORED, and it authors no coordinates. One entry per ground this project holds evidence was not private building ground in 1835 and is not a platted block. Each region names the COMMITTED geometry its boundary is resolved from, and tools/measure_no_build_ground.py resolves it \u2014 from survey lines, from a committed polygon, or (T-0891) from the corner pixels and stated transform of a committed trace of a raster, which is how a parcel that exists only as ink on a plate enters this file without a hand-typed vertex — so the polygon re-derives from the traces the same way data/datum.json re-derives from the ground control, and a hand-typed vertex cannot drift away from the survey it claims to follow. The companion file for platted blocks is 1835_reserved_ground.json (ROADMAP T-A16), which withdraws a block's SUBDIVISION; this file refuses ground that was never subdivided at all.",
+  "id": "no_build_ground_1835",
+  "target_date": "1835-07-01",
+  "authored_by": "ROADMAP T-E2",
+  "why_this_file_exists": "The infill generators test a placement for clearance, for lot lines, for the platted roadway, for modelled terrain and for relief. Not one of those questions is whether the ground was ever open to a private builder. T-A16 found the same hole inside the plat — the public square was being dealt four invented dwellings — and closed it for blocks. Outside the plat the hole is larger and nobody had measured it: 26.5 % of every square metre of modelled ground above the water surface in this scene is the United States Reservation (22.57 ha) or the sand bar across the river mouth (9.53 ha), and both were open to anonymous infill.",
+  "grades": "Each entry's `confidence` grades THE REFUSAL, not the feature. `documented` requires a source that states the ground was not private building ground; `inferred` requires the reasoning to be written out here.",
+  "the_refusal_is_not_the_boundary": "A region's confidence and its boundary are graded separately and they are not the same claim. The reservation's refusal is `documented` — Andreas gives its acreage, its section, and a pre-emption claim filed over the whole of it five weeks before the scene date. Its BOUNDARY as resolved here is `inferred`, and is a floor rather than the reservation: see `boundary.under_coverage` on that entry. The Fort Cemetery is graded the same way and for the same reason: the sheet NAMES the parcel, which is the refusal, and its ring is a reading of ink at +/-25 m.",
+  "regions_may_overlap": "THE TOTAL IS A UNION AND NEVER A SUM. The Fort Cemetery stands wholly inside the United States Reservation, so adding it refuses no ground that was not already refused. The gate walks the heightfield once and asks every region of each cell, and it prints which regions are wholly inside which. A region that adds no acreage is not a fault \u2014 naming and grading a refusal separately is worth doing on its own \u2014 but a table that let it read as new acreage would be.",
+  "regions": [
+    {
+      "id": "fort_dearborn_reservation",
+      "name": "The United States Reservation",
+      "aka": ["the Fort Dearborn reservation", "the military reservation", "the government reservation"],
+      "kind": "military_reservation",
+      "confidence": "documented",
+      "sources": ["andreas_1884_v1", "chicagology_southwaterstreet", "chicagology_prefire278"],
+      "note": "THE REFUSAL IS DOCUMENTED AND THE REASONING IS NOT NEEDED FOR IT. Andreas I, scan p. 183, gives the reservation as 75.69 acres, the southwest fractional quarter of Section 10, T39N R14E, 3rd P.M. It was UNPLATTED in 1835 — no street crossed it, and the town order of August 1833 has South Water Street 'pitched' only from the United States Reservation to Randolph Street (chicagology/southwaterstreet). The town's own eastern boundary on the south side was State Street until the February 1835 extension, with the reservation beyond it (chicagology prefire278). It was federal ground under an active claim on the scene date: Jean Baptiste Beaubien's pre-emption certificate for the whole reservation is dated 1835-05-28 and was recorded 1835-06-26 at $94.61 — about five weeks old on 1835-07-01, and voided by the Supreme Court in Wilcox v. Jackson four years later. Ground the United States has not sold, that carries no street and no lot line, and over which a single contested claim was filed weeks earlier, is not ground on which this project may stand an invented dwelling for an invented household. docs/research/04-structures-south.md sections 1.3 and G carry the passages.",
+      "boundary": {
+        "method": "derived",
+        "confidence": "inferred",
+        "derived_from": "The two survey lines of the fractional quarter, resolved from ONE committed control point, plus the traced waterline where the quarter stops being land.",
+        "west": {
+          "rule": "the section line running north from G1",
+          "control": "data/traces/gcp/wright_1834_gcps.json G1",
+          "note": "G1 is State St & Madison St, and the file already records what it is: 'PLSS section corner: sections 9/10/15/16, T39N R14E. The town plat's SE corner; Madison's line continues east as the reservation's south boundary.' The west line is taken perpendicular to the plat's east-west bearing through that corner."
+        },
+        "south": {
+          "rule": "Madison's line east from G1",
+          "control": "data/traces/gcp/wright_1834_gcps.json G1",
+          "bearing": "the plat's east-west bearing, read from the committed centrelines of Lake, Randolph and Washington in data/streets/1835.json — all three give a local ENU slope of -0.008115, and the figure is used rather than assumed because they agree exactly"
+        },
+        "north_and_east": {
+          "rule": "the traced waterline, walked from the west crossing round to the south crossing",
+          "control": "data/terrain/epochs/e1834_harbor_cut/shoreline.geojson, the `shore` feature whose own name is 'South shore of the harbour reach: south bank of the main stem east of the forks box, the Fort Dearborn reservation's lake shore, and the west bank of the old southward channel behind the bar'",
+          "note": "The trace already calls this the reservation's lake shore. It carries the same +/-20 m planform uncertainty the rest of the shoreline does, because it is drafted off a cadastral plat."
+        },
+        "measured": {
+          "derived_area_acres": 65.7,
+          "documented_area_acres": 75.69,
+          "note": "THE TWO DO NOT AGREE AND THE POLYGON IS NOT TUNED TO MAKE THEM. The derived land polygon is 65.70 acres against Andreas's 75.69 — 13.2 % short. Three candidate causes, none of them measured: a fractional quarter is surveyed to the lake's MEANDER line, which lies east of the 1834 waterline and encloses the water of the old southward channel; the traced shore carries +/-20 m; and the shore trace's own note says it leaves its window beyond about N -580, which is south of Madison. The shortfall is recorded rather than closed."
+        },
+        "under_coverage": {
+          "claim": "The polygon is a FLOOR, not the reservation. It encloses the ground this project has traced and can show was inside it; reservation ground the project has not traced is refused by nothing here.",
+          "why_that_is_safe_today": "Measured, not asserted: NO cell of the committed heightfield that stands above the water surface, east of the west line and north of Madison's line and south of the main stem's south bank, falls outside this polygon or the bar's. The count is zero. Ground the polygon misses is ground the terrain does not model, and the infill generators already refuse to build off the modelled terrain.",
+          "what_would_break_it": "T-E3 extends the heightfield east and south. A terrain extension that reaches past the traced shore re-opens this, and the gate is written to say so: it re-runs the same count every time check.sh does."
+        }
+      },
+      "what_may_stand_here": {
+        "rule": "A structure record may stand on refused ground when its own committed evidence puts it there. Everything else is refused — in particular every roof of the 665-roof programme's anonymous infill, whose whole justification is that the ground was ordinary building ground.",
+        "permitted": [
+          {"structure_id": "fort_dearborn_palisade", "why": "The fort is the reason the reservation exists."},
+          {"structure_id": "fort_dearborn_parade", "why": "Inside the stockade."},
+          {"structure_id": "fort_dearborn_barracks", "why": "Inside the stockade."},
+          {"structure_id": "fort_dearborn_officers_quarters", "why": "Inside the stockade."},
+          {"structure_id": "fort_dearborn_commandants_quarters", "why": "Inside the stockade."},
+          {"structure_id": "fort_dearborn_guard_house", "why": "Inside the stockade."},
+          {"structure_id": "fort_dearborn_magazine", "why": "Inside the stockade."},
+          {"structure_id": "fort_dearborn_store_house", "why": "Inside the stockade."},
+          {"structure_id": "fort_dearborn_artillery_house", "why": "Inside the stockade."},
+          {"structure_id": "fort_dearborn_root_house", "why": "Inside the stockade."},
+          {"structure_id": "fort_dearborn_flagstaff", "why": "Inside the stockade, on the parade. Andreas puts a fifty-foot flagstaff at the fort in the years the scene sits in; see docs/RESEARCH/fort_dearborn.md \u00a7 10."},
+          {"structure_id": "fort_dearborn_blockhouse", "why": "Inside the stockade."},
+          {"structure_id": "fort_dearborn_sutlers_store", "why": "A garrison building on the garrison's own ground."},
+          {"structure_id": "fort_dearborn_garrison_garden", "why": "Andreas and Kinzie both put the garrison's garden and orchard on the reservation, extending south toward Madison Street."},
+          {"structure_id": "fort_dearborn_big_barn", "why": "The garrison's own barn, outside the pickets and inside the fort's fence. The 1830 harbour survey draws and letters it on the reservation, and Hubbard puts \u2018the military barn\u2019 west and a little south of the fort with the garrison garden adjoining it on the east \u2014 the same ground this file already permits that garden to stand on."},
+          {"structure_id": "fort_dearborn_wash_house", "why": "The garrison's wash house, on the reservation east of the pickets, drawn and lettered on the 1830 survey. Hubbard says the men and women of the garrison did their laundry in wash-houses on this ground."},
+          {"structure_id": "fort_dearborn_shop", "why": "The fort's shop, on the reservation south-east of the pickets, drawn and lettered on the 1830 survey. Its trade is not stated by any source and is not claimed here."},
+          {"structure_id": "fort_dearborn_us_factors_house", "why": "The United States factory itself \u2014 the government's own trading house on the government's own reservation, 152 m south of the pickets, drawn and lettered `U.S. Factor's House` on the 1830 survey. Two prose witnesses put it on this ground independently of the plate: Hubbard has it 'just east of the road, and adjoining the fence running east to the river', and Hurlbut has the American Fur Company buy it FROM THE UNITED STATES in 1822. It is permitted on the same footing as the barn, the wash house and the shop, and on a stronger one than the two out buildings beside it."},
+          {"structure_id": "fort_dearborn_out_building_a", "why": "The larger of the two blocks the 1830 survey letters Out Buildings, on the reservation about 160 m south of the pickets. A garrison outbuilding on the garrison's own ground, on the same footing as the barn and the wash house this file already permits."},
+          {"structure_id": "fort_dearborn_out_building_b", "why": "The smaller of that pair, 7.0 m north-east of it. The plate's label is plural and the plate draws two; both stand on the reservation."},
+          {"structure_id": "chicago_lighthouse_1832", "why": "Andreas, scan p. 263: 'Fort Dearborn and the light-house are placed at the angle thus formed' — the light stood on the reservation beside the fort at the river mouth."},
+          {"structure_id": "jb_beaubien_homestead", "why": "The one private dwelling documented ON the reservation. Beaubien lived there and filed the pre-emption claim over the whole 75.69 acres on 1835-05-28; the record carries the passages and the unresolved corner."},
+          {"structure_id": "beaubien_barn", "why": "Beaubien's own outbuilding beside the homestead, on the same evidence."},
+          {"structure_id": "south_pier", "why": "The 1834 harbour work itself. It runs out from the reservation's shore and through the bar, which is why it is the one record that touches both regions in this file."}
+        ]
+      },
+      "refused": {
+        "anonymous_infill": "Every family the 665-roof programme could deal here. No roof of it has ever been placed on this ground — the gate lands green on the day it is written — because every recipe so far has been keyed to a platted block, and the reservation was never platted. That is an accident of the order the work happened in, not a rule anything enforced.",
+        "what_it_costs_the_programme": "Nothing that was owed. The 177 roofs in the schedule's `south_plat_beyond_committed_control` entry wait on street control reaching east of State and south of Washington. This parcel does not delay them; it removes an answer that was never available — the ground immediately east of State Street is not coming, at any date, because it is the reservation."
+      }
+    },
+    {
+      "id": "fort_cemetery",
+      "name": "The Fort Cemetery",
+      "aka": ["the fort's burying ground", "the garrison burying ground"],
+      "kind": "burial_ground",
+      "confidence": "documented",
+      "sources": ["harrison_1830_river_mouth"],
+      "note": "THE REFUSAL IS DOCUMENTED AND IT NEEDS NO ARGUMENT BEYOND WHAT THE SHEET SAYS. The 1830 Harrison plan of the river mouth letters a named parcel on the reservation, south-south-east of the fort between the road and the lake, with the words 'Fort Cemetery' written across the ground between its two boundary lines. A burying ground in use is not private building ground, and this one stood on ground the United States had not sold in any case — it lies wholly inside the reservation entry above, and is refused twice over. It is named here anyway, for the reason T-0882 wrote out when it declined to BUILD it: the parcel is a place this project can now cite, with an extent and a grade of its own, rather than an unnamed 1.45 acres inside a larger refusal. data/traces/harrison_1830_fort_burial_ground.json is the reading, and it carries what the sheet does and does not draw — no fence, no gate, no marker, no path, no count of burials and no extent of them. None of that is invented here either.",
+      "boundary": {
+        "method": "plate_reading",
+        "confidence": "inferred",
+        "control": "data/traces/harrison_1830_fort_burial_ground.json",
+        "ring": "fort_cemetery",
+        "derived_from": "The trace's four corner PIXELS on Internet Archive leaf n242 of historyofchicago01andr, rebuilt through the transform that same trace states: anchor pixel (1445, 644) hung on local ENU (1152.0, 221.0) by the committed palisade, 0.33528 m per pixel, +x east and +y south.",
+        "note": "READ OFF A PLATE, AND RE-DERIVED AT EVERY GATE RUN. The trace fitted the parcel's two boundaries over 33 and 53 sample columns and closed both ends on a third fitted line — the road's south-east edge — with 0.72, 0.46 and 0.17 px of scatter. The first and fourth corners are those two intersections; the second and third are where each boundary's ink runs out at the drawn shore, and are the softest numbers on the record at about +/-5 px (1.7 m) of their own. tools/measure_no_build_ground.py rebuilds the ring from the corner pixels and the stated transform and checks the trace's own ground corners against what it gets, so no vertex is authored in this file and none can drift out of step with the reading. T-0891 is the ticket that taught it to do that; until it did, the only way to put this parcel here was to hand-type the one thing this file exists to forbid.",
+        "confidence_note": "The plate carries NO SCALE BAR, and its source record says it is used for arrangement and proportion rather than absolute size, so this ring carries the +/-20 % on size and +/-25 m on position that every plate-derived record in this dataset carries. Nothing about the refusal depends on that: the parcel's nearest side stands some 230 m inside the reservation's own boundary, which is an order of magnitude more than the reading's uncertainty.",
+        "measured": {
+          "derived_area_acres": 1.45,
+          "derived_area_m2": 5886,
+          "documented_area_acres": null,
+          "note": "NO SOURCE STATES THIS PARCEL'S AREA. Unlike the reservation there is no second figure to disagree with, and none is claimed: 1.45 acres is what the four resolved corners enclose, and it inherits every uncertainty the reading carries."
+        },
+        "stands_inside": "fort_dearborn_reservation"
+      },
+      "what_may_stand_here": {
+        "rule": "Nothing — and the list below is empty rather than unwritten. No committed record stands inside this ring or within a 30 m skirt of it; T-0882 ran that test over every committed phase position and it returned nothing, which is why this region displaces no building and contradicts no placement. A record placed here later would need its own evidence for standing on a burying ground, which is a higher bar than the reservation's and one nothing in this project meets.",
+        "permitted": []
+      },
+      "refused": {
+        "anonymous_infill": "All of it, and it was already all of it: the parcel lies wholly inside the United States Reservation, which refuses the same ground. This region adds no acre to the refusal, and the gate's total is the union of the regions rather than their sum for exactly that reason. What it adds is a name on 1.45 acres, an extent, and a grade — so a slice that asks what stood south-south-east of the fort gets an answer instead of a silence.",
+        "what_is_not_claimed": "Where in the parcel anyone is buried, how many, under what, or when the ground stopped being used. The sheet gives a boundary and a name. The trace's `refused_as_fabric` lists the four kinds of record that would turn this from a polygon into a place — a post or quartermaster return, a chaplain's register, a later plat that draws the parcel again, or an 1840s removal record — and not one of them has reached this project."
+      }
+    },
+    {
+      "id": "river_mouth_sand_bar",
+      "name": "The sand bar across the river mouth",
+      "kind": "sand_bar",
+      "confidence": "documented",
+      "sources": ["wright_1834", "harrison_1830_river_mouth"],
+      "note": "Not building ground in any period, and it needs no argument beyond what it is: a lake-built sand bar at a river mouth, cut through by the 1834 harbour works and drawn by Wright with the old southward channel behind it still narrowing. The committed trace declines to claim any elevation for it at all — 'a bar is a surface a few feet of lake stage moves, no source gives its height' — which is the same reason a dwelling may not stand on it. T-E1 predicted this half of the parcel would need no new evidence, and it did not.",
+      "boundary": {
+        "method": "committed_polygon",
+        "confidence": "inferred",
+        "control": "data/terrain/epochs/e1834_harbor_cut/shoreline.geojson, the `bar` feature",
+        "note": "Traced as the island the water goes round; the same +/-20 m as the rest of the shoreline. No vertex is authored here."
+      },
+      "what_may_stand_here": {
+        "rule": "The harbour works, and nothing else. A structure record may stand here on its own evidence; no anonymous roof may.",
+        "permitted": [
+          {"structure_id": "south_pier", "why": "The pier is the thing that cut the bar. Two of its four corners fall inside the bar polygon and one inside the reservation's, which is the geometry of a pier run out from the shore through a bar."}
+        ]
+      },
+      "refused": {
+        "anonymous_infill": "All of it. The bar carries 9.53 ha of modelled surface above the water line — 23.5 acres, and every gate this project had would have let a house stand on it."
+      }
+    }
+  ]
+}

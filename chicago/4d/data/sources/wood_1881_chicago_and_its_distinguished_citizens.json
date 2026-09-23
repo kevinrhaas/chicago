@@ -1,0 +1,30 @@
+{
+  "id": "wood_1881_chicago_and_its_distinguished_citizens",
+  "type": "book",
+  "citation": "David Ward Wood, Chicago and its Distinguished Citizens; or, The Progress of Forty Years. Being a Record of the Important Events in the History of Chicago, and a Description of its Industries, Professions and Societies, together with Biographical Sketches of Prominent Citizens. Chicago: M. George & Company, 1881. A narrative history of the town and city year by year, followed by biographical sketches.",
+  "author": "David Ward Wood",
+  "date": "1881",
+  "describes_date": "Chicago from the fort to 1881, with a year-by-year narrative of the town years; its 1835 pages are a continuous account of that single year",
+  "repository": "Internet Archive, americana collection",
+  "url": "https://archive.org/details/chicagoitsdistin00wood",
+  "archived_url": "https://archive.org/details/chicagoitsdistin00wood",
+  "locator": "Internet Archive item chicagoitsdistin00wood, 828 images; text layer chicagoitsdistin00wood_djvu.txt, 1,880,762 bytes, sha256 ac6c634c82bd466f30372fd788a489813faf159d566f41fa0c6d60e26a0f4bdb. The account of the year 1835 is in Chapter I and runs across printed pages 23-25 — the running head 'CHICAGO AND ITS DISTINGUISHED CITIZENS' with the folio 24 falls in the middle of it. Cite the printed page, and name the image when the printed folio is missing.",
+  "tier": 4,
+  "rights_status": "public_domain",
+  "rights_note": "Published 1881, and the Internet Archive item carries possible-copyright-status NOT_IN_COPYRIGHT.",
+  "asset_use": "text_only",
+  "verified": true,
+  "access_notes": "LOCATED AND OPENED 2026-09-05 for T-0582, which listed it as 'Wood, D. W., Chicago (1881) — seen in the sample; not yet clustered' and asked whether a pattern for it could be written. Both answers are yes. The text layer was downloaded in full, its sha256 is above, and the OCR is ordinary printed type with the usual scattered wreckage ('rlx ilrst fire' for 'the first fire'). The 1835 pages were read: the year of inflation, the land office selling over 370,000 acres between June and December, the government reservation east of State Street taken into the town limits while the Fort Dearborn reservation between Madison Street and the river was not, the treasurer who resigned rather than borrow two thousand dollars, the new July board of trustees prohibiting gambling and Sabbath liquor and establishing two cemeteries, and the November sale of the wharfing privileges for 999 years at a minimum of twenty-five dollars a front foot on South Water Street, eighteen dollars and seventy-five cents on North Water and eighteen on West Water — later lowered on North Water to fifteen. It also prints the member rosters of the first fire and hook-and-ladder companies. THIS IS THE HIGHEST-YIELD OF THE THREE WORKS LOCATED FOR T-0582 THAT THE PROJECT DID NOT ALREADY TOUCH, and the only one of them whose 1835 sentences are about Chicago rather than about a man who later lived there.",
+  "what_it_supplies": [
+    "a continuous narrative of the year 1835 in Chicago: the land speculation, the town limits, the trustees' ordinances, the wharfing-privilege sale and its minimum prices by street",
+    "printed minimum prices per front foot on South Water, North Water and West Water streets in November 1835 — a scale of relative value along the three water streets",
+    "the member rosters of the first fire and hook-and-ladder companies, which are names of men in the town",
+    "biographical sketches of prominent citizens, which is what the Newberry index files its cards on"
+  ],
+  "what_it_does_not_supply": [
+    "any contemporary record: it is compiled forty-six years later and names no source for its year-by-year narrative",
+    "any building's dimensions, materials or position",
+    "a lot-by-lot account of the wharfing sale — it gives the minimum prices and says six lots were left, not who bought what"
+  ],
+  "note": "Graded tier 4 and not tier 3. It is the same genre as Andreas, three years earlier, but it is a subscription 'progress of forty years' volume that cites nothing and its narrative cannot be traced to a record; Andreas holds the tier-3 rung in this project for apparatus this book does not have. Written for T-0582 as a LOCATION; the reading of the volume is its own ticket, and the 1835 passage summarised in access_notes is the sample that established the work is worth one."
+}

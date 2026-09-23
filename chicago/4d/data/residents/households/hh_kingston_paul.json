@@ -1,0 +1,137 @@
+{
+ "id": "hh_kingston_paul",
+ "name": "The Kingston household — a name from the post office's letter lists",
+ "division": "unplaced",
+ "head": "kingston_paul",
+ "source_pass": "letter_list",
+ "arrival": {
+  "value": "1834-04-01",
+  "confidence": "inferred",
+  "sources": [
+   "chicago_democrat_1833_1835"
+  ],
+  "note": "A BOUND FROM THE RETURN, NOT AN ARRIVAL. The office's list of letters uncalled-for is a RETURN — its statement of what was still unclaimed on ONE day — and the paper reprinted one return over as many consecutive issues as it took, so the bound is dated by the return of 1 April 1834 and not by the issue it was read in (T-0425). Somebody was writing to this name at Chicago by 1834-04-01 and at no stated time before it; nothing says when they came. The date lines the printings set, and how they were weighed, stand beside this rule in tools/mint_letter_list_residents.py.",
+  "precision": "not_later_than"
+ },
+ "party_size_on_arrival": {
+  "value": null,
+  "confidence": "reconstructed",
+  "note": "Not attested."
+ },
+ "origin": {
+  "value": null,
+  "confidence": "reconstructed",
+  "note": "Not attested."
+ },
+ "reason_for_coming": {
+  "value": null,
+  "confidence": "reconstructed",
+  "note": "Not attested."
+ },
+ "lives_at": {
+  "value": null,
+  "confidence": "reconstructed",
+  "note": "Not attested: a letter list gives a name and no address."
+ },
+ "works_at": {
+  "value": null,
+  "confidence": "reconstructed",
+  "note": "Not attested. No trade is recorded, so there is no premises to seek."
+ },
+ "present_on_scene_date": {
+  "value": "uncertain",
+  "confidence": "inferred",
+  "sources": [
+   "chicago_democrat_1833_1835"
+  ],
+  "note": "THE CORPUS STOPS BEFORE THE SCENE DATE. Nothing after 1834-04-01 follows this person to 1 July 1835 or says they left. `uncertain` rather than dropped — the distinction index.json draws for Jeremiah Porter, and a finding, not a gap."
+ },
+ "persons": [
+  {
+   "id": "kingston_paul",
+   "name": "Paul Kingston",
+   "relationship": "head",
+   "grade": "attested",
+   "letter_list_only": true,
+   "letter_list_returns": [
+    "1834-04-01"
+   ],
+   "occupation": {
+    "value": "none_recorded",
+    "confidence": "reconstructed",
+    "note": "No source records an occupation for this person. A list of uncalled-for letters prints a name and no trade, and this pass will not read one in."
+   },
+   "sources": [
+    "chicago_democrat_1833_1835",
+    "isa_public_domain_land_tract_sales",
+    "rr_andreas_chicago_1884_pass11",
+    "rr_racine_old_settlers_1871"
+   ],
+   "note": "INDEPENDENTLY CORROBORATED RESIDENT. Originally documented in Chicago post-office evidence; independent resident research now corroborates the identity. KNOWN ONLY FROM THE POST OFFICE, IN ONE RETURN. The papers print 'Paul Kingston “74.1' in a single return of letters uncalled-for at the Chicago post office — the Democrat of 1 April 1834, column 2 — dated 1834-04-01. WHAT THAT IS WORTH: a correspondent believed a person of this name reachable at Chicago on that date, and nothing further — not that they lived here, kept a trade here, or were here on 1 July 1835. It is the weakest evidence this project accepts for a resident, and a source placing them elsewhere retires the record. THE ARGUMENT EVERY RECORD OF THIS KIND SHARES is written once instead of once per file: the ruling of 2026-08-30 and what it cost the town (docs/LIBERTIES.md L214), the refusals and the transcription standard behind the reading (tools/mint_letter_list_residents.py). No figure is drawn (L1).",
+   "resident_research": {
+    "programme": "resident-research-2026",
+    "ticket": "T-0485",
+    "outcome": "corroborated_enrichment",
+    "reviewed_on": "2026-09-02",
+    "asserted_identity": true,
+    "summary": "Independent early-Chicago sources identify Paul Kingston as a Chicago landholder; a Racine old-settlers record says he came from Chicago on January 2, 1835. This strongly corroborates the rare named Chicago person, while indicating movement to Racine before the July scene date.",
+    "source_ids": [
+     "rr_andreas_chicago_1884_pass11",
+     "rr_racine_old_settlers_1871"
+    ],
+    "refusals": [
+     {
+      "regraded_on": "2026-09-04",
+      "rule": "G3",
+      "withheld": "the downgrade to inferred",
+      "reason": "This card rests on 3 thing(s) the consolidation did not read — isa_public_domain_land_tract_sales, rr_andreas_chicago_1884_pass11, rr_racine_old_settlers_1871. G3 fired on the seven domains the ladder reads and says nothing about the evidence outside them, so the grade stands. The same reasoning the ladder's own G5 gives for abstaining (T-0515)."
+     }
+    ]
+   },
+   "merge_ruling": [
+    {
+     "ticket": "T-1134",
+     "verdict": "distinct",
+     "rule": "D7",
+     "cluster": "kingston-kingstone",
+     "weighed_against": [
+      "kingstone_paul"
+     ],
+     "for_merge": "'PAUL' IS RARE AND THE TOWN HOLDS ONE OF EACH SPELLING. Paul Kingston is corroborated four ways — the Democrat's letter list of 1 April 1834 prints 'Paul Kingston', the ISA land register enters KINGSTON PAUL, and the Andreas and Racine old-settler research passes reach him — while Kingstone, Paul stands on the 1833 tax list alone. A man on the town's tax roll of 1833 who is written to at the post office in 1834 and buys federal ground after is one plausible career.",
+     "against_merge": "'KINGSTONE' OCCURS TWICE IN THE WHOLE CORPUS AND BOTH ARE THE SAME TAX-ROLL LINE. Searched over every deposited text and every extracted claim: the only hits are 'Kingstone, Paul' in voter_lists_1833_1835.txt (line 112) and the genealogytrails transcription of the same roll. The Chicago Democrat prints Kingston five times across 1835 and Kingstone never. The ISA land register — 427 named purchaser spellings, the very corpus T-1001 measured the one-letter fold against — holds KINGSTON PAUL, KINGSTON J T and KINGSTON JOHN T, and no Kingstone at all; and that register holding THREE bearers of the stem is the corpus's own warning that this surname is not unique enough to fold on distance. Moses & Kirkland print Kingston five times and Kingstone never. No title is caught setting both. D7, and the cards stay two. WHAT WOULD SETTLE IT IS NOT A PAGE BUT A COUNT, in C12's shape moved from the forename to the surname — the closed roll leaves the documented man exactly one entry he can be, and the exhaustion is worked over the whole roll and printed rather than asserted. C12 as written reaches a FORENAME only, so firing it on a surname is itself a rule to write. T-1135 owns that question for Pruyne/Pryne and the rule it writes is the one this pair waits on."
+    }
+   ],
+   "profile_facts": [
+    {
+     "field": "departure_from_chicago",
+     "value": "Came from Chicago to Racine on 2 January 1835",
+     "confidence": "inferred",
+     "sources": [
+      "rr_racine_old_settlers_1871"
+     ],
+     "describes_date": "1835-01-02",
+     "place_class": "outside_chicago",
+     "record_id": "resident_research:T-0485#01",
+     "as_read": "a Racine old-settlers record says he came from Chicago on January 2, 1835",
+     "note": "A dated leaving six months before the scene, and the strongest thing this card holds about where the man was on 1 July. Presence is not moved by this ticket; the fact is written down so the next reader can move it on evidence."
+    },
+    {
+     "field": "life_event",
+     "value": "Held land at Chicago",
+     "confidence": "inferred",
+     "sources": [
+      "rr_andreas_chicago_1884_pass11"
+     ],
+     "describes_date": "1834-01-01",
+     "place_class": "chicago",
+     "record_id": "resident_research:T-0485#02",
+     "as_read": "identify Paul Kingston as a Chicago landholder",
+     "note": "Landholding is a fact about the person that the early-Chicago sources state; it is not a residence and is not read as one."
+    }
+   ]
+  }
+ ],
+ "touches_removal": false,
+ "review_required": false,
+ "research_note": "MINTED FROM THE LETTER LISTS (T-0378, T-0379). THE HOUSEHOLD IS A CONTAINER, NOT AN ARGUMENT: every other record here argues for a household, and this one argues for a PERSON. `data/residents/` cannot carry a person outside a household, so one was written around them and told to claim nothing — one member, no dwelling, no division, no trade, no family, no arrival beyond the paper's bound. tools/mint_letter_list_residents.py derives the set and prints every refusal, `--gate` proves no record here gained a roof, a trade or a second member, and docs/LIBERTIES.md L214 carries the change of scale."
+}

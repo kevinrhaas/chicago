@@ -1,0 +1,123 @@
+{
+ "schema": 1,
+ "familysearch_id": "33S7-9YYJ-V2",
+ "image": "chicago/reference/census1840/33S7-9YYJ-V2.jpg",
+ "printed_page": 237,
+ "printed_page_note": "237 is printed at the top right of the leaf and was read off the scan at magnification for this pass; the inventory's figure is confirmed rather than carried.",
+ "sheet_side": "right",
+ "division": null,
+ "division_note": "The sheet names no division. The printed heading carries only the manuscript word 'Illinois' after 'District (or Territory) of'; the marshal's name, the county and the ward are all on the LEFT sheet of the spread, and no left sheet printed 237 is in this deposit.",
+ "state": "Illinois",
+ "county": "Cook",
+ "reading": "scan_verified",
+ "ticket": "T-0529",
+ "page_kind": "recapitulation",
+ "read_pass": "page kind, the TOTAL column in full, the six footing rows, and the grand-total row's occupation and schools cells. There are no household lines to read: this sheet enumerates nobody.",
+
+ "the_finding": "THE SHEET IS A RECAPITULATION AND NOT A CONTINUATION SHEET. The inventory pass filed it as a continuation sheet whose TOTAL column carried three-figure numbers; it is not one. Every ruled line here holds a DIVISION TOTAL of the enumeration, the lines are gathered into six blocks each closed by a ruled footing row that adds the block, and the foot of the sheet carries a grand total of 4,470 — the figure the enumeration book's own certificate page (33S7-9YYJ-95F, printed 206) writes as '4470 - City of Chicago'. This is one of the 'Two Recapitulations at the end of the Book' that certificate names, found in the deposit.",
+
+ "why_it_is_not_a_household_page": [
+  "EVERY LINE'S TOTAL IS THREE FIGURES. The thirty written lines run from 70 to 201 persons. The largest household this project has read anywhere in the 1840 enumeration is in the twenties; a family of 128 is not a family.",
+  "THE SHEET IS RULED ACROSS, AND CONTINUATION SHEETS ARE NOT. tools/read_census_continuation.py records the measurement that settled this for the household sheets: on 33S7-9YYJ-5V exactly two strong horizontal rules stand on the leaf - under the printed heading and above the enumerator's footer - and the largest excess over local background anywhere between them is 4 grey levels, against 77 to 211 for those two. On this leaf the same measurement (mean darkness through x 1186-1880, against a 81-row median background, threshold 18 grey levels) finds NINETEEN rules, of which twelve stand inside the body: y 1201, 1232, 1903, 1934, 2053, 2086, 2131, 2358, 2395, 2880, 2920 and 2958, at depths of 23 to 117 grey levels. They are the block footings, and the tool's own body-band finder fails on this sheet for exactly that reason - it reports the body as y 1245-1907, which is one block of six.",
+  "THE FOOTINGS ADD THE LINES ABOVE THEM. Four of the six close exactly, on figures nobody typed in: 1164, 1320, 294 and 1137. See `blocks` below.",
+  "THE PENSIONERS' NAMES COLUMN IS EMPTY ON EVERY LINE, and so is the whole slaves block, male and female, all twelve columns.",
+  "THE FOOT IS A GRAND TOTAL AND NOT AN ENUMERATOR'S FOOTING: 4,470, which is the whole city, not a page."
+ ],
+
+ "lines_ruled_with_an_entry": 30,
+ "line_count_correction": "The inventory declared 33 lines with an entry, read off a 900x700 contact sheet. Thirty lines carry a figure and six more are footings. The inventory reading long by three is the documented direction of that estimate - coverage.json records six of eight counted left sheets coming in high and none low.",
+
+ "cells_state": "total_column_read_in_full_and_closed_against_four_of_six_footings; grand_total_row_occupation_and_schools_cells_read; per_line_occupation_and_schools_cells_not_read",
+ "cells_note": "The TOTAL column is read line by line at magnification and every block is checked against its own footing. The seven occupation columns and the schools columns are read ONLY on the grand-total row. The per-line occupation cells, the per-line schools cells and the deaf/dumb/blind/insane block are NOT read by this pass and are declared as such rather than left to look empty.",
+
+ "column_geometry": {
+  "measured_by": "the printed column headings, read at 2.4x and their rules taken off the same crop; corroborated by tools/read_census_continuation.py locate_columns(), which reports the same bounds to within 6 px",
+  "total": "x 1183-1371",
+  "mining": "x 1373-1437",
+  "agriculture": "x 1437-1496",
+  "commerce": "x 1496-1560",
+  "manufactures_and_trades": "x 1560-1640",
+  "navigation_of_the_ocean": "x 1640-1721",
+  "navigation_of_canals_lakes_rivers": "x 1721-1798",
+  "learned_professions_and_engineers": "x 1798-1867",
+  "primary_and_common_schools": "x 3447-3513",
+  "no_of_scholars_primary_and_common": "x 3513-3593"
+ },
+
+ "blocks": [
+  {
+   "block": 1,
+   "body": "y 560-1201",
+   "division_totals": [128, 131, 187, 187, 158, 107, 112, 154],
+   "footing_as_read": 1164,
+   "sum_of_the_lines": 1164,
+   "closes": true
+  },
+  {
+   "block": 2,
+   "body": "y 1232-1903",
+   "division_totals": [106, 179, 162, 113, 201, 135, 144, 165, 115],
+   "footing_as_read": 1320,
+   "sum_of_the_lines": 1320,
+   "closes": true,
+   "note": "The first line of this block reads 100 or 106 to the eye - the units glyph is a small closed loop with a flick, and this hand writes 0 and 6 alike at that size. The footing decides it: the other eight lines sum to 1214 and the footing is 1320, so the line is 106. That is the footing settling a digit, which is what a footing is for, and it is recorded here rather than presented as a confident read."
+  },
+  {
+   "block": 3,
+   "body": "y 1934-2053",
+   "division_totals": [175, 119],
+   "footing_as_read": 294,
+   "sum_of_the_lines": 294,
+   "closes": true
+  },
+  {
+   "block": 4,
+   "body": "y 2086-2131",
+   "division_totals": [189],
+   "footing_as_read": null,
+   "sum_of_the_lines": 189,
+   "closes": null,
+   "note": "One line standing alone between two rules, with no separate footing row. Read three times at 7x: the glyphs are 1, 8, 9 and the 8 carries both loops. A division of 189 persons that took one line needed no addition."
+  },
+  {
+   "block": 5,
+   "body": "y 2131-2358",
+   "division_totals": [159, 133, 70],
+   "footing_as_read": null,
+   "sum_of_the_lines": 362,
+   "closes": null,
+   "note": "THE ONE FOOTING THIS PASS CANNOT READ. It is written in the 37 px between the rules at y 2358 and y 2395, both of them cross it, and the row below bleeds through; at 7x the three glyphs resolve no further than a leading 2 or 3. It is NOT transcribed. The three lines above it are legible at 6x and sum to 362; 70 is a two-figure entry set to the right of the cell and is not a truncated 170."
+  },
+  {
+   "block": 6,
+   "body": "y 2395-2880",
+   "division_totals": [152, 151, 157, 198, 175, 181, 123],
+   "footing_as_read": 1137,
+   "sum_of_the_lines": 1137,
+   "closes": true
+  }
+ ],
+
+ "grand_total": {
+  "row": "y 2958-3028, below a double rule",
+  "total_persons": 4470,
+  "mining": 0,
+  "agriculture": 25,
+  "commerce": 182,
+  "manufactures_and_trades": 744,
+  "navigation_of_the_ocean": 1,
+  "navigation_of_canals_lakes_rivers": 44,
+  "learned_professions_and_engineers": 73,
+  "primary_and_common_schools": 11,
+  "no_of_scholars": 397,
+  "not_read": "four single entries of 1 stand in the deaf-and-dumb / blind / insane block and the columns before SCHOOLS. This pass does not name which printed sub-columns they fall in and does not transcribe them.",
+  "external_check": "4,470 is the published 1840 population of the city of Chicago, and is the figure the enumeration book's certificate page writes for the city. The agreement is a check on THIS READING; it is not new evidence, and claims.json already holds the certificate's own statement of it."
+ },
+
+ "arithmetic_check": "The six blocks as read sum to 4,466 against a grand total of 4,470 written at the foot: 1164 + 1320 + 294 + 189 + 362 + 1137. THE RESIDUAL OF 4 IS NOT RESOLVED AND IS NOT SMOOTHED AWAY. Four of the six footings close exactly on the lines above them, so the error is not in those four blocks. It sits in block 5, whose footing is illegible under two crossing rules and whose three lines this pass adds itself, or in block 4's lone line, or the sheet is not the whole recapitulation and four persons are carried on a leaf the deposit does not hold. The three cannot be told apart from this image and none of them is asserted.",
+
+ "why_no_serial_can_hang_on_any_line": "A serial is an IPUMS HOUSEHOLD identifier, and no line of this sheet is a household. Each line is an aggregate of a whole division - 70 to 201 persons - so there is no family whose age-band fingerprint could be matched, no head to name, and nothing for tools/census_1840_fingerprint.py to compare. The sheet is also unpairable: the fingerprint runs off the LEFT sheet's twenty-six free-white age-band columns, and a recapitulation's left sheet would carry aggregates too, not bands. T-0504's generator is told this directly - a page whose page_kind is 'recapitulation' now gets its own `why_not` in serial_crosswalk.json rather than the generic continuation-sheet reason, which would have been wrong twice over.",
+
+ "records": [],
+ "records_note": "Empty, and it must stay empty. A record here would be a household this sheet does not enumerate."
+}

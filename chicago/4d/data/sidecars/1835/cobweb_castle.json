@@ -1,0 +1,334 @@
+{
+  "id": "cobweb_castle",
+  "phase": "log_1820",
+  "name": "Indian Agency House",
+  "aka": [
+    "Cobweb Castle",
+    "the Agency House",
+    "the Government agency-house"
+  ],
+  "archetype": "log_dwelling",
+  "asset": "gltf/cobweb_castle__log_1820.glb",
+  "scene": "1835",
+  "target_date": "1835-07-01",
+  "documented_range": {
+    "from": "1820-01-01",
+    "to": "1835-12-31",
+    "confidence": "inferred",
+    "sources": [
+      "andreas_1884_v1",
+      "kinzie_waubun_1856"
+    ],
+    "note": "THE START IS THE COMPLETION OF A BUILDING SOMEBODY ELSE BEGAN. Andreas's chronology enters \"'Cobweb Castle,' completed by Dr. Wolcott\" against 1820, the year Wolcott was appointed agent, and his narrative says Wolcott 'finished and resided in a building commenced during Judge Jouett's incumbency' — Jouett was agent 1816-18. So the fabric is older than 1820 by up to four years and this range does not claim the earlier part. THE FORM THIS RECORD MODELS IS LATER STILL: the centre, two wings and two tails are Wau-Bun's description of 1831, and Wau-Bun says in as many words that the wings and tails were ADDITIONS made when 'there was found no more room for additions at the sides'. A record that split those additions into phases would have to invent their dates; instead the phase runs from 1820 and carries the 1831 form throughout, which overstates the building's size in the 1820s. THE END OF THE RANGE IS THE HONEST MINIMUM AND IT IS THE WEAKEST THING HERE. No source reached gives this building a fate. It is on this project's own watch_list in data/exclusions.json for that reason: standing and in civilian occupation in the autumn of 1832, when Andreas has Colonel Hamilton residing in 'the old Indian agency-house', and nothing after. The agency itself wound down through the 1833 treaty and the 1835 removal, and an agency house whose agency has gone is exactly the kind of building that comes down without anyone writing it down. Presence on 1835-07-01 is an inference from continuity, not a finding. If evidence turns up that it was gone, this record leaves the scene and moves to data/exclusions.json."
+  },
+  "change_note": "The United States Indian Agency house on the north bank as Wau-Bun describes it in 1831: hewn squared log, a centre with two wings and two rear tails, clapboarded part way up at some point after 1823, standing at the foot of State Street with its front to the river and — by 1831 — a platted street opened across its back. The changes of occupancy after Wolcott's death in 1830 are changes of USE and do not open new phases.",
+  "placement": {
+    "local_e": 814.0,
+    "local_n": 122.0,
+    "rotation_deg": 180.0,
+    "position_confidence": "inferred",
+    "position_sources": [
+      "kinzie_waubun_1856",
+      "andreas_1884_v1",
+      "wright_1834",
+      "osm_streets_2026"
+    ],
+    "position_note": "PLACED 2026-08-11. THE CORNER IS DOCUMENTED TWICE AND THE COORDINATE IS DERIVED, so the tag follows the weaker half — the rule the Sauganash and Green Tree placements use. Wau-Bun: 'It stood at what is now the southwest corner of Wolcott and N. Water Streets.' Andreas, independently: 'the agency-house on the north side of the river, near where now is the foot of North State Street', with his footnote citing Wau-Bun for the same corner. METHOD, in three steps. (1) Wolcott Street is today's N State Street; its modern centreline was read from OpenStreetMap through the Kinzie intersection (EPSG:26916 E 447899.73, N 4637671.53, local E +827.0, N +275.7) and carried south on the fitted bearing of the OSM centreline, giving E +830 at this northing and a west kerb 12.2 m west of it, half an 80 ft platted street. (2) North Water Street and the 1834 north bank were read off the Wright 1834 sheet at the project's own fitted affine (tools/wright_px.py, the same transform tools/rederive_datum.py checks the datum against): the north-bank block row's south line, which is North Water Street's north kerb, runs at local N +128 to +132 between E +624 and E +812, and the drawn north bank of the main stem runs at local N +98 over the same stretch. So the platted street occupies a strip about 30 m deep between the block row and the water. (3) The building's south face is set 15 m north of that bank line and its east face 4 m west of the State Street kerb. THE 15 M IS EVIDENCE, NOT A GUESS, AND IT IS SOFT: Andreas prints the testimony of Charles Jouett's daughter, Mrs. Susan M. Callis, who came here in 1816 and describes the agency house of that period as 'a log building of two large rooms, about twenty steps from the river bank, on the north side'. Twenty steps is 15-18 m. Two inferences ride on it — that a step is about three-quarters of a metre, and that the house Mrs. Callis describes is the one Wolcott finished, which Andreas's 'commenced during Judge Jouett's incumbency' supports and nobody states. WHAT THE SOUTH-WEST QUADRANT ACTUALLY IS: on the 1834 sheet there is no block in it. West of Wolcott the ground south of North Water Street is the riverbank itself, so the building sits on the bank between the platted street and the water rather than on a corner lot — which is what Wau-Bun describes from the other side: 'when, in the process of the town's improvement, a street was maliciously opened directly in the rear of the building, the whole establishment, with its comical little adjuncts, was a constant source of amusement to the passers-by.' The house predates the plat by a decade and the street was laid out behind it. That same sentence is the evidence for the facade bearing recorded here, 180, due south onto the river: the street opened at the REAR, so the front faced the water, which is also how the fort's people reached it — Wau-Bun has the intercourse between the garrison and the Agency House kept up by canoe. UNCERTAINTY: about 20 m from the georeference (data/datum.json records ~17.5 m RMS and calls 20 m the working figure), plus the reading of the 1834 sheet by eye at about 5 m, plus whatever 'twenty steps' is worth. Treat the across-bank axis as the softer one. A LARGER CAVEAT THAN ALL OF THOSE, AND IT IS DISCHARGED. When this note was written the building stood about 500 m east of the modelled terrain box and there was no modelled ground under it at all. The e1834_harbor_cut heightfield was extended east on 2026-08-11 to local E -320..+1700, N -400..+400 — docs/LIBERTIES.md L17 is revised to say so — and this position has stood on traced ground at about +1.35 m above the summer-1835 water surface ever since, which is why this phase carries no ground_contact declaration. Corrected 2026-08-22 under T-0010; walked in the real page by tools/measure_east_band.mjs.",
+    "symbolic_location": "South-west corner of Wolcott Street and North Water Street (today N State St and the north bank of the main stem), at the foot of State Street, north bank of the main stem east of the forks.",
+    "uncertainty_m": 20,
+    "placement_provisional": false,
+    "vertical_anchor": "terrain",
+    "walk_surface_m": null
+  },
+  "footprint": {
+    "polygon": [
+      [
+        0,
+        4
+      ],
+      [
+        4,
+        4
+      ],
+      [
+        4,
+        3
+      ],
+      [
+        4.5,
+        3
+      ],
+      [
+        4.5,
+        0
+      ],
+      [
+        6,
+        0
+      ],
+      [
+        6,
+        3
+      ],
+      [
+        7,
+        3
+      ],
+      [
+        7,
+        0
+      ],
+      [
+        8.5,
+        0
+      ],
+      [
+        8.5,
+        3
+      ],
+      [
+        9,
+        3
+      ],
+      [
+        9,
+        4
+      ],
+      [
+        13,
+        4
+      ],
+      [
+        13,
+        8
+      ],
+      [
+        9,
+        8
+      ],
+      [
+        9,
+        9
+      ],
+      [
+        4,
+        9
+      ],
+      [
+        4,
+        8
+      ],
+      [
+        0,
+        8
+      ]
+    ],
+    "confidence": "reconstructed",
+    "sources": [],
+    "note": "PLACEHOLDER. THE SHAPE CARRIES EVIDENCE AND EVERY NUMBER IN IT IS INVENTED, and the two must not be confused — the same distinction miller_house's footprint note draws. What is attested is the composition, from the only description of this building anybody wrote: 'a substantial, compact little building of logs hewed and squared, with a centre, two wings, and, strictly speaking, two tails, since, when there was found no more room for additions at the sides, they were placed in the rear, whereon a vacant spot could be found. These appendages did not mar the symmetry of the whole, as viewed from the front.' This polygon is that sentence drawn: a centre block projecting one metre forward of two flanking wings, so the front reads symmetrical, and two tails running back from the rear of the centre. The dimensions — a 5 m centre, 4 m wings, 1.5 m tails, a 13 x 9 m envelope — are chosen to suit the words 'compact little building' and are supported by nothing. Mrs. Callis's 'two large rooms' describes the house in 1816, before the wings and tails, and is the only interior evidence of any kind. NOTE WHAT THE MESH DOES WITH THIS: the log_dwelling archetype masses the polygon's BOUNDING BOX, so the visitor sees a plain 13 x 9 m rectangle and the composition this polygon draws is not built — the re-entrant corners beside the tails and beside the wings are filled in. That is admitted in docs/LIBERTIES.md rather than hidden, and it is the same limitation L27 records for Miller's house. To resolve: any plan, any dimension, or the Chicago Democrat's advertisements for the agency's buildings."
+  },
+  "attributes": {
+    "construction": {
+      "value": "log",
+      "confidence": "attested",
+      "sources": [
+        "kinzie_waubun_1856",
+        "andreas_1884_v1"
+      ],
+      "note": "Wau-Bun: 'a substantial, compact little building of logs hewed and squared'. Andreas, recording David McKee's account of the north side when he arrived in 1823: 'All these houses were of logs — the agency-house being afterward clapboarded part way up.' Hewn and squared log is exactly what this archetype builds. The clapboarding is recorded separately under `cladding`, where the record can say that the mesh does not show it."
+    },
+    "cladding": {
+      "value": "clapboard_part_way_up",
+      "confidence": "attested",
+      "sources": [
+        "andreas_1884_v1"
+      ],
+      "note": "'the agency-house being afterward clapboarded part way up' — David McKee's recollection, printed by Andreas. This is an unusually specific finish for a building at this date and it is genuinely odd: siding taken part of the way up a log wall and no further, presumably to weather the lower courses. WHEN it was done is not stated beyond 'afterward', i.e. after 1823, so whether the boards were there on the scene date is not attested either.",
+      "geometry": "simplified"
+    },
+    "plan_composition": {
+      "value": "centre, two wings, two rear tails",
+      "confidence": "attested",
+      "sources": [
+        "kinzie_waubun_1856"
+      ],
+      "note": "Wau-Bun's phrase, kept verbatim as a value because it is the single best-attested fact about this building and because the footprint polygon that draws it is not what the mesh is built from. The record states the composition; the model shows a rectangle.",
+      "geometry": "absent"
+    },
+    "stories": {
+      "value": 1,
+      "confidence": "inferred",
+      "note": "Not attested. 'Compact little building' and 'two large rooms' both read as a single storey, and a building that grew by adding wings at the sides and tails at the rear is a building that could not grow upward — which is the argument. The counter-example is in the same book: the FIRST agency house, built beside old Fort Dearborn in 1803-4 on the south side, was 'a two-story log building, covered with split oak siding'. That is a different building and it is why this value is inference rather than type."
+    },
+    "wall_height_m": {
+      "value": 2.6,
+      "confidence": "inferred",
+      "note": "No figure is attested. 2.6 m is about 8 ft 6 in: one storey of hewn-log wall at the course counts this project uses for the Miller house's log core, plus a sill. What is inferred is the range, not the centimetre."
+    },
+    "roof_type": {
+      "value": "gable",
+      "confidence": "reconstructed",
+      "note": "THE ONE THING WAU-BUN SAYS ABOUT THIS ROOF IS THAT IT WAS NOT ORDINARY: 'There were pleasant, happy hours passed under its odd-shaped roof.' Odd-shaped is what a centre with two wings and two tails produces — a roof of intersecting ridges, valleys and lean-tos that grew with the additions. The archetype builds one gable over one rectangle, so the model shows the opposite of what the source says, and the value is tagged conjectural because a gable here is a substitution rather than a reading. Left as `gable` rather than `shed` because a gable is the only one of the two forms this archetype offers that a log building of this size would carry."
+    },
+    "roof_pitch_deg": {
+      "value": 35.0,
+      "confidence": "inferred",
+      "note": "No pitch is attested. 35 degrees is this archetype's mid-range for a low log building roofed in riven shakes. Inferred from construction practice, not measured, and inherited by a roof form the record has already said is wrong (see roof_type)."
+    },
+    "chimneys": {
+      "value": 2,
+      "confidence": "inferred",
+      "note": "Not attested. Two is inferred from the plan the sources give rather than from the building: a centre with two wings, holding the agent's office and household — in 1831 that household was J. H. Kinzie's mother, two sisters and brother as well — is more rooms than one hearth heats through a Chicago winter. The COUNT is the inference; where the stacks stand, how big they are and what they are made of are the archetype's, which is the standing admission in docs/LIBERTIES.md L26."
+    },
+    "function": {
+      "value": "agency_house_residence",
+      "confidence": "inferred",
+      "sources": [
+        "andreas_1884_v1"
+      ],
+      "note": "NOT AN OPERATING INDIAN AGENCY BUILDING AT THE SCENE DATE, most likely, and that is the fact this record has least evidence for. Andreas has it 'left unoccupied by the death of Dr. Wolcott' in 1830, then in the autumn of 1832 describes 'the old Indian agency-house in which Colonel Hamilton then resided' — Colonel R. J. Hamilton, the county's clerk and commissioner of school lands, living in it as a private house while the agency's business ran down through the 1833 treaty. Nothing reached says who was in it in July 1835 or what it was being used for, so the value records a residence and this record carries no occupants block rather than guessing at one."
+    }
+  },
+  "residents": [
+    {
+      "household": "hh_caldwell_billy",
+      "name": "The Caldwell household",
+      "division": "north",
+      "relation": "worked here",
+      "why": "The agency's interpreter worked where the agency's business was done, and the government blacksmith shop this dataset holds stands beside the agency house. Inferred: no source puts this man in this building.",
+      "sources": [
+        "andreas_1884_v1"
+      ],
+      "basis": "",
+      "persons": [
+        {
+          "name": "Billy Caldwell (Sauganash)",
+          "relationship": "head",
+          "grade": "attested",
+          "occupation": "interpreter",
+          "note": "THE MAN THE SAUGANASH HOTEL IS NAMED AFTER, which is how this dataset first met him: 'It was suggested to Mark that he should name his house after some great man. He could think of no greater personage than Billy Caldwell and so his tavern became celebrated as the \"Sauganash.\"' Andreas: son of a Colonel Caldwell, an Irish officer in the British army at Detroit, and a Potawatomi mother; born about 1780; educated at the Jesuit schools of Detroit and fluent in French and English besides several Indian languages; secretary to Tecumseh from about 1807 until Tecumseh's death and present at the Thames on 5 October 1813; a captain in the British Indian Department as late as 1816. By the treaty of Prairie du Chien of 1829 he was granted two and a half sections on the Chicago River, about six miles up the North Branch, and by the treaties of 1832 and 1833 annuities aggregating $1,000; he sold the land early. When John Watkins started his school in 1832 Caldwell offered to pay the tuition and buy books and clothes for any Indian children who would attend."
+        }
+      ],
+      "research_note": "THE INTERPRETER OF THE AGENCY, THE NAMESAKE OF THE TOWN'S BEST-KNOWN TAVERN, AND A MAN WHO LEFT WITH HIS PEOPLE. STANDING CONSTRAINT. AGENTS.md: the final removal of the Potawatomi from Chicago occurred in August 1835, inside this project's first target year and six weeks AFTER the scene date; Native presence, representation and depiction are not research gaps to be filled by inference, and v1 ships no human figures at all. This record is a dataset entry that states what named sources say about a named person and adds nothing. It carries review_required so that no scene containing it can be marked released before the consultation the project has committed to. ANDREAS AND THIS PROJECT'S OTHER SOURCE DISAGREE BY A YEAR ABOUT THE REMOVAL ITSELF and the disagreement is recorded here rather than resolved: Andreas, 'In 1836, under the leadership of Captain Russell the Government Agent, and Billy Caldwell, the Indians to the number of nearly twenty-five hundred assembled for the last time at Chicago, to receive their payments and then take up their line of march for their new home on the Missouri, at Council Bluffs'; chicagology_lastwardance, transcribing a 1910 Tribune account, dates the last great war dance to 18 August 1835. AGENTS.md takes the 1835 dating as the project's standing constraint. Under either, 1 July 1835 is before it, and this household is in the scene. He died at Council Bluffs on 28 September 1841. BOTH FLAGS WERE FALSE UNTIL 2026-08-16 AND THE PARAGRAPH ABOVE SAID OTHERWISE. The sentence 'It carries review_required so that no scene containing it can be marked released' has been in this record since it was written, and `review_required` was never once set: the claim blocked nothing and read to every later agent as though it did. Nothing else about the record moved, and nothing was researched to justify the change — `touches_removal` is set from this record's own committed text, which quotes Andreas putting this man at the head of the march to the Missouri. ROADMAP K34 found it by reading the prose against the field, and tools/measure_review_constraint.py asserts the two agree from here on."
+    },
+    {
+      "household": "hh_hamilton_richard_j",
+      "name": "The Hamilton household",
+      "division": "north",
+      "relation": "lived here",
+      "why": "DOCUMENTED FOR 1832 AND NOT FOR THE SCENE DATE, which is why this is graded derived rather than documented. Andreas, on the founding of the first school: 'In the fall of 1832, Colonel Hamilton and Colonel Owen employed John Watkins to teach a small school in the North Division, near the old Indian agency-house in which Colonel Hamilton then resided.' That is a plain statement that he lived in the building this dataset records as cobweb_castle, and it is nearly three years before 1 July 1835. Nothing reached follows him out of it or keeps him in it. The link is made because it is the only attested residence for any named person in that building and because an unlinked household teaches a reader nothing; the grade is the warning.",
+      "sources": [
+        "andreas_1884_v1"
+      ],
+      "basis": "",
+      "persons": [
+        {
+          "name": "Richard Jones Hamilton",
+          "relationship": "head",
+          "grade": "attested",
+          "occupation": "county_clerk",
+          "note": "ONE OF THE SIX MEN ANDREAS COUNTS AS CHICAGO'S LAWYERS AT THE END OF 1833, and one of the twelve who voted for incorporation on 5 August 1833. Andreas, scan p. 281: 'It comprised six lawyers - Russel E. Heacock, who had come in 1827; Richard J. Hamilton, 1831; and Giles Spring, John Dean Caton, Edward W. Casey and Alexander N. Fullerton, who had put out their signs in 1833.' He administered the oath of office to the first board of trustees as a notary public and acted as its clerk pro tem, and he ran the auction of the school section in October 1833 with John Bates as auctioneer. THE TOWN'S OWN ROLLS, 1833-1835 — CORROBORATION, NOT A GRADE. The early Chicago voter and tax lists held by the Illinois Regional Archives Depository name this person 3 times: Poll list of the first election of the Board of Trustees of the Town of Chicago, 10 August 1833 — “Hamilton, R. J.” (poll_1833_013, line 34); Tax list of the Town of Chicago, 1833 — “Hamilton, Richard J.” (tax_1833_042, line 94); Election returns — poll list of 1834, filed 11 August 1834 — “Hamilton, Richard J.” (poll_1834_049, line 218). These are the town's own contemporary paper rather than a recollection of it, and each appearance says that a man of that name stood on that roll in that year — no more. The reading is twice mediated (Schulz's transcription, then Genealogy Trails' republication) and this project has not seen the IRAD originals. Under the ratified ladder (T-0513) the 1835 poll with a second independent source is attested, the 1835 poll alone or a 1833/1834 list with another source is inferred, and a single appearance with nothing else is a projected resident. This pass WRITES THE EVIDENCE AND MOVES NO GRADE — T-0515 applies the ladder against every source at once. Identity by the crosswalk's own rule: one resident of the surname 'Hamilton' agrees with the entry's forenames; 1 bearer(s) of the surname were considered. (data/research/civic/voter_crosswalk.json). THE FEDERAL LAND TRACT SALES — A PURCHASE, AND NEVER A RESIDENCE. The Illinois State Archives' Public Domain Land Tract Sales register enters this person 7 times, as “HAMILTON RICHARD J”, “HAMILTON R J”, 1833-10-22 to 1836-06-29: 5 lots in the platted town — lot 1 of block 8 in the town the register codes CHIV (L1BL8CHIV, as printed); lot 2 of block 8 in the town the register codes CHIV (L2BL8CHIV, as printed); lot 4 of block 2 in the town the register codes CHIOT (L4BL2CHIOT, as printed); the N2 of lot 7 of block 2 in the town the register codes CHIV (N2L7BL2CHIV, as printed); the S2 of lot 7 of block 3 in the town the register codes CHI (S2L7BL3CHI, as printed) and 2 parcels of the school section — lot 5 of block 2 of the school section (sec 16 T39N R14E); lot 6 of block 25 of the school section (sec 16 T39N R14E), 0.00 acres stated in all, for $17236.00 (ls0225, ls0226, ls1203, ls1204, ls1205, ls1206, ls1207). THE REGISTER'S OWN RESIDENCE COLUMN READS UNKNOWN on these rows: a county, a state or nothing, and never a town, which is why a purchase here places nobody. THE SCHOOL-SECTION ROWS ARE GROUND INSIDE THE TOWN, NOT FARMLAND: section 16 of T39N R14E was platted and sold off by lot and by block at the sale of 1833, which is why the register states 0000.00 acres against most of them. Ground inside the town is nearer to this reconstruction than a quarter-section is, and it is still a purchase: the register names a purchaser and never an occupant, and nothing here puts this person on that ground. THE TOWN LOTS ARE THE PLAT ITSELF, AND THEY ARE NOT ACRES: Cook County's register describes them by lot and block in a platted town and gives them no section, no township and no acreage at all, so they add nothing to the acre figure above and $17160.00 to the money. This project does not expand the register's town codes, so which addition a lot stands in is carried as the code and not as a name. It is still a purchase and it still places nobody. A purchase and nothing more. It dates and places a transaction; it proposes no residence, and under the ratified ladder it corroborates rather than mints. Identity by the crosswalk's own rule: HAMILTON RICHARD J matches Richard Jones Hamilton: the forename names Richard Jones Hamilton of the 3 people of this surname, and the forename agrees in full. (data/research/land_sales/resident_crosswalk.json). This pass WRITES THE EVIDENCE AND MOVES NO GRADE. Under the ratified ladder (T-0513) a second independent source is what lifts a projected resident, and a land entry is a second source about a TRANSACTION rather than about who was living at Chicago on 1 July 1835 — a man may buy a quarter-section he never sees. T-0515 applies the ladder against every source at once; this pass hands it the evidence and not the verdict."
+        }
+      ],
+      "research_note": "THE COUNTY'S CLERK, AND THE ONE NAMED PERSON THIS PROJECT CAN PUT INSIDE COBWEB CASTLE. The residence link is the point of the record and it is also its weakness: the sentence that supplies it is about a schoolmaster's employment in 1832, and it is doing double duty here as evidence about a building and about a household. Graded derived on both counts. A SECOND THING THIS RECORD DOES NOT CLAIM: Hamilton appears constantly in the 1833-35 record as commissioner, notary, clerk pro tem and attorney, and it would be easy to write him a household of five and an origin. Nothing supports either."
+    },
+    {
+      "household": "hh_kercheval_gholson",
+      "name": "The Kercheval household",
+      "division": "south",
+      "relation": "worked here",
+      "why": "The agency's business was done at the agency house. Same inference and same weakness as the agent's own work link: no source puts this man in this building.",
+      "sources": [
+        "andreas_1884_v1"
+      ],
+      "basis": "",
+      "persons": [
+        {
+          "name": "Gholson Kercheval",
+          "relationship": "head",
+          "grade": "attested",
+          "occupation": "sub_agent",
+          "note": "HE GUIDED THE MEN WHO BROUGHT EASTERN MONEY TO CHICAGO, and he commanded its militia. Charles Butler's 1881 letter: preparing to travel from Detroit in the summer of 1833 they 'arranged with a young man, named Gholson Kercheval, who was familiar with the route, having been connected with the Indian agency at Chicago, to accompany us all the way from Detroit to Chicago'. The 1832 militia agreement Andreas prints begins 'we, the undersigned, agree to submit ourselves, for the time being, to Gholson Kercheval, Captain, and George W. Dole and John S. C. Hogan, First and Second Lieutenants, as commanders of the Militia of the town of Chicago, until all apprehension of danger from the Indians may have subsided' and carries about forty signatures. He is trustee for three of the payments in the 1833 treaty's schedule - $800 each for Alexander and Paschal Muller. He was one of the twenty-eight electors of 10 August 1833 and died in California. THE TOWN'S OWN ROLLS, 1833-1835 — CORROBORATION, NOT A GRADE. The early Chicago voter and tax lists held by the Illinois Regional Archives Depository name this person 3 times: Poll list of the first election of the Board of Trustees of the Town of Chicago, 10 August 1833 — “Kercheval, Gholson” (poll_1833_019, line 40); Tax list of the Town of Chicago, 1833 — “Kercheval, Gholson” (tax_1833_055, line 107); Election returns — poll list of 1834, filed 11 August 1834 — “Kercheval, Gholson” (poll_1834_062, line 231). These are the town's own contemporary paper rather than a recollection of it, and each appearance says that a man of that name stood on that roll in that year — no more. The reading is twice mediated (Schulz's transcription, then Genealogy Trails' republication) and this project has not seen the IRAD originals. Under the ratified ladder (T-0513) the 1835 poll with a second independent source is attested, the 1835 poll alone or a 1833/1834 list with another source is inferred, and a single appearance with nothing else is a projected resident. This pass WRITES THE EVIDENCE AND MOVES NO GRADE — T-0515 applies the ladder against every source at once. Identity by the crosswalk's own rule: one resident of the surname 'Kercheval' agrees with the entry's forenames; 1 bearer(s) of the surname were considered. (data/research/civic/voter_crosswalk.json)."
+        }
+      ],
+      "research_note": "THE SUB-AGENT, THE MILITIA CAPTAIN AND THE GUIDE - three roles that between them describe how a frontier agency actually worked, and none of which the single-value occupation field can carry. THE MILITIA ROLL IS THE MOST VALUABLE UNWORKED LIST THIS PARCEL FOUND: about forty men of the town signed it in 1832, several of whom appear nowhere else in this dataset, and it is a population census of the adult male settlement two years before the 1833 roster. Working it is derived-phase work. STANDING CONSTRAINT. AGENTS.md: the final removal of the Potawatomi from Chicago occurred in August 1835, inside this project's first target year and six weeks AFTER the scene date; Native presence, representation and depiction are not research gaps to be filled by inference, and v1 ships no human figures at all. This record is a dataset entry that states what named sources say about a named person and adds nothing. It carries review_required so that no scene containing it can be marked released before the consultation the project has committed to."
+    },
+    {
+      "household": "hh_owen_thomas_jv",
+      "name": "The Owen household",
+      "division": "south",
+      "relation": "worked here",
+      "why": "The Indian agency house is where the Indian agent's business was done: Owen's staff - Kercheval and James Stuart as sub-agents, Billy Caldwell as interpreter, David McKee as blacksmith and Joseph Porthier as striker - are the agency establishment, and the blacksmith shop this dataset holds stands beside this building. INFERRED, NOT DOCUMENTED: no source says Owen kept his office in this house on any date, and the agency's own buildings had already been lent to other uses by 1832.",
+      "sources": [
+        "andreas_1884_v1"
+      ],
+      "basis": "",
+      "persons": [
+        {
+          "name": "Thomas Jefferson Vance Owen",
+          "relationship": "head",
+          "grade": "attested",
+          "occupation": "indian_agent",
+          "note": "BORN IN KENTUCKY, 5 APRIL 1801, AND DIED AT CHICAGO ON 15 OCTOBER 1835 - fifteen weeks after the scene date, which is why this household is one of the few in the dataset whose presence on 1 July 1835 is settled at both ends. Andreas, scan p. 195: 'Colonel Owen was born in Kentucky, April 5, 1801. He was appointed Indian agent in the winter of 1830-31, but did not arrive in Chicago until the spring of 1831 ... When the Town of Chicago was incorporated in 1833, Colonel Owen was chosen President of its first board of trustees. He died at Chicago, October 15, 1835.' THE TOWN'S OWN ROLLS, 1833-1835 — CORROBORATION, NOT A GRADE. The early Chicago voter and tax lists held by the Illinois Regional Archives Depository name this person 1 time: Poll list of the first election of the Board of Trustees of the Town of Chicago, 10 August 1833 — “Owen, Col. T. J. V.” (poll_1833_021, line 42). These are the town's own contemporary paper rather than a recollection of it, and each appearance says that a man of that name stood on that roll in that year — no more. The reading is twice mediated (Schulz's transcription, then Genealogy Trails' republication) and this project has not seen the IRAD originals. Under the ratified ladder (T-0513) the 1835 poll with a second independent source is attested, the 1835 poll alone or a 1833/1834 list with another source is inferred, and a single appearance with nothing else is a projected resident. This pass WRITES THE EVIDENCE AND MOVES NO GRADE — T-0515 applies the ladder against every source at once. Identity by the crosswalk's own rule: one resident of the surname 'Owen' agrees with the entry's forenames; 1 bearer(s) of the surname were considered. (data/research/civic/voter_crosswalk.json). THE FEDERAL LAND TRACT SALES — A PURCHASE, AND NEVER A RESIDENCE. The Illinois State Archives' Public Domain Land Tract Sales register enters this person 4 times, as “OWEN THOMAS J V”, 1833-10-23 to 1833-10-24: 4 parcels of the school section — BL105 of the school section (sec 16 T39N R14E), as read; BL108 of the school section (sec 16 T39N R14E), as read; lot 1 of block 84 of the school section (sec 16 T39N R14E); lot 3 of block 23 of the school section (sec 16 T39N R14E), 8.72 acres stated in all, for $676.00 (ls0297, ls0298, ls0299, ls0300). THE REGISTER'S OWN RESIDENCE COLUMN READS UNKNOWN on these rows: a county, a state or nothing, and never a town, which is why a purchase here places nobody. THE SCHOOL-SECTION ROWS ARE GROUND INSIDE THE TOWN, NOT FARMLAND: section 16 of T39N R14E was platted and sold off by lot and by block at the sale of 1833, which is why the register states 0000.00 acres against most of them. Ground inside the town is nearer to this reconstruction than a quarter-section is, and it is still a purchase: the register names a purchaser and never an occupant, and nothing here puts this person on that ground. A purchase and nothing more. It dates and places a transaction; it proposes no residence, and under the ratified ladder it corroborates rather than mints. Identity by the crosswalk's own rule: OWEN THOMAS J V matches Thomas Jefferson Vance Owen: the forename names Thomas Jefferson Vance Owen of the 2 people of this surname, and the forename agrees in full. (data/research/land_sales/resident_crosswalk.json). This pass WRITES THE EVIDENCE AND MOVES NO GRADE. Under the ratified ladder (T-0513) a second independent source is what lifts a projected resident, and a land entry is a second source about a TRANSACTION rather than about who was living at Chicago on 1 July 1835 — a man may buy a quarter-section he never sees. T-0515 applies the ladder against every source at once; this pass hands it the evidence and not the verdict."
+        },
+        {
+          "name": "Owen's household, unnamed",
+          "relationship": "household_member",
+          "grade": "inferred",
+          "occupation": "none_recorded",
+          "note": "A PLACEHOLDER FOR PEOPLE WHO CERTAINLY EXISTED AND WHOM NO SOURCE REACHED NAMES. Owen was a married man with children - his family is referred to in the Chicago literature and his son-in-law's line is traced in later chapters - but nothing this project holds names his wife or counts his children, so no person record is written for them and the household size is left as an admission rather than a number. This entry exists so that a reader of the dataset sees the gap instead of a household of one. It carries no age, no sex and no name, and it must not be counted as a person for any purpose but that."
+        }
+      ],
+      "research_note": "THE TOWN'S FIRST PRESIDENT AND THE UNITED STATES' AGENT TO THE POTAWATOMI, IN THE LAST SUMMER OF HIS LIFE. Two things make this a good anchor record. The first is that the presence question is closed at both ends: an arrival in the spring of 1831 and a death at Chicago on 15 October 1835, both in Andreas. The second is that the household is the dataset's first demonstration of the honest failure mode - one named person and an unnamed remainder that the record refuses to invent. THE RECORD DELIBERATELY DOES NOT CARRY OWEN'S ROLE IN THE 1833 TREATY AS AN OCCUPATION. He signed as a commissioner for the United States at the treaty of 26 September 1833 that ceded the land this town stands on, and that is a fact about the removal rather than about a trade; it is recorded here in prose and the household is flagged for review because of it."
+    }
+  ],
+  "citations": [
+    {
+      "source_id": "andreas_1884_v1",
+      "citation": "Andreas, A. T. History of Chicago: From the Earliest Period to the Present Time. Vol. 1. Chicago: A. T. Andreas, 1884.",
+      "url": "https://archive.org/details/historyofchicago01andr",
+      "archived_url": "",
+      "tier": 3,
+      "tier_label": "compiled secondary (Andreas)"
+    },
+    {
+      "source_id": "kinzie_waubun_1856",
+      "citation": "Kinzie, Juliette A. M. Wau-Bun: The 'Early Day' in the North-West. New York: Derby & Jackson, 1856.",
+      "url": "https://www.authorama.com/wau-bun-19.html",
+      "archived_url": "https://archive.org/details/waubunearlydayin00kinzbyu",
+      "tier": 2,
+      "tier_label": "near-primary recollection"
+    },
+    {
+      "source_id": "osm_streets_2026",
+      "citation": "OpenStreetMap contributors. Street centerline intersection nodes for downtown Chicago, retrieved via the Overpass API, 2026-08-09.",
+      "url": "https://www.openstreetmap.org/",
+      "archived_url": "https://overpass-api.de/",
+      "tier": 4,
+      "tier_label": "later scholarship"
+    },
+    {
+      "source_id": "wright_1834",
+      "citation": "Wright, J. S. Chicago, drawn by J. S. Wright according to survey. New York: P. A. Mesier's Lith., 1834.",
+      "url": "https://collections.leventhalmap.org/search/commonwealth:js9577436",
+      "archived_url": "",
+      "tier": 1,
+      "tier_label": "period/eyewitness",
+      "what_it_supplies": [
+        "street geometry",
+        "block and lot subdivision",
+        "shoreline",
+        "river channel and the 1834 cut",
+        "survey-date colouring"
+      ],
+      "what_it_does_not_supply": [
+        "building footprints",
+        "building locations"
+      ]
+    }
+  ],
+  "research_note": "THE OLDEST BUILDING STANDING ON THE NORTH BANK IN THIS SCENE, if it was standing: begun under Charles Jouett's agency (1816-18), finished and lived in by Dr. Alexander Wolcott from about 1820, nicknamed Cobweb Castle during his bachelor years, and described once — in Wau-Bun, of 1831 — in the sentence that gives this record its shape. TWO SOURCES AGREE ON THE CORNER and neither gives a dimension. WHAT WRITING THIS RECORD ADDED TO THE PROJECT'S DOSSIER, all from Andreas vol. 1 read at full text rather than through the index: the footnote at p. 103 citing Wau-Bun for the corner; McKee's 'the agency-house being afterward clapboarded part way up'; Mrs. Callis's 'a log building of two large rooms, about twenty steps from the river bank, on the north side' for the Jouett-era house; and the 1830 recollection that 'the Government agency-house, known as \"Cobweb Castle,\" was left unoccupied by the death of Dr. Wolcott. In its vicinity were small log buildings occupied by the blacksmith, Mr. McKee, and Billy Caldwell' — which is the corroboration for Wau-Bun's ring of employees' log residences and for this project's blacksmith_shop_state_st record. THE RECORD IS FLAGGED review_required BECAUSE OF WHAT THIS BUILDING WAS: the United States Indian Agency at Chicago, the administrative seat of the process that ended in the removal of the Potawatomi in August 1835, six weeks after the scene date. AGENTS.md places that subject under a standing constraint: nothing here depicts, stages or narrates it, and any interpretive text hung on this building needs review before a scene carrying it is released. See docs/RESEARCH/cobweb_castle.md.",
+  "research_doc": "docs/RESEARCH/cobweb_castle.md",
+  "review_required": true,
+  "review_reason": "THE RECORD IS FLAGGED review_required BECAUSE OF WHAT THIS BUILDING WAS: the United States Indian Agency at Chicago, the administrative seat of the process that ended in the removal of the Potawatomi in August 1835, six weeks after the scene date."
+}

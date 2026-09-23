@@ -1,0 +1,166 @@
+{
+  "id": "north_side_school_1833",
+  "phase": "log_1833",
+  "name": "North Side School House",
+  "aka": [
+    "the Watkins school-house",
+    "the first house built for a school in Chicago"
+  ],
+  "archetype": "log_dwelling",
+  "asset": "gltf/north_side_school_1833__log_1833.glb",
+  "scene": "1835",
+  "target_date": "1835-07-01",
+  "documented_range": {
+    "from": "1833-01-01",
+    "to": "1835-12-31",
+    "confidence": "inferred",
+    "sources": [
+      "andreas_1884_v1"
+    ],
+    "note": "THE YEAR IS ATTESTED, THE MONTH IS NOT, AND THE BUILDING ITSELF IS DISPUTED BY THE MAN WHO TAUGHT IN IT. Andreas: 'It is stated in Mr. Wells's report that these gentlemen [Colonels Hamilton and Owen] afterwards built a house on the north bank of the river, just east of Clark Street, in which Mr. Watkins continued his school, and that it was the first house built for a school in Chicago. BUT THIS DOES NOT RECUR TO MR. WATKINS'S RECOLLECTION.' Andreas prints the doubt and then, forty pages later, states the building as fact and dates it: 'John Watkins was then teaching what had become a public school on the North Side, on the river bank just east of Clark Street, in the building erected by Colonels Hamilton and Owen, as has already been stated, in 1833.' A THIRD PASSAGE CORROBORATES A SCHOOL BUILDING THERE, independently of Wells: Andreas's Methodist chapter has Jesse Walker's first quarterly meeting held 'in the Watkins school-house, which was located on North Water Street, between Clark and LaSalle'. So a Watkins school-house existed on North Water Street near Clark in 1834, whatever Watkins remembered about who built it. The range opens on 1 January 1833 as the earliest day the attested year allows and closes at the end of 1835 as this record's claim horizon; no source follows the building past Watkins, who 'taught as late as 1835, but the exact date of his retirement is not known'."
+  },
+  "change_note": "The house Colonels Hamilton and Owen are said to have built for a school in 1833 on the north bank just east of Clark Street, in which John Watkins carried on the school he had begun in 1832 in Hamilton's twelve-foot horse stable. Its passage from subscription school to public school is a change of USE and does not open a new phase.",
+  "placement": {
+    "local_e": 600.5,
+    "local_n": 116.0,
+    "rotation_deg": 180.0,
+    "position_confidence": "inferred",
+    "position_sources": [
+      "andreas_1884_v1",
+      "wright_1834",
+      "osm_streets_2026"
+    ],
+    "position_note": "PLACED 2026-08-11, AND ONE BOOK CONTRADICTS ITSELF ABOUT WHICH SIDE OF CLARK STREET IT WAS ON. The schools chapter says twice that the building stood 'on the north bank of the river, just east of Clark Street' and 'on the river bank just east of Clark Street'. The Methodist chapter says 'the Watkins school-house, which was located on North Water Street, between Clark and LaSalle' — which is WEST of Clark, about a block away. THE SCHOOLS CHAPTER IS ADOPTED because it is the more specific statement, it is made twice, and it is the chapter about this building; the church chapter is naming a meeting place in passing. IF THE CHURCH CHAPTER IS RIGHT, THIS BUILDING STANDS ABOUT 110 M WEST OF WHERE IT IS DRAWN. Method: Clark Street's modern centreline was read from OpenStreetMap through the Kinzie intersection (EPSG:26916 E 447646.20, N 4637668.88, local E +573.5, N +273.1) and carried south on the OSM bearing, giving an east kerb 12.2 m east of it, half an 80 ft platted street; the 1834 north bank and the North Water Street frontage were read off the Wright 1834 sheet through this project's fitted affine, which puts the drawn bank at local N +98 along this stretch and the block row's south line — the street's north kerb — at about N +128. The building is set with its west face 6 m east of the Clark kerb and its south face 12.5 m north of the bank, i.e. on the bank strip the street occupies, which is what 'on the river bank' says. Facade bearing 180, due south to the river, is inferred from that frontage and from nothing anybody wrote. UNCERTAINTY: about 20 m from the georeference, plus the ~5 m of reading the sheet by eye, plus the block-scale disagreement above, which is far larger than either. There is no modelled terrain under this building — it stands about 280 m east of the terrain box.",
+    "symbolic_location": "North side, on the river bank just east of Clark Street, on the North Water Street frontage.",
+    "uncertainty_m": 20,
+    "placement_provisional": false,
+    "vertical_anchor": "terrain",
+    "walk_surface_m": null
+  },
+  "footprint": {
+    "polygon": [
+      [
+        0,
+        0
+      ],
+      [
+        7.3,
+        0
+      ],
+      [
+        7.3,
+        5.5
+      ],
+      [
+        0,
+        5.5
+      ]
+    ],
+    "confidence": "reconstructed",
+    "sources": [],
+    "note": "PLACEHOLDER — NO DIMENSION IS ATTESTED FOR THIS BUILDING. 7.3 x 5.5 m is 24 x 18 ft: a one-room schoolhouse large enough for the thirty scholars Watkins's subscription was written for. Every number is invented. BEWARE THE ONE DIMENSION THE SOURCE DOES GIVE, BECAUSE IT BELONGS TO A DIFFERENT BUILDING: Watkins's FIRST schoolroom, in the autumn of 1832, was Colonel Hamilton's horse stable — 'The building belonged to Colonel Hamilton, was erected for a horse stable and had been used as such. It was twelve feet square.' That is not this house, and a 12 ft square building is not what the second passage means by 'the first house built for a school in Chicago'."
+  },
+  "attributes": {
+    "construction": {
+      "value": "log",
+      "confidence": "reconstructed",
+      "note": "NOT ATTESTED, AND THE EVIDENCE POINTS BOTH WAYS AT THIS DATE. For log: everything standing on the north bank in the 1820s was log — Andreas, of 1823, 'All these houses were of logs' — and Wau-Bun's 1831 north bank is a ring of log buildings. Against it: 1833 is the year the town began building in frame, and the nearest comparable building we can date is frame — the Methodist meeting house put up at the corner of North Water and Clark Streets, one block away, on a contract signed 30 June 1834, 'a frame building twenty-six by thirty-eight feet; twelve-foot posts; sheeted and shingled roof'. A subscription schoolhouse built by two colonels in 1833 could be either. Log is recorded because it keeps this building with the older north-bank fabric it stood among, and it is tagged conjectural because that is a preference between two readings and not a derivation from evidence. THE CHOICE ALSO CHOSE THE ARCHETYPE: `log_dwelling` builds log by definition, so a frame reading would change the record's kind."
+    },
+    "stories": {
+      "value": 1,
+      "confidence": "inferred",
+      "note": "Not attested. A one-room subscription school of 1833 is a single-storey building by type, and nothing in the accounts of Watkins's schools suggests otherwise."
+    },
+    "wall_height_m": {
+      "value": 2.5,
+      "confidence": "inferred",
+      "note": "No figure is attested. 2.5 m is about 8 ft — one storey of wall plus a sill, the figure this project uses for its other single-storey log buildings. Compare the Methodist meeting house's contracted 'twelve-foot posts' a block away, which is a different and taller building and is why this number is inference rather than borrowed."
+    },
+    "roof_type": {
+      "value": "gable",
+      "confidence": "inferred",
+      "note": "Not attested. Gable is the near-universal roof form for a building of this type, period and region."
+    },
+    "roof_pitch_deg": {
+      "value": 35.0,
+      "confidence": "inferred",
+      "note": "No pitch is attested. 35 degrees is the archetype's mid-range for a low single-storey building roofed in riven shakes. Inferred from construction practice, not measured."
+    },
+    "chimneys": {
+      "value": 1,
+      "confidence": "inferred",
+      "note": "Not attested. One is the minimum for a schoolroom kept through Chicago winters and the normal number for a single-pen building. The COUNT is the inference; where the stack stands and what it is made of are the archetype's — docs/LIBERTIES.md L26."
+    },
+    "function": {
+      "value": "school",
+      "confidence": "attested",
+      "sources": [
+        "andreas_1884_v1"
+      ],
+      "note": "THE 1835 USE IS ATTESTED, WHICH IS NOT WHAT THIS RECORD EXPECTED TO FIND. Andreas's schools narrative, having just placed George Davis in the Presbyterian church 'later, in 1835', continues: 'John Watkins was THEN teaching what had become a public school on the North Side, on the river bank just east of Clark Street, in the building erected by Colonels Hamilton and Owen.' So the building was in use as a public school in the year of the scene. THE GRAIN IS THE YEAR AND NOT THE DAY, and Andreas adds the limit himself: 'Mr. Watkins taught as late as 1835, but the exact date of his retirement is not known.' A building may stand while its function lapses; here the function is attested for 1835 and cannot be tied to 1 July."
+    }
+  },
+  "residents": [
+    {
+      "household": "hh_watkins_john",
+      "name": "The Watkins household",
+      "division": "north",
+      "relation": "worked here",
+      "why": "Andreas's account of the 1835 school year puts him teaching in exactly the building this record models - on the river bank just east of Clark Street, erected by Hamilton and Owen. data/structures/north_side_school_1833.json carries the doubt about whether that building was ever built; this household carries the man who is said to have taught in it.",
+      "sources": [
+        "andreas_1884_v1"
+      ],
+      "basis": "",
+      "persons": [
+        {
+          "name": "John Watkins",
+          "relationship": "head",
+          "grade": "attested",
+          "occupation": "schoolteacher",
+          "note": "THE ONLY TEACHER IN THIS PARCEL DOCUMENTED AT WORK IN THE SCENE YEAR ITSELF, and the only person in it who contradicts Andreas in his own book. Of the purpose-built schoolhouse Andreas says 'it is stated in Mr. Wells's report that these gentlemen afterwards built a house on the north bank of the river, just east of Clark Street, in which Mr. Watkins continued his school, and that it was the first house built for a school in Chicago. But this does not recur to Mr. Watkins's recollection.' Watkins wrote to the Calumet Club from Joliet in later life and Andreas quotes him directly on his first quarter: thirty scholars subscribed for but only twelve attending, 'only four of them were white: the others were quarter, half, and three-quarters Indians', and after the first quarter he moved the school into a double log house on the West Side owned by the Rev. Jesse Walker, who lived in one end while Watkins taught in the other and preached in the schoolroom on Sundays. Andreas vol. 1, printed p. 132 (scan p. 281), 'an imperfect list of the denizens of the town in the fall of 1833, not before named' - a name, a trade and usually an arrival year, compiled fifty years after the fact. It is the densest population passage this project holds and it is a retrospective, so a YEAR off it is documented and a MONTH is not. THE TOWN'S OWN ROLLS, 1833-1835 — CORROBORATION, NOT A GRADE. The early Chicago voter and tax lists held by the Illinois Regional Archives Depository name this person 1 time: Poll list of the first election of the Board of Trustees of the Town of Chicago, 10 August 1833 — “Watkins, John” (poll_1833_028, line 49). These are the town's own contemporary paper rather than a recollection of it, and each appearance says that a man of that name stood on that roll in that year — no more. The reading is twice mediated (Schulz's transcription, then Genealogy Trails' republication) and this project has not seen the IRAD originals. Under the ratified ladder (T-0513) the 1835 poll with a second independent source is attested, the 1835 poll alone or a 1833/1834 list with another source is inferred, and a single appearance with nothing else is a projected resident. This pass WRITES THE EVIDENCE AND MOVES NO GRADE — T-0515 applies the ladder against every source at once. Identity by the crosswalk's own rule: one resident of the surname 'Watkins' agrees with the entry's forenames; 1 bearer(s) of the surname were considered. (data/research/civic/voter_crosswalk.json)."
+        }
+      ],
+      "research_note": "THE SCHOOLMASTER, AND THE PARCEL'S BEST WITNESS TO WHO ACTUALLY LIVED HERE. His own account of his first class - twelve children, four of them white - is the single most concrete statement about the composition of the settlement's population that this project has found, and it belongs to 1832 rather than to 1835. THREE BUILDINGS IN THIS DATASET ARE ATTACHED TO HIM and only one is linked: north_side_school_1833, where he was teaching in the scene year; watkins_school_house on Michigan Street, where he taught at some point and whose own record calls itself 'the thinnest record in this parcel'; and Jesse Walker's double log house on the West Side, which is probably this dataset's walker_meeting_house and is not linked because that record cannot even settle which bank it stood on."
+    }
+  ],
+  "citations": [
+    {
+      "source_id": "andreas_1884_v1",
+      "citation": "Andreas, A. T. History of Chicago: From the Earliest Period to the Present Time. Vol. 1. Chicago: A. T. Andreas, 1884.",
+      "url": "https://archive.org/details/historyofchicago01andr",
+      "archived_url": "",
+      "tier": 3,
+      "tier_label": "compiled secondary (Andreas)"
+    },
+    {
+      "source_id": "osm_streets_2026",
+      "citation": "OpenStreetMap contributors. Street centerline intersection nodes for downtown Chicago, retrieved via the Overpass API, 2026-08-09.",
+      "url": "https://www.openstreetmap.org/",
+      "archived_url": "https://overpass-api.de/",
+      "tier": 4,
+      "tier_label": "later scholarship"
+    },
+    {
+      "source_id": "wright_1834",
+      "citation": "Wright, J. S. Chicago, drawn by J. S. Wright according to survey. New York: P. A. Mesier's Lith., 1834.",
+      "url": "https://collections.leventhalmap.org/search/commonwealth:js9577436",
+      "archived_url": "",
+      "tier": 1,
+      "tier_label": "period/eyewitness",
+      "what_it_supplies": [
+        "street geometry",
+        "block and lot subdivision",
+        "shoreline",
+        "river channel and the 1834 cut",
+        "survey-date colouring"
+      ],
+      "what_it_does_not_supply": [
+        "building footprints",
+        "building locations"
+      ]
+    }
+  ],
+  "research_note": "THE TOWN'S FIRST PURPOSE-BUILT SCHOOLHOUSE, IF IT WAS BUILT: Andreas carries the claim from Mr. Wells's report and prints, in the same breath, that John Watkins did not recollect it — then states it as fact forty pages later when he needs it to place the 1835 public school. This record follows Andreas's second statement and keeps his first as the doubt it is. TWO THINGS THE PROJECT'S DOSSIER DID NOT HAVE, both from Andreas at full text: the Watkins letter to the Calumet Club of 22 June 1879, which describes his first school as Hamilton's twelve-foot-square horse stable 'about half way between the lake and the forks of the river' and is the reason that dimension must not be attached to this building; and the Methodist chapter's competing location for 'the Watkins school-house', on North Water Street BETWEEN CLARK AND LASALLE, which is the other side of Clark from the schools chapter's 'just east of Clark Street'. THE SAME PASSAGE CARRIES A THIRD FINDING THIS PARCEL DID NOT BUILD: the first Methodist meeting house was erected 'at the corner of North Water and Clark streets' on a contract signed 30 June 1834 for 'a frame building twenty-six by thirty-eight feet; twelve-foot posts; sheeted and shingled roof; a neat pulpit', finished and in use to 1836. That is a documented, dimensioned north-bank building standing on the scene date, it is NOT this project's walker_meeting_house, and it is not yet in the dataset. See docs/RESEARCH/north_side_school_1833.md.",
+  "research_doc": "docs/RESEARCH/north_side_school_1833.md",
+  "review_required": false
+}

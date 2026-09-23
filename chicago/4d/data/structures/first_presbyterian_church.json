@@ -1,0 +1,176 @@
+{
+  "id": "first_presbyterian_church",
+  "name": "First Presbyterian Church",
+  "aka": [
+    "the Presbyterian meeting house at Lake and Clark"
+  ],
+  "archetype": "frame_dwelling",
+  "phases": [
+    {
+      "id": "frame_1834",
+      "documented_range": {
+        "from": "1834-01-04",
+        "to": "1837-12-31",
+        "confidence": "inferred",
+        "sources": [
+          "andreas_1884_v1"
+        ],
+        "note": "THE START IS A DEDICATION DATE AND IT IS THE FIRMEST DATE ON ANY OF THE THREE WORSHIP BUILDINGS IN THIS PARCEL: the church was dedicated 4 January 1834, which is eighteen months before the scene date, and the Temple Building record carries the same date from the other side - the shared denominational use of that building ended when 'the Presbyterian church was dedicated January 4. 1834' (baptisthistoryhomepage). The building was therefore complete and in use on 1835-07-01. THE END IS SOFTER. This project's own dossier (docs/research/04-structures-south.md, section 6) says the congregation 'Remained here until 1837-38' and no source reached fixes a month, so 1837-12-31 is the late end of that window rather than a date anybody recorded. The range is tagged inferred because its second half is a reading of a range, not a reading of a record. NOTHING IN THE RANGE IS AT RISK FOR THIS SCENE: any reading of the end that has been proposed is at least eighteen months after 1835-07-01."
+      },
+      "position": {
+        "utm_e": 447625.34,
+        "utm_n": 4637263.61,
+        "rotation_deg": 0.0,
+        "symbolic_location": "South-west corner of Lake Street and Clark Street (today West Lake Street at North Clark Street) - the south 25 ft of Lot 1, Block 34 - fronting north onto Lake.",
+        "confidence": "inferred",
+        "sources": [
+          "andreas_1884_v1",
+          "osm_streets_2026"
+        ],
+        "note": "PLACED 2026-08-11. THE CORNER IS DOCUMENTED AND THE COORDINATE IS DERIVED, so the tag follows the weaker half, which is the reading the Sauganash, the Green Tree and Peck's store all carry. METHOD, the project's standard one: Lake Street and Clark Street both survive on their 1830 plat lines, and the modern West Lake Street / North Clark Street intersection centre was read from OpenStreetMap at EPSG:26916 E 447649.73, N 4637283.43 (OSM node 258957339, fetched 2026-08-11). The footprint origin is set 12.2 m west and 12.2 m south of that centre less the building's own width and depth, so that the church's north face sits on the Lake Street frontage and its east face on the Clark Street frontage of a south-west corner lot. 12.2 m is half of an 80 ft street, the width annotated on Hathaway 1834; Currey has the 1830 Thompson plat laying streets out 'uniformly 66 feet wide', which would move each offset 2.1 m, and that discrepancy is already recorded in docs/RESEARCH/hogan_store.md section 5. WORKING UNCERTAINTY ABOUT 20 M, which is the georeference's residual (data/datum.json: 17.5 m RMS on Wright 1834, with 3.7 per cent paper stretch), not an additional guess. A LARGER AND ONE-DIRECTIONAL ERROR SITS ON TOP OF IT, AND IT IS THE PART WORTH READING. The lot description carried by this project's dossier is 'the south 25 ft of Lot 1, Block 34', and the building is 25 ft in one dimension - so the church did not stand on the corner of its lot but filled the strip at the SOUTH end of it, set back from the Lake Street line by whatever the rest of Lot 1 measured. Nothing reached states the lot's depth. On an 80 x 150 ft platted lot the setback would be about 38 m; on a lot fronting Clark instead of Lake it would be nothing at all and the church would be 25 ft wide on Clark with its 40 ft dimension running back, which is a different building from the one modelled here. This record places the church ON the corner and states the direction of the likely error: if it is wrong it is wrong to the SOUTH, by up to about a lot depth. Facade bearing 0, due north onto Lake, INFERRED FROM THE 25 FT STRIP RATHER THAN FROM ANY STATEMENT about which way the church faced: a strip 25 ft deep measured north-south puts the 40 ft dimension east-west and the long elevation parallel to Lake Street. The slough that lay in front of the church at this corner, which the congregation crossed on planks and benches in the spring, is not modelled. REFUSED 2026-08-27 (T-0196), IN WRITING AND WITH THE NUMBERS THAT REFUSED IT. This record carries the same fault the three Lake Street placements reconciled beside it carried: the cross-street coordinate was taken off a MODERN kerb line read from OpenStreetMap rather than off this project's committed Lake Street centreline, and measured against the committed line this footprint's north wall stands 1.90 m OUT PAST the blk_lake_lasalle frontage line, in the platted roadway. tools/generate_frontage_works.py's march refuses two steps of Lake Street's plank sidewalk for it — 88.6 to 99.0 m along that face — and names this building in the refusal. THE REPAIR WAS MEASURED AND NOT APPLIED, and the number is why: the same derivation the other three take would translate this footprint 3.395 m along the face's inward normal (dE -0.028 m, dN -3.395 m in local ENU), and physicians_office stands 3.15 m behind it on the same lot — blk_lake_lasalle lot 6, which also carries recon_1835_south_a3_043 and recon_1835_south_d6_012. Moved 0.2 m the two are inside the 3.0 m the separation gate requires; moved 3.2 m they physically OVERLAP. There is no translation along this normal that both clears the walk and leaves the pair standing apart. WHAT IS BEING ASKED IS A RULE AND NOT A METRE, which is why it is not settled here: physicians_office is a product of the inferred-household programme, standing 8.90 m back from the frontage line on the lot a documented church would come onto, and whether a documented building displaces an inferred household unit — or the church is placed a lot along, or the household moves — decides what this town's evidence layers owe each other. That is the same shape of question the owner settled for the business front on 2026-08-27 and it goes to him. Filed with these figures as T-0251. Until then this record stays where it is, two steps of Lake Street's walk stay unlaid, and the refusal says so rather than the coordinate quietly moving.",
+        "derivation": {
+          "method": "not_derivable",
+          "reason": "This placement predates the derivation module. Its provenance and reasoning are recorded in position.note, but no machine-checkable derivation block has been authored for it yet."
+        }
+      },
+      "footprint": {
+        "polygon": [
+          [
+            0,
+            0
+          ],
+          [
+            12.192,
+            0
+          ],
+          [
+            12.192,
+            7.62
+          ],
+          [
+            0,
+            7.62
+          ]
+        ],
+        "confidence": "inferred",
+        "sources": [
+          "andreas_1884_v1"
+        ],
+        "note": "THE BEST-EVIDENCED FOOTPRINT IN THE DATASET, AND STILL NOT DOCUMENTED - read why. Both dimensions are attested: the church is a plain frame building 'about 40 x 25 ft' costing $600 (docs/research/04-structures-south.md section 6, from Andreas I scan p. 623). 12.192 x 7.62 m is 40 x 25 ft, recorded converted with the original figures stated here per data/datum.json's units rule. WHAT IS INFERRED IS EVERYTHING ELSE ABOUT THE SHAPE. First, that the plan was a plain rectangle: no source describes a vestibule, a projecting entry, a chancel or a session room, and a plain box is the type for a frontier meeting house of $600, but nothing states it. Second, WHICH DIMENSION IS THE FRONTAGE. The 40 ft is put on Lake Street here for the reason given in the position note - the attested 'south 25 ft' strip runs east-west - and the frame_dwelling archetype independently forces the same answer, because it refuses a range deeper than 1.5x its frontage. That agreement is convenient rather than evidential and should not be read as two witnesses. A source that gave the lot's depth, or a plat showing Block 34's lot lines, would settle both halves."
+      },
+      "form": {
+        "stories": {
+          "value": 1,
+          "confidence": "inferred",
+          "sources": [
+            "andreas_1884_v1"
+          ],
+          "note": "Not stated as a number. Everything described is at one level - pine-board benches on a puncheon floor, plastered walls, no tower - and nothing in the description implies a gallery, a stair or an upper room, which a two-storey meeting house of this date would normally have. A single storey is the type for a $600 frame church seating 200 on benches. Inference from the description, not a count anybody recorded."
+        },
+        "construction": {
+          "value": "braced_frame",
+          "confidence": "inferred",
+          "sources": [
+            "andreas_1884_v1"
+          ],
+          "note": "The sources say 'plain frame' and no more, and the word does not distinguish the two systems available in Chicago in 1833. Balloon framing was being introduced here in exactly these months - Augustine D. Taylor raised St Mary's frame in August 1833 - so a balloon frame is entirely possible and this record does not exclude it. Braced frame is adopted as the conservative reading for the earlier of two live options, the same argument peck_store and sauganash_hotel make. The choice is not cosmetic in this archetype: a braced frame gets a heavier corner post, a girt line at the upper floor (absent here, at one storey) and studs at 24 in rather than 16 in, which sets the rhythm the openings are laid out on."
+        },
+        "wall_height_m": {
+          "value": 3.35,
+          "confidence": "inferred",
+          "note": "No figure is attested. 3.35 m is about 11 ft to the plate. The reasoning is the room rather than the type: the one attested ceiling height in this dataset is the Green Tree Tavern's 7 1/2 ft, which its own source calls 'rather low for a hotel ceiling', and a room holding 200 people on benches needed more air over them than a tavern chamber. 11 ft is also the ceiling of what the frame_dwelling archetype accepts for a single storey, so a taller church would have to be recorded as something else. What is inferred is that the height falls in this range, not that it is exactly 3.35 m."
+        },
+        "roof_type": {
+          "value": "gable",
+          "confidence": "inferred",
+          "note": "Not attested. Gable is the near-universal roof form for a frame building of this type, period and region, and the only alternative this archetype offers - a shed roof - is refused by it over a range this deep. Typological derivation, not a measurement."
+        },
+        "roof_pitch_deg": {
+          "value": 38.0,
+          "confidence": "inferred",
+          "note": "No pitch is attested. 38 degrees is the mid-range this project uses for period gable framing across the dataset - steep enough to shed snow, shallow enough for the timber spans available. Inferred from construction practice, not measured."
+        },
+        "plan": {
+          "value": "centre_passage",
+          "confidence": "reconstructed",
+          "note": "INVENTED, AND IT IS THE ARCHETYPE'S VOCABULARY RATHER THAN THE BUILDING'S. `plan` in frame_dwelling names the room arrangement behind the facade because that is what decides where a HOUSE'S door goes; a meeting house has no rooms behind its facade at all, it has one room. `centre_passage` is chosen because it is the only value that produces a symmetrical front with a centred door, which is what a plain meeting house looked like; `hall_parlour`, the archetype's default, would put the door two thirds of the way along the wall and make the front of a church look like the front of a farmhouse. Nothing about the door's real position is attested."
+        },
+        "bays": {
+          "value": 5,
+          "confidence": "reconstructed",
+          "note": "INVENTED. No source describes a window on this building. Five openings across 40 ft is 8 ft per bay, which is an ordinary period rhythm and is what the archetype's own frontage rule would give at this width if it were allowed an odd number; the archetype derives four from the frontage, and four is refused with a centre-passage front because a centred door needs an odd count. So the number is a consequence of the archetype's grammar and of the choice of `plan` above, not a finding. A depiction or a description of the elevation would settle it."
+        },
+        "paint": {
+          "value": "unpainted",
+          "confidence": "inferred",
+          "note": "Not attested for this building. The attested finishes are INTERIOR - plastered walls and bare puncheon floors - and nothing describes the outside. Unpainted weathered clapboard is the reading adopted, on the same grounds the Green Tree record gives: white paint was remarkable enough at Chicago in 1831 to be worth recording of the Sauganash, and the one 1833 church whose exterior finish IS attested, St Mary's, was expressly 'not painted'. Not attested either way."
+        },
+        "chimneys": {
+          "value": 1,
+          "confidence": "inferred",
+          "note": "Not attested, and nothing describes a stack or a stove on this building. One is the minimum for a room used through Chicago winters, and it is the number this project's other worship building of the period, the Walker meeting house, carries on the same reasoning. THE RESIDUAL UNCERTAINTY IS THE KIND OF HEATING, NOT THE FACT OF IT: a meeting house of these years was as likely warmed by a box stove with a sheet-iron pipe through the wall or roof, which this archetype does not build, as by a masonry fireplace, which it does. The COUNT is the inference; where the stack stands, how big it is and what it is made of are the archetype's, which is the standing admission in docs/LIBERTIES.md L26."
+        },
+        "seating": {
+          "value": "pine-board benches seating about 200",
+          "confidence": "attested",
+          "sources": [
+            "andreas_1884_v1"
+          ],
+          "geometry": "absent",
+          "note": "Documented and not built. The benches are the single most vivid documented fact about the inside of this building and they fix its capacity, which is the only independent check on the 40 x 25 ft footprint: 1,000 sq ft for 200 people is 5 sq ft each, tight but exactly what bench seating gives. No interior is modelled in this project, so nothing of them is shown."
+        },
+        "interior_finish": {
+          "value": "plastered walls, bare puncheon floors",
+          "confidence": "attested",
+          "sources": [
+            "andreas_1884_v1"
+          ],
+          "geometry": "absent",
+          "note": "Documented and not built. The pairing is worth keeping together because it is a statement about money: the walls were finished and the floor was not, which is what a $600 subscription church looks like from the inside. It also separates this building from St Mary's, which was not plastered at all. No interior is modelled, so neither surface is shown."
+        },
+        "tower": {
+          "value": false,
+          "confidence": "attested",
+          "sources": [
+            "andreas_1884_v1"
+          ],
+          "geometry": "record_only",
+          "note": "A NEGATIVE FINDING, RECORDED SO IT CANNOT BE UNDONE BY INFERENCE. The church had no tower. This is the same trap St Mary's carries in a sharper form - see that record, where a low open tower is attested at an undated 'some time afterwards' and would age the building forward if it were built - and it is recorded here because a visitor's expectation of what a church looks like is the strongest force acting on this model."
+        },
+        "cost_usd": {
+          "value": 600,
+          "confidence": "attested",
+          "sources": [
+            "andreas_1884_v1"
+          ],
+          "geometry": "record_only",
+          "note": "Not a build instruction; a scale check and a comparison. $600 for 1,000 sq ft of single-storey frame is $0.60 per square foot, against St Mary's $400 for 875 sq ft ($0.46) and the Temple Building's $900 for two storeys. The Temple Building's invented footprint is derived from exactly this ratio, which is why the figure is carried here rather than left in prose."
+        },
+        "siding_exposure_m": {
+          "value": 0.152,
+          "confidence": "reconstructed",
+          "note": "INVENTED WITHIN A STOCK SET, NOT DERIVED. No source states the exposed face of any Chicago building's siding. The value is one of four period mill sidings — 4.5, 5, 5.5 or 6 in to the weather; this record wears 6 in — dealt by tools/deal_siding_stock.py: keyed to the phase's construction season, because buildings sided from the same season's shipments of St Joseph sawn lumber tend toward one stock, then advanced so no frame building within 60 m shares this one's. The separation is the surface variety T-0049 reconstructs, not a claim about 1835. docs/LIBERTIES.md L148 owns the invention."
+        }
+      },
+      "change_note": "The plain frame meeting house the First Presbyterian congregation built at the south-west corner of Lake and Clark and dedicated on 4 January 1834: 40 x 25 ft, $600, pine-board benches for about 200, plastered walls, bare puncheon floors, no tower. Nearly all the inhabitants of the town are said to have helped build it. No change of fabric is attested inside the phase."
+    }
+  ],
+  "function": {
+    "value": "church",
+    "confidence": "attested",
+    "sources": [
+      "andreas_1884_v1"
+    ],
+    "note": "Built for worship and in continuous use as the Presbyterian meeting house across the scene window. It was also the town's largest single room, and the project's dossier reports Eliza Chappel's infant school moving into it during 1834 - see the chappel_infant_school record, where that move is what makes the school's own building's 1835 use unattested. The school claim is carried in the dossier from summaries with no source record in data/sources/, so it is stated here as reported rather than cited."
+  },
+  "occupants": {
+    "value": "First Presbyterian Church of Chicago",
+    "confidence": "attested",
+    "sources": [
+      "andreas_1884_v1"
+    ],
+    "note": "The congregation was organised in June 1833 under Rev. Jeremiah Porter, who had arrived that May and lodged in the unfinished loft of Peck's store - the two records meet there. NO SOURCE REACHED NAMES THE MINISTER IN CHARGE ON 1835-07-01, so the occupancy is stated as the congregation and not as a person."
+  },
+  "research_note": "THE BEST-EVIDENCED BUILDING IN THIS PARCEL, AND THE ONE WHOSE CITATION NEEDS THE MOST CARE. Every number in this record - 40 x 25 ft, $600, pine-board benches for about 200, plastered walls, bare puncheon floors, no tower, the builder Joseph Meeker, 'nearly all the inhabitants aided in the construction', and the dedication on 4 January 1834 - reaches this project through ONE row of its own dossier, docs/research/04-structures-south.md section 6, which cites two things together: the English Wikipedia article on the First Presbyterian Church (Chicago) and Andreas I, scan p. 623. THE ROW DOES NOT SAY WHICH DETAIL CAME FROM WHICH, and there is no Wikipedia source record in data/sources/ for this building, so nothing in this record can honestly be cited to it. Everything documented here is therefore carried on `andreas_1884_v1` alone, which is a real citation to a real page that this session has NOT opened. WHAT WOULD SETTLE IT, cheaply: read Andreas I at the page image around scan p. 623 and split the row. If the dimensions and the cost are Andreas', this record is as strong as it looks; if they are Wikipedia's alone, the footprint drops to inferred or worse and the $600 comparison the Temple Building's footprint is derived from goes with it. That is the single highest-value open lead on this building and it is one page. TWO OTHER THINGS TO CARRY FORWARD. The dedication date is corroborated from a completely independent direction: the Baptist transcription (baptisthistoryhomepage) says the shared use of the Temple Building ran 'until the Presbyterian church was dedicated January 4. 1834', which is the same date arrived at from the other congregation's paperwork. And the slough in front of this corner is documented - benches and planks were laid across it in the spring so the church could be reached - and is not modelled; the terrain under this building is outside the committed heightfield box in any case. See also the position note on the 'south 25 ft of Lot 1, Block 34', which is the largest single uncertainty on this record and is directional rather than symmetric. ARCHETYPE CHOICE, STATED BECAUSE IT IS ITSELF A LIBERTY. The schema offers an `institutional` archetype and there is no generator behind it, so a record using it would compile a sidecar pointing at a GLB that does not exist and the building would be invisible in the walkthrough. `frame_dwelling` is used instead because it is the only archetype in the project that builds a plain single-range frame box with a gable roof and nothing else: `frame_tavern` carries a public house's gallery and bar-room frontage, `frame_storefront` carries a shopfront, `outbuilding` carries a stable's door and refuses a storey count. WHAT THE SUBSTITUTION COSTS is the facade: frame_dwelling puts the door in the long eaves-front wall and sets the openings out on a house's bay module, where a meeting house of these years normally had its door in the gable end. The archetype cannot build a gable-front range at these proportions - it refuses a footprint deeper than 1.5x its frontage precisely to stop that - so the 40 ft dimension becomes the frontage by construction rather than by evidence. This is recorded in docs/LIBERTIES.md and the affected attributes (`plan`, `bays`) are tagged conjectural.",
+  "review_required": false
+}

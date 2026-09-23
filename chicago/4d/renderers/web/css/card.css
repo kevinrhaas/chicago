@@ -1,0 +1,236 @@
+/* card.css — the building card, restyled to the drawer's language.
+ *
+ * The card leads with what the building IS (title, kind, where, a lead
+ * paragraph, a facts grid with quiet grade dots) and keeps the provenance
+ * underneath behind three tabs. The old `.popup` / `.pop-*` rules in walk.css
+ * still style the evidence tables, chips, residents and citations; this file
+ * overrides the frame, the head and adds the new pieces. Loaded after walk.css.
+ *
+ * Positioning: `right`/`top` stay compatible with the shell's tuck — drawer.css
+ * moves the card with a `transform` on `#hud.panel-open ~ #popup`, so NO
+ * transform is set on `.popup` here. */
+
+.popup {
+  width: min(440px, calc(100vw - 24px));
+  padding: 0 16px 18px;
+  border-radius: var(--r);
+  font-size: 12.5px;
+}
+.popup[hidden] { display: none; }
+
+/* ------------------------------------------------------------- the head --- */
+
+.pop-head { display: block; padding-top: 14px; }
+.pop-title-row { display: flex; align-items: flex-start; gap: 10px; }
+.pop-title-row h2 {
+  margin: 2px 0 0;
+  font-size: 19px;
+  font-weight: 640;
+  letter-spacing: -0.012em;
+  line-height: 1.2;
+}
+.pop-close {
+  margin-left: auto;
+  width: 36px; height: 36px;
+  flex: 0 0 36px;
+  display: inline-grid; place-items: center;
+  font: inherit; font-size: 19px; line-height: 1;
+  color: var(--ink-dim);
+  background: transparent;
+  border: 1px solid transparent;
+  border-radius: 8px;
+  cursor: pointer;
+  transition: background-color .12s, color .12s;
+}
+.pop-close:hover { background: rgb(255 255 255 / 7%); color: var(--ink); }
+[data-theme="light"] .pop-close:hover { background: rgb(0 0 0 / 6%); }
+@media (pointer: coarse) { .pop-close { width: 44px; height: 44px; flex-basis: 44px; margin-right: -6px; } }
+
+.pop-aka { margin: 4px 0 0; font-size: 12px; line-height: 1.4; color: var(--ink-dim); }
+.pop-kind {
+  margin: 6px 0 0;
+  font-size: 10.5px;
+  letter-spacing: .12em;
+  text-transform: uppercase;
+  color: var(--accent);
+}
+/* The location is the record's `symbolic_location` — often a whole clause of
+   street names — so it is set at the body weight: bold over four lines would
+   out-shout the title above it. The <strong> is semantic (it IS the answer to
+   "where"), the weight is not. */
+.pop-where-line {
+  margin: 5px 0 0;
+  font-size: 12.5px;
+  line-height: 1.5;
+  color: var(--ink);
+}
+.pop-where-line strong { font-weight: 450; }
+
+.pop-flags { margin-top: 8px; display: grid; gap: 4px; }
+.pop-flag {
+  display: block;
+  margin: 0;
+  padding-left: 9px;
+  border-left: 2px solid var(--accent);
+  color: var(--accent);
+  font-size: 11.5px;
+  line-height: 1.45;
+}
+.pop-flag strong { font-weight: 620; }
+
+/* The standing constraint, and the only flag on this card that is not a statement
+   about how well a building is known. The other four qualify a reconstruction; this
+   one says the project has stopped short of a claim on purpose, so it is set apart
+   rather than filed in the same column of hairlines — a heavier rule, the card's own
+   ink instead of the accent, and a tinted ground so it reads as a note from the
+   project rather than another confidence caveat. --accent is the flag colour and is
+   gold on both themes; borrowing it here would have made the one flag that outranks
+   the rest look like the rest. */
+.pop-flag-held {
+  padding: 7px 9px 8px;
+  border-left-width: 3px;
+  border-left-color: var(--ink-dim);
+  border-radius: 0 6px 6px 0;
+  background: color-mix(in srgb, var(--ink) 7%, transparent);
+  color: var(--ink);
+}
+/* The record's own sentence for holding it. Italic and one step down, because it is
+   a quotation from the dossier sitting under the project's standing text, and the
+   two must not read as one voice. */
+.pop-held-why {
+  display: block;
+  margin-top: 5px;
+  color: var(--ink-dim);
+  font-size: 11px;
+  font-style: italic;
+  line-height: 1.5;
+}
+
+/* ------------------------------------------------------------- the lead --- */
+
+.pop-lead {
+  margin: 12px 0 0;
+  font-size: 13px;
+  line-height: 1.55;
+  color: var(--ink);
+}
+/* The old `.pop-account` rule dims and shrinks the account; the lead is the
+   first sentence a visitor reads, so it takes the card's own ink. */
+.popup .pop-lead.pop-account { margin: 12px 0 0; font-size: 13px; line-height: 1.55; color: var(--ink); }
+
+/* ------------------------------------------------------------ the facts --- */
+
+.pop-facts {
+  margin: 14px 0 0;
+  padding: 12px 0 0;
+  border-top: 1px solid var(--edge);
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 10px 14px;
+}
+.pop-facts .fact { min-width: 0; }
+.pop-facts dt {
+  margin: 0 0 2px;
+  font-size: 10.5px;
+  letter-spacing: .12em;
+  text-transform: uppercase;
+  color: var(--accent);
+}
+.pop-facts dd {
+  margin: 0;
+  font-size: 12.5px;
+  line-height: 1.45;
+  color: var(--ink);
+  overflow-wrap: anywhere;
+}
+/* Long values — the address, the ground's entry — take the whole row. */
+.pop-facts .fact.fact-wide { grid-column: 1 / -1; }
+
+/* The grade, as a dot: 7 px, the three grade colours, inline after the value.
+   Never the `.conf` chip — the chips are the evidence tables' and are counted. */
+.fact-dot {
+  display: inline-block;
+  width: 7px; height: 7px;
+  margin-left: 6px;
+  border-radius: 50%;
+  vertical-align: 1px;
+  background: currentColor;
+}
+.fact-tail { white-space: nowrap; }   /* last word + dot: the dot never orphans */
+.fact-attested { color: var(--doc); }
+.fact-inferred { color: var(--inf); }
+.fact-reconstructed { color: var(--con); }
+[data-theme="light"] .fact-attested { color: #4f7a3a; }
+[data-theme="light"] .fact-inferred { color: #b0721a; }
+[data-theme="light"] .fact-reconstructed { color: #6b7480; }
+
+.popup .pop-residents { margin-top: 14px; padding-top: 12px; border-top: 1px solid var(--edge); }
+
+/* ------------------------------------------------------------- the tabs --- */
+
+.pop-tabs {
+  position: sticky;
+  top: 0;
+  z-index: 2;
+  display: flex;
+  gap: 2px;
+  margin: 14px -16px 0;
+  padding: 0 12px;
+  background: var(--panel-solid);
+  border-bottom: 1px solid var(--edge);
+}
+.pop-tab {
+  position: relative;
+  flex: 1 1 auto;
+  min-height: 40px;
+  padding: 10px 6px 9px;
+  font: inherit; font-size: 12px; font-weight: 520;
+  color: var(--ink-dim);
+  background: transparent;
+  border: 0;
+  cursor: pointer;
+  white-space: nowrap;
+  transition: color .12s, background-color .12s;
+}
+.pop-tab:hover { color: var(--ink); background: rgb(255 255 255 / 5%); }
+[data-theme="light"] .pop-tab:hover { background: rgb(0 0 0 / 4%); }
+.pop-tab[aria-selected="true"] { color: var(--ink); }
+.pop-tab[aria-selected="true"]::after {
+  content: '';
+  position: absolute;
+  left: 6px; right: 6px; bottom: -1px;
+  height: 2px;
+  border-radius: 2px 2px 0 0;
+  background: var(--accent);
+}
+.pop-tab:focus-visible { outline: 2px solid var(--accent); outline-offset: -3px; border-radius: 6px; }
+.pop-tab .pop-count { margin-left: 4px; }
+@media (pointer: coarse) { .pop-tab { min-height: 44px; } }
+
+.pop-pane { padding-top: 2px; }
+.pop-pane[hidden] { display: none; }
+.pop-pane > .pop-sec:first-child { margin-top: 14px; }
+.pop-spec { margin: 14px 0 0; }
+.pop-foot { margin-top: 12px; }
+
+/* ------------------------------------------------------------- mobile ----- */
+
+@media (max-width: 620px) {
+  .popup {
+    right: 8px; left: 8px;
+    width: auto;
+    padding-bottom: calc(14px + var(--safe-b));
+  }
+  .pop-facts { gap: 9px 12px; }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .pop-close, .pop-tab { transition: none; }
+}
+
+/* A phone with the card up: the strip above the sheet is where the building is
+   framed (T-0824), so the navigation aids step aside the way they do for the
+   drawer. Visibility, not display — the harness reads their `hidden` attribute. */
+@media (max-width: 620px) {
+  html.card-open .navigation-stack { visibility: hidden; }
+}

@@ -1,0 +1,96 @@
+{
+  "id": "estray_pen",
+  "phase": "pen_1833",
+  "name": "Estray pen",
+  "aka": [
+    "the estray-pen",
+    "the town pound",
+    "Chicago's first public building"
+  ],
+  "archetype": "outbuilding",
+  "asset": null,
+  "scene": "1835",
+  "target_date": "1835-07-01",
+  "documented_range": {
+    "from": "1832-03-01",
+    "to": "1835-12-31",
+    "confidence": "inferred",
+    "sources": [
+      "andreas_1884_v1"
+    ],
+    "note": "MARCH 1832, AND THE YEAR THIS RECORD CITED ANDREAS FOR IS NOT A YEAR ANDREAS GIVES. Until 2026-08-16 the range opened at 1833-03-01, under a note reading 'MARCH 1833 IS ATTESTED AS A MONTH AND CONTESTED AS A YEAR ... The dossier notes that some accounts give 1832 instead'. Andreas gives 1832 in both places he treats the pen, and 1833 in neither. The narrative: 'The result of this generosity on the part of the State was seen in March, 1832, when, through the architectural skill of Samuel Miller, contractor, there arose upon the southwest corner of the square, the so-called \"estray-pen.\" Although sometimes designated and dignified as \"the first public building ever erected in Chicago,\" the \"pen\" was a small wooden enclosure and quite roofless' (Andreas I scan p. 365). The chronological index: the entry 'First public building (the \"Estray Pen\") erected' stands under the heading 1832, between '1832 - (January) - First Methodist quarterly meeting' and '(April) - First street leading to the lake laid out' (scan p. 1315). The month was read off that index correctly and the year off the wrong heading. NOTHING IN THE SCENE MOVES. The pen stands on 1835-07-01 under either reading and is roofless under both - which is why it is worth saying that the correction is to the CITATION and not to the town: a note that cites a source for a value the source does not carry is wrong in the way this project cares most about, whether or not anything visible depends on it. THE RANGE IS NOW WIDE, AND HONESTLY SO: 1832-03-01 is the first day of the attested month in the attested year, and 1835-12-31 remains A HOUSEKEEPING BOUND, NOT A REMOVAL DATE. Nothing reached says when the pen came down. What IS attested is that its role as a place of confinement ended in the fall of 1833 when the log jail went up at the other corner of the same block - which is a change of use, not of fabric, and does not close the phase. ROADMAP T-I3."
+  },
+  "change_note": "The estray pen erected on the south-west corner of the public square in March 1832 - Chicago's first public building, put up to hold stray livestock and, for want of anywhere else, prisoners. That second use ended when the log jail went up at the north-west corner of the same block in the fall of 1833; the pen itself is not recorded as having gone anywhere, and stands on 1835-07-01. THE ROOF IS GONE AS OF 2026-08-18 (T-0051): this phase draws no mesh at all now, and the pen stands in the scene as a roofless enclosure on the layer built for it - see `drawn_by` above, and data/enclosures/estray_pen.json. THE PHASE IS STILL CALLED `pen_1833` AND THE YEAR IN THAT ID IS WRONG. It is kept because a phase id is half of a baked asset's filename, so renaming it stales the GLB and needs a Blender run this correction does not otherwise require - a cosmetic rename is not worth a bake. The date the project reads is `documented_range`, which is right; the id is a key.",
+  "placement": {
+    "local_e": 468.5,
+    "local_n": -377.31,
+    "rotation_deg": 0.0,
+    "position_confidence": "inferred",
+    "position_sources": [
+      "andreas_1884_v1",
+      "osm_streets_2026"
+    ],
+    "position_note": "PLACED 2026-08-11. THE CORNER IS DOCUMENTED AND THE COORDINATE IS DERIVED, so the tag follows the weaker half. Andreas: 'there arose upon the southwest corner of the square, the so-called estray-pen'. The public square is the block bounded by Randolph Street on the north, Washington Street on the south, Clark Street on the east and LaSalle Street on the west - the block this project's own ground control identifies as such in data/traces/gcp/wright_1834_gcps.json, where LaSalle and Randolph is labelled 'NW corner of the Public Square block' and Clark and Washington 'SE corner of the Public Square block'. Its four inside corners were computed for this parcel from modern OpenStreetMap intersection centres fetched 2026-08-11, offset 12.2 m into the block on each axis, half of an 80 ft street per Hathaway 1834: NW 447538.25 / 4637130.78, NE 447639.27 / 4637130.25, SW 447541.20 / 4637018.49, SE 447639.80 / 4637018.05, which makes the block about 101 x 112 m. The pen's own south-west corner is set on the square's south-west corner, so the footprint origin - the pen's south-west corner - IS that point. THIS IS A CORNER OF A BLOCK, NOT A LOT: nothing says how far into the block the pen stood or whether it was set back from either street line. WORKING UNCERTAINTY ABOUT 20 M from the georeference (data/datum.json: 17.5 m RMS on Wright 1834), plus an unquantified setback. Bearing 0 is a CONVENTION AND NOT A FINDING: a pound's gate has to be somewhere, nothing attests which way it opened, and for a low rectangular enclosure the bearing barely changes the mesh. The square itself in 1835 was otherwise an open, unimproved prairie block; no fence, path or improvement of the block is modelled.",
+    "symbolic_location": "South-west corner of the public square (the block bounded by Randolph, Clark, Washington and LaSalle), at the Washington and LaSalle end.",
+    "uncertainty_m": 20,
+    "placement_provisional": false,
+    "vertical_anchor": "terrain",
+    "walk_surface_m": null
+  },
+  "footprint": {
+    "polygon": [
+      [
+        0,
+        0
+      ],
+      [
+        9.144,
+        0
+      ],
+      [
+        9.144,
+        6.096
+      ],
+      [
+        0,
+        6.096
+      ]
+    ],
+    "confidence": "reconstructed",
+    "sources": [],
+    "note": "INVENTED. NO SOURCE REACHED GIVES THIS ENCLOSURE A DIMENSION. 9.144 x 6.096 m is 30 x 20 ft, recorded converted with the original figures stated per data/datum.json's units rule. The reasoning behind the scale is a use rather than a measurement: a town pound had to hold several head of stray cattle or horses at once and, for the first months of its life, prisoners as well, which puts it well above a shed and well below a stock yard. Everything about the shape - the rectangle, the proportion, the size - is this record's. RE-EXPRESSED AS A PERIMETER 2026-08-18: data/enclosures/estray_pen.json walks this same rectangle as a closed fence line, from this record's own origin and these same 9.144 x 6.096 m. It re-invents nothing - it re-uses this polygon - so this note, and docs/LIBERTIES.md L60 with it, is still the place the rectangle is admitted to."
+  },
+  "attributes": {
+    "function": {
+      "value": "livestock pound",
+      "confidence": "attested",
+      "sources": [
+        "andreas_1884_v1"
+      ],
+      "note": "An estray is a stray beast, and an estray pen is the pound it is impounded in until its owner claims it - a municipal function, which is why Andreas's chronology can call this the town's FIRST PUBLIC BUILDING. Its secondary use is separately attested and is the reason the log jail exists: for the first months of its life the pen held prisoners as well, faute de mieux."
+    }
+  },
+  "residents": [],
+  "citations": [
+    {
+      "source_id": "andreas_1884_v1",
+      "citation": "Andreas, A. T. History of Chicago: From the Earliest Period to the Present Time. Vol. 1. Chicago: A. T. Andreas, 1884.",
+      "url": "https://archive.org/details/historyofchicago01andr",
+      "archived_url": "",
+      "tier": 3,
+      "tier_label": "compiled secondary (Andreas)"
+    },
+    {
+      "source_id": "osm_streets_2026",
+      "citation": "OpenStreetMap contributors. Street centerline intersection nodes for downtown Chicago, retrieved via the Overpass API, 2026-08-09.",
+      "url": "https://www.openstreetmap.org/",
+      "archived_url": "https://overpass-api.de/",
+      "tier": 4,
+      "tier_label": "later scholarship"
+    }
+  ],
+  "research_note": "CHICAGO'S FIRST PUBLIC BUILDING, AND IT IS A FENCE. That is the whole difficulty of this record, and from 2026-08-11 to 2026-08-18 it was also the whole difficulty of the model: what the sources attest is a municipal FUNCTION, a corner, a month and the word ROOFLESS - 'the \"pen\" was a small wooden enclosure and quite roofless' - and this project had no generator that would build an enclosure, so the pen was drawn as a log box with a shed roof at the shallowest pitch the outbuilding archetype would accept. THE ROOF IS NOW RETIRED. It was not re-graded and it was not softened: the five invented form values that made the box are removed from this record, this phase builds no mesh, and the pen is drawn as a roofless perimeter by renderers/web/js/enclosures.js from data/enclosures/estray_pen.json. That is the fix this note called for in its own words - 'an enclosure archetype - post-and-rail or notched log, roofless, gated, taking a perimeter rather than a footprint' - delivered on the renderer side, where it needs no bake; the GENERATOR half is still open, and the `palisade` archetype named in data/structures.schema.json remains the obvious home for it. WHAT IS STILL INVENTED IS EVERYTHING DIMENSIONAL: the rectangle, its 30 x 20 ft, and now the fence's material, height, courses, post rhythm and gateway, all of them recorded on the enclosure record and claimed in docs/LIBERTIES.md (L60 for the footprint and the retired box, L128 for the fence). Only the corner, the month, the use and the rooflessness are not. WHAT WOULD UPGRADE IT: any town or county order establishing the pound, since a pound-keeper's fee schedule, an order to build, a size or a materials specification are all the kind of thing such an order carries; the Cook County Sheriff's published jail history, cited in this project's dossier and not yet held as a source record; and Andreas vol. 1 at page-image level around scan pp. 33, 365 and 1315, where the chronology entry and the narrative sentence sit.",
+  "research_doc": "",
+  "review_required": false,
+  "drawn_by": "enclosures"
+}

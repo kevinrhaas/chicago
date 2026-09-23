@@ -1,0 +1,59 @@
+{
+  "$note": "T-0095. The banked reading of data/sources/assets/prefire_views_kevin_2026_08/p4_0.png by tools/measure_fort_works_plate.py. The plate is committed and cannot change, so this exists for two reasons: CI installs no image library and would otherwise skip the plate half in silence, and a detector edit that quietly moves the reading is a thing this project has been bitten by. Regenerate with --write-baseline, and only ever with the reason in the commit.",
+  "peaks": [
+    {
+      "along_wall": 0.521,
+      "apex_x": 768,
+      "apex_y": 251,
+      "rise_curtains": 2.96,
+      "width_px": 3
+    },
+    {
+      "along_wall": 0.435,
+      "apex_x": 694,
+      "apex_y": 281,
+      "rise_curtains": 2.25,
+      "width_px": 93
+    },
+    {
+      "along_wall": 0.633,
+      "apex_x": 865,
+      "apex_y": 293,
+      "rise_curtains": 1.97,
+      "width_px": 224
+    },
+    {
+      "along_wall": 0.68,
+      "apex_x": 905,
+      "apex_y": 293,
+      "rise_curtains": 1.97,
+      "width_px": 202
+    },
+    {
+      "along_wall": 0.137,
+      "apex_x": 437,
+      "apex_y": 300,
+      "rise_curtains": 1.8,
+      "width_px": 7
+    },
+    {
+      "along_wall": 0.748,
+      "apex_x": 964,
+      "apex_y": 300,
+      "rise_curtains": 1.8,
+      "width_px": 304
+    }
+  ],
+  "reading": {
+    "beyond_crest_green": 12.14,
+    "beyond_crest_rise_px": 25.1,
+    "crest_y": 376.57,
+    "curtain_px": 42.43,
+    "east_angle_rise_curtains": 0.037,
+    "east_angle_x": 319,
+    "fort_green": 7.98,
+    "highest_along_wall": 0.521,
+    "last_crest_x": 1181,
+    "wall_run_px": 862
+  }
+}

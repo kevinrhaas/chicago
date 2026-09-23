@@ -1,0 +1,17 @@
+id: andreas-history-of-chicago
+title: History of Chicago
+creator: Alfred Theodore Andreas
+date: 1884
+description: >
+  Digitized (Google Books) scan of Andreas' History of Chicago, used as a
+  source in the Chicago 1830s research corpus.
+redistribution_status: public
+copyright_status: public-domain
+internet_archive:
+  item: chicago1835-andreas-history-of-chicago
+  url: https://archive.org/details/chicago1835-andreas-history-of-chicago
+files:
+  - name: Andreas-History_of_Chicago.pdf
+    bytes: 286120750
+    sha256: 6e53fbcd34adc8aff00f7ac70ce784e6b922d94206ee250d8e2cdf2d7b22b967
+local_archive_path: projects/archive/data/chicago/reference/andreas-history-of-chicago/

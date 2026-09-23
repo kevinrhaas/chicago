@@ -1,0 +1,1004 @@
+{
+  "_doc": "Read Wabansia's block numerals off Wright's 1834 survey, on a column grid nobody had.\n\n    tools/read_wabansia_block_numerals.py               print the reading\n    tools/read_wabansia_block_numerals.py --write       write the trace\n    tools/read_wabansia_block_numerals.py --check       re-derive it from the committed pixels\n    tools/read_wabansia_block_numerals.py --check-sheet  re-measure every rule off the raster\n    tools/read_wabansia_block_numerals.py --self-test   break each assertion and watch it fire\n\nWHAT THIS FILE IS AND IS NOT. It is the READING: which figure Wright writes in which cell\nof Wabansia's block grid, the crop on the sheet where each was read, and the ruled lines\nthat make the cell. It authors NO ground. Every number below is a PIXEL statement about\nchicago/pre_fire_v1/maps/images/1834-wright-map.jpg; seating Wabansia on modern ground is\nT-1070's, and nothing here should be read as having done it.\n\nWHY THE GRID COSTS SOMETHING HERE, WHERE IT COST NOTHING IN KINZIE'S ADDITION. T-1061\ncould read the Addition cell by cell because T-1060 had already committed its eleven\nstreet corridors, so a cell was the rectangle two of them leave. Wabansia has half of\nthat: T-1068 committed the seven EAST-WEST corridors \u2014 Free, Trade, Sailors, Hight,\nOwen, Hubbard, Kinzie \u2014 and refused the north-south ones, because the discrimination it\nused (Wright letters a street's name inside its corridor) has nothing to say about\nstreets he does not letter, and the width test that would have to stand in its place is\nthe one this tract defeats. So the tiers are imported from\ndata/traces/wabansia_streets.json and the COLUMNS are measured here, by the only test\nthis tract leaves: a north-south rule is a line that appears in EVERY tier at the same\nplace, drifting east with the tract's own 0.011 px/px tilt. A lot line does that too, and\nis kept and marked as one; a numeral's stroke does not.\n\nWHAT THE READING SETTLES, and it is more than the ticket asked. Wabansia's block grid\nholds TWENTY-ONE blocks in three columns of seven, and they are numbered 59 to 79 \u2014 a\nclosed run, every number once, none missing:\n\n        west column      middle column    east column\n    t1      79                66               65      (north, at the tract boundary)\n    t2      78                67               64\n    t3      77                68               63\n    t4      76                69               62\n    t5      75                70               61\n    t6      74                71               60\n    t7      73                72               59      (south, on Kinzie Street)\n\nwhich is a boustrophedon read the other way round from the Addition's: it STARTS at the\ntract's south-east corner, at Kinzie Street beside the North Branch, runs north up the\neast column to 65, turns west and runs south down the middle column to 72, turns west\nagain and runs north up the west column to 79 at the north-west corner.\n\nTHE RUN DOES NOT BEGIN AT 1, and that is the finding worth carrying out of here.\nKinzie's Addition, on this same sheet, is numbered 1-54 (T-1061,\ndata/traces/kinzie_addition_block_numbering.json). Wabansia begins at 59. Fifty-five to\nfifty-eight are in neither reading. This file does NOT claim Wright numbered the sheet\ncontinuously across two surveys \u2014 that is a claim about intent and it has no evidence\nhere. It records the arithmetic and names the only two pieces of ground on this sheet\nthat could hold four more blocks, both of them open tickets: the Addition's river-front\nwater lots (T-1063) and the unidentified tract north of Kinzie Street lettered Michigan\nSt (T-0796). Wabansia's own water-lot triangle is not a candidate: its parcels are\nnumbered from 1 in a run of their own, which is T-1077's to read.\n\nTHREE THINGS THE SHEET DOES THAT A REGULAR GRID WOULD NOT, all measured, none explained:\n\n  * THE JOG. The north-south street between the middle and east columns stands at\n    x 957-989 in tiers 1-3 and at x 1035-1076 in tiers 4-7. It steps 78 px \u2014 about 54 m \u2014\n    EAST at Sailors Street, and the two columns change from one lot wide to two lots wide\n    on the same line. The street widens across the step too \u2014 22.6 m north of Sailors\n    Street against 28.5 m south of it, where the street between the west and middle\n    columns holds 21-22 m the whole way down. North of Sailors Street the North Branch is\n    close enough to the grid to leave room for nothing wider.\n  * THE NORTH TIER IS SHORT. The tract's north boundary rule runs at y 958, leaving tier 1\n    a depth of 106 px against the 128-139 px the tiers below hold \u2014 three lot rows, not four.\n    Wright's lot figures in tier 1 start at 2, which is the same fact written in his hand.\n  * THE WEST MARGIN. Between the tract's west boundary rule and the west column's own\n    west rule there is a strip 16-23 px wide, about 12-17 m. That is too narrow for a\n    street on this sheet, where T-1068's seven measured corridors run 21-29 m, and no\n    figure stands in it. Wright draws the two so close that the rule detector T-1060 left\n    behind returns them as one fat blob, which is why `--check-sheet` tests peaks and not\n    rules. It is recorded and NOT named; T-1070, which seats the tract, is where it has\n    to be settled.\n\nWHAT IS NOT READ, and is somebody else's, not a gap to fill by guessing: the lot figures\ninside each block (1-8 in the two-lot-wide blocks, 1-4 in the one-lot-wide ones, read\nhere only far enough to say which they are); the water-lot triangle (T-1077); the names\nof the north-south streets, which Wright letters nowhere in this tract; and the seating\n(T-1070).\n",
+  "ticket": "T-1074",
+  "raster": {
+    "working_copy": "chicago/pre_fire_v1/maps/images/1834-wright-map.jpg",
+    "width": 5050,
+    "height": 6628,
+    "dpi": 600,
+    "sha256": "dbb92c0188881d9b6cdf84801b9185a5715496a328125bde895a04058b173266",
+    "source_id": "wright_1834_nara_hup"
+  },
+  "registration": {
+    "gcp_file": "data/traces/gcp/wright_1834_nara_hup_gcps.json",
+    "rms_m": 16.02
+  },
+  "method": {
+    "shear_ns": 0.02,
+    "tiers_from": "data/traces/wabansia_streets.json \u00a7 streets (T-1068)",
+    "north_rule_px_y": 958.0,
+    "west_rule_px_x": {
+      "t1": 682.2,
+      "t2": 678.4,
+      "t3": 679.0,
+      "t4": 680.8,
+      "t5": 683.1,
+      "t6": 687.2,
+      "t7": 682.1
+    },
+    "discrimination": "a north-south rule is a line that stands in every tier at the same place, drifting east with the tract's own tilt; a numeral's stroke does not, and a lot line does and is kept and marked as one"
+  },
+  "tiers": [
+    {
+      "id": "t1",
+      "north": "tract boundary",
+      "south": "free",
+      "y_px": [
+        958.0,
+        1064.5
+      ],
+      "depth_px": 106.5,
+      "mid_px_y": 1011.2
+    },
+    {
+      "id": "t2",
+      "north": "free",
+      "south": "trade",
+      "y_px": [
+        1096.4,
+        1235.4
+      ],
+      "depth_px": 139.0,
+      "mid_px_y": 1165.9
+    },
+    {
+      "id": "t3",
+      "north": "trade",
+      "south": "sailors",
+      "y_px": [
+        1264.3,
+        1393.3
+      ],
+      "depth_px": 129.0,
+      "mid_px_y": 1328.8
+    },
+    {
+      "id": "t4",
+      "north": "sailors",
+      "south": "hight",
+      "y_px": [
+        1427.4,
+        1556.6
+      ],
+      "depth_px": 129.2,
+      "mid_px_y": 1492.0
+    },
+    {
+      "id": "t5",
+      "north": "hight",
+      "south": "owen",
+      "y_px": [
+        1595.8,
+        1725.6
+      ],
+      "depth_px": 129.8,
+      "mid_px_y": 1660.7
+    },
+    {
+      "id": "t6",
+      "north": "owen",
+      "south": "hubbard",
+      "y_px": [
+        1760.8,
+        1889.2
+      ],
+      "depth_px": 128.4,
+      "mid_px_y": 1825.0
+    },
+    {
+      "id": "t7",
+      "north": "hubbard",
+      "south": "kinzie",
+      "y_px": [
+        1924.1,
+        2061.3
+      ],
+      "depth_px": 137.2,
+      "mid_px_y": 1992.7
+    }
+  ],
+  "columns": [
+    {
+      "column": "A",
+      "tier": "t1",
+      "west_px": 698.3,
+      "lot_divider_px": 776.4,
+      "east_px": 860.6,
+      "width_px": 162.3,
+      "width_m": 114.55,
+      "width_ft_raw": 375.8,
+      "width_ft_controlled": 367.0,
+      "lots_wide": 2
+    },
+    {
+      "column": "B",
+      "tier": "t1",
+      "west_px": 892.6,
+      "lot_divider_px": null,
+      "east_px": 957.8,
+      "width_px": 65.2,
+      "width_m": 46.02,
+      "width_ft_raw": 151.0,
+      "width_ft_controlled": 147.4,
+      "lots_wide": 1
+    },
+    {
+      "column": "C",
+      "tier": "t1",
+      "west_px": 989.5,
+      "lot_divider_px": null,
+      "east_px": 1041.9,
+      "width_px": 52.4,
+      "width_m": 36.98,
+      "width_ft_raw": 121.3,
+      "width_ft_controlled": 118.5,
+      "lots_wide": 1
+    },
+    {
+      "column": "A",
+      "tier": "t2",
+      "west_px": 696.7,
+      "lot_divider_px": 775.6,
+      "east_px": 859.6,
+      "width_px": 162.9,
+      "width_m": 114.98,
+      "width_ft_raw": 377.2,
+      "width_ft_controlled": 368.4,
+      "lots_wide": 2
+    },
+    {
+      "column": "B",
+      "tier": "t2",
+      "west_px": 889.9,
+      "lot_divider_px": null,
+      "east_px": 957.0,
+      "width_px": 67.1,
+      "width_m": 47.36,
+      "width_ft_raw": 155.4,
+      "width_ft_controlled": 151.7,
+      "lots_wide": 1
+    },
+    {
+      "column": "C",
+      "tier": "t2",
+      "west_px": 990.1,
+      "lot_divider_px": null,
+      "east_px": 1042.3,
+      "width_px": 52.2,
+      "width_m": 36.84,
+      "width_ft_raw": 120.9,
+      "width_ft_controlled": 118.0,
+      "lots_wide": 1
+    },
+    {
+      "column": "A",
+      "tier": "t3",
+      "west_px": 696.5,
+      "lot_divider_px": 777.0,
+      "east_px": 860.6,
+      "width_px": 164.1,
+      "width_m": 115.82,
+      "width_ft_raw": 380.0,
+      "width_ft_controlled": 371.1,
+      "lots_wide": 2
+    },
+    {
+      "column": "B",
+      "tier": "t3",
+      "west_px": 891.6,
+      "lot_divider_px": null,
+      "east_px": 956.7,
+      "width_px": 65.1,
+      "width_m": 45.95,
+      "width_ft_raw": 150.8,
+      "width_ft_controlled": 147.2,
+      "lots_wide": 1
+    },
+    {
+      "column": "C",
+      "tier": "t3",
+      "west_px": 989.0,
+      "lot_divider_px": null,
+      "east_px": 1046.5,
+      "width_px": 57.5,
+      "width_m": 40.58,
+      "width_ft_raw": 133.1,
+      "width_ft_controlled": 130.0,
+      "lots_wide": 1
+    },
+    {
+      "column": "A",
+      "tier": "t4",
+      "west_px": 698.5,
+      "lot_divider_px": 785.0,
+      "east_px": 862.2,
+      "width_px": 163.7,
+      "width_m": 115.54,
+      "width_ft_raw": 379.1,
+      "width_ft_controlled": 370.2,
+      "lots_wide": 2
+    },
+    {
+      "column": "B",
+      "tier": "t4",
+      "west_px": 893.5,
+      "lot_divider_px": 966.5,
+      "east_px": 1034.5,
+      "width_px": 141.0,
+      "width_m": 99.52,
+      "width_ft_raw": 326.5,
+      "width_ft_controlled": 318.9,
+      "lots_wide": 2
+    },
+    {
+      "column": "C",
+      "tier": "t4",
+      "west_px": 1075.3,
+      "lot_divider_px": 1146.9,
+      "east_px": 1212.4,
+      "width_px": 137.1,
+      "width_m": 96.77,
+      "width_ft_raw": 317.5,
+      "width_ft_controlled": 310.0,
+      "lots_wide": 2
+    },
+    {
+      "column": "A",
+      "tier": "t5",
+      "west_px": 700.1,
+      "lot_divider_px": 788.6,
+      "east_px": 863.8,
+      "width_px": 163.7,
+      "width_m": 115.54,
+      "width_ft_raw": 379.1,
+      "width_ft_controlled": 370.2,
+      "lots_wide": 2
+    },
+    {
+      "column": "B",
+      "tier": "t5",
+      "west_px": 895.2,
+      "lot_divider_px": 967.8,
+      "east_px": 1034.5,
+      "width_px": 139.3,
+      "width_m": 98.32,
+      "width_ft_raw": 322.6,
+      "width_ft_controlled": 315.0,
+      "lots_wide": 2
+    },
+    {
+      "column": "C",
+      "tier": "t5",
+      "west_px": 1076.0,
+      "lot_divider_px": 1148.7,
+      "east_px": 1213.1,
+      "width_px": 137.1,
+      "width_m": 96.77,
+      "width_ft_raw": 317.5,
+      "width_ft_controlled": 310.0,
+      "lots_wide": 2
+    },
+    {
+      "column": "A",
+      "tier": "t6",
+      "west_px": 705.8,
+      "lot_divider_px": 786.2,
+      "east_px": 864.7,
+      "width_px": 158.9,
+      "width_m": 112.15,
+      "width_ft_raw": 367.9,
+      "width_ft_controlled": 359.3,
+      "lots_wide": 2
+    },
+    {
+      "column": "B",
+      "tier": "t6",
+      "west_px": 895.2,
+      "lot_divider_px": 968.3,
+      "east_px": 1035.4,
+      "width_px": 140.2,
+      "width_m": 98.96,
+      "width_ft_raw": 324.7,
+      "width_ft_controlled": 317.1,
+      "lots_wide": 2
+    },
+    {
+      "column": "C",
+      "tier": "t6",
+      "west_px": 1075.6,
+      "lot_divider_px": 1147.8,
+      "east_px": 1212.4,
+      "width_px": 136.8,
+      "width_m": 96.56,
+      "width_ft_raw": 316.8,
+      "width_ft_controlled": 309.4,
+      "lots_wide": 2
+    },
+    {
+      "column": "A",
+      "tier": "t7",
+      "west_px": 704.6,
+      "lot_divider_px": 785.7,
+      "east_px": 866.1,
+      "width_px": 161.5,
+      "width_m": 113.99,
+      "width_ft_raw": 374.0,
+      "width_ft_controlled": 365.2,
+      "lots_wide": 2
+    },
+    {
+      "column": "B",
+      "tier": "t7",
+      "west_px": 898.1,
+      "lot_divider_px": 968.5,
+      "east_px": 1034.5,
+      "width_px": 136.4,
+      "width_m": 96.27,
+      "width_ft_raw": 315.8,
+      "width_ft_controlled": 308.4,
+      "lots_wide": 2
+    },
+    {
+      "column": "C",
+      "tier": "t7",
+      "west_px": 1075.8,
+      "lot_divider_px": 1148.1,
+      "east_px": 1210.6,
+      "width_px": 134.8,
+      "width_m": 95.14,
+      "width_ft_raw": 312.1,
+      "width_ft_controlled": 304.8,
+      "lots_wide": 2
+    }
+  ],
+  "north_south_streets": [
+    {
+      "between": "A|B",
+      "tier": "t1",
+      "rule_px_x": [
+        860.6,
+        892.6
+      ],
+      "corridor_px": 32.0,
+      "corridor_m": 22.59,
+      "corridor_ft_raw": 74.1,
+      "corridor_ft_controlled": 72.4
+    },
+    {
+      "between": "B|C",
+      "tier": "t1",
+      "rule_px_x": [
+        957.8,
+        989.5
+      ],
+      "corridor_px": 31.7,
+      "corridor_m": 22.37,
+      "corridor_ft_raw": 73.4,
+      "corridor_ft_controlled": 71.7
+    },
+    {
+      "between": "A|B",
+      "tier": "t2",
+      "rule_px_x": [
+        859.6,
+        889.9
+      ],
+      "corridor_px": 30.3,
+      "corridor_m": 21.39,
+      "corridor_ft_raw": 70.2,
+      "corridor_ft_controlled": 68.5
+    },
+    {
+      "between": "B|C",
+      "tier": "t2",
+      "rule_px_x": [
+        957.0,
+        990.1
+      ],
+      "corridor_px": 33.1,
+      "corridor_m": 23.36,
+      "corridor_ft_raw": 76.6,
+      "corridor_ft_controlled": 74.8
+    },
+    {
+      "between": "A|B",
+      "tier": "t3",
+      "rule_px_x": [
+        860.6,
+        891.6
+      ],
+      "corridor_px": 31.0,
+      "corridor_m": 21.88,
+      "corridor_ft_raw": 71.8,
+      "corridor_ft_controlled": 70.1
+    },
+    {
+      "between": "B|C",
+      "tier": "t3",
+      "rule_px_x": [
+        956.7,
+        989.0
+      ],
+      "corridor_px": 32.3,
+      "corridor_m": 22.8,
+      "corridor_ft_raw": 74.8,
+      "corridor_ft_controlled": 73.0
+    },
+    {
+      "between": "A|B",
+      "tier": "t4",
+      "rule_px_x": [
+        862.2,
+        893.5
+      ],
+      "corridor_px": 31.3,
+      "corridor_m": 22.09,
+      "corridor_ft_raw": 72.5,
+      "corridor_ft_controlled": 70.8
+    },
+    {
+      "between": "B|C",
+      "tier": "t4",
+      "rule_px_x": [
+        1034.5,
+        1075.3
+      ],
+      "corridor_px": 40.8,
+      "corridor_m": 28.8,
+      "corridor_ft_raw": 94.5,
+      "corridor_ft_controlled": 92.3
+    },
+    {
+      "between": "A|B",
+      "tier": "t5",
+      "rule_px_x": [
+        863.8,
+        895.2
+      ],
+      "corridor_px": 31.4,
+      "corridor_m": 22.16,
+      "corridor_ft_raw": 72.7,
+      "corridor_ft_controlled": 71.0
+    },
+    {
+      "between": "B|C",
+      "tier": "t5",
+      "rule_px_x": [
+        1034.5,
+        1076.0
+      ],
+      "corridor_px": 41.5,
+      "corridor_m": 29.29,
+      "corridor_ft_raw": 96.1,
+      "corridor_ft_controlled": 93.8
+    },
+    {
+      "between": "A|B",
+      "tier": "t6",
+      "rule_px_x": [
+        864.7,
+        895.2
+      ],
+      "corridor_px": 30.5,
+      "corridor_m": 21.53,
+      "corridor_ft_raw": 70.6,
+      "corridor_ft_controlled": 69.0
+    },
+    {
+      "between": "B|C",
+      "tier": "t6",
+      "rule_px_x": [
+        1035.4,
+        1075.6
+      ],
+      "corridor_px": 40.2,
+      "corridor_m": 28.37,
+      "corridor_ft_raw": 93.1,
+      "corridor_ft_controlled": 90.9
+    },
+    {
+      "between": "A|B",
+      "tier": "t7",
+      "rule_px_x": [
+        866.1,
+        898.1
+      ],
+      "corridor_px": 32.0,
+      "corridor_m": 22.59,
+      "corridor_ft_raw": 74.1,
+      "corridor_ft_controlled": 72.4
+    },
+    {
+      "between": "B|C",
+      "tier": "t7",
+      "rule_px_x": [
+        1034.5,
+        1075.8
+      ],
+      "corridor_px": 41.3,
+      "corridor_m": 29.15,
+      "corridor_ft_raw": 95.6,
+      "corridor_ft_controlled": 93.4
+    }
+  ],
+  "west_margin": [
+    {
+      "tier": "t1",
+      "rule_px_x": [
+        682.2,
+        698.3
+      ],
+      "width_px": 16.1,
+      "width_m": 11.36,
+      "width_ft_raw": 37.3
+    },
+    {
+      "tier": "t2",
+      "rule_px_x": [
+        678.4,
+        696.7
+      ],
+      "width_px": 18.3,
+      "width_m": 12.92,
+      "width_ft_raw": 42.4
+    },
+    {
+      "tier": "t3",
+      "rule_px_x": [
+        679.0,
+        696.5
+      ],
+      "width_px": 17.5,
+      "width_m": 12.35,
+      "width_ft_raw": 40.5
+    },
+    {
+      "tier": "t4",
+      "rule_px_x": [
+        680.8,
+        698.5
+      ],
+      "width_px": 17.7,
+      "width_m": 12.49,
+      "width_ft_raw": 41.0
+    },
+    {
+      "tier": "t5",
+      "rule_px_x": [
+        683.1,
+        700.1
+      ],
+      "width_px": 17.0,
+      "width_m": 12.0,
+      "width_ft_raw": 39.4
+    },
+    {
+      "tier": "t6",
+      "rule_px_x": [
+        687.2,
+        705.8
+      ],
+      "width_px": 18.6,
+      "width_m": 13.13,
+      "width_ft_raw": 43.1
+    },
+    {
+      "tier": "t7",
+      "rule_px_x": [
+        682.1,
+        704.6
+      ],
+      "width_px": 22.5,
+      "width_m": 15.88,
+      "width_ft_raw": 52.1
+    }
+  ],
+  "blocks": [
+    {
+      "number": 59,
+      "column": "C",
+      "tier": "t7",
+      "numeral_crop_px": [
+        1102.1,
+        1958.7,
+        1194.1,
+        2026.7
+      ],
+      "legibility": "clear",
+      "confidence": "documented",
+      "derives_from_scheme": true
+    },
+    {
+      "number": 60,
+      "column": "C",
+      "tier": "t6",
+      "numeral_crop_px": [
+        1101.8,
+        1791.0,
+        1193.8,
+        1859.0
+      ],
+      "legibility": "clear",
+      "confidence": "documented",
+      "derives_from_scheme": true
+    },
+    {
+      "number": 61,
+      "column": "C",
+      "tier": "t5",
+      "numeral_crop_px": [
+        1102.7,
+        1626.7,
+        1194.7,
+        1694.7
+      ],
+      "legibility": "clear",
+      "confidence": "documented",
+      "derives_from_scheme": true
+    },
+    {
+      "number": 62,
+      "column": "C",
+      "tier": "t4",
+      "numeral_crop_px": [
+        1100.9,
+        1458.0,
+        1192.9,
+        1526.0
+      ],
+      "legibility": "clear",
+      "confidence": "documented",
+      "derives_from_scheme": true
+    },
+    {
+      "number": 63,
+      "column": "C",
+      "tier": "t3",
+      "numeral_crop_px": [
+        997.0,
+        1294.8,
+        1058.5,
+        1362.8
+      ],
+      "legibility": "ambiguous",
+      "confidence": "inferred",
+      "derives_from_scheme": true,
+      "note": "The second glyph is a 3 or a 5 at 600 dpi and the sheet will not settle it: this hand writes both with a flat upper bar over a bowl. The run does settle it \u2014 the tier north reads 64 and the tier south reads 62, both clear, and the column is monotone over its other six cells. Graded `inferred` for that reason and not upgraded."
+    },
+    {
+      "number": 64,
+      "column": "C",
+      "tier": "t2",
+      "numeral_crop_px": [
+        998.1,
+        1131.9,
+        1054.3,
+        1199.9
+      ],
+      "legibility": "clear",
+      "confidence": "documented",
+      "derives_from_scheme": true
+    },
+    {
+      "number": 65,
+      "column": "C",
+      "tier": "t1",
+      "numeral_crop_px": [
+        997.5,
+        977.2,
+        1053.9,
+        1045.2
+      ],
+      "legibility": "clear",
+      "confidence": "documented",
+      "derives_from_scheme": true,
+      "note": "The lot figure 3 stands immediately west of the 6 and is not part of the block number."
+    },
+    {
+      "number": 66,
+      "column": "B",
+      "tier": "t1",
+      "numeral_crop_px": [
+        894.6,
+        977.2,
+        955.8,
+        1045.2
+      ],
+      "legibility": "clear",
+      "confidence": "documented",
+      "derives_from_scheme": true
+    },
+    {
+      "number": 67,
+      "column": "B",
+      "tier": "t2",
+      "numeral_crop_px": [
+        891.9,
+        1131.9,
+        955.0,
+        1199.9
+      ],
+      "legibility": "clear",
+      "confidence": "documented",
+      "derives_from_scheme": true
+    },
+    {
+      "number": 68,
+      "column": "B",
+      "tier": "t3",
+      "numeral_crop_px": [
+        893.6,
+        1294.8,
+        954.7,
+        1362.8
+      ],
+      "legibility": "clear",
+      "confidence": "documented",
+      "derives_from_scheme": true
+    },
+    {
+      "number": 69,
+      "column": "B",
+      "tier": "t4",
+      "numeral_crop_px": [
+        920.5,
+        1458.0,
+        1012.5,
+        1526.0
+      ],
+      "legibility": "crossed",
+      "confidence": "documented",
+      "derives_from_scheme": true,
+      "note": "Written large across the block's lot divider and over the lot figures 3, 4, 6 and 5, which are half its height. The 6 and the 9 are the two tall strokes."
+    },
+    {
+      "number": 70,
+      "column": "B",
+      "tier": "t5",
+      "numeral_crop_px": [
+        921.8,
+        1626.7,
+        1013.8,
+        1694.7
+      ],
+      "legibility": "crossed",
+      "confidence": "documented",
+      "derives_from_scheme": true,
+      "note": "Written large across the lot divider and over lot figures 3, 4, 6 and 5, as block 69 is one tier north."
+    },
+    {
+      "number": 71,
+      "column": "B",
+      "tier": "t6",
+      "numeral_crop_px": [
+        922.3,
+        1791.0,
+        1014.3,
+        1859.0
+      ],
+      "legibility": "clear",
+      "confidence": "documented",
+      "derives_from_scheme": true
+    },
+    {
+      "number": 72,
+      "column": "B",
+      "tier": "t7",
+      "numeral_crop_px": [
+        922.5,
+        1958.7,
+        1014.5,
+        2026.7
+      ],
+      "legibility": "clear",
+      "confidence": "documented",
+      "derives_from_scheme": true
+    },
+    {
+      "number": 73,
+      "column": "A",
+      "tier": "t7",
+      "numeral_crop_px": [
+        739.7,
+        1958.7,
+        831.7,
+        2026.7
+      ],
+      "legibility": "clear",
+      "confidence": "documented",
+      "derives_from_scheme": true
+    },
+    {
+      "number": 74,
+      "column": "A",
+      "tier": "t6",
+      "numeral_crop_px": [
+        740.2,
+        1791.0,
+        832.2,
+        1859.0
+      ],
+      "legibility": "clear",
+      "confidence": "documented",
+      "derives_from_scheme": true
+    },
+    {
+      "number": 75,
+      "column": "A",
+      "tier": "t5",
+      "numeral_crop_px": [
+        742.6,
+        1626.7,
+        834.6,
+        1694.7
+      ],
+      "legibility": "clear",
+      "confidence": "documented",
+      "derives_from_scheme": true,
+      "note": "Read again at 8x against the 7 of block 76 one tier north: the first glyph is a hooked bar over a falling diagonal and the second closes a bowl at the foot. It is 75, not 55."
+    },
+    {
+      "number": 76,
+      "column": "A",
+      "tier": "t4",
+      "numeral_crop_px": [
+        739.0,
+        1458.0,
+        831.0,
+        1526.0
+      ],
+      "legibility": "clear",
+      "confidence": "documented",
+      "derives_from_scheme": true
+    },
+    {
+      "number": 77,
+      "column": "A",
+      "tier": "t3",
+      "numeral_crop_px": [
+        731.0,
+        1294.8,
+        823.0,
+        1362.8
+      ],
+      "legibility": "faint",
+      "confidence": "documented",
+      "derives_from_scheme": true,
+      "note": "Both figures carry the same hooked top bar and long left-falling diagonal; the second is the first written smaller."
+    },
+    {
+      "number": 78,
+      "column": "A",
+      "tier": "t2",
+      "numeral_crop_px": [
+        729.6,
+        1131.9,
+        821.6,
+        1199.9
+      ],
+      "legibility": "faint",
+      "confidence": "documented",
+      "derives_from_scheme": true,
+      "note": "The 8 is written small and half a stroke lighter than the 7; two bowls, closed, and no descender, so it is not a 3 and not a 9."
+    },
+    {
+      "number": 79,
+      "column": "A",
+      "tier": "t1",
+      "numeral_crop_px": [
+        730.4,
+        977.2,
+        822.4,
+        1045.2
+      ],
+      "legibility": "clear",
+      "confidence": "documented",
+      "derives_from_scheme": true
+    }
+  ],
+  "scheme": {
+    "first": 59,
+    "last": 79,
+    "cells": 21,
+    "legs": [
+      {
+        "column": "C",
+        "from_tier": "t7",
+        "to_tier": "t1",
+        "from": 59,
+        "to": 65,
+        "direction": "south to north, up the bank of the North Branch"
+      },
+      {
+        "column": "B",
+        "from_tier": "t1",
+        "to_tier": "t7",
+        "from": 66,
+        "to": 72,
+        "direction": "north to south"
+      },
+      {
+        "column": "A",
+        "from_tier": "t7",
+        "to_tier": "t1",
+        "from": 73,
+        "to": 79,
+        "direction": "south to north, up the tract's west edge"
+      }
+    ],
+    "reading": "A boustrophedon that starts at the tract's south-east corner, on Kinzie Street beside the North Branch, and ends at its north-west. Kinzie's Addition's own run (T-1061) turns the other way, from the river tier northward; the two surveys share a sheet and not a habit."
+  },
+  "arithmetic": {
+    "wabansia_run": [
+      59,
+      79
+    ],
+    "kinzie_addition_run": [
+      1,
+      54
+    ],
+    "unaccounted": [
+      55,
+      56,
+      57,
+      58
+    ],
+    "candidates": [
+      {
+        "ticket": "T-1063",
+        "ground": "the Addition's river-front water lots, recorded as a lot strip"
+      },
+      {
+        "ticket": "T-0796",
+        "ground": "the unidentified tract north of Kinzie Street lettered Michigan St"
+      }
+    ],
+    "refused": "that Wright numbered this sheet continuously across two surveys. The arithmetic is recorded; the intent is not evidenced here, and Wabansia's own water-lot triangle is not a candidate because its parcels are numbered from 1 in a run of their own (T-1077)."
+  },
+  "jog": {
+    "at": "Sailors Street, between tier 3 and tier 4",
+    "north_rule_px_x": [
+      956.7,
+      989.0
+    ],
+    "south_rule_px_x": [
+      1034.5,
+      1075.3
+    ],
+    "step_px": 77.8,
+    "step_m": 54.91,
+    "lots_wide_north": 1,
+    "lots_wide_south": 2,
+    "corridor_px_north": 32.3,
+    "corridor_px_south": 40.8,
+    "corridor_m_north": 22.8,
+    "corridor_m_south": 28.8,
+    "reading": "The north-south street between the middle and east columns is not one line. It stands at x 955-989 in tiers 1-3 and at x 1036-1077 in tiers 4-7, and the blocks either side of it go from one lot wide to two on the same tier line. It also widens across the step, from 22.6 m north of Sailors Street to 28.5 m south of it, where the A|B street holds 21-22 m the whole way down. North of Sailors Street the North Branch is close enough to the grid to leave room for nothing wider."
+  },
+  "control": {
+    "original_town_platted_ft": 80.0,
+    "original_town_read_ft": {
+      "mean": 81.9,
+      "sd": 5.1,
+      "n": 3
+    },
+    "method_over_read": 1.024,
+    "source": "data/traces/kinzie_addition_street_grid.json \u00a7 control_summary"
+  },
+  "not_read": [
+    "the lot figures inside each block, read only far enough to say that the two-lot-wide blocks carry 1-8 and the one-lot-wide blocks 1-4",
+    "the water-lot triangle between the east column and the North Branch (T-1077)",
+    "the names of the north-south streets, which Wright letters nowhere in Wabansia",
+    "the seating of any of this on modern ground (T-1070)"
+  ]
+}

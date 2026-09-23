@@ -1,0 +1,38 @@
+{
+  "_": "ROADMAP K45(b3), re-banked by T-1127 for the field T-1123 enlarged. What the timber's detail control does. Read by tools/measure_timber_detail.mjs --gate, measured on the PUBLISHED mirror at 1280x800. The woody layer is planted over the whole field once rather than into a ring that follows the visitor, so unlike the sward its population does not depend on the viewport.",
+  "measured_on": "2026-09-15",
+  "measured_against": "the published mirror, walked through window.__chicago4d.setDetail",
+  "levels": {
+    "full":     { "keep": 0.400, "trees": 1529, "thickets": 689, "stems": 2378, "timber_triangles": 603186, "scene_triangles": 1418518 },
+    "balanced": { "keep": 0.350, "trees": 1408, "thickets": 600, "stems": 2168, "timber_triangles": 544270, "scene_triangles": 1335108 },
+    "light":    { "keep": 0.225, "trees":  885, "thickets": 443, "stems": 1488, "timber_triangles": 379318, "scene_triangles": 1063090 }
+  },
+  "before": {
+    "_": "the same three levels on the same mirror immediately before T-1127, when the keep fractions were 1.00 / 0.80 / 0.60 and every one of the three stem caps BOUND. The tree counts are the caps, exactly, which is what a bound cap looks like; max_station_n_m is the reading that says it truncated rather than thinned, against a field that runs to N +1117.8 m. `uncapped` is the same tree with the caps lifted so the loop could finish — the wood the records actually ask for, one wood counted at three sampling steps.",
+    "full":     { "keep": 1.00, "trees": 3030, "thickets": 708, "stems": 3898, "timber_triangles": 930970, "max_station_n_m": 949.8 },
+    "balanced": { "keep": 0.80, "trees": 1920, "thickets": 587, "stems": 2667, "timber_triangles": 644398, "max_station_n_m": 803.3 },
+    "light":    { "keep": 0.60, "trees": 1110, "thickets": 444, "stems": 1714, "timber_triangles": 420406, "max_station_n_m": 722.6 },
+    "uncapped": { "full_trees": 4052, "balanced_trees": 3185, "light_trees": 2382,
+                  "_": "at the OLD 1.00 / 0.80 / 0.60 fractions, so the step-neutral demand is 4052 / 3981 / 3970 — the same wood at three grids. The 2026-08-17 banking of this file measured full at 472 trees, before T-1123 carried the ground north into Kinzie's Addition." },
+    "k45b3": {
+      "_": "the three levels before K45(b3) gave the timber a thinning instrument at all, on the pre-T-1123 field. Kept because it is the measurement that says the caps were once inert: 472/470/437 is one wood planted three times.",
+      "full":     { "trees": 472, "thickets": 258, "stems": 730, "timber_triangles": 186442, "scene_triangles": 511919 },
+      "balanced": { "trees": 470, "thickets": 190, "stems": 660, "timber_triangles": 161674, "scene_triangles": 466814 },
+      "light":    { "trees": 437, "thickets": 133, "stems": 570, "timber_triangles": 136382, "scene_triangles": 416222 }
+    }
+  },
+  "tolerance": {
+    "_": "tree_share is checked against the level's keep DIVIDED BY full's keep, not against the keep itself: since T-1127 full's keep is 0.400 rather than 1.00, so 'the fraction of the roll' and 'the fraction of full's trees' are different numbers and only the second is a ratio between levels. A Bernoulli acceptance over ~190,000 cells is near-Poisson, and the count carries a second error the sampling step contributes on its own — before any keep fraction existed the three levels planted 472/470/437, so light's grid alone reads 7 % below full's. Measured today the two lower levels sit 4.6 and 1.6 points off their nominal shares of 87.5 % and 56.3 %. band_share is the northernmost tenth of the swept field's share of the STEMS, and a truncated wood empties it outright (before T-1127, full's top band held 39 % of its stems and light's 12.7 %). It was 0.04 and is 0.05, because the denominator counts the point-bar screen, which deliberately does NOT thin: at a lower level the unthinned stools are a larger share of a smaller stem count, and they stand on the river rather than in the north. Measured today the spread is 0.044 across three levels that all reach the same latitude — composition, not truncation, and 0.05 still catches an emptied band by an order of magnitude.",
+    "tree_share": 0.09,
+    "band_share": 0.05
+  },
+  "reach": {
+    "_": "The swept field runs to N +1117.8 m since T-1123 carried the ground north into Kinzie's Addition. A stem budget bound partway through a south-to-north loop pulls this down: that is what K45(b2) found at light's old cap of 300 and what T-1127 found again at all three caps, which stopped the wood at N +949.8 / +803.3 / +722.6 m. The floor was 385 m, sized for the pre-T-1123 field; it is now 1100 m, which no truncation of any consequence can clear.",
+    "min_max_station_n_m": 1100
+  },
+  "screen": {
+    "_": "The sandbar-willow point bar. It does not take the keep fraction — a screen needs its clumps to touch — and since K45(b3) it does not thin with the sampling step either. The floor is under 1 because a 6-9 m bar sampled on a 5.6 m grid has fewer points than the screen wants stools, and the roll saturates at 1 rather than exceeding it. It was 0.65 on the pre-T-1123 field and is 0.60 now: the enlarged field carries more bank, so the residual a coarse grid cannot resolve is larger in absolute terms. Measured today light keeps 64.3 % of full's stools, against 51.6 % before K45(b3) existed.",
+    "min_share_of_full": 0.60,
+    "before_share": { "full": 1.0, "balanced": 0.736, "light": 0.516 }
+  }
+}

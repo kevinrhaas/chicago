@@ -1,0 +1,206 @@
+{
+  "id": "fort_dearborn_wash_house",
+  "phase": "wash_house_1830",
+  "name": "Fort Dearborn — the wash house",
+  "aka": [
+    "the fort wash-house",
+    "the laundry"
+  ],
+  "archetype": "outbuilding",
+  "asset": "gltf/fort_dearborn_wash_house__wash_house_1830.glb",
+  "scene": "1835",
+  "target_date": "1835-07-01",
+  "documented_range": {
+    "from": "1830-02-24",
+    "to": "1836-12-29",
+    "confidence": "inferred",
+    "sources": [
+      "harrison_1830_river_mouth",
+      "hubbard_autobiography_1911"
+    ],
+    "note": "THE RANGE IS BRACKETED BY ITS TWO WITNESSES, AND BOTH ARE PRE-1835. IT OPENS 24 FEBRUARY 1830, the date on the Harrison plan, because that is the earliest date any source this project holds fixes to this building; Hubbard's narrative of the fort's surroundings is of the late 1820s and carries it earlier without dating it. IT CLOSES 29 DECEMBER 1836, the evacuation, and that is a floor rather than a demolition: nothing attests when the fort's outer buildings came down, and a range that ran on to 1856 with the fort's principal structures would claim a survival for a wash house that nobody wrote down. WHAT CARRIES THE SCENE DATE OF 1 JULY 1835 is the middle of that range and not either end of it — the post was garrisoned continuously from June 1832 to 29 December 1836, so a service building the garrison's own engineer drew in 1830 is standing five years later unless something says it stopped, and nothing does. That is an argument, not an assumption, and it is the argument every Fort Dearborn record here rests on."
+  },
+  "change_note": "One phase. Neither witness describes this building changing.",
+  "placement": {
+    "local_e": 1231.57,
+    "local_n": 160.12,
+    "rotation_deg": 260.0,
+    "position_confidence": "inferred",
+    "position_sources": [
+      "harrison_1830_river_mouth",
+      "hubbard_autobiography_1911"
+    ],
+    "position_note": "THE PLATE GIVES THE COORDINATE AND HUBBARD GIVES THE CLASS, and they are consistent about the side of the fort without being identical about the ground. The plan letters 'Wash house' against a drawn building east and a little south of the stockade. Hubbard, of the same fort: 'On the east side of the fort the river was from four to five hundred feet from the pickets, and a part of this distance was a low, sandy beach, where rude wash-houses had been constructed, in which the men and women of the garrison conducted their laundry operations' (hubbard_autobiography_1911, leaf 76, printed p. 38, committed text lines 2419-2428).\n\nTWO DISAGREEMENTS ARE RECORDED RATHER THAN SMOOTHED. Hubbard says wash-houseS, plural, and the plan draws and names ONE. This record builds the one that is drawn, because the plan is the only witness that can carry a coordinate and a plural cannot be placed — how many, and how far apart, are two more inventions. And Hubbard puts them on the low sandy beach, while the plan draws this one on the open ground short of the beach hatching, about 46 m east of the pickets against his 400 to 500 ft from pickets to river. The plan wins the position, under this project's standing rule that a drawn plan beats a remembered description for WHERE; Hubbard is not overruled about the beach, he is simply describing a strip this building stands at the landward edge of.\n\nREAD OFF THE 1830 HARRISON PLAN, BY THE SAME RULE AS THE ELEVEN RECORDS ALREADY TAKEN FROM IT. Internet Archive leaf n242 of historyofchicago01andr (Andreas vol. 1, p. 113), rotated 90 degrees anticlockwise so the sheet's own true-north arrow stands vertical, is 2715 x 2003 px. On that image the stockade's ink runs from x 1356 to x 1535 and from y 553 to y 730, so the enclosure's centre is pixel (1445, 644); the committed palisade record hangs that centre on local E +1152, N +221, which is UTM 448224.70 E, 4637616.80 N. Pixels convert at 1.10 ft/px (0.33528 m/px), the scale docs/RESEARCH/fort_dearborn.md section 3 derives from the commandant's quarters. THE ANCHOR AND THE SCALE ARE CHECKED, NOT ASSUMED, and the check is the garrison garden — the one thing on this plate that is both drawn and already committed. Its committed centre lands at pixel (1209, 1008) under this transform; the drawn diamond's centre measures (1207, 1002). Seven pixels, 2.3 m. A second check runs the other way: the committed blockhouse centre predicts pixel (1385, 698) and the drawn blockhouse square measures (1375, 710), 16 px or 5.4 m. WHAT THE TRANSFORM CANNOT DO is beat its own inputs. The enclosure measures 180 px across at this scale, which is 60 m against the committed palisade's 53 m — a 13 % spread, inside the +/-20 % the scale carries, and the reason is visible on the plate: 180 px is the OUTER edge of an engraved line four to six pixels thick. So carry +/-20 % on this offset from the fort centre and +/-20 m on the fort itself, exactly as every plate-derived record here does.\n\nTHE PIXEL. The drawn building is an upright block spanning x 1660-1687 and y 795-832, centre (1673.0, 813.0) — 228 px east and 169 px south of the fort centre, which is 76.4 m east and 56.7 m south of it.",
+    "symbolic_location": "East of Fort Dearborn, outside the pickets on the open ground between the stockade and the lake shore, standing with its long wall to the fort.",
+    "uncertainty_m": 20,
+    "placement_provisional": false,
+    "vertical_anchor": "terrain",
+    "walk_surface_m": null
+  },
+  "footprint": {
+    "polygon": [
+      [
+        0,
+        0
+      ],
+      [
+        9.4,
+        0
+      ],
+      [
+        9.4,
+        4.7
+      ],
+      [
+        0,
+        4.7
+      ]
+    ],
+    "confidence": "inferred",
+    "sources": [
+      "harrison_1830_river_mouth"
+    ],
+    "note": "NO SOURCE GIVES THIS BUILDING A DIMENSION. 9.4 x 4.7 m is about 31 x 15 ft, the ink centreline of the drawn block — 28 x 14 px — at the derived 1.10 ft/px, and it wants the same +/-20 % as everything else off this plate. The long side is the front and runs at bearing 170 degrees as drawn, which is within a couple of degrees of the fort's own 8-degree lean: whoever set this building squared it to the post rather than to the meridian."
+  },
+  "attributes": {
+    "construction": {
+      "value": "plank",
+      "confidence": "inferred",
+      "note": "HUBBARD'S ADJECTIVE IS THE WHOLE OF THE EVIDENCE AND IT IS NOT A MATERIAL. He calls them 'rude wash-houses', which says rough and says nothing about what they were rough in. Plank — sawn boards nailed up vertically with the gaps showing — is the archetype's reading of a rough working building put up quickly for a wet trade, and it is preferred to log here for one stated reason: a laundry wants air and light through its walls and a notched log pen gives neither. The reasoning is the inference; nobody wrote it down."
+    },
+    "roof_type": {
+      "value": "shed",
+      "confidence": "reconstructed",
+      "note": "Not attested. A shed roof is the archetype's own default for a building this shallow, and it is what a lean-to laundry against nothing is. Invented."
+    },
+    "roof_pitch_deg": {
+      "value": 20.0,
+      "confidence": "reconstructed",
+      "note": "No pitch is attested for any building at this fort. 20 degrees on a 4.7 m depth is 1.7 m of rise on a 2.3 m wall, which is a shed roof rather than a ramp. Invented."
+    },
+    "wall_height_m": {
+      "value": 2.3,
+      "confidence": "reconstructed",
+      "note": "No height attested. About seven and a half feet, which is the archetype's own size-aware default for this footprint: headroom for people working standing up, and nothing over it. Invented."
+    },
+    "door": {
+      "value": "man",
+      "confidence": "reconstructed",
+      "note": "Not attested. People and baskets went through this door, not carts. Invented, and the smallest of the three door kinds the archetype offers."
+    },
+    "door_side": {
+      "value": "front",
+      "confidence": "reconstructed",
+      "note": "The long wall facing back toward the fort, which is where everyone using this building came from. Invented."
+    },
+    "paint": {
+      "value": "unpainted",
+      "confidence": "inferred",
+      "note": "Not stated, but 'rude' is stated, and a whitewashed building is not a rude one. Unpainted is also the archetype's default."
+    },
+    "function": {
+      "value": "wash_house",
+      "confidence": "attested",
+      "sources": [
+        "hubbard_autobiography_1911",
+        "harrison_1830_river_mouth"
+      ],
+      "note": "The plan letters it Wash house and Hubbard says what happened inside one: 'the men and women of the garrison conducted their laundry operations'. That sentence is the only description in this corpus of what anybody DID in any building on this fort's outer ground, and it is why this record's function is attested where its every dimension is not."
+    },
+    "land_owner": {
+      "value": "The ground was entered by John Baptist Baubian, 28 May 1835",
+      "confidence": "reconstructed",
+      "sources": [
+        "isa_public_domain_land_tract_sales"
+      ],
+      "note": "THE UNITED STATES RESERVATION. This is the same tract L108 already derives for `1835_no_build_ground.json` — from G1, Madison's line and the traced waterline — so the polygon is inherited rather than built again, and `check.sh` already re-derives it. The register's own row is the second, independent witness to the date L108 quotes from Andreas: Beaubien's pre-emption, 28 May 1835, five weeks before the scene date. The derived polygon is short of the documented 75.69 acres for the reasons L108 states, and is a floor rather than the reservation. WHETHER THE ENTRY HELD IS NOT READ HERE: it was disputed, and this row records the entry the register carries and nothing about its outcome. THE MARGIN IS ONLY 13 m, which is inside the working horizontal uncertainty of the georeference (about 20 m) doubled, so the grade drops a tier: the tract is right if the constructed line is, and nothing here proves the line to better than that. WHAT THIS ROW CLAIMS AND WHAT IT DOES NOT. It claims that the tract the Illinois State Archives' land-sale register describes contains this structure's committed position — the patent for this ground was ENTERED by this man on this date. It does not claim he still held the ground on 1 July 1835, that he lived here, or that he ever stood on it: a sale is a transaction, and the register's only column about residence names a county. THE SECTION LINES ARE CONSTRUCTED, NOT TRACED (L219): the grid is carried from the single PLSS corner at State & Madison, on the plat's own east-west bearing, in nominal one-mile squares."
+    }
+  },
+  "residents": [],
+  "citations": [
+    {
+      "source_id": "harrison_1830_river_mouth",
+      "citation": "Harrison, F., Jr., Ass't U.S. Civil Engineer. \"Map of the Mouth of Chicago River, drawn for the Purpose of showing the proposed Harbor Improvements. With additions and changes suggested by the Memory of Early Settlers. The original received and approved by William Howard, U.S. Civil Engineer, February 24, 1830.\" Reproduced in Andreas, A. T., History of Chicago, vol. 1 (Chicago, 1884), p. 113.",
+      "url": "https://archive.org/details/historyofchicago01andr/page/n242/mode/1up",
+      "archived_url": "",
+      "tier": 2,
+      "tier_label": "near-primary recollection",
+      "what_it_supplies": [
+        "the fort's plan arrangement: a quadrangular picket enclosure, corner works, four ranges, two gates",
+        "which building stood on which side of the parade",
+        "the relative proportions of the enclosure and the buildings in it",
+        "the fort's rotation relative to true north",
+        "the named ground around the fort: garrison garden, cultivated field, barn, wash house, well, shop, cemetery, ferry"
+      ],
+      "what_it_does_not_supply": [
+        "any dimension in feet - there is no scale bar",
+        "elevations, heights, roof forms or materials",
+        "the state of the fort in 1835 - it is five years earlier",
+        "a separation between the 1830 survey and the settler-memory additions the plate admits to"
+      ]
+    },
+    {
+      "source_id": "hubbard_autobiography_1911",
+      "citation": "Gurdon Saltonstall Hubbard, The Autobiography of Gurdon Saltonstall Hubbard, Pa-pa-ma-ta-be, \"The Swift Walker\", with an Introduction by Caroline M. McIlvaine, Librarian of the Chicago Historical Society (Chicago: R. R. Donnelley & Sons Company, The Lakeside Press, Christmas 1911) — The Lakeside Classics. Read in full for its Chicago material before 1836: the front matter, McIlvaine's Introduction (pages ix-xxvii), and Hubbard's own narrative at pages 27-41, 135-138, 141-144, 153-159, 165-174 and 178-182. Hubbard's letter of 25 July 1827, printed as a note at page 174, is a separate source record.",
+      "url": "https://archive.org/details/autobiographyofg00hubb",
+      "archived_url": "https://archive.org/download/autobiographyofg00hubb/autobiographyofg00hubb_djvu.txt",
+      "tier": 2,
+      "tier_label": "near-primary recollection",
+      "transcribes": [
+        {
+          "work": "Hubbard's own autobiographical narrative — his engagement with the American Fur Company at Montreal and Mackinaw, the voyage of September 1818, his first entry into Chicago on 1 October 1818, the fort and its neighbours as he first saw them, the Chicago portage and Mud Lake, Hubbard's Trail, the trading posts of the Illinois River, and the Winnebago Scare of 1827 — ending abruptly at November 1830",
+          "date": "Written in the 1880s; printed 1888 and again 1911. Describes 1818-1830.",
+          "tier": 2,
+          "note": "A participant's recollection at more than fifty years' distance, and the rung most of this reading sits on. It is a recollection and not a record: the Fort Dearborn measurements are paces remembered, the payment of page 167 is dated to the wrong year, and the commanders' list is Hubbard's own search of the War Department records, which he says failed for the years after June 1833. The Winnebago Scare section (pages 166-174) is footnoted as coming not from the Diary but 'from statements by Mr. Hubbard in Chicago Historical Series, No. 10', which is one remove further."
+        },
+        {
+          "work": "Caroline M. McIlvaine's Introduction, pages ix-xxvii — a 1911 review of the fifty-six years the Autobiography does not cover, compiled from letters, memoranda, contemporaries' reminiscences and printed history, and quoting E. O. Gale's Reminiscences of Early Chicago, The Chicago American of 10 October 1835, the Sunday Times of 24 October 1875 and Henry E. Hamilton's 1907 biographical sketch",
+          "date": "1911",
+          "tier": 4,
+          "note": "EVERY STATEMENT THIS PROJECT TAKES ABOUT 1834, 1835 OR 1836 COMES FROM HERE AND NOT FROM HUBBARD. The brick building at La Salle and South Water, the five or six hundred inhabitants, the brig Illinois of 25 May 1835, the Green Tree Tavern, the fire engine, the Russell & Mather purchase, the canal commissioners and the water-works are all McIlvaine's, written seventy-six years after the scene, and several are quotations at a further remove. A run reaching for 'Hubbard on 1835' is reaching for McIlvaine."
+        },
+        {
+          "work": "Editorial notes by Henry E. Hamilton, signed H. E. H., inserted in square brackets in the narrative — including the note at page 178 that the hog-driving of 1829-30 'was the beginning of the packing industry in Chicago' — and the publishers' preface and closing note",
+          "date": "1888 (the notes); 1911 (the preface and the closing note, the latter signed C. M. M.)",
+          "tier": 4,
+          "note": "Compiler's judgements, sixty years after the events, printed inside the narrative's own type. bk_hub_101 and bk_hub_104 are read from this layer and say so."
+        }
+      ],
+      "what_it_supplies": [
+        "Fort Dearborn's occupation chronology, dated to the day, from its establishment in 1804 to its final abandonment on 29 December 1836 — which puts the scene year inside a continuous garrison running from 1 October 1832",
+        "a full description of the second fort as a man who lived beside it in 1818 remembered it: fourteen-foot oak pickets, a block house at the south-west corner and a bastion at the north-west, whitewashed stockade and buildings, the officers' quarters outside the pickets with a piazza at second-storey level, the soldiers' quarters, the sutler's store in the north-east corner, two gates, two ten-foot guardhouses, a two-storey commissary storehouse and a brick magazine",
+        "the fort's surroundings: a four-acre garden, a military barn, a field running half a mile south, the ONE road, a fence line closed from river to river, the well by the south gate, and wash-houses on the sandy beach east of the pickets",
+        "the Factor House — two storeys, squared logs, a split-picket fence, Jouett to about 1810 and then John Dean — and the American Fur Company's round-log storehouse built by John Craft and occupied after his death by Jean Baptiste Beaubien",
+        "John Kinzie's house described from inside it: a long log cabin with a rude piazza, fronting the river directly opposite the fort, with a window that had a sight-line to the fort at night — the piazza confirmed again nine years later",
+        "a complete building count for the whole of the present Cook County in 1818: the fort's group, the Factor House, the Fur Company storehouse, Hardscrabble, Ouilmette's cabin and Kinzie's house, and nothing else",
+        "the river mouth's history — its natural outlet at the fort, its southward migration behind a sand spit driven by north-east winds, its position at The Pines a mile south as late as 1827, the soldiers' cut of spring 1828 and the sand's refilling of it",
+        "landscape: the prairie seen from Douglas Grove, the Blue Island grove and the Desplaines timber, wild onion and leek along the river, wild rice and head-high grass at Mud Lake, the old cultivated field on the River Guarie still legible as cornhills, and prairie fires dangerous enough to sink boats against",
+        "Hubbard's Trail, dated by the man who cut it (1822 to Danville, extended north to Chicago in 1824) and the State road from Vincennes to Chicago ordered in the winter of 1833-34 that adopted most of it",
+        "the settlement's size taken sideways: about forty men and women turned out to fight the fort fire in 1827, and a majority of the men at the fort that summer were Hubbard's own employees",
+        "for 1835, at one remove through McIlvaine: the brig Illinois lightered ashore on 25 May because the harbour could not take her, the passengers going on to the Green Tree Tavern, the Chicago American of 10 October 1835 on Hubbard's fire engine, and the March 1835 purchase of the eighty acres of Russell & Mather's addition for $5,000",
+        "one period document, and it is graded separately: Hubbard's letter to his sister headed 'Chicago, July 25, 1827', at data/sources/hubbard_letter_1827_07_25.json"
+      ],
+      "what_it_does_not_supply": [
+        "Hubbard's own eyewitness on 1835. HIS NARRATIVE ENDS IN NOVEMBER 1830 and the closing note says so in as many words; the book's 1835 is Caroline McIlvaine's, written in 1911",
+        "any plat position, lot, or measured coordinate. Every placement here is prose — 'west and a little south of the fort', 'about where Wells street now crosses the river' — and several are given in streets that did not exist when the thing described did",
+        "reliable dimensions. 'A square of about six hundred feet' for the Fort Dearborn stockade is a pace-estimate at sixty years' distance and is much larger than the fort this project reconstructs",
+        "a consistent account of the officers' quarters: page 36 puts them outside the pickets and built of hewn logs, page 167 puts the commanding officers' former quarters in a brick building just within the north stockade and the log quarters within the pickets on the west. The book contradicts itself and this project does not resolve it",
+        "the right year for the Pottawatomie payment and the fort fire: page 167 prints 1828 where the section heading, the surrounding narrative and Hubbard's own dated letter all say July 1827",
+        "the names of the officers commanding Fort Dearborn after 19 June 1833 — Hubbard says he could not find them in the War Department records, so the source names nobody in command during the scene year",
+        "a residence for anybody in 1835. Every person Hubbard names, he names for what they did between 1812 and 1830",
+        "page images. This reading is of the Internet Archive's OCR text of the scan, corroborated against the deposited PDF's own text layer; no claim here is scan_verified"
+      ]
+    },
+    {
+      "source_id": "isa_public_domain_land_tract_sales",
+      "citation": "Illinois State Archives, Illinois Public Domain Land Tract Sales Database (Springfield: Office of the Secretary of State).",
+      "url": "https://apps.ilsos.gov/isa/landSalesSearch.do",
+      "archived_url": "",
+      "tier": 1,
+      "tier_label": "period/eyewitness"
+    }
+  ],
+  "research_note": "Placed under T-0880, the second of the three buildings the Harrison plan draws and names on the fort's outer ground. It is the one of the six named things that Hubbard corroborates most directly — he describes the class, the side of the fort, the ground and the use — and the one where his account and the plate disagree in a way worth keeping: he saw several on the beach and the engineer drew one short of it. Both readings are on the record above. WHAT WOULD IMPROVE IT: a post return, a quartermaster's account, or any second plan of this fort.",
+  "research_doc": "",
+  "review_required": false
+}

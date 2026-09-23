@@ -1,0 +1,271 @@
+{
+  "schema": 1,
+  "issue_id": "chicago_democrat_1835_08_26",
+  "extracted": "2026-08-29",
+  "extracted_by": "hand, T-0335 — the Democrat read, August 1835",
+  "note": "Vol. II No. 18 again — the masthead repeats the printed number, which corpus.json preserves rather than silently renumbering — and the LAST NUMBER OF THE DEMOCRAT IN THIS CORPUS. Its own town matter is the reason to read it: a marriage and an infant death, both dated to the day and both naming whole households; the last week of lake arrivals the corpus records; the third identical weekly quotation of the Chicago building materials, which is what makes those figures safe to build on; and two named inns that appear nowhere else in this corpus, the Green Tree Hotel — with a waggon robbed beside it at night — and the New York House. THE STANDING ADVERTISING is unchanged from the earlier issues of the month and is not re-claimed: Sarah D. Howe, Kennicott, Dr. Austin, Russell & Clift, Holsman's tailoring, Goodhue's lots, Hunt's high school, the wholesale grocery near the draw bridge and Calumet Lots all stand here word for word and are claimed from 12 or 19 August. THE TOWN ORDINANCES run again on page 1 and carry only their tail; they are claimed from the 19 August printing. THE LETTER LIST is the same 31 July list in its fourth printing and this is the issue where its HEADING is legible, so the heading is claimed here (c008); the names are T-0336's. NOT CLAIMED: the Baltimore riot despatches that fill page 3 columns 1 and 2, the St. Louis runaway-slave advertisement of a man named George, which is St. Louis's notice and not this town's, and the Detroit-to-Chicago mail coach thrown from a bridge into a mill pond, which the paper credits to the Michigan City Gazette and which happened in Michigan.",
+  "claims": [
+    {
+      "id": "c001",
+      "kind": "event",
+      "reading": "transcription_mediated",
+      "quote": "Never promise what you dv pot inte strictly and literally to perform, f + Marcie,\nIn this town on Sunday 26th inst. by ¢ Rey. Mr. Hallem, Mr Verre Prurs, of irm of I” Pruyne & Co. Merchants, to Mi Ranxcca, only daughter of Silas W. Shorma 09. all OF thin town, SERRE rta",
+      "normalized": "Marrie[d]. In this town on Sunday [23]d inst. by t[he] Rev. Mr. Hall[a]m, Mr. [Peter] Pru[yn]e, of [the f]irm of [P.] Pruyne & Co., Merchants, to Mi[ss] R[e]becca, only daughter of Silas W. Sherma[n, Esq.], all of this town.",
+      "locator": {
+        "artifact_role": "primary",
+        "issue_page": 3,
+        "column": 3,
+        "lines": [
+          267,
+          268
+        ]
+      },
+      "entities": [
+        {
+          "as_printed": "Mr Verre Prurs,",
+          "normalized": "Pruyne, Peter",
+          "role": "bridegroom",
+          "occupations": [
+            "merchant"
+          ]
+        },
+        {
+          "as_printed": "Mi Ranxcca",
+          "normalized": "Sherman, Rebecca",
+          "role": "bride"
+        },
+        {
+          "as_printed": "Silas W. Shorma",
+          "normalized": "Sherman, Silas W.",
+          "role": "father of the bride"
+        },
+        {
+          "as_printed": "Rey. Mr. Hallem,",
+          "normalized": "Hallam, Rev. Mr.",
+          "role": "officiating minister",
+          "occupations": [
+            "clergyman"
+          ]
+        }
+      ],
+      "notes": "A CHICAGO MERCHANT MARRIES IN CHICAGO, AND THE CORPUS CAN NAME EVERYONE IN THE ROOM. Peter Pruyne is the principal of P. Pruyne & Co., whose drug, paint, hardware and ship-chandlery advertisements fill more column inches of this month than any other firm's; his bride is the daughter of Silas W. Sherman; the Rev. Mr. Hallam performs it. 'all of this town' is the phrase that matters — three households documented as resident on one line. The day of the month is set '26th' here, which cannot be right: 26 August 1835 was a Wednesday, the day of publication, and the notice says Sunday. Sunday 23 August is the reading and it is bracketed. The Rev. Mr. Hallam is Episcopal; with Hinton for the Baptists (chicago_democrat_1835_08_19.json c008), the Methodist chapel of 5 August and the Presbyterian church of the 1834 issues, four denominations are now documented at work in this town."
+    },
+    {
+      "id": "c002",
+      "kind": "event",
+      "reading": "transcription_mediated",
+      "quote": "Bled,\nOn Monday the 24th Inst. Harriot Elle nly daugiitor of John suilarriet E, Bates, ag 8 months 4 days. i",
+      "normalized": "[Di]ed. On Monday the 24th inst., Harriet Elle[n, o]nly daughter of John [and] Harriet E. Bates, ag[ed] 8 months 4 days.",
+      "locator": {
+        "artifact_role": "primary",
+        "issue_page": 3,
+        "column": 3,
+        "lines": [
+          269,
+          270
+        ]
+      },
+      "entities": [
+        {
+          "as_printed": "Harriot Elle",
+          "normalized": "Bates, Harriet Ellen",
+          "role": "deceased"
+        },
+        {
+          "as_printed": "John",
+          "normalized": "Bates, John",
+          "role": "father"
+        },
+        {
+          "as_printed": "Harriet E, Bates,",
+          "normalized": "Bates, Harriet E.",
+          "role": "mother"
+        }
+      ],
+      "notes": "AN INFANT DEATH DATED TO THE DAY, TWO DAYS BEFORE THE PAPER. Eight months and four days old, so born about 20 December 1834 — a child who had lived her whole life in this town. Both parents are named, which makes the Bates household documented resident in Chicago in August 1835 on the strength of a death notice alone. It is the second death the month records: the other is the young clerk in Mr. Holbrook's store, buried out of the Exchange Coffee House on 13 August (chicago_democrat_1835_08_12.json c001)."
+    },
+    {
+      "id": "c003",
+      "kind": "shipping",
+      "reading": "transcription_mediated",
+      "quote": "ALU DS ‘OF VEASKLS\n\"19 4% Swan, Gilbert, Green Bay, \"19 4 Laporte, —--—, Buffilo,\n* 80 “Jerse Smith, Brooks, G. Bay. “ $0 Bng Queen Charlotte, Cotton, Buf\n“ £08, B. Monroe, Whittaker, Buffalo. * 2¢ Sehr. Dleweliyn, Howe, St. Joseph",
+      "normalized": "ARRIVA[L]S OF VESSELS [AT CHICAGO, 1835 …] [Aug.] 19, [Schr.] Swan, Gilbert, Green Bay; 19, [Schr.] Laporte, ———, Buff[a]lo; [2]0, [Schr.] Jes[se] Smith, Brooks, G[reen] Bay; [2]0, B[ri]g Queen Charlotte, Cotton, Buf[falo]; [2]0, [S. B.] Monroe, Whittaker, Buffalo; 2[4], Schr. Ll[e]wellyn, Howe, St. Joseph.",
+      "locator": {
+        "artifact_role": "primary",
+        "issue_page": 3,
+        "column": 3,
+        "lines": [
+          271,
+          274
+        ],
+        "spans": [
+          {
+            "line": 271,
+            "from": 0,
+            "to": 18
+          },
+          {
+            "line": 272,
+            "from": 0,
+            "to": 62
+          },
+          {
+            "line": 273,
+            "from": 0,
+            "to": 72
+          },
+          {
+            "line": 274,
+            "from": 0,
+            "to": 76
+          }
+        ],
+        "interleaved": true
+      },
+      "entities": [],
+      "notes": "THE LAST WEEK OF LAKE TRAFFIC THE CORPUS RECORDS, AND A BRIG IS IN IT. Six arrivals in six days, three of them from Buffalo, one a square-rigger — the Queen Charlotte, Cotton master. The Llewellyn under Howe is the same vessel that came in from St. Joseph on 12 August (chicago_democrat_1835_08_19.json c009); a twelve-day turnaround on the St. Joseph run. The Democrat's file ends five days after this list, so this is the last statement in the corpus about what was tied up at Chicago's wharves. The Schr. Hiram, Rathbourn, from Sheboygan heads the list on a line the column shreds and is not quoted here."
+    },
+    {
+      "id": "c004",
+      "kind": "price",
+      "reading": "transcription_mediated",
+      "quote": "CHICAGO PRICES CURRENT, contutteo wEXKLy It, bl $2508 our and Meal~ Super fine bbl 8 Oa fino 5 50 Buckywhent floor a none. , Indian mea} bush Ga 75 ain— Com bash 62 Oats be Kray Wheats Ye Bai 69 orisions— Bret, fresh bh 42. 6 do alt mess bbl 10 Watt 00 da dé priine * 9 00 «Parks tness no, 1, \" 2000 ei \"no, 2, \"16-00 One hog 1400: prime 42 6) Dried beef Ib Wa pd Jism, smosed if Mw 12. White fish 4 bhi 3 00 Butter, keg Wy Ida 2% Tard te he Ba 2 Cheese to Wa 1 White beans bush none. Votatues i 7a 1 00 tow, by Da 10 lex, Ury ib Ra 9 niles, hox tallow bo ita iiding Materiaia— anbes, ana'd 14400) 20 az 00 ingles do 4004550 pare liruber, length R fa 6 ek, per 100) § Oa 6 00 ne, cord G00 at SO ne, bbl To 1 wD od, rord",
+      "normalized": "CHICAGO PRICES CURRENT, CORRECTED WEEKLY. [Sal]t, b[b]l $2 50. [Fl]our and Meal — Superfine bbl 8 00; fine 5 50 [recte 7 50]; Buckwheat flour none; Indian mea[l] bush [62] a 75. [Gr]ain — Corn bush 62 […]; Oats […]; Wheat 62 a 69. [Pr]ovisions — Beef, fresh lb 4 a 6; do. salt mess bbl 10 00 a 11 00; do. do. prime 9 00; Pork, mess no. 1, 20 00; no. 2, 16 00; One hog 14 00; prime 12 00; Dried beef lb 10 a […]; Ham[s], smoked 10 a 12; White fish bbl 8 00; Butter, keg 18 a 25; Lard lb 10 a 12; Cheese lb 10 a 12; White beans bush none; Potatoes 75 a 1 00; [Tal]low lb 9 a 10; Hides, dry lb 8 a 9; [Ca]ndles, box tallow lb 12 a 14. BUILDING MATERIALS — [Lu]mber, ass'd 1000 ft 20 [00] a 25 00; [Sh]ingles do. 4 00 a 4 50; [S]quare timber, length [ft] 5 a 6; [Bri]ck, per 1000 5 00 a 6 00; [Li]me, cord 6 00 a 6 50 [recte Stone, cord]; [Li]me, bbl 1 [75] a [2] 00; [Wo]od, cord 2 00 a 2 50.",
+      "locator": {
+        "artifact_role": "primary",
+        "issue_page": 3,
+        "column": 3,
+        "lines": [
+          274,
+          274
+        ],
+        "spans": [
+          {
+            "line": 274,
+            "from": 77,
+            "to": 796
+          }
+        ]
+      },
+      "entities": [],
+      "notes": "THE THIRD WEEKLY QUOTATION OF THE SAME BUILDING MATERIALS, AND IT IS THE THIRD WITNESS THAT MAKES THEM SAFE. Brick five to six dollars the thousand, lime $1.75 to $2.00 the barrel, stone six dollars to six-fifty the cord, assorted lumber twenty to twenty-five dollars the thousand feet, shingles four to four-fifty, square timber five to six cents the foot, wood two to two-fifty the cord — identical to 12 and 19 August in every figure. Prices that do not move over three weeks are prices a builder could plan against, and that is the claim worth making about them. This column has the worst OCR of the three tables and two readings are marked 'recte': the superfine flour line reads 5 50 where both other printings read 7 50, and the stone row's label has picked up 'Lime' from the row below it. Neither error is smoothed in the quote; both are named in the normalized reading."
+    },
+    {
+      "id": "c005",
+      "kind": "building",
+      "reading": "transcription_mediated",
+      "quote": "$50 Reward. VILE aber racard will be paid to any person or persona, who will give such informa aa will lead to the discavory of the thief or rea, who atolo trom a waggon near, the Green > Hatel in Chiengo, durmg the night of the or Sth inst a awall trunk containing $200 pecs. Whoever will as pe ‘said Money to wubscribers, shall receive’ the above reward, Bo questions asked. CABEY & MORRIS. ug. 22, 1A35,—19",
+      "normalized": "$50 Reward. [T]he above reward will be paid to any person or person[s] who will give such informa[tion] as will lead to the disco[v]ery of the thief or [thieves] who stole from a waggon near the Green T[ree] Hotel in Chi[c]ago during the night of the [7th] or 8th inst. a small trunk containing $200 [in s]pecie. Whoever will [return the] said Money to [the] subscribers shall receive the above reward. [N]o questions asked. CASEY & MORRIS, Att[orne]y's at La[w]. Aug. 22, 18[35].",
+      "locator": {
+        "artifact_role": "primary",
+        "issue_page": 3,
+        "column": 3,
+        "lines": [
+          279,
+          279
+        ],
+        "spans": [
+          {
+            "line": 279,
+            "from": 592,
+            "to": 1001
+          }
+        ]
+      },
+      "entities": [
+        {
+          "as_printed": "CABEY & MORRIS.",
+          "normalized": "Casey & Morris",
+          "role": "advertiser",
+          "occupations": [
+            "attorneys at law"
+          ]
+        }
+      ],
+      "notes": "THE GREEN TREE HOTEL IS NAMED, AND A WAGGON IS STANDING BESIDE IT AT NIGHT WITH TWO HUNDRED DOLLARS IN COIN IN IT. That is the first appearance of the Green Tree in this corpus, and it comes with a use attached: teams stood overnight by the hotel, unwatched enough to be robbed. A reconstruction that puts a wagon anywhere in the town can put one there on the evidence of this line. The date is the night of 7 or 8 August 1835. Casey & Morris advertise as attorneys — Edward W. Casey's card on 5 August gives his office as adjoining the Clerk of the Circuit Court's (chicago_democrat_1835_08_05.json c020), so the partnership is new inside the month or the card is out of date; neither is asserted.",
+      "ad_copy_date": {
+        "verbatim": "ug. 22, 1A35,—19",
+        "iso": "1835-08-22"
+      }
+    },
+    {
+      "id": "c006",
+      "kind": "building",
+      "reading": "transcription_mediated",
+      "quote": "DAY. HORSE alsayed from Chicago about the first of July, with Jong black mane tail, some white on the bi loge, maddie s on tha back, sthongimade, 1 1-2 hands . and yoare old. | Horas saawéring the © description was taken mp at Balt Creek time since, bat Has again broke off saine since. Any persbn who will bring beck Horse, or give aucli information at the New ( House, Chicago, as will lead to his recoy- will bo handsomely rewarded,",
+      "normalized": "[A B]AY HORSE [s]trayed from Chicago about the first of July, with long black mane [and] tail, some white on the [hind] legs, [a] saddle s[pot] on the back, strong made, 1[4] 1-2 hands [high and … ] years old. [A] Horse answering the [above] description was taken up at Salt Creek [some] time since but has again broke [away] […] Any person who will bring back [the] Horse, or give such information at the New [York] House, Chicago, as will lead to his recov[ery], will be handsomely rewarded.",
+      "locator": {
+        "artifact_role": "primary",
+        "issue_page": 3,
+        "column": 3,
+        "lines": [
+          280,
+          280
+        ]
+      },
+      "entities": [],
+      "notes": "A SECOND NAMED CHICAGO INN, USED AS AN ADDRESS. 'give such information at the New [York] House, Chicago' makes a public house the place a stranger left word — the same office the Mansion House performs for the county surveyor and Col. Hamilton's office for the newspaper agent (chicago_democrat_1835_08_05.json c011). The supplied word is 'York': the column gives 'the New ( House' and a New York House is the reading the shape and the period support, but it is bracketed and it is the least certain thing here. With the Green Tree Hotel in the claim above, the Mansion House, the Tremont House, the Eagle Coffee House and the Exchange Coffee House, this month names six Chicago houses of entertainment."
+    },
+    {
+      "id": "c007",
+      "kind": "business",
+      "reading": "transcription_mediated",
+      "quote": "LL persons having business with H. Pxan- oan, in hia abscowe, will call on Gy Spring treet. on Deurvorn-sinest- 11. PEARSONS.",
+      "normalized": "[A]LL persons having business with H. P[e]ar[s]on[s], in his abs[en]ce, will call on G[.] Spring[, Attorney at Law, whose office is on] Dearborn-stre[et]. H. PEARSONS.",
+      "locator": {
+        "artifact_role": "primary",
+        "issue_page": 3,
+        "column": 3,
+        "lines": [
+          281,
+          281
+        ],
+        "spans": [
+          {
+            "line": 281,
+            "from": 18,
+            "to": 143
+          }
+        ]
+      },
+      "entities": [
+        {
+          "as_printed": "11. PEARSONS.",
+          "normalized": "Pearsons, H.",
+          "role": "principal"
+        },
+        {
+          "as_printed": "Gy Spring",
+          "normalized": "Spring, G.",
+          "role": "agent",
+          "occupations": [
+            "attorney"
+          ],
+          "associated_places": [
+            "Dearborn Street"
+          ]
+        }
+      ],
+      "notes": "AN ABSENT MAN LEAVES HIS BUSINESS WITH A NAMED ATTORNEY ON A NAMED STREET. G. Spring's own card places his office 'first door north from the Tremont House, on Dearborn street' (chicago_democrat_1835_08_05.json c019), so this notice routes a stranger to a doorway this corpus can locate within one building. The middle of the line is cut and the words joining Spring to Dearborn street are supplied from that card; the supply is bracketed. Pearsons is otherwise unknown to the corpus."
+    },
+    {
+      "id": "c008",
+      "kind": "infrastructure",
+      "reading": "transcription_mediated",
+      "quote": "fen 1) i be ‘Bist of Letters. i EMAINING in tho Post Office at Chis R cage, Cook County, Dlinois, on the Sint day of July 1833;",
+      "normalized": "[L]ist of Letters REMAINING in the Post Office at Chi[ca]go, Cook County, [Il]linois, on the [31]st day of July 183[5].",
+      "locator": {
+        "artifact_role": "primary",
+        "issue_page": 4,
+        "column": 2,
+        "lines": [
+          371,
+          371
+        ]
+      },
+      "entities": [],
+      "notes": "THE HEADING, SET LEGIBLY AT LAST, AND IT SETTLES WHAT THE LIST IS. Four August issues carry a post-office letter list and this is the printing where the heading survives whole: letters remaining at Chicago on the 31st day of July 1835. It is therefore ONE list, the postmaster's return for the end of July, standing in the forme through all four numbers — not four lists, and not the 1 July list a hurried reading of the 5 August column would take it for. That distinction is the whole reason the name-level extraction was split off as T-0336: minting one standing list from four printings is what turned 298 names into 638 persons in the 1834 read (T-0299). The six hundred names below this heading are not minted here.",
+      "letter_list_only": true
+    }
+  ]
+}

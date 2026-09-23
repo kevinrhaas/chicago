@@ -1,0 +1,94 @@
+{
+  "id": "clybourn_cabins",
+  "phase": "log_1824",
+  "name": "The Clybourne Cabins on the North Branch",
+  "aka": [
+    "Jonas Clybourn's log cabins",
+    "the Clybourne place"
+  ],
+  "archetype": "log_dwelling",
+  "asset": "gltf/clybourn_cabins__log_1824.glb",
+  "scene": "1835",
+  "target_date": "1835-07-01",
+  "documented_range": {
+    "from": "1824-08-01",
+    "to": "1835-12-31",
+    "confidence": "inferred",
+    "sources": [
+      "andreas_1884_v1"
+    ],
+    "note": "ELEVEN YEARS, AND THE FIRST OF THEM IS THE SHAKIEST DATE IN THIS PARCEL. docs/research/03-structures-north.md section 3.6 states that Jonas Clybourn arrived with his sons Archibald and Hanley in August 1824 and that the family settled on the north branch, building two log cabins, and tags the whole of it [DOC] — but it names no source for the sentence, and that dossier's own list of sources reached does not include Andreas. A full-text search of Andreas vol. 1 for the phrasing returns nothing, which the source record for andreas_1884_v1 warns is not proof of absence: its OCR index is demonstrably lossy and 'not found' is not 'not present'. WHAT ANDREAS DOES SUPPORT is the family's presence and its ground: 'Jonas Clybourne and John K. Clark lived several miles up the North Branch, where now are the North Chicago rolling-mills' (scan p. 215), in a passage listing the county's taxpayers of the 1820s; 'Jonas Clybourne and his son Archibald were the early butchers of Chicago. They furnished the garrison at Fort Dearborn' (scan p. 221); and Archibald's own slaughter-house on that bank from 1827 (scan pp. 1149, 1151), which needs the family to be living there. So the range opens in August 1824 on the dossier's unattributed date and would open within a year or two of it on Andreas's evidence alone. It closes at the end of 1835 as the last date this record needs to claim, not as a fate: Archibald had built himself a larger house by 1829 on what is now Elston Avenue, so at least one of the family had moved out of the cabins before the scene date, and what happened to the cabins themselves is unrecorded."
+  },
+  "change_note": "The cabins as the family built them and lived in them through the 1820s and into the 1830s. Archibald Clybourne's larger house of 1829, on what is now Elston Avenue, is a SEPARATE structure and is not modelled by this record or by any other in this dataset; it stood further out again and outside the 1833 town limits. No change of fabric is documented inside this phase.",
+  "placement": {
+    "local_e": -10.7,
+    "local_n": 284.2,
+    "rotation_deg": 270.0,
+    "position_confidence": "reconstructed",
+    "position_sources": [],
+    "position_note": "THIS COORDINATE IS NOT WHERE THE CABINS STOOD. What is attested is a REACH and not a point: Andreas puts Jonas Clybourne 'several miles up the North Branch, where now are the North Chicago rolling-mills' (scan p. 215), and the same family's slaughter-house on that bank 'south of the Bloomingdale Road and opposite the North Chicago Rolling Mills' (scan p. 1149). Carried through the modern grid — Bloomingdale Road is 1800 north — that is roughly 3 km north-north-west of this project's datum origin, an estimate off the street grid rather than a survey. The modelled terrain box is 640 m square, local E and N -320 to +320, so the real ground is some 2.8 km beyond its northern edge. Under the project owner's instruction of 2026-08-11 the cabins are placed at the edge of modelled ground rather than dropped. They are set on the correct BANK — the east side of the North Branch — about 36 m back from the traced bank line and about 60 m south of this dataset's clybourn_slaughterhouse, which is displaced to the same edge for the same reason and which the sources put in the same family's ground. THE 60 m BETWEEN THEM IS INVENTED ENTIRELY: no source gives the distance from the cabins to the slaughter-house, and the two are placed within sight of each other because they belonged to one household, which is an argument about how a farm works and not a statement anybody made. Treat the coordinate as a placeholder with an error of kilometres. Facade bearing 270, due west onto the branch, which is the bearing this dataset gives every North Branch structure and is a convention, not a finding.",
+    "symbolic_location": "DISPLACED. The attested ground is the Clybourne place several miles up the North Branch, around the site of the later North Chicago Rolling Mills — far outside the modelled terrain. This coordinate stands at the northern edge of modelled ground on the east bank of the North Branch instead, beside the same family's slaughter-house.",
+    "uncertainty_m": 20,
+    "placement_provisional": false,
+    "vertical_anchor": "terrain",
+    "walk_surface_m": null
+  },
+  "footprint": {
+    "polygon": [
+      [
+        0,
+        0
+      ],
+      [
+        7,
+        0
+      ],
+      [
+        7,
+        5.5
+      ],
+      [
+        0,
+        5.5
+      ]
+    ],
+    "confidence": "reconstructed",
+    "sources": [],
+    "note": "PLACEHOLDER — NO DIMENSION IS ATTESTED, AND THE POLYGON IS ONE CABIN WHERE THE DOSSIER SAYS THERE WERE TWO. 7 x 5.5 m is about 23 x 18 ft, an ordinary single-pen log cabin of the type and period, and every number in it is invented; the polygon cites no sources. The second cabin is carried on the record as `cabin_count` with a geometry declaration rather than drawn, because this archetype builds one building per record and a second polygon would have to invent a spacing and an orientation on top of the size — see that attribute's note and the liberty it owes. To resolve: any description of the Clybourne place, in Andreas at page-image level around scan pp. 215-225 or in the Clybourne family material the same volume carries."
+  },
+  "attributes": {
+    "construction": {
+      "value": "log",
+      "confidence": "inferred",
+      "note": "The dossier's sentence says log cabins, and it is unattributed; the family's own slaughter-house on the same ground is twice called log in Andreas (scan pp. 1149, 1151), and every settler dwelling on the branches in the 1820s that any source describes is log. So the material is inference resting on the neighbourhood and on the same household's other building, not on a statement this project can point at. If the dossier's sentence is ever traced to its source this becomes documented without anything else in the record moving."
+    },
+    "cabin_count": {
+      "value": 2,
+      "confidence": "inferred",
+      "geometry": "simplified",
+      "note": "TWO CABINS ARE STATED AND ONE IS BUILT. docs/research/03-structures-north.md section 3.6 says the family built two log cabins on the north branch and tags it [DOC] without naming a source; Andreas's full-text index does not return the phrasing, which is not proof it is absent. The count is therefore carried as inference rather than attestation. The mesh shows a single cabin, so this value does not drive geometry and says so: a second polygon would need an invented spacing, an invented orientation and an invented relationship to the first, which is three inventions to express one number that is itself second-hand. The honest arrangement is one cabin standing for the pair with the shortfall declared. This is the same treatment robinson_caldwell_cabins gives Wau-Bun's 'two or three log cabins'."
+    },
+    "function": {
+      "value": "dwelling_farmstead",
+      "confidence": "inferred",
+      "sources": [
+        "andreas_1884_v1"
+      ],
+      "note": "The Clybournes lived on this ground and butchered from it: Andreas has Jonas Clybourne living several miles up the North Branch among the county's taxpayers (scan p. 215) and 'Jonas Clybourne and his son Archibald were the early butchers of Chicago. They furnished the garrison at Fort Dearborn' (scan p. 221). So the cabins are a farmstead at the head of a stock-raising and butchering business rather than town houses, and that is an inference from the family's trade rather than a description of the buildings. Who was living in them on 1835-07-01 is not attested and this record carries no occupants block: Archibald had a larger house of his own from 1829, and the household's composition eleven years after the cabins went up is not recorded anywhere reached."
+    }
+  },
+  "residents": [],
+  "citations": [
+    {
+      "source_id": "andreas_1884_v1",
+      "citation": "Andreas, A. T. History of Chicago: From the Earliest Period to the Present Time. Vol. 1. Chicago: A. T. Andreas, 1884.",
+      "url": "https://archive.org/details/historyofchicago01andr",
+      "archived_url": "",
+      "tier": 3,
+      "tier_label": "compiled secondary (Andreas)"
+    }
+  ],
+  "research_note": "BUILT ON A CLAIM THIS PROJECT COULD NOT TRACE TO A SOURCE, AND THE RECORD SAYS SO RATHER THAN CITING ONE. The task that created it named andreas_1884_v1 for 'Jonas Clybourn's two log cabins (1824)'; the source resolves, and it supports the family living several miles up the North Branch at the rolling-mill ground (scan p. 215), their butchering for the garrison (scan p. 221) and their log slaughter-house on that bank from 1827 (scan pp. 1149, 1151) — but a full-text search does not return the two cabins or the August 1824 arrival, both of which come from docs/research/03-structures-north.md section 3.6, tagged [DOC] with no source named. That is recorded here instead of being papered over with a citation the search cannot support. The confidences follow: existence of Clybourne dwellings on that bank is strong, the count and the date are inference from an unattributed dossier line, and the position is a displacement of kilometres. WHAT WOULD UPGRADE IT: tracing the dossier's sentence to its source, or reading Andreas's Clybourne family material at page-image level, where the index points at printed pp. 101-105.",
+  "research_doc": "",
+  "review_required": false
+}

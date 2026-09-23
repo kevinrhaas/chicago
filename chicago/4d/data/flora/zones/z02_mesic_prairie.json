@@ -1,0 +1,328 @@
+{
+ "id": "z02_mesic_prairie",
+ "zone": 2,
+ "name": "Wet-mesic to mesic prairie (higher ground)",
+ "dossier": "docs/research/02-flora.md § ZONE 2",
+ "scene_date": "1835-07-01",
+ "palette": "july_mesic_prairie",
+ "reads_as": "a shorter, bluer, more forb-crowded sward than the wet prairie, with lavender bergamot and mass yellow coneflower over vegetative bunchgrass",
+ "plantable_in_scene": true,
+ "cover": {"matrix_fraction":0.95,"bare_soil_fraction":0.02,"standing_water_fraction":0.0},
+ "ground": {"rgb":[86,92,56],"wet_rgb":[70,72,46]},
+ "extent": {
+  "kind": "elevation_band",
+  "elev_m": [1.18,3.0],
+  "exclude_polygons": [
+   [
+    [-60,340],
+    [-52,300],
+    [-44,262],
+    [-32,220],
+    [-32,180],
+    [-30,120],
+    [-28,60],
+    [-20,36],
+    [-4,10],
+    [16,-6],
+    [48,8],
+    [80,26],
+    [112,42],
+    [138,58],
+    [152,86],
+    [172,108],
+    [230,118],
+    [340,126],
+    [340,340]
+   ]
+  ],
+  "priority": 22,
+  "confidence": "inferred",
+  "sources": [],
+  "note": "There is no survey of the wet/mesic boundary at the forks and no source distinguishes them here at all. This takes the highest ground in the committed heightfield (1.18 m and up, the inland crest of the West Division, about 3.9 ft above the water, at the top of the terrain spec's +3 to +6 ft range for that division) as the drier community. It is a reading of the terrain, not evidence, and a critic should treat the line as ours."
+ },
+ "species": [
+  {
+   "id": "andropogon_gerardii",
+   "binomial": "Andropogon gerardii",
+   "common": "big bluestem",
+   "role": "matrix",
+   "form": "grass_clump",
+   "abundance": {"cover_fraction":[0.3,0.4]},
+   "height_m": [0.9,1.3],
+   "width_m": [0.3,0.6],
+   "july": {
+    "phenology": "vegetative",
+    "foliage_rgb": [100,122,92],
+    "inflorescence": null,
+    "appearance": "Blue-green leafy clumps, NO flowering culm — about half the September height."
+   },
+   "confidence": "attested",
+   "sources": ["swink_wilhelm_1994","idnr_tallgrass_plantlist"]
+  },
+  {
+   "id": "schizachyrium_scoparium",
+   "binomial": "Schizachyrium scoparium",
+   "common": "little bluestem",
+   "role": "matrix",
+   "form": "grass_clump",
+   "abundance": {"cover_fraction":[0.15,0.25]},
+   "height_m": [0.4,0.6],
+   "width_m": [0.2,0.35],
+   "july": {
+    "phenology": "vegetative",
+    "foliage_rgb": [112,132,104],
+    "inflorescence": null,
+    "appearance": "Tight blue-green vegetative bunches; no fluffy white seed — that is September."
+   },
+   "confidence": "inferred",
+   "sources": ["swink_wilhelm_1994"],
+   "note": "Dossier [I]: regional mesic-prairie matrix, not named at the forks."
+  },
+  {
+   "id": "sorghastrum_nutans",
+   "binomial": "Sorghastrum nutans",
+   "common": "Indian grass",
+   "role": "matrix",
+   "form": "grass_clump",
+   "abundance": {"cover_fraction":[0.1,0.15]},
+   "height_m": [0.8,1.1],
+   "width_m": [0.3,0.6],
+   "width_provenance": {
+    "confidence": "inferred",
+    "sources": ["swink_wilhelm_1994", "idnr_tallgrass_plantlist"],
+    "note": "WHAT ONE DRAWN PLANT COVERS ON THE GROUND, added for ROADMAP K49(c) so this record's cover_fraction can be read as a count of plants. Reasoned from this dataset's own committed Andropogon gerardii clump, [0.30, 0.60] m in this same record. § ZONE 2 gives Indian grass 0.8-1.1 m in July against big bluestem's 0.9-1.3 m, in one bunchgrass matrix; the clumps are taken as one size class. No source states either width."
+   },
+   "july": {
+    "phenology": "vegetative",
+    "foliage_rgb": [98,120,80],
+    "inflorescence": null,
+    "appearance": "Leafy vegetative clumps. The bronze plume is a late-August feature."
+   },
+   "confidence": "inferred",
+   "sources": ["swink_wilhelm_1994","idnr_tallgrass_plantlist"],
+   "note": "Dossier [I] for this site. Held vegetative by the dossier's global phenology rule 1, which names July Indian-grass plumes a reconstruction error."
+  },
+  {
+   "id": "sporobolus_heterolepis",
+   "binomial": "Sporobolus heterolepis",
+   "common": "prairie dropseed",
+   "role": "matrix",
+   "form": "grass_fine",
+   "abundance": {"cover_fraction":[0.05,0.1]},
+   "height_m": [0.35,0.45],
+   "width_m": [0.35,0.55],
+   "july": {
+    "phenology": "vegetative",
+    "foliage_rgb": [88,124,68],
+    "inflorescence": null,
+    "appearance": "Fine emerald fountains; the fragrant panicle comes in late August."
+   },
+   "confidence": "inferred",
+   "sources": ["swink_wilhelm_1994"],
+   "note": "Dossier [I]: regional, not named at the forks."
+  },
+  {
+   "id": "silphium_laciniatum",
+   "binomial": "Silphium laciniatum",
+   "common": "compass plant",
+   "role": "forb",
+   "form": "forb_basal_scape",
+   "abundance": {"density_per_ha":[30,80]},
+   "height_m": [2.0,2.8],
+   "width_m": [0.5,0.9],
+   "july": {
+    "phenology": "flowering",
+    "foliage_rgb": [86,110,52],
+    "inflorescence": {"shape":"head_ray","rgb":[228,200,62],"height_frac":0.9,"size_m":[0.08,0.12]},
+    "appearance": "In flower. Deeply cut basal leaves held vertically on a north-south plane — a real and renderable behaviour, not a stylisation."
+   },
+   "confidence": "inferred",
+   "sources": ["swink_wilhelm_1994","idnr_tallgrass_plantlist"],
+   "note": "Dossier [I]: regional mesic-prairie forb, not named at the forks."
+  },
+  {
+   "id": "ratibida_pinnata",
+   "binomial": "Ratibida pinnata",
+   "common": "yellow coneflower",
+   "role": "forb",
+   "form": "forb_daisy",
+   "abundance": {"density_per_ha":[400,900]},
+   "height_m": [1.0,1.5],
+   "july": {
+    "phenology": "flowering",
+    "foliage_rgb": [92,116,60],
+    "inflorescence": {"shape":"head_ray_drooping","rgb":[232,206,72],"height_frac":0.92,"size_m":[0.05,0.09]},
+    "appearance": "Drooping lemon-yellow rays around a grey-brown cone; reads as a mass of yellow at any distance."
+   },
+   "confidence": "inferred",
+   "sources": ["swink_wilhelm_1994","idnr_tallgrass_plantlist"],
+   "note": "Dossier [I]: regional, not named at the forks."
+  },
+  {
+   "id": "monarda_fistulosa",
+   "binomial": "Monarda fistulosa",
+   "common": "wild bergamot",
+   "role": "forb",
+   "form": "forb_pompom",
+   "abundance": {"density_per_ha":[400,1000]},
+   "height_m": [0.8,1.1],
+   "july": {
+    "phenology": "flowering",
+    "foliage_rgb": [116,132,96],
+    "inflorescence": {"shape":"head_pompom","rgb":[186,158,206],"height_frac":0.92,"size_m":[0.05,0.08]},
+    "appearance": "Lavender ragged pompoms over grey-green minty foliage — the dominant mid-July colour of the drier prairie."
+   },
+   "confidence": "inferred",
+   "sources": ["swink_wilhelm_1994","idnr_tallgrass_plantlist"],
+   "note": "Dossier [I] for this site; it is the dominant forb colour in both July reference photographs of Chicago-region prairie used to tune this scene."
+  },
+  {
+   "id": "eryngium_yuccifolium",
+   "binomial": "Eryngium yuccifolium",
+   "common": "rattlesnake master",
+   "role": "forb",
+   "form": "forb_globe",
+   "abundance": {"density_per_ha":[150,400]},
+   "height_m": [1.0,1.5],
+   "july": {
+    "phenology": "flowering",
+    "foliage_rgb": [140,156,122],
+    "inflorescence": {"shape":"head_globe","rgb":[214,216,200],"height_frac":0.9,"size_m":[0.02,0.035]},
+    "appearance": "Pale blue-green yucca-like leaves and whitish thistle-like globes."
+   },
+   "confidence": "inferred",
+   "sources": ["swink_wilhelm_1994"],
+   "note": "Dossier [I]: regional, not named at the forks."
+  },
+  {
+   "id": "echinacea_pallida",
+   "binomial": "Echinacea pallida",
+   "common": "pale purple coneflower",
+   "role": "forb",
+   "form": "forb_daisy",
+   "abundance": {"density_per_ha":[100,300]},
+   "height_m": [0.7,1.0],
+   "july": {
+    "phenology": "flowering",
+    "foliage_rgb": [94,116,66],
+    "inflorescence": {"shape":"head_ray_drooping","rgb":[222,176,196],"height_frac":0.9,"size_m":[0.06,0.1]},
+    "appearance": "Late in its bloom: drooping, faded pale-pink rays around a spiny cone."
+   },
+   "confidence": "inferred",
+   "sources": ["swink_wilhelm_1994"],
+   "note": "Dossier [I]: regional, not named at the forks."
+  },
+  {
+   "id": "amorpha_canescens",
+   "binomial": "Amorpha canescens",
+   "common": "lead plant",
+   "role": "shrub_low",
+   "form": "forb_spike",
+   "abundance": {"density_per_ha":[100,250]},
+   "height_m": [0.5,0.8],
+   "width_m": [0.4,0.7],
+   "july": {
+    "phenology": "flowering",
+    "foliage_rgb": [148,152,128],
+    "inflorescence": {"shape":"spike","rgb":[110,72,150],"height_frac":0.8,"size_m":[0.06,0.12]},
+    "appearance": "Silvery-hairy pinnate foliage with violet spikes lit by orange anthers."
+   },
+   "confidence": "inferred",
+   "sources": ["swink_wilhelm_1994"],
+   "note": "Dossier [I]: regional, not named at the forks."
+  },
+  {
+   "id": "dalea_purpurea",
+   "binomial": "Dalea purpurea",
+   "common": "purple prairie clover",
+   "role": "forb",
+   "form": "forb_spike",
+   "abundance": {"density_per_ha":[200,500]},
+   "height_m": [0.4,0.6],
+   "july": {
+    "phenology": "flowering",
+    "foliage_rgb": [104,128,78],
+    "inflorescence": {"shape":"head_thimble","rgb":[140,52,124],"height_frac":0.86,"size_m":[0.02,0.035]},
+    "appearance": "Thimble heads with a rising ring of purple florets on fine needle foliage."
+   },
+   "confidence": "inferred",
+   "sources": ["swink_wilhelm_1994"],
+   "note": "Dossier [I]: regional, not named at the forks."
+  },
+  {
+   "id": "heliopsis_helianthoides",
+   "binomial": "Heliopsis helianthoides",
+   "common": "false sunflower",
+   "role": "forb",
+   "form": "forb_daisy",
+   "abundance": {"density_per_ha":[40,200]},
+   "height_m": [0.8,1.2],
+   "july": {
+    "phenology": "flowering",
+    "foliage_rgb": [88,114,58],
+    "inflorescence": {"shape":"head_ray","rgb":[236,198,66],"height_frac":0.92,"size_m":[0.06,0.1]},
+    "appearance": "Flat golden-yellow daisies on stiff opposite-leaved stems."
+   },
+   "confidence": "inferred",
+   "sources": ["swink_wilhelm_1994"],
+   "note": "Dossier gives this row as I/C and only 'scattered'; taken as inferred with a density range this record chose, because the species is a standard component of the regional mesic prairie."
+  },
+  {
+   "id": "rudbeckia_hirta",
+   "binomial": "Rudbeckia hirta",
+   "common": "black-eyed Susan",
+   "role": "forb",
+   "form": "forb_daisy",
+   "abundance": {"density_per_ha":[40,200]},
+   "height_m": [0.4,0.8],
+   "july": {
+    "phenology": "flowering",
+    "foliage_rgb": [102,118,72],
+    "inflorescence": {"shape":"head_ray","rgb":[238,194,56],"height_frac":0.92,"size_m":[0.05,0.08]},
+    "appearance": "Yellow rays around a dark brown-black dome on hairy stems."
+   },
+   "confidence": "inferred",
+   "sources": ["swink_wilhelm_1994"],
+   "note": "Dossier I/C row, 'scattered'; density range chosen here."
+  },
+  {
+   "id": "parthenium_integrifolium",
+   "binomial": "Parthenium integrifolium",
+   "common": "wild quinine",
+   "role": "forb",
+   "form": "forb_umbel",
+   "abundance": {"density_per_ha":[40,150]},
+   "height_m": [0.6,1.0],
+   "july": {
+    "phenology": "flowering",
+    "foliage_rgb": [96,118,68],
+    "inflorescence": {"shape":"corymb_flat","rgb":[232,232,222],"height_frac":0.9,"size_m":[0.05,0.09]},
+    "appearance": "Flat heads of chalk-white knobby florets over rough lance leaves."
+   },
+   "confidence": "inferred",
+   "sources": ["swink_wilhelm_1994"],
+   "note": "Dossier I/C row, 'scattered'; density range chosen here."
+  },
+  {
+   "id": "asclepias_tuberosa",
+   "binomial": "Asclepias tuberosa",
+   "common": "butterfly weed",
+   "role": "forb",
+   "form": "forb_umbel",
+   "abundance": {"density_per_ha":[20,100]},
+   "height_m": [0.3,0.6],
+   "july": {
+    "phenology": "flowering",
+    "foliage_rgb": [98,116,64],
+    "inflorescence": {"shape":"umbel_flat","rgb":[232,120,32],"height_frac":0.88,"size_m":[0.05,0.09]},
+    "appearance": "Brilliant orange flat umbels on hairy stems — the loudest colour on the drier ground."
+   },
+   "confidence": "reconstructed",
+   "note": "Dossier tags the scattered-forb row I/C and this is the dry-ground member of it: butterfly weed wants sand, and no source places it on the lake-plain prairie at the forks. Recorded conjectural, at the bottom of the density band, so a critic can see it is our guess."
+  }
+ ],
+ "confidence": "inferred",
+ "sources": ["chicagology_prefire273"],
+ "note": "Andreas documents the West Side as open prairie; that it carried a wet-mesic as well as a wet community follows from the lake-plain relief and the regional flora, not from any account of this site. The whole zone is an inference.",
+ "review_required": false
+}

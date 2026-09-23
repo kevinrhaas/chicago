@@ -1,0 +1,1860 @@
+{
+  "schema": 1,
+  "issue_id": "chicago_democrat_1834_04_01",
+  "extracted": "2026-08-28",
+  "extracted_by": "hand, T-0313 — the Democrat read, April 1834",
+  "note": "Vol. I No. 18, and the whole of it is the Tesseract fallback reading on pages 3 and 4 — eighteen of the issue's thirty-two segmenter columns carry the fallback banner and every one of them is on the two pages that hold the town. THE MONTH'S CENTREPIECE IS HERE: the list of letters remaining in the Post Office at Chicago on 1 April 1834, over J. S. C. Hogan's signature, cut across page 3 columns 3 and 4 and minted here (c001, c002). Neither the sweep in `data/research/newspapers/README.md` nor T-0313's own brief knew of it — both name 1834-04-23 and 1834-04-30 as April's letter lists, and those two are the HENNEPIN list, not Chicago's. The heading survives as `SQA AINIG init`, which is why every keyword sweep for 'list of letters' walked past it. Beside the list: the Board of Trustees' sidewalk ordinance for South Water Street (c003), which is the most placeable thing the month prints, and a block of storefronts placed against Graves' tavern, Newberry & Dole's store and the corners of Water and Clark and of Dearborn and Lake. `locator.lines` is the whole advertisement as the segmenter cut it; `lines_of_claim` is the subset quoted.",
+  "claims": [
+    {
+      "id": "c001",
+      "kind": "person",
+      "reading": "transcription_mediated",
+      "normalized": "List of Letters R[E]MAIN[]IN[]G in [the Post Office at Chicago, Ill., on the first day of April, 1834.] [column 1 of the printed list, A-J:] Constant Abbott; J[o]y H. Avery; Robt. V. Alle[n]; Joseph Ada[m]s; Ebene[z]er Alden; Strat[t]en Adams; Clark B. Albe[e]; Eben[e]zer Allen; Daniel L. Andrews; Samuel Anderson; Mar[i]a S. Arnold; Clark B. Albee; [uncertain: Joseph Babeax]; [Thos. W.] Bradley 2; Lewis Benton 2; Addison Benton; Zadoc Brown; Nicholas Boilvin; Geo. A. Burlingame; Nelson Brigham; Harry Boardman; [uncertain: Leon Bourassa]; Lyman Bennet; [uncertain: Peter Bourhyte]; John Baily; Enoch Chambers; [uncertain: Loventus] A. F. Corbin; Orange Chauncy 2; [uncertain: Robert W. Chapman] 2; [uncertain: Bolden Clark]; Jas. or Robt. Crawford; Silas Cobb; Rev. N. C. Clark; Henry B. Clark 2; Robert [G.] Cook 2; Timothy B. Clark; Jesse Chittenden; Chas. H. Chapman; Leander Clar[k]; John Cook; Jame[s] S. Cook; Leander Collins; Clark Chattin; Pier[r]e Coury; Lucretia Doane; Lewis Driggs 2; John Davis 2; [uncertain: William Domint]; Elijah Dix; Thos. W. Donkin; Alexander Dickinson; Sidney Dyer; [uncertain: Titan Dayton] 2; Pierce Downer; W. L. D. Ewing; Mrs. Wm. B. Egan; Alby F[o]w[l]er; Alexander Fullerton 3; [uncertain: Oronter Granter] 2; James Gilbert; Harrison Granger; Wm. H. Granger; Levi Gorton; Chester House 2; [uncertain: John C. Hngunin] 2; G. S. Hubbard 2; Joshua Hathaway jr. 2; Nathan Hopkin[s]; Nathan Hutchin[g]s; [uncertain: Manen Hanks]; [uncertain: Mrs. Robt. Hountton]; Hiram Hovey; Rodney House; Oscar L. Hawley; Wm. H. Hamilton; Ira Herrick; Samuel Haviland; Comstock Hanford; Thomas Hartec[l]l; Orin Jerome; Henry Jones; Samuel Jackson. [Eleven further lines of this half carry debris where a name stood and are not read: 2869, 2881, 2882, 2893, 2914, 2915, 2916, 2921, 2922, 2923 and 2925.]",
+      "locator": {
+        "artifact_role": "primary",
+        "issue_page": 3,
+        "column": 3,
+        "lines": [
+          2854,
+          2950
+        ],
+        "interleaved": true
+      },
+      "letter_list_only": true,
+      "entities": [
+        {
+          "as_printed": "Constant Abbott",
+          "normalized": "Constant Abbott",
+          "role": "named in the list of letters remaining in the Post Office at Chicago, 1 April 1834"
+        },
+        {
+          "as_printed": "Jy H. Avery",
+          "normalized": "J[o]y H. Avery",
+          "role": "named in the list of letters remaining in the Post Office at Chicago, 1 April 1834"
+        },
+        {
+          "as_printed": "Robt. V.' Ale:",
+          "normalized": "Robt. V. Alle[n]",
+          "role": "named in the list of letters remaining in the Post Office at Chicago, 1 April 1834"
+        },
+        {
+          "as_printed": "Joseph Adana:",
+          "normalized": "Joseph Ada[m]s",
+          "role": "named in the list of letters remaining in the Post Office at Chicago, 1 April 1834"
+        },
+        {
+          "as_printed": "Ebenéger Alden",
+          "normalized": "Ebene[z]er Alden",
+          "role": "named in the list of letters remaining in the Post Office at Chicago, 1 April 1834"
+        },
+        {
+          "as_printed": "Straten Adams",
+          "normalized": "Strat[t]en Adams",
+          "role": "named in the list of letters remaining in the Post Office at Chicago, 1 April 1834"
+        },
+        {
+          "as_printed": "Clark B. Albe",
+          "normalized": "Clark B. Albe[e]",
+          "role": "named in the list of letters remaining in the Post Office at Chicago, 1 April 1834"
+        },
+        {
+          "as_printed": "Ebenczer Allen",
+          "normalized": "Eben[e]zer Allen",
+          "role": "named in the list of letters remaining in the Post Office at Chicago, 1 April 1834"
+        },
+        {
+          "as_printed": "Daniel L: Andrews!",
+          "normalized": "Daniel L. Andrews",
+          "role": "named in the list of letters remaining in the Post Office at Chicago, 1 April 1834"
+        },
+        {
+          "as_printed": "Samuel Anderson:",
+          "normalized": "Samuel Anderson",
+          "role": "named in the list of letters remaining in the Post Office at Chicago, 1 April 1834"
+        },
+        {
+          "as_printed": "Marie 8.Arnold",
+          "normalized": "Mar[i]a S. Arnold",
+          "role": "named in the list of letters remaining in the Post Office at Chicago, 1 April 1834"
+        },
+        {
+          "as_printed": "Clark. B. Albee",
+          "normalized": "Clark B. Albee",
+          "role": "named in the list of letters remaining in the Post Office at Chicago, 1 April 1834"
+        },
+        {
+          "as_printed": "losept Habeax",
+          "normalized": "[uncertain: Joseph Babeax]",
+          "role": "named in the list of letters remaining in the Post Office at Chicago, 1 April 1834"
+        },
+        {
+          "as_printed": "wr Bradley 2",
+          "normalized": "[Thos. W.] Bradley",
+          "role": "named in the list of letters remaining in the Post Office at Chicago, 1 April 1834"
+        },
+        {
+          "as_printed": "Lewis Benton 2",
+          "normalized": "Lewis Benton",
+          "role": "named in the list of letters remaining in the Post Office at Chicago, 1 April 1834"
+        },
+        {
+          "as_printed": "Addison Benton",
+          "normalized": "Addison Benton",
+          "role": "named in the list of letters remaining in the Post Office at Chicago, 1 April 1834"
+        },
+        {
+          "as_printed": "Zadoc Brown",
+          "normalized": "Zadoc Brown",
+          "role": "named in the list of letters remaining in the Post Office at Chicago, 1 April 1834"
+        },
+        {
+          "as_printed": "Nicholas Boilvin",
+          "normalized": "Nicholas Boilvin",
+          "role": "named in the list of letters remaining in the Post Office at Chicago, 1 April 1834"
+        },
+        {
+          "as_printed": "GeowA. Burlingame",
+          "normalized": "Geo. A. Burlingame",
+          "role": "named in the list of letters remaining in the Post Office at Chicago, 1 April 1834"
+        },
+        {
+          "as_printed": "Nelson Brigham",
+          "normalized": "Nelson Brigham",
+          "role": "named in the list of letters remaining in the Post Office at Chicago, 1 April 1834"
+        },
+        {
+          "as_printed": "Harry Boardman",
+          "normalized": "Harry Boardman",
+          "role": "named in the list of letters remaining in the Post Office at Chicago, 1 April 1834"
+        },
+        {
+          "as_printed": "Leon Bonrassa",
+          "normalized": "[uncertain: Leon Bourassa]",
+          "role": "named in the list of letters remaining in the Post Office at Chicago, 1 April 1834"
+        },
+        {
+          "as_printed": "Lyman Bennet:",
+          "normalized": "Lyman Bennet",
+          "role": "named in the list of letters remaining in the Post Office at Chicago, 1 April 1834"
+        },
+        {
+          "as_printed": "Peter Bourhyte",
+          "normalized": "[uncertain: Peter Bourhyte]",
+          "role": "named in the list of letters remaining in the Post Office at Chicago, 1 April 1834"
+        },
+        {
+          "as_printed": "John Baily",
+          "normalized": "John Baily",
+          "role": "named in the list of letters remaining in the Post Office at Chicago, 1 April 1834"
+        },
+        {
+          "as_printed": "Enoch Chambers",
+          "normalized": "Enoch Chambers",
+          "role": "named in the list of letters remaining in the Post Office at Chicago, 1 April 1834"
+        },
+        {
+          "as_printed": "Loventus A. F. Corbin",
+          "normalized": "[uncertain: Loventus] A. F. Corbin",
+          "role": "named in the list of letters remaining in the Post Office at Chicago, 1 April 1834"
+        },
+        {
+          "as_printed": "Orange Chauncy ‘2",
+          "normalized": "Orange Chauncy",
+          "role": "named in the list of letters remaining in the Post Office at Chicago, 1 April 1834"
+        },
+        {
+          "as_printed": "Robert Fc Cimpene ?",
+          "normalized": "[uncertain: Robert W. Chapman]",
+          "role": "named in the list of letters remaining in the Post Office at Chicago, 1 April 1834"
+        },
+        {
+          "as_printed": "Bolden Clark",
+          "normalized": "[uncertain: Bolden Clark]",
+          "role": "named in the list of letters remaining in the Post Office at Chicago, 1 April 1834"
+        },
+        {
+          "as_printed": "Jas. or Robt. Crawford",
+          "normalized": "Jas. or Robt. Crawford",
+          "role": "named in the list of letters remaining in the Post Office at Chicago, 1 April 1834"
+        },
+        {
+          "as_printed": "Silas Cobb",
+          "normalized": "Silas Cobb",
+          "role": "named in the list of letters remaining in the Post Office at Chicago, 1 April 1834"
+        },
+        {
+          "as_printed": "Rev. N. C. Clark",
+          "normalized": "Rev. N. C. Clark",
+          "role": "named in the list of letters remaining in the Post Office at Chicago, 1 April 1834"
+        },
+        {
+          "as_printed": "Henry B. Clark 2",
+          "normalized": "Henry B. Clark",
+          "role": "named in the list of letters remaining in the Post Office at Chicago, 1 April 1834"
+        },
+        {
+          "as_printed": "Rohert G. Cook 2",
+          "normalized": "Robert [G.] Cook",
+          "role": "named in the list of letters remaining in the Post Office at Chicago, 1 April 1834"
+        },
+        {
+          "as_printed": "Timothy B, Clark",
+          "normalized": "Timothy B. Clark",
+          "role": "named in the list of letters remaining in the Post Office at Chicago, 1 April 1834"
+        },
+        {
+          "as_printed": "Jesse Chittenden",
+          "normalized": "Jesse Chittenden",
+          "role": "named in the list of letters remaining in the Post Office at Chicago, 1 April 1834"
+        },
+        {
+          "as_printed": "Chas, Ul. Chapman",
+          "normalized": "Chas. H. Chapman",
+          "role": "named in the list of letters remaining in the Post Office at Chicago, 1 April 1834"
+        },
+        {
+          "as_printed": "Leander Clar!",
+          "normalized": "Leander Clar[k]",
+          "role": "named in the list of letters remaining in the Post Office at Chicago, 1 April 1834"
+        },
+        {
+          "as_printed": "John Cook",
+          "normalized": "John Cook",
+          "role": "named in the list of letters remaining in the Post Office at Chicago, 1 April 1834"
+        },
+        {
+          "as_printed": "Jamex 8. Cook",
+          "normalized": "Jame[s] S. Cook",
+          "role": "named in the list of letters remaining in the Post Office at Chicago, 1 April 1834"
+        },
+        {
+          "as_printed": "Leandet Collins",
+          "normalized": "Leander Collins",
+          "role": "named in the list of letters remaining in the Post Office at Chicago, 1 April 1834"
+        },
+        {
+          "as_printed": "Clark Chattin",
+          "normalized": "Clark Chattin",
+          "role": "named in the list of letters remaining in the Post Office at Chicago, 1 April 1834"
+        },
+        {
+          "as_printed": "pire Coury",
+          "normalized": "Pier[r]e Coury",
+          "role": "named in the list of letters remaining in the Post Office at Chicago, 1 April 1834"
+        },
+        {
+          "as_printed": "Lucretia Doane",
+          "normalized": "Lucretia Doane",
+          "role": "named in the list of letters remaining in the Post Office at Chicago, 1 April 1834"
+        },
+        {
+          "as_printed": "Lewis Driggs 2",
+          "normalized": "Lewis Driggs",
+          "role": "named in the list of letters remaining in the Post Office at Chicago, 1 April 1834"
+        },
+        {
+          "as_printed": "John Davis 2",
+          "normalized": "John Davis",
+          "role": "named in the list of letters remaining in the Post Office at Chicago, 1 April 1834"
+        },
+        {
+          "as_printed": "William Domint",
+          "normalized": "[uncertain: William Domint]",
+          "role": "named in the list of letters remaining in the Post Office at Chicago, 1 April 1834"
+        },
+        {
+          "as_printed": "Elijah Dix .,",
+          "normalized": "Elijah Dix",
+          "role": "named in the list of letters remaining in the Post Office at Chicago, 1 April 1834"
+        },
+        {
+          "as_printed": "Thos. W. Donkin -",
+          "normalized": "Thos. W. Donkin",
+          "role": "named in the list of letters remaining in the Post Office at Chicago, 1 April 1834"
+        },
+        {
+          "as_printed": "Atexancer Dickinson",
+          "normalized": "Alexander Dickinson",
+          "role": "named in the list of letters remaining in the Post Office at Chicago, 1 April 1834"
+        },
+        {
+          "as_printed": "Sidney Dyer",
+          "normalized": "Sidney Dyer",
+          "role": "named in the list of letters remaining in the Post Office at Chicago, 1 April 1834"
+        },
+        {
+          "as_printed": "Titan Dayton 2",
+          "normalized": "[uncertain: Titan Dayton]",
+          "role": "named in the list of letters remaining in the Post Office at Chicago, 1 April 1834"
+        },
+        {
+          "as_printed": "Pierce Downer",
+          "normalized": "Pierce Downer",
+          "role": "named in the list of letters remaining in the Post Office at Chicago, 1 April 1834"
+        },
+        {
+          "as_printed": "W. L..D. Ewing",
+          "normalized": "W. L. D. Ewing",
+          "role": "named in the list of letters remaining in the Post Office at Chicago, 1 April 1834"
+        },
+        {
+          "as_printed": "Mry, Wm. B. Egan” |",
+          "normalized": "Mrs. Wm. B. Egan",
+          "role": "named in the list of letters remaining in the Post Office at Chicago, 1 April 1834"
+        },
+        {
+          "as_printed": "Alby Fawter",
+          "normalized": "Alby F[o]w[l]er",
+          "role": "named in the list of letters remaining in the Post Office at Chicago, 1 April 1834"
+        },
+        {
+          "as_printed": "Alexander Fullerton 3)",
+          "normalized": "Alexander Fullerton",
+          "role": "named in the list of letters remaining in the Post Office at Chicago, 1 April 1834"
+        },
+        {
+          "as_printed": "Oronter Granter 20)",
+          "normalized": "[uncertain: Oronter Granter]",
+          "role": "named in the list of letters remaining in the Post Office at Chicago, 1 April 1834"
+        },
+        {
+          "as_printed": "James Gilbert, |. ,",
+          "normalized": "James Gilbert",
+          "role": "named in the list of letters remaining in the Post Office at Chicago, 1 April 1834"
+        },
+        {
+          "as_printed": "Harrison Granger",
+          "normalized": "Harrison Granger",
+          "role": "named in the list of letters remaining in the Post Office at Chicago, 1 April 1834"
+        },
+        {
+          "as_printed": "Win, H. Granger",
+          "normalized": "Wm. H. Granger",
+          "role": "named in the list of letters remaining in the Post Office at Chicago, 1 April 1834"
+        },
+        {
+          "as_printed": "Levi Gortun",
+          "normalized": "Levi Gorton",
+          "role": "named in the list of letters remaining in the Post Office at Chicago, 1 April 1834"
+        },
+        {
+          "as_printed": "Chester Houge 2 1",
+          "normalized": "Chester House",
+          "role": "named in the list of letters remaining in the Post Office at Chicago, 1 April 1834"
+        },
+        {
+          "as_printed": "John C; Hngunin 2 |",
+          "normalized": "[uncertain: John C. Hngunin]",
+          "role": "named in the list of letters remaining in the Post Office at Chicago, 1 April 1834"
+        },
+        {
+          "as_printed": "G. 8. Hubbard 2 }",
+          "normalized": "G. S. Hubbard",
+          "role": "named in the list of letters remaining in the Post Office at Chicago, 1 April 1834"
+        },
+        {
+          "as_printed": "joshua Hathaway jr. 2)",
+          "normalized": "Joshua Hathaway jr.",
+          "role": "named in the list of letters remaining in the Post Office at Chicago, 1 April 1834"
+        },
+        {
+          "as_printed": "Nathan Hopkin »s: 941)",
+          "normalized": "Nathan Hopkin[s]",
+          "role": "named in the list of letters remaining in the Post Office at Chicago, 1 April 1834"
+        },
+        {
+          "as_printed": "Nathan Hutching 4",
+          "normalized": "Nathan Hutchin[g]s",
+          "role": "named in the list of letters remaining in the Post Office at Chicago, 1 April 1834"
+        },
+        {
+          "as_printed": "Manen Hauke ‘",
+          "normalized": "[uncertain: Manen Hanks]",
+          "role": "named in the list of letters remaining in the Post Office at Chicago, 1 April 1834"
+        },
+        {
+          "as_printed": "\\trs. Robt. Hountton",
+          "normalized": "[uncertain: Mrs. Robt. Hountton]",
+          "role": "named in the list of letters remaining in the Post Office at Chicago, 1 April 1834"
+        },
+        {
+          "as_printed": "Hiram Hovey",
+          "normalized": "Hiram Hovey",
+          "role": "named in the list of letters remaining in the Post Office at Chicago, 1 April 1834"
+        },
+        {
+          "as_printed": "Rodney House",
+          "normalized": "Rodney House",
+          "role": "named in the list of letters remaining in the Post Office at Chicago, 1 April 1834"
+        },
+        {
+          "as_printed": "Oscar J.. Hawley ;",
+          "normalized": "Oscar L. Hawley",
+          "role": "named in the list of letters remaining in the Post Office at Chicago, 1 April 1834"
+        },
+        {
+          "as_printed": "Wor. H. Hamilton 1",
+          "normalized": "Wm. H. Hamilton",
+          "role": "named in the list of letters remaining in the Post Office at Chicago, 1 April 1834"
+        },
+        {
+          "as_printed": "fra Herrick 1",
+          "normalized": "Ira Herrick",
+          "role": "named in the list of letters remaining in the Post Office at Chicago, 1 April 1834"
+        },
+        {
+          "as_printed": "Samuel Haviland |",
+          "normalized": "Samuel Haviland",
+          "role": "named in the list of letters remaining in the Post Office at Chicago, 1 April 1834"
+        },
+        {
+          "as_printed": "Comstock Hanford {",
+          "normalized": "Comstock Hanford",
+          "role": "named in the list of letters remaining in the Post Office at Chicago, 1 April 1834"
+        },
+        {
+          "as_printed": "Thomas Hartecll :",
+          "normalized": "Thomas Hartec[l]l",
+          "role": "named in the list of letters remaining in the Post Office at Chicago, 1 April 1834"
+        },
+        {
+          "as_printed": "Onin Jerome q",
+          "normalized": "Orin Jerome",
+          "role": "named in the list of letters remaining in the Post Office at Chicago, 1 April 1834"
+        },
+        {
+          "as_printed": "Henry Jones. , 1",
+          "normalized": "Henry Jones",
+          "role": "named in the list of letters remaining in the Post Office at Chicago, 1 April 1834"
+        },
+        {
+          "as_printed": "Samdel Jackson ,",
+          "normalized": "Samuel Jackson",
+          "role": "named in the list of letters remaining in the Post Office at Chicago, 1 April 1834"
+        }
+      ],
+      "notes": "THE CENSUS PROXY FOR APRIL 1834 and the reason this issue is the month's biggest unit of work. Ruling 1: a listed name mints a resident candidate, so every name here is an entity and every one carries `letter_list_only`. THE HEADING IS WHY NOBODY HAD FOUND IT: line 2854 reads `E ELECTOR. | SQA AINIG init`, in which `SQA AINIG` is `REMAINING` and the words `List of Letters` are not on the page at all in this column — they stand at line 3018 in the next segmenter column, over the list's second half. Every sweep this project has run for 'list of letters' / 'letters remaining' / 'remaining in the post office' / 'uncalled for' / a signature ending 'P. M.' therefore missed April's Chicago list, and `data/research/newspapers/README.md` says in as many words that only four of T-0258's thirty issues carry one. It is six. THE SEGMENTER INTERLEAVES: each line of this column carries the tail of the editorial from the printed column to its left AND one name from the list, so the quote is the whole cut line and the names are read out of its right-hand half. NORMALIZED AGAINST THE REPRINT: the same list is printed again on 1834-04-08, where this half reads distinctly cleaner, and 04-08's reading is what settles `Robt. V. Allen`, `Ebenezer Alden`, `Maria S. Arnold`, `Thos. W. Bradley`, `Oscar L. Hawley` and `Alexander Fullerton`. That is a corroborating witness resolving an OCR judgement, not a second minting: 04-08's own claims mint only the names THIS printing lost (T-0299). 163 names are minted from the two halves; eleven lines here and eight in column 4 carry debris where a name stood and are left unread rather than guessed at, so 163 is a FLOOR and not the printed length. The gap is T-0319, not an estimate.",
+      "quote": "E ELECTOR. | SQA AINIG init\nishacte 1 Constant Abbott\nore letters. . He | Jy H. Avery\nRobt. V.' Ale:\nccepted ; tha. of Joseph Adana:\nt it was the in-| Ebenéger Alden\n| the. deposites} Straten Adams\n+ not deny that} Clark B. Albe\nted because his | Ebenczer Allen\nbe favorable to| Daniel L: Andrews!\nny that he took | Samuel Anderson:\nto thwart the| Marie 8.Arnold\nat he concealed Clark. B. Albee\né losept Habeax\nd in the place of pile. wr Bradley 2\nthat. be-prom- is Bet i\ndat be pr Lewis Benton 2\nwination, either! Addison Benton\npost’; Mor that) Zadoc Brown\nm this promise. | Nicholas Boilvin\nGeowA. Burlingame\n[uncertain: | Nelson Brigham ? =:]\n“? Harry Boardman\nsin the Pongh-| Leon Bonrassa\na new system Lyman Bennet:\nver delivered—| Peter Bourhyte\npal and veget- John Baily\nring jeenty- Bate es\nthe existing Rowercee ee, i\ng vitality, and] Enoch Chambers\nin every ‘thing.’ Loventus A. F. Corbin\nTreatise tm the} Orange Chauncy ‘2\n[uncertain: vice to young} Robert Fc Cimpene ?]\nsd Bolden Clark\neee: Jas. or Robt. Crawford\nvapeeen Silas Cobb\nas thrown into| Rev. N. C. Clark\ndess who took | Henry B. Clark 2\nhar from her pee Chenier\nshal astio\n<The. specta-| Rohert G. Cook 2\neepers fled t0| Timothy B, Clark\nn passing the | Jesse Chittenden\nle dog’ barked | Chas, Ul. Chapman\nnce she drew} Leander Clar!\ninher mouth, | John Cook\neper who ven- Jamex 8. Cook\nose up an up-|? Cook\n~cived | Leandet Collins\nbat received Clark Chattin\np a8 Ford By pire Coury\nLucretia Doane\nred. .to Lewis Driggs 2\nerious injury.) John Davis 2\nz William Domint\nElijah Dix .,\nThos. W. Donkin -\nyeeum lately | Atexancer Dickinson\nrarban bags) Sidney Dyer\ndoes not bring’) Titan Dayton 2\nif the ladies £ eeripeeancottric\nig !\ntedly a megan) inn Renny\nPierce Downer\nA W. L..D. Ewing\nin a'shop’ at) Mry, Wm. B. Egan” |\n‘snuff politely | Alby Fawter\nservant maid, | Jeter Porter ae\nNo, Tuhank| Hag, pitsrerall\n‘Treckon mny | Atyere Rovler 2 ore\n1d pot a dust=| Alexander Fullerton 3)\nJames 8) G: :\naie B Oronter Granter 20)\nJames Gilbert, |. ,\nrales has been | Harrison Granger\ns, by dipping} Win, H. Granger\ne using it, by) Levi Gortun\nh time int kil-! Chester Houge 2 1\n‘| John C; Hngunin 2 |\n|. |G. 8. Hubbard 2 }\nDonna Marie} joshua Hathaway jr. 2)\nNathan Hopkin »s: 941)\n: Nathan Hutching 4\n000 guineas: Manen Hauke ‘\nnatuntinople. | \\trs. Robt. Hountton\nhe Sultan.” 4 Hiram Hovey\nRodney House\nNN! Oscar J.. Hawley ;\nWor. H. Hamilton 1\nirs. Maspase] fra Herrick 1\noodruff, aged | Samuel Haviland |\nComstock Hanford {\n————————— | Thomas Hartecll :\n‘Oxte ) Onin Jerome q\nHenry Jones. , 1\nERNOR. ? | Samdel Jackson ,\nCounty. oi JOUNB."
+    },
+    {
+      "id": "c002",
+      "kind": "person",
+      "reading": "transcription_mediated",
+      "normalized": "[List] of Lette[rs] [remaining in] the Post Office a[t] Chi[cago, on the first] day of [April, 1834.] [column 2 of the printed list, J-W:] [T]homas Jacubus; Jno. M. Jones; Sanford Johns[o]n; John Kilpatrick; Paul Kingston; Mons. Kimbert; Harlow Kimball; Archibald Knox; [uncertain: Wm. Lou]; Jacob L[a]nsing 3; Robert Loveland; [S.] A. H. Laughton; Read Lew[is]; Wilson McClinton; Thoma[s] McClintock; Wm. J. M[a]rlatt; [Lu]cy B. McEwen; Leonard Morse; Henry S. Misner; Emily Morgan; Jacob Miller; Stephen Mack; Mary Meacham; Ralph Martin; James D. Myr[e]s; Nelson Murray; Michael Nowland; Francis B. Northrop 2; R[e]bec[c]a Ostrander; Robt. Ogil[v]ey; D[u]dly Peck; Geo. N. Powell; Timothy E. Parsons; Wm. Prendergu[s]t; Mary Polk; Francis Perry; Eliza Pearce 2; Christopher Paine; Lauretta Plimpton; Austin Parsalls; Edward Poor; Geo. B. Richardson; [Thos. H.] Ritchy; [R]obt. Stephens; Mr. Smith; Jeremiah Sherwood; Mrs. S. Stephens; Wm. V. Smith; Eli Stratt[o]n; [uncertain: Douglass Sloan]; Samuel Shaw; Cyrus Schil[l]born; Lyman Smith; Franklin Spalding; Philip Scott; Orin N. Stevens; Peter Schander; [uncertain: Stephen M. Satsby]; Benjamin Reed; Ira Raymore; Geo. Square; Joseph Skinner; Wm. Teall; Harmo[n] Turner; W[il]l[iam] Taylor; George Tryon; Jason B. Vaughan; Amy C. Wear; Andrew S. Wells 2; H. Walford; Gertrude Watkins; [uncertain: Materson Washbarn]; Mansfield Wheeler; Jeddiah Woolle[y]; Edmond Wright; Harriet Warren; El[i]hu Walter; G. H. Walker; Tho. C. Webb; Chauncey Woodruff; Philip Whitte[m]ore. [J.] S. C. HOGAN, P. M.",
+      "locator": {
+        "artifact_role": "primary",
+        "issue_page": 3,
+        "column": 4,
+        "lines": [
+          3017,
+          3115
+        ],
+        "interleaved": true
+      },
+      "letter_list_only": true,
+      "entities": [
+        {
+          "as_printed": "homas Jacubus",
+          "normalized": "[T]homas Jacubus",
+          "role": "named in the list of letters remaining in the Post Office at Chicago, 1 April 1834"
+        },
+        {
+          "as_printed": "Jno. M. Jones”",
+          "normalized": "Jno. M. Jones",
+          "role": "named in the list of letters remaining in the Post Office at Chicago, 1 April 1834"
+        },
+        {
+          "as_printed": "Sanford Johnspn' *",
+          "normalized": "Sanford Johns[o]n",
+          "role": "named in the list of letters remaining in the Post Office at Chicago, 1 April 1834"
+        },
+        {
+          "as_printed": "John Kilpatrick t",
+          "normalized": "John Kilpatrick",
+          "role": "named in the list of letters remaining in the Post Office at Chicago, 1 April 1834"
+        },
+        {
+          "as_printed": "Paul Kingston “74.1",
+          "normalized": "Paul Kingston",
+          "role": "named in the list of letters remaining in the Post Office at Chicago, 1 April 1834"
+        },
+        {
+          "as_printed": "Mons: Kinbert iol",
+          "normalized": "Mons. Kimbert",
+          "role": "named in the list of letters remaining in the Post Office at Chicago, 1 April 1834"
+        },
+        {
+          "as_printed": "Harlow Kimball: 4.1",
+          "normalized": "Harlow Kimball",
+          "role": "named in the list of letters remaining in the Post Office at Chicago, 1 April 1834"
+        },
+        {
+          "as_printed": "Archibald Knox",
+          "normalized": "Archibald Knox",
+          "role": "named in the list of letters remaining in the Post Office at Chicago, 1 April 1834"
+        },
+        {
+          "as_printed": "Win Lou! «",
+          "normalized": "[uncertain: Wm. Lou]",
+          "role": "named in the list of letters remaining in the Post Office at Chicago, 1 April 1834"
+        },
+        {
+          "as_printed": "A Jacob 32 Linsing 3",
+          "normalized": "Jacob L[a]nsing",
+          "role": "named in the list of letters remaining in the Post Office at Chicago, 1 April 1834"
+        },
+        {
+          "as_printed": "Robort Loveland :",
+          "normalized": "Robert Loveland",
+          "role": "named in the list of letters remaining in the Post Office at Chicago, 1 April 1834"
+        },
+        {
+          "as_printed": "2. BAH, Laughton",
+          "normalized": "[S.] A. H. Laughton",
+          "role": "named in the list of letters remaining in the Post Office at Chicago, 1 April 1834"
+        },
+        {
+          "as_printed": "Read Lew: q",
+          "normalized": "Read Lew[is]",
+          "role": "named in the list of letters remaining in the Post Office at Chicago, 1 April 1834"
+        },
+        {
+          "as_printed": "Wilson McClinton 6”",
+          "normalized": "Wilson McClinton",
+          "role": "named in the list of letters remaining in the Post Office at Chicago, 1 April 1834"
+        },
+        {
+          "as_printed": "Thoina# McClintock \"|",
+          "normalized": "Thoma[s] McClintock",
+          "role": "named in the list of letters remaining in the Post Office at Chicago, 1 April 1834"
+        },
+        {
+          "as_printed": "“Wm. J. Matlate'*",
+          "normalized": "Wm. J. M[a]rlatt",
+          "role": "named in the list of letters remaining in the Post Office at Chicago, 1 April 1834"
+        },
+        {
+          "as_printed": "J cy B. McEwen",
+          "normalized": "[Lu]cy B. McEwen",
+          "role": "named in the list of letters remaining in the Post Office at Chicago, 1 April 1834"
+        },
+        {
+          "as_printed": "Leonard Morse",
+          "normalized": "Leonard Morse",
+          "role": "named in the list of letters remaining in the Post Office at Chicago, 1 April 1834"
+        },
+        {
+          "as_printed": "Henry 8. Misner",
+          "normalized": "Henry S. Misner",
+          "role": "named in the list of letters remaining in the Post Office at Chicago, 1 April 1834"
+        },
+        {
+          "as_printed": "Emily Morgan *",
+          "normalized": "Emily Morgan",
+          "role": "named in the list of letters remaining in the Post Office at Chicago, 1 April 1834"
+        },
+        {
+          "as_printed": "Jacob Miller",
+          "normalized": "Jacob Miller",
+          "role": "named in the list of letters remaining in the Post Office at Chicago, 1 April 1834"
+        },
+        {
+          "as_printed": "Stephen Mack",
+          "normalized": "Stephen Mack",
+          "role": "named in the list of letters remaining in the Post Office at Chicago, 1 April 1834"
+        },
+        {
+          "as_printed": "Mary Meacham",
+          "normalized": "Mary Meacham",
+          "role": "named in the list of letters remaining in the Post Office at Chicago, 1 April 1834"
+        },
+        {
+          "as_printed": "in Ralph Martin",
+          "normalized": "Ralph Martin",
+          "role": "named in the list of letters remaining in the Post Office at Chicago, 1 April 1834"
+        },
+        {
+          "as_printed": "James D. Myroa",
+          "normalized": "James D. Myr[e]s",
+          "role": "named in the list of letters remaining in the Post Office at Chicago, 1 April 1834"
+        },
+        {
+          "as_printed": "2 Nelson Murray",
+          "normalized": "Nelson Murray",
+          "role": "named in the list of letters remaining in the Post Office at Chicago, 1 April 1834"
+        },
+        {
+          "as_printed": "«Michael Nowland",
+          "normalized": "Michael Nowland",
+          "role": "named in the list of letters remaining in the Post Office at Chicago, 1 April 1834"
+        },
+        {
+          "as_printed": "rd Brencia 2 Noxtbrop",
+          "normalized": "Francis B. Northrop",
+          "role": "named in the list of letters remaining in the Post Office at Chicago, 1 April 1834"
+        },
+        {
+          "as_printed": "ebecen Ostrander",
+          "normalized": "R[e]bec[c]a Ostrander",
+          "role": "named in the list of letters remaining in the Post Office at Chicago, 1 April 1834"
+        },
+        {
+          "as_printed": "Robt. Ogilley Maayfa",
+          "normalized": "Robt. Ogil[v]ey",
+          "role": "named in the list of letters remaining in the Post Office at Chicago, 1 April 1834"
+        },
+        {
+          "as_printed": "Dadly Peck } No.",
+          "normalized": "D[u]dly Peck",
+          "role": "named in the list of letters remaining in the Post Office at Chicago, 1 April 1834"
+        },
+        {
+          "as_printed": "Geo. N. Powell { HE su",
+          "normalized": "Geo. N. Powell",
+          "role": "named in the list of letters remaining in the Post Office at Chicago, 1 April 1834"
+        },
+        {
+          "as_printed": "Timothy. E. Parsons . eaten",
+          "normalized": "Timothy E. Parsons",
+          "role": "named in the list of letters remaining in the Post Office at Chicago, 1 April 1834"
+        },
+        {
+          "as_printed": "Win, Prendergust t!",
+          "normalized": "Wm. Prendergu[s]t",
+          "role": "named in the list of letters remaining in the Post Office at Chicago, 1 April 1834"
+        },
+        {
+          "as_printed": "Mary Polk a",
+          "normalized": "Mary Polk",
+          "role": "named in the list of letters remaining in the Post Office at Chicago, 1 April 1834"
+        },
+        {
+          "as_printed": "Francis Perry c",
+          "normalized": "Francis Perry",
+          "role": "named in the list of letters remaining in the Post Office at Chicago, 1 April 1834"
+        },
+        {
+          "as_printed": "Eliza Pearce 2 8",
+          "normalized": "Eliza Pearce",
+          "role": "named in the list of letters remaining in the Post Office at Chicago, 1 April 1834"
+        },
+        {
+          "as_printed": "Christopher Paine any regular",
+          "normalized": "Christopher Paine",
+          "role": "named in the list of letters remaining in the Post Office at Chicago, 1 April 1834"
+        },
+        {
+          "as_printed": "Lauretta Plimpton Merchants |",
+          "normalized": "Lauretta Plimpton",
+          "role": "named in the list of letters remaining in the Post Office at Chicago, 1 April 1834"
+        },
+        {
+          "as_printed": "Austin 'Parsalls }are respectf",
+          "normalized": "Austin Parsalls",
+          "role": "named in the list of letters remaining in the Post Office at Chicago, 1 April 1834"
+        },
+        {
+          "as_printed": "Edward Poor Stock, whe",
+          "normalized": "Edward Poor",
+          "role": "named in the list of letters remaining in the Post Office at Chicago, 1 April 1834"
+        },
+        {
+          "as_printed": "Gee. B.'Richzrdeon : their order",
+          "normalized": "Geo. B. Richardson",
+          "role": "named in the list of letters remaining in the Post Office at Chicago, 1 April 1834"
+        },
+        {
+          "as_printed": "hte. es itchy Be promptly e;",
+          "normalized": "[Thos. H.] Ritchy",
+          "role": "named in the list of letters remaining in the Post Office at Chicago, 1 April 1834"
+        },
+        {
+          "as_printed": "obt. Stephens",
+          "normalized": "[R]obt. Stephens",
+          "role": "named in the list of letters remaining in the Post Office at Chicago, 1 April 1834"
+        },
+        {
+          "as_printed": "Mr. Smith + > | kept om han",
+          "normalized": "Mr. Smith",
+          "role": "named in the list of letters remaining in the Post Office at Chicago, 1 April 1834"
+        },
+        {
+          "as_printed": "Jeremiah Sherwood . | comparison",
+          "normalized": "Jeremiah Sherwood",
+          "role": "named in the list of letters remaining in the Post Office at Chicago, 1 April 1834"
+        },
+        {
+          "as_printed": "‘Mrs,8. Stephens | finish, Aes",
+          "normalized": "Mrs. S. Stephens",
+          "role": "named in the list of letters remaining in the Post Office at Chicago, 1 April 1834"
+        },
+        {
+          "as_printed": "Wm. V. Smith “| of New-Yo",
+          "normalized": "Wm. V. Smith",
+          "role": "named in the list of letters remaining in the Post Office at Chicago, 1 April 1834"
+        },
+        {
+          "as_printed": "Eli Strattan For and (",
+          "normalized": "Eli Stratt[o]n",
+          "role": "named in the list of letters remaining in the Post Office at Chicago, 1 April 1834"
+        },
+        {
+          "as_printed": "Dorigiase Sloan",
+          "normalized": "[uncertain: Douglass Sloan]",
+          "role": "named in the list of letters remaining in the Post Office at Chicago, 1 April 1834"
+        },
+        {
+          "as_printed": "Samuel Shaw: » ;",
+          "normalized": "Samuel Shaw",
+          "role": "named in the list of letters remaining in the Post Office at Chicago, 1 April 1834"
+        },
+        {
+          "as_printed": "Cyrus Schiltborn + H6 BR",
+          "normalized": "Cyrus Schil[l]born",
+          "role": "named in the list of letters remaining in the Post Office at Chicago, 1 April 1834"
+        },
+        {
+          "as_printed": "Lyman. Smith 20 dy",
+          "normalized": "Lyman Smith",
+          "role": "named in the list of letters remaining in the Post Office at Chicago, 1 April 1834"
+        },
+        {
+          "as_printed": "Franklin Spalding March 24,",
+          "normalized": "Franklin Spalding",
+          "role": "named in the list of letters remaining in the Post Office at Chicago, 1 April 1834"
+        },
+        {
+          "as_printed": "Philip Scott ; Sits",
+          "normalized": "Philip Scott",
+          "role": "named in the list of letters remaining in the Post Office at Chicago, 1 April 1834"
+        },
+        {
+          "as_printed": "Orin N. Stevens ' F",
+          "normalized": "Orin N. Stevens",
+          "role": "named in the list of letters remaining in the Post Office at Chicago, 1 April 1834"
+        },
+        {
+          "as_printed": "Peter Schander {LL",
+          "normalized": "Peter Schander",
+          "role": "named in the list of letters remaining in the Post Office at Chicago, 1 April 1834"
+        },
+        {
+          "as_printed": "Stephen M. Satsby tee",
+          "normalized": "[uncertain: Stephen M. Satsby]",
+          "role": "named in the list of letters remaining in the Post Office at Chicago, 1 April 1834"
+        },
+        {
+          "as_printed": "Benjamin Reed, the,",
+          "normalized": "Benjamin Smith",
+          "role": "named in the list of letters remaining in the Post Office at Chicago, 1 April 1834",
+          "reading": "scan_verified",
+          "read_at_image": {
+            "ticket": "T-1138",
+            "roster": "data/research/newspapers/letter_list_1834_04_01_contested_lines.json",
+            "impressions_read": [
+              "chicago_democrat_1834_04_01",
+              "chicago_democrat_1834_04_08",
+              "chicago_democrat_1834_04_16"
+            ],
+            "as_printed_at_image": "Benjamin Smith",
+            "at_each_impression": {
+              "1834-04-01": "Benjamin Smith",
+              "1834-04-08": "Benjamin Smith",
+              "1834-04-16": "Benjamin Smith"
+            },
+            "was_normalized": "Benjamin Reed",
+            "overturns": "1834-04-01"
+          }
+        },
+        {
+          "as_printed": "Ira Raymore apy’",
+          "normalized": "Ira Saymore",
+          "role": "named in the list of letters remaining in the Post Office at Chicago, 1 April 1834",
+          "reading": "scan_verified",
+          "read_at_image": {
+            "ticket": "T-1138",
+            "roster": "data/research/newspapers/letter_list_1834_04_01_contested_lines.json",
+            "impressions_read": [
+              "chicago_democrat_1834_04_01",
+              "chicago_democrat_1834_04_08",
+              "chicago_democrat_1834_04_16"
+            ],
+            "as_printed_at_image": "Ira Saymore",
+            "at_each_impression": {
+              "1834-04-01": "Ira [S]aymore",
+              "1834-04-08": "Ira Saymore",
+              "1834-04-16": "Ira Saymore"
+            },
+            "was_normalized": "Ira Raymore",
+            "overturns": "1834-04-01"
+          }
+        },
+        {
+          "as_printed": "3. Geo. Square t 3 first rate",
+          "normalized": "Geo. Squar",
+          "role": "named in the list of letters remaining in the Post Office at Chicago, 1 April 1834",
+          "reading": "scan_verified",
+          "read_at_image": {
+            "ticket": "T-1138",
+            "roster": "data/research/newspapers/letter_list_1834_04_01_contested_lines.json",
+            "impressions_read": [
+              "chicago_democrat_1834_04_01",
+              "chicago_democrat_1834_04_08",
+              "chicago_democrat_1834_04_16"
+            ],
+            "as_printed_at_image": "Geo. Squar",
+            "at_each_impression": {
+              "1834-04-01": "Geo. Squar",
+              "1834-04-08": "Geo. Squar",
+              "1834-04-16": "Geo. Squar"
+            },
+            "was_normalized": "Geo. Square",
+            "overturns": "both"
+          }
+        },
+        {
+          "as_printed": "Joseph Skiriner cf Thal sett",
+          "normalized": "Joseph Skinner",
+          "role": "named in the list of letters remaining in the Post Office at Chicago, 1 April 1834"
+        },
+        {
+          "as_printed": "Wm. Teall i 1 Lot Has",
+          "normalized": "Wm. Teall",
+          "role": "named in the list of letters remaining in the Post Office at Chicago, 1 April 1834"
+        },
+        {
+          "as_printed": "Harmou Turner. 1 Lot Che",
+          "normalized": "Harmo[n] Turner",
+          "role": "named in the list of letters remaining in the Post Office at Chicago, 1 April 1834"
+        },
+        {
+          "as_printed": "Wallis: Taylor > | The",
+          "normalized": "W[il]l[iam] Taylor",
+          "role": "named in the list of letters remaining in the Post Office at Chicago, 1 April 1834"
+        },
+        {
+          "as_printed": "George, Tryon ; est bidder, 0",
+          "normalized": "George Tryon",
+          "role": "named in the list of letters remaining in the Post Office at Chicago, 1 April 1834"
+        },
+        {
+          "as_printed": "jason B. Vaughan Chieago;:)",
+          "normalized": "Jason B. Vaughan",
+          "role": "named in the list of letters remaining in the Post Office at Chicago, 1 April 1834"
+        },
+        {
+          "as_printed": "VAmy C. Were : patoeess Sth",
+          "normalized": "Amy C. Wear",
+          "role": "named in the list of letters remaining in the Post Office at Chicago, 1 April 1834"
+        },
+        {
+          "as_printed": "Andrew 8. Wells 2",
+          "normalized": "Andrew S. Wells",
+          "role": "named in the list of letters remaining in the Post Office at Chicago, 1 April 1834"
+        },
+        {
+          "as_printed": "H. Walford t",
+          "normalized": "H. Walford",
+          "role": "named in the list of letters remaining in the Post Office at Chicago, 1 April 1834"
+        },
+        {
+          "as_printed": "Gortrade Watkina",
+          "normalized": "Gertrude Watkins",
+          "role": "named in the list of letters remaining in the Post Office at Chicago, 1 April 1834"
+        },
+        {
+          "as_printed": "Materson Washbam,",
+          "normalized": "[uncertain: Materson Washbarn]",
+          "role": "named in the list of letters remaining in the Post Office at Chicago, 1 April 1834"
+        },
+        {
+          "as_printed": "Mansfield Whecler",
+          "normalized": "Mansfield Wheeler",
+          "role": "named in the list of letters remaining in the Post Office at Chicago, 1 April 1834"
+        },
+        {
+          "as_printed": "Jeddigh Woolle",
+          "normalized": "Jeddiah Woolle[y]",
+          "role": "named in the list of letters remaining in the Post Office at Chicago, 1 April 1834"
+        },
+        {
+          "as_printed": "Edmond Wright: 4",
+          "normalized": "Edmond Wright",
+          "role": "named in the list of letters remaining in the Post Office at Chicago, 1 April 1834"
+        },
+        {
+          "as_printed": "Marriet Watren",
+          "normalized": "Harriet Warren",
+          "role": "named in the list of letters remaining in the Post Office at Chicago, 1 April 1834"
+        },
+        {
+          "as_printed": "Flibu Waltor",
+          "normalized": "El[i]hu Walter",
+          "role": "named in the list of letters remaining in the Post Office at Chicago, 1 April 1834"
+        },
+        {
+          "as_printed": "G. He Walker",
+          "normalized": "G. H. Walker",
+          "role": "named in the list of letters remaining in the Post Office at Chicago, 1 April 1834"
+        },
+        {
+          "as_printed": "Tho. C. Webb",
+          "normalized": "Tho. C. Webb",
+          "role": "named in the list of letters remaining in the Post Office at Chicago, 1 April 1834"
+        },
+        {
+          "as_printed": "Channcey Woodruff",
+          "normalized": "Chauncey Woodruff",
+          "role": "named in the list of letters remaining in the Post Office at Chicago, 1 April 1834"
+        },
+        {
+          "as_printed": "Philip Whittermore.",
+          "normalized": "Philip Whitte[m]ore",
+          "role": "named in the list of letters remaining in the Post Office at Chicago, 1 April 1834"
+        },
+        {
+          "as_printed": "§..C. HOGAN, P.M.",
+          "normalized": "John S. C. Hogan",
+          "role": "postmaster at Chicago, who signs the list of letters of 1 April 1834",
+          "occupations": [
+            "postmaster"
+          ],
+          "associated_places": [
+            "Chicago"
+          ]
+        }
+      ],
+      "notes": "The second half of the same list, and the half that carries the heading `List of Letters` (line 3018) and the postmaster's signature (line 3115). J. S. C. HOGAN is NOT `letter_list_only` in substance — he signs the list rather than being named in it — but the flag is carried by the CLAIM and not the entity, so the compiler marks him `letter_list_only` here and his other mentions in this corpus retire the flag, which is exactly the mechanism ruling 1 asks for. The address line reads `the Post Office a Chi` and `day of peer mea`: the town is legible, the date is not, and it is supplied from the 1834-04-08 reprint, which reads `on the first day` and from the endorsement `April 1, 1834` that stands under the list's second column there. Eight lines of this half — 3039 to 3045 — carry the interleaved editorial where names stood, and the 1834-04-08 reprint shows what was lost there: Isaac Merrill, Chas. Manning, James Mulford, Philo C. Mills and James McKee. They are minted from 04-08 and not from here, because here they are not on the page. THE THIRD PRINTING, FOUND 2026-08-29 (T-0321): this list is printed a THIRD time, at chicago_democrat_1834_04_16 page 4 columns 2 and 3 (c016 and c017 there), and that printing's J-W half is the cleanest witness the corpus holds — one name per line, no debris. It settles the seven lines 3039-3045 as holding the five names 1834-04-08 supplied and nothing else, and it adds eight names this printing lost entirely: Samuel Louis, Gregory E. Legg, P. F. W. Peck, William Power, Mason B. Smith, Robt. Strong, Dr. Trimball, D. V. S. Torry and Elam Tuller, minted there and not here. IT ALSO UNDOES A CONFLATION MADE HERE. This half prints TWO Walkers, at lines 3105 (`« . Walker`) and 3110 (`G. He Walker`); the third printing and the 1834-04-08 reprint both set them as `Geo. E. Walker` between Mansfield Wheeler and Jeddiah Woolley and `G. H. Walker` between Elihu Walter and Tho. C. Webb. Line 3105 was dropped in this reading and line 3110 was normalized as `G[eo]. [E]. Walker` — the second Walker wearing the first one's initials. Line 3110 is corrected to G. H. Walker, which is what its own line reads; Geo. E. Walker is minted from the third printing, where he is legible.\n\nTHREE OF THESE LINES ARE READ AT THE PAGE IMAGES (T-1138) and seventy-nine are not, so this claim stays `transcription_mediated`. Entities 58, 59 and 60 carry `read_at_image` and `reading: scan_verified` individually: the advertisement of the next column bleeds through them here, the 16 April impression's extraction read the same three positions differently, and all three impressions of the return were read at the scan to settle it. `data/research/newspapers/letter_list_1834_04_01_contested_lines.json` is the reading, with the IIIF regions each line was read at.",
+      "quote": "[uncertain: ? 2-8. HOGAN]\nof Litera |:\nthe Post Office a Chi\nday of peer mea\nhomas Jacubus | *”’\nJno. M. Jones”\nSanford Johnspn' *\nJohn Kilpatrick t\nPaul Kingston “74.1\nMons: Kinbert iol\n+| Harlow Kimball: 4.1\nArchibald Knox\nWin Lou! «\nA Jacob 32 Linsing 3\niregory. 1\nRobort Loveland :\n2. BAH, Laughton\nRead Lew: q\nWilson McClinton 6”\nThoina# McClintock \"|\n“Wm. J. Matlate'*\nJ cy B. McEwen\n[uncertain: ? Leonard Morse i /]\ndiy\nlihg that o\nties compo\nby the ae\n'\nrs Cy ' voice of tl\nHenry 8. Misner\nEmily Morgan *\nJacob Miller\nStephen Mack\nMary Meacham\nin Ralph Martin\nJames D. Myroa\n2 Nelson Murray\n«Michael Nowland\nrd Brencia 2 Noxtbrop\nebecen Ostrander\nRobt. Ogilley Maayfa\nDadly Peck } No.\nGeo. N. Powell { HE su\nTimothy. E. Parsons . eaten\nWin, Prendergust t!\nMary Polk a\nFrancis Perry c\nEliza Pearce 2 8\nChristopher Paine any regular\nLauretta Plimpton Merchants |\nAustin 'Parsalls }are respectf\nEdward Poor Stock, whe\nGee. B.'Richzrdeon : their order\nhte. es itchy Be promptly e;\nobt. Stephens\n[uncertain: Mason is Sath? PEE:]\nMr. Smith + > | kept om han\nJeremiah Sherwood . | comparison\n‘Mrs,8. Stephens | finish, Aes\nWm. V. Smith “| of New-Yo\nEli Strattan For and (\nDorigiase Sloan\n[uncertain: Robt. Strong Detroit, ?]\nSamuel Shaw: » ;\nCyrus Schiltborn + H6 BR\nLyman. Smith 20 dy\nFranklin Spalding March 24,\nPhilip Scott ; Sits\nOrin N. Stevens ' F\nPeter Schander {LL\nStephen M. Satsby tee\nBenjamin Reed, the,\nIra Raymore apy’\n3. Geo. Square t 3 first rate\nJoseph Skiriner cf Thal sett\nWm. Teall i 1 Lot Has\nHarmou Turner. 1 Lot Che\nWallis: Taylor > | The\nGeorge, Tryon ; est bidder, 0\nee gear : easing Daf\n.V. 8. Torr: an 5\njason B. Vaughan Chieago;:)\nVAmy C. Were : patoeess Sth\nAndrew 8. Wells 2\nH. Walford t\nGortrade Watkina\nMaterson Washbam,\nMansfield Whecler\n« . Walker\nJeddigh Woolle\nEdmond Wright: 4\nMarriet Watren\nFlibu Waltor\nG. He Walker\nTho. C. Webb\nChanncey Woodruff\nPhilip Whittermore.\nS15] There int\n§..C. HOGAN, P.M."
+    },
+    {
+      "id": "c003",
+      "kind": "infrastructure",
+      "reading": "transcription_mediated",
+      "normalized": "[At an adjourn]ed meeting of the B[oard of Trustees] for the Town of Chicago, he[ld at the house] of Dexter Graves in said Town, [on the 5th day] of March 1834, Ordered, That each and every [own]er of every lot, or lots on South [Water Street, beginning] from the U. States reservation, [to […]] Street, make or cause to be [l]a[i]d [a plank] or brick side walk ten feet in w[idth, with two] inch oak curbing, in front of the[ir lots] fronting the road, within the […] limits; [s]aid side walk to be con[structed accor]ding to the pitch of the Town [and to] be completed on or before the fir[st day of […]] next. And in case the said own[er or owners] of said lot [or] lots, shall fail, neg[lect or refuse] [to c]omplete the said side walk w[ithin the pre]scribed time, then the Trustees [will cause the] same to be [c]on[st]ructed, at the [expense of the] owners of said [l]ots. Attest: ISAAC H[ARMON, Sec'y.] March 4[, 1834.]",
+      "locator": {
+        "artifact_role": "primary",
+        "issue_page": 4,
+        "column": 1,
+        "lines": [
+          3839,
+          3861
+        ],
+        "interleaved": true,
+        "lines_of_claim": [
+          3839,
+          3840,
+          3841,
+          3842,
+          3843,
+          3844,
+          3845,
+          3846,
+          3847,
+          3848,
+          3849,
+          3850,
+          3851,
+          3852,
+          3853,
+          3854,
+          3855,
+          3857,
+          3858,
+          3859,
+          3860,
+          3861
+        ]
+      },
+      "entities": [
+        {
+          "as_printed": "of Dexter Graves in said Town,",
+          "normalized": "Dexter Graves",
+          "role": "the Trustees of the Town of Chicago meet at his house",
+          "occupations": [
+            "tavern keeper"
+          ],
+          "associated_places": [
+            "Chicago"
+          ]
+        },
+        {
+          "as_printed": "Arrner ISAAC Ff,",
+          "normalized": "Isaac H[armon]",
+          "role": "secretary to the Board of Trustees for the Town of Chicago, who attests the order",
+          "associated_places": [
+            "Chicago"
+          ]
+        }
+      ],
+      "notes": "THE MOST PLACEABLE THING APRIL 1834 PRINTS, and it is printed once — this ordinance appears in no other issue of the month, in the fallback reading of page 4 column 1, and the words are recoverable because the cut half carries almost the whole of them. It puts a TEN FOOT plank or brick footway with two-inch oak curbing in front of every lot on South Water Street, pitched to the town, at the lot owner's expense and at the Trustees' if he fails. WHAT IS NOT LEGIBLE IS THE EAST END OF THE RUN: line 3845 gives the western terminus, `from the U. States reservation`, and line 3846 has lost the name of the street the run stops at — it reads `Street, make or cause to be tilad`. So the extent is bounded at one end only and the other is NOT supplied here; `[…]` marks the absence rather than inviting a guess. The completion date is lost the same way (`on or before the fir` / `next`). Line 3856 reads `Chicago` and is the interleaved other column intruding, so it is excluded from `lines_of_claim`. The secretary signs `Arrner ISAAC Ff` — `Attest, ISAAC H[…]`; the surname stands at line 3978 of the cut other half as `RMON, Bec'y-`, which reads Harmon, and it is bracketed here rather than asserted because that line belongs to a different segmenter column and is not part of this quote. THE MEETING PLACE IS A BUILDING: the Trustees of the town sat at Dexter Graves's house, which the same issue calls a tavern at line 2821.",
+      "quote": "ted meeting: of the Ba\nforthe. Town of Chicago, he\nof Dexter Graves in said Town,\nof March 1834,\nOrdered, That each andevery.\nere of every Jot, or Jota on South\nfrom the U. States rescrvation,\nStreet, make or cauee to be tilad\nor brick side walk ten feet in w\ninch oak curbing, in front of the\nfronting the road, within ‘the a\nlimits; aid side walk to be con:\nding to the pitch of the Town m\nbe completed on or before the fir\nnext. And in case the said own\nof said lot of lots, shall fail, neg\nomplete the said wide walic w\nscribed time, then the Trustees\nsame to be'tonatnicted, at the ¢\nowners of said fots,\nArrner ISAAC Ff,\n‘March’ 4, Masai Qe"
+    },
+    {
+      "id": "c004",
+      "kind": "business",
+      "reading": "transcription_mediated",
+      "normalized": "[Just] Opened [at] the New Store on the co[rner of South] Water and Clark-streets, a [new] and splendid assortment of [sta]ple [and fancy] DRY [GOO]D[S], Crocker[y] & Glass[ware], HARDWARE and CUT[LERY], Men's and Boys Fur and Cl[oth Caps], Cotton Batting, Yarn an[d Wicking], Sheeting and S[h]irting, B[l]an[kets, &c. &c.] all of which will be sold at the l[owest prices for] Cash or Country Produce. Chicago, No[v]. 1833",
+      "locator": {
+        "artifact_role": "primary",
+        "issue_page": 4,
+        "column": 1,
+        "lines": [
+          3724,
+          3737
+        ],
+        "interleaved": true
+      },
+      "entities": [],
+      "business": {
+        "name": "the New Store at the corner of Water and Clark streets",
+        "proprietors": [],
+        "trade": "dry goods, crockery, hardware and cutlery",
+        "goods": [
+          "Blankets",
+          "Cotton Batting",
+          "Crockery and Glassware",
+          "Cutlery",
+          "Dry Goods",
+          "Fur and Cloth Caps",
+          "Hardware",
+          "Sheeting",
+          "Shirting",
+          "Yarn"
+        ],
+        "street": "South Water Street",
+        "placement": {
+          "class": "corner",
+          "anchor": "the corner of [South] Water and Clark-streets",
+          "offset_text": "the New Store on the, ce\nA Water and. Clark-strests,",
+          "offset_normalized": "the New Store on the co[rner of South] Water and Clark-streets",
+          "street": "South Water Street"
+        }
+      },
+      "ad_copy_date": {
+        "verbatim": "Chicago, Nor, 1833 oe",
+        "iso": "1833-11-01"
+      },
+      "notes": "A CORNER, AND NO PROPRIETOR. The ad names its placement in its first two lines and its signature falls in the cut other half at page 4 column 2 line 3890, where it reads `[uncertain: V. KIMBALL.]`. That line is in a different segmenter column, so it is not part of this quote and the name is NOT minted from it — recorded here and left for a witness that carries it in one piece. `Water` is read as South Water Street because Clark Street crosses South Water and not North Water, and because every other placement in this issue that names a Water Street means the south side; the reading is stated rather than silently normalized. The dateline gives the month as `Nor` and no day, so the copy date is the first of November 1833 by convention and the advertisement is five months old at this printing.",
+      "quote": "< Opened and 1\nthe New Store on the, ce\nA Water and. Clark-strests,\na neo and splendid assortment of\nple f\nDRY 4:00)\nCrockerg & Ginss\nHARDWARE aud CUT\nMen’s andi Boys Fur.and Cl\nCotton Batting, Yarn an\nSheeting and Slirting, Bfanl\nallvof whieh will be nold at the I\nCash or Country Produce.\nChicago, Nor, 1833 oe"
+    },
+    {
+      "id": "c005",
+      "kind": "business",
+      "reading": "transcription_mediated",
+      "normalized": "LIVERY STA[BLE.] [T]he citizens of Chicago an[d the vicinity are inform]ed, that a LIVERY ST[ABLE has been opened] at the Point, a[nd that prepa]rations are bei[ng made to ac]commodate th[em with sad]dle horses, sin[gle horse] [carria]ges [that] will be [kept on hand, all] of which can be had day or ni[ght (for cash on]ly,) at reasonable charges. All [property to be] returned sound as when taken [from the stable] or the person hiring will be hel[d responsible.] Horses kept by the day or week. [THOS.] EPER[SON & CO.]",
+      "locator": {
+        "artifact_role": "primary",
+        "issue_page": 4,
+        "column": 1,
+        "lines": [
+          3796,
+          3809
+        ],
+        "interleaved": true
+      },
+      "entities": [],
+      "business": {
+        "name": "the Livery Stable at the Point",
+        "proprietors": [],
+        "trade": "livery stable",
+        "goods": [
+          "saddle horses",
+          "single horse carriages"
+        ],
+        "street": null,
+        "placement": {
+          "class": "relative",
+          "anchor": "at the Point",
+          "offset_text": "5 at the Point, a",
+          "offset_normalized": "at the Point",
+          "street": null
+        }
+      },
+      "notes": "`at the Point` is Wolf Point, where the branches meet — the only place in this town the paper calls the Point without qualification. The placement class is `relative` and not `corner`, because the Point is a district and not an intersection of two named streets: it says which quarter of the town the stable stands in and nothing finer. The signature is cut to `ee EPER:` here and reads `PERSON & CO` in the other half at line 3342, which is a different segmenter column; the 1834-04-08 printing gives `THOS. EPE[RSON]` at its line 3193. The proprietor is therefore not minted from this issue.",
+      "quote": "LIVERY STA\nTLE citizens of Chicago an\ned, thata LIVERY ST,\n5 at the Point, a\nrations are bei\ncommodate. th\ndle horsce, siny\ngee will be et\nof which can be hadday or ni\nly,) at reasonable charges, . All\nreturned sound as when taken\nor the person hiring will be hel\nHorees kept by the day or week\nee EPER:"
+    },
+    {
+      "id": "c006",
+      "kind": "business",
+      "reading": "transcription_mediated",
+      "normalized": "[STORAGE, COMMISSION AND LUMBER BUSINESS.] [The] subscriber takes thi[s opportu]nity of informing the pub[lic that he has] commenced the above business [as soon as the ice is clear] from the Lake, lath, shing[les, red cedar] posts and all art[ic]les in the lum[ber line …] [h]e is determined to furnish as [low as they] can possibly be afforded in this [place …] will also [k]eep generally on han[d, at his store,] Flour, Grain, and other articles [from the coun]try, upon as reasonable terms a[s … per]mit. Having chartered the [sloop …] Boy for the two first trips, he [will be able to] furnish the first articles that ca[n be procured] from across the Lake. He wo[uld mention to] his friends in Michigan, who [would wish to] ship lumber or other articles t[o him …] he will receive all articles direct[ed to him, and] pay freight and cha[r]ges, and m[ake immediate] returns upon the sale of the [same … he will] also make an advance in cash u[pon all saleable] articles, if required. Calvin B[ritain, esq. at St.] Joseph, and Col. Samuel M[iller, Michigan] City, are his Agents, who wil[l receive and] forward any article directed to [him.] DAVID [CARVER.] Feb. 25, 1834.",
+      "locator": {
+        "artifact_role": "primary",
+        "issue_page": 4,
+        "column": 1,
+        "lines": [
+          3810,
+          3838
+        ],
+        "interleaved": true,
+        "lines_of_claim": [
+          3812,
+          3813,
+          3814,
+          3815,
+          3816,
+          3817,
+          3818,
+          3819,
+          3820,
+          3821,
+          3822,
+          3823,
+          3824,
+          3825,
+          3826,
+          3827,
+          3828,
+          3829,
+          3830,
+          3831,
+          3832,
+          3833,
+          3834,
+          3835,
+          3836,
+          3837,
+          3838
+        ]
+      },
+      "entities": [
+        {
+          "as_printed": "DAVID",
+          "normalized": "David Carver",
+          "role": "proprietor",
+          "occupations": [
+            "lumber merchant",
+            "commission merchant"
+          ],
+          "associated_places": [
+            "Chicago"
+          ]
+        }
+      ],
+      "business": {
+        "name": "David Carver, storage, commission and lumber",
+        "proprietors": [
+          "David Carver"
+        ],
+        "trade": "storage, commission and lumber",
+        "goods": [
+          "Flour",
+          "Grain",
+          "lath",
+          "red cedar posts",
+          "shingles"
+        ],
+        "street": null,
+        "placement": {
+          "class": "none",
+          "street": null
+        }
+      },
+      "ad_copy_date": {
+        "verbatim": "Feb. 25, 1834.",
+        "iso": "1834-02-25"
+      },
+      "notes": "THE SURNAME IS SUPPLIED AND THE SUPPLY IS NOT FREE. Line 3837 reads `DAVID` and the surname is cut; T-0310 met the same ad in January and left the proprietor bracketed. It is minted here because THIS issue settles it twice over in the same column: the auction notice at line 3194 is signed `veds DAVID hy RVER` — David Carver — and the 1834-04-08 printing of this same advertisement reads `DAVID CARVER` whole at its line 3371. The reading is corroboration between two witnesses, not a guess from a first initial. THE AD DATES THE OPENING OF NAVIGATION: `as soon as the ice is clear from the Lake` and a sloop chartered `for the two first trips` — the lumber trade of 1834 begins when the ice goes, and this is the notice that says so. The vessel's name is cut to `Boy`. No address: the placement is `none` and not a guess, even though line 3821 says he keeps flour and grain `at his [s]tore`.",
+      "quote": "A blade subscnber takes thi\nnity. of informing the pub\ncommenced the above’ busines\natid will have on hand ‘as 00\nclear from the Lake, lath, shing\nposte and all aries in the lum\n@ is determined to furnish as\ncafi possibly be afforded in’ this\nwill also heep generally on han\nFlour, Grain, and other articles\ntry, upon As reagonable terins a\nmit, Having chartered the |\nBoy for ibe twa firet. tripe, he\nfurnish the first articles that ca\nfrom acroes the Lake. ‘He wo\nhis frienda’ in’ Michigan, who\nvhip lumber or other articlés tc\nhe, will receive all articles direct\npay freight and chatges, and? m\n‘returns upom the sale of the. omy\nalso make'an advance in cash uj\narticles, if required. Calvin Ber\nJomeph,»and Cols ‘Samuel Mi\nCity, are his Agents, ‘who wil\nforward apy article directed to |\nDAVID\nFeb. 25, 1834."
+    },
+    {
+      "id": "c007",
+      "kind": "business",
+      "reading": "transcription_mediated",
+      "normalized": "[SMOKED MEATS.] A QUANTITY of highly [flavoured Hams,] Fletches of Bacon, Mess a[nd Prime Pork,] to be sold by D. Elston & Co[., who inform] the public they have fitted up [a smoke house] for the smoking of Hams, Bacon[, &c. &c. and] are prepared to commence the d[rying thereof.] Chicago, Feb. 15, 1834.",
+      "locator": {
+        "artifact_role": "primary",
+        "issue_page": 4,
+        "column": 1,
+        "lines": [
+          3772,
+          3779
+        ],
+        "interleaved": true
+      },
+      "entities": [
+        {
+          "as_printed": "D. Elston & Co,",
+          "normalized": "D. Elston & Co.",
+          "role": "proprietor",
+          "occupations": [
+            "provision dealer"
+          ],
+          "associated_places": [
+            "Chicago"
+          ]
+        }
+      ],
+      "business": {
+        "name": "D. Elston & Co.",
+        "proprietors": [
+          "D. Elston & Co."
+        ],
+        "trade": "provisions and smoked meats",
+        "goods": [
+          "Bacon",
+          "Hams",
+          "Mess and Prime Pork"
+        ],
+        "street": null,
+        "placement": {
+          "class": "none",
+          "street": null
+        }
+      },
+      "ad_copy_date": {
+        "verbatim": "Chicago, Feb. 15, 1834.",
+        "iso": "1834-02-15"
+      },
+      "notes": "A SMOKE HOUSE IS A BUILDING, and the ad says one was `fitted up` — it does not say where, so the placement is `none`. Daniel Elston's other trade is in the same month's 1834-04-08, where he advertises a Chicago soap and candle manufactory; the two are recorded as one house because the ads name the same proprietor, and the goods differ.",
+      "quote": "GUORBs SO\nQUANTITY of highly\nFletchés of Bacon, Mess a\nto be sold by D. Elston & Co,\nthe ‘public they have fitted up\nfor the smoking of Hams, Bacon\nare prepared to commence the d\nChicago, Feb. 15, 1834."
+    },
+    {
+      "id": "c008",
+      "kind": "business",
+      "reading": "transcription_mediated",
+      "normalized": "[CHI]C[A]GO BAKER[Y.] [D.] GRAVES, [WOU]LD inform the [citizens of] Chica[go] [an]d the neighboring set[t]lements, tha[t he has commenced] the Baking Business, in this [town, on] South [Water Street, …] posterior [to] Newbury & Dole's store, [and will always] keep o[n] hand, fresh Bread, [Cakes,] &c. and i[s] ready to supply [the citizens of th]is town, as low as can [be afforded … all orders from the country] [will be] p[u]nctually attended to immediately. [Chicago, March 25], 1834.",
+      "locator": {
+        "artifact_role": "primary",
+        "issue_page": 3,
+        "column": 5,
+        "lines": [
+          3273,
+          3284
+        ],
+        "interleaved": true
+      },
+      "entities": [
+        {
+          "as_printed": "D, GRAVES,",
+          "normalized": "D. Graves",
+          "role": "proprietor",
+          "occupations": [
+            "baker"
+          ],
+          "associated_places": [
+            "Chicago",
+            "South Water Street"
+          ]
+        }
+      ],
+      "business": {
+        "name": "the Chicago Bakery",
+        "proprietors": [
+          "D. Graves"
+        ],
+        "trade": "baker",
+        "goods": [
+          "Bread",
+          "Cakes"
+        ],
+        "street": "South Water Street",
+        "placement": {
+          "class": "relative",
+          "anchor": "Newbury & Dole's store",
+          "offset_text": "South AeA Se bli? postenor\nNewbury & Dole’s store,",
+          "offset_normalized": "South [Water Street, …] posterior [to] Newbury & Dole's store",
+          "street": "South Water Street"
+        }
+      },
+      "notes": "A STOREFRONT PLACED AGAINST ANOTHER STOREFRONT, which is the kind of claim that can put a building on the ground: the bakery stands behind or beyond Newberry & Dole's store on South Water Street. The word is `postenor` and it is read `posterior`, which in this paper's usage means at the back of rather than next door to; the preposition between it and the store's name is cut away and is NOT supplied, so the relation is directional and not measured. The other half of the same printed lines carries the ad's fuller form in the 1834-04-08 and later issues. The proprietor is `D. Graves` as printed and is NOT merged with Dexter Graves the tavern keeper of c003: same surname, different initial usage, and this project does not merge those without a rule.",
+      "quote": "LO AGO BARBERE\nD, GRAVES,\n[LD inform. the oan hs Chica)\ndd the neighboring setthements,: tha\nae the Baking Business, in, this\nSouth AeA Se bli? postenor\nNewbury & Dole’s store,\nKeep oe hand, frssh Bread,\n. &e. and ie ready to supply\niw town, as low as can “\nak gdisinabe attonded to immediately.\n>, 1834. ‘ 7"
+    },
+    {
+      "id": "c009",
+      "kind": "business",
+      "reading": "transcription_mediated",
+      "normalized": "[…] OHIO WHISKEY. [BARR]ELS [Ohio Whiskey …] [for sale by … K.] BOTSFORD, […] next door to Graves' Tavern.",
+      "locator": {
+        "artifact_role": "primary",
+        "issue_page": 3,
+        "column": 5,
+        "lines": [
+          3300,
+          3303
+        ],
+        "interleaved": true
+      },
+      "entities": [
+        {
+          "as_printed": "a bones Og Tx, BOTSFORD,",
+          "normalized": "[K.] Botsford",
+          "role": "proprietor",
+          "occupations": [
+            "grocer"
+          ],
+          "associated_places": [
+            "Chicago"
+          ]
+        }
+      ],
+      "business": {
+        "name": "J. K. Botsford",
+        "proprietors": [
+          "[K.] Botsford"
+        ],
+        "trade": "grocer and dealer in hardware, tin ware and stoves",
+        "goods": [
+          "Ohio Whiskey"
+        ],
+        "street": null,
+        "placement": {
+          "class": "relative",
+          "anchor": "Graves' Tavern",
+          "offset_text": ". next door to Graves’ Tavern.",
+          "offset_normalized": "next door to Graves' Tavern",
+          "street": null
+        }
+      },
+      "notes": "FOUR WORDS THAT PLACE A HOUSE: `next door to Graves' Tavern`. It is the only placement in the corpus so far that ties a store to the tavern the town's Trustees met in (c003), and the two together fix a short stretch of frontage without either of them naming a street. The same advertiser's larger notice in this issue (c010) places his tin ware shop at the corner of Dearborn and Lake streets, which is NOT the same address — a grocer's whiskey consignment and a tin manufactory are two placements of one house, and both are recorded rather than reconciled. The initials are cut here; the corner ad reads `K. BOTSFORD` and the 1834-04-30 issue reads `J. K. BOTSFORD`, which is the form used for the business name.",
+      "quote": "i8 OHIO WHISKEY.\nELS ou erie\na bones Og Tx, BOTSFORD,\n. next door to Graves’ Tavern."
+    },
+    {
+      "id": "c010",
+      "kind": "business",
+      "reading": "transcription_mediated",
+      "normalized": "[TIN WARE.] BY EXPRESS FR[OM DETROIT.] [A] GENERAL assortm[ent of TIN WARE,] which the subscriber [offers for sale, con]sisting of Double Patent [… affecting Bakers,] [a] first rate article; Coffee [Pots, Milk Pans, of] various sizes; Back Can[…] Pails, Dish Kettles, of all [sizes; Milk Strainers,] Scoups, Scales, large and [small; Wash Ba]sons, Tunnels, Dippers, Ti[n Cups, Graters, &c.] The subscriber would i[nform the public that] on the opening of naviga[tion, he will com]mence the manufacturing [of Tin, in all its va]rious branches. J. K. BOTSFORD, [corner of D]earborn and Lake-sts.",
+      "locator": {
+        "artifact_role": "primary",
+        "issue_page": 3,
+        "column": 8,
+        "lines": [
+          3701,
+          3715
+        ],
+        "interleaved": true
+      },
+      "entities": [
+        {
+          "as_printed": ", K. BOTSFORD,",
+          "normalized": "J. K. Botsford",
+          "role": "proprietor",
+          "occupations": [
+            "tinsmith",
+            "grocer"
+          ],
+          "associated_places": [
+            "Chicago",
+            "Dearborn Street",
+            "Lake Street"
+          ]
+        }
+      ],
+      "business": {
+        "name": "J. K. Botsford",
+        "proprietors": [
+          "J. K. Botsford"
+        ],
+        "trade": "grocer and dealer in hardware, tin ware and stoves",
+        "goods": [
+          "Coffee Pots",
+          "Dippers",
+          "Dish Kettles",
+          "Graters",
+          "Milk Pans",
+          "Pails",
+          "Scales",
+          "Tin Cups",
+          "Tin Ware",
+          "Tunnels",
+          "Wash Basons"
+        ],
+        "street": "Lake Street",
+        "placement": {
+          "class": "corner",
+          "anchor": "corner of Dearborn and Lake-sts.",
+          "offset_text": "earborn and Lake-sts.",
+          "offset_normalized": "[corner of D]earborn and Lake-sts.",
+          "street": "Lake Street"
+        }
+      },
+      "notes": "THE MONTH'S BEST-CORROBORATED CORNER. The same address is printed four times in April — here, at 1834-04-23 line 2819 (`Pearborn and Lakc-sts.`), at 1834-04-23 line 2662 (`CHINER OF DEARLORS`, i.e. CORNER OF DEARBORN) and at 1834-04-30 line 3147 (`ner of Dearborn and Take-sts.`) — so the corner survives four independent OCR readings of the same standing advertisement. The trade grows across the month: tin ware by express from Detroit here, an iron and stove store by 1834-04-30. `on the opening of navigation` dates the manufacturing to the spring, not to this printing.",
+      "quote": "ick.\nROM DETROIT,\nment of TIN WARE,\ner offers for sale, con-\nit safecting Bakers, «\n> Pots, Muk Pane, of\nadie Si Ra\nIl wizes ; Blilk Strains,\nnd email; Wash Ba-\nTin Cupe, Graters, &c.\ninform. the public that\ngation, he will com-\nig of Tin, in all its va+\n, K. BOTSFORD,\nearborn and Lake-sts."
+    },
+    {
+      "id": "c011",
+      "kind": "business",
+      "reading": "transcription_mediated",
+      "normalized": "J. H. COLLINS & J. D. C[ATON,] ATTORNE[Y]S & COUNSELLOR[S AT LAW,] And [S]olicitors i[n] Chance[ry.] OFFICE: [… door] east of […] [Sou]th Water s[t]re[et], Ch[i]ca[go.] Jan. 20, 1834",
+      "locator": {
+        "artifact_role": "primary",
+        "issue_page": 3,
+        "column": 6,
+        "lines": [
+          3331,
+          3337
+        ],
+        "interleaved": true
+      },
+      "entities": [
+        {
+          "as_printed": "J. H. COLLINS & J. D. ¢",
+          "normalized": "J. H. Collins & J. D. C[aton]",
+          "role": "proprietor",
+          "occupations": [
+            "attorney"
+          ],
+          "associated_places": [
+            "Chicago",
+            "South Water Street"
+          ]
+        }
+      ],
+      "business": {
+        "name": "J. H. Collins & J. D. Caton, attorneys",
+        "proprietors": [
+          "J. H. Collins & J. D. C[aton]"
+        ],
+        "trade": "attorneys and counsellors at law, and solicitors in chancery",
+        "goods": [],
+        "street": "South Water Street",
+        "placement": {
+          "class": "street_only",
+          "street": "South Water Street"
+        }
+      },
+      "notes": "A LAW OFFICE ON SOUTH WATER STREET, and the placement is `street_only` because the line that would fix it — `NE ast of i` at 3335, which is `[…] east of […]` — has lost both the ordinal and the thing it counts east FROM. A `relative` placement needs the paper's own offset text and this one is a hole, not an offset. J. D. Caton appears in the same month as attorney of record in the attachment suits reported on 1834-04-16, which is what settles the cut surname; it is bracketed here all the same, because the cut is in this quote.",
+      "quote": "J. H. COLLINS & J. D. ¢\n13 | ATPORNEVS & COUNSELLOR!\nS Attd ‘Sélicitors te Chane\nNatt OFFICE:\nNE ast of i\ngah Water sine Chage\nJan. 20, 1834 ‘"
+    },
+    {
+      "id": "c012",
+      "kind": "business",
+      "reading": "transcription_mediated",
+      "normalized": "Blacksmithing Busi[ness.] [MAT]THIAS MASON & [CO.] [C]ARRIES on the above business [in its] various branches, on Main-stre[et,] opposite Graves' Tavern, where they [will] keep, ready made, all kinds of Shoe[s, &c.] Work [d]one on the shorte[st notice] and most liberal terms. Chicago, No[v]. 26, 1833.",
+      "locator": {
+        "artifact_role": "primary",
+        "issue_page": 3,
+        "column": 6,
+        "lines": [
+          3392,
+          3400
+        ],
+        "interleaved": true
+      },
+      "entities": [
+        {
+          "as_printed": ". MERTHIAS MASON &",
+          "normalized": "Matthias Mason",
+          "role": "proprietor",
+          "occupations": [
+            "blacksmith"
+          ],
+          "associated_places": [
+            "Chicago",
+            "Main Street"
+          ]
+        }
+      ],
+      "business": {
+        "name": "Matthias Mason & Co., blacksmiths",
+        "proprietors": [
+          "Matthias Mason"
+        ],
+        "trade": "blacksmith",
+        "goods": [
+          "horse shoes"
+        ],
+        "street": "Main Street",
+        "placement": {
+          "class": "relative",
+          "anchor": "Graves' Tavern",
+          "offset_text": "various branches, on Main-stre\n|| opposite Graves’ Tavern, where they",
+          "offset_normalized": "on Main-stre[et,] opposite Graves' Tavern",
+          "street": "Main Street"
+        }
+      },
+      "notes": "`Main-street` IS RECORDED AS PRINTED AND NOT RECONCILED — T-0310 met the same name in January and refused to translate it, and nothing in April settles it either. What April adds is the second anchor: `opposite Graves' Tavern`, which is the third storefront this issue places against that tavern (c009 next door to it, c003 the Trustees sitting in it). A street name nobody can resolve and a landmark three advertisers use are different kinds of evidence, and the placement is built on the landmark.",
+      "quote": "Blacksmithing Busi\n. MERTHIAS MASON &\nARRIES on the. above business\nvarious branches, on Main-stre\n|| opposite Graves’ Tavern, where they\nkeep, ready made, all kinds of Shor\neke. Work ono ‘on the shorte\nand’ most Jiberal terms.\n| Chicago, Noe. 26, 1833."
+    },
+    {
+      "id": "c013",
+      "kind": "business",
+      "reading": "transcription_mediated",
+      "normalized": "[STORAGE,] Forwarding & Com[mission] MERCHANT[S] [CHICAGO—ILL.] Agent[s for] the Merchants[' Line …] REFERENCES— […] [Ro]bert Hunter, Esq.; Ban[k]er & To[…]; Oliver Newberry, [Det]roit; Calvi[n] B[ri]ta[in], Mouth St. [Joseph]; James B. Ca[mpb]ell, Ottawa. Also, Wholesale and Retail Dry Goods, Groceri[es and P]ROVISIONS. Apri[l], 1834. NEWBERRY & D[OLE]",
+      "locator": {
+        "artifact_role": "primary",
+        "issue_page": 3,
+        "column": 2,
+        "lines": [
+          2833,
+          2850
+        ],
+        "interleaved": true,
+        "lines_of_claim": [
+          2833,
+          2835,
+          2836,
+          2837,
+          2839,
+          2840,
+          2841,
+          2842,
+          2843,
+          2844,
+          2845,
+          2846,
+          2847,
+          2848,
+          2850
+        ]
+      },
+      "entities": [
+        {
+          "as_printed": "NEWBERBY & UX",
+          "normalized": "Newberry & Dole",
+          "role": "proprietor",
+          "occupations": [
+            "forwarding merchant",
+            "commission merchant"
+          ],
+          "associated_places": [
+            "Chicago"
+          ]
+        },
+        {
+          "as_printed": "Obiven Nawarnny rout,",
+          "normalized": "Oliver Newberry",
+          "role": "reference named in the advertisement",
+          "associated_places": [
+            "Detroit"
+          ]
+        },
+        {
+          "as_printed": "Janes B. Caursett, Ouawa,",
+          "normalized": "James B. Campbell",
+          "role": "reference named in the advertisement",
+          "associated_places": [
+            "Ottawa"
+          ]
+        },
+        {
+          "as_printed": "Cauvis Batra, Mouth Si,",
+          "normalized": "Calvin Britain",
+          "role": "reference named in the advertisement",
+          "associated_places": [
+            "Mouth of the St. Joseph"
+          ]
+        },
+        {
+          "as_printed": "Bert Huxten, Esq.",
+          "normalized": "Robert Hunter",
+          "role": "reference named in the advertisement"
+        }
+      ],
+      "business": {
+        "name": "Newberry & Dole",
+        "proprietors": [
+          "Newberry & Dole"
+        ],
+        "trade": "forwarding and commission merchants, wholesale and retail dry goods",
+        "goods": [
+          "Dry Goods",
+          "Groceries",
+          "Provisions",
+          "Salt"
+        ],
+        "street": null,
+        "placement": {
+          "class": "none",
+          "street": null
+        }
+      },
+      "ad_copy_date": {
+        "verbatim": "Aprit, ed ROVISIONS",
+        "iso": "1834-04-01"
+      },
+      "notes": "The house whose store the Chicago Bakery is placed behind (c008), advertising here with no address of its own — placement `none`, which is why c008's relative anchor is worth more than this ad is. The reference list is the ad's own and the four names are minted as persons because they are named individuals, not as businesses: Calvin Britain of the mouth of the St. Joseph is the same man David Carver names as his agent there (c006), which is a second, independent sighting of the same commercial link across the lake.",
+      "quote": "a NEWBERBY & UX\n“y. Forwarding @ Coms\nas\n“| MERCHANT\n80 Age: t the Merchants\n}so | REFERENCES—\nbur | Bie ag rye a Cansics ;\nBert Huxten, Esq.\n‘od Banxrn & Tour, By Tie\nvey} Obiven Nawarnny rout,\na Cauvis Batra, Mouth Si,\noe Janes B. Caursett, Ouawa,\nsir| Alsos Wholesale: amd etait. |\non.| Dry Goods Grocert\n8 | Aprit, ed ROVISIONS"
+    },
+    {
+      "id": "c014",
+      "kind": "event",
+      "reading": "transcription_mediated",
+      "normalized": "[…] [FE]ELING that we have been misre[p]resen[ted] [b]y the [no]mination of this [Convention?] of eight individual[s], and being unwil[ling that our fel]low citizens in the other coun[ties composing th]is District should be deceived [by the s]upposition [that] this nomination [is] the [voice of] the people of Cook county, we there[fore take] this me[t]hod to inform them to the con[trary,] [an]d would therefore call a meeting of our [fellow ci]tizens of Cook county, for an expres[sion of their distin]ct choice of a suitable candidate to [represent] the people of this District. [The m]eeting to be held on the 16th [in]st[ant, at] the E[a]gle Hotel [a]t Chicago, at 2 [o'clock, P. M.]",
+      "locator": {
+        "artifact_role": "primary",
+        "issue_page": 3,
+        "column": 5,
+        "lines": [
+          3196,
+          3213
+        ],
+        "interleaved": true
+      },
+      "entities": [],
+      "notes": "A PUBLIC MEETING WITH A ROOM, AN ADDRESS AND AN HOUR: the Eagle Hotel at Chicago, the 16th instant, two in the afternoon. It is extracted for the building and not for the politics — the Eagle Hotel is the room the town's political business was done in, and this issue and 1834-04-16 (where P. B. F. Cable announces he has taken the house) place it three weeks apart. `at 2` is where the line is cut; `o'clock, P. M.` is supplied as the only reading two o'clock admits and is bracketed. No signature survives in this half.",
+      "quote": "SPPulapeaeaac ee ee\nvention.\nLING that'we have been minre; presen -\n{by the mination of this ‘treat Com-\nOf eight Indicidualy, and being unwil-\nOl tizens inthe other coun-\nis District, should be deceived\n1pposition of this nomination being the\nthe people of Cook county: we there:\nthis meshod to inform them to the eon-\nid would thereforo call a meoting of our\ntizens of Cook county, for.an expres.\nict choice of a suitable candidate to\nthe people of this District,\neeting to be held on the 16th gray\nhe Engle Hotel fit Chicago, at'2 .\nciah of large prijpartion of the C\na a tm"
+    },
+    {
+      "id": "c015",
+      "kind": "shipping",
+      "reading": "transcription_mediated",
+      "normalized": "We understand […] that the Sl[o]op Westward Ho, [sailed] on […] Friday last for St. Jo[seph and went] ashore […]",
+      "locator": {
+        "artifact_role": "primary",
+        "issue_page": 3,
+        "column": 1,
+        "lines": [
+          2671,
+          2676
+        ],
+        "interleaved": true,
+        "lines_of_claim": [
+          2671,
+          2672,
+          2673,
+          2674
+        ]
+      },
+      "entities": [],
+      "notes": "The Westward Ho is the vessel this month's marine lists follow: aground on the way to St. Joseph here, arriving from St. Joseph with potatoes, oats and shingles on 1834-04-16 and clearing again on 1834-04-23 and 1834-04-30. It is the first-named of the five or six sail the paper reports for a town whose harbour is still a river mouth. The lines are badly cut and only the vessel, the day and the destination are read; the rest of the sentence is left unsupplied.",
+      "quote": "Vo Understand 1) RES es\nrea that the Sleap Westward Ho,\nrc aot ya 2 Friday Inst, fur St. Jo-\nashore ses sot 9;"
+    },
+    {
+      "id": "c016",
+      "kind": "event",
+      "reading": "transcription_mediated",
+      "normalized": "[DIED,] In this to[w]n, on the [2]6th ult. Mrs. [Diadama?] Wood[r]uff, wi[f]e of Mr. Alson Woo[druff, aged] 24 y[e]ars.",
+      "locator": {
+        "artifact_role": "primary",
+        "issue_page": 3,
+        "column": 2,
+        "lines": [
+          2792,
+          2794
+        ],
+        "interleaved": true
+      },
+      "entities": [
+        {
+          "as_printed": "Woonndrr, wile of Mr. Alson Woe",
+          "normalized": "Mrs. [—] Woodruff",
+          "role": "died in Chicago, 26 March 1834, aged 24",
+          "associated_places": [
+            "Chicago"
+          ]
+        },
+        {
+          "as_printed": "Mr. Alson Woe",
+          "normalized": "Alson Woodruff",
+          "role": "husband of the deceased",
+          "associated_places": [
+            "Chicago"
+          ]
+        }
+      ],
+      "notes": "`In this town` is Chicago and `the 26th ult.` is 26 March 1834, this issue being of 1 April. The wife's given name is not on the page — the line reads `Mrs` and then breaks — so she is minted under her surname alone rather than under a supplied first name. `Woonndrr` for Woodruff is settled by the husband's name on the next line, which the same OCR reads as `Woe` cut at the column edge; `Chauncey Woodruff` also stands in this issue's letter list (c002), and the two are NOT merged.",
+      "quote": "\"Ee In this torn, on t!.6 O6th ult. Mrs\n| Woonndrr, wile of Mr. Alson Woe\nbn | 24 yours."
+    },
+    {
+      "id": "c017",
+      "kind": "notice",
+      "reading": "transcription_mediated",
+      "normalized": "Employment is W[anted by] a person capable of doing [the business] [uncertain: B? of an accomptant and salesin:] [uncertain: ?:| Goods Store, He will 'engage for] [the ensuing] business season, or year, as will b[est suit the] employer. For particulars enquir[e of] Mr. Graves, at his tavern. Chicag[o, April 1, 1834.]",
+      "locator": {
+        "artifact_role": "primary",
+        "issue_page": 3,
+        "column": 2,
+        "lines": [
+          2815,
+          2821
+        ],
+        "interleaved": true
+      },
+      "entities": [
+        {
+          "as_printed": "Mr. Graves, at his tavern. Chicag:",
+          "normalized": "Mr. Graves",
+          "role": "keeps a tavern in Chicago at which enquiries are to be made",
+          "occupations": [
+            "tavern keeper"
+          ],
+          "associated_places": [
+            "Chicago"
+          ]
+        }
+      ],
+      "notes": "Extracted for four words at the end of it: `Mr. Graves, at his tavern`. A want-ad that routes enquiries through a tavern is the same evidence as an advertisement placed `opposite Graves' Tavern` (c012) or `next door to` it (c009) — it says the house was a public address the town used. `Mr. Graves` is minted as printed and NOT merged with Dexter Graves of c003 or D. Graves the baker of c008; the surname is one and the initials are three different things, and this project does not merge on a surname.",
+      "quote": "o,| Employ usent is W:\n4 Ya person capable of doing |\n[uncertain: B? of an accomptant and salesin:]\n[uncertain: ?:| Goods Store, He will ‘engage for]\nbusiness season, or year, as will b\n| employer, For purticulars enquit\n| Mr. Graves, at his tavern. Chicag:"
+    },
+    {
+      "id": "c018",
+      "kind": "notice",
+      "reading": "transcription_mediated",
+      "normalized": "Public [A]uction. [Will] be sold without reserve, on the 8th [day] of April next, at the shop of J. W. [—,] the following property: [—] [first r]ate Cabinet Benches; [—] first rate Cabinet Tools; [Hard]ware; [C]herry Lumber, besides other property. [The proper]ty will be sold to the high[est bidder, on a credit] of three months. Good [endorsed] paper on all sums over three dollars, [and cash on all su]ms under.",
+      "locator": {
+        "artifact_role": "primary",
+        "issue_page": 3,
+        "column": 5,
+        "lines": [
+          3241,
+          3252
+        ],
+        "interleaved": true
+      },
+      "entities": [],
+      "notes": "A CABINET SHOP BEING SOLD UP, three weeks after the same trade advertises a new manufactory in this issue (page 4 column 3, `CABINET AND CHAIR [MANUF]ACTORY`, [MIL]LER & CO.). The shop's owner survives as `J. W.` and no more, and the initials are NOT expanded: the auctioneer of the month is David Carver (1834-04-16) and the sale is at somebody else's shop. What the claim is worth is the contents — cabinet benches, cabinet tools, cherry lumber — which say what a Chicago cabinet shop of 1834 had in it.",
+      "quote": "Public duction.\nL. be sold without reserve, onthe Sth\nH of April next, ot the shop of J.\\W.\nfollow ing property : tn\nate Cabinet Benches. p\nt first rate Cabinet Tools.\nlard ware...\nherry Lumber, besides other property.\nwe. ‘ty will be,.sold to the high-\nSey of three months. Good\nper on all sums over three dollais,\nams Under, C;"
+    },
+    {
+      "id": "c019",
+      "kind": "notice",
+      "reading": "transcription_mediated",
+      "normalized": "Chicago Property. [Wil]l be sold on the 10th July next, [—] [lo]ts fronting on Kinzie and Michigan [streets. Terms o]f Sale—One third in Cash and the [balance in] three and six months, with [interest and] [end]orsers, bearing interest from [—.] JOHN T. TEMPLE. [Chicago], March 24, 1834.",
+      "locator": {
+        "artifact_role": "primary",
+        "issue_page": 3,
+        "column": 5,
+        "lines": [
+          3253,
+          3260
+        ],
+        "interleaved": true
+      },
+      "entities": [
+        {
+          "as_printed": "oe JOUN T. TEMPLE.",
+          "normalized": "John T. Temple",
+          "role": "offers Chicago lots for sale",
+          "associated_places": [
+            "Chicago"
+          ]
+        }
+      ],
+      "ad_copy_date": {
+        "verbatim": ", March 24, 1834, 17",
+        "iso": "1834-03-24"
+      },
+      "notes": "Lots fronting on Kinzie and Michigan streets — both of them north of the river in Kinzie's Addition, which is where the Democrat's land advertising of this spring mostly sits. Recorded as a `notice` and not as a business: it is a man selling his own ground, and the sale is set for July, three months out. John T. Temple is minted; the `Eight Blocks for sale` line at 3261 belongs to the following advertisement and is not part of this quote.",
+      "quote": "hicage Property.’\nL'be sold on the 10th July next, Fi\nto; fronting ‘on Kinzie and Michigans\nf Sdle—One third in Cash and the | |\nthree and six months, with ebrorst\njorsers, bearing interest from\noe JOUN T. TEMPLE.\n, March 24, 1834, 17"
+    },
+    {
+      "id": "c020",
+      "kind": "price",
+      "reading": "transcription_mediated",
+      "normalized": "CHICAGO PRICES CURR[ENT.] Reported for the Democrat by P. F. [W. Peck.] CORRECTED WEEKLY. Salt, bbl @ 3 50 · Flour and Meal— Wabash s. fine b[b]l 6 00 · Ohio s. fine bbl 6 00 · Indian meal bush 75 · [Corn] bush 63 · Oats [bush] 63 · Wheat [bush 1 00 a] 63 · Provisions— Beef, fresh lb 2 · do salt mess bbl 9 00 · Materials— Lum[ber, …] 20 · [square] timber, ft 5 · […] per 1000 6 00 · W[oo]d, cord @ [—]",
+      "locator": {
+        "artifact_role": "primary",
+        "issue_page": 3,
+        "column": 6,
+        "lines": [
+          3401,
+          3474
+        ],
+        "interleaved": true,
+        "lines_of_claim": [
+          3401,
+          3402,
+          3403,
+          3405,
+          3406,
+          3407,
+          3409,
+          3411,
+          3413,
+          3414,
+          3415,
+          3416,
+          3417,
+          3418,
+          3464,
+          3465,
+          3466,
+          3468,
+          3470
+        ]
+      },
+      "entities": [],
+      "notes": "The weekly price current, and it is extracted for the MATERIALS block at its foot rather than for the groceries: lumber, square timber and wood by the cord are what a reconstruction prices a building in, and this is the only issue of April whose materials lines survive the OCR at all. The figures are quoted as the column gives them and the shillings-and-pence layout is not reconstructed; several are cut and are left cut. The reporter's name is `P. F.` here and the expansion to P. F. W. Peck is bracketed, on the strength of the 1834-04-16 column which reads `F. PECI` at its line 3026.",
+      "quote": ",CHICAGO’ PRICES CURR)\n} Reported for the Democrat by P. F.\n' * “CORRECTED WEEKLY.\n| Sait, bbl @ 350\nFlour and Meal—\nWabash 8. fine bet 6 00\nOhio 8. fine bbl 6 00\nIndian meal bush = 75\nange bush 63\nOnte a 63\nWheat «4 1989.63\nProvisions—\nBeef, fresh Yb 2\ndo salt mess bbl 9 00\nMaterials—\nLeombet, ponies apa’ 1608...6, 92 20\n: timber, ft 5\nper 10096 00\n\"| Weed cord’ @ Bd"
+    },
+    {
+      "id": "c021",
+      "kind": "event",
+      "reading": "transcription_mediated",
+      "normalized": "[DESERTED, on the] night, from this Fort, Will[iam W. Morin] a private Soldier: the said [Morin is five feet se]ven inches in height, twen[ty-— years of age,] light complexion; blue eyes[, — hair; was born in] […] Otsego county in [the State of New-Y]ork, is by occupation a car[riage and cabinet] maker, and was enlisted at [— on] the 8th December, 1833, by [— ; one] of his upper front teeth [is gone; in] [uncertain: # address he is very formeat, | D?@n 0 fay] [awk]ward, is quite slow of speech [and much addicte]d to intemperance. [The above reward] will be [pa]id on the de[livery of said W]illiam W. Morin, at any [Military Post, or to] any Officer at this Fort. [Ben]j. Green, […] Y SMITH, [—] Lieut. [—]",
+      "locator": {
+        "artifact_role": "primary",
+        "issue_page": 4,
+        "column": 3,
+        "lines": [
+          4085,
+          4102
+        ],
+        "interleaved": true
+      },
+      "entities": [
+        {
+          "as_printed": "it night,trom this Fort, Wilt.",
+          "normalized": "William W. Morin",
+          "role": "private soldier deserted from Fort Dearborn",
+          "occupations": [
+            "carriage maker",
+            "cabinet maker"
+          ],
+          "associated_places": [
+            "Fort Dearborn"
+          ]
+        },
+        {
+          "as_printed": "inj. Guexe, ve",
+          "normalized": "[uncertain: Benj. Green]",
+          "role": "named at the foot of the desertion notice",
+          "associated_places": [
+            "Fort Dearborn"
+          ]
+        }
+      ],
+      "notes": "A GARRISON NOTICE, and one of the few things in this corpus that describes a person inside Fort Dearborn rather than a building of it. The soldier's surname is cut here to `Wilt.` and `illiam W. Morin` and is settled by the 1834-04-08 reprint of the same notice (its lines 3494-3505). His trade — carriage and cabinet maker — is worth as much as his name: it says the garrison held tradesmen the town could and did lose men to. The officers' names at the foot are cut across the interleave and only one is read, bracketed. The reward figure is not on the page in this half.",
+      "quote": "it night,trom this Fort, Wilt. | 804 for the\n, a private Soldier: the said | Patrons an\nven inches in height, twen- | foregoing, |\nlight complexion; blue eyes|leck, Pere\nLaie a Dtsego county in| Herbert, M\nork, is by occupation a car-\nmaker, ahd was enlisted at POR SPE\nhe 8th December, 3833, by | ¢: ith\nof his upper front’teethy gs | UWB% Sith\n[uncertain: # address he is very formeat, | D?@n 0 fay]\nyard, is quite slow ¢fepeéch’ | Whove tale;\nd to intemperance. as the Knic\nis wil be id on the de-| chanical D\n‘illiam W. Morin, at any | and the Ku\nany Officer ut this Fort. of Magazine,\ninj. Guexe, ve\nY SMITH, 12. 4 Peat taj. | yoo te\n, 1S. 3917 | Worle, spi"
+    },
+    {
+      "id": "c022",
+      "kind": "building",
+      "reading": "transcription_mediated",
+      "normalized": "[Cook Circuit Court, to the] May term, A. D. 1834. [uncertain: va On Attachment. ?] [… county of] Cook, and [on the seve]nteenth day of August, A[. D. 1833, at the suit] of Watson M. Snow, [… of the county of Co]ok, and State aforesaid, and against the [estate of] the said William W. Saunders, for the [sum of s]even hundred and fifty nine dollars and [— cen]ts, directed to Stephen Forbes, Sheriff [of the sa]id county of Cook, to execute, which [said wri]t has been returned by the said sheriff, [as levied] upon the f[o]llowing [des]cribed [property, to wit:] all the right[, title,] and interest and es[tate of t]he [said] William W. Saunders, [in and to] a certain dwelling house and improve[ments, si]tuate and lying on the north half of the [north east quarter?] of the north west quarter of section [—, township] 40 north range 14 east of the third [principal m]eridian. Now unless you, the said [William] W. Saunders, shall personally be and [appear be]fore the Judge of the said Circuit Court [on the fi]rst day of the next term thereof, to be [held a]t the court house in the town of Chica[go, on t]he fourteenth day of May next, give [special b]ail and plead to the said [pl]aintiff's [action, jud]gment will be entered ag[ainst you in favour of] the said Watson M. S[now …]",
+      "locator": {
+        "artifact_role": "primary",
+        "issue_page": 4,
+        "column": 4,
+        "lines": [
+          4153,
+          4181
+        ],
+        "interleaved": true
+      },
+      "entities": [
+        {
+          "as_printed": "ot Watson M. Snow,",
+          "normalized": "Watson M. Snow",
+          "role": "plaintiff in attachment",
+          "associated_places": [
+            "Cook County"
+          ]
+        },
+        {
+          "as_printed": "he w ed William W. Saunders,",
+          "normalized": "William W. Saunders",
+          "role": "defendant, whose dwelling house is levied on",
+          "associated_places": [
+            "Cook County"
+          ]
+        },
+        {
+          "as_printed": "its, directed to Stephen Forbes; Sheeift",
+          "normalized": "Stephen Forbes",
+          "role": "Sheriff of Cook County",
+          "occupations": [
+            "sheriff"
+          ],
+          "associated_places": [
+            "Cook County"
+          ]
+        }
+      ],
+      "notes": "A DWELLING HOUSE PLACED BY SURVEY AND A COURT HOUSE PLACED BY NAME. The levy fixes Saunders's house by quarter-section — the north half of the [—] quarter of the north west quarter of a section in township 40 north, range 14 east — and township 40 is NORTH of the township the town stands in, so this house is outside the plat and is recorded as such. The section number is cut and is not supplied. The second building is the one the case is returnable at: `the court house in the town of Chicago`, 14 May 1834, which is the same court house three suits reported on 1834-04-16 name. `40` is quoted as the transcription gives it and is NOT corrected to 39 to make the house fall inside the town: a wrong township is a different building.",
+      "quote": "Cook Circuit Court, to the\n¢ May torah AL D. 1834.\n[uncertain: va On Attachment. ?]\nWt Pott\ntot Cook, and\nnteenth day of August, A’\not Watson M. Snow,\nok, and Stateaforesnid, ahd against the\n‘the daid Willituy W. Saunders, for the\neven hunfred and fity nine dollars and\nits, directed to Stephen Forbes; Sheeift\nid county,of, Cook, to execute, whieh\nt has been getarned by. the said sheriff,\nupon the fllowing cribed 4\nall the right, and interest and ¢s-\nhe w ed William W. Saunders,\n) a certain dwelling house and improve-\ntuate and lying on the north half of the\nfof the north west quarter of section\n: 40, north range 14 east of the third\nTmaridian. Now unless you, the said\nW, Saunders, shall personally be and\nofore the Judge Wf the said Circuit Court\nrat day of the next term thereof, to. be\nt the cdurt house in the town of Chica-\nne fourteerith day of May next, give\nail and plead to ‘tHe said intifts\ngment will be entered ag:\nthe seid Watton M. S:"
+    }
+  ]
+}

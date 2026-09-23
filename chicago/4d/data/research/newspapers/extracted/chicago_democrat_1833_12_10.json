@@ -1,0 +1,835 @@
+{
+  "schema": 1,
+  "issue_id": "chicago_democrat_1833_12_10",
+  "extracted": "2026-08-28",
+  "extracted_by": "hand, T-0309 — the Democrat read, December 1833",
+  "note": "Vol. I No. 3, and the most consequential issue of the month: it prints the TOWN ORDINANCES adopted at the house of Dexter Graves on 4 December 1833, which appoint the town's assessor and surveyor, its collector's commission and its attorney, put four named men on a committee to contract for REPAIRING THE BRIDGES on the North and South branches, and create the WHARFING LEASE that reserves eighty feet for a street. The wharfing sections 15 and 16 are not minted here: this printing loses whole clauses of them to the column rule and the same ordinance is set again, legibly, at 1833-12-24, so they are claimed from that witness and the two printings are recorded in each other's notes (the one-list-one-cohort discipline T-0292 set for the letter lists). This issue's page 1 also carries a CLEAN setting of three standing advertisements whose No. 1 printing was unreadable — Goss & Cobb's corner, W. Kimball's New Store and A. Clybourn's market — so those are claimed here on the better witness. NO POST-OFFICE LETTER LIST: the sweep returns eight hits and all eight are the paper's own agent list of out-of-county postmasters on page 1. Zero printed lists, zero extracted names.",
+  "claims": [
+    {
+      "id": "c001",
+      "kind": "business",
+      "reading": "transcription_mediated",
+      "quote": "Saddle & Harness Making.\nGOSS & COBB.\nWOULD respectfully inform the inhabit-\nants of Chicago and the neighboring set-\ntements, that they have o\npened a shop in this village\non the corner of Lake and\nCanal-streets, where they\nhave on hand and will man-\nufacture to order,\nLadies' and Gentlemen's\nSADDLES,\nBrass, Silver and Common Mounted\nBridles; Martingales, &c. &c.\nHard leather and common TRUNKS.\nPortmanteus, Valices and Travelling Bags;\nCoaches, Chaises and Waggons Trimmed in\nstyle. Repairing immediately attended to when\nbrought to their shop.\nN. B. By strict attention to business, they\nhope for a share of patronage.\nChicago, Nov. 26, 1833.",
+      "normalized": "Saddle & Harness Making. GOSS & COBB. WOULD respectfully inform the inhabitants of Chicago and the neighboring settlements, that they have opened a shop in this village on the corner of Lake and Canal-streets, where they have on hand and will manufacture to order, Ladies' and Gentlemen's SADDLES, Brass, Silver and Common Mounted Bridles; Martingales, &c. &c. Hard leather and common TRUNKS. Portmanteus, Valices and Travelling Bags; Coaches, Chaises and Waggons Trimmed in style. Repairing immediately attended to when brought to their shop. N. B. By strict attention to business, they hope for a share of patronage. Chicago, Nov. 26, 1833.",
+      "locator": {
+        "artifact_role": "primary",
+        "issue_page": 1,
+        "column": 1,
+        "lines": [
+          94,
+          132
+        ],
+        "lines_of_claim": [
+          94,
+          96,
+          97,
+          99,
+          101,
+          103,
+          105,
+          107,
+          109,
+          111,
+          113,
+          115,
+          117,
+          119,
+          121,
+          123,
+          125,
+          126,
+          127,
+          129,
+          130,
+          132
+        ],
+        "interleaved": true
+      },
+      "entities": [
+        {
+          "as_printed": "GOSS & COBB",
+          "normalized": "Goss & Cobb",
+          "role": "the advertising firm"
+        }
+      ],
+      "business": {
+        "name": "Goss & Cobb",
+        "proprietors": [
+          "Goss",
+          "Cobb"
+        ],
+        "trade": "saddle, harness and trunk making",
+        "goods": [
+          "saddles",
+          "bridles",
+          "martingales",
+          "trunks",
+          "portmanteaus",
+          "valises",
+          "travelling bags",
+          "coach, chaise and waggon trimming"
+        ],
+        "street": "Lake Street",
+        "placement": {
+          "class": "corner",
+          "anchor": "the corner of Lake and Canal streets",
+          "offset_text": "on the corner of Lake and",
+          "offset_normalized": "on the corner of Lake and Canal streets",
+          "street": "Lake Street"
+        }
+      },
+      "ad_copy_date": {
+        "verbatim": "Chicago, Nov. 26, 1833.",
+        "iso": "1833-11-26"
+      },
+      "notes": "THE SAME ADVERTISEMENT AS T-0308 c019, WITH THE ADDRESS RECOVERED. No. 1's printing of Goss & Cobb was broken so badly that the reading could carry the trade and the partners and nothing else; this setting is clean end to end and gives the corner — Lake and Canal streets. That is a placement on the WEST side of the South Branch, a long way from the South Water frontage where every other December advertiser stands, and it is the only December claim that puts a working shop out there. The claim is made on this witness rather than on the earlier one because the earlier one does not say it."
+    },
+    {
+      "id": "c002",
+      "kind": "business",
+      "reading": "transcription_mediated",
+      "quote": "Just Opened and for Sale,\nAt the New Store on the corner of South\nWater and Clark-streets, Chicago, Ill.,\na new and splendid assortment of Fancy and Sta-\nDRY GOODS,\nCrockery & Glass Ware,\nHARDWARE and CUTLERY,\nMen's and Boys' Fur and Cloth CAPS,\nCotton Batting, Yarn and Wicking,\nSheeting and Shirting, Blankets, &c. &c.\nall of which will be sold at the lowest prices for\nCash or Country Produce.\nW. KIMBALL.\nChicago, Nov. 1833.",
+      "normalized": "Just Opened and for Sale, At the New Store on the corner of South Water and Clark-streets, Chicago, Ill., a new and splendid assortment of Fancy and Sta[ple] DRY GOODS, Crockery & Glass Ware, HARDWARE and CUTLERY, Men's and Boys' Fur and Cloth CAPS, Cotton Batting, Yarn and Wicking, Sheeting and Shirting, Blankets, &c. &c. all of which will be sold at the lowest prices for Cash or Country Produce. W. KIMBALL. Chicago, Nov. 1833.",
+      "locator": {
+        "artifact_role": "primary",
+        "issue_page": 1,
+        "column": 1,
+        "lines": [
+          133,
+          147
+        ],
+        "lines_of_claim": [
+          133,
+          134,
+          135,
+          136,
+          138,
+          139,
+          140,
+          141,
+          142,
+          143,
+          144,
+          145,
+          146,
+          147
+        ],
+        "interleaved": true
+      },
+      "entities": [
+        {
+          "as_printed": "W. KIMBALL",
+          "normalized": "W. Kimball",
+          "role": "advertiser",
+          "occupations": [
+            "merchant"
+          ],
+          "associated_places": [
+            "Chicago"
+          ]
+        }
+      ],
+      "business": {
+        "name": "W. Kimball's New Store",
+        "proprietors": [
+          "W. Kimball"
+        ],
+        "trade": "dry goods, crockery, hardware and cutlery",
+        "goods": [
+          "dry goods",
+          "crockery and glass ware",
+          "hardware",
+          "cutlery",
+          "caps",
+          "cotton batting",
+          "yarn",
+          "wicking",
+          "sheeting",
+          "shirting",
+          "blankets"
+        ],
+        "street": "South Water Street",
+        "placement": {
+          "class": "corner",
+          "anchor": "the corner of South Water and Clark streets",
+          "offset_text": "At the New Store on the corner of South",
+          "offset_normalized": "at the New Store on the corner of South Water and Clark streets",
+          "street": "South Water Street"
+        }
+      },
+      "ad_copy_date": {
+        "verbatim": "Chicago, Nov. 1833.",
+        "iso": "1833-11-01"
+      },
+      "notes": "A SECOND ADDRESS ON THE DEMOCRAT'S OWN CORNER. The paper's imprint puts its office in the building on the corner of South Water and Clark; Kimball's New Store is on the same corner, and a January 1834 reading already in this corpus has him there still. Two documented occupants of one intersection is exactly the evidence a reconstruction needs before it puts a single building there. THE COPY DATE IS A MONTH AND NOT A DAY — 'Chicago, Nov. 1833' — so its ISO form is recorded as the first of the month, which is a convention and not a reading."
+    },
+    {
+      "id": "c003",
+      "kind": "business",
+      "reading": "transcription_mediated",
+      "quote": "Butchering.\nTHE subscriber intends Butchering from four\nto five hundred HOGS this present\nweek, all of which have been well fatted on\nCorn. He wishes to inform his old customers,\nand the people generally, that he intends selling\ncheap for Cash, at wholesale, at his Butcher\nShop two miles from Chicago, and at wholesale\nand retail at his market, on the market square\nin Chicago.\nHe further wishes to inform the public, that\nhe keeps constantly on hand and for sale, at his\nFarm two miles from Chicago, Work Oxen and\nBeef Cattle, Beef both fresh and salt, at whole-\nsale and retail, at his market in Chicago.\nDec. 3, 1833.                    A. CLYBOURN.",
+      "normalized": "Butchering. THE subscriber intends Butchering from four to five hundred HOGS this present week, all of which have been well fatted on Corn. He wishes to inform his old customers, and the people generally, that he intends selling cheap for Cash, at wholesale, at his Butcher Shop two miles from Chicago, and at wholesale and retail at his market, on the market square in Chicago. He further wishes to inform the public, that he keeps constantly on hand and for sale, at his Farm two miles from Chicago, Work Oxen and Beef Cattle, Beef both fresh and salt, at wholesale and retail, at his market in Chicago. Dec. 3, 1833. A. CLYBOURN.",
+      "locator": {
+        "artifact_role": "primary",
+        "issue_page": 1,
+        "column": 1,
+        "lines": [
+          148,
+          163
+        ],
+        "lines_of_claim": [
+          148,
+          149,
+          150,
+          151,
+          152,
+          153,
+          154,
+          155,
+          156,
+          157,
+          158,
+          159,
+          160,
+          161,
+          162,
+          163
+        ]
+      },
+      "entities": [
+        {
+          "as_printed": "A. CLYBOURN",
+          "normalized": "A. Clybourn",
+          "role": "butcher",
+          "occupations": [
+            "butcher",
+            "farmer"
+          ],
+          "associated_places": [
+            "the market square, Chicago",
+            "a farm two miles from Chicago"
+          ]
+        }
+      ],
+      "business": {
+        "name": "A. Clybourn's market on the market square",
+        "proprietors": [
+          "A. Clybourn"
+        ],
+        "trade": "butcher — slaughtering, and a retail market stall",
+        "goods": [
+          "pork",
+          "work oxen",
+          "beef cattle",
+          "fresh beef",
+          "salt beef"
+        ],
+        "street": "the market square",
+        "placement": {
+          "class": "relative",
+          "anchor": "the market square in Chicago",
+          "offset_text": "and retail at his market, on the market square",
+          "offset_normalized": "at his market, on the market square in Chicago",
+          "street": "the market square",
+          "note": "The paper names the market square as the place and gives no side or corner of it, so this locates the stall to the square and no further."
+        }
+      },
+      "ad_copy_date": {
+        "verbatim": "Dec. 3, 1833.",
+        "iso": "1833-12-03"
+      },
+      "notes": "THE MARKET SQUARE IS A WORKING PLACE, AND A NAMED MAN SELLS MEAT ON IT. This is the single most useful placement in the December set for a reconstruction, because the market square is a piece of PUBLIC ground the plat shows and the papers almost never populate: here it carries a butcher's market, supplied from a slaughter house and farm two miles out. The scale is worth keeping — four to five hundred hogs killed in one week, corn-fed — for a village of a few hundred people; most of that meat is going into barrels for the lake trade, not onto Chicago tables. The advertisement is the same one No. 2 prints unreadably a week earlier, where the butcher's NAME is lost entirely; it is claimed on this witness because this witness is the one that says who he is."
+    },
+    {
+      "id": "c004",
+      "kind": "notice",
+      "reading": "transcription_mediated",
+      "quote": "Town Ordinances.\nAt a meeting of the Board of Trustees of\nthe town of Chicago, held at the house of\nDexter Graves, on the 4th day of Decem-\nber, 1833, the following Ordinances were\nadopted, to wit: 4",
+      "normalized": "Town Ordinances. At a meeting of the Board of Trustees of the town of Chicago, held at the house of Dexter Graves, on the 4th day of December, 1833, the following Ordinances were adopted, to wit:",
+      "locator": {
+        "artifact_role": "primary",
+        "issue_page": 3,
+        "column": 5,
+        "lines": [
+          2673,
+          2679
+        ],
+        "lines_of_claim": [
+          2673,
+          2675,
+          2676,
+          2677,
+          2678,
+          2679
+        ],
+        "interleaved": true
+      },
+      "entities": [
+        {
+          "as_printed": "Dexter Graves",
+          "normalized": "Dexter Graves",
+          "role": "the townsman at whose house the trustees met",
+          "occupations": [
+            "tavern keeper"
+          ],
+          "associated_places": [
+            "Chicago"
+          ]
+        }
+      ],
+      "notes": "THE CORPORATION OF CHICAGO MEETS IN A TAVERN KEEPER'S HOUSE. The dateline is the claim: on 4 December 1833 the Board of Trustees sat at the house of Dexter Graves and passed the six ordinances numbered 11 to 16. No. 2 of this paper announced the meeting the day before as taking place 'at Mr. Graves' tomorrow, precisely at 2 o'clock' (1833-12-03 c004), which is how the two notices identify each other. Graves' Tavern is separately documented in this month as the landmark Matthias Mason & Co.'s blacksmith shop stands opposite on Main-street (1833-12-17 c001), so a single building in this town is the council chamber, an inn and a street reference at once. ALREADY READ ONCE, FROM A LATER REPRINT: T-0310 claimed this heading off the 1834-01-07 printing (its c001), where the house reads '[Charl]es Dexter Grave[s]' with the first name broken and supplied. This is the FIRST printing and it gives the name plainly as Dexter Graves, so it is the senior witness for the man; the January claim stands as the reprint that found it."
+    },
+    {
+      "id": "c005",
+      "kind": "notice",
+      "reading": "transcription_mediated",
+      "quote": "F it ordained by the Board of Trustees of\nthe town of Chicago, That George W.\nSnow,bo and he is hereby appointed Assessor &\nSurveyor for said town, for the term of one year\nfroin this date, or until his successor alinll be\nappointed and qualified to act, and that he be\nallowed $3 00 per day for each days services\nrendered ag such assessor and surveyor.",
+      "normalized": "[Be] it ordained by the Board of Trustees of the town of Chicago, That George W. Snow, be and he is hereby appointed Assessor & Surveyor for said town, for the term of one year fro[m] this date, or until his successor sh[a]ll be appointed and qualified to act, and that he be allowed $3 00 per day for each days services rendered a[s] such assessor and surveyor.",
+      "locator": {
+        "artifact_role": "primary",
+        "issue_page": 3,
+        "column": 5,
+        "lines": [
+          2681,
+          2688
+        ],
+        "lines_of_claim": [
+          2681,
+          2682,
+          2683,
+          2684,
+          2685,
+          2686,
+          2687,
+          2688
+        ],
+        "interleaved": true
+      },
+      "entities": [
+        {
+          "as_printed": "George W. Snow",
+          "normalized": "George W. Snow",
+          "role": "assessor and surveyor of the town of Chicago",
+          "occupations": [
+            "surveyor",
+            "assessor"
+          ],
+          "associated_places": [
+            "Chicago"
+          ]
+        }
+      ],
+      "notes": "THE TOWN APPOINTS ITS OWN SURVEYOR, AT THREE DOLLARS A DAY. Ordinance 11 of the 4 December sitting. It matters to a reconstruction for a plain reason: from this date the lines and lot boundaries of Chicago are being set on the ground by a paid town officer with a name, not only by the Canal Commissioners' plat — and George W. Snow is the man whose later reputation is as the inventor of the balloon frame. The daily rate is the town's own measure of how much surveying it expected to need. ALREADY READ ONCE, FROM A LATER REPRINT: T-0310 claimed ordinance 11 off the 1834-01-07 printing (its c002). This is the first printing and it is the one that carries the daily rate ('$3 00 per day') unbroken."
+    },
+    {
+      "id": "c006",
+      "kind": "infrastructure",
+      "reading": "transcription_mediated",
+      "quote": "13, Be it. further Ordained by the Board of\nTrustees of the town of Chicago, That G, W.\nDole, Medore B, Beaubien, Edmund 8, Kimber\nly and John Miller, be appointed o Committee\nto make a contract with son persion, for repair-\ning the Bridges on the North and South branch-\nea of the Chicago River in said town,",
+      "normalized": "13. Be it further Ordained by the Board of Trustees of the town of Chicago, That G. W. Dole, Medore B. Beaubien, Edmund S. Kimber[l]y and John Miller, be appointed a Committee to make a contract with som[e] p[e]rson, for repairing the Bridges on the North and South branch[e]s of the Chicago River in said town.",
+      "locator": {
+        "artifact_role": "primary",
+        "issue_page": 3,
+        "column": 5,
+        "lines": [
+          2695,
+          2701
+        ],
+        "lines_of_claim": [
+          2695,
+          2696,
+          2697,
+          2698,
+          2699,
+          2700,
+          2701
+        ],
+        "interleaved": true
+      },
+      "entities": [
+        {
+          "as_printed": "G, W. Dole",
+          "normalized": "G. W. Dole",
+          "role": "trustees' bridge committee",
+          "occupations": [
+            "merchant"
+          ],
+          "associated_places": [
+            "Chicago"
+          ]
+        },
+        {
+          "as_printed": "Medore B, Beaubien",
+          "normalized": "Medore B. Beaubien",
+          "role": "trustees' bridge committee",
+          "associated_places": [
+            "Chicago"
+          ]
+        },
+        {
+          "as_printed": "Edmund 8, Kimber ly",
+          "normalized": "Edmund S. Kimberly",
+          "role": "trustees' bridge committee",
+          "associated_places": [
+            "Chicago"
+          ]
+        },
+        {
+          "as_printed": "John Miller",
+          "normalized": "John Miller",
+          "role": "trustees' bridge committee",
+          "associated_places": [
+            "Chicago"
+          ]
+        }
+      ],
+      "notes": "THERE ARE TWO BRIDGES IN DECEMBER 1833, AND BOTH NEED REPAIR. This is the hardest documentary fact in the month for anyone building the river: bridges exist on BOTH the North and the South branch inside the town limits, they are in bad enough condition eighteen months before the scene date for the trustees to appoint a four-man committee to contract their repair, and the ordinance of 26 November already fined anyone who removed 'any plank or any piece of timber' from either of them (T-0308 c027) — which says they are plank-decked timber structures whose parts could be carried off. The four names are the town's merchant class: Dole of Newberry & Dole, a Beaubien, a Kimberly and John Miller. ALREADY READ ONCE, FROM A LATER REPRINT: T-0310 claimed ordinance 13 off the 1834-01-07 printing (its c004), where the column rule takes the four committee-men's names away entirely and leaves the verb as '[build]ing'. This printing carries the four names — Dole, Medore B. Beaubien, Edmund S. Kimberly and John Miller — and reads REPAIRING, which is a materially different fact about the bridges: they existed and were in disrepair, rather than being built new."
+    },
+    {
+      "id": "c007",
+      "kind": "notice",
+      "reading": "transcription_mediated",
+      "quote": "14. Be it further Ordained by the Roart of\nTrustees of the town of Chicago, That John\nDean Caton, be and he is hereby appointed At\ntorney for the cor oration of said town, for and)\nduring the term of one year, or until his sceces-\n[uncertain: sor shall be appointed and qualified to act. of |,]",
+      "normalized": "14. Be it further Ordained by the [Bo]ar[d] of Trustees of the town of Chicago, That John Dean Caton, be and he is hereby appointed At[t]orney for the cor[p]oration of said town, for and during the term of one year, or until his succes[s]or shall be appointed and qualified to act.",
+      "locator": {
+        "artifact_role": "primary",
+        "issue_page": 3,
+        "column": 5,
+        "lines": [
+          2703,
+          2708
+        ],
+        "lines_of_claim": [
+          2703,
+          2704,
+          2705,
+          2706,
+          2707,
+          2708
+        ],
+        "interleaved": true
+      },
+      "entities": [
+        {
+          "as_printed": "John Dean Caton",
+          "normalized": "John Dean Caton",
+          "role": "attorney for the corporation of the town of Chicago",
+          "occupations": [
+            "attorney"
+          ],
+          "associated_places": [
+            "Chicago"
+          ]
+        }
+      ],
+      "notes": "THE TOWN HIRES A LAWYER, AND HE ADVERTISES AN ADDRESS A FORTNIGHT LATER. Ordinance 14 appoints John Dean Caton corporation attorney for a year from 4 December 1833; on 17 December he advertises his office as one door east of Brewster, Hogan & Co. on South Water Street (1833-12-17 c007). A town that has just appointed an assessor, a collector's commission and an attorney in one sitting is a corporation that expects to levy and to sue. ALREADY READ ONCE, FROM A LATER REPRINT: T-0310 claimed ordinance 14 off the 1834-01-07 printing (its c005). This is the first printing."
+    },
+    {
+      "id": "c008",
+      "kind": "business",
+      "reading": "transcription_mediated",
+      "quote": "HE subscribers reapectfully tender to their}\nabove named friends, ia § to hia liberal\npatrons, the Pottawatamies, their sincere thanks\nfor past favors, and informa them that they\nhave on hand at their Man Trap, one door north\nof Mr. R. A. Kinzie’s Store, a constant supply\nof freah Bread Cakes, Pastry, &c.; also, Lf-\nQUORS, of every description, which they will\n[uncertain: sell at reduced prices, and his friends can come | !!]\nand get tired for nothing. 5\nJOHN WELLMAKER * 92)\nChicaro, Dee. W189. 3}*",
+      "normalized": "[T]HE subscribers respectfully tender to their above named friends, [and] to h[i]s liberal patrons, the Pottawatamies, their sincere thanks for past favors, and inform[s] them that they have on hand at their Man Trap, one door north of Mr. R. A. Kinzie's Store, a constant supply of fresh Bread[,] Cakes, Pastry, &c.; also, L[I]QUORS, of every description, which they will sell at reduced prices, and his friends can come and get tired for nothing. JOHN WELLMAKER. Chica[g]o, De[c.] 10, 1833.",
+      "locator": {
+        "artifact_role": "primary",
+        "issue_page": 3,
+        "column": 5,
+        "lines": [
+          2659,
+          2671
+        ],
+        "lines_of_claim": [
+          2659,
+          2660,
+          2661,
+          2662,
+          2663,
+          2664,
+          2665,
+          2666,
+          2667,
+          2668,
+          2669,
+          2671
+        ],
+        "interleaved": true
+      },
+      "entities": [
+        {
+          "as_printed": "JOHN WELLMAKER",
+          "normalized": "John Wellmaker",
+          "role": "proprietor of the Man Trap",
+          "occupations": [
+            "baker",
+            "liquor seller"
+          ],
+          "associated_places": [
+            "Chicago"
+          ]
+        },
+        {
+          "as_printed": "Mr. R. A. Kinzie",
+          "normalized": "R. A. Kinzie",
+          "role": "the storekeeper next door",
+          "occupations": [
+            "merchant"
+          ],
+          "associated_places": [
+            "Chicago"
+          ]
+        }
+      ],
+      "business": {
+        "name": "the Man Trap",
+        "proprietors": [
+          "John Wellmaker"
+        ],
+        "trade": "bakery and liquor shop",
+        "goods": [
+          "fresh bread",
+          "cakes",
+          "pastry",
+          "liquors"
+        ],
+        "street": null,
+        "placement": {
+          "class": "relative",
+          "anchor": "Mr. R. A. Kinzie's Store",
+          "offset_text": "one door north of Mr. R. A. Kinzie’s Store",
+          "offset_normalized": "one door north of Mr. R. A. Kinzie's Store",
+          "note": "North of a named store, on a street the advertisement does not name; the anchor is a shopfront and not a corner, so this is a sequence along a frontage rather than a point."
+        }
+      },
+      "ad_copy_date": {
+        "verbatim": "Chicaro, Dee. W189.",
+        "iso": "1833-12-10"
+      },
+      "notes": "A BAKERY AND DRAM SHOP CALLED THE MAN TRAP, ONE DOOR NORTH OF KINZIE'S STORE, ADDRESSED TO THE POTTAWATOMIE TRADE. Three things make this the most vivid claim of the month. It names a building by its SIGN rather than its proprietor — the Man Trap — which is how a frontier shopfront was actually identified. It states its clientele: the advertisement opens 'Hoosiers and Wolverines, Behold Suckers!!!' and thanks 'his liberal patrons, the Pottawatamies', which is a Chicago business in 1833 openly trading with the Indians whose removal treaty was signed in the town three months earlier. And it places itself one door north of R. A. Kinzie's store — a relative placement in a NORTH-SOUTH direction, which means the frontage runs north-south and is therefore not South Water Street. The closing joke, 'his friends can come and get tired for nothing', is left exactly as printed."
+    },
+    {
+      "id": "c009",
+      "kind": "building",
+      "reading": "transcription_mediated",
+      "quote": "ye Auction Sale.\n“OT 7, in block 8, and house op, the\n4 formerly occupied as a Meeting House”?\nsie the bridge on the North Branch of Chic,\nRiver. At the same time, a quantity of\nads, 3 yoke of Oxen in good order and well Bb\nke; Aone horse Waggon, and ono sett fine\nrness, and a lot of Houschold Furniture, to-\nther with sutflry other articles, ‘Terms made\nowratthe time of sale. To commonee 10] cou\nlock, on Saturday 13th mst. at the Engle! pas\nel. a JAS. KINZIE, Aue’r,",
+      "normalized": "Auction Sale. [L]OT 7, in block 8, and house [there]on, [...] formerly occupied as a Meeting House, [near/be]side the bridge on the North Branch of Chic[ago] River. At the same time, a quantity of [go]ods, 3 yoke of Oxen in good order and well b[ro]ke; [o]ne horse Waggon, and one sett [of ha]rness, and a lot of Household Furniture, to[ge]ther with sundry other articles. Terms made [kn]own at the time of sale. To commence [at] 10 [o'c]lock, on Saturday 13th [in]st. at the Eagle[ Hot]el. JAS. KINZIE, Auc[tione]'r.",
+      "locator": {
+        "artifact_role": "primary",
+        "issue_page": 3,
+        "column": 5,
+        "lines": [
+          2586,
+          2599
+        ],
+        "lines_of_claim": [
+          2586,
+          2588,
+          2590,
+          2591,
+          2592,
+          2593,
+          2594,
+          2595,
+          2596,
+          2597,
+          2598,
+          2599
+        ],
+        "interleaved": true
+      },
+      "entities": [
+        {
+          "as_printed": "JAS. KINZIE",
+          "normalized": "James Kinzie",
+          "role": "auctioneer",
+          "occupations": [
+            "auctioneer"
+          ],
+          "associated_places": [
+            "Chicago"
+          ]
+        }
+      ],
+      "notes": "A BUILDING WITH A LOT-AND-BLOCK ADDRESS, A FORMER USE AND A BRIDGE BESIDE IT. Lot 7 in block 8 is a plat coordinate — the only one in the December set — and the house on it was 'formerly occupied as a Meeting House', so the town's first congregation met in a dwelling that is being auctioned off eighteen months before the scene date. The location clause is broken exactly where the preposition stands: the transcription gives 'sie the bridge on the North Branch of Chic, River', which is either 'beside' or 'near', and neither is supplied — what survives is that the house stood at the North Branch bridge. THE SALE IS HELD AT THE EAGLE HOTEL, which is a second Chicago building named in the same notice, and the auctioneer is James Kinzie. Four wagon-loads of the sale's contents — three yoke of oxen, a one-horse waggon, harness and household furniture — are the movables of an ordinary Chicago household of 1833."
+    },
+    {
+      "id": "c010",
+      "kind": "notice",
+      "reading": "transcription_mediated",
+      "quote": "REMOVALS.\nTIE office of tho Clerk of the Cj\n[ county Courta for Cook county eee pg\nto the building one door West of the house H\nCol, Owen,",
+      "normalized": "REMOVALS. [T]HE office of the Clerk of the C[ounty] [C]ourt[…] for Cook county [is removed] to the building one door West of the house [of] Col. Owen.",
+      "locator": {
+        "artifact_role": "primary",
+        "issue_page": 3,
+        "column": 5,
+        "lines": [
+          2577,
+          2583
+        ],
+        "lines_of_claim": [
+          2577,
+          2579,
+          2580,
+          2581,
+          2583
+        ],
+        "interleaved": true
+      },
+      "entities": [
+        {
+          "as_printed": "Col, Owen,",
+          "normalized": "Col. [Thomas J. V.] Owen",
+          "role": "the townsman whose house fixes the clerk's new office",
+          "associated_places": [
+            "Chicago"
+          ]
+        }
+      ],
+      "notes": "A COUNTY OFFICE MOVES, AND ITS NEW ADDRESS IS A PRIVATE HOUSE NEXT DOOR. The Clerk of the County Court for Cook county — Richard J. Hamilton, who attests every estray notice in these papers — is now one door west of Col. Owen's house. Owen is Thomas J. V. Owen, the Indian Agent who signs the town ordinances as President of the Board of Trustees (1833-12-24 c010) and whose office was burgled a fortnight earlier (1833-12-03 c002). That his HOUSE is a public landmark good enough to address a county office by is the claim: in December 1833 Chicago's government is a handful of rooms identified by whose dwelling they stand beside."
+    },
+    {
+      "id": "c011",
+      "kind": "business",
+      "reading": "transcription_mediated",
+      "quote": "NEW BLACKSMITH\nSHOP. Pre\nPIERCE & ABBOTT,\nyy ouL respectfully inform the inhabit-\nants of Chicago and the neighboring set-\nements, that they have commenced the above].\nisiness in gaid town, nearly opposite the Chi-\nret Hotel, where they are ready to wait upon\nI those who may have any ind of work to do\ni their line of business, on the moat liberal\n‘rma. They will manufacture Prarie Plouzhs,\n9 order, and on the shortest notice. By atrict\nttention to business, they hope to receive @\nhare of patronage,\nDec. 10, 1833, 3) Ta",
+      "normalized": "NEW BLACKSMITH SHOP. PIERCE & ABBOTT, W[O]UL[D] respectfully inform the inhabitants of Chicago and the neighboring sett[l]ements, that they have commenced the above [bu]siness in said town, nearly opposite the Chi[ca]g[o] Hotel, where they are ready to wait upon [a]ll those who may have any [k]ind of work to do [in] their line of business, on the most liberal [te]rms. They will manufacture Prarie Plou[gh]s, [t]o order, and on the shortest notice. By strict [a]ttention to business, they hope to receive a share of patronage. Dec. 10, 1833.",
+      "locator": {
+        "artifact_role": "primary",
+        "issue_page": 3,
+        "column": 5,
+        "lines": [
+          2620,
+          2636
+        ],
+        "lines_of_claim": [
+          2620,
+          2621,
+          2623,
+          2625,
+          2626,
+          2627,
+          2628,
+          2629,
+          2630,
+          2631,
+          2632,
+          2633,
+          2634,
+          2635,
+          2636
+        ],
+        "interleaved": true
+      },
+      "entities": [
+        {
+          "as_printed": "PIERCE & ABBOTT",
+          "normalized": "Pierce & Abbott",
+          "role": "the advertising firm"
+        }
+      ],
+      "business": {
+        "name": "the new blacksmith shop opposite the Chicago Hotel",
+        "proprietors": [
+          "Pierce",
+          "Abbott"
+        ],
+        "trade": "blacksmith",
+        "goods": [
+          "prairie ploughs",
+          "blacksmith work"
+        ],
+        "street": null,
+        "placement": {
+          "class": "relative",
+          "anchor": "the Chicago Hotel",
+          "offset_text": "nearly opposite the Chi-\nret Hotel",
+          "offset_normalized": "nearly opposite the Chicago Hotel",
+          "note": "'Nearly opposite' is across a street from a named hotel, so it fixes a frontage and a side and not a lot."
+        }
+      },
+      "ad_copy_date": {
+        "verbatim": "Dec. 10, 1833,",
+        "iso": "1833-12-10"
+      },
+      "notes": "THE SECOND BLACKSMITH, AND THE ONE THAT NAMES THE CHICAGO HOTEL. Matthias Mason & Co. already smiths on Main-street opposite Graves' Tavern; Pierce & Abbott open this week nearly opposite the Chicago Hotel. Two smiths in a village of a few hundred, both placed by which inn they face, is a fair picture of what the trade and the street furniture of the town were. PRAIRIE PLOUGHS made to order is the product line — the shop exists to break sod for the country around, not to shoe the town's horses only. This advertisement is the first printing of a business already in this corpus's gazetteer from a later reading, so the copy date is what dates its opening: 10 December 1833."
+    },
+    {
+      "id": "c012",
+      "kind": "business",
+      "reading": "transcription_mediated",
+      "quote": "TO LOAN,\nJOHN 8. KINZIE,\n[uncertain: orwarding & Commission | Fi]\nWIBRORA TT\nCHICAGO—ILLINOIS. ?",
+      "normalized": "TO LOAN, [money …] JOHN S. KINZIE, [F]orwarding & Commission [MERCHANT] CHICAGO—ILLINOIS.",
+      "locator": {
+        "artifact_role": "primary",
+        "issue_page": 3,
+        "column": 5,
+        "lines": [
+          2565,
+          2575
+        ],
+        "lines_of_claim": [
+          2565,
+          2569,
+          2571,
+          2573,
+          2575
+        ],
+        "interleaved": true
+      },
+      "entities": [
+        {
+          "as_printed": "JOHN 8. KINZIE",
+          "normalized": "John S. Kinzie",
+          "role": "advertiser",
+          "occupations": [
+            "forwarding and commission merchant"
+          ],
+          "associated_places": [
+            "Chicago"
+          ],
+          "note": "THE MIDDLE INITIAL IS A DIGIT, AND `normalized` GUESSES AT IT. The printing sets 'JOHN 8. KINZIE'; no compositor set a digit inside a personal name, and the lines around this one come off the same scan as 'WIBRORA TT' and '[uncertain: orwarding & Commission | Fi]', so the reading here is wrecked. The S in 'John S. Kinzie' is this extraction's normalisation of the 8 and no witness supplies it. The token is left as it stands rather than re-normalised, because every consumer of this claim keys on the string; what it means is ruled instead. T-0844 (folding in T-0854) reads the man as John Harris Kinzie — the town's only John Kinzie, and the forwarding and commission merchant this advertisement names — and folds the card that was minted from the guess onto his: data/residents/card_merge_rulings.json, cluster 'kinzie-john'. Fourth instance of the digit-for-letter fault T-0721 holds."
+        }
+      ],
+      "business": {
+        "name": "John S. Kinzie, forwarding and commission merchant",
+        "proprietors": [
+          "John S. Kinzie"
+        ],
+        "trade": "forwarding and commission merchant",
+        "goods": [],
+        "street": null,
+        "placement": {
+          "class": "none",
+          "anchor": null,
+          "offset_text": null,
+          "note": "The card gives a name, a trade and a town, and no address at all."
+        }
+      },
+      "notes": "A THIRD FORWARDING HOUSE IN A TOWN OF A FEW HUNDRED PEOPLE. Newberry & Dole, B. Jones and Brewster, Hogan & Co. are already forwarding and commission merchants here; John S. Kinzie makes four. That is the trade Chicago actually was in 1833 — not a market but a transfer point between the lake and the country — and the count is the claim. The card is wrecked by the column rule and the 'TO LOAN' heading above it belongs to a different advertisement whose body is lost; only the name, the trade and the town are read."
+    },
+    {
+      "id": "c013",
+      "kind": "notice",
+      "reading": "transcription_mediated",
+      "quote": "Look out for Trouble.\nLL persona who have or shall be found\ntrespassing upon the fractional Bection\no. 29, in Township 39, north range 14 east,\ntamonly called Hurdscrubble, shall be several.\nproseouted by the subscriber, without any to-\n. B. BLAUBIEN,\nCricage. Dee. 4, 1833.",
+      "normalized": "Look out for Trouble. [A]LL persons who have or shall be found trespassing upon the fractional [S]ection [N]o. 29, in Township 39, north range 14 east, [com]monly called Hardscrabble, shall be several[ly] pros[e]cuted by the subscriber, without any [further notice]. [M]. B. BEAUBIEN. Chica[g]o, Dec. 4, 1833.",
+      "locator": {
+        "artifact_role": "primary",
+        "issue_page": 3,
+        "column": 6,
+        "lines": [
+          2764,
+          2772
+        ],
+        "lines_of_claim": [
+          2764,
+          2765,
+          2766,
+          2767,
+          2768,
+          2769,
+          2771,
+          2772
+        ],
+        "interleaved": true
+      },
+      "entities": [
+        {
+          "as_printed": ". B. BLAUBIEN,",
+          "normalized": "[M]. B. Beaubien",
+          "role": "the subscriber warning trespassers off Hardscrabble",
+          "associated_places": [
+            "Hardscrabble",
+            "Chicago"
+          ]
+        }
+      ],
+      "ad_copy_date": {
+        "verbatim": "Cricage. Dee. 4, 1833.",
+        "iso": "1833-12-04"
+      },
+      "notes": "HARDSCRABBLE, NAMED AND LOCATED BY SURVEY. The place the town called Hardscrabble is fractional Section 29 of Township 39 North, Range 14 East — a legal description, printed by the man claiming it, which is the strongest kind of location this corpus produces. Section 29 of T39N R14E lies on the South Branch above the town, and 'commonly called' is the paper telling us the name was in ordinary use. Read with the timber-trespass notice of the week before (1833-12-03 c014) it says the ground around Chicago in the winter of 1833 was being walked over, cut and squatted on faster than its owners could police it."
+    },
+    {
+      "id": "c014",
+      "kind": "notice",
+      "reading": "transcription_mediated",
+      "quote": "FOUND. by,\nx or about the 15th of October last, near] —\nthe Litule Calamink, » amall POCKET [\n20K, containing some money, which the\nmer can have by paying charges an proving\noperty. JOHN MANN,\n[uncertain: Dec. 10, 1833. oe wa | Sel]",
+      "normalized": "FOUND[.] [O]n or about the 15th of October last, near the Little Cal[u]m[et], a small POCKET [BO]OK, containing some money, which the [ow]ner can have by paying charges and proving [pr]operty. JOHN MANN. Dec. 10, 1833.",
+      "locator": {
+        "artifact_role": "primary",
+        "issue_page": 3,
+        "column": 5,
+        "lines": [
+          2602,
+          2610
+        ],
+        "lines_of_claim": [
+          2602,
+          2603,
+          2605,
+          2606,
+          2608,
+          2609,
+          2610
+        ],
+        "interleaved": true
+      },
+      "entities": [
+        {
+          "as_printed": "JOHN MANN",
+          "normalized": "John Mann",
+          "role": "the finder",
+          "associated_places": [
+            "the Little Calumet"
+          ]
+        }
+      ],
+      "ad_copy_date": {
+        "verbatim": "[uncertain: Dec. 10, 1833. oe wa | Sel]",
+        "iso": "1833-12-10"
+      },
+      "notes": "A FOUND-PROPERTY NOTICE THAT NAMES THE LITTLE CALUMET AGAIN. John Mann is the ferryman on the Calumet in other records of this period, and the notice puts him there in October 1833; it is claimed for the same reason as the timber notice a week earlier — the Calumet is the edge of the district this newspaper serves, and both notices show traffic along it. The claim carries no building and no placement in the town."
+    },
+    {
+      "id": "c015",
+      "kind": "notice",
+      "reading": "transcription_mediated",
+      "quote": "Srayed, ¢\nFROM the Door Prairie, about the first of\nNov. last, one large gray Horse, 17 hands\nhigh, and nine years old. One Iron Gray\nMare, 15 1-2 hands high,\nand 9 years old. One Mazina\nRoan Horse, 4 years old, beighth'\notknown, Any person or per-\nons who will take them up and give informa-\nion where they may be jound, shall be amply\newarded, HENRY CLYBURN.",
+      "normalized": "S[t]rayed, FROM the Door Prairie, about the first of Nov. last, one large gray Horse, 17 hands high, and nine years old. One Iron Gray Mare, 15 1-2 hands high, and 9 years old. One M[e]d[i]a[n] Roan Horse, 4 years old, height [n]ot known. Any person or pers[o]ns who will take them up and give informat[i]on where they may be found, shall be amply rewarded. HENRY CLYBURN.",
+      "locator": {
+        "artifact_role": "primary",
+        "issue_page": 3,
+        "column": 5,
+        "lines": [
+          2638,
+          2649
+        ],
+        "lines_of_claim": [
+          2638,
+          2639,
+          2640,
+          2641,
+          2642,
+          2643,
+          2644,
+          2645,
+          2646,
+          2647,
+          2649
+        ],
+        "interleaved": true
+      },
+      "entities": [
+        {
+          "as_printed": "HENRY CLYBURN",
+          "normalized": "Henry Clyburn",
+          "role": "owner of the strayed horses",
+          "associated_places": [
+            "the Door Prairie"
+          ]
+        }
+      ],
+      "notes": "THE STRAY NOTICES ARE THE CORPUS'S BEST INVENTORY OF WHAT AN ANIMAL IN THIS COUNTRY LOOKED LIKE, and this is a Clybourn's — the same family as A. Clybourn, whose market stands on the market square (c003). Three horses described to the hand and the year: a seventeen-hand gray, an iron gray mare of fifteen and a half hands, and a roan of four. It is claimed for the same reason T-0308 claimed its two estrays — the animals in a reconstruction have to be sized from something, and this is the only kind of document that sizes them."
+    }
+  ]
+}

@@ -1,0 +1,155 @@
+{
+  "id": "old_bank_building",
+  "phase": "frame_1834",
+  "name": "The Old Bank Building",
+  "aka": [
+    "the building Hubbard packed in, Lake and LaSalle"
+  ],
+  "archetype": "frame_storefront",
+  "asset": "gltf/old_bank_building__frame_1834.glb",
+  "scene": "1835",
+  "target_date": "1835-07-01",
+  "documented_range": {
+    "from": "1834-01-01",
+    "to": "1835-12-31",
+    "confidence": "inferred",
+    "sources": [
+      "andreas_1884_v1"
+    ],
+    "note": "THE ONE DATED FACT IS A USE, NOT A BUILDING DATE. Andreas records that in 1834 Gurdon S. Hubbard packed 'in the old bank building, corner of Lake and La Salle streets' — the season in which he packed some five thousand hogs. The building is therefore standing in 1834 and is older than that by an unknown margin; the range opens at the start of 1834 because that is the first year a source puts it in existence, not because it was built then. THE SURVIVAL TO THE SCENE DATE IS THE ORDINARY CONTINUITY ARGUMENT and it is untested: nothing reached mentions the building again. Hubbard's own packing moved on — his Kinzie Street packing house is 1837-38 and his South Water Street house is 1840, both already in data/exclusions.json — so the building's 1835 USE is unknown even if the building stood. A NOTE ON THE NAME, WHICH IS AN ANACHRONISM AND IS KEPT ONLY BECAUSE IT IS THE ONLY NAME THERE IS: Chicago had no bank in 1834. The Illinois State Bank branch opened in December 1835, five months after the scene date. So 'the old bank building' is Andreas in 1884 naming a building by something it became, and on 1835-07-01 nobody in Chicago called it that. The id is retained because renaming a record is worse than annotating one; the name field and this note carry the caution."
+  },
+  "change_note": "The building at the corner of Lake and LaSalle that Andreas calls 'the old bank building', in which Gurdon S. Hubbard packed some five thousand hogs in the 1834 season — the beginnings of the trade the city was later built on. What it was doing in July 1835 is unattested, and the name it carries here is one Chicago did not use until after the scene date.",
+  "placement": {
+    "local_e": 465.775,
+    "local_n": -136.424,
+    "rotation_deg": 0.0,
+    "position_confidence": "reconstructed",
+    "position_sources": [],
+    "position_note": "CONJECTURAL, AND THE REASON IS THE DIFFERENCE BETWEEN THIS RECORD AND harmon_loomis_store, WHERE THE SAME PROBLEM IS TAGGED INFERRED. Andreas gives 'corner of Lake and La Salle streets' and no side, exactly as he gives 'corner of Clark and South Water' for Harmon and Loomis. At Clark and South Water two of the four corners fall away on evidence — the north side of South Water was the river frontage — and a third is separately claimed, so the choice is reasoned. Lake and LaSalle is an ordinary four-cornered crossing a block inland with nothing to eliminate any of its quarters, so the corner here is a one-in-four guess with no argument behind it, and a guess with no argument is what conjectural means in this dataset. THE FOUR CANDIDATES ARE ABOUT 40 M APART, which is twice the georeference's own error. METHOD: the modern West Lake Street / North LaSalle Street intersection centre was read from OpenStreetMap at EPSG:26916 E 447526.3, N 4637283.8 (two nodes averaged, spread 14.6 m, fetched 2026-08-11); the origin sits 12.2 m east and 12.2 m south of it less the depth, so the north face is on the Lake frontage and the west face on the LaSalle frontage of a south-east corner lot. WORKING UNCERTAINTY ABOUT 20 M from the georeference, plus about 40 m for the corner. ONE CONTEMPORARY DETAIL WORTH RECORDING ABOUT THIS CROSSING, though it decides nothing: Andreas has 'a pond of water on Lake Street, corner of La Salle, inhabited by frogs' as late as July 1836, so part of this junction was standing water in the mid-1830s. Which part is unstated, and it is not used to choose a corner. Facade bearing 0, north onto Lake Street, inferred from the street rather than from any statement. RECONCILED WITH THE COMMITTED PLAT 2026-08-27 (T-0196), AND THE CLAIM DID NOT MOVE — ONLY THE LINE IT WAS DERIVED AGAINST. The method above put this footprint's north face on the Lake Street frontage, and it found that frontage by taking a MODERN West Lake Street kerb out of OpenStreetMap and stepping 12.2 m off it. That is not this project's own Lake Street: the committed centreline in data/streets/1835.json, offset by half the committed 80 ft corridor, is what tools/generate_plat_lots.py builds every platted block edge from, and it is the line every derived layer in this scene reads. Measured against it, this record's north wall stood 1.62 m OUT PAST the blk_lake_lasalle frontage line, in the platted roadway — far enough into it that tools/generate_frontage_works.py's march refused four steps of Lake Street's plank sidewalk for it and named this building in the refusal. THE REPAIR IS THIS RECORD'S OWN METHOD RUN AGAINST THIS PROJECT'S OWN LINE: the footprint is translated 3.124 m along the face's inward normal — dE -0.025 m, dN -3.124 m in local ENU, so UTM E 447538.5 N 4637262.5 becomes E 447538.475 N 4637259.376 — which leaves its north wall 1.50 m back from the committed frontage line, the same margin tools/generate_block_infill.py gives every reconstructed unit standing on this face, and the same repair the eleven South Water records carry under T-0198 and T-0199. NOTHING ALONG THE STREET MOVED: the along-face position, the block, the corner and the side are untouched, and so is the confidence grade — re-deriving a coordinate from better geometry is not new evidence, and every uncertainty stated above still stands at its stated size. WHAT IT SEATS ON, MEASURED RATHER THAN ASSUMED: reconciled, this building stands on lot 0 of blk_lake_lasalle, which already carries the anonymous roof recon_1835_south_d4_009. That lot was dealt from the pre-plat South Division parcel and not from a block recipe with a declared business front, so the owner's 2026-08-27 business-front clause (tools/plat_occupancy.py) does not reach it and is not invoked here. What is asked instead is the physical test: the nearest of those roofs stands 6.99 m from this footprint at its closest corner, clear of the 3.0 m the separation gate requires, and no committed footprint in the town overlaps this one by a square centimetre.",
+    "symbolic_location": "At the corner of Lake Street and LaSalle Street (today West Lake Street at North LaSalle); the south-east corner, which is this record's guess — the source names no side.",
+    "uncertainty_m": 20,
+    "placement_provisional": false,
+    "vertical_anchor": "terrain",
+    "walk_surface_m": null
+  },
+  "footprint": {
+    "polygon": [
+      [
+        0,
+        0
+      ],
+      [
+        15.24,
+        0
+      ],
+      [
+        15.24,
+        9.144
+      ],
+      [
+        0,
+        9.144
+      ]
+    ],
+    "confidence": "reconstructed",
+    "sources": [],
+    "note": "INVENTED, AND DELIBERATELY THE LARGEST RECTANGLE IN THIS PARCEL. 15.24 x 9.144 m is 50 x 30 ft. No source gives this building a dimension, but the one thing the source does say about it is a statement about VOLUME: Hubbard packed a season's work of some five thousand hogs inside it in 1834, which is not a season a man gets through in a 40 x 25 ft shop. The rectangle is scaled up from the parcel's borrowed 40 x 25 ft on that reasoning alone. THAT REASONING IS WEAKER THAN IT LOOKS and the record should say so: a packing season is months long, hogs come in and barrels go out continuously, and the building needed to hold a day's work rather than a season's. The documented 55 ft cap on South Water Street lots is not evidence about Lake Street and is not applied."
+  },
+  "attributes": {
+    "stories": {
+      "value": 1,
+      "confidence": "reconstructed",
+      "note": "Nothing is attested and there is no typological argument either way — a packing house is a tall single-storey space, a bank building is a two-storey block with offices over, and the name says one thing while the use says the other. One is recorded because it is the smaller claim. Invention, tagged as such."
+    },
+    "construction": {
+      "value": "braced_frame",
+      "confidence": "inferred",
+      "sources": [
+        "andreas_1884_v1"
+      ],
+      "note": "Not stated. Frame is inferred from date and place alone: this project's dossier records the 1834-35 south-side stock as overwhelmingly frame and log with no brick building of consequence before 1837, and a building large enough to pack in wants clear floor, which frame gives and log does not. Braced rather than balloon frame follows the Sauganash record's argument. THE NAME IS NOT USED AS EVIDENCE: a building called a bank might be expected to be masonry, and in Chicago in 1834 it cannot have been."
+    },
+    "wall_height_m": {
+      "value": 4.0,
+      "confidence": "inferred",
+      "note": "No figure is attested. 4.0 m is about 13 ft: a single storey taller than a shop's, which is what hanging and dressing carcasses needs. It inherits the storey count's uncertainty, which is conjectural, so this number is only as good as that guess."
+    },
+    "roof_type": {
+      "value": "gable",
+      "confidence": "inferred",
+      "note": "Not attested. Gable is the near-universal roof form for frame buildings of this type, period and region."
+    },
+    "roof_pitch_deg": {
+      "value": 33.0,
+      "confidence": "inferred",
+      "note": "No pitch is attested for this building. 33 degrees is the frame_storefront archetype's own figure for a store, and it is adopted here rather than the 38 this project uses for taverns because the archetype argues the case from the dataset's one attested store footprint: a store's frontage is long and its plan shallow, so a tavern's pitch puts more roof above the eave than there is wall below it and the building stops reading as a shop. Inferred from construction practice and from the type, not measured."
+    },
+    "chimneys": {
+      "value": 1,
+      "confidence": "inferred",
+      "note": "Not attested. One is the minimum for a working building used through a Chicago winter, and packing is winter work — the season ran when it was cold enough to keep meat. The COUNT is the inference; the stack's position, size and material are the archetype's, per docs/LIBERTIES.md L26."
+    },
+    "shopfront": {
+      "value": false,
+      "confidence": "inferred",
+      "note": "Nothing is attested about this building's street face, and the two uses the sources associate with it — a bank and a hog-packing floor — are both buildings without display windows. Inferred from the attested use rather than from any description; the archetype's default is a composed shopfront and turning it off is a claim this record makes."
+    },
+    "siding_exposure_m": {
+      "value": 0.127,
+      "confidence": "reconstructed",
+      "note": "INVENTED WITHIN A STOCK SET, NOT DERIVED. No source states the exposed face of any Chicago building's siding. The value is one of four period mill sidings — 4.5, 5, 5.5 or 6 in to the weather; this record wears 5 in — dealt by tools/deal_siding_stock.py: keyed to the phase's construction season, because buildings sided from the same season's shipments of St Joseph sawn lumber tend toward one stock, then advanced so no frame building within 60 m shares this one's. The separation is the surface variety T-0049 reconstructs, not a claim about 1835. docs/LIBERTIES.md L148 owns the invention."
+    },
+    "function": {
+      "value": "packing_house",
+      "confidence": "inferred",
+      "sources": [
+        "andreas_1884_v1"
+      ],
+      "note": "The only use any source gives this building is Hubbard's 1834 packing, and that is a use for one season, not a purpose. The building's name implies a different function entirely and the name is anachronistic for 1835. What it held on 1835-07-01 is genuinely unknown; 'packing_house' records the one attested use rather than claiming it continued."
+    },
+    "occupants": {
+      "value": "unattested at the scene date; Gurdon S. Hubbard packed here in the 1834 season",
+      "confidence": "inferred",
+      "sources": [
+        "andreas_1884_v1"
+      ],
+      "note": "Hubbard is documented in the building for one season. He is NOT carried forward: his packing operation moved to Kinzie Street in 1837-38 and to South Water Street in 1840, and this project's data/exclusions.json already keeps both of those out of the 1835 scene. Nobody is attested here in 1835."
+    }
+  },
+  "residents": [
+    {
+      "household": "hh_hubbard_gurdon",
+      "name": "The Hubbard household",
+      "division": "south",
+      "relation": "worked here",
+      "why": "He is documented packing in that building in the 1834 SEASON, which is the season before the scene date, and data/structures/old_bank_building.json grades its own occupancy inferred for exactly that reason. A packing house is a seasonal building and July is not the season.",
+      "sources": [
+        "andreas_1884_v1"
+      ],
+      "basis": "",
+      "persons": [
+        {
+          "name": "Gurdon Saltonstall Hubbard",
+          "relationship": "head",
+          "grade": "attested",
+          "occupation": "packer",
+          "note": "ELECTED A TRUSTEE OF THE TOWN AT THE SECOND ELECTION, 11 AUGUST 1834 - 'J. H. Kinzie, G. S. Hubbard, E. Goodrich, J. K. Boyer, and John S. C. Hogan were chosen Trustees' - so he is on the board through the municipal year that ends in the scene month. He is also the man whose 1881 correction of the Wau-Bun view of Fort Dearborn supplies four of the constraints this project's fort dossier rests on: that the enclosure ran 'nearly north and south, east and west', that the north picket line stood nowhere more than 80 ft from the water, that the ground at the fort was 'not over eight feet above the River at its lowest stage', and that the north and south gates were on one sight line. THE TOWN'S OWN ROLLS, 1833-1835 — CORROBORATION, NOT A GRADE. The early Chicago voter and tax lists held by the Illinois Regional Archives Depository name this person 2 times: Tax list of the Town of Chicago, 1833 — “Hubbard, Gurdon S.” (tax_1833_046, line 98); Election returns — poll list of 1834, filed 11 August 1834 — “Hubbard, G. S.” (poll_1834_055, line 224). These are the town's own contemporary paper rather than a recollection of it, and each appearance says that a man of that name stood on that roll in that year — no more. The reading is twice mediated (Schulz's transcription, then Genealogy Trails' republication) and this project has not seen the IRAD originals. Under the ratified ladder (T-0513) the 1835 poll with a second independent source is attested, the 1835 poll alone or a 1833/1834 list with another source is inferred, and a single appearance with nothing else is a projected resident. This pass WRITES THE EVIDENCE AND MOVES NO GRADE — T-0515 applies the ladder against every source at once. Identity by the crosswalk's own rule: one resident of the surname 'Hubbard' agrees with the entry's forenames; 1 bearer(s) of the surname were considered. (data/research/civic/voter_crosswalk.json). OLD SETTLERS, 1879 — A DATE THIS MAN GAVE FOR HIMSELF, AND STILL NOT A FACT ABOUT 1835. The Calumet Club's FIRST reception to the settlers of Chicago prior to 1840, 27 May 1879, printed its register in the proceedings (Early Chicago, Chicago, 1879, pages 84-90), and this man's entry reads “Hubbard, Gurdon S. | 1818, Oct. 1, | Windsor, Vt. | 76 | 243 White St., Chicago.” — name, his own date of arrival, his birthplace, his age and his 1879 post-office address, in the register's five columns. The date of arrival is HIS RECOLLECTION, set down forty to sixty years after the event; the address is where he lived in 1879 and is never read as an 1835 residence. Under the ratified ladder (T-0513) a later recollection corroborates, enriches and dates and cannot lift a rung by itself, so this record's GRADE IS UNCHANGED by it: T-0513 consolidates the identity and T-0515 regrades. Identity by rule OS1 — surname and spelled-out forename agree, one bearer (data/research/old_settlers/crosswalk.json). THE FEDERAL LAND TRACT SALES — A PURCHASE, AND NEVER A RESIDENCE. The Illinois State Archives' Public Domain Land Tract Sales register enters this person 5 times, as “HUBBARD GURDON S”, “HUBBARD GORDON S”, 1830-09-27 to 1833-10-22: 4 lots in the platted town — lot 1 of block 19 in the town the register codes CHIOT (L1BL19CHIOT, as printed); lot 2 of block 19 in the town the register codes CHIOT (L2BL19CHIOT, as printed); lot 7 of block 19 in the town the register codes CHIOT (L7BL19CHIOT, as printed); lot 8 of block 19 in the town the register codes CHIOT (L8BL19CHIOT, as printed) and 1 parcel of the school section — BL52 of the school section (sec 16 T39N R14E), as read, 2.90 acres stated in all, for $293.00 (ls0239, ls1236, ls1237, ls1238, ls1239). THE REGISTER'S OWN RESIDENCE COLUMN READS UNKNOWN on these rows: a county, a state or nothing, and never a town, which is why a purchase here places nobody. THE SCHOOL-SECTION ROWS ARE GROUND INSIDE THE TOWN, NOT FARMLAND: section 16 of T39N R14E was platted and sold off by lot and by block at the sale of 1833, which is why the register states 0000.00 acres against most of them. Ground inside the town is nearer to this reconstruction than a quarter-section is, and it is still a purchase: the register names a purchaser and never an occupant, and nothing here puts this person on that ground. THE TOWN LOTS ARE THE PLAT ITSELF, AND THEY ARE NOT ACRES: Cook County's register describes them by lot and block in a platted town and gives them no section, no township and no acreage at all, so they add nothing to the acre figure above and $133.00 to the money. This project does not expand the register's town codes, so which addition a lot stands in is carried as the code and not as a name. It is still a purchase and it still places nobody. A purchase and nothing more. It dates and places a transaction; it proposes no residence, and under the ratified ladder it corroborates rather than mints. Identity by the crosswalk's own rule: HUBBARD GURDON S matches Gurdon Saltonstall Hubbard: the forename names Gurdon Saltonstall Hubbard of the 5 people of this surname, and the forename agrees in full. (data/research/land_sales/resident_crosswalk.json). This pass WRITES THE EVIDENCE AND MOVES NO GRADE. Under the ratified ladder (T-0513) a second independent source is what lifts a projected resident, and a land entry is a second source about a TRANSACTION rather than about who was living at Chicago on 1 July 1835 — a man may buy a quarter-section he never sees. T-0515 applies the ladder against every source at once; this pass hands it the evidence and not the verdict. THE 1840 FEDERAL CENSUS — A HEAD FIVE YEARS AFTER THE SCENE, AND NEVER AN 1835 FACT. The 1840 federal census of Chicago, read line by line off the left sheets in this repository, carries 1 head of this name — “Gurdon S. Hubbard” (33S7-9YYJ-W6, printed page 232, line 17). This project has ruled the head a MATCH for this person: the full name agrees, it is unique on both sides, and a discriminator independent of the name — directory persistence — separately places the same person in Chicago after the 1840 book was taken. Under the rule that decided it (L6 matched), by the crosswalk's own ladder (data/research/census_1840/resident_crosswalk.json). LATER EVIDENCE ONLY. The ratified grading ladder binds: an 1839 or 1840 appearance alone is never an 1835 resident, and 1840 household composition is never back-projected to the 1835-07-01 scene. This pass WRITES THE EVIDENCE AND MOVES NO GRADE. Under the ratified ladder (T-0513) a second independent source is what lifts a projected resident, and an 1840 head is a second source about CONTINUED RESIDENCE rather than about who was living at Chicago on 1 July 1835. T-0515 applies the ladder against every source at once; this pass hands it the evidence and not the verdict."
+        }
+      ],
+      "research_note": "THE OLDEST LIVING RESIDENT, AND THE ONE HOUSEHOLD IN THE PARCEL WHOSE ARRIVAL DATE THIS PROJECT HAD TO REFUSE TO GUESS - UNTIL A SENTENCE TURNED UP. Everything about Hubbard's later Chicago life was documented here and the date he first came was a fact everyone knew and nothing in data/sources/ stated, so it was carried as a conjecture citing nothing and left visibly empty rather than quietly filled: it was the case AGENTS.md rule 1 exists for. Hurlbut's American Fur Company chapter, read for T-0575 and cited by this record since T-0594, closes it - Montreal 13 May 1818, Mackinaw 4 July, Chicago the last day of October or the first of November - and the asymmetry that was worth leaving visible is now a smaller and more interesting one. The sentence is the COMPILER'S, not the man's: it stands outside the quotation marks in which Hubbard speaks four lines later, so a date this project had no source for at all now has a source of 1881 at rung 4, and the record says both things on its face rather than letting the citation look like an attestation. WHAT T-0753 ADDED, AND THE ONE THING IT COULD NOT. The same sentence carries more than the date T-0594 spent, and the rest of it is now on the card: `origin` reads \"Windsor, Vermont, by way of Montreal\" rather than the \"Montreal\" a careless reading of the field would have written, and the person carries a `birth_year` of 1802 with the birthplace in its note, both at the inferred grade the rung-4 layer supports and both corroborated by the man's own Calumet Club register entry of 1879. THE PARENTS WERE THE PART THAT DID NOT FIT, AND T-0849 RULED WHERE THEY GO. Hurlbut names Elizur and Abigail (Sage) Hubbard, and this dataset held no structure for them: the only relationship structure it has is the household-level `kin[]` block ratified on 2026-09-05, whose rows are reciprocal between two households IN THIS DATASET, and Hubbard's parents were living in Montreal, were never in this scene, and have no household here. T-0849 set out two readings - leave parentage outside the town as evidence, or invent an external kin row with `household` null - and on 2026-09-10 chose the first, on the ground that both rules `kin[]` enforces are rules about the FAR END. The inverse must be legal; the mirror row must exist. A row with no far end is not a weaker kin row, it is one with the entire checked part removed, and a graded name with nothing checking it is a note. The second reading would also have made every genealogical name in the corpus eligible for a residents layer that reconstructs a town on one day. SO THEY ARE A NOTE, AND THEY ARE ON THE CARD: the `origin` note above names them at inferred, under this record's own Hurlbut citation, which is the idiom the `birth_year` note uses for the birthplace and hh_harmon_elijah_d and hh_porter_jeremiah use for theirs. docs/PROVENANCE.md carries the rule for the next fact that has no field, and tools/validate.py now refuses a null-household kin row in the ruling's own words rather than reporting a household that failed to resolve - a message that would send a later run off to mint a Montreal household, which is the wrong answer twice over. The evidence is unmoved, in bk_afc_004's `entities`."
+    }
+  ],
+  "citations": [
+    {
+      "source_id": "andreas_1884_v1",
+      "citation": "Andreas, A. T. History of Chicago: From the Earliest Period to the Present Time. Vol. 1. Chicago: A. T. Andreas, 1884.",
+      "url": "https://archive.org/details/historyofchicago01andr",
+      "archived_url": "",
+      "tier": 3,
+      "tier_label": "compiled secondary (Andreas)"
+    }
+  ],
+  "research_note": "THE THINNEST BUILDING IN THIS PARCEL THAT IS STILL A BUILDING, AND THE RECORD IS GRADED ACCORDINGLY: position conjectural, footprint conjectural, storeys conjectural, function inferred from a single season's use. It was very nearly left out, and the argument for building it is the project's current one — an absent building is invisible to a visitor while a conjectural one is legible, and the confidence view is what makes that safe. THREE CAUTIONS TRAVEL WITH IT. FIRST, THE NAME IS AN ANACHRONISM: Chicago's first bank, the Illinois State Bank branch, opened in December 1835, five months after the scene date, so nobody in July 1835 called anything 'the old bank building'. The id and name are kept because renaming a record is worse than annotating it, but no interface should present that name as period usage. SECOND, THE CORNER IS A ONE-IN-FOUR GUESS with no argument behind it, which is why the position is conjectural where the otherwise identical harmon_loomis_store is inferred — there, two corners fall away on evidence and a third is separately claimed. THIRD, THE SIZE RESTS ON A VOLUME ARGUMENT that is weaker than it sounds: five thousand hogs is a season, not a building. WHAT WOULD UPGRADE IT: any statement naming the corner; any description of the building at all; Andreas at page-image level around scan p. 1151, where the packing narrative sits; or the 1834-35 town lot records for the Lake and LaSalle block. See docs/RESEARCH/old_bank_building.md.",
+  "research_doc": "docs/RESEARCH/old_bank_building.md",
+  "review_required": false
+}

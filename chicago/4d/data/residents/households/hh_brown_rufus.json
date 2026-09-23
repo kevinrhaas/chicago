@@ -1,0 +1,223 @@
+{
+ "id": "hh_brown_rufus",
+ "name": "The Brown boarding-house household",
+ "division": "south",
+ "head": "brown_rufus",
+ "arrival": {
+  "value": "1833",
+  "confidence": "inferred",
+  "sources": [
+   "andreas_1884_v1"
+  ],
+  "note": "He is a church founder in June 1833 and a militia signatory in 1832, so the household is in the town by then; nothing dates its arrival. The 1832 militia list is the earlier evidence and this value is the conservative reading of it.",
+  "precision": "year"
+ },
+ "party_size_on_arrival": {
+  "value": null,
+  "confidence": "reconstructed",
+  "note": "Not attested."
+ },
+ "origin": {
+  "value": null,
+  "confidence": "reconstructed",
+  "note": "Not attested."
+ },
+ "reason_for_coming": {
+  "value": null,
+  "confidence": "reconstructed",
+  "note": "Not attested."
+ },
+ "lives_at": {
+  "value": "brown_boarding_house",
+  "confidence": "attested",
+  "sources": [
+   "andreas_1884_v1"
+  ],
+  "note": "Phase one recorded both links as null with the reason 'NOT MODELLED, AND IT SHOULD BE'. The building now exists and both fields point at it. Linked by the inferred-household programme's building parcel (docs/ROADMAP.md K1, phase two); the building record carries the evidence."
+ },
+ "works_at": {
+  "value": "brown_boarding_house",
+  "confidence": "attested",
+  "sources": [
+   "andreas_1884_v1"
+  ],
+  "note": "Phase one recorded both links as null with the reason 'NOT MODELLED, AND IT SHOULD BE'. The building now exists and both fields point at it. Linked by the inferred-household programme's building parcel (docs/ROADMAP.md K1, phase two); the building record carries the evidence."
+ },
+ "present_on_scene_date": {
+  "value": "present",
+  "confidence": "inferred",
+  "sources": [
+   "andreas_1884_v1"
+  ],
+  "note": "Documented in the town in 1832 and 1833. Nothing follows the boarding house to 1835, and boarding houses in a town whose population was quadrupling are exactly the businesses that changed hands."
+ },
+ "persons": [
+  {
+   "id": "brown_rufus",
+   "name": "Rufus Brown",
+   "relationship": "head",
+   "grade": "attested",
+   "sex": "male",
+   "occupation": {
+    "value": "boarding_house_keeper",
+    "confidence": "inferred",
+    "sources": [
+     "andreas_1884_v1"
+    ],
+    "note": "Andreas names the house as his - 'the log house of Rufus Brown, where Mr. Porter found table board' - and names his wife as the keeper: 'Mrs. Rufus Brown kept one of the first-class boarding houses.' Which of them the trade belongs to is a question the source answers in favour of his wife and the record says so.",
+    "derived_from": "roles",
+    "roles_at_scene_date": [
+     "boarding_house_keeper"
+    ]
+   },
+   "sources": [
+    "andreas_1884_v1"
+   ],
+   "note": "One of the nine village citizens among the twenty-six founding members of the First Presbyterian Church on 26 June 1833, and a signatory of the 1832 militia agreement submitting to Gholson Kercheval as captain 'until all apprehension of danger from the Indians may have subsided'.",
+   "resident_research": {
+    "programme": "resident-research-2026",
+    "ticket": "T-0508",
+    "outcome": "corroborated",
+    "reviewed_on": "2026-09-05",
+    "asserted_identity": true,
+    "evidence_for": "Independent of the post office in 1830 schedule, 1840 census, parish registers and more.",
+    "notes": "Candidate facts remain unasserted until a source bridges the candidate to the historical record by more than name similarity.",
+    "source_ids": [
+     "census_1830_peoria_county_chicago_precinct",
+     "andreas_1884_v1",
+     "fergus_chicago_directory_1839",
+     "fergus_chicago_directory_1843"
+    ],
+    "refusals": [
+     {
+      "regraded_on": "2026-09-04",
+      "rule": "G2b",
+      "withheld": "the downgrade to inferred",
+      "reason": "This card rests on 1 thing(s) the consolidation did not read — andreas_1884_v1. G2b fired on the seven domains the ladder reads and says nothing about the evidence outside them, so the grade stands. The same reasoning the ladder's own G5 gives for abstaining (T-0515)."
+     }
+    ],
+    "summary": "Independently corroborated; confirmed, not moved."
+   },
+   "merge_ruling": [
+    {
+     "ticket": "T-0839",
+     "verdict": "distinct",
+     "rule": "D3",
+     "cluster": "brown-rufus",
+     "weighed_against": [
+      "brown_mrs_rufus"
+     ],
+     "for_merge": "Nothing but the strip. After it, both readings are `Rufus B Brown` letter for letter, which is M1 — and M1 firing here is the defect, not the argument.",
+     "against_merge": "Fergus 1843 prints them as two entries, one after the other: 458 `Brown, Rufus B., warehouse man, John P. Chapin & Co., res 189 Lake [died, Burlington, Wis., September 2, 1872, aged 69]` and 459 `Brown, Mrs. Rufus B., dress and cloak maker, 189 Lake, up stairs [died February 2, 1890, aged 73.]`. Two trades, two death notices eighteen years apart, one address — a husband and a wife at 189 Lake, and a directory does not enter one person twice under two spellings. The cards read as one person only because the splitter strips `Mrs` before it compares the names."
+    }
+   ],
+   "roles": [
+    {
+     "role": "boarding_house_keeper",
+     "kind": "trade",
+     "as_printed": null,
+     "from": "1673",
+     "to": "1857",
+     "precision": "source_span",
+     "dated_by": "source_describes_date",
+     "covers_scene_date": true,
+     "confidence": "inferred",
+     "sources": [
+      "andreas_1884_v1"
+     ],
+     "claim": null,
+     "note": "THE BOUND IS THE SOURCE'S, NOT THE MAN'S. This role is carried by the card's 1835 occupation block and is dated by what the cited source or sources are ABOUT, which is why `precision` can be no better than the span they cover. The span reaches 1835, so this role stands in the scene-date view. The printing the trade was read off is not on the card and is fetched by T-1254."
+    }
+   ]
+  },
+  {
+   "id": "brown_mrs_rufus",
+   "name": "Mrs Rufus Brown",
+   "relationship": "wife",
+   "grade": "inferred",
+   "sex": "female",
+   "occupation": {
+    "value": "boarding_house_keeper",
+    "confidence": "attested",
+    "sources": [
+     "andreas_1884_v1"
+    ],
+    "note": "'Mrs. Rufus Brown kept one of the first-class boarding houses' - the trade is attributed to her in terms, in a sentence about how the town housed its transients when 'full meant three in a bed sometimes, with the floor covered besides'.",
+    "derived_from": "roles",
+    "roles_at_scene_date": [
+     "boarding_house_keeper"
+    ]
+   },
+   "sources": [
+    "andreas_1884_v1"
+   ],
+   "note": "A WOMAN NAMED ONLY BY HER HUSBAND'S NAME AND DOCUMENTED AS THE PROPRIETOR OF A BUSINESS, which is a combination this literature produces constantly and this schema has to be able to carry. Two women named Brown are among the nine village citizens founding the First Presbyterian Church in June 1833 - 'Mrs. Elizabeth Brown' and 'Mrs. Cynthia Brown' - and one of them may be this woman. The record does not choose: identifying her with either would manufacture a forename out of a surname.",
+   "resident_research": {
+    "programme": "resident-research-2026",
+    "ticket": "T-0508",
+    "outcome": "corroborated",
+    "reviewed_on": "2026-09-05",
+    "asserted_identity": true,
+    "evidence_for": "Independent of the post office in 1830 schedule, 1840 census, parish registers and more.",
+    "notes": "Candidate facts remain unasserted until a source bridges the candidate to the historical record by more than name similarity.",
+    "summary": "Independently corroborated; confirmed, not moved.",
+    "source_ids": [
+     "census_1830_peoria_county_chicago_precinct",
+     "andreas_1884_v1",
+     "fergus_chicago_directory_1839",
+     "fergus_chicago_directory_1843"
+    ]
+   },
+   "merge_ruling": [
+    {
+     "ticket": "T-0839",
+     "verdict": "distinct",
+     "rule": "D3",
+     "cluster": "brown-rufus",
+     "weighed_against": [
+      "brown_rufus"
+     ],
+     "for_merge": "Nothing but the strip. After it, both readings are `Rufus B Brown` letter for letter, which is M1 — and M1 firing here is the defect, not the argument.",
+     "against_merge": "Fergus 1843 prints them as two entries, one after the other: 458 `Brown, Rufus B., warehouse man, John P. Chapin & Co., res 189 Lake [died, Burlington, Wis., September 2, 1872, aged 69]` and 459 `Brown, Mrs. Rufus B., dress and cloak maker, 189 Lake, up stairs [died February 2, 1890, aged 73.]`. Two trades, two death notices eighteen years apart, one address — a husband and a wife at 189 Lake, and a directory does not enter one person twice under two spellings. The cards read as one person only because the splitter strips `Mrs` before it compares the names."
+    }
+   ],
+   "roles": [
+    {
+     "role": "boarding_house_keeper",
+     "kind": "trade",
+     "as_printed": null,
+     "from": "1673",
+     "to": "1857",
+     "precision": "source_span",
+     "dated_by": "source_describes_date",
+     "covers_scene_date": true,
+     "confidence": "attested",
+     "sources": [
+      "andreas_1884_v1"
+     ],
+     "claim": null,
+     "note": "THE BOUND IS THE SOURCE'S, NOT THE MAN'S. This role is carried by the card's 1835 occupation block and is dated by what the cited source or sources are ABOUT, which is why `precision` can be no better than the span they cover. The span reaches 1835, so this role stands in the scene-date view. The printing the trade was read off is not on the card and is fetched by T-1254."
+    }
+   ]
+  }
+ ],
+ "touches_removal": false,
+ "review_required": false,
+ "research_note": "THE ONE HOUSEHOLD IN THIS PARCEL WHOSE BUILDING IS DOCUMENTED, POSITIONED AND ABSENT FROM THE MODEL. Andreas gives the fabric (log), the use (first-class boarding house), the keeper (Mrs Rufus Brown) and the position (immediately behind Peck's store at South Water and LaSalle) - which is more than several buildings already standing in this scene have. A structure record for it is the highest-value single piece of work this parcel has generated. WHY BOARDING HOUSES MATTER OUT OF ALL PROPORTION TO THEIR NUMBER: Andreas says the hotels and boarding houses of 1834 'were always full; and full meant three in a bed sometimes, with the floor covered besides', with emigrants living in their covered wagons outside. The gap between 3,265 people and the dwellings this dataset can name is bridged largely by buildings like this one.",
+ "directories": {
+  "note": "LATER EVIDENCE, BESIDE THE 1835 CLAIMS AND NOT INSIDE THEM. A Chicago directory of 1839, 1843 or 1844 meets somebody of this name and this pass records what it prints. Under the ratified ladder a directory read after 1835 can corroborate that a person attested here was still in Chicago and can print a trade or a street the 1835 record never had; on its own it makes nobody a resident of 1835. Nothing on this person's 1835 record was regraded, moved, dated or given an occupation by this entry. WHAT THIS PASS RULED ONTO THIS HOUSEHOLD, named so the ruling can be found again: each volume below is followed by the printed entries it set against this person and the status the crosswalk ruled them at — a single entry carries what its own `could_carry` declares, and an ambiguous or contested match carries nothing and is shown so that the silence is legible. brown_mrs_rufus, Fergus's Chicago directory of 1843 — f1843_e0459 (a single entry); brown_rufus, Fergus's Chicago directory of 1839 — f1839_e0191 (a single entry); brown_rufus, Fergus's Chicago directory of 1843 — f1843_e0458 (a single entry); brown_rufus, Norris's Chicago directory of 1844 — n1844_e0219 (a single entry).",
+  "sources": [
+   "fergus_chicago_directory_1839",
+   "fergus_chicago_directory_1843",
+   "norris_directory_1844"
+  ],
+  "people": [
+   {
+    "person_id": "brown_mrs_rufus"
+   },
+   {
+    "person_id": "brown_rufus"
+   }
+  ]
+ }
+}

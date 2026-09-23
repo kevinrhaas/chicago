@@ -1,0 +1,25 @@
+{
+  "id": "chm_green_tree_1859",
+  "type": "photograph",
+  "citation": "\"Green Tree Tavern, Chicago, 1859.\" Photograph of the Green Tree Tavern at the north-east corner of Canal and Lake Streets. Chicago History Museum, ICHi-040230.",
+  "date": "c. 1859",
+  "describes_date": "1859",
+  "repository": "Chicago History Museum (ICHi-040230); catalogue records also carried by the Plainfield Public Library District via IDA Illinois and by public-domain aggregators",
+  "url": "https://www.idaillinois.org/digital/collection/ppld01/id/1084",
+  "archived_url": "https://web.archive.org/web/20250126134316/http://www.idaillinois.org/digital/collection/ppld01/id/1084",
+  "tier": 1,
+  "rights_status": "check_required",
+  "asset_use": "cross_check",
+  "verified": false,
+  "note": "THE CLOSEST THING TO DIRECT VISUAL EVIDENCE FOR ANY WOLF POINT BUILDING — a photograph of an actual structure rather than a retrospective drawing of one. Tier 1 because it is a photographic record of the building itself; describes_date 1859 because that is the building it shows, twenty-six years after construction. CORRECTING A CAVEAT THAT IS OFTEN ATTACHED TO IT: this photograph PREDATES the 1880 move and shows the tavern at its original corner, so the usual 'after about forty-seven years of alteration and a move' warning belongs to the post-1880 photographs, not to this one. What does lie between 1833 and 1859 is real alteration — a succession of landlords, a rename to the Chicago Hotel by 1844, and the low one-storey side additions John Gray recalled — so the photograph is evidence for the building's fabric and proportions, not for its 1835 state. It is the single best route to settling the Green Tree's overall dimensions, its exterior finish and whether it had a gallery.",
+  "access_notes": "NOT YET SEEN. The image itself could not be retrieved: picryl.com returns 403 to automated fetchers, the IDA Illinois record is a CONTENTdm page that renders its metadata in JavaScript, and chicagohistory.org was not opened. The title, date, corner and the ICHi-040230 accession number all come from aggregator and library catalogue metadata, not from the Chicago History Museum's own record, so the identification is a strong lead rather than a verified citation. Set verified to true only after someone opens the plate at the holding institution.",
+  "rights_note": "The photograph is old enough to be out of copyright, but the digital surrogate is distributed under Chicago History Museum terms that have not been checked. check_required blocks asset derivation; textual citation stays allowed.",
+  "what_it_supplies": [
+    "the building's exterior as it stood in 1859 at its original corner",
+    "a route to overall dimensions, exterior finish and the gallery question"
+  ],
+  "what_it_does_not_supply": [
+    "the building's 1835 state",
+    "anything about the interior"
+  ]
+}

@@ -1,0 +1,94 @@
+{
+  "_doc": "Count every watercourse Wright draws, on the whole 600 dpi sheet (T-0795).",
+  "ticket": "T-0795",
+  "raster": {
+    "path": "chicago/pre_fire_v1/maps/images/1834-wright-map.jpg",
+    "source_id": "wright_1834_nara_hup",
+    "sha256": "dbb92c0188881d9b6cdf84801b9185a5715496a328125bde895a04058b173266",
+    "size_px": [
+      5050,
+      6628
+    ]
+  },
+  "registration": "data/traces/gcp/wright_1834_nara_hup_gcps.json, `fit` (eleven-point, RMS 16.02 m)",
+  "sweep": {
+    "x0": 600,
+    "y0": 400,
+    "nx": 4,
+    "ny": 5,
+    "tile_w": 1012,
+    "tile_h": 1100,
+    "method": "Twenty tiles read at 1:1, each 1012 x 1100 NA px, covering the whole sheet inside the neat line. Every line that is water and not the river was to be counted; the lacunae L1 and L2 are excluded, being cloth."
+  },
+  "count": {
+    "non_river_watercourses_drawn": 1,
+    "which": [
+      "north_side_slough"
+    ],
+    "note": "ONE. The sheet draws the river \u2014 Main Branch, North Branch, South Branch, the harbour cut, the lake shore and the sand bar \u2014 and exactly one watercourse that is not the river: the double line running north out of the main stem at the North Water/Kinzie corner to Michigan Street. Nothing in the West Division, nothing in Wabansia, nothing in the School Section, nothing along the lake shore, nothing in the Michigan St tract's own ground."
+  },
+  "wright_claims_in_the_terrain": {
+    "north_side_slough": "existence AND course",
+    "lasalle_slough_lower": "existence and mouth only (the course inland is Conley/Stelzer)",
+    "lasalle_slough_upper": "nothing \u2014 inherits its parent's mouth",
+    "state_slough_course": "nothing \u2014 chicagology and Conley/Stelzer",
+    "state_slough_mouth": "the traced re-entrant only",
+    "west_prairie_swale_a": "nothing \u2014 no source at all",
+    "west_prairie_swale_b": "nothing \u2014 no source at all"
+  },
+  "north_side_slough_recheck": {
+    "stations": 45,
+    "paired": 41,
+    "median_departure_m": 1.78,
+    "max_departure_m": 8.03,
+    "median_stroke_separation_m": 13.02,
+    "stroke_separation_range_m": [
+      6.96,
+      22.83
+    ],
+    "m_per_px": 0.7135
+  },
+  "bank_reentrant_picks": {
+    "lasalle_mouth_reentrant": {
+      "px": [
+        2403,
+        2495
+      ],
+      "uncertainty_px": 5,
+      "crop_box": [
+        2370,
+        2440,
+        2470,
+        2540
+      ],
+      "what": "the apex of the V-shaped re-entrant in the river's SOUTH bank line at the west end of the South Water block numbered 50",
+      "local_enu_m": [
+        449.9,
+        -7.7
+      ],
+      "uncertainty_m": 3.6
+    },
+    "state_mouth_reentrant": {
+      "px": [
+        2968,
+        2515
+      ],
+      "uncertainty_px": 5,
+      "crop_box": [
+        2900,
+        2400,
+        3060,
+        2560
+      ],
+      "what": "the apex of the narrow inlet notched into the river's SOUTH bank line at the foot of State Street",
+      "local_enu_m": [
+        848.6,
+        -6.5
+      ],
+      "uncertainty_m": 3.6
+    }
+  },
+  "tolerance_m": 20.0,
+  "confidence": "attested",
+  "confidence_note": "What this record documents is the SHEET: which lines Wright drew and where they fall through a committed affine. Every number is a measurement of a named raster by a named method with committed parameters. What the lines MEAN \u2014 slough, road, ditch \u2014 is not settled by measuring them, and the findings below say so where it matters."
+}

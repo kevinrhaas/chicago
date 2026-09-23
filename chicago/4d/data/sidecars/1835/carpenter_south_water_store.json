@@ -1,0 +1,240 @@
+{
+  "id": "carpenter_south_water_store",
+  "phase": "frame_1833",
+  "name": "Philo Carpenter's South Water Street Store",
+  "aka": [
+    "Carpenter's second store",
+    "the small store between LaSalle and Wells"
+  ],
+  "archetype": "frame_storefront",
+  "asset": "gltf/carpenter_south_water_store__frame_1833.glb",
+  "scene": "1835",
+  "target_date": "1835-07-01",
+  "documented_range": {
+    "from": "1833-08-01",
+    "to": "1835-12-31",
+    "confidence": "inferred",
+    "sources": [
+      "andreas_1884_v1"
+    ],
+    "note": "Andreas: Carpenter 'purchased a lot on South Water Street, between LaSalle and Wells streets' and 'erected a small store' in the summer of 1833. The range opens at 1 August, the middle of that summer, because no month is given and a mid-season date claims less than either end of it. THE SURVIVAL TO THE SCENE DATE IS THE ORDINARY CONTINUITY ARGUMENT, and it is stronger here than on most records in this parcel: this is the building Carpenter MOVED INTO, two years old on the scene date, on the street he had just bought a lot on, and nothing suggests a man does that and then leaves. Carpenter's own advertisement in the Chicago Democrat of 26 November 1833 — drugs, medicines, oils, paints, dye-stuffs, and also dry groceries, glass and nails — shows him trading three months after building it, though it gives no address and so cannot say which of his two premises it was placed from. THE END IS A HOUSEKEEPING BOUND at the scene year, not a demolition date."
+  },
+  "change_note": "The small store Philo Carpenter erected in the summer of 1833 on a lot he had bought on South Water Street between LaSalle and Wells — the second premises of Chicago's first druggist, and the one that makes the survival of his 1832 log shop on Lake Street doubtful. On the scene date it is two years old.",
+  "placement": {
+    "local_e": 387.367,
+    "local_n": -12.319,
+    "rotation_deg": 0.0,
+    "position_confidence": "inferred",
+    "position_sources": [
+      "andreas_1884_v1",
+      "osm_streets_2026"
+    ],
+    "position_note": "PLACED 2026-08-11. THE BLOCK IS DOCUMENTED AND THE LOT WITHIN IT IS NOT. Andreas names the block face exactly — South Water Street between LaSalle and Wells — which is a 123 m frontage, about seven of the street's documented 55 ft lots. This record sits at the middle of it, which is a convention and not evidence. THE UNCERTAINTY IS ANISOTROPIC AND THE ALONG-STREET HALF IS THE BIG ONE: about 20 m across the street from the georeference (data/datum.json, 17.5 m RMS), and about 60 m along it, because the store could have stood at either end of the block face. THE SIDE OF THE STREET IS NOT ARBITRARY: the north side of South Water was the river bank, wharves and landings (docs/research/04-structures-south.md § 12), and a purchased LOT with a store erected on it is a south-side lot. METHOD: the modern intersection centres either end of the block were read from OpenStreetMap at EPSG:26916 — West Upper Wacker Drive / North Wells E 447402.5, N 4637411.6 and West Upper Wacker Drive / North LaSalle E 447525.2, N 4637408.1, fetched 2026-08-11 — the street's centreline interpolated between them at the mid-block easting, the south kerb taken 12.2 m south of that as half an 80 ft platted street, and the footprint's north face set on it. South Water Street is today's Wacker Drive along the south bank, per this project's street-name key. A CHECK: the traced 1834 south bank of the main stem runs 41.7 m north of this record's north face at this easting, which is a plausible street plus wharf depth but is 23 m more than the same measurement at Dearborn — the difference is the georeference's local paper stretch and the uneven build-out of Wacker Drive over the old dock line, not a real widening of the river frontage. Facade bearing 0, north onto South Water, inferred from the street rather than from any statement. RECONCILED WITH THE COMMITTED PLAT 2026-08-27 (T-0199), AND THE CLAIM DID NOT MOVE — ONLY THE LINE IT WAS DERIVED AGAINST. The method above set this footprint's north face on the South Water frontage, and it found that frontage by taking the MODERN West Wacker Drive centreline out of OpenStreetMap and stepping 12.2 m south of it. That is not this project's own South Water Street: the committed centreline in data/streets/1835.json, offset by half the committed 80 ft corridor, is what tools/generate_plat_lots.py builds every platted block edge from, and it is the line every derived layer in this scene reads. Measured against it, this record's north wall stood 6.62 m OUT PAST the blk_south_water_wells frontage line, in the platted roadway — far enough into it that tools/generate_frontage_works.py refused the plank sidewalk along this stretch of South Water in writing and named this building in the refusal. THE REPAIR IS THIS RECORD'S OWN METHOD RUN AGAINST THIS PROJECT'S OWN LINE: the footprint is translated 8.12 m along the face's inward normal — dE +0.067 m, dN -8.119 m in local ENU, so UTM E 447460.0 N 4637391.6 becomes E 447460.067 N 4637383.481 — which leaves its north wall 1.50 m back from the committed frontage line, the same margin tools/generate_block_infill.py gives every reconstructed unit standing on this face, and the same repair the six reconciled under T-0198 carry. NOTHING ALONG THE STREET MOVED: the along-face position, the block, the corner and the side are untouched, and so is the confidence grade — re-deriving a coordinate from better geometry is not new evidence. WHY IT TOOK A SECOND RUN, AND WHOSE DECISION IT WAS. T-0198 measured this exact translation and REFUSED to apply it, for a reason that was real: reconciled onto the plat this building SEATS on lot 2 of blk_south_water_wells, and that lot is one the 665-roof schedule had already dealt to the anonymous South Water frontage run, which tools/generate_block_infill.py refused — one principal roof to a lot. Nothing overlapped; the worst overlap between any of the eleven South Water placements and any committed footprint in the town is zero. What refused this repair was a RULE about entitlement, not the ground. THE OWNER RULED ON 2026-08-27 that a platted business-front lot may carry a documented store at the street AND an anonymous dwelling behind it, on the reasoning that the geometry already permits it and the alternative pays eight roofs and two households for a rule the corrected data had itself called into question. The clause and its three tests are written into tools/plat_occupancy.py; no roof left the town and no household moved. WHAT IS STILL WRONG AND IS LEFT WRITTEN DOWN: the facade bearing stays 0 while this face runs at 359.53 (i.e. -0.47), so the front wall is 1.50 m back at its worst corner and up to 1.56 m at the other. That skew is smaller than the walk's own daylight and it is not corrected here, because rotating a documented record is a second claim and this one is a repair.",
+    "symbolic_location": "South side of South Water Street between Wells Street and LaSalle Street (today the south side of West Wacker Drive between North Wells and North LaSalle), placed at the middle of the block face.",
+    "uncertainty_m": 20,
+    "placement_provisional": false,
+    "vertical_anchor": "terrain",
+    "walk_surface_m": null
+  },
+  "footprint": {
+    "polygon": [
+      [
+        0,
+        0
+      ],
+      [
+        7.62,
+        0
+      ],
+      [
+        7.62,
+        6.096
+      ],
+      [
+        0,
+        6.096
+      ]
+    ],
+    "confidence": "reconstructed",
+    "sources": [],
+    "note": "INVENTED, INSIDE THE ONE ADJECTIVE THE SOURCE OFFERS. Andreas calls it 'a small store' and gives no dimension, so this is deliberately the second-smallest building in the parcel: 7.62 x 6.096 m is 25 x 20 ft. Both figures are borrowed rather than freshly guessed — 20 ft is the documented depth of Hogan's store, the one log footprint in this dataset that is evidence, and 25 ft is the depth derived from the Green Tree Tavern's attested room module, used here as a frontage. The documented South Water lot width of 55 ft is a cap and this sits at less than half of it, which is what 'small' should look like on a street of 40 ft frontages."
+  },
+  "attributes": {
+    "stories": {
+      "value": 1,
+      "confidence": "inferred",
+      "sources": [
+        "andreas_1884_v1"
+      ],
+      "note": "Not stated. Andreas's word is 'small', and a two-storey building would be described by its storeys as Peck's is ('two-story frame') rather than by its size. Inference from the adjective the source chose and from the contrast with the buildings it does describe by height, not from a statement."
+    },
+    "construction": {
+      "value": "braced_frame",
+      "confidence": "inferred",
+      "sources": [
+        "andreas_1884_v1"
+      ],
+      "note": "Not stated, and this record has a reason to hesitate that the others do not: Carpenter's FIRST shop is documented as log, so he was a man who had built in log once. Frame is adopted because this is new work erected on a purchased lot on the town's business street in the summer of 1833, which is when frame was taking over there, and because the dossier records the 1833-35 commercial stock as frame. Braced rather than balloon frame follows the Sauganash record's argument. If this building was log it belongs on the log_dwelling archetype, and that is a bigger correction than a repaint."
+    },
+    "wall_height_m": {
+      "value": 3.0,
+      "confidence": "inferred",
+      "note": "No figure is attested. 3.0 m is about 10 ft, one commercial storey with a little more head-room than a dwelling's. It inherits the storey count's uncertainty."
+    },
+    "roof_type": {
+      "value": "gable",
+      "confidence": "inferred",
+      "note": "Not attested. Gable is the near-universal roof form for frame buildings of this type, period and region."
+    },
+    "roof_pitch_deg": {
+      "value": 33.0,
+      "confidence": "inferred",
+      "note": "No pitch is attested for this building. 33 degrees is the frame_storefront archetype's own figure for a store, and it is adopted here rather than the 38 this project uses for taverns because the archetype argues the case from the dataset's one attested store footprint: a store's frontage is long and its plan shallow, so a tavern's pitch puts more roof above the eave than there is wall below it and the building stops reading as a shop. Inferred from construction practice and from the type, not measured."
+    },
+    "chimneys": {
+      "value": 1,
+      "confidence": "inferred",
+      "note": "Not attested. One is the minimum for a store kept through Chicago winters, and a druggist compounding needs heat. The COUNT is the inference; the stack's position, size and material are the archetype's, per docs/LIBERTIES.md L26."
+    },
+    "dock": {
+      "value": true,
+      "confidence": "reconstructed",
+      "geometry": "absent",
+      "sources": [],
+      "note": "RECONSTRUCTED, UNDER THE OWNER'S RULING OF 2026-08-18 — 'you can add more docks!', given with the general instruction to be liberal with reconstructed items and label them as such (T-0062; data/sources/assets/owner_brief_2026_08_18/README.md). NO SOURCE STATES A DOCK, WHARF OR LANDING AT THIS FRONTAGE — that absence is exactly why this value is reconstructed and not inferred, one tier below the two river warehouses whose dock is stated in the dossier. What bounds the invention: (1) THE TRADE — the second premises of the town's first druggist, on South Water between LaSalle and Wells — the weakest trade case of the five landings this rule draws, carried because the stock of a frontier drug and grocery store reached Chicago the same way every other merchant's did, and the owner's ruling is not to ration the reconstruction to the strongest instances. (2) THE REACH — this building stands on the South Water river frontage between the forks and the Dearborn drawbridge, the working bank the 2026-08-18 brief shows crowded with masts (image 3) and the reach every schooner cargo landed on; a street of merchants whose whole stock came in by water did not work it over two landings. (3) THE PRACTICE — wharfing-out along the south bank is the practice T-0041's research note records as the thing that would move this layer off reconstruction, and the docks it drew are this landing's pattern. The landing itself is the wharf layer's standard form (data/wharves/river_landings.json, tools/generate_river_wharves.py), every dimension invented within the bounds L132 states; geometry 'simplified' is the exact claim — a standard-form landing stands for a statement this record cannot make from evidence. Claimed at docs/LIBERTIES.md L145. The Temple Building on the same frontage gets NO landing from the same rule: worship and a school take nothing off a schooner. STATED AND NOT YET DRAWN: the traced 1834 bank lines end at local E 390 and this frontage lies east of them, so tools/generate_river_wharves.py refuses the landing with that reason on the record (clause 4b) rather than standing a deck on an extrapolated endpoint. T-0106 owns extending the trace; when it reaches this reach the landing draws itself with no further authoring."
+    },
+    "siding_exposure_m": {
+      "value": 0.114,
+      "confidence": "reconstructed",
+      "note": "INVENTED WITHIN A STOCK SET, NOT DERIVED. No source states the exposed face of any Chicago building's siding. The value is one of four period mill sidings — 4.5, 5, 5.5 or 6 in to the weather; this record wears 4.5 in — dealt by tools/deal_siding_stock.py: keyed to the phase's construction season, because buildings sided from the same season's shipments of St Joseph sawn lumber tend toward one stock, then advanced so no frame building within 60 m shares this one's. The separation is the surface variety T-0049 reconstructs, not a claim about 1835. docs/LIBERTIES.md L148 owns the invention."
+    },
+    "function": {
+      "value": "drug_store",
+      "confidence": "attested",
+      "sources": [
+        "andreas_1884_v1",
+        "chicago_democrat_1833_11_26",
+        "chicago_american_1835"
+      ],
+      "note": "Andreas calls it 'a small store' without naming the trade; the trade is inferred from its owner, who was Chicago's first druggist and who advertised in the Chicago Democrat of 26 November 1833 — three months after building this store — offering drugs, medicines, oils, paints and dye-stuffs together with dry groceries, glass and nails. That advertisement carries no address, so it names the TRADE with certainty and the BUILDING not at all. A general store selling drugs among other things is the honest reading of what Carpenter was doing by 1833; 'drug_store' is the label this dataset has for it. THE TRADE IS NO LONGER INFERRED FROM THE MAN: HE ADVERTISES IT, SIGNED, THREE WEEKS BEFORE THE SCENE DATE. \"Drug[s], Medicines, Dye Woo[d]s, DYE STU[F]FS, &c. … a[n] [a]s[so]r[t]e[d] [a]ss[ort]me[nt of Drugs and] Medicines, Dye [St]u[ff]s, &c., &c.; among which are the [following]: A[l]o[e]s, Ipecac, Liquorice Ball … S[u]rgical In[st]rument[s], Trusses … Druggi[st]s, merchants and o[t]hers will find it for their advantage to call before they purchase elsewhere. PHILO CARPENTER.\" — The Chicago American, 1835-06-27, page 3 column 6, claim chicago_american_1835_06_27#c013. That is a drug store selling WHOLESALE TO THE TRADE as well as over a counter, which is the strongest form of the reading this note already argued, and it dates it to the scene year rather than to 1833. SO THE GRADE MOVES FROM `inferred` TO `attested` AND THE VALUE DOES NOT: 'drug_store' was already the right label and is now a documented one. THE ADDRESS IS STILL NOT ATTESTED — none of the American's Carpenter cards carries one, exactly as the 1833 Democrat advertisement carried none — so which of this project's two Carpenter records the advertisement was written from remains the continuity argument made on documented_range and not a fact this claim supplies. THE READING IS TRANSCRIPTION-MEDIATED AND SAYS SO. Under the owner's ruling of 2026-08-28 a claim read through this project's OCR-assisted transcriptions rather than off the page scan grades `attested` in this schema's vocabulary while carrying its own flag: reading = transcription_mediated, with the transcription's own uncertainty brackets preserved inside the quotation rather than tidied away. Where a scan is later read, the scan is the authority and this claim upgrades under it — the standard data/sources/chicago_democrat_1833_11_26.json set when a scan caught 'C. & I. HARMON' where the transcription had 'C. & L. Harmon'."
+    },
+    "occupants": {
+      "value": "Philo Carpenter, druggist",
+      "confidence": "inferred",
+      "sources": [
+        "andreas_1884_v1"
+      ],
+      "note": "Carpenter is documented as the man who bought the lot and erected the store in 1833. That he was still in it on 1835-07-01 is the continuity inference argued on documented_range. No partner, clerk or successor is attested."
+    }
+  },
+  "residents": [
+    {
+      "household": "hh_carpenter_philo",
+      "name": "The Carpenter household",
+      "division": "south",
+      "relation": "worked here",
+      "why": "THE TWO-SHOP PROBLEM, INHERITED FROM THE STRUCTURES LAYER. This dataset holds both philo_carpenter_log_shop on Lake Street near the river and carpenter_south_water_store, and Andreas says he removed FROM the first TO the second. The South Water store is the later of the two and is where the sources leave him, so it is the link; the log shop's own record already argues that its survival to the scene date is doubtful. Inferred, because 'subsequently' is not a date.",
+      "sources": [
+        "andreas_1884_v1"
+      ],
+      "basis": "",
+      "persons": [
+        {
+          "name": "Philo Carpenter",
+          "relationship": "head",
+          "grade": "attested",
+          "occupation": "druggist",
+          "note": "DOCUMENTED CONTEMPORANEOUSLY AND RETROSPECTIVELY, which almost nobody in this parcel is. He was one of the twenty-eight electors of 10 August 1833 and got one vote for trustee; he was one of the nine village citizens among the twenty-six founding members of the First Presbyterian Church on 26 June 1833, and one of its three first elders, and Andreas notes he was the only Presbyterian among them, the rest being Congregationalists. Andreas vol. 1, printed p. 132 (scan p. 281), 'an imperfect list of the denizens of the town in the fall of 1833, not before named' - a name, a trade and usually an arrival year, compiled fifty years after the fact. OLD SETTLERS, 1882 — CORROBORATION, NOT A NEW FACT ABOUT 1835. The Calumet Club's fourth annual reception to the settlers of Chicago prior to 1840, held 18 May 1882, printed this man among the guests present as “Carpenter. Philo, 57 Ashland avenue, Chicago.” (Chicago Tribune, 19 May 1882). The club's criterion was residence in Chicago before 1 January 1840 and majority by then: the roster therefore corroborates a pre-1840 Chicago residence and says he was alive in 1882. It gives NO year of arrival, and the address it prints is where he lived in 1882, forty-seven years after the scene date — it is not an 1835 residence and is not read as one. Under the ratified ladder (T-0513) a later recollection corroborates, enriches and dates and cannot lift a rung by itself, so this record's GRADE IS UNCHANGED by it: T-0513 consolidates the identity and T-0515 regrades. Identity by rule OS1 — surname and spelled-out forename agree, one bearer (data/research/old_settlers/crosswalk.json). THE TOWN'S OWN ROLLS, 1833-1835 — CORROBORATION, NOT A GRADE. The early Chicago voter and tax lists held by the Illinois Regional Archives Depository name this person 3 times: Poll list of the first election of the Board of Trustees of the Town of Chicago, 10 August 1833 — “Carpenter, Philo” (poll_1833_006, line 27); Tax list of the Town of Chicago, 1833 — “Carpenter, Philo” (tax_1833_012, line 64); Election returns — poll list of 1834, filed 11 August 1834 — “Carpenter, Philo” (poll_1834_023, line 192). These are the town's own contemporary paper rather than a recollection of it, and each appearance says that a man of that name stood on that roll in that year — no more. The reading is twice mediated (Schulz's transcription, then Genealogy Trails' republication) and this project has not seen the IRAD originals. Under the ratified ladder (T-0513) the 1835 poll with a second independent source is attested, the 1835 poll alone or a 1833/1834 list with another source is inferred, and a single appearance with nothing else is a projected resident. This pass WRITES THE EVIDENCE AND MOVES NO GRADE — T-0515 applies the ladder against every source at once. Identity by the crosswalk's own rule: one resident of the surname 'Carpenter' agrees with the entry's forenames; 1 bearer(s) of the surname were considered. (data/research/civic/voter_crosswalk.json). OLD SETTLERS, 1879 — A DATE THIS MAN GAVE FOR HIMSELF, AND STILL NOT A FACT ABOUT 1835. The Calumet Club's FIRST reception to the settlers of Chicago prior to 1840, 27 May 1879, printed its register in the proceedings (Early Chicago, Chicago, 1879, pages 84-90), and this man's entry reads “Carpenter, Philo, | 1832, | Mass. | 74 | Chicago.” — name, his own date of arrival, his birthplace, his age and his 1879 post-office address, in the register's five columns. The date of arrival is HIS RECOLLECTION, set down forty to sixty years after the event; the address is where he lived in 1879 and is never read as an 1835 residence. Under the ratified ladder (T-0513) a later recollection corroborates, enriches and dates and cannot lift a rung by itself, so this record's GRADE IS UNCHANGED by it: T-0513 consolidates the identity and T-0515 regrades. Identity by rule OS1 — surname and spelled-out forename agree, one bearer (data/research/old_settlers/crosswalk.json). FERGUS 1839'S LATER LISTS — 1837 AND 1839 EVIDENCE, NEVER AN 1835 FACT. Fergus' Chicago Directory for 1839 names this person 1 time in its two later lists: the poll of Chicago's first city election, 2 May 1837 — “Philo Carpenter” (f1839_v0360, printed page 43, ward 2, voting for John H. Kinzie). What a match may carry, and it is short: that the man was in Chicago on 2 May 1837 and in that ward. It is written as 1837 evidence with describes_date 1837-05-02, never as an 1835 fact, and the person's grade does not move on this alone. Under the ratified ladder a second contemporary source is what lifts projected_resident, and a poll twenty-two months after the scene date is a second source about CONTINUED RESIDENCE, not about July 1835. The ward is a location in the CITY of 1837, whose six wards are drawn on printed page 46; it is not a location in the town of 1835 and does not place a house. Identity by the crosswalk's own rule: Surname 'Carpenter' folds to the same string as the 1837 entry's, and the given name of both begins P. (data/research/directories/fergus_1839_election_crosswalk_1835.json and fergus_1839_register_crosswalk_1835.json). This pass WRITES THE EVIDENCE AND MOVES NO GRADE. Under the ratified ladder (T-0513) a second independent source is what lifts a projected resident, and a poll twenty-two months after the scene date — or a register four years after it — is a second source about CONTINUED RESIDENCE rather than about July 1835. T-0515 applies the ladder against every source at once; this pass hands it the evidence and not the verdict. THE FEDERAL LAND TRACT SALES — A PURCHASE, AND NEVER A RESIDENCE. The Illinois State Archives' Public Domain Land Tract Sales register enters this person 4 times, as “CARPENTER PHILO”, “CARPENTER P”, 1833-10-22 to 1836-06-23: 1 federal land entry — SE sec 08 T39N R14E and 1 lot in the platted town — lot 7 of block 40 in the town the register codes CHIOT (L7BL40CHIOT, as printed) and 2 parcels of the school section — BL128 of the school section (sec 16 T39N R14E), as read; BL27 of the school section (sec 16 T39N R14E), as read, 165.71 acres stated in all, for $3507.00 (ls0037, ls0127, ls0128, ls1026). THE REGISTER'S OWN RESIDENCE COLUMN READS UNKNOWN on these rows: a county, a state or nothing, and never a town, which is why a purchase here places nobody. THE SCHOOL-SECTION ROWS ARE GROUND INSIDE THE TOWN, NOT FARMLAND: section 16 of T39N R14E was platted and sold off by lot and by block at the sale of 1833, which is why the register states 0000.00 acres against most of them. Ground inside the town is nearer to this reconstruction than a quarter-section is, and it is still a purchase: the register names a purchaser and never an occupant, and nothing here puts this person on that ground. THE TOWN LOTS ARE THE PLAT ITSELF, AND THEY ARE NOT ACRES: Cook County's register describes them by lot and block in a platted town and gives them no section, no township and no acreage at all, so they add nothing to the acre figure above and $3000.00 to the money. This project does not expand the register's town codes, so which addition a lot stands in is carried as the code and not as a name. It is still a purchase and it still places nobody. A purchase and nothing more. It dates and places a transaction; it proposes no residence, and under the ratified ladder it corroborates rather than mints. Identity by the crosswalk's own rule: CARPENTER PHILO matches Philo Carpenter: the forename names Philo Carpenter of the 3 people of this surname, and the forename agrees in full. (data/research/land_sales/resident_crosswalk.json). This pass WRITES THE EVIDENCE AND MOVES NO GRADE. Under the ratified ladder (T-0513) a second independent source is what lifts a projected resident, and a land entry is a second source about a TRANSACTION rather than about who was living at Chicago on 1 July 1835 — a man may buy a quarter-section he never sees. T-0515 applies the ladder against every source at once; this pass hands it the evidence and not the verdict. THE 1840 FEDERAL CENSUS — A HEAD FIVE YEARS AFTER THE SCENE, AND NEVER AN 1835 FACT. The 1840 federal census of Chicago, read line by line off the left sheets in this repository, carries 1 head of this name — “Philo Carpenter” (33S7-9YYJ-RC, printed page 217, line 29). This project has ruled the head a MATCH for this person: the full name agrees, it is unique on both sides, and a discriminator independent of the name — directory persistence — separately places the same person in Chicago after the 1840 book was taken. Under the rule that decided it (L6 matched), by the crosswalk's own ladder (data/research/census_1840/resident_crosswalk.json). LATER EVIDENCE ONLY. The ratified grading ladder binds: an 1839 or 1840 appearance alone is never an 1835 resident, and 1840 household composition is never back-projected to the 1835-07-01 scene. This pass WRITES THE EVIDENCE AND MOVES NO GRADE. Under the ratified ladder (T-0513) a second independent source is what lifts a projected resident, and an 1840 head is a second source about CONTINUED RESIDENCE rather than about who was living at Chicago on 1 July 1835. T-0515 applies the ladder against every source at once; this pass hands it the evidence and not the verdict."
+        }
+      ],
+      "research_note": "CHICAGO'S FIRST DRUGGIST, AND THE HOUSEHOLD THAT SHOWS WHY A RESIDENT CAN OUTLAST A BUILDING LINK. Carpenter is documented from July 1832 to the 1880s; which of his two shops he was standing in on 1 July 1835 is a structures question this project has already argued and not settled."
+    }
+  ],
+  "citations": [
+    {
+      "source_id": "andreas_1884_v1",
+      "citation": "Andreas, A. T. History of Chicago: From the Earliest Period to the Present Time. Vol. 1. Chicago: A. T. Andreas, 1884.",
+      "url": "https://archive.org/details/historyofchicago01andr",
+      "archived_url": "",
+      "tier": 3,
+      "tier_label": "compiled secondary (Andreas)"
+    },
+    {
+      "source_id": "chicago_american_1835",
+      "citation": "The Chicago American. Vol. I, No. 1 (June 8, 1835) through Vol. I, No. 12 (August 29, 1835). Chicago, Ill.: T. O. Davis. Thirteen issues, OCR-assisted research transcriptions from page scans.",
+      "url": "",
+      "archived_url": "",
+      "tier": 1,
+      "tier_label": "period/eyewitness",
+      "what_it_supplies": [
+        "a second, independent contemporary witness to the town in the twelve weeks around the scene date",
+        "advertisements and self-reported addresses from a different advertiser base than the Democrat's",
+        "attestation that needs no survival liberty: the whole run is within twelve weeks of 1835-07-01",
+        "corroboration or contradiction of a Democrat address, which is worth more than either paper alone",
+        "the paper's own correction of its first masthead date"
+      ],
+      "what_it_does_not_supply": [
+        "any building's form, material, storey count, fenestration or dimensions",
+        "a reliable reading of a dense body column — this run had no reconciled second pass",
+        "a word count or uncertainty-marker count: none was delivered, and corpus.json records null rather than zero",
+        "identification by volume and number: No. 12 is printed on two different issues",
+        "anything at all from an engraving — the cuts are the printer's stock",
+        "a citation without an issue page and column"
+      ]
+    },
+    {
+      "source_id": "chicago_democrat_1833_11_26",
+      "citation": "The Chicago Democrat. Vol. I, No. 1. Chicago, Ill.: John Calhoun, Tuesday, November 26, 1833.",
+      "url": "",
+      "archived_url": "",
+      "tier": 1,
+      "tier_label": "period/eyewitness",
+      "what_it_supplies": [
+        "that a named trade was being carried on in Chicago in November 1833",
+        "the Chicago Democrat's own address, self-reported: the corner of South Water and Clark streets",
+        "Philo Carpenter advertising drugs, medicines, oils, paints and dye-stuffs, dated Nov. 22, 1833 — with NO address, so it cannot disambiguate his two shops",
+        "C. & I. Harmon advertising dry goods, crockery, hardware and wet and dry groceries, dated Nov. 18, 1833 — with NO address, so it does NOT corroborate the Clark/South Water corner Andreas gives them",
+        "W. Kimball's 'New Store' at the corner of South Water and Clark — a SECOND, independently attested occupant of that junction in the same issue, signed",
+        "Peter Cohen, clothier and grocer, self-reported at the EAST END OF SOUTH WATER-STREET, and trading in Chicago before Nov 1833 ('old customers ... past favors')",
+        "Goss & Cobb, saddle and harness makers, self-reported on the corner of Lake and Canal streets",
+        "Matthias Mason & Co., blacksmiths, on 'Main-street, nearly opposite Graves' Tavern' — a street name this project does not otherwise hold",
+        "B. Jones, grocery and provision store, and separately a storage/forwarding/commission business — both ads give NO street",
+        "Newberry & Dole, forwarding and commission merchants — no address",
+        "John Wright, cut nails and general merchandise; and TWO BUILDINGS TO LET until 1 June 1834",
+        "Daniel Elston & [illegible], soap and candle manufactory, paying cash for tallow and house ashes",
+        "a tavern stand kept by Chester Ingersoll, 'lately occupied by Mr. Wm. W. WATTLES', dated 4 October 1833",
+        "the house of Chester Ingersoll used as the district polling place, 9 December 1833",
+        "THE VILLAGE ORDINANCES of 7 November 1833, complete — the richest single item in the paper",
+        "Ordinance 1: the corporate limits surveyed ALONG the northern United States' Pier 'to the termination thereof' — the pier as an existing, walkable structure with a definite landward end",
+        "Ordinance 5: 'either of the bridges in said town' and their 'plank or any piece of timber' — EXACTLY TWO bridges on 7 Nov 1833, of plank-and-timber construction",
+        "Ordinance 6: wooden buildings with wooden and lath-and-plaster partitions, heated by STOVES not fireplaces, pipes passing through roof or side wall and carried 18 inches above the roof, guarded by stone-ware pipe, brick, tin or sheet iron",
+        "Ordinance 9: timber, stone, brick, boxes and barrels stacked in the streets",
+        "Ordinances 3, 7 and 8: hogs at large, horses run through the streets, stallions",
+        "the schooner Austerlitz, Capt. Smith, from Buffalo, arrived about the 1[9]th inst. with a full cargo of merchandise for citizens of this village and cleared on the 21st IN BALLAST",
+        "a school established in the village by Mr. Sproat of Boston, already running on 26 Nov 1833",
+        "a public auction of United States property held AT FORT DEARBORN, 2 December 1833",
+        "the village population passing 'more than eight hundred souls' in late 1833"
+      ],
+      "what_it_does_not_supply": [
+        "any building's dimensions",
+        "any building's form, material, storey count or fenestration",
+        "the specific corner of any junction it names — the imprint says 'on the corner of', and which of the four is not in the sentence",
+        "evidence that any building named here still stood on 1835-07-01 — this issue is NINETEEN MONTHS before the scene date, in the town's fastest-changing period, and the population went from 800 to 3,265 in between",
+        "any building footprint or plan",
+        "any length or width for the piers",
+        "any corroboration of the estray pen — see the negative finding in the note"
+      ]
+    },
+    {
+      "source_id": "osm_streets_2026",
+      "citation": "OpenStreetMap contributors. Street centerline intersection nodes for downtown Chicago, retrieved via the Overpass API, 2026-08-09.",
+      "url": "https://www.openstreetmap.org/",
+      "archived_url": "https://overpass-api.de/",
+      "tier": 4,
+      "tier_label": "later scholarship"
+    }
+  ],
+  "research_note": "THE OTHER HALF OF THE CARPENTER PROBLEM, and the record that makes philo_carpenter_log_shop doubtful. Andreas gives the block face, the year, the buyer and one adjective — 'a small store' — and nothing else, so the position is placed at the middle of a 123 m frontage and the footprint is invented inside the word 'small'. The along-street uncertainty of about 60 m is larger than the georeference's own 20 m and is stated on the position rather than buried. WHAT IS DOCUMENTED: the purchase of a lot on South Water between LaSalle and Wells, the erection of a store there in the summer of 1833, and Carpenter's trade, the last of it now corroborated contemporaneously by his own advertisement in the Chicago Democrat of 26 November 1833. WHAT IS CONJECTURAL: the footprint, outright. WHAT WOULD UPGRADE IT: any 1834-35 advertisement of Carpenter's carrying an address, which would fix the lot and, if it named a cross street, would also settle whether the Lake Street log shop was still in use; or the 1834-35 town lot records for the South Water frontage between Wells and LaSalle. See docs/RESEARCH/carpenter_south_water_store.md.",
+  "research_doc": "docs/RESEARCH/carpenter_south_water_store.md",
+  "review_required": false
+}

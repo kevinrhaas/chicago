@@ -1,0 +1,183 @@
+{
+  "id": "inf_sawpit_shed",
+  "phase": "inferred_1835",
+  "name": "Reconstructed sawpit shed (sawyer)",
+  "aka": [],
+  "archetype": "outbuilding",
+  "asset": "gltf/inf_sawpit_shed__inferred_1835.glb",
+  "scene": "1835",
+  "target_date": "1835-07-01",
+  "documented_range": {
+    "from": "1835-01-01",
+    "to": "1835-12-31",
+    "confidence": "reconstructed",
+    "sources": [],
+    "note": "NO EVIDENCE ESTABLISHES THAT THIS PARTICULAR BUILDING EXISTED. It is the roof a reconstructed household requires - a sawpit and its shed on the river bank west of the built blocks: two men, a pit, a whip-saw and a stack of boards. NOT A MILL - no mill in the town is attested and none is claimed. The argument for the trade's presence in the town is in the household record and in the occupation census at data/reconstruction/1835_inferred_household_programme.json; the argument for THIS BUILDING is only that the household needs somewhere to be."
+  },
+  "change_note": "Raised by the inferred-household programme. A better-evidenced named building substitutes for this roof rather than standing beside it.",
+  "placement": {
+    "local_e": 132.952,
+    "local_n": -73.486,
+    "rotation_deg": 0.0,
+    "position_confidence": "reconstructed",
+    "position_sources": [],
+    "position_note": "INTERPRETIVE PLACEMENT, NOT A RECOVERED LOT. A sawpit and its shed on the river bank west of the built blocks: two men, a pit, a whip-saw and a stack of boards. NOT A MILL - no mill in the town is attested and none is claimed. The band follows ROADMAP K1's placement rule - businesses toward the river and the built streets, residences further out - using the same frontage bands the reconstruction recipes already work in, which come from the 80 ft platted street module in data/traces/street_control.json. The centre was tested against every structure footprint in the dataset, against the reserved slots of the two uninstantiated phase-2 recipes, against the platted street corridors of the K7 block grid so that no invented building stands in the roadway, and against the committed heightfield for coverage, dry ground and step tolerance; it is free ground and nothing more. The dataset's 20 m working georeference uncertainty applies on top of an already invented position.",
+    "symbolic_location": "South Division, local ENU E 136 N -68",
+    "uncertainty_m": 20,
+    "placement_provisional": false,
+    "vertical_anchor": "terrain",
+    "walk_surface_m": null
+  },
+  "footprint": {
+    "polygon": [
+      [
+        0,
+        0
+      ],
+      [
+        6.096,
+        0
+      ],
+      [
+        6.096,
+        10.973
+      ],
+      [
+        0,
+        10.973
+      ]
+    ],
+    "confidence": "reconstructed",
+    "sources": [],
+    "note": "A 20 x 36 ft rectangle from the W5 family band in the reconstruction specification. NO DIMENSION IS DOCUMENTED for this building, which does not exist in any source; the band is type-level evidence about what buildings of this class measured and is not evidence about this one."
+  },
+  "attributes": {
+    "wall_height_m": {
+      "value": 4.249,
+      "confidence": "reconstructed",
+      "sources": [
+        "owner_chicago_1835_reconstruction_spec_2026"
+      ],
+      "note": "INVENTED, NOT DERIVED. A typology value from the reconstruction spec — what a building of this kind was ordinarily like — not a reading of evidence about this particular building, because no source speaks to it: the structure exists in the model because the town demonstrably needed one of these, and nothing more. The spec is cited because the invention is bounded by it. Type-level choice within the W5 band in the reconstruction specification; it is not evidence for this building."
+    },
+    "roof_type": {
+      "value": "gable",
+      "confidence": "reconstructed",
+      "sources": [
+        "owner_chicago_1835_reconstruction_spec_2026"
+      ],
+      "note": "INVENTED, NOT DERIVED. A typology value from the reconstruction spec — what a building of this kind was ordinarily like — not a reading of evidence about this particular building, because no source speaks to it: the structure exists in the model because the town demonstrably needed one of these, and nothing more. The spec is cited because the invention is bounded by it. Type-level choice within the W5 band in the reconstruction specification; it is not evidence for this building. THE OTHER FORM ON OFFER IS REFUSED, AND HERE IS THE NUMBER. The W5 roof line offers \"broad gable or shed\", and this town builds only the gable. A shed is one plane over the whole 11.3 m of this plan where a gable climbs half of it, so across the 441 plans W5's own footprint band allows, 105 of them cannot reach the 20-29 ft ridge band the same family authors — at any eave in its 11-15 ft band and at the 18-degree pitch a shed is given here, which is the only one the family's roof line leaves to test. This building's own plan is not one of them; the W5 family is refused as a whole rather than plan by plan."
+    },
+    "roof_pitch_deg": {
+      "value": 32.0,
+      "confidence": "reconstructed",
+      "sources": [
+        "owner_chicago_1835_reconstruction_spec_2026"
+      ],
+      "note": "INVENTED, NOT DERIVED. A typology value from the reconstruction spec — what a building of this kind was ordinarily like — not a reading of evidence about this particular building, because no source speaks to it: the structure exists in the model because the town demonstrably needed one of these, and nothing more. The spec is cited because the invention is bounded by it. NOT BOUNDED BY THE SPECIFICATION, and the sentence above about the invention being bounded does not hold for this value: the W5 family's key geometry parameters do not speak to a roof pitch, so there is nothing here for a citation to point at. The value is the reconstruction generator's type default; it is not evidence for this building."
+    },
+    "construction": {
+      "value": "light_frame",
+      "confidence": "reconstructed",
+      "sources": [
+        "owner_chicago_1835_reconstruction_spec_2026"
+      ],
+      "note": "INVENTED, NOT DERIVED. A typology value from the reconstruction spec — what a building of this kind was ordinarily like — not a reading of evidence about this particular building, because no source speaks to it: the structure exists in the model because the town demonstrably needed one of these, and nothing more. The spec is cited because the invention is bounded by it. Type-level choice within the W5 band in the reconstruction specification; it is not evidence for this building."
+    },
+    "door": {
+      "value": "wagon",
+      "confidence": "reconstructed",
+      "sources": [
+        "owner_chicago_1835_reconstruction_spec_2026"
+      ],
+      "note": "INVENTED, NOT DERIVED. A typology value from the reconstruction spec — what a building of this kind was ordinarily like — not a reading of evidence about this particular building, because no source speaks to it: the structure exists in the model because the town demonstrably needed one of these, and nothing more. The spec is cited because the invention is bounded by it. NOT BOUNDED BY THE SPECIFICATION, and the sentence above about the invention being bounded does not hold for this value: the W5 family's key geometry parameters do not speak to a door type, so there is nothing here for a citation to point at. The value is the reconstruction generator's type default; it is not evidence for this building."
+    },
+    "door_side": {
+      "value": "front",
+      "confidence": "reconstructed",
+      "sources": [
+        "owner_chicago_1835_reconstruction_spec_2026"
+      ],
+      "note": "INVENTED, NOT DERIVED. A typology value from the reconstruction spec — what a building of this kind was ordinarily like — not a reading of evidence about this particular building, because no source speaks to it: the structure exists in the model because the town demonstrably needed one of these, and nothing more. The spec is cited because the invention is bounded by it. NOT BOUNDED BY THE SPECIFICATION, and the sentence above about the invention being bounded does not hold for this value: the W5 family's key geometry parameters do not speak to a door side, so there is nothing here for a citation to point at. The value is the reconstruction generator's type default; it is not evidence for this building."
+    },
+    "loft": {
+      "value": true,
+      "confidence": "reconstructed",
+      "sources": [
+        "owner_chicago_1835_reconstruction_spec_2026"
+      ],
+      "note": "INVENTED, NOT DERIVED. A typology value from the reconstruction spec — what a building of this kind was ordinarily like — not a reading of evidence about this particular building, because no source speaks to it: the structure exists in the model because the town demonstrably needed one of these, and nothing more. The spec is cited because the invention is bounded by it. Type-level choice within the W5 band in the reconstruction specification; it is not evidence for this building."
+    },
+    "board_gap_m": {
+      "value": 0.012,
+      "confidence": "reconstructed",
+      "sources": [
+        "owner_chicago_1835_reconstruction_spec_2026"
+      ],
+      "note": "INVENTED, NOT DERIVED. A typology value from the reconstruction spec — what a building of this kind was ordinarily like — not a reading of evidence about this particular building, because no source speaks to it: the structure exists in the model because the town demonstrably needed one of these, and nothing more. The spec is cited because the invention is bounded by it. NOT BOUNDED BY THE SPECIFICATION, and the sentence above about the invention being bounded does not hold for this value: the W5 family's key geometry parameters do not speak to a board gap, so there is nothing here for a citation to point at. The value is the reconstruction generator's type default; it is not evidence for this building."
+    },
+    "paint": {
+      "value": "unpainted",
+      "confidence": "reconstructed",
+      "sources": [
+        "owner_chicago_1835_reconstruction_spec_2026"
+      ],
+      "note": "INVENTED, NOT DERIVED. A typology value from the reconstruction spec — what a building of this kind was ordinarily like — not a reading of evidence about this particular building, because no source speaks to it: the structure exists in the model because the town demonstrably needed one of these, and nothing more. The spec is cited because the invention is bounded by it. NOT BOUNDED BY THE SPECIFICATION, and the sentence above about the invention being bounded does not hold for this value: the W5 family's key geometry parameters do not speak to paint or finish, so there is nothing here for a citation to point at. The value is the reconstruction generator's type default; it is not evidence for this building."
+    },
+    "function": {
+      "value": "sawpit_shed",
+      "confidence": "reconstructed",
+      "sources": [
+        "andreas_1884_v1",
+        "owner_chicago_1835_reconstruction_spec_2026"
+      ],
+      "note": "A sawpit and its shed on the river bank west of the built blocks: two men, a pit, a whip-saw and a stack of boards. NOT A MILL - no mill in the town is attested and none is claimed."
+    },
+    "occupants": {
+      "value": "Anonymous stock; no occupant is claimed",
+      "confidence": "reconstructed",
+      "note": "ANONYMOUS STOCK (T-0516). This roof was raised by the inferred-household programme because an argued household needed somewhere to be; the owner retired that reconstructed resident population on 2026-09-02 and ruled the geometry kept - \"keep as anonymous stock\" - so the household this roof was raised for no longer exists and nobody is claimed to be here. It is unassigned until the later placement sweep, and it is counted as one of the anonymous count-units of the 665-roof programme. THE ROOF'S OWN EXISTENCE, POSITION AND FOOTPRINT REMAIN CONJECTURAL and are unchanged by the retirement: what was withdrawn is the occupant, not the building. The trade it was raised for is kept in `reconstruction.occupation` and in this record's own name, because that is what the placement sweep works from; the argument that raised it is kept as history in data/reconstruction/1835_inferred_household_programme.json."
+    }
+  },
+  "residents": [],
+  "citations": [
+    {
+      "source_id": "andreas_1884_v1",
+      "citation": "Andreas, A. T. History of Chicago: From the Earliest Period to the Present Time. Vol. 1. Chicago: A. T. Andreas, 1884.",
+      "url": "https://archive.org/details/historyofchicago01andr",
+      "archived_url": "",
+      "tier": 3,
+      "tier_label": "compiled secondary (Andreas)"
+    },
+    {
+      "source_id": "owner_chicago_1835_reconstruction_spec_2026",
+      "citation": "Chicago · July 1835: Building Inventory and Architectural Reconstruction Specification. Prepared for Kevin Haas, August 2026.",
+      "url": "",
+      "archived_url": "",
+      "tier": 5,
+      "tier_label": "modern retrospective illustration/reconstruction",
+      "what_it_supplies": [
+        "A 665-roof production target with independently reconcilable group, district, level, and construction totals.",
+        "Thirty-five architectural family definitions with dimensional and massing bands.",
+        "District character, spacing, variation, finish, and chronology constraints for a July 1835 reconstruction.",
+        "A required distinction between named documentary landmarks and anonymous inferred infill."
+      ],
+      "what_it_does_not_supply": [
+        "A surviving July 1835 building census or parcel-by-parcel roof register.",
+        "Exact locations, dimensions, appearance, occupants, or construction dates for anonymous roofs.",
+        "Authority to replace stronger building-specific evidence already represented in the dataset."
+      ]
+    }
+  ],
+  "research_note": "RECONSTRUCTED BUILDING, RAISED FOR A RECONSTRUCTED HOUSEHOLD (docs/ROADMAP.md K1, phase two). A sawpit and its shed on the river bank west of the built blocks: two men, a pit, a whip-saw and a stack of boards. NOT A MILL - no mill in the town is attested and none is claimed. It is NOT one of the anonymous count-units of the 665-roof programme: those are placed by aggregate mix and carry no occupant, while this one exists because the occupation census says the town held a household of this trade and no anonymous roof of the right family stood free in this district. It consumes one slot of its district's programme target rather than adding to it - see the accounting block in data/reconstruction/1835_inferred_household_programme.json.",
+  "research_doc": "docs/RESEARCH/residents_1835_inferred.md",
+  "review_required": false,
+  "reconstruction": {
+    "status": "inferred_anonymous",
+    "family": "W5",
+    "district": "south",
+    "programme_phase": "phase2_inferred_households",
+    "source_id": "owner_chicago_1835_reconstruction_spec_2026",
+    "occupation": "sawyer"
+  }
+}

@@ -1,0 +1,315 @@
+{
+  "$note": "ROADMAP K30(a). Every committed structure phase whose footprint laps a platted street corridor, with the depth in metres from the corridor's own edge. DERIVED \u2014 regenerate with tools/measure_corridor_intrusion.py --write-baseline, and only ever to record a repair. This file is a RATCHET: tools/check.sh fails on an intruder that is not here and on a listed one whose depth has grown. It is NOT an allowance \u2014 K30(b) owns the fix, and these are the numbers it takes as its baseline. Never move a documented building to make an entry smaller: a position with a source outranks a corridor this project derived. `refused` is the other half of that sentence (T-0195): a lap whose only escape would move a source-argued coordinate is refused IN WRITING, per record, here and in the record's own position.note \u2014 not tolerated by silence. A refusal may not outlive the lap it refuses; the gate says so and --write-baseline drops the stale ones. T-0009, 2026-08-29, ON THE OWNER'S RULING: the corridor these depths are measured against is DERIVED FROM THE STREET CONTROL and no longer from the drawn line \u2014 `--control` prints where every street's corridor is centred and why. One street moves, south_water, whose committed line is drawn 8.58 m inside its own corridor for the dry-ground reason its record states; `--drawn` re-runs every mode against the pre-ruling corridor. No building moved and data/streets/1835.json did not move: this table changed because the question did.",
+  "corridors": 13,
+  "lapping": {
+    "bates_auction_room:frame_1834": {
+      "anchor_in": [],
+      "anchor_offset_m": 18.92,
+      "body_toward_street": true,
+      "category": "building",
+      "centroid_in": [],
+      "depth_m": 0.97,
+      "layer": "research",
+      "phase": "frame_1834",
+      "position_confidence": "inferred",
+      "street": "dearborn",
+      "structure": "bates_auction_room"
+    },
+    "chappel_infant_school:log_1833": {
+      "anchor_in": [],
+      "anchor_offset_m": 15.75,
+      "body_toward_street": true,
+      "category": "building",
+      "centroid_in": [],
+      "depth_m": 1.98,
+      "layer": "research",
+      "phase": "log_1833",
+      "position_confidence": "reconstructed",
+      "street": "state",
+      "structure": "chappel_infant_school"
+    },
+    "cook_county_courthouse_1835:wood_1835": {
+      "anchor_in": [],
+      "anchor_offset_m": 14.97,
+      "body_toward_street": true,
+      "category": "building",
+      "centroid_in": [
+        "clark",
+        "randolph"
+      ],
+      "depth_m": 4.54,
+      "layer": "research",
+      "phase": "wood_1835",
+      "position_confidence": "reconstructed",
+      "street": "clark",
+      "structure": "cook_county_courthouse_1835"
+    },
+    "dearborn_street_drawbridge:draw_1834": {
+      "anchor_in": [
+        "south_water"
+      ],
+      "anchor_offset_m": 5.14,
+      "body_toward_street": false,
+      "category": "furniture",
+      "centroid_in": [],
+      "depth_m": 7.13,
+      "layer": "research",
+      "phase": "draw_1834",
+      "position_confidence": "inferred",
+      "street": "south_water",
+      "structure": "dearborn_street_drawbridge"
+    },
+    "exchange_coffee_house:frame_1834": {
+      "anchor_in": [
+        "wells"
+      ],
+      "anchor_offset_m": 10.8,
+      "body_toward_street": false,
+      "category": "building",
+      "centroid_in": [],
+      "depth_m": 1.44,
+      "layer": "research",
+      "phase": "frame_1834",
+      "position_confidence": "inferred",
+      "street": "wells",
+      "structure": "exchange_coffee_house"
+    },
+    "first_presbyterian_church:frame_1834": {
+      "anchor_in": [],
+      "anchor_offset_m": 22.46,
+      "body_toward_street": true,
+      "category": "building",
+      "centroid_in": [],
+      "depth_m": 1.92,
+      "layer": "research",
+      "phase": "frame_1834",
+      "position_confidence": "inferred",
+      "street": "clark",
+      "structure": "first_presbyterian_church"
+    },
+    "goss_cobb_saddlery:shop_1833": {
+      "anchor_in": [
+        "lake"
+      ],
+      "anchor_offset_m": 20.96,
+      "body_toward_street": true,
+      "category": "building",
+      "centroid_in": [],
+      "depth_m": 0.56,
+      "layer": "research",
+      "phase": "shop_1833",
+      "position_confidence": "inferred",
+      "street": "canal",
+      "structure": "goss_cobb_saddlery"
+    },
+    "harmon_loomis_store:frame_1833": {
+      "anchor_in": [
+        "clark"
+      ],
+      "anchor_offset_m": 12.03,
+      "body_toward_street": false,
+      "category": "building",
+      "centroid_in": [],
+      "depth_m": 0.21,
+      "layer": "research",
+      "phase": "frame_1833",
+      "position_confidence": "inferred",
+      "street": "clark",
+      "structure": "harmon_loomis_store"
+    },
+    "hogan_store:log_1831": {
+      "anchor_in": [],
+      "anchor_offset_m": 18.17,
+      "body_toward_street": true,
+      "category": "building",
+      "centroid_in": [],
+      "depth_m": 3.98,
+      "layer": "research",
+      "phase": "log_1831",
+      "position_confidence": "inferred",
+      "street": "south_water",
+      "structure": "hogan_store"
+    },
+    "lasalle_slough_crossing:crossing_1835": {
+      "anchor_in": [
+        "lasalle"
+      ],
+      "anchor_offset_m": 9.03,
+      "body_toward_street": false,
+      "category": "furniture",
+      "centroid_in": [
+        "south_water"
+      ],
+      "depth_m": 3.17,
+      "layer": "research",
+      "phase": "crossing_1835",
+      "position_confidence": "reconstructed",
+      "street": "lasalle",
+      "structure": "lasalle_slough_crossing"
+    },
+    "madore_beaubien_house:log_1831": {
+      "anchor_in": [],
+      "anchor_offset_m": 21.13,
+      "body_toward_street": true,
+      "category": "building",
+      "centroid_in": [],
+      "depth_m": 0.2,
+      "layer": "research",
+      "phase": "log_1831",
+      "position_confidence": "inferred",
+      "street": "dearborn",
+      "structure": "madore_beaubien_house"
+    },
+    "newberry_dole_slaughterhouse_south_branch:works_1834": {
+      "anchor_in": [
+        "market"
+      ],
+      "anchor_offset_m": 12.74,
+      "body_toward_street": true,
+      "category": "building",
+      "centroid_in": [
+        "randolph"
+      ],
+      "depth_m": 11.45,
+      "layer": "research",
+      "phase": "works_1834",
+      "position_confidence": "reconstructed",
+      "street": "randolph",
+      "structure": "newberry_dole_slaughterhouse_south_branch"
+    },
+    "newberry_dole_warehouse:frame_1833": {
+      "anchor_in": [
+        "franklin"
+      ],
+      "anchor_offset_m": 8.14,
+      "body_toward_street": true,
+      "category": "building",
+      "centroid_in": [
+        "franklin",
+        "south_water"
+      ],
+      "depth_m": 9.81,
+      "layer": "research",
+      "phase": "frame_1833",
+      "position_confidence": "reconstructed",
+      "street": "franklin",
+      "structure": "newberry_dole_warehouse"
+    },
+    "peck_store:frame_1833": {
+      "anchor_in": [],
+      "anchor_offset_m": 24.22,
+      "body_toward_street": true,
+      "category": "building",
+      "centroid_in": [],
+      "depth_m": 0.16,
+      "layer": "research",
+      "phase": "frame_1833",
+      "position_confidence": "inferred",
+      "street": "lasalle",
+      "structure": "peck_store"
+    },
+    "philo_carpenter_log_shop:log_1832": {
+      "anchor_in": [],
+      "anchor_offset_m": 16.92,
+      "body_toward_street": true,
+      "category": "building",
+      "centroid_in": [],
+      "depth_m": 0.2,
+      "layer": "research",
+      "phase": "log_1832",
+      "position_confidence": "inferred",
+      "street": "lake",
+      "structure": "philo_carpenter_log_shop"
+    },
+    "sauganash_hotel:frame_1831": {
+      "anchor_in": [],
+      "anchor_offset_m": 20.1,
+      "body_toward_street": true,
+      "category": "building",
+      "centroid_in": [],
+      "depth_m": 0.17,
+      "layer": "research",
+      "phase": "frame_1831",
+      "position_confidence": "inferred",
+      "street": "lake",
+      "structure": "sauganash_hotel"
+    },
+    "st_marys_church:frame_1833": {
+      "anchor_in": [],
+      "anchor_offset_m": 18.89,
+      "body_toward_street": true,
+      "category": "building",
+      "centroid_in": [],
+      "depth_m": 3.97,
+      "layer": "research",
+      "phase": "frame_1833",
+      "position_confidence": "inferred",
+      "street": "state",
+      "structure": "st_marys_church"
+    },
+    "tremont_house_1:frame_1833": {
+      "anchor_in": [
+        "dearborn"
+      ],
+      "anchor_offset_m": 10.5,
+      "body_toward_street": false,
+      "category": "building",
+      "centroid_in": [],
+      "depth_m": 1.75,
+      "layer": "research",
+      "phase": "frame_1833",
+      "position_confidence": "inferred",
+      "street": "dearborn",
+      "structure": "tremont_house_1"
+    },
+    "western_hotel:frame_1834": {
+      "anchor_in": [
+        "canal"
+      ],
+      "anchor_offset_m": 11.34,
+      "body_toward_street": false,
+      "category": "building",
+      "centroid_in": [],
+      "depth_m": 0.85,
+      "layer": "research",
+      "phase": "frame_1834",
+      "position_confidence": "inferred",
+      "street": "canal",
+      "structure": "western_hotel"
+    }
+  },
+  "measured": "2026-09-12",
+  "placed_phases": 384,
+  "refused": {
+    "harmon_loomis_store:frame_1833": {
+      "depth_m": 0.21,
+      "escape_bearing_deg": 90.36,
+      "escape_m": 0.213,
+      "escape_vs_facade": "along",
+      "on": "2026-08-27",
+      "street": "clark",
+      "ticket": "T-0195",
+      "why": "T-0195. THE ONLY TRANSLATION THAT CLEARS THIS CORRIDOR RUNS SIDEWAYS ACROSS THE RECORD'S OWN FRONT, so it moves where along South Water Street the building stands \u2014 and the corner is the one part of this placement a source argues. The setback was re-derived against this project's committed South Water centreline by T-0127's method (T-0198, T-0199); the cross-street half of the same offset was left on the OpenStreetMap junction centre, and this residual IS that disagreement. It is refused rather than repaired because the repair would spend a source-argued coordinate on a derived number two orders of magnitude below the placement's own working uncertainty (about 20 m, on a datum with 17.5 m RMS). Argued in full in the record's own position.note; reproduce the geometry with tools/measure_corridor_intrusion.py --escape."
+    },
+    "madore_beaubien_house:log_1831": {
+      "depth_m": 0.2,
+      "escape_bearing_deg": 270.36,
+      "escape_m": 0.202,
+      "escape_vs_facade": "along",
+      "on": "2026-08-27",
+      "street": "dearborn",
+      "ticket": "T-0195",
+      "why": "T-0195. THE ONLY TRANSLATION THAT CLEARS THIS CORRIDOR RUNS SIDEWAYS ACROSS THE RECORD'S OWN FRONT, so it moves where along South Water Street the building stands \u2014 and the corner is the one part of this placement a source argues. The setback was re-derived against this project's committed South Water centreline by T-0127's method (T-0198, T-0199); the cross-street half of the same offset was left on the OpenStreetMap junction centre, and this residual IS that disagreement. It is refused rather than repaired because the repair would spend a source-argued coordinate on a derived number two orders of magnitude below the placement's own working uncertainty (about 20 m, on a datum with 17.5 m RMS). Argued in full in the record's own position.note; reproduce the geometry with tools/measure_corridor_intrusion.py --escape."
+    },
+    "peck_store:frame_1833": {
+      "depth_m": 0.16,
+      "escape_bearing_deg": 270.34,
+      "escape_m": 0.16,
+      "escape_vs_facade": "along",
+      "on": "2026-08-27",
+      "street": "lasalle",
+      "ticket": "T-0195",
+      "why": "T-0195. THE ONLY TRANSLATION THAT CLEARS THIS CORRIDOR RUNS SIDEWAYS ACROSS THE RECORD'S OWN FRONT, so it moves where along South Water Street the building stands \u2014 and the corner is the one part of this placement a source argues. The setback was re-derived against this project's committed South Water centreline by T-0127's method (T-0198, T-0199); the cross-street half of the same offset was left on the OpenStreetMap junction centre, and this residual IS that disagreement. It is refused rather than repaired because the repair would spend a source-argued coordinate on a derived number two orders of magnitude below the placement's own working uncertainty (about 20 m, on a datum with 17.5 m RMS). Argued in full in the record's own position.note; reproduce the geometry with tools/measure_corridor_intrusion.py --escape."
+    }
+  }
+}

@@ -1,0 +1,30 @@
+{
+  "id": "owner_chicago_1835_reconstruction_spec_2026",
+  "type": "dataset",
+  "citation": "Chicago · July 1835: Building Inventory and Architectural Reconstruction Specification. Prepared for Kevin Haas, August 2026.",
+  "date": "2026-08",
+  "describes_date": "1835-07",
+  "repository": "Owner-supplied project brief",
+  "tier": 5,
+  "rights_status": "cleared",
+  "rights_note": "Supplied by the project owner for integration into this reconstruction. Used as an inventory and production specification; no third-party image or authored geometry is reproduced.",
+  "rights_checked": {
+    "date": "2026-08-11",
+    "method": "Direct owner submission in the project workspace",
+    "outcome": "Cleared for project use"
+  },
+  "asset_use": "inventory",
+  "verified": true,
+  "what_it_supplies": [
+    "A 665-roof production target with independently reconcilable group, district, level, and construction totals.",
+    "Thirty-five architectural family definitions with dimensional and massing bands.",
+    "District character, spacing, variation, finish, and chronology constraints for a July 1835 reconstruction.",
+    "A required distinction between named documentary landmarks and anonymous inferred infill."
+  ],
+  "what_it_does_not_supply": [
+    "A surviving July 1835 building census or parcel-by-parcel roof register.",
+    "Exact locations, dimensions, appearance, occupants, or construction dates for anonymous roofs.",
+    "Authority to replace stronger building-specific evidence already represented in the dataset."
+  ],
+  "note": "Tier 5 by design: this is a modern synthesis and production recommendation. It may control aggregate inventory and inferred type-level bands, but never makes an anonymous individual roof documented."
+}

@@ -1,0 +1,103 @@
+{
+ "id": "hh_noble_mark",
+ "name": "The Noble household — documented at Chicago, no trade printed, unplaced in the town",
+ "division": "unplaced",
+ "head": "noble_mark",
+ "source_pass": "placed",
+ "arrival": {
+  "value": "1833-12-03",
+  "confidence": "inferred",
+  "sources": [
+   "chicago_democrat_1833_1835"
+  ],
+  "note": "A BOUND FROM THE PAPER, NOT AN ARRIVAL. The corpus first prints this person at the Democrat of 3 December 1833, column 7, so they are in the town's paper by 1833-12-03 and at no stated time before it; nothing reached says when they came. Last printed 1833-12-03.",
+  "precision": "not_later_than"
+ },
+ "party_size_on_arrival": {
+  "value": null,
+  "confidence": "reconstructed",
+  "note": "Not attested."
+ },
+ "origin": {
+  "value": null,
+  "confidence": "reconstructed",
+  "note": "Not attested."
+ },
+ "reason_for_coming": {
+  "value": null,
+  "confidence": "reconstructed",
+  "note": "Not attested."
+ },
+ "lives_at": {
+  "value": null,
+  "confidence": "reconstructed",
+  "note": "Not attested. NOTHING IS BEING WITHHELD HERE: no source reached says where this person lived, and 52 households in this dataset were already in that position before this one was written."
+ },
+ "works_at": {
+  "value": null,
+  "confidence": "reconstructed",
+  "note": "Not attested, and no trade is recorded either — the papers name this person without saying what they did."
+ },
+ "present_on_scene_date": {
+  "value": "uncertain",
+  "confidence": "inferred",
+  "sources": [
+   "chicago_democrat_1833_1835"
+  ],
+  "note": "THE CORPUS STOPS BEFORE THE SCENE DATE. Last printed 1833-12-03, at the Democrat of 3 December 1833, column 7, and nothing reached either follows this person to 1 July 1835 or says they left. A documented resident whose whereabouts on one day are unknown is `uncertain` here rather than dropped: that is the same distinction index.json draws for Jeremiah Porter, and it is a finding rather than a gap."
+ },
+ "persons": [
+  {
+   "id": "noble_mark",
+   "name": "Esq. Mark Noble",
+   "relationship": "head",
+   "grade": "attested",
+   "occupation": {
+    "value": "none_recorded",
+    "confidence": "reconstructed",
+    "note": "No source records an occupation for this person. This is the ABSENCE of a record rather than a claim that they did no work: the papers name them in a proceedings column, a public card or an advertisement and simply do not say what they did for a living, and `data/research/newspapers/register_1835.json` reads no trade for them. Reasoning a trade out of the company they keep would be inventing one, so the vocabulary's own word for an absent record is what stands here."
+   },
+   "sources": [
+    "chicago_democrat_1833_1835"
+   ],
+   "note": "A DOCUMENTED PERSON, AND NO TRADE IS CLAIMED BECAUSE THE PAPERS GIVE NONE. The corpus prints 'Mark Nobles, Esq.' and places them at Chicago; it does not say what they did for a living, where this household lived, who else was in it, or when it came. The occupation therefore reads `none_recorded`, this dataset's own word for an absent record, rather than a trade reasoned from the company they keep — the absence is the finding. Cited at the Democrat of 3 December 1833, column 7. THE CORPUS PRINTS THIS PERSON IN THE COMPANY THE TOWN ALREADY HOLDS: 6 people this reconstruction already carries are named in the same claim, which the register records as its `enrich` finding. A place the corpus associates with a person is where the paper does business with them and not a statement about where they slept. No figure is drawn (docs/LIBERTIES.md L1). READ THROUGH A TRANSCRIPTION, not a scan: the owner's ruling of 2026-08-28 grades a transcription-mediated reading as documented, and the source record for the run states that standard and its limits. A scan read that confirms or corrects the name upgrades this entry.",
+   "resident_research": {
+    "refusals": [
+     {
+      "regraded_on": "2026-09-04",
+      "rule": "G2b",
+      "withheld": "the downgrade to inferred",
+      "reason": "This card rests on 1 thing(s) the consolidation did not read — chicago_democrat_1833_1835. G2b fired on the seven domains the ladder reads and says nothing about the evidence outside them, so the grade stands. The same reasoning the ladder's own G5 gives for abstaining (T-0515)."
+     }
+    ]
+   },
+   "merge_ruling": [
+    {
+     "ticket": "T-1291",
+     "verdict": "distinct",
+     "rule": "D8",
+     "cluster": "noble-mark-mary",
+     "weighed_against": [
+      "noble_mary"
+     ],
+     "for_merge": "The surname agrees letter for letter and the forenames differ in one letter, which is all the one-letter test looks at.",
+     "against_merge": "ONE IS A MAN AND THE OTHER IS A WOMAN, AND THAT IS THE WHOLE ANSWER. Mark Noble, Esq. is the 1833 tax list and two of Fergus's old-settler death notices; 'Mary Noble' is the Democrat of 3 December 1833 (#c007). Mark and Mary are two given names of different sex, not two spellings of one name, so C10's first condition — that nothing but the SPELLING of the forename stands between the cards — is not merely undemonstrated but false. The town holds four Nobles (noble_john, noble_mark, noble_mary, noble_william_b) and the surname is set 161 times in the corpus. No printing sets both, and none could: a fold here would put a woman's reading on a man's card. This is the clearest refusal in the forty-three and it is recorded so the distance is never trusted again on a forename."
+    }
+   ]
+  }
+ ],
+ "touches_removal": false,
+ "review_required": false,
+ "research_note": "MINTED FROM THE NEWSPAPER REGISTER (T-0373) BY A RESIDENCY TEST, NOT BY A TRADE. T-0376's pass mints the register's `new_resident` people whose trade the papers print; this one takes the rest, where there is no trade to anchor anybody and a printed name on its own proves only that a Chicago paper set the type. The test asks the corpus two questions instead: does it place this person inside the town and NOWHERE outside it, and does a second independent witness corroborate a bare 'Chicago' — an address at street level, print in two or more issues, or print beside two or more people this reconstruction already holds. THE CORPUS PRINTS THIS PERSON IN THE COMPANY THE TOWN ALREADY HOLDS: 6 people this reconstruction already carries are named in the same claim, which the register records as its `enrich` finding. The household around them is a CONTAINER and not an argument: one member, no dwelling, no division, no family, no recorded trade, and every one of those absences written as unattested rather than filled in from the shape of the rest of the town. That the person is a HOUSEHOLD is the one invention here and it is recorded as docs/LIBERTIES.md L213. tools/mint_placed_residents.py derives the whole minted set and prints every candidate it refused, with the reason.",
+ "directories": {
+  "note": "LATER EVIDENCE, BESIDE THE 1835 CLAIMS AND NOT INSIDE THEM. A Chicago directory of 1839, 1843 or 1844 meets somebody of this name and this pass records what it prints. Under the ratified ladder a directory read after 1835 can corroborate that a person attested here was still in Chicago and can print a trade or a street the 1835 record never had; on its own it makes nobody a resident of 1835. Nothing on this person's 1835 record was regraded, moved, dated or given an occupation by this entry. WHAT THIS PASS RULED ONTO THIS HOUSEHOLD, named so the ruling can be found again: each volume below is followed by the printed entries it set against this person and the status the crosswalk ruled them at — a single entry carries what its own `could_carry` declares, and an ambiguous or contested match carries nothing and is shown so that the silence is legible. noble_mark, Fergus's Chicago directory of 1839 — f1839_e1103, f1839_e1104 (ambiguous, so nothing crossed).",
+  "sources": [
+   "fergus_chicago_directory_1839"
+  ],
+  "people": [
+   {
+    "person_id": "noble_mark"
+   }
+  ]
+ }
+}

@@ -1,0 +1,31 @@
+{
+  "id": "andreas_1884_green_tree_hotel_plate",
+  "type": "illustration",
+  "citation": "\"THE GREEN TREE HOTEL.\" — wood engraving, in A. T. Andreas, History of Chicago, vol. 1 (Chicago: A. T. Andreas, 1884), p. 634, in the chapter \"Wolf Point and Early Hotels\".",
+  "author": "unsigned on the plate; the brief attributes the engraving to Braunhold, and no signature is legible at the resolution the scan publishes",
+  "date": "1884",
+  "describes_date": "the Green Tree as an inn on its original corner; the plate carries no date of its own",
+  "repository": "reproduced in Andreas 1884 vol. 1; scanned copy at archive.org",
+  "url": "https://archive.org/details/historyofchicago01andr/page/n1301/mode/1up",
+  "locator": "Printed page 634, scan leaf index n1301. The plate fills the middle of the page; the caption is lettered under the block.",
+  "tier": 5,
+  "rights_status": "public_domain",
+  "rights_note": "Published 1884 in the United States, so the volume and its plates are out of copyright by age; the parent record `andreas_1884_v1` is already graded `public_domain` on the same ground. The Sauganash plate carries an in-plate copyright line naming A. T. Andreas — a claim made in 1884 and long expired, and it is recorded because it is on the plate, not because it bites. This is what going to the volume buys over an aggregator: the rights question is settled by the imprint instead of left open.",
+  "asset_use": "cross_check",
+  "verified": true,
+  "access_notes": "archive.org item `historyofchicago01andr`. The plate leaves were found from the volume's own LIST OF ILLUSTRATIONS (§ VIEWS), read at the page image, which gives the printed page of every plate in the volume. Two things about the scan, both measured on 2026-09-13 and neither of them obvious: the derivative served by `/download/historyofchicago01andr/page/n<leaf>_large.jpg` is MIRRORED — flip it horizontally before reading anything — and in this stretch of the volume the leaf index is 2 x the printed page + 33, verified at printed pages 629, 630, 631, 632, 634 and 636. That arithmetic is LOCAL: leaf 361 is not printed page 164, so re-derive the offset from a known plate rather than extrapolating across the volume. The `_page_numbers.json` derivative carries no page numbers at all for this item and `_scandata.xml`'s `<pageNumber>` disagrees with the BookReader leaf index; neither is usable here.",
+  "note": "IMAGE 6 OF THE OWNER'S BRIEF OF 2026-08-18, identified. The brief describes it as \"The Green Tree Inn - 1838 (Braunhold engraving, Andreas 1884). Two-storey clapboard inn, even 6-over-6 bays, end chimneys; post-mounted hanging signboard at the corner; plank sidewalks with board crossings; a lower gabled wing at the left with a wide (carriage) door; ship masts rise directly behind the roofline - the river is that close.\"\n\nThe plate was retrieved and read at the page image on 2026-09-13, and the five distinctive features are all on it: the two-storey clapboard block at the right with an even rhythm of sash on both floors and a chimney on the ridge; a signboard hanging from a tall post standing at the corner, clear of the wall; a lower gabled wing at the left with a wide opening in its gable end; two ship's masts with their rigging rising directly behind the roofline; and figures standing on the walk in front. It is the combination of the post-mounted board and the masts behind the roof that settles it — no other plate in the volume's list of VIEWS draws either.\n\nTHE BRIEF'S \"1838\" IS NOT ON THE PLATE, and this record does not carry it. Andreas captions the block \"THE GREEN TREE HOTEL.\" and gives it no year; the 1838 is the brief's, from wherever the owner met the image, and nothing here confirms or refuses it. Nor is the engraver's signature legible, so \"Braunhold\" likewise stays the brief's attribution rather than becoming this record's.\n\nIT IS A SECOND WITNESS TO THE TROWBRIDGE DRAWING, and worth having for exactly that. `trowbridge_green_tree_1902` draws the same inn from the other quarter and is dated 1902 - sixty-seven years after its subject, and very probably a descendant of the 1859 photograph. This plate is eighteen years older and independent of it, and it agrees about the two things the project has taken from Trowbridge: the sign hangs from a POST at the street edge and not from the wall, and there is a lower wing attached at the left with a wide wagon-sized opening.",
+  "what_it_supplies": [
+    "the Green Tree's signboard hanging from a tall post set clear of the wall at the corner — a second, older witness to the post-mounted sign",
+    "a lower gabled wing attached at the left of the main block with a wide, wagon-sized opening in its end",
+    "the two-storey clapboard block with an even rhythm of sash on both floors and a chimney on the ridge",
+    "ship's masts and rigging standing directly behind the roofline, which is a statement about how close the water was",
+    "figures standing on a walk along the frontage"
+  ],
+  "what_it_does_not_supply": [
+    "any coordinate, footprint outline or dimension",
+    "the year 1838, or any year: Andreas captions the plate with no date at all",
+    "the engraver's name: no signature is legible, so the brief's Braunhold attribution stands unverified",
+    "the 6-over-6 pane count the brief reads: the sash are drawn as openings and the glazing bars are not resolvable in this scan"
+  ]
+}

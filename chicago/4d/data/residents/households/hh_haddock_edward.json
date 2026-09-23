@@ -1,0 +1,230 @@
+{
+ "id": "hh_haddock_edward",
+ "name": "The Mansion House keeper's household",
+ "division": "south",
+ "head": "haddock_edward",
+ "arrival": {
+  "value": "1835",
+  "confidence": "reconstructed",
+  "note": "NOT ATTESTED AND VERY LIKELY EARLIER. Nothing dates Haddock's arrival at Chicago; what is dated is his tenancy of a tavern ending in 1835. A year-precision 1835 value would straddle the scene date, so the earliest year the evidence permits is used and the whole field is graded conjectural. TO RESOLVE: Dexter Graves's household and the marriage that made Haddock his son-in-law would date this properly.",
+  "precision": "year"
+ },
+ "party_size_on_arrival": {
+  "value": null,
+  "confidence": "reconstructed",
+  "note": "Not attested."
+ },
+ "origin": {
+  "value": null,
+  "confidence": "reconstructed",
+  "note": "Not attested."
+ },
+ "reason_for_coming": {
+  "value": null,
+  "confidence": "reconstructed",
+  "note": "Not attested."
+ },
+ "lives_at": {
+  "value": "mansion_house",
+  "confidence": "inferred",
+  "sources": [
+   "andreas_1884_v1"
+  ],
+  "note": "A landlord lived in his house, and Andreas has him keeping this one until some point in 1835. Both halves are reconstructed."
+ },
+ "works_at": {
+  "value": "mansion_house",
+  "confidence": "inferred",
+  "sources": [
+   "andreas_1884_v1"
+  ],
+  "note": "Derived rather than documented because the tenancy ENDS inside the scene year and the record cannot say on which side of 1 July."
+ },
+ "present_on_scene_date": {
+  "value": "uncertain",
+  "confidence": "inferred",
+  "sources": [
+   "andreas_1884_v1"
+  ],
+  "note": "THE HONEST ANSWER. Andreas has the house passing to Abram A. Markle at some point in 1835 and gives no month. Haddock may have been keeping the Mansion House on 1 July 1835, or Markle may have been, or Haddock may have left the town. Recorded as uncertain rather than resolved by assumption."
+ },
+ "persons": [
+  {
+   "id": "haddock_edward",
+   "name": "Edward H. Haddock",
+   "relationship": "head",
+   "grade": "attested",
+   "ladder_rule": "G1a",
+   "sex": "male",
+   "occupation": {
+    "value": "tavern_keeper",
+    "confidence": "inferred",
+    "sources": [
+     "andreas_1884_v1"
+    ],
+    "note": "Andreas, printed p. 635: Dexter Graves 'sold it to a Mr. Haddock, his son-in-law, who kept it UNTIL 1835 when it passed into the hands of Abram A. Markle'. So he kept a tavern; whether he was still keeping it on 1 July 1835 is the open half.",
+    "derived_from": "roles",
+    "roles_at_scene_date": [
+     "tavern_keeper"
+    ]
+   },
+   "sources": [
+    "andreas_1884_v1",
+    "census_1840_chicago_familysearch_images",
+    "chicago_democrat_1833_1835",
+    "chicago_tribune_1882_04_25_old_settler_deaths",
+    "chicago_voter_lists_1833_1835_irad",
+    "fergus_chicago_directory_1839",
+    "isa_public_domain_land_tract_sales"
+   ],
+   "note": "THE HANDOVER FALLS INSIDE THE SCENE YEAR AND NO SOURCE GIVES A MONTH. On a flat prior a transfer somewhere in 1835 is about as likely to be after 1 July as before it, so this household names Haddock, records Markle in this note, and declines to choose - exactly as data/structures/mansion_house.json does. He was Dexter Graves's son-in-law, which is the only family relation in this parcel that reaches across two households. OLD SETTLERS, 1882 — A DATE OF DEATH, AND NOTHING ABOUT 1835. John Wentworth's roll of old settlers who had died since 1 January 1881, kept for the Calumet Club and printed in the Chicago Tribune of 25 April 1882, carries “Edward H. Haddock, May 30, 1881.”. That corroborates a Chicago residence before 1840 and fixes the END of this life, which this record did not carry; it is not an arrival and it places nobody in the town on 1 July 1835. Under the ratified ladder (T-0513) a later recollection corroborates, enriches and dates and cannot lift a rung by itself, so this record's GRADE IS UNCHANGED by it: T-0513 consolidates the identity and T-0515 regrades. Identity by rule OS1 — surname and spelled-out forename agree, one bearer (data/research/old_settlers/crosswalk.json). THE TOWN'S OWN ROLLS, 1833-1835 — CORROBORATION, NOT A GRADE. The early Chicago voter and tax lists held by the Illinois Regional Archives Depository name this person 2 times: Tax list of the Town of Chicago, 1833 — “Haddock, E. H.” (tax_1833_041, line 93); Poll list of 1835 — “Haddock, E. H.” (poll_1835_028, line 315). These are the town's own contemporary paper rather than a recollection of it, and each appearance says that a man of that name stood on that roll in that year — no more. The reading is twice mediated (Schulz's transcription, then Genealogy Trails' republication) and this project has not seen the IRAD originals. Under the ratified ladder (T-0513) the 1835 poll with a second independent source is attested, the 1835 poll alone or a 1833/1834 list with another source is inferred, and a single appearance with nothing else is a projected resident. This pass WRITES THE EVIDENCE AND MOVES NO GRADE — T-0515 applies the ladder against every source at once. Identity by the crosswalk's own rule: one resident of the surname 'Haddock' agrees with the entry's forenames; 1 bearer(s) of the surname were considered. (data/research/civic/voter_crosswalk.json). FERGUS 1839'S LATER LISTS — 1837 AND 1839 EVIDENCE, NEVER AN 1835 FACT. Fergus' Chicago Directory for 1839 names this person 1 time in its two later lists: the poll of Chicago's first city election, 2 May 1837 — “Edw. II. Haddock,” (f1839_v0142, printed page 42, ward 1, voting for John H. Kinzie). What a match may carry, and it is short: that the man was in Chicago on 2 May 1837 and in that ward. It is written as 1837 evidence with describes_date 1837-05-02, never as an 1835 fact, and the person's grade does not move on this alone. Under the ratified ladder a second contemporary source is what lifts projected_resident, and a poll twenty-two months after the scene date is a second source about CONTINUED RESIDENCE, not about July 1835. The ward is a location in the CITY of 1837, whose six wards are drawn on printed page 46; it is not a location in the town of 1835 and does not place a house. Identity by the crosswalk's own rule: Surname 'Haddock' folds to the same string as the 1837 entry's, and the given name of both begins E. (data/research/directories/fergus_1839_election_crosswalk_1835.json and fergus_1839_register_crosswalk_1835.json). This pass WRITES THE EVIDENCE AND MOVES NO GRADE. Under the ratified ladder (T-0513) a second independent source is what lifts a projected resident, and a poll twenty-two months after the scene date — or a register four years after it — is a second source about CONTINUED RESIDENCE rather than about July 1835. T-0515 applies the ladder against every source at once; this pass hands it the evidence and not the verdict. FERGUS 1839'S FORT DEARBORN ADDITION LOT SALE — JUNE 1839 EVIDENCE, NEVER AN 1835 FACT. This person bid at the sale of the Fort Dearborn Addition, 10-24 June 1839, printed in Fergus' Chicago Directory for 1839 at pages 47-49. The bidder is printed as “E. H. Haddock”. 3 lot rows, $534 in all: block 9 lot 30 at $232 (f1839_lot0171, printed page 48); block 10 lot 12 at $151 (f1839_lot0185, printed page 49); block 10 lot 13 at $151 (f1839_lot0186, printed page 49). The sale table's own shorthand, recorded and not flattened: 1 of those rows prints the bidder as a ditto mark under the name above rather than the name itself; 3 carry the block number forward from the last row that printed one. What a match may carry, and it is short: that the man was in Chicago between the 10th and the 24th of June 1839 and bid at the Fort Dearborn Addition sale. It is written as 1839 evidence with describes_date 1839-06, never as an 1835 fact, and the person's grade does not move on this alone. Under the ratified ladder a second contemporary source is what lifts projected_resident, and a land sale four years after the scene date is a second source about CONTINUED RESIDENCE, not about July 1835. THE LOT IS NOT A LOCATION FOR 1835: the Fort Dearborn Addition is the Beaubien, or Reservation, lands, which in July 1835 were the garrison's ground and were not platted into lots at all. It places no house, no shop and no household in the town this project builds. No trade, no address in the town of 1835, no household and no house. The block and lot are the only location on the page, they are ground platted in 1839 out of the garrison's reservation, and they place nobody in the town of 1835. Identity by the crosswalk's own rule: Surname 'Haddock' folds to the same string as the bidder's, and the given name of both begins E. (data/research/directories/fergus_1839_lots_crosswalk_1835.json). This pass WRITES THE EVIDENCE AND MOVES NO GRADE. Under the ratified ladder (T-0513) a second independent source is what lifts a projected resident, and a lot sale four years after the scene date is a second source about CONTINUED RESIDENCE rather than about July 1835. T-0515 applies the ladder against every source at once; this pass hands it the evidence and not the verdict. THE FEDERAL LAND TRACT SALES — A PURCHASE, AND NEVER A RESIDENCE. The Illinois State Archives' Public Domain Land Tract Sales register enters this person 6 times, as “HADDOCK E H”, “HADDOCK EDWARD H”, 1833-10-22 to 1836-06-28: 1 federal land entry — E2NE sec 27 T38N R14E and 1 lot in the platted town — lot 8 of block 3 in the town the register codes CHI (L8BL3CHI, as printed) and 4 parcels of the school section — BL134 of the school section (sec 16 T39N R14E), as read; lot 1 of block 94 of the school section (sec 16 T39N R14E); lot 7 of block 120 of the school section (sec 16 T39N R14E); lot 8 of block 94 of the school section (sec 16 T39N R14E), 80.00 acres stated in all, for $1575.00 (ls0169, ls0170, ls0171, ls1199, ls0172, ls0669). THE REGISTER'S OWN RESIDENCE COLUMN READS UNKNOWN on these rows: a county, a state or nothing, and never a town, which is why a purchase here places nobody. THE SCHOOL-SECTION ROWS ARE GROUND INSIDE THE TOWN, NOT FARMLAND: section 16 of T39N R14E was platted and sold off by lot and by block at the sale of 1833, which is why the register states 0000.00 acres against most of them. Ground inside the town is nearer to this reconstruction than a quarter-section is, and it is still a purchase: the register names a purchaser and never an occupant, and nothing here puts this person on that ground. THE TOWN LOTS ARE THE PLAT ITSELF, AND THEY ARE NOT ACRES: Cook County's register describes them by lot and block in a platted town and gives them no section, no township and no acreage at all, so they add nothing to the acre figure above and $1025.00 to the money. This project does not expand the register's town codes, so which addition a lot stands in is carried as the code and not as a name. It is still a purchase and it still places nobody. A purchase and nothing more. It dates and places a transaction; it proposes no residence, and under the ratified ladder it corroborates rather than mints. Identity by the crosswalk's own rule: HADDOCK E H matches Edward H. Haddock: the forename names Edward H. Haddock of the 2 people of this surname, and the forename agrees as an initial only. (data/research/land_sales/resident_crosswalk.json). This pass WRITES THE EVIDENCE AND MOVES NO GRADE. Under the ratified ladder (T-0513) a second independent source is what lifts a projected resident, and a land entry is a second source about a TRANSACTION rather than about who was living at Chicago on 1 July 1835 — a man may buy a quarter-section he never sees. T-0515 applies the ladder against every source at once; this pass hands it the evidence and not the verdict.",
+   "resident_research": {
+    "programme": "resident-research-2026",
+    "ticket": "T-0493",
+    "outcome": "no_corroboration_yet",
+    "reviewed_on": "",
+    "asserted_identity": false,
+    "evidence_for": "forenames agree initial for initial: entry 'E. H. Haddock' against resident 'Edward H. Haddock'",
+    "source_ids": [
+     "chicago_voter_lists_1833_1835_irad"
+    ]
+   },
+   "civic_evidence": [
+    {
+     "list": "tax_1833",
+     "as_read": "Haddock, E. H.",
+     "locator": "tax_1833",
+     "record_id": "tax_1833_041",
+     "describes_date": "1833",
+     "source": "chicago_voter_lists_1833_1835_irad",
+     "rule": "G1a"
+    },
+    {
+     "list": "poll_1835",
+     "as_read": "Haddock, E. H.",
+     "locator": "poll_1835",
+     "record_id": "poll_1835_028",
+     "describes_date": "1835",
+     "source": "chicago_voter_lists_1833_1835_irad",
+     "rule": "G1a"
+    },
+    {
+     "list": "poll_1834",
+     "as_read": "Haddock, Edward E.",
+     "locator": "poll_1834",
+     "record_id": "poll_1834_048",
+     "describes_date": "1834",
+     "source": "chicago_voter_lists_1833_1835_irad",
+     "rule": "G3"
+    }
+   ],
+   "census_evidence": [
+    {
+     "list": "census_1840",
+     "as_read": "E. H. Haddock",
+     "locator": "207:13",
+     "record_id": "33SQ-GYYJ-93G:13",
+     "describes_date": "1840",
+     "source": "census_1840_chicago_familysearch_images",
+     "rule": "G1a"
+    }
+   ],
+   "press_evidence": [
+    {
+     "list": "newspaper_1833_1835",
+     "as_read": "E. H. Haddock",
+     "locator": "chicago_democrat_1834_07_02#c017",
+     "record_id": "person_e_h_haddock",
+     "describes_date": "1834-07-02",
+     "source": "chicago_democrat_1833_1835",
+     "rule": "G1a"
+    },
+    {
+     "list": "newspaper_1833_1835",
+     "as_read": "E. W. Haddock",
+     "locator": "chicago_democrat_1834_03_18#c011",
+     "record_id": "person_e_w_haddock",
+     "describes_date": "1834-03-18",
+     "source": "chicago_democrat_1833_1835",
+     "rule": "G1b"
+    },
+    {
+     "list": "newspaper_1833_1835",
+     "as_read": "E. Haddock",
+     "locator": "chicago_democrat_1834_06_18#c002",
+     "record_id": "person_e_haddock",
+     "describes_date": "1834-06-18",
+     "source": "chicago_democrat_1833_1835",
+     "rule": "G1b"
+    }
+   ],
+   "merged_from": [
+    {
+     "ticket": "T-0839",
+     "rule": "C0",
+     "cluster": "haddock",
+     "cards": [
+      "haddock_e",
+      "haddock_e_w",
+      "haddock_edward_e"
+     ],
+     "note": "THE UNION OF THE CARDS THIS PERSON WAS SPLIT ACROSS. The sources and evidence blocks above include everything the folded cards cited; each folded record is kept whole under data/residents/merged/ and is redirected by index.json's `merged` table. The reasoning for the merge is in data/residents/card_merge_rulings.json."
+    }
+   ],
+   "roles": [
+    {
+     "role": "tavern_keeper",
+     "kind": "trade",
+     "as_printed": null,
+     "from": "1673",
+     "to": "1857",
+     "precision": "source_span",
+     "dated_by": "source_describes_date",
+     "covers_scene_date": true,
+     "confidence": "inferred",
+     "sources": [
+      "andreas_1884_v1"
+     ],
+     "claim": null,
+     "note": "THE BOUND IS THE SOURCE'S, NOT THE MAN'S. This role is carried by the card's 1835 occupation block and is dated by what the cited source or sources are ABOUT, which is why `precision` can be no better than the span they cover. The span reaches 1835, so this role stands in the scene-date view. The printing the trade was read off is not on the card and is fetched by T-1254."
+    }
+   ]
+  }
+ ],
+ "touches_removal": false,
+ "review_required": false,
+ "research_note": "THE HOUSEHOLD THAT EXISTS TO CARRY AN UNRESOLVED HANDOVER RATHER THAN TO HIDE IT. The Mansion House had a keeper on 1 July 1835 and this project cannot say which of two named men it was. Writing no household would lose a documented tavern keeper; writing two would double-count a job only one man held; writing Markle would be a coin-flip stated as a fact. So one household is written, graded derived throughout, with presence recorded as uncertain and the alternative named in the notes. A LATER PARCEL SHOULD LOOK FOR THE MONTH - the Chicago American began publishing in June 1835 and a change of landlord is exactly the thing a new paper advertises.",
+ "directories": {
+  "note": "LATER EVIDENCE, BESIDE THE 1835 CLAIMS AND NOT INSIDE THEM. A Chicago directory of 1839, 1843 or 1844 meets somebody of this name and this pass records what it prints. Under the ratified ladder a directory read after 1835 can corroborate that a person attested here was still in Chicago and can print a trade or a street the 1835 record never had; on its own it makes nobody a resident of 1835. Nothing on this person's 1835 record was regraded, moved, dated or given an occupation by this entry. WHAT THIS PASS RULED ONTO THIS HOUSEHOLD, named so the ruling can be found again: each volume below is followed by the printed entries it set against this person and the status the crosswalk ruled them at — a single entry carries what its own `could_carry` declares, and an ambiguous or contested match carries nothing and is shown so that the silence is legible. haddock_edward, Fergus's Chicago directory of 1839 — f1839_e0610 (a single entry).",
+  "sources": [
+   "fergus_chicago_directory_1839"
+  ],
+  "people": [
+   {
+    "person_id": "haddock_edward",
+    "address_later": {
+     "value": "South Water st",
+     "confidence": "attested",
+     "describes_date": 1839,
+     "sources": [
+      "fergus_chicago_directory_1839"
+     ],
+     "note": "Fergus's Chicago directory of 1839 prints this address against this person, in the entry quoted on the card: 'Haddock, Edward H., commission merchant, South Water st'. It is evidence about 1839, written here as 1839's and read back onto no 1835 claim. Under the ratified ladder a directory read after 1835 can corroborate that a person attested here was still in Chicago and can print a trade or a street the 1835 record never had; on its own it makes nobody a resident of 1835. Nothing on this person's 1835 record was regraded, moved, dated or given an occupation by this entry. The value is the volume's own line, split by its crosswalk on the entry's punctuation. These volumes set the trade first and its qualifiers after it on the same line, so the split may carry an employer, a market or a corner along with the trade. The printed entry is quoted beside the value for exactly that reason: the split is checkable against it, and neither is read into an 1835 claim."
+    },
+    "back_projection": {
+     "outcome": "already_better_placed",
+     "clause": "2",
+     "value": null,
+     "describes_date": 1839,
+     "read_back_years": 4,
+     "placement": null,
+     "position_local_enu_m": null,
+     "sources": [
+      "fergus_chicago_directory_1839"
+     ],
+     "note": "NOT READ BACK, BECAUSE SOMETHING BETTER ALREADY STANDS. Fergus's Chicago directory of 1839 prints an address against this name in 1839, and it is left where it is. An 1835 placement already stands: this household works at `mansion_house`, and clause 2 says an attested 1835 placement always beats a door printed 4 years later. The later address stays on the record as 1839's evidence and moves nothing."
+    }
+   }
+  ]
+ }
+}

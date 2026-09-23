@@ -1,0 +1,120 @@
+{
+  "id": "chappel_infant_school",
+  "name": "Eliza Chappel's infant school",
+  "aka": [
+    "the infant school",
+    "Chicago's first school-house on the south side"
+  ],
+  "archetype": "log_dwelling",
+  "phases": [
+    {
+      "id": "log_1833",
+      "documented_range": {
+        "from": "1833-01-01",
+        "to": "1835-12-31",
+        "confidence": "inferred",
+        "sources": [
+          "andreas_1884_v1"
+        ],
+        "note": "WHAT IS DATED IS A SCHOOL, NOT A BUILDING, AND THE DIFFERENCE IS THE POINT OF THIS RECORD. Andreas has Eliza Chappel's infant school in 1833-34 in 'a log house just outside the military reservation ... divided into school-room and lodging quarters' (docs/research/04-structures-south.md section 9, from Andreas I scan p. 431). During 1834 the school MOVED INTO THE FIRST PRESBYTERIAN CHURCH at Lake and Clark. Nothing reached says what became of the log house. 1833-01-01 is the first day of the year the school is attested in it and is a bound; the house itself is older than the school by an unknown amount. 1835-12-31 IS AN INFERENCE ABOUT PERSISTENCE, NOT AN ATTESTATION: a sound log house eighteen months old is not pulled down when its tenant leaves, and the town in 1835 was short of buildings and growing, so the structure very probably still stood. That is the reasoning, and it is the whole of it. IF THE HOUSE WAS DEMOLISHED, MOVED OR BURNT BETWEEN 1834 AND THE SCENE DATE, THIS RECORD IS WRONG AND NOTHING IN THE SOURCES WOULD SHOW IT."
+      },
+      "position": {
+        "utm_e": 447883.62,
+        "utm_n": 4637348.74,
+        "rotation_deg": 90.0,
+        "symbolic_location": "West side of State Street between South Water Street and Lake Street, just outside the western edge of the military reservation; fronting east onto State.",
+        "confidence": "reconstructed",
+        "note": "INVENTED WITHIN AN ATTESTED NEIGHBOURHOOD. What Andreas gives is 'a log house just outside the military reservation' and nothing more precise. The reservation's western boundary on the south side WAS State Street until the town's February 1835 extension, which is documented, so 'just outside' means immediately west of State; the block between South Water and Lake is this project's dossier's reading of where that puts the school, and the dossier tags the exact lot [CONJ] itself. NO SOURCE PLACES THIS BUILDING ON A LOT, A CORNER OR A BLOCK FACE, so the coordinate is a point chosen inside a two-block-long strip and the confidence says so. METHOD: State Street survives on its plat line; the modern West Lake Street / North State Street centre (EPSG:26916 E 447902.80, N 4637282.51, OSM node 258957342) and the West Wacker Drive / North State Street centre (E 447899.81, N 4637407.66, 4 nodes averaged, spread 21.4 m), both fetched 2026-08-11, give the street's line, and the mid-point between them, E 447901.30 / N 4637345.08, is the middle of the block face. The footprint's east face is set 12.2 m west of that centreline - half of an 80 ft street per Hathaway 1834 - and the building centred on the block face north to south. UNCERTAINTY: about 20 m from the georeference, plus about 60 m either way ALONG State Street from the mid-block choice, plus the possibility that 'just outside the reservation' was read too narrowly and the house stood a lot or two back from the street. Facade bearing 90, due east onto State, a convention rather than a finding. NOTE ALSO that South Water Street's modern successor, Wacker Drive, was built on the old right of way in 1924-26 and widened northward, so the northern of the two control points is the softer one; it is used here only to fix a direction, not a frontage.",
+        "derivation": {
+          "method": "not_derivable",
+          "reason": "This placement predates the derivation module. Its provenance and reasoning are recorded in position.note, but no machine-checkable derivation block has been authored for it yet."
+        }
+      },
+      "footprint": {
+        "polygon": [
+          [
+            0,
+            0
+          ],
+          [
+            7.315,
+            0
+          ],
+          [
+            7.315,
+            5.486
+          ],
+          [
+            0,
+            5.486
+          ]
+        ],
+        "confidence": "reconstructed",
+        "note": "INVENTED. NO SOURCE REACHED GIVES THIS BUILDING A DIMENSION. 7.315 x 5.486 m is 24 x 18 ft, recorded converted with the original figures stated per data/datum.json's units rule. The one constraint the evidence offers is the plan rather than the size: the house was 'divided into school-room and lodging quarters', so it held two rooms - a schoolroom big enough for an infant school and a teacher's lodging - which is bigger than a single-pen cabin and smaller than a public building. 24 x 18 ft is a two-room log house of the period at the small end. Everything else about the shape is this record's. Note the axis convention: with a bearing of 90 the polygon's first axis runs along State Street north to south and the second runs back from it, so the 24 ft dimension is the street frontage."
+      },
+      "form": {
+        "stories": {
+          "value": 1,
+          "confidence": "inferred",
+          "note": "Not stated. A log house divided into a schoolroom and lodging quarters is a single-storey two-room plan by type, and nothing in the description implies a stair or an upper room. This project's other log buildings of the period carry the same reading. Where the lodging is described as a separate quarter rather than a loft, a single storey is the more natural reading of the same sentence."
+        },
+        "construction": {
+          "value": "log",
+          "confidence": "attested",
+          "sources": [
+            "andreas_1884_v1"
+          ],
+          "note": "'a log house' - the one thing about this building's fabric that any source states. Hewn log with notched corners is what this archetype builds for that value; whether the logs were hewn or round, and how the house was chinked, roofed or floored, is unattested."
+        },
+        "wall_height_m": {
+          "value": 2.5,
+          "confidence": "inferred",
+          "note": "No figure is attested. 2.5 m is about 8 ft: a single storey of hewn log wall at typical period course counts, plus a sill. It is the same figure and the same reasoning this project's walker_meeting_house record carries for the other log building put up for teaching in this town. What is inferred is that the height falls in this range, not that it is exactly 2.5 m."
+        },
+        "roof_type": {
+          "value": "gable",
+          "confidence": "inferred",
+          "note": "Not attested. Gable is the near-universal roof form for log construction of this type, period and region. Typological derivation, not a measurement."
+        },
+        "roof_pitch_deg": {
+          "value": 35.0,
+          "confidence": "inferred",
+          "note": "No pitch is attested. 35 degrees is this archetype's own mid-range for a log building roofed in riven shakes and is the figure this project's other log records carry. Inferred from construction practice, not measured."
+        },
+        "chimneys": {
+          "value": 1,
+          "confidence": "inferred",
+          "note": "Not attested. A house that was both a schoolroom and someone's lodging through Chicago winters needed heating; one stack is the minimum and the normal number for a two-room log house. The COUNT is the inference; where the stack stands, how big it is and what it is made of are the archetype's - docs/LIBERTIES.md L26."
+        },
+        "interior_division": {
+          "value": "divided into school-room and lodging quarters",
+          "confidence": "attested",
+          "sources": [
+            "andreas_1884_v1"
+          ],
+          "geometry": "absent",
+          "note": "Documented and not built. This is the only thing any source says about the building's arrangement, and it is what distinguishes it from an ordinary cabin - the schoolroom and the teacher's own quarters under one roof. No interior is modelled in this project, so the partition is invisible; it is the reason the footprint is a two-room size rather than a single pen, so it does reach the mesh indirectly, through a number a human chose."
+        }
+      },
+      "change_note": "The log house Eliza Chappel's infant school occupied in 1833-34, divided into a school-room and lodging quarters, standing just outside the western edge of the military reservation. THE SCHOOL LEFT IN 1834 for the First Presbyterian Church at Lake and Clark; this phase carries the BUILDING, which is inferred to have still stood on 1835-07-01, and makes no claim about what it was used for then."
+    }
+  ],
+  "function": {
+    "value": "log house; infant school 1833-34, use on the scene date unattested",
+    "confidence": "inferred",
+    "sources": [
+      "andreas_1884_v1"
+    ],
+    "note": "THE DISTINCTION THIS RECORD EXISTS TO MAKE. What is documented is a use that had ENDED by the scene date: Eliza Chappel's infant school occupied this house in 1833-34 and moved into the First Presbyterian Church during 1834 - reported in this project's dossier from PBS and Encyclopedia of Chicago summaries which have no source record in data/sources/, so it is stated here as reported rather than cited. On 1835-07-01 the building is inferred to stand and nothing says what was happening inside it. A dwelling is the likeliest use in a town where housing was scarce and rents were high, but that is a guess and the value says so instead of making it. THE SCHOOL IS NOT SHOWN TWICE: the schooling that moved into the church is carried on the first_presbyterian_church record's function note, not here."
+  },
+  "occupants": {
+    "value": "Eliza Chappel and her infant school, 1833-34; occupants on the scene date unattested",
+    "confidence": "inferred",
+    "sources": [
+      "andreas_1884_v1"
+    ],
+    "note": "Chappel's occupancy is attested for 1833-34 and is over before the scene date. No source reached names anyone in this building in 1835. Stated with its end date rather than carried forward, which is the opposite of what most occupancy fields in this dataset do and is deliberate."
+  },
+  "research_note": "A BUILDING THAT IS ATTESTED THROUGH AN INSTITUTION THAT HAD LEFT IT. Everything documented here - the log house, the division into school-room and lodging quarters, the siting just outside the military reservation - comes from one sentence of Andreas about the school (docs/research/04-structures-south.md section 9, from Andreas I scan p. 431), and the school moved out in 1834. So the record makes two separable claims, and a later source can knock down either without touching the other: that a log house of this description stood west of State Street, and that it was still standing on 1835-07-01. The second is an inference about how long a log house lasts. THREE GUARDS. (1) DO NOT CONFLATE THIS WITH THE NORTH SIDE SCHOOLS. John Watkins taught near the old Indian agency-house on the north bank in the spring of 1833, and a public school stood on the north bank just east of Clark Street in the building erected by Cols. Hamilton and Owen; both are north-side buildings and neither is this one. The Watkins house on Michigan Street is a separate record here. (2) DO NOT PROMOTE THE POSITION. The dossier itself tags the exact lot conjectural and the placement here is a point inside a two-block strip. (3) THE LATER SCHOOL BUILDINGS ARE EXCLUDED BY DATE: the first public school building erected by private means is 1837 and the Miltimore and Dearborn schools are 1837 and 1844-45. WHAT WOULD UPGRADE IT: Andreas vol. 1 at page-image level around scan p. 431, read for a street or a lot rather than for the school; the 1834 or 1835 Chicago Democrat, which advertised schools and would date the move out of this house from the other side; and any of the Chappel biographical literature, which is extensive because she later founded the Chicago Orphan Asylum. A NOTE ON SCOPE, for the same reason walker_meeting_house carries one: an infant school in Chicago in 1833 taught the children of a town that was still a Potawatomi trading settlement in the year of the final removal, and interpretive text about this building sits close to the project's standing constraint on Indigenous history even though the structure itself is a settler building. review_required is set false, consistent with walker_meeting_house, but the call is worth a second opinion.",
+  "review_required": false
+}

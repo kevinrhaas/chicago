@@ -1,0 +1,67 @@
+{
+  "_doc": "AUTHORED. Modern locator control for the SOUTHERN CAMERAS of T-0467, and nothing else. These three junctions are not 1835 streets and are not georeferencing GCPs: they are the present-day crossings whose names the ticket used to say where it wanted a viewpoint — Sixteenth, Eighteenth and Cermak at Prairie Avenue — resolved to coordinates so that the anchors in data/scenes/1835.json stand where the ticket meant rather than where a round number fell. A CAMERA IS NOT A PLACEMENT. Nothing here claims a street, a lot or a building existed on 1835-07-01, and nothing in the structure layer may be offset from these points.",
+  "id": "south_anchor_control",
+  "ticket": "T-0467",
+  "read_by": "data/scenes/1835.json § anchors (note); tools/measure_anchors.mjs measures where they land",
+  "method": "The rule is data/traces/street_control.json § node_rule, unchanged: the nodes SHARED by the two named surface roadways at the crossing, averaged, reprojected to EPSG:26916, and carried into the local frame by subtracting the datum origin (data/datum.json origin_utm_e 447072.7, origin_utm_n 4637395.8). Cycleways, footways and service ways are excluded, which matters here: East 18th Street has eleven cycleway segments mapped beside it under the name '18th Street Access Path', and averaging them in would pull the junction centre off the roadway.",
+  "fetched": "2026-09-17",
+  "overpass_timestamp_osm_base": "2026-09-17T12:41:50Z",
+  "rights": "OpenStreetMap contributors, ODbL 1.0 — see data/sources/osm_streets_2026.json.",
+  "sources": ["osm_streets_2026"],
+  "how_good_these_are": "Better than the control the box's own south wall was derived from, and it does not matter much either way. Two of the three are single-node crossings with no spread at all; Cermak & Prairie is two nodes of a divided roadway 16.13 m apart and is carried as their mean. What they inherit whole is the ±20 m the datum carries onto any 1834 reading (data/datum.json § derivation residual_note) — and these points are not being read against an 1834 sheet at all, so the honest statement is that each is the 2026 junction centre to within a metre or two, and that where it falls in the 1835 model is only as good as the datum. For a camera that is enough; for a placement it would not be, which is why this file is read by no generator.",
+  "cross_check": {
+    "what": "Cermak & Prairie against the box's own south wall.",
+    "reading": "This file puts Cermak Road at local N -3764.87. data/terrain/epochs/e1834_harbor_cut/terrain_spec.json § n_min derives Twenty-Second Street from the PLSS — one statute mile south of the committed State & Roosevelt section corner — at local N -3758.74, and notes that carrying the OSM square's own measured spacing instead puts it at N -3773.5.",
+    "verdict": "The junction falls 6.13 m south of the PLSS derivation and 8.6 m north of the measured-spacing one, i.e. between the two figures the terrain spec itself gives, and 35.13 m inside the box floor at N -3800. Two independent routes to the same street line agreeing to single-figure metres is a check on both; neither number is moved by it."
+  },
+  "control": {
+    "sixteenth_prairie": {
+      "streets": ["East 16th Street", "South Prairie Avenue"],
+      "osm_node_ids": [261331671],
+      "nodes_averaged": 1,
+      "node_spread_m": 0.0,
+      "node_versions": [{ "id": 261331671, "version": 5, "timestamp": "2010-04-24T06:34:22Z" }],
+      "lat": 41.8602479,
+      "lon": -87.6208621,
+      "utm_e": 448469.21,
+      "utm_n": 4634446.21,
+      "local_e": 1396.51,
+      "local_n": -2949.59
+    },
+    "eighteenth_prairie": {
+      "streets": ["East 18th Street", "South Prairie Avenue"],
+      "osm_node_ids": [261185721],
+      "nodes_averaged": 1,
+      "node_spread_m": 0.0,
+      "node_versions": [{ "id": 261185721, "version": 8, "timestamp": "2025-04-07T19:09:01Z" }],
+      "lat": 41.8579305,
+      "lon": -87.6207753,
+      "utm_e": 448474.56,
+      "utm_n": 4634188.87,
+      "local_e": 1401.86,
+      "local_n": -3206.93
+    },
+    "cermak_prairie": {
+      "streets": ["East Cermak Road", "South Prairie Avenue"],
+      "osm_node_ids": [258018929, 258019306],
+      "nodes_averaged": 2,
+      "node_spread_m": 16.13,
+      "node_versions": [
+        { "id": 258018929, "version": 16, "timestamp": "2021-08-19T05:04:16Z" },
+        { "id": 258019306, "version": 10, "timestamp": "2021-08-19T05:04:16Z" }
+      ],
+      "lat": 41.85290585,
+      "lon": -87.620664,
+      "utm_e": 448479.76,
+      "utm_n": 4633630.93,
+      "local_e": 1407.06,
+      "local_n": -3764.87,
+      "note": "Cermak Road is divided here; the two nodes are the crossings of its two carriageways and the point is their mean, per the node rule."
+    }
+  },
+  "not_control_for": [
+    "any structure placement",
+    "any street record in data/streets/",
+    "the 1812 battle location, which T-0470 owns and which no anchor here claims"
+  ]
+}

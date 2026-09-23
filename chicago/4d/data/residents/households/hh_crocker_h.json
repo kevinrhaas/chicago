@@ -1,0 +1,150 @@
+{
+ "id": "hh_crocker_h",
+ "name": "The Crocker household — a documented schoolteacher, unplaced in the town",
+ "division": "unplaced",
+ "head": "crocker_h",
+ "source_pass": "documented",
+ "arrival": {
+  "value": "1835-01-21",
+  "confidence": "inferred",
+  "sources": [
+   "chicago_democrat_1833_1835"
+  ],
+  "note": "A BOUND FROM THE PAPER, NOT AN ARRIVAL. The corpus first prints this person at the Democrat of 21 January 1835, column 7, so they are in the town's paper by 1835-01-21 and at no stated time before it; nothing reached says when they came. Last printed 1835-07-08.",
+  "precision": "not_later_than"
+ },
+ "party_size_on_arrival": {
+  "value": null,
+  "confidence": "reconstructed",
+  "note": "Not attested."
+ },
+ "origin": {
+  "value": null,
+  "confidence": "reconstructed",
+  "note": "Not attested."
+ },
+ "reason_for_coming": {
+  "value": null,
+  "confidence": "reconstructed",
+  "note": "Not attested."
+ },
+ "lives_at": {
+  "value": null,
+  "confidence": "reconstructed",
+  "note": "Not attested. NOTHING IS BEING WITHHELD HERE: no source reached says where this person lived, and 52 households in this dataset were already in that position before this one was written."
+ },
+ "works_at": {
+  "value": null,
+  "confidence": "reconstructed",
+  "note": "Not attested as a structure this project models. The trade is documented; the premises are not one of the committed records."
+ },
+ "present_on_scene_date": {
+  "value": "present",
+  "confidence": "inferred",
+  "sources": [
+   "chicago_democrat_1833_1835"
+  ],
+  "note": "Printed on or after the scene date — last at the Democrat of 8 July 1835, column 4 — so the corpus itself puts this person in the town's paper at 1835-07-08."
+ },
+ "persons": [
+  {
+   "id": "crocker_h",
+   "name": "H. Crocker",
+   "relationship": "head",
+   "grade": "attested",
+   "ladder_rule": "G1b",
+   "occupation": {
+    "value": "schoolteacher",
+    "confidence": "attested",
+    "sources": [
+     "chicago_democrat_1833_1835"
+    ],
+    "note": "THE TRADE IS THE PAPER'S. The corpus reads it as school district clerk, at the Democrat of 21 January 1835, column 7; the Democrat of 8 July 1835, column 4. The residents vocabulary's nearest period-correct word for it is `schoolteacher`, and where the corpus prints more than one trade they are all named here rather than reduced to the one the vocabulary could take.",
+    "derived_from": "roles",
+    "roles_at_scene_date": [
+     "schoolteacher"
+    ]
+   },
+   "sources": [
+    "chicago_democrat_1833_1835"
+   ],
+   "note": "A DOCUMENTED PERSON, AND NOTHING ELSE IS CLAIMED. The papers name 'H. CROCKER, Clerk' and 'HI. CROCKER' and give the trade; they do not say where this household lived, who else was in it, or when it came. So the record around this person carries nothing but the person: no dwelling, no division, no family, each written as unattested in its own block rather than filled in from the shape of the rest of the town. Cited at the Democrat of 21 January 1835, column 7; the Democrat of 8 July 1835, column 4. The corpus associates the name with Chicago; that is where the paper does business with this person and not a statement about where they slept, and the storefront tickets are the ones that may stand a shop there. THE TOWN NEVER INVENTED A ROOF FOR THIS TRADE. The occupation census raised reconstructed households for the trades a town of 3,265 people needed and could not document; `schoolteacher` was not one of them, which is why this person could only ever be ADDED and never seated on an existing record — data/research/newspapers/register_1835.json calls it `new_resident` for exactly that reason. No figure is drawn (docs/LIBERTIES.md L1). READ THROUGH A TRANSCRIPTION, not a scan: the owner's ruling of 2026-08-28 grades a transcription-mediated reading as documented, and the source record for the run states that standard and its limits. A scan read that confirms or corrects the name upgrades this entry.",
+   "resident_research": {
+    "programme": "resident-research-2026",
+    "ticket": "T-0509",
+    "outcome": "candidate_identity",
+    "reviewed_on": "2026-09-05",
+    "asserted_identity": false,
+    "evidence_for": "No reliable record found in the reviewed web, institutional-history, digitized-book, newspaper-index and genealogy-finding-aid searches could be tied to this 1835 Chicago person without relying on the name alone.",
+    "notes": "No candidate fact is asserted unless a source bridges the candidate to the 1835 Chicago record by more than name similarity.",
+    "summary": "Two independent later records agree on the same expansion and the same trade: Fergus 1839, 'Crocker, Hans, attorney at law', and the old-settler notice 'Crocker, Hans, lawyer, died, Milwaukee, Wis., Mar. 17, 1889, a. 73'. The 1889 age puts his birth at 1815-16 — about twenty in the scene, which fits a man the 1835 papers show teaching school between January and July before the law.",
+    "source_ids": [
+     "chicago_democrat_1833_1835",
+     "chicago_tribune_1882_04_25_old_settler_deaths",
+     "fergus_chicago_directory_1839"
+    ]
+   },
+   "roles": [
+    {
+     "role": "schoolteacher",
+     "kind": "profession",
+     "as_printed": null,
+     "from": "1833-11",
+     "to": "1835-08",
+     "precision": "source_span",
+     "dated_by": "source_describes_date",
+     "covers_scene_date": true,
+     "confidence": "attested",
+     "sources": [
+      "chicago_democrat_1833_1835"
+     ],
+     "claim": null,
+     "note": "THE BOUND IS THE SOURCE'S, NOT THE MAN'S. This role is carried by the card's 1835 occupation block and is dated by what the cited source or sources are ABOUT, which is why `precision` can be no better than the span they cover. The span reaches 1835, so this role stands in the scene-date view. The printing the trade was read off is not on the card and is fetched by T-1254."
+    }
+   ]
+  }
+ ],
+ "touches_removal": false,
+ "review_required": false,
+ "research_note": "MINTED FROM THE NEWSPAPER REGISTER (T-0376), AND THE HOUSEHOLD IS A CONTAINER RATHER THAN AN ARGUMENT. Every other record in this dataset argues for a household — a family the sources count, or a trade the town demonstrably needed. This one argues for a PERSON: the Democrat and the American name H. Crocker as a schoolteacher at Chicago 2 time(s), and this reconstruction did not hold them. `data/residents/` has no way to carry a person except inside a household, so one was written around them and told to claim nothing: one member, no dwelling, no division, no origin, no arrival beyond the bound the paper sets. Reading a family, a house or a quarter of town into this record would be reading something the papers do not say. tools/mint_documented_residents.py derives the whole minted set and prints every candidate it refused, with the reason.",
+ "old_settler_deaths": {
+  "the_header_admission": "Names, places * , dates, and ages at death\nof some of Chicago's Old Settlers, prior to 1843, and other well - known citizens who arrived after 1843, together\nwith others prominently connected with Illinois history:",
+  "note": "LATER EVIDENCE OF A DEATH, BESIDE THE 1835 CLAIMS AND NOT INSIDE THEM. Fergus's 1843 directory (1896) prints an obituary list of old settlers, and one of its entries meets somebody of this name. THE HEADER OF THE LIST IS QUOTED ABOVE, and it is the limit the whole reading turns on. It does not mean the person was in Chicago in 1835, and it does not mean they arrived before 1843 — the list's own header, quoted above, says it also names citizens who arrived later and others merely 'prominently connected with Illinois history'. A match means one thing: a name in the 1835 layer and a name in this list agree on surname and first initial, and the list gives that name a death date and an age. The date and the interval are the payload. Whatever is carried is carried as evidence of a DEATH and of an interval the birth falls in, never as an 1835 fact and never as a grade. T-0513 consolidates and T-0514/T-0515 apply; this file changes no record. THE AGREEMENT HERE IS A SURNAME AND ONE INITIAL: one of the two sides prints an initial where the forename would be, so a single letter is the whole of the discriminator and the match is as thin as the rule allows. This pass WRITES THE EVIDENCE AND MOVES NO GRADE. A death notice printed in 1896 says a person of this name died on a day; under the ratified ladder (T-0513) that is later evidence about a DEATH, and it is never an 1835 residence. T-0515 applies the ladder against every source at once; this pass hands it the evidence and not the verdict.",
+  "sources": [
+   "fergus_1843_old_settler_death_notices"
+  ],
+  "people": [
+   {
+    "person_id": "crocker_h",
+    "matched_as": "H. Crocker",
+    "matched_by": "Surname 'Crocker' folds to the same string as the entry's, and the given name of both begins H.",
+    "matched_on_initial_only": true,
+    "resident_given_is_initial_only": true,
+    "entry_given_as_read": "Hans",
+    "entry_given_is_initial_only": false,
+    "the_agreement": "a surname and one initial",
+    "record_id": "fdn0140",
+    "trade_or_office": "lawyer",
+    "manner_of_death": "died",
+    "place_of_death": "Milwaukee, Wis.",
+    "death_date": "1889-03-17",
+    "age_as_printed": "a. 73",
+    "birth_year_earliest": 1815,
+    "birth_year_latest": 1816,
+    "birth_year_arithmetic": "The page prints the death as 'Mar. 17, 1889' and the age as 'a. 73'. An age of 73 completed years means at least 73 and less than 74, so the birth falls between 1815-03-18 and 1816-03-17: the birth year is 1815 or 1816. The subtraction is this project's; the page states no year of birth.",
+    "as_read": "Crocker, Hans, lawyer, died, Milwaukee, Wis., Mar. 17, 1889, a. 73."
+   }
+  ]
+ },
+ "directories": {
+  "note": "LATER EVIDENCE, BESIDE THE 1835 CLAIMS AND NOT INSIDE THEM. A Chicago directory of 1839, 1843 or 1844 meets somebody of this name and this pass records what it prints. Under the ratified ladder a directory read after 1835 can corroborate that a person attested here was still in Chicago and can print a trade or a street the 1835 record never had; on its own it makes nobody a resident of 1835. Nothing on this person's 1835 record was regraded, moved, dated or given an occupation by this entry. WHAT THIS PASS RULED ONTO THIS HOUSEHOLD, named so the ruling can be found again: each volume below is followed by the printed entries it set against this person and the status the crosswalk ruled them at — a single entry carries what its own `could_carry` declares, and an ambiguous or contested match carries nothing and is shown so that the silence is legible. crocker_h, Fergus's Chicago directory of 1839 — f1839_e0341 (a single entry).",
+  "sources": [
+   "fergus_chicago_directory_1839"
+  ],
+  "people": [
+   {
+    "person_id": "crocker_h"
+   }
+  ]
+ }
+}

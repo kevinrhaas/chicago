@@ -1,0 +1,497 @@
+{
+  "_doc": "Every geometry-bearing attribute whose evidence includes a source whose rights are unresolved (check_required or restricted), as of the last deliberate change. Geometry-bearing means the archetype's CONSUMED set or the footprint polygon the params read; on the ground it means a spec block with at least one figure in terrain_inputs.CONSUMED. This is a measurement, not a permission: tools/measure_rights_derivation.py holds it exact in both directions, so a new one fails and a repaired one has to be un-banked here in the commit that repaired it. Read ROADMAP K41 before adding a line.",
+  "entries": {
+    "chicago_lighthouse_1832/tower_1832/form.kind": {
+      "kind": "structure",
+      "blocked_sources": [
+        "lighthousefriends_chicago"
+      ],
+      "sole_support": false,
+      "confidence": "attested"
+    },
+    "chicago_lighthouse_1832/tower_1832/form.lantern": {
+      "kind": "structure",
+      "blocked_sources": [
+        "lighthousefriends_chicago"
+      ],
+      "sole_support": true,
+      "confidence": "attested"
+    },
+    "chicago_lighthouse_1832/tower_1832/form.wall_height_m": {
+      "kind": "structure",
+      "blocked_sources": [
+        "lighthousefriends_chicago"
+      ],
+      "sole_support": false,
+      "confidence": "attested"
+    },
+    "dearborn_street_drawbridge/draw_1834/form.draw_lifting_gear": {
+      "kind": "structure",
+      "blocked_sources": [
+        "dearborn_street_bridge_1834_engraving"
+      ],
+      "sole_support": true,
+      "confidence": "inferred"
+    },
+    "dearborn_street_drawbridge/draw_1834/form.draw_span_m": {
+      "kind": "structure",
+      "blocked_sources": [
+        "chicagology_dearborn_st_bridges"
+      ],
+      "sole_support": false,
+      "confidence": "attested"
+    },
+    "dearborn_street_drawbridge/draw_1834/form.gallows_frames": {
+      "kind": "structure",
+      "blocked_sources": [
+        "chicagology_dearborn_st_bridges"
+      ],
+      "sole_support": false,
+      "confidence": "attested"
+    },
+    "green_tree_tavern/frame_1833/footprint": {
+      "kind": "structure",
+      "blocked_sources": [
+        "chicagology_prefire127"
+      ],
+      "sole_support": true,
+      "confidence": "inferred"
+    },
+    "green_tree_tavern/frame_1833/form.construction": {
+      "kind": "structure",
+      "blocked_sources": [
+        "chicagology_prefire127",
+        "chicagology_prefire278",
+        "drloih_hotels"
+      ],
+      "sole_support": true,
+      "confidence": "inferred"
+    },
+    "green_tree_tavern/frame_1833/form.elevation_scheme": {
+      "kind": "structure",
+      "blocked_sources": [
+        "chicagology_prefire127"
+      ],
+      "sole_support": true,
+      "confidence": "inferred"
+    },
+    "green_tree_tavern/frame_1833/form.paint": {
+      "kind": "structure",
+      "blocked_sources": [
+        "chicagology_prefire127"
+      ],
+      "sole_support": true,
+      "confidence": "inferred"
+    },
+    "green_tree_tavern/frame_1833/form.rear_ell": {
+      "kind": "structure",
+      "blocked_sources": [
+        "chicagology_prefire127"
+      ],
+      "sole_support": true,
+      "confidence": "reconstructed"
+    },
+    "green_tree_tavern/frame_1833/form.roof_type": {
+      "kind": "structure",
+      "blocked_sources": [
+        "chicagology_prefire127"
+      ],
+      "sole_support": true,
+      "confidence": "attested"
+    },
+    "green_tree_tavern/frame_1833/form.side_entrance": {
+      "kind": "structure",
+      "blocked_sources": [
+        "chicagology_prefire127"
+      ],
+      "sole_support": true,
+      "confidence": "inferred"
+    },
+    "green_tree_tavern/frame_1833/form.stories": {
+      "kind": "structure",
+      "blocked_sources": [
+        "chicagology_prefire127",
+        "drloih_hotels"
+      ],
+      "sole_support": true,
+      "confidence": "attested"
+    },
+    "green_tree_tavern/frame_1833/form.wall_height_m": {
+      "kind": "structure",
+      "blocked_sources": [
+        "chicagology_prefire127"
+      ],
+      "sole_support": true,
+      "confidence": "inferred"
+    },
+    "hogan_store/log_1831/form.construction": {
+      "kind": "structure",
+      "blocked_sources": [
+        "chicagology_first_post_office"
+      ],
+      "sole_support": false,
+      "confidence": "attested"
+    },
+    "james_kinzie_house/dwelling_1830/form.construction": {
+      "kind": "structure",
+      "blocked_sources": [
+        "chicagology_prefire273"
+      ],
+      "sole_support": true,
+      "confidence": "inferred"
+    },
+    "lake_house_construction/shell_1835/form.construction": {
+      "kind": "structure",
+      "blocked_sources": [
+        "chicagology_prefire112"
+      ],
+      "sole_support": false,
+      "confidence": "attested"
+    },
+    "miller_house/log_frame_1827/form.construction": {
+      "kind": "structure",
+      "blocked_sources": [
+        "chicagology_prefire273",
+        "drloih_hotels"
+      ],
+      "sole_support": true,
+      "confidence": "attested"
+    },
+    "miller_house/log_frame_1827/form.frame_addition": {
+      "kind": "structure",
+      "blocked_sources": [
+        "chicagology_prefire273",
+        "drloih_hotels"
+      ],
+      "sole_support": true,
+      "confidence": "attested"
+    },
+    "miller_house/log_frame_1827/form.frame_addition_side": {
+      "kind": "structure",
+      "blocked_sources": [
+        "chicagology_prefire273",
+        "drloih_hotels"
+      ],
+      "sole_support": true,
+      "confidence": "attested"
+    },
+    "miller_house/log_frame_1827/form.frame_addition_stories": {
+      "kind": "structure",
+      "blocked_sources": [
+        "drloih_hotels"
+      ],
+      "sole_support": true,
+      "confidence": "attested"
+    },
+    "miller_house/log_frame_1827/form.stories": {
+      "kind": "structure",
+      "blocked_sources": [
+        "chicagology_prefire273",
+        "drloih_hotels"
+      ],
+      "sole_support": true,
+      "confidence": "inferred"
+    },
+    "miller_tannery/log_1831/form.construction": {
+      "kind": "structure",
+      "blocked_sources": [
+        "drloih_wolf_point"
+      ],
+      "sole_support": false,
+      "confidence": "attested"
+    },
+    "north_branch_bridge/log_1832/form.construction": {
+      "kind": "structure",
+      "blocked_sources": [
+        "chicagology_kinzie_bridge"
+      ],
+      "sole_support": false,
+      "confidence": "attested"
+    },
+    "north_branch_bridge/log_1832/form.pier_kind": {
+      "kind": "structure",
+      "blocked_sources": [
+        "chicagology_kinzie_bridge"
+      ],
+      "sole_support": false,
+      "confidence": "attested"
+    },
+    "robert_kinzie_store/store_1830/form.construction": {
+      "kind": "structure",
+      "blocked_sources": [
+        "chicagology_prefire273"
+      ],
+      "sole_support": true,
+      "confidence": "inferred"
+    },
+    "sauganash_hotel/frame_1831/form.shutter_type": {
+      "kind": "structure",
+      "blocked_sources": [
+        "trowbridge_sauganash_hotel"
+      ],
+      "sole_support": true,
+      "confidence": "inferred"
+    },
+    "sauganash_hotel/log_1829/footprint": {
+      "kind": "structure",
+      "blocked_sources": [
+        "drloih_beaubien"
+      ],
+      "sole_support": false,
+      "confidence": "inferred"
+    },
+    "sauganash_hotel/log_1829/form.construction": {
+      "kind": "structure",
+      "blocked_sources": [
+        "drloih_hotels"
+      ],
+      "sole_support": true,
+      "confidence": "attested"
+    },
+    "sauganash_hotel/log_1829/form.stories": {
+      "kind": "structure",
+      "blocked_sources": [
+        "drloih_hotels"
+      ],
+      "sole_support": true,
+      "confidence": "attested"
+    },
+    "slough_log_bridge/log_1833/form.construction": {
+      "kind": "structure",
+      "blocked_sources": [
+        "chicagology_prefire273"
+      ],
+      "sole_support": true,
+      "confidence": "attested"
+    },
+    "st_marys_church/frame_1833/footprint": {
+      "kind": "structure",
+      "blocked_sources": [
+        "chicagology_prefire216"
+      ],
+      "sole_support": true,
+      "confidence": "inferred"
+    },
+    "st_marys_church/frame_1833/form.construction": {
+      "kind": "structure",
+      "blocked_sources": [
+        "chicagology_prefire216"
+      ],
+      "sole_support": true,
+      "confidence": "inferred"
+    },
+    "st_marys_church/frame_1833/form.paint": {
+      "kind": "structure",
+      "blocked_sources": [
+        "chicagology_prefire216"
+      ],
+      "sole_support": true,
+      "confidence": "attested"
+    },
+    "st_marys_church/frame_1833/form.stories": {
+      "kind": "structure",
+      "blocked_sources": [
+        "chicagology_prefire216"
+      ],
+      "sole_support": true,
+      "confidence": "inferred"
+    },
+    "terrain/e1834_harbor_cut/divisions.north_division": {
+      "kind": "ground",
+      "blocked_sources": [
+        "chicagology_prefire273"
+      ],
+      "sole_support": false,
+      "confidence": "inferred"
+    },
+    "terrain/e1834_harbor_cut/divisions.south_division": {
+      "kind": "ground",
+      "blocked_sources": [
+        "chicago_architecture_history_115",
+        "chicagology_prefire273"
+      ],
+      "sole_support": false,
+      "confidence": "inferred"
+    },
+    "terrain/e1834_harbor_cut/divisions.west_division": {
+      "kind": "ground",
+      "blocked_sources": [
+        "chicagology_prefire273"
+      ],
+      "sole_support": true,
+      "confidence": "inferred"
+    },
+    "terrain/e1834_harbor_cut/marsh_strips.south_division_marsh": {
+      "kind": "ground",
+      "blocked_sources": [
+        "chicagology_prefire273"
+      ],
+      "sole_support": true,
+      "confidence": "inferred"
+    },
+    "terrain/e1834_harbor_cut/reaches.harbour_cut_1834": {
+      "kind": "ground",
+      "blocked_sources": [
+        "chicago_architecture_history_115"
+      ],
+      "sole_support": false,
+      "confidence": "inferred"
+    },
+    "terrain/e1834_harbor_cut/reaches.old_south_channel": {
+      "kind": "ground",
+      "blocked_sources": [
+        "chicagology_prefire274"
+      ],
+      "sole_support": true,
+      "confidence": "reconstructed"
+    },
+    "terrain/e1834_harbor_cut/swales.lasalle_slough_lower": {
+      "kind": "ground",
+      "blocked_sources": [
+        "conley_stelzer_1933"
+      ],
+      "sole_support": false,
+      "confidence": "reconstructed"
+    },
+    "terrain/e1834_harbor_cut/swales.lasalle_slough_upper": {
+      "kind": "ground",
+      "blocked_sources": [
+        "conley_stelzer_1933"
+      ],
+      "sole_support": true,
+      "confidence": "reconstructed"
+    },
+    "terrain/e1834_harbor_cut/swales.state_slough_course": {
+      "kind": "ground",
+      "blocked_sources": [
+        "chicagology_prefire273",
+        "conley_stelzer_1933"
+      ],
+      "sole_support": true,
+      "confidence": "reconstructed"
+    },
+    "terrain/e1834_harbor_cut/swales.state_slough_mouth": {
+      "kind": "ground",
+      "blocked_sources": [
+        "chicagology_prefire273",
+        "conley_stelzer_1933"
+      ],
+      "sole_support": false,
+      "confidence": "reconstructed"
+    },
+    "thomas_church_store/frame_1834/form.construction": {
+      "kind": "structure",
+      "blocked_sources": [
+        "chicagology_prefire275"
+      ],
+      "sole_support": true,
+      "confidence": "inferred"
+    },
+    "thomas_church_store/frame_1834/form.stories": {
+      "kind": "structure",
+      "blocked_sources": [
+        "chicagology_prefire275"
+      ],
+      "sole_support": true,
+      "confidence": "attested"
+    },
+    "tremont_house_1/frame_1833/form.construction": {
+      "kind": "structure",
+      "blocked_sources": [
+        "chicagology_prefire021"
+      ],
+      "sole_support": false,
+      "confidence": "inferred"
+    },
+    "walker_meeting_house/log_1831/form.construction": {
+      "kind": "structure",
+      "blocked_sources": [
+        "chicagology_prefire273"
+      ],
+      "sole_support": false,
+      "confidence": "attested"
+    },
+    "western_hotel/frame_1834/footprint": {
+      "kind": "structure",
+      "blocked_sources": [
+        "chicagology_prefire278"
+      ],
+      "sole_support": true,
+      "confidence": "inferred"
+    },
+    "western_hotel/frame_1834/form.construction": {
+      "kind": "structure",
+      "blocked_sources": [
+        "chicagology_prefire278"
+      ],
+      "sole_support": true,
+      "confidence": "inferred"
+    },
+    "western_hotel/frame_1834/form.stories": {
+      "kind": "structure",
+      "blocked_sources": [
+        "chicagology_prefire278"
+      ],
+      "sole_support": true,
+      "confidence": "attested"
+    },
+    "western_hotel_stable/stable_1834/form.construction": {
+      "kind": "structure",
+      "blocked_sources": [
+        "chicagology_prefire278"
+      ],
+      "sole_support": true,
+      "confidence": "inferred"
+    },
+    "western_hotel_stable/stable_1834/form.door": {
+      "kind": "structure",
+      "blocked_sources": [
+        "chicagology_prefire278"
+      ],
+      "sole_support": true,
+      "confidence": "inferred"
+    },
+    "wolf_point_tavern/log_frame_1828/form.construction": {
+      "kind": "structure",
+      "blocked_sources": [
+        "chicagology_prefire273",
+        "drloih_wolf_point"
+      ],
+      "sole_support": true,
+      "confidence": "attested"
+    },
+    "wolf_point_tavern/log_frame_1828/form.frame_addition": {
+      "kind": "structure",
+      "blocked_sources": [
+        "chicagology_prefire273"
+      ],
+      "sole_support": true,
+      "confidence": "attested"
+    },
+    "wolf_point_tavern/log_frame_1828/form.sign": {
+      "kind": "structure",
+      "blocked_sources": [
+        "chicagology_prefire273",
+        "drloih_wolf_point"
+      ],
+      "sole_support": true,
+      "confidence": "attested"
+    },
+    "wolf_point_tavern/log_frame_1828/form.sign_mount": {
+      "kind": "structure",
+      "blocked_sources": [
+        "chicagology_prefire273"
+      ],
+      "sole_support": true,
+      "confidence": "inferred"
+    },
+    "wolf_point_tavern_stable/stable_1831/form.construction": {
+      "kind": "structure",
+      "blocked_sources": [
+        "drloih_wolf_point"
+      ],
+      "sole_support": true,
+      "confidence": "inferred"
+    }
+  }
+}

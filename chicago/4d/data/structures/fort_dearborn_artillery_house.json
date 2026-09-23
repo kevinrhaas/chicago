@@ -1,0 +1,124 @@
+{
+  "id": "fort_dearborn_artillery_house",
+  "name": "Fort Dearborn — artillery house",
+  "aka": [
+    "the building where the artillery was housed"
+  ],
+  "archetype": "fort_structure",
+  "phases": [
+    {
+      "id": "log_1816",
+      "documented_range": {
+        "from": "1816-07-01",
+        "to": "1856-08-31",
+        "confidence": "inferred",
+        "sources": [
+          "wentworth_1881_fort_dearborn",
+          "andreas_1884_v1"
+        ],
+        "note": "ATTESTED ONLY IN 1850 AND CARRIED BACKWARDS, WHICH IS THE WEAKEST DATE ARGUMENT IN THIS COMPLEX. Robert Fergus, describing the fort in 1850, puts 'the building where the artillery was housed, the soldier's barracks, and the storehouse' on the east of the parade. Nothing reached names an artillery house in 1827, in 1830 or at any date before 1850. The range opens with the fort because the post was abandoned as a military station on 29 December 1836 and nothing reached records anything being BUILT inside it afterwards, so a building standing in 1850 is most likely a building of the garrison years - the same continuity argument, run backwards, that data/structures/hogan_store.json runs forwards. It is an argument and not a citation, and if it is wrong this record belongs in data/exclusions.json rather than in the scene."
+      },
+      "position": {
+        "utm_e": 448244.38,
+        "utm_n": 4637590.21,
+        "rotation_deg": 278.0,
+        "symbolic_location": "Inside the south-east of Fort Dearborn, at the south end of the east side of the parade, below the soldiers' barracks.",
+        "confidence": "reconstructed",
+        "note": "INVENTED WITHIN A DOCUMENTED SIDE. Fergus puts the artillery house on the east of the parade with the barracks and the storehouse; the 1830 plan draws only one range on that side and this project reads that range as the barracks, because Hubbard's 1827 sentence fixes the barracks there and the sutler's north of it. So there is no drawn building for this record to sit on. It is placed inside the east curtain at the south end - the one part of that side the plan leaves empty - clear of the barracks by about a metre and of the south wall by about three. Every one of those numbers is ours.",
+        "derivation": {
+          "method": "not_derivable",
+          "reason": "This placement predates the derivation module. Its provenance and reasoning are recorded in position.note, but no machine-checkable derivation block has been authored for it yet."
+        }
+      },
+      "footprint": {
+        "polygon": [
+          [
+            0,
+            0
+          ],
+          [
+            8.0,
+            0
+          ],
+          [
+            8.0,
+            5.0
+          ],
+          [
+            0,
+            5.0
+          ]
+        ],
+        "confidence": "reconstructed",
+        "sources": [],
+        "note": "INVENTED. No source gives this building a dimension. 8.0 x 5.0 m is about 26 x 16 ft, which is a shed that will hold the three field pieces a post of this class carried and their carriages, and it is sized to fit the gap the plan leaves rather than from any evidence."
+      },
+      "form": {
+        "kind": {
+          "value": "artillery",
+          "confidence": "inferred",
+          "sources": [
+            "wentworth_1881_fort_dearborn"
+          ],
+          "note": "Fergus names 'the building where the artillery was housed' in 1850 and gives it no other name. GUARD ON THE GUNS THEMSELVES: 'The Fort was furnished with three pieces of light-artillery' belongs to the passage about the FIRST fort, which ends 'Such was the old Fort previous to 1812'. Nothing reached says what ordnance stood at this fort in 1835, and no gun is modelled."
+        },
+        "construction": {
+          "value": "log",
+          "confidence": "reconstructed",
+          "note": "Unattested. Log, by the same argument as the rest of the fort's timber buildings, but with nothing at all behind it for this one."
+        },
+        "stories": {
+          "value": 1,
+          "confidence": "reconstructed",
+          "note": "Unattested. A gun shed is a single open storey."
+        },
+        "wall_height_m": {
+          "value": 3.1,
+          "confidence": "reconstructed",
+          "note": "Unattested. About ten feet, enough to run a field piece under the plate."
+        },
+        "roof_type": {
+          "value": "shed",
+          "confidence": "reconstructed",
+          "note": "Unattested. A shed roof against the curtain is what a lean-to gun house is; gable would be an equally arbitrary choice."
+        },
+        "roof_pitch_deg": {
+          "value": 18.0,
+          "confidence": "reconstructed",
+          "note": "Unattested. A shallow fall, which is what a shed roof of this span carries."
+        },
+        "chimneys": {
+          "value": 0,
+          "confidence": "inferred",
+          "note": "A COUNT OF ZERO IS A CLAIM. An artillery shed is unheated; there is no stack."
+        }
+      }
+    }
+  ],
+  "function": {
+    "value": "artillery house",
+    "confidence": "inferred",
+    "sources": [
+      "wentworth_1881_fort_dearborn"
+    ],
+    "note": "Storage for the post's field pieces. Named once, in a description of the fort written of the year 1850, and placed in 1835 on a continuity argument set out in the documented_range note."
+  },
+  "research_note": "THE THINNEST RECORD IN THIS COMPLEX AND IT SAYS SO. One mention, in one sentence, about a fort fifteen years after the army left it; no size, no material, no position beyond a side of the parade that another source has already filled. It is built because the alternative - a fort with an attested building silently missing - is the failure data/exclusions.json exists to prevent, and everything a visitor can see about it except the side it stands on is graded conjectural. If the Chicago Democrat material or a quartermaster return turns up an artillery house at Chicago in the 1830s, this is the record that upgrades cleanly: the confidences are per-attribute and nothing here is entangled with another building.",
+  "review_required": false,
+  "land_owner": {
+    "value": "The ground was entered by John Baptist Baubian, 28 May 1835",
+    "confidence": "inferred",
+    "sources": [
+      "isa_public_domain_land_tract_sales"
+    ],
+    "note": "THE UNITED STATES RESERVATION. This is the same tract L108 already derives for `1835_no_build_ground.json` — from G1, Madison's line and the traced waterline — so the polygon is inherited rather than built again, and `check.sh` already re-derives it. The register's own row is the second, independent witness to the date L108 quotes from Andreas: Beaubien's pre-emption, 28 May 1835, five weeks before the scene date. The derived polygon is short of the documented 75.69 acres for the reasons L108 states, and is a floor rather than the reservation. WHETHER THE ENTRY HELD IS NOT READ HERE: it was disputed, and this row records the entry the register carries and nothing about its outcome. THE MARGIN IS 62 m: this footprint stands that far inside the tract's nearest boundary, which is more than twice the working horizontal uncertainty of anything traced off the 1834 sheets (about 20 m), so the assignment survives the error the construction carries. WHAT THIS ROW CLAIMS AND WHAT IT DOES NOT. It claims that the tract the Illinois State Archives' land-sale register describes contains this structure's committed position — the patent for this ground was ENTERED by this man on this date. It does not claim he still held the ground on 1 July 1835, that he lived here, or that he ever stood on it: a sale is a transaction, and the register's only column about residence names a county. THE SECTION LINES ARE CONSTRUCTED, NOT TRACED (L219): the grid is carried from the single PLSS corner at State & Madison, on the plat's own east-west bearing, in nominal one-mile squares.",
+    "tract": "the south-west fractional quarter of section 10",
+    "entries": [
+      "ls0057"
+    ],
+    "date_purchased": "1835-05-28",
+    "type_of_sale": "federal land sale (cash entry)",
+    "margin_m": 62.4,
+    "generated_by": "tools/resolve_land_tracts.py --build"
+  }
+}

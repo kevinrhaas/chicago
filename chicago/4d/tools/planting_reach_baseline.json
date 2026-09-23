@@ -1,0 +1,502 @@
+{
+  "_doc": "Whether a routed woody record can be PLACED. K44 measured which reader receives a record; trees.js receives one and then selects a species out of a hand-written COMMUNITIES mix, so a record it receives whose species is in no mix is drawn nowhere. `planter` and `ground` are the domain the timber loop sweeps \u2014 since ROADMAP K45(b2) the modelled field inset by one planting step, not a fixed square inside it \u2014 and how much of the field it reaches; it may grow and may not shrink. `east_limits` is where the woody layer stops in the east and the street each limit is read from: Andreas ends the South Division belt at Wells Street and excepts the sandy hills near the lake from the North Division's timber. They are banked EXACTLY, in both directions \u2014 a wood that reaches further east is an argument about a source, not a repair. `unselectable` is the population, exact in both directions, and `drawn_as_another_species` is the placed species that have no archetype of their own. `placed` is the species a PLANTING RECORD states a stem of (T-0091) and the zone each draws its ecology from \u2014 a selection made by the dataset rather than by a mix, banked exactly so a tree arriving in or leaving a yard is a line in a diff. `zone_boxes` records that a TIMBER_ZONE's extent is never consulted by the reader it is routed to. `weights` is every mix entry's literal beside the weight that replaces it at load \u2014 the literal is a fallback, and `records.density` (the midpoint of the band in the first TIMBER_ZONE naming the species) is what places a stem. Held by tools/measure_planting_reach.py. Read ROADMAP K45(a) and K45(b1) before adding a line, and K45(b2) before moving an east limit.",
+  "planter": {
+    "kind": "the modelled field inset by one planting step",
+    "sweep_e_m": [
+      -316.0,
+      1696.0
+    ],
+    "sweep_n_m": [
+      -3796.0,
+      1116.0
+    ],
+    "dry_margin_m": 0.2,
+    "steps_m": [
+      4.0,
+      4.7,
+      5.6
+    ],
+    "call_sites": 3
+  },
+  "east_limits": {
+    "north": {
+      "street": "state",
+      "name_1835": "State Street",
+      "east_m": 825.8
+    },
+    "south": {
+      "street": "wells",
+      "name_1835": "Wells Street",
+      "east_m": 329.3
+    }
+  },
+  "ground": {
+    "dry_floor_m": 0.2,
+    "nodes_above_floor": 1290284,
+    "inside_planter": 1283659,
+    "outside_planter": 6625,
+    "inside_pct": 99.49,
+    "outside_ha": 4.1,
+    "field_e_m": [
+      -320.0,
+      1700.0
+    ],
+    "field_n_m": [
+      -3800.0,
+      1120.0
+    ],
+    "east_limit_m": 825.8,
+    "reached_east_of_limit": 438466,
+    "reached_east_of_limit_ha": 274.0
+  },
+  "zone_boxes": {
+    "z05_riverbank_timber": {
+      "verdict": "no-box",
+      "box": null
+    },
+    "z06_dense_forest": {
+      "verdict": "no-box",
+      "box": null
+    },
+    "z07_bur_oak_savanna": {
+      "verdict": "outside-the-planter",
+      "box": {
+        "e": [
+          -2600,
+          -600
+        ],
+        "n": [
+          -6400,
+          -4400
+        ]
+      }
+    },
+    "z08_lakeshore": {
+      "verdict": "meets-the-planter",
+      "box": {
+        "e": [
+          1400,
+          1700
+        ],
+        "n": [
+          -400,
+          400
+        ]
+      }
+    },
+    "z10_settled_town": {
+      "verdict": "no-box",
+      "box": null
+    }
+  },
+  "unselectable": {},
+  "placed": {
+    "populus_deltoides": [
+      "z10_settled_town"
+    ],
+    "populus_nigra_italica": [
+      "z10_settled_town"
+    ],
+    "ribes_spp": [
+      "z10_settled_town"
+    ],
+    "salix_nigra": [
+      "z10_settled_town"
+    ],
+    "ulmus_americana": [
+      "z10_settled_town"
+    ]
+  },
+  "drawn_as_another_species": {},
+  "weights": {
+    "dune.mix.populus_deltoides": {
+      "weight": 9.0,
+      "cited_bands": {
+        "z08_lakeshore": [
+          3,
+          15
+        ]
+      },
+      "verdict": "inside-its-band",
+      "dossier_zones": [
+        "8"
+      ]
+    },
+    "dune.mix.populus_tremuloides": {
+      "weight": 5.0,
+      "cited_bands": {
+        "z08_lakeshore": [
+          2,
+          8
+        ]
+      },
+      "verdict": "inside-its-band",
+      "dossier_zones": [
+        "8"
+      ]
+    },
+    "dune.mix.populus_balsamifera": {
+      "weight": 5.0,
+      "cited_bands": {
+        "z08_lakeshore": [
+          2,
+          8
+        ]
+      },
+      "verdict": "inside-its-band",
+      "dossier_zones": [
+        "8"
+      ]
+    },
+    "gallery.edgeMix.salix_nigra": {
+      "weight": 42.0,
+      "cited_bands": {
+        "z05_riverbank_timber": [
+          25,
+          60
+        ]
+      },
+      "verdict": "inside-its-band",
+      "dossier_zones": [
+        "5"
+      ]
+    },
+    "gallery.edgeMix.salix_amygdaloides": {
+      "weight": 17.0,
+      "cited_bands": {
+        "z05_riverbank_timber": [
+          10,
+          25
+        ]
+      },
+      "verdict": "inside-its-band",
+      "dossier_zones": [
+        "5"
+      ]
+    },
+    "gallery.edgeMix.acer_saccharinum": {
+      "weight": 8.0,
+      "cited_bands": {
+        "z05_riverbank_timber": [
+          15,
+          35
+        ]
+      },
+      "verdict": "declared-departure",
+      "dossier_zones": [
+        "5"
+      ]
+    },
+    "gallery.mix.populus_deltoides": {
+      "weight": 14.0,
+      "cited_bands": {
+        "z05_riverbank_timber": [
+          8,
+          20
+        ]
+      },
+      "verdict": "inside-its-band",
+      "dossier_zones": [
+        "5"
+      ]
+    },
+    "gallery.mix.acer_saccharinum": {
+      "weight": 25.0,
+      "cited_bands": {
+        "z05_riverbank_timber": [
+          15,
+          35
+        ]
+      },
+      "verdict": "inside-its-band",
+      "dossier_zones": [
+        "5"
+      ]
+    },
+    "gallery.mix.ulmus_americana": {
+      "weight": 25.0,
+      "cited_bands": {
+        "z05_riverbank_timber": [
+          15,
+          35
+        ]
+      },
+      "verdict": "inside-its-band",
+      "dossier_zones": [
+        "5"
+      ]
+    },
+    "gallery.mix.fraxinus_pennsylvanica": {
+      "weight": 22.0,
+      "cited_bands": {
+        "z05_riverbank_timber": [
+          15,
+          30
+        ]
+      },
+      "verdict": "inside-its-band",
+      "dossier_zones": [
+        "5"
+      ]
+    },
+    "gallery.mix.quercus_bicolor": {
+      "weight": 10.0,
+      "cited_bands": {
+        "z05_riverbank_timber": [
+          5,
+          15
+        ]
+      },
+      "verdict": "inside-its-band",
+      "dossier_zones": [
+        "5"
+      ]
+    },
+    "gallery.mix.celtis_occidentalis": {
+      "weight": 8.0,
+      "cited_bands": {
+        "z05_riverbank_timber": [
+          5,
+          12
+        ]
+      },
+      "verdict": "inside-its-band",
+      "dossier_zones": [
+        "5"
+      ]
+    },
+    "gallery.mix.juglans_nigra": {
+      "weight": 2.0,
+      "cited_bands": {
+        "z05_riverbank_timber": [
+          1,
+          4
+        ]
+      },
+      "verdict": "inside-its-band",
+      "dossier_zones": [
+        "5"
+      ]
+    },
+    "gallery.mix.salix_amygdaloides": {
+      "weight": 8.0,
+      "cited_bands": {
+        "z05_riverbank_timber": [
+          10,
+          25
+        ]
+      },
+      "verdict": "declared-departure",
+      "dossier_zones": [
+        "5"
+      ]
+    },
+    "gallery.mix.platanus_occidentalis": {
+      "weight": 2.0,
+      "cited_bands": {
+        "z05_riverbank_timber": [
+          1,
+          3
+        ]
+      },
+      "verdict": "inside-its-band",
+      "dossier_zones": [
+        "5"
+      ]
+    },
+    "mesic_pocket.mix.tilia_americana": {
+      "weight": 25.0,
+      "cited_bands": {
+        "z06_dense_forest": [
+          15,
+          35
+        ]
+      },
+      "verdict": "inside-its-band",
+      "dossier_zones": [
+        "6"
+      ]
+    },
+    "mesic_pocket.mix.acer_saccharum": {
+      "weight": 20.0,
+      "cited_bands": {
+        "z06_dense_forest": [
+          10,
+          30
+        ]
+      },
+      "verdict": "inside-its-band",
+      "dossier_zones": [
+        "6"
+      ]
+    },
+    "mesic_pocket.mix.quercus_rubra": {
+      "weight": 14.0,
+      "cited_bands": {
+        "z06_dense_forest": [
+          8,
+          20
+        ]
+      },
+      "verdict": "inside-its-band",
+      "dossier_zones": [
+        "6"
+      ]
+    },
+    "mesic_pocket.mix.ostrya_virginiana": {
+      "weight": 27.0,
+      "cited_bands": {
+        "z06_dense_forest": [
+          15,
+          40
+        ]
+      },
+      "verdict": "inside-its-band",
+      "dossier_zones": [
+        "6"
+      ]
+    },
+    "mesic_pocket.mix.ulmus_americana": {
+      "weight": 12.0,
+      "cited_bands": {
+        "z06_dense_forest": [
+          40,
+          80
+        ]
+      },
+      "verdict": "declared-departure",
+      "dossier_zones": [
+        "6"
+      ]
+    },
+    "ridge_oak.mix.quercus_macrocarpa": {
+      "weight": 30.0,
+      "cited_bands": {
+        "z06_dense_forest": [
+          10,
+          40
+        ],
+        "z07_bur_oak_savanna": [
+          1,
+          20
+        ]
+      },
+      "verdict": "inside-its-band",
+      "dossier_zones": [
+        "6",
+        "7"
+      ]
+    },
+    "ridge_oak.mix.quercus_alba": {
+      "weight": 24.0,
+      "cited_bands": {
+        "z06_dense_forest": [
+          10,
+          35
+        ],
+        "z07_bur_oak_savanna": [
+          2,
+          10
+        ]
+      },
+      "verdict": "inside-its-band",
+      "dossier_zones": [
+        "6",
+        "7"
+      ]
+    },
+    "ridge_oak.mix.quercus_velutina": {
+      "weight": 12.0,
+      "cited_bands": {
+        "z06_dense_forest": [
+          5,
+          20
+        ]
+      },
+      "verdict": "inside-its-band",
+      "dossier_zones": [
+        "6",
+        "7"
+      ]
+    },
+    "ridge_oak.mix.carya_ovata": {
+      "weight": 8.0,
+      "cited_bands": {
+        "z06_dense_forest": [
+          4,
+          12
+        ]
+      },
+      "verdict": "inside-its-band",
+      "dossier_zones": [
+        "6",
+        "7"
+      ]
+    },
+    "wet_woods.mix.ulmus_americana": {
+      "weight": 60.0,
+      "cited_bands": {
+        "z06_dense_forest": [
+          40,
+          80
+        ]
+      },
+      "verdict": "inside-its-band",
+      "dossier_zones": [
+        "6"
+      ]
+    },
+    "wet_woods.mix.fraxinus_pennsylvanica": {
+      "weight": 32.0,
+      "cited_bands": {
+        "z06_dense_forest": [
+          20,
+          40
+        ]
+      },
+      "verdict": "inside-its-band",
+      "dossier_zones": [
+        "6"
+      ]
+    },
+    "wet_woods.mix.fraxinus_nigra": {
+      "weight": 14.0,
+      "cited_bands": {
+        "z06_dense_forest": [
+          10,
+          20
+        ]
+      },
+      "verdict": "inside-its-band",
+      "dossier_zones": [
+        "6"
+      ]
+    },
+    "wet_woods.mix.acer_saccharinum": {
+      "weight": 30.0,
+      "cited_bands": {
+        "z06_dense_forest": [
+          20,
+          40
+        ]
+      },
+      "verdict": "inside-its-band",
+      "dossier_zones": [
+        "6"
+      ]
+    },
+    "wet_woods.mix.quercus_bicolor": {
+      "weight": 17.0,
+      "cited_bands": {
+        "z06_dense_forest": [
+          10,
+          25
+        ]
+      },
+      "verdict": "inside-its-band",
+      "dossier_zones": [
+        "6"
+      ]
+    }
+  }
+}

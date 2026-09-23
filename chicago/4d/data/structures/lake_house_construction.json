@@ -1,0 +1,128 @@
+{
+  "id": "lake_house_construction",
+  "name": "Lake House (under construction)",
+  "aka": [
+    "the Lake House building site",
+    "Lake House hotel, building"
+  ],
+  "archetype": "fort_structure",
+  "phases": [
+    {
+      "id": "shell_1835",
+      "documented_range": {
+        "from": "1835-01-01",
+        "to": "1836-12-31",
+        "confidence": "inferred",
+        "sources": [
+          "chicagology_prefire112",
+          "andreas_1884_v1"
+        ],
+        "note": "THE 1835 GROUNDBREAKING IS NOT ANDREAS, AND THE DISTINCTION MATTERS BECAUSE IT IS THE ONLY THING THAT PUTS THIS STRUCTURE IN THE SCENE AT ALL. chicagology_prefire112 prints an Andreas passage and then two uncredited editorial paragraphs with no typographic break. ANDREAS says: 'Chicago did, however, have a really grand hotel as early as 1835; this was the Lake House, located on the corners of Kinzie, Rush and Michigan streets, fronting on the latter. This hotel, which was built of brick, was three stories and a basement in height, was elegantly furnished throughout, and cost its owners nearly $100,000. ... The hotel was completed and thrown open to the public in the autumn of 1836.' He gives NO groundbreaking. THE UNCREDITED PARAGRAPH says: 'ground was broken in 1835, and opened in the fall of 1836'. The same paragraph drops Andreas's basement and gives $90,000 against his nearly $100,000, so it is demonstrably not a faithful restatement of the text it sits under, and 'ground broken in 1835' must not be cited as Andreas. data/exclusions.json's lake_house_finished entry sources the 1835 groundbreaking to drloih_hotels, which is a second unfootnoted compilation saying the same thing; two compilations agreeing is not two witnesses. SO: from 1835-01-01, the first day the attested year permits and not a date anybody gives. TO 1836-12-31, a bound at the end of the year the hotel opened - Andreas's 'autumn of 1836' ends this construction state and no source dates the day. WHAT NARROWS THE MIDDLE, and it is the best anchor this record has: J. D. Bonnell, in a letter to the Chicago Times dated 15 March 1876 and quoted by Andreas, describes arriving in Chicago and walking the town the next morning - 'Passing east, toward the mouth of the river, was THE LAKE HOUSE IN COURSE OF CONSTRUCTION, east of which was the residence of Dr. Kimball.' Bonnell dates his arrival in the same letter to 'August 25, 1835'. That is eight weeks after the scene date and it is an eyewitness saying the building was visibly going up and not finished. HIS DATE IS NOT CLEAN AND THE CONFLICT IS RECORDED RATHER THAN HIDDEN: the letter opens 'My first entry into the city of Chicago was forty years ago, August 25, 1835' - forty years before 1876 is 1836 - and Andreas's own lead-in says Bonnell 'came to Chicago in 1837'. The 1837 reading is ruled out by the letter's own content, since the Lake House was open by the autumn of 1836; between 1835 and 1836 the letter's explicit date is preferred. Harriet Martineau, quoted by Andreas from June 1836, still calls it 'a new hotel then building', which is consistent with either."
+      },
+      "position": {
+        "utm_e": 448133.91,
+        "utm_n": 4637737.01,
+        "rotation_deg": 0.0,
+        "symbolic_location": "North side of the river in Kinzie's Addition, on the block between Kinzie Street and Michigan Street east of Rush Street (today between East Kinzie Street and East Hubbard Street east of North Rush Street), fronting north onto Michigan Street.",
+        "confidence": "reconstructed",
+        "note": "THE THREE STREETS ARE DOCUMENTED TWICE IN ANDREAS; WHICH SIDE OF RUSH STREET IS NOT DOCUMENTED AT ALL, AND THAT IS WHY THIS POSITION IS CONJECTURAL RATHER THAN INFERRED. Andreas in the hotel chapter: 'located on the corners of Kinzie, Rush and Michigan streets, fronting on the latter'. Andreas in his account of the First Unitarian Society, whose first Chicago service was held in the unfinished building in June 1836: 'The services were held in the Lake House, WHICH STOOD AT THE CORNER OF RUSH AND MICHIGAN STREETS.' Two chapters, one corner, and no side. A block between Kinzie and Michigan has two faces on Rush, about 110 m apart, and nothing reached says which one this is; the east side is adopted because the backers' own ground - Kinzie's Addition - and the north-bank commercial group Bonnell describes east of Rush lie that way, which is an argument about a neighbourhood and not evidence about a building. IF IT IS WRONG THE BUILDING BELONGS ABOUT 110 M WEST. A SECOND AND LARGER TRAP IS IN THE STREET NAME ITSELF. 'Michigan Street' on the north side in 1835 is the east-west street one block north of Kinzie - today's East Hubbard Street - and it is NOT Michigan Avenue, which did not cross the river until 1920. chicagology_prefire112's uncredited paragraph glosses the site as 'near where the Wrigley Building stands today', and the Wrigley Building stands on Michigan AVENUE at the river, about 150 m south-east of the block Andreas's three streets describe and on the wrong side of Kinzie. docs/research/03-structures-north.md section 3.8 carries the same gloss and additionally renders the third street as 'Michigan (Water)', equating it with North Water Street, which no source reached supports. This record follows Andreas's street names and records the gloss as the error it appears to be. METHOD: the modern East Hubbard Street / North Rush Street intersection centre was read from OpenStreetMap at EPSG:26916 E 448121.71, N 4637764.21 (OSM node 261149251, fetched 2026-08-11); the building's north face is set on the Michigan Street frontage 12.2 m south of it and its west face on the Rush frontage 12.2 m east of it, 12.2 m being half of an 80 ft street as annotated on Hathaway 1834. Facade bearing 0, due north onto Michigan Street, which is the one orientation Andreas does state - 'fronting on the latter'. WORKING UNCERTAINTY ABOUT 20 M from the georeference (data/datum.json, 17.5 m RMS), plus the block width if the side of Rush is wrong, plus whatever a building site's outline means when the building is not finished. NO SOURCES ARE CITED ON THIS ATTRIBUTE, deliberately: the streets are quoted in this note and are Andreas's, but the COORDINATE turns on a side of Rush Street that no source states, and a citation on a conjectural position would be decorative. THE GROUND UNDER IT IS MODELLED - the e1834_harbor_cut heightfield now runs local E -320..+1700 and N -400..+400, and this footprint at E +1061.2..+1085.2, N +341.2..+356.2 lands on it within the walker's 0.35 m step-up rule, so the phase carries no ground_contact declaration. WHAT IS STILL NOT MODELLED is the excavation: a construction site is a hole in the ground before it is anything else, and this project has no way to cut a cellar into the terrain, so the shell sits ON the surface rather than in it.",
+        "derivation": {
+          "method": "not_derivable",
+          "reason": "This placement predates the derivation module. Its provenance and reasoning are recorded in position.note, but no machine-checkable derivation block has been authored for it yet."
+        }
+      },
+      "footprint": {
+        "polygon": [
+          [
+            0,
+            0
+          ],
+          [
+            24.0,
+            0
+          ],
+          [
+            24.0,
+            15.0
+          ],
+          [
+            0,
+            15.0
+          ]
+        ],
+        "confidence": "reconstructed",
+        "note": "INVENTED, AND IT IS THE FOOTPRINT OF A BUILDING SITE RATHER THAN OF A BUILDING, WHICH MAKES IT WORSE THAN THE USUAL GUESS. No source gives the Lake House a dimension of any kind - not a frontage, not a depth, not a room count - and no source says how much of its plan had been built by 1 July 1835. 24 x 15 m is about 79 x 49 ft: the largest footprint in this dataset, sized from the one quantity Andreas does give, a cost of nearly $100,000 for three storeys and a basement of brick, against the Temple Building's two frame storeys for about $900 and the First Presbyterian Church's 40 x 25 ft for $600. That is arithmetic on an order of magnitude, not a measurement. THE POLYGON ALSO ASSERTS SOMETHING THE EVIDENCE CANNOT: that the whole plan was staked and walled to the same height on the scene date. A real site of that date would be part cellar, part first-course brickwork, part mortar-bed and scaffold and stacked material. This is a rectangle. TO RESOLVE: the Chicago American and Chicago Democrat for 1835-36 - a $100,000 hotel going up in a town of three thousand was news, and the papers carried building notices; or the Kinzie's Addition conveyances, which would give the lots and therefore the maximum plan."
+      },
+      "form": {
+        "kind": {
+          "value": "magazine",
+          "confidence": "reconstructed",
+          "note": "THIS IS AN ARCHETYPE SELECTOR AND NOT A CLAIM ABOUT THE BUILDING. It emphatically does not say the Lake House was a powder magazine. `kind` chooses which of the fort_structure archetype's eleven builders draws the mesh, and 'magazine' is the only one that produces what an unfinished masonry shell looks like: a plain walled rectangle with a single opening and NO WINDOWS. Every other kind cuts a regular window rhythm into both long faces, which would render a building site as a finished hotel - the exact thing data/exclusions.json's lake_house_finished entry exists to prevent. WHY THIS ARCHETYPE AT ALL, since the building is a hotel on Lake Street's opposite bank and not a fort building: it is the only archetype in this project whose vocabulary admits `construction: brick` AND `roof_type: none`, and brick is the single documented fact about this structure's fabric while rooflessness is the single most important fact about its state. frame_tavern would build a windowed, roofed, five-bay hotel; outbuilding cannot build brick and cannot build a roofless structure - the constraint docs/LIBERTIES.md L60 records for the estray pen. The archetype's own docstring already extends it past the fort once, to the 1832 lighthouse, on the ground that a government structure on the reservation 'has no other archetype it could belong to'. The same reasoning is used here and it is a stretch, which is why the value is conjectural and why it is argued on the record rather than left to be discovered."
+        },
+        "construction": {
+          "value": "brick",
+          "confidence": "attested",
+          "sources": [
+            "andreas_1884_v1",
+            "chicagology_prefire112"
+          ],
+          "note": "THE ONE THING ABOUT THIS STRUCTURE'S FABRIC THAT IS DOCUMENTED, and it is documented in the source's own words: 'This hotel, WHICH WAS BUILT OF BRICK, was three stories and a basement in height' (Andreas, transcribed on chicagology_prefire112, and confirmed in the printed volume). The uncredited paragraph on the same page repeats 'built of brick'. It is also locally plausible rather than merely asserted: Tyler K. Blodgett established Chicago's first brickyard on the North Side in the spring of 1833 (docs/research/03-structures-north.md section 3.12; data/structures/brickyard_north_side.json). NOTE WHAT IS NOT DOCUMENTED BY IT: that any brick had been laid by 1835-07-01. Andreas describes the FINISHED hotel of 1836. The material is carried into the scene-date shell as an inference about continuity of intention, which is a small step and still a step."
+        },
+        "stories": {
+          "value": 1,
+          "confidence": "reconstructed",
+          "note": "THE MOST INTERESTING GUESS IN THIS RECORD AND THE ONE THE BRIEF SINGLED OUT. The finished hotel was three storeys and a basement, documented. HOW FAR THE WORK HAD RISEN ON 1 JULY 1835 IS UNATTESTED BY EVERY SOURCE REACHED - chicagology_prefire112's own what_it_does_not_supply list says so in terms: no storey reached, no walls up, no foundation depth, and no month for the groundbreaking either. What can be reasoned, and it is a schedule argument rather than a source: ground was broken at some point in 1835, the house opened in the autumn of 1836, and a brick building of three storeys and a basement in a town whose brickyard was two years old could not have been raised in a single season. If the work began in the spring of 1835 and finished by September 1836, roughly eighteen months, then 1 July 1835 is somewhere in the first quarter of it - cellar dug, footings in, and the first storey of brickwork at most. ONE STOREY IS THEREFORE THE CHOICE, and the honest range is zero to two. The value carries the whole massing with it: at three storeys this structure would stand about 12 m and be the tallest thing in the scene, which is precisely the misreading the exclusion exists to prevent. Reasoned rather than assumed, and still conjectural."
+        },
+        "wall_height_m": {
+          "value": 4.0,
+          "confidence": "reconstructed",
+          "note": "NOT ATTESTED. 4.0 m is about 13 ft, read as a basement wall standing clear of grade plus a first storey of brickwork part-raised - which is what the storey count above describes. It inherits that guess entirely. The finished building's wall would have been roughly 11 to 12 m to the plate for three storeys and a basement, so this figure is about a third of the building that eventually stood there, and nothing measures either."
+        },
+        "roof_type": {
+          "value": "none",
+          "confidence": "inferred",
+          "note": "NO ROOF, AND THIS IS THE ONE PIECE OF THE MESH THAT IS ARGUED RATHER THAN INVENTED. The hotel 'was completed and thrown open to the public in the autumn of 1836' (Andreas), and Harriet Martineau, in Chicago in June 1836, was still describing 'the large room of the Lake House, A NEW HOTEL THEN BUILDING', with the congregation seated on 'a few chairs, and benches, and planks laid on trestles'. A building still being finished a year after the scene date did not have its roof on in July 1835. The archetype's `none` is what makes this record read as a site rather than as a house, and it is the reason this archetype was chosen at all - see form.kind."
+        },
+        "paint": {
+          "value": "brick",
+          "confidence": "inferred",
+          "note": "The archetype's `paint` names the wall's surface finish, not a coat of paint, and 'brick' is the value that lets the documented brick fabric read as brick. It is inferred rather than documented because nothing describes the surface of this building at any date: bare brick is the ordinary finish and the alternative - stuccoed or whitewashed - is not excluded by anything, though it would be an odd thing to do to an unfinished shell."
+        },
+        "chimneys": {
+          "value": 0,
+          "confidence": "inferred",
+          "note": "NOT A COUNT OF THE FINISHED HOTEL'S STACKS, which nobody records, but a consequence of the state: a shell one storey up has no chimneys standing above it. The archetype places stacks against the ridge, and this structure has no ridge. Inferred from the construction state rather than from any statement."
+        }
+      },
+      "change_note": "THE SCENE-DATE STATE IS A BUILDING SITE, NOT A BUILDING, and the record exists to keep it that way: data/exclusions.json carries lake_house_finished specifically to stop the completed hotel appearing in 1835, and says that on the scene date this is 'a partial three-story brick shell'. What is built here is one storey of brick with no roof, standing on a plan of invented size, with the storey count reasoned from an eighteen-month build schedule and tagged conjectural. The finished house - three storeys and a basement, elegantly furnished, nearly $100,000, opened in the autumn of 1836 under Jacob Russel - is a later phase that this project does not yet need and must not build into 1835."
+    }
+  ],
+  "function": {
+    "value": "hotel_under_construction",
+    "confidence": "attested",
+    "sources": [
+      "andreas_1884_v1",
+      "chicagology_prefire112"
+    ],
+    "note": "The building's purpose is documented and its completion date is documented, and between them they make the scene-date function a construction site rather than a hotel. Andreas: 'Chicago did, however, have a really grand hotel as early as 1835; this was the Lake House ... The hotel was completed and thrown open to the public in the autumn of 1836, Jacob Russel, of Middleton, Conn., assuming control of its management.' The men behind it are documented too and are worth carrying because they are the town's commercial leadership rather than innkeepers: Gurdon S. Hubbard, General David S. Hunter, John H. Kinzie, Dr W. B. Egan and Major James B. Campbell - 'the men whose enterprise led them into building a house which for those days was far in advance of the needs of the town'."
+  },
+  "research_note": "A BUILDING SITE IS A STATE, AND THIS RECORD IS AN ARGUMENT ABOUT ONE. Everything about the finished Lake House is documented - brick, three storeys and a basement, nearly $100,000, five named backers, opened in the autumn of 1836 - and nothing at all is documented about what stood on the ground on 1 July 1835. THREE SOURCE PROBLEMS TRAVEL WITH IT AND ALL THREE ARE RECORDED ON THE ATTRIBUTES. (1) THE 1835 GROUNDBREAKING IS NOT ANDREAS. It comes from the uncredited editorial paragraph on chicagology_prefire112, which sits under a transcribed Andreas passage with no typographic break, drops Andreas's basement, and gives $90,000 where Andreas gives nearly $100,000. data/exclusions.json sources the same claim to drloih_hotels, a second unfootnoted compilation. So the fact that puts this structure in the 1835 scene at all rests on two modern compilations agreeing, which is not two witnesses, and the discrepancy in the cost is the proof that the paragraph is not restating the text above it. (2) THE STREET NAME IS A TRAP. Andreas twice puts the house at Kinzie, Rush and Michigan streets, fronting Michigan. North-side Michigan Street is today's East Hubbard Street, one block north of Kinzie; it is not Michigan Avenue, which did not cross the river until 1920. The gloss 'near where the Wrigley Building stands today' - on chicagology_prefire112 and repeated in docs/research/03-structures-north.md section 3.8, which also renders the street as 'Michigan (Water)' - moves the site about 150 m and across Kinzie Street, and appears to be a modern confusion of the street with the avenue. This record follows Andreas. (3) THE PROGRESS BY JULY IS THE INTERESTING GAP AND IT STAYS OPEN. The best anchor found is J. D. Bonnell's letter to the Chicago Times of 15 March 1876, quoted by Andreas, which describes walking the town the morning after arriving and seeing 'the Lake House in course of construction'. Bonnell dates that arrival to 25 August 1835 - eight weeks after the scene date - though the same letter's 'forty years ago' implies 1836 and Andreas's own lead-in says 1837. The 1837 reading is impossible on the letter's own content, since the hotel was open by the autumn of 1836. Harriet Martineau, in June 1836, still calls it 'a new hotel then building'. So the structure was demonstrably unfinished in mid-1836 and probably visibly rising in late August 1835, and this record models one storey of roofless brickwork on that reasoning with the honest range stated as zero to two storeys. WHAT WOULD SETTLE IT: the Chicago American, whose first issue is 8 June 1835 and which would have reported a $100,000 hotel going up; the Chicago Democrat; or the Kinzie's Addition conveyances. See docs/RESEARCH/lake_house_construction.md.",
+  "review_required": false,
+  "land_owner": {
+    "value": "The ground was entered by Robert A Kenzie, 7 May 1831",
+    "confidence": "inferred",
+    "sources": [
+      "isa_public_domain_land_tract_sales"
+    ],
+    "note": "KINZIE'S ADDITION. The north fraction of section 10 is the section north of the river, which is why the register prints 102.29 acres and not a quarter's 160. It is resolved as the section's own grid box clipped to the committed north bank of the main stem (`e1834_harbor_cut/shoreline.geojson`), so no boundary here is authored. The two rows the register carries for it — one plain, one with the school-section marker — are the same entry printed twice. THE REGISTER SPELLS THE PURCHASER MORE THAN ONE WAY for this same tract — Robert A Kenzie; Robert A Kinzie — and the spellings are carried rather than merged, which is the land_sales crosswalk's standing rule: tract agreement is where two spellings MIGHT be one man and is never proof that they are. THE MARGIN IS 51 m: this footprint stands that far inside the tract's nearest boundary, which is more than twice the working horizontal uncertainty of anything traced off the 1834 sheets (about 20 m), so the assignment survives the error the construction carries. WHAT THIS ROW CLAIMS AND WHAT IT DOES NOT. It claims that the tract the Illinois State Archives' land-sale register describes contains this structure's committed position — the patent for this ground was ENTERED by this man on this date. It does not claim he still held the ground on 1 July 1835, that he lived here, or that he ever stood on it: a sale is a transaction, and the register's only column about residence names a county. THE SECTION LINES ARE CONSTRUCTED, NOT TRACED (L219): the grid is carried from the single PLSS corner at State & Madison, on the plat's own east-west bearing, in nominal one-mile squares.",
+    "tract": "the north fraction of section 10",
+    "entries": [
+      "ls0058",
+      "ls0059"
+    ],
+    "date_purchased": "1831-05-07",
+    "type_of_sale": "federal land sale (cash entry)",
+    "margin_m": 50.8,
+    "generated_by": "tools/resolve_land_tracts.py --build"
+  }
+}

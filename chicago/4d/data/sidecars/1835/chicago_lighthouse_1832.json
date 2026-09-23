@@ -1,0 +1,192 @@
+{
+  "id": "chicago_lighthouse_1832",
+  "phase": "tower_1832",
+  "name": "Chicago Lighthouse (1832 tower)",
+  "aka": [
+    "the old light-house",
+    "Chicago Harbor Light"
+  ],
+  "archetype": "fort_structure",
+  "asset": "gltf/chicago_lighthouse_1832__tower_1832.glb",
+  "scene": "1835",
+  "target_date": "1835-07-01",
+  "documented_range": {
+    "from": "1832-12-31",
+    "to": "1859-12-31",
+    "confidence": "inferred",
+    "sources": [
+      "andreas_1884_v1",
+      "lighthousefriends_chicago"
+    ],
+    "note": "THE SECOND TOWER, AND THE ONLY ONE STANDING ON THE SCENE DATE. Andreas: 'Another tower, forty feet high, was begun and completed by Mr. Jackson in 1832.' No month is given by any source reached, so the range opens at the last day of 1832 rather than at an invented date inside it - which is deliberately conservative and still leaves the tower two and a half years old on 1835-07-01. The end of the range is an upper bound rather than a terminus: the Government put a new light at the end of the North Pier and the old one was eventually given away with its ground by an act of 1 August 1854, with Mark Beaubien the last keeper. THE FIRST TOWER IS NOT THIS ONE and is excluded in data/exclusions.json: it fell on 30 October 1831, unfinished, and everything usually quoted about its fabric - three-foot walls, fifty feet of height - is about the tower that collapsed."
+  },
+  "change_note": "",
+  "placement": {
+    "local_e": 1055.59,
+    "local_n": 172.54,
+    "rotation_deg": 0.0,
+    "position_confidence": "inferred",
+    "position_sources": [
+      "wright_1834",
+      "andreas_1884_v1"
+    ],
+    "position_note": "READ OFF WRIGHT'S SHEET, 2026-09-12 (T-1065), AND UNTIL THAT DAY THIS COORDINATE WAS AN INVENTION. Wright's 1834 map draws a ring with L. House lettered round it, west of the fort on the south bank at the inside of the bend, and it is the first independent witness this placement has ever had. The ring's centre was picked twice, at 15x and again at 20x in a differently-framed crop so the eye was not anchored, at resource pixel (2941, 1604) on the BPL master scan (commonwealth:js957744g); transformed through the one fitted affine this project keeps — data/traces/gcp/wright_1834_gcps.json, the same transform the two piers were measured on and tools/rederive_datum.py checks the datum against — that is local E +1055.6, N +172.5. The reading, its crops, its uncertainty budget and what it agrees and disagrees with are committed at data/traces/wright_1834_lighthouse_glyph.json, and tools/measure_wright_lighthouse.py recomputes this coordinate from that pixel on every gate: the two files are one statement and cannot drift apart silently. WHAT IT OVERTURNS. The point stood at local E +1105.2, N +229.2 — 47.5 m west-north-west of the fort's centre — and the note that stood here said in as many words that the adjacency was documented and the offset was ours. Wright's glyph is 75.3 m south-west of it. The reading's own uncertainty is 22.4 m combined (1.4 m picking, 10 m for the drawn ring's half-width, 20 m for the affine here — the whole-sheet RMS is 17.5 m and the two nearest controls residual at 12.6 and 23.0 m), so the disagreement is 3.4 sigma and is a disagreement rather than noise. A witness beats a bearing we picked, so the record moves, and the invented point is kept in the trace file rather than deleted. THE QUADRANT MOVES WITH IT: 108 m west-SOUTH-west of the fort centre where we had 48 m west-NORTH-west. 'North-west of the fort' was never a source's phrase; it was ours. WHAT STILL AGREES AND WHAT NOW DOES NOT. Andreas — 'Fort Dearborn and the light-house are placed at the angle thus formed' — agrees, and better than before: the ring sits at the inside of that bend. Wentworth, disposing of the reservation in 1839, says the land 'upon which the old light-house was located' was lots near the Rush Street bridge, north of the river, and that DISAGREES. A sheet surveyed a year before the scene is preferred to a recollection written five years after it about which lots a disposal covered, but nothing here shows Wentworth wrong and the tension is recorded rather than resolved. THE GROUND. +2.48 m and inside the modelled field: the flat of the peninsula, about 50 m south of the bank edge and 50 m east of the river's western bend. The August 2026 failure — a lighthouse standing in the channel because nothing modelled the ground under it — does not recur here. Rotation is zero and still means nothing: a round tower has no facade. WHAT WOULD REPLACE THIS: a second contemporary sheet, or Wentworth's lots plotted. SUPERSEDED NOTE, kept because a reading that overturns something should show what it overturned — ADJACENCY IS DOCUMENTED AND THE OFFSET IS INVENTED. Andreas puts the two together at the bend: 'Fort Dearborn and the light-house are placed at the angle thus formed'. Wentworth, disposing of the reservation in 1839, says the land left over 'upon which the old light-house was located' was lots near the Rush Street bridge, which is at the river north of the fort, and Fergus's 1850 note has River Street running between the block-house and the light-keeper's. All of that says close, and north or west, and near the water. This point is about 65 m north-west of the fort's centre on the river bank; the distance and the bearing are ours, and the uncertainty is nearer 60 m than the 20 m the rest of the complex carries. Rotation is zero and means nothing: a round tower has no facade. MOVED 2026-08-11, AND THE REASON IS THE GROUND RATHER THAN THE SOURCES. This point was first set about 65 m north-west of the fort centre while the terrain stopped 832 m short of here and nothing could check it. S2e parcel (b) landed the heightfield the same day, and that first point turned out to be below the top of the river bank - in the water. The tower is now at local E +1108, N +232, about 48 m west-north-west of the fort centre on the bank top, which satisfies every source statement as well as the first point did and satisfies the modelled ground too. The offset is still invention; it is now invention constrained by a surface.",
+    "symbolic_location": "On the Fort Dearborn Reservation at the mouth of the river, on the flat of the peninsula west of the fort, at the inside of the bend where the river turned south.",
+    "uncertainty_m": 20,
+    "placement_provisional": false,
+    "vertical_anchor": "terrain",
+    "walk_surface_m": null
+  },
+  "footprint": {
+    "polygon": [
+      [
+        0,
+        0
+      ],
+      [
+        5.6,
+        0
+      ],
+      [
+        5.6,
+        5.6
+      ],
+      [
+        0,
+        5.6
+      ]
+    ],
+    "confidence": "reconstructed",
+    "sources": [],
+    "note": "INVENTED. No source reached gives this tower a diameter, a plan or a wall thickness. 5.6 m - about eighteen feet - is the base a forty-foot masonry tower of the period needs, and the square polygon is the archetype's convention for a round shaft: the generator refuses a tower whose footprint is not square and builds a twelve-sided tapering shaft inside it. What a visitor sees of this outline is entirely ours."
+  },
+  "attributes": {
+    "kind": {
+      "value": "tower",
+      "confidence": "attested",
+      "sources": [
+        "andreas_1884_v1",
+        "lighthousefriends_chicago"
+      ],
+      "note": "A lighthouse tower, the first established on Lake Michigan."
+    },
+    "wall_height_m": {
+      "value": 12.19,
+      "confidence": "attested",
+      "sources": [
+        "andreas_1884_v1",
+        "lighthousefriends_chicago"
+      ],
+      "note": "THE ONE DOCUMENTED DIMENSION. Andreas: 'Another tower, forty feet high, was begun and completed by Mr. Jackson in 1832.' 40 ft is 12.192 m, recorded converted with the original figure stated, per data/datum.json's units rule. GUARD: the fifty feet in the same paragraph is the height the FIRST tower had reached when it fell."
+    },
+    "construction": {
+      "value": "stone",
+      "confidence": "inferred",
+      "sources": [
+        "andreas_1884_v1"
+      ],
+      "note": "NOT STATED FOR THIS TOWER, AND THE PROJECT'S OWN DOSSIER SAYS OTHERWISE. docs/research/04-structures-south.md reads 'forty feet high; conical stone/masonry' as documented; Andreas's page gives the 1832 tower a height, a builder and a reflector and no material at all, and the lighthousefriends page adds only the reflectors and the lantern. The only fabric detail in either source - 'The walls were three feet thick' - belongs to the tower that collapsed. What is inferred here, and it is a real inference rather than a guess: the same contractor, Samuel Jackson, built both towers under the same appropriation on the same site, and the first had three-foot walls, which is masonry. That the second was masonry too is likely; that it was any particular stone is not claimed."
+    },
+    "roof_type": {
+      "value": "none",
+      "confidence": "reconstructed",
+      "note": "Unattested. The shaft carries a gallery and a lantern rather than a roof; the cap over the lantern is the archetype's."
+    },
+    "lantern": {
+      "value": true,
+      "confidence": "attested",
+      "sources": [
+        "lighthousefriends_chicago"
+      ],
+      "note": "'This lighthouse stood forty feet high and employed four, fourteen-inch reflectors in its bird-cage lantern room.' Andreas, more cautiously, says it 'boasted of a fourteen-inch reflector', singular. THE REFLECTORS ARE NOT MODELLED - a bird-cage lantern is glazed and this archetype builds a glazed drum, not an optic - so what the mesh claims is that a lantern stood on the tower, which both sources support."
+    },
+    "paint": {
+      "value": "stone",
+      "confidence": "reconstructed",
+      "note": "Unattested. Bare masonry rather than whitewash, which is the commoner finish for an early Great Lakes tower - but nothing says which this was, and a whitewashed tower would read very differently across the river."
+    },
+    "function": {
+      "value": "harbour light",
+      "confidence": "attested",
+      "sources": [
+        "andreas_1884_v1",
+        "lighthousefriends_chicago"
+      ],
+      "note": "The light at the mouth of the Chicago River, the first established on Lake Michigan. Samuel Lasby was the first keeper; who kept it on 1835-07-01 was not established - Wentworth names William M. Stevens as keeper when he arrived in October 1836, and no source reached covers the gap."
+    },
+    "land_owner": {
+      "value": "The ground was entered by John Baptist Baubian, 28 May 1835",
+      "confidence": "inferred",
+      "sources": [
+        "isa_public_domain_land_tract_sales"
+      ],
+      "note": "THE UNITED STATES RESERVATION. This is the same tract L108 already derives for `1835_no_build_ground.json` — from G1, Madison's line and the traced waterline — so the polygon is inherited rather than built again, and `check.sh` already re-derives it. The register's own row is the second, independent witness to the date L108 quotes from Andreas: Beaubien's pre-emption, 28 May 1835, five weeks before the scene date. The derived polygon is short of the documented 75.69 acres for the reasons L108 states, and is a floor rather than the reservation. WHETHER THE ENTRY HELD IS NOT READ HERE: it was disputed, and this row records the entry the register carries and nothing about its outcome. THE MARGIN IS 41 m: this footprint stands that far inside the tract's nearest boundary, which is more than twice the working horizontal uncertainty of anything traced off the 1834 sheets (about 20 m), so the assignment survives the error the construction carries. WHAT THIS ROW CLAIMS AND WHAT IT DOES NOT. It claims that the tract the Illinois State Archives' land-sale register describes contains this structure's committed position — the patent for this ground was ENTERED by this man on this date. It does not claim he still held the ground on 1 July 1835, that he lived here, or that he ever stood on it: a sale is a transaction, and the register's only column about residence names a county. THE SECTION LINES ARE CONSTRUCTED, NOT TRACED (L219): the grid is carried from the single PLSS corner at State & Madison, on the plat's own east-west bearing, in nominal one-mile squares."
+    }
+  },
+  "residents": [],
+  "citations": [
+    {
+      "source_id": "andreas_1884_v1",
+      "citation": "Andreas, A. T. History of Chicago: From the Earliest Period to the Present Time. Vol. 1. Chicago: A. T. Andreas, 1884.",
+      "url": "https://archive.org/details/historyofchicago01andr",
+      "archived_url": "",
+      "tier": 3,
+      "tier_label": "compiled secondary (Andreas)"
+    },
+    {
+      "source_id": "isa_public_domain_land_tract_sales",
+      "citation": "Illinois State Archives, Illinois Public Domain Land Tract Sales Database (Springfield: Office of the Secretary of State).",
+      "url": "https://apps.ilsos.gov/isa/landSalesSearch.do",
+      "archived_url": "",
+      "tier": 1,
+      "tier_label": "period/eyewitness"
+    },
+    {
+      "source_id": "lighthousefriends_chicago",
+      "citation": "Anderson, Kraig. \"Chicago Harbor Lighthouse, Illinois.\" Lighthousefriends.com. Citing A. T. Andreas, History of Chicago (1884); the Annual Report of the Light-House Board, various years; and Donald J. Terras, \"Lighthouses of Chicago Harbor,\" The Keeper's Log, Summer 2011.",
+      "url": "https://www.lighthousefriends.com/light.asp?ID=234",
+      "archived_url": "https://web.archive.org/web/20260308064820/https://www.lighthousefriends.com/light.asp?ID=234",
+      "tier": 4,
+      "tier_label": "later scholarship",
+      "what_it_supplies": [
+        "the $5,000 appropriation of 3 March 1831",
+        "the first tower's collapse on 30 October 1831, unfinished, at fifty feet with three-foot walls",
+        "the contractor named as Samuel Jackson",
+        "the second tower completed the following year, forty feet high",
+        "four fourteen-inch reflectors in a bird-cage lantern room",
+        "Samuel Lasby as first keeper; the first light established on Lake Michigan",
+        "the quicksand-versus-workmanship dispute over the collapse"
+      ],
+      "what_it_does_not_supply": [
+        "any statement that the 1832 tower was conical",
+        "the 1832 tower's material",
+        "the 1832 tower's diameter, wall thickness, taper or plan",
+        "the tower's position relative to the fort or the river mouth",
+        "a month or day for the 1832 completion",
+        "the keeper's dwelling"
+      ]
+    },
+    {
+      "source_id": "wright_1834",
+      "citation": "Wright, J. S. Chicago, drawn by J. S. Wright according to survey. New York: P. A. Mesier's Lith., 1834.",
+      "url": "https://collections.leventhalmap.org/search/commonwealth:js9577436",
+      "archived_url": "",
+      "tier": 1,
+      "tier_label": "period/eyewitness",
+      "what_it_supplies": [
+        "street geometry",
+        "block and lot subdivision",
+        "shoreline",
+        "river channel and the 1834 cut",
+        "survey-date colouring"
+      ],
+      "what_it_does_not_supply": [
+        "building footprints",
+        "building locations"
+      ]
+    }
+  ],
+  "research_note": "BUILT BECAUSE IT IS THE OTHER THING ANYONE COULD SEE FROM THE RIVER MOUTH IN 1835, and graded almost entirely conjectural because two of the three things everybody repeats about it belong to a different tower. The height is documented and the lantern is documented. THE SHAPE IS NOT: 'conical' appears in this project's dossier and in data/exclusions.json and could not be traced to either source those entries cite, so the taper this archetype builds is the archetype's own and docs/LIBERTIES.md owns it. The material is an inference from the contractor and the site rather than a statement. And the position is adjacency turned into a coordinate. See docs/RESEARCH/chicago_lighthouse_1832.md.",
+  "research_doc": "docs/RESEARCH/chicago_lighthouse_1832.md",
+  "review_required": false
+}

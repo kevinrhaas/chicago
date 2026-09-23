@@ -1,0 +1,1149 @@
+{
+  "schema": 1,
+  "issue_id": "chicago_democrat_1834_10_22",
+  "extracted": "2026-08-28",
+  "extracted_by": "hand, T-0292 — the Democrat read, October 1834",
+  "note": "Vol. I No. 47. THE FULL WITNESS FOR THE 1 OCTOBER 1834 LETTER LIST IS IN THIS ISSUE and it is on PAGE 1, columns 1 and 2. Pages 1 columns 3-6 and page 2 are national and foreign reprint; the town is on pages 3 and 4, where the segmenter alternates two physical columns line by line so an advertisement survives as two cut halves and `lines_of_claim` names the half quoted.",
+  "claims": [
+    {
+      "id": "c001",
+      "kind": "person",
+      "reading": "transcription_mediated",
+      "letter_list_only": true,
+      "quote": "List of Letters\nEMAINING in the Post Office at Chi\nR cago, Hl. Oct. 1, ViS4.\nJadeewe, David Lilley, Oskin,\nfae Wiliam Salle, John H.\nat eilney Lincoln, Edwin A.\nAteater, Jose Lewin, P.T.\n‘Abeabaror, William Laneing DC.\n‘alery, Hendison Lilie, John\nMailly, Jowepht 2 Lane, Jobn\nBenson, Jobin HI. Little, John\nByunt, Jerenniabt M'Grigg, A. A-\nReningall, Mz. Martin, James\nRocroughs, Silas M. raat Edwin L,\nRaciow, Williaa MeCall, Alerander 2\nTee, Hower Miller, John 2\nFowen, Erastus M'Leaud, Charles 8,\nrere, Samuel G. 2 M'Clintock, Thomas 2\nyee, 5\nTir, Joho Miller, Sarnucl\nfal Janes Munriou, Joseph\nfever, Edgar M'Dolold, James,\nen Thomas K, 2 Marscy Albert F\nfighos, Lewis M'Clintock, Wilson\nfearkman, Harry M'Fadder, Jamies S.",
+      "normalized": "List of Letters / [R]EMAINING in the Post Office at Chi[cago], Ill. Oct. 1, 18[3]4. / […] Lilley, Oskin / […] Salle, John H. / […] Lincoln, Edwin A. / […] Lewin, P. T. / […] Lan[s]ing, D. C. / […] Lil[l]ie, John / […] Lane, Joh[n] / […] Little, John / […] M'Grigg, A. A. / […] Martin, James / […] [uncertain: raat Edwin L,] / […] M[c]Call, Ale[x]ander / […] Miller, John / […] M'Le[o]d, Charles S. / […] M'Clintock, Thomas / […] […] / […] Miller, Sa[m]uel / […] Munriou, Joseph / […] M'Dolold, James / […] [uncertain: Massey], Albert F. / […] M'Clintock, Wilson / […] M'Fadder, Ja[m]es S.",
+      "locator": {
+        "artifact_role": "primary",
+        "issue_page": 1,
+        "column": 1,
+        "lines": [
+          17,
+          41
+        ],
+        "lines_of_claim": [
+          17,
+          18,
+          19,
+          20,
+          21,
+          22,
+          23,
+          24,
+          25,
+          26,
+          27,
+          28,
+          29,
+          30,
+          31,
+          32,
+          33,
+          34,
+          35,
+          36,
+          37,
+          38,
+          39,
+          40,
+          41
+        ],
+        "interleaved": true
+      },
+      "entities": [
+        {
+          "as_printed": "Lilley, Oskin,",
+          "normalized": "Lilley, Oskin",
+          "role": "addressee"
+        },
+        {
+          "as_printed": "Salle, John H.",
+          "normalized": "Salle, John H.",
+          "role": "addressee"
+        },
+        {
+          "as_printed": "Lincoln, Edwin A.",
+          "normalized": "Lincoln, Edwin A.",
+          "role": "addressee"
+        },
+        {
+          "as_printed": "Lewin, P.T.",
+          "normalized": "Lewin, P. T.",
+          "role": "addressee"
+        },
+        {
+          "as_printed": "Laneing DC.",
+          "normalized": "Lan[s]ing, D. C.",
+          "role": "addressee"
+        },
+        {
+          "as_printed": "Lilie, John",
+          "normalized": "Lil[l]ie, John",
+          "role": "addressee"
+        },
+        {
+          "as_printed": "Lane, Jobn",
+          "normalized": "Lane, Joh[n]",
+          "role": "addressee"
+        },
+        {
+          "as_printed": "Little, John",
+          "normalized": "Little, John",
+          "role": "addressee"
+        },
+        {
+          "as_printed": "M'Grigg, A. A-",
+          "normalized": "M'Grigg, A. A.",
+          "role": "addressee"
+        },
+        {
+          "as_printed": "Martin, James",
+          "normalized": "Martin, James",
+          "role": "addressee"
+        },
+        {
+          "as_printed": "MeCall, Alerander 2",
+          "normalized": "M[c]Call, Ale[x]ander",
+          "role": "addressee"
+        },
+        {
+          "as_printed": "Miller, John 2",
+          "normalized": "Miller, John",
+          "role": "addressee"
+        },
+        {
+          "as_printed": "M'Leaud, Charles 8,",
+          "normalized": "M'Le[o]d, Charles S.",
+          "role": "addressee"
+        },
+        {
+          "as_printed": "M'Clintock, Thomas 2",
+          "normalized": "M'Clintock, Thomas",
+          "role": "addressee"
+        },
+        {
+          "as_printed": "Miller, Sarnucl",
+          "normalized": "Miller, Sa[m]uel",
+          "role": "addressee"
+        },
+        {
+          "as_printed": "Munriou, Joseph",
+          "normalized": "Munriou, Joseph",
+          "role": "addressee"
+        },
+        {
+          "as_printed": "M'Dolold, James,",
+          "normalized": "M'Dolold, James",
+          "role": "addressee"
+        },
+        {
+          "as_printed": "Marscy Albert F",
+          "normalized": "[uncertain: Massey], Albert F.",
+          "role": "addressee"
+        },
+        {
+          "as_printed": "M'Clintock, Wilson",
+          "normalized": "M'Clintock, Wilson",
+          "role": "addressee"
+        },
+        {
+          "as_printed": "M'Fadder, Jamies S.",
+          "normalized": "M'Fadder, Ja[m]es S.",
+          "role": "addressee"
+        }
+      ],
+      "notes": "RULING 1 — a listed name mints a resident candidate, and `letter_list_only` is true so the compiler keeps the weaker evidence distinguishable. Part 1 of 8. THE LIST IS THE 1 OCTOBER 1834 CHICAGO LIST and this issue is its best witness: the segmenter set the whole list in page 1 columns 1 and 2, and in column 2 BOTH printed sub-columns survive. In column 1 only the right-hand sub-column does — the left-hand one is cut to two or three characters a line and yields no name, so those entries are quoted and marked '[…]' rather than minted. The same list is printed again in the issues of 1834-10-08 (page 3 columns 1-2) and 1834-10-15 (page 3 columns 2-3), and NEITHER carries the left sub-column any better: 1834-10-15 page 3 column 2 keeps it as a sliver of surnames with the forenames cut ('Abell, S', 'Atwate', 'Beilly,'), which corroborates the alphabet but mints nothing. THE NAMES ARE MINTED ONCE, HERE, and the other two printings are recorded as reprints without re-minting — T-0299 is the ticket for a list minted three times over. MINTING RULE, applied throughout: an entry is minted only where the transcription gives BOTH a surname and a forename or initial that can be read. Where either is gone the entry stands in the quote and in `normalized` as '[uncertain: …]' and no person is made. Corrections are recognition-class only and bracketed. The heading is the list's own at lines 17-19 and JOHN S. C. HOGAN, P. M. signs it at line 189."
+    },
+    {
+      "id": "c002",
+      "kind": "person",
+      "reading": "transcription_mediated",
+      "letter_list_only": true,
+      "quote": "Tenjaman, 4a0ves Martin, Hyion\nBowen, Albert Ww. Michel, James\nHorreaucd > Morgan, Ee\nMay rath — M'Keo, Jaen\nrome eg Maclean, Archibald 2\nihe, Elder Maclean, H.C. *\nHeeana Muy Moody, Robert\nBrown, Jase 6° Muggs, David\nHig rs Morrow, Jeremiah\naie Aipbose Milos, Andrew,\nRoced Acdtew We M'Donald, Jumes\nfeuds Witm = MPVaughton, Angus\nheratk 8. Myers, Frederick\nirgeoe, Dasil Mls, Bevjamin\n‘ark, John A. Mattison, James\nsr me Marth, Robert B.\nVoegut, HD. 2 Newhall, teaac\nChranier, Joseph Night, Clapp\nPigk, Jona. Northrop, Francis B\n“els, Matin News. Mr.\nauity Patrick. Neff, R.A.\ney, Goarge W. — Otto, Silay PR,",
+      "normalized": "[…] Martin, Hy[l]on / […] Michel, James / […] [uncertain: Morgan, Ee] / […] M'Ke[e], Ja[m]es / […] Maclean, Archibald / […] Maclean, H. C. / […] Moody, Robert / […] Muggs, David / […] Morrow, Jeremiah / […] Mil[e]s, Andrew / […] M'Donald, J[a]mes / […] M'Vaughton, Angus / […] Myers, Frederick / […] M[il]ls, Ben[j]amin / […] Mattison, James / […] Mar[ti]n, Robert B. / […] Newhall, [I]saac / […] Night, Clapp / […] Northrop, Francis B. / […] [uncertain: News. Mr.] / […] Neff, R. A. / […] Otto, Silas P.",
+      "locator": {
+        "artifact_role": "primary",
+        "issue_page": 1,
+        "column": 1,
+        "lines": [
+          42,
+          63
+        ],
+        "lines_of_claim": [
+          42,
+          43,
+          44,
+          45,
+          46,
+          47,
+          48,
+          49,
+          50,
+          51,
+          52,
+          53,
+          54,
+          55,
+          56,
+          57,
+          58,
+          59,
+          60,
+          61,
+          62,
+          63
+        ],
+        "interleaved": true
+      },
+      "entities": [
+        {
+          "as_printed": "Martin, Hyion",
+          "normalized": "Martin, Hy[l]on",
+          "role": "addressee"
+        },
+        {
+          "as_printed": "Michel, James",
+          "normalized": "Michel, James",
+          "role": "addressee"
+        },
+        {
+          "as_printed": "M'Keo, Jaen",
+          "normalized": "M'Ke[e], Ja[m]es",
+          "role": "addressee"
+        },
+        {
+          "as_printed": "Maclean, Archibald 2",
+          "normalized": "Maclean, Archibald",
+          "role": "addressee"
+        },
+        {
+          "as_printed": "Maclean, H.C. *",
+          "normalized": "Maclean, H. C.",
+          "role": "addressee"
+        },
+        {
+          "as_printed": "Moody, Robert",
+          "normalized": "Moody, Robert",
+          "role": "addressee"
+        },
+        {
+          "as_printed": "Muggs, David",
+          "normalized": "Muggs, David",
+          "role": "addressee"
+        },
+        {
+          "as_printed": "Morrow, Jeremiah",
+          "normalized": "Morrow, Jeremiah",
+          "role": "addressee"
+        },
+        {
+          "as_printed": "Milos, Andrew,",
+          "normalized": "Mil[e]s, Andrew",
+          "role": "addressee"
+        },
+        {
+          "as_printed": "M'Donald, Jumes",
+          "normalized": "M'Donald, J[a]mes",
+          "role": "addressee"
+        },
+        {
+          "as_printed": "MPVaughton, Angus",
+          "normalized": "M'Vaughton, Angus",
+          "role": "addressee"
+        },
+        {
+          "as_printed": "Myers, Frederick",
+          "normalized": "Myers, Frederick",
+          "role": "addressee"
+        },
+        {
+          "as_printed": "Mls, Bevjamin",
+          "normalized": "M[il]ls, Ben[j]amin",
+          "role": "addressee"
+        },
+        {
+          "as_printed": "Mattison, James",
+          "normalized": "Mattison, James",
+          "role": "addressee"
+        },
+        {
+          "as_printed": "Marth, Robert B.",
+          "normalized": "Mar[ti]n, Robert B.",
+          "role": "addressee"
+        },
+        {
+          "as_printed": "Newhall, teaac",
+          "normalized": "Newhall, [I]saac",
+          "role": "addressee"
+        },
+        {
+          "as_printed": "Night, Clapp",
+          "normalized": "Night, Clapp",
+          "role": "addressee"
+        },
+        {
+          "as_printed": "Northrop, Francis B",
+          "normalized": "Northrop, Francis B.",
+          "role": "addressee"
+        },
+        {
+          "as_printed": "Neff, R.A.",
+          "normalized": "Neff, R. A.",
+          "role": "addressee"
+        },
+        {
+          "as_printed": "Otto, Silay PR,",
+          "normalized": "Otto, Silas P.",
+          "role": "addressee"
+        }
+      ],
+      "notes": "RULING 1 — a listed name mints a resident candidate, and `letter_list_only` is true so the compiler keeps the weaker evidence distinguishable. Part 2 of 8 of the 1 October 1834 Chicago list. MINTING RULE, applied throughout: an entry is minted only where the transcription gives BOTH a surname and a forename or initial that can be read. Where either is gone the entry stands in the quote and in `normalized` as '[uncertain: …]' and no person is made. Corrections are recognition-class only and bracketed."
+    },
+    {
+      "id": "c003",
+      "kind": "person",
+      "reading": "transcription_mediated",
+      "letter_list_only": true,
+      "quote": "ty, Nalsan Je. 3 Ostrander, Catherine\nyet, Jaton V Parer}, Aaron\n‘jah Parnelee, Henry\n+ William ML Peterson, Lease\nin, Nes 2 Prontice, Gilbert Wy\nah, Dated Penrose, Janes We\nMises Of, Pennington, Sack FP.\nASN a Peck, Sidney\nom Toward Poke, Edward :\n. Lavin faz, Et\nOy 1b, Parsons, Edward\nat Powers, T.W, >\nCosser' ~ otier, Mh EE\nCarer, Aili Pook, Mie. 4\nVonegee, Darl Yalan Irekson :\natt, Jante A. Muweell, Pasrhal Pe 3]\namg, Willan Huey, Jasea\n‘one, Royal B, Rowits, Araliah\n“i, Heygvian tie Rewlyon, Cynthia\n‘apimen, Ajo Nord, Seth 7 {\nPaginas, Andew — Roynodls, Nazro\nhagitors Robert 2 Regfars, Janies W. ‘",
+      "normalized": "[…] Ostrander, Catherine / […] [uncertain: Parcel], Aaron / […] Par[m]elee, Henry / […] Peterson, [uncertain: Isaac] / […] Pr[e]ntice, Gilbert W. / […] Penrose, Ja[m]es W. / […] Pennington, Sack F. / […] Peck, Sidney / […] Poke, Edward / […] [uncertain: faz, Et] / […] Parsons, Edward / […] Powers, T. W. / […] [uncertain: otier, Mh EE] / […] [uncertain: Pook, Mie. 4] / […] [uncertain: Yalan Irekson :] / […] [uncertain: Muweell, Pasrhal Pe 3] / […] [uncertain: Huey, Jasea] / […] [uncertain: Rowits, Araliah] / […] [uncertain: Rewlyon, Cynthia] / […] [uncertain: Nord, Seth 7 {] / […] R[ey]nolds, Nazro / […] [uncertain: Regfars, Janies W.]",
+      "locator": {
+        "artifact_role": "primary",
+        "issue_page": 1,
+        "column": 1,
+        "lines": [
+          64,
+          85
+        ],
+        "lines_of_claim": [
+          64,
+          65,
+          66,
+          67,
+          68,
+          69,
+          70,
+          71,
+          72,
+          73,
+          74,
+          75,
+          76,
+          77,
+          78,
+          79,
+          80,
+          81,
+          82,
+          83,
+          84,
+          85
+        ],
+        "interleaved": true
+      },
+      "entities": [
+        {
+          "as_printed": "Ostrander, Catherine",
+          "normalized": "Ostrander, Catherine",
+          "role": "addressee"
+        },
+        {
+          "as_printed": "Parer}, Aaron",
+          "normalized": "[uncertain: Parcel], Aaron",
+          "role": "addressee"
+        },
+        {
+          "as_printed": "Parnelee, Henry",
+          "normalized": "Par[m]elee, Henry",
+          "role": "addressee"
+        },
+        {
+          "as_printed": "Peterson, Lease",
+          "normalized": "Peterson, [uncertain: Isaac]",
+          "role": "addressee"
+        },
+        {
+          "as_printed": "Prontice, Gilbert Wy",
+          "normalized": "Pr[e]ntice, Gilbert W.",
+          "role": "addressee"
+        },
+        {
+          "as_printed": "Penrose, Janes We",
+          "normalized": "Penrose, Ja[m]es W.",
+          "role": "addressee"
+        },
+        {
+          "as_printed": "Pennington, Sack FP.",
+          "normalized": "Pennington, Sack F.",
+          "role": "addressee"
+        },
+        {
+          "as_printed": "Peck, Sidney",
+          "normalized": "Peck, Sidney",
+          "role": "addressee"
+        },
+        {
+          "as_printed": "Poke, Edward :",
+          "normalized": "Poke, Edward",
+          "role": "addressee"
+        },
+        {
+          "as_printed": "Parsons, Edward",
+          "normalized": "Parsons, Edward",
+          "role": "addressee"
+        },
+        {
+          "as_printed": "Powers, T.W, >",
+          "normalized": "Powers, T. W.",
+          "role": "addressee"
+        },
+        {
+          "as_printed": "Roynodls, Nazro",
+          "normalized": "R[ey]nolds, Nazro",
+          "role": "addressee"
+        }
+      ],
+      "notes": "RULING 1 — a listed name mints a resident candidate, and `letter_list_only` is true so the compiler keeps the weaker evidence distinguishable. Part 3 of 8 of the 1 October 1834 Chicago list. MINTING RULE, applied throughout: an entry is minted only where the transcription gives BOTH a surname and a forename or initial that can be read. Where either is gone the entry stands in the quote and in `normalized` as '[uncertain: …]' and no person is made. Corrections are recognition-class only and bracketed. Line 73's entry stands between 'Poke, Edward' and 'Parsons, Edward' and is cut to 'faz, Et'; the printings of 1834-10-08 and 1834-10-15 carry two entries there ('Pherigo, R.' and 'Pugh, Eli'), so this transcription has lost a line as well as a reading, and neither name is minted from here."
+    },
+    {
+      "id": "c004",
+      "kind": "person",
+      "reading": "transcription_mediated",
+      "letter_list_only": true,
+      "quote": "uf. Kichited Risking, Jobn f\nhob Hichardson, A. ML\nbicraF, Jaceph Rotyors, William F\ni + LewiRatisson, Hinry {\noben wes Roceoan, Rdward :\n‘dished Teed, Phones j\n“res eT Sinunons, Thomas |\na la Stevens, Moses\nB27.Me 0 Sautrora, Jacob Jr\nDiigs,Le oy cant Denjamin ;\nrelat ES Shan, Gil cn :\nslicg, XW bart Aas\nHag ! Teyior, Charles 2\neee Shear, Hlaabetis |\neh Stewart, R.\nnae, David Stev art, Saniucl {\n408, Seloty Seal, Solomon Ry ‘\nmm, Johnathin F. & Sorunt, Geonvill 7,\nBe hn Prout, Granville T,\nrine, ai . ShOSSON, Ts\ntg phed Stewart, Royal 2\ntoaton | Simmons, Medad I.",
+      "normalized": "[…] [uncertain: Risking, Jobn f] / […] [R]ichardson, A. M. / […] [uncertain: Rotyors, William F] / […] [uncertain: Ratisson, Hinry {] / […] [uncertain: Roceoan, Rdward :] / […] [uncertain: Teed, Phones j] / […] S[im]mons, Thomas / […] Stevens, Moses / […] [uncertain: Sautrora, Jacob Jr] / […] [uncertain: cant Denjamin ;] / […] [uncertain: Shan, Gil cn :] / […] [uncertain: bart Aas] / […] Ta[y]lor, Charles / […] [uncertain: Shear, Hlaabetis |] / […] Stewart, R. / […] Stewart, Sa[m]uel / […] [uncertain: Snell], Solomon R. / […] [uncertain: Sorunt, Geonvill 7,] / […] [S]prout, Granville T. / […] [uncertain: ShOSSON, Ts] / […] Stewart, Royal / […] Simmons, Medad I.",
+      "locator": {
+        "artifact_role": "primary",
+        "issue_page": 1,
+        "column": 1,
+        "lines": [
+          86,
+          107
+        ],
+        "lines_of_claim": [
+          86,
+          87,
+          88,
+          89,
+          90,
+          91,
+          92,
+          93,
+          94,
+          95,
+          96,
+          97,
+          98,
+          99,
+          100,
+          101,
+          102,
+          103,
+          104,
+          105,
+          106,
+          107
+        ],
+        "interleaved": true
+      },
+      "entities": [
+        {
+          "as_printed": "Hichardson, A. ML",
+          "normalized": "[R]ichardson, A. M.",
+          "role": "addressee"
+        },
+        {
+          "as_printed": "Sinunons, Thomas |",
+          "normalized": "S[im]mons, Thomas",
+          "role": "addressee"
+        },
+        {
+          "as_printed": "Stevens, Moses",
+          "normalized": "Stevens, Moses",
+          "role": "addressee"
+        },
+        {
+          "as_printed": "Teyior, Charles 2",
+          "normalized": "Ta[y]lor, Charles",
+          "role": "addressee"
+        },
+        {
+          "as_printed": "Stewart, R.",
+          "normalized": "Stewart, R.",
+          "role": "addressee"
+        },
+        {
+          "as_printed": "Stev art, Saniucl {",
+          "normalized": "Stewart, Sa[m]uel",
+          "role": "addressee"
+        },
+        {
+          "as_printed": "Seal, Solomon Ry",
+          "normalized": "[uncertain: Snell], Solomon R.",
+          "role": "addressee"
+        },
+        {
+          "as_printed": "Prout, Granville T,",
+          "normalized": "[S]prout, Granville T.",
+          "role": "addressee"
+        },
+        {
+          "as_printed": "Stewart, Royal 2",
+          "normalized": "Stewart, Royal",
+          "role": "addressee"
+        },
+        {
+          "as_printed": "Simmons, Medad I.",
+          "normalized": "Simmons, Medad I.",
+          "role": "addressee"
+        }
+      ],
+      "notes": "RULING 1 — a listed name mints a resident candidate, and `letter_list_only` is true so the compiler keeps the weaker evidence distinguishable. Part 4 of 8 of the 1 October 1834 Chicago list. MINTING RULE, applied throughout: an entry is minted only where the transcription gives BOTH a surname and a forename or initial that can be read. Where either is gone the entry stands in the quote and in `normalized` as '[uncertain: …]' and no person is made. Corrections are recognition-class only and bracketed."
+    },
+    {
+      "id": "c005",
+      "kind": "person",
+      "reading": "transcription_mediated",
+      "letter_list_only": true,
+      "quote": "aber, Ln cis Sprague, Yrase 2\ncoy furltt Gs Sanderlin, Petey\nue, Dasid Biay, G. B,\n(aeey, Jota, ¢ Nites, David\nDe Joke yy, 2 Sewell, Joba\nwesa, Manse Switzer, Join\ney, Jame Spencer, Edgar H.\nsted, Jen Seott, Leonard H.\nAe, Samnol Skinner, Willian H.\need Dav a vith, Lather\nhie, Orlando B, “Smith, Beyjamin 2\nged Anton Sunith, Thomas\nieeron, Fuilend Smith, Jonathan\nhading Chae, suuth, R.G. 2\niron. Witag Stith, Sherrygood\nesi, Witham — Snatth, Allira\nHaPererG. Taylor, Tor\nyan doa Ty _Anderson, Samuel\nHag iam Tylor, Janes Re 2\niene, din Thongson, Ts\nNe’ Shee . Tryon, David",
+      "normalized": "[…] [uncertain: Sprague, Yrase 2] / […] Sanderlin, Petey / […] [uncertain: Shay], G. B. / […] [St]iles, David / […] Sewell, Joh[n] / […] Switzer, Jo[h]n / […] Spencer, Edgar H. / […] Sc[o]tt, Leonard H. / […] Skinner, Willia[m] H. / […] [uncertain: a vith, Lather] / […] Smith, Ben[j]amin / […] S[m]ith, Thomas / […] Smith, Jonathan / […] S[m]ith, R. G. / […] Stith, Sherrygood / […] S[m]ith, Allira / […] Taylor, T. or Anderson, Samuel / […] [uncertain: Anderson, Samuel] / […] T[a]ylor, Ja[m]es R. / […] [uncertain: Thongson, Ts] / […] Tryon, David",
+      "locator": {
+        "artifact_role": "primary",
+        "issue_page": 1,
+        "column": 1,
+        "lines": [
+          108,
+          128
+        ],
+        "lines_of_claim": [
+          108,
+          109,
+          110,
+          111,
+          112,
+          113,
+          114,
+          115,
+          116,
+          117,
+          118,
+          119,
+          120,
+          121,
+          122,
+          123,
+          124,
+          125,
+          126,
+          127,
+          128
+        ],
+        "interleaved": true
+      },
+      "entities": [
+        {
+          "as_printed": "Sanderlin, Petey",
+          "normalized": "Sanderlin, Petey",
+          "role": "addressee"
+        },
+        {
+          "as_printed": "Biay, G. B,",
+          "normalized": "[uncertain: Shay], G. B.",
+          "role": "addressee"
+        },
+        {
+          "as_printed": "Nites, David",
+          "normalized": "[St]iles, David",
+          "role": "addressee"
+        },
+        {
+          "as_printed": "Sewell, Joba",
+          "normalized": "Sewell, Joh[n]",
+          "role": "addressee"
+        },
+        {
+          "as_printed": "Switzer, Join",
+          "normalized": "Switzer, Jo[h]n",
+          "role": "addressee"
+        },
+        {
+          "as_printed": "Spencer, Edgar H.",
+          "normalized": "Spencer, Edgar H.",
+          "role": "addressee"
+        },
+        {
+          "as_printed": "Seott, Leonard H.",
+          "normalized": "Sc[o]tt, Leonard H.",
+          "role": "addressee"
+        },
+        {
+          "as_printed": "Skinner, Willian H.",
+          "normalized": "Skinner, Willia[m] H.",
+          "role": "addressee"
+        },
+        {
+          "as_printed": "“Smith, Beyjamin 2",
+          "normalized": "Smith, Ben[j]amin",
+          "role": "addressee"
+        },
+        {
+          "as_printed": "Sunith, Thomas",
+          "normalized": "S[m]ith, Thomas",
+          "role": "addressee"
+        },
+        {
+          "as_printed": "Smith, Jonathan.",
+          "normalized": "Smith, Jonathan",
+          "role": "addressee"
+        },
+        {
+          "as_printed": "suuth, R.G, 2",
+          "normalized": "S[m]ith, R. G.",
+          "role": "addressee"
+        },
+        {
+          "as_printed": "Stith, Sherrygood",
+          "normalized": "Stith, Sherrygood",
+          "role": "addressee"
+        },
+        {
+          "as_printed": "Snatth, Allira",
+          "normalized": "S[m]ith, Allira",
+          "role": "addressee"
+        },
+        {
+          "as_printed": "Taylor, T. or Anderson, Samuel",
+          "normalized": "Taylor, T. or Anderson, Samuel",
+          "role": "addressee"
+        },
+        {
+          "as_printed": "Tylor, Janes Re 2",
+          "normalized": "T[a]ylor, Ja[m]es R.",
+          "role": "addressee"
+        },
+        {
+          "as_printed": "Tryon, David",
+          "normalized": "Tryon, David",
+          "role": "addressee"
+        }
+      ],
+      "notes": "RULING 1 — a listed name mints a resident candidate, and `letter_list_only` is true so the compiler keeps the weaker evidence distinguishable. Part 5 of 8 of the 1 October 1834 Chicago list. MINTING RULE, applied throughout: an entry is minted only where the transcription gives BOTH a surname and a forename or initial that can be read. Where either is gone the entry stands in the quote and in `normalized` as '[uncertain: …]' and no person is made. Corrections are recognition-class only and bracketed. Lines 124-125 are ONE printed entry, 'Taylor, T. or Anderson, Samuel' — the paper itself offers two readings of one address — and it is minted once, whole, rather than split into two people."
+    },
+    {
+      "id": "c006",
+      "kind": "person",
+      "reading": "transcription_mediated",
+      "letter_list_only": true,
+      "quote": "Hass, Richard 3 Town, Bijah 8.\nWie, iia — hoampeon, Wallis\nHasheoek. Marry Be Thomas, C, G.\nWk Nehemiah Pores, J. Me\nHa pec. ‘Taylor, Wm. Hy\nieee Thomas, David\nHersek’ pirat Troutman, Jokn\njes. | So Buimble, Bward\netching, C4} Tindal, James\nUy deo, Lei Vandeventer, Wm,\nime, Vincent M, zee Flett, Jenae\nTee, Juste 1, W aikins, Theophilus or\niinies, Granealie Robert\nHocttion, Chester Wilson, Asahet B,\nHy oss J. Willis, Joba J,\nWaid Bot | Way Hl\nakin EW. Wilkison, Bui R.\ntite, yoMben 2 Ward, Hanibal — ¢\nTiti, Fawara 5 Wheeler, Orson 3\n“ykion, Hannah Wame, John\nWoodruff, Tailor",
+      "normalized": "[…] Town, [El]ijah S. / […] [uncertain: hoampeon, Wallis] / […] Thomas, C. G. / […] [uncertain: Pores, J. Me] / […] Taylor, Wm. H. / […] Thomas, David / […] Troutman, Jo[h]n / […] [uncertain: Buimble, Bward] / […] Tindal, James / […] Vandeventer, Wm. / […] [uncertain: zee Flett, Jenae] / […] W[a]tkins, Theophilus or Robert / […] [uncertain: Robert] / […] Wilson, Asahe[l] B. / […] Willis, Joh[n] J. / […] [uncertain: Way Hl] / […] [uncertain: Wilkison, Bui R.] / […] Ward, Hanibal / […] Wheeler, Orson / […] Wame, John / […] Woodruff, Tailor",
+      "locator": {
+        "artifact_role": "primary",
+        "issue_page": 1,
+        "column": 1,
+        "lines": [
+          129,
+          149
+        ],
+        "lines_of_claim": [
+          129,
+          130,
+          131,
+          132,
+          133,
+          134,
+          135,
+          136,
+          137,
+          138,
+          139,
+          140,
+          141,
+          142,
+          143,
+          144,
+          145,
+          146,
+          147,
+          148,
+          149
+        ],
+        "interleaved": true
+      },
+      "entities": [
+        {
+          "as_printed": "Town, Bijah 8.",
+          "normalized": "Town, [El]ijah S.",
+          "role": "addressee"
+        },
+        {
+          "as_printed": "Thomas, C, G.",
+          "normalized": "Thomas, C. G.",
+          "role": "addressee"
+        },
+        {
+          "as_printed": "Taylor, Wm. Hy",
+          "normalized": "Taylor, Wm. H.",
+          "role": "addressee"
+        },
+        {
+          "as_printed": "Thomas, David",
+          "normalized": "Thomas, David",
+          "role": "addressee"
+        },
+        {
+          "as_printed": "Troutman, Jokn",
+          "normalized": "Troutman, Jo[h]n",
+          "role": "addressee"
+        },
+        {
+          "as_printed": "Tindal, James",
+          "normalized": "Tindal, James",
+          "role": "addressee"
+        },
+        {
+          "as_printed": "Vandeventer, Wm,",
+          "normalized": "Vandeventer, Wm.",
+          "role": "addressee"
+        },
+        {
+          "as_printed": "W aikins, Theophilus or Robert",
+          "normalized": "W[a]tkins, Theophilus or Robert",
+          "role": "addressee"
+        },
+        {
+          "as_printed": "Wilson, Asahet B,",
+          "normalized": "Wilson, Asahe[l] B.",
+          "role": "addressee"
+        },
+        {
+          "as_printed": "Willis, Joba J,",
+          "normalized": "Willis, Joh[n] J.",
+          "role": "addressee"
+        },
+        {
+          "as_printed": "Ward, Hanibal",
+          "normalized": "Ward, Hanibal",
+          "role": "addressee"
+        },
+        {
+          "as_printed": "Wheeler, Orson 3",
+          "normalized": "Wheeler, Orson",
+          "role": "addressee"
+        },
+        {
+          "as_printed": "Wame, John",
+          "normalized": "Wame, John",
+          "role": "addressee"
+        },
+        {
+          "as_printed": "Woodruff, Tailor",
+          "normalized": "Woodruff, Tailor",
+          "role": "addressee"
+        }
+      ],
+      "notes": "RULING 1 — a listed name mints a resident candidate, and `letter_list_only` is true so the compiler keeps the weaker evidence distinguishable. Part 6 of 8 of the 1 October 1834 Chicago list. MINTING RULE, applied throughout: an entry is minted only where the transcription gives BOTH a surname and a forename or initial that can be read. Where either is gone the entry stands in the quote and in `normalized` as '[uncertain: …]' and no person is made. Corrections are recognition-class only and bracketed. Lines 140-141 are ONE printed entry, 'Watkins, Theophilus or Robert', minted whole for the same reason."
+    },
+    {
+      "id": "c007",
+      "kind": "person",
+      "reading": "transcription_mediated",
+      "letter_list_only": true,
+      "quote": "m | Hooker, Edward T. — Williams, Charles C. | |\nHussy, Robert 2 Winters, Moses\n._ | Ives, Chauncy P. White, Adonij\n+] Ingrabam, Maniel yy ite» Adonijah |\nIng reoll, Austin WTieht, Orrin ’\nJeflerson, Robart H, 4 Wells, Charles\nJames, Lorenza D, 2 Woodworth, James H.\nJohnson, Th Wright, Eleazor PF,\nJohnson, Wiffam C. Wright, T. G. h\nJackson, Sheldon Wright, Samuel L. i\nJones, Thomas Wright, Thomas i\nJones, Elijah Wright, John D. b\nJones, A. 3. 2 Winship, Charles b\nJones, Charles 2 Wintarts le\nJohnson, Mr. iams, John C.",
+      "normalized": "Hooker, Edward T. / Williams, Charles C. / Hussy, Robert / Winters, Moses / Ives, Chauncy P. / [uncertain: White, Adonij] / Ingra[h]am, [D]aniel / [Wh]ite, Adonijah / Ing[e]r[s]oll, Austin / W[r]i[g]ht, Orrin / Je[ff]erson, Rob[e]rt H. / Wells, Charles / James, Lorenz[o] D. / Woodworth, James H. / [uncertain: Johnson, Th] / Wright, Eleazor F. / Johnson, Wi[lli]am C. / Wright, T. G. / Jackson, Sheldon / Wright, Samuel L. / Jones, Thomas / Wright, Thomas / Jones, Elijah / Wright, John D. / Jones, A. [S.] / Winship, Charles / Jones, Charles / [uncertain: Wintarts le] / [uncertain: Johnson, Mr.] / [Will]iams, John C.",
+      "locator": {
+        "artifact_role": "primary",
+        "issue_page": 1,
+        "column": 2,
+        "lines": [
+          159,
+          173
+        ],
+        "lines_of_claim": [
+          159,
+          160,
+          161,
+          162,
+          163,
+          164,
+          165,
+          166,
+          167,
+          168,
+          169,
+          170,
+          171,
+          172,
+          173
+        ],
+        "interleaved": true
+      },
+      "entities": [
+        {
+          "as_printed": "Hooker, Edward T.",
+          "normalized": "Hooker, Edward T.",
+          "role": "addressee"
+        },
+        {
+          "as_printed": "Williams, Charles C.",
+          "normalized": "Williams, Charles C.",
+          "role": "addressee"
+        },
+        {
+          "as_printed": "Hussy, Robert 2",
+          "normalized": "Hussy, Robert",
+          "role": "addressee"
+        },
+        {
+          "as_printed": "Winters, Moses",
+          "normalized": "Winters, Moses",
+          "role": "addressee"
+        },
+        {
+          "as_printed": "Ives, Chauncy P.",
+          "normalized": "Ives, Chauncy P.",
+          "role": "addressee"
+        },
+        {
+          "as_printed": "Ingrabam, Maniel",
+          "normalized": "Ingra[h]am, [D]aniel",
+          "role": "addressee"
+        },
+        {
+          "as_printed": "ite» Adonijah",
+          "normalized": "[Wh]ite, Adonijah",
+          "role": "addressee"
+        },
+        {
+          "as_printed": "Ing reoll, Austin",
+          "normalized": "Ing[e]r[s]oll, Austin",
+          "role": "addressee"
+        },
+        {
+          "as_printed": "WTieht, Orrin",
+          "normalized": "W[r]i[g]ht, Orrin",
+          "role": "addressee"
+        },
+        {
+          "as_printed": "Jeflerson, Robart H, 4",
+          "normalized": "Je[ff]erson, Rob[e]rt H.",
+          "role": "addressee"
+        },
+        {
+          "as_printed": "Wells, Charles",
+          "normalized": "Wells, Charles",
+          "role": "addressee"
+        },
+        {
+          "as_printed": "James, Lorenza D, 2",
+          "normalized": "James, Lorenz[o] D.",
+          "role": "addressee"
+        },
+        {
+          "as_printed": "Woodworth, James H.",
+          "normalized": "Woodworth, James H.",
+          "role": "addressee"
+        },
+        {
+          "as_printed": "Wright, Eleazor PF,",
+          "normalized": "Wright, Eleazor F.",
+          "role": "addressee"
+        },
+        {
+          "as_printed": "Johnson, Wiffam C.",
+          "normalized": "Johnson, Wi[lli]am C.",
+          "role": "addressee"
+        },
+        {
+          "as_printed": "Wright, T. G. h",
+          "normalized": "Wright, T. G.",
+          "role": "addressee"
+        },
+        {
+          "as_printed": "Jackson, Sheldon",
+          "normalized": "Jackson, Sheldon",
+          "role": "addressee"
+        },
+        {
+          "as_printed": "Wright, Samuel L. i",
+          "normalized": "Wright, Samuel L.",
+          "role": "addressee"
+        },
+        {
+          "as_printed": "Jones, Thomas",
+          "normalized": "Jones, Thomas",
+          "role": "addressee"
+        },
+        {
+          "as_printed": "Wright, Thomas i",
+          "normalized": "Wright, Thomas",
+          "role": "addressee"
+        },
+        {
+          "as_printed": "Jones, Elijah",
+          "normalized": "Jones, Elijah",
+          "role": "addressee"
+        },
+        {
+          "as_printed": "Wright, John D. b",
+          "normalized": "Wright, John D.",
+          "role": "addressee"
+        },
+        {
+          "as_printed": "Jones, A. 3. 2",
+          "normalized": "Jones, A. [S.]",
+          "role": "addressee"
+        },
+        {
+          "as_printed": "Winship, Charles b",
+          "normalized": "Winship, Charles",
+          "role": "addressee"
+        },
+        {
+          "as_printed": "Jones, Charles 2",
+          "normalized": "Jones, Charles",
+          "role": "addressee"
+        },
+        {
+          "as_printed": "iams, John C.",
+          "normalized": "[Will]iams, John C.",
+          "role": "addressee"
+        }
+      ],
+      "notes": "RULING 1 — a listed name mints a resident candidate, and `letter_list_only` is true so the compiler keeps the weaker evidence distinguishable. Part 7 of 8 of the 1 October 1834 Chicago list, and the first of the two claims where BOTH printed sub-columns survive: the left one runs H-L and the right one W-Z, so each line yields two names. MINTING RULE, applied throughout: an entry is minted only where the transcription gives BOTH a surname and a forename or initial that can be read. Where either is gone the entry stands in the quote and in `normalized` as '[uncertain: …]' and no person is made. Corrections are recognition-class only and bracketed."
+    },
+    {
+      "id": "c008",
+      "kind": "person",
+      "reading": "transcription_mediated",
+      "letter_list_only": true,
+      "quote": "Johnson, Christopher Wood, Aaron. 2. J 8\nJohnson, Seth White, Edson 2]\nJackson, Samuel Watkins, Peter Hi\nKiazey, William Works, Charles fit\nKings! er Edward Wampler, Westley, 2\nKiger, Jaines Wilcox, Samyel | P*\nKinder, John Worden, Nathaniel in\nKnapp, George Woodruff, N vi\nKing, Bradford, Ww ore le\nKilbearn, D, W. Vest, Wiliam\nLucas, Robert Whiting Henry g | an\nLansing, Andrew Ww ilson, Walter ch\nLeonard, Anson Young, Gorden fir\nLoner, Oliver Young, Gideon life\nLivermore, Thomas A.Zearly, Reason tio\nJONN S.C, HOGAN, P. Mf,",
+      "normalized": "Johnson, Christopher / Wood, Aaron / Johnson, Seth / White, Edson / Jackson, Samuel / Watkins, Peter / K[in]zey, William / Works, Charles / King[sl]e[y], Edward / Wampler, Westley / Kiger, Ja[m]es / Wilcox, Sam[u]el / Kinder, John / Worden, Nathaniel / Knapp, George / Woodruff, N. / King, Bradford / [uncertain: Ww ore le] / Kil[b]e[a]rn, D. W. / [W]est, Wil[l]iam / Lucas, Robert / Whiting, Henry / Lansing, Andrew / W[i]lson, Walter / Leonard, Anson / Young, Gorden / Loner, Oliver / Young, Gideon / Livermore, Thomas / Zearly, Reason / JO[H]N S. C. HOGAN, P. M.",
+      "locator": {
+        "artifact_role": "primary",
+        "issue_page": 1,
+        "column": 2,
+        "lines": [
+          174,
+          189
+        ],
+        "lines_of_claim": [
+          174,
+          175,
+          176,
+          177,
+          178,
+          179,
+          180,
+          181,
+          182,
+          183,
+          184,
+          185,
+          186,
+          187,
+          188,
+          189
+        ],
+        "interleaved": true
+      },
+      "entities": [
+        {
+          "as_printed": "Johnson, Christopher",
+          "normalized": "Johnson, Christopher",
+          "role": "addressee"
+        },
+        {
+          "as_printed": "Wood, Aaron. 2.",
+          "normalized": "Wood, Aaron",
+          "role": "addressee"
+        },
+        {
+          "as_printed": "Johnson, Seth",
+          "normalized": "Johnson, Seth",
+          "role": "addressee"
+        },
+        {
+          "as_printed": "White, Edson 2",
+          "normalized": "White, Edson",
+          "role": "addressee"
+        },
+        {
+          "as_printed": "Jackson, Samuel",
+          "normalized": "Jackson, Samuel",
+          "role": "addressee"
+        },
+        {
+          "as_printed": "Watkins, Peter Hi",
+          "normalized": "Watkins, Peter",
+          "role": "addressee"
+        },
+        {
+          "as_printed": "Kiazey, William",
+          "normalized": "K[in]zey, William",
+          "role": "addressee"
+        },
+        {
+          "as_printed": "Works, Charles fit",
+          "normalized": "Works, Charles",
+          "role": "addressee"
+        },
+        {
+          "as_printed": "Kings! er Edward",
+          "normalized": "King[sl]e[y], Edward",
+          "role": "addressee"
+        },
+        {
+          "as_printed": "Wampler, Westley, 2",
+          "normalized": "Wampler, Westley",
+          "role": "addressee"
+        },
+        {
+          "as_printed": "Kiger, Jaines",
+          "normalized": "Kiger, Ja[m]es",
+          "role": "addressee"
+        },
+        {
+          "as_printed": "Wilcox, Samyel",
+          "normalized": "Wilcox, Sam[u]el",
+          "role": "addressee"
+        },
+        {
+          "as_printed": "Kinder, John",
+          "normalized": "Kinder, John",
+          "role": "addressee"
+        },
+        {
+          "as_printed": "Worden, Nathaniel in",
+          "normalized": "Worden, Nathaniel",
+          "role": "addressee"
+        },
+        {
+          "as_printed": "Knapp, George",
+          "normalized": "Knapp, George",
+          "role": "addressee"
+        },
+        {
+          "as_printed": "Woodruff, N vi",
+          "normalized": "Woodruff, N.",
+          "role": "addressee"
+        },
+        {
+          "as_printed": "King, Bradford,",
+          "normalized": "King, Bradford",
+          "role": "addressee"
+        },
+        {
+          "as_printed": "Kilbearn, D, W.",
+          "normalized": "Kil[b]e[a]rn, D. W.",
+          "role": "addressee"
+        },
+        {
+          "as_printed": "Vest, Wiliam",
+          "normalized": "[W]est, Wil[l]iam",
+          "role": "addressee"
+        },
+        {
+          "as_printed": "Lucas, Robert",
+          "normalized": "Lucas, Robert",
+          "role": "addressee"
+        },
+        {
+          "as_printed": "Whiting Henry g",
+          "normalized": "Whiting, Henry",
+          "role": "addressee"
+        },
+        {
+          "as_printed": "Lansing, Andrew",
+          "normalized": "Lansing, Andrew",
+          "role": "addressee"
+        },
+        {
+          "as_printed": "Ww ilson, Walter ch",
+          "normalized": "W[i]lson, Walter",
+          "role": "addressee"
+        },
+        {
+          "as_printed": "Leonard, Anson",
+          "normalized": "Leonard, Anson",
+          "role": "addressee"
+        },
+        {
+          "as_printed": "Young, Gorden fir",
+          "normalized": "Young, Gorden",
+          "role": "addressee"
+        },
+        {
+          "as_printed": "Loner, Oliver",
+          "normalized": "Loner, Oliver",
+          "role": "addressee"
+        },
+        {
+          "as_printed": "Young, Gideon life",
+          "normalized": "Young, Gideon",
+          "role": "addressee"
+        },
+        {
+          "as_printed": "Livermore, Thomas",
+          "normalized": "Livermore, Thomas",
+          "role": "addressee"
+        },
+        {
+          "as_printed": "A.Zearly, Reason tio",
+          "normalized": "Zearly, Reason",
+          "role": "addressee"
+        },
+        {
+          "as_printed": "JONN S.C, HOGAN, P. Mf,",
+          "normalized": "John S. C. Hogan",
+          "role": "postmaster",
+          "occupations": [
+            "postmaster"
+          ]
+        }
+      ],
+      "notes": "RULING 1 — a listed name mints a resident candidate, and `letter_list_only` is true so the compiler keeps the weaker evidence distinguishable. Part 8 of 8 of the 1 October 1834 Chicago list, ending at the postmaster's signature on line 189. MINTING RULE, applied throughout: an entry is minted only where the transcription gives BOTH a surname and a forename or initial that can be read. Where either is gone the entry stands in the quote and in `normalized` as '[uncertain: …]' and no person is made. Corrections are recognition-class only and bracketed."
+    },
+    {
+      "id": "c009",
+      "kind": "notice",
+      "reading": "transcription_mediated",
+      "quote": "List of Letters, \"Ime\nBp ane in the Post office at the | het\ny Dopage, Ml. Oct. 1, 1854. qu\nHarvey If. Blakesley Emily 8, Knapp hat\nCharles G. Buckley” Seari Reynolda ed\nColvin Cliftord Nazro Reynolds hi\nMark E. Crow 2 Elijah 8. ‘Town De\nWalton S. Eames larry 'T, Wilson ha\nJames Proit, Req. 2 John’ Wormley Th\nJacob Haviland Wilson Walton tha\nPierce Hawley dis\nPH. GIppiNGs, vy. P. | and\nList of Letters, Ha\nBp ane in the Post office at Plain= | def\nfield, Wl. October 3, 1334, 1\nSweoheo R. Beggs David Risley onl}\nSamuel J. Bailey Mary A. Reynolds ‘\nMorrison Carmace — Taaat FY Sexton bee\nJohn Davis 2 Solomon H. Sherwood | Whi\nSeth Gillet Fadward Wright, | the\nPierce Hawley John C, Williams - bee\nWA. Lewie 2 life\nNe Fe ARNOLD, P.M | tion",
+      "normalized": "List of Letters, [REM]AIN[ING] in the Post office at the [… of] Dupage, [Il]l. Oct. 1, 18[3]4. Harvey [H.] Blakesley / Emily S. Knapp / Charles G. Buckley / Sear[s] Reynolds / Colvin Clifford / Nazro Reynolds / Mark E. Crow / Elijah S. Town / Walton S. Eames / [H]arry T. Wilson / James [Fro]it, [Es]q. / John Wormley / Jacob Haviland / Wilson Walton / Pierce Hawley / [T]. H. GIDDINGS, [J]. P. — List of Letters, [REM]AIN[ING] in the Post office at Plain[-]field, [Il]l. October [1], 183[4]. S[t]e[p]he[n] R. Beggs / David Risley / Samuel J. Bailey / Mary A. Reynolds / Morrison Carmace / [I]saa[c] F. Sexton / John Davis / Solomon H. Sherwood / Seth Gillet / [E]dward Wright / Pierce Hawley / John C. Williams / W[.] [A]. Lewi[s] / [L]. F. ARNOLD, P. M.",
+      "locator": {
+        "artifact_role": "primary",
+        "issue_page": 1,
+        "column": 2,
+        "lines": [
+          192,
+          214
+        ],
+        "lines_of_claim": [
+          192,
+          193,
+          194,
+          195,
+          196,
+          197,
+          198,
+          199,
+          200,
+          201,
+          202,
+          203,
+          204,
+          205,
+          206,
+          207,
+          208,
+          209,
+          210,
+          211,
+          212,
+          213,
+          214
+        ],
+        "interleaved": true
+      },
+      "entities": [],
+      "notes": "NOT CHICAGO LISTS, AND DELIBERATELY NOT MINTED. Directly under the Chicago list this issue prints two more: the Du Page office, signed T. H. Giddings, J. P., and the Plainfield office, signed L. F. Arnold, P. M. Ruling 1 mints a RESIDENT CANDIDATE off the CHICAGO post office's list; a letter waiting at Du Page or Plainfield says where its addressee expected to collect it, which is evidence about those settlements and not about this town. The names are quoted and normalized in full so the boundary is checkable and so a later pass with a different question can mint them without re-reading the page — but nothing here puts a person in Chicago. Pierce Hawley stands in BOTH of these lists, which is the plainest demonstration of why a list is a claim about an office and not about a residence."
+    }
+  ]
+}

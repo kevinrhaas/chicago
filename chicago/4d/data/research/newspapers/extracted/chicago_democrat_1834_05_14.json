@@ -1,0 +1,288 @@
+{
+  "schema": 1,
+  "issue_id": "chicago_democrat_1834_05_14",
+  "extracted": "2026-08-28",
+  "extracted_by": "hand, T-0314 — the Democrat read, May 1834",
+  "note": "Vol. I No. 24. The month's most consequential issue for the town's fabric: the Board of Trustees ordains a walking pace over ANY BRIDGE within the town limits, salt is landed FROM THE WHARF, water lots are cried at auction, and the militia musters at a house on the west bank of the river.",
+  "claims": [
+    {
+      "id": "c001",
+      "kind": "infrastructure",
+      "reading": "transcription_mediated",
+      "quote": "My; t6 Town Ordida\nE it Ordained by the Board «\ntown of Chicago; That ar\nshall ride or drive over any brit\n-| limits of said town, faster than «\nforfeit the sum of five dollars, to |\nfore any Justice of the Peace of s\nhate the somplainent ee 3\nnes | said Corporation. J. V~.\nbrs Altestclsaac Hanwox, Clerk.",
+      "normalized": "Town Ordi[n]a[nce.] [B]e it Ordained by the Board [of Trustees of the] town of Chicago; That a[ny person who] shall ride or drive over any bri[dge within the] limits of said town, faster than a [walk, shall] forfeit the sum of five dollars, to [be recovered be]fore any Justice of the Peace of s[aid town …] […] the complainant […] said Corporation. J. […] Attest[:] Isaac Har[m]on, Clerk.",
+      "locator": {
+        "artifact_role": "primary",
+        "issue_page": 3,
+        "column": 2,
+        "lines": [
+          2625,
+          2634
+        ]
+      },
+      "entities": [
+        {
+          "as_printed": "Isaac Hanwox",
+          "normalized": "Isaac Harmon",
+          "role": "Clerk of the Board of Trustees of the town of Chicago",
+          "occupations": [
+            "town clerk"
+          ],
+          "associated_places": [
+            "Chicago"
+          ]
+        }
+      ],
+      "notes": "THE TOWN HAS BRIDGES IN MAY 1834, AND IT LEGISLATES ABOUT THEM. This is the strongest kind of evidence a reconstruction can get for a structure: not a description of a bridge but an ORDINANCE regulating conduct on one, passed by the Board of Trustees of the incorporated town and attested by its clerk. Three things follow and none of them is inference beyond the line. (1) At least one bridge stands inside the town limits on 14 May 1834 — the ordinance is written 'any bridge', which is the drafting of a body that has more than one in view or expects more. (2) It is decked and used by RIDDEN AND DRIVEN traffic, horses and wagons, not foot traffic only. (3) It is light enough, or the corporation is nervous enough, that a trot over it is worth a five-dollar penalty — a week's wages — which points at a timber structure whose behaviour under a fast load the trustees did not trust. The reconstruction's scene date is fourteen months later and this does not by itself carry a bridge to 1835, but it dates the town's bridge-keeping and it is the first ordinance in this corpus about a built structure. Isaac Harmon signs as Clerk; the president's initial is all that survives of his name and it is NOT supplied."
+    },
+    {
+      "id": "c002",
+      "kind": "business",
+      "reading": "transcription_mediated",
+      "quote": "val aja: Heuseand Lane\nut such mors purchased and Sold,\nsion,\nnm to be .\n12 Building Lots for sale, :\n— School section.\n7 @ Houws to Let.\nUS Lake st. opposite Dr. Temple's.",
+      "normalized": "[…] [Houses] and Land[s] […] purchased and Sold, […] […] 12 Building Lots for sale, […] School section. […] Hous[e]s to Let. […] Lake st. opposite Dr. Temple's.",
+      "locator": {
+        "artifact_role": "primary",
+        "issue_page": 3,
+        "column": 2,
+        "lines": [
+          2605,
+          2612
+        ]
+      },
+      "entities": [
+        {
+          "as_printed": "Dr. Temple's",
+          "normalized": "Dr. Temple",
+          "role": "landmark the agency places itself opposite",
+          "occupations": [
+            "physician"
+          ],
+          "associated_places": [
+            "Lake Street"
+          ]
+        }
+      ],
+      "business": {
+        "name": "[unnamed] house and land agent",
+        "trade": "houses and lands purchased and sold; building lots; houses to let",
+        "placement": {
+          "class": "relative",
+          "anchor": "Dr. Temple's",
+          "offset_text": "Lake st. opposite Dr. Temple's",
+          "street": "Lake Street"
+        },
+        "address_text": "Lake st. opposite Dr. Temple's"
+      },
+      "notes": "A REAL-ESTATE AGENCY OPERATING ON LAKE STREET IN MAY 1834, and it is the earliest 'houses to let' business this corpus has seen. Twelve building lots in the SCHOOL SECTION are for sale off the counter, which means section 16 is being retailed in single lots by an agent and not only at public auction. The address is a relative one in the paper's own words — Lake street, opposite Dr. Temple's — and Dr. Temple's is used again as the anchor for the hatter's corner shop a fortnight later (chicago_democrat_1834_05_28 c005), so two independent advertisers place themselves off the same doctor's house on Lake Street. That makes Temple's a fixed point on Lake in May 1834. The agent's own name did not survive the column cut and is NOT supplied."
+    },
+    {
+      "id": "c003",
+      "kind": "shipping",
+      "reading": "transcription_mediated",
+      "quote": "Salt, Nails, Wind\nIRON, dc. é\nBARRELS of SAI\nthe Huron, to be\nfrom the wharf.\n“BO kegs Juniata Nails, uve’\n@O boxes Window Glass, 8 by\nRoll'd band Iron, and Horse t\nWood's yatent Plough Jrons,\nid Molasses by the ne\nSugar and Mo! ON\ngusen-| Chicago, May 12, 1834.",
+      "normalized": "Salt, Nails, Wind[ow Glass,] IRON, &c. […] BARRELS of SA[LT …] the Huron, to be […] from the wharf. […] [1]0 kegs Juniata Nails, […] [4]0 boxes Window Glass, 8 by [10 …] Roll'd band Iron, and Horse [shoes? …] Wood's [p]atent Plough Irons, […] […] Molasses by the […] Sugar and Mol[asses …] […] Chicago, May 12, 1834.",
+      "locator": {
+        "artifact_role": "primary",
+        "issue_page": 3,
+        "column": 2,
+        "lines": [
+          2613,
+          2624
+        ]
+      },
+      "ad_copy_date": {
+        "verbatim": "Chicago, May 12, 1834.",
+        "iso": "1834-05-12"
+      },
+      "notes": "'FROM THE WHARF' — THE TOWN HAS ONE, AND GOODS COME OFF IT INTO A SHOP. Salt is being sold ex-ship out of the Huron, delivered from the wharf, and advertised in Chicago on 12 May 1834. That is a working commercial quay handling barrelled bulk, which is precisely the layer T-0059's river-wharf mode has to build, and it is dated fourteen months before the scene. The rest of the invoice is a builder's list: JUNIATA NAILS by the keg, WINDOW GLASS 8 by 10 by the box, rolled band iron. Note the size — 8 by 10 here against the 5 by 10 and 7 by 9 J. K. Botsford lists a week earlier (chicago_democrat_1834_05_07 c011): three pane sizes in circulation in one month, so a single 'correct' Chicago pane does not exist and glazing must be dealt from a small set."
+    },
+    {
+      "id": "c004",
+      "kind": "notice",
+      "reading": "transcription_mediated",
+      "quote": "HE persdpal property belon\nT tate of Barnardus i Laugt\nce of | will be sold at public vendue,\nupon | dwelling house of the deceased—,\nmontha will be given on all sums\nlars, the purchasers giving bond\nenate! curity for the payment of the «:\nwith | commence on Thursday the 5th\nt the | Next, at 10 o'clock, A.M. May\nSOPHIA LA",
+      "normalized": "[T]he pers[o]nal property belon[ging to the es]tate of Barnardus [H.] Laugh[ton] […] will be sold at public vendue, [at the] dwelling house of the deceased — [… six] months will be given on all sums [over ten dol]lars, the purchasers giving bond [and se]curity for the payment of the [same. The sale will] commence on Thursday the 5th [of June] Next, at 10 o'clock, A.M. May […] SOPHIA LA[UGHTON.]",
+      "locator": {
+        "artifact_role": "primary",
+        "issue_page": 3,
+        "column": 2,
+        "lines": [
+          2635,
+          2644
+        ]
+      },
+      "entities": [
+        {
+          "as_printed": "SOPHIA LA",
+          "normalized": "Sophia Laughton",
+          "role": "administratrix, selling at the dwelling house",
+          "associated_places": [
+            "Au Plaine river"
+          ]
+        },
+        {
+          "as_printed": "Barnardus [H.] Laugh",
+          "normalized": "Barnardus H. Laughton",
+          "role": "deceased",
+          "occupations": [
+            "tavern keeper"
+          ],
+          "associated_places": [
+            "Au Plaine river"
+          ]
+        }
+      ],
+      "notes": "THE HOUSE IS THE SALEROOM. Twelve days after taking out administration (chicago_democrat_1834_05_07 c007), Sophia Laughton advertises the contents sold AT THE DWELLING HOUSE OF THE DECEASED, on a named day at a named hour. For a reconstruction this is a dwelling with enough movable property to be worth a public vendue and enough room to hold one, standing on the Au Plaine road the estray notice steers by, and it is the last month it stands furnished. Six months' credit on sums over ten dollars is the local credit term, printed."
+    },
+    {
+      "id": "c005",
+      "kind": "event",
+      "reading": "transcription_mediated",
+      "quote": "Militia Order\norder of Josiah Stillman, E\nthe ral 2nd Brigade, and Sth D\nZ tia, Tam required and\ngivo notice to all the free white m\nneas- | Cook county, Ill. over the\nople, | under 45 years, that an election v\nBut | MY house, on the western bank o\nOt river, on the first Saturday in Jur\n-We} o'clock, M. for the purpose of ele\npeo- | nel, to organize and comand the\nBe aay ed etd 10, 1834, sey",
+      "normalized": "Militia Order[s.] [By] order of Josiah Stillman, E[sq. …] the […] 2nd Brigade, and 5th D[ivision of Illinois Mili]tia, I am required and […] give notice to all the free white m[ale inhabitants of] Cook county, Ill. over the [age of 18 and] under 45 years, that an election w[ill be held at] MY house, on the western bank o[f the …] river, on the first Saturday in Ju[ne, at …] o'clock, M. for the purpose of ele[cting a colo]nel, to organize and com[m]and the […] […] 10, 1834.",
+      "locator": {
+        "artifact_role": "primary",
+        "issue_page": 3,
+        "column": 2,
+        "lines": [
+          2645,
+          2656
+        ]
+      },
+      "entities": [
+        {
+          "as_printed": "Josiah Stillman, E",
+          "normalized": "Josiah Stillman",
+          "role": "ordering officer, 2nd Brigade, 5th Division, Illinois Militia",
+          "occupations": [
+            "militia officer"
+          ],
+          "associated_places": [
+            "Cook county"
+          ]
+        }
+      ],
+      "notes": "A COUNTY-WIDE MUSTER SUMMONED TO A PRIVATE HOUSE ON THE WEST BANK OF THE RIVER. The polling place for the militia colonelcy of the whole of Cook county is not a public building — there is none to use — but the advertiser's own dwelling, and he locates it by the river bank alone. Two things for the reconstruction: the WEST BANK is a place with a house on it substantial enough to hold a county election in June 1834, and the town's civic occasions in this period happen in private rooms. The eligible population is defined for us in the paper's own words — free white males of Cook county between 18 and 45 — which is a bound on the crowd such an event would draw. Josiah Stillman's is the ordering authority; the advertiser who signs 'MY house' is lost in the cut and is NOT supplied."
+    },
+    {
+      "id": "c006",
+      "kind": "business",
+      "reading": "transcription_mediated",
+      "quote": "we be sold at Auction, by\nber, on the 20th uf August\nwenty fee to TOWN LTS\nwhich ‘are water > situate in the\n‘Rees part of the town,\nHIRAM PEA\nMay 1, 1634, I SEA",
+      "normalized": "[will] be sold at Auction, by [the subscri]ber, on the 20th o[f] August […] [t]wenty fee[t] to TOWN L[O]TS which are water [lots,] situate in the [busin]ess part of the town. HIRAM PEA[RSONS.] May 1, 1834.",
+      "locator": {
+        "artifact_role": "primary",
+        "issue_page": 3,
+        "column": 2,
+        "lines": [
+          2737,
+          2743
+        ]
+      },
+      "entities": [
+        {
+          "as_printed": "HIRAM PEA",
+          "normalized": "Hiram Pearsons",
+          "role": "vendor",
+          "occupations": [
+            "auctioneer",
+            "land dealer"
+          ],
+          "associated_places": [
+            "Chicago"
+          ]
+        }
+      ],
+      "business": {
+        "name": "Hiram Pearsons",
+        "trade": "auctioneer and vendor of town lots and water lots",
+        "placement": {
+          "class": "street_only",
+          "street": "the business part of the town, water lots"
+        },
+        "address_text": "situate in the [busin]ess part of the town"
+      },
+      "ad_copy_date": {
+        "verbatim": "May 1, 1634,",
+        "iso": "1834-05-01"
+      },
+      "notes": "WATER LOTS, CRIED AT AUCTION, IN THE BUSINESS PART OF THE TOWN. 'Water lots' is a term of art and it is the one this reconstruction's river frontage turns on: parcels whose value is their access to the water, sold separately from the ordinary town lots and understood to be commercial. Pearsons advertises them in May for an August sale, with a twenty-foot dimension on the line — the frontage width, though the cut leaves it unsafe to say twenty feet of WHAT, so it is quoted and not built on. Taken with the salt landed 'from the wharf' in this same column (claim c003), the riverfront in May 1834 is both built on and being traded."
+    },
+    {
+      "id": "c007",
+      "kind": "business",
+      "reading": "transcription_mediated",
+      "quote": "Ke Gonstantly on hand, Wis\na Blas, ‘Nails, §<. low ia Coe a\naoa opposite to Fort Dearborn.\nparding & Comustecton\nMERCHANTS,\n'PASOLLLE MOLE,\njeuts for the Merchants Line.\nENCES—\nAnustnora, No.9, Conties Stig, N. York.\nT Husten, Esq. A I.\n[uncertain: ? & Hoit, Buffulo.]\nx Nawszany, D-trois,\n| Brrrats, Mouth St. Joseph.\nB. Camrasit, Otawe,",
+      "normalized": "Ke[e]ps [c]onstantly on hand, […] [Salt, G]l[a]ss, Nails, &c. low […] […] opposite to Fort Dearborn. [For]arding & Com[m]i[ssi]on MERCHANTS, […] [ag]e[n]ts for the Merchants Line. [REFER]ENCES — […] A[r]mst[r]ong, No. 9, Coenties Sli[p], N. York. […] Hu[b]ba[r]d, Esq. […] [… & Hoit, Buffalo.] […] Ne[w]b[e]rry, D[et]roit, […] B[u]rr[o]ws, Mouth St. Joseph. […] B. Cam[p]b[e]ll, Ot[t]awa,",
+      "locator": {
+        "artifact_role": "primary",
+        "issue_page": 3,
+        "column": 5,
+        "lines": [
+          3005,
+          3018
+        ]
+      },
+      "entities": [
+        {
+          "as_printed": "NEWBERRY & DOLE",
+          "normalized": "Newberry & Dole",
+          "role": "firm",
+          "occupations": [
+            "forwarding and commission merchants"
+          ],
+          "associated_places": [
+            "Chicago",
+            "Fort Dearborn"
+          ]
+        }
+      ],
+      "business": {
+        "name": "Newberry & Dole",
+        "trade": "storage, forwarding and commission merchants; salt, glass, nails",
+        "placement": {
+          "class": "relative",
+          "anchor": "Fort Dearborn",
+          "offset_text": "opposite to Fort Dearborn"
+        },
+        "address_text": "opposite to Fort Dearborn"
+      },
+      "notes": "NEWBERRY & DOLE ARE 'OPPOSITE TO FORT DEARBORN' IN THEIR OWN WORDS. On 7 May the phrase sits on Kinzie's advertisement and Newberry & Dole's carries only 'Chicago-Illinois' (chicago_democrat_1834_05_07 c008, c009); here the line stands over theirs. Both forwarding houses are therefore placing themselves against the fort, and the corpus now has each of them saying it. The reference list is the trade route drawn out — Coenties Slip in New York, Buffalo, Detroit, the mouth of the St. Joseph, Ottawa — which is what a Chicago warehouse of 1834 was the last stop on. 'Keeps constantly on hand' salt, glass and nails puts building materials in the same shed as the freight."
+    },
+    {
+      "id": "c008",
+      "kind": "building",
+      "reading": "transcription_mediated",
+      "quote": "GLE HOTEL.|\nBe Ba Sa4Rre,\nECTFULLY informs the citisens of\ncago, and the public generally, thet |\ncen the EAGLE HOTEL. All cails\nwill be punctually attended to. The\nommodious and well furnished, and no\n\"'\\ be spared to make it agreeable to\nso may favor him with a call.",
+      "normalized": "[EA]GLE HOTEL. […] [R]E[SP]ECTFULLY informs the citi[z]ens of [Chi]cago, and the public generally, that [he has ta]ken the EAGLE HOTEL. All cal[l]s […] will be punctually attended to. The [house is c]ommodious and well furnished, and no[thing will] be spared to make it agreeable to [those who] may favor him with a call.",
+      "locator": {
+        "artifact_role": "primary",
+        "issue_page": 3,
+        "column": 5,
+        "lines": [
+          3023,
+          3031
+        ]
+      },
+      "entities": [
+        {
+          "as_printed": "EAGLE HOTEL",
+          "normalized": "Eagle Hotel",
+          "role": "hotel newly taken by the advertiser",
+          "associated_places": [
+            "Chicago"
+          ]
+        }
+      ],
+      "business": {
+        "name": "Eagle Hotel",
+        "trade": "hotel",
+        "placement": {
+          "class": "none"
+        }
+      },
+      "notes": "THE EAGLE HOTEL, NAMED, AND CALLED COMMODIOUS. A hotel that advertises itself as commodious and WELL FURNISHED, taking calls, is a building of some size with made-up rooms — at the opposite end of the scale from the small office-or-family building to let a week earlier (chicago_democrat_1834_05_07 c005), and the two together bracket what May 1834 Chicago had standing. The house is a landmark by 28 May, when a dentist takes his office 'at the Eagle Tav[ern]' (chicago_democrat_1834_05_28 c003). No street is printed, so the placement is none. The new keeper's name is set in a display face the OCR could not carry and is NOT supplied."
+    }
+  ]
+}

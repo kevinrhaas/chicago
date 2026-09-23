@@ -1,0 +1,397 @@
+{
+  "_doc": "T-0479's fixed fifth 75-person cohort. The compact manifest carries identity and stratum only; the selector validates current resident records.",
+  "version": 1,
+  "ticket": "T-0479",
+  "scene_date": "1835-07-01",
+  "generated_by": "tools/select_resident_research_pass_5.py",
+  "population_frame": {
+    "technical_nonreconstructed_entries": 848,
+    "merged_reviews_before_pass": 225,
+    "pass4_claimed_not_yet_merged": 75,
+    "prior_reviewed_or_claimed": 300,
+    "sample_size": 75,
+    "cumulative_reviewed_or_claimed": 375,
+    "strata": {
+      "remaining_named_non_letter": 9,
+      "letter_list_only_present": 33,
+      "letter_list_only_uncertain": 33
+    }
+  },
+  "people": [
+    {
+      "household_id": "hh_democrat_printers",
+      "person_id": "pratt_oscar",
+      "stratum": "remaining_named_non_letter"
+    },
+    {
+      "household_id": "hh_kercheval_gholson",
+      "person_id": "kercheval_gholson",
+      "stratum": "remaining_named_non_letter"
+    },
+    {
+      "household_id": "hh_kimball_walter",
+      "person_id": "kimball_walter",
+      "stratum": "remaining_named_non_letter"
+    },
+    {
+      "household_id": "hh_blodgett_tyler_k",
+      "person_id": "lampman_henry_s",
+      "stratum": "remaining_named_non_letter"
+    },
+    {
+      "household_id": "hh_miller_john",
+      "person_id": "hall_benjamin",
+      "stratum": "remaining_named_non_letter"
+    },
+    {
+      "household_id": "hh_murphy_john",
+      "person_id": "murphy_harriet",
+      "stratum": "remaining_named_non_letter"
+    },
+    {
+      "household_id": "hh_taylor_anson",
+      "person_id": "taylor_charles",
+      "stratum": "remaining_named_non_letter"
+    },
+    {
+      "household_id": "hh_temple_john_t",
+      "person_id": "temple_peter",
+      "stratum": "remaining_named_non_letter"
+    },
+    {
+      "household_id": "hh_wright_john",
+      "person_id": "wright_john_s",
+      "stratum": "remaining_named_non_letter"
+    },
+    {
+      "household_id": "hh_dalton_edward",
+      "person_id": "dalton_edward",
+      "stratum": "letter_list_only_present"
+    },
+    {
+      "household_id": "hh_damels_samuel",
+      "person_id": "damels_samuel",
+      "stratum": "letter_list_only_present"
+    },
+    {
+      "household_id": "hh_darling_daniel",
+      "person_id": "darling_daniel",
+      "stratum": "letter_list_only_present"
+    },
+    {
+      "household_id": "hh_day_ann_airs",
+      "person_id": "day_ann_airs",
+      "stratum": "letter_list_only_present"
+    },
+    {
+      "household_id": "hh_dean_james_l",
+      "person_id": "dean_james_l",
+      "stratum": "letter_list_only_present"
+    },
+    {
+      "household_id": "hh_demotte_lenac",
+      "person_id": "demotte_lenac",
+      "stratum": "letter_list_only_present"
+    },
+    {
+      "household_id": "hh_dilbee_david_b",
+      "person_id": "dilbee_david_b",
+      "stratum": "letter_list_only_present"
+    },
+    {
+      "household_id": "hh_dykine_elias_s",
+      "person_id": "dykine_elias_s",
+      "stratum": "letter_list_only_present"
+    },
+    {
+      "household_id": "hh_fadhams_ddward",
+      "person_id": "fadhams_ddward",
+      "stratum": "letter_list_only_present"
+    },
+    {
+      "household_id": "hh_failor_william",
+      "person_id": "failor_william",
+      "stratum": "letter_list_only_present"
+    },
+    {
+      "household_id": "hh_fitzlugh_daniel_i",
+      "person_id": "fitzlugh_daniel_i",
+      "stratum": "letter_list_only_present"
+    },
+    {
+      "household_id": "hh_food_alonzo_c",
+      "person_id": "food_alonzo_c",
+      "stratum": "letter_list_only_present"
+    },
+    {
+      "household_id": "hh_forceman_robert_r",
+      "person_id": "forceman_robert_r",
+      "stratum": "letter_list_only_present"
+    },
+    {
+      "household_id": "hh_humphrey_fre_lemuel",
+      "person_id": "humphrey_fre_lemuel",
+      "stratum": "letter_list_only_present"
+    },
+    {
+      "household_id": "hh_gabbs_james_i1",
+      "person_id": "gabbs_james_i1",
+      "stratum": "letter_list_only_present"
+    },
+    {
+      "household_id": "hh_gariner_joseph",
+      "person_id": "gariner_joseph",
+      "stratum": "letter_list_only_present"
+    },
+    {
+      "household_id": "hh_gilman_eli",
+      "person_id": "gilman_eli",
+      "stratum": "letter_list_only_present"
+    },
+    {
+      "household_id": "hh_glen_james_l",
+      "person_id": "glen_james_l",
+      "stratum": "letter_list_only_present"
+    },
+    {
+      "household_id": "hh_jaines_gooding",
+      "person_id": "jaines_gooding",
+      "stratum": "letter_list_only_present"
+    },
+    {
+      "household_id": "hh_goodsough_harriet_m",
+      "person_id": "goodsough_harriet_m",
+      "stratum": "letter_list_only_present"
+    },
+    {
+      "household_id": "hh_gordon_william",
+      "person_id": "gordon_william",
+      "stratum": "letter_list_only_present"
+    },
+    {
+      "household_id": "hh_gould_a_b",
+      "person_id": "gould_a_b",
+      "stratum": "letter_list_only_present"
+    },
+    {
+      "household_id": "hh_green_damel_m",
+      "person_id": "green_damel_m",
+      "stratum": "letter_list_only_present"
+    },
+    {
+      "household_id": "hh_david_harris",
+      "person_id": "david_harris",
+      "stratum": "letter_list_only_present"
+    },
+    {
+      "household_id": "hh_harrison_caleb",
+      "person_id": "harrison_caleb",
+      "stratum": "letter_list_only_present"
+    },
+    {
+      "household_id": "hh_hart_edwin_c",
+      "person_id": "hart_edwin_c",
+      "stratum": "letter_list_only_present"
+    },
+    {
+      "household_id": "hh_hartman_peter",
+      "person_id": "hartman_peter",
+      "stratum": "letter_list_only_present"
+    },
+    {
+      "household_id": "hh_hateh_betsey",
+      "person_id": "hateh_betsey",
+      "stratum": "letter_list_only_present"
+    },
+    {
+      "household_id": "hh_hickcox_joseph",
+      "person_id": "hickcox_joseph",
+      "stratum": "letter_list_only_present"
+    },
+    {
+      "household_id": "hh_holliday_william",
+      "person_id": "holliday_william",
+      "stratum": "letter_list_only_present"
+    },
+    {
+      "household_id": "hh_holmes_hiram",
+      "person_id": "holmes_hiram",
+      "stratum": "letter_list_only_present"
+    },
+    {
+      "household_id": "hh_hopkins_henry",
+      "person_id": "hopkins_henry",
+      "stratum": "letter_list_only_present"
+    },
+    {
+      "household_id": "hh_hugunin_leonard_c",
+      "person_id": "hugunin_leonard_c",
+      "stratum": "letter_list_only_present"
+    },
+    {
+      "household_id": "hh_hasslen_daniel",
+      "person_id": "hasslen_daniel",
+      "stratum": "letter_list_only_uncertain"
+    },
+    {
+      "household_id": "hh_howland_daniel",
+      "person_id": "howland_daniel",
+      "stratum": "letter_list_only_uncertain"
+    },
+    {
+      "household_id": "hh_newton_daniel",
+      "person_id": "newton_daniel",
+      "stratum": "letter_list_only_uncertain"
+    },
+    {
+      "household_id": "hh_robian_daniel_o",
+      "person_id": "robian_daniel_o",
+      "stratum": "letter_list_only_uncertain"
+    },
+    {
+      "household_id": "hh_platt_daniel",
+      "person_id": "platt_daniel",
+      "stratum": "letter_list_only_uncertain"
+    },
+    {
+      "household_id": "hh_roberson_daniel",
+      "person_id": "roberson_daniel",
+      "stratum": "letter_list_only_uncertain"
+    },
+    {
+      "household_id": "hh_ayers_david",
+      "person_id": "ayers_david",
+      "stratum": "letter_list_only_uncertain"
+    },
+    {
+      "household_id": "hh_bigelow_david",
+      "person_id": "bigelow_david",
+      "stratum": "letter_list_only_uncertain"
+    },
+    {
+      "household_id": "hh_dickson_david",
+      "person_id": "dickson_david",
+      "stratum": "letter_list_only_uncertain"
+    },
+    {
+      "household_id": "hh_groover_david",
+      "person_id": "groover_david",
+      "stratum": "letter_list_only_uncertain"
+    },
+    {
+      "household_id": "hh_harris_david",
+      "person_id": "harris_david",
+      "stratum": "letter_list_only_uncertain"
+    },
+    {
+      "household_id": "hh_dimmick_e",
+      "person_id": "dimmick_e",
+      "stratum": "letter_list_only_uncertain"
+    },
+    {
+      "household_id": "hh_simons_e",
+      "person_id": "simons_e",
+      "stratum": "letter_list_only_uncertain"
+    },
+    {
+      "household_id": "hh_conte_e_w",
+      "person_id": "conte_e_w",
+      "stratum": "letter_list_only_uncertain"
+    },
+    {
+      "household_id": "hh_rogers_edward_a",
+      "person_id": "rogers_edward_a",
+      "stratum": "letter_list_only_uncertain"
+    },
+    {
+      "household_id": "hh_coleman_edward_b",
+      "person_id": "coleman_edward_b",
+      "stratum": "letter_list_only_uncertain"
+    },
+    {
+      "household_id": "hh_poor_edward",
+      "person_id": "poor_edward",
+      "stratum": "letter_list_only_uncertain"
+    },
+    {
+      "household_id": "hh_trimble_edward",
+      "person_id": "trimble_edward",
+      "stratum": "letter_list_only_uncertain"
+    },
+    {
+      "household_id": "hh_maynard_elias",
+      "person_id": "maynard_elias",
+      "stratum": "letter_list_only_uncertain"
+    },
+    {
+      "household_id": "hh_dix_elijah",
+      "person_id": "dix_elijah",
+      "stratum": "letter_list_only_uncertain"
+    },
+    {
+      "household_id": "hh_garton_elijah",
+      "person_id": "garton_elijah",
+      "stratum": "letter_list_only_uncertain"
+    },
+    {
+      "household_id": "hh_hazzard_elisha_h",
+      "person_id": "hazzard_elisha_h",
+      "stratum": "letter_list_only_uncertain"
+    },
+    {
+      "household_id": "hh_pearce_eliza",
+      "person_id": "pearce_eliza",
+      "stratum": "letter_list_only_uncertain"
+    },
+    {
+      "household_id": "hh_preston_esther",
+      "person_id": "preston_esther",
+      "stratum": "letter_list_only_uncertain"
+    },
+    {
+      "household_id": "hh_turner_ezekiel",
+      "person_id": "turner_ezekiel",
+      "stratum": "letter_list_only_uncertain"
+    },
+    {
+      "household_id": "hh_berger_f_c",
+      "person_id": "berger_f_c",
+      "stratum": "letter_list_only_uncertain"
+    },
+    {
+      "household_id": "hh_morland_f_h",
+      "person_id": "morland_f_h",
+      "stratum": "letter_list_only_uncertain"
+    },
+    {
+      "household_id": "hh_plumer_f",
+      "person_id": "plumer_f",
+      "stratum": "letter_list_only_uncertain"
+    },
+    {
+      "household_id": "hh_freeman_ford",
+      "person_id": "freeman_ford",
+      "stratum": "letter_list_only_uncertain"
+    },
+    {
+      "household_id": "hh_perry_francis",
+      "person_id": "perry_francis",
+      "stratum": "letter_list_only_uncertain"
+    },
+    {
+      "household_id": "hh_burlingame_geo_a",
+      "person_id": "burlingame_geo_a",
+      "stratum": "letter_list_only_uncertain"
+    },
+    {
+      "household_id": "hh_parmlee_george_b",
+      "person_id": "parmlee_george_b",
+      "stratum": "letter_list_only_uncertain"
+    },
+    {
+      "household_id": "hh_gifford_hezekiah",
+      "person_id": "gifford_hezekiah",
+      "stratum": "letter_list_only_uncertain"
+    }
+  ]
+}

@@ -1,0 +1,142 @@
+{
+  "id": "wolf_point_tavern_stable",
+  "phase": "stable_1831",
+  "name": "The Wolf Point Tavern's Stable",
+  "aka": [
+    "Wentworth's stable",
+    "the Wolf Tavern horse stable"
+  ],
+  "archetype": "outbuilding",
+  "asset": "gltf/wolf_point_tavern_stable__stable_1831.glb",
+  "scene": "1835",
+  "target_date": "1835-07-01",
+  "documented_range": {
+    "from": "1831-04-13",
+    "to": "1836-12-31",
+    "confidence": "inferred",
+    "sources": [
+      "andreas_1884_v1",
+      "drloih_wolf_point"
+    ],
+    "note": "THE OPENING DATE IS THE DATE OF THE DOCUMENT THAT REQUIRES THE BUILDING, NOT A BUILD DATE, and the distinction is the whole of this record. On 13 April 1831 the Cook County Court of County Commissioners sat at Chicago and, in one session, granted the county's first two tavern licenses — to Elijah Wentworth for $7 and to Samuel Miller for $5 — and then ordered the rates 'allowed to tavern keepers', which include 'For each horse fed 25' and 'Keeping horse one night 50' (Andreas, scan p. 249). Wentworth kept the Wolf Point Tavern from early 1830 to 1831-32 (drloih_wolf_point). From that date onward this house is a licensed tavern in a county whose price list assumes it keeps horses overnight, which is the earliest date at which the building this record models has to have existed. The tavern itself is attested from 1828 and the stable may be as old; nothing says so, so the range does not claim it. THE CLOSING DATE is copied from data/structures/wolf_point_tavern.json, whose own phase ends at the end of 1836 as a housekeeping bound rather than a demolition date. Nothing reached follows the stable at either end."
+  },
+  "change_note": "A stable behind the Wolf Point Tavern, inferred from the Cook County tariff of 13 April 1831 that priced keeping a horse overnight at the two Chicago houses then licensed, of which this was one. Nothing about the building's fabric, size or position is recorded; the building is a reading of a price list.",
+  "placement": {
+    "local_e": -97.0,
+    "local_n": -60.0,
+    "rotation_deg": 0.0,
+    "position_confidence": "reconstructed",
+    "position_sources": [],
+    "position_note": "NOTHING PLACES THIS BUILDING AND THIS COORDINATE IS A CHOICE. No source reached mentions a stable at the Wolf Point Tavern at all, let alone where it stood; the building is inferred from a priced service (see function), and its position is inferred from nothing. METHOD, such as it is: data/structures/wolf_point_tavern.json faces east onto the river at bearing 90, so the landward side of the house is west, and this coordinate puts the stable about 11 m west of the tavern's back wall and offset 3 m south of its south end — clear of the tavern, clear of robinson_caldwell_cabins 36 m to the north, and off the river frontage, which at a house whose whole trade came by water and by the Lake Street crossing is where the yard work would go. EVERY ONE OF THOSE IS AN ARGUMENT FROM THE TRADE AND NOT FROM A SOURCE. It also inherits the tavern's own placement, which docs/LIBERTIES.md records as one of three Wolf Point buildings placed on relative descriptions rather than on a map. WORKING UNCERTAINTY: the tavern's own, roughly 40 m along the bank and 20 m across it, plus the whole of the offset recorded here, which is invention. Facade bearing 0, north, chosen so the stable's long side runs along the back of the tavern; nothing states it, and no bearing here would be better evidenced than any other.",
+    "symbolic_location": "West bank of the river at the forks, behind (west of) the Wolf Point Tavern, on the landward side away from the river frontage.",
+    "uncertainty_m": 20,
+    "placement_provisional": false,
+    "vertical_anchor": "terrain",
+    "walk_surface_m": null
+  },
+  "footprint": {
+    "polygon": [
+      [
+        0,
+        0
+      ],
+      [
+        9.0,
+        0
+      ],
+      [
+        9.0,
+        6.0
+      ],
+      [
+        0,
+        6.0
+      ]
+    ],
+    "confidence": "reconstructed",
+    "sources": [],
+    "note": "INVENTED. No dimension of any kind is attested. 9.0 x 6.0 m is about 30 x 20 ft — a single range of four or five stalls with room to lead a horse past them, which is the smallest building that answers the documented service and the largest that a house of this size on this bank can be argued into. It is drawn deliberately smaller than western_hotel_stable, whose source at least calls it 'large', so that the two stables in this scene are not the same building twice at different addresses. Every number is invented and this polygon cites no sources."
+  },
+  "attributes": {
+    "construction": {
+      "value": "log",
+      "confidence": "inferred",
+      "sources": [
+        "drloih_wolf_point"
+      ],
+      "note": "NOT STATED BY ANY SOURCE, and no source reached describes the fabric of any outbuilding at the forks. Log is the reading from the date and the bank: the tavern it served is itself log with a frame extension, chicagology describes the Wolf Point buildings of these years as log, and Chicago had no sawn-lumber supply of its own until the mills of 1832-33 — which is after this building has to exist. The same reasoning that makes plank the reading for the Western Hotel's stable of 1834 makes log the reading here, and the two records are graded the same way for opposite answers on purpose. If the stable was rebuilt or boarded after the mills opened, this is the earlier of two states and the record does not know it."
+    },
+    "wall_height_m": {
+      "value": 2.8,
+      "confidence": "inferred",
+      "note": "No figure is attested. 2.8 m is about 9 ft: a log wall of about nine courses, built a course or two above a dwelling's because a horse has to be led in under a header and something has to be stored over it. It sits just under the archetype's size-aware default for this footprint (3.0 m). What is inferred is the range, not the number."
+    },
+    "roof_type": {
+      "value": "gable",
+      "confidence": "inferred",
+      "note": "Not attested. Gable is the near-universal roof form for log construction of this type, period and region, and a notched log pen 6 m deep is past the run a shed roof covers well. The archetype would have chosen gable for this depth in any case; it is stated so that the value carries its reasoning rather than arriving as a default."
+    },
+    "roof_pitch_deg": {
+      "value": 35.0,
+      "confidence": "inferred",
+      "note": "No pitch is attested. 35 degrees is this project's figure for a low log building roofed in riven shakes, carried by every other log structure in this dataset. Inferred from construction practice, not measured."
+    },
+    "door": {
+      "value": "stable",
+      "confidence": "inferred",
+      "sources": [
+        "andreas_1884_v1"
+      ],
+      "note": "THE PRICED SERVICE IS THE ARGUMENT. What the county's 1831 order documents is that a horse could be fed and kept overnight at a licensed Chicago tavern for a stated price; a horse that is kept is a horse that is led in and out, and the archetype's 'stable' door is exactly the opening that allows (1.35 m clear). A man's door would make this a feed store, which would leave the documented service happening outdoors and the building unexplained."
+    },
+    "door_side": {
+      "value": "front",
+      "confidence": "reconstructed",
+      "note": "NOT ATTESTED. Placed on the north elevation because this record's invented bearing puts the tavern's back yard there. Nothing states which way the building faced, and no reading is better than another. Recorded conjectural rather than allowed to arrive as the archetype's default."
+    },
+    "paint": {
+      "value": "unpainted",
+      "confidence": "inferred",
+      "note": "No source describes a finish. Unpainted weathered log is what this project reads for every building at Wolf Point in these years, including the tavern this one stood behind. Not attested either way."
+    },
+    "function": {
+      "value": "tavern_stable",
+      "confidence": "inferred",
+      "sources": [
+        "andreas_1884_v1",
+        "drloih_wolf_point"
+      ],
+      "note": "A PRICE DOCUMENTS A SERVICE; THE BUILDING IS THE INFERENCE, AND THIS RECORD IS GRADED AS ONE. Andreas, scan p. 249, on the special term of the Cook County Court of County Commissioners held at Chicago on 13 April 1831: 'The first two tavern licenses were granted by Cook County to Chicago landlords — Elijah Wentworth, for $7, and Samuel Miller, for $5', followed immediately by 'Ordered that the following rates be allowed to tavern keepers to wit:' and a schedule that includes 'For each breakfast and supper 25', 'For each dinner 37 1/2', 'For each horse fed 25', 'Keeping horse one night 50', and 'Lodging for each man per night 12 1/2'. Elijah Wentworth kept the Wolf Point Tavern from early 1830 until 1831-32 (drloih_wolf_point), so this house is one of exactly two in the county holding a licence under that schedule. WHAT THAT PROVES AND WHAT IT DOES NOT: it proves that keeping a horse overnight was a priced service of this house, at twice the rate charged for a man's bed. It does not prove a dedicated building — a horse can be kept at a picket line, in a fenced lot, or in a lean-to against the tavern itself, and none of those is what this record draws. The function is therefore inferred rather than documented, and the whole building follows it."
+    },
+    "occupants": {
+      "value": "the tavern's keeper of the day — Elijah Wentworth in 1831, William Walters on the scene date",
+      "confidence": "inferred",
+      "sources": [
+        "drloih_wolf_point"
+      ],
+      "note": "The operator succession of the tavern is documented — Archibald Caldwell for James Kinzie by 1829, Elijah Wentworth from early 1830, Charles Taylor 1831-1833, William Walters 1833-1836 — and the stable is taken to have passed with the house. No hostler is named and no source attaches any person to this building."
+    }
+  },
+  "residents": [],
+  "citations": [
+    {
+      "source_id": "andreas_1884_v1",
+      "citation": "Andreas, A. T. History of Chicago: From the Earliest Period to the Present Time. Vol. 1. Chicago: A. T. Andreas, 1884.",
+      "url": "https://archive.org/details/historyofchicago01andr",
+      "archived_url": "",
+      "tier": 3,
+      "tier_label": "compiled secondary (Andreas)"
+    },
+    {
+      "source_id": "drloih_wolf_point",
+      "citation": "\"The Beginning of Wolf Point in Chicago, Illinois, including the history of the Wolf Point Tavern.\" Digital Research Library of Illinois History Journal.",
+      "url": "https://drloihjournal.blogspot.com/2018/11/wolf-point-beginnings-in-chicago-illinois.html",
+      "archived_url": "",
+      "tier": 4,
+      "tier_label": "later scholarship"
+    }
+  ],
+  "research_note": "THE CITATION THIS RECORD WAS ASKED TO CARRY DOES NOT EXIST, AND THE ONE IT CARRIES INSTEAD SAYS SOMETHING DIFFERENT. This project's dossier at docs/research/03-structures-north.md section 2.1 lists, under the Wolf Point Tavern and tagged [DOC], 'Rates: 12 1/2 cents/night, 13 cents to stable a horse', and generators/archetypes/outbuilding_params.py and generators/preview.py both repeat the figure as 'a Wolf Point tariff of 13 cents to stable a horse', attributing it to drloih_wolf_point. IT WAS CHECKED ON 2026-08-11 AND IT IS NOT THERE. The drloih_wolf_point page carries no prices of any kind; neither does the Wikipedia Wolf Point article nor chicagology's prefire273, the dossier's other two sources for that section; and Andreas vol. 1 contains neither the phrase 'stable a horse' nor the figure '12 1/2 cents' anywhere in its full text. WHAT IS ACTUALLY ATTESTED is the Cook County tariff of 13 April 1831 quoted in this record's function note, and it differs from the dossier in the part that matters: 12 1/2 cents is the price of a MAN'S LODGING for a night, and a horse is 25 cents to feed and 50 cents to keep overnight. The dossier appears to have carried the man's rate across to the horse and invented a figure of 13 cents for it. THE CONSEQUENCE FOR THE MODEL IS SMALL AND THE CONSEQUENCE FOR THE RECORD IS NOT: the building still stands on a documented priced service, and it now stands on a sentence that can be re-read at a stated page. THE DOSSIER LINE, THE ARCHETYPE DOCSTRING AND THE PREVIEW COMMENT ALL NEED CORRECTING; they are outside this parcel and the correction is written up in its report rather than made here. WHAT WOULD UPGRADE THIS RECORD FROM AN INFERENCE TO A BUILDING: any account of the Wolf Point house that describes its yard — the reported 1835 painting showing Wolf Tavern, Miller's House and Walker's cabin in one view would settle it at a stroke if it shows the back of the house; failing that, Andreas's 'Wharfs, Piers and Early Hotels' at scan pp. 626-631 read at page-image level, which is this project's standing highest-value unopened source for the Wolf Point group.",
+  "research_doc": "",
+  "review_required": false
+}

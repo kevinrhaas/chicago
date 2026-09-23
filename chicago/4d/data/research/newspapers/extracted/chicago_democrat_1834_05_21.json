@@ -1,0 +1,234 @@
+{
+  "schema": 1,
+  "issue_id": "chicago_democrat_1834_05_21",
+  "extracted": "2026-08-28",
+  "extracted_by": "hand, T-0314 — the Democrat read, May 1834",
+  "note": "Vol. I No. 25. The month's one measured building — a house 16 by 30 feet on the corner of Lasalle and Lake — and the cabinet shop that places itself three doors from the Baptist meeting house, which is the first Chicago church used as an address in this corpus.",
+  "claims": [
+    {
+      "id": "c001",
+      "kind": "building",
+      "reading": "transcription_mediated",
+      "quote": "E offer for sale the House on\nof Lasalle and Lake streets.\nis 16 by 30 feet, and posscssion can\nhe | the first day of next month. Price o\nAp’ l. 22, P. PRUYNE",
+      "normalized": "[W]E offer for sale the House on [the corner] of Lasalle and Lake streets. [It] is 16 by 30 feet, and possession can [be had on] the first day of next month. Price […] Ap'l. 22. P. PRUYNE[.]",
+      "locator": {
+        "artifact_role": "primary",
+        "issue_page": 3,
+        "column": 6,
+        "lines": [
+          3022,
+          3026
+        ]
+      },
+      "entities": [
+        {
+          "as_printed": "P. PRUYNE",
+          "normalized": "P. Pruyne",
+          "role": "vendor",
+          "occupations": [
+            "timber merchant"
+          ],
+          "associated_places": [
+            "Chicago",
+            "Lasalle Street",
+            "Lake Street"
+          ]
+        }
+      ],
+      "business": {
+        "name": "P. Pruyne",
+        "trade": "timber merchant; here selling a house",
+        "placement": {
+          "class": "corner",
+          "anchor": "Lasalle and Lake streets",
+          "street": "Lasalle Street and Lake Street"
+        },
+        "address_text": "the House on [the corner] of Lasalle and Lake streets"
+      },
+      "ad_copy_date": {
+        "verbatim": "Ap'l. 22,",
+        "iso": "1834-04-22"
+      },
+      "notes": "A DOCUMENTED CHICAGO HOUSE WITH A CORNER AND A FOOTPRINT: 16 by 30 feet, at Lasalle and Lake. This is the single most directly buildable line in the month. It gives a named intersection, a plan dimension in feet, and a date — offered 22 April, still standing and untenanted on 21 May 1834, possession on the first of June. Four hundred and eighty square feet is a small two-room or three-room dwelling, and the 30-foot dimension is almost certainly the frontage-or-depth of a single-pile plan; WHICH of the two runs along Lake is NOT stated and is not inferred here. The reconstruction's West Division and Lake-street blocks currently deal their house sizes from archetypes; this is a real one, from the paper, at a corner the plat can find. P. Pruyne is the same timber merchant who sizes the town's structural sticks a fortnight earlier (chicago_democrat_1834_05_07 c012), which is worth noticing: the man selling the frame is also selling the finished house."
+    },
+    {
+      "id": "c002",
+      "kind": "business",
+      "reading": "transcription_mediated",
+      "quote": "ost) ‘Tho subscriber has taken that no\n\"at Stand in Chicago, lately oecupied b\n“| WW. Wattles, which he will make eve\nexertion to render the Traveller's\n‘The patronage of the public will be\nacknowledged. Oct. 4, 1833,",
+      "normalized": "[The] subscriber has taken that [well kno]w[n] Stand in Chicago, lately occupied b[y] W. Wattles, which he will make eve[ry] exertion to render the Traveller's [Home. …] The patronage of the public will be [gratefully] acknowledged. Oct. 4, 1833.",
+      "locator": {
+        "artifact_role": "primary",
+        "issue_page": 3,
+        "column": 6,
+        "lines": [
+          3016,
+          3021
+        ]
+      },
+      "entities": [
+        {
+          "as_printed": "W. Wattles",
+          "normalized": "W. Wattles",
+          "role": "previous occupant of the stand",
+          "occupations": [
+            "tavern keeper"
+          ],
+          "associated_places": [
+            "Chicago"
+          ]
+        }
+      ],
+      "business": {
+        "name": "the Traveller's Home (the stand lately occupied by W. Wattles)",
+        "trade": "tavern / house of entertainment",
+        "placement": {
+          "class": "none"
+        },
+        "address_text": "that [well kno]w[n] Stand in Chicago"
+      },
+      "ad_copy_date": {
+        "verbatim": "Oct. 4, 1833,",
+        "iso": "1833-10-04"
+      },
+      "notes": "A TAVERN CHANGES HANDS AND THE PREMISES ARE 'THAT WELL KNOWN STAND'. The succession chain is explicit — lately occupied by W. Wattles — and the copy dates from October 1833, so this is a standing advertisement seven months old still running in May 1834. That matters twice: it fixes a house of entertainment continuously in the same premises from autumn 1833 through May 1834, and it warns that the advertising columns of this month are not all news. Named the Traveller's Home by its new keeper. No street is printed — 'that well known Stand' is precisely an author relying on the reader already knowing where it is, which is honest evidence of a small town and no evidence of a location, so the placement is none."
+    },
+    {
+      "id": "c003",
+      "kind": "business",
+      "reading": "transcription_mediated",
+      "quote": "CABINET AND CHAI\nMANTCKASTCEE\nA. FILER & CO.\nAVING commenced the above busir\nSouth Water street, three doors n«\nhe Baptist mecting house, will keep on }\nreneral ansortment of\nCABINET WARE\nof the first quality ; Also,\nCHAIRS,\nf all descriptions. By their endeavors to",
+      "normalized": "CABINET AND CHAI[R] MAN[UFA]C[TORY.] […] A. FILER & CO. [H]AVING commenced the above busi[ness on] South Water street, three doors n[orth of] [t]he Baptist me[e]ting house, will keep on [hand a] [g]eneral a[s]sortment of CABINET WARE of the first quality; Also, CHAIRS, [o]f all descriptions. By their endeavors to",
+      "locator": {
+        "artifact_role": "primary",
+        "issue_page": 4,
+        "column": 4,
+        "lines": [
+          3805,
+          3815
+        ]
+      },
+      "entities": [
+        {
+          "as_printed": "A. FILER & CO.",
+          "normalized": "A. Filer & Co.",
+          "role": "firm, newly commenced",
+          "occupations": [
+            "cabinet maker",
+            "chair maker"
+          ],
+          "associated_places": [
+            "South Water Street"
+          ]
+        },
+        {
+          "as_printed": "Baptist mecting house",
+          "normalized": "the Baptist meeting house",
+          "role": "landmark the shop counts doors from",
+          "associated_places": [
+            "South Water Street"
+          ]
+        }
+      ],
+      "business": {
+        "name": "A. Filer & Co.",
+        "trade": "cabinet and chair manufactory",
+        "placement": {
+          "class": "relative",
+          "anchor": "the Baptist meeting house",
+          "offset_text": "South Water street, three doors n[orth of] [t]he Baptist me[e]ting house",
+          "street": "South Water Street"
+        },
+        "address_text": "South Water street, three doors n[orth of] [t]he Baptist me[e]ting house"
+      },
+      "notes": "THE BAPTIST MEETING HOUSE IS AN ADDRESS ON SOUTH WATER STREET, and this is the first Chicago church used as a placement anchor anywhere in this corpus. A. Filer & Co have COMMENCED — the business is new in May 1834 — three doors from it, making cabinet ware and chairs. Two consequences. First, a meeting house stands on or immediately off South Water street by May 1834 and is prominent enough that a tradesman expects readers to count doors from it; the reconstruction's South Water frontage has no church on it today. Second, the direction word after 'three doors n' is cut at the column edge — it may be north or it may not — and it is NOT supplied, so the shop is three doors from the meeting house on an unstated side. The same firm, as Clark, Filer & Co, advertises chairs from 'the cabinet shop' a week later (chicago_democrat_1834_05_28 c007), so the partnership's name moves inside the month while the premises do not."
+    },
+    {
+      "id": "c004",
+      "kind": "business",
+      "reading": "transcription_mediated",
+      "quote": "a good assortment of\ninn Woy act) P=\nBOOTs.\nuited to the call of the country. Gent\nfishing Fine Boots, water proof, will be a\nnodated with the best materials, and fas\nle atyle. Most kinds of work kept cons\nn hand, or made to order on short notice\nL. W. MONTGOME\nGhicago, Dec. 15, 1838.",
+      "normalized": "a good assortment of […] […] BOOTS. [s]uited to the call of the country. Gent[lemen] [w]ishing Fine Boots, water proof, will be a[ccom]modated with the best materials, and fas[hionab]le style. Most kinds of work kept cons[tantly] [o]n hand, or made to order on short notice. L. W. MONTGOME[RY.] [C]hicago, Dec. 15, 183[3].",
+      "locator": {
+        "artifact_role": "primary",
+        "issue_page": 4,
+        "column": 4,
+        "lines": [
+          3795,
+          3804
+        ]
+      },
+      "entities": [
+        {
+          "as_printed": "L. W. MONTGOME",
+          "normalized": "L. W. Montgomery",
+          "role": "proprietor",
+          "occupations": [
+            "bootmaker"
+          ],
+          "associated_places": [
+            "Chicago"
+          ]
+        }
+      ],
+      "business": {
+        "name": "L. W. Montgomery",
+        "trade": "bootmaker",
+        "placement": {
+          "class": "none"
+        },
+        "address_text": "[C]hicago"
+      },
+      "ad_copy_date": {
+        "verbatim": "Dec. 15, 1838.",
+        "iso": "1833-12-15"
+      },
+      "notes": "WATERPROOF BOOTS, MADE IN CHICAGO, ADVERTISED CONTINUOUSLY FROM DECEMBER 1833. Montgomery is a bespoke bootmaker keeping ready-made work on hand as well — the frontier compromise — and the standing copy date makes him one of the fixed trades of the town rather than a spring arrival. 'Water proof' is not decoration in a town built on a wet prairie: it is what the ground in this reconstruction actually did to footwear, said by a tradesman selling against it. No address is printed and none is guessed."
+    },
+    {
+      "id": "c005",
+      "kind": "business",
+      "reading": "transcription_mediated",
+      "quote": "PG. BDRATCULATD,\nMeuse and Land\nOTS purchased and Sold, or by cor\nsion,\nBD Building Lots for sale, in the tow:\na te! section,\nousns t t. E sf\nke at. opposite Dr. Tem tO\n‘s.",
+      "normalized": "[…] [Ho]use and Land [Agent.] [L]OTS purchased and Sold, or by co[mmis]sion. […] Building Lots for sale, in the tow[n and] [School] section. [H]ous[e]s t[o Le]t. E[nquire at the Office on] [La]ke [s]t. opposite Dr. Tem[ple]'s.",
+      "locator": {
+        "artifact_role": "primary",
+        "issue_page": 3,
+        "column": 5,
+        "lines": [
+          2758,
+          2766
+        ],
+        "lines_of_claim": [
+          2758,
+          2759,
+          2760,
+          2761,
+          2762,
+          2763,
+          2764,
+          2765,
+          2766
+        ],
+        "interleaved": false
+      },
+      "business": {
+        "name": "W. G. Blanchard",
+        "proprietors": [
+          "W. G. Blanchard"
+        ],
+        "trade": "house and land agent",
+        "goods": [],
+        "street": "Lake Street",
+        "placement": {
+          "class": "relative",
+          "anchor": "Dr. Temple's",
+          "offset_text": "ke at. opposite Dr. Tem tO\n's.",
+          "offset_normalized": "[La]ke [s]t. opposite Dr. Tem[ple]'s.",
+          "street": "Lake Street"
+        }
+      },
+      "notes": "ONE IMPRESSION OF THE STANDING LAKE STREET LAND-AGENCY CARD. The Democrat sets this advertisement, word for word the same, in every issue from 1834-05-14 to 1834-10-01 — twenty consecutive weeks, eighteen of which set the line ‘purchased and Sold, or by commi[s]sion’ recognisably (T-1051). The card is identified by its copy and not by its display line: the same trade (‘House and Land Agent’), the same offer of building lots in the town and the School Section, the same houses to let, and the same office on Lake street opposite Dr. Temple's. This is the SECOND impression and the first that sets a display line at all: line 2758 reads 'PG. BDRATCULATD,' in a column the transcription itself flags as a Tesseract fallback (line 2757). Nothing is read off it — it is a third mangled setting beside c008's 'Wo. @ WRAWCUA' and 1834-06-04's '@s DRANCRAID,' — and no forename is supplied from it. THE PROPRIETOR'S NAME IS NOT READ HERE and none is supplied into the quote: the record's ‘W. G. Blanchard’ stands on T-0408's reading of the two impressions whose columns are NOT Tesseract fallbacks (1834-07-16 line 5527, 1834-09-17 line 3292) and on identity.json's declared firm merge, not on this impression. The lot count is illegible here ('BD Building Lots'), so it is left unread rather than carried over from the neighbouring weeks."
+    }
+  ]
+}

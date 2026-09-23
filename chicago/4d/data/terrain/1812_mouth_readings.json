@@ -1,0 +1,57 @@
+{
+  "_doc": "The hand-entered readings the 1812 river mouth is derived from, and NOTHING ELSE. Every other number in data/terrain/epochs/e1830_natural/shoreline.geojson is computed from this file plus the committed Wright 1834 trace by tools/derive_shore_1812.py, and tools/check_shoreline_states.py re-derives the file and refuses a hand edit. A reading here is a statement someone made or a survey somebody drew; it is never a conclusion this project reached.",
+  "state_id": "shore_1812_pre_cut",
+  "address_date": "1812-08-15",
+  "why_1834_is_the_base_trace": "No survey of the pre-cut mouth exists. The earliest instrument reading of the baymouth bar and the channel behind it is Wright's 1834 survey, drawn AFTER the 1833-34 cut and therefore twenty-two years late and cut through at its north end. It is used as the base planform because it is the only measured reading of this landform, and every departure from it below is stated, sourced and graded. It is not evidence of the 1812 planform; it is the best available reading of it.",
+
+  "fort_anchor": {
+    "what": "The point on the traced west bank of the old southward channel nearest Fort Dearborn, used as the station Swearingen's distance is measured from.",
+    "derived_from": "data/structures/fort_dearborn_flagstaff.json phase staff_1833_37 position",
+    "flagstaff_utm_e": 448223.25,
+    "flagstaff_utm_n": 4637617.26,
+    "note": "The flagstaff is the only committed coordinate the fort parcel carries, and it dates from the 1833-37 fort rather than from the first fort Swearingen walked to. Swearingen's 'half mile above the mouth' is to the fort SITE, which both forts share, so the flagstaff stands for the site and not for a building. The anchor itself is not this point: it is the nearest vertex of the 1834 west-bank trace, because the distance Swearingen states was travelled along the water and not across the reservation. The offset between the two is reported by the derivation and is the anchor's own uncertainty.",
+    "confidence": "inferred"
+  },
+
+  "readings": [
+    {
+      "id": "swearingen_1803_half_mile",
+      "source_id": "quaife_1913_swearingen",
+      "observed_date": "1803-08-17",
+      "role": "primary_adopted",
+      "quote": "a half mile above the mouth",
+      "value_m": 804.672,
+      "value_note": "One half of a statute mile, 804.672 m exactly. Swearingen marched the detachment that built the first Fort Dearborn and wrote the distance the day he arrived; docs/RESEARCH/swearingen_1803.md is the full reading, and section 7 is where this project first measured the half mile against the committed trace.",
+      "measured_along": "the 1834 west-bank trace, southward from the fort anchor",
+      "confidence": "documented",
+      "confidence_note": "The STATEMENT is documented - a tier-1 eyewitness wrote it. Where it lands on the ground is inferred, because it is a stated distance transferred onto a trace drawn thirty-one years later."
+    },
+    {
+      "id": "madison_street_compilation",
+      "source_id": "chicagology_prefire274",
+      "observed_date": null,
+      "role": "alternative_not_adopted",
+      "quote": "the natural outlet lies near present Madison Street",
+      "value_local_n_m": -519.05,
+      "value_note": "Madison Street's platted centreline, read off the committed street record data/streets/1835.json (id `madison`, path_local_enu_m). That record notes its own spread: the measured line off Wright's survey is at local N -546.0 and the section anchor moves it +26.9 m. The compilation says 'near', not 'at', so this bound is the street's line and carries the street's own spread and the word 'near' on top of it.",
+      "confidence": "inferred",
+      "confidence_note": "A tier-2 compilation restating a nineteenth-century account. It is recorded as the alternative reading and is NOT averaged with the adopted one."
+    },
+    {
+      "id": "wright_1834_bar_tip",
+      "source_id": "wright_1834",
+      "observed_date": "1834-01-01",
+      "role": "later_bound",
+      "quote": null,
+      "value_note": "The south tip of the bar as Wright drew it, taken from the committed trace rather than typed here. It is twenty-two years after the scene date and a littoral spit grows downdrift, so it bounds the 1812 tip from the SOUTH: the 1812 spit ended on it or north of it. The derivation reports how far south of the adopted station it falls.",
+      "confidence": "inferred"
+    }
+  ],
+
+  "cut_and_piers": {
+    "north_shore_last_natural_vertex_index": 29,
+    "index_note": "Index into data/terrain/epochs/e1834_harbor_cut/shoreline.geojson feature `north_shore_harbor_reach`, whose own note says that between the piers it follows 'the pier's inner face as drafted'. docs/RESEARCH/north_pier.md section 2 reads the pier root off the raster independently and puts it 7 m from this vertex, so index 29 is the last point on that line that is a shore rather than a structure. Everything from index 30 to the turn at the pier head is drafted pier face and is not carried into 1812; everything north of the pier head is the 1834 lake shore, which the 1834 epoch's own note says is accreting north of the north pier, so it bounds the 1812 shore from the EAST and is not adopted as it.",
+    "accretion_bound_first_index": 39,
+    "sources": ["wright_1834"]
+  }
+}

@@ -1,0 +1,2177 @@
+{
+  "schema": 1,
+  "domain": "books",
+  "source_id": "hubbard_autobiography_1911",
+  "ticket": "T-0501",
+  "read": "2026-09-03",
+  "_doc": "The Autobiography of Gurdon Saltonstall Hubbard (Chicago: Lakeside Press, 1911), read for everything it says about Chicago before 1836. TWO VOICES, and every claim says which: Hubbard's own narrative, written in the 1880s about 1818-1830 and stopping dead in November 1830; and Caroline M. McIlvaine's 1911 Introduction, which is where every statement about 1834, 1835 and 1836 in this file comes from. The quote is the committed text at the locator's own lines and is never typed by hand; tools/research_domains.py --check rebuilds it character for character. ONE CLAIM IS NOT IN THIS FILE. bk_hub_100 reads Hubbard's letter of 25 July 1827, printed as a note at page 174, and a rung-1 document does not belong under a record graded for a 1911 compilation: it lives at claims/hubbard_letter_1827_07_25.json with its own source record, out of the same committed text and inside the same coverage declaration.",
+  "claims": [
+    {
+      "id": "bk_hub_001",
+      "kind": "notice",
+      "reading": "transcription_mediated",
+      "quote": "a  book  of  interest  and  value.  The  text  of  the \nAutobiography  is  taken  from  the  manuscript \nof  the  original  Diary,  now  in  the  possession \nof  the  Chicago  Historical  Society,  as  it  ap- \npeared in  the  memorial  volume  compiled  by \nMr.  Henry  E.  Hamilton  in  1888  for  circulation \nonly  among  the  immediate  friends  of  Mr.  Hub- \nbard's family.  This  memorial  volume  has ",
+      "normalized": "The Lakeside Press states that its text of the Autobiography is not taken from the manuscript directly but from the memorial volume Henry E. Hamilton compiled in 1888 from the original Diary, then held by the Chicago Historical Society, for private circulation among Hubbard's family.",
+      "locator": {
+        "list": "hubbard_1911_front_matter_leaves_9_18",
+        "text_file": "hubbard_autobiography_1911.txt",
+        "lines": [
+          125,
+          132
+        ],
+        "leaf": 17,
+        "page": null
+      },
+      "describes_date": "1888 (the memorial volume); 1911 (this printing)",
+      "entities": [
+        "Henry E. Hamilton",
+        "Chicago Historical Society"
+      ],
+      "town_finding": false,
+      "notes": "THE PROVENANCE OF THE TEXT, and the reason this source record is graded where it is. What this project has read is a 1911 reprint of an 1888 private printing of a diary manuscript; the manuscript itself has not been seen by anyone here. Every claim below is at that remove and the reading grade says so."
+    },
+    {
+      "id": "bk_hub_002",
+      "kind": "notice",
+      "reading": "transcription_mediated",
+      "quote": "For  the  exhaustive  Introduction,  an  acknowl- \nedgment of  appreciation  is  due  Miss  CarohneM. \nMcllvaine,  Librarian  of  the  Chicago  Historical \nSociety.  Miss  Mcllvaine  brings  to  her  task \nan  intimate  knowledge  of  the  history  of  the \nNorthwest,  and,  having  enjoyed  the  friendship \nof  Mrs.  Hubbard,  is  particularly  well  fitted  to \nprepare  this  edition  for  the  press. ",
+      "normalized": "The Introduction is by Caroline M. McIlvaine, Librarian of the Chicago Historical Society, who knew Mrs Hubbard personally.",
+      "locator": {
+        "list": "hubbard_1911_front_matter_leaves_9_18",
+        "text_file": "hubbard_autobiography_1911.txt",
+        "lines": [
+          141,
+          148
+        ],
+        "leaf": 17,
+        "page": null
+      },
+      "describes_date": "1911",
+      "entities": [
+        "Caroline M. McIlvaine",
+        "Chicago Historical Society"
+      ],
+      "town_finding": false,
+      "notes": "The Introduction and the Autobiography are two different documents by two different people at two different distances from 1835, and this claim is what separates them. Hubbard's own narrative stops in November 1830 (bk_hub_104); everything this book says about the town in 1834-36 is McIlvaine's, written in 1911."
+    },
+    {
+      "id": "bk_hub_010",
+      "kind": "business",
+      "reading": "transcription_mediated",
+      "quote": "at  the  outset.  In  1827  Mr.  Hubbard  was  ad- \nmitted to  a  share  in  the  profits  of  the  Ameri- \ncan Fur  Company,  and  in  1828  bought  out \ntheir  entire  interests  in  Illinois. ",
+      "normalized": "Hubbard was admitted to a share in the American Fur Company's profits in 1827 and bought out its entire Illinois interests in 1828.",
+      "locator": {
+        "list": "hubbard_1911_introduction_pp_ix_xxvii",
+        "text_file": "hubbard_autobiography_1911.txt",
+        "lines": [
+          288,
+          291
+        ],
+        "leaf": 23,
+        "page": "xi"
+      },
+      "describes_date": "1827-1828",
+      "entities": [
+        "Gurdon Saltonstall Hubbard",
+        "American Fur Company"
+      ],
+      "town_finding": true,
+      "notes": "Agrees with Hurlbut's chapter (bk_afc_004 in claims/american_fur_company_hurlbut.json), which this project already holds, and which gives 1828 for the same purchase. Two independent 19th-century tellings, one date."
+    },
+    {
+      "id": "bk_hub_011",
+      "kind": "street",
+      "reading": "transcription_mediated",
+      "quote": "The  highway  thus  established  was  known \nas  \"Hubbard's  Trail,\"  and  was  for  years  the \nonly  well-defined  road  between  Chicago  and \nthe  Wabash  country.  Although  Danville  was ",
+      "normalized": "Hubbard's Trail was for years the only well-defined road between Chicago and the Wabash country.",
+      "locator": {
+        "list": "hubbard_1911_introduction_pp_ix_xxvii",
+        "text_file": "hubbard_autobiography_1911.txt",
+        "lines": [
+          329,
+          332
+        ],
+        "leaf": 24,
+        "page": "xii"
+      },
+      "describes_date": "1824 onward",
+      "entities": [
+        "Gurdon Saltonstall Hubbard"
+      ],
+      "town_finding": true,
+      "notes": "A town finding about what the roads out of Chicago WERE, stated as a negative: one well-defined road southward and nothing else. See bk_hub_082 and bk_hub_083, where Hubbard's own narrative dates the trail and the 1833-34 State road that adopted it."
+    },
+    {
+      "id": "bk_hub_012",
+      "kind": "business",
+      "reading": "transcription_mediated",
+      "quote": "Sensing  the  coming  change,  Hubbard  had \nbegun,  long  before  he  made  Chicago  his  perma- \nnent residence,  to  provide  the  Chicago  market \nwith  pork.  He  was,  in  fact,  the  first  * 'packer\" \npurveying  to  this  port.  Collecting  hogs  from \nfar  and  wide,  he  would  store  them  on  the  river \nfront,  and  whether  because  of  the  honesty  of \nthe  early  inhabitants,  or  the  esteem  in  which \nHubbard  was  held,  these  carcasses  would  not \nbe  molested  though  they  remained  an  entire \nwinter  in  the  open,  as  in  the  winter  of  1828-29. ",
+      "normalized": "Before he settled at Chicago, Hubbard collected hogs and stored them on the river front through an entire winter — the winter of 1828-29 is the instance given — and they went unmolested.",
+      "locator": {
+        "list": "hubbard_1911_introduction_pp_ix_xxvii",
+        "text_file": "hubbard_autobiography_1911.txt",
+        "lines": [
+          381,
+          391
+        ],
+        "leaf": 25,
+        "page": "xiii"
+      },
+      "describes_date": "1828-1829",
+      "entities": [
+        "Gurdon Saltonstall Hubbard"
+      ],
+      "town_finding": true,
+      "notes": "The pork trade on the river front, six years before the scene. town_finding true because it is the origin of the packing business that data/structures/old_bank_building.json already records Hubbard carrying on in the 1834 season."
+    },
+    {
+      "id": "bk_hub_013",
+      "kind": "person",
+      "reading": "transcription_mediated",
+      "quote": "man where  that  mart  was  destined  to  be.  In \n1834  Gurdon  Hubbard  went  to  Chicago  to \nremain  for  the  rest  of  his  life,  becoming  known \nas  the  largest  packer  in  the  West. ",
+      "normalized": "Hubbard moved to Chicago permanently in 1834.",
+      "locator": {
+        "list": "hubbard_1911_introduction_pp_ix_xxvii",
+        "text_file": "hubbard_autobiography_1911.txt",
+        "lines": [
+          395,
+          398
+        ],
+        "leaf": 25,
+        "page": "xiii"
+      },
+      "describes_date": "1834",
+      "entities": [
+        "Gurdon Saltonstall Hubbard"
+      ],
+      "town_finding": true,
+      "notes": "A dated arrival for a man this project grades attested and places in the scene year. McIlvaine writing in 1911; leaf 27 (bk_hub_025) repeats it as 'the year that brought Gurdon Hubbard here as a permanent resident'."
+    },
+    {
+      "id": "bk_hub_014",
+      "kind": "building",
+      "reading": "transcription_mediated",
+      "quote": "Upon  the  corner  of  La  Salle  and  South \nWater  streets,  which  at  that  time  seemed  very \nfar  west,  he  erected  a  large  brick  building, \nthe  first  of  its  kind  in  the  city.  No  sky-scraper \nof  the  present  day  ever  called  out  the  comment ",
+      "normalized": "Hubbard built a large brick building at the corner of La Salle and South Water streets — the first brick building in the town — on ground that then seemed very far west.",
+      "locator": {
+        "list": "hubbard_1911_introduction_pp_ix_xxvii",
+        "text_file": "hubbard_autobiography_1911.txt",
+        "lines": [
+          404,
+          408
+        ],
+        "leaf": 26,
+        "page": "xiv"
+      },
+      "describes_date": "1834-1835",
+      "entities": [
+        "Gurdon Saltonstall Hubbard"
+      ],
+      "town_finding": true,
+      "notes": "THE BUILDING THIS PROJECT KNOWS AS THE OLD BANK BUILDING, and a second telling of it. It is a placement in prose and not on a sheet: a street corner, not a lot. 'Very far west' is a statement about the town's extent in 1834 and is worth as much as the building."
+    },
+    {
+      "id": "bk_hub_015",
+      "kind": "appearance",
+      "reading": "transcription_mediated",
+      "quote": "excited  by  this  structure.  There  were  only \nabout  five  or  six  hundred  inhabitants  in  the \nvillage,  and  what  could  a  man  want  with  a  co- \nlossal building  like  that?  It  was  christened \n''Hubbard's  Folly,\"  and  stood  up  there  a \nlaughing-stock  for  all  the  world.  In  it  Mr. ",
+      "normalized": "There were only about five or six hundred inhabitants in the village when the brick building went up, and it was christened 'Hubbard's Folly'.",
+      "locator": {
+        "list": "hubbard_1911_introduction_pp_ix_xxvii",
+        "text_file": "hubbard_autobiography_1911.txt",
+        "lines": [
+          409,
+          414
+        ],
+        "leaf": 26,
+        "page": "xiv"
+      },
+      "describes_date": "1834-1835",
+      "entities": [],
+      "town_finding": true,
+      "notes": "A POPULATION FIGURE FOR THE TOWN, from a 1911 writer with no source stated. It is far below this project's own reconstruction for 1835 (825 households) and is not evidence against it: McIlvaine is describing 1834 and gives no authority. Recorded because a number in a much-read book will be quoted at this project sooner or later, and it should meet a note when it is."
+    },
+    {
+      "id": "bk_hub_016",
+      "kind": "shipping",
+      "reading": "transcription_mediated",
+      "quote": "Mr.  E.  O.  Gale  in  his  Re?niniscences  of  Early \nChicago  has  a  picturesque  account  of  the  arrival \noff  Chicago's  shore,  on  the  25th  of  May,  1835, \nof  a  certain  tight  little  brig  Illinois,  bringing \nhimself  and  brother  William  with  their  parents, \nand,  among  other  well-known  families,  that  of \nour  lamented  friend  and  \"oldest  citizen,'* \nFernando  Jones.  The  brig  being  unable  to \nland  in  the  then  condition  of  the  harbor,  the \npassengers  found  themselves  conveyed  to  land \nby  lusty  French  Canadians  in  birch-bark \nMackinaw  boats,  which  also  served  as  lighters \nfor  the  cargo,  the  whole,  together  with  the \nhousehold  goods  of  the  passengers,  being  de- \nposited at  a  certain  large  warehouse  a  little \nway  up  the  river.  Quoting  Mr.  Gale's  charac- ",
+      "normalized": "On 25 May 1835 the brig Illinois lay off Chicago unable to enter the harbour, and her passengers — the Gale family, the Fernando Jones family and others — were carried ashore by French Canadians in birch-bark Mackinaw boats, which also lightered the cargo to a large warehouse a little way up the river.",
+      "locator": {
+        "list": "hubbard_1911_introduction_pp_ix_xxvii",
+        "text_file": "hubbard_autobiography_1911.txt",
+        "lines": [
+          420,
+          435
+        ],
+        "leaf": 26,
+        "page": "xiv"
+      },
+      "describes_date": "1835-05-25",
+      "entities": [
+        "E. O. Gale",
+        "William Gale",
+        "Fernando Jones",
+        "brig Illinois"
+      ],
+      "town_finding": true,
+      "notes": "A DATED 1835 ARRIVAL, and the strongest thing in this book for the scene year. It says the harbour could not take a brig in May 1835 and that lighterage by Mackinaw boat was how a cargo came ashore. McIlvaine is quoting E. O. Gale's Reminiscences of Early Chicago, so this is at two removes and graded accordingly."
+    },
+    {
+      "id": "bk_hub_017",
+      "kind": "appearance",
+      "reading": "transcription_mediated",
+      "quote": "\"As  soon  as  we  arrived  at  the  warehouse, \nwe  noticed  a  rather  large  man,  put  up  in  fine \nshape  for  an  athlete,  with  dark  hair  and  eyes, \nprominent  nose,  high  cheek  bones,  large,  firm \nmouth  and  strong  face,  showing  great  force \nof  character,  but  withal  a  voice  and  smile  so \npleasing  that  we  took  to  him  at  once,  as  a \nchild  to  its  mother. \n\n\"'Who  is  he?'  we  asked  a  by-stander. \n\n**  Why,  that  is  the  proprietor  of  the  warehouse, \nGurdon  S.  Hubbard.  He  is  just  as  nature \nlabeled  him.  He  can  outrun  or  outwalk  any \nIndian,  takes  difficulties  as  you  would  dessert \nafter  dinner,  seems  to  hanker  after  them,  is  as \ntrue  as  steel,  with  a  heart  as  tender  as  any \nwoman's.  He  is  worth  five  hundred  ordinary \nmen  to  any  town.'  \" ",
+      "normalized": "Gale's word-portrait of Hubbard at the warehouse door: a large man built like an athlete, dark hair and eyes, prominent nose, high cheek bones, a large firm mouth, and a by-stander's 'that is the proprietor of the warehouse, Gurdon S. Hubbard'.",
+      "locator": {
+        "list": "hubbard_1911_introduction_pp_ix_xxvii",
+        "text_file": "hubbard_autobiography_1911.txt",
+        "lines": [
+          8,
+          26
+        ],
+        "leaf": 11,
+        "page": "xv"
+      },
+      "describes_date": "1835-05-25",
+      "entities": [
+        "Gurdon Saltonstall Hubbard",
+        "E. O. Gale"
+      ],
+      "town_finding": false,
+      "notes": "town_finding FALSE on purpose: it describes a man, not the town. Kept because it is the only physical description of a named 1835 resident this source carries, and because it is the passage that puts a NAMED PROPRIETOR on the warehouse of bk_hub_016. ON A DISPLACED LEAF — this is leaf 11 of the scan carrying page xv; see the page index's reading_order_note."
+    },
+    {
+      "id": "bk_hub_018",
+      "kind": "shipping",
+      "reading": "transcription_mediated",
+      "quote": "Mr.  Gale  asserts  that  the  cargo  brought  by \nthe  Illinois  was  the  first  cargo  of  general \nfreight  ever  landed  in  Chicago.  The  sea- ",
+      "normalized": "Gale asserts that the Illinois's cargo was the first cargo of general freight ever landed in Chicago.",
+      "locator": {
+        "list": "hubbard_1911_introduction_pp_ix_xxvii",
+        "text_file": "hubbard_autobiography_1911.txt",
+        "lines": [
+          28,
+          30
+        ],
+        "leaf": 11,
+        "page": "xv"
+      },
+      "describes_date": "1835",
+      "entities": [
+        "E. O. Gale",
+        "brig Illinois"
+      ],
+      "town_finding": true,
+      "notes": "A FIRST-CLAIM, and this project should treat it as one: 'the first' in a reminiscence is the weakest kind of statement and Gale is the only authority for it. Recorded as what the book says, not as what happened."
+    },
+    {
+      "id": "bk_hub_019",
+      "kind": "building",
+      "reading": "transcription_mediated",
+      "quote": "tossed  passengers,  after  depositing  their  goods \nat  the  warehouse,  repaired  to  the  Green  Tree \nTavern.  Apparently  the  utility  of  the  big \nwarehouse  was  being  vindicated. ",
+      "normalized": "Having left their goods at the warehouse, the Illinois's passengers went to the Green Tree Tavern.",
+      "locator": {
+        "list": "hubbard_1911_introduction_pp_ix_xxvii",
+        "text_file": "hubbard_autobiography_1911.txt",
+        "lines": [
+          31,
+          34
+        ],
+        "leaf": 11,
+        "page": "xv"
+      },
+      "describes_date": "1835-05-25",
+      "entities": [
+        "Green Tree Tavern"
+      ],
+      "town_finding": true,
+      "notes": "docs/RESEARCH/green_tree_tavern.md already leans on Hubbard by way of Andreas; this is the passage itself, at first hand in this book and at second hand from Gale. It puts the tavern in use in May 1835 as the place newly landed passengers went."
+    },
+    {
+      "id": "bk_hub_020",
+      "kind": "business",
+      "reading": "transcription_mediated",
+      "quote": "In  1836  Mr.  Hubbard  built  a  warehouse \nfronting  on  Kinzie  Street  and  the  river,  organiz- \ning the  firm  of  Hubbard  &  Co.,  in  which \nHenry  G.  and  Elijah  K.  Hubbard  were  asso- \nciated with  him.  Not  content  with  the  irreg- \nular craft  occasionally  visiting  Chicago's  wa- \nters, they,  with  Pratt,  Taylor  &  Co.  of  Buffalo, \nestabUshed    the   Eagle   Line   of  vessels   and ",
+      "normalized": "In 1836 Hubbard built a warehouse fronting on Kinzie Street and the river and organised Hubbard & Co. with Henry G. and Elijah K. Hubbard, and with Pratt, Taylor & Co. of Buffalo established the Eagle Line.",
+      "locator": {
+        "list": "hubbard_1911_introduction_pp_ix_xxvii",
+        "text_file": "hubbard_autobiography_1911.txt",
+        "lines": [
+          36,
+          43
+        ],
+        "leaf": 11,
+        "page": "xv"
+      },
+      "describes_date": "1836",
+      "entities": [
+        "Gurdon Saltonstall Hubbard",
+        "Henry G. Hubbard",
+        "Elijah K. Hubbard",
+        "Hubbard & Co.",
+        "Pratt, Taylor & Co."
+      ],
+      "town_finding": true,
+      "notes": "AFTER THE SCENE AND THEREFORE A LIMIT, not a licence: the Kinzie Street warehouse is 1836 and must not appear in 1835. Recorded so the next run reaching for 'Hubbard's warehouse' knows there are two."
+    },
+    {
+      "id": "bk_hub_021",
+      "kind": "business",
+      "reading": "transcription_mediated",
+      "quote": "But  Gurdon  Hubbard  was  more  than  a  mer- \nchant. In  one  corner  of  his  warehouse  in  1836 \nwas  the  first  bank  in  Chicago,  a  branch  of  the \nIllinois  State  Bank,  of  which  he  was  a  director. \nThe  first  insurance  policy  ever  issued  in  Chicago \nwas  written  by  him  in  that  year  for  the  ^tna \nCompany,  whose  representative  he  remained \nfor  over  thirty  years. ",
+      "normalized": "The first bank in Chicago, a branch of the Illinois State Bank with Hubbard a director, occupied one corner of his warehouse in 1836, and the first insurance policy issued in Chicago was written by him that year for the Aetna.",
+      "locator": {
+        "list": "hubbard_1911_introduction_pp_ix_xxvii",
+        "text_file": "hubbard_autobiography_1911.txt",
+        "lines": [
+          58,
+          65
+        ],
+        "leaf": 12,
+        "page": "xvi"
+      },
+      "describes_date": "1836",
+      "entities": [
+        "Gurdon Saltonstall Hubbard",
+        "Illinois State Bank"
+      ],
+      "town_finding": true,
+      "notes": "Both 1836, both after the scene. The useful reading is the negative: in 1835 this town had no bank."
+    },
+    {
+      "id": "bk_hub_022",
+      "kind": "notice",
+      "reading": "transcription_mediated",
+      "quote": "Illustrative  of  his  leadership  in  civic  matters \nis  the  following  item  in  The  Chicago  American \nof  October  10,  1835:  \"We  understand  that \nG.  S.  Hubbard  has  ordered,  on  his  own  respon- \nsibility, a  fire  engine  with  the  necessary  appar- \natus to  be  sent  to  Chicago  immediately  from \nthe  East.  Individual  responsibility  being  the \nonly  means  offered  for  obtaining  this  important \ninstrument  of  protection,  we  trust  our  citizens \nwill  avail  themselves  of  this  convenience  by \nestablishing  a  fire  company  without  delay.\" ",
+      "normalized": "The Chicago American of 10 October 1835 reported that G. S. Hubbard had ordered a fire engine and apparatus from the East on his own responsibility, and urged citizens to form a fire company.",
+      "locator": {
+        "list": "hubbard_1911_introduction_pp_ix_xxvii",
+        "text_file": "hubbard_autobiography_1911.txt",
+        "lines": [
+          67,
+          77
+        ],
+        "leaf": 12,
+        "page": "xvi"
+      },
+      "describes_date": "1835-10-10",
+      "entities": [
+        "Gurdon Saltonstall Hubbard",
+        "The Chicago American"
+      ],
+      "town_finding": true,
+      "notes": "A DATED 1835 NEWSPAPER ITEM QUOTED IN FULL, and this project holds thirteen issues of The Chicago American in data/research/newspapers/. The 10 October 1835 issue should be checked against this quotation; if the issue is held, the newspaper reading outranks this one and this claim becomes the corroboration."
+    },
+    {
+      "id": "bk_hub_023",
+      "kind": "event",
+      "reading": "transcription_mediated",
+      "quote": "The  same  man  who  swam  the  river  to  extin- \nguish the  flames  at  Fort  Dearborn  in  1827, \nduring  the  Winnebago  War,  was  the  first  to  see ",
+      "normalized": "McIlvaine dates the fire at Fort Dearborn that Hubbard swam the river to fight to 1827, during the Winnebago War.",
+      "locator": {
+        "list": "hubbard_1911_introduction_pp_ix_xxvii",
+        "text_file": "hubbard_autobiography_1911.txt",
+        "lines": [
+          78,
+          80
+        ],
+        "leaf": 12,
+        "page": "xvi"
+      },
+      "describes_date": "1827",
+      "entities": [
+        "Gurdon Saltonstall Hubbard",
+        "Fort Dearborn"
+      ],
+      "town_finding": true,
+      "notes": "A DISAGREEMENT INSIDE ONE BOOK, and it is recorded and not resolved: Hubbard's own narrative at page 167 (bk_hub_091) puts the same fire after 'the annual payment of the Pottawatomie Indians in September of the year 1828'. McIlvaine's 1827 agrees with Hubbard's own letter of 25 July 1827 (bk_hub_100) and with page 166's 'early in July, 1827' (bk_hub_088), so the 1828 is the odd one out — but the resolution is not this project's to make and is written down as a disagreement."
+    },
+    {
+      "id": "bk_hub_024",
+      "kind": "infrastructure",
+      "reading": "transcription_mediated",
+      "quote": "The  first  water- works  in  Chicago,  located  at \nthe  foot  of  Lake  Street,  were  operated  by  the \nChicago  Hydraulic  Company,  incorporated \nJanuary  i8,  1836,  with  a  capital  of  $250,000, \nGurdon  Hubbard  being  one  of  the  incorpora- \ntors. Owing  to  the  panic  of  1837  the  works \nwere  not  in  operation  until  1840,  supplying  the \nSouth  and  part  of  the  West  sides  with  water. ",
+      "normalized": "The first water-works in Chicago, at the foot of Lake Street, were run by the Chicago Hydraulic Company incorporated 18 January 1836 with Hubbard among the incorporators, and were not in operation until 1840.",
+      "locator": {
+        "list": "hubbard_1911_introduction_pp_ix_xxvii",
+        "text_file": "hubbard_autobiography_1911.txt",
+        "lines": [
+          448,
+          455
+        ],
+        "leaf": 27,
+        "page": "xvii"
+      },
+      "describes_date": "1836-1840",
+      "entities": [
+        "Chicago Hydraulic Company",
+        "Gurdon Saltonstall Hubbard"
+      ],
+      "town_finding": true,
+      "notes": "A NEGATIVE FOR THE SCENE YEAR and that is why it is here: the town of 1835 had no water-works, not even an incorporated company, and drew its water from the river and the lake."
+    },
+    {
+      "id": "bk_hub_025",
+      "kind": "civic",
+      "reading": "transcription_mediated",
+      "quote": "Chicago  was  incorporated  as  a  town  in  the \nyear  1833.  In  the  following  year,  the  year \nthat  brought  Gurdon  Hubbard  here  as  a  per- \nmanent resident,  the  corporate  limits  of  the \ntown  were  extended  by  virtue  of  an  act  adopted \nFebruary  li,  1834,  so  as  to  include  \"all  land \nlying  east  of  State  Street  to  the  lake  shore  from \nChicago  Avenue  and  Twelfth  Street,  except \nthe  military  reservation,\"  which  extended  from ",
+      "normalized": "Chicago was incorporated as a town in 1833, and by an act adopted 11 February 1834 the corporate limits were extended to take in all land east of State Street to the lake shore from Chicago Avenue to Twelfth Street, except the military reservation.",
+      "locator": {
+        "list": "hubbard_1911_introduction_pp_ix_xxvii",
+        "text_file": "hubbard_autobiography_1911.txt",
+        "lines": [
+          468,
+          476
+        ],
+        "leaf": 27,
+        "page": "xvii"
+      },
+      "describes_date": "1833-1834",
+      "entities": [],
+      "town_finding": true,
+      "notes": "THE TOWN'S OWN BOUNDARY IN THE SCENE YEAR, with a date. The reservation exclusion matters to this reconstruction: the fort ground was not town ground in 1835."
+    },
+    {
+      "id": "bk_hub_026",
+      "kind": "civic",
+      "reading": "transcription_mediated",
+      "quote": "the  river  south  to  Madison  Street.  At  the \nelection  of  August  1 1,  1834,  Gurdon  Hubbard \nwas  chosen  one  of  the  town  trustees,  to  serve \nwith  John  Kinzie,  E.  Goodrich,  J.  K.  Boyer, \nand  J.  S.  C.  Hogan.  The  city  had  gained  in ",
+      "normalized": "At the election of 11 August 1834 Gurdon Hubbard was chosen a town trustee, serving with John Kinzie, E. Goodrich, J. K. Boyer and J. S. C. Hogan.",
+      "locator": {
+        "list": "hubbard_1911_introduction_pp_ix_xxvii",
+        "text_file": "hubbard_autobiography_1911.txt",
+        "lines": [
+          482,
+          486
+        ],
+        "leaf": 28,
+        "page": "xviii"
+      },
+      "describes_date": "1834-08-11",
+      "entities": [
+        "Gurdon Saltonstall Hubbard",
+        "John Kinzie",
+        "E. Goodrich",
+        "J. K. Boyer",
+        "J. S. C. Hogan"
+      ],
+      "town_finding": true,
+      "notes": "FIVE NAMED MEN IN ONE DATED CIVIC ACT, and four of the five already have household records here. This is the densest crosswalkable line in the book and every name is ruled on in crosswalk.json."
+    },
+    {
+      "id": "bk_hub_027",
+      "kind": "infrastructure",
+      "reading": "transcription_mediated",
+      "quote": "Every  session  of  the  legislature  thereafter \nfound  Mr.  Hubbard  present  to  urge  the \npassage  of  a  canal  bill,  until  it  was  effected  in \nthe  session  of  1835-36.  It  is  Hon.  Henry  W. ",
+      "normalized": "Hubbard attended every session of the legislature to urge a canal bill until it passed in the session of 1835-36.",
+      "locator": {
+        "list": "hubbard_1911_introduction_pp_ix_xxvii",
+        "text_file": "hubbard_autobiography_1911.txt",
+        "lines": [
+          534,
+          537
+        ],
+        "leaf": 29,
+        "page": "xix"
+      },
+      "describes_date": "1835-1836",
+      "entities": [
+        "Gurdon Saltonstall Hubbard"
+      ],
+      "town_finding": true,
+      "notes": "Places a named 1835 resident away from the town for part of the winter of 1835-36. Nothing here is a building; it is a fact about where a man was."
+    },
+    {
+      "id": "bk_hub_028",
+      "kind": "infrastructure",
+      "reading": "transcription_mediated",
+      "quote": "The  first  Board  of  Canal  Commissioners \nconsisted  of  Gurdon  S.  Hubbard,  WilHam  F. \nThornton,  and  William  B.  Archer,  who  served \nuntil  1 84 1.  When  the  first  spadefuls  of  earth \nwere  dug  at  the  commencement  of  the  canal \non  the  historic  Fourth  of  July,  1836,  the  strong ",
+      "normalized": "The first Board of Canal Commissioners was Gurdon S. Hubbard, William F. Thornton and William B. Archer, and Hubbard wielded the spade at the ground-breaking on 4 July 1836.",
+      "locator": {
+        "list": "hubbard_1911_introduction_pp_ix_xxvii",
+        "text_file": "hubbard_autobiography_1911.txt",
+        "lines": [
+          573,
+          578
+        ],
+        "leaf": 30,
+        "page": "xx"
+      },
+      "describes_date": "1836-07-04",
+      "entities": [
+        "Gurdon Saltonstall Hubbard",
+        "William F. Thornton",
+        "William B. Archer"
+      ],
+      "town_finding": true,
+      "notes": "1836, after the scene. Recorded because the canal is the one piece of infrastructure whose ABSENCE shapes the town of 1835, and this dates the absence precisely."
+    },
+    {
+      "id": "bk_hub_029",
+      "kind": "landscape",
+      "reading": "transcription_mediated",
+      "quote": "wielded  the  spade,  and  the  closing  address  con- \nsisted of  his  memories  of  the  time  when  canoes \nwere  the  only  craft  plying  on  Illinois  waters, \nand  the  luckless  trader  who  essayed  the \n* 'Chicago  portage\"  must  wade  waist-deep  in \nthe  morass  of  Mud  Lake,  and  spend  his  first \nleisure  moments  in  removing  the  bloodsuckers \nwhich  infested  it. ",
+      "normalized": "Hubbard's own closing address at the ground-breaking remembered canoes as the only craft on Illinois waters, and the trader attempting the Chicago portage wading waist-deep in the morass of Mud Lake and picking off the bloodsuckers that infested it.",
+      "locator": {
+        "list": "hubbard_1911_introduction_pp_ix_xxvii",
+        "text_file": "hubbard_autobiography_1911.txt",
+        "lines": [
+          580,
+          587
+        ],
+        "leaf": 30,
+        "page": "xx"
+      },
+      "describes_date": "1818-1824",
+      "entities": [],
+      "town_finding": true,
+      "notes": "The portage as a man who used it described it, reported at second hand by McIlvaine. Corroborated at first hand by Hubbard's own page 41 (bk_hub_075, bk_hub_076)."
+    },
+    {
+      "id": "bk_hub_030",
+      "kind": "civic",
+      "reading": "transcription_mediated",
+      "quote": "this  purpose,  and  it  must  be  sold.  A  govern- \nment land  office  was  established  in  Chicago. \nThe  expression  **a  land  office  business\"  has \na  peculiar  significance  in  this  part  of  the \ncountry,  traceable  to  this  period.  Everybody \ndealt  in  land.  Whatever  a  man's  other  busi- \nness, he  carried  real  estate  *'on  the  side.\" \nChicago  lots  were  bandied  about  like  wheat ",
+      "normalized": "A government land office was established in Chicago to sell the canal lands; everybody dealt in land, every man carried real estate on the side, and Chicago lots were bandied about like wheat on the market.",
+      "locator": {
+        "list": "hubbard_1911_introduction_pp_ix_xxvii",
+        "text_file": "hubbard_autobiography_1911.txt",
+        "lines": [
+          609,
+          616
+        ],
+        "leaf": 31,
+        "page": "xxi"
+      },
+      "describes_date": "1830s",
+      "entities": [],
+      "town_finding": true,
+      "notes": "The land office and the trade in lots are the town's dominant business in the scene year, and this is a 1911 writer saying so plainly. A judgement, not a record; graded as one."
+    },
+    {
+      "id": "bk_hub_031",
+      "kind": "price",
+      "reading": "transcription_mediated",
+      "quote": "\"  Early  in  the  spring  of  1835,  about  the  month  of \nMarch,  Mr.  Hubbard  purchased,  with  two  others, \nMessrs.  Russell  and  Mather,  what  has  since  been \nknown  as  Russell  &  Mather's  addition  to  Chicago. \nThis  tract  comprised  eighty  acres,  and  was  bounded \non  the  south  by  Kinzie  Street,  on  the  east  by  the \nriver,  on  the  north  by  Chicago  Avenue,  and  then  ran \nwest  to  Halsted  Street  and  beyond.  For  these \neighty  acres  they  paid  $5,000.  At  that  time  one ",
+      "normalized": "In about March 1835 Hubbard, with Russell and Mather, bought the eighty acres later known as Russell & Mather's addition — bounded south by Kinzie Street, east by the river, north by Chicago Avenue, running west to Halsted Street and beyond — for $5,000.",
+      "locator": {
+        "list": "hubbard_1911_introduction_pp_ix_xxvii",
+        "text_file": "hubbard_autobiography_1911.txt",
+        "lines": [
+          623,
+          631
+        ],
+        "leaf": 31,
+        "page": "xxi"
+      },
+      "describes_date": "1835-03",
+      "entities": [
+        "Gurdon Saltonstall Hubbard",
+        "Russell",
+        "Mather"
+      ],
+      "town_finding": true,
+      "notes": "A DATED 1835 LAND PRICE WITH A BOUNDED TRACT, quoted by McIlvaine from the Sunday Times of 24 October 1875 (bk_hub_032). $62.50 an acre in March 1835, north of the river and west of the town, is a scarce and checkable number."
+    },
+    {
+      "id": "bk_hub_032",
+      "kind": "notice",
+      "reading": "transcription_mediated",
+      "quote": "than  an  account  of  a  sale  effected  by  Gurdon \nHubbard,  which  appeared  in  the  Sunday  Times \nof  October  24,  1875,  as  follows: ",
+      "normalized": "The account of the Russell & Mather purchase is quoted from the Sunday Times of 24 October 1875.",
+      "locator": {
+        "list": "hubbard_1911_introduction_pp_ix_xxvii",
+        "text_file": "hubbard_autobiography_1911.txt",
+        "lines": [
+          619,
+          621
+        ],
+        "leaf": 31,
+        "page": "xxi"
+      },
+      "describes_date": "1875-10-24",
+      "entities": [
+        "Sunday Times"
+      ],
+      "town_finding": false,
+      "notes": "town_finding false: it is the citation, not the fact. Recorded separately because bk_hub_031 and bk_hub_033 rest on it and a claim should not have to carry its own provenance in prose."
+    },
+    {
+      "id": "bk_hub_033",
+      "kind": "price",
+      "reading": "transcription_mediated",
+      "quote": "the  entire  territory  now  embraced  within  the  city \nlimits.  A  few  months  after  the  purchase,  Mr.  Hub- \nbard had  occasion  to  visit  New  York  City,  and  to \nhis  surprise  found  the  rage  for  Chicago  real  estate \nat  a  point  where  it  might  be  called  'wild.*  Having \nsought  and  received  the  consent  of  one  of  the  part- \nners who  lived  in  Connecticut,  he  looked  up  an \nengraver,  gave  him  such  a  sketch  of  the  lay  of  the \nland  as  he  could  call  up  from  memory,  had  a  plat \nprepared,  and  from  this  plat,  without  any  actual \nsubdivision  of  the  land,  sold  half  of  it  at  public \nauction  for  $8o,000.  This  within  three  or  four \nmonths  after  paying  $5,000.  News  of  this  transaction ",
+      "normalized": "A few months after the $5,000 purchase Hubbard, in New York, had a plat engraved from memory and sold half the tract at public auction for $80,000 without any actual subdivision of the land.",
+      "locator": {
+        "list": "hubbard_1911_introduction_pp_ix_xxvii",
+        "text_file": "hubbard_autobiography_1911.txt",
+        "lines": [
+          641,
+          653
+        ],
+        "leaf": 32,
+        "page": "xxii"
+      },
+      "describes_date": "1835",
+      "entities": [
+        "Gurdon Saltonstall Hubbard"
+      ],
+      "town_finding": true,
+      "notes": "The eastern speculation in Chicago land, told against a specific tract and a specific season of 1835. Note what it says about the plats of that year: this one was drawn in New York from a man's recollection of ground he had walked."
+    },
+    {
+      "id": "bk_hub_034",
+      "kind": "event",
+      "reading": "transcription_mediated",
+      "quote": "Gurdon  Hubbard  witnessed  four  wars  during \nhis  lifetime, — the  War  of  1 8 12,  which  occurred \nin  his  childhood;  the  Winnebago  War  of  1827, \ncentering  at  Fort  Dearborn,  of  which  he  him- \nself tells  the  story  in  the  following  pages;  the \nBlack  Hawk  War  of  1832,  in  which  he  acted \nas  scout,  and  furnished  the  provisions,  am- \nmunition, and  transportation  wagons  for  the \nVermilion  County  militia;  and  lastly,  the ",
+      "normalized": "Of the four wars of Hubbard's lifetime, the Winnebago War of 1827 centred at Fort Dearborn, and in the Black Hawk War of 1832 he acted as scout and furnished provisions, ammunition and transport wagons for the Vermilion County militia.",
+      "locator": {
+        "list": "hubbard_1911_introduction_pp_ix_xxvii",
+        "text_file": "hubbard_autobiography_1911.txt",
+        "lines": [
+          697,
+          705
+        ],
+        "leaf": 33,
+        "page": "xxiii"
+      },
+      "describes_date": "1827; 1832",
+      "entities": [
+        "Gurdon Saltonstall Hubbard",
+        "Fort Dearborn"
+      ],
+      "town_finding": true,
+      "notes": "Dates the two Indian wars that bear on this fort, and names the second as the reason the fort was re-occupied in 1832 (bk_hub_052)."
+    },
+    {
+      "id": "bk_hub_040",
+      "kind": "person",
+      "reading": "transcription_mediated",
+      "quote": "During  my  stay  at  Mackinaw  I  had  made \nthe  acquaintance  of  John  H.  Kinzie,  a  clerk \nof  about  my  own  age,  and  our  acquaintance \nhad  ripened  into  an  intimacy.  He  had  entered \nthe  service  of  the  Company  that  spring,  and \nwas  stationed  permanently  at  Mackinaw,  and \nwas  not  to  be  sent  int^  the  Indian  country. ",
+      "normalized": "At Mackinaw in 1818 Hubbard became intimate with John H. Kinzie, a clerk of about his own age who had entered the Company's service that spring and was stationed permanently at Mackinaw.",
+      "locator": {
+        "list": "hubbard_1911_pp_27_41",
+        "text_file": "hubbard_autobiography_1911.txt",
+        "lines": [
+          1974,
+          1980
+        ],
+        "leaf": 65,
+        "page": "27"
+      },
+      "describes_date": "1818",
+      "entities": [
+        "John Harris Kinzie",
+        "American Fur Company"
+      ],
+      "town_finding": true,
+      "notes": "Puts John H. Kinzie at Mackinaw and not at Chicago in 1818, in the words of a friend who was there. This project's hh_kinzie_john_h grades him attested for 1835; nothing here touches that."
+    },
+    {
+      "id": "bk_hub_041",
+      "kind": "person",
+      "reading": "transcription_mediated",
+      "quote": "His  father  then  resided  at  Chicago,  and  I  had \nlearned  of  the  great  hospitality  of  the  family, \nand  of  the  high  esteem  felt  for  them  by  all \nwho  knew  them;  and  as  I  had  also  been  told \nthat  we  should  make  a  stop  of  a  week  or  more \nat  Chicago,  there  to  make  our  arrangements \nfor  crossyig  our  boats  and  goods  to  the \nDesplaines  River,  I  gladly  accepted  letters  of \nintroduction  which  he  kindly  proffered  me, \nto  his  father  and  family. ",
+      "normalized": "John H. Kinzie's father then resided at Chicago; the family's hospitality and the esteem in which they were held were known at Mackinaw, and Hubbard carried letters of introduction to them.",
+      "locator": {
+        "list": "hubbard_1911_pp_27_41",
+        "text_file": "hubbard_autobiography_1911.txt",
+        "lines": [
+          1981,
+          1990
+        ],
+        "leaf": 65,
+        "page": "27"
+      },
+      "describes_date": "1818",
+      "entities": [
+        "John Kinzie",
+        "John Harris Kinzie"
+      ],
+      "town_finding": true,
+      "notes": "The elder Kinzie at Chicago in 1818, from a man who then walked into the house with the letter in his hand."
+    },
+    {
+      "id": "bk_hub_042",
+      "kind": "building",
+      "reading": "transcription_mediated",
+      "quote": "that  Fort  Dearborn  was  located  at  Chicago, \nthen  a  frontier  post;  that  it  was  garrisoned  by \ntwo  companies  of  soldiers,  and  that  on  my ",
+      "normalized": "Fort Dearborn was at Chicago, a frontier post garrisoned by two companies of soldiers.",
+      "locator": {
+        "list": "hubbard_1911_pp_27_41",
+        "text_file": "hubbard_autobiography_1911.txt",
+        "lines": [
+          2000,
+          2002
+        ],
+        "leaf": 66,
+        "page": "28"
+      },
+      "describes_date": "1818",
+      "entities": [
+        "Fort Dearborn"
+      ],
+      "town_finding": true,
+      "notes": "The garrison strength as it was understood at Mackinaw before Hubbard saw the place. Two companies is a number this project can hold against the fort's own returns when it reads them."
+    },
+    {
+      "id": "bk_hub_043",
+      "kind": "event",
+      "reading": "transcription_mediated",
+      "quote": "We  proceeded  on  our  voyage,  and  on  the \nevening  of  September  50,  18 18,  reached  the \nmouth  of  the  Calumet 'River,  then  known  as \nthe  \"Little  Calumet,\"  where  we  met  a  party \nof  Indians  returning  to  their  villages  from  a \nvisit  to  Chicago.  They  were  very  drunk,  and \nbefore  midnight  commenced  a  fight  in  which \nseveral  of  their  number  were  killed.  Owing \nto  this  disturbance  we  removed  our  camp  to \nthe  opposite  side  of  the  river  and  spent  the \nremainder  of  the  night  in  dressing  ourselves \nand  preparing  for  our  advent  into  Chicago. ",
+      "normalized": "On the evening of 30 September 1818 the brigade reached the mouth of the Calumet and met a party of Indians returning to their villages from a visit to Chicago; they were very drunk and several were killed in a fight before midnight.",
+      "locator": {
+        "list": "hubbard_1911_pp_27_41",
+        "text_file": "hubbard_autobiography_1911.txt",
+        "lines": [
+          2168,
+          2179
+        ],
+        "leaf": 70,
+        "page": "32"
+      },
+      "describes_date": "1818-09-30",
+      "entities": [],
+      "town_finding": false,
+      "notes": "town_finding FALSE: it happens twelve miles outside the town. Kept because it dates the arrival of bk_hub_045 to the day and because it is evidence that Chicago was a place Indians travelled to and came away drunk from in 1818."
+    },
+    {
+      "id": "bk_hub_044",
+      "kind": "landscape",
+      "reading": "transcription_mediated",
+      "quote": "We  started  at  dawn.  The  morning  was \ncalm  and  bright,  and  we,  in  our  holiday  attire, \nwith  flags  flying,  completed  the  last  twelve \nmiles  of  our  lake  voyage.  Arriving  at  Douglas \nGrove,  where  the  prairie  could  be  seen,  through \nthe  oak  woods,  I  landed,  and  climbing  a  tree, \ngazed  in  admiration  on  the  first  prairie  I  had \never  seen.  The  waving  grass,  intermingling \nwith  a  rich  profusion  of  wild  flowers,  was  the \nmost  beautiful  sight  I  had  ever  gazed  upon. ",
+      "normalized": "At Douglas Grove, where the prairie could be seen through the oak woods, Hubbard climbed a tree and saw his first prairie — waving grass intermingled with a rich profusion of wild flowers.",
+      "locator": {
+        "list": "hubbard_1911_pp_27_41",
+        "text_file": "hubbard_autobiography_1911.txt",
+        "lines": [
+          2181,
+          2190
+        ],
+        "leaf": 70,
+        "page": "32"
+      },
+      "describes_date": "1818-10-01",
+      "entities": [
+        "Douglas Grove"
+      ],
+      "town_finding": true,
+      "notes": "THE GROUND SOUTH OF THE TOWN, described by a man seeing it for the first time on 1 October. Oak woods on the lake side, open flowering prairie beyond."
+    },
+    {
+      "id": "bk_hub_045",
+      "kind": "landscape",
+      "reading": "transcription_mediated",
+      "quote": "In  the  distance  the  grove  of  Blue  Island \nloomed  up,  beyond  it  the  timber  on  the  Des- \nplaines  River,  while  to  give  animation  to  the \nscene,  a  herd  of  wild  deer  appeared,  and  a  pair \nof  red  foxes  emerged  from  the  grass  within \ngunshot  of  me. ",
+      "normalized": "From the same tree: the grove of Blue Island in the distance, the timber on the Desplaines beyond it, a herd of wild deer, and a pair of red foxes emerging from the grass within gunshot.",
+      "locator": {
+        "list": "hubbard_1911_pp_27_41",
+        "text_file": "hubbard_autobiography_1911.txt",
+        "lines": [
+          2196,
+          2201
+        ],
+        "leaf": 71,
+        "page": "33"
+      },
+      "describes_date": "1818-10-01",
+      "entities": [
+        "Blue Island",
+        "Desplaines River"
+      ],
+      "town_finding": true,
+      "notes": "The timber belt on the Desplaines and the Blue Island grove are the two wooded landmarks visible from the south approach, and this places them relative to each other from one viewpoint."
+    },
+    {
+      "id": "bk_hub_046",
+      "kind": "appearance",
+      "reading": "transcription_mediated",
+      "quote": "Looking  north,  I  saw^the  whitewashed  build- \nings of  Fort  Dearborn  sparkling  in  the  sun- \nshine, our  boats  with  flags  flying,  and  oars \nkeeping  time  to  the  cheering  boat  song.  I ",
+      "normalized": "Looking north from the grove Hubbard saw the whitewashed buildings of Fort Dearborn sparkling in the sunshine.",
+      "locator": {
+        "list": "hubbard_1911_pp_27_41",
+        "text_file": "hubbard_autobiography_1911.txt",
+        "lines": [
+          2203,
+          2206
+        ],
+        "leaf": 71,
+        "page": "33"
+      },
+      "describes_date": "1818-10-01",
+      "entities": [
+        "Fort Dearborn"
+      ],
+      "town_finding": true,
+      "notes": "WHITEWASHED, seen from the south at a distance, in sunlight. Corroborated at close quarters by bk_hub_055, which says the stockade and all the buildings were whitewashed."
+    },
+    {
+      "id": "bk_hub_047",
+      "kind": "event",
+      "reading": "transcription_mediated",
+      "quote": "scene  before  me.  I  took  the  \"trail  leading  to \nthe  fort,  and,  on  my  arrival,  found  our  party \ncamped  on  the  north  side  of  the  river,  near \nwhat  is  now  State  street.  A  soldier  ferried  me \nacross  the  river  in  a  canoe,  and  thus  I  made \nmy  first  entry  into  Chicago,  October  i,  1818. ",
+      "normalized": "Hubbard took the trail to the fort, found the party camped on the north side of the river near what is now State Street, was ferried across by a soldier, and so entered Chicago on 1 October 1818.",
+      "locator": {
+        "list": "hubbard_1911_pp_27_41",
+        "text_file": "hubbard_autobiography_1911.txt",
+        "lines": [
+          2208,
+          2213
+        ],
+        "leaf": 71,
+        "page": "33"
+      },
+      "describes_date": "1818-10-01",
+      "entities": [
+        "Fort Dearborn"
+      ],
+      "town_finding": true,
+      "notes": "A dated first arrival, and a crossing: in 1818 a man got over the Chicago River by canoe, rowed by a soldier. There is no bridge in this account."
+    },
+    {
+      "id": "bk_hub_048",
+      "kind": "person",
+      "reading": "transcription_mediated",
+      "quote": "his  son.  In  the  afternoon  I  called  at  Mr. \nKinzie 's  house,  and  had  the  pleasure  of  meet- \ning his  family — consisting  of  Mrs.  Kinzie;  their \neldest  daughter,  Mrs.  Helm;  their  youngest \ndaughter,  Maria^  now  the  wife  of  Major-General \nDavid  Hunter,\"^  of  the  U.  S.  Army,  and  their \nyoungest  son,  Robert,  late  paymaster  of  the \nU.  S.  Army,  all  of  whom  extended  to  me  a ",
+      "normalized": "At Mr Kinzie's house Hubbard met the family: Mrs Kinzie; the eldest daughter Mrs Helm; the youngest daughter Maria, later the wife of Major-General David Hunter; and the youngest son Robert, later paymaster of the U.S. Army.",
+      "locator": {
+        "list": "hubbard_1911_pp_27_41",
+        "text_file": "hubbard_autobiography_1911.txt",
+        "lines": [
+          2221,
+          2228
+        ],
+        "leaf": 71,
+        "page": "33"
+      },
+      "describes_date": "1818",
+      "entities": [
+        "John Kinzie",
+        "Mrs Kinzie",
+        "Mrs Helm",
+        "Maria Kinzie",
+        "David Hunter",
+        "Robert Kinzie"
+      ],
+      "town_finding": true,
+      "notes": "FIVE NAMED MEMBERS OF THE KINZIE HOUSEHOLD IN 1818, by a guest at their table. Ruled on in crosswalk.json; none of it places anybody in 1835."
+    },
+    {
+      "id": "bk_hub_049",
+      "kind": "building",
+      "reading": "transcription_mediated",
+      "quote": "and  this  seems  hke  home  to  me.\"  Mr.  Kin- \nzie's  house  was  a  long  log  cabin,  with  a  rude \npiazza,  and  fronted  the  river  directly  opposite \nFort  Dearborn. ",
+      "normalized": "Mr Kinzie's house was a long log cabin with a rude piazza, and fronted the river directly opposite Fort Dearborn.",
+      "locator": {
+        "list": "hubbard_1911_pp_27_41",
+        "text_file": "hubbard_autobiography_1911.txt",
+        "lines": [
+          2260,
+          2263
+        ],
+        "leaf": 72,
+        "page": "34"
+      },
+      "describes_date": "1818",
+      "entities": [
+        "John Kinzie",
+        "Fort Dearborn"
+      ],
+      "town_finding": true,
+      "notes": "THE MOST USEFUL SENTENCE IN THIS BOOK FOR THE RECONSTRUCTION: form (long log cabin), a named feature (a rude piazza), orientation (fronting the river) and position (directly opposite the fort), from a man who slept in it. It describes 1818 and not 1835, and the ladder ratified 2026-09-03 forbids using it to place anything in the scene year — but the piazza is confirmed independently at page 169 (bk_hub_095), nine years later."
+    },
+    {
+      "id": "bk_hub_050",
+      "kind": "building",
+      "reading": "transcription_mediated",
+      "quote": "Fort  Dearborn  was  first  established  in  1804, \non  the  south  bank  of  Chicago  River  near  where \nit  then  discharged  into  lake  Michigan. ",
+      "normalized": "Fort Dearborn was first established in 1804 on the south bank of Chicago River near where it then discharged into Lake Michigan.",
+      "locator": {
+        "list": "hubbard_1911_pp_27_41",
+        "text_file": "hubbard_autobiography_1911.txt",
+        "lines": [
+          2268,
+          2270
+        ],
+        "leaf": 72,
+        "page": "34"
+      },
+      "describes_date": "1804",
+      "entities": [
+        "Fort Dearborn"
+      ],
+      "town_finding": true,
+      "notes": "'Where it THEN discharged' is the point: the river mouth of 1804 is not the river mouth of 1835. See bk_hub_060 and bk_hub_061."
+    },
+    {
+      "id": "bk_hub_051",
+      "kind": "event",
+      "reading": "transcription_mediated",
+      "quote": "It  was  evacuated  August  15,  18 12,  by  Capt. \nN.  Heald,  1st  U.  S.  Infantry,  who  was  then  in \ncommand,  and  it  was  on  the  same  day  destroyed \nby  the  Indians. \n\nIt  was  rebuilt  on  the  old  site  in  June,  18 16, \nby  Capt.  Hezekiah  Bradley,  3d  U.  S.  Infan- \ntry, and  occupied  by  troops  until  October,  1823, \nwhen  it  was  again  vacated  and  left  in  charge \nof  Alexander  Wolcott,  Indian  Agent. ",
+      "normalized": "The fort was evacuated 15 August 1812 by Capt. N. Heald and destroyed by the Indians the same day; rebuilt on the old site in June 1816 by Capt. Hezekiah Bradley; occupied until October 1823, when it was vacated and left in charge of Alexander Wolcott, Indian Agent.",
+      "locator": {
+        "list": "hubbard_1911_pp_27_41",
+        "text_file": "hubbard_autobiography_1911.txt",
+        "lines": [
+          2276,
+          2285
+        ],
+        "leaf": 73,
+        "page": "35"
+      },
+      "describes_date": "1812-1823",
+      "entities": [
+        "Fort Dearborn",
+        "Nathan Heald",
+        "Hezekiah Bradley",
+        "Alexander Wolcott"
+      ],
+      "town_finding": true,
+      "notes": "The second fort — the one standing in 1835 — dated to June 1816 and to a named builder, and the first vacancy dated to October 1823."
+    },
+    {
+      "id": "bk_hub_052",
+      "kind": "event",
+      "reading": "transcription_mediated",
+      "quote": "Re-occupied,  October  3,  1828. \n\nTroops  again  withdrawn.  May  20,  1 83 1. \n\nRe-occupied,  June  17,  1832. \n\nAgain  vacated,  July  11,  1832. \n\nRe-occupied,  October  i,  1832.         y/ \n\nAnd  finally  abandoned,  December  29,  1 836. ",
+      "normalized": "Re-occupied 3 October 1828; troops withdrawn 20 May 1831; re-occupied 17 June 1832; vacated 11 July 1832; re-occupied 1 October 1832; and finally abandoned 29 December 1836.",
+      "locator": {
+        "list": "hubbard_1911_pp_27_41",
+        "text_file": "hubbard_autobiography_1911.txt",
+        "lines": [
+          2287,
+          2297
+        ],
+        "leaf": 73,
+        "page": "35"
+      },
+      "describes_date": "1828-1836",
+      "entities": [
+        "Fort Dearborn"
+      ],
+      "town_finding": true,
+      "notes": "THE SCENE YEAR IS INSIDE THE LAST OCCUPATION. Hubbard's list says the fort was garrisoned continuously from 1 October 1832 to 29 December 1836, so in 1835 it held troops. That is a load-bearing date for this reconstruction and it comes with five others that can be checked against the War Department returns."
+    },
+    {
+      "id": "bk_hub_053",
+      "kind": "person",
+      "reading": "transcription_mediated",
+      "quote": "Capt.  John  Fowle,  5th  U.  S.  Infantry,  from \nOctober  3,  1828,  to  December  21,  1830. \n\nLieut.  David  Hunter,  5th  U.  S.  Infantry,  to \nMay 20, 183 1,  when  the  troops  were  withdrawn. \n\nMaj.  Wilham  Whistler,  2d  U.  S.  Infantry, \nfrom  June  17,  1832,  to  July  11,  1832,  and \nfrom  October  i,  1832,  to  June  19,  1833. ",
+      "normalized": "The fort's commanders: Capt. John Fowle, 5th U.S. Infantry, 3 October 1828 to 21 December 1830; Lieut. David Hunter, 5th U.S. Infantry, to 20 May 1831; Maj. William Whistler, 2d U.S. Infantry, 17 June to 11 July 1832 and 1 October 1832 to 19 June 1833.",
+      "locator": {
+        "list": "hubbard_1911_pp_27_41",
+        "text_file": "hubbard_autobiography_1911.txt",
+        "lines": [
+          2329,
+          2337
+        ],
+        "leaf": 74,
+        "page": "36"
+      },
+      "describes_date": "1828-1833",
+      "entities": [
+        "John Fowle",
+        "David Hunter",
+        "William Whistler",
+        "Fort Dearborn"
+      ],
+      "town_finding": true,
+      "notes": "The list STOPS at 19 June 1833 — Hubbard could not find the later commanders in the War Department records, so this source names nobody commanding the fort in 1835. Recorded as a limit as much as a fact."
+    },
+    {
+      "id": "bk_hub_054",
+      "kind": "building",
+      "reading": "transcription_mediated",
+      "quote": "When  I  first  saw  Fort  Dearborn  it  was  a \nstockade  of  oak  pickets  fourteen  feet  long, \ninclosing  a  square  of  about  six  hundred  feet. \n\nA  block  house  stood  at  the  southwest  corner, \nand  a  bastion  in  the  northwest  corner,  about  a \nhundred  feet  from  which  was  the  river. ",
+      "normalized": "The stockade was of oak pickets fourteen feet long enclosing a square of about six hundred feet, with a block house at the south-west corner and a bastion at the north-west corner about a hundred feet from the river.",
+      "locator": {
+        "list": "hubbard_1911_pp_27_41",
+        "text_file": "hubbard_autobiography_1911.txt",
+        "lines": [
+          2339,
+          2345
+        ],
+        "leaf": 74,
+        "page": "36"
+      },
+      "describes_date": "1818",
+      "entities": [
+        "Fort Dearborn"
+      ],
+      "town_finding": true,
+      "notes": "DIMENSIONS AND CORNERS, from a man standing in front of it in 1818. 'About six hundred feet' square is far larger than the fort this project reconstructs and should be treated as a pace-estimate at sixty years' distance, not a measurement; the two corner works and their orientation are the durable part."
+    },
+    {
+      "id": "bk_hub_055",
+      "kind": "building",
+      "reading": "transcription_mediated",
+      "quote": "The  officers'  quarters  were  outside  of  the \npickets,  fronting  east  on  the  parade,  and  was \na  two-story  building  of  hewn  logs.  A  piazza \nextended  along  the  entire  front  on  a  line  with \nthe  floor  of  the  second  story,  and  was  reached \nby  stairs  on  the  outside. \n\nThe  first  story  was  divided  into  kitchen, \ndining  and  store  rooms,  while  the  second  story \nwas  in  one  large  room.  The  roof  was  covered \nwith  split  clapboards  about  four  feet  long. ",
+      "normalized": "The officers' quarters stood OUTSIDE the pickets, fronting east on the parade: a two-storey building of hewn logs with a piazza along the entire front at the level of the second storey floor, reached by outside stairs; kitchen, dining and store rooms below and one large room above, under a roof of split clapboards about four feet long.",
+      "locator": {
+        "list": "hubbard_1911_pp_27_41",
+        "text_file": "hubbard_autobiography_1911.txt",
+        "lines": [
+          2354,
+          2364
+        ],
+        "leaf": 74,
+        "page": "36"
+      },
+      "describes_date": "1818",
+      "entities": [
+        "Fort Dearborn"
+      ],
+      "town_finding": true,
+      "notes": "A FULL ELEVATION OF A NAMED BUILDING. It also sets up the book's sharpest internal disagreement: at page 167 (bk_hub_090) Hubbard puts the commanding officers' former quarters in a BRICK building just within the north stockade, and the log quarters 'on the west, and within the pickets'. Nine years and a fire separate the two descriptions and this project resolves neither."
+    },
+    {
+      "id": "bk_hub_056",
+      "kind": "building",
+      "reading": "transcription_mediated",
+      "quote": "The  soldiers'  quarters  were  also  of  logs,  and \nsimilar  to  the  officers',  except  that  both  stories \nwere  finished  off  and  divided  into  rooms. ",
+      "normalized": "The soldiers' quarters were also of logs and like the officers', except that both storeys were finished off and divided into rooms.",
+      "locator": {
+        "list": "hubbard_1911_pp_27_41",
+        "text_file": "hubbard_autobiography_1911.txt",
+        "lines": [
+          2366,
+          2368
+        ],
+        "leaf": 74,
+        "page": "36"
+      },
+      "describes_date": "1818",
+      "entities": [
+        "Fort Dearborn"
+      ],
+      "town_finding": true,
+      "notes": "The building that burned in the fire of bk_hub_082."
+    },
+    {
+      "id": "bk_hub_057",
+      "kind": "building",
+      "reading": "transcription_mediated",
+      "quote": "In  the  northeast  corner  was  the  sutler's \nstore,  also  built  of  logs,  while  at  the  north \nand  south  sides  were  gates  opening  to  the \nparade  ground. \n\nOn  each  side  of  the  south  gate  were  guard- \nhouses, about  ten  feet  square. ",
+      "normalized": "In the north-east corner was the sutler's store, also of logs; gates opened to the parade ground on the north and south sides; and on each side of the south gate were guardhouses about ten feet square.",
+      "locator": {
+        "list": "hubbard_1911_pp_27_41",
+        "text_file": "hubbard_autobiography_1911.txt",
+        "lines": [
+          2374,
+          2380
+        ],
+        "leaf": 75,
+        "page": "37"
+      },
+      "describes_date": "1818",
+      "entities": [
+        "Fort Dearborn"
+      ],
+      "town_finding": true,
+      "notes": "Two gates and their sides, a corner store and a pair of ten-foot guardhouses — the plan of the enclosure as a resident of it remembered it."
+    },
+    {
+      "id": "bk_hub_058",
+      "kind": "building",
+      "reading": "transcription_mediated",
+      "quote": "The  commissary  storehouse  was  two  stories \nin  height,  and  stood  east  of  the  guardhouse \nand  south  of  the  soldiers'  quarters. \n\nThe  magazine  was  constructed  of  brick,  and \nwas  situated  west  of  the  guardhouse,  and \nnear  the  block  house.  The  stockade  and  all \nthe  buildings  were  neatly  whitewashed,  and \npresented  a  neat  and  pleasing  appearance. ",
+      "normalized": "The commissary storehouse was two storeys, east of the guardhouse and south of the soldiers' quarters; the magazine was of brick, west of the guardhouse and near the block house; and the stockade and all the buildings were neatly whitewashed.",
+      "locator": {
+        "list": "hubbard_1911_pp_27_41",
+        "text_file": "hubbard_autobiography_1911.txt",
+        "lines": [
+          2382,
+          2390
+        ],
+        "leaf": 75,
+        "page": "37"
+      },
+      "describes_date": "1818",
+      "entities": [
+        "Fort Dearborn"
+      ],
+      "town_finding": true,
+      "notes": "THE ONE BRICK BUILDING IN THE 1818 FORT IS THE MAGAZINE. That matters because of bk_hub_090, where the brick building at the north stockade is where the Indian agent lived in 1827."
+    },
+    {
+      "id": "bk_hub_059",
+      "kind": "landscape",
+      "reading": "transcription_mediated",
+      "quote": "West,  and  a  little  south,  of  the  fort  was  the \nmilitary  barn,  adjoining  which,  on  the  east, \nwas  the  fort  garden,  of  about  four  acres,  which \nextended  so  as  to  front  the  fort  on  the  south, \nits  eastern  line  of  fence  connecting  with  and \nforming  a  part  of  the  field  extending  south \nabout  half  a  mile. \n",
+      "normalized": "West and a little south of the fort was the military barn; adjoining it on the east the fort garden of about four acres, which fronted the fort on the south and whose eastern fence joined the field extending south about half a mile.",
+      "locator": {
+        "list": "hubbard_1911_pp_27_41",
+        "text_file": "hubbard_autobiography_1911.txt",
+        "lines": [
+          2392,
+          2399
+        ],
+        "leaf": 75,
+        "page": "37"
+      },
+      "describes_date": "1818",
+      "entities": [
+        "Fort Dearborn"
+      ],
+      "town_finding": true,
+      "notes": "FOUR ACRES OF GARDEN AND HALF A MILE OF FIELD south of the fort — the reservation was farmed, not empty, and this gives its extent."
+    },
+    {
+      "id": "bk_hub_060",
+      "kind": "street",
+      "reading": "transcription_mediated",
+      "quote": "Adjoining  this  fence  on  the  east  was  the \nonly  road  leading  from  the  fort  in  either  direc- \ntion. The  south  line  of  the  garden  fence \nextended  to  the  edge  of  the  river,  and  a  fence \nfrom  the  west  end  of  the  barn  extended  north \nto  the  river,  so  that  the  fort  was  wholly  in- \nclosed by  fence  from  river  to  river.  The \ninclosure  between  the  stockade  and  the  outer \nfences  was  covered  with  grass  and  adorned \nwith  trees  and  shrubbery. ",
+      "normalized": "Adjoining the garden fence on the east was the only road leading from the fort in either direction; the garden's south fence ran to the river's edge and a fence from the west end of the barn ran north to the river, so the fort was wholly enclosed by fence from river to river; the ground between stockade and outer fences was grass, with trees and shrubbery.",
+      "locator": {
+        "list": "hubbard_1911_pp_27_41",
+        "text_file": "hubbard_autobiography_1911.txt",
+        "lines": [
+          2400,
+          2409
+        ],
+        "leaf": 75,
+        "page": "37"
+      },
+      "describes_date": "1818",
+      "entities": [
+        "Fort Dearborn"
+      ],
+      "town_finding": true,
+      "notes": "ONE ROAD, AND A FENCE LINE FROM RIVER TO RIVER. This is the strongest statement in the book about circulation on the south side, and the trees and shrubbery inside the outer fence are a dressing detail this reconstruction can use nowhere else."
+    },
+    {
+      "id": "bk_hub_061",
+      "kind": "infrastructure",
+      "reading": "transcription_mediated",
+      "quote": "The  well  was  in  the  outer  inclosure  and  near \n37 \n\n\n€l)e  ^utofiiogtapi^p  of \n\n\nthe  south  gate,  while  about  two  hundred  feet \nfrom  the  north  gate  was  the  river,  a  stream  of \nclear,  pure  water,  fed  from  the  lake. ",
+      "normalized": "The well was in the outer enclosure near the south gate, and about two hundred feet from the north gate was the river, a stream of clear pure water fed from the lake.",
+      "locator": {
+        "list": "hubbard_1911_pp_27_41",
+        "text_file": "hubbard_autobiography_1911.txt",
+        "lines": [
+          2411,
+          2420
+        ],
+        "leaf": 75,
+        "page": "37-38"
+      },
+      "describes_date": "1818",
+      "entities": [
+        "Fort Dearborn"
+      ],
+      "town_finding": true,
+      "notes": "THE QUOTE CROSSES A LEAF BOUNDARY and therefore carries the folio '37' and the running head of page 38 verbatim, exactly as the committed text has them; the locator says page 37-38 for that reason. Two facts: a well outside the stockade by the south gate, and the river two hundred feet off the north gate — and the river described as clear and lake-fed, which is not how 1835 describes it."
+    },
+    {
+      "id": "bk_hub_062",
+      "kind": "appearance",
+      "reading": "transcription_mediated",
+      "quote": "On  the  east  side  of  the  fort  the  river  was \nfrom  four  to  five  hundred  feet  from  the  pick- \nets, and  a  part  of  this  distance  was  a  low,  sandy \nbeach,  where  rude  wash-houses  had  been \nconstructed,  in  which  the  men  and  women \nof  the  garrison  conducted  their  laundry  oper- \nations. ",
+      "normalized": "On the east side the river was four to five hundred feet from the pickets, part of that distance a low sandy beach where rude wash-houses had been built and the men and women of the garrison did the laundry.",
+      "locator": {
+        "list": "hubbard_1911_pp_27_41",
+        "text_file": "hubbard_autobiography_1911.txt",
+        "lines": [
+          2422,
+          2428
+        ],
+        "leaf": 76,
+        "page": "38"
+      },
+      "describes_date": "1818",
+      "entities": [
+        "Fort Dearborn"
+      ],
+      "town_finding": true,
+      "notes": "WASH-HOUSES ON THE BEACH — small, rude, and worked by women as well as men. The kind of structure a reconstruction leaves out and a visitor would have seen first."
+    },
+    {
+      "id": "bk_hub_063",
+      "kind": "building",
+      "reading": "transcription_mediated",
+      "quote": "Just  east  of  the  road,  and  adjoining  the \nfence  running  east  to  the  river,  was  the  \"Fac- \ntor House,\"  a  two-story,  squared-log  struc- \nture, inclosed  by  a  neat  spljt-picket  fence. \nThis  building  was  occupied  fr/^m  1804  to  about \nthe  year  18 10  by  a  Mr.  Jouett,  United  States \nfactor,  and  by  the  west  side  of  the  road,  adjoin- \ning the  government  garden,  in  a  picket-fence \ninclosure,  was  the  grave  of  his  wife.  At  the \nsecond  construction  of.  the  fort  he  was  suc- \nceeded by  John  Dean. ",
+      "normalized": "Just east of the road, adjoining the fence running east to the river, stood the 'Factor House', a two-storey squared-log structure inside a neat split-picket fence, occupied from 1804 to about 1810 by Mr Jouett, United States factor, whose wife's grave lay in a picket enclosure by the west side of the road; at the second construction of the fort he was succeeded by John Dean.",
+      "locator": {
+        "list": "hubbard_1911_pp_27_41",
+        "text_file": "hubbard_autobiography_1911.txt",
+        "lines": [
+          2430,
+          2440
+        ],
+        "leaf": 76,
+        "page": "38"
+      },
+      "describes_date": "1804-1818",
+      "entities": [
+        "Factor House",
+        "Jouett",
+        "John Dean"
+      ],
+      "town_finding": true,
+      "notes": "THE FACTOR HOUSE, WITH ITS FENCE, ITS STOREYS AND ITS TWO OCCUPANTS. This project's data/structures/jb_beaubien_homestead.json already carries a Factory House origin from the Hurlbut reading (T-0575); this is the second, independent description, and it adds the split-picket fence and the grave beside the road."
+    },
+    {
+      "id": "bk_hub_064",
+      "kind": "landscape",
+      "reading": "transcription_mediated",
+      "quote": "For  a  distance  of  a  quarter  of  a  mile  from \nthe  ''Factor  House\"  there  was  no  fence, \nbuilding,  or  other  obstruction  between  the \ngovernment-field  fence  and  the  river  or  lake. \nAnother  house  of  hewn  logs  stood  twelve \nhundred  or  more  feet  from  the  road,  and  back \nof  it  flowed  the  Chicago  River,  which,  as  late \nas  1827,  emptied  into  Lake  Michigan  at  a \npoint  known  as  \"The  Pines,\"  a  clump  of  a \nhundred  or  more  stunted  pine  trees  on  the \nsand-hills  about  a  mile  from  the  fort.  On  the ",
+      "normalized": "For a quarter of a mile from the Factor House there was no fence, building or other obstruction between the government-field fence and the river or lake; another house of hewn logs stood twelve hundred or more feet from the road; and as late as 1827 the Chicago River emptied into Lake Michigan at 'The Pines', a clump of a hundred or more stunted pine trees on the sand-hills about a mile from the fort.",
+      "locator": {
+        "list": "hubbard_1911_pp_27_41",
+        "text_file": "hubbard_autobiography_1911.txt",
+        "lines": [
+          2442,
+          2452
+        ],
+        "leaf": 76,
+        "page": "38"
+      },
+      "describes_date": "1818-1827",
+      "entities": [
+        "The Pines",
+        "John-Dean house",
+        "Dean",
+        "Jean Baptiste Beaubien"
+      ],
+      "town_finding": true,
+      "notes": "THE OLD RIVER MOUTH, NAMED AND DATED — a mile south of the fort, marked by a hundred stunted pines on sand-hills, and still the outlet as late as 1827. The 1834 harbour cut is what moved it; this is where it was before. THE HOUSE IN THE MIDDLE OF THIS SENTENCE WAS NEVER PICKED UP, and T-0895 identifies it: it is the John-Dean house — built on the lake shore near the foot of Randolph Street in 1815 by an army contractor named Dean, bought by Jean Baptiste Beaubien in 1817 and lived in by him for several years (Andreas scan p. 183). THE IDENTIFICATION IS FORCED BY HUBBARD'S OWN EXHAUSTIVENESS, not merely suggested by agreement: `bk_hub_066` closes this inventory with the buildings named 'comprised all the buildings within the present limits of Cook County', so a house standing here in 1818 has to be on the list, and every other building on it — the Factor House by the road (`bk_hub_063`), Craft's round-log storehouse on the river's edge (`bk_hub_065`), Hardscrabble, Ouilmette's cabin, Kinzie's house — is placed somewhere this one is not. This is the only unnamed building on the list. 'Back of it flowed the Chicago River' agrees: `bk_hub_067` has the old channel running south behind the sand strip, so a lakeshore house there has the river behind it to the west. And the distance agrees at the precision it carries — the foot of Randolph Street, derived by T-0759's method, lies 1,512 ft south of `fort_dearborn_palisade` in this project's own frame, against Hubbard's 'twelve hundred or more feet'. THE READING ABOVE IS UNTOUCHED and `kind` is left at `landscape`, because the sentence was filed for the old river mouth and still carries it; what this note adds is the building. IT IS GRADED `inferred` AND WILL NOT IMPROVE: Hubbard names neither Dean nor Beaubien here and dates no construction. NOTHING IS BUILT ON IT — the house is excluded from the scene at `data/exclusions.json#john_dean_house` because no source places it after 1818, thirteen years before the scene date. Full reading: docs/RESEARCH/john_dean_house.md."
+    },
+    {
+      "id": "bk_hub_065",
+      "kind": "building",
+      "reading": "transcription_mediated",
+      "quote": "edge  of  the  river,  directly  east  of  this  house, \nand  distant  about  fqidr  hundred  feet,  stood  a \nstorehouse  of  roun^ogs,  owned  by  the  Ameri- \ncan Fur  Compam^  and  occupied  by  its  agent, \nMr.  John  Craft ,Mvho  erected  it.  This  house \nwas  surrounded  by  a  rail  fence,  and,  after  the \ndeath  of  Mr.  Craft,  was  occupied  by  Jean \nBaptiste  Beaubien. ",
+      "normalized": "On the edge of the river directly east of that house, about four hundred feet off, stood a storehouse of round logs owned by the American Fur Company, erected and occupied by its agent Mr John Craft, surrounded by a rail fence; after Craft's death it was occupied by Jean Baptiste Beaubien.",
+      "locator": {
+        "list": "hubbard_1911_pp_27_41",
+        "text_file": "hubbard_autobiography_1911.txt",
+        "lines": [
+          2458,
+          2465
+        ],
+        "leaf": 77,
+        "page": "39"
+      },
+      "describes_date": "1818-1823",
+      "entities": [
+        "American Fur Company",
+        "John Craft",
+        "Jean Baptiste Beaubien"
+      ],
+      "town_finding": true,
+      "notes": "ROUND LOGS AND A RAIL FENCE, and the succession from Craft to Beaubien stated plainly. Hurlbut's chapter (bk_afc_007, bk_afc_008) gives the same succession and dates Craft's death 'in December, of I think the year 1823'. Two tellings, one building; and this one adds the construction."
+    },
+    {
+      "id": "bk_hub_066",
+      "kind": "building",
+      "reading": "transcription_mediated",
+      "quote": "Adjoining  this  storehouse  on  the  south  was \nthe  fort  burying-ground.  The  east  line  of  the \ngovernment  field  extended  to  about  this  point, \nand  thence  west  to  the  south  branch  of  the \nriver.  These,  with  the  addition  of  a  log  cabin \nnear  the  present  Bridgeport,  called  \"Hard- \nscrabble,\"  a  cabin  on  the  north  side  occupied \nby  Antoine  Ouilmette,  and  the  house  of  Mr. \nKinzie,  comprised  all  the  buildings  within  the \npresent  limits  of  Cook  County. ",
+      "normalized": "The fort burying-ground adjoined the storehouse on the south; and these, with a log cabin near the present Bridgeport called 'Hardscrabble', a cabin on the north side occupied by Antoine Ouilmette, and the house of Mr Kinzie, comprised ALL the buildings within the present limits of Cook County.",
+      "locator": {
+        "list": "hubbard_1911_pp_27_41",
+        "text_file": "hubbard_autobiography_1911.txt",
+        "lines": [
+          2467,
+          2476
+        ],
+        "leaf": 77,
+        "page": "39"
+      },
+      "describes_date": "1818",
+      "entities": [
+        "Hardscrabble",
+        "Antoine Ouilmette",
+        "John Kinzie"
+      ],
+      "town_finding": true,
+      "notes": "A COMPLETE BUILDING COUNT FOR 1818 — the fort's group, the Factor House, the Fur Company storehouse, Hardscrabble, Ouilmette's cabin and Kinzie's house, and nothing else in the whole of Cook County. Seventeen years before the scene. Nothing about the town of 1835 follows from it except the scale of what happened in between."
+    },
+    {
+      "id": "bk_hub_067",
+      "kind": "landscape",
+      "reading": "transcription_mediated",
+      "quote": "Between  the  river  and  the  lake,  and  extend- \ning south  to  \"The  Pines,\"  was  a  narrow \nstrip  of  sand  formed  by  the  northeast  winds \ngradually  forcing  the  mouth  of  the  river  south \nof  its  natural  and  original  outlet  at  Fort \nDearborn. ",
+      "normalized": "Between the river and the lake, running south to The Pines, was a narrow strip of sand formed by the north-east winds gradually forcing the river mouth south of its natural and original outlet at Fort Dearborn.",
+      "locator": {
+        "list": "hubbard_1911_pp_27_41",
+        "text_file": "hubbard_autobiography_1911.txt",
+        "lines": [
+          2478,
+          2483
+        ],
+        "leaf": 77,
+        "page": "39"
+      },
+      "describes_date": "1818",
+      "entities": [
+        "Fort Dearborn"
+      ],
+      "town_finding": true,
+      "notes": "THE SAND SPIT AND THE MECHANISM THAT MADE IT — north-east winds, and a mouth that was migrating southward year by year. This is the landform the 1834 piers were built to defeat."
+    },
+    {
+      "id": "bk_hub_068",
+      "kind": "event",
+      "reading": "transcription_mediated",
+      "quote": "In  the  spring  of  1828,  the  Chicago  River \nhad  a  strong  current  caused  by  flood;  and, \ntaking  advantage  of  this,  the  officer  command- \ning at  the  fort  ordered  some  of  his  men  to  cut \na  passage  through  the  spit  of  land  at  the  com- \nmencement of  the  bend  and  parallel  with  the \nnorth  side  of  the  fort.  It  was  the  work  of  but \nan  hour  or  two  to  dig  a  ditch  down  to  the  level \n39 ",
+      "normalized": "In the spring of 1828, with the river in flood, the officer commanding the fort had his men cut a ditch through the spit at the beginning of the bend parallel with the north side of the fort; it was an hour or two's work, and the current washed a straight channel fifteen or more feet deep through to the lake.",
+      "locator": {
+        "list": "hubbard_1911_pp_27_41",
+        "text_file": "hubbard_autobiography_1911.txt",
+        "lines": [
+          2485,
+          2493
+        ],
+        "leaf": 77,
+        "page": "39"
+      },
+      "describes_date": "1828",
+      "entities": [
+        "Fort Dearborn",
+        "Chicago River"
+      ],
+      "town_finding": true,
+      "notes": "THE FIRST CUT, six years before the federal piers, dug by soldiers in an afternoon. Fifteen feet is deeper than the harbour of 1835 could hold and the next claim says why."
+    },
+    {
+      "id": "bk_hub_069",
+      "kind": "landscape",
+      "reading": "transcription_mediated",
+      "quote": "of  the  river,  and  the  water  being  let  in,  the  force \nof  the  current  soon  washed  a  straight  channel \nthrough  to  the  lake  fifteen  or  more  feet  deep; \nbut  the  ever-shifting  sand  soon  again  filled  this \nchannel,  and  the  mouth  of  the  river  worked \nsouth  to  about  where  Madison  street  now  is. ",
+      "normalized": "The ever-shifting sand soon filled the channel again and the river mouth worked south to about where Madison Street now is.",
+      "locator": {
+        "list": "hubbard_1911_pp_27_41",
+        "text_file": "hubbard_autobiography_1911.txt",
+        "lines": [
+          2499,
+          2504
+        ],
+        "leaf": 78,
+        "page": "40"
+      },
+      "describes_date": "1828-1830s",
+      "entities": [
+        "Chicago River"
+      ],
+      "town_finding": true,
+      "notes": "THE CUT DID NOT HOLD. Between 1828 and the federal work the mouth was back down the beach; this dates and locates the failure the 1834 harbour was built to fix."
+    },
+    {
+      "id": "bk_hub_070",
+      "kind": "infrastructure",
+      "reading": "transcription_mediated",
+      "quote": "To  Captain  Fowle,  however,  are  we  indebted \nfor  the  first  attempt  to  make  a  harbor  of  the \nChicago  River. ",
+      "normalized": "Captain Fowle is credited with the first attempt to make a harbour of the Chicago River.",
+      "locator": {
+        "list": "hubbard_1911_pp_27_41",
+        "text_file": "hubbard_autobiography_1911.txt",
+        "lines": [
+          2506,
+          2508
+        ],
+        "leaf": 78,
+        "page": "40"
+      },
+      "describes_date": "1828-1830",
+      "entities": [
+        "John Fowle",
+        "Chicago River"
+      ],
+      "town_finding": true,
+      "notes": "Names the man behind bk_hub_068, and dates it: Fowle commanded from 3 October 1828 to 21 December 1830 (bk_hub_053)."
+    },
+    {
+      "id": "bk_hub_071",
+      "kind": "appearance",
+      "reading": "transcription_mediated",
+      "quote": "The  officers  amused  themselves  with  fishing \nand  hunting;  deer,  red  fox,  and  wild-fowl  were \nabundant.  Foxes  burrowed  in  the  sand-hills \nand  were  often  dug  out,  brought  to  the  fort, \nand  let  loose  upon  the  sand-bar  formed  by  the \noutlet  of  the  river.  They  were  then  chased \nby  hounds,  men  being  stationed  so  as  to \nprevent  their  escape  from  the  bar.  These  fox \nhunts  were  very  exciting,  and  were  enjoyed \nby  Indians  and  whites  alike.  None  of  the \nofficers  were  married,  and  as  the  sutler's \nstore  furnished  the  only  means  of  spending \ntheir  money  they  were  forced  to  be  frugal  and \nsaving.     They  were  a  cojivivial,  jolly  set. ",
+      "normalized": "The officers fished and hunted; deer, red fox and wild-fowl were abundant; foxes were dug out of the sand-hills and loosed on the sand-bar at the river's outlet to be chased by hounds with men posted to stop their escape, and Indians and whites alike enjoyed it; none of the officers were married, and the sutler's store was the only place to spend money.",
+      "locator": {
+        "list": "hubbard_1911_pp_27_41",
+        "text_file": "hubbard_autobiography_1911.txt",
+        "lines": [
+          2510,
+          2523
+        ],
+        "leaf": 78,
+        "page": "40"
+      },
+      "describes_date": "1818-1823",
+      "entities": [
+        "Fort Dearborn"
+      ],
+      "town_finding": true,
+      "notes": "GARRISON LIFE, and a use for the sand-bar. The unmarried officers and the single store are two constraints on what a reconstruction may put inside the fort."
+    },
+    {
+      "id": "bk_hub_072",
+      "kind": "infrastructure",
+      "reading": "transcription_mediated",
+      "quote": "Fort  Wayne,  Indiana,  was  the  nearest  post- \noffice,  and  the  mail  was  carried  generally  by \nsoldiers  on  foot  and  was  received  once  a  month. ",
+      "normalized": "Fort Wayne, Indiana was the nearest post-office, and the mail was generally carried by soldiers on foot and received once a month.",
+      "locator": {
+        "list": "hubbard_1911_pp_27_41",
+        "text_file": "hubbard_autobiography_1911.txt",
+        "lines": [
+          2525,
+          2527
+        ],
+        "leaf": 78,
+        "page": "40"
+      },
+      "describes_date": "1818-1823",
+      "entities": [
+        "Fort Wayne"
+      ],
+      "town_finding": true,
+      "notes": "NO POST OFFICE AT CHICAGO, and mail once a month on a soldier's back. The distance between this and 1835, when the town had a printed newspaper twice over, is the measure of seventeen years."
+    },
+    {
+      "id": "bk_hub_073",
+      "kind": "landscape",
+      "reading": "transcription_mediated",
+      "quote": "The  wild  onion  grew  in  great  quantities  along \nthe  banks  of  the  river,  and  in  the  woods  adjoin- \ning, the  leek  abounded,  and  doubtless  Chicago \nderived  its  name  from  the  onion  and  not,  as \nsome  suppose,  from  the  (animal)  skunk.  The \nIndian  name  for  this  animal  is  chi-kack,  for \n40 ",
+      "normalized": "The wild onion grew in great quantities along the banks of the river and the leek abounded in the adjoining woods, and Hubbard held that Chicago took its name from the onion and not from the skunk.",
+      "locator": {
+        "list": "hubbard_1911_pp_27_41",
+        "text_file": "hubbard_autobiography_1911.txt",
+        "lines": [
+          2528,
+          2534
+        ],
+        "leaf": 78,
+        "page": "40"
+      },
+      "describes_date": "1818",
+      "entities": [],
+      "town_finding": true,
+      "notes": "THE PLANTING ON THE RIVER BANK, from a man who walked it. A reconstruction that dresses the banks has an authority here for onion and leek and for woods adjoining."
+    },
+    {
+      "id": "bk_hub_074",
+      "kind": "landscape",
+      "reading": "transcription_mediated",
+      "quote": "What  is  now  known  as  the  North  Branch \nwas  then  known  as  River  Guarie,  named  after \nthe  first  trader  that  followed  La  Salle.  The \nfield  he  cultivated  was  traceable  on  the  prairie \nby  the  distinct  marks  of  the  cornhills. ",
+      "normalized": "What is now the North Branch was then known as River Guarie, after the first trader who followed La Salle, and the field he cultivated was still traceable on the prairie by the distinct marks of the cornhills.",
+      "locator": {
+        "list": "hubbard_1911_pp_27_41",
+        "text_file": "hubbard_autobiography_1911.txt",
+        "lines": [
+          2540,
+          2544
+        ],
+        "leaf": 79,
+        "page": "41"
+      },
+      "describes_date": "1818",
+      "entities": [
+        "River Guarie",
+        "North Branch"
+      ],
+      "town_finding": true,
+      "notes": "AN OLD FIELD STILL LEGIBLE IN THE GROUND in 1818, on the North Branch, marked by cornhills. A ground-surface feature this project has nowhere else, and a toponym."
+    },
+    {
+      "id": "bk_hub_075",
+      "kind": "landscape",
+      "reading": "transcription_mediated",
+      "quote": "After  a  few  days  at  Chicago,  spent  in  repair- \ning our  boats,  we  struck  camp  and  proceeded \nup  the  lagoon,  or  what  is  now  known  as  the \nSouth  Branch,  camping  at  a  point  near  the \npresent  commencement  of  the  Illinois  and \nMichigan  Canal,  where  we  remained  one  day \npreparing  to  pass  our  boats  through  Mud  Lake \ninto  the  Aux  Plaines  River. ",
+      "normalized": "After a few days at Chicago the brigade struck camp and went up the lagoon — now the South Branch — camping near the present commencement of the Illinois and Michigan Canal, preparing to pass the boats through Mud Lake into the Aux Plaines.",
+      "locator": {
+        "list": "hubbard_1911_pp_27_41",
+        "text_file": "hubbard_autobiography_1911.txt",
+        "lines": [
+          2550,
+          2557
+        ],
+        "leaf": 79,
+        "page": "41"
+      },
+      "describes_date": "1818-10",
+      "entities": [
+        "South Branch",
+        "Mud Lake",
+        "Aux Plaines"
+      ],
+      "town_finding": true,
+      "notes": "'The lagoon' is what the South Branch was called by the men who used it, and the day's camp fixes where the portage began."
+    },
+    {
+      "id": "bk_hub_076",
+      "kind": "landscape",
+      "reading": "transcription_mediated",
+      "quote": "Mud  Lake  drained  partly  into  the  Aux \nPlaines  and  partly  through  a  narrow,  crooked \nchannel  into  the  South  Branch,  and  only  in \nvery  wet  seasons  was  there  sufficient  water  to \nfloat  an  empty  boat.  The  mud  was  very  deep, \nand  along  the  edge  of  the  lake  grew  tall  grass \nand  wild  rice,  often  reaching  above  a  man's \nhead,  and  so  strong  and  dense  it  was  almost \nimpossible  to  walk  through  them. ",
+      "normalized": "Mud Lake drained partly into the Aux Plaines and partly through a narrow crooked channel into the South Branch, and only in very wet seasons was there enough water to float an empty boat; the mud was very deep and along the edge grew tall grass and wild rice, often above a man's head and so dense it was almost impossible to walk through.",
+      "locator": {
+        "list": "hubbard_1911_pp_27_41",
+        "text_file": "hubbard_autobiography_1911.txt",
+        "lines": [
+          2559,
+          2567
+        ],
+        "leaf": 79,
+        "page": "41"
+      },
+      "describes_date": "1818",
+      "entities": [
+        "Mud Lake",
+        "Aux Plaines",
+        "South Branch"
+      ],
+      "town_finding": true,
+      "notes": "THE PORTAGE AS A HYDROLOGICAL FACT: a divide that drained both ways, passable only in a wet season. Grass and wild rice above head height is the vegetation of the upper South Branch."
+    },
+    {
+      "id": "bk_hub_077",
+      "kind": "person",
+      "reading": "transcription_mediated",
+      "quote": "Our  trip  was  a  tedious  one,  we  being  kept \nmany  days  in  camp  by  heavy  adverse  winds. \nWe  were  nearly  a  month  in  reaching  Chicago, \nwhere,  as  usual,  I  was  welc(^ed  by  my  friends, \nthe  Kinzies,  who,  with  Dr.  Wolcott,  rendered \nme  many  kind  services.  ^ ",
+      "normalized": "Arriving at Chicago after nearly a month's voyage, Hubbard was welcomed as usual by his friends the Kinzies, who with Dr Wolcott rendered him many kind services.",
+      "locator": {
+        "list": "hubbard_1911_pp_135_138",
+        "text_file": "hubbard_autobiography_1911.txt",
+        "lines": [
+          6371,
+          6376
+        ],
+        "leaf": 174,
+        "page": "136"
+      },
+      "describes_date": "1822 or 1823",
+      "entities": [
+        "John Kinzie",
+        "Alexander Wolcott"
+      ],
+      "town_finding": true,
+      "notes": "Dr Alexander Wolcott at Chicago beside the Kinzies. The year is not printed on the page: the chapter that follows opens 'In the month of March (1823)', so this is the preceding autumn, and describes_date says so rather than asserting a year the book does not."
+    },
+    {
+      "id": "bk_hub_078",
+      "kind": "person",
+      "reading": "transcription_mediated",
+      "quote": "At  Chicago  I  found  Pierre  Chouteau,  Jr., \nof  St.  Louis,  whose  acquaintance  I  had  formed \nseveral  years  before,  and  who  now  proposed \nthat  I  should  enter  their  employ  at  the  expira- \ntion of  my  engagement  with  the  American \nFur  Company;  during  my  two  weeks* \nstay  we  became  very  intimate.  The  ofiScers ",
+      "normalized": "At Chicago Hubbard found Pierre Chouteau, Jr. of St Louis, who proposed that he enter their employ when his engagement with the American Fur Company expired; they were intimate through a fortnight's stay.",
+      "locator": {
+        "list": "hubbard_1911_pp_135_138",
+        "text_file": "hubbard_autobiography_1911.txt",
+        "lines": [
+          6378,
+          6384
+        ],
+        "leaf": 174,
+        "page": "136"
+      },
+      "describes_date": "1822 or 1823",
+      "entities": [
+        "Pierre Chouteau, Jr."
+      ],
+      "town_finding": true,
+      "notes": "The St Louis trade reaching up to Chicago in person, and a two-week stay that shows what 'stopping at Chicago' meant for a brigade."
+    },
+    {
+      "id": "bk_hub_079",
+      "kind": "event",
+      "reading": "transcription_mediated",
+      "quote": "It  was  a  well-known  fact,  at  that  time,  that \nPierre  Le  Claire,  who  carried  the  news  of \nthe  war  of  i8i2,  was  sent  by  Major  Robert \nForsythe  to  his  uncle,  Mr.  John  Kinzie,  at \nChicago,  and  that  he  walked  from  the  mouth \n142 ",
+      "normalized": "Pierre Le Claire carried the news of the war of 1812, sent by Major Robert Forsythe to his uncle Mr John Kinzie at Chicago, walking from the mouth of the St Joseph River around Lake Michigan.",
+      "locator": {
+        "list": "hubbard_1911_pp_141_144",
+        "text_file": "hubbard_autobiography_1911.txt",
+        "lines": [
+          6638,
+          6643
+        ],
+        "leaf": 180,
+        "page": "142"
+      },
+      "describes_date": "1812",
+      "entities": [
+        "Pierre Le Claire",
+        "Robert Forsythe",
+        "John Kinzie"
+      ],
+      "town_finding": true,
+      "notes": "A named messenger, a named sender and a named recipient, and the route round the south end of the lake that later became Hubbard's own."
+    },
+    {
+      "id": "bk_hub_080",
+      "kind": "event",
+      "reading": "transcription_mediated",
+      "quote": "of  St.  Joseph  River  around  Lake  Michigan  to \nChicago,  a  distance  of  ninety  miles,  in  one \ncontinuous  walk. \n\nHe  arrived  at  Mr.  Kinzie's,  ate  his  supper, \nand  crossed  over  the  river  to  report  to  the \nofficers  of  Fort  Dearborn,  before  nine  o'clock \nat  night,  having  started  before  daylight  froir ",
+      "normalized": "Ninety miles in one continuous walk: Le Claire reached Mr Kinzie's, ate his supper, and crossed over the river to report to the officers of Fort Dearborn before nine o'clock at night.",
+      "locator": {
+        "list": "hubbard_1911_pp_141_144",
+        "text_file": "hubbard_autobiography_1911.txt",
+        "lines": [
+          6646,
+          6653
+        ],
+        "leaf": 181,
+        "page": "143"
+      },
+      "describes_date": "1812",
+      "entities": [
+        "Pierre Le Claire",
+        "John Kinzie",
+        "Fort Dearborn"
+      ],
+      "town_finding": true,
+      "notes": "CROSSED OVER THE RIVER — the second independent statement in this book that the Kinzie house and the fort stood on opposite banks and that getting between them meant a crossing (see bk_hub_047, bk_hub_049)."
+    },
+    {
+      "id": "bk_hub_081",
+      "kind": "business",
+      "reading": "transcription_mediated",
+      "quote": "appointed  to  succeed  him.  I  now  determined \nto  carry  out  a  project  which  I  had  long  urged \nupon  Mr.  Deschamps,  but  without  success — \nthat  of  unloading  the  boats  upon  their  arrival \nat  Chicago  from  Mackinaw,  and  scuttling  them \nin  the  slough,  to  prevent  their  loss  by  prairie \nfires,  until  they  were  needed  to  reload  with \nfurs  for  the  return  voyage. ",
+      "normalized": "On succeeding Deschamps in 1824 Hubbard carried out a plan he had long urged: unloading the boats on arrival at Chicago from Mackinaw and scuttling them in the slough to save them from prairie fires until they were needed to reload furs.",
+      "locator": {
+        "list": "hubbard_1911_pp_153_159",
+        "text_file": "hubbard_autobiography_1911.txt",
+        "lines": [
+          7070,
+          7077
+        ],
+        "leaf": 191,
+        "page": "153"
+      },
+      "describes_date": "1824",
+      "entities": [
+        "Gurdon Saltonstall Hubbard",
+        "American Fur Company"
+      ],
+      "town_finding": true,
+      "notes": "PRAIRIE FIRES ON THE SOUTH BRANCH WERE ENOUGH OF A DANGER TO SINK BOATS AGAINST. That is a fact about the ground around the town, not about the trade, and this project has it nowhere else."
+    },
+    {
+      "id": "bk_hub_082",
+      "kind": "street",
+      "reading": "transcription_mediated",
+      "quote": "the  men.  During  the  year  1822,  I  had  estab- \nlished a  direct  path  or  track  from  Iroquois \npost  to  Danville,  and  I  now  extended  it  south \nfrom  Danville  and  north  to  Chicago,  thus \nfully  opening  ''Hubbard's  Trail\"  from  Chi- \ncago to  a  point  about  one  hundred  and  fifty \nmiles  south  of  Danville.  Along  this  \"trail\"  I \nestablished  trading  posts  forty  to  fifty  miles \napart.  This  \"trail\"  became  the  regularly \ntraveled  route  between  Chicago  and  Danville \nand  points  beyond,  and  was  designated  on  the \nold  maps  as  \"Hubbard's  Trail.\"* ",
+      "normalized": "Hubbard opened a direct path from Iroquois post to Danville in 1822, and in 1824 extended it south from Danville and north to Chicago — 'Hubbard's Trail' — establishing trading posts forty to fifty miles apart along it; it became the regular route between Chicago and Danville and was so marked on the old maps.",
+      "locator": {
+        "list": "hubbard_1911_pp_153_159",
+        "text_file": "hubbard_autobiography_1911.txt",
+        "lines": [
+          7093,
+          7104
+        ],
+        "leaf": 192,
+        "page": "154"
+      },
+      "describes_date": "1822-1824",
+      "entities": [
+        "Gurdon Saltonstall Hubbard",
+        "Danville"
+      ],
+      "town_finding": true,
+      "notes": "THE ROAD SOUTH, DATED BY THE MAN WHO CUT IT, and the interval of the posts along it. The trail is on old maps by his own statement, which is a lead this project can follow."
+    },
+    {
+      "id": "bk_hub_083",
+      "kind": "street",
+      "reading": "transcription_mediated",
+      "quote": "In  the  winter  of  1833-34  the  General  Assem- \nbly ordered  that  a  State  road  be  located  from \nVincennes  to  Chicago,  and  that  mile-stones  be \nplaced  thereon,  and  from  Danville  to  Chicago \nthe  Commissioners  adopted  my  \"trail\"  most \nof  the  way,  because  it  was  the  most  direct \nroute  and  on  the  most  favorable  ground. ",
+      "normalized": "In the winter of 1833-34 the General Assembly ordered a State road located from Vincennes to Chicago with mile-stones placed on it, and from Danville to Chicago the Commissioners adopted Hubbard's trail for most of the way as the most direct route on the most favourable ground.",
+      "locator": {
+        "list": "hubbard_1911_pp_153_159",
+        "text_file": "hubbard_autobiography_1911.txt",
+        "lines": [
+          7106,
+          7112
+        ],
+        "leaf": 192,
+        "page": "154"
+      },
+      "describes_date": "1833-1834",
+      "entities": [
+        "Danville",
+        "Vincennes"
+      ],
+      "town_finding": true,
+      "notes": "THE SCENE YEAR'S ROAD SOUTH, ORDERED THE WINTER BEFORE IT, WITH MILE-STONES. If the mile-stones were placed, they are furniture on the ground in 1835, and this is the authority for looking for them."
+    },
+    {
+      "id": "bk_hub_084",
+      "kind": "street",
+      "reading": "transcription_mediated",
+      "quote": "*  Note.— \"Hubbard's  Trail\"  ran  through  Cook, \nWill,  Kankakee,  Iroquois,  and  Vermilion  Counties, \npassing  the  present  towns  of  Blue  Island,  Home- \nwood,  Bloom,  Crete,  Grant,  Momence,  Beaverville, \nIroquois,  Hoopeston,  and  Myersville  to  Danville, \nand  southwest  through  Vermilion  and  Champaign \nCounties  to  Bement  in  Piatt  County;  thence  south \nthrough  Moultrie  and  Shelby  Counties  to  Blue  Point \nin  Effingham  County.  At  Crete,  a  fence  has  been \nbuilt  around  a  portion  of  this  *'  trail,\"  to  further  pre- \nserve it  as  an  old  landmark  and  a  relic  of  early  roads \nand  early  times. ",
+      "normalized": "The publisher's note traces Hubbard's Trail through Cook, Will, Kankakee, Iroquois and Vermilion counties, past Blue Island, Homewood, Bloom, Crete, Grant, Momence, Beaverville, Iroquois, Hoopeston and Myersville to Danville and on south-west to Blue Point in Effingham County; at Crete a portion had been fenced to preserve it.",
+      "locator": {
+        "list": "hubbard_1911_pp_153_159",
+        "text_file": "hubbard_autobiography_1911.txt",
+        "lines": [
+          7115,
+          7126
+        ],
+        "leaf": 192,
+        "page": "154"
+      },
+      "describes_date": "1824-1880",
+      "entities": [
+        "Blue Island",
+        "Homewood",
+        "Crete",
+        "Momence",
+        "Danville"
+      ],
+      "town_finding": true,
+      "notes": "AN 1888-1911 EDITOR'S NOTE AND NOT HUBBARD, written in modern place-names for a modern reader. It cannot place the trail in 1835 ground; it is here because it says which way the trail ran out of Cook County, which the narrative does not."
+    },
+    {
+      "id": "bk_hub_085",
+      "kind": "business",
+      "reading": "transcription_mediated",
+      "quote": "In  the  spring,  Mr.  John  Kinzie  got  out  of \ngoods  at  Chicago,  and  sent  a  Mr.  Hall  to  me \nto  request  me  to  go  to  St.  Louis  by  boat  for \na  supply.  Mr.  Hall  was  to  remain  and  man- \nage my  business  during  my  absence.  Neither \nMr.  Kinzie  nor  myself  had  a  boat  suitable  for \nthe  journey,  but.  he  thought  I  could  arrange ",
+      "normalized": "In the spring of 1825 Mr John Kinzie got out of goods at Chicago and sent a Mr Hall to ask Hubbard to go to St Louis by boat for a supply; neither Kinzie nor Hubbard had a boat suitable for the journey.",
+      "locator": {
+        "list": "hubbard_1911_pp_153_159",
+        "text_file": "hubbard_autobiography_1911.txt",
+        "lines": [
+          7150,
+          7156
+        ],
+        "leaf": 193,
+        "page": "155"
+      },
+      "describes_date": "1825",
+      "entities": [
+        "John Kinzie"
+      ],
+      "town_finding": true,
+      "notes": "A CHICAGO STORE RUNNING EMPTY AND ITS OWNER SENDING TO ST LOUIS — the town's supply line in 1825, and the fact that no suitable boat lay at Chicago to make the trip in."
+    },
+    {
+      "id": "bk_hub_086",
+      "kind": "event",
+      "reading": "transcription_mediated",
+      "quote": "stock-farm  is  now  located.  On  the  third  day \nI  reached  Chicago,  reported  to  Mr.  Kinzie, \nand  found  that  he  had  started  two  men  in  a \ncanoe  to  meet  me  at  Peoria  with  a  list  of  the \ngoods  required. ",
+      "normalized": "On the third day Hubbard reached Chicago and reported to Mr Kinzie, finding that Kinzie had already sent two men in a canoe to meet him at Peoria with a list of the goods required.",
+      "locator": {
+        "list": "hubbard_1911_pp_153_159",
+        "text_file": "hubbard_autobiography_1911.txt",
+        "lines": [
+          7258,
+          7262
+        ],
+        "leaf": 196,
+        "page": "158"
+      },
+      "describes_date": "1825",
+      "entities": [
+        "John Kinzie"
+      ],
+      "town_finding": true,
+      "notes": "The overland journey from the Kankakee to Chicago in three days on foot, and a canoe sent down the Illinois to meet it."
+    },
+    {
+      "id": "bk_hub_087",
+      "kind": "person",
+      "reading": "transcription_mediated",
+      "quote": "Mr.  Kinzie  having  resigned  his  position  as \nIndian  trader  at  Chicago,  I  made  application \nfor  the  place,  which,  however,  I  did  not  receive. ",
+      "normalized": "Mr Kinzie having resigned his position as Indian trader at Chicago, Hubbard applied for the place and did not receive it.",
+      "locator": {
+        "list": "hubbard_1911_pp_165_174",
+        "text_file": "hubbard_autobiography_1911.txt",
+        "lines": [
+          7582,
+          7584
+        ],
+        "leaf": 204,
+        "page": "166"
+      },
+      "describes_date": "1827-1828",
+      "entities": [
+        "John Kinzie",
+        "Gurdon Saltonstall Hubbard"
+      ],
+      "town_finding": true,
+      "notes": "The Indian trader's post at Chicago was an appointment somebody granted, and it changed hands in this period. A lead on the town's official offices before the scene year."
+    },
+    {
+      "id": "bk_hub_088",
+      "kind": "civic",
+      "reading": "transcription_mediated",
+      "quote": "At  the  breaking  out  of  the  Winnebago  war, \nearly  in  July,  1827,  Fort  Dearborn  was  without \nmilitary  occupation. \n\nDoctor  Alexander  Wolcott,    Indian  agent, ",
+      "normalized": "At the breaking out of the Winnebago war, early in July 1827, Fort Dearborn was without military occupation.",
+      "locator": {
+        "list": "hubbard_1911_pp_165_174",
+        "text_file": "hubbard_autobiography_1911.txt",
+        "lines": [
+          7598,
+          7602
+        ],
+        "leaf": 204,
+        "page": "166"
+      },
+      "describes_date": "1827-07",
+      "entities": [
+        "Fort Dearborn"
+      ],
+      "town_finding": true,
+      "notes": "AN UNGARRISONED FORT WITH CIVILIANS LIVING IN IT — the state this book then describes in detail at bk_hub_089. It agrees exactly with bk_hub_051 and bk_hub_052, which have the fort vacant from October 1823 to 3 October 1828."
+    },
+    {
+      "id": "bk_hub_089",
+      "kind": "notice",
+      "reading": "transcription_mediated",
+      "quote": "♦From  statements  by  Mr.  Hubbard  in  Chicago \nHistorical  Series,  No.  10. ",
+      "normalized": "The Winnebago Scare section is footnoted 'From statements by Mr. Hubbard in Chicago Historical Series, No. 10.'",
+      "locator": {
+        "list": "hubbard_1911_pp_165_174",
+        "text_file": "hubbard_autobiography_1911.txt",
+        "lines": [
+          7604,
+          7605
+        ],
+        "leaf": 204,
+        "page": "166"
+      },
+      "describes_date": "1827",
+      "entities": [
+        "Chicago Historical Series"
+      ],
+      "town_finding": false,
+      "notes": "town_finding false: it is the provenance of the section, and it matters. THIS PART OF THE BOOK IS NOT THE DIARY. Pages 166 onward are compiled from a separate published statement of Hubbard's, so the whole Winnebago Scare reads at one more remove than the rest and every claim in coverage item hubbard_1911_pp_165_174 carries that."
+    },
+    {
+      "id": "bk_hub_090",
+      "kind": "building",
+      "reading": "transcription_mediated",
+      "quote": "had  charge  of  the  fort,  Hving  in  the  brick \nbuilding,  just  within  tlie  north  stockade,  pre- \nviously occupied  by  the  commanding  officers. \nThe  old  officers*  quarters,  built  of  logs,  on  the \nwest,  and  within  the  pickets,  were  occupied  by \nRussell  E.  Heacock  and  one  other  American \nfamily,  while  a  number  of  voyageurs  with  their \nfamilies  were  living  in  the  soldiers'  quarters  on \nthe  east  side  of  the  inclosure.  v    — ",
+      "normalized": "Dr Alexander Wolcott, Indian agent, had charge of the fort and lived in the brick building just within the north stockade previously occupied by the commanding officers; the old officers' quarters, of logs, on the west and within the pickets, were occupied by Russell E. Heacock and one other American family; and a number of voyageurs with their families were living in the soldiers' quarters on the east side of the enclosure.",
+      "locator": {
+        "list": "hubbard_1911_pp_165_174",
+        "text_file": "hubbard_autobiography_1911.txt",
+        "lines": [
+          7609,
+          7617
+        ],
+        "leaf": 205,
+        "page": "167"
+      },
+      "describes_date": "1827",
+      "entities": [
+        "Alexander Wolcott",
+        "Russell E. Heacock",
+        "Fort Dearborn"
+      ],
+      "town_finding": true,
+      "notes": "THE FORT AS A TENEMENT, and the single richest occupancy statement in the book. Wolcott is named by name on the preceding page and that naming is quoted at bk_hub_088: an Indian agent in the brick building, an American attorney's family and one other in the log quarters, and voyageur families in the barracks. IT ALSO CONTRADICTS bk_hub_055, which puts the officers' quarters OUTSIDE the pickets and of hewn logs, and bk_hub_058, which makes the magazine the only brick building. Nine years, a rebuild and a fire lie between the two descriptions; this project records the disagreement and resolves it nowhere."
+    },
+    {
+      "id": "bk_hub_091",
+      "kind": "event",
+      "reading": "transcription_mediated",
+      "quote": "The  annual  payment  of  the  Pottawatomie \nIndians  occurred  in  September  of  the  year  1 82  8 . \nA  large  body  of  them  had  assembled,  according \nto  custom,  to  receive  their  annuity.  These \nleft  after  the  payment  for  their  respective \nvillages,  except  a  portion  of  Big  Foot's  band.. ",
+      "normalized": "The annual payment of the Pottawatomie Indians occurred in September of the year 1828; a large body assembled to receive their annuity and left afterwards for their villages, except a portion of Big Foot's band.",
+      "locator": {
+        "list": "hubbard_1911_pp_165_174",
+        "text_file": "hubbard_autobiography_1911.txt",
+        "lines": [
+          7619,
+          7624
+        ],
+        "leaf": 205,
+        "page": "167"
+      },
+      "describes_date": "1828 as printed; 1827 by the rest of the book",
+      "entities": [
+        "Big Foot"
+      ],
+      "town_finding": true,
+      "notes": "THE DATE ON THIS PAGE IS WRONG AND THE BOOK SAYS SO ELSEWHERE. Two pages earlier the same section is headed 'early in July, 1827' (bk_hub_088), and Hubbard's own letter printed at page 174 is dated 'Chicago, July 25, 1827' (bk_hub_100). The fire and the Cass visit that follow this sentence are the July 1827 events. Recorded as printed, flagged, and NOT corrected in the quote."
+    },
+    {
+      "id": "bk_hub_092",
+      "kind": "event",
+      "reading": "transcription_mediated",
+      "quote": "The  night  following  the  payment,  there  was \na  dance  in  the  soldiers'  barracks,  during  the \nprogress  of  which  a  violent  storm  of  wind  and \nrain  arose;  and  about  midnight  these  quarters \nwere  struck  by  lightning  and  totally  consumed, \ntogether  with  the  storehouse  and  a  portion  of \nthe  guard-house. ",
+      "normalized": "The night after the payment there was a dance in the soldiers' barracks; a violent storm of wind and rain arose, and about midnight the quarters were struck by lightning and totally consumed, together with the storehouse and a portion of the guard-house.",
+      "locator": {
+        "list": "hubbard_1911_pp_165_174",
+        "text_file": "hubbard_autobiography_1911.txt",
+        "lines": [
+          7626,
+          7632
+        ],
+        "leaf": 205,
+        "page": "167"
+      },
+      "describes_date": "1827-07",
+      "entities": [
+        "Fort Dearborn"
+      ],
+      "town_finding": true,
+      "notes": "THREE BUILDINGS OF THE FORT DESTROYED BY LIGHTNING — the soldiers' quarters of bk_hub_056, the commissary storehouse of bk_hub_058, and part of a south-gate guardhouse of bk_hub_057. Whatever stood in 1835 did not include these, and that is the most important consequence of this passage for the reconstruction."
+    },
+    {
+      "id": "bk_hub_093",
+      "kind": "appearance",
+      "reading": "transcription_mediated",
+      "quote": "The  sleeping  inmates  of  Mr.  Kinzie's  house, \non  the  opposite  bank  of  the  river,  were  aroused \nby  the  cry  of  ''fire,''  from  Mrs.  Helm,  one \nof  their  number,  who,  from  her  window,  had \nseen  the  flames.  On  hearing  the  alarm  I,  with ",
+      "normalized": "The sleeping inmates of Mr Kinzie's house on the opposite bank were roused by Mrs Helm's cry of fire, she having seen the flames from her window.",
+      "locator": {
+        "list": "hubbard_1911_pp_165_174",
+        "text_file": "hubbard_autobiography_1911.txt",
+        "lines": [
+          7634,
+          7638
+        ],
+        "leaf": 205,
+        "page": "167"
+      },
+      "describes_date": "1827-07",
+      "entities": [
+        "Mrs Helm",
+        "John Kinzie",
+        "Robert Kinzie"
+      ],
+      "town_finding": true,
+      "notes": "A WINDOW IN THE KINZIE HOUSE WITH A SIGHT-LINE TO THE FORT ACROSS THE RIVER. A detail about the building's openings that no plan of it gives."
+    },
+    {
+      "id": "bk_hub_094",
+      "kind": "event",
+      "reading": "transcription_mediated",
+      "quote": "stream.  Entering  by  the  north  gate  we  saw \nat  a  glance  the  situation.  The  barracks  and \nstorehouse  being  wrapped  in  flames,  we  direct- \ned our  energies  to  the  saving  of  the  guard- \nhouse, the  east  end  of  which  was  on  fire.  Mr. \nKinzie,  rolling  himself  in  a  wet  blanket,  got \nupon  the  roof.  The  men  and  women,  about \nforty  in  number,  formed  a  line  to  the  river, \nand  with  buckets,  tubs,  and  every  available \nutensil,  passed  the  water  to  him;  this  was  kept \nup  till  daylight  before  the  flames  were  sub- \ndued, Mr.  Kinzie  maintaining  his  dangerous \nposition  with  great  fortitude,  though  his  hands, \nface,  and  portions  o^  his  body  were  severely \nburned.  His  father,  mother,  and  sister,  Mrs. \nHelm,  had  meanwhile  freed  the  canoe  from \nwater,  and  crossing  in  it,  fell  into  line  with  those \ncarrying  water.  J ",
+      "normalized": "Entering by the north gate, Hubbard and Robert Kinzie turned to saving the guard-house; Mr Kinzie rolled himself in a wet blanket and got on the roof while about forty men and women formed a line to the river and passed water up in buckets, tubs and every available utensil until daylight, and his father, mother and sister crossed in the bailed-out canoe to join the line.",
+      "locator": {
+        "list": "hubbard_1911_pp_165_174",
+        "text_file": "hubbard_autobiography_1911.txt",
+        "lines": [
+          7653,
+          7670
+        ],
+        "leaf": 206,
+        "page": "168"
+      },
+      "describes_date": "1827-07",
+      "entities": [
+        "John Kinzie",
+        "Mrs Helm",
+        "Fort Dearborn"
+      ],
+      "town_finding": true,
+      "notes": "FORTY PEOPLE, and that is a population figure for the whole settlement in July 1827 — everyone who could be roused in the night. The bucket line to the river is also the town's only fire-fighting method until Hubbard's engine of October 1835 (bk_hub_022)."
+    },
+    {
+      "id": "bk_hub_095",
+      "kind": "appearance",
+      "reading": "transcription_mediated",
+      "quote": "Forsyth,  and  left  the  table  for  the  piazza  of  the \nhouse,  where  we  all  followed.  About  where \nWells  street  now  crosses  the  river,  in  plain  sight \nfrom  where  we  stood,  was  a  light  birch-bark \ncanoe,  manned  with  thirteen  men,  rapidly \napproaching,  the  men  keeping  tin>e  with  their \npaddles  to  one  of  the  Canadian  boat  songs; \nit  proved  to  be  Governor  Cass  and  his  secre- \ntary, Robert  Forsyth,  and  they  landed  and ",
+      "normalized": "The party left the breakfast table for the piazza of Mr Kinzie's house and saw, about where Wells Street now crosses the river, a light birch-bark canoe manned by thirteen men approaching to a Canadian boat song; it was Governor Cass and his secretary Robert Forsyth.",
+      "locator": {
+        "list": "hubbard_1911_pp_165_174",
+        "text_file": "hubbard_autobiography_1911.txt",
+        "lines": [
+          7691,
+          7699
+        ],
+        "leaf": 207,
+        "page": "169"
+      },
+      "describes_date": "1827-07",
+      "entities": [
+        "John Kinzie",
+        "Lewis Cass",
+        "Robert Forsyth"
+      ],
+      "town_finding": true,
+      "notes": "THE PIAZZA AGAIN (bk_hub_049), nine years on and still there, with a view up the river as far as the line of Wells Street. Two independent sightings of one architectural feature is as close to corroboration as this source gets."
+    },
+    {
+      "id": "bk_hub_096",
+      "kind": "event",
+      "reading": "transcription_mediated",
+      "quote": "Cass  remained  at  Chicago  but  a  few  hours, \ncoasting  Lake  Michigan  back  to  Green  Bay. \nAs  soon  as  he  left,  the  inhabitants  of  Chicago \nassembled  for  consultation.     Bi^  Foot  was  sus-  / \npected  of  acting  in  concert  with  the  Winneba-  j \ngoes,  as  he  was  known  to  be  friendly  to  them,  I \nand  many  of  his  band  had  intermarried  with  I \nthat  tribe.  ] ",
+      "normalized": "Governor Cass stayed at Chicago only a few hours before coasting back to Green Bay, and as soon as he left the inhabitants of Chicago assembled for consultation, suspecting Big Foot of acting in concert with the Winnebagoes.",
+      "locator": {
+        "list": "hubbard_1911_pp_165_174",
+        "text_file": "hubbard_autobiography_1911.txt",
+        "lines": [
+          7743,
+          7750
+        ],
+        "leaf": 208,
+        "page": "170"
+      },
+      "describes_date": "1827-07",
+      "entities": [
+        "Lewis Cass",
+        "Big Foot"
+      ],
+      "town_finding": true,
+      "notes": "THE INHABITANTS OF CHICAGO ASSEMBLED — the town acting as a body in 1827, without a garrison, an office or a corporation to do it through."
+    },
+    {
+      "id": "bk_hub_097",
+      "kind": "person",
+      "reading": "transcription_mediated",
+      "quote": "Shaub-e-nee  was  not  here  at  the  payment, \nhis  money  having  been  drawn  for  him  by  his \nfriend,  Billy  Caldwell.  The  evening  before \nGovernor  Cass'  visit,  however,  he  was  in  Chi- \ncago, and  then  the  guest  of  Caldwell.  At  my \nsuggestion  he  and  Caldwell  were  engaged  to \nvisit  Big  Foot's  village  (Geneva  Lake),  and  get \nwhat  information  they  could  of  the  plans  of \nthe  Winnebagoes,  and  also  learn  what  action \nBig  Foot's  band  intended  taking.  They  left ",
+      "normalized": "Shaub-e-nee was not at the payment, his money having been drawn for him by his friend Billy Caldwell; he was in Chicago as Caldwell's guest the evening before Cass's visit, and at Hubbard's suggestion the two were engaged to go to Big Foot's village at Geneva Lake for information.",
+      "locator": {
+        "list": "hubbard_1911_pp_165_174",
+        "text_file": "hubbard_autobiography_1911.txt",
+        "lines": [
+          7752,
+          7761
+        ],
+        "leaf": 208,
+        "page": "170"
+      },
+      "describes_date": "1827-07",
+      "entities": [
+        "Shaub-e-nee",
+        "Billy Caldwell"
+      ],
+      "town_finding": true,
+      "notes": "BILLY CALDWELL KEEPING HOUSE AT CHICAGO IN 1827 AND ENTERTAINING A GUEST IN IT. This project holds hh_caldwell_billy; the claim is ruled on in crosswalk.json and places nothing in 1835."
+    },
+    {
+      "id": "bk_hub_098",
+      "kind": "event",
+      "reading": "transcription_mediated",
+      "quote": "On  receiving  Shaub-e-nee 's  report,  the \ninhabitants  of  Chicago  were  greatly  excited. \nFearing  an  attack,  we  assembled  for  consulta- \ntion, when  I  suggested  sending  to  the  Wabash \nfor  assistance,  and  tendered  my  services  as \nmessenger.  This  was  at  first  objected  to,  on \nthe  ground  that  a  majority  of  the  men  at  the \nfort  were  in  my  employ,  and  in  case  of  an \n172 ",
+      "normalized": "On Shaub-e-nee's report the inhabitants of Chicago were greatly excited and assembled for consultation fearing an attack; Hubbard proposed sending to the Wabash for help and offered himself as messenger, which was objected to on the ground that a majority of the men at the fort were in his employ and only he could manage them.",
+      "locator": {
+        "list": "hubbard_1911_pp_165_174",
+        "text_file": "hubbard_autobiography_1911.txt",
+        "lines": [
+          7837,
+          7845
+        ],
+        "leaf": 210,
+        "page": "172"
+      },
+      "describes_date": "1827-07",
+      "entities": [
+        "Gurdon Saltonstall Hubbard",
+        "Fort Dearborn"
+      ],
+      "town_finding": true,
+      "notes": "A MAJORITY OF THE MEN AT THE FORT WERE HUBBARD'S EMPLOYEES in July 1827 — a statement about who the settlement's population actually was: fur-trade labour, not soldiers and not settlers."
+    },
+    {
+      "id": "bk_hub_099",
+      "kind": "event",
+      "reading": "transcription_mediated",
+      "quote": "Dearborn  the  seventh  day  after  my  departure, \nto  the  great  joy  of  the  waiting  people. \n\nWe  re-organized,  and  had  a  force  of  about \none  hundred  and  fifty  men,  Morgan  command- \ning. At  the  end  of  thirty  days,  news  came  of \nthe  defeat  of  the  Winnebagoes,  and  of  their \ntreaty  with  the  commanding  officer,  who  went \nfrom  Jefferson  Barracks,^'as  before  stated. \nUpon  hearing  this,  Morgan  disbanded  his  com- \npany, who  returned  to  their  homes,  leaving \nFort  Dearborn  in  charge  of  the  Indian  agent \nas  before. ",
+      "normalized": "Hubbard reached Fort Dearborn on the seventh day after leaving; the Danville company re-organised there to about a hundred and fifty men under Morgan, and at the end of thirty days, news coming of the Winnebagoes' defeat and treaty, Morgan disbanded and left Fort Dearborn in charge of the Indian agent as before.",
+      "locator": {
+        "list": "hubbard_1911_pp_165_174",
+        "text_file": "hubbard_autobiography_1911.txt",
+        "lines": [
+          7888,
+          7900
+        ],
+        "leaf": 212,
+        "page": "174"
+      },
+      "describes_date": "1827-08",
+      "entities": [
+        "Fort Dearborn",
+        "Morgan"
+      ],
+      "town_finding": true,
+      "notes": "A HUNDRED AND FIFTY ARMED MEN IN AN UNGARRISONED FORT FOR THIRTY DAYS, and then the fort back in the hands of one Indian agent. The militia occupation of 1827 is a thing this project's fort chronology does not carry."
+    },
+    {
+      "id": "bk_hub_101",
+      "kind": "business",
+      "reading": "transcription_mediated",
+      "quote": "in  the  spring.  This  was  the  beginning  of  the  packing \nindustry  in  Chicago.  During  the  summer  of  1830  he, \nfor  the  first  time,  returned  to  the  East  and  visited \nhis  mother  and  family  at  Middletown,  Conn.  His \nsisters  Mary  (afterwards  Mrs.  Dr.  Clark)  and  Abby \n(afterwards-  Mrs.  A.  L.  Castleman)  returned  with \nhim  to  his  home  in  Danville,  where  they  continued \nto  reside  until  they  were  married. — H.  E.  H.] ",
+      "normalized": "The editor's bracketed note states that this was the beginning of the packing industry in Chicago, and that in the summer of 1830 Hubbard first returned east, bringing back his sisters Mary and Abby to live at Danville.",
+      "locator": {
+        "list": "hubbard_1911_pp_178_182",
+        "text_file": "hubbard_autobiography_1911.txt",
+        "lines": [
+          8063,
+          8070
+        ],
+        "leaf": 216,
+        "page": "178"
+      },
+      "describes_date": "1829-1830",
+      "entities": [
+        "Gurdon Saltonstall Hubbard",
+        "Henry E. Hamilton"
+      ],
+      "town_finding": true,
+      "notes": "AN EDITOR'S NOTE, initialled H. E. H. — Henry E. Hamilton, the 1888 compiler — and not Hubbard. The 'beginning of the packing industry in Chicago' is his judgement, made sixty years later, and is filed as one."
+    },
+    {
+      "id": "bk_hub_102",
+      "kind": "business",
+      "reading": "transcription_mediated",
+      "quote": "The  winter  of  1830-31  was  the  most  severe \none  I  ever  experienced  in  the  Indian  country, \nand  was  always  remembered  and  spoken  of  by \nthe  early  settlers  as  the  \"winter  of  the  big \nsnow. '  *  I  was  employed  in  gathering  together \nhogs  to  drive  to  Chicago  to  kill  and  sell  to  the \nsettlers  and  soldiers  at  Fort  Dearborn,  a \nbusiness  in  which  I  was  then  regularly  engaged. \nI  also  had  a  store  at  Danville  stocked  with \ngoods  suitable  for  trade  with  the  white  settlers \nof  that  section  of  country. ",
+      "normalized": "The winter of 1830-31, remembered by the early settlers as the 'winter of the big snow', found Hubbard regularly engaged in gathering hogs to drive to Chicago to kill and sell to the settlers and soldiers at Fort Dearborn, while keeping a store at Danville stocked for the white settlers.",
+      "locator": {
+        "list": "hubbard_1911_pp_178_182",
+        "text_file": "hubbard_autobiography_1911.txt",
+        "lines": [
+          8072,
+          8082
+        ],
+        "leaf": 216,
+        "page": "178"
+      },
+      "describes_date": "1830-1831",
+      "entities": [
+        "Gurdon Saltonstall Hubbard",
+        "Fort Dearborn",
+        "Danville"
+      ],
+      "town_finding": true,
+      "notes": "THE MARKET AT CHICAGO IN 1830 WAS THE SETTLERS AND THE GARRISON, in that order, and pork was driven in on the hoof from a hundred miles south. Also: 'the winter of the big snow' is a name the settlers themselves used, and a phrase a reconstruction may put in a mouth."
+    },
+    {
+      "id": "bk_hub_103",
+      "kind": "event",
+      "reading": "transcription_mediated",
+      "quote": "We  remained  at  Caldwell's  a  day  and  night, \nwhen  we  again  started  the  hogs  for  Chicago, \nwhere  we  arrived  in  about  thirty  days.  The \nsnow  was  about  two  feet  deep  on  a  level  and \nfour  or  five  feet  in  the  drifts.  I  killed  and \ndelivered  my  pork,  and  with  empty  wagons \nstarted  on  my  return  to  Iroquois.  Much  of ",
+      "normalized": "Hubbard's drove reached Chicago in about thirty days through snow two feet deep on the level and four or five in the drifts; he killed and delivered his pork and started back to Iroquois with empty wagons.",
+      "locator": {
+        "list": "hubbard_1911_pp_178_182",
+        "text_file": "hubbard_autobiography_1911.txt",
+        "lines": [
+          8121,
+          8127
+        ],
+        "leaf": 217,
+        "page": "179"
+      },
+      "describes_date": "1830-12",
+      "entities": [
+        "Billy Caldwell",
+        "Chicago"
+      ],
+      "town_finding": true,
+      "notes": "THIRTY DAYS FOR A HUNDRED MILES, and the delivery made at Chicago in the snow. The depth figures are the only winter measurements in the book."
+    },
+    {
+      "id": "bk_hub_104",
+      "kind": "notice",
+      "reading": "transcription_mediated",
+      "quote": "Note. — The  foregoing  narrative  brings  the  story \nof  Mr.  Hubbard  down  to  November,  1830,  where  it \nends  abruptly,  having  covered  just  one  third  of  his \nlife.  In  the  Introduction  preceding  this  short  Auto- \nbiography, an  attempt  has  been  made  merely  to \nenumerate  the  activities  of  the  fifty-six  years  that \nfollowed,  as  they  could  be  gathered  from  letters, \nmemoranda,  personal  reminiscences  of  contempo- \nraries, and  from  the  pages  of  our  city's  recorded \nhistory,  which  must  have  read  quite  otherwise  than \nthey  do  had  it  not  been  for  Gurdon  S.  Hubbard,  who \nhas  been  called  \"The  Prototype  of  Chicago.\" ",
+      "normalized": "The closing editorial note states that the narrative brings Hubbard's story down to November 1830, where it ends abruptly, having covered just one third of his life, and that the Introduction merely enumerates the fifty-six years that followed.",
+      "locator": {
+        "list": "hubbard_1911_pp_178_182",
+        "text_file": "hubbard_autobiography_1911.txt",
+        "lines": [
+          8235,
+          8246
+        ],
+        "leaf": 220,
+        "page": "182"
+      },
+      "describes_date": "1830-11",
+      "entities": [
+        "Gurdon Saltonstall Hubbard",
+        "Caroline M. McIlvaine"
+      ],
+      "town_finding": true,
+      "notes": "THE MOST IMPORTANT LIMIT IN THIS SOURCE AND THE REASON IT IS GRADED TIER 3 AND NOT TIER 2. HUBBARD'S OWN NARRATIVE STOPS IN NOVEMBER 1830. Everything this book says about the town in 1834, 1835 and 1836 — the brick building, the brig Illinois, the Green Tree Tavern, the fire engine, the land sales, the canal — is Caroline McIlvaine's 1911 Introduction, compiled from letters, memoranda and other people's reminiscences, and NOT the eyewitness speaking. A run reaching for 'Hubbard on 1835' is reaching for McIlvaine."
+    }
+  ]
+}

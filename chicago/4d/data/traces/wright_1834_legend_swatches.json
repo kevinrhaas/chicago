@@ -1,0 +1,1235 @@
+{
+  "_doc": "The nine coloured chips of J. S. Wright's 1834 legend, measured off the NA/HUP 600 dpi scan, and the bands of each separable colour on the sheet. Built by tools/read_wright_legend_swatches.py --build; gated offline by --check-properties. The chip colours are documented measurements of the raster. The BANDS are measurements too, but the GROUND under a band is an argument and is made in docs/RESEARCH/wright_1834_legend_swatches.md, not here.",
+  "source_id": "wright_1834_nara_hup",
+  "raster": {
+    "working_copy": "chicago/pre_fire_v1/maps/images/1834-wright-map.jpg",
+    "width": 5050,
+    "height": 6628,
+    "dpi": 600,
+    "sha256": "dbb92c0188881d9b6cdf84801b9185a5715496a328125bde895a04058b173266",
+    "duplicate_in_repository": "chicago/pre_fire_v1/maps/images/1834-wright-map-lg.jpg is byte-identical to it",
+    "source_id": "wright_1834_nara_hup",
+    "note": "The working copy lives outside this app's subtree, in chicago/pre_fire_v1/, where the owner placed it. This file cites it by path and checksum; it does not copy it."
+  },
+  "affine": {
+    "from": "data/traces/gcp/wright_1834_nara_hup_gcps.json",
+    "confidence": "inferred",
+    "note": "Local metres are INDICATIVE — they say which part of town a band is in. The NA/HUP fit's y scale is under challenge in T-0878 (the School Section's mile measures 1658.65 m north-south against 1603.04 m east-west on the same fit), so no geometry in this project may stand on a number printed here."
+  },
+  "method": {
+    "chip_column_px": {
+      "x0": 2996,
+      "x1": 3050
+    },
+    "chip_erosion_px": {
+      "top": 6,
+      "bottom": 5
+    },
+    "paper_rgb": [
+      234,
+      205,
+      160
+    ],
+    "class_threshold_rgb": 35.0,
+    "band": {
+      "match_rgb": 45.0,
+      "paper_min_rgb": 55.0,
+      "saturation_min": 0.3,
+      "cell_px": 8,
+      "cell_coverage_min": 0.45,
+      "min_cells": 40
+    },
+    "neat_line_px": {
+      "x0": 620,
+      "y0": 960,
+      "x1": 4400,
+      "y1": 5720
+    },
+    "legend_box_px": {
+      "x0": 2960,
+      "y0": 3740,
+      "x1": 3120,
+      "y1": 4185
+    }
+  },
+  "chips": [
+    {
+      "chip": 1,
+      "legend": {
+        "text": "U. S. Military Reservation",
+        "reading": "U.S. Military Reservation",
+        "date": null
+      },
+      "box_px": {
+        "x0": 2996,
+        "y0": 3768,
+        "x1": 3050,
+        "y1": 3805
+      },
+      "sampled_px": 1404,
+      "median_rgb": [
+        44,
+        65,
+        93
+      ],
+      "mean_rgb": [
+        49.0,
+        65.2,
+        91.5
+      ],
+      "sd_rgb": [
+        19.4,
+        22.0,
+        23.8
+      ]
+    },
+    {
+      "chip": 2,
+      "legend": {
+        "text": "Surveyed by Canal Com. in 1830",
+        "reading": "Surveyed by Canal Com. in 1830",
+        "date": 1830
+      },
+      "box_px": {
+        "x0": 2996,
+        "y0": 3819,
+        "x1": 3050,
+        "y1": 3850
+      },
+      "sampled_px": 1080,
+      "median_rgb": [
+        176,
+        68,
+        48
+      ],
+      "mean_rgb": [
+        165.6,
+        76.9,
+        53.1
+      ],
+      "sd_rgb": [
+        43.7,
+        35.5,
+        25.9
+      ]
+    },
+    {
+      "chip": 3,
+      "legend": {
+        "text": "Wonbonsia Surveyed in 1831",
+        "reading": "Wabansia, surveyed in 1831",
+        "date": 1831
+      },
+      "box_px": {
+        "x0": 2996,
+        "y0": 3863,
+        "x1": 3050,
+        "y1": 3899
+      },
+      "sampled_px": 1350,
+      "median_rgb": [
+        145,
+        38,
+        14
+      ],
+      "mean_rgb": [
+        136.7,
+        40.3,
+        15.9
+      ],
+      "sd_rgb": [
+        30.8,
+        15.8,
+        10.1
+      ]
+    },
+    {
+      "chip": 4,
+      "legend": {
+        "text": "Kinzies Addⁿ. Surveyed „ 1833",
+        "reading": "Kinzie's Addition, surveyed 1833",
+        "date": 1833
+      },
+      "box_px": {
+        "x0": 2996,
+        "y0": 3913,
+        "x1": 3050,
+        "y1": 3949
+      },
+      "sampled_px": 1350,
+      "median_rgb": [
+        54,
+        44,
+        29
+      ],
+      "mean_rgb": [
+        66.2,
+        50.2,
+        31.5
+      ],
+      "sd_rgb": [
+        33.3,
+        30.6,
+        20.0
+      ]
+    },
+    {
+      "chip": 5,
+      "legend": {
+        "text": "School Section „ 1833",
+        "reading": "School Section, surveyed 1833",
+        "date": 1833
+      },
+      "box_px": {
+        "x0": 2996,
+        "y0": 3959,
+        "x1": 3050,
+        "y1": 4001
+      },
+      "sampled_px": 1674,
+      "median_rgb": [
+        218,
+        136,
+        26
+      ],
+      "mean_rgb": [
+        190.1,
+        116.3,
+        25.0
+      ],
+      "sd_rgb": [
+        60.8,
+        46.8,
+        15.4
+      ]
+    },
+    {
+      "chip": 6,
+      "legend": {
+        "text": "Surveyed. ——— 1833",
+        "reading": "Surveyed 1833 — no tract named",
+        "date": 1833
+      },
+      "box_px": {
+        "x0": 2996,
+        "y0": 4005,
+        "x1": 3050,
+        "y1": 4034
+      },
+      "sampled_px": 972,
+      "median_rgb": [
+        70,
+        67,
+        40
+      ],
+      "mean_rgb": [
+        80.4,
+        72.7,
+        45.2
+      ],
+      "sd_rgb": [
+        38.7,
+        38.1,
+        27.1
+      ]
+    },
+    {
+      "chip": 7,
+      "legend": {
+        "text": "Fractional Section 15",
+        "reading": "Fractional Section 15",
+        "date": null
+      },
+      "box_px": {
+        "x0": 2996,
+        "y0": 4045,
+        "x1": 3050,
+        "y1": 4075
+      },
+      "sampled_px": 1026,
+      "median_rgb": [
+        135,
+        37,
+        11
+      ],
+      "mean_rgb": [
+        130.1,
+        45.9,
+        16.1
+      ],
+      "sd_rgb": [
+        40.5,
+        29.5,
+        20.0
+      ]
+    },
+    {
+      "chip": 8,
+      "legend": {
+        "text": "Surveyed in 1833",
+        "reading": "Surveyed in 1833 — no tract named",
+        "date": 1833
+      },
+      "box_px": {
+        "x0": 2996,
+        "y0": 4093,
+        "x1": 3050,
+        "y1": 4119
+      },
+      "sampled_px": 810,
+      "median_rgb": [
+        180,
+        112,
+        39
+      ],
+      "mean_rgb": [
+        172.1,
+        106.2,
+        40.9
+      ],
+      "sd_rgb": [
+        50.9,
+        42.3,
+        22.3
+      ]
+    },
+    {
+      "chip": 9,
+      "legend": {
+        "text": "Part of Canal Sec. No 9",
+        "reading": "Part of Canal Section No. 9",
+        "date": null
+      },
+      "box_px": {
+        "x0": 2996,
+        "y0": 4129,
+        "x1": 3050,
+        "y1": 4168
+      },
+      "sampled_px": 1512,
+      "median_rgb": [
+        57,
+        50,
+        23
+      ],
+      "mean_rgb": [
+        79.0,
+        66.5,
+        36.9
+      ],
+      "sd_rgb": [
+        52.5,
+        47.1,
+        36.6
+      ]
+    }
+  ],
+  "separation_rgb": [
+    [
+      0.0,
+      139.5,
+      131.0,
+      68.1,
+      199.5,
+      59.1,
+      125.7,
+      153.7,
+      72.8
+    ],
+    [
+      139.5,
+      0.0,
+      54.9,
+      125.8,
+      82.9,
+      106.3,
+      63.3,
+      45.1,
+      122.9
+    ],
+    [
+      131.0,
+      54.9,
+      0.0,
+      92.4,
+      122.8,
+      84.5,
+      10.5,
+      85.6,
+      89.3
+    ],
+    [
+      68.1,
+      125.8,
+      92.4,
+      0.0,
+      188.1,
+      30.1,
+      83.3,
+      143.5,
+      9.0
+    ],
+    [
+      199.5,
+      82.9,
+      122.8,
+      188.1,
+      0.0,
+      163.9,
+      130.1,
+      46.8,
+      182.6
+    ],
+    [
+      59.1,
+      106.3,
+      84.5,
+      30.1,
+      163.9,
+      0.0,
+      77.2,
+      118.9,
+      27.3
+    ],
+    [
+      125.7,
+      63.3,
+      10.5,
+      83.3,
+      130.1,
+      77.2,
+      0.0,
+      91.8,
+      80.0
+    ],
+    [
+      153.7,
+      45.1,
+      85.6,
+      143.5,
+      46.8,
+      118.9,
+      91.8,
+      0.0,
+      138.7
+    ],
+    [
+      72.8,
+      122.9,
+      89.3,
+      9.0,
+      182.6,
+      27.3,
+      80.0,
+      138.7,
+      0.0
+    ]
+  ],
+  "separability": {
+    "confidence": "documented",
+    "classes": [
+      [
+        1
+      ],
+      [
+        2
+      ],
+      [
+        3,
+        7
+      ],
+      [
+        4,
+        6,
+        9
+      ],
+      [
+        5
+      ],
+      [
+        8
+      ]
+    ],
+    "worst_within_chip_sd_rgb": 60.8,
+    "finding": "Nine chips, 6 separable colours. The closest pair is chips 4 and 9 at 9.0 RGB units. The widest per-channel spread INSIDE a single chip is 60.8 RGB units, so a pixel of wash cannot be assigned to a chip — only to a class. Matching swatch to ground by colour alone therefore cannot resolve the two swatches T-0792 calls ambiguous, and this file records that as a refusal rather than guessing from the legend's order."
+  },
+  "bands_by_class": [
+    {
+      "class": [
+        1
+      ],
+      "class_colour_rgb": [
+        44.0,
+        65.0,
+        93.0
+      ],
+      "band_count": 1,
+      "bands": [
+        {
+          "cells": 332,
+          "box_px": {
+            "x0": 3000,
+            "y0": 2152,
+            "x1": 3472,
+            "y1": 2488
+          },
+          "centroid_px": [
+            3228.9,
+            2292.3
+          ],
+          "box_local_m": {
+            "e0": 870.9,
+            "n0": 13.8,
+            "e1": 1201.3,
+            "n1": 269.2
+          },
+          "off_map": false,
+          "in_legend": false
+        }
+      ]
+    },
+    {
+      "class": [
+        2
+      ],
+      "class_colour_rgb": [
+        176.0,
+        68.0,
+        48.0
+      ],
+      "band_count": 2,
+      "bands": [
+        {
+          "cells": 121,
+          "box_px": {
+            "x0": 3000,
+            "y0": 3216,
+            "x1": 3272,
+            "y1": 3248
+          },
+          "centroid_px": [
+            3135.3,
+            3229.6
+          ],
+          "box_local_m": {
+            "e0": 876.6,
+            "n0": -534.3,
+            "e1": 1068.2,
+            "n1": -503.7
+          },
+          "off_map": false,
+          "in_legend": false
+        },
+        {
+          "cells": 55,
+          "box_px": {
+            "x0": 2944,
+            "y0": 3216,
+            "x1": 2968,
+            "y1": 3360
+          },
+          "centroid_px": [
+            2954.8,
+            3286.7
+          ],
+          "box_local_m": {
+            "e0": 837.9,
+            "n0": -616.6,
+            "e1": 853.8,
+            "n1": -512.1
+          },
+          "off_map": false,
+          "in_legend": false
+        }
+      ]
+    },
+    {
+      "class": [
+        3,
+        7
+      ],
+      "class_colour_rgb": [
+        140.0,
+        37.5,
+        12.5
+      ],
+      "band_count": 4,
+      "bands": [
+        {
+          "cells": 271,
+          "box_px": {
+            "x0": 3616,
+            "y0": 4008,
+            "x1": 3712,
+            "y1": 4448
+          },
+          "centroid_px": [
+            3665.2,
+            4221.3
+          ],
+          "box_local_m": {
+            "e0": 1320.0,
+            "n0": -1382.8,
+            "e1": 1384.4,
+            "n1": -1062.8
+          },
+          "off_map": false,
+          "in_legend": false
+        },
+        {
+          "cells": 58,
+          "box_px": {
+            "x0": 2944,
+            "y0": 3208,
+            "x1": 3072,
+            "y1": 3272
+          },
+          "centroid_px": [
+            2997.4,
+            3233.1
+          ],
+          "box_local_m": {
+            "e0": 837.3,
+            "n0": -553.1,
+            "e1": 927.1,
+            "n1": -503.5
+          },
+          "off_map": false,
+          "in_legend": false
+        },
+        {
+          "cells": 49,
+          "box_px": {
+            "x0": 2912,
+            "y0": 4688,
+            "x1": 2960,
+            "y1": 4824
+          },
+          "centroid_px": [
+            2933.4,
+            4754.1
+          ],
+          "box_local_m": {
+            "e0": 826.3,
+            "n0": -1673.3,
+            "e1": 859.1,
+            "n1": -1573.9
+          },
+          "off_map": false,
+          "in_legend": false
+        },
+        {
+          "cells": 40,
+          "box_px": {
+            "x0": 3696,
+            "y0": 3880,
+            "x1": 3720,
+            "y1": 3968
+          },
+          "centroid_px": [
+            3709.0,
+            3920.8
+          ],
+          "box_local_m": {
+            "e0": 1372.8,
+            "n0": -1034.4,
+            "e1": 1389.1,
+            "n1": -970.2
+          },
+          "off_map": false,
+          "in_legend": false
+        }
+      ]
+    },
+    {
+      "class": [
+        4,
+        6,
+        9
+      ],
+      "class_colour_rgb": [
+        60.3,
+        53.7,
+        30.7
+      ],
+      "band_count": 40,
+      "bands": [
+        {
+          "cells": 264,
+          "box_px": {
+            "x0": 2560,
+            "y0": 960,
+            "x1": 2928,
+            "y1": 1064
+          },
+          "centroid_px": [
+            2784.1,
+            993.8
+          ],
+          "box_local_m": {
+            "e0": 550.0,
+            "n0": 1028.7,
+            "e1": 808.7,
+            "n1": 1113.9
+          },
+          "off_map": false,
+          "in_legend": false
+        },
+        {
+          "cells": 152,
+          "box_px": {
+            "x0": 632,
+            "y0": 5424,
+            "x1": 912,
+            "y1": 5456
+          },
+          "centroid_px": [
+            773.2,
+            5440.9
+          ],
+          "box_local_m": {
+            "e0": -777.0,
+            "n0": -2192.0,
+            "e1": -579.8,
+            "n1": -2161.2
+          },
+          "off_map": false,
+          "in_legend": false
+        },
+        {
+          "cells": 150,
+          "box_px": {
+            "x0": 2112,
+            "y0": 952,
+            "x1": 2432,
+            "y1": 1016
+          },
+          "centroid_px": [
+            2290.9,
+            967.3
+          ],
+          "box_local_m": {
+            "e0": 233.7,
+            "n0": 1051.0,
+            "e1": 458.9,
+            "n1": 1105.9
+          },
+          "off_map": false,
+          "in_legend": false
+        },
+        {
+          "cells": 125,
+          "box_px": {
+            "x0": 3072,
+            "y0": 960,
+            "x1": 3360,
+            "y1": 1000
+          },
+          "centroid_px": [
+            3212.0,
+            973.1
+          ],
+          "box_local_m": {
+            "e0": 910.6,
+            "n0": 1089.0,
+            "e1": 1113.4,
+            "n1": 1125.8
+          },
+          "off_map": false,
+          "in_legend": false
+        },
+        {
+          "cells": 125,
+          "box_px": {
+            "x0": 2920,
+            "y0": 4456,
+            "x1": 3000,
+            "y1": 4704
+          },
+          "centroid_px": [
+            2955.2,
+            4574.1
+          ],
+          "box_local_m": {
+            "e0": 831.0,
+            "n0": -1586.6,
+            "e1": 885.6,
+            "n1": -1405.5
+          },
+          "off_map": false,
+          "in_legend": false
+        },
+        {
+          "cells": 121,
+          "box_px": {
+            "x0": 3528,
+            "y0": 1128,
+            "x1": 3640,
+            "y1": 1320
+          },
+          "centroid_px": [
+            3584.0,
+            1218.2
+          ],
+          "box_local_m": {
+            "e0": 1234.6,
+            "n0": 870.8,
+            "e1": 1312.2,
+            "n1": 1012.3
+          },
+          "off_map": false,
+          "in_legend": false
+        },
+        {
+          "cells": 107,
+          "box_px": {
+            "x0": 2880,
+            "y0": 1672,
+            "x1": 2944,
+            "y1": 1936
+          },
+          "centroid_px": [
+            2908.6,
+            1811.7
+          ],
+          "box_local_m": {
+            "e0": 782.2,
+            "n0": 408.6,
+            "e1": 825.3,
+            "n1": 600.8
+          },
+          "off_map": false,
+          "in_legend": false
+        },
+        {
+          "cells": 97,
+          "box_px": {
+            "x0": 2392,
+            "y0": 2416,
+            "x1": 2592,
+            "y1": 2504
+          },
+          "centroid_px": [
+            2481.1,
+            2452.8
+          ],
+          "box_local_m": {
+            "e0": 442.2,
+            "n0": -14.5,
+            "e1": 582.6,
+            "n1": 54.5
+          },
+          "off_map": false,
+          "in_legend": false
+        }
+      ]
+    },
+    {
+      "class": [
+        5
+      ],
+      "class_colour_rgb": [
+        218.0,
+        136.0,
+        26.0
+      ],
+      "band_count": 15,
+      "bands": [
+        {
+          "cells": 1704,
+          "box_px": {
+            "x0": 2512,
+            "y0": 3208,
+            "x1": 2960,
+            "y1": 4920
+          },
+          "centroid_px": [
+            2860.4,
+            3849.6
+          ],
+          "box_local_m": {
+            "e0": 544.9,
+            "n0": -1753.6,
+            "e1": 848.1,
+            "n1": -506.5
+          },
+          "off_map": false,
+          "in_legend": false
+        },
+        {
+          "cells": 930,
+          "box_px": {
+            "x0": 1880,
+            "y0": 5344,
+            "x1": 2896,
+            "y1": 5472
+          },
+          "centroid_px": [
+            2416.8,
+            5430.9
+          ],
+          "box_local_m": {
+            "e0": 103.3,
+            "n0": -2169.2,
+            "e1": 818.9,
+            "n1": -2048.8
+          },
+          "off_map": false,
+          "in_legend": false
+        },
+        {
+          "cells": 818,
+          "box_px": {
+            "x0": 632,
+            "y0": 4536,
+            "x1": 712,
+            "y1": 5432
+          },
+          "centroid_px": [
+            669.6,
+            4932.4
+          ],
+          "box_local_m": {
+            "e0": -777.2,
+            "n0": -2174.7,
+            "e1": -727.5,
+            "n1": -1526.3
+          },
+          "off_map": false,
+          "in_legend": false
+        },
+        {
+          "cells": 423,
+          "box_px": {
+            "x0": 1768,
+            "y0": 3200,
+            "x1": 2456,
+            "y1": 3264
+          },
+          "centroid_px": [
+            2108.0,
+            3228.9
+          ],
+          "box_local_m": {
+            "e0": 7.8,
+            "n0": -579.8,
+            "e1": 492.6,
+            "n1": -514.7
+          },
+          "off_map": false,
+          "in_legend": false
+        },
+        {
+          "cells": 358,
+          "box_px": {
+            "x0": 2072,
+            "y0": 4392,
+            "x1": 2240,
+            "y1": 4712
+          },
+          "centroid_px": [
+            2180.2,
+            4554.4
+          ],
+          "box_local_m": {
+            "e0": 233.0,
+            "n0": -1615.7,
+            "e1": 349.1,
+            "n1": -1380.3
+          },
+          "off_map": false,
+          "in_legend": false
+        },
+        {
+          "cells": 102,
+          "box_px": {
+            "x0": 640,
+            "y0": 4136,
+            "x1": 720,
+            "y1": 4272
+          },
+          "centroid_px": [
+            681.4,
+            4198.5
+          ],
+          "box_local_m": {
+            "e0": -780.2,
+            "n0": -1337.9,
+            "e1": -724.8,
+            "n1": -1237.6
+          },
+          "off_map": false,
+          "in_legend": false
+        },
+        {
+          "cells": 88,
+          "box_px": {
+            "x0": 1712,
+            "y0": 5384,
+            "x1": 1832,
+            "y1": 5440
+          },
+          "centroid_px": [
+            1778.8,
+            5413.9
+          ],
+          "box_local_m": {
+            "e0": -15.5,
+            "n0": -2150.7,
+            "e1": 68.8,
+            "n1": -2107.0
+          },
+          "off_map": false,
+          "in_legend": false
+        },
+        {
+          "cells": 84,
+          "box_px": {
+            "x0": 712,
+            "y0": 3184,
+            "x1": 848,
+            "y1": 3280
+          },
+          "centroid_px": [
+            797.6,
+            3220.8
+          ],
+          "box_local_m": {
+            "e0": -736.8,
+            "n0": -620.5,
+            "e1": -641.6,
+            "n1": -547.5
+          },
+          "off_map": false,
+          "in_legend": false
+        }
+      ]
+    },
+    {
+      "class": [
+        8
+      ],
+      "class_colour_rgb": [
+        180.0,
+        112.0,
+        39.0
+      ],
+      "band_count": 54,
+      "bands": [
+        {
+          "cells": 8184,
+          "box_px": {
+            "x0": 3936,
+            "y0": 4304,
+            "x1": 4592,
+            "y1": 5856
+          },
+          "centroid_px": [
+            4345.6,
+            5215.3
+          ],
+          "box_local_m": {
+            "e0": 1556.2,
+            "n0": -2389.4,
+            "e1": 2007.3,
+            "n1": -1252.0
+          },
+          "off_map": false,
+          "in_legend": false
+        },
+        {
+          "cells": 1097,
+          "box_px": {
+            "x0": 3400,
+            "y0": 4392,
+            "x1": 3704,
+            "y1": 5520
+          },
+          "centroid_px": [
+            3565.0,
+            4948.3
+          ],
+          "box_local_m": {
+            "e0": 1175.6,
+            "n0": -2161.9,
+            "e1": 1381.6,
+            "n1": -1339.9
+          },
+          "off_map": false,
+          "in_legend": false
+        },
+        {
+          "cells": 401,
+          "box_px": {
+            "x0": 2864,
+            "y0": 4808,
+            "x1": 2944,
+            "y1": 5472
+          },
+          "centroid_px": [
+            2916.7,
+            5170.0
+          ],
+          "box_local_m": {
+            "e0": 797.3,
+            "n0": -2142.0,
+            "e1": 848.7,
+            "n1": -1660.9
+          },
+          "off_map": false,
+          "in_legend": false
+        },
+        {
+          "cells": 382,
+          "box_px": {
+            "x0": 1792,
+            "y0": 1824,
+            "x1": 2176,
+            "y1": 2088
+          },
+          "centroid_px": [
+            2041.7,
+            1922.5
+          ],
+          "box_local_m": {
+            "e0": 16.0,
+            "n0": 269.0,
+            "e1": 284.8,
+            "n1": 470.0
+          },
+          "off_map": false,
+          "in_legend": false
+        },
+        {
+          "cells": 291,
+          "box_px": {
+            "x0": 3488,
+            "y0": 3360,
+            "x1": 3728,
+            "y1": 3736
+          },
+          "centroid_px": [
+            3656.7,
+            3497.5
+          ],
+          "box_local_m": {
+            "e0": 1224.4,
+            "n0": -872.8,
+            "e1": 1390.9,
+            "n1": -595.0
+          },
+          "off_map": false,
+          "in_legend": false
+        },
+        {
+          "cells": 288,
+          "box_px": {
+            "x0": 3992,
+            "y0": 4040,
+            "x1": 4144,
+            "y1": 4392
+          },
+          "centroid_px": [
+            4068.3,
+            4209.0
+          ],
+          "box_local_m": {
+            "e0": 1584.8,
+            "n0": -1332.0,
+            "e1": 1689.3,
+            "n1": -1073.9
+          },
+          "off_map": false,
+          "in_legend": false
+        },
+        {
+          "cells": 260,
+          "box_px": {
+            "x0": 624,
+            "y0": 5032,
+            "x1": 696,
+            "y1": 5448
+          },
+          "centroid_px": [
+            652.2,
+            5257.0
+          ],
+          "box_local_m": {
+            "e0": -782.7,
+            "n0": -2186.5,
+            "e1": -735.1,
+            "n1": -1884.5
+          },
+          "off_map": false,
+          "in_legend": false
+        },
+        {
+          "cells": 227,
+          "box_px": {
+            "x0": 1848,
+            "y0": 712,
+            "x1": 2016,
+            "y1": 840
+          },
+          "centroid_px": [
+            1930.7,
+            774.1
+          ],
+          "box_local_m": {
+            "e0": 46.2,
+            "n0": 1170.6,
+            "e1": 163.7,
+            "n1": 1267.6
+          },
+          "off_map": true,
+          "in_legend": false
+        }
+      ]
+    }
+  ],
+  "cross_check_school_section": {
+    "confidence": "inferred",
+    "rms_grace_m": 16.02,
+    "north": {
+      "band_span_m": [
+        -579.8,
+        -514.7
+      ],
+      "band_mid_m": -547.2,
+      "outside_band_by_m": 0.0,
+      "cells": 423,
+      "committed_m": -519.05
+    },
+    "south": {
+      "band_span_m": [
+        -2169.2,
+        -2048.8
+      ],
+      "band_mid_m": -2109.0,
+      "outside_band_by_m": 0.0,
+      "cells": 930,
+      "committed_m": -2128.4
+    },
+    "east": {
+      "band_span_m": [
+        544.9,
+        848.1
+      ],
+      "band_mid_m": 696.5,
+      "outside_band_by_m": 0.0,
+      "cells": 1704,
+      "committed_m": 841.86
+    },
+    "west": {
+      "band_span_m": [
+        -777.2,
+        -727.5
+      ],
+      "band_mid_m": -752.4,
+      "outside_band_by_m": 0.0,
+      "cells": 818,
+      "committed_m": -767.49
+    },
+    "note": "Every committed side of section 16 falls inside the band of chip 5's own colour. The section's geometry comes from the PLSS corner at State and Madison and a nominal mile; the band comes from a colour chip 3,000 px away on the same paper. They were derived without reference to each other, so the agreement is evidence that reading ground off these chips is worth doing — and it is the ONLY chip-to-ground reading this file makes. The other eight are piece 2's."
+  }
+}

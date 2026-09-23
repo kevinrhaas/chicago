@@ -1,0 +1,28 @@
+{
+  "$note": "Every off-band CLAIM the four parcel generators would make, named with the reason it stands. Cut by tools/measure_family_deal.py --write-baseline; read by --gate as a RATCHET, the same shape tools/band_claims_baseline.json uses for the records that landed. A refusal is never baselined — a family a parcel may deal and the archetype will not build is a run that dies, and all four parcels are green on that today. What is baselined is the second assertion: a value outside the band its own note cites is wrong about its source (K25). The fault may shrink and may not grow.",
+  "$measured": "2026-08-28, T-0172. 400 synthetic deals per family per parcel. 0 refusals across all four parcels; 31 off-band claims on 25 (parcel, family) rows, every one a per-family CONSTANT, so each is made on 100 per cent of that family's deals. 12 of the 15 (family, field) pairs behind them already stand as landed offenders in band_claims_baseline.json; three do NOT — west H2 eave, west H2 pitch and household H1 eave — and those are the latent shape this sweep exists to catch, a card the recipe may deal and has not.",
+  "$repairs": {
+    "west": "T-0272 — DONE, 2026-08-29",
+    "infill": "T-0273 — DONE",
+    "household": "T-0274 — DONE, 2026-08-30",
+    "$why": "The repair is one shape in all three files and it is not an edit: replace the literal with family_bands.pitch_deg / wall_height_m sampled inside the family's own band and bounded by eave_limits, which is exactly what T-0144 and T-0145 did to the platted-block parcel. It moves the eave and the pitch on every standing record of those families, so it re-derives and re-bakes. One ticket per parcel because one bake per parcel is what a run holds."
+  },
+  "parcels": {
+    "block": {
+      "why": "GATED ABSOLUTELY — no entry may ever be added here. T-0144 and T-0145 took the constants out of this parcel and T-0142 proved the result: 0 refusals, 0 off-band claims, 23 families. If a claim appears under `block`, the repair regressed.",
+      "families": {}
+    },
+    "west": {
+      "why": "GATED ABSOLUTELY — no entry may ever be added here. T-0272 took the eleven literals out of `_form_body`: the eave and the pitch are now sampled inside the family's own band, bounded by `eave_limits` at both ends and by the family's ridge band once more, and the twenty standing records were re-derived and re-baked in the same commit. 0 refusals, 0 off-band claims, 22 families. If a claim appears under `west`, the repair regressed.",
+      "families": {}
+    },
+    "infill": {
+      "why": "GATED ABSOLUTELY — no entry may ever be added here. T-0273 took the constants out of generate_inferred_infill.py, the way T-0144 and T-0145 took them out of the block parcel, and the sweep measured the result: 0 refusals, 0 off-band claims, 21 families. The drift this row used to record — a 2.75 m outbuilding wall here against the west parcel's 2.05 m for the same man door — is gone because neither number is typed any more; both parcels ask `family_bands` for the band and the archetype for the limits. If a claim appears under `infill`, the repair regressed.",
+      "families": {}
+    },
+    "household": {
+      "why": "GATED ABSOLUTELY — no entry may ever be added here. T-0274 took the constants out of `generate_inferred_households.py`'s `inferred_form`, the last of the four parcels to make the move. This one keyed the eave and the pitch on the ARCHETYPE rather than the family, so one figure per archetype reached every family that archetype serves — which is why `measure_band_claims.py`'s root-cause section quoted this function. Both values are now sampled inside the family's own authored band, bounded by `eave_limits` at both ends and by the family's ridge band once more, and the 31 standing inferred records were re-derived and re-baked in the same commit. Two of the limits could not be ASKED for before this ticket: `log_dwelling` and `frame_storefront` enforced a storey-dependent eave ceiling inside `validate()` and published no table, so `eave_limits` read the silence as 'no limit' — both now publish `wall_height_band_m`, the way `frame_dwelling` has since T-0142. 0 refusals, 0 off-band claims, 15 families. If a claim appears under `household`, the repair regressed.",
+      "families": {}
+    }
+  }
+}

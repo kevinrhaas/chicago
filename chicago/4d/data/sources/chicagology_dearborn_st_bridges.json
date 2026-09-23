@@ -1,0 +1,34 @@
+{
+  "id": "chicagology_dearborn_st_bridges",
+  "type": "website",
+  "citation": "\"Dearborn Street Bridges.\" Chicagology. The 1834 section transcribing A. T. Andreas, History of Chicago, Volume I (the page dates its Andreas text 1886), including the shipwright Nelson R. Norton's own letter.",
+  "date": "accessed 2026-08-11",
+  "describes_date": "1833-1839",
+  "locator": "Top of page, from the heading \"Andreas' History of Chicago, Volume I, 1886\" through the paragraph ending with the bridge chopped to pieces after the Common Council's removal order of July 1839. Everything below that on the page is 1880-1960 material about later Dearborn Street bridges.",
+  "url": "https://chicagology.com/harbor/riverbridges/dearbornstreetbridges/",
+  "archived_url": "https://web.archive.org/web/20260217032420/https://chicagology.com/harbor/riverbridges/dearbornstreetbridges/",
+  "tier": 4,
+  "rights_status": "check_required",
+  "asset_use": "cross_check",
+  "verified": true,
+  "note": "THE ONLY DIMENSIONAL STATEMENT REACHED FOR THE 1834 DEARBORN STREET DRAWBRIDGE, and it is Andreas hedging. Verbatim: \"The Dearborn-street structure was a primitive affair and received the blows of passing vessels and the curses of pedestrians and drivers. From various sources it is learned that it was about three hundred feet long, and the opening for the passage of craft about sixty feet. It was of the 'gallows pattern,' and for five years, the frames, one at either end, stood like instruments of death to frighten the timid stranger at night.\" And: \"Upon one occasion when hoisted it 'would not down' at anyone's bidding, and for forty-eight hours the gallows frames held the draw suspended in mid-air. The bridge was repaired in 1835 and 1837, and the Common Council ordered its removal in July, 1839.\" Note \"From various sources it is learned\" - Andreas is telling you he is reconciling second-hand reports, not reading a specification.\n\nTHE BUILDER, IN HIS OWN WORDS: \"I came to Chicago November 16, 1833. Soon after I arrived, I commenced cutting the lumber for a drawbridge, on the land adjoining Michigan Avenue, afterward owned by Hiram Pearsons. In March, 1834, I commenced building it, and I think it was completed by the ist of June.\" (the \"ist\" is the page's OCR of \"1st\"). Andreas immediately corrects him: \"Mr. Norton is evidently in error as to the time of the completion of the bridge, since the Democrat states that it was formally accepted by the Trustees in August, the first proposals having been received in February.\" So the bridge is standing well before 1835-07-01 either way, and the acceptance date rests on a Chicago Democrat issue of 1834 that this project does NOT hold - chicago_democrat_1833_11_26 is a single issue of 26 November 1833 and cannot corroborate this. Do not cite the Democrat record for it.\n\nTWO THINGS THE BRIEF FOR THIS RECORD ATTRIBUTED TO THIS PAGE THAT ARE NOT ON IT. There is no statement anywhere on the page that the 1834 bridge was DOUBLE-LEAF, and no statement that it was worked by a CHAIN HOIST. The words \"leaves\", \"cantilevers\" and \"double-leaf\" occur only in the page's descriptions of the 1890s bascule and the 1907 and 1963 bridges, sixty to a hundred and thirty years later. The only period mechanism words are \"gallows pattern\", the two frames \"one at either end\", and the draw being \"hoisted\" and \"held ... suspended in mid-air\" - which tells you it lifted rather than swung, and nothing about how. The one windlass on the page belongs to the State Street FERRY rope, not to the bridge. Model the lifting gear as conjectural.\n\nEND OF LIFE: the Common Council ordered removal in July 1839 and \"a large crowd gathered upon the river before daylight, the next morning, and going to work with a will, in a very short time chopped the bridge to pieces.\" The page's own lead sentence adds that there was then no Dearborn Street bridge for almost fifty years, 1839 to 1888.\n\nTIER 4 GRADES THIS WEB PAGE, NOT THE MATERIAL IT REPRINTS. A modern compilation quoting an older text is still a modern compilation: the transcription is unpaginated, uncredited editorial prose sits beside the quoted matter with no typographic break, and nothing here can be collated against a printed page. Where a claim taken from this page is load-bearing, re-read it in the underlying volume and cite that record instead.",
+  "access_notes": "Site carries no license statement. Treat as a transcription aid, not a rights source; nothing may be derived from it as an asset.",
+  "what_it_supplies": [
+    "overall length about three hundred feet",
+    "draw opening for craft about sixty feet",
+    "\"gallows pattern\" with a frame at either end",
+    "the draw lifted (hoisted) rather than swung",
+    "built by the shipwright Nelson R. Norton; lumber cut from late 1833, construction begun March 1834",
+    "formally accepted by the Trustees in August 1834 per Andreas, correcting Norton's own 1 June",
+    "repaired in 1835 and in 1837",
+    "removal ordered July 1839 and the bridge chopped to pieces the next morning"
+  ],
+  "what_it_does_not_supply": [
+    "any statement that the bridge was double-leaf",
+    "any statement that it was raised by a chain hoist",
+    "the deck width, railing, pier or abutment construction",
+    "the number or spacing of bents",
+    "the height of the gallows frames or of the deck above the water",
+    "which bank the draw was hinged on"
+  ]
+}

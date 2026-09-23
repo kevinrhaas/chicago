@@ -1,0 +1,124 @@
+{
+  "id": "bates_auction_room",
+  "name": "John Bates Jr.'s Auction Room",
+  "aka": [
+    "the wooden auction-room on Dearborn Street"
+  ],
+  "archetype": "frame_storefront",
+  "phases": [
+    {
+      "id": "frame_1834",
+      "documented_range": {
+        "from": "1834-01-01",
+        "to": "1835-12-31",
+        "confidence": "inferred",
+        "sources": [
+          "andreas_1884_v1"
+        ],
+        "note": "THE SOURCE OFFERS TWO YEARS AND THIS RANGE TAKES THE LATER ONE AS A FLOOR. Andreas: 'a wooden structure, erected in 1833 or 1834, by John Bates, for an auction-room.' The range opens at the start of 1834, the later of the two; if Andreas meant 1833 the building is a year older than this says, and if he meant late 1834 the range opens a few months early. Neither reading changes the 1835 scene, which is why the ambiguity is recorded rather than resolved. Bates is independently attested as the auctioneer for the school-section sale of October 1833 and as an active advertiser in 1834, and he was deputy postmaster from 1833, so the man is well placed in the town on either date. THE END IS THE ORDINARY CONTINUITY CUT AT THE SCENE YEAR; no source reached follows the building past its erection."
+      },
+      "position": {
+        "utm_e": 447752.4,
+        "utm_n": 4637352.1,
+        "rotation_deg": 90.0,
+        "symbolic_location": "West side of Dearborn Street between Lake Street and South Water Street, fronting east onto Dearborn; placed at the middle of that block face, which the source does not state.",
+        "confidence": "inferred",
+        "sources": [
+          "andreas_1884_v1",
+          "osm_streets_2026"
+        ],
+        "note": "PLACED 2026-08-11. THE BLOCK FACE IS DOCUMENTED AND THE POINT ALONG IT IS NOT. Andreas gives 'west side of Dearborn Street between Lake and South Water' — a side of a street and a pair of cross streets, which fixes one axis tightly and leaves the other free over the whole 126 m of the block. METHOD: Dearborn Street is unchanged; its modern centreline easting was taken as the mean of the two intersection centres read from OpenStreetMap at EPSG:26916 — West Upper Wacker Drive / North Dearborn E 447771.8, N 4637409.0 and West Lake Street / North Dearborn E 447772.7, N 4637283.0 (fetched 2026-08-11) — giving E 447772.2, and the west kerb 12.2 m west of that at E 447760.0. The footprint's east face is set on that kerb and the building centred on the block face at N 4637346. THE UNCERTAINTY IS NOT ISOTROPIC AND THAT IS THE POINT: across the street it is about 20 m, the georeference's residual (data/datum.json, 17.5 m RMS); ALONG the street it is about 55 m, half the block, because nothing says where on the face the room stood. A COLLISION RECORDED RATHER THAN NUDGED: madore_beaubien_house is documented on Lot 1 at the south-west corner of South Water and Dearborn, which is the north end of this same block face. The two records do not overlap only because this one is centred for want of a statement. If the auction room stood at the north end of the face it stood on Madore Beaubien's lot, and one of the two records is then wrong about something. Facade bearing 90, due east onto Dearborn: the street the source names is the one it fronts, which is the only bearing argument this record has.",
+        "derivation": {
+          "method": "not_derivable",
+          "reason": "This placement predates the derivation module. Its provenance and reasoning are recorded in position.note, but no machine-checkable derivation block has been authored for it yet."
+        }
+      },
+      "footprint": {
+        "polygon": [
+          [
+            0,
+            0
+          ],
+          [
+            12.192,
+            0
+          ],
+          [
+            12.192,
+            7.62
+          ],
+          [
+            0,
+            7.62
+          ]
+        ],
+        "confidence": "reconstructed",
+        "note": "INVENTED. No source gives this building a dimension. It is the parcel's borrowed rectangle turned end-on: 12.192 m of frontage along Dearborn and 7.62 m of depth back from it, which is 40 x 25 ft — the frontage attested for the Green Tree Tavern and the Western Hotel and the depth derived from the Green Tree's room module. THE ONE THING THE USE ARGUES FOR IS A CLEAR SPAN: an auction room is one room with a crowd standing in it, not a partitioned store, so a rectangle with no internal structure is at least the right kind of shape. That is an argument about the type and not about this building, and the polygon carries no evidence."
+      },
+      "form": {
+        "stories": {
+          "value": 1,
+          "confidence": "inferred",
+          "note": "Not stated. Andreas calls it 'a wooden structure ... for an auction-room' — a purpose-built single-use room rather than a store with living quarters over it — and a single-storey hall is what that describes. Two storeys is possible if Bates let the upper floor, and nothing reached says either way."
+        },
+        "construction": {
+          "value": "braced_frame",
+          "confidence": "inferred",
+          "sources": [
+            "andreas_1884_v1"
+          ],
+          "note": "Andreas says 'wooden' and no more, which distinguishes it from brick or stone and from nothing else. Frame rather than log because a clear-span room is what frame construction is for and log is not, and because the dossier records the town's 1833-34 stock as frame and log with new commercial work going up in frame. Braced rather than balloon frame for the reason the Sauganash record gives: the sources never use a word that separates them."
+        },
+        "wall_height_m": {
+          "value": 3.6,
+          "confidence": "inferred",
+          "note": "No figure is attested. 3.6 m is about 12 ft: a single storey built taller than a dwelling's, which is what a room full of standing bidders and stacked lots needs. The reasoning is from the use, not from a measurement, and it is deliberately not the 2.5 m this project gives single-storey log dwellings."
+        },
+        "roof_type": {
+          "value": "gable",
+          "confidence": "inferred",
+          "note": "Not attested. Gable is the near-universal roof form for frame buildings of this type, period and region, and the simplest way to roof a clear-span room."
+        },
+        "roof_pitch_deg": {
+          "value": 33.0,
+          "confidence": "inferred",
+          "note": "No pitch is attested for this building. 33 degrees is the frame_storefront archetype's own figure for a store, and it is adopted here rather than the 38 this project uses for taverns because the archetype argues the case from the dataset's one attested store footprint: a store's frontage is long and its plan shallow, so a tavern's pitch puts more roof above the eave than there is wall below it and the building stops reading as a shop. Inferred from construction practice and from the type, not measured."
+        },
+        "chimneys": {
+          "value": 1,
+          "confidence": "inferred",
+          "note": "Not attested. One stove flue is the minimum for a room used through Chicago winters. The COUNT is the inference; the stack's position, size and material are the archetype's, per docs/LIBERTIES.md L26."
+        },
+        "shopfront": {
+          "value": false,
+          "confidence": "inferred",
+          "note": "An auction room is entered, not shopped in: goods were cried inside to a standing crowd rather than displayed to the street. Andreas describes the building's purpose and never its face. Inferred from the attested use; the archetype's default is a composed shopfront and turning it off is a claim this record makes deliberately."
+        },
+        "siding_exposure_m": {
+          "value": 0.14,
+          "confidence": "reconstructed",
+          "note": "INVENTED WITHIN A STOCK SET, NOT DERIVED. No source states the exposed face of any Chicago building's siding. The value is one of four period mill sidings — 4.5, 5, 5.5 or 6 in to the weather; this record wears 5.5 in — dealt by tools/deal_siding_stock.py: keyed to the phase's construction season, because buildings sided from the same season's shipments of St Joseph sawn lumber tend toward one stock, then advanced so no frame building within 60 m shares this one's. The separation is the surface variety T-0049 reconstructs, not a claim about 1835. docs/LIBERTIES.md L148 owns the invention."
+        }
+      },
+      "change_note": "The wooden auction room John Bates Jr. put up on the west side of Dearborn between Lake and South Water in 1833 or 1834 — the town's sale room, in the years when the town was selling itself. Bates cried the school-section sale of October 1833, the sale that turned the section south of Madison into lots, and he was deputy postmaster from the same year."
+    }
+  ],
+  "function": {
+    "value": "auction_room",
+    "confidence": "attested",
+    "sources": [
+      "andreas_1884_v1"
+    ],
+    "note": "Andreas states the purpose in the same sentence as the construction: erected 'for an auction-room'. This is one of the few buildings in this parcel whose use is documented as the reason it was built rather than inferred from its occupant's trade."
+  },
+  "occupants": {
+    "value": "John Bates Jr., auctioneer and deputy postmaster",
+    "confidence": "attested",
+    "sources": [
+      "andreas_1884_v1"
+    ],
+    "note": "Andreas names Bates as the builder and the auctioneer. He was also deputy postmaster from 1833, sorting mail in Hogan's store at the other end of the town's business street — the two buildings are 570 m apart in this model and the same man worked in both."
+  },
+  "research_note": "A BUILDING WHOSE PURPOSE IS DOCUMENTED AND WHOSE EVERY DIMENSION IS INVENTED. Andreas gives the material ('a wooden structure'), the purpose ('for an auction-room'), the builder and a two-year window for the erection, and gives the location as a block face rather than a corner. The position note above is the important part of this record: the uncertainty is anisotropic — about 20 m across Dearborn Street and about 55 m along it — and the record is placed at the middle of the face purely for want of a statement. THE COLLISION WITH MADORE BEAUBIEN'S LOT IS THE THING TO WATCH. Andreas separately calls Madore Beaubien's two-roomed log house 'the first building on lot No. 1' at the south-west corner of South Water and Dearborn, which is the north end of this very block face. Both records cannot be right about everything if the auction room stood at that end. WHAT WOULD UPGRADE THIS RECORD: an 1834-35 Chicago Democrat advertisement giving Bates's sale-room address in relation to a cross street; the school-section sale notices; or the 1834 town lot records for the Dearborn frontage between Lake and South Water. See docs/RESEARCH/bates_auction_room.md.",
+  "review_required": false
+}

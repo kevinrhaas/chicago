@@ -1,0 +1,30 @@
+{
+  "id": "harrison_1830_river_mouth",
+  "type": "map",
+  "citation": "Harrison, F., Jr., Ass't U.S. Civil Engineer. \"Map of the Mouth of Chicago River, drawn for the Purpose of showing the proposed Harbor Improvements. With additions and changes suggested by the Memory of Early Settlers. The original received and approved by William Howard, U.S. Civil Engineer, February 24, 1830.\" Reproduced in Andreas, A. T., History of Chicago, vol. 1 (Chicago, 1884), p. 113.",
+  "author": "Frederick Harrison Jr.; approved by William Howard, U.S. Civil Engineer",
+  "date": "1830-02-24",
+  "describes_date": "1830",
+  "repository": "reproduction consulted in the Internet Archive scan of Andreas vol. 1 (historyofchicago01andr); the original 1830 drawing is a federal harbour-survey document and was not consulted",
+  "url": "https://archive.org/details/historyofchicago01andr/page/n242/mode/1up",
+  "locator": "Andreas vol. 1, p. 113 = Internet Archive leaf n242; listed in that volume's table of maps as \"Fort Dearborn in 1830-32\"",
+  "tier": 2,
+  "rights_status": "public_domain",
+  "asset_use": "geometry",
+  "verified": true,
+  "note": "THE ONLY PLAN OF FORT DEARBORN THIS PROJECT HAS FOUND, and the reason the fort's footprint is not a placeholder. It is a U.S. civil engineer's harbour survey, so unlike every pictorial sheet in data/sources/ it draws the fort in PLAN: a quadrangular picket enclosure with a projecting work at three of its four angles, four ranges of buildings set against the north, west, east and south walls, two small buildings flanking a break in the south wall, and a larger square block projecting outside the south-west angle. It also names the ground around the fort - Garden for the Garrison, Cultivated Field belonging to The Fort, Big Barn with Cupola, Wash house, Well, Shop, Gate, Out Buildings, U.S. Factor's House, Fort Cemetery, the Ferry, and the Kinzie house on the far bank. WHY IT IS TIER 2 AND NOT TIER 1: the 1830 original is a period survey, but what is actually readable is Andreas's 1884 re-engraving of it, and the engraved sheet says on its own face that it carries 'additions and changes suggested by the Memory of Early Settlers'. So the line-work is a period survey plus fifty-year-old recollection, mixed on the plate with no way to separate the two. Every value taken from it in this dataset is therefore recorded as inferred, never documented, and the plan is used for ARRANGEMENT AND PROPORTION rather than for absolute size. THE SHEET CARRIES NO SCALE BAR. The scale used here (about 1.06 feet per pixel of the archive.org page image, 0.32 m/px) is derived by setting the north range equal to the commandant's quarters at 'about 25x50 ft' from the 1855 photograph key in wentworth_1881_fort_dearborn, and it is cross-checked two ways on the same sheet: the drawn aspect of that range is 1.9:1 against the stated 2.0:1, and the gap between the west and east ranges comes out 74 ft against the same key's 80 ft parade width. See docs/RESEARCH/fort_dearborn.md sections 3 and 4 for the full derivation and its error bars.",
+  "access_notes": "Page image: https://archive.org/download/historyofchicago01andr/page/n242.jpg (2003x2715). The map is printed sideways on the leaf; rotate it 90 degrees anticlockwise to bring the sheet's own TRUE NORTH arrow, which is drawn beside the title block, to vertical. The IIIF endpoint indexes leaves differently from the /page/nNNN.jpg endpoint - do not assume historyofchicago01andr$242 is the same leaf as n242.",
+  "what_it_supplies": [
+    "the fort's plan arrangement: a quadrangular picket enclosure, corner works, four ranges, two gates",
+    "which building stood on which side of the parade",
+    "the relative proportions of the enclosure and the buildings in it",
+    "the fort's rotation relative to true north",
+    "the named ground around the fort: garrison garden, cultivated field, barn, wash house, well, shop, cemetery, ferry"
+  ],
+  "what_it_does_not_supply": [
+    "any dimension in feet - there is no scale bar",
+    "elevations, heights, roof forms or materials",
+    "the state of the fort in 1835 - it is five years earlier",
+    "a separation between the 1830 survey and the settler-memory additions the plate admits to"
+  ]
+}

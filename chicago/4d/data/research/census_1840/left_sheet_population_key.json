@@ -1,0 +1,695 @@
+{
+ "schema": 1,
+ "domain": "census_1840",
+ "what": "The population key of the twelve filled LEFT sheets of image group 1 (images 1-25), and the pairing of the group's eleven CONTINUATION sheets to them.",
+ "ticket": "T-0642",
+ "parent": "T-0539, piece 3 of 3; the ask is T-0535's and before it T-0494's.",
+ "read": "2026-09-04",
+ "reading": "scan_verified",
+ "why_this_file_exists": "A continuation sheet carries no name and no printed page number \u2014 its number sits in the corner the binding takes \u2014 so nothing on it says which left sheet it continues. Two numbers can say it: the count of ruled lines carrying an entry, which must be the same on both halves of one opening, and the page population, which the left sheet gives as the sum of its 38 printed age-band footings and the right sheet gives as the printed footing of its TOTAL column. This file publishes both keys for every sheet in the group and states the outcome of the test for all eleven continuations.",
+ "the_test": [
+  "A pair must match on BOTH keys. A match on one key alone is recorded as a candidate and refused, with the rule that refused it.",
+  "The left key is the enumerator's own printed footings summed across all 38 columns, with a blank footing counted as zero. Where a footing is illegible or disputed the sheet carries two keys and both are published.",
+  "The right key is the printed footing of the TOTAL column \u2014 the enumerator's own arithmetic over his own sheet \u2014 and NEVER a pass's line-by-line sum of that column, which is a second reading and differs on four of the seven sheets that have one.",
+  "An unpaired sheet is recorded as unpaired. Nothing here is guessed, and no confidence is raised to make a pairing come out."
+ ],
+ "what_this_file_does_not_do": "It mints nothing, regrades nothing and rewrites no page file's cells. Where the pairing bears on a disputed reading it says so and leaves the residual where the page file recorded it.",
+ "left_sheets": [
+  {
+   "familysearch_id": "33S7-9YYJ-9RG",
+   "printed_page": 210,
+   "lines_ruled": 30,
+   "lines_with_an_entry": 30,
+   "page_population_printed": 187,
+   "page_population_by_its_own_cells": 188,
+   "footings_read_by_an_earlier_pass": 38,
+   "footings_read_this_pass": [],
+   "footings_blank_this_pass": [],
+   "note": "All 38 footings read by the pass that read the cells. The 30 lines sum to 188 against a footed 187."
+  },
+  {
+   "familysearch_id": "33S7-9YYJ-9WF",
+   "printed_page": 215,
+   "lines_ruled": 31,
+   "lines_with_an_entry": 31,
+   "page_population_printed": 103,
+   "page_population_by_its_own_cells": 101,
+   "footings_read_by_an_earlier_pass": 38,
+   "footings_read_this_pass": [],
+   "footings_blank_this_pass": [],
+   "note": "All 38 footings read. The 31 lines sum to 101 against a footed 103."
+  },
+  {
+   "familysearch_id": "33S7-9YYJ-9K3",
+   "printed_page": 219,
+   "lines_ruled": 31,
+   "lines_with_an_entry": 31,
+   "page_population_printed": 208,
+   "page_population_by_its_own_cells": 201,
+   "footings_read_by_an_earlier_pass": 38,
+   "footings_read_this_pass": [],
+   "footings_blank_this_pass": [],
+   "note": "All 38 footings read, and ONE of them is disputed: column 29 (free coloured males 24 under 36) is footed with two hooked diagonals that T-0585 read as 11 while the column's own 31 cells hold 4, and it refused to spend the residual of 7. So this sheet carries two keys \u2014 208 as footed, 201 by its own lines \u2014 and the pairing below is what decides between them.",
+   "page_population_printed_alternate": 201,
+   "page_population_printed_alternate_why": "column 29 footed as 4 rather than 11, which is what the column's own 31 cells hold"
+  },
+  {
+   "familysearch_id": "33S7-9YYJ-2T",
+   "printed_page": 221,
+   "lines_ruled": 31,
+   "lines_with_an_entry": 31,
+   "page_population_printed": 146,
+   "page_population_by_its_own_cells": 143,
+   "footings_read_by_an_earlier_pass": 38,
+   "footings_read_this_pass": [],
+   "footings_blank_this_pass": [],
+   "note": "All 38 footings read. The 31 lines sum to 143 against a footed 146."
+  },
+  {
+   "familysearch_id": "33S7-9YYJ-98M",
+   "printed_page": 222,
+   "lines_ruled": 31,
+   "lines_with_an_entry": 30,
+   "page_population_printed": 124,
+   "page_population_by_its_own_cells": 155,
+   "footings_read_by_an_earlier_pass": 21,
+   "footings_read_this_pass": [],
+   "footings_blank_this_pass": [
+    9,
+    10,
+    11,
+    12,
+    13,
+    22,
+    23,
+    24,
+    25,
+    26,
+    31,
+    32,
+    33,
+    34,
+    36,
+    37,
+    38
+   ],
+   "note": "Seventeen columns were recorded `not_read` by T-0532. This pass read the footer row and EVERY ONE of those seventeen cells is blank, so they are zero and the key is determined. The same reading disagrees with one committed figure: column 27 (free coloured males Under 10) is a single diagonal stroke where T-0532 read 2, which is why the key is published as 123 or 124 and not as one number. Neither value pairs with any continuation sheet, so the outcome of this ticket does not turn on it.",
+   "page_population_printed_alternate": 123,
+   "page_population_printed_alternate_why": "column 27 footed as 1 \u2014 one diagonal stroke \u2014 rather than the 2 T-0532 committed"
+  },
+  {
+   "familysearch_id": "33S7-9YYJ-9HY",
+   "printed_page": 225,
+   "lines_ruled": 31,
+   "lines_with_an_entry": 23,
+   "page_population_printed": 115,
+   "page_population_by_its_own_cells": 115,
+   "footings_read_by_an_earlier_pass": 38,
+   "footings_read_this_pass": [],
+   "footings_blank_this_pass": [],
+   "note": "All 38 footings read. The 23 lines sum to 115 and close on the footing exactly."
+  },
+  {
+   "familysearch_id": "33S7-9YYJ-B3",
+   "printed_page": 226,
+   "lines_ruled": 31,
+   "lines_with_an_entry": 29,
+   "page_population_printed": 184,
+   "page_population_by_its_own_cells": 185,
+   "footings_read_by_an_earlier_pass": 17,
+   "footings_read_this_pass": [
+    29
+   ],
+   "footings_blank_this_pass": [
+    10,
+    11,
+    12,
+    13,
+    22,
+    23,
+    24,
+    25,
+    26,
+    27,
+    28,
+    30,
+    31,
+    32,
+    33,
+    34,
+    35,
+    36,
+    37,
+    38
+   ],
+   "note": "Twenty-one columns were recorded `not_read` by T-0532. This pass read the footer row: twenty of them are blank, and the twenty-first \u2014 column 29, free coloured males 24 under 36 \u2014 carries a cursive 2 that BALANCES the 2 its cells hold. That figure is read here for the first time and is what moves the key from 182 to 184."
+  },
+  {
+   "familysearch_id": "33S7-9YYJ-6J",
+   "printed_page": 228,
+   "lines_ruled": 31,
+   "lines_with_an_entry": 17,
+   "page_population_printed": 71,
+   "page_population_by_its_own_cells": 71,
+   "footings_read_by_an_earlier_pass": 38,
+   "footings_read_this_pass": [],
+   "footings_blank_this_pass": [],
+   "note": "All 38 footings read. The sheet stops after 17 entries and closes on every column."
+  },
+  {
+   "familysearch_id": "33S7-9YYJ-9M5",
+   "printed_page": 229,
+   "lines_ruled": 30,
+   "lines_with_an_entry": 30,
+   "page_population_printed": 137,
+   "page_population_by_its_own_cells": 152,
+   "footings_read_by_an_earlier_pass": 38,
+   "footings_read_this_pass": [],
+   "footings_blank_this_pass": [],
+   "note": "All 38 footings read. The 30 lines sum to 152 against a footed 137; two columns are unreconciled and a second independent reading of this sheet disagrees on 20 of 30 lines."
+  },
+  {
+   "familysearch_id": "33S7-9YYJ-38",
+   "printed_page": 231,
+   "lines_ruled": 31,
+   "lines_with_an_entry": 31,
+   "page_population_printed": 160,
+   "page_population_by_its_own_cells": 157,
+   "footings_read_by_an_earlier_pass": 38,
+   "footings_read_this_pass": [],
+   "footings_blank_this_pass": [],
+   "note": "All 38 footings read. The 31 lines sum to 157 against a footed 160; two columns are unreconciled and a second independent reading disagrees on 25 of 31 lines."
+  },
+  {
+   "familysearch_id": "33S7-9YYJ-99F",
+   "printed_page": 234,
+   "lines_ruled": 31,
+   "lines_with_an_entry": 31,
+   "page_population_printed": 182,
+   "page_population_by_its_own_cells": 181,
+   "footings_read_by_an_earlier_pass": 38,
+   "footings_read_this_pass": [],
+   "footings_blank_this_pass": [],
+   "note": "All 38 footings read. The 31 lines sum to 181 against a footed 182; column 15 is the one short."
+  },
+  {
+   "familysearch_id": "33S7-9YYJ-9MX",
+   "printed_page": "unknown",
+   "lines_ruled": 31,
+   "lines_with_an_entry": 31,
+   "page_population_printed": 152,
+   "page_population_by_its_own_cells": 160,
+   "footings_read_by_an_earlier_pass": 38,
+   "footings_read_this_pass": [],
+   "footings_blank_this_pass": [],
+   "note": "All 38 footings read. THE PRINTED PAGE NUMBER IS NOT ON THE EXPOSURE, so this sheet cannot be named by page even when it pairs. The 31 lines sum to 160 against a footed 152; free white males Under 5 and 5 under 10 are unreconciled."
+  }
+ ],
+ "continuation_sheets": [
+  {
+   "familysearch_id": "33S7-9YYJ-24",
+   "page_population_key": 201,
+   "page_population_key_state": "committed",
+   "line_count_key": 31,
+   "line_count_key_state": "committed",
+   "schools": null,
+   "state": "paired",
+   "paired_to_printed_page": 219,
+   "paired_to_familysearch_id": "33S7-9YYJ-9K3",
+   "evidence": "The line counts agree at 31, and 33S7-9YYJ-9K3's own 31 lines hold 201 free white and free coloured persons \u2014 the same number this sheet's enumerator footed under TOTAL. No other left sheet in the group comes within eleven of 201 by either measure, so the match is unique as well as exact. 33S7-9YYJ-24 is the calibration sheet of the continuation reading and closes on all five of its own footed columns, which is what makes its 201 worth pairing on.",
+   "candidates_considered": [
+    {
+     "printed_page": 215,
+     "familysearch_id": "33S7-9YYJ-9WF",
+     "page_population_printed": 103,
+     "page_population_by_its_own_cells": 101
+    },
+    {
+     "printed_page": 219,
+     "familysearch_id": "33S7-9YYJ-9K3",
+     "page_population_printed": 208,
+     "page_population_by_its_own_cells": 201
+    },
+    {
+     "printed_page": 221,
+     "familysearch_id": "33S7-9YYJ-2T",
+     "page_population_printed": 146,
+     "page_population_by_its_own_cells": 143
+    },
+    {
+     "printed_page": 231,
+     "familysearch_id": "33S7-9YYJ-38",
+     "page_population_printed": 160,
+     "page_population_by_its_own_cells": 157
+    },
+    {
+     "printed_page": 234,
+     "familysearch_id": "33S7-9YYJ-99F",
+     "page_population_printed": 182,
+     "page_population_by_its_own_cells": 181
+    },
+    {
+     "printed_page": "unknown",
+     "familysearch_id": "33S7-9YYJ-9MX",
+     "page_population_printed": 152,
+     "page_population_by_its_own_cells": 160
+    }
+   ],
+   "what_it_settles": "33S7-9YYJ-9K3's disputed column 29. Its footing is two hooked diagonals, read by T-0585 as 11 against 4 in the column's own cells, and the sheet alone could not decide. If the footing were 11 the page would hold 208 persons and the facing continuation foots 201; with the footing read as 4 the two sheets agree exactly. That is a SECOND and INDEPENDENT witness for 4 \u2014 and it is the same two-stroke 4/11 form T-0627 and T-0645 settled toward 4 on 33S7-9YYJ-6H. This file does not rewrite the page file: the residual of 7 stays recorded there, with this pairing named beside it.",
+   "refusals": null
+  },
+  {
+   "familysearch_id": "33S7-9YYJ-5D",
+   "page_population_key": 125,
+   "page_population_key_state": "committed",
+   "line_count_key": 31,
+   "line_count_key_state": "committed",
+   "schools": {
+    "primary_common_schools": 1,
+    "scholars": 26
+   },
+   "state": "unpaired",
+   "paired_to_printed_page": null,
+   "evidence": "No left sheet in images 1-25 carries both 31 entries and 125 persons. The six 31-entry sheets foot 103, 208, 146, 160, 182 and 152, and the nearest of them stands 21 away.",
+   "candidates_considered": [
+    {
+     "printed_page": 215,
+     "familysearch_id": "33S7-9YYJ-9WF",
+     "page_population_printed": 103,
+     "page_population_by_its_own_cells": 101
+    },
+    {
+     "printed_page": 219,
+     "familysearch_id": "33S7-9YYJ-9K3",
+     "page_population_printed": 208,
+     "page_population_by_its_own_cells": 201
+    },
+    {
+     "printed_page": 221,
+     "familysearch_id": "33S7-9YYJ-2T",
+     "page_population_printed": 146,
+     "page_population_by_its_own_cells": 143
+    },
+    {
+     "printed_page": 231,
+     "familysearch_id": "33S7-9YYJ-38",
+     "page_population_printed": 160,
+     "page_population_by_its_own_cells": 157
+    },
+    {
+     "printed_page": 234,
+     "familysearch_id": "33S7-9YYJ-99F",
+     "page_population_printed": 182,
+     "page_population_by_its_own_cells": 181
+    },
+    {
+     "printed_page": "unknown",
+     "familysearch_id": "33S7-9YYJ-9MX",
+     "page_population_printed": 152,
+     "page_population_by_its_own_cells": 160
+    }
+   ],
+   "refusals": [
+    {
+     "printed_page": 222,
+     "familysearch_id": "33S7-9YYJ-98M",
+     "rule": "population within 2, line count wrong",
+     "why": "33S7-9YYJ-98M foots 123 or 124 against this sheet's 125, which is the closest population match anywhere in the group. It is refused because it carries 30 entries and one blank ruled line where this sheet carries 31, and the test requires BOTH keys. Recorded rather than dropped: if a later pass restates either line count the pair should be tried again."
+    }
+   ]
+  },
+  {
+   "familysearch_id": "33S7-9YYJ-5S",
+   "page_population_key": 189,
+   "page_population_key_state": "committed",
+   "line_count_key": 29,
+   "line_count_key_state": "committed",
+   "schools": {
+    "primary_common_schools": 1,
+    "scholars": 42
+   },
+   "state": "unpaired",
+   "paired_to_printed_page": null,
+   "evidence": "33S7-9YYJ-B3 (printed 226) is the ONLY left sheet in the group with 29 entries, so the line-count key selects it uniquely \u2014 and the population refuses it: B3 foots 184 and its own lines hold 185, against this sheet's 189. Four or five persons is more than a pairing may absorb, so it is left unpaired with its one candidate named. This sheet's own per-line reading was never committed either (183 against the footed 189), which is a second reason not to force it.",
+   "candidates_considered": [
+    {
+     "printed_page": 226,
+     "familysearch_id": "33S7-9YYJ-B3",
+     "page_population_printed": 184,
+     "page_population_by_its_own_cells": 185
+    }
+   ],
+   "refusals": [
+    {
+     "printed_page": 226,
+     "familysearch_id": "33S7-9YYJ-B3",
+     "rule": "line count unique, population 5 short",
+     "why": "the only 29-entry left sheet in the group, and the strongest unconfirmed candidate in this file. B3's twenty-one previously unread footings were read this pass and twenty of them are blank, so its key cannot rise to 189 from unread ink."
+    }
+   ]
+  },
+  {
+   "familysearch_id": "33S7-9YYJ-5V",
+   "page_population_key": null,
+   "page_population_key_state": "not_committed_favoured_165",
+   "line_count_key": 30,
+   "line_count_key_state": "committed",
+   "schools": null,
+   "state": "unpaired",
+   "paired_to_printed_page": null,
+   "evidence": "The three 30-entry left sheets in the group foot 187, 123-124 and 137. None is 165, and none is 105 either, so neither candidate reading of this sheet's illegible footing is corroborated here. That is NOT evidence against 165: a continuation whose left sheet lies outside images 1-25 cannot be paired inside them, and 33S7-9YYJ-8D below shows the group does hold at least one such sheet.",
+   "candidates_considered": [
+    {
+     "printed_page": 210,
+     "familysearch_id": "33S7-9YYJ-9RG",
+     "page_population_printed": 187,
+     "page_population_by_its_own_cells": 188
+    },
+    {
+     "printed_page": 222,
+     "familysearch_id": "33S7-9YYJ-98M",
+     "page_population_printed": 124,
+     "page_population_by_its_own_cells": 155
+    },
+    {
+     "printed_page": 229,
+     "familysearch_id": "33S7-9YYJ-9M5",
+     "page_population_printed": 137,
+     "page_population_by_its_own_cells": 152
+    }
+   ],
+   "refusals": null
+  },
+  {
+   "familysearch_id": "33S7-9YYJ-6H",
+   "page_population_key": 144,
+   "page_population_key_state": "committed",
+   "line_count_key": 31,
+   "line_count_key_state": "committed",
+   "schools": {
+    "primary_common_schools": 1,
+    "scholars": 40
+   },
+   "state": "unpaired",
+   "paired_to_printed_page": null,
+   "evidence": "No 31-entry left sheet foots 144. 33S7-9YYJ-2T (printed 221) foots 146 and its own 31 lines hold 143, which brackets 144 without matching it either way; two persons is a residual, not an identification.",
+   "candidates_considered": [
+    {
+     "printed_page": 215,
+     "familysearch_id": "33S7-9YYJ-9WF",
+     "page_population_printed": 103,
+     "page_population_by_its_own_cells": 101
+    },
+    {
+     "printed_page": 219,
+     "familysearch_id": "33S7-9YYJ-9K3",
+     "page_population_printed": 208,
+     "page_population_by_its_own_cells": 201
+    },
+    {
+     "printed_page": 221,
+     "familysearch_id": "33S7-9YYJ-2T",
+     "page_population_printed": 146,
+     "page_population_by_its_own_cells": 143
+    },
+    {
+     "printed_page": 231,
+     "familysearch_id": "33S7-9YYJ-38",
+     "page_population_printed": 160,
+     "page_population_by_its_own_cells": 157
+    },
+    {
+     "printed_page": 234,
+     "familysearch_id": "33S7-9YYJ-99F",
+     "page_population_printed": 182,
+     "page_population_by_its_own_cells": 181
+    },
+    {
+     "printed_page": "unknown",
+     "familysearch_id": "33S7-9YYJ-9MX",
+     "page_population_printed": 152,
+     "page_population_by_its_own_cells": 160
+    }
+   ],
+   "refusals": [
+    {
+     "printed_page": 221,
+     "familysearch_id": "33S7-9YYJ-2T",
+     "rule": "line count right, population 2 away",
+     "why": "footed 146 and 143 by its own lines against this sheet's 144. Named as the nearest candidate and refused: the test asks for a match, and a sheet that brackets a number is not a sheet that meets it."
+    }
+   ]
+  },
+  {
+   "familysearch_id": "33S7-9YYJ-6Q",
+   "page_population_key": 198,
+   "page_population_key_state": "committed",
+   "line_count_key": 30,
+   "line_count_key_state": "committed",
+   "schools": null,
+   "state": "unpaired",
+   "paired_to_printed_page": null,
+   "evidence": "The three 30-entry left sheets foot 187, 123-124 and 137; the nearest stands 11 away from 198. No pair.",
+   "candidates_considered": [
+    {
+     "printed_page": 210,
+     "familysearch_id": "33S7-9YYJ-9RG",
+     "page_population_printed": 187,
+     "page_population_by_its_own_cells": 188
+    },
+    {
+     "printed_page": 222,
+     "familysearch_id": "33S7-9YYJ-98M",
+     "page_population_printed": 124,
+     "page_population_by_its_own_cells": 155
+    },
+    {
+     "printed_page": 229,
+     "familysearch_id": "33S7-9YYJ-9M5",
+     "page_population_printed": 137,
+     "page_population_by_its_own_cells": 152
+    }
+   ],
+   "refusals": null
+  },
+  {
+   "familysearch_id": "33S7-9YYJ-8D",
+   "page_population_key": 106,
+   "page_population_key_state": "committed",
+   "line_count_key": 32,
+   "line_count_key_state": "committed",
+   "schools": null,
+   "state": "unpaired_partner_not_in_this_group",
+   "paired_to_printed_page": null,
+   "evidence": "THIS IS THE POSITIVE RESULT OF THE TEST. 33S7-9YYJ-8D carries 32 entries, read line by line by T-0643 and anchored by a thirty-second line the inventory had missed. No left sheet in images 1-25 carries 32 entries \u2014 eleven of the twelve are ruled to 31 and the twelfth to 30 \u2014 so this sheet's left half is NOT in this image group at all. That is a fact about the deposit rather than a failure of the reading, and it is what the other unpaired sheets below should be read against.",
+   "candidates_considered": [],
+   "refusals": [
+    {
+     "printed_page": 215,
+     "familysearch_id": "33S7-9YYJ-9WF",
+     "rule": "population near, line count impossible",
+     "why": "foots 103 against this sheet's 106 and is the nearest population in the group, but carries 31 entries against 32. Refused on the line count, which is the harder of the two keys here because both figures were read line by line."
+    }
+   ]
+  },
+  {
+   "familysearch_id": "33S7-9YYJ-9WS",
+   "page_population_key": 157,
+   "page_population_key_state": "committed",
+   "line_count_key": 32,
+   "line_count_key_state": "committed",
+   "schools": {
+    "primary_common_schools": 1,
+    "scholars": 25
+   },
+   "state": "unpaired_partner_not_in_this_group",
+   "paired_to_printed_page": null,
+   "evidence": "THIS IS THE SECOND POSITIVE RESULT OF THE TEST, and it arrives the way T-0642 said it would: from the TOTAL footing this pass owned and had not read. T-0644 read the sheet line by line and both keys are now committed. The footing is 157 - the enumerator's own arithmetic, not this pass's line sum, which is 155 and is not the key. The sheet carries 32 entries, anchored line by line rather than clumped: 17 of the 32 sit beside an entry in commerce, manufactures or the learned professions and are anchored by that coincidence. The inventory figure of 28 `to the nearest line` is superseded. No left sheet in images 1-25 carries 32 entries - eleven of the twelve are ruled to 31 and the twelfth to 30 - and none foots at 157, so this sheet's left half is NOT in this image group, exactly as 33S7-9YYJ-8D's is not. Two of the eleven continuations are now shown outright to have no partner here, and both are the 32-entry sheets.",
+   "candidates_considered": [],
+   "refusals": [
+    {
+     "printed_page": 231,
+     "familysearch_id": "33S7-9YYJ-38",
+     "rule": "population near, line count impossible",
+     "why": "foots 160 against this sheet's 157 and is the nearest population in the group, but carries 31 entries against 32. Refused on the line count, and it would fail the population key as well: a pair must match on BOTH keys and 160 is not 157."
+    },
+    {
+     "printed_page": "unknown",
+     "familysearch_id": "33S7-9YYJ-9MX",
+     "rule": "population near, line count impossible",
+     "why": "foots 152, the second-nearest, and also carries 31 entries against 32. Refused on both keys."
+    }
+   ]
+  },
+  {
+   "familysearch_id": "33S7-9YYJ-B1",
+   "page_population_key": null,
+   "page_population_key_state": "not_read",
+   "line_count_key": 31,
+   "line_count_key_state": "inventory_to_the_nearest_line",
+   "schools": null,
+   "state": "unpaired_key_not_yet_read",
+   "paired_to_printed_page": null,
+   "evidence": "No page file, no footing read, no population key. T-0641 owns this sheet. Six 31-entry left sheets stand as candidates the moment its TOTAL footing is read.",
+   "candidates_considered": [
+    {
+     "printed_page": 215,
+     "familysearch_id": "33S7-9YYJ-9WF",
+     "page_population_printed": 103,
+     "page_population_by_its_own_cells": 101
+    },
+    {
+     "printed_page": 219,
+     "familysearch_id": "33S7-9YYJ-9K3",
+     "page_population_printed": 208,
+     "page_population_by_its_own_cells": 201
+    },
+    {
+     "printed_page": 221,
+     "familysearch_id": "33S7-9YYJ-2T",
+     "page_population_printed": 146,
+     "page_population_by_its_own_cells": 143
+    },
+    {
+     "printed_page": 231,
+     "familysearch_id": "33S7-9YYJ-38",
+     "page_population_printed": 160,
+     "page_population_by_its_own_cells": 157
+    },
+    {
+     "printed_page": 234,
+     "familysearch_id": "33S7-9YYJ-99F",
+     "page_population_printed": 182,
+     "page_population_by_its_own_cells": 181
+    },
+    {
+     "printed_page": "unknown",
+     "familysearch_id": "33S7-9YYJ-9MX",
+     "page_population_printed": 152,
+     "page_population_by_its_own_cells": 160
+    }
+   ],
+   "refusals": null
+  },
+  {
+   "familysearch_id": "33S7-9YYJ-B2",
+   "page_population_key": null,
+   "page_population_key_state": "not_read",
+   "line_count_key": 31,
+   "line_count_key_state": "inventory_to_the_nearest_line",
+   "schools": null,
+   "state": "unpaired_key_not_yet_read",
+   "paired_to_printed_page": null,
+   "evidence": "No page file, no footing read, no population key. T-0641 owns this sheet.",
+   "candidates_considered": [
+    {
+     "printed_page": 215,
+     "familysearch_id": "33S7-9YYJ-9WF",
+     "page_population_printed": 103,
+     "page_population_by_its_own_cells": 101
+    },
+    {
+     "printed_page": 219,
+     "familysearch_id": "33S7-9YYJ-9K3",
+     "page_population_printed": 208,
+     "page_population_by_its_own_cells": 201
+    },
+    {
+     "printed_page": 221,
+     "familysearch_id": "33S7-9YYJ-2T",
+     "page_population_printed": 146,
+     "page_population_by_its_own_cells": 143
+    },
+    {
+     "printed_page": 231,
+     "familysearch_id": "33S7-9YYJ-38",
+     "page_population_printed": 160,
+     "page_population_by_its_own_cells": 157
+    },
+    {
+     "printed_page": 234,
+     "familysearch_id": "33S7-9YYJ-99F",
+     "page_population_printed": 182,
+     "page_population_by_its_own_cells": 181
+    },
+    {
+     "printed_page": "unknown",
+     "familysearch_id": "33S7-9YYJ-9MX",
+     "page_population_printed": 152,
+     "page_population_by_its_own_cells": 160
+    }
+   ],
+   "refusals": null
+  },
+  {
+   "familysearch_id": "33S7-9YYJ-BF",
+   "page_population_key": 133,
+   "page_population_key_state": "read",
+   "line_count_key": 31,
+   "line_count_key_state": "read_line_by_line",
+   "schools": null,
+   "state": "unpaired_key_read",
+   "paired_to_printed_page": null,
+   "evidence": "T-0655 read this sheet line by line: page file data/research/census_1840/pages/33S7-9YYJ-BF.json. The enumerator's own TOTAL footing is 133; the line-by-line sum of the same column is 114, a residual of -19 that the page file carries. Pair on 133 \u2014 it is the enumerator's own arithmetic \u2014 but note that none of the candidates below stands at either figure, so this key does not close the pairing on its own. The sheet offers no schools signal at all (no schools figure on any line or at the foot) and one industry signal: seven families in manufactures and trades, closing exactly, and nothing in any other industry column.",
+   "candidates_considered": [
+    {
+     "printed_page": 215,
+     "familysearch_id": "33S7-9YYJ-9WF",
+     "page_population_printed": 103,
+     "page_population_by_its_own_cells": 101
+    },
+    {
+     "printed_page": 219,
+     "familysearch_id": "33S7-9YYJ-9K3",
+     "page_population_printed": 208,
+     "page_population_by_its_own_cells": 201
+    },
+    {
+     "printed_page": 221,
+     "familysearch_id": "33S7-9YYJ-2T",
+     "page_population_printed": 146,
+     "page_population_by_its_own_cells": 143
+    },
+    {
+     "printed_page": 231,
+     "familysearch_id": "33S7-9YYJ-38",
+     "page_population_printed": 160,
+     "page_population_by_its_own_cells": 157
+    },
+    {
+     "printed_page": 234,
+     "familysearch_id": "33S7-9YYJ-99F",
+     "page_population_printed": 182,
+     "page_population_by_its_own_cells": 181
+    },
+    {
+     "printed_page": "unknown",
+     "familysearch_id": "33S7-9YYJ-9MX",
+     "page_population_printed": 152,
+     "page_population_by_its_own_cells": 160
+    }
+   ],
+   "refusals": null
+  }
+ ],
+ "outcome": {
+  "left_sheets_keyed": 12,
+  "left_sheet_footings_read_this_pass": {
+   "33S7-9YYJ-B3": "column 29, a cursive 2, which balances its cells and moves the key from 182 to 184",
+   "33S7-9YYJ-98M": "the seventeen columns T-0532 left not_read, every one of them blank at the foot, which fixes the key at 124 \u2014 and one disagreement, column 27, read here as a single stroke against a committed 2"
+  },
+  "continuations_tested": 11,
+  "paired": 1,
+  "unpaired_partner_shown_not_to_be_in_this_group": 2,
+  "unpaired_key_read_but_no_match": 5,
+  "unpaired_key_not_yet_read": 3,
+  "what_the_result_means": "Ten of the eleven continuation sheets in images 1-25 do not pair inside images 1-25, and two of them \u2014 33S7-9YYJ-8D and 33S7-9YYJ-9WS, both at 32 entries \u2014 are shown outright to have no possible partner here. The deposit is ordered by sorted filename and not by the book, so a left sheet and its own continuation are only in the same group by accident; the coverage file has said so about the page numbers from the start and this is the measurement of it. The ten are not blocked on more reading of THIS group: they are blocked on the footings of the left sheets in groups 2 and 3, which are read for names but not for cells, and on the three TOTAL footings T-0641 still owns; T-0644's, on 33S7-9YYJ-9WS, is read and is the second sheet ruled out of this group.",
+  "footings_read_after_this_pass": {
+   "33S7-9YYJ-9WS": "157, read by T-0644 with the sheet line by line; the sheet's two keys are 157 and 32 and it is ruled out of this group on both",
+   "33S7-9YYJ-5V": "155, read by T-0543 off a magnified crop of the footing band while searching the whole deposit for printed 232's continuation. With this group's line count of 30 the sheet's two keys are 155 and 30. This is the TOTAL footing only; the sheet's cells stay with T-0647 and T-0671.",
+   "33S7-9YYJ-B1": "165, read by T-0543 the same way, alternate 185 named for the middle glyph. Its two keys are 165 (or 185) and 31. The line-by-line reading is still owed by T-0641's children.",
+   "33S7-9YYJ-B2": "113, read by T-0543 the same way. Its two keys are 113 and 31. The line-by-line reading is still owed by T-0641's children."
+  },
+  "what_the_three_new_footings_do_to_this_group": "Nothing, and that is worth stating: 155, 165 and 113 are not the population of any of this group's twelve keyed left sheets, so T-0642's verdict of ten unpaired continuations stands with all eleven footings now read rather than with three of them outstanding. It stands for the reason T-0642 gave \u2014 the partners are in the groups whose left sheets have been read for names and not for cells, or outside this deposit altogether. T-0543 also tested all three against printed 232 and refused all three."
+ }
+}

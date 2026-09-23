@@ -1,0 +1,238 @@
+{
+ "id": "hh_murphy_john",
+ "name": "The Murphy household",
+ "division": "south",
+ "head": "murphy_john",
+ "arrival": {
+  "value": "1834-08-01",
+  "confidence": "inferred",
+  "sources": [
+   "andreas_1884_v1"
+  ],
+  "note": "NOT AN ARRIVAL IN CHICAGO - AN ARRIVAL IN THE HOUSE. What August 1834 dates is the Murphys taking charge of the Exchange Coffee House, and Andreas says nothing about when they reached the town. The value is carried at not_later_than precision for that reason: they were here by 1 August 1834, and possibly long before.",
+  "precision": "not_later_than"
+ },
+ "party_size_on_arrival": {
+  "value": 2,
+  "confidence": "inferred",
+  "sources": [
+   "andreas_1884_v1"
+  ],
+  "note": "Two is the number of people the source names taking charge of the house. It is a count of the keepers, not of a travelling party, and no children are mentioned."
+ },
+ "origin": {
+  "value": null,
+  "confidence": "reconstructed",
+  "note": "Not attested."
+ },
+ "reason_for_coming": {
+  "value": "To keep a new hotel on Lake Street",
+  "confidence": "attested",
+  "sources": [
+   "andreas_1884_v1"
+  ],
+  "note": "The source states the occasion directly: Beaubien completed the house and the Murphys took charge of it."
+ },
+ "lives_at": {
+  "value": "exchange_coffee_house",
+  "confidence": "attested",
+  "sources": [
+   "andreas_1884_v1"
+  ],
+  "note": "A hotel keeper of this period lived in the house he kept, and Andreas has them 'there' until they 'removed to the old Sauganash' in 1836 - a verb about moving house."
+ },
+ "works_at": {
+  "value": "exchange_coffee_house",
+  "confidence": "attested",
+  "sources": [
+   "andreas_1884_v1"
+  ],
+  "note": "Andreas, twice, in two chapters."
+ },
+ "present_on_scene_date": {
+  "value": "present",
+  "confidence": "attested",
+  "sources": [
+   "andreas_1884_v1"
+  ],
+  "note": "In charge of the house from August 1834 to 1836, eleven months either side of the scene date."
+ },
+ "persons": [
+  {
+   "id": "murphy_john",
+   "name": "John Murphy",
+   "relationship": "head",
+   "grade": "attested",
+   "ladder_rule": "G1a",
+   "sex": "male",
+   "occupation": {
+    "value": "tavern_keeper",
+    "confidence": "attested",
+    "sources": [
+     "andreas_1884_v1",
+     "drloih_hotels"
+    ],
+    "note": "Keeper of the Exchange Coffee House at the north-west corner of Lake and Wells from August 1834 until 1836.",
+    "derived_from": "roles",
+    "roles_at_scene_date": [
+     "tavern_keeper"
+    ]
+   },
+   "later_census": {
+    "year": 1840,
+    "source_id": "census_1840_chicago_v4_research",
+    "serial": 5102066,
+    "head_name_transcribed": "John Murphy",
+    "head_name_normalized": "John Murphy",
+    "name_confidence": "High",
+    "identity_confidence": "High",
+    "bridge_status": "validated",
+    "serial_mapping_confidence": "Provisional-High (paired continuation + age/sex fingerprint)",
+    "census_page": 233,
+    "census_row": 30,
+    "source_image": "33SQ-GYYJ-RJ.jpg",
+    "source_kind": "1840 left/name image + paired continuation 33SQ-GYYJ-9SQ.jpg",
+    "household": {
+     "persons": 6,
+     "children_under_10": 2,
+     "male": 3,
+     "female": 3,
+     "agriculture": 0,
+     "commerce": 0,
+     "manufactures_trades": 0,
+     "inland_navigation": 0,
+     "professions_engineering": 0,
+     "foreigners_not_naturalized": 0,
+     "illiterate_over_21": 0
+    },
+    "bridge_basis": "1834 and 1835 Chicago poll lists; 1839 directory; 1840 household-head identity; page-wide age/sex fingerprint mapping",
+    "note": "LATER EVIDENCE, NOT A BACK-PROJECTION. This is the 1840 federal census household, five years after the 1835-07-01 scene; its household composition is not asserted for 1835 without separate evidence."
+   },
+   "sources": [
+    "andreas_1884_v1",
+    "chicago_voter_lists_1833_1835_irad",
+    "fergus_chicago_directory_1839"
+   ],
+   "note": "Attested twice in Andreas, in two different chapters, with dates on both sides of the scene date: 'In August of 1834, Mr. and Mrs. Murphy took charge of this new hotel, which they christened the Exchange Coffee House. They remained there until 1836, when they removed to the old Sauganash'; and, in the life of Mark Beaubien, the house was 'first kept by Mr. and Mrs. John Murphy'. THIS IS THE BEST-ATTESTED OCCUPANCY OF A NAMED BUILDING BY A NAMED HOUSEHOLD IN THE DATASET. THE TOWN'S OWN ROLLS, 1833-1835 — CORROBORATION, NOT A GRADE. The early Chicago voter and tax lists held by the Illinois Regional Archives Depository name this person 2 times: Election returns — poll list of 1834, filed 11 August 1834 — “Murphy, John” (poll_1834_078, line 247); Poll list of 1835 — “Murphy, John” (poll_1835_051, line 338). These are the town's own contemporary paper rather than a recollection of it, and each appearance says that a man of that name stood on that roll in that year — no more. The reading is twice mediated (Schulz's transcription, then Genealogy Trails' republication) and this project has not seen the IRAD originals. Under the ratified ladder (T-0513) the 1835 poll with a second independent source is attested, the 1835 poll alone or a 1833/1834 list with another source is inferred, and a single appearance with nothing else is a projected resident. This pass WRITES THE EVIDENCE AND MOVES NO GRADE — T-0515 applies the ladder against every source at once. Identity by the crosswalk's own rule: one resident of the surname 'Murphy' agrees with the entry's forenames; 2 bearer(s) of the surname were considered. (data/research/civic/voter_crosswalk.json). FERGUS 1839'S LATER LISTS — 1837 AND 1839 EVIDENCE, NEVER AN 1835 FACT. Fergus' Chicago Directory for 1839 names this person 1 time in its two later lists: the city register of 1839 — “John Murphy” as alderman (f1839_r0017, printed page 38). What a match may carry, and it depends on WHICH TABLE it landed in. A match on printed page 38, or on any row of the mayors' table, is 1839-or-later evidence: it says the man held that office in that year and was therefore in Chicago in that year, it is written with the row's own describes_date and never as an 1835 fact, and the person's grade does not move on it alone — a later appearance is corroboration of CONTINUED RESIDENCE, not of July 1835. A match on the sheriffs' rows of 1831, 1832, 1834 or 1836 is different in kind: the office is contemporary with the town, the 1834 row's term covers the scene date outright, and such a match carries reaches_scene. Even there the SOURCE is a retrospect — a table running to 1874, set in 1876 out of Old Settlers' recollections per the compiler's warning on printed page 3 — so it may be cited as a contemporary office and may not be graded `documented` without a second, nearer record. The ward on printed page 38 is a ward of the CITY of 1839 and places no house in the town of 1835. Identity by the crosswalk's own rule: Surname 'Murphy' folds to the same string as the register entry's, and the given name of both begins J. (data/research/directories/fergus_1839_election_crosswalk_1835.json and fergus_1839_register_crosswalk_1835.json). This pass WRITES THE EVIDENCE AND MOVES NO GRADE. Under the ratified ladder (T-0513) a second independent source is what lifts a projected resident, and a poll twenty-two months after the scene date — or a register four years after it — is a second source about CONTINUED RESIDENCE rather than about July 1835. T-0515 applies the ladder against every source at once; this pass hands it the evidence and not the verdict.",
+   "resident_research": {
+    "programme": "resident-research-2026",
+    "ticket": "T-0493",
+    "outcome": "no_corroboration_yet",
+    "reviewed_on": "",
+    "asserted_identity": false,
+    "evidence_for": "forenames agree initial for initial: entry 'John Murphy' against resident 'John Murphy'",
+    "source_ids": [
+     "chicago_voter_lists_1833_1835_irad"
+    ]
+   },
+   "roles": [
+    {
+     "role": "tavern_keeper",
+     "kind": "trade",
+     "as_printed": null,
+     "from": "1673",
+     "to": "1871",
+     "precision": "source_span",
+     "dated_by": "source_describes_date",
+     "covers_scene_date": true,
+     "confidence": "attested",
+     "sources": [
+      "andreas_1884_v1",
+      "drloih_hotels"
+     ],
+     "claim": null,
+     "note": "THE BOUND IS THE SOURCE'S, NOT THE MAN'S. This role is carried by the card's 1835 occupation block and is dated by what the cited source or sources are ABOUT, which is why `precision` can be no better than the span they cover. The span reaches 1835, so this role stands in the scene-date view. The printing the trade was read off is not on the card and is fetched by T-1254."
+    }
+   ]
+  },
+  {
+   "id": "murphy_harriet",
+   "name": "Harriet Murphy",
+   "relationship": "wife",
+   "grade": "inferred",
+   "sex": "female",
+   "occupation": {
+    "value": "tavern_keeper",
+    "confidence": "attested",
+    "sources": [
+     "andreas_1884_v1"
+    ],
+    "note": "Andreas names her as a keeper in her own right - 'Mr. and Mrs. Murphy took charge' and 'they christened' - not as a wife who happened to live there. A public house of this period was run by a couple and the source says so.",
+    "derived_from": "roles",
+    "roles_at_scene_date": [
+     "tavern_keeper"
+    ]
+   },
+   "sources": [
+    "andreas_1884_v1"
+   ],
+   "note": "DOCUMENTED AS A PERSON, DERIVED AS A NAME. Andreas calls her only 'Mrs. Murphy'. The forename Harriet reaches this project through data/structures/exchange_coffee_house.json, whose occupants field carries 'John and Harriet Murphy, keepers', and it could not be traced back to a sentence in Andreas. The woman is documented; the forename is the reconstructed part, and that is exactly what the derived grade is for.",
+   "resident_research": {
+    "programme": "resident-research-2026",
+    "ticket": "T-0479",
+    "outcome": "candidate_identity",
+    "reviewed_on": "2026-09-02",
+    "asserted_identity": false,
+    "evidence_for": "An 1883 early-Chicago hotel feature records Mrs. Murphy as a knowledgeable witness to the Green Tree, and later history places Harriet and John Murphy managing the United States Hotel by 1836. The exact female name and hotel chronology are useful, but the later management date is not silently back-projected to the 1 July 1835 household.",
+    "evidence_against": "The management evidence begins in 1836; it does not establish her 1835 roof or maiden name.",
+    "summary": "An 1883 early-Chicago hotel feature records Mrs. Murphy as a knowledgeable witness to the Green Tree, and later history places Harriet and John Murphy managing the United States Hotel by 1836. The exact female name and hotel chronology are useful, but the later management date is not silently back-projected to the 1 July 1835 household.",
+    "notes": "An 1883 early-Chicago hotel feature records Mrs. Murphy as a knowledgeable witness to the Green Tree, and later history places Harriet and John Murphy managing the United States Hotel by 1836. The exact female name and hotel chronology are useful, but the later management date is not silently back-projected to the 1 July 1835 household.",
+    "source_ids": [
+     "chicagology_prefire127"
+    ],
+    "candidate_ids": [
+     "cand_harriet_murphy_us_hotel"
+    ],
+    "candidates": [
+     {
+      "name": "Harriet Murphy, later United States Hotel manager",
+      "assessment": "strong",
+      "asserted": false,
+      "basis": "Named early-Chicago hotel witness and later 1836 hotel chronology.",
+      "conflicts": [
+       "The management evidence begins in 1836; it does not establish her 1835 roof or maiden name."
+      ],
+      "sources": [
+       "chicagology_prefire127"
+      ],
+      "candidate_id": "cand_harriet_murphy_us_hotel"
+     }
+    ]
+   },
+   "roles": [
+    {
+     "role": "tavern_keeper",
+     "kind": "trade",
+     "as_printed": null,
+     "from": "1673",
+     "to": "1857",
+     "precision": "source_span",
+     "dated_by": "source_describes_date",
+     "covers_scene_date": true,
+     "confidence": "attested",
+     "sources": [
+      "andreas_1884_v1"
+     ],
+     "claim": null,
+     "note": "THE BOUND IS THE SOURCE'S, NOT THE MAN'S. This role is carried by the card's 1835 occupation block and is dated by what the cited source or sources are ABOUT, which is why `precision` can be no better than the span they cover. The span reaches 1835, so this role stands in the scene-date view. The printing the trade was read off is not on the card and is fetched by T-1254."
+    }
+   ]
+  }
+ ],
+ "touches_removal": false,
+ "review_required": false,
+ "research_note": "THE CLEANEST HOUSEHOLD-TO-BUILDING LINK IN THIS PARCEL, and the reason it is worth writing the residents layer at all: a building record that says 'tavern_inn' becomes a household of two people with a trade, a date and a tenancy with ends. THE CONFLICT ALREADY RECORDED ON THE BUILDING IS NOT RESOLVED HERE: Abram A. Markle's name is on this house in a Chicago American advertisement of August 1836 while Andreas has Markle taking the Mansion House in 1835, and this project holds both readings without choosing. The Murphy tenancy is the one with dates on both sides of 1 July 1835 and it is what this record carries.",
+ "directories": {
+  "note": "LATER EVIDENCE, BESIDE THE 1835 CLAIMS AND NOT INSIDE THEM. A Chicago directory of 1839, 1843 or 1844 meets somebody of this name and this pass records what it prints. Under the ratified ladder a directory read after 1835 can corroborate that a person attested here was still in Chicago and can print a trade or a street the 1835 record never had; on its own it makes nobody a resident of 1835. Nothing on this person's 1835 record was regraded, moved, dated or given an occupation by this entry. WHAT THIS PASS RULED ONTO THIS HOUSEHOLD, named so the ruling can be found again: each volume below is followed by the printed entries it set against this person and the status the crosswalk ruled them at — a single entry carries what its own `could_carry` declares, and an ambiguous or contested match carries nothing and is shown so that the silence is legible. murphy_john, Fergus's Chicago directory of 1839 — f1839_e1078 (a single entry); murphy_john, Fergus's Chicago directory of 1843 — f1843_e1862, f1843_e1863 (ambiguous, so nothing crossed); murphy_john, Norris's Chicago directory of 1844 — n1844_e1323, n1844_e1324 (ambiguous, so nothing crossed); murphy_john, the advertising cards in Norris's directory of 1844 — n1844_ad0104 (a single entry).",
+  "sources": [
+   "fergus_chicago_directory_1839",
+   "fergus_chicago_directory_1843",
+   "norris_directory_1844"
+  ],
+  "people": [
+   {
+    "person_id": "murphy_john"
+   }
+  ]
+ }
+}

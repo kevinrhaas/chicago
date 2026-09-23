@@ -1,0 +1,3021 @@
+{
+ "schema": 1,
+ "state": "Illinois",
+ "county": "Cook",
+ "division": "S. W. Sherman (signed at the head, where the printed page number stands on this group's other left sheets)",
+ "reading": "scan_verified",
+ "read_pass": "the recapitulation leaf read in full (T-0966, piece 4 of T-0746)",
+ "familysearch_id": "33SQ-GYYJ-PW",
+ "image": "chicago/reference/census1840/33SQ-GYYJ-PW.jpg",
+ "printed_page": null,
+ "printed_page_note": "no printed page number is legible where this form carries it; the top-right corner carries the marshal's signature and nothing else. It is not guessed from the run of its neighbours (T-0741).",
+ "sheet_side": "left",
+ "page_kind": "recapitulation",
+ "page_kind_note": "NOT AN ENUMERATING PAGE, and no household, person or serial may be hung on any line of it. The left-sheet form is used as a RECAPITULATION of the Chicago city enumeration: the NAMES OF HEADS OF FAMILIES column carries the numbers 1 to 30 under a written heading 'Page', each numbered page carries its own totals across the free-white age bands and the free-coloured columns, and a brace in the left margin gathers the thirty pages into First through Sixth Ward. The margin heading reads 'Recapitulation of [?] (Chicago City) preceding pages', one word struck through before the parenthesis.",
+ "lines_ruled_with_an_entry": 30,
+ "lines_note": "thirty numbered lines, 1 to 30, plus five written ward-subtotal rows and one grand-total row. The Fourth Ward is a single page and is closed by a rule with no subtotal row of its own.",
+ "cells_state": "read_and_checked_against_the_written_ward_subtotals_and_the_grand_total",
+ "cells_note": "every free-white male and female age-band cell and every free-coloured cell of all thirty lines is read off the deposited page image at 2x to 5x with the column rules of this leaf drawn over the crop, so that a figure's column is measured rather than judged by eye. A cell with no mark is 0, which on a recapitulation is a reading and not an absence: the enumerator ruled the whole table and left the unused bands empty on every line. Nothing beyond the 70-80 male band and the 70-80 female band carries a mark anywhere on the leaf.",
+ "column_geometry": {
+  "derived_by": "vertical printed rules measured on this leaf over y 560-2990 at a 0.35-0.50 continuity threshold, then fitted: the free-white male block is 13 columns of 80.4 px between 793 and 1838, the free-white female block 13 columns of 80.8 px between 1838 and 2888, the free-coloured block 12 columns of 81.3 px between 2888 and 3862",
+  "free_white_male_rules_px": [
+   793,
+   873,
+   953,
+   1032,
+   1112,
+   1192,
+   1276,
+   1357,
+   1436,
+   1516,
+   1595,
+   1673,
+   1753,
+   1838
+  ],
+  "free_white_female_rules_px": [
+   1838,
+   1919,
+   1999,
+   2079,
+   2160,
+   2240,
+   2321,
+   2401,
+   2482,
+   2562,
+   2643,
+   2723,
+   2804,
+   2888
+  ],
+  "free_coloured_rules_px": [
+   2888,
+   2969,
+   3050,
+   3131,
+   3212,
+   3293,
+   3376,
+   3457,
+   3538,
+   3619,
+   3700,
+   3781,
+   3862
+  ],
+  "page_number_column_px": [
+   700,
+   793
+  ],
+  "note": "the three right-most free-coloured candidates the sweep returns (3690, 3754, 3807) are NOT the last three rules: they do not fit the block's own pitch and they sit where the leaf curls into the binding. The block is fitted from its measured MALES/FEMALES divider at 3376, which is exactly six columns of 81.3 px from 2888. No entry on this leaf stands right of 3619, so nothing in the reading depends on that fit."
+ },
+ "ward_rules_px": {
+  "derived_by": "full-width horizontal rules found on a darkness profile of the free-white female block, which carries the least pen ink",
+  "subtotal_rows": {
+   "First": [
+    1185,
+    1211
+   ],
+   "Second": [
+    1861,
+    1893
+   ],
+   "Third": [
+    2027,
+    2051
+   ],
+   "Fifth": [
+    2308,
+    2338
+   ],
+   "Sixth": [
+    2851,
+    2932
+   ]
+  },
+  "fourth_ward_closing_rule": 2073,
+  "grand_total_row": [
+   2932,
+   3001
+  ],
+  "note": "each ward subtotal is written INSIDE a pair of rules 24 to 37 px apart and the rules cross its glyphs. That is why five of the six subtotal rows are harder to read than the thirty lines above them, and why the lines are treated as senior to the subtotal wherever they disagree."
+ },
+ "wards": [
+  {
+   "ward": "First Ward",
+   "pages": [
+    1,
+    2,
+    3,
+    4,
+    5,
+    6,
+    7,
+    8
+   ],
+   "persons_read": 1169
+  },
+  {
+   "ward": "Second Ward",
+   "pages": [
+    9,
+    10,
+    11,
+    12,
+    13,
+    14,
+    15,
+    16,
+    17
+   ],
+   "persons_read": 1317
+  },
+  {
+   "ward": "Third Ward",
+   "pages": [
+    18,
+    19
+   ],
+   "persons_read": 287
+  },
+  {
+   "ward": "Fourth Ward",
+   "pages": [
+    20
+   ],
+   "persons_read": 191
+  },
+  {
+   "ward": "Fifth Ward",
+   "pages": [
+    21,
+    22,
+    23
+   ],
+   "persons_read": 362
+  },
+  {
+   "ward": "Sixth Ward",
+   "pages": [
+    24,
+    25,
+    26,
+    27,
+    28,
+    29,
+    30
+   ],
+   "persons_read": 1160
+  }
+ ],
+ "ward_note": "8, 9, 2, 1, 3 and 7 pages. The brace and its written ward names are the evidence; the closing rules are where each brace ends.",
+ "blocks": [
+  {
+   "ward": "First Ward",
+   "pages": [
+    1,
+    2,
+    3,
+    4,
+    5,
+    6,
+    7,
+    8
+   ],
+   "columns_that_close": 20,
+   "columns_that_differ": [],
+   "columns_whose_printed_glyph_is_not_legible": [
+    "fc_m_u10",
+    "fc_m_24_36",
+    "fc_m_55_100",
+    "fc_f_u10",
+    "fc_f_10_24",
+    "fc_f_24_36",
+    "fc_f_36_55"
+   ],
+   "column_reconciliation": {
+    "m_u5": {
+     "read": 95,
+     "printed_subtotal": 95,
+     "closes": true
+    },
+    "m_5_10": {
+     "read": 47,
+     "printed_subtotal": 47,
+     "closes": true
+    },
+    "m_10_15": {
+     "read": 51,
+     "printed_subtotal": 51,
+     "closes": true
+    },
+    "m_15_20": {
+     "read": 53,
+     "printed_subtotal": 53,
+     "closes": true
+    },
+    "m_20_30": {
+     "read": 242,
+     "printed_subtotal": 242,
+     "closes": true
+    },
+    "m_30_40": {
+     "read": 113,
+     "printed_subtotal": 113,
+     "closes": true
+    },
+    "m_40_50": {
+     "read": 31,
+     "printed_subtotal": 31,
+     "closes": true
+    },
+    "m_50_60": {
+     "read": 13,
+     "printed_subtotal": 13,
+     "closes": true
+    },
+    "m_60_70": {
+     "read": 3,
+     "printed_subtotal": 3,
+     "closes": true
+    },
+    "m_70_80": {
+     "read": 3,
+     "printed_subtotal": 3,
+     "closes": true
+    },
+    "f_u5": {
+     "read": 80,
+     "printed_subtotal": 80,
+     "closes": true
+    },
+    "f_5_10": {
+     "read": 67,
+     "printed_subtotal": 67,
+     "closes": true
+    },
+    "f_10_15": {
+     "read": 48,
+     "printed_subtotal": 48,
+     "closes": true
+    },
+    "f_15_20": {
+     "read": 57,
+     "printed_subtotal": 57,
+     "closes": true
+    },
+    "f_20_30": {
+     "read": 137,
+     "printed_subtotal": 137,
+     "closes": true
+    },
+    "f_30_40": {
+     "read": 83,
+     "printed_subtotal": 83,
+     "closes": true
+    },
+    "f_40_50": {
+     "read": 25,
+     "printed_subtotal": 25,
+     "closes": true
+    },
+    "f_50_60": {
+     "read": 6,
+     "printed_subtotal": 6,
+     "closes": true
+    },
+    "f_60_70": {
+     "read": 3,
+     "printed_subtotal": 3,
+     "closes": true
+    },
+    "f_70_80": {
+     "read": 0,
+     "printed_subtotal": 0,
+     "closes": true
+    },
+    "fc_m_u10": {
+     "read": 2,
+     "printed_subtotal": null,
+     "closes": null
+    },
+    "fc_m_24_36": {
+     "read": 3,
+     "printed_subtotal": null,
+     "closes": null
+    },
+    "fc_m_55_100": {
+     "read": 1,
+     "printed_subtotal": null,
+     "closes": null
+    },
+    "fc_f_u10": {
+     "read": 1,
+     "printed_subtotal": null,
+     "closes": null
+    },
+    "fc_f_10_24": {
+     "read": 2,
+     "printed_subtotal": null,
+     "closes": null
+    },
+    "fc_f_24_36": {
+     "read": 2,
+     "printed_subtotal": null,
+     "closes": null
+    },
+    "fc_f_36_55": {
+     "read": 1,
+     "printed_subtotal": null,
+     "closes": null
+    }
+   },
+   "persons_read": 1169
+  },
+  {
+   "ward": "Second Ward",
+   "pages": [
+    9,
+    10,
+    11,
+    12,
+    13,
+    14,
+    15,
+    16,
+    17
+   ],
+   "columns_that_close": 29,
+   "columns_that_differ": [
+    "f_15_20",
+    "f_40_50"
+   ],
+   "columns_whose_printed_glyph_is_not_legible": [],
+   "column_reconciliation": {
+    "m_u5": {
+     "read": 105,
+     "printed_subtotal": 105,
+     "closes": true
+    },
+    "m_5_10": {
+     "read": 55,
+     "printed_subtotal": 55,
+     "closes": true
+    },
+    "m_10_15": {
+     "read": 36,
+     "printed_subtotal": 36,
+     "closes": true
+    },
+    "m_15_20": {
+     "read": 53,
+     "printed_subtotal": 53,
+     "closes": true
+    },
+    "m_20_30": {
+     "read": 263,
+     "printed_subtotal": 263,
+     "closes": true
+    },
+    "m_30_40": {
+     "read": 173,
+     "printed_subtotal": 173,
+     "closes": true
+    },
+    "m_40_50": {
+     "read": 32,
+     "printed_subtotal": 32,
+     "closes": true
+    },
+    "m_50_60": {
+     "read": 10,
+     "printed_subtotal": 10,
+     "closes": true
+    },
+    "m_60_70": {
+     "read": 3,
+     "printed_subtotal": 3,
+     "closes": true
+    },
+    "m_70_80": {
+     "read": 0,
+     "printed_subtotal": 0,
+     "closes": true
+    },
+    "f_u5": {
+     "read": 101,
+     "printed_subtotal": 101,
+     "closes": true
+    },
+    "f_5_10": {
+     "read": 53,
+     "printed_subtotal": 53,
+     "closes": true
+    },
+    "f_10_15": {
+     "read": 43,
+     "printed_subtotal": 43,
+     "closes": true
+    },
+    "f_15_20": {
+     "read": 47,
+     "printed_subtotal": 59,
+     "closes": false
+    },
+    "f_20_30": {
+     "read": 205,
+     "printed_subtotal": 205,
+     "closes": true
+    },
+    "f_30_40": {
+     "read": 73,
+     "printed_subtotal": 73,
+     "closes": true
+    },
+    "f_40_50": {
+     "read": 20,
+     "printed_subtotal": 29,
+     "closes": false
+    },
+    "f_50_60": {
+     "read": 7,
+     "printed_subtotal": 7,
+     "closes": true
+    },
+    "f_60_70": {
+     "read": 7,
+     "printed_subtotal": 7,
+     "closes": true
+    },
+    "f_70_80": {
+     "read": 0,
+     "printed_subtotal": 0,
+     "closes": true
+    },
+    "fc_m_u10": {
+     "read": 6,
+     "printed_subtotal": 6,
+     "closes": true
+    },
+    "fc_m_10_24": {
+     "read": 2,
+     "printed_subtotal": 2,
+     "closes": true
+    },
+    "fc_m_24_36": {
+     "read": 8,
+     "printed_subtotal": 8,
+     "closes": true
+    },
+    "fc_m_36_55": {
+     "read": 2,
+     "printed_subtotal": 2,
+     "closes": true
+    },
+    "fc_m_55_100": {
+     "read": 1,
+     "printed_subtotal": 1,
+     "closes": true
+    },
+    "fc_m_100up": {
+     "read": 0,
+     "printed_subtotal": 0,
+     "closes": true
+    },
+    "fc_f_u10": {
+     "read": 4,
+     "printed_subtotal": 4,
+     "closes": true
+    },
+    "fc_f_10_24": {
+     "read": 2,
+     "printed_subtotal": 2,
+     "closes": true
+    },
+    "fc_f_24_36": {
+     "read": 4,
+     "printed_subtotal": 4,
+     "closes": true
+    },
+    "fc_f_36_55": {
+     "read": 1,
+     "printed_subtotal": 1,
+     "closes": true
+    },
+    "fc_f_55_100": {
+     "read": 1,
+     "printed_subtotal": 1,
+     "closes": true
+    }
+   },
+   "persons_read": 1317
+  },
+  {
+   "ward": "Third Ward",
+   "pages": [
+    18,
+    19
+   ],
+   "columns_that_close": 13,
+   "columns_that_differ": [
+    "f_60_70"
+   ],
+   "columns_whose_printed_glyph_is_not_legible": [
+    "m_15_20",
+    "m_20_30",
+    "m_50_60",
+    "m_60_70",
+    "f_20_30",
+    "f_40_50"
+   ],
+   "column_reconciliation": {
+    "m_u5": {
+     "read": 21,
+     "printed_subtotal": 21,
+     "closes": true
+    },
+    "m_5_10": {
+     "read": 14,
+     "printed_subtotal": 14,
+     "closes": true
+    },
+    "m_10_15": {
+     "read": 14,
+     "printed_subtotal": 14,
+     "closes": true
+    },
+    "m_15_20": {
+     "read": 7,
+     "printed_subtotal": null,
+     "closes": null
+    },
+    "m_20_30": {
+     "read": 48,
+     "printed_subtotal": null,
+     "closes": null
+    },
+    "m_30_40": {
+     "read": 23,
+     "printed_subtotal": 23,
+     "closes": true
+    },
+    "m_40_50": {
+     "read": 9,
+     "printed_subtotal": 9,
+     "closes": true
+    },
+    "m_50_60": {
+     "read": 2,
+     "printed_subtotal": null,
+     "closes": null
+    },
+    "m_60_70": {
+     "read": 1,
+     "printed_subtotal": null,
+     "closes": null
+    },
+    "m_70_80": {
+     "read": 0,
+     "printed_subtotal": 0,
+     "closes": true
+    },
+    "f_u5": {
+     "read": 39,
+     "printed_subtotal": 39,
+     "closes": true
+    },
+    "f_5_10": {
+     "read": 13,
+     "printed_subtotal": 13,
+     "closes": true
+    },
+    "f_10_15": {
+     "read": 9,
+     "printed_subtotal": 9,
+     "closes": true
+    },
+    "f_15_20": {
+     "read": 12,
+     "printed_subtotal": 12,
+     "closes": true
+    },
+    "f_20_30": {
+     "read": 44,
+     "printed_subtotal": null,
+     "closes": null
+    },
+    "f_30_40": {
+     "read": 16,
+     "printed_subtotal": 16,
+     "closes": true
+    },
+    "f_40_50": {
+     "read": 8,
+     "printed_subtotal": null,
+     "closes": null
+    },
+    "f_50_60": {
+     "read": 3,
+     "printed_subtotal": 3,
+     "closes": true
+    },
+    "f_60_70": {
+     "read": 4,
+     "printed_subtotal": 1,
+     "closes": false
+    },
+    "f_70_80": {
+     "read": 0,
+     "printed_subtotal": 0,
+     "closes": true
+    }
+   },
+   "persons_read": 287
+  },
+  {
+   "ward": "Fourth Ward",
+   "pages": [
+    20
+   ],
+   "printed_subtotal_row": null,
+   "why_no_subtotal": "the ward is ONE enumerating page, so the enumerator closed it with a rule and wrote no separate subtotal row: page 20's own line IS the ward total. Printed 237's fourth block is likewise a single line standing between two rules with no footing of its own (33S7-9YYJ-V2, block 4, 189).",
+   "read_sum_of_the_lines": {
+    "m_u5": 10,
+    "m_5_10": 11,
+    "m_10_15": 9,
+    "m_15_20": 6,
+    "m_20_30": 30,
+    "m_30_40": 20,
+    "m_40_50": 10,
+    "m_50_60": 2,
+    "m_60_70": 1,
+    "f_u5": 22,
+    "f_5_10": 13,
+    "f_10_15": 6,
+    "f_15_20": 10,
+    "f_20_30": 23,
+    "f_30_40": 13,
+    "f_40_50": 2,
+    "f_50_60": 1,
+    "fc_m_24_36": 2
+   },
+   "persons_read": 191
+  },
+  {
+   "ward": "Fifth Ward",
+   "pages": [
+    21,
+    22,
+    23
+   ],
+   "columns_that_close": 20,
+   "columns_that_differ": [],
+   "columns_whose_printed_glyph_is_not_legible": [],
+   "column_reconciliation": {
+    "m_u5": {
+     "read": 43,
+     "printed_subtotal": 43,
+     "closes": true
+    },
+    "m_5_10": {
+     "read": 16,
+     "printed_subtotal": 16,
+     "closes": true
+    },
+    "m_10_15": {
+     "read": 14,
+     "printed_subtotal": 14,
+     "closes": true
+    },
+    "m_15_20": {
+     "read": 6,
+     "printed_subtotal": 6,
+     "closes": true
+    },
+    "m_20_30": {
+     "read": 56,
+     "printed_subtotal": 56,
+     "closes": true
+    },
+    "m_30_40": {
+     "read": 41,
+     "printed_subtotal": 41,
+     "closes": true
+    },
+    "m_40_50": {
+     "read": 11,
+     "printed_subtotal": 11,
+     "closes": true
+    },
+    "m_50_60": {
+     "read": 3,
+     "printed_subtotal": 3,
+     "closes": true
+    },
+    "m_60_70": {
+     "read": 0,
+     "printed_subtotal": 0,
+     "closes": true
+    },
+    "m_70_80": {
+     "read": 0,
+     "printed_subtotal": 0,
+     "closes": true
+    },
+    "f_u5": {
+     "read": 37,
+     "printed_subtotal": 37,
+     "closes": true
+    },
+    "f_5_10": {
+     "read": 25,
+     "printed_subtotal": 25,
+     "closes": true
+    },
+    "f_10_15": {
+     "read": 16,
+     "printed_subtotal": 16,
+     "closes": true
+    },
+    "f_15_20": {
+     "read": 9,
+     "printed_subtotal": 9,
+     "closes": true
+    },
+    "f_20_30": {
+     "read": 42,
+     "printed_subtotal": 42,
+     "closes": true
+    },
+    "f_30_40": {
+     "read": 31,
+     "printed_subtotal": 31,
+     "closes": true
+    },
+    "f_40_50": {
+     "read": 10,
+     "printed_subtotal": 10,
+     "closes": true
+    },
+    "f_50_60": {
+     "read": 1,
+     "printed_subtotal": 1,
+     "closes": true
+    },
+    "f_60_70": {
+     "read": 1,
+     "printed_subtotal": 1,
+     "closes": true
+    },
+    "f_70_80": {
+     "read": 0,
+     "printed_subtotal": 0,
+     "closes": true
+    }
+   },
+   "persons_read": 362
+  },
+  {
+   "ward": "Sixth Ward",
+   "pages": [
+    24,
+    25,
+    26,
+    27,
+    28,
+    29,
+    30
+   ],
+   "columns_that_close": 29,
+   "columns_that_differ": [
+    "f_10_15",
+    "f_40_50"
+   ],
+   "columns_whose_printed_glyph_is_not_legible": [],
+   "column_reconciliation": {
+    "m_u5": {
+     "read": 94,
+     "printed_subtotal": 94,
+     "closes": true
+    },
+    "m_5_10": {
+     "read": 56,
+     "printed_subtotal": 56,
+     "closes": true
+    },
+    "m_10_15": {
+     "read": 41,
+     "printed_subtotal": 41,
+     "closes": true
+    },
+    "m_15_20": {
+     "read": 50,
+     "printed_subtotal": 50,
+     "closes": true
+    },
+    "m_20_30": {
+     "read": 167,
+     "printed_subtotal": 167,
+     "closes": true
+    },
+    "m_30_40": {
+     "read": 129,
+     "printed_subtotal": 129,
+     "closes": true
+    },
+    "m_40_50": {
+     "read": 43,
+     "printed_subtotal": 43,
+     "closes": true
+    },
+    "m_50_60": {
+     "read": 13,
+     "printed_subtotal": 13,
+     "closes": true
+    },
+    "m_60_70": {
+     "read": 3,
+     "printed_subtotal": 3,
+     "closes": true
+    },
+    "m_70_80": {
+     "read": 2,
+     "printed_subtotal": 2,
+     "closes": true
+    },
+    "f_u5": {
+     "read": 116,
+     "printed_subtotal": 116,
+     "closes": true
+    },
+    "f_5_10": {
+     "read": 66,
+     "printed_subtotal": 66,
+     "closes": true
+    },
+    "f_10_15": {
+     "read": 52,
+     "printed_subtotal": 54,
+     "closes": false
+    },
+    "f_15_20": {
+     "read": 43,
+     "printed_subtotal": 43,
+     "closes": true
+    },
+    "f_20_30": {
+     "read": 149,
+     "printed_subtotal": 149,
+     "closes": true
+    },
+    "f_30_40": {
+     "read": 69,
+     "printed_subtotal": 69,
+     "closes": true
+    },
+    "f_40_50": {
+     "read": 37,
+     "printed_subtotal": 34,
+     "closes": false
+    },
+    "f_50_60": {
+     "read": 15,
+     "printed_subtotal": 15,
+     "closes": true
+    },
+    "f_60_70": {
+     "read": 6,
+     "printed_subtotal": 6,
+     "closes": true
+    },
+    "f_70_80": {
+     "read": 1,
+     "printed_subtotal": 1,
+     "closes": true
+    },
+    "fc_m_u10": {
+     "read": 1,
+     "printed_subtotal": 1,
+     "closes": true
+    },
+    "fc_m_10_24": {
+     "read": 3,
+     "printed_subtotal": 3,
+     "closes": true
+    },
+    "fc_m_24_36": {
+     "read": 2,
+     "printed_subtotal": 2,
+     "closes": true
+    },
+    "fc_m_36_55": {
+     "read": 1,
+     "printed_subtotal": 1,
+     "closes": true
+    },
+    "fc_m_55_100": {
+     "read": 0,
+     "printed_subtotal": 0,
+     "closes": true
+    },
+    "fc_m_100up": {
+     "read": 0,
+     "printed_subtotal": 0,
+     "closes": true
+    },
+    "fc_f_u10": {
+     "read": 0,
+     "printed_subtotal": 0,
+     "closes": true
+    },
+    "fc_f_10_24": {
+     "read": 0,
+     "printed_subtotal": 0,
+     "closes": true
+    },
+    "fc_f_24_36": {
+     "read": 1,
+     "printed_subtotal": 1,
+     "closes": true
+    },
+    "fc_f_36_55": {
+     "read": 0,
+     "printed_subtotal": 0,
+     "closes": true
+    },
+    "fc_f_55_100": {
+     "read": 0,
+     "printed_subtotal": 0,
+     "closes": true
+    }
+   },
+   "persons_read": 1160
+  }
+ ],
+ "grand_total": {
+  "row": "y 2932-3001, under a double rule",
+  "column_reconciliation": {
+   "m_u5": {
+    "read": 368,
+    "printed_grand_total": 367,
+    "closes": false
+   },
+   "m_5_10": {
+    "read": 199,
+    "printed_grand_total": 198,
+    "closes": false
+   },
+   "m_10_15": {
+    "read": 165,
+    "printed_grand_total": 167,
+    "closes": false
+   },
+   "m_15_20": {
+    "read": 175,
+    "printed_grand_total": 175,
+    "closes": true
+   },
+   "m_20_30": {
+    "read": 806,
+    "printed_grand_total": 806,
+    "closes": true
+   },
+   "m_30_40": {
+    "read": 499,
+    "printed_grand_total": 499,
+    "closes": true
+   },
+   "m_40_50": {
+    "read": 136,
+    "printed_grand_total": 136,
+    "closes": true
+   },
+   "m_50_60": {
+    "read": 43,
+    "printed_grand_total": 43,
+    "closes": true
+   },
+   "m_60_70": {
+    "read": 11,
+    "printed_grand_total": 10,
+    "closes": false
+   },
+   "m_70_80": {
+    "read": 5,
+    "printed_grand_total": 6,
+    "closes": false
+   },
+   "f_u5": {
+    "read": 395,
+    "printed_grand_total": 395,
+    "closes": true
+   },
+   "f_5_10": {
+    "read": 237,
+    "printed_grand_total": 237,
+    "closes": true
+   },
+   "f_10_15": {
+    "read": 174,
+    "printed_grand_total": 176,
+    "closes": false
+   },
+   "f_15_20": {
+    "read": 178,
+    "printed_grand_total": 178,
+    "closes": true
+   },
+   "f_20_30": {
+    "read": 600,
+    "printed_grand_total": 597,
+    "closes": false
+   },
+   "f_30_40": {
+    "read": 285,
+    "printed_grand_total": 285,
+    "closes": true
+   },
+   "f_40_50": {
+    "read": 102,
+    "printed_grand_total": 99,
+    "closes": false
+   },
+   "f_50_60": {
+    "read": 33,
+    "printed_grand_total": 33,
+    "closes": true
+   },
+   "f_60_70": {
+    "read": 21,
+    "printed_grand_total": 18,
+    "closes": false
+   },
+   "f_70_80": {
+    "read": 1,
+    "printed_grand_total": 1,
+    "closes": true
+   },
+   "fc_m_u10": {
+    "read": 9,
+    "printed_grand_total": 9,
+    "closes": true
+   },
+   "fc_m_10_24": {
+    "read": 5,
+    "printed_grand_total": 5,
+    "closes": true
+   },
+   "fc_m_24_36": {
+    "read": 15,
+    "printed_grand_total": 15,
+    "closes": true
+   },
+   "fc_m_36_55": {
+    "read": 3,
+    "printed_grand_total": 3,
+    "closes": true
+   },
+   "fc_m_55_100": {
+    "read": 2,
+    "printed_grand_total": 2,
+    "closes": true
+   },
+   "fc_m_100up": {
+    "read": 0,
+    "printed_grand_total": 0,
+    "closes": true
+   },
+   "fc_f_u10": {
+    "read": 5,
+    "printed_grand_total": 5,
+    "closes": true
+   },
+   "fc_f_10_24": {
+    "read": 4,
+    "printed_grand_total": null,
+    "closes": null
+   },
+   "fc_f_24_36": {
+    "read": 7,
+    "printed_grand_total": 7,
+    "closes": true
+   },
+   "fc_f_36_55": {
+    "read": 2,
+    "printed_grand_total": 2,
+    "closes": true
+   },
+   "fc_f_55_100": {
+    "read": 1,
+    "printed_grand_total": 1,
+    "closes": true
+   }
+  },
+  "columns_that_close": [
+   "f_15_20",
+   "f_30_40",
+   "f_50_60",
+   "f_5_10",
+   "f_70_80",
+   "f_u5",
+   "fc_f_24_36",
+   "fc_f_36_55",
+   "fc_f_55_100",
+   "fc_f_u10",
+   "fc_m_100up",
+   "fc_m_10_24",
+   "fc_m_24_36",
+   "fc_m_36_55",
+   "fc_m_55_100",
+   "fc_m_u10",
+   "m_15_20",
+   "m_20_30",
+   "m_30_40",
+   "m_40_50",
+   "m_50_60"
+  ],
+  "columns_that_differ": [
+   "f_10_15",
+   "f_20_30",
+   "f_40_50",
+   "f_60_70",
+   "m_10_15",
+   "m_5_10",
+   "m_60_70",
+   "m_70_80",
+   "m_u5"
+  ],
+  "persons_written_in_the_grand_total_row": 4475,
+  "persons_summed_from_the_thirty_lines": 4486,
+  "note": "the free-white MALE half of the grand total is the strongest single check on this reading: read cell by cell it sums to 2407 and the enumerator's own grand-total row sums to 2407 as well, with the per-column differences cancelling exactly. The free-white female half does not do that - 2026 read against 2019 written - and the seven persons are left open.",
+  "persons_written_in_the_grand_total_row_note": "4,475 is the sum of the grand-total row AS READ: 2,407 free white males, 2,019 free white females and 49 free coloured persons. The free-coloured 10-to-24 female cell of that row carries no legible mark while the ward subtotals above it hold 4 there, so the free-coloured half of the row is 49 read against 53 summed. That cell is recorded null, not 0 and not 4."
+ },
+ "against_printed_237": {
+  "what_this_is": "printed 237 (33S7-9YYJ-V2, read by T-0529) is the OTHER recapitulation the enumeration book's certificate page names. It carries thirty ruled lines of division totals gathered into six blocks. This leaf carries thirty numbered pages gathered into six WARDS. The two are compared here line for line for the first time.",
+  "block_shape": "237's six blocks hold 8, 9, 2, 1, 3 and 7 lines. This leaf's six wards hold 8, 9, 2, 1, 3 and 7 pages. The shapes are identical, in order, including the two that are unlike anything else on either sheet: 237's fourth block is a LONE LINE of 189 with no footing, and the Fourth Ward here is a LONE PAGE closed by a rule with no subtotal; 237's fifth block is the three lines its own footing is illegible over, and the Fifth Ward here is three pages.",
+  "what_that_settles": "printed 237's six blocks ARE the six wards of the city of Chicago, and its thirty division totals are the thirty enumerating pages in order. 237 could not say so; it carries no ward name. This is the first attribution of any 1840 Chicago enumerating page to a ward.",
+  "line_by_line": [
+   {
+    "page": 1,
+    "ward": "First Ward",
+    "persons_read_here": 139,
+    "division_total_on_printed_237": 128,
+    "agrees": false,
+    "difference": 11
+   },
+   {
+    "page": 2,
+    "ward": "First Ward",
+    "persons_read_here": 131,
+    "division_total_on_printed_237": 131,
+    "agrees": true,
+    "difference": 0
+   },
+   {
+    "page": 3,
+    "ward": "First Ward",
+    "persons_read_here": 181,
+    "division_total_on_printed_237": 187,
+    "agrees": false,
+    "difference": -6
+   },
+   {
+    "page": 4,
+    "ward": "First Ward",
+    "persons_read_here": 187,
+    "division_total_on_printed_237": 187,
+    "agrees": true,
+    "difference": 0
+   },
+   {
+    "page": 5,
+    "ward": "First Ward",
+    "persons_read_here": 158,
+    "division_total_on_printed_237": 158,
+    "agrees": true,
+    "difference": 0
+   },
+   {
+    "page": 6,
+    "ward": "First Ward",
+    "persons_read_here": 107,
+    "division_total_on_printed_237": 107,
+    "agrees": true,
+    "difference": 0
+   },
+   {
+    "page": 7,
+    "ward": "First Ward",
+    "persons_read_here": 112,
+    "division_total_on_printed_237": 112,
+    "agrees": true,
+    "difference": 0
+   },
+   {
+    "page": 8,
+    "ward": "First Ward",
+    "persons_read_here": 154,
+    "division_total_on_printed_237": 154,
+    "agrees": true,
+    "difference": 0
+   },
+   {
+    "page": 9,
+    "ward": "Second Ward",
+    "persons_read_here": 106,
+    "division_total_on_printed_237": 106,
+    "agrees": true,
+    "difference": 0
+   },
+   {
+    "page": 10,
+    "ward": "Second Ward",
+    "persons_read_here": 179,
+    "division_total_on_printed_237": 179,
+    "agrees": true,
+    "difference": 0
+   },
+   {
+    "page": 11,
+    "ward": "Second Ward",
+    "persons_read_here": 162,
+    "division_total_on_printed_237": 162,
+    "agrees": true,
+    "difference": 0
+   },
+   {
+    "page": 12,
+    "ward": "Second Ward",
+    "persons_read_here": 113,
+    "division_total_on_printed_237": 113,
+    "agrees": true,
+    "difference": 0
+   },
+   {
+    "page": 13,
+    "ward": "Second Ward",
+    "persons_read_here": 201,
+    "division_total_on_printed_237": 201,
+    "agrees": true,
+    "difference": 0
+   },
+   {
+    "page": 14,
+    "ward": "Second Ward",
+    "persons_read_here": 135,
+    "division_total_on_printed_237": 135,
+    "agrees": true,
+    "difference": 0
+   },
+   {
+    "page": 15,
+    "ward": "Second Ward",
+    "persons_read_here": 144,
+    "division_total_on_printed_237": 144,
+    "agrees": true,
+    "difference": 0
+   },
+   {
+    "page": 16,
+    "ward": "Second Ward",
+    "persons_read_here": 165,
+    "division_total_on_printed_237": 165,
+    "agrees": true,
+    "difference": 0
+   },
+   {
+    "page": 17,
+    "ward": "Second Ward",
+    "persons_read_here": 112,
+    "division_total_on_printed_237": 115,
+    "agrees": false,
+    "difference": -3
+   },
+   {
+    "page": 18,
+    "ward": "Third Ward",
+    "persons_read_here": 169,
+    "division_total_on_printed_237": 175,
+    "agrees": false,
+    "difference": -6
+   },
+   {
+    "page": 19,
+    "ward": "Third Ward",
+    "persons_read_here": 118,
+    "division_total_on_printed_237": 119,
+    "agrees": false,
+    "difference": -1
+   },
+   {
+    "page": 20,
+    "ward": "Fourth Ward",
+    "persons_read_here": 191,
+    "division_total_on_printed_237": 189,
+    "agrees": false,
+    "difference": 2
+   },
+   {
+    "page": 21,
+    "ward": "Fifth Ward",
+    "persons_read_here": 159,
+    "division_total_on_printed_237": 159,
+    "agrees": true,
+    "difference": 0
+   },
+   {
+    "page": 22,
+    "ward": "Fifth Ward",
+    "persons_read_here": 133,
+    "division_total_on_printed_237": 133,
+    "agrees": true,
+    "difference": 0
+   },
+   {
+    "page": 23,
+    "ward": "Fifth Ward",
+    "persons_read_here": 70,
+    "division_total_on_printed_237": 70,
+    "agrees": true,
+    "difference": 0
+   },
+   {
+    "page": 24,
+    "ward": "Sixth Ward",
+    "persons_read_here": 171,
+    "division_total_on_printed_237": 152,
+    "agrees": false,
+    "difference": 19
+   },
+   {
+    "page": 25,
+    "ward": "Sixth Ward",
+    "persons_read_here": 157,
+    "division_total_on_printed_237": 151,
+    "agrees": false,
+    "difference": 6
+   },
+   {
+    "page": 26,
+    "ward": "Sixth Ward",
+    "persons_read_here": 157,
+    "division_total_on_printed_237": 157,
+    "agrees": true,
+    "difference": 0
+   },
+   {
+    "page": 27,
+    "ward": "Sixth Ward",
+    "persons_read_here": 196,
+    "division_total_on_printed_237": 198,
+    "agrees": false,
+    "difference": -2
+   },
+   {
+    "page": 28,
+    "ward": "Sixth Ward",
+    "persons_read_here": 175,
+    "division_total_on_printed_237": 175,
+    "agrees": true,
+    "difference": 0
+   },
+   {
+    "page": 29,
+    "ward": "Sixth Ward",
+    "persons_read_here": 177,
+    "division_total_on_printed_237": 181,
+    "agrees": false,
+    "difference": -4
+   },
+   {
+    "page": 30,
+    "ward": "Sixth Ward",
+    "persons_read_here": 127,
+    "division_total_on_printed_237": 123,
+    "agrees": false,
+    "difference": 4
+   }
+  ],
+  "pages_that_agree_exactly": [
+   2,
+   4,
+   5,
+   6,
+   7,
+   8,
+   9,
+   10,
+   11,
+   12,
+   13,
+   14,
+   15,
+   16,
+   21,
+   22,
+   23,
+   26,
+   28
+  ],
+  "agreement": "19 of 30 pages agree to the person between two independently written leaves.",
+  "where_they_do_not": "the eleven that differ are named in line_by_line with their signed difference. Nine of the eleven are within 6 persons. Two are not: page 1 stands 11 over 237 and page 24 stands 19 over it. Page 24's line is the one this leaf writes hard against the Sixth Ward's opening rule, which crosses its upper halves; page 1's is clear, and its excess is unexplained.",
+  "totals": "the thirty lines read here sum to 4,486 persons. 237's thirty division totals sum to 4,466, and 4,470 is written at 237's foot and at the book's certificate page. Neither leaf is adjusted to meet the other."
+ },
+ "why_no_serial_can_hang_on_any_line": "every line of this leaf is a PAGE of the enumeration, not a household. It names nobody. No IPUMS serial, no resident and no household may be derived from it; what it carries is a ward attribution for each enumerating page and a population for each.",
+ "records": [
+  {
+   "line": 1,
+   "as_read": "1",
+   "page_enumerated": 1,
+   "ward": "First Ward",
+   "reading": "scan_verified",
+   "cells": {
+    "m_u5": 20,
+    "m_5_10": 5,
+    "m_10_15": 5,
+    "m_15_20": 5,
+    "m_20_30": 25,
+    "m_30_40": 11,
+    "m_40_50": 4,
+    "m_50_60": 1,
+    "m_60_70": 0,
+    "m_70_80": 2,
+    "m_80_90": 0,
+    "m_90_100": 0,
+    "m_100up": 0,
+    "f_u5": 13,
+    "f_5_10": 2,
+    "f_10_15": 6,
+    "f_15_20": 3,
+    "f_20_30": 16,
+    "f_30_40": 16,
+    "f_40_50": 3,
+    "f_50_60": 1,
+    "f_60_70": 1,
+    "f_70_80": 0,
+    "f_80_90": 0,
+    "f_90_100": 0,
+    "f_100up": 0,
+    "fc_m_u10": 0,
+    "fc_m_10_24": 0,
+    "fc_m_24_36": 0,
+    "fc_m_36_55": 0,
+    "fc_m_55_100": 0,
+    "fc_m_100up": 0,
+    "fc_f_u10": 0,
+    "fc_f_10_24": 0,
+    "fc_f_24_36": 0,
+    "fc_f_36_55": 0,
+    "fc_f_55_100": 0,
+    "fc_f_100up": 0
+   },
+   "derived": {
+    "free_white_males": 78,
+    "free_white_females": 61,
+    "free_coloured_persons": 0,
+    "persons_total": 139
+   }
+  },
+  {
+   "line": 2,
+   "as_read": "2",
+   "page_enumerated": 2,
+   "ward": "First Ward",
+   "reading": "scan_verified",
+   "cells": {
+    "m_u5": 15,
+    "m_5_10": 5,
+    "m_10_15": 9,
+    "m_15_20": 6,
+    "m_20_30": 19,
+    "m_30_40": 14,
+    "m_40_50": 4,
+    "m_50_60": 1,
+    "m_60_70": 0,
+    "m_70_80": 0,
+    "m_80_90": 0,
+    "m_90_100": 0,
+    "m_100up": 0,
+    "f_u5": 11,
+    "f_5_10": 9,
+    "f_10_15": 3,
+    "f_15_20": 7,
+    "f_20_30": 14,
+    "f_30_40": 10,
+    "f_40_50": 3,
+    "f_50_60": 1,
+    "f_60_70": 0,
+    "f_70_80": 0,
+    "f_80_90": 0,
+    "f_90_100": 0,
+    "f_100up": 0,
+    "fc_m_u10": 0,
+    "fc_m_10_24": 0,
+    "fc_m_24_36": 0,
+    "fc_m_36_55": 0,
+    "fc_m_55_100": 0,
+    "fc_m_100up": 0,
+    "fc_f_u10": 0,
+    "fc_f_10_24": 0,
+    "fc_f_24_36": 0,
+    "fc_f_36_55": 0,
+    "fc_f_55_100": 0,
+    "fc_f_100up": 0
+   },
+   "derived": {
+    "free_white_males": 73,
+    "free_white_females": 58,
+    "free_coloured_persons": 0,
+    "persons_total": 131
+   }
+  },
+  {
+   "line": 3,
+   "as_read": "3",
+   "page_enumerated": 3,
+   "ward": "First Ward",
+   "reading": "scan_verified",
+   "cells": {
+    "m_u5": 16,
+    "m_5_10": 10,
+    "m_10_15": 7,
+    "m_15_20": 6,
+    "m_20_30": 28,
+    "m_30_40": 19,
+    "m_40_50": 5,
+    "m_50_60": 1,
+    "m_60_70": 1,
+    "m_70_80": 0,
+    "m_80_90": 0,
+    "m_90_100": 0,
+    "m_100up": 0,
+    "f_u5": 14,
+    "f_5_10": 12,
+    "f_10_15": 9,
+    "f_15_20": 10,
+    "f_20_30": 22,
+    "f_30_40": 17,
+    "f_40_50": 2,
+    "f_50_60": 1,
+    "f_60_70": 1,
+    "f_70_80": 0,
+    "f_80_90": 0,
+    "f_90_100": 0,
+    "f_100up": 0,
+    "fc_m_u10": 0,
+    "fc_m_10_24": 0,
+    "fc_m_24_36": 0,
+    "fc_m_36_55": 0,
+    "fc_m_55_100": 0,
+    "fc_m_100up": 0,
+    "fc_f_u10": 0,
+    "fc_f_10_24": 0,
+    "fc_f_24_36": 0,
+    "fc_f_36_55": 0,
+    "fc_f_55_100": 0,
+    "fc_f_100up": 0
+   },
+   "derived": {
+    "free_white_males": 93,
+    "free_white_females": 88,
+    "free_coloured_persons": 0,
+    "persons_total": 181
+   }
+  },
+  {
+   "line": 4,
+   "as_read": "4",
+   "page_enumerated": 4,
+   "ward": "First Ward",
+   "reading": "scan_verified",
+   "cells": {
+    "m_u5": 11,
+    "m_5_10": 6,
+    "m_10_15": 10,
+    "m_15_20": 10,
+    "m_20_30": 28,
+    "m_30_40": 19,
+    "m_40_50": 5,
+    "m_50_60": 2,
+    "m_60_70": 1,
+    "m_70_80": 0,
+    "m_80_90": 0,
+    "m_90_100": 0,
+    "m_100up": 0,
+    "f_u5": 14,
+    "f_5_10": 18,
+    "f_10_15": 7,
+    "f_15_20": 12,
+    "f_20_30": 23,
+    "f_30_40": 14,
+    "f_40_50": 4,
+    "f_50_60": 1,
+    "f_60_70": 1,
+    "f_70_80": 0,
+    "f_80_90": 0,
+    "f_90_100": 0,
+    "f_100up": 0,
+    "fc_m_u10": 0,
+    "fc_m_10_24": 0,
+    "fc_m_24_36": 0,
+    "fc_m_36_55": 0,
+    "fc_m_55_100": 0,
+    "fc_m_100up": 0,
+    "fc_f_u10": 0,
+    "fc_f_10_24": 0,
+    "fc_f_24_36": 0,
+    "fc_f_36_55": 1,
+    "fc_f_55_100": 0,
+    "fc_f_100up": 0
+   },
+   "derived": {
+    "free_white_males": 92,
+    "free_white_females": 94,
+    "free_coloured_persons": 1,
+    "persons_total": 187
+   }
+  },
+  {
+   "line": 5,
+   "as_read": "5",
+   "page_enumerated": 5,
+   "ward": "First Ward",
+   "reading": "scan_verified",
+   "cells": {
+    "m_u5": 10,
+    "m_5_10": 7,
+    "m_10_15": 4,
+    "m_15_20": 6,
+    "m_20_30": 52,
+    "m_30_40": 14,
+    "m_40_50": 2,
+    "m_50_60": 1,
+    "m_60_70": 0,
+    "m_70_80": 1,
+    "m_80_90": 0,
+    "m_90_100": 0,
+    "m_100up": 0,
+    "f_u5": 11,
+    "f_5_10": 2,
+    "f_10_15": 5,
+    "f_15_20": 12,
+    "f_20_30": 14,
+    "f_30_40": 9,
+    "f_40_50": 1,
+    "f_50_60": 0,
+    "f_60_70": 0,
+    "f_70_80": 0,
+    "f_80_90": 0,
+    "f_90_100": 0,
+    "f_100up": 0,
+    "fc_m_u10": 1,
+    "fc_m_10_24": 0,
+    "fc_m_24_36": 3,
+    "fc_m_36_55": 0,
+    "fc_m_55_100": 0,
+    "fc_m_100up": 0,
+    "fc_f_u10": 0,
+    "fc_f_10_24": 1,
+    "fc_f_24_36": 2,
+    "fc_f_36_55": 0,
+    "fc_f_55_100": 0,
+    "fc_f_100up": 0
+   },
+   "derived": {
+    "free_white_males": 97,
+    "free_white_females": 54,
+    "free_coloured_persons": 7,
+    "persons_total": 158
+   }
+  },
+  {
+   "line": 6,
+   "as_read": "6",
+   "page_enumerated": 6,
+   "ward": "First Ward",
+   "reading": "scan_verified",
+   "cells": {
+    "m_u5": 8,
+    "m_5_10": 5,
+    "m_10_15": 5,
+    "m_15_20": 9,
+    "m_20_30": 33,
+    "m_30_40": 7,
+    "m_40_50": 5,
+    "m_50_60": 2,
+    "m_60_70": 1,
+    "m_70_80": 0,
+    "m_80_90": 0,
+    "m_90_100": 0,
+    "m_100up": 0,
+    "f_u5": 1,
+    "f_5_10": 4,
+    "f_10_15": 9,
+    "f_15_20": 1,
+    "f_20_30": 9,
+    "f_30_40": 3,
+    "f_40_50": 3,
+    "f_50_60": 1,
+    "f_60_70": 0,
+    "f_70_80": 0,
+    "f_80_90": 0,
+    "f_90_100": 0,
+    "f_100up": 0,
+    "fc_m_u10": 0,
+    "fc_m_10_24": 0,
+    "fc_m_24_36": 0,
+    "fc_m_36_55": 0,
+    "fc_m_55_100": 1,
+    "fc_m_100up": 0,
+    "fc_f_u10": 0,
+    "fc_f_10_24": 0,
+    "fc_f_24_36": 0,
+    "fc_f_36_55": 0,
+    "fc_f_55_100": 0,
+    "fc_f_100up": 0
+   },
+   "derived": {
+    "free_white_males": 75,
+    "free_white_females": 31,
+    "free_coloured_persons": 1,
+    "persons_total": 107
+   }
+  },
+  {
+   "line": 7,
+   "as_read": "7",
+   "page_enumerated": 7,
+   "ward": "First Ward",
+   "reading": "scan_verified",
+   "cells": {
+    "m_u5": 4,
+    "m_5_10": 3,
+    "m_10_15": 6,
+    "m_15_20": 6,
+    "m_20_30": 31,
+    "m_30_40": 11,
+    "m_40_50": 3,
+    "m_50_60": 2,
+    "m_60_70": 0,
+    "m_70_80": 0,
+    "m_80_90": 0,
+    "m_90_100": 0,
+    "m_100up": 0,
+    "f_u5": 6,
+    "f_5_10": 6,
+    "f_10_15": 3,
+    "f_15_20": 6,
+    "f_20_30": 13,
+    "f_30_40": 5,
+    "f_40_50": 5,
+    "f_50_60": 0,
+    "f_60_70": 0,
+    "f_70_80": 0,
+    "f_80_90": 0,
+    "f_90_100": 0,
+    "f_100up": 0,
+    "fc_m_u10": 0,
+    "fc_m_10_24": 0,
+    "fc_m_24_36": 0,
+    "fc_m_36_55": 0,
+    "fc_m_55_100": 0,
+    "fc_m_100up": 0,
+    "fc_f_u10": 1,
+    "fc_f_10_24": 1,
+    "fc_f_24_36": 0,
+    "fc_f_36_55": 0,
+    "fc_f_55_100": 0,
+    "fc_f_100up": 0
+   },
+   "derived": {
+    "free_white_males": 66,
+    "free_white_females": 44,
+    "free_coloured_persons": 2,
+    "persons_total": 112
+   }
+  },
+  {
+   "line": 8,
+   "as_read": "8",
+   "page_enumerated": 8,
+   "ward": "First Ward",
+   "reading": "scan_verified",
+   "cells": {
+    "m_u5": 11,
+    "m_5_10": 6,
+    "m_10_15": 5,
+    "m_15_20": 5,
+    "m_20_30": 26,
+    "m_30_40": 18,
+    "m_40_50": 3,
+    "m_50_60": 3,
+    "m_60_70": 0,
+    "m_70_80": 0,
+    "m_80_90": 0,
+    "m_90_100": 0,
+    "m_100up": 0,
+    "f_u5": 10,
+    "f_5_10": 14,
+    "f_10_15": 6,
+    "f_15_20": 6,
+    "f_20_30": 26,
+    "f_30_40": 9,
+    "f_40_50": 4,
+    "f_50_60": 1,
+    "f_60_70": 0,
+    "f_70_80": 0,
+    "f_80_90": 0,
+    "f_90_100": 0,
+    "f_100up": 0,
+    "fc_m_u10": 1,
+    "fc_m_10_24": 0,
+    "fc_m_24_36": 0,
+    "fc_m_36_55": 0,
+    "fc_m_55_100": 0,
+    "fc_m_100up": 0,
+    "fc_f_u10": 0,
+    "fc_f_10_24": 0,
+    "fc_f_24_36": 0,
+    "fc_f_36_55": 0,
+    "fc_f_55_100": 0,
+    "fc_f_100up": 0
+   },
+   "derived": {
+    "free_white_males": 77,
+    "free_white_females": 76,
+    "free_coloured_persons": 1,
+    "persons_total": 154
+   }
+  },
+  {
+   "line": 9,
+   "as_read": "9",
+   "page_enumerated": 9,
+   "ward": "Second Ward",
+   "reading": "scan_verified",
+   "cells": {
+    "m_u5": 7,
+    "m_5_10": 2,
+    "m_10_15": 2,
+    "m_15_20": 6,
+    "m_20_30": 34,
+    "m_30_40": 16,
+    "m_40_50": 0,
+    "m_50_60": 0,
+    "m_60_70": 0,
+    "m_70_80": 0,
+    "m_80_90": 0,
+    "m_90_100": 0,
+    "m_100up": 0,
+    "f_u5": 2,
+    "f_5_10": 2,
+    "f_10_15": 1,
+    "f_15_20": 4,
+    "f_20_30": 19,
+    "f_30_40": 4,
+    "f_40_50": 0,
+    "f_50_60": 0,
+    "f_60_70": 0,
+    "f_70_80": 0,
+    "f_80_90": 0,
+    "f_90_100": 0,
+    "f_100up": 0,
+    "fc_m_u10": 2,
+    "fc_m_10_24": 1,
+    "fc_m_24_36": 2,
+    "fc_m_36_55": 0,
+    "fc_m_55_100": 0,
+    "fc_m_100up": 0,
+    "fc_f_u10": 0,
+    "fc_f_10_24": 2,
+    "fc_f_24_36": 0,
+    "fc_f_36_55": 0,
+    "fc_f_55_100": 0,
+    "fc_f_100up": 0
+   },
+   "derived": {
+    "free_white_males": 67,
+    "free_white_females": 32,
+    "free_coloured_persons": 7,
+    "persons_total": 106
+   }
+  },
+  {
+   "line": 10,
+   "as_read": "10",
+   "page_enumerated": 10,
+   "ward": "Second Ward",
+   "reading": "scan_verified",
+   "cells": {
+    "m_u5": 20,
+    "m_5_10": 9,
+    "m_10_15": 3,
+    "m_15_20": 6,
+    "m_20_30": 29,
+    "m_30_40": 25,
+    "m_40_50": 6,
+    "m_50_60": 1,
+    "m_60_70": 0,
+    "m_70_80": 0,
+    "m_80_90": 0,
+    "m_90_100": 0,
+    "m_100up": 0,
+    "f_u5": 14,
+    "f_5_10": 4,
+    "f_10_15": 6,
+    "f_15_20": 6,
+    "f_20_30": 35,
+    "f_30_40": 7,
+    "f_40_50": 2,
+    "f_50_60": 1,
+    "f_60_70": 1,
+    "f_70_80": 0,
+    "f_80_90": 0,
+    "f_90_100": 0,
+    "f_100up": 0,
+    "fc_m_u10": 1,
+    "fc_m_10_24": 0,
+    "fc_m_24_36": 0,
+    "fc_m_36_55": 0,
+    "fc_m_55_100": 0,
+    "fc_m_100up": 0,
+    "fc_f_u10": 2,
+    "fc_f_10_24": 0,
+    "fc_f_24_36": 1,
+    "fc_f_36_55": 0,
+    "fc_f_55_100": 0,
+    "fc_f_100up": 0
+   },
+   "derived": {
+    "free_white_males": 99,
+    "free_white_females": 76,
+    "free_coloured_persons": 4,
+    "persons_total": 179
+   }
+  },
+  {
+   "line": 11,
+   "as_read": "11",
+   "page_enumerated": 11,
+   "ward": "Second Ward",
+   "reading": "scan_verified",
+   "cells": {
+    "m_u5": 19,
+    "m_5_10": 7,
+    "m_10_15": 4,
+    "m_15_20": 8,
+    "m_20_30": 22,
+    "m_30_40": 20,
+    "m_40_50": 3,
+    "m_50_60": 2,
+    "m_60_70": 1,
+    "m_70_80": 0,
+    "m_80_90": 0,
+    "m_90_100": 0,
+    "m_100up": 0,
+    "f_u5": 16,
+    "f_5_10": 4,
+    "f_10_15": 9,
+    "f_15_20": 11,
+    "f_20_30": 18,
+    "f_30_40": 14,
+    "f_40_50": 2,
+    "f_50_60": 0,
+    "f_60_70": 2,
+    "f_70_80": 0,
+    "f_80_90": 0,
+    "f_90_100": 0,
+    "f_100up": 0,
+    "fc_m_u10": 0,
+    "fc_m_10_24": 0,
+    "fc_m_24_36": 0,
+    "fc_m_36_55": 0,
+    "fc_m_55_100": 0,
+    "fc_m_100up": 0,
+    "fc_f_u10": 0,
+    "fc_f_10_24": 0,
+    "fc_f_24_36": 0,
+    "fc_f_36_55": 0,
+    "fc_f_55_100": 0,
+    "fc_f_100up": 0
+   },
+   "derived": {
+    "free_white_males": 86,
+    "free_white_females": 76,
+    "free_coloured_persons": 0,
+    "persons_total": 162
+   }
+  },
+  {
+   "line": 12,
+   "as_read": "12",
+   "page_enumerated": 12,
+   "ward": "Second Ward",
+   "reading": "scan_verified",
+   "cells": {
+    "m_u5": 3,
+    "m_5_10": 6,
+    "m_10_15": 5,
+    "m_15_20": 4,
+    "m_20_30": 30,
+    "m_30_40": 17,
+    "m_40_50": 2,
+    "m_50_60": 0,
+    "m_60_70": 0,
+    "m_70_80": 0,
+    "m_80_90": 0,
+    "m_90_100": 0,
+    "m_100up": 0,
+    "f_u5": 11,
+    "f_5_10": 5,
+    "f_10_15": 4,
+    "f_15_20": 5,
+    "f_20_30": 12,
+    "f_30_40": 7,
+    "f_40_50": 1,
+    "f_50_60": 0,
+    "f_60_70": 1,
+    "f_70_80": 0,
+    "f_80_90": 0,
+    "f_90_100": 0,
+    "f_100up": 0,
+    "fc_m_u10": 0,
+    "fc_m_10_24": 0,
+    "fc_m_24_36": 0,
+    "fc_m_36_55": 0,
+    "fc_m_55_100": 0,
+    "fc_m_100up": 0,
+    "fc_f_u10": 0,
+    "fc_f_10_24": 0,
+    "fc_f_24_36": 0,
+    "fc_f_36_55": 0,
+    "fc_f_55_100": 0,
+    "fc_f_100up": 0
+   },
+   "derived": {
+    "free_white_males": 67,
+    "free_white_females": 46,
+    "free_coloured_persons": 0,
+    "persons_total": 113
+   }
+  },
+  {
+   "line": 13,
+   "as_read": "13",
+   "page_enumerated": 13,
+   "ward": "Second Ward",
+   "reading": "scan_verified",
+   "cells": {
+    "m_u5": 11,
+    "m_5_10": 7,
+    "m_10_15": 2,
+    "m_15_20": 10,
+    "m_20_30": 63,
+    "m_30_40": 28,
+    "m_40_50": 5,
+    "m_50_60": 1,
+    "m_60_70": 0,
+    "m_70_80": 0,
+    "m_80_90": 0,
+    "m_90_100": 0,
+    "m_100up": 0,
+    "f_u5": 14,
+    "f_5_10": 6,
+    "f_10_15": 6,
+    "f_15_20": 0,
+    "f_20_30": 30,
+    "f_30_40": 8,
+    "f_40_50": 2,
+    "f_50_60": 0,
+    "f_60_70": 2,
+    "f_70_80": 0,
+    "f_80_90": 0,
+    "f_90_100": 0,
+    "f_100up": 0,
+    "fc_m_u10": 1,
+    "fc_m_10_24": 0,
+    "fc_m_24_36": 4,
+    "fc_m_36_55": 0,
+    "fc_m_55_100": 0,
+    "fc_m_100up": 0,
+    "fc_f_u10": 0,
+    "fc_f_10_24": 0,
+    "fc_f_24_36": 1,
+    "fc_f_36_55": 0,
+    "fc_f_55_100": 0,
+    "fc_f_100up": 0
+   },
+   "derived": {
+    "free_white_males": 127,
+    "free_white_females": 68,
+    "free_coloured_persons": 6,
+    "persons_total": 201
+   }
+  },
+  {
+   "line": 14,
+   "as_read": "14",
+   "page_enumerated": 14,
+   "ward": "Second Ward",
+   "reading": "scan_verified",
+   "cells": {
+    "m_u5": 13,
+    "m_5_10": 7,
+    "m_10_15": 6,
+    "m_15_20": 4,
+    "m_20_30": 16,
+    "m_30_40": 22,
+    "m_40_50": 2,
+    "m_50_60": 0,
+    "m_60_70": 1,
+    "m_70_80": 0,
+    "m_80_90": 0,
+    "m_90_100": 0,
+    "m_100up": 0,
+    "f_u5": 10,
+    "f_5_10": 10,
+    "f_10_15": 4,
+    "f_15_20": 7,
+    "f_20_30": 21,
+    "f_30_40": 10,
+    "f_40_50": 1,
+    "f_50_60": 1,
+    "f_60_70": 0,
+    "f_70_80": 0,
+    "f_80_90": 0,
+    "f_90_100": 0,
+    "f_100up": 0,
+    "fc_m_u10": 0,
+    "fc_m_10_24": 0,
+    "fc_m_24_36": 0,
+    "fc_m_36_55": 0,
+    "fc_m_55_100": 0,
+    "fc_m_100up": 0,
+    "fc_f_u10": 0,
+    "fc_f_10_24": 0,
+    "fc_f_24_36": 0,
+    "fc_f_36_55": 0,
+    "fc_f_55_100": 0,
+    "fc_f_100up": 0
+   },
+   "derived": {
+    "free_white_males": 71,
+    "free_white_females": 64,
+    "free_coloured_persons": 0,
+    "persons_total": 135
+   }
+  },
+  {
+   "line": 15,
+   "as_read": "15",
+   "page_enumerated": 15,
+   "ward": "Second Ward",
+   "reading": "scan_verified",
+   "cells": {
+    "m_u5": 15,
+    "m_5_10": 5,
+    "m_10_15": 3,
+    "m_15_20": 3,
+    "m_20_30": 27,
+    "m_30_40": 11,
+    "m_40_50": 2,
+    "m_50_60": 2,
+    "m_60_70": 1,
+    "m_70_80": 0,
+    "m_80_90": 0,
+    "m_90_100": 0,
+    "m_100up": 0,
+    "f_u5": 13,
+    "f_5_10": 12,
+    "f_10_15": 4,
+    "f_15_20": 4,
+    "f_20_30": 23,
+    "f_30_40": 7,
+    "f_40_50": 2,
+    "f_50_60": 3,
+    "f_60_70": 1,
+    "f_70_80": 0,
+    "f_80_90": 0,
+    "f_90_100": 0,
+    "f_100up": 0,
+    "fc_m_u10": 1,
+    "fc_m_10_24": 0,
+    "fc_m_24_36": 0,
+    "fc_m_36_55": 1,
+    "fc_m_55_100": 1,
+    "fc_m_100up": 0,
+    "fc_f_u10": 1,
+    "fc_f_10_24": 0,
+    "fc_f_24_36": 0,
+    "fc_f_36_55": 1,
+    "fc_f_55_100": 1,
+    "fc_f_100up": 0
+   },
+   "derived": {
+    "free_white_males": 69,
+    "free_white_females": 69,
+    "free_coloured_persons": 6,
+    "persons_total": 144
+   }
+  },
+  {
+   "line": 16,
+   "as_read": "16",
+   "page_enumerated": 16,
+   "ward": "Second Ward",
+   "reading": "scan_verified",
+   "cells": {
+    "m_u5": 10,
+    "m_5_10": 7,
+    "m_10_15": 5,
+    "m_15_20": 8,
+    "m_20_30": 26,
+    "m_30_40": 19,
+    "m_40_50": 4,
+    "m_50_60": 3,
+    "m_60_70": 0,
+    "m_70_80": 0,
+    "m_80_90": 0,
+    "m_90_100": 0,
+    "m_100up": 0,
+    "f_u5": 14,
+    "f_5_10": 6,
+    "f_10_15": 7,
+    "f_15_20": 4,
+    "f_20_30": 31,
+    "f_30_40": 7,
+    "f_40_50": 6,
+    "f_50_60": 2,
+    "f_60_70": 0,
+    "f_70_80": 0,
+    "f_80_90": 0,
+    "f_90_100": 0,
+    "f_100up": 0,
+    "fc_m_u10": 1,
+    "fc_m_10_24": 1,
+    "fc_m_24_36": 2,
+    "fc_m_36_55": 1,
+    "fc_m_55_100": 0,
+    "fc_m_100up": 0,
+    "fc_f_u10": 0,
+    "fc_f_10_24": 0,
+    "fc_f_24_36": 1,
+    "fc_f_36_55": 0,
+    "fc_f_55_100": 0,
+    "fc_f_100up": 0
+   },
+   "derived": {
+    "free_white_males": 82,
+    "free_white_females": 77,
+    "free_coloured_persons": 6,
+    "persons_total": 165
+   }
+  },
+  {
+   "line": 17,
+   "as_read": "17",
+   "page_enumerated": 17,
+   "ward": "Second Ward",
+   "reading": "scan_verified",
+   "cells": {
+    "m_u5": 7,
+    "m_5_10": 5,
+    "m_10_15": 6,
+    "m_15_20": 4,
+    "m_20_30": 16,
+    "m_30_40": 15,
+    "m_40_50": 8,
+    "m_50_60": 1,
+    "m_60_70": 0,
+    "m_70_80": 0,
+    "m_80_90": 0,
+    "m_90_100": 0,
+    "m_100up": 0,
+    "f_u5": 7,
+    "f_5_10": 4,
+    "f_10_15": 2,
+    "f_15_20": 6,
+    "f_20_30": 16,
+    "f_30_40": 9,
+    "f_40_50": 4,
+    "f_50_60": 0,
+    "f_60_70": 0,
+    "f_70_80": 0,
+    "f_80_90": 0,
+    "f_90_100": 0,
+    "f_100up": 0,
+    "fc_m_u10": 0,
+    "fc_m_10_24": 0,
+    "fc_m_24_36": 0,
+    "fc_m_36_55": 0,
+    "fc_m_55_100": 0,
+    "fc_m_100up": 0,
+    "fc_f_u10": 1,
+    "fc_f_10_24": 0,
+    "fc_f_24_36": 1,
+    "fc_f_36_55": 0,
+    "fc_f_55_100": 0,
+    "fc_f_100up": 0
+   },
+   "derived": {
+    "free_white_males": 62,
+    "free_white_females": 48,
+    "free_coloured_persons": 2,
+    "persons_total": 112
+   }
+  },
+  {
+   "line": 18,
+   "as_read": "18",
+   "page_enumerated": 18,
+   "ward": "Third Ward",
+   "reading": "scan_verified",
+   "cells": {
+    "m_u5": 10,
+    "m_5_10": 9,
+    "m_10_15": 9,
+    "m_15_20": 3,
+    "m_20_30": 34,
+    "m_30_40": 11,
+    "m_40_50": 5,
+    "m_50_60": 0,
+    "m_60_70": 0,
+    "m_70_80": 0,
+    "m_80_90": 0,
+    "m_90_100": 0,
+    "m_100up": 0,
+    "f_u5": 22,
+    "f_5_10": 7,
+    "f_10_15": 5,
+    "f_15_20": 10,
+    "f_20_30": 27,
+    "f_30_40": 10,
+    "f_40_50": 4,
+    "f_50_60": 3,
+    "f_60_70": 0,
+    "f_70_80": 0,
+    "f_80_90": 0,
+    "f_90_100": 0,
+    "f_100up": 0,
+    "fc_m_u10": 0,
+    "fc_m_10_24": 0,
+    "fc_m_24_36": 0,
+    "fc_m_36_55": 0,
+    "fc_m_55_100": 0,
+    "fc_m_100up": 0,
+    "fc_f_u10": 0,
+    "fc_f_10_24": 0,
+    "fc_f_24_36": 0,
+    "fc_f_36_55": 0,
+    "fc_f_55_100": 0,
+    "fc_f_100up": 0
+   },
+   "derived": {
+    "free_white_males": 81,
+    "free_white_females": 88,
+    "free_coloured_persons": 0,
+    "persons_total": 169
+   }
+  },
+  {
+   "line": 19,
+   "as_read": "19",
+   "page_enumerated": 19,
+   "ward": "Third Ward",
+   "reading": "scan_verified",
+   "cells": {
+    "m_u5": 11,
+    "m_5_10": 5,
+    "m_10_15": 5,
+    "m_15_20": 4,
+    "m_20_30": 14,
+    "m_30_40": 12,
+    "m_40_50": 4,
+    "m_50_60": 2,
+    "m_60_70": 1,
+    "m_70_80": 0,
+    "m_80_90": 0,
+    "m_90_100": 0,
+    "m_100up": 0,
+    "f_u5": 17,
+    "f_5_10": 6,
+    "f_10_15": 4,
+    "f_15_20": 2,
+    "f_20_30": 17,
+    "f_30_40": 6,
+    "f_40_50": 4,
+    "f_50_60": 0,
+    "f_60_70": 4,
+    "f_70_80": 0,
+    "f_80_90": 0,
+    "f_90_100": 0,
+    "f_100up": 0,
+    "fc_m_u10": 0,
+    "fc_m_10_24": 0,
+    "fc_m_24_36": 0,
+    "fc_m_36_55": 0,
+    "fc_m_55_100": 0,
+    "fc_m_100up": 0,
+    "fc_f_u10": 0,
+    "fc_f_10_24": 0,
+    "fc_f_24_36": 0,
+    "fc_f_36_55": 0,
+    "fc_f_55_100": 0,
+    "fc_f_100up": 0
+   },
+   "derived": {
+    "free_white_males": 58,
+    "free_white_females": 60,
+    "free_coloured_persons": 0,
+    "persons_total": 118
+   }
+  },
+  {
+   "line": 20,
+   "as_read": "20",
+   "page_enumerated": 20,
+   "ward": "Fourth Ward",
+   "reading": "scan_verified",
+   "cells": {
+    "m_u5": 10,
+    "m_5_10": 11,
+    "m_10_15": 9,
+    "m_15_20": 6,
+    "m_20_30": 30,
+    "m_30_40": 20,
+    "m_40_50": 10,
+    "m_50_60": 2,
+    "m_60_70": 1,
+    "m_70_80": 0,
+    "m_80_90": 0,
+    "m_90_100": 0,
+    "m_100up": 0,
+    "f_u5": 22,
+    "f_5_10": 13,
+    "f_10_15": 6,
+    "f_15_20": 10,
+    "f_20_30": 23,
+    "f_30_40": 13,
+    "f_40_50": 2,
+    "f_50_60": 1,
+    "f_60_70": 0,
+    "f_70_80": 0,
+    "f_80_90": 0,
+    "f_90_100": 0,
+    "f_100up": 0,
+    "fc_m_u10": 0,
+    "fc_m_10_24": 0,
+    "fc_m_24_36": 2,
+    "fc_m_36_55": 0,
+    "fc_m_55_100": 0,
+    "fc_m_100up": 0,
+    "fc_f_u10": 0,
+    "fc_f_10_24": 0,
+    "fc_f_24_36": 0,
+    "fc_f_36_55": 0,
+    "fc_f_55_100": 0,
+    "fc_f_100up": 0
+   },
+   "derived": {
+    "free_white_males": 99,
+    "free_white_females": 90,
+    "free_coloured_persons": 2,
+    "persons_total": 191
+   }
+  },
+  {
+   "line": 21,
+   "as_read": "21",
+   "page_enumerated": 21,
+   "ward": "Fifth Ward",
+   "reading": "scan_verified",
+   "cells": {
+    "m_u5": 18,
+    "m_5_10": 9,
+    "m_10_15": 7,
+    "m_15_20": 1,
+    "m_20_30": 29,
+    "m_30_40": 21,
+    "m_40_50": 6,
+    "m_50_60": 1,
+    "m_60_70": 0,
+    "m_70_80": 0,
+    "m_80_90": 0,
+    "m_90_100": 0,
+    "m_100up": 0,
+    "f_u5": 14,
+    "f_5_10": 6,
+    "f_10_15": 7,
+    "f_15_20": 6,
+    "f_20_30": 20,
+    "f_30_40": 8,
+    "f_40_50": 6,
+    "f_50_60": 0,
+    "f_60_70": 0,
+    "f_70_80": 0,
+    "f_80_90": 0,
+    "f_90_100": 0,
+    "f_100up": 0,
+    "fc_m_u10": 0,
+    "fc_m_10_24": 0,
+    "fc_m_24_36": 0,
+    "fc_m_36_55": 0,
+    "fc_m_55_100": 0,
+    "fc_m_100up": 0,
+    "fc_f_u10": 0,
+    "fc_f_10_24": 0,
+    "fc_f_24_36": 0,
+    "fc_f_36_55": 0,
+    "fc_f_55_100": 0,
+    "fc_f_100up": 0
+   },
+   "derived": {
+    "free_white_males": 92,
+    "free_white_females": 67,
+    "free_coloured_persons": 0,
+    "persons_total": 159
+   }
+  },
+  {
+   "line": 22,
+   "as_read": "22",
+   "page_enumerated": 22,
+   "ward": "Fifth Ward",
+   "reading": "scan_verified",
+   "cells": {
+    "m_u5": 19,
+    "m_5_10": 5,
+    "m_10_15": 4,
+    "m_15_20": 3,
+    "m_20_30": 20,
+    "m_30_40": 12,
+    "m_40_50": 4,
+    "m_50_60": 1,
+    "m_60_70": 0,
+    "m_70_80": 0,
+    "m_80_90": 0,
+    "m_90_100": 0,
+    "m_100up": 0,
+    "f_u5": 15,
+    "f_5_10": 9,
+    "f_10_15": 8,
+    "f_15_20": 2,
+    "f_20_30": 14,
+    "f_30_40": 14,
+    "f_40_50": 2,
+    "f_50_60": 1,
+    "f_60_70": 0,
+    "f_70_80": 0,
+    "f_80_90": 0,
+    "f_90_100": 0,
+    "f_100up": 0,
+    "fc_m_u10": 0,
+    "fc_m_10_24": 0,
+    "fc_m_24_36": 0,
+    "fc_m_36_55": 0,
+    "fc_m_55_100": 0,
+    "fc_m_100up": 0,
+    "fc_f_u10": 0,
+    "fc_f_10_24": 0,
+    "fc_f_24_36": 0,
+    "fc_f_36_55": 0,
+    "fc_f_55_100": 0,
+    "fc_f_100up": 0
+   },
+   "derived": {
+    "free_white_males": 68,
+    "free_white_females": 65,
+    "free_coloured_persons": 0,
+    "persons_total": 133
+   }
+  },
+  {
+   "line": 23,
+   "as_read": "23",
+   "page_enumerated": 23,
+   "ward": "Fifth Ward",
+   "reading": "scan_verified",
+   "cells": {
+    "m_u5": 6,
+    "m_5_10": 2,
+    "m_10_15": 3,
+    "m_15_20": 2,
+    "m_20_30": 7,
+    "m_30_40": 8,
+    "m_40_50": 1,
+    "m_50_60": 1,
+    "m_60_70": 0,
+    "m_70_80": 0,
+    "m_80_90": 0,
+    "m_90_100": 0,
+    "m_100up": 0,
+    "f_u5": 8,
+    "f_5_10": 10,
+    "f_10_15": 1,
+    "f_15_20": 1,
+    "f_20_30": 8,
+    "f_30_40": 9,
+    "f_40_50": 2,
+    "f_50_60": 0,
+    "f_60_70": 1,
+    "f_70_80": 0,
+    "f_80_90": 0,
+    "f_90_100": 0,
+    "f_100up": 0,
+    "fc_m_u10": 0,
+    "fc_m_10_24": 0,
+    "fc_m_24_36": 0,
+    "fc_m_36_55": 0,
+    "fc_m_55_100": 0,
+    "fc_m_100up": 0,
+    "fc_f_u10": 0,
+    "fc_f_10_24": 0,
+    "fc_f_24_36": 0,
+    "fc_f_36_55": 0,
+    "fc_f_55_100": 0,
+    "fc_f_100up": 0
+   },
+   "derived": {
+    "free_white_males": 30,
+    "free_white_females": 40,
+    "free_coloured_persons": 0,
+    "persons_total": 70
+   }
+  },
+  {
+   "line": 24,
+   "as_read": "24",
+   "page_enumerated": 24,
+   "ward": "Sixth Ward",
+   "reading": "scan_verified",
+   "cells": {
+    "m_u5": 11,
+    "m_5_10": 10,
+    "m_10_15": 4,
+    "m_15_20": 2,
+    "m_20_30": 31,
+    "m_30_40": 26,
+    "m_40_50": 3,
+    "m_50_60": 1,
+    "m_60_70": 1,
+    "m_70_80": 1,
+    "m_80_90": 0,
+    "m_90_100": 0,
+    "m_100up": 0,
+    "f_u5": 19,
+    "f_5_10": 5,
+    "f_10_15": 8,
+    "f_15_20": 10,
+    "f_20_30": 24,
+    "f_30_40": 7,
+    "f_40_50": 2,
+    "f_50_60": 5,
+    "f_60_70": 1,
+    "f_70_80": 0,
+    "f_80_90": 0,
+    "f_90_100": 0,
+    "f_100up": 0,
+    "fc_m_u10": 0,
+    "fc_m_10_24": 0,
+    "fc_m_24_36": 0,
+    "fc_m_36_55": 0,
+    "fc_m_55_100": 0,
+    "fc_m_100up": 0,
+    "fc_f_u10": 0,
+    "fc_f_10_24": 0,
+    "fc_f_24_36": 0,
+    "fc_f_36_55": 0,
+    "fc_f_55_100": 0,
+    "fc_f_100up": 0
+   },
+   "derived": {
+    "free_white_males": 90,
+    "free_white_females": 81,
+    "free_coloured_persons": 0,
+    "persons_total": 171
+   }
+  },
+  {
+   "line": 25,
+   "as_read": "25",
+   "page_enumerated": 25,
+   "ward": "Sixth Ward",
+   "reading": "scan_verified",
+   "cells": {
+    "m_u5": 14,
+    "m_5_10": 5,
+    "m_10_15": 5,
+    "m_15_20": 7,
+    "m_20_30": 21,
+    "m_30_40": 22,
+    "m_40_50": 10,
+    "m_50_60": 0,
+    "m_60_70": 0,
+    "m_70_80": 0,
+    "m_80_90": 0,
+    "m_90_100": 0,
+    "m_100up": 0,
+    "f_u5": 18,
+    "f_5_10": 15,
+    "f_10_15": 4,
+    "f_15_20": 3,
+    "f_20_30": 14,
+    "f_30_40": 12,
+    "f_40_50": 7,
+    "f_50_60": 0,
+    "f_60_70": 0,
+    "f_70_80": 0,
+    "f_80_90": 0,
+    "f_90_100": 0,
+    "f_100up": 0,
+    "fc_m_u10": 0,
+    "fc_m_10_24": 0,
+    "fc_m_24_36": 0,
+    "fc_m_36_55": 0,
+    "fc_m_55_100": 0,
+    "fc_m_100up": 0,
+    "fc_f_u10": 0,
+    "fc_f_10_24": 0,
+    "fc_f_24_36": 0,
+    "fc_f_36_55": 0,
+    "fc_f_55_100": 0,
+    "fc_f_100up": 0
+   },
+   "derived": {
+    "free_white_males": 84,
+    "free_white_females": 73,
+    "free_coloured_persons": 0,
+    "persons_total": 157
+   }
+  },
+  {
+   "line": 26,
+   "as_read": "26",
+   "page_enumerated": 26,
+   "ward": "Sixth Ward",
+   "reading": "scan_verified",
+   "cells": {
+    "m_u5": 14,
+    "m_5_10": 8,
+    "m_10_15": 6,
+    "m_15_20": 5,
+    "m_20_30": 30,
+    "m_30_40": 14,
+    "m_40_50": 5,
+    "m_50_60": 0,
+    "m_60_70": 1,
+    "m_70_80": 0,
+    "m_80_90": 0,
+    "m_90_100": 0,
+    "m_100up": 0,
+    "f_u5": 16,
+    "f_5_10": 12,
+    "f_10_15": 8,
+    "f_15_20": 2,
+    "f_20_30": 20,
+    "f_30_40": 9,
+    "f_40_50": 3,
+    "f_50_60": 2,
+    "f_60_70": 2,
+    "f_70_80": 0,
+    "f_80_90": 0,
+    "f_90_100": 0,
+    "f_100up": 0,
+    "fc_m_u10": 0,
+    "fc_m_10_24": 0,
+    "fc_m_24_36": 0,
+    "fc_m_36_55": 0,
+    "fc_m_55_100": 0,
+    "fc_m_100up": 0,
+    "fc_f_u10": 0,
+    "fc_f_10_24": 0,
+    "fc_f_24_36": 0,
+    "fc_f_36_55": 0,
+    "fc_f_55_100": 0,
+    "fc_f_100up": 0
+   },
+   "derived": {
+    "free_white_males": 83,
+    "free_white_females": 74,
+    "free_coloured_persons": 0,
+    "persons_total": 157
+   }
+  },
+  {
+   "line": 27,
+   "as_read": "27",
+   "page_enumerated": 27,
+   "ward": "Sixth Ward",
+   "reading": "scan_verified",
+   "cells": {
+    "m_u5": 10,
+    "m_5_10": 4,
+    "m_10_15": 5,
+    "m_15_20": 8,
+    "m_20_30": 38,
+    "m_30_40": 25,
+    "m_40_50": 5,
+    "m_50_60": 2,
+    "m_60_70": 1,
+    "m_70_80": 0,
+    "m_80_90": 0,
+    "m_90_100": 0,
+    "m_100up": 0,
+    "f_u5": 13,
+    "f_5_10": 8,
+    "f_10_15": 7,
+    "f_15_20": 18,
+    "f_20_30": 29,
+    "f_30_40": 7,
+    "f_40_50": 8,
+    "f_50_60": 1,
+    "f_60_70": 2,
+    "f_70_80": 0,
+    "f_80_90": 0,
+    "f_90_100": 0,
+    "f_100up": 0,
+    "fc_m_u10": 1,
+    "fc_m_10_24": 2,
+    "fc_m_24_36": 1,
+    "fc_m_36_55": 0,
+    "fc_m_55_100": 0,
+    "fc_m_100up": 0,
+    "fc_f_u10": 0,
+    "fc_f_10_24": 0,
+    "fc_f_24_36": 1,
+    "fc_f_36_55": 0,
+    "fc_f_55_100": 0,
+    "fc_f_100up": 0
+   },
+   "derived": {
+    "free_white_males": 98,
+    "free_white_females": 93,
+    "free_coloured_persons": 5,
+    "persons_total": 196
+   }
+  },
+  {
+   "line": 28,
+   "as_read": "28",
+   "page_enumerated": 28,
+   "ward": "Sixth Ward",
+   "reading": "scan_verified",
+   "cells": {
+    "m_u5": 14,
+    "m_5_10": 7,
+    "m_10_15": 7,
+    "m_15_20": 10,
+    "m_20_30": 20,
+    "m_30_40": 7,
+    "m_40_50": 7,
+    "m_50_60": 3,
+    "m_60_70": 0,
+    "m_70_80": 0,
+    "m_80_90": 0,
+    "m_90_100": 0,
+    "m_100up": 0,
+    "f_u5": 18,
+    "f_5_10": 11,
+    "f_10_15": 15,
+    "f_15_20": 5,
+    "f_20_30": 29,
+    "f_30_40": 11,
+    "f_40_50": 6,
+    "f_50_60": 2,
+    "f_60_70": 0,
+    "f_70_80": 1,
+    "f_80_90": 0,
+    "f_90_100": 0,
+    "f_100up": 0,
+    "fc_m_u10": 0,
+    "fc_m_10_24": 1,
+    "fc_m_24_36": 1,
+    "fc_m_36_55": 0,
+    "fc_m_55_100": 0,
+    "fc_m_100up": 0,
+    "fc_f_u10": 0,
+    "fc_f_10_24": 0,
+    "fc_f_24_36": 0,
+    "fc_f_36_55": 0,
+    "fc_f_55_100": 0,
+    "fc_f_100up": 0
+   },
+   "derived": {
+    "free_white_males": 75,
+    "free_white_females": 98,
+    "free_coloured_persons": 2,
+    "persons_total": 175
+   }
+  },
+  {
+   "line": 29,
+   "as_read": "29",
+   "page_enumerated": 29,
+   "ward": "Sixth Ward",
+   "reading": "scan_verified",
+   "cells": {
+    "m_u5": 16,
+    "m_5_10": 13,
+    "m_10_15": 7,
+    "m_15_20": 11,
+    "m_20_30": 21,
+    "m_30_40": 19,
+    "m_40_50": 9,
+    "m_50_60": 4,
+    "m_60_70": 0,
+    "m_70_80": 0,
+    "m_80_90": 0,
+    "m_90_100": 0,
+    "m_100up": 0,
+    "f_u5": 17,
+    "f_5_10": 10,
+    "f_10_15": 5,
+    "f_15_20": 3,
+    "f_20_30": 21,
+    "f_30_40": 13,
+    "f_40_50": 5,
+    "f_50_60": 3,
+    "f_60_70": 0,
+    "f_70_80": 0,
+    "f_80_90": 0,
+    "f_90_100": 0,
+    "f_100up": 0,
+    "fc_m_u10": 0,
+    "fc_m_10_24": 0,
+    "fc_m_24_36": 0,
+    "fc_m_36_55": 0,
+    "fc_m_55_100": 0,
+    "fc_m_100up": 0,
+    "fc_f_u10": 0,
+    "fc_f_10_24": 0,
+    "fc_f_24_36": 0,
+    "fc_f_36_55": 0,
+    "fc_f_55_100": 0,
+    "fc_f_100up": 0
+   },
+   "derived": {
+    "free_white_males": 100,
+    "free_white_females": 77,
+    "free_coloured_persons": 0,
+    "persons_total": 177
+   }
+  },
+  {
+   "line": 30,
+   "as_read": "30",
+   "page_enumerated": 30,
+   "ward": "Sixth Ward",
+   "reading": "scan_verified",
+   "cells": {
+    "m_u5": 15,
+    "m_5_10": 9,
+    "m_10_15": 7,
+    "m_15_20": 7,
+    "m_20_30": 6,
+    "m_30_40": 16,
+    "m_40_50": 4,
+    "m_50_60": 3,
+    "m_60_70": 0,
+    "m_70_80": 1,
+    "m_80_90": 0,
+    "m_90_100": 0,
+    "m_100up": 0,
+    "f_u5": 15,
+    "f_5_10": 5,
+    "f_10_15": 5,
+    "f_15_20": 2,
+    "f_20_30": 12,
+    "f_30_40": 10,
+    "f_40_50": 6,
+    "f_50_60": 2,
+    "f_60_70": 1,
+    "f_70_80": 0,
+    "f_80_90": 0,
+    "f_90_100": 0,
+    "f_100up": 0,
+    "fc_m_u10": 0,
+    "fc_m_10_24": 0,
+    "fc_m_24_36": 0,
+    "fc_m_36_55": 1,
+    "fc_m_55_100": 0,
+    "fc_m_100up": 0,
+    "fc_f_u10": 0,
+    "fc_f_10_24": 0,
+    "fc_f_24_36": 0,
+    "fc_f_36_55": 0,
+    "fc_f_55_100": 0,
+    "fc_f_100up": 0
+   },
+   "derived": {
+    "free_white_males": 68,
+    "free_white_females": 58,
+    "free_coloured_persons": 1,
+    "persons_total": 127
+   }
+  }
+ ],
+ "records_note": "one record per numbered page of the enumeration, 1 to 30, in the enumerator's own order. 'as_read' is the figure written in the first column, which on this leaf is a page number and not a name.",
+ "ticket": "T-0966"
+}

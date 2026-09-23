@@ -1,0 +1,31 @@
+{
+ "id": "newberry_genealogical_index",
+ "type": "book",
+ "citation": "The Genealogical Index of the Newberry Library, Chicago. 4 vols. Boston: G. K. Hall & Co., 1960. A photostat edition of the Newberry Library's genealogical card index: family surname headings, each over a locality and the published genealogy, local history or periodical that treats the family there, with the Newberry call number.",
+ "author": "The Newberry Library (compiler); G. K. Hall & Co. (publisher)",
+ "date": "1960",
+ "describes_date": "the published genealogical literature to about 1959; the works it points at run from the seventeenth century to the 1950s",
+ "repository": "The Newberry Library, Chicago",
+ "url": "https://archive.org/details/chicago1835-newberry-genealogical-index",
+ "archived_url": "https://archive.org/details/chicago1835-newberry-genealogical-index",
+ "locator": "Volume 1 (A-C) is Internet Archive file FL2091539_CP-130151_01.pdf, 987 pages; volume 2 (C-H) is FL2091536_CP-130151_02.pdf, 1,016 pages; volume 3 (H-P) is FL1982465_CP-130151_03.pdf, 1,003 pages; volume 4 (P-Z) is 130151_04.pdf, 918 pages — the one file in the item that does not carry the Newberry's FL…_CP-130151_0N scan id, and the one whose text layer is unusable (see access_notes). All four sha256s are in chicago/4d/data/research/newberry_index/text/MANIFEST.json. Every record's locator names the volume, the index page and the lines of chicago/4d/data/research/newberry_index/text/vol_NN_locality_cards.txt it was read from. All four volumes are read; volume 4's reading is thin and T-0613 carries its re-read.",
+ "tier": 4,
+ "rights_status": "check_required",
+ "rights_note": "Published 1960 by G. K. Hall & Co. and NOT cleared. The owner uploaded the four volumes to the Internet Archive in the opensource collection on 2026-09-03; that is where this project reads them, and it is not a rights determination. Nothing is derived from the volumes but text citations, which check_required allows; no image, no asset and no geometry may come from them.",
+ "asset_use": "text_only",
+ "verified": true,
+ "access_notes": "VERIFIED 2026-09-03 by fetching the Internet Archive metadata for chicago1835-newberry-genealogical-index and downloading volume 1 (202,857,468 bytes), volume 2 (211,699,945 bytes), volume 3 (212,602,314 bytes) and volume 4 (199,557,770 bytes) in full. The item carries no derived djvu.txt — it was uploaded the same day and the derivation had not run — so the reading is made from the PDF's own text layer with pdftotext, which is what MANIFEST.json records. The text layer is POOR: the volumes are photostats of typed and hand-corrected cards, and 'Andreas' comes back as 'Andrest', 'Androcs', 'Anurcii' and 'A.:.!.;c,'. Forty cards of each volume were drawn at random and adjudicated by hand against the rendered page image: 39 of 40 on volume 1, 35 of 40 on volume 2, 36 of 40 on volume 3, 19 of 40 on volume 4 (data/research/newberry_index/precision_sample.json). VOLUME 4 IS NOT THE SAME SOURCE AS THE OTHER THREE IN PRACTICE. Its text layer returns \"s:'o'ddnrdmany.\" where the card prints 'Stoddard family.'; it yields 7 assembled cards a page against 59, 58 and 68, and 308 kept against 2,579, 1,987 and 2,131. The crop geometry was measured over sixty of its pages and ruled out as the cause. A tesseract pass on a 300 dpi render reads the same cards correctly, and T-0613 carries that re-read; until it lands, nothing should treat a volume 4 card as worth what a volume 1-3 card is.",
+ "what_it_supplies": [
+  "which published genealogies, county histories and periodicals treat a given family surname, and at which locality",
+  "for Chicago and Cook County specifically: 1,612 cards over all four volumes — 1,602 of them from volumes 1 to 3 — pointing overwhelmingly at Andreas's History of Chicago, then at Moses and Kirkland's History of Chicago (1895), Moses's Illinois historical and statistical, the La Salle Book Co. Cook County volumes and the 1839 Fergus directory",
+  "a ranked reading order — which unopened work carries the most surnames this project already holds",
+  "the Newberry call number, for anyone who can reach the shelf"
+ ],
+ "what_it_does_not_supply": [
+  "any forename. A card heads a FAMILY, not a person, and every identification it seems to offer is refused in the domain's crosswalk",
+  "any date, address, trade or household for anyone",
+  "any evidence that a family was in Chicago in 1835 — the locality on a card is the locality the cited BOOK treats, and the book may be about 1890",
+  "any statement of its own: it is an index, and everything it says is a pointer to somewhere else"
+ ],
+ "note": "A FINDING AID, and the project's gate treats it as one: tools/read_newberry_index.py --check FAILS if this source id ever appears in a resident, household, structure or reconstruction record. The whole failure mode of an index is that a surname in it looks like evidence."
+}

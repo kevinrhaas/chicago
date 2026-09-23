@@ -1,0 +1,233 @@
+{
+ "id": "hh_rogers_edward_a",
+ "name": "The Rogers household — a name from the post office's letter lists",
+ "division": "unplaced",
+ "head": "rogers_edward_a",
+ "source_pass": "letter_list",
+ "arrival": {
+  "value": "1835-03-31",
+  "confidence": "inferred",
+  "sources": [
+   "chicago_democrat_1833_1835"
+  ],
+  "note": "A BOUND FROM THE RETURN, NOT AN ARRIVAL. The office's list of letters uncalled-for is a RETURN — its statement of what was still unclaimed on ONE day — and the paper reprinted one return over as many consecutive issues as it took, so the bound is dated by the return of March 1835 and not by the issue it was read in (T-0425). The earliest issue this project reads the name in is 1835-05-20, 50 days later; that gap is an accident of which impression an extraction pass reached, and it is not evidence. Somebody was writing to this name at Chicago by 1835-03-31 and at no stated time before it; nothing says when they came. The date lines the printings set, and how they were weighed, stand beside this rule in tools/mint_letter_list_residents.py.",
+  "precision": "not_later_than"
+ },
+ "party_size_on_arrival": {
+  "value": null,
+  "confidence": "reconstructed",
+  "note": "Not attested."
+ },
+ "origin": {
+  "value": null,
+  "confidence": "reconstructed",
+  "note": "Not attested."
+ },
+ "reason_for_coming": {
+  "value": null,
+  "confidence": "reconstructed",
+  "note": "Not attested."
+ },
+ "lives_at": {
+  "value": null,
+  "confidence": "reconstructed",
+  "note": "Not attested: a letter list gives a name and no address."
+ },
+ "works_at": {
+  "value": null,
+  "confidence": "reconstructed",
+  "note": "Not attested. No trade is recorded, so there is no premises to seek."
+ },
+ "present_on_scene_date": {
+  "value": "uncertain",
+  "confidence": "inferred",
+  "sources": [
+   "chicago_democrat_1833_1835"
+  ],
+  "note": "THE CORPUS STOPS BEFORE THE SCENE DATE. Nothing after 1835-05-20 follows this person to 1 July 1835 or says they left. `uncertain` rather than dropped — the distinction index.json draws for Jeremiah Porter, and a finding, not a gap."
+ },
+ "persons": [
+  {
+   "id": "rogers_edward_a",
+   "name": "Edward A. Rogers",
+   "relationship": "head",
+   "grade": "attested",
+   "ladder_rule": "G1a",
+   "letter_list_only": true,
+   "letter_list_returns": [
+    "1835-05-20"
+   ],
+   "occupation": {
+    "value": "none_recorded",
+    "confidence": "reconstructed",
+    "later_occupation": {
+     "value": "storage, forwarding and commission merchants; dealers in produce, iron and coal",
+     "describes_date": 1844,
+     "confidence": "attested",
+     "sources": [
+      "norris_directory_1844"
+     ],
+     "note": "NONE RECORDED FOR 1835 — AND A TRADE IS RECORDED FOR 1844. This is a POINTER at `directories.people[].occupation_later` on this same record, derived by `tools/qualify_later_trades.py` and holding nothing that block does not already say. It is not a claim about the scene date: the 1835 occupation above still reads `none_recorded`, its grade has not moved, and no premises has been sought on the strength of it, because a directory of 1844 is evidence about 1844. It is written because the field a reader consults was asserting an absence this file contradicts three lines further down, and \"no trade anywhere\" and \"no trade in the scene window, one printed 1844\" are not the same fact (T-0693)."
+    },
+    "note": "No source records an occupation for this person. A list of uncalled-for letters prints a name and no trade, and this pass will not read one in.",
+    "derived_from": "roles",
+    "roles_at_scene_date": []
+   },
+   "sources": [
+    "chicago_democrat_1833_1835",
+    "chicago_voter_lists_1833_1835_irad",
+    "fergus_chicago_directory_1843",
+    "norris_directory_1844",
+    "census_1840_chicago_familysearch_images",
+    "second_presbyterian_chicago_1892"
+   ],
+   "note": "GRADED BY THE OWNER'S RATIFIED LADDER — rule G1a, applied 2026-09-04. This identity is attested because that rung fired on the civic and press rows recorded on this card, which the resident-research corpus does not read. This programme's letter-list rule of 2026-09-02 would call it a projected resident on the absence of a research row; it is superseded here, and a no-find in one corpus is not a finding about another (T-0822). KNOWN ONLY FROM THE POST OFFICE, IN ONE RETURN. The papers print 'Rogers, Exward A.' in a single return of letters uncalled-for at the Chicago post office — the Democrat of 20 May 1835, column 13 — dated 1835-05-20. Nothing else in the corpus names this person: no trade, no street, no household, no arrival, so every other claim here is written unattested in its own block. WHAT THAT IS WORTH: a correspondent believed a person of this name reachable at Chicago on that date, and nothing further — not that they lived here, kept a trade here, or were here on 1 July 1835. It is the weakest evidence this project accepts for a resident, and a source placing them elsewhere retires the record. THE ARGUMENT EVERY RECORD OF THIS KIND SHARES is written once instead of once per file: the ruling of 2026-08-30 and what it cost the town (docs/LIBERTIES.md L214), the refusals and the transcription standard behind the reading (tools/mint_letter_list_residents.py). No figure is drawn (L1). THE SECOND PRESBYTERIAN ROLL — A NAME ON A CHURCH LIST THAT OPENS IN 1842, AND NEVER AN 1835 FACT. The 1892 printed membership roll of the Second Presbyterian Church of Chicago, read line by line into this repository, carries 1 line whose surname and given initial agree with this person's — “Rogers, Edward J. | Profession. | January 12, 1877. | Dismissed.” (second_presb_0799, printed page 199), admitted 1877-01-12 by profession. Under the rule that decided it: Surname 'Rogers' folds to the same string as the roll line's, and the given name of both begins E. WHAT THE MATCH MINTS OR REGRADES: “NOTHING. A line on a roll that opens in June 1842 cannot place a person in the town of July 1835, and this file makes no proposal that it does. What a match IS: the same surname and initial, in Chicago, within seven years — a lead for a later pass that is allowed to write people.” This pass WRITES THE EVIDENCE AND MOVES NO GRADE: under the ratified ladder (T-0513) the roll is handed to the card as a thing a reader may weigh, and the verdict stays with T-0515, which applies the ladder against every source at once. THE 1840 FEDERAL CENSUS — A HEAD FIVE YEARS AFTER THE SCENE, AND NEVER AN 1835 FACT. The 1840 federal census of Chicago, read line by line off the left sheets in this repository, carries 1 head of this name — “Edw. H. Rogers” (33SQ-GYYJ-RJ, printed page 233, line 9). This project has ruled the head a CANDIDATE and no more: the name agrees and is unique on both sides, but nothing independent of the name was found. A candidate is not an identity — nothing is asserted from it, no household of 1840 is carried back, and the ruling is recorded so that a reader can see it was made rather than missed. Under the rule that decided it (L7 candidate), by the crosswalk's own ladder (data/research/census_1840/resident_crosswalk.json). LATER EVIDENCE ONLY. The ratified grading ladder binds: an 1839 or 1840 appearance alone is never an 1835 resident, and 1840 household composition is never back-projected to the 1835-07-01 scene. This pass WRITES THE EVIDENCE AND MOVES NO GRADE. Under the ratified ladder (T-0513) a second independent source is what lifts a projected resident, and an 1840 head is a second source about CONTINUED RESIDENCE rather than about who was living at Chicago on 1 July 1835. T-0515 applies the ladder against every source at once; this pass hands it the evidence and not the verdict.",
+   "resident_research": {
+    "programme": "resident-research-2026",
+    "ticket": "T-0479",
+    "outcome": "no_corroboration_yet",
+    "reviewed_on": "2026-09-02",
+    "asserted_identity": false,
+    "evidence_for": "No reliable record found in the reviewed repository newspaper/reference corpus, Chicago directories, digitized county/local histories, institutional pages and broad exact-name/variant searches could be tied to this person by more than the recorded name. This is a documented no-find, not evidence that the person did not exist.",
+    "summary": "No reliable record found in the reviewed repository newspaper/reference corpus, Chicago directories, digitized county/local histories, institutional pages and broad exact-name/variant searches could be tied to this person by more than the recorded name. This is a documented no-find, not evidence that the person did not exist.",
+    "notes": "No reliable record found in the reviewed repository newspaper/reference corpus, Chicago directories, digitized county/local histories, institutional pages and broad exact-name/variant searches could be tied to this person by more than the recorded name. This is a documented no-find, not evidence that the person did not exist.",
+    "regraded_on": "2026-09-04",
+    "rule": "G1a"
+   },
+   "civic_evidence": [
+    {
+     "list": "poll_1835",
+     "as_read": "Rogers, E.A.",
+     "locator": "poll_1835",
+     "record_id": "poll_1835_066",
+     "describes_date": "1835",
+     "source": "chicago_voter_lists_1833_1835_irad",
+     "rule": "G1a"
+    }
+   ],
+   "book_evidence": [
+    {
+     "list": "directory_1843",
+     "as_read": "Rogers, Edward Kendall (Horace Norton & Co.), res Indiana, bet Cass and Rush [died, Eastman, Ga., May 2, 1883, aged 70]",
+     "locator": "res Indiana, bet Cass and Rush",
+     "record_id": "f1843_e2121",
+     "describes_date": "1843",
+     "source": "fergus_chicago_directory_1843",
+     "rule": "G1a"
+    },
+    {
+     "list": "directory_1844",
+     "as_read": "Rogers, Edward K. of Horace Norton & Co. h Ind b Cass & Hush",
+     "locator": "h Ind b Cass & Hush",
+     "record_id": "n1844_e1507",
+     "describes_date": "1844",
+     "source": "norris_directory_1844",
+     "rule": "G1a"
+    }
+   ],
+   "press_evidence": [
+    {
+     "list": "newspaper_letter_list",
+     "as_read": "Edward A. Rogers",
+     "locator": "chicago_democrat_1835_05_20#c013",
+     "record_id": "person_edward_a_rogers",
+     "describes_date": "1835-05-20",
+     "source": "chicago_democrat_1833_1835",
+     "rule": "G1a"
+    }
+   ],
+   "roles": [
+    {
+     "role": null,
+     "kind": "trade",
+     "as_printed": "storage, forwarding and commission merchants; dealers in produce, iron and coal",
+     "from": "1844",
+     "to": "1844",
+     "precision": "year",
+     "dated_by": "printing_year",
+     "covers_scene_date": false,
+     "confidence": "attested",
+     "sources": [
+      "norris_directory_1844"
+     ],
+     "claim": null,
+     "note": "A TRADE PRINTED AGAINST THIS NAME IN A LATER VOLUME, and this row says which year rather than leaving it to a pointer (T-0693, carried here by tools/derive_resident_roles.py). `role` is null because the directory's wording has not been adjudicated into the closed vocabulary — the printing is what the source gives and the printing is what is kept. T-1254 is where the controlled term is ruled on. It is not a claim about 1835-07-01 and never becomes one: the year is 1844."
+    }
+   ]
+  }
+ ],
+ "touches_removal": false,
+ "review_required": false,
+ "research_note": "MINTED FROM THE LETTER LISTS (T-0378, T-0379). THE HOUSEHOLD IS A CONTAINER, NOT AN ARGUMENT: every other record here argues for a household, and this one argues for a PERSON. `data/residents/` cannot carry a person outside a household, so one was written around them and told to claim nothing — one member, no dwelling, no division, no trade, no family, no arrival beyond the paper's bound. tools/mint_letter_list_residents.py derives the set and prints every refusal, `--gate` proves no record here gained a roof, a trade or a second member, and docs/LIBERTIES.md L214 carries the change of scale.",
+ "old_settler_deaths": {
+  "the_header_admission": "Names, places * , dates, and ages at death\nof some of Chicago's Old Settlers, prior to 1843, and other well - known citizens who arrived after 1843, together\nwith others prominently connected with Illinois history:",
+  "note": "LATER EVIDENCE OF A DEATH, BESIDE THE 1835 CLAIMS AND NOT INSIDE THEM. Fergus's 1843 directory (1896) prints an obituary list of old settlers, and one of its entries meets somebody of this name. THE HEADER OF THE LIST IS QUOTED ABOVE, and it is the limit the whole reading turns on. It does not mean the person was in Chicago in 1835, and it does not mean they arrived before 1843 — the list's own header, quoted above, says it also names citizens who arrived later and others merely 'prominently connected with Illinois history'. A match means one thing: a name in the 1835 layer and a name in this list agree on surname and first initial, and the list gives that name a death date and an age. The date and the interval are the payload. Whatever is carried is carried as evidence of a DEATH and of an interval the birth falls in, never as an 1835 fact and never as a grade. T-0513 consolidates and T-0514/T-0515 apply; this file changes no record. This pass WRITES THE EVIDENCE AND MOVES NO GRADE. A death notice printed in 1896 says a person of this name died on a day; under the ratified ladder (T-0513) that is later evidence about a DEATH, and it is never an 1835 residence. T-0515 applies the ladder against every source at once; this pass hands it the evidence and not the verdict.",
+  "sources": [
+   "fergus_1843_old_settler_death_notices"
+  ],
+  "people": [
+   {
+    "person_id": "rogers_edward_a",
+    "matched_as": "Edward A. Rogers",
+    "matched_by": "Surname 'Rogers' folds to the same string as the entry's, and the given name of both begins E.",
+    "matched_on_initial_only": false,
+    "resident_given_is_initial_only": false,
+    "entry_given_as_read": "Dr. Edward Carter",
+    "entry_given_is_initial_only": false,
+    "the_agreement": "a surname and a forename spelled out on both sides",
+    "record_id": "fdn0554",
+    "trade_or_office": null,
+    "manner_of_death": "died",
+    "place_of_death": "Quincy, Mich.",
+    "death_date": "1887-02-19",
+    "age_as_printed": "aged 66-9-23",
+    "birth_year_earliest": 1820,
+    "birth_year_latest": 1820,
+    "birth_year_arithmetic": "The page prints the death as 'Feb. 19, 1887' and the age as 'aged 66-9-23'. An age printed to the day is exact: 66 years, 9 months and 23 days back from the death, so the birth falls between 1820-04-26 and 1820-04-26: the birth year is 1820. The subtraction is this project's; the page states no year of birth.",
+    "as_read": "Rogers, Dr. Edward Carter, died, Quincy, Mich., Feb. 19, 1887. aged 66-9-23."
+   }
+  ]
+ },
+ "directories": {
+  "note": "LATER EVIDENCE, BESIDE THE 1835 CLAIMS AND NOT INSIDE THEM. A Chicago directory of 1839, 1843 or 1844 meets somebody of this name and this pass records what it prints. Under the ratified ladder a directory read after 1835 can corroborate that a person attested here was still in Chicago and can print a trade or a street the 1835 record never had; on its own it makes nobody a resident of 1835. Nothing on this person's 1835 record was regraded, moved, dated or given an occupation by this entry. WHAT THIS PASS RULED ONTO THIS HOUSEHOLD, named so the ruling can be found again: each volume below is followed by the printed entries it set against this person and the status the crosswalk ruled them at — a single entry carries what its own `could_carry` declares, and an ambiguous or contested match carries nothing and is shown so that the silence is legible. rogers_edward_a, the advertising cards in Norris's directory of 1844 — n1844_ad0076 (a single entry).",
+  "sources": [
+   "norris_directory_1844"
+  ],
+  "people": [
+   {
+    "person_id": "rogers_edward_a",
+    "occupation_later": {
+     "value": "storage, forwarding and commission merchants; dealers in produce, iron and coal",
+     "confidence": "attested",
+     "describes_date": 1844,
+     "sources": [
+      "norris_directory_1844"
+     ],
+     "note": "The advertising cards in Norris's directory of 1844 prints this trade against this person, in the entry quoted on the card: 'Edw. K. Rogers'. It is evidence about 1844, written here as 1844's and read back onto no 1835 claim. Under the ratified ladder a directory read after 1835 can corroborate that a person attested here was still in Chicago and can print a trade or a street the 1835 record never had; on its own it makes nobody a resident of 1835. Nothing on this person's 1835 record was regraded, moved, dated or given an occupation by this entry. The value is the volume's own line, split by its crosswalk on the entry's punctuation. These volumes set the trade first and its qualifiers after it on the same line, so the split may carry an employer, a market or a corner along with the trade. The printed entry is quoted beside the value for exactly that reason: the split is checkable against it, and neither is read into an 1835 claim."
+    },
+    "address_later": {
+     "value": "Chicago, Illinois",
+     "confidence": "attested",
+     "describes_date": 1844,
+     "sources": [
+      "norris_directory_1844"
+     ],
+     "note": "The advertising cards in Norris's directory of 1844 prints this address against this person, in the entry quoted on the card: 'Edw. K. Rogers'. It is evidence about 1844, written here as 1844's and read back onto no 1835 claim. Under the ratified ladder a directory read after 1835 can corroborate that a person attested here was still in Chicago and can print a trade or a street the 1835 record never had; on its own it makes nobody a resident of 1835. Nothing on this person's 1835 record was regraded, moved, dated or given an occupation by this entry. The value is the volume's own line, split by its crosswalk on the entry's punctuation. These volumes set the trade first and its qualifiers after it on the same line, so the split may carry an employer, a market or a corner along with the trade. The printed entry is quoted beside the value for exactly that reason: the split is checkable against it, and neither is read into an 1835 claim."
+    },
+    "back_projection": {
+     "outcome": "refused",
+     "clause": "1",
+     "value": null,
+     "describes_date": 1844,
+     "read_back_years": 9,
+     "placement": null,
+     "position_local_enu_m": null,
+     "sources": [
+      "norris_directory_1844"
+     ],
+     "note": "REFUSED, AND THE REFUSAL IS THE RECORD. Norris's Chicago directory of 1844 prints an address against this name in 1844 and this pass will not carry it back to 1835. The 1835 record prints no trade for this person, so there is no 1835 business for a later door to position. Minting one out of a directory printed after the scene date is the one thing this pass may never do. A refusal is written here rather than dropped so that a later run can see the address was read and ruled on, not missed (docs/ADDRESS-BACK-PROJECTION.md, clause 1)."
+    }
+   }
+  ]
+ }
+}

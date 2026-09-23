@@ -1,0 +1,15 @@
+{
+  "id": "resident_research_v4_1835_census_bridge",
+  "type": "dataset",
+  "citation": "Chicago 1835 Best Resident Set Research v4 — working synthesis of 1833–1835 poll/tax evidence, 1839/1843 directories, and the 1840 census/IPUMS crosswalk.",
+  "date": "2026-09-02",
+  "describes_date": "1833-1843",
+  "locator": "chicago/4d/data/research/residents/census_1840_identity_bridges.csv",
+  "repository": "chicago/4d/data/research/residents/",
+  "tier": 3,
+  "rights_status": "no_known_restrictions",
+  "rights_note": "This file is the project's own adjudication table, derived from the public-domain 1840 U.S. Census population schedules for Chicago and from the 1833-1835 poll and tax lists already held in this corpus. Nothing in it is reproduced from a rights-bearing work; the workbook it was recovered from was project-authored. Textual and derivative use are unrestricted.",
+  "asset_use": "text_only",
+  "verified": true,
+  "note": "Recovered adjudication from Chicago_1835_Best_Resident_Set_Research_v4.xlsx. It is a research bridge, not a substitute for the underlying primary sources. Direct/high-confidence 1835 identities are promoted only where the workbook records direct early-list evidence and a resolved 1840 row/SERIAL; 1840 household composition remains later evidence."
+}

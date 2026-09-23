@@ -1,0 +1,132 @@
+{
+  "schema": 1,
+  "issue_id": "chicago_democrat_1834_01_14",
+  "extracted": "2026-08-28",
+  "extracted_by": "hand, T-0310 — the Democrat read, January 1834",
+  "note": "Vol. I No. 8. Two occasions inside Fort Dearborn — a wedding and an auction — a saw mill named by its quarter-section, and the first, badly cut printing of the post office's January letter list. Most of the advertising is the standing matter already read at 1834-01-07 and is not re-claimed.",
+  "claims": [
+    {
+      "id": "c001",
+      "kind": "person",
+      "reading": "transcription_mediated",
+      "quote": "__| MARRIED,\nAt Fort Dearborn on the evening of the th inst. by then B. oF NATHANIEL Canpesten, of the U. 8. A. fre. Kosice Huxren of this place,",
+      "normalized": "MARRIED, At Fort Dearborn on the evening of the [5]th inst. by [the Rev. …] NATHANIEL CA[R]PE[NTE]R, of the U. S. A. [to Miss] [R]osice HU[N]TER of this place.",
+      "locator": {
+        "artifact_role": "primary",
+        "issue_page": 3,
+        "column": 5,
+        "lines": [
+          809,
+          811
+        ],
+        "lines_of_claim": [
+          809,
+          811
+        ],
+        "interleaved": true
+      },
+      "entities": [
+        {
+          "as_printed": "NATHANIEL Canpesten",
+          "normalized": "Nathaniel Carpenter",
+          "role": "bridegroom, of the U. S. A.",
+          "occupations": [
+            "soldier"
+          ],
+          "associated_places": [
+            "Fort Dearborn"
+          ]
+        },
+        {
+          "as_printed": "Kosice Huxren",
+          "normalized": "[R]osice Hunter",
+          "role": "bride, of this place"
+        }
+      ],
+      "notes": "A MARRIAGE SOLEMNISED INSIDE FORT DEARBORN. The fort is not only a garrison in January 1834; it is where a wedding is held and where an auction is held two days later (claim c002), which makes it a place the townspeople went into rather than a closed post. The groom is 'of the U. S. A.' — the army — and the bride is 'of this place', so it is a garrison man marrying a townswoman. The day of the month is lost at the line break ('the th inst.') and is NOT supplied; the bride's given name is read [R]osice on the printed 'Kosice' and left as it stands."
+    },
+    {
+      "id": "c002",
+      "kind": "event",
+      "reading": "transcription_mediated",
+      "quote": "ection Sale,\nT Fort Dearborn, on Thursday neat, 16 Asso bene a oe, Theredey neat, 16h, 40 do do\nlo dodo. do dara Also, a quantity of Silticr's Hen'er, } JOHN BATES, jr,",
+      "normalized": "[Au]ction Sale, [a]t Fort Dearborn, on Thursday nex[t, the] 16[th …] Also, a quantity of S[o]l[d]ier's [B]re[a]d[.] JOHN BATES, jr. [The notice's body is doubled by the OCR — 'Theredey neat, 16h, 40 do do' repeats the dateline — and the goods list survives only as columns of 'do do'.]",
+      "locator": {
+        "artifact_role": "primary",
+        "issue_page": 3,
+        "column": 5,
+        "lines": [
+          813,
+          817
+        ],
+        "lines_of_claim": [
+          813,
+          815,
+          817
+        ],
+        "interleaved": true
+      },
+      "entities": [
+        {
+          "as_printed": "JOHN BATES, jr,",
+          "normalized": "John Bates, jr.",
+          "role": "auctioneer",
+          "occupations": [
+            "auctioneer"
+          ],
+          "associated_places": [
+            "Fort Dearborn"
+          ]
+        }
+      ],
+      "notes": "AN AUCTION HELD INSIDE THE FORT, cried by John Bates jr — the same auctioneer whose Auction Store on the draw-bridge road this corpus carries in July and August 1834. 'A quantity of Soldier's Bread' is the one lot that survives legibly and it is the telling one: army stores being sold off publicly at the post. Together with the wedding of claim c001 it puts two civil occasions inside Fort Dearborn in one week of January 1834, which is how the fort has to be drawn if it is drawn as a place people used."
+    },
+    {
+      "id": "c003",
+      "kind": "infrastructure",
+      "reading": "transcription_mediated",
+      "quote": "ne NOTICE ‘i hereby given, that prosccutions will be en- Aered Rgainst all and every person: oF per. ong, that inay be found treapaesing an the weal ‘Alf of the south west quarter of section num: er four, in township thirty-nine, north. ran Gurteen east, in Cook county, Illinois, and the ame on which the Stoner Sere Mil stands, K IBLE, Sen.. January 8, 1883. Heneaca",
+      "normalized": "NOTICE is hereby given, that prosecutions will be en[t]ered against all and every person or per[s]ons that may be found trespassing on the we[st] [h]alf of the south west quarter of section num[b]er four, in township thirty-nine, north, ran[ge] [fo]urteen east, in Cook county, Illinois, and the [s]ame on which the [uncertain: Stoner] Saw Mill stands. [uncertain: K IBLE], Sen. January 8, 183[4].",
+      "locator": {
+        "artifact_role": "primary",
+        "issue_page": 3,
+        "column": 5,
+        "lines": [
+          819,
+          819
+        ],
+        "lines_of_claim": [
+          819
+        ],
+        "interleaved": true
+      },
+      "entities": [],
+      "notes": "A SAW MILL WITH A LEGAL DESCRIPTION — the west half of the south-west quarter of section 4, township 39 north, range 14 east — which is the only claim in this pass that places an industrial building by survey coordinates rather than by a street. Section 4 of T39N R14E lies north of the town proper, up the North Branch, which is where a saw mill would be. THE MILL'S NAME IS NOT READ: the print gives 'Stoner Sere Mil', which is as consistent with 'Steam Saw Mill' as with a proprietor's name, and the difference matters — a steam mill and a water mill are different buildings — so it stays inside [uncertain: …]. The subscriber's surname is likewise unread. What the claim does carry is that a saw mill stood on that quarter-section on 8 January 1834 and that somebody was trespassing on it."
+    },
+    {
+      "id": "c004",
+      "kind": "notice",
+      "reading": "transcription_mediated",
+      "quote": "mn the corner of uth] BDBEMAINING Is\nK-streets, Chicago, ‘TU 80, Il Januar; fiment of Fancy and Sis-| ejiphalet Atkina 2 JoW, Andercon | - BO: Sapsant bes ins G: Anata, Glass Ware, |Aaiwond Sxircccon\nud CUTTLERY, — | Myron Baurmett",
+      "normalized": "[R]EMAINING i[n the Post Office at Chicago, Ill.] Januar[y 1, 1834:] Eliphalet Atkins 2; J. W. Anderson; [uncertain: BO: Sapsant bes ins G: Anata]; [uncertain: Aaiwond Sxircccon]; Myron B[a]r[t]lett. [The list is set through W. Kimball's store advertisement line by line and only its first few names survive in this printing.]",
+      "locator": {
+        "artifact_role": "primary",
+        "issue_page": 4,
+        "column": 2,
+        "lines": [
+          1063,
+          1069
+        ],
+        "lines_of_claim": [
+          1063,
+          1067,
+          1069
+        ],
+        "interleaved": true
+      },
+      "letter_list_only": true,
+      "entities": [],
+      "notes": "THE JANUARY LETTER LIST, IN ITS FIRST PRINTING — the same list the issue of 1834-01-28 carries in full (claim c001 there), where the heading reads plainly 'REMAINING in the Post Office at Chicago, 1st January, 1834' over John S. C. Hogan's signature. Here it is cut to pieces by the store advertisement set beside it and only the head of the alphabet survives. It is claimed anyway, and separately, for one reason: it dates the list's FIRST appearance to 14 January, so the run of the insertion is known, and it independently corroborates two of the names the fuller printing carries. RULING 1 IS ENGAGED HERE — this is Chicago's own post office — but the residents are minted from the 1834-01-28 printing, where the list is legible; minting them twice from a worse witness would put the same people in the gazetteer on the strength of the weaker reading."
+    }
+  ]
+}

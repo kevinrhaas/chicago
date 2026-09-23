@@ -1,0 +1,648 @@
+{
+  "schema": 1,
+  "domain": "books",
+  "source_id": "moses_kirkland_history_of_chicago_v1",
+  "_doc": "T-0581. Moses and Kirkland, History of Chicago, Illinois, vol. 1 (Chicago: Munsell, 1895), read for what it says about the fifty lead surnames the Newberry genealogical index (T-0570) flagged against this work, and for what it says about the town those people lived in. THE VOLUME IS A COMPILER SIXTY YEARS AFTER THE FACT and cites Andreas, Bross and the Story of Chicago on the pages read here; every claim is transcription_mediated, none is scan_verified, and where the book credits another work in the sentence itself the claim says so. WHAT WAS READ AND WHAT WAS ONLY LOOKED UP is the distinction this file turns on: all forty-nine machine-readable lead surnames were searched across the whole 137,409-line text, and the mechanical result of that search is committed at data/research/books/moses_kirkland_v1_lead_surnames.json. Thirteen passages earned a claim. The rest are named in that file and in the source record's what_it_does_not_supply, because a surname that appears ninety-eight times in an index and a war chapter and never once in the town of 1835 is a finding too.",
+  "generated_by": "hand — T-0581. The `quote` of every claim was filled programmatically from the committed text at its own locator so that no transcription step stands between the file and the gate; everything else in each claim is authored.",
+  "claims": [
+    {
+      "id": "bk_mose1_001",
+      "kind": "person",
+      "reading": "transcription_mediated",
+      "locator": {
+        "lines": [
+          12126,
+          12131
+        ],
+        "page": 89,
+        "original": "Moses and Kirkland, History of Chicago, Illinois, vol. 1, printed page 89, in the chapter \"From Village to City — 1830 to 1837 — the Balloon Age\". The folio is READ off the running head, not counted: this volume prints the page number ALONE on a line at the head of every verso, above \"HISTORY OF CHICAGO\", and after the chapter title at the head of every recto. Verso heads are even and recto heads are odd, which is the parity check that catches the OCR's misreadings. Page 87's head is the bare \"87\" at line 11799 and page 90's is the bare \"90\" at line 12145; the two heads between them, at lines 11908 and 12026, lost their numerals to the OCR and are carried as 88 (verso, \"HISTORY Of CHICAGO\") and 89 (recto, the chapter title), so this passage, which stands after the head at 12026, is page 89.",
+        "text_file": "moses_kirkland_history_of_chicago_v1.txt",
+        "url": "https://archive.org/download/historyofchicago01mose/historyofchicago01mose_djvu.txt",
+        "list": "moses_kirkland_v1_1832_1835_and_biographical"
+      },
+      "normalized": "Among those who came through Chicago in 1832 and decided to remain were Philo Carpenter and John S. Wright from Massachusetts; T. W. Goodrich, Hamilton Barnes and Dr. Philip Maxwell from New York; Dr. E. S. Kimberly and George W. Snow of Vermont; and Alanson Sweet.",
+      "describes_date": "1832 — arrivals in the year, no month given",
+      "entities": [
+        "Philo Carpenter",
+        "John S. Wright",
+        "T. W. Goodrich",
+        "Hamilton Barnes",
+        "Dr. Philip Maxwell",
+        "Dr. E. S. Kimberly",
+        "George W. Snow",
+        "Alanson Sweet"
+      ],
+      "town_finding": true,
+      "notes": "THE LEAD SURNAME HERE IS `carpenter`, one of the fifty the Newberry index (T-0570) flagged against this work. An arrival YEAR for eight men, seven of whom the project already holds under some spelling, and all of whom are in the town before the scene date of 1835-07-01. It is a year and not a date: the sentence gives no month, and a run wanting Carpenter's month must go to bk_mose1_013, which fixes it within a month of 19 August 1832. This volume is 1895 and sixty years after the fact; it is a compiler and not a witness, and nothing here may be graded above the ladder's reading for a retrospective secondary work.",
+      "quote": "Among  these  in  1832  were  Philo  Carpenter, \nand  John  S.  Wright  from  Massachusetts; \nT.  W.  Goodrich,  Hamilton  Barnes,  Dr. \nPhilip  Maxwell  from  New  York;  Dr.  E.  S. \nKimberly,  George  W.  Snow,  of  Vermont, \nand  Alanson  Sweet. "
+    },
+    {
+      "id": "bk_mose1_002",
+      "kind": "business",
+      "reading": "transcription_mediated",
+      "locator": {
+        "lines": [
+          12133,
+          12140
+        ],
+        "page": 89,
+        "original": "Printed page 89, the paragraph immediately below the 1832 arrivals. The folio is READ off the running head, not counted: this volume prints the page number ALONE on a line at the head of every verso, above \"HISTORY OF CHICAGO\", and after the chapter title at the head of every recto. Verso heads are even and recto heads are odd, which is the parity check that catches the OCR's misreadings. The page is fixed as at bk_mose1_001.",
+        "text_file": "moses_kirkland_history_of_chicago_v1.txt",
+        "url": "https://archive.org/download/historyofchicago01mose/historyofchicago01mose_djvu.txt",
+        "list": "moses_kirkland_v1_1832_1835_and_biographical"
+      },
+      "normalized": "Philo Carpenter was the proprietor of the first drug store in the town. George W. Dole and P. F. W. Peck erected the first frame buildings used for business purposes — Dole on the south-east corner of South Water and Dearborn streets, Peck on the south-east corner of South Water and La Salle streets.",
+      "describes_date": "1832, from its position in the narrative; the sentence itself carries no date and Peck's own biography at page 570 dates his building to the fall of 1831",
+      "entities": [
+        "Philo Carpenter",
+        "George W. Dole",
+        "P. F. W. Peck",
+        "South Water Street",
+        "Dearborn Street",
+        "La Salle Street"
+      ],
+      "town_finding": true,
+      "notes": "TWO LEAD SURNAMES, `carpenter` and `peck`, and the reason this work was worth fetching: it prints a TRADE and an ADDRESS in the same breath. Carpenter as the first druggist is a claim about a business the project can place; Dole's and Peck's buildings are given by CORNER, which is the unit data/structures/ places in. THE TWO DATES DISAGREE AND THAT IS NOT SMOOTHED HERE. This sentence sits in the 1832 narrative; the Peck biography in the same volume, page 570 (bk_mose1_009), has the goods moved into his two-storey frame store in the fall of 1831. Both are this book, sixty years after, and neither is the project's evidence for the placement — the corner is offered to data/structures/ under the ladder in that layer's own PR, never off this claim.",
+      "quote": "Mr.  Carpenter  was  the  proprietor  of  the \nfirst  drug  store  in  the  town;  and  George  W. \nDole  and  P.  F.  W.  Peck  erected  the  first \nframe  buildings  used  for  business  purposes, \nthe  former  on  the  southeast  corner  of  South \nWater  and  Dearborn;  and  the  latter  on  the \nsoutheast  corner  of  South  Water  and  La \nSalle  streets. "
+    },
+    {
+      "id": "bk_mose1_003",
+      "kind": "business",
+      "reading": "transcription_mediated",
+      "locator": {
+        "lines": [
+          12171,
+          12174
+        ],
+        "page": 90,
+        "original": "Printed page 90, verso, whose head is the bare \"90\" at line 12145 above \"BISTORT OF CHICAGO\" (the OCR's reading of HISTORY). The folio is READ off the running head, not counted: this volume prints the page number ALONE on a line at the head of every verso, above \"HISTORY OF CHICAGO\", and after the chapter title at the head of every recto. Verso heads are even and recto heads are odd, which is the parity check that catches the OCR's misreadings.",
+        "text_file": "moses_kirkland_history_of_chicago_v1.txt",
+        "url": "https://archive.org/download/historyofchicago01mose/historyofchicago01mose_djvu.txt",
+        "list": "moses_kirkland_v1_1832_1835_and_biographical"
+      },
+      "normalized": "The year 1832 saw the beginning of Chicago's slaughtering and packing business, by George W. Dole, Archibald Clybourn, the Noble brothers and Gurdon S. Hubbard.",
+      "describes_date": "1832",
+      "entities": [
+        "George W. Dole",
+        "Archibald Clybourn",
+        "the Noble brothers",
+        "Gurdon S. Hubbard"
+      ],
+      "town_finding": true,
+      "notes": "THE LEAD SURNAME IS `hubbard`. A trade — slaughtering and packing — attached to four names three years before the scene date, and an OCCUPATION is the field the town's 825 households are thinnest in (13.1% at the last measurement). It places nothing: the sentence gives no premises and no street, and Clybourn's slaughter-house on the north branch, which the project holds from elsewhere, is not named here.",
+      "quote": "The  year  1832  also  witnessed  the  beginning \nof  the  slaughtering  and  packing  business  of \nChicago  by  George  W.  Dole,  A.  Clybourn, \nthe  Noble  brothers,  and  Gurdon  S.  Hubbard, "
+    },
+    {
+      "id": "bk_mose1_004",
+      "kind": "building",
+      "reading": "transcription_mediated",
+      "locator": {
+        "lines": [
+          12197,
+          12206
+        ],
+        "page": 90,
+        "original": "Printed page 90. The folio is READ off the running head, not counted: this volume prints the page number ALONE on a line at the head of every verso, above \"HISTORY OF CHICAGO\", and after the chapter title at the head of every recto. Verso heads are even and recto heads are odd, which is the parity check that catches the OCR's misreadings. The passage spans a paragraph break the OCR left as two blank lines at 12202-12203; the quote carries them, because the gate rebuilds it line for line out of the committed text.",
+        "text_file": "moses_kirkland_history_of_chicago_v1.txt",
+        "url": "https://archive.org/download/historyofchicago01mose/historyofchicago01mose_djvu.txt",
+        "list": "moses_kirkland_v1_1832_1835_and_biographical"
+      },
+      "normalized": "John S. C. Hogan was appointed postmaster on 2 November 1832 and received and distributed mail in a room partitioned off for the purpose from his story-and-a-half storehouse — a log building 45 by 18 feet, standing at the angle formed by the intersection of Lake and South Water streets.",
+      "describes_date": "from 2 November 1832; the sentence does not say when the arrangement ended, and the same volume has Hogan still postmaster until 3 March 1837",
+      "entities": [
+        "John S. C. Hogan",
+        "the Chicago post office",
+        "Lake Street",
+        "South Water Street"
+      ],
+      "town_finding": true,
+      "notes": "THE MOST PLACEABLE SENTENCE IN THIS READING, and it names no lead surname. A building with a MATERIAL (log), a STOREY COUNT (story-and-a-half), a FOOTPRINT (45x18) and a POSITION (the angle where Lake and South Water meet) — four of the five fields data/structures/ wants, and the fifth, the orientation, is implied by the angle and not stated. It is also a WORKS_AT and arguably a business address for Hogan, who the project already holds. Whether the town of 1835-07-01 still had it there is NOT said here: the arrangement is described from November 1832 and the same volume (page 89 of this chapter and the postmaster list at page 545 and following) has Hogan in the office until 3 March 1837, which is a reason to look and not a licence to assume. Offered to data/structures/ in that layer's own PR.",
+      "quote": "Niles,  to  Danville  and  Green  Bay.  John  S. \nC.  Hogan  was  appointed  postmaster  Novem- \nber 2,  1832,  and  received  and  distributed \nmail  in  a  room  partitioned  off  for  that  pur- \npose from  his  story-and-a-half  storehouse,  a \n\n\nlog  building  45x18,  situated  at  the  angle \nformed  by  the  intersection  of  Lake  and \nSouth  Water  streets. "
+    },
+    {
+      "id": "bk_mose1_005",
+      "kind": "person",
+      "reading": "transcription_mediated",
+      "locator": {
+        "lines": [
+          12231,
+          12238
+        ],
+        "page": 90,
+        "original": "Printed page 90. The folio is READ off the running head, not counted: this volume prints the page number ALONE on a line at the head of every verso, above \"HISTORY OF CHICAGO\", and after the chapter title at the head of every recto. Verso heads are even and recto heads are odd, which is the parity check that catches the OCR's misreadings.",
+        "text_file": "moses_kirkland_history_of_chicago_v1.txt",
+        "url": "https://archive.org/download/historyofchicago01mose/historyofchicago01mose_djvu.txt",
+        "list": "moses_kirkland_v1_1832_1835_and_biographical"
+      },
+      "normalized": "Among the new arrivals in the spring of 1833 are the names of John Dean Caton, John K. Botsford, Silas B. Cobb, Charles Cleaver, Walter Kimball, H. W. Knickerbocker, Ezekiel Morrison, Asahel Pierce, Hibbard Porter, Stephen Rexford, Henry Whitehead, Eli B. Williams, Dr. John T. Temple, Rev. Jeremiah Porter and Rev. Allan B. Freeman.",
+      "describes_date": "the spring of 1833",
+      "entities": [
+        "John Dean Caton",
+        "John K. Botsford",
+        "Silas B. Cobb",
+        "Charles Cleaver",
+        "Walter Kimball",
+        "H. W. Knickerbocker",
+        "Ezekiel Morrison",
+        "Asahel Pierce",
+        "Hibbard Porter",
+        "Stephen Rexford",
+        "Henry Whitehead",
+        "Eli B. Williams",
+        "Dr. John T. Temple",
+        "Rev. Jeremiah Porter",
+        "Rev. Allan B. Freeman"
+      ],
+      "town_finding": true,
+      "notes": "THREE LEAD SURNAMES — `caton`, `kimball`, `pierce` — and a SEASON rather than a bare year, which is finer than most arrival evidence this project holds. Fifteen men in the town two years before the scene date. The list is the compiler's and not a register: it says \"among\", so it is not exhaustive, and it prints the Rev. Jeremiah Porter's arrival as spring 1833 while the same volume's page 573 has him preaching on 19 May 1833 and page 571 has him landing with the troops in May — consistent, but the list is the coarser of the three and must never be cited as the date.",
+      "quote": "the  new  arrivals  are  found  the  names  of \nJohn  Dean  Caton,  John  K.  Botsford,  Silas \nB.  Cobb,  Charles  Cleaver,  Walter  Kimball, \nH.  W.  Knickerbocker,  Ezekiel  Morrison, \nAsahel  Pierce,  Hibbard  Porter,  Stephen \nRexford,  Henry  Whitehead,  Eli  B.  Williams, \nDr.  John  T.  Temple,  Rev.  Jeremiah  Porter, \nRev.  Allan  B.  Freeman. "
+    },
+    {
+      "id": "bk_mose1_006",
+      "kind": "civic",
+      "reading": "transcription_mediated",
+      "locator": {
+        "lines": [
+          12869,
+          12884
+        ],
+        "page": 95,
+        "original": "Printed page 95, recto, whose head is the chapter title at line 12783 followed by the bare \"95\" at line 12786. The folio is READ off the running head, not counted: this volume prints the page number ALONE on a line at the head of every verso, above \"HISTORY OF CHICAGO\", and after the chapter title at the head of every recto. Verso heads are even and recto heads are odd, which is the parity check that catches the OCR's misreadings.",
+        "text_file": "moses_kirkland_history_of_chicago_v1.txt",
+        "url": "https://archive.org/download/historyofchicago01mose/historyofchicago01mose_djvu.txt",
+        "list": "moses_kirkland_v1_1832_1835_and_biographical"
+      },
+      "normalized": "The State census taken between 1 September and December 1835 showed the population of Chicago at 3,297, and counted forty-four stores (dry goods, hardware and groceries), two book stores, four druggists, two silversmiths and jewellers, two tin and copper manufactories, two printing offices, two breweries, one steam saw-mill, one iron foundry, four storage and forwarding houses, eight taverns, one lottery office, one bank, five churches, seven schools, twenty-two lawyers, fourteen physicians, and a lyceum and reading room. Nine of the buildings erected were of brick.",
+      "describes_date": "the count was taken between 1 September and December 1835 — TWO TO FIVE MONTHS AFTER the scene date of 1835-07-01",
+      "entities": [
+        "the Illinois State census of 1835",
+        "the town of Chicago"
+      ],
+      "town_finding": true,
+      "notes": "THE SINGLE MOST USEFUL PARAGRAPH IN THE VOLUME FOR THIS PROJECT, and it dates itself out of the scene by two to five months. It is a TRADE CENSUS OF THE WHOLE TOWN: not who kept a store, but how many stores there were, and the same for druggists, taverns, printing offices, lawyers and physicians. The project has never held a denominator for its business layer, and this is one — for December 1835 and not for July, which is the whole of the caution. THE POPULATION FIGURE IS ALREADY IN THE REPOSITORY from two other routes: the Chicago Democrat of 1835-07-01 and the Chicago American of 1835-06-08 and 1835-06-27 carry 3,297 in data/research/newspapers/, so this is a third printing of a number the project holds, not a new one. THE TRADE COUNTS ARE NOT: no file under data/ carries \"forty-four stores\" or its numeral before this reading. What it does NOT give is a single name, a single address, or the enumerator's own schedule — it is a summary of a count this project does not hold, at one remove, sixty years later.",
+      "quote": "The  result  of  the  State  census  taken \nthis  year  between  September  1st  and  De- \nPopuia-  cember  showed  that  the  population \ntion.  Of  Chicago  numbered  3,297  and,  as \nfurther  evidence  of  its  progress,demonstrated \nthe  fact  that  there  were  forty-four  stores \n(dry  goods,  hardware,  and  groceries),  two \nbook  stores,  four  druggists,  two  silversmiths \nand  jewelers,  two  tin  and  copper  manufac- \ntories, two  printing  offices,  two  breweries,  one \nsteam  saw-mill,  one  iron  foundry,  four  storage \nand  forwarding  houses,  eight  taverns,  one \nlottery  office,  ope  bank,  five  churches,  seven \nschools,  twenty-two  lawyers,  fourteen  physi- \ncians, and  a  lyceum  and  reading  room.  Of \nthe  buildings  erected  nine  were  of  brick. "
+    },
+    {
+      "id": "bk_mose1_007",
+      "kind": "business",
+      "reading": "transcription_mediated",
+      "locator": {
+        "lines": [
+          13245,
+          13253
+        ],
+        "page": 98,
+        "original": "Printed page 98, verso. The folio is READ off the running head, not counted: this volume prints the page number ALONE on a line at the head of every verso, above \"HISTORY OF CHICAGO\", and after the chapter title at the head of every recto. Verso heads are even and recto heads are odd, which is the parity check that catches the OCR's misreadings. The head at line 13147 prints \"93\" above \"HISTOR7 OF CHICAGO\", which is a verso and therefore even: the run 96 at 12902, 97 at 13032 and 99 at 13269 fixes it as 98, and the parity is what refuses the OCR's 93.",
+        "text_file": "moses_kirkland_history_of_chicago_v1.txt",
+        "url": "https://archive.org/download/historyofchicago01mose/historyofchicago01mose_djvu.txt",
+        "list": "moses_kirkland_v1_1832_1835_and_biographical"
+      },
+      "normalized": "In the spring of 1835 Gurdon S. Hubbard and the firm of Russell & Mather bought for $5,000 the eighty acres afterwards laid off as the Russell and Mather addition to Chicago. Shortly after the purchase, being in New York City and hearing inquiries for Chicago property, Hubbard platted the eighty acres and sold half the lots at auction for $80,000.",
+      "describes_date": "the spring of 1835 for the purchase — BEFORE the scene date of 1835-07-01; the New York auction \"a short time after\"",
+      "entities": [
+        "Gurdon S. Hubbard",
+        "Russell & Mather",
+        "the Russell and Mather addition"
+      ],
+      "town_finding": true,
+      "notes": "THE LEAD SURNAME IS `hubbard`, and this is one of the few things in the volume dated INSIDE the scene year and before the scene date. A transaction, not a residence: it says where Hubbard put his money in the spring of 1835 and it says he was in New York City shortly after, which bears on where he WAS, not on where he lived. The sixteen-fold figure ($5,000 to $80,000 for half the lots) is the compiler's and is the kind of number a boom history rounds; it is quoted, not adopted.",
+      "quote": "In  the  spring  of  1835  Gurdon  S.  Hubbard \nand  the  firm  of  Russell  &  Mather  purchased \nfor  $5,000  the  eighty  acres  of  ground  which \nwas  afterward  laid  off  as  the  Russell  and \nMather  addition  to  Chicago.  A  short  time \nafter  the  purchase,  being  in  New  York  City, \nand  hearing  inquiries  for  Chicago  property, \nhe  platted  the  eighty  acres,  and  sold  half  the \nlots  at  auction  for  $80,000. "
+    },
+    {
+      "id": "bk_mose1_008",
+      "kind": "business",
+      "reading": "transcription_mediated",
+      "locator": {
+        "lines": [
+          93838,
+          93847
+        ],
+        "page": 541,
+        "original": "Printed page 541, recto, in the chapter \"Real Estate and Insurance\"; its head is \"REAL ESTATE AND INSURANCE.\" at line 93823 followed by the bare \"541\" at line 93826. The folio is READ off the running head, not counted: this volume prints the page number ALONE on a line at the head of every verso, above \"HISTORY OF CHICAGO\", and after the chapter title at the head of every recto. Verso heads are even and recto heads are odd, which is the parity check that catches the OCR's misreadings. THE OCR RUNS TWO HEADS TOGETHER HERE: the verso head \"540\" stands only six lines earlier at 93820, so page 540's body is out of order in this file. It is declared and not smoothed. The quote stops at line 93847 because the next line is blank and the one after it is the page's footnote.",
+        "text_file": "moses_kirkland_history_of_chicago_v1.txt",
+        "url": "https://archive.org/download/historyofchicago01mose/historyofchicago01mose_djvu.txt",
+        "list": "moses_kirkland_v1_1832_1835_and_biographical"
+      },
+      "normalized": "The principal real estate dealers in these early days were John S. Wright, Gurdon S. Hubbard, Kinzie & Hunter, Dr. William B. Egan and Augustus Garrett, afterwards mayor. Garrett conducted auction sales of real and personal property, and his office was the headquarters for speculators and dealers of all sorts; his sales, according to Andreas' history of Chicago, amounted to $1,800,000 during ten months of the year 1835.",
+      "describes_date": "\"these early days\"; the $1,800,000 is dated to ten months of 1835, which straddles the scene date of 1835-07-01",
+      "entities": [
+        "John S. Wright",
+        "Gurdon S. Hubbard",
+        "Kinzie & Hunter",
+        "Dr. William B. Egan",
+        "Augustus Garrett",
+        "Andreas' History of Chicago"
+      ],
+      "town_finding": true,
+      "notes": "TWO LEAD SURNAMES, `hubbard` and `garrett`. A TRADE for five parties — real estate dealing — and for Garrett an OFFICE that was \"the headquarters for speculators\", which is a business premises without a street. IT IS NOT AN INDEPENDENT WITNESS: the $1,800,000 is credited in the sentence itself to Andreas, whom this project already holds through chicagology transcriptions, so citing this for that figure would be citing Andreas at second hand. What is Moses and Kirkland's own is the LIST of five, and the fact that Garrett's office was where the trade gathered. \"Kinzie & Hunter\" is a FIRM and not a person and must not be merged into either Kinzie the project holds.",
+      "quote": "The  principal  real  estate  dealers  in  these \nearly  days  were  John  S.  Wright,  Gurdon  S. \nHubbard,  Kinzie  &  Hunter,  Dr.  Wm.  B. \nEgan  and  Augustus  Garrett,  afterwards \nmayor.  The  latter  conducted  auction  sales \nof  real  and  personal  property,  and  his  office \nwas  the  headquarters  for  speculators  and  all \nsorts  of  dealers,  his  sales,  according  to \nAndreas'  history  of  Chicago,  amounting  to \n$1,800,000  during  ten  months  of  the  year "
+    },
+    {
+      "id": "bk_mose1_009",
+      "kind": "building",
+      "reading": "transcription_mediated",
+      "locator": {
+        "lines": [
+          99826,
+          99839
+        ],
+        "page": 570,
+        "original": "Printed page 570, verso, in the Biographical chapter; its head is the bare \"570\" at line 99745 above \"HISTORY OF CHICAGO\". The folio is READ off the running head, not counted: this volume prints the page number ALONE on a line at the head of every verso, above \"HISTORY OF CHICAGO\", and after the chapter title at the head of every recto. Verso heads are even and recto heads are odd, which is the parity check that catches the OCR's misreadings.",
+        "text_file": "moses_kirkland_history_of_chicago_v1.txt",
+        "url": "https://archive.org/download/historyofchicago01mose/historyofchicago01mose_djvu.txt",
+        "list": "moses_kirkland_v1_1832_1835_and_biographical"
+      },
+      "normalized": "Peck's little log store stood close to Fort Dearborn but was only a temporary location. He then built a two-storey frame structure — the first in the village — on what was, in 1895, the south-east corner of La Salle and South Water streets. The lumber, sawn from black walnut trees, was brought from Detroit by boat; mechanics and building material were almost unobtainable and the building took some time to complete, but it was occupied and the goods moved into it from the log store in the fall of 1831.",
+      "describes_date": "the log store before it, and the frame store occupied in the fall of 1831",
+      "entities": [
+        "P. F. W. Peck",
+        "Fort Dearborn",
+        "La Salle Street",
+        "South Water Street"
+      ],
+      "town_finding": true,
+      "notes": "THE LEAD SURNAME IS `peck`, and this is the most detailed building description the volume gives of a private commercial structure in the town: TWO STOREYS, FRAME, black walnut lumber shipped from Detroit, on the SOUTH-EAST CORNER of La Salle and South Water, occupied in the fall of 1831 and therefore standing on the scene date unless something took it down. It also records the log store that preceded it, \"close to Fort Dearborn\", with no closer position than that. IT DISAGREES WITH PAGE 89 OF THE SAME BOOK about which building was first — page 89 (bk_mose1_002) calls Dole's and Peck's the first frame buildings used for business purposes and dates the pair to 1832; this page calls Peck's the first two-storey frame structure in the village and dates it to 1831. Both readings are recorded; neither is adopted, and the reconciliation belongs to data/structures/ under the ladder, in that layer's own PR. \"What is now\" is 1895 street naming applied to 1831 ground.",
+      "quote": "The  little  log  store  was  close  to  Fort  Dear- \nborn, but  it  was  only  a  temporary  location. \nMr.  Peck  set  about  the  erection  of  a  two- \nstory  frame  structure  (the  first  in  the  village) \non  what  is  now  the  southeast  corner  of  La \nSalle  and  South  Water  streets.  It  was  no \nsmall  undertaking.  The  lumber,  sawed  from \nblack  walnut  trees,  was  brought  from  De- \ntroit by  a  boat.  Mechanics  and  building \nmaterial  were  almost  unobtainable,  and  it \nwas  some  time  before  the  imposing  structure \nwas  fully  completed.  But  it  was  occupied, \nand  the  goods  moved  from  the  log  store  into \nit,  in  the  fall  of  1831. "
+    },
+    {
+      "id": "bk_mose1_010",
+      "kind": "household",
+      "reading": "transcription_mediated",
+      "locator": {
+        "lines": [
+          99867,
+          99876
+        ],
+        "page": 571,
+        "original": "Printed page 571, recto; its head is \"BIOGRAPHICAL.\" at line 99853 followed by the bare \"571\" at line 99856. The folio is READ off the running head, not counted: this volume prints the page number ALONE on a line at the head of every verso, above \"HISTORY OF CHICAGO\", and after the chapter title at the head of every recto. Verso heads are even and recto heads are odd, which is the parity check that catches the OCR's misreadings.",
+        "text_file": "moses_kirkland_history_of_chicago_v1.txt",
+        "url": "https://archive.org/download/historyofchicago01mose/historyofchicago01mose_djvu.txt",
+        "list": "moses_kirkland_v1_1832_1835_and_biographical"
+      },
+      "normalized": "A second detachment of troops for the garrison arrived in May 1833 bringing, besides soldiers and munitions, the Reverend Jeremiah Porter and the nucleus of a Protestant church. Peck extended to him the hospitality of a lodging place and study in the second storey of his store building, and one of the earliest Sunday schools in the town was held in it.",
+      "describes_date": "from May 1833; the passage does not say how long the arrangement lasted",
+      "entities": [
+        "P. F. W. Peck",
+        "Rev. Jeremiah Porter",
+        "the First Presbyterian Church of Chicago"
+      ],
+      "town_finding": true,
+      "notes": "A LIVES_AT AND A WORKS_AT IN ONE SENTENCE, on the lead surname `peck` — the field the town is thinnest in of all (lives_at stood at 2.4% of 825 households at the last measurement). It puts Jeremiah Porter's lodging and his study in the SECOND STOREY of a building this same volume positions by corner at page 570, which is as close to an address as a reminiscence gets. IT DOES NOT REACH THE SCENE DATE ON ITS OWN. The arrangement begins in May 1833 and the passage never ends it; Porter's own movements between 1833 and July 1835 are not in this volume, and a household record that put him there on 1835-07-01 off this sentence would be inventing the twenty-six months in between. What it supports is a dated lodging in 1833 and a question for the layer that owns residence.",
+      "quote": "for  the  garrison  arrived  in  May,  1833,  bring- \ning, besides  soldiers  and  munitions  of  war, \nReverend  Jeremiah  Porter,  and  the  nucleus \nof  a  Protestant  church.  The  minister  was \nreceived  with  gladness,  and  Mr.  Peck  ex- \ntended to  him  the  hospitality  that  gave  him \na  lodging  place  and  study  in  the  second \nstory  of  his  store  building.  In  this  little \nsanctuary  was  held  one  of  the  earliest  Sun- \nday-schools organized  in  the  town.  Mr.  Peck "
+    },
+    {
+      "id": "bk_mose1_011",
+      "kind": "household",
+      "reading": "transcription_mediated",
+      "locator": {
+        "lines": [
+          100542,
+          100547
+        ],
+        "page": 577,
+        "original": "Printed page 577, recto; its head is \"BIOGRAPHICAL.\" at line 100498 followed by the bare \"577\" at line 100501. The folio is READ off the running head, not counted: this volume prints the page number ALONE on a line at the head of every verso, above \"HISTORY OF CHICAGO\", and after the chapter title at the head of every recto. Verso heads are even and recto heads are odd, which is the parity check that catches the OCR's misreadings.",
+        "text_file": "moses_kirkland_history_of_chicago_v1.txt",
+        "url": "https://archive.org/download/historyofchicago01mose/historyofchicago01mose_djvu.txt",
+        "list": "moses_kirkland_v1_1832_1835_and_biographical"
+      },
+      "normalized": "In December 1833 John Dean Caton hired from Doctor Temple the back room and attic of Temple's \"Temple Building\", using the attic as a bedroom and the back room as an office, and sub-let desk-room in the office to his competitor, Spring.",
+      "describes_date": "from December 1833; no end date is given, and the same page has Caton marrying in 1835",
+      "entities": [
+        "John Dean Caton",
+        "Dr. John T. Temple",
+        "the Temple Building",
+        "Spring (Giles Spring)"
+      ],
+      "town_finding": true,
+      "notes": "THE LEAD SURNAME IS `caton`, and this is the richest household sentence in the reading: one man, one named building, and BOTH a residence (the attic, as a bedroom) and a workplace (the back room, as a law office) in it, from a stated month. It also names a THIRD occupancy — desk-room sub-let to \"his competitor, Spring\", which is almost certainly the Giles Spring the project holds, though the passage gives only the surname and a surname-only merge is a refusal under this domain's crosswalk rules. The Temple Building is a structure the project already knows by name. WHETHER IT HELD ON 1835-07-01 IS NOT SAID: December 1833 is the start, the passage gives no end, and bk_mose1_012 has Caton married in 1835, which is exactly the kind of event that ends a bachelor's attic. Offered to data/residents/ and data/households/ in their own PR, as a dated 1833 arrangement and an open question about 1835.",
+      "quote": "In  December,  1833,  Mr.  Caton  hired  of \nDoctor  Temple  the  back  room  and  attic  of \nhis  \"Temple  Building,\"  using  the  latter  as \na  bed-room  and  the  former  as  an  office, \nwherein  he  rented  desk-room  to  his  competi- \ntor, Spring. "
+    },
+    {
+      "id": "bk_mose1_012",
+      "kind": "person",
+      "reading": "transcription_mediated",
+      "locator": {
+        "lines": [
+          100582,
+          100584
+        ],
+        "page": 577,
+        "original": "Printed page 577, recto, thirty-five lines below bk_mose1_011 on the same page. The folio is READ off the running head, not counted: this volume prints the page number ALONE on a line at the head of every verso, above \"HISTORY OF CHICAGO\", and after the chapter title at the head of every recto. Verso heads are even and recto heads are odd, which is the parity check that catches the OCR's misreadings.",
+        "text_file": "moses_kirkland_history_of_chicago_v1.txt",
+        "url": "https://archive.org/download/historyofchicago01mose/historyofchicago01mose_djvu.txt",
+        "list": "moses_kirkland_v1_1832_1835_and_biographical"
+      },
+      "normalized": "In 1835 John Dean Caton returned to Oneida County, New York, and married Laura Adelaide, daughter of Jacob Sherrill of New Hartford.",
+      "describes_date": "1835 — the year only, and the scene date of 1835-07-01 falls inside it",
+      "entities": [
+        "John Dean Caton",
+        "Laura Adelaide Sherrill",
+        "Jacob Sherrill"
+      ],
+      "town_finding": true,
+      "notes": "THE LEAD SURNAME IS `caton`. A marriage inside the scene YEAR, with no month — which is the most awkward possible precision, because the scene date sits in the middle of it and the sentence cannot say which side. It bears on the household two ways and settles neither: Caton was ABSENT from Chicago for the journey and the wedding, and he came back with a wife, which is a household of two where the project may hold one. THE MONTH IS THE THING TO FIND, and this volume does not carry it. Recorded as an open precision question for data/households/, not as a change to it.",
+      "quote": "In  1835,  Squire  Caton  returned  to  Oneida \ncounty,  N.  Y.,  and  married  Laura  Adelaide, \ndaughter  of  Jacob  Sherrill,  of  New  Hartford. "
+    },
+    {
+      "id": "bk_mose1_013",
+      "kind": "person",
+      "reading": "transcription_mediated",
+      "locator": {
+        "spans": [
+          {
+            "line": 100171,
+            "from": 0,
+            "to": 50
+          },
+          {
+            "line": 100180,
+            "from": 0,
+            "to": 50
+          }
+        ],
+        "page": "573-574",
+        "original": "The sentence straddles the foot of printed page 573 and the head of page 574: line 100171 is the last line of 573 and line 100180 the first of 574, with the running head — the bare \"574\" at line 100174 above \"HISTORY OF CHICAGO\" at 100177 — standing between them. The locator therefore uses `spans` rather than a line range, which is what this domain's gate provides for exactly this case; the two spans are whole lines and the quote is their join. The folio is READ off the running head, not counted: this volume prints the page number ALONE on a line at the head of every verso, above \"HISTORY OF CHICAGO\", and after the chapter title at the head of every recto. Verso heads are even and recto heads are odd, which is the parity check that catches the OCR's misreadings.",
+        "text_file": "moses_kirkland_history_of_chicago_v1.txt",
+        "url": "https://archive.org/download/historyofchicago01mose/historyofchicago01mose_djvu.txt",
+        "list": "moses_kirkland_v1_1832_1835_and_biographical"
+      },
+      "normalized": "Within a month after his arrival, on 19 August 1832, Philo Carpenter organised a Sunday school — one of the first in Chicago — of thirteen children and five adults.",
+      "describes_date": "19 August 1832, and by implication an arrival within the month before it",
+      "entities": [
+        "Philo Carpenter",
+        "the Home Sunday school of the First Presbyterian Church"
+      ],
+      "town_finding": true,
+      "notes": "THE LEAD SURNAME IS `carpenter`, and this is the finest date the volume gives for any arrival in the reading: page 89 puts Carpenter among the 1832 arrivals with no month, and this sentence closes it to WITHIN A MONTH BEFORE 19 AUGUST 1832. It is an inference on the book's own wording, not a stated arrival date, and the normalized reading says so. The thirteen children and five adults are a school roll and not a household. THE QUOTE IS DELIBERATELY BROKEN ACROSS A PAGE: it is the one place in this reading where the sentence the project wants is cut by a running head, and rebuilding it with `spans` keeps the quote verbatim while leaving the head out of it.",
+      "quote": "a  month  after  his  arrival,  on  the  19th  of \nAugust,  1832,  he  organized  a  Sunday  school, "
+    },
+    {
+      "id": "bk_mose1_014",
+      "kind": "person",
+      "reading": "transcription_mediated",
+      "locator": {
+        "lines": [
+          10774,
+          10780
+        ],
+        "page": 78,
+        "original": "Printed page 78, verso, whose head is the bare \"78\" at line 10691 above \"HISTORY OF CHICAGO\"; the next head is the bare \"79\" at line 10819. The folio is READ off the running head, not counted: this volume prints the page number ALONE on a line at the head of every verso, above \"HISTORY OF CHICAGO\", and after the chapter title at the head of every recto. Verso heads are even and recto heads are odd, which is the parity check that catches the OCR's misreadings. This is the FOOTNOTE at the foot of the page, and the list it introduces — \"LIST OF ACTUAL SETTLERS AT CHICAGO, PRIOR TO 1830\", headed NAME / NATIVITY / YEAR / REMARKS at lines 10783-10785 — runs on across the page break into page 79. The footnote immediately above it, at line 10772, credits Hurlbut's Chicago Antiquities pages 37-8 for the paragraph the list hangs from.",
+        "text_file": "moses_kirkland_history_of_chicago_v1.txt",
+        "url": "https://archive.org/download/historyofchicago01mose/historyofchicago01mose_djvu.txt",
+        "list": "moses_kirkland_v1_1832_1835_and_biographical"
+      },
+      "normalized": "The subjoined list of actual settlers prior to 1830 contains the names of all those who are known to have had a residence at the settlement, nearly all of whom paid taxes in 1825 and voted in 1826. Gurdon S. Hubbard's name is not included, because although he spent a large part of his time at Chicago he did not take up a permanent residence until 1832.",
+      "describes_date": "the settlement before 1830; the exclusion dates Hubbard's permanent residence to 1832",
+      "entities": [
+        "Gurdon S. Hubbard",
+        "the list of actual settlers at Chicago prior to 1830"
+      ],
+      "town_finding": true,
+      "notes": "TWO THINGS, AND THE SECOND IS THE ONE TO USE. First, this is the RULE OF A ROSTER the project does not hold: a list of every person known to have had a residence at Chicago before 1830, with NATIVITY, YEAR and REMARKS columns, running from \"Ament, Edward G.\" across pages 78 and 79 — about thirty rows, giving for each a nativity, a year of arrival and a note of taxes paid in 1825 or votes cast in 1826, 1828 or 1830. That roster is NOT transcribed here: it is a records-shaped dataset and a reading of it is its own unit of work, filed as a ticket by this run rather than half-done inside a claims file. Second, and independent of it, the footnote states in its own words WHY Hubbard is absent — he did not take up a permanent residence until 1832 — which is a dated statement about permanent residence for a man this project holds, made by a compiler who had to decide the question in order to build his list. It is not a witness and it is 1895; it is a reason, and reasons are what the ladder grades. The list credits Hurlbut's Chicago Antiquities pages 37-8 three lines above it, and this project HOLDS Hurlbut at data/research/books/text/hurlbut_chicago_antiquities_28_36.txt — pages 28 to 36, which stop one page short of the cited run.",
+      "quote": "*  The  subjoined  list  of  actual  settlers  prior  to  1830  con- \ntains the  names  of  all  those  who  arc  known  to  have  had \na  residence  at  the  settlement,  nearly  all  of  whom  paid \ntaxes  in  1825,  and  voted  in  1826.    The  name  of  Gurdon  S. \nHubbardisnot  included,  for  the  reason  that  although  he \nspent  a  large  portion  of  his  time  here  he  did  not  take  up  a \npermanent  residence  until  1832. "
+    },
+    {
+      "id": "bk_mose1_015",
+      "kind": "landscape",
+      "reading": "transcription_mediated",
+      "locator": {
+        "lines": [
+          10889,
+          10890
+        ],
+        "page": 79,
+        "original": "Printed page 79, recto, whose head is the bare \"79\" at line 10819; the next head is the bare \"80\" at line 10962. The folio is READ off the running head, not counted: this volume prints the page number ALONE on a line at the head of every verso, above \"HISTORY OF CHICAGO\", and after the chapter title at the head of every recto. Verso heads are even and recto heads are odd, which is the parity check that catches the OCR's misreadings. The passage is one entry in a table headed \"Chicago weather— 1830 to 1880\" at line 10880, introduced at lines 10869-10878 as made up from a package of original memoranda left by a Chicago Journal man, including his own \"weather notes, 1830 to 1880, 50 years\", then filed at the rooms of the Chicago Historical Society.",
+        "text_file": "moses_kirkland_history_of_chicago_v1.txt",
+        "url": "https://archive.org/download/historyofchicago01mose/historyofchicago01mose_djvu.txt",
+        "list": "moses_kirkland_v1_1832_1835_and_biographical"
+      },
+      "normalized": "The winter of 1834-5 at Chicago was an open winter with little snow; front doors stood open all winter and cattle lived on grass on the river bank.",
+      "describes_date": "the winter of 1834-5 — the winter IMMEDIATELY BEFORE the scene date of 1835-07-01",
+      "entities": [
+        "the Chicago River",
+        "the winter of 1834-5"
+      ],
+      "town_finding": true,
+      "notes": "THE ONLY SENTENCE IN THIS READING THAT DESCRIBES THE GROUND OF THE SCENE, and it is the closest one in time: the winter that ended four or five months before 1835-07-01. It says three separable things — little snow, doors open all winter, and cattle grazing living grass on the river bank — and the third is the one a reconstruction can use, because it is a statement about the state of the bank vegetation through a winter, not about the weather. IT IS EVIDENCE FOR THE PRECEDING WINTER AND NOT FOR JULY, and it must never be cited for the scene's own ground cover. THE CHAIN IS LONG AND IS STATED: a diarist's private memoranda, gathered into a fifty-year retrospect by the same hand, deposited at the Chicago Historical Society, and printed here in 1895 by a compiler who names neither the diarist in this line nor the date the notes were written. The claim is graded transcription_mediated like every other in this file, and the length of that chain is a reason to weigh it lightly, not a reason to leave it unrecorded.",
+      "quote": "1834-5.  Open  winter,  little  snow,  front  doors \nopen  all  winter,  cattle  lived  on  grass  on  river  bank. "
+    },
+    {
+      "id": "bk_mose1_016",
+      "kind": "civic",
+      "reading": "transcription_mediated",
+      "locator": {
+        "lines": [
+          101342,
+          101346
+        ],
+        "page": 584,
+        "original": "Printed page 584, verso, whose head is the bare \"584\" at line 101255 above \"HISTORY OF CHICAGO\"; the next head is \"585\" at line 101370. The folio is READ off the running head, not counted: this volume prints the page number ALONE on a line at the head of every verso, above \"HISTORY OF CHICAGO\", and after the chapter title at the head of every recto. Verso heads are even and recto heads are odd, which is the parity check that catches the OCR's misreadings. The passage opens the biographical sketch headed \"ALEXANDER N. FULLERTON.\" at line 101340.",
+        "text_file": "moses_kirkland_history_of_chicago_v1.txt",
+        "url": "https://archive.org/download/historyofchicago01mose/historyofchicago01mose_djvu.txt",
+        "list": "moses_kirkland_v1_1832_1835_and_biographical"
+      },
+      "normalized": "The late Alexander N. Fullerton was one of the first permanent settlers in Chicago, and one of the twenty-eight voters in the entire adult male population who met on 10 August 1833 to decide the question of incorporating the town.",
+      "describes_date": "10 August 1833 for the meeting; \"one of the first permanent settlers\" is undated",
+      "entities": [
+        "Alexander N. Fullerton",
+        "the incorporation poll of 10 August 1833"
+      ],
+      "town_finding": true,
+      "notes": "THE LEAD SURNAME IS `fullerton`, and this is a DENOMINATOR as much as a name: twenty-eight voters in the ENTIRE ADULT MALE POPULATION of the town on 10 August 1833. This project holds that poll in data/research/civic/ — the incorporation vote is one of the town's own lists — so the useful test is whether the roll it holds has twenty-eight names on it, and whether Fullerton is one of them. That test belongs to the civic layer and is not run here. The book is 1895 and the sketch is an obituary notice; \"one of the first permanent settlers\" is the genre's language and carries no date, and only the 10 August 1833 meeting is a fact with an edge on it.",
+      "quote": "\n\nThe  late  Alexander  N.  Fullerton  was  one  of \nthe  first  permanent  settlers  in  Chicago.  He \nwas  one  of  the  twenty-eight  voters  in  the  en- "
+    },
+    {
+      "id": "bk_mose1_017",
+      "kind": "business",
+      "reading": "transcription_mediated",
+      "locator": {
+        "lines": [
+          64565,
+          64571
+        ],
+        "page": 389,
+        "original": "Printed page 389, recto, whose head carries the bare \"389\" at line 64464; the next head is \"390\" at line 64580. The folio is READ off the running head, not counted: this volume prints the page number ALONE on a line at the head of every verso, above \"HISTORY OF CHICAGO\", and after the chapter title at the head of every recto. Verso heads are even and recto heads are odd, which is the parity check that catches the OCR's misreadings.",
+        "text_file": "moses_kirkland_history_of_chicago_v1.txt",
+        "url": "https://archive.org/download/historyofchicago01mose/historyofchicago01mose_djvu.txt",
+        "list": "moses_kirkland_v1_1832_1835_and_biographical"
+      },
+      "normalized": "Sylvester Marsh, one of the pioneers of the packing industry in the West, came to Chicago from New England in the winter of 1833-4. He first opened a market, killing beef as needed for each day's consumption underneath an old elm tree on the prairie, on what was in 1895 Monroe Street. Later he packed with Mr. Hubbard.",
+      "describes_date": "arrival in the winter of 1833-4; the market \"at first\", so from that winter; the packing with Hubbard later and undated",
+      "entities": [
+        "Sylvester Marsh",
+        "Gurdon S. Hubbard",
+        "Monroe Street",
+        "an old elm tree on the prairie"
+      ],
+      "town_finding": true,
+      "notes": "TWO LEAD SURNAMES, `marsh` and `hubbard`, and it is the rare passage that carries all three of the fields the core dataset is short of: an ARRIVAL (the winter of 1833-4, a season and not a year), an OCCUPATION (butcher, then packer), and a PLACE OF WORK — under a named landmark, an old elm on the open prairie at what became Monroe Street. That is a business position given by TREE, which is exactly the kind of pre-street locator this reconstruction has to handle and cannot round to a corner. \"What is now Monroe street\" is 1895 naming laid over 1834 prairie, and the elm is gone; the passage says the market was on the prairie, which in the winter of 1833-4 was OUTSIDE the platted town, and a run that places it inside the block grid will have invented the thing the sentence is carefully not saying. The Hubbard partnership is undated and may fall either side of the scene date.",
+      "quote": "Sylvester  Marsh,  one  of  the  pioneers  in  the \npacking  industry  in  the  West,  came  to \nChicago  from  New  England  in  the  winter  of \n1833-4.  At  first  he  opened  a  market,  killing \nbeef  as  needed  for  each  day's  consumption \nunderneath  an  old  elm  tree  on  the  prairie, \non  what  is  now  Monroe  street.  Later,  he "
+    },
+    {
+      "id": "bk_mose1_018",
+      "kind": "notice",
+      "reading": "transcription_mediated",
+      "locator": {
+        "lines": [
+          94293,
+          94305
+        ],
+        "page": 542,
+        "original": "Printed page 542, verso, in the chapter \"Real Estate and Insurance\"; its head is the bare \"542\" at line 94287 above \"BISTORT OF CfflOAGO\", the OCR's reading of HISTORY OF CHICAGO. The folio is READ off the running head, not counted: this volume prints the page number ALONE on a line at the head of every verso, above \"HISTORY OF CHICAGO\", and after the chapter title at the head of every recto. Verso heads are even and recto heads are odd, which is the parity check that catches the OCR's misreadings.",
+        "text_file": "moses_kirkland_history_of_chicago_v1.txt",
+        "url": "https://archive.org/download/historyofchicago01mose/historyofchicago01mose_djvu.txt",
+        "list": "moses_kirkland_v1_1832_1835_and_biographical"
+      },
+      "normalized": "William Jones, father of Fernando Jones, was the first NON-RESIDENT to buy vacant lots in Chicago from the original purchaser — lots 2 and 7 in block 17, one fronting on Water Street and the other on Lake Street, for $100 each, in 1833. His brother Benjamin Jones was the original purchaser, at the sale of the school section, of the block on which the United States Government building stood in 1895, for $505; Orsemus Morrison was a purchaser at the same sale.",
+      "describes_date": "1833 for William Jones's purchase; the school section sale is undated in this passage and took place in 1833",
+      "entities": [
+        "William Jones",
+        "Fernando Jones",
+        "Benjamin Jones",
+        "Orsemus Morrison",
+        "block 17",
+        "the school section"
+      ],
+      "town_finding": true,
+      "notes": "THE LEAD SURNAME IS `jones`, and the value of the passage is a NEGATIVE that this project has to keep saying: William Jones is named here precisely as the first NON-RESIDENT purchaser, so his two lots in block 17 are evidence of a transaction and evidence AGAINST a household. data/research/land_sales/ already holds the rule that a sale is never a residence; this is a case where the source itself states the man was not living here, which is stronger than the rule and rarer. The lots are given by NUMBER AND BLOCK with the street each fronts, which is the finest positional unit the town plat has. Benjamin Jones and Orsemus Morrison are named as purchasers at the school section sale with no statement either way about residence, and nothing about them may be read across from his brother's case.",
+      "quote": "William  Jones,  father  of  Fernando,  was \nthe  first  non-resident  to  purchase  vacant \nlots  in  Chicago  from  the  original  pur- \nchaser, namely,  lots  2  and  7  in  block  17, \none  fronting  on  Water,  the  other  on \nLake  street,  for  $100  each.  This  was  in \n1833. \n\nBenjamin  Jones,  his  brother,  was  the \noriginal  purchaser  at  the  sale  of  the  school \nsection  of  the  block  whereon  stands  the  U. \nS.  Government  building,  for  $505.  Orsemus \nMorrison  was  the  purchaser  at  the  same  sale "
+    },
+    {
+      "id": "bk_mose1_019",
+      "kind": "business",
+      "reading": "transcription_mediated",
+      "locator": {
+        "lines": [
+          5398,
+          5401
+        ],
+        "page": 35,
+        "original": "Printed page 35, recto; the heads read on either side are the bare \"34\" at line 5361 and the bare \"36\" at line 5596, both versos and both even, so the recto between them is 35 and its own head number did not survive the OCR. The folio is READ off the running head, not counted: this volume prints the page number ALONE on a line at the head of every verso, above \"HISTORY OF CHICAGO\", and after the chapter title at the head of every recto. Verso heads are even and recto heads are odd, which is the parity check that catches the OCR's misreadings. THE PASSAGE IS A QUOTATION INSIDE THE BOOK: at lines 5291-5298 Moses and Kirkland introduce it as \"best told by Rufus Blanchard in his 'Discovery of the Northwest and History of Chicago' (R. Blanchard & Co., Wheaton, Ill., 1881). He says:\", and the block quotation that follows runs through this sentence. The \"writer\" whose debt is acknowledged three lines above is therefore Blanchard and not Moses or Kirkland.",
+        "text_file": "moses_kirkland_history_of_chicago_v1.txt",
+        "url": "https://archive.org/download/historyofchicago01mose/historyofchicago01mose_djvu.txt",
+        "list": "moses_kirkland_v1_1832_1835_and_biographical"
+      },
+      "normalized": "Benjamin Hall, then living at Wheaton, came to Chicago in 1830 and was the proprietor of the first tannery ever established there. He was one of the Chicago pioneers who emigrated on David Hall's account of the place, and Margaret the captive was his aunt.",
+      "describes_date": "arrival in 1830; the tannery undated beyond \"the first ever established there\"; \"is now a resident of Wheaton\" is 1881, the date of the book being quoted",
+      "entities": [
+        "Benjamin Hall",
+        "David Hall",
+        "Margaret Kinzie",
+        "Rufus Blanchard"
+      ],
+      "town_finding": true,
+      "notes": "THE LEAD SURNAME IS `hall`, and this is an ARRIVAL YEAR AND A TRADE for a man five years before the scene date — proprietor of the town's first tannery, which is a business the project does not hold and a trade that wants a site, since a tannery is not a shop and is put where water and nuisance allow. THE CITATION CHAIN IS TWO DEEP AND MUST BE CITED AS SUCH: this is Moses and Kirkland (1895) quoting Rufus Blanchard (1881) quoting a family informant who is Benjamin Hall himself, named as the source of the Margaret and Elizabeth detail in the same breath. It is a reminiscence at three removes and it is graded accordingly; it is NOT independent of Blanchard, whom this project does not otherwise hold. \"Is now a resident of Wheaton\" belongs to 1881 and says nothing about 1835. THE PASSAGE ALSO CARRIES A SECOND DATE not claimed separately: David Hall, Benjamin's nephew by the same account, made a journey to Chicago in 1822 and remained three years, which is a presence in the 1820s and outside this project's scene.",
+      "quote": "detail  of  Margaret  and  Elizabeth's  history.  Mr. \nHall  is  now  a  resident  of  Wheaton.  He  came  to \nChicago  in  1830  and  was  the  proprietor  of  the  first \ntannery  ever  established  there.  .  .  Elizabeth  Kin- "
+    },
+    {
+      "id": "bk_mose1_020",
+      "kind": "civic",
+      "reading": "transcription_mediated",
+      "locator": {
+        "spans": [
+          {
+            "line": 40432,
+            "from": 0,
+            "to": 49
+          },
+          {
+            "line": 40433,
+            "from": 0,
+            "to": 46
+          },
+          {
+            "line": 40434,
+            "from": 0,
+            "to": 54
+          },
+          {
+            "line": 40435,
+            "from": 0,
+            "to": 54
+          },
+          {
+            "line": 40436,
+            "from": 0,
+            "to": 52
+          },
+          {
+            "line": 40437,
+            "from": 0,
+            "to": 56
+          },
+          {
+            "line": 40438,
+            "from": 0,
+            "to": 48
+          },
+          {
+            "line": 40439,
+            "from": 0,
+            "to": 50
+          },
+          {
+            "line": 40440,
+            "from": 0,
+            "to": 52
+          },
+          {
+            "line": 40441,
+            "from": 0,
+            "to": 49
+          },
+          {
+            "line": 40442,
+            "from": 0,
+            "to": 47
+          },
+          {
+            "line": 40443,
+            "from": 0,
+            "to": 50
+          },
+          {
+            "line": 40452,
+            "from": 0,
+            "to": 44
+          }
+        ],
+        "page": "207-208",
+        "original": "The roll straddles the foot of printed page 207 and the head of page 208: lines 40432-40443 are the last of 207 and line 40452 the first line of 208 after its running head — the bare \"208\" at line 40446 above \"HISTORY OF CHICAGO\" at 40449. The folio is READ off the running head, not counted: this volume prints the page number ALONE on a line at the head of every verso, above \"HISTORY OF CHICAGO\", and after the chapter title at the head of every recto. Verso heads are even and recto heads are odd, which is the parity check that catches the OCR's misreadings. Page 207's own head number did not survive the OCR, and 208 being a verso and even fixes it. The locator uses `spans` rather than a line range so that the running head is left out of the quote, which is what this domain provides spans for.",
+        "text_file": "moses_kirkland_history_of_chicago_v1.txt",
+        "url": "https://archive.org/download/historyofchicago01mose/historyofchicago01mose_djvu.txt",
+        "list": "moses_kirkland_v1_1832_1835_and_biographical"
+      },
+      "normalized": "On 7 October 1835 the trustees determined to buy two fire-hooks with chains and ropes, two sixteen-foot ladders, four axes and four hand-saws, at a cost of $29.63. On the same date the \"Pioneer\" Hook and Ladder Company was formed. The first citizens to sign the roll were Philip F. W. Peck, Joseph L. Hansen, Joseph Meeker and J. McCord; soon enrolled after them were John L. Wilson, E. C. Brackett, John Holbrook, T. Jenkins, T. F. Spalding, Isaac Cook, J. J. Garland, George Smith, J. K. Palmer, Thomas S. Ellis, John R. Livingston, Henry G. Hubbard, George W. Snow, Thomas J. King, N. F. J. Monroe, George W. Merrill, Samuel S. Lathrop and Thomas S. Hyde.",
+      "describes_date": "7 October 1835 — THREE MONTHS AND SIX DAYS AFTER the scene date of 1835-07-01",
+      "entities": [
+        "the Pioneer Hook and Ladder Company",
+        "Philip F. W. Peck",
+        "Joseph L. Hansen",
+        "Joseph Meeker",
+        "J. McCord",
+        "John L. Wilson",
+        "E. C. Brackett",
+        "John Holbrook",
+        "T. Jenkins",
+        "T. F. Spalding",
+        "Isaac Cook",
+        "J. J. Garland",
+        "George Smith",
+        "J. K. Palmer",
+        "Thomas S. Ellis",
+        "John R. Livingston",
+        "Henry G. Hubbard",
+        "George W. Snow",
+        "Thomas J. King",
+        "N. F. J. Monroe",
+        "George W. Merrill",
+        "Samuel S. Lathrop",
+        "Thomas S. Hyde",
+        "the trustees of the town of Chicago"
+      ],
+      "town_finding": true,
+      "notes": "FOUR LEAD SURNAMES IN ONE ROLL — `peck`, `hubbard`, `lathrop` and `hyde` — and twenty-two named men who were in the town in the autumn of 1835. It is the largest single list of townsmen in this reading, and it is a PRESENCE list and nothing more: signing a fire company roll says a man was there and says nothing about his trade, his household or where he lived. IT IS THREE MONTHS PAST THE SCENE DATE. A man on this roll was in Chicago on 7 October 1835; whether he was there on 1 July is a separate question for every one of the twenty-two, and the volume does not answer it. THE VOLUME CONTRADICTS ITSELF ON THE DATE: this page has the company formed on 7 October 1835 at the trustees' meeting, while page 570's biography of Peck (bk_mose1_010's neighbour, quoted at bk_mose1_009) has the Pioneer Hook and Ladder Company \"organized October 20th, 1835\". Both are recorded; neither is adopted; a fortnight is exactly the kind of gap a compiler working from two sources leaves behind. The purchase list is also a small inventory of the town's entire firefighting equipment at that date, bought for $29.63.",
+      "quote": "$29.63.     On  the  same  date,  the  \"Pioneer\" \nHook  and  Ladder  Company  was  formed,  the \nfirst  citizens  to   sign   the  roll  being  Philip \nF.    W.    Peck,    Joseph    L.    Hansen,   Joseph \nMeeker,    and    J.    McCord.      Other    names \nwere   soon   enrolled,    as   follows  :    John   L. \nWilson,  E.  C.  Brackett,  John  Holbrook,  T. \nJenkins,  T.  F.  Spalding,  Isaac  Cook,  J.  J. \nGarland,    George    Smith,    J.    K.    Palmer, \nThomas  S.  Ellis,  John  R.  Livingston,  Henry \n(!.   Hubbard,   George  W.  Snow,  Thomas  J. \nKing,  N.  F.  J.  Monroe,   George  W.  Merrill, \nSamuel  S.  Lathrop  and  Thomas  S.  Hyde. "
+    }
+  ]
+}

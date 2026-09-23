@@ -1,0 +1,169 @@
+{
+ "id": "hh_garrett_a",
+ "name": "The Garrett household — a documented auctioneer, unplaced in the town",
+ "division": "unplaced",
+ "head": "garrett_a",
+ "source_pass": "documented",
+ "arrival": {
+  "value": "1834-12-17",
+  "confidence": "inferred",
+  "sources": [
+   "chicago_american_1835",
+   "chicago_democrat_1833_1835"
+  ],
+  "note": "A BOUND FROM THE PAPER, NOT AN ARRIVAL. The corpus first prints this person at the American of 25 July 1835, column 3, so they are in the town's paper by 1834-12-17 and at no stated time before it; nothing reached says when they came. Last printed 1835-08-15.",
+  "precision": "not_later_than"
+ },
+ "party_size_on_arrival": {
+  "value": null,
+  "confidence": "reconstructed",
+  "note": "Not attested."
+ },
+ "origin": {
+  "value": null,
+  "confidence": "reconstructed",
+  "note": "Not attested."
+ },
+ "reason_for_coming": {
+  "value": null,
+  "confidence": "reconstructed",
+  "note": "Not attested."
+ },
+ "lives_at": {
+  "value": null,
+  "confidence": "reconstructed",
+  "note": "Not attested. NOTHING IS BEING WITHHELD HERE: no source reached says where this person lived, and 52 households in this dataset were already in that position before this one was written."
+ },
+ "works_at": {
+  "value": null,
+  "confidence": "reconstructed",
+  "note": "Not attested as a structure this project models. The trade is documented; the premises are not one of the committed records."
+ },
+ "present_on_scene_date": {
+  "value": "present",
+  "confidence": "inferred",
+  "sources": [
+   "chicago_american_1835",
+   "chicago_democrat_1833_1835"
+  ],
+  "note": "Printed on or after the scene date — last at the Democrat of 12 August 1835, column 5 — so the corpus itself puts this person in the town's paper at 1835-08-15."
+ },
+ "persons": [
+  {
+   "id": "garrett_a",
+   "name": "A. Garrett",
+   "relationship": "head",
+   "grade": "attested",
+   "ladder_rule": "G1b",
+   "occupation": {
+    "value": "auctioneer",
+    "confidence": "attested",
+    "sources": [
+     "chicago_american_1835",
+     "chicago_democrat_1833_1835"
+    ],
+    "note": "THE TRADE IS THE PAPER'S. The corpus reads it as auction and commission merchant, auctioneer, at the American of 25 July 1835, column 3; the American of 15 August 1835, column 2; the Democrat of 17 December 1834, column 1; the Democrat of 24 December 1834, column 1; the Democrat of 12 August 1835, column 5. The residents vocabulary's nearest period-correct word for it is `auctioneer`, and where the corpus prints more than one trade they are all named here rather than reduced to the one the vocabulary could take.",
+    "derived_from": "roles",
+    "roles_at_scene_date": [
+     "auctioneer"
+    ]
+   },
+   "sources": [
+    "chicago_american_1835",
+    "chicago_democrat_1833_1835",
+    "isa_public_domain_land_tract_sales"
+   ],
+   "note": "A DOCUMENTED PERSON, AND NOTHING ELSE IS CLAIMED. The papers name 'A. Gartetl's Auctiog Rowe' and 'A. Gatren' and 'GARRETT,' and 'RRSTT' and give the trade; they do not say where this household lived, who else was in it, or when it came. So the record around this person carries nothing but the person: no dwelling, no division, no family, each written as unattested in its own block rather than filled in from the shape of the rest of the town. Cited at the American of 25 July 1835, column 3; the American of 15 August 1835, column 2; the Democrat of 17 December 1834, column 1; the Democrat of 24 December 1834, column 1; the Democrat of 12 August 1835, column 5. The corpus associates the name with Dearborn Street, South Water Street; that is where the paper does business with this person and not a statement about where they slept, and the storefront tickets are the ones that may stand a shop there. THE TOWN NEVER INVENTED A ROOF FOR THIS TRADE. The occupation census raised reconstructed households for the trades a town of 3,265 people needed and could not document; `auctioneer` was not one of them, which is why this person could only ever be ADDED and never seated on an existing record — data/research/newspapers/register_1835.json calls it `new_resident` for exactly that reason. No figure is drawn (docs/LIBERTIES.md L1). READ THROUGH A TRANSCRIPTION, not a scan: the owner's ruling of 2026-08-28 grades a transcription-mediated reading as documented, and the source record for the run states that standard and its limits. A scan read that confirms or corrects the name upgrades this entry. THE FEDERAL LAND TRACT SALES — A PURCHASE, AND NEVER A RESIDENCE. The Illinois State Archives' Public Domain Land Tract Sales register enters this person 5 times, as “GARRETT A”, “GARRETT AUGUST”, 1836-06-21 to 1836-06-23: 5 lots in the platted town — lot 5 of block 41 in the town the register codes CHIOT (L5BL41CHIOT, as printed); lot 7 of block 31 in the town the register codes CHIOT (L7BL31CHIOT, as printed); lot 8 of block 53 in the town the register codes CHIOTV (L8B53CHIOTV, as printed); the N2 of lot 8 of block 53 in the town the register codes CHIOT (N2L8B53CHIOT, as printed); the N2S2 of lot 8 of block 53 in the town the register codes CHI (N2S2L8B53CHI, as printed), 0.00 acres stated in all, for $15960.00 (ls1162, ls1163, ls1164, ls1165, ls1166). THE REGISTER'S OWN RESIDENCE COLUMN READS UNKNOWN on these rows: a county, a state or nothing, and never a town, which is why a purchase here places nobody. THE TOWN LOTS ARE THE PLAT ITSELF, AND THEY ARE NOT ACRES: Cook County's register describes them by lot and block in a platted town and gives them no section, no township and no acreage at all, so they add nothing to the acre figure above and $15960.00 to the money. This project does not expand the register's town codes, so which addition a lot stands in is carried as the code and not as a name. It is still a purchase and it still places nobody. A purchase and nothing more. It dates and places a transaction; it proposes no residence, and under the ratified ladder it corroborates rather than mints. Identity by the crosswalk's own rule: GARRETT A matches A. Garrett: the forename names A. Garrett of the 1 person of this surname, and the forename agrees as an initial only. (data/research/land_sales/resident_crosswalk.json). This pass WRITES THE EVIDENCE AND MOVES NO GRADE. Under the ratified ladder (T-0513) a second independent source is what lifts a projected resident, and a land entry is a second source about a TRANSACTION rather than about who was living at Chicago on 1 July 1835 — a man may buy a quarter-section he never sees. T-0515 applies the ladder against every source at once; this pass hands it the evidence and not the verdict.",
+   "resident_research": {
+    "programme": "resident-research-2026",
+    "ticket": "T-0508",
+    "outcome": "corroborated",
+    "reviewed_on": "2026-09-05",
+    "asserted_identity": true,
+    "evidence_for": "Independent of the post office in books, civic rolls, directories and more.",
+    "evidence_against": "The 1835 newspaper record gives only A. Garrett.",
+    "notes": "No candidate fact is asserted unless a source bridges the candidate to the 1835 Chicago record by more than name similarity.",
+    "source_ids": [
+     "cpl_augustus_garrett_biography",
+     "fergus_chicago_directory_1839",
+     "fergus_chicago_directory_1843",
+     "norris_directory_1844"
+    ],
+    "candidate_ids": [
+     "cand_augustus_garrett__garrett_a"
+    ],
+    "summary": "Independently corroborated; confirmed, not moved."
+   },
+   "roles": [
+    {
+     "role": "auctioneer",
+     "kind": "trade",
+     "as_printed": null,
+     "from": "1833-11",
+     "to": "1835-08",
+     "precision": "source_span",
+     "dated_by": "source_describes_date",
+     "covers_scene_date": true,
+     "confidence": "attested",
+     "sources": [
+      "chicago_american_1835",
+      "chicago_democrat_1833_1835"
+     ],
+     "claim": null,
+     "note": "THE BOUND IS THE SOURCE'S, NOT THE MAN'S. This role is carried by the card's 1835 occupation block and is dated by what the cited source or sources are ABOUT, which is why `precision` can be no better than the span they cover. The span reaches 1835, so this role stands in the scene-date view. The printing the trade was read off is not on the card and is fetched by T-1254."
+    }
+   ]
+  }
+ ],
+ "touches_removal": false,
+ "review_required": false,
+ "research_note": "MINTED FROM THE NEWSPAPER REGISTER (T-0376), AND THE HOUSEHOLD IS A CONTAINER RATHER THAN AN ARGUMENT. Every other record in this dataset argues for a household — a family the sources count, or a trade the town demonstrably needed. This one argues for a PERSON: the Democrat and the American name A. Garrett as a auctioneer at Chicago 5 time(s), and this reconstruction did not hold them. `data/residents/` has no way to carry a person except inside a household, so one was written around them and told to claim nothing: one member, no dwelling, no division, no origin, no arrival beyond the bound the paper sets. Reading a family, a house or a quarter of town into this record would be reading something the papers do not say. tools/mint_documented_residents.py derives the whole minted set and prints every candidate it refused, with the reason.",
+ "directories": {
+  "note": "LATER EVIDENCE, BESIDE THE 1835 CLAIMS AND NOT INSIDE THEM. A Chicago directory of 1839, 1843 or 1844 meets somebody of this name and this pass records what it prints. Under the ratified ladder a directory read after 1835 can corroborate that a person attested here was still in Chicago and can print a trade or a street the 1835 record never had; on its own it makes nobody a resident of 1835. Nothing on this person's 1835 record was regraded, moved, dated or given an occupation by this entry. WHAT THIS PASS RULED ONTO THIS HOUSEHOLD, named so the ruling can be found again: each volume below is followed by the printed entries it set against this person and the status the crosswalk ruled them at — a single entry carries what its own `could_carry` declares, and an ambiguous or contested match carries nothing and is shown so that the silence is legible. garrett_a, Fergus's Chicago directory of 1839 — f1839_e0527 (a single entry); garrett_a, Fergus's Chicago directory of 1843 — f1843_e0109, f1843_e0110, f1843_e1051 (ambiguous, so nothing crossed); garrett_a, Norris's Chicago directory of 1844 — n1844_e0679 (a single entry); garrett_a, the advertising cards in Norris's directory of 1844 — n1844_ad0110, n1844_ad0111, n1844_ad0112 (ambiguous, so nothing crossed).",
+  "sources": [
+   "fergus_chicago_directory_1839",
+   "fergus_chicago_directory_1843",
+   "norris_directory_1844"
+  ],
+  "people": [
+   {
+    "person_id": "garrett_a",
+    "address_later": {
+     "value": "res Sauganash Hotel",
+     "confidence": "attested",
+     "describes_date": 1844,
+     "sources": [
+      "norris_directory_1844"
+     ],
+     "note": "Norris's Chicago directory of 1844 prints this address against this person, in the entry quoted on the card: 'Garrett, Augustus, of G. & Seaman, res Sauganash Hotel'. It is evidence about 1844, written here as 1844's and read back onto no 1835 claim. Under the ratified ladder a directory read after 1835 can corroborate that a person attested here was still in Chicago and can print a trade or a street the 1835 record never had; on its own it makes nobody a resident of 1835. Nothing on this person's 1835 record was regraded, moved, dated or given an occupation by this entry. The value is the volume's own line, split by its crosswalk on the entry's punctuation. These volumes set the trade first and its qualifiers after it on the same line, so the split may carry an employer, a market or a corner along with the trade. The printed entry is quoted beside the value for exactly that reason: the split is checkable against it, and neither is read into an 1835 claim."
+    },
+    "back_projection": {
+     "outcome": "refused",
+     "clause": "2",
+     "value": null,
+     "describes_date": 1844,
+     "read_back_years": 9,
+     "placement": null,
+     "position_local_enu_m": null,
+     "sources": [
+      "norris_directory_1844"
+     ],
+     "note": "REFUSED, AND THE REFUSAL IS THE RECORD. Norris's Chicago directory of 1844 prints an address against this name in 1844 and this pass will not carry it back to 1835. The directory prints this as a RESIDENCE — its own `res`, `bds`, `house` or Norris's `h` — and this pass positions businesses. Reading a home address as a shop door would be the pass answering a question nobody asked it. The residence half is T-0669. A refusal is written here rather than dropped so that a later run can see the address was read and ruled on, not missed (docs/ADDRESS-BACK-PROJECTION.md, clause 2)."
+    },
+    "residence_back_projection": {
+     "outcome": "refused",
+     "clause": "R4",
+     "kind": "resides",
+     "value": null,
+     "describes_date": 1844,
+     "read_back_years": 9,
+     "placement": null,
+     "sources": [
+      "norris_directory_1844"
+     ],
+     "note": "REFUSED, AND THE REFUSAL IS THE RECORD. Norris's Chicago directory of 1844 prints where this person lived in 1844 and this pass will not carry it back to 1835. The entry names a public house by its sign — where this person boarded, not a street they lived on. A house of 1843 is a building, and resolving a building printed eight years after the scene onto 1835 ground is a second reading this pass does not make: it would have to identify the house, date it to 1835 and place it, and each of those is its own source question. A refusal is written here rather than dropped so that a later run can see the address was read and ruled on, not missed (docs/RESIDENCE-BACK-PROJECTION.md, clause R4)."
+    }
+   }
+  ]
+ }
+}

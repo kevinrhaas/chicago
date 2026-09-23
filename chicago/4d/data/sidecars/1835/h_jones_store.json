@@ -1,0 +1,205 @@
+{
+  "id": "h_jones_store",
+  "phase": "frame_1833",
+  "name": "Jones's Grocery and Provision Store",
+  "aka": [
+    "H. Jones's grocery and provision store",
+    "B. Jones, Chicago"
+  ],
+  "archetype": "frame_storefront",
+  "asset": "gltf/h_jones_store__frame_1833.glb",
+  "scene": "1835",
+  "target_date": "1835-07-01",
+  "documented_range": {
+    "from": "1833-11-26",
+    "to": "1835-12-31",
+    "confidence": "inferred",
+    "sources": [
+      "chicago_democrat_1833_11_26",
+      "andreas_1884_v1"
+    ],
+    "note": "THE START IS THE FIRST DATE A CONTEMPORARY DOCUMENT PUTS THE BUSINESS IN CHICAGO. The Chicago Democrat of 26 November 1833 carries a display advertisement headed 'Grocery & Provision Store. B. JONES. CHICAGO-ILLINOIS.' — which is primary evidence that a Jones grocery was trading in the town on that day. Andreas independently records 'grocery and provision store and forwarding and commission store by H. Jones' among the 1834 advertisers. THAT IS EVIDENCE ABOUT A BUSINESS AND NOT ABOUT A BUILDING; nothing reached dates the premises at either end, and the range closes at the end of the scene year on the ordinary continuity cut."
+  },
+  "change_note": "A grocery and provision store kept by Jones on South Water Street — one of the businesses advertising in the first number of the Chicago Democrat in November 1833 and still among the town's advertisers in 1834, by which time Andreas has it doing forwarding and commission work as well.",
+  "placement": {
+    "local_e": 347.379,
+    "local_n": -14.171,
+    "rotation_deg": 0.0,
+    "position_confidence": "reconstructed",
+    "position_sources": [],
+    "position_note": "CONJECTURAL, AND ONLY THE STREET IS EVIDENCE. Andreas places Jones among the South Water Street district advertisers and this project's dossier records the block as unattested; the contemporary advertisement of 26 November 1833 gives no address at all beyond 'Chicago-Illinois'. The point recorded here is at the west end of the Wells-to-LaSalle block, on the south side, and NOTHING SUPPORTS THAT CHOICE OF BLOCK — it is a lot on the right street with room on it, which is a rendering decision and not a finding. THE ALONG-STREET UNCERTAINTY IS THE WHOLE STREET, about 630 m from Market to State. THE SIDE OF THE STREET IS REASONED: the north side of South Water was the river bank, wharves and landings (docs/research/04-structures-south.md § 12), so a store is on the south side. METHOD, for the cross-street position only: the modern West Upper Wacker Drive centreline was interpolated between the intersection centres at North Wells (EPSG:26916 E 447402.5, N 4637411.6) and North LaSalle (E 447525.2, N 4637408.1), read from OpenStreetMap 2026-08-11, and the south kerb taken 12.2 m south of it as half an 80 ft platted street. Working uncertainty about 20 m across the street from the georeference (data/datum.json, 17.5 m RMS) and the length of the street along it. Facade bearing 0, north onto South Water, inferred from the street rather than from any statement. RECONCILED WITH THE COMMITTED PLAT 2026-08-27 (T-0199), AND THE CLAIM DID NOT MOVE — ONLY THE LINE IT WAS DERIVED AGAINST. The method above set this footprint's north face on the South Water frontage, and it found that frontage by taking the MODERN West Wacker Drive centreline out of OpenStreetMap and stepping 12.2 m south of it. That is not this project's own South Water Street: the committed centreline in data/streets/1835.json, offset by half the committed 80 ft corridor, is what tools/generate_plat_lots.py builds every platted block edge from, and it is the line every derived layer in this scene reads. Measured against it, this record's north wall stood 8.17 m OUT PAST the blk_south_water_wells frontage line, in the platted roadway — far enough into it that tools/generate_frontage_works.py refused the plank sidewalk along this stretch of South Water in writing and named this building in the refusal. THE REPAIR IS THIS RECORD'S OWN METHOD RUN AGAINST THIS PROJECT'S OWN LINE: the footprint is translated 9.67 m along the face's inward normal — dE +0.079 m, dN -9.671 m in local ENU, so UTM E 447420.0 N 4637391.3 becomes E 447420.079 N 4637381.629 — which leaves its north wall 1.50 m back from the committed frontage line, the same margin tools/generate_block_infill.py gives every reconstructed unit standing on this face, and the same repair the six reconciled under T-0198 carry. NOTHING ALONG THE STREET MOVED: the along-face position, the block, the corner and the side are untouched, and so is the confidence grade — re-deriving a coordinate from better geometry is not new evidence. WHY IT TOOK A SECOND RUN, AND WHOSE DECISION IT WAS. T-0198 measured this exact translation and REFUSED to apply it, for a reason that was real: reconciled onto the plat this building SEATS on lot 0 of blk_south_water_wells, and that lot is one the 665-roof schedule had already dealt to the anonymous South Water frontage run, which tools/generate_block_infill.py refused — one principal roof to a lot. Nothing overlapped; the worst overlap between any of the eleven South Water placements and any committed footprint in the town is zero. What refused this repair was a RULE about entitlement, not the ground. THE OWNER RULED ON 2026-08-27 that a platted business-front lot may carry a documented store at the street AND an anonymous dwelling behind it, on the reasoning that the geometry already permits it and the alternative pays eight roofs and two households for a rule the corrected data had itself called into question. The clause and its three tests are written into tools/plat_occupancy.py; no roof left the town and no household moved. WHAT IS STILL WRONG AND IS LEFT WRITTEN DOWN: the facade bearing stays 0 while this face runs at 359.53 (i.e. -0.47), so the front wall is 1.50 m back at its worst corner and up to 1.60 m at the other. That skew is smaller than the walk's own daylight and it is not corrected here, because rotating a documented record is a second claim and this one is a repair.",
+    "symbolic_location": "South side of South Water Street just east of Wells Street (today the south side of West Wacker Drive) — the street is attested, the block is not.",
+    "uncertainty_m": 20,
+    "placement_provisional": false,
+    "vertical_anchor": "terrain",
+    "walk_surface_m": null
+  },
+  "footprint": {
+    "polygon": [
+      [
+        0,
+        0
+      ],
+      [
+        12.192,
+        0
+      ],
+      [
+        12.192,
+        7.62
+      ],
+      [
+        0,
+        7.62
+      ]
+    ],
+    "confidence": "reconstructed",
+    "sources": [],
+    "note": "INVENTED — the parcel's borrowed rectangle, 12.192 x 7.62 m = 40 x 25 ft, from the Green Tree Tavern's attested frontage and room module. Nothing is attested about this building. The larger rather than the smaller rectangle is used because Andreas describes the business as a grocery and provision store AND a forwarding and commission store, which is two trades under one roof and wants floor for barrels — an argument about the trade, not about the building. The documented South Water lot width of 55 ft is a cap and 40 ft sits inside it."
+  },
+  "attributes": {
+    "stories": {
+      "value": 1,
+      "confidence": "reconstructed",
+      "note": "Nothing is attested. One is recorded because it is the smaller claim. Invention, tagged as such."
+    },
+    "construction": {
+      "value": "braced_frame",
+      "confidence": "inferred",
+      "sources": [
+        "andreas_1884_v1"
+      ],
+      "note": "Not stated. Frame rather than log because this project's dossier records the mid-1830s South Water commercial stock as frame and because a provision store wants clear floor and a wide door. Braced rather than balloon frame follows the Sauganash record's argument; nothing decides between them."
+    },
+    "wall_height_m": {
+      "value": 3.6,
+      "confidence": "inferred",
+      "note": "No figure is attested. 3.6 m is about 12 ft, one storey built taller than a dwelling's for stacked goods and a cart door. It inherits the storey count's uncertainty, which is conjectural."
+    },
+    "roof_type": {
+      "value": "gable",
+      "confidence": "inferred",
+      "note": "Not attested. Gable is the near-universal roof form for frame buildings of this type, period and region."
+    },
+    "roof_pitch_deg": {
+      "value": 33.0,
+      "confidence": "inferred",
+      "note": "No pitch is attested for this building. 33 degrees is the frame_storefront archetype's own figure for a store, and it is adopted here rather than the 38 this project uses for taverns because the archetype argues the case from the dataset's one attested store footprint: a store's frontage is long and its plan shallow, so a tavern's pitch puts more roof above the eave than there is wall below it and the building stops reading as a shop. Inferred from construction practice and from the type, not measured."
+    },
+    "chimneys": {
+      "value": 1,
+      "confidence": "inferred",
+      "note": "Not attested. One is the minimum for a store kept through Chicago winters. The COUNT is the inference; the stack's position, size and material are the archetype's, per docs/LIBERTIES.md L26."
+    },
+    "dock": {
+      "value": true,
+      "confidence": "reconstructed",
+      "geometry": "simplified",
+      "sources": [],
+      "note": "RECONSTRUCTED, UNDER THE OWNER'S RULING OF 2026-08-18 — 'you can add more docks!', given with the general instruction to be liberal with reconstructed items and label them as such (T-0062; data/sources/assets/owner_brief_2026_08_18/README.md). NO SOURCE STATES A DOCK, WHARF OR LANDING AT THIS FRONTAGE — that absence is exactly why this value is reconstructed and not inferred, one tier below the two river warehouses whose dock is stated in the dossier. What bounds the invention: (1) THE TRADE — a grocery and provision store advertising from the Chicago Democrat's first number in November 1833, and by 1834 doing forwarding and commission work as well (Andreas) — the second half of that trade is the same argument as J. H. Kinzie's. (2) THE REACH — this building stands on the South Water river frontage between the forks and the Dearborn drawbridge, the working bank the 2026-08-18 brief shows crowded with masts (image 3) and the reach every schooner cargo landed on; a street of merchants whose whole stock came in by water did not work it over two landings. (3) THE PRACTICE — wharfing-out along the south bank is the practice T-0041's research note records as the thing that would move this layer off reconstruction, and the docks it drew are this landing's pattern. The landing itself is the wharf layer's standard form (data/wharves/river_landings.json, tools/generate_river_wharves.py), every dimension invented within the bounds L132 states; geometry 'simplified' is the exact claim — a standard-form landing stands for a statement this record cannot make from evidence. Claimed at docs/LIBERTIES.md L145. The Temple Building on the same frontage gets NO landing from the same rule: worship and a school take nothing off a schooner."
+    },
+    "siding_exposure_m": {
+      "value": 0.127,
+      "confidence": "reconstructed",
+      "note": "INVENTED WITHIN A STOCK SET, NOT DERIVED. No source states the exposed face of any Chicago building's siding. The value is one of four period mill sidings — 4.5, 5, 5.5 or 6 in to the weather; this record wears 5 in — dealt by tools/deal_siding_stock.py: keyed to the phase's construction season, because buildings sided from the same season's shipments of St Joseph sawn lumber tend toward one stock, then advanced so no frame building within 60 m shares this one's. The separation is the surface variety T-0049 reconstructs, not a claim about 1835. docs/LIBERTIES.md L148 owns the invention."
+    },
+    "function": {
+      "value": "grocery_and_provision_store",
+      "confidence": "attested",
+      "sources": [
+        "chicago_democrat_1833_11_26",
+        "andreas_1884_v1"
+      ],
+      "note": "Documented twice and once contemporaneously: the advertisement in the Chicago Democrat of 26 November 1833 is headed 'Grocery & Provision Store', and Andreas records the same trade with forwarding and commission added by 1834. The trade is the best-evidenced thing about this record."
+    },
+    "occupants": {
+      "value": "Jones, grocer and provision merchant",
+      "confidence": "inferred",
+      "sources": [
+        "chicago_democrat_1833_11_26",
+        "andreas_1884_v1"
+      ],
+      "note": "THE INITIAL DISAGREES BETWEEN THE TWO SOURCES AND THE RECORD DOES NOT PICK ONE. Andreas writes 'H. Jones'. The advertisement in the Chicago Democrat of 26 November 1833 reads 'B. JONES'. A contemporary advertisement is the man's own word about his own name and would normally win outright, but the reading comes off a scan of a damaged sheet, the letters B and H are among the easiest to confuse in a display face of this period, and this project has been warned that the transcription accompanying the scan is imperfect elsewhere in the same issue. So the surname is carried, the initial is not, and the record id keeps the H that this project's dossier assigned it because renaming a record is worse than annotating one. Both readings are recorded in aka."
+    }
+  },
+  "residents": [
+    {
+      "household": "hh_jones_benjamin",
+      "name": "The Jones household",
+      "division": "south",
+      "relation": "worked here",
+      "why": "data/structures/h_jones_store.json carries 'Jones, grocer and provision merchant' as its occupants and rests on the same advertisement.",
+      "sources": [
+        "andreas_1884_v1",
+        "chicago_democrat_1833_11_26"
+      ],
+      "basis": "",
+      "persons": [
+        {
+          "name": "Benjamin Jones",
+          "relationship": "head",
+          "grade": "attested",
+          "occupation": "none_recorded",
+          "note": "APPOINTED THE TOWN'S FIRST STREET COMMISSIONER ON 7 NOVEMBER 1833 and resigned before his term expired: Andreas, 'It was during these days that Benjamin Jones was appointed Street Commissioner, but on account of ill-health resigned before his term expired, and was succeeded by O. Morrison and Silas W. Sherman.' His health is the only medical fact about any private resident in this parcel. The Chicago Democrat of 26 November 1833 is the only contemporary Chicago document this project holds; an advertiser in it was paying to be found, which makes it strong evidence of existence and address in November 1833 and weak evidence of survival to 1 July 1835, nineteen months and about 2,400 people later. OLD SETTLERS, 1882 — A DATE OF DEATH, AND NOTHING ABOUT 1835. John Wentworth's roll of old settlers who had died since 1 January 1881, kept for the Calumet Club and printed in the Chicago Tribune of 25 April 1882, carries “Benjamin Jones, Aug. 11, 1881.”. That corroborates a Chicago residence before 1840 and fixes the END of this life, which this record did not carry; it is not an arrival and it places nobody in the town on 1 July 1835. Under the ratified ladder (T-0513) a later recollection corroborates, enriches and dates and cannot lift a rung by itself, so this record's GRADE IS UNCHANGED by it: T-0513 consolidates the identity and T-0515 regrades. Identity by rule OS1 — surname and spelled-out forename agree, one bearer (data/research/old_settlers/crosswalk.json). THE TOWN'S OWN ROLLS, 1833-1835 — CORROBORATION, NOT A GRADE. The early Chicago voter and tax lists held by the Illinois Regional Archives Depository name this person 1 time: Election returns — poll list of 1834, filed 11 August 1834 — “Jones, Benjamin” (poll_1834_060, line 229). These are the town's own contemporary paper rather than a recollection of it, and each appearance says that a man of that name stood on that roll in that year — no more. The reading is twice mediated (Schulz's transcription, then Genealogy Trails' republication) and this project has not seen the IRAD originals. Under the ratified ladder (T-0513) the 1835 poll with a second independent source is attested, the 1835 poll alone or a 1833/1834 list with another source is inferred, and a single appearance with nothing else is a projected resident. This pass WRITES THE EVIDENCE AND MOVES NO GRADE — T-0515 applies the ladder against every source at once. Identity by the crosswalk's own rule: one resident of the surname 'Jones' agrees with the entry's forenames; 1 bearer(s) of the surname were considered. (data/research/civic/voter_crosswalk.json). THE FEDERAL LAND TRACT SALES — A PURCHASE, AND NEVER A RESIDENCE. The Illinois State Archives' Public Domain Land Tract Sales register enters this person 5 times, as “JONES BENJAMIN”, 1833-10-22 to 1836-06-22: 1 lot in the platted town — lot 7 of block 35 in the town the register codes CHIOT (L7BL35CHIOT, as printed) and 4 parcels of the school section — BL121 of the school section (sec 16 T39N R14E), as read; lot 2 of block 117 of the school section (sec 16 T39N R14E); lot 4 of block 23 of the school section (sec 16 T39N R14E); lot 4 of block 80 of the school section (sec 16 T39N R14E), 0.00 acres stated in all, for $7133.00 (ls0254, ls0255, ls0256, ls0257, ls1263). THE REGISTER'S OWN RESIDENCE COLUMN READS UNKNOWN on these rows: a county, a state or nothing, and never a town, which is why a purchase here places nobody. THE SCHOOL-SECTION ROWS ARE GROUND INSIDE THE TOWN, NOT FARMLAND: section 16 of T39N R14E was platted and sold off by lot and by block at the sale of 1833, which is why the register states 0000.00 acres against most of them. Ground inside the town is nearer to this reconstruction than a quarter-section is, and it is still a purchase: the register names a purchaser and never an occupant, and nothing here puts this person on that ground. THE TOWN LOTS ARE THE PLAT ITSELF, AND THEY ARE NOT ACRES: Cook County's register describes them by lot and block in a platted town and gives them no section, no township and no acreage at all, so they add nothing to the acre figure above and $6000.00 to the money. This project does not expand the register's town codes, so which addition a lot stands in is carried as the code and not as a name. It is still a purchase and it still places nobody. A purchase and nothing more. It dates and places a transaction; it proposes no residence, and under the ratified ladder it corroborates rather than mints. Identity by the crosswalk's own rule: JONES BENJAMIN matches Benjamin Jones: the forename names Benjamin Jones of the 6 people of this surname, and the forename agrees in full. (data/research/land_sales/resident_crosswalk.json). This pass WRITES THE EVIDENCE AND MOVES NO GRADE. Under the ratified ladder (T-0513) a second independent source is what lifts a projected resident, and a land entry is a second source about a TRANSACTION rather than about who was living at Chicago on 1 July 1835 — a man may buy a quarter-section he never sees. T-0515 applies the ladder against every source at once; this pass hands it the evidence and not the verdict."
+        }
+      ],
+      "research_note": "THE TOWN'S FIRST STREET COMMISSIONER, WHICH IS A JOB THIS DATASET'S GROUND LAYER SHOULD CARE ABOUT: the ordinances of 7 November 1833 that he was appointed to enforce are the same ones that document timber, stone, brick, boxes and barrels stacked in the streets and hogs running at large. He is the man who was supposed to stop it, and he was ill."
+    }
+  ],
+  "citations": [
+    {
+      "source_id": "andreas_1884_v1",
+      "citation": "Andreas, A. T. History of Chicago: From the Earliest Period to the Present Time. Vol. 1. Chicago: A. T. Andreas, 1884.",
+      "url": "https://archive.org/details/historyofchicago01andr",
+      "archived_url": "",
+      "tier": 3,
+      "tier_label": "compiled secondary (Andreas)"
+    },
+    {
+      "source_id": "chicago_democrat_1833_11_26",
+      "citation": "The Chicago Democrat. Vol. I, No. 1. Chicago, Ill.: John Calhoun, Tuesday, November 26, 1833.",
+      "url": "",
+      "archived_url": "",
+      "tier": 1,
+      "tier_label": "period/eyewitness",
+      "what_it_supplies": [
+        "that a named trade was being carried on in Chicago in November 1833",
+        "the Chicago Democrat's own address, self-reported: the corner of South Water and Clark streets",
+        "Philo Carpenter advertising drugs, medicines, oils, paints and dye-stuffs, dated Nov. 22, 1833 — with NO address, so it cannot disambiguate his two shops",
+        "C. & I. Harmon advertising dry goods, crockery, hardware and wet and dry groceries, dated Nov. 18, 1833 — with NO address, so it does NOT corroborate the Clark/South Water corner Andreas gives them",
+        "W. Kimball's 'New Store' at the corner of South Water and Clark — a SECOND, independently attested occupant of that junction in the same issue, signed",
+        "Peter Cohen, clothier and grocer, self-reported at the EAST END OF SOUTH WATER-STREET, and trading in Chicago before Nov 1833 ('old customers ... past favors')",
+        "Goss & Cobb, saddle and harness makers, self-reported on the corner of Lake and Canal streets",
+        "Matthias Mason & Co., blacksmiths, on 'Main-street, nearly opposite Graves' Tavern' — a street name this project does not otherwise hold",
+        "B. Jones, grocery and provision store, and separately a storage/forwarding/commission business — both ads give NO street",
+        "Newberry & Dole, forwarding and commission merchants — no address",
+        "John Wright, cut nails and general merchandise; and TWO BUILDINGS TO LET until 1 June 1834",
+        "Daniel Elston & [illegible], soap and candle manufactory, paying cash for tallow and house ashes",
+        "a tavern stand kept by Chester Ingersoll, 'lately occupied by Mr. Wm. W. WATTLES', dated 4 October 1833",
+        "the house of Chester Ingersoll used as the district polling place, 9 December 1833",
+        "THE VILLAGE ORDINANCES of 7 November 1833, complete — the richest single item in the paper",
+        "Ordinance 1: the corporate limits surveyed ALONG the northern United States' Pier 'to the termination thereof' — the pier as an existing, walkable structure with a definite landward end",
+        "Ordinance 5: 'either of the bridges in said town' and their 'plank or any piece of timber' — EXACTLY TWO bridges on 7 Nov 1833, of plank-and-timber construction",
+        "Ordinance 6: wooden buildings with wooden and lath-and-plaster partitions, heated by STOVES not fireplaces, pipes passing through roof or side wall and carried 18 inches above the roof, guarded by stone-ware pipe, brick, tin or sheet iron",
+        "Ordinance 9: timber, stone, brick, boxes and barrels stacked in the streets",
+        "Ordinances 3, 7 and 8: hogs at large, horses run through the streets, stallions",
+        "the schooner Austerlitz, Capt. Smith, from Buffalo, arrived about the 1[9]th inst. with a full cargo of merchandise for citizens of this village and cleared on the 21st IN BALLAST",
+        "a school established in the village by Mr. Sproat of Boston, already running on 26 Nov 1833",
+        "a public auction of United States property held AT FORT DEARBORN, 2 December 1833",
+        "the village population passing 'more than eight hundred souls' in late 1833"
+      ],
+      "what_it_does_not_supply": [
+        "any building's dimensions",
+        "any building's form, material, storey count or fenestration",
+        "the specific corner of any junction it names — the imprint says 'on the corner of', and which of the four is not in the sentence",
+        "evidence that any building named here still stood on 1835-07-01 — this issue is NINETEEN MONTHS before the scene date, in the town's fastest-changing period, and the population went from 800 to 3,265 in between",
+        "any building footprint or plan",
+        "any length or width for the piers",
+        "any corroboration of the estray pen — see the negative finding in the note"
+      ]
+    }
+  ],
+  "research_note": "A CONTEMPORARY ADVERTISEMENT AND NO ADDRESS, which is the shape of most of the weak tier of this street. The Chicago Democrat of 26 November 1833 proves a Jones grocery and provision store was trading at Chicago on that day; Andreas puts the same trade among the 1834 South Water advertisers and adds forwarding and commission. Neither says where. Position and footprint are conjectural, storeys with them, and the record is a business placed on the right street. THE INITIAL IS AN OPEN QUESTION, recorded on occupants: Andreas says H. Jones, the scan says B. JONES, and this record carries both rather than choosing. That is the kind of disagreement the project's honesty rules exist for — a single letter, on a damaged sheet, between a contemporary document and a compilation fifty years later. WHAT WOULD UPGRADE THIS RECORD: any 1834-35 advertisement carrying Jones's address, which Andreas's own 1834 summary implies exists in the Democrat's files; or a clean reading of the 26 November 1833 sheet's advertisement block, which would at least settle the initial. See docs/RESEARCH/h_jones_store.md.",
+  "research_doc": "docs/RESEARCH/h_jones_store.md",
+  "review_required": false
+}

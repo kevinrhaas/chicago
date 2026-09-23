@@ -1,0 +1,243 @@
+{
+  "schema": 1,
+  "domain": "books",
+  "source_id": "ichr_v4_thompson_illinois_vincennes",
+  "_doc": "HAND-AUTHORED, T-0650. Joseph J. Thompson, 'The Illinois Part of the Diocese of Vincennes', Illinois Catholic Historical Review vol. 4 (1921-22), pages 256-259, read for the one thing the ticket named: the article's statement of where the first Catholic church in Chicago stood. THE TICKET'S PREMISE WAS WRONG IN TWO PLACES AND THE CORRECTION IS THE FINDING. It said the first Catholic church is not in the scene; data/structures/st_marys_church.json has been in the scene since 2026-08-11. It said this passage is the only located statement of the building this project has; chicagology_prefire216's Andreas transcription is another, it is what the record was placed off, and it says the same quadrant with the same hedge. So this reading CORROBORATES a placement rather than making one, and every claim below says which of the two it is doing. NOTHING IS PAYLOAD: no structure, asset, resident or household record was changed on this ticket, and the one reading that argues for such a change — the church still standing at State and Lake in June 1837, against a phase end of 1836-12-31 — is written as a proposal in a follow-on ticket and is not acted on here. Every quote is rebuilt out of data/research/books/text/ichr_v4_1921_22.txt by tools/research_domains.py --check and fails on one changed character; the OCR's own faults ('Iraneus', 'to to remain', 'belfray', 'eross', 'suecessor') are committed as printed and the smoothed reading lives in `normalized`.",
+  "generated_by": "hand - T-0650",
+  "claims": [
+    {
+      "id": "bk_ichr4_001",
+      "kind": "building",
+      "reading": "transcription_mediated",
+      "quote": "When he came he found the little church that Father St. Cyr \nhad built standing near the southwest corner of what is now State \nand Lake Streets, upon ground controlled by the Canal Commissioners. ",
+      "normalized": "When Father Timothy O'Meara came to Chicago he found the little church that Father St. Cyr had built standing near the south-west corner of what was, in 1921, State and Lake Streets, on ground controlled by the Canal Commissioners.",
+      "locator": {
+        "text_file": "ichr_v4_1921_22.txt",
+        "lines": [
+          2037,
+          2039
+        ],
+        "page": 258,
+        "original": "Joseph J. Thompson, 'The Illinois Part of the Diocese of Vincennes', Illinois Catholic Historical Review vol. 4 (1921-22), page 258. The sentence carries NO footnote; the footnotes on either side of it cite Garraghan.",
+        "list": "ichr_v4_1921_22_thompson_vincennes_pp256_259",
+        "url": "https://archive.org/download/illinoiscatholic04unse_1/illinoiscatholic04unse_1_djvu.txt"
+      },
+      "describes_date": "June 1837 for the finding; the building itself was put up in 1833",
+      "entities": [
+        "St Mary's Church",
+        "Rev. Timothy O'Meara",
+        "Rev. John Mary Irenaeus St. Cyr",
+        "State Street",
+        "Lake Street",
+        "the Canal Commissioners"
+      ],
+      "town_finding": true,
+      "notes": "THE SENTENCE THIS TICKET WAS OPENED FOR, AND IT IS A CORROBORATION AND NOT A DISCOVERY. data/structures/st_marys_church.json has stood on the south-west quadrant of Lake and State since 2026-08-11, placed off chicagology_prefire216, whose Andreas transcription has St. Cyr selecting 'a canal lot near the southwest corner of Lake and State streets'. This is a second author in a second book printing the same quadrant with the same hedge word, 'near' — so it strengthens the quadrant and does NOT narrow the lot, and the unbounded westward error the structure record states is untouched by it. WHAT IS NEW HERE IS THE GROUND: 'upon ground controlled by the Canal Commissioners' says the congregation did not own what it stood on, which on the scene date of 1835-07-01 is a fact about the parcel and not about the building. IT IS ALSO A DATE. 'When he came' is O'Meara's arrival, which this same article puts in the early or middle part of June 1837 (bk_ichr4_004): the church was still at State and Lake then, which is 23 months after the scene date and later than the 1836-12-31 phase end st_marys_church.json currently carries. That record's own note says either reading of the removal puts the church at Lake and State on the scene date, so the scene is not wrong; the phase END is the thing this sentence bears on, and it is not changed here. 'What is now State and Lake Streets' is 1921 street naming applied to 1837 ground and is the retrospection this claim is graded for."
+    },
+    {
+      "id": "bk_ichr4_002",
+      "kind": "price",
+      "reading": "transcription_mediated",
+      "quote": "It was the intention of the Catholics to buy the ground as soon as it \nwould be placed on sale, under the arrangement to sell the Canal lots \nat a public auction, and there was a friendly arrangement amongst \nlocal people not to run up the price on the lot, but to permit the \nCatholics to obtain it at the valuation fixed by the commissioners. \nWhen the time of sale came and it was announced that the valuation \nhad been fixed at $10,000 the Catholics saw that they were unable to \nraise the amount, and the lot was purchased by a private party. ",
+      "normalized": "The Catholics meant to buy the ground at the public auction of the canal lots, and local people had agreed not to bid the lot up against them, so that they could take it at the commissioners' valuation. The valuation was announced at $10,000, they could not raise it, and a private party bought the lot.",
+      "locator": {
+        "text_file": "ichr_v4_1921_22.txt",
+        "lines": [
+          2040,
+          2047
+        ],
+        "page": 258,
+        "original": "Illinois Catholic Historical Review vol. 4, page 258.",
+        "list": "ichr_v4_1921_22_thompson_vincennes_pp256_259",
+        "url": "https://archive.org/download/illinoiscatholic04unse_1/illinoiscatholic04unse_1_djvu.txt"
+      },
+      "describes_date": "undated in the article — after 1837-06 and before the removal it caused",
+      "entities": [
+        "St Mary's Church",
+        "the Canal Commissioners",
+        "the Catholics of Chicago"
+      ],
+      "town_finding": true,
+      "notes": "THE FIGURE IS NEW TO THIS PROJECT. chicagology_prefire216 already carries the shape of this story — 'not anticipating the high price at which the lot would be appraised, they erected thereon a chu[rch]' — but not the number. $10,000 is what the canal commissioners' valuation of one Lake-and-State corner lot came to, and it is a price on the ground the scene stands on, not on the building. THE ARTICLE DATES NEITHER THE AUCTION NOR THE VALUATION, so nothing here dates the removal, and nothing here may be used to date it. The friendly local arrangement not to run the price up is a statement about the town's temper that no other source in this project makes."
+    },
+    {
+      "id": "bk_ichr4_003",
+      "kind": "building",
+      "reading": "transcription_mediated",
+      "quote": "Thereupon it became necessary to remove the building, and that was \ndone under the direction of Father O’Meara. The place to which it \nwas removed was the property at the northwest corner of Michigan \nAvenue and Madison Street. Father O’Meara bought this lot from \nthe government for $262.00, and received a quitclaim deed from Jean \nBaptiste Beaubien, who claimed it, together with all the other prop- \nerty, which had formerly been included in the government reservation \nfor Fort Dearborn.*® ",
+      "normalized": "The building then had to be moved, and Father O'Meara directed the move. It went to the property at the north-west corner of Michigan Avenue and Madison Street, a lot O'Meara bought from the government for $262.00, taking a quitclaim deed from Jean Baptiste Beaubien, who claimed that lot along with the rest of the old Fort Dearborn reservation.",
+      "locator": {
+        "text_file": "ichr_v4_1921_22.txt",
+        "lines": [
+          2048,
+          2055
+        ],
+        "page": 258,
+        "original": "Illinois Catholic Historical Review vol. 4, page 258.",
+        "list": "ichr_v4_1921_22_thompson_vincennes_pp256_259",
+        "url": "https://archive.org/download/illinoiscatholic04unse_1/illinoiscatholic04unse_1_djvu.txt"
+      },
+      "describes_date": "after June 1837; the article gives no date",
+      "entities": [
+        "St Mary's Church",
+        "Rev. Timothy O'Meara",
+        "Jean Baptiste Beaubien",
+        "Michigan Avenue",
+        "Madison Street",
+        "the Fort Dearborn reservation"
+      ],
+      "town_finding": true,
+      "notes": "POST-SCENE, AND IT IS RECORDED BECAUSE IT BOUNDS THE SCENE FROM ABOVE. The destination — the north-west corner of Michigan Avenue and Madison Street — agrees with the removal chicagology_prefire216 already describes, so the two sources tell one story. THE BEAUBIEN DETAIL IS THE PART A LATER RUN WILL WANT: Jean Baptiste Beaubien is a resident of this town and this is a claim he made on the whole Fort Dearborn reservation, which is ground inside the scene window; it is 1921 prose about a post-1837 conveyance and it places nothing in 1835, but it is the only statement in this domain about the extent of what Beaubien claimed. Nothing was written into his household or resident record on this ticket."
+    },
+    {
+      "id": "bk_ichr4_004",
+      "kind": "person",
+      "reading": "transcription_mediated",
+      "quote": "Father Schaefer was still in Chicago when Father St. Cyr left, and \nwas then and after Father St. Cyr’s departure the sole priest in — ; \nChicago until the early or middle part of June, 1837, when Rev. \nTimothy O’Meara sent by Bishop Bruté arrived,’ whereupon Father ",
+      "normalized": "Father Schaefer was still in Chicago when St. Cyr left, and was the sole priest there both then and after St. Cyr's departure until the early or middle part of June 1837, when Rev. Timothy O'Meara, sent by Bishop Bruté, arrived.",
+      "locator": {
+        "text_file": "ichr_v4_1921_22.txt",
+        "spans": [
+          {
+            "line": 1796,
+            "from": 0,
+            "to": 67
+          },
+          {
+            "line": 1799,
+            "from": 0,
+            "to": 69
+          },
+          {
+            "line": 1802,
+            "from": 0,
+            "to": 64
+          },
+          {
+            "line": 1803,
+            "from": 0,
+            "to": 64
+          }
+        ],
+        "page": 256,
+        "original": "Illinois Catholic Historical Review vol. 4, page 256. Taken by SPANS and not by a line range: the OCR breaks this one sentence across two runs of blank lines, at 1797-1798 and 1800-1801, where the scan's page furniture sat.",
+        "list": "ichr_v4_1921_22_thompson_vincennes_pp256_259",
+        "url": "https://archive.org/download/illinoiscatholic04unse_1/illinoiscatholic04unse_1_djvu.txt"
+      },
+      "describes_date": "April to June 1837",
+      "entities": [
+        "Rev. Timothy O'Meara",
+        "Rev. Bernard Schaefer",
+        "Rev. John Mary Irenaeus St. Cyr",
+        "Bishop Simon Bruté"
+      ],
+      "town_finding": true,
+      "notes": "THIS IS WHAT DATES bk_ichr4_001. 'When he came he found the little church … standing near the southwest corner' is worth a date only because this sentence supplies one, and it is 'the early or middle part of June, 1837' — a month with a fortnight's hedge on it, which is how it is written down and how it must be cited. It is the strongest thing this article gives a scene dated 1835-07-01: the first Catholic church had not yet moved 23 months later. The footnote marker after 'arrived' is Garraghan p. 103."
+    },
+    {
+      "id": "bk_ichr4_005",
+      "kind": "person",
+      "reading": "transcription_mediated",
+      "quote": "Rev. John Mary Iraneus St. Cyr, whom Bishop Rosati had sent to \nChicago in 1833, to to remain for a time in Chicago. Grudgingly ",
+      "normalized": "Rev. John Mary Irenaeus St. Cyr, whom Bishop Rosati had sent to Chicago in 1833, was permitted to remain there for a time.",
+      "locator": {
+        "text_file": "ichr_v4_1921_22.txt",
+        "lines": [
+          1783,
+          1784
+        ],
+        "page": 256,
+        "original": "Illinois Catholic Historical Review vol. 4, page 256. The OCR prints 'Iraneus' for Irenaeus and doubles a word — 'to to remain' — and both are committed as printed.",
+        "list": "ichr_v4_1921_22_thompson_vincennes_pp256_259",
+        "url": "https://archive.org/download/illinoiscatholic04unse_1/illinoiscatholic04unse_1_djvu.txt"
+      },
+      "describes_date": "1833 onward",
+      "entities": [
+        "Rev. John Mary Irenaeus St. Cyr",
+        "Bishop Joseph Rosati"
+      ],
+      "town_finding": true,
+      "notes": "The pastor on the scene date, and the same 1833 arrival st_marys_church.json already asserts from a different page. It corroborates the record's `owner` reading — St. Cyr, pastor — without strengthening it: that reading is graded inferred because no source says who was in charge on any particular day of 1835, and this sentence does not say so either."
+    },
+    {
+      "id": "bk_ichr4_006",
+      "kind": "person",
+      "reading": "transcription_mediated",
+      "quote": "Father Schaefer arrived in Chicago in the fall of 1836. Father \nSt. Cyr in a letter addressed to Bishop Rosati of St. Louis, dated \nSeptember 5, 1836, stated that Father Schaefer had been with him \n‘‘for some weeks.’ Father St. Cyr remained until April 17, 1837.° ",
+      "normalized": "Father Schaefer arrived in Chicago in the fall of 1836; St. Cyr's letter to Bishop Rosati of 5 September 1836 says Schaefer had already been with him for some weeks. St. Cyr remained until 17 April 1837.",
+      "locator": {
+        "text_file": "ichr_v4_1921_22.txt",
+        "lines": [
+          1792,
+          1795
+        ],
+        "page": 256,
+        "original": "Illinois Catholic Historical Review vol. 4, page 256. The volume spells the same man Schaefer here and Shaefer nine lines earlier; both are committed as printed and neither is corrected.",
+        "list": "ichr_v4_1921_22_thompson_vincennes_pp256_259",
+        "url": "https://archive.org/download/illinoiscatholic04unse_1/illinoiscatholic04unse_1_djvu.txt"
+      },
+      "describes_date": "September 1836 to April 1837",
+      "entities": [
+        "Rev. Bernard Schaefer",
+        "Rev. John Mary Irenaeus St. Cyr",
+        "Bishop Joseph Rosati"
+      ],
+      "town_finding": true,
+      "notes": "A DEPARTURE DATE TO THE DAY, 17 April 1837, and it is the reason no second priest may be put in the 1835 town on this article's authority: the second priest at Chicago did not arrive until the fall of 1836. It bounds st_marys_church.json's `owner` reading from the far side — St. Cyr is the only pastor across the whole scene window, which is what that record says."
+    },
+    {
+      "id": "bk_ichr4_007",
+      "kind": "building",
+      "reading": "transcription_mediated",
+      "quote": "Sometime either before or after the removal of the little church \nfrom the State-Lake location to the Michigan-Madison site Father \nO’Meara procured a house located on the eastern portion of the same \nground to which the church was removed. No one seems to have \nstated whether this house was built by Father O’Meara or whether \nit existed there before the removal of the church property. It ",
+      "normalized": "At some point before or after the church was moved from the State-Lake location to the Michigan-Madison site, Father O'Meara got hold of a house on the eastern part of the same ground the church was moved to. Nobody has said whether he built it or whether it was already there.",
+      "locator": {
+        "text_file": "ichr_v4_1921_22.txt",
+        "lines": [
+          2101,
+          2106
+        ],
+        "page": 259,
+        "original": "Illinois Catholic Historical Review vol. 4, page 259.",
+        "list": "ichr_v4_1921_22_thompson_vincennes_pp256_259",
+        "url": "https://archive.org/download/illinoiscatholic04unse_1/illinoiscatholic04unse_1_djvu.txt"
+      },
+      "describes_date": "about 1837-1840",
+      "entities": [
+        "St Mary's Church",
+        "Rev. Timothy O'Meara",
+        "State Street",
+        "Lake Street",
+        "Michigan Avenue",
+        "Madison Street"
+      ],
+      "town_finding": true,
+      "notes": "RECORDED FOR ITS FIRST NINE WORDS AND NOT FOR THE RECTORY. 'the removal of the little church from the State-Lake location to the Michigan-Madison site' is the article naming the church's original corner A SECOND TIME, in a second sentence sixty-odd lines from the first, and a location an author states twice is worth more than one he states once. The rectory itself is post-scene and is not placed by this project. Note the article's own admission of ignorance — 'No one seems to have stated' — which is the register of a compiler and not of a witness."
+    },
+    {
+      "id": "bk_ichr4_008",
+      "kind": "appearance",
+      "reading": "transcription_mediated",
+      "quote": "Having removed the little church, and the congregation having \ngrown, it was determined that the church should be enlarged. This \nenlargement was made by adding an addition to the rear of the \nchurch, about the same length as the original church.1® To make it \nmore imposing a small belfry was built on the front of the church, \nand a bell said to be a very small one, weighing only three pounds,\" \nwas placed in the belfray, which was surmounted by a eross.1® This \nwas the first belfry and the first bell ever used for church purposes \nin Chicago. | ",
+      "normalized": "After the removal the church was enlarged by an addition at the rear about as long as the original church, and a small belfry was built on the front, holding a bell said to weigh only three pounds and surmounted by a cross — the first belfry and the first bell used for church purposes in Chicago.",
+      "locator": {
+        "text_file": "ichr_v4_1921_22.txt",
+        "lines": [
+          2058,
+          2066
+        ],
+        "page": 258,
+        "original": "Illinois Catholic Historical Review vol. 4, page 258. The OCR prints 'belfray' and 'eross' where the page has belfry and cross; both are committed as printed.",
+        "list": "ichr_v4_1921_22_thompson_vincennes_pp256_259",
+        "url": "https://archive.org/download/illinoiscatholic04unse_1/illinoiscatholic04unse_1_djvu.txt"
+      },
+      "describes_date": "after the removal, so after June 1837",
+      "entities": [
+        "St Mary's Church",
+        "Rev. Timothy O'Meara"
+      ],
+      "town_finding": true,
+      "notes": "A NEGATIVE CONSTRAINT ON THE SCENE, AND THE MOST USEFUL SENTENCE HERE AFTER THE FIRST. Every enlargement this article describes — the rear addition, the belfry, the three-pound bell, the cross — happens AFTER the church was moved off the State-Lake lot, which was after June 1837. So the building standing at Lake and State on 1835-07-01 had no belfry, no bell and no rear addition, and it was one length and not two. st_marys_church.json already refuses a tower on this building and calls the belfry 'the tower trap on this record'; this is a second source saying the trap is real, and it dates the trap. It also says something about the town: until at least 1837 no church bell had ever rung in Chicago."
+    }
+  ]
+}

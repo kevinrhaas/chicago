@@ -1,0 +1,36 @@
+{
+  "id": "chicagology_prefire216",
+  "type": "website",
+  "citation": "\"St. Mary's Church.\" Chicagology. Transcribing A. T. Andreas, History of Chicago (1884), with an uncredited building summary, the 1833 petition to the Bishop of St. Louis and city-directory entries 1859-1870.",
+  "date": "accessed 2026-08-11",
+  "describes_date": "1833-1871",
+  "locator": "Section headed \"History of Chicago, A. T. Andreas, 1884\", the long paragraph beginning \"From the date of this appointment, Catholics consider that the organization ... should be reckoned\"; and the uncredited \"St. Mary's Church Building Summary\" immediately above it.",
+  "url": "https://chicagology.com/prefire/prefire216/",
+  "archived_url": "https://web.archive.org/web/20260421023911/https://chicagology.com/prefire/prefire216/",
+  "tier": 4,
+  "rights_status": "check_required",
+  "asset_use": "cross_check",
+  "verified": true,
+  "note": "THE BEST-SPECIFIED SMALL BUILDING IN THE 1835 TOWN, and every number the dossier carries is on this page. Verbatim from the Andreas transcription: \"According to the advice of Colonel Beaubien and Thomas J. V. Owen, St. Cyr selected a canal lot near the southwest corner of Lake and State streets, near the military reservation ... In the meantime, not anticipating the high price at which the lot would be appraised, they erected thereon a church building, twenty-five by thirty-five feet in size. The lumber for this building was brought in a scow across the lake from St. Joseph, Mich., where it cost $12 per thousand. The lumber having arrived, Anson Taylor, a brother of Augustine Deodat Taylor, with his own team, hauled it from the schooner to the site of the prospective church. Augustine D. Taylor was the architect and builder. The total cost of the edifice was about $400, but though small and inexpensive it was not completed sufficiently for occupancy and dedication until in October.\" And: \"Deacon John Wright ... had, in August, assisted in raising the frame of the building.\" And the finish, which is the part that matters for a model: \"The church itself was not plastered, it had only rough benches for pews and the simplest of tables for altar and pulpit. The outside of the building was not painted and it had neither steeple nor tower. Some time afterwards, it was surmounted by a low, open tower, in which a small bell was hung, being the first bell used in Chicago to call the pious together for religious worship.\" First mass, 5 May 1833, was elsewhere: \"in a little log cabin, twelve feet square, belonging to Mark Beaubien\".\n\nTHE TOWER IS A DATE TRAP. \"Some time afterwards\" is the whole of the dating. The 1835 building has NO steeple and NO tower unless a source that is not this one puts one there before 1835-07-01; the bell is the first in Chicago, so it is a conspicuous thing to add by mistake.\n\nTHE CORNER IS NOT ACTUALLY CONTESTED ON THIS PAGE. The brief for this record expected \"the contested corner at Lake & State\". Both statements here agree: the Andreas text has a canal lot \"near the southwest corner of Lake and State streets\", and the uncredited summary has it \"on the south side of Lake Street, west of State Street\". Those describe the same quadrant. Note the hedge though - \"NEAR the southwest corner\" - so the page attests the quadrant, not the corner lot itself, and Andreas fixes the spot by a later landmark: \"where now (1883) stands the printing establishment of Cameron, Amberg & Co.\"\n\nWHERE THE PAGE DOES CONTRADICT ITSELF, it is about the building's LATER life, not 1835. The uncredited summary says it \"was moved to the northwest corner of Michigan at Madison in 1836 where it was enlarged and an open belfry added\"; the Andreas text says Father O'Meara removed it \"to a lot at the southwest corner of Michigan Avenue and Madison Street\" - and O'Meara succeeded St. Cyr, who did not leave until 1837. North-west against south-west, and the 1836 date is the summary's alone. The header field \"Life Span: 1835-1843, 1843-1871\" is likewise the page's own and is wrong against its own body text, which builds and dedicates the church in 1833. Do not date the structure from the header.\n\nTIER 4 GRADES THIS WEB PAGE, NOT THE MATERIAL IT REPRINTS. A modern compilation quoting an older text is still a modern compilation: the transcription is unpaginated, uncredited editorial prose sits beside the quoted matter with no typographic break, and nothing here can be collated against a printed page. Where a claim taken from this page is load-bearing, re-read it in the underlying volume and cite that record instead.",
+  "access_notes": "Site carries no license statement. Treat as a transcription aid, not a rights source; nothing may be derived from it as an asset.",
+  "what_it_supplies": [
+    "twenty-five by thirty-five feet in size",
+    "total cost about $400",
+    "frame raised in August 1833; not fit for occupancy and dedication until October 1833",
+    "not plastered inside; outside not painted",
+    "rough benches for pews, simplest of tables for altar and pulpit",
+    "neither steeple nor tower when built",
+    "a low, open tower with a small bell added \"some time afterwards\" - undated",
+    "Augustine D. Taylor architect and builder; Anson Taylor hauled the lumber",
+    "lumber brought by scow from St. Joseph, Michigan, at $12 per thousand",
+    "site a canal lot near the south-west corner of Lake and State streets, by the military reservation",
+    "first mass 5 May 1833 in Mark Beaubien's log cabin, twelve feet square"
+  ],
+  "what_it_does_not_supply": [
+    "the building's height, roof pitch, fenestration or which way it faced",
+    "a date for the low open tower, so nothing licenses one in 1835",
+    "the lot or its dimensions, beyond \"near the southwest corner\"",
+    "an agreed date or corner for the removal to Michigan and Madison",
+    "anything usable in its header \"Life Span\" field"
+  ]
+}

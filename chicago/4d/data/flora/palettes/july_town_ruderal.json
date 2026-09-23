@@ -1,0 +1,11 @@
+{
+ "id": "july_town_ruderal",
+ "name": "Trodden town ground, mid-July",
+ "greens": [[78,92,48],[104,116,66],[126,134,84],[148,152,102]],
+ "dry_accent": [168,156,116],
+ "ground": {"rgb":[92,80,62],"wet_rgb":[62,54,44],"dry_rgb":[138,126,102]},
+ "wind": {"speed_mps":3.2,"gust":0.35,"sway_deg":6,"wave_m":5.0},
+ "lod": {"near_m":10,"mid_m":45,"far_m":150},
+ "budget": {"instances_near":8000,"instances_mid":18000},
+ "note": "Yellower and dustier than any wild palette here, and the ground shows through: black lake-plain clay, rutted and dust-glazed in dry July. This is the one place in the scene where a half-dead sward is correct. Greens sampled from the July reference photographs used to judge this scene: James Woodworth Prairie Preserve, Glenview IL, 29 July 2021 (a Chicago-region tallgrass remnant) and a DuPage County tallgrass prairie, 24 July 2018. Those are modern remnants photographed in the right month at the right latitude, not evidence about 1835, which is why this record carries no source_id: colours here are render tuning and the evidence lives in the zone records."
+}

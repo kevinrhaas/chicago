@@ -1,0 +1,160 @@
+{
+ "id": "hh_mckee_david",
+ "name": "The McKee household",
+ "division": "north",
+ "head": "mckee_david",
+ "arrival": {
+  "value": "1823",
+  "confidence": "attested",
+  "sources": [
+   "andreas_1884_v1"
+  ],
+  "note": "The building record states that McKee was hired under the treaty obligation and arrived in 1823, and Andreas's chapter on the early settlement carries him from that period.",
+  "precision": "year"
+ },
+ "party_size_on_arrival": {
+  "value": null,
+  "confidence": "reconstructed",
+  "note": "Not attested in anything this project holds."
+ },
+ "origin": {
+  "value": null,
+  "confidence": "reconstructed",
+  "note": "Not attested in anything this project holds."
+ },
+ "reason_for_coming": {
+  "value": null,
+  "confidence": "reconstructed",
+  "note": "Not attested in anything this project holds."
+ },
+ "lives_at": {
+  "value": null,
+  "confidence": "reconstructed",
+  "note": "Andreas puts him in one of the 'small log buildings' near the agency house at the foot of State Street, alongside Billy Caldwell. Those buildings are not in data/structures/ and the list they come from describes the settlement before the town, so there is nothing to link to and nothing to date."
+ },
+ "works_at": {
+  "value": "blacksmith_shop_state_st",
+  "confidence": "attested",
+  "sources": [
+   "andreas_1884_v1"
+  ],
+  "note": "The government blacksmith shop of the agency establishment, which is what this structure record IS. THE PARCEL'S BEST NEW OCCUPANT LINK: a building that had nobody in it now has the man the treaty paid for."
+ },
+ "present_on_scene_date": {
+  "value": "uncertain",
+  "confidence": "inferred",
+  "sources": [
+   "andreas_1884_v1"
+  ],
+  "note": "THE AGENCY ITSELF IS THE PROBLEM. Andreas's list of the establishment is written for the period of Owen's agency generally and not for 1835, and the treaty obligation that created the post was superseded by the cession of 1833. Whether a government smith for the Potawatomi was still at his anvil on 1 July 1835, six weeks before the removal, is not stated anywhere reached, and the value says so."
+ },
+ "persons": [
+  {
+   "id": "mckee_david",
+   "name": "David McKee",
+   "relationship": "head",
+   "grade": "attested",
+   "sex": "male",
+   "occupation": {
+    "value": "blacksmith",
+    "confidence": "attested",
+    "sources": [
+     "andreas_1884_v1"
+    ],
+    "note": "Government blacksmith to the Indian agency at Chicago. Andreas names the agency establishment under Col. Owen: sub-agents Kercheval and Stuart, 'Billy Caldwell (Sauganash) as interpreter; David McKee as blacksmith, and Joseph Porthier as striker'. The 1821 treaty obliged the United States to keep a blacksmith at Chicago for the Potawatomi and McKee was hired for that.",
+    "derived_from": "roles",
+    "roles_at_scene_date": [
+     "blacksmith"
+    ]
+   },
+   "sources": [
+    "andreas_1884_v1",
+    "kinzie_waubun_1856",
+    "chicago_tribune_1882_04_25_old_settler_deaths",
+    "isa_public_domain_land_tract_sales"
+   ],
+   "note": "HE IS THE NAMED OCCUPANT THIS DATASET'S GOVERNMENT SMITHY HAS BEEN MISSING. data/structures/blacksmith_shop_state_st.json describes 'a building known only as a clause in other people's sentences' with an empty occupants field; McKee is the man in the clause. Andreas's list of the settlement's residents puts 'small log buildings occupied by the blacksmith, Mr. McKee, and Billy Caldwell' in the vicinity of Cobweb Castle, and he signed the 1832 militia agreement. OLD SETTLERS, 1882 — A DATE OF DEATH, AND NOTHING ABOUT 1835. John Wentworth's roll of old settlers who had died since 1 January 1881, kept for the Calumet Club and printed in the Chicago Tribune of 25 April 1882, carries “David McKee, April 9, 1881.”. That corroborates a Chicago residence before 1840 and fixes the END of this life, which this record did not carry; it is not an arrival and it places nobody in the town on 1 July 1835. Under the ratified ladder (T-0513) a later recollection corroborates, enriches and dates and cannot lift a rung by itself, so this record's GRADE IS UNCHANGED by it: T-0513 consolidates the identity and T-0515 regrades. Identity by rule OS1 — surname and spelled-out forename agree, one bearer (data/research/old_settlers/crosswalk.json). THE FEDERAL LAND TRACT SALES — A PURCHASE, AND NEVER A RESIDENCE. The Illinois State Archives' Public Domain Land Tract Sales register enters this person 2 times, as “MCKEE DAVID”, 1830-09-27: 2 lots in the platted town — lot 1 of block 5 in the town the register codes CHIOT (L1BL5CHIOT, as printed); lot 7 of block 4 in the town the register codes CHIOT (L7BL4CHIOT, as printed), 0.00 acres stated in all, for $61.00 (ls1359, ls1360). THE REGISTER'S OWN RESIDENCE COLUMN READS UNKNOWN on these rows: a county, a state or nothing, and never a town, which is why a purchase here places nobody. THE TOWN LOTS ARE THE PLAT ITSELF, AND THEY ARE NOT ACRES: Cook County's register describes them by lot and block in a platted town and gives them no section, no township and no acreage at all, so they add nothing to the acre figure above and $61.00 to the money. This project does not expand the register's town codes, so which addition a lot stands in is carried as the code and not as a name. It is still a purchase and it still places nobody. A purchase and nothing more. It dates and places a transaction; it proposes no residence, and under the ratified ladder it corroborates rather than mints. Identity by the crosswalk's own rule: MCKEE DAVID matches David McKee: the forename names David McKee of the 1 person of this surname, and the forename agrees in full. (data/research/land_sales/resident_crosswalk.json). This pass WRITES THE EVIDENCE AND MOVES NO GRADE. Under the ratified ladder (T-0513) a second independent source is what lifts a projected resident, and a land entry is a second source about a TRANSACTION rather than about who was living at Chicago on 1 July 1835 — a man may buy a quarter-section he never sees. T-0515 applies the ladder against every source at once; this pass hands it the evidence and not the verdict.",
+   "resident_research": {
+    "programme": "resident-research-2026",
+    "ticket": "T-0478",
+    "outcome": "no_corroboration_yet",
+    "reviewed_on": "",
+    "asserted_identity": false,
+    "evidence_for": "Early Chicago histories independently identify David McKee as the government/agency blacksmith near the foot of State Street. The occupation and institutional role are distinctive enough to corroborate the resident record, while the exact July 1835 workplace continuity is not extended beyond the sources.",
+    "notes": "Early Chicago histories independently identify David McKee as the government/agency blacksmith near the foot of State Street. The occupation and institutional role are distinctive enough to corroborate the resident record, while the exact July 1835 workplace continuity is not extended beyond the sources.",
+    "source_ids": [
+     "goodman_history_cook_county_early"
+    ],
+    "refusals": [
+     {
+      "regraded_on": "2026-09-04",
+      "rule": "G2b",
+      "withheld": "the downgrade to inferred",
+      "reason": "This card rests on 4 thing(s) the consolidation did not read — andreas_1884_v1, chicago_tribune_1882_04_25_old_settler_deaths, isa_public_domain_land_tract_sales, kinzie_waubun_1856. G2b fired on the seven domains the ladder reads and says nothing about the evidence outside them, so the grade stands. The same reasoning the ladder's own G5 gives for abstaining (T-0515)."
+     }
+    ]
+   },
+   "roles": [
+    {
+     "role": "blacksmith",
+     "kind": "trade",
+     "as_printed": null,
+     "from": "1673",
+     "to": "1857",
+     "precision": "source_span",
+     "dated_by": "source_describes_date",
+     "covers_scene_date": true,
+     "confidence": "attested",
+     "sources": [
+      "andreas_1884_v1"
+     ],
+     "claim": null,
+     "note": "THE BOUND IS THE SOURCE'S, NOT THE MAN'S. This role is carried by the card's 1835 occupation block and is dated by what the cited source or sources are ABOUT, which is why `precision` can be no better than the span they cover. The span reaches 1835, so this role stands in the scene-date view. The printing the trade was read off is not on the card and is fetched by T-1254."
+    }
+   ]
+  }
+ ],
+ "touches_removal": true,
+ "review_required": true,
+ "research_note": "THE MAN THE 1821 TREATY PAID TO SHOE POTAWATOMI HORSES, AT AN ANVIL THIS PROJECT MODELS. This household exists to close a loop the structures layer left open, and the presence field is where the honesty is: the shop is in the scene and the smith may not have been. STANDING CONSTRAINT. AGENTS.md: the final removal of the Potawatomi from Chicago occurred in August 1835, inside this project's first target year and six weeks AFTER the scene date; Native presence, representation and depiction are not research gaps to be filled by inference, and v1 ships no human figures at all. This record is a dataset entry that states what named sources say about a named person and adds nothing. It carries review_required so that no scene containing it can be marked released before the consultation the project has committed to.",
+ "old_settler_deaths": {
+  "the_header_admission": "Names, places * , dates, and ages at death\nof some of Chicago's Old Settlers, prior to 1843, and other well - known citizens who arrived after 1843, together\nwith others prominently connected with Illinois history:",
+  "note": "LATER EVIDENCE OF A DEATH, BESIDE THE 1835 CLAIMS AND NOT INSIDE THEM. Fergus's 1843 directory (1896) prints an obituary list of old settlers, and one of its entries meets somebody of this name. THE HEADER OF THE LIST IS QUOTED ABOVE, and it is the limit the whole reading turns on. It does not mean the person was in Chicago in 1835, and it does not mean they arrived before 1843 — the list's own header, quoted above, says it also names citizens who arrived later and others merely 'prominently connected with Illinois history'. A match means one thing: a name in the 1835 layer and a name in this list agree on surname and first initial, and the list gives that name a death date and an age. The date and the interval are the payload. Whatever is carried is carried as evidence of a DEATH and of an interval the birth falls in, never as an 1835 fact and never as a grade. T-0513 consolidates and T-0514/T-0515 apply; this file changes no record. This pass WRITES THE EVIDENCE AND MOVES NO GRADE. A death notice printed in 1896 says a person of this name died on a day; under the ratified ladder (T-0513) that is later evidence about a DEATH, and it is never an 1835 residence. T-0515 applies the ladder against every source at once; this pass hands it the evidence and not the verdict.",
+  "sources": [
+   "fergus_1843_old_settler_death_notices"
+  ],
+  "people": [
+   {
+    "person_id": "mckee_david",
+    "matched_as": "David McKee",
+    "matched_by": "Surname 'McKee' folds to the same string as the entry's, and the given name of both begins D.",
+    "matched_on_initial_only": false,
+    "resident_given_is_initial_only": false,
+    "entry_given_as_read": "David",
+    "entry_given_is_initial_only": false,
+    "the_agreement": "a surname and a forename spelled out on both sides",
+    "record_id": "fdn0425",
+    "trade_or_office": null,
+    "manner_of_death": "died",
+    "place_of_death": "near Aurora, Ill.",
+    "death_date": "1881-04-09",
+    "age_as_printed": "aged 80¼",
+    "birth_year_earliest": 1800,
+    "birth_year_latest": 1801,
+    "birth_year_arithmetic": "The page prints the death as 'April 9, 1881' and the age as 'aged 80¼'. An age of 80 years and 3 months means at least that and less than 80 years and 4 months, so the birth falls between 1800-12-10 and 1801-01-09: the birth year is 1800 or 1801. The subtraction is this project's; the page states no year of birth.",
+    "as_read": "McKee, David, died near Aurora, Ill., April 9, 1881, aged 80¼"
+   }
+  ]
+ },
+ "directories": {
+  "note": "LATER EVIDENCE, BESIDE THE 1835 CLAIMS AND NOT INSIDE THEM. A Chicago directory of 1839, 1843 or 1844 meets somebody of this name and this pass records what it prints. Under the ratified ladder a directory read after 1835 can corroborate that a person attested here was still in Chicago and can print a trade or a street the 1835 record never had; on its own it makes nobody a resident of 1835. Nothing on this person's 1835 record was regraded, moved, dated or given an occupation by this entry. WHAT THIS PASS RULED ONTO THIS HOUSEHOLD, named so the ruling can be found again: each volume below is followed by the printed entries it set against this person and the status the crosswalk ruled them at — a single entry carries what its own `could_carry` declares, and an ambiguous or contested match carries nothing and is shown so that the silence is legible. mckee_david, Fergus's Chicago directory of 1839 — f1839_e0978 (a single entry).",
+  "sources": [
+   "fergus_chicago_directory_1839"
+  ],
+  "people": [
+   {
+    "person_id": "mckee_david"
+   }
+  ]
+ }
+}

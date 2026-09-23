@@ -1,0 +1,162 @@
+{
+  "id": "chicago_american_office",
+  "phase": "frame_1835",
+  "name": "The Chicago American Office",
+  "aka": [
+    "T. O. Davis's printing office",
+    "the American office near the draw-bridge"
+  ],
+  "archetype": "frame_storefront",
+  "asset": "gltf/chicago_american_office__frame_1835.glb",
+  "scene": "1835",
+  "target_date": "1835-07-01",
+  "documented_range": {
+    "from": "1835-06-08",
+    "to": "1835-12-31",
+    "confidence": "inferred",
+    "sources": [
+      "andreas_1884_v1"
+    ],
+    "note": "THE START IS DOCUMENTED TO THE DAY AND IT IS THE NEWSPAPER'S DATE, NOT THE BUILDING'S. The Chicago American was established by T. O. Davis on 8 June 1835 — a weekly, sheet 15.5 x 21.5 inches, six columns, published Saturday mornings — with its office on Water Street near the draw-bridge. So on 1835-07-01 the paper is TWENTY-THREE DAYS OLD, which is the fact this record exists to put in the scene: Chicago has two newspapers in July 1835 and one of them is three weeks old. The BUILDING is necessarily older than the paper and nothing reached dates it, so the range's start is a floor. THE END IS THE ORDINARY CONTINUITY CUT AT THE SCENE YEAR. The American outlived 1835 comfortably — by 1839 the Daily Chicago American was printing from the third floor of the Harmon and Loomis building at Clark and South Water, which is a different address and is why this record does not follow it — but no source reached follows this building at all."
+  },
+  "change_note": "The office of the Chicago American, established by T. O. Davis on 8 June 1835 — twenty-three days old on the scene date. A weekly on a sheet 15.5 by 21.5 inches, six columns, out on Saturday mornings, printed on South Water Street near the south landing of the Dearborn Street drawbridge, three blocks east of the Chicago Democrat's twenty-month-old office at Clark.",
+  "placement": {
+    "local_e": 711.062,
+    "local_n": -15.006,
+    "rotation_deg": 0.0,
+    "position_confidence": "inferred",
+    "position_sources": [
+      "andreas_1884_v1",
+      "osm_streets_2026"
+    ],
+    "position_note": "PLACED 2026-08-11. THE SOURCE GIVES A STREET AND A LANDMARK: Andreas has the office 'on Water Street, near the draw-bridge'. The drawbridge is the Dearborn Street bridge of 1834 — about 300 ft of timber causeway with a 60 ft draw between two tall gallows frames — and its south abutment landed at the foot of Dearborn on South Water. So 'near the draw-bridge' means near the Dearborn crossing, which fixes the position to within a block along the street. THE SIDE OF DEARBORN IS THIS RECORD'S CHOICE, ARGUED HERE. West of the crossing, the corner lot is Lot 1 and Andreas puts Madore Beaubien's two-roomed log house on it as the first building there, so the first premises west of Dearborn is spoken for; east of the crossing the block toward State is described by this project's dossier as sparse. East is therefore adopted. If the office was in fact west of Dearborn, this record stands about 34 m east of where it belongs and crowds madore_beaubien_house. METHOD: the modern West Upper Wacker Drive / North Dearborn Street intersection centre was read from OpenStreetMap at EPSG:26916 E 447771.8, N 4637409.0 (two nodes averaged, spread 13.9 m, fetched 2026-08-11); the origin sits 12.2 m east of it, so the building's west face is on the Dearborn frontage, and 12.2 m south less the depth so its north face is on the South Water frontage. WORKING UNCERTAINTY ABOUT 20 M from the georeference (data/datum.json, 17.5 m RMS), plus about 30 m along the street for 'near', plus the side-of-Dearborn question. A CORROBORATION: this project's traced 1834 south bank runs 18.7 m north of this north face at this easting, which is a half-street and a river frontage and is the tightest agreement anywhere on this street — the Dearborn end of South Water is placed better than the Clark end. Facade bearing 0, north onto South Water, inferred from the street rather than from any statement. RECONCILED WITH THE COMMITTED PLAT 2026-08-27 (T-0199), AND THE CLAIM DID NOT MOVE — ONLY THE LINE IT WAS DERIVED AGAINST. The method above set this footprint's north face on the South Water frontage, and it found that frontage by taking the MODERN West Wacker Drive centreline out of OpenStreetMap and stepping 12.2 m south of it. That is not this project's own South Water Street: the committed centreline in data/streets/1835.json, offset by half the committed 80 ft corridor, is what tools/generate_plat_lots.py builds every platted block edge from, and it is the line every derived layer in this scene reads. Measured against it, this record's north wall stood 6.91 m OUT PAST the blk_south_water_dearborn frontage line, in the platted roadway — far enough into it that tools/generate_frontage_works.py refused the plank sidewalk along this stretch of South Water in writing and named this building in the refusal. THE REPAIR IS THIS RECORD'S OWN METHOD RUN AGAINST THIS PROJECT'S OWN LINE: the footprint is translated 8.41 m along the face's inward normal — dE -0.238 m, dN -8.406 m in local ENU, so UTM E 447784.0 N 4637389.2 becomes E 447783.762 N 4637380.794 — which leaves its north wall 1.50 m back from the committed frontage line, the same margin tools/generate_block_infill.py gives every reconstructed unit standing on this face, and the same repair the six reconciled under T-0198 carry. NOTHING ALONG THE STREET MOVED: the along-face position, the block, the corner and the side are untouched, and so is the confidence grade — re-deriving a coordinate from better geometry is not new evidence. WHY IT TOOK A SECOND RUN, AND WHOSE DECISION IT WAS. T-0198 measured this exact translation and REFUSED to apply it, for a reason that was real: reconciled onto the plat this building SEATS on lot 0 of blk_south_water_dearborn, and that lot is one the 665-roof schedule had already dealt to the anonymous South Water frontage run, which tools/generate_block_infill.py refused — one principal roof to a lot. Nothing overlapped; the worst overlap between any of the eleven South Water placements and any committed footprint in the town is zero. What refused this repair was a RULE about entitlement, not the ground. THE OWNER RULED ON 2026-08-27 that a platted business-front lot may carry a documented store at the street AND an anonymous dwelling behind it, on the reasoning that the geometry already permits it and the alternative pays eight roofs and two households for a rule the corrected data had itself called into question. The clause and its three tests are written into tools/plat_occupancy.py; no roof left the town and no household moved. WHAT IS STILL WRONG AND IS LEFT WRITTEN DOWN: the facade bearing stays 0 while this face runs at 1.622 (i.e. +1.622), so the front wall is 1.50 m back at its worst corner and up to 1.84 m at the other. That skew is smaller than the walk's own daylight and it is not corrected here, because rotating a documented record is a second claim and this one is a repair.",
+    "symbolic_location": "South side of South Water Street immediately east of Dearborn Street (today the south side of West Wacker Drive just east of North Dearborn), near the south landing of the Dearborn Street drawbridge.",
+    "uncertainty_m": 20,
+    "placement_provisional": false,
+    "vertical_anchor": "terrain",
+    "walk_surface_m": null
+  },
+  "footprint": {
+    "polygon": [
+      [
+        0,
+        0
+      ],
+      [
+        12.192,
+        0
+      ],
+      [
+        12.192,
+        7.62
+      ],
+      [
+        0,
+        7.62
+      ]
+    ],
+    "confidence": "reconstructed",
+    "sources": [],
+    "note": "INVENTED — the parcel's borrowed rectangle, 12.192 x 7.62 m = 40 x 25 ft, from the Green Tree Tavern's attested frontage and room module. No source gives this building a dimension. The documented South Water lot width of 55 ft is the one real constraint and 40 ft sits inside it. A CAVEAT LARGER THAN THE SIZE: nothing says the American's office occupied a building of its own rather than rooms in someone else's. Andreas is explicit when he means rooms — of the Democrat he writes that 'an office was secured IN a building' — and of the American he says only where the office was. This record draws a whole building on the strength of a premises, which is the single biggest liberty in it."
+  },
+  "attributes": {
+    "stories": {
+      "value": 1,
+      "confidence": "reconstructed",
+      "note": "NOTHING IS ATTESTED. A hand press, type cases and a compositor fit in one room, and a three-week-old weekly on a boom-town street is as likely to be in a single-storey shop as in a two-storey block. One is recorded because it is the smaller claim. Invention, tagged as such."
+    },
+    "construction": {
+      "value": "braced_frame",
+      "confidence": "inferred",
+      "sources": [
+        "andreas_1884_v1"
+      ],
+      "note": "Not stated. Frame rather than log because this is a premises taken on the town's business street in 1835, when new commercial work there was going up in frame; this project's dossier records the 1835 stock as overwhelmingly frame and log with no brick of consequence on the south side before 1837. Braced rather than balloon frame follows the Sauganash record's argument, though by 1835 balloon framing was the local method and this is the record in the parcel where that alternative is strongest."
+    },
+    "wall_height_m": {
+      "value": 3.2,
+      "confidence": "inferred",
+      "note": "No figure is attested. 3.2 m is about 10.5 ft, one commercial storey with a little more head-room than a dwelling's — a press is worked standing. It inherits the storey count's uncertainty, which is conjectural."
+    },
+    "roof_type": {
+      "value": "gable",
+      "confidence": "inferred",
+      "note": "Not attested. Gable is the near-universal roof form for frame buildings of this type, period and region."
+    },
+    "roof_pitch_deg": {
+      "value": 33.0,
+      "confidence": "inferred",
+      "note": "No pitch is attested for this building. 33 degrees is the frame_storefront archetype's own figure for a store, and it is adopted here rather than the 38 this project uses for taverns because the archetype argues the case from the dataset's one attested store footprint: a store's frontage is long and its plan shallow, so a tavern's pitch puts more roof above the eave than there is wall below it and the building stops reading as a shop. Inferred from construction practice and from the type, not measured."
+    },
+    "chimneys": {
+      "value": 1,
+      "confidence": "inferred",
+      "note": "Not attested. One is the minimum for a printing office worked through Chicago winters — ink stiffens and paper has to be damped, so a press room is heated. The COUNT is the inference; the stack's position, size and material are the archetype's, per docs/LIBERTIES.md L26."
+    },
+    "siding_exposure_m": {
+      "value": 0.152,
+      "confidence": "reconstructed",
+      "note": "INVENTED WITHIN A STOCK SET, NOT DERIVED. No source states the exposed face of any Chicago building's siding. The value is one of four period mill sidings — 4.5, 5, 5.5 or 6 in to the weather; this record wears 6 in — dealt by tools/deal_siding_stock.py: keyed to the phase's construction season, because buildings sided from the same season's shipments of St Joseph sawn lumber tend toward one stock, then advanced so no frame building within 60 m shares this one's. The separation is the surface variety T-0049 reconstructs, not a claim about 1835. docs/LIBERTIES.md L148 owns the invention."
+    },
+    "function": {
+      "value": "printing_office",
+      "confidence": "attested",
+      "sources": [
+        "andreas_1884_v1"
+      ],
+      "note": "Andreas states the paper, its founder, its establishment date, its format and the location of its office. What is documented is that the office was there; that the office was a building of its own is not, and is argued on the footprint."
+    },
+    "occupants": {
+      "value": "T. O. Davis, publisher of the Chicago American",
+      "confidence": "attested",
+      "sources": [
+        "andreas_1884_v1"
+      ],
+      "note": "Davis is documented as the paper's founder in June 1835. A second occupancy is attested in relation to this building and is NOT modelled here: Frederick Thomas advertised from 'two doors from the American office', which is a separate premises and has its own record, frederick_thomas_shop."
+    }
+  },
+  "residents": [
+    {
+      "household": "hh_davis_t_o",
+      "name": "The Davis household at the American",
+      "division": "south",
+      "relation": "worked here",
+      "why": "",
+      "sources": [
+        "andreas_1884_v1"
+      ],
+      "basis": "",
+      "persons": [
+        {
+          "name": "T. O. Davis",
+          "relationship": "head",
+          "grade": "attested",
+          "occupation": "editor",
+          "note": "A DOCUMENTED RESIDENT OF THE SCENE MONTH ITSELF - the American's first issue belongs to June 1835, weeks before 1 July, which makes this one of only three households in the parcel whose Chicago presence is fixed by an event inside the scene season. data/structures/chicago_american_office.json already carries him. FERGUS 1839'S LATER LISTS — 1837 AND 1839 EVIDENCE, NEVER AN 1835 FACT. Fergus' Chicago Directory for 1839 names this person 1 time in its two later lists: the poll of Chicago's first city election, 2 May 1837 — “T. O. Davis,” (f1839_v0104, printed page 42, ward 1, voting for John H. Kinzie). What a match may carry, and it is short: that the man was in Chicago on 2 May 1837 and in that ward. It is written as 1837 evidence with describes_date 1837-05-02, never as an 1835 fact, and the person's grade does not move on this alone. Under the ratified ladder a second contemporary source is what lifts projected_resident, and a poll twenty-two months after the scene date is a second source about CONTINUED RESIDENCE, not about July 1835. The ward is a location in the CITY of 1837, whose six wards are drawn on printed page 46; it is not a location in the town of 1835 and does not place a house. Identity by the crosswalk's own rule: Surname 'Davis' folds to the same string as the 1837 entry's, and the given name of both begins T. (data/research/directories/fergus_1839_election_crosswalk_1835.json and fergus_1839_register_crosswalk_1835.json). This pass WRITES THE EVIDENCE AND MOVES NO GRADE. Under the ratified ladder (T-0513) a second independent source is what lifts a projected resident, and a poll twenty-two months after the scene date — or a register four years after it — is a second source about CONTINUED RESIDENCE rather than about July 1835. T-0515 applies the ladder against every source at once; this pass hands it the evidence and not the verdict."
+        }
+      ],
+      "research_note": "THE NEWEST ARRIVAL IN THE PARCEL, and the one whose paper this project quotes most often for the state of the town in the scene year. A NOTE FOR ANY LATER PARCEL: the Chicago American of 1835-36 is the single most valuable unfetched source for this programme. Andreas quotes its advertisements by name and date - Frederick Thomas's drug and paint store of 8 June 1835, John Davis of the Steamboat Hotel among its first patrons, W. H. and A. F. Clarke's new drug store of 11 November 1835 - and every such advertisement is a documented resident with a trade and often an address, in the scene year rather than nineteen months before it."
+    }
+  ],
+  "citations": [
+    {
+      "source_id": "andreas_1884_v1",
+      "citation": "Andreas, A. T. History of Chicago: From the Earliest Period to the Present Time. Vol. 1. Chicago: A. T. Andreas, 1884.",
+      "url": "https://archive.org/details/historyofchicago01andr",
+      "archived_url": "",
+      "tier": 3,
+      "tier_label": "compiled secondary (Andreas)"
+    },
+    {
+      "source_id": "osm_streets_2026",
+      "citation": "OpenStreetMap contributors. Street centerline intersection nodes for downtown Chicago, retrieved via the Overpass API, 2026-08-09.",
+      "url": "https://www.openstreetmap.org/",
+      "archived_url": "https://overpass-api.de/",
+      "tier": 4,
+      "tier_label": "later scholarship"
+    }
+  ],
+  "research_note": "THE YOUNGEST BUILDING-USE IN THE SCENE: on 1835-07-01 the Chicago American is twenty-three days old. That is the reason this record exists and it is a good one — a town of 3,265 people supporting two newspapers, one of them three weeks old, is the boom made legible. THE HONEST GRADE IS THAT ALMOST EVERYTHING ELSE IS INVENTED. Documented: the paper, the founder, the date to the day, the format, and that the office stood on South Water Street near the drawbridge. Inferred: the side of Dearborn, the construction, the wall height, the roof. Conjectural: the footprint, the storey count, and — the largest liberty in the record — the premise that the office occupied a building of its own at all. Andreas is explicit elsewhere when he means rooms in another man's building, and of the American he simply does not say. WHAT WOULD UPGRADE THIS RECORD, in order of value: any surviving number of the Chicago American itself, whose imprint would give its own address exactly as the Chicago Democrat's first issue gives the Democrat's; a Chicago Democrat advertisement of 1835 naming the American's location; or the 1835 town lot records for the South Water frontage between Dearborn and State. See docs/RESEARCH/chicago_american_office.md.",
+  "research_doc": "docs/RESEARCH/chicago_american_office.md",
+  "review_required": false
+}

@@ -1,0 +1,110 @@
+{
+ "id": "hh_thomas_frederick",
+ "name": "The Frederick Thomas household",
+ "division": "south",
+ "head": "thomas_frederick",
+ "arrival": {
+  "value": "1835-06-08",
+  "confidence": "attested",
+  "sources": [
+   "andreas_1884_v1"
+  ],
+  "note": "Not_later_than precision on the date of his advertisement. A man advertising his own new shop on 8 June 1835 was in Chicago on 8 June 1835; when he came is not stated and the phrase 'New Drug, Medical and Paint Store' suggests recently.",
+  "precision": "not_later_than"
+ },
+ "party_size_on_arrival": {
+  "value": null,
+  "confidence": "reconstructed",
+  "note": "Not attested in anything this project holds."
+ },
+ "origin": {
+  "value": null,
+  "confidence": "reconstructed",
+  "note": "Not attested in anything this project holds."
+ },
+ "reason_for_coming": {
+  "value": null,
+  "confidence": "reconstructed",
+  "note": "Not attested in anything this project holds."
+ },
+ "lives_at": {
+  "value": null,
+  "confidence": "reconstructed",
+  "note": "Not attested in anything this project holds."
+ },
+ "works_at": {
+  "value": "frederick_thomas_shop",
+  "confidence": "attested",
+  "sources": [
+   "andreas_1884_v1"
+  ],
+  "note": "data/structures/frederick_thomas_shop.json exists on the strength of this same advertisement."
+ },
+ "present_on_scene_date": {
+  "value": "present",
+  "confidence": "attested",
+  "sources": [
+   "andreas_1884_v1"
+  ],
+  "note": "Advertising at Chicago on 8 June 1835, twenty-three days before the scene date, and in business there into 1836."
+ },
+ "persons": [
+  {
+   "id": "thomas_frederick",
+   "name": "Frederick Thomas",
+   "relationship": "head",
+   "grade": "attested",
+   "ladder_rule": "G1b",
+   "sex": "male",
+   "occupation": {
+    "value": "barber_surgeon",
+    "confidence": "attested",
+    "sources": [
+     "andreas_1884_v1"
+    ],
+    "note": "'Frederick Thomas, in the American of June 8, 1835, advertised the proprietorship of the Chicago New Drug, Medical and Paint Store, on Water Street, two doors from the American office, near the drawbridge; and also advertised that he performed \"bleeding, leeching and tooth-drawing;\" thus establishing himself as Chicago's first barber-surgeon' (Andreas, scan p. 955).",
+    "derived_from": "roles",
+    "roles_at_scene_date": [
+     "barber_surgeon"
+    ]
+   },
+   "sources": [
+    "andreas_1884_v1"
+   ],
+   "note": "DOCUMENTED IN THE TOWN THREE WEEKS BEFORE THE SCENE DATE, which almost nobody in this parcel is, and with a self-reported address relative to two other things in this dataset - the American's office and the Dearborn Street drawbridge. He took a partner, Thomas Jenkins, on 11 January 1836 and retired from that partnership on 2 April 1836, so he is continuous through the scene year on both sides.",
+   "resident_research": {
+    "programme": "resident-research-2026",
+    "ticket": "T-0478",
+    "outcome": "no_corroboration_yet",
+    "reviewed_on": "",
+    "asserted_identity": false,
+    "evidence_for": "The Encyclopedia of Chicago independently identifies Frederick Thomas as Chicago's first barber-surgeon and a retail druggist in the 1830s, corroborating the unusual combined occupation. The project newspaper corpus remains the stronger path for exact 1835 advertising/address detail.",
+    "notes": "The Encyclopedia of Chicago independently identifies Frederick Thomas as Chicago's first barber-surgeon and a retail druggist in the 1830s, corroborating the unusual combined occupation. The project newspaper corpus remains the stronger path for exact 1835 advertising/address detail.",
+    "source_ids": [
+     "encyclopedia_chicago_frederick_thomas"
+    ]
+   },
+   "roles": [
+    {
+     "role": "barber_surgeon",
+     "kind": "profession",
+     "as_printed": null,
+     "from": "1673",
+     "to": "1857",
+     "precision": "source_span",
+     "dated_by": "source_describes_date",
+     "covers_scene_date": true,
+     "confidence": "attested",
+     "sources": [
+      "andreas_1884_v1"
+     ],
+     "claim": null,
+     "note": "THE BOUND IS THE SOURCE'S, NOT THE MAN'S. This role is carried by the card's 1835 occupation block and is dated by what the cited source or sources are ABOUT, which is why `precision` can be no better than the span they cover. The span reaches 1835, so this role stands in the scene-date view. The printing the trade was read off is not on the card and is fetched by T-1254."
+    }
+   ]
+  }
+ ],
+ "touches_removal": false,
+ "review_required": false,
+ "research_note": "THE CLOSEST DOCUMENTED ARRIVAL TO THE SCENE DATE IN THE PARCEL, and a trade the occupation vocabulary had to be widened for. 'Barber-surgeon' is Andreas's own characterisation of a man who sold paint and drew teeth, and it is a period-correct trade in a way that 'pharmacist' or 'dentist' would not be. HIS ADDRESS IS A CHAIN OF LANDMARKS RATHER THAN A LOT: 'on Water Street, two doors from the American office, near the drawbridge' locates him against two structures this dataset already holds, which is the kind of constraint the placement work in K7 can actually use."
+}

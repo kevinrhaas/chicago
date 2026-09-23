@@ -1,0 +1,126 @@
+{
+  "id": "john_holbrook_store",
+  "name": "John Holbrook's Clothing Store",
+  "aka": [
+    "Hats, Clothing, Boots and Shoes, Wholesale & Retail",
+    "one door from Dearborn, South Water Street"
+  ],
+  "archetype": "frame_storefront",
+  "phases": [
+    {
+      "id": "frame_1835",
+      "documented_range": {
+        "from": "1835-06-10",
+        "to": "1835-12-31",
+        "confidence": "inferred",
+        "sources": [
+          "chicago_democrat_1833_1835",
+          "chicago_american_1835"
+        ],
+        "note": "THE FLOOR IS THE ADVERTISEMENT, NOT THE BUILDING, AND TWO PAPERS PRINT IT. The Chicago Democrat of 1835-06-10 carries the card over the copy line 'Chicago, June 10, 1835.—8tf' and the Chicago American of 1835-06-13 carries the same card over 'Chicago, June [13], 183[5]'; the Democrat's is the earlier printing and the floor is its date. Both say the subscriber IS NOW OPENING an assortment at these premises, so the trade opens in the second week of June 1835 and the range opens with it. THE BUILDING is necessarily older than the trade in it and no source dates it, so what this range really records is that a clothing and boot store was open at a describable door on South Water Street three weeks before the scene date. THE END IS THE ORDINARY CONTINUITY CUT AT THE SCENE YEAR: the Democrat's file here runs to 1835-08-12 and the American's to 1835-08-29, and nothing reached says when Holbrook left, so 31 December 1835 is this dataset's standing convention and not a reading."
+      },
+      "position": {
+        "utm_e": 447799.0,
+        "utm_n": 4637380.451,
+        "rotation_deg": 0.0,
+        "symbolic_location": "South side of South Water Street, one door east of Dearborn Street — the second premises east of the corner on the Chicago American's own block face, between the American's office at the corner and Frederick Thomas's shop (today the south side of West Wacker Drive between North Dearborn and North State).",
+        "confidence": "inferred",
+        "note": "THE ADDRESS IS THE PAPER'S OWN AND IT IS SHORT: 'on South-Water st. one door from Dearborn street' (Chicago Democrat, 1835-06-10) and '[… South] Water [st]reet, one door from De[arborn]' (Chicago American, 1835-06-13). That is a street, a cross street and a count of doors.\n\nWHAT 'ONE DOOR FROM DEARBORN' IS READ AS, AND WHO DECIDED IT. The owner ruled on 2026-08-30 (T-0384) that a count of doors off a named corner is AN ORDINAL OFF THE CORNER — a position along the face, narrower than the street — and not a reach of the street and nothing narrower. docs/CORNER-ORDINAL.md is that policy and tools/compile_register.py reads the phrase under it, so this record's placement is the register's own reading and not this file's. A door is a premises, not a plat lot: it means the shop next along the row from the premises on the corner. The premises on the corner of this face is already committed — chicago_american_office stands with its west wall on the Dearborn frontage, 'immediately east of Dearborn Street' — so one door from Dearborn is the next front east of it, and that is where this record stands.\n\nAN ORDINAL IS STILL NOT A LOT, and this record claims none. See `lot_claim` on this record and docs/CORNER-ORDINAL.md § the one limit: 'one door from the corner' fixes a position in a sequence along a face and names no platted lot, so this building is transparent to the plat's lot entitlements. It stands where it stands; it entitles nobody to anything and exhausts nothing.\n\nWHICH SIDE OF DEARBORN, AND WHY EAST. The phrase does not say, and this is the one real fork. East is taken for two reasons that are not arbitrary. First, west of Dearborn the first premises on South Water is madore_beaubien_house, a documented dwelling and not a store, and the second is off the block face entirely. Second, and this is the argument worth having: the town's own press carries three addresses on this one face — the American's office at the corner, Holbrook one door from Dearborn, and (through Andreas, quoting an 1835 advertisement) Frederick Thomas two doors from the American office — and read eastward they describe a continuous row of three fronts with no contradiction and no gap. Read westward they describe nothing that closes. A reading that makes three independent statements consistent is preferred to one that makes none of them so, and that is a reading, not a source. THE STREET ITSELF IS CORROBORATED: the American's transcription cuts the street word and it was read as South Water by argument, and the Democrat's printing of the same card sets 'South- Water' plainly — so the street is now two witnesses and only the SIDE is inferred.\n\nTHE ARITHMETIC, STATED SO IT CAN BE CORRECTED, AND THE METRES ARE OURS. The count of doors is the paper's; how far one door is from the corner is this project's reconstruction and is declared as such at L215. THE DOOR-GAP RULE, which produced the one number this placement turns on: a neighbouring front is set 3.048 m (10 ft) clear of the wall it neighbours — a gap, because 'one door from' describes a neighbouring front and not a party wall, and 10 ft is the smallest gap that reads as two buildings rather than one at walking distance. Applied here: chicago_american_office's footprint origin is at local ENU E 711.06 and it is 12.192 m (40 ft) wide, so its east wall stands at E 723.25; this record's west wall is 3.048 m east of it at E 726.30, and its 9.144 m (30 ft) front therefore runs E 726.30 to E 735.44. That leaves 1.53 m clear of the blk_south_water_dearborn lot line at E 736.97 — just inside the 1.5 m margin tools/generate_block_infill.py gives every roof on this face — and 9.14 m clear of frederick_thomas_shop's west wall at E 744.58. NORTH-SOUTH, IT IS SEATED ON THE COMMITTED FRONTAGE AND NOT ON A MODERN STREET. The block's own north edge in data/traces/vectors/thompson_lots.json runs from local (711.05, -5.54) to (814.72, -8.47); at this record's eastern corner, E 735.44, that line is at N -6.23. The north wall is set 1.50 m back from it, at N -7.73, which is the same setback the reconciled South Water records carry after T-0199 and the same margin the anonymous units on this face stand at. The footprint origin is therefore local (726.30, -15.35), i.e. UTM E 447799.000 N 4637380.451.\n\nWORKING UNCERTAINTY ABOUT 20 M, dominated by the georeference (data/datum.json, 17.5 m RMS), plus whatever is carried in from chicago_american_office's own 'near the draw-bridge' inference, plus the side-of-Dearborn fork above, plus the door-gap rule, which is a convention and not a measurement. The grade is INFERRED rather than reconstructed because the street, the cross street and the ordinal are all stated in two contemporary printed sources and the reasoning above is about how to read them, not about what to invent; it is not attested, because no source gives a lot.\n\nWHAT IS STILL WRONG AND IS LEFT WRITTEN DOWN: the facade bearing is 0 while this frontage runs at about -1.62 degrees, so the north wall is 1.50 m back at its east corner and about 1.76 m at its west. That skew is the whole face's, it is smaller than the walk's own daylight, and it is not corrected here for the reason frederick_thomas_shop gives — rotating a record is a second claim.",
+        "derivation": {
+          "method": "not_derivable",
+          "reason": "The derivation module can check a platted corner and a traced waterline. This is neither: it is a mid-block front placed by counting doors east from a committed corner record and seated on the committed block frontage. Every number the placement uses is in position.note and every one of them is re-derivable from committed data, but no machine-checkable method exists for a relative-address placement yet."
+        }
+      },
+      "footprint": {
+        "polygon": [
+          [
+            0,
+            0
+          ],
+          [
+            9.144,
+            0
+          ],
+          [
+            9.144,
+            7.62
+          ],
+          [
+            0,
+            7.62
+          ]
+        ],
+        "confidence": "reconstructed",
+        "note": "INVENTED WITHIN THE FACE'S OWN NUMBERS. Nothing is attested about this building's size. 9.144 x 7.62 m is 30 x 25 ft. THE FRONTAGE is the parcel's small-shop figure, the same 30 ft frederick_thomas_shop wears, because 'one door' describes a single front in a row and not a corner block, and because 30 ft is what fits between the American office's east wall and the lot line with both margins kept. THE DEPTH is 25 ft rather than Thomas's 20: Holbrook advertises WHOLESALE AND RETAIL, says he intends to keep a large stock on hand and to receive additions every fifteen or twenty days through the season, and a shop taking fortnightly shipments needs a storeroom behind the counter. 25 ft is chicago_american_office's own committed depth on this same face, so the number is the block's rather than a new invention. Both figures are borrowed; neither is evidence about this building."
+      },
+      "form": {
+        "stories": {
+          "value": 1,
+          "confidence": "reconstructed",
+          "note": "Nothing is attested. One is recorded because it is the smaller claim, and because the advertisement describes a counter trade and a stock room and never a room above. Invention, tagged as such."
+        },
+        "construction": {
+          "value": "braced_frame",
+          "confidence": "inferred",
+          "sources": [
+            "chicago_democrat_1833_1835",
+            "chicago_american_1835"
+          ],
+          "note": "Not stated. Frame rather than log because this is a wholesale and retail clothing store on the town's business street in June 1835, and this project's dossier records the 1835 stock as overwhelmingly frame and log with new commercial work in frame. Braced rather than balloon follows the Sauganash record's argument; by 1835 balloon framing is the likelier of the two and nothing here decides it."
+        },
+        "wall_height_m": {
+          "value": 3.0,
+          "confidence": "inferred",
+          "note": "No figure is attested. 3.0 m is about 10 ft, one commercial storey. It inherits the storey count's uncertainty, which is a reconstruction."
+        },
+        "roof_type": {
+          "value": "gable",
+          "confidence": "inferred",
+          "note": "Not attested. Gable is the near-universal roof form for frame buildings of this type, period and region."
+        },
+        "roof_pitch_deg": {
+          "value": 33.0,
+          "confidence": "inferred",
+          "note": "No pitch is attested for this building. 33 degrees is the frame_storefront archetype's own figure for a store: a store's frontage is long and its plan shallow, so a tavern's steeper pitch puts more roof above the eave than there is wall below it and the building stops reading as a shop. Inferred from the type, not measured."
+        },
+        "chimneys": {
+          "value": 1,
+          "confidence": "inferred",
+          "note": "Not attested. One is the minimum for premises kept through a Chicago winter. The COUNT is the inference; the stack's position, size and material are the archetype's, per docs/LIBERTIES.md L26."
+        },
+        "siding_exposure_m": {
+          "value": 0.152,
+          "confidence": "reconstructed",
+          "note": "INVENTED WITHIN A STOCK SET, NOT DERIVED. No source states the exposed face of any Chicago building's siding. The value is one of four period mill sidings — 4.5, 5, 5.5 or 6 in to the weather; this record wears 6 in — dealt by tools/deal_siding_stock.py: keyed to the phase's construction season, because buildings sided from the same season's shipments of St Joseph sawn lumber tend toward one stock, then advanced so no frame building within 60 m shares this one's. The separation is the surface variety T-0049 reconstructs, not a claim about 1835. docs/LIBERTIES.md L148 owns the invention."
+        }
+      },
+      "change_note": "The clothing store John Holbrook opened one door from Dearborn in the second week of June 1835, taking the door the American's own columns leave empty between the paper's office at the corner and Frederick Thomas's shop."
+    }
+  ],
+  "function": {
+    "value": "store",
+    "confidence": "attested",
+    "sources": [
+      "chicago_democrat_1833_1835",
+      "chicago_american_1835"
+    ],
+    "note": "The advertisement names the trade at the head of its own column — 'Hats, Clothing, Boots and Shoes ... WHOLESALE & RETAIL' — and describes a stock kept on hand and replenished through the season. A store, in the word this dataset uses, and stated rather than inferred."
+  },
+  "occupants": {
+    "value": "John Holbrook",
+    "confidence": "attested",
+    "sources": [
+      "chicago_democrat_1833_1835",
+      "chicago_american_1835"
+    ],
+    "note": "Both printings are signed JOHN HOLBROOK and dated at Chicago, the Democrat's 10 June 1835 and the American's 13 June 1835. That he traded, what he traded in, and the street and cross street he traded on are all documented; his building, its size, its height and the metres between his door and the corner are inference or invention."
+  },
+  "research_note": "A DOCUMENTED TRADE AT A DOCUMENTED ADDRESS, AND A WHOLLY INVENTED BUILDING — the ordinary case on this street, recorded so a visitor can tell the two apart. What the Chicago Democrat of 10 June 1835 and the Chicago American of 13 June 1835 give is a man, a trade, a street and a count of doors: John Holbrook, hats, clothing, boots and shoes, wholesale and retail, 'on South-Water st. one door from Dearborn street', keeping a large stock and receiving additions every fifteen or twenty days through the season. What is drawn is a 30 by 25 ft frame shop, and every dimension of it is borrowed from its neighbours on the same block face.\n\nWHY IT STANDS AT ALL, WHICH IS A RULING AND NOT A READING. Until 2026-08-30 the register read this address as a street and nothing narrower, which made Holbrook a street-only business owed a standing South Water roof under docs/STREET-FACE-ADOPTION.md — and South Water has none free, so he would have waited indefinitely. The owner ruled that a count of doors off a named corner is an ordinal off the corner, which is narrower than the street; docs/CORNER-ORDINAL.md carries the ruling and tools/compile_register.py reads every such phrase under it. The ordinal is what lets him be placed. It is not a lot, and this record claims none — see `lot_claim`.\n\nWHY IT IS WORTH HAVING. This face already carries two committed records and both of them were placed by RELATION rather than by lot — the American's office 'immediately east of Dearborn' and Frederick Thomas 'two doors from the American office' — and the door between them stood empty while the papers that printed both addresses also printed a third one that fills it. Standing Holbrook there does not merely add a building: it is the first time three addresses out of this town's own press have been read together and found consistent, and the row they describe is evidence about South Water Street even where it is weak evidence about any one shop.\n\nWHAT WOULD UPGRADE IT. The page images for either printing would settle whether the advertisement carries a side of the street. A canal-commission lot record or an assessment naming Holbrook would replace the door count with a lot, and would be the thing that let this record claim one. WHAT WOULD REFUTE IT. Any source placing Holbrook west of Dearborn, or placing another documented store between the American's office and Frederick Thomas's shop. See data/research/newspapers/extracted/chicago_democrat_1835_06_10.json claim c010 and data/research/newspapers/extracted/chicago_american_1835_06_13.json claim c012 for the two transcriptions this record reads.",
+  "review_required": false,
+  "lot_claim": {
+    "claims_lot": false,
+    "lot": null,
+    "placement_rule": "corner_ordinal",
+    "note": "AN ORDINAL IS NOT A LOT. The owner ruled on 2026-08-30 (T-0384) that 'one door from Dearborn street' places this store as a position along the South Water face, counted from the Dearborn crossing — and that the ordinal 'is still not a lot: it fixes a position in a sequence along a face; it does not name a platted lot and may not claim one'. So this record asserts nothing whatever about who held the ground under it. It is read as claiming no lot by tools/plat_occupancy.py, which means it neither entitles the lot it physically stands on nor exhausts it; the roof schedule and the block generator see the lot exactly as they would if this record named a different street. Nothing physical is relaxed by the declaration — the footprint still may not overlap another, still clears every neighbour by the separation gate's three metres, and still stands inside the block's own lot lines. tools/measure_corner_ordinals.py is the gate that proves all of it. docs/CORNER-ORDINAL.md is the policy."
+  }
+}

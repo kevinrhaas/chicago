@@ -1,0 +1,35 @@
+{
+  "id": "samstone_2017_tallgrass_trail",
+  "type": "photograph",
+  "citation": "Samstone13. Tallgrass Prairie Trail. Photograph, 8 September 2017. Wikimedia Commons, CC BY-SA 4.0.",
+  "author": "Wikimedia Commons user Samstone13",
+  "date": "2017-09-08",
+  "describes_date": "2017-09-08",
+  "repository": "Wikimedia Commons",
+  "url": "https://commons.wikimedia.org/wiki/File:Tallgrass_Prairie_Trail.jpg",
+  "archived_url": "https://upload.wikimedia.org/wikipedia/commons/4/4b/Tallgrass_Prairie_Trail.jpg",
+  "locator": "the full frame, 593x400; committed verbatim at data/sources/assets/samstone_2017_tallgrass_trail/tallgrass_prairie_trail_2017-09-08.jpg (SHA-1 c2da32962b8c4ddb73b8f2cd36f4a39abeff7628)",
+  "tier": 4,
+  "rights_status": "cleared",
+  "rights_note": "CC BY-SA 4.0, attribution required, no endorsement implied. Committed BYTE-FOR-BYTE UNMODIFIED, so this repository redistributes the licensed work rather than an adaptation and ShareAlike is not triggered by its presence. Anything DERIVED from it - a crop, a resample, a texture - is an adaptation and would have to be released under CC BY-SA 4.0. This project derives no asset from it: it is measured, not sampled. tools/publish.sh does not copy data/sources/, so it is not redistributed on the published site.",
+  "rights_checked": {
+    "date": "2026-08-15",
+    "method": "Wikimedia Commons file page and API imageinfo: LicenseShortName 'CC BY-SA 4.0', Artist 'Samstone13', DateTimeOriginal 2017-09-08, description 'Trail through Tallgrass Prairie National Preserve in Strong City, KS'. The file was then retrieved from upload.wikimedia.org and its SHA-1 compared to the SHA-1 the API reports for the page's current version - c2da32962b8c4ddb73b8f2cd36f4a39abeff7628, 147,334 bytes, 593x400 - so the committed bytes are provably the bytes the licence statement is attached to.",
+    "outcome": "cleared for verbatim redistribution with attribution; NOT cleared for asset derivation, which would carry the ShareAlike obligation. The project's CC0/CC-BY-only default in assets/LICENSES.md is deliberately excepted here and the exception is recorded there."
+  },
+  "asset_use": "cross_check",
+  "verified": true,
+  "access_notes": "Retrieved 2026-08-15 from Wikimedia Commons. Selected by the owner on 2026-08-15 from a set of candidates, after the Midewin (Illinois) Forest Service candidates were rejected on inspection as showing flowers rather than a usable trail surface. VERIFIED BY EYE before committing, which is the step docs/RESEARCH the reference bar insists on: it shows a narrow foot-worn EARTH track receding through standing tallgrass, photographed at standing eye height looking along its length, tall grass close on both sides, sky visible above a distant tree line. It is not gravel and not a mown lawn - the two failure modes that would have made it the wrong reference in opposite directions.",
+  "note": "THE ROAD-CONTRAST REFERENCE, for R-M1b. The road gate's thresholds (ROAD_MIN_DELTA_L, ROAD_MIN_PERCEPTIBLE) were set under one exposure and are unanchored; R-M1 ruled that they be DERIVED from what a real earth track holds against real prairie rather than picked to fit the build. R-M1a then found that the sky reference named for that job, saari_2018_dupage_tallgrass, contains no track at all. This is the replacement, chosen by the owner.\n\nWHAT IT CAN AND CANNOT ANCHOR, stated before anything is derived from it. It is a SCAN OF A PHOTOGRAPHIC PRINT, not a direct digital capture - the border and the film-like saturation are visible in the frame - so its ABSOLUTE sRGB values are mediated by film stock, print process and scanner and must not be treated as colorimetry. RATIOS survive that chain far better than absolute lightness does, which is the same reasoning the owner's own R-M1 ruling rests on: derive the WEBER CONTRAST bar from this photograph and do NOT derive the absolute luminance floor from it.\n\nAt 593x400 the track spans a few pixels within about twenty metres of the camera and is unresolvable beyond that, so it can anchor the NEAR and MID bands only. The 250-600 m and 600-4000 m bands cannot be derived from this file and must stay at their provisional frozen figures, labelled provisional, until a source that resolves them exists.",
+  "what_it_supplies": [
+    "the near-field contrast an unimproved earth footpath holds against standing tallgrass, at standing eye height looking along the track",
+    "the composition an on-street station is trying to reproduce: track receding through sward to a distant tree line under open sky"
+  ],
+  "what_it_does_not_supply": [
+    "colorimetry - it is a scan of a print, so absolute sRGB and absolute L* are mediated by film, print and scanner; use ratios, not absolutes",
+    "July phenology - it is 8 September, and the scene date is 1 July; the sward is later in its season than the reconstruction's",
+    "Illinois - it is Kansas (Tallgrass Prairie National Preserve, Strong City), a different latitude and a drier community than the Chicago lake plain",
+    "any band beyond about twenty metres - at 593x400 the track is unresolvable further off, so the far road bands cannot be anchored here",
+    "wagon-road width - this is a foot-worn path; an 1835 street was a wagon track roughly ten metres wide, and only the earth-against-sward contrast transfers, not the geometry"
+  ]
+}

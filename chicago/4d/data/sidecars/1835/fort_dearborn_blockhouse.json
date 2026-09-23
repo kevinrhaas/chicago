@@ -1,0 +1,173 @@
+{
+  "id": "fort_dearborn_blockhouse",
+  "phase": "log_1816",
+  "name": "Fort Dearborn — block-house",
+  "aka": [
+    "the blockhouse at the south-west angle"
+  ],
+  "archetype": "fort_structure",
+  "asset": "gltf/fort_dearborn_blockhouse__log_1816.glb",
+  "scene": "1835",
+  "target_date": "1835-07-01",
+  "documented_range": {
+    "from": "1816-07-01",
+    "to": "1856-08-31",
+    "confidence": "inferred",
+    "sources": [
+      "andreas_1884_v1",
+      "harrison_1830_river_mouth"
+    ],
+    "note": "THE RANGE IS THE FORT'S, NOT THIS BUILDING'S. No source reached dates any individual building inside Fort Dearborn. It opens with the rebuild of 1816 and closes with the demolition of the fort's principal structures in the summer of 1856 (Andreas). What carries the scene date is the middle: the post was garrisoned continuously from June 1832 to 29 December 1836."
+  },
+  "change_note": "",
+  "placement": {
+    "local_e": 1121.18,
+    "local_n": 196.72,
+    "rotation_deg": 8.0,
+    "position_confidence": "inferred",
+    "position_sources": [
+      "harrison_1830_river_mouth",
+      "andreas_1884_v1"
+    ],
+    "position_note": "PLACED FROM THE PLAN AND CORROBORATED BY TWO TEXTS. The 1830 plan draws a heavy hollow block at the south-west angle, projecting outside the curtain on both faces - the only element of the fort drawn that way. Andreas: 'The block-house was in the southwest corner.' Hubbard, 1827: 'the block-house was located at the southwest and the bastion at the northwest corners of the fort.' Three sources, one corner. The rotation is the fort's.",
+    "symbolic_location": "At the south-west angle of Fort Dearborn, standing astride the corner of the stockade and projecting outside it.",
+    "uncertainty_m": 20,
+    "placement_provisional": false,
+    "vertical_anchor": "terrain",
+    "walk_surface_m": null
+  },
+  "footprint": {
+    "polygon": [
+      [
+        0,
+        0
+      ],
+      [
+        14.52,
+        0
+      ],
+      [
+        14.52,
+        9.8
+      ],
+      [
+        0,
+        9.8
+      ]
+    ],
+    "confidence": "inferred",
+    "sources": [
+      "harrison_1830_river_mouth"
+    ],
+    "note": "MEASURED, AND LARGER THAN A BLOCKHOUSE OUGHT TO BE. 14.52 x 9.80 m is about 48 x 32 ft, read off the 1830 plan at the derived scale after correcting for the fort's rotation. A period blockhouse is usually 20 to 30 ft square, so this is either an unusually large one or - more likely - the plate drawing the blockhouse together with the return of the curtain round it as a single heavy block. The measurement is recorded rather than quietly shrunk to the expected size, because shrinking it would be substituting a typology for the only plan that exists. Carry +/-25 percent and read the note."
+  },
+  "attributes": {
+    "kind": {
+      "value": "blockhouse",
+      "confidence": "attested",
+      "sources": [
+        "andreas_1884_v1"
+      ],
+      "note": "Named by Andreas and by Hubbard, both at the south-west angle. GUARD: the widely repeated 'two blockhouses, one on the south-east corner, the other at the north-west' is the FIRST fort - its source passage ends 'Such was the old Fort previous to 1812'. This fort has one blockhouse and two bastions, and the bastions belong to fort_dearborn_palisade."
+    },
+    "construction": {
+      "value": "log",
+      "confidence": "inferred",
+      "note": "Not stated for this fort. The 1803 War Department instruction for posts of this class required 'the block-houses to be constructed of timber, slightly hewed', which is the type; nothing says the 1816 rebuild departed from it."
+    },
+    "stories": {
+      "value": 2,
+      "confidence": "inferred",
+      "note": "Not stated. Two storeys with the upper one jettied is what makes a blockhouse a blockhouse: the 1803 instruction says the block-houses are 'so placed as to scour from the upper and lower stories the whole of the lines', which is a two-storey building described by what it does."
+    },
+    "wall_height_m": {
+      "value": 5.2,
+      "confidence": "reconstructed",
+      "note": "Unattested. Two storeys of hewn log. A guess in a plausible range."
+    },
+    "upper_overhang_m": {
+      "value": 0.45,
+      "confidence": "reconstructed",
+      "note": "Unattested at this fort. The jetty of the upper storey over the lower is the defining feature of the type and it is invented here at a typical size; a visitor looking at the overhang is looking at a definition, not at evidence."
+    },
+    "loopholes": {
+      "value": true,
+      "confidence": "reconstructed",
+      "note": "Unattested at this fort. The 1803 instruction for this class of post describes blockhouses scouring the lines from both storeys and barracks with port-holes 'for the use of musketry', so loopholes are what the building is for - but that is a specification for the first fort and the pattern, spacing and height of every slit built here is ours."
+    },
+    "roof_type": {
+      "value": "pyramid",
+      "confidence": "reconstructed",
+      "note": "Unattested. A four-sided pitched cap over a near-square plan is the surviving type. Andreas's own 1808 index for the first fort notes 'the Cupolas are not yet built on the Block Houses as laid down', which attests a cupola on that fort's blockhouses and nothing about this one; no cupola is built here."
+    },
+    "roof_pitch_deg": {
+      "value": 30.0,
+      "confidence": "reconstructed",
+      "note": "Unattested. A shallower pitch than the ranges because a pyramid over a wide plan gets tall fast."
+    },
+    "chimneys": {
+      "value": 1,
+      "confidence": "reconstructed",
+      "note": "Unattested. A blockhouse manned in a Chicago winter is heated; the count, the position and everything else about the stack is ours."
+    },
+    "function": {
+      "value": "block-house",
+      "confidence": "attested",
+      "sources": [
+        "andreas_1884_v1"
+      ],
+      "note": "The fort's one blockhouse, at the south-west angle, flanking the south and west curtains. It outlived the fort as a landmark: Wentworth records that when the reservation was sold in 1839 'the land whereon the block-house stood ... was not parted with'."
+    },
+    "land_owner": {
+      "value": "The ground was entered by John Baptist Baubian, 28 May 1835",
+      "confidence": "inferred",
+      "sources": [
+        "isa_public_domain_land_tract_sales"
+      ],
+      "note": "THE UNITED STATES RESERVATION. This is the same tract L108 already derives for `1835_no_build_ground.json` — from G1, Madison's line and the traced waterline — so the polygon is inherited rather than built again, and `check.sh` already re-derives it. The register's own row is the second, independent witness to the date L108 quotes from Andreas: Beaubien's pre-emption, 28 May 1835, five weeks before the scene date. The derived polygon is short of the documented 75.69 acres for the reasons L108 states, and is a floor rather than the reservation. WHETHER THE ENTRY HELD IS NOT READ HERE: it was disputed, and this row records the entry the register carries and nothing about its outcome. THE MARGIN IS 57 m: this footprint stands that far inside the tract's nearest boundary, which is more than twice the working horizontal uncertainty of anything traced off the 1834 sheets (about 20 m), so the assignment survives the error the construction carries. WHAT THIS ROW CLAIMS AND WHAT IT DOES NOT. It claims that the tract the Illinois State Archives' land-sale register describes contains this structure's committed position — the patent for this ground was ENTERED by this man on this date. It does not claim he still held the ground on 1 July 1835, that he lived here, or that he ever stood on it: a sale is a transaction, and the register's only column about residence names a county. THE SECTION LINES ARE CONSTRUCTED, NOT TRACED (L219): the grid is carried from the single PLSS corner at State & Madison, on the plat's own east-west bearing, in nominal one-mile squares."
+    }
+  },
+  "residents": [],
+  "citations": [
+    {
+      "source_id": "andreas_1884_v1",
+      "citation": "Andreas, A. T. History of Chicago: From the Earliest Period to the Present Time. Vol. 1. Chicago: A. T. Andreas, 1884.",
+      "url": "https://archive.org/details/historyofchicago01andr",
+      "archived_url": "",
+      "tier": 3,
+      "tier_label": "compiled secondary (Andreas)"
+    },
+    {
+      "source_id": "harrison_1830_river_mouth",
+      "citation": "Harrison, F., Jr., Ass't U.S. Civil Engineer. \"Map of the Mouth of Chicago River, drawn for the Purpose of showing the proposed Harbor Improvements. With additions and changes suggested by the Memory of Early Settlers. The original received and approved by William Howard, U.S. Civil Engineer, February 24, 1830.\" Reproduced in Andreas, A. T., History of Chicago, vol. 1 (Chicago, 1884), p. 113.",
+      "url": "https://archive.org/details/historyofchicago01andr/page/n242/mode/1up",
+      "archived_url": "",
+      "tier": 2,
+      "tier_label": "near-primary recollection",
+      "what_it_supplies": [
+        "the fort's plan arrangement: a quadrangular picket enclosure, corner works, four ranges, two gates",
+        "which building stood on which side of the parade",
+        "the relative proportions of the enclosure and the buildings in it",
+        "the fort's rotation relative to true north",
+        "the named ground around the fort: garrison garden, cultivated field, barn, wash house, well, shop, cemetery, ferry"
+      ],
+      "what_it_does_not_supply": [
+        "any dimension in feet - there is no scale bar",
+        "elevations, heights, roof forms or materials",
+        "the state of the fort in 1835 - it is five years earlier",
+        "a separation between the 1830 survey and the settler-memory additions the plate admits to"
+      ]
+    },
+    {
+      "source_id": "isa_public_domain_land_tract_sales",
+      "citation": "Illinois State Archives, Illinois Public Domain Land Tract Sales Database (Springfield: Office of the Secretary of State).",
+      "url": "https://apps.ilsos.gov/isa/landSalesSearch.do",
+      "archived_url": "",
+      "tier": 1,
+      "tier_label": "period/eyewitness"
+    }
+  ],
+  "research_note": "THE MOST INVENTED BUILDING IN THE COMPLEX, and the one a visitor will look at hardest. Its corner is documented three times over and its outline is on the only plan; its height, its jetty, its loopholes, its roof and its stack are all ours, because nothing reached describes this blockhouse at all beyond the words 'block-house' and 'southwest'. The footprint note explains why the measured size is bigger than the type and why it was not quietly reduced.",
+  "research_doc": "docs/RESEARCH/fort_dearborn_blockhouse.md",
+  "review_required": false
+}

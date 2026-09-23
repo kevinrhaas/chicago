@@ -1,0 +1,1047 @@
+{
+ "schema": 1,
+ "domain": "books",
+ "source_id": "moses_kirkland_history_of_chicago_v1",
+ "ticket": "T-0581",
+ "generated_by": "a script run by hand over the committed text. The search is mechanical; the verdicts are authored; two judgements are made by hand and are marked where they are made — the `black` row, whose every early hit is the adjective and not a surname, and the list of which edit-distance-1 neighbours are names rather than ordinary words. Re-derivable: for each surname an apostrophe-tolerant word-boundary case-insensitive match over every line of data/research/books/text/moses_kirkland_history_of_chicago_v1.txt; the pre-1836 window is any line within eight lines of a line printing a year between 1820 and 1835; a zero result is re-tested against every word in the volume at edit distance 1 before it is called an absence.",
+ "_doc": "T-0581's SECOND acceptance clause, discharged and shown. The Newberry genealogical index (T-0570) named forty-nine surnames standing BOTH on a lead in this project and on a Chicago or Cook County card that cites Moses and Kirkland. This file records that every one of them was looked up in the work itself — not a sample, not the promising ones. A surname with a verdict and no claim is a NEGATIVE RESULT and is the point of the file: it is what stops the next run paying for the same search twice.",
+ "window_note": "THE PRE-1836 WINDOW IS A FILTER AND NOT A JUDGEMENT. It finds lines near a printed year, which is where a compiler dates its statements; it will miss a dateless sentence about the early town and it will catch a later paragraph that happens to mention 1835. Every claim in this domain was read in its own context, and the window only decided what to read.",
+ "zero_result_note": "A ZERO RESULT IS NOT AUTOMATICALLY AN ABSENCE, because both sides of this search are OCR — the index cards T-0570 read, and this volume's own scan. The apostrophe cost one surname outright: a plain \\b search reported `obrien` absent while the volume prints O'Brien, which is why the match is apostrophe-tolerant. Every remaining zero is re-tested at edit distance 1 against the volume's whole vocabulary, and the results split: where the neighbour is a surname the row is UNRESOLVED and names it, and where the neighbours are ordinary words the row is an absence.",
+ "counts": {
+  "surnames_on_a_lead": 49,
+  "read": 13,
+  "present_and_early_not_claimed": 8,
+  "present_but_late": 21,
+  "verdicts_authored_by_hand": 9,
+  "unresolved_near_spelling": 4,
+  "absent": 2,
+  "text_lines": 137410,
+  "counts_note": "The five verdict buckets do not partition the forty-nine on their own, because `black` is the one surname whose MECHANICAL verdict was READ and whose hand verdict is not: its early hits are the adjective. So 13 read + 8 present-and-early-not-claimed + 1 (black) + 21 present-but-late + 4 unresolved + 2 absent = 49. Every row keeps its mechanical verdict beside the authored one wherever the two differ."
+ },
+ "surnames": [
+  {
+   "surname": "allen",
+   "occurrences": 52,
+   "in_pre_1836_context": 4,
+   "first_lines": [
+    610,
+    750,
+    921,
+    5657,
+    5683,
+    5701,
+    5749,
+    12517
+   ],
+   "pre_1836_lines": [
+    5657,
+    5749,
+    12517,
+    119466
+   ],
+   "claims": [],
+   "verdict": "NOT A SURNAME HERE — all four pre-1836 hits are given or middle names: 'Robert Allen Kinzie' twice, 'Rev. Allen B. Freeman' (who is claimed under his own surname at bk_mose1_005), and 'Allen Pirie', a father in a later sketch. Volume 1 names no Chicago man surnamed Allen before 1836.",
+   "mechanical_verdict": "PRESENT AND EARLY, NOT CLAIMED — occurrences fall in the pre-1836 window but say nothing this project can use: a war muster, a county officer list, an index line, or a namesake. Named here so the next run does not re-search it blind.",
+   "mechanical_claims": [],
+   "overridden_by_hand": true
+  },
+  {
+   "surname": "anderson",
+   "occurrences": 33,
+   "in_pre_1836_context": 1,
+   "first_lines": [
+    5825,
+    10468,
+    10528,
+    10789,
+    15855,
+    15903,
+    15935,
+    21159
+   ],
+   "pre_1836_lines": [
+    10789
+   ],
+   "claims": [],
+   "verdict": "FOUND, AND DEFERRED WITH ITS WHOLE ROSTER — the one pre-1836 hit is a row of the 'LIST OF ACTUAL SETTLERS AT CHICAGO, PRIOR TO 1830' at line 10789: 'Anderson, Joseph 1825 Paid taxes in 1825 and voted in 1828'. That roster is real evidence, with nativity, year and remarks columns, and transcribing it is its own unit of work. bk_mose1_014 records the list and the rule it was built on, and this run filed a ticket for the transcription rather than half-doing it inside a claims file.",
+   "mechanical_verdict": "PRESENT AND EARLY, NOT CLAIMED — occurrences fall in the pre-1836 window but say nothing this project can use: a war muster, a county officer list, an index line, or a namesake. Named here so the next run does not re-search it blind.",
+   "mechanical_claims": [],
+   "overridden_by_hand": true
+  },
+  {
+   "surname": "andrew",
+   "occurrences": 45,
+   "in_pre_1836_context": 3,
+   "first_lines": [
+    582,
+    674,
+    879,
+    11235,
+    14961,
+    15585,
+    15932,
+    15934
+   ],
+   "pre_1836_lines": [
+    11235,
+    110472,
+    110480
+   ],
+   "claims": [],
+   "verdict": "NOT A SURNAME HERE — 'President Andrew Jackson' approving an act, and a later family in which both a father and a son are called Andrew. No Chicago man surnamed Andrew in the pre-1836 window; the separate lead `andrews` is its own row and is late.",
+   "mechanical_verdict": "PRESENT AND EARLY, NOT CLAIMED — occurrences fall in the pre-1836 window but say nothing this project can use: a war muster, a county officer list, an index line, or a namesake. Named here so the next run does not re-search it blind.",
+   "mechanical_claims": [],
+   "overridden_by_hand": true
+  },
+  {
+   "surname": "andrews",
+   "occurrences": 6,
+   "in_pre_1836_context": 0,
+   "first_lines": [
+    30688,
+    30707,
+    63076,
+    77933,
+    123586,
+    123588
+   ],
+   "pre_1836_lines": [],
+   "claims": [],
+   "verdict": "PRESENT BUT LATE — every occurrence falls outside the pre-1836 window, so volume 1 carries this surname only in its index, in the later city, or in a chapter that never reaches 1835."
+  },
+  {
+   "surname": "baldwin",
+   "occurrences": 14,
+   "in_pre_1836_context": 0,
+   "first_lines": [
+    12966,
+    14957,
+    21522,
+    23502,
+    23517,
+    30652,
+    32165,
+    85491
+   ],
+   "pre_1836_lines": [],
+   "claims": [],
+   "verdict": "PRESENT BUT LATE — every occurrence falls outside the pre-1836 window, so volume 1 carries this surname only in its index, in the later city, or in a chapter that never reaches 1835."
+  },
+  {
+   "surname": "barry",
+   "occurrences": 16,
+   "in_pre_1836_context": 0,
+   "first_lines": [
+    20262,
+    20304,
+    26730,
+    34754,
+    41169,
+    41256,
+    41347,
+    65305
+   ],
+   "pre_1836_lines": [],
+   "claims": [],
+   "verdict": "PRESENT BUT LATE — every occurrence falls outside the pre-1836 window, so volume 1 carries this surname only in its index, in the later city, or in a chapter that never reaches 1835."
+  },
+  {
+   "surname": "black",
+   "occurrences": 74,
+   "in_pre_1836_context": 8,
+   "first_lines": [
+    250,
+    278,
+    542,
+    609,
+    641,
+    2919,
+    4840,
+    4842
+   ],
+   "pre_1836_lines": [
+    278,
+    10622,
+    12062,
+    97399,
+    99833,
+    99865,
+    116369,
+    117234
+   ],
+   "claims": [],
+   "verdict": "NOT A SURNAME HERE — and the mechanical search is what is wrong. Every pre-1836 hit is the adjective: 'Black Hawk' and the Black Hawk war throughout, and 'black walnut trees' inside the quote of bk_mose1_009, whose lumber it describes. Volume 1 names no Chicago man surnamed Black in the pre-1836 window.",
+   "mechanical_verdict": "READ — an occurrence in the pre-1836 window earned a claim; see claims.",
+   "mechanical_claims": [
+    "bk_mose1_009"
+   ],
+   "overridden_by_hand": true
+  },
+  {
+   "surname": "blodget",
+   "occurrences": 0,
+   "in_pre_1836_context": 0,
+   "first_lines": [],
+   "pre_1836_lines": [],
+   "claims": [],
+   "verdict": "UNRESOLVED — the index card's spelling does not occur, but the volume carries a surname one character away from it (blodgett x10). Both sides of this search are OCR, so the miss may belong to either spelling, and calling it an absence would be a guess. NOT looked up as that neighbour here: deciding they are the same surname is a crosswalk merge, and a merge needs a rule.",
+   "edit_distance_1_in_the_volume": {
+    "blodgett": 10
+   },
+   "work_verdict": "STILL UNRESOLVED, AND NOW WORTH SOMETHING — T-0826. Volume 2 leaves the same one-letter gap, but there its `blodgett` reaches the town: Tyler K. Blodgett's brick yard of spring 1833, the first in the city, at bk_mose2_014. No merge may be made on the letter."
+  },
+  {
+   "surname": "blodgett",
+   "occurrences": 10,
+   "in_pre_1836_context": 0,
+   "first_lines": [
+    12038,
+    12619,
+    22911,
+    37067,
+    37215,
+    118556,
+    124370,
+    124373
+   ],
+   "pre_1836_lines": [],
+   "claims": [],
+   "verdict": "PRESENT BUT LATE — every occurrence falls outside the pre-1836 window, so volume 1 carries this surname only in its index, in the later city, or in a chapter that never reaches 1835."
+  },
+  {
+   "surname": "caapbell",
+   "occurrences": 0,
+   "in_pre_1836_context": 0,
+   "first_lines": [],
+   "pre_1836_lines": [],
+   "claims": [],
+   "verdict": "UNRESOLVED — the index card's spelling does not occur, but the volume carries a surname one character away from it (campbell x31). Both sides of this search are OCR, so the miss may belong to either spelling, and calling it an absence would be a guess. NOT looked up as that neighbour here: deciding they are the same surname is a crosswalk merge, and a merge needs a rule.",
+   "edit_distance_1_in_the_volume": {
+    "campbell": 31
+   }
+  },
+  {
+   "surname": "carpenter",
+   "occurrences": 98,
+   "in_pre_1836_context": 9,
+   "first_lines": [
+    543,
+    615,
+    626,
+    646,
+    647,
+    648,
+    857,
+    858
+   ],
+   "pre_1836_lines": [
+    12126,
+    12133,
+    15429,
+    100191,
+    100197,
+    101017,
+    101499,
+    118869
+   ],
+   "claims": [
+    "bk_mose1_001",
+    "bk_mose1_002"
+   ],
+   "verdict": "READ — an occurrence in the pre-1836 window earned a claim; see claims."
+  },
+  {
+   "surname": "carter",
+   "occurrences": 46,
+   "in_pre_1836_context": 0,
+   "first_lines": [
+    372,
+    399,
+    700,
+    15319,
+    18922,
+    19661,
+    21685,
+    22145
+   ],
+   "pre_1836_lines": [],
+   "claims": [],
+   "verdict": "PRESENT BUT LATE — every occurrence falls outside the pre-1836 window, so volume 1 carries this surname only in its index, in the later city, or in a chapter that never reaches 1835."
+  },
+  {
+   "surname": "caton",
+   "occurrences": 47,
+   "in_pre_1836_context": 9,
+   "first_lines": [
+    546,
+    650,
+    861,
+    12232,
+    12356,
+    12496,
+    13611,
+    13622
+   ],
+   "pre_1836_lines": [
+    12232,
+    12496,
+    100537,
+    100542,
+    100549,
+    100578,
+    100582,
+    101500
+   ],
+   "claims": [
+    "bk_mose1_005",
+    "bk_mose1_011",
+    "bk_mose1_012"
+   ],
+   "verdict": "READ — an occurrence in the pre-1836 window earned a claim; see claims."
+  },
+  {
+   "surname": "dow",
+   "occurrences": 9,
+   "in_pre_1836_context": 0,
+   "first_lines": [
+    34685,
+    34706,
+    48991,
+    49580,
+    52417,
+    54509,
+    55189,
+    126989
+   ],
+   "pre_1836_lines": [],
+   "claims": [],
+   "verdict": "PRESENT BUT LATE — every occurrence falls outside the pre-1836 window, so volume 1 carries this surname only in its index, in the later city, or in a chapter that never reaches 1835."
+  },
+  {
+   "surname": "doyle",
+   "occurrences": 9,
+   "in_pre_1836_context": 0,
+   "first_lines": [
+    21677,
+    22466,
+    40240,
+    40246,
+    50143,
+    126997,
+    126998,
+    126999
+   ],
+   "pre_1836_lines": [],
+   "claims": [],
+   "verdict": "PRESENT BUT LATE — every occurrence falls outside the pre-1836 window, so volume 1 carries this surname only in its index, in the later city, or in a chapter that never reaches 1835."
+  },
+  {
+   "surname": "elliott",
+   "occurrences": 16,
+   "in_pre_1836_context": 0,
+   "first_lines": [
+    15952,
+    15979,
+    18061,
+    19006,
+    23098,
+    23389,
+    33387,
+    71120
+   ],
+   "pre_1836_lines": [],
+   "claims": [],
+   "verdict": "PRESENT BUT LATE — every occurrence falls outside the pre-1836 window, so volume 1 carries this surname only in its index, in the later city, or in a chapter that never reaches 1835."
+  },
+  {
+   "surname": "fitch",
+   "occurrences": 6,
+   "in_pre_1836_context": 0,
+   "first_lines": [
+    15860,
+    25281,
+    121880,
+    127924,
+    127926,
+    127929
+   ],
+   "pre_1836_lines": [],
+   "claims": [],
+   "verdict": "PRESENT BUT LATE — every occurrence falls outside the pre-1836 window, so volume 1 carries this surname only in its index, in the later city, or in a chapter that never reaches 1835."
+  },
+  {
+   "surname": "fullerton",
+   "occurrences": 18,
+   "in_pre_1836_context": 1,
+   "first_lines": [
+    548,
+    667,
+    31093,
+    31095,
+    31636,
+    63018,
+    63026,
+    101341
+   ],
+   "pre_1836_lines": [
+    101341
+   ],
+   "claims": [
+    "bk_mose1_016"
+   ],
+   "verdict": "READ — an occurrence in the pre-1836 window earned a claim; see claims."
+  },
+  {
+   "surname": "gallagher",
+   "occurrences": 5,
+   "in_pre_1836_context": 0,
+   "first_lines": [
+    35231,
+    38630,
+    128333,
+    128335,
+    128338
+   ],
+   "pre_1836_lines": [],
+   "claims": [],
+   "verdict": "PRESENT BUT LATE — every occurrence falls outside the pre-1836 window, so volume 1 carries this surname only in its index, in the later city, or in a chapter that never reaches 1835."
+  },
+  {
+   "surname": "gardiner",
+   "occurrences": 0,
+   "in_pre_1836_context": 0,
+   "first_lines": [],
+   "pre_1836_lines": [],
+   "claims": [],
+   "verdict": "UNRESOLVED — the index card's spelling does not occur, but the volume carries a surname one character away from it (gardner x22, gardener x1). Both sides of this search are OCR, so the miss may belong to either spelling, and calling it an absence would be a guess. NOT looked up as that neighbour here: deciding they are the same surname is a crosswalk merge, and a merge needs a rule.",
+   "edit_distance_1_in_the_volume": {
+    "gardner": 22,
+    "gardener": 1
+   },
+   "work_verdict": "RESOLVED AGAINST THE WORK — T-0826. Volume 2 prints the card's own spelling six times, so the one-letter question below was a fact about volume 1 and not about the work. All six are outside the pre-1836 window, so the resolved answer is still a negative."
+  },
+  {
+   "surname": "gardner",
+   "occurrences": 22,
+   "in_pre_1836_context": 0,
+   "first_lines": [
+    15835,
+    15836,
+    15908,
+    21676,
+    23403,
+    25753,
+    34521,
+    41019
+   ],
+   "pre_1836_lines": [],
+   "claims": [],
+   "verdict": "PRESENT BUT LATE — every occurrence falls outside the pre-1836 window, so volume 1 carries this surname only in its index, in the later city, or in a chapter that never reaches 1835."
+  },
+  {
+   "surname": "garrett",
+   "occurrences": 13,
+   "in_pre_1836_context": 2,
+   "first_lines": [
+    676,
+    13972,
+    13973,
+    15449,
+    15454,
+    15551,
+    17460,
+    93841
+   ],
+   "pre_1836_lines": [
+    93841,
+    98376
+   ],
+   "claims": [
+    "bk_mose1_008"
+   ],
+   "verdict": "READ — an occurrence in the pre-1836 window earned a claim; see claims."
+  },
+  {
+   "surname": "gray",
+   "occurrences": 26,
+   "in_pre_1836_context": 3,
+   "first_lines": [
+    684,
+    12806,
+    15327,
+    17706,
+    18025,
+    18142,
+    21303,
+    33470
+   ],
+   "pre_1836_lines": [
+    17706,
+    98808,
+    103068
+   ],
+   "claims": [],
+   "verdict": "THE SURNAME IS LATE, BUT THE PARAGRAPH IS NOT — every Gray in the window arrives after the scene: John Gray succeeded to the management of a tavern in 1838, Charles M. Gray succeeded Gurnee later, Judge Gray later again. WHAT IS WORTH A LATER RUN AT LINE 98808 IS NOT ABOUT A GRAY: it gives the succession of proprietors of the tavern on the west side of the south branch near the junction, owned by James Kinzie — David Clock first, then Edward Parsons, then Snow & Spear — and disputes an 1833 arrival's memory of a 'Mr. Crook'. A pre-1836 business succession in a building this project cares about, left as a signpost rather than claimed, because it belongs to no lead surname and to a reading of the taverns.",
+   "mechanical_verdict": "PRESENT AND EARLY, NOT CLAIMED — occurrences fall in the pre-1836 window but say nothing this project can use: a war muster, a county officer list, an index line, or a namesake. Named here so the next run does not re-search it blind.",
+   "mechanical_claims": [],
+   "overridden_by_hand": true
+  },
+  {
+   "surname": "greene",
+   "occurrences": 8,
+   "in_pre_1836_context": 2,
+   "first_lines": [
+    10618,
+    23761,
+    41251,
+    42249,
+    102695,
+    122994,
+    128797,
+    128798
+   ],
+   "pre_1836_lines": [
+    10618,
+    102695
+   ],
+   "claims": [],
+   "verdict": "GARRISON, NOT TOWN — 'Capt. John Greene to October, 1823' in the list of Fort Dearborn commandants, twelve years before the scene and a soldier rather than a townsman; the other hit is a later marriage to a Miss Pauline Greene.",
+   "mechanical_verdict": "PRESENT AND EARLY, NOT CLAIMED — occurrences fall in the pre-1836 window but say nothing this project can use: a war muster, a county officer list, an index line, or a namesake. Named here so the next run does not re-search it blind.",
+   "mechanical_claims": [],
+   "overridden_by_hand": true
+  },
+  {
+   "surname": "gunn",
+   "occurrences": 0,
+   "in_pre_1836_context": 0,
+   "first_lines": [],
+   "pre_1836_lines": [],
+   "claims": [],
+   "verdict": "ABSENT — neither the card's spelling nor any surname one character away from it occurs in volume 1. The nearest words in the volume are ordinary vocabulary, not names. The Newberry card citing this work for it points at volume 2, or at a person volume 1 does not name.",
+   "edit_distance_1_in_the_volume": {
+    "gun": 23,
+    "guns": 18,
+    "dunn": 7,
+    "munn": 18,
+    "bunn": 3,
+    "lunn": 2,
+    "gund": 8
+   },
+   "work_verdict": "NOT ABSENT FROM THE WORK — T-0826. Volume 2 prints this surname fourteen times, every one of them Dr. Moses Gunn, born at East Bloomfield, New York on 20 April 1822 and professor at Rush Medical College from 1867. The negative about the TOWN stands; the absence recorded below was an absence from volume 1."
+  },
+  {
+   "surname": "haddock",
+   "occurrences": 8,
+   "in_pre_1836_context": 0,
+   "first_lines": [
+    15539,
+    21680,
+    89136,
+    98303,
+    128921,
+    128922,
+    128926,
+    128927
+   ],
+   "pre_1836_lines": [],
+   "claims": [],
+   "verdict": "PRESENT BUT LATE — every occurrence falls outside the pre-1836 window, so volume 1 carries this surname only in its index, in the later city, or in a chapter that never reaches 1835."
+  },
+  {
+   "surname": "hall",
+   "occurrences": 167,
+   "in_pre_1836_context": 7,
+   "first_lines": [
+    325,
+    378,
+    554,
+    5380,
+    5382,
+    5393,
+    5395,
+    5399
+   ],
+   "pre_1836_lines": [
+    5380,
+    5382,
+    5393,
+    5395,
+    5399,
+    5757,
+    13093
+   ],
+   "claims": [
+    "bk_mose1_019"
+   ],
+   "verdict": "READ — an occurrence in the pre-1836 window earned a claim; see claims."
+  },
+  {
+   "surname": "herrick",
+   "occurrences": 10,
+   "in_pre_1836_context": 0,
+   "first_lines": [
+    15600,
+    18083,
+    25729,
+    37290,
+    99113,
+    129354,
+    129355,
+    129356
+   ],
+   "pre_1836_lines": [],
+   "claims": [],
+   "verdict": "PRESENT BUT LATE — every occurrence falls outside the pre-1836 window, so volume 1 carries this surname only in its index, in the later city, or in a chapter that never reaches 1835."
+  },
+  {
+   "surname": "hubbard",
+   "occurrences": 48,
+   "in_pre_1836_context": 15,
+   "first_lines": [
+    185,
+    5106,
+    6691,
+    6694,
+    6744,
+    9382,
+    9788,
+    10503
+   ],
+   "pre_1836_lines": [
+    10503,
+    11297,
+    11987,
+    12174,
+    13245,
+    15627,
+    62816,
+    64572
+   ],
+   "claims": [
+    "bk_mose1_003",
+    "bk_mose1_007",
+    "bk_mose1_020",
+    "bk_mose1_008"
+   ],
+   "verdict": "READ — an occurrence in the pre-1836 window earned a claim; see claims."
+  },
+  {
+   "surname": "hull",
+   "occurrences": 18,
+   "in_pre_1836_context": 1,
+   "first_lines": [
+    5252,
+    5647,
+    7139,
+    7155,
+    7157,
+    7309,
+    7834,
+    8662
+   ],
+   "pre_1836_lines": [
+    5647
+   ],
+   "claims": [],
+   "verdict": "NOT A CHICAGO SURNAME HERE — the single pre-1836 hit is 'Hull's surrender', General William Hull at Detroit in 1812, in the Fort Dearborn narrative. He is neither a resident nor a lead.",
+   "mechanical_verdict": "PRESENT AND EARLY, NOT CLAIMED — occurrences fall in the pre-1836 window but say nothing this project can use: a war muster, a county officer list, an index line, or a namesake. Named here so the next run does not re-search it blind.",
+   "mechanical_claims": [],
+   "overridden_by_hand": true
+  },
+  {
+   "surname": "hyde",
+   "occurrences": 28,
+   "in_pre_1836_context": 3,
+   "first_lines": [
+    601,
+    15837,
+    20460,
+    35828,
+    35921,
+    39797,
+    40452,
+    41754
+   ],
+   "pre_1836_lines": [
+    35828,
+    40452,
+    107156
+   ],
+   "claims": [
+    "bk_mose1_020"
+   ],
+   "verdict": "READ — an occurrence in the pre-1836 window earned a claim; see claims."
+  },
+  {
+   "surname": "jones",
+   "occurrences": 114,
+   "in_pre_1836_context": 15,
+   "first_lines": [
+    177,
+    551,
+    552,
+    609,
+    722,
+    724,
+    726,
+    898
+   ],
+   "pre_1836_lines": [
+    18852,
+    38273,
+    40296,
+    93862,
+    94293,
+    94301,
+    95906,
+    95909
+   ],
+   "claims": [
+    "bk_mose1_018"
+   ],
+   "verdict": "READ — an occurrence in the pre-1836 window earned a claim; see claims."
+  },
+  {
+   "surname": "kimball",
+   "occurrences": 23,
+   "in_pre_1836_context": 3,
+   "first_lines": [
+    570,
+    730,
+    904,
+    12233,
+    12600,
+    23662,
+    24771,
+    33703
+   ],
+   "pre_1836_lines": [
+    12233,
+    88680,
+    107732
+   ],
+   "claims": [
+    "bk_mose1_005"
+   ],
+   "verdict": "READ — an occurrence in the pre-1836 window earned a claim; see claims."
+  },
+  {
+   "surname": "lathrop",
+   "occurrences": 9,
+   "in_pre_1836_context": 1,
+   "first_lines": [
+    15838,
+    40452,
+    77404,
+    96984,
+    97012,
+    97016,
+    130744,
+    130746
+   ],
+   "pre_1836_lines": [
+    40452
+   ],
+   "claims": [
+    "bk_mose1_020"
+   ],
+   "verdict": "READ — an occurrence in the pre-1836 window earned a claim; see claims."
+  },
+  {
+   "surname": "lincoln",
+   "occurrences": 133,
+   "in_pre_1836_context": 2,
+   "first_lines": [
+    318,
+    345,
+    555,
+    558,
+    599,
+    870,
+    5490,
+    6037
+   ],
+   "pre_1836_lines": [
+    5490,
+    6037
+   ],
+   "claims": [],
+   "verdict": "LATE IN SUBSTANCE — both pre-1836-window hits are Robert T. Lincoln as secretary of war in 1881, caught by the filter because the surrounding lines print an early date. Volume 1 carries no Chicago Lincoln before 1836.",
+   "mechanical_verdict": "PRESENT AND EARLY, NOT CLAIMED — occurrences fall in the pre-1836 window but say nothing this project can use: a war muster, a county officer list, an index line, or a namesake. Named here so the next run does not re-search it blind.",
+   "mechanical_claims": [],
+   "overridden_by_hand": true
+  },
+  {
+   "surname": "marsh",
+   "occurrences": 32,
+   "in_pre_1836_context": 2,
+   "first_lines": [
+    18051,
+    21380,
+    21691,
+    21967,
+    24205,
+    40243,
+    44688,
+    48131
+   ],
+   "pre_1836_lines": [
+    64565,
+    64575
+   ],
+   "claims": [
+    "bk_mose1_017"
+   ],
+   "verdict": "READ — an occurrence in the pre-1836 window earned a claim; see claims."
+  },
+  {
+   "surname": "mattoson",
+   "occurrences": 0,
+   "in_pre_1836_context": 0,
+   "first_lines": [],
+   "pre_1836_lines": [],
+   "claims": [],
+   "verdict": "UNRESOLVED — the index card's spelling does not occur, but the volume carries a surname one character away from it (matteson x8, mattoon x3). Both sides of this search are OCR, so the miss may belong to either spelling, and calling it an absence would be a guess. NOT looked up as that neighbour here: deciding they are the same surname is a crosswalk merge, and a merge needs a rule.",
+   "edit_distance_1_in_the_volume": {
+    "matteson": 8,
+    "mattoon": 3
+   }
+  },
+  {
+   "surname": "morey",
+   "occurrences": 8,
+   "in_pre_1836_context": 0,
+   "first_lines": [
+    15894,
+    15899,
+    96989,
+    97004,
+    97008,
+    132179,
+    132183,
+    132184
+   ],
+   "pre_1836_lines": [],
+   "claims": [],
+   "verdict": "PRESENT BUT LATE — every occurrence falls outside the pre-1836 window, so volume 1 carries this surname only in its index, in the later city, or in a chapter that never reaches 1835."
+  },
+  {
+   "surname": "murphy",
+   "occurrences": 29,
+   "in_pre_1836_context": 0,
+   "first_lines": [
+    15546,
+    15569,
+    15574,
+    15693,
+    15699,
+    15705,
+    23686,
+    29480
+   ],
+   "pre_1836_lines": [],
+   "claims": [],
+   "verdict": "PRESENT BUT LATE — every occurrence falls outside the pre-1836 window, so volume 1 carries this surname only in its index, in the later city, or in a chapter that never reaches 1835."
+  },
+  {
+   "surname": "nlan",
+   "occurrences": 0,
+   "in_pre_1836_context": 0,
+   "first_lines": [],
+   "pre_1836_lines": [],
+   "claims": [],
+   "verdict": "ABSENT — neither the card's spelling nor any surname one character away from it occurs in volume 1. The nearest words in the volume are ordinary vocabulary, not names. The Newberry card citing this work for it points at volume 2, or at a person volume 1 does not name.",
+   "edit_distance_1_in_the_volume": {
+    "plan": 49,
+    "lan": 5,
+    "alan": 2
+   },
+   "work_verdict": "ABSENT FROM THE WORK, BOTH VOLUMES — T-0826. Volume 2 returns zero for it too and its edit-distance-1 neighbours there are ordinary vocabulary. This is the one lead surname of the forty-nine absent from Moses and Kirkland entirely. It is itself an OCR garble on the Newberry side and the next step is a page image of that card, not a further search of this work."
+  },
+  {
+   "surname": "obrien",
+   "occurrences": 13,
+   "in_pre_1836_context": 0,
+   "first_lines": [
+    34555,
+    34563,
+    38537,
+    38542,
+    38569,
+    38600,
+    38605,
+    41170
+   ],
+   "pre_1836_lines": [],
+   "claims": [],
+   "verdict": "PRESENT BUT LATE — every occurrence falls outside the pre-1836 window, so volume 1 carries this surname only in its index, in the later city, or in a chapter that never reaches 1835."
+  },
+  {
+   "surname": "peck",
+   "occurrences": 86,
+   "in_pre_1836_context": 11,
+   "first_lines": [
+    542,
+    580,
+    765,
+    766,
+    927,
+    928,
+    11753,
+    11824
+   ],
+   "pre_1836_lines": [
+    11824,
+    11982,
+    86700,
+    93859,
+    97409,
+    99694,
+    99715,
+    99871
+   ],
+   "claims": [
+    "bk_mose1_002",
+    "bk_mose1_020",
+    "bk_mose1_009",
+    "bk_mose1_010"
+   ],
+   "verdict": "READ — an occurrence in the pre-1836 window earned a claim; see claims."
+  },
+  {
+   "surname": "pierce",
+   "occurrences": 30,
+   "in_pre_1836_context": 1,
+   "first_lines": [
+    12235,
+    12621,
+    12980,
+    13711,
+    13715,
+    15536,
+    15541,
+    15546
+   ],
+   "pre_1836_lines": [
+    12235
+   ],
+   "claims": [
+    "bk_mose1_005"
+   ],
+   "verdict": "READ — an occurrence in the pre-1836 window earned a claim; see claims."
+  },
+  {
+   "surname": "pratt",
+   "occurrences": 7,
+   "in_pre_1836_context": 0,
+   "first_lines": [
+    15866,
+    24687,
+    81947,
+    133545,
+    133547,
+    133549,
+    133551
+   ],
+   "pre_1836_lines": [],
+   "claims": [],
+   "verdict": "PRESENT BUT LATE — every occurrence falls outside the pre-1836 window, so volume 1 carries this surname only in its index, in the later city, or in a chapter that never reaches 1835."
+  },
+  {
+   "surname": "price",
+   "occurrences": 120,
+   "in_pre_1836_context": 7,
+   "first_lines": [
+    11297,
+    11303,
+    11343,
+    11355,
+    12623,
+    16468,
+    20509,
+    21365
+   ],
+   "pre_1836_lines": [
+    11297,
+    11355,
+    20509,
+    93744,
+    93778,
+    95591,
+    125366
+   ],
+   "claims": [],
+   "verdict": "MOSTLY THE NOUN, AND THE REST ALREADY HELD — the pre-1836 hits are the word 'price' in the 1830 canal-lot sale table at lines 11297 and 11355, whose purchasers and prices this project already holds under data/research/land_sales/, plus 'William Price, March 18, 1857'. No Chicago man surnamed Price before 1836.",
+   "mechanical_verdict": "PRESENT AND EARLY, NOT CLAIMED — occurrences fall in the pre-1836 window but say nothing this project can use: a war muster, a county officer list, an index line, or a namesake. Named here so the next run does not re-search it blind.",
+   "mechanical_claims": [],
+   "overridden_by_hand": true
+  },
+  {
+   "surname": "richards",
+   "occurrences": 15,
+   "in_pre_1836_context": 0,
+   "first_lines": [
+    15866,
+    18089,
+    21377,
+    21411,
+    49610,
+    50418,
+    50576,
+    50643
+   ],
+   "pre_1836_lines": [],
+   "claims": [],
+   "verdict": "PRESENT BUT LATE — every occurrence falls outside the pre-1836 window, so volume 1 carries this surname only in its index, in the later city, or in a chapter that never reaches 1835."
+  },
+  {
+   "surname": "root",
+   "occurrences": 13,
+   "in_pre_1836_context": 0,
+   "first_lines": [
+    21279,
+    21756,
+    34673,
+    37012,
+    37065,
+    108830,
+    113786,
+    114939
+   ],
+   "pre_1836_lines": [],
+   "claims": [],
+   "verdict": "PRESENT BUT LATE — every occurrence falls outside the pre-1836 window, so volume 1 carries this surname only in its index, in the later city, or in a chapter that never reaches 1835."
+  },
+  {
+   "surname": "rouse",
+   "occurrences": 2,
+   "in_pre_1836_context": 0,
+   "first_lines": [
+    4381,
+    8858
+   ],
+   "pre_1836_lines": [],
+   "claims": [],
+   "verdict": "PRESENT BUT LATE — every occurrence falls outside the pre-1836 window, so volume 1 carries this surname only in its index, in the later city, or in a chapter that never reaches 1835."
+  },
+  {
+   "surname": "win",
+   "occurrences": 25,
+   "in_pre_1836_context": 0,
+   "first_lines": [
+    8494,
+    12063,
+    12253,
+    14947,
+    15839,
+    15933,
+    15975,
+    21302
+   ],
+   "pre_1836_lines": [],
+   "claims": [],
+   "verdict": "PRESENT BUT LATE — every occurrence falls outside the pre-1836 window, so volume 1 carries this surname only in its index, in the later city, or in a chapter that never reaches 1835."
+  }
+ ],
+ "volume_2": "READ, T-0826, at data/research/books/moses_kirkland_v2_lead_surnames.json. THIS FILE'S NEGATIVES WERE NEGATIVES ABOUT ONE BOOK OF TWO and said so; the companion file is the same forty-nine surnames looked up in volume 2 by the same script (tools/search_book_lead_surnames.py, whose --self-test re-derives every mechanical field of THIS file before it will run), and its `work_verdict_note` states what composing the two changed. In short: `gunn` is in the work after all, though still not in the early town; `nlan` is absent from both volumes and so from the work entirely; `gardiner`'s one-letter question was a fact about volume 1 alone, because volume 2 prints the card's own spelling. Nothing in this file was edited to say so — the rows below are volume 1's reading and stay as T-0581 wrote them."
+}

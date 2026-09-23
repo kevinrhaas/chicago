@@ -1,0 +1,76 @@
+ticket,cohort,person_id,household_id,name_normalized,stratum,letter_list_dates,research_outcome,candidate_ids,source_ids
+T-0481,pass_07,hussy_robert,hh_hussy_robert,Robert Hussy,letter_list_only_uncertain,1834-10-22,no_corroboration,,chicago_democrat_1833_1835
+T-0481,pass_07,clement_dorcinrk,hh_clement_dorcinrk,DorCinrk Clement,letter_list_only_present,1835-07-01,no_corroboration,,chicago_democrat_1833_1835
+T-0481,pass_07,herrick_ira,hh_herrick_ira,Ira Herrick,letter_list_only_uncertain,1834-04-01;1834-07-09,candidate,cand_ira_herrick_dupage,chicago_democrat_1833_1835;resident_research_dupage_herrick;resident_research_fergus_directory_1843
+T-0481,pass_07,clizbe_joseph,hh_clizbe_joseph,Joseph Clizbe,letter_list_only_present,1835-07-01,no_corroboration,,chicago_democrat_1833_1835
+T-0481,pass_07,minard_ira,hh_minard_ira,Ira Minard,letter_list_only_uncertain,1835-05-20,candidate,cand_ira_minard_st_charles,chicago_democrat_1833_1835;resident_research_stcharles_minard
+T-0481,pass_07,conkiin_robert_i,hh_conkiin_robert_i,Robert I. Conkiin,letter_list_only_present,1835-07-01,no_corroboration,,chicago_democrat_1833_1835
+T-0481,pass_07,raymore_ira,hh_raymore_ira,Ira Raymore,letter_list_only_uncertain,1834-04-01,no_corroboration,,chicago_democrat_1833_1835
+T-0481,pass_07,crane_h_y,hh_crane_h_y,H. Y. Crane,letter_list_only_present,1835-07-01,no_corroboration,,chicago_democrat_1833_1835
+T-0481,pass_07,hill_isaac_l,hh_hill_isaac_l,Isaac L. Hill,letter_list_only_uncertain,1835-05-20,no_corroboration,,chicago_democrat_1833_1835
+T-0481,pass_07,crawford_james,hh_crawford_james,James Crawford,letter_list_only_present,1835-07-01,no_corroboration,,chicago_democrat_1833_1835
+T-0481,pass_07,scarritt_isaac,hh_scarritt_isaac,Isaac Scarritt,letter_list_only_uncertain,1834-01-28,candidate,cand_isaac_scarritt_methodist,chicago_democrat_1833_1835;resident_research_methodism_scarritt;resident_research_dupage_scarritt
+T-0481,pass_07,cross_oliver,hh_cross_oliver,Oliver Cross,letter_list_only_present,1835-07-01,no_corroboration,,chicago_democrat_1833_1835
+T-0481,pass_07,ives_chauncy_p,hh_ives_chauncy_p,Chauncy P. Ives,letter_list_only_uncertain,1834-10-22,no_corroboration,,chicago_democrat_1833_1835
+T-0481,pass_07,crull_david,hh_crull_david,David Crull,letter_list_only_present,1835-07-01,no_corroboration,,chicago_democrat_1833_1835
+T-0481,pass_07,carter_j,hh_carter_j,J. Carter,letter_list_only_uncertain,1835-05-20,no_corroboration,,chicago_democrat_1833_1835
+T-0481,pass_07,dating_brah,hh_dating_brah,Brah Dating,letter_list_only_present,1835-07-01,no_corroboration,,chicago_democrat_1833_1835
+T-0481,pass_07,reid_j_chester,hh_reid_j_chester,J. Chester Reid,letter_list_only_uncertain,1834-07-02,no_corroboration,,chicago_democrat_1833_1835
+T-0481,pass_07,dougherty_joan,hh_dougherty_joan,Joan Dougherty,letter_list_only_present,1835-07-01,no_corroboration,,chicago_democrat_1833_1835
+T-0481,pass_07,doty_j_d,hh_doty_j_d,J. D. Doty,letter_list_only_uncertain,1834-07-16,no_corroboration,,chicago_democrat_1833_1835
+T-0481,pass_07,es_jones_high,hh_es_jones_high,"Jones, High Es",letter_list_only_present,1835-07-01,no_corroboration,,chicago_democrat_1833_1835
+T-0481,pass_07,sackett_j_l,hh_sackett_j_l,J. L. Sackett,letter_list_only_uncertain,1834-07-02,no_corroboration,,chicago_democrat_1833_1835
+T-0481,pass_07,falker_j_b,hh_falker_j_b,J. B. Falker,letter_list_only_present,1835-07-01,no_corroboration,,chicago_democrat_1833_1835
+T-0481,pass_07,converse_j_p,hh_converse_j_p,J. P. Converse,letter_list_only_uncertain,1834-01-28,no_corroboration,,chicago_democrat_1833_1835
+T-0481,pass_07,falsh_j_hewitt,hh_falsh_j_hewitt,J. Hewitt Falsh,letter_list_only_present,1835-07-01,no_corroboration,,chicago_democrat_1833_1835
+T-0481,pass_07,evert_j_s,hh_evert_j_s,J. S. Evert,letter_list_only_uncertain,1835-05-20,no_corroboration,,chicago_democrat_1833_1835
+T-0481,pass_07,fellows_josepu,hh_fellows_josepu,Josepu Fellows,letter_list_only_present,1835-07-01,no_corroboration,,chicago_democrat_1833_1835
+T-0481,pass_07,jackson_samuel,hh_jackson_samuel,Samuel Jackson,letter_list_only_uncertain,1834-10-22,corroborated,,chicago_democrat_1833_1835;resident_research_cook_harbor_jackson
+T-0481,pass_07,field_j_e,hh_field_j_e,J. E. Field,letter_list_only_present,1835-07-01,no_corroboration,,chicago_democrat_1833_1835
+T-0481,pass_07,fake_jacob,hh_fake_jacob,Jacob Fake,letter_list_only_uncertain,1834-01-28,no_corroboration,,chicago_democrat_1833_1835
+T-0481,pass_07,filliams_gilea,hh_filliams_gilea,Gilea Filliams,letter_list_only_present,1835-07-01,no_corroboration,,chicago_democrat_1833_1835
+T-0481,pass_07,galutia_jacob,hh_galutia_jacob,Jacob Galutia,letter_list_only_uncertain,1834-07-09,no_corroboration,,chicago_democrat_1833_1835
+T-0481,pass_07,fish_e_m,hh_fish_e_m,E. M. Fish,letter_list_only_present,1835-07-01,no_corroboration,,chicago_democrat_1833_1835
+T-0481,pass_07,shook_jacob,hh_shook_jacob,Jacob Shook,letter_list_only_uncertain,1834-07-02,no_corroboration,,chicago_democrat_1833_1835
+T-0481,pass_07,guard_william_a,hh_guard_william_a,William A. Guard,letter_list_only_present,1835-07-01,no_corroboration,,chicago_democrat_1833_1835
+T-0481,pass_07,acker_jacob_van,hh_acker_jacob_van,Jacob Van Acker,letter_list_only_uncertain,1834-07-02,no_corroboration,,chicago_democrat_1833_1835
+T-0481,pass_07,henry_hamilton_s,hh_henry_hamilton_s,Hamilton S. Henry,letter_list_only_present,1835-07-01,no_corroboration,,chicago_democrat_1833_1835
+T-0481,pass_07,curry_james_a,hh_curry_james_a,James A. Curry,letter_list_only_uncertain,1834-07-09,no_corroboration,,chicago_democrat_1833_1835
+T-0481,pass_07,e_hhelps_theodore,hh_e_hhelps_theodore,Hhelps Theodore E.,letter_list_only_present,1835-07-01,no_corroboration,,chicago_democrat_1833_1835
+T-0481,pass_07,arrasmith_james,hh_arrasmith_james,James Arrasmith,letter_list_only_uncertain,1835-05-20,no_corroboration,,chicago_democrat_1833_1835
+T-0481,pass_07,hooibrook_lyman,hh_hooibrook_lyman,Lyman Hooibrook,letter_list_only_present,1835-07-01,no_corroboration,,chicago_democrat_1833_1835
+T-0481,pass_07,burk_james,hh_burk_james,James Burk,letter_list_only_uncertain,1834-01-28,no_corroboration,,chicago_democrat_1833_1835
+T-0481,pass_07,horr_raiph_c,hh_horr_raiph_c,Raiph C. Horr,letter_list_only_present,1835-07-01,candidate,cand_ralph_c_horr_aurora,chicago_democrat_1833_1835;resident_research_aurora_horr
+T-0481,pass_07,matthews_james_g,hh_matthews_james_g,James G. Matthews,letter_list_only_uncertain,1835-05-20,no_corroboration,,chicago_democrat_1833_1835
+T-0481,pass_07,howard_joshua,hh_howard_joshua,Joshua Howard,letter_list_only_present,1835-07-01,candidate,cand_joshua_howard_detroit_rejected,chicago_democrat_1833_1835;resident_research_dearborn_howard
+T-0481,pass_07,gibbs_james_h,hh_gibbs_james_h,James H. Gibbs,letter_list_only_uncertain,1835-05-20,no_corroboration,,chicago_democrat_1833_1835
+T-0481,pass_07,howell_thomas_m,hh_howell_thomas_m,Thomas M. Howell,letter_list_only_present,1835-07-01,no_corroboration,,chicago_democrat_1833_1835
+T-0481,pass_07,phelps_james_h,hh_phelps_james_h,James H. Phelps,letter_list_only_uncertain,1835-05-20,no_corroboration,,chicago_democrat_1833_1835
+T-0481,pass_07,hunt_henry_n,hh_hunt_henry_n,Henry N. Hunt,letter_list_only_present,1835-07-01,no_corroboration,,chicago_democrat_1833_1835
+T-0481,pass_07,rinhart_james_h,hh_rinhart_james_h,James H. Rinhart,letter_list_only_uncertain,1834-01-28,no_corroboration,,chicago_democrat_1833_1835
+T-0481,pass_07,hussey_robert,hh_hussey_robert,Robert Hussey,letter_list_only_present,1835-07-01,no_corroboration,,chicago_democrat_1833_1835
+T-0481,pass_07,hendrix_james,hh_hendrix_james,James Hendrix,letter_list_only_uncertain,1834-07-09,no_corroboration,,chicago_democrat_1833_1835
+T-0481,pass_07,hyde_thomas_s,hh_hyde_thomas_s,Thomas S. Hyde,letter_list_only_present,1835-07-01,no_corroboration,,chicago_democrat_1833_1835
+T-0481,pass_07,knaggs_james,hh_knaggs_james,James Knaggs,letter_list_only_uncertain,1835-05-20,no_corroboration,,chicago_democrat_1833_1835
+T-0481,pass_07,indebrand_jacob,hh_indebrand_jacob,Jacob Indebrand,letter_list_only_present,1835-07-01,no_corroboration,,chicago_democrat_1833_1835
+T-0481,pass_07,m_fadin_james,hh_m_fadin_james,James M'Fadin,letter_list_only_uncertain,1835-05-20,no_corroboration,,chicago_democrat_1833_1835
+T-0481,pass_07,intmore_george,hh_intmore_george,George Intmore,letter_list_only_present,1835-07-01,no_corroboration,,chicago_democrat_1833_1835
+T-0481,pass_07,mackie_james,hh_mackie_james,James Mackie,letter_list_only_uncertain,1835-05-20,no_corroboration,,chicago_democrat_1833_1835
+T-0481,pass_07,inven_elias,hh_inven_elias,Elias Inven,letter_list_only_present,1835-07-01,no_corroboration,,chicago_democrat_1833_1835
+T-0481,pass_07,morley_james,hh_morley_james,James Morley,letter_list_only_uncertain,1835-05-20,no_corroboration,,chicago_democrat_1833_1835
+T-0481,pass_07,jenks_nathan,hh_jenks_nathan,Nathan Jenks,letter_list_only_present,1835-07-01,no_corroboration,,chicago_democrat_1833_1835
+T-0481,pass_07,lawrence_james_r,hh_lawrence_james_r,James R. Lawrence,letter_list_only_uncertain,1834-07-02,no_corroboration,,chicago_democrat_1833_1835
+T-0481,pass_07,jeris_timothy_b,hh_jeris_timothy_b,Timothy B. Jeris,letter_list_only_present,1835-07-01,no_corroboration,,chicago_democrat_1833_1835
+T-0481,pass_07,ritchey_james,hh_ritchey_james,James Ritchey,letter_list_only_uncertain,1835-05-20,candidate,cand_james_ritchey_will,chicago_democrat_1833_1835;resident_research_will_ritchey
+T-0481,pass_07,johnson_samuel,hh_johnson_samuel,Samuel Johnson,letter_list_only_present,1835-07-01,no_corroboration,,chicago_democrat_1833_1835
+T-0481,pass_07,sanderson_james,hh_sanderson_james,James Sanderson,letter_list_only_uncertain,1834-07-02,no_corroboration,,chicago_democrat_1833_1835
+T-0481,pass_07,jordan_j_b,hh_jordan_j_b,J. B. Jordan,letter_list_only_present,1835-07-01,no_corroboration,,chicago_democrat_1833_1835
+T-0481,pass_07,vial_james,hh_vial_james,James Vial,letter_list_only_uncertain,1834-07-02,no_corroboration,,chicago_democrat_1833_1835
+T-0481,pass_07,joter_johnson,hh_joter_johnson,Johnson Joter,letter_list_only_present,1835-07-01,no_corroboration,,chicago_democrat_1833_1835
+T-0481,pass_07,wheldon_james,hh_wheldon_james,James Wheldon,letter_list_only_uncertain,1834-07-02,no_corroboration,,chicago_democrat_1833_1835
+T-0481,pass_07,cary_junis_a_or_j_r,hh_cary_junis_a_or_j_r,Junis.A.or J.R.Cary,letter_list_only_present,1835-07-01,no_corroboration,,chicago_democrat_1833_1835
+T-0481,pass_07,forster_jane,hh_forster_jane,Jane Forster,letter_list_only_uncertain,1834-01-28,no_corroboration,,chicago_democrat_1833_1835
+T-0481,pass_07,kent_alex_m,hh_kent_alex_m,Alex. M. Kent,letter_list_only_present,1835-07-01,no_corroboration,,chicago_democrat_1833_1835
+T-0481,pass_07,paddock_jane,hh_paddock_jane,Jane Paddock,letter_list_only_uncertain,1835-05-20,candidate,cand_jane_paddock_palos,chicago_democrat_1833_1835;resident_research_cook_palos_paddock
+T-0481,pass_07,keys_ed_or_jos_keys,hh_keys_ed_or_jos_keys,Ed. or Jos. Keys Keys,letter_list_only_present,1835-07-01,no_corroboration,,chicago_democrat_1833_1835
+T-0481,pass_07,wooley_jeddiah,hh_wooley_jeddiah,Jeddiah Wooley,letter_list_only_uncertain,1834-07-02,candidate,cand_jeddiah_wooley_lasalle,chicago_democrat_1833_1835;resident_research_lasalle_wooley;resident_research_usreports_wooley

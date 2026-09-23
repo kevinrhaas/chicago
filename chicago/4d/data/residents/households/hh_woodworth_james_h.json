@@ -1,0 +1,171 @@
+{
+ "id": "hh_woodworth_james_h",
+ "name": "The Woodworth household — a name from the post office's letter lists",
+ "division": "unplaced",
+ "head": "woodworth_james_h",
+ "source_pass": "letter_list",
+ "arrival": {
+  "value": "1833",
+  "confidence": "attested",
+  "sources": [
+   "ushouse_james_h_woodworth"
+  ],
+  "precision": "year",
+  "note": "YEAR PRECISION ONLY. T-0486 states arrival/move to Chicago in 1833; no month or day is asserted."
+ },
+ "party_size_on_arrival": {
+  "value": null,
+  "confidence": "reconstructed",
+  "note": "Not attested."
+ },
+ "origin": {
+  "value": null,
+  "confidence": "reconstructed",
+  "note": "Not attested."
+ },
+ "reason_for_coming": {
+  "value": null,
+  "confidence": "reconstructed",
+  "note": "Not attested."
+ },
+ "lives_at": {
+  "value": null,
+  "confidence": "reconstructed",
+  "note": "Not attested: a letter list gives a name and no address."
+ },
+ "works_at": {
+  "value": null,
+  "confidence": "reconstructed",
+  "note": "Not attested. No trade is recorded, so there is no premises to seek."
+ },
+ "present_on_scene_date": {
+  "value": "uncertain",
+  "confidence": "inferred",
+  "sources": [
+   "chicago_democrat_1833_1835"
+  ],
+  "note": "THE CORPUS STOPS BEFORE THE SCENE DATE. Nothing after 1834-10-22 follows this person to 1 July 1835 or says they left. `uncertain` rather than dropped — the distinction index.json draws for Jeremiah Porter, and a finding, not a gap."
+ },
+ "persons": [
+  {
+   "id": "woodworth_james_h",
+   "name": "James H. Woodworth",
+   "relationship": "head",
+   "grade": "attested",
+   "letter_list_only": true,
+   "letter_list_returns": [
+    "1834-10-22"
+   ],
+   "occupation": {
+    "value": "dry_goods_merchant",
+    "confidence": "attested",
+    "sources": [
+     "ushouse_james_h_woodworth"
+    ],
+    "note": "T-0486: independently corroborated resident research. U.S. House historian biography independently states James Hutchinson Woodworth moved to Chicago in 1833 and entered the dry-goods business; exact name and chronology match the postal person.",
+    "derived_from": "roles",
+    "roles_at_scene_date": [
+     "dry_goods_merchant"
+    ]
+   },
+   "sources": [
+    "chicago_democrat_1833_1835",
+    "ushouse_james_h_woodworth",
+    "isa_public_domain_land_tract_sales"
+   ],
+   "note": "INDEPENDENTLY CORROBORATED RESIDENT. Originally documented in Chicago post-office evidence; independent resident research now corroborates the identity. KNOWN ONLY FROM THE POST OFFICE, IN ONE RETURN. The papers print 'Woodworth, James H.' in a single return of letters uncalled-for at the Chicago post office — the Democrat of 22 October 1834, column 7 — dated 1834-10-22. WHAT THAT IS WORTH: a correspondent believed a person of this name reachable at Chicago on that date, and nothing further — not that they lived here, kept a trade here, or were here on 1 July 1835. It is the weakest evidence this project accepts for a resident, and a source placing them elsewhere retires the record. THE ARGUMENT EVERY RECORD OF THIS KIND SHARES is written once instead of once per file: the ruling of 2026-08-30 and what it cost the town (docs/LIBERTIES.md L214), the refusals and the transcription standard behind the reading (tools/mint_letter_list_residents.py). No figure is drawn (L1). THE FEDERAL LAND TRACT SALES — A PURCHASE, AND NEVER A RESIDENCE. The Illinois State Archives' Public Domain Land Tract Sales register enters this person 1 time, as “WOODWORTH J H”, 1836-06-21: 1 lot in the platted town — lot 4 of block 19 in the town the register codes CHIOT (L4BL19CHIOT, as printed), 0.00 acres stated in all, for $14000.00 (ls1558). THE REGISTER'S OWN RESIDENCE COLUMN READS UNKNOWN on these rows: a county, a state or nothing, and never a town, which is why a purchase here places nobody. THE TOWN LOTS ARE THE PLAT ITSELF, AND THEY ARE NOT ACRES: Cook County's register describes them by lot and block in a platted town and gives them no section, no township and no acreage at all, so they add nothing to the acre figure above and $14000.00 to the money. This project does not expand the register's town codes, so which addition a lot stands in is carried as the code and not as a name. It is still a purchase and it still places nobody. A purchase and nothing more. It dates and places a transaction; it proposes no residence, and under the ratified ladder it corroborates rather than mints. Identity by the crosswalk's own rule: WOODWORTH J H matches James H. Woodworth: the forename names James H. Woodworth of the 2 people of this surname, and the forename agrees as an initial only. (data/research/land_sales/resident_crosswalk.json). This pass WRITES THE EVIDENCE AND MOVES NO GRADE. Under the ratified ladder (T-0513) a second independent source is what lifts a projected resident, and a land entry is a second source about a TRANSACTION rather than about who was living at Chicago on 1 July 1835 — a man may buy a quarter-section he never sees. T-0515 applies the ladder against every source at once; this pass hands it the evidence and not the verdict.",
+   "resident_research": {
+    "programme": "resident-research-2026",
+    "ticket": "T-0486",
+    "outcome": "corroborated_enrichment",
+    "reviewed_on": "2026-09-02",
+    "asserted_identity": true,
+    "proposed_facts": "moved to Chicago in 1833; engaged in dry-goods business from 1833",
+    "evidence_for": "U.S. House historian biography independently states James Hutchinson Woodworth moved to Chicago in 1833 and entered the dry-goods business; exact name and chronology match the postal person.",
+    "evidence_against": "No material identity conflict found; source does not by itself establish a specific July 1835 dwelling/address.",
+    "summary": "The U.S. House historian independently states that James Hutchinson Woodworth moved to Chicago in 1833 and engaged in the dry-goods business. The exact full name and matching chronology strongly corroborate the postal person and safely add an 1833 Chicago-arrival/business chronology, but the biography does not establish a specific July 1835 dwelling or address.",
+    "notes": "safe identity/occupation chronology enrichment; address not inferred",
+    "source_ids": [
+     "chicago_democrat_1833_1835",
+     "ushouse_james_h_woodworth"
+    ],
+    "refusals": [
+     {
+      "regraded_on": "2026-09-04",
+      "rule": "G2e",
+      "withheld": "the downgrade to inferred",
+      "reason": "This card rests on 2 thing(s) the consolidation did not read — isa_public_domain_land_tract_sales, ushouse_james_h_woodworth. G2e fired on the seven domains the ladder reads and says nothing about the evidence outside them, so the grade stands. The same reasoning the ladder's own G5 gives for abstaining (T-0515)."
+     }
+    ]
+   },
+   "biographical_evidence": {
+    "birth_year": {
+     "value": 1804,
+     "confidence": "attested",
+     "sources": [
+      "ushouse_james_h_woodworth"
+     ],
+     "note": "Birth year stated by independently corroborating source(s)."
+    },
+    "age_on_1835_07_01": {
+     "value": {
+      "min": 30,
+      "max": 31
+     },
+     "confidence": "inferred",
+     "sources": [
+      "ushouse_james_h_woodworth"
+     ],
+     "note": "Age range derived from birth year because birth month/day is not asserted here."
+    }
+   },
+   "profile_facts": [
+    {
+     "field": "name_as_printed",
+     "value": "James Hutchinson Woodworth",
+     "confidence": "inferred",
+     "sources": [
+      "ushouse_james_h_woodworth"
+     ],
+     "describes_date": "1833-01-01",
+     "place_class": "not_a_place",
+     "record_id": "resident_research:T-0486#02",
+     "as_read": "James Hutchinson Woodworth",
+     "note": "The middle name behind the record's 'James H.'. Carried beside the read name; the card's displayed name does not move."
+    }
+   ],
+   "roles": [
+    {
+     "role": "dry_goods_merchant",
+     "kind": "trade",
+     "as_printed": null,
+     "from": "1833",
+     "to": "1840",
+     "precision": "source_span",
+     "dated_by": "source_describes_date",
+     "covers_scene_date": true,
+     "confidence": "attested",
+     "sources": [
+      "ushouse_james_h_woodworth"
+     ],
+     "claim": null,
+     "note": "THE BOUND IS THE SOURCE'S, NOT THE MAN'S. This role is carried by the card's 1835 occupation block and is dated by what the cited source or sources are ABOUT, which is why `precision` can be no better than the span they cover. The span reaches 1835, so this role stands in the scene-date view. The printing the trade was read off is not on the card and is fetched by T-1254."
+    }
+   ]
+  }
+ ],
+ "touches_removal": false,
+ "review_required": false,
+ "research_note": "MINTED FROM THE LETTER LISTS (T-0378, T-0379). THE HOUSEHOLD IS A CONTAINER, NOT AN ARGUMENT: every other record here argues for a household, and this one argues for a PERSON. `data/residents/` cannot carry a person outside a household, so one was written around them and told to claim nothing — one member, no dwelling, no division, no trade, no family, no arrival beyond the paper's bound. tools/mint_letter_list_residents.py derives the set and prints every refusal, `--gate` proves no record here gained a roof, a trade or a second member, and docs/LIBERTIES.md L214 carries the change of scale.",
+ "directories": {
+  "note": "LATER EVIDENCE, BESIDE THE 1835 CLAIMS AND NOT INSIDE THEM. A Chicago directory of 1839, 1843 or 1844 meets somebody of this name and this pass records what it prints. Under the ratified ladder a directory read after 1835 can corroborate that a person attested here was still in Chicago and can print a trade or a street the 1835 record never had; on its own it makes nobody a resident of 1835. Nothing on this person's 1835 record was regraded, moved, dated or given an occupation by this entry. WHAT THIS PASS RULED ONTO THIS HOUSEHOLD, named so the ruling can be found again: each volume below is followed by the printed entries it set against this person and the status the crosswalk ruled them at — a single entry carries what its own `could_carry` declares, and an ambiguous or contested match carries nothing and is shown so that the silence is legible. woodworth_james_h, Fergus's Chicago directory of 1843 — f1843_e2668 (a single entry).",
+  "sources": [
+   "fergus_chicago_directory_1843"
+  ],
+  "people": [
+   {
+    "person_id": "woodworth_james_h"
+   }
+  ]
+ }
+}

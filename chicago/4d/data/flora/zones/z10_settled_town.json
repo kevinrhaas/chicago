@@ -1,0 +1,353 @@
+{
+ "id": "z10_settled_town",
+ "zone": 10,
+ "name": "The settled town: cleared blocks and mud streets",
+ "dossier": "docs/research/02-flora.md § ZONE 10",
+ "scene_date": "1835-07-01",
+ "palette": "july_town_ruderal",
+ "reads_as": "a cropped, hoof-poached, dusty weedy halo grading out into unbroken prairie, with relict river timber left standing on part-cleared blocks",
+ "plantable_in_scene": true,
+ "cover": {"matrix_fraction":0.45,"bare_soil_fraction":0.45,"standing_water_fraction":0.02},
+ "ground": {"rgb":[92,80,62],"wet_rgb":[62,54,44]},
+ "extent": {
+  "kind": "polygon",
+  "polygon": [[-160,-14],[-146,-112],[-96,-150],[20,-176],[96,-186],[164,-152],[186,-96],[168,-38],[104,2],[10,16],[-72,10]],
+  "priority": 60,
+  "confidence": "inferred",
+  "sources": ["chicagology_prefire278","chicagology_prefire273"],
+  "note": "The polygon covers the settled river frontage at the forks, drawn around the eight structures the 1835 scene actually places (it spans the water between the two banks, which is harmless because no zone plants over water except the marsh buffer). The grazed halo is documented only as a process, not as an extent: the town's first code of 7 Nov 1833 forbade letting pigs wander in the streets, which is evidence that they did, and cattle grazed the unfenced commons. The dossier puts the halo 50-200 m beyond the built blocks and tags that extent inferred; this polygon uses the low end, because in July 1835 the built ground here is a scatter of taverns, not a continuous town. Isolated buildings outside the polygon stand in open prairie with only their own dooryard cleared."
+ },
+ "species": [
+  {
+   "id": "poa_pratensis",
+   "binomial": "Poa spp.",
+   "common": "meadow grasses of the trodden verges",
+   "role": "matrix",
+   "form": "grass_fine",
+   "abundance": {"cover_fraction":[0.15,0.35]},
+   "height_m": [0.05,0.2],
+   "width_m": [0.1,0.25],
+   "width_provenance": {
+    "confidence": "reconstructed",
+    "sources": ["chicagology_prefire278"],
+    "note": "WHAT ONE DRAWN PLANT COVERS ON THE GROUND, added for ROADMAP K49(c) so this record's cover_fraction can be read as a count of plants. RECONSTRUCTED. § ZONE 10 gives the trampled halo as a \"cropped, patchy turf\" 0.05-0.25 m tall and states no width. A sod-forming grass has no clump at all — the footprint here is the drawn tuft's, not the plant's — so it is taken as the halo's own height band. docs/LIBERTIES.md L119."
+   },
+   "july": {
+    "phenology": "vegetative",
+    "foliage_rgb": [118,128,78],
+    "inflorescence": null,
+    "appearance": "Cropped, patchy, dusty turf grazed hard and kept short — dulled by dust, but still green where it survives."
+   },
+   "confidence": "inferred",
+   "sources": ["chicagology_prefire278"],
+   "note": "Dossier tags the halo D for the grazing and pigs (the 7 Nov 1833 ordinance against pigs at large) and I for the plant composition. Poa is the type genus the dossier names; P. pratensis is this record's species reading and is not attested at Chicago in 1835."
+  },
+  {
+   "id": "plantago_major",
+   "binomial": "Plantago major",
+   "common": "broadleaf plantain",
+   "role": "ground",
+   "form": "forb_basal_scape",
+   "abundance": {"cover_fraction":[0.05,0.15]},
+   "height_m": [0.05,0.25],
+   "width_m": [0.1,0.25],
+   "july": {
+    "phenology": "flowering",
+    "foliage_rgb": [104,126,66],
+    "inflorescence": {"shape":"spike","rgb":[140,152,88],"height_frac":0.8,"size_m":[0.06,0.14]},
+    "appearance": "Flat rosettes pressed into the mud with slim green flower spikes — the classic footpath weed."
+   },
+   "confidence": "inferred",
+   "sources": ["chicagology_prefire278"],
+   "note": "Dossier [I] for composition."
+  },
+  {
+   "id": "polygonum_aviculare",
+   "binomial": "Polygonum aviculare",
+   "common": "prostrate knotweed",
+   "role": "ground",
+   "form": "mat_prostrate",
+   "abundance": {"cover_fraction":[0.05,0.15]},
+   "height_m": [0.03,0.1],
+   "width_m": [0.15,0.5],
+   "july": {
+    "phenology": "flowering",
+    "foliage_rgb": [110,128,74],
+    "inflorescence": {"shape":"cluster_axillary","rgb":[214,210,196],"height_frac":0.6,"size_m":[0.004,0.008]},
+    "appearance": "Wiry mats colonising the ruts and the cart tracks."
+   },
+   "confidence": "inferred",
+   "sources": ["chicagology_prefire278"],
+   "note": "Dossier [I] for composition."
+  },
+  {
+   "id": "chenopodium_album",
+   "binomial": "Chenopodium album",
+   "common": "lambsquarters",
+   "role": "forb",
+   "form": "forb_spike",
+   "abundance": {"cover_fraction":[0.03,0.1]},
+   "height_m": [0.3,0.9],
+   "width_m": [0.2,0.5],
+   "width_provenance": {
+    "confidence": "reconstructed",
+    "sources": ["chicagology_prefire278"],
+    "note": "WHAT ONE DRAWN PLANT COVERS ON THE GROUND, added for ROADMAP K49(c) so this record's cover_fraction can be read as a count of plants. RECONSTRUCTED. § ZONE 10 names lamb's quarters in the trampled ruderal halo and gives the halo one height (0.05-0.25 m) and no width; this record's own height is 0.3-0.9 m. Bounded by that height at roughly half to two-thirds of it, as a branched pigweed-form annual. docs/LIBERTIES.md L119."
+   },
+   "july": {
+    "phenology": "flowering",
+    "foliage_rgb": [130,142,106],
+    "inflorescence": {"shape":"panicle_dense","rgb":[148,156,118],"height_frac":0.85,"size_m":[0.06,0.12]},
+    "appearance": "Mealy grey-green weed standing where hooves have not reached."
+   },
+   "confidence": "inferred",
+   "sources": ["chicagology_prefire278"],
+   "note": "Dossier [I] for composition."
+  },
+  {
+   "id": "amaranthus_retroflexus",
+   "binomial": "Amaranthus retroflexus",
+   "common": "redroot pigweed",
+   "role": "forb",
+   "form": "forb_spike",
+   "abundance": {"cover_fraction":[0.02,0.08]},
+   "height_m": [0.3,0.9],
+   "width_m": [0.2,0.5],
+   "width_provenance": {
+    "confidence": "reconstructed",
+    "sources": ["chicagology_prefire278"],
+    "note": "WHAT ONE DRAWN PLANT COVERS ON THE GROUND, added for ROADMAP K49(c) so this record's cover_fraction can be read as a count of plants. RECONSTRUCTED. Named in § ZONE 10's ruderal halo with no width. Same form and height band as Chenopodium album beside it (0.3-0.9 m), and takes the same band. docs/LIBERTIES.md L119."
+   },
+   "july": {
+    "phenology": "flowering",
+    "foliage_rgb": [104,120,64],
+    "inflorescence": {"shape":"spike","rgb":[136,144,92],"height_frac":0.88,"size_m":[0.05,0.12]},
+    "appearance": "Coarse bristly green spikes on a red-based stem."
+   },
+   "confidence": "inferred",
+   "sources": ["chicagology_prefire278"],
+   "note": "Dossier [I] for composition."
+  },
+  {
+   "id": "ambrosia_artemisiifolia",
+   "binomial": "Ambrosia artemisiifolia",
+   "common": "common ragweed",
+   "role": "forb",
+   "form": "forb_spike",
+   "abundance": {"cover_fraction":[0.03,0.1]},
+   "height_m": [0.2,0.7],
+   "width_m": [0.15,0.4],
+   "width_provenance": {
+    "confidence": "reconstructed",
+    "sources": ["chicagology_prefire278"],
+    "note": "WHAT ONE DRAWN PLANT COVERS ON THE GROUND, added for ROADMAP K49(c) so this record's cover_fraction can be read as a count of plants. RECONSTRUCTED. Named in § ZONE 10's ruderal halo with no width. This record gives it 0.2-0.7 m, the shortest of the halo's erect weeds, and a finely divided ragweed is narrower than the pigweeds beside it. docs/LIBERTIES.md L119."
+   },
+   "july": {
+    "phenology": "budding",
+    "foliage_rgb": [116,132,82],
+    "inflorescence": null,
+    "appearance": "Ferny foliage on disturbed ground; the flower spike is not out yet."
+   },
+   "confidence": "inferred",
+   "sources": ["chicagology_prefire278"],
+   "note": "Dossier [I] for composition."
+  },
+  {
+   "id": "xanthium_strumarium",
+   "binomial": "Xanthium strumarium",
+   "common": "cocklebur",
+   "role": "forb",
+   "form": "forb_spike",
+   "abundance": {"cover_fraction":[0.02,0.06]},
+   "height_m": [0.3,0.9],
+   "width_m": [0.3,0.6],
+   "width_provenance": {
+    "confidence": "reconstructed",
+    "sources": ["chicagology_prefire278"],
+    "note": "WHAT ONE DRAWN PLANT COVERS ON THE GROUND, added for ROADMAP K49(c) so this record's cover_fraction can be read as a count of plants. RECONSTRUCTED. Named in § ZONE 10's ruderal halo with no width. Cocklebur carries the broadest leaf of the halo's weeds at 0.3-0.9 m tall, so it is banded above the pigweeds. docs/LIBERTIES.md L119."
+   },
+   "july": {
+    "phenology": "flowering",
+    "foliage_rgb": [102,120,62],
+    "inflorescence": {"shape":"cluster_axillary","rgb":[130,142,88],"height_frac":0.8,"size_m":[0.02,0.04]},
+    "appearance": "Coarse rough leaves on the churned mud at the water's edge of the town."
+   },
+   "confidence": "inferred",
+   "sources": ["chicagology_prefire278"],
+   "note": "Dossier [I] for composition."
+  },
+  {
+   "id": "rumex_crispus",
+   "binomial": "Rumex crispus",
+   "common": "curly dock",
+   "role": "forb",
+   "form": "forb_spike",
+   "abundance": {"cover_fraction":[0.02,0.07]},
+   "height_m": [0.4,1.0],
+   "width_m": [0.2,0.4],
+   "width_provenance": {
+    "confidence": "reconstructed",
+    "sources": ["chicagology_prefire278"],
+    "note": "WHAT ONE DRAWN PLANT COVERS ON THE GROUND, added for ROADMAP K49(c) so this record's cover_fraction can be read as a count of plants. RECONSTRUCTED. Named in § ZONE 10's ruderal halo with no width. A curly dock is a basal rosette under a narrow flowering stem, so the footprint is the rosette's and is banded under the branched weeds beside it. docs/LIBERTIES.md L119."
+   },
+   "july": {
+    "phenology": "fruiting",
+    "foliage_rgb": [96,122,60],
+    "inflorescence": {"shape":"spike","rgb":[150,96,62],"height_frac":0.85,"size_m":[0.15,0.3],"fruit":true},
+    "appearance": "Wavy-edged basal leaves and a dense fruiting spike already turning rust-brown."
+   },
+   "confidence": "inferred",
+   "sources": ["chicagology_prefire278"],
+   "note": "Dossier [I] for composition."
+  },
+  {
+   "id": "verbena_urticifolia",
+   "binomial": "Verbena urticifolia",
+   "common": "white vervain",
+   "role": "forb",
+   "form": "forb_spike",
+   "abundance": {"cover_fraction":[0.01,0.05]},
+   "height_m": [0.5,1.2],
+   "width_m": [0.2,0.4],
+   "width_provenance": {
+    "confidence": "reconstructed",
+    "sources": ["chicagology_prefire278"],
+    "note": "WHAT ONE DRAWN PLANT COVERS ON THE GROUND, added for ROADMAP K49(c) so this record's cover_fraction can be read as a count of plants. RECONSTRUCTED. Named in § ZONE 10's ruderal halo with no width. White vervain is the tallest and thinnest of the halo's weeds (0.5-1.2 m here) on a narrow branching stem, so it takes the dock's band rather than the cockleburs'. docs/LIBERTIES.md L119."
+   },
+   "july": {
+    "phenology": "flowering",
+    "foliage_rgb": [98,122,66],
+    "inflorescence": {"shape":"spike","rgb":[232,232,224],"height_frac":0.9,"size_m":[0.08,0.16]},
+    "appearance": "Thin branching spikes carrying a few tiny white flowers at a time."
+   },
+   "confidence": "inferred",
+   "sources": ["chicagology_prefire278"],
+   "note": "Dossier [I] for composition."
+  },
+  {
+   "id": "trifolium_repens",
+   "binomial": "Trifolium repens",
+   "common": "white clover",
+   "role": "ground",
+   "form": "mat_prostrate",
+   "abundance": {"cover_fraction":[0.03,0.1]},
+   "height_m": [0.05,0.2],
+   "width_m": [0.2,0.6],
+   "july": {
+    "phenology": "flowering",
+    "foliage_rgb": [96,128,66],
+    "inflorescence": {"shape":"head_globe","rgb":[238,238,226],"height_frac":0.85,"size_m":[0.015,0.025]},
+    "appearance": "Creeping trefoil mats in the grazed halo with white flower heads."
+   },
+   "confidence": "inferred",
+   "sources": ["chicagology_prefire278"],
+   "note": "Dossier [I]: the Trifolium of the halo list. A European pasture clover, plausible around stock by 1835 but not attested at Chicago."
+  },
+  {
+   "id": "populus_deltoides",
+   "binomial": "Populus deltoides",
+   "common": "eastern cottonwood (relict)",
+   "role": "tree",
+   "form": "tree_gallery",
+   "abundance": {"density_per_ha":[4,12]},
+   "height_m": [18,26],
+   "width_m": [12,20],
+   "july": {
+    "phenology": "vegetative",
+    "foliage_rgb": [78,106,56],
+    "foliage_rgb_alt": [126,148,92],
+    "inflorescence": null,
+    "appearance": "Left standing on a cleared block, with fresh stumps, brush piles and axe-cut spars around it."
+   },
+   "confidence": "inferred",
+   "sources": ["chicagology_prefire273"],
+   "note": "Andreas documents that the river timber belt still ran east to Wells and across Clark, so relict trees stand inside the platted blocks; the 8-25/ha survivor density is the dossier's inference, not a count."
+  },
+  {
+   "id": "ulmus_americana",
+   "binomial": "Ulmus americana",
+   "common": "American elm (relict)",
+   "role": "tree",
+   "form": "tree_gallery",
+   "abundance": {"density_per_ha":[3,8]},
+   "height_m": [16,24],
+   "width_m": [10,16],
+   "july": {
+    "phenology": "vegetative",
+    "foliage_rgb": [72,100,52],
+    "inflorescence": null,
+    "appearance": "Survivor elm in a part-cleared block."
+   },
+   "confidence": "inferred",
+   "sources": ["chicagology_prefire273"],
+   "note": "See populus_deltoides: survivor density inferred."
+  },
+  {
+   "id": "salix_nigra",
+   "binomial": "Salix nigra",
+   "common": "black willow (relict)",
+   "role": "tree",
+   "form": "tree_leaning",
+   "abundance": {"density_per_ha":[2,6]},
+   "height_m": [9,14],
+   "width_m": [6,10],
+   "july": {
+    "phenology": "vegetative",
+    "foliage_rgb": [96,124,66],
+    "inflorescence": null,
+    "appearance": "Left along the bank where the landing was cut."
+   },
+   "confidence": "inferred",
+   "sources": ["chicagology_prefire273"],
+   "note": "See populus_deltoides: survivor density inferred."
+  },
+  {
+   "id": "populus_nigra_italica",
+   "binomial": "Populus nigra 'Italica'",
+   "common": "Lombardy poplar (planted)",
+   "role": "tree",
+   "form": "tree_columnar",
+   "abundance": {"density_per_ha":[0,0]},
+   "height_m": [12,18],
+   "width_m": [1.4,2.4],
+   "width_provenance": {
+    "confidence": "reconstructed",
+    "sources": [],
+    "note": "MEASURED OFF ONE PLATE AND RECONSTRUCTED FROM IT. chicago/reference/images/chicago/chicago_kinzie_house_1833.png — the Chicago Magazine wood engraving of March 1857, captioned elsewhere 'The Old Kinzie House — About 1833' — is the only committed plate whose scan resolves a single spire against clear sky with a gap on both sides. Its leftmost poplar measures 24–27 px across between two fifths and three quarters of its height, on a stem 224 px tall: a width-to-height ratio of 0.107–0.121. Carried across the height band above that is 1.3–2.2 m, and this record widens it a little at each end. NOTHING STATES A CROWN WIDTH, and a drawn spire is an engraver's line — a living 'Italica' at this height commonly carries more spread than an engraving gives it. The band is kept narrow all the same, because narrowness is the whole character of the tree and a fat column is the one way to draw this species wrong."
+   },
+   "july": {
+    "phenology": "vegetative",
+    "foliage_rgb": [66,96,54],
+    "foliage_rgb_alt": [122,146,96],
+    "inflorescence": null,
+    "appearance": "A narrow dark spire held to a single leader, foliage carried nearly to the ground, flickering pale where the flattened leaf-stalks turn the undersides into the wind. Nothing in flower or fruit: the catkins are March and April, and 'Italica' is a male clone that sets no cotton."
+   },
+   "confidence": "inferred",
+   "sources": ["kinzie_waubun_1856"],
+   "note": "THE SPECIES IS ATTESTED AT CHICAGO; ITS MEMBERSHIP OF THIS COMMUNITY IS NOT, AND THAT IS WHAT THE GRADE MEANS HERE. Wau-Bun, ch. XVII 'Chicago in 1831', verbatim: \"On the northern bank of the river, directly facing the fort, was the family mansion of my husband. It was a long, low building, with a piazza extending along its front, a range of four or five rooms. A BROAD GREEN SPACE WAS INCLOSED BETWEEN IT AND THE RIVER, AND SHADED BY A ROW OF LOMBARDY POPLARS. Two immense cottonwood-trees stood in the rear of the building, one of which still remains as an ancient landmark.\" The species, the ROW, the fenced green, and which side of the house it stood on are all stated, by a near-contemporary who lived there. WHAT IS INFERRED IS THIS ENTRY: Populus nigra 'Italica' is a European cultivar and no part of the settled town's ecology; it is held in this zone's species table only because that table is where renderers/web/js/trees.js reads a stem's height, crown, foliage and confidence from. THE ZERO DENSITY IS THE CLAIM THAT KEEPS THAT HONEST — nothing grows this tree here. Every stem of it arrives as nursery stock and is put in the ground by a household, so no density over the settled town may ever deal one, and the only stems of it in this scene are the ones data/flora/plantings/town_planted_rows.json states by the rule in tools/generate_planted_rows.py. THE HEIGHT BAND IS RECONSTRUCTED. No source gives this tree a size. The ceiling is 18 m because that is the FLOOR of the eastern cottonwood's band in this same record, and every committed plate that draws both draws the round-crowned cottonwoods behind the house standing clear above the poplar row — which is Wau-Bun's reading too, since the cottonwoods are the 'immense' ones and the surviving landmark. The floor is 12 m because it is the shortest row the rule in tools/generate_planted_rows.py can deal: the youngest house that rule's age clause lets through has eleven and a half growing seasons behind it, at the cultivar's ordinary metre a year on lake-plain clay. WHAT WOULD REPLACE IT: a nurseryman's list, a sale notice, or a girth measured off a photograph-era survivor."
+  },
+  {
+   "id": "ribes_spp",
+   "binomial": "Ribes spp.",
+   "common": "currant bushes (dooryard)",
+   "role": "shrub_low",
+   "form": "shrub_low",
+   "abundance": {"density_per_ha":[10,40]},
+   "height_m": [0.8,1.5],
+   "width_m": [0.8,1.4],
+   "july": {
+    "phenology": "fruiting",
+    "foliage_rgb": [104,132,70],
+    "inflorescence": {"shape":"berry_cluster","rgb":[176,78,74],"height_frac":0.6,"size_m":[0.01,0.016],"fruit":true},
+    "appearance": "Planted in the fenced dooryards, in ripening fruit."
+   },
+   "confidence": "inferred",
+   "sources": ["chicagology_prefire273"],
+   "note": "Andreas records currant bushes in the Fort Dearborn garden and Dr. Harmon's nursery south of the fort, both about 1.2 km east of the modelled box. Currants in the dooryards inside this box are inferred from that, not attested."
+  }
+ ],
+ "confidence": "inferred",
+ "sources": ["chicagology_prefire278","chicagology_prefire273"],
+ "note": "Streets are unpaved graded mud 80 ft wide, rutted and dust-glazed in dry July and churned where water stands; no sidewalks until 1850. The composition of the ruderal turf is inferred throughout: every species in it is a regional weed list, not a Chicago record, and several are European introductions whose presence here in 1835 is plausible but unattested.",
+ "review_required": false
+}

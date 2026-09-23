@@ -1,0 +1,107 @@
+name: Chicago 4D — gate
+
+# The fast half of the two-speed build: schema, provenance, date gates,
+# referential integrity, licences, staleness, datum re-derivation, JS parse.
+# Seconds, and no Blender — the content build lives in chicago-4d-bake.yml.
+#
+# THIS IS THE DEV GATE (chicago/4d/docs/PIPELINE.md). It runs on PRs INTO dev and
+# on pushes TO dev. Merging into dev is STAGE, not ship — it publishes only the
+# /chicago/4d/dev/ preview, and production moves only when the owner dispatches
+# chicago-4d-promote-to-prod.yml.
+#
+# THE PUSH TRIGGER IS FILTERED TO dev AND main, AND THE COMMENT THAT USED TO STAND
+# HERE SAID NOT TO DO THAT (T-1288). It said an unfiltered push trigger was
+# deliberate, "so nobody tidies it into `branches: [main]`", because the gate has to
+# cover steward branches too. That reason is real and it is already served by the
+# `pull_request` trigger; what the unfiltered push actually bought was a SECOND,
+# IDENTICAL RUN.
+#
+# A steward branch with an open pull request satisfies BOTH triggers, so every push
+# to it started this 439-step suite TWICE on the same commit. Measured 2026-09-17 on
+# every open PR in the queue at once — #1413, #1412, #1411, #1409, #1405 and #1392
+# each carried two `gate` check runs on one head sha.
+#
+# AND IT IS NOT ONLY WASTE. A pull request is not `clean` until every required check
+# has passed, so the PR waited on the SLOWER of two identical runs. That was
+# observed directly: four PRs sat `blocked` with one gate green and its twin still
+# in progress. The duplicate was doubling time-to-mergeable, and the lap re-pushes
+# every open PR on every merge into dev, so the cost was paid once per PR PER LAP —
+# four laps in the hour this was found.
+#
+# WHAT THE FILTER GIVES UP, stated rather than glossed: a steward branch pushed
+# BEFORE its pull request exists is not gated by that push. The gap closes the
+# moment the PR opens, which in this repo is the same run — and a run that dies
+# before opening one now gets a DRAFT PR from the steward's salvage step (T-1155),
+# which fires `pull_request` and gates it. Nothing that was covered stops being
+# covered; only the second copy goes.
+# AND IT MUST RUN ON A WORKFLOW-ONLY CHANGE, or such a change can never merge.
+# `gate` is a REQUIRED check on dev. A pull request that touches only
+# .github/workflows/ produced no gate run at all, so the requirement could never be
+# satisfied and the PR sat `blocked` for ever. Found on #1433 — the fix for an
+# eleven-hour production deploy outage, which changes deploy.yml and
+# chicago-4d-promote-to-prod.yml and nothing else, and was therefore unmergeable by
+# construction. The paths below now cover the whole workflow directory rather than
+# this one file. A workflow edit is rare and consequential, and check.sh already
+# holds assertions about these files, so paying the gate for one is right.
+on:
+  push:
+    branches: [dev, main]
+    paths:
+      - 'chicago/4d/**'
+      - '.github/workflows/**'
+  pull_request:
+    paths:
+      - 'chicago/4d/**'
+      - '.github/workflows/**'
+  workflow_dispatch:
+
+jobs:
+  gate:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          # T-0409's gate needs the merge base to ask what this PR changed.
+          fetch-depth: 0
+
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.11'
+
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '22'
+
+      # T-1083. numpy, scipy and Pillow are NOT optional extras here. Thirteen gate
+      # steps re-read a committed raster and each degrades to a banked reading
+      # without them — printing its skip and exiting 0, which this gate counted as a
+      # pass. It had therefore never re-read a sheet, and `sauganash_range_m` stood
+      # 65.1 m out against a 1.0 m tolerance, green, from T-1065 (#1189) onwards.
+      # tools/check_gate_readers.py holds the list; C4D_GATE_REQUIRE_READERS makes a
+      # missing one red instead of a warning, so this can never quietly regress.
+      - name: Install validator dependencies
+        run: pip install --quiet jsonschema pyproj openpyxl pypdf numpy scipy Pillow
+
+      - name: Run the gate
+        working-directory: chicago/4d
+        env:
+          C4D_GATE_REQUIRE_READERS: '1'
+          # T-1124. The lost-judgement guard holds this tree to the MERGE BASE, so it
+          # needs a base ref in the clone — which `fetch-depth: 0` above provides — and
+          # it needs the absence of one to be RED here rather than a warning. Same two
+          # states, same reason, as C4D_GATE_REQUIRE_READERS: a gate may not count a
+          # skip as a pass. tools/check_rulings_not_lost.py --self-test asserts that
+          # both of these lines are still here.
+          C4D_GATE_REQUIRE_BASE: '1'
+        run: ./tools/check.sh
+
+      # T-0409 — deliberately NOT inside check.sh. The nightly bake regenerates
+      # data/ and correctly ships no entry, so a gate in check.sh would fail
+      # every bake. Here the question only gets asked of a pull request, which is
+      # where it means something.
+      - name: Does this change carry a changelog entry?
+        if: github.event_name == 'pull_request'
+        run: >
+          node chicago/4d/tools/check-changelog-entry.mjs
+          "${{ github.event.pull_request.base.sha }}"
+          "${{ github.event.pull_request.head.sha }}"

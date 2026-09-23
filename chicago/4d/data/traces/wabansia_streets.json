@@ -1,0 +1,401 @@
+{
+  "_doc": "Read Wabansia's streets off Wright's 1834 survey \u2014 the seven corridors and the two\nnames the owner flagged as doubtful.\n\n    tools/read_wabansia_streets.py                print the reading\n    tools/read_wabansia_streets.py --write        write data/traces/wabansia_streets.json\n    tools/read_wabansia_streets.py --check        re-derive every metre from the committed pixels\n    tools/read_wabansia_streets.py --check-sheet  re-measure the rules off the raster\n    tools/read_wabansia_streets.py --self-test    break each assertion and watch it fire\n\nWHAT THIS FILE IS. Wabansia \u2014 Wright letters it *Wonbonsia*, the Democrat and Andreas\n*Wabansia* \u2014 is the tract north of Kinzie Street and west of the North Branch, surveyed\nin 1831 and the earliest speculative addition laid out at Chicago. The project has had\nnothing there: no street, no block, no tract edge. This is the first reading of its\nstreet grid, and it reads the EAST-WEST corridors only. It authors no ground: a corridor\nhere is a pair of ruled lines on a raster, and where that pair belongs on modern ground\nis the seating question T-0790's successor carries.\n\nTHE SHEET is the National Archives / Historic Urban Plans facsimile registered as\n`wright_1834_nara_hup` (5050 x 6628 px at 600 dpi), the same sheet and the same affine\nT-1060 and T-1061 read Kinzie's Addition on, for the same reason: at 600 dpi the ruled\nlines separate and the lettering can be read letter by letter.\n\nTHE METHOD is T-1060's, imported rather than copied \u2014 `_profile` projects a window's ink\nonto one axis along a fitted shear, `_rules` takes the sharp narrow peaks as ruled lines,\n`_frame` carries a pixel to local ENU through the sheet's own committed affine. What is\nnew here is the DISCRIMINATION, because Wabansia's does not work the way the Addition's\ndid. In Kinzie's Addition a street corridor is wider than the gaps around it and a width\ntest finds it. In Wabansia it is not: the blocks are four lots deep at a 33 px lot pitch\nand the corridors run 29-39 px, so a width test cannot tell a street from a lot line and\nreturned five wrong corridors when it was tried. What settles it is Wright's own\nlettering: he writes each name INSIDE its corridor, so the corridor is the rule pair that\nbrackets the name's glyphs, and every pair below was confirmed against the crop the name\nwas read in. That is why `label_crop_px` is committed beside `rule_px_y` \u2014 the crop is\nthe evidence for which pair was taken, not decoration.\n\nTHE TWO DOUBTS THE OWNER RAISED, both settled here on the registered scan:\n\n  * `Right` or `Hight` \u2014 HIGHT. The capital carries a looped ascender and a second\n    vertical joined by a mid-height crossbar, and it is the same glyph Wright draws for\n    the H of `Hubbard` two corridors south on the same sheet. An R in this hand has a\n    bowl; this has none. The two crops are committed side by side so the next reader can\n    disagree with the comparison rather than with an assertion.\n  * `Kain` or `Kane` \u2014 KAIN. The third letter carries a dot and the fourth is an n with\n    two shoulders; there is no terminal e. This street is inside the water-lot triangle,\n    not in the block grid, and is recorded here as a name only.\n\nWHAT IS NOT READ, and is the next run's, not a gap to be filled by guessing:\n\n  * The NORTH-SOUTH streets. Wright letters none of them in Wabansia, so the lettering\n    that disciplines the east-west read has nothing to say about them, and the width test\n    that would have to stand in its place is the one this tract defeats.\n  * The BLOCK NUMERALS (some 79 of them), the water-lot strip, the tract polygon, and\n    who the sources put on the ground. T-0790 was split for them.\n  * The SEATING. Wabansia's south line is Kinzie Street, which this project has already\n    committed off the Thompson plat, so the sheet can be priced against it: \u00a7 cross_check\n    carries the gap, and it is well inside the 16.19 m RMS this sheet's own registration\n    admits. A gap that small is a reason to seat the tract on the committed line rather\n    than on the sheet \u2014 but a seating is a separate demonstration and is not made here.\n",
+  "ticket": "T-0790",
+  "raster": {
+    "working_copy": "chicago/pre_fire_v1/maps/images/1834-wright-map.jpg",
+    "width": 5050,
+    "height": 6628,
+    "dpi": 600,
+    "sha256": "dbb92c0188881d9b6cdf84801b9185a5715496a328125bde895a04058b173266",
+    "source_id": "wright_1834_nara_hup"
+  },
+  "registration": {
+    "gcp_file": "data/traces/gcp/wright_1834_nara_hup_gcps.json",
+    "fit": "fit \u2014 the eleven-point registration in force (T-1091), re-seated onto it by T-1092",
+    "rms_m": 16.02
+  },
+  "method": {
+    "shear_ew": 0.019,
+    "windows": {
+      "col_west": {
+        "x": [
+          700,
+          790
+        ],
+        "y": [
+          1000,
+          2110
+        ],
+        "through": "the westernmost block column, Trade Street to Kinzie Street"
+      },
+      "col_east": {
+        "x": [
+          990,
+          1050
+        ],
+        "y": [
+          1040,
+          1125
+        ],
+        "through": "the column east of Wright's `Free` and west of his `St`"
+      },
+      "col_trade": {
+        "x": [
+          880,
+          980
+        ],
+        "y": [
+          1150,
+          1340
+        ],
+        "through": "the gap between Wright's `Trade` and his `St`"
+      }
+    },
+    "discrimination": "the corridor is the rule pair bracketing Wright's own lettering; see \u00a7 width_test_refused"
+  },
+  "streets": [
+    {
+      "id": "free",
+      "name_on_sheet": "Free",
+      "order": 1,
+      "window": "col_east",
+      "rule_px_y": [
+        1064.5,
+        1096.4
+      ],
+      "label_crop_px": [
+        770,
+        1055,
+        1060,
+        1110
+      ],
+      "name_confidence": "documented",
+      "ref_px_x": 990,
+      "corridor_px": 31.9,
+      "corridor_m": 23.01,
+      "corridor_ft_raw": 75.5,
+      "corridor_ft_controlled": 73.7,
+      "centre_px_y": 1080.45,
+      "centre_local_enu_m": [
+        -557.2,
+        973.5
+      ],
+      "geometry_confidence": "inferred",
+      "note": null
+    },
+    {
+      "id": "trade",
+      "name_on_sheet": "Trade",
+      "order": 2,
+      "window": "col_trade",
+      "rule_px_y": [
+        1235.4,
+        1264.3
+      ],
+      "label_crop_px": [
+        700,
+        1215,
+        1100,
+        1320
+      ],
+      "name_confidence": "documented",
+      "ref_px_x": 880,
+      "corridor_px": 28.9,
+      "corridor_m": 20.84,
+      "corridor_ft_raw": 68.4,
+      "corridor_ft_controlled": 66.8,
+      "centre_px_y": 1249.85,
+      "centre_local_enu_m": [
+        -633.5,
+        848.3
+      ],
+      "geometry_confidence": "inferred",
+      "note": null
+    },
+    {
+      "id": "sailors",
+      "name_on_sheet": "Sailors",
+      "order": 3,
+      "window": "col_west",
+      "rule_px_y": [
+        1393.3,
+        1427.4
+      ],
+      "label_crop_px": [
+        690,
+        1380,
+        1200,
+        1450
+      ],
+      "name_confidence": "documented",
+      "ref_px_x": 700,
+      "corridor_px": 34.1,
+      "corridor_m": 24.59,
+      "corridor_ft_raw": 80.7,
+      "corridor_ft_controlled": 78.8,
+      "centre_px_y": 1410.35,
+      "centre_local_enu_m": [
+        -759.3,
+        727.6
+      ],
+      "geometry_confidence": "inferred",
+      "note": null
+    },
+    {
+      "id": "hight",
+      "name_on_sheet": "Hight",
+      "order": 4,
+      "window": "col_west",
+      "rule_px_y": [
+        1556.6,
+        1595.8
+      ],
+      "label_crop_px": [
+        780,
+        1530,
+        1220,
+        1610
+      ],
+      "name_confidence": "documented",
+      "note": "The owner's crop read this as `Right or Hight`; see \u00a7 adjudications. Its corridor is the widest of the seven at 39.2 px against a 33.9 px mean, and the excess is one rule-width: the south edge is drawn twice here, a kerb line beside the rule, and the outer of the two is taken.",
+      "ref_px_x": 700,
+      "corridor_px": 39.2,
+      "corridor_m": 28.27,
+      "corridor_ft_raw": 92.8,
+      "corridor_ft_controlled": 90.6,
+      "centre_px_y": 1576.2,
+      "centre_local_enu_m": [
+        -758.0,
+        608.0
+      ],
+      "geometry_confidence": "inferred"
+    },
+    {
+      "id": "owen",
+      "name_on_sheet": "Owen",
+      "order": 5,
+      "window": "col_west",
+      "rule_px_y": [
+        1725.6,
+        1760.8
+      ],
+      "label_crop_px": [
+        690,
+        1700,
+        1200,
+        1780
+      ],
+      "name_confidence": "documented",
+      "ref_px_x": 700,
+      "corridor_px": 35.2,
+      "corridor_m": 25.39,
+      "corridor_ft_raw": 83.3,
+      "corridor_ft_controlled": 81.3,
+      "centre_px_y": 1743.2,
+      "centre_local_enu_m": [
+        -756.8,
+        487.6
+      ],
+      "geometry_confidence": "inferred",
+      "note": null
+    },
+    {
+      "id": "hubbard",
+      "name_on_sheet": "Hubbard",
+      "order": 6,
+      "window": "col_west",
+      "rule_px_y": [
+        1889.2,
+        1924.1
+      ],
+      "label_crop_px": [
+        840,
+        1890,
+        1090,
+        1950
+      ],
+      "name_confidence": "documented",
+      "ref_px_x": 700,
+      "corridor_px": 34.9,
+      "corridor_m": 25.17,
+      "corridor_ft_raw": 82.6,
+      "corridor_ft_controlled": 80.6,
+      "centre_px_y": 1906.65,
+      "centre_local_enu_m": [
+        -755.5,
+        369.7
+      ],
+      "geometry_confidence": "inferred",
+      "note": null
+    },
+    {
+      "id": "kinzie",
+      "name_on_sheet": "Kinzie",
+      "order": 7,
+      "window": "col_west",
+      "rule_px_y": [
+        2061.3,
+        2095.8
+      ],
+      "label_crop_px": [
+        1150,
+        2060,
+        1450,
+        2110
+      ],
+      "name_confidence": "documented",
+      "note": "The tract's south line, and the one street here the project already carries: `kinzie` in data/streets/1835.json, committed off the Thompson plat. It is read again on this sheet as the tract's own southern bound.",
+      "ref_px_x": 700,
+      "corridor_px": 34.5,
+      "corridor_m": 24.88,
+      "corridor_ft_raw": 81.6,
+      "corridor_ft_controlled": 79.7,
+      "centre_px_y": 2078.55,
+      "centre_local_enu_m": [
+        -754.3,
+        245.7
+      ],
+      "geometry_confidence": "inferred"
+    }
+  ],
+  "water_lot_tract_streets": [
+    {
+      "id": "kain",
+      "name_on_sheet": "Kain",
+      "label_crop_px": [
+        1250,
+        1700,
+        1500,
+        1790
+      ],
+      "name_confidence": "documented",
+      "note": "The owner's crop read this as `Kain` or `Kane`; see \u00a7 adjudications."
+    },
+    {
+      "id": "water",
+      "name_on_sheet": "Water",
+      "label_crop_px": [
+        1290,
+        1880,
+        1520,
+        1990
+      ],
+      "name_confidence": "documented",
+      "note": "Wright letters a Water Street inside the triangle. This reading first glossed it as fronting the North Branch, as he does on both banks downstream; T-1077 measured the strip and refused that. Both names sit in corridors that CROSS the lots, square to the ranks, from the block grid to the water \u2014 see data/traces/wabansia_water_lots.json \u00a7 corridors. The name is this reading's and stands; what it is a name of is that one's."
+    }
+  ],
+  "adjudications": [
+    {
+      "id": "hight_not_right",
+      "reading": "Hight",
+      "refused": "Right",
+      "crop_px": [
+        780,
+        1530,
+        1220,
+        1610
+      ],
+      "comparison_crop_px": [
+        840,
+        1890,
+        1090,
+        1950
+      ],
+      "comparison": "the H of `Hubbard`, two corridors south on the same sheet",
+      "confidence": "documented",
+      "argument": "The capital is a looped ascender and a second vertical joined by a mid-height crossbar, with no bowl. It is stroke for stroke Wright's H in `Hubbard`. An R in this hand closes a bowl against the stem."
+    },
+    {
+      "id": "kain_not_kane",
+      "reading": "Kain",
+      "refused": "Kane",
+      "crop_px": [
+        1250,
+        1700,
+        1500,
+        1790
+      ],
+      "comparison_crop_px": null,
+      "comparison": "read letter by letter at 4x; no comparison glyph needed",
+      "confidence": "documented",
+      "argument": "K-a-i-n. The third letter carries its dot and the fourth is an n with two shoulders. There is no terminal e."
+    }
+  ],
+  "module": {
+    "corridor_px": {
+      "mean": 34.1,
+      "sd": 3.16,
+      "n": 7,
+      "min": 28.9,
+      "max": 39.2
+    },
+    "corridor_m": {
+      "mean": 24.59,
+      "sd": 2.28
+    },
+    "corridor_ft_raw": 80.7,
+    "corridor_ft_controlled": 78.8,
+    "tier_pitch_px": [
+      169.4,
+      160.5,
+      165.85,
+      167.0,
+      163.45,
+      171.9
+    ],
+    "tier_pitch_m": {
+      "mean": 119.98,
+      "sd": 2.95,
+      "n": 6,
+      "each": [
+        122.18,
+        115.76,
+        119.62,
+        120.45,
+        117.89,
+        123.98
+      ]
+    },
+    "tier_pitch_ft_raw": 393.6,
+    "tier_pitch_ft_controlled": 384.4,
+    "block_depth_m": 95.39,
+    "block_depth_ft_raw": 312.9,
+    "block_depth_ft_controlled": 305.6,
+    "lots_per_block": 4,
+    "lot_depth_ft_raw": 78.2,
+    "reading": "Seven corridors at a 34.1 px mean and six tiers at a 166.3 px mean: Wabansia is laid out as a block four lots deep plus a street, repeated. The corridor reads 80.7 ft raw and 78.8 ft against the Original Town's platted 80 ft read on this sheet by this method \u2014 which is to say Wabansia is platted on the town's own street width, inside a control that itself spreads 5.2 ft. The block runs 313 ft raw on four lots of 78 ft. The regularity is the finding: the six tiers scatter 4.1 px, about 3 m, over a 1,000 px run."
+  },
+  "control": {
+    "original_town_platted_ft": 80.0,
+    "original_town_read_ft": {
+      "mean": 81.9,
+      "sd": 5.1,
+      "n": 3
+    },
+    "method_over_read": 1.024,
+    "source": "data/traces/kinzie_addition_street_grid.json \u00a7 control_summary",
+    "reading": "A corridor on this sheet is not measured against a ruler; it is measured against the Original Town's platted 80 ft on the same sheet by the same method."
+  },
+  "width_test_refused": {
+    "lot_pitch_px": 33.0,
+    "corridor_px_range": [
+      28.9,
+      39.2
+    ],
+    "why": "Wabansia's blocks are four lots deep at a 33 px lot pitch and its corridors run 28.9-39.2 px, so the two populations overlap and a width test cannot separate them. Run against the label slots it returned corridors for five of the seven streets and four of those five were wrong by a rule."
+  },
+  "cross_check": {
+    "street": "kinzie",
+    "sheet_centre_local_enu_m": [
+      -754.3,
+      245.7
+    ],
+    "committed_line": "data/streets/1835.json \u00a7 kinzie (Thompson plat, T-0713)",
+    "committed_n_at_same_e_m": 266.6,
+    "extrapolated_west_of_committed_end_m": 434.3,
+    "gap_m": 20.9,
+    "sheet_registration_rms_m": 16.02,
+    "gap_inside_registration_rms": false,
+    "reading": "The sheet puts Kinzie Street 20.9 m south of where the committed line runs at the same easting, against a registration that admits 16.02 m RMS \u2014 OUTSIDE it, by 4.8 m. Under the eight-point fit T-1091 superseded the same gap was 8.8 m and inside; the eleven-point fit that replaced it is the better registration over the sheet as a whole and the worse one here, which is what a fit refitted at the sheet's foot does to its north-west corner. THE IDENTIFICATION DOES NOT REST ON THIS GAP: Wright letters `Kinzie` inside this corridor, which is why Wabansia's south line and the town's Kinzie Street are read as the same street. The gap measures how well the registration carries that reading onto the committed line, and nothing else. Note the committed line is extrapolated 434.3 m west of its own west end to meet this tract, so it is a consistency check and not a control point."
+  }
+}

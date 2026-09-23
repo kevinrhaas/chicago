@@ -1,0 +1,51 @@
+{
+  "id": "census_1840_chicago_nara_m704_roll57",
+  "type": "manuscript",
+  "citation": "Sixth Census of the United States, 1840: population schedules, Illinois — Cook County, the division allotted to S. W. Sherman, which is the town of Chicago. NARA microfilm publication M704 (580 rolls), roll 57, whose description reads \"Coles, Cook, Crawford Counties\", digitised from the film by the Allen County Public Library Genealogy Center and republished by the Internet Archive as item populationsc18400057unit, 330 leaves. Leaf n166 is printed page 232 and leaf n167 is its facing continuation — the right half of the same opening, which the project's FamilySearch deposit of 74 images does not hold.",
+  "author": "S. W. Sherman, assistant marshal, as the division heading on printed page 232 is written",
+  "date": "1840",
+  "describes_date": "1840-06-01",
+  "repository": "National Archives and Records Administration, Record Group 29 — microfilm publication M704, roll 57. The copy actually read is the Internet Archive's digitisation of that roll.",
+  "url": "https://archive.org/details/populationsc18400057unit",
+  "locator": "Leaves are cited as https://archive.org/download/populationsc18400057unit/page/n<N>_w2400.jpg. The two fetched for T-0736 are\n  n166 — printed page 232, LEFT sheet, sha256 4553ede0ee289f9474f9586bf1c372dedafb88441b9e22a329e1ab20b3966933 (3864 x 3332, 2026-09-06)\n  n167 — its facing RIGHT sheet, the continuation, sha256 aadd26b63b0f3e55b82f04ee210e076ed36f0227e56b9122e4279480dd910743 (3744 x 3300, 2026-09-06)\nNo image, crop or render from this roll is committed: the census_1840 deposit is read-only by its own README's rule, and the checksums above are what makes the reading re-checkable.",
+  "tier": 1,
+  "rights_status": "public_domain",
+  "asset_use": "text_only",
+  "verified": true,
+  "access_notes": "VERIFIED 2026-09-06 for T-0736. Access is open and unauthenticated: the Internet Archive item needs no login and the leaves are served as JPEG page images. THE ROLL NUMBER WAS LOOKED UP RATHER THAN ASSUMED — T-0736 recorded that no roll had been named here \"because nobody has looked one up\". archives.gov's own 1840 census page states the publication and its extent (\"National Archives Microfilm Publication M704, Sixth Census of the United States, 1840 (580 rolls)\") and says the images are on genealogy websites rather than on NARA's own; the Internet Archive's Illinois items for M704 carry the roll contents in their description, and roll 57 is \"Coles, Cook, Crawford Counties\". LEAF n166 WAS IDENTIFIED BY ITS OWN NAMES AND NOT BY THE PAGE STAMP: its 31 heads of families are the 31 this project already read off the FamilySearch image 33S7-9YYJ-W6, in the same order, opening Nicholas W. Smith, Jos. D. Boone, Jacob Miller, Amy Brown and Wm J. C. Scovill and closing C. H. Holcomb and Emanuel M[?]. The stamped 232 agrees, and the film's own order agrees again: on this roll the left sheet of an opening is filmed before its right, and n165, n167 and n169 are right sheets while n164, n166 and n168 are left. THE FILM IS BETTER LIT THAN THE DEPOSIT'S SCAN, which is a fact about the digitisation and not about the project's reading, and it is why several names the deposit read at `low` confidence are legible here.",
+  "what_it_supplies": [
+    "the continuation half of printed page 232 — leaf n167 — which is the whole reason this source was sought: the family TOTAL, the seven industry columns, the pensioners block, the deaf-dumb-blind-insane block and the schools and illiteracy columns of the 31 households the project has held names for since T-0523 and cells for since T-0530",
+    "the pairing keys themselves, read before any cell was: n167's TOTAL column carries 31 entries against printed 232's 31 ruled lines, and its printed footing reads 198. T-0911 read that footing as 195 with 198 as the arguable alternate; T-0912 read it again at 6x against the leaf's own 5s (lines 1, 3, 14, 30), its own 9 (line 26) and its own 8 (line 23) and SETTLED IT AT 198 - the third glyph carries no horizontal top bar and the second carries no bowl under one, so neither is this hand's 5.",
+    "the sequence screen, which is the third strand T-0642 allows to corroborate, now run over the whole leaf rather than its opening: n167's 31 TOTAL entries reproduce printed 232's own per-line free-person counts position for position, 31 of 31 at offset 0, with no other offset reaching 5 of 30. That is the exact screen T-0543 used to REFUSE 33SQ-GYYJ-9J5, whose column opens 5, 6, 25, 11, 8",
+    "a second, better-lit exposure of printed page 232's left sheet (n166), against which the deposit's own reading can be checked line by line",
+    "the cells of n167, read line by line by T-0912 and committed at data/research/census_1840/pages/m704_r57_n167.json: the family TOTAL for all 31 lines, the seven industry columns, and the pensioners, deaf/dumb/blind/insane and schools blocks, which carry no ink. Four columns are footed by the enumerator; three of the four close on the entries above them (commerce 4, navigation of canals 18, learned professions 8) and manufactures and trades does not - 10 read against 15 footed, and the 5 is left open."
+  ],
+  "what_it_does_not_supply": [
+    "a printed page number on n167 that anybody has read. The corner that carries it is smudged past reading at this exposure; the leaf is placed as printed 232's continuation by the film's own order, by n166's names, and by its TOTAL column reproducing printed 232's 31 per-line counts exactly - and not by its stamp.",
+    "the rest of the roll. Coles and Crawford Counties, and every Cook County leaf but n166 and n167, are unread — this source record is not a claim to have read 330 leaves",
+    "any 1835 fact. 1840 is LATER EVIDENCE under the ratified ladder, and a household total on a continuation leaf says nothing about who stood in Chicago on 1 July 1835",
+    "an occupation for any named person. The industry columns count PERSONS IN EACH FAMILY employed in a class of work; they do not name which member, and they never name a trade",
+    "the arithmetic behind the enumerator's footings. Two of this leaf's footings stand 5 above the entries beneath them - the TOTAL column 198 against 193, manufactures and trades 15 against 10 - and T-0912 reports both residuals rather than closing either. Why the same 5 appears twice is not known and nothing here proposes a cause."
+  ],
+  "note": "WHY A LEAF CAN BE ON THE FILM AND ABSENT FROM THE DEPOSIT. T-0543 searched every right sheet in the project's 74-image deposit and found none that foots printed 232, and recorded that as a statement about the deposit rather than about the schedule: \"the 1840 book had a facing leaf for every page it enumerated, and this deposit of 74 images does not hold all of them\". That is exactly what this source shows. The deposit is a partial selection of frames; the roll is the whole filming, and printed 232's continuation was on it the entire time.",
+  "transcribes": [
+    {
+      "work": "S. W. Sherman's manuscript schedule for his division of Cook County, Sixth Census of the United States",
+      "date": "1840",
+      "tier": 1,
+      "note": "The assistant marshal's manuscript, written in the summer of 1840. NOT SEEN BY THIS PROJECT: the paper original is at NARA and nobody here has handled it."
+    },
+    {
+      "work": "NARA microfilm publication M704, roll 57 — a photographic copy of that manuscript",
+      "date": "1840",
+      "tier": 1,
+      "note": "NOT SEEN BY THIS PROJECT either. The film itself was not handled; what was read is a digitisation of it."
+    },
+    {
+      "work": "Internet Archive item populationsc18400057unit — the Allen County Public Library Genealogy Center's scan of roll 57, 330 leaves",
+      "date": "1840",
+      "tier": 1,
+      "note": "THIS IS THE LAYER READ. Two leaves were fetched as JPEG page images and read by eye. The item carries no usable text layer — its OCR search-text file is 28 bytes and its page-number file is empty of page numbers, because the schedules are handwritten — so nothing was extracted, matched or searched, and no transcriber stands between this project and the enumerator's hand. The mediation is photographic and not editorial, which is why the tier stays at 1 and why anything read here is graded `scan_verified`."
+    }
+  ]
+}

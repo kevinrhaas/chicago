@@ -1,0 +1,741 @@
+{
+ "schema": 1,
+ "issue_id": "chicago_democrat_1835_05_27",
+ "extracted": "2026-08-29",
+ "extracted_by": "hand, T-0326",
+ "note": "Vol. II No. 6, the second issue after the resumption, and the one that starts the two series this epic will lean on hardest: the CHICAGO PRICES CURRENT, corrected weekly, and the ARRIVALS OF VESSELS AT CHICAGO. Both run in every issue from here to the scene date. The prices current carries a BUILDING MATERIALS block — lumber, shingles, square timber, brick, stone, lime, wood — which is the first thing in this corpus that prices what the town was made of.\n\nThe reading is uneven because the transcription is. Pages 1, 2 and 4 are national reprint matter and their columns are damaged by systematic line-start clipping; page 3 columns 3-6 are the town and are legible. Fourteen claims, all but two off page 3.",
+ "claims": [
+  {
+   "id": "c001",
+   "kind": "price",
+   "reading": "transcription_mediated",
+   "quote": "CHICAGO PRICES CURRENT,\n\nCONRECTED WEERLY.\n\nSalt, bbl $275 a 3 00\nFlour and Meal—\nSuper fine bbl 5 00 a G50\nfine \"5\nBuckwheat flour =” none.\nIndian meal bush 1 00 a 1.50\nGrain— ,\nCorn bush 1 00 0\nOnts ae 62a 73\nWheat re C32 60\nProvisions ¥\n\nf, frovh Ib 4a 6\ndo aalt mesa bhi 10 00.841. 00\ndo do prime \"900\nPork, mnesano. 1, \" 20 G0\n\nnone, 8, ** 16 00\n\nOne hog \"1400\nFimo 42 00\n\nDried beef Wb Wa 12\n\nHams, smoked * 10\n\nWhite fish bbl 6 00\n\nButter, heg Ib Wai 2\n\nLard Mid ¥? a 9\n\nCheeso Ib Wa 12\n\nWhite beans bush none,\n\nPotatocs \"1002150\nTallow, lb 92 10\nHidea, dry ib Ba 9\nCandles, box tallow b 2a 4\nBujlding Materials\nLumber, ass'd 1000 ft 28 O09 20 00\nShingles do 300 a 3 50\nSquare timber, length f 5a 6\nBrick, per 1000 5 00 a 6 00\nStone, cord 600 a 6 50\nLime, bbl = 75a 88\nWand, cord 2 50a",
+   "normalized": "CHICAGO PRICES CURRENT, CORRECTED WEEKLY. Salt, bbl $2 75 a 3 00. Flour and Meal — Super fine bbl 5 00 a 6 50; fine [5 ..]; Buckwheat flour none; Indian meal bush 1 00 a 1 50. Grain — Corn bush 1 00; Oats 62 a 75; Wheat [ ] a 60. Provisions — [Bee]f, fresh lb 4 a 6; do salt mess bbl 10 00 a 11 00; do do prime 9 00; Pork, mess no. 1, 20 00; [do] no. 2, 16 00; One hog 14 00; [prime] 12 00; Dried beef lb 10 a 12; Hams, smoked 10; White fish bbl 6 00; Butter, keg lb 10 a 12; Lard 8 a 9; Cheese lb 10 a 12; White beans bush none; Potatoes 1 00 a 1 50; Tallow lb 9 a 10; Hides, dry lb 8 a 9; Candles, box tallow lb 12 a 14. Building Materials — Lumber, ass'd 1000 ft 28 00 a 29 00; Shingles do 3 00 a 3 50; Square timber, length ft 5 a 6; Brick, per 1000 5 00 a 6 00; Stone, cord 6 00 a 6 50; Lime, bbl 75 a 88; W[oo]d, cord 2 50 a [ ].",
+   "locator": {
+    "artifact_role": "primary",
+    "issue_page": 3,
+    "column": 3,
+    "lines": [
+     2114,
+     2165
+    ],
+    "lines_of_claim": [
+     2114,
+     2115,
+     2116,
+     2117,
+     2118,
+     2119,
+     2120,
+     2121,
+     2122,
+     2123,
+     2124,
+     2125,
+     2126,
+     2127,
+     2128,
+     2129,
+     2130,
+     2131,
+     2132,
+     2133,
+     2134,
+     2135,
+     2136,
+     2137,
+     2138,
+     2139,
+     2140,
+     2141,
+     2142,
+     2143,
+     2144,
+     2145,
+     2146,
+     2147,
+     2148,
+     2149,
+     2150,
+     2151,
+     2152,
+     2153,
+     2154,
+     2155,
+     2156,
+     2157,
+     2158,
+     2159,
+     2160,
+     2161,
+     2162,
+     2163,
+     2164,
+     2165
+    ]
+   },
+   "notes": "WHAT CHICAGO WAS BUILT OF, AND WHAT IT COST, FIVE WEEKS BEFORE THE SCENE DATE. The seven-line Building Materials block is the most directly usable price series this corpus has produced: assorted lumber at $28-29 the thousand feet, shingles at $3.00-3.50 the thousand, square timber at 5-6 cents the running foot, BRICK AT $5-6 THE THOUSAND, stone at $6.00-6.50 the cord, lime at 75-88 cents the barrel, firewood at $2.50 the cord.\n\nBRICK AT $5-6 A THOUSAND IS THE NUMBER TO KEEP. It says brick was a quoted, weekly-traded commodity in Chicago in May 1835 and not an exotic import — which is the background against which 'Hubbard & Co's. brick store' (1835-06-11) reads as a deliberate choice rather than a curiosity, and against which the reconstruction's overwhelmingly timber town is the right default with brick as the marked exception.\n\nTHE FIGURES ARE READ OFF A DAMAGED TABLE AND SOME CELLS ARE EMPTY. The transcription sets the table as running text with the column rules gone, so the reading depends on the units printed beside each row ('bbl', 'bush', 'lb', 'cord', '1000 ft') and on the two-figure a-b range form. Where a figure did not survive, the normalized reading leaves a bracketed gap rather than supplying it — fine flour, wheat's low, and wood's high are all incomplete here and can be read whole off 1835-06-04 and 1835-06-10, which print the same table.\n\nTHE SERIES MOVES, AND FAST. Superfine flour is $5.00-6.50 here; $10.00-12.00 on 1835-06-04, when the editor writes that 'our stock of eatables is almost exhausted'; and $15.00-16.00 on 1835-06-24. THE BUILDING MATERIALS DO NOT MOVE AT ALL across those five weeks — every figure in the block is identical in all three printings. Food tripled while brick, lumber and lime held. That contrast is a finding about the town's summer of 1835 and it is why all three tables are quoted rather than only one."
+  },
+  {
+   "id": "c002",
+   "kind": "shipping",
+   "reading": "transcription_mediated",
+   "quote": "ALBITALS 7\n\nOF VESSELS\nan AT CHICAGO, 1835.\n\n. May 20, &:\n2.\n\n“Hellen, Chase, do, \"\n\n“ Jewe Smith, Deurv, Green Bay,\n\n& Brig Wools, Wagatalf, Butirto.\n4” Inciana, M’Rinatry, do.\n* Schr. Hucon, Eno, da,\nba Michigan, Dison, doy\n23. 4 Barker, Sims,  do,\n“4 4 Hilinots, Pickering, Cleavland.\n24. Phillipa, Vowe, St. foseph,\n2.  Sean. Doncan, do.\n* § Liswallyn. Clark, One,\n\n38 Hallep, Chase, St. Joseph.\n\n# Bloop Westward Ho, Banks, Bin",
+   "normalized": "ARRIVALS OF VESSELS AT CHICAGO, 1835. May 20 […] [Schr.] Hellen, Chase, do. [Schr.] Jesse Smith, D[unc]an, Green Bay. Brig Wo[o]ls[ey], Wagstaff, Buff[a]lo. [Brig] Indiana, M'K[i]nstry, do. Schr. Huron, Eno, do. [Schr.] Michigan, Di[x]on, do. 23. [Schr.] Barker, Sims, do. [Schr.] Illinois, Pickering, Cleveland. 24. [Schr.] Phillips, [H]owe, St. Joseph. 2[5]. [Schr.] Swan, D[un]can, do. [Schr.] Llewellyn, Clark, [do.] 2[6]. [Schr.] Hell[e]n, Chase, St. Joseph. [Schr.] Sloop Westward Ho, Banks, [do.]",
+   "locator": {
+    "artifact_role": "primary",
+    "issue_page": 3,
+    "column": 3,
+    "lines": [
+     2167,
+     2191
+    ],
+    "lines_of_claim": [
+     2167,
+     2168,
+     2169,
+     2170,
+     2171,
+     2172,
+     2173,
+     2174,
+     2175,
+     2176,
+     2177,
+     2178,
+     2179,
+     2180,
+     2181,
+     2182,
+     2183,
+     2184,
+     2185,
+     2186,
+     2187,
+     2188,
+     2189,
+     2190,
+     2191
+    ],
+    "interleaved": true
+   },
+   "notes": "TWELVE ARRIVALS IN A WEEK, and the first list in this corpus with dates against the entries. Two brigs (Woolsey and Indiana, both from Buffalo) and ten schooners and a sloop working Buffalo, Cleveland, Green Bay and St. Joseph. The 20th and the 22nd carry six between them, which is a week's worth of unloading for a harbor with no wharf frontage to speak of.\n\nTHE DATE COLUMN IS PARTLY LOST and the entries above 'May 20' cannot be dated, so no individual date is asserted beyond the four the transcription actually prints (20, 23, 24, 2[5], 2[6]). The Llewellyn appears here for the first time and is advertised in the same issue as the new Chicago and St. Joseph packet, which is how a hull in a marine list becomes a scheduled service."
+  },
+  {
+   "id": "c003",
+   "kind": "person",
+   "reading": "transcription_mediated",
+   "quote": "MARRIED,\nALS miles Meadows, near Lewiston on t\n27th ult, by the Iter. Saarwal McBurney, Jor\n9. C. Hooas, Exq. Postinaster, Chicago Ill, \nMiss. Anse Maria Bareny, grand daughter \nCapt. N. Leonard, of the former plare.",
+   "normalized": "MARRIED, At S[ugar Creek?] Meadows, near Lewiston on the 27th ult., by the Rev. Sa[mue]l McBurney, Jo[hn] S. C. Hogan, Esq., Postmaster, Chicago Ill., [to] Miss Anne Maria Barne[y], grand daughter of Capt. N. Leonard, of the former place.",
+   "locator": {
+    "artifact_role": "primary",
+    "issue_page": 3,
+    "column": 3,
+    "lines": [
+     2193,
+     2198
+    ],
+    "lines_of_claim": [
+     2193,
+     2194,
+     2195,
+     2196,
+     2197,
+     2198
+    ],
+    "interleaved": true
+   },
+   "entities": [
+    {
+     "as_printed": "Jor 9. C. Hooas, Exq. Postinaster, Chicago Ill",
+     "normalized": "John S. C. Hogan",
+     "role": "bridegroom",
+     "occupations": [
+      "postmaster",
+      "merchant"
+     ],
+     "associated_places": [
+      "South Water Street",
+      "Chicago"
+     ]
+    },
+    {
+     "as_printed": "Miss. Anse Maria Bareny",
+     "normalized": "Anne Maria Barney",
+     "role": "bride",
+     "associated_places": [
+      "Chicago"
+     ]
+    },
+    {
+     "as_printed": "Iter. Saarwal McBurney",
+     "normalized": "Rev. Samuel McBurney",
+     "role": "officiating minister",
+     "occupations": [
+      "minister"
+     ]
+    },
+    {
+     "as_printed": "Capt. N. Leonard",
+     "normalized": "Capt. N. Leonard",
+     "role": "grandfather of the bride"
+    }
+   ],
+   "notes": "THE POSTMASTER MARRIES, and the notice is worth its space for the four words after his name: 'Postmaster, Chicago Ill.' John S. C. Hogan signed the 1 January 1834 letter list (read by T-0310), keeps the store 'one door below the Post Office' in South Water Street, and is still postmaster on 27 April 1835. That closes a sixteen-month chain on one man holding one office, which is what lets his store anchor the Post Office's position at the scene date.\n\nTHE PLACE OF THE MARRIAGE IS NOT CHICAGO — near Lewiston, Fulton County — and the bride and her grandfather are 'of the former place'. So Anne Maria Barney and Capt. Leonard are minted as PEOPLE and are NOT given Chicago as a place; she presumably comes to the town after 27 April, and this notice does not say she had by 1 July."
+  },
+  {
+   "id": "c004",
+   "kind": "infrastructure",
+   "reading": "transcription_mediated",
+   "quote": "TO PICE,—-Thoe publ\nN are hereby noi th\nthe commanding officer at Fo\nDearborn, at Chicago, lingi\nip authorized to call in, and receipt for all Ur\nted States Annes and Accoutrements,in the han\nof citizons ot -he country.\nAll persons having such arros or accoull\nments in their possession, by purchase or oth\nwiso, will do well to bring or send them in, a\nobtain the necessary receipts, with ss little ¢\nlay as possible, as 9 contrary course may su\nject those found Possessed of them to a proses\ni the law.\ntion, and the penalty o \". GREEN,\nMajor bth Infantry, Com'd. Post,",
+   "normalized": "[N]O[TICE].—The publ[ic] are hereby n[otified that] the commanding officer at Fo[rt] Dearborn, at Chicago, [Illinois,] is authorized to call in, and receipt for all Uni[t]ed States Arms and Accoutrements, in the hands of citizens o[f] the country. All persons having such arms or accoutr[e]ments in their possession, by purchase or oth[er]wise, will do well to bring or send them in, a[nd] obtain the necessary receipts, with as little d[e]lay as possible, as a contrary course may subject those found possessed of them to a prosec[u]tion, and the penalty o[f] the law. J. GREEN, Major [5]th Infantry, Com'd. Post.",
+   "locator": {
+    "artifact_role": "primary",
+    "issue_page": 3,
+    "column": 3,
+    "lines": [
+     2206,
+     2228
+    ],
+    "lines_of_claim": [
+     2206,
+     2208,
+     2210,
+     2212,
+     2214,
+     2216,
+     2217,
+     2219,
+     2220,
+     2221,
+     2222,
+     2223,
+     2224,
+     2226,
+     2227,
+     2228
+    ],
+    "interleaved": true
+   },
+   "entities": [
+    {
+     "as_printed": ". GREEN,\nMajor bth Infantry, Com'd. Post",
+     "normalized": "J. Green",
+     "role": "commanding officer at Fort Dearborn",
+     "occupations": [
+      "Major, 5th Infantry, commanding the post"
+     ],
+     "associated_places": [
+      "Fort Dearborn",
+      "Chicago"
+     ]
+    }
+   ],
+   "notes": "THE FORT IS GARRISONED AT THE SCENE DATE AND HERE IS ITS COMMANDING OFFICER, BY NAME AND REGIMENT: Major J. Green, 5th Infantry, commanding the post. That is a fact the reconstruction of Fort Dearborn wants on its own, and it is corroborated three weeks later by Lt. L. T. Jamison advertising over the same fort for beef, wood and hay contracts (1835-06-04). The initial is read 'J.' — 'S. GREEN' in the 1835-06-10 printing and '. GREEN' here, so it is left as printed in `as_printed` and the reading is stated as uncertain between J and S nowhere else than in this note, because the surname and the office are not in doubt and the initial is.\n\nWHAT IT SAYS ABOUT THE TOWN. United States arms and accoutrements were 'in the hands of citizens of the country' in numbers worth a standing advertisement and a threat of prosecution — the residue of the militia and the 1832 war, being called back in three years later. It is the only military notice in this reading range that addresses civilians rather than contractors."
+  },
+  {
+   "id": "c005",
+   "kind": "business",
+   "reading": "transcription_mediated",
+   "quote": "ilardware, Stoves, &c.\nphe undersigned have formed a connectio\nin the merchantile business, under the fir\nof Jones, King & co. They aro receiving b\nBrig Illinois, a farge and genoral assortment o\n\nHard Ware,\nCuttlery, Nails, Iron, Stecl, &e.\nA largo and complete assortment of\n\nSTOVES,\nand Store Furniture, Iron Ware and Sao Mi\nGeering, which thoy offor at wnoLxsate or 1\nTALL. WILLIAM JONES,\nBYRAM KING,\nH, B, CLARKE,\nMay 26, 1835.",
+   "normalized": "Hardware, Stoves, &c. [T]he undersigned have formed a connection in the merc[a]ntile business, under the firm of Jones, King & co. They are receiving b[y] Brig Illinois, a large and general assortment of Hard Ware, Cu[t]lery, Nails, Iron, Steel, &c. A large and complete assortment of STOVES, and Sto[v]e Furniture, Iron Ware and Sa[w] Mi[ll] Geering, which they offer at WHOLESALE or R[E]TAIL. WILLIAM JONES, BYRAM KING, H. B. CLARKE. May 26, 1835.",
+   "locator": {
+    "artifact_role": "primary",
+    "issue_page": 3,
+    "column": 4,
+    "lines": [
+     2294,
+     2310
+    ],
+    "lines_of_claim": [
+     2294,
+     2295,
+     2296,
+     2297,
+     2298,
+     2299,
+     2300,
+     2301,
+     2302,
+     2303,
+     2304,
+     2305,
+     2306,
+     2307,
+     2308,
+     2309,
+     2310
+    ],
+    "interleaved": true
+   },
+   "business": {
+    "name": "Jones, King & Co.",
+    "proprietors": [
+     "William Jones",
+     "Byram King",
+     "H. B. Clarke"
+    ],
+    "trade": "hardware, cutlery, nails, iron, steel, stoves, stove furniture, iron ware and saw mill gearing, wholesale and retail",
+    "goods": [
+     "Hardware",
+     "Cutlery",
+     "Nails",
+     "Iron",
+     "Steel",
+     "Stoves",
+     "Stove Furniture",
+     "Iron Ware",
+     "Saw Mill Gearing",
+     "white fish",
+     "salt",
+     "potatoes",
+     "mackerel",
+     "old Ohio whiskey",
+     "sole leather",
+     "boots and shoes",
+     "double barrel guns"
+    ],
+    "street": "South Water Street",
+    "placement": {
+     "class": "none"
+    }
+   },
+   "ad_copy_date": {
+    "verbatim": "May 26, 1835.",
+    "iso": "1835-05-26"
+   },
+   "entities": [
+    {
+     "as_printed": "WILLIAM JONES",
+     "normalized": "William Jones",
+     "role": "proprietor",
+     "occupations": [
+      "merchant"
+     ],
+     "associated_places": [
+      "South Water Street",
+      "Chicago"
+     ]
+    },
+    {
+     "as_printed": "BYRAM KING",
+     "normalized": "Byram King",
+     "role": "proprietor",
+     "occupations": [
+      "merchant"
+     ],
+     "associated_places": [
+      "South Water Street",
+      "Chicago"
+     ]
+    },
+    {
+     "as_printed": "H, B, CLARKE",
+     "normalized": "H. B. Clarke",
+     "role": "proprietor",
+     "occupations": [
+      "merchant"
+     ],
+     "associated_places": [
+      "South Water Street",
+      "Chicago"
+     ]
+    }
+   ],
+   "notes": "A FIRM FORMING, NOT DISSOLVING — the other side of ruling 3, and dated 26 May 1835, five weeks before the scene date. Three named partners, one of whom (Byram King) is also Clerk of School District No. 4 in June and is on the town-meeting committee of seven. The house is already trading under the name in the 1835-05-18 white fish notice, so 'have formed a connection' formalises something running.\n\nTHE PLACEMENT IS `none` AND THAT IS DELIBERATE. Jones, King & Co. never advertise their own address in any of these eight issues; the street is known only because OTHER people place themselves against them — J. Curtiss is 'first [door] west of Messrs. Jones, King & Co.' in South Water Street, and the Democrat is printed 'over Messrs Jones & King['s] Hard[ware]'. The `street` field carries South Water Street on that chain; the `placement` does not, because this advertisement offers no offset of its own to place anything against. An anchor with no self-stated position is exactly the shape T-0263 will have to resolve.\n\nBY 1835-06-17 the firm is advertising for 'one copper smith, and one tin and sheet iron worker' and acting as agents for Avery's Patent rotary engines — so within a month of forming they are hiring metal tradesmen, which suggests a workshop behind the store and not only a counter."
+  },
+  {
+   "id": "c006",
+   "kind": "business",
+   "reading": "transcription_mediated",
+   "quote": "New Goods! New Goods!\nHARMON, LOOMIS & Co.,\nme received by the late arrivals, part «\n. their spring supply of GOODS; conni\nSing of\n\nDEY GoOoDs,\nGroceries and Mard Ware.\n\nwhich they offer for salo unusually cheap! at the\nstore in South Water-street.\nChicago, May 2G, 1835,—2w-6. :",
+   "normalized": "New Goods! New Goods! HARMON, LOOMIS & Co., [have] received by the late arrivals, part o[f] their spring supply of GOODS; consi[st]ing of DRY GOODS, Groceries and Hard Ware, which they offer for sale unusually cheap! at the[ir] store in South Water-street. Chicago, May 2[7], 1835.",
+   "locator": {
+    "artifact_role": "primary",
+    "issue_page": 3,
+    "column": 4,
+    "lines": [
+     2311,
+     2322
+    ],
+    "lines_of_claim": [
+     2311,
+     2312,
+     2313,
+     2314,
+     2315,
+     2316,
+     2317,
+     2318,
+     2319,
+     2320,
+     2321,
+     2322
+    ],
+    "interleaved": true
+   },
+   "business": {
+    "name": "Harmon, Loomis & Co.",
+    "proprietors": [
+     "Harmon",
+     "Loomis"
+    ],
+    "trade": "dry goods, groceries and hardware",
+    "goods": [
+     "Dry Goods",
+     "Groceries",
+     "Hard Ware"
+    ],
+    "street": "South Water Street",
+    "placement": {
+     "class": "street_only",
+     "street": "South Water Street"
+    }
+   },
+   "ad_copy_date": {
+    "verbatim": "Chieagn, May 27, 1835.—2w-6.",
+    "iso": "1835-05-27"
+   },
+   "entities": [
+    {
+     "as_printed": "HARMON, LOOMIS & Co.",
+     "normalized": "Harmon, Loomis & Co.",
+     "role": "proprietor",
+     "occupations": [
+      "merchant"
+     ],
+     "associated_places": [
+      "South Water Street",
+      "Chicago"
+     ]
+    }
+   ],
+   "notes": "THEIR OWN STORE, IN SOUTH WATER STREET — stated by the firm itself, which is what makes this a `street_only` placement rather than a chained one. The same house was already named in the lost letter-list column of 1835-01-21 among the transcriber's directly verified names, so it is standing on South Water Street across at least five months.\n\nIT IS ALSO AN ANCHOR. Magie & Wilkinson's 1835-06-16 notice lets 'ROOMS over the store of the subscribers, next door to Messrs. Harmon, Loomis & Co.' — which would put Magie & Wilkinson next door to a South Water Street house, while their own opening advertisement five days earlier puts their New Store 'in La Salle street, a few doors South of Hubbard & Co's. brick store'. THOSE TWO CANNOT BOTH BE STRAIGHTFORWARDLY TRUE and the conflict is recorded on the 1835-06-10 and 1835-06-17 claims rather than resolved here; a corner lot at South Water and La Salle would reconcile them, and so would a move, and nothing in the paper chooses."
+  },
+  {
+   "id": "c007",
+   "kind": "business",
+   "reading": "transcription_mediated",
+   "quote": "RUSSEN L E. HEACOCK,\nCounsellor and Attorney at Law,\nChicago, Minos.\nILL attend to all business confided toh\ncare, in his profession, Io will also ¢\nthe business for all who may employ him, i\nland conveyancing, having the commission \nthe peace business dono as reasonably, and mo\nconveniently. fo will also open and keep \nthe samo place, a Lund Agency Offices, for tl\npurchase of land, the payment of taxes, Kc, fi\nall who may give him business in that line; ha\ning been 9 revident at Chicago for the lastcigl\nyears, and being acquainted with almost ever\nsection of land for the firat 30 milea of the Ill\nnois canal line, and for the distanco of mar\nsmiles around Chicago, ho thinks himself we\nqualified to give information on that subject, ar\ndlo the business for non-residents, as any othi\nin the state.\nLetters addremed to the aubscriber, post pai\nwill be attended to. +\nOffice in the 2d story, opposite the Exchan;\nCoffee House, corner of Lake and Franklin-al\nChicago, May 23, 1835.61.",
+   "normalized": "RUSSEL[L] E. HEACOCK, Counsellor and Attorney at Law, Chicago, Illinois. [W]ILL attend to all business confided to h[is] care, in his profession. He will also d[o] the business for all who may employ him, i[n] land conveyancing, having the commission [of] the peace business done as reasonably, and mo[re] conveniently. He will also open and keep [at] the same place, a Land Agency Office, for th[e] purchase of land, the payment of taxes, &c., f[or] all who may give him business in that line; hav[ing] been a re[s]ident at Chicago for the last eig[ht] years, and being acquainted with almost ever[y] section of land for the first 30 miles of the Ill[i]nois canal line, and for the distance of man[y] miles around Chicago, he thinks himself we[ll] qualified to give information on that subject, an[d] do the business for non-residents, as any othe[r] in the state. Letters addressed to the subscriber, post pai[d,] will be attended to. Office in the 2d story, opposite the Exchang[e] Coffee House, corner of Lake and Franklin-st[s.] Chicago, May 23, 1835.",
+   "locator": {
+    "artifact_role": "primary",
+    "issue_page": 3,
+    "column": 4,
+    "lines": [
+     2323,
+     2347
+    ],
+    "lines_of_claim": [
+     2323,
+     2324,
+     2325,
+     2326,
+     2327,
+     2328,
+     2329,
+     2330,
+     2331,
+     2332,
+     2333,
+     2334,
+     2335,
+     2336,
+     2337,
+     2338,
+     2339,
+     2340,
+     2341,
+     2342,
+     2343,
+     2344,
+     2345,
+     2346,
+     2347
+    ],
+    "interleaved": true
+   },
+   "business": {
+    "name": "Russell E. Heacock",
+    "proprietors": [
+     "Russell E. Heacock"
+    ],
+    "trade": "counsellor and attorney at law, land conveyancing, justice of the peace business, and a land agency office",
+    "goods": [],
+    "street": "Lake Street",
+    "placement": {
+     "class": "corner",
+     "anchor": "the Exchange Coffee House, corner of Lake and Franklin streets",
+     "offset_text": "Office in the 2d story, opposite the Exchan;\nCoffee House, corner of Lake and Franklin-al",
+     "offset_normalized": "Office in the 2d story, opposite the Exchange Coffee House, corner of Lake and Franklin-st[s.]",
+     "street": "Lake Street"
+    }
+   },
+   "ad_copy_date": {
+    "verbatim": "Chicago, May 23, 1835.61.",
+    "iso": "1835-05-23"
+   },
+   "entities": [
+    {
+     "as_printed": "RUSSEN L E. HEACOCK",
+     "normalized": "Russell E. Heacock",
+     "role": "proprietor",
+     "occupations": [
+      "attorney",
+      "counsellor at law",
+      "justice of the peace",
+      "land agent"
+     ],
+     "associated_places": [
+      "Lake Street",
+      "Franklin Street",
+      "Chicago"
+     ]
+    }
+   ],
+   "notes": "THIS IS THE CLAIM THAT PLACES THE EXCHANGE COFFEE HOUSE — CORNER OF LAKE AND FRANKLIN STREETS — and the Exchange is where the town held its Democratic meeting of 13 April 1835 and its town-election caucus of 6 June 1835. A named public house on a named corner, stated incidentally by a lawyer giving his own address, is worth more than either meeting notice, because neither of them says where the house was.\n\nAND IT PLACES HEACOCK: second storey, OPPOSITE that corner. 'Opposite' across which of the two streets is not stated, so this fixes him to one of the three other corners of the intersection and no further. Recorded as `corner` on the anchor rather than as `relative`, because the evidence is an intersection and not a door-count.\n\nEIGHT YEARS A RESIDENT, said in 1835, puts Heacock in Chicago from 1827 — before the town was platted. He is one of the very few people in this corpus who states his own arrival, and he states it to sell land-agency work, which is a reason to believe it (his customers could check) and a reason to record it as his claim rather than as fact.\n\nTHE TEXT CHANGES BETWEEN PRINTINGS in a way worth keeping: this one says he is 'having the commission [of] the peace'; from 1835-06-04 it says 'being a Justice of the peace'. Same man, firmer claim, one week later."
+  },
+  {
+   "id": "c008",
+   "kind": "building",
+   "reading": "transcription_mediated",
+   "quote": "For Rent,\nWO Stores; ono on South-water stree\n@ and one on Lako strect; also one ¢or\nfortable Dwelling. Enquire of\n3. T, TEMPLE.\nChicago, May 27, 1835.—-3w-6",
+   "normalized": "For Rent, [T]WO Stores; one on South-water stree[t] and one on Lake street; also one com[for]table Dwelling. Enquire of J. T. TEMPLE. Chicago, May 27, 1835.",
+   "locator": {
+    "artifact_role": "primary",
+    "issue_page": 3,
+    "column": 4,
+    "lines": [
+     2352,
+     2357
+    ],
+    "lines_of_claim": [
+     2352,
+     2353,
+     2354,
+     2355,
+     2356,
+     2357
+    ],
+    "interleaved": true
+   },
+   "entities": [
+    {
+     "as_printed": "3. T, TEMPLE",
+     "normalized": "John T. Temple",
+     "role": "the person letting the two stores and the dwelling",
+     "associated_places": [
+      "South Water Street",
+      "Lake Street",
+      "Chicago"
+     ]
+    }
+   ],
+   "notes": "TWO SHOPS AND A HOUSE IN ONE HAND, AND BOTH STREETS NAMED — one store on South Water, one on Lake, plus a dwelling. It is a landlord's notice rather than a trader's, so it says nothing about what was sold in either, but it does say that in late May 1835 there was lettable EMPTY commercial floor on both of the town's two principal streets, in the middle of the land-sale boom. Set that beside the same month's 'every room of our public houses' being full and the picture is a town short of lodging and not short of shops.\n\nJOHN T. TEMPLE is the same man who wants 'fifteen strong work Horses' in the 1835-06-04 issue and who sits on the town meeting's committee of seven on 16 June — a substantial figure, and this notice attaches property on two streets to him. NO OFFSETS, so nothing is placed finer than the two street names."
+  },
+  {
+   "id": "c009",
+   "kind": "building",
+   "reading": "transcription_mediated",
+   "quote": "For Bent,\nCONVENIENT. Stores House, on Wate\nstreet. Enquire of\nDAVID CARVER.\nYay 27, VE",
+   "normalized": "For [R]ent, [A] CONVENIENT Store House, on Wate[r] street. Enquire of DAVID CARVER. [M]ay 27, 18[35].",
+   "locator": {
+    "artifact_role": "primary",
+    "issue_page": 3,
+    "column": 4,
+    "lines": [
+     2358,
+     2363
+    ],
+    "lines_of_claim": [
+     2358,
+     2359,
+     2361,
+     2362,
+     2363
+    ],
+    "interleaved": true
+   },
+   "entities": [
+    {
+     "as_printed": "DAVID CARVER",
+     "normalized": "David Carver",
+     "role": "the person letting the store house",
+     "occupations": [
+      "lumber dealer",
+      "commission merchant"
+     ],
+     "associated_places": [
+      "Water Street",
+      "Chicago"
+     ]
+    }
+   ],
+   "notes": "A STORE HOUSE — a warehouse — ON WATER STREET, offered by the town's lumber dealer and commission merchant, who in the same weeks is also the Chicago agent for the St. Joseph packet Llewellyn and who advertises himself as 'LUMBER DEALER & COMMISSION MERCHANT' who 'will receive all manner of Merchandize on consignment' (1835-06-04). A commission merchant with warehouse space to spare on the river street is exactly the kind of building the North Division and South Water frontages need, and T-0283's warehouse-roof problem is where it matters.\n\n'Water street' AND NOT 'South Water street' — the paper is inconsistent about the prefix and this printing drops it. No side of the river is asserted here on that account.\n\nDavid Carver was among the names the transcriber verified directly in the lost 1835-01-21 column, so he is in the town at least from January."
+  },
+  {
+   "id": "c010",
+   "kind": "business",
+   "reading": "transcription_mediated",
+   "quote": "Lots for Sale.\nHE sobecriber offers for sale, on lib\nJenna, B_ number of jo\\e, eligibly situs\nin the School Section, on the river, and in\noriginal town. ’ gE. K. HUBBABL\nChica,z0, May 10, 1835.51.",
+   "normalized": "Lots for Sale. [T]HE subscriber offers for sale, on lib[eral] [t]e[r]ms, a number of lo[t]s, eligibly situa[ted] in the School Section, on the river, and in [the] original town. E. K. HUBBARD. Chica[g]o, May 1[9], 1835.",
+   "locator": {
+    "artifact_role": "primary",
+    "issue_page": 3,
+    "column": 4,
+    "lines": [
+     2414,
+     2419
+    ],
+    "lines_of_claim": [
+     2414,
+     2415,
+     2416,
+     2417,
+     2418,
+     2419
+    ],
+    "interleaved": true
+   },
+   "entities": [
+    {
+     "as_printed": "gE. K. HUBBABL",
+     "normalized": "E. K. Hubbard",
+     "role": "the person offering the lots",
+     "associated_places": [
+      "Chicago"
+     ]
+    }
+   ],
+   "notes": "THREE PARTS OF THE TOWN NAMED IN ONE LINE — the School Section, the river frontage, and the original town — which is a private seller's own geography of Chicago six weeks before the scene date, and it matches the plat the reconstruction stands on. 'the original town' is the 1830 canal-commissioners' plat; the School Section is section 16, subdivided and sold in 1833; 'on the river' is frontage. Nothing here places a single lot, and nothing should be inferred about which; the value is the vocabulary.\n\nE. K. Hubbard chairs the town meeting of 16 June 1835 and is the agent for the Rezigue dwelling in Kinzie's Addition, so he is a principal in the town's property trade in exactly these weeks. He is a different man from the 'Hubbard & Co.' of the brick store in La Salle Street and from 'Col. G. S. Hubbard' who calls the town meeting to order; this pass does NOT merge the three, and T-0299's identity work is where that belongs."
+  },
+  {
+   "id": "c011",
+   "kind": "business",
+   "reading": "transcription_mediated",
+   "quote": "EDWARD W. CASEY,\n10) ATTORNEY & COUNSELLOR AT LA\nPPFICE adjoining that of the Clerk of\noO Cireuit Court. aS",
+   "normalized": "EDWARD W. CASEY, ATTORNEY & COUNSELLOR AT LA[W.] [O]FFICE adjoining that of the Clerk of [the] Circuit Court.",
+   "locator": {
+    "artifact_role": "primary",
+    "issue_page": 3,
+    "column": 5,
+    "lines": [
+     2618,
+     2621
+    ],
+    "lines_of_claim": [
+     2618,
+     2619,
+     2620,
+     2621
+    ],
+    "interleaved": true
+   },
+   "business": {
+    "name": "Edward W. Casey",
+    "proprietors": [
+     "Edward W. Casey"
+    ],
+    "trade": "attorney and counsellor at law",
+    "goods": [],
+    "street": null,
+    "placement": {
+     "class": "relative",
+     "anchor": "the office of the Clerk of the Circuit Court",
+     "offset_text": "PPFICE adjoining that of the Clerk of\noO Cireuit Court.",
+     "offset_normalized": "OFFICE adjoining that of the Clerk of [the] Circuit Court",
+     "street": null
+    }
+   },
+   "entities": [
+    {
+     "as_printed": "EDWARD W. CASEY",
+     "normalized": "Edward W. Casey",
+     "role": "proprietor",
+     "occupations": [
+      "attorney",
+      "counsellor at law"
+     ],
+     "associated_places": [
+      "Chicago"
+     ]
+    }
+   ],
+   "notes": "A PLACEMENT AGAINST A PUBLIC OFFICE AND NOT A SHOP, and the only one of its kind in these eight issues: 'adjoining that of the Clerk of the Circuit Court'. It is a `relative` placement with a real anchor and a real offset (adjoining), and it is UNPLACEABLE TODAY because nothing in this corpus says where the Clerk of the Circuit Court sat. That is worth saying plainly rather than dropping the claim: the moment any witness locates the clerk's office, Casey goes on the ground with it, and the May 1835 term of that court sat in this town (same issue, page 2 column 5), so the office was a real address in the town and not a county seat elsewhere.\n\nNo street is named in any printing, so `business.street` is null rather than guessed."
+  },
+  {
+   "id": "c012",
+   "kind": "event",
+   "reading": "transcription_mediated",
+   "quote": "ape The May Tern of tho Circuit C\nappr i menced in this town on Monday last,\nbest ox.  24g Daren providing. Thero is.\neasona:  ble business afore the court, most of\nthe in- ] es commencd at foriner terms having\ntinued, ‘",
+   "normalized": "The May Term of the Circuit C[ourt com]menced in this town on Monday last, [Judge Breese] presiding. There is [considera]ble business [bef]ore the court, most of [the caus]es commenc[ed] at former terms having [been con]tinued.",
+   "locator": {
+    "artifact_role": "primary",
+    "issue_page": 2,
+    "column": 5,
+    "lines": [
+     1464,
+     1469
+    ],
+    "lines_of_claim": [
+     1464,
+     1465,
+     1466,
+     1467,
+     1468,
+     1469
+    ],
+    "interleaved": true
+   },
+   "notes": "THE COURT SITS IN CHICAGO IN MAY 1835 and the docket is inherited: most causes are continuations from former terms. The 1835-06-10 issue closes the story — the term ended on the Monday with nearly two hundred causes docketed and two criminal indictments, and Judge Breese gave universal satisfaction in his first term here. Between them the two paragraphs say the town supported a court with a two-hundred-cause docket five weeks before the scene date.\n\nTHE COLUMN IS SHREDDED and this paragraph runs beside an unrelated one line for line, so the left edge of every line is lost. The bracketed supplies are the minimum needed for sense and each is recoverable from the 1835-06-10 report, which names Judge Breese and the May Term explicitly; nothing is supplied that the later paragraph does not carry."
+  },
+  {
+   "id": "c013",
+   "kind": "shipping",
+   "reading": "transcription_mediated",
+   "quote": "Chicago & St. Joseph Packe\nHE new Schooner LLEWEL\nm LYN, Crank Master, wi\n\ny for freight and passengers, du\ning navigation, between the mout!\nof Bt. Joseph and Chicago. For freight or pas\nmae AP, ly to the captain on board.\n_ May 25, 1835,—Gt.",
+   "normalized": "Chicago & St. Joseph Packe[t.] [T]HE new Schooner LLEWELLYN, C[l]ark Master, will [p]ly for freight and passengers, during navigation, between the mouth of St. Joseph and Chicago. For freight or pas[sage] ap[p]ly to the captain on board. May 25, 1835.",
+   "locator": {
+    "artifact_role": "primary",
+    "issue_page": 3,
+    "column": 4,
+    "lines": [
+     2272,
+     2280
+    ],
+    "lines_of_claim": [
+     2272,
+     2273,
+     2274,
+     2275,
+     2276,
+     2277,
+     2278,
+     2279,
+     2280
+    ],
+    "interleaved": true
+   },
+   "business": {
+    "name": "Chicago & St. Joseph Packet (schooner Llewellyn)",
+    "proprietors": [
+     "Clark, master"
+    ],
+    "trade": "packet service for freight and passengers between Chicago and the mouth of the St. Joseph",
+    "goods": [
+     "freight",
+     "passages"
+    ],
+    "street": null,
+    "placement": {
+     "class": "none"
+    }
+   },
+   "ad_copy_date": {
+    "verbatim": "_ May 25, 1835,—Gt.",
+    "iso": "1835-05-25"
+   },
+   "notes": "A SCHEDULED PACKET OUT OF CHICAGO, NEW IN MAY 1835. The Llewellyn is in the same issue's marine list arriving on the 25th, so the advertisement and the arrival corroborate one another on the day. By the 1835-06-04 printing the notice has acquired shore agents — 'apply to David Carver or Wm. Sabine, Chicago, Calvin Britain, St. Joseph, or to the captain on board' — which is the service settling into an office-based business, and it puts a second trade on David Carver. The Llewellyn recurs in every subsequent marine list to 15 June.\n\nNO PLACEMENT: a packet has a berth, not a storefront, and where she lay is exactly the sort of thing the river-wharf work would like and this notice does not say."
+  }
+ ]
+}

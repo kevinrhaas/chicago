@@ -1,0 +1,628 @@
+{
+ "schema": 1,
+ "familysearch_id": "33S7-9YYJ-FJ",
+ "image": "chicago/reference/census1840/33S7-9YYJ-FJ.jpg",
+ "printed_page": null,
+ "printed_page_note": "no printed page number is legible on this exposure - a continuation sheet carries its number in the corner the binding takes. The sheet is NOT placed: T-0656 refused every candidate and this pass does not overturn that. See pairing_test.",
+ "sheet_side": "right",
+ "division": null,
+ "division_note": "the printed heading reads '... by the Marshal of the [___] District (or Territory) of Illinois'; the district name is written in and is not read by this pass. Recorded unread rather than inferred from the sheets around it.",
+ "state": "Illinois",
+ "county": "Cook",
+ "reading": "scan_verified",
+ "ticket": "T-0743 (piece 2 of the split of T-0657); the ask is T-0528 and before it T-0495",
+ "read_pass": "The leaf's own printed rules located first - the body between the horizontal rules at y 596 and y 2940 and the TOTAL cell between the vertical rules at x 1287 and x 1476 - because the earlier measurement of this column was taken over a window that ran past both. The TOTAL column's ink then grouped inside those rules; the seven industry columns measured the same way and READ FIRST, because their five printed footings are the only arithmetic on the leaf that can be closed independently of the figure this ticket asks about. All five close. The glyph key is taken off those closures and off the enumerator's own footing row, and the TOTAL column is then read against it: 21 of the 30 lines carry a committed figure, 9 are recorded unread.",
+ "lines_ruled_with_an_entry": 29,
+ "lines_note": "30 lines carry ink and 29 of them carry a figure or an industry entry; line 14 carries one 13 x 14 px mark and nothing else, which is half the height of every figure the leaf writes, so it is recorded as ink that is not an entry. Neither figure is what was on record: coverage.json carried 31 'to the nearest line' from the contact-sheet pass and pairing_key_26_50.json carried 28 counted by eye off a magnified strip. Both are superseded by the grid in line_index, which is measured.",
+ "line_index": {
+  "committed": "a uniform 30-line grid, first line at y 668.0 and pitch 75.60 px, fitted to the group centres of the TOTAL column and of the five written industry columns together.",
+  "why_a_uniform_grid_here": "K2's reading refused a fitted grid because its residuals ran +29 to -34 px, which is a warped leaf rather than a row structure. This leaf is not that leaf. Every one of the 30 TOTAL groups and every one of the 17 industry entries falls within 28 px of a line centre and all but three fall within 16, against a pitch of 75.6 - and the fit is made over two independent sets of ink, the TOTAL column and the industry columns, which were measured separately and never adjusted toward each other.",
+  "independent_check": "The 17 entries of the five written industry columns anchor 15 distinct lines without reference to the TOTAL column's grouping at all. Two of those 15 - lines 5 and 11 - carry an industry figure and NO TOTAL figure, which is how this pass knows the TOTAL column has holes in it rather than a line count of its own.",
+  "group_centre_gaps_px": [
+   80.0,
+   74.0,
+   76.5,
+   144.2,
+   73.3,
+   83.5,
+   71.5,
+   93.2,
+   132.8,
+   71.5,
+   30.5,
+   61.0,
+   71.0,
+   79.5,
+   75.0,
+   61.0,
+   23.0,
+   59.5,
+   81.5,
+   75.5,
+   72.0,
+   57.0,
+   63.8,
+   108.7,
+   79.0,
+   69.5,
+   76.0,
+   79.0,
+   77.0
+  ]
+ },
+ "form_note": "The right (continuation) sheet of the 1840 population schedule. On this leaf the twelve SLAVES columns, the PENSIONERS block, the ten DEAF AND DUMB, BLIND, AND INSANE columns and the seven SCHOOLS columns carry no ink and no figure at the foot, and this pass reads them as not written rather than as zeros. TOTAL is written throughout; of the seven industry columns five are written - agriculture, commerce, manufactures and trades, navigation of canals lakes and rivers, and learned professions and engineers - and mining and navigation of the ocean are blank in the body and at the foot.",
+ "column_geometry": {
+  "how": "read_census_continuation.py refuses this leaf outright - 'no industry run bracketed by TOTAL and PENSIONERS' - because the printed rules of its left half stand at 0.35 of the body's rows against the 0.60 that module demands, and a run that cannot be named must not be guessed. So the rules were located by hand as the local maxima of that same continuity profile over x 1440-2065, and every window below is stated in pixels and re-measurable.",
+  "horizontal_rules_px": [
+   596,
+   2940
+  ],
+  "total_cell_rules_px": [
+   1287,
+   1476
+  ],
+  "industry_rules_px": [
+   1476,
+   1551,
+   1615,
+   1675,
+   1756,
+   1829,
+   1917,
+   1979
+  ],
+  "why_it_matters": "pairing_key_26_50.json measured this column over x 0.305-0.365 and y 0.175-0.900 of the image, which is x 1247-1492 and y 564-2902. That window runs 16 px past the cell's right rule, starts 40 px left of its left one, opens above the heading rule at y 590 and closes 38 px short of the last line's ink. It reported 32 groups at dy 55. Inside the leaf's own rules the same grouping rule reports 30, and 30 again at dy 45."
+ },
+ "glyph_key": {
+  "what": "the forms this reading leans on. Every one is taken off this leaf, and the three that carry the reading are held by arithmetic rather than by opinion: the industry columns' five printed footings close only on these values.",
+  "1": "a plain slant, no bowl and no loop - this leaf's 1, and the form of eleven of the thirteen figures its industry columns carry.",
+  "2": "a heavy blob at the top running down into a sweeping base. It stands alone in the commerce column at line 17 and in navigation of canals at line 21.",
+  "3": "a small upper bowl over a larger lower one, both open to the left - this leaf's 3. The same form stands alone in the commerce column at line 4, where the column's printed footing of 9 closes only if it is read 3.",
+  "5": "a single bowl under a top stroke that curls right - this leaf's 5, and the form the enumerator's own TOTAL footing ends with. One bowl, not the 3's two, and no crossing, which is what the 8 has.",
+  "6": "a rising stroke with a narrow closed loop at its foot - this leaf's 6. The loop is the belly and the stroke the ascender; it is not the crossed figure-eight the leaf writes for 8 at line 2, and it carries no second bowl, which is what separates it from the 3.",
+  "8": "a crossed figure-eight, the only one on the leaf. It is what the footing's third glyph is NOT.",
+  "unresolved": "the leaf writes 4, 7, 9 and 0 nowhere this pass can point to, so nothing is read as one of them. Where a group is neither a 1, 2, 3, 5, 6 nor 8 it is recorded unread."
+ },
+ "method": "read_census_continuation.py's ink mask, component filter and grouping rule, applied through census_total_column.py on an explicitly stated window per column; the digits read by a human off magnified, slant-corrected crops of those component boxes (census_glyph_montage.py, angle 55). No digit is read by a tool.",
+ "method_calibration": {
+  "what": "this leaf calibrates itself, and that is stronger than the blind trial K2's reading ran against another sheet. The five written industry columns were read before the TOTAL column and each was summed against its own printed footing.",
+  "result": "all five close exactly: agriculture 1+1 = 2, commerce 1+1+3+1+1+2 = 9, manufactures and trades 1+1+1+1 = 4, navigation of canals lakes and rivers 2+1 = 3, learned professions and engineers 1+1+1 = 3. Thirteen 1s, one 2, one 3 and one 2 again, over 17 entries and five footings, with no figure adjusted to make a column come out.",
+  "what_it_holds_and_what_it_does_not": "it holds the row grid, the 1, the 2 and the 3. It says nothing about the 5, the 6 and the 8, which appear only in the TOTAL column and at the foot: those three rest on form alone and their confidences say so."
+ },
+ "footer_as_read": {
+  "total": 135,
+  "total_glyphs_as_read": "three glyphs. A plain slant; then a heavy blob over a bowl, which is the leaf's 3; then a single bowl under a top stroke curling right, which is the form the body writes at lines 18, 19, 20, 21, 25, 26 and 30 and which the enumerator's hand does not cross.",
+  "total_confidence": "documented",
+  "total_note": "read at 10x, and it is the figure T-0656 read off the same cell. What this pass adds is the refusal of the alternative it named. See footing_disputed below.",
+  "mining": null,
+  "agriculture": 2,
+  "commerce": 9,
+  "manufactures_and_trades": 4,
+  "navigation_ocean": null,
+  "navigation_canals_lakes_rivers": 3,
+  "learned_professions_and_engineers": 3,
+  "footer_blank_columns_note": "mining and navigation of the ocean carry no figure at the foot, and neither carries ink in the body.",
+  "commerce_note": "read 9, not the 4 a first crop suggested: the column's six entries are 1, 1, 3, 1, 1 and 2 and they sum to 9. The footing glyph is a bowl with a descender, which this hand writes for 9; a 4 would leave five of the six entries unaccounted for."
+ },
+ "footing_disputed": {
+  "the_question": "T-0743, from T-0657: 'whether the footing that refused the printed-207 pairing is 135 or 138'. pairing_key_26_50.json read 135 and named 138 and 185 as the readings a reader might disagree with, because the pairing to printed 207 turns on them.",
+  "answer": "135. Both alternatives are refused, and on different evidence.",
+  "138_refused_on_the_glyph": "138 needs the third glyph to be an 8. The leaf's own 8 is at line 2 of the TOTAL column and it is a crossed figure-eight - two loops that cross, and the crossing is the whole of it. The footing's third glyph does not cross: it is one bowl under a top stroke that curls right, the same form the body writes eight times over. A reading that makes it an 8 has to make those seven body figures 8s as well, and the column would then foot far over any of the three candidate figures.",
+  "185_refused_on_the_arithmetic": "185 needs the second glyph to be an 8 rather than a 3. The 21 lines this pass commits sum to 93 and 9 lines are unread. 135 leaves 42 over those 9 - a mean of 4.7 against 4.43 for the lines that are read. 185 leaves 92 over the same 9 - a mean of 10.2, which asks every one of the nine to be a two-figure number, when only two of them (lines 6 and 24) are wide or tall enough to hold two figures at all.",
+  "what_is_not_settled": "the second glyph is a bowl carrying a heavy blob, and this pass reads it as the 3 the commerce column calibrates. The arithmetic above is what carries it, not the outline: at this scale a blob-over-bowl and a badly inked 8 are within reach of each other, and the honest statement is that the outline alone does not decide and the sum does."
+ },
+ "closure": {
+  "lines_committed": 21,
+  "lines_unread": 9,
+  "committed_sum": 93,
+  "printed_footing": 135,
+  "residual_note": "The 21 committed lines sum to 93 against a printed footing of 135, leaving 42 for the 9 unread. That is a mean of 4.7 a line where the committed lines average 4.43, and it is consistent without anything being adjusted: two of the nine (lines 6 and 24) are groups too wide or too tall to hold one figure, and two more (lines 5 and 11) carry an industry entry with no TOTAL figure at all. Nothing here is moved to make the footing come out - the nine unread lines stay unread.",
+  "industry_closure": "All five written industry columns close exactly on the enumerator's own printed footings - 2, 9, 4, 3 and 3 - over 17 entries. That is what says the row grid and the cell reading are sound, and on this leaf it is the whole of the calibration."
+ },
+ "pairing_test": {
+  "pair_under_test": "33SQ-GYYJ-93G, printed page 207. T-0656 called it 'the strongest unconfirmed candidate in this file' and refused it: the line count and the sequence agreed and the population was 3 to 5 short.",
+  "what_this_pass_changes": "one key moves toward the pair and the other does not move at all. The line-count key was 28, counted by eye off a magnified strip; measured against the leaf's own grid it is 29 - 30 ruled lines carry ink and one of them carries only a speck - against 93G's 30. That is no longer a refusal. The population key is unchanged, because the footing is 135 and not 138: 93G's page population is 140 by its own printed footings and 138 by its own cells, and 135 is 3 to 5 short of them.",
+  "result": "REFUSED, and the refusal now rests on the population key alone. T-0656 wrote that if this sheet's TOTAL column summed to 138 and the middle footing glyph were then read as an 8, the pair should be tried again. It does not and it is not: the sum of the read lines refuses 185, the glyph refuses 138, and the footing stands at 135.",
+  "what_would_settle_it": "the nine unread lines. If they sum to 45 rather than 42 the footing is 138 after all and the pair closes on 93G's own cells; if they sum to 42 it does not. Two of the nine are two-figure groups this pass would not divide, and dividing them is a better exposure's work, not a better reader's.",
+  "what_it_does_not_settle": "nothing here attaches a household figure to a name. The pairing says which left sheet this leaf continues, and this leaf is still unpaired."
+ },
+ "records": [
+  {
+   "line": 1,
+   "total_group": 1,
+   "total_group_box": [
+    1419,
+    640,
+    1457,
+    696
+   ],
+   "total_group_components": 1,
+   "total": 6,
+   "total_confidence": "medium",
+   "total_glyphs_as_read": "a rising stroke with a narrow closed loop at its foot - this leaf's 6. The loop is the belly and the stroke the ascender; it is not the crossed figure-eight the leaf writes for 8 at line 2, and it carries no second bowl, which is what separates it from the 3.",
+   "industry": {
+    "learned_professions_and_engineers": {
+     "value": 1,
+     "confidence": "high"
+    }
+   }
+  },
+  {
+   "line": 2,
+   "total_group": 2,
+   "total_group_box": [
+    1410,
+    728,
+    1451,
+    768
+   ],
+   "total_group_components": 1,
+   "total": 8,
+   "total_confidence": "high",
+   "total_glyphs_as_read": "a crossed figure-eight, the only one on the leaf. It is what the footing's third glyph is NOT.",
+   "industry": {
+    "commerce": {
+     "value": 1,
+     "confidence": "high"
+    }
+   }
+  },
+  {
+   "line": 3,
+   "total_group": 3,
+   "total_group_box": [
+    1418,
+    796,
+    1452,
+    848
+   ],
+   "total_group_components": 1,
+   "total": 6,
+   "total_confidence": "medium",
+   "total_glyphs_as_read": "a rising stroke with a narrow closed loop at its foot - this leaf's 6. The loop is the belly and the stroke the ascender; it is not the crossed figure-eight the leaf writes for 8 at line 2, and it carries no second bowl, which is what separates it from the 3.",
+   "industry": {
+    "commerce": {
+     "value": 1,
+     "confidence": "high"
+    }
+   }
+  },
+  {
+   "line": 4,
+   "total_group": 4,
+   "total_group_box": [
+    1419,
+    881,
+    1440,
+    916
+   ],
+   "total_group_components": 1,
+   "total": 6,
+   "total_confidence": "low",
+   "total_glyphs_as_read": "a rising stroke with a narrow closed loop at its foot - this leaf's 6. The loop is the belly and the stroke the ascender; it is not the crossed figure-eight the leaf writes for 8 at line 2, and it carries no second bowl, which is what separates it from the 3. The smallest of the four, 35 px tall against 52-56, and committed low for that.",
+   "industry": {
+    "commerce": {
+     "value": 3,
+     "confidence": "high"
+    }
+   }
+  },
+  {
+   "line": 5,
+   "total_group": null,
+   "total": null,
+   "total_confidence": "unread",
+   "total_glyphs_as_read": "no ink in the TOTAL cell that stands 45 grey levels under its own local background. The line is not empty - the industry columns write on it - so the figure is either unwritten or under the threshold, and this pass does not say which.",
+   "industry": {
+    "manufactures_and_trades": {
+     "value": 1,
+     "confidence": "high"
+    }
+   }
+  },
+  {
+   "line": 6,
+   "total_group": 5,
+   "total_group_box": [
+    1401,
+    1006,
+    1440,
+    1075
+   ],
+   "total_group_components": 3,
+   "total": null,
+   "total_confidence": "unread",
+   "total_glyphs_as_read": "three components over 69 px - more than one line pitch of the leaf's own grid and wider than any single figure it writes. A two-figure number, and this pass does not divide it."
+  },
+  {
+   "line": 7,
+   "total_group": 6,
+   "total_group_box": [
+    1418,
+    1103,
+    1441,
+    1129
+   ],
+   "total_group_components": 1,
+   "total": null,
+   "total_confidence": "unread",
+   "total_glyphs_as_read": "26 px tall, the smallest group on the leaf that is not a speck: a short curved stroke with a blob at its foot and no top. Neither the 6's closed loop nor the 5's bowl resolves. Not committed.",
+   "industry": {
+    "manufactures_and_trades": {
+     "value": 1,
+     "confidence": "high"
+    }
+   }
+  },
+  {
+   "line": 8,
+   "total_group": 7,
+   "total_group_box": [
+    1407,
+    1177,
+    1449,
+    1222
+   ],
+   "total_group_components": 1,
+   "total": 3,
+   "total_confidence": "medium",
+   "total_glyphs_as_read": "a small upper bowl over a larger lower one, both open to the left - this leaf's 3. The same form stands alone in the commerce column at line 4, where the column's printed footing of 9 closes only if it is read 3."
+  },
+  {
+   "line": 9,
+   "total_group": 8,
+   "total_group_box": [
+    1414,
+    1248,
+    1446,
+    1294
+   ],
+   "total_group_components": 1,
+   "total": 6,
+   "total_confidence": "medium",
+   "total_glyphs_as_read": "a rising stroke with a narrow closed loop at its foot - this leaf's 6. The loop is the belly and the stroke the ascender; it is not the crossed figure-eight the leaf writes for 8 at line 2, and it carries no second bowl, which is what separates it from the 3.",
+   "industry": {
+    "commerce": {
+     "value": 1,
+     "confidence": "high"
+    }
+   }
+  },
+  {
+   "line": 10,
+   "total_group": 9,
+   "total_group_box": [
+    1406,
+    1338,
+    1440,
+    1379
+   ],
+   "total_group_components": 2,
+   "total": null,
+   "total_confidence": "unread",
+   "total_glyphs_as_read": "two strokes lying parallel and never joining. The 6's loop does not close here and the 1's single slant is not what this is. Not committed.",
+   "industry": {
+    "agriculture": {
+     "value": 1,
+     "confidence": "high"
+    }
+   }
+  },
+  {
+   "line": 11,
+   "total_group": null,
+   "total": null,
+   "total_confidence": "unread",
+   "total_glyphs_as_read": "no ink in the TOTAL cell that stands 45 grey levels under its own local background. The line is not empty - the industry columns write on it - so the figure is either unwritten or under the threshold, and this pass does not say which.",
+   "industry": {
+    "manufactures_and_trades": {
+     "value": 1,
+     "confidence": "high"
+    }
+   }
+  },
+  {
+   "line": 12,
+   "total_group": 10,
+   "total_group_box": [
+    1416,
+    1473,
+    1448,
+    1521
+   ],
+   "total_group_components": 1,
+   "total": 3,
+   "total_confidence": "medium",
+   "total_glyphs_as_read": "a small upper bowl over a larger lower one, both open to the left - this leaf's 3. The same form stands alone in the commerce column at line 4, where the column's printed footing of 9 closes only if it is read 3.",
+   "industry": {
+    "commerce": {
+     "value": 1,
+     "confidence": "high"
+    }
+   }
+  },
+  {
+   "line": 13,
+   "total_group": 11,
+   "total_group_box": [
+    1432,
+    1552,
+    1448,
+    1585
+   ],
+   "total_group_components": 1,
+   "total": null,
+   "total_confidence": "unread",
+   "total_glyphs_as_read": "16 px wide against 21-52 for every committed figure: the right-hand part of a figure whose left is under the ink threshold, or a fragment. Not committed.",
+   "speck_refused": "group 12, 16 x 12 px, is ink under the size of every figure the leaf writes and is not read as one",
+   "industry": {
+    "agriculture": {
+     "value": 1,
+     "confidence": "high"
+    }
+   }
+  },
+  {
+   "line": 14,
+   "total_group": null,
+   "total": null,
+   "total_confidence": "unread",
+   "total_glyphs_as_read": "no figure. The column carries one mark on this line, 13 x 14 px, against 21-52 px wide and 26-56 px tall for every figure the leaf writes. It is ink and it is not a figure, and it is recorded as neither an entry nor a blank."
+  },
+  {
+   "line": 15,
+   "total_group": 14,
+   "total_group_box": [
+    1405,
+    1710,
+    1444,
+    1752
+   ],
+   "total_group_components": 1,
+   "total": 3,
+   "total_confidence": "low",
+   "total_glyphs_as_read": "a small upper bowl over a larger lower one, both open to the left - this leaf's 3. The same form stands alone in the commerce column at line 4, where the column's printed footing of 9 closes only if it is read 3. Committed low: the upper bowl is a blob rather than a bowl here."
+  },
+  {
+   "line": 16,
+   "total_group": 15,
+   "total_group_box": [
+    1405,
+    1788,
+    1449,
+    1833
+   ],
+   "total_group_components": 1,
+   "total": 6,
+   "total_confidence": "low",
+   "total_glyphs_as_read": "a rising stroke with a narrow closed loop at its foot - this leaf's 6. The loop is the belly and the stroke the ascender; it is not the crossed figure-eight the leaf writes for 8 at line 2, and it carries no second bowl, which is what separates it from the 3. Committed low: the loop is fuller than at lines 1, 3 and 9 and at this scale a full loop is within reach of the 8's lower bowl."
+  },
+  {
+   "line": 17,
+   "total_group": 16,
+   "total_group_box": [
+    1373,
+    1868,
+    1403,
+    1903
+   ],
+   "total_group_components": 1,
+   "total": 1,
+   "total_confidence": "high",
+   "total_glyphs_as_read": "a plain slant, no bowl and no loop - this leaf's 1, and the form of eleven of the thirteen figures its industry columns carry.",
+   "industry": {
+    "commerce": {
+     "value": 2,
+     "confidence": "high"
+    },
+    "learned_professions_and_engineers": {
+     "value": 1,
+     "confidence": "high"
+    }
+   }
+  },
+  {
+   "line": 18,
+   "total_group": 17,
+   "total_group_box": [
+    1409,
+    1926,
+    1438,
+    1967
+   ],
+   "total_group_components": 1,
+   "total": 5,
+   "total_confidence": "medium",
+   "total_glyphs_as_read": "a single bowl under a top stroke that curls right - this leaf's 5, and the form the enumerator's own TOTAL footing ends with. One bowl, not the 3's two, and no crossing, which is what the 8 has.",
+   "speck_refused": "group 18, 18 x 13 px, is ink under the size of every figure the leaf writes and is not read as one",
+   "industry_components_refused": {
+    "navigation_canals_lakes_rivers": "a solid blob, 20 x 26 px, with no stroke in it. Refused as ink rather than read: the column's two figures sum to 3 against its printed footing of 3, and a third entry on this line would break the only closure that holds it."
+   }
+  },
+  {
+   "line": 19,
+   "total_group": 19,
+   "total_group_box": [
+    1399,
+    2010,
+    1433,
+    2048
+   ],
+   "total_group_components": 1,
+   "total": 5,
+   "total_confidence": "medium",
+   "total_glyphs_as_read": "a single bowl under a top stroke that curls right - this leaf's 5, and the form the enumerator's own TOTAL footing ends with. One bowl, not the 3's two, and no crossing, which is what the 8 has."
+  },
+  {
+   "line": 20,
+   "total_group": 20,
+   "total_group_box": [
+    1402,
+    2091,
+    1433,
+    2130
+   ],
+   "total_group_components": 1,
+   "total": 5,
+   "total_confidence": "medium",
+   "total_glyphs_as_read": "a single bowl under a top stroke that curls right - this leaf's 5, and the form the enumerator's own TOTAL footing ends with. One bowl, not the 3's two, and no crossing, which is what the 8 has."
+  },
+  {
+   "line": 21,
+   "total_group": 21,
+   "total_group_box": [
+    1394,
+    2169,
+    1426,
+    2203
+   ],
+   "total_group_components": 1,
+   "total": 5,
+   "total_confidence": "medium",
+   "total_glyphs_as_read": "a single bowl under a top stroke that curls right - this leaf's 5, and the form the enumerator's own TOTAL footing ends with. One bowl, not the 3's two, and no crossing, which is what the 8 has.",
+   "industry": {
+    "navigation_canals_lakes_rivers": {
+     "value": 2,
+     "confidence": "high"
+    }
+   }
+  },
+  {
+   "line": 22,
+   "total_group": 22,
+   "total_group_box": [
+    1392,
+    2233,
+    1442,
+    2283
+   ],
+   "total_group_components": 1,
+   "total": 3,
+   "total_confidence": "medium",
+   "total_glyphs_as_read": "a small upper bowl over a larger lower one, both open to the left - this leaf's 3. The same form stands alone in the commerce column at line 4, where the column's printed footing of 9 closes only if it is read 3."
+  },
+  {
+   "line": 23,
+   "total_group": null,
+   "total": null,
+   "total_confidence": "unread",
+   "total_glyphs_as_read": "no figure. The column carries one mark on this line, 15 x 12 px, against 21-52 px wide and 26-56 px tall for every figure the leaf writes. It is ink and it is not a figure, and it is recorded as neither an entry nor a blank.",
+   "industry": {
+    "manufactures_and_trades": {
+     "value": 1,
+     "confidence": "high"
+    }
+   }
+  },
+  {
+   "line": 24,
+   "total_group": 24,
+   "total_group_box": [
+    1395,
+    2360,
+    1448,
+    2395
+   ],
+   "total_group_components": 2,
+   "total": null,
+   "total_confidence": "unread",
+   "total_glyphs_as_read": "two components spread over 53 px of width - wider than any single figure on the leaf and the second-widest group in the column. Faint, and either a two-figure number or one figure the scan has broken. Not committed.",
+   "industry": {
+    "learned_professions_and_engineers": {
+     "value": 1,
+     "confidence": "high"
+    }
+   }
+  },
+  {
+   "line": 25,
+   "total_group": 25,
+   "total_group_box": [
+    1392,
+    2463,
+    1438,
+    2512
+   ],
+   "total_group_components": 1,
+   "total": 5,
+   "total_confidence": "medium",
+   "total_glyphs_as_read": "a single bowl under a top stroke that curls right - this leaf's 5, and the form the enumerator's own TOTAL footing ends with. One bowl, not the 3's two, and no crossing, which is what the 8 has.",
+   "industry": {
+    "navigation_canals_lakes_rivers": {
+     "value": 1,
+     "confidence": "high"
+    }
+   }
+  },
+  {
+   "line": 26,
+   "total_group": 26,
+   "total_group_box": [
+    1400,
+    2551,
+    1430,
+    2582
+   ],
+   "total_group_components": 1,
+   "total": 5,
+   "total_confidence": "medium",
+   "total_glyphs_as_read": "a single bowl under a top stroke that curls right - this leaf's 5, and the form the enumerator's own TOTAL footing ends with. One bowl, not the 3's two, and no crossing, which is what the 8 has."
+  },
+  {
+   "line": 27,
+   "total_group": 27,
+   "total_group_box": [
+    1393,
+    2613,
+    1445,
+    2659
+   ],
+   "total_group_components": 1,
+   "total": 3,
+   "total_confidence": "medium",
+   "total_glyphs_as_read": "a small upper bowl over a larger lower one, both open to the left - this leaf's 3. The same form stands alone in the commerce column at line 4, where the column's printed footing of 9 closes only if it is read 3."
+  },
+  {
+   "line": 28,
+   "total_group": 28,
+   "total_group_box": [
+    1398,
+    2689,
+    1446,
+    2735
+   ],
+   "total_group_components": 1,
+   "total": 3,
+   "total_confidence": "medium",
+   "total_glyphs_as_read": "a small upper bowl over a larger lower one, both open to the left - this leaf's 3. The same form stands alone in the commerce column at line 4, where the column's printed footing of 9 closes only if it is read 3."
+  },
+  {
+   "line": 29,
+   "total_group": 29,
+   "total_group_box": [
+    1402,
+    2774,
+    1436,
+    2808
+   ],
+   "total_group_components": 1,
+   "total": 1,
+   "total_confidence": "high",
+   "total_glyphs_as_read": "a plain slant, no bowl and no loop - this leaf's 1, and the form of eleven of the thirteen figures its industry columns carry."
+  },
+  {
+   "line": 30,
+   "total_group": 30,
+   "total_group_box": [
+    1396,
+    2852,
+    1426,
+    2884
+   ],
+   "total_group_components": 1,
+   "total": 5,
+   "total_confidence": "medium",
+   "total_glyphs_as_read": "a single bowl under a top stroke that curls right - this leaf's 5, and the form the enumerator's own TOTAL footing ends with. One bowl, not the 3's two, and no crossing, which is what the 8 has."
+  }
+ ]
+}

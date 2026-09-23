@@ -1,0 +1,919 @@
+{
+ "schema": 1,
+ "familysearch_id": "33S7-9YYJ-5V",
+ "image": "chicago/reference/census1840/33S7-9YYJ-5V.jpg",
+ "printed_page": null,
+ "printed_page_note": "no printed page number is legible on this exposure; a continuation sheet's number sits in the top corner the binding takes. Recorded as unknown, not inferred from the ids around it — the sorted filename order is not the book order.",
+ "sheet_side": "right",
+ "division": "S. W. Sherman (as written in the printed heading)",
+ "state": "Illinois",
+ "county": "Cook",
+ "reading": "scan_verified",
+ "read_pass": "the eight middle columns read against the enumerator's own footings (T-0547/T-0564), then the LINE INDEX fitted to those columns' ink and the TOTAL column read against it, line by line (T-0565): 30 lines, 26 of them committed, and the printed footing bounded from below rather than guessed at THEN, T-0647: the six two-stroke figures re-read against a stroke-overlap test calibrated on nine figures whose value is fixed by a closure on two other sheets — three move to 4, three stay at 11, and the committed sum falls from 126 to 105.",
+ "lines_ruled_with_an_entry": 30,
+ "lines_note": "COMMITTED THIS PASS at 30, and the figure is measured rather than clustered. Every earlier number on this sheet came from the TOTAL column's own ink and moved with the threshold used to group it — 28 in coverage.json 'to the nearest line', 31 at one threshold, 34 at another, and the previous pass could only say '29 to 31, favouring 31'. This pass does not look at the TOTAL column to count rows at all. It fits a line grid to the ENUMERATOR'S OTHER INK — the 22 entries of the three written industry columns, which are read and close against their own printed footings — and asks which line count that ink supports. Thirty does, at an rms of 6.7 px against 19.9, 21.3 and 19.0 for 28, 29 and 31, and 15.4 or worse for every count out to 38. See line_index below and tools/fit_census_line_grid.py, which re-derives all of it from this file's own column_closure block.",
+ "no_horizontal_rules": "MEASURED ON THIS IMAGE: the sheet carries NO horizontal ruled lines inside the body. A row-darkness profile taken across the empty slaves block finds exactly two strong rules on the leaf — the one under the printed heading and the one above the enumerator's footer — and nothing between them: the largest excess over local background anywhere inside the body is 4.0 grey levels, against 77 to 211 for those two printed rules. The printed form rules this page vertically only. That is the reason a continuation sheet is hard to index, and it is the thing the reading of 33S7-9YYJ-5S could not name when it reported that 'nothing on the image settles which [row] without re-reading the sheet against a row grid anchored on the ruled lines': there is no such grid to anchor on. Every row assignment on these three sheets has to come from the enumerator's own ink, and the only column with an entry on every line is TOTAL.",
+ "form_note": "The right (continuation) sheet of the 1840 schedule. Columns as printed, left to right: twelve SLAVES columns (six male, six female age bands); TOTAL — number of persons in each family; seven NUMBER OF PERSONS IN EACH FAMILY EMPLOYED IN columns (mining, agriculture, commerce, manufactures and trades, navigation of the ocean, navigation of canals lakes and rivers, learned professions and engineers); PENSIONERS FOR REVOLUTIONARY OR MILITARY SERVICES (ages, names); six DEAF AND DUMB, BLIND, AND INSANE WHITE PERSONS columns; four of the same for coloured persons; and seven SCHOOLS, &c. columns. A blank cell on this form is a zero and is recorded as 0.",
+ "closure_note": "The enumerator added his own totals at the foot of the sheet. Those printed totals are transcribed under `footer_as_read` and are the committed data on this sheet. Where a per-line reading is attempted it is checked against them and its residual recorded; a reading is never adjusted to make a total come out.",
+ "footer_as_read": {
+  "total": null,
+  "total_glyphs_as_read": "1?5",
+  "total_candidates": [
+   105,
+   165
+  ],
+  "total_favoured": 165,
+  "total_confidence": "inferred",
+  "total_note": "see footer_total_argument: the same glyph stands twice in the body, and the arithmetic of the 22 read lines permits 165 and not 105.",
+  "mining": null,
+  "agriculture": null,
+  "commerce": 27,
+  "manufactures_and_trades": 15,
+  "navigation_ocean": null,
+  "navigation_canals_lakes_rivers": null,
+  "learned_professions_and_engineers": 3,
+  "footer_blank_columns_note": "the mining, agriculture, both navigation, pensioners, deaf/dumb/blind/insane and schools blocks carry no figure at the foot of this sheet"
+ },
+ "column_ink_census": {
+  "mining": 176,
+  "agriculture": 170,
+  "commerce": 3159,
+  "manufactures_and_trades": 3393,
+  "navigation_ocean": 85,
+  "navigation_canals_lakes_rivers": 62,
+  "learned_professions_and_engineers": 762,
+  "pensioners": 800,
+  "slaves_block": 31485,
+  "deaf_dumb_blind_insane_block": 24033,
+  "schools_block": 65734,
+  "total": 9695
+ },
+ "column_ink_census_note": "A per-column ink census over the body, counting pixels 70 grey levels below each column's own 60th percentile, is committed under `column_ink_census` as the structural finding it is: it says which columns were written in at all, and it is reproducible from the image without reading a single digit. The single-width columns are clean; the wide blocks (slaves, deaf/dumb/blind/insane, schools) carry many printed rules inside the band and their counts are dominated by those rules, so they are reported but are NOT read as evidence of an entry either way.",
+ "closes": false,
+ "cells_state": "industry_columns_read_and_closed; line_index_committed; total_column_committed_on_26_of_30_lines",
+ "records": [
+  {
+   "line": 1,
+   "glyph_group": 1,
+   "y0": 647,
+   "y1": 695,
+   "line_predicted_y": 668.5,
+   "line_residual_px": -21.5,
+   "line_fixed_by": "manufactures 1 at y658",
+   "total": 13,
+   "total_confidence": "medium",
+   "reading": "scan_verified",
+   "note": "a faint 1, its ink almost gone, then the sheet's 3-form: a top bar over two left-opening bowls, the same construction as the commerce column's 3 at y2174 and as g10/g11/g12. CONFIRMED against the montage this pass cut of those four glyphs at 8x; footer_total_argument named this one of the three readings a pass wanting 105 should overturn, and it stands."
+  },
+  {
+   "line": 2,
+   "glyph_group": 2,
+   "y0": 739,
+   "y1": 770,
+   "line_predicted_y": 744.4,
+   "line_residual_px": -5.4,
+   "line_fixed_by": "manufactures 2 at y752",
+   "total": 11,
+   "total_confidence": "medium",
+   "reading": "scan_verified",
+   "note": "11 STANDS, AND IS NO LONGER 'the sheet's reference pair' - T-0647 measured the six and they are not one figure. Two matched parallel slashes, tops level at y739 and y740, x1414-1440 and x1435-1458. Their boxes overlap in x by 5 px, which is the two-digit side of the calibration set - but by ONE PIXEL, and this is the closest call on the sheet. Confidence drops from high to medium on that margin. The line carries a manufactures 2, so a 4 would also have cleared its floor: nothing but the stroke geometry speaks here."
+  },
+  {
+   "line": 3,
+   "glyph_group": 3,
+   "y0": 824,
+   "y1": 883,
+   "line_predicted_y": 820.2,
+   "line_residual_px": 3.8,
+   "line_fixed_by": "commerce 4 at y834 + learned professions 1 at y825",
+   "total": 11,
+   "total_confidence": "medium",
+   "reading": "scan_verified",
+   "note": "11 STANDS, ON TWO INDEPENDENT GROUNDS, and this is the line that proves the six are not one figure. (1) ARITHMETIC: the line carries a commerce 4 and a learned-professions 1 - five persons of this family employed - and the TOTAL column is the number of persons in each family, so the line is AT LEAST 5 and cannot be a 4. Both those columns close exactly against the enumerator's own printed footings (commerce 27, learned professions 3), so the floor is calibrated and not an opinion. (2) GEOMETRY: the two strokes' boxes overlap in x by 3 px, inside the calibrated two-digit range. Two instruments that know nothing of each other agree on the one line that could be tested both ways. Strokes x1406-1433 and x1422-1440, the second below and right of the first."
+  },
+  {
+   "line": 4,
+   "glyph_group": 4,
+   "y0": 889,
+   "y1": 920,
+   "line_predicted_y": 896.1,
+   "line_residual_px": -7.1,
+   "line_fixed_by": "the grid alone (no coincident industry entry on this line)",
+   "total": 11,
+   "total_confidence": "medium",
+   "reading": "scan_verified",
+   "note": "11 STANDS, on the same one-pixel margin as line 2 and with the same drop in confidence. Two short matched slashes, x1433-1445 and x1439-1457, tops level at y899 and y895, boxes overlapping in x by 5 px. Unanchored - no industry entry on this line - so the geometry is all there is, and the geometry is at the boundary. If a later pass overturns any of the six that this pass leaves at 11, lines 2 and 4 are where it should look, and NOT line 3."
+  },
+  {
+   "line": 5,
+   "glyph_group": 5,
+   "y0": 1005,
+   "y1": 1026,
+   "line_predicted_y": 971.9,
+   "line_residual_px": 33.1,
+   "line_fixed_by": "the grid alone (no coincident industry entry on this line)",
+   "total": 1,
+   "total_confidence": "medium",
+   "reading": "scan_verified",
+   "note": "ONE stroke, x1425-1437. It is line 5's number and not a digit of line 6's: it stands directly ABOVE g6's first stroke at the same x (1425-1437 against 1419-1455), and every two-digit number on this sheet — and the footing's own 1-?-5 — sets its second digit to the RIGHT, never above. Its residual against the grid is +46 px, the largest on the sheet, and it is recorded rather than smoothed."
+  },
+  {
+   "line": 6,
+   "glyph_group": 6,
+   "y0": 1030,
+   "y1": 1076,
+   "line_predicted_y": 1047.8,
+   "line_residual_px": -17.8,
+   "line_fixed_by": "commerce 1 at y1040",
+   "total": 4,
+   "total_confidence": "medium",
+   "reading": "scan_verified",
+   "note": "RE-READ AS 4 BY T-0647, from 11. Two strokes: a bold long tapered slash x1419-1455 and a lighter, shorter one x1442-1452 set down-right. Their boxes OVERLAP IN X BY 10 PX, which puts the figure in the one-numeral class of the calibration set (a 4 spans +10 to +17; two digits span -13 to +4). At matched magnification beside 33S7-9YYJ-24's lines 6, 21 and 27 - three 4s on a TOTAL column that closes exactly at its printed 201 - it is the same construction. The line carries a commerce 1, so 4 clears the family floor of 1. See total_column.stroke_overlap_test."
+  },
+  {
+   "line": 7,
+   "glyph_group": 7,
+   "y0": 1106,
+   "y1": 1150,
+   "line_predicted_y": 1123.7,
+   "line_residual_px": -17.7,
+   "line_fixed_by": "commerce 2 at y1123",
+   "total": 2,
+   "total_confidence": "medium",
+   "reading": "scan_verified",
+   "note": "a top hook, a diagonal and a base stroke drawn to the right — the 2-form the commerce column foots at y1123 and y2490."
+  },
+  {
+   "line": 8,
+   "glyph_group": 8,
+   "y0": 1183,
+   "y1": 1227,
+   "line_predicted_y": 1199.5,
+   "line_residual_px": -16.5,
+   "line_fixed_by": "commerce 5 + manufactures 2 at y1197",
+   "total": null,
+   "total_confidence": null,
+   "reading": "scan_verified",
+   "note": "TWO glyphs and NOT COMMITTED. Left: a long diagonal x1378-1420 crossed near its top by a short stroke at y1192-1200 — a crossing this hand puts on no digit the footing calibrates. Right: a single curved stroke x1426-1449 opening right. The line carries a commerce 5 and a manufactures 2, so the family is at least SEVEN, and a two-glyph number of at least seven is as far as this pass will go."
+  },
+  {
+   "line": 9,
+   "glyph_group": 9,
+   "y0": 1253,
+   "y1": 1302,
+   "line_predicted_y": 1275.4,
+   "line_residual_px": -22.4,
+   "line_fixed_by": "the grid alone (no coincident industry entry on this line)",
+   "total": 4,
+   "total_confidence": "medium",
+   "reading": "scan_verified",
+   "note": "RE-READ AS 4 BY T-0647, from 11. A long slash x1432-1461 and a shorter one x1436-1455 set 21 px below it; the two boxes OVERLAP IN X BY 19 PX - further into the one-numeral class than any of the four calibrated 4s, and 15 px clear of the widest calibrated two-digit figure. The previous pass read 11 here and named it one of footer_total_argument's three load-bearing readings; that argument survives the change (105 is refuted by a wider margin now, see footer_total_argument). No industry entry on this line, so nothing constrains it from below. See total_column.stroke_overlap_test."
+  },
+  {
+   "line": 10,
+   "glyph_group": 10,
+   "y0": 1338,
+   "y1": 1376,
+   "line_predicted_y": 1351.2,
+   "line_residual_px": -13.2,
+   "line_fixed_by": "the grid alone (no coincident industry entry on this line)",
+   "total": 3,
+   "total_confidence": "medium",
+   "reading": "scan_verified",
+   "note": "the 3-form: a top bar over two left-opening bowls."
+  },
+  {
+   "line": 11,
+   "glyph_group": 11,
+   "y0": 1422,
+   "y1": 1459,
+   "line_predicted_y": 1427.1,
+   "line_residual_px": -5.1,
+   "line_fixed_by": "the grid alone (no coincident industry entry on this line)",
+   "total": 3,
+   "total_confidence": "medium",
+   "reading": "scan_verified"
+  },
+  {
+   "line": 12,
+   "glyph_group": 12,
+   "y0": 1493,
+   "y1": 1523,
+   "line_predicted_y": 1503.0,
+   "line_residual_px": -10.0,
+   "line_fixed_by": "manufactures 2 at y1506",
+   "total": 3,
+   "total_confidence": "medium",
+   "reading": "scan_verified"
+  },
+  {
+   "line": 13,
+   "glyph_group": 13,
+   "y0": 1566,
+   "y1": 1629,
+   "line_predicted_y": 1578.8,
+   "line_residual_px": -12.8,
+   "line_fixed_by": "manufactures 1 at y1585",
+   "total": 5,
+   "total_confidence": "medium",
+   "reading": "scan_verified",
+   "note": "one glyph in two components: the top bar drawn to the right, then the descender and its bowl."
+  },
+  {
+   "line": 14,
+   "glyph_group": 14,
+   "y0": 1640,
+   "y1": 1683,
+   "line_predicted_y": 1654.7,
+   "line_residual_px": -14.7,
+   "line_fixed_by": "manufactures 2 at y1654",
+   "total": 6,
+   "total_confidence": "medium",
+   "reading": "scan_verified",
+   "note": "READ THIS PASS, and it is a 6 and not the 5 the previous pass could not separate it from. The sheet's 5 (line 13, and line 26) is a top bar drawn RIGHT over a long descender that ends in a bowl below the writing line. This glyph is the other way up: a closed loop at the BOTTOM LEFT with the entry stroke sweeping up and away to the right in a long horizontal tail. Cut at 8x beside line 13, line 26 and the footing's own 5, it groups with none of them."
+  },
+  {
+   "line": 15,
+   "glyph_group": 15,
+   "y0": 1718,
+   "y1": 1756,
+   "line_predicted_y": 1730.5,
+   "line_residual_px": -12.5,
+   "line_fixed_by": "learned professions 1 at y1730",
+   "total": 1,
+   "total_confidence": "medium",
+   "reading": "scan_verified"
+  },
+  {
+   "line": 16,
+   "glyph_group": 16,
+   "y0": 1807,
+   "y1": 1838,
+   "line_predicted_y": 1806.4,
+   "line_residual_px": 0.6,
+   "line_fixed_by": "commerce 1 at y1809",
+   "total": 1,
+   "total_confidence": "medium",
+   "reading": "scan_verified"
+  },
+  {
+   "line": 17,
+   "glyph_group": 17,
+   "y0": 1865,
+   "y1": 1897,
+   "line_predicted_y": 1882.3,
+   "line_residual_px": -17.3,
+   "line_fixed_by": "commerce 1 at y1888",
+   "total": 1,
+   "total_confidence": "medium",
+   "reading": "scan_verified"
+  },
+  {
+   "line": 18,
+   "glyph_group": 18,
+   "y0": 1947,
+   "y1": 1982,
+   "line_predicted_y": 1958.1,
+   "line_residual_px": -11.1,
+   "line_fixed_by": "manufactures 1 at y1956",
+   "total": 1,
+   "total_confidence": "medium",
+   "reading": "scan_verified"
+  },
+  {
+   "line": 19,
+   "glyph_group": 19,
+   "y0": 2014,
+   "y1": 2050,
+   "line_predicted_y": 2034.0,
+   "line_residual_px": -20.0,
+   "line_fixed_by": "manufactures 1 at y2030",
+   "total": 1,
+   "total_confidence": "medium",
+   "reading": "scan_verified"
+  },
+  {
+   "line": 20,
+   "glyph_group": 20,
+   "y0": 2088,
+   "y1": 2127,
+   "line_predicted_y": 2109.8,
+   "line_residual_px": -21.8,
+   "line_fixed_by": "the grid alone (no coincident industry entry on this line)",
+   "total": 1,
+   "total_confidence": "medium",
+   "reading": "scan_verified"
+  },
+  {
+   "line": 21,
+   "glyph_group": 21,
+   "y0": 2176,
+   "y1": 2208,
+   "line_predicted_y": 2185.7,
+   "line_residual_px": -9.7,
+   "line_fixed_by": "commerce 3 at y2174",
+   "total": 3,
+   "total_confidence": "medium",
+   "reading": "scan_verified"
+  },
+  {
+   "line": 22,
+   "glyph_group": 22,
+   "y0": 2263,
+   "y1": 2293,
+   "line_predicted_y": 2261.6,
+   "line_residual_px": 1.4,
+   "line_fixed_by": "the grid alone (no coincident industry entry on this line)",
+   "total": 1,
+   "total_confidence": "medium",
+   "reading": "scan_verified"
+  },
+  {
+   "line": 23,
+   "glyph_group": 23,
+   "y0": 2318,
+   "y1": 2367,
+   "line_predicted_y": 2337.4,
+   "line_residual_px": -19.4,
+   "line_fixed_by": "commerce 1 at y2339",
+   "total": 3,
+   "total_confidence": "medium",
+   "reading": "scan_verified"
+  },
+  {
+   "line": 24,
+   "glyph_group": 24,
+   "y0": 2392,
+   "y1": 2443,
+   "line_predicted_y": 2413.3,
+   "line_residual_px": -21.3,
+   "line_fixed_by": "commerce 3 at y2399",
+   "total": 4,
+   "total_confidence": "medium",
+   "reading": "scan_verified",
+   "note": "RE-READ AS 4 BY T-0647, from 11. The same figure as line 9: a long slash x1429-1468 and a shorter one x1435-1455 set 26 px below, boxes OVERLAPPING IN X BY 19 PX. The line carries a commerce 3, so a family of 4 clears its floor of 3 - by one person, which is the tightest surviving line on the sheet and is recorded as such rather than smoothed. See total_column.stroke_overlap_test."
+  },
+  {
+   "line": 25,
+   "glyph_group": 25,
+   "y0": 2477,
+   "y1": 2522,
+   "line_predicted_y": 2489.1,
+   "line_residual_px": -12.1,
+   "line_fixed_by": "commerce 2 at y2490",
+   "total": 3,
+   "total_confidence": "medium",
+   "reading": "scan_verified"
+  },
+  {
+   "line": 26,
+   "glyph_group": 26,
+   "y0": 2558,
+   "y1": 2619,
+   "line_predicted_y": 2565.0,
+   "line_residual_px": -7.0,
+   "line_fixed_by": "commerce 3 at y2577",
+   "total": 5,
+   "total_confidence": "medium",
+   "reading": "scan_verified",
+   "note": "READ THIS PASS. The 'two components 32 px apart' the previous pass could not place are the top bar and the descender of ONE glyph, and the glyph is the sheet's 5: cut at 8x it is the same construction as line 13 — a bar drawn to the right, then a long descender to the lower left ending in a bowl. The grid leaves no line between this and line 27, which settles the band the other way from the way the ink alone read."
+  },
+  {
+   "line": 27,
+   "glyph_group": 27,
+   "y0": 2620,
+   "y1": 2673,
+   "line_predicted_y": 2640.9,
+   "line_residual_px": -20.9,
+   "line_fixed_by": "learned professions 1 at y2641",
+   "total": 3,
+   "total_confidence": "medium",
+   "reading": "scan_verified"
+  },
+  {
+   "line": 28,
+   "glyph_group": 28,
+   "y0": 2699,
+   "y1": 2772,
+   "line_predicted_y": 2716.7,
+   "line_residual_px": -17.7,
+   "line_fixed_by": "commerce 1 at y2723",
+   "total": null,
+   "total_confidence": null,
+   "reading": "scan_verified",
+   "note": "NOT COMMITTED, and its ink now includes the stroke at y2743-2772 that this file previously carried as line_index.unassigned_ink (T-0671). The line's ink is three components: x1433-1448 at y2699-2712 and x1450-1458 at y2704-2719 — the g2 two-digit geometry at half the usual stroke length, on ink faint enough that at a 45-level threshold only the first survives — and then x1411-1430 at y2743-2772, below and to the left. The anchor-offset test against the commerce 1 at y2723 accepts the three together at +0.56 sd and rejects both alternatives (+3.96 sd for the low stroke alone, -3.55 sd for the two upper components alone); see line_index.unassigned_ink. What the line's number IS remains unread: three components is one more than any other number on this sheet, and whether the low stroke is the second half of a two-part glyph or an abandoned start is not settled. The line carries a commerce 1, so the family is at least one, and that is all this pass commits.",
+   "glyph_groups": [
+    28,
+    29
+   ]
+  },
+  {
+   "line": 29,
+   "glyph_group": 30,
+   "y0": 2784,
+   "y1": 2826,
+   "line_predicted_y": 2792.6,
+   "line_residual_px": -8.6,
+   "line_fixed_by": "the grid alone (no coincident industry entry on this line)",
+   "total": null,
+   "total_confidence": null,
+   "reading": "scan_verified",
+   "note": "NOT COMMITTED: a bold 1, x1405-1443, then a short glyph x1431-1447 whose top stands 14 px below the 1's and whose foot lands with it. 10 or 16 — see total_column.footing_argument, which now bounds it from the arithmetic rather than from the glyph."
+  },
+  {
+   "line": 30,
+   "glyph_group": 31,
+   "y0": 2860,
+   "y1": 2901,
+   "line_predicted_y": 2868.4,
+   "line_residual_px": -8.4,
+   "line_fixed_by": "manufactures 3 at y2867",
+   "total": null,
+   "total_confidence": null,
+   "reading": "scan_verified",
+   "note": "NOT COMMITTED: the same construction as line 29 — a bold 1, x1406-1439, then the same short low glyph, which a 22-level threshold breaks into two components (x1430-1447 and x1443-1460) and a 45-level threshold does not. 10 or 16."
+  }
+ ],
+ "records_note": "POPULATED THIS PASS, one record per writing line, 30 of them. It was empty on purpose until now because the line INDEX was the open quantity and 'a record keyed line: 4 would commit an ordinal the sheet does not carry'. line_index closes that, so each record states its line, the y the grid predicts for it, the residual, and what fixes it — a coincident industry entry for 22 of the 30, the grid alone for the other 8. `total` is the family total where it is committed and null where it is not; four lines are null and each says what bounds it. The cells of the twelve slave columns and the seven industry columns are NOT restated per line here: column_closure holds them by column and by y, they close against the enumerator's footings, and re-keying them by line is T-0539's business once the sheet is paired.",
+ "pairing": {
+  "paired_to_printed_page": null,
+  "state": "unpaired",
+  "why": "RESOLVED by T-0642 where this says paired, and recorded as unpaired with its rule where it does not. The earlier text of this field said the left sheets had not been footed yet; they have now.",
+  "page_population_key": null,
+  "page_population_key_candidates": [
+   105,
+   165
+  ],
+  "page_population_key_favoured": 165,
+  "page_population_key_note": "STILL NOT COMMITTED as the key, but 105 is now refuted rather than disfavoured (see footer_total_argument), so 165 is the only candidate the sheet's own arithmetic leaves standing. T-0539 should try 165 and treat a failure to pair as evidence against it rather than against the pairing test — and it now has a second and firmer key to try first, the line count of 30.",
+  "line_count_key": 30,
+  "line_count_key_note": "COMMITTED at 30 by T-0565, off the industry-column grid rather than off the TOTAL column's ink (see line_index). T-0539 can pair on it. The previous note read '29 to 31, favouring 31'.",
+  "tested_by": "T-0642",
+  "test": "both keys — the count of ruled lines carrying an entry, and the page population — against the twelve filled left sheets of image group 1, whose printed footings T-0642 read and published.",
+  "result": "The three 30-entry left sheets in the group foot 187, 123-124 and 137. None is 165, and none is 105 either, so neither candidate reading of this sheet's illegible footing is corroborated here. That is NOT evidence against 165: a continuation whose left sheet lies outside images 1-25 cannot be paired inside them, and 33S7-9YYJ-8D below shows the group does hold at least one such sheet.",
+  "published_in": "data/research/census_1840/left_sheet_population_key.json"
+ },
+ "ticket": "T-0564 (the columns; T-0547 split when this sheet proved to need more than one demonstration). T-0565 fitted the line index, read the seven unread numbers as far as their own evidence goes, and refuted 105. T-0647 re-read the six two-stroke figures and committed the stroke-overlap test and the industry-column family floor.",
+ "column_geometry": {
+  "derived_by": "tools/read_census_continuation.py 33S7-9YYJ-5V",
+  "body_between_horizontal_rules": [
+   595,
+   2943
+  ],
+  "column_pitch_px": 68,
+  "bounds_px": {
+   "agriculture": [
+    1560,
+    1623
+   ],
+   "commerce": [
+    1623,
+    1688
+   ],
+   "learned_professions_and_engineers": [
+    1931,
+    1997
+   ],
+   "manufactures_and_trades": [
+    1688,
+    1770
+   ],
+   "mining": [
+    1492,
+    1560
+   ],
+   "navigation_canals_lakes_rivers": [
+    1850,
+    1931
+   ],
+   "navigation_ocean": [
+    1770,
+    1850
+   ],
+   "total": [
+    1297,
+    1492
+   ]
+  },
+  "note": "MEASURED, not assumed. The vertical printed rules are found by CONTINUITY — an x where at least 60 per cent of the body's rows stand darker than their own local background — because a mean-darkness profile of this leaf reports rules at x 1441 and x 1719 that are a family total and a 2. The eight single-width columns are then named off the one run of seven even gaps that is bracketed by a wide cell on both sides: TOTAL on the left, the pensioners AGES column on the right. The right-hand deaf/dumb and schools blocks stand at the same pitch and have no such bracket, which is what tells them apart."
+ },
+ "glyph_inventory": {
+  "derived_by": "tools/read_census_continuation.py 33S7-9YYJ-5V --json",
+  "method": {
+   "components": "8-connected after 5x5 closing, area>=40, height>=12",
+   "digits": "NOT READ — this tool measures boxes, a human reads the digit",
+   "grouping": "one number while dy<=55 and x does not step back",
+   "ink": "local background = 25px Gaussian of the crop; ink = 45 grey levels darker"
+  },
+  "components_per_column": {
+   "agriculture": 1,
+   "commerce": 13,
+   "learned_professions_and_engineers": 3,
+   "manufactures_and_trades": 11,
+   "mining": 1,
+   "navigation_canals_lakes_rivers": 0,
+   "navigation_ocean": 0,
+   "total": 44
+  },
+  "numbers_per_column": {
+   "agriculture": 1,
+   "commerce": 13,
+   "learned_professions_and_engineers": 3,
+   "manufactures_and_trades": 10,
+   "mining": 1,
+   "navigation_canals_lakes_rivers": 0,
+   "navigation_ocean": 0,
+   "total": 34
+  },
+  "total_column_group_count_by_threshold": {
+   "35": 36,
+   "45": 35,
+   "55": 34,
+   "65": 32,
+   "75": 26
+  },
+  "note": "The tool measures boxes and refuses to name digits, which is the point: a machine guess at a 4 that is two strokes reading as 11 would launder a guess into a measurement. Its group count for the TOTAL column OVER-counts and the sensitivity row above says by how much — the x-does-not-step-back rule splits a number whose parts the hand drew right to left, and this sheet's 5 is drawn top bar first and then the descender. The curated count below, 31 numbers, is the tool's components read by eye at magnification."
+ },
+ "column_closure": {
+  "commerce": {
+   "entries": [
+    4,
+    1,
+    2,
+    5,
+    1,
+    1,
+    3,
+    1,
+    3,
+    2,
+    3,
+    1
+   ],
+   "entry_y": [
+    834,
+    1040,
+    1123,
+    1197,
+    1809,
+    1888,
+    2174,
+    2339,
+    2399,
+    2490,
+    2577,
+    2723
+   ],
+   "read": 27,
+   "printed": 27,
+   "closes": true,
+   "residual": 0,
+   "note": "twelve entries, re-read entry by entry in this pass and independently of the pass that first reported 27. It closes."
+  },
+  "manufactures_and_trades": {
+   "entries": [
+    1,
+    2,
+    2,
+    2,
+    1,
+    2,
+    1,
+    1,
+    3
+   ],
+   "entry_y": [
+    658,
+    752,
+    1196,
+    1506,
+    1585,
+    1654,
+    1956,
+    2030,
+    2867
+   ],
+   "read": 15,
+   "printed": 15,
+   "closes": true,
+   "residual": 0,
+   "note": "CLOSES, and the pass before this one left it at 17 against a printed 15. The whole of that residual is the bottom entry, at y2867: it was read 5, on the hand's hooked-5 form, and it is a 3. The two forms part on one feature — this hand's 5 opens with a bar drawn to the RIGHT and its 3 stacks two bowls that both open LEFT — and the glyph at y2867 stacks two left-opening bowls, the same as the 3s the commerce column foots at y2174, y2399 and y2577. Nothing was moved to make the column come out; one glyph was read again and the footing agreed."
+  },
+  "learned_professions_and_engineers": {
+   "entries": [
+    1,
+    1,
+    1
+   ],
+   "entry_y": [
+    825,
+    1730,
+    2641
+   ],
+   "read": 3,
+   "printed": 3,
+   "closes": true,
+   "residual": 0,
+   "note": "CLOSES, and it was unread before this pass, which located two of the three entries and left the column alone rather than distributing the third. The three are at y825, y1730 and y2641, each a single bold slash, and the ink census of the column finds nothing else in it."
+  },
+  "mining": {
+   "entries": [],
+   "read": 0,
+   "printed": 0,
+   "closes": true,
+   "residual": 0,
+   "note": "nothing written. One component survives the speck filter, at y2038-2062 — a short thick dash standing on the faint continuous line of the column's own rule, with no slant and no pen-stroke taper. It is a heavy patch of the printed rule, not a digit, and the enumerator footed the column blank."
+  },
+  "agriculture": {
+   "entries": [],
+   "read": 0,
+   "printed": 0,
+   "closes": true,
+   "residual": 0,
+   "note": "nothing written. One component survives, at y663-679 — an irregular blot with no stroke direction. It is an ink speck, not a digit, and the enumerator footed the column blank."
+  },
+  "navigation_ocean": {
+   "entries": [],
+   "read": 0,
+   "printed": 0,
+   "closes": true,
+   "residual": 0,
+   "note": "no component at all survives the speck filter in this column, and the footing is blank."
+  },
+  "navigation_canals_lakes_rivers": {
+   "entries": [],
+   "read": 0,
+   "printed": 0,
+   "closes": true,
+   "residual": 0,
+   "note": "no component at all survives the speck filter in this column, and the footing is blank."
+  },
+  "slaves_block": {
+   "read": 0,
+   "printed": 0,
+   "closes": true,
+   "residual": 0,
+   "note": "twelve columns, no entry on any line; the enumerator footed the block blank. See column_ink_census."
+  },
+  "pensioners": {
+   "read": 0,
+   "printed": 0,
+   "closes": true,
+   "residual": 0,
+   "note": "no age and no name written; footed blank."
+  },
+  "deaf_dumb_blind_insane_block": {
+   "read": 0,
+   "printed": 0,
+   "closes": true,
+   "residual": 0,
+   "note": "ten columns, nothing written; footed blank."
+  },
+  "schools_block": {
+   "read": 0,
+   "printed": 0,
+   "closes": true,
+   "residual": 0,
+   "note": "seven columns, nothing written; footed blank."
+  },
+  "total": {
+   "read": null,
+   "printed": null,
+   "closes": false,
+   "note": "does not close; see total_column below. It is the one column of the twelve that this pass leaves open."
+  }
+ },
+ "total_column": {
+  "numbers": 30,
+  "numbers_read": 22,
+  "numbers_unread": 7,
+  "numbers_read_but_for_one_glyph": 2,
+  "read_sum_of_the_unambiguous": null,
+  "read_sum_of_the_unambiguous_note": "was 83, the sum of the 22 numbers an earlier pass called unambiguous. Superseded by read_sum_committed, which is the sum of records[] and is the only figure on this sheet anyone should quote. Held null by T-0647 rather than restated, because three of those 22 have since been re-read and the old 83 is no longer the sum of anything.",
+  "by_glyph_group": "superseded by records[], which is keyed by line ordinal; the y spans and the glyph notes are carried there",
+  "indexed_by": "LINE ORDINAL, committed this pass. The previous version of this block was indexed by image y and said so, because 'a record keyed line: 4 would commit an ordinal the sheet does not carry'. It carries one now: see line_index, and records[] below, which is keyed by line and states each line's predicted y and residual so the assignment can be checked rather than taken.",
+  "closes": false,
+  "residual": null,
+  "residual_note": "Still not one number, because the printed footing is still one glyph short of legible — but the arithmetic has moved from an inference to a bound, and T-0647 moved the bound. Twenty-six of the thirty lines are committed and sum to 105 (they summed to 126 before three of the sheet's two-stroke figures were re-read as 4s). The four that are not (lines 8, 28, 29, 30) are each at least one person and line 8 is at least seven, so the column is at least 133 whatever they hold. See footing_argument and stroke_overlap_test. T-0671 placed the sheet's last unassigned stroke on line 28 and moved none of these numbers either: line 28 was uncommitted before it and is uncommitted after it, so the committed sum stands at 105 and the floor at 133.",
+  "glyph_groups": 31,
+  "numbers_committed": 26,
+  "numbers_not_committed": 4,
+  "read_sum_committed": 105,
+  "stroke_overlap_test": {
+   "what": "the test that settled the six two-stroke figures on this sheet, and the nine figures it is calibrated on. T-0647.",
+   "the_problem": "This hand builds BOTH 11 and 4 out of two slanted strokes and nothing else, and every earlier pass argued the difference in prose — 'tops level', 'set below and right', 'the sheet's reference pair'. 33S7-9YYJ-6H says plainly why that failed: 'the pitch test does not separate them on this sheet', because a within-digit stroke spread and a between-digit pitch overlap on that leaf. Neither stroke weight nor stroke height separates them either: 33S7-9YYJ-24's line 21 is a 4 by arithmetic and its two strokes are twins (weight ratio 0.907, height ratio 1.094), exactly like this sheet's line 2.",
+   "the_measure": "X OVERLAP of the two strokes' ink bounding boxes — min(x1) − max(x0), in pixels. Positive means the strokes stand over one another in x; negative means one is wholly right of the other. It works because the difference is a fact about the FORM and not about the hand: two digits written side by side occupy two x slots, and one numeral's two strokes share a slot however far their feet drift apart. Measured by tools/census_pair_geometry.py, which imports read_census_continuation's ink mask and component finder rather than defining a second one.",
+   "calibrated_on": "NINE figures whose value is fixed by arithmetic — a column or a footing that closes — and not by anyone's eye. Nothing on this sheet is in the calibration set.",
+   "calibration": {
+    "one_numeral_a_4": [
+     {
+      "figure": "33S7-9YYJ-24 line 6 = 4",
+      "x_overlap_px": 13,
+      "why_it_is_fixed": "its TOTAL column closes exactly at the printed 201 over 31 lines"
+     },
+     {
+      "figure": "33S7-9YYJ-24 line 21 = 4",
+      "x_overlap_px": 16,
+      "why_it_is_fixed": "same column, same closure"
+     },
+     {
+      "figure": "33S7-9YYJ-24 line 27 = 4",
+      "x_overlap_px": 10,
+      "why_it_is_fixed": "same column, same closure"
+     },
+     {
+      "figure": "33S7-9YYJ-6H TOTAL footing, third glyph = 4",
+      "x_overlap_px": 17,
+      "why_it_is_fixed": "T-0645 settled that footing at 144 by reading it at 14x: '1 4 11' and '1 11 4' are not numbers"
+     }
+    ],
+    "two_digits": [
+     {
+      "figure": "33S7-9YYJ-24 line 10 = 22",
+      "x_overlap_px": -7,
+      "why_it_is_fixed": "the closing 201"
+     },
+     {
+      "figure": "33S7-9YYJ-24 line 17 = 22",
+      "x_overlap_px": -13,
+      "why_it_is_fixed": "the closing 201"
+     },
+     {
+      "figure": "33S7-9YYJ-24 line 18 = 35",
+      "x_overlap_px": -8,
+      "why_it_is_fixed": "the closing 201"
+     },
+     {
+      "figure": "33S7-9YYJ-24 line 29 = 25",
+      "x_overlap_px": 1,
+      "why_it_is_fixed": "the closing 201"
+     },
+     {
+      "figure": "33S7-9YYJ-6H MANUFACTURES footing = 11",
+      "x_overlap_px": 4,
+      "why_it_is_fixed": "T-0627 read eleven entries in that column, a 2 and nine 1s, and they close on this footing exactly. It is the two-slash form read as 11 beyond argument, in the same hand, in the same footer row as the 4 above."
+     }
+    ],
+    "separation": "one numeral +10 to +17; two digits −13 to +4. The classes do not touch: there are six clear pixels between them.",
+    "the_two_measures_that_do_not_work": "FOOT OFFSET runs +8, 0, +1, +4 on the four 4s and +42, −39, −30, −20, +11 on the five two-digit figures — it separates on 33S7-9YYJ-24 alone and then 6H's calibrated 11 lands at +11, inside the 4s' range. WEIGHT and HEIGHT ratio do not separate at all. Both are reported by the tool so that a later reader can see them fail rather than take it on trust."
+   },
+   "this_sheet": [
+    {
+     "line": 2,
+     "x_overlap_px": 5,
+     "class": "two digits",
+     "read": 11,
+     "margin": "ONE PIXEL outside the calibrated two-digit range"
+    },
+    {
+     "line": 3,
+     "x_overlap_px": 3,
+     "class": "two digits",
+     "read": 11,
+     "margin": "inside the range, and independently forced by the industry columns — see family_floor_from_industry_columns"
+    },
+    {
+     "line": 4,
+     "x_overlap_px": 5,
+     "class": "two digits",
+     "read": 11,
+     "margin": "ONE PIXEL outside, as line 2"
+    },
+    {
+     "line": 6,
+     "x_overlap_px": 10,
+     "class": "one numeral",
+     "read": 4,
+     "margin": "at the bottom edge of the calibrated 4 range",
+     "was": 11
+    },
+    {
+     "line": 9,
+     "x_overlap_px": 19,
+     "class": "one numeral",
+     "read": 4,
+     "margin": "two pixels past the top of the calibrated 4 range, which is further FROM the two-digit class, not toward it",
+     "was": 11
+    },
+    {
+     "line": 24,
+     "x_overlap_px": 19,
+     "class": "one numeral",
+     "read": 4,
+     "margin": "as line 9",
+     "was": 11
+    }
+   ],
+   "what_the_split_is_worth": "The six split 3–3, at 3/5/5 against 10/19/19, and the gap in this sheet's own six falls in the same place as the gap in the calibration set — between +5 and +10. That the sheet reproduces the boundary without being used to set it is the strongest thing this pass can say for the test. What it does NOT say is that lines 2 and 4 are safe: they clear the boundary by one pixel and their confidence is dropped to medium accordingly.",
+   "the_cross_check": "Line 3 is the only one of the six that a second, wholly independent instrument can rule on — the industry columns — and the two agree. See family_floor_from_industry_columns.",
+   "reproduce": "tools/census_pair_geometry.py --boxes <the boxes listed in records[]>. The tool re-finds the strokes itself; on all six lines the boxes it returns match the stroke x-ranges the previous pass recorded in records[] to the pixel, so only the CLASSIFICATION has moved, not the measurement of the ink."
+  },
+  "family_floor_from_industry_columns": {
+   "what": "a floor under every line of this column, from the form's own arithmetic rather than from its ink. Committed by T-0647.",
+   "the_rule": "The TOTAL column is 'number of persons in each family'. The seven columns to its right are 'number of persons in each family employed in' seven disjoint trades. So every line's total is AT LEAST the sum of its industry entries.",
+   "why_it_is_calibrated_and_not_an_opinion": "This sheet's three written industry columns close EXACTLY against the enumerator's own printed footings — commerce 27, manufactures and trades 15, learned professions 3 — and T-0647 re-summed the per-line entries recorded in records[].line_fixed_by to check it: 27, 15 and 3. The floor therefore rests on the same kind of evidence the digit key does.",
+   "lines_it_binds": {
+    "3": {
+     "floor": 5,
+     "from": "commerce 4 + learned professions 1",
+     "consequence": "line 3 CANNOT be 4. This is what refutes reading all six two-stroke figures as 4s, and it does so without looking at the ink."
+    },
+    "7": {
+     "floor": 2,
+     "from": "commerce 2",
+     "consequence": "committed 2 sits exactly on its floor"
+    },
+    "8": {
+     "floor": 7,
+     "from": "commerce 5 + manufactures 2",
+     "consequence": "already used by footer_total_argument"
+    },
+    "21": {
+     "floor": 3,
+     "from": "commerce 3",
+     "consequence": "committed 3 sits exactly on its floor"
+    },
+    "24": {
+     "floor": 3,
+     "from": "commerce 3",
+     "consequence": "4 clears it by one person — the tightest surviving line on the sheet"
+    }
+   },
+   "no_line_violates_it": "checked across all 26 committed lines after the T-0647 re-reading, and across the four uncommitted ones as a floor. Under the previous reading no line violated it either — the constraint is new to the record, not newly satisfied."
+  },
+  "glyph_groups_note": "31 glyph groups over 30 line slots, and after T-0671 that is no longer a surplus: line 28's number is built from two of them (the group at y2699-2719 and the stroke at y2743-2772), which is why the counts differ by one. No component of the TOTAL column is now unassigned to a line.",
+  "unassigned_components": 0
+ },
+ "footer_total_argument": {
+  "printed_glyphs": "1 ? 5",
+  "candidates": [
+   105,
+   165
+  ],
+  "favoured": 165,
+  "confidence": "inferred",
+  "supersedes": "the previous argument, which reached the same answer from a committed sum of 126 and could not reconcile 165 with reading lines 29 and 30 as 16 and 16. T-0647 re-read three of the six two-stroke figures as 4s and the sum fell to 105; the conclusion is unchanged and the strain is gone. Before that, an argument that rested on the deposit's mean household size and on 22 numbers summing to 83.",
+  "reasoning": [
+   "105 IS REFUTED, AND BY A WIDER MARGIN AFTER T-0647 THAN BEFORE IT. Twenty-six of the thirty lines are committed and sum to 105 — the number is a coincidence and the column is NOT 105, because the four uncommitted lines are families and each is at least one person, line 8 carries a commerce 5 and a manufactures 2 and so is at least seven, and lines 29 and 30 are each 10 or 16. The column is therefore at least 133. That is 28 over 105 and no reading of the four open lines can close a gap that runs the wrong way.",
+   "IT SURVIVED THE ADVERSARIAL RE-READING THE PASS BEFORE LAST ASKED FOR, AND IT HAS NOW SURVIVED THE ACTUAL ONE. That pass named three readings — 13 at y647, 11 at y1253, 11 at y2392 — whose overturning would let 105 back in, and T-0647 overturned two of them, reading both those 11s as 4s. 105 is refuted anyway. The refutation never rested on those three, which is what the pass before last could not say and this one can demonstrate.",
+   "165 IS REACHABLE AND IS THE ONLY CANDIDATE LEFT. It asks the four open lines to carry 60 between them, against a floor of 28."
+  ],
+  "what_it_now_rests_on": "the 26 committed line readings, which are listed one per line in records[] with their evidence, and on the line index that says there are 30 lines and not 28 or 31. Overturning it means overturning the grid or a good half of the column, not three glyphs.",
+  "the_strain_it_leaves": {
+   "what": "RESOLVED BY T-0647, and the resolution is the second of the three exits the previous pass named rather than a new idea. The strain was this: at a committed 126, reading lines 29 and 30 as 16 and 16 left only 7 for lines 8 and 28 together, while line 8 alone is at least 7 and line 28 at least 1 — 8 at the very least, which overshot. So 165 and '16 and 16' could not both be true.",
+   "how_it_went": "T-0647 re-read lines 6, 9 and 24 as 4s on a stroke-overlap test calibrated on nine figures fixed by arithmetic on two other sheets (total_column.stroke_overlap_test). That drops the committed sum from 126 to 105 and raises what the four open lines must carry from 39 to 60. Sixteen and sixteen now leave 28 for lines 8 and 28, against floors of 7 and 1 — comfortable, where before it was impossible.",
+   "the_order_this_happened_in_matters": "THE RE-READING WAS NOT MADE TO RELIEVE THE STRAIN and must not be read as if it were. It rests on a measurement calibrated entirely off this sheet — 33S7-9YYJ-24's TOTAL column, which closes at its printed 201, and 33S7-9YYJ-6H's footer row, which carries the same two-stroke form as a 4 in one column and as an 11 in another — plus, on line 3, an arithmetic floor from this sheet's own closing industry columns that runs the OTHER way and stopped three of the six from moving. The footing arithmetic is stated here as a consequence, and it is the check that the consequence is not absurd, not the reason.",
+   "the_three_exits_as_they_now_stand": [
+    "EXIT 1 — the footing's middle glyph is not the body glyph at y2798 and y2874, and lines 29 and 30 are 10 and 10: still open, and no longer needed. It was the only exit that reconciled 165 with the old sum and it is now one of two.",
+    "EXIT 2 — one of the six two-stroke numbers is smaller than the sheet's own reference pair suggests: TAKEN. Three of the six were, and the 'reference pair' itself turns out not to be a reference for anything: the six are not one figure.",
+    "EXIT 3 — the footing is not 165 and its first glyph is not a 1: still open, and untested. T-0647 looked at the footing's middle glyph at 7x with the same instrument and it does not resolve: the cell is damaged and the component filter returns a bold blob under a faint stroke. Recorded as still unread rather than guessed at."
+   ],
+   "what_is_still_not_resolved": "the footing itself. 165 remains inferred and uncommitted, on a floor of 133 and a middle glyph nobody has yet read. The left-sheet pairing (T-0642) is still what would settle it independently."
+  }
+ },
+ "closes_note": "eleven of the twelve columns and blocks on this sheet close against the enumerator's own footing: commerce at 27, manufactures and trades at 15, the learned professions at 3, and eight more at nothing written. The TOTAL column still does not, and it still cannot, because its printed footing is one glyph short of legible. What changed with T-0565 is that the column is now read line by line on a committed index and 105 is arithmetically dead: the sheet's floor is 136 against a footing that would have to be 105.",
+ "industry_columns_superseded_note": "the pass before this one recorded the two written industry columns provisionally, indexed by image y, with commerce closing at 27 and manufactures standing at 17 against a printed 15. column_closure above replaces that block: manufactures closes at 15 (the y2867 glyph is a 3, not a 5) and the learned professions close at 3. The provisional block is removed rather than kept alongside, so there is one reading of each column on this sheet and not two.",
+ "line_index": {
+  "lines": 30,
+  "derived_by": "tools/fit_census_line_grid.py 33S7-9YYJ-5V",
+  "ticket": "T-0565",
+  "method": "The 22 entry_y values in column_closure (commerce 12, manufactures 9, learned professions 3) are merged where two stand within 30 px — three pairs do, because two industry columns can carry an entry for the same family — and a straight grid y = origin + pitch*n is fitted to what is left, rejecting any fit that puts two anchors on one line and scoring by rms residual. The TOTAL column is not used, which is the whole point: the row index and the numbers are then independent, and a number can be read AGAINST the grid instead of being used to build it.",
+  "origin_px": 668.5,
+  "pitch_px": 75.86,
+  "rms_px": 6.66,
+  "rms_by_line_count": {
+   "27": 21.63,
+   "28": 19.86,
+   "29": 21.26,
+   "30": 6.66,
+   "31": 19.02,
+   "32": 15.93,
+   "33": 16.68,
+   "34": 16.99,
+   "35": 15.68,
+   "36": 15.39,
+   "37": 15.9,
+   "38": 15.54
+  },
+  "jackknife": "Refitting with each anchor dropped in turn, 20 of the 22 drops still choose 30 lines. The two that do not are the two END anchors, y658 and y2867: dropping an endpoint shortens the fitted span by a line, so it returns 29 and 28 respectively. No interior anchor carries the result.",
+  "corrects": {
+   "coverage_json": "declared this image at 28 lines 'to the nearest line' off a 1500 px contact view",
+   "previous_page_file": "recorded '29 to 31, favouring 31' and would not commit a figure",
+   "what_it_unblocks": "pairing.line_count_key, which T-0539 needs to pair the eleven continuation sheets to their left sheets, is now a number and not a range."
+  },
+  "total_column_offset_px": "The TOTAL column's glyphs top out about 13 px above the industry columns' on the same line (mean -12.7, sd 7 over the 29 groups the grid places), which is the pen reaching the wider cell first. Residuals in records[] are stated against the raw grid, so subtract 13 to read them as departures from the column's own trend.",
+  "unassigned_ink": {
+   "y0": 2743,
+   "y1": 2772,
+   "x0": 1411,
+   "x1": 1430,
+   "what": "one stroke, tapered, with a heavy foot — the shape of every 1 on this sheet",
+   "why_unassigned": "the grid has 30 lines and the TOTAL column has 31 glyph groups, and this is the surplus. It stands 39 px below line 28 (which g28 already occupies at a residual of -5) and 37 px above line 29 (which g30 occupies at +4) — dead centre between two numbers that are each where the grid puts them. It cannot be line 28's second digit: it is to the LEFT of g28 (x1411-1430 against x1433-1458) and this hand's second digit is always to the right. It cannot be part of line 29's number: g30 is already a complete two-glyph number and this stands above it, not beside it.",
+   "candidates": [
+    "a struck or abandoned stroke — the enumerator starting a number and writing it again lower",
+    "a second digit for line 28 written under rather than beside the first"
+   ],
+   "committed": false
+  }
+ }
+}

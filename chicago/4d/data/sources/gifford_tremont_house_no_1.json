@@ -1,0 +1,33 @@
+{
+  "id": "gifford_tremont_house_no_1",
+  "type": "illustration",
+  "citation": "N. Roswell Gifford. View of the first Tremont House and the storefront row on its street — wash drawing, signed \"N. Roswell Gifford\" at the lower left. Reproduced on Chicagology, \"Tremont House\", captioned \"Tremont House No. 1\".",
+  "author": "N. Roswell Gifford",
+  "date": "undated on the plate; drawn of a building that stood 1833-1839 and titled \"No. 1\", which is a number given after there was a second",
+  "describes_date": "1833-1839",
+  "repository": "reproduced on chicagology.com; the original drawing's holding institution is not stated there",
+  "url": "https://chicagology.com/prefire/prefire021/",
+  "archived_url": "http://web.archive.org/web/20260411172619/https://chicagology.com/prefire/prefire021/",
+  "locator": "The wash drawing captioned \"Tremont House No. 1\" at the head of the page, above the Chicago Tribune of 28 December 1850; image file firsttremont.jpg.",
+  "tier": 5,
+  "rights_status": "check_required",
+  "rights_note": "The drawing carries no date and its author's dates are not established here, so its copyright position is not settled by age alone; the reproduction carries no licence statement. Textual citation only until the original is located with its terms stated. This is the strictest of the four plates identified under T-0075, and it is the one whose reading the project leans on hardest — a reason to resolve it rather than to relax it.",
+  "asset_use": "cross_check",
+  "verified": true,
+  "note": "IMAGE 5 OF THE OWNER'S BRIEF OF 2026-08-18, identified. The brief describes it as \"The Tremont House street scene, 1833 (the dense street view; owner reads it as looking southwest from the corner of Lake and Dearborn). A continuous two-storey storefront row: shared party lines, signboards across the fronts, awnings, plank walks.\" The plate at this locator was retrieved and read on 2026-08-22.\n\nWHAT IS ON IT, AND WHAT IS NOT. Confirmed: a continuous row of one-and-a-half and two-storey stores standing shoulder to shoulder with shared party lines, each carrying a lettered signboard across its front — several legible, among them H. WELLS / GROCERIES, BOOTS & SHOES, a THOMPSON, and an & ALBEE at the left edge — and a raised board walk running the length of the frontage with posts at the road edge. The three-storey shuttered Tremont House with its flagstaff stands in the row at the right of centre. NOT confirmed at the resolution published here: awnings. The brief lists them and this reading cannot see them, so the project's warrant for an awning is the brief's sentence and not this plate; anything resting on awnings should say so.\n\nTHE OWNER'S STANDING INSTRUCTION CAME WITH THIS IMAGE, verbatim: \"you can reconstruct most of the main downtown area from this diagram. there should be more and denser buildings. this is important.\" That instruction is the warrant for the T-0077/T-0078/T-0079 dense-frontage programme and for the signboards of T-0066. It is an instruction about DENSITY AND CHARACTER; it is not, and cannot be, a licence to trace, because the plate carries no scale, no baseline and no fixed viewpoint.\n\nWHICH CORNER IT SHOWS IS THE OWNER'S READING, NOT THE PLATE'S. The page captions it only \"Tremont House No. 1\"; the first Tremont stood at Lake and Dearborn, which is consistent with a view looking south-west from that corner, and consistency is not attestation. No street name is lettered anywhere on the drawing, and nothing in this dataset may take a position from it.",
+  "what_it_supplies": [
+    "a continuous commercial frontage of one-and-a-half and two-storey stores standing shoulder to shoulder with shared party lines",
+    "a lettered signboard across the front of each store, some legible: H. WELLS, GROCERIES, BOOTS & SHOES, THOMPSON, & ALBEE",
+    "a raised board walk running the length of the frontage, with posts at the road edge",
+    "the first Tremont House as a three-storey shuttered block with a flagstaff, standing in the row rather than apart from it",
+    "gable-front and eaves-front stores alternating along one street rather than one repeated form",
+    "an unmade road of ruts and standing water in front of the row"
+  ],
+  "what_it_does_not_supply": [
+    "any coordinate, footprint outline or dimension — no scale, no baseline, no lettered street",
+    "which corner it is taken from: the caption names the building and not the viewpoint",
+    "awnings, which the brief lists and this plate does not legibly show",
+    "a date, either of the drawing or of the scene within the first Tremont's 1833-1839 life",
+    "the identity or trade of any store whose board is not legible"
+  ]
+}

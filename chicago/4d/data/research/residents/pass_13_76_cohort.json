@@ -1,0 +1,1099 @@
+{
+  "_doc": "T-0508's fixed thirteenth cohort: 76 named residents carrying no research row. The manifest is a reservation and identity lock; research outcomes live in the findings ledger beside it.",
+  "version": 1,
+  "ticket": "T-0508",
+  "scene_date": "1835-07-01",
+  "generated_by": "tools/select_resident_research_pass_13.py",
+  "selection_policy": "Frozen 2026-09-03 from data/residents/households/*.json: every named person carrying no resident_research block, excluding unnamed placeholders and inf_*/hh_inf_* records, sorted within the established / present-list / uncertain-list strata, interleaved one from each stratum in turn, and chunked 76/76/76 in fixed order. A member that later acquires a research row does not make the manifest stale; a member that leaves the town does.",
+  "population_frame": {
+    "named_people_without_a_research_row": 228,
+    "cohort_13_14_15_sizes": [
+      76,
+      76,
+      76
+    ],
+    "sample_size": 76,
+    "already_reserved_by_passes_1_to_12": 75,
+    "reservation_note": "225 of the 228 were reserved by the pilot, pass 2 and pass 3 and never researched — no findings ledger, no reference package, no row on any person (T-0511). These cohorts research them. Overlap with a RESERVATION is intended; overlap with a completed research row is refused above.",
+    "strata": {
+      "established_profile": 26,
+      "letter_list_only_present": 25,
+      "letter_list_only_uncertain": 25
+    }
+  },
+  "people": [
+    {
+      "household_id": "hh_adams_william_h",
+      "person_id": "adams_william_h",
+      "name": "William Hanford Adams",
+      "stratum": "established_profile",
+      "starting_grade": "attested",
+      "starting_presence": "uncertain",
+      "letter_list_returns": [],
+      "sources": [
+        "calumet_club_early_chicago_1879",
+        "chicago_democrat_1833_1835",
+        "chicago_tribune_1882_05_19_fourth_reception",
+        "chicago_voter_lists_1833_1835_irad",
+        "resident_research_v4_1835_census_bridge"
+      ]
+    },
+    {
+      "household_id": "hh_aiker_samuel",
+      "person_id": "aiker_samuel",
+      "name": "Samuel Aiker",
+      "stratum": "letter_list_only_present",
+      "starting_grade": "inferred",
+      "starting_presence": "present",
+      "letter_list_returns": [
+        "1835-07-01"
+      ],
+      "sources": [
+        "chicago_democrat_1833_1835"
+      ]
+    },
+    {
+      "household_id": "hh_parcel_aaron",
+      "person_id": "parcel_aaron",
+      "name": "Aaron Parcel",
+      "stratum": "letter_list_only_uncertain",
+      "starting_grade": "inferred",
+      "starting_presence": "uncertain",
+      "letter_list_returns": [
+        "1835-05-20"
+      ],
+      "sources": [
+        "chicago_democrat_1833_1835"
+      ]
+    },
+    {
+      "household_id": "hh_bates_john_jr",
+      "person_id": "bates_john_jr",
+      "name": "John Bates Jr.",
+      "stratum": "established_profile",
+      "starting_grade": "attested",
+      "starting_presence": "present",
+      "letter_list_returns": [],
+      "sources": [
+        "andreas_1884_v1",
+        "calumet_club_early_chicago_1879",
+        "chicago_tribune_1882_05_19_fourth_reception",
+        "chicago_voter_lists_1833_1835_irad"
+      ]
+    },
+    {
+      "household_id": "hh_akers_simon",
+      "person_id": "akers_simon",
+      "name": "Simon Akers",
+      "stratum": "letter_list_only_present",
+      "starting_grade": "inferred",
+      "starting_presence": "present",
+      "letter_list_returns": [
+        "1835-07-01"
+      ],
+      "sources": [
+        "chicago_democrat_1833_1835",
+        "fergus_chicago_directory_1839"
+      ]
+    },
+    {
+      "household_id": "hh_reel_absolam",
+      "person_id": "reel_absolam",
+      "name": "Absolam Reel",
+      "stratum": "letter_list_only_uncertain",
+      "starting_grade": "inferred",
+      "starting_presence": "uncertain",
+      "letter_list_returns": [
+        "1834-07-02"
+      ],
+      "sources": [
+        "chicago_democrat_1833_1835"
+      ]
+    },
+    {
+      "household_id": "hh_beaubien_jean_baptiste",
+      "person_id": "beaubien_jean_baptiste",
+      "name": "Col. Jean Baptiste Beaubien",
+      "stratum": "established_profile",
+      "starting_grade": "attested",
+      "starting_presence": "present",
+      "letter_list_returns": [],
+      "sources": [
+        "andreas_1884_v1",
+        "chicago_democrat_1833_1835",
+        "chicago_voter_lists_1833_1835_irad"
+      ]
+    },
+    {
+      "household_id": "hh_allen_william",
+      "person_id": "allen_william",
+      "name": "William Allen",
+      "stratum": "letter_list_only_present",
+      "starting_grade": "inferred",
+      "starting_presence": "present",
+      "letter_list_returns": [
+        "1835-07-01"
+      ],
+      "sources": [
+        "census_1840_chicago_familysearch_images",
+        "chicago_democrat_1833_1835",
+        "fergus_chicago_directory_1843"
+      ]
+    },
+    {
+      "household_id": "hh_vandorwerk_adam",
+      "person_id": "vandorwerk_adam",
+      "name": "Adam Vandorwerk",
+      "stratum": "letter_list_only_uncertain",
+      "starting_grade": "inferred",
+      "starting_presence": "uncertain",
+      "letter_list_returns": [
+        "1834-01-28"
+      ],
+      "sources": [
+        "chicago_democrat_1833_1835"
+      ]
+    },
+    {
+      "household_id": "hh_beaubien_jean_baptiste",
+      "person_id": "beaubien_josette",
+      "name": "Josette LaFramboise Beaubien",
+      "stratum": "established_profile",
+      "starting_grade": "inferred",
+      "starting_presence": "present",
+      "letter_list_returns": [],
+      "sources": [
+        "andreas_1884_v1"
+      ]
+    },
+    {
+      "household_id": "hh_allin_richard",
+      "person_id": "allin_richard",
+      "name": "Richard Allin",
+      "stratum": "letter_list_only_present",
+      "starting_grade": "inferred",
+      "starting_presence": "present",
+      "letter_list_returns": [
+        "1835-07-01"
+      ],
+      "sources": [
+        "chicago_democrat_1833_1835"
+      ]
+    },
+    {
+      "household_id": "hh_vaughan_alanson_b",
+      "person_id": "vaughan_alanson_b",
+      "name": "Alanson B. Vaughan",
+      "stratum": "letter_list_only_uncertain",
+      "starting_grade": "inferred",
+      "starting_presence": "uncertain",
+      "letter_list_returns": [
+        "1834-07-02"
+      ],
+      "sources": [
+        "chicago_democrat_1833_1835"
+      ]
+    },
+    {
+      "household_id": "hh_beaubien_madore",
+      "person_id": "beaubien_madore",
+      "name": "Madore Benjamin Beaubien",
+      "stratum": "established_profile",
+      "starting_grade": "attested",
+      "starting_presence": "present",
+      "letter_list_returns": [],
+      "sources": [
+        "andreas_1884_v1",
+        "chicago_voter_lists_1833_1835_irad"
+      ]
+    },
+    {
+      "household_id": "hh_alling_prudde",
+      "person_id": "alling_prudde",
+      "name": "Prudde Alling",
+      "stratum": "letter_list_only_present",
+      "starting_grade": "inferred",
+      "starting_presence": "present",
+      "letter_list_returns": [
+        "1835-07-01"
+      ],
+      "sources": [
+        "chicago_democrat_1833_1835"
+      ]
+    },
+    {
+      "household_id": "hh_wilkes_alexander",
+      "person_id": "wilkes_alexander",
+      "name": "Alexander Wilkes",
+      "stratum": "letter_list_only_uncertain",
+      "starting_grade": "inferred",
+      "starting_presence": "uncertain",
+      "letter_list_returns": [
+        "1834-07-02"
+      ],
+      "sources": [
+        "chicago_democrat_1833_1835"
+      ]
+    },
+    {
+      "household_id": "hh_beaubien_mark",
+      "person_id": "beaubien_mark",
+      "name": "Mark Beaubien",
+      "stratum": "established_profile",
+      "starting_grade": "attested",
+      "starting_presence": "present",
+      "letter_list_returns": [],
+      "sources": [
+        "andreas_1884_v1",
+        "calumet_club_early_chicago_1879",
+        "chicago_tribune_1882_04_25_old_settler_deaths",
+        "chicago_voter_lists_1833_1835_irad"
+      ]
+    },
+    {
+      "household_id": "hh_anderson_eli_f",
+      "person_id": "anderson_eli_f",
+      "name": "Eli F Anderson",
+      "stratum": "letter_list_only_present",
+      "starting_grade": "inferred",
+      "starting_presence": "present",
+      "letter_list_returns": [
+        "1835-07-01"
+      ],
+      "sources": [
+        "chicago_democrat_1833_1835"
+      ]
+    },
+    {
+      "household_id": "hh_tucker_alexr_h",
+      "person_id": "tucker_alexr_h",
+      "name": "Alexr. H. Tucker",
+      "stratum": "letter_list_only_uncertain",
+      "starting_grade": "inferred",
+      "starting_presence": "uncertain",
+      "letter_list_returns": [
+        "1835-05-20"
+      ],
+      "sources": [
+        "chicago_democrat_1833_1835"
+      ]
+    },
+    {
+      "household_id": "hh_democrat_printers",
+      "person_id": "beckford_printer",
+      "name": "Beckford",
+      "stratum": "established_profile",
+      "starting_grade": "inferred",
+      "starting_presence": "uncertain",
+      "letter_list_returns": [],
+      "sources": [
+        "andreas_1884_v1"
+      ]
+    },
+    {
+      "household_id": "hh_anstin_al",
+      "person_id": "anstin_al",
+      "name": "Mr. Al. Anstin",
+      "stratum": "letter_list_only_present",
+      "starting_grade": "inferred",
+      "starting_presence": "present",
+      "letter_list_returns": [
+        "1835-07-01"
+      ],
+      "sources": [
+        "chicago_democrat_1833_1835"
+      ]
+    },
+    {
+      "household_id": "hh_churchill_alfred",
+      "person_id": "churchill_alfred",
+      "name": "Alfred Churchill",
+      "stratum": "letter_list_only_uncertain",
+      "starting_grade": "inferred",
+      "starting_presence": "uncertain",
+      "letter_list_returns": [
+        "1834-07-09"
+      ],
+      "sources": [
+        "chicago_democrat_1833_1835"
+      ]
+    },
+    {
+      "household_id": "hh_blodgett_tyler_k",
+      "person_id": "blodgett_tyler_k",
+      "name": "Tyler K. Blodgett",
+      "stratum": "established_profile",
+      "starting_grade": "attested",
+      "starting_presence": "uncertain",
+      "letter_list_returns": [],
+      "sources": [
+        "andreas_1884_v1",
+        "chicago_voter_lists_1833_1835_irad",
+        "fergus_chicago_directory_1839"
+      ]
+    },
+    {
+      "household_id": "hh_archer_joseph",
+      "person_id": "archer_joseph",
+      "name": "Joseph Archer",
+      "stratum": "letter_list_only_present",
+      "starting_grade": "inferred",
+      "starting_presence": "present",
+      "letter_list_returns": [
+        "1835-07-01"
+      ],
+      "sources": [
+        "chicago_democrat_1833_1835"
+      ]
+    },
+    {
+      "household_id": "hh_vaughn_alison_b",
+      "person_id": "vaughn_alison_b",
+      "name": "Alison B. Vaughn",
+      "stratum": "letter_list_only_uncertain",
+      "starting_grade": "inferred",
+      "starting_presence": "uncertain",
+      "letter_list_returns": [
+        "1834-07-02"
+      ],
+      "sources": [
+        "chicago_democrat_1833_1835"
+      ]
+    },
+    {
+      "household_id": "hh_brown_lemuel",
+      "person_id": "brown_lemuel",
+      "name": "Lemuel Brown",
+      "stratum": "established_profile",
+      "starting_grade": "attested",
+      "starting_presence": "uncertain",
+      "letter_list_returns": [],
+      "sources": [
+        "andreas_1884_v1",
+        "chicago_voter_lists_1833_1835_irad"
+      ]
+    },
+    {
+      "household_id": "hh_avery_charles",
+      "person_id": "avery_charles",
+      "name": "Charles Avery",
+      "stratum": "letter_list_only_present",
+      "starting_grade": "inferred",
+      "starting_presence": "present",
+      "letter_list_returns": [
+        "1835-07-01"
+      ],
+      "sources": [
+        "census_1840_chicago_familysearch_images",
+        "chicago_democrat_1833_1835"
+      ]
+    },
+    {
+      "household_id": "hh_perring_almon",
+      "person_id": "perring_almon",
+      "name": "Almon Perring",
+      "stratum": "letter_list_only_uncertain",
+      "starting_grade": "inferred",
+      "starting_presence": "uncertain",
+      "letter_list_returns": [
+        "1834-07-02"
+      ],
+      "sources": [
+        "chicago_democrat_1833_1835"
+      ]
+    },
+    {
+      "household_id": "hh_brown_rufus",
+      "person_id": "brown_mrs_rufus",
+      "name": "Mrs Rufus Brown",
+      "stratum": "established_profile",
+      "starting_grade": "inferred",
+      "starting_presence": "present",
+      "letter_list_returns": [],
+      "sources": [
+        "andreas_1884_v1"
+      ]
+    },
+    {
+      "household_id": "hh_ayres_levi",
+      "person_id": "ayres_levi",
+      "name": "Levi Ayres",
+      "stratum": "letter_list_only_present",
+      "starting_grade": "inferred",
+      "starting_presence": "present",
+      "letter_list_returns": [
+        "1835-07-01"
+      ],
+      "sources": [
+        "chicago_democrat_1833_1835"
+      ]
+    },
+    {
+      "household_id": "hh_castle_alonzo",
+      "person_id": "castle_alonzo",
+      "name": "Alonzo Castle",
+      "stratum": "letter_list_only_uncertain",
+      "starting_grade": "inferred",
+      "starting_presence": "uncertain",
+      "letter_list_returns": [
+        "1834-04-08"
+      ],
+      "sources": [
+        "chicago_democrat_1833_1835"
+      ]
+    },
+    {
+      "household_id": "hh_brown_rufus",
+      "person_id": "brown_rufus",
+      "name": "Rufus Brown",
+      "stratum": "established_profile",
+      "starting_grade": "attested",
+      "starting_presence": "present",
+      "letter_list_returns": [],
+      "sources": [
+        "andreas_1884_v1"
+      ]
+    },
+    {
+      "household_id": "hh_bailly_joseph",
+      "person_id": "bailly_joseph",
+      "name": "Joseph Bailly",
+      "stratum": "letter_list_only_present",
+      "starting_grade": "inferred",
+      "starting_presence": "present",
+      "letter_list_returns": [
+        "1835-07-01"
+      ],
+      "sources": [
+        "chicago_democrat_1833_1835",
+        "fergus_1843_old_settler_death_notices"
+      ]
+    },
+    {
+      "household_id": "hh_murray_alonzo",
+      "person_id": "murray_alonzo",
+      "name": "Alonzo Murray",
+      "stratum": "letter_list_only_uncertain",
+      "starting_grade": "attested",
+      "starting_presence": "uncertain",
+      "letter_list_returns": [
+        "1834-07-02"
+      ],
+      "sources": [
+        "chicago_democrat_1833_1835"
+      ]
+    },
+    {
+      "household_id": "hh_caldwell_billy",
+      "person_id": "caldwell_billy",
+      "name": "Billy Caldwell (Sauganash)",
+      "stratum": "established_profile",
+      "starting_grade": "attested",
+      "starting_presence": "present",
+      "letter_list_returns": [],
+      "sources": [
+        "andreas_1884_v1"
+      ]
+    },
+    {
+      "household_id": "hh_bakwith_albert",
+      "person_id": "bakwith_albert",
+      "name": "Albert Bakwith",
+      "stratum": "letter_list_only_present",
+      "starting_grade": "inferred",
+      "starting_presence": "present",
+      "letter_list_returns": [
+        "1835-07-01"
+      ],
+      "sources": [
+        "chicago_democrat_1833_1835"
+      ]
+    },
+    {
+      "household_id": "hh_murry_alonzo",
+      "person_id": "murry_alonzo",
+      "name": "Alonzo Murry",
+      "stratum": "letter_list_only_uncertain",
+      "starting_grade": "inferred",
+      "starting_presence": "uncertain",
+      "letter_list_returns": [
+        "1835-05-20"
+      ],
+      "sources": [
+        "chicago_democrat_1833_1835"
+      ]
+    },
+    {
+      "household_id": "hh_calhoun_john",
+      "person_id": "calhoun_john",
+      "name": "John Calhoun",
+      "stratum": "established_profile",
+      "starting_grade": "attested",
+      "starting_presence": "present",
+      "letter_list_returns": [],
+      "sources": [
+        "andreas_1884_v1",
+        "chicago_democrat_1833_11_26",
+        "chicago_voter_lists_1833_1835_irad",
+        "fergus_chicago_directory_1839"
+      ]
+    },
+    {
+      "household_id": "hh_bebee_orson",
+      "person_id": "bebee_orson",
+      "name": "Orson Bebee",
+      "stratum": "letter_list_only_present",
+      "starting_grade": "inferred",
+      "starting_presence": "present",
+      "letter_list_returns": [
+        "1835-07-01"
+      ],
+      "sources": [
+        "chicago_democrat_1833_1835"
+      ]
+    },
+    {
+      "household_id": "hh_crandal_alva",
+      "person_id": "crandal_alva",
+      "name": "Alva Crandal",
+      "stratum": "letter_list_only_uncertain",
+      "starting_grade": "inferred",
+      "starting_presence": "uncertain",
+      "letter_list_returns": [
+        "1835-05-20"
+      ],
+      "sources": [
+        "chicago_democrat_1833_1835"
+      ]
+    },
+    {
+      "household_id": "hh_carpenter_philo",
+      "person_id": "carpenter_philo",
+      "name": "Philo Carpenter",
+      "stratum": "established_profile",
+      "starting_grade": "attested",
+      "starting_presence": "present",
+      "letter_list_returns": [],
+      "sources": [
+        "andreas_1884_v1",
+        "calumet_club_early_chicago_1879",
+        "chicago_democrat_1833_11_26",
+        "chicago_tribune_1882_05_19_fourth_reception",
+        "chicago_voter_lists_1833_1835_irad",
+        "fergus_chicago_directory_1839"
+      ]
+    },
+    {
+      "household_id": "hh_beddlecome_ash",
+      "person_id": "beddlecome_ash",
+      "name": "Ash Beddlecome",
+      "stratum": "letter_list_only_present",
+      "starting_grade": "inferred",
+      "starting_presence": "present",
+      "letter_list_returns": [
+        "1835-07-01"
+      ],
+      "sources": [
+        "chicago_democrat_1833_1835"
+      ]
+    },
+    {
+      "household_id": "hh_dunlap_alva",
+      "person_id": "dunlap_alva",
+      "name": "Alva Dunlap",
+      "stratum": "letter_list_only_uncertain",
+      "starting_grade": "inferred",
+      "starting_presence": "uncertain",
+      "letter_list_returns": [
+        "1834-07-09"
+      ],
+      "sources": [
+        "chicago_democrat_1833_1835"
+      ]
+    },
+    {
+      "household_id": "hh_carver_david",
+      "person_id": "carver_david",
+      "name": "David Carver",
+      "stratum": "established_profile",
+      "starting_grade": "attested",
+      "starting_presence": "uncertain",
+      "letter_list_returns": [],
+      "sources": [
+        "andreas_1884_v1",
+        "chicago_voter_lists_1833_1835_irad",
+        "fergus_chicago_directory_1839",
+        "isa_public_domain_land_tract_sales"
+      ]
+    },
+    {
+      "household_id": "hh_beeson_william",
+      "person_id": "beeson_william",
+      "name": "William Beeson",
+      "stratum": "letter_list_only_present",
+      "starting_grade": "inferred",
+      "starting_presence": "present",
+      "letter_list_returns": [
+        "1835-07-01"
+      ],
+      "sources": [
+        "chicago_democrat_1833_1835"
+      ]
+    },
+    {
+      "household_id": "hh_miner_amanda",
+      "person_id": "miner_amanda",
+      "name": "Amanda Miner",
+      "stratum": "letter_list_only_uncertain",
+      "starting_grade": "inferred",
+      "starting_presence": "uncertain",
+      "letter_list_returns": [
+        "1835-05-20"
+      ],
+      "sources": [
+        "chicago_democrat_1833_1835"
+      ]
+    },
+    {
+      "household_id": "hh_casey_edward_w",
+      "person_id": "casey_edward_w",
+      "name": "Edward W. Casey",
+      "stratum": "established_profile",
+      "starting_grade": "attested",
+      "starting_presence": "present",
+      "letter_list_returns": [],
+      "sources": [
+        "andreas_1884_v1",
+        "chicago_voter_lists_1833_1835_irad",
+        "fergus_chicago_directory_1839",
+        "isa_public_domain_land_tract_sales"
+      ]
+    },
+    {
+      "household_id": "hh_beger_tobias",
+      "person_id": "beger_tobias",
+      "name": "Tobias Beger",
+      "stratum": "letter_list_only_present",
+      "starting_grade": "inferred",
+      "starting_presence": "present",
+      "letter_list_returns": [
+        "1835-07-01"
+      ],
+      "sources": [
+        "chicago_democrat_1833_1835"
+      ]
+    },
+    {
+      "household_id": "hh_rathburn_amos",
+      "person_id": "rathburn_amos",
+      "name": "Amos Rathburn",
+      "stratum": "letter_list_only_uncertain",
+      "starting_grade": "inferred",
+      "starting_presence": "uncertain",
+      "letter_list_returns": [
+        "1835-05-20"
+      ],
+      "sources": [
+        "chicago_democrat_1833_1835"
+      ]
+    },
+    {
+      "household_id": "hh_caton_john_dean",
+      "person_id": "caton_john_dean",
+      "name": "John Dean Caton",
+      "stratum": "established_profile",
+      "starting_grade": "attested",
+      "starting_presence": "present",
+      "letter_list_returns": [],
+      "sources": [
+        "andreas_1884_v1",
+        "calumet_club_early_chicago_1879",
+        "chicago_tribune_1882_05_19_fourth_reception",
+        "chicago_voter_lists_1833_1835_irad",
+        "fergus_chicago_directory_1839"
+      ]
+    },
+    {
+      "household_id": "hh_bemis_samuel_c",
+      "person_id": "bemis_samuel_c",
+      "name": "Samuel C Bemis",
+      "stratum": "letter_list_only_present",
+      "starting_grade": "inferred",
+      "starting_presence": "present",
+      "letter_list_returns": [
+        "1835-07-01"
+      ],
+      "sources": [
+        "chicago_democrat_1833_1835"
+      ]
+    },
+    {
+      "household_id": "hh_wear_amy_c",
+      "person_id": "wear_amy_c",
+      "name": "Amy C. Wear",
+      "stratum": "letter_list_only_uncertain",
+      "starting_grade": "inferred",
+      "starting_presence": "uncertain",
+      "letter_list_returns": [
+        "1834-04-01"
+      ],
+      "sources": [
+        "chicago_democrat_1833_1835"
+      ]
+    },
+    {
+      "household_id": "hh_church_thomas",
+      "person_id": "church_thomas",
+      "name": "Thomas Church",
+      "stratum": "established_profile",
+      "starting_grade": "inferred",
+      "starting_presence": "uncertain",
+      "letter_list_returns": [],
+      "sources": [
+        "andreas_1884_v1",
+        "chicagology_prefire275"
+      ]
+    },
+    {
+      "household_id": "hh_benton_datas_e",
+      "person_id": "benton_datas_e",
+      "name": "Datas E Benton",
+      "stratum": "letter_list_only_present",
+      "starting_grade": "inferred",
+      "starting_presence": "present",
+      "letter_list_returns": [
+        "1835-07-01"
+      ],
+      "sources": [
+        "chicago_democrat_1833_1835"
+      ]
+    },
+    {
+      "household_id": "hh_miles_andrew",
+      "person_id": "miles_andrew",
+      "name": "Andrew Miles",
+      "stratum": "letter_list_only_uncertain",
+      "starting_grade": "inferred",
+      "starting_presence": "uncertain",
+      "letter_list_returns": [
+        "1834-07-02"
+      ],
+      "sources": [
+        "chicago_democrat_1833_1835"
+      ]
+    },
+    {
+      "household_id": "hh_clybourne_archibald",
+      "person_id": "clybourne_archibald",
+      "name": "Archibald Clybourne",
+      "stratum": "established_profile",
+      "starting_grade": "attested",
+      "starting_presence": "present",
+      "letter_list_returns": [],
+      "sources": [
+        "andreas_1884_v1",
+        "chicago_voter_lists_1833_1835_irad",
+        "isa_public_domain_land_tract_sales"
+      ]
+    },
+    {
+      "household_id": "hh_benubien_charl",
+      "person_id": "benubien_charl",
+      "name": "Charl Benubien",
+      "stratum": "letter_list_only_present",
+      "starting_grade": "inferred",
+      "starting_presence": "present",
+      "letter_list_returns": [
+        "1835-07-01"
+      ],
+      "sources": [
+        "chicago_democrat_1833_1835"
+      ]
+    },
+    {
+      "household_id": "hh_vann_angeline",
+      "person_id": "vann_angeline",
+      "name": "Angeline Vann",
+      "stratum": "letter_list_only_uncertain",
+      "starting_grade": "inferred",
+      "starting_presence": "uncertain",
+      "letter_list_returns": [
+        "1835-05-20"
+      ],
+      "sources": [
+        "chicago_democrat_1833_1835"
+      ]
+    },
+    {
+      "household_id": "hh_goss_cobb",
+      "person_id": "cobb_silas_b",
+      "name": "Silas B. Cobb",
+      "stratum": "established_profile",
+      "starting_grade": "attested",
+      "starting_presence": "uncertain",
+      "letter_list_returns": [],
+      "sources": [
+        "andreas_1884_v1",
+        "calumet_club_early_chicago_1879",
+        "chicago_american_1835",
+        "chicago_democrat_1833_11_26",
+        "fergus_chicago_directory_1839",
+        "fergus_chicago_directory_1843",
+        "norris_directory_1844"
+      ]
+    },
+    {
+      "household_id": "hh_bishop_j_e",
+      "person_id": "bishop_j_e",
+      "name": "J. E. Bishop",
+      "stratum": "letter_list_only_present",
+      "starting_grade": "inferred",
+      "starting_presence": "present",
+      "letter_list_returns": [
+        "1835-07-01"
+      ],
+      "sources": [
+        "chicago_democrat_1833_1835",
+        "chicago_tribune_1882_05_19_fourth_reception",
+        "fergus_chicago_directory_1843",
+        "norris_directory_1844"
+      ]
+    },
+    {
+      "household_id": "hh_heere_anthony",
+      "person_id": "heere_anthony",
+      "name": "Anthony Heere",
+      "stratum": "letter_list_only_uncertain",
+      "starting_grade": "inferred",
+      "starting_presence": "uncertain",
+      "letter_list_returns": [
+        "1834-01-28"
+      ],
+      "sources": [
+        "chicago_democrat_1833_1835"
+      ]
+    },
+    {
+      "household_id": "hh_cohen_peter",
+      "person_id": "cohen_peter",
+      "name": "Peter Cohen",
+      "stratum": "established_profile",
+      "starting_grade": "attested",
+      "starting_presence": "uncertain",
+      "letter_list_returns": [],
+      "sources": [
+        "chicago_democrat_1833_11_26",
+        "chicago_voter_lists_1833_1835_irad",
+        "fergus_chicago_directory_1839"
+      ]
+    },
+    {
+      "household_id": "hh_blair_william_g",
+      "person_id": "blair_william_g",
+      "name": "William G Blair",
+      "stratum": "letter_list_only_present",
+      "starting_grade": "inferred",
+      "starting_presence": "present",
+      "letter_list_returns": [
+        "1835-07-01"
+      ],
+      "sources": [
+        "chicago_democrat_1833_1835",
+        "fergus_chicago_directory_1843",
+        "norris_directory_1844"
+      ]
+    },
+    {
+      "household_id": "hh_winsor_aram",
+      "person_id": "winsor_aram",
+      "name": "Aram Winsor",
+      "stratum": "letter_list_only_uncertain",
+      "starting_grade": "inferred",
+      "starting_presence": "uncertain",
+      "letter_list_returns": [
+        "1834-07-02"
+      ],
+      "sources": [
+        "chicago_democrat_1833_1835"
+      ]
+    },
+    {
+      "household_id": "hh_couch_ira",
+      "person_id": "couch_ira",
+      "name": "Ira Couch",
+      "stratum": "established_profile",
+      "starting_grade": "attested",
+      "starting_presence": "present",
+      "letter_list_returns": [],
+      "sources": [
+        "andreas_1884_v1",
+        "fergus_chicago_directory_1839"
+      ]
+    },
+    {
+      "household_id": "hh_bloget_josiah_i",
+      "person_id": "bloget_josiah_i",
+      "name": "Josiah I Bloget",
+      "stratum": "letter_list_only_present",
+      "starting_grade": "inferred",
+      "starting_presence": "present",
+      "letter_list_returns": [
+        "1835-07-01"
+      ],
+      "sources": [
+        "chicago_democrat_1833_1835"
+      ]
+    },
+    {
+      "household_id": "hh_knox_archibald",
+      "person_id": "knox_archibald",
+      "name": "Archibald Knox",
+      "stratum": "letter_list_only_uncertain",
+      "starting_grade": "inferred",
+      "starting_presence": "uncertain",
+      "letter_list_returns": [
+        "1834-04-01"
+      ],
+      "sources": [
+        "chicago_democrat_1833_1835"
+      ]
+    },
+    {
+      "household_id": "hh_couch_ira",
+      "person_id": "couch_james",
+      "name": "James Couch",
+      "stratum": "established_profile",
+      "starting_grade": "inferred",
+      "starting_presence": "present",
+      "letter_list_returns": [],
+      "sources": [
+        "andreas_1884_v1",
+        "calumet_club_early_chicago_1879"
+      ]
+    },
+    {
+      "household_id": "hh_blood_amos",
+      "person_id": "blood_amos",
+      "name": "Amos Blood",
+      "stratum": "letter_list_only_present",
+      "starting_grade": "inferred",
+      "starting_presence": "present",
+      "letter_list_returns": [
+        "1835-07-01"
+      ],
+      "sources": [
+        "chicago_democrat_1833_1835"
+      ]
+    },
+    {
+      "household_id": "hh_parcell_aron",
+      "person_id": "parcell_aron",
+      "name": "Aron Parcell",
+      "stratum": "letter_list_only_uncertain",
+      "starting_grade": "inferred",
+      "starting_presence": "uncertain",
+      "letter_list_returns": [
+        "1834-07-02"
+      ],
+      "sources": [
+        "chicago_democrat_1833_1835"
+      ]
+    },
+    {
+      "household_id": "hh_davis_john",
+      "person_id": "davis_john",
+      "name": "John Davis",
+      "stratum": "established_profile",
+      "starting_grade": "attested",
+      "starting_presence": "present",
+      "letter_list_returns": [],
+      "sources": [
+        "andreas_1884_v1",
+        "chicago_voter_lists_1833_1835_irad",
+        "drloih_hotels"
+      ]
+    },
+    {
+      "household_id": "hh_bly_rouse",
+      "person_id": "bly_rouse",
+      "name": "Rouse Bly",
+      "stratum": "letter_list_only_present",
+      "starting_grade": "inferred",
+      "starting_presence": "present",
+      "letter_list_returns": [
+        "1835-07-01"
+      ],
+      "sources": [
+        "chicago_democrat_1833_1835"
+      ]
+    },
+    {
+      "household_id": "hh_brundage_asa",
+      "person_id": "brundage_asa",
+      "name": "Asa Brundage",
+      "stratum": "letter_list_only_uncertain",
+      "starting_grade": "inferred",
+      "starting_presence": "uncertain",
+      "letter_list_returns": [
+        "1834-07-09"
+      ],
+      "sources": [
+        "chicago_democrat_1833_1835"
+      ]
+    },
+    {
+      "household_id": "hh_davis_t_o",
+      "person_id": "davis_t_o",
+      "name": "T. O. Davis",
+      "stratum": "established_profile",
+      "starting_grade": "attested",
+      "starting_presence": "present",
+      "letter_list_returns": [],
+      "sources": [
+        "andreas_1884_v1",
+        "fergus_chicago_directory_1839"
+      ]
+    },
+    {
+      "household_id": "hh_boardman_elect",
+      "person_id": "boardman_elect",
+      "name": "Elect Boardman",
+      "stratum": "letter_list_only_present",
+      "starting_grade": "inferred",
+      "starting_presence": "present",
+      "letter_list_returns": [
+        "1835-07-01"
+      ],
+      "sources": [
+        "chicago_democrat_1833_1835"
+      ]
+    },
+    {
+      "household_id": "hh_doel_asa",
+      "person_id": "doel_asa",
+      "name": "Asa Doel",
+      "stratum": "letter_list_only_uncertain",
+      "starting_grade": "inferred",
+      "starting_presence": "uncertain",
+      "letter_list_returns": [
+        "1835-05-20"
+      ],
+      "sources": [
+        "chicago_democrat_1833_1835"
+      ]
+    },
+    {
+      "household_id": "hh_garrett_a",
+      "person_id": "garrett_a",
+      "name": "A. Garrett",
+      "stratum": "established_profile",
+      "starting_grade": "attested",
+      "starting_presence": "present",
+      "letter_list_returns": [],
+      "sources": [
+        "chicago_american_1835",
+        "chicago_democrat_1833_1835"
+      ]
+    }
+  ]
+}

@@ -1,0 +1,203 @@
+{
+  "schema": 1,
+  "domain": "books",
+  "generated_by": "hand — one entry per book whose text this project commits, written by the reading pass that committed it",
+  "_doc": "THE REGISTER OF THE BOOKS THIS PROJECT HOLDS TEXT FOR. It exists for the same reason data/research/newspapers/corpus.json does: a quote is checked against a committed file, and the file has to be traceable back to the artifact it came out of or the check is circular. Each entry says what the book is, which source record grades it, where the deposit copy is and its sha256, what derived text is committed and its sha256, how that text was produced, and what has actually been read out of it. A book with no entry here has no committed text; an entry whose sha256 no longer matches means somebody edited a transcription, which is the one thing this subtree must never do. DERIVED TEXT IS COMMITTED, SCANS AND RENDERS ARE NOT: the deposit under chicago/reference/ is read-only and nothing here is published.",
+  "books": [
+    {
+      "id": "hubbard_autobiography_1911",
+      "title": "The Autobiography of Gurdon Saltonstall Hubbard, Pa-pa-ma-ta-be, \"The Swift Walker\"",
+      "imprint": "Chicago: R. R. Donnelley & Sons Company, The Lakeside Press, Christmas 1911 — The Lakeside Classics",
+      "source_id": "hubbard_autobiography_1911",
+      "archive_item": "autobiographyofg00hubb",
+      "deposit": {
+        "path": "chicago/reference/swift-walker-autobiography/autobiographyofg00hubb.pdf",
+        "path_kind": "deposit",
+        "sha256": "95571d98ba11eae0570d42e48eb4fb5fb7f68d7843d8f984f115f8dd64ca34df",
+        "leaves": 226
+      },
+      "text": {
+        "path": "chicago/4d/data/research/books/text/hubbard_autobiography_1911.txt",
+        "path_kind": "derived",
+        "sha256": "6c226cc700b47c1ee0d3ca6c7c8898d675e03c788634e0081cbcb1634ab6a4d7",
+        "how": "curl -L https://archive.org/download/autobiographyofg00hubb/autobiographyofg00hubb_djvu.txt on 2026-09-03, committed byte for byte. The identifier was confirmed against archive.org's advancedsearch API first (numFound 1, year 1911).",
+        "corroborated_by": "pdftotext -layout over the deposited PDF's own embedded text layer, an independent extraction of the same scan, which agrees with the committed text to better than 0.9999 on whitespace-normalised comparison. The two differ only where poppler welds an italic word to its neighbour."
+      },
+      "page_index": {
+        "path": "chicago/4d/data/research/books/page_index/hubbard_autobiography_1911.json",
+        "path_kind": "derived",
+        "generated_by": "tools/build_book_page_index.py --build",
+        "why": "THE COMMITTED TEXT HAS NO PAGE BREAKS. The Internet Archive's djvu output carries not one form feed and prints no folio of its own, so the leaf boundaries are transferred onto it from the deposited PDF's text layer, which has all 226. 207 of the 208 non-blank leaves aligned; the one that did not is the Contents at leaf 19, whose columns poppler reorders, and it is declared as such.",
+        "folios_read_off_the_page": 179
+      },
+      "claims": "chicago/4d/data/research/books/claims/hubbard_autobiography_1911.json — 92 claims, T-0501",
+      "read": "Pages ix-xxvii and 27-41, 135-138, 141-144, 153-159, 165-174, 178-182, declared item by item in coverage.json. Pages 1-26, 42-134, 139-140, 145-152, 160-164, 175-177 are NOT read and are not declared: they are Montreal, Mackinaw and the Illinois River posts, and they name no Chicago.",
+      "note": "THE SCAN IS OUT OF ORDER. Pages xv and xvi were photographed at the front of the Internet Archive item, as leaves 11 and 12, ahead of the title page. The text proves it and six folios read off the page confirm it; tools/build_book_page_index.py carries the three folio runs that forces and hard-fails if a printed folio ever contradicts them."
+    },
+    {
+      "id": "hurlbut_chicago_antiquities_28_36",
+      "title": "Henry H. Hurlbut, Chicago Antiquities (Chicago, 1881), pages 28-36 — the chapter on the American Fur Company and Chicago",
+      "imprint": "Chicago, 1881",
+      "source_id": "chicago_antiquities_american_fur_co",
+      "archive_item": null,
+      "deposit": {
+        "path": "chicago/4d/data/research/genealogytrails/text/americanfurco.txt",
+        "path_kind": "derived",
+        "sha256": "8ce7c49d85524a468a6ce00ae29d808039fa4f0138a7345794cf11973fd5bae1",
+        "leaves": null
+      },
+      "text": {
+        "path": "chicago/4d/data/research/books/text/hurlbut_chicago_antiquities_28_36.txt",
+        "path_kind": "derived",
+        "sha256": "8ce7c49d85524a468a6ce00ae29d808039fa4f0138a7345794cf11973fd5bae1",
+        "how": "Copied byte-identical from this project's own genealogytrails cache, itself fetched 2026-09-03 for T-0556. NOBODY IN THIS PROJECT HAS SEEN THE BOOK; what is held is a 2006 web transcription of nine of its pages.",
+        "corroborated_by": null
+      },
+      "page_index": null,
+      "claims": "chicago/4d/data/research/books/claims/american_fur_company_hurlbut.json — 19 claims, T-0575",
+      "read": "Pages 28-36, declared in coverage.json as ONE `list` item and not as nine `page` items, because the transcription marks no page breaks and this project will not invent them.",
+      "note": "Registered here retrospectively by T-0501, which is the pass that gave this domain a corpus at all. Nothing about the T-0575 reading is changed by the entry."
+    },
+    {
+      "id": "fergus_26_29",
+      "title": "Fergus' Historical Series, Nos. 26-29, bound in one volume",
+      "imprint": "Chicago: Fergus Printing Company, 1883-1888 - four separately printed pamphlets, each with its own title page and its own folio run starting at 1",
+      "source_id": "fergus_historical_series_26_29",
+      "archive_item": "fergushistorical2629unse",
+      "deposit": {
+        "path": "chicago/reference/fergus/fergushistorical2629unse_hocr_searchtext",
+        "path_kind": "deposit",
+        "sha256": "0b8fcb14a6c65319598cf8d5fa635922c65df8d3ed3efaf969cb29b628c19942",
+        "leaves": 858
+      },
+      "text": {
+        "path": "chicago/4d/data/research/books/text/fergus_26_29.txt",
+        "path_kind": "derived",
+        "sha256": "0b8fcb14a6c65319598cf8d5fa635922c65df8d3ed3efaf969cb29b628c19942",
+        "how": "The deposit's own hOCR search text, copied byte for byte on 2026-09-03. NO FETCH WAS MADE: the file had been in chicago/reference/fergus/ unread since the deposit was laid down, with its hOCR page index beside it. tools/build_book_page_index.py --build refuses to write the index unless the committed text is byte-identical to that deposit file, so the copy is gated and not merely asserted.",
+        "corroborated_by": null
+      },
+      "page_index": {
+        "path": "chicago/4d/data/research/books/page_index/fergus_26_29.json",
+        "path_kind": "derived",
+        "generated_by": "tools/build_book_page_index.py --build",
+        "why": "THE COMMITTED TEXT HAS NO PAGE BREAKS, AND UNLIKE HUBBARD'S IT NEEDED NO ALIGNMENT TO GET THEM. The Internet Archive emitted an hOCR PAGE INDEX with the same OCR pass that produced this text, and it gives every one of the 858 leaves an exact character range in these very characters - so the boundaries are transferred by arithmetic, not searched for, and --build hard-fails unless the 858 ranges tile the text with no gap and no overlap. They do: 624 non-blank leaves, all exact.",
+        "folios_read_off_the_page": 194,
+        "folio_note": "194 of 624 non-blank leaves print a folio the head-reader could take. The rest are refused rather than carried: THIS VOLUME BINDS FOUR PAMPHLETS THAT EACH RESTART AT 1, so there is no constant offset to carry and a carried folio would be an invention. The OCR loses most of the rest to its own damage - '1 843. 1 3', 'l6', 'l843- 21' - and a claim cites its LEAF, which is exact for all 858."
+      },
+      "claims": "chicago/4d/data/research/books/claims/fergus_26_29_first_half.json - 41 claims, 20 of them town findings, T-0499 (leaves 1-429); chicago/4d/data/research/books/claims/fergus_26_29_second_half.json - 58 claims, 45 of them town findings, T-0500 (leaves 430-858). The volume is read whole between the two.",
+      "read": "ALL 858 LEAVES, between two tickets. T-0499 read leaves 1-429 - the front matter (1-14), No. 26 entire (15-206), No. 27 entire (207-398) and No. 28 through its port statistics (399-429) - as four `list` items in coverage.json. T-0500 read leaves 430-858 as five more: No. 28's Business Directory (430-457) and Obituary (606-644) and the whole of No. 29 (658-850) read in full; the publisher's advertisement leaves (645-657, 851-858) read for Chicago titles only; and No. 28's alphabetical name directory (458-605) SWEPT BY MACHINE and NOT read continuously, which its own declaration states in as many words.",
+      "note": "THE FILENAME SAYS 26-29 AND UNTIL THIS PASS NOTHING SAID WHAT THAT MEANT. The four numbers are Harrison's Discourse on the Aborigines of the Ohio Valley (26), Beckwith's Illinois and Indiana Indians (27), the Directory of the City of Chicago for 1843 (28) and Kirby's Biographical Sketch of Joseph Duncan (29); the contents table with leaf ranges is in README.md. Two of the four touch Chicago, one of them fourteen years too early and the other eight years too late, and No. 28 - the directory 'for 1843' - was compiled in 1896. T-0500 adds what the second half holds: eight thousand 1843 directory entries whose only pre-1837 statements are Robert Fergus's own bracketed annotations, an Obituary carrying six deaths inside 1830-1836, and No. 29's canal thread - Duncan's 1829 diary of getting the route located, the legislature of 1834-35 adjourning without acting on it, and the special session of December 1835 that authorised the loan the canal was finally built with."
+    },
+    {
+      "id": "ichr_v4_1921_22",
+      "title": "Illinois Catholic Historical Review, volume 4 (July 1921 - April 1922)",
+      "imprint": "Chicago: Illinois Catholic Historical Society, 1921-1922 - the society's quarterly, four numbers bound in one volume",
+      "source_id": "ichr_v4_thompson_illinois_vincennes",
+      "archive_item": "illinoiscatholic04unse_1",
+      "deposit": null,
+      "text": {
+        "path": "chicago/4d/data/research/books/text/ichr_v4_1921_22.txt",
+        "path_kind": "derived",
+        "sha256": "d7dcf68530d6872d2c8def2a66053171b32cbf2ed1d294c38dd6e4cafd6e5c02",
+        "how": "curl -L https://archive.org/download/illinoiscatholic04unse_1/illinoiscatholic04unse_1_djvu.txt on 2026-09-05, committed byte for byte. 290,298 bytes, which is the byte count T-0503 recorded for the same file when it fetched it on 2026-09-04 for a different question - so the file has not moved under this project between the two fetches.",
+        "corroborated_by": null
+      },
+      "page_index": null,
+      "claims": "chicago/4d/data/research/books/claims/ichr_v4_thompson_vincennes.json - 8 claims, all of them town findings, T-0650 (printed pages 256-259).",
+      "read": "Pages 256-259 of Joseph J. Thompson's article 'The Illinois Part of the Diocese of Vincennes' (pages 253-265), declared in coverage.json as ONE `list` item. THE VOLUME IS COMMITTED AND FOUR PAGES OF IT ARE READ; everything else in the 290 KB is unread and undeclared, which is not a fault.",
+      "note": "THERE IS NO DEPOSIT COPY AND NO PAGE INDEX, and both absences are on purpose. No PDF of this volume was downloaded: the reading needed four pages and the djvu OCR carries them, so a 60-plus MB scan would be a deposit nothing checks. Without a second extraction there is nothing to corroborate the OCR against, so `corroborated_by` is null and every claim taken from it is graded transcription_mediated - a reading off the page image would outrank it and none was made. The page boundaries were read off the volume's own RUNNING HEADS, which this OCR prints ('258 JOSEPH J. THOMPSON', 'ILLINOIS PART OF THE DIOCESE OF VINCENNES 259'), so no alignment was needed and tools/build_book_page_index.py is not involved; the four boundaries are written into the source record's locator instead. NOTE THE OVERLAP THAT IS NOT A DUPLICATION: data/sources/st_cyr_register_ichr_v4.json also reads this volume, through a Genealogy Trails transcription of two of its register pages rather than through this scan. Two records of one volume, exactly as chicago_antiquities_pratt and chicago_antiquities_american_fur_co are two records of one book."
+    },
+    {
+      "id": "porter_hh_short_autobiography_1915",
+      "title": "H. H. Porter, A Short Autobiography, Written for His Children and Grandchildren",
+      "imprint": "Chicago: privately printed, 1915. Written by Porter in the summer of 1904.",
+      "source_id": "porter_hh_short_autobiography_1915",
+      "archive_item": "chicago1835-hh-porter-autobiography",
+      "deposit": {
+        "path": "chicago/reference/hh-porter-a-short-autobiography/4582673_hocr_searchtext",
+        "path_kind": "deposit",
+        "sha256": "b04691bd6e58a802f74e1fecf1716ca0b473a93e9ebd5f4cf3031ed3cd55472f",
+        "leaves": 70,
+        "note": "DERIVED TEXT, NOT THE SCAN. The 66 MB PDF this OCR was made from is offloaded — chicago/reference/hh-porter-a-short-autobiography.yaml names a local_archive_path outside this repository and records the scan's own sha256, cc884a721b7390aeb717753d19fa7143af8b2a09044db37e8f3a606d763030dc — so the deposit copy held here is the Internet Archive's hOCR search text for the same item, together with the hOCR page index emitted beside it (chicago/reference/hh-porter-a-short-autobiography/4582673_hocr_pageindex.json). That is the Fergus arrangement, for the Fergus reason: the index gives every leaf's exact character range in that very text."
+      },
+      "text": {
+        "path": "chicago/4d/data/research/books/text/porter_hh_short_autobiography_1915.txt",
+        "path_kind": "derived",
+        "sha256": "b04691bd6e58a802f74e1fecf1716ca0b473a93e9ebd5f4cf3031ed3cd55472f",
+        "how": "curl -L https://archive.org/download/chicago1835-hh-porter-autobiography/4582673_hocr_searchtext.txt.gz on 2026-09-05, gunzipped, committed byte for byte. The item identifier was not searched for: chicago/reference/hh-porter-a-short-autobiography.yaml already names it, because the item is this project's own upload of its own deposit.",
+        "corroborated_by": "The Internet Archive's djvu text of the same scan (4582673_djvu.txt), an independent serialisation of the same OCR pass, read against this one at every page the reading cites. THE DEPOSITED PDF'S OWN TEXT LAYER WAS NOT USED AND THE TICKET IS RIGHT ABOUT WHY: it uses subset encodings that come out as garbage. The djvu text was rejected as the committed text for a different reason — it carries no page breaks and no page index was emitted with it, so leaf boundaries on it would have to be aligned rather than read."
+      },
+      "page_index": {
+        "path": "chicago/4d/data/research/books/page_index/porter_hh_short_autobiography_1915.json",
+        "path_kind": "derived",
+        "generated_by": "tools/build_book_page_index.py --build",
+        "why": "EXACT, NOT ALIGNED. The deposit holds the hOCR page index the Internet Archive emitted with this very text, so leaf i IS text[start:end]; --build refuses to write the file unless the seventy ranges tile the committed text end to end with no gap and no overlap, and they do. Hubbard's pdftotext transfer could not have been run here in any case: the deposit PDF is offloaded and is not in the checkout.",
+        "folios_read_off_the_page": 26
+      },
+      "claims": "chicago/4d/data/research/books/claims/porter_hh_short_autobiography_1915.json — 8 claims, T-0502",
+      "read": "ALL SEVENTY LEAVES, declared as one `list` item in coverage.json. The whole volume was swept and read closely where it answered; nothing is undeclared, because the ticket's question was about the whole book and the answer had to be about the whole book.",
+      "note": "THE BOOK CARRIES NO DOCUMENT OF CHICAGO 1830-1836 AND THAT IS ITS ENTRY HERE. Its earliest Chicago is September 1853, the author's own arrival; its author was born at Machias, Maine, on 7 December 1835, five months after the scene date; and his parents lived and died in Maine, so the family memory the ticket allowed for does not exist. Two 1853 statements are recorded as town findings — the Fort Dearborn blockhouse still standing, and the street grade five to twelve feet below 1904's — and neither is used. Text is committed for a book with eight claims on it because the verbatim gate checks quotes against a committed file, and a carries-no-document finding that cannot be re-checked is an assertion rather than a reading."
+    },
+    {
+      "id": "moses_kirkland_history_of_chicago_v1",
+      "title": "History of Chicago, Illinois, vol. 1",
+      "imprint": "Chicago and New York: Munsell & Co., 1895 - edited by Hon. John Moses and Maj. Joseph Kirkland",
+      "source_id": "moses_kirkland_history_of_chicago_v1",
+      "archive_item": "historyofchicago01mose",
+      "deposit": {
+        "path": "chicago/reference/moses-kirkland-history-of-chicago-v1.yaml",
+        "path_kind": "record_only",
+        "note": "THERE IS NO DEPOSITED SCAN IN THIS REPOSITORY AND THIS ENTRY SAYS SO RATHER THAN LEAVING THE FIELD OUT. The owner uploaded a 72 MB PDF of volume 1 to the project's own Internet Archive account in September 2026 as historyofchicago01mose_202609 and recorded it in the YAML named above; that item is a DIFFERENT deposit from the one this text comes from, and at the time of this reading it carried no djvu text derivative. Nothing here was read from it. Its epub is named historyofchicago01andr.epub - 'andr', not 'mose' - which the YAML already flags as worth the owner checking, and this reading does not depend on the answer."
+      },
+      "text": {
+        "path": "chicago/4d/data/research/books/text/moses_kirkland_history_of_chicago_v1.txt",
+        "path_kind": "derived",
+        "sha256": "12c57267ab097590c1a8dceb15983edbdfb026b7755d047f0dca0210f77ba96c",
+        "bytes": 3965997,
+        "lines": 137410,
+        "how": "curl -L https://archive.org/download/historyofchicago01mose/historyofchicago01mose_djvu.txt on 2026-09-05, committed byte for byte. WITHOUT -L THE FETCH RETURNS AN EMPTY FILE: archive.org redirects the download path to a node host, and the first attempt in this run wrote zero bytes and a sha256 of the empty string. The identifier was confirmed against archive.org's metadata API first, which returns the Moses and Kirkland title and both authors.",
+        "corroborated_by": "NOTHING, AND THAT IS THE DIFFERENCE FROM THE HUBBARD ENTRY ABOVE. Hubbard's committed text is checked against an independent pdftotext extraction of a deposited PDF; this project holds no scan of this volume, so there is no second extraction to compare and the committed text rests on the Internet Archive's OCR alone. Whoever deposits the 72 MB PDF into this repository can run that comparison and should."
+      },
+      "page_index": {
+        "path": null,
+        "path_kind": "none",
+        "why": "NOT BUILT, AND NOT NEEDED. tools/build_book_page_index.py exists because Hubbard's djvu text carries no page breaks at all and its folios had to be transferred from a deposited PDF. THIS VOLUME PRINTS ITS OWN FOLIOS INTO THE OCR: the page number stands alone on a line at the head of every verso, above 'HISTORY OF CHICAGO', and after the chapter title at the head of every recto. The folio of every claim here is therefore READ off the nearest preceding running head rather than derived, and each locator names the line that head stands on. VERSO HEADS ARE EVEN AND RECTO HEADS ARE ODD, which is a parity check the OCR cannot pass by accident: it is what refuses the '93' the OCR prints above a verso head at line 13147, which the surrounding run 96, 97, 99 fixes as 98. Where a head's numeral did not survive at all the page is carried between two read folios and the locator says so on itself. Building a full index for a 700-page volume of which fourteen pages are read would be derived machinery nothing uses."
+      },
+      "claims": "chicago/4d/data/research/books/claims/moses_kirkland_history_of_chicago_v1.json - 20 claims, T-0581",
+      "read": "Twenty passages on printed pages 35, 78, 79, 89, 90, 95, 98, 207-208, 389, 541, 542, 570, 571, 573-574, 577 and 584, declared as one list item in coverage.json. THE OTHER ~690 PAGES ARE NOT READ. The volume was searched exhaustively for the forty-nine lead surnames the Newberry index flagged against it and read only where that search led; the row-by-row result of that search, including every negative, is at chicago/4d/data/research/books/moses_kirkland_v1_lead_surnames.json. T-0961 ADDS THE ONE TABLE ON THOSE PAGES THAT T-0581 LEFT: the LIST OF ACTUAL SETTLERS AT CHICAGO, PRIOR TO 1830 on printed pages 78-79, all thirty-six rows, at chicago/4d/data/research/books/records/moses_kirkland_v1_actual_settlers_pre_1830.json and declared as a second list item in coverage.json. It is `records` and not `claims` because it is a printed table and not prose, and it is the only records file this domain holds.",
+      "note": "VOLUME 2 IS NOW HELD AND READ — T-0826, the entry below this one. When T-0581 wrote this entry it said volume 2 was neither held nor read and that the Newberry cards citing this work do not say which volume they cite, so every ABSENT verdict in the lookup file was an absence from volume 1 only. That is no longer the state of play: volume 2's text is committed, the same forty-nine surnames are looked up in it by the same script, and data/research/books/moses_kirkland_v2_lead_surnames.json carries each row's volume 1 verdict beside its volume 2 one. The rows in the volume 1 file were NOT rewritten — they are volume 1's reading — but four of them gained a `work_verdict` naming what composing the two changed.",
+      "records": "records/moses_kirkland_v1_actual_settlers_pre_1830.json — 36 rows, T-0961. Every row carries a `verbatim` of the scan's own line, rebuilt from the committed text at its locator by tools/research_domains.py --check, so the transcription is checked and not merely asserted."
+    },
+    {
+      "id": "moses_kirkland_history_of_chicago_v2",
+      "title": "History of Chicago, Illinois, vol. 2",
+      "imprint": "Chicago and New York: Munsell & Co., 1895 - edited by Hon. John Moses and Maj. Joseph Kirkland",
+      "source_id": "moses_kirkland_history_of_chicago_v2",
+      "archive_item": "historyofchicagov2mose",
+      "deposit": {
+        "path": null,
+        "path_kind": "none",
+        "note": "THERE IS NO DEPOSITED SCAN OF THIS VOLUME ANYWHERE IN THIS REPOSITORY AND NO YAML RECORD OF ONE, and this entry says so rather than leaving the field out. The owner uploaded volume 1 to the project's own Internet Archive account in September 2026 and did not upload volume 2, so unlike volume 1 there is not even a second item to compare against. The long-standing public item historyofchicagov2mose, scanned from the same University of Illinois copy as volume 1, is the only thing this reading rests on."
+      },
+      "text": {
+        "path": "chicago/4d/data/research/books/text/moses_kirkland_history_of_chicago_v2.txt",
+        "path_kind": "derived",
+        "sha256": "da06827dc5a9af9a31bfc456398f282982466669e693957ff1f68f32fbfd3905",
+        "bytes": 3898586,
+        "lines": 107905,
+        "how": "curl -L https://archive.org/download/historyofchicagov2mose/historyofchicagov2mose_djvu.txt on 2026-09-11, committed byte for byte. The -L is not optional: archive.org redirects the download path to a node host and without it the fetch writes zero bytes, which is the fault volume 1's entry records and the reason this fetch used the flag from the first attempt. The identifier was confirmed against archive.org's metadata API first, which returns volume `v.2`, the date 1895, Munsell & Co., both editors and scanningcenter `ill` - the same scanning centre as volume 1.",
+        "corroborated_by": "NOTHING, FOR THE SAME REASON AS VOLUME 1 AND ONE MORE. This project holds no scan of this volume, so there is no second extraction to compare and the committed text rests on the Internet Archive's OCR alone. Volume 1 at least has a 72 MB PDF in the owner's own account that somebody could deposit and extract; volume 2 has no such item. WHAT IS CHECKED INSTEAD is internal: the folio sequence read off the running heads is required to be even on versos and to step by a small positive even number, and tools/derive_book_folios.py --audit prints every numeral those two rules refuse. That catches OCR damage to the page numbers, which is what a locator depends on; it says nothing about the prose."
+      },
+      "page_index": {
+        "path": null,
+        "path_kind": "none",
+        "why": "NOT BUILT, AND NOT NEEDED - the same answer as volume 1, re-derived rather than assumed. THIS VOLUME PRINTS ITS OWN FOLIOS INTO THE OCR, by the same rule: the page number alone on a line at the head of every verso, above 'HISTORY OF CHICAGO.', and after the chapter title at the head of every recto, with verso heads even and recto heads odd. tools/derive_book_folios.py --audit is that derivation and reports the evidence: 319 verso heads survive, 271 with a numeral, 256 of those even, and all fifteen odd ones refused by the parity check. ONE RULE HAD TO BE ADDED for this volume and it is written in that script: parity cannot catch an EVEN misread, and the head above line 34064 reads '392' in a run that goes 288, 290, ..., 298, 300 - so a folio must also step by a small positive even number from the last one read, because consecutive verso heads are two pages apart. Building a full index for a 780-page volume of which twenty passages are read would be derived machinery nothing uses.THE FOLIO RULE WAS RE-DERIVED FOR THIS VOLUME AND NOT ASSUMED, by tools/derive_book_folios.py --audit, because a second volume of the same work need not be set the same way. It is: the page number alone on a line at the head of every verso, above 'HISTORY OF CHICAGO.', and after the chapter title at the head of every recto; verso heads even, recto heads odd. T-1024 REBUILT THAT DERIVATION AFTER TWO FAULTS LEFT IT READING HALF THE LEAF — the verso head was searched for inside a line rather than matched on the whole of one, so a sentence writing the phrase in prose (line 9941) counted as a head and stole the recto numeral above it; and the recto head, which the rule always named, was consulted only to break a tie once the verso folio was known. Read as heads in their own right: 299 verso heads survive, 269 with their numeral and 256 of those even; 336 recto heads survive, every one with its numeral and 320 of them odd. The parity check refuses the wrong-parity numerals on either side and the run corrects eleven — the head above line 5881 reads '43' between 40, 41 and 43, 44, the same fault volume 1's parity refused at its line 13147. A SECOND REFUSAL is needed and is not parity's: the head above line 34064 reads '392' in a run going 288 .. 300, which keeps its side's parity and is still wrong, so a folio must also step forward by no more than forty pages from the last one kept. The folio is carried on 512 of 615 heads, where the verso side alone carried 271 of 319, and nine of this volume's twenty claims moved: eight gained a printed page they had been carried without, and bk_mose2_002 is corrected from 407 to 406 — which is what its own prose had derived. Where a head's numeral did not survive the page is still carried between two read folios and every such locator says so on itself. ONE HEAD IS STILL NOT MATCHED: the OCR set line 34254 as 'niSTOET OF CHICAGO.', and bk_mose2_010's page 294 is read by hand off the bare '294' above it rather than by widening a pattern until it matched one line. A full index for a 700-page volume of which eleven pages are read would be derived machinery nothing uses."
+      },
+      "claims": "chicago/4d/data/research/books/claims/moses_kirkland_history_of_chicago_v2.json - 20 claims, T-0826",
+      "read": "Twenty passages on printed pages 103, 150-157, 294, 348-349, 367, 374-375, 406-407, 441, 450-456 and after 624, plus one in Chapter I before the first read folio, declared as one list item in coverage.json. THE OTHER ~760 PAGES ARE NOT READ. The volume was searched exhaustively for the forty-nine lead surnames the Newberry index flagged against the work and read only where that search led; the row-by-row result of that search, including every negative and each row's volume 1 verdict beside its volume 2 one, is at chicago/4d/data/research/books/moses_kirkland_v2_lead_surnames.json.",
+      "note": "THIS IS THE HALF OF THE WORK VOLUME 1'S ENTRY SAID WAS MISSING. It is biographical and trade-by-trade where volume 1 is narrative, and overwhelmingly about men who reached Chicago after 1850 - which is why nineteen of the forty-nine lead surnames appear only outside the pre-1836 window and another twenty-one appear inside it as a forename, an adjective, a noun or a table-of-contents line. Its yield for a town of July 1835 is concentrated in two dated presence lists, a brick yard, a tannery, a residence with a block and a second address for the Chicago Democrat. IT ALSO DISAGREES WITH ITS OWN FIRST VOLUME twice, about who built the town's first tannery and about what Caton rented in the Temple building, and both readings of each are recorded and neither adopted.",
+      "records": null
+    }
+  ]
+}

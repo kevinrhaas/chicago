@@ -1,0 +1,172 @@
+{
+ "id": "hh_vanderbogart_henry",
+ "name": "The Vanderbogart household — a name the town's own records carry",
+ "division": "unplaced",
+ "head": "vanderbogart_henry",
+ "source_pass": "civic",
+ "arrival": {
+  "value": "1834-02-04",
+  "confidence": "inferred",
+  "sources": [
+   "chicago_democrat_1833_1835",
+   "fergus_1843_old_settler_death_notices"
+  ],
+  "note": "A BOUND FROM THE RECORD, NOT AN ARRIVAL. newspaper_1833_1835 names this person at Chicago by 4 February 1834 and nothing says when they came. The bound is at or before the scene date, so the person was at Chicago by 1 July 1835 on this record's own evidence.",
+  "precision": "not_later_than"
+ },
+ "party_size_on_arrival": {
+  "value": null,
+  "confidence": "reconstructed",
+  "note": "Not attested."
+ },
+ "origin": {
+  "value": null,
+  "confidence": "reconstructed",
+  "note": "Not attested."
+ },
+ "reason_for_coming": {
+  "value": null,
+  "confidence": "reconstructed",
+  "note": "Not attested."
+ },
+ "lives_at": {
+  "value": null,
+  "confidence": "reconstructed",
+  "note": "Not attested: the lists that name this person give no address. The placement sweep assigns homes once the resident list is complete (T-0514, the owner's own sequencing) and this pass will not guess one."
+ },
+ "works_at": {
+  "value": null,
+  "confidence": "reconstructed",
+  "note": "Not attested. No trade is recorded here, so there is no premises to seek; T-0633 is where a later directory's address gets back-projected."
+ },
+ "present_on_scene_date": {
+  "value": "uncertain",
+  "confidence": "inferred",
+  "sources": [
+   "chicago_democrat_1833_1835",
+   "fergus_1843_old_settler_death_notices"
+  ],
+  "note": "THE RECORD DOES NOT REACH THE DAY. Every source that names this person falls on one side of 1 July 1835, and nothing follows them to it or says they left. `uncertain` rather than dropped — the distinction index.json draws for Jeremiah Porter, and a finding, not a gap."
+ },
+ "persons": [
+  {
+   "id": "vanderbogart_henry",
+   "name": "Henry Vanderbogart",
+   "relationship": "head",
+   "grade": "attested",
+   "civic_mint": true,
+   "ladder_rule": "G1b",
+   "occupation": {
+    "value": "none_recorded",
+    "confidence": "reconstructed",
+    "note": "No source in this pass's evidence records an occupation for this person. A poll list, a tax list, a muster roll and a baptismal entry each print a name and no trade, and where a later directory prints one it is a trade of 1843 — T-0633 is the rule for back-projecting that, and this pass does not have it."
+   },
+   "sources": [
+    "chicago_democrat_1833_1835",
+    "fergus_1843_old_settler_death_notices"
+   ],
+   "note": "A CONTEMPORARY CHICAGO PAPER OF 1833-1835 PRINTS THIS PERSON BY NAME IN THE TOWN. Read from death_notice, newspaper_1833_1835, newspaper_letter_list. THE GRADE IS THE OWNER'S RATIFIED LADDER OF 2026-09-03 (G1b), applied to every identity at once by tools/consolidate_resident_evidence.py and spent onto this card by tools/mint_civic_residents.py; the evidence blocks below carry the reading AS READ, its locator and the record it came from, so the page can be gone back to. WHAT IS RECONSTRUCTED: everything except the person and the sources — no dwelling, no trade, no origin, no family, no party. A BOUND FROM THE RECORD, NOT AN ARRIVAL. newspaper_1833_1835 names this person at Chicago by 4 February 1834 and nothing says when they came. The bound is at or before the scene date, so the person was at Chicago by 1 July 1835 on this record's own evidence. No figure is drawn (L1).",
+   "book_evidence": [
+    {
+     "list": "death_notice",
+     "as_read": "Bogart, Dr. Henry Van der",
+     "locator": "B",
+     "record_id": "fdn0049",
+     "describes_date": "April 8, 1835",
+     "source": "fergus_1843_old_settler_death_notices",
+     "rule": "G1b"
+    },
+    {
+     "list": "death_notice",
+     "as_read": "Van der Bogart, Dr. Henry",
+     "locator": "V",
+     "record_id": "fdn0683",
+     "describes_date": "April 8, 1835",
+     "source": "fergus_1843_old_settler_death_notices",
+     "rule": "G1b"
+    }
+   ],
+   "press_evidence": [
+    {
+     "list": "newspaper_1833_1835",
+     "as_read": "H. Van Den Bogart",
+     "locator": "chicago_democrat_1834_02_04#c001",
+     "record_id": "person_h_van_den_bogart",
+     "describes_date": "1834-02-04",
+     "source": "chicago_democrat_1833_1835",
+     "rule": "G1b"
+    },
+    {
+     "list": "newspaper_letter_list",
+     "as_read": "H. Vanderbogart",
+     "locator": "chicago_democrat_1835_05_20#c013",
+     "record_id": "person_h_vanderbogart",
+     "describes_date": "1835-05-20",
+     "source": "chicago_democrat_1833_1835",
+     "rule": "G1b"
+    }
+   ],
+   "merge_ruling": [
+    {
+     "ticket": "T-0839",
+     "verdict": "undecided",
+     "rule": "U1",
+     "cluster": "vanderbogart",
+     "weighed_against": [
+      "vanderbogart_h"
+     ],
+     "referred_to": "owner",
+     "for_merge": "",
+     "against_merge": ""
+    },
+    {
+     "ticket": "T-1291",
+     "verdict": "distinct",
+     "rule": "D7",
+     "cluster": "vanderbogart-vanderbogert",
+     "weighed_against": [
+      "vanderbogert_henry"
+     ],
+     "for_merge": "One letter in the stem of a twelve-letter Dutch surname, 'Henry' identical, and the Vanderbogart card is documented as a man: Fergus's old-settler notices print 'Bogart, Dr. Henry Van der' and 'Van der Bogart, Dr. Henry' with a death of 8 April 1835, and the Democrat sets 'H. Van Den Bogart' on 4 February 1834 and 'H. Vanderbogart' on 20 May 1835. 'Vanderbogert' is set four times in the corpus and nowhere outside this town's own records. The town holds exactly one of each.",
+     "against_merge": "THE PARTICLE IS ALREADY RULED AND THE STEM IS NOT. T-0842's C7 merge in the `vanderbogart` cluster folded Van Den against Van der on the printer's own practice, read at the Democrat of 4 February 1834 — that is the PARTICLE. What separates these two cards is a vowel inside the stem, a against e, and no printing reached is caught setting both: 'Vanderbogert, Henry' is the 1833 tax list and nothing else, and no issue, roll or notice carries the two spellings together. C7's demonstration does not transfer from the particle to the stem — that is C9's question and C9's page is missing. D7."
+    }
+   ],
+   "resident_research": {
+    "regraded_on": "2026-09-04",
+    "rule": "G1b"
+   }
+  }
+ ],
+ "touches_removal": false,
+ "review_required": false,
+ "research_note": "MINTED FROM THE CONSOLIDATED CIVIC, CHURCH, PRESS, BOOK AND CENSUS EVIDENCE (T-0513, T-0514). THE HOUSEHOLD IS A CONTAINER, NOT AN ARGUMENT: every other record here is written unattested in its own block, because the lists that name this person name a person and not a family. What is claimed is that the sources cited on the member below name them at Chicago, and the grade is the owner's ratified ladder applied by tools/consolidate_resident_evidence.py --build and spent by tools/mint_civic_residents.py, which prints every refusal. docs/LIBERTIES.md L215 carries the liberty and the tension with L213.",
+ "old_settler_deaths": {
+  "the_header_admission": "Names, places * , dates, and ages at death\nof some of Chicago's Old Settlers, prior to 1843, and other well - known citizens who arrived after 1843, together\nwith others prominently connected with Illinois history:",
+  "note": "LATER EVIDENCE OF A DEATH, BESIDE THE 1835 CLAIMS AND NOT INSIDE THEM. Fergus's 1843 directory (1896) prints an obituary list of old settlers, and one of its entries meets somebody of this name. THE HEADER OF THE LIST IS QUOTED ABOVE, and it is the limit the whole reading turns on. It does not mean the person was in Chicago in 1835, and it does not mean they arrived before 1843 — the list's own header, quoted above, says it also names citizens who arrived later and others merely 'prominently connected with Illinois history'. A match means one thing: a name in the 1835 layer and a name in this list agree on surname and first initial, and the list gives that name a death date and an age. The date and the interval are the payload. Whatever is carried is carried as evidence of a DEATH and of an interval the birth falls in, never as an 1835 fact and never as a grade. T-0513 consolidates and T-0514/T-0515 apply; this file changes no record. This pass WRITES THE EVIDENCE AND MOVES NO GRADE. A death notice printed in 1896 says a person of this name died on a day; under the ratified ladder (T-0513) that is later evidence about a DEATH, and it is never an 1835 residence. T-0515 applies the ladder against every source at once; this pass hands it the evidence and not the verdict.",
+  "sources": [
+   "fergus_1843_old_settler_death_notices"
+  ],
+  "people": [
+   {
+    "person_id": "vanderbogart_henry",
+    "matched_as": "Henry Vanderbogart",
+    "matched_by": "Surname 'Vanderbogart' folds to the same string as the entry's, and the given name of both begins H.",
+    "matched_on_initial_only": false,
+    "resident_given_is_initial_only": false,
+    "entry_given_as_read": "Dr. Henry",
+    "entry_given_is_initial_only": false,
+    "the_agreement": "a surname and a forename spelled out on both sides",
+    "record_id": "fdn0683",
+    "trade_or_office": null,
+    "manner_of_death": "died",
+    "place_of_death": "Naperville, Ill.",
+    "death_date": "1835-04-08",
+    "age_as_printed": "aged 25",
+    "birth_year_earliest": 1809,
+    "birth_year_latest": 1810,
+    "birth_year_arithmetic": "The page prints the death as 'April 8, 1835' and the age as 'aged 25'. An age of 25 completed years means at least 25 and less than 26, so the birth falls between 1809-04-09 and 1810-04-08: the birth year is 1809 or 1810. The subtraction is this project's; the page states no year of birth.",
+    "as_read": "Van der Bogart, Dr. Henry, died, Naperville, Ill., April 8, 1835, aged 25."
+   }
+  ]
+ }
+}

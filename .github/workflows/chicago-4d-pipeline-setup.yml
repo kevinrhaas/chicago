@@ -1,0 +1,40 @@
+name: Chicago 4D — pipeline setup (create the dev branch)
+
+# One-button activation for the 4D app's dev → main promotion pipeline
+# (chicago/4d/docs/PIPELINE.md). Idempotent: creates the long-lived `dev` branch
+# from the current main if — and only if — it does not exist yet, then dispatches
+# a deploy so the /chicago/4d/dev/ preview goes live.
+#
+# Until this is dispatched the pipeline is inert: deploy.yml skips the preview
+# step and the promotion workflow refuses. Merging the pipeline PR activates
+# nothing by itself, which is deliberate — the owner decides when the tier
+# appears.
+on:
+  workflow_dispatch:
+
+permissions:
+  contents: write
+  actions: write
+
+jobs:
+  setup:
+    runs-on: ubuntu-latest
+    timeout-minutes: 5
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          ref: main
+      - name: Create dev from main if absent
+        run: |
+          git config user.name  "polecat-ci"
+          git config user.email "ci@polecat.live"
+          if git ls-remote --exit-code --heads origin dev >/dev/null; then
+            echo "dev already exists — leaving it alone."
+          else
+            git push origin "HEAD:refs/heads/dev"
+            echo "created dev at $(git rev-parse --short HEAD)"
+          fi
+      - name: Publish the preview
+        env:
+          GH_TOKEN: ${{ github.token }}
+        run: gh workflow run deploy.yml --ref main

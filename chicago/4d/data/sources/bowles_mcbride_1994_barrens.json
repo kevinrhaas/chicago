@@ -1,0 +1,19 @@
+{
+  "id": "bowles_mcbride_1994_barrens",
+  "type": "article",
+  "citation": "Bowles, Marlin L. and Jeanette L. McBride. Presettlement Barrens in the Glaciated Prairie Region of Illinois. Proceedings of the North American Conference on Savannas and Barrens (Midwest Oak Savanna Conferences), 1994.",
+  "author": "Marlin L. Bowles and Jeanette L. McBride",
+  "date": "1994",
+  "repository": "US EPA web archive",
+  "url": "https://archive.epa.gov/ecopage/web/html/bowlespre.html",
+  "locator": "the barrens composition section and the historic-flora checklist count",
+  "tier": 4,
+  "rights_status": "check_required",
+  "asset_use": "text_only",
+  "verified": true,
+  "access_notes": "Retrieved and read on 2026-08-10. Confirms that barrens on the western flanks of forests were dominated by hazel with Quercus velutina and Q. imbricaria on the interior forest margin, and that the compiled historic checklist holds 243 taxa. No Wayback snapshot could be confirmed: the archive.org availability API returned HTTP 429 to this environment on 2026-08-10, so no archived_url is recorded rather than one being guessed at.",
+  "note": "The companion to Bowles, Hutchison and McBride (1994) that the dossier lists under S13. Used here for the hazel-dominated shrub layer and for the fire-sprouted oak grubs that are grubs rather than saplings.",
+  "what_it_does_not_supply": [
+    "tree densities per hectare - this paper gives none, so the savanna and woodland density figures in the zone records come from the seven-county Public Land Survey analysis instead"
+  ]
+}

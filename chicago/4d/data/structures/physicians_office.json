@@ -1,0 +1,191 @@
+{
+ "id": "physicians_office",
+ "name": "Reconstructed physicians office (physician)",
+ "archetype": "frame_storefront",
+ "phases": [
+  {
+   "id": "inferred_1835",
+   "documented_range": {
+    "from": "1835-01-01",
+    "to": "1835-12-31",
+    "confidence": "reconstructed",
+    "note": "NO EVIDENCE ESTABLISHES THAT THIS PARTICULAR BUILDING EXISTED. It is the roof a reconstructed household requires - eIGHT DOCUMENTED DOCTORS AND NOT ONE OFFICE. A physician's office and apothecary's back room on the Lake Street frontage, where a doctor is found by people who need one. It is left unnamed on purpose: four of the eight are documented households in this dataset and attaching any of them to an invented building would turn a hypothesis into a false attribution. The argument for the trade's presence in the town is in the household record and in the occupation census at data/reconstruction/1835_inferred_household_programme.json; the argument for THIS BUILDING is only that the household needs somewhere to be."
+   },
+   "position": {
+    "utm_e": 447630.262,
+    "utm_n": 4637253.143,
+    "rotation_deg": 0.0,
+    "symbolic_location": "South Division, local ENU E 560 N -139",
+    "confidence": "reconstructed",
+    "note": "INTERPRETIVE PLACEMENT, NOT A RECOVERED LOT. EIGHT DOCUMENTED DOCTORS AND NOT ONE OFFICE. A physician's office and apothecary's back room on the Lake Street frontage, where a doctor is found by people who need one. It is left unnamed on purpose: four of the eight are documented households in this dataset and attaching any of them to an invented building would turn a hypothesis into a false attribution. The band follows ROADMAP K1's placement rule - businesses toward the river and the built streets, residences further out - using the same frontage bands the reconstruction recipes already work in, which come from the 80 ft platted street module in data/traces/street_control.json. The centre was tested against every structure footprint in the dataset, against the reserved slots of the two uninstantiated phase-2 recipes, against the platted street corridors of the K7 block grid so that no invented building stands in the roadway, and against the committed heightfield for coverage, dry ground and step tolerance; it is free ground and nothing more. The dataset's 20 m working georeference uncertainty applies on top of an already invented position.",
+    "derivation": {
+     "method": "not_derivable",
+     "reason": "No source gives this building a lot. The placement is a frontage-band assignment tested for clearance and buildable ground, which is a production control and not a derivation from any line in the dataset."
+    }
+   },
+   "footprint": {
+    "polygon": [
+     [
+      0,
+      0
+     ],
+     [
+      4.877,
+      0
+     ],
+     [
+      4.877,
+      7.315
+     ],
+     [
+      0,
+      7.315
+     ]
+    ],
+    "confidence": "reconstructed",
+    "note": "A 16 x 24 ft rectangle from the C1 family band in the reconstruction specification. NO DIMENSION IS DOCUMENTED for this building, which does not exist in any source; the band is type-level evidence about what buildings of this class measured and is not evidence about this one."
+   },
+   "form": {
+    "stories": {
+     "value": 1,
+     "confidence": "reconstructed",
+     "sources": [
+      "owner_chicago_1835_reconstruction_spec_2026"
+     ],
+     "note": "INVENTED, NOT DERIVED. A typology value from the reconstruction spec — what a building of this kind was ordinarily like — not a reading of evidence about this particular building, because no source speaks to it: the structure exists in the model because the town demonstrably needed one of these, and nothing more. The spec is cited because the invention is bounded by it. Type-level choice within the C1 band in the reconstruction specification; it is not evidence for this building."
+    },
+    "wall_height_m": {
+     "value": 3.29,
+     "confidence": "reconstructed",
+     "sources": [
+      "owner_chicago_1835_reconstruction_spec_2026"
+     ],
+     "note": "INVENTED, NOT DERIVED. A typology value from the reconstruction spec — what a building of this kind was ordinarily like — not a reading of evidence about this particular building, because no source speaks to it: the structure exists in the model because the town demonstrably needed one of these, and nothing more. The spec is cited because the invention is bounded by it. Type-level choice within the C1 band in the reconstruction specification; it is not evidence for this building."
+    },
+    "roof_type": {
+     "value": "gable",
+     "confidence": "reconstructed",
+     "sources": [
+      "owner_chicago_1835_reconstruction_spec_2026"
+     ],
+     "note": "INVENTED, NOT DERIVED. A typology value from the reconstruction spec — what a building of this kind was ordinarily like — not a reading of evidence about this particular building, because no source speaks to it: the structure exists in the model because the town demonstrably needed one of these, and nothing more. The spec is cited because the invention is bounded by it. Type-level choice within the C1 band in the reconstruction specification; it is not evidence for this building. THE OTHER FORM ON OFFER IS REFUSED, AND HERE IS THE NUMBER. The C1 roof line offers \"front gable or shed, 5:12-9:12\", and this town builds only the gable. A shed is one plane over the whole 7.8 m of this plan where a gable climbs half of it, so across the 441 plans C1's own footprint band allows, 231 of them cannot reach the 15-20 ft ridge band the same family authors — at any eave in its 9-11 ft band and at any pitch between 22.6 and 36.9 degrees. This building's own plan is not one of them; the C1 family is refused as a whole rather than plan by plan."
+    },
+    "roof_pitch_deg": {
+     "value": 32.6,
+     "confidence": "reconstructed",
+     "sources": [
+      "owner_chicago_1835_reconstruction_spec_2026"
+     ],
+     "note": "INVENTED, NOT DERIVED. A typology value from the reconstruction spec — what a building of this kind was ordinarily like — not a reading of evidence about this particular building, because no source speaks to it: the structure exists in the model because the town demonstrably needed one of these, and nothing more. The spec is cited because the invention is bounded by it. Type-level choice within the C1 band in the reconstruction specification; it is not evidence for this building."
+    },
+    "gable_front": {
+     "value": true,
+     "confidence": "reconstructed",
+     "sources": [
+      "owner_chicago_1835_reconstruction_spec_2026"
+     ],
+     "note": "INVENTED, NOT DERIVED. A typology value from the reconstruction spec — what a building of this kind was ordinarily like — not a reading of evidence about this particular building, because no source speaks to it: the structure exists in the model because the town demonstrably needed one of these, and nothing more. The spec is cited because the invention is bounded by it. Type-level choice within the C1 band in the reconstruction specification; it is not evidence for this building."
+    },
+    "construction": {
+     "value": "braced_frame",
+     "confidence": "reconstructed",
+     "sources": [
+      "owner_chicago_1835_reconstruction_spec_2026"
+     ],
+     "note": "INVENTED, NOT DERIVED. A typology value from the reconstruction spec — what a building of this kind was ordinarily like — not a reading of evidence about this particular building, because no source speaks to it: the structure exists in the model because the town demonstrably needed one of these, and nothing more. The spec is cited because the invention is bounded by it. Type-level choice within the C1 band in the reconstruction specification; it is not evidence for this building."
+    },
+    "cladding": {
+     "value": "clapboard",
+     "confidence": "reconstructed",
+     "sources": [
+      "owner_chicago_1835_reconstruction_spec_2026"
+     ],
+     "note": "INVENTED, NOT DERIVED. A typology value from the reconstruction spec — what a building of this kind was ordinarily like — not a reading of evidence about this particular building, because no source speaks to it: the structure exists in the model because the town demonstrably needed one of these, and nothing more. The spec is cited because the invention is bounded by it. Type-level choice within the C1 band in the reconstruction specification; it is not evidence for this building."
+    },
+    "paint": {
+     "value": "unpainted",
+     "confidence": "reconstructed",
+     "sources": [
+      "owner_chicago_1835_reconstruction_spec_2026"
+     ],
+     "note": "INVENTED, NOT DERIVED. A typology value from the reconstruction spec — what a building of this kind was ordinarily like — not a reading of evidence about this particular building, because no source speaks to it: the structure exists in the model because the town demonstrably needed one of these, and nothing more. The spec is cited because the invention is bounded by it. NOT BOUNDED BY THE SPECIFICATION, and the sentence above about the invention being bounded does not hold for this value: the C1 family's key geometry parameters do not speak to paint or finish, so there is nothing here for a citation to point at. The value is the reconstruction generator's type default; it is not evidence for this building."
+    },
+    "loft": {
+     "value": false,
+     "confidence": "reconstructed",
+     "sources": [
+      "owner_chicago_1835_reconstruction_spec_2026"
+     ],
+     "note": "INVENTED, NOT DERIVED. A typology value from the reconstruction spec — what a building of this kind was ordinarily like — not a reading of evidence about this particular building, because no source speaks to it: the structure exists in the model because the town demonstrably needed one of these, and nothing more. The spec is cited because the invention is bounded by it. Type-level choice within the C1 band in the reconstruction specification; it is not evidence for this building."
+    },
+    "chimneys": {
+     "value": 1,
+     "confidence": "reconstructed",
+     "sources": [
+      "owner_chicago_1835_reconstruction_spec_2026"
+     ],
+     "note": "INVENTED, NOT DERIVED. A typology value from the reconstruction spec — what a building of this kind was ordinarily like — not a reading of evidence about this particular building, because no source speaks to it: the structure exists in the model because the town demonstrably needed one of these, and nothing more. The spec is cited because the invention is bounded by it. NOT BOUNDED BY THE SPECIFICATION, and the sentence above about the invention being bounded does not hold for this value: the C1 family's key geometry parameters do not speak to chimneys, so there is nothing here for a citation to point at. The value is the reconstruction generator's type default; it is not evidence for this building."
+    },
+    "shopfront": {
+     "value": false,
+     "confidence": "reconstructed",
+     "sources": [
+      "owner_chicago_1835_reconstruction_spec_2026"
+     ],
+     "note": "INVENTED, NOT DERIVED. A typology value from the reconstruction spec — what a building of this kind was ordinarily like — not a reading of evidence about this particular building, because no source speaks to it: the structure exists in the model because the town demonstrably needed one of these, and nothing more. The spec is cited because the invention is bounded by it. Type-level choice within the C1 band in the reconstruction specification; it is not evidence for this building. THE SHOPFRONT IS OFF because this frontage cannot carry one: the archetype's glazed front needs 3.25 m of bay plus a return at each end, and a shop of this width had a door and a window instead."
+    },
+    "goods_door": {
+     "value": false,
+     "confidence": "reconstructed",
+     "sources": [
+      "owner_chicago_1835_reconstruction_spec_2026"
+     ],
+     "note": "INVENTED, NOT DERIVED. A typology value from the reconstruction spec — what a building of this kind was ordinarily like — not a reading of evidence about this particular building, because no source speaks to it: the structure exists in the model because the town demonstrably needed one of these, and nothing more. The spec is cited because the invention is bounded by it. Type-level choice within the C1 band in the reconstruction specification; it is not evidence for this building."
+    },
+    "goods_door_side": {
+     "value": "end",
+     "confidence": "reconstructed",
+     "sources": [
+      "owner_chicago_1835_reconstruction_spec_2026"
+     ],
+     "note": "INVENTED, NOT DERIVED. A typology value from the reconstruction spec — what a building of this kind was ordinarily like — not a reading of evidence about this particular building, because no source speaks to it: the structure exists in the model because the town demonstrably needed one of these, and nothing more. The spec is cited because the invention is bounded by it. Type-level choice within the C1 band in the reconstruction specification; it is not evidence for this building."
+    },
+    "siding_exposure_m": {
+     "value": 0.14,
+     "confidence": "reconstructed",
+     "note": "INVENTED WITHIN A STOCK SET, NOT DERIVED. No source states the exposed face of any Chicago building's siding. The value is one of four period mill sidings — 4.5, 5, 5.5 or 6 in to the weather; this roof wears 5.5 in — dealt in this building's own parcel recipe: drawn from the set on this record's stable key, then advanced so that no roof of the parcel standing within 60 m hangs the same course. It is NOT keyed to a construction season the way the named buildings' stocks are: this record's 1835-01-01 is the programme's count-unit convention and not a date anything was built, so keying to it would deal every anonymous roof in the town one stock. The separation is the surface variety T-0049 reconstructs, not a claim about 1835. docs/LIBERTIES.md L148 owns the invention and the recipe half is recorded beside it, under `tools/siding_stock.py`."
+    }
+   },
+   "change_note": "Raised by the inferred-household programme. A better-evidenced named building substitutes for this roof rather than standing beside it."
+  }
+ ],
+ "function": {
+  "value": "physicians_office",
+  "confidence": "reconstructed",
+  "sources": [
+   "andreas_1884_v1",
+   "owner_chicago_1835_reconstruction_spec_2026"
+  ],
+  "note": "THE TRADE CANNOT BE GRADED BETTER, AND THE REASON IS THAT IT IS NOT A READING (T-0230). T-0194 stood hitching posts at the street edge's trading frontages and had to refuse this one by the grade on this field; T-0230 asked which of two things that refusal was — a finding, or a field left under-graded. For the OTHER frontage it named the answer was under-graded: frederick_thomas_shop read 'shop'/reconstructed until the Chicago American of 4 July 1835 was read for T-0263 and printed the man's own card, and 'drug_store'/attested lit a board and a post at a stroke. THIS RECORD CANNOT MOVE THE SAME WAY, and the difference is not how hard anybody has looked. Frederick Thomas is a named man trading at a describable spot: his building is a guess and his BUSINESS is a fact, so a newspaper could settle his trade and did. Here the arrow runs the other way — the trade is the PREMISE and the building is the conclusion drawn from it. Eight physicians are documented in the 1833 town, four of them as households in this dataset, and no doctor's office was; the inferred-household programme raised a roof so that the trade the town demonstrably had would stand somewhere. 'physicians_office' is the name of that argument. Upgrading this field would cite this project's own reconstruction as evidence for this project's own reconstruction, which is the one move the confidence model exists to prevent. WHAT THE TWO CITED SOURCES ACTUALLY CARRY, since between them they are what makes this field look under-graded at a glance: andreas_1884_v1 attests the eight doctors — the PREMISE — and says nothing whatever about an office; owner_chicago_1835_reconstruction_spec_2026 authorises the reconstruction, which is a licence to build and not a reading of anything. Neither is a source about premises at this place, and no source is. 'reconstructed' is the grade this field has to wear, and no page image, directory or advertisement can change that, because there is nothing here for one to be about. WHAT WOULD CHANGE IT is not evidence for this record but the end of it: a documented physician's office recovered from a source would SUBSTITUTE for this roof rather than upgrade it, which is what this record's own change_note already says the parcel does. SO THE REFUSAL IN BOTH DERIVED LAYERS IS CORRECT, AND IT IS A FINDING RATHER THAN AN OVERSIGHT. data/signage/town_business_signboards.json refuses a board here on its ANONYMITY clause — this record's name begins 'Reconstructed', and now that a board carries a name there is not even one to paint — and data/frontage/town_street_edge.json refuses a hitching post on THIS GRADE. Both refuse, both say why, and they arrive by different clauses on purpose: tools/generate_frontage_works.py states at EDGE_HITCH_ALONG that it deliberately does not copy the anonymity exclusion, because a post carries no lettering. THAT IS WORTH KNOWING ON THIS FIELD, because it is what the field is holding up: in the frontage layer this grade is the ONLY clause standing between an unoccupied invented building and street furniture at its door. The occupant was retired to anonymous stock on 2026-09-02 (T-0516) — the roof stands and nobody is in it — so an upgrade here would not light up a card, it would stand a post for a stranger at a door no one keeps. Whether that second clause should exist is the owner's question about what furniture means and is filed as T-1052; it does not change the answer here, which is that there is nothing to upgrade. EIGHT DOCUMENTED DOCTORS AND NOT ONE OFFICE. A physician's office and apothecary's back room on the Lake Street frontage, where a doctor is found by people who need one. It is left unnamed on purpose: four of the eight are documented households in this dataset and attaching any of them to an invented building would turn a hypothesis into a false attribution."
+ },
+ "occupants": {
+  "value": "Anonymous stock; no occupant is claimed",
+  "confidence": "reconstructed",
+  "note": "ANONYMOUS STOCK (T-0516). This roof was raised by the inferred-household programme because an argued household needed somewhere to be; the owner retired that reconstructed resident population on 2026-09-02 and ruled the geometry kept - \"keep as anonymous stock\" - so the household this roof was raised for no longer exists and nobody is claimed to be here. It is unassigned until the later placement sweep, and it is counted as one of the anonymous count-units of the 665-roof programme. THE ROOF'S OWN EXISTENCE, POSITION AND FOOTPRINT REMAIN CONJECTURAL and are unchanged by the retirement: what was withdrawn is the occupant, not the building. The trade it was raised for is kept in `reconstruction.occupation` and in this record's own name, because that is what the placement sweep works from; the argument that raised it is kept as history in data/reconstruction/1835_inferred_household_programme.json."
+ },
+ "reconstruction": {
+  "status": "inferred_anonymous",
+  "family": "C1",
+  "district": "south",
+  "programme_phase": "phase2_inferred_households",
+  "source_id": "owner_chicago_1835_reconstruction_spec_2026",
+  "occupation": "physician"
+ },
+ "research_note": "RECONSTRUCTED BUILDING, RAISED FOR A RECONSTRUCTED HOUSEHOLD (docs/ROADMAP.md K1, phase two). EIGHT DOCUMENTED DOCTORS AND NOT ONE OFFICE. A physician's office and apothecary's back room on the Lake Street frontage, where a doctor is found by people who need one. It is left unnamed on purpose: four of the eight are documented households in this dataset and attaching any of them to an invented building would turn a hypothesis into a false attribution. It is NOT one of the anonymous count-units of the 665-roof programme: those are placed by aggregate mix and carry no occupant, while this one exists because the occupation census says the town held a household of this trade and no anonymous roof of the right family stood free in this district. It consumes one slot of its district's programme target rather than adding to it - see the accounting block in data/reconstruction/1835_inferred_household_programme.json.",
+ "review_required": false,
+ "resident_assignment": {
+  "status": "unassigned",
+  "confidence": "reconstructed",
+  "note": "T-0489 owner ruling 2026-09-02: reconstructed resident population retired; building retained as anonymous stock for later placement."
+ }
+}

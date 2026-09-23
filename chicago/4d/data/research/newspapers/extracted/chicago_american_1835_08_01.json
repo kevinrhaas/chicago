@@ -1,0 +1,287 @@
+{
+  "schema": 1,
+  "issue_id": "chicago_american_1835_08_01",
+  "extracted": "2026-08-28",
+  "extracted_by": "hand, T-0261 — the Chicago American read, June to August 1835",
+  "note": "Volume I, Number 9. Two claims here that nothing else in the run supplies: a THREE STOREY store rented for an auction room, and a school advertising an eleven-week term with a fee scale down to Latin and French. A third attorney (S. Abell) sets up doing land conveyancing, and the Marine Journal covers July 24-30. The tailor's street disagrees with the previous issue's and the disagreement is recorded, not resolved.",
+  "claims": [
+    {
+      "id": "c001",
+      "kind": "building",
+      "reading": "transcription_mediated",
+      "quote": "Auction & Commission | E sabseriber Saform eter Lo hes rented the three story, stork oil IWarpom’ stroet, for the purpobe auction\nea ict me gett ae a ed Pe A Casas Autionee\nlo. Ly atreet,",
+      "normalized": "Auction & Commission. [TH]E subscriber [in]form[s his cus]to[mers …] he has rented the three story st[ore] o[n] [uncertain: IWarpom' — a street name this column does not resolve] street, for the purpo[s]e [of] auction[eering …] Auctionee[r …] [uncertain: lo. Ly] street.",
+      "locator": {
+        "artifact_role": "primary",
+        "issue_page": 3,
+        "column": 6,
+        "lines": [
+          377,
+          379
+        ],
+        "lines_of_claim": [
+          377,
+          378,
+          379
+        ],
+        "interleaved": true,
+        "spans": [
+          {
+            "line": 377,
+            "from": 0,
+            "to": 129
+          },
+          {
+            "line": 378,
+            "from": 0,
+            "to": 42
+          },
+          {
+            "line": 379,
+            "from": 0,
+            "to": 14
+          }
+        ]
+      },
+      "entities": [],
+      "notes": "A THREE STOREY BUILDING IN CHICAGO, ONE MONTH AFTER THE SCENE DATE — and nothing else in this corpus documents a building of more than one storey by its own count. That matters to a reconstruction whose commercial frontage is built almost entirely from inference about height: here is a store big enough to be advertised BY its three storeys, rented whole as an auction room. TWO STREET NAMES ARE PRINTED AND NEITHER IS READ. 'IWarpom' stroet' matches no Chicago street this project holds — Water, Warren and Wabash have all been considered and none accounts for the characters — and the second, 'lo. Ly atreet', is worse. Both stay inside `[uncertain: …]`, because a three-storey building is exactly the kind of thing that would get built on the strength of a guessed address and then be wrong. The auctioneer is very probably W. Montgomery, who has taken two South Water Street stores in the previous month, but the signature here is destroyed and no attribution is made."
+    },
+    {
+      "id": "c002",
+      "kind": "notice",
+      "reading": "transcription_mediated",
+      "quote": "red, ‘Term will ‘commence; Monday desirous of partealbaps ‘seek ation, Pequevied to lem\nFor the rdinary: Raglan br hae er ofelerea weeks, For the as Draschen, 81100, For the Lau, French languages, 88,00. shone Acgoat 18",
+      "normalized": "[… the] Term will commence Monday […] [those] desirous of part[icul]a[rs …] requested to [call …] For the [o]rdinary [English] br[anc]he[s …] [p]er [term] of ele[v]en weeks; […] For the [higher br]a[n]ches, $[1]1[.]00; For the La[tin and] French languages, $8[.]00. [… ] Aug[u]st 18[35].",
+      "locator": {
+        "artifact_role": "primary",
+        "issue_page": 3,
+        "column": 5,
+        "lines": [
+          372,
+          373
+        ],
+        "lines_of_claim": [
+          372,
+          373
+        ],
+        "interleaved": true,
+        "spans": [
+          {
+            "line": 372,
+            "from": 0,
+            "to": 87
+          },
+          {
+            "line": 373,
+            "from": 0,
+            "to": 131
+          }
+        ]
+      },
+      "entities": [],
+      "notes": "A SCHOOL WITH A PUBLISHED FEE SCALE, one month after the scene date — an eleven-week term, ordinary English branches at the bottom, higher branches at eleven dollars and Latin and French at eight. Read alongside the two school-district meetings this run documents (District 4 meeting in the Presbyterian Church to consider BUILDING a school-house, District 2 in the Baptist Meeting House), it says what schooling in Chicago actually was in 1835: private, subscription-funded and housed in whatever building would take it, with the public school-house still a proposal. NEITHER THE TEACHER'S NAME NOR THE PREMISES SURVIVE in this printing, so no business is recorded and no building is placed. The dollar figures are read from '81100' and '88,00', which is the OCR's usual treatment of a dollar sign, and they are bracketed."
+    },
+    {
+      "id": "c003",
+      "kind": "business",
+      "reading": "transcription_mediated",
+      "quote": "S. ABELL, TORNEY AND COUNSELLOR AT. 1 15 1 3 1 39 1294 87 12 41.893940 OMICAGO, ILLINOTE 1 15 1 4 1 0 1307 27 27 32.607056 BY senting nity to hin profession, 1 15 1 5 1 0 1313 10 39 56.347603 B somecis patronage, Land Conreyanc 1 15 1 6 1 33 1324 20 33 72.523964 ih aauuinas and deopateh, 1 15 1 7 1 0 1336 37 40 32.915947 Ta sith avn Hermes, la Deaton 16 1 1 0 1363 41 38 41.007648 amt eum",
+      "normalized": "S. ABELL, [AT]TORNEY AND COUNSELLOR AT [LAW]. [CH]ICAGO, ILLINO[IS]. [B]y [devoting himself e]ntir[e]ly to his profession [he solicits a share of public] patronage. Land Conveyanc[ing done w]ith [ne]a[t]n[e]s[s] and de[s]patch. […]",
+      "locator": {
+        "artifact_role": "primary",
+        "issue_page": 3,
+        "column": 5,
+        "lines": [
+          374,
+          374
+        ],
+        "lines_of_claim": [
+          374
+        ],
+        "interleaved": true,
+        "spans": [
+          {
+            "line": 374,
+            "from": 0,
+            "to": 390
+          }
+        ]
+      },
+      "entities": [
+        {
+          "as_printed": "S. ABELL",
+          "normalized": "S. Abell",
+          "role": "proprietor",
+          "occupations": [
+            "attorney"
+          ],
+          "associated_places": []
+        }
+      ],
+      "business": {
+        "name": "S. Abell, attorney and counsellor",
+        "proprietors": [
+          "S. Abell"
+        ],
+        "trade": "attorney, counsellor and land conveyancer",
+        "goods": [],
+        "street": null,
+        "placement": {
+          "class": "none",
+          "anchor": null,
+          "offset_text": null,
+          "offset_normalized": null,
+          "street": null
+        }
+      },
+      "notes": "THE FOURTH LAW PRACTICE ADVERTISING IN THIS RUN — after R. Stewart, Fullerton & G., Henry Moore and Ebenezer S. More — and the FIRST to name land conveyancing as a line of business. In the summer of the land sales that is not a detail: it says what the town's lawyers were actually being paid for. No address, so the placement is `none`. 'S. ABELL' is set cleanly and the forename is simply not printed."
+    },
+    {
+      "id": "c004",
+      "kind": "shipping",
+      "reading": "transcription_mediated",
+      "quote": "__ Marine Journal, (PORT OF CHICAGO.\nARRIVED.\ny M. Brig Indiana, MegaMster, from\n7 20. Bohr Austertirs, en, fom I with merchandize,\nmes Bidienn McQueen, front Buttle, merchandixe, &c y 28, Sobre ‘Commerce, Seaith from Bud y 30, Schr Llewelling, Lowa, from St. J Passengers, CLEARED. ¥ 94 Schr Swan, for Milwakee, ‘Sehr Jease Smith, for Green Bay. y 87. Schr Liewelling, Bi. Josepha Sloop Ldiraroaple for iron 728. Steamboat Michigan, Buffabr. Sehr Ulte Migs j i\niy 30, Seby Avréerite, Datla, Bchs Hiram, Milwakos.",
+      "normalized": "Marine Journal. PORT OF CHICAGO. ARRIVED. [Jul]y [24?]. Brig Indiana, M[c]A[lli]ster, from […]. [Jul]y 2[6]. Sch[r] Austerli[t]z, [?]en, [fr]om […] with merchandize. […] [Sch]r Indiana, McQueen, from Bu[ffa]l[o], merchandi[z]e, &c. [Jul]y 28. Schr Commerce, S[m]ith, from Buf[falo]. [Jul]y 30. Schr Llewelling, Low[e], from St. J[oseph], passengers. CLEARED. [Jul]y [2]4. Schr Swan, for Milwake[e]; Sch[r] Je[ss]e Smith, for Green Bay. [Jul]y [2]7. Schr Llewelling, [for St.] Joseph; Sloop L[…] for [?]. [July] 28. Steamboat Michigan, [for] Buffal[o]; Sch[r] […]. [Jul]y 30. Sch[r] A[u]ster[l]it[z], D[…]; Sch[r] Hiram, [for] Milwak[ee].",
+      "locator": {
+        "artifact_role": "primary",
+        "issue_page": 3,
+        "column": 5,
+        "lines": [
+          362,
+          371
+        ],
+        "lines_of_claim": [
+          362,
+          363,
+          364,
+          366,
+          370,
+          371
+        ],
+        "interleaved": true,
+        "spans": [
+          {
+            "line": 362,
+            "from": 0,
+            "to": 36
+          },
+          {
+            "line": 363,
+            "from": 0,
+            "to": 8
+          },
+          {
+            "line": 364,
+            "from": 0,
+            "to": 34
+          },
+          {
+            "line": 366,
+            "from": 0,
+            "to": 50
+          },
+          {
+            "line": 370,
+            "from": 0,
+            "to": 329
+          },
+          {
+            "line": 371,
+            "from": 0,
+            "to": 51
+          }
+        ]
+      },
+      "entities": [],
+      "notes": "THE PORT COLUMN FOR THE LAST WEEK OF JULY, and the shape of the trade has not changed since the scene date: the same hulls — Llewelling, Swan, Hiram, Jesse Smith, the steamboat Michigan — plus two new arrivals, the brigs Indiana and the schooner Commerce, both from Buffalo with merchandize. Milwaukee, Green Bay, St. Joseph and Buffalo are the four destinations again. Taken with the three earlier columns this project now has SIX WEEKS of continuous shipping either side of 1835-07-01, which is enough to say with confidence how many vessels were in the river on an ordinary day and what they were carrying."
+    },
+    {
+      "id": "c005",
+      "kind": "business",
+      "reading": "transcription_mediated",
+      "quote": "SHON ABLE Se, hat ahs Shop in Laks runlie, bare ledee matt Temas hod ee",
+      "normalized": "[NEW FA]SHION[A]BLE [Tailoring Establishment. The subscriber … h]a[s] [taken a] Shop in [uncertain: Laks runlie — a street name this printing does not resolve] […] beg[s] leave most re[spectfully to tender his services …]",
+      "locator": {
+        "artifact_role": "primary",
+        "issue_page": 3,
+        "column": 6,
+        "lines": [
+          394,
+          394
+        ],
+        "lines_of_claim": [
+          394
+        ],
+        "interleaved": true,
+        "spans": [
+          {
+            "line": 394,
+            "from": 0,
+            "to": 71
+          }
+        ]
+      },
+      "entities": [],
+      "business": {
+        "name": "a new tailoring establishment, Chicago, June 1835",
+        "proprietors": [],
+        "trade": "tailoring",
+        "goods": [],
+        "street": null,
+        "placement": {
+          "class": "none",
+          "anchor": null,
+          "offset_text": null,
+          "offset_normalized": null,
+          "street": null
+        }
+      },
+      "notes": "THE TAILOR'S STREET, FOR THE THIRD TIME, AND THE THREE PRINTINGS DO NOT AGREE. 1835-06-27 reads 'Shop in Frank eter street'; 1835-07-25 reads 'Shop in rroklia', which that claim took as Franklin and recorded on the business; this one reads 'Shop in Laks runlie', whose first word is much closer to LAKE than to Franklin. So the corpus now supports Franklin on one printing, something Lake-shaped on another, and a broken fragment on the third — and this claim therefore records NO street and leaves the business's Franklin Street entry standing from the 07-25 witness with this disagreement written down beside it. A page-image pass should settle it before a tailor's shop is put anywhere. The honest summary is that one of the three readings is wrong and the transcription cannot say which."
+    },
+    {
+      "id": "c006",
+      "kind": "notice",
+      "reading": "transcription_mediated",
+      "quote": "the following statement three gfatalvoun isersiony wa ety fa hay rene he Hiroe gee six Ofeight yours remered, from Al 10 the Wemtern Diettict of ars ec, where he shortly sfierwards died. _ widow wad children moved-from there’ toltenes of Lidia, in very dentitaty cf sot know in whet perso the siete they Weedon:\n1D 4. SMITH, Courtland, Alabdiia,",
+      "normalized": "[…] the following statement three g[r]at[ui]to[u]s i[n]sertion[s …] [about] six o[r] eight y[ea]rs [since] remo[v]ed from Al[abama] [t]o the West[e]rn Di[s]t[r]ict of [Tenness]e[e], where he shortly afterwards died. [His] widow a[n]d children moved from there to [the stat]e[s] of [In]di[an]a, in very de[s]titut[e] c[ircumstances …] [do] not know in what p[a]r[t o]f the state they [reside …] D. A. SMITH, Courtland, Alab[a]ma.",
+      "locator": {
+        "artifact_role": "primary",
+        "issue_page": 3,
+        "column": 6,
+        "lines": [
+          386,
+          388
+        ],
+        "lines_of_claim": [
+          386,
+          388
+        ],
+        "interleaved": true,
+        "spans": [
+          {
+            "line": 386,
+            "from": 0,
+            "to": 311
+          },
+          {
+            "line": 388,
+            "from": 0,
+            "to": 33
+          }
+        ]
+      },
+      "entities": [
+        {
+          "as_printed": "1D 4. SMITH",
+          "normalized": "D. A. Smith",
+          "role": "advertiser",
+          "occupations": [],
+          "associated_places": [
+            "Courtland, Alabama"
+          ]
+        }
+      ],
+      "notes": "THE STORY BEHIND THE FRAGMENT 1835-07-25 COULD NOT FINISH: a man who left Alabama for west Tennessee six or eight years earlier and died there, whose widow and children then moved to Indiana destitute, and whose relative in Courtland, Alabama is advertising across the western press to find them. It is quoted at length because it is the only extended piece of ordinary human circumstance in this run that is not a trade card, a meeting notice or a cargo list — the American's readership is a migrant population and this is what its notices column was for. The advertiser is in Alabama and NO Chicago resident is minted from it; the person recorded carries Courtland, Alabama as his place, which is what the notice says."
+    }
+  ]
+}

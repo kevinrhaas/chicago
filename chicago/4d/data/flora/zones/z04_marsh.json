@@ -1,0 +1,236 @@
+{
+ "id": "z04_marsh",
+ "zone": 4,
+ "name": "Marsh and emergent fringe",
+ "dossier": "docs/research/02-flora.md § ZONE 4",
+ "scene_date": "1835-07-01",
+ "palette": "july_marsh",
+ "reads_as": "tall grass, reeds and rushes standing in shallow water, with brown mature cattail spikes and leafless bulrush culms",
+ "plantable_in_scene": true,
+ "cover": {"matrix_fraction":0.75,"bare_soil_fraction":0.0,"standing_water_fraction":0.85},
+ "ground": {"rgb":[50,56,40],"wet_rgb":[38,42,32]},
+ "extent": {
+  "kind": "buffer",
+  "of": "water",
+  "distance_m": [0,8],
+  "priority": 70,
+  "confidence": "inferred",
+  "sources": ["chicagology_prefire273"],
+  "note": "Andreas documents the marshy river-shore strip of tall grass, reeds and rushes and the wild onions among the sedge grass along the river shores. The 0-8 m band is a reading of the terrain, not of a source: the terrain spec builds a 6 m bank face, so this covers the shallow water and the wet toe of the bank and stops before the crest. It is the only zone permitted to plant over water, because its species stand in it."
+ },
+ "species": [
+  {
+   "id": "typha_latifolia",
+   "binomial": "Typha latifolia",
+   "common": "broad-leaved cattail",
+   "role": "emergent",
+   "form": "cattail",
+   "substrate": "saturated_soil",
+   "abundance": {"stems_per_m2":[30,60]},
+   "height_m": [1.5,2.4],
+   "july": {
+    "phenology": "fruiting",
+    "foliage_rgb": [110,132,96],
+    "inflorescence": {"shape":"spadix_brown","rgb":[92,62,40],"height_frac":0.8,"size_m":[0.15,0.25],"fruit":true},
+    "appearance": "Mature dark-brown cylindrical spike with the staminate part shed or shedding; broad glaucous leaves. Brown, never green or yellow, in July."
+   },
+   "confidence": "attested",
+   "sources": ["chicagology_prefire273","swink_wilhelm_1994"],
+   "note": "T. latifolia only. T. angustifolia and T. x glauca are later arrivals and must not appear in an 1835 scene."
+  },
+  {
+   "id": "schoenoplectus_acutus",
+   "binomial": "Schoenoplectus acutus",
+   "common": "hardstem bulrush",
+   "role": "emergent",
+   "form": "rush_culm",
+   "substrate": "saturated_soil",
+   "abundance": {"stems_per_m2":[10,20]},
+   "height_m": [1.5,2.5],
+   "july": {
+    "phenology": "flowering",
+    "foliage_rgb": [66,100,56],
+    "inflorescence": {"shape":"cluster_terminal","rgb":[128,102,70],"height_frac":0.94,"size_m":[0.04,0.08]},
+    "appearance": "Leafless dark-green round culms standing in 0.2-0.8 m of water with small brown terminal clusters — Andreas's 'rushes'."
+   },
+   "confidence": "attested",
+   "sources": ["chicagology_prefire273","swink_wilhelm_1994"],
+   "note": "The dossier gives 20-40 culms/m2 for the two Schoenoplectus together; split evenly between this and S. tabernaemontani, which is this record's division."
+  },
+  {
+   "id": "schoenoplectus_tabernaemontani",
+   "binomial": "Schoenoplectus tabernaemontani",
+   "common": "softstem bulrush",
+   "role": "emergent",
+   "form": "rush_culm",
+   "substrate": "saturated_soil",
+   "abundance": {"stems_per_m2":[10,20]},
+   "height_m": [1.5,2.5],
+   "july": {
+    "phenology": "flowering",
+    "foliage_rgb": [86,116,68],
+    "inflorescence": {"shape":"cluster_terminal","rgb":[128,102,70],"height_frac":0.94,"size_m":[0.04,0.08]},
+    "appearance": "Softer, paler round culms than hardstem, in the same stands."
+   },
+   "confidence": "attested",
+   "sources": ["chicagology_prefire273","swink_wilhelm_1994"],
+   "note": "See schoenoplectus_acutus: 20-40 culms/m2 split evenly."
+  },
+  {
+   "id": "sparganium_eurycarpum",
+   "binomial": "Sparganium eurycarpum",
+   "common": "common bur-reed",
+   "role": "emergent",
+   "form": "rush_culm",
+   "substrate": "saturated_soil",
+   "abundance": {"stems_per_m2":[8,20]},
+   "height_m": [0.8,1.2],
+   "july": {
+    "phenology": "fruiting",
+    "foliage_rgb": [96,126,74],
+    "inflorescence": {"shape":"burr_spherical","rgb":[154,166,110],"height_frac":0.82,"size_m":[0.02,0.035],"fruit":true},
+    "appearance": "Keeled strap leaves and spiky spherical green burr fruits on a zig-zag stem."
+   },
+   "confidence": "inferred",
+   "sources": ["swink_wilhelm_1994"],
+   "note": "Dossier [I]: regional marsh flora."
+  },
+  {
+   "id": "sagittaria_latifolia",
+   "binomial": "Sagittaria latifolia",
+   "common": "broadleaf arrowhead",
+   "role": "emergent",
+   "form": "forb_basal_scape",
+   "substrate": "saturated_soil",
+   "abundance": {"stems_per_m2":[3,10]},
+   "height_m": [0.4,0.8],
+   "july": {
+    "phenology": "flowering",
+    "foliage_rgb": [100,132,76],
+    "inflorescence": {"shape":"umbel_flat","rgb":[244,244,238],"height_frac":0.8,"size_m":[0.04,0.07]},
+    "appearance": "Arrow-shaped leaves at the margin and whorls of three-petalled white flowers."
+   },
+   "confidence": "inferred",
+   "sources": ["swink_wilhelm_1994"],
+   "note": "Dossier [I]: regional marsh flora."
+  },
+  {
+   "id": "bolboschoenus_fluviatilis",
+   "binomial": "Bolboschoenus fluviatilis",
+   "common": "river bulrush",
+   "role": "emergent",
+   "form": "rush_culm",
+   "substrate": "saturated_soil",
+   "abundance": {"stems_per_m2":[10,25]},
+   "height_m": [1.2,1.8],
+   "july": {
+    "phenology": "fruiting",
+    "foliage_rgb": [88,118,62],
+    "inflorescence": {"shape":"cluster_terminal","rgb":[138,108,74],"height_frac":0.9,"size_m":[0.06,0.12],"fruit":true},
+    "appearance": "Leafy triangular stems with drooping brown spikelet clusters."
+   },
+   "confidence": "inferred",
+   "sources": ["swink_wilhelm_1994"],
+   "note": "Dossier [I]: regional marsh flora."
+  },
+  {
+   "id": "pontederia_cordata",
+   "binomial": "Pontederia cordata",
+   "common": "pickerelweed",
+   "role": "emergent",
+   "form": "forb_spike",
+   "substrate": "saturated_soil",
+   "abundance": {"stems_per_m2":[4,12]},
+   "height_m": [0.5,0.8],
+   "july": {
+    "phenology": "flowering",
+    "foliage_rgb": [92,128,78],
+    "inflorescence": {"shape":"spike","rgb":[96,96,182],"height_frac":0.86,"size_m":[0.06,0.12]},
+    "appearance": "Glossy heart-shaped leaves and blue-violet flower spikes in shallow water."
+   },
+   "confidence": "reconstructed",
+   "note": "Dossier tags this [C]. Plausible for a sluggish backwater at this latitude but nothing places it at the forks; kept at a low density so it reads as our guess."
+  },
+  {
+   "id": "cephalanthus_occidentalis",
+   "binomial": "Cephalanthus occidentalis",
+   "common": "buttonbush",
+   "role": "shrub_low",
+   "form": "shrub_low",
+   "abundance": {"density_per_ha":[20,60]},
+   "height_m": [1.5,2.5],
+   "width_m": [1.2,2.4],
+   "july": {
+    "phenology": "flowering",
+    "foliage_rgb": [80,112,60],
+    "inflorescence": {"shape":"head_button","rgb":[236,232,214],"height_frac":0.8,"size_m":[0.03,0.045]},
+    "appearance": "Creamy-white pincushion spheres over glossy whorled leaves — a strong July marker on the marsh margin."
+   },
+   "confidence": "inferred",
+   "sources": ["swink_wilhelm_1994"],
+   "note": "Dossier [I]: regional marsh-margin shrub."
+  },
+  {
+   "id": "nuphar_advena",
+   "binomial": "Nuphar advena",
+   "common": "yellow pond lily",
+   "role": "emergent",
+   "form": "mat_prostrate",
+   "substrate": "open_water",
+   "abundance": {"stems_per_m2":[2,6]},
+   "height_m": [0.02,0.1],
+   "width_m": [0.25,0.4],
+   "july": {
+    "phenology": "flowering",
+    "foliage_rgb": [76,112,58],
+    "inflorescence": {"shape":"head_globe","rgb":[230,206,80],"height_frac":0.2,"size_m":[0.05,0.08]},
+    "appearance": "Floating leathery pads in open water with half-open yellow cups."
+   },
+   "confidence": "inferred",
+   "sources": ["swink_wilhelm_1994"],
+   "note": "Dossier [I]: regional open-water flora. Rooted below the surface with the pads floating ON it, which is why the substrate is open_water: this is the one habit in the flora records that cannot be planted on a bank. Height_m is the pad over the water, not over a soil."
+  },
+  {
+   "id": "nymphaea_odorata",
+   "binomial": "Nymphaea odorata",
+   "common": "American white water lily",
+   "role": "emergent",
+   "form": "mat_prostrate",
+   "substrate": "open_water",
+   "abundance": {"stems_per_m2":[2,6]},
+   "height_m": [0.01,0.06],
+   "width_m": [0.15,0.28],
+   "july": {
+    "phenology": "flowering",
+    "foliage_rgb": [72,106,56],
+    "inflorescence": {"shape":"head_ray","rgb":[246,246,240],"height_frac":0.15,"size_m":[0.08,0.14]},
+    "appearance": "Round floating pads split to the stalk, with flat white many-petalled flowers."
+   },
+   "confidence": "inferred",
+   "sources": ["swink_wilhelm_1994"],
+   "note": "Dossier [I]: regional open-water flora. Same habit as nuphar_advena and the same substrate: the pad floats, so a station with no water under it is not a place this species can be."
+  },
+  {
+   "id": "zizania_aquatica",
+   "binomial": "Zizania aquatica",
+   "common": "northern wild rice",
+   "role": "emergent",
+   "form": "grass_arching",
+   "substrate": "saturated_soil",
+   "abundance": {"stems_per_m2":[0.2,2.0]},
+   "height_m": [1.5,3.0],
+   "july": {
+    "phenology": "flowering",
+    "foliage_rgb": [124,148,84],
+    "inflorescence": {"shape":"panicle_open","rgb":[176,190,120],"height_frac":0.9,"size_m":[0.25,0.45]},
+    "appearance": "Tall pale-green culms with an open panicle just emerging."
+   },
+   "confidence": "reconstructed",
+   "note": "The dossier tags wild rice documented for the portage and Mud Lake but only [C] for the town site, so it carries no source here and sits at a token density. Dense stands at the forks would be an invention."
+  }
+ ],
+ "confidence": "attested",
+ "sources": ["chicagology_prefire273"],
+ "note": "Broad-leaved cattail only. The spikes are BROWN and mature in July; a green or yellow cattail dates the scene wrong, and Typha angustifolia and T. x glauca are later arrivals that must not appear at all.",
+ "review_required": false
+}

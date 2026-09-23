@@ -1,0 +1,402 @@
+{
+  "schema": 1,
+  "issue_id": "chicago_democrat_1834_10_01",
+  "extracted": "2026-08-28",
+  "extracted_by": "hand, T-0292 — the Democrat read, October 1834",
+  "note": "Vol. I No. 44. Pages 1-2 are national and foreign reprint; the town is on pages 3 and 4. THE MONTH'S MOST IMPORTANT MATTER IS IN THIS ISSUE and it is not an advertisement: page 3 column 1 carries the Town Ordinance to Prevent Fires of 20 September 1834, which divides Chicago into four wards by street and by river and names a fire warden for each. That column is the Tesseract fallback and it lost two or three characters off the left of every line, so the ward boundaries are read with bracketed supplies and the two unreadable wardens are left unminted.",
+  "claims": [
+    {
+      "id": "c001",
+      "kind": "infrastructure",
+      "reading": "transcription_mediated",
+      "quote": "“Town ordinances.\n‘fg Ordinance 10 Precent Fives. :\n\" ‘owing of the President and Paste\nse rean of Chicago, held at the Pre-\nAge page town, on the 20th day of\nrae following Ordinance was a\nwanes\nght OO duimed by the Board of Trustees\nte te, That anid town bo and | %\nFa ens divided into fine ssparate\nane ee de fiat vcard. shall inehude,\nwots wiley ibe incorporated limits of | —\nCha hae Past of the centro of Lasalle\n1 te dukson and South Water ts.\naot ol blnciede al} that part with- if\nTune Noied Hate of atid town lying)\niste seein of Lavalle atroet, and within a\njets fing uleatreet. ‘Tho third Ward | ty\neect) part within the incorpora- | 4\nye bale decdtonn ying north of the C hica- | 1)\ni ba uefa Ward shall include all |°*\nfio fes be incorporated limits of said | |\nern foag weak Ae OTL amd south branch- a\nfy Chagas vet. ° 1",
+      "normalized": "Town Ordinances. [An] Ordinance to Prevent Fires. [At a meeting] of the President and [Trustees of the town] of Chicago, held at the Pre[sbyterian church in said] town, on the 20th day of [September …] the following Ordinance was [passed] […] Be it Ordained by the Board of Trustees […] that said town be and [it is hereby] divided into f[ou]r s[e]parate [wards …] the first ward shall include [all that part] with[in] the incorporated limits of [Chicago …] east of the centre of Lasalle [street …] Jackson and South Water [stree]ts. [The second ward shall] include all that part with[in the incorporated] limits of said town lying [west of the] centre of Lasalle street, and within [… of] […] street. The third Ward [shall include all that] part within the incorpora[ted limits of said] town lying north of the Chica[go river. The fourth] Ward shall include all [that part within] the incorporated limits of said [town … west] of the […] and south branch[…] [of the] Chicago [ri]ver.",
+      "locator": {
+        "artifact_role": "primary",
+        "issue_page": 3,
+        "column": 1,
+        "lines": [
+          2537,
+          2560
+        ],
+        "lines_of_claim": [
+          2537,
+          2538,
+          2539,
+          2540,
+          2541,
+          2542,
+          2543,
+          2544,
+          2545,
+          2546,
+          2547,
+          2548,
+          2549,
+          2550,
+          2551,
+          2552,
+          2553,
+          2554,
+          2555,
+          2556,
+          2557,
+          2558,
+          2559,
+          2560
+        ],
+        "interleaved": true
+      },
+      "entities": [],
+      "notes": "THE TOWN'S FOUR WARDS, defined by streets and by the river, and the earliest ward geography this corpus carries. The Vision reading dropped the left edge of every line in this column and the Tesseract fallback that replaced it lost the first two or three characters, so the supplies in `normalized` are bounded to what the surviving text and the ordinance's own grammar support: 'east of the centre of Lasalle [street]' and 'north of the Chica[go river]' are supported, the second ward's western boundary street is NOT and is left '[…]' rather than guessed. Nothing here is minted as a street record — this is the ordinance's own text, and the boundary readings need a second witness before a line can be drawn from them. The segmenter alternates two physical columns line by line here, so this advertisement survives as one cut half; `lines_of_claim` names the lines the quote is built from and `locator.lines` is the whole notice."
+    },
+    {
+      "id": "c002",
+      "kind": "infrastructure",
+      "reading": "transcription_mediated",
+      "quote": "[uncertain: PT pada fakes Ordainel as ufurescid, | ?]\nese faking paned persans bs and thay | %\nas brake peited Fire Wardens for the res-} 4:\nyeuat nesetuil Town, vient William Wor. |\n{oie fe Ue frat werd; Edward F. Hanter\nfoie eial wnrd; Sumnel Hhesigue for the\ndhviesel tnd Jere Kiteie for tlie Jourth war 1",
+      "normalized": "[And be it further] Ordained as [a]f[o]resaid, [that the following] named persons b[e] and they [are hereby ap]po[in]ted Fire Wardens for the res[pective wards of said] Town, viz. William Wor[…] [for the] fir[s]t w[a]rd; Edward [F.] H[u]nter [for the s]e[co]nd w[a]rd; S[a]m[u]el [uncertain: Hhesigue] for the [third ward] and Jere [uncertain: Kinzie] for the [f]ourth war[d].",
+      "locator": {
+        "artifact_role": "primary",
+        "issue_page": 3,
+        "column": 1,
+        "lines": [
+          2561,
+          2567
+        ],
+        "lines_of_claim": [
+          2561,
+          2562,
+          2563,
+          2564,
+          2565,
+          2566,
+          2567
+        ],
+        "interleaved": true
+      },
+      "entities": [
+        {
+          "as_printed": "Edward F. Hanter",
+          "normalized": "Edward F. H[u]nter",
+          "role": "fire warden",
+          "occupations": [
+            "fire warden"
+          ]
+        }
+      ],
+      "notes": "FOUR FIRE WARDENS, one per ward, and the town's first named fire officers in this corpus. Two of the four surnames are recoverable and two are not: 'William Wor.' is cut at the column edge and no forename-plus-surname can be read from it, and 'Sumnel Hhesigue' and 'Jere Kiteie' are single-witness OCR of a kind this column is unreliable at. Only Edward F. Hunter is minted; the other three are quoted and left unminted rather than supplied, and a cleaner witness for this ordinance is what would settle them."
+    },
+    {
+      "id": "c003",
+      "kind": "infrastructure",
+      "reading": "transcription_mediated",
+      "quote": "Take ane Worthen Onined as aforceaid\nWhe Pewee “iS prevent fires,” passe\nthe Potent and Tristene ot ne ree\n(Nn usteos of the Town of\n. Eo fhe Gt day of November, A.D,\nTa oeg ie same is hereby repeated,\nbay antsee Uo take eft asi be Tn fore\nMeat oath Bu day of October next,\nt Sept 25, 1834\nPost Bh Traggt NOs He KINZIE,\ntar Mee of the Toren of Chicago\n\\ 08, Clerk, 4",
+      "normalized": "[And be it further] Ordained as aforesaid [that the ordinance] 'to prevent fires,' passe[d by] the P[resid]ent and Trustees o[f the] [Tow]n [of Chicago on] the [firs]t day of November, A. D. [1833 …] the same is hereby repea[led, and this ordinance shall] take eff[ect] a[n]d be in fore[…] [from and after] the [5]th day of October next. […] Sept. 25, 1834. [J]. H. KINZIE, P[residen]t [Bd. Trustees] of the To[w]n of Chicago. […] Clerk.",
+      "locator": {
+        "artifact_role": "primary",
+        "issue_page": 3,
+        "column": 1,
+        "lines": [
+          2618,
+          2629
+        ],
+        "lines_of_claim": [
+          2618,
+          2619,
+          2620,
+          2621,
+          2622,
+          2623,
+          2624,
+          2625,
+          2626,
+          2627,
+          2628,
+          2629
+        ],
+        "interleaved": true
+      },
+      "entities": [
+        {
+          "as_printed": "NOs He KINZIE",
+          "normalized": "J. H. Kinzie",
+          "role": "signatory",
+          "occupations": [
+            "President, Board of Trustees of the Town of Chicago"
+          ]
+        }
+      ],
+      "notes": "The ordinance REPEALS an earlier fire ordinance of 1 November 1833 and takes effect on 5 October 1834 — so the ward division above is in force for the whole of the month this pass reads. J. H. Kinzie signs as President of the Board of Trustees. The repealed ordinance's year is read as 1833 from the run (the town was incorporated in August 1833 and this is its second fire ordinance); the digits themselves are gone, so it is bracketed. The segmenter alternates two physical columns line by line here, so this advertisement survives as one cut half; `lines_of_claim` names the lines the quote is built from and `locator.lines` is the whole notice."
+    },
+    {
+      "id": "c004",
+      "kind": "infrastructure",
+      "reading": "transcription_mediated",
+      "quote": "; toWn Ordinance.\nA Trt Meeting of the Presidest an\nta arta the tows of Chicago, held 1\not House, Sept. 99. 1535 the follo\ninane wus clon pa SH, the fullov\n[uncertain: ? aly the President and Trustees]\nbetsy eons, That it shall be unlaw!\n[uncertain: Pet?en oF persans to. ren petand]\nSry earth uns to remove or take\nkia the ee om off any of the etree\nMer tad see f the corporntion, unless |\nsme PRON of the sun\n=m tom, and or te saPOrFINOF of roa\nNenad tae see thie parpose of repairi\nele bale ret OF persons. so offendi\n7 R Pay & fine uot exceeding\nHatt lobe neorered befure any hoes\nOf he toed before any Justicn of\nSue This opto atl for each and ov\nWer the 5 ah hess 49 take effeot from s\nMorag SAY of October next\ned Seo \"Oq yon heat,\nom Pee mept, 29, 1 a.\n5 ; 9. HW. KINZIE\np , KINZIE,\nPe Ba. Trstas Toren Chica\nTp _* Carp.",
+      "normalized": "Town Ordinance. A[t a] M[ee]ting of the Presid[e]nt an[d Trustees of] t[he] tow[n] of Chicago, held [at the Tremon]t House, Sept. [29], 183[4] the follo[wing] [Ord]inance was [passed] […] Be it Ordained [b]y the President and Trustees [of the town of Chicago], That it shall be unlaw[ful for any] [pers]on oF persons to remove or take [away any] earth [or s]and […] off any of the [s]tree[ts] [with]in the […] of the corporation, unless [by per]m[iss]ion of the s[upervisor of roa]d[s] […] for the purpose of repairi[ng …] [and any p]e[rson] or persons so offendi[ng] [shall] pay a fine not exceeding [… to] be [r]ecovered before any Justice of [the Peace of] the tow[n] […] for each and ev[ery offence]. This o[rdinance shall] take effect from [and after] the [5]th day of October next. […] S[e]pt. 29, 183[4]. J. H. KINZIE, P[residen]t Bd. Tr[u]st[ee]s Tow[n of] Chica[go].",
+      "locator": {
+        "artifact_role": "primary",
+        "issue_page": 3,
+        "column": 1,
+        "lines": [
+          2630,
+          2656
+        ],
+        "lines_of_claim": [
+          2630,
+          2631,
+          2632,
+          2633,
+          2634,
+          2635,
+          2636,
+          2637,
+          2638,
+          2639,
+          2640,
+          2641,
+          2642,
+          2643,
+          2644,
+          2645,
+          2646,
+          2647,
+          2648,
+          2649,
+          2650,
+          2651,
+          2652,
+          2653,
+          2654,
+          2655,
+          2656
+        ],
+        "interleaved": true
+      },
+      "entities": [
+        {
+          "as_printed": "9. HW. KINZIE",
+          "normalized": "J. H. Kinzie",
+          "role": "signatory",
+          "occupations": [
+            "President, Board of Trustees of the Town of Chicago"
+          ]
+        }
+      ],
+      "notes": "A SECOND ORDINANCE OF THE SAME SITTING, and two facts in it are worth the card: the trustees met AT THE TREMONT HOUSE on 29 September 1834, and the town had a SUPERVISOR OF ROADS whose permission was needed before earth or sand could be taken off a street. The second is the first sign in this corpus that Chicago's street surfaces were a maintained public thing rather than open ground. The meeting place is read as the Tremont House from 'ot House' plus the issue of 1834-10-29, which prints the trustees meeting 'at the Tre.' House on 13 October; the fire ordinance three columns earlier met at the Presbyterian church, so the two are not interchangeable and this one is bracketed. The segmenter alternates two physical columns line by line here, so this advertisement survives as one cut half; `lines_of_claim` names the lines the quote is built from and `locator.lines` is the whole notice."
+    },
+    {
+      "id": "c005",
+      "kind": "building",
+      "reading": "transcription_mediated",
+      "quote": "For Sale.\nA\nTWO story\nBalding anita- or\nbie fors store adi Dwelling\n1A nearly opposite the draw-brige\nstusted m Sinth Water-sireet\nthe best stands for businees in the tow:\nVert door to the Post Offiee\nE.\nRIDER",
+      "normalized": "For Sale. A TWO story B[ui]lding suita[b]le for [a] store a[n]d Dwelling […] nearly opposite the draw-bri[d]ge [,] s[i]tuated [o]n S[o]uth Water-s[t]reet […] the best stands for busine[s]s in the tow[n] […] [N]e[x]t door to the Post Offi[c]e. E. RIDER.",
+      "locator": {
+        "artifact_role": "primary",
+        "issue_page": 3,
+        "column": 3,
+        "lines": [
+          2841,
+          2851
+        ],
+        "lines_of_claim": [
+          2841,
+          2842,
+          2843,
+          2844,
+          2845,
+          2846,
+          2847,
+          2848,
+          2849,
+          2850,
+          2851
+        ],
+        "interleaved": true
+      },
+      "entities": [
+        {
+          "as_printed": "E. RIDER",
+          "normalized": "E. Rider",
+          "role": "advertiser"
+        }
+      ],
+      "notes": "THE POST OFFICE IS ON SOUTH WATER STREET, NEARLY OPPOSITE THE DRAWBRIDGE — that is what this notice is worth, and it is stated as an anchor rather than as the subject of the ad. The building for sale is a two-storey store-and-dwelling next door to it. No lot or block is named, so nothing is placed on the plat from here; the pair 'nearly opposite the draw-bridge' and 'next door to the Post Office' is the whole of the evidence. The segmenter alternates two physical columns line by line here, so this advertisement survives as one cut half; `lines_of_claim` names the lines the quote is built from and `locator.lines` is the whole notice."
+    },
+    {
+      "id": "c006",
+      "kind": "business",
+      "reading": "transcription_mediated",
+      "quote": "Tin. Sheet tron and Stovel\n[uncertain: MAH?OBI]\nCORNER OF DEARBOEY AND LANE-STRENTS.\nTHE subscriber would repectfully\ninforn\nTriends and the public in general, that\ncommenced the above business, and tha\norders fron the country\nthankfully receiv\non hand\ned and punctually attended to\nApril 22, 1831.\nJ. K. BOTSFORD",
+      "normalized": "Tin, Sheet [I]ron and Stove [manufactory]. CORNER OF DEAR[B]OR[N] AND [L]A[K]E-STRE[E]TS. THE subscriber would re[s]pectfully infor[m his] [f]riends and the public in general, that [he has] commenced the above business, and tha[t] orders fro[m] the country [will be] thankfully receiv[ed] and punctually attended to. April 22, 183[4]. J. K. BOTSFORD.",
+      "locator": {
+        "artifact_role": "primary",
+        "issue_page": 3,
+        "column": 3,
+        "lines": [
+          2879,
+          2891
+        ],
+        "lines_of_claim": [
+          2879,
+          2880,
+          2881,
+          2882,
+          2883,
+          2884,
+          2885,
+          2886,
+          2887,
+          2888,
+          2889,
+          2890,
+          2891
+        ],
+        "interleaved": true
+      },
+      "entities": [
+        {
+          "as_printed": "J. K. BOTSFORD",
+          "normalized": "J. K. Botsford",
+          "role": "proprietor",
+          "occupations": [
+            "tinsmith",
+            "sheet iron worker",
+            "stove dealer"
+          ],
+          "associated_places": [
+            "Dearborn Street",
+            "Lake Street"
+          ]
+        }
+      ],
+      "notes": "A CORNER PLACEMENT, printed as a display line in small capitals — Dearborn and Lake. The dateline reads 'April 22, 1831' in the transcription and the year is read as 1834 from the run: this is Vol. I of a paper that began in November 1833, so 1831 is impossible, and the '1' for '4' confusion is the commonest recognition error in these datelines. The segmenter alternates two physical columns line by line here, so this advertisement survives as one cut half; `lines_of_claim` names the lines the quote is built from and `locator.lines` is the whole notice.",
+      "business": {
+        "name": "J. K. Botsford",
+        "proprietors": [
+          "J. K. Botsford"
+        ],
+        "trade": "tin, sheet iron and stove manufactory",
+        "goods": [
+          "Tin ware",
+          "Sheet iron ware",
+          "Stoves"
+        ],
+        "street": "Lake Street",
+        "placement": {
+          "class": "corner",
+          "anchor": "corner of Dearborn and Lake streets",
+          "offset_text": "CORNER OF DEARBOEY AND LANE-STRENTS.",
+          "offset_normalized": "CORNER OF DEAR[B]OR[N] AND [L]A[K]E-STRE[E]TS.",
+          "street": "Lake Street"
+        }
+      },
+      "ad_copy_date": {
+        "verbatim": "April 22, 1831.",
+        "iso": "1834-04-22"
+      }
+    },
+    {
+      "id": "c007",
+      "kind": "business",
+      "reading": "transcription_mediated",
+      "quote": "TIE salecriber offere his services to the pub.\nFashionable Tailoring.\nlis in\nTailoring Business, and hopes b\nof the times, to merit a share o\n[uncertain: when nine natone an]\nTHOMAS S. EELS.\nwill be immediately at-\nFERENCES:\n. Hubbard & Co. Newberry & Dole,\nand Jobs H. Kinzie, Es.\nChicago, July 28, 1834.",
+      "normalized": "T[H]E s[ub]scriber offer[s] his services to the pub[lic] […] Fashionable Tailoring […] Tailoring Business, and hopes b[y …] of the times, to merit a share o[f public patronage] […] THOMAS S. EELS. [… orders] will be immediately at[tended to.] [RE]FERENCES: [G. S.] Hubbard & Co. Newberry & Dole, and Joh[n] H. Kinzie, Es[q]. Chicago, July 28, 1834.",
+      "locator": {
+        "artifact_role": "primary",
+        "issue_page": 3,
+        "column": 3,
+        "lines": [
+          2892,
+          2903
+        ],
+        "lines_of_claim": [
+          2892,
+          2893,
+          2894,
+          2895,
+          2896,
+          2897,
+          2898,
+          2899,
+          2900,
+          2901,
+          2902,
+          2903
+        ],
+        "interleaved": true
+      },
+      "entities": [
+        {
+          "as_printed": "THOMAS S. EELS.",
+          "normalized": "Thomas S. Eels",
+          "role": "proprietor",
+          "occupations": [
+            "tailor"
+          ]
+        }
+      ],
+      "notes": "The tailoring house stands alone in July 1834 under Thomas S. Eels. By 22 October — the issue of 1834-10-29, page 3 column 2 — the same trade advertises as ANDREWS & EELLS, which is a partnership formed inside this month; both notices stand with their dates, and neither overwrites the other. NO ADDRESS is given in this notice: the three references are merchants, not a placement, so the business is recorded with placement class 'none'. The segmenter alternates two physical columns line by line here, so this advertisement survives as one cut half; `lines_of_claim` names the lines the quote is built from and `locator.lines` is the whole notice.",
+      "business": {
+        "name": "Thomas S. Eels",
+        "proprietors": [
+          "Thomas S. Eels"
+        ],
+        "trade": "fashionable tailoring",
+        "goods": [],
+        "street": null,
+        "placement": {
+          "class": "none"
+        }
+      },
+      "ad_copy_date": {
+        "verbatim": "Chicago, July 28, 1834.",
+        "iso": "1834-07-28"
+      }
+    },
+    {
+      "id": "c008",
+      "kind": "business",
+      "reading": "transcription_mediated",
+      "quote": "ese and Lund dIgent.\n\"8 purchased and Sold, or by commie-\nBuilding Lots for sale, in the town and\nSchool section.\nopposite Dr. Zemples.\nHousee to Let.\nEnquire at the Office en",
+      "normalized": "[…] [Hou]se and L[a]nd [A]gent. [LOT]S purchased and Sold, or by commi[s]-sion. [12] Building Lots for sale, in the town and School section. […] House[s] to Let. Enquire at the Office [o]n [Lake st.] opposite Dr. [T]emple[']s.",
+      "locator": {
+        "artifact_role": "primary",
+        "issue_page": 3,
+        "column": 6,
+        "lines": [
+          3262,
+          3268
+        ],
+        "lines_of_claim": [
+          3262,
+          3263,
+          3264,
+          3265,
+          3266,
+          3267,
+          3268
+        ],
+        "interleaved": false
+      },
+      "business": {
+        "name": "W. G. Blanchard",
+        "proprietors": [
+          "W. G. Blanchard"
+        ],
+        "trade": "house and land agent",
+        "goods": [],
+        "street": null,
+        "placement": {
+          "class": "relative",
+          "anchor": "Dr. Temple's",
+          "offset_text": "opposite Dr. Zemples.",
+          "offset_normalized": "[…] opposite Dr. [T]emple[']s.",
+          "street": null
+        }
+      },
+      "notes": "ONE IMPRESSION OF THE STANDING LAKE STREET LAND-AGENCY CARD. The Democrat sets this advertisement, word for word the same, in every issue from 1834-05-14 to 1834-10-01 — twenty consecutive weeks, eighteen of which set the line ‘purchased and Sold, or by commi[s]sion’ recognisably (T-1051). The card is identified by its copy and not by its display line: the same trade (‘House and Land Agent’), the same offer of building lots in the town and the School Section, the same houses to let, and the same office on Lake street opposite Dr. Temple's. THE LAST IMPRESSION OF THE RUN the corpus can read: the card is not in the Democrat after this issue. The display line is lost — 3261 closes J. K. Botsford's notice immediately above. THE PROPRIETOR'S NAME IS NOT READ HERE and none is supplied into the quote: the record's ‘W. G. Blanchard’ stands on T-0408's reading of the two impressions whose columns are NOT Tesseract fallbacks (1834-07-16 line 5527, 1834-09-17 line 3292) and on identity.json's declared firm merge, not on this impression. The street did not survive the margin and the lines are set out of order (the address at 3266 above 'Housee to Let.' at 3267), so the anchor is read and the street left null. AND IT MATTERS TO A REFUSAL THIS CLAIM DOES NOT TOUCH: identity.json's `refused_firm_merges` holds 'W. G. Blanchard' apart from 'G. Blanshard' partly on the reading that the two cards run in succession rather than together — 'a gap between the two runs rather than an overlap'. This issue is 1834-10-01, the same issue in which 'G. BLANSHARD' is set whole in the stray-horse reward notice that refusal cites, and the Blanshard land card first runs a week later on 1834-10-08. That is a fact about the weeks, recorded here where it was found. The refusal is NOT reopened by this claim and nothing here is merged: what the overlap is worth is a question for the file that owns it."
+    }
+  ]
+}

@@ -1,0 +1,209 @@
+{
+ "schema": 1,
+ "issue_id": "chicago_democrat_1835_01_21",
+ "extracted": "2026-08-29",
+ "extracted_by": "hand, T-0326",
+ "note": "Vol. II No. 5, the only Democrat printed between 1834-12-31 and the 03-25 Extra: the paper then suspended for want of printing paper until 1835-05-20, which the Extra's prospectus explains. Four pages, three columns each, and the town matter is thin because eleven of the twelve columns are the canal debate reprinted out of the Vandalia Advocate, the Galenian and the Illinois Champion. WHAT THE TOWN GETS OUT OF IT is the harbor's own first-season report (180 vessels), two mail facts, and the editor's valuation of the 318 unsold canal lots in this place. THE ISSUE'S TWO POST-OFFICE LETTER LISTS CANNOT BE READ. Page 3 column 3 and page 4 columns 1-2 carry them and the transcriber replaced all three columns with bounded loss markers, because the narrow printed name sub-columns interleaved under the scan and a photographer's pointer covers part of the list. Ruling 1 is therefore met here by recording the lists' EXISTENCE and their loss, not by minting names from them: the seven names c007 carries are the ones the transcriber states were directly verified, and they are minted on that warrant with the loss marker quoted verbatim as the evidence. Every other name printed in those columns is unrecovered and is NOT invented here. The page images would close it; T-0305's shape of ticket is the way to ask for them.",
+ "claims": [
+  {
+   "id": "c001",
+   "kind": "infrastructure",
+   "reading": "transcription_mediated",
+   "quote": "Chicago Harbor, Illinois.—The operations of constructing an artificial harbor at this place, on Lake Michigan, have progressed in a satisfactory manner, considering the late period at which the appropriation became available, and the difficulties, in a country just emerging from a state of wilderness, to be overcome in procuring the necessary supplies, materials and workmen. The great importance of this improvement, to the increasing commerce of the west, is already felt; one hundred and eighty vessels having, between the opening of navigation and the 30th November last, arrived and discharged their cargoes at this point, to be distributed along the shores of the Mississippi, through the valley of the Illinois. That this improvement is destined to form an essential link in the most important thoroughfare between the lakes and Mississippi country, there can be no manner of doubt, and, for that reason, I would recommend that it be perfected as rapidly as circumstances will permit.—Public Documents.",
+   "normalized": "Chicago Harbor, Illinois.—The operations of constructing an artificial harbor at this place, on Lake Michigan, have progressed in a satisfactory manner, considering the late period at which the appropriation became available, and the difficulties, in a country just emerging from a state of wilderness, to be overcome in procuring the necessary supplies, materials and workmen. […] one hundred and eighty vessels having, between the opening of navigation and the 30th November last, arrived and discharged their cargoes at this point […] I would recommend that it be perfected as rapidly as circumstances will permit.—Public Documents.",
+   "locator": {
+    "artifact_role": "primary",
+    "issue_page": 3,
+    "column": 2,
+    "lines": [
+     288,
+     288
+    ]
+   },
+   "entities": [],
+   "notes": "THE HARBOR'S FIRST FULL SEASON, IN THE ENGINEER'S OWN RETURN. The paragraph is lifted from the federal Public Documents, so the 180 arrivals are a reported federal count and not the Democrat's own. It is the earliest figure in this corpus for traffic across the new bar, and it is a COUNT OF ARRIVALS between the opening of navigation and 30 November 1834 — not of distinct vessels, several of which appear repeatedly in the 1835 marine lists this epic has read. Nothing here is used to place anything on the ground; it is the scale of the harbor's use."
+  },
+  {
+   "id": "c002",
+   "kind": "infrastructure",
+   "reading": "transcription_mediated",
+   "quote": "Since the publication of our last paper, the direct mail route from this place to Galena has been discontinued, and our mail to that place goes via. Peoria. This is not as it should be. The direct route to Galena is an important one. It passes through several large settlements, in a section of country rapidly filling up with emigrants. Most if not all these emigrants have left friends in the different sections from whence they came, with whom it is desirable that they should have a ready means of communication. A good portion of this section, and some of our most flourishing settlements are now wholly deprived of a mail, and are thirty miles from mail privileges. We cannot but believe that the Post Office Department was not fully aware of the character of this route, and that when its importance is fully presented for its consideration, a mail will again be ordered upon it.",
+   "normalized": "Since the publication of our last paper, the direct mail route from this place to Galena has been discontinued, and our mail to that place goes via. Peoria. […] A good portion of this section, and some of our most flourishing settlements are now wholly deprived of a mail, and are thirty miles from mail privileges.",
+   "locator": {
+    "artifact_role": "primary",
+    "issue_page": 3,
+    "column": 1,
+    "lines": [
+     253,
+     253
+    ]
+   },
+   "notes": "The Chicago–Galena direct mail is DOWN in January 1835. By 1835-05-20 the United States Mail Stages advertisement in the same paper runs four-horse post coaches Galena to Chicago twice a week via Dixon's Ferry, so the route was restored inside those four months; the Naper's Settlement meeting printed in this same column is the petition that asked for it."
+  },
+  {
+   "id": "c003",
+   "kind": "infrastructure",
+   "reading": "transcription_mediated",
+   "quote": "While upon this subject, it is gratifying to notice the fact that our eastern mail has been increased from one trip a week to a trip every other day. Judging the future by the past, we may safely look forward to one year as the period within which the interests of our flourishing town will demand and receive a daily mail to and from the eastern cities.",
+   "normalized": "While upon this subject, it is gratifying to notice the fact that our eastern mail has been increased from one trip a week to a trip every other day. Judging the future by the past, we may safely look forward to one year as the period within which the interests of our flourishing town will demand and receive a daily mail to and from the eastern cities.",
+   "locator": {
+    "artifact_role": "primary",
+    "issue_page": 3,
+    "column": 1,
+    "lines": [
+     255,
+     255
+    ]
+   },
+   "notes": "The eastern mail's frequency at the start of 1835 — one trip a week, raised to every other day. The 1835-05-20 Juliet post-office notice says the Eastern Mails for that office are received VIA CHICAGO twice a week, which is consistent with Chicago being the through point."
+  },
+  {
+   "id": "c004",
+   "kind": "price",
+   "reading": "transcription_mediated",
+   "quote": "Since writing the above, we have received the very able report of Mr. Forquer, from the committee on Internal Improvements to the Senate upon the Illinois and Michigan Canal. We have barely time to say that the subject is examined with ability. It recommends that a sum sufficient to complete the entire work, be loaned upon the credit of the state, and that a portion of the town lots and canal lands be sold from time to time to pay the interest. We differ from the report only, if at all, in the opinion that the whole of the town lots at least should be sold at once and without delay. For, in the language of the Report, with an ample guarantee that the entire canal “would certainly and speedily be done, there can be no doubt that the canal property would almost immediately appreciate to very nearly its maximum value.” Hence the state would lose comparatively nothing by selling at once on a credit. The property must be occupied whether sold now or not, and if not sold now, we doubt whether any plan for their sale at a future time can be devised, which will not be productive of injustice to the state or individuals, and in some cases lead to serious difficulties. Indeed, we doubt whether, at a future time, when these lots or lands should be all occupied, under all the circumstances of the case, they will bring as much as at the present. The estimate in the report of the value of the lots not sold, in this place, is by far too low. The 318 lots are estimated at $101,400. We have no doubt they would sell to-day for two hundred and fifty thousand dollars.",
+   "normalized": "[…] some measures ought to be taken to dispose at once of the canal lands in this town and vicinity. […] The estimate in the report of the value of the lots not sold, in this place, is by far too low. The 318 lots are estimated at $101,400. We have no doubt they would sell to-day for two hundred and fifty thousand dollars.",
+   "locator": {
+    "artifact_role": "primary",
+    "issue_page": 3,
+    "column": 1,
+    "lines": [
+     251,
+     251
+    ],
+    "lines_of_claim": [
+     251
+    ]
+   },
+   "notes": "THE UNSOLD CANAL LOTS IN CHICAGO, COUNTED. 318 of them, appraised by Mr. Forquer's Senate committee at $101,400 — an average of $319 a lot — and the editor's own valuation is $250,000, about $786 a lot. Both figures are opinions of value and neither is a sale; the sales that test them are the federal land sale of 15 June 1835 advertised in the 03-25 Extra and the town-lot speculation the June 1835 issues complain of. The count, 318, is the useful number: it is how much of the platted town was still unbuilt-on state property six months before the scene date."
+  },
+  {
+   "id": "c005",
+   "kind": "shipping",
+   "reading": "transcription_mediated",
+   "quote": "Eight thousand barrels of Onondaga salt were taken to Chicago last year at an average price of three dollars per barrel. Sixteen thousand barrels is the estimated supply for the present season, at $2 50 per barrel, and when return cargoes of wheat can be produced in place of Spanish dollars, which we are now compelled to bring back, the wheat may be freighted to Oswego for one shilling per bushel, reducing the freight of salt from one dollar, its present price, to fifty cents per barrel of five bushels. Salt will then be delivered to the teamsters in Illinois and Indiana at two dollars per barrel, and then the demand will double again the first year, say 32,000 barrels for Chicago alone.",
+   "normalized": "Eight thousand barrels of Onondaga salt were taken to Chicago last year at an average price of three dollars per barrel. Sixteen thousand barrels is the estimated supply for the present season, at $2 50 per barrel […] Salt will then be delivered to the teamsters in Illinois and Indiana at two dollars per barrel, and then the demand will double again the first year, say 32,000 barrels for Chicago alone.",
+   "locator": {
+    "artifact_role": "primary",
+    "issue_page": 2,
+    "column": 1,
+    "lines": [
+     219,
+     219
+    ]
+   },
+   "notes": "Salt is the volume trade this harbor was built for, and this is the Oswego end of it writing. 8,000 barrels landed at Chicago in 1834 at $3; 16,000 expected in 1835 at $2.50. The Chicago Prices Current the Democrat began printing on 1835-05-27 quotes salt at $2 75 a $3 00 the barrel RETAIL in town, which sits just above the wholesale figure here, as it should."
+  },
+  {
+   "id": "c006",
+   "kind": "shipping",
+   "reading": "transcription_mediated",
+   "quote": "Arrived at this port within a few days past, the schooners Detroit, Huron, and Winnebago, belonging to Messrs. Bronson and Crocker, from the ports of Chicago in Illinois, Michigan city in Indiana, and St. Joseph in Michigan, on lake Michigan, where these schooners discharged about 2,400 barrels of Onondaga Salt, returning to Lake Erie in ballast, where they took on board cargoes of Ohio wheat for the Oswego mills, destined, when floured, for the New York market. These, although not the first voyages between our own and the western states, are almost the commencement of a regular trade between these distant points, a trade destined to grow up in a brief period to a vast amount.",
+   "normalized": "Arrived at this port within a few days past, the schooners Detroit, Huron, and Winnebago, belonging to Messrs. Bronson and Crocker, from the ports of Chicago in Illinois, Michigan city in Indiana, and St. Joseph in Michigan, on lake Michigan, where these schooners discharged about 2,400 barrels of Onondaga Salt, returning to Lake Erie in ballast […]",
+   "locator": {
+    "artifact_role": "primary",
+    "issue_page": 2,
+    "column": 1,
+    "lines": [
+     215,
+     215
+    ]
+   },
+   "entities": [
+    {
+     "as_printed": "Messrs. Bronson and Crocker",
+     "normalized": "Bronson and Crocker",
+     "role": "owners of the schooners Detroit, Huron and Winnebago, trading to Chicago"
+    }
+   ],
+   "notes": "Dated at Oswego 24 September 1834 and printed here four months later. It names the 1834 Chicago salt carriers by hull — Detroit, Huron, Winnebago — none of which appears in the 1835 marine lists this epic has read, and their owners are an Oswego house, not a Chicago one. Recorded for the trade, not for a Chicago placement: Bronson and Crocker are NOT minted as a Chicago business."
+  },
+  {
+   "id": "c007",
+   "kind": "person",
+   "reading": "transcription_mediated",
+   "quote": "[missing/obscured: This column contains a municipal meeting notice, commercial notices, and two Post Office letter lists. Narrow internal name-list subcolumns are interleaved in the surviving OCR, and the photographer's pointer covers part of the printed list. Individual entries that cannot be assigned to their printed order are omitted rather than guessed. Directly verified names include H. CROCKER, Clerk; HARMON, LOOMIS & CO.; ABISSINIA DAVIS; DAVID CARVER; KINZIE & HALL; LEVI F. ARNOLD, P.M.; and THOMAS GALAHER, P.M.]",
+   "normalized": "[missing/obscured: This column contains a municipal meeting notice, commercial notices, and two Post Office letter lists. Narrow internal name-list subcolumns are interleaved in the surviving OCR, and the photographer's pointer covers part of the printed list. Individual entries that cannot be assigned to their printed order are omitted rather than guessed. Directly verified names include H. CROCKER, Clerk; HARMON, LOOMIS & CO.; ABISSINIA DAVIS; DAVID CARVER; KINZIE & HALL; LEVI F. ARNOLD, P.M.; and THOMAS GALAHER, P.M.]",
+   "locator": {
+    "artifact_role": "primary",
+    "issue_page": 3,
+    "column": 3,
+    "lines": [
+     292,
+     292
+    ]
+   },
+   "letter_list_only": false,
+   "entities": [
+    {
+     "as_printed": "H. CROCKER, Clerk",
+     "normalized": "H. Crocker",
+     "role": "clerk, named in the municipal and commercial notices of this column"
+    },
+    {
+     "as_printed": "HARMON, LOOMIS & CO.",
+     "normalized": "Harmon, Loomis & Co.",
+     "role": "firm named in the commercial notices of this column",
+     "associated_places": [
+      "Chicago"
+     ]
+    },
+    {
+     "as_printed": "ABISSINIA DAVIS",
+     "normalized": "Abissinia Davis",
+     "role": "named in the notices of this column"
+    },
+    {
+     "as_printed": "DAVID CARVER",
+     "normalized": "David Carver",
+     "role": "named in the notices of this column",
+     "associated_places": [
+      "Chicago"
+     ]
+    },
+    {
+     "as_printed": "KINZIE & HALL",
+     "normalized": "Kinzie & Hall",
+     "role": "firm named in the commercial notices of this column",
+     "associated_places": [
+      "Chicago"
+     ]
+    },
+    {
+     "as_printed": "LEVI F. ARNOLD, P.M.",
+     "normalized": "Levi F. Arnold",
+     "role": "postmaster, signing one of the two post office letter lists in this column",
+     "occupations": [
+      "postmaster"
+     ]
+    },
+    {
+     "as_printed": "THOMAS GALAHER, P.M.",
+     "normalized": "Thomas Galaher",
+     "role": "postmaster, signing one of the two post office letter lists in this column",
+     "occupations": [
+      "postmaster"
+     ]
+    }
+   ],
+   "notes": "THE QUOTE IS THE TRANSCRIBER'S LOSS MARKER, NOT THE PAPER, AND THAT IS STATED RATHER THAN HIDDEN. This column carried two post-office letter lists and the transcriber could not restore them; what she does state is which names she verified directly against the scan, and those seven are minted on that warrant. So the reading grade is unchanged (`transcription_mediated`) but the EVIDENCE is one step further removed than a quoted line of type, and a later pass with the page images should re-read this column rather than trust the list here to be complete.\n\nTWO SIGNATURES, NEITHER OF THEM CHICAGO'S POSTMASTER. Chicago's postmaster in January 1835 is John S. C. Hogan (T-0310 read his 1 January 1834 list; the 1835-05-27 marriage notice still calls him 'Postmaster, Chicago Ill.'). Levi F. Arnold signs Plainfield's list in the Democrat of 1835-05-20 and Thomas Galaher is a third office; so the two lists in THIS column are OTHER post offices' lists reprinted, exactly as the August 1834 Hennepin list was, and ruling 1 does not mint their names as Chicago residents even when the names are recovered. Harmon, Loomis & Co., David Carver and Kinzie & Hall are Chicago firms and are minted; they all appear again in the 1835 advertising columns."
+  },
+  {
+   "id": "c008",
+   "kind": "notice",
+   "reading": "transcription_mediated",
+   "quote": "[missing/obscured: Dense Post Office letter-list subcolumns are physically interleaved by the scan/crop and cannot be restored to a responsible name order from the available OCR. Unsupported name fragments and non-source glyphs have been removed.]",
+   "normalized": "[missing/obscured: Dense Post Office letter-list subcolumns are physically interleaved by the scan/crop and cannot be restored to a responsible name order from the available OCR. Unsupported name fragments and non-source glyphs have been removed.]",
+   "locator": {
+    "artifact_role": "primary",
+    "issue_page": 4,
+    "column": 1,
+    "lines": [
+     298,
+     298
+    ]
+   },
+   "notes": "RECORDING THE HOLE, so the next pass does not have to rediscover it. Page 4 columns 1 and 2 are letter list and short notices and both are lost the same way; page 4 column 3 is a legal and advertising column clipped at the left edge throughout and is lost too. That is three of the twelve columns of this issue carrying town matter — the advertising and the lists — gone. The advertising standing in the Democrat around this date is knowable from the 1834 file and from 1835-05-20, where most of the same standing advertisements are still running with their 1834 datelines; nothing is carried across into this issue on that ground, because a standing advertisement's presence in May does not prove its presence in January."
+  }
+ ]
+}

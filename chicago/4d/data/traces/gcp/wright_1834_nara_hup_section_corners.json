@@ -1,0 +1,134 @@
+{
+  "_doc": "Control at the FOOT of the National Archives / Historic Urban Plans scan of Wright's 1834 survey: the School Section's other three corners. T-0878. The registration in data/traces/gcp/wright_1834_nara_hup_gcps.json is fitted on eight crossings that all lie between y=1631 and y=3225 px of a 6628 px sheet, so everything Wright draws south of Madison Street is EXTRAPOLATION. These three points are the nearest thing the modern grid offers to control down there. They are held here rather than appended to the eight, because the eight are the registration T-0787 published and comparable across two scans; these are a later, weaker, differently-sourced set and the difference matters.",
+  "id": "wright_1834_nara_hup_section_corners",
+  "ticket": "T-0878",
+  "raster": {
+    "working_copy": "chicago/pre_fire_v1/maps/images/1834-wright-map.jpg",
+    "width": 5050,
+    "height": 6628,
+    "sha256": "dbb92c0188881d9b6cdf84801b9185a5715496a328125bde895a04058b173266",
+    "source_id": "wright_1834_nara_hup",
+    "note": "The same raster, the same pixel space, as wright_1834_nara_hup_gcps.json. Cited by path and checksum; not copied."
+  },
+  "which_section": "Section 16, T39N R14E \u2014 the school section the state sold in October 1833, a statute mile square bounded by Madison Street on the north, State Street on the east and, a mile from each, the lines that later carried Twelfth Street (Roosevelt Road) and Halsted Street. Its north-east corner is GCP G1 of the registration and is NOT repeated here.",
+  "map_side": {
+    "method": "NOT a fresh pick off the raster. T-0797 resampled the scan into local ENU through the then-committed eight-point fit (retained_fit in the registration since T-1091), picked every ruled line of the section's grid as the centroid of a darkness peak in six to eight independent bands, and committed the resulting line table. The fit is an invertible affine, so inverting it on the four corner intersections of that table returns the pixel coordinates the reading was taken at. The table is rounded to 0.01 m, which is 0.014 px, so the recovery is exact for this purpose.",
+    "source_of_the_line_table": "data/traces/vectors/school_section_blocks_1834.json",
+    "north_east_corner_cross_check": {
+      "drawn_corner_pixel": [
+        2950.0,
+        3241.3
+      ],
+      "gcp_g1_pixel": [
+        2951.0,
+        3225.0
+      ],
+      "separation_px": 16.3,
+      "separation_m_at_the_committed_scale": 12.0,
+      "reading": "The same point of the drawing, picked two ways: G1 by normalised cross-correlation against the BPL scan at the street crossing, the drawn corner as the meeting of the section's own two outer rules. Twelve metres apart, inside the retained eight-point fit's own 16.19 m RMS, and almost all of it in y \u2014 which is the axis this ticket is about."
+    }
+  },
+  "control_side": {
+    "source": "Modern control from OpenStreetMap via the Overpass API, fetched 2026-09-12, by the same method the registration used: the nodes shared by the two named ways at each crossing, averaged, reprojected to EPSG:26916.",
+    "rights": "OSM data is (c) OpenStreetMap contributors, ODbL \u2014 see data/sources/osm_streets_2026.json.",
+    "HOW GOOD THESE ARE, AND IT IS THE FIRST THING TO READ": "Not as good as the eight. Section lines in Chicago run down the middle of the streets laid on them, so a crossing of centrelines should be the section corner \u2014 but Halsted Street and Twelfth Street were both WIDENED after 1834 (Twelfth became Roosevelt Road in the 1910s), and a widening that takes ground from one side only moves the centreline. The four edges of the square these three points make with G1 measure 1620.09 to 1624.23 m against the statute mile's 1609.344 \u2014 a mean 12.73 m long, 0.79 per cent, in BOTH axes and in the same direction, which is what a uniform outward shift of widened streets looks like and is not what a paper-stretch error looks like. Two of the three are also multi-node crossings of a divided roadway: the node spreads are 16.95 m at Halsted & Roosevelt and 14.48 m at State & Roosevelt, against a maximum of 6.4 m across the registration's eight. So these points carry roughly +/- 13 m of systematic and +/- 8 m of picking uncertainty. They are strong enough to say whether a three per cent error is there and far too weak to redefine the sheet's scale by themselves \u2014 which is why the adjudication in data/traces/gcp/wright_1834_nara_hup_fit_adjudication.json leans on the section's own mile and uses these only to corroborate it."
+  },
+  "corners": [
+    {
+      "id": "S-NW",
+      "corner": "NW",
+      "map_feature": "North Halsted Street & West Madison Street",
+      "plss": "PLSS section corner: sections 8/9/16/17, T39N R14E",
+      "pixel": [
+        653.9,
+        3169.2
+      ],
+      "pixel_note": "the section's own drawn corner, recovered by inverting the RETAINED eight-point fit on T-0797's measured line table (data/traces/vectors/school_section_blocks_1834.json, grid.ns_lines[].measured and grid.ew_lines[].measured) \u2014 not a fresh pick off the raster",
+      "modern": {
+        "lat": 41.8817821,
+        "lon": -87.6473605,
+        "osm_node_ids": [
+          35313343
+        ],
+        "nodes_averaged": 1,
+        "node_spread_m": 0.0,
+        "utm_e": 446287.9,
+        "utm_n": 4636853.34
+      },
+      "residual_m": 6.16,
+      "confidence": "documented",
+      "sources": [
+        "osm_streets_2026"
+      ]
+    },
+    {
+      "id": "S-SW",
+      "corner": "SW",
+      "map_feature": "South Halsted Street & West Roosevelt Road",
+      "plss": "PLSS section corner: sections 16/17/20/21, T39N R14E",
+      "pixel": [
+        648.0,
+        5423.3
+      ],
+      "pixel_note": "the section's own drawn corner, recovered by inverting the RETAINED eight-point fit on T-0797's measured line table (data/traces/vectors/school_section_blocks_1834.json, grid.ns_lines[].measured and grid.ew_lines[].measured) \u2014 not a fresh pick off the raster",
+      "modern": {
+        "lat": 41.8671813,
+        "lon": -87.6469627,
+        "osm_node_ids": [
+          1324298357,
+          5906917261,
+          13660085736
+        ],
+        "nodes_averaged": 3,
+        "node_spread_m": 16.95,
+        "utm_e": 446308.68,
+        "utm_n": 4635232.01
+      },
+      "residual_m": 4.66,
+      "confidence": "documented",
+      "sources": [
+        "osm_streets_2026"
+      ]
+    },
+    {
+      "id": "S-SE",
+      "corner": "SE",
+      "map_feature": "South State Street & West Roosevelt Road",
+      "plss": "PLSS section corner: sections 15/16/21/22, T39N R14E",
+      "pixel": [
+        2944.1,
+        5495.3
+      ],
+      "pixel_note": "the section's own drawn corner, recovered by inverting the RETAINED eight-point fit on T-0797's measured line table (data/traces/vectors/school_section_blocks_1834.json, grid.ns_lines[].measured and grid.ew_lines[].measured) \u2014 not a fresh pick off the raster",
+      "modern": {
+        "lat": 41.8674192,
+        "lon": -87.6274444,
+        "osm_node_ids": [
+          256631215,
+          704695565,
+          2565193678,
+          2565193679
+        ],
+        "nodes_averaged": 4,
+        "node_spread_m": 14.48,
+        "utm_e": 447928.71,
+        "utm_n": 4635246.4
+      },
+      "residual_m": 7.51,
+      "confidence": "documented",
+      "sources": [
+        "osm_streets_2026"
+      ]
+    }
+  ],
+  "modern_square": {
+    "north_edge_m": 1622.52,
+    "south_edge_m": 1620.09,
+    "west_edge_m": 1621.46,
+    "east_edge_m": 1624.23,
+    "statute_mile_m": 1609.344,
+    "mean_departure_m": 12.73,
+    "note": "The square the three OSM crossings make with GCP G1's modern position, before any map is involved. Its departure from the mile is the systematic uncertainty above, measured."
+  },
+  "read_by": "tools/adjudicate_wright_na_fit.py"
+}

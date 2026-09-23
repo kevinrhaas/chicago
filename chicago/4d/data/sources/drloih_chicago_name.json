@@ -1,0 +1,14 @@
+{
+  "id": "drloih_chicago_name",
+  "type": "website",
+  "citation": "The Origin and Meaning of the Name Chicago. Dr. Loih Journal, December 2016.",
+  "date": "accessed 2026-08-10",
+  "describes_date": "1687-1700",
+  "url": "https://drloihjournal.blogspot.com/2016/12/the-origin-and-meaning-of-name-chicago.html",
+  "tier": 4,
+  "rights_status": "check_required",
+  "asset_use": "text_only",
+  "verified": true,
+  "access_notes": "Retrieved and read on 2026-08-10. It states that Joutel 'spent nearly three weeks in the Chicagou area in 1687-88', that his description of the plant, 'its ail Sauvage taste, and its differences from the native onion and its maple forest habitat point unambiguously to Allium Tricoccum', and that the plant grew 'on the wooded banks of the extensive Chicagoua River System'. The post reproduces this argument WITHOUT citing Swenson, which is recorded here rather than smoothed over. No Wayback snapshot could be confirmed: the archive.org availability API returned HTTP 429 to this environment on 2026-08-10, so no archived_url is recorded rather than one being guessed at.",
+  "note": "The retrievable statement of Swenson's argument, used for the habitat of Allium tricoccum: rich moist fire-protected woods and wooded river banks, not the open prairie. It is a blog, and it is cited alongside the journal article it restates rather than in place of it."
+}

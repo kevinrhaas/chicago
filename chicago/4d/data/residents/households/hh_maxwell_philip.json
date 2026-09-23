@@ -1,0 +1,147 @@
+{
+ "id": "hh_maxwell_philip",
+ "name": "The post surgeon's household",
+ "division": "fort",
+ "head": "maxwell_philip",
+ "arrival": {
+  "value": "1833-02-03",
+  "confidence": "attested",
+  "sources": [
+   "andreas_1884_v1"
+  ],
+  "note": "The day he assumed his duties at the post. For an officer under orders that IS the arrival date.",
+  "precision": "day"
+ },
+ "party_size_on_arrival": {
+  "value": 1,
+  "confidence": "inferred",
+  "sources": [
+   "andreas_1884_v1"
+  ],
+  "note": "An assistant surgeon reporting to a post. Andreas's later notice has his family living at Geneva Lake, Wisconsin, decades afterwards and says nothing about 1833; nothing suggests a family travelled with him to Fort Dearborn."
+ },
+ "origin": {
+  "value": "Sackett's Harbor, New York; born at Guilford, Vermont",
+  "confidence": "attested",
+  "sources": [
+   "andreas_1884_v1"
+  ]
+ },
+ "reason_for_coming": {
+  "value": "Posted to Fort Dearborn by the Army",
+  "confidence": "attested",
+  "sources": [
+   "andreas_1884_v1"
+  ],
+  "note": "'Reported as having assumed his official duties at the fort' - he was sent, like every other soldier in the scene."
+ },
+ "lives_at": {
+  "value": "fort_dearborn_officers_quarters",
+  "confidence": "inferred",
+  "sources": [
+   "andreas_1884_v1"
+  ],
+  "note": "A commissioned officer of the garrison lodged in the officers' quarters. The building is in the dataset and the practice is universal for a post of this kind; no source puts this man in this building, hence inferred."
+ },
+ "works_at": {
+  "value": null,
+  "confidence": "reconstructed",
+  "note": "NOT MODELLED. The post surgeon worked in a hospital and this dataset holds no Fort Dearborn hospital record, although the fort's surgeon's prescription book with an entry of 15 March 1835 is one of the things that proves the post was garrisoned in the scene year. Left null so the missing building is visible rather than papered over with the palisade."
+ },
+ "present_on_scene_date": {
+  "value": "present",
+  "confidence": "attested",
+  "sources": [
+   "andreas_1884_v1"
+  ],
+  "note": "On duty at the post from February 1833 to December 1836."
+ },
+ "persons": [
+  {
+   "id": "maxwell_philip",
+   "name": "Dr Philip Maxwell",
+   "relationship": "head",
+   "grade": "attested",
+   "ladder_rule": "G1b",
+   "sex": "male",
+   "birth_year": {
+    "value": 1799,
+    "confidence": "attested",
+    "sources": [
+     "andreas_1884_v1"
+    ],
+    "note": "3 April 1799."
+   },
+   "age_on_scene_date": {
+    "value": 36,
+    "confidence": "attested",
+    "sources": [
+     "andreas_1884_v1"
+    ],
+    "note": "36 on 1 July 1835."
+   },
+   "occupation": {
+    "value": "army_surgeon",
+    "confidence": "attested",
+    "sources": [
+     "andreas_1884_v1"
+    ],
+    "note": "Assistant surgeon, United States Army, on duty at Fort Dearborn. Andreas: 'On February 3, 1833, Assistant Surgeon Philip Maxwell is reported as having assumed his official duties at the fort ... he remained in that military position until the abandonment of the fort on December 29, 1836.'",
+    "derived_from": "roles",
+    "roles_at_scene_date": [
+     "army_surgeon"
+    ]
+   },
+   "sources": [
+    "andreas_1884_v1"
+   ],
+   "note": "A GARRISON OFFICER WHOSE TOUR BRACKETS THE SCENE DATE AT BOTH ENDS - 3 February 1833 to 29 December 1836 - which makes him one of the few people in the dataset whose presence on 1 July 1835 is a matter of record rather than of inference. Born at Guilford, Windham Co., Vt., 3 April 1799; practised at Sackett's Harbor, N.Y., and sat in the New York legislature before his appointment. He was a witness to the Indian treaty of 26 September 1833.",
+   "resident_research": {
+    "programme": "resident-research-2026",
+    "ticket": "T-0478",
+    "outcome": "no_corroboration_yet",
+    "reviewed_on": "",
+    "asserted_identity": false,
+    "evidence_for": "Chicago medical history gives Philip Maxwell's full birth data and places him as Fort Dearborn's last surgeon from 1833 through the fort's final 1836 abandonment. This strongly corroborates his scene-period Chicago role.",
+    "notes": "Chicago medical history gives Philip Maxwell's full birth data and places him as Fort Dearborn's last surgeon from 1833 through the fort's final 1836 abandonment. This strongly corroborates his scene-period Chicago role.",
+    "source_ids": [
+     "history_medicine_chicago_kimberly_maxwell"
+    ]
+   },
+   "roles": [
+    {
+     "role": "army_surgeon",
+     "kind": "profession",
+     "as_printed": null,
+     "from": "1673",
+     "to": "1857",
+     "precision": "source_span",
+     "dated_by": "source_describes_date",
+     "covers_scene_date": true,
+     "confidence": "attested",
+     "sources": [
+      "andreas_1884_v1"
+     ],
+     "claim": null,
+     "note": "THE BOUND IS THE SOURCE'S, NOT THE MAN'S. This role is carried by the card's 1835 occupation block and is dated by what the cited source or sources are ABOUT, which is why `precision` can be no better than the span they cover. The span reaches 1835, so this role stands in the scene-date view. The printing the trade was read off is not on the card and is fetched by T-1254."
+    }
+   ]
+  }
+ ],
+ "touches_removal": false,
+ "review_required": false,
+ "research_note": "THE ONE HOUSEHOLD IN THIS PARCEL WHOSE PRESENCE NEEDS NO ARGUMENT, and the one that identifies a missing building. Everything about Maxwell is dated: birth, appointment, arrival, treaty witness, departure. What is not in the dataset is the room he worked in. THE GARRISON IS UNDER-REPRESENTED HERE ON PURPOSE. Fort Dearborn on 1 July 1835 was an occupied post under Major John Greene with an enlisted company, and this parcel writes only the two officers the sources name and date. Every private soldier is a documented human being whom no source in this dataset names, and turning a muster strength into person records is derived-phase work with a muster roll, not something to guess at now.",
+ "directories": {
+  "note": "LATER EVIDENCE, BESIDE THE 1835 CLAIMS AND NOT INSIDE THEM. A Chicago directory of 1839, 1843 or 1844 meets somebody of this name and this pass records what it prints. Under the ratified ladder a directory read after 1835 can corroborate that a person attested here was still in Chicago and can print a trade or a street the 1835 record never had; on its own it makes nobody a resident of 1835. Nothing on this person's 1835 record was regraded, moved, dated or given an occupation by this entry. WHAT THIS PASS RULED ONTO THIS HOUSEHOLD, named so the ruling can be found again: each volume below is followed by the printed entries it set against this person and the status the crosswalk ruled them at — a single entry carries what its own `could_carry` declares, and an ambiguous or contested match carries nothing and is shown so that the silence is legible. maxwell_philip, Fergus's Chicago directory of 1839 — f1839_e1014 (a single entry); maxwell_philip, Fergus's Chicago directory of 1843 — f1843_e1768 (a single entry); maxwell_philip, Norris's Chicago directory of 1844 — n1844_e1247 (a single entry).",
+  "sources": [
+   "fergus_chicago_directory_1839",
+   "fergus_chicago_directory_1843",
+   "norris_directory_1844"
+  ],
+  "people": [
+   {
+    "person_id": "maxwell_philip"
+   }
+  ]
+ }
+}

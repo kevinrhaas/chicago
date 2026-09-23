@@ -1,0 +1,681 @@
+{
+ "schema": "chicago4d.kin_survey.v1",
+ "_doc": "DERIVED by tools/survey_stated_kin.py (T-0734) — the kinship the committed sources state, with both ends resolved against the residents layer. Hand-edits are overwritten; the rulings live in kin_rulings.json. `proposals` carries only the rows a person has to answer — the ones where the other party is somebody the town holds. Statements whose other party is nobody in this dataset are counted and not listed: they are the corpus talking about the world outside the town.",
+ "generated_by": "tools/survey_stated_kin.py",
+ "ticket": "T-0734",
+ "corpus": [
+  "data/research/church/records/st_marys_baptisms_1833_1835.json",
+  "data/research/church/records/st_cyr_marriages_1834_1839.json",
+  "data/research/church/records/st_cyr_deaths_1834_1837.json",
+  "data/residents/households/*.json"
+ ],
+ "not_read": {
+  "the_1840_census_households": "The densest kinship the corpus holds, and its crosswalk is 235 named heads stale on dev (T-0714) and derived against 849 residents where the town now holds 1,404 (T-0698). Kin read off it would land on the wrong people. Deliberately out of this pass."
+ },
+ "counts": {
+  "statements_read": 263,
+  "both_ends_in_town": 30,
+  "landable": 17,
+  "same_household": 3,
+  "ambiguous": 1,
+  "identity_not_asserted": 9,
+  "other_not_in_town": 12,
+  "subject_unresolved": 221,
+  "relation_undeclared": 0
+ },
+ "proposals": [
+  {
+   "id": "hh_baptist_john__son__leon_bourrassa",
+   "source": "card_prose",
+   "locator": "hh_baptist_john",
+   "as_read": " drawn (L1).\", \"church_evidence\": [{\"list\": \"church_1833_1835\", \"as_read\": \"John Baptist, son of Leon Bourrassa\", \"locator\": \"decedent\", \"record_id\": \"st_cyr_death_05_1\", ",
+   "subject_as_read": "John Baptist",
+   "relation": "son",
+   "other_as_read": "Leon Bourrassa",
+   "subject_record": null,
+   "other_record": null,
+   "other_read_with_subject_surname": true,
+   "subject": [
+    {
+     "household": "hh_baptist_john",
+     "person": "baptist_john"
+    }
+   ],
+   "other": [
+    {
+     "household": "hh_bourrassa_leon",
+     "person": "bourrassa_leon"
+    }
+   ],
+   "outcome": "landable"
+  },
+  {
+   "id": "hh_beaubien_jean_baptiste__son__charles_henry",
+   "source": "card_prose",
+   "locator": "hh_beaubien_jean_baptiste",
+   "as_read": "OUSEHOLD IS FLAGGED: he married first Mah-naw-bun-no-quah, an Ottawa woman, the mother of his sons Charles Henry and Madore; and in 1812 he married Josette LaFramboise, dau",
+   "subject_as_read": "Col. Jean Baptiste Beaubien",
+   "relation": "son",
+   "other_as_read": "Charles Henry",
+   "subject_record": null,
+   "other_record": null,
+   "other_read_with_subject_surname": true,
+   "subject": [
+    {
+     "household": "hh_beaubien_jean_baptiste",
+     "person": "beaubien_jean_baptiste"
+    }
+   ],
+   "other": [
+    {
+     "household": "hh_beaubien_charles_h",
+     "person": "beaubien_charles_h"
+    }
+   ],
+   "outcome": "landable"
+  },
+  {
+   "id": "hh_beaubien_madore__son__jean_baptiste_beaubien",
+   "source": "card_prose",
+   "locator": "hh_beaubien_madore",
+   "as_read": "EES OF THE TOWN on 10 August 1833 with 23 of 28 votes - the third-highest poll. He is the son of Jean Baptiste Beaubien by his first wife Mah-naw-bun-no-quah, an Ottawa woman, whi",
+   "subject_as_read": "Madore Benjamin Beaubien",
+   "relation": "son",
+   "other_as_read": "Jean Baptiste Beaubien",
+   "subject_record": null,
+   "other_record": null,
+   "other_read_with_subject_surname": false,
+   "subject": [
+    {
+     "household": "hh_beaubien_madore",
+     "person": "beaubien_madore"
+    }
+   ],
+   "other": [
+    {
+     "household": "hh_beaubien_jean_baptiste",
+     "person": "beaubien_jean_baptiste"
+    }
+   ],
+   "outcome": "landable"
+  },
+  {
+   "id": "hh_beaubien_mark__brother__jean_baptiste",
+   "source": "card_prose",
+   "locator": "hh_beaubien_mark",
+   "as_read": "ry\", \"confidence\": \"inferred\", \"sources\": [\"andreas_1884_v1\"], \"note\": \"Andreas's life of his brother Jean Baptiste gives the family's trading history at Milwaukee from about ",
+   "subject_as_read": "Mark Beaubien",
+   "relation": "brother",
+   "other_as_read": "Jean Baptiste",
+   "subject_record": null,
+   "other_record": null,
+   "other_read_with_subject_surname": true,
+   "subject": [
+    {
+     "household": "hh_beaubien_mark",
+     "person": "beaubien_mark"
+    }
+   ],
+   "other": [
+    {
+     "household": "hh_beaubien_jean_baptiste",
+     "person": "beaubien_jean_baptiste"
+    }
+   ],
+   "outcome": "landable"
+  },
+  {
+   "id": "hh_clybourne_archibald__half_brother__a_clybourne",
+   "source": "card_prose",
+   "locator": "hh_clybourne_archibald",
+   "as_read": "e trade: he lived north of the limits and could not vote in the village. 'Julia K. Clark, half-brother of A. Clybourne, then living with him' is named in the next clause and is w",
+   "subject_as_read": "Archibald Clybourne",
+   "relation": "half_brother",
+   "other_as_read": "A. Clybourne",
+   "subject_record": null,
+   "other_record": null,
+   "other_read_with_subject_surname": true,
+   "subject": [
+    {
+     "household": "hh_clybourne_archibald",
+     "person": "clybourne_archibald"
+    }
+   ],
+   "other": [
+    {
+     "household": "hh_clybourne_archibald",
+     "person": "clybourne_archibald"
+    }
+   ],
+   "outcome": "same_household"
+  },
+  {
+   "id": "hh_couch_ira__brother__james",
+   "source": "card_prose",
+   "locator": "hh_couch_ira",
+   "as_read": "ers purchased the property and Ira Couch opened it as a hotel. He ran it until 1836, when his brother James took control.'\", \"derived_from\": \"roles\", \"roles_at_scene_d",
+   "subject_as_read": "Ira Couch",
+   "relation": "brother",
+   "other_as_read": "James",
+   "subject_record": null,
+   "other_record": null,
+   "other_read_with_subject_surname": true,
+   "subject": [
+    {
+     "household": "hh_couch_ira",
+     "person": "couch_ira"
+    }
+   ],
+   "other": [
+    {
+     "household": "hh_couch_ira",
+     "person": "couch_james"
+    }
+   ],
+   "outcome": "same_household"
+  },
+  {
+   "id": "hh_miller_john__brother__samuel",
+   "source": "card_prose",
+   "locator": "hh_miller_john",
+   "as_read": ", \"sources\": [\"andreas_1884_v1\"], \"note\": \"The relationship is documented - 'John Miller, brother of Samuel, the landlord' - and the motive is this record's reading of",
+   "subject_as_read": "John Miller",
+   "relation": "brother",
+   "other_as_read": "Samuel",
+   "subject_record": null,
+   "other_record": null,
+   "other_read_with_subject_surname": true,
+   "subject": [
+    {
+     "household": "hh_miller_john",
+     "person": "miller_john"
+    }
+   ],
+   "other": [
+    {
+     "household": "hh_miller_samuel",
+     "person": "miller_samuel"
+    }
+   ],
+   "outcome": "landable"
+  },
+  {
+   "id": "hh_taylor_anson__brother__charles_he",
+   "source": "card_prose",
+   "locator": "hh_taylor_anson",
+   "as_read": "eams could pass'; Andreas dates that bridge to 1832 and credits it to Anson H. Taylor and his brother Charles. He hauled the lumber for St Mary's from the schooner to the si",
+   "subject_as_read": "Anson H. Taylor",
+   "relation": "brother",
+   "other_as_read": "Charles. He",
+   "subject_record": null,
+   "other_record": null,
+   "other_read_with_subject_surname": true,
+   "subject": [
+    {
+     "household": "hh_taylor_anson",
+     "person": "taylor_anson_h"
+    }
+   ],
+   "other": [
+    {
+     "household": "hh_taylor_anson",
+     "person": "taylor_charles"
+    },
+    {
+     "household": "hh_taylor_c",
+     "person": "taylor_c"
+    }
+   ],
+   "outcome": "ambiguous"
+  },
+  {
+   "id": "hh_wesencraft_charles__daughter__charlotte",
+   "source": "card_prose",
+   "locator": "hh_wesencraft_charles",
+   "as_read": " place, to Miss CHARLOTTE, only daughter of Mr. Charles Wesencraft, late of Buffalo', and his daughter Charlotte stands on her own card; Fergus 1843 prints 'Wesencraft, Cha",
+   "subject_as_read": "Charles Wesencraft",
+   "relation": "daughter",
+   "other_as_read": "Charlotte",
+   "subject_record": null,
+   "other_record": null,
+   "other_read_with_subject_surname": true,
+   "subject": [
+    {
+     "household": "hh_wesencraft_charles",
+     "person": "wesencraft_charles"
+    }
+   ],
+   "other": [
+    {
+     "household": "hh_wesencraft_charlotte",
+     "person": "wesencraft_charlotte"
+    }
+   ],
+   "outcome": "landable"
+  },
+  {
+   "id": "hh_wesencraft_charles__daughter__mr_charles_wesencraft",
+   "source": "card_prose",
+   "locator": "hh_wesencraft_charles",
+   "as_read": "olumn 7, prints the marriage of 'Mark Nobles, Esq. of this place, to Miss CHARLOTTE, only daughter of Mr. Charles Wesencraft, late of Buffalo', and his daughter Charlotte stands on her",
+   "subject_as_read": "Charles Wesencraft",
+   "relation": "daughter",
+   "other_as_read": "Mr. Charles Wesencraft",
+   "subject_record": null,
+   "other_record": null,
+   "other_read_with_subject_surname": true,
+   "subject": [
+    {
+     "household": "hh_wesencraft_charles",
+     "person": "wesencraft_charles"
+    }
+   ],
+   "other": [
+    {
+     "household": "hh_wesencraft_charles",
+     "person": "wesencraft_charles"
+    }
+   ],
+   "outcome": "same_household"
+  },
+  {
+   "id": "hh_wessencraft_charles__daughter__mr_charles_wesencraft",
+   "source": "card_prose",
+   "locator": "hh_wessencraft_charles",
+   "as_read": "olumn 7, prints the marriage of 'Mark Nobles, Esq. of this place, to Miss CHARLOTTE, only daughter of Mr. Charles Wesencraft, late of Buffalo', and his daughter Charlotte stands on her",
+   "subject_as_read": "Charles Wessencraft",
+   "relation": "daughter",
+   "other_as_read": "Mr. Charles Wesencraft",
+   "subject_record": null,
+   "other_record": null,
+   "other_read_with_subject_surname": true,
+   "subject": [
+    {
+     "household": "hh_wessencraft_charles",
+     "person": "wessencraft_charles"
+    }
+   ],
+   "other": [
+    {
+     "household": "hh_wesencraft_charles",
+     "person": "wesencraft_charles"
+    }
+   ],
+   "outcome": "landable"
+  },
+  {
+   "id": "read_harmon_charles_l__son__harmon_elijah_d",
+   "source": "andreas_1884_v1",
+   "locator": "hh_harmon_brothers",
+   "as_read": "Andreas's life of Dr Elijah Dewey Harmon lists his five surviving children: 'Charles Loomis Harmon, Isaac Dewey Harmon, Harriet Harmon, Lucretia Harmon, and Welthyan Loomis Harmon.'",
+   "subject_as_read": "harmon_charles_l",
+   "relation": "son",
+   "other_as_read": "harmon_elijah_d",
+   "subject_record": "harmon_charles_l",
+   "other_record": "harmon_elijah_d",
+   "authored_reading": true,
+   "subject": [
+    {
+     "household": "hh_harmon_brothers",
+     "person": "harmon_charles_l"
+    }
+   ],
+   "other": [
+    {
+     "household": "hh_harmon_elijah_d",
+     "person": "harmon_elijah_d"
+    }
+   ],
+   "outcome": "landable"
+  },
+  {
+   "id": "read_harmon_isaac_d__son__harmon_elijah_d",
+   "source": "andreas_1884_v1",
+   "locator": "hh_harmon_brothers",
+   "as_read": "Andreas's life of Dr Elijah Dewey Harmon lists his five surviving children: 'Charles Loomis Harmon, Isaac Dewey Harmon, Harriet Harmon, Lucretia Harmon, and Welthyan Loomis Harmon.'",
+   "subject_as_read": "harmon_isaac_d",
+   "relation": "son",
+   "other_as_read": "harmon_elijah_d",
+   "subject_record": "harmon_isaac_d",
+   "other_record": "harmon_elijah_d",
+   "authored_reading": true,
+   "subject": [
+    {
+     "household": "hh_harmon_brothers",
+     "person": "harmon_isaac_d"
+    }
+   ],
+   "other": [
+    {
+     "household": "hh_harmon_elijah_d",
+     "person": "harmon_elijah_d"
+    }
+   ],
+   "outcome": "landable"
+  },
+  {
+   "id": "read_taylor_augustine__brother__taylor_anson_h",
+   "source": "encyclopedia_chicago_church_architecture",
+   "locator": "hh_taylor_augustine",
+   "as_read": "Chicago History Museum identifies Augustine Deodat Taylor as designer and builder of St. Mary's in 1833 using balloon-frame construction, while keeping him distinct from brother Anson who hauled lumber.",
+   "subject_as_read": "taylor_augustine",
+   "relation": "brother",
+   "other_as_read": "taylor_anson_h",
+   "subject_record": "taylor_augustine",
+   "other_record": "taylor_anson_h",
+   "authored_reading": true,
+   "subject": [
+    {
+     "household": "hh_taylor_augustine",
+     "person": "taylor_augustine"
+    }
+   ],
+   "other": [
+    {
+     "household": "hh_taylor_anson",
+     "person": "taylor_anson_h"
+    }
+   ],
+   "outcome": "landable"
+  },
+  {
+   "id": "st_cyr_death_05_2__parent_of__st_cyr_death_05_1",
+   "source": "st_cyr_register_ichr_v4",
+   "locator": "st_cyr_death_05_2",
+   "as_read": "Parent of death entry 5 of 11 on Father St. Cyr's death page, 1835-07-02. SCENE YEAR, dated to the day. 28 days old at burial, so born about 4 June 1835 — arithmetic, and stated as an inference rather than read.",
+   "subject_as_read": "Leon Bourrassa",
+   "relation": "father",
+   "other_as_read": "John Baptist",
+   "subject_record": "st_cyr_death_05_2",
+   "other_record": "st_cyr_death_05_1",
+   "subject": [
+    {
+     "household": "hh_bourrassa_leon",
+     "person": "bourrassa_leon"
+    }
+   ],
+   "other": [
+    {
+     "household": "hh_baptist_john",
+     "person": "baptist_john"
+    }
+   ],
+   "outcome": "landable"
+  },
+  {
+   "id": "st_cyr_marriage_001_1__husband_of__st_cyr_marriage_001_2",
+   "source": "st_cyr_register_ichr_v4",
+   "locator": "st_cyr_marriage_001_1",
+   "as_read": "N. Murphy and Mrs. M. Frauner, married 1834",
+   "subject_as_read": "N. Murphy",
+   "relation": "husband",
+   "other_as_read": "Mrs. M. Frauner",
+   "subject_record": "st_cyr_marriage_001_1",
+   "other_record": "st_cyr_marriage_001_2",
+   "subject": [
+    {
+     "household": "hh_murphy_n",
+     "person": "murphy_n"
+    }
+   ],
+   "other": [
+    {
+     "household": "hh_frauner_m",
+     "person": "frauner_m"
+    }
+   ],
+   "outcome": "landable"
+  },
+  {
+   "id": "st_cyr_marriage_005_1__husband_of__st_cyr_marriage_005_2",
+   "source": "st_cyr_register_ichr_v4",
+   "locator": "st_cyr_marriage_005_1",
+   "as_read": "Mark Bourassa and Josette Chevalier, married 1835-03",
+   "subject_as_read": "Mark Bourassa",
+   "relation": "husband",
+   "other_as_read": "Josette Chevalier",
+   "subject_record": "st_cyr_marriage_005_1",
+   "other_record": "st_cyr_marriage_005_2",
+   "subject": [
+    {
+     "household": "hh_bourassa_mark",
+     "person": "bourassa_mark"
+    }
+   ],
+   "other": [
+    {
+     "household": "hh_chevalier_josette",
+     "person": "chevalier_josette"
+    }
+   ],
+   "outcome": "landable"
+  },
+  {
+   "id": "st_cyr_marriage_006_1__husband_of__st_cyr_marriage_006_2",
+   "source": "st_cyr_register_ichr_v4",
+   "locator": "st_cyr_marriage_006_1",
+   "as_read": "John Murphy and Bridget Rogers, married 1835-04-26",
+   "subject_as_read": "John Murphy",
+   "relation": "husband",
+   "other_as_read": "Bridget Rogers",
+   "subject_record": "st_cyr_marriage_006_1",
+   "other_record": "st_cyr_marriage_006_2",
+   "subject": null,
+   "other": [
+    {
+     "household": "hh_rogers_bridget",
+     "person": "rogers_bridget"
+    }
+   ],
+   "outcome": "identity_not_asserted"
+  },
+  {
+   "id": "st_cyr_marriage_007_1__husband_of__st_cyr_marriage_007_2",
+   "source": "st_cyr_register_ichr_v4",
+   "locator": "st_cyr_marriage_007_1",
+   "as_read": "Patrick Carroll and Mary Hogan, married 1835-04-21",
+   "subject_as_read": "Patrick Carroll",
+   "relation": "husband",
+   "other_as_read": "Mary Hogan",
+   "subject_record": "st_cyr_marriage_007_1",
+   "other_record": "st_cyr_marriage_007_2",
+   "subject": [
+    {
+     "household": "hh_carroll_patrick",
+     "person": "carroll_patrick"
+    }
+   ],
+   "other": [
+    {
+     "household": "hh_hogan_mary",
+     "person": "hogan_mary"
+    }
+   ],
+   "outcome": "landable"
+  },
+  {
+   "id": "st_cyr_marriage_008_1__husband_of__st_cyr_marriage_008_2",
+   "source": "st_cyr_register_ichr_v4",
+   "locator": "st_cyr_marriage_008_1",
+   "as_read": "Michael Nolan and Mary Green, married 1835-08-29",
+   "subject_as_read": "Michael Nolan",
+   "relation": "husband",
+   "other_as_read": "Mary Green",
+   "subject_record": "st_cyr_marriage_008_1",
+   "other_record": "st_cyr_marriage_008_2",
+   "subject": [
+    {
+     "household": "hh_nolan_michael",
+     "person": "nolan_michael"
+    }
+   ],
+   "other": [
+    {
+     "household": "hh_green_mary",
+     "person": "green_mary"
+    }
+   ],
+   "outcome": "landable"
+  },
+  {
+   "id": "st_cyr_marriage_009_1__husband_of__st_cyr_marriage_009_2",
+   "source": "st_cyr_register_ichr_v4",
+   "locator": "st_cyr_marriage_009_1",
+   "as_read": "John Latzky and Potily Morris, married 1835-10-01",
+   "subject_as_read": "John Latzky",
+   "relation": "husband",
+   "other_as_read": "Potily Morris",
+   "subject_record": "st_cyr_marriage_009_1",
+   "other_record": "st_cyr_marriage_009_2",
+   "subject": [
+    {
+     "household": "hh_latzky_john",
+     "person": "latzky_john"
+    }
+   ],
+   "other": [
+    {
+     "household": "hh_morris_potily",
+     "person": "morris_potily"
+    }
+   ],
+   "outcome": "landable"
+  },
+  {
+   "id": "st_cyr_marriage_010_1__husband_of__st_cyr_marriage_010_2",
+   "source": "st_cyr_register_ichr_v4",
+   "locator": "st_cyr_marriage_010_1",
+   "as_read": "Lawrence Smith and Mary Welsh, married 1835-10-27",
+   "subject_as_read": "Lawrence Smith",
+   "relation": "husband",
+   "other_as_read": "Mary Welsh",
+   "subject_record": "st_cyr_marriage_010_1",
+   "other_record": "st_cyr_marriage_010_2",
+   "subject": [
+    {
+     "household": "hh_smith_lawrence",
+     "person": "smith_lawrence"
+    }
+   ],
+   "other": [
+    {
+     "household": "hh_welsh_mary",
+     "person": "welsh_mary"
+    }
+   ],
+   "outcome": "landable"
+  },
+  {
+   "id": "st_cyr_marriage_093_1__husband_of__st_cyr_marriage_093_2",
+   "source": "st_cyr_register_ichr_v4",
+   "locator": "st_cyr_marriage_093_1",
+   "as_read": "Joseph Chandler and Catherine Lever, married 1838-10-24",
+   "subject_as_read": "Joseph Chandler",
+   "relation": "husband",
+   "other_as_read": "Catherine Lever",
+   "subject_record": "st_cyr_marriage_093_1",
+   "other_record": "st_cyr_marriage_093_2",
+   "subject": null,
+   "other": null,
+   "outcome": "identity_not_asserted"
+  },
+  {
+   "id": "st_marys_bapt_1833_01_2_father__parent_of__st_marys_bapt_1833_01_1_child",
+   "source": "st_marys_baptismal_register_1833_1835",
+   "locator": "st_marys_bapt_1833_01_2_father",
+   "as_read": "Le 22 de mai mil huit [cent] trente trois, je soussigné ai baptisé George Beaubien fils de Mark Beaubien et de Monique Nadeau, né le 19 août 1832. Parrain a été Mark Beaubien père de l'enfant baptisé; marraine Archange Beaubien nièce du père de l'enfant. J. M. I. Saint Cyr, prêtre.",
+   "subject_as_read": "Mark Beaubien",
+   "relation": "father",
+   "other_as_read": "George Beaubien",
+   "subject_record": "st_marys_bapt_1833_01_2_father",
+   "other_record": "st_marys_bapt_1833_01_1_child",
+   "subject": null,
+   "other": null,
+   "outcome": "identity_not_asserted"
+  },
+  {
+   "id": "st_marys_bapt_1833_04_2_father__parent_of__st_marys_bapt_1833_04_1_child",
+   "source": "st_marys_baptismal_register_1833_1835",
+   "locator": "st_marys_bapt_1833_04_2_father",
+   "as_read": "On the fifth June eighteen hundred and thirty three I, the undersigned, baptised Caroline daughter of Baptist Beaubien and Josette Laframboise, born the tenth of August eighteen hundred thirty two. Sponsors were John Whistler and Esther Bailly.",
+   "subject_as_read": "Jean Baptiste Beaubien",
+   "relation": "father",
+   "other_as_read": "Caroline Beaubien",
+   "subject_record": "st_marys_bapt_1833_04_2_father",
+   "other_record": "st_marys_bapt_1833_04_1_child",
+   "subject": null,
+   "other": null,
+   "outcome": "identity_not_asserted"
+  },
+  {
+   "id": "st_marys_bapt_1833_05_2_father__parent_of__st_marys_bapt_1833_05_1_child",
+   "source": "st_marys_baptismal_register_1833_1835",
+   "locator": "st_marys_bapt_1833_05_2_father",
+   "as_read": "On [the] fifth of June eighteen hundred and thirty three, I the undersigned, baptised Marguerit daughter of Salomon Juneau and Josette Vieau, born the 25th of December 1832. Sponsors were Louis Franchère and Elozina[?] Bailly.",
+   "subject_as_read": "Solomon Juneau",
+   "relation": "father",
+   "other_as_read": "Marguerite Juneau",
+   "subject_record": "st_marys_bapt_1833_05_2_father",
+   "other_record": "st_marys_bapt_1833_05_1_child",
+   "subject": null,
+   "other": null,
+   "outcome": "identity_not_asserted"
+  },
+  {
+   "id": "st_marys_bapt_1834_14_2_father__parent_of__st_marys_bapt_1834_14_1_child",
+   "source": "st_marys_baptismal_register_1833_1835",
+   "locator": "st_marys_bapt_1834_14_2_father",
+   "as_read": "Le même jour, je soussigné ai conféré les cérémonies du baptême à Alexander fils de Jean Baptiste Beaubien et de Josette Laframboise, âgé environ de 12 ans.",
+   "subject_as_read": "Jean Baptiste Beaubien",
+   "relation": "father",
+   "other_as_read": "Alexander Beaubien",
+   "subject_record": "st_marys_bapt_1834_14_2_father",
+   "other_record": "st_marys_bapt_1834_14_1_child",
+   "subject": null,
+   "other": null,
+   "outcome": "identity_not_asserted"
+  },
+  {
+   "id": "st_marys_bapt_1834_19_2_father__parent_of__st_marys_bapt_1834_19_1_child",
+   "source": "st_marys_baptismal_register_1833_1835",
+   "locator": "st_marys_bapt_1834_19_2_father",
+   "as_read": "Le 6 d'août mil huit cent trente quatre, je soussigné ai baptisé Eléonore Beaubien fille de Mark Beaubien et de Monique Nodou, née le vingt deux de juillet 1834. Parrain et marraine ont été Jean Marie Irénée Saint Cyr et Archange Beaubien.",
+   "subject_as_read": "Mark Beaubien",
+   "relation": "father",
+   "other_as_read": "Eléonore Beaubien",
+   "subject_record": "st_marys_bapt_1834_19_2_father",
+   "other_record": "st_marys_bapt_1834_19_1_child",
+   "subject": null,
+   "other": null,
+   "outcome": "identity_not_asserted"
+  },
+  {
+   "id": "st_marys_bapt_1834_21_2_father__parent_of__st_marys_bapt_1834_21_1_child",
+   "source": "st_marys_baptismal_register_1833_1835",
+   "locator": "st_marys_bapt_1834_21_2_father",
+   "as_read": "On the twenty fourth of 10ber eighteen hundred and thirty four I, the undersigned, baptised Susan daughter of Charles Beaubien and of Lucy Kennedy, born sixteenth of 10ber eighteen hundred thirty four. Sponsors were John Mary I. Saint Cyr and Monique Nadeau Beaubien.",
+   "subject_as_read": "Charles Beaubien",
+   "relation": "father",
+   "other_as_read": "Susan Beaubien",
+   "subject_record": "st_marys_bapt_1834_21_2_father",
+   "other_record": "st_marys_bapt_1834_21_1_child",
+   "subject": null,
+   "other": null,
+   "outcome": "identity_not_asserted"
+  },
+  {
+   "id": "st_marys_bapt_1834_22_2_father__parent_of__st_marys_bapt_1834_22_1_child",
+   "source": "st_marys_baptismal_register_1833_1835",
+   "locator": "st_marys_bapt_1834_22_2_father",
+   "as_read": "On the 22d of 10ber eighteen hundred and thirty [four] I, the undersigned baptised Robert Jerome Beaubien son of J. Bap[tis]t Beaubien and of Josette Laframboise, born nineteenth december eighteen hundred and thirty four. Godfather and godmother were Mr Robert Kinzie and Gwinthlean Whistler.",
+   "subject_as_read": "Jean Baptiste Beaubien",
+   "relation": "father",
+   "other_as_read": "Robert Jerome Beaubien",
+   "subject_record": "st_marys_bapt_1834_22_2_father",
+   "other_record": "st_marys_bapt_1834_22_1_child",
+   "subject": null,
+   "other": null,
+   "outcome": "identity_not_asserted"
+  }
+ ]
+}

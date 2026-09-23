@@ -1,0 +1,823 @@
+{
+ "schema": 1,
+ "issue_id": "chicago_democrat_1834_10_29",
+ "extracted": "2026-08-28",
+ "extracted_by": "hand, T-0292 — the Democrat read, October 1834; c006-c009 by hand, T-0997 — the town meeting against gambling of 24 October 1834",
+ "note": "Vol. I No. 48. The town is on page 3. This issue completes the fire ordinance begun on 1834-10-01 — the trustees met at the Tremont House on 13 October and gave the wardens command at a fire, in force from 25 October — and it carries no Chicago letter list, only the Hennepin and Plainfield ones, which are recorded and not minted. THE TOWN IS ALSO ON PAGE 2, columns 1 and 2, which T-0292 did not read: a town meeting for the suppression of gambling, J. H. Kinzie in the chair and Hans Crocker secretary, which appointed a committee of 70. T-0997 extracted it as c006-c009. The segmenter's column-2 crop sets physical column 1 in its left margin and physical column 2 after it, so each of those claims cuts ONE physical column out with `locator.spans`; column 1's own block is a SECOND, offset strip of the same text and the two cannot be aligned, which is why the roll's head is declared unreadable rather than guessed.",
+ "claims": [
+  {
+   "id": "c001",
+   "kind": "infrastructure",
+   "reading": "transcription_mediated",
+   "quote": "Town Ordinance. pts A\n'mecting of tha President and Trustees | John'N, En\nthe Town of Chicago, held at the Tre. William P,\nA. D. 1834:—Tlie following Ordinance | Joseph Gary\non 1 Be it Ordained by the President and Corres Jon\nof Ui town of Chicago, \"That the Fire | Charles Jack\nday of September A. D. 18H, be, end\nreby ure authorized, and it ia! vby | Wg\nvir duty to attend at all fires that tay UST R\nithin the limits of tho corporation, sad | gf of lun\nhereby authorised and empowered to. \"Oct. 15 1\nany bystander or bystanders st o¢ near Ms\nto aid and assist in extinguishing the |\nwhether it be to enter the ranks or linos pec tioten",
+   "normalized": "Town Ordinance. [At a] meeting of the President and Trustees [of] the Town of Chicago, held at the Tre[mont House in said] town, on the 13th day of [October] A. D. 1834: — T[h]e following Ordinance [was passed], to wit: […] Be it Ordained by the President and [Trustees] of t[he] town of Chicago, That the Fire [Wardens appointed] under the 'Ordinance dated [the 20th] day of September A. D. 18[34], be, and [they he]reby [a]re authorized, and it i[s hereby made] the[i]r duty to attend at all fires that [m]ay [occur] [w]ithin the limits of the corporation, and [are] hereby authorised and empowered to [command] any bystander or bystanders [a]t o[r] near [the fire] to aid and assist in extinguishing the [same], whether it be to enter the ranks or lines",
+   "locator": {
+    "artifact_role": "primary",
+    "issue_page": 3,
+    "column": 3,
+    "lines": [
+     2024,
+     2040
+    ],
+    "lines_of_claim": [
+     2024,
+     2025,
+     2026,
+     2028,
+     2030,
+     2031,
+     2033,
+     2034,
+     2035,
+     2036,
+     2037,
+     2038,
+     2039,
+     2040
+    ],
+    "interleaved": true
+   },
+   "entities": [],
+   "notes": "THE TRUSTEES MET AT THE TREMONT HOUSE ON 13 OCTOBER 1834, and this ordinance gives the fire wardens appointed on 20 September the power to command any bystander at a fire into the bucket line. It is the second half of the ordinance of 1834-10-01 and settles that one's date: 'the Ordinance dated the 20th day of September A. D. 1834' is the same sitting the earlier notice describes at the Presbyterian church. The meeting place is read as the Tremont House from 'the Tre.' plus the ordinance of 29 September, which prints 'ot House' at the same point. The segmenter alternates two physical columns line by line here, so this advertisement survives as one cut half; `lines_of_claim` names the lines the quote is built from and `locator.lines` is the whole notice."
+  },
+  {
+   "id": "c002",
+   "kind": "infrastructure",
+   "reading": "transcription_mediated",
+   "quote": "The Fis rien ot any Ward i iC :\niy fire may or wiv! decur, lial! for the | § f\nig, be, aud hereby is made, Werden in| maw\nad the other Wardens and any or al we\nwhosoever who may be present, wlrail nor\n| to bis order and direction. : ves\nPach and every Warden vhon en pa\nlischarge of hx dutiws ay enjained Zee\nvthe number of his Ward sacked ai: | etre wi\nMidinanee to take effect and be in foree direchly pats\nt aver tho 25th day of Oc edd. 184. | Pserpe ile\n\"te Bd. Trusters vf the Loren of Chicago. eine Ee",
+   "normalized": "The Fi[re Wa]rden of any Ward i[n which a]ny fire may or [ma]y occur, [s]hall for the [time be]ing, be, and hereby is made, W[a]rden in [chief, and] the other Wardens and any or al[l persons] whosoever who may be present, [s]hall [be subject] to his order and direction. […] [E]ach and every Warden [w]h[e]n en[gaged in the] [d]ischarge of h[i]s dut[ie]s a[s enjoined] [b]y the number of his Ward […] [This or]dinance to take effect and be in force [from and af]ter the 25th day of Oc[tober A. D.] 1834. [By order of the] Bd. Trustees [o]f the Tow[n] of Chicago.",
+   "locator": {
+    "artifact_role": "primary",
+    "issue_page": 3,
+    "column": 3,
+    "lines": [
+     2055,
+     2067
+    ],
+    "lines_of_claim": [
+     2055,
+     2056,
+     2057,
+     2058,
+     2059,
+     2060,
+     2061,
+     2062,
+     2063,
+     2064,
+     2065,
+     2066
+    ],
+    "interleaved": true
+   },
+   "entities": [],
+   "notes": "THE WARDS ARE NUMBERED AND THE WARDEN OF THE WARD THE FIRE IS IN COMMANDS IT — which makes the ward boundaries of 20 September operational rather than administrative, and gives the town its first chain of command. In force from 25 October 1834, six days before this month ends. The clause about the warden's badge or number is cut mid-sentence at the column edge and is left '[…]' rather than completed. The segmenter alternates two physical columns line by line here, so this advertisement survives as one cut half; `lines_of_claim` names the lines the quote is built from and `locator.lines` is the whole notice."
+  },
+  {
+   "id": "c003",
+   "kind": "business",
+   "reading": "transcription_mediated",
+   "quote": "Fashionable Tailoring. Sed\nie qubseriber Lege leave to tolicus it ote T ae\nzens of Chicago and ite vicinity, that! yo has »\ny have commences the Toiloriog business in| be wil} |:\nite various branches, «1 eth of Tree} Ay order\nnt House, Having iad au cayerimental | og and p\nfalse in oe peek sain inhisenite sathe art,\nter themselves to be inferior to none, and it\npe by & strict attention to their business to eae\nrit a share of public patronage. , or\nANDREWS & EELLS,\nChicago, Oct. 22, 1634. BO",
+   "normalized": "Fashionable Tailoring. [Th]e [s]ubscriber[s] beg leave to [inform the citi]zens of Chicago and it[s] vicinity, that [the]y have commence[d] the Tailoring business in [i]ts various branches, [nor]th of [the Tremo]nt House, Having had a[n] ex[p]erimental […] in [… their] art, [they flat]ter themselves to be inferior to none, and [ho]pe by a strict attention to their business to [me]rit a share of public patronage. ANDREWS & EELLS, Chicago, Oct. 22, 18[34].",
+   "locator": {
+    "artifact_role": "primary",
+    "issue_page": 3,
+    "column": 2,
+    "lines": [
+     1982,
+     1993
+    ],
+    "lines_of_claim": [
+     1982,
+     1983,
+     1984,
+     1985,
+     1986,
+     1987,
+     1988,
+     1989,
+     1990,
+     1991,
+     1992,
+     1993
+    ],
+    "interleaved": true
+   },
+   "entities": [
+    {
+     "as_printed": "ANDREWS & EELLS,",
+     "normalized": "Andrews & Eells",
+     "role": "proprietor",
+     "occupations": [
+      "tailor"
+     ]
+    }
+   ],
+   "notes": "A PARTNERSHIP FORMED INSIDE THIS MONTH. Thomas S. Eels advertises the tailoring business alone in the issue of 1834-10-01 under a July dateline and with no address; here, dated 22 October 1834, it is ANDREWS & EELLS and it has one — north of the Tremont House. Both notices stand with their dates and neither overwrites the other; no identity merge is declared between 'Thomas S. Eels' and the firm, because a man and a firm are not the same record. The offset word is cut to '«1 eth of Tree}' and is read as 'north of the Tremont' from the run's other uses of that anchor; it is bracketed, and the placement stands on the anchor rather than on the direction.",
+   "business": {
+    "name": "Andrews & Eells",
+    "proprietors": [
+     "Andrews & Eells"
+    ],
+    "trade": "fashionable tailoring",
+    "goods": [],
+    "street": null,
+    "placement": {
+     "class": "relative",
+     "anchor": "the Tremont House",
+     "offset_text": "ite various branches, «1 eth of Tree} Ay order",
+     "offset_normalized": "in [i]ts various branches, [nor]th of [the Tremo]nt House",
+     "street": null
+    }
+   },
+   "ad_copy_date": {
+    "verbatim": "Chicago, Oct. 22, 1634.",
+    "iso": "1834-10-22"
+   }
+  },
+  {
+   "id": "c004",
+   "kind": "notice",
+   "reading": "transcription_mediated",
+   "quote": "AY ANTED imvedeately two or three Indian\n(Y Jewelry Manufacturers, to whom | will\n2 ae good, if mot better wages thar can bv got »\nany place in the Sey, \" Cicag\n|. H, MUL FORD, |\nSot 37, 1684, el TE",
+   "normalized": "[W]ANTED imme[di]ately two or three Indian Jewelry Manufacturers, to whom I will [give as] good, if not better wages tha[n] can b[e] got [in] any place in the [countr]y. [uncertain: I]. H. MULFORD. [Oct.] 27, 18[34].",
+   "locator": {
+    "artifact_role": "primary",
+    "issue_page": 3,
+    "column": 2,
+    "lines": [
+     1994,
+     1999
+    ],
+    "lines_of_claim": [
+     1994,
+     1995,
+     1996,
+     1997,
+     1998,
+     1999
+    ],
+    "interleaved": true
+   },
+   "entities": [],
+   "notes": "A TRADE THE TOWN HAD AND THE RECONSTRUCTION DOES NOT: silver ornaments made for the Indian trade, wanted by a Chicago jeweller in the same month the last treaty payment was being made. The advertiser is the watchmaker who advertises for a journeyman in the issue of 1834-10-01 as 'It. MULFORD' and 'I. MULFORD'; the initial is single-witness in every printing and is bracketed as uncertain rather than resolved, so no person is minted."
+  },
+  {
+   "id": "c005",
+   "kind": "notice",
+   "reading": "transcription_mediated",
+   "quote": "List of Letters, whole wide\nTAINING in the Post office ut Hen | calated for ra\neyo, of the first: day of October 1634, | description, a:\nvi out defire the first off Jaauary Jin thi ciate\nil be sent to the Post Ollice Depart Slored: vith Fs\ndead letters, vettieatbnvel",
+   "normalized": "List of Letters, [REM]AINING in the Post office [a]t Hen[nepin, Ill.] […] on the first day of October 18[34], [and if not called for be]f[o]re the first o[f] January [next they] will be sent to the Post O[ff]ice Depart[ment as] dead letters.",
+   "locator": {
+    "artifact_role": "primary",
+    "issue_page": 3,
+    "column": 3,
+    "lines": [
+     2068,
+     2073
+    ],
+    "lines_of_claim": [
+     2068,
+     2069,
+     2070,
+     2071,
+     2072,
+     2073
+    ],
+    "interleaved": true
+   },
+   "entities": [],
+   "notes": "NOT A CHICAGO LIST. This issue carries the Hennepin and P[l]ainfield lists and no Chicago one, and their names are deliberately NOT minted: ruling 1 mints a resident CANDIDATE off the Chicago post office's list, and a letter waiting at Hennepin says nothing about who lived in Chicago. Recorded so the reading's boundary is on the record rather than implied by an absence. The place name is cut to 'Hen' and read as Hennepin from the run."
+  },
+  {
+   "id": "c006",
+   "kind": "person",
+   "reading": "transcription_mediated",
+   "quote": "[uncertain: - Carey, §. Y?. Snow, h &]\n Daniel Whittier, EB. Mosely |\n}. Ven De Bogart, A. Nv Ful\n Avery, J. Me Marksall, J. ?]\n Beaubien, LC. Saxton, H\n C, L. Harmon, —— Minor, |\n WW. Sherwan, Isaac Harmon,\n 4. Clybourn, Aapon Ruseell,\n G South, J. S. WrighteL. |\nClarke, A. Lloyd, M. MF Cle",
+   "normalized": "[…] [?] Carey, [?] Snow, [?] / Daniel Whittier, E. B. Mosely / [?] Ven De Bogart, A. N. Ful[…] / [?] Avery, J. M. Marksall, J. [?] / [?] Beaubien, L. C. Saxton, H[?] / C. L. Harmon, —— Minor, [?] / W. Sherman, Isaac Harmon / [?] Clybourn, Aaron Russell / G. South, J. S. Wright, L. Clarke, A. Lloyd, M. M'Cle[…]",
+   "locator": {
+    "artifact_role": "primary",
+    "issue_page": 2,
+    "column": 2,
+    "lines": [
+     968,
+     977
+    ],
+    "lines_of_claim": [
+     968,
+     969,
+     970,
+     971,
+     972,
+     973,
+     974,
+     975,
+     976,
+     977
+    ],
+    "spans": [
+     {
+      "line": 968,
+      "from": 0,
+      "to": 38
+     },
+     {
+      "line": 969,
+      "from": 18,
+      "to": 48
+     },
+     {
+      "line": 970,
+      "from": 14,
+      "to": 41
+     },
+     {
+      "line": 971,
+      "from": 31,
+      "to": 60
+     },
+     {
+      "line": 972,
+      "from": 21,
+      "to": 45
+     },
+     {
+      "line": 973,
+      "from": 19,
+      "to": 45
+     },
+     {
+      "line": 974,
+      "from": 18,
+      "to": 45
+     },
+     {
+      "line": 975,
+      "from": 19,
+      "to": 47
+     },
+     {
+      "line": 976,
+      "from": 18,
+      "to": 45
+     },
+     {
+      "line": 977,
+      "from": 0,
+      "to": 27
+     }
+    ],
+    "interleaved": true
+   },
+   "entities": [
+    {
+     "as_printed": "- Carey,",
+     "normalized": "[?] Carey",
+     "role": "committee member"
+    },
+    {
+     "as_printed": "§. Y?. Snow,",
+     "normalized": "[?] Snow",
+     "role": "committee member"
+    },
+    {
+     "as_printed": "Daniel Whittier,",
+     "normalized": "Daniel Whittier",
+     "role": "committee member"
+    },
+    {
+     "as_printed": "EB. Mosely",
+     "normalized": "E. B. Mosely",
+     "role": "committee member"
+    },
+    {
+     "as_printed": "}. Ven De Bogart,",
+     "normalized": "H. Ven De Bogart",
+     "role": "committee member"
+    },
+    {
+     "as_printed": "Avery,",
+     "normalized": "[?] Avery",
+     "role": "committee member"
+    },
+    {
+     "as_printed": "J. Me Marksall,",
+     "normalized": "J. M. Marksall",
+     "role": "committee member"
+    },
+    {
+     "as_printed": "Beaubien,",
+     "normalized": "[?] Beaubien",
+     "role": "committee member"
+    },
+    {
+     "as_printed": "LC. Saxton,",
+     "normalized": "L. C. Saxton",
+     "role": "committee member"
+    },
+    {
+     "as_printed": "C, L. Harmon,",
+     "normalized": "C. L. Harmon",
+     "role": "committee member"
+    },
+    {
+     "as_printed": "—— Minor,",
+     "normalized": "[?] Minor",
+     "role": "committee member"
+    },
+    {
+     "as_printed": "WW. Sherwan,",
+     "normalized": "W. Sherman",
+     "role": "committee member"
+    },
+    {
+     "as_printed": "Isaac Harmon,",
+     "normalized": "Isaac Harmon",
+     "role": "committee member"
+    },
+    {
+     "as_printed": "4. Clybourn,",
+     "normalized": "[?] Clybourn",
+     "role": "committee member"
+    },
+    {
+     "as_printed": "Aapon Ruseell,",
+     "normalized": "Aaron Russell",
+     "role": "committee member"
+    },
+    {
+     "as_printed": "G South,",
+     "normalized": "G. South",
+     "role": "committee member"
+    },
+    {
+     "as_printed": "J. S. Wright",
+     "normalized": "J. S. Wright",
+     "role": "committee member"
+    },
+    {
+     "as_printed": "e L. | Clarke,",
+     "normalized": "L. Clarke",
+     "role": "committee member"
+    },
+    {
+     "as_printed": "A. Lloyd,",
+     "normalized": "A. Lloyd",
+     "role": "committee member"
+    }
+   ],
+   "notes": "THE ROLL OF THE COMMITTEE APPOINTED AGAINST GAMBLING, and the largest single list of townspeople acting on a stated evening that this corpus holds. The interleaving IS resolved here and the resolution is mechanical, not a judgement: the segmenter's column-2 crop sets physical column 1 in a 14-to-21-character left margin and physical column 2 after it, so `spans` cuts the column out character by character and the quote is column 2 and nothing else. Lines 968 and 977 carry no left margin and are quoted whole. WHAT IS NOT RESOLVED, and is declared rather than guessed: the roll's HEAD is not on this page-2 crop at all — column 1's own block (lines 865-964) is a second, offset strip of the same physical column and its names do not line up with these, so how many of the seventy were printed and in what order cannot be recovered from the transcription. No page image is deposited for this issue (corpus.json carries the .docx and its .txt only), so there is nothing to arbitrate with. TWENTY-ONE name positions are legible here; eight of them cannot give a forename and carry [?] in the position the initial was printed (T-0397); two surnames — `A. N. Ful[…]` and `M. M'Cle[…]` — are cut by the column edge mid-word and are NOT completed. A. N. Fullerton and Alexander Fullerton are both already in this gazetteer and the initials fit, but `[…]` is this corpus's mark of ABSENCE and not a licence to supply: the letters were never printed on the crop, so there is nothing here for a bracket to stand in. The same refusal is applied to `H. G. Hub[…]` in c008, where a printed word-break hyphen shows the compositor continuing a word the margin then cut away. `WW. Sherwan` is read `W. Sherman` on the rn/m confusion the Tesseract fallback makes throughout this column; the doubled W is the column rule. This column is the Tesseract fallback by the transcription's own statement at line 967, so weight every reading here below a Vision column of the same issue. A NAME THE COLUMN EDGE CUT IN HALF IS A POSITION, NOT A PERSON, AND IT IS RECORDED AS ONE. `A. N. Ful[…]`, `M. M'Cle[…]`, `H. G. Hub[…]`, `[?] Hau[…]` and `Hon. R. J. […]` each stand in `normalized` at the place they were printed, with `[…]`, this corpus's mark of absence, where the crop stops — and NONE of them is given an entity. An entity asserts that a named person is here, and half a surname cannot name one. The refusal is not only editorial: `tools/consolidate_resident_evidence.py` splits a name into surname and forename with the brackets stripped, so `H. G. Hub[…]` reaches `tools/mint_civic_residents.py` as the plain name `H G Hub`, its bracketed-as-uncertain refusal cannot fire on it, and the town gains a card headed `The Hub household`. Five of those were minted here before this claim was narrowed and they were deleted. The guard's blind spot is real and is filed separately; this claim does not walk into it. `}. Ven De Bogart` is read `H. Ven De Bogart`: the damaged glyph is a reading of a letter the page DOES set, not a supply of one it omits, and this gazetteer already carries an H. Van Den Bogart. Leaving the initial `[?]` would have been the worse record rather than the humbler one — the surname splitter downstream takes the first token as a forename, so `[?] Ven De Bogart` mints a man called Ven Debogart, who never existed. `J[no]. S. C. Hogan` is written `J. S. C. Hogan` for the same reason and because that is the form this corpus already prints him in seven times."
+  },
+  {
+   "id": "c007",
+   "kind": "event",
+   "reading": "transcription_mediated",
+   "quote": "  Resolord, That the ‘Commi\nbe ond thry are hereby request\nspainat thote individuals who\ntast night engaye! in garobling,\nfull force of the law be madeto\nthem.\n  Resolced, The the editor of\nthe requested to publish the pt\nthis meeting, together with the\nState in relation to gambling.\nResoloed, That the commi\nhave power to.call a meeting of\nwhenever they may deem it ue\n3. H. KINZII\nHans Croxer, Sec'y.",
+   "normalized": "Resolved, That the Committe[e] be [and] th[e]y are hereby request[ed to prosecute] [a]gainst tho[s]e individuals who [were] [l]ast night engage[d] in gambling, [that the] full force of the law be made to [reach] them. / Resolved, Th[at] the editor of the [Democrat] [be] requested to publish the p[roceedings of] this meeting, together with the [laws of this] State in relation to gambling. / Resolved, That the commi[ttee] have power to call a meeting of [the citizens] whenever they may deem it ne[cessary]. / J. H. KINZI[E, Ch'n.] / Hans Cro[ck]er, Sec'y.",
+   "locator": {
+    "artifact_role": "primary",
+    "issue_page": 2,
+    "column": 2,
+    "lines": [
+     978,
+     992
+    ],
+    "lines_of_claim": [
+     978,
+     979,
+     980,
+     981,
+     982,
+     983,
+     984,
+     985,
+     986,
+     987,
+     988,
+     989,
+     990,
+     991,
+     992
+    ],
+    "spans": [
+     {
+      "line": 978,
+      "from": 20,
+      "to": 47
+     },
+     {
+      "line": 979,
+      "from": 20,
+      "to": 50
+     },
+     {
+      "line": 980,
+      "from": 20,
+      "to": 49
+     },
+     {
+      "line": 981,
+      "from": 21,
+      "to": 53
+     },
+     {
+      "line": 982,
+      "from": 0,
+      "to": 31
+     },
+     {
+      "line": 983,
+      "from": 18,
+      "to": 23
+     },
+     {
+      "line": 984,
+      "from": 15,
+      "to": 44
+     },
+     {
+      "line": 985,
+      "from": 18,
+      "to": 49
+     },
+     {
+      "line": 986,
+      "from": 19,
+      "to": 50
+     },
+     {
+      "line": 987,
+      "from": 0,
+      "to": 30
+     },
+     {
+      "line": 988,
+      "from": 15,
+      "to": 39
+     },
+     {
+      "line": 989,
+      "from": 17,
+      "to": 48
+     },
+     {
+      "line": 990,
+      "from": 21,
+      "to": 49
+     },
+     {
+      "line": 991,
+      "from": 0,
+      "to": 12
+     },
+     {
+      "line": 992,
+      "from": 18,
+      "to": 37
+     }
+    ],
+    "interleaved": true
+   },
+   "entities": [
+    {
+     "as_printed": "3. H. KINZII",
+     "normalized": "J. H. Kinzie",
+     "role": "chairman of the meeting"
+    },
+    {
+     "as_printed": "Hans Croxer, Sec'y.",
+     "normalized": "Hans Crocker",
+     "role": "secretary of the meeting"
+    }
+   ],
+   "notes": "The closing resolutions of the same town meeting and the two signatures under them, cut out of physical column 2 by the same span rule as c006. They are what makes the roll in c006 a COMMITTEE and not a subscription list: the committee is directed to prosecute the men taken gambling the previous night, the editor is asked to print the proceedings beside the state's gaming law — which is why the Revised Laws' criminal code is reprinted down the rest of this column — and the committee is given power to call a meeting of the citizens on its own motion. `Resolord` / `Resolced` / `Resoloed` are one word set three ways by the fallback OCR. The signatures are J. H. KINZIE as chairman (`3. H. KINZII`, the 3/J and II/E confusions this column makes everywhere) and Hans Crocker as secretary (`Croxer`); both men sign a second time at lines 878-879 in column 1's own block, which is what lets the two be read against each other. The chairman's office is supplied from that second signature, line 994, which sets `KINZIE, Ch'n-` whole."
+  },
+  {
+   "id": "c008",
+   "kind": "event",
+   "reading": "transcription_mediated",
+   "quote": "eting having been]\n1. Hauritox; |\n[uncertain: ‘tee consisting of]\n¢ chair to ascertain!\ning “is carried 90!\nngaged therein and\neting tobe held at]\nSaturday the 25th)\nsisting of five was)\ntiene and report (1 \nyim The following | \nped by the Chair to] \npine 3H. G. Hub-| \nno. SC. Hogav.|\nW. H. Kennicott, |\nGoodiich and Haux! \nive; Hon. R. J \nV.- Owen, E. K | \nzie, and G. Springs] \ngadjournedtemee!| ",
+   "normalized": "[The me]eting having been [organised, … uncertain: 1. Hauritox;] [on motion a commit]tee consisting of [five was appointed by th]e chair to ascertain [the extent to which gambl]ing is carried [on, and the persons e]ngaged therein, and [report to a me]eting to be held [on] Saturday the 25th. / [The committee con]sisting of five was [appointed to inves]tigate and report[. …] The following [were appoint]ed by the Chair to [… ] H. G. Hub[… J]no. S. C. Hogan, W. H. Kennicott, [Grant] Goodrich and Hau[…] […] [f]ive; Hon. R. J. […], V. Owen, E. K[in]zie, and G. Springs […] [the meeting] adjourned to mee[t] […]",
+   "locator": {
+    "artifact_role": "primary",
+    "issue_page": 2,
+    "column": 2,
+    "lines": [
+     969,
+     992
+    ],
+    "lines_of_claim": [
+     969,
+     970,
+     971,
+     972,
+     973,
+     974,
+     975,
+     976,
+     978,
+     979,
+     980,
+     981,
+     983,
+     984,
+     985,
+     986,
+     988,
+     989,
+     990,
+     992
+    ],
+    "spans": [
+     {
+      "line": 969,
+      "from": 0,
+      "to": 18
+     },
+     {
+      "line": 970,
+      "from": 0,
+      "to": 14
+     },
+     {
+      "line": 971,
+      "from": 0,
+      "to": 31
+     },
+     {
+      "line": 972,
+      "from": 0,
+      "to": 21
+     },
+     {
+      "line": 973,
+      "from": 0,
+      "to": 19
+     },
+     {
+      "line": 974,
+      "from": 0,
+      "to": 18
+     },
+     {
+      "line": 975,
+      "from": 0,
+      "to": 19
+     },
+     {
+      "line": 976,
+      "from": 0,
+      "to": 18
+     },
+     {
+      "line": 978,
+      "from": 0,
+      "to": 20
+     },
+     {
+      "line": 979,
+      "from": 0,
+      "to": 20
+     },
+     {
+      "line": 980,
+      "from": 0,
+      "to": 20
+     },
+     {
+      "line": 981,
+      "from": 0,
+      "to": 21
+     },
+     {
+      "line": 983,
+      "from": 0,
+      "to": 18
+     },
+     {
+      "line": 984,
+      "from": 0,
+      "to": 15
+     },
+     {
+      "line": 985,
+      "from": 0,
+      "to": 18
+     },
+     {
+      "line": 986,
+      "from": 0,
+      "to": 19
+     },
+     {
+      "line": 988,
+      "from": 0,
+      "to": 15
+     },
+     {
+      "line": 989,
+      "from": 0,
+      "to": 17
+     },
+     {
+      "line": 990,
+      "from": 0,
+      "to": 21
+     },
+     {
+      "line": 992,
+      "from": 0,
+      "to": 18
+     }
+    ],
+    "interleaved": true
+   },
+   "entities": [
+    {
+     "as_printed": "no. SC. Hogav.",
+     "normalized": "J. S. C. Hogan",
+     "role": "committee member"
+    },
+    {
+     "as_printed": "W. H. Kennicott,",
+     "normalized": "W. H. Kennicott",
+     "role": "committee member"
+    },
+    {
+     "as_printed": "Goodiich",
+     "normalized": "[?] Goodrich",
+     "role": "committee member"
+    },
+    {
+     "as_printed": "V.- Owen,",
+     "normalized": "V. Owen",
+     "role": "committee member"
+    },
+    {
+     "as_printed": "G. Springs",
+     "normalized": "G. Springs",
+     "role": "committee member"
+    }
+   ],
+   "notes": "THE REPORT ITSELF — physical column 1, quoted from where its characters actually are, which is the LEFT MARGIN of the segmenter's column-2 crop. The locator says column 2 because that is the block these characters stand in and a locator must name where the text IS; the text is column 1's. Read end to end the margin is continuous prose, which is what proves the cut: the meeting is organised, a committee of five is appointed by the chair to ascertain the extent to which gambling is carried on and who is engaged in it, and it reports to a meeting held Saturday the 25th. Then the Chair names a committee — H. G. Hubbard, Jno. S. C. Hogan, W. H. Kennicott, Grant Goodrich and one more whose surname the margin cuts at `Haux`, which is FIVE and matches `sisting of five` two lines above — and four further names follow after the word `[f]ive`: Hon. R. J[?], V. Owen, E. Kinzie and G. Spring[s]. WHETHER THOSE FOUR ARE A SECOND BODY OR THE SAME ONE IS NOT DECIDABLE HERE and is not decided: line 1088 of this crop reads `committee of nine`, which would make five and four into nine, but the margin at that point has drifted out of register with column 1's own block and the two cannot be aligned line for line. Every forename the margin does not deliver carries [?] in its printed position, and every surname the margin CUT carries `[…]`, the mark of absence — `H. G. Hub[…]` is not completed to Hubbard although `Hub-` carries the compositor's own word-break hyphen and Henry G. Hubbard is already in this gazetteer, and `[?] Hau[…]` is left open. `Goodiich` IS read Goodrich, because there the whole surname is printed and only ordinary OCR damage stands between the two. The `Hon. R. J` line is NOT expanded to R. J. Hamilton though the initials and the honorific both fit him. `E. K[in]zie` keeps its supply and is the one exception here: both ends of that surname are printed — `E. K` closes line 989 and `zie` opens line 990 — so the bracket stands in for two letters the margin lost between two letters it kept, which is a different thing from a word that simply stops. The margin's second line, `1. Hauritox;`, is where a name stood and it is left UNREAD: it is a plausible R. J. Hamilton, which would agree with the `Hon. R. J` line fourteen lines below, and it is an equally plausible mangling of the `Haux` at line 986 — and a reading that can be talked into two different men is not a reading. It is quoted as the transcription sets it and carries no entity. `Will[ia]m Forsyth` in c009 keeps its brackets in `normalized` and drops them in the entity, and the line between it and the five above is where the letters ARE: both ends of that forename are printed and the bracket stands in for letters lost BETWEEN letters the page delivers. A word the crop simply stops in the middle of has no second end, and that is the whole of the difference. `E. K[in]zie` IS a name by that test and is STILL given no entity, for a reason that is not about the page: `tools/consolidate_resident_evidence.py` rule M2 attaches an initial-only forename to the one full forename of that surname carrying the initial, and the one E. Kinzie this corpus holds is Ellen Marion Kinzie, named in an old-settler DEATH NOTICE Fergus printed in 1843. Asserting the entity mints a household headed by her whose press witness is an 1834 gambling committee, which is a claim about a real named woman that this page does not make — the town carries John H., James, R. A. and John S. Kinzie besides, so the initial does not isolate anyone. A refusal declared in `newspapers/identity.json#refused_merges` does NOT stop it: the consolidation reports declared refusals and applies only declared MERGES, so there is no instrument here to refuse with. The reading stands in `normalized` where it belongs and the tie goes to the ticket filed on this."
+  },
+  {
+   "id": "c009",
+   "kind": "event",
+   "reading": "transcription_mediated",
+   "quote": "On the committee of\nWillen Forsyth, Grant\nEngn mution, the meetin\non Saturday the 2511\n[uncertain: INO. H]\nHass CROCKER, Sec\nOn notio\nhave lease to sitto ther\n[uncertain: a commuttee of 70 he app]\nit -hall he on all occasions\nand repurt to the\nfraction of the lawe agin\n[uncertain: following]\n[uncertain: oelanns were]\n[uncertain: R 1 Hassleme, Bk]\nKingie,\n[uncertain: Habhard,]\n[uncertain: Card, ine:]\n[uncertain: Bryc, 23 Smil]",
+   "normalized": "On the committee of […] Will[ia]m Forsyth, Grant [Goodrich] / [O]n motion, the meetin[g adjourned to meet] on Saturday the 25[th] / JNO. H. [KINZIE, Ch'n.] / HANS CROCKER, Sec[retary] / […] On motio[n …] have leave to sit […] a committee of 70 [b]e app[ointed, whose duty] it shall be on all occasions [to take notice of] and report to the [proper authorities every in]fraction of the laws agin[st gambling] / […] following […] [g]entlemen were [appointed:] [uncertain: R 1 Hassleme, Bk] Kin[z]ie, [H]ubbard, [?] Card […] Bry[ant? …] Smi[th?]",
+   "locator": {
+    "artifact_role": "primary",
+    "issue_page": 2,
+    "column": 1,
+    "lines": [
+     874,
+     964
+    ],
+    "lines_of_claim": [
+     874,
+     875,
+     876,
+     877,
+     878,
+     879,
+     949,
+     950,
+     951,
+     952,
+     953,
+     954,
+     957,
+     959,
+     960,
+     961,
+     962,
+     963,
+     964
+    ],
+    "spans": [
+     {
+      "line": 874,
+      "from": 0,
+      "to": 19
+     },
+     {
+      "line": 875,
+      "from": 0,
+      "to": 21
+     },
+     {
+      "line": 876,
+      "from": 0,
+      "to": 23
+     },
+     {
+      "line": 877,
+      "from": 0,
+      "to": 20
+     },
+     {
+      "line": 878,
+      "from": 0,
+      "to": 19
+     },
+     {
+      "line": 879,
+      "from": 0,
+      "to": 17
+     },
+     {
+      "line": 949,
+      "from": 0,
+      "to": 8
+     },
+     {
+      "line": 950,
+      "from": 0,
+      "to": 24
+     },
+     {
+      "line": 951,
+      "from": 0,
+      "to": 37
+     },
+     {
+      "line": 952,
+      "from": 0,
+      "to": 28
+     },
+     {
+      "line": 953,
+      "from": 0,
+      "to": 17
+     },
+     {
+      "line": 954,
+      "from": 0,
+      "to": 25
+     },
+     {
+      "line": 957,
+      "from": 0,
+      "to": 22
+     },
+     {
+      "line": 959,
+      "from": 0,
+      "to": 25
+     },
+     {
+      "line": 960,
+      "from": 0,
+      "to": 29
+     },
+     {
+      "line": 961,
+      "from": 0,
+      "to": 7
+     },
+     {
+      "line": 962,
+      "from": 0,
+      "to": 21
+     },
+     {
+      "line": 963,
+      "from": 0,
+      "to": 23
+     },
+     {
+      "line": 964,
+      "from": 0,
+      "to": 26
+     }
+    ],
+    "interleaved": true
+   },
+   "entities": [
+    {
+     "as_printed": "Willen Forsyth,",
+     "normalized": "William Forsyth",
+     "role": "committee member"
+    },
+    {
+     "as_printed": "Grant",
+     "normalized": "Grant [Goodrich]",
+     "role": "committee member"
+    },
+    {
+     "as_printed": "INO. H",
+     "normalized": "Jno. H. Kinzie",
+     "role": "chairman"
+    },
+    {
+     "as_printed": "Hass CROCKER, Sec",
+     "normalized": "Hans Crocker",
+     "role": "secretary"
+    }
+   ],
+   "notes": "COLUMN 1'S OWN BLOCK — the second, offset strip of the same report, and the only place the committee is given its SIZE: line 951 sets `a commuttee of 70 he app`, which is `a committee of 70 be appointed`, and lines 952-954 give it its charge — on all occasions to take notice of and report to the proper authorities every infraction of the laws against gambling. Lines 874-879 carry a first signature pair, JNO. H. KINZIE and HANS CROCKER, under an earlier committee that names William Forsyth and Grant Goodrich. THIS STRIP CANNOT BE JOINED TO c006 OR c008. It is not the left half of the same physical lines — 953 `and repurt to the` and the margin's `ithorities, every in-` at line 1092 read as one sentence but sit fifteen lines out of register, and 877 and 976 both set `Saturday the 25th`, so the two blocks overlap in content rather than abutting. Line 967 says this issue's column 2 fell back to Tesseract; the damage here is of the same kind. So the roll's HEAD, at lines 960-964, is recorded as unresolvable per name and NOT minted: `R 1 Hassleme, Bk` is quoted as it stands and left unread, `Kingie` and `Habhard` are legible as Kinzie and Hubbard but both men are already named elsewhere in this report and a third appearance at an unknown position would be an invented person, `Card, ine:` and `Bryc, 23 Smil` are fragments of two or three surnames apiece with no initials. Three entities only are taken from this claim, all of them from lines the strip sets whole. THE SEVENTY WERE NOT ALL PRINTED LEGIBLY AND THIS IS THE REASON. `Grant` at line 875 is printed without a surname and is normalized `Grant [Goodrich]` — the one supply this claim makes, and it is made because that exact string is ALREADY this gazetteer's reading of the same man from the Democrat of 1835-05-20 c013, so the alternative is not a more cautious record but a second phantom standing beside the first."
+  }
+ ]
+}

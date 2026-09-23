@@ -1,0 +1,275 @@
+{
+ "schema": 1,
+ "_doc": "WHICH OF TWO READINGS OF A LINE THE SURVIVING CARD WEARS (T-1139, filed by T-1133). T-1010's concordance of the Chicago post office's return of 1 January 1834 holds nineteen `name_differs` rows where the reading T-0424 made at the page image and the reading an extraction pass made from a transcription disagree in their letters. This file adjudicates all nineteen, one at a time, and names the rule on each.\n\nTHE RANK IS RECORDED IN THE DATA, NOT ARGUED HERE. The roster carries `image.reading: \"scan_verified\"` — the type read at a sha256-pinned scan with its IIIF regions named, verbatim and unamended. Every one of the nineteen disagreeing readings comes from ONE claim, `chicago_democrat_1834_01_28#c001`, which carries `reading: \"transcription_mediated\"`, and whose own `quote` field sets `Port-Offiee`, `Fammuary 1, 1604`, `4.0.7: Breed` and `Bs motte! Devoe`. A normalized name off that quote is an extractor's repair of OCR, not a reading of type.\n\nAND THE PROJECT HAS ALREADY RULED ON THIS PAIR OF WITNESSES. `tools/read_letter_list_1834_image.py` OVERTURNS an uncut crop reading that the printed line contradicts — 'they are wrong, which is the price of both routes and the reason for the image' — and its `--apply` carried that onto the crops of the 4 March impression. It was never run against the 28 January impression, and these nineteen rows are what it never reached. So this pass EXTENDS a standing ruling rather than inventing one, and it uses that tool's own predicates (`was_cut`, `letters`) to say which class each row is in.\n\nWHAT DECIDES A ROW IS WHAT THE TWO READINGS SAY THE TYPE IS, not what the extraction normalized it to. Three rows turn out to be rows where the two readings of the type AGREE and only the extraction's `normalized` field differs, and two of those three are the only rows in the file where a card keeps its spelling — on a SECOND RETURN and on the town's own documented bearers of a stem, never on the transcription.",
+ "ticket": "T-1139",
+ "filed_by": "T-1133",
+ "ruled_on": "2026-09-15",
+ "return": "the Chicago post office's list of letters remaining on 1 January 1834",
+ "concordance": "data/research/newspapers/letter_list_1834_01_01_concordance.json",
+ "generated_by": "hand-authored (T-1139); the two readings of each line and the agree/differ test are derived, and tools/concord_letter_list_1834_01_01.py --check holds this file to the ledger it rules on",
+ "not_a_reading": "an adjudication of readings this project already holds, not a fresh reading of a source. No page image was opened for it and no confidence is raised by it.",
+ "rules": {
+  "N1": "THE OCR GARBLED IT AND THE IMAGE IS NOT CONTRADICTED. The 28 January reading of the type is manifest damage — it cut a glyph (`[?]`, `[…]`) or set letters no name has (`4.0.7:`, `foal`, `iprague`, `Bally`, `Banus!`, `Jowes`, `‘Childreso`) — and the extraction either bracketed its own repair or marked the loss. Nothing of the image is contradicted; it supplies the name. THE LINE TAKES THE IMAGE.",
+  "N2": "THE TWO READINGS OF THE TYPE AGREE AND THE EXTRACTION EMENDED IT. Both readings set the same letters; the concordance reports a disagreement only because it compares the printed line to the entity's `normalized` field, which is an IDENTITY and not a reading. So the question is not which reading is better — it is whether anything supports the emendation. Where nothing does, the line reads what both readings set; where a source OUTSIDE this return does, the card keeps the emended spelling and this file names that source. Neither answer rests on the transcription.",
+  "N3": "THE TWO READINGS OF THE TYPE GENUINELY DIFFER, AND THE IMAGE OVERTURNS. Both set plain, complete, undamaged letters and they disagree: two impressions of one return, re-keyed by the compositor. The standing rule of read_letter_list_1834_image.py decides it — scan-verified over transcription-mediated — unless a reading OUTSIDE this return carries the overturned letters, and on all three rows nothing does. THE CARD TAKES THE IMAGE, under N5.",
+  "N4": "A FIRM LINE IS NOT A SPELLING DISAGREEMENT. The line prints a house and the card names the man in it. Neither reading is overturned and no card moves.",
+  "N5": "THE DISPLAYED NAME MOVES AND THE ID DOES NOT — the answer this ticket owes to its second acceptance. `person_id` and household id are cited by every crosswalk, by `identity_master.json`, by the smoke cohorts and by `card_merge_rulings.json`; a rename that moved them would break each of those silently and for nothing, since an id is a handle and not a claim. So a ruling under N3 changes the card's DISPLAYED name and nothing else, and the name it displaced is not deleted — it is carried on the person as `name_ruling`, with this ticket, the rule and the reading it came from, so the card says why it spells what it spells.\n\nTWO KINDS OF FILE ARE NEVER REWRITTEN BY A RULING. The extractions and the gazetteer, because they record what a source says and a ruling is not a reading; and the frozen records of earlier passes — `pass_08/09/11_75_cohort.json`, `pass_11_findings.json`, `conflict_rulings.json` and `card_merge_rulings.json` — because they record what a pass saw when it ran, and T-1133's fold was argued at the names it was argued at. None of the four moved for this ruling, and the cohort files still print `Wm. H. Fraser` because that is the name the pass that wrote them read.\n\nTHE DERIVED CHAIN DOES FOLLOW, and is regenerated in the same commit: `register_1835.json`, `identity_master.json`, `grading_proposal.json`, `ladder_spend.json`, the Newberry finding aid (`newberry_index/leads.json`, which rebuilds its reading out of the committed card text), the compiled scene sidecar and the resident audit. `name_ruling` itself reaches no renderer and is banked unread in `tools/layer_reads_baseline.json`: it is provenance on a card, not a figure for the scene, and `compile_scene.py` does not ship it to the browser. WHAT FOLLOWING IT COST IS WORTH STATING, because it is the argument for making the rename at all rather than ruling on paper: the town card now attaches to the identity that carries the IMAGE's reading — `id_frazer_william_h`, `id_pruvis_joshua`, `id_vandine_john` — where before it attached to the identity carrying the transcription's, and the three identities it left behind read `new_resident` in the register: a person the town does not hold. They now read `enrich`, against the card it is the same man as. THE REGISTER WAS PROPOSING TO MINT THREE RESIDENTS THE TOWN ALREADY HAD, and the count moves by three (enrich 1358 -> 1361, new_resident 1302 -> 1299). That is three duplicate cards not minted, and it is the whole practical yield of this ticket."
+ },
+ "counts": {
+  "rows": 19,
+  "by_rule": {
+   "N1": 12,
+   "N2": 3,
+   "N3": 3,
+   "N4": 1
+  },
+  "ruled_onto_the_page_image": 16,
+  "card_keeps_its_spelling": 2,
+  "cards_renamed": 3
+ },
+ "what_this_does_not_reach": "The return of 1 January 1834 is the only one of this corpus's returns with a concordance at all, so the same class exists unmeasured on the others. Whether to build a second concordance is a larger decision and is deliberately not taken here.",
+ "rulings": [
+  {
+   "n": 26,
+   "rule": "N1",
+   "takes": "the page image",
+   "printed_as_at_the_image": "A. O. T. Breed",
+   "the_transcription_read_the_type_as": "4.0.7: Breed",
+   "the_transcription_normalized_it_to": "[?] Breed",
+   "the_two_readings_of_the_type": "differ",
+   "because": "The 28 January reading cut the initials to `4.0.7:` and the extraction carried them as `[?]`. A cut glyph is COMPLETED by the image, not contradicted by it, and the card already spells what the image sets.",
+   "card": {
+    "name": "A O T Breed",
+    "unchanged": true
+   }
+  },
+  {
+   "n": 41,
+   "rule": "N1",
+   "takes": "the page image",
+   "printed_as_at_the_image": "James Childress",
+   "the_transcription_read_the_type_as": "‘Childreso",
+   "the_transcription_normalized_it_to": "[uncertain: Childress]",
+   "the_two_readings_of_the_type": "differ",
+   "because": "`‘Childreso` is OCR damage — no name sets those letters — and the extraction would not vouch for its own repair, bracketing it `[uncertain: Childress]`. The image sets the surname plainly AND supplies a forename the transcription never carried. Nothing reaches a card: the mint refused this line.",
+   "card": null
+  },
+  {
+   "n": 46,
+   "rule": "N1",
+   "takes": "the page image",
+   "printed_as_at_the_image": "Samuel Devoe",
+   "the_transcription_read_the_type_as": "Devoe",
+   "the_transcription_normalized_it_to": "[?] Devoe",
+   "the_two_readings_of_the_type": "differ",
+   "because": "The 28 January reading carried the surname alone and the extraction marked the missing forename `[?]`. Completed at the image, and the card already spells what the image sets.",
+   "card": {
+    "name": "Samuel Devoe",
+    "unchanged": true
+   }
+  },
+  {
+   "n": 47,
+   "rule": "N1",
+   "takes": "the page image",
+   "printed_as_at_the_image": "Noel Dagenet",
+   "the_transcription_read_the_type_as": "foal Dagenet",
+   "the_transcription_normalized_it_to": "[uncertain: Dagenet]",
+   "the_two_readings_of_the_type": "differ",
+   "because": "`foal Dagenet` is OCR damage at the forename and the extraction bracketed the surname it would not vouch for. The image sets `Noel` where the OCR set `foal`. Nothing reaches a card.",
+   "card": null
+  },
+  {
+   "n": 51,
+   "rule": "N1",
+   "takes": "the page image",
+   "printed_as_at_the_image": "G. W. Ewing",
+   "the_transcription_read_the_type_as": "G.W. Ewin",
+   "the_transcription_normalized_it_to": "G. W. Ewin[g]",
+   "the_two_readings_of_the_type": "differ",
+   "because": "The OCR lost the final letter (`G.W. Ewin`) and the extraction supplied it inside brackets, `G. W. Ewin[g]`. Once the bracket is opened the two readings agree; the image is the one that carries the `g` as type. Nothing reaches a card.",
+   "card": null
+  },
+  {
+   "n": 55,
+   "rule": "N3",
+   "takes": "the page image",
+   "printed_as_at_the_image": "Wm. H. Frazer",
+   "the_transcription_read_the_type_as": "Wm. H. Fraser",
+   "the_transcription_normalized_it_to": "Wm. H. Fraser",
+   "the_two_readings_of_the_type": "differ",
+   "because": "Both readings set plain, complete letters and they disagree: two impressions of one return, re-keyed by the Democrat's compositor between 28 January and 4 March 1834. The standing rule of tools/read_letter_list_1834_image.py applies — a scan-verified reading of the printed line overturns an uncut transcription-mediated one — and nothing outside this return carries `Fraser`. T-1133 folded hh_frazer_wm_h into this card and recorded the defect it was leaving behind: 'the surviving card wears the weaker reading's spelling … T-1139 owns the class'. It is repaired here under N5: the displayed name moves to `Wm. H. Frazer` and the id `fraser_wm_h` does not.",
+   "card": {
+    "household": "hh_fraser_wm_h",
+    "person": "fraser_wm_h",
+    "displayed_name_was": "Wm. H. Fraser",
+    "displayed_name_is": "Wm. H. Frazer",
+    "id_unchanged": true
+   }
+  },
+  {
+   "n": 67,
+   "rule": "N1",
+   "takes": "the page image",
+   "printed_as_at_the_image": "Orinda Garyl",
+   "the_transcription_read_the_type_as": "Orinds Guryl",
+   "the_transcription_normalized_it_to": "[uncertain: Orinda Guryl]",
+   "the_two_readings_of_the_type": "differ",
+   "because": "`Orinds Guryl` is OCR damage in both names and the extraction bracketed the whole reading. The image sets `Orinda Garyl`. Nothing reaches a card.",
+   "card": null
+  },
+  {
+   "n": 75,
+   "rule": "N2",
+   "takes": "the page image",
+   "printed_as_at_the_image": "J. P. Gobb",
+   "the_transcription_read_the_type_as": "J. P. Gobb.",
+   "the_transcription_normalized_it_to": "J. P. [uncertain: Cobb]",
+   "the_two_readings_of_the_type": "agree",
+   "because": "THE TWO READINGS OF THE TYPE AGREE. The 28 January OCR sets `J. P. Gobb.` and the image sets `J. P. Gobb`; the disagreement the concordance reports is against the extraction's own `normalized` field, which EMENDED the surname to `[uncertain: Cobb]` and bracketed the emendation as unvouched. No reading of this line carries `Cobb`, so the emendation is refused and the line reads `Gobb`. Nothing reaches a card.",
+   "card": null
+  },
+  {
+   "n": 80,
+   "rule": "N2",
+   "takes": "the card's held spelling",
+   "printed_as_at_the_image": "Nathan Huchins",
+   "the_transcription_read_the_type_as": "Nathan Huchins",
+   "the_transcription_normalized_it_to": "Nathan Hutchins",
+   "the_two_readings_of_the_type": "agree",
+   "because": "THE TWO READINGS OF THE TYPE AGREE — the 28 January OCR sets `Nathan Huchins` and so does the image — so the card's `Hutchins` follows NEITHER printing of this return, and the concordance's `card_follows: the transcription` is a mislabel. It follows a SECOND RETURN: the gazetteer carries `Hutehins, Nathan‘` from the return of 20 May 1835 (chicago_democrat_1835_05_20#c013), whose broken `c` still sets the `t` that `Huchins` lacks, and the card's own note says the papers print the name in two returns. A second return outranks a second reading of one line, so the card keeps `Nathan Hutchins` and this ledger records that both printings of the 1 January return set `Huchins`.",
+   "card": {
+    "name": "Nathan Hutchins",
+    "unchanged": true
+   }
+  },
+  {
+   "n": 81,
+   "rule": "N1",
+   "takes": "the page image",
+   "printed_as_at_the_image": "Warren Hanks",
+   "the_transcription_read_the_type_as": "Warren Hanke",
+   "the_transcription_normalized_it_to": "[uncertain: Warren Hanke]",
+   "the_two_readings_of_the_type": "differ",
+   "because": "`Warren Hanke` is the OCR's final letter and the extraction would not vouch for it, bracketing the whole reading. The image sets `Hanks`. Nothing reaches a card.",
+   "card": null
+  },
+  {
+   "n": 96,
+   "rule": "N2",
+   "takes": "the card's held spelling",
+   "printed_as_at_the_image": "Lewis Kerchevel",
+   "the_transcription_read_the_type_as": "‘Lewis Kerchevel",
+   "the_transcription_normalized_it_to": "Lewis Kercheval",
+   "the_two_readings_of_the_type": "agree",
+   "because": "THE TWO READINGS OF THE TYPE AGREE — the 28 January OCR sets `‘Lewis Kerchevel` and the image `Lewis Kerchevel` — so what differs is the extraction's `normalized` field, which spells the stem as the town documents it. The corpus holds Gholson, Benjamin and G. H. Kercheval on evidence that is not a letter list; a documented family name outranks one line's setting of it. The card keeps `Kercheval`, and this ledger records that both printings of this line set `Kerchevel`.",
+   "card": null
+  },
+  {
+   "n": 118,
+   "rule": "N3",
+   "takes": "the page image",
+   "printed_as_at_the_image": "Joshua Pruvis",
+   "the_transcription_read_the_type_as": "Joshua Provis",
+   "the_transcription_normalized_it_to": "Joshua Provis",
+   "the_two_readings_of_the_type": "differ",
+   "because": "Both readings set plain, complete letters and they disagree. The standing overturn rule applies, and nothing outside this return carries either stem: the resident layer, the 1840 census index and the genealogytrails indices hold no Provis and no Pruvis (every hit is `Provision`, `Provisional` or `Proviso Twp`). T-0424's roster names `Joshua Pruvis` among the settings it preserves verbatim and unamended, which is a caution about the TYPE and not about the reading — and a caution is not a second witness. The displayed name moves to `Joshua Pruvis` under N5; the id `provis_joshua` does not.",
+   "card": {
+    "household": "hh_provis_joshua",
+    "person": "provis_joshua",
+    "displayed_name_was": "Joshua Provis",
+    "displayed_name_is": "Joshua Pruvis",
+    "id_unchanged": true
+   }
+  },
+  {
+   "n": 132,
+   "rule": "N1",
+   "takes": "the page image",
+   "printed_as_at_the_image": "D. Sprague",
+   "the_transcription_read_the_type_as": "iprague",
+   "the_transcription_normalized_it_to": "[?] Sprague",
+   "the_two_readings_of_the_type": "differ",
+   "because": "`iprague` lost the initial to the OCR and the extraction marked it `[?]`. Completed at the image. Nothing reaches a card.",
+   "card": null
+  },
+  {
+   "n": 137,
+   "rule": "N1",
+   "takes": "the page image",
+   "printed_as_at_the_image": "James Steward",
+   "the_transcription_read_the_type_as": "Jowes Steward",
+   "the_transcription_normalized_it_to": "[uncertain: James] Steward",
+   "the_two_readings_of_the_type": "differ",
+   "because": "`Jowes Steward` is OCR damage at the forename and the extraction bracketed its repair. Once the bracket is opened the two readings agree on `James Steward`. Nothing reaches a card.",
+   "card": null
+  },
+  {
+   "n": 143,
+   "rule": "N1",
+   "takes": "the page image",
+   "printed_as_at_the_image": "Samuel Stout",
+   "the_transcription_read_the_type_as": "Banus! Stout",
+   "the_transcription_normalized_it_to": "[uncertain: Samuel] Stout",
+   "the_two_readings_of_the_type": "differ",
+   "because": "`Banus! Stout` is OCR damage at the forename and the extraction bracketed its repair. Once the bracket is opened both readings agree, and three later notices of 1834 print `samuel stout` plainly. The card already spells what the image sets.",
+   "card": {
+    "name": "Samuel Stout",
+    "unchanged": true
+   }
+  },
+  {
+   "n": 158,
+   "rule": "N3",
+   "takes": "the page image",
+   "printed_as_at_the_image": "John Vandine",
+   "the_transcription_read_the_type_as": "John Vandino",
+   "the_transcription_normalized_it_to": "John Vandino",
+   "the_two_readings_of_the_type": "differ",
+   "because": "Both readings set plain, complete letters and they disagree — the same shape as line 55 and the same two impressions. The standing overturn rule applies and the gazetteer holds no other bearer of the stem; T-1133 folded hh_vandine_john into this card and said in terms that the survivor's spelling is the weaker one and that T-1139 owns it. The displayed name moves to `John Vandine` under N5; the id `vandino_john` does not.",
+   "card": {
+    "household": "hh_vandino_john",
+    "person": "vandino_john",
+    "displayed_name_was": "John Vandino",
+    "displayed_name_is": "John Vandine",
+    "id_unchanged": true
+   }
+  },
+  {
+   "n": 163,
+   "rule": "N4",
+   "takes": "neither — the line names a firm and the card names the man in it",
+   "printed_as_at_the_image": "Jesse B. Winn & Co.",
+   "the_transcription_read_the_type_as": "Jesse B. Winn",
+   "the_transcription_normalized_it_to": "Jesse B. Winn",
+   "the_two_readings_of_the_type": "differ",
+   "because": "NOT A SPELLING DISAGREEMENT. The image sets `Jesse B. Winn & Co.` and the roster reads the line as a FIRM — one of the three lines of this return that are not a person — while the 28 January reading carries the man alone and the concordance ties it `part_of_a_line`. The man's name is not mis-spelt; the line names his house. Neither reading is overturned and no card moves.",
+   "card": {
+    "name": "Jesse B. Winn",
+    "unchanged": true
+   }
+  },
+  {
+   "n": 164,
+   "rule": "N1",
+   "takes": "the page image",
+   "printed_as_at_the_image": "Daniel Warren",
+   "the_transcription_read_the_type_as": "‘Warren",
+   "the_transcription_normalized_it_to": "[?] Warren",
+   "the_two_readings_of_the_type": "differ",
+   "because": "The OCR carried the surname alone as `‘Warren` and the extraction marked the forename `[?]`. Completed at the image. Nothing reaches a card.",
+   "card": null
+  },
+  {
+   "n": 165,
+   "rule": "N1",
+   "takes": "the page image",
+   "printed_as_at_the_image": "Sally Weed",
+   "the_transcription_read_the_type_as": "Bally Weed",
+   "the_transcription_normalized_it_to": "[uncertain: Sally] Weed",
+   "the_two_readings_of_the_type": "differ",
+   "because": "`Bally Weed` is OCR damage at the forename and the extraction bracketed its repair. Once the bracket is opened the two readings agree, and a later return of 19 August 1835 prints `Weed Sali`. The image sets `Sally Weed`.",
+   "card": null
+  }
+ ]
+}

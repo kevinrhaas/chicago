@@ -1,0 +1,182 @@
+{
+  "$schema_note": "AUTHORED, and deliberately small. One entry per platted block this project holds evidence was NOT private building ground in 1835. Read by tools/generate_plat_lots.py, which emits a reserved block WITHOUT lots; by tools/reconcile_665.py, which deals it no roofs; by tools/generate_block_infill.py, which refuses a recipe that names one; and by tools/measure_reserved_ground.py, which is the command that prints what stands on it. Nothing here authors geometry — the block's boundary is derived from the street lines like every other block's, and only its SUBDIVISION is refused. `federal_reserved_ground` below is a citation and not a block: the United States Reservation was never platted, so the largest piece of held-back ground in the scene is refused in data/reconstruction/1835_no_build_ground.json and pointed at from here (T-1105).",
+  "id": "reserved_ground_1835",
+  "target_date": "1835-07-01",
+  "why_this_file_exists": "The plat module subdivides every block it can build into four lots per face, because that is what the Thompson module says a block is. It has no way to ask whether a particular block was ever offered as lots, and the 665-roof programme reads its output as the ground available to the town. So a block the town held in common was being dealt anonymous private dwellings on the same footing as a block of lots for sale. Found by ROADMAP T-A16, which claimed the public square as an ordinary block parcel and could not build it.",
+  "grades": "Each entry's `confidence` grades THE RESERVATION, not the block. `attested` would need a source stating in terms that the ground was reserved and not sold; this project holds none, and says so rather than promoting the reading that makes the gate look better.",
+  "federal_reserved_ground": {
+    "why_this_key_exists": "T-1105. Everything in `blocks` below is a PLATTED BLOCK the town held out of sale, refused one block at a time because that is the unit the plat module subdivides. The largest piece of reserved ground in this scene is not a block and never was: the United States Reservation was never platted, carries no street and no lot line, and so cannot appear in a file keyed by block id. It was refused in a different record for that reason, and until now this one said nothing about it — a reader asking \"what ground was held back in 1835?\" here got the four school-section blocks and the public square and no hint that 65.7 acres east of State Street were federal. This key is the citation, not a second copy: no geometry is authored here.",
+    "ring": {
+      "id": "us_military_reservation",
+      "carried_in": "data/reconstruction/1835_survey_tracts.json",
+      "derived_by": "tools/measure_no_build_ground.py reservation_ring()",
+      "geometry_confidence": "inferred",
+      "geometry_note": "Two constructed sides — Madison's line and the section line north from the G1 section corner — and the traced 1834 waterline for the third. `inferred` grades the BOUNDARY. It is not `documented`: no source record this project holds draws the reservation's perimeter, and the north-and-east side is a shoreline, which is a thing that moves.",
+      "area_m2": 265877.6,
+      "area_acres": 65.7,
+      "the_two_files_still_carry_the_same_ring": "Checked against the derivation, not assumed: the 49 vertices `reservation_ring()` builds and the 49 the tract layer carries agree to the two decimals the layer is rounded at. T-1104 reports the same identity from the land-sales side, where J. B. Beaubien's `SWFR` of section 10 clips onto the tract at 100% — a ring against itself, which is a consistency check and not a finding about the entry."
+    },
+    "the_refusal_itself_is_authored_elsewhere": {
+      "record": "data/reconstruction/1835_no_build_ground.json",
+      "region": "fort_dearborn_reservation",
+      "confidence_of_the_refusal": "documented",
+      "why_it_lives_there": "The refusal is about GROUND, not about a block's subdivision. This file takes a block's boundary and withholds its lots; there is no block here to withhold lots from. Duplicating the refusal would put two records in a position to disagree about the same 65.7 acres, so it is cited once and held once."
+    },
+    "the_acreage_the_sources_print_is_not_this_acreage": {
+      "andreas_1884_v1_prints_acres": 75.69,
+      "this_ring_measures_acres": 65.7,
+      "difference_acres": 9.99,
+      "what_the_difference_is": "NOT a correction of Andreas, and not absorbed. Andreas gives the south-west fractional quarter of section 10 as 75.69 acres, which is a survey figure over the quarter as the PLSS defines it. The ring here is that quarter as this project can draw it in 1835 — cut on the north and east by the traced waterline of the 1834 sheet rather than by a surveyed line, and the lake and the river mouth had taken and made ground in the years between. Ten acres is what a shoreline standing in for a section line costs, and it is recorded rather than reconciled: neither figure is wrong, and the two are not measuring the same edge."
+    },
+    "owner_on_the_scene_date": "RESERVED, NOT ENTERED — the tract layer's own refusal, carried here so the two records cannot drift apart. The register holds no patent for this ground on 1835-07-01. J. B. Beaubien's pre-emption over the south fraction of section 10 is entered 1835-05-28, was litigated for years and was voided in Wilcox v. Jackson, and the reservation is not treated as his."
+  },
+  "blocks": [
+    {
+      "block_id": "blk_randolph_lasalle",
+      "name": "The Public Square",
+      "aka": ["the court-house square", "the square"],
+      "bounded_by": {
+        "north": "randolph",
+        "south": "washington",
+        "west": "lasalle",
+        "east": "clark"
+      },
+      "reserved_for": "public",
+      "confidence": "inferred",
+      "sources": ["andreas_1884_v1", "chicagology_prefire273"],
+      "what_may_stand_here": {
+        "rule": "A structure record may stand on reserved ground when its own committed evidence puts it there. Everything else is refused — in particular, no roof of the 665-roof programme's anonymous infill.",
+        "permitted": [
+          {
+            "structure_id": "estray_pen",
+            "why": "Andreas puts the estray pen on the south-west corner of this square; the record's position note carries the quotation."
+          },
+          {
+            "structure_id": "log_jail",
+            "why": "Andreas puts the log jail on the north-west corner of the court-house square in the fall of 1833."
+          },
+          {
+            "structure_id": "cook_county_courthouse_1835",
+            "why": "Placed on this block as a reasoned invention within a documented block, with its own citation trail argued in the record. The corner is invented; the block is not."
+          }
+        ]
+      },
+      "refused": {
+        "anonymous_infill": "Every family the 665-roof programme could deal here. The four roofs this block held at the moment of its reservation — A1, D3, D4, D5 — return to the south district's balance and wait on coverage with the rest.",
+        "lots": "The block is emitted with no lots at all. Its eight conjectural lot lines were the plat module's default subdivision and this project has never read a lot line on this block off any sheet; drawing them asserted that the square was offered in lots, which is the claim being withdrawn."
+      },
+      "plat_block_number": {
+        "number": 39,
+        "numeral_on_sheet": false,
+        "confidence": "inferred",
+        "authored_in": "data/traces/thompson_block_numbering.json",
+        "note": "THE PUBLIC SQUARE IS BLOCK 39, and Wright does not write the number on it. He washes the block pink, rules it into eight lots like its neighbours, and letters 'Public Square' across it where the numeral would go. 39 is counted across one block from numerals READ on both sides of it — 40 in the block immediately west, 38 in the block immediately east, in a tier whose run falls eastward by one — which leaves exactly one number for the square to take. It is carried here as well as in the numbering file because this entry is where the block's identity is argued: the same corners this project's ground control labels 'NW corner of the Public Square block' and 'SE corner of the Public Square block'. It is the number the 1843 and 1844 directories, the land sales and the old-settler recollections speak in, so an address reading 'block 39' now lands on this ground. T-0788."
+      },
+      "note": "THE RESERVATION IS INFERRED AND THE BLOCK'S IDENTITY IS NOT. Andreas names this block 'the square' and 'the court-house square' and puts three of the county's own buildings on it — the estray pen, Chicago's first public building, on its south-west corner in March 1833; the log jail on its north-west corner in the fall of 1833; and the first Cook County court-house in 1835 (docs/research/04-structures-south.md section 7, and the three committed structure records that cite it). This project's own ground control labels its corners in the same words: data/traces/gcp/wright_1834_gcps.json marks LaSalle and Randolph 'NW corner of the Public Square block' and Clark and Washington 'SE corner of the Public Square block'. What is INFERRED is the consequence — that its ground was not private building ground and no anonymous dwelling may be scheduled onto it. No source this project holds says in terms that the block was reserved from sale, so the grade is the middle tier and the reasoning is this: a block carrying the county's pound, jail and court-house is ground the county is using, the same dossier's own reading of the rest of it is 'open, unimproved, fenced or unfenced prairie block', and the one further description reached of it in the period is water — 'Our public Square was then a pond, where the Indians had trapped the muskrat, and where the first settlers hunted ducks' (chicagology_prefire273, and docs/research/08-fauna.md line 44). Three readings of the same block, from three directions, and not one of them is a house. THE POND IS DOCUMENTED AND NOT MODELLED, AND SINCE T-0027 THE SQUARE NO LONGER RENDERS AS ORDINARY PRAIRIE. The terrain still carries no standing water here — tools/measure_public_square.py samples this block at 0.5 m and finds 0 of 43,885 samples at or below the water surface, with the whole block's relief inside the spec's own micro-relief noise, so there is no basin to hold any — and that zero is now an absolute assertion rather than a default. What changed is the sward: docs/research/02-flora.md heads its ZONE 3 'SLOUGH & SEDGE MEADOW (Public Square -> Tremont House site -> river at State St)', naming this block, and z03's elevation-band extent could never reach a block the terrain draws at the plain's +2.9 ft. The zone now covers the platted block by polygon, so the square is planted as the flora dossier names it and reads as the seasonally ponded ground the sources describe, with no water drawn on it. docs/LIBERTIES.md L188."
+    },
+    {
+      "block_id": "blk_school_section_1",
+      "name": "The north-west reservation",
+      "block_number": 1,
+      "spans": null,
+      "bounded_by": {
+        "north": "madison",
+        "south": "monroe",
+        "west": "school_section_line_0",
+        "east": "school_section_line_1"
+      },
+      "where": "the corner of Madison Street and the section's west line",
+      "reserved_for": "unstated",
+      "confidence": "inferred",
+      "sources": ["wright_1834_nara_hup"],
+      "what_may_stand_here": {
+        "rule": "A structure record may stand on reserved ground when its own committed evidence puts it there. Everything else is refused — in particular, no roof of the 665-roof programme's anonymous infill. Nothing stands here today: this ground is a mile outside the modelled town and carries no committed footprint at all.",
+        "permitted": []
+      },
+      "sale_test": {
+        "result": "corroborated",
+        "note": "No row of the sale sells a lot in block 1, and the sale reached this tier: it sells in every OTHER block of the two northern rows. A reservation the sale steps around is the strongest corroboration this dataset can give it.",
+        "tested_against": "data/research/land_sales/entries.json, section 16 T39N R14E, the October 1833 school-section sale"
+      },
+      "note": "Wright writes 'Reserved' across this block and no numeral. What it was reserved FOR is not on the sheet and is not supplied here. No row of the sale sells a lot in block 1, and the sale reached this tier: it sells in every OTHER block of the two northern rows. A reservation the sale steps around is the strongest corroboration this dataset can give it."
+    },
+    {
+      "block_id": "blk_school_section_142",
+      "name": "The north-east reservation",
+      "block_number": 142,
+      "spans": null,
+      "bounded_by": {
+        "north": "madison",
+        "south": "monroe",
+        "west": "school_section_line_12",
+        "east": "state_school_section"
+      },
+      "where": "the corner of Madison Street and State Street",
+      "reserved_for": "unstated",
+      "confidence": "inferred",
+      "sources": ["wright_1834_nara_hup"],
+      "what_may_stand_here": {
+        "rule": "A structure record may stand on reserved ground when its own committed evidence puts it there. Everything else is refused — in particular, no roof of the 665-roof programme's anonymous infill. Nothing stands here today: this ground is a mile outside the modelled town and carries no committed footprint at all.",
+        "permitted": []
+      },
+      "sale_test": {
+        "result": "corroborated",
+        "note": "No row of the sale sells a lot in block 142, and the sale reached this tier: it sells in every OTHER block of the two northern rows. A reservation the sale steps around is the strongest corroboration this dataset can give it.",
+        "tested_against": "data/research/land_sales/entries.json, section 16 T39N R14E, the October 1833 school-section sale"
+      },
+      "note": "Wright writes 'Reserved' across this block and no numeral. What it was reserved FOR is not on the sheet and is not supplied here. No row of the sale sells a lot in block 142, and the sale reached this tier: it sells in every OTHER block of the two northern rows. A reservation the sale steps around is the strongest corroboration this dataset can give it."
+    },
+    {
+      "block_id": "blk_school_section_87",
+      "name": "The South Branch reservation",
+      "block_number": 87,
+      "spans": [87, 88],
+      "bounded_by": {
+        "north": "school_section_tier_7_south_of_madison",
+        "south": "school_section_tier_8_south_of_madison",
+        "west": "school_section_line_8",
+        "east": "wells_school_section"
+      },
+      "where": "on the east bank of the South Branch, spanning blocks 87 and 88",
+      "reserved_for": "unstated",
+      "confidence": "inferred",
+      "sources": ["wright_1834_nara_hup"],
+      "what_may_stand_here": {
+        "rule": "A structure record may stand on reserved ground when its own committed evidence puts it there. Everything else is refused — in particular, no roof of the 665-roof programme's anonymous infill. Nothing stands here today: this ground is a mile outside the modelled town and carries no committed footprint at all.",
+        "permitted": []
+      },
+      "sale_test": {
+        "result": "untested",
+        "note": "No row of the sale sells a lot in block 87 or block 88 — but the sale never reached this far south. Its 217 block-resolved rows all lie in the four northern rows of the grid, so its silence here is silence and not corroboration.",
+        "tested_against": "data/research/land_sales/entries.json, section 16 T39N R14E, the October 1833 school-section sale"
+      },
+      "note": "Wright writes 'Reserved' across this block and no numeral. What it was reserved FOR is not on the sheet and is not supplied here. No row of the sale sells a lot in block 87 or block 88 — but the sale never reached this far south. Its 217 block-resolved rows all lie in the four northern rows of the grid, so its silence here is silence and not corroboration."
+    },
+    {
+      "block_id": "blk_school_section_88",
+      "name": "The South Branch reservation",
+      "block_number": 88,
+      "spans": [87, 88],
+      "bounded_by": {
+        "north": "school_section_tier_6_south_of_madison",
+        "south": "school_section_tier_7_south_of_madison",
+        "west": "school_section_line_8",
+        "east": "wells_school_section"
+      },
+      "where": "on the east bank of the South Branch, spanning blocks 87 and 88",
+      "reserved_for": "unstated",
+      "confidence": "inferred",
+      "sources": ["wright_1834_nara_hup"],
+      "what_may_stand_here": {
+        "rule": "A structure record may stand on reserved ground when its own committed evidence puts it there. Everything else is refused — in particular, no roof of the 665-roof programme's anonymous infill. Nothing stands here today: this ground is a mile outside the modelled town and carries no committed footprint at all.",
+        "permitted": []
+      },
+      "sale_test": {
+        "result": "untested",
+        "note": "No row of the sale sells a lot in block 87 or block 88 — but the sale never reached this far south. Its 217 block-resolved rows all lie in the four northern rows of the grid, so its silence here is silence and not corroboration.",
+        "tested_against": "data/research/land_sales/entries.json, section 16 T39N R14E, the October 1833 school-section sale"
+      },
+      "note": "Wright writes 'Reserved' across this block and no numeral. What it was reserved FOR is not on the sheet and is not supplied here. No row of the sale sells a lot in block 87 or block 88 — but the sale never reached this far south. Its 217 block-resolved rows all lie in the four northern rows of the grid, so its silence here is silence and not corroboration."
+    }
+  ]
+}

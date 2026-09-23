@@ -1,0 +1,178 @@
+{
+ "id": "hh_beaubien_mark",
+ "name": "The Mark Beaubien household",
+ "division": "south",
+ "head": "beaubien_mark",
+ "arrival": {
+  "value": "1826",
+  "confidence": "reconstructed",
+  "note": "NOT ATTESTED HERE. Beaubien is in the settlement well before the town exists - he is a ferryman by 1831 and has built the Sauganash by 1829-31 - but no passage reached gives the year he came. 1826 is the figure in general circulation and it is carried as a conjecture that cites nothing, precisely so that a reader can see it is not evidence.",
+  "precision": "year"
+ },
+ "party_size_on_arrival": {
+  "value": null,
+  "confidence": "reconstructed",
+  "note": "Not attested."
+ },
+ "origin": {
+  "value": "A French-descended trading family of the Detroit and Milwaukee country",
+  "confidence": "inferred",
+  "sources": [
+   "andreas_1884_v1"
+  ],
+  "note": "Andreas's life of his brother Jean Baptiste gives the family's trading history at Milwaukee from about 1800 and the move to Chicago in 1812; Mark's own route is not traced."
+ },
+ "reason_for_coming": {
+  "value": "Trade and tavern keeping at the forks",
+  "confidence": "inferred",
+  "sources": [
+   "andreas_1884_v1"
+  ],
+  "note": "Inferred from what he did on arrival. No source states a motive."
+ },
+ "lives_at": {
+  "value": null,
+  "confidence": "reconstructed",
+  "note": "NOT ATTESTED AT THE SCENE DATE, AND THAT IS THE FINDING. He had left the Sauganash by 1834 - the hotel chronology gives 'Davis (1835)' as its operator - and the Exchange Coffee House he built at Lake and Wells was in the hands of the Murphys from August 1834. Where Mark Beaubien slept on 1 July 1835 is simply not in the record, and this field says so rather than putting him back in a house he had left."
+ },
+ "works_at": {
+  "value": null,
+  "confidence": "reconstructed",
+  "note": "Same problem as the residence. The ferry, the Sauganash and the Exchange are all attested for him at other dates and none of them is attested for this one."
+ },
+ "present_on_scene_date": {
+  "value": "present",
+  "confidence": "inferred",
+  "sources": [
+   "andreas_1884_v1"
+  ],
+  "note": "He is a continuous presence in the Chicago record from the 1820s to the 1850s and no absence is recorded around 1835; the inference is that he was here, not that a source says so."
+ },
+ "persons": [
+  {
+   "id": "beaubien_mark",
+   "name": "Mark Beaubien",
+   "relationship": "head",
+   "grade": "attested",
+   "ladder_rule": "G1b",
+   "sex": "male",
+   "occupation": {
+    "value": "tavern_keeper",
+    "confidence": "attested",
+    "sources": [
+     "andreas_1884_v1"
+    ],
+    "note": "He built and kept the Sauganash - Andreas calls him 'the original proprietor' - and built the Exchange Coffee House at Lake and Wells in 1834. He was also the licensed ferryman of Chicago from 6 June 1831 (bond filed, James Kinzie surety, $50 into the county treasury) and the last keeper of the old lighthouse, decades later. Tavern keeping is the trade the sources return to.",
+    "derived_from": "roles",
+    "roles_at_scene_date": [
+     "tavern_keeper"
+    ]
+   },
+   "sources": [
+    "andreas_1884_v1",
+    "chicago_tribune_1882_04_25_old_settler_deaths",
+    "chicago_voter_lists_1833_1835_irad",
+    "calumet_club_early_chicago_1879",
+    "isa_public_domain_land_tract_sales"
+   ],
+   "note": "THE MAN THE TOWN VOTED AT. The incorporation election of 10 August 1833 was held 'at the house of Mark Beaubien' by the clerk's own printed notice, and the board resolved that its meetings should be held there too. He voted for incorporation on 5 August and was one of the twenty-eight electors. He named the Sauganash after Billy Caldwell: asked to name the house after some great man, 'he could think of no greater personage than Billy Caldwell'. OLD SETTLERS, 1882 — A DATE OF DEATH, AND NOTHING ABOUT 1835. John Wentworth's roll of old settlers who had died since 1 January 1881, kept for the Calumet Club and printed in the Chicago Tribune of 25 April 1882, carries “Mark Beaubien, April 11, 1881.”. That corroborates a Chicago residence before 1840 and fixes the END of this life, which this record did not carry; it is not an arrival and it places nobody in the town on 1 July 1835. Under the ratified ladder (T-0513) a later recollection corroborates, enriches and dates and cannot lift a rung by itself, so this record's GRADE IS UNCHANGED by it: T-0513 consolidates the identity and T-0515 regrades. Identity by rule OS1 — surname and spelled-out forename agree, one bearer (data/research/old_settlers/crosswalk.json). THE TOWN'S OWN ROLLS, 1833-1835 — CORROBORATION, NOT A GRADE. The early Chicago voter and tax lists held by the Illinois Regional Archives Depository name this person 3 times: Poll list of the first election of the Board of Trustees of the Town of Chicago, 10 August 1833 — “Beaubien, Mark” (poll_1833_004, line 25); Tax list of the Town of Chicago, 1833 — “Beaubien, Mark” (tax_1833_003, line 55); Election returns — poll list of 1834, filed 11 August 1834 — “Beaubien, Mark” (poll_1834_011, line 180). These are the town's own contemporary paper rather than a recollection of it, and each appearance says that a man of that name stood on that roll in that year — no more. The reading is twice mediated (Schulz's transcription, then Genealogy Trails' republication) and this project has not seen the IRAD originals. Under the ratified ladder (T-0513) the 1835 poll with a second independent source is attested, the 1835 poll alone or a 1833/1834 list with another source is inferred, and a single appearance with nothing else is a projected resident. This pass WRITES THE EVIDENCE AND MOVES NO GRADE — T-0515 applies the ladder against every source at once. Identity by the crosswalk's own rule: one resident of the surname 'Beaubien' agrees with the entry's forenames; 4 bearer(s) of the surname were considered. (data/research/civic/voter_crosswalk.json). OLD SETTLERS, 1879 — A DATE THIS MAN GAVE FOR HIMSELF, AND STILL NOT A FACT ABOUT 1835. The Calumet Club's FIRST reception to the settlers of Chicago prior to 1840, 27 May 1879, printed its register in the proceedings (Early Chicago, Chicago, 1879, pages 84-90), and this man's entry reads “Beaubien, Mark, | 1826, | Detroit, Mich. | 79 | Newark, Kendall Co., Ill.” — name, his own date of arrival, his birthplace, his age and his 1879 post-office address, in the register's five columns. The date of arrival is HIS RECOLLECTION, set down forty to sixty years after the event; the address is where he lived in 1879 and is never read as an 1835 residence. Under the ratified ladder (T-0513) a later recollection corroborates, enriches and dates and cannot lift a rung by itself, so this record's GRADE IS UNCHANGED by it: T-0513 consolidates the identity and T-0515 regrades. Identity by rule OS1 — surname and spelled-out forename agree, one bearer (data/research/old_settlers/crosswalk.json). THE FEDERAL LAND TRACT SALES — A PURCHASE, AND NEVER A RESIDENCE. The Illinois State Archives' Public Domain Land Tract Sales register enters this person 4 times, as “BEAUBIEN MARK”, 1830-09-27 to 1833-10-25: 2 lots in the platted town — lot 3 of block 31 in the town the register codes CHIOT (L3BL31CHIOT, as printed); lot 4 of block 31 in the town the register codes CHIOT (L4BL31CHIOT, as printed) and 2 parcels of the school section — lot 7 of block 81 of the school section (sec 16 T39N R14E); lot 8 of block 81 of the school section (sec 16 T39N R14E), 0.00 acres stated in all, for $273.00 (ls0069, ls0070, ls0970, ls0971). THE REGISTER'S OWN RESIDENCE COLUMN READS UNKNOWN on these rows: a county, a state or nothing, and never a town, which is why a purchase here places nobody. THE SCHOOL-SECTION ROWS ARE GROUND INSIDE THE TOWN, NOT FARMLAND: section 16 of T39N R14E was platted and sold off by lot and by block at the sale of 1833, which is why the register states 0000.00 acres against most of them. Ground inside the town is nearer to this reconstruction than a quarter-section is, and it is still a purchase: the register names a purchaser and never an occupant, and nothing here puts this person on that ground. THE TOWN LOTS ARE THE PLAT ITSELF, AND THEY ARE NOT ACRES: Cook County's register describes them by lot and block in a platted town and gives them no section, no township and no acreage at all, so they add nothing to the acre figure above and $102.00 to the money. This project does not expand the register's town codes, so which addition a lot stands in is carried as the code and not as a name. It is still a purchase and it still places nobody. A purchase and nothing more. It dates and places a transaction; it proposes no residence, and under the ratified ladder it corroborates rather than mints. Identity by the crosswalk's own rule: BEAUBIEN MARK matches Mark Beaubien: the forename names Mark Beaubien of the 8 people of this surname, and the forename agrees in full. (data/research/land_sales/resident_crosswalk.json). This pass WRITES THE EVIDENCE AND MOVES NO GRADE. Under the ratified ladder (T-0513) a second independent source is what lifts a projected resident, and a land entry is a second source about a TRANSACTION rather than about who was living at Chicago on 1 July 1835 — a man may buy a quarter-section he never sees. T-0515 applies the ladder against every source at once; this pass hands it the evidence and not the verdict.",
+   "resident_research": {
+    "programme": "resident-research-2026",
+    "ticket": "T-0508",
+    "outcome": "corroborated",
+    "reviewed_on": "2026-09-05",
+    "asserted_identity": true,
+    "evidence_for": "Independent of the post office in books, 1830 schedule, parish registers and more.",
+    "source_ids": [
+     "andreas_1884_chicago_1830_map",
+     "census_1830_peoria_county_chicago_precinct",
+     "chicagology_prefire216",
+     "drloih_beaubien"
+    ],
+    "summary": "Independently corroborated; confirmed, not moved."
+   },
+   "roles": [
+    {
+     "role": "tavern_keeper",
+     "kind": "trade",
+     "as_printed": null,
+     "from": "1673",
+     "to": "1857",
+     "precision": "source_span",
+     "dated_by": "source_describes_date",
+     "covers_scene_date": true,
+     "confidence": "attested",
+     "sources": [
+      "andreas_1884_v1"
+     ],
+     "claim": null,
+     "note": "THE BOUND IS THE SOURCE'S, NOT THE MAN'S. This role is carried by the card's 1835 occupation block and is dated by what the cited source or sources are ABOUT, which is why `precision` can be no better than the span they cover. The span reaches 1835, so this role stands in the scene-date view. The printing the trade was read off is not on the card and is fetched by T-1254."
+    }
+   ]
+  },
+  {
+   "id": "beaubien_mark_household",
+   "name": "Mark Beaubien's family, unnamed",
+   "relationship": "household_member",
+   "grade": "inferred",
+   "occupation": {
+    "value": "none_recorded",
+    "confidence": "reconstructed",
+    "note": "No source records an occupation for this person. This is the ABSENCE of a record rather than a claim that they did no work — the sources of 1835 name the occupations of household heads and almost never those of wives, children or the people counted with them."
+   },
+   "sources": [],
+   "note": "AN ADMISSION, NOT A PERSON. Mark Beaubien's large family is a commonplace of the Chicago literature and nothing this project holds names or counts them, so they are carried as one unnamed placeholder rather than as invented individuals. Do not count this entry as a person."
+  }
+ ],
+ "touches_removal": false,
+ "review_required": false,
+ "research_note": "THE MOST FAMOUS HOUSEHOLD IN THE TOWN AND ONE OF THE THINNEST RECORDS IN THIS PARCEL, which is worth stating plainly because it is the shape of the whole problem. Everything Mark Beaubien DID is documented - the tavern, the ferry licence, the election held in his house, the naming of the Sauganash. Everything about him as a RESIDENT on 1 July 1835 - his roof, his work, his family, his arrival year - is unattested. Three of the five household fields here are conjectural and one of the two persons is a placeholder. That is the honest state of the evidence and the confidence view should paint it that way.",
+ "kin": [
+  {
+   "person": "beaubien_mark",
+   "relation": "brother",
+   "household": "hh_beaubien_jean_baptiste",
+   "value": "beaubien_jean_baptiste",
+   "confidence": "inferred",
+   "sources": [
+    "andreas_1884_v1"
+   ],
+   "note": "MARK BEAUBIEN AND JEAN BAPTISTE BEAUBIEN ARE BROTHERS. Mark's own card reaches for \"Andreas's life of his brother Jean Baptiste\" to date the family's move to Chicago from Milwaukee, and states the tie while doing it. Graded inferred: the brotherhood is stated in the source, and the reading that ties the elided forename to this card — twelve Beaubiens stand in the dataset — is this project's. Ruled under T-0734; found by PR #947."
+  }
+ ],
+ "directories": {
+  "note": "LATER EVIDENCE, BESIDE THE 1835 CLAIMS AND NOT INSIDE THEM. A Chicago directory of 1839, 1843 or 1844 meets somebody of this name and this pass records what it prints. Under the ratified ladder a directory read after 1835 can corroborate that a person attested here was still in Chicago and can print a trade or a street the 1835 record never had; on its own it makes nobody a resident of 1835. Nothing on this person's 1835 record was regraded, moved, dated or given an occupation by this entry. WHAT THIS PASS RULED ONTO THIS HOUSEHOLD, named so the ruling can be found again: each volume below is followed by the printed entries it set against this person and the status the crosswalk ruled them at — a single entry carries what its own `could_carry` declares, and an ambiguous or contested match carries nothing and is shown so that the silence is legible. beaubien_mark, Fergus's Chicago directory of 1839 — f1839_e0083 (a single entry); beaubien_mark, Fergus's Chicago directory of 1843 — f1843_e0310 (a single entry).",
+  "sources": [
+   "fergus_chicago_directory_1839",
+   "fergus_chicago_directory_1843"
+  ],
+  "people": [
+   {
+    "person_id": "beaubien_mark",
+    "address_later": {
+     "value": "Lake st",
+     "confidence": "attested",
+     "describes_date": 1839,
+     "sources": [
+      "fergus_chicago_directory_1839"
+     ],
+     "note": "Fergus's Chicago directory of 1839 prints this address against this person, in the entry quoted on the card: 'Beaubien, Mark, hotel-keeper, Lake st'. It is evidence about 1839, written here as 1839's and read back onto no 1835 claim. Under the ratified ladder a directory read after 1835 can corroborate that a person attested here was still in Chicago and can print a trade or a street the 1835 record never had; on its own it makes nobody a resident of 1835. Nothing on this person's 1835 record was regraded, moved, dated or given an occupation by this entry. The value is the volume's own line, split by its crosswalk on the entry's punctuation. These volumes set the trade first and its qualifiers after it on the same line, so the split may carry an employer, a market or a corner along with the trade. The printed entry is quoted beside the value for exactly that reason: the split is checkable against it, and neither is read into an 1835 claim."
+    },
+    "back_projection": {
+     "outcome": "placed",
+     "clause": "3 and 4",
+     "value": "Lake Street",
+     "confidence": "reconstructed",
+     "describes_date": 1839,
+     "read_back_years": 4,
+     "placement": "face",
+     "position_local_enu_m": null,
+     "sources": [
+      "fergus_chicago_directory_1839"
+     ],
+     "note": "A LATER ADDRESS, READ BACKWARDS 4 YEARS. The door is not an 1835 reading: Fergus's Chicago directory of 1839 printed it in 1839, and this pass carries it back to the scene date because the 1835 record attests a trade for this person and nothing in the corpus places it better. What is claimed is the street face and nothing narrower — no lot, no roof, no door count — and the grade is `reconstructed`, which is this dataset's word for a figure the reconstruction supplies rather than a source. Lake Street stands in 1835 under that name and in that place. The directory gives a street and nothing this pass can resolve narrower, so the placement is the FACE — the unit the owner's ruling of 2026-08-29 says a street name constrains — and no roof is dealt. The rule this stands on is docs/ADDRESS-BACK-PROJECTION.md and the liberty is L218; a reader who thinks 4 years is too far to carry a shop should read the grade as the disagreement being invited."
+    }
+   }
+  ]
+ }
+}

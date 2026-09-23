@@ -1,0 +1,183 @@
+
+Confidence across 12146 attributes in 373 structure(s):
+  attested      591    4.9%  ##
+  inferred     2668   22.0%  #########
+  reconstructed 8887   73.2%  #############################
+
+  watch list: 1 entry(ies) rest on no source record [billy_caldwell_house] — each says why
+  ground claims: 41 graded statement(s) in the terrain specs, held to the citation and reasoning rules and shown in the Evidence panel; 0 inferred without recorded reasoning
+  ground geometry check: 51 stated figure(s) the terrain generator does not read, each declaring what the ground does instead; 9 of them owe docs/LIBERTIES.md an admission
+  restated-in-code check: 4 figure(s) the ground agrees with and does not read, each held against the half it restates; 3 of them are prose about an algorithm and are checked only for the presence of the line they describe
+  evidence ladder: 5212 graded claim(s) held to the 6-rung ladder in data/source.schema.json — tiers 5+ never sole evidence for documented, never an outline; 18 documented on later scholarship alone
+  transcription declarations: 11 source(s) derive their rung from the document they carry and 2 page(s) were read and reprint none; 105 page(s) at tier 4 or weaker date their own retrieval and declare nothing — unread rather than wrong, and the queue in docs/ROADMAP.md § S5 (baptisthistoryhomepage.json, berrien_eben_griswold.json, buck_pioneer_milwaukee.json, buffalo_nehemiah_case.json and 101 more)
+  residents: 824 household(s), 848 person(s) (117 attested, 731 inferred, 0 reconstructed); 55 linked to a structure, 448 NOT recorded as certainly present on the scene date, 8 flagged review_required
+  scene 1835 (1835-07-01): 372 structure(s) included, 1 excluded by date [cook_county_courthouse_1835]
+  geometry check: 46 attribute(s) the archetypes do not read, each declaring what the mesh does instead
+  drawn_by check: 1 phase(s) drawn by another layer, each with a record that exists, is fetched, and has no mesh left behind it
+  ground contact: 3 structure(s) do not reach the terrain under them, 3 declaring it
+  liberties coverage: 4489 value(s) owed an admission — 4417 invented, 37 stated and not built, 3 standing off the ground, 32 invented in the ground itself — claimed by 1071 declaration(s) in docs/LIBERTIES.md
+  placement derivations: 373 declared, 11 constraint(s) recomputed from data/traces/street_control.json
+  sidecar contract: 39 field(s) read across 9 renderer module(s), all present in the compiled sidecars
+  sidecar contract: 2 top-level field(s) compiled and never read by the renderer (archetype, scene) — dead weight or an unshipped claim, not an error either way
+  derived contract: sidecars/*/terrain.json — 16 field(s) read by ground.js, 7 declared internal, 19 emitted
+  derived contract: sidecars/*/exclusions.json — 20 field(s) read by exclusions.js, 2 declared internal, 19 emitted
+  derived contract: liberties.json — 19 field(s) read by liberties.js, 5 declared internal, 21 emitted
+  derived contract: a read is a name, not a render — the smoke pins the rendered text for the claims that carry one
+  source surface: 22 schema field(s) partitioned, 8 visitor-facing, 10 key(s) on a compiled citation
+  flora extents: 48636 land sample(s), 16569 water, 10 unzoned (0.0%) — unzoned ground is planted with NOTHING, never a default community
+  flora: 10 zone(s), 155 species record(s); 39 documented claim(s) rest only on sources no agent has retrieved (verified false) — real citations, unread
+  fauna: 10 zone(s), 139 species record(s); 40 present and NOT SEEN (audible, trace or imperceptible), 15 recorded as absent or withheld — liberty L2 in the data (of 139 with an attested presence)
+  param check: 371 phase(s) resolved
+  license check: 736 generated (manifest-tracked), 1 authored/third-party asset(s)
+  stale check: 368 asset(s) match their inputs, 0 stale; schemes resolved-params-v3 / resolved-spec-v3, manifest blender 4.5.3
+  bake-reach check: 366 committed asset(s) a scene can rebuild
+  site check: published tree 27.43 MB of 32 MB budget
+  site check: 20 flora file(s) published
+  WARN  source berrien_eben_griswold.json: website source without archived_url — several key hosts for this project return 503/403 intermittently; a citation that cannot be re-read is not a citation
+  WARN  source buck_pioneer_milwaukee.json: website source without archived_url — several key hosts for this project return 503/403 intermittently; a citation that cannot be re-read is not a citation
+  WARN  source buffalo_nehemiah_case.json: website source without archived_url — several key hosts for this project return 503/403 intermittently; a citation that cannot be re-read is not a citation
+  WARN  source catholic_chicago_st_cyr_1833.json: website source without archived_url — several key hosts for this project return 503/403 intermittently; a citation that cannot be re-read is not a citation
+  WARN  source caton_atlantic_chicago_1893.json: website source without archived_url — several key hosts for this project return 503/403 intermittently; a citation that cannot be re-read is not a citation
+  WARN  source chicagology_chicago_brick.json: website source without archived_url — several key hosts for this project return 503/403 intermittently; a citation that cannot be re-read is not a citation
+  WARN  source chicagology_wolf_point_walters.json: website source without archived_url — several key hosts for this project return 503/403 intermittently; a citation that cannot be re-read is not a citation
+  WARN  source chm_bartlett_diaries.json: website source without archived_url — several key hosts for this project return 503/403 intermittently; a citation that cannot be re-read is not a citation
+  WARN  source chm_eliza_chappel.json: website source without archived_url — several key hosts for this project return 503/403 intermittently; a citation that cannot be re-read is not a citation
+  WARN  source chm_george_snow_assessor.json: website source without archived_url — several key hosts for this project return 503/403 intermittently; a citation that cannot be re-read is not a citation
+  WARN  source chm_ira_couch_portrait.json: website source without archived_url — several key hosts for this project return 503/403 intermittently; a citation that cannot be re-read is not a citation
+  WARN  source chm_thomas_owen_papers.json: website source without archived_url — several key hosts for this project return 503/403 intermittently; a citation that cannot be re-read is not a citation
+  WARN  source cpl_augustus_garrett_biography.json: website source without archived_url — several key hosts for this project return 503/403 intermittently; a citation that cannot be re-read is not a citation
+  WARN  source cpl_buckner_stith_morris_biography 2.json: website source without archived_url — several key hosts for this project return 503/403 intermittently; a citation that cannot be re-read is not a citation
+  WARN  source cpl_buckner_stith_morris_biography.json: website source without archived_url — several key hosts for this project return 503/403 intermittently; a citation that cannot be re-read is not a citation
+  WARN  source cpl_james_curtiss_biography.json: website source without archived_url — several key hosts for this project return 503/403 intermittently; a citation that cannot be re-read is not a citation
+  WARN  source cpl_john_s_wright_papers.json: website source without archived_url — several key hosts for this project return 503/403 intermittently; a citation that cannot be re-read is not a citation
+  WARN  source cpn_beaubien_family.json: website source without archived_url — several key hosts for this project return 503/403 intermittently; a citation that cannot be re-read is not a citation
+  WARN  source cpn_madore_beaubien.json: website source without archived_url — several key hosts for this project return 503/403 intermittently; a citation that cannot be re-read is not a citation
+  WARN  source dalton_1840_chicago_census_index.json: website source without archived_url — several key hosts for this project return 503/403 intermittently; a citation that cannot be re-read is not a citation
+  WARN  source desplaines_gardner_brooks.json: website source without archived_url — several key hosts for this project return 503/403 intermittently; a citation that cannot be re-read is not a citation
+  WARN  source drloih_chicago_name.json: website source without archived_url — several key hosts for this project return 503/403 intermittently; a citation that cannot be re-read is not a citation
+  WARN  source drloih_hotels.json: website source without archived_url — several key hosts for this project return 503/403 intermittently; a citation that cannot be re-read is not a citation
+  WARN  source drloih_wolf_point.json: website source without archived_url — several key hosts for this project return 503/403 intermittently; a citation that cannot be re-read is not a citation
+  WARN  source dunlap_alva_dunlap_history.json: website source without archived_url — several key hosts for this project return 503/403 intermittently; a citation that cannot be re-read is not a citation
+  WARN  source dupage_constant_abbott.json: website source without archived_url — several key hosts for this project return 503/403 intermittently; a citation that cannot be re-read is not a citation
+  WARN  source elgin_history_gifford.json: website source without archived_url — several key hosts for this project return 503/403 intermittently; a citation that cannot be re-read is not a citation
+  WARN  source encyclopedia_chicago_balloon_frame.json: website source without archived_url — several key hosts for this project return 503/403 intermittently; a citation that cannot be re-read is not a citation
+  WARN  source encyclopedia_chicago_biographical_index_d 2.json: website source without archived_url — several key hosts for this project return 503/403 intermittently; a citation that cannot be re-read is not a citation
+  WARN  source encyclopedia_chicago_biographical_index_d.json: website source without archived_url — several key hosts for this project return 503/403 intermittently; a citation that cannot be re-read is not a citation
+  WARN  source encyclopedia_chicago_biographical_p.json: website source without archived_url — several key hosts for this project return 503/403 intermittently; a citation that cannot be re-read is not a citation
+  WARN  source encyclopedia_chicago_church_architecture.json: website source without archived_url — several key hosts for this project return 503/403 intermittently; a citation that cannot be re-read is not a citation
+  WARN  source encyclopedia_chicago_food_processing.json: website source without archived_url — several key hosts for this project return 503/403 intermittently; a citation that cannot be re-read is not a citation
+  WARN  source encyclopedia_chicago_frederick_thomas.json: website source without archived_url — several key hosts for this project return 503/403 intermittently; a citation that cannot be re-read is not a citation
+  WARN  source encyclopedia_chicago_mark_beaubien.json: website source without archived_url — several key hosts for this project return 503/403 intermittently; a citation that cannot be re-read is not a citation
+  WARN  source encyclopedia_chicago_medical_pharmaceutical 2.json: website source without archived_url — several key hosts for this project return 503/403 intermittently; a citation that cannot be re-read is not a citation
+  WARN  source encyclopedia_chicago_medical_pharmaceutical.json: website source without archived_url — several key hosts for this project return 503/403 intermittently; a citation that cannot be re-read is not a citation
+  WARN  source encyclopedia_chicago_newspapers.json: website source without archived_url — several key hosts for this project return 503/403 intermittently; a citation that cannot be re-read is not a citation
+  WARN  source encyclopedia_chicago_potawatomis.json: website source without archived_url — several key hosts for this project return 503/403 intermittently; a citation that cannot be re-read is not a citation
+  WARN  source first_presbyterian_chicago_1833_1913.json: website source without archived_url — several key hosts for this project return 503/403 intermittently; a citation that cannot be re-read is not a citation
+  WARN  source fpdcc_ecosystems.json: website source without archived_url — several key hosts for this project return 503/403 intermittently; a citation that cannot be re-read is not a citation
+  WARN  source goodman_history_cook_county_early.json: website source without archived_url — several key hosts for this project return 503/403 intermittently; a citation that cannot be re-read is not a citation
+  WARN  source goodman_history_cook_county_hamilton.json: website source without archived_url — several key hosts for this project return 503/403 intermittently; a citation that cannot be re-read is not a citation
+  WARN  source hmdb_butterfield_trail.json: website source without archived_url — several key hosts for this project return 503/403 intermittently; a citation that cannot be re-read is not a citation
+  WARN  source idnr_tallgrass_plantlist.json: website source without archived_url — several key hosts for this project return 503/403 intermittently; a citation that cannot be re-read is not a citation
+  WARN  source illinois_courts_caton_biography.json: website source without archived_url — several key hosts for this project return 503/403 intermittently; a citation that cannot be re-read is not a citation
+  WARN  source illinois_wildflowers.json: website source without archived_url — several key hosts for this project return 503/403 intermittently; a citation that cannot be re-read is not a citation
+  WARN  source im_canal_albert_dow.json: website source without archived_url — several key hosts for this project return 503/403 intermittently; a citation that cannot be re-read is not a citation
+  WARN  source indiana_absalom_reel_1834.json: website source without archived_url — several key hosts for this project return 503/403 intermittently; a citation that cannot be re-read is not a citation
+  WARN  source indigenous_chicago_alexander_robinson.json: website source without archived_url — several key hosts for this project return 503/403 intermittently; a citation that cannot be re-read is not a citation
+  WARN  source ingale_early_chicago_reminiscence.json: website source without archived_url — several key hosts for this project return 503/403 intermittently; a citation that cannot be re-read is not a citation
+  WARN  source jsp_illinois_statutes_gale_imprint.json: website source without archived_url — several key hosts for this project return 503/403 intermittently; a citation that cannot be re-read is not a citation
+  WARN  source jsp_russel_heacock_plat.json: website source without archived_url — several key hosts for this project return 503/403 intermittently; a citation that cannot be re-read is not a citation
+  WARN  source kane_geneva_andrew_miles.json: website source without archived_url — several key hosts for this project return 503/403 intermittently; a citation that cannot be re-read is not a citation
+  WARN  source kaneville_amanda_miner.json: website source without archived_url — several key hosts for this project return 503/403 intermittently; a citation that cannot be re-read is not a citation
+  WARN  source lasalle_thomas_covell.json: website source without archived_url — several key hosts for this project return 503/403 intermittently; a citation that cannot be re-read is not a citation
+  WARN  source loc_mantowoc_benjamin_jones.json: website source without archived_url — several key hosts for this project return 503/403 intermittently; a citation that cannot be re-read is not a citation
+  WARN  source mclean_history_jesse_w_fell 2.json: website source without archived_url — several key hosts for this project return 503/403 intermittently; a citation that cannot be re-read is not a citation
+  WARN  source mclean_history_jesse_w_fell.json: website source without archived_url — several key hosts for this project return 503/403 intermittently; a citation that cannot be re-read is not a citation
+  WARN  source michigan_frederick_curtenius.json: website source without archived_url — several key hosts for this project return 503/403 intermittently; a citation that cannot be re-read is not a citation
+  WARN  source michigan_hh_comstock_history.json: website source without archived_url — several key hosts for this project return 503/403 intermittently; a citation that cannot be re-read is not a citation
+  WARN  source migenweb_clark_albee_grand_haven.json: website source without archived_url — several key hosts for this project return 503/403 intermittently; a citation that cannot be re-read is not a citation
+  WARN  source mnfi_open_dunes.json: website source without archived_url — several key hosts for this project return 503/403 intermittently; a citation that cannot be re-read is not a citation
+  WARN  source norris_chicago_directory_1843.json: website source without archived_url — several key hosts for this project return 503/403 intermittently; a citation that cannot be re-read is not a citation
+  WARN  source nps_bailly_homestead.json: website source without archived_url — several key hosts for this project return 503/403 intermittently; a citation that cannot be re-read is not a citation
+  WARN  source nwchicago_elijah_wentworth.json: website source without archived_url — several key hosts for this project return 503/403 intermittently; a citation that cannot be re-read is not a citation
+  WARN  source ohio_firelands_rouse_bly.json: website source without archived_url — several key hosts for this project return 503/403 intermittently; a citation that cannot be re-read is not a citation
+  WARN  source okstate_treaty_chicago_1833.json: website source without archived_url — several key hosts for this project return 503/403 intermittently; a citation that cannot be re-read is not a citation
+  WARN  source pal_chicago_incorporation_1835.json: website source without archived_url — several key hosts for this project return 503/403 intermittently; a citation that cannot be re-read is not a citation
+  WARN  source pal_gholson_kercheval.json: website source without archived_url — several key hosts for this project return 503/403 intermittently; a citation that cannot be re-read is not a citation
+  WARN  source pal_giles_spring.json: website source without archived_url — several key hosts for this project return 503/403 intermittently; a citation that cannot be re-read is not a citation
+  WARN  source pal_john_harris_kinzie.json: website source without archived_url — several key hosts for this project return 503/403 intermittently; a citation that cannot be re-read is not a citation
+  WARN  source pal_thomas_owen_house.json: website source without archived_url — several key hosts for this project return 503/403 intermittently; a citation that cannot be re-read is not a citation
+  WARN  source papers_abraham_lincoln_clinton 2.json: website source without archived_url — several key hosts for this project return 503/403 intermittently; a citation that cannot be re-read is not a citation
+  WARN  source papers_abraham_lincoln_clinton.json: website source without archived_url — several key hosts for this project return 503/403 intermittently; a citation that cannot be re-read is not a citation
+  WARN  source papers_abraham_lincoln_james_h_collins 2.json: website source without archived_url — several key hosts for this project return 503/403 intermittently; a citation that cannot be re-read is not a citation
+  WARN  source papers_abraham_lincoln_james_h_collins.json: website source without archived_url — several key hosts for this project return 503/403 intermittently; a citation that cannot be re-read is not a citation
+  WARN  source plainfield_john_temple_report.json: website source without archived_url — several key hosts for this project return 503/403 intermittently; a citation that cannot be re-read is not a citation
+  WARN  source porter_curtis_parkes.json: website source without archived_url — several key hosts for this project return 503/403 intermittently; a citation that cannot be re-read is not a citation
+  WARN  source presbyterian_history_jeremiah_porter.json: website source without archived_url — several key hosts for this project return 503/403 intermittently; a citation that cannot be re-read is not a citation
+  WARN  source rochester_porter_chappel_marriage.json: website source without archived_url — several key hosts for this project return 503/403 intermittently; a citation that cannot be re-read is not a citation
+  WARN  source rockford_first_settlers_1835.json: website source without archived_url — several key hosts for this project return 503/403 intermittently; a citation that cannot be re-read is not a citation
+  WARN  source talcott_chester_house_1835.json: website source without archived_url — several key hosts for this project return 503/403 intermittently; a citation that cannot be re-read is not a citation
+  WARN  source treaty_chicago_1833_statutes.json: website source without archived_url — several key hosts for this project return 503/403 intermittently; a citation that cannot be re-read is not a citation
+  WARN  source tsaha_joseph_chadwick.json: website source without archived_url — several key hosts for this project return 503/403 intermittently; a citation that cannot be re-read is not a citation
+  WARN  source uiuc_daniel_elston_papers.json: website source without archived_url — several key hosts for this project return 503/403 intermittently; a citation that cannot be re-read is not a citation
+  WARN  source warrenville_ezra_galusha.json: website source without archived_url — several key hosts for this project return 503/403 intermittently; a citation that cannot be re-read is not a citation
+  WARN  source wheeling_history_timothy_titcomb.json: website source without archived_url — several key hosts for this project return 503/403 intermittently; a citation that cannot be re-read is not a citation
+  WARN  source whiteside_elam_tuller.json: website source without archived_url — several key hosts for this project return 503/403 intermittently; a citation that cannot be re-read is not a citation
+  WARN  source whs_alson_felch.json: website source without archived_url — several key hosts for this project return 503/403 intermittently; a citation that cannot be re-read is not a citation
+  WARN  source whs_elihu_filer_house.json: website source without archived_url — several key hosts for this project return 503/403 intermittently; a citation that cannot be re-read is not a citation
+  WARN  source whs_kinzie_agency_house.json: website source without archived_url — several key hosts for this project return 503/403 intermittently; a citation that cannot be re-read is not a citation
+  WARN  source wilcox_v_jackson_1839.json: website source without archived_url — several key hosts for this project return 503/403 intermittently; a citation that cannot be re-read is not a citation
+  WARN  source will_george_makepeace.json: website source without archived_url — several key hosts for this project return 503/403 intermittently; a citation that cannot be re-read is not a citation
+  WARN  source wttw_ira_couch.json: website source without archived_url — several key hosts for this project return 503/403 intermittently; a citation that cannot be re-read is not a citation
+  WARN  schema: jsonschema not installed; skipping schema pass (pip install jsonschema). Semantic checks still ran.
+  WARN  structure beaubien_barn/converted_1817: documented_range spans 19 years and is not documented — Chicago changed fast in this period; narrow it to what is attested rather than widening it to pass
+  WARN  structure blacksmith_shop_state_st/log_1823: documented_range spans 13 years and is not documented — Chicago changed fast in this period; narrow it to what is attested rather than widening it to pass
+  WARN  structure chicago_lighthouse_1832/tower_1832: documented_range spans 27 years and is not documented — Chicago changed fast in this period; narrow it to what is attested rather than widening it to pass
+  WARN  structure cobweb_castle/log_1820: documented_range spans 16 years and is not documented — Chicago changed fast in this period; narrow it to what is attested rather than widening it to pass
+  WARN  structure fort_dearborn_artillery_house/log_1816: documented_range spans 40 years and is not documented — Chicago changed fast in this period; narrow it to what is attested rather than widening it to pass
+  WARN  structure fort_dearborn_barracks/log_1816: documented_range spans 40 years and is not documented — Chicago changed fast in this period; narrow it to what is attested rather than widening it to pass
+  WARN  structure fort_dearborn_blockhouse/log_1816: documented_range spans 40 years and is not documented — Chicago changed fast in this period; narrow it to what is attested rather than widening it to pass
+  WARN  structure fort_dearborn_commandants_quarters/brick_1816: documented_range spans 40 years and is not documented — Chicago changed fast in this period; narrow it to what is attested rather than widening it to pass
+  WARN  structure fort_dearborn_garrison_garden/fence_1816: documented_range spans 20 years and is not documented — Chicago changed fast in this period; narrow it to what is attested rather than widening it to pass
+  WARN  structure fort_dearborn_guard_house/log_1816: documented_range spans 40 years and is not documented — Chicago changed fast in this period; narrow it to what is attested rather than widening it to pass
+  WARN  structure fort_dearborn_magazine/brick_1816: documented_range spans 40 years and is not documented — Chicago changed fast in this period; narrow it to what is attested rather than widening it to pass
+  WARN  structure fort_dearborn_officers_quarters/log_1816: documented_range spans 40 years and is not documented — Chicago changed fast in this period; narrow it to what is attested rather than widening it to pass
+  WARN  structure fort_dearborn_palisade/picket_1816: documented_range spans 33 years and is not documented — Chicago changed fast in this period; narrow it to what is attested rather than widening it to pass
+  WARN  structure fort_dearborn_parade/parade_1816: documented_range spans 40 years and is not documented — Chicago changed fast in this period; narrow it to what is attested rather than widening it to pass
+  WARN  structure fort_dearborn_root_house/cellar_1816: documented_range spans 20 years and is not documented — Chicago changed fast in this period; narrow it to what is attested rather than widening it to pass
+  WARN  structure fort_dearborn_store_house/log_1816: documented_range spans 40 years and is not documented — Chicago changed fast in this period; narrow it to what is attested rather than widening it to pass
+  WARN  structure fort_dearborn_sutlers_store/log_1816: documented_range spans 40 years and is not documented — Chicago changed fast in this period; narrow it to what is attested rather than widening it to pass
+  WARN  structure jb_beaubien_homestead/factory_1817: documented_range spans 19 years and is not documented — Chicago changed fast in this period; narrow it to what is attested rather than widening it to pass
+  WARN  evidence ladder: 18 documented value(s) rest on no source at tier 3 or better — later scholarship only, with no period document, eyewitness recollection or compilation from testimony behind them: ground e1834_harbor_cut surface_materials.south_division east of State St, ground e1834_harbor_cut surface_materials.south_division west of State St, structure chicago_lighthouse_1832/tower_1832 form.lantern, structure cook_county_courthouse_1835 function and 14 more. Either the values are over-graded or the sources are under-tiered; both are research, and regrading a confidence stales a mesh. See docs/STATUS.md § 43
+  WARN  resident household hh_davis_john: arrival '1835' at 'year' precision straddles the scene date 1835-07-01 - the household may or may not have been here. Narrow the precision if the evidence allows, and say so in the note if it does not
+  WARN  resident household hh_haddock_edward: arrival '1835' at 'year' precision straddles the scene date 1835-07-01 - the household may or may not have been here. Narrow the precision if the evidence allows, and say so in the note if it does not
+  FAIL  source cpl_buckner_stith_morris_biography 2.json: id 'cpl_buckner_stith_morris_biography' does not match filename stem
+  FAIL  source dupage_history_david_brookins 2.json: id 'dupage_history_david_brookins' does not match filename stem
+  FAIL  source encyclopedia_chicago_biographical_index_d 2.json: id 'encyclopedia_chicago_biographical_index_d' does not match filename stem
+  FAIL  source encyclopedia_chicago_medical_pharmaceutical 2.json: id 'encyclopedia_chicago_medical_pharmaceutical' does not match filename stem
+  FAIL  source lasalle_history_james_mcfadden 2.json: id 'lasalle_history_james_mcfadden' does not match filename stem
+  FAIL  source mclean_history_jesse_w_fell 2.json: id 'mclean_history_jesse_w_fell' does not match filename stem
+  FAIL  source mower_history_alanson_vaughan 2.json: id 'mower_history_alanson_vaughan' does not match filename stem
+  FAIL  source papers_abraham_lincoln_clinton 2.json: id 'papers_abraham_lincoln_clinton' does not match filename stem
+  FAIL  source papers_abraham_lincoln_james_h_collins 2.json: id 'papers_abraham_lincoln_james_h_collins' does not match filename stem
+  FAIL  structure recon_1835_blk_south_water_lasalle_a1_14: id does not match filename stem 'recon_1835_blk_south_water_lasalle_a1_14 2'
+  FAIL  structure recon_1835_blk_south_water_lasalle_a2_15: id does not match filename stem 'recon_1835_blk_south_water_lasalle_a2_15 2'
+  FAIL  structure recon_1835_blk_south_water_lasalle_c3_13: id does not match filename stem 'recon_1835_blk_south_water_lasalle_c3_13 2'
+  FAIL  structure recon_1835_blk_south_water_lasalle_d1_08: id does not match filename stem 'recon_1835_blk_south_water_lasalle_d1_08 2'
+  FAIL  structure recon_1835_blk_south_water_lasalle_d2_09: id does not match filename stem 'recon_1835_blk_south_water_lasalle_d2_09 2'
+  FAIL  source andreas_history_chicago_william_p_cleaveland.json: graded tier 2 (near-primary recollection) while dating its own retrieval ('accessed 2026-09-02') — a rung at or above 3 belongs to a document, not to a page that reprints one, so declare the document in `transcribes`
+  FAIL  source kane_history_gideon_young_naperville.json: graded tier 2 (near-primary recollection) while dating its own retrieval ('accessed 2026-09-02') — a rung at or above 3 belongs to a document, not to a page that reprints one, so declare the document in `transcribes`
+  FAIL  source michigan_city_history_william_teall.json: graded tier 2 (near-primary recollection) while dating its own retrieval ('accessed 2026-09-02') — a rung at or above 3 belongs to a document, not to a page that reprints one, so declare the document in `transcribes`
+  FAIL  source rockford_history_charles_works.json: graded tier 2 (near-primary recollection) while dating its own retrieval ('accessed 2026-09-02') — a rung at or above 3 belongs to a document, not to a page that reprints one, so declare the document in `transcribes`
+  FAIL  source ushouse_james_h_woodworth.json: graded tier 1 (period/eyewitness) while dating its own retrieval ('accessed 2026-09-02') — a rung at or above 3 belongs to a document, not to a page that reprints one, so declare the document in `transcribes`
+  FAIL  source ushouse_john_reynolds_illinois.json: graded tier 2 (near-primary recollection) while dating its own retrieval ('accessed 2026-09-02') — a rung at or above 3 belongs to a document, not to a page that reprints one, so declare the document in `transcribes`
+  FAIL  resident household hh_ll_morrison_orsemus: arrival value '1833-01-01' cannot be read at precision 'year'
+  FAIL  resident household hh_ll_woodworth_james_h: arrival value '1833-01-01' cannot be read at precision 'year'
+  FAIL  licenses: assets/gltf/recon_1835_blk_south_water_lasalle_a1_14__inferred_1835 2.glb is not in assets/manifest.json — no recorded bake produced it
+  FAIL  licenses: assets/gltf/recon_1835_blk_south_water_lasalle_d3_10__inferred_1835 2.glb is not in assets/manifest.json — no recorded bake produced it
+  FAIL  licenses: assets/web/recon_1835_blk_south_water_lasalle_d1_08__inferred_1835 2.glb is not in assets/manifest.json — no recorded bake produced it
+  FAIL  licenses: assets/web/recon_1835_blk_south_water_lasalle_d3_10__inferred_1835 2.glb is not in assets/manifest.json — no recorded bake produced it
+  FAIL  stale: assets/gltf/recon_1835_blk_south_water_lasalle_a1_14__inferred_1835 2.glb is not in manifest.json — it was not produced by a tracked bake
+  FAIL  stale: assets/gltf/recon_1835_blk_south_water_lasalle_d3_10__inferred_1835 2.glb is not in manifest.json — it was not produced by a tracked bake
+
+FAIL  28 error(s), 117 warning(s)
+validate_exit_code=1

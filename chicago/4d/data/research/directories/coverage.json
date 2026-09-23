@@ -1,0 +1,330 @@
+{
+  "schema": 1,
+  "domain": "directories",
+  "generated_by": "hand — a reading pass declares the range it read, and the gate checks it",
+  "note": "An UNDECLARED item is not read yet and is not a fault. A DECLARED item nothing reaches is a hole, and that is what this file is for.",
+  "declarations": [
+    {
+      "ticket": "T-0566",
+      "source_id": "norris_directory_1844",
+      "unit": "page",
+      "what": "Norris's General Directory of Chicago for 1844, the DIRECTORY PROPER and its ADDENDA: printed pages 21-65, which are leaves 31-75 of the Internet Archive scan generaldirectory19norr. Every entry on every one of those pages is a claim.",
+      "items": [
+        "norris_1844_leaf_031",
+        "norris_1844_leaf_032",
+        "norris_1844_leaf_033",
+        "norris_1844_leaf_034",
+        "norris_1844_leaf_035",
+        "norris_1844_leaf_036",
+        "norris_1844_leaf_037",
+        "norris_1844_leaf_038",
+        "norris_1844_leaf_039",
+        "norris_1844_leaf_040",
+        "norris_1844_leaf_041",
+        "norris_1844_leaf_042",
+        "norris_1844_leaf_043",
+        "norris_1844_leaf_044",
+        "norris_1844_leaf_045",
+        "norris_1844_leaf_046",
+        "norris_1844_leaf_047",
+        "norris_1844_leaf_048",
+        "norris_1844_leaf_049",
+        "norris_1844_leaf_050",
+        "norris_1844_leaf_051",
+        "norris_1844_leaf_052",
+        "norris_1844_leaf_053",
+        "norris_1844_leaf_054",
+        "norris_1844_leaf_055",
+        "norris_1844_leaf_056",
+        "norris_1844_leaf_057",
+        "norris_1844_leaf_058",
+        "norris_1844_leaf_059",
+        "norris_1844_leaf_060",
+        "norris_1844_leaf_061",
+        "norris_1844_leaf_062",
+        "norris_1844_leaf_063",
+        "norris_1844_leaf_064",
+        "norris_1844_leaf_065",
+        "norris_1844_leaf_066",
+        "norris_1844_leaf_067",
+        "norris_1844_leaf_068",
+        "norris_1844_leaf_069",
+        "norris_1844_leaf_070",
+        "norris_1844_leaf_071",
+        "norris_1844_leaf_072",
+        "norris_1844_leaf_073",
+        "norris_1844_leaf_074",
+        "norris_1844_leaf_075"
+      ],
+      "not_read_and_why": {
+        "leaves 1-14": "the 1903 republisher's front matter, press notices and Norris's preface — committed as text, not yet read out. No ticket owns it.",
+        "leaves 15-30 (printed 5-20)": "the Description and Historical Sketch. READ by T-0567 — see the declaration below and claims/norris_1844_town_findings.json.",
+        "leaves 76-88 (printed 66-78)": "the Statistical Account. READ by T-0567 — see the declaration below and claims/norris_1844_town_findings.json.",
+        "leaves 89-126 (printed 79-116)": "the Advertising Directory. Committed as text and READ by T-0568, which declares it in the second declaration below.",
+        "leaves 127-132": "blank in the scan — no text at all, so nothing is committed for them.",
+        "printed page 65, the foot": "Norris's own General Intelligence Agency card, set inside the last directory page. It is an advertisement, not a directory entry; READ by T-0568 as the last of its 158 cards, and reached at page norris_1844_leaf_075, which this declaration already covers."
+      }
+    },
+    {
+      "ticket": "T-0567",
+      "source_id": "norris_directory_1844",
+      "unit": "page",
+      "what": "Norris's General Directory of Chicago for 1844, the two parts of the volume that are PROSE AND TABLES rather than a list of names: the DESCRIPTION AND HISTORICAL SKETCH, printed pages 5-20 (leaves 15-30), and the STATISTICAL ACCOUNT, printed pages 66-78 (leaves 76-88). Read as dated town findings — every claim carries `town_finding: true` and a `describes_date` naming the year the STATEMENT describes, which for most of them is not 1844 and for four of them is 1835.",
+      "items": [
+        "norris_1844_leaf_015",
+        "norris_1844_leaf_016",
+        "norris_1844_leaf_017",
+        "norris_1844_leaf_018",
+        "norris_1844_leaf_019",
+        "norris_1844_leaf_020",
+        "norris_1844_leaf_021",
+        "norris_1844_leaf_022",
+        "norris_1844_leaf_023",
+        "norris_1844_leaf_024",
+        "norris_1844_leaf_025",
+        "norris_1844_leaf_026",
+        "norris_1844_leaf_027",
+        "norris_1844_leaf_028",
+        "norris_1844_leaf_029",
+        "norris_1844_leaf_030",
+        "norris_1844_leaf_076",
+        "norris_1844_leaf_077",
+        "norris_1844_leaf_078",
+        "norris_1844_leaf_079",
+        "norris_1844_leaf_080",
+        "norris_1844_leaf_081",
+        "norris_1844_leaf_082",
+        "norris_1844_leaf_083",
+        "norris_1844_leaf_084",
+        "norris_1844_leaf_085",
+        "norris_1844_leaf_086",
+        "norris_1844_leaf_087",
+        "norris_1844_leaf_088"
+      ],
+      "not_read_and_why": {
+        "the 1843 census table on printed page 76, except its three unambiguous totals": "Norris prints his 1843 census as a wide ruled table and archive.org's OCR wove its columns into a single stream of bare numbers with the headings floated out of place. The three nativity ROWS survive as rows and are quoted; the counts beside them cannot be attached to a column from this text and are NOT asserted. What is asserted from that page is what survives unambiguously: 1,177 families, and the grand totals 4,853 (1840) and 7,580 (1843). Closing the rest needs the page image, and n1844_tf_062 is the standing declaration that it has not been closed.",
+        "the pairing of year to figure in the trade tables on printed page 77": "Read off the ORDER in which the OCR set the two tables — exports first, then imports — because the ruling that separated them did not survive. Stated in n1844_tf_064 rather than left implicit."
+      }
+    },
+    {
+      "ticket": "T-0568",
+      "source_id": "norris_directory_1844",
+      "unit": "page",
+      "what": "Norris's General Directory of Chicago for 1844, the ADVERTISING DIRECTORY: printed pages 79-116, which are leaves 89-126 of the Internet Archive scan generaldirectory19norr. Every advertising card on every one of those pages is a claim. What no card covers on those pages — running heads, page numbers, the ornamental section headings, and two fragments the scan tore off the cards they belonged to — is listed line by line in claims/norris_1844_advertiser.json under `uncovered`. Norris's own General Intelligence Agency card at the foot of printed page 65 is read here too and is the 158th card; leaf 75 is declared by T-0566 above.",
+      "items": [
+        "norris_1844_leaf_089",
+        "norris_1844_leaf_090",
+        "norris_1844_leaf_091",
+        "norris_1844_leaf_092",
+        "norris_1844_leaf_093",
+        "norris_1844_leaf_094",
+        "norris_1844_leaf_095",
+        "norris_1844_leaf_096",
+        "norris_1844_leaf_097",
+        "norris_1844_leaf_098",
+        "norris_1844_leaf_099",
+        "norris_1844_leaf_100",
+        "norris_1844_leaf_101",
+        "norris_1844_leaf_102",
+        "norris_1844_leaf_103",
+        "norris_1844_leaf_104",
+        "norris_1844_leaf_105",
+        "norris_1844_leaf_106",
+        "norris_1844_leaf_107",
+        "norris_1844_leaf_108",
+        "norris_1844_leaf_109",
+        "norris_1844_leaf_110",
+        "norris_1844_leaf_111",
+        "norris_1844_leaf_112",
+        "norris_1844_leaf_113",
+        "norris_1844_leaf_114",
+        "norris_1844_leaf_115",
+        "norris_1844_leaf_116",
+        "norris_1844_leaf_117",
+        "norris_1844_leaf_118",
+        "norris_1844_leaf_119",
+        "norris_1844_leaf_120",
+        "norris_1844_leaf_121",
+        "norris_1844_leaf_122",
+        "norris_1844_leaf_123",
+        "norris_1844_leaf_124",
+        "norris_1844_leaf_125",
+        "norris_1844_leaf_126"
+      ],
+      "not_read_and_why": {}
+    },
+    {
+      "ticket": "T-0571",
+      "source_id": "fergus_chicago_directory_1843",
+      "unit": "page",
+      "what": "Robert Fergus, Directory of the City of Chicago, Illinois, for 1843 (Fergus Historical Series No. 28, 1896), in K. Torp's 2007 transcription on Genealogy Trails: four web pages. Page 1's BUSINESS DIRECTORY (its lines 752-1204) and the whole of the alphabetical directory on pages 2, 3 and 4 — every entry on every one of them is a claim.",
+      "items": [
+        "fergus_1843_page_001",
+        "fergus_1843_page_002",
+        "fergus_1843_page_003",
+        "fergus_1843_page_004"
+      ],
+      "entries_by_item": {
+        "fergus_1843_page_001": 174,
+        "fergus_1843_page_002": 985,
+        "fergus_1843_page_003": 783,
+        "fergus_1843_page_004": 753
+      },
+      "entries_checked_by": "tools/read_fergus_1843.py --check, which fails when the text yields a different number than this file declares. A declared page that quietly loses forty entries is the hole coverage exists to catch, and a count is the only thing that catches it.",
+      "counts_differ_from_the_ticket_and_why": "T-0571 was sized off inventory.json's line-shaped estimate of 2,427 entries (84 + 916 + 726 + 701). Read entry by entry the four pages yield 2,695, and the difference is segmentation, not discovery: the estimate counted lines, and this reading counts entries — it joins the 300-odd entries the transcription wraps onto two lines, cuts the seven it runs onto one, and reads 174 cards out of page 1's business directory where a line count saw 84. The inventory estimate is left as it stands; this declaration is what was actually read.",
+      "not_read_and_why": {
+        "page 1, lines 1-36 (INTRODUCTORY)": "Fergus's 1896 preface — how the volume was made, and his account of the 1843 canvass being 'careless and indifferent'. Prose about the SOURCE rather than about the town, and it belongs with the source record. No ticket owns it.",
+        "page 1, lines 37-750 (CITY, COUNTY, STATE AND U.-S. OFFICERS, SCHOOLS, CHURCHES, SOCIETIES, STATISTICS, ETC.)": "The civic account. READ by T-0589 — see the declaration below and claims/fergus_1843_civic.json. It is a different reading with a different kind vocabulary (civic, building, business, price, shipping, household), which is why it is a declaration of its own rather than a line in this one.",
+        "page 1, lines 1205-1232": "The compiler's request for corrections and a facsimile of the 1844 first edition's title page, set at the foot of the web page. Not the 1843 directory.",
+        "pages 2-4, lines 1-16 (or 1-17 on page 4)": "The transcriber's repeated banner, Fergus's REMARKS on his abbreviations, and the A-Z navigation. The REMARKS are how this reading knows that bet is between, res is residence and bds is boards; they are quoted in the domain README rather than filed as claims about the town.",
+        "pages 2-4, the last two lines of each": "'©2007 Kim Torp' and 'Genealogy Trails' — the transcriber's footer."
+      }
+    },
+    {
+      "ticket": "T-0589",
+      "source_id": "fergus_chicago_directory_1843",
+      "unit": "page",
+      "what": "The same volume and the same web page as T-0571's, and the part of it T-0571 left: page 1's CIVIC ACCOUNT, its lines 37-750, above the business directory. The city, county, state and United-States officers and the courts; twenty-odd churches and societies with their ministers, their streets and their memberships; the newspapers and their publication days; the post-office, its mails and its hours; three military and five fire companies; Rush Medical College, the City Dispensary, the common schools and the Female Seminary; the ward population count taken by Jas. W. Norris on 1 August 1843; and the port of Chicago's exports, imports, articles and vessels. Every statement on those lines is a claim.",
+      "items": [
+        "fergus_1843_page_001"
+      ],
+      "entries_by_item": {
+        "fergus_1843_page_001": 388
+      },
+      "entries_checked_by": "tools/read_fergus_1843_civic.py --check, which rebuilds the reading out of the committed text and fails when the text yields a different number than this file declares. Same guard, same reason, as T-0571's on the directory below it.",
+      "what_the_count_counts": "388 claims off 714 lines. The difference is the three shapes the account is set in: 63 of those lines are the transcription's wraps and are joined to the line above; about 70 are headings, which carry no claim of their own and are carried instead on every claim beneath them as printed_section; and three transposed tables — the ward population count, the exports-and-imports table and the vessels — run a row's cells down the page one to a line, so a row is one claim and not seven.",
+      "not_read_and_why": {
+        "nothing on these lines": "The range is read end to end. What page 1 still does not have read out is its lines 1-36 and 1205-1232, and T-0571's declaration above says whose those are."
+      }
+    },
+    {
+      "ticket": "T-0576",
+      "source_id": "norris_directory_1844",
+      "unit": "list",
+      "what": "A SECOND READING, not a new range. Norris's 1844 directory proper and its addenda — the same printed pages T-0566 declares above — checked entry by entry against Kim Torp's independent transcription on genealogytrails.com, cached at data/research/genealogytrails/text/1844directory.txt and 1844dir2.txt. The comparison is data/research/directories/second_readings/norris_1844_genealogytrails.json, built and gated by tools/compare_norris_1844_readings.py.",
+      "items": [],
+      "why_no_items": "This declaration reaches no page the domain has not already read, and it must not: an item here would be a coverage key nothing in records/ or claims/ can satisfy. It is declared so that a later reader knows the check WAS made and when, which is the other thing coverage.json is for.",
+      "checked_on": "2026-09-03",
+      "result": "2,065 of T-0566's 2,073 entries matched (99.61%), of Kim Torp's 2,070 (99.76%). 1,190 identical, 808 agreeing at a ratio of 0.90 or better, 67 differing below it, 8 in the archive reading alone and 5 in hers. The addenda count agrees exactly at 117 in both. Every disagreement is held with BOTH readings verbatim and neither is preferred; nothing in claims/ was deleted, rewritten or regraded.",
+      "the_addenda": "Both readings separate the addenda from the directory proper and both hold 117 entries in it, and no matched pair crosses the boundary. They are reached differently: T-0566 reads the addenda off printed pages 62-65 of the scan, and the Genealogy Trails page sets them after a heading and six lines of Norris's own prose introducing them, at lines 854-973 of 1844dir2.txt. Those six prose lines are named in the comparison's lines_not_entries and are the only place the two sources' segmentation of the section could have differed.",
+      "what_it_found_that_is_not_yet_fixed": "The archive reading runs two printed entries into one claim at n1844_e1332 — Peter Myers of Chicago avenue and Andrew Nelson of North Water street — and reads Hiram where Kim Torp reads A. J. for the Woodbury clerking at T. W. Salisbury's. Both stand as recorded disagreements. Repairing a generated claims file out of a second source is a pass of its own with its own rule to write down; see second_readings/README.md."
+    },
+    {
+      "ticket": "T-0506",
+      "source_id": "fergus_chicago_directory_1839",
+      "unit": "page",
+      "what": "Fergus' Directory of the City of Chicago, 1839 (Fergus Printing Company, 1876), the ALPHABETICAL DIRECTORY: printed pages 5-36, which are leaves 17-48 of the Internet Archive scan fergusdirectoryo00ferg. Every entry on every one of those pages is a claim in claims/fergus_1839_directory_entries.json.",
+      "items": [
+        "fergus_1839_leaf_017",
+        "fergus_1839_leaf_018",
+        "fergus_1839_leaf_019",
+        "fergus_1839_leaf_020",
+        "fergus_1839_leaf_021",
+        "fergus_1839_leaf_022",
+        "fergus_1839_leaf_023",
+        "fergus_1839_leaf_024",
+        "fergus_1839_leaf_025",
+        "fergus_1839_leaf_026",
+        "fergus_1839_leaf_027",
+        "fergus_1839_leaf_028",
+        "fergus_1839_leaf_029",
+        "fergus_1839_leaf_030",
+        "fergus_1839_leaf_031",
+        "fergus_1839_leaf_032",
+        "fergus_1839_leaf_033",
+        "fergus_1839_leaf_034",
+        "fergus_1839_leaf_035",
+        "fergus_1839_leaf_036",
+        "fergus_1839_leaf_037",
+        "fergus_1839_leaf_038",
+        "fergus_1839_leaf_039",
+        "fergus_1839_leaf_040",
+        "fergus_1839_leaf_041",
+        "fergus_1839_leaf_042",
+        "fergus_1839_leaf_043",
+        "fergus_1839_leaf_044",
+        "fergus_1839_leaf_045",
+        "fergus_1839_leaf_046",
+        "fergus_1839_leaf_047",
+        "fergus_1839_leaf_048"
+      ]
+    },
+    {
+      "ticket": "T-0506",
+      "source_id": "fergus_chicago_directory_1839",
+      "unit": "page",
+      "what": "The same volume, printed page 37 (leaf 49): the churches, the hotels, the public offices and rooms, the two named rows, the Dutch Settlement and the footnote recording the Tremont House fire of 27 October 1839. Town findings, in claims/fergus_1839_town_findings.json. NOT DECLARED by THIS reading, and read elsewhere or not at all: leaves 52-58 (printed 40-46), the 1837 charter election and its list of voters for mayor, READ by T-0664 and declared below; leaves 50-51 (printed 38-39), the city register and the lists of mayors and sheriffs, READ by T-0665 and declared below; leaves 59-62 (printed 47-50), the lots sold in the Fort Dearborn Addition and the population table, READ by T-0666 and declared below; and leaves 63-80, the 1843 preface and Fergus's historical sketch, which have no ticket. T-0611 was the appendices ticket and was split into those three on 2026-09-04.",
+      "items": [
+        "fergus_1839_leaf_049"
+      ]
+    },
+    {
+      "ticket": "T-0664",
+      "source_id": "fergus_chicago_directory_1839",
+      "unit": "page",
+      "what": "The same volume, printed pages 40-46, which are leaves 52-58 of the Internet Archive scan fergusdirectoryo00ferg: THE CHARTER ELECTION OF 2 MAY 1837 AND ITS LIST OF VOTERS FOR MAYOR. Printed page 40 is the two party tickets, the six polling places and the eighteen judges of election; printed pages 41-46 are the poll itself, ward by ward and candidate by candidate, one claim per voter, closing with Fergus's two totals tables and the six ward boundaries they are counted under. All of it is in claims/fergus_1839_election_1837.json and every claim carries describes_date 1837-05-02 — this is a poll taken twenty-two months after the scene date and reset from recollection in 1876, and nothing in it is an 1835 fact.",
+      "items": [
+        "fergus_1839_leaf_052",
+        "fergus_1839_leaf_053",
+        "fergus_1839_leaf_054",
+        "fergus_1839_leaf_055",
+        "fergus_1839_leaf_056",
+        "fergus_1839_leaf_057",
+        "fergus_1839_leaf_058"
+      ],
+      "counts": {
+        "fergus_1839_leaf_052": 51,
+        "fergus_1839_leaf_053": 102,
+        "fergus_1839_leaf_054": 146,
+        "fergus_1839_leaf_055": 157,
+        "fergus_1839_leaf_056": 112,
+        "fergus_1839_leaf_057": 133,
+        "fergus_1839_leaf_058": 64
+      },
+      "counts_note": "Claims per leaf, and read_fergus_1839_election.py --check holds the reading to them: a segmenter that quietly loses a column of a poll list is invisible to every other gate here.",
+      "not_read_and_why": {
+        "leaves 50-51 (printed 38-39)": "the city register of 1839 and the printed lists of mayors and sheriffs. Committed as text by T-0664 and READ OUT by T-0665 on 2026-09-04, which declares them below.",
+        "leaves 59-62 (printed 47-50)": "the lots sold in the Fort Dearborn Addition, 10-24 June 1839, and the volume's own population table. READ by T-0666 — see the declaration below, claims/fergus_1839_ft_dearborn_lots.json and claims/fergus_1839_population.json.",
+        "printed page 46, the arithmetic": "Fergus's ward totals ARE read, as two tally claims. They do not agree with the names he printed: five wards match exactly and the FIRST WARD is three names short of its own total, 167 read against 170 printed. SETTLED OFF THE PAGE IMAGES BY T-0667, which counted the lines of type on printed pages 41-42 instead of the words in the OCR — 34+34+34 and 22+22+21, on a leading of 54 px that never doubles, no ink below either block, no cell holding two names — and reopened the numeral in the table, which is 170. The printer set 167 and this project lost none of them, so the three are missing from the LIST. Whether a compositor dropped them in 1876 or the total outlived the names it counted, the pixels cannot say, and neither number is corrected to the other. The measurement is ../fergus_1839_first_ward_scan.json, re-derivable by tools/verify_fergus_1839_first_ward.py --check."
+      }
+    },
+    {
+      "ticket": "T-0665",
+      "source_id": "fergus_chicago_directory_1839",
+      "unit": "page",
+      "what": "The same volume, printed pages 38-39, which are leaves 50-51 of the Internet Archive scan fergusdirectoryo00ferg: THE CITY REGISTER OF 1839 AND THE PRINTED LISTS OF MAYORS AND SHERIFFS. Printed page 38 is the officers of the city of Chicago in 1839 — the mayor, twelve aldermen by ward, the corporation newspaper, the high constable, six assessors, the chief engineer and his two assistants, eight single-holder offices, seven school inspectors, four police constables, six fire wardens and a board of health of three. Printed page 39 is the mayors of Chicago 1837-1873 and the sheriffs of Cook County 1831-1874, each an election-year table, with the two coroners who served ex officio between sheriffs and the two headnotes the tables print above themselves. All of it is in claims/fergus_1839_city_register.json. Every claim carries describes_date 1839 or the year of its own table row, and NONE carries 1835: Chicago was not a city until March 1837, so no office on printed page 38 existed in the town of 1835.",
+      "items": [
+        "fergus_1839_leaf_050",
+        "fergus_1839_leaf_051"
+      ],
+      "counts": {
+        "fergus_1839_leaf_050": 52,
+        "fergus_1839_leaf_051": 59
+      },
+      "counts_note": "Claims per leaf, and read_fergus_1839_register.py --check holds the reading to them. The register sets all six wards of an office in one semicolon-separated run wrapped over three printed lines and breaks a surname across a line end, so a segmenter that loses a ward loses a man without changing any other number here.",
+      "not_read_and_why": {
+        "the town's officers in 1835": "These two pages do not print them. The mayors' table begins in 1837 because the city was incorporated in March 1837, and the town's board of trustees under the 1833 incorporation is nowhere on printed pages 38-39. That absence is filed as a derivation in the claims file, and this reading does not go looking for the trustees elsewhere.",
+        "leaves 59-62 (printed 47-50)": "the lots sold in the Fort Dearborn Addition, 10-24 June 1839, and the volume's own population table. READ by T-0666 — see the declaration below, claims/fergus_1839_ft_dearborn_lots.json and claims/fergus_1839_population.json.",
+        "leaves 63-80": "the 1843 preface and Fergus's historical sketch. No ticket owns them."
+      }
+    },
+    {
+      "ticket": "T-0666",
+      "source_id": "fergus_chicago_directory_1839",
+      "unit": "page",
+      "what": "The same volume, printed pages 47-50, which are leaves 59-62 of the Internet Archive scan fergusdirectoryo00ferg: the last of the appendices, and two objects rather than one. Printed 47-49 are LOTS SOLD IN FT. DEARBORN ADDITION TO THE TOWN OF CHICAGO, from the 10th to the 24th June, 1839, inclusive — the Beaubien, or Reservation, lands — set as block, lot, bidder and amount in four columns twice over per page, and read as one claim per printed row in claims/fergus_1839_ft_dearborn_lots.json, every one carrying describes_date 1839-06. Printed 50 is POPULATION OF CHICAGO, the volume's own year-by-year table, read in claims/fergus_1839_population.json with each claim carrying the year its FIGURE describes. BOTH ARE READ OUT OF THE WORD COORDINATES AND NOT OUT OF THE FLAT TEXT: archive.org's OCR reads a columned page in the order the scanner met the ink, so its flat text puts one man's price against another man's lot and sets 1863 under 1849. tools/read_fergus_1839_lots.py --map commits the row map that puts the columns back, and every cell in it names the spans of committed page text it is made of.",
+      "items": [
+        "fergus_1839_leaf_059",
+        "fergus_1839_leaf_060",
+        "fergus_1839_leaf_061",
+        "fergus_1839_leaf_062"
+      ],
+      "not_read_and_why": {
+        "printed page 49's left-hand lot column": "readable for two lines and then a smear of rotated type in this scan — the numerals come through as `<J\\\\Ui`, `00^1`, `In)` — so 62 of the 268 rows carry no lot number and the block that governs them cannot be carried either. Every one is committed with its value NULL and its ink verbatim in as_printed, never recovered from the run it sits in. T-0679 owns settling them off the page images.",
+        "the 1840 line of the population table": "printed `1 S40 .... 4,47!*` in this scan. Neither the year nor the figure can be read, so there is no 1840 claim; it is named in that file's counts rather than left silent, and the 1840 census held elsewhere in this repo is NOT borrowed to fill it.",
+        "printed page 50, the last two lines and the paragraph under them": "1885 estimated by Jno S. Wright at 1,000,000, 1911 estimated by J. X. Balestier at 2,000,000, and Fergus's paragraph on Chicago being a marvel to all creation. Projections and rhetoric printed in 1876, not counts, and read by nothing here.",
+        "leaves 63-80": "the 1843 preface and Fergus's historical sketch. No ticket owns it; T-0611 put it out of scope and the split into T-0664/T-0665/T-0666 kept it there."
+      }
+    }
+  ]
+}

@@ -1,0 +1,112 @@
+{
+  "id": "kinzie_hunter_warehouse",
+  "phase": "warehouse_1834",
+  "name": "Kinzie & Hunter's Warehouse",
+  "aka": [
+    "Kinzie, Hunter & Co.'s warehouse and dock"
+  ],
+  "archetype": "outbuilding",
+  "asset": "gltf/kinzie_hunter_warehouse__warehouse_1834.glb",
+  "scene": "1835",
+  "target_date": "1835-07-01",
+  "documented_range": {
+    "from": "1834-01-01",
+    "to": "1835-12-31",
+    "confidence": "reconstructed",
+    "sources": [],
+    "note": "NEITHER END OF THIS RANGE IS ATTESTED AND THE CONFIDENCE SAYS SO. The dossier lists the Kinzie & Hunter warehouse among the river warehouses — 'Kinzie & Hunter and Dole & Newberry each had a warehouse with its dock along the river front' — and then records the gap explicitly: 'Kinzie & Hunter: bank and date unattested in sources reached [GAP]' (docs/research/03-structures-north.md section 3.10, and again in its list of highest-priority remaining gaps, item 4: 'Kinzie & Hunter warehouse — bank, date, size'). Nothing found in this slice fills it. 1834 is chosen as the opening year because it is the year the harbour cut let vessels into the river and the year river warehousing became a business worth building for, and because John H. Kinzie and Lieutenant Hunter had come to Chicago in February 1833 to lay out lots and open streets through their North Side property — so a partnership of those two names doing river trade belongs to 1833-34 and not earlier. THAT IS A GUESS WITH A REASON, WHICH IS WHAT CONJECTURAL MEANS. The range closes at the end of 1835 as the last date this record needs to claim. A firm of Kinzie, Hunter & Co. is separately attested in the lumber trade a couple of years after the first cargo of pine was landed on the south bank between LaSalle and Wells (Andreas scan p. 1139), which corroborates the partnership doing river business in this decade and does not date this building."
+  },
+  "change_note": "One undivided state, because there is no evidence to divide. Nothing dates the building, describes it, or records any change to it.",
+  "placement": {
+    "local_e": 115.3,
+    "local_n": 66.2,
+    "rotation_deg": 180.0,
+    "position_confidence": "reconstructed",
+    "position_sources": [],
+    "position_note": "EVERYTHING ABOUT THIS COORDINATE IS INVENTED EXCEPT THAT THE BUILDING WAS ON THE RIVER. The dossier's sentence gives the warehouse a dock 'along the river front' and its section on gaps says the bank is unattested; the only argument for the north side is the one the dossier itself offers and tags [CONJ] — 'Given John H. Kinzie's north-side landholdings, a north-bank location is plausible' — and this record takes that reading while keeping the confidence honest. THE ALTERNATIVE IS ENTIRELY LIVE: the south bank was where the town's mercantile frontage was in 1835, this dataset already places seven South Water Street businesses along it, and Andreas puts a Kinzie forwarding and commission store on South Water Street (scan pp. 295, 755) — which this project models separately as jh_kinzie_forwarding_store and which may or may not be the same concern's town premises. So the bank is a coin flip with a reason. METHOD, such as it is: the building is set on the north bank at local E +103 to +115, about 14 m back from the traced bank line, so the strip between it and the water can carry the dock that is recorded and not built; that is about 90 m east of miller_house on the same bank and clear of it. The point within the north-bank frontage is free choice inside a bank that is itself a guess. WORKING UNCERTAINTY: not expressible as a radius. Treat the whole placement as a proposal. Facade bearing 180, due south onto the river and its dock, which follows the trade and not a source. WHAT WOULD RESOLVE IT: any Chicago Democrat advertisement carrying the firm's address — the paper's advertising columns are exactly where a forwarding house states where to find it — or Andreas at page-image level on the early river trade.",
+    "symbolic_location": "North bank of the main stem east of the forks, with its dock on the water. THE BANK IS NOT ATTESTED — the north side is a plausibility, not a finding.",
+    "uncertainty_m": 20,
+    "placement_provisional": false,
+    "vertical_anchor": "terrain",
+    "walk_surface_m": null
+  },
+  "footprint": {
+    "polygon": [
+      [
+        0,
+        0
+      ],
+      [
+        12,
+        0
+      ],
+      [
+        12,
+        10
+      ],
+      [
+        0,
+        10
+      ]
+    ],
+    "confidence": "reconstructed",
+    "sources": [],
+    "note": "PLACEHOLDER — NOTHING ABOUT THIS BUILDING'S SIZE, SHAPE OR PLAN IS ATTESTED, and unlike newberry_dole_warehouse there is not even a reported 'square' to hang a proportion on. 12 x 10 m is about 39 x 33 ft, a river warehouse of ordinary size for the town and the decade, drawn with its long side to the water. Every number is invented and the polygon cites no sources. To resolve: the dossier's own item 4 in its list of highest-priority gaps — 'Kinzie & Hunter warehouse: bank, date, size'."
+  },
+  "attributes": {
+    "wall_height_m": {
+      "value": 3.4,
+      "confidence": "inferred",
+      "note": "No figure is attested. 3.4 m is about 11 ft at the eave — a tall single storey with storage in the roof, the working arrangement of a river warehouse, and the same height this dataset gives newberry_dole_warehouse so that two buildings of the same trade and the same evidence level are not silently different sizes. Stated rather than left to the archetype's size-aware default of 3.69 m, which for a building of this footprint edges toward reading as two full storeys."
+    },
+    "door": {
+      "value": "wagon",
+      "confidence": "inferred",
+      "note": "No source describes an opening. A warehouse whose business is moving goods between a dock and the road needs a doorway a loaded team can pass, which is what the archetype's 'wagon' names — a clear 2.9 m. Inference from the trade, not from this building."
+    },
+    "loft": {
+      "value": true,
+      "confidence": "inferred",
+      "note": "Not attested. A warehouse stores above the floor it loads on; the archetype's only external trace of that is the hoist door in a gable end, and it builds nothing else. Same inference, same strength, as the corresponding attribute on newberry_dole_warehouse."
+    },
+    "dock": {
+      "value": true,
+      "confidence": "attested",
+      "geometry": "simplified",
+      "sources": [
+        "andreas_1884_v1"
+      ],
+      "note": "DRAWN NOW, ON THE WHARF LAYER, AND EVERY DIMENSION OF IT IS RECONSTRUCTED. What is stated remains the best-attested thing in this record: the dossier's sentence is 'Kinzie & Hunter and Dole & Newberry each had a warehouse WITH ITS DOCK ALONG THE RIVER FRONT' (docs/research/03-structures-north.md section 3.10) — the dock is part of the one clause that attests this building's existence at all, which makes it stronger evidence than the warehouse's own bank. Nothing anywhere gives its length, width, height or construction. Until 2026-08-18 this attribute declared geometry: 'absent', so the strongest confidence chip in the dataset stood over nothing a visitor could see — exactly the failure the geometry declaration exists to make visible. T-0041 draws it: data/wharves/river_landings.json, generated by tools/generate_river_wharves.py from the traced 1834 bank, this record's own footprint and the committed heightfield, and drawn at load by renderers/web/js/wharves.js. THE DECLARATION IS NOW 'simplified' AND THAT IS THE EXACT CLAIM: a reconstructed wharf of standard form stands in the place of this attribute, and the attribute's own value — true — is all of it that comes from evidence. Every metre of the outline is invented within stated bounds and claimed at docs/LIBERTIES.md L132; the deck's HEIGHT is neither invented nor stated but sampled from the terrain at load. NOTE THAT THE BANK IS STILL A COIN FLIP: L66's open question is which side of the river this warehouse stood on, and the wharf inherits the answer this record gives rather than settling it."
+    },
+    "function": {
+      "value": "forwarding_commission_warehouse",
+      "confidence": "inferred",
+      "sources": [
+        "andreas_1884_v1"
+      ],
+      "note": "The dossier groups this building with Newberry & Dole's as one of the two river warehouses with docks, which puts it in the forwarding and commission trade by association rather than by statement — no source reached says what Kinzie & Hunter forwarded. Andreas has a firm of Kinzie, Hunter & Co. in the LUMBER trade in the middle 1830s, taking it up a couple of years after the first cargo of pine was landed on the south bank between LaSalle and Wells (scan p. 1139), so a lumber yard rather than a general warehouse is a live alternative reading of what this building was for. Recorded as inference with the alternative named."
+    },
+    "occupants": {
+      "value": "John H. Kinzie and Lieut. David Hunter",
+      "confidence": "inferred",
+      "sources": [
+        "andreas_1884_v1"
+      ],
+      "note": "The identification of the partners is the dossier's and rests on the surname pairing: John H. Kinzie and Lieutenant Hunter came to Chicago together in February 1833 to lay out lots through their property north of the river, and both are among the backers of the Lake House in 1835. Andreas's own 'Kinzie, Hunter & Co.' in the lumber trade (scan p. 1139) is the same pairing. No source reached expands the firm name for the warehouse itself, so the men behind it are inference and not attestation. THREE DIFFERENT KINZIES TRADE IN THIS TOWN AND THIS DATASET CARRIES PREMISES FOR ALL OF THEM — John H., James, and Robert A. — so the identification matters and is stated rather than assumed."
+    }
+  },
+  "residents": [],
+  "citations": [
+    {
+      "source_id": "andreas_1884_v1",
+      "citation": "Andreas, A. T. History of Chicago: From the Earliest Period to the Present Time. Vol. 1. Chicago: A. T. Andreas, 1884.",
+      "url": "https://archive.org/details/historyofchicago01andr",
+      "archived_url": "",
+      "tier": 3,
+      "tier_label": "compiled secondary (Andreas)"
+    }
+  ],
+  "research_note": "THE THINNEST-EVIDENCED BUILDING IN THIS PARCEL AND THE DOSSIER SAYS SO ITSELF: the Kinzie & Hunter warehouse is item 4 on docs/research/03-structures-north.md's list of highest-priority remaining gaps, 'bank, date, size'. One half-sentence attests it, and that half-sentence attests the DOCK more firmly than the building. It is built anyway, on the project owner's standing instruction of 2026-08-11 that an absent building is invisible to a visitor while a conjectural one is legible and correctable, with every attribute graded to say which is which: existence inferred from the dossier's clause, bank conjectural on a named plausibility, date conjectural with the reasoning shown, footprint and massing invented, dock documented and unbuilt. If evidence puts this warehouse on the south bank, nothing in the record needs rewriting except the position block and its note. WHAT WOULD MOVE IT MOST: the Chicago Democrat. This project now holds one issue of it and that issue's advertising columns give addresses; a forwarding house's advertisement is exactly where a street would be named. More of the paper is the highest-value next source for this record and for newberry_dole_warehouse alike.",
+  "research_doc": "",
+  "review_required": false
+}

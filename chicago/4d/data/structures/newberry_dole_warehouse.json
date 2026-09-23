@@ -1,0 +1,113 @@
+{
+  "id": "newberry_dole_warehouse",
+  "name": "Newberry & Dole's Forwarding and Commission Warehouse",
+  "aka": [
+    "Newberry and Dole's Forwarding and Commission House",
+    "Newberry & Dole's warehouse and wharf"
+  ],
+  "archetype": "outbuilding",
+  "phases": [
+    {
+      "id": "frame_1833",
+      "documented_range": {
+        "from": "1833-11-01",
+        "to": "1835-12-31",
+        "confidence": "inferred",
+        "sources": [
+          "chicago_democrat_1833_11_26",
+          "andreas_1884_v1"
+        ],
+        "note": "THE TRADE IS DOCUMENTED FROM NOVEMBER 1833 AND THE BUILDING IS NOT DATED AT ALL. The range opens in November 1833 because that is the first contemporary evidence this project holds that the firm was doing this business in this town: the Chicago Democrat of 26 November 1833 carries 'NEWBERRY & DOLE, Forwarding & Commission MERCHANTS' as a paid advertisement, and Andreas's summary of the paper's early advertising columns lists the same firm in the same trade (scan p. 755). An advertisement proves a trade was carried on and does not prove a building, which the source record for the Democrat states in as many words. The second fixed point is better for a warehouse: on 12 July 1834 the schooner Illinois, the first vessel through the new cut, was cheered at 'Newberry & Dole's wharf' (Andreas scan p. 503, via docs/research/04-structures-south.md), and a wharf of one's own with a name on it implies premises behind it. So a warehouse existed by the summer of 1834, twelve months before the scene date. THE 1838-39 NORTH-BANK GRAIN WAREHOUSE IS A DIFFERENT BUILDING AND IS DELIBERATELY OUTSIDE THIS RANGE — see the position note and data/exclusions.json's treatment of later structures. The range closes at the end of 1835 as the last date this record needs to claim."
+      },
+      "position": {
+        "utm_e": 447273.0,
+        "utm_n": 4637391.0,
+        "rotation_deg": 0.0,
+        "symbolic_location": "South bank of the main stem, on the South Water Street river frontage west of the built-up blocks, with its dock on the water. THE BANK IS DISPUTED — see the note; the north bank is the other reading and is not adopted here.",
+        "confidence": "reconstructed",
+        "note": "THE BANK IS CONFLICTED IN THIS PROJECT'S OWN DOSSIERS AND THIS RECORD DOES NOT PRETEND TO SETTLE IT. READING A, THE SOUTH BANK, ADOPTED HERE: docs/research/03-structures-north.md section 3.10 reports 'a square frame building on South Water Street, \"Newberry and Dole's Forwarding and Commission House\", in views of c. 1835 — i.e., the south bank at that date', tagged [DOC]; that dossier names no source record for the views, which is why this record cannot cite them and why the reading is carried as inference rather than attestation. READING B, THE NORTH BANK: Andreas, 'It was made by Newberry & Dole, whose warehouse was on the North Side, immediately east of where Rush-street bridge now stands' (scan p. 1139), and docs/research/04-structures-south.md turns that into an explicit instruction — 'Do not put it on South Water Street.' WHY THE SOUTH BANK IS ADOPTED, STATED AS REASONING AND NOT AS PROOF: Andreas's sentence is not about 1835. Read in place it describes the warehouse from which a named grain shipment was made — the paragraph runs 'The history of the next shipment, in 1839, of three thousand six hundred and seventy-eight bushels, on board the brig \"Osceola\" ... It was made by Newberry & Dole, whose warehouse was on the North Side' — so the building it locates is the firm's warehouse in 1839, four years after the scene date, in a decade when the firm plainly moved and grew. The c. 1835 view evidence is contemporaneous with the scene and the Andreas sentence is not, so the south bank is the better reading FOR THIS DATE while remaining the weaker citation. A READER SHOULD KNOW THE MODELLING CONSEQUENCE TOO, AND THAT IT IS NOT A REASON: the Rush Street site lies about 1 km east of the datum origin, which in August 2026 was some 700 m beyond the modelled terrain box, so reading B would THEN have put the building outside modelled ground. That consequence has lapsed: the heightfield was extended east on 2026-08-11 to local E -320..+1700 and there is traced ground at the Rush Street site now (corrected 2026-08-22 under T-0010). That did not decide the choice and is recorded so nobody has to wonder whether it did. THE BLOCK IS UNATTESTED UNDER EITHER READING. South Water Street ran the length of the south bank and nothing says where on it this house stood, so the coordinate is a point chosen on a street: local E +200 to +211, at the west end of the frontage, clear of the seven South Water buildings this dataset already places between local E +257 and +724, with the north face about 8 m back from the traced bank to leave the dock its ground. That is free choice within a documented street, and it is why this position is conjectural and not inferred. Facade bearing 0, due north onto the river and its dock — a forwarding house faces its wharf — which is an argument from the trade, not a source.",
+        "derivation": {
+          "method": "not_derivable",
+          "reason": "This placement predates the derivation module. Its provenance and reasoning are recorded in position.note, but no machine-checkable derivation block has been authored for it yet."
+        }
+      },
+      "footprint": {
+        "polygon": [
+          [
+            0,
+            0
+          ],
+          [
+            11,
+            0
+          ],
+          [
+            11,
+            11
+          ],
+          [
+            0,
+            11
+          ]
+        ],
+        "confidence": "reconstructed",
+        "note": "THE SHAPE CARRIES EVIDENCE AND THE SIZE DOES NOT, which is the same distinction miller_house's footprint note draws and it should not be blurred. What is reported is a SQUARE frame building (docs/research/03-structures-north.md section 3.10, from views of c. 1835), so the polygon is square on purpose rather than by chance; the 11 m, about 36 ft on a side, is invented outright. The polygon cites no sources because the dossier's description of the views names none. To resolve: identify and read the c. 1835 view the dossier is describing — the candidates are the Blanchard & Shober 1867 'Wolf's Point in 1833' chromolithograph, the Chicago History Museum's early South Water Street drawings, and the Edgar S. Cameron painting of South Water Street; every one of them is retrospective, so even a positive identification gives a proportion rather than a measurement."
+      },
+      "form": {
+        "construction": {
+          "value": "light_frame",
+          "confidence": "inferred",
+          "note": "'a square FRAME building' in the c. 1835 views reported by docs/research/03-structures-north.md section 3.10. The dossier tags that [DOC] and names no source record, so this project cannot cite it and carries the reading as inference until the view is identified. `light_frame` is the archetype's term for boards laid horizontally on a stick frame, which is what a frame building looks like at this level of detail; what is behind the boards is not visible and is not claimed."
+        },
+        "wall_height_m": {
+          "value": 3.4,
+          "confidence": "inferred",
+          "note": "No figure is attested. 3.4 m is about 11 ft at the eave — a tall single storey with storage in the roof, which is the working arrangement of a forwarding and commission house: goods in at ground level off the dock, stored above. Stated rather than left to the archetype's size-aware default of 4.1 m for a footprint this size, which would read as a full two storeys and would be a claim. The firm's LATER warehouse is described hoisting wheat 'to the upper story by Irish power, with rope and pully' (Andreas scan p. 1139) — that is the 1839 building, so it supports the practice and says nothing about this one."
+        },
+        "door": {
+          "value": "wagon",
+          "confidence": "inferred",
+          "note": "No source describes an opening. 'wagon' is the archetype's widest doorway, a clear 2.9 m for a loaded team, and it is what a forwarding and commission business needs: the whole trade is taking goods off wagons and boats and putting them back on. A narrower door would say the house was a shop."
+        },
+        "loft": {
+          "value": true,
+          "confidence": "inferred",
+          "note": "Not attested for this building. A forwarding warehouse stores above the floor it loads on, and the archetype builds exactly one external trace of that — the door goods are hoisted through, high in a gable end — and nothing else: no dormer, no floor line, no second range of windows. Andreas's description of the firm's 1839 warehouse hoisting wheat to the upper storey is the practice this infers from, four years the wrong side of the scene date."
+        },
+        "dock": {
+          "value": true,
+          "confidence": "inferred",
+          "geometry": "simplified",
+          "sources": [
+            "andreas_1884_v1"
+          ],
+          "note": "DRAWN NOW, ON THE WHARF LAYER, AND EVERY DIMENSION OF IT IS RECONSTRUCTED. What is stated remains what it always was: the dossier's phrase for both river warehouses is 'each had a warehouse with its dock along the river front' (docs/research/03-structures-north.md section 3.10), and Andreas independently names 'Newberry & Dole's wharf' as the place the schooner Illinois was cheered on 12 July 1834 (scan p. 503). Nothing anywhere gives its length, width, height or construction. Until 2026-08-18 this attribute therefore declared geometry: 'absent' and a visitor saw a warehouse standing back from a bare bank, which understated the site — the dock is the half of it that made the building worth building. T-0041 draws it: data/wharves/river_landings.json, generated by tools/generate_river_wharves.py from the traced 1834 bank, this record's own footprint and the committed heightfield, and drawn at load by renderers/web/js/wharves.js. THE DECLARATION IS NOW 'simplified' AND THAT IS THE EXACT CLAIM: a reconstructed wharf of standard form stands in the place of this attribute, and the attribute's own value — true — is all of it that comes from evidence. Every metre of the outline is invented within stated bounds and claimed at docs/LIBERTIES.md L132; the deck's HEIGHT is neither invented nor stated but sampled from the terrain at load."
+        }
+      },
+      "change_note": "The warehouse as it stood in the river trade of 1834 and 1835. Nothing dates its building or describes any change to it, so the single phase is the shape of the evidence rather than a claim that the building stood still."
+    }
+  ],
+  "function": {
+    "value": "forwarding_commission_warehouse",
+    "confidence": "attested",
+    "sources": [
+      "chicago_democrat_1833_11_26",
+      "andreas_1884_v1"
+    ],
+    "note": "'NEWBERRY & DOLE, Forwarding & Commission MERCHANTS' — the firm's own paid advertisement in the Chicago Democrat of 26 November 1833, the first contemporary document in this dataset and about as good as evidence of a trade gets, since the advertiser was paying for it and his customers had to be able to find him. Andreas's summary of the paper's advertising columns lists the same firm in the same words (scan p. 755). Forwarding and commission is the lake trade: taking goods off vessels, holding them, and sending them on inland, on commission. The firm's wharf received the schooner Illinois, the first vessel through the new harbour cut, on 12 July 1834 (Andreas scan p. 503)."
+  },
+  "occupants": {
+    "value": "George W. Dole and Walter L. Newberry, trading as Newberry & Dole",
+    "confidence": "inferred",
+    "sources": [
+      "chicago_democrat_1833_11_26",
+      "chicago_democrat_1833_1835",
+      "chicago_american_1835",
+      "fergus_chicago_directory_1839",
+      "andreas_1884_v1"
+    ],
+    "note": "THE FIRM IS DOCUMENTED AND THE PARTNER WAS MIS-ATTRIBUTED; T-0396 IS THE RULING (2026-09-12). This field read 'Oliver Newberry and George W. Dole' at `attested` on Andreas's packing-house chapter (scan p. 1151). Andreas is wrong on the Newberry, and the firm's own paid advertisement is what says so. IN EVERY SETTING OF THE NEWBERRY & DOLE CARD THAT NAMES OLIVER NEWBERRY HE STANDS IN ITS REFERENCE LIST, UNDER DETROIT — 'Oliver Newberry, [Det]roit' (Chicago Democrat, 1 April 1834, claim chicago_democrat_1834_04_01#c013) and 'OLIVER NKWBERRY, Detroit.' (1 July 1835, chicago_democrat_1835_07_01#c015) — one correspondent per port, beside Coenties Slip in New York, Barker & Holt of Buffalo, Calvin Britain at the mouth of the St Joseph and James B. Campbell at Ottawa. Both claims' own entity blocks give his role as a reference named in the advertisement, and neither gives him a trade. A house does not print its own resident partner as the man to write to in another city. THE SETTING OF 5 AUGUST 1835 (chicago_democrat_1835_08_05#c022) HOLDS BOTH MEN AT ONCE, which is what makes this a decision and not a preference: its partner entity reads 'NEWRERRY' at the trade of forwarding and commission merchant, while 'Oliver Newb[err]y, Detro[it]' still stands in the same card's reference list. THE TWO LIMBS ARE GRADED SEPARATELY, and the weaker one sets the confidence of the whole attribute. That Oliver Newberry was NOT the Chicago partner rests on the firm's own contemporary card against a compiler writing in 1884. WHICH Newberry he was is INFERRED: Fergus's directory of 1839 prints 'Newberry, Walter L., att'y and real est., office Newberry & Dole' — the firm's office as his office; the Chicago American of 8 June 1835 prints 'W. L. NEWBERRY' over the great sale of town lots and sets 'NEWBERRY & DOLE' over the same date in the adjacent column of the same issue; and no other Newberry forename is printed for Chicago anywhere in this corpus. The firm style is unbroken from 26 November 1833 to 5 August 1835 and no printing records a change of partner, so the ruling reaches across this record's whole range rather than only the scene date. THE ONE RIVAL LEFT UNRESOLVED IS NOT A PRINTING: the land register's WALTER S / W S, read at data/research/land_sales/README.md § The two Newberrys the register writes. The ruling itself is declared at data/research/newspapers/identity.json § proprietor_distinctions, which is where the corpus put the question. The value records whose business it was, not who was on the premises on any day — unchanged by this ruling, which changes WHO the business was."
+  },
+  "research_note": "THIS RECORD EXISTS TO CARRY A DISAGREEMENT, NOT TO END ONE, AND THE POSITION NOTE IS WHERE THE DISAGREEMENT LIVES. Two of this project's own dossiers put Newberry & Dole's warehouse on opposite banks of the Chicago River and one of them says in as many words 'Do not put it on South Water Street'. The building is placed on the south bank, the position is tagged conjectural, and the reasoning is written out with both citations so a later reader can overturn it on the evidence rather than on the shape of the file. THE ONE THING THAT MOVED THE ARGUMENT IN THIS SLICE was reading Andreas's north-bank sentence in place: it sits inside an account of a grain shipment made in 1839 on the brig Osceola, so the warehouse it locates is the firm's warehouse four years after the scene date. That does not make the south bank right; it makes the north-bank citation the wrong date rather than the wrong place. THREE BUILDINGS MUST BE KEPT APART and this dataset now holds all three: dole_warehouse_south, George W. Dole's 1832 warehouse and slaughter yard near the later Tremont House site; newberry_dole_slaughterhouse_south_branch, the firm's 1834 killing and packing plant; and this one, the forwarding and commission house on the river. A fourth — the 1838-39 grain warehouse and elevator on the north bank east of Rush Street, the one that made Chicago's first grain shipments — is LATER THAN THE SCENE and must not be modelled; it is the building Andreas's north-bank sentence describes. WHAT WOULD RESOLVE THE BANK: identifying the c. 1835 view the dossier reports and giving it a source record; or any Chicago Democrat advertisement of 1834-35 carrying the firm's street address, which is exactly the kind of evidence the paper's advertising columns supply and exactly the reason more of the paper should be read into this dataset.",
+  "review_required": false
+}

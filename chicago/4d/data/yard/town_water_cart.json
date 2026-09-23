@@ -1,0 +1,111 @@
+{
+  "_doc": "THE WATERING PLACE AT THE FOOT OF RANDOLPH STREET, and the one vehicle standing at it (T-0759). Andreas's Water Works section says how this town drank between the one public well of November 1834 and the Hydraulic Company's works of 1842: not from wells and not from the river, but from the lake, by cart. AUTHORED, not generated — no rule can derive where a waterman stood on a July morning, so this record is one object placed at the one point the source itself locates, and the invention is stated per field here and claimed at docs/LIBERTIES.md L227. It rides on the yard layer because a cart on the ground this project has already drawn is exactly what that layer is for: renderers/web/js/yard.js draws it from these numbers and the committed heightfield, with no baked geometry and no archetype, the same argument that lets data/boats/ float a hull on the water plane. WHAT IS NOT HERE IS THE POINT OF THE RECORD — no second cart, no cart on any street, and no barrel at any door. See `refused`.",
+  "id": "town_water_cart",
+  "name": "The watering place at the foot of Randolph Street",
+  "kind": "yard",
+  "scene": "1835",
+  "target_date": "1835-07-01",
+  "coordinates": "Local East-North-Up metres from data/datum.json's origin — the same frame data/enclosures/, data/signage/ and the rest of data/yard/ use. `bearing_deg` is measured clockwise from local north, as the other vehicles on this layer are.",
+  "counts": {
+    "wagons": 1,
+    "carts": 1,
+    "hogsheads": 1
+  },
+  "existence": {
+    "value": true,
+    "confidence": "reconstructed",
+    "sources": [
+      "andreas_1884_v1"
+    ],
+    "note": "THE TRADE IS DOCUMENTED AND THIS CART IS INVENTED, and the two halves must not be read as one grade. What is documented: `data/research/civic/claims/town_findings_andreas_v1.json#c013`, cut verbatim from the OCR whose sha256 that file pins — 'For some years private enterprise reaped a comfortable little financial harvest in the operation of water carts, which ran to and from the lake. These carts were two wheeled vehicles, upon which hogsheads were mounted. Having driven into the lake, generally at the foot of Randolph Street, the watermen loaded up their reservoirs by means of pails.' The era brackets July 1835 at both ends off the same page: the trustees' one public well of 10 November 1834 (#c012) and the Chicago Hydraulic Company, not chartered until 18 January 1836 and not working until 1842 (#c014). What is NOT documented, anywhere this project has reached: that a cart stood here on 1835-07-01, how many carts the trade had, whose this one was, or what any of them looked like. So the record is graded `reconstructed` — the grade the boat layer carries for the same shape of claim (docs/LIBERTIES.md L146) — and it is one object, not a fleet. THE SOURCE IS ONE RETROSPECTIVE SENTENCE WRITTEN IN 1884 ABOUT A TRADE NOBODY MINUTED, and its own claim file says so."
+  },
+  "the_place": {
+    "at_local_enu_m": [
+      1224.1,
+      -262.43
+    ],
+    "confidence": "inferred",
+    "note": "WHERE RANDOLPH STREET'S LINE MEETS WATER, and it is derived rather than chosen. `data/streets/1835.json`'s `randolph` runs from local east -320 north -249.9 to east 900 north -259.8; extended on its own bearing, that line crosses the z = 0 waterline of the committed heightfield (data/terrain/epochs/e1834_harbor_cut/) at east 1224.1, north -262.43. It crosses the traced 1834 shoreline (shoreline.geojson, the south-shore feature) at east 1223.0, north -262.4 — 1.1 m apart, which is agreement between two independently committed surfaces and is why this position is `inferred` and not `conjectural`. THE STREET IS NOT DRAWN THIS FAR EAST and this record does not extend it: the committed centreline stops at east 900, at the edge of what this reconstruction draws, and 'the foot of Randolph Street' is read here as the point its line reaches the water, which is what the phrase means. The bank there falls from +2.62 m at east 1205 to the waterline at 1224.1, about 1 in 7.3 — a slope a cart can be driven down, which is a check on the reading and not an argument for it."
+  },
+  "the_water_is_not_the_lake": {
+    "confidence": "documented",
+    "note": "THE MODEL'S OWN TERRAIN CONTRADICTS THE SOURCE HERE, AND SINCE T-0886 THE CONTRADICTION CARRIES A RULING. Andreas says the watermen drove into THE LAKE. On this project's committed 1834 surfaces, the water at the foot of Randolph Street is not the lake: sampling east along Randolph's own bearing gives land to east 1223.8, water from 1224.0 to 1305.5 (81.5 m, 1.18 m at its deepest), the SAND BAR standing dry from 1305.8 to 1469.5 (163.8 m, to +1.24 m), and the open lake only beyond east 1469.8 — 246 m further out. The water this cart stands at is therefore the old southward channel behind the bar, which shoreline.geojson names in the same feature as the reservation's lake shore. That matters because the trade existed to avoid exactly that water: the same sentence has the settlers casting 'longing eyes towards the lake ... not to be compared to the sluggish and unprepossessing river.' The readings are weighed in docs/RESEARCH/wells.md § 5 and the one adopted is below. tools/measure_watering_place.py reads every number in this paragraph out of the committed surfaces and gates them, so a re-carve of the terrain cannot leave this prose standing over a field that no longer says it.",
+    "ruling": {
+      "reading": "the_phrase_names_a_stretch",
+      "confidence": "inferred",
+      "way_round_m": 167.0,
+      "adopted": "2026-09-11",
+      "ticket": "T-0886",
+      "note": "ANDREAS'S 'THE LAKE' IS LOOSE FOR A STRETCH OF BANK, AND THE STRETCH REACHES THE LAKE — which is why this reading needs no date for the channel and no ford. His own word is 'GENERALLY at the foot of Randolph Street': a sentence written in 1884 about a trade nobody minuted, naming a reach of shore and not a point. The committed trace gives that reach an end. The sand bar is an island with a drawn SOUTH TIP at local north -436.0, east 1346.9 — 173.5 m south of this cart and 153 m north of the trace's own southern limit at north -589.2, so it is a terminus the draughtsman drew and not one the window cut. South of that tip the water at the bank is continuous with the open lake, and along the committed south shore the walk from this cart to that latitude is 167.0 m — shorter than the 245.5 m of channel and bar a cart would have to cross on this transect to reach the same water. So the source and the surfaces are reconcilable without asserting anything new about the ground. WHAT IS REFUSED AND WHY. That the old channel was closed, dry or fordable by July 1835 (reading 2) is not adopted: nothing in this repository dates it — docs/research/01-terrain-hydrology.md row 26 grades the channel's 1835 state 'conjectural' in as many words — and adopting it would mean overruling the committed heightfield, which models that water, with no source at all. That the carts crossed the bar (reading 3) is not adopted either: it requires 81.5 m of ford at 1.18 m deep before the sand is reached, which is not a crossing a two-wheeled cart makes daily as a trade, and it asserts a route no source describes. THE CART DOES NOT MOVE. The tip is the bank a cart could be driven down, but it is ground no source names and ground this epoch does not model — the heightfield's box stops at north -400, north of the tip — so standing the cart there would trade the one place Andreas does name for a place chosen by the model for its own convenience. It stays at the foot of Randolph, and the reach it stands on is what carries the lake. THE TERRAIN'S DATING FILE IS NOT WHERE THIS GOES, and the reason is that file's own contract: data/terrain/1835_intown_water_dating.json holds one entry per in-town water feature the terrain spec DEFERS rather than models, and declares its set as dossier zones 15, 16 and 17. The old channel is zone 26 and the spec MODELS it, bed -2.5 ft. Nothing is dated here, so nothing is added there. ONE GAP IS LEFT ON THE RECORD RATHER THAN CLOSED: the dossier's narrative puts the old channel's natural outlet at about Madison Street, local north -525, and the trace ends the bar 89 m north of that at -436. A wash boundary on a plat and a narrative estimate, neither a survey — the same gap terrain_east_1834.md § 8 records for the channel's width. The walk measured above is the trace's figure; on the narrative's it is longer, and the reading does not turn on which is right."
+    }
+  },
+  "form": {
+    "cart_m": {
+      "value": [
+        1.98,
+        1.07,
+        0.5,
+        1.42,
+        0.86,
+        2.44
+      ],
+      "confidence": "reconstructed",
+      "note": "T-0064's cart, REUSED AND NOT RE-INVENTED — body length, width and depth, wheel diameter, bed height and shaft length, the numbers `data/yard/town_trade_goods.json` already argues for the sixty-eight vehicles on this town's verges. Andreas gives the vehicle its two defining facts and no dimension at all: 'two wheeled vehicles, upon which hogsheads were mounted.' A water cart of this town was a cart, so it is drawn as the cart this layer already has rather than as a second invention beside it."
+    },
+    "hogshead_m": {
+      "value": [
+        1.22,
+        0.84,
+        0.7
+      ],
+      "confidence": "reconstructed",
+      "note": "INVENTED, and bounded by the cask rather than by the cart. A hogshead is a unit before it is an object — 63 wine gallons, about 238 litres — and a coopered cask of that capacity comes out near 4 ft on the stave by 33 in at the bilge, which is 1.22 m long, 0.84 m at the belly and 0.70 m at the heads. Nothing measures a Chicago waterman's cask. The capacity is what constrains the shape, and the shape then has to fit the vehicle it is mounted on: 0.84 m across sits inside the cart's 1.07 m body, which is the check that the two numbers are compatible and is not evidence that either is right. It lies on its side along the cart's own line, because a cask filled by pail and run off through a hose at the bung lies down."
+    }
+  },
+  "mark_rule": {
+    "note": "NO MARK, NO BRAND, NO STENCIL, ON THE CASK OR THE CART. This layer's rule (town_trade_goods.json § mark_rule) holds here for the strongest reason it ever holds: nothing names a single Chicago waterman. Andreas gives the trade, not a man, and lettering a name on this cask would invent a person."
+  },
+  "rule": {
+    "count": 1,
+    "note": "ONE, AND ONE IS NOT A COUNT OF THE TRADE. The source is plural about the men — 'the watermen', 'private enterprise', 'according to competition' — so more than one cart worked this town, and how many is unknown and undrawn. What is drawn is the PLACE, once: the one point in the whole sentence that carries a location, with the trade's own gear standing at it. Multiplying the cart would be inventing the size of a business, which is the trap T-0592 refused for wells and this ticket's own text names.",
+    "pose_note": "THE CART STANDS ON THE GROUND WITH ITS SHAFTS DOWN, unhitched and unmanned, as every one of the sixty-eight vehicles on this layer does. 'Having driven into the lake' is the ACT the source describes, not a pose this project can draw: there is no animal in this scene and no figure in it, so nothing here is ever in harness or in motion. The cart is set 4.1 m back from the waterline on its own bearing, which puts its shaft tips down on the wet sand at the water's edge — as close to the act as a model with no team can honestly get."
+  },
+  "refused": [
+    {
+      "what": "a cart, or any barrel, on the streets of the town",
+      "why": "The source sends the watermen on 'their journeys around town' and names no street, no route, no customer and no hour. A cart placed on a street would be a claim about where the trade went, and the sentence supports none. The town's verges already carry T-0064's vehicles under their own rule; none of them is a water cart and none is made one by this record."
+    },
+    {
+      "what": "the barrel at a customer's door",
+      "why": "THE CHEAPER HALF, AND IT IS REFUSED ON THE SAME GROUND THE WELLS WERE. 'Backing their carts up to the doors of their customers' houses ... they filled the barrels or other receptacles placed there for the purpose' attests the fixture and identifies not one door. There is no aggregate to deal from either: no ordinance requires a water barrel, no assessment lists one, and the price — five to ten cents the barrel, real money in this town — says plainly that the customers were SOME households and not all of them. A barrel dealt to a door would be this project inventing the customer list of a business, and dealt to every door it would misdescribe a paid trade as a public utility. See docs/RESEARCH/wells.md § 5."
+    },
+    {
+      "what": "the waterman, his team, his pail and his leathern hose",
+      "why": "This project draws no people and no animals in the scene, and the hose and pail are held gear rather than standing objects. AGENTS.md's standing constraint, and the boat layer's L1, both unchanged."
+    },
+    {
+      "what": "a worn cart track down the bank",
+      "why": "Repeated driving-in over 'some years' would wear a track, and the inference is reasonable — but a track is terrain, the committed heightfield is derived and gated, and cutting ruts into it to illustrate a sentence would put an invention inside a surface whose whole value is that it is not invented. The bank's own 1 in 7.3 fall is left as it was traced."
+    }
+  ],
+  "wagons": [
+    {
+      "id": "water_cart_randolph",
+      "kind": "cart",
+      "hogshead": true,
+      "stands_on": "the east bank at the foot of Randolph Street",
+      "belongs_to": null,
+      "tilt": false,
+      "yoke": false,
+      "confidence": "reconstructed",
+      "at_local_enu_m": [
+        1220.0,
+        -262.4
+      ],
+      "bearing_deg": 90.5,
+      "drawn_up": "square to the water",
+      "note": "A two-wheeled cart with a hogshead mounted, standing at the watering place at the foot of Randolph Street, facing the water on Randolph's own bearing of 90.5 degrees. THE TRADE IS DOCUMENTED AND THIS CART IS NOT: Andreas 1884 (`town_findings_andreas_v1#c013`) attests water carts of exactly this description working this town in the era July 1835 falls inside, and attests the place; that a cart stood here on this morning, and whose it was, is invented, which is why it carries no mark of any kind. Unhitched with its shafts down on the ground, like every other vehicle in this scene — there is no team here and there never will be. docs/LIBERTIES.md L227."
+    }
+  ],
+  "research_note": "Opened by T-0592's reading and taken by T-0759. The reading, the ruling on wells, and the argument for what is drawn and what is refused here are in docs/RESEARCH/wells.md, sections 1 and 5."
+}

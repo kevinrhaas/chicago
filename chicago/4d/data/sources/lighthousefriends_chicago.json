@@ -1,0 +1,35 @@
+{
+  "id": "lighthousefriends_chicago",
+  "type": "website",
+  "citation": "Anderson, Kraig. \"Chicago Harbor Lighthouse, Illinois.\" Lighthousefriends.com. Citing A. T. Andreas, History of Chicago (1884); the Annual Report of the Light-House Board, various years; and Donald J. Terras, \"Lighthouses of Chicago Harbor,\" The Keeper's Log, Summer 2011.",
+  "author": "Kraig Anderson",
+  "date": "accessed 2026-08-11",
+  "describes_date": "1831-1918",
+  "locator": "History tab, paragraphs 2 and 3 (the 1831 collapse and the 1832 replacement tower); References list at the foot of the page.",
+  "url": "https://www.lighthousefriends.com/light.asp?ID=234",
+  "archived_url": "https://web.archive.org/web/20260308064820/https://www.lighthousefriends.com/light.asp?ID=234",
+  "tier": 4,
+  "rights_status": "check_required",
+  "rights_note": "The page carries an explicit assertion: \"Copyright (c) 2001- Lighthousefriends.com. Pictures on this page copyright Kraig Anderson, used by permission.\" Cite the text; derive no asset, and in particular no image, from this source. The underlying 1830s facts are Andreas 1884 and are separately public domain in that volume.",
+  "asset_use": "cross_check",
+  "verified": true,
+  "note": "THE 1832 TOWER IS THE LIGHT STANDING ON 1835-07-01, and this page gives its height, its builder and the story of its predecessor's collapse. Verbatim: \"On March 3, 1831, Congress appropriated $5,000 for a lighthouse to mark the mouth of the Chicago River. According to History of Chicago by Alfred Theodore Andreas, Samuel Jackson was hired as the contractor, but before the lighthouse was completed, it collapsed on October 30, 1831. 'A few hours before it toppled over,' Andreas wrote, 'so confident were many there was no danger of its falling, that several went upon the top of it, some of the visitors being women. The walls were three feet thick, and the tower had been raised to a height of fifty feet.'\" Then: \"Jackson claimed the tower had been built on quicksand, which caused the tower to settle unevenly and fall, but others believed it was shoddy workmanship. Regardless, Jackson soon started work on a second tower and completed it the following year. This lighthouse stood forty feet high and employed four, fourteen-inch reflectors in its bird-cage lantern room. Samuel Lasby was employed as keeper of the light, which was the first established on Lake Michigan.\"\n\nREAD THE TWO TOWERS APART, BECAUSE THE ONLY FABRIC DETAIL ON THE PAGE BELONGS TO THE ONE THAT FELL. \"The walls were three feet thick\" and \"a height of fifty feet\" describe the FIRST tower, at the moment it collapsed, unfinished. The SECOND tower - the one standing in 1835 - gets exactly three attributes here: forty feet high, four fourteen-inch reflectors, a bird-cage lantern room. THE PAGE DOES NOT SAY THE 1832 TOWER WAS CONICAL, AND DOES NOT SAY WHAT IT WAS BUILT OF. docs/research/04-structures-south.md line 77 reads \"forty feet high; conical stone/masonry\" as [DOC] from Andreas, drloihjournal and lighthousefriends jointly, and data/exclusions.json calls it \"the 1832 conical masonry tower\" on andreas_1884_v1. Whatever supports \"conical\" and \"masonry\", it is not this page. Cite this page for the height, the builder, the date and the keeper; cite something else for the shape and the material, or mark them inferred.\n\nNAME PRECISION: the contractor is \"Samuel Jackson\" here, not the \"Mr. Jackson\" of the brief. The first keeper is \"Samuel Lasby\"; chicagology_prefire052, quoting Chicago Magazine of March 1857, spells him \"Samuel C. Lasby\".\n\nThe page is a modern enthusiast synthesis with a stated bibliography, not a scholarly edition and not a period document. Tier 4 is the closest rung in this project's vocabulary for a modern textual compilation (tiers 5 and 6 are reserved for pictorial and cartographic material); it should not be read as \"scholarly\". Its 1830s content is a paraphrase of Andreas with two direct quotations, so it adds no independent witness to andreas_1884_v1 - it is a convenient, checkable restatement, and where a claim is load-bearing the volume is the thing to read.",
+  "access_notes": "Site is reachable over plain HTTPS and renders non-ASCII quotation marks as replacement characters in retrieved text; the quotations above were normalised to straight quotes, wording unchanged.",
+  "what_it_supplies": [
+    "the $5,000 appropriation of 3 March 1831",
+    "the first tower's collapse on 30 October 1831, unfinished, at fifty feet with three-foot walls",
+    "the contractor named as Samuel Jackson",
+    "the second tower completed the following year, forty feet high",
+    "four fourteen-inch reflectors in a bird-cage lantern room",
+    "Samuel Lasby as first keeper; the first light established on Lake Michigan",
+    "the quicksand-versus-workmanship dispute over the collapse"
+  ],
+  "what_it_does_not_supply": [
+    "any statement that the 1832 tower was conical",
+    "the 1832 tower's material",
+    "the 1832 tower's diameter, wall thickness, taper or plan",
+    "the tower's position relative to the fort or the river mouth",
+    "a month or day for the 1832 completion",
+    "the keeper's dwelling"
+  ]
+}

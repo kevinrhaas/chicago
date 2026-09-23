@@ -1,0 +1,18 @@
+{
+  "status": "passed",
+  "errors": [],
+  "counts": {
+    "buildings": 324,
+    "sources": 92,
+    "building_sources": 385,
+    "names": 596,
+    "events": 758,
+    "assertions": 1563,
+    "maps": 14,
+    "map_images": 14,
+    "media": 20,
+    "building_media_assets": 6,
+    "building_media_links": 9,
+    "buildings_with_media": 5
+  }
+}

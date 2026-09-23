@@ -1,0 +1,119 @@
+{
+ "id": "hh_teall_wm",
+ "name": "The Teall household — a name from the post office's letter lists",
+ "division": "unplaced",
+ "head": "teall_wm",
+ "source_pass": "letter_list",
+ "arrival": {
+  "value": "1834-04-01",
+  "confidence": "inferred",
+  "sources": [
+   "chicago_democrat_1833_1835"
+  ],
+  "note": "A BOUND FROM THE RETURN, NOT AN ARRIVAL. The office's list of letters uncalled-for is a RETURN — its statement of what was still unclaimed on ONE day — and the paper reprinted one return over as many consecutive issues as it took, so the bound is dated by the return of 1 April 1834 and not by the issue it was read in (T-0425). Somebody was writing to this name at Chicago by 1834-04-01 and at no stated time before it; nothing says when they came. The date lines the printings set, and how they were weighed, stand beside this rule in tools/mint_letter_list_residents.py.",
+  "precision": "not_later_than"
+ },
+ "party_size_on_arrival": {
+  "value": null,
+  "confidence": "reconstructed",
+  "note": "Not attested."
+ },
+ "origin": {
+  "value": null,
+  "confidence": "reconstructed",
+  "note": "Not attested."
+ },
+ "reason_for_coming": {
+  "value": null,
+  "confidence": "reconstructed",
+  "note": "Not attested."
+ },
+ "lives_at": {
+  "value": null,
+  "confidence": "reconstructed",
+  "note": "Not attested: a letter list gives a name and no address."
+ },
+ "works_at": {
+  "value": null,
+  "confidence": "reconstructed",
+  "note": "Not attested. No trade is recorded, so there is no premises to seek."
+ },
+ "present_on_scene_date": {
+  "value": "uncertain",
+  "confidence": "inferred",
+  "sources": [
+   "chicago_democrat_1833_1835"
+  ],
+  "note": "THE CORPUS STOPS BEFORE THE SCENE DATE. Nothing after 1834-04-01 follows this person to 1 July 1835 or says they left. `uncertain` rather than dropped — the distinction index.json draws for Jeremiah Porter, and a finding, not a gap."
+ },
+ "persons": [
+  {
+   "id": "teall_wm",
+   "name": "Wm. Teall",
+   "relationship": "head",
+   "grade": "inferred",
+   "ladder_rule": "G3",
+   "letter_list_only": true,
+   "letter_list_returns": [
+    "1834-04-01"
+   ],
+   "occupation": {
+    "value": "none_recorded",
+    "confidence": "reconstructed",
+    "note": "No source records an occupation for this person. A list of uncalled-for letters prints a name and no trade, and this pass will not read one in."
+   },
+   "sources": [
+    "chicago_democrat_1833_1835"
+   ],
+   "note": "PROJECTED RESIDENT. Documented in Chicago post-office evidence but not independently corroborated strongly enough for attested circa-1835 residence. KNOWN ONLY FROM THE POST OFFICE, IN ONE RETURN. The papers print 'Wm. Teall i 1 Lot Has' in a single return of letters uncalled-for at the Chicago post office — the Democrat of 1 April 1834, column 2 — dated 1834-04-01. Nothing else in the corpus names this person: no trade, no street, no household, no arrival, so every other claim here is written unattested in its own block. WHAT THAT IS WORTH: a correspondent believed a person of this name reachable at Chicago on that date, and nothing further — not that they lived here, kept a trade here, or were here on 1 July 1835. It is the weakest evidence this project accepts for a resident, and a source placing them elsewhere retires the record. THE ARGUMENT EVERY RECORD OF THIS KIND SHARES is written once instead of once per file: the ruling of 2026-08-30 and what it cost the town (docs/LIBERTIES.md L214), the refusals and the transcription standard behind the reading (tools/mint_letter_list_residents.py). No figure is drawn (L1).",
+   "resident_research": {
+    "programme": "resident-research-2026",
+    "ticket": "T-0486",
+    "outcome": "candidate_identity",
+    "reviewed_on": "2026-09-02",
+    "asserted_identity": false,
+    "evidence_for": "Michigan City history records William Teall arriving in 1834, licensed May 13 to vend merchandise, and listed as a Michigan Township resident.",
+    "evidence_against": "The Chicago waiting letter is dated April 1, 1834 and no source directly identifies the Chicago addressee with the Michigan City merchant.",
+    "summary": "Michigan City history records William Teall arriving in 1834, receiving a May 13 license to vend merchandise and appearing among Michigan Township residents. The exact name, target year and Great Lakes geography make a useful candidate for the April 1834 Chicago waiting letter, but no direct source bridges the two records.",
+    "notes": "plausible Great Lakes transit; candidate only",
+    "source_ids": [
+     "chicago_democrat_1833_1835",
+     "michigan_city_history_william_teall"
+    ],
+    "candidate_ids": [
+     "cand_william_teall_michigan_city"
+    ],
+    "candidates": [
+     {
+      "id": "cand_william_teall_michigan_city",
+      "asserted": false,
+      "basis": "Exact name, merchant activity and target-year Great Lakes chronology.",
+      "conflicts": [
+       "The Chicago waiting letter is dated April 1, 1834; the Michigan City merchant license is May 13 and no source explicitly identifies the addressee with the merchant."
+      ],
+      "sources": [
+       "michigan_city_history_william_teall"
+      ]
+     }
+    ]
+   },
+   "resident_subtype": "projected_resident",
+   "merge_ruling": [
+    {
+     "ticket": "T-1291",
+     "verdict": "distinct",
+     "rule": "D6",
+     "cluster": "teal-teall",
+     "weighed_against": [
+      "teal_william"
+     ],
+     "for_merge": "A terminal l doubled, 'William' and 'Wm.' being the same forename written long and short, and two returns of the same office ten weeks apart. T-0486 found a William Teall of Michigan City arriving in 1834 and licensed to vend merchandise — a real man of the name in the region in the window, which is the strongest external fact either card has.",
+     "against_merge": "TWO RETURNS, AND NEITHER SETS BOTH. 'William Teal' is on the return of 28 January 1834 (#c001) and 'Wm. Teall' on the return of 1 April 1834 (#c002), the latter read as 'Wm. Teall i 1 Lot Has' — a line the impression damaged. Neither return carries the other spelling; neither card is an anchor; the corpus sets Teal nine times and Teall three, and no setting of either ties to a Chicago household. T-0486's Michigan City man is evidence about a name, not a bridge to this town, and the ticket itself stopped at candidate_identity. D6."
+    }
+   ]
+  }
+ ],
+ "touches_removal": false,
+ "review_required": false,
+ "research_note": "MINTED FROM THE LETTER LISTS (T-0378, T-0379). THE HOUSEHOLD IS A CONTAINER, NOT AN ARGUMENT: every other record here argues for a household, and this one argues for a PERSON. `data/residents/` cannot carry a person outside a household, so one was written around them and told to claim nothing — one member, no dwelling, no division, no trade, no family, no arrival beyond the paper's bound. tools/mint_letter_list_residents.py derives the set and prints every refusal, `--gate` proves no record here gained a roof, a trade or a second member, and docs/LIBERTIES.md L214 carries the change of scale."
+}

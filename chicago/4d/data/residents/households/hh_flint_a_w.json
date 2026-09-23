@@ -1,0 +1,139 @@
+{
+ "id": "hh_flint_a_w",
+ "name": "The Flint household — a name from the post office's letter lists",
+ "division": "unplaced",
+ "head": "flint_a_w",
+ "source_pass": "letter_list",
+ "arrival": {
+  "value": "1834-01-01",
+  "confidence": "inferred",
+  "sources": [
+   "chicago_democrat_1833_1835"
+  ],
+  "note": "A BOUND FROM THE RETURN, NOT AN ARRIVAL. The office's list of letters uncalled-for is a RETURN — its statement of what was still unclaimed on ONE day — and the paper reprinted one return over as many consecutive issues as it took, so the bound is dated by the return of 1 January 1834 and not by the issue it was read in (T-0425). The earliest issue this project reads the name in is 1834-01-28, 27 days later; that gap is an accident of which impression an extraction pass reached, and it is not evidence. Somebody was writing to this name at Chicago by 1834-01-01 and at no stated time before it; nothing says when they came. The date lines the printings set, and how they were weighed, stand beside this rule in tools/mint_letter_list_residents.py.",
+  "precision": "not_later_than"
+ },
+ "party_size_on_arrival": {
+  "value": null,
+  "confidence": "reconstructed",
+  "note": "Not attested."
+ },
+ "origin": {
+  "value": null,
+  "confidence": "reconstructed",
+  "note": "Not attested."
+ },
+ "reason_for_coming": {
+  "value": null,
+  "confidence": "reconstructed",
+  "note": "Not attested."
+ },
+ "lives_at": {
+  "value": null,
+  "confidence": "reconstructed",
+  "note": "Not attested: a letter list gives a name and no address."
+ },
+ "works_at": {
+  "value": null,
+  "confidence": "reconstructed",
+  "note": "Not attested. No trade is recorded, so there is no premises to seek."
+ },
+ "present_on_scene_date": {
+  "value": "uncertain",
+  "confidence": "inferred",
+  "sources": [
+   "chicago_democrat_1833_1835"
+  ],
+  "note": "THE CORPUS STOPS BEFORE THE SCENE DATE. Nothing after 1834-01-28 follows this person to 1 July 1835 or says they left. `uncertain` rather than dropped — the distinction index.json draws for Jeremiah Porter, and a finding, not a gap."
+ },
+ "persons": [
+  {
+   "id": "flint_a_w",
+   "name": "A. W. Flint",
+   "relationship": "head",
+   "grade": "inferred",
+   "ladder_rule": "G2e",
+   "letter_list_only": true,
+   "letter_list_returns": [
+    "1834-01-28"
+   ],
+   "occupation": {
+    "value": "none_recorded",
+    "confidence": "reconstructed",
+    "note": "No source records an occupation for this person. A list of uncalled-for letters prints a name and no trade, and this pass will not read one in."
+   },
+   "sources": [
+    "chicago_democrat_1833_1835",
+    "fergus_1843_old_settler_death_notices"
+   ],
+   "note": "GRADED BY THE OWNER'S RATIFIED LADDER — rule G2e, applied 2026-09-04. This identity is inferred because that rung fired on the civic and press rows recorded on this card, which the resident-research corpus does not read. This programme's letter-list rule of 2026-09-02 would call it a projected resident on the absence of a research row; it is superseded here, and a no-find in one corpus is not a finding about another (T-0822). KNOWN ONLY FROM THE POST OFFICE, IN ONE RETURN. The papers print '‘A. W. Flint' in a single return of letters uncalled-for at the Chicago post office — the Democrat of 28 January 1834, column 1 — dated 1834-01-28. Nothing else in the corpus names this person: no trade, no street, no household, no arrival, so every other claim here is written unattested in its own block. WHAT THAT IS WORTH: a correspondent believed a person of this name reachable at Chicago on that date, and nothing further — not that they lived here, kept a trade here, or were here on 1 July 1835. It is the weakest evidence this project accepts for a resident, and a source placing them elsewhere retires the record. THE ARGUMENT EVERY RECORD OF THIS KIND SHARES is written once instead of once per file: the ruling of 2026-08-30 and what it cost the town (docs/LIBERTIES.md L214), the refusals and the transcription standard behind the reading (tools/mint_letter_list_residents.py). No figure is drawn (L1).",
+   "resident_research": {
+    "programme": "resident-research-2026",
+    "ticket": "T-0480",
+    "outcome": "no_corroboration_yet",
+    "reviewed_on": "2026-09-02",
+    "asserted_identity": false,
+    "summary": "No reliable record in the reviewed repository corpus, exact/variant searches, 1839/1843 Chicago directories, and targeted regional/local histories could be tied to this person by more than the recorded postal name. This is a documented no-corroboration result, not evidence that the person did not exist.",
+    "source_ids": [
+     "chicago_democrat_1833_1835"
+    ],
+    "regraded_on": "2026-09-04",
+    "rule": "G2e"
+   },
+   "book_evidence": [
+    {
+     "list": "death_notice",
+     "as_read": "Flint, Dr. Austin",
+     "locator": "F",
+     "record_id": "fdn0206",
+     "describes_date": "March 13, 1886",
+     "source": "fergus_1843_old_settler_death_notices",
+     "rule": "G2e"
+    }
+   ],
+   "press_evidence": [
+    {
+     "list": "newspaper_letter_list",
+     "as_read": "A. W. Flint",
+     "locator": "chicago_democrat_1834_01_28#c001",
+     "record_id": "person_a_w_flint",
+     "describes_date": "1834-01-28",
+     "source": "chicago_democrat_1833_1835",
+     "rule": "G2e"
+    }
+   ]
+  }
+ ],
+ "touches_removal": false,
+ "review_required": false,
+ "research_note": "MINTED FROM THE LETTER LISTS (T-0378, T-0379). THE HOUSEHOLD IS A CONTAINER, NOT AN ARGUMENT: every other record here argues for a household, and this one argues for a PERSON. `data/residents/` cannot carry a person outside a household, so one was written around them and told to claim nothing — one member, no dwelling, no division, no trade, no family, no arrival beyond the paper's bound. tools/mint_letter_list_residents.py derives the set and prints every refusal, `--gate` proves no record here gained a roof, a trade or a second member, and docs/LIBERTIES.md L214 carries the change of scale.",
+ "old_settler_deaths": {
+  "the_header_admission": "Names, places * , dates, and ages at death\nof some of Chicago's Old Settlers, prior to 1843, and other well - known citizens who arrived after 1843, together\nwith others prominently connected with Illinois history:",
+  "note": "LATER EVIDENCE OF A DEATH, BESIDE THE 1835 CLAIMS AND NOT INSIDE THEM. Fergus's 1843 directory (1896) prints an obituary list of old settlers, and one of its entries meets somebody of this name. THE HEADER OF THE LIST IS QUOTED ABOVE, and it is the limit the whole reading turns on. It does not mean the person was in Chicago in 1835, and it does not mean they arrived before 1843 — the list's own header, quoted above, says it also names citizens who arrived later and others merely 'prominently connected with Illinois history'. A match means one thing: a name in the 1835 layer and a name in this list agree on surname and first initial, and the list gives that name a death date and an age. The date and the interval are the payload. Whatever is carried is carried as evidence of a DEATH and of an interval the birth falls in, never as an 1835 fact and never as a grade. T-0513 consolidates and T-0514/T-0515 apply; this file changes no record. THE AGREEMENT HERE IS A SURNAME AND ONE INITIAL: one of the two sides prints an initial where the forename would be, so a single letter is the whole of the discriminator and the match is as thin as the rule allows. This pass WRITES THE EVIDENCE AND MOVES NO GRADE. A death notice printed in 1896 says a person of this name died on a day; under the ratified ladder (T-0513) that is later evidence about a DEATH, and it is never an 1835 residence. T-0515 applies the ladder against every source at once; this pass hands it the evidence and not the verdict.",
+  "sources": [
+   "fergus_1843_old_settler_death_notices"
+  ],
+  "people": [
+   {
+    "person_id": "flint_a_w",
+    "matched_as": "A. W. Flint",
+    "matched_by": "Surname 'Flint' folds to the same string as the entry's, and the given name of both begins A.",
+    "matched_on_initial_only": true,
+    "resident_given_is_initial_only": true,
+    "entry_given_as_read": "Dr. Austin",
+    "entry_given_is_initial_only": false,
+    "the_agreement": "a surname and one initial",
+    "record_id": "fdn0206",
+    "trade_or_office": null,
+    "manner_of_death": "died",
+    "place_of_death": "New York City",
+    "death_date": "1886-03-13",
+    "age_as_printed": "aged 73½",
+    "birth_year_earliest": 1812,
+    "birth_year_latest": 1812,
+    "birth_year_arithmetic": "The page prints the death as 'March 13, 1886' and the age as 'aged 73½'. An age of 73 years and 6 months means at least that and less than 73 years and 7 months, so the birth falls between 1812-08-14 and 1812-09-13: the birth year is 1812. The subtraction is this project's; the page states no year of birth.",
+    "as_read": "Flint, Dr. Austin, died, New York City, March 13, 1886, aged 73½."
+   }
+  ]
+ }
+}

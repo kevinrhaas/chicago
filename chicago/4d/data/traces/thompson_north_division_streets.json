@@ -1,0 +1,180 @@
+{
+  "$schema_note": "AUTHORED FROM A READING, and deliberately small. It carries the PIXEL POSITIONS of every vertical line James Thompson's 1830 plat draws across the North Division's block tier and across the South Division's South Water tier, as located by a column scan on the sheet held in this repository. Nothing here is geometry: the numbers are sheet coordinates, and tools/measure_north_division_streets.py turns them into metres by fitting the SOUTH tier's corridors to street centrelines this project already committed, then applying that one fit to the NORTH tier. Keeping the pixels here rather than inside the tool is what lets the gate re-derive every metre in docs/RESEARCH/north_division_streets.md without opening a 7 MB PNG or importing Pillow, and what lets a later reader disagree with the arithmetic without re-measuring the sheet. Re-measure with the tool's --reread (needs Pillow + numpy).",
+  "id": "thompson_north_division_streets_1830",
+  "plat": "thompson_plat_1830",
+  "ticket": "T-0451",
+  "read_on": "2026-09-05",
+  "sheet": {
+    "path": "chicago/pre_fire_v1/maps/images/1830_thompson_plat.png",
+    "size_px": [
+      2728,
+      1944
+    ],
+    "note": "The repository copy the source record names. thompson_plat_1830 is a PARAMETER source and stays one: what is read off it here is WHICH LINES ARE DRAWN and where they stand relative to each other on the sheet. No metre in this project is traced from it \u2014 the metres come from the committed street lines the fit is anchored on."
+  },
+  "method": {
+    "ink_threshold": 165,
+    "column_coverage": 0.85,
+    "north_band": {
+      "y0_at_x": [
+        1620,
+        391.0
+      ],
+      "dy_dx": 0.0414,
+      "rows": [
+        15,
+        80
+      ],
+      "note": "The tier's own north face, fitted through four blocks (x 1620 y 391, x 2080 y 409, x 2310 y 419, x 2538 y 429); the band is the upper lot row, which carries no lettering. The block numerals and the lot numerals sit below it."
+    },
+    "south_band": {
+      "y0_at_x": [
+        2075,
+        894.0
+      ],
+      "dy_dx": 0.02514,
+      "rows": [
+        15,
+        72
+      ],
+      "note": "The South Water tier's north face, fitted through blocks 20, 18 and 16 (x 1630 y 882, x 2075 y 894, x 2545 y 905)."
+    },
+    "lean": "Searched over +/-0.03 px of x per px of y in both bands. The north tier's lines peak flat (0.000, and 0.005 either way loses 2 % of the peak); the south tier's peak at about +0.015. The two bands are therefore read independently and the comparison between them is made in metres through the fit, not in raw pixels."
+  },
+  "north_tier_strokes_px": [
+    1065.0,
+    1109.0,
+    1156.0,
+    1202.0,
+    1248.5,
+    1296.0,
+    1388.0,
+    1434.0,
+    1481.5,
+    1530.0,
+    1572.5,
+    1619.5,
+    1664.5,
+    1710.5,
+    1758.5,
+    1802.5,
+    1849.5,
+    1895.5,
+    1943.5,
+    1988.5,
+    2033.5,
+    2079.5,
+    2124.5,
+    2170.5,
+    2217.5,
+    2262.5,
+    2310.0,
+    2356.5,
+    2402.5,
+    2451.0,
+    2491.5,
+    2537.5,
+    2582.5,
+    2628.5
+  ],
+  "south_tier_strokes_px": [
+    1530.5,
+    1574.0,
+    1620.0,
+    1666.0,
+    1711.0,
+    1760.0,
+    1805.0,
+    1850.0,
+    1896.5,
+    1942.0,
+    1987.0,
+    2033.5,
+    2079.0,
+    2125.0,
+    2170.5,
+    2217.5,
+    2263.5,
+    2310.5,
+    2357.0,
+    2401.0,
+    2449.5,
+    2492.0,
+    2538.5,
+    2584.0,
+    2629.0
+  ],
+  "north_tier_blocks": {
+    "note": "Thompson's own block numbers, read off the sheet: 1 at the east end against the Due North line, 7 at the west end against the North Branch. Faces are the first and last stroke of each run of five.",
+    "faces_px": {
+      "1": [
+        2451.0,
+        2628.5
+      ],
+      "2": [
+        2217.5,
+        2402.5
+      ],
+      "3": [
+        1988.5,
+        2170.5
+      ],
+      "4": [
+        1758.5,
+        1943.5
+      ],
+      "5": [
+        1530.0,
+        1710.5
+      ],
+      "6": [
+        1296.0,
+        1481.5
+      ],
+      "7": [
+        1065.0,
+        1248.5
+      ]
+    },
+    "block_6_note": "Block 6's middle stroke (about x 1342) is not returned by the scan: it is the block the plat draws its one watercourse across, and the two freehand banks cross that lot line (T-0452, docs/RESEARCH/thompson_plat_sloughs.md). Its two FACES are clean and they are what this reading uses."
+  },
+  "south_tier_blocks": {
+    "note": "The South Water tier, whose numbers T-0358 already counted: 16 Dearborn-State, 17 Clark-Dearborn, 18 La Salle-Clark, 19 Wells-La Salle, 20 Franklin-Wells. Block 21 is the Wolf Point triangle and carries no usable west face.",
+    "faces_px": {
+      "16": [
+        2449.5,
+        2629.0
+      ],
+      "17": [
+        2217.5,
+        2401.0
+      ],
+      "18": [
+        1987.0,
+        2170.5
+      ],
+      "19": [
+        1760.0,
+        1942.0
+      ],
+      "20": [
+        1530.5,
+        1711.0
+      ]
+    }
+  },
+  "lettering": {
+    "note": "Read at 3x and 5x on 2026-09-05. This is the finding acceptance 1 asks for and it is a negative one: the sheet NAMES its north-south streets, and it names none of them in the North Division.",
+    "south_division_names_as_lettered": {
+      "market": "MARKET",
+      "franklin": "FRANKLIN",
+      "wells": "WELLS",
+      "lasalle": "LA SALLE",
+      "clark": "CLARKE",
+      "dearborn": "DEARBORN"
+    },
+    "south_division_names_where": "Lettered once each, upright in the corridor, in the tier between Randolph and Washington (sheet y about 1400-1500). Note the spelling CLARKE, with an E, which is not how this project or the modern street spells it.",
+    "north_division_names": "NONE. Every one of the six North Division corridors carries the same two marks and nothing else: the figure 80 at its head, on the Kinzie line, and a vertical ST. between the two lot rows. The corridors were read one at a time at 5x and no name is written in any of them.",
+    "east_boundary": "The line closing block 1 on the east is lettered Due North / True Meridian / Magnetic Variation, not with a street name. What stands on it is committed as wolcott, and this reading does not reopen that."
+  }
+}

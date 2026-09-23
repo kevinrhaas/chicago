@@ -1,0 +1,57 @@
+{
+  "_doc": "A PLANTING RECORD: woody stems whose position is stated rather than dealt. Every other tree in this scene is placed by renderers/web/js/trees.js from the land — bank distance, division, relief, the community's own recorded density — which is the right answer for a wood and the wrong one for a tree somebody kept in a yard. A planting record carries the stems themselves, each with its species (which must be one the committed flora zone records already describe, so the ecology stays in the dataset and not in this file), its position in the same local ENU frame the sidecars and data/enclosures/ use, its height inside the species' own recorded band, and its own confidence and reasoning. No GLB and no bake: trees.js draws these with the same archetype it draws the wood with.",
+  "id": "sauganash_yard_trees",
+  "name": "The trees behind the Sauganash's yard fence",
+  "kind": "planting",
+  "scene": "1835",
+  "target_date": "1835-07-01",
+  "belongs_to": [
+    "sauganash_hotel"
+  ],
+  "in_enclosure": "sauganash_yard",
+  "zone": "z10_settled_town",
+  "existence": {
+    "value": true,
+    "confidence": "inferred",
+    "sources": [
+      "chicagology_prefire273"
+    ],
+    "note": "IMAGE 8 PUTS TREES BEHIND THIS FENCE — 'a vertical-board fence running off to the right; trees behind the fence' (data/sources/assets/owner_brief_2026_08_18/README.md, the Petford watercolour), and image 12 of the same brief states the treatment generally for this town: trees and bushes stand close around the houses, kept deliberately. The plates are tier-5 retrospective and are not source records here yet (T-0075), so they carry the FACT and no coordinate, exactly as docs/LIBERTIES.md L136 has it for this building's plank walks. What the cited source_id carries is the other half and the reason these three species and no others: chicagology_prefire273 is the record behind data/flora/zones/z10_settled_town.json, whose three woody species are 'relict' survivors of the timber the town was cleared out of — 'Survivor elm in a part-cleared block'. A tree kept in a hotel yard IS that species record's own case, so nothing is invented about WHAT stands here; what is invented is where each stem stands and how tall it is."
+  },
+  "stems": [
+    {
+      "id": "sauganash_yard_elm_west",
+      "species": "ulmus_americana",
+      "at_local_enu_m": [
+        104.6,
+        -144.8
+      ],
+      "height_m": 17.0,
+      "confidence": "reconstructed",
+      "note": "INVENTED POSITION. It stands 14.2 m behind the hotel's rear wall and 3.2 m inside the yard's west fence line, which is the ground a kept tree occupies: clear of the wall by more than its own bole and inside the fence by more than a cart's width. 17 m is the low end of this species' recorded 16-24 m band (data/flora/zones/z10_settled_town.json), taken low on the argument that a tree kept in a yard is a tree that has been cut back from a building for years, not a gallery elm growing free."
+    },
+    {
+      "id": "sauganash_yard_cottonwood",
+      "species": "populus_deltoides",
+      "at_local_enu_m": [
+        112.2,
+        -146.9
+      ],
+      "height_m": 18.5,
+      "confidence": "reconstructed",
+      "note": "INVENTED POSITION, in the middle of the yard's rear half and 4.2 m north of the rear fence line. 18.5 m is the low end of the recorded 18-26 m band. A cottonwood is the one tree in this town nobody had to plant — it is the first thing that stands on cleared river ground — so the mix behind this fence is two survivors and one elm rather than an orchard, which is what the plate shows: crowns, not rows."
+    },
+    {
+      "id": "sauganash_yard_elm_east",
+      "species": "ulmus_americana",
+      "at_local_enu_m": [
+        114.9,
+        -141.6
+      ],
+      "height_m": 16.5,
+      "confidence": "reconstructed",
+      "note": "INVENTED POSITION. It stands 2.5 m inside the yard's east fence line and 14.1 m south of the log cabin on the Lake Street frontage, so it is the crown that shows over the fence to anyone on Lake Street east of the hotel — which is where image 8's viewer stands. 16.5 m is the bottom of the recorded band, for the same reason as its neighbour. MOVED 2.1 M WEST ON 2026-09-04 (T-0626) TO KEEP THAT 2.5 M. The fence's east leg follows the cabin's east wall, the cabin came west when the Sauganash's placeholder footprint was measured and narrowed, and a stem left where it was would have stood 0.4 m off the boards — inside its own bole of a fence it is supposed to show over. The rule that placed it is unchanged; only the line it is measured from moved."
+    }
+  ],
+  "research_note": "THREE STEMS, AND THE COUNT IS THE PLATE'S ONLY IN THE LOOSEST SENSE. Image 8 shows a group of crowns behind the fence and resolves neither a number nor a species; three is what fills this yard at the spacing a kept tree takes without becoming a wood, and it is invented. So is every coordinate here and every height, all graded reconstructed and claimed in docs/LIBERTIES.md L139. What is NOT invented is the species list, the height bands, the July foliage colour and the crown widths: all four come from data/flora/zones/z10_settled_town.json, whose relict trees this project already draws elsewhere in the town, and the renderer refuses any stem whose stated height falls outside its own species' recorded band rather than drawing it. WHAT WOULD UPGRADE IT: T-0075, which would hold the three plates as source records and let a stem cite one; or the general dooryard planting pass (T-0074), which will ask the same question for every house in the town and should read this record's shape rather than inventing a second one."
+}

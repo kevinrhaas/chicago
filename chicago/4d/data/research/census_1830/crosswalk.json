@@ -1,0 +1,47 @@
+{
+  "schema": 1,
+  "domain": "census_1830",
+  "note": "The ONLY place two differently-spelled names in this domain may become one person, in data/research/newspapers/identity.json's shape and under its rules: a merge needs a rule, the rule names BOTH spellings verbatim, and a surname-only merge is always a refusal. A refusal is declared as explicitly as a merge — the absence of one reads like a pair nobody has looked at yet.",
+  "_doc": "Hand-authored for T-0498. This file is the identity layer WITHIN the domain: two readings on these leaves that might be one man. The crosswalk OUT of the domain, to the town's own people, is resident_crosswalk.json and is generated.",
+  "passes": [
+    {
+      "ticket": "T-0498",
+      "date": "2026-09-03",
+      "over": "the 67 heads of family on leaves n580 and n582",
+      "found": "NO MERGES. Every name on the two leaves is distinct, which is what a single enumerator's single round should produce — he was not compiling from lists and had no opportunity to write the same household twice. The pairs worth writing down are the ones a later reader will be tempted by, and they are refused below."
+    }
+  ],
+  "merges": [],
+  "refusals": [
+    {
+      "a": "Joseph LaFramboy",
+      "b": "Clouded L Framboy",
+      "rule": "'Joseph LaFramboy' and 'Clouded L Framboy' stand on consecutive lines of leaf n580 and are the same surname under the same hand. They are NOT one man: an enumerator writing two lines does so because he counted two households, and the given names are not a variant of each other. Two LaFramboise households at the forks in 1830 is the finding.",
+      "evidence": ["census1830_n580_029", "census1830_n580_030"]
+    },
+    {
+      "a": "Hugh Walker",
+      "b": "James Walker",
+      "rule": "'Hugh Walker' and 'James Walker' are seven lines apart on leaf n580. A shared surname on one page of one round is a family, a coincidence, or neither; it is never an identity, and merging them would invent a man.",
+      "evidence": ["census1830_n580_007", "census1830_n580_014"]
+    },
+    {
+      "a": "Willard Scott",
+      "b": "Stephen J Scott",
+      "rule": "'Willard Scott' and 'Stephen J Scott' are two of the four Scotts on leaf n582 (Philip and Seth are the others). Four Scotts in one district is exactly the shape a family takes in a census, and exactly the shape four unrelated men take too. Nothing here separates them and nothing here joins them.",
+      "evidence": ["census1830_n582_005", "census1830_n582_013"]
+    },
+    {
+      "a": "Mark Beaubien",
+      "b": "John B Beaubien",
+      "rule": "'Mark Beaubien' and 'John B Beaubien' are brothers in every account this project holds, and they are two households on this schedule — sixteen lines apart, one on either side of the LaFramboise pair. Recorded as a refusal because the surname is the most tempting on the leaf and the temptation should be answered once, in writing.",
+      "evidence": ["census1830_n580_028", "census1830_n580_036"]
+    },
+    {
+      "a": "John B Seco",
+      "b": "John B Gunner",
+      "rule": "'John B Seco' (n580) and 'John B Gunner' (n582) share the anglicised 'John B' the enumerator gives to every Jean Baptiste on these leaves, and both surnames are read with less than confidence. Sharing a given name that the ENUMERATOR imposed is not evidence of anything; the surnames disagree and the refusal stands.",
+      "evidence": ["census1830_n580_031", "census1830_n582_026"]
+    }
+  ]
+}

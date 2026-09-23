@@ -1,0 +1,552 @@
+{
+ "schema": 1,
+ "familysearch_id": "33SQ-GYYJ-5H",
+ "image": "chicago/reference/census1840/33SQ-GYYJ-5H.jpg",
+ "printed_page": null,
+ "printed_page_note": "no printed page number on this exposure; the corner that would carry one is the corner the binding takes.",
+ "sheet_side": "right",
+ "division": "S. W. Sherman (as written in the printed heading of this book)",
+ "state": "Illinois",
+ "county": "Cook",
+ "reading": "scan_verified",
+ "read_state": "read",
+ "read_state_note": "READ by T-0748. The line index is settled at 29, every line's TOTAL figure is read or recorded unread, all seven industry columns are closed against the enumerator's own footings, and the pairing is re-tested. What is NOT settled is the arithmetic of the TOTAL column: the figures that read sum to 139 against a footing of 154, and the residue of 15 is named rather than distributed. See total_column_does_not_close.",
+ "column_geometry": {
+  "how": "THE FORM LEANS, and one window over the whole body cannot hold it. The vertical printed rules were located as a column-darkness profile taken over the body in THIRDS - y560-1350, y1350-2140, y2140-2930 - as the fraction of rows a column darkens more than 6 grey levels below a 25-px local background, which is what a pale exposure leaves of a printed rule. Every rule moves LEFT down the page by 20 to 30 px: the TOTAL column's left rule stands at 1183 in the upper third, 1169 in the middle and 1155 in the lower. Read as one profile over the whole body, only three of the nine rules clear the noise at all.",
+  "what_this_replaces": "T-0747 measured one fixed window off the FOOTER band, y2933-3000, and that window is right where it was measured - it agrees with the lower third's rules to within 10 px - and wrong everywhere above it. At the head of the leaf it is 33 px left of the printed rules, which is half a column on a 65-px column. That is the single cause of all three of T-0747's open discrepancies: the twelfth manufactures stroke was a commerce entry, the missing third commerce entry was in agriculture's window, and the second learned-professions entry fell past the last rule.",
+  "image_size": [
+   3864,
+   3208
+  ],
+  "body_between_rules": [
+   553,
+   2933
+  ],
+  "model": "linear in y between two measured anchors, per rule. x(y) = top + (y - 955)/(2535 - 955) * (bottom - top), the anchors being the centres of the upper and lower thirds. The middle third is a CHECK, not an input: its measured rules sit within 8 px of what the model predicts for y1745 at every one of the nine.",
+  "rules_px_upper_third_y955": [
+   1183,
+   1377,
+   1443,
+   1507,
+   1575,
+   1655,
+   1735,
+   1813,
+   1879
+  ],
+  "rules_px_lower_third_y2535": [
+   1155,
+   1351,
+   1421,
+   1487,
+   1549,
+   1631,
+   1705,
+   1783,
+   1855
+  ],
+  "rule_order": [
+   "total_left",
+   "total_right",
+   "mining_right",
+   "agriculture_right",
+   "commerce_right",
+   "manufactures_and_trades_right",
+   "navigation_ocean_right",
+   "navigation_canals_lakes_rivers_right",
+   "learned_professions_and_engineers_right"
+  ],
+  "column_widths_px": "TOTAL 194-196, then 66/64/68/80/80/78/66 in the upper third and 70/66/62/82/74/78/72 in the lower. 33SQ-GYYJ-9CZ, read in full by T-0747 off the same printed form, measures 72/64/64/81/79/82/64. The two leaves agree column for column, which is what says these rules are the form's and not this profile's.",
+  "corroboration": "THE FOOTINGS. Under this model the enumerator's own footer figures land one to a cell - 154 in TOTAL, 3 in commerce, 11 in manufactures, 1 in navigation of the ocean, 2 in learned professions, and nothing in the three he left blank - and so does every entry in the body. Under the fixed window they did not."
+ },
+ "no_horizontal_rules": "MEASURED: a row-darkness profile across the empty slaves block finds two strong rules on the leaf - y553 under the printed heading at 110 grey levels of excess, and y2933 above the enumerator's footer at 42 - and nothing between them. The body band is y553-2933 and it is unruled.",
+ "footer_as_read": {
+  "how": "the enumerator's own footing row read at 3.2x, cell by cell, against the rules above.",
+  "total": 154,
+  "mining": null,
+  "agriculture": null,
+  "commerce": 3,
+  "manufactures_and_trades": 11,
+  "navigation_ocean": 1,
+  "navigation_canals_lakes_rivers": null,
+  "learned_professions_and_engineers": 2,
+  "the_two_stroke_figure": "This leaf writes two figures as two strokes and they have to be told apart. The TOTAL footing is 1, 5, and a two-stroke figure carrying a HORIZONTAL BAR across it - a 4, which gives 154 and agrees with the population key pairing_key_26_50.json read off the same cell. The manufactures footing is two clean parallel strokes with NO bar - an 11, and the column carries eleven or twelve single-stroke entries above it, which is what an 11 there means. The bar is the discriminator on this leaf and it is stated here because the same two-stroke problem cost 33S7-9YYJ-6H a whole re-reading (T-0645).",
+  "blank_cells_note": "mining, agriculture and navigation of canals, lakes and rivers are footed with an EMPTY cell, and are recorded null rather than 0."
+ },
+ "pairing": {
+  "state": "unpaired",
+  "paired_to_printed_page": null,
+  "re_tested_by": "T-0748, on the corrected keys.",
+  "the_keys_this_reading_settles": {
+   "page_population_key": 154,
+   "page_population_key_state": "unchanged - the enumerator's own footing, re-read",
+   "line_count_key": 29,
+   "line_count_key_state": "corrected from 28"
+  },
+  "verdict": "UNPAIRED, and 33SQ-GYYJ-97P's refusal STANDS - but on one key, not two. 97P (printed 211) foots 158 over 30 lines. The line-count half of the refusal is very nearly gone: 29 against 30 is one short, not two, and the amendment already written into pairing_key_26_50.json's test - that a line enumerating nobody cannot carry a family total on the facing leaf - would close it entirely if 97P holds one such line. That has not been shown and is not assumed here. The population half is untouched: 154 against 158 is four short and the test requires both keys. No left sheet read anywhere in the deposit foots 154.",
+  "what_would_settle_it": "a line-by-line reading of 33SQ-GYYJ-97P's own cells, testing whether one of its 30 lines enumerates nobody. If it does, both keys close and the pair is made."
+ },
+ "open_questions": [
+  "What are the fifteen? The TOTAL column's figures that read sum to 139 against a footed 154, and the residue sits somewhere among the 15 lines recorded `inferred`.",
+  "What does line 13 (y1564-1576) carry? The figure is written and this exposure keeps it.",
+  "Does 33SQ-GYYJ-97P hold a line that enumerates nobody? That is the whole of what stands between this leaf and printed 211."
+ ],
+ "ticket": "T-0747 measured this; T-0748 read it. Both are pieces of T-0659, itself piece 4 of T-0528; the ask is T-0495's and before it T-0494's.",
+ "line_index": {
+  "lines": 29,
+  "how": "The TOTAL column was DE-LEANED first - each row of the body resampled from its own left rule outward, so the column becomes a straight strip - and then read with read_census_continuation.py's own ink mask, component filter and grouping on that strip. Grouping a leaning column with a fixed window is what produced 33 groups at the standard threshold and 28 at a widened one; on the straightened strip the count is stable.",
+  "count_is_not_a_threshold_artefact": "Lowering the ink mask from 45 through 30, 22, 18, 15 and 12 grey levels on the straightened strip adds NO group outside the 29 lines below - only more fragments of them, and the shadow of the footer rule at y2905-2930. The three wide gaps in the line pitch (105 px at y760-865, 103 at y2159-2262, 135 at y2335-2470) hide nothing: this leaf carries no horizontal rules and the hand simply spaces unevenly.",
+  "supersedes": "28, which coverage.json and pairing_key_26_50.json both carried from T-0656's strip. The 28 was neither the count nor a threshold artefact in the way T-0747 supposed - it was the leaning column read through a straight window."
+ },
+ "total_column_as_read": {
+  "how": "read off the de-leaned strip at 3 to 4x with local contrast raised on the ink, figure by figure. Confidence is per line and is not averaged.",
+  "footed": 154,
+  "sum_of_the_figures_that_read": 139,
+  "lines_read": 28,
+  "lines_written_and_unread": 1,
+  "lines": [
+   {
+    "line": 1,
+    "y": [
+     607,
+     656
+    ],
+    "total": 6,
+    "confidence": "documented",
+    "note": "a closed bowl with the ascending stroke of a 6."
+   },
+   {
+    "line": 2,
+    "y": [
+     679,
+     729
+    ],
+    "total": 4,
+    "confidence": "documented",
+    "note": "the two-stroke 4 of this hand, the same form the enumerator uses in his own TOTAL footing (pairing_key_26_50.json records it as 'the 4 in two strokes')."
+   },
+   {
+    "line": 3,
+    "y": [
+     712,
+     805
+    ],
+    "total": 13,
+    "confidence": "inferred",
+    "note": "a 1 and a three-form; the second glyph could be read as a 5."
+   },
+   {
+    "line": 4,
+    "y": [
+     840,
+     889
+    ],
+    "total": 13,
+    "confidence": "inferred",
+    "note": "as line 3, the same pair of glyphs."
+   },
+   {
+    "line": 5,
+    "y": [
+     933,
+     971
+    ],
+    "total": 2,
+    "confidence": "inferred",
+    "note": null
+   },
+   {
+    "line": 6,
+    "y": [
+     1000,
+     1041
+    ],
+    "total": 4,
+    "confidence": "inferred",
+    "note": "the two-stroke 4, written short."
+   },
+   {
+    "line": 7,
+    "y": [
+     1076,
+     1119
+    ],
+    "total": 2,
+    "confidence": "inferred",
+    "note": null
+   },
+   {
+    "line": 8,
+    "y": [
+     1154,
+     1201
+    ],
+    "total": 10,
+    "confidence": "inferred",
+    "note": "a 1 and a small second glyph read as 0."
+   },
+   {
+    "line": 9,
+    "y": [
+     1242,
+     1273
+    ],
+    "total": 5,
+    "confidence": "inferred",
+    "note": null
+   },
+   {
+    "line": 10,
+    "y": [
+     1299,
+     1349
+    ],
+    "total": 6,
+    "confidence": "documented",
+    "note": "a closed bowl."
+   },
+   {
+    "line": 11,
+    "y": [
+     1393,
+     1426
+    ],
+    "total": 5,
+    "confidence": "inferred",
+    "note": null
+   },
+   {
+    "line": 12,
+    "y": [
+     1454,
+     1499
+    ],
+    "total": 3,
+    "confidence": "inferred",
+    "note": "could be read as a 5."
+   },
+   {
+    "line": 13,
+    "y": [
+     1564,
+     1576
+    ],
+    "total": null,
+    "confidence": "unread",
+    "note": "WRITTEN AND NOT READ. Only 12 px of the foot of the figure carries ink at any threshold this leaf tolerates; nothing of the body survives. This is the figure T-0747 found at 24 grey levels, and it is a line - not a threshold artefact - but its value is not recoverable from this exposure."
+   },
+   {
+    "line": 14,
+    "y": [
+     1610,
+     1666
+    ],
+    "total": 4,
+    "confidence": "documented",
+    "note": "the two-stroke 4."
+   },
+   {
+    "line": 15,
+    "y": [
+     1688,
+     1734
+    ],
+    "total": 4,
+    "confidence": "documented",
+    "note": "the two-stroke 4."
+   },
+   {
+    "line": 16,
+    "y": [
+     1759,
+     1803
+    ],
+    "total": 2,
+    "confidence": "inferred",
+    "note": "two ink groups 11 px apart, read as one figure."
+   },
+   {
+    "line": 17,
+    "y": [
+     1836,
+     1885
+    ],
+    "total": 5,
+    "confidence": "inferred",
+    "note": null
+   },
+   {
+    "line": 18,
+    "y": [
+     1936,
+     1963
+    ],
+    "total": 5,
+    "confidence": "inferred",
+    "note": null
+   },
+   {
+    "line": 19,
+    "y": [
+     1998,
+     2036
+    ],
+    "total": 5,
+    "confidence": "inferred",
+    "note": null
+   },
+   {
+    "line": 20,
+    "y": [
+     2064,
+     2099
+    ],
+    "total": 5,
+    "confidence": "inferred",
+    "note": null
+   },
+   {
+    "line": 21,
+    "y": [
+     2139,
+     2179
+    ],
+    "total": 1,
+    "confidence": "documented",
+    "note": "a single stroke, the hand's 1."
+   },
+   {
+    "line": 22,
+    "y": [
+     2231,
+     2293
+    ],
+    "total": 9,
+    "confidence": "documented",
+    "note": "a bowl over a descender."
+   },
+   {
+    "line": 23,
+    "y": [
+     2326,
+     2344
+    ],
+    "total": 2,
+    "confidence": "inferred",
+    "note": null
+   },
+   {
+    "line": 24,
+    "y": [
+     2425,
+     2502
+    ],
+    "total": 4,
+    "confidence": "inferred",
+    "note": "the two-stroke 4, with a separate mark above it that is not part of the figure."
+   },
+   {
+    "line": 25,
+    "y": [
+     2530,
+     2574
+    ],
+    "total": 4,
+    "confidence": "documented",
+    "note": "the crossbar is visible on this one; it is the reference for the two-stroke 4 above."
+   },
+   {
+    "line": 26,
+    "y": [
+     2602,
+     2647
+    ],
+    "total": 6,
+    "confidence": "documented",
+    "note": "a closed bowl."
+   },
+   {
+    "line": 27,
+    "y": [
+     2678,
+     2727
+    ],
+    "total": 2,
+    "confidence": "documented",
+    "note": null
+   },
+   {
+    "line": 28,
+    "y": [
+     2764,
+     2809
+    ],
+    "total": 4,
+    "confidence": "documented",
+    "note": "the two-stroke 4."
+   },
+   {
+    "line": 29,
+    "y": [
+     2830,
+     2880
+    ],
+    "total": 4,
+    "confidence": "inferred",
+    "note": "the two-stroke 4, with a curve below it that may belong to the figure."
+   }
+  ]
+ },
+ "total_column_does_not_close": "STATED, NOT DISTRIBUTED. The 28 figures that read sum to 139 against the enumerator's footed 154, a residue of 15 over one written-unread line. The residue is not put anywhere: 15 of these 29 figures are recorded `inferred` and a residue of 15 is one over each of them, which is exactly what a pale exposure does to a hand that writes 3 and 5 alike and 2 and 3 alike. pairing_key_26_50.json's own rule already covers this - 'the right key is the printed footing of the TOTAL column, and NEVER a pass's line-by-line sum of that column' - so the 154 stands as the population key and this reading does not disturb it.",
+ "industry_columns_as_read": {
+  "how": "each column de-leaned on its own left rule and clipped to the narrowest width the pair of rules ever has, then read with read_census_continuation.py's own ink mask at its own standard 45 grey levels, its component filter and its grouping. No threshold was lowered for any of them.",
+  "every_column_closes": true,
+  "columns": {
+   "mining": {
+    "entries": 0,
+    "footed": null,
+    "closes": true,
+    "note": "no ink at the standard threshold."
+   },
+   "agriculture": {
+    "entries": 0,
+    "footed": null,
+    "closes": true,
+    "note": "no ink at the standard threshold. Under the fixed window this column held one stroke, which is the commerce entry on line 10."
+   },
+   "commerce": {
+    "entries": 3,
+    "footed": 3,
+    "closes": true,
+    "entries_on_lines": [
+     2,
+     10,
+     23
+    ],
+    "boxes": [
+     [
+      689,
+      728
+     ],
+     [
+      1309,
+      1345
+     ],
+     [
+      2301,
+      2340
+     ]
+    ],
+    "note": "T-0747's open question - 'two entries against a footing of 3' - answered: there are three. The fixed window put line 10's in agriculture and line 2's in manufactures."
+   },
+   "manufactures_and_trades": {
+    "entries": 11,
+    "footed": 11,
+    "closes": true,
+    "entries_on_lines": [
+     5,
+     6,
+     7,
+     8,
+     9,
+     11,
+     20,
+     24,
+     26,
+     28,
+     29
+    ],
+    "boxes": [
+     [
+      927,
+      965
+     ],
+     [
+      996,
+      1034
+     ],
+     [
+      1074,
+      1117
+     ],
+     [
+      1123,
+      1189
+     ],
+     [
+      1227,
+      1274
+     ],
+     [
+      1383,
+      1426
+     ],
+     [
+      2063,
+      2101
+     ],
+     [
+      2406,
+      2451
+     ],
+     [
+      2615,
+      2657
+     ],
+     [
+      2765,
+      2805
+     ],
+     [
+      2833,
+      2879
+     ]
+    ],
+    "note": "T-0747's open question - 'twelve single slashes against a footing of 11' - answered: eleven. The twelfth was line 2's commerce entry, 33 px to the left of where the fixed window looked."
+   },
+   "navigation_ocean": {
+    "entries": 1,
+    "footed": 1,
+    "closes": true,
+    "entries_on_lines": [
+     4
+    ],
+    "boxes": [
+     [
+      847,
+      893
+     ]
+    ],
+    "note": "one entry, on line 4. A second box the pass returns at y2485-2498 is the artefact T-0747 already ruled out - the printed rules meeting a speck near y2469-2533 - and it returns in the canals column at the same y."
+   },
+   "navigation_canals_lakes_rivers": {
+    "entries": 0,
+    "footed": null,
+    "closes": true,
+    "note": "no entry. The two boxes at y2482-2530 are the same rules-and-speck artefact as the navigation-of-the-ocean second box, at the same y."
+   },
+   "learned_professions_and_engineers": {
+    "entries": 2,
+    "footed": 2,
+    "closes": true,
+    "entries_on_lines": [
+     12,
+     22
+    ],
+    "boxes": [
+     [
+      1454,
+      1499
+     ],
+     [
+      2231,
+      2293
+     ]
+    ],
+    "read_by": "magnification, not by the pass",
+    "note": "T-0747's open question - 'one entry against a footing of 2' - answered: two, on lines 12 and 22, both read at 1.7x and both confirmed as ink between the canals rule and the learned-professions rule at that y (x1828-1849 at y1465, x1813-1839 at y2245). The automated pass finds only one of them and that is recorded rather than hidden: a faint vertical crease runs the length of this column, the 5x5 closing merges each glyph with it, and the module's own crease filter (height/width above 4.0) then discards glyph and crease together. The count here is the magnified read; the tool cannot see it."
+   }
+  },
+  "every_entry_sits_on_a_line": "all 17 entries fall inside or across a TOTAL-column line of the index above. Under the fixed window two manufactures strokes - y1123-1189 and y2406-2451 - sat in TOTAL-column GAPS, which is what T-0747 read as evidence of hidden lines; under the corrected geometry they sit on lines 8 and 24, which are lines the straight window had merged away."
+ }
+}

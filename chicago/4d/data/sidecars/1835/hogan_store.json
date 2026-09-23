@@ -1,0 +1,212 @@
+{
+  "id": "hogan_store",
+  "phase": "log_1831",
+  "name": "Hogan's Store",
+  "aka": [
+    "Chicago's first post office",
+    "Brewster, Hogan & Co.'s store",
+    "the log store at Lake and South Water"
+  ],
+  "archetype": "log_dwelling",
+  "asset": "gltf/hogan_store__log_1831.glb",
+  "scene": "1835",
+  "target_date": "1835-07-01",
+  "documented_range": {
+    "from": "1831-03-31",
+    "to": "1835-12-31",
+    "confidence": "inferred",
+    "sources": [
+      "andreas_1884_v1",
+      "chicagology_first_post_office"
+    ],
+    "note": "THE START IS THE FIRST DATE A SOURCE PUTS THIS BUILDING IN EXISTENCE, NOT ITS BUILD DATE, and the record does not claim otherwise: on 31 March 1831 Jonathan N. Bailey was appointed postmaster and 'opened the post-office in a log house occupied as a store by John Stephen Coates' Hogan' (Andreas). The building was therefore already standing and already a store on that date, and nothing reached says when it went up — Hogan came to Chicago 'as early as 1830'. THE END OF THE RANGE IS THE HONEST MINIMUM AND IT IS THE WEAKEST THING IN THIS RECORD. What is attested is that the building stood and held the post office from March 1831 until about July 1834, when Andreas has the office removed to Franklin and South Water; that is eleven months before the scene date, and NO SOURCE REACHED FOLLOWS THE BUILDING PAST IT. The range is closed at the end of 1835 on the ordinary continuity argument — a standing building stands until something says otherwise, and this project's data/exclusions.json is where documented removals go — but the counter-argument is real and belongs here rather than in a footnote: Lake and South Water was the corner most exposed to the 1835 boom, log buildings on prime frontage were exactly what got replaced first, and the post office's own move out of it in July 1834 is unexplained. Tagged inferred, not documented, for that reason. If evidence turns up that this building came down before July 1835 it belongs in exclusions.json and this record leaves the scene."
+  },
+  "change_note": "The log store standing at the west end of the Lake Street block when the United States established a post office at Chicago on 31 March 1831, and for three years the building that held it: partitioned into a post office on one side and the store of Brewster, Hogan & Co. on the other, with John Bates Jr. sorting the mail from 1833. The post office moved out to Franklin and South Water about July 1834; that is a change of USE and does not open a new phase, and it is why this building is not the post office on the scene date.",
+  "placement": {
+    "local_e": 120.1,
+    "local_n": -92.1,
+    "rotation_deg": 180.0,
+    "position_confidence": "inferred",
+    "position_sources": [
+      "andreas_1884_v1",
+      "chicagology_first_post_office",
+      "osm_streets_2026",
+      "chicago_democrat_1833_1835"
+    ],
+    "position_note": "PLACED 2026-08-10. THE SOURCES AGREE ON A JUNCTION AND NEITHER GIVES A CORNER. Andreas, twice: 'near the present corner of Lake and South Water streets' and 'a small log building near the corner of Lake and South Water streets'. Currey: 'about where South Water street intersects Lake street, near the east end of the bridge'. Both say NEAR and ABOUT, and neither names a side of either street, so this coordinate is a placement inside a named junction rather than a corner lot read off a plat — which is the opposite of the Sauganash's and the Green Tree's positions, where the corner is documented and only the metres are derived. WHERE THAT JUNCTION IS: Lake Street and South Water Street run parallel through the town and meet only at their west ends, where the main stem turns south into the south branch and the block between them narrows to a wedge against Market Street. Currey's 'east end of the bridge' is the Lake Street raft bridge over the south branch and puts the same site at the same place. Method: the modern Lake Street / Market Street intersection centre (Market is today's N Wacker Drive) was read from OpenStreetMap at EPSG:26916 E 447161.9, N 4637285.4 — the same node this project used for the Sauganash — giving Lake Street's north kerb 12.2 m north of it and Market Street's east kerb 12.2 m east of it, half an 80 ft platted street in each direction. The footprint's south face is set on that Lake Street frontage and its west end about 5 m east of the Market kerb, one narrow lot in from the corner rather than hard against it, because both sources say near and about. NOTE A DISAGREEMENT THE OFFSET RESTS ON: this project's placement offsets use the 80 ft street width annotated on Hathaway 1834, and the Currey page states the Thompson 1830 plat laid out streets 'uniformly 66 feet wide'. The difference is 2.1 m in each offset, an order of magnitude inside the georeference's own error, so it does not move this building — but it is the first time the two figures have been seen to disagree in this dataset and it is recorded here and in docs/RESEARCH/hogan_store.md § 5 rather than being quietly averaged. UNCERTAINTY: about 20 m from the georeference, plus an unquantified allowance for 'near', which is the larger of the two here — the wedge block this building sits in is roughly 40 m of frontage before the ground runs out at the water. Facade bearing 180, due south onto Lake Street, and it is INFERRED FROM THE STREET RATHER THAN FROM ANY STATEMENT: nothing says which way this building faced, and a store fronting South Water and the river instead would rotate it 180 degrees and put its back to Lake. The choice also decides which of the building's two documented dimensions runs along the street — the 45 ft is set along Lake, because a store's long elevation is its frontage — and that assignment is inference, not evidence, even though both numbers are. AND THE PAPERS DO SAY SOMETHING ABOUT IT (T-0859, 2026-09-06). Hogan advertised on his own account in the Chicago Democrat from March 1834, and from 13 August 1834 to the issue of 1 July 1835 itself — eight printings — his standing notice gives his address as “at hi[s store] in South Water Street, one [door … of] the Post Office”. That is the man's own street for his own store, and it is South Water and not Lake. It does not move this coordinate and it is not read as a corner: the sources behind the position give a junction, this record sits in the wedge where Lake and South Water converge, and a building near that convergence can honestly be described as being in either street. What it does do is take the ground out from under the FACING. The bearing of 180 was inferred from the street because nothing said which way the building faced, and the only statement this project now holds about which street Hogan's store addressed gives the other one. The rotation is left where it is, because turning it would decide on one printing's preposition a question the sources still do not answer, and because the 45 ft dimension is assigned along whichever face is the frontage — but the inference is no longer unopposed, and the card says so. See `research_note` for the harder reading of the same eight printings.",
+    "symbolic_location": "South bank of the main stem at the west end of the Lake Street / South Water Street block, near where the two streets converge east of Market Street; the north side of Lake Street, diagonally across it from the Sauganash.",
+    "uncertainty_m": 20,
+    "placement_provisional": false,
+    "vertical_anchor": "terrain",
+    "walk_surface_m": null
+  },
+  "footprint": {
+    "polygon": [
+      [
+        0,
+        0
+      ],
+      [
+        13.716,
+        0
+      ],
+      [
+        13.716,
+        6.096
+      ],
+      [
+        0,
+        6.096
+      ]
+    ],
+    "confidence": "attested",
+    "sources": [
+      "andreas_1884_v1"
+    ],
+    "note": "THE FIRST BUILDING FOOTPRINT IN THIS DATASET THAT IS NOT A PLACEHOLDER. Andreas gives the size twice, in two independently written passages: 'The building was twenty by forty-five feet in size, was partitioned off so as to serve as a post-office on one side, and as the store of Brewster, Hogan & Co., on the other', and, in the postmaster chronology, 'the store only occupied an area of forty-five by twenty feet'. 45 x 20 ft is 13.716 x 6.096 m, recorded here converted with the original figures stated, per data/datum.json's units rule. WHAT IS DOCUMENTED IS THE SIZE AND NOT THE PLAN: 'twenty by forty-five feet' is a rectangle in any reading, and this polygon is that rectangle, but nothing attests a door, a partition line on the ground, or that the building was exactly rectangular rather than a rectangle with something small attached. WHICH AXIS RUNS ALONG THE STREET IS NOT IN THE SOURCE either; it is decided by the facade bearing and argued in the position note, where it belongs, because rotating the building is what changes it. The 20 ft depth is worth reading twice: this is a 6 m deep building 13.7 m long, partitioned into a post office and a store, which is why Andreas offers it as evidence of 'the limited accommodations that were ample for the post-office of those days'."
+  },
+  "attributes": {
+    "construction": {
+      "value": "log",
+      "confidence": "attested",
+      "sources": [
+        "andreas_1884_v1",
+        "chicagology_first_post_office"
+      ],
+      "note": "Three statements, two of them in Andreas: 'a log house occupied as a store by John Stephen Coates' Hogan', 'a small log building near the corner of Lake and South Water streets', and Currey's 'a log building about where South Water street intersects Lake street'. No source describes the corner treatment, the chinking or whether any of it was sided; the archetype builds hewn log, which is the commonest construction at the forks in 1835 and what all three descriptions name."
+    },
+    "stories": {
+      "value": 1,
+      "confidence": "inferred",
+      "note": "Not stated. Andreas calls it 'a small log building' and gives it a 20 ft depth, and the two passages describing its use divide it side by side — a post office on one side and a store on the other — rather than by floor. A single-pen log building of this depth is single-storey by type at the forks in 1835. Inference from the type and the description, not from a statement."
+    },
+    "wall_height_m": {
+      "value": 2.5,
+      "confidence": "inferred",
+      "note": "No figure is attested. 2.5 m is about 8 ft: one storey of hewn log wall at typical period course counts, plus a sill. What is inferred is that the wall height falls in this range, not that it is exactly 2.5 m — the same reading, and the same number, this project gives the Walker meeting house, which is the other single-storey log building it models."
+    },
+    "roof_type": {
+      "value": "gable",
+      "confidence": "inferred",
+      "note": "Not attested. Gable is the near-universal roof form for log construction of this type, period and region, and it is the form a 45 ft building of this depth is roofed with unless something says otherwise."
+    },
+    "roof_pitch_deg": {
+      "value": 35.0,
+      "confidence": "inferred",
+      "note": "No pitch is attested. 35 degrees is the archetype's mid-range for a low single-storey log building roofed in riven shakes. Inferred from construction practice, not measured."
+    },
+    "chimneys": {
+      "value": 1,
+      "confidence": "inferred",
+      "note": "Not attested, and nothing describes a stack on this building at all. One is the minimum for a store kept through Chicago winters with a clerk sorting mail in half of it, and the normal number for a single-pen log building. The COUNT is the inference; where the stack stands, how big it is and what it is made of are the archetype's, which is the standing admission in docs/LIBERTIES.md L26."
+    },
+    "function": {
+      "value": "store",
+      "confidence": "attested",
+      "sources": [
+        "andreas_1884_v1",
+        "chicago_democrat_1833_1835"
+      ],
+      "note": "NOT THE POST OFFICE AT THE SCENE DATE, which is the fact this record exists to get right. It held Chicago's first post office from 31 March 1831 until about July 1834, when Andreas has the office removed to near the corner of Franklin and South Water, where it stayed through Hogan's term. What the building was doing on 1835-07-01 is NOT ATTESTED: it is recorded as a store because that is what it was before the post office arrived ('a log house occupied as a store') and alongside it for three years, and because nothing describes it changing to anything else. Brewster, Hogan & Co. advertised as forwarding and commission merchants in the early numbers of the Chicago Democrat, but no source reached puts the firm in THIS building in 1835, so the record carries no occupants block rather than guessing at one. THE STORE IS NOW ATTESTED IN HOGAN'S OWN WORDS, AND SO IS THE READING THIS ATTRIBUTE EXISTS TO GET RIGHT. Three printings of the Chicago Democrat in August and September 1834 — after Andreas has the post office removed — carry his standing card: \"J. S. C. HOGAN, [O]FFERS at Wholesale and Retail, at his Store in South Water Street, one door belo[w th]e Post O[ff]ice, Dry Good[s], Grocer[i]es, [H]ardware, Cr[oc]kery and Gl[ass] W[a]re\" (1834-09-03, page 3 column 6, claim chicago_democrat_1834_09_03#c023, dateline '[J]uly 30, 1834'; the same advertisement runs 1834-08-13 page 3 column 5 claim #c017 and 1834-08-20 page 3 column 5 claim #c007, both cut at the direction word). A fourth card, 1834-03-25 page 3 column 3 claim #c010, has him selling 300 cedar posts. So a wholesale and retail store on South Water Street is documented in the year before the scene date, which is what this attribute claims, and the value stays 'store'. THE POST OFFICE IS A FINDING AND IT IS RECORDED RATHER THAN ACTED ON. Hogan places his store 'one door below the Post Office' from August 1834, which is exactly the period this record has the office already removed 'to near the corner of Franklin and South Water' — and one door is not four blocks. Both cannot be true as written. NOTHING IS MOVED ON THE STRENGTH OF IT: the register's own bound is that a placement inference never displaces a committed documented building and a conflict is a finding, not a nudge (T-0196). The candidates are that Andreas's removal is later or nearer than he says, that Hogan's card is standing copy carried over from before the removal (its dateline of 30 July 1834 is within weeks of it), or that this record's reading of Andreas is too precise. Filed for the register to adjudicate against the 1835 file, which is where a scene-date fixture for Hogan already exists. THE READING IS TRANSCRIPTION-MEDIATED AND SAYS SO. Under the owner's ruling of 2026-08-28 a claim read through this project's OCR-assisted transcriptions rather than off the page scan grades `attested` in this schema's vocabulary while carrying its own flag: reading = transcription_mediated, with the transcription's own uncertainty brackets preserved inside the quotation rather than tidied away. Where a scan is later read, the scan is the authority and this claim upgrades under it — the standard data/sources/chicago_democrat_1833_11_26.json set when a scan caught 'C. & I. HARMON' where the transcription had 'C. & L. Harmon'."
+    }
+  },
+  "residents": [
+    {
+      "household": "hh_hogan_john_s_c",
+      "name": "The Hogan household",
+      "division": "south",
+      "relation": "worked here",
+      "why": "The log building at the intersection of South Water and Lake, near the east end of the bridge, with Hogan's store in it and the post office in the store. Twenty by forty-five feet, which Andreas gives as an aside about how little room the town's mail needed.",
+      "sources": [
+        "andreas_1884_v1",
+        "chicagology_first_post_office"
+      ],
+      "basis": "",
+      "persons": [
+        {
+          "name": "John S. C. Hogan",
+          "relationship": "head",
+          "grade": "attested",
+          "occupation": "postmaster",
+          "note": "IN OFFICE ACROSS THE SCENE DATE AND DOCUMENTED RESIGNING FROM ANOTHER ONE IN THE SCENE MONTH'S NEIGHBOUR. He was one of the twelve who voted for incorporation on 5 August 1833, an elector on the 10th, a candidate who took three votes, a trustee elected in 1834 and the town's treasurer that year - and Andreas: 'John S. C. Hogan voluntarily ceased to act as Treasurer, in June, 1835, because the corporation was determined, as a sanitary measure, to borrow $2,000 in order to have the streets cleared up.' THAT IS THE MONTH BEFORE THE SCENE DATE and it is one of the sharpest dated acts by any named resident inside the scene season. Andreas vol. 1, printed p. 132 (scan p. 281), 'an imperfect list of the denizens of the town in the fall of 1833, not before named' - a name, a trade and usually an arrival year, compiled fifty years after the fact. THE TOWN'S OWN ROLLS, 1833-1835 — CORROBORATION, NOT A GRADE. The early Chicago voter and tax lists held by the Illinois Regional Archives Depository name this person 3 times: Poll list of the first election of the Board of Trustees of the Town of Chicago, 10 August 1833 — “Hogan, John S. C.” (poll_1833_015, line 36); Tax list of the Town of Chicago, 1833 — “Hogan, John S. C.” (tax_1833_045, line 97); Election returns — poll list of 1834, filed 11 August 1834 — “Hogan, John S. C.” (poll_1834_054, line 223). These are the town's own contemporary paper rather than a recollection of it, and each appearance says that a man of that name stood on that roll in that year — no more. The reading is twice mediated (Schulz's transcription, then Genealogy Trails' republication) and this project has not seen the IRAD originals. Under the ratified ladder (T-0513) the 1835 poll with a second independent source is attested, the 1835 poll alone or a 1833/1834 list with another source is inferred, and a single appearance with nothing else is a projected resident. This pass WRITES THE EVIDENCE AND MOVES NO GRADE — T-0515 applies the ladder against every source at once. Identity by the crosswalk's own rule: one resident of the surname 'Hogan' agrees with the entry's forenames; 1 bearer(s) of the surname were considered. (data/research/civic/voter_crosswalk.json)."
+        }
+      ],
+      "research_note": "A POSTMASTER WHO RESIGNED A SECOND OFFICE ON PRINCIPLE FOUR WEEKS BEFORE THE SCENE DATE, which is as close as this dataset gets to knowing what a documented resident was thinking in June 1835. The $2,000 he would not borrow was to be spent clearing the streets against an expected cholera - so the sanitary state of the town in the scene summer is documented through the man who objected to paying for it."
+    }
+  ],
+  "citations": [
+    {
+      "source_id": "andreas_1884_v1",
+      "citation": "Andreas, A. T. History of Chicago: From the Earliest Period to the Present Time. Vol. 1. Chicago: A. T. Andreas, 1884.",
+      "url": "https://archive.org/details/historyofchicago01andr",
+      "archived_url": "",
+      "tier": 3,
+      "tier_label": "compiled secondary (Andreas)"
+    },
+    {
+      "source_id": "chicago_democrat_1833_1835",
+      "citation": "The Chicago Democrat. Vol. I, No. 1 (November 26, 1833) through Vol. II, No. 18 (August 26, 1835). Chicago, Ill.: John Calhoun, editor and publisher. Seventy-three issues, OCR-assisted research transcriptions from page scans.",
+      "url": "",
+      "archived_url": "",
+      "tier": 1,
+      "tier_label": "period/eyewitness",
+      "what_it_supplies": [
+        "that a named trade was being carried on in Chicago in a named week, and often where",
+        "self-reported addresses, which are the strongest address evidence this project has: the advertiser was paying, and his customers had to find him",
+        "dissolution, removal and replacement notices — the only thing that keeps a documented business out of the 1835 town under the owner's ruling 3",
+        "post-office letter lists, naming residents by the hundred (ruling 1: a listed name mints a resident candidate, flagged letter_list_only)",
+        "the village and later town ordinances, printed complete — the 7 November 1833 code is the richest single item in the run",
+        "arrivals and clearances, which date the piers and the harbour as working structures",
+        "public notices that fix a building as a polling place, an auction site or a meeting place on a given day",
+        "the paper's own imprint, self-reported: the corner of South Water and Clark streets",
+        "twenty-one months of continuous weekly attestation ending three weeks before the scene date, including the issue printed on 1835-07-01"
+      ],
+      "what_it_does_not_supply": [
+        "any building's form, material, storey count, fenestration or dimensions — an advertisement describes a trade, not a building",
+        "the specific corner of any junction it names: 'on the corner of' does not say which of the four",
+        "anything at all from an engraving — see trap 1; the cuts are the printer's stock",
+        "proof that a business named in 1833 or 1834 still stood on 1835-07-01; that is ruling 3's survival liberty, and it is a liberty",
+        "an argument from silence, unless corpus.json shows the issues either side of the silence are both in the deposit",
+        "a reading that outranks a scan read of the same passage — see ruling 2 and the C. & I. HARMON case",
+        "a citation without an issue page and column"
+      ]
+    },
+    {
+      "source_id": "chicagology_first_post_office",
+      "citation": "\"Chicago's First Post Office.\" Chicagology, transcribing J. Seymour Currey, \"U. S. Government and Post Office Buildings,\" Fort Dearborn Magazine, December 1922.",
+      "url": "https://chicagology.com/chicagopostoffice/firstpostoffice/",
+      "archived_url": "https://web.archive.org/web/20260517202635/https://chicagology.com/chicagopostoffice/firstpostoffice/",
+      "tier": 4,
+      "tier_label": "later scholarship",
+      "transcribes": [
+        {
+          "work": "J. Seymour Currey, 'U. S. Government and Post Office Buildings', Fort Dearborn Magazine — the establishment of the post office at Chicago and its first three keepers",
+          "date": "1922-12",
+          "tier": 4,
+          "note": "Carries the post office's establishment on 31 March 1831 under Jonathan N. Bailey, the log building at South Water and Lake with Hogan's store in it, the succession of Hogan on 2 November 1832 and of Sidney Abell on 3 March 1837 — the chronology behind data/structures/hogan_store.json, where Andreas is preferred at every point the two differ. A 1922 compilation naming no authority for these particular facts: later scholarship, rung 4. The 66 ft plat sentence lower on the page is NOT part of this article and is not declared."
+        }
+      ],
+      "what_it_supplies": [
+        "the post office's establishment date, 31 March 1831, and its first three postmasters",
+        "a log building at the intersection of South Water and Lake, near the east end of the bridge, with Hogan's store in it",
+        "the mail schedule year by year, 1831-1837, quoted from M. H. Putney's 'Historical Notes'"
+      ],
+      "what_it_does_not_supply": [
+        "the Thompson 1830 street module — the 66 ft sentence on this page carries no attribution and is not Currey's article; see the note",
+        "any dimension of the log building; that comes from Andreas, twice, at twenty by forty-five feet",
+        "a reliable date for the office leaving Lake and South Water: it says November 1832, Andreas says about July 1834 in two independent passages"
+      ]
+    },
+    {
+      "source_id": "osm_streets_2026",
+      "citation": "OpenStreetMap contributors. Street centerline intersection nodes for downtown Chicago, retrieved via the Overpass API, 2026-08-09.",
+      "url": "https://www.openstreetmap.org/",
+      "archived_url": "https://overpass-api.de/",
+      "tier": 4,
+      "tier_label": "later scholarship"
+    }
+  ],
+  "research_note": "THE BUILDING WHERE CHICAGO'S MAIL BEGAN, and the first record in this dataset whose footprint is evidence rather than a placeholder: Andreas states its size twice, twenty by forty-five feet, as an aside about how little room the town's post office needed. Everything else about it is thin — no build date, no orientation, no description beyond 'small' and 'log', and no source follows it past 1834. TWO CORRECTIONS TO THIS PROJECT'S OWN DOSSIER CAME OUT OF WRITING IT, both in docs/research/03-structures-north.md § 4, and both because a page was opened that the dossier's table had only summarised. First, the dossier dates the move to the Franklin and South Water office from 2 November 1832, the day Hogan succeeded Bailey as postmaster; Andreas says twice that the office was still at Lake and South Water through 1833 and moved 'about July' 1834, so the 1832 date is the postmaster's, not the building's. Second, the dossier's own source for the 1832 date, the Currey page, is where that conflation comes from — it makes the appointment and the move one sentence — and it also gives the corner as 'south west', which Andreas never does. WHAT THIS MEANS FOR THE SCENE: on 1835-07-01 the post office is a DIFFERENT, UNMODELLED building near Franklin and South Water, about 100 m east of this one, and nothing reached describes its construction, its size or its side of either street. It is a candidate for a later slice and it would be almost entirely invention today; that is stated in docs/RESEARCH/hogan_store.md § 4 rather than being built. THE WEAK POINT OF THIS RECORD IS ITS SURVIVAL, not its geometry: it is attested standing to about July 1834 and placed in a scene set eleven months later on a continuity argument, which is set out in full on documented_range. See docs/RESEARCH/hogan_store.md.\n\nONE DOOR FROM THE POST OFFICE — WHAT HOGAN'S OWN ADVERTISEMENTS SAY, AND THE QUESTION THEY OPEN (T-0859, 2026-09-06). This project's newspaper corpus holds ten printings of Hogan trading on his own account. The first, 25 March 1834, is two lines of three hundred cedar posts under a scrap of song about fencing a garden and it names NO address at all. From 13 August 1834 through the issue of 1 July 1835 — the day this scene reconstructs — eight of them give a street with a landmark in it: “at hi[s store] in South Water Street, one [door … of] the Post Office”. The word between “one” and “the Post Office” is lost with the column edge, so east and west are both readings the line cannot settle. NOTE WHAT THE DATE DOES. Andreas has the post office leave THIS building for Franklin and South Water about July 1834; the first printing that puts Hogan's store one door FROM the office runs one month later. Before that move the office was IN the store and no advertisement could have measured a door between them, so the two records agree about the sequence — a small corroboration of Andreas's date from a source he did not use. THE HARDER READING IS THE ONE THIS RECORD CANNOT DISMISS. If the office Hogan advertises beside is the Franklin and South Water office, then from August 1834 he was trading about 100 m east of this coordinate, and the store the papers describe on 1 July 1835 is not this building. Nothing reached says he moved, nothing reached says he stayed, and the corpus never gives a corner, a block or a lot for either. So no coordinate, confidence or date on this record is changed by any of it: the reading is written down beside the placement it bears on, which is what this dataset does with evidence it cannot yet spend. The eight printings are claims c017, c007, c023, c009, c013, c009, c016 and c002 of the Chicago Democrat issues of 1834-08-13, 1834-08-20, 1834-09-03, 1834-11-19, 1834-12-03, 1834-12-17, 1835-05-20 and 1835-07-01.",
+  "research_doc": "docs/RESEARCH/hogan_store.md",
+  "review_required": false
+}

@@ -1,0 +1,372 @@
+{
+  "schema": 1,
+  "issue_id": "chicago_democrat_1834_10_08",
+  "extracted": "2026-08-28",
+  "extracted_by": "hand, T-0292 — the Democrat read, October 1834",
+  "note": "Vol. I No. 45. The town is on pages 2 column 6 (the marine list) and 3. This issue prints the 1 October 1834 letter list for the first time, at page 3 columns 1-2, but the segmenter lost its opening and its left sub-column; the names are minted from 1834-10-22, which carries it whole. Page 3 column 2 is the richest advertising column of the month and carries the Democrat's own office at Clark and South Water.",
+  "claims": [
+    {
+      "id": "c001",
+      "kind": "shipping",
+      "reading": "transcription_mediated",
+      "quote": "PORT OF CHICAGO.\n1834\nARRIVED.\nOcl. 6. Schr. Phillips, Howe, St. Jugh.\nCLEARED.\nOct. S. Bchr.\nIndiana, Whitaker, Buffsis\nWhite Pigeon, Disbrow, di\nAusterlitz, M'Rintry,\nNapoleon, Stuart,\nNew Connecticut,B\nCommerce, Smith,\nThinois, Pickering, S. Harke.\nSloop\nWestward Ho, Banks, Mike.\n7. Behr.\nPhillas, Howe, St. Jeenb",
+      "normalized": "PORT OF CHICAGO. 1834. ARRIVED. Oc[t]. 6. Schr. Phillips, Howe, St. J[ose]ph. CLEARED. Oct. [8]. [S]chr. Indiana, Whitaker, Buff[alo]; White Pigeon, Disbrow, d[o]; Austerlitz, M'[K]intry, […]; Napoleon, Stuart, […]; New Connecticut, B[…]; Commerce, Smith, […]; [I]llinois, Pickering, S[t]. [Jose]ph. Sloop Westward Ho, Banks, M[ilwauk]ie. 7. [S]chr. Phill[ip]s, Howe, St. J[os]e[p]h.",
+      "locator": {
+        "artifact_role": "primary",
+        "issue_page": 2,
+        "column": 6,
+        "lines": [
+          1770,
+          1798
+        ],
+        "lines_of_claim": [
+          1770,
+          1772,
+          1773,
+          1775,
+          1777,
+          1779,
+          1780,
+          1781,
+          1784,
+          1786,
+          1787,
+          1790,
+          1793,
+          1794,
+          1795,
+          1797,
+          1798
+        ],
+        "interleaved": true
+      },
+      "entities": [
+        {
+          "as_printed": "Howe",
+          "normalized": "Howe",
+          "role": "vessel master",
+          "occupations": [
+            "schooner master"
+          ]
+        },
+        {
+          "as_printed": "Whitaker",
+          "normalized": "Whitaker",
+          "role": "vessel master",
+          "occupations": [
+            "schooner master"
+          ]
+        },
+        {
+          "as_printed": "Disbrow",
+          "normalized": "Disbrow",
+          "role": "vessel master",
+          "occupations": [
+            "schooner master"
+          ]
+        },
+        {
+          "as_printed": "M'Rintry",
+          "normalized": "M'[K]intry",
+          "role": "vessel master",
+          "occupations": [
+            "schooner master"
+          ]
+        },
+        {
+          "as_printed": "Stuart",
+          "normalized": "Stuart",
+          "role": "vessel master",
+          "occupations": [
+            "schooner master"
+          ]
+        },
+        {
+          "as_printed": "Smith",
+          "normalized": "Smith",
+          "role": "vessel master",
+          "occupations": [
+            "schooner master"
+          ]
+        },
+        {
+          "as_printed": "Pickering",
+          "normalized": "Pickering",
+          "role": "vessel master",
+          "occupations": [
+            "schooner master"
+          ]
+        },
+        {
+          "as_printed": "Banks",
+          "normalized": "Banks",
+          "role": "vessel master",
+          "occupations": [
+            "sloop master"
+          ]
+        }
+      ],
+      "notes": "THE PORT IN ONE WEEK: one arrival and eight clearances, seven schooners and a sloop. The marine list column is interleaved with a news column line for line, so `lines_of_claim` names only the shipping lines. Destinations are cut at the column edge on most entries and are left '[…]'; 'Buff[alo]', 'St. J[ose]ph' and 'M[ilwauk]ie' are supplied because the run prints them repeatedly in full. The masters are minted as persons — a master calling at Chicago is not a resident candidate, and none of them is flagged letter_list_only, so the gazetteer holds them on the stronger evidence."
+    },
+    {
+      "id": "c002",
+      "kind": "notice",
+      "reading": "transcription_mediated",
+      "quote": "LL pereonn arn forbid cutting tinter, 5\nNotice.\nGresspassing in any way on\neet guarter of section No. 4. Township No.8\nnina North of Range 14 Last.\nI. PEARSONE\nOct. 8.",
+      "normalized": "[A]LL person[s] ar[e] forbid cutting tim[b]er, [or] Notice. [t]resspassing in any way on [the north] [w]e[s]t quarter of section No. 4. Township No. [3]9 [… R]ange 14 [E]ast. H. PEARSON[S]. Oct. 8.",
+      "locator": {
+        "artifact_role": "primary",
+        "issue_page": 2,
+        "column": 6,
+        "lines": [
+          1811,
+          1822
+        ],
+        "lines_of_claim": [
+          1811,
+          1812,
+          1815,
+          1817,
+          1819,
+          1820,
+          1822
+        ],
+        "interleaved": true
+      },
+      "entities": [
+        {
+          "as_printed": "I. PEARSONE",
+          "normalized": "H. Pearsons",
+          "role": "advertiser"
+        }
+      ],
+      "notes": "A trespass notice over a quarter section, and one of the few claims in the month that names surveyed land rather than a street. The transcription sets the notice's heading line BELOW its first line, which is the segmenter's doing and not the paper's; `normalized` reads them in the printed order. The township number is cut and is read as 39 north from the range and from the issue of 1834-10-15, which prints the same notice; the initial is 'I. PEARSONE' here and 'H. PEARSONS' there, and the latter is taken."
+    },
+    {
+      "id": "c003",
+      "kind": "building",
+      "reading": "transcription_mediated",
+      "quote": "TO LET.\nCOMPORTABLE and well nill teet\nDeling house asse the point, co His ef\n[uncertain: R'M. HERSEF]",
+      "normalized": "TO LET. [A] COM[F]ORTABLE and well [f]in[ished] [dw]el[l]ing house [n]ea[r] the point [, enquire] o[f] [uncertain: W]M. HERSE[Y].",
+      "locator": {
+        "artifact_role": "primary",
+        "issue_page": 2,
+        "column": 6,
+        "lines": [
+          1824,
+          1829
+        ],
+        "lines_of_claim": [
+          1824,
+          1826,
+          1827,
+          1829
+        ],
+        "interleaved": true
+      },
+      "entities": [],
+      "notes": "'NEAR THE POINT' — the forks of the Chicago river — used as an address with nothing else beside it, which is what a small town's own shorthand looks like. No street, no lot: the building is recorded as anchored, not placed. The advertiser's surname is single-witness OCR ('HERSEF' here, 'HESSEY' in the issue of 1834-10-15) and is not minted."
+    },
+    {
+      "id": "c004",
+      "kind": "business",
+      "reading": "transcription_mediated",
+      "quote": "USES tor rale or to let. Also,alot on the ws\nner of Randolph and Wells streets, and Je\na ies sehcc “prea om will be sold | give a» ae\nme ee ‘or juire of in an: F\nfG. BL NSHARD, aye\n[uncertain: opposite Dr. Temple's, Lake-st. | _ Sept. ?]",
+      "normalized": "[HO]USES for [s]ale or to let. Also, a lot on the [cor]ner of Randolph and Wells streets, and […] will be sold [… en]quire of [uncertain: G. BLANSHARD], [uncertain: opposite Dr. Temple's, Lake-st.]",
+      "locator": {
+        "artifact_role": "primary",
+        "issue_page": 3,
+        "column": 2,
+        "lines": [
+          2046,
+          2051
+        ],
+        "lines_of_claim": [
+          2046,
+          2047,
+          2048,
+          2049,
+          2050,
+          2051
+        ],
+        "interleaved": true
+      },
+      "entities": [
+        {
+          "as_printed": "fG. BL NSHARD",
+          "normalized": "G. Blanshard",
+          "role": "advertiser",
+          "associated_places": [
+            "Lake Street",
+            "Randolph Street",
+            "Wells Street"
+          ]
+        }
+      ],
+      "notes": "A CORNER LOT AT RANDOLPH AND WELLS is offered, and the advertiser's own place is given as 'opposite Dr. Temple's, Lake-st.' — a relative placement anchored on a named resident's premises, which is the commonest way this paper places anybody. Dr. John T. Temple advertises a store on South Water street in the same issue, so 'Dr. Temple's' on Lake street is a second premises and NOT the same address; both stand. The advertiser's name is cut to 'fG. BL NSHARD' and is read as G. Blanshard from the $20 reward notice two columns on, which prints it whole.",
+      "business": {
+        "name": "G. Blanshard",
+        "proprietors": [
+          "G. Blanshard"
+        ],
+        "trade": "houses and lots for sale or to let",
+        "goods": [],
+        "street": "Lake Street",
+        "placement": {
+          "class": "relative",
+          "anchor": "Dr. Temple's, Lake-st.",
+          "offset_text": "opposite Dr. Temple's, Lake-st.",
+          "offset_normalized": "opposite Dr. Temple's, Lake-st.",
+          "street": "Lake Street"
+        }
+      }
+    },
+    {
+      "id": "c005",
+      "kind": "building",
+      "reading": "transcription_mediated",
+      "quote": "For Sale or to Rent, Be\nB Btore now oceupied by W. Kimball, | WAY’\nad as the office of the Democrat, on the tt\nof Clark ank-South Water atrcets, is of | Sit:\nr salo, together with tho lot on which it| 7 cp;\nor the building will be rentedantil the Wi\nune post. | Possossion given on the Piad bi\nNove Fs ‘or termes enquire at this\nOct. 8, 4534. \" 45 | Set. Ae",
+      "normalized": "For Sale or to Rent, [The] [S]tore now oc[c]upied by W. Kimball, [and as] the office of the Democrat, on the [corner] of Clark an[d] South Water [s]tr[e]ets, is of[fered fo]r sal[e], together with th[e] lot on which it [stands, or] the building will be rented [un]til the [… J]une [next]. Possossion given on the [… of] Nove[mber]. [F]or term[s] enquire at this [office]. Oct. 8, 18[34]. 45",
+      "locator": {
+        "artifact_role": "primary",
+        "issue_page": 3,
+        "column": 2,
+        "lines": [
+          2052,
+          2060
+        ],
+        "lines_of_claim": [
+          2052,
+          2053,
+          2054,
+          2055,
+          2056,
+          2057,
+          2058,
+          2059,
+          2060
+        ],
+        "interleaved": true
+      },
+      "entities": [
+        {
+          "as_printed": "W. Kimball",
+          "normalized": "W. Kimball",
+          "role": "occupant"
+        }
+      ],
+      "notes": "THE DEMOCRAT'S OWN OFFICE, PLACED: the corner of Clark and South Water streets, in a store it shares with W. Kimball. This is the paper locating itself, which makes it the strongest placement in the month — and it is offered for sale, so a later issue may move it. The insertion number '45' at the line end agrees with the issue number, which is how the dateline's year is read.",
+      "business": {
+        "name": "Chicago Democrat (office)",
+        "proprietors": [
+          "John Calhoun"
+        ],
+        "trade": "newspaper printing office",
+        "goods": [],
+        "street": "South Water Street",
+        "placement": {
+          "class": "corner",
+          "anchor": "corner of Clark and South Water streets",
+          "offset_text": "ad as the office of the Democrat, on the\nof Clark ank-South Water atrcets, is of",
+          "offset_normalized": "[and as] the office of the Democrat, on the [corner] of Clark an[d] South Water [s]tr[e]ets",
+          "street": "South Water Street"
+        }
+      },
+      "ad_copy_date": {
+        "verbatim": "Oct. 8, 4534.",
+        "iso": "1834-10-08"
+      }
+    },
+    {
+      "id": "c006",
+      "kind": "business",
+      "reading": "transcription_mediated",
+      "quote": "Notice. L Rect\n. CARLA, having relinquished tho tay-| Water Lo\nwn known as the Eacio Hotel, on the rs 1\nZeptember last, to J. Shrigley, and as-| St\no fim all the debts and accounts which ’\nduring the term he continued the busi- A\nat J. dosgiy'ie fay authorised to col.| A T th\n| pay all which accrued during the off:\nhis occupying said tavern and relative to | ment of\nrn accouta,\nPAUL J. CARLI. St 7\n9, Ort. 8, 1334, Swab Tones",
+      "normalized": "Notice. [P. J.] CARL[I], having relinquished the tav[e]rn known as the Ea[g]l[e] Hotel, on the [first of] [S]eptember last, to J. Shrigley, and as[signed t]o [h]im all the debts and accounts which [accrued] during the term he continued the busi[ness … J. Shrigley] is [d]uly authorised to col[lect and] pay all which accrued during the [term of] his occupying said tavern and relative to [the tave]rn accou[n]ts. PAUL J. CARLI. [Chicago], O[c]t. 8, 18[34].",
+      "locator": {
+        "artifact_role": "primary",
+        "issue_page": 3,
+        "column": 2,
+        "lines": [
+          2062,
+          2073
+        ],
+        "lines_of_claim": [
+          2062,
+          2063,
+          2064,
+          2065,
+          2066,
+          2067,
+          2068,
+          2069,
+          2070,
+          2071,
+          2072,
+          2073
+        ],
+        "interleaved": true
+      },
+      "entities": [
+        {
+          "as_printed": "PAUL J. CARLI.",
+          "normalized": "Paul J. Carli",
+          "role": "former proprietor",
+          "occupations": [
+            "tavern keeper"
+          ]
+        },
+        {
+          "as_printed": "J. Shrigley",
+          "normalized": "J. Shrigley",
+          "role": "proprietor",
+          "occupations": [
+            "tavern keeper"
+          ]
+        }
+      ],
+      "notes": "RULING 3'S VETO IN ITS PLAINEST FORM: the Eagle Hotel changes hands on 1 September 1834, from Paul J. Carli to J. Shrigley, and the notice says so in the paper's own words. The business record is made against the tavern and the claim carries `contradicts`, so the compiler holds Carli's tenancy as contradicted from this date rather than letting it stand into 1835. NO STREET is given for the Eagle Hotel here, so its placement class is 'none' and nothing is put on the plat from this claim.",
+      "business": {
+        "name": "Eagle Hotel",
+        "proprietors": [
+          "J. Shrigley"
+        ],
+        "trade": "tavern",
+        "goods": [],
+        "street": null,
+        "placement": {
+          "class": "none"
+        }
+      },
+      "ad_copy_date": {
+        "verbatim": "9, Ort. 8, 1334,",
+        "iso": "1834-10-08"
+      },
+      "contradicts": "Paul J. Carli's tenancy of the Eagle Hotel ends on 1 September 1834"
+    },
+    {
+      "id": "c007",
+      "kind": "notice",
+      "reading": "transcription_mediated",
+      "quote": "nt of Le Chi- Kine\nin the Post Office at K\nNING in Kies,",
+      "normalized": "[The list of letters remaining] in the Post Office at [Chicago …] […]",
+      "locator": {
+        "artifact_role": "primary",
+        "issue_page": 3,
+        "column": 1,
+        "lines": [
+          1842,
+          1844
+        ],
+        "lines_of_claim": [
+          1842,
+          1843,
+          1844
+        ],
+        "interleaved": true
+      },
+      "entities": [],
+      "notes": "THIS ISSUE REPRINTS THE 1 OCTOBER 1834 CHICAGO LETTER LIST, and its names are NOT minted here. The list runs from page 3 column 1 to the postmaster's signature in column 2, but the segmenter lost its opening: the heading survives only as the three lines quoted and the first name on the page is already at K. The issue of 1834-10-22 carries the same list whole and is where every name is minted — one list, one minting, which is the failure T-0299 records. Recorded here so that the reprint is on the record and the coverage assertion has something to point at."
+    }
+  ]
+}

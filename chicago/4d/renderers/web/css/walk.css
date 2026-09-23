@@ -1,0 +1,1440 @@
+/* 4D Chicago — walkthrough chrome.
+   The 3D scene is always daylight; the theme switch only reskins the interface.
+   Mobile (390x780) is a release gate, so every panel is sized from the visual
+   viewport and nothing relies on hover. */
+
+:root {
+  --ink: #f4f1ea;
+  --ink-dim: #b9b3a6;
+  --panel: rgba(20, 19, 17, 0.86);
+  --panel-solid: #16150f;
+  --edge: rgba(244, 241, 234, 0.16);
+  --accent: #d8a24a;
+  --doc: #cfd8c5;
+  --inf: #e2a63f;
+  --con: #9aa3ad;
+  --shadow: 0 10px 34px rgba(0, 0, 0, 0.5);
+  /* Behind the canvas. It should never be visible — but headless Chromium's
+     compositor occasionally paints the page ground behind a fixed, rounded,
+     scrollable overlay, and a hard black rectangle over a daylight scene reads
+     as a rendering bug. Themed, it reads as nothing at all. */
+  --page: #0d0f12;
+  --r: 12px;
+  --safe-b: env(safe-area-inset-bottom, 0px);
+  --safe-t: env(safe-area-inset-top, 0px);
+  --vh: 100vh;
+}
+
+[data-theme="light"] {
+  --ink: #1d1a14;
+  --ink-dim: #5c564a;
+  --panel: rgba(250, 248, 243, 0.92);
+  --panel-solid: #faf8f3;
+  --edge: rgba(29, 26, 20, 0.16);
+  --accent: #8a5a12;
+  --shadow: 0 10px 30px rgba(40, 34, 20, 0.24);
+  --page: #dfe7ec;
+}
+
+* { box-sizing: border-box; }
+
+html, body {
+  margin: 0;
+  padding: 0;
+  height: 100%;
+  overflow: hidden;
+  background: var(--page);
+  color: var(--ink);
+  font: 15px/1.5 ui-sans-serif, system-ui, -apple-system, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+  -webkit-text-size-adjust: 100%;
+  overscroll-behavior: none;
+}
+
+#view {
+  position: fixed;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  display: block;
+  touch-action: none;
+}
+
+.noscript { position: fixed; inset: 0; display: grid; place-items: center; }
+
+/* ---------------------------------------------------------------- gate --- */
+
+.gate {
+  position: fixed;
+  inset: 0;
+  display: grid;
+  place-items: center;
+  padding: 20px;
+  background: radial-gradient(120% 90% at 50% 0%, rgba(8, 10, 14, 0.35), rgba(8, 10, 14, 0.86));
+  z-index: 40;
+  -webkit-backdrop-filter: blur(2px);
+  backdrop-filter: blur(2px);
+}
+.gate[hidden] { display: none; }
+
+.gate-card {
+  width: min(460px, 100%);
+  padding: 26px 24px 20px;
+  border: 1px solid var(--edge);
+  border-radius: 16px;
+  background: var(--panel);
+  box-shadow: var(--shadow);
+  text-align: center;
+}
+.gate-eyebrow {
+  margin: 0 0 6px;
+  font-size: 11px;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  color: var(--accent);
+}
+.gate-card h1 {
+  margin: 0 0 6px;
+  font-size: 25px;
+  font-weight: 620;
+  letter-spacing: -0.01em;
+}
+.gate-sub { margin: 0 0 18px; color: var(--ink-dim); font-size: 14px; }
+
+/* The town's own completeness, counted from the committed data (T-0036, T-0490).
+   Two rows of ONE shape (T-0782): a headline numeral, a bar filled to what is
+   done, the denominator under it. Stacked rather than side by side because each
+   row now carries a bar, and a bar reads as a proportion only at width. The
+   people bar is segmented by grade in the order the evidence is earned —
+   attested, inferred, reconstructed — so the three grades read as portions of
+   one count filling toward the town's recorded size, not as a separate list.
+   Left-aligned inside a centred card: a bar and its own label have to share an
+   edge or the eye cannot pair them. Tabular numerals so nothing jitters as the
+   counts grow. */
+.gate-census {
+  display: grid;
+  gap: 14px;
+  margin: 0 0 18px;
+  padding: 12px 2px;
+  border-top: 1px solid var(--edge);
+  border-bottom: 1px solid var(--edge);
+  text-align: left;
+}
+.gate-census[hidden] { display: none; }
+.gate-census .gc-row { display: grid; gap: 5px; }
+.gate-census .gc-head {
+  margin: 0;
+  display: flex;
+  align-items: baseline;
+  gap: 7px;
+  flex-wrap: wrap;
+}
+.gate-census .gc-n {
+  font-size: 26px;
+  font-weight: 640;
+  line-height: 1.05;
+  letter-spacing: -0.02em;
+  color: var(--accent);
+  font-variant-numeric: tabular-nums;
+}
+.gate-census .gc-l {
+  font-size: 12px;
+  color: var(--ink);
+  letter-spacing: .01em;
+}
+/* The unfilled track is the town still to come, so it must be visible in both
+   themes rather than assumed dark. */
+.gate-census .gc-bar {
+  height: 6px;
+  border-radius: 3px;
+  overflow: hidden;
+  display: flex;
+  background: color-mix(in srgb, var(--ink) 14%, transparent);
+}
+.gate-census .gc-seg { display: block; height: 100%; }
+.gate-census .gc-seg-built { background: var(--accent); }
+.gate-census .gc-seg-att { background: var(--doc); }
+.gate-census .gc-seg-inf { background: var(--inf); }
+.gate-census .gc-seg-rec { background: var(--con); }
+.gate-census .gc-of {
+  margin: 0;
+  font-size: 11px;
+  color: var(--ink-dim);
+  opacity: .85;
+}
+/* The key names the three segments. `reconstructed` is here at zero on purpose —
+   it is the portion still to fill, and the swatch is drawn hollow to say so. */
+.gate-census .gc-key {
+  margin: 1px 0 0;
+  padding: 0;
+  list-style: none;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 3px 12px;
+  font-size: 11px;
+  color: var(--ink-dim);
+  font-variant-numeric: tabular-nums;
+}
+.gate-census .gc-key li { display: flex; align-items: center; gap: 5px; }
+.gate-census .gc-sw { width: 8px; height: 8px; border-radius: 2px; display: block; }
+.gate-census .gc-sw-att { background: var(--doc); }
+.gate-census .gc-sw-inf { background: var(--inf); }
+.gate-census .gc-sw-rec { background: transparent; border: 1px solid var(--con); }
+/* The grade hues were authored for a dark panel, where a pale swatch reads as
+   "filled". On the light theme the unfilled track is the DARKER of the two, so a
+   pale fill inverts the whole reading — the bar looks empty where it is full.
+   Deepened against the light theme's own ink rather than respelled as new hex,
+   so the family stays the family and one token change still moves all of it. */
+[data-theme="light"] .gate-census .gc-seg-att,
+[data-theme="light"] .gate-census .gc-sw-att { background: color-mix(in srgb, var(--doc) 52%, var(--ink)); }
+[data-theme="light"] .gate-census .gc-seg-inf,
+[data-theme="light"] .gate-census .gc-sw-inf { background: color-mix(in srgb, var(--inf) 78%, var(--ink)); }
+[data-theme="light"] .gate-census .gc-seg-rec { background: color-mix(in srgb, var(--con) 62%, var(--ink)); }
+/* Placement, not population: these are named residents standing inside a
+   building that stands. It sits under the people row and is never set against
+   the town total. */
+.gate-census .gc-note {
+  margin: 2px 0 0;
+  font-size: 11px;
+  line-height: 1.45;
+  color: var(--ink-dim);
+  opacity: .9;
+}
+
+/* Loading progress. A bar rather than a spinner because the question a visitor
+   actually has is "is this stuck?", and only a bar that MOVES answers it. It is
+   driven from the real boot stages in main.js, never from a timer. */
+.gate-bar {
+  height: 4px; margin: 0 0 18px; border-radius: 2px;
+  background: rgba(255, 255, 255, .10); overflow: hidden;
+}
+.gate-bar > i {
+  display: block; height: 100%; width: 0%;
+  background: var(--inf); border-radius: 2px;
+  transition: width .25s ease;
+}
+.gate-bar.done { opacity: 0; transition: opacity .4s ease .2s; }
+
+/* Which build you are looking at. Deliberately quiet, and deliberately the last
+   thing on the card: it is for the moment something has gone wrong. */
+.gate-build {
+  margin: 14px 0 0; font-size: 11px; letter-spacing: .04em;
+  color: var(--ink-dim); opacity: .65; font-variant-numeric: tabular-nums;
+}
+
+.gate-btn {
+  width: 100%;
+  padding: 13px 18px;
+  font: inherit;
+  font-weight: 600;
+  color: #17140c;
+  background: var(--accent);
+  border: 0;
+  border-radius: 10px;
+  cursor: pointer;
+  transition: filter .15s ease, opacity .15s ease;
+}
+.gate-btn:disabled { opacity: .45; cursor: progress; }
+.gate-btn:not(:disabled):hover { filter: brightness(1.08); }
+
+.gate-keys { margin: 14px 0 0; font-size: 12px; color: var(--ink-dim); }
+.gate-keys .k {
+  display: inline-block;
+  padding: 1px 6px;
+  margin: 0 2px;
+  border: 1px solid var(--edge);
+  border-radius: 5px;
+  font-size: 11px;
+  color: var(--ink);
+}
+.gate-touch { display: none; }
+body.is-touch .gate-keys:not(.gate-touch) { display: none; }
+body.is-touch .gate-touch { display: block; }
+
+.gate-fine {
+  margin: 16px 0 0;
+  padding-top: 12px;
+  border-top: 1px solid var(--edge);
+  font-size: 11.5px;
+  color: var(--ink-dim);
+}
+.gate-fine code { font-size: 11px; }
+
+/* ----------------------------------------------------------------- hud --- */
+
+.hud {
+  position: fixed;
+  inset: 0;
+  z-index: 20;
+  pointer-events: none;
+  padding: calc(10px + var(--safe-t)) 10px calc(10px + var(--safe-b));
+  display: flex;
+  flex-direction: column;
+}
+.hud[hidden] { display: none; }
+
+.hud-top { display: flex; align-items: flex-start; justify-content: space-between; gap: 8px; }
+
+.badge {
+  pointer-events: auto;
+  display: flex;
+  align-items: baseline;
+  gap: 7px;
+  padding: 7px 12px;
+  border: 1px solid var(--edge);
+  border-radius: var(--r);
+  background: var(--panel);
+  box-shadow: var(--shadow);
+}
+.badge-year { font-size: 17px; font-weight: 640; letter-spacing: 0.01em; }
+.badge-sub { font-size: 11px; color: var(--ink-dim); }
+/* The altitude readout rides in the year badge. Without nowrap it wraps the
+   badge to three stacked lines at 390 px — "1835 / 1 July / 72 ft up" — which
+   is how it first shipped to a screenshot. */
+.badge { flex-wrap: nowrap; white-space: nowrap; }
+.badge-alt {
+  padding-left: 9px;
+  margin-left: 2px;
+  border-left: 1px solid var(--edge);
+  font-size: 11px;
+  color: var(--accent);
+  font-variant-numeric: tabular-nums;
+}
+.badge-alt[hidden] { display: none; }
+.fly-glyph { font-size: 10px; opacity: .85; }
+
+.hud-actions { display: flex; gap: 6px; flex-wrap: wrap; justify-content: flex-end; }
+
+/* Navigation sits below the date badge, away from the settings panel and from
+   both touch-control corners. It never captures a pointer: the map is a readout,
+   not a second way to steer. */
+.navigation-stack {
+  position: absolute;
+  top: calc(58px + var(--safe-t));
+  left: 10px;
+  display: grid;
+  justify-items: start;
+  gap: 7px;
+  pointer-events: none;
+}
+.compass {
+  display: flex;
+  align-items: center;
+  gap: 7px;
+  min-height: 34px;
+  padding: 4px 9px 4px 5px;
+  border: 1px solid var(--edge);
+  border-radius: 999px;
+  background: var(--panel);
+  box-shadow: var(--shadow);
+  font-size: 11px;
+  font-variant-numeric: tabular-nums;
+}
+.compass[hidden], .overview-map[hidden], .street-readout[hidden] { display: none; }
+.compass strong { min-width: 29px; color: var(--ink); font-size: 11.5px; }
+.compass > span:last-child { color: var(--ink-dim); }
+.compass-dial {
+  position: relative;
+  width: 26px;
+  height: 26px;
+  flex: none;
+  border: 1px solid var(--edge);
+  border-radius: 50%;
+  color: var(--ink-dim);
+  font-size: 6px;
+  line-height: 1;
+}
+.compass-n, .compass-e, .compass-s, .compass-w { position: absolute; }
+.compass-n { top: 2px; left: 50%; transform: translateX(-50%); color: var(--accent); }
+.compass-e { top: 50%; right: 2px; transform: translateY(-50%); }
+.compass-s { bottom: 2px; left: 50%; transform: translateX(-50%); }
+.compass-w { top: 50%; left: 2px; transform: translateY(-50%); }
+.compass-needle {
+  position: absolute;
+  top: 50%; left: 50%;
+  color: var(--accent);
+  font-size: 17px;
+  line-height: 1;
+  transform-origin: 50% 88%;
+  transform: translate(-50%, -88%);
+}
+.overview-map {
+  position: relative;
+  overflow: hidden;
+  border: 1px solid var(--edge);
+  border-radius: 10px;
+  background: #696546;
+  box-shadow: var(--shadow);
+}
+.overview-map canvas { display: block; opacity: .94; }
+/* The inset IS the control that opens the whole field (T-1142): a transparent
+   button laid over it, so the target is the map itself rather than a separate
+   affordance crowding a 248x98 frame. `.navigation-stack` is pointer-events:
+   none, so this has to claim them back. */
+.overview-open {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  padding: 0;
+  border: 0;
+  border-radius: inherit;
+  background: transparent;
+  cursor: pointer;
+  pointer-events: auto;
+  -webkit-appearance: none;
+  appearance: none;
+}
+.overview-open:hover { background: rgba(244, 181, 79, .1); }
+.overview-open:focus-visible { outline: 2px solid var(--accent); outline-offset: -2px; }
+
+/* The pop-out. A dialog over the scene, not a second HUD layer — it sits above
+   the drawer so opening it from the menu cannot bury it. */
+.overview-full {
+  position: fixed;
+  inset: 0;
+  z-index: 40;
+  display: grid;
+  place-items: center;
+  padding: 12px;
+  background: rgba(8, 8, 7, .62);
+  pointer-events: auto;
+}
+.overview-full[hidden] { display: none; }
+.overview-full-card {
+  display: grid;
+  gap: 8px;
+  max-width: min(100%, 820px);
+  max-height: 100%;
+  padding: 12px 14px 10px;
+  border: 1px solid var(--edge);
+  border-radius: var(--r);
+  background: var(--panel);
+  box-shadow: var(--shadow);
+  backdrop-filter: blur(6px);
+}
+.overview-full-head { display: flex; align-items: center; justify-content: space-between; gap: 12px; }
+.overview-full-head strong { color: var(--ink); font-size: 13.5px; }
+.overview-full-close {
+  flex: none;
+  width: 30px;
+  height: 30px;
+  padding: 0;
+  border: 1px solid var(--edge);
+  border-radius: 8px;
+  background: transparent;
+  color: var(--ink-dim);
+  font-size: 17px;
+  line-height: 1;
+  cursor: pointer;
+}
+.overview-full-close:hover { color: var(--ink); }
+.overview-full-canvas, .overview-full canvas {
+  display: block;
+  justify-self: center;
+  border: 1px solid var(--edge);
+  border-radius: 8px;
+  background: #696546;
+}
+.overview-full-foot { margin: 0; color: var(--ink-dim); font-size: 11px; text-align: center; }
+.overview-north, .overview-caption {
+  position: absolute;
+  padding: 1px 5px;
+  border-radius: 5px;
+  background: rgb(18 19 18 / 72%);
+  color: #f4f1ea;
+  font-size: 8px;
+  letter-spacing: .08em;
+  text-transform: uppercase;
+}
+.overview-north { top: 4px; right: 4px; color: #f4b54f; font-weight: 700; }
+.overview-caption { right: 4px; bottom: 4px; color: #d5d0c4; }
+.street-readout {
+  display: grid;
+  width: 248px;
+  gap: 2px;
+  padding: 8px 10px 9px;
+  border: 1px solid var(--edge);
+  border-radius: 10px;
+  background: var(--panel);
+  box-shadow: var(--shadow);
+  line-height: 1.25;
+}
+.street-readout strong {
+  overflow: hidden;
+  color: var(--ink);
+  font-size: 12px;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+.street-mode {
+  color: var(--accent);
+  font-size: 8px;
+  font-weight: 700;
+  letter-spacing: .09em;
+  text-transform: uppercase;
+}
+.street-modern, .street-approach {
+  overflow: hidden;
+  color: var(--ink-dim);
+  font-size: 10px;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+.street-approach { color: var(--ink); }
+
+.chip {
+  pointer-events: auto;
+  display: inline-flex;
+  align-items: center;
+  gap: 7px;
+  padding: 8px 11px;
+  font: inherit;
+  font-size: 13px;
+  color: var(--ink);
+  background: var(--panel);
+  border: 1px solid var(--edge);
+  border-radius: var(--r);
+  box-shadow: var(--shadow);
+  cursor: pointer;
+  min-height: 38px;
+}
+.chip.icon { width: 38px; justify-content: center; padding: 8px; font-size: 15px; }
+.chip[aria-pressed="true"] { border-color: var(--accent); color: var(--accent); }
+
+/* Unread marker on the help chip. `position: relative` has to sit on the chip
+   itself or the dot anchors to the nearest positioned ancestor, which is the
+   HUD, and it lands in the corner of the screen. */
+.chip { position: relative; }
+.chip-dot {
+  position: absolute;
+  top: 5px; right: 5px;
+  width: 7px; height: 7px;
+  border-radius: 50%;
+  background: var(--accent);
+}
+.chip-dot[hidden] { display: none; }
+.chip .dot {
+  width: 9px; height: 9px; border-radius: 50%;
+  background: linear-gradient(135deg, var(--doc) 0 33%, var(--inf) 33% 66%, var(--con) 66%);
+}
+
+.hud-legend {
+  pointer-events: auto;
+  align-self: flex-end;
+  width: min(320px, calc(100% - 4px));
+  margin-top: 8px;
+  padding: 12px 14px;
+  border: 1px solid var(--edge);
+  border-radius: var(--r);
+  background: var(--panel);
+  box-shadow: var(--shadow);
+  font-size: 12.5px;
+}
+.hud-legend[hidden] { display: none; }
+.legend-title { margin: 0 0 8px; font-size: 11px; letter-spacing: .14em; text-transform: uppercase; color: var(--accent); }
+.hud-legend ul { margin: 0; padding: 0; list-style: none; display: grid; gap: 6px; }
+.hud-legend li { display: grid; grid-template-columns: 14px 1fr; gap: 8px; align-items: start; color: var(--ink-dim); }
+.sw { width: 12px; height: 12px; border-radius: 3px; margin-top: 3px; display: block; }
+.sw-doc { background: var(--doc); }
+.sw-inf { background: var(--inf); }
+.sw-rec { background: repeating-linear-gradient(45deg, var(--con) 0 2px, transparent 2px 4px); border: 1px solid var(--con); }
+/* T-1158. The fourth tier, and it is deliberately the emptiest thing on the card:
+   `unknown` means nothing is asserted, so the chip is an empty outline rather than a
+   colour. It has to be distinguishable from `reconstructed` at a glance, because most
+   of this town's attributes are not recorded and the hatched chip used to say we had
+   invented them. Dashed reads as "nothing here" in both themes without adding a hue. */
+.sw-unk { background: transparent; border: 1px dashed var(--con); opacity: .7; }
+.legend-note { margin: 10px 0 0; color: var(--ink-dim); font-size: 11.5px; }
+.legend-note code { font-size: 11px; }
+
+/* ----------------------------------------------------------- liberties --- */
+/* One <details> per recorded liberty. Collapsed by default because eighteen
+   confessions opened at once is a wall rather than a disclosure — the titles
+   are the index, and the reasoning is one tap away. */
+
+.legend-h {
+  margin: 16px 0 0;
+  padding-top: 13px;
+  border-top: 1px solid var(--edge);
+  font-size: 11px; letter-spacing: .14em; text-transform: uppercase;
+  color: var(--accent);
+}
+/* `minmax(0, 1fr)` and not the default `auto`, because an `auto` grid track
+   resolves toward MAX-CONTENT: a card holding one long unbreakable run widens
+   the whole column and the panel's text is then clipped at the right edge
+   instead of wrapping. Every section that mounts here had fitted anyway, so the
+   fault was latent until T-0281's plant vocabularies — thirty words in one row —
+   pushed a 390 px panel's content to 419 px against its 338 px box. This says
+   the column may shrink below its content, which is what makes text wrap; the
+   sections that already fitted are unchanged by it. */
+.liberties { margin-top: 10px; display: grid; grid-template-columns: minmax(0, 1fr); gap: 4px; }
+
+.lib { border: 1px solid var(--edge); border-radius: 9px; background: rgb(255 255 255 / 3%); }
+.lib summary {
+  display: flex; align-items: baseline; gap: 7px;
+  padding: 7px 9px;
+  cursor: pointer;
+  list-style: none;
+  font-size: 12px;
+  color: var(--ink);
+}
+.lib summary::-webkit-details-marker { display: none; }
+.lib summary:hover { background: rgb(255 255 255 / 5%); border-radius: 8px; }
+.lib[open] summary { border-bottom: 1px solid var(--edge); border-radius: 8px 8px 0 0; }
+.lib-id {
+  flex: 0 0 auto;
+  color: var(--accent);
+  font-size: 11px; font-variant-numeric: tabular-nums; letter-spacing: .04em;
+}
+.lib-title { flex: 1 1 auto; }
+.lib-scope {
+  flex: 0 0 auto;
+  padding: 1px 6px;
+  border: 1px solid var(--edge); border-radius: 999px;
+  color: var(--ink-dim); font-size: 10px; white-space: nowrap;
+}
+
+.lib-body { margin: 0; padding: 9px 10px 2px; display: grid; gap: 3px; }
+.lib-body dt {
+  color: var(--accent);
+  font-size: 10px; letter-spacing: .1em; text-transform: uppercase;
+}
+.lib-body dd { margin: 0 0 8px; color: var(--ink-dim); font-size: 11.5px; line-height: 1.5; }
+.lib-body code { font-size: 11px; }
+.lib-body b { color: var(--ink); font-weight: 600; }
+
+.lib-meta {
+  display: flex; flex-wrap: wrap; align-items: center; gap: 5px;
+  margin: 0; padding: 0 10px 9px;
+}
+.lib-subject {
+  padding: 1px 6px;
+  border: 1px solid var(--edge); border-radius: 999px;
+  color: var(--ink); font-size: 10px;
+}
+/* An admission, not a label: this entry says it invented that building's
+   footprint or position, and the commit gate holds it to the claim. Tinted to
+   read as the conjectural swatch does, since that is what it is describing. */
+.lib-covers {
+  padding: 1px 6px;
+  border: 1px dashed var(--con); border-radius: 999px;
+  color: var(--ink); font-size: 10px; white-space: nowrap;
+}
+.lib-covers em { font-style: normal; color: var(--ink-dim); }
+.lib-date { color: var(--ink-dim); font-size: 10px; font-variant-numeric: tabular-nums; }
+
+/* An excluded structure reuses the liberty entry's box wholesale: it is the same
+   kind of disclosure, and a visitor should not have to learn a second interface
+   to read a second confession. Only the citation list is new — the entry ends in
+   the evidence, because "we left this out" is a claim like any other here. */
+.excl-cites { padding: 2px 10px 10px 28px; font-size: 11.5px; gap: 7px; }
+
+/* The wildlife section (ROADMAP K51) reuses the same box for the third time, and
+   for the third time the reason is that a visitor should not have to learn a new
+   interface to read a new kind of record. A habitat is a liberty-shaped entry
+   with its animals nested inside it, which is the one structural difference: the
+   nested list is indented and loses the outer border so ten habitats holding a
+   hundred and thirty-nine species still read as a list and not as a stack of
+   boxes inside boxes. */
+.fauna-species { display: grid; gap: 4px; padding: 2px 10px 10px 14px; }
+/* The legend's swatch is a block because it heads a list item there. Inside a
+   graded claim it sits in front of the value it grades, and a block would put
+   the grade on a line of its own above the answer. */
+.fauna-sp .lib-body .sw, .fauna-sp summary .sw { display: inline-block; vertical-align: 0; margin: 0 4px 0 0; }
+.fauna-sp { background: rgb(255 255 255 / 2%); }
+.fauna-binomial { font-style: italic; color: var(--ink-dim); font-size: 11px; margin-left: 6px; }
+/* The reasoning behind a graded claim, under the value it grades. Dimmed and
+   small because the value is the answer and this is why we believe it — the same
+   ranking the provenance card gives the two. */
+.fauna-why { display: block; margin-top: 3px; color: var(--ink-dim); font-size: 11px; line-height: 1.45; }
+/* A value outside its own closed set. It cannot happen while tools/validate.py
+   holds the vocabulary, which is exactly why it is worth drawing: a card that
+   silently prints an unknown word is a card that hides a broken gate. */
+.fauna-unknown { border-color: var(--con); color: var(--con); }
+
+/* The plants section (T-0281) reuses the wildlife's box for the fifth time, and
+   deliberately reuses its CLASSES too rather than cloning them under a new
+   prefix: a community with its species nested inside it is structurally a
+   habitat with its animals nested inside it, and a second set of rules saying
+   the same thing is a second place for the two to drift apart. Only what is
+   genuinely new to this section is named here. */
+/* T-0281's scoped `minmax(0, 1fr)` column for the plant cards was retired into the
+   global rule in css/evidence.css when T-0302 measured the same overflow under every
+   other Evidence section; one rule now covers all of them. */
+/* A community's summary carries FOUR things where a habitat's carries three —
+   the id, the name, the species count and, on eight of the ten, the chip saying
+   the sward lattice cannot draw what this community's records ask for. `.lib
+   summary` is a flex row that does not wrap, so the fourth chip ran the line
+   past the panel's right edge at 390 px. Wrapping is the honest answer rather
+   than dropping the chip: the chip is the finding. */
+.plant-zone > summary { flex-wrap: wrap; }
+.plant-zone > summary .lib-title { min-width: 0; }
+.plant-clamp { margin: 4px 0 0; padding-left: 16px; display: grid; gap: 4px; }
+.plant-clamp li { line-height: 1.45; }
+/* The chip that says a community is drawing less than its records ask for. It
+   takes the conjectural colour on purpose — not because the RECORD is weak, but
+   because what a visitor sees there is the lattice's answer and not the
+   evidence's, and this panel's colours already mean exactly that. */
+.plant-clamped { border-color: var(--con); color: var(--con); }
+
+/* The people section (ROADMAP K52) reuses the same box for the fourth time, and
+   the nesting is the wildlife section's exactly: a household is a liberty-shaped
+   entry with its people inside it, indented and unboxed so 173 households do not
+   read as boxes inside boxes. */
+.res-people { display: grid; gap: 4px; padding: 2px 10px 10px 14px; }
+.res-person { background: rgb(255 255 255 / 2%); }
+.res-person .lib-body .sw, .res-person summary .sw,
+.res-hh summary .sw, .res-fields .sw {
+  display: inline-block; vertical-align: 0; margin: 0 4px 0 0;
+}
+/* The reasoning behind a graded claim, under the value it grades — the same
+   ranking, and the same styling, the wildlife cards use. On this layer it
+   carries more weight than anywhere else in the panel: a household's note
+   routinely explains that the figure above it is NOT evidence. */
+.res-why { display: block; margin-top: 3px; color: var(--ink-dim); font-size: 11px; line-height: 1.45; }
+/* The tier's own word, beside the chip. Small, upright and dim: it labels the row, it
+   is not part of the value, and a card with ten of them should still read as a card. */
+.res-tier {
+  font-size: 10px; letter-spacing: .1em; text-transform: uppercase;
+  color: var(--ink-dim); margin-right: 6px; white-space: nowrap;
+}
+/* What a reconstructed value rests on, opened by the reader. Forty blocks in the layer
+   carry one, so it is collapsed and costs the rest of the card nothing. */
+.res-basis { margin-top: 4px; }
+.res-basis > summary {
+  cursor: pointer; font-size: 11px; color: var(--ink-dim); list-style: none;
+  border-bottom: 1px dotted var(--edge); display: inline-block;
+}
+.res-basis > summary::-webkit-details-marker { display: none; }
+.res-basis > summary:hover { color: var(--ink); }
+.res-basis code { font-size: 10.5px; }
+.res-role { color: var(--ink-dim); font-size: 11px; margin-left: 6px; }
+.res-chips { display: inline-flex; flex-wrap: wrap; gap: 4px; margin-left: 6px; }
+.res-chip {
+  font-size: 10.5px; color: var(--ink-dim); border: 1px solid var(--edge);
+  border-radius: 999px; padding: 0 6px; white-space: nowrap;
+}
+.res-research { border-color: rgb(212 173 93 / 58%); color: #f0d293; }
+/* The dated roles of one person, as a timeline (T-1255). A role that reaches
+   1 July 1835 gets the documented rule down its left edge and one that does not
+   keeps the neutral one, so the shape of a career is readable before a single
+   chip is. The year is tabular so the column of bounds lines up. */
+.res-roles { list-style: none; margin: 6px 0 0; padding: 0; display: grid; gap: 8px; }
+.res-role-row { border-left: 2px solid var(--edge); padding-left: 9px; }
+.res-role-row.res-role-at { border-left-color: var(--doc); }
+.res-role-when {
+  display: block; color: var(--ink); font-size: 11.5px;
+  font-variant-numeric: tabular-nums; letter-spacing: 0.01em;
+}
+.res-role-scene { border-color: color-mix(in srgb, var(--doc) 58%, transparent); color: var(--doc); }
+.res-role-off { border-color: var(--con); color: var(--con); }
+/* `--doc` is the pale sage the dark panel needs and is near-invisible on the
+   light one, so the scene-date mark is mixed toward the ink there — the same
+   correction the census gate makes for the same swatch. */
+[data-theme="light"] .res-role-row.res-role-at,
+[data-theme="light"] .res-role-scene { border-color: color-mix(in srgb, var(--doc) 40%, var(--ink)); }
+[data-theme="light"] .res-role-scene { color: color-mix(in srgb, var(--doc) 30%, var(--ink)); }
+.res-candidates { margin: 7px 0 0 18px; padding: 0; }
+.res-candidates > li { margin: 0 0 8px; }
+/* The seventeen households this project could not put on a building card. The
+   chip is the finding, so it is the one thing in the list drawn in the
+   conjectural colour rather than the dim one. It is NOT drawn inside the
+   letter-list group, where having no building is the definition rather than a
+   finding — see residents.js § letterListGroupHtml. */
+.res-orphan { border-color: var(--con); color: var(--con); }
+/* The letter-list cohort (T-0379), which is most of the town's people and none of
+   its evidence. One closed group, marked in the conjectural colour the same way a
+   single thin claim is, so the split is visible before it is opened. */
+.res-ll-group { border-left: 2px solid var(--con); padding-left: 9px; }
+.res-ll-group > summary .lib-title { color: var(--ink-dim); }
+.res-hh summary { display: flex; flex-wrap: wrap; align-items: baseline; }
+.res-hh .lib-title { text-transform: capitalize; }
+
+/* A claim the ground makes about itself, in the same box for the same reason.
+   The confidence chip sits in the summary because the grade IS the headline
+   here: a visitor scanning the list should be able to see, without opening
+   anything, that the water is documented and the bank face is not. */
+.ground-cites { padding: 2px 10px 10px 28px; font-size: 11.5px; gap: 7px; }
+.ground summary .conf { flex: 0 0 auto; }
+.ground .lib-body dd.ground-note { color: var(--ink-dim); }
+.ground-standard { border-left: 2px solid var(--edge); padding-left: 9px; }
+
+.crosshair {
+  position: absolute;
+  left: 50%; top: 50%;
+  width: 6px; height: 6px;
+  margin: -3px 0 0 -3px;
+  border-radius: 50%;
+  background: rgba(255, 255, 255, 0.75);
+  box-shadow: 0 0 0 1px rgba(0, 0, 0, 0.45);
+  opacity: 0;
+  transition: opacity .2s ease;
+}
+body.is-locked .crosshair { opacity: 1; }
+body.is-touch .crosshair { display: none; }
+
+.hud-bottom { margin-top: auto; display: flex; justify-content: center; }
+.hint {
+  margin: 0;
+  padding: 6px 12px;
+  font-size: 12px;
+  color: var(--ink-dim);
+  background: var(--panel);
+  border: 1px solid var(--edge);
+  border-radius: 999px;
+  opacity: 0;
+  transition: opacity .25s ease;
+  max-width: 100%;
+  text-align: center;
+}
+.hint.on { opacity: 1; }
+
+/* --------------------------------------------------------- touch stick --- */
+
+.touch-layer { position: absolute; inset: 0; pointer-events: none; }
+.touch-layer[hidden] { display: none; }
+.stick {
+  position: absolute;
+  width: 116px; height: 116px;
+  margin: -58px 0 0 -58px;
+  border-radius: 50%;
+  border: 1px solid rgba(255, 255, 255, 0.28);
+  background: rgba(12, 12, 12, 0.28);
+  opacity: 0;
+  transition: opacity .12s ease;
+}
+.stick.on { opacity: 1; }
+.stick-knob {
+  position: absolute;
+  left: 50%; top: 50%;
+  width: 46px; height: 46px;
+  margin: -23px 0 0 -23px;
+  border-radius: 50%;
+  background: rgba(255, 255, 255, 0.5);
+  border: 1px solid rgba(255, 255, 255, 0.6);
+}
+
+/* Rise / descend, free-fly only. Bottom RIGHT, above the look half: the left
+   thumb is already the stick, and the right thumb is the one that drags to
+   look — reaching down to a corner it can hit without crossing the screen. */
+.rise-pad {
+  position: absolute;
+  right: 14px;
+  bottom: calc(20px + var(--safe-b));
+  display: grid;
+  gap: 10px;
+  pointer-events: auto;
+}
+.rise-pad[hidden] { display: none; }
+.rise-btn {
+  width: 58px; height: 58px;        /* comfortably past the 44px touch minimum */
+  border-radius: 50%;
+  border: 1px solid rgba(255, 255, 255, 0.34);
+  background: rgba(12, 12, 12, 0.42);
+  color: #fff;
+  font-size: 17px;
+  line-height: 1;
+  cursor: pointer;
+  touch-action: none;
+  -webkit-user-select: none;
+  user-select: none;
+}
+.rise-btn.on { background: var(--accent); color: #17140c; }
+
+/* --------------------------------------------------------------- popup --- */
+
+.popup {
+  position: fixed;
+  z-index: 30;
+  right: 12px;
+  top: calc(58px + var(--safe-t));
+  width: min(392px, calc(100vw - 24px));
+  max-height: calc(var(--vh) - 80px - var(--safe-t) - var(--safe-b));
+  overflow: auto;
+  padding: 16px 16px 18px;
+  border: 1px solid var(--edge);
+  border-radius: 14px;
+  background: var(--panel-solid);
+  box-shadow: var(--shadow);
+  -webkit-overflow-scrolling: touch;
+  overscroll-behavior: contain;
+}
+.popup[hidden] { display: none; }
+
+/* The head (title row, aka, kind line, where line, flags, close button), the lead
+   and the facts grid live in css/card.css, which also carries the tab strip and
+   the panes. What stays here is what the evidence panes still use: sections,
+   tables, chips, residents, notes, citations, liberties, the research fold. */
+
+.pop-sec { margin: 16px 0 0; }
+.pop-sec > h3 {
+  margin: 0 0 8px;
+  font-size: 10.5px;
+  letter-spacing: .15em;
+  text-transform: uppercase;
+  color: var(--accent);
+}
+
+table.attrs { width: 100%; border-collapse: collapse; font-size: 13px; }
+table.attrs th, table.attrs td { text-align: left; vertical-align: top; padding: 6px 6px 6px 0; border-top: 1px solid var(--edge); }
+table.attrs tr:first-child th, table.attrs tr:first-child td { border-top: 0; }
+table.attrs th { font-weight: 500; color: var(--ink-dim); width: 38%; }
+table.attrs td .val { font-variant-numeric: tabular-nums; }
+
+.conf {
+  display: inline-block;
+  margin-left: 6px;
+  padding: 1px 6px;
+  border-radius: 999px;
+  font-size: 10px;
+  letter-spacing: .06em;
+  text-transform: uppercase;
+  vertical-align: 1px;
+  white-space: nowrap;
+}
+.conf-attested  { background: rgba(160, 200, 140, .2); color: #a9cf93; border: 1px solid rgba(160, 200, 140, .4); }
+.conf-inferred     { background: rgba(226, 166, 63, .18); color: var(--inf); border: 1px solid rgba(226, 166, 63, .45); }
+.conf-reconstructed    { background: rgba(154, 163, 173, .16); color: var(--con); border: 1px solid rgba(154, 163, 173, .4); }
+[data-theme="light"] .conf-attested { color: #3f6a2c; }
+[data-theme="light"] .conf-inferred { color: #8a5a12; }
+[data-theme="light"] .conf-reconstructed    { color: #4d5560; }
+
+/* WHO WAS HERE. A person's `grade` is a different axis from an attribute's
+   confidence — it says how much of a PERSON is reconstructed, not how sure we
+   are of a value — so it gets its own chip shape (square-ish, outlined) and
+   never borrows the confidence palette's meaning. `derived` has no equivalent
+   on the confidence scale at all, which is the clearest argument for keeping
+   the two apart. */
+.grade {
+  display: inline-block;
+  margin-left: 6px;
+  padding: 1px 6px;
+  border-radius: 4px;
+  font-size: 10px;
+  letter-spacing: .06em;
+  text-transform: uppercase;
+  vertical-align: 1px;
+  white-space: nowrap;
+  border: 1px solid currentColor;
+  background: transparent;
+}
+.grade-attested { color: #a9cf93; }
+.grade-inferred    { color: #8fb8d6; }
+.grade-reconstructed   { color: var(--inf); }
+[data-theme="light"] .grade-attested { color: #3f6a2c; }
+[data-theme="light"] .grade-inferred { color: #2f5f80; }
+[data-theme="light"] .grade-reconstructed { color: #8a5a12; }
+
+/* The per-level summary, above every table on the card. It is read first and
+   skimmed, so the three rows are separated by the residents' own hairline rather
+   than boxed: a bordered panel at the top of a card that is already a stack of
+   panels reads as a callout, and this is not an aside — it is the card's own
+   contents page. The chip is the table's chip at the table's size, deliberately,
+   because a bigger one here would look like a grade FOR THE BUILDING, which is
+   the one thing this section must not be mistaken for. */
+.pop-basis .basis-lead { margin: 0 0 10px; font-size: 12px; line-height: 1.5; color: var(--ink-dim); }
+.pop-basis .basis-row { border-top: 1px solid var(--edge); padding-top: 8px; margin-top: 8px; }
+.pop-basis .basis-row:first-of-type { border-top: 0; padding-top: 0; margin-top: 0; }
+.pop-basis .basis-head { margin: 0 0 4px; font-size: 12px; line-height: 1.6; }
+.pop-basis .basis-head .conf { margin-left: 0; }
+.pop-basis .basis-count { margin-left: 6px; font-variant-numeric: tabular-nums; }
+.pop-basis .basis-gloss { color: var(--ink-dim); }
+.pop-basis .basis-what { margin: 0; font-size: 12.5px; line-height: 1.5; }
+.pop-basis .basis-empty { color: var(--ink-dim); }
+.pop-basis .basis-from { margin: 4px 0 0; font-size: 11.5px; line-height: 1.45; color: var(--ink-dim); }
+/* Not a caveat about the evidence — a caveat about the VIEW, which is why it is
+   marked the way the rows' own `not built` chip is marked: outside the scale. */
+.pop-basis .basis-absent {
+  margin: 4px 0 0;
+  font-size: 11.5px; line-height: 1.45; font-style: italic; color: var(--ink-dim);
+}
+
+.pop-residents .res-lead { margin: 0 0 8px; font-size: 12px; color: var(--ink-dim); line-height: 1.45; }
+.pop-residents .res-hh { border-top: 1px solid var(--edge); padding-top: 8px; margin-top: 8px; }
+.pop-residents .res-hh:first-of-type { border-top: 0; padding-top: 0; margin-top: 0; }
+.pop-residents .res-head { margin: 0 0 4px; font-size: 13px; line-height: 1.45; }
+.pop-residents .res-basis { margin: 0 0 6px; font-size: 11.5px; line-height: 1.45; color: var(--ink-dim); }
+.pop-residents ul.res-people { list-style: none; margin: 0; padding: 0; display: grid; gap: 6px; }
+.pop-residents ul.res-people li { font-size: 12.5px; line-height: 1.4; }
+.pop-residents .res-role { color: var(--ink-dim); margin-left: 6px; }
+
+/* What the mesh does with a value nothing reads. Deliberately NOT a confidence
+   chip: it answers a different question, so it is dashed rather than filled and
+   sits outside the three-colour scale. A visitor should never read "not built"
+   as a fourth grade of certainty. */
+.geom {
+  display: inline-block;
+  margin-left: 6px;
+  padding: 1px 6px;
+  border-radius: 999px;
+  font-size: 10px;
+  letter-spacing: .06em;
+  text-transform: uppercase;
+  vertical-align: 1px;
+  white-space: nowrap;
+  color: var(--ink-dim);
+  border: 1px dashed currentColor;
+  background: transparent;
+}
+.geom-absent { font-weight: 600; }
+
+.attr-note {
+  display: block;
+  margin-top: 4px;
+  font-size: 11.5px;
+  line-height: 1.45;
+  color: var(--ink-dim);
+}
+/* An author `display` beats the UA rule for [hidden], so say it again here or
+   every "why" note ships permanently expanded. */
+.attr-note[hidden] { display: none; }
+.attr-toggle {
+  background: none; border: 0; padding: 0; margin-top: 3px;
+  font: inherit; font-size: 11px; color: var(--accent); cursor: pointer; text-decoration: underline;
+}
+
+ol.cites { margin: 0; padding-left: 18px; font-size: 12.5px; display: grid; gap: 9px; }
+ol.cites li { color: var(--ink-dim); line-height: 1.45; }
+ol.cites .cite-text { color: var(--ink); }
+ol.cites a { color: var(--accent); }
+.tier { font-size: 10.5px; opacity: .8; }
+
+/* What the page reprints, which is what the rung beside it is a judgement
+   about. One line, never collapsed: a visitor who cannot see it reads a modern
+   blog stamped "tier 2" and concludes the ladder is broken. The em rule marks
+   it as the citation's own account of itself rather than more citation. */
+.cite-reprints {
+  margin: 3px 0 0;
+  padding-left: 8px;
+  border-left: 2px solid var(--edge);
+  font-size: 11.5px; line-height: 1.45; color: var(--ink-dim);
+}
+.cite-reprints .reprints-work { color: var(--ink); }
+.cite-reprints .reprints-date { font-variant-numeric: tabular-nums; opacity: .85; }
+
+/* The limits collapse for the reason the record's own account does — several
+   of these run to four clauses each and five open citations would push the rest
+   of the card off a phone. */
+.cite-more { margin-top: 4px; }
+.cite-more > summary {
+  cursor: pointer; list-style: none;
+  font-size: 11px; color: var(--accent); text-decoration: underline;
+}
+.cite-more > summary::-webkit-details-marker { display: none; }
+.cite-lim-h {
+  margin: 6px 0 2px;
+  font-size: 10.5px; letter-spacing: .06em; text-transform: uppercase; color: var(--ink-dim);
+}
+ol.cites ul.cite-lim { margin: 0; padding-left: 15px; }
+ol.cites ul.cite-lim li { font-size: 11.5px; line-height: 1.45; }
+ol.cites ul.cite-lim-not li { opacity: .95; }
+.cite-reading { margin: 6px 0 0; font-size: 11.5px; line-height: 1.55; color: var(--ink-dim); }
+
+/* The liberties for the inspected building reuse the Evidence panel's `.lib`
+   entry wholesale — same markup, same renderer — so only the deltas live here:
+   a count beside the heading, and the honest note when nothing is recorded. */
+.pop-liberties .liberties { margin-top: 0; }
+.pop-count {
+  display: inline-block;
+  margin-left: 4px;
+  padding: 0 5px;
+  border-radius: 999px;
+  background: rgb(127 127 127 / 18%);
+  color: var(--ink-dim);
+  font-size: 10px; letter-spacing: 0; font-variant-numeric: tabular-nums;
+}
+.pop-lib-none { margin: 0; font-size: 12px; line-height: 1.5; color: var(--ink-dim); }
+
+/* The open question about this building reuses the Evidence panel's entry the
+   same way, so the only delta is the sentence introducing it. It sits directly
+   under the two claims it qualifies and must not read as a fourth claim. */
+.pop-question .liberties { margin-top: 0; }
+.pop-question-lead {
+  margin: 0 0 8px;
+  font-size: 12px; line-height: 1.5;
+  color: var(--ink-dim);
+}
+
+/* The town's own law on the card (T-0334). The standing sentence must read as a
+   finding about the GROUND — which side of the Trustees' line this building stood
+   on — and not as a fourth claim about the building, so it sits in --ink while its
+   reasoning drops to --ink-dim. The ordinance's own words are set as a quotation
+   because they are a quotation: nineteen words of 1835 statute, and the only
+   documented statement this project holds about where the built town ended. Tokens
+   only, so both themes come out of the same three variables. */
+.pop-ordinance-stands {
+  margin: 0 0 6px;
+  font-size: 12.5px; line-height: 1.5;
+  color: var(--ink);
+}
+.pop-ordinance-lead {
+  margin: 0 0 8px;
+  font-size: 12px; line-height: 1.5;
+  color: var(--ink-dim);
+}
+.pop-quote {
+  margin: 0 0 8px;
+  padding: 7px 10px;
+  border-left: 2px solid var(--edge);
+  border-radius: 0 8px 8px 0;
+  background: rgb(127 127 127 / 10%);
+  font-size: 12px; line-height: 1.6; font-style: italic;
+  color: var(--ink-dim);
+}
+.pop-ordinance-cite {
+  margin: 0;
+  font-size: 11px; line-height: 1.5;
+  color: var(--ink-dim);
+}
+
+/* The record's own account: several hundred words of prose, folded away behind
+   the same disclosure the liberties use, because it is the same kind of thing —
+   an argument a visitor opens when they want it, not a value they skim. Shown
+   verbatim, so the only styling decisions here are measure and rhythm. */
+.research { border: 1px solid var(--edge); border-radius: 9px; background: rgb(255 255 255 / 3%); }
+.research > summary {
+  padding: 7px 9px;
+  cursor: pointer;
+  list-style: none;
+  font-size: 12px;
+  color: var(--ink);
+}
+.research > summary::-webkit-details-marker { display: none; }
+.research > summary:hover { background: rgb(255 255 255 / 5%); border-radius: 8px; }
+.research[open] > summary { border-bottom: 1px solid var(--edge); border-radius: 8px 8px 0 0; }
+.research-body {
+  margin: 0;
+  padding: 9px 10px 10px;
+  font-size: 12px;
+  line-height: 1.6;
+  color: var(--ink-dim);
+}
+
+.pop-foot { margin: 16px 0 0; padding-top: 12px; border-top: 1px solid var(--edge); font-size: 12px; color: var(--ink-dim); }
+.pop-foot a { color: var(--accent); }
+
+@media (max-width: 620px) {
+  .popup {
+    right: 8px; left: 8px;
+    width: auto;
+    top: auto;
+    bottom: calc(8px + var(--safe-b));
+    max-height: min(62vh, calc(var(--vh) - 120px));
+  }
+  .hud-legend { width: 100%; }
+  .gate-card { padding: 22px 18px 16px; }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  * { transition: none !important; }
+}
+
+/* ---- controls / settings panel ---------------------------------------- */
+/* Replaces the old bare legend. Run already existed on Shift and nobody could
+   discover it; a walkthrough that does not say how to walk is not finished.
+   The drawer itself — its frame, rail, head and scroll column — lives in
+   css/drawer.css; this file keeps the base pieces the sections share
+   (.field, .check-field, kbd, .keys, .legend-*). */
+
+.control-help {
+  pointer-events: auto;
+  position: absolute;
+  top: 54px;
+  right: 0;
+  width: min(330px, calc(100vw - 24px));
+  padding: 14px 14px 12px;
+  border: 1px solid var(--edge);
+  border-radius: var(--r);
+  background: var(--panel-solid);
+  color: var(--ink);
+  box-shadow: var(--shadow);
+  font-size: 12px;
+}
+.control-help[hidden], .control-help-grid[hidden] { display: none; }
+.control-help > strong { display: block; margin: 0 28px 10px 0; font-size: 14px; }
+.control-help-close {
+  position: absolute; top: 7px; right: 8px;
+  width: 28px; height: 28px; border: 0; border-radius: 8px;
+  background: transparent; color: var(--ink-dim); font-size: 18px; cursor: pointer;
+}
+.control-help-close:hover { color: var(--ink); background: rgb(255 255 255 / 8%); }
+.control-help-grid {
+  display: grid;
+  grid-template-columns: auto 1fr auto 1fr;
+  align-items: center;
+  gap: 7px 9px;
+}
+.control-help-grid kbd { margin: 0; white-space: nowrap; }
+.control-help-gotit, .setting-button {
+  border: 1px solid var(--edge); border-radius: 8px;
+  background: rgb(255 255 255 / 8%); color: var(--ink);
+  font: inherit; cursor: pointer;
+}
+.control-help-gotit { width: 100%; margin-top: 12px; padding: 7px 10px; }
+.setting-button { padding: 5px 9px; }
+.control-help-gotit:hover, .setting-button:hover { background: rgb(255 255 255 / 14%); }
+
+@media (max-width: 520px) {
+  .control-help { top: 92px; right: 0; width: min(310px, calc(100vw - 16px)); }
+  .control-help-grid { grid-template-columns: auto 1fr; }
+}
+
+.keys { display: grid; grid-template-columns: auto 1fr; gap: 7px 13px; margin: 0; }
+/* [hidden] is display:none at UA-stylesheet strength; any display rule on the
+   element itself beats it. Both control lists rendered at once without this. */
+.keys[hidden] { display: none; }
+.keys dt { color: var(--ink-dim); font-size: 12px; white-space: nowrap; }
+.keys dd { margin: 0; font-size: 12.5px; color: var(--ink); }
+
+kbd {
+  display: inline-block;
+  min-width: 19px;
+  padding: 1px 5px;
+  margin-right: 2px;
+  border: 1px solid var(--edge);
+  border-bottom-width: 2px;
+  border-radius: 5px;
+  background: rgb(255 255 255 / 7%);
+  font: inherit; font-size: 11px; text-align: center;
+}
+
+.field { display: block; margin-bottom: 14px; font-size: 12.5px; color: var(--ink); }
+.field > span { display: block; margin-bottom: 6px; color: var(--ink-dim); }
+.field > span b { color: var(--ink); font-weight: 600; font-variant-numeric: tabular-nums; }
+.field.row { display: flex; align-items: center; justify-content: space-between; gap: 10px; }
+.field.row > span { margin: 0; }
+.field input[type="range"] { width: 100%; accent-color: var(--accent); }
+.field select {
+  padding: 5px 8px; border-radius: 8px;
+  border: 1px solid var(--edge);
+  background: rgb(255 255 255 / 7%); color: var(--ink); font: inherit; font-size: 12px;
+}
+.check-field input[type="checkbox"] {
+  width: 18px;
+  height: 18px;
+  margin: 0;
+  accent-color: var(--accent);
+}
+
+.jump-field input[type="search"] {
+  width: 100%;
+  padding: 8px 10px;
+  border: 1px solid var(--edge);
+  border-radius: 8px;
+  outline: none;
+  background: rgb(255 255 255 / 7%);
+  color: var(--ink);
+  font: inherit;
+}
+.jump-field input[type="search"]:focus { border-color: var(--accent); }
+.jump-results {
+  /* The list is the whole of its own tab now rather than a field inside
+     Settings, so it gets the height the panel can spare. */
+  max-height: min(340px, 42vh);
+  margin-top: 7px;
+  overflow-y: auto;
+  border: 1px solid var(--edge);
+  border-radius: 8px;
+}
+.jump-group {
+  position: sticky;
+  top: 0;
+  z-index: 1;
+  margin: 0;
+  padding: 5px 9px;
+  background: var(--panel-solid);
+  color: var(--ink-dim);
+  font-size: 9.5px;
+  font-weight: 650;
+  letter-spacing: .08em;
+  text-transform: uppercase;
+}
+.jump-result {
+  width: 100%;
+  display: flex;
+  align-items: baseline;
+  justify-content: space-between;
+  gap: 8px;
+  padding: 7px 9px;
+  border: 0;
+  border-top: 1px solid var(--edge);
+  background: rgb(255 255 255 / 3%);
+  color: var(--ink);
+  font: inherit;
+  font-size: 11.5px;
+  text-align: left;
+  cursor: pointer;
+}
+.jump-result:hover, .jump-result:focus-visible { background: rgb(255 255 255 / 11%); }
+/* `:not(.conf)`, because the confidence chip is also a <small> here and it
+   carries the colour that IS its meaning — a bare `.jump-result small` rule
+   outranks `.conf-inferred` on specificity and painted all three grades the
+   same dim grey, which is a legend that lies. */
+.jump-result small:not(.conf) { flex: none; color: var(--ink-dim); font-size: 9px; }
+.jump-result .conf { flex: none; margin-left: 0; font-size: 9px; }
+.jump-empty { margin: 0; padding: 10px; color: var(--ink-dim); font-size: 11.5px; }
+
+.legend-list { margin: 0 0 10px; padding: 0; list-style: none; display: grid; gap: 8px; }
+.legend-list li { font-size: 12.5px; color: var(--ink); line-height: 1.45; }
+
+/* ---- What's new -------------------------------------------------------- */
+
+
+.wn-list { margin: 0; padding: 0; list-style: none; display: grid; gap: 16px; }
+.wn-entry { display: grid; gap: 5px; }
+/* An unread release gets a rule down its left edge rather than a highlight
+   fill: the panel already sits over a moving scene, and one more filled block
+   competes with it. The marker should be findable, not loud. */
+.wn-entry.is-new {
+  padding-left: 9px;
+  border-left: 2px solid var(--accent);
+  margin-left: -11px;
+}
+.wn-head { display: flex; align-items: baseline; gap: 7px; }
+.wn-title { font-size: 12.5px; font-weight: 600; color: var(--ink); line-height: 1.35; }
+.wn-flag {
+  flex: none;
+  padding: 1px 6px;
+  border-radius: 999px;
+  background: var(--accent);
+  color: #1d1a14;
+  font-size: 9.5px;
+  font-weight: 700;
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+}
+.wn-meta { color: var(--ink-dim); font-size: 11px; }
+.wn-items { margin: 3px 0 0; padding-left: 15px; display: grid; gap: 5px; }
+.wn-items li { font-size: 12px; color: var(--ink); line-height: 1.5; }
+
+@media (max-width: 560px) {
+  /* Chips go icon-only. Four labelled chips overflow 390 px by about forty
+     pixels and the help button drops to a second row, which reads as broken
+     rather than as a wrap. The tri-colour dot and the triangle carry the
+     meaning; both keep their title and aria-label, and the Evidence tab
+     explains the dot at length. */
+  .chip-label { display: none; }
+  #btn-fly, #btn-confidence { width: 38px; justify-content: center; padding: 8px; }
+  /* And when an altitude is showing, it says more than a date that never
+     changes — so the date yields rather than the badge growing. */
+  .badge.has-alt .badge-sub { display: none; }
+  .navigation-stack { top: calc(55px + var(--safe-t)); }
+  .street-readout { width: 188px; }
+  /* The mobile panel spans the same left edge as the navigation readouts. Hide
+     them while it is open instead of letting its translucent surface mix the
+     map into sliders and search results. Desktop keeps both columns visible. */
+  .hud.panel-open .navigation-stack { visibility: hidden; }
+}
+
+/* ---- the confidence control's second half ------------------------------- */
+/* Colouring by evidence and hiding a level are one enquiry at two depths, so
+   they share a control: the chip toggles the colour, the caret opens this. The
+   two buttons are welded into one pill so the pair reads as a single thing
+   rather than as a chip that grew a neighbour. */
+.chip-group { position: relative; display: flex; align-items: stretch; }
+.chip-group > .chip:first-child { border-top-right-radius: 0; border-bottom-right-radius: 0; }
+.chip-group > .chip-more {
+  border-top-left-radius: 0; border-bottom-left-radius: 0; border-left: 0;
+  width: 26px; min-width: 26px; padding: 8px 0; font-size: 11px;
+}
+.chip-group > .chip-more[aria-expanded="true"] { border-color: var(--accent); color: var(--accent); }
+/* A dot on the caret when a level is hidden. Hiding changes what the town IS,
+   and a control that quietly removes two thirds of the buildings has to say so
+   while the panel is shut. */
+.chip-group.has-hidden > .chip-more::after {
+  content: ''; position: absolute; top: 5px; right: 5px; width: 6px; height: 6px;
+  border-radius: 50%; background: var(--accent);
+}
+
+.confidence-menu {
+  /* The HUD is pointer-events: none so the view stays live underneath, and
+     every interactive piece re-enables it for itself. This panel rides in the
+     chip group but is not a .chip, so without its own auto every checkbox
+     click fell THROUGH to the canvas — re-locking the pointer and tripping
+     the click-away handler at once (T-0108). */
+  pointer-events: auto;
+  position: absolute; top: calc(100% + 8px); right: 0; z-index: 20;
+  width: 268px; padding: 12px; border-radius: 12px;
+  background: var(--panel-solid); border: 1px solid var(--edge);
+  box-shadow: var(--shadow); color: var(--ink);
+}
+.confidence-menu[hidden] { display: none; }
+.cm-title {
+  margin: 0 0 8px; font-size: 11px; letter-spacing: .14em;
+  text-transform: uppercase; color: var(--accent);
+}
+.cm-row {
+  display: grid; grid-template-columns: 16px 12px 1fr auto; gap: 8px;
+  align-items: center; padding: 5px 0; cursor: pointer; font-size: 13px;
+}
+.cm-sw { width: 12px; height: 12px; border-radius: 3px; display: block; }
+.sw-att { background: var(--doc); }
+.cm-count { color: var(--ink-dim); font-size: 11.5px; font-variant-numeric: tabular-nums; }
+.cm-row input { accent-color: var(--accent); width: 15px; height: 15px; margin: 0; }
+/* An unticked row is what is NOT in the view, so it reads as absent. */
+.cm-row:has(input:not(:checked)) .cm-label,
+.cm-row:has(input:not(:checked)) .cm-count { color: var(--ink-dim); opacity: .55; }
+.cm-row:has(input:not(:checked)) .cm-sw { opacity: .3; }
+.cm-note { margin: 8px 0 0; font-size: 11.5px; line-height: 1.5; color: var(--ink-dim); }
+.cm-reset {
+  margin-top: 10px; width: 100%; padding: 7px 10px; border-radius: 8px;
+  background: transparent; border: 1px solid var(--edge); color: var(--ink);
+  font: inherit; font-size: 12.5px; cursor: pointer;
+}
+.cm-reset:hover { border-color: var(--accent); color: var(--accent); }
+
+/* On a phone the panel is nearly as wide as the screen, so it anchors to the
+   viewport rather than to a 26 px caret hanging off the right edge. */
+@media (max-width: 520px) {
+  /* Anchored to the VIEWPORT on a phone, not to the chip group. The group sits
+     at the left of a 390 px top bar now that a pace chip stands beside it
+     (T-0704), and a 280 px menu hung off its right edge opened 70 px past the
+     left edge of the screen — the checkbox column a visitor taps was off-screen.
+     Found by the mobile smoke (T-0108's real clicks), 2026-09-05. */
+  .confidence-menu {
+    position: fixed; left: 12px; right: 12px; width: auto;
+    top: calc(58px + var(--safe-t));
+  }
+}
+
+/* An agency held here (T-1041). A HOLDING IS A RELATION, and the styling has one job
+   beyond legibility: it must not read as a second trade. So the lead sits in --ink like
+   any other finding, the standing caveat under it drops to --ink-dim and stays visible
+   rather than folding away — a caveat behind a disclosure is a caveat nobody reads —
+   and a REFUSED holding is marked by a rule down its left edge in the same accent the
+   card already uses for something it is telling you NOT to believe. Tokens only, so
+   both themes come out of the same variables. The same three rules dress this section
+   on the person card in the drawer, because one relation is rendered once. */
+.pop-agency .agency { margin: 0 0 10px; }
+.pop-agency .agency:last-of-type { margin-bottom: 8px; }
+.agency-lead {
+  margin: 0 0 4px;
+  font-size: 12.5px; line-height: 1.5;
+  color: var(--ink);
+}
+.agency-refused {
+  padding-left: 8px;
+  border-left: 2px solid rgb(127 127 127 / 38%);
+}
+.agency-why { margin: 0 0 4px; }
+.agency-why > summary {
+  cursor: pointer;
+  font-size: 11px; letter-spacing: 0.04em; text-transform: uppercase;
+  color: var(--ink-dim);
+}
+.agency-why > p {
+  margin: 4px 0 0;
+  font-size: 12px; line-height: 1.5;
+  color: var(--ink-dim);
+}
+.agency-cites {
+  margin: 0;
+  font-size: 11px; line-height: 1.6;
+  color: var(--ink-dim);
+  word-break: break-word;
+}
+.agency-caveat {
+  margin: 6px 0 0;
+  font-size: 12px; line-height: 1.5;
+  color: var(--ink-dim);
+}

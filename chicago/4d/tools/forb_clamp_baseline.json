@@ -1,0 +1,191 @@
+{
+  "_": [
+    "T-0019 / ROADMAP K58 \u2014 THE DECLARED COST OF THE FORB LATTICE'S CEILING.",
+    "",
+    "flora.js deals the forb stratum on a lattice and gives a slot at most one plant.",
+    "The slot stands for 2.89 m2 of ground, so the lattice cannot draw more than 0.346",
+    "flowering plants per square metre however densely a community is recorded. Nine of",
+    "the ten populated forb layers ask for more than that, and their drawn density is",
+    "therefore a number TUNE.forb chose and not one any record states. z06_dense_forest",
+    "draws 0.5 per cent of what its own records ask for.",
+    "",
+    "This file is the declaration. Every (community, side) the ceiling binds is listed",
+    "with the density its records ask for and the share of it the lattice can carry, and",
+    "`node tools/measure_sward_draw.mjs --gate` fails when the measured set stops",
+    "matching: a layer joining the clamp, a layer leaving it, the ceiling moving, or a",
+    "record's asked density moving more than half a per cent from its declared figure.",
+    "",
+    "The gate is on the DECLARATION and not on the clamp, because the fault it closes is",
+    "silence and not size. A layer is allowed to sit on the ceiling; it is not allowed to",
+    "do so with nobody saying so. Both drifts that have happened here happened under a",
+    "green tree \u2014 K55 took the clamped count from four to six by fixing a unit error, and",
+    "T-0034 put the two prairies on the ceiling by dealing the forb stratum off the top of",
+    "each record's range instead of its midpoint. Neither showed up anywhere, because a",
+    "share reading 1.000 is one plant per slot whatever the slot is and a layer sitting ON",
+    "the ceiling prints exactly like one tuned to it.",
+    "",
+    "K58's own figures are the midpoint ones and are superseded: it counted six clamped",
+    "layers at 44.545 (z06), 14.5 (z04) and 7.760 (z08, z10) plants per m2. Dealt off the",
+    "recorded upper bound, as T-0034 deals them, the same layers ask 66.381, 22.000 and",
+    "11.866, and the two prairies and the lakeshore join them. The marsh's WET side is",
+    "listed for the first time here: forbShareWet is clamped exactly as forbShare is and",
+    "nothing outside flora.js could read the density behind it until T-0019.",
+    "",
+    "NOT A FIX, AND DELIBERATELY NOT. Raising the ceiling is more geometry in precisely",
+    "the communities that already carry the most, and the project's triangle ceilings are",
+    "breached on dev as this is written (T-0223, T-0229). The routes K58 names \u2014 a",
+    "per-stratum cell, more than one plant per slot \u2014 stay open and stay costed. Re-run",
+    "with --declare when a flora record moves, and let the diff be the review.",
+    "",
+    "T-0282 ADDED THE STRATUM. As T-0019 wrote it this file listed forb layers only,",
+    "so the one thing it exists to prevent \u2014 a layer joining the clamp with nobody",
+    "saying so \u2014 could still happen one stratum over. flora.js deals the SHRUB layer",
+    "through the same shareOf against the same ceiling, and z06_dense_forest's shrub",
+    "records ask 0.403 clumps per m2 against 0.346: it had been on the ceiling since",
+    "K54 named it and the gate could not see it. shrubShareWet and shrubDensityWet",
+    "were not exported from flora.js at all. Ten layers now, of eighteen populated,",
+    "and the identity of a line is (community, stratum, side).",
+    "",
+    "docs/LIBERTIES.md L201 is this file's copy for a VISITOR. The debt was declared",
+    "where a reviewer reads and nowhere a visitor does, which is the weaker half of",
+    "this project's own bar; the Evidence panel's liberties list carries it now."
+  ],
+  "measured": "2026-08-28",
+  "stand": "desktop",
+  "cell": 3.4,
+  "perCell": 4,
+  "slotAreaM2": 2.8899999999999997,
+  "ceilingPerM2": 0.34602076124567477,
+  "clamped": [
+    {
+      "community": "z06_dense_forest",
+      "stratum": "forb",
+      "side": "dry",
+      "askedPerM2": 66.38093429248062,
+      "offeredPerM2": 0.34602076124567477,
+      "drawsFraction": 0.005212652773476717
+    },
+    {
+      "community": "z04_marsh",
+      "stratum": "forb",
+      "side": "dry",
+      "askedPerM2": 22,
+      "offeredPerM2": 0.34602076124567477,
+      "drawsFraction": 0.015728216420257943
+    },
+    {
+      "community": "z04_marsh",
+      "stratum": "forb",
+      "side": "wet",
+      "askedPerM2": 22,
+      "offeredPerM2": 0.34602076124567477,
+      "drawsFraction": 0.015728216420257943
+    },
+    {
+      "community": "z10_settled_town",
+      "stratum": "forb",
+      "side": "dry",
+      "askedPerM2": 11.865689343706702,
+      "offeredPerM2": 0.34602076124567477,
+      "drawsFraction": 0.029161454612765206
+    },
+    {
+      "community": "z05_riverbank_timber",
+      "stratum": "forb",
+      "side": "dry",
+      "askedPerM2": 3.8510080748133477,
+      "offeredPerM2": 0.34602076124567477,
+      "drawsFraction": 0.08985199576930149
+    },
+    {
+      "community": "z03_sedge_meadow",
+      "stratum": "forb",
+      "side": "dry",
+      "askedPerM2": 1.811966766664303,
+      "offeredPerM2": 0.34602076124567477,
+      "drawsFraction": 0.19096418742970295
+    },
+    {
+      "community": "z08_lakeshore",
+      "stratum": "forb",
+      "side": "dry",
+      "askedPerM2": 0.63,
+      "offeredPerM2": 0.34602076124567477,
+      "drawsFraction": 0.5492393035645631
+    },
+    {
+      "community": "z02_mesic_prairie",
+      "stratum": "forb",
+      "side": "dry",
+      "askedPerM2": 0.4080000000000001,
+      "offeredPerM2": 0.34602076124567477,
+      "drawsFraction": 0.84809010109234
+    },
+    {
+      "community": "z01_wet_prairie",
+      "stratum": "forb",
+      "side": "dry",
+      "askedPerM2": 0.40700000000000003,
+      "offeredPerM2": 0.34602076124567477,
+      "drawsFraction": 0.8501738605544834
+    },
+    {
+      "community": "z06_dense_forest",
+      "stratum": "shrub",
+      "side": "dry",
+      "askedPerM2": 0.40349479701484814,
+      "offeredPerM2": 0.34602076124567477,
+      "drawsFraction": 0.8575594129233384
+    }
+  ],
+  "fits": [
+    {
+      "community": "z09_sand_prairie",
+      "stratum": "forb",
+      "side": "dry",
+      "askedPerM2": 0.11399999999999999
+    },
+    {
+      "community": "z05_riverbank_timber",
+      "stratum": "shrub",
+      "side": "dry",
+      "askedPerM2": 0.07517390603305991
+    },
+    {
+      "community": "z07_bur_oak_savanna",
+      "stratum": "shrub",
+      "side": "dry",
+      "askedPerM2": 0.0440132188303513
+    },
+    {
+      "community": "z08_lakeshore",
+      "stratum": "shrub",
+      "side": "dry",
+      "askedPerM2": 0.01225
+    },
+    {
+      "community": "z09_sand_prairie",
+      "stratum": "shrub",
+      "side": "dry",
+      "askedPerM2": 0.006
+    },
+    {
+      "community": "z04_marsh",
+      "stratum": "shrub",
+      "side": "dry",
+      "askedPerM2": 0.004
+    },
+    {
+      "community": "z01_wet_prairie",
+      "stratum": "shrub",
+      "side": "dry",
+      "askedPerM2": 0.004
+    },
+    {
+      "community": "z10_settled_town",
+      "stratum": "shrub",
+      "side": "dry",
+      "askedPerM2": 0.0025
+    }
+  ]
+}

@@ -1,0 +1,194 @@
+{
+  "id": "brown_boarding_house",
+  "phase": "documented_1835",
+  "name": "Rufus Brown's Boarding House",
+  "aka": [],
+  "archetype": "log_dwelling",
+  "asset": "gltf/brown_boarding_house__documented_1835.glb",
+  "scene": "1835",
+  "target_date": "1835-07-01",
+  "documented_range": {
+    "from": "1835-01-01",
+    "to": "1835-12-31",
+    "confidence": "attested",
+    "sources": [
+      "andreas_1884_v1"
+    ],
+    "note": "DOCUMENTED IN FABRIC, USE, KEEPER AND POSITION, and absent from this dataset until now. Andreas describes a log house kept as a first-class boarding house by Mrs Rufus Brown, 'the first building in the rear of this store' - Peck's store at South Water and LaSalle. The range opens at the start of 1833, which is not a build date: what is documented is that the house was standing and keeping boarders in the town of 1833-34, and nothing follows it past 1835."
+  },
+  "change_note": "The building as this dataset can state it on the scene date. Where the sources give a size, a plan or a fabric, the record carries it; where they do not, the note says so attribute by attribute.",
+  "placement": {
+    "local_e": 424.343,
+    "local_n": -36.096,
+    "rotation_deg": 0.0,
+    "position_confidence": "reconstructed",
+    "position_sources": [
+      "andreas_1884_v1"
+    ],
+    "position_note": "THE RELATIVE POSITION IS DOCUMENTED AND THE ABSOLUTE ONE IS DERIVED FROM IT. 'The first building in the rear of this store' puts the boarding house immediately behind Peck's store, which this dataset places at the south-west corner of South Water and LaSalle. This record sits directly south of peck_store's footprint, on the same lot line, facing north onto the same yard. WHAT IS NOT DOCUMENTED: the distance behind the store, the orientation, and whether 'in the rear' means the same lot or the next one. The 20 m working georeference uncertainty of the whole dataset applies on top.",
+    "symbolic_location": "South Division, local ENU E 428 N -30",
+    "uncertainty_m": 20,
+    "placement_provisional": false,
+    "vertical_anchor": "terrain",
+    "walk_surface_m": null
+  },
+  "footprint": {
+    "polygon": [
+      [
+        0,
+        0
+      ],
+      [
+        7.315,
+        0
+      ],
+      [
+        7.315,
+        12.192
+      ],
+      [
+        0,
+        12.192
+      ]
+    ],
+    "confidence": "reconstructed",
+    "sources": [],
+    "note": "PLACEHOLDER - NO DIMENSION IS ATTESTED. 24 x 40 ft is a log boarding house with a hall and two rooms below and a sleeping loft above, which is the smallest thing that answers 'a first-class boarding house' with a keeper, her household and paying boarders in it. Every number is invented."
+  },
+  "attributes": {
+    "stories": {
+      "value": 1,
+      "confidence": "reconstructed",
+      "sources": [
+        "andreas_1884_v1"
+      ],
+      "note": "Type-level choice within the H1 band in the reconstruction specification; it is not evidence for this building."
+    },
+    "wall_height_m": {
+      "value": 2.9,
+      "confidence": "reconstructed",
+      "sources": [
+        "andreas_1884_v1"
+      ],
+      "note": "Type-level choice within the H1 band in the reconstruction specification; it is not evidence for this building."
+    },
+    "roof_type": {
+      "value": "gable",
+      "confidence": "reconstructed",
+      "sources": [
+        "owner_chicago_1835_reconstruction_spec_2026"
+      ],
+      "note": "THE BUILDING IS ATTESTED; THIS ATTRIBUTE IS NOT. A source places this building and says what it was, but nothing records this particular dimension or detail, so the value is a typology from the reconstruction spec — what a building of this kind was ordinarily like. Reconstructed, therefore, and not because the building is in doubt: it is not. Only this number is. Type-level choice within the H1 band in the reconstruction specification; it is not evidence for this building."
+    },
+    "roof_pitch_deg": {
+      "value": 35.0,
+      "confidence": "reconstructed",
+      "sources": [
+        "andreas_1884_v1"
+      ],
+      "note": "Type-level choice within the H1 band in the reconstruction specification; it is not evidence for this building."
+    },
+    "construction": {
+      "value": "log",
+      "confidence": "reconstructed",
+      "sources": [
+        "andreas_1884_v1"
+      ],
+      "note": "Type-level choice within the H1 band in the reconstruction specification; it is not evidence for this building."
+    },
+    "loft": {
+      "value": true,
+      "confidence": "reconstructed",
+      "sources": [
+        "andreas_1884_v1"
+      ],
+      "note": "Type-level choice within the H1 band in the reconstruction specification; it is not evidence for this building."
+    },
+    "chimneys": {
+      "value": 2,
+      "confidence": "reconstructed",
+      "sources": [
+        "andreas_1884_v1"
+      ],
+      "note": "Type-level choice within the H1 band in the reconstruction specification; it is not evidence for this building."
+    },
+    "function": {
+      "value": "boarding_house",
+      "confidence": "attested",
+      "sources": [
+        "andreas_1884_v1"
+      ],
+      "note": "THE HIGHEST-VALUE SINGLE BUILDING PHASE ONE FOUND, and the reason is that boarding houses bridge the gap between 3,265 people and 398 dwellings. Andreas on the houses of 1834: they 'were always full; and full meant three in a bed sometimes, with the floor covered besides', with emigrants living in their covered wagons outside. The building is log rather than frame on Andreas's own word, which also makes it one of the few log records in the commercial core."
+    },
+    "occupants": {
+      "value": "Mrs Rufus Brown, proprietor, and the Brown household",
+      "confidence": "attested",
+      "sources": [
+        "andreas_1884_v1"
+      ],
+      "note": "Mrs Rufus Brown, named by Andreas as the proprietor in her own right, and the Brown household (data/residents/households/hh_brown_rufus.json). The boarders are not named anywhere."
+    }
+  },
+  "residents": [
+    {
+      "household": "hh_brown_rufus",
+      "name": "The Brown boarding-house household",
+      "division": "south",
+      "relation": "lived and worked here",
+      "why": "Phase one recorded both links as null with the reason 'NOT MODELLED, AND IT SHOULD BE'. The building now exists and both fields point at it. Linked by the inferred-household programme's building parcel (docs/ROADMAP.md K1, phase two); the building record carries the evidence.",
+      "sources": [
+        "andreas_1884_v1"
+      ],
+      "basis": "The building is documented and the household is the one the sources attach to it; this parcel built the record they had been waiting for.",
+      "persons": [
+        {
+          "name": "Rufus Brown",
+          "relationship": "head",
+          "grade": "attested",
+          "occupation": "boarding_house_keeper",
+          "note": "One of the nine village citizens among the twenty-six founding members of the First Presbyterian Church on 26 June 1833, and a signatory of the 1832 militia agreement submitting to Gholson Kercheval as captain 'until all apprehension of danger from the Indians may have subsided'."
+        },
+        {
+          "name": "Mrs Rufus Brown",
+          "relationship": "wife",
+          "grade": "inferred",
+          "occupation": "boarding_house_keeper",
+          "note": "A WOMAN NAMED ONLY BY HER HUSBAND'S NAME AND DOCUMENTED AS THE PROPRIETOR OF A BUSINESS, which is a combination this literature produces constantly and this schema has to be able to carry. Two women named Brown are among the nine village citizens founding the First Presbyterian Church in June 1833 - 'Mrs. Elizabeth Brown' and 'Mrs. Cynthia Brown' - and one of them may be this woman. The record does not choose: identifying her with either would manufacture a forename out of a surname."
+        }
+      ],
+      "research_note": "THE ONE HOUSEHOLD IN THIS PARCEL WHOSE BUILDING IS DOCUMENTED, POSITIONED AND ABSENT FROM THE MODEL. Andreas gives the fabric (log), the use (first-class boarding house), the keeper (Mrs Rufus Brown) and the position (immediately behind Peck's store at South Water and LaSalle) - which is more than several buildings already standing in this scene have. A structure record for it is the highest-value single piece of work this parcel has generated. WHY BOARDING HOUSES MATTER OUT OF ALL PROPORTION TO THEIR NUMBER: Andreas says the hotels and boarding houses of 1834 'were always full; and full meant three in a bed sometimes, with the floor covered besides', with emigrants living in their covered wagons outside. The gap between 3,265 people and the dwellings this dataset can name is bridged largely by buildings like this one."
+    }
+  ],
+  "citations": [
+    {
+      "source_id": "andreas_1884_v1",
+      "citation": "Andreas, A. T. History of Chicago: From the Earliest Period to the Present Time. Vol. 1. Chicago: A. T. Andreas, 1884.",
+      "url": "https://archive.org/details/historyofchicago01andr",
+      "archived_url": "",
+      "tier": 3,
+      "tier_label": "compiled secondary (Andreas)"
+    },
+    {
+      "source_id": "owner_chicago_1835_reconstruction_spec_2026",
+      "citation": "Chicago · July 1835: Building Inventory and Architectural Reconstruction Specification. Prepared for Kevin Haas, August 2026.",
+      "url": "",
+      "archived_url": "",
+      "tier": 5,
+      "tier_label": "modern retrospective illustration/reconstruction",
+      "what_it_supplies": [
+        "A 665-roof production target with independently reconcilable group, district, level, and construction totals.",
+        "Thirty-five architectural family definitions with dimensional and massing bands.",
+        "District character, spacing, variation, finish, and chronology constraints for a July 1835 reconstruction.",
+        "A required distinction between named documentary landmarks and anonymous inferred infill."
+      ],
+      "what_it_does_not_supply": [
+        "A surviving July 1835 building census or parcel-by-parcel roof register.",
+        "Exact locations, dimensions, appearance, occupants, or construction dates for anonymous roofs.",
+        "Authority to replace stronger building-specific evidence already represented in the dataset."
+      ]
+    }
+  ],
+  "research_note": "THE HIGHEST-VALUE SINGLE BUILDING PHASE ONE FOUND, and the reason is that boarding houses bridge the gap between 3,265 people and 398 dwellings. Andreas on the houses of 1834: they 'were always full; and full meant three in a bed sometimes, with the floor covered besides', with emigrants living in their covered wagons outside. The building is log rather than frame on Andreas's own word, which also makes it one of the few log records in the commercial core.",
+  "research_doc": "",
+  "review_required": false
+}

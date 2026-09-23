@@ -1,0 +1,123 @@
+{
+  "id": "jh_kinzie_forwarding_store",
+  "name": "J. H. Kinzie's Store",
+  "aka": [
+    "Jim Kinzie's store",
+    "John H. Kinzie, forwarding and commission merchant"
+  ],
+  "archetype": "frame_storefront",
+  "phases": [
+    {
+      "id": "frame_1830s",
+      "documented_range": {
+        "from": "1833-01-01",
+        "to": "1835-12-31",
+        "confidence": "inferred",
+        "sources": [
+          "andreas_1884_v1"
+        ],
+        "note": "THE DATES ARE THE BUSINESS'S AND NOT THE BUILDING'S. Andreas lists 'Jim Kinzie's store, P. F. W. Peck's store, Harmon's and Loomis's' as all being on South Water Street by 1833, and separately records J. H. Kinzie advertising as a forwarding and commission merchant in 1834. The range opens at the start of 1833 on the first of those and closes at the end of the scene year on the ordinary continuity cut. Nothing reached dates the BUILDING at either end. A NAME CAUTION THAT AFFECTS NOTHING GEOMETRIC BUT SHOULD TRAVEL WITH THE RECORD: Andreas's 'Jim Kinzie' is James Kinzie, who kept the Wolf Point Tavern and the Green Tree on the west bank, while the 1834 forwarding advertisements are John H. Kinzie's. Whether the South Water store belonged to one brother, the other, or both at different times is not settled by anything reached, and the id follows the initials Andreas uses in the advertisement rather than the nickname he uses in the list."
+      },
+      "position": {
+        "utm_e": 447305.683,
+        "utm_n": 4637380.603,
+        "rotation_deg": 0.0,
+        "symbolic_location": "South side of South Water Street between Franklin Street and Wells Street (today the south side of West Wacker Drive) — the street is attested, the block is not.",
+        "confidence": "reconstructed",
+        "note": "CONJECTURAL, AND ONLY THE STREET IS EVIDENCE. Andreas puts this store 'on South Water Street' and no closer; this project's dossier records the block as unattested. The point recorded here is on the south side of the Franklin-to-Wells block, and the choice of block carries ONE weak argument and no more: a forwarding and commission house wants wharfage, and the west end of South Water was the wharf and landing end nearest the forks and the South Branch, so the west end is a slightly better guess than the east. That is a reason, not evidence, and it is the difference between this record and a coin toss rather than the difference between a guess and a finding. THE ALONG-STREET UNCERTAINTY IS THE WHOLE STREET, about 630 m from Market to State. THE SIDE OF THE STREET IS REASONED: the north side of South Water was the river bank, wharves and landings (docs/research/04-structures-south.md § 12), so a store building is on the south side, however much its trade faced the water. METHOD, for the cross-street position only: the modern West Upper Wacker Drive centreline was interpolated between the intersection centres at North Franklin (EPSG:26916 E 447281.2, N 4637407.2) and North Wells (E 447402.5, N 4637411.6), read from OpenStreetMap 2026-08-11, and the south kerb taken 12.2 m south of it as half an 80 ft platted street. Working uncertainty about 20 m across the street from the georeference (data/datum.json, 17.5 m RMS) and the length of the street along it. Facade bearing 0, north onto South Water, inferred from the street rather than from any statement. RECONCILED WITH THE COMMITTED PLAT 2026-08-24 (T-0127), AND THE CLAIM DID NOT MOVE — ONLY THE LINE IT WAS DERIVED AGAINST. The method above set this footprint's north face on the South Water frontage, and it found that frontage by taking the MODERN West Wacker Drive centreline out of OpenStreetMap and stepping 12.2 m south of it. That is not this project's own South Water Street: the committed centreline in data/streets/1835.json, offset by half the committed 80 ft corridor, is what tools/generate_plat_lots.py builds every platted block edge from, and it is the line every derived layer in this scene reads. Measured against it, this record's north wall stood 6.88 m OUT PAST the blk_south_water_franklin frontage line, in the platted roadway — far enough into it that tools/generate_frontage_works.py refused the plank sidewalk along this stretch of South Water in writing and named this building in the refusal. THE REPAIR IS THIS RECORD'S OWN METHOD RUN AGAINST THIS PROJECT'S OWN LINE: the footprint is translated 8.38 m along the face's inward normal — dE +0.076 m, dN -8.375 m in local ENU, so UTM E 447330.0 N 4637389.2 becomes E 447330.076 N 4637380.825 — which leaves its north wall 1.50 m back from the committed frontage line, the same margin tools/generate_block_infill.py gives every reconstructed unit standing on this face. NOTHING ALONG THE STREET MOVED: the along-face position, the block, the corner and the side are untouched, and so is the confidence grade — re-deriving a coordinate from better geometry is not new evidence. WHAT IS STILL WRONG AND IS LEFT WRITTEN DOWN: the facade bearing stays 0 while this face runs at 359.478 (i.e. -0.522), so the front wall is 1.50 m back at its worst corner and up to 1.61 m at the other. That skew is smaller than the walk's own daylight and it is not corrected here, because rotating a documented record is a second claim and this one is a repair. AND THEN 24.39 M WEST ALONG THE SAME FACE, in the same repair and for a reason that belongs in this record rather than in a commit message. Reconciled onto the plat where it stood, this store's body seats on lot 2 of blk_south_water_franklin — a lot the 665-roof schedule had already dealt to the anonymous South Water frontage run, on the measured finding (T-A7) that this store 'laps the north edge of lot 2 without taking any of its buildable part'. That finding was true only while the store stood in the roadway; put on the plat it takes the lot, and tools/generate_block_infill.py refuses to deal a roof to a lot that already carries one. NOTHING IN THIS RECORD RESISTS THE MOVE: the position is graded reconstructed with no source, the note above says the along-street uncertainty is the whole street and that the choice of block rests on one weak argument — a forwarding and commission house wants wharfage, and the west end of South Water is the landing end nearest the forks. Moving WEST along the same face is that argument's own direction, not against it. The store now stands on the western stretch of lot 0, 3.0 m clear of the Temple Building that holds the Franklin corner of the same lot, which is a lot carrying two roofs and not a lot taken from the schedule. WHAT THIS COSTS, SAID PLAINLY: the store is 24 m further from Wells than it was, on a street where nothing has ever fixed it to better than the whole 630 m, and one platted lot on this block now carries two buildings — which is ordinary on a subdivided frontage and is not a claim that the lot line ran where the plat module puts it.",
+        "derivation": {
+          "method": "not_derivable",
+          "reason": "This placement predates the derivation module. Its provenance and reasoning are recorded in position.note, but no machine-checkable derivation block has been authored for it yet."
+        }
+      },
+      "footprint": {
+        "polygon": [
+          [
+            0,
+            0
+          ],
+          [
+            12.192,
+            0
+          ],
+          [
+            12.192,
+            7.62
+          ],
+          [
+            0,
+            7.62
+          ]
+        ],
+        "confidence": "reconstructed",
+        "note": "INVENTED — the parcel's borrowed rectangle, 12.192 x 7.62 m = 40 x 25 ft, from the Green Tree Tavern's attested frontage and room module. Nothing is attested about this building. The larger rather than the smaller rectangle is used because a forwarding and commission house handles other men's goods and needs floor for them, which is an argument about the trade and not about the building. The documented South Water lot width of 55 ft is a cap and 40 ft sits inside it."
+      },
+      "form": {
+        "stories": {
+          "value": 1,
+          "confidence": "reconstructed",
+          "note": "Nothing is attested. One is recorded because it is the smaller claim, though a forwarding house with a loft over would be as likely. Invention, tagged as such."
+        },
+        "construction": {
+          "value": "braced_frame",
+          "confidence": "inferred",
+          "sources": [
+            "andreas_1884_v1"
+          ],
+          "note": "Not stated. Frame rather than log because a store house wants clear floor and wide doors, and because this project's dossier records the mid-1830s South Water commercial stock as frame. Braced rather than balloon frame follows the Sauganash record's argument."
+        },
+        "wall_height_m": {
+          "value": 3.6,
+          "confidence": "inferred",
+          "note": "No figure is attested. 3.6 m is about 12 ft: one storey built taller than a dwelling's, which is what stacked goods and a cart door need. It inherits the storey count's uncertainty, which is conjectural."
+        },
+        "roof_type": {
+          "value": "gable",
+          "confidence": "inferred",
+          "note": "Not attested. Gable is the near-universal roof form for frame buildings of this type, period and region."
+        },
+        "roof_pitch_deg": {
+          "value": 33.0,
+          "confidence": "inferred",
+          "note": "No pitch is attested for this building. 33 degrees is the frame_storefront archetype's own figure for a store, and it is adopted here rather than the 38 this project uses for taverns because the archetype argues the case from the dataset's one attested store footprint: a store's frontage is long and its plan shallow, so a tavern's pitch puts more roof above the eave than there is wall below it and the building stops reading as a shop. Inferred from construction practice and from the type, not measured."
+        },
+        "chimneys": {
+          "value": 1,
+          "confidence": "inferred",
+          "note": "Not attested. One is the minimum for premises worked through Chicago winters. The COUNT is the inference; the stack's position, size and material are the archetype's, per docs/LIBERTIES.md L26."
+        },
+        "dock": {
+          "value": true,
+          "confidence": "reconstructed",
+          "geometry": "simplified",
+          "sources": [],
+          "note": "RECONSTRUCTED, UNDER THE OWNER'S RULING OF 2026-08-18 — 'you can add more docks!', given with the general instruction to be liberal with reconstructed items and label them as such (T-0062; data/sources/assets/owner_brief_2026_08_18/README.md). NO SOURCE STATES A DOCK, WHARF OR LANDING AT THIS FRONTAGE — that absence is exactly why this value is reconstructed and not inferred, one tier below the two river warehouses whose dock is stated in the dossier. What bounds the invention: (1) THE TRADE — a forwarding and commission house, advertising as such in 1834 — the business of taking other men's goods off the schooners and getting them inland. A forwarding house without a landing would work its entire trade over someone else's bank. (2) THE REACH — this building stands on the South Water river frontage between the forks and the Dearborn drawbridge, the working bank the 2026-08-18 brief shows crowded with masts (image 3) and the reach every schooner cargo landed on; a street of merchants whose whole stock came in by water did not work it over two landings. (3) THE PRACTICE — wharfing-out along the south bank is the practice T-0041's research note records as the thing that would move this layer off reconstruction, and the docks it drew are this landing's pattern. The landing itself is the wharf layer's standard form (data/wharves/river_landings.json, tools/generate_river_wharves.py), every dimension invented within the bounds L132 states; geometry 'simplified' is the exact claim — a standard-form landing stands for a statement this record cannot make from evidence. Claimed at docs/LIBERTIES.md L145. The Temple Building on the same frontage gets NO landing from the same rule: worship and a school take nothing off a schooner."
+        },
+        "siding_exposure_m": {
+          "value": 0.114,
+          "confidence": "reconstructed",
+          "note": "INVENTED WITHIN A STOCK SET, NOT DERIVED. No source states the exposed face of any Chicago building's siding. The value is one of four period mill sidings — 4.5, 5, 5.5 or 6 in to the weather; this record wears 4.5 in — dealt by tools/deal_siding_stock.py: keyed to the phase's construction season, because buildings sided from the same season's shipments of St Joseph sawn lumber tend toward one stock, then advanced so no frame building within 60 m shares this one's. The separation is the surface variety T-0049 reconstructs, not a claim about 1835. docs/LIBERTIES.md L148 owns the invention."
+        }
+      },
+      "change_note": "A Kinzie store on South Water Street, one of the three Andreas names as being there by 1833, trading as a forwarding and commission house in 1834 — the business of taking other men's goods off the schooners and getting them inland, which is what South Water Street was for."
+    }
+  ],
+  "function": {
+    "value": "forwarding_and_commission_store",
+    "confidence": "attested",
+    "sources": [
+      "andreas_1884_v1"
+    ],
+    "note": "Andreas records J. H. Kinzie advertising as a forwarding and commission merchant in 1834 and separately lists a Kinzie store among those on South Water Street by 1833. The trade is documented; which building held it is not."
+  },
+  "occupants": {
+    "value": "J. H. Kinzie, forwarding and commission merchant",
+    "confidence": "inferred",
+    "sources": [
+      "andreas_1884_v1"
+    ],
+    "note": "Inferred rather than documented because of the name question set out on documented_range: Andreas's list says 'Jim Kinzie's store' and his 1834 advertisement says J. H. Kinzie, and those are two different men of the same family. The record follows the advertisement because an advertisement is the man's own word about his own business, and flags the doubt rather than resolving it."
+  },
+  "research_note": "A DOCUMENTED TRADE ON AN UNDOCUMENTED LOT. Andreas puts a Kinzie store on South Water Street by 1833 and records J. H. Kinzie advertising as a forwarding and commission merchant in 1834, and gives no block, no corner, no description and no dimension. Position and footprint are conjectural and storeys with them; only the trade and the street survive as evidence. TWO THINGS IN THIS RECORD ARE WORTH THE NEXT READER'S ATTENTION. FIRST, THE NAME: 'Jim Kinzie' is James Kinzie of Wolf Point, who already appears in this dataset as the builder of the Wolf Point Tavern and the Green Tree, while the forwarding advertisements are John H. Kinzie's. The record follows the advertisement and says so. SECOND, THE BLOCK CHOICE carries a weak trade argument — forwarding wants wharfage, and the west end of South Water was the landing end — which is stated on the position so that it can be overturned by one line of evidence rather than defended. WHAT WOULD UPGRADE IT: any 1834-35 Chicago Democrat advertisement carrying the store's address, which is very likely to exist since Andreas is quoting from those files; or the 1834-35 town lot records for South Water. See docs/RESEARCH/jh_kinzie_forwarding_store.md.",
+  "review_required": false
+}

@@ -1,0 +1,135 @@
+{
+  "id": "fort_dearborn_root_house",
+  "phase": "cellar_1816",
+  "name": "Fort Dearborn — root house",
+  "aka": [
+    "the root-houses of the garrison",
+    "the garrison cellars"
+  ],
+  "archetype": "fort_structure",
+  "asset": "gltf/fort_dearborn_root_house__cellar_1816.glb",
+  "scene": "1835",
+  "target_date": "1835-07-01",
+  "documented_range": {
+    "from": "1816-07-01",
+    "to": "1836-12-29",
+    "confidence": "inferred",
+    "sources": [
+      "kinzie_waubun_1856"
+    ],
+    "note": "Attested standing in 1831 by Juliette Kinzie and by nobody else at any date. The range opens with the fort and closes at the final evacuation, because a root house is kept by a garrison; nothing reached follows it further."
+  },
+  "change_note": "",
+  "placement": {
+    "local_e": 1117.73,
+    "local_n": 235.44,
+    "rotation_deg": 188.0,
+    "position_confidence": "reconstructed",
+    "position_sources": [],
+    "position_note": "A BANK, NOT A POINT. Kinzie, of 1831: 'The bank of the river which stretches to the west, now covered by the light-house buildings, and inclosed by docks, was then occupied by the root-houses of the garrison.' That names a stretch of riverbank and gives no position on it, and the 1830 plan - which labels the wash house, the well, the shop and the barn - does not draw them. This point is on that bank about 45 m north-west of the fort's centre and it is ours. THE PLURAL IS NOT MODELLED EITHER: Kinzie says root-houses and this record builds one, because a count invented would be a second invention on top of a position invented. MOVED 2026-08-11 FOR THE SAME REASON AS THE LIGHTHOUSE. The first point sat on the face of the river bank the newly extended heightfield draws, so the mound straddled a 0.85 m fall. It now stands at local E +1115, N +234, on the bank top west-north-west of the fort. Kinzie's 'bank of the river which stretches to the west' is satisfied either way; a cellar dug INTO the face of a bank is what she is describing and what this project cannot model, since the archetype banks earth over a level floor.",
+    "symbolic_location": "On the south bank of the Chicago River west of Fort Dearborn, between the fort and the bend.",
+    "uncertainty_m": 20,
+    "placement_provisional": false,
+    "vertical_anchor": "terrain",
+    "walk_surface_m": null
+  },
+  "footprint": {
+    "polygon": [
+      [
+        0,
+        0
+      ],
+      [
+        5.0,
+        0
+      ],
+      [
+        5.0,
+        3.6
+      ],
+      [
+        0,
+        3.6
+      ]
+    ],
+    "confidence": "reconstructed",
+    "sources": [],
+    "note": "INVENTED. No source gives a size. 5.0 x 3.6 m is a cellar big enough to hold a garrison's roots through a winter and it is nothing more than that."
+  },
+  "attributes": {
+    "kind": {
+      "value": "root_house",
+      "confidence": "attested",
+      "sources": [
+        "kinzie_waubun_1856"
+      ],
+      "note": "Kinzie names them. A root house is a cellar banked over with earth, which is why it reads as a mound rather than as a building."
+    },
+    "construction": {
+      "value": "earth",
+      "confidence": "inferred",
+      "note": "Not stated. Earth banked over a timber-framed cellar is what the type is; what is inferred is the type, not this example."
+    },
+    "wall_height_m": {
+      "value": 1.9,
+      "confidence": "reconstructed",
+      "note": "Unattested. The height of the bank above the surrounding ground."
+    },
+    "roof_type": {
+      "value": "flat",
+      "confidence": "reconstructed",
+      "note": "Unattested. The archetype builds the mound as a banked truncated pyramid with a plank door in one end; 'flat' names the top of the bank rather than a roof."
+    },
+    "chimneys": {
+      "value": 0,
+      "confidence": "attested",
+      "sources": [
+        "kinzie_waubun_1856"
+      ],
+      "note": "A root house is unheated by definition of the type."
+    },
+    "paint": {
+      "value": "earth",
+      "confidence": "inferred",
+      "note": "The colour of turf and soil. No source describes it."
+    },
+    "function": {
+      "value": "root cellar",
+      "confidence": "attested",
+      "sources": [
+        "kinzie_waubun_1856"
+      ],
+      "note": "Winter storage for the garrison's roots and vegetables, dug into the river bank."
+    },
+    "land_owner": {
+      "value": "The ground was entered by John Baptist Baubian, 28 May 1835",
+      "confidence": "reconstructed",
+      "sources": [
+        "isa_public_domain_land_tract_sales"
+      ],
+      "note": "THE UNITED STATES RESERVATION. This is the same tract L108 already derives for `1835_no_build_ground.json` — from G1, Madison's line and the traced waterline — so the polygon is inherited rather than built again, and `check.sh` already re-derives it. The register's own row is the second, independent witness to the date L108 quotes from Andreas: Beaubien's pre-emption, 28 May 1835, five weeks before the scene date. The derived polygon is short of the documented 75.69 acres for the reasons L108 states, and is a floor rather than the reservation. WHETHER THE ENTRY HELD IS NOT READ HERE: it was disputed, and this row records the entry the register carries and nothing about its outcome. THE MARGIN IS ONLY 20 m, which is inside the working horizontal uncertainty of the georeference (about 20 m) doubled, so the grade drops a tier: the tract is right if the constructed line is, and nothing here proves the line to better than that. WHAT THIS ROW CLAIMS AND WHAT IT DOES NOT. It claims that the tract the Illinois State Archives' land-sale register describes contains this structure's committed position — the patent for this ground was ENTERED by this man on this date. It does not claim he still held the ground on 1 July 1835, that he lived here, or that he ever stood on it: a sale is a transaction, and the register's only column about residence names a county. THE SECTION LINES ARE CONSTRUCTED, NOT TRACED (L219): the grid is carried from the single PLSS corner at State & Madison, on the plat's own east-west bearing, in nominal one-mile squares."
+    }
+  },
+  "residents": [],
+  "citations": [
+    {
+      "source_id": "isa_public_domain_land_tract_sales",
+      "citation": "Illinois State Archives, Illinois Public Domain Land Tract Sales Database (Springfield: Office of the Secretary of State).",
+      "url": "https://apps.ilsos.gov/isa/landSalesSearch.do",
+      "archived_url": "",
+      "tier": 1,
+      "tier_label": "period/eyewitness"
+    },
+    {
+      "source_id": "kinzie_waubun_1856",
+      "citation": "Kinzie, Juliette A. M. Wau-Bun: The 'Early Day' in the North-West. New York: Derby & Jackson, 1856.",
+      "url": "https://www.authorama.com/wau-bun-19.html",
+      "archived_url": "https://archive.org/details/waubunearlydayin00kinzbyu",
+      "tier": 2,
+      "tier_label": "near-primary recollection"
+    }
+  ],
+  "research_note": "ONE SENTENCE OF EVIDENCE AND EVERYTHING ELSE OURS. Kinzie puts the root-houses on the river bank west of the fort in 1831; nothing says how many, how big, what shape or exactly where. It is built because it is the kind of structure that makes a military post read as a place people lived rather than a parade of buildings, and it is graded conjectural in position, footprint and every dimension so that a visitor can see that the mound is our idea of a root house standing at our idea of a spot.",
+  "research_doc": "docs/RESEARCH/fort_dearborn_root_house.md",
+  "review_required": false
+}

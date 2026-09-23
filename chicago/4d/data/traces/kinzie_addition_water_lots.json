@@ -1,0 +1,2794 @@
+{
+ "_doc": "Read the river-front water lots of Kinzie's Addition off Wright's 1834 survey.\n\n    tools/read_kinzie_addition_water_lots.py               print the reading\n    tools/read_kinzie_addition_water_lots.py --write       write the trace\n    tools/read_kinzie_addition_water_lots.py --check       cheap: re-derive every metre\n                                                           from the pixels committed beside it\n    tools/read_kinzie_addition_water_lots.py --check-sheet  re-open the raster and re-read it\n\nA LOT STRIP IS NOT A BLOCK GRID, and that is the whole point of reading it\nseparately. Everything else Wright plats north of the river is a module \u2014 a tier\npitch and a column pitch, two families of parallel rules, blocks between them.\nThe ground between the Addition's south tier and the water is not that: it is one\nrun of narrow parcels laid side by side against a curving bank, each as wide as\nthe draughtsman needed and as deep as the bank left room for, numbered straight\nthrough from the Original Town's line to the lake. Fitting a grid to it would\ninvent regularity the sheet does not draw. So this reading carries the run's own\ngeometry \u2014 a front line, a back line, the division strokes between the parcels \u2014\nand reports what a lot strip has instead of a module: a frontage per lot, and the\nspread of those frontages.\n\nTHE SHEET is the National Archives / Historic Urban Plans facsimile registered as\n`wright_1834_nara_hup` (5050 x 6628 px at 600 dpi), the same raster and the same\naffine `tools/read_kinzie_addition_streets.py` reads the Addition's streets on, so\nthe two readings can be subtracted from each other without a scan-to-scan hop.\n\nHOW THE RUN IS FOUND. Nothing here is picked off a crop by eye except one seed\npoint and one bearing. From that seed a tangential follower walks the strip's\nFRONT line \u2014 the drawn river bank, which is the strongest continuous stroke in\nthis corner of the sheet \u2014 one pixel at a time, re-centring on the darkest line\nwithin two pixels of its projected step and turning by a damped fraction of the\ncorrection. That walk defines an arc-length coordinate `s` along the run and a\nperpendicular coordinate `t` northward from the front line, and everything below\nis measured in that frame.\n\nHOW A DIVISION STROKE IS TOLD FROM A NUMERAL. Both are ink inside the strip, and\na profile that sums darkness cannot tell them apart \u2014 Wright's figures are as\nblack as his rules. What separates them is that a division stroke crosses the\nWHOLE depth of the parcel and a figure does not. So the observable here is the\nMINIMUM darkness over the depth band rather than the sum: a stroke scores high\nbecause it is dark at every t, a figure scores near zero because it is blank\nabove or below itself. The strokes also lean \u2014 hard, in the wedge east of the\nbend, where they stand square to the back line rather than to the bank \u2014 so the\nminimum is taken over a small fan of shears and the best-scoring shear is kept\nand reported with each division.\n\nWHAT THIS READING SETTLES AND WHAT IT REFUSES. It settles the run's shape, its\nlength, where each division stands, and therefore how many parcels the sheet\ndraws and how wide each is relative to its neighbours. It does NOT settle the\nabsolute width of a lot in feet on the ground: the NA fit carries 16.19 m RMS and\nits two axis scales differ by 5.2 per cent, so a frontage is reported both raw and\nscaled by the factor the committed street reading measured for this method against\nthe Original Town's platted 80 ft corridors on this same sheet. And it refuses the\nfigures: at this scan's resolution the terminal run and the three parcels east of\nthe break are legible and the rest are not. What the reading does instead is\nCOUNT, and the count closes \u2014 see `numbering` below.",
+ "ticket": "T-1063 (piece 4 of T-0789)",
+ "id": "kinzie_addition_water_lots_1834",
+ "plat": "kinzie_addition",
+ "generated_by": "tools/read_kinzie_addition_water_lots.py",
+ "raster": {
+  "working_copy": "chicago/pre_fire_v1/maps/images/1834-wright-map.jpg",
+  "width": 5050,
+  "height": 6628,
+  "dpi": 600,
+  "sha256": "dbb92c0188881d9b6cdf84801b9185a5715496a328125bde895a04058b173266",
+  "source_id": "wright_1834_nara_hup"
+ },
+ "registration": {
+  "gcp_file": "data/traces/gcp/wright_1834_nara_hup_gcps.json",
+  "fit": "affine, least squares, eleven-point, NA pixel -> EPSG:26916",
+  "rms_m": 16.02,
+  "adopted": "T-1091, 2026-09-12"
+ },
+ "read_on": "2026-09-12",
+ "method": "tools/read_kinzie_addition_water_lots.py \u2014 a tangential follower walks the drawn bank from one seed point, which gives the run an arc coordinate; the back line is the first stroke north of the front at each station; the division strokes are the arc positions where the MINIMUM darkness over the parcel's depth peaks, over a fan of shears. `--check` re-derives every metre here from the pixels committed beside it; `--check-sheet` re-opens the raster and re-reads all of it.",
+ "frame": {
+  "seed_px": [
+   2932.0,
+   2371.0
+  ],
+  "seed_slope_dy_dx": -0.7,
+  "steps_px": 930,
+  "station_px": 10,
+  "arc_length_m": 667.0,
+  "m_per_arc_px": 0.7172,
+  "note": "s is arc length in raster pixels from the seed along the drawn bank; t is pixels north of it, square to the walk's bearing there."
+ },
+ "run": {
+  "west_terminus_px": [
+   2932.0,
+   2371.0
+  ],
+  "east_terminus_px": [
+   3754.2,
+   2149.0
+  ],
+  "west_terminus_local_enu_m": [
+   822.09,
+   96.34
+  ],
+  "east_terminus_local_enu_m": [
+   1400.31,
+   279.12
+  ],
+  "parcels": 35,
+  "break": {
+   "from_s_px": 360,
+   "to_s_px": 400,
+   "stations_without_a_back_line": 3
+  },
+  "break_at_lot": 14,
+  "what_it_is": "One run of narrow parcels laid side by side against the north bank of the Main Branch, from the Original Town's east line to the harbour, numbered straight through. It is not a block and it is not subdivided into lots inside a block: on this sheet it is the tract's wharfage, and the only ground in the Addition Wright draws without a tier and a column."
+ },
+ "front_line": [
+  {
+   "s_px": 0,
+   "px": [
+    2932.0,
+    2371.0
+   ],
+   "local_enu_m": [
+    822.09,
+    96.34
+   ]
+  },
+  {
+   "s_px": 10,
+   "px": [
+    2941.5,
+    2367.7
+   ],
+   "local_enu_m": [
+    828.77,
+    98.98
+   ]
+  },
+  {
+   "s_px": 20,
+   "px": [
+    2951.6,
+    2366.8
+   ],
+   "local_enu_m": [
+    835.88,
+    99.91
+   ]
+  },
+  {
+   "s_px": 30,
+   "px": [
+    2961.6,
+    2365.5
+   ],
+   "local_enu_m": [
+    842.93,
+    101.12
+   ]
+  },
+  {
+   "s_px": 40,
+   "px": [
+    2971.5,
+    2364.1
+   ],
+   "local_enu_m": [
+    849.9,
+    102.4
+   ]
+  },
+  {
+   "s_px": 50,
+   "px": [
+    2981.0,
+    2360.7
+   ],
+   "local_enu_m": [
+    856.57,
+    105.12
+   ]
+  },
+  {
+   "s_px": 60,
+   "px": [
+    2989.8,
+    2355.6
+   ],
+   "local_enu_m": [
+    862.74,
+    109.04
+   ]
+  },
+  {
+   "s_px": 70,
+   "px": [
+    2999.1,
+    2351.8
+   ],
+   "local_enu_m": [
+    869.27,
+    112.03
+   ]
+  },
+  {
+   "s_px": 80,
+   "px": [
+    3006.9,
+    2345.4
+   ],
+   "local_enu_m": [
+    874.72,
+    116.86
+   ]
+  },
+  {
+   "s_px": 90,
+   "px": [
+    3014.5,
+    2338.8
+   ],
+   "local_enu_m": [
+    880.04,
+    121.83
+   ]
+  },
+  {
+   "s_px": 100,
+   "px": [
+    3021.1,
+    2331.1
+   ],
+   "local_enu_m": [
+    884.63,
+    127.57
+   ]
+  },
+  {
+   "s_px": 110,
+   "px": [
+    3027.3,
+    2323.2
+   ],
+   "local_enu_m": [
+    888.95,
+    133.44
+   ]
+  },
+  {
+   "s_px": 120,
+   "px": [
+    3034.4,
+    2316.1
+   ],
+   "local_enu_m": [
+    893.9,
+    138.75
+   ]
+  },
+  {
+   "s_px": 130,
+   "px": [
+    3041.6,
+    2309.1
+   ],
+   "local_enu_m": [
+    898.93,
+    144.0
+   ]
+  },
+  {
+   "s_px": 140,
+   "px": [
+    3047.8,
+    2301.0
+   ],
+   "local_enu_m": [
+    903.24,
+    150.01
+   ]
+  },
+  {
+   "s_px": 150,
+   "px": [
+    3054.1,
+    2293.2
+   ],
+   "local_enu_m": [
+    907.62,
+    155.81
+   ]
+  },
+  {
+   "s_px": 160,
+   "px": [
+    3060.8,
+    2285.7
+   ],
+   "local_enu_m": [
+    912.29,
+    161.41
+   ]
+  },
+  {
+   "s_px": 170,
+   "px": [
+    3066.9,
+    2277.7
+   ],
+   "local_enu_m": [
+    916.54,
+    167.35
+   ]
+  },
+  {
+   "s_px": 180,
+   "px": [
+    3073.1,
+    2269.8
+   ],
+   "local_enu_m": [
+    920.85,
+    173.21
+   ]
+  },
+  {
+   "s_px": 190,
+   "px": [
+    3079.2,
+    2261.9
+   ],
+   "local_enu_m": [
+    925.09,
+    179.08
+   ]
+  },
+  {
+   "s_px": 200,
+   "px": [
+    3086.5,
+    2254.7
+   ],
+   "local_enu_m": [
+    930.19,
+    184.47
+   ]
+  },
+  {
+   "s_px": 210,
+   "px": [
+    3092.8,
+    2246.9
+   ],
+   "local_enu_m": [
+    934.57,
+    190.27
+   ]
+  },
+  {
+   "s_px": 220,
+   "px": [
+    3098.7,
+    2238.7
+   ],
+   "local_enu_m": [
+    938.67,
+    196.35
+   ]
+  },
+  {
+   "s_px": 230,
+   "px": [
+    3104.2,
+    2230.3
+   ],
+   "local_enu_m": [
+    942.49,
+    202.56
+   ]
+  },
+  {
+   "s_px": 240,
+   "px": [
+    3110.5,
+    2222.5
+   ],
+   "local_enu_m": [
+    946.87,
+    208.36
+   ]
+  },
+  {
+   "s_px": 250,
+   "px": [
+    3116.5,
+    2214.4
+   ],
+   "local_enu_m": [
+    951.05,
+    214.37
+   ]
+  },
+  {
+   "s_px": 260,
+   "px": [
+    3122.9,
+    2206.7
+   ],
+   "local_enu_m": [
+    955.5,
+    220.1
+   ]
+  },
+  {
+   "s_px": 270,
+   "px": [
+    3129.0,
+    2198.6
+   ],
+   "local_enu_m": [
+    959.74,
+    226.11
+   ]
+  },
+  {
+   "s_px": 280,
+   "px": [
+    3136.7,
+    2192.0
+   ],
+   "local_enu_m": [
+    965.13,
+    231.08
+   ]
+  },
+  {
+   "s_px": 290,
+   "px": [
+    3144.5,
+    2185.6
+   ],
+   "local_enu_m": [
+    970.58,
+    235.91
+   ]
+  },
+  {
+   "s_px": 300,
+   "px": [
+    3152.3,
+    2179.2
+   ],
+   "local_enu_m": [
+    976.03,
+    240.74
+   ]
+  },
+  {
+   "s_px": 310,
+   "px": [
+    3161.1,
+    2174.1
+   ],
+   "local_enu_m": [
+    982.2,
+    244.66
+   ]
+  },
+  {
+   "s_px": 320,
+   "px": [
+    3168.6,
+    2167.3
+   ],
+   "local_enu_m": [
+    987.44,
+    249.77
+   ]
+  },
+  {
+   "s_px": 330,
+   "px": [
+    3176.0,
+    2160.5
+   ],
+   "local_enu_m": [
+    992.61,
+    254.88
+   ]
+  },
+  {
+   "s_px": 340,
+   "px": [
+    3184.0,
+    2154.5
+   ],
+   "local_enu_m": [
+    998.21,
+    259.43
+   ]
+  },
+  {
+   "s_px": 350,
+   "px": [
+    3192.1,
+    2148.6
+   ],
+   "local_enu_m": [
+    1003.87,
+    263.91
+   ]
+  },
+  {
+   "s_px": 360,
+   "px": [
+    3200.2,
+    2142.6
+   ],
+   "local_enu_m": [
+    1009.54,
+    268.46
+   ]
+  },
+  {
+   "s_px": 370,
+   "px": [
+    3208.7,
+    2137.2
+   ],
+   "local_enu_m": [
+    1015.5,
+    272.59
+   ]
+  },
+  {
+   "s_px": 380,
+   "px": [
+    3217.2,
+    2131.8
+   ],
+   "local_enu_m": [
+    1021.45,
+    276.72
+   ]
+  },
+  {
+   "s_px": 390,
+   "px": [
+    3225.4,
+    2126.0
+   ],
+   "local_enu_m": [
+    1027.19,
+    281.12
+   ]
+  },
+  {
+   "s_px": 400,
+   "px": [
+    3234.8,
+    2121.9
+   ],
+   "local_enu_m": [
+    1033.79,
+    284.34
+   ]
+  },
+  {
+   "s_px": 410,
+   "px": [
+    3244.5,
+    2118.7
+   ],
+   "local_enu_m": [
+    1040.61,
+    286.92
+   ]
+  },
+  {
+   "s_px": 420,
+   "px": [
+    3254.3,
+    2116.3
+   ],
+   "local_enu_m": [
+    1047.5,
+    288.92
+   ]
+  },
+  {
+   "s_px": 430,
+   "px": [
+    3264.2,
+    2114.4
+   ],
+   "local_enu_m": [
+    1054.47,
+    290.56
+   ]
+  },
+  {
+   "s_px": 440,
+   "px": [
+    3274.1,
+    2112.6
+   ],
+   "local_enu_m": [
+    1061.44,
+    292.13
+   ]
+  },
+  {
+   "s_px": 450,
+   "px": [
+    3284.0,
+    2110.0
+   ],
+   "local_enu_m": [
+    1068.4,
+    294.28
+   ]
+  },
+  {
+   "s_px": 460,
+   "px": [
+    3294.0,
+    2108.6
+   ],
+   "local_enu_m": [
+    1075.44,
+    295.57
+   ]
+  },
+  {
+   "s_px": 470,
+   "px": [
+    3303.9,
+    2107.5
+   ],
+   "local_enu_m": [
+    1082.42,
+    296.63
+   ]
+  },
+  {
+   "s_px": 480,
+   "px": [
+    3313.9,
+    2106.9
+   ],
+   "local_enu_m": [
+    1089.47,
+    297.34
+   ]
+  },
+  {
+   "s_px": 490,
+   "px": [
+    3323.9,
+    2106.0
+   ],
+   "local_enu_m": [
+    1096.51,
+    298.27
+   ]
+  },
+  {
+   "s_px": 500,
+   "px": [
+    3333.7,
+    2103.6
+   ],
+   "local_enu_m": [
+    1103.41,
+    300.27
+   ]
+  },
+  {
+   "s_px": 510,
+   "px": [
+    3343.6,
+    2101.7
+   ],
+   "local_enu_m": [
+    1110.37,
+    301.91
+   ]
+  },
+  {
+   "s_px": 520,
+   "px": [
+    3353.6,
+    2101.0
+   ],
+   "local_enu_m": [
+    1117.42,
+    302.69
+   ]
+  },
+  {
+   "s_px": 530,
+   "px": [
+    3363.3,
+    2098.7
+   ],
+   "local_enu_m": [
+    1124.25,
+    304.62
+   ]
+  },
+  {
+   "s_px": 540,
+   "px": [
+    3373.4,
+    2098.3
+   ],
+   "local_enu_m": [
+    1131.37,
+    305.18
+   ]
+  },
+  {
+   "s_px": 550,
+   "px": [
+    3383.4,
+    2097.8
+   ],
+   "local_enu_m": [
+    1138.41,
+    305.82
+   ]
+  },
+  {
+   "s_px": 560,
+   "px": [
+    3393.2,
+    2095.1
+   ],
+   "local_enu_m": [
+    1145.31,
+    308.04
+   ]
+  },
+  {
+   "s_px": 570,
+   "px": [
+    3403.0,
+    2093.4
+   ],
+   "local_enu_m": [
+    1152.21,
+    309.53
+   ]
+  },
+  {
+   "s_px": 580,
+   "px": [
+    3412.7,
+    2090.6
+   ],
+   "local_enu_m": [
+    1159.03,
+    311.82
+   ]
+  },
+  {
+   "s_px": 590,
+   "px": [
+    3422.2,
+    2087.5
+   ],
+   "local_enu_m": [
+    1165.7,
+    314.32
+   ]
+  },
+  {
+   "s_px": 600,
+   "px": [
+    3432.0,
+    2085.2
+   ],
+   "local_enu_m": [
+    1172.6,
+    316.25
+   ]
+  },
+  {
+   "s_px": 610,
+   "px": [
+    3442.0,
+    2083.5
+   ],
+   "local_enu_m": [
+    1179.64,
+    317.75
+   ]
+  },
+  {
+   "s_px": 620,
+   "px": [
+    3451.9,
+    2081.0
+   ],
+   "local_enu_m": [
+    1186.6,
+    319.83
+   ]
+  },
+  {
+   "s_px": 630,
+   "px": [
+    3462.1,
+    2081.1
+   ],
+   "local_enu_m": [
+    1193.8,
+    320.04
+   ]
+  },
+  {
+   "s_px": 640,
+   "px": [
+    3472.0,
+    2079.7
+   ],
+   "local_enu_m": [
+    1200.77,
+    321.32
+   ]
+  },
+  {
+   "s_px": 650,
+   "px": [
+    3482.0,
+    2079.8
+   ],
+   "local_enu_m": [
+    1207.82,
+    321.52
+   ]
+  },
+  {
+   "s_px": 660,
+   "px": [
+    3492.0,
+    2081.5
+   ],
+   "local_enu_m": [
+    1214.89,
+    320.57
+   ]
+  },
+  {
+   "s_px": 670,
+   "px": [
+    3501.9,
+    2084.0
+   ],
+   "local_enu_m": [
+    1221.89,
+    319.04
+   ]
+  },
+  {
+   "s_px": 680,
+   "px": [
+    3512.0,
+    2085.6
+   ],
+   "local_enu_m": [
+    1229.02,
+    318.17
+   ]
+  },
+  {
+   "s_px": 690,
+   "px": [
+    3521.6,
+    2088.5
+   ],
+   "local_enu_m": [
+    1235.81,
+    316.34
+   ]
+  },
+  {
+   "s_px": 700,
+   "px": [
+    3531.1,
+    2091.6
+   ],
+   "local_enu_m": [
+    1242.54,
+    314.37
+   ]
+  },
+  {
+   "s_px": 710,
+   "px": [
+    3540.8,
+    2094.2
+   ],
+   "local_enu_m": [
+    1249.4,
+    312.76
+   ]
+  },
+  {
+   "s_px": 720,
+   "px": [
+    3550.3,
+    2097.2
+   ],
+   "local_enu_m": [
+    1256.12,
+    310.86
+   ]
+  },
+  {
+   "s_px": 730,
+   "px": [
+    3560.0,
+    2099.9
+   ],
+   "local_enu_m": [
+    1262.98,
+    309.18
+   ]
+  },
+  {
+   "s_px": 740,
+   "px": [
+    3569.5,
+    2102.9
+   ],
+   "local_enu_m": [
+    1269.7,
+    307.28
+   ]
+  },
+  {
+   "s_px": 750,
+   "px": [
+    3579.2,
+    2105.3
+   ],
+   "local_enu_m": [
+    1276.56,
+    305.81
+   ]
+  },
+  {
+   "s_px": 760,
+   "px": [
+    3588.8,
+    2108.4
+   ],
+   "local_enu_m": [
+    1283.36,
+    303.84
+   ]
+  },
+  {
+   "s_px": 770,
+   "px": [
+    3598.5,
+    2110.8
+   ],
+   "local_enu_m": [
+    1290.22,
+    302.38
+   ]
+  },
+  {
+   "s_px": 780,
+   "px": [
+    3608.3,
+    2113.1
+   ],
+   "local_enu_m": [
+    1297.15,
+    300.99
+   ]
+  },
+  {
+   "s_px": 790,
+   "px": [
+    3617.9,
+    2115.9
+   ],
+   "local_enu_m": [
+    1303.94,
+    299.23
+   ]
+  },
+  {
+   "s_px": 800,
+   "px": [
+    3627.7,
+    2118.1
+   ],
+   "local_enu_m": [
+    1310.86,
+    297.92
+   ]
+  },
+  {
+   "s_px": 810,
+   "px": [
+    3637.4,
+    2120.4
+   ],
+   "local_enu_m": [
+    1317.72,
+    296.53
+   ]
+  },
+  {
+   "s_px": 820,
+   "px": [
+    3647.1,
+    2123.0
+   ],
+   "local_enu_m": [
+    1324.58,
+    294.92
+   ]
+  },
+  {
+   "s_px": 830,
+   "px": [
+    3656.8,
+    2125.3
+   ],
+   "local_enu_m": [
+    1331.44,
+    293.53
+   ]
+  },
+  {
+   "s_px": 840,
+   "px": [
+    3666.5,
+    2128.0
+   ],
+   "local_enu_m": [
+    1338.3,
+    291.85
+   ]
+  },
+  {
+   "s_px": 850,
+   "px": [
+    3676.4,
+    2130.0
+   ],
+   "local_enu_m": [
+    1345.3,
+    290.68
+   ]
+  },
+  {
+   "s_px": 860,
+   "px": [
+    3686.0,
+    2132.5
+   ],
+   "local_enu_m": [
+    1352.09,
+    289.14
+   ]
+  },
+  {
+   "s_px": 870,
+   "px": [
+    3695.8,
+    2134.9
+   ],
+   "local_enu_m": [
+    1359.02,
+    287.68
+   ]
+  },
+  {
+   "s_px": 880,
+   "px": [
+    3705.6,
+    2137.0
+   ],
+   "local_enu_m": [
+    1365.95,
+    286.44
+   ]
+  },
+  {
+   "s_px": 890,
+   "px": [
+    3715.3,
+    2139.1
+   ],
+   "local_enu_m": [
+    1372.8,
+    285.19
+   ]
+  },
+  {
+   "s_px": 900,
+   "px": [
+    3725.0,
+    2141.7
+   ],
+   "local_enu_m": [
+    1379.66,
+    283.58
+   ]
+  },
+  {
+   "s_px": 910,
+   "px": [
+    3734.9,
+    2143.3
+   ],
+   "local_enu_m": [
+    1386.66,
+    282.7
+   ]
+  },
+  {
+   "s_px": 920,
+   "px": [
+    3744.6,
+    2146.1
+   ],
+   "local_enu_m": [
+    1393.52,
+    280.95
+   ]
+  },
+  {
+   "s_px": 930,
+   "px": [
+    3754.2,
+    2149.0
+   ],
+   "local_enu_m": [
+    1400.31,
+    279.12
+   ]
+  }
+ ],
+ "back_line": [
+  {
+   "s_px": 0,
+   "depth_px": 14,
+   "px": [
+    2924.0,
+    2359.5
+   ],
+   "local_enu_m": [
+    816.36,
+    104.41
+   ]
+  },
+  {
+   "s_px": 10,
+   "depth_px": 11,
+   "px": [
+    2938.1,
+    2357.2
+   ],
+   "local_enu_m": [
+    826.29,
+    106.46
+   ]
+  },
+  {
+   "s_px": 20,
+   "depth_px": 29,
+   "px": [
+    2946.7,
+    2338.2
+   ],
+   "local_enu_m": [
+    832.21,
+    120.4
+   ]
+  },
+  {
+   "s_px": 30,
+   "depth_px": 21,
+   "px": [
+    2958.6,
+    2344.8
+   ],
+   "local_enu_m": [
+    840.65,
+    115.97
+   ]
+  },
+  {
+   "s_px": 40,
+   "depth_px": 13,
+   "px": [
+    2969.6,
+    2351.2
+   ],
+   "local_enu_m": [
+    848.46,
+    111.65
+   ]
+  },
+  {
+   "s_px": 50,
+   "depth_px": 20,
+   "px": [
+    2975.3,
+    2341.5
+   ],
+   "local_enu_m": [
+    852.41,
+    118.81
+   ]
+  },
+  {
+   "s_px": 60,
+   "depth_px": 15,
+   "px": [
+    2982.9,
+    2342.3
+   ],
+   "local_enu_m": [
+    857.77,
+    118.44
+   ]
+  },
+  {
+   "s_px": 70,
+   "depth_px": 11,
+   "px": [
+    2994.2,
+    2341.9
+   ],
+   "local_enu_m": [
+    865.74,
+    119.04
+   ]
+  },
+  {
+   "s_px": 80,
+   "depth_px": 14,
+   "px": [
+    2998.6,
+    2334.1
+   ],
+   "local_enu_m": [
+    868.79,
+    124.79
+   ]
+  },
+  {
+   "s_px": 90,
+   "depth_px": 19,
+   "px": [
+    3002.4,
+    2324.1
+   ],
+   "local_enu_m": [
+    871.39,
+    132.1
+   ]
+  },
+  {
+   "s_px": 100,
+   "depth_px": 22,
+   "px": [
+    3005.4,
+    2315.7
+   ],
+   "local_enu_m": [
+    873.44,
+    138.24
+   ]
+  },
+  {
+   "s_px": 110,
+   "depth_px": 15,
+   "px": [
+    3015.8,
+    2313.6
+   ],
+   "local_enu_m": [
+    880.76,
+    140.04
+   ]
+  },
+  {
+   "s_px": 120,
+   "depth_px": 21,
+   "px": [
+    3019.0,
+    2301.9
+   ],
+   "local_enu_m": [
+    882.93,
+    148.57
+   ]
+  },
+  {
+   "s_px": 130,
+   "depth_px": 15,
+   "px": [
+    3030.9,
+    2298.6
+   ],
+   "local_enu_m": [
+    891.3,
+    151.28
+   ]
+  },
+  {
+   "s_px": 140,
+   "depth_px": 11,
+   "px": [
+    3039.6,
+    2293.7
+   ],
+   "local_enu_m": [
+    897.4,
+    155.05
+   ]
+  },
+  {
+   "s_px": 150,
+   "depth_px": 19,
+   "px": [
+    3039.5,
+    2281.1
+   ],
+   "local_enu_m": [
+    897.24,
+    164.14
+   ]
+  },
+  {
+   "s_px": 160,
+   "depth_px": 13,
+   "px": [
+    3050.8,
+    2277.4
+   ],
+   "local_enu_m": [
+    905.18,
+    167.12
+   ]
+  },
+  {
+   "s_px": 170,
+   "depth_px": 12,
+   "px": [
+    3057.4,
+    2270.4
+   ],
+   "local_enu_m": [
+    909.78,
+    172.35
+   ]
+  },
+  {
+   "s_px": 180,
+   "depth_px": 15,
+   "px": [
+    3061.2,
+    2260.6
+   ],
+   "local_enu_m": [
+    912.39,
+    179.52
+   ]
+  },
+  {
+   "s_px": 190,
+   "depth_px": 12,
+   "px": [
+    3069.7,
+    2254.6
+   ],
+   "local_enu_m": [
+    918.34,
+    184.08
+   ]
+  },
+  {
+   "s_px": 200,
+   "depth_px": 16,
+   "px": [
+    3074.3,
+    2244.4
+   ],
+   "local_enu_m": [
+    921.51,
+    191.57
+   ]
+  },
+  {
+   "s_px": 210,
+   "depth_px": 15,
+   "px": [
+    3081.0,
+    2237.5
+   ],
+   "local_enu_m": [
+    926.18,
+    196.73
+   ]
+  },
+  {
+   "s_px": 220,
+   "depth_px": 18,
+   "px": [
+    3084.5,
+    2227.6
+   ],
+   "local_enu_m": [
+    928.58,
+    203.96
+   ]
+  },
+  {
+   "s_px": 230,
+   "depth_px": 12,
+   "px": [
+    3094.4,
+    2223.5
+   ],
+   "local_enu_m": [
+    935.53,
+    207.19
+   ]
+  },
+  {
+   "s_px": 240,
+   "depth_px": 18,
+   "px": [
+    3096.0,
+    2211.7
+   ],
+   "local_enu_m": [
+    936.57,
+    215.75
+   ]
+  },
+  {
+   "s_px": 250,
+   "depth_px": 24,
+   "px": [
+    3097.6,
+    2199.5
+   ],
+   "local_enu_m": [
+    937.6,
+    224.59
+   ]
+  },
+  {
+   "s_px": 260,
+   "depth_px": 12,
+   "px": [
+    3113.7,
+    2199.0
+   ],
+   "local_enu_m": [
+    948.96,
+    225.4
+   ]
+  },
+  {
+   "s_px": 270,
+   "depth_px": 15,
+   "px": [
+    3117.2,
+    2189.4
+   ],
+   "local_enu_m": [
+    951.35,
+    232.42
+   ]
+  },
+  {
+   "s_px": 280,
+   "depth_px": 20,
+   "px": [
+    3122.8,
+    2177.7
+   ],
+   "local_enu_m": [
+    955.22,
+    241.01
+   ]
+  },
+  {
+   "s_px": 290,
+   "depth_px": 11,
+   "px": [
+    3137.3,
+    2177.3
+   ],
+   "local_enu_m": [
+    965.44,
+    241.7
+   ]
+  },
+  {
+   "s_px": 300,
+   "depth_px": 20,
+   "px": [
+    3139.2,
+    2164.0
+   ],
+   "local_enu_m": [
+    966.68,
+    251.34
+   ]
+  },
+  {
+   "s_px": 310,
+   "depth_px": 13,
+   "px": [
+    3154.2,
+    2163.1
+   ],
+   "local_enu_m": [
+    977.25,
+    252.4
+   ]
+  },
+  {
+   "s_px": 320,
+   "depth_px": 22,
+   "px": [
+    3154.4,
+    2150.5
+   ],
+   "local_enu_m": [
+    977.3,
+    261.5
+   ]
+  },
+  {
+   "s_px": 330,
+   "depth_px": 14,
+   "px": [
+    3166.3,
+    2150.3
+   ],
+   "local_enu_m": [
+    985.69,
+    261.97
+   ]
+  },
+  {
+   "s_px": 340,
+   "depth_px": 15,
+   "px": [
+    3175.0,
+    2142.5
+   ],
+   "local_enu_m": [
+    991.77,
+    267.83
+   ]
+  },
+  {
+   "s_px": 350,
+   "depth_px": 15,
+   "px": [
+    3183.1,
+    2136.6
+   ],
+   "local_enu_m": [
+    997.44,
+    272.31
+   ]
+  },
+  {
+   "s_px": 360,
+   "depth_px": 23,
+   "px": [
+    3186.9,
+    2123.9
+   ],
+   "local_enu_m": [
+    1000.02,
+    281.58
+   ]
+  },
+  {
+   "s_px": 370,
+   "depth_px": null
+  },
+  {
+   "s_px": 380,
+   "depth_px": null
+  },
+  {
+   "s_px": 390,
+   "depth_px": null
+  },
+  {
+   "s_px": 400,
+   "depth_px": 15,
+   "px": [
+    3227.8,
+    2108.7
+   ],
+   "local_enu_m": [
+    1028.75,
+    293.67
+   ]
+  },
+  {
+   "s_px": 410,
+   "depth_px": 11,
+   "px": [
+    3240.3,
+    2108.5
+   ],
+   "local_enu_m": [
+    1037.57,
+    294.16
+   ]
+  },
+  {
+   "s_px": 420,
+   "depth_px": 13,
+   "px": [
+    3250.8,
+    2103.8
+   ],
+   "local_enu_m": [
+    1044.94,
+    297.84
+   ]
+  },
+  {
+   "s_px": 430,
+   "depth_px": 13,
+   "px": [
+    3261.3,
+    2101.7
+   ],
+   "local_enu_m": [
+    1052.33,
+    299.64
+   ]
+  },
+  {
+   "s_px": 440,
+   "depth_px": 14,
+   "px": [
+    3271.4,
+    2098.8
+   ],
+   "local_enu_m": [
+    1059.43,
+    302.01
+   ]
+  },
+  {
+   "s_px": 450,
+   "depth_px": 12,
+   "px": [
+    3281.6,
+    2098.3
+   ],
+   "local_enu_m": [
+    1066.62,
+    302.65
+   ]
+  },
+  {
+   "s_px": 460,
+   "depth_px": 13,
+   "px": [
+    3292.2,
+    2095.7
+   ],
+   "local_enu_m": [
+    1074.08,
+    304.82
+   ]
+  },
+  {
+   "s_px": 470,
+   "depth_px": 14,
+   "px": [
+    3302.5,
+    2093.6
+   ],
+   "local_enu_m": [
+    1081.33,
+    306.62
+   ]
+  },
+  {
+   "s_px": 480,
+   "depth_px": 12,
+   "px": [
+    3313.0,
+    2095.0
+   ],
+   "local_enu_m": [
+    1088.74,
+    305.9
+   ]
+  },
+  {
+   "s_px": 490,
+   "depth_px": 22,
+   "px": [
+    3322.3,
+    2084.0
+   ],
+   "local_enu_m": [
+    1095.22,
+    314.09
+   ]
+  },
+  {
+   "s_px": 500,
+   "depth_px": 16,
+   "px": [
+    3331.1,
+    2087.8
+   ],
+   "local_enu_m": [
+    1101.45,
+    311.59
+   ]
+  },
+  {
+   "s_px": 510,
+   "depth_px": 16,
+   "px": [
+    3340.4,
+    2086.0
+   ],
+   "local_enu_m": [
+    1108.0,
+    313.14
+   ]
+  },
+  {
+   "s_px": 520,
+   "depth_px": 12,
+   "px": [
+    3352.3,
+    2089.1
+   ],
+   "local_enu_m": [
+    1116.42,
+    311.24
+   ]
+  },
+  {
+   "s_px": 530,
+   "depth_px": 13,
+   "px": [
+    3360.4,
+    2086.0
+   ],
+   "local_enu_m": [
+    1122.11,
+    313.7
+   ]
+  },
+  {
+   "s_px": 540,
+   "depth_px": 14,
+   "px": [
+    3372.5,
+    2084.3
+   ],
+   "local_enu_m": [
+    1130.63,
+    315.26
+   ]
+  },
+  {
+   "s_px": 550,
+   "depth_px": 15,
+   "px": [
+    3382.5,
+    2082.8
+   ],
+   "local_enu_m": [
+    1137.67,
+    316.61
+   ]
+  },
+  {
+   "s_px": 560,
+   "depth_px": 28,
+   "px": [
+    3387.4,
+    2067.7
+   ],
+   "local_enu_m": [
+    1141.01,
+    327.64
+   ]
+  },
+  {
+   "s_px": 570,
+   "depth_px": 15,
+   "px": [
+    3400.4,
+    2078.6
+   ],
+   "local_enu_m": [
+    1150.26,
+    320.14
+   ]
+  },
+  {
+   "s_px": 580,
+   "depth_px": 14,
+   "px": [
+    3409.5,
+    2076.9
+   ],
+   "local_enu_m": [
+    1156.67,
+    321.61
+   ]
+  },
+  {
+   "s_px": 590,
+   "depth_px": 11,
+   "px": [
+    3418.8,
+    2077.0
+   ],
+   "local_enu_m": [
+    1163.23,
+    321.8
+   ]
+  },
+  {
+   "s_px": 600,
+   "depth_px": 12,
+   "px": [
+    3428.9,
+    2073.6
+   ],
+   "local_enu_m": [
+    1170.32,
+    324.53
+   ]
+  },
+  {
+   "s_px": 610,
+   "depth_px": 12,
+   "px": [
+    3439.8,
+    2071.7
+   ],
+   "local_enu_m": [
+    1178.0,
+    326.2
+   ]
+  },
+  {
+   "s_px": 620,
+   "depth_px": 13,
+   "px": [
+    3449.4,
+    2068.2
+   ],
+   "local_enu_m": [
+    1184.74,
+    328.99
+   ]
+  },
+  {
+   "s_px": 630,
+   "depth_px": 14,
+   "px": [
+    3461.3,
+    2067.1
+   ],
+   "local_enu_m": [
+    1193.13,
+    330.11
+   ]
+  },
+  {
+   "s_px": 640,
+   "depth_px": 12,
+   "px": [
+    3470.7,
+    2067.7
+   ],
+   "local_enu_m": [
+    1199.76,
+    329.94
+   ]
+  },
+  {
+   "s_px": 650,
+   "depth_px": 29,
+   "px": [
+    3481.4,
+    2050.8
+   ],
+   "local_enu_m": [
+    1207.18,
+    342.42
+   ]
+  },
+  {
+   "s_px": 660,
+   "depth_px": 25,
+   "px": [
+    3494.8,
+    2056.6
+   ],
+   "local_enu_m": [
+    1216.68,
+    338.61
+   ]
+  },
+  {
+   "s_px": 670,
+   "depth_px": 24,
+   "px": [
+    3508.0,
+    2060.8
+   ],
+   "local_enu_m": [
+    1226.02,
+    335.94
+   ]
+  },
+  {
+   "s_px": 680,
+   "depth_px": 25,
+   "px": [
+    3517.1,
+    2061.1
+   ],
+   "local_enu_m": [
+    1232.44,
+    335.98
+   ]
+  },
+  {
+   "s_px": 690,
+   "depth_px": 48,
+   "px": [
+    3534.1,
+    2042.1
+   ],
+   "local_enu_m": [
+    1244.28,
+    350.15
+   ]
+  },
+  {
+   "s_px": 700,
+   "depth_px": 40,
+   "px": [
+    3542.7,
+    2053.3
+   ],
+   "local_enu_m": [
+    1250.43,
+    342.31
+   ]
+  },
+  {
+   "s_px": 710,
+   "depth_px": 37,
+   "px": [
+    3550.4,
+    2058.5
+   ],
+   "local_enu_m": [
+    1255.9,
+    338.77
+   ]
+  },
+  {
+   "s_px": 720,
+   "depth_px": 11,
+   "px": [
+    3553.5,
+    2086.7
+   ],
+   "local_enu_m": [
+    1258.3,
+    318.52
+   ]
+  },
+  {
+   "s_px": 730,
+   "depth_px": 11,
+   "px": [
+    3562.9,
+    2089.3
+   ],
+   "local_enu_m": [
+    1264.95,
+    316.9
+   ]
+  },
+  {
+   "s_px": 740,
+   "depth_px": 15,
+   "px": [
+    3573.9,
+    2088.6
+   ],
+   "local_enu_m": [
+    1272.7,
+    317.71
+   ]
+  },
+  {
+   "s_px": 750,
+   "depth_px": 14,
+   "px": [
+    3582.9,
+    2091.8
+   ],
+   "local_enu_m": [
+    1279.07,
+    315.65
+   ]
+  },
+  {
+   "s_px": 760,
+   "depth_px": 17,
+   "px": [
+    3593.7,
+    2092.1
+   ],
+   "local_enu_m": [
+    1286.69,
+    315.73
+   ]
+  },
+  {
+   "s_px": 770,
+   "depth_px": null
+  },
+  {
+   "s_px": 780,
+   "depth_px": 19,
+   "px": [
+    3612.7,
+    2094.6
+   ],
+   "local_enu_m": [
+    1300.11,
+    314.45
+   ]
+  },
+  {
+   "s_px": 790,
+   "depth_px": 15,
+   "px": [
+    3621.8,
+    2101.4
+   ],
+   "local_enu_m": [
+    1306.58,
+    309.8
+   ]
+  },
+  {
+   "s_px": 800,
+   "depth_px": 13,
+   "px": [
+    3630.7,
+    2105.4
+   ],
+   "local_enu_m": [
+    1312.89,
+    307.16
+   ]
+  },
+  {
+   "s_px": 810,
+   "depth_px": 18,
+   "px": [
+    3641.6,
+    2102.9
+   ],
+   "local_enu_m": [
+    1320.55,
+    309.26
+   ]
+  },
+  {
+   "s_px": 820,
+   "depth_px": 14,
+   "px": [
+    3650.4,
+    2109.4
+   ],
+   "local_enu_m": [
+    1326.81,
+    304.82
+   ]
+  },
+  {
+   "s_px": 830,
+   "depth_px": 11,
+   "px": [
+    3659.4,
+    2114.6
+   ],
+   "local_enu_m": [
+    1333.2,
+    301.32
+   ]
+  },
+  {
+   "s_px": 840,
+   "depth_px": 13,
+   "px": [
+    3669.9,
+    2115.5
+   ],
+   "local_enu_m": [
+    1340.61,
+    300.96
+   ]
+  },
+  {
+   "s_px": 850,
+   "depth_px": 20,
+   "px": [
+    3680.4,
+    2110.4
+   ],
+   "local_enu_m": [
+    1347.98,
+    304.92
+   ]
+  },
+  {
+   "s_px": 860,
+   "depth_px": 21,
+   "px": [
+    3690.9,
+    2112.1
+   ],
+   "local_enu_m": [
+    1355.39,
+    303.99
+   ]
+  },
+  {
+   "s_px": 870,
+   "depth_px": 12,
+   "px": [
+    3698.6,
+    2123.2
+   ],
+   "local_enu_m": [
+    1360.91,
+    296.2
+   ]
+  },
+  {
+   "s_px": 880,
+   "depth_px": 14,
+   "px": [
+    3708.4,
+    2123.2
+   ],
+   "local_enu_m": [
+    1367.82,
+    296.47
+   ]
+  },
+  {
+   "s_px": 890,
+   "depth_px": 12,
+   "px": [
+    3717.8,
+    2127.3
+   ],
+   "local_enu_m": [
+    1374.48,
+    293.77
+   ]
+  },
+  {
+   "s_px": 900,
+   "depth_px": 14,
+   "px": [
+    3728.3,
+    2128.1
+   ],
+   "local_enu_m": [
+    1381.89,
+    293.48
+   ]
+  },
+  {
+   "s_px": 910,
+   "depth_px": 14,
+   "px": [
+    3737.4,
+    2129.5
+   ],
+   "local_enu_m": [
+    1388.32,
+    292.72
+   ]
+  },
+  {
+   "s_px": 920,
+   "depth_px": 13,
+   "px": [
+    3747.4,
+    2133.4
+   ],
+   "local_enu_m": [
+    1395.4,
+    290.18
+   ]
+  },
+  {
+   "s_px": 930,
+   "depth_px": 14,
+   "px": [
+    3758.3,
+    2135.7
+   ],
+   "local_enu_m": [
+    1403.11,
+    288.83
+   ]
+  }
+ ],
+ "division_strokes": {
+  "found": [
+   {
+    "s_px": 27,
+    "px": [
+     2958.6,
+     2366.0
+    ],
+    "local_enu_m": [
+     840.81,
+     100.68
+    ],
+    "min_ink_over_depth": 92.0,
+    "shear_dsdt": -0.6
+   },
+   {
+    "s_px": 55,
+    "px": [
+     2985.6,
+     2358.7
+    ],
+    "local_enu_m": [
+     859.8,
+     106.69
+    ],
+    "min_ink_over_depth": 116.4,
+    "shear_dsdt": -0.45
+   },
+   {
+    "s_px": 84,
+    "px": [
+     3009.9,
+     2342.8
+    ],
+    "local_enu_m": [
+     876.82,
+     118.82
+    ],
+    "min_ink_over_depth": 103.2,
+    "shear_dsdt": 0.0
+   },
+   {
+    "s_px": 114,
+    "px": [
+     3030.3,
+     2320.5
+    ],
+    "local_enu_m": [
+     891.04,
+     135.47
+    ],
+    "min_ink_over_depth": 101.4,
+    "shear_dsdt": 0.3
+   },
+   {
+    "s_px": 137,
+    "px": [
+     3046.3,
+     2303.9
+    ],
+    "local_enu_m": [
+     902.2,
+     147.88
+    ],
+    "min_ink_over_depth": 124.5,
+    "shear_dsdt": 0.0
+   },
+   {
+    "s_px": 163,
+    "px": [
+     3062.7,
+     2283.4
+    ],
+    "local_enu_m": [
+     913.62,
+     163.12
+    ],
+    "min_ink_over_depth": 131.1,
+    "shear_dsdt": 0.0
+   },
+   {
+    "s_px": 193,
+    "px": [
+     3082.2,
+     2260.5
+    ],
+    "local_enu_m": [
+     927.2,
+     180.17
+    ],
+    "min_ink_over_depth": 105.9,
+    "shear_dsdt": 0.3
+   },
+   {
+    "s_px": 218,
+    "px": [
+     3097.5,
+     2240.3
+    ],
+    "local_enu_m": [
+     937.84,
+     195.16
+    ],
+    "min_ink_over_depth": 105.9,
+    "shear_dsdt": 0.3
+   },
+   {
+    "s_px": 246,
+    "px": [
+     3113.7,
+     2217.3
+    ],
+    "local_enu_m": [
+     949.09,
+     212.2
+    ],
+    "min_ink_over_depth": 110.0,
+    "shear_dsdt": 0.3
+   },
+   {
+    "s_px": 271,
+    "px": [
+     3129.8,
+     2198.0
+    ],
+    "local_enu_m": [
+     960.3,
+     226.56
+    ],
+    "min_ink_over_depth": 82.1,
+    "shear_dsdt": 0.3
+   },
+   {
+    "s_px": 292,
+    "px": [
+     3146.0,
+     2184.3
+    ],
+    "local_enu_m": [
+     971.63,
+     236.89
+    ],
+    "min_ink_over_depth": 86.3,
+    "shear_dsdt": 0.0
+   },
+   {
+    "s_px": 317,
+    "px": [
+     3166.5,
+     2169.5
+    ],
+    "local_enu_m": [
+     985.97,
+     248.13
+    ],
+    "min_ink_over_depth": 65.5,
+    "shear_dsdt": 0.15
+   },
+   {
+    "s_px": 339,
+    "px": [
+     3183.1,
+     2155.0
+    ],
+    "local_enu_m": [
+     997.57,
+     259.04
+    ],
+    "min_ink_over_depth": 47.3,
+    "shear_dsdt": -0.15
+   },
+   {
+    "s_px": 362,
+    "px": [
+     3201.8,
+     2141.3
+    ],
+    "local_enu_m": [
+     1010.66,
+     269.44
+    ],
+    "min_ink_over_depth": 72.2,
+    "shear_dsdt": 0.45
+   },
+   {
+    "s_px": 395,
+    "px": [
+     3229.8,
+     2123.4
+    ],
+    "local_enu_m": [
+     1030.27,
+     283.12
+    ],
+    "min_ink_over_depth": 74.3,
+    "shear_dsdt": -0.3
+   },
+   {
+    "s_px": 420,
+    "px": [
+     3254.3,
+     2116.3
+    ],
+    "local_enu_m": [
+     1047.5,
+     288.92
+    ],
+    "min_ink_over_depth": 45.0,
+    "shear_dsdt": 0.0
+   },
+   {
+    "s_px": 444,
+    "px": [
+     3277.7,
+     2110.2
+    ],
+    "local_enu_m": [
+     1063.96,
+     293.96
+    ],
+    "min_ink_over_depth": 91.3,
+    "shear_dsdt": 0.0
+   },
+   {
+    "s_px": 460,
+    "px": [
+     3294.0,
+     2108.6
+    ],
+    "local_enu_m": [
+     1075.44,
+     295.57
+    ],
+    "min_ink_over_depth": 84.4,
+    "shear_dsdt": 0.6
+   },
+   {
+    "s_px": 482,
+    "px": [
+     3315.9,
+     2106.8
+    ],
+    "local_enu_m": [
+     1090.88,
+     297.47
+    ],
+    "min_ink_over_depth": 50.2,
+    "shear_dsdt": -0.9
+   },
+   {
+    "s_px": 513,
+    "px": [
+     3346.6,
+     2101.6
+    ],
+    "local_enu_m": [
+     1112.49,
+     302.07
+    ],
+    "min_ink_over_depth": 83.7,
+    "shear_dsdt": 0.15
+   },
+   {
+    "s_px": 536,
+    "px": [
+     3369.3,
+     2098.0
+    ],
+    "local_enu_m": [
+     1128.47,
+     305.29
+    ],
+    "min_ink_over_depth": 63.9,
+    "shear_dsdt": -0.15
+   },
+   {
+    "s_px": 570,
+    "px": [
+     3403.0,
+     2093.4
+    ],
+    "local_enu_m": [
+     1152.21,
+     309.53
+    ],
+    "min_ink_over_depth": 60.4,
+    "shear_dsdt": 0.45
+   },
+   {
+    "s_px": 592,
+    "px": [
+     3424.2,
+     2087.1
+    ],
+    "local_enu_m": [
+     1167.11,
+     314.66
+    ],
+    "min_ink_over_depth": 100.2,
+    "shear_dsdt": 0.15
+   },
+   {
+    "s_px": 615,
+    "px": [
+     3446.8,
+     2081.3
+    ],
+    "local_enu_m": [
+     1183.01,
+     319.47
+    ],
+    "min_ink_over_depth": 75.2,
+    "shear_dsdt": 0.0
+   },
+   {
+    "s_px": 644,
+    "px": [
+     3476.0,
+     2079.8
+    ],
+    "local_enu_m": [
+     1203.59,
+     321.36
+    ],
+    "min_ink_over_depth": 36.0,
+    "shear_dsdt": 0.45
+   },
+   {
+    "s_px": 664,
+    "px": [
+     3496.1,
+     2080.8
+    ],
+    "local_enu_m": [
+     1217.77,
+     321.19
+    ],
+    "min_ink_over_depth": 49.7,
+    "shear_dsdt": -0.15
+   },
+   {
+    "s_px": 728,
+    "px": [
+     3558.0,
+     2099.5
+    ],
+    "local_enu_m": [
+     1261.57,
+     309.41
+    ],
+    "min_ink_over_depth": 34.4,
+    "shear_dsdt": 1.2
+   },
+   {
+    "s_px": 767,
+    "px": [
+     3595.6,
+     2110.0
+    ],
+    "local_enu_m": [
+     1288.17,
+     302.87
+    ],
+    "min_ink_over_depth": 48.5,
+    "shear_dsdt": -0.75
+   },
+   {
+    "s_px": 798,
+    "px": [
+     3625.7,
+     2117.6
+    ],
+    "local_enu_m": [
+     1309.45,
+     298.22
+    ],
+    "min_ink_over_depth": 30.5,
+    "shear_dsdt": -1.2
+   },
+   {
+    "s_px": 821,
+    "px": [
+     3648.0,
+     2123.5
+    ],
+    "local_enu_m": [
+     1325.22,
+     294.58
+    ],
+    "min_ink_over_depth": 72.1,
+    "shear_dsdt": -0.45
+   },
+   {
+    "s_px": 846,
+    "px": [
+     3672.3,
+     2129.5
+    ],
+    "local_enu_m": [
+     1342.41,
+     290.93
+    ],
+    "min_ink_over_depth": 87.3,
+    "shear_dsdt": -0.45
+   },
+   {
+    "s_px": 861,
+    "px": [
+     3687.0,
+     2132.8
+    ],
+    "local_enu_m": [
+     1352.8,
+     288.95
+    ],
+    "min_ink_over_depth": 34.0,
+    "shear_dsdt": 1.35
+   },
+   {
+    "s_px": 876,
+    "px": [
+     3701.6,
+     2136.3
+    ],
+    "local_enu_m": [
+     1363.12,
+     286.83
+    ],
+    "min_ink_over_depth": 98.6,
+    "shear_dsdt": -0.45
+   },
+   {
+    "s_px": 904,
+    "px": [
+     3728.9,
+     2142.6
+    ],
+    "local_enu_m": [
+     1382.42,
+     283.04
+    ],
+    "min_ink_over_depth": 123.2,
+    "shear_dsdt": -0.45
+   }
+  ],
+  "settings": {
+   "minimum_ink": 25.0,
+   "window_px": 8,
+   "merge_px": 15,
+   "shear_fan": [
+    -1.35,
+    -1.2,
+    -1.05,
+    -0.9,
+    -0.75,
+    -0.6,
+    -0.45,
+    -0.3,
+    -0.15,
+    0.0,
+    0.15,
+    0.3,
+    0.45,
+    0.6,
+    0.75,
+    0.9,
+    1.05,
+    1.2,
+    1.35
+   ],
+   "depth_band_px": [
+    4,
+    20
+   ]
+  },
+  "pitch_px": {
+   "mean": 26.6,
+   "sd": 8.5,
+   "min": 15,
+   "max": 64,
+   "n": 33
+  },
+  "stability": [
+   {
+    "minimum_ink": 25.0,
+    "window_px": 8,
+    "merge_px": 15,
+    "strokes": 34
+   },
+   {
+    "minimum_ink": 25.0,
+    "window_px": 6,
+    "merge_px": 12,
+    "strokes": 36
+   },
+   {
+    "minimum_ink": 25.0,
+    "window_px": 7,
+    "merge_px": 14,
+    "strokes": 36
+   },
+   {
+    "minimum_ink": 20.0,
+    "window_px": 6,
+    "merge_px": 12,
+    "strokes": 36
+   },
+   {
+    "minimum_ink": 30.0,
+    "window_px": 8,
+    "merge_px": 15,
+    "strokes": 34
+   }
+  ],
+  "grade": "inferred, every one of them. The strokes are real ink and the detector is finding ink, but it does not find the SAME ink under every reasonable setting: the fan below returns between 34 and 36 strokes where the run's own figures require 34. In the wedge east of the break the strokes stand square to the back line rather than to the bank and lean by most of a parcel's width across the depth, which is where the disagreement is. So this list says WHERE the sheet rules its parcels off, to about a stroke's width, and it does NOT say which stroke bounds which numbered lot."
+ },
+ "module": {
+  "mean_frontage_ft": 61.1,
+  "mean_frontage_m": 19.06,
+  "depth_px": {
+   "mean": 16.6,
+   "sd": 6.4,
+   "n": 90
+  },
+  "depth_ft": 38.1,
+  "method_over_read": 1.024,
+  "reading": "The mean frontage does not come from the strokes \u2014 it comes from the two things the sheet does settle: the run's arc length, and that the run is 35 parcels because its first figure is 1 and its last is 35. A width in feet is that arc carried to metres through the committed NA affine and then divided by the factor data/traces/kinzie_addition_street_grid.json measured for this sheet and this class of method against the Original Town's platted 80 ft corridors \u2014 a width RELATIVE to a known width on the same paper, which is the only width this sheet can settle.",
+  "against_the_original_town": "Thompson's lots front 80 ft on the street. These front about 61.1 ft on the water and run about 38.1 ft back, which is the shape of wharfage rather than of a town lot."
+ },
+ "numbering": {
+  "rule": "One run, west to east: 1 at the Original Town's east line, 35 at the harbour. No tier, no column, no boustrophedon \u2014 a lot strip has one axis and the figures follow it.",
+  "documented": [
+   1,
+   15,
+   16,
+   17,
+   26,
+   27,
+   28,
+   29,
+   30,
+   31,
+   32,
+   33,
+   34,
+   35
+  ],
+  "refused": [
+   2,
+   3,
+   4,
+   5,
+   6,
+   7,
+   8,
+   9,
+   10,
+   11,
+   12,
+   13,
+   14,
+   18,
+   19,
+   20,
+   21,
+   22,
+   23,
+   24,
+   25
+  ],
+  "crops": {
+   "1": [
+    2925,
+    2280,
+    3070,
+    2385
+   ],
+   "15-17": [
+    3160,
+    2090,
+    3290,
+    2185
+   ],
+   "26-35": [
+    3500,
+    1950,
+    3900,
+    2220
+   ]
+  },
+  "why_refused": "Wright's figures in the western half of the run are about two millimetres of pen on a manuscript that was mounted on cloth to repair a tear, and the 600-dpi facsimile does not carry them: at 8x to 14x the cells hold a shape and not a number. 21 of the 35 are refused on that ground, lot 14 among them. Nothing is upgraded to make the run look complete.",
+  "break": "Between the thirteenth cell of the run and the cell the sheet letters 15, the strip's back line falls to meet its front line and rises again about forty pixels further east: a reach of bank with no back line over it, found here by the back-line search returning nothing at three consecutive stations. The reach is not a tear \u2014 the paper is whole, the bank stroke is unbroken and the wash carries across it \u2014 and this reading does not say what it is. What it does say is that the run's own figures need that reach to carry lot 14: the cell east of it is lettered 15, the cell at the far end is lettered 35, and a continuous count west to east reaches both only with the break counted in. Lot 14 is therefore INFERRED, and is the only number in this file that is inferred from a count rather than refused outright."
+ },
+ "refusals": [
+  "Which stroke bounds which numbered lot is NOT settled \u2014 see `division_strokes.grade`. A per-lot frontage table would be an invention.",
+  "No lot line is drawn inside a parcel on this sheet and none is derived here.",
+  "This file authors no fabric: no wharf, no frontage run, no roof. It is a reading of a sheet, and the ground anything is spent onto is the committed bank's, not this file's.",
+  "The seating is the sheet's own affine, whose RMS is 16.19 m and whose two axis scales differ by 5.2 per cent. Where this run sits against the committed 1834 bank trace is not settled here."
+ ]
+}

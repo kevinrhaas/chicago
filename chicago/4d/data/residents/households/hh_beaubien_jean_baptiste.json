@@ -1,0 +1,259 @@
+{
+ "id": "hh_beaubien_jean_baptiste",
+ "name": "The Jean Baptiste Beaubien household",
+ "division": "south",
+ "head": "beaubien_jean_baptiste",
+ "arrival": {
+  "value": "1812",
+  "confidence": "attested",
+  "sources": [
+   "andreas_1884_v1"
+  ],
+  "note": "'He came to Chicago and bought the cabin and cultivated field south of the old fort in 1812' - the earliest arrival in the dataset by nineteen years, and inside the year of the Fort Dearborn massacre.",
+  "precision": "year"
+ },
+ "party_size_on_arrival": {
+  "value": null,
+  "confidence": "reconstructed",
+  "note": "Not attested in anything this project holds."
+ },
+ "origin": {
+  "value": "Detroit and the Milwaukee trade, of a French colonial family",
+  "confidence": "attested",
+  "sources": [
+   "andreas_1884_v1"
+  ],
+  "note": "'He was settled as a trader in Milwaukee as early as 1800, and until 1818 had a trading-house there.'"
+ },
+ "reason_for_coming": {
+  "value": "The fur trade",
+  "confidence": "attested",
+  "sources": [
+   "andreas_1884_v1"
+  ],
+  "note": "He was a trader before he came, at Milwaukee, and bought a going concern here."
+ },
+ "lives_at": {
+  "value": "jb_beaubien_homestead",
+  "confidence": "inferred",
+  "sources": [
+   "andreas_1884_v1"
+  ],
+  "note": "data/structures/jb_beaubien_homestead.json carries 'Col. Jean Baptiste Beaubien and his household' as occupants and grades it inferred, because Andreas says he built a NEW residence which is a different building and is not modelled. This household inherits that grade and that doubt exactly."
+ },
+ "works_at": {
+  "value": "jb_beaubien_homestead",
+  "confidence": "inferred",
+  "sources": [
+   "andreas_1884_v1"
+  ],
+  "note": "A trading house is a dwelling and a shop; the building record's function is 'dwelling_and_trading_house'."
+ },
+ "present_on_scene_date": {
+  "value": "present",
+  "confidence": "attested",
+  "sources": [
+   "andreas_1884_v1"
+  ],
+  "note": "He was the claimant of the Fort Dearborn reservation in 1835 and the residence was his until 1839."
+ },
+ "kin": [
+  {
+   "person": "beaubien_jean_baptiste",
+   "relation": "father",
+   "household": "hh_beaubien_madore",
+   "value": "beaubien_madore",
+   "confidence": "attested",
+   "sources": [
+    "andreas_1884_v1"
+   ],
+   "note": "THE MIRROR OF THE ROW ON hh_beaubien_madore. MADORE BEAUBIEN IS THE SON OF COL. JEAN BAPTISTE BEAUBIEN, AND HIS OWN CARD HAS SAID SO IN PROSE SINCE IT WAS WRITTEN: 'He is the son of Jean Baptiste Beaubien by his first wife Mah-naw-bun-no-quah, an Ottawa woman' — Andreas, History of Chicago vol. 1, the same reading that grades the rest of that card. NOTHING IS UPGRADED HERE. The claim was already attested on the card and already cited to andreas_1884_v1; this row only puts it where a query can reach it, because a sentence in a note is not a relationship any tool can read. THE IDENTIFICATION IS NOT A SURNAME MATCH: the town holds one Jean Baptiste Beaubien, the card names him with all three forenames and a rank, and the 1831 county licence Andreas prints has Madore selling goods 'alongside Alexander Robinson and his father'. WHAT IT DOES NOT CLAIM: his mother Mah-naw-bun-no-quah is not a person in this dataset and no row is written for her, and this row says nothing about where either man lived."
+  },
+  {
+   "person": "beaubien_jean_baptiste",
+   "relation": "brother",
+   "household": "hh_beaubien_mark",
+   "value": "beaubien_mark",
+   "confidence": "inferred",
+   "sources": [
+    "andreas_1884_v1"
+   ],
+   "note": "MARK BEAUBIEN AND JEAN BAPTISTE BEAUBIEN ARE BROTHERS. Mark's own card reaches for \"Andreas's life of his brother Jean Baptiste\" to date the family's move to Chicago from Milwaukee, and states the tie while doing it. Graded inferred: the brotherhood is stated in the source, and the reading that ties the elided forename to this card — twelve Beaubiens stand in the dataset — is this project's. Ruled under T-0734; found by PR #947."
+  }
+ ],
+ "persons": [
+  {
+   "id": "beaubien_jean_baptiste",
+   "name": "Col. Jean Baptiste Beaubien",
+   "relationship": "head",
+   "grade": "attested",
+   "ladder_rule": "G1a",
+   "sex": "male",
+   "occupation": {
+    "value": "trader",
+    "confidence": "attested",
+    "sources": [
+     "andreas_1884_v1"
+    ],
+    "note": "'J. B. Beaubien, merchant' in the 1833 roster; a licensed trader from the county court's earliest permits - the clerk 'granted permits to sell goods to Alexander Robinson, John B. Beaubien, and Madore B. Beaubien' in 1831 - and before that the American Fur Company's man at Chicago.",
+    "derived_from": "roles",
+    "roles_at_scene_date": [
+     "trader"
+    ]
+   },
+   "sources": [
+    "andreas_1884_v1",
+    "chicago_democrat_1833_1835",
+    "chicago_voter_lists_1833_1835_irad",
+    "isa_public_domain_land_tract_sales"
+   ],
+   "note": "HE CAME TO CHICAGO AND BOUGHT THE CABIN AND CULTIVATED FIELD SOUTH OF THE OLD FORT IN 1812, and the house remained his residence until 1839. He was a trader at Milwaukee as early as 1800. He was one of the twenty-eight electors of 10 August 1833 and took six votes for trustee. HIS TWO MARRIAGES ARE DOCUMENTED AND THEY ARE WHY THIS HOUSEHOLD IS FLAGGED: he married first Mah-naw-bun-no-quah, an Ottawa woman, the mother of his sons Charles Henry and Madore; and in 1812 he married Josette LaFramboise, daughter of Francois LaFramboise, of an influential French trading family. THE TOWN'S OWN ROLLS, 1833-1835 — CORROBORATION, NOT A GRADE. The early Chicago voter and tax lists held by the Illinois Regional Archives Depository name this person 2 times: Poll list of the first election of the Board of Trustees of the Town of Chicago, 10 August 1833 — “Beaubien, J. B.” (poll_1833_003, line 24); Poll list of 1835 — “Beaubien, Col. J. B.” (poll_1835_005, line 290). These are the town's own contemporary paper rather than a recollection of it, and each appearance says that a man of that name stood on that roll in that year — no more. The reading is twice mediated (Schulz's transcription, then Genealogy Trails' republication) and this project has not seen the IRAD originals. Under the ratified ladder (T-0513) the 1835 poll with a second independent source is attested, the 1835 poll alone or a 1833/1834 list with another source is inferred, and a single appearance with nothing else is a projected resident. This pass WRITES THE EVIDENCE AND MOVES NO GRADE — T-0515 applies the ladder against every source at once. Identity by the crosswalk's own rule: one resident of the surname 'Beaubien' agrees with the entry's forenames; 4 bearer(s) of the surname were considered. (data/research/civic/voter_crosswalk.json). THE FEDERAL LAND TRACT SALES — A PURCHASE, AND NEVER A RESIDENCE. The Illinois State Archives' Public Domain Land Tract Sales register enters this person 13 times, as “BEAUBIEN J B”, 1830-09-27 to 1830-09-29: 4 federal land entries — NFR2NEVO sec 29 T39N R14E; NFRNE sec 29 T39N R14E; NWFRPTNW sec 29 T39N R14E; NWFRPTNWVO sec 29 T39N R14E and 9 lots in the platted town — lot 1 of block 17 in the town the register codes CHIOT (L1B17CHIOT, as printed); lot 1 of block 18 in the town the register codes CHIOT (L1BL18CHIOT, as printed); lot 2 of block 17 in the town the register codes CHIOT (L2B17CHIOT, as printed); lot 3 of block 36 in the town the register codes CHIOT (L3BL36CHIOT, as printed); lot 4 of block 36 in the town the register codes CHIOT (L4BL36CHIOT, as printed); lot 6 of block 35 in the town the register codes CHIOT (L6BL35CHIOT, as printed); lot 7 of block 16 in the town the register codes CHIOT (L7B16CHIOT, as printed); lot 7 of block 17 in the town the register codes CHIOT (L7BL17CHIOT, as printed); lot 8 of block 17 in the town the register codes CHIOT (L8BL17CHIOT, as printed), 425.22 acres stated in all, for $2472.40 (ls0454, ls0455, ls0456, ls0457, ls0959, ls0960, ls0961, ls0962, ls0963, ls0964, ls0965, ls0966, ls0967). THE REGISTER'S OWN RESIDENCE COLUMN READS ILLINOIS, UNKNOWN on these rows: a county, a state or nothing, and never a town, which is why a purchase here places nobody. THE TOWN LOTS ARE THE PLAT ITSELF, AND THEY ARE NOT ACRES: Cook County's register describes them by lot and block in a platted town and gives them no section, no township and no acreage at all, so they add nothing to the acre figure above and $346.00 to the money. This project does not expand the register's town codes, so which addition a lot stands in is carried as the code and not as a name. It is still a purchase and it still places nobody. A purchase and nothing more. It dates and places a transaction; it proposes no residence, and under the ratified ladder it corroborates rather than mints. Identity by the crosswalk's own rule: BEAUBIEN J B matches Col. Jean Baptiste Beaubien: the forename names Col. Jean Baptiste Beaubien of the 8 people of this surname, and the forename agrees as an initial only. (data/research/land_sales/resident_crosswalk.json). This pass WRITES THE EVIDENCE AND MOVES NO GRADE. Under the ratified ladder (T-0513) a second independent source is what lifts a projected resident, and a land entry is a second source about a TRANSACTION rather than about who was living at Chicago on 1 July 1835 — a man may buy a quarter-section he never sees. T-0515 applies the ladder against every source at once; this pass hands it the evidence and not the verdict.",
+   "resident_research": {
+    "programme": "resident-research-2026",
+    "ticket": "T-0508",
+    "outcome": "corroborated",
+    "reviewed_on": "2026-09-05",
+    "asserted_identity": true,
+    "evidence_for": "Independent of the post office in books, 1830 schedule, parish registers and more.",
+    "source_ids": [
+     "census_1830_peoria_county_chicago_precinct",
+     "chicagology_prefire052",
+     "hubbard_autobiography_1911",
+     "andreas_1884_v1"
+    ],
+    "summary": "Independently corroborated; confirmed, not moved."
+   },
+   "press_evidence": [
+    {
+     "list": "newspaper_1833_1835",
+     "as_read": "J. B. Beaubien",
+     "locator": "chicago_democrat_1833_12_17#c007",
+     "record_id": "person_j_b_beaubien",
+     "describes_date": "1833-12-17",
+     "source": "chicago_democrat_1833_1835",
+     "rule": "G1b"
+    },
+    {
+     "list": "newspaper_1833_1835",
+     "as_read": "J. B[t]. Beaubien",
+     "locator": "chicago_democrat_1834_04_16#c009",
+     "record_id": "person_j_b_t_beaubien",
+     "describes_date": "1834-04-16",
+     "source": "chicago_democrat_1833_1835",
+     "rule": "G1b"
+    },
+    {
+     "list": "newspaper_1833_1835",
+     "as_read": "Beaubien, John B.",
+     "locator": "chicago_democrat_1834_09_03#c010",
+     "record_id": "person_beaubien_john_b",
+     "describes_date": "1834-09-03",
+     "source": "chicago_democrat_1833_1835",
+     "rule": "G1b"
+    }
+   ],
+   "merged_from": [
+    {
+     "ticket": "T-0839",
+     "rule": "C2",
+     "cluster": "beaubien",
+     "cards": [
+      "beaubien_j_b",
+      "beaubien_john_b"
+     ],
+     "note": "THE UNION OF THE CARDS THIS PERSON WAS SPLIT ACROSS. The sources and evidence blocks above include everything the folded cards cited; each folded record is kept whole under data/residents/merged/ and is redirected by index.json's `merged` table. The reasoning for the merge is in data/residents/card_merge_rulings.json."
+    }
+   ],
+   "roles": [
+    {
+     "role": "trader",
+     "kind": "trade",
+     "as_printed": null,
+     "from": "1673",
+     "to": "1857",
+     "precision": "source_span",
+     "dated_by": "source_describes_date",
+     "covers_scene_date": true,
+     "confidence": "attested",
+     "sources": [
+      "andreas_1884_v1"
+     ],
+     "claim": null,
+     "note": "THE BOUND IS THE SOURCE'S, NOT THE MAN'S. This role is carried by the card's 1835 occupation block and is dated by what the cited source or sources are ABOUT, which is why `precision` can be no better than the span they cover. The span reaches 1835, so this role stands in the scene-date view. The printing the trade was read off is not on the card and is fetched by T-1254."
+    }
+   ]
+  },
+  {
+   "id": "beaubien_josette",
+   "name": "Josette LaFramboise Beaubien",
+   "relationship": "wife",
+   "grade": "inferred",
+   "sex": "female",
+   "occupation": {
+    "value": "none_recorded",
+    "confidence": "reconstructed",
+    "note": "No source records an occupation for this person. This is the ABSENCE of a record rather than a claim that they did no work — the sources of 1835 name the occupations of household heads and almost never those of wives, children or the people counted with them."
+   },
+   "sources": [
+    "andreas_1884_v1"
+   ],
+   "note": "NAMED AND DATED IN THE SOURCE - married to J. B. Beaubien in 1812, daughter of Francois LaFramboise - and nothing places her in the household on 1 July 1835. She is written because a named wife of a named head is exactly the person this layer exists to record, and graded derived because the presence on the day is the reconstruction. The LaFramboise family is separately in the 1833 treaty schedules, where 'Joseph Laframboise and children' receive $1,000.",
+   "resident_research": {
+    "programme": "resident-research-2026",
+    "ticket": "T-0508",
+    "outcome": "corroborated",
+    "reviewed_on": "2026-09-05",
+    "asserted_identity": true,
+    "evidence_for": "Independent of the post office in parish registers, directories, old-settler notices.",
+    "notes": "Candidate facts remain unasserted until a source bridges the candidate to the historical record by more than name similarity.",
+    "source_ids": [
+     "st_marys_baptismal_register_1833_1835",
+     "andreas_1884_v1",
+     "fergus_chicago_directory_1839",
+     "fergus_chicago_directory_1843"
+    ],
+    "summary": "Independently corroborated; confirmed, not moved."
+   },
+   "merge_ruling": [
+    {
+     "ticket": "T-0839",
+     "verdict": "distinct",
+     "rule": "D1",
+     "cluster": "beaubien",
+     "weighed_against": [
+      "beaubien_john_s"
+     ],
+     "for_merge": "The surname, and in Josette's case one letter of a forename.",
+     "against_merge": "T-0839 names John S. Beaubien as a second man, not a duplicate of Jean Baptiste — the ticket's own worked warning. Josette LaFramboise Beaubien is Jean Baptiste's wife and is already a member of his household record; she is in this candidate cluster only because her forename begins with the letter J. and 'J. B. Beaubien' prints an initial."
+    }
+   ]
+  },
+  {
+   "id": "beaubien_household_unnamed",
+   "name": "The rest of the Beaubien household, unnamed",
+   "relationship": "household_member",
+   "grade": "inferred",
+   "occupation": {
+    "value": "none_recorded",
+    "confidence": "reconstructed",
+    "note": "No source records an occupation for this person. This is the ABSENCE of a record rather than a claim that they did no work — the sources of 1835 name the occupations of household heads and almost never those of wives, children or the people counted with them."
+   },
+   "sources": [],
+   "note": "AN ADMISSION. J. B. Beaubien's family was large and is not enumerated in anything reached; two sons are named in Andreas and one of them, Madore, has his own household here. Carried as one placeholder rather than as invented individuals; do not count it as a person."
+  }
+ ],
+ "touches_removal": true,
+ "review_required": true,
+ "research_note": "THE OLDEST HOUSEHOLD IN THE 1835 TOWN AND THE ONE THAT MOST NEEDS THE REMOVAL FLAG. J. B. Beaubien's first wife was an Ottawa woman and his sons by her are among the town's merchants; his second wife's family is in the 1833 treaty's schedule of payments; his homestead stands on a military reservation he was claiming from the United States in the scene year. Every one of those facts touches the dispossession that was completed in August 1835, six weeks after the scene date. THE RECORD MAKES NO CLAIM ABOUT ANY PERSON'S IDENTITY, AFFILIATION OR STATUS beyond what Andreas states, and it is flagged for review under the project's standing constraint rather than treated as settled. Note also what this household is NOT: a Potawatomi household. It is a French-descended trading family with Native kin, which is a distinct and much better-documented category, and collapsing the two would be the first step towards exactly the improvisation AGENTS.md forbids.",
+ "directories": {
+  "note": "LATER EVIDENCE, BESIDE THE 1835 CLAIMS AND NOT INSIDE THEM. A Chicago directory of 1839, 1843 or 1844 meets somebody of this name and this pass records what it prints. Under the ratified ladder a directory read after 1835 can corroborate that a person attested here was still in Chicago and can print a trade or a street the 1835 record never had; on its own it makes nobody a resident of 1835. Nothing on this person's 1835 record was regraded, moved, dated or given an occupation by this entry. WHAT THIS PASS RULED ONTO THIS HOUSEHOLD, named so the ruling can be found again: each volume below is followed by the printed entries it set against this person and the status the crosswalk ruled them at — a single entry carries what its own `could_carry` declares, and an ambiguous or contested match carries nothing and is shown so that the silence is legible. beaubien_jean_baptiste, Fergus's Chicago directory of 1843 — f1843_e0309 (a single entry).",
+  "sources": [
+   "fergus_chicago_directory_1843"
+  ],
+  "people": [
+   {
+    "person_id": "beaubien_jean_baptiste"
+   }
+  ]
+ }
+}

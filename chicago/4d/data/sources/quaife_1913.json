@@ -1,0 +1,25 @@
+{
+  "id": "quaife_1913",
+  "type": "book",
+  "citation": "Quaife, Milo Milton. Chicago and the Old Northwest, 1673-1835: A Study of the Evolution of the Northwestern Frontier, together with a History of Fort Dearborn. Chicago: University of Chicago Press, 1913.",
+  "author": "Milo Milton Quaife",
+  "date": "1913",
+  "describes_date": "1673-1835",
+  "url": "https://www.gutenberg.org/ebooks/69274",
+  "archived_url": "https://www.gutenberg.org/files/69274/69274-h/69274-h.htm",
+  "locator": "the 1808 Whistler draught and its index, in the chapter on the first fort; the establishment of the second fort, 1816-17",
+  "tier": 4,
+  "rights_status": "public_domain",
+  "asset_use": "text_only",
+  "verified": true,
+  "note": "CITED HERE PARTLY FOR A NEGATIVE FINDING, which is the honest result of looking. Quaife is the standing scholarly monograph on Fort Dearborn - the title page says 'together with a History of Fort Dearborn' - and he had the War Department files; he prints Captain John Whistler's index to the 1808 draught of the FIRST fort in full, including its scale ('The measurement of the Garrison including the Block Houses And Barrick are laid down at twenty feet to the Inch') and its distances ('From the northwest corner of the stockade to the river was a distance of eighty feet'). For the SECOND fort he gives Major Long's 1816 report on the progress of construction and nothing about its plan, and he states no dimension of it anywhere. Searched for 'stockade', 'palisade', 'blockhouse', 'parade' and 'second fort' across the whole text. So the absence of a dimension for the 1816 fort in this dataset is not a gap in the searching; it is a gap in the literature. USED ONLY AS A GUARD, NEVER AS EVIDENCE FOR THE SECOND FORT: the double row of pickets, the two blockhouses at the north-west and south-east angles, the covered way to the river and the flagstaff in the parade are all Whistler's 1808 fort, and applying them to the 1816 rebuild is the commonest error in the popular literature.",
+  "what_it_supplies": [
+    "the 1808 Whistler draught index for the FIRST fort, with its scale and its distances",
+    "Major Long's 1816 report on the second fort under construction",
+    "a scholarly negative: no dimension of the second fort's stockade"
+  ],
+  "what_it_does_not_supply": [
+    "any plan or dimension of the 1816 fort",
+    "anything about the fort after 1835"
+  ]
+}

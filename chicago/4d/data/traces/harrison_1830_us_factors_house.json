@@ -1,0 +1,134 @@
+{
+  "$schema_note": "AUTHORED, and it is a READING of a raster. It carries what the 1830 Harrison plan draws and letters where it letters 'U.S. Factor's House': three solid blocks on the fort reservation south of the stockade, measured in pixels by the transform T-0883 stated and resolved to local ground. It authored NO fabric on the ticket that read it. ONE OF THE THREE BLOCKS IS NOW BUILT — see `what_was_built` at the foot of this file, T-1036 — and the other two are still refused; `refused_here` is kept verbatim as the state of the question on 2026-09-11 and is answered rather than edited.",
+  "id": "harrison_1830_us_factors_house",
+  "source_id": "harrison_1830_river_mouth",
+  "ticket": "T-0894",
+  "why_this_file_exists": "T-0894 asked where the Factory House stood, because two passages put it 'just south of the fort' and the record that claims to BE it, data/structures/jb_beaubien_homestead.json, stands on the corner of South Water Street and Michigan Avenue. Every reading of that question before this one was a reading of PROSE, and prose is what made it unresolvable: 'just south of the fort' and 'the north-east corner of South Water and Michigan' are two locators in two frames with no common term. The plan has both in one frame. It letters the Factor's House and it draws the fort, and the project has already hung a transform on that plate for three buildings, a grave and a burial ground — so the question is a subtraction, not an argument. The answer lands here rather than on the structure record because it is a reading of a sheet, and because what it settles is what this project may NOT say about a building it has already placed.",
+  "the_transform": {
+    "image": "Internet Archive leaf n242 of historyofchicago01andr (Andreas, History of Chicago, vol. 1, p. 113)",
+    "orientation": "rotated 90 degrees anticlockwise so the sheet's own true-north arrow stands vertical; 2715 x 2003 px in that orientation, +x east and +y south",
+    "anchor_px": [
+      1445,
+      644
+    ],
+    "anchor_local_enu_m": [
+      1152.0,
+      221.0
+    ],
+    "scale_m_per_px": 0.33528,
+    "note": "THE SAME TRANSFORM T-0883 STATED AND T-0882 REUSED, unchanged and not re-derived here. The plate carries NO SCALE BAR and its source record says it is used for arrangement and proportion rather than absolute size, so every figure below carries the +/-20 percent on size and +/-25 m on position that every plate-derived record in this dataset carries."
+  },
+  "what_the_plate_letters": "U.S. Factor's House — engraved in three lines immediately EAST of the largest of three solid blocks, with the label's first letter about 2 m clear of that block's north-east end. No fence, no enclosure and no yard is drawn around any of them, which is worth saying because bk_hub_063 gives the Factor House 'a neat split-picket fence' and the same plate DOES draw the zigzag fence of the garrison garden and the property lines of John Crafts's Lot. The sheet's 'Memory of Early Settlers' caveat applies to this label as to every other on it.",
+  "blocks": [
+    {
+      "id": "a_labelled",
+      "ink_px": 794,
+      "centre_px": [
+        1445.6,
+        1194.5
+      ],
+      "centre_local_enu_m": [
+        1152.2,
+        36.4
+      ],
+      "bbox_px": [
+        1418,
+        1168,
+        1473,
+        1219
+      ],
+      "approx_size_m": [
+        20.4,
+        7.9
+      ],
+      "long_axis_deg_ccw_from_east": 40,
+      "note": "THE BLOCK THE LABEL TOUCHES, and the largest of the three. Drawn as a heavy outlined bar running north-east to south-west whose engraved fill has broken up on this impression, so the second moments are taken over the outline and the surviving fill together; the figure is the bar, not a wall thickness. About 67 x 26 ft at the plate's own scale, which is the right order for a two-storey factor's house and is NOT offered as a dimension — see refused_here."
+    },
+    {
+      "id": "b_north_west_bar",
+      "ink_px": 735,
+      "centre_px": [
+        1410.1,
+        1165.1
+      ],
+      "centre_local_enu_m": [
+        1140.3,
+        46.3
+      ],
+      "bbox_px": [
+        1390,
+        1142,
+        1430,
+        1188
+      ],
+      "approx_size_m": [
+        16.6,
+        5.1
+      ],
+      "long_axis_deg_ccw_from_east": 128,
+      "note": "A solid bar 12 m north-west of block A and set across it, unlabelled."
+    },
+    {
+      "id": "c_south_block",
+      "ink_px": 286,
+      "centre_px": [
+        1412.7,
+        1226.9
+      ],
+      "centre_local_enu_m": [
+        1141.2,
+        25.6
+      ],
+      "bbox_px": [
+        1402,
+        1216,
+        1424,
+        1238
+      ],
+      "approx_size_m": [
+        6.7,
+        5.0
+      ],
+      "long_axis_deg_ccw_from_east": 42,
+      "note": "The smallest of the three, 15 m south-west of block A, unlabelled."
+    }
+  ],
+  "group_centre_local_enu_m": [
+    1145.6,
+    38.7
+  ],
+  "group_centre_note": "Ink-weighted over the three blocks. WHICH of them the label names is not determinable from the sheet — it stands beside A and could as easily name the group — and it does not need to be: the three span about 22 m corner to corner, which is inside the +/-25 m this plate carries on any position. Two further ink components in the same window, 110 px and 97 px, are the letters of the label itself and are excluded.",
+  "checks": [
+    {
+      "check": "the same window reproduces three committed records placed off this plate",
+      "found": "Mrs Charles Jouett's grave resolves to pixel (1311.7, 1112.6) from its committed local (1107.3, 63.9); the pair of Out Buildings to pixel (1517, 1134) from (1176.2, 56.6) and (1181.0, 61.7); and the garrison garden's south-east face to the road band this file's blocks lie east of. All three land on their own ink. The transform is not being re-fitted here, it is being spent.",
+      "worth": "It is what makes a 140 m separation a measurement rather than an impression."
+    },
+    {
+      "check": "the blocks lie where Hubbard's prose puts the Factor House, independently of the label",
+      "found": "bk_hub_063 has it 'just east of the road, and adjoining the fence running east to the river', and bk_hub_060 names that fence: 'the south line of the garden fence extended to the edge of the river'. The committed garrison garden's south-east face IS the road's north-west edge (T-0882 fitted both, 23.9 m apart), and these three blocks stand east of the road band, off the garden's southern corner, at the head of the open quarter mile bk_hub_064 describes running south towards the burying ground. The label and the prose are two witnesses landing on one place.",
+      "worth": "Hubbard never saw this plate and the plate does not cite Hubbard."
+    },
+    {
+      "check": "the separation from the record that claims this identity",
+      "found": "data/structures/jb_beaubien_homestead.json resolves to a footprint centroid at local (1133.2, 177.8) under docs/GLB-CONTRACT.md's own transform. The group centre here is (1145.6, 38.7): 139.1 m north-south and 12.4 m east-west apart, 139.7 m in all, and 142.7 m from block A specifically. The homestead record carries about 20 m of working uncertainty and this plate 25 m; 140 m is five to seven times either.",
+      "worth": "It is the whole of T-0894's answer."
+    },
+    {
+      "check": "how far south of the fort that is",
+      "found": "The committed palisade's southernmost corner is at local N 191.1 and its centre at N 221.0, so the group stands 152 m south of the stockade's nearest corner and 182 m south of its centre — outside the pickets, inside the fence line bk_hub_060 runs from river to river, and about 48 m south of the Gate the same plate letters in that fence.",
+      "worth": "'Just south of the fort' is a statement about the reservation, not about the parade ground, and this is the distance it means."
+    }
+  ],
+  "refused_here": "NO STRUCTURE IS AUTHORED FROM THIS READING, and it is a refusal rather than an omission. The plate gives three blocks an arrangement and a size to +/-20 percent and gives them no material, no storey count that can be attached to a particular one of the three, no roof and no opening; bk_hub_063's 'two-story, squared-log structure, inclosed by a neat split-picket fence' describes A building here and the sheet cannot say which of the three it is. Building it today would be one measured footprint carrying four invented attributes, which is the shape docs/RESEARCH/fort_dearborn.md already refuses for the Well and the Cultivated Field. What this file does is make that a ticket someone can size rather than a question nobody can reach.",
+  "read": "2026-09-11",
+  "what_was_built": {
+    "ticket": "T-1036",
+    "date": "2026-09-11",
+    "record": "data/structures/fort_dearborn_us_factors_house.json",
+    "block": "a_labelled",
+    "decision": "BLOCK A IS BUILT AS THE FACTOR HOUSE; B AND C ARE NOT. What changed between this reading and that one is not the plate: it is that the prose was read ALONGSIDE the plate instead of after it. `refused_here` below lists four gaps — material, storey count attachable to a block, roof, opening — and `bk_hub_063` closes two of them in one clause. 'A two-story, SQUARED-LOG structure' gives the fabric in a word, so `construction` on the record is `attested` and not the default `log` the out buildings carry at L228. The storeys attach to A rather than to the group on two stated grounds: the label's first letter stands about 2 m clear of A's north-east end and touches no other block, and A at 20.4 x 7.9 m is the only one of the three that a two-storey dwelling-and-store will fit (B is a 16.6 x 5.1 m bar set across it, C is 6.7 x 5.0 m). That is an inference and it is graded one. The roof and the openings do not close and are invented at L231.",
+    "what_is_still_refused": "BLOCKS B AND C ARE DRAWN, UNLETTERED, AND STAY UNBUILT. A government factory had a store, a warehouse, a stable and a smith about it; the sheet says something stood on those two footprints and cannot say which of those things either was. Two invented buildings hung on one label is the shape docs/RESEARCH/fort_dearborn.md refuses for the Well and the Cultivated Field. Their pixels, sizes and bearings stay in `blocks` above so a source that names them turns a footprint into a building without re-reading the plate. AND THE SPLIT-PICKET FENCE IS NOT BUILT: bk_hub_063 gives the house 'a neat split-picket fence' and the Jouett grave got its fence off the same clause at L229, but this sheet draws these three blocks and draws NO enclosure round them while it does draw the garden's zigzag fence and John Crafts's Lot's property lines — its silence means something here and meant nothing at the grave, where it drew a name alone. A grave plot's 10 x 8 ft is the size a burial is; the extent of a yard round a 20 m building is unbounded, so it would be the largest invented dimension on the ticket rather than its smallest. Recorded as attested-and-not-built in fort_dearborn.md section 7.",
+    "what_this_file_still_owns": "THE READING, AND THE TWO UNBUILT BLOCKS. The structure record repeats the anchor, the scale and block A's pixel because a record has to stand up read alone; it does not repeat the four checks, and this file remains where they live."
+  }
+}

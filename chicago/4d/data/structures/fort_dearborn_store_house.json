@@ -1,0 +1,131 @@
+{
+  "id": "fort_dearborn_store_house",
+  "name": "Fort Dearborn — store house",
+  "aka": [
+    "the store-house",
+    "the provision store"
+  ],
+  "archetype": "fort_structure",
+  "phases": [
+    {
+      "id": "log_1816",
+      "documented_range": {
+        "from": "1816-07-01",
+        "to": "1856-08-31",
+        "confidence": "inferred",
+        "sources": [
+          "andreas_1884_v1",
+          "harrison_1830_river_mouth"
+        ],
+        "note": "THE RANGE IS THE FORT'S, NOT THIS BUILDING'S. No source reached dates any individual building inside Fort Dearborn. It opens with the rebuild of 1816 and closes with the demolition of the fort's principal structures in the summer of 1856 (Andreas). What carries the scene date is the middle: the post was garrisoned continuously from June 1832 to 29 December 1836."
+      },
+      "position": {
+        "utm_e": 448225.04,
+        "utm_n": 4637594.89,
+        "rotation_deg": 8.0,
+        "symbolic_location": "Inside the south wall of Fort Dearborn, immediately east of the south gate, fronting north onto the parade.",
+        "confidence": "inferred",
+        "sources": [
+          "harrison_1830_river_mouth",
+          "andreas_1884_v1"
+        ],
+        "note": "READ OFF THE 1830 HARRISON PLAN. Position in pixels on the plate Andreas reproduces at vol. 1 p. 113, scaled at 1.10 ft per pixel (the derivation is on fort_dearborn_palisade and in docs/RESEARCH/fort_dearborn.md section 3), rotated to the sheet's true-north arrow, and hung on the fort centre at local E +1152, N +221. Carry +/-20 percent on the offset from the fort centre and +/-20 m on the fort itself. Hubbard, 1827: 'The store-house and guard-house were on either side of the southern gate'. This record takes the eastern of the two buildings the 1830 plan draws there; the argument for that assignment is on fort_dearborn_guard_house and it rests on where Hubbard's next clause puts the magazine.",
+        "derivation": {
+          "method": "not_derivable",
+          "reason": "This placement predates the derivation module. Its provenance and reasoning are recorded in position.note, but no machine-checkable derivation block has been authored for it yet."
+        }
+      },
+      "footprint": {
+        "polygon": [
+          [
+            0,
+            0
+          ],
+          [
+            12.24,
+            0
+          ],
+          [
+            12.24,
+            4.37
+          ],
+          [
+            0,
+            4.37
+          ]
+        ],
+        "confidence": "inferred",
+        "sources": [
+          "harrison_1830_river_mouth"
+        ],
+        "note": "NO SOURCE GIVES THIS BUILDING'S SIZE. 12.24 x 4.37 m (about 40 x 14 ft) is the eastern of the two small south-wall buildings as drawn on the 1830 plan at the derived scale. Same warning as its neighbour: the depth is a fourteen-pixel measurement."
+      },
+      "form": {
+        "kind": {
+          "value": "store",
+          "confidence": "attested",
+          "sources": [
+            "andreas_1884_v1"
+          ],
+          "note": "Hubbard names a store-house beside the southern gate in 1827; Andreas's summary of the rebuilt fort lists a 'provision-store' among what the stockade enclosed. GUARD: Robert Fergus's 1850 account puts a storehouse on the EAST side of the parade with the barracks and the artillery house. That is the compound of the 1850s, twenty years after the pickets came down, and where the 1830 plan and an 1827 eyewitness agree with each other this project follows them."
+        },
+        "construction": {
+          "value": "log",
+          "confidence": "inferred",
+          "note": "Not stated. Log by the same argument as the barracks."
+        },
+        "stories": {
+          "value": 1,
+          "confidence": "inferred",
+          "note": "Not attested; single storey is the type for a provision store of this footprint and it is how the 1830 plan draws it."
+        },
+        "wall_height_m": {
+          "value": 2.8,
+          "confidence": "inferred",
+          "note": "No height attested. About nine feet: one storey with the head-room a stacked provision store wants."
+        },
+        "roof_type": {
+          "value": "gable",
+          "confidence": "inferred",
+          "note": "Not attested; gable is the type."
+        },
+        "roof_pitch_deg": {
+          "value": 34.0,
+          "confidence": "inferred",
+          "note": "No pitch is attested for any building in this fort. 34 degrees is the archetype's mid-range for a shingled or riven-shake roof of this period and span, inferred from construction practice rather than measured."
+        },
+        "chimneys": {
+          "value": 0,
+          "confidence": "inferred",
+          "note": "A COUNT OF ZERO IS A CLAIM, NOT AN ABSENCE. A provision store is the one building in a fort you do not want a fire in, and nothing describes a stack on this one. The record says none and the model builds none."
+        }
+      }
+    }
+  ],
+  "function": {
+    "value": "provision store",
+    "confidence": "attested",
+    "sources": [
+      "andreas_1884_v1"
+    ],
+    "note": "The garrison's provision store. Destroyed with the barracks in the September 1827 lightning fire and standing again on the 1830 plan; see fort_dearborn_barracks for what that does and does not establish."
+  },
+  "research_note": "The eastern building at the south gate. Nothing distinguishes it from its neighbour in the sources except its name and the side it stands on, and this project's reason for putting it east rather than west is written on fort_dearborn_guard_house.",
+  "review_required": false,
+  "land_owner": {
+    "value": "The ground was entered by John Baptist Baubian, 28 May 1835",
+    "confidence": "inferred",
+    "sources": [
+      "isa_public_domain_land_tract_sales"
+    ],
+    "note": "THE UNITED STATES RESERVATION. This is the same tract L108 already derives for `1835_no_build_ground.json` — from G1, Madison's line and the traced waterline — so the polygon is inherited rather than built again, and `check.sh` already re-derives it. The register's own row is the second, independent witness to the date L108 quotes from Andreas: Beaubien's pre-emption, 28 May 1835, five weeks before the scene date. The derived polygon is short of the documented 75.69 acres for the reasons L108 states, and is a floor rather than the reservation. WHETHER THE ENTRY HELD IS NOT READ HERE: it was disputed, and this row records the entry the register carries and nothing about its outcome. THE MARGIN IS 62 m: this footprint stands that far inside the tract's nearest boundary, which is more than twice the working horizontal uncertainty of anything traced off the 1834 sheets (about 20 m), so the assignment survives the error the construction carries. WHAT THIS ROW CLAIMS AND WHAT IT DOES NOT. It claims that the tract the Illinois State Archives' land-sale register describes contains this structure's committed position — the patent for this ground was ENTERED by this man on this date. It does not claim he still held the ground on 1 July 1835, that he lived here, or that he ever stood on it: a sale is a transaction, and the register's only column about residence names a county. THE SECTION LINES ARE CONSTRUCTED, NOT TRACED (L219): the grid is carried from the single PLSS corner at State & Madison, on the plat's own east-west bearing, in nominal one-mile squares.",
+    "tract": "the south-west fractional quarter of section 10",
+    "entries": [
+      "ls0057"
+    ],
+    "date_purchased": "1835-05-28",
+    "type_of_sale": "federal land sale (cash entry)",
+    "margin_m": 62.1,
+    "generated_by": "tools/resolve_land_tracts.py --build"
+  }
+}

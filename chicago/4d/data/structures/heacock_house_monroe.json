@@ -1,0 +1,146 @@
+{
+  "id": "heacock_house_monroe",
+  "name": "Russel E. Heacock's House, Monroe Street",
+  "archetype": "frame_dwelling",
+  "phases": [
+    {
+      "id": "documented_1835",
+      "documented_range": {
+        "from": "1835-01-01",
+        "to": "1835-12-31",
+        "confidence": "attested",
+        "sources": [
+          "andreas_1884_v1"
+        ],
+        "note": "BUILT IN THE SPRING OF 1835, WHICH IS INSIDE THE SCENE YEAR AND BEFORE THE SCENE DATE. Andreas: 'In the spring of 1835, he built a house on what he supposed was his lot, only to find that he was on Monroe Street, not Adams, whither he proceeded to remove it on rollers.' The house, its season, its owner and the fact that it was moved a block are all documented. The range opens on 1835-03-01 as the earliest reading of 'the spring'."
+      },
+      "position": {
+        "utm_e": 447587.397,
+        "utm_n": 4636712.834,
+        "rotation_deg": 0.0,
+        "symbolic_location": "South Division, Monroe Street against the north face of School Section block 117, local ENU E 514.7 N -683.0",
+        "confidence": "reconstructed",
+        "note": "T-0884 MOVED THIS BUILDING 82.7 m, AND THE INVENTION THAT REMAINS IS SMALLER THAN THE ONE IT REPLACES. The record until now stood at local E 461.6 N -619.6, which the note below called Monroe Street and which is not Monroe Street: it is the middle of the unnamed north-south corridor of the School Section grid at local E 458.8 - La Salle Street in the modern grid, and a corridor `data/streets/1835.json` does not draw south of local N -400 - in the tier between Madison and Monroe, 39.0 m north of Monroe Street's own north kerb. The northing was never measured; the old note says so, and says how it was got: \"estimated from the plat module - the block pitch implied by the reconstruction recipes' Randolph-to-Washington bands, carried two blocks further south\". That carry was made before T-0876 read Wright's 1834 sheet, and the sheet puts Monroe's centreline at local N -670.774 inside a 24.384 m corridor (`data/streets/1835.json` § monroe, `data/traces/vectors/school_section_blocks_1834.json` § grid.ew_lines j=1), 51.2 m south of where the carry landed. TWO SOURCES AGREE ON THE BLOCK AND NEITHER WAS CONSULTED FOR THE OLD POSITION. The federal register sells Russel E Heacock lot 7 of block 117 on 22 October 1833 for $80 (`data/research/land_sales/entries.json` § ls0237), and block 117 is the block bounded north by Monroe and south by Adams - the one pair of streets Andreas's anecdote names, and the only block in Section 16 bounded by both. Andreas has him build on what he supposed was his lot and find he was on Monroe and not Adams; the register has him own ground whose two street faces are Monroe and Adams. The position therefore moves onto the Monroe corridor at block 117's north line, where the two witnesses put it, and the building's 9.144 m depth sits wholly inside the 24.384 m corridor. WHAT IS STILL INVENTED: the easting along the block face, and only that. No source places the house east-west, and lot 7's own ground cannot supply it - this project has never read a School Section lot line, and the four-lots-to-a-face reading it does hold is one block of the Original Town and is graded conjectural where it stands (tools/generate_plat_lots.py). The footprint is therefore centred on block 117's own 98.3 m face, which is a neutral choice and not a derivation. Covered by docs/LIBERTIES.md L84, the same entry that covered the old easting.",
+        "derivation": {
+          "method": "not_derivable",
+          "reason": "The NORTHING is now measured - Monroe Street's centreline and corridor width are committed in data/streets/1835.json and re-derivable from the School Section grid - but `platted_corner` needs a key in data/traces/street_control.json, and that map holds five nodes, all of them in the Original Town (lake_canal, lake_market, randolph_canal, kinzie_canal, south_water_franklin). Nothing in it reaches Monroe Street, so tools/validate.py cannot recompute this coordinate and the method stays declared rather than claimed. The EASTING is not derivable at all: no source places the house along the block face. See the note above."
+        }
+      },
+      "footprint": {
+        "polygon": [
+          [
+            0,
+            0
+          ],
+          [
+            6.706,
+            0
+          ],
+          [
+            6.706,
+            9.144
+          ],
+          [
+            0,
+            9.144
+          ]
+        ],
+        "confidence": "reconstructed",
+        "note": "PLACEHOLDER - NO DIMENSION IS ATTESTED. 22 x 30 ft is the schedule's D5 deep-plan frame cottage, sized for the largest documented household in the residents layer: a wife and five sons, the youngest born in this house. Every number is invented."
+      },
+      "form": {
+        "stories": {
+          "value": 1,
+          "confidence": "reconstructed",
+          "sources": [
+            "andreas_1884_v1"
+          ],
+          "note": "Type-level choice within the D5 band in the reconstruction specification; it is not evidence for this building."
+        },
+        "wall_height_m": {
+          "value": 2.9,
+          "confidence": "reconstructed",
+          "sources": [
+            "andreas_1884_v1"
+          ],
+          "note": "Type-level choice within the D5 band in the reconstruction specification; it is not evidence for this building."
+        },
+        "roof_type": {
+          "value": "gable",
+          "confidence": "reconstructed",
+          "sources": [
+            "andreas_1884_v1"
+          ],
+          "note": "Type-level choice within the D5 band in the reconstruction specification; it is not evidence for this building."
+        },
+        "roof_pitch_deg": {
+          "value": 38.0,
+          "confidence": "reconstructed",
+          "sources": [
+            "andreas_1884_v1"
+          ],
+          "note": "Type-level choice within the D5 band in the reconstruction specification; it is not evidence for this building."
+        },
+        "construction": {
+          "value": "braced_frame",
+          "confidence": "reconstructed",
+          "sources": [
+            "andreas_1884_v1"
+          ],
+          "note": "Type-level choice within the D5 band in the reconstruction specification; it is not evidence for this building."
+        },
+        "plan": {
+          "value": "hall_parlour",
+          "confidence": "reconstructed",
+          "sources": [
+            "andreas_1884_v1"
+          ],
+          "note": "Type-level choice within the D5 band in the reconstruction specification; it is not evidence for this building."
+        },
+        "bays": {
+          "value": 3,
+          "confidence": "reconstructed",
+          "sources": [
+            "andreas_1884_v1"
+          ],
+          "note": "Type-level choice within the D5 band in the reconstruction specification; it is not evidence for this building."
+        },
+        "chimneys": {
+          "value": 1,
+          "confidence": "reconstructed",
+          "sources": [
+            "andreas_1884_v1"
+          ],
+          "note": "Type-level choice within the D5 band in the reconstruction specification; it is not evidence for this building."
+        },
+        "paint": {
+          "value": "unpainted",
+          "confidence": "reconstructed",
+          "sources": [
+            "andreas_1884_v1"
+          ],
+          "note": "Type-level choice within the D5 band in the reconstruction specification; it is not evidence for this building."
+        }
+      },
+      "change_note": "The building as this dataset can state it on the scene date. Where the sources give a size, a plan or a fabric, the record carries it; where they do not, the note says so attribute by attribute."
+    }
+  ],
+  "function": {
+    "value": "dwelling",
+    "confidence": "attested",
+    "sources": [
+      "andreas_1884_v1"
+    ],
+    "note": "THE ROLLERS ARE THE FINDING. A documented instance of a Chicago house being moved bodily one block in 1835 is evidence about construction, weight and the town's attitude to its own buildings, and it belongs to ROADMAP K4 as much as to K1. WHAT WOULD UPGRADE THIS RECORD: any date for the removal, which would settle which street the house stood on at the scene date; The terrain epoch reaching south of Madison, which this record asked for, arrived on 2026-09-13: T-0464 carried the heightfield to Twenty-Second Street and the house now stands on modelled ground."
+  },
+  "occupants": {
+    "value": "Russel E. Heacock and his household of seven",
+    "confidence": "attested",
+    "sources": [
+      "andreas_1884_v1"
+    ],
+    "note": "Russel E. Heacock, the one vote against incorporating the town, and his household of seven (data/residents/households/hh_heacock_russel_e.json). Andreas quotes his son: 'This house he occupied, off and on, until his death.'"
+  },
+  "research_note": "THE ROLLERS ARE THE FINDING. A documented instance of a Chicago house being moved bodily one block in 1835 is evidence about construction, weight and the town's attitude to its own buildings, and it belongs to ROADMAP K4 as much as to K1. WHAT WOULD UPGRADE THIS RECORD: any date for the removal, which would settle which street the house stood on at the scene date; The terrain epoch reaching south of Madison, which this record asked for, arrived on 2026-09-13: T-0464 carried the heightfield to Twenty-Second Street and the house now stands on modelled ground.",
+  "review_required": false
+}

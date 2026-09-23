@@ -1,0 +1,357 @@
+{
+  "schema": 1,
+  "issue_id": "chicago_democrat_1834_02_11",
+  "extracted": "2026-08-28",
+  "extracted_by": "hand, T-0311 — the Democrat read, February 1834",
+  "note": "Vol. I No. 12. The issue that prints the town's mail timetable over the postmaster's name — four mails a week, each with its own arrival and departure day — and that sets the standing advertising far more cleanly than 1834-02-04 did, which is what makes it the witness three of the month's readings are taken from: the Steam Saw Mill and Mark Noble, the 'door east' in Collins & Caton's placement, and 'Water Lot No. 12'.",
+  "claims": [
+    {
+      "id": "c001",
+      "kind": "event",
+      "reading": "transcription_mediated",
+      "quote": "der! ‘The citizens of Cook county, are request\nfifty }to meet at the Engle Hotel in Chicago, —\nIred| Saturday the 15:h February next. The «\nject of the call 5s totake into consideration t\nob-  propriety of sending Delegates to the Conve\ntion to be held at Rushville, on the firet afo\nday in Apri next ; and if thought best to ha\niM | , representation in that Convention, to ma\nby fchoice of suitable persons for that purpose.\nrent! ‘The matter is thought to be one of intere\nwill] and therefore a call 1s desired by\nct              Chicago, February 11, 1854, will\nmeet      ight imprisonment for debt to be abolish\nCOB | ir, the State of Milinois.\nJOUN A. CLARK, See’y,",
+      "normalized": "[The] citizens of Cook county, are request[ed] to meet at the E[a]gle Hotel in Chicago, [on] Saturday the 15[t]h February next. The [ob]ject of the call [i]s to take into consideration t[he] propriety of sending Delegates to the Conve[n]tion to be held at Rushville, on the first [Mon]day in Apri[l] next; and if thought best to ha[ve] a representation in that Convention, to ma[ke] choice of suitable persons for that purpose. The matter is thought to be one of intere[st] and therefore a call is desired by … Chicago, February 11, 183[4] … [that] [imprisonment] for debt [ought] to be abolish[ed] i[n] the State of I[ll]inois. JOHN A. CLARK, Sec'y.",
+      "locator": {
+        "artifact_role": "primary",
+        "issue_page": 3,
+        "column": 3,
+        "lines": [
+          2176,
+          2190
+        ],
+        "lines_of_claim": [
+          2176,
+          2177,
+          2178,
+          2179,
+          2180,
+          2181,
+          2182,
+          2183,
+          2184,
+          2185,
+          2186,
+          2187,
+          2188,
+          2189,
+          2190
+        ],
+        "interleaved": true
+      },
+      "entities": [
+        {
+          "as_printed": "JOUN A. CLARK, See’y",
+          "normalized": "John A. Clark",
+          "role": "secretary of the Cook county meeting called to the Eagle Hotel"
+        }
+      ],
+      "notes": "The Eagle Hotel call of 1834-02-04 (c004 there) repeated a week later, and this time it carries a secretary's name: JOHN A. CLARK. The left-hand sliver of the segmenter column belongs to the obituary of Col. Clinton and is woven through these lines, so the quote carries fragments of it and the claim is interleaved. A second resolution — that imprisonment for debt ought to be abolished in Illinois — is cut across the same lines and is read only as far as it stands; it is claimed here because it dates a public position taken in the Eagle's room and not for its politics."
+    },
+    {
+      "id": "c002",
+      "kind": "infrastructure",
+      "reading": "transcription_mediated",
+      "quote": "1     Eikn.  N Mail arrives every Wednesda\nea     departs, Thursdays at 8 A.-M.\nOnis} Western 3     arrives overy Tuesday ; depa:\n00) ;} Thoradays at 6 A. M.\nNorthern Mail arrives every Tuesday; «\n1      parts Thursdays at 6 A. M.\nour |” Southern Mail arrives every Tuesday; «\n45,-| parts Saturdays at 6A: M.\nJ. 8. C. HOGAN, P. M.",
+      "normalized": "[Easter]n Mail arrives every Wednesda[y;] departs, Thursdays at 8 A. M. Western [Mail] arrives every Tuesday; depa[rts] Th[u]rsdays at 6 A. M. Northern Mail arrives every Tuesday; [de]parts Thursdays at 6 A. M. Southern Mail arrives every Tuesday; [de]parts Saturdays at 6 A. M. J. S. C. HOGAN, P. M.",
+      "locator": {
+        "artifact_role": "primary",
+        "issue_page": 3,
+        "column": 3,
+        "lines": [
+          2197,
+          2205
+        ],
+        "lines_of_claim": [
+          2197,
+          2198,
+          2199,
+          2200,
+          2201,
+          2202,
+          2203,
+          2204,
+          2205
+        ],
+        "interleaved": true
+      },
+      "entities": [
+        {
+          "as_printed": "J. 8. C. HOGAN, P. M.",
+          "normalized": "J. S. C. Hogan",
+          "role": "Postmaster at Chicago",
+          "occupations": [
+            "postmaster"
+          ]
+        }
+      ],
+      "notes": "THE POST OFFICE'S OWN TIMETABLE, SIGNED BY THE POSTMASTER — four mails, each named for its direction, each with an arrival day and a departure day and hour. Eastern in on Wednesday and out Thursday 8 A. M.; Western, Northern and Southern all in on Tuesday, the first two out Thursday at 6 A. M. and the Southern out Saturday at 6 A. M. This is the strongest single statement in the corpus about what the post office DID, as opposed to who had letters waiting in it: it is a building with a predictable weekly rhythm — a crowd on Tuesday and Wednesday when the mails come in, and departures before dawn on Thursday — which is exactly the kind of fact a reconstruction can use to decide whether the office is a busy frontage or a quiet one. J. S. C. Hogan is already in this corpus as the postmaster and as a South Water Street storekeeper (the T-0257 fixture, 1835-07-01), and Brewster, Hogan & Co. is the firm Collins & Caton's office is placed off (c005 below)."
+    },
+    {
+      "id": "c003",
+      "kind": "business",
+      "reading": "transcription_mediated",
+      "quote": "\"Butter! Butter !!\nary:         POUNDS of Fresh Butter, just\n90D rN and for sale by   4\n) in=                          PETER COHEN.\nChicago, Feb. VW, 1834.",
+      "normalized": "Butter! Butter!! [… hundred] POUNDS of Fresh Butter, just [received] and for sale by PETER COHEN. Chicago, Feb. 1[1], 1834.",
+      "locator": {
+        "artifact_role": "primary",
+        "issue_page": 3,
+        "column": 3,
+        "lines": [
+          2191,
+          2196
+        ],
+        "lines_of_claim": [
+          2191,
+          2192,
+          2194,
+          2195,
+          2196
+        ],
+        "interleaved": true
+      },
+      "business": {
+        "name": "Peter Cohen",
+        "trade": "storekeeper",
+        "goods": [
+          "fresh butter"
+        ],
+        "address_text": "",
+        "placement": {
+          "class": "none"
+        }
+      },
+      "ad_copy_date": {
+        "verbatim": "Chicago, Feb. VW, 1834.",
+        "iso": "1834-02-11"
+      },
+      "entities": [
+        {
+          "as_printed": "PETER COHEN",
+          "normalized": "Peter Cohen",
+          "role": "storekeeper",
+          "occupations": [
+            "storekeeper"
+          ]
+        }
+      ],
+      "notes": "PETER COHEN SELLING BUTTER IN FEBRUARY 1834, which matters because Cohen is the storekeeper the T-0257 fixture placed at the east end of South Water Street from the scene-date issue of 1835-07-01. This is the same man seventeen months earlier, trading in the same town — a survival window closed from the far end, so the 1835 storefront no longer stands on a single witness. THIS NOTICE CARRIES NO ADDRESS and the placement is therefore `none`; the East End of South Water Street comes from his standing advertisement, which runs in this same issue and in 1834-02-04 and 1834-02-18, and it is not read into this one. The dateline is set 'Feb. VW' and is read Feb. 11 from the issue's own date."
+    },
+    {
+      "id": "c004",
+      "kind": "business",
+      "reading": "transcription_mediated",
+      "quote": "and          More Flour.\n26 ;\noe        BARRELS of fresh ground Superf\nJ            FLOUR, this tay received and for »\n24,°| by              P, PRUYNE & CO.\n—ALSO—\nA@ barrels Hard Bread,\nCin-| 2G@ pairs of sewed Men's rere Oe Q\nlow.                                                0.\nfap-| Feb. 4, 1834,",
+      "normalized": "More Flour. [… ] BARRELS of fresh ground Superf[ine] FLOUR, this [d]ay received and for [sale] by P. PRUYNE & CO. — ALSO — [4]0 barrels Hard Bread, [2]0 pairs of sewed Men's [Shoes, for sale very low]. Feb. 4, 1834.",
+      "locator": {
+        "artifact_role": "primary",
+        "issue_page": 3,
+        "column": 3,
+        "lines": [
+          2206,
+          2215
+        ],
+        "lines_of_claim": [
+          2206,
+          2207,
+          2208,
+          2209,
+          2210,
+          2211,
+          2212,
+          2213,
+          2214,
+          2215
+        ],
+        "interleaved": true
+      },
+      "business": {
+        "name": "P. Pruyne & Co.",
+        "trade": "merchants",
+        "goods": [
+          "superfine flour",
+          "hard bread",
+          "sewed men's shoes"
+        ],
+        "address_text": "",
+        "placement": {
+          "class": "none"
+        }
+      },
+      "ad_copy_date": {
+        "verbatim": "fap-| Feb. 4, 1834,",
+        "iso": "1834-02-04"
+      },
+      "entities": [],
+      "notes": "P. Pruyne & Co. taking in fresh-ground superfine flour, hard bread and sewed men's shoes in the middle of a Lake Michigan winter, five months before navigation opens. Read for the goods rather than for the firm: HARD BREAD is ship's bread and is the same commodity the fort auctioned as 'soldier's bread' in January (T-0310, 1834-01-14 c002), so the town is provisioning for water traffic it cannot yet receive. The house also advertises Lot No. 3 in Block 120 'in the School Section' in this issue, which is a second line of business — town lots — and is left unclaimed here because the lot notice carries no building. No address is printed and none is supplied."
+    },
+    {
+      "id": "c005",
+      "kind": "business",
+      "reading": "transcription_mediated",
+      "quote": "J. H. COLLINS & J. D: CATON,\nATTORNEYS & COUNSELLORS AT LAH\nAnd Solicitors in Chancery,\nOFFICE\ndoor east. of Brewster, Hogan & C:\nSouth Water-street, Chicago, Hlinois.\nJan, 20, 1834",
+      "normalized": "J. H. COLLINS & J. D. CATON, ATTORNEYS & COUNSELLORS AT LA[W], And Solicitors in Chancery, OFFICE [one] door east of Brewster, Hogan & C[o.] South Water-street, Chicago, I[ll]inois. Jan. 20, 1834.",
+      "locator": {
+        "artifact_role": "primary",
+        "issue_page": 3,
+        "column": 4,
+        "lines": [
+          2332,
+          2338
+        ],
+        "lines_of_claim": [
+          2332,
+          2333,
+          2334,
+          2335,
+          2336,
+          2337,
+          2338
+        ],
+        "interleaved": true
+      },
+      "business": {
+        "name": "J. H. Collins & J. D. Caton",
+        "trade": "attorneys and counsellors at law, solicitors in chancery",
+        "goods": [],
+        "address_text": "OFFICE [one] door east of Brewster, Hogan & Co. South Water-street, Chicago, Illinois",
+        "placement": {
+          "class": "relative",
+          "anchor": "Brewster, Hogan & Co., South Water-street",
+          "offset_text": "door east. of Brewster, Hogan & C:"
+        }
+      },
+      "ad_copy_date": {
+        "verbatim": "Jan, 20, 1834",
+        "iso": "1834-01-20"
+      },
+      "entities": [
+        {
+          "as_printed": "J. H. COLLINS",
+          "normalized": "J. H. Collins",
+          "role": "attorney",
+          "occupations": [
+            "attorney"
+          ]
+        },
+        {
+          "as_printed": "J. D: CATON",
+          "normalized": "J. D. Caton",
+          "role": "attorney",
+          "occupations": [
+            "attorney"
+          ]
+        }
+      ],
+      "notes": "THE SAME ADVERTISEMENT AS 1834-02-04 c009, AND THIS IS THE IMPRESSION THAT CARRIES THE OFFSET WORD. Where the 4 February setting broke at 'ast of Brewster, Hogan', this one prints 'door east of Brewster, Hogan & C[o.]' — so the office is ONE DOOR east of the firm on South Water-street, a placement fine enough to put a front door on a specific frontage once Brewster, Hogan & Co. is fixed. The numeral itself is lost at the line head and 'one' is bracketed: 'door east' with no number in front of it is idiomatically one door, but the print does not say so and the supply is marked as a supply."
+    },
+    {
+      "id": "c006",
+      "kind": "building",
+      "reading": "transcription_mediated",
+      "quote": "NOTICE\nFF hereby given, that prosecutions will be en\ntered a,        all and every person or per\nsons, that may be found trespassing on the wes\nhalf of the south weet quarter of section nam\nber four, in township thirty-nine, north ran,\n! fourteen east, in Cook county, Illino’   ind th\nsame on which the Steam Saw Mill stands.\nMARK NOBLE, Sen.\nJanuary 8, 1833.",
+      "normalized": "NOTICE [is] hereby given, that prosecutions will be en[te]red a[gainst] all and every person or per[s]ons, that may be found trespassing on the wes[t] half of the south we[s]t quarter of section n[u]m[]ber four, in township thirty-nine, north ran[ge] fourteen east, in Cook county, Illino[is, a]nd th[e] same on which the Steam Saw Mill stands. MARK NOBLE, Sen. January 8, 183[4].",
+      "locator": {
+        "artifact_role": "primary",
+        "issue_page": 3,
+        "column": 4,
+        "lines": [
+          2307,
+          2316
+        ],
+        "lines_of_claim": [
+          2307,
+          2308,
+          2309,
+          2310,
+          2311,
+          2312,
+          2313,
+          2314,
+          2315,
+          2316
+        ],
+        "interleaved": true
+      },
+      "entities": [
+        {
+          "as_printed": "MARK NOBLE, Sen.",
+          "normalized": "Mark Noble, Sen.",
+          "role": "subscriber to the trespass notice on the quarter-section the Steam Saw Mill stands on"
+        }
+      ],
+      "notes": "THE CLEANEST OF THE THREE FEBRUARY IMPRESSIONS of the notice T-0310 could not read at 1834-01-14: 'the same on which the Steam Saw Mill stands. MARK NOBLE, Sen.' runs unbroken across two lines with no interleaving through the words themselves. Claimed separately from 1834-02-04 c011 rather than folded into it because the reading is the point: two witnesses inside one month, set independently, agreeing letter for letter on the two facts January had to leave inside [uncertain: …]. It is a STEAM saw mill, on the west half of the south-west quarter of section 4, T39N R14E, and Mark Noble Sen. is the man who warns trespassers off it."
+    },
+    {
+      "id": "c007",
+      "kind": "building",
+      "reading": "transcription_mediated",
+      "quote": "PRAVELL OUI ELQREL\nGUUS VB UTGWBSOiblb,\nChicago--Lilineis.\nThe subscriber has taken that noted Taye\nStand in Chicago, lately oecupied by Mr, Hs\nW, Wattles, which he will make ever;  possib\nexertion to render the Travelles’s Home.-\nTho patronage of the public will be grateful\nhoknnw ledge: Oct. £1882.     ely",
+      "normalized": "TRAVELL[ER'S HOME], [CHICAGO … ] Chicago--I[ll]ino[i]s. The subscriber has taken that noted Tave[rn] Stand in Chicago, lately occupied by Mr. H[.] W. Wattles, which he will make ever[y] possib[le] exertion to render the Traveller[']s Home. Th[e] patronage of the public will be grateful[ly] [ac]know[]ledge[d]. Oct. [1], 183[3].",
+      "locator": {
+        "artifact_role": "primary",
+        "issue_page": 3,
+        "column": 4,
+        "lines": [
+          2354,
+          2362
+        ],
+        "lines_of_claim": [
+          2354,
+          2355,
+          2356,
+          2357,
+          2358,
+          2359,
+          2360,
+          2361,
+          2362
+        ],
+        "interleaved": true
+      },
+      "entities": [
+        {
+          "as_printed": "Mr, Hs W, Wattles",
+          "normalized": "John W. Wattles",
+          "role": "former occupant of the noted tavern stand"
+        }
+      ],
+      "notes": "THE READING THAT FIXES THE KEEPER'S SURNAME, AND NOT HIS GIVEN NAME. 1834-02-04 c013 gave 'Mr, Hin. Watihs'; this setting gives 'Mr. Hs W, Wattles', which resolves the surname to WATTLES and a middle initial W. The given name is NOT taken from the 'Hs' — T-0310 read this same standing advertisement at 1834-01-28 (c009 there) as 'Mr. [Jo]hn W. Watt[l]es', a better impression of the same words, and he is entered as JOHN W. WATTLES on it. Recording February's inferior reading beside January's is the point of quoting both. The house's own name is set in the ornamental display type the segmenter renders as 'PRAVELL OUI ELQREL / GUUS VB UTGWBSOiblb' and is read TRAVELLER'S HOME from the body copy, which uses the phrase in plain type — the display line itself is NOT read, and the normalized reading brackets it as unrecovered rather than reconstructing it from the sense."
+    },
+    {
+      "id": "c008",
+      "kind": "notice",
+      "reading": "transcription_mediated",
+      "quote": "Strayed or Stolen,\n| rated Water Lot No. 12, in Kinzie’\naddition to Chicago, tira sticks of squar\nber. Whoever tims takin up said sticks, ant\nwill returns them to the place from: whenct\nthey were taken, no questions will be asked\notherwise they Bao out for trouble.\n:                   IRAM PEARSONS.\nChicago, Jan. 28,1834.            i             rf",
+      "normalized": "Strayed or Stolen, [F]ro[m Wa]ter Lot No. 12, in Kinzie's addition to Chicago, t[h]r[ee] sticks of squar[e tim]ber. Whoever h[a]s tak[e]n up said sticks, and will return[] them to the place from whenc[e] they were taken, no questions will be asked[;] otherwise they [must look] out for trouble. [H]IRAM PEARSONS. Chicago, Jan. 28, 1834.",
+      "locator": {
+        "artifact_role": "primary",
+        "issue_page": 3,
+        "column": 4,
+        "lines": [
+          2264,
+          2272
+        ],
+        "lines_of_claim": [
+          2264,
+          2265,
+          2266,
+          2267,
+          2268,
+          2269,
+          2270,
+          2271,
+          2272
+        ],
+        "interleaved": true
+      },
+      "entities": [
+        {
+          "as_printed": "IRAM PEARSONS",
+          "normalized": "Hiram Pearsons",
+          "role": "owner of Water Lot No. 12, Kinzie's addition"
+        }
+      ],
+      "notes": "The witness that makes it a WATER LOT. 1834-02-04 c010 opened 'Boer rane Lot No, 12'; here the same line reads '[Wa]ter Lot No. 12, in Kinzie's addition', which is a different kind of parcel from a town lot — river frontage, on the North Side, of the sort a man stages square timber on because it can be rafted or landed there. The dateline also moves, from 'Jan, 23' on 4 February to 'Jan. 28' here; the notice is a standing insertion and neither reading is preferred, so both are quoted where they stand and neither date is asserted as the notice's own."
+    }
+  ]
+}

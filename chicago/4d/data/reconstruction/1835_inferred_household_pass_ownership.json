@@ -1,0 +1,364 @@
+{
+  "schema": 1,
+  "ticket": "T-1228",
+  "measured": "2026-09-17",
+  "_doc": "WHAT EACH OF THE THREE INFERRED-HOUSEHOLD PASSES STILL OWNS, after the owner's T-0489 ruling of 2026-09-02 retired the reconstructed resident population and kept the geometry. Nothing told the three generators, so all three went on deriving the whole retired layer and all three --check modes went red against a tree that is no longer their derivation. This file is the settlement: per pass, the records and the FIELDS it is still the last writer of, and — stated rather than skipped — the fields some later ruling or pass took off it, with the ticket that took them. The three --check modes compare exactly what is listed here as owned, and separately assert that the withdrawals below are still standing; tools/inferred_household_ownership.py is the one implementation both halves run through. BYTE-IDENTITY IS THE WRONG CONTRACT FOR THESE PASSES, for the reason T-0662 already found for the letter-list mint: they are not the last writer of the files they derive. That is also what dissolves the indentation fault T-1228 carried — this pass writes its structure records at 2-space and 31 of them stand in the tree at 1-space, which made byte-identity impossible even with the data settled. The contract is field-level, so the indentation is not part of it and no file is reformatted to satisfy a gate.",
+  "rulings": [
+    {
+      "ticket": "T-0489",
+      "date": "2026-09-02",
+      "what": "The owner retired the reconstructed resident population and ruled the geometry kept — \"keep as anonymous stock\". 96 of the 101 households these passes derive were removed by it, and the 31 roofs that had been raised for them were stripped of their occupant and enrolled as anonymous stock (applied to the structure records by T-0516).",
+      "applied_by": [
+        "T-0516"
+      ]
+    },
+    {
+      "ticket": "T-0264",
+      "date": null,
+      "what": "The newspaper register retires an invented name where it found a documented practitioner of that trade. The people it seated are the reason five of the 101 households survived T-0489: a real named person is not a reconstructed one.",
+      "applied_by": []
+    }
+  ],
+  "passes": {
+    "tools/generate_inferred_households.py": {
+      "still_owns": {
+        "data/structures": {
+          "ids": [
+            "brown_boarding_house",
+            "harmon_log_cabin",
+            "heacock_house_monroe",
+            "inf_artisan_dwelling_west_a",
+            "inf_artisan_dwelling_west_b",
+            "inf_bakery_lake",
+            "inf_barber_shop",
+            "inf_blacksmith_shop_west",
+            "inf_boatman_cabin_north",
+            "inf_brickmaker_dwelling_north",
+            "inf_butcher_market",
+            "inf_carpenter_dwelling_north",
+            "inf_cooperage_south",
+            "inf_cooperage_south_branch",
+            "inf_grocery_west",
+            "inf_gunsmith_shop",
+            "inf_harness_shop",
+            "inf_labourer_shanty_north_a",
+            "inf_labourer_shanty_north_b",
+            "inf_labourer_shanty_west_a",
+            "inf_labourer_shanty_west_b",
+            "inf_laundry_north",
+            "inf_mason_dwelling_north",
+            "inf_packer_dwelling",
+            "inf_sawpit_shed",
+            "inf_sawyer_dwelling_a",
+            "inf_sawyer_dwelling_b",
+            "inf_shoemaker_shop",
+            "inf_tailor_shop",
+            "inf_teamster_dwelling_south",
+            "inf_teamster_dwelling_west",
+            "inf_teamster_stable_west",
+            "inf_wheelwright_shop_west",
+            "mason_blacksmith_shop",
+            "physicians_office",
+            "temple_lake_st_building",
+            "wright_building_to_let_a",
+            "wright_building_to_let_b"
+          ],
+          "contract": "every field of the record except the paths under `withdrawn` and `reassigned`",
+          "why": "The geometry is what the owner kept. The existence, position, footprint, form and materials of these 38 records are still derived here and nowhere else, so a hand-edited invented building still has to answer to this pass."
+        }
+      },
+      "withdrawn": [
+        {
+          "by": "T-0489",
+          "paths": [
+            "occupants",
+            "reconstruction.status",
+            "resident_assignment"
+          ],
+          "applies_to": [
+            "inf_artisan_dwelling_west_a",
+            "inf_artisan_dwelling_west_b",
+            "inf_bakery_lake",
+            "inf_barber_shop",
+            "inf_blacksmith_shop_west",
+            "inf_boatman_cabin_north",
+            "inf_brickmaker_dwelling_north",
+            "inf_butcher_market",
+            "inf_carpenter_dwelling_north",
+            "inf_cooperage_south",
+            "inf_cooperage_south_branch",
+            "inf_grocery_west",
+            "inf_gunsmith_shop",
+            "inf_harness_shop",
+            "inf_labourer_shanty_north_a",
+            "inf_labourer_shanty_north_b",
+            "inf_labourer_shanty_west_a",
+            "inf_labourer_shanty_west_b",
+            "inf_laundry_north",
+            "inf_mason_dwelling_north",
+            "inf_packer_dwelling",
+            "inf_sawpit_shed",
+            "inf_sawyer_dwelling_a",
+            "inf_sawyer_dwelling_b",
+            "inf_shoemaker_shop",
+            "inf_tailor_shop",
+            "inf_teamster_dwelling_south",
+            "inf_teamster_dwelling_west",
+            "inf_teamster_stable_west",
+            "inf_wheelwright_shop_west",
+            "physicians_office"
+          ],
+          "why": "The occupant was withdrawn, the building kept. This pass still derives an occupied roof; the tree carries the ruling. Re-deriving these three paths would put every retired household back on its roof, which is a reversal of an owner ruling and the reason this pass could not be gated.",
+          "assert_instead": {
+            "occupants.value": "Anonymous stock; no occupant is claimed",
+            "occupants.confidence": "reconstructed",
+            "occupants.note~": "T-0516",
+            "reconstruction.status": "inferred_anonymous",
+            "resident_assignment.status": "unassigned",
+            "resident_assignment.confidence": "reconstructed",
+            "resident_assignment.note~": "T-0489"
+          }
+        },
+        {
+          "by": "T-0489",
+          "paths": [
+            "*"
+          ],
+          "applies_to_households": [
+            "hh_inf_baker_south_01",
+            "hh_inf_barber_surgeon_south_01",
+            "hh_inf_blacksmith_north_02",
+            "hh_inf_blacksmith_south_01",
+            "hh_inf_blacksmith_west_03",
+            "hh_inf_boarding_house_keeper_north_01",
+            "hh_inf_boarding_house_keeper_north_02",
+            "hh_inf_boarding_house_keeper_north_03",
+            "hh_inf_boatman_north_01",
+            "hh_inf_boatman_north_02",
+            "hh_inf_boatman_north_03",
+            "hh_inf_brickmaker_north_01",
+            "hh_inf_butcher_south_01",
+            "hh_inf_carpenter_north_05",
+            "hh_inf_carpenter_north_06",
+            "hh_inf_carpenter_north_07",
+            "hh_inf_carpenter_north_08",
+            "hh_inf_carpenter_north_09",
+            "hh_inf_carpenter_north_10",
+            "hh_inf_carpenter_south_01",
+            "hh_inf_carpenter_south_02",
+            "hh_inf_carpenter_south_03",
+            "hh_inf_carpenter_south_04",
+            "hh_inf_carpenter_south_11",
+            "hh_inf_carpenter_south_12",
+            "hh_inf_carpenter_south_13",
+            "hh_inf_carpenter_south_14",
+            "hh_inf_carpenter_south_15",
+            "hh_inf_carpenter_south_16",
+            "hh_inf_carpenter_south_17",
+            "hh_inf_carpenter_south_18",
+            "hh_inf_carpenter_south_19",
+            "hh_inf_carpenter_south_20",
+            "hh_inf_clerk_north_03",
+            "hh_inf_clerk_south_01",
+            "hh_inf_clerk_south_02",
+            "hh_inf_cooper_south_01",
+            "hh_inf_cooper_south_02",
+            "hh_inf_cooper_south_03",
+            "hh_inf_domestic_north_01",
+            "hh_inf_domestic_north_02",
+            "hh_inf_domestic_north_03",
+            "hh_inf_domestic_north_04",
+            "hh_inf_drover_south_01",
+            "hh_inf_grocer_north_03",
+            "hh_inf_grocer_south_01",
+            "hh_inf_grocer_south_02",
+            "hh_inf_grocer_west_04",
+            "hh_inf_gunsmith_south_01",
+            "hh_inf_harness_maker_south_01",
+            "hh_inf_joiner_south_01",
+            "hh_inf_labourer_north_03",
+            "hh_inf_labourer_north_04",
+            "hh_inf_labourer_north_05",
+            "hh_inf_labourer_north_06",
+            "hh_inf_labourer_north_07",
+            "hh_inf_labourer_north_08",
+            "hh_inf_labourer_north_09",
+            "hh_inf_labourer_north_10",
+            "hh_inf_labourer_south_01",
+            "hh_inf_labourer_south_02",
+            "hh_inf_labourer_south_13",
+            "hh_inf_labourer_south_15",
+            "hh_inf_labourer_south_16",
+            "hh_inf_labourer_south_17",
+            "hh_inf_labourer_south_18",
+            "hh_inf_labourer_south_19",
+            "hh_inf_labourer_south_20",
+            "hh_inf_labourer_south_21",
+            "hh_inf_labourer_south_22",
+            "hh_inf_labourer_south_23",
+            "hh_inf_labourer_west_11",
+            "hh_inf_labourer_west_12",
+            "hh_inf_labourer_west_14",
+            "hh_inf_laundress_north_02",
+            "hh_inf_laundress_north_03",
+            "hh_inf_laundress_south_01",
+            "hh_inf_mason_north_03",
+            "hh_inf_mason_north_04",
+            "hh_inf_mason_south_01",
+            "hh_inf_mason_south_02",
+            "hh_inf_packer_south_01",
+            "hh_inf_painter_north_01",
+            "hh_inf_plasterer_south_01",
+            "hh_inf_sawyer_south_01",
+            "hh_inf_sawyer_south_02",
+            "hh_inf_shoemaker_north_03",
+            "hh_inf_shoemaker_south_01",
+            "hh_inf_shoemaker_south_02",
+            "hh_inf_tailor_south_01",
+            "hh_inf_teamster_north_02",
+            "hh_inf_teamster_north_03",
+            "hh_inf_teamster_north_04",
+            "hh_inf_teamster_south_01",
+            "hh_inf_teamster_west_05",
+            "hh_inf_wheelwright_west_01"
+          ],
+          "why": "96 household files. The ruling removed them; this pass still derives every one. They are not compared — they are asserted ABSENT, which is the gate that keeps the retirement from being quietly undone."
+        }
+      ],
+      "reassigned": [
+        {
+          "structure": "wright_building_to_let_a",
+          "paths": [
+            "name",
+            "phases[].position.note"
+          ],
+          "to": "T-0415",
+          "why": "(east) and (west) were never bearings; the pair became (a) and (b), and this pass still derives the old names."
+        },
+        {
+          "structure": "wright_building_to_let_b",
+          "paths": [
+            "name",
+            "phases[].position.note"
+          ],
+          "to": "T-0415",
+          "why": "As wright_building_to_let_a."
+        },
+        {
+          "structure": "heacock_house_monroe",
+          "paths": [
+            "function.note",
+            "research_note",
+            "phases[].position.utm_e",
+            "phases[].position.utm_n",
+            "phases[].position.symbolic_location",
+            "phases[].position.note",
+            "phases[].position.derivation.reason"
+          ],
+          "to": "T-0884, with T-0464's ground",
+          "why": "The house on rollers was in the wrong street; T-0884 moved Heacock onto Monroe at block 117. This pass still derives the pre-move position."
+        },
+        {
+          "structure": "physicians_office",
+          "paths": [
+            "function.note"
+          ],
+          "to": "T-0230",
+          "why": "The doctor's office has no sign because there is nothing there to grade; T-0230 rewrote the function note."
+        }
+      ],
+      "no_longer_owns": [
+        {
+          "what": "data/residents/households/*",
+          "to": "T-0489 for the 96 retired; tools/synthesize_resident_research.py for the five that survived",
+          "why": "Not one household file in the tree is this pass's output any more. The 96 are gone by the ruling; the five survivors carry a research layer this pass knows nothing about — resident_research, press_evidence, civic_evidence, book_evidence, directories, old_settler_deaths, a ladder_rule and a grade the synthesizer raised to attested."
+        },
+        {
+          "what": "data/residents/index.json",
+          "to": "the manifest's single owner (T-0715), fed by the resident layer",
+          "why": "This pass rebuilds the manifest from households it no longer owns, so its manifest output is derived from a layer that is not in the tree."
+        }
+      ]
+    },
+    "tools/generate_inferred_names.py": {
+      "still_owns": {},
+      "no_longer_owns": [
+        {
+          "what": "every invented name it ever dealt",
+          "to": "T-0489",
+          "why": "Every person this pass named was graded `reconstructed`, and T-0489 removed the reconstructed resident population entire. Zero of its output stands in the tree — measured 2026-09-17: no household in data/residents/households carries a name_basis block. It survives only as an in-pipeline stage that the other two passes overlay to derive their own comparisons."
+        }
+      ],
+      "contract": "A pass that owns no committed file cannot have a drift check over the tree, and a --check that reads the tree for output that is not there is what CRASHED here (FileNotFoundError on hh_inf_carpenter_south_01.json, one of the 96). So its --check proves the two things that are still true and still worth proving: the allocation is DETERMINISTIC — re-derived twice it deals the same names to the same people — and every name it deals carries a name_basis graded `reconstructed`, which is the rule that stops an invention being laundered into the documented layer. Then it asserts the retirement: no name_basis block stands in the tree. If one appears, an invented resident has been put back and this goes red."
+    },
+    "tools/replace_invented_residents.py": {
+      "still_owns": {
+        "data/residents/households": {
+          "seats": [
+            {
+              "household": "hh_inf_cooper_north_04",
+              "person_id": "inf_cooper_north_04",
+              "person_name": "J. Garland",
+              "candidate": "person_j_garland",
+              "trade": "cooper"
+            },
+            {
+              "household": "hh_inf_physician_south_01",
+              "person_id": "inf_physician_south_01",
+              "person_name": "Dr. Josiah C. Goodhue",
+              "candidate": "person_dr_josiah_c_goodhue",
+              "trade": "physician"
+            },
+            {
+              "household": "hh_inf_tailor_north_02",
+              "person_id": "inf_tailor_north_02",
+              "person_name": "Thomas S. Eels",
+              "candidate": "person_thomas_s_eels",
+              "trade": "tailor"
+            },
+            {
+              "household": "hh_inf_tavern_keeper_north_01",
+              "person_id": "inf_tavern_keeper_north_01",
+              "person_name": "J. Shrigley",
+              "candidate": "person_j_shrigley",
+              "trade": "tavern_keeper"
+            }
+          ],
+          "paths": [
+            "persons[].id",
+            "persons[].name"
+          ],
+          "contract": "The head of each roof this deal seats is, in the tree, the person it deals — same id, same name. Measured 2026-09-17: those are the only fields of these records that still match what this pass derives, and they are the pass's whole surviving effect. A register that changes under these roofs goes red here."
+        }
+      },
+      "withdrawn": [
+        {
+          "by": "T-0489",
+          "paths": [
+            "lives_at",
+            "works_at"
+          ],
+          "why": "The ruling left the retained real people UNPLACED: no dwelling or workplace is assigned from a reconstructed household. This pass still deals each man the roof the register matched him to.",
+          "assert_instead": {
+            "lives_at.value": null,
+            "works_at.value": null,
+            "lives_at.note~": "T-0489",
+            "works_at.note~": "T-0489"
+          }
+        }
+      ],
+      "no_longer_owns": [
+        {
+          "what": "division, name, research_note, and the head's grade, sources and note",
+          "to": "tools/synthesize_resident_research.py",
+          "why": "The synthesizer took these four households into the resident research layer and raised each head from `inferred` to `attested` under a ladder rule, with press, civic and book evidence blocks this pass does not derive."
+        },
+        {
+          "what": "hh_inf_joiner_north_02",
+          "to": "nobody — a finding, raised as its own ticket",
+          "why": "The pass's own docstring says five roofs; the deal seats FOUR today. J. W. Reed's household stands in the tree, retired name and all, and no pass derives it any more. It is the one record in this settlement that nothing owns."
+        }
+      ]
+    }
+  }
+}

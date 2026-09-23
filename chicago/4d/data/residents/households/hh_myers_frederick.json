@@ -1,0 +1,178 @@
+{
+ "id": "hh_myers_frederick",
+ "name": "The Myers household — a name from the post office's letter lists",
+ "division": "unplaced",
+ "head": "myers_frederick",
+ "source_pass": "letter_list",
+ "arrival": {
+  "value": "1834-10-01",
+  "confidence": "inferred",
+  "sources": [
+   "chicago_democrat_1833_1835"
+  ],
+  "note": "A BOUND FROM THE RETURN, NOT AN ARRIVAL. The office's list of letters uncalled-for is a RETURN — its statement of what was still unclaimed on ONE day — and the paper reprinted one return over as many consecutive issues as it took, so the bound is dated by the return of 1 October 1834 and not by the issue it was read in (T-0425). The earliest issue this project reads the name in is 1834-10-22, 21 days later; that gap is an accident of which impression an extraction pass reached, and it is not evidence. Somebody was writing to this name at Chicago by 1834-10-01 and at no stated time before it; nothing says when they came. The date lines the printings set, and how they were weighed, stand beside this rule in tools/mint_letter_list_residents.py.",
+  "precision": "not_later_than"
+ },
+ "party_size_on_arrival": {
+  "value": null,
+  "confidence": "reconstructed",
+  "note": "Not attested."
+ },
+ "origin": {
+  "value": null,
+  "confidence": "reconstructed",
+  "note": "Not attested."
+ },
+ "reason_for_coming": {
+  "value": null,
+  "confidence": "reconstructed",
+  "note": "Not attested."
+ },
+ "lives_at": {
+  "value": null,
+  "confidence": "reconstructed",
+  "note": "Not attested: a letter list gives a name and no address."
+ },
+ "works_at": {
+  "value": null,
+  "confidence": "reconstructed",
+  "note": "Not attested. No trade is recorded, so there is no premises to seek."
+ },
+ "present_on_scene_date": {
+  "value": "present",
+  "confidence": "inferred",
+  "sources": [
+   "chicago_democrat_1833_1835"
+  ],
+  "note": "A letter was still waiting for this name at the Democrat of 19 August 1835, column 20, on or after the scene date, so the corpus puts somebody expecting them at Chicago at 1835-08-19."
+ },
+ "persons": [
+  {
+   "id": "myers_frederick",
+   "name": "Frederick Myers",
+   "relationship": "head",
+   "grade": "attested",
+   "ladder_rule": "G1a",
+   "letter_list_only": true,
+   "letter_list_returns": [
+    "1834-10-22",
+    "1835-08-19"
+   ],
+   "occupation": {
+    "value": "clerk",
+    "confidence": "attested",
+    "sources": [
+     "resident_research_myers_glen_ellyn"
+    ],
+    "note": "T-0483: independently corroborated resident research. Exact uncommon name; Fort Dearborn service; Chicago land ownership; chronology immediately precedes the letter-list returns.",
+    "derived_from": "roles",
+    "roles_at_scene_date": [
+     "clerk"
+    ]
+   },
+   "sources": [
+    "chicago_democrat_1833_1835",
+    "resident_research_myers_glen_ellyn",
+    "chicago_voter_lists_1833_1835_irad"
+   ],
+   "note": "INDEPENDENTLY CORROBORATED RESIDENT. Originally documented in Chicago post-office evidence; independent resident research now corroborates the identity. KNOWN ONLY FROM THE POST OFFICE, AND HELD THERE MORE THAN ONCE. The papers print 'Myers, Frederick' in 2 separate returns of letters uncalled-for at the Chicago post office — the Democrat of 22 October 1834, column 2; the Democrat of 19 August 1835, column 20 — across 1834-10-22 to 1835-08-19. A name in a LATER return is somebody still being written to, months on, which is the strongest thing a letter list can say about residence and is why this person outranks a single-return name of the same surname. WHAT THAT IS WORTH: a correspondent believed a person of this name reachable at Chicago on that date, and nothing further — not that they lived here, kept a trade here, or were here on 1 July 1835. It is the weakest evidence this project accepts for a resident, and a source placing them elsewhere retires the record. THE ARGUMENT EVERY RECORD OF THIS KIND SHARES is written once instead of once per file: the ruling of 2026-08-30 and what it cost the town (docs/LIBERTIES.md L214), the refusals and the transcription standard behind the reading (tools/mint_letter_list_residents.py). No figure is drawn (L1). THE TOWN'S OWN ROLLS, 1833-1835 — CORROBORATION, NOT A GRADE. The early Chicago voter and tax lists held by the Illinois Regional Archives Depository name this person 1 time: Poll list of 1835 — “Myers, F.” (poll_1835_052, line 339). These are the town's own contemporary paper rather than a recollection of it, and each appearance says that a man of that name stood on that roll in that year — no more. The reading is twice mediated (Schulz's transcription, then Genealogy Trails' republication) and this project has not seen the IRAD originals. Under the ratified ladder (T-0513) the 1835 poll with a second independent source is attested, the 1835 poll alone or a 1833/1834 list with another source is inferred, and a single appearance with nothing else is a projected resident. This pass WRITES THE EVIDENCE AND MOVES NO GRADE — T-0515 applies the ladder against every source at once. Identity by the crosswalk's own rule: one resident of the surname 'Myers' agrees with the entry's forenames; 1 bearer(s) of the surname were considered. (data/research/civic/voter_crosswalk.json).",
+   "resident_research": {
+    "programme": "resident-research-2026",
+    "ticket": "T-0493",
+    "outcome": "corroborated_enrichment",
+    "reviewed_on": "2026-09-02",
+    "asserted_identity": true,
+    "evidence_for": "forenames agree initial for initial: entry 'F. Myers' against resident 'Frederick Myers'",
+    "summary": "A 1928 Glen Ellyn local history identifies Frederick Myers as a War of 1812 veteran who served as quartermaster's clerk at Fort Dearborn in 1831-33, later traded in furs and owned substantial Chicago land. The unusually specific Chicago/Fort Dearborn biography corroborates the named person, but does not prove his bodily presence on 1 July 1835.",
+    "source_ids": [
+     "chicago_voter_lists_1833_1835_irad"
+    ]
+   },
+   "profile_facts": [
+    {
+     "field": "life_event",
+     "value": "Quartermaster's clerk at Fort Dearborn, 1831-1833",
+     "confidence": "inferred",
+     "sources": [
+      "chicago_voter_lists_1833_1835_irad"
+     ],
+     "describes_date": "1831-01-01",
+     "place_class": "chicago",
+     "record_id": "resident_research:T-0493#01",
+     "as_read": "served as quartermaster's clerk at Fort Dearborn in 1831-33",
+     "note": "A dated Chicago post before the scene, from a 1928 local history that names the fort. The office itself is a role and T-1145's; the dated presence at the fort is the fact carried here."
+    },
+    {
+     "field": "life_event",
+     "value": "A veteran of the War of 1812",
+     "confidence": "inferred",
+     "sources": [
+      "chicago_voter_lists_1833_1835_irad"
+     ],
+     "describes_date": "1812-01-01",
+     "place_class": "not_a_place",
+     "record_id": "resident_research:T-0493#02",
+     "as_read": "identifies Frederick Myers as a War of 1812 veteran",
+     "note": "A biographical fact stated outright. It bears on his age without naming one, and it is not turned into a birth year here."
+    }
+   ],
+   "roles": [
+    {
+     "role": "clerk",
+     "kind": "trade",
+     "as_printed": null,
+     "from": "1831",
+     "to": "1835",
+     "precision": "source_span",
+     "dated_by": "source_describes_date",
+     "covers_scene_date": true,
+     "confidence": "attested",
+     "sources": [
+      "resident_research_myers_glen_ellyn"
+     ],
+     "claim": null,
+     "note": "THE BOUND IS THE SOURCE'S, NOT THE MAN'S. This role is carried by the card's 1835 occupation block and is dated by what the cited source or sources are ABOUT, which is why `precision` can be no better than the span they cover. The span reaches 1835, so this role stands in the scene-date view. The printing the trade was read off is not on the card and is fetched by T-1254."
+    }
+   ]
+  }
+ ],
+ "touches_removal": false,
+ "review_required": false,
+ "research_note": "MINTED FROM THE LETTER LISTS (T-0378, T-0379). THE HOUSEHOLD IS A CONTAINER, NOT AN ARGUMENT: every other record here argues for a household, and this one argues for a PERSON. `data/residents/` cannot carry a person outside a household, so one was written around them and told to claim nothing — one member, no dwelling, no division, no trade, no family, no arrival beyond the paper's bound. tools/mint_letter_list_residents.py derives the set and prints every refusal, `--gate` proves no record here gained a roof, a trade or a second member, and docs/LIBERTIES.md L214 carries the change of scale.",
+ "directories": {
+  "note": "LATER EVIDENCE, BESIDE THE 1835 CLAIMS AND NOT INSIDE THEM. A Chicago directory of 1839, 1843 or 1844 meets somebody of this name and this pass records what it prints. Under the ratified ladder a directory read after 1835 can corroborate that a person attested here was still in Chicago and can print a trade or a street the 1835 record never had; on its own it makes nobody a resident of 1835. Nothing on this person's 1835 record was regraded, moved, dated or given an occupation by this entry. WHAT THIS PASS RULED ONTO THIS HOUSEHOLD, named so the ruling can be found again: each volume below is followed by the printed entries it set against this person and the status the crosswalk ruled them at — a single entry carries what its own `could_carry` declares, and an ambiguous or contested match carries nothing and is shown so that the silence is legible. myers_frederick, Fergus's Chicago directory of 1839 — f1839_e1086 (a single entry); myers_frederick, Fergus's Chicago directory of 1843 — f1843_e1871 (a single entry); myers_frederick, Norris's Chicago directory of 1844 — n1844_e1330 (a single entry).",
+  "sources": [
+   "fergus_chicago_directory_1839",
+   "fergus_chicago_directory_1843",
+   "norris_directory_1844"
+  ],
+  "people": [
+   {
+    "person_id": "myers_frederick",
+    "address_later": {
+     "value": "North Water street",
+     "confidence": "attested",
+     "describes_date": 1839,
+     "sources": [
+      "fergus_chicago_directory_1839"
+     ],
+     "note": "Fergus's Chicago directory of 1839 prints this address against this person, in the entry quoted on the card: 'Myers, F., saloon, North Water street'. It is evidence about 1839, written here as 1839's and read back onto no 1835 claim. Under the ratified ladder a directory read after 1835 can corroborate that a person attested here was still in Chicago and can print a trade or a street the 1835 record never had; on its own it makes nobody a resident of 1835. Nothing on this person's 1835 record was regraded, moved, dated or given an occupation by this entry. The value is the volume's own line, split by its crosswalk on the entry's punctuation. These volumes set the trade first and its qualifiers after it on the same line, so the split may carry an employer, a market or a corner along with the trade. The printed entry is quoted beside the value for exactly that reason: the split is checkable against it, and neither is read into an 1835 claim."
+    },
+    "back_projection": {
+     "outcome": "placed",
+     "clause": "3 and 4",
+     "value": "North Water Street",
+     "confidence": "reconstructed",
+     "describes_date": 1839,
+     "read_back_years": 4,
+     "placement": "face",
+     "position_local_enu_m": null,
+     "sources": [
+      "fergus_chicago_directory_1839"
+     ],
+     "note": "A LATER ADDRESS, READ BACKWARDS 4 YEARS. The door is not an 1835 reading: Fergus's Chicago directory of 1839 printed it in 1839, and this pass carries it back to the scene date because the 1835 record attests a trade for this person and nothing in the corpus places it better. What is claimed is the street face and nothing narrower — no lot, no roof, no door count — and the grade is `reconstructed`, which is this dataset's word for a figure the reconstruction supplies rather than a source. North Water Street stands in 1835 under that name and in that place. The directory gives a street and nothing this pass can resolve narrower, so the placement is the FACE — the unit the owner's ruling of 2026-08-29 says a street name constrains — and no roof is dealt. The rule this stands on is docs/ADDRESS-BACK-PROJECTION.md and the liberty is L218; a reader who thinks 4 years is too far to carry a shop should read the grade as the disagreement being invited."
+    }
+   }
+  ]
+ }
+}

@@ -1,0 +1,34 @@
+{
+  "schema": 1,
+  "domain": "books",
+  "source_id": "hubbard_letter_1827_07_25",
+  "ticket": "T-0501",
+  "read": "2026-09-03",
+  "_doc": "The one period document in the Hubbard volume, read on its own and graded on its own. It is quoted out of the same committed text as claims/hubbard_autobiography_1911.json and declared inside the same coverage item; what is separate is the SOURCE RECORD, because a letter written at Chicago in July 1827 and a librarian's 1911 compilation cannot share a rung.",
+  "claims": [
+    {
+      "id": "bk_hub_100",
+      "kind": "notice",
+      "reading": "transcription_mediated",
+      "quote": "Note.— Extract  from  a  letter  written  by  Mr. \nHubbard  to  his  sister  Elizabeth,  at  Middletown, \nConn. \n\nChicago,  July  25,  1827. \n\nYou  will  undoubtedly  hear  through  the  medium  of \nthe  newspapers  of  the  hostilities  lately  commenced \nby  the  Winnebago  Indians. \n\nGovernor  Cass  surprised  us  on  the  21st  by  his \narrival,  and  brought  us  the  first  intelligejice  of  the ",
+      "normalized": "A letter from Hubbard to his sister Elizabeth at Middletown, Conn., headed 'Chicago, July 25, 1827', reports that Governor Cass surprised them on the 21st with the first news of the Winnebago depredations.",
+      "locator": {
+        "list": "hubbard_1911_pp_165_174",
+        "text_file": "hubbard_autobiography_1911.txt",
+        "lines": [
+          7902,
+          7913
+        ],
+        "leaf": 212,
+        "page": "174"
+      },
+      "describes_date": "1827-07-25",
+      "entities": [
+        "Gurdon Saltonstall Hubbard",
+        "Lewis Cass"
+      ],
+      "town_finding": true,
+      "notes": "THE ONE PERIOD DOCUMENT IN THIS BOOK. A letter written at Chicago on a stated day, printed with its dateline, and it settles the 1827/1828 disagreement of bk_hub_091 on its own authority: Cass arrived on 21 July 1827. Graded tier 1 in the source record's transcribes[] and nowhere else in this reading."
+    }
+  ]
+}

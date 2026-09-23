@@ -1,0 +1,403 @@
+{
+  "$note": "T-0617. The banked reading of Braunhold's Sauganash engraving by tools/measure_sauganash_plate.py. The plate is committed and cannot change, so this exists for two reasons: CI installs no image library and would otherwise skip the plate half in silence, and a detector edit that quietly moves the reading is a thing this project has been bitten by (T-0197). Regenerate with --write-baseline, and only ever with the reason in the commit.",
+  "reading": {
+    "annex": {
+      "autocorr": {
+        "annex_face_east": 0.295,
+        "annex_face_west": 0.201,
+        "annex_return": 0.476
+      },
+      "course_m": 0.258,
+      "course_px": [
+        19,
+        22,
+        22
+      ],
+      "median_px": 22
+    },
+    "bay_rhythm": {
+      "equal_bay_station": {
+        "residual_spread": 0.0402,
+        "x": 5813.8
+      },
+      "image_centres": [
+        986.0,
+        1155.2,
+        1316.3,
+        1469.3,
+        1606.8
+      ],
+      "image_gaps": [
+        169.2,
+        161.1,
+        153.0,
+        137.5
+      ],
+      "near_bay_m": 1.984,
+      "rectified_gaps": [
+        0.997,
+        1.011,
+        1.02,
+        0.972
+      ],
+      "rectified_spread_pct": 4.8,
+      "spread_pct": 20.4,
+      "station_disagreement": 0.9
+    },
+    "chimneys": {
+      "count": 2,
+      "stacks": [
+        {
+          "rise_px": 69,
+          "top": 281,
+          "x0": 652,
+          "x1": 705
+        },
+        {
+          "rise_px": 61,
+          "top": 352,
+          "x0": 1358,
+          "x1": 1403
+        }
+      ]
+    },
+    "clapboard": {
+      "course_px": [
+        15,
+        15,
+        8
+      ],
+      "exposure_m": 0.176,
+      "median_px": 15
+    },
+    "door_detail": {
+      "door_head_row": 808,
+      "doorcase_m": 2.392,
+      "doorcase_px": 204,
+      "leaf_core": [
+        1278,
+        1348
+      ],
+      "leaf_core_ink": 0.856,
+      "opening_m": 1.923,
+      "opening_px": 164,
+      "transom": {
+        "glazed": true,
+        "mean_ink": 0.464,
+        "px": 45,
+        "rows": [
+          763,
+          808
+        ]
+      }
+    },
+    "end_face": {
+      "attic": [
+        {
+          "cx": 628.3,
+          "ink": 0.5008,
+          "x0": 590,
+          "x1": 663,
+          "y0": 403,
+          "y1": 460
+        }
+      ],
+      "upper": [
+        {
+          "cx": 564.8,
+          "ink": 0.3345,
+          "x0": 531,
+          "x1": 593,
+          "y0": 576,
+          "y1": 700
+        },
+        {
+          "cx": 783.7,
+          "ink": 0.417,
+          "x0": 740,
+          "x1": 818,
+          "y0": 555,
+          "y1": 665
+        }
+      ]
+    },
+    "end_vanishing": {
+      "slope": -0.134,
+      "x": -1467.2,
+      "y": 917.5
+    },
+    "logs": {
+      "annex_face_east": {
+        "autocorr": 0.295,
+        "contrast": 0.0197,
+        "course_px": 19,
+        "cx": 810.0,
+        "cy": 917.5,
+        "slope": 0.012
+      },
+      "annex_face_west": {
+        "autocorr": 0.201,
+        "contrast": 0.02989,
+        "course_px": 22,
+        "cx": 580.0,
+        "cy": 922.5,
+        "slope": -0.018
+      },
+      "annex_return": {
+        "autocorr": 0.476,
+        "contrast": 0.05205,
+        "course_px": 22,
+        "cx": 370.0,
+        "cy": 915.0,
+        "slope": -0.03
+      }
+    },
+    "perspective_test": {
+      "consistent": true,
+      "f_squared": 13429837.5,
+      "focal_px": 3664.7,
+      "horizon_y": 917.5,
+      "note": "two orthogonal horizontal vanishing points of ONE real camera give f^2 = -(v1-p).(v2-p) > 0. A negative value says the sheet was composed by eye, and its plan proportions are draughtsmanship rather than survey."
+    },
+    "roof": {
+      "apex": [
+        648,
+        350
+      ],
+      "left_rake_rms": 3.97,
+      "left_rake_slope": -0.3178,
+      "rake_asymmetry": 0.2224,
+      "right_rake_rms": 1.22,
+      "right_rake_slope": 0.0954,
+      "sampled_columns": 1060
+    },
+    "scale": {
+      "adult_m": 1.7,
+      "figure_px_mean": 145.0,
+      "figure_px_spread": 4,
+      "figures": {
+        "walk_left": {
+          "cx": 912.0,
+          "foot": 1047,
+          "px": 147,
+          "top": 900
+        },
+        "walk_right": {
+          "cx": 962.0,
+          "foot": 1045,
+          "px": 143,
+          "top": 902
+        }
+      },
+      "m_per_px": 0.011724,
+      "note": "the two men on the walk stand a pace forward of the wall, so they are drawn a shade large for the facade plane: every metre below is a lower bound"
+    },
+    "se_face": {
+      "bays_lower": 5,
+      "bays_upper": 5,
+      "door": {
+        "cx": 1316.3,
+        "ink": 0.4944,
+        "x0": 1208,
+        "x1": 1412,
+        "y0": 811,
+        "y1": 975
+      },
+      "door_index_1based": 3,
+      "lower": [
+        {
+          "cx": 986.0,
+          "ink": 0.4124,
+          "x0": 942,
+          "x1": 1029,
+          "y0": 842,
+          "y1": 975
+        },
+        {
+          "cx": 1155.2,
+          "ink": 0.414,
+          "x0": 1116,
+          "x1": 1193,
+          "y0": 831,
+          "y1": 935
+        },
+        {
+          "cx": 1316.3,
+          "ink": 0.4944,
+          "x0": 1208,
+          "x1": 1412,
+          "y0": 811,
+          "y1": 975
+        },
+        {
+          "cx": 1469.3,
+          "ink": 0.1875,
+          "x0": 1428,
+          "x1": 1514,
+          "y0": 749,
+          "y1": 971
+        },
+        {
+          "cx": 1606.8,
+          "ink": 0.3708,
+          "x0": 1566,
+          "x1": 1627,
+          "y0": 789,
+          "y1": 831
+        }
+      ],
+      "upper": [
+        {
+          "cx": 992.0,
+          "ink": 0.2867,
+          "x0": 951,
+          "x1": 1027,
+          "y0": 548,
+          "y1": 700
+        },
+        {
+          "cx": 1175.6,
+          "ink": 0.2323,
+          "x0": 1148,
+          "x1": 1201,
+          "y0": 562,
+          "y1": 709
+        },
+        {
+          "cx": 1340.9,
+          "ink": 0.3308,
+          "x0": 1312,
+          "x1": 1365,
+          "y0": 574,
+          "y1": 706
+        },
+        {
+          "cx": 1484.3,
+          "ink": 0.3543,
+          "x0": 1445,
+          "x1": 1518,
+          "y0": 588,
+          "y1": 618
+        },
+        {
+          "cx": 1607.2,
+          "ink": 0.3155,
+          "x0": 1560,
+          "x1": 1644,
+          "y0": 520,
+          "y1": 709
+        }
+      ]
+    },
+    "se_vanishing": {
+      "lines": 4,
+      "max_residual_px": 45.21,
+      "x": 6462.5,
+      "y": 917.5
+    },
+    "se_vanishing_inputs": {
+      "ridge_slope": 0.0954,
+      "siding_patches": [
+        "se_2",
+        "se_3",
+        "se_4"
+      ]
+    },
+    "siding": {
+      "end_1": {
+        "autocorr": 0.599,
+        "contrast": 0.02442,
+        "course_px": 18,
+        "cx": 670.0,
+        "cy": 640.0,
+        "slope": -0.138
+      },
+      "end_2": {
+        "autocorr": 0.305,
+        "contrast": 0.0187,
+        "course_px": 18,
+        "cx": 500.0,
+        "cy": 645.0,
+        "slope": -0.13
+      },
+      "se_1": {
+        "autocorr": 0.108,
+        "contrast": 0.02842,
+        "course_px": 36,
+        "cx": 1070.0,
+        "cy": 627.5,
+        "slope": 0.064
+      },
+      "se_2": {
+        "autocorr": 0.304,
+        "contrast": 0.01825,
+        "course_px": 15,
+        "cx": 1227.5,
+        "cy": 640.0,
+        "slope": 0.048
+      },
+      "se_3": {
+        "autocorr": 0.232,
+        "contrast": 0.0223,
+        "course_px": 15,
+        "cx": 1435.0,
+        "cy": 650.0,
+        "slope": 0.052
+      },
+      "se_4": {
+        "autocorr": 0.372,
+        "contrast": 0.03726,
+        "course_px": 8,
+        "cx": 1660.0,
+        "cy": 665.0,
+        "slope": 0.062
+      }
+    },
+    "storeys": {
+      "spandrel_m": 1.341,
+      "spandrel_px": 114.4,
+      "storey_pitch_m": 2.865,
+      "upper_head_to_lower_head_px": 244.4
+    },
+    "windows": {
+      "lower": {
+        "height_px": [
+          133,
+          104,
+          222,
+          42
+        ],
+        "height_resolved": false,
+        "height_spread": 1.437,
+        "mean_height_m": null,
+        "mean_width_m": 0.912,
+        "width_px": [
+          87,
+          77,
+          86,
+          61
+        ]
+      },
+      "upper": {
+        "height_px": [
+          152,
+          147,
+          132,
+          30,
+          189
+        ],
+        "height_resolved": false,
+        "height_spread": 1.223,
+        "mean_height_m": null,
+        "mean_width_m": 0.795,
+        "width_px": [
+          76,
+          53,
+          53,
+          73,
+          84
+        ]
+      }
+    }
+  }
+}

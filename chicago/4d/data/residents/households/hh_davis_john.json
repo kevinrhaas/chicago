@@ -1,0 +1,167 @@
+{
+ "id": "hh_davis_john",
+ "name": "The Davis household at the Steamboat Hotel",
+ "division": "north",
+ "head": "davis_john",
+ "arrival": {
+  "value": "1835",
+  "confidence": "reconstructed",
+  "note": "NOT ATTESTED. He is documented in the town in 1835 and nothing dates his coming. The value is the earliest year the evidence forces and it is graded conjectural; the attested fact is in present_on_scene_date, not here.",
+  "precision": "year"
+ },
+ "party_size_on_arrival": {
+  "value": null,
+  "confidence": "reconstructed",
+  "note": "Not attested."
+ },
+ "origin": {
+  "value": null,
+  "confidence": "reconstructed",
+  "note": "Not attested."
+ },
+ "reason_for_coming": {
+  "value": null,
+  "confidence": "reconstructed",
+  "note": "Not attested."
+ },
+ "lives_at": {
+  "value": "steamboat_hotel",
+  "confidence": "inferred",
+  "sources": [
+   "andreas_1884_v1",
+   "drloih_hotels"
+  ],
+  "note": "A keeper lived in his house; not stated."
+ },
+ "works_at": {
+  "value": "steamboat_hotel",
+  "confidence": "attested",
+  "sources": [
+   "andreas_1884_v1",
+   "drloih_hotels"
+  ]
+ },
+ "present_on_scene_date": {
+  "value": "present",
+  "confidence": "attested",
+  "sources": [
+   "andreas_1884_v1",
+   "drloih_hotels"
+  ],
+  "note": "Named as the keeper in the scene year and replaced only in November 1835."
+ },
+ "persons": [
+  {
+   "id": "davis_john",
+   "name": "John Davis",
+   "relationship": "head",
+   "grade": "attested",
+   "ladder_rule": "G1b",
+   "sex": "male",
+   "occupation": {
+    "value": "hotel_keeper",
+    "confidence": "attested",
+    "sources": [
+     "andreas_1884_v1",
+     "drloih_hotels"
+    ],
+    "note": "Keeper of the Steamboat Hotel on North Water Street. Andreas's list of the Chicago American's advertising patrons in the paper's first year carries 'John Davis, Steamboat Hotel'.",
+    "derived_from": "roles",
+    "roles_at_scene_date": [
+     "hotel_keeper"
+    ]
+   },
+   "sources": [
+    "andreas_1884_v1",
+    "drloih_hotels",
+    "chicago_voter_lists_1833_1835_irad"
+   ],
+   "note": "DOCUMENTED IN THE SCENE YEAR ITSELF: the American began in June 1835 and he is advertising in it. The hotel chronology has J. Dorsey and J. Force taking over the management on 9 November 1835, so his tenure covers 1 July. A COINCIDENCE THIS PROJECT DELIBERATELY DOES NOT RESOLVE: a 'Mr. Davis' also took over the Sauganash Hotel in 1835, and whether that is this man is unknown. If it is, one household kept two houses; if it is not, there is a second Davis in the town. Nothing reached settles it and neither reading is asserted here. THE TOWN'S OWN ROLLS, 1833-1835 — CORROBORATION, NOT A GRADE. The early Chicago voter and tax lists held by the Illinois Regional Archives Depository name this person 2 times: Tax list of the Town of Chicago, 1833 — “Davis, John” (tax_1833_024, line 76); Election returns — poll list of 1834, filed 11 August 1834 — “Davis, John” (poll_1834_032, line 201). These are the town's own contemporary paper rather than a recollection of it, and each appearance says that a man of that name stood on that roll in that year — no more. The reading is twice mediated (Schulz's transcription, then Genealogy Trails' republication) and this project has not seen the IRAD originals. Under the ratified ladder (T-0513) the 1835 poll with a second independent source is attested, the 1835 poll alone or a 1833/1834 list with another source is inferred, and a single appearance with nothing else is a projected resident. This pass WRITES THE EVIDENCE AND MOVES NO GRADE — T-0515 applies the ladder against every source at once. Identity by the crosswalk's own rule: one resident of the surname 'Davis' agrees with the entry's forenames; 2 bearer(s) of the surname were considered. (data/research/civic/voter_crosswalk.json).",
+   "resident_research": {
+    "programme": "resident-research-2026",
+    "ticket": "T-0508",
+    "outcome": "corroborated",
+    "reviewed_on": "2026-09-05",
+    "asserted_identity": true,
+    "evidence_for": "Independent of the post office in books, 1840 census, civic rolls and more.",
+    "source_ids": [
+     "andreas_1884_v1",
+     "chicago_voter_lists_1833_1835_irad",
+     "drloih_hotels",
+     "fergus_chicago_directory_1839"
+    ],
+    "summary": "Independently corroborated; confirmed, not moved."
+   },
+   "merge_ruling": [
+    {
+     "ticket": "T-1132",
+     "verdict": "distinct",
+     "rule": "D5",
+     "cluster": "david-davis",
+     "weighed_against": [
+      "david_john"
+     ],
+     "for_merge": "One letter of the surname and an identical forename, and the shape a transcriber's slip usually takes: davis_john is anchored — John Davis of the Steamboat Hotel, advertising in the American in the scene year itself, his tenure running to 9 November 1835 when Dorsey and Force took the management — while david_john is a projected resident on a single appearance, no trade, no address, no second source. A one-letter surname standing beside an anchor is exactly the pair C9 was written to weigh.",
+     "against_merge": "THE ROLL ENTERS BOTH, ONE LINE APART, AND IT IS THE SAME ROLL BOTH CARDS CITE. The tax list of the Town of Chicago for 1833 — a closed roll of 115 enumerated taxpayers, alphabetical — prints “David, John” as its entry 23 (tax_1833_023, transcription line 75) and “Davis, John” as its entry 24 (tax_1833_024, line 76), consecutive, between 'Cook, Thomas' and 'Dole, George W.'. A tax roll enters each taxpayer once; two adjacent lines is the document's own count of how many men of that name it held, and it is not the printer's hand wavering, because a wavering hand does not produce two lines where it meant one — it produces one line spelled the other way, which is what the Pearson cluster above is made of. The rolls go on keeping them apart: the poll filed 11 August 1834 enters “Davis, John” (poll_1834_032, line 201) and no David at all, and the whole IRAD run holds no third bearer of either stem. Nothing else reached is caught setting the two spellings for one man; the one page that sets them both sets them as two. D5, and the cards stay two. `for_merge` is kept verbatim so the argument survives its refusal."
+    }
+   ],
+   "roles": [
+    {
+     "role": "hotel_keeper",
+     "kind": "trade",
+     "as_printed": null,
+     "from": "1673",
+     "to": "1871",
+     "precision": "source_span",
+     "dated_by": "source_describes_date",
+     "covers_scene_date": true,
+     "confidence": "attested",
+     "sources": [
+      "andreas_1884_v1",
+      "drloih_hotels"
+     ],
+     "claim": null,
+     "note": "THE BOUND IS THE SOURCE'S, NOT THE MAN'S. This role is carried by the card's 1835 occupation block and is dated by what the cited source or sources are ABOUT, which is why `precision` can be no better than the span they cover. The span reaches 1835, so this role stands in the scene-date view. The printing the trade was read off is not on the card and is fetched by T-1254."
+    }
+   ]
+  }
+ ],
+ "touches_removal": false,
+ "review_required": false,
+ "research_note": "A HOUSEHOLD WHOSE ONLY DOCUMENTED FACT IS THE ONE THAT MATTERS - that a man of this name was keeping this house in the scene year. Everything else about him is blank, and four of the five household fields are conjectural as a result. THE SAUGANASH QUESTION IS LEFT OPEN ON PURPOSE. data/structures/sauganash_hotel.json records 'a Mr. Davis, proprietor' for 1835 and flags the possibility that he is this man; merging the two would create a documented claim out of a shared surname, and splitting them would create a second household out of the same. Neither is done.",
+ "directories": {
+  "note": "LATER EVIDENCE, BESIDE THE 1835 CLAIMS AND NOT INSIDE THEM. A Chicago directory of 1839, 1843 or 1844 meets somebody of this name and this pass records what it prints. Under the ratified ladder a directory read after 1835 can corroborate that a person attested here was still in Chicago and can print a trade or a street the 1835 record never had; on its own it makes nobody a resident of 1835. Nothing on this person's 1835 record was regraded, moved, dated or given an occupation by this entry. WHAT THIS PASS RULED ONTO THIS HOUSEHOLD, named so the ruling can be found again: each volume below is followed by the printed entries it set against this person and the status the crosswalk ruled them at — a single entry carries what its own `could_carry` declares, and an ambiguous or contested match carries nothing and is shown so that the silence is legible. davis_john, Fergus's Chicago directory of 1839 — f1839_e0366 (a single entry); davis_john, Fergus's Chicago directory of 1843 — f1843_e0776 (a single entry); davis_john, Norris's Chicago directory of 1844 — n1844_e0471 (a single entry).",
+  "sources": [
+   "fergus_chicago_directory_1839",
+   "fergus_chicago_directory_1843",
+   "norris_directory_1844"
+  ],
+  "people": [
+   {
+    "person_id": "davis_john",
+    "address_later": {
+     "value": "North Water street, near Kinzie",
+     "confidence": "attested",
+     "describes_date": 1839,
+     "sources": [
+      "fergus_chicago_directory_1839"
+     ],
+     "note": "Fergus's Chicago directory of 1839 prints this address against this person, in the entry quoted on the card: 'Davis, John, tailor, North Water street, near Kinzie'. It is evidence about 1839, written here as 1839's and read back onto no 1835 claim. Under the ratified ladder a directory read after 1835 can corroborate that a person attested here was still in Chicago and can print a trade or a street the 1835 record never had; on its own it makes nobody a resident of 1835. Nothing on this person's 1835 record was regraded, moved, dated or given an occupation by this entry. The value is the volume's own line, split by its crosswalk on the entry's punctuation. These volumes set the trade first and its qualifiers after it on the same line, so the split may carry an employer, a market or a corner along with the trade. The printed entry is quoted beside the value for exactly that reason: the split is checkable against it, and neither is read into an 1835 claim."
+    },
+    "back_projection": {
+     "outcome": "already_better_placed",
+     "clause": "2",
+     "value": null,
+     "describes_date": 1839,
+     "read_back_years": 4,
+     "placement": null,
+     "position_local_enu_m": null,
+     "sources": [
+      "fergus_chicago_directory_1839"
+     ],
+     "note": "NOT READ BACK, BECAUSE SOMETHING BETTER ALREADY STANDS. Fergus's Chicago directory of 1839 prints an address against this name in 1839, and it is left where it is. An 1835 placement already stands: this household works at `steamboat_hotel`, and clause 2 says an attested 1835 placement always beats a door printed 4 years later. The later address stays on the record as 1839's evidence and moves nothing."
+    }
+   }
+  ]
+ }
+}

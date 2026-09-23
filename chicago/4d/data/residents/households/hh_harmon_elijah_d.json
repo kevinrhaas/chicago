@@ -1,0 +1,186 @@
+{
+ "id": "hh_harmon_elijah_d",
+ "name": "The Dr Harmon household",
+ "division": "south",
+ "head": "harmon_elijah_d",
+ "arrival": {
+  "value": "1830-05-01",
+  "confidence": "attested",
+  "sources": [
+   "andreas_1884_v1"
+  ],
+  "note": "'He arrived at Chicago in May, 1830; his family following him the succeeding year.' Month precision, and the family's arrival a year behind him is stated separately.",
+  "precision": "month"
+ },
+ "party_size_on_arrival": {
+  "value": 1,
+  "confidence": "attested",
+  "sources": [
+   "andreas_1884_v1"
+  ],
+  "note": "He came alone and his family followed in 1831 - the source distinguishes the two journeys, which almost none of them do."
+ },
+ "origin": {
+  "value": "Burlington, Vermont",
+  "confidence": "attested",
+  "sources": [
+   "andreas_1884_v1"
+  ],
+  "note": "He practised at Burlington from 1806 and brought his medicines 'from the Green Mountains'."
+ },
+ "reason_for_coming": {
+  "value": "Financial reverses and an attempt to recover in the West",
+  "confidence": "attested",
+  "sources": [
+   "andreas_1884_v1"
+  ],
+  "note": "'In 1829 the Doctor suffered some pecuniary reverses and resolved to attempt recuperation in the Great West.' THE PLAINEST STATEMENT OF MOTIVE IN THE PARCEL, and one that is not gold-rush optimism but debt."
+ },
+ "lives_at": {
+  "value": "harmon_log_cabin",
+  "confidence": "attested",
+  "sources": [
+   "andreas_1884_v1"
+  ],
+  "note": "'His residence was a cabin of hewn logs' now has a structure to point at. The household's presence on the scene date remains uncertain and the link does not change that. Linked by the inferred-household programme's building parcel (docs/ROADMAP.md K1, phase two); the building record carries the evidence."
+ },
+ "works_at": {
+  "value": null,
+  "confidence": "reconstructed",
+  "note": "He was post surgeon at the fort in 1830-32 and in private practice besides; by the scene date he was neither, on his own record. No link is made."
+ },
+ "present_on_scene_date": {
+  "value": "uncertain",
+  "confidence": "attested",
+  "sources": [
+   "andreas_1884_v1"
+  ],
+  "note": "THE ONE HOUSEHOLD IN THIS PARCEL WHOSE HEAD IS DOCUMENTED TO HAVE LEFT. Andreas: 'In 1834, Dr. Harmon migrated to Texas, and until the time of his death - January 3, 1869 - divided his sojourns between that State and Chicago.' A man who divides his sojourns between Texas and Chicago is in one of them on 1 July 1835 and the source does not say which. Recorded as uncertain, and it must not be silently resolved to 'present' because his sons were here."
+ },
+ "persons": [
+  {
+   "id": "harmon_elijah_d",
+   "name": "Dr Elijah Dewey Harmon",
+   "relationship": "head",
+   "grade": "attested",
+   "sex": "male",
+   "birth_year": {
+    "value": 1782,
+    "confidence": "attested",
+    "sources": [
+     "andreas_1884_v1"
+    ],
+    "note": "20 August 1782 at Bennington, Vermont."
+   },
+   "age_on_scene_date": {
+    "value": 52,
+    "confidence": "attested",
+    "sources": [
+     "andreas_1884_v1"
+    ],
+    "note": "52 on 1 July 1835."
+   },
+   "occupation": {
+    "value": "physician",
+    "confidence": "attested",
+    "sources": [
+     "andreas_1884_v1"
+    ],
+    "note": "'The Father of Medicine in Chicago' in Andreas's phrase. He arrived in May 1830, took the place of the absent Dr Finley as post surgeon at Fort Dearborn, isolated and treated the cholera cases of July 1832 and quarrelled with General Scott over it, and in the winter of 1832 performed 'the first surgical operation of any importance' in Chicago - an amputation on a half-breed Canadian who had frozen his feet carrying the mail on horseback from Green Bay.",
+    "derived_from": "roles",
+    "roles_at_scene_date": [
+     "physician"
+    ]
+   },
+   "sources": [
+    "andreas_1884_v1",
+    "isa_public_domain_land_tract_sales",
+    "second_presbyterian_chicago_1892"
+   ],
+   "note": "HIS STOCK IN TRADE IS DESCRIBED AND IT IS THE MOST CONCRETE MATERIAL DETAIL ABOUT ANY PERSON IN THIS PARCEL: 'A case of rusty instruments, a library of about one hundred volumes and a stock of medicines brought from the Green Mountains ... His residence was a cabin of hewn logs; his larder, a repository of flour, bacon and coffee.' Born at Bennington, Vermont, 20 August 1782; married Welthyan Loomis 30 October 1808; volunteer surgeon aboard the Saratoga at Plattsburg in 1814. He pre-empted one hundred and forty acres whose northern boundary was near Sixteenth Street. THE FEDERAL LAND TRACT SALES — A PURCHASE, AND NEVER A RESIDENCE. The Illinois State Archives' Public Domain Land Tract Sales register enters this person 2 times, as “HARMON ELIJAH D”, 1834-10-02: 1 federal land entry — SWFR sec 22 T39N R14E, 276.48 acres stated in all, for $345.60 (ls0435, ls0436). THE REGISTER'S OWN RESIDENCE COLUMN READS COOK, UNKNOWN on these rows: a county, a state or nothing, and never a town, which is why a purchase here places nobody. The register states this purchaser's residence as COOK, so the sale is contemporary evidence that a man of this name lived in Cook County on the date of sale. It is not evidence that he lived in the town. Identity by the crosswalk's own rule: HARMON ELIJAH D matches Dr Elijah Dewey Harmon: the forename names Dr Elijah Dewey Harmon of the 5 people of this surname, and the forename agrees in full. (data/research/land_sales/resident_crosswalk.json). This pass WRITES THE EVIDENCE AND MOVES NO GRADE. Under the ratified ladder (T-0513) a second independent source is what lifts a projected resident, and a land entry is a second source about a TRANSACTION rather than about who was living at Chicago on 1 July 1835 — a man may buy a quarter-section he never sees. T-0515 applies the ladder against every source at once; this pass hands it the evidence and not the verdict. THE SECOND PRESBYTERIAN ROLL — A NAME ON A CHURCH LIST THAT OPENS IN 1842, AND NEVER AN 1835 FACT. The 1892 printed membership roll of the Second Presbyterian Church of Chicago, read line by line into this repository, carries 1 line whose surname and given initial agree with this person's — “Harmon, Mrs. E. C. | Letter. | November 29, 1882.” (second_presb_0181, printed page 164), admitted 1882-11-29 by letter. Under the rule that decided it: Surname 'Harmon' folds to the same string as the roll line's, and the given name of both begins E. WHAT THE MATCH MINTS OR REGRADES: “NOTHING. A line on a roll that opens in June 1842 cannot place a person in the town of July 1835, and this file makes no proposal that it does. What a match IS: the same surname and initial, in Chicago, within seven years — a lead for a later pass that is allowed to write people.” THE LINE IS A MARRIED WOMAN'S ENTRY, and the crosswalk's own Mrs rule governs what it can have met: “a line flagged a_married_womans_entry that meets a MAN in the 1835 layer has met his name, not him: it corroborates that the name was a Chicago name in the 1840s and it does not put that man on this roll.” The match is filed rather than suppressed, because a suppressed match is invisible and a flagged one can be argued with. This pass WRITES THE EVIDENCE AND MOVES NO GRADE: under the ratified ladder (T-0513) the roll is handed to the card as a thing a reader may weigh, and the verdict stays with T-0515, which applies the ladder against every source at once.",
+   "resident_research": {
+    "programme": "resident-research-2026",
+    "ticket": "T-0510",
+    "outcome": "corroborated_enrichment",
+    "reviewed_on": "2026-09-05",
+    "asserted_identity": true,
+    "evidence_for": "Surname 'Harmon' folds to the same string as the 1844 entry's, and the given name of both begins E. Surname 'Harmon' folds to the same string as the 1843 entry's, and the given name of both begins E. Surname 'Harmon' folds to the same string as the 1839 entry's, and the given name of both begins E.",
+    "evidence_against": "The surname 'Harmon' is in Fergus's death notices and no entry under it carries the initial 'E' of 'Dr Elijah Dewey Harmon'. A surname-only agreement is a refusal, here as everywhere: the list prints eleven Smiths. 'William Harmon' at printed page 231 line 3 (33S7-9YYJ-38) is NOT 'Dr Elijah Dewey Harmon': The surname 'harmon' is carried by 3 person(s) of 1835 (Charles Loomis Harmon, Isaac Dewey Harmon, Dr Elijah Dewey Harmon) and none of their given names is 'william'. L3 given_name_conflict",
+    "summary": "Corroborated in a volume printed after the scene date. Dr Elijah Dewey Harmon agrees with an entry in the Fergus 1839/1843 and Norris 1844 directories. The reading enriches the biography and adds no 1835 attestation.",
+    "notes": "FERGUS 26-29, AS PRINTED: \"Harmon, Eli[j]ah D[e]we[y], physician, bds C. L. Harmon [died January 3, 1869, aged 80]\". The 1843 directory prints the full given names Elijah Dewey behind this project's 'Dr Elijah Dewey Harmon', with the same trade the 1835 record carries, and a death date and age that put birth about 1788-89. Research only. Later-volume readings are recorded here and NOT promoted: T-0513 consolidates and T-0514/T-0515 apply.",
+    "source_ids": [
+     "chicago_democrat_1833_1835",
+     "fergus_chicago_directory_1839",
+     "fergus_chicago_directory_1843",
+     "fergus_historical_series_26_29",
+     "norris_directory_1844"
+    ],
+    "refusals": [
+     {
+      "regraded_on": "2026-09-04",
+      "rule": "G2b",
+      "withheld": "the downgrade to inferred",
+      "reason": "This card rests on 3 thing(s) the consolidation did not read — andreas_1884_v1, isa_public_domain_land_tract_sales, second_presbyterian_chicago_1892. G2b fired on the seven domains the ladder reads and says nothing about the evidence outside them, so the grade stands. The same reasoning the ladder's own G5 gives for abstaining (T-0515)."
+     }
+    ]
+   },
+   "roles": [
+    {
+     "role": "physician",
+     "kind": "profession",
+     "as_printed": null,
+     "from": "1673",
+     "to": "1857",
+     "precision": "source_span",
+     "dated_by": "source_describes_date",
+     "covers_scene_date": true,
+     "confidence": "attested",
+     "sources": [
+      "andreas_1884_v1"
+     ],
+     "claim": null,
+     "note": "THE BOUND IS THE SOURCE'S, NOT THE MAN'S. This role is carried by the card's 1835 occupation block and is dated by what the cited source or sources are ABOUT, which is why `precision` can be no better than the span they cover. The span reaches 1835, so this role stands in the scene-date view. The printing the trade was read off is not on the card and is fetched by T-1254."
+    }
+   ]
+  }
+ ],
+ "touches_removal": false,
+ "review_required": false,
+ "research_note": "A DOCUMENTED RESIDENT WHO MAY HAVE BEEN IN TEXAS, kept in the dataset precisely because the presence field can say so. Dropping him would lose the town's first doctor, his hewn-log cabin, his hundred books and the only stated economic motive in the parcel; asserting him would be a claim the source contradicts. HIS FAMILY IS THE REASON THE HOUSEHOLD MATTERS ANYWAY: the Harmon brothers' dry-goods firm is a separate household here, Harmon Court is named for him, and his daughter Mrs A. G. Burley supplied Andreas with these particulars fifty years later - which is a useful reminder that a good deal of what looks like documentation in this book is family recollection with a name attached.",
+ "kin": [
+  {
+   "person": "harmon_elijah_d",
+   "relation": "father",
+   "household": "hh_harmon_brothers",
+   "value": "harmon_charles_l",
+   "confidence": "inferred",
+   "sources": [
+    "andreas_1884_v1"
+   ],
+   "note": "FATHER OF THE HARMON BROTHERS. Andreas's life of the doctor lists his five surviving children, and that sentence is what resolved the newspaper masthead 'C. & I. Harmon' into his two eldest sons — it is the reason this household exists at all. Graded inferred: the parentage is stated, the identification of the initials with these cards is this project's. Ruled under T-0734; found by PR #947."
+  },
+  {
+   "person": "harmon_elijah_d",
+   "relation": "father",
+   "household": "hh_harmon_brothers",
+   "value": "harmon_isaac_d",
+   "confidence": "inferred",
+   "sources": [
+    "andreas_1884_v1"
+   ],
+   "note": "FATHER OF THE HARMON BROTHERS. Andreas's life of the doctor lists his five surviving children, and that sentence is what resolved the newspaper masthead 'C. & I. Harmon' into his two eldest sons — it is the reason this household exists at all. Graded inferred: the parentage is stated, the identification of the initials with these cards is this project's. Ruled under T-0734; found by PR #947."
+  }
+ ],
+ "directories": {
+  "note": "LATER EVIDENCE, BESIDE THE 1835 CLAIMS AND NOT INSIDE THEM. A Chicago directory of 1839, 1843 or 1844 meets somebody of this name and this pass records what it prints. Under the ratified ladder a directory read after 1835 can corroborate that a person attested here was still in Chicago and can print a trade or a street the 1835 record never had; on its own it makes nobody a resident of 1835. Nothing on this person's 1835 record was regraded, moved, dated or given an occupation by this entry. WHAT THIS PASS RULED ONTO THIS HOUSEHOLD, named so the ruling can be found again: each volume below is followed by the printed entries it set against this person and the status the crosswalk ruled them at — a single entry carries what its own `could_carry` declares, and an ambiguous or contested match carries nothing and is shown so that the silence is legible. harmon_elijah_d, Fergus's Chicago directory of 1839 — f1839_e0640 (a single entry); harmon_elijah_d, Fergus's Chicago directory of 1843 — f1843_e1208 (a single entry).",
+  "sources": [
+   "fergus_chicago_directory_1839",
+   "fergus_chicago_directory_1843"
+  ],
+  "people": [
+   {
+    "person_id": "harmon_elijah_d"
+   }
+  ]
+ }
+}

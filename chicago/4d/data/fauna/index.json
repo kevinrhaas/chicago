@@ -1,0 +1,195 @@
+{
+ "_doc": "Manifest for the fauna zone records, written by hand and kept in step with the zone files. A static host cannot be globbed, which is why this exists. habitat, in_modelled_extent, extent_from and species_count are DENORMALISED COPIES so a renderer can work from one fetch; the zone record is authoritative and tools/validate.py fails the build if they disagree. A zone does not carry its own geometry: extent_from names the flora zone whose extent it shares, so the two datasets cannot drift apart, and in_modelled_extent must equal that flora zone's plantable_in_scene. Zones f07 and f08 have no modelled ground in this scene and place nothing. EVERY RECORD IS STATED FOR 1 JULY: the july block carries the state of the animal on the scene date, not its state in the year.",
+ "version": 1,
+ "scene_date": "1835-07-01",
+ "dossier": "docs/research/08-fauna.md",
+ "zones": [
+  {
+   "id": "f01_wet_prairie",
+   "zone": 1,
+   "file": "zones/f01_wet_prairie.json",
+   "habitat": "wet_prairie",
+   "in_modelled_extent": true,
+   "extent_from": {
+    "flora_zone": "z01_wet_prairie"
+   },
+   "species_count": 16
+  },
+  {
+   "id": "f02_mesic_prairie",
+   "zone": 2,
+   "file": "zones/f02_mesic_prairie.json",
+   "habitat": "mesic_prairie",
+   "in_modelled_extent": true,
+   "extent_from": {
+    "flora_zone": "z02_mesic_prairie"
+   },
+   "species_count": 12
+  },
+  {
+   "id": "f03_sedge_meadow",
+   "zone": 3,
+   "file": "zones/f03_sedge_meadow.json",
+   "habitat": "sedge_meadow",
+   "in_modelled_extent": true,
+   "extent_from": {
+    "flora_zone": "z03_sedge_meadow"
+   },
+   "species_count": 9
+  },
+  {
+   "id": "f04_marsh",
+   "zone": 4,
+   "file": "zones/f04_marsh.json",
+   "habitat": "marsh",
+   "in_modelled_extent": true,
+   "extent_from": {
+    "flora_zone": "z04_marsh"
+   },
+   "species_count": 21
+  },
+  {
+   "id": "f05_gallery_timber",
+   "zone": 5,
+   "file": "zones/f05_gallery_timber.json",
+   "habitat": "gallery_timber",
+   "in_modelled_extent": true,
+   "extent_from": {
+    "flora_zone": "z05_riverbank_timber"
+   },
+   "species_count": 11
+  },
+  {
+   "id": "f06_north_timber",
+   "zone": 6,
+   "file": "zones/f06_north_timber.json",
+   "habitat": "north_timber",
+   "in_modelled_extent": true,
+   "extent_from": {
+    "flora_zone": "z06_dense_forest"
+   },
+   "species_count": 17
+  },
+  {
+   "id": "f07_bur_oak_savanna",
+   "zone": 7,
+   "file": "zones/f07_bur_oak_savanna.json",
+   "habitat": "bur_oak_savanna",
+   "in_modelled_extent": false,
+   "extent_from": {
+    "flora_zone": "z07_bur_oak_savanna"
+   },
+   "species_count": 9
+  },
+  {
+   "id": "f08_lakeshore",
+   "zone": 8,
+   "file": "zones/f08_lakeshore.json",
+   "habitat": "lakeshore",
+   "in_modelled_extent": true,
+   "extent_from": {
+    "flora_zone": "z08_lakeshore"
+   },
+   "species_count": 11
+  },
+  {
+   "id": "f09_river",
+   "zone": 9,
+   "file": "zones/f09_river.json",
+   "habitat": "river",
+   "in_modelled_extent": true,
+   "extent_from": {
+    "kind": "water",
+    "note": "The water surface of the committed heightfield \u2014 every cell at or below the datum water line. The flora dataset has no counterpart zone because nothing is planted on open water."
+   },
+   "species_count": 18
+  },
+  {
+   "id": "f10_settled_town",
+   "zone": 10,
+   "file": "zones/f10_settled_town.json",
+   "habitat": "settled_town",
+   "in_modelled_extent": true,
+   "extent_from": {
+    "flora_zone": "z10_settled_town"
+   },
+   "species_count": 15
+  }
+ ],
+ "vocabulary": {
+  "classes": [
+   "mammal",
+   "bird",
+   "fish",
+   "amphibian",
+   "reptile",
+   "insect",
+   "mollusc"
+  ],
+  "activity": [
+   "diurnal",
+   "crepuscular",
+   "nocturnal",
+   "cathemeral"
+  ],
+  "active_periods": [
+   "dawn",
+   "day",
+   "dusk",
+   "night"
+  ],
+  "july_status": [
+   "breeding_resident",
+   "year_round_resident",
+   "post_breeding_dispersal",
+   "flightless_moult",
+   "domestic",
+   "feral_or_commensal",
+   "doubtful",
+   "absent_seasonal",
+   "absent_extirpated",
+   "absent_anachronism",
+   "excluded_by_scope"
+  ],
+  "presence_modes": [
+   "visible",
+   "audible",
+   "visible_and_audible",
+   "trace_only",
+   "not_perceptible",
+   "absent",
+   "not_depicted"
+  ],
+  "abundance": [
+   "abundant",
+   "common",
+   "frequent",
+   "uncommon",
+   "sparse",
+   "rare",
+   "absent"
+  ],
+  "vocalization": [
+   "song_full",
+   "song_reduced",
+   "call_only",
+   "chorus",
+   "display_over",
+   "silent",
+   "non_vocal"
+  ],
+  "habitats": [
+   "wet_prairie",
+   "mesic_prairie",
+   "sedge_meadow",
+   "marsh",
+   "gallery_timber",
+   "north_timber",
+   "bur_oak_savanna",
+   "lakeshore",
+   "river",
+   "settled_town"
+  ],
+  "_doc": "Closed sets. presence_modes is the heart of this dataset: 'audible' means present and NOT SEEN, 'trace_only' means present as sign only, 'not_perceptible' means present and neither seen nor heard on this date, 'absent' means not here at all, and 'not_depicted' means here and deliberately not shown. vocalization carries the July gate for birds \u2014 'display_over' is a lek or display season that has finished, and 'song_full' is the exceptional July claim and must be argued on the record."
+ }
+}

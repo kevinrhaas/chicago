@@ -1,0 +1,2137 @@
+{
+ "schema": 1,
+ "familysearch_id": "33S7-9YYJ-NY",
+ "image": "chicago/reference/census1840/33S7-9YYJ-NY.jpg",
+ "printed_page": 230,
+ "sheet_side": "left",
+ "division": "S. W. Sherman (as written in the printed heading)",
+ "state": "Illinois",
+ "county": "Cook",
+ "reading": "scan_verified",
+ "read_pass": "names (T-0523); cells (T-0530)",
+ "cells_state": "read",
+ "lines_ruled_with_an_entry": 31,
+ "records": [
+  {
+   "line": 1,
+   "as_read": "Geo. M[?]s[?]",
+   "normalized": "George [?]",
+   "name_confidence": "low",
+   "note": "surname unread; a long flourish crosses the cell",
+   "reading": "scan_verified",
+   "cells": {
+    "free_white_male": [
+     0,
+     0,
+     0,
+     0,
+     1,
+     0,
+     0,
+     0,
+     0,
+     0,
+     0,
+     0,
+     0
+    ],
+    "free_white_female": [
+     0,
+     0,
+     0,
+     1,
+     0,
+     0,
+     1,
+     0,
+     0,
+     0,
+     0,
+     0,
+     0
+    ],
+    "free_coloured_male": [
+     0,
+     0,
+     0,
+     0,
+     0,
+     0
+    ],
+    "free_coloured_female": [
+     0,
+     0,
+     0,
+     0,
+     0,
+     0
+    ],
+    "free_persons": 3
+   },
+   "cells_reading": "scan_verified"
+  },
+  {
+   "line": 2,
+   "as_read": "James Kean",
+   "normalized": "James Kean",
+   "name_confidence": "low",
+   "note": "Kean / Kearn / Sears",
+   "reading": "scan_verified",
+   "cells": {
+    "free_white_male": [
+     0,
+     2,
+     0,
+     0,
+     1,
+     0,
+     0,
+     0,
+     0,
+     0,
+     0,
+     0,
+     0
+    ],
+    "free_white_female": [
+     1,
+     0,
+     0,
+     0,
+     1,
+     0,
+     0,
+     0,
+     0,
+     0,
+     0,
+     0,
+     0
+    ],
+    "free_coloured_male": [
+     0,
+     0,
+     0,
+     0,
+     0,
+     0
+    ],
+    "free_coloured_female": [
+     0,
+     0,
+     0,
+     0,
+     0,
+     0
+    ],
+    "free_persons": 5
+   },
+   "cells_reading": "scan_verified"
+  },
+  {
+   "line": 3,
+   "as_read": "Wm Hiram McCraw",
+   "normalized": "William Hiram McCraw",
+   "name_confidence": "medium",
+   "note": "McCraw / McCaw",
+   "reading": "scan_verified",
+   "cells": {
+    "free_white_male": [
+     0,
+     0,
+     0,
+     0,
+     0,
+     0,
+     0,
+     0,
+     0,
+     0,
+     0,
+     0,
+     0
+    ],
+    "free_white_female": [
+     1,
+     0,
+     0,
+     0,
+     1,
+     0,
+     0,
+     0,
+     0,
+     0,
+     0,
+     0,
+     0
+    ],
+    "free_coloured_male": [
+     0,
+     0,
+     0,
+     0,
+     0,
+     0
+    ],
+    "free_coloured_female": [
+     0,
+     0,
+     0,
+     0,
+     0,
+     0
+    ],
+    "free_persons": 2
+   },
+   "cells_reading": "scan_verified"
+  },
+  {
+   "line": 4,
+   "as_read": "Wm D[?]xon",
+   "normalized": "William D[?]",
+   "name_confidence": "low",
+   "note": "surname reads Dixon / Deeon",
+   "reading": "scan_verified",
+   "cells": {
+    "free_white_male": [
+     1,
+     1,
+     0,
+     0,
+     0,
+     1,
+     0,
+     0,
+     0,
+     0,
+     0,
+     0,
+     0
+    ],
+    "free_white_female": [
+     2,
+     2,
+     0,
+     0,
+     1,
+     0,
+     0,
+     0,
+     0,
+     0,
+     0,
+     0,
+     0
+    ],
+    "free_coloured_male": [
+     0,
+     0,
+     0,
+     0,
+     0,
+     0
+    ],
+    "free_coloured_female": [
+     0,
+     0,
+     0,
+     0,
+     0,
+     0
+    ],
+    "free_persons": 8
+   },
+   "cells_reading": "scan_verified"
+  },
+  {
+   "line": 5,
+   "as_read": "Wm G. Fleming",
+   "normalized": "William G. Fleming",
+   "name_confidence": "medium",
+   "note": "",
+   "reading": "scan_verified",
+   "cells": {
+    "free_white_male": [
+     2,
+     0,
+     0,
+     0,
+     0,
+     1,
+     0,
+     0,
+     0,
+     0,
+     0,
+     0,
+     0
+    ],
+    "free_white_female": [
+     0,
+     0,
+     1,
+     0,
+     0,
+     1,
+     0,
+     0,
+     0,
+     0,
+     0,
+     0,
+     0
+    ],
+    "free_coloured_male": [
+     0,
+     0,
+     0,
+     0,
+     0,
+     0
+    ],
+    "free_coloured_female": [
+     0,
+     0,
+     0,
+     0,
+     0,
+     0
+    ],
+    "free_persons": 5
+   },
+   "cells_reading": "scan_verified"
+  },
+  {
+   "line": 6,
+   "as_read": "Wm Gallagher",
+   "normalized": "William Gallagher",
+   "name_confidence": "medium",
+   "note": "",
+   "reading": "scan_verified",
+   "cells": {
+    "free_white_male": [
+     0,
+     0,
+     0,
+     1,
+     1,
+     0,
+     0,
+     0,
+     0,
+     0,
+     0,
+     0,
+     0
+    ],
+    "free_white_female": [
+     0,
+     0,
+     0,
+     0,
+     0,
+     0,
+     0,
+     0,
+     0,
+     0,
+     0,
+     0,
+     0
+    ],
+    "free_coloured_male": [
+     0,
+     0,
+     0,
+     0,
+     0,
+     0
+    ],
+    "free_coloured_female": [
+     0,
+     0,
+     0,
+     0,
+     0,
+     0
+    ],
+    "free_persons": 2
+   },
+   "cells_reading": "scan_verified"
+  },
+  {
+   "line": 7,
+   "as_read": "John Steph[en]son",
+   "normalized": "John Stephenson",
+   "name_confidence": "medium",
+   "note": "Stephson as written; Stephenson expanded",
+   "reading": "scan_verified",
+   "cells": {
+    "free_white_male": [
+     0,
+     0,
+     0,
+     0,
+     1,
+     0,
+     0,
+     0,
+     0,
+     0,
+     0,
+     0,
+     0
+    ],
+    "free_white_female": [
+     1,
+     0,
+     0,
+     0,
+     1,
+     0,
+     0,
+     0,
+     0,
+     0,
+     0,
+     0,
+     0
+    ],
+    "free_coloured_male": [
+     0,
+     0,
+     0,
+     0,
+     0,
+     0
+    ],
+    "free_coloured_female": [
+     0,
+     0,
+     0,
+     0,
+     0,
+     0
+    ],
+    "free_persons": 3
+   },
+   "cells_reading": "scan_verified"
+  },
+  {
+   "line": 8,
+   "as_read": "[?] Allen",
+   "normalized": "[?] Allen",
+   "name_confidence": "low",
+   "note": "given name unread",
+   "reading": "scan_verified",
+   "cells": {
+    "free_white_male": [
+     0,
+     0,
+     0,
+     0,
+     0,
+     1,
+     0,
+     0,
+     0,
+     0,
+     0,
+     0,
+     0
+    ],
+    "free_white_female": [
+     2,
+     1,
+     0,
+     0,
+     1,
+     0,
+     0,
+     0,
+     0,
+     0,
+     0,
+     0,
+     0
+    ],
+    "free_coloured_male": [
+     0,
+     0,
+     0,
+     0,
+     0,
+     0
+    ],
+    "free_coloured_female": [
+     0,
+     0,
+     0,
+     0,
+     0,
+     0
+    ],
+    "free_persons": 5
+   },
+   "cells_reading": "scan_verified"
+  },
+  {
+   "line": 9,
+   "as_read": "James Cunningham",
+   "normalized": "James Cunningham",
+   "name_confidence": "medium",
+   "note": "",
+   "reading": "scan_verified",
+   "cells": {
+    "free_white_male": [
+     2,
+     0,
+     0,
+     0,
+     2,
+     1,
+     1,
+     0,
+     0,
+     0,
+     0,
+     0,
+     0
+    ],
+    "free_white_female": [
+     2,
+     2,
+     0,
+     0,
+     1,
+     1,
+     0,
+     0,
+     0,
+     0,
+     0,
+     0,
+     0
+    ],
+    "free_coloured_male": [
+     0,
+     0,
+     0,
+     0,
+     0,
+     0
+    ],
+    "free_coloured_female": [
+     0,
+     0,
+     0,
+     0,
+     0,
+     0
+    ],
+    "free_persons": 12
+   },
+   "cells_reading": "scan_verified"
+  },
+  {
+   "line": 10,
+   "as_read": "Rob[t] L[?]sted",
+   "normalized": "Robert L[?]",
+   "name_confidence": "low",
+   "note": "surname reads Leusted / Lensted",
+   "reading": "scan_verified",
+   "cells": {
+    "free_white_male": [
+     0,
+     0,
+     0,
+     0,
+     1,
+     1,
+     0,
+     0,
+     0,
+     0,
+     0,
+     0,
+     0
+    ],
+    "free_white_female": [
+     2,
+     0,
+     0,
+     0,
+     0,
+     1,
+     0,
+     0,
+     0,
+     0,
+     0,
+     0,
+     0
+    ],
+    "free_coloured_male": [
+     0,
+     0,
+     0,
+     0,
+     0,
+     0
+    ],
+    "free_coloured_female": [
+     0,
+     0,
+     0,
+     0,
+     0,
+     0
+    ],
+    "free_persons": 5
+   },
+   "cells_reading": "scan_verified"
+  },
+  {
+   "line": 11,
+   "as_read": "John Mac[K]iley",
+   "normalized": "John MacKiley",
+   "name_confidence": "low",
+   "note": "MacKiley / MacRiley",
+   "reading": "scan_verified",
+   "cells": {
+    "free_white_male": [
+     0,
+     1,
+     0,
+     0,
+     0,
+     1,
+     0,
+     0,
+     0,
+     0,
+     0,
+     0,
+     0
+    ],
+    "free_white_female": [
+     2,
+     1,
+     0,
+     0,
+     0,
+     1,
+     0,
+     0,
+     0,
+     0,
+     0,
+     0,
+     0
+    ],
+    "free_coloured_male": [
+     0,
+     0,
+     0,
+     0,
+     0,
+     0
+    ],
+    "free_coloured_female": [
+     0,
+     0,
+     0,
+     0,
+     0,
+     0
+    ],
+    "free_persons": 6
+   },
+   "cells_reading": "scan_verified"
+  },
+  {
+   "line": 12,
+   "as_read": "James Anderson",
+   "normalized": "James Anderson",
+   "name_confidence": "medium",
+   "note": "",
+   "reading": "scan_verified",
+   "cells": {
+    "free_white_male": [
+     0,
+     0,
+     0,
+     0,
+     1,
+     0,
+     0,
+     0,
+     0,
+     0,
+     0,
+     0,
+     0
+    ],
+    "free_white_female": [
+     0,
+     0,
+     0,
+     0,
+     1,
+     0,
+     0,
+     0,
+     0,
+     0,
+     0,
+     0,
+     0
+    ],
+    "free_coloured_male": [
+     0,
+     0,
+     0,
+     0,
+     0,
+     0
+    ],
+    "free_coloured_female": [
+     0,
+     0,
+     0,
+     0,
+     0,
+     0
+    ],
+    "free_persons": 2
+   },
+   "cells_reading": "scan_verified"
+  },
+  {
+   "line": 13,
+   "as_read": "Alexander [B/P]rister",
+   "normalized": "Alexander [?]",
+   "name_confidence": "low",
+   "note": "surname unresolved",
+   "reading": "scan_verified",
+   "cells": {
+    "free_white_male": [
+     0,
+     0,
+     0,
+     0,
+     1,
+     0,
+     0,
+     0,
+     0,
+     0,
+     0,
+     0,
+     0
+    ],
+    "free_white_female": [
+     1,
+     0,
+     0,
+     0,
+     1,
+     0,
+     0,
+     0,
+     0,
+     0,
+     0,
+     0,
+     0
+    ],
+    "free_coloured_male": [
+     0,
+     0,
+     0,
+     0,
+     0,
+     0
+    ],
+    "free_coloured_female": [
+     0,
+     0,
+     0,
+     0,
+     0,
+     0
+    ],
+    "free_persons": 3
+   },
+   "cells_reading": "scan_verified"
+  },
+  {
+   "line": 14,
+   "as_read": "James G. Sem[?]er",
+   "normalized": "James G. [?]",
+   "name_confidence": "low",
+   "note": "surname unresolved",
+   "reading": "scan_verified",
+   "cells": {
+    "free_white_male": [
+     0,
+     0,
+     0,
+     0,
+     0,
+     1,
+     0,
+     0,
+     0,
+     0,
+     0,
+     0,
+     0
+    ],
+    "free_white_female": [
+     2,
+     2,
+     0,
+     0,
+     0,
+     1,
+     0,
+     0,
+     0,
+     0,
+     0,
+     0,
+     0
+    ],
+    "free_coloured_male": [
+     0,
+     0,
+     0,
+     0,
+     0,
+     0
+    ],
+    "free_coloured_female": [
+     0,
+     0,
+     0,
+     0,
+     0,
+     0
+    ],
+    "free_persons": 6
+   },
+   "cells_reading": "scan_verified"
+  },
+  {
+   "line": 15,
+   "as_read": "D. R. Newcomb",
+   "normalized": "D. R. Newcomb",
+   "name_confidence": "low",
+   "note": "Newcomb / Morcomb",
+   "reading": "scan_verified",
+   "cells": {
+    "free_white_male": [
+     0,
+     0,
+     1,
+     0,
+     2,
+     0,
+     1,
+     0,
+     0,
+     0,
+     0,
+     0,
+     0
+    ],
+    "free_white_female": [
+     0,
+     0,
+     0,
+     0,
+     0,
+     0,
+     1,
+     0,
+     0,
+     0,
+     0,
+     0,
+     0
+    ],
+    "free_coloured_male": [
+     0,
+     0,
+     0,
+     0,
+     0,
+     0
+    ],
+    "free_coloured_female": [
+     0,
+     0,
+     0,
+     0,
+     0,
+     0
+    ],
+    "free_persons": 5
+   },
+   "cells_reading": "scan_verified"
+  },
+  {
+   "line": 16,
+   "as_read": "J. J. D[u]nham",
+   "normalized": "J. J. Dunham",
+   "name_confidence": "low",
+   "note": "Dunham / Dunbar",
+   "reading": "scan_verified",
+   "cells": {
+    "free_white_male": [
+     0,
+     0,
+     0,
+     0,
+     1,
+     1,
+     0,
+     0,
+     0,
+     0,
+     0,
+     0,
+     0
+    ],
+    "free_white_female": [
+     0,
+     0,
+     0,
+     0,
+     0,
+     0,
+     0,
+     0,
+     0,
+     0,
+     0,
+     0,
+     0
+    ],
+    "free_coloured_male": [
+     0,
+     0,
+     0,
+     0,
+     0,
+     0
+    ],
+    "free_coloured_female": [
+     0,
+     0,
+     0,
+     0,
+     0,
+     0
+    ],
+    "free_persons": 2
+   },
+   "cells_reading": "scan_verified"
+  },
+  {
+   "line": 17,
+   "as_read": "Geo. Mathia[s]",
+   "normalized": "George Mathias",
+   "name_confidence": "low",
+   "note": "Mathias / Mathiat",
+   "reading": "scan_verified",
+   "cells": {
+    "free_white_male": [
+     0,
+     0,
+     0,
+     1,
+     1,
+     0,
+     0,
+     0,
+     0,
+     0,
+     0,
+     0,
+     0
+    ],
+    "free_white_female": [
+     0,
+     0,
+     0,
+     0,
+     0,
+     0,
+     0,
+     0,
+     0,
+     0,
+     0,
+     0,
+     0
+    ],
+    "free_coloured_male": [
+     0,
+     0,
+     0,
+     0,
+     0,
+     0
+    ],
+    "free_coloured_female": [
+     0,
+     0,
+     0,
+     0,
+     0,
+     0
+    ],
+    "free_persons": 2
+   },
+   "cells_reading": "scan_verified"
+  },
+  {
+   "line": 18,
+   "as_read": "Chas. Page",
+   "normalized": "Charles Page",
+   "name_confidence": "low",
+   "note": "Page / Plage",
+   "reading": "scan_verified",
+   "cells": {
+    "free_white_male": [
+     0,
+     0,
+     0,
+     0,
+     0,
+     1,
+     0,
+     0,
+     0,
+     0,
+     0,
+     0,
+     0
+    ],
+    "free_white_female": [
+     0,
+     0,
+     0,
+     0,
+     0,
+     0,
+     0,
+     0,
+     0,
+     0,
+     0,
+     0,
+     0
+    ],
+    "free_coloured_male": [
+     0,
+     0,
+     0,
+     0,
+     0,
+     0
+    ],
+    "free_coloured_female": [
+     0,
+     0,
+     0,
+     0,
+     0,
+     0
+    ],
+    "free_persons": 1
+   },
+   "cells_reading": "scan_verified"
+  },
+  {
+   "line": 19,
+   "as_read": "Thomas Mayfield",
+   "normalized": "Thomas Mayfield",
+   "name_confidence": "medium",
+   "note": "",
+   "reading": "scan_verified",
+   "cells": {
+    "free_white_male": [
+     2,
+     0,
+     0,
+     0,
+     0,
+     0,
+     1,
+     0,
+     0,
+     0,
+     0,
+     0,
+     0
+    ],
+    "free_white_female": [
+     0,
+     0,
+     0,
+     0,
+     0,
+     1,
+     0,
+     0,
+     0,
+     0,
+     0,
+     0,
+     0
+    ],
+    "free_coloured_male": [
+     0,
+     0,
+     0,
+     0,
+     0,
+     0
+    ],
+    "free_coloured_female": [
+     0,
+     0,
+     0,
+     0,
+     0,
+     0
+    ],
+    "free_persons": 4
+   },
+   "cells_reading": "scan_verified"
+  },
+  {
+   "line": 20,
+   "as_read": "J. B. H. Gillmore",
+   "normalized": "J. B. H. Gillmore",
+   "name_confidence": "low",
+   "note": "Gillmore / Gilmore",
+   "reading": "scan_verified",
+   "cells": {
+    "free_white_male": [
+     1,
+     0,
+     0,
+     0,
+     0,
+     1,
+     0,
+     0,
+     0,
+     0,
+     0,
+     0,
+     0
+    ],
+    "free_white_female": [
+     0,
+     0,
+     0,
+     0,
+     0,
+     1,
+     0,
+     0,
+     0,
+     0,
+     0,
+     0,
+     0
+    ],
+    "free_coloured_male": [
+     0,
+     0,
+     0,
+     0,
+     0,
+     0
+    ],
+    "free_coloured_female": [
+     0,
+     0,
+     0,
+     0,
+     0,
+     0
+    ],
+    "free_persons": 3
+   },
+   "cells_reading": "scan_verified"
+  },
+  {
+   "line": 21,
+   "as_read": "Christopher M[c]lean",
+   "normalized": "Christopher McLean",
+   "name_confidence": "low",
+   "note": "",
+   "reading": "scan_verified",
+   "cells": {
+    "free_white_male": [
+     2,
+     0,
+     2,
+     0,
+     1,
+     0,
+     1,
+     0,
+     0,
+     0,
+     0,
+     0,
+     0
+    ],
+    "free_white_female": [
+     0,
+     1,
+     0,
+     0,
+     1,
+     1,
+     0,
+     0,
+     0,
+     0,
+     0,
+     0,
+     0
+    ],
+    "free_coloured_male": [
+     0,
+     0,
+     0,
+     0,
+     0,
+     0
+    ],
+    "free_coloured_female": [
+     0,
+     0,
+     0,
+     0,
+     0,
+     0
+    ],
+    "free_persons": 9
+   },
+   "cells_reading": "scan_verified"
+  },
+  {
+   "line": 22,
+   "as_read": "Wm. Nolan",
+   "normalized": "William Nolan",
+   "name_confidence": "medium",
+   "note": "",
+   "reading": "scan_verified",
+   "cells": {
+    "free_white_male": [
+     0,
+     0,
+     0,
+     0,
+     0,
+     0,
+     1,
+     0,
+     0,
+     0,
+     0,
+     0,
+     0
+    ],
+    "free_white_female": [
+     1,
+     2,
+     0,
+     0,
+     2,
+     0,
+     0,
+     0,
+     0,
+     0,
+     0,
+     0,
+     0
+    ],
+    "free_coloured_male": [
+     0,
+     0,
+     0,
+     0,
+     0,
+     0
+    ],
+    "free_coloured_female": [
+     0,
+     0,
+     0,
+     0,
+     0,
+     0
+    ],
+    "free_persons": 6
+   },
+   "cells_reading": "scan_verified"
+  },
+  {
+   "line": 23,
+   "as_read": "David Moore",
+   "normalized": "David Moore",
+   "name_confidence": "medium",
+   "note": "",
+   "reading": "scan_verified",
+   "cells": {
+    "free_white_male": [
+     1,
+     0,
+     0,
+     0,
+     0,
+     1,
+     0,
+     0,
+     0,
+     0,
+     0,
+     0,
+     0
+    ],
+    "free_white_female": [
+     0,
+     2,
+     0,
+     0,
+     0,
+     1,
+     0,
+     0,
+     0,
+     0,
+     0,
+     0,
+     0
+    ],
+    "free_coloured_male": [
+     0,
+     0,
+     0,
+     0,
+     0,
+     0
+    ],
+    "free_coloured_female": [
+     0,
+     0,
+     0,
+     0,
+     0,
+     0
+    ],
+    "free_persons": 5
+   },
+   "cells_reading": "scan_verified"
+  },
+  {
+   "line": 24,
+   "as_read": "James McDaniel",
+   "normalized": "James McDaniel",
+   "name_confidence": "medium",
+   "note": "",
+   "reading": "scan_verified",
+   "cells": {
+    "free_white_male": [
+     0,
+     0,
+     0,
+     0,
+     4,
+     6,
+     4,
+     0,
+     0,
+     0,
+     0,
+     0,
+     0
+    ],
+    "free_white_female": [
+     1,
+     0,
+     0,
+     0,
+     0,
+     0,
+     1,
+     0,
+     0,
+     0,
+     0,
+     0,
+     0
+    ],
+    "free_coloured_male": [
+     0,
+     0,
+     0,
+     0,
+     0,
+     0
+    ],
+    "free_coloured_female": [
+     0,
+     0,
+     0,
+     0,
+     0,
+     0
+    ],
+    "free_persons": 16
+   },
+   "cells_reading": "scan_verified"
+  },
+  {
+   "line": 25,
+   "as_read": "Owen McCart[y]",
+   "normalized": "Owen McCarty",
+   "name_confidence": "medium",
+   "note": "McCarty / McCarthy",
+   "reading": "scan_verified",
+   "cells": {
+    "free_white_male": [
+     1,
+     0,
+     1,
+     0,
+     1,
+     0,
+     0,
+     0,
+     0,
+     0,
+     0,
+     0,
+     0
+    ],
+    "free_white_female": [
+     0,
+     0,
+     1,
+     0,
+     1,
+     0,
+     0,
+     0,
+     0,
+     0,
+     0,
+     0,
+     0
+    ],
+    "free_coloured_male": [
+     0,
+     0,
+     0,
+     0,
+     0,
+     0
+    ],
+    "free_coloured_female": [
+     0,
+     0,
+     0,
+     0,
+     0,
+     0
+    ],
+    "free_persons": 5
+   },
+   "cells_reading": "scan_verified"
+  },
+  {
+   "line": 26,
+   "as_read": "Wm. Allen",
+   "normalized": "William Allen",
+   "name_confidence": "medium",
+   "note": "",
+   "reading": "scan_verified",
+   "cells": {
+    "free_white_male": [
+     1,
+     0,
+     0,
+     0,
+     0,
+     2,
+     0,
+     0,
+     0,
+     0,
+     0,
+     0,
+     0
+    ],
+    "free_white_female": [
+     0,
+     0,
+     0,
+     0,
+     0,
+     1,
+     0,
+     0,
+     0,
+     0,
+     0,
+     0,
+     0
+    ],
+    "free_coloured_male": [
+     0,
+     0,
+     0,
+     0,
+     0,
+     0
+    ],
+    "free_coloured_female": [
+     0,
+     0,
+     0,
+     0,
+     0,
+     0
+    ],
+    "free_persons": 4
+   },
+   "cells_reading": "scan_verified"
+  },
+  {
+   "line": 27,
+   "as_read": "Isaac Neal",
+   "normalized": "Isaac Neal",
+   "name_confidence": "low",
+   "note": "Neal / Noel",
+   "reading": "scan_verified",
+   "cells": {
+    "free_white_male": [
+     0,
+     0,
+     0,
+     0,
+     0,
+     1,
+     0,
+     0,
+     0,
+     0,
+     0,
+     0,
+     0
+    ],
+    "free_white_female": [
+     0,
+     0,
+     0,
+     0,
+     1,
+     0,
+     0,
+     0,
+     0,
+     0,
+     0,
+     0,
+     0
+    ],
+    "free_coloured_male": [
+     0,
+     0,
+     0,
+     0,
+     0,
+     0
+    ],
+    "free_coloured_female": [
+     0,
+     0,
+     0,
+     0,
+     0,
+     0
+    ],
+    "free_persons": 2
+   },
+   "cells_reading": "scan_verified"
+  },
+  {
+   "line": 28,
+   "as_read": "John Lang",
+   "normalized": "John Lang",
+   "name_confidence": "low",
+   "note": "Lang / Long",
+   "reading": "scan_verified",
+   "cells": {
+    "free_white_male": [
+     0,
+     0,
+     0,
+     0,
+     1,
+     1,
+     0,
+     0,
+     0,
+     0,
+     0,
+     0,
+     0
+    ],
+    "free_white_female": [
+     0,
+     0,
+     0,
+     1,
+     0,
+     1,
+     0,
+     0,
+     0,
+     0,
+     0,
+     0,
+     0
+    ],
+    "free_coloured_male": [
+     0,
+     0,
+     0,
+     0,
+     0,
+     0
+    ],
+    "free_coloured_female": [
+     0,
+     0,
+     0,
+     0,
+     0,
+     0
+    ],
+    "free_persons": 4
+   },
+   "cells_reading": "scan_verified"
+  },
+  {
+   "line": 29,
+   "as_read": "Martin Ca[r]olin",
+   "normalized": "Martin Carolin",
+   "name_confidence": "low",
+   "note": "Carolin / Cavelin",
+   "reading": "scan_verified",
+   "cells": {
+    "free_white_male": [
+     0,
+     1,
+     0,
+     1,
+     0,
+     0,
+     1,
+     0,
+     0,
+     0,
+     0,
+     0,
+     0
+    ],
+    "free_white_female": [
+     0,
+     0,
+     2,
+     1,
+     0,
+     1,
+     0,
+     0,
+     0,
+     0,
+     0,
+     0,
+     0
+    ],
+    "free_coloured_male": [
+     0,
+     0,
+     0,
+     0,
+     0,
+     0
+    ],
+    "free_coloured_female": [
+     0,
+     0,
+     0,
+     0,
+     0,
+     0
+    ],
+    "free_persons": 7
+   },
+   "cells_reading": "scan_verified"
+  },
+  {
+   "line": 30,
+   "as_read": "David G[ra]ham",
+   "normalized": "David Graham",
+   "name_confidence": "low",
+   "note": "Graham / Gilson",
+   "reading": "scan_verified",
+   "cells": {
+    "free_white_male": [
+     1,
+     0,
+     0,
+     0,
+     1,
+     0,
+     0,
+     0,
+     0,
+     0,
+     0,
+     0,
+     0
+    ],
+    "free_white_female": [
+     0,
+     0,
+     0,
+     0,
+     1,
+     0,
+     0,
+     0,
+     0,
+     0,
+     0,
+     0,
+     0
+    ],
+    "free_coloured_male": [
+     0,
+     0,
+     0,
+     0,
+     0,
+     0
+    ],
+    "free_coloured_female": [
+     0,
+     0,
+     0,
+     0,
+     0,
+     0
+    ],
+    "free_persons": 3
+   },
+   "cells_reading": "scan_verified"
+  },
+  {
+   "line": 31,
+   "as_read": "David S. Roberts",
+   "normalized": "David S. Roberts",
+   "name_confidence": "medium",
+   "note": "",
+   "reading": "scan_verified",
+   "cells": {
+    "free_white_male": [
+     0,
+     0,
+     1,
+     1,
+     0,
+     1,
+     0,
+     0,
+     0,
+     0,
+     0,
+     0,
+     0
+    ],
+    "free_white_female": [
+     0,
+     2,
+     0,
+     0,
+     0,
+     0,
+     1,
+     0,
+     0,
+     0,
+     0,
+     0,
+     0
+    ],
+    "free_coloured_male": [
+     0,
+     0,
+     0,
+     0,
+     0,
+     0
+    ],
+    "free_coloured_female": [
+     0,
+     0,
+     0,
+     0,
+     0,
+     0
+    ],
+    "free_persons": 6
+   },
+   "cells_reading": "scan_verified"
+  }
+ ],
+ "cells_read_by": "T-0530",
+ "cells_method": "Read off the deposited page image at full resolution, one column strip at a time, with the sheet's own ruling used to fix the column boundaries: the vertical rules were located by their darkness profile per line, which is what makes the reading safe on a sheet whose rules lean about 36 px across the page \u2014 a fixed grid taken from the middle of the sheet puts the top and bottom lines a quarter of a column out. Every column that carries a mark was then re-read a second time as a montage of its own 31 cells, which is the pass that caught four arithmetic slips in the first reading. No image, crop or render is committed; the deposit stays read-only.",
+ "cell_bands": {
+  "free_white_male": [
+   "under_5",
+   "5_to_9",
+   "10_to_14",
+   "15_to_19",
+   "20_to_29",
+   "30_to_39",
+   "40_to_49",
+   "50_to_59",
+   "60_to_69",
+   "70_to_79",
+   "80_to_89",
+   "90_to_99",
+   "100_and_upwards"
+  ],
+  "free_white_female": [
+   "under_5",
+   "5_to_9",
+   "10_to_14",
+   "15_to_19",
+   "20_to_29",
+   "30_to_39",
+   "40_to_49",
+   "50_to_59",
+   "60_to_69",
+   "70_to_79",
+   "80_to_89",
+   "90_to_99",
+   "100_and_upwards"
+  ],
+  "free_coloured_male": [
+   "under_10",
+   "10_to_23",
+   "24_to_35",
+   "36_to_54",
+   "55_to_99",
+   "100_and_upwards"
+  ],
+  "free_coloured_female": [
+   "under_10",
+   "10_to_23",
+   "24_to_35",
+   "36_to_54",
+   "55_to_99",
+   "100_and_upwards"
+  ]
+ },
+ "cells_are": "Per line, one integer per column of the printed schedule, in the sheet's own order. A blank cell on the sheet is a 0 here \u2014 the schedule's blank IS a zero, and every one of the 62 lines was looked at rather than skipped. `printed_on_the_sheet: null` in the column totals means the footing cell is blank, which the enumerator used for none.",
+ "column_totals": {
+  "free_white_male": {
+   "columns": [
+    {
+     "band": "under_5",
+     "read": 14,
+     "printed_on_the_sheet": 14,
+     "reconciles": true
+    },
+    {
+     "band": "5_to_9",
+     "read": 5,
+     "printed_on_the_sheet": 5,
+     "reconciles": true
+    },
+    {
+     "band": "10_to_14",
+     "read": 5,
+     "printed_on_the_sheet": 5,
+     "reconciles": true
+    },
+    {
+     "band": "15_to_19",
+     "read": 4,
+     "printed_on_the_sheet": 4,
+     "reconciles": true
+    },
+    {
+     "band": "20_to_29",
+     "read": 21,
+     "printed_on_the_sheet": 21,
+     "reconciles": true
+    },
+    {
+     "band": "30_to_39",
+     "read": 22,
+     "printed_on_the_sheet": 22,
+     "reconciles": true
+    },
+    {
+     "band": "40_to_49",
+     "read": 10,
+     "printed_on_the_sheet": 10,
+     "reconciles": true
+    },
+    {
+     "band": "50_to_59",
+     "read": 0,
+     "printed_on_the_sheet": null,
+     "reconciles": true
+    },
+    {
+     "band": "60_to_69",
+     "read": 0,
+     "printed_on_the_sheet": null,
+     "reconciles": true
+    },
+    {
+     "band": "70_to_79",
+     "read": 0,
+     "printed_on_the_sheet": null,
+     "reconciles": true
+    },
+    {
+     "band": "80_to_89",
+     "read": 0,
+     "printed_on_the_sheet": null,
+     "reconciles": true
+    },
+    {
+     "band": "90_to_99",
+     "read": 0,
+     "printed_on_the_sheet": null,
+     "reconciles": true
+    },
+    {
+     "band": "100_and_upwards",
+     "read": 0,
+     "printed_on_the_sheet": null,
+     "reconciles": true
+    }
+   ],
+   "all_columns_reconcile": true,
+   "read_total": 81,
+   "printed_total": 81
+  },
+  "free_white_female": {
+   "columns": [
+    {
+     "band": "under_5",
+     "read": 18,
+     "printed_on_the_sheet": 18,
+     "reconciles": true
+    },
+    {
+     "band": "5_to_9",
+     "read": 15,
+     "printed_on_the_sheet": 13,
+     "reconciles": false,
+     "note": "the column carries 15 marks (lines 4, 8, 9, 11, 14, 21, 22, 23 and 31, four of them a written 2) and the footing reads 13. The footing's second glyph is the two-bowl form this hand uses for 3 in '13' and '18' below, not the top-bar-and-curl form it uses for 5, so the footing is read 13 with reasonable confidence and the disagreement stands."
+    },
+    {
+     "band": "10_to_14",
+     "read": 4,
+     "printed_on_the_sheet": 4,
+     "reconciles": true
+    },
+    {
+     "band": "15_to_19",
+     "read": 3,
+     "printed_on_the_sheet": 5,
+     "reconciles": false,
+     "note": "the column carries 3 marks (lines 1, 28 and 29) and the footing reads 5. The footing glyph is the same top-bar-and-curl form the male 5-and-under-10 and 10-and-under-15 footings use, both of which reconcile at 5, so it is read 5. NOTE THAT THE TWO FEMALE DISAGREEMENTS CANCEL: 15+3 = 13+5, and the page's free white female total is 70 either way. That is what a footing written into the wrong column looks like, but nothing on the sheet says so and neither reading is preferred here."
+    },
+    {
+     "band": "20_to_29",
+     "read": 14,
+     "printed_on_the_sheet": 14,
+     "reconciles": true
+    },
+    {
+     "band": "30_to_39",
+     "read": 12,
+     "printed_on_the_sheet": 12,
+     "reconciles": true
+    },
+    {
+     "band": "40_to_49",
+     "read": 4,
+     "printed_on_the_sheet": 4,
+     "reconciles": true
+    },
+    {
+     "band": "50_to_59",
+     "read": 0,
+     "printed_on_the_sheet": null,
+     "reconciles": true
+    },
+    {
+     "band": "60_to_69",
+     "read": 0,
+     "printed_on_the_sheet": null,
+     "reconciles": true
+    },
+    {
+     "band": "70_to_79",
+     "read": 0,
+     "printed_on_the_sheet": null,
+     "reconciles": true
+    },
+    {
+     "band": "80_to_89",
+     "read": 0,
+     "printed_on_the_sheet": null,
+     "reconciles": true
+    },
+    {
+     "band": "90_to_99",
+     "read": 0,
+     "printed_on_the_sheet": null,
+     "reconciles": true
+    },
+    {
+     "band": "100_and_upwards",
+     "read": 0,
+     "printed_on_the_sheet": null,
+     "reconciles": true
+    }
+   ],
+   "all_columns_reconcile": false,
+   "read_total": 70,
+   "printed_total": 70
+  },
+  "free_coloured_male": {
+   "columns": [
+    {
+     "band": "under_10",
+     "read": 0,
+     "printed_on_the_sheet": null,
+     "reconciles": true
+    },
+    {
+     "band": "10_to_23",
+     "read": 0,
+     "printed_on_the_sheet": null,
+     "reconciles": true
+    },
+    {
+     "band": "24_to_35",
+     "read": 0,
+     "printed_on_the_sheet": null,
+     "reconciles": true
+    },
+    {
+     "band": "36_to_54",
+     "read": 0,
+     "printed_on_the_sheet": null,
+     "reconciles": true
+    },
+    {
+     "band": "55_to_99",
+     "read": 0,
+     "printed_on_the_sheet": null,
+     "reconciles": true
+    },
+    {
+     "band": "100_and_upwards",
+     "read": 0,
+     "printed_on_the_sheet": null,
+     "reconciles": true
+    }
+   ],
+   "all_columns_reconcile": true,
+   "read_total": 0,
+   "printed_total": 0
+  },
+  "free_coloured_female": {
+   "columns": [
+    {
+     "band": "under_10",
+     "read": 0,
+     "printed_on_the_sheet": null,
+     "reconciles": true
+    },
+    {
+     "band": "10_to_23",
+     "read": 0,
+     "printed_on_the_sheet": null,
+     "reconciles": true
+    },
+    {
+     "band": "24_to_35",
+     "read": 0,
+     "printed_on_the_sheet": null,
+     "reconciles": true
+    },
+    {
+     "band": "36_to_54",
+     "read": 0,
+     "printed_on_the_sheet": null,
+     "reconciles": true
+    },
+    {
+     "band": "55_to_99",
+     "read": 0,
+     "printed_on_the_sheet": null,
+     "reconciles": true
+    },
+    {
+     "band": "100_and_upwards",
+     "read": 0,
+     "printed_on_the_sheet": null,
+     "reconciles": true
+    }
+   ],
+   "all_columns_reconcile": true,
+   "read_total": 0,
+   "printed_total": 0
+  }
+ },
+ "column_totals_are": "The sheet foots its own columns, and that footing is the only check this reading has. It is stated per column, agreeing or not; a column that does not reconcile is named with both figures rather than smoothed, and no cell was changed to make a footing come out.",
+ "reconciliation_summary": "2 of 38 columns do not reconcile with the sheet's own footings: free_white_female 5_to_9: read 15, footing 13; free_white_female 15_to_19: read 3, footing 5",
+ "free_population_read": 151,
+ "free_population_by_the_sheets_footings": 151,
+ "pairing": {
+  "paired_to_continuation_sheet": "33S7-9YYJ-K2",
+  "state": "paired",
+  "paired_by": "T-0656",
+  "why": "this leaf holds 31 lines and foots 151 across all 38 columns; 33S7-9YYJ-K2 holds 31 entries and foots 151 under TOTAL, and the two sequences of family totals agree position for position with no insertion anywhere. The evidence, the candidates considered and the sequence screen are in pairing_key_26_50.json. Not one cell of this reading was changed by the pairing.",
+  "page_population_key": 151,
+  "line_count_key": 31
+ }
+}

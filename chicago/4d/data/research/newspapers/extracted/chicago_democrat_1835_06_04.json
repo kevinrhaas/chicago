@@ -1,0 +1,587 @@
+{
+ "schema": 1,
+ "issue_id": "chicago_democrat_1835_06_04",
+ "extracted": "2026-08-29",
+ "extracted_by": "hand, T-0326",
+ "note": "Vol. II No. 7. The masthead prints 'Wednesday June 4 1835' although June 4 was a Thursday, and corpus.json records the printed wording. The land sale of 15 June is now eleven days off and the issue is bent around it: a leading article on pre-emption customs, C. C. Van Horn coming to town 'from the 25th until after the land sale', and a prices current in which superfine flour has doubled in eight days. THE FORT ADVERTISES FOR ITS OWN SUPPLIES for the first time in this range — beef for a year, five hundred cords of wood by kind, and twenty tons of prairie hay — which is the most concrete thing this corpus has on what Fort Dearborn consumed.",
+ "claims": [
+  {
+   "id": "c001",
+   "kind": "price",
+   "reading": "transcription_mediated",
+   "quote": "THE MARKETS.\n\nThe increase of consnmption has beans\nid in Chicago, that our at: ck of eatibieene 4\njoat exhausted, and if our fiends onthe ®\nash and Illinois have any produce internat\nhis market, we advise them to bring it am?\npon an possible. Flour, we learn, is nore\ning hore at twelre dollars per barrel, and st\nhings very nearly in the same propartiot, be\need it is almost impossible to obtain pera\nf the meat kind, at any price.",
+   "normalized": "THE MARKETS. The increase of cons[um]ption has been s[o rap]id in Chicago, that our st[o]ck of eat[a]b[l]es [is a]lmost exhausted, and if our f[r]iends on the [Wab]ash and Illinois have any produce inten[ded for] this market, we advise them to bring it a[long as soon] [u]pon as possible. Flour, we learn, is [sell]ing here at twelve dollars per barrel, and [other] things very nearly in the same proportion, [ind]eed it is almost impossible to obtain [some] o[f] the meat kind, at any price.",
+   "locator": {
+    "artifact_role": "primary",
+    "issue_page": 2,
+    "column": 6,
+    "lines": [
+     1691,
+     1702
+    ],
+    "lines_of_claim": [
+     1691,
+     1692,
+     1693,
+     1694,
+     1695,
+     1696,
+     1697,
+     1698,
+     1699,
+     1700,
+     1701,
+     1702
+    ],
+    "interleaved": true
+   },
+   "notes": "THE TOWN RUNS OUT OF FOOD, ELEVEN DAYS BEFORE THE LAND SALE. Flour at twelve dollars a barrel — and the prices current on page 3 of this same issue quotes superfine at $10.00-12.00, against $5.00-6.50 eight days earlier. The editorial and the table agree, which is what makes the figure usable: one is the editor's ear and the other is the weekly quotation, and they were set on the same day.\n\n'ALMOST IMPOSSIBLE TO OBTAIN […] AT ANY PRICE' IS THE STRONGER CLAIM. A market that has run out is not a market with a high price, and by 1835-06-24 superfine flour is quoted at $15.00-16.00 — tripled in a month. The cause is stated in the same sentence: consumption, not failure of supply. Chicago's population in the weeks before the scene date was rising faster than its provisioning, and 1835-06-17 supplies the corroborating image of 'the immense congregation of strangers crowding every room of our public houses'.\n\nThe transcription is interleaved with an adjacent column and the left edge of every line is clipped; the bracketed supplies are the minimum for sense and none of them touches a figure."
+  },
+  {
+   "id": "c002",
+   "kind": "price",
+   "reading": "transcription_mediated",
+   "quote": "~ CHICAGO PRICES CURREN\n\nCORBECTED WEEELY.\n\n\nSalt, bbl $275 « 3.00\nFlour and Meal-\nSuper fine bbl 10 00 a 12\nfino “5 00\nBackwheat flour = none.\nIndian meal bush 1 00 a 1 50\nGrain— ;\nCom /¢ bush 1 004\nOnts  \" 6a 78\nWheat. ~ \" a GD\nProvisions\nBeef, fresh 6\n\ntb 4a\n\ndo salt meas bbt 10 00011 00\ndo do prime \"9 00\nPork, moss no. 1, \" 20 00\noY po, 8, 16 00\n\nOne hog \"14.00\nprime \"12:00\n\nDried beef Ib Wa 18\n\nIkains, smoked. e 10\n\nVhite fish bbl 8 00\n\nButter, keg Ib 2a\n\nLard : vs Sa 9\n\nCheeso b Wa B\n\nWhite beans bush none.\n\nPotatocs \"2 00 a 1 50\nTallow, Ib Da 10\nHides, dry lb. Ba 9\nCanules, box tallow le 12s 14\nBuilding Materials\nLumber, ase'd 100 R 28 00020 00\nShingles do 3.00.0 3 50\nSquare timber, length ba 6\nBrick, per 1000) f 00a 6 00\nSiune, cord 800 a 6 50\nLime, bbl a a8\n\nWood, cord 2h a",
+   "normalized": "CHICAGO PRICES CURRENT, CORRECTED WEEKLY. Salt, bbl $2 75 a 3 00. Flour and Meal — Super fine bbl 10 00 a 12 [00]; fino [5 00]; Buckwheat flour none; Indian meal bush 1 00 a 1 50. Grain — Corn bush 1 00 a [ ]; Oats 6[2] a 75; Wheat a 6[0]. Provisions — Beef, fresh lb 4 a 6; do salt mess b[b]l 10 00 a 11 00; do do prime 9 00; Pork, mess no. 1, 20 00; [do] no. 2, 16 00; One hog 14 00; prime 12 00; Dried beef lb 10 a 1[2]; H[a]ms, smoked 10; [W]hite fish bbl [6] 00; Butter, keg lb [10] a [12]; Lard 8 a 9; Cheese lb 10 a 1[2]; White beans bush none; Potatoes [1] 00 a 1 50; Tallow lb 9 a 10; Hides, dry lb 8 a 9; Can[d]les, box tallow lb 12 a 14. Building Materials — Lumber, ass'd 10[00] f[t] 28 00 a [2]9 00; Shingles do 3 00 a 3 50; Square timber, length [ft] 5 a 6; Brick, per 1000 [5] 00 a 6 00; St[o]ne, cord [6] 00 a 6 50; Lime, bbl [75] a 88; Wood, cord 2 [50] a [ ].",
+   "locator": {
+    "artifact_role": "primary",
+    "issue_page": 3,
+    "column": 3,
+    "lines": [
+     2206,
+     2260
+    ],
+    "lines_of_claim": [
+     2206,
+     2207,
+     2208,
+     2209,
+     2210,
+     2211,
+     2212,
+     2213,
+     2214,
+     2215,
+     2216,
+     2217,
+     2218,
+     2219,
+     2220,
+     2221,
+     2222,
+     2223,
+     2224,
+     2225,
+     2226,
+     2227,
+     2228,
+     2229,
+     2230,
+     2231,
+     2232,
+     2233,
+     2234,
+     2235,
+     2236,
+     2237,
+     2238,
+     2239,
+     2240,
+     2241,
+     2242,
+     2243,
+     2244,
+     2245,
+     2246,
+     2247,
+     2248,
+     2249,
+     2250,
+     2251,
+     2252,
+     2253,
+     2254,
+     2255,
+     2256,
+     2257,
+     2258,
+     2259,
+     2260
+    ]
+   },
+   "notes": "THE SECOND WEEKLY TABLE, AND THE ONE THAT SHOWS THE SPLIT. Superfine flour has gone from $5.00-6.50 to $10.00-12.00 in eight days and the editorial on page 2 says why. EVERY BUILDING MATERIAL IS UNCHANGED to the cent: lumber 28-29, shingles 3.00-3.50, square timber 5-6, brick 5-6, stone 6.00-6.50, lime .75-.88, wood 2.50. Salt, beef, pork, lard, cheese, tallow, hides and candles are unchanged too. It is FLOUR that moved, and buckwheat flour and white beans stay at 'none' in both weeks, which is the same shortage seen from the other end.\n\nWHY THIS MATTERS TO A RECONSTRUCTION. The materials block is a stable, weekly-quoted price series for the exact months being modelled, and its stability across a food panic is evidence that the building trade was supplied — lumber was arriving, brick was being made or landed, lime was in barrels. A town that cannot feed itself and can still buy brick at six dollars a thousand is building fast, which is what 'whichever way we turn our eyes they encounter new buildings' (1835-05-20) says in words."
+  },
+  {
+   "id": "c003",
+   "kind": "shipping",
+   "reading": "transcription_mediated",
+   "quote": "AGNBUT ALS\nOF VESSELS\nAT CHICAGO, 1835.\n\n‘ay 23, Schr. Swan. Duncan, St. Joseph,\na9 Austerlits, ——-, BoBalo,\n2\" Franklin, Bluckler, do,\n\n29\" Phillips, Nowe, Millwalkes,\n39\" Hellen, Chase, St. Joseph.\n310'' Indiana, M’Queen, Buttalo.\n31\" Swan, Duncan, St,. Josoph.\nJune 1 8. B. Unele Sam, Lundy, Buffalo.\n2 Schr. Llewellyn, Clark, St. Joseph.",
+   "normalized": "ARRIVALS OF VESSELS AT CHICAGO, 1835. [M]ay 2[8], Schr. Swan, Duncan, St. Joseph. [28] [Schr.] Austerlitz, ——, Bu[ff]alo. [28] [Schr.] Franklin, Bl[a]ckl[e]r, do. 29 [Schr.] Phillips, Howe, M[i]lwa[u]kee. [29] [Schr.] Hellen, Chase, St. Joseph. 31 [Schr.] Indiana, M'Queen, Buffalo. 31 [Schr.] Swan, Duncan, St. Joseph. June 1 S. B. Uncle Sam, Lundy, Buffalo. 2 Schr. Llewellyn, Clark, St. Joseph.",
+   "locator": {
+    "artifact_role": "primary",
+    "issue_page": 3,
+    "column": 3,
+    "lines": [
+     2262,
+     2275
+    ],
+    "lines_of_claim": [
+     2262,
+     2263,
+     2264,
+     2265,
+     2266,
+     2267,
+     2268,
+     2269,
+     2270,
+     2271,
+     2272,
+     2273,
+     2274,
+     2275
+    ]
+   },
+   "notes": "NINE ARRIVALS IN SIX DAYS, and the first STEAM BOAT in this reading range: 'S. B. Uncle Sam, Lundy, Buffalo' on 1 June. Everything else is schooners. The St. Joseph shuttle is the densest traffic — Swan twice and Llewellyn once in six days — which is the short cross-lake run bringing produce and passengers, while Buffalo is the long haul. A steamer from Buffalo at the start of June is the emigrant season opening, and 1835-06-17's 'immense congregation of strangers' is what it delivered."
+  },
+  {
+   "id": "c004",
+   "kind": "business",
+   "reading": "transcription_mediated",
+   "quote": "AD GARYR\nLUMBER DEAE Denson\nMERCHANT,\nLL receive all manner of iMderchandiz\nOn consigament, aud dispowe of them t\nhe best advantage, according to instruction.\nN. B, Goods forwarded to the interior wit!\nleapatch. Chicago, June 4, 1834,",
+   "normalized": "[D]A[VID] CARV[ER], LUMBER DEA[LER & COMMISSION] MERCHANT, [WI]LL receive all manner of Merchandiz[e] on consignment, and dispose of them t[o] the best advantage, according to instruction[s.] N. B. Goods forwarded to the interior with despatch. Chicago, June 4, 183[5].",
+   "locator": {
+    "artifact_role": "primary",
+    "issue_page": 3,
+    "column": 3,
+    "lines": [
+     2284,
+     2293
+    ],
+    "lines_of_claim": [
+     2284,
+     2285,
+     2287,
+     2289,
+     2290,
+     2291,
+     2292,
+     2293
+    ],
+    "interleaved": true
+   },
+   "business": {
+    "name": "David Carver",
+    "proprietors": [
+     "David Carver"
+    ],
+    "trade": "lumber dealer and commission merchant, receiving merchandize on consignment and forwarding to the interior",
+    "goods": [
+     "lumber",
+     "merchandize on consignment",
+     "forwarding"
+    ],
+    "street": "Water Street",
+    "placement": {
+     "class": "none"
+    }
+   },
+   "ad_copy_date": {
+    "verbatim": "despatch. Chicago, June 4, 1834,",
+    "iso": "1835-06-04"
+   },
+   "entities": [
+    {
+     "as_printed": "AD GARYR",
+     "normalized": "David Carver",
+     "role": "proprietor",
+     "occupations": [
+      "lumber dealer",
+      "commission merchant",
+      "forwarder"
+     ],
+     "associated_places": [
+      "Water Street",
+      "Chicago"
+     ]
+    }
+   ],
+   "notes": "THE TOWN'S LUMBER DEALER, AND ITS FORWARDER. Three trades in one man in these weeks: lumber, commission and forwarding to the interior, plus a store house to let on Water Street (1835-05-27) and the Chicago agency for the St. Joseph packet (1835-06-04). That combination is what a river-frontage warehouse in this town was FOR, and it is the best-evidenced commercial function this reading range attaches to the Water Street river bank.\n\nTHE HEAD OF THE ADVERTISEMENT IS DESTROYED — the transcription sets 'AD GARYR / LUMBER DEAE Denson / MERCHANT' — and the reading rests on the 1835-06-10 and 1835-06-17 printings, which set 'LUMBER DEALER & COMMISSION MERCHANT' cleanly, and on Carver's own signed notices in the adjacent columns. THE DATELINE PRINTS '1834' AND IT CANNOT STAND: the notice is new in the issue of 4 June 1835, it is not in the file for 1834, and the 1835-06-10 printing repeats the same '1634/1834' error. Read as 1835-06-04 and the reasoning is here rather than silent."
+  },
+  {
+   "id": "c005",
+   "kind": "building",
+   "reading": "transcription_mediated",
+   "quote": "HENRY MOORE,\nATTORNEY & CUUNSELLOR AT LAF,\nand Solicitor in Chancery,\nOFFICE in John H. Kinzie's now building:\nREFERENCE TO\nHoe. Josxen SBrony, Camb:\nChicago, Juna 2, LOR 7,",
+   "normalized": "HENRY MOORE, ATTORNEY & C[O]UNSELLOR AT LA[W], and Solicitor in Chancery, OFFICE in John H. Kinzie's ne[w] building[.] REFERENCE TO Ho[n]. Jos[eph] Story, Camb[ridge …] Chicago, Jun[e] 2, 18[35].",
+   "locator": {
+    "artifact_role": "primary",
+    "issue_page": 3,
+    "column": 3,
+    "lines": [
+     2295,
+     2304
+    ],
+    "lines_of_claim": [
+     2295,
+     2296,
+     2297,
+     2298,
+     2300,
+     2301,
+     2304
+    ],
+    "interleaved": true
+   },
+   "business": {
+    "name": "Henry Moore",
+    "proprietors": [
+     "Henry Moore"
+    ],
+    "trade": "attorney and counsellor at law, and solicitor in chancery",
+    "goods": [],
+    "street": null,
+    "placement": {
+     "class": "relative",
+     "anchor": "John H. Kinzie's new building",
+     "offset_text": "OFFICE in John H. Kinzie's now building:",
+     "offset_normalized": "OFFICE in John H. Kinzie's new building",
+     "street": null
+    }
+   },
+   "ad_copy_date": {
+    "verbatim": "Chicago, Juna 2, LOR 7,",
+    "iso": "1835-06-02"
+   },
+   "entities": [
+    {
+     "as_printed": "HENRY MOORE",
+     "normalized": "Henry Moore",
+     "role": "proprietor",
+     "occupations": [
+      "attorney",
+      "counsellor at law",
+      "solicitor in chancery"
+     ],
+     "associated_places": [
+      "Chicago"
+     ]
+    }
+   ],
+   "notes": "A NEW KINZIE BUILDING, STANDING AND TENANTED BY 2 JUNE 1835. That is a dated building fact four weeks before the scene date and it is the reason to keep this advertisement: not the lawyer, the structure he rented in.\n\nWHAT IT IS CALLED CHANGES, AND THE CHANGE IS THE EVIDENCE. This printing and 1835-06-10 say 'John H. Kinzie's new building'; 1835-06-24 says 'J. H. Kinzie's new store'. So the building is a STORE with lettable office space in it, which is the same species as the 20-by-45 store with three office rooms Kinzie was letting in Kinzie's Addition in October 1834 (1835-05-20) — and MAY OR MAY NOT BE THE SAME STRUCTURE. It is not fused here: the 1834 notice calls its store finished and this one calls Moore's new, eight months later, and John H. Kinzie was building more than one thing in these years. NO STREET is named in any printing, so nothing is placed; what is established is that a new Kinzie commercial building existed and had a lawyer in it at the scene date.\n\nThe reference to Joseph Story of Cambridge is a Massachusetts credential and places nothing here."
+  },
+  {
+   "id": "c006",
+   "kind": "building",
+   "reading": "transcription_mediated",
+   "quote": "DR. J. H. BARNARD,\nAT THE MKW-YORK HOUSE, LaKE-sTRRET,\nENDERS bis paleeeiona) marrices 0. a\ninhabitants o! jeago, and its vi\nad hopes by hia attention and asnduity to mer\na share o! Nie heer\nChisaga, 3, LBS.",
+   "normalized": "DR. J. H. BARNARD, AT THE NEW-YORK HOUSE, LAKE-STREET, [T]ENDERS his p[rof]essional services to [the] inhabitants o[f Ch]icago, and its vi[cinity,] and hopes by his attention and assiduity to mer[it] a share o[f public patronage.] Chi[c]ago, [June] 3, 18[35].",
+   "locator": {
+    "artifact_role": "primary",
+    "issue_page": 3,
+    "column": 3,
+    "lines": [
+     2305,
+     2312
+    ],
+    "lines_of_claim": [
+     2305,
+     2307,
+     2308,
+     2309,
+     2310,
+     2311,
+     2312
+    ],
+    "interleaved": true
+   },
+   "business": {
+    "name": "Dr. J. H. Barnard",
+    "proprietors": [
+     "J. H. Barnard"
+    ],
+    "trade": "physician",
+    "goods": [],
+    "street": "Lake Street",
+    "placement": {
+     "class": "relative",
+     "anchor": "the New-York House",
+     "offset_text": "AT THE MKW-YORK HOUSE, LaKE-sTRRET,",
+     "offset_normalized": "AT THE NEW-YORK HOUSE, LAKE-STREET",
+     "street": "Lake Street"
+    }
+   },
+   "ad_copy_date": {
+    "verbatim": "Chisaga, 3, LBS.",
+    "iso": "1835-06-03"
+   },
+   "entities": [
+    {
+     "as_printed": "DR. J. H. BARNARD",
+     "normalized": "J. H. Barnard",
+     "role": "proprietor",
+     "occupations": [
+      "physician"
+     ],
+     "associated_places": [
+      "Lake Street",
+      "Chicago"
+     ]
+    }
+   ],
+   "notes": "THE NEW-YORK HOUSE, ON LAKE STREET — a named public house placed to a street, four weeks before the scene date, and a doctor keeping his practice in it. Two independent witnesses in this reading range: this advertisement, running unchanged to 1835-06-24, and J. W. Fell's land notice of 1835-06-16, which says 'apply to the subscriber, at the N. Y. House'. A house that a physician practises out of and a land-seller receives at is a lodging house doing business, not merely an inn.\n\nWITH THE 1835-06-10 HOTEL PARAGRAPH THIS COMPLETES THE TOWN'S PUBLIC HOUSES AS THE PAPERS GIVE THEM: the Sauganash (refitted), the Exchange Coffee House (Lake and Franklin), the Eagle Coffee House (Trowbridge's), the Tremont House (Dearborn Street), the New-York House (Lake Street), and the Lake House then building in Kinzie's Addition. Six, in a town whose editor says none of them is 'sufficiently extensive'. That set is the useful output of this reading and it is assembled from six separate claims across four issues, none of which is a list of hotels."
+  },
+  {
+   "id": "c007",
+   "kind": "infrastructure",
+   "reading": "transcription_mediated",
+   "quote": ": Sealed Proposals\nt wi bo-received by the subscriber, unti\n' the 10th day of June nest, at 12 o'cloc!\nM. for the delivery of PRESH BEEP to thi\ntroops of the U. 8. at Fort Dearborn, for on\nyear, beginning the Ist day of July, 1835,\nThe names of two reaponsible aureticn will b\n* L. T. JAMISON,\n. Lt and Aca.\n- Fort Dearborn,\n May 22, 1835. Clw7.",
+   "normalized": "Sealed Proposals wi[ll] be received by the subscriber, until the 10th day of June next, at 12 o'cloc[k] M. for the delivery of FRESH BEEF to th[e] troops of the U. S. at Fort Dearborn, for on[e] year, beginning the 1st day of July, 1835. The names of two responsible sureties will b[e] required to accompany each bid. L. T. JAMISON, L[t]. and A[.]C[.]S. Fort Dearborn, May 22, 1835.",
+   "locator": {
+    "artifact_role": "primary",
+    "issue_page": 3,
+    "column": 4,
+    "lines": [
+     2360,
+     2375
+    ],
+    "lines_of_claim": [
+     2360,
+     2362,
+     2364,
+     2365,
+     2366,
+     2367,
+     2369,
+     2371,
+     2373,
+     2374,
+     2375
+    ],
+    "interleaved": true
+   },
+   "entities": [
+    {
+     "as_printed": "L. T. JAMISON",
+     "normalized": "L. T. Jamison",
+     "role": "Lieutenant and Acting Commissary of Subsistence at Fort Dearborn",
+     "occupations": [
+      "Lieutenant, U.S. Army",
+      "acting commissary of subsistence"
+     ],
+     "associated_places": [
+      "Fort Dearborn",
+      "Chicago"
+     ]
+    }
+   ],
+   "notes": "A YEAR'S FRESH BEEF FOR THE GARRISON, BEGINNING ON THE SCENE DATE ITSELF — 'for one year, beginning the 1st day of July, 1835'. The contract that was being let in these weeks took effect on 1 July 1835, which means a beef contractor was delivering to the fort on the modelled day. No quantity is stated, which is a pity and is not filled in.\n\nTHE FORT'S OWN STAFF, NAMED. Lt. L. T. Jamison signs as acting commissary here and as acting assistant quartermaster on the wood and hay notice in the next column; Major J. Green commands the post (1835-05-27). Two officers and three supply contracts is more of Fort Dearborn's working life than the rest of this corpus holds."
+  },
+  {
+   "id": "c008",
+   "kind": "infrastructure",
+   "reading": "transcription_mediated",
+   "quote": "Notice.\n1  @LEALED Praposala will be received by thi\n¢  $7 subscriber, until the firwt day of July next\n; at 12 o'clock M, for the delivery of fire Fandee\ncords of merchantable wood, io the troops o\n\" the U.S. at Eort Dearborn, on or befure the 1s\nday of Noyomber, 1835. \"Phe wand to be cor.\nded by the contractor at such place near For\n» Dearborn as will be designated by the Act’g\n» Asst. Quartermaster, and must consiat of Un\nfollowing kinds and no other, 10 wit; white onk\n»  hickory, white. ash any maple; cach cord to bs\n18 feet long, 4 fert high and 4 feet wide, measur\n! ing frow half the slupo of each end of the atick\nhe names of two responsible sureties will bs\n required to accompany each bid.\nL. T. JAMISON,\nLt and A.A. Q' me,\nFort Dearborn, May 22, 1835.—7.\nN. 1. Seperate bite will also be received fo\nthe delivery of twenty tons of beat prairie hay\nto be cut in July or before the 10th: of Angnat\nhext; cach tun to contain by actual weight 201K\npounds, LT. 3.",
+   "normalized": "Notice. [S]EALED Proposals will be received by th[e] subscriber, until the first day of July next, at 12 o'clock M. for the delivery of five hundred cords of merchantable wood, [t]o the troops o[f] the U. S. at F[o]rt Dearborn, on or before the 1s[t] day of November, 1835. The [woo]d to be cor[d]ed by the contractor at such place near For[t] Dearborn as will be designated by the Act'g Asst. Quartermaster, and must consist of th[e] following kinds and no other, to wit: white oak, hickory, white ash an[d] maple; each cord to be [8] feet long, 4 feet high and 4 feet wide, measuring from half the sl[o]pe of each end of the stick[s.] [T]he names of two responsible sureties will be required to accompany each bid. L. T. JAMISON, Lt. and A. A. Q'm[r.] Fort Dearborn, May 22, 1835. N. B. Sep[a]rate bi[d]s will also be received for the delivery of twenty tons of be[s]t prairie hay, to be cut in July or before the 10th of A[u]g[u]st next; each t[o]n to contain by actual weight 20[00] pounds. L. T. J.",
+   "locator": {
+    "artifact_role": "primary",
+    "issue_page": 3,
+    "column": 4,
+    "lines": [
+     2378,
+     2405
+    ],
+    "lines_of_claim": [
+     2378,
+     2381,
+     2382,
+     2383,
+     2384,
+     2385,
+     2386,
+     2387,
+     2388,
+     2389,
+     2390,
+     2391,
+     2392,
+     2393,
+     2394,
+     2395,
+     2396,
+     2397,
+     2399,
+     2401,
+     2402,
+     2403,
+     2404,
+     2405
+    ],
+    "interleaved": true
+   },
+   "notes": "FIVE HUNDRED CORDS OF WOOD AND TWENTY TONS OF PRAIRIE HAY, SPECIFIED BY SPECIES, DIMENSION AND CUTTING DATE. This is the richest single piece of material evidence in the eight issues and every clause of it is usable.\n\nTHE SPECIES LIST IS A STATEMENT ABOUT THE COUNTRY AROUND CHICAGO: white oak, hickory, white ash and maple, 'and no other'. The army would not specify four hardwoods and refuse everything else unless a contractor could actually deliver five hundred cords of them within hauling distance in one season. That is a hard constraint on what the timber belt held, and it is independent of every map-derived and botanical source this project has used.\n\nTHE CORD IS DEFINED — 8 feet long, 4 feet high, 4 feet wide, 'from half the slope of each end of the stick' — which is the standard 128 cubic feet, stated. Five hundred of them is 64,000 cubic feet of firewood for one garrison for one winter, stacked 'at such place near Fort Dearborn as will be designated'. A woodyard of that size beside the fort is a visible feature and nothing in the reconstruction has one.\n\nTHE HAY IS CUT IN JULY. Twenty tons of prairie hay, 'to be cut in July or before the 10th of August next', 2000 pounds to the ton by actual weight. The scene date is 1 July 1835: the haying this notice buys begins in the modelled month, on the prairie, for the fort's animals.\n\nThe advertisement is interleaved with two others and `lines_of_claim` names only its own lines; the wood figure '[8] feet' is supplied from the 1835-06-10 printing, which sets '8 feet long' cleanly where this one prints a broken glyph."
+  },
+  {
+   "id": "c009",
+   "kind": "event",
+   "reading": "transcription_mediated",
+   "quote": "3 3 ONG RNMENT LANbs,\nAs the lime approaches when there is to by\n\nJae sale of public lands at this place: tadys\nere will doubtless be many here who are\nequainted with the situation of the atta a Hin:\nhe tracts of land, and with the Incal enst “2\nf this western country, we feel jt oars f\nlude to this subject at this time. Cotten\nell as the acts of the General Government fe\nanetioned the Jocation of seltlomenty ai\nnsurveyed public lands, and the Govemsens\nas encouraged the settlers in such leads,\nranting thom a pre-emption right toa whee,\n\ny for a sivall farm. Many of ‘the salllety tm\nLo tract now offered, and to be sold on be 1h\nnst., came to the west and made stir Lorsticay\ninder the unplied pledge of the Gureraaes\n\nts past ncty, that they should haven serbian\nnda right to purchase the lots on Hick dey\npeated, when the snine eaime into mata eg\ntthe minimum price. Governnent nud\nnorally bound to provide for these settler, ie\nave been guilty of an act of injustice, inking.\nng these lands into market, withvet mig\nuch provision, \"Public opinion is strmage\nhan law\"? it has been well said, and we tan\nL may prove eo in Ubis case, and hat stranger\nvho come among us, and especially ou om\nitizens will not attempt to commit s6 grow ia\nct of injustice, as to intertere with the ps. ~\nhaxo of the quarter section, on which be bs\nnade improvements, by the actual setter, We\nrust for the peace and quietness of ou tom\nhat these local customs, to which long wap\nas given the. force of law—which bwin\nepeatedly sanctioned by, the General Gem:\nnent—and which are so strongly sustained ty\nhe principles of justice and equity, wil atk\nutraged at the coming sales.",
+   "normalized": "[GOVERNMENT LANDS.] As the time approaches when there is to be [the] sale of public lands at this place […] we feel it [our duty to] allude to this subject at this time. [Custom,] [as] well as the acts of the General Government[, have] sanctioned the location of settlements [on] unsurveyed public lands, and the Governmen[t] has encouraged the settlers in such lands, [by] granting them a pre-emption right […] Many of the settlers [on the] tract now offered, and to be sold on the 15th inst., came to the west and made their locations under the implied pledge of the Government […] that they should have a [preference] and a right to purchase the lots on which they [had settled], when the same came into market […] at the minimum price. Government [being] morally bound to provide for these settlers, [have] been guilty of an act of injustice, in bring[ing] these lands into market, with[out] mak[ing] such provision. \"Public opinion is strong[er] than law\" it has been well said, and we [trust] it may prove so in this case, and that strangers who come among us, and especially our own citizens will not attempt to commit so gross an act of injustice, as to interfere with the p[urc]hase of the quarter section, on which he ha[s] made improvements, by the actual settler. We trust for the peace and quietness of our town that these local customs […] will not [be] outraged at the coming sales.",
+   "locator": {
+    "artifact_role": "primary",
+    "issue_page": 2,
+    "column": 6,
+    "lines": [
+     1648,
+     1689
+    ],
+    "lines_of_claim": [
+     1648,
+     1649,
+     1650,
+     1651,
+     1652,
+     1653,
+     1654,
+     1655,
+     1656,
+     1657,
+     1658,
+     1659,
+     1660,
+     1661,
+     1662,
+     1663,
+     1664,
+     1665,
+     1666,
+     1667,
+     1668,
+     1669,
+     1670,
+     1671,
+     1672,
+     1673,
+     1674,
+     1675,
+     1676,
+     1677,
+     1678,
+     1679,
+     1680,
+     1681,
+     1682,
+     1683,
+     1684,
+     1685,
+     1686,
+     1687,
+     1688,
+     1689
+    ],
+    "interleaved": true
+   },
+   "notes": "THE TOWN'S MOOD ELEVEN DAYS BEFORE THE LAND SALE, and it is anxious. The editor is warning incomers not to bid over squatters on land the squatters have improved, and he warns them in the language of a threat — 'public opinion is stronger than law' — and 'for the peace and quietness of our town'. That is a claim jumper's warning printed in the town's only paper, and it says the sale of 15 June 1835 was expected to be contentious enough to need one.\n\nWHY IT BELONGS IN THIS CORPUS. The pre-emption customs it describes are the mechanism by which improvements on the ground — a cabin, a fence, a broken field — converted into title, which is the legal substrate under every inferred household the reconstruction places outside the platted blocks. The paper states plainly that settlers located on UNSURVEYED land and that custom and federal acts had sanctioned it. Nothing here places anything; it is the rule the placements were made under.\n\nThe column is clipped at both edges throughout and the supplies are the minimum for sense; no name, date or figure is supplied."
+  },
+  {
+   "id": "c010",
+   "kind": "business",
+   "reading": "transcription_mediated",
+   "quote": "4 Horses! Horses! !\nANTED immodiateiy, fitteen strong wor\ne Ww Horses. They must’ bo sound and tr\nYj in years; for such the cash will be paid,\n8 : JONUN T. TEMPLE.\nChicaga, May %5, 18%5.—7.",
+   "normalized": "Horses! Horses!! [W]ANTED immediate[l]y, fifteen strong wor[k] Horses. They must be sound and tr[ue] in years; for such the cash will be paid. JOHN T. TEMPLE. Chicag[o], May 2[5], 18[3]5.",
+   "locator": {
+    "artifact_role": "primary",
+    "issue_page": 3,
+    "column": 4,
+    "lines": [
+     2344,
+     2349
+    ],
+    "lines_of_claim": [
+     2344,
+     2345,
+     2346,
+     2347,
+     2348,
+     2349
+    ],
+    "interleaved": true
+   },
+   "entities": [
+    {
+     "as_printed": "JONUN T. TEMPLE",
+     "normalized": "John T. Temple",
+     "role": "the person wanting the horses",
+     "associated_places": [
+      "South Water Street",
+      "Lake Street",
+      "Chicago"
+     ]
+    }
+   ],
+   "notes": "FIFTEEN WORK HORSES WANTED FOR CASH, IMMEDIATELY, in the last week of May 1835. Fifteen is a stage line's or a contractor's number, not a farmer's, and John T. Temple is the man who in the same weeks has two stores and a dwelling to let and sits on the town meeting's committee of seven. The United States Mail Stages running four-horse post coaches Galena to Chicago twice a week are advertised in the same column, unsigned in every printing; fifteen horses would work that line, and this pass does NOT assert that Temple ran it, because nothing in the paper says so.\n\nWhat it does establish is DEMAND: heavy draught animals were wanted in Chicago in quantity for cash in the weeks before the land sale, which fits the hauling a building boom and a land sale both need."
+  },
+  {
+   "id": "c011",
+   "kind": "business",
+   "reading": "transcription_mediated",
+   "quote": "On Consignment,\npry obra, Mei\nthe manufkelurer’s prices, ae he ape\nfey re Bene ekaen Glass: in clearness\nransparency and sirength, being cheaper au:\nronger than eylindty FLO CARPENTER.\nChicago, June 3, 1835. 3",
+   "normalized": "On Consignment, [A SUPPLY of Superior Window Glass, and] [Bed]ford crown Glass, [which will be sold at] the manufacturer's prices, [with the addition of freight. The last article is said to be superior to the Boston crown] Glass, in clearness, transparency and strength, being cheaper and stronger than cylinder [glass.] [PHI]LO CARPENTER. Chicago, June 3, 1835.",
+   "locator": {
+    "artifact_role": "primary",
+    "issue_page": 3,
+    "column": 3,
+    "lines": [
+     2319,
+     2327
+    ],
+    "lines_of_claim": [
+     2319,
+     2320,
+     2321,
+     2322,
+     2324,
+     2326,
+     2327
+    ],
+    "interleaved": true
+   },
+   "business": {
+    "name": "Philo Carpenter",
+    "proprietors": [
+     "Philo Carpenter"
+    ],
+    "trade": "druggist and dealer in window glass, quinine and ready made clothing on consignment",
+    "goods": [
+     "window glass",
+     "Bedford crown glass",
+     "quinine",
+     "ready made clothing"
+    ],
+    "street": null,
+    "placement": {
+     "class": "none"
+    }
+   },
+   "ad_copy_date": {
+    "verbatim": "Chicago, June 3, 1835. 3",
+    "iso": "1835-06-03"
+   },
+   "entities": [
+    {
+     "as_printed": "PHILO CARPENTER",
+     "normalized": "Philo Carpenter",
+     "role": "proprietor",
+     "occupations": [
+      "druggist",
+      "merchant"
+     ],
+     "associated_places": [
+      "Chicago"
+     ]
+    }
+   ],
+   "notes": "WHAT WENT INTO CHICAGO'S WINDOWS IN JUNE 1835, argued in the advertisement itself: CROWN glass, said to beat Boston crown for clearness, transparency and strength, and 'cheaper and stronger than cylinder' glass. Crown glass is spun, so it is thicker at the centre and carries the bullion; cylinder glass is blown and flattened and is flatter and more even. A dealer arguing FOR crown against cylinder in this town in this month is direct evidence that both were on sale and that crown was the one being pushed. J. S. C. Hogan's standing advertisement gives the pane sizes — 8 by 10 and 7 by 9, with sash — and between them the two notices describe the glazing of the modelled town about as well as it can be described from paper.\n\nTHE ADVERTISEMENT IS BADLY SHREDDED HERE; the bracketed supplies come from the 1835-06-10 printing (lines 2565-2574), which sets the whole notice legibly, and every supply is a word this pass can point at in that printing. Philo Carpenter also advertises quinine by the hundred bottles and ready made clothing in the same column — a druggist with a general consignment trade, unplaced in any printing."
+  }
+ ]
+}

@@ -1,0 +1,220 @@
+{
+ "id": "hh_allen_lieut_james",
+ "name": "The Allen household — a documented army officer, unplaced in the town",
+ "division": "unplaced",
+ "head": "allen_lieut_james",
+ "source_pass": "documented",
+ "arrival": {
+  "value": "1834-03-25",
+  "confidence": "inferred",
+  "sources": [
+   "chicago_democrat_1833_1835",
+   "chicago_american_1835"
+  ],
+  "note": "A BOUND FROM THE PAPER, NOT AN ARRIVAL. The corpus first prints this person at the Democrat of 25 March 1834, column 2, so they are in the town's paper by 1834-03-25 and at no stated time before it; nothing reached says when they came. Last printed 1835-07-18.",
+  "precision": "not_later_than"
+ },
+ "party_size_on_arrival": {
+  "value": null,
+  "confidence": "reconstructed",
+  "note": "Not attested."
+ },
+ "origin": {
+  "value": null,
+  "confidence": "reconstructed",
+  "note": "Not attested."
+ },
+ "reason_for_coming": {
+  "value": null,
+  "confidence": "reconstructed",
+  "note": "Not attested."
+ },
+ "lives_at": {
+  "value": null,
+  "confidence": "reconstructed",
+  "note": "Not attested. NOTHING IS BEING WITHHELD HERE: no source reached says where this person lived, and 52 households in this dataset were already in that position before this one was written."
+ },
+ "works_at": {
+  "value": null,
+  "confidence": "reconstructed",
+  "note": "Not attested as a structure this project models. The trade is documented; the premises are not one of the committed records."
+ },
+ "present_on_scene_date": {
+  "value": "present",
+  "confidence": "inferred",
+  "sources": [
+   "chicago_democrat_1833_1835",
+   "chicago_american_1835"
+  ],
+  "note": "Printed on or after the scene date — last at the Democrat of 13 August 1834, column 2 — so the corpus itself puts this person in the town's paper at 1835-07-18."
+ },
+ "persons": [
+  {
+   "id": "allen_lieut_james",
+   "name": "Lieut. James Allen",
+   "relationship": "head",
+   "grade": "attested",
+   "ladder_rule": "G1b",
+   "occupation": {
+    "value": "army_officer",
+    "confidence": "attested",
+    "sources": [
+     "chicago_democrat_1833_1835",
+     "chicago_american_1835"
+    ],
+    "note": "THE TRADE IS THE PAPER'S. The corpus reads it as army officer, engineer, at the Democrat of 25 March 1834, column 2; the American of 18 July 1835, column 1; the Democrat of 13 August 1834, column 2. The residents vocabulary's nearest period-correct word for it is `army_officer`, and where the corpus prints more than one trade they are all named here rather than reduced to the one the vocabulary could take.",
+    "derived_from": "roles",
+    "roles_at_scene_date": [
+     "army_officer"
+    ]
+   },
+   "sources": [
+    "census_1840_chicago_familysearch_images",
+    "chicago_american_1835",
+    "chicago_democrat_1833_1835",
+    "chicago_voter_lists_1833_1835_irad",
+    "fergus_1843_old_settler_death_notices",
+    "fergus_chicago_directory_1839",
+    "isa_public_domain_land_tract_sales"
+   ],
+   "note": "A DOCUMENTED PERSON, AND NOTHING ELSE IS CLAIMED. The papers name 'Lieut. Allen' and 'Lieut. J, Al' and 'cient superintendent, Lieu' and give the trade; they do not say where this household lived, who else was in it, or when it came. So the record around this person carries nothing but the person: no dwelling, no division, no family, each written as unattested in its own block rather than filled in from the shape of the rest of the town. Cited at the Democrat of 25 March 1834, column 2; the American of 18 July 1835, column 1; the Democrat of 13 August 1834, column 2. The corpus associates the name with Fort Dearborn, Chicago; that is where the paper does business with this person and not a statement about where they slept, and the storefront tickets are the ones that may stand a shop there. THE TOWN NEVER INVENTED A ROOF FOR THIS TRADE. The occupation census raised reconstructed households for the trades a town of 3,265 people needed and could not document; `army_officer` was not one of them, which is why this person could only ever be ADDED and never seated on an existing record — data/research/newspapers/register_1835.json calls it `new_resident` for exactly that reason. No figure is drawn (docs/LIBERTIES.md L1). READ THROUGH A TRANSCRIPTION, not a scan: the owner's ruling of 2026-08-28 grades a transcription-mediated reading as documented, and the source record for the run states that standard and its limits. A scan read that confirms or corrects the name upgrades this entry. FERGUS 1839'S LATER LISTS — 1837 AND 1839 EVIDENCE, NEVER AN 1835 FACT. Fergus' Chicago Directory for 1839 names this person 1 time in its two later lists: the poll of Chicago's first city election, 2 May 1837 — “John Allen” (f1839_v0568, printed page 45, ward 6, voting for William B. Ogden). What a match may carry, and it is short: that the man was in Chicago on 2 May 1837 and in that ward. It is written as 1837 evidence with describes_date 1837-05-02, never as an 1835 fact, and the person's grade does not move on this alone. Under the ratified ladder a second contemporary source is what lifts projected_resident, and a poll twenty-two months after the scene date is a second source about CONTINUED RESIDENCE, not about July 1835. The ward is a location in the CITY of 1837, whose six wards are drawn on printed page 46; it is not a location in the town of 1835 and does not place a house. Identity by the crosswalk's own rule: Surname 'Allen' folds to the same string as the 1837 entry's, and the given name of both begins J. (data/research/directories/fergus_1839_election_crosswalk_1835.json and fergus_1839_register_crosswalk_1835.json). This pass WRITES THE EVIDENCE AND MOVES NO GRADE. Under the ratified ladder (T-0513) a second independent source is what lifts a projected resident, and a poll twenty-two months after the scene date — or a register four years after it — is a second source about CONTINUED RESIDENCE rather than about July 1835. T-0515 applies the ladder against every source at once; this pass hands it the evidence and not the verdict. THE FEDERAL LAND TRACT SALES — A PURCHASE, AND NEVER A RESIDENCE. The Illinois State Archives' Public Domain Land Tract Sales register enters this person 1 time, as “ALLEN JAMES”, 1836-06-28: 1 lot in the platted town — lot 5 of block 5 in the town the register codes CHI (L5BL5CHI, as printed), 0.00 acres stated in all, for $1600.00 (ls0954). THE REGISTER'S OWN RESIDENCE COLUMN READS UNKNOWN on these rows: a county, a state or nothing, and never a town, which is why a purchase here places nobody. THE TOWN LOTS ARE THE PLAT ITSELF, AND THEY ARE NOT ACRES: Cook County's register describes them by lot and block in a platted town and gives them no section, no township and no acreage at all, so they add nothing to the acre figure above and $1600.00 to the money. This project does not expand the register's town codes, so which addition a lot stands in is carried as the code and not as a name. It is still a purchase and it still places nobody. A purchase and nothing more. It dates and places a transaction; it proposes no residence, and under the ratified ladder it corroborates rather than mints. Identity by the crosswalk's own rule: ALLEN JAMES matches Lieut. James Allen: the forename names Lieut. James Allen of the 3 people of this surname, and the forename agrees in full. (data/research/land_sales/resident_crosswalk.json). This pass WRITES THE EVIDENCE AND MOVES NO GRADE. Under the ratified ladder (T-0513) a second independent source is what lifts a projected resident, and a land entry is a second source about a TRANSACTION rather than about who was living at Chicago on 1 July 1835 — a man may buy a quarter-section he never sees. T-0515 applies the ladder against every source at once; this pass hands it the evidence and not the verdict. THE 1840 FEDERAL CENSUS — A HEAD FIVE YEARS AFTER THE SCENE, AND NEVER AN 1835 FACT. The 1840 federal census of Chicago, read line by line off the left sheets in this repository, carries 1 head of this name — “James P. Allen” (33SQ-GYYJ-93G, printed page 207, line 9). This project has ruled the head a CANDIDATE and no more: the name agrees and is unique on both sides, but nothing independent of the name was found. A candidate is not an identity — nothing is asserted from it, no household of 1840 is carried back, and the ruling is recorded so that a reader can see it was made rather than missed. Under the rule that decided it (L7 candidate), by the crosswalk's own ladder (data/research/census_1840/resident_crosswalk.json). LATER EVIDENCE ONLY. The ratified grading ladder binds: an 1839 or 1840 appearance alone is never an 1835 resident, and 1840 household composition is never back-projected to the 1835-07-01 scene. This pass WRITES THE EVIDENCE AND MOVES NO GRADE. Under the ratified ladder (T-0513) a second independent source is what lifts a projected resident, and an 1840 head is a second source about CONTINUED RESIDENCE rather than about who was living at Chicago on 1 July 1835. T-0515 applies the ladder against every source at once; this pass hands it the evidence and not the verdict.",
+   "civic_evidence": [
+    {
+     "list": "tax_1833",
+     "as_read": "Allen, Lt. James",
+     "locator": "tax_1833",
+     "record_id": "tax_1833_001",
+     "describes_date": "1833",
+     "source": "chicago_voter_lists_1833_1835_irad",
+     "rule": "G1b"
+    },
+    {
+     "list": "poll_1834",
+     "as_read": "Allen, James",
+     "locator": "poll_1834",
+     "record_id": "poll_1834_005",
+     "describes_date": "1834",
+     "source": "chicago_voter_lists_1833_1835_irad",
+     "rule": "G1b"
+    }
+   ],
+   "press_evidence": [
+    {
+     "list": "newspaper_1833_1835",
+     "as_read": "J. Allen",
+     "locator": "chicago_democrat_1834_03_04#c002",
+     "record_id": "person_j_allen",
+     "describes_date": "1834-03-04",
+     "source": "chicago_democrat_1833_1835",
+     "rule": "G1b"
+    },
+    {
+     "list": "newspaper_1833_1835",
+     "as_read": "Lieut. Allen",
+     "locator": "chicago_democrat_1834_03_25#c002",
+     "record_id": "person_lieut_allen",
+     "describes_date": "1834-03-25",
+     "source": "chicago_democrat_1833_1835",
+     "rule": "G1b"
+    },
+    {
+     "list": "newspaper_1833_1835",
+     "as_read": "Lieut. J. Allen",
+     "locator": "chicago_american_1835_07_18#c001",
+     "record_id": "person_lieut_j_allen",
+     "describes_date": "1835-07-18",
+     "source": "chicago_american_1835",
+     "rule": "G1b"
+    }
+   ],
+   "book_evidence": [
+    {
+     "list": "death_notice",
+     "as_read": "Allen, Col. James",
+     "locator": "A",
+     "record_id": "fdn0006",
+     "describes_date": "August 23, 1846",
+     "source": "fergus_1843_old_settler_death_notices",
+     "rule": "G1b"
+    }
+   ],
+   "merged_from": [
+    {
+     "ticket": "T-0839",
+     "rule": "C0",
+     "cluster": "allen",
+     "cards": [
+      "allen_james",
+      "allen_lieut",
+      "allen_lieut_j"
+     ],
+     "note": "THE UNION OF THE CARDS THIS PERSON WAS SPLIT ACROSS. The sources and evidence blocks above include everything the folded cards cited; each folded record is kept whole under data/residents/merged/ and is redirected by index.json's `merged` table. The reasoning for the merge is in data/residents/card_merge_rulings.json."
+    }
+   ],
+   "roles": [
+    {
+     "role": "army_officer",
+     "kind": "profession",
+     "as_printed": null,
+     "from": "1833-11",
+     "to": "1835-08",
+     "precision": "source_span",
+     "dated_by": "source_describes_date",
+     "covers_scene_date": true,
+     "confidence": "attested",
+     "sources": [
+      "chicago_democrat_1833_1835",
+      "chicago_american_1835"
+     ],
+     "claim": null,
+     "note": "THE BOUND IS THE SOURCE'S, NOT THE MAN'S. This role is carried by the card's 1835 occupation block and is dated by what the cited source or sources are ABOUT, which is why `precision` can be no better than the span they cover. The span reaches 1835, so this role stands in the scene-date view. The printing the trade was read off is not on the card and is fetched by T-1254."
+    }
+   ]
+  }
+ ],
+ "touches_removal": false,
+ "review_required": false,
+ "research_note": "MINTED FROM THE NEWSPAPER REGISTER (T-0376), AND THE HOUSEHOLD IS A CONTAINER RATHER THAN AN ARGUMENT. Every other record in this dataset argues for a household — a family the sources count, or a trade the town demonstrably needed. This one argues for a PERSON: the Democrat and the American name Lieut. James Allen as a army officer at Chicago 3 time(s), and this reconstruction did not hold them. `data/residents/` has no way to carry a person except inside a household, so one was written around them and told to claim nothing: one member, no dwelling, no division, no origin, no arrival beyond the bound the paper sets. Reading a family, a house or a quarter of town into this record would be reading something the papers do not say. tools/mint_documented_residents.py derives the whole minted set and prints every candidate it refused, with the reason.",
+ "old_settler_deaths": {
+  "the_header_admission": "Names, places * , dates, and ages at death\nof some of Chicago's Old Settlers, prior to 1843, and other well - known citizens who arrived after 1843, together\nwith others prominently connected with Illinois history:",
+  "note": "LATER EVIDENCE OF A DEATH, BESIDE THE 1835 CLAIMS AND NOT INSIDE THEM. Fergus's 1843 directory (1896) prints an obituary list of old settlers, and one of its entries meets somebody of this name. THE HEADER OF THE LIST IS QUOTED ABOVE, and it is the limit the whole reading turns on. It does not mean the person was in Chicago in 1835, and it does not mean they arrived before 1843 — the list's own header, quoted above, says it also names citizens who arrived later and others merely 'prominently connected with Illinois history'. A match means one thing: a name in the 1835 layer and a name in this list agree on surname and first initial, and the list gives that name a death date and an age. The date and the interval are the payload. Whatever is carried is carried as evidence of a DEATH and of an interval the birth falls in, never as an 1835 fact and never as a grade. T-0513 consolidates and T-0514/T-0515 apply; this file changes no record. This pass WRITES THE EVIDENCE AND MOVES NO GRADE. A death notice printed in 1896 says a person of this name died on a day; under the ratified ladder (T-0513) that is later evidence about a DEATH, and it is never an 1835 residence. T-0515 applies the ladder against every source at once; this pass hands it the evidence and not the verdict.",
+  "sources": [
+   "fergus_1843_old_settler_death_notices"
+  ],
+  "people": [
+   {
+    "person_id": "allen_lieut_james",
+    "matched_as": "Lieut. James Allen",
+    "matched_by": "Surname 'Allen' folds to the same string as the entry's, and the given name of both begins J.",
+    "matched_on_initial_only": false,
+    "resident_given_is_initial_only": false,
+    "entry_given_as_read": "Col. James",
+    "entry_given_is_initial_only": false,
+    "the_agreement": "a surname and a forename spelled out on both sides",
+    "record_id": "fdn0006",
+    "trade_or_office": "U. S. Army",
+    "manner_of_death": "died",
+    "place_of_death": "Fort Leavenworth, Kansas",
+    "death_date": "1846-08-23",
+    "age_as_printed": "aged 40",
+    "birth_year_earliest": 1805,
+    "birth_year_latest": 1806,
+    "birth_year_arithmetic": "The page prints the death as 'August 23, 1846' and the age as 'aged 40'. An age of 40 completed years means at least 40 and less than 41, so the birth falls between 1805-08-24 and 1806-08-23: the birth year is 1805 or 1806. The subtraction is this project's; the page states no year of birth.",
+    "as_read": "Allen, Col. James, U. S. Army, died, Fort Leavenworth, Kansas, August 23, 1846, aged 40."
+   }
+  ]
+ },
+ "directories": {
+  "note": "LATER EVIDENCE, BESIDE THE 1835 CLAIMS AND NOT INSIDE THEM. A Chicago directory of 1839, 1843 or 1844 meets somebody of this name and this pass records what it prints. Under the ratified ladder a directory read after 1835 can corroborate that a person attested here was still in Chicago and can print a trade or a street the 1835 record never had; on its own it makes nobody a resident of 1835. Nothing on this person's 1835 record was regraded, moved, dated or given an occupation by this entry. WHAT THIS PASS RULED ONTO THIS HOUSEHOLD, named so the ruling can be found again: each volume below is followed by the printed entries it set against this person and the status the crosswalk ruled them at — a single entry carries what its own `could_carry` declares, and an ambiguous or contested match carries nothing and is shown so that the silence is legible. allen_lieut_james, Fergus's Chicago directory of 1839 — f1839_e0015 (a single entry); allen_lieut_james, Fergus's Chicago directory of 1843 — f1843_e0194, f1843_e0195, f1843_e0196 (ambiguous, so nothing crossed); allen_lieut_james, Norris's Chicago directory of 1844 — n1844_e0016, n1844_e0018 (ambiguous, so nothing crossed).",
+  "sources": [
+   "fergus_chicago_directory_1839",
+   "fergus_chicago_directory_1843",
+   "norris_directory_1844"
+  ],
+  "people": [
+   {
+    "person_id": "allen_lieut_james"
+   }
+  ]
+ }
+}

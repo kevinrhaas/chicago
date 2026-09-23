@@ -1,0 +1,93 @@
+{
+  "$note": "T-0197. The banked reading of the two Fort Dearborn plates by tools/measure_fort_ways_plate.py. The plates are committed and cannot change, so this exists for two reasons: CI installs no image library and would otherwise skip the plate half in silence, and a detector edit that quietly moves the reading is a thing this project has been bitten by. Regenerate with --write-baseline, and only ever with the reason in the commit.",
+  "reading": {
+    "p4_1": {
+      "fort_ground": {
+        "hard": {
+          "k": 2.0,
+          "largest_px": 0,
+          "threshold": 185.1,
+          "x0": null,
+          "x1": null,
+          "y0": null,
+          "y1": null
+        },
+        "iqr": 27.2,
+        "p25": 103.6,
+        "p75": 130.8,
+        "soft": {
+          "k": 0.5,
+          "largest_px": 340,
+          "threshold": 144.3,
+          "x0": 388,
+          "x1": 420,
+          "y0": 288,
+          "y1": 303
+        },
+        "window_px": 13949
+      },
+      "house_group_control": {
+        "hard": {
+          "k": 2.0,
+          "largest_px": 97,
+          "threshold": 167.8,
+          "x0": 145,
+          "x1": 186,
+          "y0": 285,
+          "y1": 291
+        },
+        "iqr": 13.4,
+        "p25": 127.5,
+        "p75": 141.0,
+        "soft": {
+          "k": 0.5,
+          "largest_px": 563,
+          "threshold": 147.7,
+          "x0": 138,
+          "x1": 212,
+          "y0": 278,
+          "y1": 294
+        },
+        "window_px": 13344
+      }
+    },
+    "scales": {
+      "apparent_footprint_m": 59.8604,
+      "picket_height_m": 3.7,
+      "px_per_m_picket": 11.6216,
+      "px_per_m_span": 14.3668
+    },
+    "staff": {
+      "above_picket_top_m_picket": 18.84,
+      "above_picket_top_m_span": 15.24,
+      "above_picket_top_px": 219,
+      "along_wall": 0.4953,
+      "col": 740,
+      "dark_run_px": 112,
+      "flag": {
+        "px": 378,
+        "x0": 715,
+        "x1": 734,
+        "y0": 195,
+        "y1": 220
+      },
+      "top_row": 158
+    },
+    "way": {
+      "centre_at_foot": 1193.3,
+      "centre_at_top": 840.5,
+      "drift_cols_per_row": 1.2187,
+      "head_along_wall": 0.5093,
+      "head_left_col": 752,
+      "head_offset_from_gate_work_px": -10.1,
+      "mass_px": 38361,
+      "min_gap_at_col": 1140,
+      "min_gap_to_waterline_px": 37,
+      "second_mass_px": 151,
+      "x0": 751,
+      "x1": 1199,
+      "y0": 421,
+      "y1": 621
+    }
+  }
+}

@@ -1,0 +1,41 @@
+{
+  "id": "quaife_1913_swearingen",
+  "type": "book",
+  "citation": "\"Journal of Lieutenant James Strode Swearingen\", printed as Appendix I in Milo Milton Quaife, Chicago and the Old Northwest, 1673-1835: A Study of the Evolution of the Northwestern Frontier, together with a History of Fort Dearborn (Chicago: University of Chicago Press, 1913), pp. 373-377. The Chicago entry, Wednesday 17 August 1803, runs across pp. 376-377.",
+  "author": "James Strode Swearingen (journal, 1803); Milo Milton Quaife (editor, 1913)",
+  "date": "1803",
+  "describes_date": "1803-07-11 to 1803-08-17",
+  "repository": "University of Chicago Press, 1913; read from two Internet Archive scans of the first edition.",
+  "locator": "Appendix I, pp. 373-377; the Chicago river description at pp. 376-377",
+  "url": "https://archive.org/details/chicagooldnorthw00quaiuoft",
+  "tier": 1,
+  "rights_status": "public_domain",
+  "asset_use": "cross_check",
+  "verified": true,
+  "note": "THE PRIMARY PRINTING `wikipedia_chicago_river` HAS BEEN ASKING FOR SINCE THE DAY IT WAS WRITTEN, fetched and read in full 2026-08-11. Swearingen led the detachment that marched from Detroit to build the first Fort Dearborn and kept a daily journal on the way; the last entry is the day he arrived. Read as printed, pp. 376-377: 'Proceeded on our march at 6 o'clock a.m., 34 miles and encamped on the Chicago river, at 2 o'clock p.m. This river is about 30 yards wide where the garrison is intended, to be built, and from 18 feet and upwards, deep, dead water, owing to its being stopped up at the mouth, by the washing of sand, from the lakes. The water is not fit to use. The bank where the fort is to be built is about 8 feet high and a half mile above the mouth. The opposite bank is not so high, not being a difference, of more than two feet, by appearances. The banks above are quite low.' TWO SCANS WERE READ AGAINST EACH OTHER because the passage is the whole reason this record exists — Internet Archive items chicagooldnorthw00quaiuoft and chicagooldnorthw00quai — and they agree on it character for character after whitespace is normalised. WHAT IT IS A JUDGEMENT ABOUT: the journal, not the volume. Quaife's own book is later scholarship; Appendix I is a period document kept by an eyewitness on the day, which is tier 1, and `transcribes` is where that is declared rather than typed. QUAIFE STATES HIS OWN CHAIN and it is two hops, which is why it is repeated here rather than buried: the original manuscript was in private hands in Dallas and he could not get at it, so his text is taken from a typewritten copy made for the Chicago Historical Society in 1903 by another descendant. Nobody in this project has seen the manuscript either. AN INTERNAL CHECK, worth one line: the journal's weekdays and dates agree — 17 August 1803 was a Wednesday, as the entry heads itself.",
+  "access_notes": "Public domain, full text at the Internet Archive; the volume's own index entry is 'Swearingen's description, 377'. The Chicago passage is at the very END of Appendix I and is easy to miss when reading forward from p. 373, which is 34 marching days of Michigan and Indiana terrain. Search the full text for 'dead water' or 'washing of sand' rather than for Chicago.",
+  "transcribes": [
+    {
+      "work": "Journal of Lieutenant James Strode Swearingen, kept on the march from Detroit to Chicago in temporary command of the company sent to establish the first Fort Dearborn; entry for Wednesday 17 August 1803, the day of arrival",
+      "date": "1803-08-17",
+      "tier": 1,
+      "note": "Carries the only period measurement of the Chicago river this project has: about 30 yards wide and upwards of 18 feet deep at the fort site, a south bank about 8 feet high half a mile above the mouth, the opposite bank lower by not more than two feet BY APPEARANCES, and the banks above quite low. The last of those is the only sentence in it that reaches the modelled quadrant, and it is the one the encyclopedia paraphrase dropped. Also the pre-cut hydraulic regime in the witness's own words — 'dead water, owing to its being stopped up at the mouth, by the washing of sand' — which is why it does not license the flat surface of the 1835 scene: see docs/RESEARCH/swearingen_1803.md."
+    }
+  ],
+  "what_it_supplies": [
+    "channel width and depth at the Fort Dearborn site in August 1803, from a witness standing there",
+    "the height of the south (fort) bank at that point, about 8 feet",
+    "that the north bank was lower, by an estimate made by eye and stated as a maximum of two feet",
+    "that the river above the fort had quite low banks — the only statement here about the reach this project models",
+    "that the pre-cut river was dead water, and the witness's reason for it: the mouth was stopped up by sand washing in from the lake",
+    "the distance from the fort site down to the natural mouth in 1803: half a mile"
+  ],
+  "what_it_does_not_supply": [
+    "any surface gradient, and therefore no evidence for or against a level water surface as a measurement",
+    "any measurement at the forks — every figure here is taken 1.2 miles downstream at the fort site",
+    "any measurement after 1803, and the 1833-34 harbour cut removed the condition the witness gives for the river standing dead",
+    "a bank height for the modelled quadrant: 'quite low' is qualitative and cannot promote a confidence",
+    "the north bank's height as a number — the 6 ft widely quoted from this passage is arithmetic performed on a hedged estimate by later writers, not a figure Swearingen wrote",
+    "any planform: the journal draws nothing and no geometry is traced from it"
+  ]
+}

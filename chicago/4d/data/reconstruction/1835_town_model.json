@@ -1,0 +1,953 @@
+{
+  "$schema_note": "DERIVED — regenerate with tools/model_town_1835.py --build; tools/check.sh re-derives it. Do not hand-edit: every figure is a function of a committed file named in its own `derived_from`.",
+  "id": "chicago_july_1835_town_model",
+  "ticket": "T-1293",
+  "target_date": "1835-07-01",
+  "generated_by": "tools/model_town_1835.py --build",
+  "not_a_reading": "an adjudication over committed derived files — no page of any source is read here, and nobody is named, aged, dated or housed",
+  "folds": [
+    "T-1161",
+    "T-1162",
+    "T-1163",
+    "T-1164",
+    "T-1165"
+  ],
+  "spent_by": "T-1166, the reconstruction order book",
+  "tolerance": "Every figure is a range with a stated method and a named comparandum. A range is the answer and not a hedge. The model does not need to be right to the person; it needs to be defensible, bounded and finished, and it will be revised when reconstruction finds it wrong.",
+  "inputs": [
+    "data/reconstruction/1835_building_inventory.json",
+    "data/research/books/claims/moses_kirkland_history_of_chicago_v1.json",
+    "data/research/books/trade_census_1835_crosswalk.json",
+    "data/research/census_1840/composition_1840.json",
+    "data/research/old_settlers/people.json",
+    "data/sidecars/1835/people.json",
+    "data/town_census.json"
+  ],
+  "sections": [
+    {
+      "key": "population",
+      "title": "Population",
+      "figures": [
+        {
+          "figure": "recorded_town_count_november_1835",
+          "low": 3265,
+          "high": 3265,
+          "point": null,
+          "is_a_count": true,
+          "method": "Andreas prints the November 1835 town census as 3,265 people in 398 dwellings. Four months after the scene, so a ceiling on 1 July and never its population.",
+          "comparanda": [
+            "andreas_1884_v1"
+          ],
+          "derived_from": [
+            "data/town_census.json"
+          ]
+        },
+        {
+          "figure": "recorded_state_count_september_to_december_1835",
+          "low": 3297,
+          "high": 3297,
+          "point": null,
+          "is_a_count": true,
+          "method": "The Illinois State census returns 3,297 for Chicago. Two to five months after the scene, and a second ceiling that disagrees with the first by 32.",
+          "comparanda": [
+            "moses_kirkland_history_of_chicago_v1"
+          ],
+          "derived_from": [
+            "data/research/books/claims/moses_kirkland_history_of_chicago_v1.json"
+          ]
+        },
+        {
+          "figure": "population_on_1_july_1835",
+          "low": 2350,
+          "high": 3265,
+          "point": 2533,
+          "is_a_count": false,
+          "method": "CEILING: the November count of 3,265, because the town grew through 1835 and did not shrink. FLOOR: 44.9% of the 1,282 people the layer carries give an arrival year of 1835, so about 1,464 of the November town arrived that year; spread evenly over an eight-month navigation season, 5 months of that cohort were still to come on 1 July. POINT READING: 2,533, which is the same arithmetic with half the cohort ashore by midsummer rather than three-eighths — the spring land-sale rush pulls arrivals earlier than a flat season does.",
+          "comparanda": [
+            "andreas_1884_v1"
+          ],
+          "derived_from": [
+            "data/town_census.json",
+            "data/sidecars/1835/people.json"
+          ]
+        },
+        {
+          "figure": "people_the_layer_can_name",
+          "low": 1282,
+          "high": 1282,
+          "point": null,
+          "is_a_count": true,
+          "method": "The resident layer carries 1,282 people — 410 attested, 872 inferred, 0 reconstructed. A count of the layer, not of the town.",
+          "comparanda": [],
+          "derived_from": [
+            "data/sidecars/1835/people.json"
+          ]
+        },
+        {
+          "figure": "males_per_100_females",
+          "low": 120.9,
+          "high": 150.0,
+          "point": 146.8,
+          "is_a_count": false,
+          "method": "The 1840 city returns 120.9 overall and 146.8 among those aged 20 and over. 1835 is five years earlier and rawer — more single men and fewer families — so the 1840 ratio is a FLOOR and the 1840 adult ratio is inside the range, not at the top of it.",
+          "comparanda": [
+            "census_1840_chicago_name_crosswalk"
+          ],
+          "derived_from": [
+            "data/research/census_1840/composition_1840.json"
+          ]
+        },
+        {
+          "figure": "share_under_ten",
+          "low": 0.2,
+          "high": 0.2702,
+          "point": null,
+          "is_a_count": false,
+          "method": "Children under ten are 27.0% of the 1840 city. A town with a higher adult sex ratio carries proportionally fewer of them, so 1840 is the CEILING here and the floor is set one fifth below it.",
+          "comparanda": [
+            "census_1840_chicago_name_crosswalk"
+          ],
+          "derived_from": [
+            "data/research/census_1840/composition_1840.json"
+          ]
+        }
+      ],
+      "not_claiming": "This section does not claim that any named person was in the town on 1 July 1835; presence is a per-person ruling and 824 of the layer's people are still uncertain.",
+      "open_questions": [
+        "Neither recorded count is of the scene, and they disagree with each other by 32 people. Which of 3,265 and 3,297 is the better ceiling is not settled here.",
+        "The floor rests on the arrival distribution of the people the layer can NAME, and the sources that name them (letter lists, voter rolls, directories) are themselves dated 1834-1835, so that distribution is biased toward late arrivals and the floor is more likely too low than too high.",
+        "`bk_mose1_006`'s reading note says the figure 3,297 'is already in the repository' from the Chicago Democrat of 1835-07-01 and the Chicago American of 1835-06-08 and 1835-06-27. Neither committed text carries it: the 3297 that greps in those files is an OCR coordinate, not a population. The note overstates its corroboration and the claim stands on Moses and Kirkland alone.",
+        "The authored spec's `population_working_range` is [3200, 3265]. This model's derived range for 1 July is [2,350, 3,265] — the same ceiling and a far lower floor. The roof programme is cut against the spec's range; T-1196 is where the two are reconciled."
+      ],
+      "tables": {
+        "by_division": {
+          "unit": "share of the town, from the authored dwelling programme",
+          "note": "The spec's ordinary-dwelling matrix is the only committed statement of how the town divided between the three divisions. Applied to people it assumes one division's dwellings held as many people as another's.",
+          "rows": [
+            {
+              "division": "south",
+              "dwellings": 176,
+              "share": 0.5254,
+              "people_low": 1235,
+              "people_high": 1715
+            },
+            {
+              "division": "west",
+              "dwellings": 75,
+              "share": 0.2239,
+              "people_low": 526,
+              "people_high": 731
+            },
+            {
+              "division": "north",
+              "dwellings": 84,
+              "share": 0.2507,
+              "people_low": 589,
+              "people_high": 819
+            }
+          ]
+        },
+        "known_by_presence": {
+          "present": 456,
+          "absent": 2,
+          "uncertain": 824
+        }
+      }
+    },
+    {
+      "key": "occupations",
+      "title": "Occupations",
+      "figures": [
+        {
+          "figure": "census_classes_compared",
+          "low": 17,
+          "high": 17,
+          "point": null,
+          "is_a_count": true,
+          "method": "17 of the 20 classes the T-1006 crosswalk holds carry both a printed census line and a register count; the other 3 are a class the census never printed a line for, or a line the town holds nothing for.",
+          "comparanda": [
+            "moses_kirkland_history_of_chicago_v1"
+          ],
+          "derived_from": [
+            "data/research/books/trade_census_1835_crosswalk.json"
+          ]
+        },
+        {
+          "figure": "establishments_in_the_compared_classes",
+          "low": 118,
+          "high": 118,
+          "point": null,
+          "is_a_count": true,
+          "method": "The register holds 118 records at the scene date across the compared classes and the census counted 118 two to five months later — THE SAME NUMBER, which is a coincidence and not an agreement: 8 classes are short and 5 are over, and they cancel. A total that matches while its rows do not is the strongest argument in this model for reading the census BY CLASS and never as a population of shops.",
+          "comparanda": [
+            "moses_kirkland_history_of_chicago_v1"
+          ],
+          "derived_from": [
+            "data/research/books/trade_census_1835_crosswalk.json"
+          ]
+        },
+        {
+          "figure": "classes_short_of_the_census",
+          "low": 8,
+          "high": 8,
+          "point": null,
+          "is_a_count": true,
+          "method": "8 compared classes hold fewer records than the census counted, 22 establishments short in total; 5 hold more, which is the register counting NOTICES where the census counted houses.",
+          "comparanda": [
+            "moses_kirkland_history_of_chicago_v1"
+          ],
+          "derived_from": [
+            "data/research/books/trade_census_1835_crosswalk.json"
+          ]
+        },
+        {
+          "figure": "employed_persons",
+          "low": 423,
+          "high": 588,
+          "point": null,
+          "is_a_count": false,
+          "method": "The 1840 schedule returns 18% of persons in its seven industry columns, 0.902 per household. Applied to this model's July population range. The 1840 columns count persons in families and not occupations of named men, so this is a size and not a roster.",
+          "comparanda": [
+            "census_1840_chicago_name_crosswalk"
+          ],
+          "derived_from": [
+            "data/research/census_1840/composition_1840.json"
+          ]
+        },
+        {
+          "figure": "people_the_layer_gives_a_trade",
+          "low": 127,
+          "high": 262,
+          "point": null,
+          "is_a_count": false,
+          "method": "127 people carry a role that reaches 1 July 1835; 262 carry any role at all, and 135 carry only roles dated off the scene. The gap between this and the employed-persons figure above is what the reconstruction bands have to fill.",
+          "comparanda": [],
+          "derived_from": [
+            "data/sidecars/1835/people.json"
+          ]
+        }
+      ],
+      "not_claiming": "This section does not claim a trade for any named man, and a class that stands short of the census stays short rather than being filled with invented practitioners.",
+      "open_questions": [
+        "The census's lawyer and physician lines count PEOPLE and the register counts RECORDS, so those two rows are not comparable in the same unit as the rest; `trade_census_spend_1835.py` holds that adjudication.",
+        "A shortfall against a count taken two to five months later is never evidence that an establishment stood in July, and this model does not treat it as a quota until the order book (T-1166) rules on how much of it is growth.",
+        "The 1840 industry columns have no row for domestic service, which a port with this adult sex ratio certainly had; the trade split understates household labour by an amount this model cannot bound."
+      ],
+      "tables": {
+        "against_the_state_census": {
+          "unit": "establishment records at the scene date against the printed census line",
+          "date_caution": "THE COUNT IS NOT OF THE SCENE. It was taken between 1 September and December 1835; the scene is 1 July 1835, two to five months earlier and in the fastest-growing months the town had. A class where the town holds fewer than the census counted is NOT thereby a hole in the July town — some of those forty-four stores opened in September. Every figure below is to be read with that gap in front of it.",
+          "rows": [
+            {
+              "class": "physician",
+              "census_line": "fourteen physicians",
+              "census_count": 14,
+              "town_at_scene_date": 3,
+              "delta": -11,
+              "outcome": "town_holds_fewer_than_the_census_counted"
+            },
+            {
+              "class": "lawyer",
+              "census_line": "twenty-two lawyers",
+              "census_count": 22,
+              "town_at_scene_date": 18,
+              "delta": -4,
+              "outcome": "town_holds_fewer_than_the_census_counted"
+            },
+            {
+              "class": "druggist",
+              "census_line": "four druggists",
+              "census_count": 4,
+              "town_at_scene_date": 2,
+              "delta": -2,
+              "outcome": "town_holds_fewer_than_the_census_counted"
+            },
+            {
+              "class": "bank",
+              "census_line": "one bank",
+              "census_count": 1,
+              "town_at_scene_date": 0,
+              "delta": -1,
+              "outcome": "town_holds_fewer_than_the_census_counted"
+            },
+            {
+              "class": "brewery",
+              "census_line": "two breweries",
+              "census_count": 2,
+              "town_at_scene_date": 1,
+              "delta": -1,
+              "outcome": "town_holds_fewer_than_the_census_counted"
+            },
+            {
+              "class": "lottery_office",
+              "census_line": "one lottery office",
+              "census_count": 1,
+              "town_at_scene_date": 0,
+              "delta": -1,
+              "outcome": "town_holds_fewer_than_the_census_counted"
+            },
+            {
+              "class": "lyceum_and_reading_room",
+              "census_line": "a lyceum and reading room",
+              "census_count": 1,
+              "town_at_scene_date": 0,
+              "delta": -1,
+              "outcome": "town_holds_fewer_than_the_census_counted"
+            },
+            {
+              "class": "silversmith_jeweller",
+              "census_line": "two silversmiths and jewellers",
+              "census_count": 2,
+              "town_at_scene_date": 1,
+              "delta": -1,
+              "outcome": "town_holds_fewer_than_the_census_counted"
+            },
+            {
+              "class": "book_store",
+              "census_line": "two book stores",
+              "census_count": 2,
+              "town_at_scene_date": 2,
+              "delta": 0,
+              "outcome": "town_matches_census"
+            },
+            {
+              "class": "iron_foundry",
+              "census_line": "one iron foundry",
+              "census_count": 1,
+              "town_at_scene_date": 1,
+              "delta": 0,
+              "outcome": "town_matches_census"
+            },
+            {
+              "class": "school",
+              "census_line": "seven schools",
+              "census_count": 7,
+              "town_at_scene_date": 7,
+              "delta": 0,
+              "outcome": "town_matches_census"
+            },
+            {
+              "class": "tavern",
+              "census_line": "eight taverns",
+              "census_count": 8,
+              "town_at_scene_date": 8,
+              "delta": 0,
+              "outcome": "town_matches_census"
+            },
+            {
+              "class": "printing_office",
+              "census_line": "two printing offices",
+              "census_count": 2,
+              "town_at_scene_date": 3,
+              "delta": 1,
+              "outcome": "town_holds_more_than_the_census_counted"
+            },
+            {
+              "class": "steam_saw_mill",
+              "census_line": "one steam saw-mill",
+              "census_count": 1,
+              "town_at_scene_date": 2,
+              "delta": 1,
+              "outcome": "town_holds_more_than_the_census_counted"
+            },
+            {
+              "class": "tin_and_copper_manufactory",
+              "census_line": "two tin and copper manufactories",
+              "census_count": 2,
+              "town_at_scene_date": 4,
+              "delta": 2,
+              "outcome": "town_holds_more_than_the_census_counted"
+            },
+            {
+              "class": "storage_and_forwarding",
+              "census_line": "four storage and forwarding houses",
+              "census_count": 4,
+              "town_at_scene_date": 7,
+              "delta": 3,
+              "outcome": "town_holds_more_than_the_census_counted"
+            },
+            {
+              "class": "store",
+              "census_line": "forty-four stores (dry goods, hardware and groceries)",
+              "census_count": 44,
+              "town_at_scene_date": 59,
+              "delta": 15,
+              "outcome": "town_holds_more_than_the_census_counted"
+            }
+          ]
+        },
+        "employment_shape_1840": {
+          "unit": "persons in families, 1840, as the relative weight of each pursuit",
+          "rows": [
+            {
+              "column": "Agriculture",
+              "ipums_variable": "nindagr",
+              "persons": 136,
+              "share_of_employed": 0.1563
+            },
+            {
+              "column": "Commerce",
+              "ipums_variable": "nindcom",
+              "persons": 185,
+              "share_of_employed": 0.2126
+            },
+            {
+              "column": "Manufactures and trades",
+              "ipums_variable": "nindmfg",
+              "persons": 405,
+              "share_of_employed": 0.4655
+            },
+            {
+              "column": "Navigation of the ocean",
+              "ipums_variable": "nindocn",
+              "persons": 9,
+              "share_of_employed": 0.0103
+            },
+            {
+              "column": "Navigation of canals, lakes and rivers",
+              "ipums_variable": "nindriv",
+              "persons": 62,
+              "share_of_employed": 0.0713
+            },
+            {
+              "column": "Learned professions and engineers",
+              "ipums_variable": "nindeng",
+              "persons": 71,
+              "share_of_employed": 0.0816
+            },
+            {
+              "column": "Mining",
+              "ipums_variable": "nindmin",
+              "persons": 2,
+              "share_of_employed": 0.0023
+            }
+          ]
+        }
+      }
+    },
+    {
+      "key": "households_and_families",
+      "title": "Households and families",
+      "figures": [
+        {
+          "figure": "people_per_dwelling_november_1835",
+          "low": 8.204,
+          "high": 8.204,
+          "point": null,
+          "is_a_count": true,
+          "method": "3,265 people in 398 dwellings. Against a 1840 mean HOUSEHOLD of 5.015, the gap is the finding: in 1835 a dwelling held more than one household, and a roof programme that seats one family per roof undercounts the town.",
+          "comparanda": [
+            "andreas_1884_v1",
+            "census_1840_chicago_name_crosswalk"
+          ],
+          "derived_from": [
+            "data/town_census.json",
+            "data/research/census_1840/composition_1840.json"
+          ]
+        },
+        {
+          "figure": "households_on_1_july_1835",
+          "low": 469,
+          "high": 816,
+          "point": null,
+          "is_a_count": false,
+          "method": "This model's July population divided by household size: the low end takes the low population at the 1840 MEAN of 5.015, the high end the high population at the 1840 MEDIAN of 4.0. The distribution is long-tailed — one 1840 household in a hundred holds twenty-one people or more — so mean and median bracket it better than either alone.",
+          "comparanda": [
+            "census_1840_chicago_name_crosswalk"
+          ],
+          "derived_from": [
+            "data/research/census_1840/composition_1840.json"
+          ]
+        },
+        {
+          "figure": "household_size",
+          "low": 4.0,
+          "high": 5.015,
+          "point": null,
+          "is_a_count": false,
+          "method": "Median 4.0, mean 5.015 in the 1840 city; p75 is 6 and p99 is 21. Half the town lives in households of four or fewer and the tail is boarding houses, hotels and crews.",
+          "comparanda": [
+            "census_1840_chicago_name_crosswalk"
+          ],
+          "derived_from": [
+            "data/research/census_1840/composition_1840.json"
+          ]
+        },
+        {
+          "figure": "household_records_the_layer_carries",
+          "low": 1258,
+          "high": 1258,
+          "point": null,
+          "is_a_count": true,
+          "method": "1,258 household records for 1,282 people — 1.02 people per record. The layer mints a letter-list or civic name as its own household, so it holds MORE household shells than the town had households. That is a property of the mint, not a reading of the town, and the order book must not count them as families.",
+          "comparanda": [],
+          "derived_from": [
+            "data/sidecars/1835/people.json"
+          ]
+        },
+        {
+          "figure": "dwellings_the_programme_schedules",
+          "low": 335,
+          "high": 377,
+          "point": null,
+          "is_a_count": false,
+          "method": "The authored programme schedules 335 ordinary dwellings and 42 larger boarding houses. The November census counted 398 dwellings, so the programme's dwelling half sits below the recorded count and its boarding houses make up the difference.",
+          "comparanda": [
+            "owner_chicago_1835_reconstruction_spec_2026"
+          ],
+          "derived_from": [
+            "data/reconstruction/1835_building_inventory.json"
+          ]
+        }
+      ],
+      "not_claiming": "This section supplies no member to any household and names nobody; it states the distribution a reconstructed family must be drawn from and nothing about which family.",
+      "open_questions": [
+        "How many households a dwelling held in 1835 is not settled: 8.20 people per dwelling against a 1840 mean household of 5.02 implies roughly 1.6, but the 1835 count's 'dwelling' is the enumerator's word and this project has not read his schedule.",
+        "The layer's 1,258 household records cannot be reconciled with a town of 469 to 816 households without a ruling on what a letter-list mint IS; T-0660 and T-0691 hold that question and are blocked on the owner."
+      ],
+      "tables": {
+        "size_histogram_1840": {
+          "unit": "households by person count, 1840 city",
+          "rows": [
+            {
+              "size": 0,
+              "households": 2
+            },
+            {
+              "size": 1,
+              "households": 64
+            },
+            {
+              "size": 2,
+              "households": 129
+            },
+            {
+              "size": 3,
+              "households": 165
+            },
+            {
+              "size": 4,
+              "households": 152
+            },
+            {
+              "size": 5,
+              "households": 142
+            },
+            {
+              "size": 6,
+              "households": 95
+            },
+            {
+              "size": 7,
+              "households": 74
+            },
+            {
+              "size": 8,
+              "households": 42
+            },
+            {
+              "size": 9,
+              "households": 24
+            },
+            {
+              "size": 10,
+              "households": 24
+            },
+            {
+              "size": 11,
+              "households": 12
+            },
+            {
+              "size": 12,
+              "households": 9
+            },
+            {
+              "size": 13,
+              "households": 4
+            },
+            {
+              "size": 14,
+              "households": 5
+            },
+            {
+              "size": 15,
+              "households": 1
+            },
+            {
+              "size": 16,
+              "households": 2
+            },
+            {
+              "size": 17,
+              "households": 4
+            },
+            {
+              "size": 18,
+              "households": 2
+            },
+            {
+              "size": 19,
+              "households": 1
+            },
+            {
+              "size": 20,
+              "households": 1
+            },
+            {
+              "size": 21,
+              "households": 1
+            },
+            {
+              "size": 22,
+              "households": 2
+            },
+            {
+              "size": 25,
+              "households": 2
+            },
+            {
+              "size": 26,
+              "households": 1
+            },
+            {
+              "size": 28,
+              "households": 1
+            },
+            {
+              "size": 29,
+              "households": 1
+            },
+            {
+              "size": 34,
+              "households": 1
+            },
+            {
+              "size": 35,
+              "households": 1
+            }
+          ]
+        },
+        "the_rule_for_a_head_no_source_names": {
+          "statement": "A head the sources name but whose family they do not gets a household drawn from the 1840 distribution at his own size band, never from the mean. The mean is 5.015 and the median is 4: drawing every unnamed family at the mean would build a town with no small households and no long tail, which is the one shape the 1840 count rules out.",
+          "sex_ratio_caution": "Households drawn symmetrically break the adult sex ratio (146.8 males per 100 females aged 20 and over in 1840, and higher in 1835). The surplus men are boarders and lodgers, not husbands."
+        }
+      }
+    },
+    {
+      "key": "lodging_and_institutions",
+      "title": "Lodging and institutions",
+      "figures": [
+        {
+          "figure": "larger_boarding_houses",
+          "low": 42,
+          "high": 42,
+          "point": null,
+          "is_a_count": true,
+          "method": "The authored programme schedules 42 across the three divisions (28 south, 6 west, 8 north).",
+          "comparanda": [
+            "owner_chicago_1835_reconstruction_spec_2026"
+          ],
+          "derived_from": [
+            "data/reconstruction/1835_building_inventory.json"
+          ]
+        },
+        {
+          "figure": "inns_and_taverns",
+          "low": 8,
+          "high": 10,
+          "point": null,
+          "is_a_count": false,
+          "method": "The programme schedules 10 inns and taverns; the State census counted 8 taverns two to five months later and the register holds 8 at the scene date. The three units are a roof, a licence and a printed notice, and they are not the same thing counted three ways.",
+          "comparanda": [
+            "moses_kirkland_history_of_chicago_v1",
+            "owner_chicago_1835_reconstruction_spec_2026"
+          ],
+          "derived_from": [
+            "data/reconstruction/1835_building_inventory.json",
+            "data/research/books/trade_census_1835_crosswalk.json"
+          ]
+        },
+        {
+          "figure": "people_in_lodging_places",
+          "low": 468,
+          "high": 1232,
+          "point": null,
+          "is_a_count": false,
+          "method": "42 boarding houses and 10 inns, filled from the 1840 household tail: the low end puts every one at p90 (9 people), the high end at p99 (21) for the boarding houses and the observed maximum (35) for the inns. That tail IS lodging — it is what a household of twenty-one people in a lake port was.",
+          "comparanda": [
+            "census_1840_chicago_name_crosswalk"
+          ],
+          "derived_from": [
+            "data/research/census_1840/composition_1840.json",
+            "data/reconstruction/1835_building_inventory.json"
+          ]
+        },
+        {
+          "figure": "share_of_the_town_in_lodging",
+          "low": 0.143,
+          "high": 0.377,
+          "point": null,
+          "is_a_count": false,
+          "method": "The lodged range against the ceiling population of 3,265: between 14% and 38% of a boom-year port living in somebody else's house, which is the shape the adult sex ratio already implies. It is also the single figure most likely to be wrong in this model, because it multiplies an authored roof count by a borrowed capacity and neither end is measured.",
+          "comparanda": [
+            "census_1840_chicago_name_crosswalk"
+          ],
+          "derived_from": [
+            "data/reconstruction/1835_building_inventory.json"
+          ]
+        },
+        {
+          "figure": "institutional_and_public_roofs",
+          "low": 9,
+          "high": 19,
+          "point": null,
+          "is_a_count": false,
+          "method": "9 institutional or public roofs outside the fort and 10 principal roofs inside it. The census's five churches, seven schools, one bank, one lottery office and a lyceum are counted in December and several of them met in rooms rather than in buildings of their own.",
+          "comparanda": [
+            "moses_kirkland_history_of_chicago_v1",
+            "owner_chicago_1835_reconstruction_spec_2026"
+          ],
+          "derived_from": [
+            "data/reconstruction/1835_building_inventory.json"
+          ]
+        }
+      ],
+      "not_claiming": "This section seats nobody in any lodging place and gives no boarding house a capacity of its own; it states how many beds the town needed in total.",
+      "open_questions": [
+        "The garrison of Fort Dearborn on 1 July 1835 is not modelled here. The fort's strength is a roster question owned by T-1176 and the ten principal roofs are all this model counts.",
+        "The vessels in port held people the shore census may or may not have counted, and no committed source settles how the November enumerator treated a crew ashore.",
+        "Whether the census's 398 dwellings include boarding houses and taverns or count them separately is unknown, and the answer moves the lodging share by more than any other assumption in this section."
+      ],
+      "tables": {
+        "lodging_and_institutional_roofs": {
+          "unit": "roofs in the authored programme, by division",
+          "rows": [
+            {
+              "group": "larger_boarding_houses",
+              "south": 28,
+              "west": 6,
+              "north": 8,
+              "fort": 0,
+              "total": 42
+            },
+            {
+              "group": "inns_taverns",
+              "south": 5,
+              "west": 3,
+              "north": 2,
+              "fort": 0,
+              "total": 10
+            },
+            {
+              "group": "institutional_public",
+              "south": 5,
+              "west": 1,
+              "north": 3,
+              "fort": 0,
+              "total": 9
+            },
+            {
+              "group": "fort_principal",
+              "south": 0,
+              "west": 0,
+              "north": 0,
+              "fort": 10,
+              "total": 10
+            },
+            {
+              "group": "stores_mixed_use",
+              "south": 42,
+              "west": 6,
+              "north": 4,
+              "fort": 1,
+              "total": 53
+            },
+            {
+              "group": "warehouses_freight",
+              "south": 11,
+              "west": 2,
+              "north": 7,
+              "fort": 0,
+              "total": 20
+            }
+          ]
+        },
+        "counted_in_december_not_in_july": {
+          "line": "bk_mose1_006",
+          "institutions": "five churches, seven schools, one bank, one lottery office, a lyceum and reading room, four storage and forwarding houses",
+          "caution": "Counted between 1 September and December 1835. A church with five congregations in December had fewer in July and some of them had no building at all."
+        }
+      }
+    },
+    {
+      "key": "arrival_and_origin",
+      "title": "Arrival and origin",
+      "figures": [
+        {
+          "figure": "arrived_in_the_three_years_before_the_scene",
+          "low": 0.961,
+          "high": 0.961,
+          "point": null,
+          "is_a_count": true,
+          "method": "1,232 of the 1,282 people the layer carries give an arrival year of 1833, 1834 or 1835; only 50 came before 1833. The town of 1 July 1835 is overwhelmingly three years old or less.",
+          "comparanda": [],
+          "derived_from": [
+            "data/sidecars/1835/people.json"
+          ]
+        },
+        {
+          "figure": "arrived_in_1835_itself",
+          "low": 0.449,
+          "high": 0.449,
+          "point": null,
+          "is_a_count": true,
+          "method": "575 of 1,282. This is the figure the population floor is built on, and it is the one most exposed to the bias below.",
+          "comparanda": [],
+          "derived_from": [
+            "data/sidecars/1835/people.json"
+          ]
+        },
+        {
+          "figure": "born_in_new_york_state",
+          "low": 0.386,
+          "high": 0.743,
+          "point": null,
+          "is_a_count": false,
+          "method": "Of the 70 Old Settlers who registered an arrival at or before 1835 and gave a birthplace, 27 were born in New York State and 25 elsewhere in New England. The low end is New York alone, the high end New York and New England together — the Erie Canal corridor and its feeders, which is the origin story this town has.",
+          "comparanda": [
+            "calumet_club_early_chicago_1879"
+          ],
+          "derived_from": [
+            "data/research/old_settlers/people.json"
+          ]
+        },
+        {
+          "figure": "born_abroad",
+          "low": 0.1,
+          "high": 0.1,
+          "point": null,
+          "is_a_count": true,
+          "method": "England and Ireland in the Old Settlers roll. A floor and not a share: the 1840 extract's foreign-born column reads zero in all 964 rows, which is a column that was not coded and not a count of none, so this project holds no measure of the town's foreign-born at all.",
+          "comparanda": [
+            "calumet_club_early_chicago_1879"
+          ],
+          "derived_from": [
+            "data/research/old_settlers/people.json"
+          ]
+        }
+      ],
+      "not_claiming": "This section dates and places nobody: it is a distribution over cohorts and an arrival year on a card is still that card's own evidence.",
+      "open_questions": [
+        "The arrival distribution is of people the project can NAME, and the sources that name them — letter lists, voter rolls, the 1839 and 1843 directories — are themselves of 1834 and later, so a man who came in 1831 and left no notice is missing from it. The 1835 share is a ceiling on the true share.",
+        "The Old Settlers roll is a self-selected survivorship sample registered forty-four years later: it over-represents men who stayed, prospered and lived to 1879, and it holds no woman who married out of her registered name. Its birthplaces are the only origin distribution this project has and they are not the town's.",
+        "WHY people came is not modelled. The land sales, the canal commission and the harbour works are each a documented draw, but no committed source apportions the town between them and this model will not invent the split."
+      ],
+      "tables": {
+        "arrival_year_of_the_known_layer": {
+          "unit": "people the layer carries, by the arrival year it records",
+          "rows": [
+            {
+              "year": 1812,
+              "people": 3,
+              "share": 0.0023
+            },
+            {
+              "year": 1816,
+              "people": 3,
+              "share": 0.0023
+            },
+            {
+              "year": 1818,
+              "people": 1,
+              "share": 0.0008
+            },
+            {
+              "year": 1820,
+              "people": 1,
+              "share": 0.0008
+            },
+            {
+              "year": 1823,
+              "people": 2,
+              "share": 0.0016
+            },
+            {
+              "year": 1826,
+              "people": 2,
+              "share": 0.0016
+            },
+            {
+              "year": 1827,
+              "people": 2,
+              "share": 0.0016
+            },
+            {
+              "year": 1830,
+              "people": 3,
+              "share": 0.0023
+            },
+            {
+              "year": 1831,
+              "people": 13,
+              "share": 0.0101
+            },
+            {
+              "year": 1832,
+              "people": 20,
+              "share": 0.0156
+            },
+            {
+              "year": 1833,
+              "people": 139,
+              "share": 0.1084
+            },
+            {
+              "year": 1834,
+              "people": 518,
+              "share": 0.4041
+            },
+            {
+              "year": 1835,
+              "people": 575,
+              "share": 0.4485
+            }
+          ]
+        },
+        "birthplace_of_the_old_settlers_who_came_by_1835": {
+          "unit": "rows of the Calumet Club rolls whose arrival is at or before 1835",
+          "rows_total": 70,
+          "rows": [
+            {
+              "region": "new_york",
+              "people": 27
+            },
+            {
+              "region": "new_england",
+              "people": 25
+            },
+            {
+              "region": "mid_atlantic",
+              "people": 7
+            },
+            {
+              "region": "england",
+              "people": 6
+            },
+            {
+              "region": "south",
+              "people": 3
+            },
+            {
+              "region": "west_of_the_alleghenies",
+              "people": 1
+            },
+            {
+              "region": "ireland",
+              "people": 1
+            }
+          ]
+        }
+      }
+    }
+  ]
+}

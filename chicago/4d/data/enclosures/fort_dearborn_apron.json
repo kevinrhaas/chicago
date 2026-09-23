@@ -1,0 +1,259 @@
+{
+  "_doc": "THE BARE, TRODDEN GROUND IMMEDIATELY OUTSIDE FORT DEARBORN'S WALLS (T-0097). Both committed Fort Dearborn plates draw the ground round the stockade as bare trodden earth and the render grew prairie sward to the foot of the pickets. This record is the rule that stops it: the band 12.0 m wide outside the palisade's committed footprint, on all four sides, treated as trodden earth. NOT ONE COORDINATE HERE IS AUTHORED - every ring is derived from data/sidecars/1835/fort_dearborn_palisade.json by tools/generate_fort_apron.py, and tools/check.sh re-derives this file byte for byte, so the ground follows the fort if the fort is ever re-placed. IT DRAWS NO FENCE: the enclosure here is the palisade itself, a committed structure with a baked GLB, so this record carries `runs: []` and the ground alone. NOTHING HERE IS ATTESTED - every value is `reconstructed` and docs/LIBERTIES.md L174 states what bounds the invention. Read the rule, and what it deliberately does not claim, in tools/generate_fort_apron.py.",
+  "id": "fort_dearborn_apron",
+  "name": "The trodden ground outside Fort Dearborn's walls",
+  "kind": "apron",
+  "scene": "1835",
+  "target_date": "1835-07-01",
+  "structure_id": "fort_dearborn_palisade",
+  "coordinates": "Local East-North-Up metres from data/datum.json's origin - the same frame data/enclosures/'s other records, data/signage/ and the sidecars' placement.local_e / local_n use.",
+  "derived_from": {
+    "sidecar": "data/sidecars/1835/fort_dearborn_palisade.json",
+    "placement_local_enu_m": [
+      1122.07,
+      198.45
+    ],
+    "rotation_deg": 8.0,
+    "footprint_frame_m": {
+      "u": [
+        0.0,
+        53.0
+      ],
+      "v": [
+        0.0,
+        53.0
+      ]
+    },
+    "apron_width_m": 12.0,
+    "note": "The palisade's footprint and placement, in the frame docs/GLB-CONTRACT.md fixes. The footprint itself is `inferred` on the 1830 Harrison plan and Andreas; this band inherits that placement and adds a reconstructed width to it, so it can never be better evidenced than the wall it is measured from."
+  },
+  "existence": {
+    "confidence": "reconstructed",
+    "note": "That the ground outside a garrisoned post's walls was bare and trodden is what both committed plates draw and what daily use makes of ground; that it reached exactly 12.0 m is invented. docs/LIBERTIES.md L174.",
+    "sources": [
+      "kurz_allison_1893"
+    ],
+    "sources_note": "NAMED SINCE 2026-09-13 (T-1107), AND THE PLATE WAS ONE THIS PROJECT ALREADY HELD. This field used to read 'EMPTY, AND THAT IS THE FINDING', because the fort views reached the repository only as owner-supplied crops with a README (data/sources/assets/prefire_views_kevin_2026_08/p4_0.png and p4_1.png) and no source record held them. Both are panels of `kurz_allison_1893` - Kurz & Allison, 'Chicago In Early Days, 1779-1857' (1893), tier 5, public_domain, the whole sheet committed at chicago/reference/photos/IMG_5382.png. Measured, not recognised, by tools/measure_plate_join.py, which re-measures the join on every commit: p4_0 is PANEL 1 ('No. 1.  Old Fort Dearborn.  Erected 1803.'), ncc 0.896 at 0.295x against 0.400 anywhere in the control panel.\n\nAND THE PAIR IS NOT A PAIR. p4_1 is PANEL 8 - 'No. 8.  Chicago in 1830 - From the Lake.  Population 96.' - a TOWN view of 1830, not a second view of the fort, so the sentence this record used to carry about 'the two Fort Dearborn plates' was wrong about one of them. It costs this record nothing: the treatment below is read off p4_0 alone and always was, and the existence note above says 'both committed plates draw' a bare apron, which both of them do - panel 8 draws the same bare ground round the same post five years earlier. Nothing here is one grade better evidenced for being cited. The plate is still a retrospective lithograph published fifty-eight years after the scene date, it may never drive a coordinate, and every value on this record stays `reconstructed` for the reasons it always did."
+  },
+  "runs": [],
+  "runs_note": "EMPTY, AND DELIBERATELY. Every other record on this layer states a fence and gets its ground from the ring that fence closes. The enclosure here is the palisade - a committed structure record with a baked GLB, drawn by renderers/web/js/buildings.js - so there is no fence for this record to draw and it would be drawing a second wall beside the first if it tried.",
+  "ground": {
+    "treatment": "trodden_earth",
+    "confidence": "reconstructed",
+    "note": "The pen's treatment rather than the wagon yard's, and the plate decides between them: `worn_earth` is a wheeled yard with ruts and a wide fringe of surviving grass at its edges, `trodden_earth` is finer, darker, without ruts and trodden right up to its own boundary. p4_0 draws the second - the bare ground reaches the pickets with no grassy collar at the wall.",
+    "interior_local_enu_m": [
+      [
+        [
+          1108.52,
+          188.24
+        ],
+        [
+          1184.77,
+          177.52
+        ],
+        [
+          1186.44,
+          189.4
+        ],
+        [
+          1110.19,
+          200.12
+        ]
+      ],
+      [
+        [
+          1117.56,
+          252.6
+        ],
+        [
+          1193.81,
+          241.89
+        ],
+        [
+          1195.48,
+          253.77
+        ],
+        [
+          1119.23,
+          264.49
+        ]
+      ],
+      [
+        [
+          1110.19,
+          200.12
+        ],
+        [
+          1122.07,
+          198.45
+        ],
+        [
+          1129.45,
+          250.93
+        ],
+        [
+          1117.56,
+          252.6
+        ]
+      ],
+      [
+        [
+          1174.55,
+          191.07
+        ],
+        [
+          1186.44,
+          189.4
+        ],
+        [
+          1193.81,
+          241.89
+        ],
+        [
+          1181.93,
+          243.56
+        ]
+      ]
+    ],
+    "interior_note": "FOUR BANDS, NOT ONE SQUARE. The claim is about the ground OUTSIDE the walls; a single square would also treat the parade inside them, which is a second claim about ground no committed plate shows and this record does not make it. The four tile the annulus exactly - asserted, not assumed, under `assertions`.",
+    "fringe_ring_local_enu_m": [
+      [
+        1108.52,
+        188.24
+      ],
+      [
+        1184.77,
+        177.52
+      ],
+      [
+        1195.48,
+        253.77
+      ],
+      [
+        1119.23,
+        264.49
+      ]
+    ],
+    "fringe_note": "The sward feathers in at the apron's OUTER edge and nowhere else. Measured band by band the fringe would have drawn a grassy seam along the wall and along the three internal joins, which is the opposite of what the plate shows: bare earth right up to the pickets."
+  },
+  "bands": [
+    {
+      "id": "apron_south",
+      "ring_local_enu_m": [
+        [
+          1108.52,
+          188.24
+        ],
+        [
+          1184.77,
+          177.52
+        ],
+        [
+          1186.44,
+          189.4
+        ],
+        [
+          1110.19,
+          200.12
+        ]
+      ]
+    },
+    {
+      "id": "apron_north",
+      "ring_local_enu_m": [
+        [
+          1117.56,
+          252.6
+        ],
+        [
+          1193.81,
+          241.89
+        ],
+        [
+          1195.48,
+          253.77
+        ],
+        [
+          1119.23,
+          264.49
+        ]
+      ]
+    },
+    {
+      "id": "apron_west",
+      "ring_local_enu_m": [
+        [
+          1110.19,
+          200.12
+        ],
+        [
+          1122.07,
+          198.45
+        ],
+        [
+          1129.45,
+          250.93
+        ],
+        [
+          1117.56,
+          252.6
+        ]
+      ]
+    },
+    {
+      "id": "apron_east",
+      "ring_local_enu_m": [
+        [
+          1174.55,
+          191.07
+        ],
+        [
+          1186.44,
+          189.4
+        ],
+        [
+          1193.81,
+          241.89
+        ],
+        [
+          1181.93,
+          243.56
+        ]
+      ]
+    }
+  ],
+  "assertions": [
+    {
+      "id": "frame_tiles_the_annulus",
+      "claim": "the four bands cover the whole band outside the walls, with no overlap and no gap",
+      "expected_m2": 3120.0,
+      "derived_m2": 3120.0,
+      "holds": true
+    },
+    {
+      "id": "the_parade_is_not_claimed",
+      "claim": "no band covers the ground inside the palisade — the parade is a second claim and this record does not make it",
+      "at_local_enu_m": [
+        1152.0,
+        221.0
+      ],
+      "holds": true
+    },
+    {
+      "id": "the_apron_reaches_the_fort_road",
+      "claim": "the last point of fort_road's traced way stands on the apron, so no ring of untouched prairie is left between the track and the wall",
+      "at_local_enu_m": [
+        1148.0,
+        188.0
+      ],
+      "holds": true
+    },
+    {
+      "id": "no_other_treated_ground_here",
+      "claim": "no other enclosure record already lays a ground treatment on this band",
+      "clashes": [],
+      "holds": true
+    }
+  ],
+  "research_note": "WHAT WOULD MOVE THIS OFF RECONSTRUCTION: a garrison return or quartermaster's account describing the ground of the reservation; or an 1830s survey of the United States Reservation showing cleared ground. ONE ROUTE IS NOW CLOSED: this note used to offer 'an identification of either Fort Dearborn plate against a dated original' as a third, and T-1107 made that identification - p4_0 is panel 1 of kurz_allison_1893, measured. It did NOT raise the standing, because the dated original is itself the 1893 retrospective; naming a tier-5 lithograph settles its rights and its date and leaves its tier exactly where it was. WHAT THIS RECORD IS SHORT OF, stated rather than left to be noticed: the width is one number for all four sides, where a real post wears its gate side hardest; the band stops square, where trodden ground fans out from a gate; and the ground INSIDE the walls is left as it is, because no committed plate shows it."
+}

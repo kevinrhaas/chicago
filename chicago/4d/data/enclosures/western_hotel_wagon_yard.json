@@ -1,0 +1,128 @@
+{
+  "id": "western_hotel_wagon_yard",
+  "name": "The Western Hotel's wagon yard",
+  "aka": [
+    "the yard into which the trains were driven",
+    "Stow's wagon yard"
+  ],
+  "kind": "yard",
+  "scene": "1835",
+  "target_date": "1835-07-01",
+  "belongs_to": [
+    "western_hotel",
+    "western_hotel_stable"
+  ],
+  "documented_range": {
+    "from": "1834-01-01",
+    "to": "1840-12-31",
+    "confidence": "inferred",
+    "sources": [
+      "chicagology_prefire278"
+    ],
+    "note": "COPIED FROM THE STABLE, WHICH COPIED IT FROM THE HOTEL, and for the same reason in both steps: the source describes the stable and the yard in one clause of the passage that describes the house W. H. Stow says he put up in 1834 — 'In the rear was the large stable and the yard into which the trains were driven. There were entrances to the yard from both streets.' No source dates the yard itself. A teamsters' house whose custom was 'farmers and teamsters' had no trade without one, so the yard is taken to be contemporary with the hotel it served, and the range is data/structures/western_hotel_stable.json's, including the 1834-against-1835 dispute recorded there."
+  },
+  "existence": {
+    "value": true,
+    "confidence": "attested",
+    "sources": [
+      "chicagology_prefire278"
+    ],
+    "note": "THE YARD IS THE ONE THING ON THIS RECORD A SOURCE STATES. 'In the rear was the large stable and the yard into which the trains were driven.' Until this record existed the claim was carried by data/structures/western_hotel_stable.json as form.wagon_yard = true with geometry: 'absent' — an attested feature that reached no vertex, which docs/LIBERTIES.md L10 called out in as many words: 'the yard IS the west-side teamsters' house as a visitor experienced it, and the model shows a hotel standing in nothing.'"
+  },
+  "runs": [
+    {
+      "id": "canal_frontage",
+      "path_local_enu_m": [
+        [-143.05, -281.67],
+        [-143.05, -298.00],
+        [-140.90, -298.00]
+      ],
+      "note": "The west side of the yard, on the Canal Street frontage. It leaves the hotel's own south-west corner (data/sidecars/1835/western_hotel.json: origin -143.05 / -281.67, no rotation), runs south on the hotel's west wall line to the latitude of the stable's north face, and turns east to meet the stable's north-west corner (-140.90 / -298.00). Both ends are committed building corners; nothing here is a free choice except the decision that the yard's west side follows the building line, which is what a lot fence on a street frontage does."
+    },
+    {
+      "id": "randolph_frontage_and_east_side",
+      "path_local_enu_m": [
+        [-127.90, -298.00],
+        [-124.50, -298.00],
+        [-124.50, -263.38],
+        [-130.86, -263.38]
+      ],
+      "note": "The east side, and the neck that reaches Randolph Street past the hotel's east gable. It leaves the stable's north-east corner (-127.90 / -298.00), steps 3.4 m east to the yard's own east line, runs north 34.6 m to the hotel's front wall line (N -263.38, the hotel's own north face) and turns west 6.36 m to the hotel's north-east corner (-130.86 / -263.38). THE EAST LINE AT E -124.50 IS THE ONE INVENTED COORDINATE ON THIS RECORD and it is set by the gateway rather than chosen: see openings, and the note on width_m."
+    }
+  ],
+  "openings": [
+    {
+      "id": "canal_gate",
+      "on": "canal",
+      "at_local_enu_m": [-143.05, -289.84],
+      "width_m": 4.27,
+      "confidence": "attested",
+      "sources": [
+        "chicagology_prefire278"
+      ],
+      "note": "THE GATEWAY IS ATTESTED AND ITS POSITION AND WIDTH ARE NOT. 'There were entrances to the yard from both streets' — the streets being Randolph and Canal, the two the hotel stands on the corner of. This one is centred in the Canal-frontage run for want of anything saying where in it stood. 4.27 m is 14 ft, recorded converted per data/datum.json's units rule: a gateway a loaded wagon and its team can be driven through without unhitching, which is what the attested sentence requires of it and the least this record can claim while still being true. Nothing states a width, a leaf, a post or a fastening."
+    },
+    {
+      "id": "randolph_gate",
+      "on": "randolph",
+      "at_local_enu_m": [-127.68, -263.38],
+      "width_m": 4.27,
+      "confidence": "attested",
+      "sources": [
+        "chicagology_prefire278"
+      ],
+      "note": "The second of the two attested entrances, on Randolph Street. WHERE IT CAN BE IS NOT A FREE CHOICE, and it is what fixes this yard's shape: the hotel occupies the corner of Randolph and Canal, its west wall stands on the Canal line and its front on the Randolph line, so a yard lying 'in the rear' of it can only reach Randolph by a neck running north on the far side of the hotel's east gable. The east line is then set at E -124.50 because the hotel's north-east corner is at E -130.86 and a 14-ft gateway plus a post at each side does not fit in less. So the source's two entrances, taken together with two committed building positions, DERIVE the outline of the yard rather than decorating an invented one — which is the whole reason this record is worth making."
+    }
+  ],
+  "form": {
+    "fence_type": {
+      "value": "post_and_rail",
+      "confidence": "reconstructed",
+      "note": "INVENTED. Nothing says the yard was fenced at all, let alone how — what is attested is a yard that wagon trains were driven into off two streets, and two entrances, and an entrance is a gap in something. Post-and-rail is chosen over the two live alternatives for reasons that are about this site rather than about frontier fencing in general. A WORM (SNAKE) RAIL FENCE, which is what this project already builds at the garrison garden (L45), eats three to four metres of ground either side of its line and is a field fence, not a town-lot one; there is not room for it between a hotel and its stable. A CLOSE-BOARDED FENCE would need sawn boards by the hundred and would make the yard a room, when the source's picture is of teams driven in off the street. Post-and-rail is the standard town-lot enclosure of the period, it is what a man who had just framed a 40 x 60 ft hotel would put round his yard from the same pile of sawn stuff, and it is open and horizontal — you see the yard through it, which is honest about how little of it is known."
+    },
+    "height_m": {
+      "value": 1.37,
+      "confidence": "reconstructed",
+      "note": "INVENTED. 1.37 m is 4 ft 6 in, recorded converted. Nothing attests a height. The bound is the use: a yard fence has to turn a hitched team away from the line and keep loose stock off the street, and it does not have to hold a horse that has decided to leave — that is a pound's job, and the pound is on the public square (data/structures/estray_pen.json). Four and a half feet is the low end of what will do the first and well under what the second needs, which is deliberate: it is the least fence the attested sentence requires."
+    },
+    "rail_courses": {
+      "value": 3,
+      "confidence": "reconstructed",
+      "note": "INVENTED, and coupled to height_m rather than chosen separately — three rails is what fills 4 ft 6 in at a spacing a beast will not walk through. Nothing attests a course count."
+    },
+    "post_spacing_m": {
+      "value": 2.9,
+      "confidence": "reconstructed",
+      "note": "INVENTED. 2.9 m is about 9 ft 6 in, which is the span a sawn rail of the period is cut to carry. Nothing attests it. It is a rhythm, not a measurement, and it is recorded here so that the number a visitor is looking at is one this file states rather than one the renderer picked."
+    },
+    "post_size_m": {
+      "value": 0.14,
+      "confidence": "reconstructed",
+      "note": "INVENTED. A 0.14 m square post is a 5-1/2 inch stick. Nothing attests it."
+    }
+  },
+  "ground": {
+    "value": "bare, worn earth",
+    "confidence": "reconstructed",
+    "geometry": "drawn",
+    "treatment": "worn_earth",
+    "interior_local_enu_m": [
+      [-143.05, -281.67],
+      [-143.05, -298.00],
+      [-124.50, -298.00],
+      [-124.50, -263.38],
+      [-130.86, -263.38],
+      [-130.86, -281.67]
+    ],
+    "note": "DRAWN SINCE 2026-08-21 (T-0067), AND WHAT IS DRAWN IS STILL AN INVENTION. This block used to read 'NOT DRAWN, AND SAYING SO IS THE POINT' — a yard that wagon trains were driven into daily was not grass, and the ground inside this fence was the same prairie sward the flora layer plants everywhere else on the west side. The owner said so in as many words on 2026-08-18: 'the wagon yard would probably be dirty dusty ground'. So the sward is suppressed inside the ring below and renderers/web/js/yards.js lays `worn_earth` in its place — bare hoof- and wheel-worn dirt, with sparse trampled grass surviving in a fringe at the fence line where the wheels do not reach. NOTHING STATES ANY OF IT: not the yard's surface, not its extent of wear, not whether it was gravelled, planked or plain mud. So the treatment is graded reconstructed, it disappears with the rest of that tier, and it is claimed in docs/LIBERTIES.md L158. THE INTERIOR IS AUTHORED RATHER THAN DERIVED FROM THE RUNS, and it has to be: this yard's fourth side is BUILDINGS. The ring walks the hotel's west wall line south from the hotel's own south-west corner (-143.05 / -281.67) to the stable's north face (N -298.00), east along that face to the yard's east line (E -124.50), north up it to the hotel's front wall line (N -263.38), west to the hotel's north-east corner (-130.86), and back down the hotel's east wall and along its south wall to the start. Every metre of it is a committed building corner or a coordinate already on this record's own runs; not one number here is new, and the ring encloses neither the hotel nor the stable."
+  },
+  "citations": [
+    {
+      "source_id": "chicagology_prefire278",
+      "citation": "Chicagology, 'Pre-Fire Chicago' page 278, carrying the Western Hotel recollection.",
+      "tier": 4,
+      "tier_label": "modern compilation of recollection"
+    }
+  ],
+  "research_note": "THE FIRST RECORD IN THIS PROJECT THAT IS AN ENCLOSURE RATHER THAN A BUILDING. docs/LIBERTIES.md L10 and L60 have both been waiting on the same missing thing — 'an enclosure archetype: post-and-rail or notched log, ROOFLESS, gated, taking a perimeter rather than a footprint' — and both say plainly what the workaround costs: at the Western Hotel the yard was simply left out, and at the estray pen a fence was built as a roofed box because the outbuilding archetype cannot build a roofless one. This record and renderers/web/js/enclosures.js are the half of that fix that needs no Blender: an enclosure carries a perimeter, a fence type and its gateways, and the renderer builds it the way it builds the streets and the prairie, from the data at load. WHAT IS ATTESTED HERE IS SMALL AND IT IS LOAD-BEARING: a yard in the rear, and entrances from both streets. Everything else — the fence type, the height, the courses, the post rhythm, the east line, where in each frontage a gate stands — is invented and graded reconstructed, and docs/LIBERTIES.md L104 claims it. WHAT WOULD UPGRADE IT: any Chicago or Cook County fence ordinance of the 1830s (a lawful-fence specification would settle height and courses at a stroke), an insurance or tax description of the Western Hotel lot, or the 1834-1835 town trustees' proceedings, none of which this project holds as a source record."
+}

@@ -1,0 +1,19 @@
+id: chicago-massacre-1812
+title: The Chicago Massacre of 1812, with Illustrations and Historical Documents
+creator: Joseph Kirkland
+description: >
+  Already digitized and hosted by Internet Archive directly (not
+  re-uploaded here) - the PDF's own embedded metadata identifies it as
+  "Digitized by the Internet Archive" with this item as its source.
+  Used as a source in the Chicago 1830s research corpus.
+redistribution_status: public
+copyright_status: public-domain
+internet_archive:
+  item: chicagomass00kirkrich
+  url: https://archive.org/details/chicagomass00kirkrich
+  note: Pre-existing Internet Archive item, not one of this project's chicago1835-* uploads.
+files:
+  - name: chicagomass00kirkrich.pdf
+    bytes: 16890926
+    sha256: 5b42be2c73b4bad248d329b1ade513ac371b931188883498ce6da0d3ff43f1ce
+local_archive_path: projects/archive/data/chicago/reference/chicago-massacre-1812/

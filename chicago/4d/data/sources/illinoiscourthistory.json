@@ -1,0 +1,32 @@
+{
+  "id": "illinoiscourthistory",
+  "type": "website",
+  "citation": "\"History of the Cook County Courthouses.\" Illinois Court History (illinoiscourthistory.org). PDF, 8 pages, unsigned and undated; its own Sources page lists Goodspeed, History of Cook County (1909); Andreas, History of Cook County (1884); Currey, Chicago: Its History and its Builders vol. 3 (1912); Carter, The Early Courts of Chicago and Cook County (1914); and Goeldner, Temples of Justice (1970).",
+  "date": "accessed 2026-08-11",
+  "describes_date": "1835-1965",
+  "locator": "Page 1, section \"The early courthouses\", first sentence; page 2, \"Sources\"; page 3, the image captioned \"The first Cook County Courthouse, 1835-1853\".",
+  "url": "https://www.illinoiscourthistory.org/resources/858a0c70-b542-438b-88d3-087d86e131dd/Cookcountyhistory.pdf",
+  "archived_url": "https://web.archive.org/web/20250420091727/https://www.illinoiscourthistory.org/resources/858a0c70-b542-438b-88d3-087d86e131dd/Cookcountyhistory.pdf",
+  "tier": 4,
+  "rights_status": "check_required",
+  "rights_note": "A modern institutional publication, unsigned and undated, whose illustrations are reproductions of unstated origin and unstated rights. Cite the text; derive no asset, and in particular no image, from this source.",
+  "asset_use": "inventory",
+  "verified": true,
+  "note": "THIS DOCUMENT SAYS ALMOST NOTHING ABOUT THE 1835 BUILDING, AND THAT IS WHY THE RECORD EXISTS. Its entire 1835 content is one sentence - \"Cook County built their first courthouse in 1835.\" - plus a caption on page 3 reading \"The first Cook County Courthouse, 1835-1853\" under a reproduced image. No dimensions, no material, no storey count, no portico, no location, no builder, no month.\n\nTHE MISUSE THIS RECORD GUARDS AGAINST RUNS IN TWO DIRECTIONS, and only one of them was anticipated.\n\n(1) THE DORIC PORTICO IS THE 1837 BUILDING. The description everyone reaches for - \"court-house on the northeast corner of the public square, basement and principal story, about thirty by sixty feet, court-room and jury rooms on the principal floor, clerk's and recorder's offices and vaults in the basement, front ornamented with a four-column Doric portico of wood work\" - is Andreas describing the 1837 court-house (andreas_1884_v1; docs/research/04-structures-south.md line 180 already carries the guard). It is NOT on this page, it is not about the 1835 building, and it must never be attached to an 1835 phase. Thirty by sixty feet with a portico is a different building from whatever stood in 1835.\n\n(2) THE DESCRIPTION THAT *IS* ON THIS PAGE BELONGS TO 1853, AND IT IS THE EASIER MISTAKE TO MAKE. The sentences run: \"Cook County built their first courthouse in 1835. The county's second courthouse (and city hall) was built in 1853. It was constructed in the Greek Revival style, and built with stone. The stone had been brought to Chicago from Lockport, New York. It was designed by the architectural firm of John M. Van Osdel, Chicago's first professional architect.\" The \"It\" in the third sentence is the 1853 building, not the 1835 one. A reader skimming for the first courthouse will find a Greek Revival stone building by Van Osdel two lines under it. Van Osdel did not reach Chicago until 1837; there is no chance the 1835 building was his.\n\nSO THIS PAGE MAY CARRY EXISTENCE AND THE 1835-1853 SPAN, AND NOTHING ELSE. docs/research/04-structures-south.md line 178 tags [DOC] from this PDF for \"1835, generally placed at the southwest corner of Clark & Randolph / on the public square; a small wooden stockade-type building\" - the corner and the description are NOT in this document and must be carried by Andreas or by nothing. data/exclusions.json's watch_list already records the harder problem correctly: no source fixes a month in 1835, so on 1835-07-01 the building may be unbuilt, under construction or just finished.\n\nTIER 4 GRADES THIS DOCUMENT, NOT ITS BIBLIOGRAPHY. It is a modern institutional summary, unsigned and undated, several removes from any of the five works it lists, and it cites none of them to a page. The oldest internal evidence of its own date is a Google Books session URL of the early 2010s.",
+  "access_notes": "Served as a PDF over HTTPS; text is drawn with subset fonts and needs a ToUnicode-aware extractor rather than a plain byte read. Eight pages; pages 3, 4, 6, 7 and 8 are almost entirely images.",
+  "what_it_supplies": [
+    "that Cook County built its first courthouse in 1835",
+    "the first courthouse's span, 1835-1853",
+    "that the SECOND courthouse (and city hall), 1853, was Greek Revival, built with stone brought from Lockport, New York, and designed by John M. Van Osdel",
+    "the later chronology: an added storey 1858-59, destroyed in the 1871 fire, rebuilt 1885, again 1905-11, Daley Center 1965",
+    "the courthouse square's later uses - trees planted 1854, a wheat crop harvested 1860, cattle grazing in the Civil War, refuse complained of in 1863"
+  ],
+  "what_it_does_not_supply": [
+    "any dimension of the 1835 courthouse",
+    "its material, storey count, roof or portico",
+    "its location, corner or orientation",
+    "the month in 1835 it was built",
+    "the four-column Doric portico description, which is Andreas on the 1837 building",
+    "any period image - its illustrations are reproductions of unstated origin"
+  ]
+}

@@ -1,0 +1,18 @@
+{
+ "schema": 1,
+ "familysearch_id": "33S7-9YYJ-C8",
+ "image": "chicago/reference/census1840/33S7-9YYJ-C8.jpg",
+ "printed_page": 238,
+ "sheet_side": "left",
+ "division": "not written on this sheet \u2014 the division line of the printed heading is blank",
+ "state": "Illinois",
+ "county": "Cook",
+ "reading": "scan_verified",
+ "read_pass": "page kind only; there are no entries to read",
+ "cells_state": "not_applicable",
+ "cells_note": "the sheet is printed and ruled and wholly unfilled.",
+ "lines_ruled_with_an_entry": 0,
+ "page_kind": "printed_but_unfilled",
+ "note": "The printed page number 238 IS written on this sheet, so the page exists in the book's numbering and carries no households. That is evidence, not a hole: a swept-and-empty page is why coverage.json declares it.",
+ "records": []
+}

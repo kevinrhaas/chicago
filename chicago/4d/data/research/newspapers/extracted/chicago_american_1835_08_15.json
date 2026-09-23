@@ -1,0 +1,293 @@
+{
+  "schema": 1,
+  "issue_id": "chicago_american_1835_08_15",
+  "extracted": "2026-08-28",
+  "extracted_by": "hand, T-0261 — the Chicago American read, June to August 1835",
+  "note": "Volume I, Number 11. The school for young ladies is named and dated — its proprietor proposes it, its fall term opens Monday 17 August, and enquiries go to Henry Moore's office. The tailor is named too, Edward Burton, and his street reads LAKE here, which is what withdrew the Franklin Street reading 1835-07-25 had recorded. A. Garrett reappears as an auctioneer at No. 1 Dearborn street, and Frederick Thomas's patent medicine shelf is set out brand by brand.",
+  "claims": [
+    {
+      "id": "c001",
+      "kind": "notice",
+      "reading": "transcription_mediated",
+      "quote": "FOR You N ¢ TADIES. Me RK {ABLES HUNT propases position Fi iS Pan a ad aa anaes’ v0 rening a ASG be offtrred,\n*The fat Terin will cameenes Monday, Amp: 17. Fsraons dasiroan of encosraging a kel stitution, aro reqiieeted ta leave deeit ns\nue to’ that day, nt the office of Henry Len\nwhero sativfactory credentinin my. hd econ.\nTuuws,—For tho ordiaary Engin: saw per eu ot clsven ven essa For the higher\nPatglish Uranches, Ee tho Latin, Greek, ae ree naan Ba",
+      "normalized": "[A SCHOOL] FOR YOUNG LADIES. M[uncertain: e RK {ABLES — a title and forename this column does not resolve] HUNT propo[s]es […] [to make it a permanent institution should sufficient encou]rag[ement] be offered. The fa[ll] Term will comme[n]ce Monday, Aug[ust] 17. P[e]r[s]ons desiro[us] of enco[u]raging [the in]stitution are req[u]ested to leave the[ir] n[ames previo]us to that day, at the office of Henry [Moore], where sati[s]factory credent[i]a[l]s m[a]y b[e] [s]e[e]n. TER[M]S. — For the ordi[na]ry Engli[sh branches …] per [t]e[rm] o[f] eleven […] For the higher [En]glish [b]ranches, [$7.00; for] the Latin, Greek [and French …]",
+      "locator": {
+        "artifact_role": "primary",
+        "issue_page": 3,
+        "column": 6,
+        "lines": [
+          307,
+          312
+        ],
+        "lines_of_claim": [
+          307,
+          308,
+          309,
+          310,
+          311,
+          312
+        ],
+        "interleaved": true,
+        "spans": [
+          {
+            "line": 307,
+            "from": 0,
+            "to": 109
+          },
+          {
+            "line": 308,
+            "from": 0,
+            "to": 127
+          },
+          {
+            "line": 309,
+            "from": 0,
+            "to": 43
+          },
+          {
+            "line": 310,
+            "from": 0,
+            "to": 43
+          },
+          {
+            "line": 311,
+            "from": 0,
+            "to": 75
+          },
+          {
+            "line": 312,
+            "from": 0,
+            "to": 54
+          }
+        ]
+      },
+      "entities": [
+        {
+          "as_printed": "{ABLES HUNT",
+          "normalized": "Hunt",
+          "role": "proprietor",
+          "occupations": [
+            "schoolteacher"
+          ],
+          "associated_places": []
+        }
+      ],
+      "notes": "THE SCHOOL HAS A NAME AND A DATE: a school FOR YOUNG LADIES proposed by someone named HUNT, opening its fall term on Monday 17 August 1835 and becoming permanent only if enough subscribers come forward. Enquiries go 'at the office of Henry [Moore]' — the attorney whose own office this run places in J. H. Kinzie's new store and who is secretary of the Chicago Reading Room. So one lawyer's office is the town's clearing house for its two new civic ventures, which is a real fact about how a town of 3,000 organised itself. THE TITLE AND FORENAME ARE DESTROYED: 'Me RK {ABLES HUNT' could be Mrs., Miss or Mr. and a forename, and the difference decides whether the proprietor of a girls' school was a woman — which is exactly the sort of thing that must not be guessed. The surname alone is minted. Greek joins Latin and French in this printing's fee scale."
+    },
+    {
+      "id": "c002",
+      "kind": "business",
+      "reading": "transcription_mediated",
+      "quote": "RRSTT, Auctioneer, 1, Dearbera are Chigago, Jey Bb, net NEW FASHIONABUE Talléring Extablisiment, ~\nHE: subscriber, late Af uy ake a York, ©\nhaving wakert a 3 lake - strom, weer mull bege lenre 1.\nhere of pie peunaegs, Chicago, 270 Juma, s1935, KOWARD BURTON,",
+      "normalized": "[GA]RR[E]TT, Auctioneer, [No.] 1 Dearbor[n stre]et. Chi[c]ago, J[ul]y [?]. NEW FASHIONAB[LE] Tailoring E[s]tabli[s]hment. [T]HE subscriber, late [o]f [the cit]y [of New] York, having ta[ken a shop in] lake - str[eet], w[h]e[re] [he] beg[s] leav[e …] [a s]hare of p[ublic] p[atro]n[ag]e. Chicago, 27[th] Jun[e], 1[8]35. [E]DWARD BURTON.",
+      "locator": {
+        "artifact_role": "primary",
+        "issue_page": 3,
+        "column": 6,
+        "lines": [
+          324,
+          327
+        ],
+        "lines_of_claim": [
+          324,
+          325,
+          326,
+          327
+        ],
+        "interleaved": true,
+        "spans": [
+          {
+            "line": 324,
+            "from": 0,
+            "to": 98
+          },
+          {
+            "line": 325,
+            "from": 0,
+            "to": 40
+          },
+          {
+            "line": 326,
+            "from": 0,
+            "to": 55
+          },
+          {
+            "line": 327,
+            "from": 0,
+            "to": 62
+          }
+        ]
+      },
+      "entities": [
+        {
+          "as_printed": "KOWARD BURTON",
+          "normalized": "Edward Burton",
+          "role": "proprietor",
+          "occupations": [
+            "tailor"
+          ],
+          "associated_places": []
+        },
+        {
+          "as_printed": "RRSTT",
+          "normalized": "A. Garrett",
+          "role": "proprietor",
+          "occupations": [
+            "auctioneer"
+          ],
+          "associated_places": [
+            "Dearborn Street"
+          ]
+        }
+      ],
+      "ad_copy_date": {
+        "verbatim": "Chicago, 270 Juma, s1935,",
+        "iso": "1835-06-27"
+      },
+      "business": {
+        "name": "a new tailoring establishment, Chicago, June 1835",
+        "proprietors": [
+          "Edward Burton"
+        ],
+        "trade": "tailoring",
+        "goods": [],
+        "street": null,
+        "placement": {
+          "class": "none",
+          "anchor": null,
+          "offset_text": null,
+          "offset_normalized": null,
+          "street": null
+        }
+      },
+      "notes": "THE TAILOR IS EDWARD BURTON, late of New York — a forename only in the three earlier printings. HIS STREET IS STILL NOT SETTLED AND THIS PRINTING IS WHY. 1835-06-27 reads 'Shop in Frank eter street'; 1835-07-25 reads 'a Bhop ia rroklia', which that claim took as FRANKLIN; 1835-08-01 reads 'Shop in Laks runlie'; and this one reads 'having taken a [shop in] lake - street' with the word clean. Two witnesses for Lake, one for Franklin, one unreadable — so the 07-25 claim's Franklin Street inference has been WITHDRAWN from the business (the reading itself still stands in that file's quote) and no street is recorded here either. A page-image pass decides it. A. GARRETT, whose South Water Street store Montgomery took over in July, is here signing as an auctioneer in his own right at No. 1 Dearborn street — a street number, which is the only one in the entire run."
+    },
+    {
+      "id": "c003",
+      "kind": "business",
+      "reading": "transcription_mediated",
+      "quote": "TT FREEBIE THOMAS, Dragelst and Apotheea: ter Stroct, ‘Sioa informs the eit eal. tbat part oF b sin. Droge, Pe Ferlamery, Oi a, Pesots share bose neelvod by i, sehen t and paiaoitbols ore orislasof ear ey, tha ate Seals ecien of ic patronage. “All amlera w wended to,::\n= Mixture and Byrup\nit of Life; Peeacrving Cordial.\naman’ Garmigative Balm ond Health Re\n(Calne tml Inflamatory Beiuiic. ‘Anu Consumpt ve i\nmie Po eee and Vor Eoo’s Pills, Thecus Drop, ees goa, Turlingacn’s Halaarn, do.",
+      "normalized": "FRE[DERICK] THOMAS, Drug[gi]st and Apotheca[ry, Wa]ter Str[ee]t, [respectfully] informs the cit[iz]e[ns … th]at part o[f his] […] Drug[s], P[aints], Perfumery, Oi[ls] a[nd Dye] St[uffs] [h]a[v]e be[e]n rec[e]ived b[y] […] [and solicits a] [c]on[t]inuan[c]e of […] patronage. All o[r]ders [attended] to. […] [Bran]d[reth's?] Mixture and Syrup; [Elix]i[r] of Life; Preserving Cordial; [uncertain: aman's] Carminative Balm and Health Re[storative]; […] [Anti-Bi]l[i]o[us] and Inflam[m]atory [Spec]ific; Anti-Consumpt[i]ve […] […] and […] L[e]e's Pills; Th[om]as' Drop[s]; […] Turling[t]on's Balsam, do.",
+      "locator": {
+        "artifact_role": "primary",
+        "issue_page": 4,
+        "column": 4,
+        "lines": [
+          397,
+          402
+        ],
+        "lines_of_claim": [
+          397,
+          398,
+          399,
+          400,
+          401,
+          402
+        ],
+        "interleaved": true,
+        "spans": [
+          {
+            "line": 397,
+            "from": 87,
+            "to": 356
+          },
+          {
+            "line": 398,
+            "from": 0,
+            "to": 19
+          },
+          {
+            "line": 399,
+            "from": 0,
+            "to": 31
+          },
+          {
+            "line": 400,
+            "from": 0,
+            "to": 36
+          },
+          {
+            "line": 401,
+            "from": 0,
+            "to": 50
+          },
+          {
+            "line": 402,
+            "from": 0,
+            "to": 79
+          }
+        ]
+      },
+      "entities": [],
+      "business": {
+        "name": "Frederick Thomas, drugs and paints",
+        "proprietors": [],
+        "trade": "drugs, paints, chemicals, perfumery and dye stuffs",
+        "goods": [
+          "Carminative Balm",
+          "Lee's Pills",
+          "Preserving Cordial",
+          "Turlington's Balsam"
+        ],
+        "street": "Water Street",
+        "placement": {
+          "class": "street_only",
+          "anchor": null,
+          "offset_text": "Dragelst and Apotheea: ter Stroct,",
+          "offset_normalized": "Drug[gi]st and Apotheca[ry, Wa]ter Str[ee]t",
+          "street": "Water Street"
+        }
+      },
+      "notes": "THE PATENT MEDICINE SHELF, BRAND BY BRAND — Turlington's Balsam, Lee's Pills, an elixir of life, a preserving cordial, a carminative balm, an anti-bilious and inflammatory specific and an anti-consumptive. Set beside Russell & Clift's Evans's Hygeian agency, the London and Paris Hygeian pills, Dr. Buchan's acoustic oil and Frederick Thomas's own Fire King's cholera specific, the run now documents a substantial patent-medicine trade in a town of under three thousand people. Thomas is also still restocking by lake — 'part of his [supplies in] Drugs, Paints, Perfumery, Oils and Dye Stuffs have been received', the same sentence 1835-07-04 carried with the schooner named and cut."
+    },
+    {
+      "id": "c004",
+      "kind": "business",
+      "reading": "transcription_mediated",
+      "quote": "TING. BROWN\nje itanre ote tat he bese ii ee erate a an cover Briggw be el rant I bestees ineline “s Biga, Orntmental and Fa ing, ae ‘fe executed la tho fire ‘Anction Store, TIE gitecr baring cen he cated by A, Garrett, South Wa is ready 10 receive goods 00 cee exe ut tea the above and D. Carver's W, MONTGOMERY: Ape July 17, 1835. ““THOMAR NEW DRUG, MEDIC Paint, and Ot} Stor Water sireel.",
+      "normalized": "[PAIN]TING. BROWN […] [informs the inhab]itant[s of Chicago] that he ha[s established himself …] over Brigg[s & Humphrey's …] [he'll t]ransact [all] busine[ss] in [h]is line […] Sig[n], Ornamental and Fa[ncy Paint]ing […] executed i[n] the fi[nest style]. Auction Store. TH[E] [subs]cri[ber] having [ta]ken [t]he [store lately oc]c[up]ied by A. Garrett, South Wa[ter street,] is ready to receive goods on c[onsignment and will sell at both] the above and D. Carver's [old stand]. W. MONTGOMERY, [Auctioneer]. July 17, 1835. THOMA[S]. NEW DRUG, MEDIC[INE], Paint and O[i]l Stor[e], Water s[t]ree[t].",
+      "locator": {
+        "artifact_role": "primary",
+        "issue_page": 4,
+        "column": 5,
+        "lines": [
+          431,
+          432
+        ],
+        "lines_of_claim": [
+          431,
+          432
+        ],
+        "interleaved": true,
+        "spans": [
+          {
+            "line": 431,
+            "from": 0,
+            "to": 11
+          },
+          {
+            "line": 432,
+            "from": 0,
+            "to": 378
+          }
+        ]
+      },
+      "entities": [],
+      "business": {
+        "name": "Brown, painter",
+        "proprietors": [],
+        "trade": "carriage, sign, ornamental and figure painting, and gilding",
+        "goods": [],
+        "street": "Randolph Street",
+        "placement": {
+          "class": "relative",
+          "anchor": "Briggs & Humphrey's",
+          "offset_text": "cover Briggw be el rant I bestees ineline",
+          "offset_normalized": "over Brigg[s & Humphrey's]",
+          "street": "Randolph Street"
+        }
+      },
+      "notes": "BROWN THE PAINTER IS STILL OVER BRIGGS & HUMPHREY'S in mid-August, ten weeks after his first insertion — the anchor is legible here and the street word is not, so Randolph Street is carried from the 1835-06-13 printing where both were. An upper-floor tenancy holding for a whole summer is worth more than a single notice: it says Briggs & Humphrey's building had a let floor over it as a standing arrangement. THREE ADVERTISEMENTS ARE QUOTED TOGETHER because the segmenter runs them into one line, and the other two are both corroborations rather than new claims: Montgomery's two auction stores, and Frederick Thomas's Water Street drug store under its full sign, 'NEW DRUG, MEDICINE, PAINT AND OIL STORE'."
+    }
+  ]
+}

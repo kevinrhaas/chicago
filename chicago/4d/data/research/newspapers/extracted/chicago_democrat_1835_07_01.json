@@ -1,0 +1,5517 @@
+{
+  "schema": 1,
+  "issue_id": "chicago_democrat_1835_07_01",
+  "extracted": "2026-08-28",
+  "extracted_by": "hand, T-0257 (c001-c003, the worked fixture) and T-0295 (c004-c021, the issue read through)",
+  "note": "The scene-date Democrat, read through. T-0257 left c001-c003 as the fixture its schema was written against; T-0295 read the rest. The reading is made from the RECONCILED deposit transcription (`artifact_role: primary`), not from the `-2` rebuild this branch can open: the letter list is legible at name level in the primary and is not in the alternate. The segmenter cut each printed column in half and alternates the halves line by line, so almost every claim here is `interleaved` and most bracketed supplies are read off the OTHER half of the same printed lines — each claim's note says which lines those are. Nothing is supplied that the transcription does not carry somewhere.",
+  "claims": [
+    {
+      "id": "c001",
+      "kind": "business",
+      "reading": "transcription_mediated",
+      "quote": "WOrD beg leave to inform\nPETER COHEN,\ntomere, and the public ge\nhe has just received by brig india\nfor sale on the most reasonable ti\ncomplete and splendid assortment\nDry Goods, Groce\nCLOTHIN\nwell suited to this section of the c\nkinka of Liquors, at wholesale an\nrespectfully requests the people to\namme for themselves, at his store\nlow Mesers. Newberry and Dole's\non south water street.\nChicago, Nor. 3, 1634.-49.",
+      "normalized": "PETER COHEN […] [WOULD] beg leave to inform [his cus]tomers, and the public ge[nerally …] he has just received by brig India […] for sale on the most reasonable t[erms …] complete and splendid assortment [of] Dry Goods, Groce[ries …] CLOTHIN[G …] well suited to this section of the c[ountry …] [all] kin[d]s of Liquors, at wholesale an[d retail …] respectfully requests the people to [call and ex]amine for themselves, at his store […]low Messrs. Newberry and Dole's […] on south water street. Chicago, Nov. 3, 1834.-49.",
+      "locator": {
+        "artifact_role": "primary",
+        "issue_page": 4,
+        "column": 5,
+        "lines": [
+          5040,
+          5068
+        ],
+        "lines_of_claim": [
+          5040,
+          5041,
+          5044,
+          5046,
+          5048,
+          5050,
+          5051,
+          5053,
+          5056,
+          5058,
+          5060,
+          5061,
+          5063,
+          5066,
+          5068
+        ],
+        "interleaved": true
+      },
+      "entities": [
+        {
+          "as_printed": "PETER COHEN",
+          "normalized": "Peter Cohen",
+          "role": "proprietor",
+          "occupations": [
+            "merchant"
+          ],
+          "associated_places": [
+            "South Water Street"
+          ]
+        }
+      ],
+      "ad_copy_date": {
+        "verbatim": "Chicago, Nor. 3, 1634.-49.",
+        "iso": "1834-11-03"
+      },
+      "business": {
+        "name": "Peter Cohen",
+        "proprietors": [
+          "Peter Cohen"
+        ],
+        "trade": "dry goods, groceries, clothing and liquors, wholesale and retail",
+        "goods": [
+          "Clothing",
+          "Dry Goods",
+          "Groceries",
+          "Liquors"
+        ],
+        "street": "South Water Street",
+        "placement": {
+          "class": "relative",
+          "anchor": "Messrs. Newberry and Dole's",
+          "offset_text": "low Mesers. Newberry and Dole's",
+          "offset_normalized": "[…]low Messrs. Newberry and Dole's",
+          "street": "South Water Street"
+        }
+      },
+      "notes": "INTERLEAVE. Lines 5040-5068 of the transcription alternate this advertisement with an unrelated bank notice; the quote is the fifteen lines that belong to Cohen and `lines_of_claim` names them. Line 5052 ('1018.') sits in the range and belongs to neither reading, so it is left out rather than assigned. OCR JUDGEMENTS, all rn/m-class or long-s confusions: 'WOrD'→'[WOULD]', 'tomere'→'[cus]tomers', 'india'→'India', 'kinka'→'kin[d]s', 'amme'→'[ex]amine', 'Mesers.'→'Messrs.', 'Nor. 3, 1634'→'Nov. 3, 1834'. THE DATELINE. '1634' cannot stand: the Democrat's run begins in November 1833 and this is Vol. II No. 11 of 1835-07-01, so the ad is a standing one placed 1834-11-03 and '-49' is its insertion count. WHAT IS NOT SUPPLIED. Line 5063 begins mid-word at the column edge: the transcription reads 'low Mesers. Newberry and Dole's' and the words before 'low' are cut away. T-0257's own text quotes them as 'a few doors below', and that phrase is not in this issue, so it is NOT supplied here — '[…]' marks the gap. A fuller witness may exist: Chicago Democrat 1834-06-04 line 2362 reads 'A,fec doors below Messrs. Nacberry & Dol'.' in a column that also names Peter Cohen, and settling whether that is this same standing advertisement is work for the Democrat read, not for this fixture."
+    },
+    {
+      "id": "c002",
+      "kind": "business",
+      "reading": "transcription_mediated",
+      "quote": "J. S. C. HOGA\nOFFERS AL Wholesale and lieui\nin South Water Street, one\nthe Post Office,\nDry Goods, Groc\nHardware, Croekery and Gi\nAlso—-a quantity of 8by 10, and 7\nGlass and Sash,\ndoz. corn BASKETS;\n200 sides Sole Leather;\n60\nUpper do.;\n& doz. Calf and Kip Shins.",
+      "normalized": "J. S. C. HOGA[N] […] OFFERS A[t] Wholesale and [Retail …] in South Water Street, one […] the Post Office, […] Dry Goods, Groc[eries …] Hardware, Cro[c]kery and G[lass …] Also — a quantity of 8 by 10, and 7 [by 9] Glass and Sash, […] doz. corn BASKETS; 200 sides Sole Leather; 60 […] Upper do.; […] doz. Calf and Kip Sk[i]ns.",
+      "locator": {
+        "artifact_role": "primary",
+        "issue_page": 4,
+        "column": 5,
+        "lines": [
+          5070,
+          5091
+        ],
+        "lines_of_claim": [
+          5070,
+          5072,
+          5075,
+          5076,
+          5079,
+          5081,
+          5082,
+          5083,
+          5084,
+          5086,
+          5088,
+          5090,
+          5091
+        ],
+        "interleaved": true
+      },
+      "entities": [
+        {
+          "as_printed": "J. S. C. HOGA",
+          "normalized": "J. S. C. Hogan",
+          "role": "proprietor",
+          "occupations": [
+            "merchant"
+          ],
+          "associated_places": [
+            "South Water Street"
+          ]
+        }
+      ],
+      "ad_copy_date": null,
+      "business": {
+        "name": "J. S. C. Hogan",
+        "proprietors": [
+          "J. S. C. Hogan"
+        ],
+        "trade": "dry goods, groceries, hardware, crockery and glass, wholesale and retail",
+        "goods": [
+          "Crockery",
+          "Dry Goods",
+          "Glass and Sash",
+          "Groceries",
+          "Hardware",
+          "Sole Leather"
+        ],
+        "street": "South Water Street",
+        "placement": {
+          "class": "relative",
+          "anchor": "the Post Office",
+          "offset_text": "in South Water Street, one\nthe Post Office,",
+          "offset_normalized": "in South Water Street, one […] the Post Office",
+          "street": "South Water Street"
+        }
+      },
+      "notes": "INTERLEAVE, same column and the same alternation as c001. THE NAME. Line 5070 is cut after 'HOGA'; the final letter is restored on a second witness in this issue rather than guessed — the post-office notice at line 3705 of page 3 column 5 is signed 'HOGAN, P. M.'. Whether the postmaster and this merchant are one man is an identification this fixture does NOT make: no merge is declared in identity.json and the two would need one. THE PLACEMENT IS THE POINT AND IT IS INCOMPLETE. Lines 5075-5076 read 'in South Water Street, one' / 'the Post Office,' — whatever stood between them is cut by the column edge. T-0257's text quotes it as 'one [door from] the Post Office'; no witness in this issue supports 'door from', so the words are left unsupplied and '[…]' marks the gap. The anchor is documented either way. NO DATELINE. The ad carries the insertion code '2m5' (line 5080) and no 'Chicago, <date>' line, so `ad_copy_date` is null rather than inferred from the code."
+    },
+    {
+      "id": "c003",
+      "kind": "person",
+      "reading": "transcription_mediated",
+      "letter_list_only": true,
+      "quote": "ork, James Houston",
+      "normalized": "[W]ork, James Houston",
+      "locator": {
+        "artifact_role": "primary",
+        "issue_page": 3,
+        "column": 5,
+        "lines": [
+          3645,
+          3645
+        ],
+        "lines_of_claim": [
+          3645
+        ],
+        "interleaved": true
+      },
+      "entities": [
+        {
+          "as_printed": "ork, James Houston",
+          "normalized": "Work, James Houston",
+          "role": "addressee"
+        }
+      ],
+      "notes": "RULING 1 — a listed name alone mints a resident candidate, and this claim is the fixture's worked example of one: `letter_list_only` is true here and the compiler carries it onto the person. THE LIST is the post office's, interleaved with advertising through page 3 column 5 and closed at line 3705 by its own notice, signed 'HOGAN, P. M.'. Every name in it is cut at the left column edge, which is why this one was chosen: the alternate transcription of the same issue (data/research/newspapers/text/chicago_democrat_1835_07_01__alt_transcription_2.txt, line 274) reads 'Work, James Houston' in full, so the initial W is restored on a SECOND WITNESS and not on the shape of the word. Neighbouring names have no such agreement — line 3652 reads 'hitney, Joshus' here and 'Whurney, Julian' there — and are left for the Democrat read to settle."
+    },
+    {
+      "id": "c004",
+      "kind": "person",
+      "reading": "transcription_mediated",
+      "quote": "Arams, Benj. I\nAyres, Levi\nAllin, Richard\nAnderson, Eli F\nAlling, Prudde\nAdains, Willısi\nAiker, Samuel\nAbbot, 8. G.\nAshbaugh, Fre\nAndrews, Davi\nArcher, Joseph\nAllison, Tho's\nAllen, William\nAvery, Charles\nAnstin, Mr. Al.\nAkers, Simon\nB.\nBailly, Joseph\nBenubien, Charl\nBlood, Amos\nBrookins, David\nButterfield, Loa\nBeadieston, Ste\nButterfield, Ben\nBruen, Matthias\nBrown, John\nBrown, B.\nBrown, Francis\nBrown, Skilan\nBrown, William\nBradstreet, J. P\nBrown, Aron\nBurdick, Paul\nBaldwin, Harve\nBaldwin, Eimer\nBenediet, Loma\nBrilly, Bancrott\nBailey. Bennet\nBostwick, E. B.\nBarrest, Wilham\nBullen, Jeduthnn\nBloget, Josiah I\nBakwith, Albert\nBoardman, Elect\nBryant, J. R. M\nBennett, S. C.\nBemis, Samuel C\nBebee, Orson\nByam, Seth\nBallantine, Geor\nBrooks, Gardner\nBorum, Richard\nBowen, air.\nBarney, Julias A\nBarney, John\nBarber, Beta L..\nBarber, Catharine\nBoles, George\nBarnes, Wheeler\nBruen, hir.\nBlair, William G\nBurbee, Jonathan\nBandle, Willınm\nBeeson, William\nBishop, J. E.\nBoardwell, Gideo\nBaxter, Daniel\nBrush, Matthias\nBulkley, A.\nBarton, James\nBacon, Richani jr.\nBullock, Stephen\nBanstun, Charles\nBly, Rouse\nBenton, Datas E\nBehan, Tho's.\nBiakie, A. or H. P\nBeddlecome, Ash\nBerry, Benjamin /\nBeger, Tobias\nBean, George B.\nB.\nCatton, Mr.\nCatton, Mr.\nCatton, William\nChambers, John\nComstock, H. H.\nCurtis, Liman\nCrandall, Beman\nChappel, Eliza Mir\nClark, James Capt\nClark John\nClement, DorCinrk\nClark, Erastus\nClark, Samuel Ho\nCarpenter, Gilbert\nCanp, George S.\nChanpagne, Batist\nChurch, Francis\nChariton, Lewis\nClizbe, Joseph\nCook, Rowland I!.\nClapp. A. P.\nCovell, Thomas R.\nCodding, Sally Mr\nCasey, Joln W.\nCooley, Edward V\nClark, Norman\nCrawford, James\nChadwick, Joseph\nChamberlain, L. C\nCase, Nehemiah\nCrane, H. Y.\nConkiin, Robert I.\nChase, William C.\nCrull, David\nChurch, Jeremiah\nchristie, N. W.\nChase, Peter\nCheney, Charles\nCurtenius, Fred'k.\nCrocker, O. C.\nChiney, Ralph\nChipman, A.\nD.\nDykine, Elias S.\nDemotte, Lenac\nDean, James L..\nDalton, Edward\nDemans, J. T•\nDement, Wm.\nDilbee, David B.\nDody, Mr.\nDamels, Samuel\nDay, Ann Airs.\nDow, Albert F.\nDarling, Daniel\nDavenport, Dennis\nDay, James\nDating, Brah\nDougherty, Joan",
+      "normalized": "The A to D of the Chicago post-office letter list of 1835-06-30, read down the column: Arams, Benj. I; Ayres, Levi; Allin, Richard; Anderson, Eli F; Alling, Prudde; Adains, Willisi; Aiker, Samuel; Abbot, 8. G.; Ashbaugh, Fre; Andrews, Davi; Archer, Joseph; Allison, Tho's; Allen, William; Avery, Charles; Anstin, Mr. Al.; Akers, Simon; Bailly, Joseph; Benubien, Charl; Blood, Amos; Brookins, David; Butterfield, Loa; Beadieston, Ste; Butterfield, Ben; Bruen, Matthias; Brown, John; Brown, B.; Brown, Francis; Brown, Skilan; Brown, William; Bradstreet, J. P; Brown, Aron; Burdick, Paul; Baldwin, Harve; Baldwin, Eimer; Benediet, Loma; Brilly, Bancrott; Bailey. Bennet; Bostwick, E. B.; Barrest, Wilham; Bullen, Jeduthnn; Bloget, Josiah I; Bakwith, Albert; Boardman, Elect; Bryant, J. R. M; Bennett, S. C.; Bemis, Samuel C; Bebee, Orson; Byam, Seth; Ballantine, Geor; Brooks, Gardner; Borum, Richard; Bowen, air.; Barney, Julias A; Barney, John; Barber, Beta L..; Barber, Catharine; Boles, George; Barnes, Wheeler; Bruen, hir.; Blair, William G; Burbee, Jonathan; Bandle, Willinm; Beeson, William; Bishop, J. E.; Boardwell, Gideo; Baxter, Daniel; Brush, Matthias; Bulkley, A.; Barton, James; Bacon, Richani jr.; Bullock, Stephen; Banstun, Charles; Bly, Rouse; Benton, Datas E; Behan, Tho's.; Biakie, A. or H. P; Beddlecome, Ash; Berry, Benjamin /; Beger, Tobias; Bean, George B.; Catton, Mr.; Catton, Mr.; Catton, William; Chambers, John; Comstock, H. H.; Curtis, Liman; Crandall, Beman; Chappel, Eliza Mir; Clark, James Capt; Clark John; Clement, DorCinrk; Clark, Erastus; Clark, Samuel Ho; Carpenter, Gilbert; Canp, George S.; Chanpagne, Batist; Church, Francis; Chariton, Lewis; Clizbe, Joseph; Cook, Rowland I!.; Clapp. A. P.; Covell, Thomas R.; Codding, Sally Mr; Casey, Joln W.; Cooley, Edward V; Clark, Norman; Crawford, James; Chadwick, Joseph; Chamberlain, L. C; Case, Nehemiah; Crane, H. Y.; Conkiin, Robert I.; Chase, William C.; Crull, David; Church, Jeremiah; [B]christie, N. W.; Chase, Peter; Cheney, Charles; Curtenius, Fred'k.; Crocker, O. C.; Chiney, Ralph; Chipman, A.; Dykine, Elias S.; Demotte, Lenac; Dean, James L..; Dalton, Edward; Demans, J. T; Dement, Wm.; Dilbee, David B.; Dody, Mr.; Damels, Samuel; Day, Ann Airs.; Dow, Albert F.; Darling, Daniel; Davenport, Dennis; Day, James; Dating, Brah; Dougherty, Joan.",
+      "locator": {
+        "artifact_role": "primary",
+        "issue_page": 3,
+        "column": 3,
+        "lines": [
+          2839,
+          3126
+        ],
+        "lines_of_claim": [
+          2839,
+          2841,
+          2843,
+          2845,
+          2847,
+          2849,
+          2852,
+          2853,
+          2855,
+          2857,
+          2859,
+          2860,
+          2862,
+          2864,
+          2866,
+          2868,
+          2870,
+          2872,
+          2874,
+          2876,
+          2878,
+          2880,
+          2882,
+          2884,
+          2887,
+          2889,
+          2891,
+          2893,
+          2896,
+          2897,
+          2900,
+          2903,
+          2905,
+          2907,
+          2911,
+          2914,
+          2917,
+          2919,
+          2922,
+          2924,
+          2927,
+          2930,
+          2933,
+          2936,
+          2938,
+          2942,
+          2943,
+          2946,
+          2948,
+          2950,
+          2952,
+          2954,
+          2956,
+          2959,
+          2961,
+          2962,
+          2965,
+          2966,
+          2968,
+          2971,
+          2973,
+          2975,
+          2977,
+          2979,
+          2981,
+          2983,
+          2984,
+          2986,
+          2987,
+          2989,
+          2991,
+          2993,
+          2994,
+          2996,
+          2998,
+          2999,
+          3001,
+          3003,
+          3005,
+          3007,
+          3008,
+          3010,
+          3012,
+          3013,
+          3015,
+          3017,
+          3018,
+          3022,
+          3024,
+          3027,
+          3029,
+          3031,
+          3035,
+          3036,
+          3039,
+          3043,
+          3045,
+          3046,
+          3047,
+          3048,
+          3050,
+          3052,
+          3054,
+          3056,
+          3058,
+          3060,
+          3062,
+          3063,
+          3065,
+          3066,
+          3068,
+          3070,
+          3072,
+          3074,
+          3076,
+          3078,
+          3080,
+          3082,
+          3084,
+          3086,
+          3089,
+          3091,
+          3093,
+          3095,
+          3096,
+          3098,
+          3100,
+          3101,
+          3103,
+          3106,
+          3107,
+          3108,
+          3109,
+          3111,
+          3113,
+          3115,
+          3116,
+          3118,
+          3120,
+          3123,
+          3126
+        ],
+        "interleaved": true
+      },
+      "letter_list_only": true,
+      "post_office": {
+        "name": "Chicago",
+        "postmaster": "J. S. C. Hogan",
+        "list_date": "1835-06-30"
+      },
+      "entities": [
+        {
+          "as_printed": "Arams, Benj. I",
+          "normalized": "Arams, Benj. I",
+          "role": "letter_list",
+          "associated_places": [
+            "Chicago"
+          ]
+        },
+        {
+          "as_printed": "Ayres, Levi",
+          "normalized": "Ayres, Levi",
+          "role": "letter_list",
+          "associated_places": [
+            "Chicago"
+          ]
+        },
+        {
+          "as_printed": "Allin, Richard",
+          "normalized": "Allin, Richard",
+          "role": "letter_list",
+          "associated_places": [
+            "Chicago"
+          ]
+        },
+        {
+          "as_printed": "Anderson, Eli F",
+          "normalized": "Anderson, Eli F",
+          "role": "letter_list",
+          "associated_places": [
+            "Chicago"
+          ]
+        },
+        {
+          "as_printed": "Alling, Prudde",
+          "normalized": "Alling, Prudde",
+          "role": "letter_list",
+          "associated_places": [
+            "Chicago"
+          ]
+        },
+        {
+          "as_printed": "Adains, Willisi",
+          "normalized": "Adains, Willisi",
+          "role": "letter_list",
+          "associated_places": [
+            "Chicago"
+          ]
+        },
+        {
+          "as_printed": "Aiker, Samuel",
+          "normalized": "Aiker, Samuel",
+          "role": "letter_list",
+          "associated_places": [
+            "Chicago"
+          ]
+        },
+        {
+          "as_printed": "Abbot, 8. G.",
+          "normalized": "Abbot, 8. G.",
+          "role": "letter_list",
+          "associated_places": [
+            "Chicago"
+          ]
+        },
+        {
+          "as_printed": "Ashbaugh, Fre",
+          "normalized": "Ashbaugh, Fre",
+          "role": "letter_list",
+          "associated_places": [
+            "Chicago"
+          ]
+        },
+        {
+          "as_printed": "Andrews, Davi",
+          "normalized": "Andrews, Davi",
+          "role": "letter_list",
+          "associated_places": [
+            "Chicago"
+          ]
+        },
+        {
+          "as_printed": "Archer, Joseph",
+          "normalized": "Archer, Joseph",
+          "role": "letter_list",
+          "associated_places": [
+            "Chicago"
+          ]
+        },
+        {
+          "as_printed": "Allison, Tho's",
+          "normalized": "Allison, Tho's",
+          "role": "letter_list",
+          "associated_places": [
+            "Chicago"
+          ]
+        },
+        {
+          "as_printed": "Allen, William",
+          "normalized": "Allen, William",
+          "role": "letter_list",
+          "associated_places": [
+            "Chicago"
+          ]
+        },
+        {
+          "as_printed": "Avery, Charles",
+          "normalized": "Avery, Charles",
+          "role": "letter_list",
+          "associated_places": [
+            "Chicago"
+          ]
+        },
+        {
+          "as_printed": "Anstin, Mr. Al.",
+          "normalized": "Anstin, Mr. Al.",
+          "role": "letter_list",
+          "associated_places": [
+            "Chicago"
+          ]
+        },
+        {
+          "as_printed": "Akers, Simon",
+          "normalized": "Akers, Simon",
+          "role": "letter_list",
+          "associated_places": [
+            "Chicago"
+          ]
+        },
+        {
+          "as_printed": "Bailly, Joseph",
+          "normalized": "Bailly, Joseph",
+          "role": "letter_list",
+          "associated_places": [
+            "Chicago"
+          ]
+        },
+        {
+          "as_printed": "Benubien, Charl",
+          "normalized": "Benubien, Charl",
+          "role": "letter_list",
+          "associated_places": [
+            "Chicago"
+          ]
+        },
+        {
+          "as_printed": "Blood, Amos",
+          "normalized": "Blood, Amos",
+          "role": "letter_list",
+          "associated_places": [
+            "Chicago"
+          ]
+        },
+        {
+          "as_printed": "Brookins, David",
+          "normalized": "Brookins, David",
+          "role": "letter_list",
+          "associated_places": [
+            "Chicago"
+          ]
+        },
+        {
+          "as_printed": "Butterfield, Loa",
+          "normalized": "Butterfield, Loa",
+          "role": "letter_list",
+          "associated_places": [
+            "Chicago"
+          ]
+        },
+        {
+          "as_printed": "Beadieston, Ste",
+          "normalized": "Beadieston, Ste",
+          "role": "letter_list",
+          "associated_places": [
+            "Chicago"
+          ]
+        },
+        {
+          "as_printed": "Butterfield, Ben",
+          "normalized": "Butterfield, Ben",
+          "role": "letter_list",
+          "associated_places": [
+            "Chicago"
+          ]
+        },
+        {
+          "as_printed": "Bruen, Matthias",
+          "normalized": "Bruen, Matthias",
+          "role": "letter_list",
+          "associated_places": [
+            "Chicago"
+          ]
+        },
+        {
+          "as_printed": "Brown, John",
+          "normalized": "Brown, John",
+          "role": "letter_list",
+          "associated_places": [
+            "Chicago"
+          ]
+        },
+        {
+          "as_printed": "Brown, B.",
+          "normalized": "Brown, B.",
+          "role": "letter_list",
+          "associated_places": [
+            "Chicago"
+          ]
+        },
+        {
+          "as_printed": "Brown, Francis",
+          "normalized": "Brown, Francis",
+          "role": "letter_list",
+          "associated_places": [
+            "Chicago"
+          ]
+        },
+        {
+          "as_printed": "Brown, Skilan",
+          "normalized": "Brown, Skilan",
+          "role": "letter_list",
+          "associated_places": [
+            "Chicago"
+          ]
+        },
+        {
+          "as_printed": "Brown, William",
+          "normalized": "Brown, William",
+          "role": "letter_list",
+          "associated_places": [
+            "Chicago"
+          ]
+        },
+        {
+          "as_printed": "Bradstreet, J. P",
+          "normalized": "Bradstreet, J. P",
+          "role": "letter_list",
+          "associated_places": [
+            "Chicago"
+          ]
+        },
+        {
+          "as_printed": "Brown, Aron",
+          "normalized": "Brown, Aron",
+          "role": "letter_list",
+          "associated_places": [
+            "Chicago"
+          ]
+        },
+        {
+          "as_printed": "Burdick, Paul",
+          "normalized": "Burdick, Paul",
+          "role": "letter_list",
+          "associated_places": [
+            "Chicago"
+          ]
+        },
+        {
+          "as_printed": "Baldwin, Harve",
+          "normalized": "Baldwin, Harve",
+          "role": "letter_list",
+          "associated_places": [
+            "Chicago"
+          ]
+        },
+        {
+          "as_printed": "Baldwin, Eimer",
+          "normalized": "Baldwin, Eimer",
+          "role": "letter_list",
+          "associated_places": [
+            "Chicago"
+          ]
+        },
+        {
+          "as_printed": "Benediet, Loma",
+          "normalized": "Benediet, Loma",
+          "role": "letter_list",
+          "associated_places": [
+            "Chicago"
+          ]
+        },
+        {
+          "as_printed": "Brilly, Bancrott",
+          "normalized": "Brilly, Bancrott",
+          "role": "letter_list",
+          "associated_places": [
+            "Chicago"
+          ]
+        },
+        {
+          "as_printed": "Bailey. Bennet",
+          "normalized": "Bailey. Bennet",
+          "role": "letter_list",
+          "associated_places": [
+            "Chicago"
+          ]
+        },
+        {
+          "as_printed": "Bostwick, E. B.",
+          "normalized": "Bostwick, E. B.",
+          "role": "letter_list",
+          "associated_places": [
+            "Chicago"
+          ]
+        },
+        {
+          "as_printed": "Barrest, Wilham",
+          "normalized": "Barrest, Wilham",
+          "role": "letter_list",
+          "associated_places": [
+            "Chicago"
+          ]
+        },
+        {
+          "as_printed": "Bullen, Jeduthnn",
+          "normalized": "Bullen, Jeduthnn",
+          "role": "letter_list",
+          "associated_places": [
+            "Chicago"
+          ]
+        },
+        {
+          "as_printed": "Bloget, Josiah I",
+          "normalized": "Bloget, Josiah I",
+          "role": "letter_list",
+          "associated_places": [
+            "Chicago"
+          ]
+        },
+        {
+          "as_printed": "Bakwith, Albert",
+          "normalized": "Bakwith, Albert",
+          "role": "letter_list",
+          "associated_places": [
+            "Chicago"
+          ]
+        },
+        {
+          "as_printed": "Boardman, Elect",
+          "normalized": "Boardman, Elect",
+          "role": "letter_list",
+          "associated_places": [
+            "Chicago"
+          ]
+        },
+        {
+          "as_printed": "Bryant, J. R. M",
+          "normalized": "Bryant, J. R. M",
+          "role": "letter_list",
+          "associated_places": [
+            "Chicago"
+          ]
+        },
+        {
+          "as_printed": "Bennett, S. C.",
+          "normalized": "Bennett, S. C.",
+          "role": "letter_list",
+          "associated_places": [
+            "Chicago"
+          ]
+        },
+        {
+          "as_printed": "Bemis, Samuel C",
+          "normalized": "Bemis, Samuel C",
+          "role": "letter_list",
+          "associated_places": [
+            "Chicago"
+          ]
+        },
+        {
+          "as_printed": "Bebee, Orson",
+          "normalized": "Bebee, Orson",
+          "role": "letter_list",
+          "associated_places": [
+            "Chicago"
+          ]
+        },
+        {
+          "as_printed": "Byam, Seth",
+          "normalized": "Byam, Seth",
+          "role": "letter_list",
+          "associated_places": [
+            "Chicago"
+          ]
+        },
+        {
+          "as_printed": "Ballantine, Geor",
+          "normalized": "Ballantine, Geor",
+          "role": "letter_list",
+          "associated_places": [
+            "Chicago"
+          ]
+        },
+        {
+          "as_printed": "Brooks, Gardner",
+          "normalized": "Brooks, Gardner",
+          "role": "letter_list",
+          "associated_places": [
+            "Chicago"
+          ]
+        },
+        {
+          "as_printed": "Borum, Richard",
+          "normalized": "Borum, Richard",
+          "role": "letter_list",
+          "associated_places": [
+            "Chicago"
+          ]
+        },
+        {
+          "as_printed": "Bowen, air.",
+          "normalized": "Bowen, air.",
+          "role": "letter_list",
+          "associated_places": [
+            "Chicago"
+          ]
+        },
+        {
+          "as_printed": "Barney, Julias A",
+          "normalized": "Barney, Julias A",
+          "role": "letter_list",
+          "associated_places": [
+            "Chicago"
+          ]
+        },
+        {
+          "as_printed": "Barney, John",
+          "normalized": "Barney, John",
+          "role": "letter_list",
+          "associated_places": [
+            "Chicago"
+          ]
+        },
+        {
+          "as_printed": "Barber, Beta L..",
+          "normalized": "Barber, Beta L..",
+          "role": "letter_list",
+          "associated_places": [
+            "Chicago"
+          ]
+        },
+        {
+          "as_printed": "Barber, Catharine",
+          "normalized": "Barber, Catharine",
+          "role": "letter_list",
+          "associated_places": [
+            "Chicago"
+          ]
+        },
+        {
+          "as_printed": "Boles, George",
+          "normalized": "Boles, George",
+          "role": "letter_list",
+          "associated_places": [
+            "Chicago"
+          ]
+        },
+        {
+          "as_printed": "Barnes, Wheeler",
+          "normalized": "Barnes, Wheeler",
+          "role": "letter_list",
+          "associated_places": [
+            "Chicago"
+          ]
+        },
+        {
+          "as_printed": "Bruen, hir.",
+          "normalized": "Bruen, hir.",
+          "role": "letter_list",
+          "associated_places": [
+            "Chicago"
+          ]
+        },
+        {
+          "as_printed": "Blair, William G",
+          "normalized": "Blair, William G",
+          "role": "letter_list",
+          "associated_places": [
+            "Chicago"
+          ]
+        },
+        {
+          "as_printed": "Burbee, Jonathan",
+          "normalized": "Burbee, Jonathan",
+          "role": "letter_list",
+          "associated_places": [
+            "Chicago"
+          ]
+        },
+        {
+          "as_printed": "Bandle, Willinm",
+          "normalized": "Bandle, Willinm",
+          "role": "letter_list",
+          "associated_places": [
+            "Chicago"
+          ]
+        },
+        {
+          "as_printed": "Beeson, William",
+          "normalized": "Beeson, William",
+          "role": "letter_list",
+          "associated_places": [
+            "Chicago"
+          ]
+        },
+        {
+          "as_printed": "Bishop, J. E.",
+          "normalized": "Bishop, J. E.",
+          "role": "letter_list",
+          "associated_places": [
+            "Chicago"
+          ]
+        },
+        {
+          "as_printed": "Boardwell, Gideo",
+          "normalized": "Boardwell, Gideo",
+          "role": "letter_list",
+          "associated_places": [
+            "Chicago"
+          ]
+        },
+        {
+          "as_printed": "Baxter, Daniel",
+          "normalized": "Baxter, Daniel",
+          "role": "letter_list",
+          "associated_places": [
+            "Chicago"
+          ]
+        },
+        {
+          "as_printed": "Brush, Matthias",
+          "normalized": "Brush, Matthias",
+          "role": "letter_list",
+          "associated_places": [
+            "Chicago"
+          ]
+        },
+        {
+          "as_printed": "Bulkley, A.",
+          "normalized": "Bulkley, A.",
+          "role": "letter_list",
+          "associated_places": [
+            "Chicago"
+          ]
+        },
+        {
+          "as_printed": "Barton, James",
+          "normalized": "Barton, James",
+          "role": "letter_list",
+          "associated_places": [
+            "Chicago"
+          ]
+        },
+        {
+          "as_printed": "Bacon, Richani jr.",
+          "normalized": "Bacon, Richani jr.",
+          "role": "letter_list",
+          "associated_places": [
+            "Chicago"
+          ]
+        },
+        {
+          "as_printed": "Bullock, Stephen",
+          "normalized": "Bullock, Stephen",
+          "role": "letter_list",
+          "associated_places": [
+            "Chicago"
+          ]
+        },
+        {
+          "as_printed": "Banstun, Charles",
+          "normalized": "Banstun, Charles",
+          "role": "letter_list",
+          "associated_places": [
+            "Chicago"
+          ]
+        },
+        {
+          "as_printed": "Bly, Rouse",
+          "normalized": "Bly, Rouse",
+          "role": "letter_list",
+          "associated_places": [
+            "Chicago"
+          ]
+        },
+        {
+          "as_printed": "Benton, Datas E",
+          "normalized": "Benton, Datas E",
+          "role": "letter_list",
+          "associated_places": [
+            "Chicago"
+          ]
+        },
+        {
+          "as_printed": "Behan, Tho's.",
+          "normalized": "Behan, Tho's.",
+          "role": "letter_list",
+          "associated_places": [
+            "Chicago"
+          ]
+        },
+        {
+          "as_printed": "Biakie, A. or H. P",
+          "normalized": "Biakie, A. or H. P",
+          "role": "letter_list",
+          "associated_places": [
+            "Chicago"
+          ]
+        },
+        {
+          "as_printed": "Beddlecome, Ash",
+          "normalized": "Beddlecome, Ash",
+          "role": "letter_list",
+          "associated_places": [
+            "Chicago"
+          ]
+        },
+        {
+          "as_printed": "Berry, Benjamin /",
+          "normalized": "Berry, Benjamin /",
+          "role": "letter_list",
+          "associated_places": [
+            "Chicago"
+          ]
+        },
+        {
+          "as_printed": "Beger, Tobias",
+          "normalized": "Beger, Tobias",
+          "role": "letter_list",
+          "associated_places": [
+            "Chicago"
+          ]
+        },
+        {
+          "as_printed": "Bean, George B.",
+          "normalized": "Bean, George B.",
+          "role": "letter_list",
+          "associated_places": [
+            "Chicago"
+          ]
+        },
+        {
+          "as_printed": "Catton, Mr.",
+          "normalized": "Catton, Mr.",
+          "role": "letter_list",
+          "associated_places": [
+            "Chicago"
+          ]
+        },
+        {
+          "as_printed": "Catton, Mr.",
+          "normalized": "Catton, Mr.",
+          "role": "letter_list",
+          "associated_places": [
+            "Chicago"
+          ]
+        },
+        {
+          "as_printed": "Catton, William",
+          "normalized": "Catton, William",
+          "role": "letter_list",
+          "associated_places": [
+            "Chicago"
+          ]
+        },
+        {
+          "as_printed": "Chambers, John",
+          "normalized": "Chambers, John",
+          "role": "letter_list",
+          "associated_places": [
+            "Chicago"
+          ]
+        },
+        {
+          "as_printed": "Comstock, H. H.",
+          "normalized": "Comstock, H. H.",
+          "role": "letter_list",
+          "associated_places": [
+            "Chicago"
+          ]
+        },
+        {
+          "as_printed": "Curtis, Liman",
+          "normalized": "Curtis, Liman",
+          "role": "letter_list",
+          "associated_places": [
+            "Chicago"
+          ]
+        },
+        {
+          "as_printed": "Crandall, Beman",
+          "normalized": "Crandall, Beman",
+          "role": "letter_list",
+          "associated_places": [
+            "Chicago"
+          ]
+        },
+        {
+          "as_printed": "Chappel, Eliza Mir",
+          "normalized": "Chappel, Eliza Mir",
+          "role": "letter_list",
+          "associated_places": [
+            "Chicago"
+          ]
+        },
+        {
+          "as_printed": "Clark, James Capt",
+          "normalized": "Clark, James Capt",
+          "role": "letter_list",
+          "associated_places": [
+            "Chicago"
+          ]
+        },
+        {
+          "as_printed": "Clark John",
+          "normalized": "Clark John",
+          "role": "letter_list",
+          "associated_places": [
+            "Chicago"
+          ]
+        },
+        {
+          "as_printed": "Clement, DorCinrk",
+          "normalized": "Clement, DorCinrk",
+          "role": "letter_list",
+          "associated_places": [
+            "Chicago"
+          ]
+        },
+        {
+          "as_printed": "Clark, Erastus",
+          "normalized": "Clark, Erastus",
+          "role": "letter_list",
+          "associated_places": [
+            "Chicago"
+          ]
+        },
+        {
+          "as_printed": "Clark, Samuel Ho",
+          "normalized": "Clark, Samuel Ho",
+          "role": "letter_list",
+          "associated_places": [
+            "Chicago"
+          ]
+        },
+        {
+          "as_printed": "Carpenter, Gilbert",
+          "normalized": "Carpenter, Gilbert",
+          "role": "letter_list",
+          "associated_places": [
+            "Chicago"
+          ]
+        },
+        {
+          "as_printed": "Canp, George S.",
+          "normalized": "Canp, George S.",
+          "role": "letter_list",
+          "associated_places": [
+            "Chicago"
+          ]
+        },
+        {
+          "as_printed": "Chanpagne, Batist",
+          "normalized": "Chanpagne, Batist",
+          "role": "letter_list",
+          "associated_places": [
+            "Chicago"
+          ]
+        },
+        {
+          "as_printed": "Church, Francis",
+          "normalized": "Church, Francis",
+          "role": "letter_list",
+          "associated_places": [
+            "Chicago"
+          ]
+        },
+        {
+          "as_printed": "Chariton, Lewis",
+          "normalized": "Chariton, Lewis",
+          "role": "letter_list",
+          "associated_places": [
+            "Chicago"
+          ]
+        },
+        {
+          "as_printed": "Clizbe, Joseph",
+          "normalized": "Clizbe, Joseph",
+          "role": "letter_list",
+          "associated_places": [
+            "Chicago"
+          ]
+        },
+        {
+          "as_printed": "Cook, Rowland I!.",
+          "normalized": "Cook, Rowland I!.",
+          "role": "letter_list",
+          "associated_places": [
+            "Chicago"
+          ]
+        },
+        {
+          "as_printed": "Clapp. A. P.",
+          "normalized": "Clapp. A. P.",
+          "role": "letter_list",
+          "associated_places": [
+            "Chicago"
+          ]
+        },
+        {
+          "as_printed": "Covell, Thomas R.",
+          "normalized": "Covell, Thomas R.",
+          "role": "letter_list",
+          "associated_places": [
+            "Chicago"
+          ]
+        },
+        {
+          "as_printed": "Codding, Sally Mr",
+          "normalized": "Codding, Sally Mr",
+          "role": "letter_list",
+          "associated_places": [
+            "Chicago"
+          ]
+        },
+        {
+          "as_printed": "Casey, Joln W.",
+          "normalized": "Casey, Joln W.",
+          "role": "letter_list",
+          "associated_places": [
+            "Chicago"
+          ]
+        },
+        {
+          "as_printed": "Cooley, Edward V",
+          "normalized": "Cooley, Edward V",
+          "role": "letter_list",
+          "associated_places": [
+            "Chicago"
+          ]
+        },
+        {
+          "as_printed": "Clark, Norman",
+          "normalized": "Clark, Norman",
+          "role": "letter_list",
+          "associated_places": [
+            "Chicago"
+          ]
+        },
+        {
+          "as_printed": "Crawford, James",
+          "normalized": "Crawford, James",
+          "role": "letter_list",
+          "associated_places": [
+            "Chicago"
+          ]
+        },
+        {
+          "as_printed": "Chadwick, Joseph",
+          "normalized": "Chadwick, Joseph",
+          "role": "letter_list",
+          "associated_places": [
+            "Chicago"
+          ]
+        },
+        {
+          "as_printed": "Chamberlain, L. C",
+          "normalized": "Chamberlain, L. C",
+          "role": "letter_list",
+          "associated_places": [
+            "Chicago"
+          ]
+        },
+        {
+          "as_printed": "Case, Nehemiah",
+          "normalized": "Case, Nehemiah",
+          "role": "letter_list",
+          "associated_places": [
+            "Chicago"
+          ]
+        },
+        {
+          "as_printed": "Crane, H. Y.",
+          "normalized": "Crane, H. Y.",
+          "role": "letter_list",
+          "associated_places": [
+            "Chicago"
+          ]
+        },
+        {
+          "as_printed": "Conkiin, Robert I.",
+          "normalized": "Conkiin, Robert I.",
+          "role": "letter_list",
+          "associated_places": [
+            "Chicago"
+          ]
+        },
+        {
+          "as_printed": "Chase, William C.",
+          "normalized": "Chase, William C.",
+          "role": "letter_list",
+          "associated_places": [
+            "Chicago"
+          ]
+        },
+        {
+          "as_printed": "Crull, David",
+          "normalized": "Crull, David",
+          "role": "letter_list",
+          "associated_places": [
+            "Chicago"
+          ]
+        },
+        {
+          "as_printed": "Church, Jeremiah",
+          "normalized": "Church, Jeremiah",
+          "role": "letter_list",
+          "associated_places": [
+            "Chicago"
+          ]
+        },
+        {
+          "as_printed": "christie, N. W.",
+          "normalized": "[B]christie, N. W.",
+          "role": "letter_list",
+          "associated_places": [
+            "Chicago"
+          ]
+        },
+        {
+          "as_printed": "Chase, Peter",
+          "normalized": "Chase, Peter",
+          "role": "letter_list",
+          "associated_places": [
+            "Chicago"
+          ]
+        },
+        {
+          "as_printed": "Cheney, Charles",
+          "normalized": "Cheney, Charles",
+          "role": "letter_list",
+          "associated_places": [
+            "Chicago"
+          ]
+        },
+        {
+          "as_printed": "Curtenius, Fred'k.",
+          "normalized": "Curtenius, Fred'k.",
+          "role": "letter_list",
+          "associated_places": [
+            "Chicago"
+          ]
+        },
+        {
+          "as_printed": "Crocker, O. C.",
+          "normalized": "Crocker, O. C.",
+          "role": "letter_list",
+          "associated_places": [
+            "Chicago"
+          ]
+        },
+        {
+          "as_printed": "Chiney, Ralph",
+          "normalized": "Chiney, Ralph",
+          "role": "letter_list",
+          "associated_places": [
+            "Chicago"
+          ]
+        },
+        {
+          "as_printed": "Chipman, A.",
+          "normalized": "Chipman, A.",
+          "role": "letter_list",
+          "associated_places": [
+            "Chicago"
+          ]
+        },
+        {
+          "as_printed": "Dykine, Elias S.",
+          "normalized": "Dykine, Elias S.",
+          "role": "letter_list",
+          "associated_places": [
+            "Chicago"
+          ]
+        },
+        {
+          "as_printed": "Demotte, Lenac",
+          "normalized": "Demotte, Lenac",
+          "role": "letter_list",
+          "associated_places": [
+            "Chicago"
+          ]
+        },
+        {
+          "as_printed": "Dean, James L..",
+          "normalized": "Dean, James L..",
+          "role": "letter_list",
+          "associated_places": [
+            "Chicago"
+          ]
+        },
+        {
+          "as_printed": "Dalton, Edward",
+          "normalized": "Dalton, Edward",
+          "role": "letter_list",
+          "associated_places": [
+            "Chicago"
+          ]
+        },
+        {
+          "as_printed": "Demans, J. T•",
+          "normalized": "Demans, J. T",
+          "role": "letter_list",
+          "associated_places": [
+            "Chicago"
+          ]
+        },
+        {
+          "as_printed": "Dement, Wm.",
+          "normalized": "Dement, Wm.",
+          "role": "letter_list",
+          "associated_places": [
+            "Chicago"
+          ]
+        },
+        {
+          "as_printed": "Dilbee, David B.",
+          "normalized": "Dilbee, David B.",
+          "role": "letter_list",
+          "associated_places": [
+            "Chicago"
+          ]
+        },
+        {
+          "as_printed": "Dody, Mr.",
+          "normalized": "Dody, Mr.",
+          "role": "letter_list",
+          "associated_places": [
+            "Chicago"
+          ]
+        },
+        {
+          "as_printed": "Damels, Samuel",
+          "normalized": "Damels, Samuel",
+          "role": "letter_list",
+          "associated_places": [
+            "Chicago"
+          ]
+        },
+        {
+          "as_printed": "Day, Ann Airs.",
+          "normalized": "Day, Ann Airs.",
+          "role": "letter_list",
+          "associated_places": [
+            "Chicago"
+          ]
+        },
+        {
+          "as_printed": "Dow, Albert F.",
+          "normalized": "Dow, Albert F.",
+          "role": "letter_list",
+          "associated_places": [
+            "Chicago"
+          ]
+        },
+        {
+          "as_printed": "Darling, Daniel",
+          "normalized": "Darling, Daniel",
+          "role": "letter_list",
+          "associated_places": [
+            "Chicago"
+          ]
+        },
+        {
+          "as_printed": "Davenport, Dennis",
+          "normalized": "Davenport, Dennis",
+          "role": "letter_list",
+          "associated_places": [
+            "Chicago"
+          ]
+        },
+        {
+          "as_printed": "Day, James",
+          "normalized": "Day, James",
+          "role": "letter_list",
+          "associated_places": [
+            "Chicago"
+          ]
+        },
+        {
+          "as_printed": "Dating, Brah",
+          "normalized": "Dating, Brah",
+          "role": "letter_list",
+          "associated_places": [
+            "Chicago"
+          ]
+        },
+        {
+          "as_printed": "Dougherty, Joan",
+          "normalized": "Dougherty, Joan",
+          "role": "letter_list",
+          "associated_places": [
+            "Chicago"
+          ]
+        }
+      ],
+      "notes": "THE POST-OFFICE LETTER LIST of 1835-06-30, ruling 1's census proxy, and the segmenter has woven it line by line through the advertising type beside it. `lines_of_claim` names the lines that belong to the list and nothing else; the cited range holds the advertisements it alternates with. ONE SUPPLY IS MADE AND IT IS THE PAPER'S OWN: where a printed name begins in lower case its capital was cut by the column edge, and the section letter standing above that run of names is prepended in brackets. A name whose initial is present but disagrees with its section is a MISREADING, not a clipping, and stands as printed — correcting it would be a guess, and `identity.json` is the only place two spellings may become one person. This column carries the surnames A through D, and the list's printed heading is quoted on the next claim, where the segmenter left it."
+    },
+    {
+      "id": "c005",
+      "kind": "person",
+      "reading": "transcription_mediated",
+      "quote": "o: Letters.\nG in the Post Office at Chi-\n- MeColley mary mis\nCounty Illinois, on the 50th\nMcDole Rodney\nMason Sabrina A.\nMiller John\nF.\nMcCall Thomas\nField, J. E.\nMe-Donolds George\nForceman, Robert R.\nMcLoud I.\nrobes, Philander\nMeacham Silas\nMerrill Winthrop\nFord, Ebenezer\nFellows, Josepu\nMeClure John\nH.\nFish, E. M.\nMcAdams Richard\nMalzacher Louis\nFish, Elisha\nMarkham Mrs.\nFairchilds, Ransom\nMosgrove Jolin\nFelch, Alaneon\nmcKenzie John\nFitzlugh, Daniel I.\nMaynar Elias\nFoster, J. H.\nMorrow Washington\nPreinen, V. A.\nmerrich J. B.\nForce, John\nminer Elizabeth\nG.\nMorrison Orsemus\nGordon, William\nMills Joel C.\n4\nMabbet Benjamin F.\nGooding, Caroline Miss\nmarsh George P.\nGooding, Charles 2\nmattore, Miles I.\nGoodrich, Enos\nMetcalf Joseph\nCross, Oliver\nmaccoy Lorenzo\nGilman, Watson W.\nNC Doel Asa\ngraves, Willard\nMiller F.\nGivron, Slary Co Airs.\nN.\nNorton N. R.\nGould, A. B.\nGreen, Damel M.\nNelts Wm.\nGilbert, William\nNorton Wm. H.\nsorton Lymor\nGlen, James L..\nNicholson Joshua F.\nGoodsough, Harriet M.\nNaper Joln\nGuard, William A.\nNottage Henry\nGariner, Joseph\nNett Robert A.\nGabbs, James I1.\nNelson mary Miss\nGooding Jaines\n0.\nGreen John\nOrro Samuel\nGilman, Eli\nOrisbee Edgar I..\nGilman, Vinthrop W.\nOakley Benjamin W.\nOsborn B.\nGilman, Jonathan\nOgan Josepit\n2 Galusha, Ezra\nUid John\nGilbert, Henry R.\nOrmshee S. B.\nH.\nOrinsbey martin T.\nHolliday, William\nHamilton, J. W.\nPugsley John K.\nHeacock, R. E.\nPerry A. 8.\nHolmes, Hiram\nPatrick Robert\nHolmes, James S.\nPeck Wilhain B.\nHowell, Thomas M.\nPaul Robert\nPerce Elijah\nHoward, Joshua\nPhillips James\nHussey, Robert\nPark Hezekiah\n• Hugunin, Leonard, C.\nPayne Barney\n2\nHopkins, Henry\nParrish Stephen\nHale, John\nPillsbburry Samuel\nIndebrand, Jacob\nPratt Samuel Jr.\n• Hyde, Thomas S.\nPalmer N. H.\nPitkin Timothv\nHart, Edwin C.\nPorter Jeremial\nHorr, Raiph C.\nPayne Win.\nHarrison, Caleb\nPedrick Robert c.\nHall, Joln\nPaddock Harriet Miss.\nHunt, Henry N.\nHhelps Theodore E.\nfre.Humphrey, Lemuel\nPage Elisha S.\nHartman, Peter\nParsons Jonathan\n2\nHarris David\nPatterson Erastus\nHail, Aifred\nPreston Stephen II.\nHateh, Betsey\nPickett William\nPeters George\nHooibrook, Lyman\nPowell Reuben\nHickcox, Joseph\nHamilton S. Henry\nPixley John L.\nPage John\nInven, Elias\nPacker Henry\nHamilton, Polemus D.\nPike Luke\nHall, Lanson\nPearce Wilden\nPaddock Ira\nJohnson, Samuel\nPayne Barrey W.\nJones, John J.\nR.\nJordan, J. B.\nReynolds Lewis\nReynolds John Hon.\nJenks, Nathan\nReynolds Damel A.\nJoter, Johnson\nRay Thomas\nJeris, Timothy B.\nRoot Ez c.\nJones, D. D.\nRegera John V.\nJohnson, Limeon M.\nRoberts Sidney\nEs,Jones, High\nRussell Janea\n2\nJohnson, Solon\nRanwin O.\nJones, W. or Abrabam\nRayond Elisha\nJohnson, Mrs.\nRoekwood Elisha\nRichard Jacob\nJunis.A.or J.R.Cary 2\nRussell Gilbert W.\nJones, Henry\nRandle James\nJones, Alicheal\nBobinson George IS.\nK.\nRius Archibald\nKirne, E. Capt.\nS.\n& Anight, Clark\nScott James\nKing, Neheminh\nSwanwick F.\ng Keys, Ed. or Jos. Keys\nStuart William\nSherman m. c.\nKooken, James\nSeaton charles\n3 Kent, Alex. M.\nShepherd Albert\nKing, Elans A.\nStewart Joseph\nKing, Henry Hon.\nSmith James A.\nMKelly, Wilham\nSoren Helen Miss\nLovel, Kimball or\nSherman, Nicholas\nEhjah Doolittle,\n2\nSavage, Levi\nKidder, Luther\nSeston, Charles\nKnowles, J. A.\nStarkweather, Rob't. 2\nKimball, Minerva\nSkinner, Heury C.\nKimball, James\nStark, B. B.\nKilburn, Milton\nSteele, Ranson\nKing, Charles F.\nSaunders, William S.\nF.\nSmith, Elded\nLoyell, J. HI.\nSmith, Solomon\nLazier, Oliver\nSchernerborn, Peter B.,\nLewie, Wm.\nSmith, F. R.\nLovering, Richard\nSacket, Alexander •*,\nLoomis, Amelizo\nSacket, Edward\nLapsley, John A.\nSwapp, Abram\nLamb, A.\nSmith, Jehabod\nLinkletter, George\nSmith, Ezra B.\nLate, Albert\nSunny, Miches!\nTensenring, Peter\nSnow, Russ\nLittle, Henry or",
+      "normalized": "List of Letters remaining in the Post Office at Chicago, Cook County, Illinois, on the 30th day of June, 1835 — the F to S of the list, which this column carries as TWO alphabetical runs woven together line by line: MeColley mary mis; McDole Rodney; Mason Sabrina A.; Miller John; McCall Thomas; Field, J. E.; Me-Donolds George; Forceman, Robert R.; McLoud I.; robes, Philander; Meacham Silas; Merrill Winthrop; Ford, Ebenezer; Fellows, Josepu; MeClure John; Fish, E. M.; McAdams Richard; Malzacher Louis; Fish, Elisha; Markham Mrs.; Fairchilds, Ransom; Mosgrove Jolin; Felch, Alaneon; mcKenzie John; Fitzlugh, Daniel I.; Maynar Elias; Foster, J. H.; Morrow Washington; Preinen, V. A.; merrich J. B.; Force, John; miner Elizabeth; Morrison Orsemus; Gordon, William; Mills Joel C.; Mabbet Benjamin F.; Gooding, Caroline Miss; marsh George P.; Gooding, Charles; mattore, Miles I.; Goodrich, Enos; Metcalf Joseph; Cross, Oliver; maccoy Lorenzo; Gilman, Watson W.; NC Doel Asa; graves, Willard; Miller F.; Givron, Slary Co Airs.; Norton N. R.; Gould, A. B.; Green, Damel M.; Nelts Wm.; Gilbert, William; Norton Wm. H.; sorton Lymor; Glen, James L..; Nicholson Joshua F.; Goodsough, Harriet M.; Naper Joln; Guard, William A.; Nottage Henry; Gariner, Joseph; Nett Robert A.; Gabbs, James I1.; Nelson mary Miss; Gooding Jaines; Green John; Orro Samuel; Gilman, Eli; Orisbee Edgar I..; Gilman, Vinthrop W.; Oakley Benjamin W.; Osborn B.; Gilman, Jonathan; Ogan Josepit; Galusha, Ezra; Uid John; Gilbert, Henry R.; Ormshee S. B.; Orinsbey martin T.; Holliday, William; Hamilton, J. W.; Pugsley John K.; Heacock, R. E.; Perry A. 8.; Holmes, Hiram; Patrick Robert; Holmes, James S.; Peck Wilhain B.; Howell, Thomas M.; Paul Robert; Perce Elijah; Howard, Joshua; Phillips James; Hussey, Robert; Park Hezekiah; Hugunin, Leonard, C.; Payne Barney; Hopkins, Henry; Parrish Stephen; Hale, John; Pillsbburry Samuel; Indebrand, Jacob; Pratt Samuel Jr.; Hyde, Thomas S.; Palmer N. H.; Pitkin Timothv; Hart, Edwin C.; Porter Jeremial; Horr, Raiph C.; Payne Win.; Harrison, Caleb; Pedrick Robert c.; Hall, Joln; Paddock Harriet Miss.; Hunt, Henry N.; Hhelps Theodore E.; fre.Humphrey, Lemuel; Page Elisha S.; Hartman, Peter; Parsons Jonathan; Harris David; Patterson Erastus; Hail, Aifred; Preston Stephen II.; Hateh, Betsey; Pickett William; Peters George; Hooibrook, Lyman; Powell Reuben; Hickcox, Joseph; Hamilton S. Henry; Pixley John L.; Page John; Inven, Elias; Packer Henry; Hamilton, Polemus D.; Pike Luke; Hall, Lanson; Pearce Wilden; Paddock Ira; Johnson, Samuel; Payne Barrey W.; Jones, John J.; Jordan, J. B.; Reynolds Lewis; Reynolds John Hon.; Jenks, Nathan; Reynolds Damel A.; Joter, Johnson; Ray Thomas; Jeris, Timothy B.; Root Ez c.; Jones, D. D.; Regera John V.; Johnson, Limeon M.; Roberts Sidney; Es,Jones, High; Russell Janea; Johnson, Solon; Ranwin O.; Jones, W. or Abrabam; Rayond Elisha; Johnson, Mrs.; Roekwood Elisha; Richard Jacob; Junis.A.or J.R.Cary; Russell Gilbert W.; Jones, Henry; Randle James; Jones, Alicheal; Bobinson George IS.; Rius Archibald; Kirne, E. Capt.; Anight, Clark; Scott James; King, Neheminh; Swanwick F.; Keys, Ed. or Jos. Keys; Stuart William; Sherman m. c.; Kooken, James; Seaton charles; Kent, Alex. M.; Shepherd Albert; King, Elans A.; Stewart Joseph; King, Henry Hon.; Smith James A.; MKelly, Wilham; Soren Helen Miss; Lovel, Kimball or; Sherman, Nicholas; Ehjah Doolittle; Savage, Levi; Kidder, Luther; Seston, Charles; Knowles, J. A.; Starkweather, Rob't.; Kimball, Minerva; Skinner, Heury C.; Kimball, James; Stark, B. B.; Kilburn, Milton; Steele, Ranson; King, Charles F.; Saunders, William S.; Smith, Elded; Loyell, J. HI.; Smith, Solomon; Lazier, Oliver; Schernerborn, Peter B.; Lewie, Wm.; Smith, F. R.; Lovering, Richard; Sacket, Alexander •*; Loomis, Amelizo; Sacket, Edward; Lapsley, John A.; Swapp, Abram; Lamb, A.; Smith, Jehabod; Linkletter, George; Smith, Ezra B.; Late, Albert; Sunny, Miches!; Tensenring, Peter; Snow, Russ; Little, Henry or.",
+      "locator": {
+        "artifact_role": "primary",
+        "issue_page": 3,
+        "column": 4,
+        "lines": [
+          3130,
+          3377
+        ],
+        "lines_of_claim": [
+          3130,
+          3131,
+          3132,
+          3133,
+          3134,
+          3135,
+          3136,
+          3137,
+          3138,
+          3139,
+          3140,
+          3141,
+          3142,
+          3143,
+          3144,
+          3145,
+          3146,
+          3147,
+          3148,
+          3149,
+          3150,
+          3151,
+          3152,
+          3153,
+          3154,
+          3155,
+          3156,
+          3157,
+          3158,
+          3159,
+          3160,
+          3161,
+          3162,
+          3163,
+          3164,
+          3165,
+          3166,
+          3167,
+          3168,
+          3169,
+          3170,
+          3171,
+          3172,
+          3173,
+          3174,
+          3175,
+          3176,
+          3177,
+          3178,
+          3179,
+          3180,
+          3181,
+          3182,
+          3183,
+          3184,
+          3185,
+          3186,
+          3187,
+          3188,
+          3189,
+          3190,
+          3191,
+          3192,
+          3193,
+          3194,
+          3195,
+          3196,
+          3197,
+          3198,
+          3199,
+          3200,
+          3201,
+          3202,
+          3203,
+          3204,
+          3205,
+          3206,
+          3207,
+          3208,
+          3209,
+          3210,
+          3211,
+          3212,
+          3213,
+          3214,
+          3215,
+          3216,
+          3217,
+          3218,
+          3219,
+          3220,
+          3221,
+          3222,
+          3223,
+          3224,
+          3225,
+          3226,
+          3227,
+          3228,
+          3229,
+          3230,
+          3231,
+          3232,
+          3233,
+          3234,
+          3235,
+          3236,
+          3237,
+          3238,
+          3239,
+          3240,
+          3241,
+          3242,
+          3243,
+          3244,
+          3245,
+          3246,
+          3247,
+          3248,
+          3249,
+          3250,
+          3251,
+          3252,
+          3253,
+          3254,
+          3255,
+          3256,
+          3257,
+          3258,
+          3259,
+          3260,
+          3261,
+          3262,
+          3263,
+          3264,
+          3265,
+          3266,
+          3267,
+          3268,
+          3269,
+          3270,
+          3271,
+          3272,
+          3273,
+          3274,
+          3275,
+          3276,
+          3277,
+          3278,
+          3279,
+          3280,
+          3281,
+          3282,
+          3283,
+          3284,
+          3285,
+          3286,
+          3287,
+          3288,
+          3289,
+          3290,
+          3291,
+          3292,
+          3293,
+          3294,
+          3295,
+          3296,
+          3297,
+          3298,
+          3299,
+          3300,
+          3301,
+          3302,
+          3303,
+          3304,
+          3305,
+          3306,
+          3307,
+          3308,
+          3309,
+          3310,
+          3311,
+          3312,
+          3313,
+          3314,
+          3315,
+          3316,
+          3317,
+          3318,
+          3319,
+          3320,
+          3321,
+          3322,
+          3323,
+          3324,
+          3325,
+          3326,
+          3327,
+          3328,
+          3329,
+          3330,
+          3331,
+          3332,
+          3333,
+          3334,
+          3335,
+          3336,
+          3337,
+          3338,
+          3339,
+          3340,
+          3341,
+          3342,
+          3343,
+          3344,
+          3345,
+          3346,
+          3347,
+          3348,
+          3349,
+          3350,
+          3351,
+          3352,
+          3353,
+          3354,
+          3355,
+          3356,
+          3357,
+          3358,
+          3359,
+          3360,
+          3361,
+          3362,
+          3363,
+          3364,
+          3365,
+          3366,
+          3367,
+          3368,
+          3369,
+          3370,
+          3371,
+          3372,
+          3373,
+          3374,
+          3375,
+          3376,
+          3377
+        ]
+      },
+      "letter_list_only": true,
+      "post_office": {
+        "name": "Chicago",
+        "postmaster": "J. S. C. Hogan",
+        "list_date": "1835-06-30"
+      },
+      "entities": [
+        {
+          "as_printed": "- MeColley mary mis",
+          "normalized": "MeColley mary mis",
+          "role": "letter_list",
+          "associated_places": [
+            "Chicago"
+          ]
+        },
+        {
+          "as_printed": "McDole Rodney",
+          "normalized": "McDole Rodney",
+          "role": "letter_list",
+          "associated_places": [
+            "Chicago"
+          ]
+        },
+        {
+          "as_printed": "Mason Sabrina A.",
+          "normalized": "Mason Sabrina A.",
+          "role": "letter_list",
+          "associated_places": [
+            "Chicago"
+          ]
+        },
+        {
+          "as_printed": "Miller John",
+          "normalized": "Miller John",
+          "role": "letter_list",
+          "associated_places": [
+            "Chicago"
+          ]
+        },
+        {
+          "as_printed": "McCall Thomas",
+          "normalized": "McCall Thomas",
+          "role": "letter_list",
+          "associated_places": [
+            "Chicago"
+          ]
+        },
+        {
+          "as_printed": "Field, J. E.",
+          "normalized": "Field, J. E.",
+          "role": "letter_list",
+          "associated_places": [
+            "Chicago"
+          ]
+        },
+        {
+          "as_printed": "Me-Donolds George",
+          "normalized": "Me-Donolds George",
+          "role": "letter_list",
+          "associated_places": [
+            "Chicago"
+          ]
+        },
+        {
+          "as_printed": "Forceman, Robert R.",
+          "normalized": "Forceman, Robert R.",
+          "role": "letter_list",
+          "associated_places": [
+            "Chicago"
+          ]
+        },
+        {
+          "as_printed": "McLoud I.",
+          "normalized": "McLoud I.",
+          "role": "letter_list",
+          "associated_places": [
+            "Chicago"
+          ]
+        },
+        {
+          "as_printed": "robes, Philander",
+          "normalized": "robes, Philander",
+          "role": "letter_list",
+          "associated_places": [
+            "Chicago"
+          ]
+        },
+        {
+          "as_printed": "Meacham Silas",
+          "normalized": "Meacham Silas",
+          "role": "letter_list",
+          "associated_places": [
+            "Chicago"
+          ]
+        },
+        {
+          "as_printed": "Merrill Winthrop",
+          "normalized": "Merrill Winthrop",
+          "role": "letter_list",
+          "associated_places": [
+            "Chicago"
+          ]
+        },
+        {
+          "as_printed": "Ford, Ebenezer",
+          "normalized": "Ford, Ebenezer",
+          "role": "letter_list",
+          "associated_places": [
+            "Chicago"
+          ]
+        },
+        {
+          "as_printed": "Fellows, Josepu",
+          "normalized": "Fellows, Josepu",
+          "role": "letter_list",
+          "associated_places": [
+            "Chicago"
+          ]
+        },
+        {
+          "as_printed": "MeClure John",
+          "normalized": "MeClure John",
+          "role": "letter_list",
+          "associated_places": [
+            "Chicago"
+          ]
+        },
+        {
+          "as_printed": "Fish, E. M.",
+          "normalized": "Fish, E. M.",
+          "role": "letter_list",
+          "associated_places": [
+            "Chicago"
+          ]
+        },
+        {
+          "as_printed": "McAdams Richard",
+          "normalized": "McAdams Richard",
+          "role": "letter_list",
+          "associated_places": [
+            "Chicago"
+          ]
+        },
+        {
+          "as_printed": "Malzacher Louis",
+          "normalized": "Malzacher Louis",
+          "role": "letter_list",
+          "associated_places": [
+            "Chicago"
+          ]
+        },
+        {
+          "as_printed": "Fish, Elisha",
+          "normalized": "Fish, Elisha",
+          "role": "letter_list",
+          "associated_places": [
+            "Chicago"
+          ]
+        },
+        {
+          "as_printed": "Markham Mrs.",
+          "normalized": "Markham Mrs.",
+          "role": "letter_list",
+          "associated_places": [
+            "Chicago"
+          ]
+        },
+        {
+          "as_printed": "Fairchilds, Ransom",
+          "normalized": "Fairchilds, Ransom",
+          "role": "letter_list",
+          "associated_places": [
+            "Chicago"
+          ]
+        },
+        {
+          "as_printed": "Mosgrove Jolin",
+          "normalized": "Mosgrove Jolin",
+          "role": "letter_list",
+          "associated_places": [
+            "Chicago"
+          ]
+        },
+        {
+          "as_printed": "Felch, Alaneon",
+          "normalized": "Felch, Alaneon",
+          "role": "letter_list",
+          "associated_places": [
+            "Chicago"
+          ]
+        },
+        {
+          "as_printed": "mcKenzie John",
+          "normalized": "mcKenzie John",
+          "role": "letter_list",
+          "associated_places": [
+            "Chicago"
+          ]
+        },
+        {
+          "as_printed": "Fitzlugh, Daniel I.",
+          "normalized": "Fitzlugh, Daniel I.",
+          "role": "letter_list",
+          "associated_places": [
+            "Chicago"
+          ]
+        },
+        {
+          "as_printed": "Maynar Elias",
+          "normalized": "Maynar Elias",
+          "role": "letter_list",
+          "associated_places": [
+            "Chicago"
+          ]
+        },
+        {
+          "as_printed": "Foster, J. H.",
+          "normalized": "Foster, J. H.",
+          "role": "letter_list",
+          "associated_places": [
+            "Chicago"
+          ]
+        },
+        {
+          "as_printed": "Morrow Washington",
+          "normalized": "Morrow Washington",
+          "role": "letter_list",
+          "associated_places": [
+            "Chicago"
+          ]
+        },
+        {
+          "as_printed": "Preinen, V. A.",
+          "normalized": "Preinen, V. A.",
+          "role": "letter_list",
+          "associated_places": [
+            "Chicago"
+          ]
+        },
+        {
+          "as_printed": "merrich J. B.",
+          "normalized": "merrich J. B.",
+          "role": "letter_list",
+          "associated_places": [
+            "Chicago"
+          ]
+        },
+        {
+          "as_printed": "Force, John",
+          "normalized": "Force, John",
+          "role": "letter_list",
+          "associated_places": [
+            "Chicago"
+          ]
+        },
+        {
+          "as_printed": "miner Elizabeth",
+          "normalized": "miner Elizabeth",
+          "role": "letter_list",
+          "associated_places": [
+            "Chicago"
+          ]
+        },
+        {
+          "as_printed": "Morrison Orsemus",
+          "normalized": "Morrison Orsemus",
+          "role": "letter_list",
+          "associated_places": [
+            "Chicago"
+          ]
+        },
+        {
+          "as_printed": "Gordon, William",
+          "normalized": "Gordon, William",
+          "role": "letter_list",
+          "associated_places": [
+            "Chicago"
+          ]
+        },
+        {
+          "as_printed": "Mills Joel C.",
+          "normalized": "Mills Joel C.",
+          "role": "letter_list",
+          "associated_places": [
+            "Chicago"
+          ]
+        },
+        {
+          "as_printed": "Mabbet Benjamin F.",
+          "normalized": "Mabbet Benjamin F.",
+          "role": "letter_list",
+          "associated_places": [
+            "Chicago"
+          ]
+        },
+        {
+          "as_printed": "Gooding, Caroline Miss",
+          "normalized": "Gooding, Caroline Miss",
+          "role": "letter_list",
+          "associated_places": [
+            "Chicago"
+          ]
+        },
+        {
+          "as_printed": "marsh George P.",
+          "normalized": "marsh George P.",
+          "role": "letter_list",
+          "associated_places": [
+            "Chicago"
+          ]
+        },
+        {
+          "as_printed": "Gooding, Charles 2",
+          "normalized": "Gooding, Charles",
+          "role": "letter_list",
+          "associated_places": [
+            "Chicago"
+          ]
+        },
+        {
+          "as_printed": "mattore, Miles I.",
+          "normalized": "mattore, Miles I.",
+          "role": "letter_list",
+          "associated_places": [
+            "Chicago"
+          ]
+        },
+        {
+          "as_printed": "Goodrich, Enos",
+          "normalized": "Goodrich, Enos",
+          "role": "letter_list",
+          "associated_places": [
+            "Chicago"
+          ]
+        },
+        {
+          "as_printed": "Metcalf Joseph",
+          "normalized": "Metcalf Joseph",
+          "role": "letter_list",
+          "associated_places": [
+            "Chicago"
+          ]
+        },
+        {
+          "as_printed": "Cross, Oliver",
+          "normalized": "Cross, Oliver",
+          "role": "letter_list",
+          "associated_places": [
+            "Chicago"
+          ]
+        },
+        {
+          "as_printed": "maccoy Lorenzo",
+          "normalized": "maccoy Lorenzo",
+          "role": "letter_list",
+          "associated_places": [
+            "Chicago"
+          ]
+        },
+        {
+          "as_printed": "Gilman, Watson W.",
+          "normalized": "Gilman, Watson W.",
+          "role": "letter_list",
+          "associated_places": [
+            "Chicago"
+          ]
+        },
+        {
+          "as_printed": "NC Doel Asa",
+          "normalized": "NC Doel Asa",
+          "role": "letter_list",
+          "associated_places": [
+            "Chicago"
+          ]
+        },
+        {
+          "as_printed": "graves, Willard",
+          "normalized": "graves, Willard",
+          "role": "letter_list",
+          "associated_places": [
+            "Chicago"
+          ]
+        },
+        {
+          "as_printed": "Miller F.",
+          "normalized": "Miller F.",
+          "role": "letter_list",
+          "associated_places": [
+            "Chicago"
+          ]
+        },
+        {
+          "as_printed": "Givron, Slary Co Airs.",
+          "normalized": "Givron, Slary Co Airs.",
+          "role": "letter_list",
+          "associated_places": [
+            "Chicago"
+          ]
+        },
+        {
+          "as_printed": "Norton N. R.",
+          "normalized": "Norton N. R.",
+          "role": "letter_list",
+          "associated_places": [
+            "Chicago"
+          ]
+        },
+        {
+          "as_printed": "Gould, A. B.",
+          "normalized": "Gould, A. B.",
+          "role": "letter_list",
+          "associated_places": [
+            "Chicago"
+          ]
+        },
+        {
+          "as_printed": "Green, Damel M.",
+          "normalized": "Green, Damel M.",
+          "role": "letter_list",
+          "associated_places": [
+            "Chicago"
+          ]
+        },
+        {
+          "as_printed": "Nelts Wm.",
+          "normalized": "Nelts Wm.",
+          "role": "letter_list",
+          "associated_places": [
+            "Chicago"
+          ]
+        },
+        {
+          "as_printed": "Gilbert, William",
+          "normalized": "Gilbert, William",
+          "role": "letter_list",
+          "associated_places": [
+            "Chicago"
+          ]
+        },
+        {
+          "as_printed": "Norton Wm. H.",
+          "normalized": "Norton Wm. H.",
+          "role": "letter_list",
+          "associated_places": [
+            "Chicago"
+          ]
+        },
+        {
+          "as_printed": "sorton Lymor",
+          "normalized": "sorton Lymor",
+          "role": "letter_list",
+          "associated_places": [
+            "Chicago"
+          ]
+        },
+        {
+          "as_printed": "Glen, James L..",
+          "normalized": "Glen, James L..",
+          "role": "letter_list",
+          "associated_places": [
+            "Chicago"
+          ]
+        },
+        {
+          "as_printed": "Nicholson Joshua F.",
+          "normalized": "Nicholson Joshua F.",
+          "role": "letter_list",
+          "associated_places": [
+            "Chicago"
+          ]
+        },
+        {
+          "as_printed": "Goodsough, Harriet M.",
+          "normalized": "Goodsough, Harriet M.",
+          "role": "letter_list",
+          "associated_places": [
+            "Chicago"
+          ]
+        },
+        {
+          "as_printed": "Naper Joln",
+          "normalized": "Naper Joln",
+          "role": "letter_list",
+          "associated_places": [
+            "Chicago"
+          ]
+        },
+        {
+          "as_printed": "Guard, William A.",
+          "normalized": "Guard, William A.",
+          "role": "letter_list",
+          "associated_places": [
+            "Chicago"
+          ]
+        },
+        {
+          "as_printed": "Nottage Henry",
+          "normalized": "Nottage Henry",
+          "role": "letter_list",
+          "associated_places": [
+            "Chicago"
+          ]
+        },
+        {
+          "as_printed": "Gariner, Joseph",
+          "normalized": "Gariner, Joseph",
+          "role": "letter_list",
+          "associated_places": [
+            "Chicago"
+          ]
+        },
+        {
+          "as_printed": "Nett Robert A.",
+          "normalized": "Nett Robert A.",
+          "role": "letter_list",
+          "associated_places": [
+            "Chicago"
+          ]
+        },
+        {
+          "as_printed": "Gabbs, James I1.",
+          "normalized": "Gabbs, James I1.",
+          "role": "letter_list",
+          "associated_places": [
+            "Chicago"
+          ]
+        },
+        {
+          "as_printed": "Nelson mary Miss",
+          "normalized": "Nelson mary Miss",
+          "role": "letter_list",
+          "associated_places": [
+            "Chicago"
+          ]
+        },
+        {
+          "as_printed": "Gooding Jaines",
+          "normalized": "Gooding Jaines",
+          "role": "letter_list",
+          "associated_places": [
+            "Chicago"
+          ]
+        },
+        {
+          "as_printed": "Green John",
+          "normalized": "Green John",
+          "role": "letter_list",
+          "associated_places": [
+            "Chicago"
+          ]
+        },
+        {
+          "as_printed": "Orro Samuel",
+          "normalized": "Orro Samuel",
+          "role": "letter_list",
+          "associated_places": [
+            "Chicago"
+          ]
+        },
+        {
+          "as_printed": "Gilman, Eli",
+          "normalized": "Gilman, Eli",
+          "role": "letter_list",
+          "associated_places": [
+            "Chicago"
+          ]
+        },
+        {
+          "as_printed": "Orisbee Edgar I..",
+          "normalized": "Orisbee Edgar I..",
+          "role": "letter_list",
+          "associated_places": [
+            "Chicago"
+          ]
+        },
+        {
+          "as_printed": "Gilman, Vinthrop W.",
+          "normalized": "Gilman, Vinthrop W.",
+          "role": "letter_list",
+          "associated_places": [
+            "Chicago"
+          ]
+        },
+        {
+          "as_printed": "Oakley Benjamin W.",
+          "normalized": "Oakley Benjamin W.",
+          "role": "letter_list",
+          "associated_places": [
+            "Chicago"
+          ]
+        },
+        {
+          "as_printed": "Osborn B.",
+          "normalized": "Osborn B.",
+          "role": "letter_list",
+          "associated_places": [
+            "Chicago"
+          ]
+        },
+        {
+          "as_printed": "Gilman, Jonathan",
+          "normalized": "Gilman, Jonathan",
+          "role": "letter_list",
+          "associated_places": [
+            "Chicago"
+          ]
+        },
+        {
+          "as_printed": "Ogan Josepit",
+          "normalized": "Ogan Josepit",
+          "role": "letter_list",
+          "associated_places": [
+            "Chicago"
+          ]
+        },
+        {
+          "as_printed": "2 Galusha, Ezra",
+          "normalized": "Galusha, Ezra",
+          "role": "letter_list",
+          "associated_places": [
+            "Chicago"
+          ]
+        },
+        {
+          "as_printed": "Uid John",
+          "normalized": "Uid John",
+          "role": "letter_list",
+          "associated_places": [
+            "Chicago"
+          ]
+        },
+        {
+          "as_printed": "Gilbert, Henry R.",
+          "normalized": "Gilbert, Henry R.",
+          "role": "letter_list",
+          "associated_places": [
+            "Chicago"
+          ]
+        },
+        {
+          "as_printed": "Ormshee S. B.",
+          "normalized": "Ormshee S. B.",
+          "role": "letter_list",
+          "associated_places": [
+            "Chicago"
+          ]
+        },
+        {
+          "as_printed": "Orinsbey martin T.",
+          "normalized": "Orinsbey martin T.",
+          "role": "letter_list",
+          "associated_places": [
+            "Chicago"
+          ]
+        },
+        {
+          "as_printed": "Holliday, William",
+          "normalized": "Holliday, William",
+          "role": "letter_list",
+          "associated_places": [
+            "Chicago"
+          ]
+        },
+        {
+          "as_printed": "Hamilton, J. W.",
+          "normalized": "Hamilton, J. W.",
+          "role": "letter_list",
+          "associated_places": [
+            "Chicago"
+          ]
+        },
+        {
+          "as_printed": "Pugsley John K.",
+          "normalized": "Pugsley John K.",
+          "role": "letter_list",
+          "associated_places": [
+            "Chicago"
+          ]
+        },
+        {
+          "as_printed": "Heacock, R. E.",
+          "normalized": "Heacock, R. E.",
+          "role": "letter_list",
+          "associated_places": [
+            "Chicago"
+          ]
+        },
+        {
+          "as_printed": "Perry A. 8.",
+          "normalized": "Perry A. 8.",
+          "role": "letter_list",
+          "associated_places": [
+            "Chicago"
+          ]
+        },
+        {
+          "as_printed": "Holmes, Hiram",
+          "normalized": "Holmes, Hiram",
+          "role": "letter_list",
+          "associated_places": [
+            "Chicago"
+          ]
+        },
+        {
+          "as_printed": "Patrick Robert",
+          "normalized": "Patrick Robert",
+          "role": "letter_list",
+          "associated_places": [
+            "Chicago"
+          ]
+        },
+        {
+          "as_printed": "Holmes, James S.",
+          "normalized": "Holmes, James S.",
+          "role": "letter_list",
+          "associated_places": [
+            "Chicago"
+          ]
+        },
+        {
+          "as_printed": "Peck Wilhain B.",
+          "normalized": "Peck Wilhain B.",
+          "role": "letter_list",
+          "associated_places": [
+            "Chicago"
+          ]
+        },
+        {
+          "as_printed": "Howell, Thomas M.",
+          "normalized": "Howell, Thomas M.",
+          "role": "letter_list",
+          "associated_places": [
+            "Chicago"
+          ]
+        },
+        {
+          "as_printed": "Paul Robert",
+          "normalized": "Paul Robert",
+          "role": "letter_list",
+          "associated_places": [
+            "Chicago"
+          ]
+        },
+        {
+          "as_printed": "Perce Elijah",
+          "normalized": "Perce Elijah",
+          "role": "letter_list",
+          "associated_places": [
+            "Chicago"
+          ]
+        },
+        {
+          "as_printed": "Howard, Joshua",
+          "normalized": "Howard, Joshua",
+          "role": "letter_list",
+          "associated_places": [
+            "Chicago"
+          ]
+        },
+        {
+          "as_printed": "Phillips James",
+          "normalized": "Phillips James",
+          "role": "letter_list",
+          "associated_places": [
+            "Chicago"
+          ]
+        },
+        {
+          "as_printed": "Hussey, Robert",
+          "normalized": "Hussey, Robert",
+          "role": "letter_list",
+          "associated_places": [
+            "Chicago"
+          ]
+        },
+        {
+          "as_printed": "Park Hezekiah",
+          "normalized": "Park Hezekiah",
+          "role": "letter_list",
+          "associated_places": [
+            "Chicago"
+          ]
+        },
+        {
+          "as_printed": "• Hugunin, Leonard, C.",
+          "normalized": "Hugunin, Leonard, C.",
+          "role": "letter_list",
+          "associated_places": [
+            "Chicago"
+          ]
+        },
+        {
+          "as_printed": "Payne Barney",
+          "normalized": "Payne Barney",
+          "role": "letter_list",
+          "associated_places": [
+            "Chicago"
+          ]
+        },
+        {
+          "as_printed": "Hopkins, Henry",
+          "normalized": "Hopkins, Henry",
+          "role": "letter_list",
+          "associated_places": [
+            "Chicago"
+          ]
+        },
+        {
+          "as_printed": "Parrish Stephen",
+          "normalized": "Parrish Stephen",
+          "role": "letter_list",
+          "associated_places": [
+            "Chicago"
+          ]
+        },
+        {
+          "as_printed": "Hale, John",
+          "normalized": "Hale, John",
+          "role": "letter_list",
+          "associated_places": [
+            "Chicago"
+          ]
+        },
+        {
+          "as_printed": "Pillsbburry Samuel",
+          "normalized": "Pillsbburry Samuel",
+          "role": "letter_list",
+          "associated_places": [
+            "Chicago"
+          ]
+        },
+        {
+          "as_printed": "Indebrand, Jacob",
+          "normalized": "Indebrand, Jacob",
+          "role": "letter_list",
+          "associated_places": [
+            "Chicago"
+          ]
+        },
+        {
+          "as_printed": "Pratt Samuel Jr.",
+          "normalized": "Pratt Samuel Jr.",
+          "role": "letter_list",
+          "associated_places": [
+            "Chicago"
+          ]
+        },
+        {
+          "as_printed": "• Hyde, Thomas S.",
+          "normalized": "Hyde, Thomas S.",
+          "role": "letter_list",
+          "associated_places": [
+            "Chicago"
+          ]
+        },
+        {
+          "as_printed": "Palmer N. H.",
+          "normalized": "Palmer N. H.",
+          "role": "letter_list",
+          "associated_places": [
+            "Chicago"
+          ]
+        },
+        {
+          "as_printed": "Pitkin Timothv",
+          "normalized": "Pitkin Timothv",
+          "role": "letter_list",
+          "associated_places": [
+            "Chicago"
+          ]
+        },
+        {
+          "as_printed": "Hart, Edwin C.",
+          "normalized": "Hart, Edwin C.",
+          "role": "letter_list",
+          "associated_places": [
+            "Chicago"
+          ]
+        },
+        {
+          "as_printed": "Porter Jeremial",
+          "normalized": "Porter Jeremial",
+          "role": "letter_list",
+          "associated_places": [
+            "Chicago"
+          ]
+        },
+        {
+          "as_printed": "Horr, Raiph C.",
+          "normalized": "Horr, Raiph C.",
+          "role": "letter_list",
+          "associated_places": [
+            "Chicago"
+          ]
+        },
+        {
+          "as_printed": "Payne Win.",
+          "normalized": "Payne Win.",
+          "role": "letter_list",
+          "associated_places": [
+            "Chicago"
+          ]
+        },
+        {
+          "as_printed": "Harrison, Caleb",
+          "normalized": "Harrison, Caleb",
+          "role": "letter_list",
+          "associated_places": [
+            "Chicago"
+          ]
+        },
+        {
+          "as_printed": "Pedrick Robert c.",
+          "normalized": "Pedrick Robert c.",
+          "role": "letter_list",
+          "associated_places": [
+            "Chicago"
+          ]
+        },
+        {
+          "as_printed": "Hall, Joln",
+          "normalized": "Hall, Joln",
+          "role": "letter_list",
+          "associated_places": [
+            "Chicago"
+          ]
+        },
+        {
+          "as_printed": "Paddock Harriet Miss.",
+          "normalized": "Paddock Harriet Miss.",
+          "role": "letter_list",
+          "associated_places": [
+            "Chicago"
+          ]
+        },
+        {
+          "as_printed": "Hunt, Henry N.",
+          "normalized": "Hunt, Henry N.",
+          "role": "letter_list",
+          "associated_places": [
+            "Chicago"
+          ]
+        },
+        {
+          "as_printed": "Hhelps Theodore E.",
+          "normalized": "Hhelps Theodore E.",
+          "role": "letter_list",
+          "associated_places": [
+            "Chicago"
+          ]
+        },
+        {
+          "as_printed": "fre.Humphrey, Lemuel",
+          "normalized": "fre.Humphrey, Lemuel",
+          "role": "letter_list",
+          "associated_places": [
+            "Chicago"
+          ]
+        },
+        {
+          "as_printed": "Page Elisha S.",
+          "normalized": "Page Elisha S.",
+          "role": "letter_list",
+          "associated_places": [
+            "Chicago"
+          ]
+        },
+        {
+          "as_printed": "Hartman, Peter",
+          "normalized": "Hartman, Peter",
+          "role": "letter_list",
+          "associated_places": [
+            "Chicago"
+          ]
+        },
+        {
+          "as_printed": "Parsons Jonathan",
+          "normalized": "Parsons Jonathan",
+          "role": "letter_list",
+          "associated_places": [
+            "Chicago"
+          ]
+        },
+        {
+          "as_printed": "Harris David",
+          "normalized": "Harris David",
+          "role": "letter_list",
+          "associated_places": [
+            "Chicago"
+          ]
+        },
+        {
+          "as_printed": "Patterson Erastus",
+          "normalized": "Patterson Erastus",
+          "role": "letter_list",
+          "associated_places": [
+            "Chicago"
+          ]
+        },
+        {
+          "as_printed": "Hail, Aifred",
+          "normalized": "Hail, Aifred",
+          "role": "letter_list",
+          "associated_places": [
+            "Chicago"
+          ]
+        },
+        {
+          "as_printed": "Preston Stephen II.",
+          "normalized": "Preston Stephen II.",
+          "role": "letter_list",
+          "associated_places": [
+            "Chicago"
+          ]
+        },
+        {
+          "as_printed": "Hateh, Betsey",
+          "normalized": "Hateh, Betsey",
+          "role": "letter_list",
+          "associated_places": [
+            "Chicago"
+          ]
+        },
+        {
+          "as_printed": "Pickett William",
+          "normalized": "Pickett William",
+          "role": "letter_list",
+          "associated_places": [
+            "Chicago"
+          ]
+        },
+        {
+          "as_printed": "Peters George",
+          "normalized": "Peters George",
+          "role": "letter_list",
+          "associated_places": [
+            "Chicago"
+          ]
+        },
+        {
+          "as_printed": "Hooibrook, Lyman",
+          "normalized": "Hooibrook, Lyman",
+          "role": "letter_list",
+          "associated_places": [
+            "Chicago"
+          ]
+        },
+        {
+          "as_printed": "Powell Reuben",
+          "normalized": "Powell Reuben",
+          "role": "letter_list",
+          "associated_places": [
+            "Chicago"
+          ]
+        },
+        {
+          "as_printed": "Hickcox, Joseph",
+          "normalized": "Hickcox, Joseph",
+          "role": "letter_list",
+          "associated_places": [
+            "Chicago"
+          ]
+        },
+        {
+          "as_printed": "Hamilton S. Henry",
+          "normalized": "Hamilton S. Henry",
+          "role": "letter_list",
+          "associated_places": [
+            "Chicago"
+          ]
+        },
+        {
+          "as_printed": "Pixley John L.",
+          "normalized": "Pixley John L.",
+          "role": "letter_list",
+          "associated_places": [
+            "Chicago"
+          ]
+        },
+        {
+          "as_printed": "Page John",
+          "normalized": "Page John",
+          "role": "letter_list",
+          "associated_places": [
+            "Chicago"
+          ]
+        },
+        {
+          "as_printed": "Inven, Elias",
+          "normalized": "Inven, Elias",
+          "role": "letter_list",
+          "associated_places": [
+            "Chicago"
+          ]
+        },
+        {
+          "as_printed": "Packer Henry",
+          "normalized": "Packer Henry",
+          "role": "letter_list",
+          "associated_places": [
+            "Chicago"
+          ]
+        },
+        {
+          "as_printed": "Hamilton, Polemus D.",
+          "normalized": "Hamilton, Polemus D.",
+          "role": "letter_list",
+          "associated_places": [
+            "Chicago"
+          ]
+        },
+        {
+          "as_printed": "Pike Luke",
+          "normalized": "Pike Luke",
+          "role": "letter_list",
+          "associated_places": [
+            "Chicago"
+          ]
+        },
+        {
+          "as_printed": "Hall, Lanson",
+          "normalized": "Hall, Lanson",
+          "role": "letter_list",
+          "associated_places": [
+            "Chicago"
+          ]
+        },
+        {
+          "as_printed": "Pearce Wilden",
+          "normalized": "Pearce Wilden",
+          "role": "letter_list",
+          "associated_places": [
+            "Chicago"
+          ]
+        },
+        {
+          "as_printed": "Paddock Ira",
+          "normalized": "Paddock Ira",
+          "role": "letter_list",
+          "associated_places": [
+            "Chicago"
+          ]
+        },
+        {
+          "as_printed": "Johnson, Samuel",
+          "normalized": "Johnson, Samuel",
+          "role": "letter_list",
+          "associated_places": [
+            "Chicago"
+          ]
+        },
+        {
+          "as_printed": "Payne Barrey W.",
+          "normalized": "Payne Barrey W.",
+          "role": "letter_list",
+          "associated_places": [
+            "Chicago"
+          ]
+        },
+        {
+          "as_printed": "Jones, John J.",
+          "normalized": "Jones, John J.",
+          "role": "letter_list",
+          "associated_places": [
+            "Chicago"
+          ]
+        },
+        {
+          "as_printed": "Jordan, J. B.",
+          "normalized": "Jordan, J. B.",
+          "role": "letter_list",
+          "associated_places": [
+            "Chicago"
+          ]
+        },
+        {
+          "as_printed": "Reynolds Lewis",
+          "normalized": "Reynolds Lewis",
+          "role": "letter_list",
+          "associated_places": [
+            "Chicago"
+          ]
+        },
+        {
+          "as_printed": "Reynolds John Hon.",
+          "normalized": "Reynolds John Hon.",
+          "role": "letter_list",
+          "associated_places": [
+            "Chicago"
+          ]
+        },
+        {
+          "as_printed": "Jenks, Nathan",
+          "normalized": "Jenks, Nathan",
+          "role": "letter_list",
+          "associated_places": [
+            "Chicago"
+          ]
+        },
+        {
+          "as_printed": "Reynolds Damel A.",
+          "normalized": "Reynolds Damel A.",
+          "role": "letter_list",
+          "associated_places": [
+            "Chicago"
+          ]
+        },
+        {
+          "as_printed": "Joter, Johnson",
+          "normalized": "Joter, Johnson",
+          "role": "letter_list",
+          "associated_places": [
+            "Chicago"
+          ]
+        },
+        {
+          "as_printed": "Ray Thomas",
+          "normalized": "Ray Thomas",
+          "role": "letter_list",
+          "associated_places": [
+            "Chicago"
+          ]
+        },
+        {
+          "as_printed": "Jeris, Timothy B.",
+          "normalized": "Jeris, Timothy B.",
+          "role": "letter_list",
+          "associated_places": [
+            "Chicago"
+          ]
+        },
+        {
+          "as_printed": "Root Ez c.",
+          "normalized": "Root Ez c.",
+          "role": "letter_list",
+          "associated_places": [
+            "Chicago"
+          ]
+        },
+        {
+          "as_printed": "Jones, D. D.",
+          "normalized": "Jones, D. D.",
+          "role": "letter_list",
+          "associated_places": [
+            "Chicago"
+          ]
+        },
+        {
+          "as_printed": "Regera John V.",
+          "normalized": "Regera John V.",
+          "role": "letter_list",
+          "associated_places": [
+            "Chicago"
+          ]
+        },
+        {
+          "as_printed": "Johnson, Limeon M.",
+          "normalized": "Johnson, Limeon M.",
+          "role": "letter_list",
+          "associated_places": [
+            "Chicago"
+          ]
+        },
+        {
+          "as_printed": "Roberts Sidney",
+          "normalized": "Roberts Sidney",
+          "role": "letter_list",
+          "associated_places": [
+            "Chicago"
+          ]
+        },
+        {
+          "as_printed": "Es,Jones, High",
+          "normalized": "Es,Jones, High",
+          "role": "letter_list",
+          "associated_places": [
+            "Chicago"
+          ]
+        },
+        {
+          "as_printed": "Russell Janea",
+          "normalized": "Russell Janea",
+          "role": "letter_list",
+          "associated_places": [
+            "Chicago"
+          ]
+        },
+        {
+          "as_printed": "Johnson, Solon",
+          "normalized": "Johnson, Solon",
+          "role": "letter_list",
+          "associated_places": [
+            "Chicago"
+          ]
+        },
+        {
+          "as_printed": "Ranwin O.",
+          "normalized": "Ranwin O.",
+          "role": "letter_list",
+          "associated_places": [
+            "Chicago"
+          ]
+        },
+        {
+          "as_printed": "Jones, W. or Abrabam",
+          "normalized": "Jones, W. or Abrabam",
+          "role": "letter_list",
+          "associated_places": [
+            "Chicago"
+          ]
+        },
+        {
+          "as_printed": "Rayond Elisha",
+          "normalized": "Rayond Elisha",
+          "role": "letter_list",
+          "associated_places": [
+            "Chicago"
+          ]
+        },
+        {
+          "as_printed": "Johnson, Mrs.",
+          "normalized": "Johnson, Mrs.",
+          "role": "letter_list",
+          "associated_places": [
+            "Chicago"
+          ]
+        },
+        {
+          "as_printed": "Roekwood Elisha",
+          "normalized": "Roekwood Elisha",
+          "role": "letter_list",
+          "associated_places": [
+            "Chicago"
+          ]
+        },
+        {
+          "as_printed": "Richard Jacob",
+          "normalized": "Richard Jacob",
+          "role": "letter_list",
+          "associated_places": [
+            "Chicago"
+          ]
+        },
+        {
+          "as_printed": "Junis.A.or J.R.Cary 2",
+          "normalized": "Junis.A.or J.R.Cary",
+          "role": "letter_list",
+          "associated_places": [
+            "Chicago"
+          ]
+        },
+        {
+          "as_printed": "Russell Gilbert W.",
+          "normalized": "Russell Gilbert W.",
+          "role": "letter_list",
+          "associated_places": [
+            "Chicago"
+          ]
+        },
+        {
+          "as_printed": "Jones, Henry",
+          "normalized": "Jones, Henry",
+          "role": "letter_list",
+          "associated_places": [
+            "Chicago"
+          ]
+        },
+        {
+          "as_printed": "Randle James",
+          "normalized": "Randle James",
+          "role": "letter_list",
+          "associated_places": [
+            "Chicago"
+          ]
+        },
+        {
+          "as_printed": "Jones, Alicheal",
+          "normalized": "Jones, Alicheal",
+          "role": "letter_list",
+          "associated_places": [
+            "Chicago"
+          ]
+        },
+        {
+          "as_printed": "Bobinson George IS.",
+          "normalized": "Bobinson George IS.",
+          "role": "letter_list",
+          "associated_places": [
+            "Chicago"
+          ]
+        },
+        {
+          "as_printed": "Rius Archibald",
+          "normalized": "Rius Archibald",
+          "role": "letter_list",
+          "associated_places": [
+            "Chicago"
+          ]
+        },
+        {
+          "as_printed": "Kirne, E. Capt.",
+          "normalized": "Kirne, E. Capt.",
+          "role": "letter_list",
+          "associated_places": [
+            "Chicago"
+          ]
+        },
+        {
+          "as_printed": "& Anight, Clark",
+          "normalized": "Anight, Clark",
+          "role": "letter_list",
+          "associated_places": [
+            "Chicago"
+          ]
+        },
+        {
+          "as_printed": "Scott James",
+          "normalized": "Scott James",
+          "role": "letter_list",
+          "associated_places": [
+            "Chicago"
+          ]
+        },
+        {
+          "as_printed": "King, Neheminh",
+          "normalized": "King, Neheminh",
+          "role": "letter_list",
+          "associated_places": [
+            "Chicago"
+          ]
+        },
+        {
+          "as_printed": "Swanwick F.",
+          "normalized": "Swanwick F.",
+          "role": "letter_list",
+          "associated_places": [
+            "Chicago"
+          ]
+        },
+        {
+          "as_printed": "g Keys, Ed. or Jos. Keys",
+          "normalized": "Keys, Ed. or Jos. Keys",
+          "role": "letter_list",
+          "associated_places": [
+            "Chicago"
+          ]
+        },
+        {
+          "as_printed": "Stuart William",
+          "normalized": "Stuart William",
+          "role": "letter_list",
+          "associated_places": [
+            "Chicago"
+          ]
+        },
+        {
+          "as_printed": "Sherman m. c.",
+          "normalized": "Sherman m. c.",
+          "role": "letter_list",
+          "associated_places": [
+            "Chicago"
+          ]
+        },
+        {
+          "as_printed": "Kooken, James",
+          "normalized": "Kooken, James",
+          "role": "letter_list",
+          "associated_places": [
+            "Chicago"
+          ]
+        },
+        {
+          "as_printed": "Seaton charles",
+          "normalized": "Seaton charles",
+          "role": "letter_list",
+          "associated_places": [
+            "Chicago"
+          ]
+        },
+        {
+          "as_printed": "3 Kent, Alex. M.",
+          "normalized": "Kent, Alex. M.",
+          "role": "letter_list",
+          "associated_places": [
+            "Chicago"
+          ]
+        },
+        {
+          "as_printed": "Shepherd Albert",
+          "normalized": "Shepherd Albert",
+          "role": "letter_list",
+          "associated_places": [
+            "Chicago"
+          ]
+        },
+        {
+          "as_printed": "King, Elans A.",
+          "normalized": "King, Elans A.",
+          "role": "letter_list",
+          "associated_places": [
+            "Chicago"
+          ]
+        },
+        {
+          "as_printed": "Stewart Joseph",
+          "normalized": "Stewart Joseph",
+          "role": "letter_list",
+          "associated_places": [
+            "Chicago"
+          ]
+        },
+        {
+          "as_printed": "King, Henry Hon.",
+          "normalized": "King, Henry Hon.",
+          "role": "letter_list",
+          "associated_places": [
+            "Chicago"
+          ]
+        },
+        {
+          "as_printed": "Smith James A.",
+          "normalized": "Smith James A.",
+          "role": "letter_list",
+          "associated_places": [
+            "Chicago"
+          ]
+        },
+        {
+          "as_printed": "MKelly, Wilham",
+          "normalized": "MKelly, Wilham",
+          "role": "letter_list",
+          "associated_places": [
+            "Chicago"
+          ]
+        },
+        {
+          "as_printed": "Soren Helen Miss",
+          "normalized": "Soren Helen Miss",
+          "role": "letter_list",
+          "associated_places": [
+            "Chicago"
+          ]
+        },
+        {
+          "as_printed": "Lovel, Kimball or",
+          "normalized": "Lovel, Kimball or",
+          "role": "letter_list",
+          "associated_places": [
+            "Chicago"
+          ]
+        },
+        {
+          "as_printed": "Sherman, Nicholas",
+          "normalized": "Sherman, Nicholas",
+          "role": "letter_list",
+          "associated_places": [
+            "Chicago"
+          ]
+        },
+        {
+          "as_printed": "Ehjah Doolittle,",
+          "normalized": "Ehjah Doolittle",
+          "role": "letter_list",
+          "associated_places": [
+            "Chicago"
+          ]
+        },
+        {
+          "as_printed": "Savage, Levi",
+          "normalized": "Savage, Levi",
+          "role": "letter_list",
+          "associated_places": [
+            "Chicago"
+          ]
+        },
+        {
+          "as_printed": "Kidder, Luther",
+          "normalized": "Kidder, Luther",
+          "role": "letter_list",
+          "associated_places": [
+            "Chicago"
+          ]
+        },
+        {
+          "as_printed": "Seston, Charles",
+          "normalized": "Seston, Charles",
+          "role": "letter_list",
+          "associated_places": [
+            "Chicago"
+          ]
+        },
+        {
+          "as_printed": "Knowles, J. A.",
+          "normalized": "Knowles, J. A.",
+          "role": "letter_list",
+          "associated_places": [
+            "Chicago"
+          ]
+        },
+        {
+          "as_printed": "Starkweather, Rob't. 2",
+          "normalized": "Starkweather, Rob't.",
+          "role": "letter_list",
+          "associated_places": [
+            "Chicago"
+          ]
+        },
+        {
+          "as_printed": "Kimball, Minerva",
+          "normalized": "Kimball, Minerva",
+          "role": "letter_list",
+          "associated_places": [
+            "Chicago"
+          ]
+        },
+        {
+          "as_printed": "Skinner, Heury C.",
+          "normalized": "Skinner, Heury C.",
+          "role": "letter_list",
+          "associated_places": [
+            "Chicago"
+          ]
+        },
+        {
+          "as_printed": "Kimball, James",
+          "normalized": "Kimball, James",
+          "role": "letter_list",
+          "associated_places": [
+            "Chicago"
+          ]
+        },
+        {
+          "as_printed": "Stark, B. B.",
+          "normalized": "Stark, B. B.",
+          "role": "letter_list",
+          "associated_places": [
+            "Chicago"
+          ]
+        },
+        {
+          "as_printed": "Kilburn, Milton",
+          "normalized": "Kilburn, Milton",
+          "role": "letter_list",
+          "associated_places": [
+            "Chicago"
+          ]
+        },
+        {
+          "as_printed": "Steele, Ranson",
+          "normalized": "Steele, Ranson",
+          "role": "letter_list",
+          "associated_places": [
+            "Chicago"
+          ]
+        },
+        {
+          "as_printed": "King, Charles F.",
+          "normalized": "King, Charles F.",
+          "role": "letter_list",
+          "associated_places": [
+            "Chicago"
+          ]
+        },
+        {
+          "as_printed": "Saunders, William S.",
+          "normalized": "Saunders, William S.",
+          "role": "letter_list",
+          "associated_places": [
+            "Chicago"
+          ]
+        },
+        {
+          "as_printed": "Smith, Elded",
+          "normalized": "Smith, Elded",
+          "role": "letter_list",
+          "associated_places": [
+            "Chicago"
+          ]
+        },
+        {
+          "as_printed": "Loyell, J. HI.",
+          "normalized": "Loyell, J. HI.",
+          "role": "letter_list",
+          "associated_places": [
+            "Chicago"
+          ]
+        },
+        {
+          "as_printed": "Smith, Solomon",
+          "normalized": "Smith, Solomon",
+          "role": "letter_list",
+          "associated_places": [
+            "Chicago"
+          ]
+        },
+        {
+          "as_printed": "Lazier, Oliver",
+          "normalized": "Lazier, Oliver",
+          "role": "letter_list",
+          "associated_places": [
+            "Chicago"
+          ]
+        },
+        {
+          "as_printed": "Schernerborn, Peter B.,",
+          "normalized": "Schernerborn, Peter B.",
+          "role": "letter_list",
+          "associated_places": [
+            "Chicago"
+          ]
+        },
+        {
+          "as_printed": "Lewie, Wm.",
+          "normalized": "Lewie, Wm.",
+          "role": "letter_list",
+          "associated_places": [
+            "Chicago"
+          ]
+        },
+        {
+          "as_printed": "Smith, F. R.",
+          "normalized": "Smith, F. R.",
+          "role": "letter_list",
+          "associated_places": [
+            "Chicago"
+          ]
+        },
+        {
+          "as_printed": "Lovering, Richard",
+          "normalized": "Lovering, Richard",
+          "role": "letter_list",
+          "associated_places": [
+            "Chicago"
+          ]
+        },
+        {
+          "as_printed": "Sacket, Alexander •*,",
+          "normalized": "Sacket, Alexander •*",
+          "role": "letter_list",
+          "associated_places": [
+            "Chicago"
+          ]
+        },
+        {
+          "as_printed": "Loomis, Amelizo",
+          "normalized": "Loomis, Amelizo",
+          "role": "letter_list",
+          "associated_places": [
+            "Chicago"
+          ]
+        },
+        {
+          "as_printed": "Sacket, Edward",
+          "normalized": "Sacket, Edward",
+          "role": "letter_list",
+          "associated_places": [
+            "Chicago"
+          ]
+        },
+        {
+          "as_printed": "Lapsley, John A.",
+          "normalized": "Lapsley, John A.",
+          "role": "letter_list",
+          "associated_places": [
+            "Chicago"
+          ]
+        },
+        {
+          "as_printed": "Swapp, Abram",
+          "normalized": "Swapp, Abram",
+          "role": "letter_list",
+          "associated_places": [
+            "Chicago"
+          ]
+        },
+        {
+          "as_printed": "Lamb, A.",
+          "normalized": "Lamb, A.",
+          "role": "letter_list",
+          "associated_places": [
+            "Chicago"
+          ]
+        },
+        {
+          "as_printed": "Smith, Jehabod",
+          "normalized": "Smith, Jehabod",
+          "role": "letter_list",
+          "associated_places": [
+            "Chicago"
+          ]
+        },
+        {
+          "as_printed": "Linkletter, George",
+          "normalized": "Linkletter, George",
+          "role": "letter_list",
+          "associated_places": [
+            "Chicago"
+          ]
+        },
+        {
+          "as_printed": "Smith, Ezra B.",
+          "normalized": "Smith, Ezra B.",
+          "role": "letter_list",
+          "associated_places": [
+            "Chicago"
+          ]
+        },
+        {
+          "as_printed": "Late, Albert",
+          "normalized": "Late, Albert",
+          "role": "letter_list",
+          "associated_places": [
+            "Chicago"
+          ]
+        },
+        {
+          "as_printed": "Sunny, Miches!",
+          "normalized": "Sunny, Miches!",
+          "role": "letter_list",
+          "associated_places": [
+            "Chicago"
+          ]
+        },
+        {
+          "as_printed": "Tensenring, Peter",
+          "normalized": "Tensenring, Peter",
+          "role": "letter_list",
+          "associated_places": [
+            "Chicago"
+          ]
+        },
+        {
+          "as_printed": "Snow, Russ",
+          "normalized": "Snow, Russ",
+          "role": "letter_list",
+          "associated_places": [
+            "Chicago"
+          ]
+        },
+        {
+          "as_printed": "Little, Henry or",
+          "normalized": "Little, Henry or",
+          "role": "letter_list",
+          "associated_places": [
+            "Chicago"
+          ]
+        }
+      ],
+      "notes": "THE POST-OFFICE LETTER LIST of 1835-06-30, ruling 1's census proxy, and the segmenter has woven it line by line through the advertising type beside it. `lines_of_claim` names the lines that belong to the list and nothing else; the cited range holds the advertisements it alternates with. ONE SUPPLY IS MADE AND IT IS THE PAPER'S OWN: where a printed name begins in lower case its capital was cut by the column edge, and the section letter standing above that run of names is prepended in brackets. A name whose initial is present but disagrees with its section is a MISREADING, not a clipping, and stands as printed — correcting it would be a guess, and `identity.json` is the only place two spellings may become one person. NO SUPPLY IS MADE IN THIS COLUMN. It alternates two separate alphabetical runs of the same list — an F-to-L run and an M-to-S run — so the section letter above any given line is not evidence for the line below it, and the rule that works in columns 3 and 5 would corrupt good names here. The printed names stand as printed. The list's heading is at lines 3130, 3131 and 3133."
+    },
+    {
+      "id": "c006",
+      "kind": "person",
+      "reading": "transcription_mediated",
+      "quote": "Savage, David\nSantord, Steplen G.\nSelden, Sam'l. L. 8\nSewyer, Edward F.\nSwearingen, Irasc B.\nStrong, Willam\nSimpaon, Lyman\nStrode, P'. M.\nSanford, Ruth\nStark, James F.\nSmith, William T.\nSunith, Mil on\nSmith, John\nStold, Abraham F.\nSteel, Richard\n2\nStocking, Daneil C.\nShielde, Willam\nSherman, Silas\nSpicer, Charles\nSabine, Williem\nSimpson, John P.\nSwena, Benjamın Jr.\nSprague, Willinm B.\nWillinm G.\nStrong, George\nShattick, Walter\nStoel, C. II.\nSpicer, George\nSpencer, William\nSwearingen, David\nStallord, Arnold\nSmith, Giles M.\nStocking, Austin\nScott, John\nSmith, J. H.\nSouee, Theson\nStater, Asa P.\nStevens, Issac\nT.\nPhomas, Jane F.\nTaylor, Charles\nPuttle, Daniel\nTituR, Starr\nLoweley. Watere e\nTimothy B.\nPaylor, Margnret g\nl'ingley, Bikannh\nThacker, Ailen D. 2\nChateher, Thomas\nPinedale, John W.\nP'aylor, John O.\nPhompson, W. W.\nPurner, John M.\nFailor, William\nail, H. P.\nVanorsdol, William\nansiyke, James\nW.\nVarren, Anreus\nVyekoff, Henry S.\nNeleh, William\nVillame, John C. 8\nVoodward, Pilliams\nfoodruli, H. E. Mies\nFood, Alonzo c\nFalsh, J. Hewitt\nTeston, Lemuel\nPhite, Isnacher\nFilliams, Gilea\nheeler, Wm. R.\neek, Samuel H.\nahams, Mortimer\nFadhams, Ddward 2\nitherby, Luke B.\neake, cole\nilson, Sally Mies, 9\nard. Ashel P.\nillard, A.\niard, R. E.\nalson, Robert A.\nalker, Gerge c.\nortbingham, William\nescott, James\ninters, Henry\neldon, Jonthan\nFalker, J. B.\nurd, Barnard\nork, James Houston\nooiward, George\nsiker, Josish\nhitney, Joshus\n2\nelle, Andrew 8,\nillard, Elish W. S\neur, John\nooding, Anson\nlutty, Richard\noolley, Jediah\nilson, Harry F.\nIntmore, George\nesteott, James R. e\nright, Horace\narrer, Henry\never, Jane Mirs\nade, afarvin R.\nolf, John\noodbury, Jeddediah\nhiting, Betsey\nWarren, c.\nwr, Hirom\nabove Letters, will\ndertised.\nHOGAN, P. M.",
+      "normalized": "The S to W of the Chicago post-office letter list of 1835-06-30, and its closing: Savage, David; Santord, Steplen G.; Selden, Sam'l. L.; Sewyer, Edward F.; Swearingen, Irasc B.; Strong, Willam; Simpaon, Lyman; Strode, P'. M.; Sanford, Ruth; Stark, James F.; Smith, William T.; Sunith, Mil on; Smith, John; Stold, Abraham F.; Steel, Richard; Stocking, Daneil C.; Shielde, Willam; Sherman, Silas; Spicer, Charles; Sabine, Williem; Simpson, John P.; Swena, Benjamin Jr.; Sprague, Willinm B.; Willinm G.; Strong, George; Shattick, Walter; Stoel, C. II.; Spicer, George; Spencer, William; Swearingen, David; Stallord, Arnold; Smith, Giles M.; Stocking, Austin; Scott, John; Smith, J. H.; Souee, Theson; Stater, Asa P.; Stevens, Issac; Phomas, Jane F.; Taylor, Charles; Puttle, Daniel; TituR, Starr; Loweley. Watere e; Timothy B.; Paylor, Margnret g; [T]l'ingley, Bikannh; Thacker, Ailen D.; Chateher, Thomas; Pinedale, John W.; P'aylor, John O.; Phompson, W. W.; Purner, John M.; Failor, William; [T]ail, H. P.; Vanorsdol, William; [T]ansiyke, James; Varren, Anreus; Vyekoff, Henry S.; Neleh, William; Villame, John C.; Voodward, Pilliams; [W]foodruli, H. E. Mies; Food, Alonzo c; Falsh, J. Hewitt; Teston, Lemuel; Phite, Isnacher; Filliams, Gilea; [W]heeler, Wm. R.; [W]eek, Samuel H.; [W]ahams, Mortimer; Fadhams, Ddward; [W]itherby, Luke B.; [W]eake, cole; [W]ilson, Sally Mies; [W]ard. Ashel P.; [W]illard, A.; [W]iard, R. E.; [W]alson, Robert A.; [W]alker, Gerge c.; [W]ortbingham, William; [W]escott, James; [W]inters, Henry; [W]eldon, Jonthan; Falker, J. B.; [W]urd, Barnard; [W]ork, James Houston; [W]ooiward, George; [W]siker, Josish; [W]hitney, Joshus; [W]elle, Andrew 8; [W]illard, Elish W. S; [W]eur, John; [W]ooding, Anson; [W]lutty, Richard; [W]oolley, Jediah; [W]ilson, Harry F.; Intmore, George; [W]esteott, James R. e; [W]right, Horace; [W]arrer, Henry; [W]ever, Jane Mirs; [W]ade, afarvin R.; [W]olf, John; [W]oodbury, Jeddediah; [W]hiting, Betsey; Warren, c.; [W]wr, Hirom. Persons calling for the above letters will please say that they are advertised. J. S. C. Hogan, P. M.",
+      "locator": {
+        "artifact_role": "primary",
+        "issue_page": 3,
+        "column": 5,
+        "lines": [
+          3446,
+          3705
+        ],
+        "lines_of_claim": [
+          3446,
+          3448,
+          3450,
+          3453,
+          3457,
+          3459,
+          3461,
+          3463,
+          3465,
+          3468,
+          3470,
+          3473,
+          3477,
+          3479,
+          3481,
+          3482,
+          3484,
+          3486,
+          3488,
+          3490,
+          3492,
+          3494,
+          3497,
+          3498,
+          3501,
+          3503,
+          3504,
+          3506,
+          3509,
+          3511,
+          3513,
+          3515,
+          3517,
+          3519,
+          3521,
+          3523,
+          3527,
+          3528,
+          3531,
+          3536,
+          3537,
+          3539,
+          3541,
+          3543,
+          3545,
+          3548,
+          3553,
+          3555,
+          3557,
+          3559,
+          3561,
+          3562,
+          3564,
+          3567,
+          3569,
+          3574,
+          3577,
+          3580,
+          3582,
+          3584,
+          3585,
+          3587,
+          3589,
+          3591,
+          3593,
+          3596,
+          3598,
+          3600,
+          3602,
+          3605,
+          3607,
+          3608,
+          3610,
+          3612,
+          3615,
+          3617,
+          3619,
+          3621,
+          3623,
+          3625,
+          3627,
+          3629,
+          3632,
+          3634,
+          3637,
+          3639,
+          3641,
+          3643,
+          3645,
+          3647,
+          3650,
+          3652,
+          3653,
+          3657,
+          3660,
+          3663,
+          3666,
+          3669,
+          3671,
+          3673,
+          3675,
+          3678,
+          3680,
+          3681,
+          3683,
+          3685,
+          3687,
+          3689,
+          3691,
+          3695,
+          3698,
+          3700,
+          3703,
+          3705
+        ],
+        "interleaved": true
+      },
+      "letter_list_only": true,
+      "post_office": {
+        "name": "Chicago",
+        "postmaster": "J. S. C. Hogan",
+        "list_date": "1835-06-30"
+      },
+      "entities": [
+        {
+          "as_printed": "Savage, David",
+          "normalized": "Savage, David",
+          "role": "letter_list",
+          "associated_places": [
+            "Chicago"
+          ]
+        },
+        {
+          "as_printed": "Santord, Steplen G.",
+          "normalized": "Santord, Steplen G.",
+          "role": "letter_list",
+          "associated_places": [
+            "Chicago"
+          ]
+        },
+        {
+          "as_printed": "Selden, Sam'l. L. 8",
+          "normalized": "Selden, Sam'l. L.",
+          "role": "letter_list",
+          "associated_places": [
+            "Chicago"
+          ]
+        },
+        {
+          "as_printed": "Sewyer, Edward F.",
+          "normalized": "Sewyer, Edward F.",
+          "role": "letter_list",
+          "associated_places": [
+            "Chicago"
+          ]
+        },
+        {
+          "as_printed": "Swearingen, Irasc B.",
+          "normalized": "Swearingen, Irasc B.",
+          "role": "letter_list",
+          "associated_places": [
+            "Chicago"
+          ]
+        },
+        {
+          "as_printed": "Strong, Willam",
+          "normalized": "Strong, Willam",
+          "role": "letter_list",
+          "associated_places": [
+            "Chicago"
+          ]
+        },
+        {
+          "as_printed": "Simpaon, Lyman",
+          "normalized": "Simpaon, Lyman",
+          "role": "letter_list",
+          "associated_places": [
+            "Chicago"
+          ]
+        },
+        {
+          "as_printed": "Strode, P'. M.",
+          "normalized": "Strode, P'. M.",
+          "role": "letter_list",
+          "associated_places": [
+            "Chicago"
+          ]
+        },
+        {
+          "as_printed": "Sanford, Ruth",
+          "normalized": "Sanford, Ruth",
+          "role": "letter_list",
+          "associated_places": [
+            "Chicago"
+          ]
+        },
+        {
+          "as_printed": "Stark, James F.",
+          "normalized": "Stark, James F.",
+          "role": "letter_list",
+          "associated_places": [
+            "Chicago"
+          ]
+        },
+        {
+          "as_printed": "Smith, William T.",
+          "normalized": "Smith, William T.",
+          "role": "letter_list",
+          "associated_places": [
+            "Chicago"
+          ]
+        },
+        {
+          "as_printed": "Sunith, Mil on",
+          "normalized": "Sunith, Mil on",
+          "role": "letter_list",
+          "associated_places": [
+            "Chicago"
+          ]
+        },
+        {
+          "as_printed": "Smith, John",
+          "normalized": "Smith, John",
+          "role": "letter_list",
+          "associated_places": [
+            "Chicago"
+          ]
+        },
+        {
+          "as_printed": "Stold, Abraham F.",
+          "normalized": "Stold, Abraham F.",
+          "role": "letter_list",
+          "associated_places": [
+            "Chicago"
+          ]
+        },
+        {
+          "as_printed": "Steel, Richard",
+          "normalized": "Steel, Richard",
+          "role": "letter_list",
+          "associated_places": [
+            "Chicago"
+          ]
+        },
+        {
+          "as_printed": "Stocking, Daneil C.",
+          "normalized": "Stocking, Daneil C.",
+          "role": "letter_list",
+          "associated_places": [
+            "Chicago"
+          ]
+        },
+        {
+          "as_printed": "Shielde, Willam",
+          "normalized": "Shielde, Willam",
+          "role": "letter_list",
+          "associated_places": [
+            "Chicago"
+          ]
+        },
+        {
+          "as_printed": "Sherman, Silas",
+          "normalized": "Sherman, Silas",
+          "role": "letter_list",
+          "associated_places": [
+            "Chicago"
+          ]
+        },
+        {
+          "as_printed": "Spicer, Charles",
+          "normalized": "Spicer, Charles",
+          "role": "letter_list",
+          "associated_places": [
+            "Chicago"
+          ]
+        },
+        {
+          "as_printed": "Sabine, Williem",
+          "normalized": "Sabine, Williem",
+          "role": "letter_list",
+          "associated_places": [
+            "Chicago"
+          ]
+        },
+        {
+          "as_printed": "Simpson, John P.",
+          "normalized": "Simpson, John P.",
+          "role": "letter_list",
+          "associated_places": [
+            "Chicago"
+          ]
+        },
+        {
+          "as_printed": "Swena, Benjamin Jr.",
+          "normalized": "Swena, Benjamin Jr.",
+          "role": "letter_list",
+          "associated_places": [
+            "Chicago"
+          ]
+        },
+        {
+          "as_printed": "Sprague, Willinm B.",
+          "normalized": "Sprague, Willinm B.",
+          "role": "letter_list",
+          "associated_places": [
+            "Chicago"
+          ]
+        },
+        {
+          "as_printed": "Willinm G.",
+          "normalized": "Willinm G.",
+          "role": "letter_list",
+          "associated_places": [
+            "Chicago"
+          ]
+        },
+        {
+          "as_printed": "Strong, George",
+          "normalized": "Strong, George",
+          "role": "letter_list",
+          "associated_places": [
+            "Chicago"
+          ]
+        },
+        {
+          "as_printed": "Shattick, Walter",
+          "normalized": "Shattick, Walter",
+          "role": "letter_list",
+          "associated_places": [
+            "Chicago"
+          ]
+        },
+        {
+          "as_printed": "Stoel, C. II.",
+          "normalized": "Stoel, C. II.",
+          "role": "letter_list",
+          "associated_places": [
+            "Chicago"
+          ]
+        },
+        {
+          "as_printed": "Spicer, George",
+          "normalized": "Spicer, George",
+          "role": "letter_list",
+          "associated_places": [
+            "Chicago"
+          ]
+        },
+        {
+          "as_printed": "Spencer, William",
+          "normalized": "Spencer, William",
+          "role": "letter_list",
+          "associated_places": [
+            "Chicago"
+          ]
+        },
+        {
+          "as_printed": "Swearingen, David",
+          "normalized": "Swearingen, David",
+          "role": "letter_list",
+          "associated_places": [
+            "Chicago"
+          ]
+        },
+        {
+          "as_printed": "Stallord, Arnold",
+          "normalized": "Stallord, Arnold",
+          "role": "letter_list",
+          "associated_places": [
+            "Chicago"
+          ]
+        },
+        {
+          "as_printed": "Smith, Giles M.",
+          "normalized": "Smith, Giles M.",
+          "role": "letter_list",
+          "associated_places": [
+            "Chicago"
+          ]
+        },
+        {
+          "as_printed": "Stocking, Austin",
+          "normalized": "Stocking, Austin",
+          "role": "letter_list",
+          "associated_places": [
+            "Chicago"
+          ]
+        },
+        {
+          "as_printed": "Scott, John",
+          "normalized": "Scott, John",
+          "role": "letter_list",
+          "associated_places": [
+            "Chicago"
+          ]
+        },
+        {
+          "as_printed": "Smith, J. H.",
+          "normalized": "Smith, J. H.",
+          "role": "letter_list",
+          "associated_places": [
+            "Chicago"
+          ]
+        },
+        {
+          "as_printed": "Souee, Theson",
+          "normalized": "Souee, Theson",
+          "role": "letter_list",
+          "associated_places": [
+            "Chicago"
+          ]
+        },
+        {
+          "as_printed": "Stater, Asa P.",
+          "normalized": "Stater, Asa P.",
+          "role": "letter_list",
+          "associated_places": [
+            "Chicago"
+          ]
+        },
+        {
+          "as_printed": "Stevens, Issac",
+          "normalized": "Stevens, Issac",
+          "role": "letter_list",
+          "associated_places": [
+            "Chicago"
+          ]
+        },
+        {
+          "as_printed": "Phomas, Jane F.",
+          "normalized": "Phomas, Jane F.",
+          "role": "letter_list",
+          "associated_places": [
+            "Chicago"
+          ]
+        },
+        {
+          "as_printed": "Taylor, Charles",
+          "normalized": "Taylor, Charles",
+          "role": "letter_list",
+          "associated_places": [
+            "Chicago"
+          ]
+        },
+        {
+          "as_printed": "Puttle, Daniel",
+          "normalized": "Puttle, Daniel",
+          "role": "letter_list",
+          "associated_places": [
+            "Chicago"
+          ]
+        },
+        {
+          "as_printed": "TituR, Starr",
+          "normalized": "TituR, Starr",
+          "role": "letter_list",
+          "associated_places": [
+            "Chicago"
+          ]
+        },
+        {
+          "as_printed": "Loweley. Watere e",
+          "normalized": "Loweley. Watere e",
+          "role": "letter_list",
+          "associated_places": [
+            "Chicago"
+          ]
+        },
+        {
+          "as_printed": "Timothy B.",
+          "normalized": "Timothy B.",
+          "role": "letter_list",
+          "associated_places": [
+            "Chicago"
+          ]
+        },
+        {
+          "as_printed": "Paylor, Margnret g",
+          "normalized": "Paylor, Margnret g",
+          "role": "letter_list",
+          "associated_places": [
+            "Chicago"
+          ]
+        },
+        {
+          "as_printed": "l'ingley, Bikannh",
+          "normalized": "[T]l'ingley, Bikannh",
+          "role": "letter_list",
+          "associated_places": [
+            "Chicago"
+          ]
+        },
+        {
+          "as_printed": "Thacker, Ailen D. 2",
+          "normalized": "Thacker, Ailen D.",
+          "role": "letter_list",
+          "associated_places": [
+            "Chicago"
+          ]
+        },
+        {
+          "as_printed": "Chateher, Thomas",
+          "normalized": "Chateher, Thomas",
+          "role": "letter_list",
+          "associated_places": [
+            "Chicago"
+          ]
+        },
+        {
+          "as_printed": "Pinedale, John W.",
+          "normalized": "Pinedale, John W.",
+          "role": "letter_list",
+          "associated_places": [
+            "Chicago"
+          ]
+        },
+        {
+          "as_printed": "P'aylor, John O.",
+          "normalized": "P'aylor, John O.",
+          "role": "letter_list",
+          "associated_places": [
+            "Chicago"
+          ]
+        },
+        {
+          "as_printed": "Phompson, W. W.",
+          "normalized": "Phompson, W. W.",
+          "role": "letter_list",
+          "associated_places": [
+            "Chicago"
+          ]
+        },
+        {
+          "as_printed": "Purner, John M.",
+          "normalized": "Purner, John M.",
+          "role": "letter_list",
+          "associated_places": [
+            "Chicago"
+          ]
+        },
+        {
+          "as_printed": "Failor, William",
+          "normalized": "Failor, William",
+          "role": "letter_list",
+          "associated_places": [
+            "Chicago"
+          ]
+        },
+        {
+          "as_printed": "ail, H. P.",
+          "normalized": "[T]ail, H. P.",
+          "role": "letter_list",
+          "associated_places": [
+            "Chicago"
+          ]
+        },
+        {
+          "as_printed": "Vanorsdol, William",
+          "normalized": "Vanorsdol, William",
+          "role": "letter_list",
+          "associated_places": [
+            "Chicago"
+          ]
+        },
+        {
+          "as_printed": "ansiyke, James",
+          "normalized": "[T]ansiyke, James",
+          "role": "letter_list",
+          "associated_places": [
+            "Chicago"
+          ]
+        },
+        {
+          "as_printed": "Varren, Anreus",
+          "normalized": "Varren, Anreus",
+          "role": "letter_list",
+          "associated_places": [
+            "Chicago"
+          ]
+        },
+        {
+          "as_printed": "Vyekoff, Henry S.",
+          "normalized": "Vyekoff, Henry S.",
+          "role": "letter_list",
+          "associated_places": [
+            "Chicago"
+          ]
+        },
+        {
+          "as_printed": "Neleh, William",
+          "normalized": "Neleh, William",
+          "role": "letter_list",
+          "associated_places": [
+            "Chicago"
+          ]
+        },
+        {
+          "as_printed": "Villame, John C. 8",
+          "normalized": "Villame, John C.",
+          "role": "letter_list",
+          "associated_places": [
+            "Chicago"
+          ]
+        },
+        {
+          "as_printed": "Voodward, Pilliams",
+          "normalized": "Voodward, Pilliams",
+          "role": "letter_list",
+          "associated_places": [
+            "Chicago"
+          ]
+        },
+        {
+          "as_printed": "foodruli, H. E. Mies",
+          "normalized": "[W]foodruli, H. E. Mies",
+          "role": "letter_list",
+          "associated_places": [
+            "Chicago"
+          ]
+        },
+        {
+          "as_printed": "Food, Alonzo c",
+          "normalized": "Food, Alonzo c",
+          "role": "letter_list",
+          "associated_places": [
+            "Chicago"
+          ]
+        },
+        {
+          "as_printed": "Falsh, J. Hewitt",
+          "normalized": "Falsh, J. Hewitt",
+          "role": "letter_list",
+          "associated_places": [
+            "Chicago"
+          ]
+        },
+        {
+          "as_printed": "Teston, Lemuel",
+          "normalized": "Teston, Lemuel",
+          "role": "letter_list",
+          "associated_places": [
+            "Chicago"
+          ]
+        },
+        {
+          "as_printed": "Phite, Isnacher",
+          "normalized": "Phite, Isnacher",
+          "role": "letter_list",
+          "associated_places": [
+            "Chicago"
+          ]
+        },
+        {
+          "as_printed": "Filliams, Gilea",
+          "normalized": "Filliams, Gilea",
+          "role": "letter_list",
+          "associated_places": [
+            "Chicago"
+          ]
+        },
+        {
+          "as_printed": "heeler, Wm. R.",
+          "normalized": "[W]heeler, Wm. R.",
+          "role": "letter_list",
+          "associated_places": [
+            "Chicago"
+          ]
+        },
+        {
+          "as_printed": "eek, Samuel H.",
+          "normalized": "[W]eek, Samuel H.",
+          "role": "letter_list",
+          "associated_places": [
+            "Chicago"
+          ]
+        },
+        {
+          "as_printed": "ahams, Mortimer",
+          "normalized": "[W]ahams, Mortimer",
+          "role": "letter_list",
+          "associated_places": [
+            "Chicago"
+          ]
+        },
+        {
+          "as_printed": "Fadhams, Ddward 2",
+          "normalized": "Fadhams, Ddward",
+          "role": "letter_list",
+          "associated_places": [
+            "Chicago"
+          ]
+        },
+        {
+          "as_printed": "itherby, Luke B.",
+          "normalized": "[W]itherby, Luke B.",
+          "role": "letter_list",
+          "associated_places": [
+            "Chicago"
+          ]
+        },
+        {
+          "as_printed": "eake, cole",
+          "normalized": "[W]eake, cole",
+          "role": "letter_list",
+          "associated_places": [
+            "Chicago"
+          ]
+        },
+        {
+          "as_printed": "ilson, Sally Mies, 9",
+          "normalized": "[W]ilson, Sally Mies",
+          "role": "letter_list",
+          "associated_places": [
+            "Chicago"
+          ]
+        },
+        {
+          "as_printed": "ard. Ashel P.",
+          "normalized": "[W]ard. Ashel P.",
+          "role": "letter_list",
+          "associated_places": [
+            "Chicago"
+          ]
+        },
+        {
+          "as_printed": "illard, A.",
+          "normalized": "[W]illard, A.",
+          "role": "letter_list",
+          "associated_places": [
+            "Chicago"
+          ]
+        },
+        {
+          "as_printed": "iard, R. E.",
+          "normalized": "[W]iard, R. E.",
+          "role": "letter_list",
+          "associated_places": [
+            "Chicago"
+          ]
+        },
+        {
+          "as_printed": "alson, Robert A.",
+          "normalized": "[W]alson, Robert A.",
+          "role": "letter_list",
+          "associated_places": [
+            "Chicago"
+          ]
+        },
+        {
+          "as_printed": "alker, Gerge c.",
+          "normalized": "[W]alker, Gerge c.",
+          "role": "letter_list",
+          "associated_places": [
+            "Chicago"
+          ]
+        },
+        {
+          "as_printed": "ortbingham, William",
+          "normalized": "[W]ortbingham, William",
+          "role": "letter_list",
+          "associated_places": [
+            "Chicago"
+          ]
+        },
+        {
+          "as_printed": "escott, James",
+          "normalized": "[W]escott, James",
+          "role": "letter_list",
+          "associated_places": [
+            "Chicago"
+          ]
+        },
+        {
+          "as_printed": "inters, Henry",
+          "normalized": "[W]inters, Henry",
+          "role": "letter_list",
+          "associated_places": [
+            "Chicago"
+          ]
+        },
+        {
+          "as_printed": "eldon, Jonthan",
+          "normalized": "[W]eldon, Jonthan",
+          "role": "letter_list",
+          "associated_places": [
+            "Chicago"
+          ]
+        },
+        {
+          "as_printed": "Falker, J. B.",
+          "normalized": "Falker, J. B.",
+          "role": "letter_list",
+          "associated_places": [
+            "Chicago"
+          ]
+        },
+        {
+          "as_printed": "urd, Barnard",
+          "normalized": "[W]urd, Barnard",
+          "role": "letter_list",
+          "associated_places": [
+            "Chicago"
+          ]
+        },
+        {
+          "as_printed": "ork, James Houston",
+          "normalized": "[W]ork, James Houston",
+          "role": "letter_list",
+          "associated_places": [
+            "Chicago"
+          ]
+        },
+        {
+          "as_printed": "ooiward, George",
+          "normalized": "[W]ooiward, George",
+          "role": "letter_list",
+          "associated_places": [
+            "Chicago"
+          ]
+        },
+        {
+          "as_printed": "siker, Josish",
+          "normalized": "[W]siker, Josish",
+          "role": "letter_list",
+          "associated_places": [
+            "Chicago"
+          ]
+        },
+        {
+          "as_printed": "hitney, Joshus",
+          "normalized": "[W]hitney, Joshus",
+          "role": "letter_list",
+          "associated_places": [
+            "Chicago"
+          ]
+        },
+        {
+          "as_printed": "elle, Andrew 8,",
+          "normalized": "[W]elle, Andrew 8",
+          "role": "letter_list",
+          "associated_places": [
+            "Chicago"
+          ]
+        },
+        {
+          "as_printed": "illard, Elish W. S",
+          "normalized": "[W]illard, Elish W. S",
+          "role": "letter_list",
+          "associated_places": [
+            "Chicago"
+          ]
+        },
+        {
+          "as_printed": "eur, John",
+          "normalized": "[W]eur, John",
+          "role": "letter_list",
+          "associated_places": [
+            "Chicago"
+          ]
+        },
+        {
+          "as_printed": "ooding, Anson",
+          "normalized": "[W]ooding, Anson",
+          "role": "letter_list",
+          "associated_places": [
+            "Chicago"
+          ]
+        },
+        {
+          "as_printed": "lutty, Richard",
+          "normalized": "[W]lutty, Richard",
+          "role": "letter_list",
+          "associated_places": [
+            "Chicago"
+          ]
+        },
+        {
+          "as_printed": "oolley, Jediah",
+          "normalized": "[W]oolley, Jediah",
+          "role": "letter_list",
+          "associated_places": [
+            "Chicago"
+          ]
+        },
+        {
+          "as_printed": "ilson, Harry F.",
+          "normalized": "[W]ilson, Harry F.",
+          "role": "letter_list",
+          "associated_places": [
+            "Chicago"
+          ]
+        },
+        {
+          "as_printed": "Intmore, George",
+          "normalized": "Intmore, George",
+          "role": "letter_list",
+          "associated_places": [
+            "Chicago"
+          ]
+        },
+        {
+          "as_printed": "esteott, James R. e",
+          "normalized": "[W]esteott, James R. e",
+          "role": "letter_list",
+          "associated_places": [
+            "Chicago"
+          ]
+        },
+        {
+          "as_printed": "right, Horace",
+          "normalized": "[W]right, Horace",
+          "role": "letter_list",
+          "associated_places": [
+            "Chicago"
+          ]
+        },
+        {
+          "as_printed": "arrer, Henry",
+          "normalized": "[W]arrer, Henry",
+          "role": "letter_list",
+          "associated_places": [
+            "Chicago"
+          ]
+        },
+        {
+          "as_printed": "ever, Jane Mirs",
+          "normalized": "[W]ever, Jane Mirs",
+          "role": "letter_list",
+          "associated_places": [
+            "Chicago"
+          ]
+        },
+        {
+          "as_printed": "ade, afarvin R.",
+          "normalized": "[W]ade, afarvin R.",
+          "role": "letter_list",
+          "associated_places": [
+            "Chicago"
+          ]
+        },
+        {
+          "as_printed": "olf, John",
+          "normalized": "[W]olf, John",
+          "role": "letter_list",
+          "associated_places": [
+            "Chicago"
+          ]
+        },
+        {
+          "as_printed": "oodbury, Jeddediah",
+          "normalized": "[W]oodbury, Jeddediah",
+          "role": "letter_list",
+          "associated_places": [
+            "Chicago"
+          ]
+        },
+        {
+          "as_printed": "hiting, Betsey",
+          "normalized": "[W]hiting, Betsey",
+          "role": "letter_list",
+          "associated_places": [
+            "Chicago"
+          ]
+        },
+        {
+          "as_printed": "Warren, c.",
+          "normalized": "Warren, c.",
+          "role": "letter_list",
+          "associated_places": [
+            "Chicago"
+          ]
+        },
+        {
+          "as_printed": "wr, Hirom",
+          "normalized": "[W]wr, Hirom",
+          "role": "letter_list",
+          "associated_places": [
+            "Chicago"
+          ]
+        }
+      ],
+      "notes": "THE POST-OFFICE LETTER LIST of 1835-06-30, ruling 1's census proxy, and the segmenter has woven it line by line through the advertising type beside it. `lines_of_claim` names the lines that belong to the list and nothing else; the cited range holds the advertisements it alternates with. ONE SUPPLY IS MADE AND IT IS THE PAPER'S OWN: where a printed name begins in lower case its capital was cut by the column edge, and the section letter standing above that run of names is prepended in brackets. A name whose initial is present but disagrees with its section is a MISREADING, not a clipping, and stands as printed — correcting it would be a guess, and `identity.json` is the only place two spellings may become one person. THE W SECTION IS WHERE THIS MATTERS MOST: the column edge cut the capital off some forty surnames in a row, and the paper's own W heading is what restores it — [W]ork, [W]hitney, [W]right, [W]heeler. The closing line naming the postmaster is at lines 3700, 3703 and 3705 and is quoted here; it is not a name in the list."
+    },
+    {
+      "id": "c007",
+      "kind": "building",
+      "reading": "transcription_mediated",
+      "quote": "stone of a new Baptis aeeting\nbe Inid with appropriate services\nJuly inst., at ten o'clock, 4. M.\nuth of the public square, citizens\nid especially clergymen and lay.\ndenominations, ure respectfully\nend.—Gom.",
+      "normalized": "[The corner ]stone of a new Bapti[st] [m]eeting [house will] be laid with appropriate services [on the 4th] July inst., at ten o'clock, A. M. […one block so]uth of the public square, citizens [… an]d especially clergymen and lay[men of all] denominations, are respectfully [invited to att]end.—Com.",
+      "locator": {
+        "artifact_role": "primary",
+        "issue_page": 3,
+        "column": 2,
+        "lines": [
+          2803,
+          2815
+        ],
+        "lines_of_claim": [
+          2803,
+          2806,
+          2807,
+          2809,
+          2811,
+          2813,
+          2815
+        ],
+        "interleaved": true
+      },
+      "entities": [],
+      "building": {
+        "what": "a new Baptist meeting house",
+        "event": "corner stone laid",
+        "date": "1835-07-04",
+        "placement": {
+          "class": "relative",
+          "anchor": "the public square",
+          "offset_text": "uth of the public square, citizens",
+          "offset_normalized": "[one block so]uth of the public square",
+          "street": null
+        }
+      },
+      "notes": "THE OTHER HALF OF THIS ITEM IS IN COLUMN 1, at lines 2542, 2544, 2546, 2548, 2550, 2552 and 2554, where the segmenter left the left-hand ends of the same printed lines — 'The cors', 'House wil', 'on the 4th', 'One block', 'generally,', 'men of ou', 'avited to a'. Claim c008 quotes them. The supply '[one block so]uth' is made from that half and from nowhere else: 'One block' is in the transcription at line 2548, so this is a reading of two fragments of one sentence, not a guess at a missing one. Nothing here says which block or which side, and nothing should be read into 'south of the public square' beyond what it says."
+    },
+    {
+      "id": "c008",
+      "kind": "building",
+      "reading": "transcription_mediated",
+      "quote": "The cors\nHouse wil\non the 4th\nOne block\ngenerally,\nmen of ou\navited to a",
+      "normalized": "The cor[ner stone of a new Baptist meeting] House wil[l be laid …] on the 4th [July inst., at ten o'clock, A. M. …] One block [south of the public square …] generally, […] men of ou[r town …] [in]vited to a[ttend].",
+      "locator": {
+        "artifact_role": "primary",
+        "issue_page": 3,
+        "column": 1,
+        "lines": [
+          2542,
+          2554
+        ],
+        "lines_of_claim": [
+          2542,
+          2544,
+          2546,
+          2548,
+          2550,
+          2552,
+          2554
+        ],
+        "interleaved": true
+      },
+      "entities": [],
+      "building": {
+        "what": "a new Baptist meeting house",
+        "event": "corner stone laid",
+        "date": "1835-07-04",
+        "placement": {
+          "class": "relative",
+          "anchor": "the public square",
+          "offset_text": "One block",
+          "offset_normalized": "One block [south of the public square]",
+          "street": null
+        }
+      },
+      "notes": "The left-hand ends of the same printed lines claim c007 quotes the right ends of. Kept as its own claim rather than folded into c007 because a locator names ONE column and these lines are in another, and because 'One block' — the only thing in this issue that puts the new Baptist meeting house anywhere — is HERE and not there."
+    },
+    {
+      "id": "c009",
+      "kind": "event",
+      "reading": "transcription_mediated",
+      "quote": "the numerous visitore to Chicago,\nen honored by the presence of The\nis CAss, Secretary of War, He\ne on the 29tb inst., in the steamer\nAs soon as it was ascertained that\nry was on board, a spontaneous\nour citizens was held, and appro-\ncedinge tor his reception were unan-\nopted.\nafter the meeting was or.\nCommittee wan appointed, who\no Cov. Cass, the following letter.",
+      "normalized": "[Among] the numerous visitors to Chicago, [… we have be]en honored by the presence of the [Hon. Lew]is Cass, Secretary of War. He [arrived her]e on the 29th inst., in the steamer [Michigan …] As soon as it was ascertained that [the Secreta]ry was on board, a spontaneous [meeting of] our citizens was held, and appro[priate pro]ceedings for his reception were unan[imously ad]opted. […] after the meeting was or[ganized, a] Committee was appointed, who [addressed t]o Gov. Cass the following letter.",
+      "locator": {
+        "artifact_role": "primary",
+        "issue_page": 3,
+        "column": 2,
+        "lines": [
+          2612,
+          2634
+        ],
+        "lines_of_claim": [
+          2612,
+          2614,
+          2616,
+          2619,
+          2621,
+          2623,
+          2625,
+          2627,
+          2629,
+          2630,
+          2632,
+          2634
+        ],
+        "interleaved": true
+      },
+      "entities": [
+        {
+          "as_printed": "is CAss, Secretary of War",
+          "normalized": "Lewis Cass",
+          "role": "visitor",
+          "occupations": [
+            "Secretary of War"
+          ],
+          "associated_places": [
+            "Chicago"
+          ]
+        }
+      ],
+      "event": {
+        "what": "the reception of the Secretary of War",
+        "date": "1835-06-29",
+        "place": "Chicago"
+      },
+      "notes": "The left ends of these same printed lines are in column 1 at 2377-2393 — 'HoN. La', 'arrived h', 'Michigar', 'the Secre', 'meeting i', 'priate pre', 'itnously', 'ganized,', 'addressed' — and every supply bracketed above is read off them. Nothing is supplied that the transcription does not carry in one half or the other."
+    },
+    {
+      "id": "c010",
+      "kind": "event",
+      "reading": "transcription_mediated",
+      "quote": "Respectfully, your ob't servt's.\nOreen,\nR. I. Hamilton,\nrcheral,\nJ. B. Beaubien,\nubbard,\nJ. H. Kinzie,\nyer,\nI. L.. Vreberry,\nE. S. Kimberly,\nG. Kercheral,",
+      "normalized": "Respectfully, your ob't serv't's. […]reen, R. J. Hamilton, [… Ke]rcheval, J. B. Beaubien, [… H]ubbard, J. H. Kinzie, [… Bo]yer, I. L. [uncertain: Vreberry — the same signature is set elsewhere in this issue as Newberry], E. S. Kimberly, G. Kercheval.",
+      "locator": {
+        "artifact_role": "primary",
+        "issue_page": 3,
+        "column": 2,
+        "lines": [
+          2660,
+          2677
+        ],
+        "lines_of_claim": [
+          2660,
+          2662,
+          2663,
+          2665,
+          2666,
+          2668,
+          2669,
+          2671,
+          2672,
+          2674,
+          2677
+        ],
+        "interleaved": true
+      },
+      "entities": [
+        {
+          "as_printed": "R. I. Hamilton",
+          "normalized": "R. J. Hamilton",
+          "role": "committee",
+          "associated_places": [
+            "Chicago"
+          ]
+        },
+        {
+          "as_printed": "J. B. Beaubien",
+          "normalized": "J. B. Beaubien",
+          "role": "committee",
+          "associated_places": [
+            "Chicago"
+          ]
+        },
+        {
+          "as_printed": "J. H. Kinzie",
+          "normalized": "J. H. Kinzie",
+          "role": "committee",
+          "associated_places": [
+            "Chicago"
+          ]
+        },
+        {
+          "as_printed": "E. S. Kimberly",
+          "normalized": "E. S. Kimberly",
+          "role": "committee",
+          "associated_places": [
+            "Chicago"
+          ]
+        },
+        {
+          "as_printed": "G. Kercheral",
+          "normalized": "G. Kercheval",
+          "role": "committee",
+          "associated_places": [
+            "Chicago"
+          ]
+        }
+      ],
+      "event": {
+        "what": "the committee that invited the Secretary of War to a public dinner",
+        "date": "1835-06-29",
+        "place": "Chicago"
+      },
+      "notes": "The signature block is set two names to a line and the segmenter split it down the middle, so the surnames whose left halves fell in the other slice — 'Oreen', 'rcheral', 'ubbard', 'yer' — are quoted here as they stand and NOT completed. 'G. Kercheral' at 2677 is read as Kercheval, an r/v recognition error the same name three lines above supports; the entities list carries only names this column prints whole."
+    },
+    {
+      "id": "c011",
+      "kind": "event",
+      "reading": "transcription_mediated",
+      "quote": "OCRATIC MEETING.\na and respectable meeting of the\nRepublicans of the town of\nIden at the Eagle Coffee House,\nevening June 29, in pursuance\npublic notice, E. B. Williams\nchair, and John W. Eldridge\necretary.\nct of the meeting having been\n\"hat a Committee of fourteen be\npresent this meeting with the\ne suitable persons as delegates\nthis precinct in the county con-\nin the following named gentle-\nseverally appointed said com\nse meeting -J. Curtiss, Esq,\n. Bailey, J. K. Boyer, R. Hea\nS. G. Trowbridge, H. Porter,\nIdridge, E. S. Kimberley, d\nB. S. Knapp, A. Lloyd, O.\nmittee returned and reported the\neight, J. K. Bover, E. B. Wil\nugumn, d. W. Eldridge, who\nally and canimously appointed\nilliams stated to the meeting the\nof his serving as a delegate,\nmotion of Dr. Kimberly was\nCurtiss, Esq., was then unani-\nted a delegate in the place of\nVoted, That the delegates\nto fill any vacancy which may\nr number.\nE. B WILLIAMS, Ch'n.\n7. ELDRIDGE, See'y.",
+      "normalized": "[DEM]OCRATIC MEETING. [At a large] and respectable meeting of the [Democratic] Republicans of the town of [Chicago, ho]lden at the Eagle Coffee House, [on Monday] evening June 29, in pursuance [of previous] public notice, E. B. Williams [was called to the] chair, and John W. Eldridge [appointed] secretary. [… Voted, t]hat a Committee of fourteen be [appointed to] present this meeting with the [names of fourteen] suitable persons as delegates [to represent] this precinct in the county con[vention to b]e holden at Flag Creek, on the [4th July next.] [Whereupon the] following named gentlemen [were] severally appointed said com[mittee by the] meeting — J. Curtiss, Esq, [… J.] Bailey, J. K. Boyer, R. Hea[cock, Esq.,] S. G. Trowbridge, H. Porter, [John W. E]ldridge, E. S. Kimberley, [… W.] B. S. Knapp, A. Lloyd, O. [… Morrison, …] Downes. […The com]mittee returned and reported the [names J. Ha]ight, J. K. Boyer, E. B. Wil[liams, H. …]ugumn, J. W. Eldridge, who [were sever]ally and [un]animously appointed [… E. B. W]illiams stated to the meeting the [impossibility] of his serving as a delegate, [and on the] motion of Dr. Kimberly was [excused; … J.] Curtiss, Esq., was then unani[mously elected] a delegate in the place of [Mr. Williams.] [On motion,] Voted, That the delegates [have power] to fill any vacancy which may [occur in thei]r number. E. B. WILLIAMS, Ch'n. [John W]. ELDRIDGE, Sec'y.",
+      "locator": {
+        "artifact_role": "primary",
+        "issue_page": 3,
+        "column": 2,
+        "lines": [
+          2721,
+          2801
+        ],
+        "lines_of_claim": [
+          2721,
+          2723,
+          2725,
+          2727,
+          2729,
+          2730,
+          2732,
+          2736,
+          2739,
+          2742,
+          2745,
+          2747,
+          2750,
+          2755,
+          2756,
+          2758,
+          2759,
+          2761,
+          2763,
+          2765,
+          2769,
+          2771,
+          2773,
+          2775,
+          2779,
+          2781,
+          2783,
+          2785,
+          2788,
+          2792,
+          2794,
+          2797,
+          2799,
+          2801
+        ],
+        "interleaved": true
+      },
+      "entities": [
+        {
+          "as_printed": "E. B. Williams",
+          "normalized": "E. B. Williams",
+          "role": "chairman",
+          "associated_places": [
+            "Chicago"
+          ]
+        },
+        {
+          "as_printed": "John W. Eldridge",
+          "normalized": "John W. Eldridge",
+          "role": "secretary",
+          "associated_places": [
+            "Chicago"
+          ]
+        },
+        {
+          "as_printed": "J. Curtiss, Esq",
+          "normalized": "J. Curtiss",
+          "role": "delegate",
+          "associated_places": [
+            "Chicago"
+          ]
+        },
+        {
+          "as_printed": "J. K. Boyer",
+          "normalized": "J. K. Boyer",
+          "role": "committee",
+          "associated_places": [
+            "Chicago"
+          ]
+        },
+        {
+          "as_printed": "S. G. Trowbridge",
+          "normalized": "S. G. Trowbridge",
+          "role": "committee",
+          "associated_places": [
+            "Chicago"
+          ]
+        },
+        {
+          "as_printed": "H. Porter",
+          "normalized": "H. Porter",
+          "role": "committee",
+          "associated_places": [
+            "Chicago"
+          ]
+        },
+        {
+          "as_printed": "E. S. Kimberley",
+          "normalized": "E. S. Kimberley",
+          "role": "committee",
+          "associated_places": [
+            "Chicago"
+          ]
+        },
+        {
+          "as_printed": "B. S. Knapp",
+          "normalized": "B. S. Knapp",
+          "role": "committee",
+          "associated_places": [
+            "Chicago"
+          ]
+        },
+        {
+          "as_printed": "A. Lloyd",
+          "normalized": "A. Lloyd",
+          "role": "committee",
+          "associated_places": [
+            "Chicago"
+          ]
+        }
+      ],
+      "event": {
+        "what": "a Democratic Republican meeting of the town of Chicago",
+        "date": "1835-06-29",
+        "place": "the Eagle Coffee House, Chicago"
+      },
+      "notes": "THE EAGLE COFFEE HOUSE IS A PLACE THE TOWN MET IN, which is why this is kept whole rather than reduced to a list of names. The left ends of these printed lines are in column 1 at 2466-2530 and the bracketed supplies are read off them. Names whose initials or surnames the segmenter cut — 'R. Hea', 'O.', '…ugumn', 'J. Ha]ight' — are NOT completed and are not in the entities list; only the nine printed whole are."
+    },
+    {
+      "id": "c012",
+      "kind": "building",
+      "reading": "transcription_mediated",
+      "quote": "Netice\nMETING of the in\nDistrict No. 4, will b\n7th Joly, at 6 o clock, P. 1\nan Church, to take into con\nfor bulding a School Hou\nthe election of'a Trustee, ar\ner basiness that may come h\nBYRA\nChicago, Jane 17, Ieih.-",
+      "normalized": "Notice. [A M]E[E]TING of the in[habitants of School] District No. 4, will b[e held on Tuesday the] 7th July, at 6 o'clock, P. M[. in the Presbyteri]an Church, to take into con[sideration measures] for bu[i]lding a School Hou[se in said district — also] the election of a Trustee, ar[nd to transact any oth]er business that may come [before the meeting.] BYRA[M KING, Clerk.] Chicago, Ju[n]e 17, 1[835].",
+      "locator": {
+        "artifact_role": "primary",
+        "issue_page": 3,
+        "column": 5,
+        "lines": [
+          3606,
+          3624
+        ],
+        "lines_of_claim": [
+          3606,
+          3609,
+          3611,
+          3613,
+          3614,
+          3616,
+          3618,
+          3620,
+          3622,
+          3624
+        ],
+        "interleaved": true
+      },
+      "entities": [
+        {
+          "as_printed": "BYRA",
+          "normalized": "Byram King",
+          "role": "clerk",
+          "associated_places": [
+            "Chicago"
+          ]
+        }
+      ],
+      "building": {
+        "what": "a school house for School District No. 4",
+        "event": "meeting to consider building it",
+        "date": "1835-07-07",
+        "placement": {
+          "class": "none",
+          "anchor": null,
+          "offset_text": null,
+          "street": null
+        }
+      },
+      "ad_copy_date": {
+        "verbatim": "Chicago, Jane 17, Ieih.-",
+        "iso": "1835-06-17"
+      },
+      "notes": "The right ends of these printed lines are in column 6 at 3828-3835 — 'bitants of School', 'in the Presbyteri-', 'in said distriel-', 'are the meeting', 'transact any oth-', 'KING, Clerk.' — and every supply above is read off them. 'Byram King' is the join of 'BYRA' here and 'KING, Clerk.' there and is the only name completed in this claim. THE SCHOOL HOUSE IS NOT BUILT YET on the scene date: this is a notice of a meeting to consider building one, and the district meets in the Presbyterian church."
+    },
+    {
+      "id": "c013",
+      "kind": "business",
+      "reading": "transcription_mediated",
+      "quote": "J. CURTIS\nAttorney and Connseller\nSOLICITOR IN CHA\nCHICAGO, ILLINOI\n0\nFFICE in South\nWater-\nwest of Mesars, Jones,\nstairs.) May 18, 1835.-5",
+      "normalized": "[L.] CURTIS[S], Attorney and Co[u]nseller [at Law,] SOLICITOR IN CHA[NCERY,] CHICAGO, ILLINOI[S.] [O]FFICE in South Water-[street, first door] west of Mes[s]rs. Jones, [King & Co, (up] stairs.) May 18, 1835.-5",
+      "locator": {
+        "artifact_role": "primary",
+        "issue_page": 4,
+        "column": 3,
+        "lines": [
+          4348,
+          4359
+        ],
+        "lines_of_claim": [
+          4348,
+          4350,
+          4352,
+          4353,
+          4355,
+          4356,
+          4357,
+          4358,
+          4359
+        ],
+        "interleaved": true
+      },
+      "entities": [
+        {
+          "as_printed": "J. CURTIS",
+          "normalized": "L. Curtiss",
+          "role": "proprietor",
+          "occupations": [
+            "attorney"
+          ],
+          "associated_places": [
+            "South Water Street"
+          ]
+        }
+      ],
+      "ad_copy_date": {
+        "verbatim": "stairs.) May 18, 1835.-5",
+        "iso": "1835-05-18"
+      },
+      "business": {
+        "name": "L. Curtiss, attorney and counsellor at law",
+        "proprietors": [
+          "L. Curtiss"
+        ],
+        "trade": "attorney and counsellor at law, solicitor in chancery",
+        "goods": [],
+        "street": "South Water Street",
+        "placement": {
+          "class": "relative",
+          "anchor": "Messrs. Jones, King & Co.",
+          "offset_text": "west of Mesars, Jones,",
+          "offset_normalized": "[first door] west of Messrs. Jones, [King & Co, (up] stairs.)",
+          "street": "South Water Street"
+        }
+      },
+      "notes": "The initial is set 'J.' here and 'L.' in the same standing advertisement two weeks later (1835-07-15, page 4 column 3), so the entity is normalized to L. Curtiss on the later reading and the printed 'J. CURTIS' is kept beside it. THE PLACEMENT IS THE VALUABLE PART: an office up stairs, on South Water Street, first door west of Jones, King & Co., which is itself a documented South Water house."
+    },
+    {
+      "id": "c014",
+      "kind": "business",
+      "reading": "transcription_mediated",
+      "quote": "THE subscribers\nStore,\nin La Salle\nSouth of Hubbard & Co's. l\nrespectfully inform the inhabit\nand its vicinity, that they ha\nintend keeping a good and g\nDry Goods, Gr\nHardware, Crockery, Boots,\nAT WHOLESALE AND\nMAGIE &\nChicago, June 11, 1835.-8",
+      "normalized": "THE subscribers [having taken the] Store, in La Salle [street, …] South of Hubbard & Co's. [… would] respectfully inform the inhabit[ants of Chicago] and its vicinity, that they ha[ve … and] intend keeping a good and g[eneral assortment of] Dry Goods, Gr[oceries,] Hardware, Crockery, Boots, [Shoes, Hats, &c.] AT WHOLESALE AND [RETAIL. …] MAGIE & [WILKINSON.] Chicago, June 11, 1835.-8",
+      "locator": {
+        "artifact_role": "primary",
+        "issue_page": 4,
+        "column": 3,
+        "lines": [
+          4438,
+          4540
+        ],
+        "lines_of_claim": [
+          4438,
+          4440,
+          4441,
+          4443,
+          4444,
+          4446,
+          4447,
+          4450,
+          4454,
+          4455,
+          4538,
+          4540
+        ],
+        "interleaved": true
+      },
+      "entities": [
+        {
+          "as_printed": "MAGIE &",
+          "normalized": "Magie & Wilkinson",
+          "role": "proprietor",
+          "occupations": [
+            "merchant"
+          ],
+          "associated_places": [
+            "La Salle Street"
+          ]
+        }
+      ],
+      "ad_copy_date": {
+        "verbatim": "Chicago, June 11, 1835.-8",
+        "iso": "1835-06-11"
+      },
+      "business": {
+        "name": "Magie & Wilkinson",
+        "proprietors": [
+          "Magie & Wilkinson"
+        ],
+        "trade": "dry goods, groceries, hardware, crockery, boots, shoes and hats, wholesale and retail",
+        "goods": [
+          "Boots",
+          "Crockery",
+          "Dry Goods",
+          "Groceries",
+          "Hardware",
+          "Shoes"
+        ],
+        "street": "La Salle Street",
+        "placement": {
+          "class": "relative",
+          "anchor": "Hubbard & Co's",
+          "offset_text": "South of Hubbard & Co's. l",
+          "offset_normalized": "in La Salle [street, …] South of Hubbard & Co's.",
+          "street": "La Salle Street"
+        }
+      },
+      "notes": "The firm's second name is cut at 'MAGIE &' here; it is set whole as 'MAGIE & WILKINSON' in the same standing advertisement of 1835-07-15 (page 4 column 4), which is where the normalization comes from. The store is TAKEN, not built — 'having taken the Store' — so a building already stood on La Salle street south of Hubbard & Co's before 1835-06-11."
+    },
+    {
+      "id": "c015",
+      "kind": "business",
+      "reading": "transcription_mediated",
+      "quote": "NEWBERRY & I\nStorage, Forwarding and (\nMERCHAN'\nAgents for the Merchun\nREFERENCES-\n8. T. ARmstRoNo, No.9, Contie\nBARKER & HoLT, Buffala.\nOLIVER NKWBERRY,\nDetroit.\nCALVIN BRITAIP, Mouth St. Jos\nJAMES B. CAMPBELL, Ollara, /\nAlso, Wholesale and Retai\nDry Goods Groces\nPROVISION",
+      "normalized": "NEWBERRY & [DOLE,] Storage, Forwarding and C[ommission] MERCHAN'[TS …] Agents for the Merchan[ts' Line.] REFERENCES— S. T. ARmstRoNo, No. 9, Conti[es Slip, N. Y.; …] BARKER & HoLT, Buffal[o]. OLIVER NKWBERRY, Detroit. CALVIN BRITAIP, [M]outh St. Jos[eph.] JAMES B. CAMPBELL, O[tt]a[w]a, [Ill.] Also, Wholesale and Retai[l Dealers in] Dry Goods Groce[ries and] PROVISION[S.]",
+      "locator": {
+        "artifact_role": "primary",
+        "issue_page": 4,
+        "column": 4,
+        "lines": [
+          4635,
+          4659
+        ],
+        "lines_of_claim": [
+          4635,
+          4637,
+          4638,
+          4643,
+          4645,
+          4646,
+          4649,
+          4650,
+          4651,
+          4652,
+          4653,
+          4656,
+          4658,
+          4659
+        ],
+        "interleaved": true
+      },
+      "entities": [
+        {
+          "as_printed": "NEWBERRY & I",
+          "normalized": "Newberry & Dole",
+          "role": "proprietor",
+          "occupations": [
+            "forwarding and commission merchant"
+          ],
+          "associated_places": [
+            "South Water Street"
+          ]
+        },
+        {
+          "as_printed": "OLIVER NKWBERRY",
+          "normalized": "Oliver Newberry",
+          "role": "reference",
+          "associated_places": [
+            "Detroit"
+          ]
+        },
+        {
+          "as_printed": "CALVIN BRITAIP",
+          "normalized": "Calvin Britain",
+          "role": "reference",
+          "associated_places": [
+            "mouth of the St. Joseph"
+          ]
+        },
+        {
+          "as_printed": "JAMES B. CAMPBELL",
+          "normalized": "James B. Campbell",
+          "role": "reference",
+          "associated_places": [
+            "Ottawa"
+          ]
+        }
+      ],
+      "business": {
+        "name": "Newberry & Dole",
+        "proprietors": [
+          "Newberry & Dole"
+        ],
+        "trade": "storage, forwarding and commission merchants; agents for the Merchants' Line; wholesale and retail dealers in dry goods, groceries and provisions",
+        "goods": [
+          "Dry Goods",
+          "Groceries",
+          "Provisions"
+        ],
+        "street": "South Water Street",
+        "placement": {
+          "class": "none",
+          "anchor": null,
+          "offset_text": null,
+          "street": "South Water Street"
+        }
+      },
+      "notes": "THIS ADVERTISEMENT GIVES NO ADDRESS, so the placement class is `none` even though the house is one of the best-attested on South Water Street — the street is carried because Peter Cohen's advertisement in this same issue (claim c001) places itself BY Newberry and Dole's on south water street, which is evidence for where they are and is recorded there, not invented here. A placement class is about what THIS notice says."
+    },
+    {
+      "id": "c016",
+      "kind": "business",
+      "reading": "transcription_mediated",
+      "quote": "HUBBARD &\nCommission d For\nMERCHAI\nCHICAGO-ILLIN\nGURDOs S. HUBBARD,\nHENRY G. HURBARD.",
+      "normalized": "HUBBARD & [CO.] Commission [an]d For[warding] MERCHA[NTS,] CHICAGO—ILLIN[OIS.] GURDOs S. HUBBARD, HENRY G. HURBARD.",
+      "locator": {
+        "artifact_role": "primary",
+        "issue_page": 4,
+        "column": 4,
+        "lines": [
+          4661,
+          4669
+        ],
+        "lines_of_claim": [
+          4661,
+          4662,
+          4664,
+          4666,
+          4667,
+          4669
+        ],
+        "interleaved": true
+      },
+      "entities": [
+        {
+          "as_printed": "GURDOs S. HUBBARD",
+          "normalized": "Gurdon S. Hubbard",
+          "role": "proprietor",
+          "occupations": [
+            "commission and forwarding merchant"
+          ],
+          "associated_places": [
+            "Chicago"
+          ]
+        },
+        {
+          "as_printed": "HENRY G. HURBARD",
+          "normalized": "Henry G. Hubbard",
+          "role": "proprietor",
+          "occupations": [
+            "commission and forwarding merchant"
+          ],
+          "associated_places": [
+            "Chicago"
+          ]
+        }
+      ],
+      "business": {
+        "name": "Hubbard & Co.",
+        "proprietors": [
+          "Gurdon S. Hubbard",
+          "Henry G. Hubbard"
+        ],
+        "trade": "commission and forwarding merchants",
+        "goods": [],
+        "street": null,
+        "placement": {
+          "class": "none",
+          "anchor": null,
+          "offset_text": null,
+          "street": null
+        }
+      },
+      "notes": "No address in the notice. Magie & Wilkinson's advertisement in this same issue (claim c014) takes a store 'in La Salle street, South of Hubbard & Co's', which places Hubbard & Co on La Salle street by inference from ANOTHER house's notice; that inference belongs to c014's placement and is deliberately not asserted here."
+    },
+    {
+      "id": "c017",
+      "kind": "business",
+      "reading": "transcription_mediated",
+      "quote": "THE subecriber having b\nFire Insuran\nAgent for the Howard\nCompany of the city of New-)\ncago and the vicinity, will insu\ngainst loss by Fire, on reasonal\nJuly 1.\nE. K. I",
+      "normalized": "THE subscriber having b[een appointed] Fire Insuran[ce] Agent for the Howard [Fire Insurance] Company of the city of New-Y[ork, for Chi]cago and the vicinity, will insu[re property a]gainst loss by Fire, on reasona[ble terms.] July 1. E. K. [Hubbard.]",
+      "locator": {
+        "artifact_role": "primary",
+        "issue_page": 4,
+        "column": 4,
+        "lines": [
+          4671,
+          4682
+        ],
+        "lines_of_claim": [
+          4671,
+          4672,
+          4675,
+          4677,
+          4678,
+          4679,
+          4681,
+          4682
+        ],
+        "interleaved": true
+      },
+      "entities": [
+        {
+          "as_printed": "E. K. I",
+          "normalized": "E. K. Hubbard",
+          "role": "proprietor",
+          "occupations": [
+            "fire insurance agent"
+          ],
+          "associated_places": [
+            "Chicago"
+          ]
+        }
+      ],
+      "ad_copy_date": {
+        "verbatim": "July 1.",
+        "iso": "1835-07-01"
+      },
+      "business": {
+        "name": "E. K. Hubbard, agent for the Howard Fire Insurance Company",
+        "proprietors": [
+          "E. K. Hubbard"
+        ],
+        "trade": "fire insurance agency",
+        "goods": [],
+        "street": null,
+        "placement": {
+          "class": "none",
+          "anchor": null,
+          "offset_text": null,
+          "street": null
+        }
+      },
+      "announces_opening": {
+        "verbatim": "having b[een appointed] Fire Insuran[ce] Agent for the Howard [Fire Insurance] Company",
+        "dating": "effected",
+        "iso": "1835-07-01",
+        "note": "The agency is announced as already conferred, over the dateline of 1 July 1835 — the scene date itself."
+      },
+      "notes": "DATED THE DAY OF THE ISSUE — 'July 1.' — and announcing an appointment just made, so this agency begins ON the scene date rather than standing before it. `announces_opening` is set for T-0262. The surname is cut to 'E. K. I' here and is set whole as 'E. K. HUBBARD' in the 1835-07-08 issue, where the same notice runs."
+    },
+    {
+      "id": "c018",
+      "kind": "infrastructure",
+      "reading": "transcription_mediated",
+      "quote": "Notice.\nEALED Proposals will be\nsubscriber, until the first\net 12 o'clock M. for the delive\nthe U.S. at Eort Dearbor h\ncords of merchantable wood,\nday of November, 1835.\nded by the contractor at suc\nDearborn as will bo designa\nAsst. Quartermaster, and mu\nfollowing kinds and no other, t\nnickory, white and ane maple\n& foet long, 4 feet high and 41\ning from hail the slope of caci\nThe names of two responwib\nrequired to accompany each bi\nL. T.\nFort Dearborn, May 22, 183\nN. B. Seperate bids will al\nthe delivery of twenty tons of\nto be eut in July or before the\nnext: each ton to contain by\npounds.",
+      "normalized": "Notice. [S]EALED Proposals will be [received by the] subscriber, until the first [day of … nex]t 12 o'clock M. for the delive[ry to] the U.S. at Fort Dearbor[n …] cords of merchantable wood, [… by the first] day of November, 1835. [… to be pi]led by the contractor at suc[h place near Fort] Dearborn as will bo designa[ted by the] Asst. Quartermaster, and mu[st be of the] following kinds and no other, t[o wit: white oak,] [h]ickory, white and a[sh a]nd maple[, … each cord to be] 8 feet long, 4 feet high and 4[ feet wide, measur]ing from ha[l]f the slope of eac[h end of the stick.] The names of two responsib[le sureties will be] required to accompany each bi[d. …] L. T. [JAMISON,] Fort Dearborn, May 22, 183[5] N. B. Seperate bids will al[so be received for] the delivery of twenty tons of [the best prairie hay,] to be eut in July or before the [10th of August] next: each ton to contain t[wo thousand] pounds.",
+      "locator": {
+        "artifact_role": "primary",
+        "issue_page": 4,
+        "column": 3,
+        "lines": [
+          4542,
+          4583
+        ],
+        "lines_of_claim": [
+          4542,
+          4544,
+          4545,
+          4547,
+          4549,
+          4550,
+          4552,
+          4554,
+          4556,
+          4558,
+          4560,
+          4561,
+          4562,
+          4564,
+          4566,
+          4569,
+          4571,
+          4575,
+          4576,
+          4578,
+          4580,
+          4581,
+          4583
+        ],
+        "interleaved": true
+      },
+      "entities": [
+        {
+          "as_printed": "L. T.",
+          "normalized": "L. T. Jamison",
+          "role": "assistant quartermaster",
+          "associated_places": [
+            "Fort Dearborn"
+          ]
+        }
+      ],
+      "ad_copy_date": {
+        "verbatim": "Fort Dearborn, May 22, 183",
+        "iso": "1835-05-22"
+      },
+      "infrastructure": {
+        "what": "the garrison's fuel and forage contract for 1835",
+        "place": "Fort Dearborn"
+      },
+      "notes": "WHAT THE FORT BURNS AND WHERE IT IS STACKED. The wood is to be piled 'at such place near Fort Dearborn as will be designated by the Asst. Quartermaster' — the notice does NOT say where that is, and nothing here licenses a woodpile anywhere on the reconstruction's ground. The species list (white oak, hickory, white and ash and maple) and the cord dimensions are the usable part. The signature is cut to 'L. T.' and the right-hand half of the same lines in column 4 sets it 'L. T. J[AMISON]' at 4837 and 4853, which is where the normalization comes from."
+    },
+    {
+      "id": "c019",
+      "kind": "shipping",
+      "reading": "transcription_mediated",
+      "quote": "Chicago d\nst. Jo\nHE new\nLYN, (\nply for freight\ning navigation\nof St. Joseph and Chirago.\nleaves every state\nsage apply to David Carr\nChicago, Calvin Britain, S\ncaptain on board.\nMay 25, 1835. -6t.",
+      "normalized": "Chicago a[nd] St. Jo[seph Packet. T]HE new [schooner LLEWEL]LYN, [D. CLARK Master, will … ap]ply for freight [and passengers, dur]ing navigation [between the mouth] of St. Joseph and Chi[c]ago. [She] leaves every [… For freight or pas]sage apply to David Carr[ver,] Chicago, Calvin Britain, S[t. Joseph, or to the] captain on board. May 25, 1835.-6t.",
+      "locator": {
+        "artifact_role": "primary",
+        "issue_page": 4,
+        "column": 2,
+        "lines": [
+          4196,
+          4213
+        ],
+        "lines_of_claim": [
+          4196,
+          4197,
+          4200,
+          4201,
+          4204,
+          4205,
+          4206,
+          4207,
+          4208,
+          4210,
+          4212,
+          4213
+        ],
+        "interleaved": true
+      },
+      "entities": [
+        {
+          "as_printed": "David Carr",
+          "normalized": "David Carver",
+          "role": "agent",
+          "occupations": [
+            "lumber dealer and commission merchant"
+          ],
+          "associated_places": [
+            "Chicago"
+          ]
+        },
+        {
+          "as_printed": "Calvin Britain",
+          "normalized": "Calvin Britain",
+          "role": "agent",
+          "associated_places": [
+            "St. Joseph"
+          ]
+        }
+      ],
+      "ad_copy_date": {
+        "verbatim": "May 25, 1835. -6t.",
+        "iso": "1835-05-25"
+      },
+      "shipping": {
+        "vessel": "schooner Llewellyn",
+        "route": "Chicago and St. Joseph",
+        "master": "D. Clark"
+      },
+      "notes": "THE PACKET THAT CROSSES THE LAKE — a regular sailing between the mouth of the St. Joseph and Chicago, with an agent in each town. The master's name is cut to 'ARK Master' in column 3 at 4499 and reads D. CLARK there; it is recorded on the shipping block rather than as an entity because this column does not print it whole."
+    },
+    {
+      "id": "c020",
+      "kind": "price",
+      "reading": "transcription_mediated",
+      "quote": "rtain the number of acres sold, or the\nmoney roceived at the Land Office.\nthe best information which we can ob.\nre led to believe that between Fire and\nred Thousand Dollars have been paid\noffice during the sale. We have been\nWe rejoice that this sale has passed\nnas, presentipg so few cases in which\nsettiers have suffered wrong and in.\nthe want of a pre-emption Law.",
+      "normalized": "[We have not been able to asce]rtain the number of acres sold, or the money roceived at the Land Office. [From] the best information which we can ob[tain we a]re led to believe that between Fi[v]e and [Six Hund]red Thousand Dollars have been paid [into that] office during the sale. We have been [… struck by the respect which has been had for the claims of the settlers upon these lands …] We rejoice that this sale has passed [off … so calmly], presenting so few cases in which [… the] settlers have suffered wrong and in[jury from] the want of a pre-emption Law.",
+      "locator": {
+        "artifact_role": "primary",
+        "issue_page": 3,
+        "column": 2,
+        "lines": [
+          2566,
+          2592
+        ],
+        "lines_of_claim": [
+          2566,
+          2568,
+          2570,
+          2571,
+          2572,
+          2573,
+          2588,
+          2589,
+          2590,
+          2592
+        ],
+        "interleaved": true
+      },
+      "entities": [],
+      "price": {
+        "what": "receipts of the Chicago land office during the June 1835 sale",
+        "amount_text": "between Fire and red Thousand Dollars",
+        "amount_normalized": "between five and six hundred thousand dollars"
+      },
+      "notes": "THE SCALE OF THE JUNE 1835 LAND SALE, in the paper's own hedged words — 'we have not been able to ascertain', 'we are led to believe'. It is an estimate the editor did not stand behind and it is recorded as one. The left ends of these lines are in column 1 at 2321-2340 and the ellipsis in the middle marks lines belonging to the intervening paragraph, which is not quoted here."
+    },
+    {
+      "id": "c021",
+      "kind": "shipping",
+      "reading": "transcription_mediated",
+      "quote": "OF VESSELS\n• CHICAGO, 1835.\nr. Bridget,—, Buffalo.\nSt. Joseph, Burnham, Kal'o.",
+      "normalized": "[LIST] OF VESSELS [ARRIVED AT] CHICAGO, 1835. [… schoone]r Bridget, —, Buffalo. [… St]. Joseph, Burnham, Kal[amazo]o.",
+      "locator": {
+        "artifact_role": "primary",
+        "issue_page": 3,
+        "column": 2,
+        "lines": [
+          2819,
+          2824
+        ],
+        "lines_of_claim": [
+          2819,
+          2820,
+          2822,
+          2824
+        ],
+        "interleaved": true
+      },
+      "entities": [
+        {
+          "as_printed": "Burnham",
+          "normalized": "Burnham",
+          "role": "master",
+          "associated_places": [
+            "Chicago"
+          ]
+        }
+      ],
+      "shipping": {
+        "what": "the arrivals list",
+        "port": "Chicago",
+        "year": "1835"
+      },
+      "notes": "The head of the arrivals list, which the segmenter cut off two lines in. Only the two entries this column carries are quoted; the rest of the list runs past the foot of the slice and is not claimed here. 'Bridget' and 'St. Joseph' are vessels, 'Burnham' a master, and 'Buffalo' and 'Kalamazoo' the ports they came from."
+    }
+  ]
+}

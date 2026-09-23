@@ -1,0 +1,579 @@
+{
+  "schema": 1,
+  "issue_id": "chicago_democrat_1834_11_05",
+  "extracted": "2026-08-28",
+  "extracted_by": "hand, T-0293 — the Democrat read, November 1834",
+  "note": "Vol. I No. 49. The town is on page 3, and every column of it is the Tesseract fallback: the transcription says so at the head of each one, the left edge of each printed column is cut, and the segmenter alternates two physical columns line by line so an advertisement survives as one cut half with a letter list woven through it. The month's better witness for the standing advertisements is 1834-11-12, which sets the same matter legibly; where a reading here rests on that issue the note says so. THE FIRE ORDINANCE OF 3 NOVEMBER 1834 IS THE MONTH'S TOWN NEWS, and this issue is its first printing. The letter-list matter on page 3 columns 3-4 is NOT the Chicago list: it is three out-of-county lists dated 1 October 1834, signed by their own postmasters, and it is recorded unminted (claim c014).",
+  "claims": [
+    {
+      "id": "c001",
+      "kind": "infrastructure",
+      "reading": "transcription_mediated",
+      "quote": "fown Ordinance. {gover\nnecting of the President and Trustees | Rev. Mr. Ge\nhe Town of Chicago, held at “the | Samuel Glen\nv’* in said town, on tho 3d day of| David Griffi\nr A. D. 1831:-The following Ordinance | Elijah Grege\ned, to ma Franklin W.\ndinance for the further prevention ‘atsey Harri\nhereas, it has been represented u Alexander 1\nitizens, house-holders ana’ owners of| William Has\nin the town of Chicago, that groat| Rosman Hat\ndeatruction to their property and to|Jocl A. Hall\n¢ community at large exists, by means | Austin Hunt\nice too generally indulged, viz: that | Doct. Jolinac\nag fire trom one house to another with- | Rev. Areh. J\nF caution, and whereas, the President | Elias Isaacs,\nees of the Town of Chicago, have 1\nd upon by their fellow citizens, to adopt | ——————\nfor the prevention of the said practice ]\n‘Therefore EMAI\n[uncertain: it Bercy is Ordained by the Prestent| [B?]\nues of the fon of Chicago, ‘That here- ulios\npall not be lawful for auy person or| John Akin,\n> carry or convey fire brands or coals | Adolf Banke\nom one house or building to anot ier] Dr. H. W. E\n» limits of the corporation, unless the | Henry L. Bi\narried or conveyed in a covered earth. | Henry Brow\n: proof vessel. “Any person offending | Orlando cia\n[uncertain: ? provisions of this ordinance shall be | Gcorge W.]\nfine of Five Dollars for each and every | John N. Bay\nbe recovered in complaint before any | William P,\nthe peace in like manner as other firer |. M. Fish,\nK reeoveratle. Joseph Garr\nrdinance to take effect and be in force | Isaac Hollist\nafter the 12th day of Nov. A.D. Ist, | Cirrles Jone\nJNO. H. KINZIE, Charles Jack\n. Bd. Trustees of the Toren of Chicago. | Joseph Johni\nE,W. Casry, Clerk Protons, 49.",
+      "normalized": "Town Ordinance. [At a] meeting of the President and Trustees [of] the Town of Chicago, held at “the [Exchange]” in said town, on the 3d day of [Novembe]r A. D. 183[4]: — The following Ordinance [was adopt]ed, to [wit: An Or]dinance for the further prevention [of Fires. W]hereas, it has been represented [by sundry c]itizens, house-holders and owners of [property] in the town of Chicago, that gr[e]at [danger of] de[s]truction to their property and to [that of th]e community at large exists, by means [of a pract]ice too generally indulged, viz: that [of carryin]g fire [f]rom one house to another with[out care o]r caution, and whereas, the President [and Trust]ees of the Town of Chicago, have [been calle]d upon by their fellow citizens, to adopt [measures] for the prevention of the said practice [in future,] Therefore […] JNO. H. KINZIE, [Pres't] B[d]. Trustees of the To[w]n of Chicago. [Attest —] E[.] W. Cas[e]y, Clerk Pro t[e]m, 49.",
+      "locator": {
+        "artifact_role": "primary",
+        "issue_page": 3,
+        "column": 3,
+        "lines": [
+          2279,
+          2315
+        ],
+        "interleaved": true
+      },
+      "entities": [
+        {
+          "as_printed": "JNO. H. KINZIE",
+          "normalized": "John H. Kinzie",
+          "role": "town officer",
+          "occupations": [
+            "president of the board of trustees"
+          ]
+        },
+        {
+          "as_printed": "E,W. Casry",
+          "normalized": "E. W. Casey",
+          "role": "town officer",
+          "occupations": [
+            "clerk pro tem"
+          ]
+        }
+      ],
+      "notes": "THE TRUSTEES MET ON 3 NOVEMBER 1834 AND THE MEETING PLACE IS THE EXCHANGE. This column keeps only 'held at “the' and then breaks to the next line, where the printed word is lost under the letter list woven through the column; the same ordinance set legibly in 1834-11-12 page 3 column 2 reads 'Exchange,” in said town, on the 3d day of November A. D. 1834', and that is where the supply comes from — a second printing in the same paper, not a guess. It is a DIFFERENT house from the fire ordinance of 13 October, which the trustees held at the Tremont House (1834-10-29 c001). The ordinance itself forbids carrying fire brands or coals from one building to another except in a covered earthen or fire-proof vessel, on a five dollar penalty; its enacting and enforcing clauses are in the 1834-11-12 reading, where they survive whole. The right-hand fragments running down these lines are a post-office letter list, not part of the ordinance — see c014."
+    },
+    {
+      "id": "c002",
+      "kind": "business",
+      "reading": "transcription_mediated",
+      "quote": "Inss, Crockery and Stone Ware, low Messer\nWITH A GENEAAL ASSORTMENT OF on sooth v\nsroceries, Liquors, &e. |_ “'yexe\n1 they aro offering for sale low for cash, \"\ntoor to P. Pruyne and co's.\nPAWO. HOGUE & CO, At:\nrage, Nor. 4, 4834-49, _| sense fn",
+      "normalized": "[Gl]ass, Crockery and Stone Ware, WITH A GENE[R]AL ASSORTMENT OF [G]roceries, Liquors, &c. [wh]ich they are offering for sale low for cash, [next d]oor to P. Pruyne and co's. [WM.] HOGUE & CO, [Chi]cago, No[v]. 4, 1834 — 49.",
+      "locator": {
+        "artifact_role": "primary",
+        "issue_page": 3,
+        "column": 2,
+        "lines": [
+          2121,
+          2127
+        ],
+        "interleaved": true
+      },
+      "entities": [
+        {
+          "as_printed": "PAWO. HOGUE & CO",
+          "normalized": "Wm. Hogue & Co",
+          "role": "proprietor",
+          "occupations": [
+            "grocer",
+            "crockery dealer"
+          ]
+        }
+      ],
+      "notes": "A NEW HOUSE, DATED 4 NOVEMBER 1834 — the first Chicago advertisement of the month and the firm's first appearance in this corpus. The signature is cut to 'PAWO. HOGUE & CO' here; 1834-11-12 page 3 column 3 prints the same advertisement as 'WM. HOGUE & co,' and the initials are taken from there. The placement stands on the anchor: P. Pruyne & Co is an established South Water Street house, but this notice does not name the street, so the class is relative and not corner. The right-hand column woven through these lines is a different advertisement.",
+      "business": {
+        "name": "Wm. Hogue & Co",
+        "proprietors": [
+          "Wm. Hogue & Co"
+        ],
+        "trade": "glass, crockery and stone ware, groceries and liquors",
+        "goods": [
+          "glass",
+          "crockery",
+          "stone ware",
+          "groceries",
+          "liquors"
+        ],
+        "street": null,
+        "placement": {
+          "class": "relative",
+          "anchor": "P. Pruyne & Co's store",
+          "offset_text": "toor to P. Pruyne and co's."
+        }
+      },
+      "ad_copy_date": {
+        "verbatim": "Nor. 4, 4834",
+        "iso": "1834-11-04"
+      }
+    },
+    {
+      "id": "c003",
+      "kind": "infrastructure",
+      "reading": "transcription_mediated",
+      "quote": "TICE is hereby given, that a petition will | November\nbe presented to the next seasion of tho le- | was adopt\nure to make and lay outa state road from] An Ori\ngo, in the county of Cook, to Venus, in| Fires. —W\nCried af Hancock, on the Mississippi riv- sundry ci\n‘ov. 5, 1834. Sw49| property",
+      "normalized": "[NO]TICE is hereby given, that a petition will be presented to the next session of the [legislat]ure to make and lay out a state road from [Chica]go, in the county of Cook, to Venus, in [the county] of Hancock, on the Mississippi riv[er. N]ov. 5, 1834. 3w49",
+      "locator": {
+        "artifact_role": "primary",
+        "issue_page": 3,
+        "column": 2,
+        "lines": [
+          2128,
+          2133
+        ],
+        "interleaved": true
+      },
+      "entities": [],
+      "notes": "A STATE ROAD OUT OF CHICAGO, PETITIONED FOR ON 5 NOVEMBER 1834 — Cook county to Venus in Hancock county, on the Mississippi. Venus is the town renamed Nauvoo in 1840. The notice is unsigned in the surviving text; no petitioner is minted from it. It is the road, not the canal: the canal matter of this month is on page 3 column 1 and page 2."
+    },
+    {
+      "id": "c004",
+      "kind": "business",
+      "reading": "transcription_mediated",
+      "quote": "linery & Dress Making. | (oer\nELMIRA FOWLER, ote Dracti\nAS recvntly opened a shop on Dearborn- citer e\nstreet, nearly opposite the new bridge, and Trost\n1s just received from New-York, the }n- been ealles\nad most approved measures |\nFall and Winter Fashions, in future,\nus, Caps, Head-Dresacs, Peliesses, Cloats| Be ib an\nFrases.’ Also, a good supply of Band-Hox. | nd taste\nd designs to keep on hand a fashionable; “er it sh\nment of Hats, Calashes, Hoods, ete. suit- peerone bs\n» the season, and will attond to sll ite va.| Ol fire fr\nsranches on the most reasonable terms, | il in i\nNTED.—Young Ladies, who wish to be | $e fre\ncted in the Millinery and Dress Making, ern or Dre\naul to plain sewing—all care and instruc: | Sesinet th\n‘ill be assiduously attended to. - ee ho\nELMIRA FOWLER, | 9o0nce (0\nago, Nov. 2, 1834.—2w49, ote by law",
+      "normalized": "[Mil]linery & Dress Making. ELMIRA FOWLER, [H]AS rec[e]ntly opened a shop on Dearborn-street, nearly opposite the new bridge, and [ha]s just received from New-York, the l[at]est and most approved […] Fall and Winter Fashions, [in Hat]s, Caps, Head-Dress[e]s, Peliesses, Cloa[ks and D]resses. Also, a good supply of Band-Box[es], and designs to keep on hand a fashionable [assort]ment of Hats, Calashes, Hoods, etc. suit[able t]o the season, and will att[e]nd to all it[s] va[rious b]ranches on the most reasonable terms. [WA]NTED. — Young Ladies, who wish to be [instru]cted in the Millinery and Dress Making, [and] to plain sewing — all care and instruc[tion w]ill be assiduously attended to. ELMIRA FOWLER, [Chic]ago, Nov. 2, 1834. — 2w49.",
+      "locator": {
+        "artifact_role": "primary",
+        "issue_page": 3,
+        "column": 2,
+        "lines": [
+          2135,
+          2153
+        ],
+        "interleaved": true
+      },
+      "entities": [
+        {
+          "as_printed": "ELMIRA FOWLER",
+          "normalized": "Elmira Fowler",
+          "role": "proprietor",
+          "occupations": [
+            "milliner",
+            "dress maker"
+          ]
+        }
+      ],
+      "notes": "A WOMAN PROPRIETOR, NAMED IN FULL, WITH A STREET AND AN ANCHOR — dated 2 November 1834 and the strongest new placement of the month. 'The new bridge' is the Dearborn Street bridge over the main river, built in 1834, and the shop is nearly opposite it: the anchor is a structure this project already models, so the placement is usable rather than decorative. She also advertises for young ladies to be instructed in the trade, which is the month's only notice of a woman employing women. The advertisement is repeated in 1834-11-12 and 1834-11-19 under the same dateline.",
+      "business": {
+        "name": "Elmira Fowler",
+        "proprietors": [
+          "Elmira Fowler"
+        ],
+        "trade": "millinery and dress making",
+        "goods": [
+          "hats",
+          "caps",
+          "head-dresses",
+          "pelisses",
+          "cloaks",
+          "dresses",
+          "band-boxes",
+          "calashes",
+          "hoods"
+        ],
+        "street": "Dearborn Street",
+        "placement": {
+          "class": "relative",
+          "anchor": "the new bridge",
+          "offset_text": "street, nearly opposite the new bridge, and"
+        }
+      },
+      "ad_copy_date": {
+        "verbatim": "Nov. 2, 1834",
+        "iso": "1834-11-02"
+      }
+    },
+    {
+      "id": "c005",
+      "kind": "notice",
+      "reading": "transcription_mediated",
+      "quote": "For Sale, trom and\nNOTE for $147 42-100, dated Sept. 19th,\n1833, and signed by Join T. Temple, Inte Pres't\ner writer in the Post Office Department, { Altest—\nor mw short time only, sole contractor of} —~e\nonto from Chicago to Green Bay, during LO’\nMourishing days said note was received A sale\nth lent: wince the recinding of said maii| Oz, 29,\ndivers ways and means to pay accounts —-=\nise the wind have Leen resorted to, and te| by 9.\nste Ihe, ubove, I:tely an offvet hay been a all siz\ncae To any purchaser of the same, am: | Oct, 29,\ncurity will be given that no offset exists, | — —_--\ngood shave allowed for cash; snd if not\ned of privately, another attempt to sell it! yr\nlic auction, will be made on the fret day | ENTE 7\nwary, 1835, without limits. For further | SS\n% .t# of the note or the maker, apply to | north lie\nINO. BATES, Jr., | Fange Phe\nd resitent antl AAue'r. for town of Chicago.\n“BE, 1531.49, _et. 29,",
+      "normalized": "For Sale, [A] NOTE for $147 42-100, dated Sept. 19th, 1833, and signed by John T. Temple, late [l]e[t]ter writer in the Post Office Department, [and f]or a short time only, sole contractor of [the mail r]out[e] from Chicago to Green Bay, during [which f]lourishing days said note was received [for ca]sh lent: since the rec[in]ding of said mail [ro]ute, divers ways and means to pay accounts [and ra]ise the wind have been resorted to, and t[o liqu]idate the above, lately an offset has been [pleaded]. To any purchaser of the same, am[ple se]curity will be given that no offset exists, [and a] good shave allowed for cash; and if not [dispos]ed of privately, another attempt to sell it [at pub]lic auction, will be made on the f[i]r[s]t day [of Jan]uary, 1835, without limits. For further [particula]rs of the note or the maker, apply to JNO. BATES, Jr., [Auctioneer? —] resident an[d] Auc'r. for town of Chicago. [Oct. 3]0, 1834. 49.",
+      "locator": {
+        "artifact_role": "primary",
+        "issue_page": 3,
+        "column": 2,
+        "lines": [
+          2155,
+          2175
+        ],
+        "interleaved": true
+      },
+      "entities": [
+        {
+          "as_printed": "JNO. BATES, Jr.",
+          "normalized": "Jno. Bates, Jr.",
+          "role": "advertiser",
+          "occupations": [
+            "auctioneer"
+          ]
+        },
+        {
+          "as_printed": "John T. Temple",
+          "normalized": "John T. Temple",
+          "role": "mentioned",
+          "occupations": [
+            "mail contractor"
+          ]
+        }
+      ],
+      "notes": "A QUARREL BETWEEN TWO NAMED RESIDENTS, PRINTED TWICE OVER ON ONE PAGE — Bates offers Temple's note for sale in this column and Temple answers it eight lines below (c006). The claim is here for what it says in passing: John T. Temple held the Chicago-to-Green Bay mail contract and had lost it by November 1834, and Jno. Bates, Jr. calls himself the resident auctioneer for the town of Chicago. The line naming his office is cut and is left unsupplied. Temple's own trade in this month's other notices is medicine and land; the mail contract is an office, not a storefront, and no placement is claimed."
+    },
+    {
+      "id": "c006",
+      "kind": "notice",
+      "reading": "transcription_mediated",
+      "quote": "Avoid Im~osition! Wm\nTE public are cautioned against reeciving Lidad\nadue till drawn by ine in’ Sept. 1823, ni ly tere\nof J, Bates, jr. tor 8147 42-100, an I have; tal couse\noffset againat said note. against sa\nJOIN T. TEMPLE, | diate sett!\nsagy, Oct 39, IN31.——2w $9. west of th",
+      "normalized": "Avoid Im[p]osition! T[H]E public are cautioned against re[c]eiving [a note or]due [bi]ll drawn by me in Sept. 18[3]3, [in fav]or of J. Bates, jr. for $147 42-100, as I have [an offset again]st said note. JOHN T. TEMPLE, [Chic]ag[o], Oct. 3[0], 18[3]4. — 2w 49.",
+      "locator": {
+        "artifact_role": "primary",
+        "issue_page": 3,
+        "column": 2,
+        "lines": [
+          2177,
+          2183
+        ],
+        "interleaved": true
+      },
+      "entities": [
+        {
+          "as_printed": "JOIN T. TEMPLE",
+          "normalized": "John T. Temple",
+          "role": "advertiser"
+        }
+      ],
+      "notes": "Temple's answer to c005, set in the same column of the same page. Both are dated 30 October 1834 and both run for two weeks. The pair is the reason neither claim is read as settling anything about the note: the paper carries the dispute, not its outcome."
+    },
+    {
+      "id": "c007",
+      "kind": "business",
+      "reading": "transcription_mediated",
+      "quote": "eeolesale and Hetail, | Piser\nLi AND WINTER GOODS. | eacim S\nHARMON, LOOMIS & CO.,\n\"PTE the attention of the public to the nN STC\nrge assortment of Go's they lisve recent-| 434 near\need: CONSISTING OF Tloune; als\n‘ancy acd Staple DRY GOODS, suitable fu\nof whigh are, Broad Cloths, Cassizneres | 8PPIY to\nstic cloths, wattinetts, Peter Sham, gosts oe\nniet, woollen and cotton flannels, Eng. | _Chieage\nnd Freack merino clothe, circassians, bom- - &\nps. bombarctt, rattioctt moreen, treze,\nng, Russia duck, canvisa, ticking, cena: |",
+      "normalized": "[Wh]olesale and Retail. [F]ALL AND WINTER GOODS. HARMON, LOOMIS & CO., [IN]VITE the attention of the public to the [la]rge assortment of Go[od]s they have recent[ly rec]e[iv]ed: CONSISTING OF [F]ancy a[n]d Staple DRY GOODS, [som]e of whi[c]h are, Broad Cloths, Cassi[m]eres [dome]stic cloths, [s]attinetts, Peter Sham, goats [ha]ir camlet, woollen and cotton flannels, Eng[lish a]nd Fre[n]ch merino cloths, circassians, bom[bazi]nes, bombazett, rattinett moreen, freze, [pad]ding, Russia duck, canv[a]ss, ticking, osna[burg]s",
+      "locator": {
+        "artifact_role": "primary",
+        "issue_page": 3,
+        "column": 2,
+        "lines": [
+          2184,
+          2196
+        ],
+        "interleaved": true
+      },
+      "entities": [
+        {
+          "as_printed": "HARMON, LOOMIS & CO.",
+          "normalized": "Harmon, Loomis & Co",
+          "role": "proprietor",
+          "occupations": [
+            "dry goods merchant",
+            "grocer"
+          ]
+        }
+      ],
+      "notes": "THE MONTH'S LARGEST ADVERTISEMENT AND IT NAMES NO STREET. The stock runs the length of the column — dry goods, groceries, hardware, crockery, glassware, carpeting — and the notice ends 'HARMON, LOOMIS & CO.' with a date and no address at all, in either this issue or 1834-11-12. The placement class is therefore `none` and the firm cannot be stood anywhere on the ground from this evidence. Only the head of the advertisement is quoted; the stock list continues to line 2266 and adds no placement.",
+      "business": {
+        "name": "Harmon, Loomis & Co",
+        "proprietors": [
+          "Harmon, Loomis & Co"
+        ],
+        "trade": "wholesale and retail dry goods, groceries, hardware and crockery",
+        "goods": [
+          "dry goods",
+          "groceries",
+          "hardware",
+          "crockery",
+          "glassware"
+        ],
+        "street": null,
+        "placement": {
+          "class": "none"
+        }
+      }
+    },
+    {
+      "id": "c008",
+      "kind": "business",
+      "reading": "transcription_mediated",
+      "quote": "T of Stone Ware, just received and for L\nby JNO. S. WILSON & CO. -\nP1S3L Dearborn-strec, Ri",
+      "normalized": "[A LO]T of Stone Ware, just received and for [sale] by JNO. S. WILSON & CO. [Oct. 29, 18]34. Dearborn-stree[t].",
+      "locator": {
+        "artifact_role": "primary",
+        "issue_page": 3,
+        "column": 3,
+        "lines": [
+          2316,
+          2318
+        ],
+        "interleaved": true
+      },
+      "entities": [
+        {
+          "as_printed": "JNO. S. WILSON & CO.",
+          "normalized": "Jno. S. Wilson & Co",
+          "role": "proprietor",
+          "occupations": [
+            "merchant"
+          ]
+        }
+      ],
+      "notes": "A STREET AND NOTHING FINER. The firm signs 'Dearborn-street' under three separate advertisements this month and never gives a side, a corner or a neighbour, so the placement is street_only. The house is set 'JNO. S. WILSON & CO.' here and 'J. L. WILSON & CO.' in 1834-11-19; the same Dearborn Street line stands under both, and the two spellings are left as they are printed rather than merged — identity.json is the only place a merge may be declared, and this one is not evidenced.",
+      "business": {
+        "name": "Jno. S. Wilson & Co",
+        "proprietors": [
+          "Jno. S. Wilson & Co"
+        ],
+        "trade": "dry goods, groceries, hardware and crockery",
+        "goods": [
+          "stone ware"
+        ],
+        "street": "Dearborn Street",
+        "placement": {
+          "class": "street_only",
+          "anchor": null,
+          "offset_text": "P1S3L Dearborn-strec, Ri",
+          "offset_normalized": "Dearborn-stre[et]",
+          "street": "Dearborn Street"
+        }
+      }
+    },
+    {
+      "id": "c009",
+      "kind": "business",
+      "reading": "transcription_mediated",
+      "quote": "Késsolution.\n. oF cauisat ONTAL\ncorpartnership heretofure existing be- tion tic\nen the aubscribers, is this day by mu- | ja, 8 Fh\nent dissolved, and’ all demands for or | Uanelered w\nvid firm, are requested to izake i:ame- | S734 leading\nlement with IH. Courtuey, next door | is BY\nhoir Bake shep, Medan vuck\nJB. COOK, | ieee\n», ee, BB 1am SS C. GEORGE. Miils, 25 fro",
+      "normalized": "[Di]ssolution. [The] copartnership heretofore existing be[twe]en the subscribers, is this day by mu[tual cons]ent dissolved, and all demands for or [against sa]id firm, are requested to [m]ake imme[diate sett]lement with H. Courtney, next door [to t]heir Bake sh[o]p. […] J[.] B. COOK, […] C. GEORGE.",
+      "locator": {
+        "artifact_role": "primary",
+        "issue_page": 3,
+        "column": 3,
+        "lines": [
+          2331,
+          2340
+        ],
+        "interleaved": true
+      },
+      "entities": [
+        {
+          "as_printed": "JB. COOK",
+          "normalized": "J. B. Cook",
+          "role": "proprietor",
+          "occupations": [
+            "baker"
+          ]
+        },
+        {
+          "as_printed": "C. GEORGE",
+          "normalized": "C. George",
+          "role": "proprietor",
+          "occupations": [
+            "baker"
+          ]
+        },
+        {
+          "as_printed": "IH. Courtuey",
+          "normalized": "H. Courtney",
+          "role": "mentioned"
+        }
+      ],
+      "notes": "A DISSOLUTION, WHICH IS RULING 3'S VETO: the firm of Cook & George does not stand at the scene date on the strength of this notice, and the claim is marked as contradicting it. The bake shop itself is a building the notice takes for granted — demands are to be settled with H. Courtney 'next door' to it — but the shop's street is not printed and the anchor is the shop itself, so nothing is placed. This is the town's second bakery in the month: D. Graves advertises one on Water Street (c012), and the two are not the same house.",
+      "business": {
+        "name": "Cook & George",
+        "proprietors": [
+          "J. B. Cook",
+          "C. George"
+        ],
+        "trade": "bakery",
+        "goods": [
+          "bread"
+        ],
+        "street": null,
+        "placement": {
+          "class": "relative",
+          "anchor": "their bake shop",
+          "offset_text": "lement with IH. Courtuey, next door"
+        }
+      },
+      "contradicts": true
+    },
+    {
+      "id": "c010",
+      "kind": "building",
+      "reading": "transcription_mediated",
+      "quote": "TO REYT. between whi\nmo Stage road a\nORE inthe two story dwetling house directly pass\nrly opposite the Exchange | Cefive | Geor Shi\nso, ervera) rooms in the cond story vatedin the:\nur offices or a private family. Forterms | xalubrity\nGEORGE SMITH, Military Tr\nExchange Coffe House. | of the surrou\nO, Oct, 22, VBL 47 never failing",
+      "normalized": "TO RE[N]T. [A st]ORE in the two story dwelling house [former]ly opposite the Exchange [Cof]fee [House]. [Al]so, several rooms in the [se]cond story [f]or offices or a private family. For terms [enquire of] GEORGE SMITH, Exchange Coffe House. [Chicag]o, Oct. 22, 18[34]. 47",
+      "locator": {
+        "artifact_role": "primary",
+        "issue_page": 3,
+        "column": 3,
+        "lines": [
+          2342,
+          2350
+        ],
+        "interleaved": true
+      },
+      "entities": [
+        {
+          "as_printed": "GEORGE SMITH",
+          "normalized": "George Smith",
+          "role": "advertiser",
+          "occupations": [
+            "keeper of the Exchange Coffee House"
+          ]
+        }
+      ],
+      "notes": "A TWO STOREY DWELLING HOUSE WITH A STORE IN IT, ACROSS THE STREET FROM THE EXCHANGE COFFEE HOUSE, and rooms in its second storey let for offices or a family — a building of the kind this reconstruction has to guess at, described by the paper. The word before 'opposite' is cut and reads '[former]ly' in this setting; whether the house is 'formerly opposite' or 'nearly opposite' cannot be settled from the surviving text and the ambiguity is left standing. George Smith answers at the Exchange Coffee House itself, which is where the trustees met on 3 November (c001) and where the committee of twenty met on 22 November (1834-11-19)."
+    },
+    {
+      "id": "c011",
+      "kind": "notice",
+      "reading": "transcription_mediated",
+      "quote": "Important Sale, culated fort\niL, be sold at public auction at the Ivm- j dereription, F\nor yard of D, Carver .& Co, on Satur-| in the centre\nof Noy. at 10 o'clock, A. M, alot of | closed with 1\nSeasoned Pine Lumber, panies fils\nMt; consisting of inch boards, 1 1-2 out buildings\nh plank, considerable of which is clear | rehaser may\nwall lot of inch ash boards, and asmall | bushels of c\nof 3 inch cherry, and somo 3 by 4 sean- | hogs, farmin\n\"he luinber is to be sold to satisfy aco- | of eorn shou\ntip business lately dissolved: And will! er immediat\n1 lots to accommodate purchasers onal For furthe\n3 months, on all amounts above 20) gubscriber li\ny giving bond with approved security.\nDAV.D CARVER, Auc'r, September\n), 1234. Bw 43. —_———",
+      "normalized": "Important Sale. [WI]LL be sold at public auction at the lum[ber] yard of D. Carver & Co, on Satur[day the ...] of Nov. at 10 o'clock, A. M. a lot of [well] Seasoned Pine Lumber, [consisting of] inch boards, 1 1-2 [inc]h plank, considerable of which is clear [… a s]mall lot of inch ash boards, and a small [lot] of 3 inch cherry, and some 3 by 4 scan[tling. T]he lumber is to be sold to satisfy a co[partnersh]ip business lately dissolved: And will [be sold in s]mall lots to accommodate purchasers on [a credit of] 3 months, on all amounts above $20[, b]y giving bond with approved security. DAV[I]D CARVER, Auc'r. [Nov. ?], 1834. 3w 48.",
+      "locator": {
+        "artifact_role": "primary",
+        "issue_page": 3,
+        "column": 3,
+        "lines": [
+          2352,
+          2367
+        ],
+        "interleaved": true
+      },
+      "entities": [
+        {
+          "as_printed": "DAV.D CARVER",
+          "normalized": "David Carver",
+          "role": "advertiser",
+          "occupations": [
+            "auctioneer",
+            "lumber merchant"
+          ]
+        }
+      ],
+      "notes": "A LUMBER YARD NAMED AS A PLACE OF PUBLIC BUSINESS — D. Carver & Co's, where the auction is held — and a second dissolution inside one month (compare c009): the lumber is sold to satisfy 'a copartnership business lately dissolved'. The yard's street is not printed and no placement is claimed. The day of the sale and the date of the notice are both cut at the column edge and are marked absent rather than supplied from the run number."
+    },
+    {
+      "id": "c012",
+      "kind": "business",
+      "reading": "transcription_mediated",
+      "quote": "[uncertain: 1]\n[uncertain: GO SEIDI.]\nGRAVES,\n[uncertain: a the Baling Elemes in had]\nurmn the citizens of Chicago,\n[uncertain: iry d]\nVater-street, a few doors north\non hand, freah Bread. Crackers,\nDole's store,\nwhere he\nad is ready to suppiy the citt-\nlance attended to immediatel,\n, as low as can be afforded.--\n[uncertain: 21 85 holeezle.]",
+      "normalized": "[CHICA]GO [BAK]E[RY]. [D.] GRAVES, [would respectfully] inform the citizens of Chicago, [and the neighbouring settlements, that he has commenced the Baking Business in] [W]ater-street, a few doors north [of Newberry &] Dole's store, where he [keeps] on hand, fresh Bread, Crackers, […] and is ready to supply the cit[izens of this town] as low as can be afforded. [Every order] attended to immediatel[y]. […]",
+      "locator": {
+        "artifact_role": "primary",
+        "issue_page": 3,
+        "column": 6,
+        "lines": [
+          2782,
+          2795
+        ]
+      },
+      "entities": [
+        {
+          "as_printed": "GRAVES,",
+          "normalized": "D. Graves",
+          "role": "proprietor",
+          "occupations": [
+            "baker"
+          ]
+        }
+      ],
+      "notes": "A BAKER ON WATER STREET, A FEW DOORS NORTH OF NEWBERRY & DOLE'S STORE. The segmenter has shredded this advertisement worse than any other in the issue — its lines arrive out of printed order, so the normalized reading puts them back in the order the sense requires and marks every supply. The head is '[uncertain: GO SEIDI.]' here and is read as the tail of 'CHICAGO BAKERY' from 1834-11-12 page 3 column 6, which prints '[uncertain: AGO BAKDR:]' at the same point; the initial is not legible in either and is left as 'D.' from the 1834-11-12 setting, where it survives. Newberry & Dole's store house is the anchor two other November advertisements use (Peter Cohen on 1834-11-12, and the boot and shoe store in c013), which makes it the most-cited fixed point in the month.",
+      "business": {
+        "name": "D. Graves",
+        "proprietors": [
+          "D. Graves"
+        ],
+        "trade": "bakery",
+        "goods": [
+          "bread",
+          "crackers"
+        ],
+        "street": "Water Street",
+        "placement": {
+          "class": "relative",
+          "anchor": "Newberry & Dole's store",
+          "offset_text": "Vater-street, a few doors north"
+        }
+      }
+    },
+    {
+      "id": "c013",
+      "kind": "business",
+      "reading": "transcription_mediated",
+      "quote": ": &: Leather store.\nI. TAYLOR,\nan extensive loot, Shoe and\ntore, on Dearbor strect, e\nMess Newberry 4) Dole's\ns can be found\ny be found a great variety, of\ne offers at Wholesale or Re-\nat the",
+      "normalized": "[Boot, Shoe] &: Leather store. [W.] [H]. TAYLOR, [has opened] an extensive [B]oot, Shoe and [Leather s]tore, on Dearbor[n] stre[e]t, [where Messrs.] Newberry [&] Dole's [good]s can be found […] [where] [ma]y be found a great variety of [… which h]e offers at Wholesale or Re[tail] at the […]",
+      "locator": {
+        "artifact_role": "primary",
+        "issue_page": 3,
+        "column": 6,
+        "lines": [
+          2826,
+          2834
+        ]
+      },
+      "entities": [
+        {
+          "as_printed": "I. TAYLOR,",
+          "normalized": "[W. H.] Taylor",
+          "role": "proprietor",
+          "occupations": [
+            "boot and shoe dealer",
+            "leather dealer"
+          ]
+        }
+      ],
+      "notes": "A BOOT, SHOE AND LEATHER STORE ON DEARBORN STREET. The proprietor's initial is cut to 'I. TAYLOR' here; the same advertisement in 1834-11-12 page 4 and 1834-11-19 page 4 signs off 'W. H. T. will manufacture to order', so the initials are read as W. H. and bracketed. The relation to Newberry & Dole in the cut text is not certainly 'opposite' — the surviving words are the firm's name only — so the anchor stands and the direction does not.",
+      "business": {
+        "name": "[W. H.] Taylor",
+        "proprietors": [
+          "[W. H.] Taylor"
+        ],
+        "trade": "boot, shoe and leather store",
+        "goods": [
+          "boots",
+          "shoes",
+          "sole leather",
+          "upper leather"
+        ],
+        "street": "Dearborn Street",
+        "placement": {
+          "class": "relative",
+          "anchor": "Newberry & Dole's",
+          "offset_text": "Mess Newberry 4) Dole's"
+        }
+      }
+    },
+    {
+      "id": "c014",
+      "kind": "notice",
+      "reading": "transcription_mediated",
+      "quote": "List of Letters —\nINING in the Post Office at Ge\nt, Hl. Oct. 1, 1834, j ATTORNEY &\nBetsey Kirby, ihn 8\nrT, Absolom Leach, oO FICE re\nBowen, = Win. W. McIntosh, P of Frankl\nrush, Joreyh Ship, Chicago, Dee\nmn, cnjamin Shanks, Se\nge, William Shaw, EDW.\n80, Sela Spalding, ATTORNEY\nglish. Russell Star, FFICE ad\n‘aton, —‘Thornas Smith, OE\n, John G. Tho nson, es\nrato, Phebe Treat, A ST REC\ntr, Dr. G.R. Walker, of Tron 8:\nes, John Williams, ' 2 Oct. 15.—4¢\n‘, Daniel Wilson, ———\non, Reason Zearley, WANTED\nC. VAN HORN, P.M. | WY gen\nsist of Letters, mm any placet,\nINING in the Post office at Paw} Sept. 17, 189\nMl. Oct, 1, 1834, Whee\nHiram Famine, ‘Tow\nIyres, Rey. Daniel Newton, wire I\ncold, Maj. William Rodgere, | OY and Lo\n;, Wanton Parker, jm: Jo.\nCy Honry L, Ellis, 2 ICES, Nai\n5 2 Wiluam Thunter, sail |\nit Jacob Harland. v Nail Rods\nM Sept. 3\nGW. LAIRD, P.M, | \"7! os",
+      "normalized": "List of Letters [REMA]INING in the Post Office at Ge[neva?], Il[l]. Oct. 1, 1834, [… names …] C. VAN HORN, P.M. [L]ist of Letters, [REMA]INING in the Post office at Paw[paw?], [I]ll. Oct. 1, 1834, [… names …] G. W. LAIRD, P.M.",
+      "locator": {
+        "artifact_role": "primary",
+        "issue_page": 3,
+        "column": 4,
+        "lines": [
+          2454,
+          2484
+        ],
+        "interleaved": true
+      },
+      "entities": [],
+      "notes": "THE MONTH'S LETTER-LIST QUESTION, SETTLED HERE. Two complete out-of-county lists stand in this column, each dated 1 October 1834 and each signed by its own postmaster — C. Van Horn and G. W. Laird — and a third, ending 'THOMAS GALAUER, P.M.' at line 2452, runs up from page 3 column 3. NONE OF THEM IS CHICAGO'S. Chicago's postmaster is John S. C. Hogan, who signs the 1 October Chicago list minted from 1834-10-22, and no list in this issue carries his name. Tested by names rather than by signature alone: the 149 names minted from the Chicago list of 1 October contain none of Glen, Griffin, Hall, Hunt, Isaacs, Akin, Terry, Wier, Webb, Sawyer, Spangle, Twaddle or Shepherd, all of which stand in these columns. So these are other towns' lists reprinted, their names are NOT minted as Chicago residents, and the survey behind this ticket — 'October-list matter once more in No 49' — is confirmed as to the matter and corrected as to whose list it is. The office names are cut at the column edge to 'Ge' and 'Paw' and are left with a marked query rather than completed to Geneva and Paw Paw."
+    },
+    {
+      "id": "c015",
+      "kind": "event",
+      "reading": "transcription_mediated",
+      "quote": "\\ TEMPERANCE: NOT Ic M. | qualit;\n| Rai athe Chicago Temperaace patter\n: FR Ye held at the Presbyterian “38%;\noad eon Thursay evening next, eee\na pat B oleh ne ies\nheed eee M. wt is hoped ard ti\nSe Baperazee will all be present. sith, ¢\nests 9 exrected on the occasion Igentle\nP. CARPENT EO jaws ort\n—_PEARPENTER. ae",
+      "normalized": "TEMPERANCE NOT[I]C[E]. [A meeting of] the Chicago Temperance [Society will] be held at the Presbyterian [church, o]n Thurs[d]ay evening next, [at ... o'cloc]k [P.] M. It is hoped [all the friends of] Temperance will all be present. [Address]es [are] ex[p]ected on the occasion. P. CARPENT[ER].",
+      "locator": {
+        "artifact_role": "primary",
+        "issue_page": 3,
+        "column": 1,
+        "lines": [
+          2048,
+          2057
+        ],
+        "interleaved": true
+      },
+      "entities": [
+        {
+          "as_printed": "P. CARPENT EO",
+          "normalized": "P. Carpenter",
+          "role": "advertiser"
+        }
+      ],
+      "notes": "THE CHICAGO TEMPERANCE SOCIETY MEETS IN THE PRESBYTERIAN CHURCH, and Philo Carpenter signs the call — the same man whose drug establishment is the anchor of Russell & Clift's store on South Water Street in this month's 1834-11-12. The building is the claim's value: the Presbyterian church is used here as the town's meeting hall, as it is for the library meeting of 1834-11-26. This column is the worst-set in the issue and the hour of the meeting is unrecoverable; it is marked absent. The signature line prints twice, once cut ('P. CARPENT EO') and once as '—_PEARPENTER.', which is the segmenter doubling a line and not two signatures."
+    }
+  ]
+}

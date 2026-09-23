@@ -1,0 +1,238 @@
+{
+ "id": "hh_porter_jeremiah",
+ "name": "The Porter household",
+ "division": "south",
+ "head": "porter_jeremiah",
+ "arrival": {
+  "value": "1833-05-01",
+  "confidence": "inferred",
+  "sources": [
+   "andreas_1884_v1"
+  ],
+  "note": "Porter arrived with the troops from Fort Brady; this project's first_presbyterian_church record has him arriving in May 1833 and organising the church the following month. May is that record's reading and the day is not evidence. Eliza Chappel's own arrival is earlier and separate and is not what this field dates.",
+  "precision": "month"
+ },
+ "party_size_on_arrival": {
+  "value": 1,
+  "confidence": "inferred",
+  "sources": [
+   "andreas_1884_v1"
+  ],
+  "note": "Porter travelled with a garrison, not a family; he did not marry until June 1835. The household of two exists only from 15 June 1835, sixteen days before the scene date, which is why this field describes one man."
+ },
+ "origin": {
+  "value": "New England, by way of the garrison church at Fort Brady, Sault Ste Marie",
+  "confidence": "inferred",
+  "sources": [
+   "andreas_1884_v1"
+  ],
+  "note": "Charles Butler's 1881 letter has him arriving in 1833 'accompanied by the Rev. Jeremiah Porter, as chaplain' with a company of troops transferred from Green Bay or Sault Ste Marie; seventeen of his founding members had been members of the same church at Fort Brady. His parents were living in Massachusetts in 1835. The chain is documented; the phrasing 'New England' is this record's summary of it."
+ },
+ "reason_for_coming": {
+  "value": "Sent as a home missionary with a transferred garrison",
+  "confidence": "attested",
+  "sources": [
+   "andreas_1884_v1"
+  ],
+  "note": "The church looked 'to the Home Mission Society for support for the year to come' and later resolved to assume his support itself; he came with the troops as their chaplain."
+ },
+ "lives_at": {
+  "value": "peck_store",
+  "confidence": "attested",
+  "sources": [
+   "andreas_1884_v1"
+  ],
+  "note": "ONE OF ONLY TWO DOCUMENTED RESIDENCE LINKS IN THIS PARCEL, and it is a lodging rather than a home. Andreas: 'Among these was P. F. W. Peck, who invited Mr. Porter to make his temporary lodging place and study in the unfinished loft of his two-story store, standing on the southwest corner of South Water and LaSalle streets.' data/structures/peck_store.json independently records the unfinished loft used as lodging. THE WORD 'TEMPORARY' IS IN THE SOURCE and this link is dated 1833; whether he was still in the loft in 1835, and whether he took his wife there, is unknown."
+ },
+ "works_at": {
+  "value": "first_presbyterian_church",
+  "confidence": "attested",
+  "sources": [
+   "andreas_1884_v1"
+  ],
+  "note": "His own congregation, in its own building at Lake and Clark by the scene date. data/structures/first_presbyterian_church.json deliberately records its occupants as the CONGREGATION rather than as a person, because no source names the minister in charge on 1 July 1835 - and this household is why. He is the minister and he may have been away."
+ },
+ "associated_with": [
+  {
+   "kind": "lodging",
+   "place_or_structure_id": "peck_store",
+   "resolves_to": "structure",
+   "from": "1833",
+   "to": null,
+   "tier": "attested",
+   "source_id": "andreas_1884_v1",
+   "note": "THE WORD 'TEMPORARY' IS THE SOURCE'S OWN, and this row exists to keep it. Andreas: Peck 'invited Mr. Porter to make his temporary lodging place and study in the unfinished loft of his two-story store'. The loft is dated 1833; no source reached says when he left it, so `to` is null rather than the scene date. The singular `lives_at` above cannot say either of those things - it reads as the household's residence on 1 July 1835, which is the one claim Andreas refuses to make, and T-1237's reconciliation row inherits that flattening by dating the same claim 1835-07-01."
+  },
+  {
+   "kind": "workplace",
+   "place_or_structure_id": "first_presbyterian_church",
+   "resolves_to": "structure",
+   "from": "1833-06",
+   "to": null,
+   "tier": "attested",
+   "source_id": "andreas_1884_v1",
+   "note": "The congregation was organised in June 1833 under Rev. Jeremiah Porter, which is what the June date is - the charge, not this building, whose own date no source reached gives. `to` is null for the reason the structure record states in full: NO SOURCE REACHED NAMES THE MINISTER IN CHARGE ON 1835-07-01, so the row may not be closed at the scene date and may not be extended to it either."
+  }
+ ],
+ "present_on_scene_date": {
+  "value": "uncertain",
+  "confidence": "attested",
+  "sources": [
+   "andreas_1884_v1"
+  ],
+  "note": "THE FINDING OF THIS RECORD. Porter was at Pittsburgh for the General Assembly in the spring of 1835, married at Rochester, New York on 15 June 1835, and then 'with his wife visited his parents who were living in Massachusetts'. Andreas separately says he did not leave Chicago for good until September 1835. Both statements are Andreas's and they are not contradictory - a summer round trip fits between them - but neither of them places this couple in Chicago on 1 July 1835, and the honest value is uncertain. A household can be a resident household and be out of town on the day."
+ },
+ "persons": [
+  {
+   "id": "porter_jeremiah",
+   "name": "Rev. Jeremiah Porter",
+   "relationship": "head",
+   "grade": "attested",
+   "sex": "male",
+   "occupation": {
+    "value": "minister",
+    "confidence": "attested",
+    "sources": [
+     "andreas_1884_v1"
+    ],
+    "note": "Pastor of the First Presbyterian Church of Chicago, which he organised on Wednesday 26 June 1833 with twenty-six members - seventeen of them from the garrison church at Fort Brady and nine of them citizens of the village. He came to Chicago as chaplain with the troops transferred from Fort Brady.",
+    "derived_from": "roles",
+    "roles_at_scene_date": [
+     "minister"
+    ]
+   },
+   "sources": [
+    "andreas_1884_v1"
+   ],
+   "note": "THE HOUSEHOLD THAT TURNED UP THE PARCEL'S SHARPEST DATE PROBLEM. Andreas: 'In the spring of 1835, Mr. Porter was chosen by the Presbytery of Ottawa its first delegate to the General Assembly which met that spring in Pittsburgh. After the adjournment of the Assembly, Mr. Porter was married, at Rochester, N. Y., to Miss Eliza Chappel, then late of Chicago, and with his wife visited his parents who were living in Massachusetts.' The marriage is dated elsewhere in the same volume to 15 June 1835 - SIXTEEN DAYS BEFORE THE SCENE DATE, at Rochester, New York. Andreas also says he stayed 'until Mr. Porter left Chicago, in September, 1835'. So he is the town's Presbyterian minister on 1 July 1835 and may well have been eight hundred miles away that morning.",
+   "resident_research": {
+    "programme": "resident-research-2026",
+    "ticket": "T-0510",
+    "outcome": "corroborated_enrichment",
+    "reviewed_on": "2026-09-05",
+    "asserted_identity": true,
+    "evidence_for": "Surname 'Porter' folds to the same string as the entry's, and the given name of both begins J.",
+    "evidence_against": "'Millard Porter' at printed page 229 line 20 (33S7-9YYJ-9M5) is NOT 'Rev. Jeremiah Porter': The surname 'porter' is carried by 2 person(s) of 1835 (Rev. Jeremiah Porter, Eliza Chappel Porter) and none of their given names is 'millard'. The surname 'Porter' is in Norris 1844 and no entry under it carries the initial 'J' of 'Rev. Jeremiah Porter'. A surname-only agreement is a refusal. The surname 'Porter' is in Fergus 1839 and no entry under it carries the initial 'J' of 'Rev. Jeremiah Porter'. A surname-only agreement is a refusal.",
+    "summary": "Corroborated in a volume printed after the scene date. Rev. Jeremiah Porter agrees with an entry in the old-settler rolls and Fergus's death notices. The reading enriches the biography and adds no 1835 attestation.",
+    "notes": "Research only. Later-volume readings are recorded here and NOT promoted: T-0513 consolidates and T-0514/T-0515 apply.",
+    "source_ids": [
+     "chicago_democrat_1833_1835",
+     "fergus_1843_old_settler_death_notices"
+    ]
+   },
+   "roles": [
+    {
+     "role": "minister",
+     "kind": "profession",
+     "as_printed": null,
+     "from": "1673",
+     "to": "1857",
+     "precision": "source_span",
+     "dated_by": "source_describes_date",
+     "covers_scene_date": true,
+     "confidence": "attested",
+     "sources": [
+      "andreas_1884_v1"
+     ],
+     "claim": null,
+     "note": "THE BOUND IS THE SOURCE'S, NOT THE MAN'S. This role is carried by the card's 1835 occupation block and is dated by what the cited source or sources are ABOUT, which is why `precision` can be no better than the span they cover. The span reaches 1835, so this role stands in the scene-date view. The printing the trade was read off is not on the card and is fetched by T-1254."
+    }
+   ]
+  },
+  {
+   "id": "porter_eliza_chappel",
+   "name": "Eliza Chappel Porter",
+   "relationship": "wife",
+   "grade": "attested",
+   "sex": "female",
+   "birth_year": {
+    "value": 1807,
+    "confidence": "attested",
+    "sources": [
+     "andreas_1884_v1"
+    ],
+    "note": "5 November 1807 at Geneseo, New York."
+   },
+   "age_on_scene_date": {
+    "value": 27,
+    "confidence": "attested",
+    "sources": [
+     "andreas_1884_v1"
+    ],
+    "note": "27 on 1 July 1835."
+   },
+   "occupation": {
+    "value": "schoolteacher",
+    "confidence": "attested",
+    "sources": [
+     "andreas_1884_v1"
+    ],
+    "note": "She kept Chicago's first infant school - this dataset holds the building as chappel_infant_school - and Andreas gives her a full biographical notice: 'Miss Eliza Chappel is entitled to especial distinction in this work.' Born at Geneseo, N.Y., 5 November 1807, of parents 'who united Huguenot and Pilgrim blood'. She was also one of the twenty-six founding members of the First Presbyterian Church in June 1833, listed among the seventeen from the garrison.",
+    "derived_from": "roles",
+    "roles_at_scene_date": [
+     "schoolteacher"
+    ]
+   },
+   "associated_with": [
+    {
+     "kind": "school",
+     "place_or_structure_id": "chappel_infant_school",
+     "resolves_to": "structure",
+     "from": "1833",
+     "to": "1834",
+     "tier": "inferred",
+     "source_id": "andreas_1884_v1",
+     "note": "A RELATIONSHIP THAT WAS OVER BEFORE THE SCENE DATE, which is why it is written here and nowhere else in this record's shape. Andreas gives her Chicago's first infant school and this dataset holds its building; the structure's occupants block dates the occupancy 1833-34 and closes it. The tier follows that block: the occupancy is inferred, not attested. THE SCHOOL'S MOVE INTO THE CHURCH DURING 1834 IS NOT WRITTEN AS A ROW - both the school's and the church's records say that claim comes from the project's dossier, from summaries with no source record in data/sources/, and a row of this shape must name a source that resolves. It stays reported rather than cited until a source is read for it."
+    },
+    {
+     "kind": "church",
+     "place_or_structure_id": "first_presbyterian_church",
+     "resolves_to": "structure",
+     "from": "1833-06",
+     "to": null,
+     "tier": "attested",
+     "source_id": "andreas_1884_v1",
+     "note": "One of the twenty-six founding members of the First Presbyterian Church in June 1833, listed among the seventeen from the garrison. The household's single `works_at` names this same building for her husband's charge and says nothing about her; a membership and a pulpit are different relationships with the same roof, and only a plural list can hold both."
+    }
+   ],
+   "sources": [
+    "andreas_1884_v1"
+   ],
+   "note": "MARRIED SIXTEEN DAYS BEFORE THE SCENE DATE AND DESCRIBED BY ANDREAS AS 'THEN LATE OF CHICAGO' AT THE TIME OF THE WEDDING - which is a statement that she had already left the town. Her school had moved out of the State Street log house in 1834. She is carried in this household under her married name because that is her status on 1 July 1835, and the household's presence field records what follows from it.",
+   "resident_research": {
+    "programme": "resident-research-2026",
+    "ticket": "T-0510",
+    "outcome": "candidate_identity",
+    "reviewed_on": "2026-09-05",
+    "asserted_identity": false,
+    "evidence_against": "The surname 'Porter' is in Fergus's death notices and no entry under it carries the initial 'E' of 'Eliza Chappel Porter'. A surname-only agreement is a refusal, here as everywhere: the list prints eleven Smiths. 'Millard Porter' at printed page 229 line 20 (33S7-9YYJ-9M5) is NOT 'Eliza Chappel Porter': The surname 'porter' is carried by 2 person(s) of 1835 (Rev. Jeremiah Porter, Eliza Chappel Porter) and none of their given names is 'millard'. L3 given_name_conflict",
+    "summary": "A plausible external identity for Eliza Chappel Porter was found and is retained unasserted: no date, place, occupation or kinship discriminator bridges it to the 1835 person.",
+    "notes": "Repository lead retained as a candidate: Plausible, insufficient - and answerable without acquiring anything. 1 of the 8 card(s) heading 'Porter/i Porter/porter' name Chicago or Cook County, the heading is the surname of Rev. Jeremiah Porter; Eliza Chappel Porter exactly, and the cards under it cite andreas_history_of_chicago, which this project already holds. Read it there. No card here gives a forename, so this mints nobody. Research only. Later-volume readings are recorded here and NOT promoted: T-0513 consolidates and T-0514/T-0515 apply.",
+    "source_ids": [
+     "chicago_democrat_1833_1835"
+    ]
+   },
+   "roles": [
+    {
+     "role": "schoolteacher",
+     "kind": "profession",
+     "as_printed": null,
+     "from": "1673",
+     "to": "1857",
+     "precision": "source_span",
+     "dated_by": "source_describes_date",
+     "covers_scene_date": true,
+     "confidence": "attested",
+     "sources": [
+      "andreas_1884_v1"
+     ],
+     "claim": null,
+     "note": "THE BOUND IS THE SOURCE'S, NOT THE MAN'S. This role is carried by the card's 1835 occupation block and is dated by what the cited source or sources are ABOUT, which is why `precision` can be no better than the span they cover. The span reaches 1835, so this role stands in the scene-date view. The printing the trade was read off is not on the card and is fetched by T-1254."
+    }
+   ]
+  }
+ ],
+ "touches_removal": false,
+ "review_required": false,
+ "research_note": "THE RECORD THAT PROVES THE presence FIELD EARNS ITS KEEP. Jeremiah Porter is, on any reading, a documented Chicago resident of 1835 and the town's Presbyterian minister; and the best evidence this project holds puts him at a wedding in western New York sixteen days before the scene date and on a family visit in Massachusetts after it. Without a presence field the dataset would have had to either drop him or assert him, and both would be wrong. A SECOND CONSEQUENCE, ALREADY IN THE STRUCTURES LAYER: the church record's refusal to name a minister as its occupant now has a reason attached to it, which is the kind of loop the residents programme is meant to close."
+}

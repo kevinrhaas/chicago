@@ -1,0 +1,17 @@
+{
+  "id": "osm_streets_2026",
+  "type": "dataset",
+  "citation": "OpenStreetMap contributors. Street centerline intersection nodes for downtown Chicago, retrieved via the Overpass API, 2026-08-09.",
+  "date": "2026-08-09",
+  "describes_date": "2026",
+  "repository": "OpenStreetMap (overpass-api.de)",
+  "url": "https://www.openstreetmap.org/",
+  "archived_url": "https://overpass-api.de/",
+  "tier": 4,
+  "rights_status": "no_known_restrictions",
+  "rights_note": "OpenStreetMap data is (c) OpenStreetMap contributors, licensed ODbL 1.0. Derived control coordinates in data/traces/gcp/ carry this attribution; the ODbL share-alike obligation applies to that derived database, which this project publishes openly in any case.",
+  "asset_use": "cross_check",
+  "verified": true,
+  "note": "MODERN control, not historical evidence: supplies the present-day coordinates of street intersections whose centerlines survive from the 1830s plats, used as ground control for georeferencing the 1834 surveys. Node ids are recorded per control point so every coordinate is re-fetchable.",
+  "locator": "node ids recorded in data/traces/gcp/*.json"
+}

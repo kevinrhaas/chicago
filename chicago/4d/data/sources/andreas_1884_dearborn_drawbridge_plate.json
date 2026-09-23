@@ -1,0 +1,30 @@
+{
+  "id": "andreas_1884_dearborn_drawbridge_plate",
+  "type": "illustration",
+  "citation": "\"DEARBORN STREET DRAWBRIDGE, BUILT IN 1834.\" — wood engraving, in A. T. Andreas, History of Chicago, vol. 1 (Chicago: A. T. Andreas, 1884), p. 631, in the chapter \"Wolf Point and Early Hotels\".",
+  "author": "unsigned; no engraver's mark or draughtsman's signature is legible at the resolution the scan publishes",
+  "date": "1884",
+  "describes_date": "1834-1839",
+  "repository": "reproduced in Andreas 1884 vol. 1; scanned copy at archive.org",
+  "url": "https://archive.org/details/historyofchicago01andr/page/n1295/mode/1up",
+  "locator": "Printed page 631, scan leaf index n1295. The plate fills the upper half of the page; its caption is lettered across the foot of the block.",
+  "tier": 5,
+  "rights_status": "public_domain",
+  "rights_note": "Published 1884 in the United States, so the volume and its plates are out of copyright by age; the parent record `andreas_1884_v1` is already graded `public_domain` on the same ground. The Sauganash plate carries an in-plate copyright line naming A. T. Andreas — a claim made in 1884 and long expired, and it is recorded because it is on the plate, not because it bites. This is what going to the volume buys over an aggregator: the rights question is settled by the imprint instead of left open.",
+  "asset_use": "cross_check",
+  "verified": true,
+  "access_notes": "archive.org item `historyofchicago01andr`. The plate leaves were found from the volume's own LIST OF ILLUSTRATIONS (§ VIEWS), read at the page image, which gives the printed page of every plate in the volume. Two things about the scan, both measured on 2026-09-13 and neither of them obvious: the derivative served by `/download/historyofchicago01andr/page/n<leaf>_large.jpg` is MIRRORED — flip it horizontally before reading anything — and in this stretch of the volume the leaf index is 2 x the printed page + 33, verified at printed pages 629, 630, 631, 632, 634 and 636. That arithmetic is LOCAL: leaf 361 is not printed page 164, so re-derive the offset from a known plate rather than extrapolating across the volume. The `_page_numbers.json` derivative carries no page numbers at all for this item and `_scandata.xml`'s `<pageNumber>` disagrees with the BookReader leaf index; neither is usable here.",
+  "note": "IMAGE 2 OF THE OWNER'S BRIEF OF 2026-08-18, identified — the closer of the brief's two Dearborn drawbridge engravings, which `dearborn_street_bridge_1834_engraving` explicitly declined to claim when it identified image 3.\n\nThe brief describes image 2 as \"the 1834 gallows-frame drawbridge: twin timber A-frames/gallows posts above the deck, chains to the leaves, timber approaches. Sailing vessels (schooner rig) moored close by; small boats on the water.\" The plate was retrieved and read at the page image on 2026-09-13 and carries all of it: two braced timber gallows frames standing above the deck with chains falling from their heads, a railed deck on timber cribbing, an approach on trestle at the left, a schooner under sail immediately alongside at the right with her rigging drawn stroke by stroke, and a small boat on the water below the draw.\n\nWHY IT IS NOT IMAGE 3. Image 3's three distinguishing features — masts crowding the reach BELOW the bridge, a tapering light structure on the far shore near the mouth, and a run of low warehouses along the bank — are absent here. This plate holds one vessel, close, and open water behind it. The two records now hold the two views and neither claims the other's.\n\nRETROSPECTIVE. The bridge stood from 1834 until it was cut up in 1839 and the plate was cut for a volume of 1884, so it is a drawing of a thing fifty years gone. Tier 5, and the standing rule for the whole brief applies: form and setting as `inferred`, never a coordinate and never a footprint.",
+  "what_it_supplies": [
+    "the gallows frames drawn close: two braced timber A-frames standing above the deck, with a chain from each head",
+    "the deck as a railed timber way carried on cribbing, and the approach at one end on trestle",
+    "a schooner lying immediately alongside the crossing, rigged and drawn in detail",
+    "a small open boat on the water below the draw"
+  ],
+  "what_it_does_not_supply": [
+    "any coordinate, footprint outline or dimension",
+    "a leaf raised — the draw is drawn closed here as in the other view",
+    "the beacon, the crowded reach or the bank warehouses, which belong to image 3 and this plate does not draw",
+    "a date for the scene: the caption dates the BRIDGE to 1834, not the moment shown"
+  ]
+}

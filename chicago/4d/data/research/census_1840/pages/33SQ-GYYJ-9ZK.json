@@ -1,0 +1,1658 @@
+{
+  "schema": 1,
+  "familysearch_id": "33SQ-GYYJ-9ZK",
+  "source_id": "census_1840_chicago_familysearch_images",
+  "image": "chicago/reference/census1840/33SQ-GYYJ-9ZK.jpg",
+  "image_sha256": "11256209013d050cdf59fadf1663f2f008d6d8f518f485da069c229f56d0a878",
+  "printed_page": null,
+  "printed_page_note": "No legible printed page number on this continuation; show-through and the bound edge are not used as its locator.",
+  "sheet_side": "right",
+  "division": null,
+  "division_note": "Illinois is legible in the heading; no division name is recovered or inferred from filename order.",
+  "state": "Illinois",
+  "county": "Cook",
+  "reading": "scan_verified",
+  "read_pass": "T-0979: whole scan, native-resolution printed-block crops, a labelled crop for each of 23 TOTAL entries, enlarged footings and uncertain marks. Local inspection derivatives are not committed.",
+  "ticket": "T-0979, first leaf split from T-0978",
+  "lines_ruled_with_an_entry": 23,
+  "column_geometry": {
+    "image_size": [
+      4040,
+      3208
+    ],
+    "body_y": [
+      600,
+      2977
+    ],
+    "heading_crop": [
+      1212,
+      257,
+      2020,
+      674
+    ],
+    "footing_crop": [
+      1212,
+      2887,
+      2060,
+      3112
+    ],
+    "middle_columns": [
+      "total",
+      "mining",
+      "agriculture",
+      "commerce",
+      "manufactures_and_trades",
+      "navigation_ocean",
+      "navigation_canals_lakes_rivers",
+      "learned_professions_and_engineers"
+    ],
+    "middle_rules_by_band": [
+      {
+        "y0": 650,
+        "y1": 950,
+        "rules": [
+          1310,
+          1503,
+          1571,
+          1634,
+          1700,
+          1782,
+          1863,
+          1942,
+          2009
+        ]
+      },
+      {
+        "y0": 1200,
+        "y1": 1500,
+        "rules": [
+          1307,
+          1501,
+          1570,
+          1632,
+          1698,
+          1780,
+          1860,
+          1941,
+          2007
+        ]
+      },
+      {
+        "y0": 1800,
+        "y1": 2100,
+        "rules": [
+          1305,
+          1500,
+          1569,
+          1632,
+          1697,
+          1779,
+          1858,
+          1940,
+          2005
+        ]
+      },
+      {
+        "y0": 2200,
+        "y1": 2500,
+        "rules": [
+          1302,
+          1499,
+          1567,
+          1630,
+          1695,
+          1777,
+          1856,
+          1937,
+          2003
+        ]
+      }
+    ],
+    "method": "Printed headings checked against vertical_rules measurements in 300 px bands at cover 0.45. The manufacture boundary at x=1695 in the last band is recovered at cover 0.25; x=1683 is an interior artifact, not that rule. Other interior candidates were excluded against the headings. The default whole-body instrument locates the middle run but reports y=599..2874 and 28 TOTAL groups (29/28/28/27/25 at dy=35/45/55/65/75); its bottom rule is not the visible footer. Banded measurements and visual crop assignments are retained instead. This does not modify the instrument or close T-0761."
+  },
+  "line_index": {
+    "centres_y_px": [
+      657,
+      738,
+      820,
+      896,
+      965,
+      1042,
+      1118,
+      1189,
+      1272,
+      1344,
+      1423,
+      1499,
+      1580,
+      1654,
+      1726,
+      1806,
+      1896,
+      1955,
+      2024,
+      2109,
+      2163,
+      2261,
+      2332
+    ],
+    "method": "23 occupied TOTAL entries counted in order from the ink, with industry entries anchoring 15 positions. The bottom of the form below entry 23 is empty of household totals. A fixed x=1400..1488 component window yields 31/29/29/28/26 groups at dy=35/45/55/65/75: separate caps, fragments and specks are not households. No horizontal row grid is asserted."
+  },
+  "blank_convention": "null with state blank means inspected and no written entry. null with alternatives or unresolved_mark means inspected but unresolved. Diagnostic sums may count inspected blanks as zero, but do not assert enumerated zeros; obscured binding areas remain unread.",
+  "other_blocks": {
+    "slaves": {
+      "state": "no_legible_entries",
+      "columns": 12,
+      "body_and_footing_inspected": true,
+      "note": "No legible numeral in the occupied-row bands or footer. The lower unused body has small specks/comma-like marks; they are not assigned to households or interpreted as persons."
+    },
+    "pensioners": {
+      "state": "blank",
+      "names_and_ages_inspected": true
+    },
+    "deaf_dumb_blind_insane": {
+      "state": "blank_except_unresolved_mark",
+      "exception": {
+        "column": "free_coloured_insane_and_idiots_at_private_charge",
+        "near_lines": [
+          5,
+          6
+        ],
+        "crop_box": [
+          3290,
+          890,
+          3385,
+          1060
+        ],
+        "note": "Short crossed horizontal stroke beside the right printed rule around y=998. Not securely a numeral and not securely aligned to one occupied row; no corresponding written footing. Retained unresolved, with no person count."
+      }
+    },
+    "schools": {
+      "first_six_columns": "blank: universities/colleges, students, academies/grammar schools, their scholars, primary/common schools and their scholars; visible body and footings inspected",
+      "scholars_at_public_charge": "One upright mark near occupied line 2 retained on that record; remaining visible cells and footing have no legible numeral. The bound edge is not wholly visible.",
+      "illiteracy_column": "unread: eighth column obscured by the binding, not declared blank"
+    }
+  },
+  "footer_as_read": {
+    "total": 119,
+    "agriculture": 4,
+    "manufactures_and_trades": 21,
+    "unwritten_industry_columns": [
+      "mining",
+      "commerce",
+      "navigation_ocean",
+      "navigation_canals_lakes_rivers",
+      "learned_professions_and_engineers"
+    ],
+    "note": "Three written footings, independently inspected. TOTAL reads 1,1,9 with a descending last stroke. Agriculture has the joined 4 form; manufacture reads 2,1. Inland navigation contains a body 1 but no written footing."
+  },
+  "records": [
+    {
+      "line": 1,
+      "reading": "scan_verified",
+      "total_crop_box": [
+        1390,
+        617,
+        1510,
+        700
+      ],
+      "total": 3,
+      "total_confidence": "medium",
+      "industry": {
+        "mining": {
+          "value": null,
+          "reading": "scan_verified",
+          "state": "blank"
+        },
+        "agriculture": {
+          "value": null,
+          "reading": "scan_verified",
+          "state": "blank"
+        },
+        "commerce": {
+          "value": null,
+          "reading": "scan_verified",
+          "state": "blank"
+        },
+        "manufactures_and_trades": {
+          "value": null,
+          "reading": "scan_verified",
+          "state": "blank"
+        },
+        "navigation_ocean": {
+          "value": null,
+          "reading": "scan_verified",
+          "state": "blank"
+        },
+        "navigation_canals_lakes_rivers": {
+          "value": null,
+          "reading": "scan_verified",
+          "state": "blank"
+        },
+        "learned_professions_and_engineers": {
+          "value": null,
+          "reading": "scan_verified",
+          "state": "blank"
+        }
+      },
+      "total_glyphs_as_read": "Two-lobed 3, larger lower bowl and small upper cap; compared with the final 3 of line 20."
+    },
+    {
+      "line": 2,
+      "reading": "scan_verified",
+      "total_crop_box": [
+        1390,
+        698,
+        1510,
+        781
+      ],
+      "total": 5,
+      "total_confidence": "medium",
+      "industry": {
+        "mining": {
+          "value": null,
+          "reading": "scan_verified",
+          "state": "blank"
+        },
+        "agriculture": {
+          "value": null,
+          "reading": "scan_verified",
+          "state": "blank"
+        },
+        "commerce": {
+          "value": null,
+          "reading": "scan_verified",
+          "state": "blank"
+        },
+        "manufactures_and_trades": {
+          "value": null,
+          "reading": "scan_verified",
+          "state": "blank"
+        },
+        "navigation_ocean": {
+          "value": null,
+          "reading": "scan_verified",
+          "state": "blank"
+        },
+        "navigation_canals_lakes_rivers": {
+          "value": 1,
+          "reading": "scan_verified",
+          "state": "written"
+        },
+        "learned_professions_and_engineers": {
+          "value": null,
+          "reading": "scan_verified",
+          "state": "blank"
+        }
+      },
+      "other_cells": {
+        "scholars_at_public_charge": {
+          "value": null,
+          "state": "unresolved_mark",
+          "possible_values": [
+            1
+          ],
+          "crop_box": [
+            3735,
+            715,
+            3780,
+            795
+          ],
+          "note": "Upright stroke near the binding, unlike the diagonal industry 1 on the same line. A possible 1 remains unresolved rather than asserted or erased as a blank; the footer has no corroborating numeral."
+        }
+      }
+    },
+    {
+      "line": 3,
+      "reading": "scan_verified",
+      "total_crop_box": [
+        1390,
+        780,
+        1510,
+        863
+      ],
+      "total": null,
+      "total_confidence": "low",
+      "industry": {
+        "mining": {
+          "value": null,
+          "reading": "scan_verified",
+          "state": "blank"
+        },
+        "agriculture": {
+          "value": null,
+          "reading": "scan_verified",
+          "state": "blank"
+        },
+        "commerce": {
+          "value": null,
+          "reading": "scan_verified",
+          "state": "blank"
+        },
+        "manufactures_and_trades": {
+          "value": null,
+          "reading": "scan_verified",
+          "state": "blank"
+        },
+        "navigation_ocean": {
+          "value": null,
+          "reading": "scan_verified",
+          "state": "blank"
+        },
+        "navigation_canals_lakes_rivers": {
+          "value": null,
+          "reading": "scan_verified",
+          "state": "blank"
+        },
+        "learned_professions_and_engineers": {
+          "value": null,
+          "reading": "scan_verified",
+          "state": "blank"
+        }
+      },
+      "total_alternatives": [
+        4,
+        11
+      ],
+      "total_glyphs_as_read": "Separated oblique strokes: the distinction between 4 and 11 is unresolved; neither is chosen from the footing."
+    },
+    {
+      "line": 4,
+      "reading": "scan_verified",
+      "total_crop_box": [
+        1390,
+        856,
+        1510,
+        939
+      ],
+      "total": null,
+      "total_confidence": "low",
+      "industry": {
+        "mining": {
+          "value": null,
+          "reading": "scan_verified",
+          "state": "blank"
+        },
+        "agriculture": {
+          "value": null,
+          "reading": "scan_verified",
+          "state": "blank"
+        },
+        "commerce": {
+          "value": null,
+          "reading": "scan_verified",
+          "state": "blank"
+        },
+        "manufactures_and_trades": {
+          "value": null,
+          "reading": "scan_verified",
+          "state": "blank"
+        },
+        "navigation_ocean": {
+          "value": null,
+          "reading": "scan_verified",
+          "state": "blank"
+        },
+        "navigation_canals_lakes_rivers": {
+          "value": null,
+          "reading": "scan_verified",
+          "state": "blank"
+        },
+        "learned_professions_and_engineers": {
+          "value": null,
+          "reading": "scan_verified",
+          "state": "blank"
+        }
+      },
+      "total_alternatives": [
+        4,
+        11
+      ],
+      "total_glyphs_as_read": "Separated oblique strokes: the distinction between 4 and 11 is unresolved; neither is chosen from the footing."
+    },
+    {
+      "line": 5,
+      "reading": "scan_verified",
+      "total_crop_box": [
+        1390,
+        925,
+        1510,
+        1008
+      ],
+      "total": 6,
+      "total_confidence": "medium",
+      "industry": {
+        "mining": {
+          "value": null,
+          "reading": "scan_verified",
+          "state": "blank"
+        },
+        "agriculture": {
+          "value": 2,
+          "reading": "scan_verified",
+          "state": "written"
+        },
+        "commerce": {
+          "value": null,
+          "reading": "scan_verified",
+          "state": "blank"
+        },
+        "manufactures_and_trades": {
+          "value": null,
+          "reading": "scan_verified",
+          "state": "blank"
+        },
+        "navigation_ocean": {
+          "value": null,
+          "reading": "scan_verified",
+          "state": "blank"
+        },
+        "navigation_canals_lakes_rivers": {
+          "value": null,
+          "reading": "scan_verified",
+          "state": "blank"
+        },
+        "learned_professions_and_engineers": {
+          "value": null,
+          "reading": "scan_verified",
+          "state": "blank"
+        }
+      }
+    },
+    {
+      "line": 6,
+      "reading": "scan_verified",
+      "total_crop_box": [
+        1390,
+        1002,
+        1510,
+        1085
+      ],
+      "total": 1,
+      "total_confidence": "medium",
+      "industry": {
+        "mining": {
+          "value": null,
+          "reading": "scan_verified",
+          "state": "blank"
+        },
+        "agriculture": {
+          "value": 1,
+          "reading": "scan_verified",
+          "state": "written"
+        },
+        "commerce": {
+          "value": null,
+          "reading": "scan_verified",
+          "state": "blank"
+        },
+        "manufactures_and_trades": {
+          "value": null,
+          "reading": "scan_verified",
+          "state": "blank"
+        },
+        "navigation_ocean": {
+          "value": null,
+          "reading": "scan_verified",
+          "state": "blank"
+        },
+        "navigation_canals_lakes_rivers": {
+          "value": null,
+          "reading": "scan_verified",
+          "state": "blank"
+        },
+        "learned_professions_and_engineers": {
+          "value": null,
+          "reading": "scan_verified",
+          "state": "blank"
+        }
+      }
+    },
+    {
+      "line": 7,
+      "reading": "scan_verified",
+      "total_crop_box": [
+        1390,
+        1078,
+        1510,
+        1161
+      ],
+      "total": 2,
+      "total_confidence": "medium",
+      "industry": {
+        "mining": {
+          "value": null,
+          "reading": "scan_verified",
+          "state": "blank"
+        },
+        "agriculture": {
+          "value": 1,
+          "reading": "scan_verified",
+          "state": "written"
+        },
+        "commerce": {
+          "value": null,
+          "reading": "scan_verified",
+          "state": "blank"
+        },
+        "manufactures_and_trades": {
+          "value": null,
+          "reading": "scan_verified",
+          "state": "blank"
+        },
+        "navigation_ocean": {
+          "value": null,
+          "reading": "scan_verified",
+          "state": "blank"
+        },
+        "navigation_canals_lakes_rivers": {
+          "value": null,
+          "reading": "scan_verified",
+          "state": "blank"
+        },
+        "learned_professions_and_engineers": {
+          "value": null,
+          "reading": "scan_verified",
+          "state": "blank"
+        }
+      }
+    },
+    {
+      "line": 8,
+      "reading": "scan_verified",
+      "total_crop_box": [
+        1390,
+        1149,
+        1510,
+        1232
+      ],
+      "total": 2,
+      "total_confidence": "medium",
+      "industry": {
+        "mining": {
+          "value": null,
+          "reading": "scan_verified",
+          "state": "blank"
+        },
+        "agriculture": {
+          "value": null,
+          "reading": "scan_verified",
+          "state": "blank"
+        },
+        "commerce": {
+          "value": null,
+          "reading": "scan_verified",
+          "state": "blank"
+        },
+        "manufactures_and_trades": {
+          "value": null,
+          "reading": "scan_verified",
+          "state": "blank"
+        },
+        "navigation_ocean": {
+          "value": null,
+          "reading": "scan_verified",
+          "state": "blank"
+        },
+        "navigation_canals_lakes_rivers": {
+          "value": null,
+          "reading": "scan_verified",
+          "state": "blank"
+        },
+        "learned_professions_and_engineers": {
+          "value": null,
+          "reading": "scan_verified",
+          "state": "blank"
+        }
+      }
+    },
+    {
+      "line": 9,
+      "reading": "scan_verified",
+      "total_crop_box": [
+        1390,
+        1232,
+        1510,
+        1315
+      ],
+      "total": 4,
+      "total_confidence": "medium",
+      "industry": {
+        "mining": {
+          "value": null,
+          "reading": "scan_verified",
+          "state": "blank"
+        },
+        "agriculture": {
+          "value": null,
+          "reading": "scan_verified",
+          "state": "blank"
+        },
+        "commerce": {
+          "value": null,
+          "reading": "scan_verified",
+          "state": "blank"
+        },
+        "manufactures_and_trades": {
+          "value": 2,
+          "reading": "scan_verified",
+          "state": "written"
+        },
+        "navigation_ocean": {
+          "value": null,
+          "reading": "scan_verified",
+          "state": "blank"
+        },
+        "navigation_canals_lakes_rivers": {
+          "value": null,
+          "reading": "scan_verified",
+          "state": "blank"
+        },
+        "learned_professions_and_engineers": {
+          "value": null,
+          "reading": "scan_verified",
+          "state": "blank"
+        }
+      }
+    },
+    {
+      "line": 10,
+      "reading": "scan_verified",
+      "total_crop_box": [
+        1390,
+        1304,
+        1510,
+        1387
+      ],
+      "total": 5,
+      "total_confidence": "medium",
+      "industry": {
+        "mining": {
+          "value": null,
+          "reading": "scan_verified",
+          "state": "blank"
+        },
+        "agriculture": {
+          "value": null,
+          "reading": "scan_verified",
+          "state": "blank"
+        },
+        "commerce": {
+          "value": null,
+          "reading": "scan_verified",
+          "state": "blank"
+        },
+        "manufactures_and_trades": {
+          "value": null,
+          "reading": "scan_verified",
+          "state": "blank"
+        },
+        "navigation_ocean": {
+          "value": null,
+          "reading": "scan_verified",
+          "state": "blank"
+        },
+        "navigation_canals_lakes_rivers": {
+          "value": null,
+          "reading": "scan_verified",
+          "state": "blank"
+        },
+        "learned_professions_and_engineers": {
+          "value": null,
+          "reading": "scan_verified",
+          "state": "blank"
+        }
+      }
+    },
+    {
+      "line": 11,
+      "reading": "scan_verified",
+      "total_crop_box": [
+        1390,
+        1383,
+        1510,
+        1466
+      ],
+      "total": 4,
+      "total_confidence": "medium",
+      "industry": {
+        "mining": {
+          "value": null,
+          "reading": "scan_verified",
+          "state": "blank"
+        },
+        "agriculture": {
+          "value": null,
+          "reading": "scan_verified",
+          "state": "blank"
+        },
+        "commerce": {
+          "value": null,
+          "reading": "scan_verified",
+          "state": "blank"
+        },
+        "manufactures_and_trades": {
+          "value": 1,
+          "reading": "scan_verified",
+          "state": "written"
+        },
+        "navigation_ocean": {
+          "value": null,
+          "reading": "scan_verified",
+          "state": "blank"
+        },
+        "navigation_canals_lakes_rivers": {
+          "value": null,
+          "reading": "scan_verified",
+          "state": "blank"
+        },
+        "learned_professions_and_engineers": {
+          "value": null,
+          "reading": "scan_verified",
+          "state": "blank"
+        }
+      }
+    },
+    {
+      "line": 12,
+      "reading": "scan_verified",
+      "total_crop_box": [
+        1390,
+        1459,
+        1510,
+        1542
+      ],
+      "total": 6,
+      "total_confidence": "medium",
+      "industry": {
+        "mining": {
+          "value": null,
+          "reading": "scan_verified",
+          "state": "blank"
+        },
+        "agriculture": {
+          "value": null,
+          "reading": "scan_verified",
+          "state": "blank"
+        },
+        "commerce": {
+          "value": null,
+          "reading": "scan_verified",
+          "state": "blank"
+        },
+        "manufactures_and_trades": {
+          "value": null,
+          "reading": "scan_verified",
+          "state": "blank"
+        },
+        "navigation_ocean": {
+          "value": null,
+          "reading": "scan_verified",
+          "state": "blank"
+        },
+        "navigation_canals_lakes_rivers": {
+          "value": null,
+          "reading": "scan_verified",
+          "state": "blank"
+        },
+        "learned_professions_and_engineers": {
+          "value": null,
+          "reading": "scan_verified",
+          "state": "blank"
+        }
+      }
+    },
+    {
+      "line": 13,
+      "reading": "scan_verified",
+      "total_crop_box": [
+        1390,
+        1540,
+        1510,
+        1623
+      ],
+      "total": 6,
+      "total_confidence": "medium",
+      "industry": {
+        "mining": {
+          "value": null,
+          "reading": "scan_verified",
+          "state": "blank"
+        },
+        "agriculture": {
+          "value": null,
+          "reading": "scan_verified",
+          "state": "blank"
+        },
+        "commerce": {
+          "value": null,
+          "reading": "scan_verified",
+          "state": "blank"
+        },
+        "manufactures_and_trades": {
+          "value": null,
+          "reading": "scan_verified",
+          "state": "blank"
+        },
+        "navigation_ocean": {
+          "value": null,
+          "reading": "scan_verified",
+          "state": "blank"
+        },
+        "navigation_canals_lakes_rivers": {
+          "value": null,
+          "reading": "scan_verified",
+          "state": "blank"
+        },
+        "learned_professions_and_engineers": {
+          "value": null,
+          "reading": "scan_verified",
+          "state": "blank"
+        }
+      }
+    },
+    {
+      "line": 14,
+      "reading": "scan_verified",
+      "total_crop_box": [
+        1390,
+        1614,
+        1510,
+        1697
+      ],
+      "total": 5,
+      "total_confidence": "medium",
+      "industry": {
+        "mining": {
+          "value": null,
+          "reading": "scan_verified",
+          "state": "blank"
+        },
+        "agriculture": {
+          "value": null,
+          "reading": "scan_verified",
+          "state": "blank"
+        },
+        "commerce": {
+          "value": null,
+          "reading": "scan_verified",
+          "state": "blank"
+        },
+        "manufactures_and_trades": {
+          "value": 1,
+          "reading": "scan_verified",
+          "state": "written"
+        },
+        "navigation_ocean": {
+          "value": null,
+          "reading": "scan_verified",
+          "state": "blank"
+        },
+        "navigation_canals_lakes_rivers": {
+          "value": null,
+          "reading": "scan_verified",
+          "state": "blank"
+        },
+        "learned_professions_and_engineers": {
+          "value": null,
+          "reading": "scan_verified",
+          "state": "blank"
+        }
+      }
+    },
+    {
+      "line": 15,
+      "reading": "scan_verified",
+      "total_crop_box": [
+        1390,
+        1686,
+        1510,
+        1769
+      ],
+      "total": 2,
+      "total_confidence": "medium",
+      "industry": {
+        "mining": {
+          "value": null,
+          "reading": "scan_verified",
+          "state": "blank"
+        },
+        "agriculture": {
+          "value": null,
+          "reading": "scan_verified",
+          "state": "blank"
+        },
+        "commerce": {
+          "value": null,
+          "reading": "scan_verified",
+          "state": "blank"
+        },
+        "manufactures_and_trades": {
+          "value": 1,
+          "reading": "scan_verified",
+          "state": "written"
+        },
+        "navigation_ocean": {
+          "value": null,
+          "reading": "scan_verified",
+          "state": "blank"
+        },
+        "navigation_canals_lakes_rivers": {
+          "value": null,
+          "reading": "scan_verified",
+          "state": "blank"
+        },
+        "learned_professions_and_engineers": {
+          "value": null,
+          "reading": "scan_verified",
+          "state": "blank"
+        }
+      }
+    },
+    {
+      "line": 16,
+      "reading": "scan_verified",
+      "total_crop_box": [
+        1390,
+        1766,
+        1510,
+        1849
+      ],
+      "total": 2,
+      "total_confidence": "medium",
+      "industry": {
+        "mining": {
+          "value": null,
+          "reading": "scan_verified",
+          "state": "blank"
+        },
+        "agriculture": {
+          "value": null,
+          "reading": "scan_verified",
+          "state": "blank"
+        },
+        "commerce": {
+          "value": null,
+          "reading": "scan_verified",
+          "state": "blank"
+        },
+        "manufactures_and_trades": {
+          "value": null,
+          "reading": "scan_verified",
+          "state": "blank"
+        },
+        "navigation_ocean": {
+          "value": null,
+          "reading": "scan_verified",
+          "state": "blank"
+        },
+        "navigation_canals_lakes_rivers": {
+          "value": null,
+          "reading": "scan_verified",
+          "state": "blank"
+        },
+        "learned_professions_and_engineers": {
+          "value": null,
+          "reading": "scan_verified",
+          "state": "blank"
+        }
+      }
+    },
+    {
+      "line": 17,
+      "reading": "scan_verified",
+      "total_crop_box": [
+        1390,
+        1856,
+        1510,
+        1939
+      ],
+      "total": 9,
+      "total_confidence": "medium",
+      "industry": {
+        "mining": {
+          "value": null,
+          "reading": "scan_verified",
+          "state": "blank"
+        },
+        "agriculture": {
+          "value": null,
+          "reading": "scan_verified",
+          "state": "blank"
+        },
+        "commerce": {
+          "value": null,
+          "reading": "scan_verified",
+          "state": "blank"
+        },
+        "manufactures_and_trades": {
+          "value": 1,
+          "reading": "scan_verified",
+          "state": "written"
+        },
+        "navigation_ocean": {
+          "value": null,
+          "reading": "scan_verified",
+          "state": "blank"
+        },
+        "navigation_canals_lakes_rivers": {
+          "value": null,
+          "reading": "scan_verified",
+          "state": "blank"
+        },
+        "learned_professions_and_engineers": {
+          "value": null,
+          "reading": "scan_verified",
+          "state": "blank"
+        }
+      }
+    },
+    {
+      "line": 18,
+      "reading": "scan_verified",
+      "total_crop_box": [
+        1390,
+        1915,
+        1510,
+        1998
+      ],
+      "total": null,
+      "total_confidence": "low",
+      "industry": {
+        "mining": {
+          "value": null,
+          "reading": "scan_verified",
+          "state": "blank"
+        },
+        "agriculture": {
+          "value": null,
+          "reading": "scan_verified",
+          "state": "blank"
+        },
+        "commerce": {
+          "value": null,
+          "reading": "scan_verified",
+          "state": "blank"
+        },
+        "manufactures_and_trades": {
+          "value": 2,
+          "reading": "scan_verified",
+          "state": "written"
+        },
+        "navigation_ocean": {
+          "value": null,
+          "reading": "scan_verified",
+          "state": "blank"
+        },
+        "navigation_canals_lakes_rivers": {
+          "value": null,
+          "reading": "scan_verified",
+          "state": "blank"
+        },
+        "learned_professions_and_engineers": {
+          "value": null,
+          "reading": "scan_verified",
+          "state": "blank"
+        }
+      },
+      "total_alternatives": [
+        5,
+        8
+      ],
+      "total_glyphs_as_read": "Narrow hooked form with a small upper turn; 5 or 8 remains unresolved. Unlike the long-capped 5s, but that alone does not settle it."
+    },
+    {
+      "line": 19,
+      "reading": "scan_verified",
+      "total_crop_box": [
+        1390,
+        1984,
+        1510,
+        2067
+      ],
+      "total": 3,
+      "total_confidence": "medium",
+      "industry": {
+        "mining": {
+          "value": null,
+          "reading": "scan_verified",
+          "state": "blank"
+        },
+        "agriculture": {
+          "value": null,
+          "reading": "scan_verified",
+          "state": "blank"
+        },
+        "commerce": {
+          "value": null,
+          "reading": "scan_verified",
+          "state": "blank"
+        },
+        "manufactures_and_trades": {
+          "value": 1,
+          "reading": "scan_verified",
+          "state": "written"
+        },
+        "navigation_ocean": {
+          "value": null,
+          "reading": "scan_verified",
+          "state": "blank"
+        },
+        "navigation_canals_lakes_rivers": {
+          "value": null,
+          "reading": "scan_verified",
+          "state": "blank"
+        },
+        "learned_professions_and_engineers": {
+          "value": null,
+          "reading": "scan_verified",
+          "state": "blank"
+        }
+      },
+      "total_glyphs_as_read": "Two-lobed 3, larger lower bowl and small upper cap; compared with the final 3 of line 20."
+    },
+    {
+      "line": 20,
+      "reading": "scan_verified",
+      "total_crop_box": [
+        1390,
+        2069,
+        1510,
+        2152
+      ],
+      "total": 13,
+      "total_confidence": "medium",
+      "industry": {
+        "mining": {
+          "value": null,
+          "reading": "scan_verified",
+          "state": "blank"
+        },
+        "agriculture": {
+          "value": null,
+          "reading": "scan_verified",
+          "state": "blank"
+        },
+        "commerce": {
+          "value": null,
+          "reading": "scan_verified",
+          "state": "blank"
+        },
+        "manufactures_and_trades": {
+          "value": 7,
+          "reading": "scan_verified",
+          "state": "written"
+        },
+        "navigation_ocean": {
+          "value": null,
+          "reading": "scan_verified",
+          "state": "blank"
+        },
+        "navigation_canals_lakes_rivers": {
+          "value": null,
+          "reading": "scan_verified",
+          "state": "blank"
+        },
+        "learned_professions_and_engineers": {
+          "value": null,
+          "reading": "scan_verified",
+          "state": "blank"
+        }
+      },
+      "total_glyphs_as_read": "1 followed by the same two-lobed 3 form as lines 1 and 19; read 13. Its manufacture entry is a long diagonal 7, with a short top bar."
+    },
+    {
+      "line": 21,
+      "reading": "scan_verified",
+      "total_crop_box": [
+        1390,
+        2123,
+        1510,
+        2206
+      ],
+      "total": null,
+      "total_confidence": "low",
+      "industry": {
+        "mining": {
+          "value": null,
+          "reading": "scan_verified",
+          "state": "blank"
+        },
+        "agriculture": {
+          "value": null,
+          "reading": "scan_verified",
+          "state": "blank"
+        },
+        "commerce": {
+          "value": null,
+          "reading": "scan_verified",
+          "state": "blank"
+        },
+        "manufactures_and_trades": {
+          "value": 1,
+          "reading": "scan_verified",
+          "state": "written"
+        },
+        "navigation_ocean": {
+          "value": null,
+          "reading": "scan_verified",
+          "state": "blank"
+        },
+        "navigation_canals_lakes_rivers": {
+          "value": null,
+          "reading": "scan_verified",
+          "state": "blank"
+        },
+        "learned_professions_and_engineers": {
+          "value": null,
+          "reading": "scan_verified",
+          "state": "blank"
+        }
+      },
+      "total_alternatives": [
+        5,
+        8
+      ],
+      "total_glyphs_as_read": "Narrow hooked form with a small upper turn; 5 or 8 remains unresolved. Unlike the long-capped 5s, but that alone does not settle it."
+    },
+    {
+      "line": 22,
+      "reading": "scan_verified",
+      "total_crop_box": [
+        1390,
+        2221,
+        1510,
+        2304
+      ],
+      "total": 5,
+      "total_confidence": "medium",
+      "industry": {
+        "mining": {
+          "value": null,
+          "reading": "scan_verified",
+          "state": "blank"
+        },
+        "agriculture": {
+          "value": null,
+          "reading": "scan_verified",
+          "state": "blank"
+        },
+        "commerce": {
+          "value": null,
+          "reading": "scan_verified",
+          "state": "blank"
+        },
+        "manufactures_and_trades": {
+          "value": 1,
+          "reading": "scan_verified",
+          "state": "written"
+        },
+        "navigation_ocean": {
+          "value": null,
+          "reading": "scan_verified",
+          "state": "blank"
+        },
+        "navigation_canals_lakes_rivers": {
+          "value": null,
+          "reading": "scan_verified",
+          "state": "blank"
+        },
+        "learned_professions_and_engineers": {
+          "value": null,
+          "reading": "scan_verified",
+          "state": "unresolved_mark",
+          "crop_box": [
+            1920,
+            2220,
+            2015,
+            2330
+          ],
+          "note": "Short horizontal smudge in the professions cell near entry 22. Not a securely read numeral; no written footing. Kept unresolved, not an assigned occupation or a blank."
+        }
+      }
+    },
+    {
+      "line": 23,
+      "reading": "scan_verified",
+      "total_crop_box": [
+        1390,
+        2292,
+        1510,
+        2375
+      ],
+      "total": 12,
+      "total_confidence": "medium",
+      "industry": {
+        "mining": {
+          "value": null,
+          "reading": "scan_verified",
+          "state": "blank"
+        },
+        "agriculture": {
+          "value": null,
+          "reading": "scan_verified",
+          "state": "blank"
+        },
+        "commerce": {
+          "value": null,
+          "reading": "scan_verified",
+          "state": "blank"
+        },
+        "manufactures_and_trades": {
+          "value": 3,
+          "reading": "scan_verified",
+          "state": "written"
+        },
+        "navigation_ocean": {
+          "value": null,
+          "reading": "scan_verified",
+          "state": "blank"
+        },
+        "navigation_canals_lakes_rivers": {
+          "value": null,
+          "reading": "scan_verified",
+          "state": "blank"
+        },
+        "learned_professions_and_engineers": {
+          "value": null,
+          "reading": "scan_verified",
+          "state": "blank"
+        }
+      }
+    }
+  ],
+  "use_constraint": "Later 1840 evidence only. No resident minted, renamed, regraded or placed in 1835; no occupation count assigned to an 1835 person.",
+  "closure": {
+    "total": {
+      "printed": 119,
+      "read": null,
+      "read_known_cells_sum": 95,
+      "unresolved_lines": [
+        3,
+        4,
+        18,
+        21
+      ],
+      "conditional_min": 113,
+      "conditional_max": 133,
+      "reconciles": null,
+      "arithmetic_completions": [
+        {
+          "3": 4,
+          "4": 4,
+          "18": 8,
+          "21": 8
+        }
+      ],
+      "note": "The conditional alternatives admit one completion to 119. It is a diagnostic consequence of the alternatives, not a visual reading; all four totals remain null. The inventory note that a strip sum was 118 is superseded by this explicitly partial reading, not repaired by changing a glyph."
+    },
+    "mining": {
+      "read": 0,
+      "printed": null,
+      "reconciles": null
+    },
+    "agriculture": {
+      "read": 4,
+      "printed": 4,
+      "reconciles": true
+    },
+    "commerce": {
+      "read": 0,
+      "printed": null,
+      "reconciles": null
+    },
+    "manufactures_and_trades": {
+      "read": 21,
+      "printed": 21,
+      "reconciles": true
+    },
+    "navigation_ocean": {
+      "read": 0,
+      "printed": null,
+      "reconciles": null
+    },
+    "navigation_canals_lakes_rivers": {
+      "read": 1,
+      "printed": null,
+      "reconciles": null,
+      "note": "One clear body entry, no written footing; blank is not treated as a contradictory zero."
+    },
+    "learned_professions_and_engineers": {
+      "read": null,
+      "printed": null,
+      "reconciles": null,
+      "read_known_cells_sum": 0,
+      "unresolved_lines": [
+        22
+      ],
+      "note": "Horizontal mark retained without a numeric interpretation; the blank footer supplies no closure test."
+    }
+  },
+  "pairing_test": {
+    "rule": "T-0642/T-0656: both household count and printed population must agree. A sequence screen cannot waive a failed key or justify rewriting a reading.",
+    "right_keys": {
+      "lines": 23,
+      "printed_population": 119
+    },
+    "candidates_by_line_count": [
+      {
+        "familysearch_id": "33S7-9YYJ-9HY",
+        "printed_page": 225,
+        "lines_with_an_entry": 23,
+        "printed_population": 115,
+        "printed_population_alternate": null,
+        "key_source": "left_sheet_population_key.json",
+        "verdict": "population_disagrees"
+      }
+    ],
+    "excluded_by_line_count": [
+      {
+        "familysearch_id": "33S7-9YYJ-2T",
+        "printed_page": 221,
+        "lines_with_an_entry": 31,
+        "reason": "different household line count or non-household sheet"
+      },
+      {
+        "familysearch_id": "33S7-9YYJ-38",
+        "printed_page": 231,
+        "lines_with_an_entry": 31,
+        "reason": "different household line count or non-household sheet"
+      },
+      {
+        "familysearch_id": "33S7-9YYJ-6J",
+        "printed_page": 228,
+        "lines_with_an_entry": 17,
+        "reason": "different household line count or non-household sheet"
+      },
+      {
+        "familysearch_id": "33S7-9YYJ-95F",
+        "printed_page": 206,
+        "lines_with_an_entry": 0,
+        "reason": "different household line count or non-household sheet"
+      },
+      {
+        "familysearch_id": "33S7-9YYJ-98M",
+        "printed_page": 222,
+        "lines_with_an_entry": 30,
+        "reason": "different household line count or non-household sheet"
+      },
+      {
+        "familysearch_id": "33S7-9YYJ-99F",
+        "printed_page": 234,
+        "lines_with_an_entry": 31,
+        "reason": "different household line count or non-household sheet"
+      },
+      {
+        "familysearch_id": "33S7-9YYJ-9K3",
+        "printed_page": 219,
+        "lines_with_an_entry": 31,
+        "reason": "different household line count or non-household sheet"
+      },
+      {
+        "familysearch_id": "33S7-9YYJ-9M5",
+        "printed_page": 229,
+        "lines_with_an_entry": 30,
+        "reason": "different household line count or non-household sheet"
+      },
+      {
+        "familysearch_id": "33S7-9YYJ-9MX",
+        "printed_page": "unknown",
+        "lines_with_an_entry": 31,
+        "reason": "different household line count or non-household sheet"
+      },
+      {
+        "familysearch_id": "33S7-9YYJ-9RG",
+        "printed_page": 210,
+        "lines_with_an_entry": 30,
+        "reason": "different household line count or non-household sheet"
+      },
+      {
+        "familysearch_id": "33S7-9YYJ-9WF",
+        "printed_page": 215,
+        "lines_with_an_entry": 31,
+        "reason": "different household line count or non-household sheet"
+      },
+      {
+        "familysearch_id": "33S7-9YYJ-B3",
+        "printed_page": 226,
+        "lines_with_an_entry": 29,
+        "reason": "different household line count or non-household sheet"
+      },
+      {
+        "familysearch_id": "33S7-9YYJ-C8",
+        "printed_page": 238,
+        "lines_with_an_entry": 0,
+        "reason": "different household line count or non-household sheet"
+      },
+      {
+        "familysearch_id": "33S7-9YYJ-DD",
+        "printed_page": 216,
+        "lines_with_an_entry": 31,
+        "reason": "different household line count or non-household sheet"
+      },
+      {
+        "familysearch_id": "33S7-9YYJ-JM",
+        "printed_page": 224,
+        "lines_with_an_entry": 30,
+        "reason": "different household line count or non-household sheet"
+      },
+      {
+        "familysearch_id": "33S7-9YYJ-NY",
+        "printed_page": 230,
+        "lines_with_an_entry": 31,
+        "reason": "different household line count or non-household sheet"
+      },
+      {
+        "familysearch_id": "33S7-9YYJ-PC",
+        "printed_page": 218,
+        "lines_with_an_entry": 30,
+        "reason": "different household line count or non-household sheet"
+      },
+      {
+        "familysearch_id": "33S7-9YYJ-Q1",
+        "printed_page": 241,
+        "lines_with_an_entry": 21,
+        "reason": "different household line count or non-household sheet"
+      },
+      {
+        "familysearch_id": "33S7-9YYJ-RC",
+        "printed_page": 217,
+        "lines_with_an_entry": 31,
+        "reason": "different household line count or non-household sheet"
+      },
+      {
+        "familysearch_id": "33S7-9YYJ-W6",
+        "printed_page": 232,
+        "lines_with_an_entry": 31,
+        "reason": "different household line count or non-household sheet"
+      },
+      {
+        "familysearch_id": "33S7-9YYN-3CDH",
+        "printed_page": 239,
+        "lines_with_an_entry": 31,
+        "reason": "different household line count or non-household sheet"
+      },
+      {
+        "familysearch_id": "33SQ-GYYJ-6V",
+        "printed_page": 227,
+        "lines_with_an_entry": 31,
+        "reason": "different household line count or non-household sheet"
+      },
+      {
+        "familysearch_id": "33SQ-GYYJ-93G",
+        "printed_page": 207,
+        "lines_with_an_entry": 30,
+        "reason": "different household line count or non-household sheet"
+      },
+      {
+        "familysearch_id": "33SQ-GYYJ-93Y",
+        "printed_page": 209,
+        "lines_with_an_entry": 31,
+        "reason": "different household line count or non-household sheet"
+      },
+      {
+        "familysearch_id": "33SQ-GYYJ-97P",
+        "printed_page": 211,
+        "lines_with_an_entry": 30,
+        "reason": "different household line count or non-household sheet"
+      },
+      {
+        "familysearch_id": "33SQ-GYYJ-992",
+        "printed_page": 208,
+        "lines_with_an_entry": 30,
+        "reason": "different household line count or non-household sheet"
+      },
+      {
+        "familysearch_id": "33SQ-GYYJ-BP",
+        "printed_page": 214,
+        "lines_with_an_entry": 30,
+        "reason": "different household line count or non-household sheet"
+      },
+      {
+        "familysearch_id": "33SQ-GYYJ-CK",
+        "printed_page": 240,
+        "lines_with_an_entry": 27,
+        "reason": "different household line count or non-household sheet"
+      },
+      {
+        "familysearch_id": "33SQ-GYYJ-LV",
+        "printed_page": 223,
+        "lines_with_an_entry": 28,
+        "reason": "different household line count or non-household sheet"
+      },
+      {
+        "familysearch_id": "33SQ-GYYJ-P5",
+        "printed_page": 220,
+        "lines_with_an_entry": 31,
+        "reason": "different household line count or non-household sheet"
+      },
+      {
+        "familysearch_id": "33SQ-GYYJ-RJ",
+        "printed_page": 233,
+        "lines_with_an_entry": 31,
+        "reason": "different household line count or non-household sheet"
+      },
+      {
+        "familysearch_id": "33SQ-GYYJ-RK",
+        "printed_page": 213,
+        "lines_with_an_entry": 30,
+        "reason": "different household line count or non-household sheet"
+      },
+      {
+        "familysearch_id": "33SQ-GYYJ-RY",
+        "printed_page": 212,
+        "lines_with_an_entry": 31,
+        "reason": "different household line count or non-household sheet"
+      },
+      {
+        "familysearch_id": "33SQ-GYYJ-ZQ",
+        "printed_page": 235,
+        "lines_with_an_entry": 24,
+        "reason": "different household line count or non-household sheet"
+      }
+    ],
+    "verdict": "unpaired",
+    "reason": "The sole committed 23-household left sheet, 33S7-9YYJ-9HY (printed 225), has a printed population of 115, agreeing with its own cells. It fails the 119 population key; the difference of four is not absorbed. No candidate passes both keys, so no household sequence is used to assign identities.",
+    "pr_670_crosscheck": "No verified named-sheet pairing; no #670 row selected or overwritten."
+  }
+}

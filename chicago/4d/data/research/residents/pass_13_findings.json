@@ -1,0 +1,834 @@
+{
+ "_doc": "Completed T-0508 ledger (cohort 13 of the three T-0492 froze). Every one of the 76 manifest members received a dated review: an exact-name sweep and a justified surname-variant sweep across every committed corpus in this repository — the post-office and newspaper extractions, the 1833-1835 civic rolls, Fergus 1839/1843 and Norris 1844 and their crosswalks, the 1830 and 1840 census readings, the church registers, the land-sale entries, the Newberry index leads, the digitised books and the transcribed county histories — together with the source records this project already holds. Outcomes are here; pending is empty. Candidate identities are retained unasserted.",
+ "ticket": "T-0508",
+ "reviewed_on": "2026-09-05",
+ "status": "complete",
+ "default_outcome": "no_corroboration_yet",
+ "default_summary": "No reliable record in the reviewed repository newspaper/reference corpus, the Chicago directories of 1839, 1843 and 1844, the 1833-1835 civic rolls, the 1830 and 1840 census readings, the church registers, the land-sale entries, the Newberry family-history index and the digitised county and local histories held here could be tied to this person with sufficient date/place/occupation/kinship discriminators. This is a documented no-corroboration result, not evidence that the person did not exist.",
+ "query_templates": [
+  "\"{name}\" Chicago 1835",
+  "\"{name}\" Illinois 1834 1835",
+  "\"{name}\" Chicago directory",
+  "\"{name}\" genealogy occupation migration",
+  "justified OCR/spelling variants where the printed form was visibly suspect"
+ ],
+ "search_scope": [
+  "repository Chicago Democrat and Chicago American transcriptions, newspaper identity ledger and resident/source records",
+  "the six source domains scaffolded by T-0492 under data/research/ — civic lists, 1830 and 1840 census, church registers, books, directories",
+  "Fergus Chicago directories and the existing resident-research source registry",
+  "Cook, Will, Kane, Lake and neighbouring-county local histories",
+  "government, library and archival institutional records"
+ ],
+ "outcome_counts": {
+  "corroborated": 26,
+  "candidate": 16,
+  "no_corroboration": 34
+ },
+ "completed_person_ids": [
+  "adams_william_h",
+  "aiker_samuel",
+  "parcel_aaron",
+  "bates_john_jr",
+  "akers_simon",
+  "reel_absolam",
+  "beaubien_jean_baptiste",
+  "allen_william",
+  "vandorwerk_adam",
+  "beaubien_josette",
+  "allin_richard",
+  "vaughan_alanson_b",
+  "beaubien_madore",
+  "alling_prudde",
+  "wilkes_alexander",
+  "beaubien_mark",
+  "anderson_eli_f",
+  "tucker_alexr_h",
+  "beckford_printer",
+  "anstin_al",
+  "churchill_alfred",
+  "blodgett_tyler_k",
+  "archer_joseph",
+  "vaughn_alison_b",
+  "brown_lemuel",
+  "avery_charles",
+  "perring_almon",
+  "brown_mrs_rufus",
+  "ayres_levi",
+  "castle_alonzo",
+  "brown_rufus",
+  "bailly_joseph",
+  "murray_alonzo",
+  "caldwell_billy",
+  "bakwith_albert",
+  "murry_alonzo",
+  "calhoun_john",
+  "bebee_orson",
+  "crandal_alva",
+  "carpenter_philo",
+  "beddlecome_ash",
+  "dunlap_alva",
+  "carver_david",
+  "beeson_william",
+  "miner_amanda",
+  "casey_edward_w",
+  "beger_tobias",
+  "rathburn_amos",
+  "caton_john_dean",
+  "bemis_samuel_c",
+  "wear_amy_c",
+  "church_thomas",
+  "benton_datas_e",
+  "miles_andrew",
+  "clybourne_archibald",
+  "benubien_charl",
+  "vann_angeline",
+  "cobb_silas_b",
+  "bishop_j_e",
+  "heere_anthony",
+  "cohen_peter",
+  "blair_william_g",
+  "winsor_aram",
+  "couch_ira",
+  "bloget_josiah_i",
+  "knox_archibald",
+  "couch_james",
+  "blood_amos",
+  "parcell_aron",
+  "davis_john",
+  "bly_rouse",
+  "brundage_asa",
+  "davis_t_o",
+  "boardman_elect",
+  "doel_asa",
+  "garrett_a"
+ ],
+ "pending": [],
+ "overrides": {
+  "adams_william_h": {
+   "outcome": "corroborated",
+   "summary": "Independently corroborated; confirmed, not moved.",
+   "sources": [
+    "chicago_tribune_1882_05_19_fourth_reception",
+    "chicago_voter_lists_1833_1835_irad",
+    "fergus_chicago_directory_1839",
+    "fergus_chicago_directory_1843"
+   ],
+   "evidence_for": "Independent of the post office in books, 1840 census, civic rolls and more."
+  },
+  "aiker_samuel": {
+   "outcome": "no_corroboration",
+   "summary": "No independent bridge; see the ledger.",
+   "evidence_against": "Not reached outside the post-office lists."
+  },
+  "parcel_aaron": {
+   "outcome": "candidate_identity",
+   "summary": "A same-name lead, recorded and NOT asserted.",
+   "sources": [
+    "chicago_democrat_1833_1835"
+   ],
+   "candidates": [
+    {
+     "id": "cand_parcel_parcell_same_hand",
+     "asserted": false,
+     "basis": "Two post-office readings one letter apart in the same list family; the 1830 schedule's 'William Parcel' shares only the surname.",
+     "conflicts": [
+      "Nothing outside the letter lists names either spelling, so collapsing the pair would invent the man they collapse into."
+     ]
+    }
+   ]
+  },
+  "bates_john_jr": {
+   "outcome": "corroborated",
+   "summary": "Independently corroborated; confirmed, not moved.",
+   "sources": [
+    "old_settlers_bridges_1883",
+    "andreas_1884_v1",
+    "calumet_club_early_chicago_1879",
+    "chicago_tribune_1882_05_19_fourth_reception"
+   ],
+   "evidence_for": "Independent of the post office in books, 1840 census, civic rolls and more."
+  },
+  "akers_simon": {
+   "outcome": "candidate_identity",
+   "summary": "A same-name lead, recorded and NOT asserted.",
+   "sources": [
+    "fergus_chicago_directory_1839"
+   ],
+   "candidates": [
+    {
+     "id": "cand_simon_akers_1837_poll",
+     "asserted": false,
+     "basis": "The 1837 poll printed in Fergus 1839 carries an Akers whose surname folds to this one and whose given name agrees on the initial.",
+     "conflicts": [
+      "Two years after the scene and on an initial agreement only; the crosswalk hands on evidence, not a verdict."
+     ]
+    }
+   ]
+  },
+  "reel_absolam": {
+   "outcome": "no_corroboration",
+   "summary": "No independent bridge; see the ledger.",
+   "evidence_against": "Not reached outside the post-office lists."
+  },
+  "beaubien_jean_baptiste": {
+   "outcome": "corroborated",
+   "summary": "Independently corroborated; confirmed, not moved.",
+   "sources": [
+    "census_1830_peoria_county_chicago_precinct",
+    "chicagology_prefire052",
+    "hubbard_autobiography_1911",
+    "andreas_1884_v1"
+   ],
+   "evidence_for": "Independent of the post office in books, 1830 schedule, parish registers and more."
+  },
+  "allen_william": {
+   "outcome": "candidate_identity",
+   "summary": "A same-name lead, recorded and NOT asserted.",
+   "sources": [
+    "fergus_chicago_directory_1839",
+    "census_1840_chicago_name_crosswalk"
+   ],
+   "candidates": [
+    {
+     "id": "cand_william_allen_1839_saloon",
+     "asserted": false,
+     "basis": "Fergus 1839 prints 'Allen, William, saloon, North Canal street south of Kinzie', and the 1840 reading carries 'Wm. Allen' at printed page 230 line 26.",
+     "conflicts": [
+      "One of the commonest names here, and this project's directory policy holds that an 1839 or 1840 entry never attests 1835 presence."
+     ]
+    }
+   ]
+  },
+  "vandorwerk_adam": {
+   "outcome": "no_corroboration",
+   "summary": "No independent bridge; see the ledger.",
+   "evidence_against": "Not reached outside the post-office lists."
+  },
+  "beaubien_josette": {
+   "outcome": "corroborated",
+   "summary": "Independently corroborated; confirmed, not moved.",
+   "sources": [
+    "st_marys_baptismal_register_1833_1835",
+    "andreas_1884_v1",
+    "fergus_chicago_directory_1839",
+    "fergus_chicago_directory_1843"
+   ],
+   "evidence_for": "Independent of the post office in parish registers, directories, old-settler notices."
+  },
+  "allin_richard": {
+   "outcome": "no_corroboration",
+   "summary": "No independent bridge; see the ledger.",
+   "evidence_against": "Surname only, in Newberry index — each a committed refusal on the forename."
+  },
+  "vaughan_alanson_b": {
+   "outcome": "candidate_identity",
+   "summary": "A same-name lead, recorded and NOT asserted.",
+   "sources": [
+    "mower_history_alanson_vaughan"
+   ],
+   "candidates": [
+    {
+     "id": "cand_alanson_b_vaughan_mower",
+     "asserted": false,
+     "basis": "A history of Mower County, Minnesota carries an exact Alanson B. Vaughan.",
+     "conflicts": [
+      "Later, and a thousand miles north-west; St Cyr's 1837 'Ann Vaughan' and the directories both refuse on the forename."
+     ]
+    }
+   ]
+  },
+  "beaubien_madore": {
+   "outcome": "corroborated",
+   "summary": "Independently corroborated; confirmed, not moved.",
+   "sources": [
+    "cpn_madore_beaubien",
+    "andreas_1884_v1",
+    "chicago_voter_lists_1833_1835_irad",
+    "fergus_chicago_directory_1839"
+   ],
+   "evidence_for": "Independent of the post office in books, parish registers, civic rolls and more."
+  },
+  "alling_prudde": {
+   "outcome": "no_corroboration",
+   "summary": "No independent bridge; see the ledger.",
+   "evidence_against": "Not reached outside the post-office lists."
+  },
+  "wilkes_alexander": {
+   "outcome": "no_corroboration",
+   "summary": "No independent bridge; see the ledger.",
+   "evidence_against": "Not reached outside the post-office lists."
+  },
+  "beaubien_mark": {
+   "outcome": "corroborated",
+   "summary": "Independently corroborated; confirmed, not moved.",
+   "sources": [
+    "andreas_1884_chicago_1830_map",
+    "census_1830_peoria_county_chicago_precinct",
+    "chicagology_prefire216",
+    "drloih_beaubien"
+   ],
+   "evidence_for": "Independent of the post office in books, 1830 schedule, parish registers and more."
+  },
+  "anderson_eli_f": {
+   "outcome": "no_corroboration",
+   "summary": "No independent bridge; see the ledger.",
+   "evidence_against": "Surname only, in 1840 census, directories, land sales and more — each a committed refusal on the forename."
+  },
+  "tucker_alexr_h": {
+   "outcome": "no_corroboration",
+   "summary": "No independent bridge; see the ledger.",
+   "evidence_against": "Surname only, in civic rolls, directories, Newberry index and more — each a committed refusal on the forename."
+  },
+  "beckford_printer": {
+   "outcome": "corroborated",
+   "summary": "Independently corroborated; confirmed, not moved.",
+   "sources": [
+    "chicago_antiquities_pratt",
+    "andreas_1884_v1"
+   ],
+   "evidence_for": "Independent of the post office in the sources cited."
+  },
+  "anstin_al": {
+   "outcome": "no_corroboration",
+   "summary": "No independent bridge; see the ledger.",
+   "evidence_against": "Not reached outside the post-office lists."
+  },
+  "churchill_alfred": {
+   "outcome": "no_corroboration",
+   "summary": "No independent bridge; see the ledger.",
+   "evidence_against": "Surname only, in directories, Newberry index — each a committed refusal on the forename."
+  },
+  "blodgett_tyler_k": {
+   "outcome": "corroborated",
+   "summary": "Independently corroborated; confirmed, not moved.",
+   "sources": [
+    "chicagology_chicago_brick",
+    "andreas_1884_v1",
+    "chicago_voter_lists_1833_1835_irad",
+    "fergus_chicago_directory_1839"
+   ],
+   "evidence_for": "Independent of the post office in civic rolls, directories, county histories and more."
+  },
+  "archer_joseph": {
+   "outcome": "no_corroboration",
+   "summary": "No independent bridge; see the ledger.",
+   "evidence_against": "Surname only, in Newberry index, old-settler notices — each a committed refusal on the forename."
+  },
+  "vaughn_alison_b": {
+   "outcome": "candidate_identity",
+   "summary": "A same-name lead, recorded and NOT asserted.",
+   "sources": [
+    "chicago_democrat_1833_1835"
+   ],
+   "candidates": [
+    {
+     "id": "cand_vaughan_vaughn_same_hand",
+     "asserted": false,
+     "basis": "One forename and middle initial under two spellings of one surname, in the same list family.",
+     "conflicts": [
+      "No independent record carries either spelling in Chicago, so the pair stays two rows rather than one man."
+     ]
+    }
+   ]
+  },
+  "brown_lemuel": {
+   "outcome": "corroborated",
+   "summary": "Independently corroborated; confirmed, not moved.",
+   "sources": [
+    "census_1830_peoria_county_chicago_precinct",
+    "andreas_1884_v1",
+    "chicago_voter_lists_1833_1835_irad",
+    "fergus_chicago_directory_1839"
+   ],
+   "evidence_for": "Independent of the post office in 1830 schedule, 1840 census, parish registers and more."
+  },
+  "avery_charles": {
+   "outcome": "candidate_identity",
+   "summary": "A same-name lead, recorded and NOT asserted.",
+   "sources": [
+    "fergus_chicago_directory_1839"
+   ],
+   "candidates": [
+    {
+     "id": "cand_charles_e_avery_lumber",
+     "asserted": false,
+     "basis": "Fergus 1839 prints 'Avery, Charles E., lumber dealer, cor. LaSalle and So. Water'.",
+     "conflicts": [
+      "The directory's man carries a middle initial the letter list does not, and the 1840 'C. E. Avery' is already refused on the forename."
+     ]
+    }
+   ]
+  },
+  "perring_almon": {
+   "outcome": "no_corroboration",
+   "summary": "No independent bridge; see the ledger.",
+   "evidence_against": "Surname only, in Newberry index — each a committed refusal on the forename."
+  },
+  "brown_mrs_rufus": {
+   "outcome": "corroborated",
+   "summary": "Independently corroborated; confirmed, not moved.",
+   "sources": [
+    "census_1830_peoria_county_chicago_precinct",
+    "andreas_1884_v1",
+    "fergus_chicago_directory_1839",
+    "fergus_chicago_directory_1843"
+   ],
+   "evidence_for": "Independent of the post office in 1830 schedule, 1840 census, parish registers and more."
+  },
+  "ayres_levi": {
+   "outcome": "no_corroboration",
+   "summary": "No independent bridge; see the ledger.",
+   "evidence_against": "Surname only, in directories, old-settler notices — each a committed refusal on the forename."
+  },
+  "castle_alonzo": {
+   "outcome": "no_corroboration",
+   "summary": "No independent bridge; see the ledger.",
+   "evidence_against": "Not reached outside the post-office lists."
+  },
+  "brown_rufus": {
+   "outcome": "corroborated",
+   "summary": "Independently corroborated; confirmed, not moved.",
+   "sources": [
+    "census_1830_peoria_county_chicago_precinct",
+    "andreas_1884_v1",
+    "fergus_chicago_directory_1839",
+    "fergus_chicago_directory_1843"
+   ],
+   "evidence_for": "Independent of the post office in 1830 schedule, 1840 census, parish registers and more."
+  },
+  "bailly_joseph": {
+   "outcome": "candidate_identity",
+   "summary": "A same-name lead, recorded and NOT asserted.",
+   "sources": [
+    "nps_bailly_homestead",
+    "fergus_historical_series_26_29"
+   ],
+   "candidates": [
+    {
+     "id": "cand_joseph_bailly_baillytown",
+     "asserted": false,
+     "basis": "Joseph Bailly the American Fur Company trader is licensed for the Lake Michigan trade in 1821 (Hurlbut) and Fergus's old-settler death notices print 'Bailly, Joseph, died, Baillytown, Ind., December 21, 1835, aged 61'.",
+     "conflicts": [
+      "His household stood on the Little Calumet in Indiana; a letter waiting at the Chicago post office is what a trader who collected mail here leaves, not a residence."
+     ]
+    }
+   ]
+  },
+  "murray_alonzo": {
+   "outcome": "candidate_identity",
+   "summary": "A same-name lead, recorded and NOT asserted.",
+   "sources": [
+    "chicago_democrat_1833_1835"
+   ],
+   "candidates": [
+    {
+     "id": "cand_murray_murry_same_hand",
+     "asserted": false,
+     "basis": "One letter apart in the same list family.",
+     "conflicts": [
+      "Committed refusals stand against every other Murray reached — St Mary's 'John Murray', the 1834 poll's 'Patrick Murray', Fergus 1839."
+     ]
+    }
+   ]
+  },
+  "caldwell_billy": {
+   "outcome": "corroborated",
+   "summary": "Independently corroborated; confirmed, not moved.",
+   "sources": [
+    "census_1830_peoria_county_chicago_precinct",
+    "fergus_historical_series_26_29",
+    "hubbard_autobiography_1911",
+    "andreas_1884_v1"
+   ],
+   "evidence_for": "Independent of the post office in the sources cited."
+  },
+  "bakwith_albert": {
+   "outcome": "no_corroboration",
+   "summary": "No independent bridge; see the ledger.",
+   "evidence_against": "Not reached outside the post-office lists."
+  },
+  "murry_alonzo": {
+   "outcome": "candidate_identity",
+   "summary": "A same-name lead, recorded and NOT asserted.",
+   "sources": [
+    "chicago_democrat_1833_1835"
+   ],
+   "candidates": [
+    {
+     "id": "cand_murray_murry_same_hand",
+     "asserted": false,
+     "basis": "One letter apart in the same list family; St Cyr's 1837 'S. Murry' is refused on the forename.",
+     "conflicts": [
+      "The surname is common here — James H, Patrick and John are separately held — and no source equates the two Alonzos."
+     ]
+    }
+   ]
+  },
+  "calhoun_john": {
+   "outcome": "corroborated",
+   "summary": "Independently corroborated; confirmed, not moved.",
+   "sources": [
+    "chicago_democrat_1833_11_26",
+    "fergus_historical_series_26_29",
+    "andreas_1884_v1",
+    "chicago_voter_lists_1833_1835_irad"
+   ],
+   "evidence_for": "Independent of the post office in books, 1840 census, civic rolls and more."
+  },
+  "bebee_orson": {
+   "outcome": "no_corroboration",
+   "summary": "No independent bridge; see the ledger.",
+   "evidence_against": "Not reached outside the post-office lists."
+  },
+  "crandal_alva": {
+   "outcome": "no_corroboration",
+   "summary": "No independent bridge; see the ledger.",
+   "evidence_against": "Surname only, in Newberry index — each a committed refusal on the forename."
+  },
+  "carpenter_philo": {
+   "outcome": "corroborated",
+   "summary": "Independently corroborated; confirmed, not moved.",
+   "sources": [
+    "chicago_democrat_1833_11_26",
+    "drloih_beaubien",
+    "drloih_chappell",
+    "encyclopedia_chicago_medical_pharmaceutical"
+   ],
+   "evidence_for": "Independent of the post office in books, 1840 census, civic rolls and more."
+  },
+  "beddlecome_ash": {
+   "outcome": "no_corroboration",
+   "summary": "No independent bridge; see the ledger.",
+   "evidence_against": "Not reached outside the post-office lists."
+  },
+  "dunlap_alva": {
+   "outcome": "candidate_identity",
+   "summary": "A same-name lead, recorded and NOT asserted.",
+   "sources": [
+    "dunlap_alva_dunlap_history"
+   ],
+   "candidates": [
+    {
+     "id": "cand_alva_dunlap_peoria",
+     "asserted": false,
+     "basis": "A community history dates Alva Dunlap's first Illinois journey to 1834 and his settlement near Peoria.",
+     "conflicts": [
+      "Peoria is not Chicago and the account names no Chicago residence; three directories refuse the surname on the initial."
+     ]
+    }
+   ]
+  },
+  "carver_david": {
+   "outcome": "corroborated",
+   "summary": "Independently corroborated; confirmed, not moved.",
+   "sources": [
+    "migenweb_clark_albee_grand_haven",
+    "andreas_1884_v1",
+    "chicago_voter_lists_1833_1835_irad",
+    "fergus_chicago_directory_1839"
+   ],
+   "evidence_for": "Independent of the post office in civic rolls, directories, county histories and more."
+  },
+  "beeson_william": {
+   "outcome": "no_corroboration",
+   "summary": "No independent bridge; see the ledger.",
+   "evidence_against": "Not reached outside the post-office lists."
+  },
+  "miner_amanda": {
+   "outcome": "candidate_identity",
+   "summary": "A same-name lead, recorded and NOT asserted.",
+   "sources": [
+    "kaneville_amanda_miner"
+   ],
+   "candidates": [
+    {
+     "id": "cand_amanda_miner_kaneville",
+     "asserted": false,
+     "basis": "Kaneville Township's history names Amos and Amanda Miner among its settlers.",
+     "conflicts": [
+      "Kane County, and nothing ties the pair to the Chicago post office; the Newberry card is a 'Milner' heading."
+     ]
+    }
+   ]
+  },
+  "casey_edward_w": {
+   "outcome": "corroborated",
+   "summary": "Independently corroborated; confirmed, not moved.",
+   "sources": [
+    "caton_atlantic_chicago_1893",
+    "andreas_1884_v1",
+    "chicago_voter_lists_1833_1835_irad",
+    "fergus_chicago_directory_1839"
+   ],
+   "evidence_for": "Independent of the post office in books, civic rolls, directories and more."
+  },
+  "beger_tobias": {
+   "outcome": "no_corroboration",
+   "summary": "No independent bridge; see the ledger.",
+   "evidence_against": "Surname only, in Newberry index — each a committed refusal on the forename."
+  },
+  "rathburn_amos": {
+   "outcome": "no_corroboration",
+   "summary": "No independent bridge; see the ledger.",
+   "evidence_against": "Surname only, in Newberry index — each a committed refusal on the forename."
+  },
+  "caton_john_dean": {
+   "outcome": "corroborated",
+   "summary": "Independently corroborated; confirmed, not moved.",
+   "sources": [
+    "caton_atlantic_chicago_1893",
+    "chicagology_lastwardance",
+    "illinois_courts_caton_biography",
+    "old_settlers_bridges_1883"
+   ],
+   "evidence_for": "Independent of the post office in books, civic rolls, directories and more."
+  },
+  "bemis_samuel_c": {
+   "outcome": "no_corroboration",
+   "summary": "No independent bridge; see the ledger.",
+   "evidence_against": "Not reached outside the post-office lists."
+  },
+  "wear_amy_c": {
+   "outcome": "no_corroboration",
+   "summary": "No independent bridge; see the ledger.",
+   "evidence_against": "Surname only, in land sales — each a committed refusal on the forename."
+  },
+  "church_thomas": {
+   "outcome": "corroborated",
+   "summary": "Independently corroborated; confirmed, not moved.",
+   "sources": [
+    "chicagology_prefire275",
+    "andreas_1884_v1",
+    "fergus_chicago_directory_1839",
+    "fergus_chicago_directory_1843"
+   ],
+   "evidence_for": "Independent of the post office in books, 1840 census, civic rolls and more."
+  },
+  "benton_datas_e": {
+   "outcome": "no_corroboration",
+   "summary": "No independent bridge; see the ledger.",
+   "evidence_against": "Surname only, in directories, land sales, Newberry index — each a committed refusal on the forename."
+  },
+  "miles_andrew": {
+   "outcome": "candidate_identity",
+   "summary": "A same-name lead, recorded and NOT asserted.",
+   "sources": [
+    "kane_geneva_andrew_miles"
+   ],
+   "candidates": [
+    {
+     "id": "cand_andrew_miles_geneva",
+     "asserted": false,
+     "basis": "A Kane County township history recalls an Andrew Miles (or Mills) claim of 1834.",
+     "conflicts": [
+      "The passage carries a Miles/Mills spelling conflict, and two directories refuse the surname on the initial."
+     ]
+    }
+   ]
+  },
+  "clybourne_archibald": {
+   "outcome": "corroborated",
+   "summary": "Independently corroborated; confirmed, not moved.",
+   "sources": [
+    "census_1830_peoria_county_chicago_precinct",
+    "andreas_1884_v1",
+    "chicago_voter_lists_1833_1835_irad"
+   ],
+   "evidence_for": "Independent of the post office in 1830 schedule, civic rolls, county histories and more."
+  },
+  "benubien_charl": {
+   "outcome": "no_corroboration",
+   "summary": "No independent bridge; see the ledger.",
+   "evidence_against": "Not reached outside the post-office lists."
+  },
+  "vann_angeline": {
+   "outcome": "no_corroboration",
+   "summary": "No independent bridge; see the ledger.",
+   "evidence_against": "Not reached outside the post-office lists."
+  },
+  "cobb_silas_b": {
+   "outcome": "corroborated",
+   "summary": "Independently corroborated; confirmed, not moved.",
+   "sources": [
+    "chicagology_prefire127",
+    "andreas_1884_v1",
+    "calumet_club_early_chicago_1879",
+    "chicago_democrat_1833_11_26"
+   ],
+   "evidence_for": "Independent of the post office in books, directories, county histories and more."
+  },
+  "bishop_j_e": {
+   "outcome": "candidate_identity",
+   "summary": "A same-name lead, recorded and NOT asserted.",
+   "sources": [
+    "fergus_chicago_directory_1839"
+   ],
+   "candidates": [
+    {
+     "id": "cand_j_e_bishop_1839_illinois_st",
+     "asserted": false,
+     "basis": "Fergus 1839 carries a Bishop on Illinois street whose surname folds to this one and whose given name agrees on the initial J.",
+     "conflicts": [
+      "Illinois Street is not in the 1835 layer, so the entry cannot be placed in the town at all, and the 1837 poll refuses the surname."
+     ]
+    }
+   ]
+  },
+  "heere_anthony": {
+   "outcome": "no_corroboration",
+   "summary": "No independent bridge; see the ledger.",
+   "evidence_against": "Surname only, in Newberry index — each a committed refusal on the forename."
+  },
+  "cohen_peter": {
+   "outcome": "corroborated",
+   "summary": "Independently corroborated; confirmed, not moved.",
+   "sources": [
+    "chicago_democrat_1833_11_26",
+    "chicago_voter_lists_1833_1835_irad",
+    "fergus_chicago_directory_1839",
+    "fergus_chicago_directory_1843"
+   ],
+   "evidence_for": "Independent of the post office in books, civic rolls, directories and more."
+  },
+  "blair_william_g": {
+   "outcome": "candidate_identity",
+   "summary": "A same-name lead, recorded and NOT asserted.",
+   "sources": [
+    "rockford_first_settlers_1835"
+   ],
+   "candidates": [
+    {
+     "id": "cand_william_g_blair_winnebago",
+     "asserted": false,
+     "basis": "A William G. Blair stands among the first settlers rostered for Winnebago County in 1835-36.",
+     "conflicts": [
+      "Fergus 1843's Chicago hardware Blair carries no middle initial and a later arrival; Winnebago is another county. Neither bridges the postal entry."
+     ]
+    }
+   ]
+  },
+  "winsor_aram": {
+   "outcome": "no_corroboration",
+   "summary": "No independent bridge; see the ledger.",
+   "evidence_against": "Not reached outside the post-office lists."
+  },
+  "couch_ira": {
+   "outcome": "corroborated",
+   "summary": "Independently corroborated; confirmed, not moved.",
+   "sources": [
+    "chicagology_prefire021",
+    "chm_ira_couch_portrait",
+    "wttw_ira_couch",
+    "andreas_1884_v1"
+   ],
+   "evidence_for": "Independent of the post office in books, 1840 census, directories and more."
+  },
+  "bloget_josiah_i": {
+   "outcome": "no_corroboration",
+   "summary": "No independent bridge; see the ledger.",
+   "evidence_against": "Surname only, in Newberry index — each a committed refusal on the forename."
+  },
+  "knox_archibald": {
+   "outcome": "no_corroboration",
+   "summary": "No independent bridge; see the ledger.",
+   "evidence_against": "Surname only, in 1840 census, directories, Newberry index and more — each a committed refusal on the forename."
+  },
+  "couch_james": {
+   "outcome": "corroborated",
+   "summary": "Independently corroborated; confirmed, not moved.",
+   "sources": [
+    "andreas_1884_v1",
+    "calumet_club_early_chicago_1879",
+    "chicagology_prefire021",
+    "fergus_chicago_directory_1839"
+   ],
+   "evidence_for": "Independent of the post office in directories, county histories, Newberry index and more."
+  },
+  "blood_amos": {
+   "outcome": "no_corroboration",
+   "summary": "No independent bridge; see the ledger.",
+   "evidence_against": "Surname only, in Newberry index — each a committed refusal on the forename."
+  },
+  "parcell_aron": {
+   "outcome": "candidate_identity",
+   "summary": "A same-name lead, recorded and NOT asserted.",
+   "sources": [
+    "chicago_democrat_1833_1835"
+   ],
+   "candidates": [
+    {
+     "id": "cand_parcel_parcell_same_hand",
+     "asserted": false,
+     "basis": "Two post-office readings one letter apart in the same list family.",
+     "conflicts": [
+      "Nothing outside the letter lists names either spelling; collapsing them asserts an identity no source states."
+     ]
+    }
+   ]
+  },
+  "davis_john": {
+   "outcome": "corroborated",
+   "summary": "Independently corroborated; confirmed, not moved.",
+   "sources": [
+    "andreas_1884_v1",
+    "chicago_voter_lists_1833_1835_irad",
+    "drloih_hotels",
+    "fergus_chicago_directory_1839"
+   ],
+   "evidence_for": "Independent of the post office in books, 1840 census, civic rolls and more."
+  },
+  "bly_rouse": {
+   "outcome": "candidate_identity",
+   "summary": "A same-name lead, recorded and NOT asserted.",
+   "sources": [
+    "ohio_firelands_rouse_bly"
+   ],
+   "candidates": [
+    {
+     "id": "cand_rouse_bly_firelands",
+     "asserted": false,
+     "basis": "The Firelands Pioneer of 1888 carries an exact-name Rouse Bly in Huron County, Ohio.",
+     "conflicts": [
+      "A competing Ohio identity of the same uncommon name is caution, not a bridge; the Chicago corpus never repeats the name."
+     ]
+    }
+   ]
+  },
+  "brundage_asa": {
+   "outcome": "no_corroboration",
+   "summary": "No independent bridge; see the ledger.",
+   "evidence_against": "Not reached outside the post-office lists."
+  },
+  "davis_t_o": {
+   "outcome": "corroborated",
+   "summary": "Independently corroborated; confirmed, not moved.",
+   "sources": [
+    "andreas_1884_v1",
+    "fergus_chicago_directory_1839"
+   ],
+   "evidence_for": "Independent of the post office in 1840 census, civic rolls, directories and more."
+  },
+  "boardman_elect": {
+   "outcome": "no_corroboration",
+   "summary": "No independent bridge; see the ledger.",
+   "evidence_against": "Surname only, in 1840 census, directories — each a committed refusal on the forename."
+  },
+  "doel_asa": {
+   "outcome": "no_corroboration",
+   "summary": "No independent bridge; see the ledger.",
+   "evidence_against": "Not reached outside the post-office lists."
+  },
+  "garrett_a": {
+   "outcome": "corroborated",
+   "summary": "Independently corroborated; confirmed, not moved.",
+   "sources": [
+    "cpl_augustus_garrett_biography",
+    "fergus_chicago_directory_1839",
+    "fergus_chicago_directory_1843",
+    "norris_directory_1844"
+   ],
+   "evidence_for": "Independent of the post office in books, civic rolls, directories and more."
+  }
+ },
+ "pending_person_ids": []
+}

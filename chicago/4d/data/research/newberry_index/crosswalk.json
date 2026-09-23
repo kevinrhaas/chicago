@@ -1,0 +1,75 @@
+{
+  "schema": 1,
+  "domain": "newberry_index",
+  "source_id": "newberry_genealogical_index",
+  "source_note": "what every ruling in this file was adjudicated FROM (T-0598). Stated once at the top because this domain's rulings all rest on the same record; a ruling resting on something more specific states that on itself and wins.",
+  "note": "THIS FILE HOLDS NO MERGES AND IT NEVER WILL. A Newberry index entry is a surname over a citation; it carries no forename, no date and no place beyond the locality of the book it points at. A surname-only merge is always a refusal under the rule this domain inherits, so every identification the index seems to offer is refused here — and the refusals are written down, one by one, because the ABSENCE of a merge reads exactly like a pair nobody has looked at, and the next sweep would do this work again. An identification becomes possible only when the work a card points at is opened and says a forename.",
+  "passes": [
+    {
+      "ticket": "T-0570",
+      "date": "2026-09-03",
+      "what": "Volume 1's 2,579 locality cards against the residents, the 1833-1835 civic lists, the 1840 census heads and the structures. 319 leads offered; 0 merges made."
+    }
+  ],
+  "merges": [],
+  "refusals": [
+    {
+      "a": "Beeubion",
+      "b": "Jean Baptiste Beaubien",
+      "rule": "Refused twice over. 'Beeubion' is the index heading as the photostat's text layer gives it and is not certainly 'Beaubien' at all — the lead rule would not even offer it, at 0.75 similarity against a 0.86 window. And if it were, 'Beeubion' against 'Jean Baptiste Beaubien' would still be a surname against a man, which is always a refusal here.",
+      "evidence": [
+        "nbi_v01_0452",
+        "nbi_v01_0453",
+        "nbi_v01_0455",
+        "data/residents/households/hh_beaubien_jean_baptiste.json"
+      ],
+      "note": "The three cards are the most tempting in volume 1: a Chicago family whose name this project already carries, cited to Andreas, to Wood 1881 and to the 1839 directory. They are worth following into those books; they are not worth an identification here."
+    },
+    {
+      "a": "Calhoun",
+      "b": "John Calhoun",
+      "rule": "'Calhoun' is the index's heading for every Calhoun family it files, and 'John Calhoun' is one man in this project's residents. A surname against a man is a refusal, and six cards under one heading is six families, not six mentions of him.",
+      "evidence": [
+        "nbi_v01_1196",
+        "nbi_v01_1198",
+        "nbi_v01_1199",
+        "nbi_v01_1200",
+        "nbi_v01_1201"
+      ],
+      "note": "Two of the six point at Andreas and at Moses and Kirkland for Chicago. That is where the printer of the Chicago Democrat would be named, if he is named; the index does not name him."
+    },
+    {
+      "a": "Carpenter",
+      "b": "Philo Carpenter",
+      "rule": "'Carpenter' heads twelve cards in volume 1 and 'Philo Carpenter' is one 1835 druggist with two buildings in this model. The index gives no forename on any of the twelve, so 'Carpenter' against 'Philo Carpenter' is refused.",
+      "evidence": [
+        "nbi_v01_1279",
+        "nbi_v01_1280",
+        "nbi_v01_1282",
+        "nbi_v01_1284",
+        "data/structures/philo_carpenter_south_water_store.json"
+      ],
+      "note": "Four of the twelve are Chicago cards — Andreas, Moses and Kirkland, the 1839 directory and Wood 1881 — and the 1839 directory is already in this project's sources. Read it there, not here."
+    },
+    {
+      "a": "Clark",
+      "b": "H. B. Clarke",
+      "rule": "The lead rule joins 'Clark' and 'Clarke' at 0.91 similarity because the photostat drops final letters constantly. Joining them for the purpose of OFFERING a lead is not joining the families: 'Clark' against 'H. B. Clarke' is refused, and so is the reverse.",
+      "evidence": [
+        "nbi_v01_1492",
+        "data/residents/households/"
+      ],
+      "note": "1835 Chicago holds both spellings as different households, which is exactly why the similarity window may widen a lead and may never narrow an identity."
+    },
+    {
+      "a": "Adams",
+      "b": "William Hanford Adams",
+      "rule": "Fifteen cards head 'Adams' in volume 1 and this project holds one 'William Hanford Adams', a name known only from an 1835 poll list. A surname against a man is a refusal; and this man's own record says the poll list is all the evidence there is.",
+      "evidence": [
+        "nbi_v01_0968",
+        "data/residents/households/hh_adams_william_h.json"
+      ],
+      "note": "Among the fifteen is a card citing the 1839 Chicago directory, which is the nearest thing to a test this project could run on him."
+    }
+  ]
+}

@@ -1,0 +1,95 @@
+{
+  "$schema_note": "AUTHORED, and it authors no coordinates. The Town of Chicago's own corporate boundary, as the Trustees walked it on 7 November 1833, held here as a list of LEGS — each leg naming the committed geometry it is resolved from — and resolved into a ring by tools/measure_corporation_limits.py. Same discipline as data/reconstruction/1835_no_build_ground.json and data/datum.json: a stored vertex cannot be wrong loudly, a re-derived one can.",
+  "id": "corporation_limits_1835",
+  "target_date": "1835-07-01",
+  "authored_by": "T-0436",
+  "why_this_file_exists": "Two ordinances in this corpus bind only INSIDE a line, and until now the line did not exist in this repository. Section 18 of the Trustees' ordinance of 5 August 1835 (chicago_democrat_1835_08_19 c005) carries every stove pipe and chimney eighteen inches above its roof 'within the limits of the Corporation', and tools/measure_stack_ordinance.py gated that over the WHOLE drawn town because it had nothing better to scope on. It has now: twenty-four drawn structures stand OUTSIDE these limits, eight of them carrying twelve chimneys between them, and the by-law never reached one of them.",
+  "grades": "A leg's `confidence` grades THE LINE AS RESOLVED HERE, not the ordinance. The ordinance's text is `documented` throughout — it is the corporation's own, printed contemporaneously at tier 1. A leg is `documented` when the committed geometry it resolves on is the feature the ordinance names and reaches it; `inferred` when the ordinance's feature is not committed and a named substitute stands in, or when a committed centreline has to be extended past its own ends, and the reasoning is written out on the leg.",
+  "the_text_is_not_the_line": "The ordinance is a survey walk in words and every word of it is held. What is graded below is the arithmetic that turns those words into metres, and on two legs that arithmetic runs past the end of the committed line it reads. Nothing here upgrades a confidence to make the polygon look better; where the resolution is weaker than the text, the leg says so and the gate reports the margin.",
+  "ordinance": {
+    "id": "chicago_democrat_1833_11_26#c024",
+    "source": "chicago_democrat_1833_11_26",
+    "source_tier": 1,
+    "passed": "1833-11-07",
+    "printed": "1833-11-26",
+    "confidence": "documented",
+    "quote": "Village Ordinances. [1.] B[e] it Ordained by the T[r]ustees of the To[wn] of Chicago, that the following sha[ll be] the bounds included with[in] the [lim]its o[f] [said] town, to wit: […] [beginning at the corner] of Jackson and Jeffers[on] stree[ts], [t]he[n]ce north along said last men[tione]d [street] […] [and its continuation] […] to Ohio street, in 'Kinzie's addition to [the] town of Chicago,' thence in a line eastwar[d] to the Lake shore, thence [s]outhwardly with [the] Lake sh[o]re [t]o the [n]orthern United States[' Pier,] thence westwardly along said pier to the [term]inat[ion] thereof, thence [to] the channel of [the] […] river until it intersects the easte[rn] bound[ary] line of the town of Chicago, as laid out by [the] Canal Commissioners, thence [s]outhwar[d]ly [along] said line until i[t] [in]te[rsec]ts Jackson [s]t[r]eet, to […] [the] place of beginning.",
+    "note": "The transcription of this column is heavily damaged and every supply is bracketed; the walk survives complete because its NOUNS survive — Jackson, Jefferson, Ohio, Kinzie's addition, the Lake shore, the northern United States' Pier, the channel, the Canal Commissioners' eastern line — and it is the nouns this file resolves on. No leg is completed beyond what the surviving type supports."
+  },
+  "legs": [
+    {
+      "id": "west",
+      "walks": "beginning at the corner of Jackson and Jefferson streets, thence north along said last mentioned street and its continuation to Ohio street",
+      "resolves_on": [
+        "data/streets/1835.json#jefferson_school_section"
+      ],
+      "confidence": "inferred",
+      "note": "Jefferson's committed centreline is straight and exactly due north-south at local ENU x = -379.98, running from Madison's line south to the School Section's south line. The ordinance walks it NORTH from Jackson — which is on the committed segment — to Ohio, which is 1,188.8 m past its north end: the 'continuation' the ordinance itself names, because Jefferson was not opened that far in 1833 either. The extension is arithmetic along a line with no bend to miss, and it is graded `inferred` for that reason and no other. The nearest drawn building beside it is recon_1835_west_009 at 78.4 m, against 23.2 m of drift where it stands, so the extension does not decide that building's side of the line — the gate measures this rather than asserting it."
+    },
+    {
+      "id": "north",
+      "walks": "thence in a line eastward to the Lake shore",
+      "resolves_on": [
+        "data/streets/1835.json#ohio_north",
+        "data/terrain/epochs/e1834_harbor_cut/shoreline.geojson#north_shore"
+      ],
+      "confidence": "inferred",
+      "note": "Ohio Street's committed centreline runs x 830.78 to 1277.0. The ordinance's eastward line meets the traced lake shore 65.3 m past its east end, and its west corner stands 1,210.8 m past its west end — the longest extension in this file. Nothing drawn stands within 287 m of either, against 22.5 m of drift at the worst of them, so no structure's side of the boundary turns on the extrapolation. That margin is why this leg can be resolved at all rather than left open, and the gate re-measures it every run."
+    },
+    {
+      "id": "lake_and_pier",
+      "walks": "thence southwardly with the Lake shore to the northern United States' Pier, thence westwardly along said pier to the termination thereof",
+      "resolves_on": [
+        "data/terrain/epochs/e1834_harbor_cut/shoreline.geojson#north_shore"
+      ],
+      "confidence": "documented",
+      "note": "One committed trace carries both features the ordinance names in one run: the shoreline feature is described in its own properties as 'the north bank of the main stem, the inner face of the north pier, and the lake shore north of the harbour'. The ordinance walks exactly that, in exactly that order, and the boundary is simply the trace between its two crossings. The pier's own existence on 7 November 1833 is attested by this ordinance — a leg of a survey line was run ALONG it, so it stood and had a landward end a trustee could point to."
+    },
+    {
+      "id": "river",
+      "walks": "thence to the channel of the river until it intersects the eastern boundary line of the town of Chicago, as laid out by the Canal Commissioners",
+      "resolves_on": [
+        "data/terrain/epochs/e1834_harbor_cut/shoreline.geojson#north_shore"
+      ],
+      "confidence": "inferred",
+      "note": "THE ORDINANCE'S LINE IS THE CHANNEL AND THE CHANNEL IS NOT COMMITTED AS A LINE. The same traced feature continues west along the NORTH BANK of the main stem, and the boundary is walked on the bank instead. The substitution is stated because it is not free: the bank lies north of the channel by the stream's own half-width, so the ring resolved here is SMALLER than the ordinance's on this leg, never larger. That is the conservative direction — everything the gate calls inside is inside on the ordinance's own line too — and the strip given away is open water carrying no drawn building."
+    },
+    {
+      "id": "east",
+      "walks": "thence southwardly along said line until it intersects Jackson street",
+      "resolves_on": [
+        "data/streets/1835.json#state"
+      ],
+      "confidence": "inferred",
+      "note": "The eastern boundary of the town as the Canal Commissioners laid it out is State Street — the east line of Thompson's Original Town of 1830, and the line the government reservation lay beyond until the extension of February 1835. State's committed centreline runs y -400 to +20; the ordinance walks it from the river (y = 92) south to Jackson (y = -940), so it is carried 72.4 m north and 540.1 m south. THE TWO COMMITTED STATE STREETS DISAGREE and this file does not average them: `state` extended to Madison's line gives x = 823.6 while `state_school_section` starts there at x = 841.86 — an 18.2 m jog between two surveys. The ordinance's line is the Original Town's, so `state` is the one read. The nearest drawn building beside either extension is 238 m away, well past both the drift and the jog, so neither decides anything."
+    },
+    {
+      "id": "south",
+      "walks": "to the place of beginning",
+      "resolves_on": [
+        "data/streets/1835.json#jackson"
+      ],
+      "confidence": "documented",
+      "note": "Jackson's committed centreline is straight, runs x -767.49 to 841.86, and spans the whole leg with both corners inside its own ends. Nothing is extended."
+    }
+  ],
+  "the_february_1835_extension": {
+    "state": "recorded, not resolved",
+    "confidence": "documented_in_text_only",
+    "sources": [
+      "andreas_1884_v1",
+      "wood_1881_chicago_and_its_distinguished_citizens"
+    ],
+    "what_the_text_says": "Andreas: 'The corporate limits were again extended, by virtue of an act adopted February 11, 1834, so as to include all land lying east of State Street to the lake shore, from Chicago Avenue and Twelfth Street, except the military reservation, which lay from the river south to Madison Street.' Wood 1881 reads the same event from the other side: 'the government reservation east of State Street taken into the town limits while the Fort Dearborn reservation between Madison Street and the river was not.'",
+    "why_it_is_not_geometry_here": "Andreas is tier 3 and misprints the year (the act is of 11 February 1835, not 1834); Chicago Avenue and Twelfth Street are not committed as centrelines in this scene; and the act itself has not been found in this corpus in any printing. A boundary this project would gate on cannot rest on that.",
+    "why_it_changes_nothing_that_is_drawn": "The extension adds ground EAST OF STATE and explicitly withholds the Fort Dearborn reservation, which is where the twenty-four drawn structures outside the 1833 ring stand. It adds nothing west of State, and no drawn structure stands north of Ohio's line or south of Jackson's. So the inside/outside split of the drawn town is IDENTICAL under both readings, and the gate scopes on the 1833 ring because it is the narrower of the two and the only one held at tier 1. The day the modelled ground reaches south of Jackson or north of Ohio — T-0464 extends it from Madison to Cermak — that stops being true. See docs/RESEARCH/corporation_limits.md.",
+    "what_was_looked_for_and_where": "See docs/RESEARCH/corporation_limits.md § the search, which tabulates it. In short: all 285 records in data/sources for 'corporation', 'incorporat' and 'limits' (8 hits, the best of them tier 4 and asserting nothing); the whole of data/research/newspapers/extracted for the boundary's own nouns, which is where the 1833 ordinance was found at tier 1; and all seven volumes in data/research/books/text for the session law's own text, for no hit."
+  },
+  "the_compilation_page_carries_nothing_here": "data/sources/chicagology_prefire278 is quoted in several places for 'limits fixed 6 November 1833 … Jackson south, Jefferson and Cook west, Ohio north, barely seven-eighths of a square mile'. Its own record grades that half of the page rung 3 — it is Colbert's Chicago (1868) quoted on a modern web page — and NO CONFIDENCE IN THIS FILE IS GRADED OFF IT. It is cited nowhere above. Two of its statements are wrong against the corporation's own printing: the ordinance is dated 7 November 1833, not the 6th, and the west line is Jefferson alone, with no mention of Cook Street. Its ONE useful service is as an independent check on the arithmetic, and it passes: the ring resolved here measures 215.5 ha = 0.832 square miles against its 'barely seven-eighths' (0.875), a 5 per cent agreement across two centuries and an extrapolated corner.",
+  "outside_the_limits": {
+    "count": 24,
+    "note": "Every structure the resolver puts outside stands east of State Street and north of Jackson — the United States Reservation and the harbour beyond it, which the ordinance's river-and-State legs walk around and which the February 1835 extension withheld again. EIGHT OF THEM CARRY CHIMNEYS — the fort's six fort_structure buildings, the US factor's house and J. B. Beaubien's homestead, twelve stacks between them — and section 18's eighteen inches never bound one of them. The list is not stored: tools/measure_corporation_limits.py prints it, so it cannot go stale against a moved building.",
+    "chimneyed": 8
+  },
+  "how_the_extrapolations_are_priced": "Four of the six legs are resolved by carrying a committed centreline past its own end, and an extension is only honest while nothing stands near enough for it to decide a building's side of the line. The tool prices that rather than asserting it. The error budget is the project's standing +/- 20 m planimetric tolerance for a line resolved off a cadastral plat, plus the length of the extension times the amount the committed surveys disagree about which way east runs — 0.008225 in slope, measured off `lake`, `ohio_north` and `madison`, because the School Section's committed east-west lines are drawn exactly east-west while the Original Town's and Kinzie's Addition's carry a real bearing. Today every drawn building beside an extension clears its drift by more than three times over, and the gate fails the day one does not."
+}

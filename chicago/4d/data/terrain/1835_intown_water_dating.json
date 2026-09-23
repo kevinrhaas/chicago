@@ -1,0 +1,49 @@
+{
+  "$schema_note": "AUTHORED. One entry per documented in-town water feature that `data/terrain/epochs/*/terrain_spec.json` defers rather than models. Read by tools/measure_intown_water.py, which is the command that prints the table and the gate tools/check.sh runs. It authors NO geometry and no coordinates — the features are still not modelled, and this file does not move that. What it adds is the one question the deferral never asked.",
+  "id": "intown_water_dating_1835",
+  "target_date": "1835-07-01",
+  "authored_by": "ROADMAP T-E5(a)",
+  "why_this_file_exists": "The terrain spec records the in-town water features as researched, sited and NOT modelled, each deferred to the same hydrology parcel with the same phrase: existence documented, geometry conjectural. Existence is not a claim about a scene — it is a claim about a place. Every one of them was deferred without anybody asking whether the water was there on 1835-07-01, and they do not answer that question alike: one is fixed one year late by a newspaper, one has no date at all, and one is argued in both directions by the same document. A parcel that models them all off one phrase would model different grades of claim as one. ZONE 14 GRADUATED OUT of this file on 2026-08-20 (T-0005): the slough is now modelled in the terrain spec's swale entries, and its dating argument — the committed Slough Log Bridge fixes water at the scene date — moved with it into docs/RESEARCH/main_branch_sloughs_1833.md.",
+  "grades": "Each entry's `at_scene_date.confidence` grades THE DATING, not the feature and not its geometry. `attested` needs a source that puts water there at or across the scene date; `inferred` needs the reasoning written out here. The feature's own existence grade is the dossier's and is quoted, not re-graded.",
+  "the_dating_is_not_the_extent": "A feature can be dated and still unmodellable, and zone 15 is why this sentence is here. Nothing in this file states how much ground a feature covered, and for the public-square pond the extent IS the question — see its entry.",
+  "covers_dossier_zones": [15, 16, 17],
+  "covers_note": "The declared set the gate holds in both directions: these dossier zones are the in-town water the terrain spec defers, and each must be deferred there and dated here. Declared rather than matched on the word `water` in a prose `why` — a regex over prose reads like a rule until a name changes under it, which is the class of bug R-W4a was and the smoke's own terrain filter was. A fifth in-town water feature is added by adding its number here, and the gate then asks for both halves.",
+  "features": [
+    {
+      "dossier_zone": 15,
+      "name": "The public-square pond",
+      "aka": ["the pond on the court-house square"],
+      "dossier_row": "docs/research/01-terrain-hydrology.md row 15 — Randolph-Washington, Clark-LaSalle, about one city block, SEASONAL; bed +1.0 to +2.0, water 0.5-2 ft deep IN SPRING; existence documented, geometry conjectural",
+      "at_scene_date": {
+        "value": "not_established",
+        "confidence": "inferred",
+        "sources": ["chicagology_prefire273", "andreas_1884_v1"],
+        "note": "IT IS ARGUED IN BOTH DIRECTIONS BY ONE DOCUMENT, AND NOBODY HAD NOTICED THAT. FOR: the same page's slough sentence describes the stream 'which drained THE POND and the marsh extending up Wells Street', in the same breath as a crossing the source runs past 1840 — so the document's own hydrology has the pond as a live feature of the drained landscape, not as a memory. AGAINST, and this is what the deferral never weighed: (1) the pond quotation dates nothing. It reads 'Our public Square [where the Court House and City Hall now stand] WAS THEN a pond' — a past tense set against an 1857 present, with no 'then' the sentence fixes; and `data/sources/chicagology_prefire273.json` identifies the document it transcribes as built on Gurdon Hubbard's description of Chicago AS HE FOUND IT IN 1818 and on George Davis's 1832 drawing. (2) The dossier's own row calls the feature SEASONAL and puts its water at 0.5-2 ft deep IN SPRING. The scene date is 1 July. A seasonal spring pond is not evidence of standing water at midsummer, and the row states the season rather than the scene. (3) THIS PROJECT ALREADY STANDS TWO COUNTY BUILDINGS ON THAT BLOCK BEFORE THE SCENE DATE — `data/sidecars/1835/estray_pen.json`, Chicago's first public building, on the square's south-west corner from March 1832, and `data/sidecars/1835/log_jail.json` on its north-west corner from the fall of 1833. A pound is not built in a pond. So the honest reading is that the pond's DATE and its EXTENT are one question and neither is settled: a pond covering the whole block is refused by this project's own committed records, and a pond covering part of it needs the boundary no source states. `existence documented, geometry conjectural` was true of a place and read as though it were true of the scene."
+      }
+    },
+    {
+      "dossier_zone": 16,
+      "name": "The Frog Pond, Lake Street at LaSalle",
+      "aka": ["the frog pond"],
+      "dossier_row": "docs/research/01-terrain-hydrology.md row 16 — about 100-200 ft across, bed +1.5 to +2.5, shallow under 1.5 ft; existence documented (Jul 1836), geometry conjectural",
+      "at_scene_date": {
+        "value": "present",
+        "confidence": "inferred",
+        "sources": ["chicagology_prefire062"],
+        "note": "THE ONLY ONE OF THE FOUR WITH A DAY AND A MONTH ON IT, AND THE DAY IS A YEAR LATE. The Chicago American of 9 JULY 1836 complains of 'a pond of water on Lake Street, corner of La Salle, inhabited by frogs. It smells strong now, and in a few days will send out a horrible stench' — standing water, at a named intersection one block from the square, in the same week of the same season, one year after the scene. `docs/research/08-fauna.md` section 1 marks the step to 1835 `[INF]` in as many words, and this entry does not upgrade it: the extrapolation is one year backwards across a landscape whose own dossier says the impervious blue clay at 4-5 ft means no vertical drainage and ponding is the default state. That is a good inference and it is still an inference. Note the rung: `data/sources/chicagology_prefire062.json` records that the page's body is Andreas quoting the American, not the American, so this reaches the project at rung 3."
+      }
+    },
+    {
+      "dossier_zone": 17,
+      "name": "The Wells Street marsh",
+      "aka": ["the marsh extending up Wells Street"],
+      "dossier_row": "docs/research/01-terrain-hydrology.md row 17 — broad, ill-defined, +1.0 to +2.5, saturated; documented qualitatively",
+      "at_scene_date": {
+        "value": "present",
+        "confidence": "inferred",
+        "sources": ["chicagology_prefire273"],
+        "note": "IT ARRIVES IN THE SAME SENTENCE AS THE SLOUGH AND ON THE SAME TERMS: the stream 'drained the pond and THE MARSH EXTENDING UP WELLS STREET'. Whatever dates the slough dates what the slough drains, and the slough is dated at the scene by the crossing built over it (zone 14). A marsh is also a persistent landform rather than a seasonal sheet of water, so the midsummer objection that applies to zone 15 does not apply here. WHAT IS MISSING IS THE EXTENT, NOT THE DATE: the dossier's own tag is 'documented qualitatively' and its row gives no dimension in either direction. `broad, ill-defined` is the whole of the geometry any source reached supplies."
+      }
+    }
+  ]
+}

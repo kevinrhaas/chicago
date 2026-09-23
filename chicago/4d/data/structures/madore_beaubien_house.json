@@ -1,0 +1,115 @@
+{
+  "id": "madore_beaubien_house",
+  "name": "Madore Beaubien's Log House",
+  "aka": [
+    "the two-roomed log house on Lot 1",
+    "Madore Beaubien's store"
+  ],
+  "archetype": "log_dwelling",
+  "phases": [
+    {
+      "id": "log_1831",
+      "documented_range": {
+        "from": "1831-01-01",
+        "to": "1835-12-31",
+        "confidence": "inferred",
+        "sources": [
+          "andreas_1884_v1"
+        ],
+        "note": "THE BUILD YEAR IS DOCUMENTED AND THE SURVIVAL TO THE SCENE DATE IS NOT, which is why this range is tagged inferred rather than documented. Andreas: 'a two roomed log house which was the first building on lot No. 1', built 1831; Madore Beaubien was licensed as a merchant in 1831 and was a town trustee in 1833. No month is given, so the range opens at the start of the year. NO SOURCE REACHED FOLLOWS THE BUILDING PAST ITS ERECTION. It stands in this scene on the ordinary continuity argument — a standing building stands until something says otherwise, and data/exclusions.json is where documented removals go — and the counter-argument belongs here rather than in a footnote: the south-west corner of South Water and Dearborn was prime frontage on the town's business street in the 1835 boom, the drawbridge landed at the foot of Dearborn a year before the scene date, and a four-year-old log house on that corner is exactly the building a boom replaces first. The same weakness, argued the same way, carries hogan_store. If evidence turns up that this building came down before July 1835 it belongs in data/exclusions.json and this record leaves the scene."
+      },
+      "position": {
+        "utm_e": 447750.379,
+        "utm_n": 4637383.821,
+        "rotation_deg": 0.0,
+        "symbolic_location": "South-west corner of South Water Street and Dearborn Street (today the south side of West Wacker Drive at North Dearborn Street), on Lot 1; the Dearborn Street drawbridge landed at the foot of Dearborn a few paces north of it.",
+        "confidence": "inferred",
+        "sources": [
+          "andreas_1884_v1",
+          "osm_streets_2026"
+        ],
+        "note": "PLACED 2026-08-11. THE CORNER AND THE LOT ARE DOCUMENTED AND THE COORDINATE IS DERIVED, so the tag follows the weaker half. Andreas puts this at the south-west corner of South Water and Dearborn and calls it the first building on Lot 1, which is a plat reference and is the tightest locational statement any record in this parcel carries. METHOD: South Water Street is today's Wacker Drive along the south bank (this project's street-name key, docs/research/03-structures-north.md) and Dearborn Street is unchanged. The modern West Upper Wacker Drive / North Dearborn Street intersection centre was read from OpenStreetMap at EPSG:26916 E 447771.8, N 4637409.0 (two nodes averaged, spread 13.9 m, fetched 2026-08-11); the footprint origin sits 12.2 m west and 12.2 m south of it less the building's own width and depth, so the north face is on the South Water frontage and the east face on the Dearborn frontage of a south-west corner lot. WORKING UNCERTAINTY ABOUT 20 M, the georeference's residual (data/datum.json, 17.5 m RMS on Wright 1834), not an additional guess. A CORROBORATION WORTH RECORDING BECAUSE IT DOES NOT HOLD EVERYWHERE ON THIS STREET: this project's traced 1834 south bank of the main stem runs 15.2 m north of this record's north face at this easting, which is almost exactly one half-street plus a frontage — the street sitting on the bank, which is what the dossier describes for South Water. At Clark the same measurement is 79.6 m. The disagreement is the georeference's local paper stretch and the uneven build-out of Wacker Drive over the old dock line, and it means this end of the street is placed better than the Clark end. A COLLISION RISK, RECORDED RATHER THAN NUDGED: bates_auction_room is documented on the west side of Dearborn between Lake and South Water, which is the same block face this building's east wall stands on. The two records do not overlap only because the auction room is placed at the middle of its block face for want of any statement about where along it stood. If the auction room stood at the north end of that face, it stood on this lot. Facade bearing 0, north onto South Water, inferred from the street rather than from any statement; a store fronting Dearborn instead would rotate it 90 degrees. RECONCILED WITH THE COMMITTED PLAT 2026-08-24 (T-0127), AND THE CLAIM DID NOT MOVE — ONLY THE LINE IT WAS DERIVED AGAINST. The method above set this footprint's north face on the South Water frontage, and it found that frontage by taking the MODERN West Wacker Drive centreline out of OpenStreetMap and stepping 12.2 m south of it. That is not this project's own South Water Street: the committed centreline in data/streets/1835.json, offset by half the committed 80 ft corridor, is what tools/generate_plat_lots.py builds every platted block edge from, and it is the line every derived layer in this scene reads. Measured against it, this record's north wall stood 5.98 m OUT PAST the blk_south_water_clark frontage line, in the platted roadway — far enough into it that tools/generate_frontage_works.py refused the plank sidewalk along this stretch of South Water in writing and named this building in the refusal. THE REPAIR IS THIS RECORD'S OWN METHOD RUN AGAINST THIS PROJECT'S OWN LINE: the footprint is translated 7.48 m along the face's inward normal — dE -0.121 m, dN -7.479 m in local ENU, so UTM E 447750.5 N 4637391.3 becomes E 447750.379 N 4637383.821 — which leaves its north wall 1.50 m back from the committed frontage line, the same margin tools/generate_block_infill.py gives every reconstructed unit standing on this face. NOTHING ALONG THE STREET MOVED: the along-face position, the block, the corner and the side are untouched, and so is the confidence grade — re-deriving a coordinate from better geometry is not new evidence. WHAT IS STILL WRONG AND IS LEFT WRITTEN DOWN: the facade bearing stays 0 while this face runs at 0.93, so the front wall is 1.50 m back at its worst corner and up to 1.65 m at the other. That skew is smaller than the walk's own daylight and it is not corrected here, because rotating a documented record is a second claim and this one is a repair. THE CROSS STREET IS REFUSED, IN WRITING, WITH THE NUMBER (T-0195, 2026-08-27). The repair above answered South Water Street and could not answer this one, because a corner has two streets and the move that reconciles the frontage is along the other street's normal. Measured against the committed plat with tools/measure_corridor_intrusion.py, this footprint still laps Dearborn's corridor by 0.20 m — the third-shallowest lap any building in this town makes. WHY IT IS NOT REPAIRED, AND THE MEASUREMENT THAT DECIDES IT. tools/measure_corridor_intrusion.py --escape bisects the shortest translation that takes each lapping record clear of the corridor it laps and reads that direction against the record's OWN facade bearing: here it is 0.202 m on a bearing of 270.36 degrees, which is 0.36 degrees off square to this facade — a slide SIDEWAYS ACROSS ITS OWN FRONT, not in or out of it. South Water's committed axis runs at 90.93 degrees beside this footprint, so that escape is a move ALONG South Water Street to within 0.6 of a degree. It would therefore change where along the business street this building stands, and the corner is the one part of this placement a source argues. Moving ACROSS the front is a different operation and is the one T-0127 defended: the setback is re-derived against a better line and the claim does not move. Moving ALONG it moves the claim. WHERE THE 0.2 M ACTUALLY COMES FROM, because it is not a mystery and should not be left as one. The method above stepped 12.2 m from an OpenStreetMap junction centre in BOTH directions. The South Water half of that offset was re-derived against this project's own committed centreline; the Dearborn half never was. Measured against the committed Dearborn centreline this record's east face stands 11.990 m out, where the platted half-width is 12.192 m — so the residual is the 0.210 m by which OpenStreetMap's junction centre and this project's committed Dearborn centreline disagree at this corner, and nothing else. AND WHY THAT IS NOT WORTH SPENDING A SOURCE ON. It is about 1.0 per cent of this placement's own stated working uncertainty of about 20 m, on a georeference carrying 17.5 m RMS (data/datum.json). Clearing it leaves the record clear of every platted corridor — the escape trades nothing away — and that is exactly what makes the temptation worth naming: the number would go to zero and the placement would be no more true. The lap is banked in tools/corridor_intrusion_baseline.json under `refused`, where the gate holds it at this depth and fails if it grows, and it may not outlive itself: if this corner is ever re-derived, the refusal has to be withdrawn with it.",
+        "derivation": {
+          "method": "not_derivable",
+          "reason": "This placement predates the derivation module. Its provenance and reasoning are recorded in position.note, but no machine-checkable derivation block has been authored for it yet."
+        }
+      },
+      "footprint": {
+        "polygon": [
+          [
+            0,
+            0
+          ],
+          [
+            9.144,
+            0
+          ],
+          [
+            9.144,
+            5.486
+          ],
+          [
+            0,
+            5.486
+          ]
+        ],
+        "confidence": "reconstructed",
+        "note": "INVENTED, but invented inside a described plan rather than freely: Andreas says two rooms and says log, so the building is a double pen, and 9.144 x 5.486 m is 30 x 18 ft, two rooms of about 15 x 18 ft. THE NUMBER IS DELIBERATELY SMALLER THAN THE ONE COMPARABLE BUILDING THIS DATASET HAS EVIDENCE FOR. Hogan's store, the only log footprint here that is documented, is 45 x 20 ft and held a store and a post office side by side, and Andreas offers that size as an example of how LITTLE room the town needed. A house Andreas describes only as 'a two roomed log house' should not be modelled as large as that, so the frontage is cut by a third and the depth by two feet. The reasoning is about the type; nothing in it is about this building. The 55 ft South Water lot width is a documented cap and this sits well inside it."
+      },
+      "form": {
+        "construction": {
+          "value": "log",
+          "confidence": "attested",
+          "sources": [
+            "andreas_1884_v1"
+          ],
+          "note": "Andreas: 'a two roomed log house'. No source describes the corner treatment, the chinking, or whether any of it was sided; the archetype builds hewn log, which is the commonest construction at Chicago in 1831 and what the source names."
+        },
+        "stories": {
+          "value": 1,
+          "confidence": "inferred",
+          "note": "Not stated. Andreas divides the building by ROOMS and not by floors — 'two roomed' — which is how a single-storey double pen is described, and a two-storey log house at Chicago in 1831 would be remarkable enough to say. Inference from the description and the type, not from a statement."
+        },
+        "wall_height_m": {
+          "value": 2.5,
+          "confidence": "inferred",
+          "note": "No figure is attested. 2.5 m is about 8 ft: one storey of hewn log wall at typical period course counts, plus a sill. What is inferred is that the height falls in this range, not that it is exactly 2.5 m — the same reading and the same number this project gives Hogan's store and the Walker meeting house, its other single-storey log buildings."
+        },
+        "roof_type": {
+          "value": "gable",
+          "confidence": "inferred",
+          "note": "Not attested. Gable is the near-universal roof form for log construction of this type, period and region, and it is what a double pen of this plan is roofed with unless something says otherwise."
+        },
+        "roof_pitch_deg": {
+          "value": 35.0,
+          "confidence": "inferred",
+          "note": "No pitch is attested. 35 degrees is this archetype's mid-range for a low single-storey log building roofed in riven shakes. Inferred from construction practice, not measured."
+        },
+        "chimneys": {
+          "value": 1,
+          "confidence": "inferred",
+          "note": "Not attested, and nothing describes a stack on this building at all. One is the minimum for a two-room house lived in and traded from through Chicago winters. A double pen commonly carried a stack at each gable and the count could as easily be two; one is recorded because it is the smaller claim. The COUNT is the inference; where the stack stands, how big it is and what it is made of are the archetype's, per docs/LIBERTIES.md L26."
+        }
+      },
+      "change_note": "The first building on Lot 1 at the south-west corner of South Water and Dearborn: a two-roomed log house put up by Madore Beaubien in 1831, when he was newly licensed as a merchant. It is a log building on the town's principal commercial corner four years later, which is part of what the 1835 scene is for — South Water Street in July 1835 is not a uniform row of new frame stores but a mixed street with 1831 log buildings still standing on it."
+    }
+  ],
+  "function": {
+    "value": "dwelling_and_store",
+    "confidence": "inferred",
+    "sources": [
+      "andreas_1884_v1"
+    ],
+    "note": "Andreas calls the building a house and separately records that Madore Beaubien was licensed as a merchant in 1831, the year it was built. The trading half is therefore an inference from the coincidence of dates and from the building's position on the town's business street, not a statement that goods were sold in this building. What it was doing on 1835-07-01 specifically is not attested at all."
+  },
+  "occupants": {
+    "value": "Madore Beaubien",
+    "confidence": "inferred",
+    "sources": [
+      "andreas_1884_v1"
+    ],
+    "note": "Andreas attaches the building to Madore Beaubien as its builder, records him licensed as a merchant in 1831 and elected a town trustee in 1833. NO SOURCE REACHED PLACES HIM IN THIS BUILDING ON THE SCENE DATE, and the record claims occupancy in 1835 as an inference from continuity rather than as a fact. Nothing further about the household is stated here; see review_required and the research note."
+  },
+  "research_note": "THE OLDEST BUILDING THIS PARCEL ADDS AND THE ONLY LOG ONE ON THE SOUTH WATER ROW, which is the point of including it: the 1835 business street was not uniformly new. Andreas gives three hard facts — 1831, two rooms, log, first building on Lot 1 at the south-west corner of South Water and Dearborn — and nothing else, so the size is invented inside the plan he describes and the survival to July 1835 is a continuity argument of the same kind that carries hogan_store. REVIEW IS FLAGGED ON THIS RECORD DELIBERATELY. AGENTS.md's standing constraint is that Native presence and representation are not a research gap to be filled by inference but a subject requiring consultation, and the final removal of the Potawatomi from Chicago falls in August 1835, weeks after the scene date. This record and jb_beaubien_homestead sit inside a family history that runs directly into that, and the right handling of any interpretive text about the Beaubiens belongs to a review this project has not yet sought. The record therefore states the built fabric and the two civic facts Andreas gives (merchant's licence 1831, town trustee 1833) and no more; review_required is true, which blocks the 1835 scene from being marked released until that consultation happens. See docs/RESEARCH/madore_beaubien_house.md.",
+  "review_required": true
+}

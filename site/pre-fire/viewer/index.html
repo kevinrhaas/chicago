@@ -1,0 +1,64 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Chicago Before the Fire — Year Explorer</title>
+  <link rel="stylesheet" href="style.css?v=5">
+</head>
+<body>
+  <header>
+    <p class="eyebrow">Research dataset · 1674–1871</p>
+    <h1>Chicago Before the Fire</h1>
+    <p class="lede">Move through time to inspect the closest dated city reference, the structures known to be active, and changes in the city’s legal and physical landscape.</p>
+  </header>
+
+  <main>
+    <section class="controls" aria-label="Year control">
+      <div class="year-entry">
+        <label for="year">Reference year <output id="yearOutput">1830</output></label>
+        <label for="yearNumber">Go to exact year <input id="yearNumber" type="number" min="1674" max="1871" value="1830" inputmode="numeric"></label>
+      </div>
+      <input id="year" type="range" min="1674" max="1871" value="1830" step="1">
+      <div class="quick-years" aria-label="Quick years">
+        <button data-year="1674">1674</button><button data-year="1779">1779</button>
+        <button data-year="1803">1803</button><button data-year="1830">1830</button>
+        <button data-year="1831">1831</button><button data-year="1833">1833</button>
+        <button data-year="1836">1836</button><button data-year="1840">1840</button>
+        <button data-year="1848">1848</button><button data-year="1851">1851</button>
+        <button data-year="1853">1853</button><button data-year="1860">1860</button>
+        <button data-year="1868">1868</button><button data-year="1871">1871</button>
+      </div>
+    </section>
+
+    <section class="dashboard">
+      <article class="map-card">
+        <div class="card-heading">
+          <div><p class="kicker">Closest reference</p><h2 id="mapTitle">Loading…</h2></div>
+          <div class="map-tools"><span id="mapYear" class="year-badge"></span><label for="mapVariant">Map/view</label><select id="mapVariant"></select></div>
+        </div>
+        <a id="mapLink" target="_blank" rel="noreferrer"><img id="mapImage" alt="Historic Chicago map"></a>
+        <p id="mapMeta" class="meta"></p>
+        <p id="mapNote"></p>
+      </article>
+
+      <aside>
+        <article class="metric"><span id="activeCount">0</span><p>source-identifiable records active by the selected year</p></article>
+        <article class="metric image-metric"><span id="imageCount">0</span><p>sourced building images tied to the listed records</p></article>
+        <article class="context"><p class="kicker">City extent</p><h3 id="extentName">No dated extent</h3><p id="extentNote"></p></article>
+        <article class="context"><p class="kicker">Landscape / event</p><h3 id="landName">No dated event</h3><p id="landNote"></p></article>
+      </aside>
+    </section>
+
+    <section class="records">
+      <div class="card-heading"><div><p class="kicker">Structures</p><h2 id="recordsHeading">Known active records</h2></div><input id="search" type="search" placeholder="Search all years by name or alias" aria-label="Search buildings across all years"></div>
+      <p class="warning">This is an evidence index, not a claim that every historical structure can be individually named. “Active” is computed from available construction and loss years; undated losses remain visible.</p>
+      <p id="recordsStatus" class="records-status" aria-live="polite"></p>
+      <div class="table-wrap"><table><thead><tr><th>Name</th><th>Images</th><th>Known span</th><th>Type</th><th>Historical address</th><th>1871 fire fate</th><th>Confidence</th><th>Timeline</th></tr></thead><tbody id="buildingRows"></tbody></table></div>
+    </section>
+  </main>
+
+  <footer>Static research viewer. Map provenance is retained in <code>map_references.csv</code>; building-image rights, dates, creators, repositories, and subject links are retained in <code>media.csv</code> and <code>media_buildings.csv</code>.</footer>
+  <script src="app.js?v=5"></script>
+</body>
+</html>

@@ -1,0 +1,54 @@
+{
+  "id": "census_1830_peoria_county_chicago_precinct",
+  "type": "manuscript",
+  "citation": "Fifth Census of the United States, 1830: population schedules, Illinois — the enumeration district headed \"Peoria & Putnam Counties & Territory attached\", which is where the Chicago settlement was enumerated. NARA microfilm publication M19, Illinois, reel 24 (Greene, Morgan, Sangamon, Calhoun, Pike, Fulton, Knox, Henry, Adams, Hancock, Warren, Mercer, Peoria, Putnam and Jo Daviess counties), digitised and republished by the Internet Archive as item populationsc18300024unit. Leaves n576, n578, n580, n582 and n584 — printed pages 299 to 303 — are the whole of the division's names and all five are read here: 200 heads of family in the enumerator's hand. Leaf n586 (page 304) is the division's recapitulation and carries no name.",
+  "author": "The assistant marshal for the district (the endorsement on leaf n590 of the same reel reads \"Returns U.S. Census … Marshal\"; the signature was not read and no name is claimed for him here)",
+  "date": "1830",
+  "describes_date": "1830-06-01",
+  "repository": "National Archives and Records Administration, Record Group 29 — microfilm publication M19. The copy actually read is the Internet Archive's digitisation of reel 24.",
+  "url": "https://archive.org/details/populationsc18300024unit",
+  "locator": "chicago/4d/data/research/census_1830/text/ holds the readings, committed, one line per head of family: peoria_putnam_1830_leaves_576_578.txt (T-0605), peoria_putnam_1830_leaves_580_582.txt (T-0498) and peoria_putnam_1830_leaf_584.txt (T-0605), with the division's recapitulation in peoria_putnam_1830_recapitulation_n586.txt. Every record's locator names its file, its line there and the exact image it stands on, https://archive.org/download/populationsc18300024unit/page/n<N>_w2400.jpg, of which the five fetched are\n  n576 sha256 308187e82e73cb0f68faf20d12beb0022f372b060ab2c7e35cb11f5dd2832040 (2026-09-05)\n  n578 sha256 0fb7533e86ed63b5e2929388c6f0fe5a2b438d2a90290d43f404c7aae5bfe3eb (2026-09-05)\n  n580 sha256 49b2e3a0a6742a15de0294342df1c9ff6b504e8a942fe5e3484d622663b4f816 (2026-09-03)\n  n582 sha256 2c562be3b2995faaf76880dc2a6a3c93d6ce926e0c7d61f3b7ba524c717a5c3d (2026-09-03)\n  n584 sha256 f1d674dfc54af6bd2b22b1084090167de300b905cec2e38b3062ffa90bc72640 (2026-09-05)\nand the recapitulation leaf\n  n586 sha256 c90e3a2dbaba5cabafe706870a6e8f84eaeeac8726827773dce26f8ff7f532fd (2026-09-05).",
+  "tier": 1,
+  "rights_status": "public_domain",
+  "asset_use": "text_only",
+  "verified": true,
+  "access_notes": "VERIFIED 2026-09-03 for T-0498 by locating the district on the film, and COMPLETED 2026-09-05 for T-0605. The reel description names its fifteen counties but not their leaves, so the county column was read down the last fifth of the reel until the heading appeared: it is written once, on leaf n580, as \"Peoria & Putnam Counties & Territory attached\", and dittoed down. Every other leaf of the division leaves the county cell empty, and T-0498 therefore guessed that n576-n579 belonged to the county before it and that the district ran on past n584. Both halves of that guess are wrong, and the leaf that settles it is n586: it carries the division's recapitulation and not one head of family, five page-total rows whose figures ARE the totals rows of n576, n578, n580, n582 and n584 — page 1's row repeats the same six struck-and-rewritten cells that n576's totals row carries. So the division is those five leaves, it ends at n584, and its unread pages were at the FRONT. Access is open and unauthenticated. FamilySearch's images of the same schedule (its own filming of M19) are behind a login and were NOT consulted; that is inaccessibility from this runner and must never be recorded as an absence of record.",
+  "what_it_supplies": [
+    "200 heads of family standing in the district that contained Chicago in the summer of 1830, five years before the scene — the earliest name-by-name list of the place this project holds, and now the WHOLE of the enumerator's division rather than a middle slice of it",
+    "the enumerator's own order, which is a walking order: Kinzie, Caldwell, Woolley, Walker, Laughton and See on one stretch of leaf n580; Robinson, Mark Beaubien, the two LaFramboises, Jean Baptiste Beaubien on another; Clybourn, Clark, Wolcott, Miller, Ouilmette and Heacock on n582",
+    "the front of the division, which is Peoria itself — n576 opens with Augustus Langworthy, John Hamlin, John L Bogardus and Abner Eades, and n578 runs on through the Prestons, Thomases and Hammetts. None of them is a Chicago household and the district's shape is the point: the settlement at the mouth of the river is a run of names inside a list of northern Illinois",
+    "the United States garrison of Fort Dearborn enumerated as a single household under Major John Fowle, commanding — the only line on either leaf that is an institution rather than a family",
+    "a heavy rule ruled under William See on leaf n580, and a change of hand spacing after it, which is the enumerator marking a break in his round",
+    "the printed age-band columns beside each name, and each leaf's own totals row, of which the first five male columns were read as a calibration (n576: 25, 33, 23, 15, 39 as the enumerator corrected them; n578: 37, 16, 29, 21, 37; n580: 20, 9, 9, 2, 3; n582: 16, 5, 14, 8, 10; n584: 15, 8, 8, 5, 13)",
+    "the division's own recapitulation on n586 — five page rows, a division total written as 199 families, and a \"Free White Males / do Females\" line. It does not close: the family column as read sums to 247 and the leaves as read carry 200 heads, with pages 1 and 3 the two that disagree. The discrepancy is recorded and nothing is graded on it"
+  ],
+  "what_it_does_not_supply": [
+    "the word Chicago. The schedule never writes it, because in 1830 there was no Chicago to write — the district is Peoria and Putnam and everything hung off them, and the Chicago settlement is a run of households inside it that the page does not head or separate",
+    "any evidence that a man on it was in Chicago on 1 July 1835. Five years is two migrations in this town; the schedule dates and corroborates and never mints",
+    "any address, lot, trade, or building",
+    "any name but the head of family's. Everybody else on both leaves is a tally mark in an age band",
+    "the full age-band composition of any household: only each leaf's totals row was read column by column, and the per-household cells were left to a later pass rather than half-read",
+    "the rest of its own district. Leaves n584 and beyond carry the Du Page and Fox River part of it and are unread"
+  ],
+  "note": "A CENSUS IS A DATE AND A PLACE, NOT A RESIDENCE FIVE YEARS ON. Under the grading ladder ratified 2026-09-03 an 1830 head of family is EARLIER EVIDENCE: paired with any 1833-35 source it is strong continuity, and standing alone it is a man who was here once. The crosswalk at data/research/census_1830/resident_crosswalk.json declares every match AND every refusal on that footing. The spellings are the enumerator's and are preserved exactly; where his letters are genuinely open the record says so and carries the alternates rather than choosing the convenient one.",
+  "transcribes": [
+    {
+      "work": "The assistant marshal's manuscript schedule for the district headed \"Peoria & Putnam Counties & Territory attached\", Fifth Census of the United States",
+      "date": "1830",
+      "tier": 1,
+      "note": "The assistant marshal's manuscript schedule, written in the summer of 1830. The paper original is at NARA. Nobody here has handled it. NOT SEEN BY THIS PROJECT: the paper original is at NARA and nobody here has handled it."
+    },
+    {
+      "work": "NARA microfilm publication M19, Illinois, reel 24 — a photographic copy of that manuscript",
+      "date": "1830",
+      "tier": 1,
+      "note": "NOT SEEN BY THIS PROJECT either. The film itself was not handled; what was read is a digitisation of it."
+    },
+    {
+      "work": "Internet Archive item populationsc18300024unit — the Archive's scan of reel 24, 620 leaves",
+      "date": "1830",
+      "tier": 1,
+      "note": "THIS IS THE LAYER READ. Two leaves were fetched as JPEG page images, cropped and read by eye. The item carries NO usable text layer — its own OCR metadata records \"language not currently OCRable\" and its search-text file is 28 bytes — so nothing was extracted, matched or searched, and no transcriber stands between this project and the enumerator's hand. That is why every record citing this source is graded `scan_verified` and not `transcription_mediated`. The mediation is photographic and not editorial, which is the whole reason the tier stays at 1."
+    }
+  ]
+}

@@ -1,0 +1,144 @@
+{
+  "id": "dole_warehouse_south",
+  "phase": "frame_1832",
+  "name": "George W. Dole's Warehouse",
+  "aka": [
+    "Dole's 1832 warehouse and slaughter yard"
+  ],
+  "archetype": "frame_storefront",
+  "asset": "gltf/dole_warehouse_south__frame_1832.glb",
+  "scene": "1835",
+  "target_date": "1835-07-01",
+  "documented_range": {
+    "from": "1832-01-01",
+    "to": "1835-12-31",
+    "confidence": "inferred",
+    "sources": [
+      "andreas_1884_v1"
+    ],
+    "note": "Andreas dates the warehouse and slaughter yard to 1832 and gives no month, so the range opens at the start of that year. THE SURVIVAL TO THE SCENE DATE IS INFERENCE AND THERE IS A SPECIFIC REASON TO DOUBT IT: in 1834 Newberry and Dole built a slaughter-house on the South Branch, which is where a slaughtering business goes when it outgrows a yard behind a warehouse two blocks from the river. So at least half of what Andreas describes here had probably moved by the scene date. The warehouse itself is a different question and nothing reached follows it either way; it stands in this scene on the ordinary continuity argument. A LOCATION GUARD THAT MUST TRAVEL WITH THIS RECORD: Newberry and Dole's forwarding warehouse — the one at whose wharf the schooner Illinois was cheered on 12 July 1834 — was on the NORTH side of the river, immediately east of where Rush Street bridge later stood. This record is the separate SOUTH-side 1832 warehouse and slaughter yard. Do not merge them and do not move this one to the river."
+  },
+  "change_note": "George W. Dole's warehouse and slaughter yard of 1832, near the Lake and Dearborn crossing — the south-side half of the Newberry and Dole forwarding business, whose other warehouse and wharf were on the north bank. Dole is the man who packed the first beef and pork shipped out of Chicago; by 1834 the partners had built a slaughter-house on the South Branch, so the killing had probably left this yard before the scene date.",
+  "placement": {
+    "local_e": 712.177,
+    "local_n": -136.884,
+    "rotation_deg": 0.0,
+    "position_confidence": "inferred",
+    "position_sources": [
+      "andreas_1884_v1",
+      "osm_streets_2026"
+    ],
+    "position_note": "PLACED 2026-08-11. THE SOURCE GIVES A LANDMARK, NOT AN ADDRESS, AND THE LANDMARK IS ITSELF AMBIGUOUS. Andreas puts the warehouse 'close to the present site of the Tremont House', writing in 1884. There were three Tremont Houses at that crossing: the first, built 1833 by Alanson Sweet, stood on the NORTH-WEST corner of Lake and Dearborn and burned in October 1839; its successors stood on the SOUTH-EAST corner, and that is the site Andreas's word 'present' points at. So the phrase locates the warehouse at the Lake and Dearborn crossing and no closer, and this record takes the south-east corner as the reading Andreas's own sentence supports. THE NORTH-WEST CORNER CAN BE SET ASIDE ON ITS OWN GROUNDS: the first Tremont House was standing on it from 1833, two years before the scene date, so an 1832 warehouse could not still have occupied it. NOTE THE ORDER OF EVENTS, because it is the trap in this record: the warehouse is 1832 and every Tremont is later, so Andreas is dating a building by a landmark that did not exist when it was built. METHOD: the modern West Lake Street / North Dearborn Street intersection centre was read from OpenStreetMap at EPSG:26916 E 447772.7, N 4637283.0 (one node, fetched 2026-08-11), and the origin set 12.2 m east and 12.2 m south of it less the depth, so the north face is on the Lake Street frontage and the west face on the Dearborn frontage of a south-east corner lot. WORKING UNCERTAINTY ABOUT 20 M from the georeference (data/datum.json, 17.5 m RMS), plus an unquantified allowance for 'close to', which is the larger of the two here — a warehouse and a slaughter yard need a yard, and 'close to' could mean the next lot or the next block. Facade bearing 0, north onto Lake Street, inferred from the street rather than from any statement. THE SLAUGHTER YARD IS NOT MODELLED: no source gives it a size, a boundary or a side of the building, and a fenced yard drawn by eye would be a larger invention than the building it served. RECONCILED WITH THE COMMITTED PLAT 2026-08-27 (T-0196), AND THE CLAIM DID NOT MOVE — ONLY THE LINE IT WAS DERIVED AGAINST. The method above put this footprint's north face on the Lake Street frontage, and it found that frontage by taking a MODERN West Lake Street kerb out of OpenStreetMap and stepping 12.2 m off it. That is not this project's own Lake Street: the committed centreline in data/streets/1835.json, offset by half the committed 80 ft corridor, is what tools/generate_plat_lots.py builds every platted block edge from, and it is the line every derived layer in this scene reads. Measured against it, this record's north wall stood 1.28 m OUT PAST the blk_lake_dearborn frontage line, in the platted roadway — far enough into it that tools/generate_frontage_works.py's march refused three steps of Lake Street's plank sidewalk for it and named this building in the refusal. THE REPAIR IS THIS RECORD'S OWN METHOD RUN AGAINST THIS PROJECT'S OWN LINE: the footprint is translated 2.784 m along the face's inward normal — dE -0.023 m, dN -2.784 m in local ENU, so UTM E 447784.9 N 4637261.7 becomes E 447784.877 N 4637258.916 — which leaves its north wall 1.50 m back from the committed frontage line, the same margin tools/generate_block_infill.py gives every reconstructed unit standing on this face, and the same repair the eleven South Water records carry under T-0198 and T-0199. NOTHING ALONG THE STREET MOVED: the along-face position, the block, the corner and the side are untouched, and so is the confidence grade — re-deriving a coordinate from better geometry is not new evidence, and every uncertainty stated above still stands at its stated size. WHAT IT SEATS ON, MEASURED RATHER THAN ASSUMED: reconciled, this building stands on lot 0 of blk_lake_dearborn, which already carries the anonymous roof recon_1835_south_d3_017 and mason_blacksmith_shop. That lot was dealt from the pre-plat South Division parcel and not from a block recipe with a declared business front, so the owner's 2026-08-27 business-front clause (tools/plat_occupancy.py) does not reach it and is not invoked here. What is asked instead is the physical test: the nearest of those roofs stands 7.11 m from this footprint at its closest corner, clear of the 3.0 m the separation gate requires, and no committed footprint in the town overlaps this one by a square centimetre.",
+    "symbolic_location": "Near the junction of Lake Street and Dearborn Street, at what Andreas calls the site of the Tremont House; placed on the south-east corner, which is a reading and not a statement.",
+    "uncertainty_m": 20,
+    "placement_provisional": false,
+    "vertical_anchor": "terrain",
+    "walk_surface_m": null
+  },
+  "footprint": {
+    "polygon": [
+      [
+        0,
+        0
+      ],
+      [
+        12.192,
+        0
+      ],
+      [
+        12.192,
+        7.62
+      ],
+      [
+        0,
+        7.62
+      ]
+    ],
+    "confidence": "reconstructed",
+    "sources": [],
+    "note": "INVENTED — the parcel's borrowed rectangle, 12.192 x 7.62 m = 40 x 25 ft, taken from the Green Tree Tavern's attested frontage and room module. No source gives this building a dimension. A WAREHOUSE WAS PROBABLY BIGGER THAN THIS AND THE RECORD DOES NOT CLAIM OTHERWISE: forwarding and commission work means floor space for barrels and hides, and 93 square metres is a large room rather than a warehouse. The rectangle is used because it is the dataset's one defensible borrowed figure and because inventing a larger one would be inventing more, not less. The 55 ft lot cap Andreas states applies to South Water Street lots and is not evidence about Lake Street, so it is not applied here."
+  },
+  "attributes": {
+    "stories": {
+      "value": 1,
+      "confidence": "reconstructed",
+      "note": "NOTHING AT ALL IS ATTESTED ABOUT THIS BUILDING'S HEIGHT, and unlike most storey counts in this dataset there is not even a typological argument to make: warehouses of the period run from single-storey sheds to two-and-a-half-storey lofted stores, and the choice changes the silhouette by half. One is recorded because it is the smaller claim. This is invention and is tagged as such."
+    },
+    "construction": {
+      "value": "braced_frame",
+      "confidence": "inferred",
+      "sources": [
+        "andreas_1884_v1"
+      ],
+      "note": "Not stated. Frame rather than log because a warehouse wants clear floor and wide doors, and because this project's dossier records the 1832-35 south-side stock as frame and log with no brick of consequence before 1837. Braced rather than balloon frame for the reason the Sauganash record gives, and with more force here: balloon framing was only being developed in Chicago in 1832-33, which is exactly this building's date."
+    },
+    "wall_height_m": {
+      "value": 3.6,
+      "confidence": "inferred",
+      "note": "No figure is attested. 3.6 m is about 12 ft: a single storey built taller than a dwelling's, which is what stacked goods and a cart door need. It inherits the storey count's uncertainty, which is conjectural, so this number is only as good as that guess."
+    },
+    "roof_type": {
+      "value": "gable",
+      "confidence": "inferred",
+      "note": "Not attested. Gable is the near-universal roof form for frame buildings of this type, period and region."
+    },
+    "roof_pitch_deg": {
+      "value": 33.0,
+      "confidence": "inferred",
+      "note": "No pitch is attested for this building. 33 degrees is the frame_storefront archetype's own figure for a store, and it is adopted here rather than the 38 this project uses for taverns because the archetype argues the case from the dataset's one attested store footprint: a store's frontage is long and its plan shallow, so a tavern's pitch puts more roof above the eave than there is wall below it and the building stops reading as a shop. Inferred from construction practice and from the type, not measured."
+    },
+    "chimneys": {
+      "value": 0,
+      "confidence": "inferred",
+      "note": "A COUNT OF ZERO IS A CLAIM, NOT AN ABSENCE, and the archetypes treat it as one. Nothing is attested about heating here; zero is recorded because a store house for barrels and hides is the one building type in this parcel with no reason to have a hearth, and because the slaughtering that would have needed fire is attested as happening in a YARD rather than indoors. If the building doubled as an office it had a stove and this is wrong by one."
+    },
+    "shopfront": {
+      "value": false,
+      "confidence": "inferred",
+      "note": "A warehouse had no shop front. Andreas describes a warehouse and a slaughter yard, which is a building goods went into and out of by cart, not one customers were served over a counter in. Inferred from the attested use; the archetype's default is a composed shopfront and turning it off here is a claim this record makes deliberately."
+    },
+    "siding_exposure_m": {
+      "value": 0.152,
+      "confidence": "reconstructed",
+      "note": "INVENTED WITHIN A STOCK SET, NOT DERIVED. No source states the exposed face of any Chicago building's siding. The value is one of four period mill sidings — 4.5, 5, 5.5 or 6 in to the weather; this record wears 6 in — dealt by tools/deal_siding_stock.py: keyed to the phase's construction season, because buildings sided from the same season's shipments of St Joseph sawn lumber tend toward one stock, then advanced so no frame building within 60 m shares this one's. The separation is the surface variety T-0049 reconstructs, not a claim about 1835. docs/LIBERTIES.md L148 owns the invention."
+    },
+    "function": {
+      "value": "warehouse_and_slaughter_yard",
+      "confidence": "attested",
+      "sources": [
+        "andreas_1884_v1"
+      ],
+      "note": "Andreas names both uses in the same passage. The slaughter yard's status at the scene date is doubtful for the reason given on documented_range — Newberry and Dole built a South Branch slaughter-house in 1834 — and the yard is in any case not modelled."
+    },
+    "occupants": {
+      "value": "George W. Dole, forwarding and commission merchant and provision packer",
+      "confidence": "attested",
+      "sources": [
+        "andreas_1884_v1"
+      ],
+      "note": "Dole is documented as the builder and proprietor. His partnership under the style Newberry & Dole is documented separately, but the firm's forwarding house is the partnership's and this record does not attach a Newberry to this building. THE PARTNER'S NAME CORRECTED, T-0396 (2026-09-12): this note read 'his partnership with Oliver Newberry'. Oliver Newberry of Detroit stands in the firm's own advertisement as its Detroit REFERENCE and not as its partner, and the Chicago Newberry of the style is inferred to be Walter L. — the argument is on newberry_dole_warehouse's own `occupants` note and the ruling is declared at data/research/newspapers/identity.json § proprietor_distinctions. Nothing about THIS building moves either way: it was Dole's alone before the firm and this record never attached the other partner to it."
+    }
+  },
+  "residents": [],
+  "citations": [
+    {
+      "source_id": "andreas_1884_v1",
+      "citation": "Andreas, A. T. History of Chicago: From the Earliest Period to the Present Time. Vol. 1. Chicago: A. T. Andreas, 1884.",
+      "url": "https://archive.org/details/historyofchicago01andr",
+      "archived_url": "",
+      "tier": 3,
+      "tier_label": "compiled secondary (Andreas)"
+    },
+    {
+      "source_id": "osm_streets_2026",
+      "citation": "OpenStreetMap contributors. Street centerline intersection nodes for downtown Chicago, retrieved via the Overpass API, 2026-08-09.",
+      "url": "https://www.openstreetmap.org/",
+      "archived_url": "https://overpass-api.de/",
+      "tier": 4,
+      "tier_label": "later scholarship"
+    }
+  ],
+  "research_note": "A DOCUMENTED BUSINESS AT AN AMBIGUOUS ADDRESS. Andreas gives the date, the owner and both uses, and locates the building only as 'close to the present site of the Tremont House' — a landmark that post-dates the warehouse by a year and that moved corners between the first Tremont and its successors. The position note works through that; the short version is that the crossing is safe and the corner is a reading. TWO GUARDS TRAVEL WITH THIS RECORD. First, Newberry and Dole's forwarding warehouse and wharf were on the NORTH bank of the river, immediately east of the later Rush Street bridge, and must not be conflated with this one. Second, the 1834 South Branch slaughter-house means the yard half of this record had probably moved before the scene date. WHAT IS CONJECTURAL HERE: the footprint outright, and the storey count, which unusually has no typological argument behind it either way. WHAT WOULD UPGRADE THEM: any Chicago Democrat advertisement of Dole's giving his address relative to a cross street; the 1834-35 town lot records for the Lake and Dearborn block; or a description of the building in the packing literature Andreas draws on at scan p. 1151. See docs/RESEARCH/dole_warehouse_south.md.",
+  "research_doc": "docs/RESEARCH/dole_warehouse_south.md",
+  "review_required": false
+}

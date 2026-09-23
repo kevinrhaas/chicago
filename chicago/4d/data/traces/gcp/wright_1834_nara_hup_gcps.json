@@ -1,0 +1,418 @@
+{
+  "_doc": "Registration of the National Archives / Historic Urban Plans facsimile of Wright's 1834 survey (source id wright_1834_nara_hup) IN ITS OWN PIXEL SPACE, beside the BPL master this project already traces (data/traces/gcp/wright_1834_gcps.json). Pixel coordinates here are coordinates of chicago/pre_fire_v1/maps/images/1834-wright-map.jpg, 5050 x 6628 px. They are NOT BPL coordinates and the two must never be mixed: the scan-to-scan block below gives the transform and its residuals. T-0787.",
+  "raster": {
+    "working_copy": "chicago/pre_fire_v1/maps/images/1834-wright-map.jpg",
+    "width": 5050,
+    "height": 6628,
+    "dpi": 600,
+    "sha256": "dbb92c0188881d9b6cdf84801b9185a5715496a328125bde895a04058b173266",
+    "duplicate_in_repository": "chicago/pre_fire_v1/maps/images/1834-wright-map-lg.jpg is byte-identical to it",
+    "source_id": "wright_1834_nara_hup",
+    "note": "The working copy lives outside this app's subtree, in chicago/pre_fire_v1/, where the owner placed it. This file cites it by path and checksum; it does not copy it."
+  },
+  "sheet_caption": {
+    "transcribed": "2026-09-06 from the printed caption at the foot of the sheet (NA pixels x 500..4800, y 6120..6400), read with tesseract and corrected against the image",
+    "columns": [
+      "This reproduction is of James Wright's manuscript survey of Chicago in 1834. It was used in preparing one of the two earliest printed maps of the city published in that year. The original drawing is now in the collection of the National Archives in Washington, D.C.",
+      "Signs of wear are apparent. Two portions are missing, the larger being near the lower center. At one time the drawing was torn to this spot from the upper right margin. Later the manuscript was mounted on cloth to repair this tear and to prevent further damage.",
+      "The map shows the location of Fort Dearborn on the south bank of the Chicago River, a site now within the right-of-way of Michigan Avenue. To the left, bordered in red, is the original townsite surveyed by James Thompson in 1830.",
+      "From this modest beginning as a frontier settlement the modern metropolis began to evolve. The basic pattern of gridiron streets was repeated almost endlessly as the city expanded beyond the area shown on this unique document."
+    ],
+    "imprint": "Reproduced by HISTORIC URBAN PLANS, Ithaca, New York"
+  },
+  "relation_to_wright_1834": "Same drawing, different scan, different pixel space. The BPL/Leventhal copy (commonwealth:js957744g, 4204 x 5166) remains the master for every trace already committed; this sheet is registered beside it so that readings made at 600 dpi can be cited. Neither is a second witness to the other: they are two photographs of one manuscript.",
+  "control_choice": "BOTH, and the ticket asked which and why (T-0787). The eight control crossings are the SAME eight the BPL set uses, so the two fits are directly comparable \u2014 that comparison lives in `retained_fit` and is the reason the eight-point fit is kept there. A scan-to-scan affine is fitted as well, because the readings this sheet exists for (block numerals) have to be carried back to traces already keyed to BPL pixels. SINCE T-1091 the fit in force is fitted on ELEVEN points, the eight plus the School Section's other three corners: the eight alone had no control below y=3225 px of a 6628 px sheet.",
+  "method": "Each control point was located by normalised cross-correlation of a 400 x 400 px patch cut from the BPL scan at that GCP against the NA sheet, over a scale sweep of 0.97-1.03, in a window centred on the prediction of a five-point affine. Because the patch is centred on the BPL pick, the match centre is the SAME point of the drawing, whatever picking convention the BPL set used \u2014 the correspondence does not depend on re-deciding what 'the crossing' means. Seven of the eight matched within 13 px of the affine and are taken as picked. G4 did not: its correlation peak ran to the edge of the search window, and a wider search found a peak 172 px away, which the block grid's ~145 px pitch makes an aliasing candidate. G4 was therefore picked by hand off a 20 px grid at 4x on both scans, from the same two ruled lines (block 38's west border and the Public Square block's south border), and carries a larger uncertainty. Estimated picking precision: +/- 5 px on the seven, +/- 8 px on G4.",
+  "control_source": "Modern control from OpenStreetMap via the Overpass API, fetched 2026-08-09. Multi-node crossings averaged (max spread 6.4 m). OSM data is (c) OpenStreetMap contributors, ODbL \u2014 see data/sources/osm_streets_2026.json.",
+  "gcps": [
+    {
+      "id": "G1",
+      "map_feature": "State St & Madison St",
+      "feature_note": "PLSS section corner: sections 9/10/15/16, T39N R14E. The town plat's SE corner; Madison's line continues east as the reservation's south boundary.",
+      "pixel": [
+        2951.0,
+        3225.0
+      ],
+      "bpl_pixel": [
+        2607,
+        2572
+      ],
+      "picked_by": "normalised cross-correlation against the BPL patch",
+      "ncc": 0.17,
+      "modern": {
+        "lat": 41.8820455,
+        "lon": -87.6278089,
+        "osm_node_ids": [
+          27446720
+        ],
+        "nodes_averaged": 1,
+        "utm_e": 447910.33,
+        "utm_n": 4636870.53
+      },
+      "residual_m": 7.52,
+      "residual_m_in_retained_8pt_fit": 9.0,
+      "residual_m_in_bpl_fit": 13.9,
+      "scan_to_scan_residual_px": 12.8
+    },
+    {
+      "id": "G2",
+      "map_feature": "Wolcott St & Ohio St",
+      "feature_note": "Kinzie's Addition; Wolcott is today's North State Street.",
+      "pixel": [
+        2946.0,
+        1647.0
+      ],
+      "bpl_pixel": [
+        2620,
+        972
+      ],
+      "picked_by": "normalised cross-correlation against the BPL patch",
+      "ncc": 0.284,
+      "modern": {
+        "lat": 41.8924761,
+        "lon": -87.6280935,
+        "osm_node_ids": [
+          258023464
+        ],
+        "nodes_averaged": 1,
+        "utm_e": 447895.2,
+        "utm_n": 4638028.79
+      },
+      "residual_m": 14.69,
+      "residual_m_in_retained_8pt_fit": 9.0,
+      "residual_m_in_bpl_fit": 9.5,
+      "scan_to_scan_residual_px": 1.8
+    },
+    {
+      "id": "G3",
+      "map_feature": "LaSalle St & Randolph St",
+      "feature_note": "NW corner of the Public Square block.",
+      "pixel": [
+        2388.0,
+        2836.0
+      ],
+      "bpl_pixel": [
+        2057,
+        2180
+      ],
+      "picked_by": "normalised cross-correlation against the BPL patch",
+      "ncc": 0.248,
+      "modern": {
+        "lat": 41.8845065,
+        "lon": -87.6324648,
+        "osm_node_ids": [
+          10923165759,
+          10923165760,
+          10929181429,
+          10929181430
+        ],
+        "nodes_averaged": 4,
+        "utm_e": 447526.04,
+        "utm_n": 4637146.61
+      },
+      "residual_m": 12.43,
+      "residual_m_in_retained_8pt_fit": 16.3,
+      "residual_m_in_bpl_fit": 15.1,
+      "scan_to_scan_residual_px": 4.6
+    },
+    {
+      "id": "G4",
+      "map_feature": "Clark St & Washington St",
+      "feature_note": "SE corner of the Public Square block. Sits in a visibly warped region of the sheet \u2014 the expected outlier.",
+      "pixel": [
+        2604.0,
+        2993.0
+      ],
+      "bpl_pixel": [
+        2292,
+        2347
+      ],
+      "picked_by": "hand, 20 px grid at 4x on both scans",
+      "ncc": null,
+      "modern": {
+        "lat": 41.8832047,
+        "lon": -87.6309328,
+        "osm_node_ids": [
+          28290281,
+          10922644192
+        ],
+        "nodes_averaged": 2,
+        "utm_e": 447652.09,
+        "utm_n": 4637001.14
+      },
+      "residual_m": 37.0,
+      "residual_m_in_retained_8pt_fit": 27.0,
+      "residual_m_in_bpl_fit": 32.7,
+      "scan_to_scan_residual_px": 19.1
+    },
+    {
+      "id": "G5",
+      "map_feature": "Canal St & Lake St",
+      "feature_note": "West side; blocks 22/29 straddle Lake, block 22 cut diagonally by the river.",
+      "pixel": [
+        1529.0,
+        2600.0
+      ],
+      "bpl_pixel": [
+        1197,
+        1955
+      ],
+      "picked_by": "normalised cross-correlation against the BPL patch",
+      "ncc": 0.243,
+      "modern": {
+        "lat": 41.8857338,
+        "lon": -87.6398656,
+        "osm_node_ids": [
+          258020603
+        ],
+        "nodes_averaged": 1,
+        "utm_e": 446913.03,
+        "utm_n": 4637287.42
+      },
+      "residual_m": 6.1,
+      "residual_m_in_retained_8pt_fit": 2.0,
+      "residual_m_in_bpl_fit": 1.8,
+      "scan_to_scan_residual_px": 3.8
+    },
+    {
+      "id": "G6",
+      "map_feature": "Cass St & Illinois St",
+      "feature_note": "Cass is today's North Wabash Avenue; the reserved Kinzie Block lies immediately south.",
+      "pixel": [
+        3067.0,
+        1877.0
+      ],
+      "bpl_pixel": [
+        2742,
+        1203
+      ],
+      "picked_by": "normalised cross-correlation against the BPL patch",
+      "ncc": 0.274,
+      "modern": {
+        "lat": 41.8908948,
+        "lon": -87.6266902,
+        "osm_node_ids": [
+          12941645398
+        ],
+        "nodes_averaged": 1,
+        "utm_e": 448010.33,
+        "utm_n": 4637852.37
+      },
+      "residual_m": 24.01,
+      "residual_m_in_retained_8pt_fit": 23.8,
+      "residual_m_in_bpl_fit": 23.0,
+      "scan_to_scan_residual_px": 1.2
+    },
+    {
+      "id": "G7",
+      "map_feature": "Rush St & Ohio St",
+      "feature_note": "Kinzie's Addition.",
+      "pixel": [
+        3269.0,
+        1631.0
+      ],
+      "bpl_pixel": [
+        2942,
+        950
+      ],
+      "picked_by": "normalised cross-correlation against the BPL patch",
+      "ncc": 0.213,
+      "modern": {
+        "lat": 41.8925217,
+        "lon": -87.6254098,
+        "osm_node_ids": [
+          736861647
+        ],
+        "nodes_averaged": 1,
+        "utm_e": 448117.87,
+        "utm_n": 4638032.22
+      },
+      "residual_m": 9.53,
+      "residual_m_in_retained_8pt_fit": 13.6,
+      "residual_m_in_bpl_fit": 13.0,
+      "scan_to_scan_residual_px": 1.7
+    },
+    {
+      "id": "G8",
+      "map_feature": "Wolcott St & Kinzie St",
+      "feature_note": "Kinzie marked with the boundary shading as the original town's north edge.",
+      "pixel": [
+        2950.0,
+        2141.0
+      ],
+      "bpl_pixel": [
+        2624,
+        1470
+      ],
+      "picked_by": "normalised cross-correlation against the BPL patch",
+      "ncc": 0.247,
+      "modern": {
+        "lat": 41.8892588,
+        "lon": -87.6280074,
+        "osm_node_ids": [
+          2294339314
+        ],
+        "nodes_averaged": 1,
+        "utm_e": 447899.73,
+        "utm_n": 4637671.53
+      },
+      "residual_m": 14.35,
+      "residual_m_in_retained_8pt_fit": 13.5,
+      "residual_m_in_bpl_fit": 12.6,
+      "scan_to_scan_residual_px": 2.3
+    }
+  ],
+  "fit": {
+    "type": "affine, least squares, eleven-point, NA pixel -> EPSG:26916",
+    "adopted": "T-1091, 2026-09-12. THIS IS THE FIT IN FORCE. It replaces the eight-point affine kept below as `retained_fit`, on the adjudication T-0878 wrote and T-1090 split: the eight lie in a 1594 px band in the top half of a 6628 px sheet, so their y scale was fitted over a quarter of the paper and extrapolated over the rest, and the School Section \u2014 a statute mile square drawn entirely below every one of them \u2014 came out 3.06 per cent long. Adding the section's three other corners as control at the sheet's FOOT is the only one of three tested repairs that improves the out-of-sample number: leave-one-out 23.29 -> 20.17 m. It costs 2.20 m of RMS on the original eight, which is the price of the extrapolation being paid where it was incurred rather than hidden.",
+    "control": {
+      "points": 11,
+      "the_eight": "gcps[] in this file \u2014 the control crossings T-0787 picked by normalised cross-correlation against the BPL patch, y 1631..3225 px",
+      "the_three": "the School Section's north-west, south-west and south-east corners, y 3169..5495 px: PLSS section corners of sections 8/9/16/17, 16/17/20/21 and 15/16/21/22, T39N R14E, still crossings on the modern street grid at Halsted & Madison, Halsted & Roosevelt and State & Roosevelt",
+      "extra_points_file": "data/traces/gcp/wright_1834_nara_hup_section_corners.json",
+      "note": "The three corner pixels are not fresh picks off the raster: they are recovered by inverting the RETAINED eight-point fit on T-0797's measured line table, which is what makes them fit-independent evidence. Their provenance, their OSM node ids and the 0.79 per cent by which the modern square they make is itself long are stated in that file."
+    },
+    "coefficients": {
+      "a": 0.7052763759991079,
+      "b": 0.0074564878205790885,
+      "c": 445809.24018995493,
+      "d": 0.027580496086082,
+      "e": -0.7212111848897869,
+      "f": 4639121.261546429
+    },
+    "rms_m": 16.02,
+    "rms_m_on_the_eight": 18.39,
+    "rms_m_on_the_three_corners": 6.22,
+    "scale_m_per_px": {
+      "x": 0.7058,
+      "y": 0.7212
+    },
+    "rotation_deg": 2.239,
+    "axis_scale_difference_pct": 2.2,
+    "adjudicated_by": "data/traces/gcp/wright_1834_nara_hup_fit_adjudication.json",
+    "adjudication": "T-0878 adjudicated, T-1091 adopted. The anisotropy this fit states, 2.2 per cent, is within four tenths of the 1.92 per cent the School Section's own drawn square measures on the paper \u2014 where the retained fit said 5.2. The mile now comes out 1625.88 m north-south and 1619.99 m east-west, +1.03 and +0.66 per cent, and it stops there rather than at zero because the modern square the three corners make with G1 is itself +0.79 per cent long in BOTH axes: the model has reproduced its control and the remaining error is the control's. Driving the mile to zero is what the rejected y-rescale (M2) does, at 11.7 m of RMS on the control it already had. WHAT STILL DOES NOT HOLD: this is one affine over a sheet whose paper is not uniform, worst point 37.00 m at G4, and a reading that needs better than that should still be anchored on a length known on the ground rather than on the paper.",
+    "what_moved_when_it_was_adopted": "T-1091 regenerated the five traces that carry only pixels \u2014 school_section_block_numbering, kinzie_addition_block_numbering, kinzie_block_name, wabansia_block_numbering and wabansia_water_lots. The four SEATED traces \u2014 the School Section grid, Kinzie's Addition street grid, the Michigan St tract and Wabansia's streets \u2014 do not move with the fit and are re-seated by T-1092, which also re-bakes what stands on the ground that moves. Until T-1092 lands, a seated trace on this sheet is seated through the RETAINED fit and says so."
+  },
+  "retained_fit": {
+    "_doc": "THE RETAINED EIGHT-POINT FIT \u2014 no longer in force, kept because things are keyed to it and comparable only through it: every SEATED trace on this sheet until T-1092 re-seats them, the three corner pixels above (recovered by inverting THIS fit), the scan-to-scan comparison with the BPL copy below, and the published registration of T-0787. Never delete it and never fit anything new on it.",
+    "type": "affine, least squares, NA pixel -> EPSG:26916",
+    "published_by": "T-0787, superseded in force by T-1091 on 2026-09-12",
+    "coefficients": {
+      "a": 0.6980878351851325,
+      "b": 0.001810867260331861,
+      "c": 445842.3757113198,
+      "d": 0.023085701309160045,
+      "e": -0.7357850060213877,
+      "f": 4639166.585475362
+    },
+    "rms_m": 16.19,
+    "scale_m_per_px": {
+      "x": 0.6985,
+      "y": 0.7358
+    },
+    "rotation_deg": 1.894,
+    "axis_scale_difference_pct": 5.2,
+    "per_point_residuals": "gcps[].residual_m_in_retained_8pt_fit",
+    "compared_with_wright_1834": {
+      "bpl_scale_m_per_px": {
+        "x": 0.6983,
+        "y": 0.7246
+      },
+      "bpl_rms_m": 17.5,
+      "bpl_rotation_deg": 1.18,
+      "finding": "THE X SCALES AGREE AND THE Y SCALES DO NOT, which is what a different mounting of the same paper should look like. Across the sheet the two fits differ by 0.03% in x (0.6985 against 0.6983 m/px) and by 1.5% in y (0.7358 against 0.7246). The NA sheet's own x/y anisotropy is 5.2% where the BPL sheet's is 3.7%; the extra stretch is in the long axis, along which the manuscript was torn and backed. Fit quality is marginally better on the new scan (RMS 16.2 m against 17.5 m) on identical control, so nothing about this sheet argues for demoting it; the two fits' rotations are 1.894 deg here against 1.183 deg on the BPL sheet, a difference of 0.71 deg."
+    },
+    "why_it_was_superseded": "THIS FIT IS FITTED OVER THE TOP HALF OF THE SHEET AND EXTRAPOLATED OVER THE REST, and the 5.2 per cent anisotropy it states is about three per cent too much on the y axis where it is extrapolated. All eight control points lie between y=1631 and y=3225 px of a 6628 px sheet; the School Section, whose outer lines are a statute mile square drawn on the same paper, occupies y=3169-5495 px and measures 1658.65 m north-south through this fit. Measured on the section's own square the sheet is 0.70055 m/px in x and 0.71397 m/px in y \u2014 a real 1.92 per cent anisotropy. data/traces/gcp/wright_1834_nara_hup_fit_adjudication.json is the whole argument."
+  },
+  "scan_to_scan": {
+    "type": "affine, least squares, BPL pixel -> NA pixel, all eight points",
+    "coefficients": {
+      "a": 1.0004937499658355,
+      "b": 0.0037641754141221617,
+      "c": 320.2751908343157,
+      "d": 0.011288077966103812,
+      "e": 0.9845691742257379,
+      "f": 662.0284406652083
+    },
+    "rms_px": 8.5,
+    "max_departure": {
+      "gcp": "G4",
+      "px": 19.1,
+      "note": "Clark and Washington, at the south-east corner of the Public Square, is where the two scans disagree most. It is also the worst point of the BPL fit against modern control (32.7 m), which that file attributes to visible local warp in the sheet around the square. Two independent measurements now say the same thing about the same place: THE RESIDUAL IS THE FINDING, not a picking error."
+    },
+    "warning": "Applying this to carry a reading between the scans costs the residual above; it is not a lossless change of coordinates."
+  },
+  "scale_bar": {
+    "drawn": "Scale of feet \u2014 1200 / 600 / 300, subdivided 200 / 100 / 50 at the right end, at the foot of the sheet",
+    "method": "tick columns found as darkness maxima of the column profile across the bar's ruled band, then a least-squares fit of pixel against feet",
+    "nara_hup": {
+      "band_y": [
+        5470,
+        5530
+      ],
+      "tick_px": {
+        "1200": 2421,
+        "600": 2679,
+        "300": 2818,
+        "0": 2948
+      },
+      "fit_px_per_foot": 0.44019,
+      "m_per_px": 0.6924,
+      "fit_residual_rms_px": 2.7
+    },
+    "bpl": {
+      "band": "IIIF region 1950,4770,750,260",
+      "tick_px": {
+        "1200": 2138,
+        "600": 2392,
+        "300": 2530,
+        "0": 2669
+      },
+      "fit_px_per_foot": 0.44181,
+      "m_per_px": 0.6899
+    },
+    "finding": "THE BAR CORROBORATES THE HORIZONTAL FIT ON BOTH SHEETS AND SAYS NOTHING ABOUT THE VERTICAL, which is where the disagreement actually is. The bar is drawn horizontally, so it can only be compared with the fits' x scale: 0.6924 against 0.6985 m/px here (0.87%) and 0.6899 against 0.6983 on the BPL sheet (1.2%). Carried across the ~1750 px width of the plat that is 11 m and 12 m \u2014 inside each fit's own RMS (16.2 m and 17.5 m), so under this ticket's test it is a rounding and not a finding. The 5.2% and 3.7% x/y anisotropies are larger than either, and the bar cannot adjudicate them."
+  },
+  "lacunae": {
+    "_doc": "Paper the sheet has lost. Anything inside these boxes is cloth backing, not Wright, and no reading may be taken from them. Boxes are NA pixel space, [x_min, y_min, x_max, y_max].",
+    "method": "Whole-sheet sweep inside the neat line for connected regions brighter than 200/255 with saturation below 0.14 \u2014 the cloth's tone, which no part of the aged paper reaches \u2014 then the bounding box of each region re-measured at full resolution. Two were found, which is the number the printed caption gives.",
+    "found": [
+      {
+        "id": "L1",
+        "box": [
+          2040,
+          4382,
+          2152,
+          4635
+        ],
+        "area_px": 9328,
+        "ground_extent_m": [
+          80,
+          183
+        ],
+        "what_it_covers": "The 'larger portion, near the lower center' of the caption. It sits on the east bank of the South Branch across the Reserved blocks numbered 87 and 88, and takes with it the west edge of that tier and part of the bank line.",
+        "confidence": "documented",
+        "source_id": "wright_1834_nara_hup"
+      },
+      {
+        "id": "L2",
+        "box": [
+          2729,
+          3320,
+          2759,
+          3363
+        ],
+        "area_px": 278,
+        "ground_extent_m": [
+          22,
+          32
+        ],
+        "what_it_covers": "A second, far smaller loss of the same tone, on the west edge of the Reserved strip beside the block numbered 49, taking a few millimetres of the block boundary with it.",
+        "confidence": "inferred",
+        "note": "The caption says two portions are missing and this is the only other white loss the sweep finds inside the neat line, so it is read as the second. It was not identified from the caption, which locates only the larger, and a reading that finds a better candidate should replace it."
+      }
+    ],
+    "tear": "The caption says the drawing 'was torn to this spot from the upper right margin' and was later mounted on cloth. The tear itself is repaired and no paper is missing along it, so it is not boxed; the upper right margin is blank sheet in this scan and carries no map content.",
+    "ground_extent_note": "Carried through the FIT IN FORCE, so these two extents changed when T-1091 adopted the eleven-point registration: L1's north-south loss reads 183 m where the retained eight-point fit made it 187, which is the y-scale correction and nothing about the paper."
+  }
+}

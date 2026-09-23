@@ -1,0 +1,83 @@
+{
+ "id": "hh_fell_j_w",
+ "name": "The Fell household — documented at Chicago, no trade printed, unplaced in the town",
+ "division": "unplaced",
+ "head": "fell_j_w",
+ "source_pass": "placed",
+ "arrival": {
+  "value": "1835-06-17",
+  "confidence": "inferred",
+  "sources": [
+   "chicago_democrat_1833_1835"
+  ],
+  "note": "A BOUND FROM THE PAPER, NOT AN ARRIVAL. The corpus first prints this person at the Democrat of 17 June 1835, column 12, so they are in the town's paper by 1835-06-17 and at no stated time before it; nothing reached says when they came. Last printed 1835-06-17.",
+  "precision": "not_later_than"
+ },
+ "party_size_on_arrival": {
+  "value": null,
+  "confidence": "reconstructed",
+  "note": "Not attested."
+ },
+ "origin": {
+  "value": null,
+  "confidence": "reconstructed",
+  "note": "Not attested."
+ },
+ "reason_for_coming": {
+  "value": null,
+  "confidence": "reconstructed",
+  "note": "Not attested."
+ },
+ "lives_at": {
+  "value": null,
+  "confidence": "reconstructed",
+  "note": "Not attested. NOTHING IS BEING WITHHELD HERE: no source reached says where this person lived, and 52 households in this dataset were already in that position before this one was written."
+ },
+ "works_at": {
+  "value": null,
+  "confidence": "reconstructed",
+  "note": "Not attested, and no trade is recorded either — the papers name this person without saying what they did."
+ },
+ "present_on_scene_date": {
+  "value": "uncertain",
+  "confidence": "inferred",
+  "sources": [
+   "chicago_democrat_1833_1835"
+  ],
+  "note": "THE CORPUS STOPS BEFORE THE SCENE DATE. Last printed 1835-06-17, at the Democrat of 17 June 1835, column 12, and nothing reached either follows this person to 1 July 1835 or says they left. A documented resident whose whereabouts on one day are unknown is `uncertain` here rather than dropped: that is the same distinction index.json draws for Jeremiah Porter, and it is a finding rather than a gap."
+ },
+ "persons": [
+  {
+   "id": "fell_j_w",
+   "name": "J. W. Fell",
+   "relationship": "head",
+   "grade": "attested",
+   "ladder_rule": "G1b",
+   "occupation": {
+    "value": "none_recorded",
+    "confidence": "reconstructed",
+    "note": "No source records an occupation for this person. This is the ABSENCE of a record rather than a claim that they did no work: the papers name them in a proceedings column, a public card or an advertisement and simply do not say what they did for a living, and `data/research/newspapers/register_1835.json` reads no trade for them. Reasoning a trade out of the company they keep would be inventing one, so the vocabulary's own word for an absent record is what stands here."
+   },
+   "sources": [
+    "chicago_democrat_1833_1835"
+   ],
+   "note": "A DOCUMENTED PERSON, AND NO TRADE IS CLAIMED BECAUSE THE PAPERS GIVE NONE. The corpus prints 'J. W. FELL' and places them at Chicago, Lake Street; it does not say what they did for a living, where this household lived, who else was in it, or when it came. The occupation therefore reads `none_recorded`, this dataset's own word for an absent record, rather than a trade reasoned from the company they keep — the absence is the finding. Cited at the Democrat of 17 June 1835, column 12. THE CORPUS GIVES AN ADDRESS IN THE TOWN — Lake Street — which is a placement no visitor passing through acquires. A place the corpus associates with a person is where the paper does business with them and not a statement about where they slept. No figure is drawn (docs/LIBERTIES.md L1). READ THROUGH A TRANSCRIPTION, not a scan: the owner's ruling of 2026-08-28 grades a transcription-mediated reading as documented, and the source record for the run states that standard and its limits. A scan read that confirms or corrects the name upgrades this entry.",
+   "resident_research": {
+    "programme": "resident-research-2026",
+    "ticket": "T-0510",
+    "outcome": "no_corroboration",
+    "reviewed_on": "2026-09-05",
+    "asserted_identity": false,
+    "evidence_against": "Refused. All 1 card(s) heading 'Fell' name Illinois and neither Chicago nor Cook County, so the lead against J. W. Fell stands on a surname with the locality actively absent - the one thing beyond the name that a card could have contributed. Refused. All 1 card(s) heading 'Fell' name Illinois and neither Chicago nor Cook County, so the lead against J. W. Fell stands on a surname with the locality actively absent - the one thing beyond the name that a card could have contributed. Ruled on the card \"Fell | DuPage Co., III. (Blar.rhard, R.) 1882! P ' -\" against J. W. Fell. A raw text sweep over-reports this surname because 'fell' is also an English verb; every apparent hit in the book corpus was the verb. The Newberry index lead heading 'Fell' is refused in the repository as locality_absent — its card names Illinois and neither Chicago nor Cook County.",
+    "summary": "No reliable record outside the Chicago post-office lists could be tied to J. W. Fell with a date, place, occupation or kinship discriminator. The repository's own crosswalks record the refusal: Refused. All 1 card(s) heading 'Fell' name Illinois and neither Chicago nor Cook County, so the lead against J. W. Fell stands on a surname with the locality actively absent - the one thing beyond the name that a card could have contributed. This is a documented no-corroboration result, not evidence that the person did not exist.",
+    "notes": "Research only. Later-volume readings are recorded here and NOT promoted: T-0513 consolidates and T-0514/T-0515 apply.",
+    "source_ids": [
+     "chicago_democrat_1833_1835"
+    ]
+   }
+  }
+ ],
+ "touches_removal": false,
+ "review_required": false,
+ "research_note": "MINTED FROM THE NEWSPAPER REGISTER (T-0373) BY A RESIDENCY TEST, NOT BY A TRADE. T-0376's pass mints the register's `new_resident` people whose trade the papers print; this one takes the rest, where there is no trade to anchor anybody and a printed name on its own proves only that a Chicago paper set the type. The test asks the corpus two questions instead: does it place this person inside the town and NOWHERE outside it, and does a second independent witness corroborate a bare 'Chicago' — an address at street level, print in two or more issues, or print beside two or more people this reconstruction already holds. THE CORPUS GIVES AN ADDRESS IN THE TOWN — Lake Street — which is a placement no visitor passing through acquires. The household around them is a CONTAINER and not an argument: one member, no dwelling, no division, no family, no recorded trade, and every one of those absences written as unattested rather than filled in from the shape of the rest of the town. That the person is a HOUSEHOLD is the one invention here and it is recorded as docs/LIBERTIES.md L213. tools/mint_placed_residents.py derives the whole minted set and prints every candidate it refused, with the reason."
+}

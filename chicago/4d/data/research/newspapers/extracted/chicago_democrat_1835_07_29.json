@@ -1,0 +1,927 @@
+{
+  "schema": 1,
+  "issue_id": "chicago_democrat_1835_07_29",
+  "extracted": "2026-08-29",
+  "extracted_by": "hand, T-0296",
+  "note": "The Democrat of 1835-07-29, Vol. II No. 15, read through — the last issue of the scene month and the richest of the four in NEW matter. Read from the committed derived text, which resolves on `dev`, so every quote is machine-checked on this branch. WHAT IS NEW HERE and nowhere else in the range: a second auction and commission house opening in a new store on Dearborn Street (c004), a good store standing empty and to let in John T. Temple's gift (c003), millwrights wanted (c005), a fifty-dollar note repudiated (c002), and the only vessel list in the four issues whose arrival DATES survive the transcription (c001). Everything else is the scene month's standing advertising in its last printing, recorded where a second witness settles something the first could not — Cooley and Halsman's anchor is the Eagle COFFEE House (c009), Kinzie's hams are Ohio hams (c007), Wm. Hogue & Co.'s third partner is WM. HOGUE whole (c010), and Russell E. Heacock's name is legible here where his address was legible on 1835-07-08 (c018). THE GRAIN: the docx rebuild delivers half-columns as single lines of up to 6,926 characters, so most claims here are cut with `locator.spans`. NO CHICAGO POST-OFFICE LETTER LIST: swept for every form the Democrat uses, for one hit, the Juliet return of 1 July 1835 reprinted from 1835-07-22 (page 4 column 2, line 497) and not minted, under T-0299.",
+  "claims": [
+    {
+      "id": "c001",
+      "kind": "shipping",
+      "reading": "transcription_mediated",
+      "quote": "OF VESSELS\nGO, 1835\nARRIVED, July 1%, Sehr, Swan, Gilbert, St. Joseph. 16°\" Hannah, Spry, do.\n43 B, Uaned Stages, Hart, Buffalo Solir. Piillips, Hawe, St. Joseph,\n19 Swan, Gilbert, dn,\n“ Jlewellon, Clark, Millwalkee. Miclaguo, Dixen, Detroit. Jewge Sintth, Druro, Greea Bar. New Connectiaut, Kenaedy, Buffalo Sehr. Swan, Galhort, St. Joseph, Sloop Phincie, Duthave, Detroit. Bng Indianas McKeustry, Builalo. Sotr, Uther, do. Juliana, NeQuoen, Buffalo. Autor), Hobertxon, Buffalo. 8. B. Michigan, Binke, Buffalo. Sehr. Antilope, Edwards, Michigan C. W Réthbourn, Shipwagan. Truro, Miliwalkee,\nLivwellyn, Howe, St. Joueph. Globe, Perkins, B:",
+      "normalized": "[LIST] OF VESSELS [ARRIVED AT CHICA]GO, 1835 ARRIVED, July 1[5], Schr. Swan, Gilbert, St. Joseph. 16[th] Hannah, Spry, do. [1]7[th] [S.] B. United States, Hart, Buffalo[;] Schr. Phillips, Howe, St. Joseph[;] 19[th] Swan, Gilbert, d[o]. Llewellyn, Clark, Millwalkee. Michigan, Dixon, Detroit. George Smith, Truro, Green Bay. New Connecticut, Kennedy, Buffalo[;] Schr. Swan, Gilbert, St. Joseph[;] Sloop Ph[o]enix, Du[s]ha[n]e, Detroit. Brig Indiana, McKinstry, Buffalo. Sch[r]. [O]ther, do. Juliana, McQueen, Buffalo. Aurora, Robertson, Buffalo. S. B. Michigan, B[l]ake, Buffalo. Schr. Antelope, Edwards, Michigan C[ity.] [Hiram,] Rathbourn, Shipwagen. Truro, Millwalkee, Llewellyn, Howe, St. Joseph. Globe, Perkins, B[uffalo]",
+      "locator": {
+        "artifact_role": "primary",
+        "issue_page": 3,
+        "column": 2,
+        "lines": [
+          326,
+          332
+        ]
+      },
+      "entities": [],
+      "notes": "TWENTY-TWO ARRIVALS IN A FORTNIGHT, AND THE ONE DATED LIST IN THE RANGE. This is the only vessel list of the four issues whose dates survive the transcription — 15th, 16th, 17th and 19th of July are all legible against their entries — where the 1835-07-08 deposit printing lost its dates to the segmenter's crop and the 1835-07-15 rebuild lost all but the first. The traffic it shows is the town's: two steamboats (the United States and the Michigan, both from Buffalo), two brigs, a sloop and the rest schooners, working St. Joseph, Milwaukee, Detroit, Green Bay, Michigan City and Buffalo. THE MASTERS ARE NOT MINTED as persons: a master named on an arrival list is not evidence of residence in Chicago, and the epic mints residents. OCR judgements are recognition-class throughout — 'Jlewellon'→'Llewellyn', 'Miclaguo'→'Michigan', 'Jewge Sintth, Druro'→'George Smith, Truro', 'Phincie, Duthave'→'Phoenix, Dushane', 'McKeustry'→'McKinstry', 'NeQuoen'→'McQueen', 'Autor)'→'Aurora'."
+    },
+    {
+      "id": "c002",
+      "kind": "notice",
+      "reading": "transcription_mediated",
+      "quote": "Ny caationed against\nhaying & Note, given by me to George Hall,\nlates June 24. 1835, for filly dollars, payable in\nvis mnopthe train dafe, an 1 have teseivod Be\ncobmdération for tha game, and it\n; HENR:\nChicago, July 27, /1836,—3w1 6 i i",
+      "normalized": "[All persons are hereby] cautioned against [p]u[rc]hasing a Note, given by me to George Hall, [da]te[d] June 24. 1835, for f[i]f[t]y dollars, payable in [s]i[x] m[on]ths [f]rom da[t]e, as I have re[c]eived [no] co[n]s[i]d[e]ration for th[e] [s]ame, and it [will not be paid.] HENR[Y …] Chicago, July 27, 1835,—3w16",
+      "locator": {
+        "artifact_role": "primary",
+        "issue_page": 3,
+        "column": 2,
+        "lines": [
+          333,
+          339
+        ]
+      },
+      "entities": [
+        {
+          "as_printed": "George Hall",
+          "normalized": "George Hall",
+          "role": "payee",
+          "occupations": [],
+          "associated_places": [
+            "Chicago"
+          ]
+        }
+      ],
+      "ad_copy_date": {
+        "verbatim": "Chicago, July 27, /1836,—3w1 6 i i",
+        "iso": "1835-07-27"
+      },
+      "notes": "A FIFTY-DOLLAR NOTE REPUDIATED TWO DAYS BEFORE THE ISSUE. The advertiser's own name is sheared to '; HENR:' at the crop edge and NO PERSON IS MINTED FOR HIM — a forename with the surname cut away is not a name. George Hall, to whom the note was given, is named whole and is minted. The dateline prints '1836', which the run of the paper refuses: this is Vol. II No. 15 of 29 July 1835 and the notice is ordered for three weeks from the 27th, so the year is 1835 and the misprint is recorded in the verbatim rather than carried into the reading."
+    },
+    {
+      "id": "c003",
+      "kind": "building",
+      "reading": "transcription_mediated",
+      "quote": "good Store to 7 Ht—ADpiy ta sich | JOUN 'T, TEMPLE,",
+      "normalized": "[A] good Store to [le]t—Apply to [wh]ich JOHN T. TEMPLE,",
+      "locator": {
+        "artifact_role": "primary",
+        "issue_page": 3,
+        "column": 3,
+        "lines": [
+          342,
+          342
+        ],
+        "spans": [
+          {
+            "line": 342,
+            "from": 179,
+            "to": 230
+          }
+        ]
+      },
+      "entities": [
+        {
+          "as_printed": "JOUN 'T, TEMPLE",
+          "normalized": "John T. Temple",
+          "role": "advertiser",
+          "occupations": [
+            "physician",
+            "property owner"
+          ],
+          "associated_places": [
+            "Chicago"
+          ]
+        }
+      ],
+      "notes": "A STORE STANDING EMPTY IN CHICAGO IN JULY 1835, and no street given for it. That is the whole of the claim and it is worth making: the parent asks for to-let notices because an empty store is a building that exists, and this one is in John T. Temple's gift. NOTHING IS INFERRED ABOUT WHERE IT STOOD — Temple is elsewhere documented in the town, but this notice places neither him nor the store, so no placement is recorded and none may be read into it. The advertisement stands in the densest advertising column of the issue, which this rebuild delivers as a single 6,926-character line woven out of two half-columns, so the claim is cut with `locator.spans` rather than by line."
+    },
+    {
+      "id": "c004",
+      "kind": "business",
+      "reading": "transcription_mediated",
+      "quote": "suction and Commission Ry > con) MEW SSB aileb- | NIE suteriier would sutiewy the abl tie seo be line tented the Now Story ow Dearborn {2k fie the piargone of Uramacting (ue Aware fl ad Comosseon businere in general, and pe poy. *Sub- | dy to receive on consigtngnt all hinds of Goma unity |3ud dimpow of them ts order. Literal steam yp feen wade in allinstanees required, wud insurance: oe oy property st request e AL GARRES 7 GQt} Chicago, July 27, In",
+      "normalized": "[A]uction and Commission [Rooms.] […] [T]HE su[bsc]ri[b]er would [notify] the [pu]b[lic] […] [that he has] [r]ented the New Stor[e] o[n] Dearborn [Street, for] the p[u]r[p]o[s]e of [t]ransacting [th]e A[uction] and Com[mi]ss[i]on busine[ss] in general, and [is rea]dy to receive on consig[n]ment all [k]inds of Goods [and] dis[p]o[se] of them t[o] order. Liberal [advances will] be[en] made in all instances required, and insurance [on] property [i]f request[ed.] [uncertain: M. GARRES] Chicago, July 27, 18[35]",
+      "locator": {
+        "artifact_role": "primary",
+        "issue_page": 3,
+        "column": 3,
+        "lines": [
+          342,
+          342
+        ],
+        "spans": [
+          {
+            "line": 342,
+            "from": 280,
+            "to": 733
+          }
+        ]
+      },
+      "entities": [],
+      "business": {
+        "name": "the Dearborn Street auction and commission rooms",
+        "proprietors": [],
+        "trade": "auction and commission rooms",
+        "goods": [],
+        "street": "Dearborn Street",
+        "placement": {
+          "class": "street_only",
+          "street": "Dearborn Street"
+        }
+      },
+      "announces_opening": {
+        "verbatim": "[that he has] [r]ented the New Stor[e] o[n] Dearborn [Street, for] the p[u]r[p]o[s]e of [t]ransacting [th]e A[uction] and Com[mi]ss[i]on busine[ss]",
+        "dating": "effected",
+        "iso": "1835-07-27",
+        "note": "'Has rented' over the printing's own dateline of 27 July 1835. The same copy is reprinted on 12 August (c009 there), where the dateline reads the same day."
+      },
+      "notes": "A SECOND AUCTION HOUSE OPENS IN THE TOWN, IN A NEW STORE ON DEARBORN STREET, and its proprietor cannot be named. 'AL GARRES 7 GQt}' is the whole of the signature this transcription carries and no second witness exists — the issue is the last in the range and the advertisement is new in it — so the business is recorded under what it IS rather than under a name invented for it, `entities` is empty, and the reading of the signature stays inside `[uncertain: …]`. THE PLACEMENT IS THE VALUABLE PART AND IT IS SOUND: 'rented the New Store on Dearborn Street', dated 27 July 1835, two days before the issue. `class: street_only` — a street and a building described as new, but no side, number or neighbour. ANNOUNCES AN OPENING, so under the parent's rule this house was NOT standing on the scene date: W. Montgomery's rooms on South Water Street were the town's auction house on 1 July 1835, and this is a competitor arriving four weeks later.",
+      "ad_copy_date": {
+        "verbatim": "Chicago, July 27, In",
+        "iso": "1835-07-27"
+      }
+    },
+    {
+      "id": "c005",
+      "kind": "notice",
+      "reading": "transcription_mediated",
+      "quote": "Mill Wright’ Wanted. Apply t mb A J. Curtive, Attome: - Apply | 4 | Joly en eae Attomey at Lew,",
+      "normalized": "Mill Wright[s] Wanted. Apply t[o] […] [J.] Curti[s]s, Attorne[y] […] Attorney at Law,",
+      "locator": {
+        "artifact_role": "primary",
+        "issue_page": 3,
+        "column": 3,
+        "lines": [
+          342,
+          342
+        ],
+        "spans": [
+          {
+            "line": 342,
+            "from": 55,
+            "to": 150
+          }
+        ]
+      },
+      "entities": [],
+      "notes": "MILLWRIGHTS WANTED, applications to an attorney. NO PERSON IS MINTED: the surname arrives as 'A J. Curtive' in a line that also carries 'A J. Curtiss' shaped type a few characters later, and the only Curtiss otherwise in this range is L. G. Curtiss the deputy surveyor, who is not an attorney — so the name is left in brackets and nobody is minted from it. What the claim carries is the demand: a town advertising for millwrights in July 1835, alongside the cabinet makers wanted at c018."
+    },
+    {
+      "id": "c006",
+      "kind": "business",
+      "reading": "transcription_mediated",
+      "quote": "JOHN DEAN CATON, |ATTORVEY AND COUNSELLOR\n| And Soliciter in Chancery,\n| DEARBORN ST, CIRCA O",
+      "normalized": "JOHN DEAN CATON, ATTORNEY AND COUNSELLOR [AT LAW,] And Solicitor in Chancery, DEARBORN ST, C[HI]CA[G]O",
+      "locator": {
+        "artifact_role": "primary",
+        "issue_page": 3,
+        "column": 4,
+        "lines": [
+          361,
+          364
+        ],
+        "lines_of_claim": [
+          361,
+          363,
+          364
+        ],
+        "spans": [
+          {
+            "line": 361,
+            "from": 25,
+            "to": 66
+          },
+          {
+            "line": 363,
+            "from": 0,
+            "to": 28
+          },
+          {
+            "line": 364,
+            "from": 0,
+            "to": 22
+          }
+        ]
+      },
+      "entities": [
+        {
+          "as_printed": "JOHN DEAN CATON",
+          "normalized": "John Dean Caton",
+          "role": "proprietor",
+          "occupations": [
+            "attorney at law",
+            "solicitor in chancery"
+          ],
+          "associated_places": [
+            "Dearborn Street"
+          ]
+        }
+      ],
+      "business": {
+        "name": "John Dean Caton",
+        "proprietors": [
+          "John Dean Caton"
+        ],
+        "trade": "attorney and counsellor at law, and solicitor in chancery",
+        "goods": [],
+        "street": "Dearborn Street",
+        "placement": {
+          "class": "street_only",
+          "street": "Dearborn Street"
+        }
+      },
+      "notes": "THE SAME CARD AS chicago_democrat_1835_07_22 c003, standing a week later, and the second of the two witnesses to Caton on Dearborn Street. The heading shares its transcription line with the tail of an unrelated chancery order ('Attest—J. CLOUD, Clk.'), so the claim is cut with a span on line 361 and takes lines 363 and 364 whole."
+    },
+    {
+      "id": "c007",
+      "kind": "business",
+      "reading": "transcription_mediated",
+      "quote": "For Sale, | BWP Kees of Pres: Batter. Maw a jot at 3% +1) Ohio Had, in prane order 0 JOUN JL KINZIE.",
+      "normalized": "For Sale, [50?] Kegs of Fres[h] Butter. Al[s]o a lot [of] […] Ohio Ha[m]s, in pr[i]me order[.] JOHN [H]. KINZIE.",
+      "locator": {
+        "artifact_role": "primary",
+        "issue_page": 3,
+        "column": 4,
+        "lines": [
+          365,
+          365
+        ]
+      },
+      "entities": [
+        {
+          "as_printed": "JOUN JL KINZIE",
+          "normalized": "John H. Kinzie",
+          "role": "advertiser",
+          "occupations": [
+            "merchant",
+            "railroad commissioner"
+          ],
+          "associated_places": [
+            "Chicago"
+          ]
+        }
+      ],
+      "business": {
+        "name": "John H. Kinzie",
+        "proprietors": [
+          "John H. Kinzie"
+        ],
+        "trade": "merchant — provisions offered for sale",
+        "goods": [
+          "Butter",
+          "Hams"
+        ],
+        "street": null,
+        "placement": {
+          "class": "none"
+        }
+      },
+      "notes": "THE SECOND WITNESS TO KINZIE'S PARCEL, and the one that settles the goods: 'Ube Hams' in the 1835-07-22 printing is Ohio hams here. The quantity of butter is still cut ('BWP Kees' for a numeral and 'Kegs') and is not supplied. Kinzie appears twice in this range in two different characters — here selling butter and hams over his own name, and at the head of the Chicago and Vincennes Rail Road commissioners (chicago_democrat_1835_07_08 c002) — and both are the same man, minted on the whole name."
+    },
+    {
+      "id": "c008",
+      "kind": "business",
+      "reading": "transcription_mediated",
+      "quote": "SAMUEL LEWIS, . ESPLOTFULLY anfurme the ladies and 1 R geadcnion of Chyeage and. ste viemity i thal whon a suffiejent number et seholane flor Pr) themselves, he patends comndneing a VOUT , ant INSTRUMENTAL MUSIC SCHOOL, “a1 Is rooin on south Water atmcet -| Ue will attend to the repair and tuning of | Prane Forte's and other instruments Chirag, june 2, V8",
+      "normalized": "SAMUEL LEWIS, [R]ESP[EC]TFULLY inf[o]rm[s] the ladies and gentlemen of Chicago and its vicinity that when a sufficient number [of] scholar[s off]er themselves, he [in]tends comm[e]ncing a VO[CAL] and INSTRUMENTAL MUSIC SCHOOL, [in h]is room on south Water str[e]et. He will attend to the repair and tuning of Piano Forte's and other instruments[.] Chi[ca]g[o], june 2[2], 18[35]",
+      "locator": {
+        "artifact_role": "primary",
+        "issue_page": 3,
+        "column": 4,
+        "lines": [
+          366,
+          366
+        ],
+        "spans": [
+          {
+            "line": 366,
+            "from": 27,
+            "to": 384
+          }
+        ]
+      },
+      "entities": [
+        {
+          "as_printed": "SAMUEL LEWIS",
+          "normalized": "Samuel Lewis",
+          "role": "proprietor",
+          "occupations": [
+            "music teacher",
+            "piano tuner"
+          ],
+          "associated_places": [
+            "South Water Street"
+          ]
+        }
+      ],
+      "business": {
+        "name": "Samuel Lewis",
+        "proprietors": [
+          "Samuel Lewis"
+        ],
+        "trade": "vocal and instrumental music school, and the repair and tuning of piano fortes",
+        "goods": [],
+        "street": "South Water Street",
+        "placement": {
+          "class": "street_only",
+          "street": "South Water Street"
+        }
+      },
+      "notes": "THE FULLER OF THE TWO WITNESSES to Lewis's card, and the one that carries the sentences the 1835-07-22 printing sheared: 'he intends commencing' and 'in his room on south Water street'. It confirms the placement — a room, on South Water Street — and the conditional opening. The dateline reads 'june 2' here against 'guns 22' in the other witness, which together give 22 June 1835; neither is firm enough for an `ad_copy_date` and none is recorded."
+    },
+    {
+      "id": "c009",
+      "kind": "business",
+      "reading": "transcription_mediated",
+      "quote": "| \"TAILORING BUSINESS,\nFMF Subscribers wonlit mye notice to the | a Pullie, tat they hays! taken a shop. on (| Urarburn Sticet, yeurly mppesite. ihe haghy .{Cutfir Monae, whhepe Uiey: Will bc hays to wets SHiipon Uhowe wha may faver them with a rall I} They hope Sy dbhgent avention 10 biainess, to. Lauria stars of patronae. Faakias received\n[ro thor season, tea New York | COOLLY and IALSMAN bo daly 22 sa,",
+      "normalized": "TAILORING BUSINESS[.] [TH]E Subscribers wo[u]l[d] [gi]ve notice to the Pu[b]lic, t[h]at they hav[e] taken a shop. on [D]earbo[r]n S[t]reet, ne[a]rly [o]ppos[i]te. [t]he [Ea]g[le] Cof[fe]e [House], where they Will b[e] happy to wa[i]t [u]pon those wh[o] may favor them with a [c]all[.] They hope [b]y d[i]l[i]gent a[tt]ention to business, to [merit a] share of patronage. Fa[sh]ions received [f]or th[e] season, [from] New York COOL[E]Y and [H]ALSMAN [Chicago,] [Ju]ly 22[, 1835,]",
+      "locator": {
+        "artifact_role": "primary",
+        "issue_page": 3,
+        "column": 4,
+        "lines": [
+          367,
+          369
+        ],
+        "spans": [
+          {
+            "line": 367,
+            "from": 0,
+            "to": 22
+          },
+          {
+            "line": 368,
+            "from": 0,
+            "to": 319
+          },
+          {
+            "line": 369,
+            "from": 0,
+            "to": 65
+          }
+        ]
+      },
+      "entities": [
+        {
+          "as_printed": "COOLLY and IALSMAN",
+          "normalized": "Cooley and Halsman",
+          "role": "proprietors",
+          "occupations": [
+            "tailors"
+          ],
+          "associated_places": [
+            "Dearborn Street"
+          ]
+        }
+      ],
+      "business": {
+        "name": "Cooley and Halsman",
+        "proprietors": [
+          "Cooley and Halsman"
+        ],
+        "trade": "tailors",
+        "goods": [],
+        "street": "Dearborn Street",
+        "placement": {
+          "class": "relative",
+          "anchor": "the Eagle Coffee House",
+          "offset_text": "taken a shop. on (| Urarburn Sticet, yeurly mppesite. ihe haghy .{Cutfir Monae",
+          "offset_normalized": "taken a shop. on [D]earbo[r]n S[t]reet, ne[a]rly [o]pposite. [t]he [Ea]g[le] Cof[fe]e [House]",
+          "street": "Dearborn Street"
+        }
+      },
+      "announces_opening": {
+        "verbatim": "they hav[e] taken a shop. on [D]earbo[r]n S[t]reet",
+        "dating": "effected",
+        "iso": "1835-07-22",
+        "note": "'Have taken' over the dateline 'July 22, 1835' this printing carries and the 22 July printing does not. The date bounds the taking from ABOVE: the shop was theirs on or before 22 July, and the copy says nothing about 1 July."
+      },
+      "notes": "THE SECOND WITNESS, AND IT NAMES THE ANCHOR MORE FULLY THAN THE FIRST. The 1835-07-22 printing reads 'nearly opposite the Pagle House'; this one reads 'yeurly mppesite. ihe haghy .{Cutfir Monae', which is 'nearly opposite the Eagle Coffee House' — and the Eagle COFFEE House is the house the Democratic citizens of Chicago Precinct meet in (chicago_democrat_1835_07_15 c002). Two witnesses, three claims, one building: the anchor is the Eagle Coffee House and the shop is nearly opposite it on Dearborn Street. THE DATE the second witness adds: 'daly 22' is 22 July 1835, the date of the previous issue, so the shop was taken in the last week of July and `announces_opening` stands.",
+      "ad_copy_date": {
+        "verbatim": "daly 22 sa,",
+        "iso": "1835-07-22"
+      }
+    },
+    {
+      "id": "c010",
+      "kind": "notice",
+      "reading": "transcription_mediated",
+      "quote": "Dissolution. PELE fee (00 tia. ogee 50, tran oan |, Hivsahvid by mutual convent. All pers ‘having wonettle Daccounts with, or who are im- | sliehted to the eyacern, are requested to call on | Isaae Hoeiion, en. who alone in authoriaed Wy attend to the business | CHAS L. BRISTOL, — | | JOUN HALE, | | WM. HOGUE. | Chirago. Jubii, 12¥i—swid",
+      "normalized": "Dissolution. [THE firm of Wm. Hogue & co. has been] di[ss]olved by mutual con[s]ent. All pers[ons] having [uns]ett[l]e[d] accounts with, or who are in[debted] to the [c]oncern, are requested to call on Isaa[c] Ho[rm]on, [esq.] who alone i[s] authori[s]ed [to] attend to the business CHAS L. BRISTOL, JO[H]N HALE, WM. HOGUE. Chi[c]ago[,] Ju[ly …] 18[35]",
+      "locator": {
+        "artifact_role": "primary",
+        "issue_page": 3,
+        "column": 4,
+        "lines": [
+          369,
+          369
+        ],
+        "spans": [
+          {
+            "line": 369,
+            "from": 72,
+            "to": 411
+          }
+        ]
+      },
+      "entities": [
+        {
+          "as_printed": "CHAS L. BRISTOL",
+          "normalized": "Chas. L. Bristol",
+          "role": "partner",
+          "occupations": [
+            "merchant"
+          ],
+          "associated_places": [
+            "Chicago"
+          ]
+        },
+        {
+          "as_printed": "JOUN HALE",
+          "normalized": "John Hale",
+          "role": "partner",
+          "occupations": [
+            "merchant"
+          ],
+          "associated_places": [
+            "Chicago"
+          ]
+        },
+        {
+          "as_printed": "WM. HOGUE",
+          "normalized": "Wm. Hogue",
+          "role": "partner",
+          "occupations": [
+            "merchant"
+          ],
+          "associated_places": [
+            "Chicago"
+          ]
+        }
+      ],
+      "business": {
+        "name": "Wm. Hogue & Co.",
+        "proprietors": [
+          "Chas. L. Bristol",
+          "John Hale",
+          "Wm. Hogue"
+        ],
+        "trade": "mercantile firm, dissolved by mutual consent in July 1835",
+        "goods": [],
+        "street": null,
+        "placement": {
+          "class": "none"
+        }
+      },
+      "contradicts": true,
+      "notes": "THE SECOND PRINTING OF RULING 3'S VETO (see chicago_democrat_1835_07_22 c007), and the witness that carries the third partner's surname whole — 'WM. HOGUE.' here against 'WM. HOG!' in the other. `contradicts: true` again, deliberately: the veto is a fact about the firm and both printings of it belong on the record, since a dissolution advertised twice is a dissolution the town was told about twice. THE FIRM'S NAME IS NOT IN THIS QUOTE — this printing sheares the opening clause to 'PELE fee (00 tia. ogee 50, tran oan' — and it is supplied from the 07-22 printing, which reads 'B firin of Fm, Hogua & co.' and is legible. That is why the business is named here at all, and the reasoning is written down rather than assumed. THE SETTLING AGENT reads 'Isaae Hoeiion' here and 'larmon' there; taken together they are Isaac Harmon or Isaac Hormon and neither is firm enough to mint, so no person is minted for him in either claim."
+    },
+    {
+      "id": "c011",
+      "kind": "business",
+      "reading": "transcription_mediated",
+      "quote": "Fire Insurance, ul | rye subscriber having Leow appointed wt Agent Jor the Huward Fire hisumnce ne} Company af the rity af Now-York, for Chi. He Veago and the vienaty, will issue praguny a Mi acute Joss by ize, on rea‘ouatife: teria, py duly 1. BOR. TURUARD:",
+      "normalized": "Fire Insurance[.] [TH]E subscriber having [b]e[e]n appointed [an] Agent [f]or the Howard Fire I[n]su[ra]nce Company o[f] the [c]ity o[f] New-York, for Chi[c]ago and the vi[ci]n[i]ty, will i[n]sure pr[o]p[ert]y a[gainst] [l]oss by [f]ire, on rea[s]onab[l]e term[s.] [E. K.] [H]U[B]BARD[.]",
+      "locator": {
+        "artifact_role": "primary",
+        "issue_page": 3,
+        "column": 5,
+        "lines": [
+          394,
+          394
+        ],
+        "spans": [
+          {
+            "line": 394,
+            "from": 50,
+            "to": 308
+          }
+        ]
+      },
+      "entities": [
+        {
+          "as_printed": "BOR. TURUARD",
+          "normalized": "E. K. Hubbard",
+          "role": "agent",
+          "occupations": [
+            "insurance agent",
+            "merchant"
+          ],
+          "associated_places": [
+            "Chicago"
+          ]
+        }
+      ],
+      "business": {
+        "name": "Howard Fire Insurance Company — E. K. Hubbard, agent at Chicago",
+        "proprietors": [
+          "E. K. Hubbard"
+        ],
+        "trade": "fire insurance agency",
+        "goods": [],
+        "street": null,
+        "placement": {
+          "class": "none"
+        }
+      },
+      "notes": "THE SAME AGENCY AS chicago_democrat_1835_07_08 c005, three weeks on, and the signature here is mush — 'BOR. TURUARD:' — while the deposit printing carries 'E. IK. HUBBARD.' plainly. The person is minted on the deposit reading, not on this one; the reason is written here so the merge can be read back without the code. Recorded because it fixes the agency's window: fire insurance was on offer in Chicago through the whole of the scene month."
+    },
+    {
+      "id": "c012",
+      "kind": "business",
+      "reading": "transcription_mediated",
+      "quote": "| vs de ale v-( Mardware, Stoves, &c. ret) ITE aodersigned buve formed weonnection be | I inthe merchantte bases, afuler the tira | | of stones, Ring §r io. They. 956% sveetying by wit) Brig Diino, a large aud general assortient of | Hard Ware, | ‘s Cntuvry, Nailsy dren, Slerl, &ee : Je] A lorge und eamploty assortment of us | sy oe of STOVES,\nnud Stare Faptiture. tron Sure wed Saye Milt! Groin, wih they olor at wvneusirn or are | sj aan WILLEN JONES, | | BYWAM KING, | Wo, CLARKE,",
+      "normalized": "[H]ardware, Stoves, &c. TH[E] undersigned h[a]ve formed [a] connection in the merchant[i]le b[usin]es[s], u[n]der the [f]ir[m] of [J]ones, [K]ing & [C]o. They [are r]eceiving by [the] Brig I[lli]no[is], a large and general assort[m]ent of Hard Ware, C[u]t[le]ry, Nails, [I]ron, S[t]e[e]l, &c. A l[a]rge and comple[t]e assortment of STOVES, [a]nd Stove Furniture, [I]ron [Wa]re [a]nd Sa[w] Mil[l] G[ea]r[in]g, whi[c]h they o[ff]er at W[HOLESALE] or [RETAIL] WILL[IA]M JONES, BY[R]AM KING, [H. B.] CLARKE,",
+      "locator": {
+        "artifact_role": "primary",
+        "issue_page": 3,
+        "column": 5,
+        "lines": [
+          395,
+          396
+        ]
+      },
+      "entities": [
+        {
+          "as_printed": "WILLEN JONES",
+          "normalized": "William Jones",
+          "role": "partner",
+          "occupations": [
+            "merchant",
+            "hardware merchant"
+          ],
+          "associated_places": [
+            "Chicago"
+          ]
+        },
+        {
+          "as_printed": "BYWAM KING",
+          "normalized": "Byram King",
+          "role": "partner",
+          "occupations": [
+            "merchant",
+            "hardware merchant"
+          ],
+          "associated_places": [
+            "Chicago"
+          ]
+        },
+        {
+          "as_printed": "Wo, CLARKE",
+          "normalized": "H. B. Clarke",
+          "role": "partner",
+          "occupations": [
+            "merchant",
+            "hardware merchant"
+          ],
+          "associated_places": [
+            "Chicago"
+          ]
+        }
+      ],
+      "business": {
+        "name": "Jones, King & Co.",
+        "proprietors": [
+          "William Jones",
+          "Byram King",
+          "H. B. Clarke"
+        ],
+        "trade": "hardware, cutlery, nails, iron, steel, stoves and saw mill gearing, wholesale and retail",
+        "goods": [
+          "Cutlery",
+          "Hardware",
+          "Iron",
+          "Nails",
+          "Saw mill gearing",
+          "Steel",
+          "Stoves"
+        ],
+        "street": null,
+        "placement": {
+          "class": "none"
+        }
+      },
+      "notes": "THE THIRD AND LAST PRINTING of the formation notice in this range, 8 July to 29 July, and it still gives no address. The third partner's initials are sheared to 'Wo, CLARKE' here; he is minted as H. B. Clarke on the 1835-07-08 deposit printing, which reads 'H. B. CLARKE.' plainly, and that is the merge rule for this variant rather than a resemblance."
+    },
+    {
+      "id": "c013",
+      "kind": "business",
+      "reading": "transcription_mediated",
+      "quote": "OH Auction and Commission Pousey it |\nSERENE subscriber lias\nsa) care Poe, ee David Care 5) ee REE ORE ver’ ON Sand, Mouth Hl aA TQ Water stint, tor the\nH EME REE BR pityonc af traosacnng | Advances made upon Gove —timurdiately ar\n| fer sales, aU Comsignments will be wet thnad— Cush\n| up, W. MONSGOMERY.\nP| Chiempa, Duty 6, 13%. re",
+      "normalized": "[Auction and Commission House.] [TH]E subscriber ha[s] [taken] David Ca[r]ver'[s Old] Stand, [South] Water st[ree]t, for the [pur]pose of transacting [the above business.] Advances made upon Goo[ds]—[Im]m[e]diate[ly aft]er sales, all Consignments will be s[e]ttl[e]d— Cash up, W. MON[T]GOMERY. Chi[cag]o, [J]uly 6, 18[35].",
+      "locator": {
+        "artifact_role": "primary",
+        "issue_page": 3,
+        "column": 5,
+        "lines": [
+          406,
+          412
+        ],
+        "lines_of_claim": [
+          406,
+          407,
+          408,
+          409,
+          410,
+          411,
+          412
+        ]
+      },
+      "entities": [
+        {
+          "as_printed": "W. MONSGOMERY",
+          "normalized": "W. Montgomery",
+          "role": "proprietor",
+          "occupations": [
+            "auctioneer",
+            "commission merchant"
+          ],
+          "associated_places": [
+            "South Water Street"
+          ]
+        },
+        {
+          "as_printed": "David Care 5) ee REE ORE ver’",
+          "normalized": "David Carver",
+          "role": "former occupant",
+          "occupations": [
+            "merchant"
+          ],
+          "associated_places": [
+            "South Water Street"
+          ]
+        }
+      ],
+      "ad_copy_date": {
+        "verbatim": "P| Chiempa, Duty 6, 13%. re",
+        "iso": "1835-07-06"
+      },
+      "business": {
+        "name": "W. Montgomery",
+        "proprietors": [
+          "W. Montgomery"
+        ],
+        "trade": "auction and commission house",
+        "goods": [],
+        "street": "South Water Street",
+        "placement": {
+          "class": "relative",
+          "anchor": "David Carver's Old Stand",
+          "offset_text": "sa) care Poe, ee David Care 5) ee REE ORE ver’ ON Sand, Mouth Hl aA TQ Water stint, tor the",
+          "offset_normalized": "[taken] David Ca[r]ver'[s Old] Stand, [South] Water st[ree]t",
+          "street": "South Water Street"
+        }
+      },
+      "notes": "THE THIRD AND LAST WITNESS to the placement that matters most in this range — an auction and commission house at David Carver's old stand on South Water Street — and the dateline agrees with the 1835-07-08 deposit printing at 6 July 1835, against the 1835-07-15 rebuild's 8th. Three printings across four weeks, two of them agreeing on the day: the house stood on South Water Street through the whole scene month. The transcription weaves this advertisement line by line with its neighbour, which is why the quote reads brokenly even where the type did not."
+    },
+    {
+      "id": "c014",
+      "kind": "infrastructure",
+      "reading": "transcription_mediated",
+      "quote": "| Notice. i 1\nJF. Land Office at Chirago, will be 0} pen» }\n% I of for the oniry of Lande a Private Gale, t\nop Monday the M day of Angust next, a9 or |\n[clock AM. DAMES WUTPLOCK, Keg'e | 8\n| VD. TAYLOR, Beer i\n[| Cheage, duly OIE bel",
+      "normalized": "Notice. [TH]E Land Office at Chicago, will be open[ed] for the entry of Lands a[t] Private Sale, [on] Monday the [3d] day of August next, a[t 10 o']clock A.M. [J]AMES W[HI]TLOCK, Reg'r [E.] D. TAYLOR, Re[c'r] Chi[c]a[g]o, [J]uly [3, 1835]",
+      "locator": {
+        "artifact_role": "primary",
+        "issue_page": 3,
+        "column": 5,
+        "lines": [
+          413,
+          419
+        ]
+      },
+      "entities": [
+        {
+          "as_printed": "DAMES WUTPLOCK",
+          "normalized": "James Whitlock",
+          "role": "register of the land office",
+          "occupations": [
+            "register, United States Land Office"
+          ],
+          "associated_places": [
+            "Chicago"
+          ]
+        },
+        {
+          "as_printed": "VD. TAYLOR",
+          "normalized": "E. D. Taylor",
+          "role": "receiver of the land office",
+          "occupations": [
+            "receiver, United States Land Office"
+          ],
+          "associated_places": [
+            "Chicago"
+          ]
+        }
+      ],
+      "notes": "THE THIRD PRINTING OF THE LAND OFFICE NOTICE and the second to read ten o'clock, against the deposit printing's nine (chicago_democrat_1835_07_08 c003). It is recorded because the hour is the one point the three witnesses disagree on and a two-to-one reading is worth having on the record — not because it settles it, since the odd witness is the best text of the three. WHAT IS NOT IN DOUBT in any of them: the Chicago land office opened for the private entry of lands on Monday 3 August 1835, under James Whitlock as register and E. D. Taylor as receiver."
+    },
+    {
+      "id": "c015",
+      "kind": "business",
+      "reading": "transcription_mediated",
+      "quote": "L. G, CURTISS, j z | Deputy Surceyor of Cook County. | N Qa IE eh se Stenson Howse il be! I puuctually attended to, ie Chicago. Ihnows, July 33, 163.",
+      "normalized": "L. G. CURTISS, Deputy Sur[v]eyor of Cook County. [O]r[ders left at the] [uncertain: Man]s[i]on Hou[s]e [w]il[l] be punctually attended to. Chicago. I[lli]no[i]s, July [2]3, 18[35].",
+      "locator": {
+        "artifact_role": "primary",
+        "issue_page": 3,
+        "column": 5,
+        "lines": [
+          429,
+          429
+        ],
+        "spans": [
+          {
+            "line": 429,
+            "from": 30,
+            "to": 179
+          }
+        ]
+      },
+      "entities": [
+        {
+          "as_printed": "L. G, CURTISS",
+          "normalized": "L. G. Curtiss",
+          "role": "proprietor",
+          "occupations": [
+            "deputy surveyor of Cook County",
+            "surveyor"
+          ],
+          "associated_places": [
+            "Chicago",
+            "the Mansion House"
+          ]
+        }
+      ],
+      "business": {
+        "name": "L. G. Curtiss",
+        "proprietors": [
+          "L. G. Curtiss"
+        ],
+        "trade": "deputy surveyor of Cook County",
+        "goods": [],
+        "street": null,
+        "placement": {
+          "class": "relative",
+          "anchor": "the Mansion House",
+          "offset_text": "N Qa IE eh se Stenson Howse il be! I puuctually attended to",
+          "offset_normalized": "[Orders left at the] [uncertain: Man]s[i]on Hou[s]e [w]ill be punctually attended to",
+          "street": null
+        }
+      },
+      "notes": "THE SECOND WITNESS TO THE ANCHOR, AND IT DISAGREES WITH THE FIRST. The 1835-07-22 printing reads 'the Mansion House' plainly; this one reads 'se Stenson Howse'. The two share 'son Ho[u]se' and nothing else, so the reading is taken from the better witness and marked `[uncertain: …]` here — a house named as a man's business address is the whole of his placement, and it is not a thing to smooth. THE DATE IS THE NEW FACT: 'July 33' cannot stand as a day, and 23 July 1835 is what it is read as, which puts Curtiss at the house in the last week of the scene month."
+    },
+    {
+      "id": "c016",
+      "kind": "business",
+      "reading": "transcription_mediated",
+      "quote": "On Consignment,\nBOG Mle seperine Olio Flour, | |\nyorite. brands—QU0Wibs. Bpecer !\nBacen 10bbls. Mers Pork, 1 do. Reclified Wbis-| J key. DAVID CARVER, | |",
+      "normalized": "On Consignment, [5]00 [Bb]ls. s[u]perfine O[h]io Flour, [fa]vorite. brands—[20]00 lbs. [su]pe[rior] Bac[o]n 10 bbls. Me[s]s Pork, 1[0] do. Rec[t]ified Whis-key. DAVID CARVER,",
+      "locator": {
+        "artifact_role": "primary",
+        "issue_page": 3,
+        "column": 5,
+        "lines": [
+          429,
+          432
+        ],
+        "spans": [
+          {
+            "line": 429,
+            "from": 184,
+            "to": 199
+          },
+          {
+            "line": 430,
+            "from": 0,
+            "to": 32
+          },
+          {
+            "line": 431,
+            "from": 0,
+            "to": 32
+          },
+          {
+            "line": 432,
+            "from": 0,
+            "to": 72
+          }
+        ]
+      },
+      "entities": [
+        {
+          "as_printed": "DAVID CARVER",
+          "normalized": "David Carver",
+          "role": "advertiser",
+          "occupations": [
+            "merchant",
+            "forwarding and commission merchant"
+          ],
+          "associated_places": [
+            "Chicago",
+            "South Water Street"
+          ]
+        }
+      ],
+      "business": {
+        "name": "David Carver",
+        "proprietors": [
+          "David Carver"
+        ],
+        "trade": "produce and provisions on consignment",
+        "goods": [
+          "Bacon",
+          "Flour",
+          "Pork",
+          "Whiskey"
+        ],
+        "street": "South Water Street",
+        "placement": {
+          "class": "none"
+        }
+      },
+      "notes": "THE SECOND PRINTING of Carver's consignment parcel (chicago_democrat_1835_07_22 c013), a week on and unchanged in quantity, which is worth recording because it says the parcel had not sold. He advertises no address in either. The heading shares its transcription line with the tail of the Curtiss card, so it is taken by a span and the three following lines whole."
+    },
+    {
+      "id": "c017",
+      "kind": "notice",
+      "reading": "transcription_mediated",
+      "quote": "Wanted Immediately. |: FIRST rate Journeymen Cabinet Makers | / to whom steady imploy mem wil eA given | 2” and gool prices— Cand up aad 20 Grumbling. ores + Fa D\"8, DEWET, | _¢",
+      "normalized": "Wanted Immediately. [A] FIRST rate Journeymen Cabinet Makers to whom steady [em]ploym[e]n[t] wil[l] [b]e given and go[o]d prices— [C]a[sh] up and [n]o Grumbling. [D. S.] DEWE[Y],",
+      "locator": {
+        "artifact_role": "primary",
+        "issue_page": 3,
+        "column": 5,
+        "lines": [
+          433,
+          433
+        ]
+      },
+      "entities": [
+        {
+          "as_printed": "D\"8, DEWET",
+          "normalized": "D. S. Dewey",
+          "role": "advertiser",
+          "occupations": [
+            "cabinet maker"
+          ],
+          "associated_places": [
+            "Chicago"
+          ]
+        }
+      ],
+      "notes": "THE SECOND PRINTING of the cabinet makers wanted (chicago_democrat_1835_07_22 c014), and between the two witnesses the advertiser's name is 'D. S. Dewey' — 'Pens DEWEE' there, 'D\"8, DEWET' here. Neither is a name on its own; the pair is, and the merge is written down. 'Cash up and no Grumbling' is the copy's own phrase and is what makes the shop worth a card: a cabinet maker paying journeymen in cash in Chicago in July 1835."
+    },
+    {
+      "id": "c018",
+      "kind": "business",
+      "reading": "transcription_mediated",
+      "quote": "RUSSELL FE. HEACOCK, 1’ | Counsetior asd Attorney at Law, | hier ap. Monoas, } ) ww. attend all tonttcea evil to hin care, 10 Ine profesaim,! Je will alaailg. the business tor all wha inay employ bien, 4a ef land conveynnoing, being § Sudticr of the prece",
+      "normalized": "RUSSELL [E]. HEACOCK, Coun[s]e[ll]or a[n]d Attorney at Law, [Chicago, Illinois.] [Will] attend all [ma]tt[ers c]o[nfided] to his care, [in] h[is] profess[ion.] [H]e will al[so do] the business for all wh[o] may employ h[i]m, [in] [th]e [matter] of land conveyanc[i]ng, being [a] [J]u[s]t[i]c[e] of the p[ea]ce",
+      "locator": {
+        "artifact_role": "primary",
+        "issue_page": 3,
+        "column": 6,
+        "lines": [
+          442,
+          442
+        ],
+        "spans": [
+          {
+            "line": 442,
+            "from": 112,
+            "to": 367
+          }
+        ]
+      },
+      "entities": [
+        {
+          "as_printed": "RUSSELL FE. HEACOCK",
+          "normalized": "Russell E. Heacock",
+          "role": "proprietor",
+          "occupations": [
+            "attorney at law",
+            "counsellor at law",
+            "justice of the peace",
+            "land agent"
+          ],
+          "associated_places": [
+            "Chicago",
+            "Lake Street",
+            "Franklin Street"
+          ]
+        }
+      ],
+      "business": {
+        "name": "Russell E. Heacock",
+        "proprietors": [
+          "Russell E. Heacock"
+        ],
+        "trade": "counsellor and attorney at law, justice of the peace, and land agency office",
+        "goods": [],
+        "street": "Lake Street",
+        "placement": {
+          "class": "none"
+        }
+      },
+      "notes": "THE WITNESS THAT CARRIES THE NAME, where the deposit printing carries the address — the two halves of one standing advertisement, and the reason chicago_democrat_1835_07_08 c012 could be made at all. The 1835-07-08 crop sheared the heading to '• E. ,' and kept 'Office in the 2d story, opposite the Exchange, corner of Lake and Franklin-sts'; this one keeps 'RUSSELL FE. HEACOCK, | Counsetior asd Attorney at Law' and loses the address to the same crop from the other side. The two are the same advertisement — the body matches phrase for phrase down to 'having been a resident at Chicago for the last eight years' and 'the first 30 miles of the Illinois canal line' — which is why the person is minted here and the placement is recorded there. THIS CLAIM'S OWN PLACEMENT CLASS IS `none`, because this quote places nobody; the corner is the other claim's evidence and is not restated as if this one carried it. 'FE.' is read as 'E.' — the Chicago attorney and justice of the peace of that name is Russell E. Heacock, and the middle initial is single in the other printing's own body."
+    }
+  ]
+}

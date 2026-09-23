@@ -1,0 +1,194 @@
+{
+ "_doc": "Every figure in data/flora and data/fauna that no renderer reads, as of the last deliberate change. A figure is a leaf of a record that is not identity, file routing or provenance; 'reads' is scanned against renderers/web/js/*.js with the comments stripped. This is a measurement and not a permission: tools/measure_layer_reads.py holds it exact in both directions, so a new one fails and a wired-up one has to be un-banked here in the commit that wired it. Read ROADMAP K42 before adding a line. `refused_because` is a STATED REFUSAL (T-0021): somebody decided this figure should not reach a visitor and wrote down why. It is not a permission and it does not soften any assertion — the entry is banked exactly like every other. The `records` count is HELD EXACTLY for flora and fauna, which are finished datasets, and is a dated tally for residents, which is the layer this project is still writing — see assertion 6 in tools/measure_layer_reads.py for why the line is drawn there (T-1029).",
+ "entries": {
+  "flora/manifest:vocabulary.forms_unimplemented": {
+   "records": 1
+  },
+  "flora/manifest:vocabulary.phenology": {
+   "records": 1
+  },
+  "flora/manifest:zones[].bare_soil_fraction": {
+   "records": 10
+  },
+  "flora/palette:budget.instances_mid": {
+   "records": 9
+  },
+  "flora/palette:budget.instances_near": {
+   "records": 9
+  },
+  "flora/palette:ground.dry_rgb": {
+   "records": 9
+  },
+  "flora/palette:ground.rgb": {
+   "records": 9
+  },
+  "flora/palette:ground.wet_rgb": {
+   "records": 9
+  },
+  "flora/palette:lod.far_m": {
+   "records": 9
+  },
+  "flora/palette:lod.mid_m": {
+   "records": 9
+  },
+  "flora/palette:lod.near_m": {
+   "records": 9
+  },
+  "flora/palette:wind.gust": {
+   "records": 9
+  },
+  "flora/palette:wind.speed_mps": {
+   "records": 9
+  },
+  "flora/palette:wind.sway_deg": {
+   "records": 9
+  },
+  "flora/palette:wind.wave_m": {
+   "records": 9
+  },
+  "flora/zone:cover.litter_fraction": {
+   "records": 1
+  },
+  "flora/zone:ground.rgb": {
+   "records": 10
+  },
+  "flora/zone:ground.wet_rgb": {
+   "records": 10
+  },
+  "flora/zone:species[].july.inflorescence.fruit": {
+   "records": 31
+  },
+  "flora/zone:woody_stratum.measured_from": {
+   "records": 2,
+   "refused_because": "A units declaration, not a figure. It states what woody_stratum.establishes_m's metres are measured from, for a reader of the record and for tools/validate.py, which requires it. A renderer that read it would be a renderer able to convert between datums; if it ever disagreed with the heightfield's own, the right outcome is this gate failing rather than a silent conversion. T-1056."
+  },
+  "residents/household:division": {
+   "records": 1258,
+   "refused_because": "Denormalised. The MANIFEST's copy is what the panel groups and labels rows by, and validate.py fails the build if the two disagree; reading both would be two answers to one question."
+  },
+  "residents/household:head": {
+   "records": 1258,
+   "refused_because": "The record's own copy of the same foreign key. Refused for the same reason, and it is the record that is authoritative."
+  },
+  "residents/household:persons[].occupation.derived_from": {
+   "records": 262
+  },
+  "residents/household:persons[].occupation.withdrawn_from_scene_date.ticket": {
+   "records": 6
+  },
+  "residents/household:persons[].occupation.withdrawn_from_scene_date.value": {
+   "records": 6
+  },
+  "residents/household:persons[].occupation.withdrawn_from_scene_date.verdict": {
+   "records": 6
+  },
+  "residents/household:source_pass": {
+   "records": 1179,
+   "refused_because": "T-0599/T-0604: provenance for the three mint tools' OWN bookkeeping — which pass (documented/placed/letter_list) minted this record, so a re-run can tell 'a household I minted' from a plain hand-authored one without an id prefix. Not a finding about the person: the evidence the panel already shows — grade, letter_list_only, sources — is what a visitor judges the record by, and which internal tool produced it is not part of that judgment. See data/residents/README.md."
+  },
+  "residents/manifest:_roles_doc": {
+   "records": 1
+  },
+  "residents/manifest:counts.households": {
+   "records": 1,
+   "refused_because": "The panel renders one row per household and counts the rows. A tally shown beside a list it might disagree with is worse than no tally; validate.py holds the two equal, which is where a disagreement should surface, not on the card."
+  },
+  "residents/manifest:counts.merged_away": {
+   "records": 1,
+   "refused_because": "A tally of the redirect table's rows. Each fold reaches a visitor where it can be checked — on the card of the person it was folded into — and a bare total beside no list is the shape this table already refused for `counts.households`. tools/validate.py holds it equal to the rows of `merged[]`, which is where a disagreement should surface."
+  },
+  "residents/manifest:counts.projected_residents": {
+   "records": 1,
+   "refused_because": "T-0782, the owner's ruling on the opening card: the aggregate is struck. It reached a visitor in one place — a parenthesis inside the gate card's inferred count — where it read as a fourth grade beside attested/inferred/reconstructed and was in fact a subtype OF the inferred, counted on a different axis. The claim itself still reaches the visitor, and better: `people.js` filters and chips `resident_subtype === 'projected_resident'` on the person's own row, where the evidence that made them projected is beside the label. A bare total with nothing beside it was the poorer of the two copies. The field stays in the manifest because the mint tools derive it and validate.py holds it."
+  },
+  "residents/manifest:counts.reconstructed_removed_in_2026_09_02_synthesis": {
+   "records": 1,
+   "refused_because": "Bookkeeping about an OPERATION, not a figure about the town: how many reconstructed cards the synthesis of 2 September 2026 removed. The town it describes no longer exists in this tree, so a visitor has nothing to hold it against; `by_grade.reconstructed` — which reads 0 — is the fact about the layer, and the removal itself is docs/LIBERTIES.md's business."
+  },
+  "residents/manifest:households[].head": {
+   "records": 1258,
+   "refused_because": "A foreign key into `persons[].id`, not a figure — it names which person heads the household, and that fact already reaches the visitor as that person's `relationship`, shown on their own row."
+  },
+  "residents/manifest:households[].present_on_scene_date": {
+   "records": 1258,
+   "refused_because": "The flat copy of a graded claim. `residents.js` shows the RECORD's block — its value, its confidence, its reasoning and its sources — and the manifest's bare value carries none of that. Showing the poorer copy would be showing less."
+  },
+  "residents/manifest:households[].projected_resident": {
+   "records": 721,
+   "refused_because": "The flat copy of a person-level subtype. `people.js` filters and chips `resident_subtype === 'projected_resident'` on the person's own row, where the evidence that made them projected sits beside the label; the household's boolean carries none of it. The identical ruling T-0782 made about `counts.projected_residents`, one level down."
+  },
+  "residents/manifest:merged[].cluster": {
+   "records": 65,
+   "refused_because": "The same flat copy of the cluster name, refused for the same reason."
+  },
+  "residents/manifest:merged[].household": {
+   "records": 65,
+   "refused_because": "The same foreign key at household scope, refused for the same reason."
+  },
+  "residents/manifest:merged[].merged_into_household": {
+   "records": 65,
+   "refused_because": "The other end of the same redirect at household scope."
+  },
+  "residents/manifest:merged[].merged_into_person": {
+   "records": 65,
+   "refused_because": "The other end of the same redirect. It resolves an id and states nothing about a person."
+  },
+  "residents/manifest:merged[].person": {
+   "records": 65,
+   "refused_because": "T-0839's redirect table, keyed by foreign key. `person` and the three ids beside it name which card was folded into which; they are how a crosswalk resolves a stale id, not a figure about anybody. The fold itself now reaches the visitor on the surviving person's own card, from the record's `merged_from` block, with the rule and the reasoning that made it."
+  },
+  "residents/manifest:merged[].record_file": {
+   "records": 65,
+   "refused_because": "File routing — where the folded record is kept whole under data/residents/merged/. The same class of key as `file`, which this census strips as machinery wherever it is not nested inside a table."
+  },
+  "residents/manifest:merged[].rule": {
+   "records": 65,
+   "refused_because": "The manifest's flat copy of the fold's rule. The RECORD's `merged_from[].rule` is what residents.js shows, beside the cluster, the ticket and the note that says what the union of the cards means. Showing the manifest's bare copy would be showing less, which is the ruling this table already makes about `households[].present_on_scene_date`."
+  },
+  "residents/manifest:merged[].ticket": {
+   "records": 65,
+   "refused_because": "The same flat copy of the ticket, refused for the same reason."
+  },
+  "residents/manifest:vocabulary.age_bands[].means": {
+   "records": 7,
+   "refused_because": "The plain-English meaning of an age band. Published beside the band for the same reason and read the same way — off the profile document, where the panel prints it — never out of the manifest."
+  },
+  "residents/manifest:vocabulary.age_bands[].rule": {
+   "records": 7,
+   "refused_because": "The exact test that puts a person in an age band. It is a statement about the generator, which is what makes it worth shipping beside the layer; no renderer re-implements it, because a second implementation of a derivation rule is a second answer to the same question."
+  },
+  "residents/manifest:vocabulary.association_kinds": {
+   "records": 1,
+   "refused_because": "The closed set of connection kinds an `associated_with` row may carry. The person and household cards print the kind word off the ROW (T-1255's `associationsHtml`) rather than looking it up here, and nothing orders, labels or withholds a row by this set. tools/validate.py is what holds a row to it; a renderer that read it would be a second answer to the same question."
+  },
+  "residents/manifest:vocabulary.association_resolution": {
+   "records": 1,
+   "refused_because": "The closed set of rungs an `associated_with` row may resolve to — a roof, a street, a part of town. The cards print the row's own `resolves_to` word, because how far the evidence reached is part of the claim; the SET behind it is a schema constraint tools/validate.py enforces, and no renderer implements it as behaviour. It un-banks when one draws a row differently per rung."
+  },
+  "residents/manifest:vocabulary.reasons_for_coming[].means": {
+   "records": 13,
+   "refused_because": "What a reason term means, published beside it so a reader of the layer can check the sorting without the tool. Read off the profile document by the panel, never out of the manifest."
+  },
+  "residents/manifest:vocabulary.reasons_for_coming[].term": {
+   "records": 13,
+   "refused_because": "The closed set of reasons a household may state for coming to Chicago. A household record carries its reason as PROSE and the term is the derivation over it, so the panel prints the term out of the profile document; a card printing the LIST would be printing the schema rather than anything about the town."
+  },
+  "residents/manifest:vocabulary.resident_subtypes": {
+   "records": 1,
+   "refused_because": "A closed vocabulary tools/validate.py holds the records against — its one term, `projected_resident`, reaches the visitor as the People directory's filter and row mark. A card that printed the LIST would be printing the schema rather than anything about the town."
+  },
+  "residents/manifest:vocabulary.role_date_precision": {
+   "records": 1
+  },
+  "residents/manifest:vocabulary.role_dated_by": {
+   "records": 1
+  },
+  "residents/manifest:vocabulary.role_kinds": {
+   "records": 1
+  },
+  "residents/manifest:vocabulary.age_bands[].age_band": {
+   "records": 7,
+   "refused_because": "The closed set of age bands tools/profile_population_1835.py sorts every person into, and the rule that assigns each one. The band a person falls in is a DERIVATION over their card, not a field on it, so the browser meets it in the profile document the panel renders (data/reconstruction/1835_population_profile.json) and never here. This copy is the definition the generator is held to, and it un-banks the day a card starts carrying its own band."
+  }
+ }
+}

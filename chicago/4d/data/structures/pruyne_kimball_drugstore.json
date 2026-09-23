@@ -1,0 +1,117 @@
+{
+  "id": "pruyne_kimball_drugstore",
+  "name": "Pruyne & Kimball's Drug Store",
+  "aka": [
+    "the drug store on South Water Street"
+  ],
+  "archetype": "frame_storefront",
+  "phases": [
+    {
+      "id": "frame_1830s",
+      "documented_range": {
+        "from": "1834-01-01",
+        "to": "1835-12-31",
+        "confidence": "inferred",
+        "sources": [
+          "andreas_1884_v1"
+        ],
+        "note": "NO DATE AT ALL IS ATTESTED FOR THIS BUSINESS OR ITS BUILDING, AND THE RANGE IS THEREFORE THE WEAKEST KIND THIS DATASET HOLDS. What Andreas gives is a partnership and a street: Kimball was 'a partner of Mr. Pruyne in a drug store on South Water Street', placed in the 1830s and no closer. The range is set to 1834-1835 because the town's commercial street barely existed before 1833 and because a range that opened in 1830 would be widened to pass rather than narrowed to what is attested — which is the failure this project's own gate warns about. The honest statement is that this record asserts the drug store was open on 1835-07-01 and cannot prove it. IF EVIDENCE DATES THE PARTNERSHIP AFTER JULY 1835 THIS RECORD BELONGS IN data/exclusions.json, and that is the most likely single correction to it."
+      },
+      "position": {
+        "utm_e": 447699.886,
+        "utm_n": 4637384.056,
+        "rotation_deg": 0.0,
+        "symbolic_location": "South side of South Water Street between Clark Street and Dearborn Street (today the south side of West Wacker Drive) — the street is attested, the block is not.",
+        "confidence": "reconstructed",
+        "note": "CONJECTURAL, AND THE STREET IS THE ONLY PART OF IT THAT IS EVIDENCE. Andreas places the drug store 'on South Water Street' and nothing narrower; this project's own dossier records the block as unattested. The point recorded here is on the south side of the Clark-to-Dearborn block, roughly mid-face, and NOTHING WHATEVER SUPPORTS THAT CHOICE OF BLOCK — it is a lot on the right street, chosen because that block had an unbuilt stretch between harmon_loomis_store and madore_beaubien_house wide enough to take a building without overlapping either. Placing a record where there is room is a rendering decision, not a research finding, and it is written here so a visitor can recover it. THE STREET RUNS ABOUT 630 M from Market to State, so the along-street uncertainty is of that order: this building could be anywhere on it. THE SIDE OF THE STREET IS THE ONE REASONED PART: the north side of South Water was the river bank, wharves and landings (docs/research/04-structures-south.md § 12), so a store is on the south side. METHOD, for the cross-street position only: the modern West Upper Wacker Drive centreline was interpolated between the intersection centres at North Clark (EPSG:26916 E 447648.5, N 4637409.7) and North Dearborn (E 447771.8, N 4637409.0), read from OpenStreetMap 2026-08-11, and the south kerb taken 12.2 m south of it as half an 80 ft platted street. Working uncertainty about 20 m across the street from the georeference (data/datum.json, 17.5 m RMS) and effectively the whole street along it. Facade bearing 0, north onto South Water, inferred from the street rather than from any statement. RECONCILED WITH THE COMMITTED PLAT 2026-08-27 (T-0199), AND THE CLAIM DID NOT MOVE — ONLY THE LINE IT WAS DERIVED AGAINST. The method above set this footprint's north face on the South Water frontage, and it found that frontage by taking the MODERN West Wacker Drive centreline out of OpenStreetMap and stepping 12.2 m south of it. That is not this project's own South Water Street: the committed centreline in data/streets/1835.json, offset by half the committed 80 ft corridor, is what tools/generate_plat_lots.py builds every platted block edge from, and it is the line every derived layer in this scene reads. Measured against it, this record's north wall stood 5.55 m OUT PAST the blk_south_water_clark frontage line, in the platted roadway — far enough into it that tools/generate_frontage_works.py refused the plank sidewalk along this stretch of South Water in writing and named this building in the refusal. THE REPAIR IS THIS RECORD'S OWN METHOD RUN AGAINST THIS PROJECT'S OWN LINE: the footprint is translated 7.05 m along the face's inward normal — dE -0.114 m, dN -7.044 m in local ENU, so UTM E 447700.0 N 4637391.1 becomes E 447699.886 N 4637384.056 — which leaves its north wall 1.50 m back from the committed frontage line, the same margin tools/generate_block_infill.py gives every reconstructed unit standing on this face, and the same repair the six reconciled under T-0198 carry. NOTHING ALONG THE STREET MOVED: the along-face position, the block, the corner and the side are untouched, and so is the confidence grade — re-deriving a coordinate from better geometry is not new evidence. WHY IT TOOK A SECOND RUN, AND WHOSE DECISION IT WAS. T-0198 measured this exact translation and REFUSED to apply it, for a reason that was real: reconciled onto the plat this building SEATS on lot 2 of blk_south_water_clark, and that lot is one the 665-roof schedule had already dealt to the anonymous South Water frontage run, which tools/generate_block_infill.py refused — one principal roof to a lot. Nothing overlapped; the worst overlap between any of the eleven South Water placements and any committed footprint in the town is zero. What refused this repair was a RULE about entitlement, not the ground. THE OWNER RULED ON 2026-08-27 that a platted business-front lot may carry a documented store at the street AND an anonymous dwelling behind it, on the reasoning that the geometry already permits it and the alternative pays eight roofs and two households for a rule the corrected data had itself called into question. The clause and its three tests are written into tools/plat_occupancy.py; no roof left the town and no household moved. WHAT IS STILL WRONG AND IS LEFT WRITTEN DOWN: the facade bearing stays 0 while this face runs at 0.93 (i.e. +0.93), so the front wall is 1.50 m back at its worst corner and up to 1.62 m at the other. That skew is smaller than the walk's own daylight and it is not corrected here, because rotating a documented record is a second claim and this one is a repair.",
+        "derivation": {
+          "method": "not_derivable",
+          "reason": "This placement predates the derivation module. Its provenance and reasoning are recorded in position.note, but no machine-checkable derivation block has been authored for it yet."
+        }
+      },
+      "footprint": {
+        "polygon": [
+          [
+            0,
+            0
+          ],
+          [
+            7.62,
+            0
+          ],
+          [
+            7.62,
+            6.096
+          ],
+          [
+            0,
+            6.096
+          ]
+        ],
+        "confidence": "reconstructed",
+        "note": "INVENTED. Nothing is attested about this building. 7.62 x 6.096 m is 25 x 20 ft, the parcel's small-shop rectangle: 20 ft is the documented depth of Hogan's store and 25 ft is the depth derived from the Green Tree Tavern's room module, used here as a frontage. A druggist's shop is the smallest kind of store on the street, which is the only reason the small rectangle rather than the 40 x 25 ft one is used. The documented South Water lot width of 55 ft is a cap and this sits well inside it."
+      },
+      "form": {
+        "stories": {
+          "value": 1,
+          "confidence": "reconstructed",
+          "note": "Nothing is attested. One is recorded because it is the smaller claim. Invention, tagged as such."
+        },
+        "construction": {
+          "value": "braced_frame",
+          "confidence": "inferred",
+          "sources": [
+            "andreas_1884_v1"
+          ],
+          "note": "Not stated. Frame rather than log because this project's dossier records the mid-1830s South Water commercial stock as frame, with log surviving mainly in older buildings, and this partnership is not attested before 1833. Braced rather than balloon frame follows the Sauganash record's argument; nothing decides between them."
+        },
+        "wall_height_m": {
+          "value": 3.0,
+          "confidence": "inferred",
+          "note": "No figure is attested. 3.0 m is about 10 ft, one commercial storey. It inherits the storey count's uncertainty, which is conjectural."
+        },
+        "roof_type": {
+          "value": "gable",
+          "confidence": "inferred",
+          "note": "Not attested. Gable is the near-universal roof form for frame buildings of this type, period and region."
+        },
+        "roof_pitch_deg": {
+          "value": 33.0,
+          "confidence": "inferred",
+          "note": "No pitch is attested for this building. 33 degrees is the frame_storefront archetype's own figure for a store, and it is adopted here rather than the 38 this project uses for taverns because the archetype argues the case from the dataset's one attested store footprint: a store's frontage is long and its plan shallow, so a tavern's pitch puts more roof above the eave than there is wall below it and the building stops reading as a shop. Inferred from construction practice and from the type, not measured."
+        },
+        "chimneys": {
+          "value": 1,
+          "confidence": "inferred",
+          "note": "Not attested. One is the minimum for a shop kept through Chicago winters, and compounding needs heat. The COUNT is the inference; the stack's position, size and material are the archetype's, per docs/LIBERTIES.md L26."
+        },
+        "siding_exposure_m": {
+          "value": 0.14,
+          "confidence": "reconstructed",
+          "note": "INVENTED WITHIN A STOCK SET, NOT DERIVED. No source states the exposed face of any Chicago building's siding. The value is one of four period mill sidings — 4.5, 5, 5.5 or 6 in to the weather; this record wears 5.5 in — dealt by tools/deal_siding_stock.py: keyed to the phase's construction season, because buildings sided from the same season's shipments of St Joseph sawn lumber tend toward one stock, then advanced so no frame building within 60 m shares this one's. The separation is the surface variety T-0049 reconstructs, not a claim about 1835. docs/LIBERTIES.md L148 owns the invention."
+        }
+      },
+      "change_note": "The drug store of Pruyne and Kimball on South Water Street — the town's second or third druggist's, after Philo Carpenter's. Andreas records the partnership and the street and nothing else, so this record is a business placed on the right street rather than a building placed on a lot."
+    }
+  ],
+  "function": {
+    "value": "drug_store",
+    "confidence": "attested",
+    "sources": [
+      "andreas_1884_v1"
+    ],
+    "note": "Andreas names the trade explicitly: Kimball was 'a partner of Mr. Pruyne in a drug store on South Water Street'. The trade is the best-attested thing about this record, which is the opposite of the usual case in this parcel."
+  },
+  "occupants": {
+    "value": "Pruyne and Kimball, druggists",
+    "confidence": "attested",
+    "sources": [
+      "andreas_1884_v1",
+      "chicago_democrat_1833_1835",
+      "chicago_american_1835"
+    ],
+    "note": "The partnership is documented; that it was trading on 1835-07-01 specifically is the inference, since Andreas dates it only to the 1830s. A NAME COLLISION WORTH KEEPING SEPARATE: a W. Kimball is named in the transcription of the Chicago Democrat of 26 November 1833 as advertising dry goods, crockery, hardware, cutlery, caps and cloth from a new store at the corner of South Water and Clark. Dry goods and drugs are different trades and there is no evidence the two Kimballs are one man; that advertisement is discussed on chicago_democrat_office and is deliberately not attached here. THE INFERENCE THIS NOTE RESTED ON IS NOW A READING: P. PRUYNE & CO. IS TRADING SEVEN DAYS AFTER THE SCENE DATE. The firm advertises continuously across the corpus from 1833-12-03 to 1835-07-08 — \"Wholesale and Retail. STORE BETWEEN CLARK AND DEARBORN-STREETS. P. PRUYNE & CO. WOULD respectfully inform their friends and [the] public that they have just receive[d] a large addition to their former Stock, whic[h] [m]akes it one of the most extensi[v]e in Chicago, consisting of Groceries, Hardware, Crockery, Glassware, A LARGE ASSORTMENT OF DRUGS & MEDICINES, BOOTS AND SHOES, IRON AND STEEL, WINDOW GLASS\" (The Chicago Democrat, 1833-12-03, page 3 column 4, claim chicago_democrat_1833_12_03#c011, dateline 'Chicago, Dec. 3, 1833'), the same standing card reprinted through 1834, and the run reaching 1835-07-08. So 'trading on 1835-07-01 specifically' is no longer the inference it was: it is bracketed by printings either side of the date. WHAT THE PAPERS DO NOT SETTLE, AND IT IS THE INTERESTING HALF. The firm advertising is P. PRUYNE & CO. and never 'Pruyne & Kimball' — no printing reached names Kimball as the partner — so the PARTNERSHIP stays Andreas's and this record's `name` stays his word. And the address the firm gives is a BLOCK FACE and not a frontage: \"between Clark and Dearborn streets\" names the two cross streets and not the street it fronts, and Clark and Dearborn are one block apart on South Water, Lake, Water and Randolph alike. This record's South Water Street placement is Andreas's and is CONSISTENT with the advertisement without being confirmed by it; supplying South Water here from this line would be an invention the evidence does not carry, and the extraction refuses it for the same reason. THE W. KIMBALL COLLISION ABOVE IS UNAFFECTED and stays separate. THE READING IS TRANSCRIPTION-MEDIATED AND SAYS SO. Under the owner's ruling of 2026-08-28 a claim read through this project's OCR-assisted transcriptions rather than off the page scan grades `attested` in this schema's vocabulary while carrying its own flag: reading = transcription_mediated, with the transcription's own uncertainty brackets preserved inside the quotation rather than tidied away. Where a scan is later read, the scan is the authority and this claim upgrades under it — the standard data/sources/chicago_democrat_1833_11_26.json set when a scan caught 'C. & I. HARMON' where the transcription had 'C. & L. Harmon'."
+  },
+  "research_note": "A BUSINESS THIS DATASET KNOWS THE TRADE OF AND NOTHING ELSE. Andreas gives one clause — a drug store on South Water Street, Pruyne and Kimball — with no date, no block, no building and no description. The record is therefore graded as far down as this project's vocabulary goes: position conjectural, footprint conjectural, storeys conjectural, dates inferred from the street's own history rather than from any statement about this business. IT IS BUILT ANYWAY, and the reason is the project's current direction: a building held out of the model is invisible to a visitor, while a building in the model with every invented attribute marked as invented is legible and correctable. THE PLACEMENT IS THE PART TO CORRECT FIRST. It sits in the Clark-to-Dearborn block because that block had room, which is a rendering decision and not a finding; the along-street uncertainty is the whole 630 m of South Water Street. WHAT WOULD UPGRADE IT: any Chicago Democrat or Chicago American advertisement for Pruyne and Kimball, which would date the partnership and very likely give a block; or Andreas at page-image level around the drug-trade passages. A single dated advertisement would move three attributes at once. See docs/RESEARCH/pruyne_kimball_drugstore.md.",
+  "review_required": false
+}

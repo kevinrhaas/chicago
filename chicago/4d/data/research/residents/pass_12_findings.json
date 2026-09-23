@@ -1,0 +1,136 @@
+{
+  "_doc": "Completed T-0486 ledger. Every frozen-manifest member received a dated repository/source-register review and targeted exact/variant-name sweep. Unlisted overrides use the documented no-corroboration default; pending is empty.",
+  "ticket": "T-0486",
+  "reviewed_on": "2026-09-02",
+  "status": "complete",
+  "default_outcome": "no_corroboration_yet",
+  "default_summary": "No reliable record in the reviewed repository newspaper/reference corpus, Chicago directories, digitized county/local histories, institutional records and targeted exact/variant-name web sweep could be tied to this postal person with sufficient date/place/occupation/kinship discriminators. This is a documented no-corroboration result, not evidence that the person did not exist.",
+  "query_templates": [
+    "\"{name}\" Chicago 1835",
+    "\"{name}\" Illinois 1834 1835",
+    "\"{name}\" Chicago directory",
+    "\"{name}\" genealogy occupation migration",
+    "justified OCR/spelling variants where the printed form was visibly suspect"
+  ],
+  "search_scope": [
+    "repository Chicago Democrat transcriptions, newspaper identity ledger and resident/source records",
+    "Fergus Chicago directories and existing resident-research source registry",
+    "Cook, Will, Kane, Lake and neighboring-county local histories",
+    "government, library and archival institutional records",
+    "broad exact-name and justified OCR/spelling-variant web searches"
+  ],
+  "outcome_counts": {
+    "corroborated": 1,
+    "candidate": 4,
+    "no_corroboration": 6
+  },
+  "completed_person_ids": [
+    "cleaveland_wm_p",
+    "shier_wm",
+    "bently_wm_t",
+    "teall_wm",
+    "winson_wm",
+    "wood_wm",
+    "woodworth_james_h",
+    "worden_nathaniel",
+    "works_charles",
+    "young_gideon",
+    "zearly_reason"
+  ],
+  "pending_person_ids": [],
+  "overrides": {
+    "cleaveland_wm_p": {
+      "outcome": "candidate_identity",
+      "summary": "A. T. Andreas's History of Chicago contains the uncommon exact name William P. Cleaveland in early-Chicago civic/person material. The name and place are useful discriminators, but the indexed excerpt lacks enough surrounding heading/page context to prove that this is the 1834 postal person, so the match remains unasserted.",
+      "sources": [
+        "chicago_democrat_1833_1835",
+        "andreas_history_chicago_william_p_cleaveland"
+      ],
+      "candidates": [
+        {
+          "id": "cand_william_p_cleaveland_andreas",
+          "asserted": false,
+          "basis": "Uncommon exact full name in an early-Chicago historical name list.",
+          "conflicts": [
+            "The retrieved excerpt does not expose enough heading/page context to prove that Andreas's William P. Cleaveland is the same individual as the January 1834 postal entry."
+          ],
+          "sources": [
+            "andreas_history_chicago_william_p_cleaveland"
+          ]
+        }
+      ]
+    },
+    "teall_wm": {
+      "outcome": "candidate_identity",
+      "summary": "Michigan City history records William Teall arriving in 1834, receiving a May 13 license to vend merchandise and appearing among Michigan Township residents. The exact name, target year and Great Lakes geography make a useful candidate for the April 1834 Chicago waiting letter, but no direct source bridges the two records.",
+      "sources": [
+        "chicago_democrat_1833_1835",
+        "michigan_city_history_william_teall"
+      ],
+      "candidates": [
+        {
+          "id": "cand_william_teall_michigan_city",
+          "asserted": false,
+          "basis": "Exact name, merchant activity and target-year Great Lakes chronology.",
+          "conflicts": [
+            "The Chicago waiting letter is dated April 1, 1834; the Michigan City merchant license is May 13 and no source explicitly identifies the addressee with the merchant."
+          ],
+          "sources": [
+            "michigan_city_history_william_teall"
+          ]
+        }
+      ]
+    },
+    "woodworth_james_h": {
+      "outcome": "corroborated_enrichment",
+      "summary": "The U.S. House historian independently states that James Hutchinson Woodworth moved to Chicago in 1833 and engaged in the dry-goods business. The exact full name and matching chronology strongly corroborate the postal person and safely add an 1833 Chicago-arrival/business chronology, but the biography does not establish a specific July 1835 dwelling or address.",
+      "sources": [
+        "chicago_democrat_1833_1835",
+        "ushouse_james_h_woodworth"
+      ],
+      "candidates": []
+    },
+    "works_charles": {
+      "outcome": "candidate_identity",
+      "summary": "Rockford history records Charles Works joining the First Congregational Church there in May 1837, placing the uncommon exact name in northern Illinois soon after the October 1834 Chicago postal item. The later date and lack of a direct Chicago bridge prevent assertion.",
+      "sources": [
+        "chicago_democrat_1833_1835",
+        "rockford_history_charles_works"
+      ],
+      "candidates": [
+        {
+          "id": "cand_charles_works_rockford",
+          "asserted": false,
+          "basis": "Uncommon exact name in northern Illinois by 1837.",
+          "conflicts": [
+            "The independent evidence begins nearly three years after the Chicago letter and supplies no direct identity bridge."
+          ],
+          "sources": [
+            "rockford_history_charles_works"
+          ]
+        }
+      ]
+    },
+    "young_gideon": {
+      "outcome": "candidate_identity",
+      "summary": "Kane County/St. Charles local history states that Gideon Young lived at Naperville in January 1835. The exact name and immediate Chicago-hinterland chronology make a useful candidate for the October 1834 postal person, but Naperville residence is competing geography and the source does not identify the Chicago addressee.",
+      "sources": [
+        "chicago_democrat_1833_1835",
+        "kane_history_gideon_young_naperville"
+      ],
+      "candidates": [
+        {
+          "id": "cand_gideon_young_naperville",
+          "asserted": false,
+          "basis": "Exact name in nearby Naperville within months of the Chicago postal return.",
+          "conflicts": [
+            "Naperville residence competes with Chicago residence and no direct source links the waiting letter to this man."
+          ],
+          "sources": [
+            "kane_history_gideon_young_naperville"
+          ]
+        }
+      ]
+    }
+  }
+}

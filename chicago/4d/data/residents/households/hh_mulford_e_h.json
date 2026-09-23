@@ -1,0 +1,144 @@
+{
+ "id": "hh_mulford_e_h",
+ "name": "The Mulford household",
+ "division": "south",
+ "head": "mulford_e_h",
+ "arrival": {
+  "value": "1833",
+  "confidence": "attested",
+  "sources": [
+   "andreas_1884_v1"
+  ],
+  "note": "'Came in 1833' - year precision.",
+  "precision": "year"
+ },
+ "party_size_on_arrival": {
+  "value": null,
+  "confidence": "reconstructed",
+  "note": "Not attested in anything this project holds."
+ },
+ "origin": {
+  "value": null,
+  "confidence": "reconstructed",
+  "note": "Not attested in anything this project holds."
+ },
+ "reason_for_coming": {
+  "value": null,
+  "confidence": "reconstructed",
+  "note": "Not attested in anything this project holds."
+ },
+ "lives_at": {
+  "value": null,
+  "confidence": "reconstructed",
+  "note": "Not attested in anything this project holds."
+ },
+ "works_at": {
+  "value": null,
+  "confidence": "reconstructed",
+  "note": "NOT MODELLED. No premises for this man is named in any source reached and none is in data/structures/."
+ },
+ "present_on_scene_date": {
+  "value": "uncertain",
+  "confidence": "inferred",
+  "sources": [
+   "andreas_1884_v1"
+  ],
+  "note": "PRESENCE ON THE SCENE DATE IS AN ASSUMPTION OF CONTINUITY AND NOT A STATEMENT. Nothing reached follows this household past 1833. It is graded uncertain rather than present because the town's population roughly quadrupled between the roster and the scene date and a great many of the men on it were, in Andreas's own phrase, 'adventurers, comprising moneyed speculators and prospectors, as yet undecided whether to stay at Chicago or go on'."
+ },
+ "persons": [
+  {
+   "id": "mulford_e_h",
+   "name": "E. H. Mulford",
+   "relationship": "head",
+   "grade": "attested",
+   "sex": "male",
+   "occupation": {
+    "value": "watchmaker",
+    "confidence": "attested",
+    "sources": [
+     "andreas_1884_v1"
+    ],
+    "note": "'E. H. Mulford, watch-maker, came in 1833.'",
+    "derived_from": "roles",
+    "roles_at_scene_date": [
+     "watchmaker"
+    ]
+   },
+   "sources": [
+    "andreas_1884_v1",
+    "fergus_chicago_directory_1839"
+   ],
+   "note": "Andreas vol. 1, printed p. 132 (scan p. 281), 'an imperfect list of the denizens of the town in the fall of 1833, not before named'. It gives a name, a trade and usually an arrival year, and it is a retrospective of 1884: a YEAR off it is documented, a MONTH is not, and it says nothing whatever about 1835. FERGUS 1839'S LATER LISTS — 1837 AND 1839 EVIDENCE, NEVER AN 1835 FACT. Fergus' Chicago Directory for 1839 names this person 1 time in its two later lists: the poll of Chicago's first city election, 2 May 1837 — “E. H. Mulford,” (f1839_v0080, printed page 41, ward 1, voting for William B. Ogden). What a match may carry, and it is short: that the man was in Chicago on 2 May 1837 and in that ward. It is written as 1837 evidence with describes_date 1837-05-02, never as an 1835 fact, and the person's grade does not move on this alone. Under the ratified ladder a second contemporary source is what lifts projected_resident, and a poll twenty-two months after the scene date is a second source about CONTINUED RESIDENCE, not about July 1835. The ward is a location in the CITY of 1837, whose six wards are drawn on printed page 46; it is not a location in the town of 1835 and does not place a house. Identity by the crosswalk's own rule: Surname 'Mulford' folds to the same string as the 1837 entry's, and the given name of both begins E. (data/research/directories/fergus_1839_election_crosswalk_1835.json and fergus_1839_register_crosswalk_1835.json). This pass WRITES THE EVIDENCE AND MOVES NO GRADE. Under the ratified ladder (T-0513) a second independent source is what lifts a projected resident, and a poll twenty-two months after the scene date — or a register four years after it — is a second source about CONTINUED RESIDENCE rather than about July 1835. T-0515 applies the ladder against every source at once; this pass hands it the evidence and not the verdict.",
+   "resident_research": {
+    "programme": "resident-research-2026",
+    "ticket": "T-0478",
+    "outcome": "no_corroboration_yet",
+    "reviewed_on": "",
+    "asserted_identity": false,
+    "evidence_for": "The current E. H. Mulford watchmaker record conflicts with stronger same-period evidence: the project's July/August 1835 Chicago Democrat corpus prints J. H. Mulford in watches and jewelry, while later directories distinguish Major E. H. Mulford from James H. and Edward H. Jr. The household may conflate members of the Mulford family, so no automatic rename or relationship is asserted.",
+    "evidence_against": "Existing Andreas-derived record says E. H. Mulford and arrival 1833; later sources distinguish multiple Mulford men in the jewelry business.",
+    "notes": "The current E. H. Mulford watchmaker record conflicts with stronger same-period evidence: the project's July/August 1835 Chicago Democrat corpus prints J. H. Mulford in watches and jewelry, while later directories distinguish Major E. H. Mulford from James H. and Edward H. Jr. The household may conflate members of the Mulford family, so no automatic rename or relationship is asserted.",
+    "source_ids": [
+     "chicago_newspapers_mulford_1835"
+    ],
+    "candidate_ids": [
+     "cand_mulford_james_h"
+    ]
+   },
+   "roles": [
+    {
+     "role": "watchmaker",
+     "kind": "trade",
+     "as_printed": null,
+     "from": "1673",
+     "to": "1857",
+     "precision": "source_span",
+     "dated_by": "source_describes_date",
+     "covers_scene_date": true,
+     "confidence": "attested",
+     "sources": [
+      "andreas_1884_v1"
+     ],
+     "claim": null,
+     "note": "THE BOUND IS THE SOURCE'S, NOT THE MAN'S. This role is carried by the card's 1835 occupation block and is dated by what the cited source or sources are ABOUT, which is why `precision` can be no better than the span they cover. The span reaches 1835, so this role stands in the scene-date view. The printing the trade was read off is not on the card and is fetched by T-1254."
+    }
+   ]
+  }
+ ],
+ "touches_removal": false,
+ "review_required": false,
+ "research_note": "THE ONLY WATCHMAKER IN THE DATASET, and a trade that says something about the town the buildings do not: a settlement supports a watchmaker only when enough people own watches and enough of them break. Andreas's later lists carry an E. H. Mulford sworn in a county proceeding, which corroborates the man's continuing residence at some later date and does not reach 1835.",
+ "directories": {
+  "note": "LATER EVIDENCE, BESIDE THE 1835 CLAIMS AND NOT INSIDE THEM. A Chicago directory of 1839, 1843 or 1844 meets somebody of this name and this pass records what it prints. Under the ratified ladder a directory read after 1835 can corroborate that a person attested here was still in Chicago and can print a trade or a street the 1835 record never had; on its own it makes nobody a resident of 1835. Nothing on this person's 1835 record was regraded, moved, dated or given an occupation by this entry. WHAT THIS PASS RULED ONTO THIS HOUSEHOLD, named so the ruling can be found again: each volume below is followed by the printed entries it set against this person and the status the crosswalk ruled them at — a single entry carries what its own `could_carry` declares, and an ambiguous or contested match carries nothing and is shown so that the silence is legible. mulford_e_h, Fergus's Chicago directory of 1839 — f1839_e1074 (a single entry).",
+  "sources": [
+   "fergus_chicago_directory_1839"
+  ],
+  "people": [
+   {
+    "person_id": "mulford_e_h",
+    "address_later": {
+     "value": "Illinois street near State",
+     "confidence": "attested",
+     "describes_date": 1839,
+     "sources": [
+      "fergus_chicago_directory_1839"
+     ],
+     "note": "Fergus's Chicago directory of 1839 prints this address against this person, in the entry quoted on the card: 'Mulford, Major E. H., Illinois street near State'. It is evidence about 1839, written here as 1839's and read back onto no 1835 claim. Under the ratified ladder a directory read after 1835 can corroborate that a person attested here was still in Chicago and can print a trade or a street the 1835 record never had; on its own it makes nobody a resident of 1835. Nothing on this person's 1835 record was regraded, moved, dated or given an occupation by this entry. The value is the volume's own line, split by its crosswalk on the entry's punctuation. These volumes set the trade first and its qualifiers after it on the same line, so the split may carry an employer, a market or a corner along with the trade. The printed entry is quoted beside the value for exactly that reason: the split is checkable against it, and neither is read into an 1835 claim."
+    },
+    "back_projection": {
+     "outcome": "refused",
+     "clause": "3",
+     "value": null,
+     "describes_date": 1839,
+     "read_back_years": 4,
+     "placement": null,
+     "position_local_enu_m": null,
+     "sources": [
+      "fergus_chicago_directory_1839"
+     ],
+     "note": "REFUSED, AND THE REFUSAL IS THE RECORD. Fergus's Chicago directory of 1839 prints an address against this name in 1839 and this pass will not carry it back to 1835. Illinois Street is a Kinzie's Addition name the 1835 street layer does not carry. A refusal is written here rather than dropped so that a later run can see the address was read and ruled on, not missed (docs/ADDRESS-BACK-PROJECTION.md, clause 3)."
+    }
+   }
+  ]
+ }
+}

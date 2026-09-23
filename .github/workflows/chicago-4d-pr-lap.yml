@@ -1,0 +1,71 @@
+name: Chicago 4D — PR lap
+
+# Brings every open PR into `dev` up to date and pushes, so auto-merge can fire.
+# It never merges a PR itself; it only removes the reason GitHub calls one
+# conflicting. See .github/steward/pr-lap.sh for why that reason exists (T-0857):
+# GitHub's server-side merge does not run this repo's merge drivers, so a branch
+# that merges `dev` with zero conflicts in a clone is reported as conflicting by
+# the platform, and auto-merge can never fire on it.
+#
+# NEEDS STEWARD_PAT, and that is not incidental. A push made with GITHUB_TOKEN
+# does NOT re-trigger workflows, so the PR would sit with a stale `gate` on an old
+# head and auto-merge still would not fire. The PAT is what makes the pushed head
+# get gated.
+
+on:
+  push:
+    branches: [dev]
+    paths:
+      - 'chicago/4d/**'
+      - 'site/chicago/4d/**'
+  workflow_dispatch:
+    inputs:
+      only:
+        description: 'Lap a single PR number (blank = every open PR)'
+        required: false
+        type: string
+
+permissions:
+  contents: read
+
+# One lap at a time. Two laps would race each other onto the same branches, and
+# a lap that finishes second would push a tree built on a `dev` that has moved.
+concurrency:
+  group: chicago-4d-pr-lap
+  cancel-in-progress: false
+
+jobs:
+  lap:
+    runs-on: ubuntu-latest
+    timeout-minutes: 55
+    steps:
+      - name: Check the secret before doing anything
+        env:
+          P: ${{ secrets.STEWARD_PAT }}
+        run: |
+          [ -n "$P" ] || {
+            echo "::error::STEWARD_PAT is missing. Without it a push does not re-trigger"
+            echo "::error::the gate, the PR keeps a stale check, and auto-merge never fires."
+            exit 1; }
+
+      - uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+          token: ${{ secrets.STEWARD_PAT }}
+
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.11'
+
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '22'
+
+      - name: Install validator dependencies
+        run: pip install --quiet jsonschema pyproj openpyxl pypdf numpy scipy Pillow
+
+      - name: Lap every open PR
+        env:
+          GH_TOKEN: ${{ secrets.STEWARD_PAT }}
+          LAP_ONLY: ${{ inputs.only }}
+        run: bash .github/steward/pr-lap.sh

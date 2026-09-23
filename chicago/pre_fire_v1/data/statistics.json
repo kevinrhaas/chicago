@@ -1,0 +1,38 @@
+{
+  "generated_from_files": [
+    "decade_1830s_buildings.csv",
+    "decade_1840s_buildings.csv",
+    "decade_1850s_buildings.csv",
+    "decade_1860s_buildings.csv",
+    "decade_1870_1871_buildings.csv",
+    "decade_pre1830_buildings.csv"
+  ],
+  "building_or_structure_records": 324,
+  "source_records": 92,
+  "building_source_links": 385,
+  "field_level_assertions": 1563,
+  "map_references": 14,
+  "local_map_images": 14,
+  "media_records": 20,
+  "building_media_assets": 6,
+  "building_media_links": 9,
+  "buildings_with_media": 5,
+  "geocoded_records": 15,
+  "needs_review_records": 214,
+  "documented_or_asserted_1871_fire_losses": 54,
+  "probable_1871_fire_losses": 10,
+  "unresolved_1871_fire_fates": 95,
+  "records_by_period": {
+    "1830s": 55,
+    "1840s": 60,
+    "1850s": 68,
+    "1860s": 59,
+    "1870s": 42,
+    "pre-1830": 40
+  },
+  "records_by_confidence": {
+    "high": 214,
+    "low": 11,
+    "medium": 99
+  }
+}

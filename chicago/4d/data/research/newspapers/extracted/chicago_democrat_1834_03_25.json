@@ -1,0 +1,581 @@
+{
+  "schema": 1,
+  "issue_id": "chicago_democrat_1834_03_25",
+  "extracted": "2026-08-28",
+  "extracted_by": "hand, T-0312 — the Democrat read, March 1834",
+  "note": "Vol. I No. 17, and the month's most consequential single claim is written inside Fort Dearborn: a desertion notice dated at the post, signed by its adjutant and issued by order of a major, which shows the fort garrisoned and administered in March 1834 and dates enlistment there to the 1820s. Beside it, a new bakery opens on South Water Street a few doors north of Newberry & Dole — the only evidence in the month for where that forwarding house stood — three weeks after the town's old bakery closed; a benefit lecture on caloric is given in the Baptist Church at six on a Monday evening; a cabinet shop's benches, tools and cherry lumber are sold up; lots are advertised fronting on Kinzie and Michigan streets north of the river; and the bootmaker next door to Peter Cohen's store is legible here for the first time.",
+  "claims": [
+    {
+      "id": "c001",
+      "kind": "building",
+      "reading": "transcription_mediated",
+      "quote": "INFANT SCHOOL BENEFIT.\nBy order of the Board of Trustees, Dr. 1\nisap-| PLE, will deliver a lecture on CALORIC, it\nJon-| Baptist Church, on Monday evening, the\nf the | instant, at6G P.M, Admittance 25 cents,\nfant School Children will attend free of\ncharge. The necessary arrangements for 'T\nets, Xc. will be made by Maj. H. 8. Handy\n» L. HAMILTON, Pres",
+      "normalized": "INFANT SCHOOL BENEFIT. By order of the Board of Trustees, Dr. [TEM]PLE will deliver a lecture on CALORIC, i[n the] Baptist Church, on Monday evening, the [28th] instant, at 6 P. M. Admittance 25 cents. [In]fant School Children will attend free of charge. The necessary arrangements for T[ick]ets, &c. will be made by Maj. H. S. Handy. [R.] [J]. HAMILTON, Pres[ident].",
+      "locator": {
+        "artifact_role": "primary",
+        "issue_page": 3,
+        "column": 3,
+        "lines": [
+          2275,
+          2283
+        ],
+        "interleaved": true
+      },
+      "entities": [
+        {
+          "as_printed": "Dr. 1\nisap-| PLE,",
+          "normalized": "J. T. Temple",
+          "role": "lecturer on caloric for the Infant School benefit",
+          "occupations": [
+            "physician",
+            "school trustee"
+          ]
+        },
+        {
+          "as_printed": "Maj. H. 8. Handy",
+          "normalized": "H. S. Handy",
+          "role": "making the ticket arrangements for the Infant School benefit",
+          "occupations": [
+            "merchant"
+          ]
+        },
+        {
+          "as_printed": "» L. HAMILTON, Pres",
+          "normalized": "Richard J. Hamilton",
+          "role": "president of the board of trustees of the Infant School",
+          "occupations": [
+            "clerk of the circuit court",
+            "school trustee"
+          ]
+        }
+      ],
+      "notes": "A PAID LECTURE ON HEAT, IN A CHURCH, AT SIX ON A MONDAY EVENING IN MARCH — and for a reconstruction the interesting word is EVENING. The Baptist Church has to be lit and warmed enough to hold a paying audience after dark at the end of a Chicago winter; the Presbyterian meeting house was shown doing the same for a temperance meeting in January (1834-01-28, claim c002 there). So both of the town's church buildings are documented as evening public rooms, which constrains their fabric more than a dedication notice does. THE SUBJECT IS 'CALORIC' — the fluid theory of heat, then still respectable — delivered by Dr. Temple, who is secretary of the Infant School's trustees three weeks earlier (1834-03-04, claim c016 there) and here its lecturer, with R. J. Hamilton the county clerk as president of the board and Maj. H. S. Handy, lately of the dissolved firm of Taylor & Handy, selling the tickets. Twenty-five cents at the door, the school's own children free. THE LECTURE'S DATE DIGIT IS BROKEN in the crop and is bracketed rather than supplied with confidence."
+    },
+    {
+      "id": "c002",
+      "kind": "event",
+      "reading": "transcription_mediated",
+      "quote": "$30 REWARD.\nESERTED last night,from this Fort,\nenger,        iam IW. Morin, a private Soldier; th\nretire  Morin is five fot sieve inches in height, ¢\n5 pres-| ty four years of age, light complexion  blue\nbe for| and light hair, was’ born in Otsego coun\n8 her| the State of  lew York, is by occupation\nee and cabinet maker, and was enlint\n‘ort Dearborn, on the 8th  Deceinber, 182:\nLieut. Allen. Ono of his upper front tee\nmuch decayed, in his address he is very for\nmpestfal and awkward, is quite slow « fape\nand is much addicted to intemperance.\né Tein dollars reward will be paid on th\nlivery of the said William W.    lorin, at\nMilitary Post, or to any Officer at this For\nby order of Maj, Garss,\nE. KIRBY SMITH, Le. & Post\nFort Dearborn, March 20,1               3",
+      "normalized": "$30 REWARD. [D]ESERTED last night, from this Fort, [Willi]am W. Morin, a private Soldier; th[e said] Morin is five fo[o]t [seven] inches in height, [twen]ty four years of age, light complexion, blue [eyes] and light hair, was born in Otsego coun[ty in] the State of [N]ew York, is by occupation [a] cabinet maker, and was enlist[ed at F]ort Dearborn, on the 8th [of] Dece[m]ber, 182[…] [by] Lieut. Allen. One of his upper front tee[th is] much decayed, in his address he is very [uncertain: for]m[al] [and] r[e]spectful and awkward, is quite slow o[f speech], and is much addicted to intemperance. [uncertain: Th]i[r]t[y] dollars reward will be paid on the [de]livery of the said William W. [M]orin, at [this] Military Post, or to any Officer at this For[t]. By order of Maj. [uncertain: Garss]. E. KIRBY SMITH, L[t]. & Post [Adjutant]. Fort Dearborn, March 20, 1[834].",
+      "locator": {
+        "artifact_role": "primary",
+        "issue_page": 3,
+        "column": 4,
+        "lines": [
+          2412,
+          2430
+        ],
+        "interleaved": true
+      },
+      "entities": [
+        {
+          "as_printed": "iam IW. Morin, a private Soldier",
+          "normalized": "William W. Morin",
+          "role": "private soldier of the garrison of Fort Dearborn, deserted 19 or 20 March 1834",
+          "occupations": [
+            "soldier",
+            "cabinet maker"
+          ],
+          "associated_places": [
+            "Fort Dearborn"
+          ]
+        },
+        {
+          "as_printed": "Lieut. Allen",
+          "normalized": "Lieut. Allen",
+          "role": "the officer who enlisted Morin at Fort Dearborn",
+          "occupations": [
+            "army officer"
+          ],
+          "associated_places": [
+            "Fort Dearborn"
+          ]
+        },
+        {
+          "as_printed": "E. KIRBY SMITH, Le. & Post",
+          "normalized": "E. Kirby Smith",
+          "role": "lieutenant and post adjutant at Fort Dearborn",
+          "occupations": [
+            "army officer",
+            "post adjutant"
+          ],
+          "associated_places": [
+            "Fort Dearborn"
+          ]
+        }
+      ],
+      "notes": "FORT DEARBORN IS GARRISONED, OCCUPIED AND ADMINISTERED IN MARCH 1834, and this notice is the proof from inside it. It is written at the fort, dated there — 'Fort Dearborn, March 20, 1834' — signed by a post adjutant, issued by order of a major, and it speaks of 'this Fort' and 'this Military Post' in the present tense. A post with an adjutant writing general orders is an ESTABLISHMENT, not a caretaker detachment, which matters because the second fort's condition and use in the years before the scene date is exactly the question the FORT tickets keep running into. IT ALSO DATES A CAREER: Morin 'was enlisted at Fort Dearborn, on the 8th December, 182[…]' — the year's last digits are lost to the crop and are NOT supplied, but the phrase places recruiting at this fort in the 1820s, before the second fort's 1832-33 reoccupation, and the man is still in its garrison in 1834. A SOLDIER WHO IS A CABINET MAKER is the third man in that trade this month, after A. Filer & Co. and W. Reed. THE COMMANDING OFFICER'S NAME IS NOT LEGIBLE: the transcription reads 'Maj, Garss' and no completion is asserted; nor is the adjutant identified further than the paper identifies him."
+    },
+    {
+      "id": "c003",
+      "kind": "business",
+      "reading": "transcription_mediated",
+      "quote": "1| @MEORGO BARBEE-\nmt       D. GRAVES,\nk   * FOULD inform the citizens of Chi\no     Boe the naighbonas sottloments,\nPhe | he has commenced the Baking Business, in th\ned,| town, on South Water-street, a few doors nort\n; | of Mesars. Newbory & Dole's store, where |\nby | will always keep om hand, frosh Bred, Cracker\nes  Lakes, des: Ke, 'andae sendy to S67\nzens Of this town, as low as can    afforded. -\n‘Orders from a distance attended 19\n[uncertain: ola} ? March 25, 1834,]",
+      "normalized": "[GEORGE BARBER? — head-line unrecoverable] D. GRAVES [W]OULD inform the citizens of Chi[cago and] the neighbo[uring] settlements, [that] he has commenced the Baking Business, in th[is] town, on South Water-street, a few doors nort[h] of Messrs. Newberry & Dole's store, where [he] will always keep on hand, fresh Bre[a]d, Crackers, [C]akes, &c. &c., and [is ready to serve the citi]zens of this town, as low as can [be] afforded. Orders from a distance attended [to]. [uncertain: … March 25, 1834.]",
+      "locator": {
+        "artifact_role": "primary",
+        "issue_page": 3,
+        "column": 3,
+        "lines": [
+          2379,
+          2390
+        ],
+        "interleaved": true
+      },
+      "business": {
+        "name": "D. Graves",
+        "trade": "bakery",
+        "proprietors": [
+          "D. Graves"
+        ],
+        "goods": [
+          "fresh bread",
+          "crackers",
+          "cakes"
+        ],
+        "street": "South Water Street",
+        "placement": {
+          "class": "relative",
+          "anchor": "Newberry & Dole's store",
+          "offset_text": "town, on South Water-street, a few doors nort\nof Mesars. Newbory & Dole's store, where |"
+        }
+      },
+      "ad_copy_date": {
+        "verbatim": "[uncertain: ola} ? March 25, 1834,]",
+        "iso": "1834-03-25"
+      },
+      "entities": [
+        {
+          "as_printed": "D. GRAVES,",
+          "normalized": "D. Graves",
+          "role": "baker on South Water Street, a few doors north of Newberry & Dole's store",
+          "occupations": [
+            "baker"
+          ],
+          "associated_places": [
+            "South Water Street"
+          ]
+        }
+      ],
+      "notes": "A NEW BAKERY OPENING ON THE DAY THE PAPER WENT TO PRESS, AND IT PLACES TWO BUSINESSES AT ONCE. 'on South Water-street, a few doors north of Messrs. Newberry & Dole's store' is the only evidence in the entire month for where Newberry & Dole stood — their own advertisements give no address at all — so this notice puts the forwarding house on South Water Street by another man's reckoning, and the bakery a few doors up from it. THE TIMING IS THE OTHER HALF OF THE STORY. John Wellmaker's Man Trap, the town's bakery and confectioner's, closed on 4 March (1834-03-04, claims c011 and c031 there) and its partnership was dissolved in this same issue (claim c004 here). Three weeks after the old bakery shut, a new one opens on South Water Street. Nothing printed connects them and no connection is asserted — but the sequence is the kind of thing a month-long read is for, and a reconstruction that wants a working bakery on this street at the scene date now has a candidate with a documented opening. 'A FEW DOORS' IS NOT A NUMBER and is not treated as one; the placement carries the paper's own words. THE ADVERTISEMENT'S HEAD-LINE IS DESTROYED — the crop reads 'GMEORGO BARBEE-' above the signature — and is NOT reconstructed; only D. Graves's own name and text are read."
+    },
+    {
+      "id": "c004",
+      "kind": "notice",
+      "reading": "transcription_mediated",
+      "quote": "[uncertain: HEREAS the ‘?o- partnership exisii]\ntween the subscriber and Willia\nAdams, under the firm of John Wellmaker .\nwas by mutual consent dissolved, on the\nday of March, 1834. This is to give notic\nno future contracts or  Tesponsibilities w\nmade or assumed, with the consent, of the\nscriber, under the name of the above firm,\nJOHN WE      K)\nMarch %, 1334,           ELLMAKE",
+      "normalized": "Dissolution. [W]HEREAS the [c]o-partnership exist[ing be]tween the subscriber and Willia[m] Adams, under the firm of John Wellmaker [& Co.] was by mutual consent dissolved, on the [—] day of March, 1834. This is to give notic[e that] no future contracts or responsibilities w[ill be] made or assumed, with the consent of the [sub]scriber, under the name of the above firm. JOHN WE[LLMA]K[ER]. March [25], 1834.",
+      "locator": {
+        "artifact_role": "primary",
+        "issue_page": 3,
+        "column": 4,
+        "lines": [
+          2401,
+          2410
+        ],
+        "interleaved": true
+      },
+      "business": {
+        "name": "J. Wellmaker & Co.",
+        "trade": "unstated — the notice announces only its dissolution",
+        "proprietors": [
+          "John Wellmaker",
+          "William Adams"
+        ],
+        "goods": [],
+        "street": null,
+        "placement": {
+          "class": "none",
+          "anchor": null
+        }
+      },
+      "ad_copy_date": {
+        "verbatim": "March %, 1334,           ELLMAKE",
+        "iso": "1834-03-25"
+      },
+      "contradicts": true,
+      "entities": [
+        {
+          "as_printed": "Willia\nAdams",
+          "normalized": "William Adams",
+          "role": "partner in the dissolved firm of John Wellmaker & Co.",
+          "occupations": [
+            "merchant"
+          ]
+        }
+      ],
+      "notes": "THE END OF THE ARC THAT OPENED THIS MONTH, and it supplies the partner the first notice withheld. On 4 March 'J. Wellmaker & Co.' told its customers it had closed (1834-03-04, claim c011 there); here the firm is formally dissolved and the second partner is finally named — William Adams. Between the two notices the Man Trap was still advertising bread, cakes, pastry and liquors opposite R. A. Kinzie's store, because a standing advertisement runs until somebody pays to pull it. RULING 3'S VETO stands on the firm across all three notices. THE DAY OF THE MONTH IS BLANK IN THE PRINT — 'on the [—] day of March' — the type having dropped, and no date is supplied; the notice's own dateline is taken as the copy date instead."
+    },
+    {
+      "id": "c005",
+      "kind": "building",
+      "reading": "transcription_mediated",
+      "quote": "og          ILL be sold without reserve, on the 5\nday of April next, at the shop of 5, 1\nReed, the fallow ing property :\nhas} 3 first rate Cabinet Benches.\nIs of} I full vet first rate Cabinet Tools.\nfor} 1! Lot Hard ware,\n581      1 Lot Cherry Lumber, besides other propert\nard,|_ The above property will be sold to the hig\n‘iu’ | est bidder, on a credit of three mouths. Ge\ning | endorsed  iper on all sums over three dolla:\nfew | and for atacna under, Cash,               5\nort-       a                 J. BATES, Jr. Aue’r.",
+      "normalized": "[W]ILL be sold without reserve, on the 5[th] day of April next, at the shop of S. [W.] Reed, the following property: 3 first rate Cabinet Benches. 1 full set first rate Cabinet Tools. 1 Lot Hardware. 1 Lot Cherry Lumber, besides other property. The above property will be sold to the highest bidder, on a credit of three months. G[ood] endorsed [pa]per on all sums over three dollar[s], and for [sums] under, Cash. J. BATES, Jr. Auc'r.",
+      "locator": {
+        "artifact_role": "primary",
+        "issue_page": 3,
+        "column": 3,
+        "lines": [
+          2344,
+          2355
+        ],
+        "interleaved": true
+      },
+      "entities": [
+        {
+          "as_printed": "5, 1\nReed,",
+          "normalized": "S. W. Reed",
+          "role": "cabinet maker, at whose shop the cabinet plant was sold up",
+          "occupations": [
+            "cabinet maker"
+          ]
+        }
+      ],
+      "notes": "A CABINET SHOP SOLD UP, PLANT AND ALL — and the inventory is a description of the building's interior. Three first-rate cabinet BENCHES is the number of workmen the shop could hold, which agrees exactly with the 'two or three journeymen cabinet makers' W. Reed advertised for in December and was still advertising for a week before this sale (1834-03-18, claim c010 there). A full set of tools, a lot of hardware and a lot of CHERRY LUMBER — cherry being the cabinet timber of the period, distinct from the poplar and oak the Prices Current quotes for building. The sale is at the SHOP, so the shop is a place a crowd can be gathered in and is a building rather than a corner of a house. THE INITIALS DISAGREE between this notice ('S. [W.] Reed') and the December advertisement ('W. Reed') and are NOT reconciled: same surname, different initials is the one case this project never merges, with or without a rule. The auctioneer is John Bates, Jr., who keeps his office at the Post Office."
+    },
+    {
+      "id": "c006",
+      "kind": "street",
+      "reading": "transcription_mediated",
+      "quote": "B          ILL be sold on the 10th July next, Fo\nnits, Ww Lats, fronting on Kinzie and Michig\nand| streets,       :\nTerms of Sale—One third in Cash and t\ned  balance in three and six votes df paces\n| notes and endorsers, ope h  irs TLMPLE.\nlin} Chicago, March 24, 1834,\n.    . 8. Eight Blocks for sale in the School Se\nate.   P. 8. Eight Blocks for sale i   feces\ntion.",
+      "normalized": "[W]ILL be sold on the 10th July next, [Four? L]ots, fronting on Kinzie and Michig[an] streets. Terms of Sale — One third in Cash and t[he] balance in three and six [months, with approved] notes and endorsers. [J. T.] TEMPLE. Chicago, March 24, 1834. P. S. Eight Blocks for sale in the School Se[c]tion.",
+      "locator": {
+        "artifact_role": "primary",
+        "issue_page": 3,
+        "column": 3,
+        "lines": [
+          2358,
+          2367
+        ],
+        "interleaved": true
+      },
+      "entities": [
+        {
+          "as_printed": "ope h  irs TLMPLE.",
+          "normalized": "J. T. Temple",
+          "role": "offering lots on Kinzie and Michigan streets and eight blocks in the School Section",
+          "occupations": [
+            "physician",
+            "school trustee",
+            "land owner"
+          ]
+        }
+      ],
+      "notes": "KINZIE AND MICHIGAN STREETS, NAMED AS FRONTAGES — two street names this corpus has not carried before, and both of them NORTH of the river, which is where the reconstruction's evidence thins fastest. Kinzie Street runs east and west along the north bank; Michigan Street (later Hubbard) lies a block north of it. Lots being advertised as 'fronting on' them in March 1834 means the streets existed as surveyed frontages by then, which is a different and weaker claim than saying they were made roads, and only the weaker one is made here. THE COUNT OF LOTS IS NOT LEGIBLE and is bracketed rather than supplied. THE POSTSCRIPT IS THE SECOND SCHOOL SECTION OFFER OF THE MONTH — 'Eight Blocks for sale in the School Section', beside P. Pruyne & Co.'s Lot No. 3 in Block 120 (1834-03-18, claim c006 there) — and eight whole blocks in one hand is a land holding, not a house lot. The seller is the same Dr. Temple who runs the Infant School's trustees and lectures for its benefit three days later."
+    },
+    {
+      "id": "c007",
+      "kind": "building",
+      "reading": "transcription_mediated",
+      "quote": "‘The Earth for Sale.\ngeil, iat ea aoeeene paca oh aoa\nvat         PRE-E)\nTION RIGHT, on said cree\niy        for wale by the subscriber, very cheap—\nfur | is only 13 miles from Chicago. ‘There is a go\nhe | Log House and Stable, and about two thousar\nthe | rails on the found. boot bal of aid lot\n| hi       iri       the other     woo      .\nigh high prairie, and       i. 3.0. HOGAN,\nout} Murch 24.",
+      "normalized": "The Earth for Sale. […] [A] PRE-EMP[TION] RIGHT, on said [claim is offered] for sale by the subscriber, very cheap — [it] is only 13 miles from Chicago. There is a good Log House and Stable, and about two thousand rails on the ground. [About half of said lot is] […] the other [is] […] high prairie. J. S. C. HOGAN. March 24.",
+      "locator": {
+        "artifact_role": "primary",
+        "issue_page": 3,
+        "column": 3,
+        "lines": [
+          2368,
+          2378
+        ],
+        "interleaved": true
+      },
+      "entities": [],
+      "notes": "A LOG HOUSE, A STABLE AND TWO THOUSAND RAILS, THIRTEEN MILES OUT — the countryside the town sat in, priced. This is outside the reconstruction's ground and is extracted anyway, because it is the only description in the month of what an ordinary improved claim in Cook county consisted of: a log house, a stable, about two thousand split rails lying ready for fencing, and a lot half timber and half high prairie. Two thousand rails is roughly a mile of worm fence, so the improvement is real and the seller is quantifying it. NO POSITION IS CLAIMED beyond the paper's own '13 miles from Chicago' and no direction is given or inferred. The seller is the postmaster, John S. C. Hogan, who in this same issue is also selling three hundred cedar posts (claim c010 here) — fencing timber, the other half of the same market. THE HEAD-LINE AND THE FIRST LINES ARE DESTROYED in the crop and are not reconstructed."
+    },
+    {
+      "id": "c008",
+      "kind": "building",
+      "reading": "transcription_mediated",
+      "quote": "Two Buildings te Let,\nILL the first day of June 183\nPossession given immediatel\nEnquire of SOHN WRIGHT.\nsvor.",
+      "normalized": "Two Buildings to Let, [T]ILL the first day of June 183[4]. Possession given immediately. Enquire of JOHN WRIGHT. [N]ov. [26].",
+      "locator": {
+        "artifact_role": "primary",
+        "issue_page": 3,
+        "column": 4,
+        "lines": [
+          2495,
+          2499
+        ],
+        "interleaved": true
+      },
+      "entities": [],
+      "notes": "THE SAME STANDING ADVERTISEMENT, READ WHOLE — and this is the printing that carries the enquiry line intact where the 4 March crop had shredded it (1834-03-04, claim c027 there). Two lettable buildings in Chicago, offered since 26 November 1833, still on the market at the end of March 1834, with possession available at once and the term running only to 1 June. John Wright, who holds them, is a general merchant advertising cut nails and a full column of dry goods in the same issues. THE SOURCE RECORD'S WARNING STANDS: `data/sources/chicago_democrat_1833_11_26.json` quarantines the stock engraving printed above this advertisement in Vol. I No. 1 as a generic printer's cut and not a picture of either building. Nothing about size, material, storeys or position is stated here and nothing is inferred."
+    },
+    {
+      "id": "c009",
+      "kind": "business",
+      "reading": "transcription_mediated",
+      "quote": "Beet & Shee Making.\nHE subscriber having recently cominenc\n[uncertain: the above business, next’ door to P. ?]\nhen’s Store, willbe kept on ha\na good assortment of\n“i BOOT\nsuited to the call of the country. Genilem\npear | Wishing Fine Boots, water proof, will be acco’\ns of| modated with the best materials, and fashion\nble atyle. Most kinds    Eats seek ah soar!\non short no!    a\non bend oF made Oe MON TOOMERY.\nChicago, Dee. 15, 1838.",
+      "normalized": "Boot & Shoe Making. [T]HE subscriber having recently commenced [uncertain: the above business, next door to P. Co]hen's Store, will be kept on ha[nd] a good assortment of [uncertain: BOOTS and SHOES] suited to the call of the country. Gentlemen wishing Fine Boots, water proof, will be accommodated with the best materials, and fashionable style. Most kinds [of work kept constantly] on ha[n]d or made [to order]. [W.] MONTGOMERY. Chicago, Dec. 15, 183[3].",
+      "locator": {
+        "artifact_role": "primary",
+        "issue_page": 3,
+        "column": 4,
+        "lines": [
+          2482,
+          2494
+        ],
+        "interleaved": true
+      },
+      "business": {
+        "name": "L. W. Montgomery, boot and shoe maker",
+        "trade": "boot and shoe making",
+        "proprietors": [
+          "L. W. Montgomery"
+        ],
+        "goods": [
+          "boots",
+          "shoes",
+          "water proof fine boots"
+        ],
+        "street": null,
+        "placement": {
+          "class": "relative",
+          "anchor": "P. Cohen's Store",
+          "offset_text": "[uncertain: the above business, next’ door to P. ?]\nhen’s Store, willbe kept on ha"
+        }
+      },
+      "ad_copy_date": {
+        "verbatim": "Chicago, Dee. 15, 1838.",
+        "iso": "1833-12-15"
+      },
+      "entities": [
+        {
+          "as_printed": "MON TOOMERY.",
+          "normalized": "L. W. Montgomery",
+          "role": "boot and shoe maker, next door to P. Cohen's store",
+          "occupations": [
+            "boot and shoe maker"
+          ],
+          "associated_places": [
+            "P. Cohen's store"
+          ]
+        }
+      ],
+      "notes": "THE BOOTMAKER'S NAME, LEGIBLE AT LAST. On 4 March this advertisement sat inside the letter-list crop and its signature survived only as debris (1834-03-04, claim c026 there); here it reads 'MON TOOMERY' — Montgomery — and the person can be minted. The placement is unchanged and is the strongest anchor in the month: next door to P. Cohen's store, and Cohen's store is the one Chicago address in this corpus fixed on a SCAN-VERIFIED reading, at the east end of South Water Street (`data/sources/chicago_democrat_1833_11_26.json`). So a boot and shoe maker's shop stands at the east end of South Water Street from December 1833 through at least March 1834. THE INITIAL IS W, AND IT IS READ FROM THE JANUARY PRINTING OF THE IDENTICAL ADVERTISEMENT — 'W. MONTGOMERY. Chicago, Dec. 18, 1833' (1834-01-28, claim c008 there) — where the signature survives whole. THE TWO PRINTINGS DISAGREE ABOUT THE DATELINE'S DAY, 15 here against 18 there, and neither is preferred: both are OCR of the same broken type and the difference changes nothing that is claimed. Both printings are damaged in different places and the reading uses each where it is legible, keeping every quote to what its own column says. THE SIGNATURE IS LOTON W. MONTGOMERY'S, AND THE SHOEMAKING IS NOT THE AUCTIONEER'S (T-1040). This is ONE standing advertisement — 'Boot & Shoe Making. The subscriber having recently commenced the above business, next door to P. Cohen's Store …', the same setting word for word under a dateline of Chicago, December 1833 — and the Democrat runs it from 17 December 1833 through at least 8 April 1834. Four impressions bear on the signature and three of them carry an L: it is set WHOLE as 'L. W. MONTGOMERY' at 1833-12-17 c003 and at 1834-04-08 c007, and the damaged 1834-03-04 c028 preserves the initial itself — its column reads 'L.      Mo}' where the name stood. Those impressions stand on both sides of the two that read 'W. MONTGOMERY' (1834-01-28 c008, and 1834-03-25 c009, whose initial its own note says was READ FROM the January printing rather than off its own page). So the reading is L. W. Montgomery throughout, and `as_printed` is left exactly as each column sets it. WHAT THIS IS NOT: it is not a merge of 'W. Montgomery' with 'L. W. Montgomery'. This corpus carries a real W. Montgomery — the auctioneer and commission merchant of South Water Street, signing 'W. MONTGOMERY' and 'W. MONTGOMERY, Auc'r.' across the summer of 1835 — and the identity policy's families rule rightly refuses to join two Montgomerys on a differing initial. The discriminator here is not the initial; it is that the shoemaking notice and the auction notices are two different advertisements, and this one is the shoemaker's. Before this ruling `person_w_montgomery` carried 'boot and shoe maker' beside 'auctioneer', 'commission merchant', 'land agent' and 'newspaper agent' — one record holding two men's trades on two signatures separated on the page. Loton W. Montgomery is in this reconstruction under his own name (hh_montgomery_l_w), on the polls of 1834 and 1835 and in Fergus 1843 and Norris 1844, a shoemaker in each."
+    },
+    {
+      "id": "c010",
+      "kind": "business",
+      "reading": "transcription_mediated",
+      "quote": "‘{ wish I had a load of poles,\n‘To fence my garden round.”\"—Orp Gam\n6          CEDAR POSTS, for sule che\n300 by      J. 8. C. HOGAN,\n19,| March",
+      "normalized": "'I wish I had a load of poles, To fence my garden round.' — OLD [SONG]. [3]00 CEDAR POSTS, for sale che[ap] by J. S. C. HOGAN. March [24].",
+      "locator": {
+        "artifact_role": "primary",
+        "issue_page": 3,
+        "column": 3,
+        "lines": [
+          2337,
+          2341
+        ],
+        "interleaved": true
+      },
+      "business": {
+        "name": "J. S. C. Hogan",
+        "trade": "general store and post office",
+        "proprietors": [
+          "John S. C. Hogan"
+        ],
+        "goods": [
+          "cedar posts",
+          "fancy goods",
+          "general assortment"
+        ],
+        "street": "South Water Street",
+        "placement": {
+          "class": "street_only",
+          "anchor": null,
+          "note": "Three hundred cedar posts under a scrap of song, with no address whatever. This is the claim T-0859 was found on: the business-level South Water Street beside it comes from a reader who knew Hogan's store, not from the notice, and it is not read back here."
+        }
+      },
+      "ad_copy_date": {
+        "verbatim": "19,| March",
+        "iso": "1834-03-24"
+      },
+      "entities": [],
+      "notes": "THREE HUNDRED CEDAR POSTS, ADVERTISED UNDER A SCRAP OF SONG ABOUT FENCING A GARDEN — the only piece of advertising wit in the month, and evidence of something a reconstruction should not overlook: Chicago householders in 1834 had gardens, and fenced them. Cedar is the rot-resistant post timber, imported down the lake with the rest of the town's material (David Carver lists 'red cedar posts' among his lumber, 1834-03-04, claim c006 there). THE SAME QUANTITY WAS AUCTIONED THREE WEEKS EARLIER — 300 cedar posts in John Bates's sale in the store adjoining the Post Office on 10 March (1834-03-04, claim c019 there) — and Hogan keeps the store the Post Office is in. The coincidence is recorded and NOT read as the same lot, because nothing printed says so and a plausible chain is not a documented one."
+    },
+    {
+      "id": "c011",
+      "kind": "business",
+      "reading": "transcription_mediated",
+      "quote": "~«;| SCORN WRLEHT,,\ni.    Orr  FOR SALE CHEAP FO\nCASH,\n7} Merino Cloths,      poy qualities at\ndo, Circassians, § colors;\nSth} Thibet, Valentia and Prussian Shawls; x\nW,| | Gro-de-nap, Palmerine and Crepe Hand’ kfe\nBandanna, silk, flag, and black, Italian do.\nGauze, garniture ry C. P. Ribbons;\nMull, Jackonet and Beok Muslins;\nFig'd and plain Bebinett Laces ;\nQuillings and\nEdgings:\n4 As     Blue, brown and Stocl-tnix’d Cloths;\ngh-| Steel-mnix'd, dark and light blue Sattinette;\nWhite, scarlet, and red Flannels;\nDark and fancy colored Prints;\nIndigo Apron Checks and Plaids;        ‘\nMernailes, Valentis and Swansdown Vesting\nFine Erish Linen; Canton Flannel;\nBrown and bleached cath Phere Shectings\nBeaverteen—different qualities ;\nBa:      Cord;                      ,\nMeaty sande Clothing—different binds:\nWick and Waddings\nthe | 2nd other Dry Goods which it is unnecessary t\nved | particularize.\n—A PRETYY GESERAL ASSORTMENT OF\nSardware, Creckery,\nGreceries, Boots and Shoes\nStationary, Tin Ware, &:, &e.\n\"Cotton snd flannel’ Shirts and Drawers, ¢\ndifferent qualities and colors, for sale ae above,\nChicago, Nor. 26, 1633.                    |",
+      "normalized": "JOHN WRIGHT, OFF[ERS] FOR SALE CHEAP FOR CASH, Merino Cloths, [various] qualities and [colors]; do. Circassians, [various] colors; Thibet, Valentia and Prussian Shawls; Gro-de-nap, Palmerine and Crepe Hand[ker]ch[ie]fs; Bandanna, silk, flag, and black, Italian do.; Gauze, garniture [and] C. P. Ribbons; Mull, Jaconet and Book Muslins; Fig'd and plain Bobbinett Laces; Quillings and Edgings; Blue, brown and Steel-mix'd Cloths; Steel-mix'd, dark and light blue Sattinette; White, scarlet, and red Flannels; Dark and fancy colored Prints; Indigo Apron Checks and Plaids; Ma[r]seilles, Valentia and Swansdown Vesting[s]; Fine Irish Linen; Canton Flannel; Brown and bleached [4-4 and 3-4] Sheetings; Beaverteen — different qualities; B[eaver?] Cord; Ready made Clothing — different [k]inds; Wick and Wadding; and other Dry Goods which it is unnecessary to particularize. — A PRETTY GENERAL ASSORTMENT OF Hardware, Crockery, Groceries, Boots and Shoes, Stationery, Tin Ware, &c. &c. Cotton and flannel Shirts and Drawers, o[f] different qualities and colors, for sale as above. Chicago, Nov. 26, 1833.",
+      "locator": {
+        "artifact_role": "primary",
+        "issue_page": 3,
+        "column": 4,
+        "lines": [
+          2501,
+          2534
+        ],
+        "lines_of_claim": [
+          2501,
+          2502,
+          2503,
+          2504,
+          2505,
+          2506,
+          2507,
+          2508,
+          2509,
+          2510,
+          2511,
+          2512,
+          2513,
+          2514,
+          2515,
+          2516,
+          2517,
+          2518,
+          2519,
+          2520,
+          2521,
+          2522,
+          2523,
+          2524,
+          2525,
+          2526,
+          2527,
+          2528,
+          2529,
+          2530,
+          2531,
+          2532,
+          2533,
+          2534
+        ],
+        "interleaved": true
+      },
+      "business": {
+        "name": "John Wright",
+        "trade": "dry goods, hardware and general store",
+        "proprietors": [
+          "John Wright"
+        ],
+        "goods": [
+          "merino cloths",
+          "circassians",
+          "shawls",
+          "handkerchiefs",
+          "ribbons",
+          "muslins",
+          "bobbinett laces",
+          "cloths",
+          "sattinette",
+          "flannels",
+          "prints",
+          "checks and plaids",
+          "vestings",
+          "Irish linen",
+          "sheetings",
+          "beaverteen",
+          "ready made clothing",
+          "hardware",
+          "crockery",
+          "groceries",
+          "boots and shoes",
+          "stationery",
+          "tin ware",
+          "cut nails"
+        ],
+        "street": null,
+        "placement": {
+          "class": "none",
+          "anchor": null
+        }
+      },
+      "ad_copy_date": {
+        "verbatim": "Chicago, Nor. 26, 1633.                    |",
+        "iso": "1833-11-26"
+      },
+      "entities": [],
+      "notes": "WHAT THE TOWN COULD ACTUALLY BUY TO WEAR, IN ONE COLUMN. This is the longest goods list in the month and the reason to extract it whole is that it is a description of the town's CLOTHED APPEARANCE at a date: merino and Circassian cloths, Thibet and Prussian shawls, bandanna and Italian silk handkerchiefs, bobbinett lace, Marseilles and swansdown vestings, Irish linen, Canton flannel, scarlet and red flannels, indigo apron checks. A reconstruction that puts figures in a street can dress them from this and cite it. THE STOCK IS EASTERN AND IT IS FASHIONABLE, which is worth registering against the frontier picture: gros-de-Naples ribbon and figured bobbinett are not a trading-post inventory. The same merchant sells cut nails by the keg and holds the two buildings to let, so this is a general store of some size. NO ADDRESS IS GIVEN in this or in any of Wright's three March advertisements and none is inferred. The `lines_of_claim` omit only the transcription's own rules and blank separators."
+    },
+    {
+      "id": "c012",
+      "kind": "event",
+      "reading": "transcription_mediated",
+      "quote": "ELING that w\ncon          4 by the nomi\nha cention” of eight fad\n1S ling that our fellow-e\n504 | tic  composing this L\n‘e have been misrepre\nion of this ‘* Great ¢\nals, and being un\nns in the other ex\ntrict, should be decei\nsupposition     his nomination bein,\nant | voice of tlie people of Cook county: we Ai\nothe         take this method to inform them to the «\nand would therefore call a meeting of\nns of Cook county, for an exp\nir choice of a suitable candidate\nent the people of this District.\nThe meeting to be held on the 16th of 3\nXt, at the Bagle Motel in Chicago, at 2 P,\nThe rish of u larg.",
+      "normalized": "[FE]ELING that w[e have been misrepresent]ed by the nomi[nation of this 'Great Con]vention' of eight [individ]uals, and being un[wil]ling that our fellow-c[itize]ns in the other c[oun]ties composing this D[is]trict, should be deceiv[ed by the] supposition [of] his nomination being [the] voice of the people of Cook county: we [therefore] take this method to inform them to the [contrary,] and would therefore call a meeting of [our fellow-citize]ns of Cook county, for an exp[ression of the]ir choice of a suitable candidate [to repres]ent the people of this District. The meeting to be held on the 16th of [April] ne[x]t, at the [E]agle [H]otel in Chicago, at 2 P. [M.] The [w]ish of a larg[e proportion of the Citizens].",
+      "locator": {
+        "artifact_role": "primary",
+        "issue_page": 3,
+        "column": 3,
+        "lines": [
+          2285,
+          2306
+        ],
+        "lines_of_claim": [
+          2285,
+          2287,
+          2288,
+          2289,
+          2290,
+          2292,
+          2293,
+          2294,
+          2295,
+          2296,
+          2297,
+          2298,
+          2299,
+          2300,
+          2301,
+          2302,
+          2303,
+          2304,
+          2305,
+          2306
+        ],
+        "interleaved": true
+      },
+      "entities": [],
+      "notes": "THE SAME CALL, A DIFFERENT DAY — and both dates are kept. On 18 March this notice set the Cook county meeting for 'the 12th of April next, at the Eagle Hotel in Chicago, at 2 P. M.' (1834-03-18, claim c001 there); here, a week later, the same standing notice reads 'the 16th of [April]'. Nothing in either issue explains the change and neither reading is preferred over the other; what is claimed is that a county meeting was called to the Eagle Hotel in April 1834 and that the printed day moved. THE HOTEL IS THE POINT for this project: a second, independent printing confirms a named hotel in Chicago with a room that will take a public meeting, which is the sort of corroboration a single advertisement cannot give. THE CROP HAS CUT THIS COLUMN DOWN THE MIDDLE and interleaved it with the neighbouring editorial, so the `lines_of_claim` name only the lines carrying this notice and the normalized reading is completed from the 18 March printing of the identical text — completed, and marked as completed, never quoted from it."
+    },
+    {
+      "id": "c013",
+      "kind": "notice",
+      "reading": "transcription_mediated",
+      "quote": "a yi    Dissolution.\nrod | PEATE: copartnership heretofore exinting be\n[uncertain: | FE ieecn’Caivin, Heitein and. Andrew 9: ?]\nPhelan, under the firm of Britain & Phelan, i\nthe day dissolved by mutual consent. All per\nsons having dema:      egeinst said firm, are he\n[uncertain: quested to present thom to Andrew J. ?. Phe]\n| tan for payment, and all persons indebted to sai\nlate firm, are re:  Sa  to mahe payment t\nssid Andrew J, F. Phelan.\nJALVIN BRITAIN,\nQNDREW J. F. PHELAN. :\nSt. Joseph, Dee. 11, 1833.",
+      "normalized": "Dissolution. TH[E] copartnership heretofore existing be[tween Calvin] B[ri]tain and Andrew J. [F.] Phelan, under the firm of Britain & Phelan, i[s th]is day dissolved by mutual consent. All persons having dema[nds] against said firm, are [re]quested to present them to Andrew J. [F.] Phe[la]n for payment, and all persons indebted to said late firm, are re[quested] to make payment to said Andrew J. F. Phelan. [C]ALVIN BRITAIN, [A]NDREW J. F. PHELAN. St. Joseph, Dec. 11, 1833.",
+      "locator": {
+        "artifact_role": "primary",
+        "issue_page": 3,
+        "column": 4,
+        "lines": [
+          2536,
+          2548
+        ],
+        "interleaved": true
+      },
+      "entities": [
+        {
+          "as_printed": "JALVIN BRITAIN,",
+          "normalized": "Calvin Britain",
+          "role": "retiring partner in Britain & Phelan of St. Joseph, and David Carver's agent there",
+          "occupations": [
+            "merchant",
+            "agent"
+          ],
+          "associated_places": [
+            "St. Joseph"
+          ]
+        },
+        {
+          "as_printed": "QNDREW J. F. PHELAN. :",
+          "normalized": "Andrew J. F. Phelan",
+          "role": "continuing partner of the late firm of Britain & Phelan, St. Joseph",
+          "occupations": [
+            "merchant"
+          ],
+          "associated_places": [
+            "St. Joseph"
+          ]
+        }
+      ],
+      "notes": "A ST. JOSEPH FIRM, EXTRACTED BECAUSE OF WHO ITS PARTNER IS TO CHICAGO. Britain & Phelan is not a Chicago business and is not claimed as one — no `business` record is made for it here — but Calvin Britain is named in David Carver's standing advertisement as Carver's AGENT at St. Joseph, the man who forwards lumber and goods across the lake to Chicago (1834-03-04, claim c006 there), and Britain & Phelan stand in the same issues as a Buffalo mill-stone house's Michigan reference. So this notice documents the Michigan end of the supply chain that put timber, lath and shingles on Chicago's shore, and it dates a change in it: the partnership dissolved on 11 December 1833 with Phelan carrying it on. THE OTHER END OF THAT CHAIN IS ALSO IN THIS ISSUE, in the reference list of George W. Bush & Co. of Buffalo, where 'J. H. Kinzie, Chicago' stands among the western houses. Neither man is placed in Chicago and neither is claimed to be."
+    }
+  ]
+}

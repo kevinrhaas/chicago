@@ -1,0 +1,1390 @@
+{
+  "schema": 1,
+  "_doc": "THE CENSUS CLASS OF EVERY BUSINESS IN THE REGISTER (T-1006, of T-0988). The December 1835 State census counted the town BY CLASS — forty-four stores, eight taverns, twenty-two lawyers — and this register's `trade` field is free prose off the printed notice, 152 distinct strings for 206 businesses. There was no class to count. This file is the adjudication that supplies one, and it is ruled ONCE PER PRINTED TRADE STRING rather than per business, because the printed string is what is being read: two notices that print the same words are the same reading and must not be ruled apart. A business whose notice prints no trade at all is ruled by id, off the goods, in `business_overrides`.\n\nTHE PROSE IS NEVER REPLACED. `trade` stays verbatim in the gazetteer; the class is carried beside it as `trade_classes`, and tools/trade_census_1835.py sets the counts against the census. A business may hold more than one class — a store that is also a forwarding house is both, and the basis says so.\n\nTHE DATE IS THE WHOLE OF THE CAUTION and it belongs to the comparison, not here: the count was taken between 1 September and December 1835 and the scene is 1 July 1835. Nothing in this file is evidence that a business stood on the scene date.",
+  "ticket": "T-1006",
+  "census_claim": "bk_mose1_006",
+  "census_source": "moses_kirkland_history_of_chicago_v1",
+  "generated_by": "hand-authored (T-1006); tools/trade_census_1835.py --check holds it to the register",
+  "not_a_reading": "an adjudication of readings this project already holds, not a fresh reading of a source",
+  "boundaries": {
+    "B1": "`store` is a business that DEALS in goods it did not make, from a shop, store, warehouse or ware-room — or that prints the words store, merchant, merchandise or grocer.",
+    "B2": "A business that MAKES what it sells (tailor, baker, boot and shoe maker, cabinet maker, saddler, smith, carriage maker, soap and candle maker, hatter) or that sells a SERVICE (auction and commission, land agency, insurance, livery, surveying, lake carrying, dentistry) is `other`. The enumeration counts three services and no more: lawyers, physicians and schools.",
+    "B3": "A notice naming both making and dealing, or two enumerated classes, holds both.",
+    "B4": "A specialised line the census counts separately — books, drugs, jewellery and plate, tin and copper ware — takes that class instead of `store`. One such line among many in a general store's list does not.",
+    "B5": "THE RULING THAT MOVES THE BIGGEST NUMBER, stated so it can be disagreed with: the enumeration's parenthetical '(dry goods, hardware and groceries)' is read as a GLOSS on the majority and not as a restriction, so a boot-and-shoe store and a clothing store are counted among the forty-four.",
+    "B6": "A stall in a market, a sale out of a barn and a cargo sold off a vessel are not a store: the enumeration counts houses of business."
+  },
+  "vocabulary": [
+    {
+      "id": "store",
+      "census_line": "forty-four stores (dry goods, hardware and groceries)",
+      "census_count": 44,
+      "compared": true,
+      "note": "the enumeration's largest line, and its parenthetical is read as a gloss (B5)"
+    },
+    {
+      "id": "book_store",
+      "census_line": "two book stores",
+      "census_count": 2,
+      "compared": true,
+      "note": null
+    },
+    {
+      "id": "druggist",
+      "census_line": "four druggists",
+      "census_count": 4,
+      "compared": true,
+      "note": null
+    },
+    {
+      "id": "silversmith_jeweller",
+      "census_line": "two silversmiths and jewellers",
+      "census_count": 2,
+      "compared": true,
+      "note": null
+    },
+    {
+      "id": "tin_and_copper_manufactory",
+      "census_line": "two tin and copper manufactories",
+      "census_count": 2,
+      "compared": true,
+      "note": null
+    },
+    {
+      "id": "printing_office",
+      "census_line": "two printing offices",
+      "census_count": 2,
+      "compared": true,
+      "note": null
+    },
+    {
+      "id": "brewery",
+      "census_line": "two breweries",
+      "census_count": 2,
+      "compared": true,
+      "note": null
+    },
+    {
+      "id": "steam_saw_mill",
+      "census_line": "one steam saw-mill",
+      "census_count": 1,
+      "compared": true,
+      "note": null
+    },
+    {
+      "id": "iron_foundry",
+      "census_line": "one iron foundry",
+      "census_count": 1,
+      "compared": true,
+      "note": null
+    },
+    {
+      "id": "storage_and_forwarding",
+      "census_line": "four storage and forwarding houses",
+      "census_count": 4,
+      "compared": true,
+      "note": null
+    },
+    {
+      "id": "tavern",
+      "census_line": "eight taverns",
+      "census_count": 8,
+      "compared": true,
+      "note": null
+    },
+    {
+      "id": "lottery_office",
+      "census_line": "one lottery office",
+      "census_count": 1,
+      "compared": true,
+      "note": "the town holds nothing for this line"
+    },
+    {
+      "id": "bank",
+      "census_line": "one bank",
+      "census_count": 1,
+      "compared": true,
+      "note": "the town holds nothing for this line"
+    },
+    {
+      "id": "church",
+      "census_line": "five churches",
+      "census_count": 5,
+      "compared": false,
+      "note": "a church is a structure and not a trade; T-0988 leaves this row to the roof programme and it is not compared here"
+    },
+    {
+      "id": "school",
+      "census_line": "seven schools",
+      "census_count": 7,
+      "compared": true,
+      "note": "the enumeration may be counting school HOUSES; this register holds school-keeping as a trade, and the two need not be the same thing"
+    },
+    {
+      "id": "lawyer",
+      "census_line": "twenty-two lawyers",
+      "census_count": 22,
+      "compared": true,
+      "note": null
+    },
+    {
+      "id": "physician",
+      "census_line": "fourteen physicians",
+      "census_count": 14,
+      "compared": true,
+      "note": null
+    },
+    {
+      "id": "lyceum_and_reading_room",
+      "census_line": "a lyceum and reading room",
+      "census_count": 1,
+      "compared": true,
+      "note": "the town holds nothing for this line"
+    },
+    {
+      "id": "other",
+      "census_line": "(not an enumerated class)",
+      "census_count": null,
+      "compared": true,
+      "note": "a trade the December 1835 enumeration does not count — tailors, bakers, smiths, auctioneers, land agents, liveries, dentists and the rest"
+    },
+    {
+      "id": "not_stated",
+      "census_line": "(not an enumerated class)",
+      "census_count": null,
+      "compared": true,
+      "note": "the notice prints no trade and names no goods, so no class can be read off it"
+    }
+  ],
+  "census_enumeration_note": "T-0988's prose says sixteen classes; the paragraph as printed carries EIGHTEEN count-lines and all eighteen are enumerated above. Two of them — churches and schools — count structures rather than trades; the church row is not compared at all (T-0988 leaves the roofs to the roof programme) and the school row is compared under a stated caution.",
+  "trade_rulings": [
+    {
+      "trade": "English and classical academy",
+      "classes": [
+        "school"
+      ],
+      "basis": "a school kept",
+      "businesses_carrying_this_trade": 1
+    },
+    {
+      "trade": "[not stated in the notice]",
+      "classes": [
+        "not_stated"
+      ],
+      "basis": "the notice prints no trade and names no goods",
+      "businesses_carrying_this_trade": 2
+    },
+    {
+      "trade": "agents for lots in the School Section",
+      "classes": [
+        "other"
+      ],
+      "basis": "a land agency (B2)",
+      "businesses_carrying_this_trade": 1
+    },
+    {
+      "trade": "attorney and counsellor at law",
+      "classes": [
+        "lawyer"
+      ],
+      "basis": "an attorney's practice",
+      "businesses_carrying_this_trade": 2
+    },
+    {
+      "trade": "attorney and counsellor at law, and solicitor in chancery",
+      "classes": [
+        "lawyer"
+      ],
+      "basis": "an attorney's practice; chancery practice is the same man's",
+      "businesses_carrying_this_trade": 5
+    },
+    {
+      "trade": "attorney and solicitor in chancery",
+      "classes": [
+        "lawyer"
+      ],
+      "basis": "an attorney's practice",
+      "businesses_carrying_this_trade": 1
+    },
+    {
+      "trade": "attorney at law",
+      "classes": [
+        "lawyer"
+      ],
+      "basis": "an attorney's practice",
+      "businesses_carrying_this_trade": 2
+    },
+    {
+      "trade": "attorney, counsellor and land conveyancer",
+      "classes": [
+        "lawyer"
+      ],
+      "basis": "conveyancing is an attorney's own work and is not a second trade",
+      "businesses_carrying_this_trade": 1
+    },
+    {
+      "trade": "attorneys and counsellors at law",
+      "classes": [
+        "lawyer"
+      ],
+      "basis": "a partnership of attorneys, counted as the establishment the census counts",
+      "businesses_carrying_this_trade": 1
+    },
+    {
+      "trade": "attorneys and counsellors at law, and solicitors in chancery",
+      "classes": [
+        "lawyer"
+      ],
+      "basis": "a partnership of attorneys",
+      "businesses_carrying_this_trade": 1
+    },
+    {
+      "trade": "auction and commission",
+      "classes": [
+        "other"
+      ],
+      "basis": "auction and commission business is a service the enumeration counts nowhere (B2)",
+      "businesses_carrying_this_trade": 3
+    },
+    {
+      "trade": "auction and commission house",
+      "classes": [
+        "other"
+      ],
+      "basis": "a service the enumeration counts nowhere (B2)",
+      "businesses_carrying_this_trade": 1
+    },
+    {
+      "trade": "auction and commission house, selling merchandize and real estate",
+      "classes": [
+        "other"
+      ],
+      "basis": "a service the enumeration counts nowhere (B2)",
+      "businesses_carrying_this_trade": 1
+    },
+    {
+      "trade": "auction and commission merchant",
+      "classes": [
+        "other"
+      ],
+      "basis": "a service the enumeration counts nowhere (B2)",
+      "businesses_carrying_this_trade": 1
+    },
+    {
+      "trade": "auction and commission rooms",
+      "classes": [
+        "other"
+      ],
+      "basis": "a service the enumeration counts nowhere (B2)",
+      "businesses_carrying_this_trade": 1
+    },
+    {
+      "trade": "auction of town lots and land",
+      "classes": [
+        "other"
+      ],
+      "basis": "a service the enumeration counts nowhere (B2)",
+      "businesses_carrying_this_trade": 1
+    },
+    {
+      "trade": "auction store",
+      "classes": [
+        "other"
+      ],
+      "basis": "an auction room; the enumeration's stores line counts shops dealing their own goods (B2)",
+      "businesses_carrying_this_trade": 1
+    },
+    {
+      "trade": "auctioneer",
+      "classes": [
+        "other"
+      ],
+      "basis": "a service the enumeration counts nowhere (B2)",
+      "businesses_carrying_this_trade": 1
+    },
+    {
+      "trade": "baker",
+      "classes": [
+        "other"
+      ],
+      "basis": "a baker sells his own baking (B2)",
+      "businesses_carrying_this_trade": 1
+    },
+    {
+      "trade": "bakery",
+      "classes": [
+        "other"
+      ],
+      "basis": "a baker sells his own baking (B2)",
+      "businesses_carrying_this_trade": 2
+    },
+    {
+      "trade": "bakery and liquor shop",
+      "classes": [
+        "other",
+        "store"
+      ],
+      "basis": "baking made, and liquors dealt (B3)",
+      "businesses_carrying_this_trade": 1
+    },
+    {
+      "trade": "blacksmith",
+      "classes": [
+        "other"
+      ],
+      "basis": "a smith's shop; the enumeration counts none (B2)",
+      "businesses_carrying_this_trade": 2
+    },
+    {
+      "trade": "blacksmithing and edge tool making",
+      "classes": [
+        "other"
+      ],
+      "basis": "a smith's shop and an edge-tool making (B2)",
+      "businesses_carrying_this_trade": 2
+    },
+    {
+      "trade": "blacksmiths",
+      "classes": [
+        "other"
+      ],
+      "basis": "a smith's shop (B2)",
+      "businesses_carrying_this_trade": 2
+    },
+    {
+      "trade": "boarding and day school for young ladies",
+      "classes": [
+        "school"
+      ],
+      "basis": "a school kept",
+      "businesses_carrying_this_trade": 1
+    },
+    {
+      "trade": "bookseller and stationer",
+      "classes": [
+        "book_store"
+      ],
+      "basis": "the census counts book stores separately (B4)",
+      "businesses_carrying_this_trade": 1
+    },
+    {
+      "trade": "boot and shoe making",
+      "classes": [
+        "other"
+      ],
+      "basis": "a making trade the enumeration counts nowhere (B2)",
+      "businesses_carrying_this_trade": 2
+    },
+    {
+      "trade": "boot and shoe manufacturing and leather dealing",
+      "classes": [
+        "other",
+        "store"
+      ],
+      "basis": "boots made, and leather dealt (B3)",
+      "businesses_carrying_this_trade": 1
+    },
+    {
+      "trade": "boot, shoe and leather store",
+      "classes": [
+        "store"
+      ],
+      "basis": "the printed word is store; the census's parenthetical is a gloss, not a restriction (B5)",
+      "businesses_carrying_this_trade": 4
+    },
+    {
+      "trade": "boot, shoe and leather store, and boot and shoe making",
+      "classes": [
+        "store",
+        "other"
+      ],
+      "basis": "a store, and a making trade the census counts nowhere (B3)",
+      "businesses_carrying_this_trade": 1
+    },
+    {
+      "trade": "boot, shoe and leather store, wholesale and retail, and boots and shoes made to order",
+      "classes": [
+        "store",
+        "other"
+      ],
+      "basis": "a store, and a making trade the census counts nowhere (B3)",
+      "businesses_carrying_this_trade": 1
+    },
+    {
+      "trade": "brewing",
+      "classes": [
+        "brewery"
+      ],
+      "basis": "the census's brewery line",
+      "businesses_carrying_this_trade": 1
+    },
+    {
+      "trade": "butcher — slaughtering, and a retail market stall",
+      "classes": [
+        "other"
+      ],
+      "basis": "a slaughtering trade and a stall in a market, which is not a store (B2, B6)",
+      "businesses_carrying_this_trade": 1
+    },
+    {
+      "trade": "cabinet and chair manufactory",
+      "classes": [
+        "other"
+      ],
+      "basis": "a manufactory the enumeration counts nowhere (B2)",
+      "businesses_carrying_this_trade": 1
+    },
+    {
+      "trade": "cabinet furniture",
+      "classes": [
+        "store"
+      ],
+      "basis": "a furniture ware-room: goods dealt (B1)",
+      "businesses_carrying_this_trade": 1
+    },
+    {
+      "trade": "cabinet making",
+      "classes": [
+        "other"
+      ],
+      "basis": "a cabinet maker sells his own work (B2)",
+      "businesses_carrying_this_trade": 2
+    },
+    {
+      "trade": "cabinet shop; chairs",
+      "classes": [
+        "other"
+      ],
+      "basis": "a cabinet maker sells his own work (B2)",
+      "businesses_carrying_this_trade": 1
+    },
+    {
+      "trade": "carriage and sleigh making",
+      "classes": [
+        "other"
+      ],
+      "basis": "a making trade the enumeration counts nowhere (B2)",
+      "businesses_carrying_this_trade": 2
+    },
+    {
+      "trade": "carriage and sleigh making, and repairing",
+      "classes": [
+        "other"
+      ],
+      "basis": "a making trade the enumeration counts nowhere (B2)",
+      "businesses_carrying_this_trade": 1
+    },
+    {
+      "trade": "carriage, sign, ornamental and figure painting, and gilding",
+      "classes": [
+        "other"
+      ],
+      "basis": "a painter's trade (B2)",
+      "businesses_carrying_this_trade": 1
+    },
+    {
+      "trade": "clothier, grocer and liquor dealer",
+      "classes": [
+        "store"
+      ],
+      "basis": "groceries and clothing dealt (B1)",
+      "businesses_carrying_this_trade": 1
+    },
+    {
+      "trade": "clothing and tailoring",
+      "classes": [
+        "other",
+        "store"
+      ],
+      "basis": "tailoring made, and clothing dealt (B3)",
+      "businesses_carrying_this_trade": 1
+    },
+    {
+      "trade": "clothing, boots and shoes, wholesale and retail, as agent for the manufacturers",
+      "classes": [
+        "store"
+      ],
+      "basis": "goods dealt as agent for the makers, which is dealing (B1)",
+      "businesses_carrying_this_trade": 1
+    },
+    {
+      "trade": "clothing, wholesale and retail",
+      "classes": [
+        "store"
+      ],
+      "basis": "clothing dealt; the notice names no tailoring (B1)",
+      "businesses_carrying_this_trade": 1
+    },
+    {
+      "trade": "commission and forwarding merchants",
+      "classes": [
+        "storage_and_forwarding"
+      ],
+      "basis": "the census's storage-and-forwarding line",
+      "businesses_carrying_this_trade": 1
+    },
+    {
+      "trade": "confectionary and perfumery",
+      "classes": [
+        "other"
+      ],
+      "basis": "a confectioner sells his own confectionery; the enumeration counts none (B2)",
+      "businesses_carrying_this_trade": 1
+    },
+    {
+      "trade": "corn, sold from a barn",
+      "classes": [
+        "other"
+      ],
+      "basis": "corn sold out of a barn, which is not a store (B6)",
+      "businesses_carrying_this_trade": 1
+    },
+    {
+      "trade": "counsellor and attorney at law, land conveyancing, justice of the peace business, and a land agency office",
+      "classes": [
+        "lawyer",
+        "other"
+      ],
+      "basis": "an attorney's practice, and a land agency the census counts nowhere (B2)",
+      "businesses_carrying_this_trade": 1
+    },
+    {
+      "trade": "dancing school",
+      "classes": [
+        "school"
+      ],
+      "basis": "a school kept; the enumeration grades none of them",
+      "businesses_carrying_this_trade": 1
+    },
+    {
+      "trade": "dentistry",
+      "classes": [
+        "other"
+      ],
+      "basis": "the enumeration counts physicians and names no dentist; a surgeon dentist is a distinct trade (B2)",
+      "businesses_carrying_this_trade": 4
+    },
+    {
+      "trade": "deputy surveyor of Cook County",
+      "classes": [
+        "other"
+      ],
+      "basis": "a service the enumeration counts nowhere (B2)",
+      "businesses_carrying_this_trade": 1
+    },
+    {
+      "trade": "dress, cloak and habit making",
+      "classes": [
+        "other"
+      ],
+      "basis": "a making trade the enumeration counts nowhere (B2)",
+      "businesses_carrying_this_trade": 1
+    },
+    {
+      "trade": "drugs and medicines",
+      "classes": [
+        "druggist"
+      ],
+      "basis": "a druggist's shop (B4)",
+      "businesses_carrying_this_trade": 1
+    },
+    {
+      "trade": "drugs, paints, chemicals, perfumery and dye stuffs",
+      "classes": [
+        "druggist"
+      ],
+      "basis": "a druggist's shop (B4)",
+      "businesses_carrying_this_trade": 1
+    },
+    {
+      "trade": "dry goods and groceries",
+      "classes": [
+        "store"
+      ],
+      "basis": "two of the census's own three lines (B1)",
+      "businesses_carrying_this_trade": 1
+    },
+    {
+      "trade": "dry goods, crockery, hardware and cutlery",
+      "classes": [
+        "store"
+      ],
+      "basis": "the census's own lines (B1)",
+      "businesses_carrying_this_trade": 3
+    },
+    {
+      "trade": "dry goods, crockery, hardware and groceries",
+      "classes": [
+        "store"
+      ],
+      "basis": "the census's own three lines (B1)",
+      "businesses_carrying_this_trade": 1
+    },
+    {
+      "trade": "dry goods, groceries, hardware and crockery",
+      "classes": [
+        "store"
+      ],
+      "basis": "the census's own three lines (B1)",
+      "businesses_carrying_this_trade": 1
+    },
+    {
+      "trade": "dry goods, groceries, hardware, crockery, boots, shoes and hats, wholesale and retail",
+      "classes": [
+        "store"
+      ],
+      "basis": "the census's own three lines and more (B1)",
+      "businesses_carrying_this_trade": 2
+    },
+    {
+      "trade": "dry goods, hardware and groceries",
+      "classes": [
+        "store"
+      ],
+      "basis": "the census's own three lines, in its own order (B1)",
+      "businesses_carrying_this_trade": 1
+    },
+    {
+      "trade": "fashionable tailoring",
+      "classes": [
+        "other"
+      ],
+      "basis": "a tailor makes what he sells (B2)",
+      "businesses_carrying_this_trade": 1
+    },
+    {
+      "trade": "fire insurance, and marine risks on lake and canal vessels and cargoes",
+      "classes": [
+        "other"
+      ],
+      "basis": "a service the enumeration counts nowhere (B2)",
+      "businesses_carrying_this_trade": 1
+    },
+    {
+      "trade": "foreign wine and liquor establishment",
+      "classes": [
+        "store"
+      ],
+      "basis": "liquors were a grocer's line in this town (B1, B5)",
+      "businesses_carrying_this_trade": 1
+    },
+    {
+      "trade": "forwarding and commission merchant",
+      "classes": [
+        "storage_and_forwarding"
+      ],
+      "basis": "the census's storage-and-forwarding line",
+      "businesses_carrying_this_trade": 2
+    },
+    {
+      "trade": "forwarding and commission merchants, dry goods and groceries",
+      "classes": [
+        "storage_and_forwarding",
+        "store"
+      ],
+      "basis": "forwarding, and a store of the census's own three lines (B3)",
+      "businesses_carrying_this_trade": 1
+    },
+    {
+      "trade": "general merchandise",
+      "classes": [
+        "store"
+      ],
+      "basis": "the printed word is merchandise (B1)",
+      "businesses_carrying_this_trade": 1
+    },
+    {
+      "trade": "general merchandise on consignment",
+      "classes": [
+        "store"
+      ],
+      "basis": "goods dealt from a store; consignment is how they were bought (B1)",
+      "businesses_carrying_this_trade": 1
+    },
+    {
+      "trade": "general store",
+      "classes": [
+        "store"
+      ],
+      "basis": "the printed word is store (B1)",
+      "businesses_carrying_this_trade": 1
+    },
+    {
+      "trade": "general store and post office",
+      "classes": [
+        "store"
+      ],
+      "basis": "a store; the post office is an office of the United States and not a trade",
+      "businesses_carrying_this_trade": 1
+    },
+    {
+      "trade": "general store — dry goods, hardware, groceries and crockery",
+      "classes": [
+        "store"
+      ],
+      "basis": "the printed word is store (B1)",
+      "businesses_carrying_this_trade": 1
+    },
+    {
+      "trade": "grocer",
+      "classes": [
+        "store"
+      ],
+      "basis": "groceries, one of the census's own three lines",
+      "businesses_carrying_this_trade": 1
+    },
+    {
+      "trade": "grocer and tinner",
+      "classes": [
+        "store",
+        "tin_and_copper_manufactory"
+      ],
+      "basis": "groceries dealt, and tin ware made, in one notice (B3)",
+      "businesses_carrying_this_trade": 1
+    },
+    {
+      "trade": "groceries",
+      "classes": [
+        "store"
+      ],
+      "basis": "groceries, one of the census's own three lines (B1, B5)",
+      "businesses_carrying_this_trade": 2
+    },
+    {
+      "trade": "grocery and provision store",
+      "classes": [
+        "store"
+      ],
+      "basis": "the printed word is store (B1)",
+      "businesses_carrying_this_trade": 1
+    },
+    {
+      "trade": "hardware, cutlery, nails, iron, steel, stoves, stove furniture, iron ware and saw mill gearing, wholesale and retail",
+      "classes": [
+        "store"
+      ],
+      "basis": "a hardware store; the gearing is dealt, not founded (B1)",
+      "businesses_carrying_this_trade": 1
+    },
+    {
+      "trade": "hardware, stoves and iron",
+      "classes": [
+        "store"
+      ],
+      "basis": "hardware dealt; nothing is made on the premises (B1)",
+      "businesses_carrying_this_trade": 1
+    },
+    {
+      "trade": "hat manufacturer and dealer; also harness",
+      "classes": [
+        "other",
+        "store"
+      ],
+      "basis": "hats made, and hats and harness dealt (B3)",
+      "businesses_carrying_this_trade": 1
+    },
+    {
+      "trade": "hat manufacturers and wholesale dealers, Detroit",
+      "classes": [
+        "other",
+        "store"
+      ],
+      "basis": "hats made and dealt, printed as standing at Detroit and not in this town",
+      "scope": "outside_town",
+      "businesses_carrying_this_trade": 1
+    },
+    {
+      "trade": "hat manufacturing and dealing",
+      "classes": [
+        "other",
+        "store"
+      ],
+      "basis": "hats made, and hats dealt (B3)",
+      "businesses_carrying_this_trade": 1
+    },
+    {
+      "trade": "hotel",
+      "classes": [
+        "tavern"
+      ],
+      "basis": "a hotel is a house of public entertainment; the enumeration has no separate hotel line",
+      "businesses_carrying_this_trade": 1
+    },
+    {
+      "trade": "house and land agent",
+      "classes": [
+        "other"
+      ],
+      "basis": "a service the enumeration counts nowhere (B2)",
+      "businesses_carrying_this_trade": 2
+    },
+    {
+      "trade": "houses and lands purchased and sold; building lots; houses to let",
+      "classes": [
+        "other"
+      ],
+      "basis": "a land agency (B2)",
+      "businesses_carrying_this_trade": 1
+    },
+    {
+      "trade": "houses and lots for sale or to let",
+      "classes": [
+        "other"
+      ],
+      "basis": "a land agency (B2)",
+      "businesses_carrying_this_trade": 1
+    },
+    {
+      "trade": "iron and hardware",
+      "classes": [
+        "store"
+      ],
+      "basis": "hardware dealt, one of the census's own three lines",
+      "businesses_carrying_this_trade": 1
+    },
+    {
+      "trade": "iron castings",
+      "classes": [
+        "iron_foundry"
+      ],
+      "basis": "castings are founded, not dealt: the census's iron foundry line",
+      "businesses_carrying_this_trade": 1
+    },
+    {
+      "trade": "lake packet",
+      "classes": [
+        "other"
+      ],
+      "basis": "a lake carrier, not a house in the town (B2)",
+      "businesses_carrying_this_trade": 1
+    },
+    {
+      "trade": "land surveying",
+      "classes": [
+        "other"
+      ],
+      "basis": "a service the enumeration counts nowhere (B2)",
+      "businesses_carrying_this_trade": 1
+    },
+    {
+      "trade": "law",
+      "classes": [
+        "lawyer"
+      ],
+      "basis": "the printed trade is the practice of law",
+      "businesses_carrying_this_trade": 4
+    },
+    {
+      "trade": "leasing town lots",
+      "classes": [
+        "other"
+      ],
+      "basis": "a land agency (B2)",
+      "businesses_carrying_this_trade": 1
+    },
+    {
+      "trade": "leather",
+      "classes": [
+        "store"
+      ],
+      "basis": "a stock of leather offered for sale (B1)",
+      "businesses_carrying_this_trade": 1
+    },
+    {
+      "trade": "leather, salt and lumber",
+      "classes": [
+        "store"
+      ],
+      "basis": "goods dealt (B1)",
+      "businesses_carrying_this_trade": 1
+    },
+    {
+      "trade": "letting agents",
+      "classes": [
+        "other"
+      ],
+      "basis": "a land agency (B2)",
+      "businesses_carrying_this_trade": 1
+    },
+    {
+      "trade": "livery",
+      "classes": [
+        "other"
+      ],
+      "basis": "a service the enumeration counts nowhere (B2)",
+      "businesses_carrying_this_trade": 1
+    },
+    {
+      "trade": "livery stable",
+      "classes": [
+        "other"
+      ],
+      "basis": "a service the enumeration counts nowhere (B2)",
+      "businesses_carrying_this_trade": 3
+    },
+    {
+      "trade": "lumber merchant",
+      "classes": [
+        "store"
+      ],
+      "basis": "the printed word is merchant (B1)",
+      "businesses_carrying_this_trade": 1
+    },
+    {
+      "trade": "lumber yard",
+      "classes": [
+        "store"
+      ],
+      "basis": "lumber dealt from a yard (B1)",
+      "businesses_carrying_this_trade": 1
+    },
+    {
+      "trade": "lumber yard and store house, on sale and commission",
+      "classes": [
+        "store",
+        "storage_and_forwarding"
+      ],
+      "basis": "lumber dealt, and a store house kept for others' goods (B3)",
+      "businesses_carrying_this_trade": 1
+    },
+    {
+      "trade": "lumber, nails and salt",
+      "classes": [
+        "store"
+      ],
+      "basis": "goods dealt (B1)",
+      "businesses_carrying_this_trade": 1
+    },
+    {
+      "trade": "market, provisions",
+      "classes": [
+        "other"
+      ],
+      "basis": "a market, which is not a store (B6)",
+      "businesses_carrying_this_trade": 1
+    },
+    {
+      "trade": "medicine and surgery",
+      "classes": [
+        "physician"
+      ],
+      "basis": "the printed trade is the practice of medicine",
+      "businesses_carrying_this_trade": 1
+    },
+    {
+      "trade": "merchant",
+      "classes": [
+        "store"
+      ],
+      "basis": "the printed word is merchant (B1)",
+      "businesses_carrying_this_trade": 4
+    },
+    {
+      "trade": "merchants",
+      "classes": [
+        "store"
+      ],
+      "basis": "the printed word is merchant (B1)",
+      "businesses_carrying_this_trade": 1
+    },
+    {
+      "trade": "merchants, and sellers of the lithographic town map",
+      "classes": [
+        "store"
+      ],
+      "basis": "the printed word is merchant (B1)",
+      "businesses_carrying_this_trade": 1
+    },
+    {
+      "trade": "millinery and dress making",
+      "classes": [
+        "other"
+      ],
+      "basis": "a making trade the enumeration counts nowhere (B2)",
+      "businesses_carrying_this_trade": 3
+    },
+    {
+      "trade": "newspaper and job printing",
+      "classes": [
+        "printing_office"
+      ],
+      "basis": "a printing office",
+      "businesses_carrying_this_trade": 1
+    },
+    {
+      "trade": "newspaper printing and job printing",
+      "classes": [
+        "printing_office"
+      ],
+      "basis": "a printing office",
+      "businesses_carrying_this_trade": 1
+    },
+    {
+      "trade": "newspaper publishing and job printing",
+      "classes": [
+        "printing_office"
+      ],
+      "basis": "a printing office",
+      "businesses_carrying_this_trade": 1
+    },
+    {
+      "trade": "packet service for freight and passengers between Chicago and the mouth of the St. Joseph",
+      "classes": [
+        "other"
+      ],
+      "basis": "a lake carrier, not a house in the town (B2)",
+      "businesses_carrying_this_trade": 1
+    },
+    {
+      "trade": "physician",
+      "classes": [
+        "physician"
+      ],
+      "basis": "the printed trade is the practice of medicine",
+      "businesses_carrying_this_trade": 2
+    },
+    {
+      "trade": "pork and provisions",
+      "classes": [
+        "store"
+      ],
+      "basis": "provisions dealt (B1)",
+      "businesses_carrying_this_trade": 1
+    },
+    {
+      "trade": "practice of medicine, botanic system",
+      "classes": [
+        "physician"
+      ],
+      "basis": "a physician of the botanic school is still a physician; the enumeration grades none of them",
+      "businesses_carrying_this_trade": 1
+    },
+    {
+      "trade": "provision dealers at the Boston Market",
+      "classes": [
+        "other"
+      ],
+      "basis": "a stall in a market, which is not a store (B6)",
+      "businesses_carrying_this_trade": 1
+    },
+    {
+      "trade": "public house",
+      "classes": [
+        "tavern"
+      ],
+      "basis": "a public house is a tavern under the census's own word",
+      "businesses_carrying_this_trade": 1
+    },
+    {
+      "trade": "saddle, harness and trunk manufactory",
+      "classes": [
+        "other"
+      ],
+      "basis": "a manufactory the enumeration counts nowhere (B2)",
+      "businesses_carrying_this_trade": 1
+    },
+    {
+      "trade": "school",
+      "classes": [
+        "school"
+      ],
+      "basis": "a school kept",
+      "businesses_carrying_this_trade": 2
+    },
+    {
+      "trade": "school books, and a school room",
+      "classes": [
+        "book_store",
+        "school"
+      ],
+      "basis": "books dealt, and a school kept in the same notice (B3)",
+      "businesses_carrying_this_trade": 1
+    },
+    {
+      "trade": "soap and candle manufactory",
+      "classes": [
+        "other"
+      ],
+      "basis": "a manufactory the enumeration counts nowhere (B2)",
+      "businesses_carrying_this_trade": 2
+    },
+    {
+      "trade": "steam saw mill",
+      "classes": [
+        "steam_saw_mill"
+      ],
+      "basis": "the census's steam saw-mill line",
+      "businesses_carrying_this_trade": 2
+    },
+    {
+      "trade": "steam saw mill and lumber, St. Joseph",
+      "classes": [
+        "steam_saw_mill",
+        "store"
+      ],
+      "basis": "a steam saw mill and a lumber dealing, both printed as standing at St. Joseph and not in this town",
+      "scope": "outside_town",
+      "businesses_carrying_this_trade": 2
+    },
+    {
+      "trade": "storage and commission merchant",
+      "classes": [
+        "storage_and_forwarding"
+      ],
+      "basis": "storage printed; the census's storage-and-forwarding line",
+      "businesses_carrying_this_trade": 1
+    },
+    {
+      "trade": "storage, forwarding and commission",
+      "classes": [
+        "storage_and_forwarding"
+      ],
+      "basis": "the census's storage-and-forwarding line",
+      "businesses_carrying_this_trade": 1
+    },
+    {
+      "trade": "storage, forwarding and commission merchant",
+      "classes": [
+        "storage_and_forwarding"
+      ],
+      "basis": "the census's storage-and-forwarding line",
+      "businesses_carrying_this_trade": 1
+    },
+    {
+      "trade": "store; groceries and general goods",
+      "classes": [
+        "store"
+      ],
+      "basis": "the printed word is store (B1)",
+      "businesses_carrying_this_trade": 1
+    },
+    {
+      "trade": "storekeeper (winding up)",
+      "classes": [
+        "store"
+      ],
+      "basis": "a storekeeper, printed as such; the winding-up is a date question and not a class one",
+      "businesses_carrying_this_trade": 1
+    },
+    {
+      "trade": "stove and hollow ware",
+      "classes": [
+        "store"
+      ],
+      "basis": "a stove dealer: the notice names no furnace (B1)",
+      "businesses_carrying_this_trade": 1
+    },
+    {
+      "trade": "stoves, hollow ware and castings",
+      "classes": [
+        "store"
+      ],
+      "basis": "a stove dealer: the notice names no furnace (B1)",
+      "businesses_carrying_this_trade": 1
+    },
+    {
+      "trade": "stoves, tin ware and hollow ware",
+      "classes": [
+        "store"
+      ],
+      "basis": "a stove dealer: the notice names no manufactory (B1)",
+      "businesses_carrying_this_trade": 1
+    },
+    {
+      "trade": "surgeon dentistry",
+      "classes": [
+        "other"
+      ],
+      "basis": "the enumeration counts physicians and names no dentist (B2)",
+      "businesses_carrying_this_trade": 1
+    },
+    {
+      "trade": "tailoring",
+      "classes": [
+        "other"
+      ],
+      "basis": "a tailor makes what he sells; the enumeration counts no tailor (B2)",
+      "businesses_carrying_this_trade": 5
+    },
+    {
+      "trade": "tailoring and ready made clothing",
+      "classes": [
+        "other",
+        "store"
+      ],
+      "basis": "tailoring made, and ready-made clothing dealt (B3)",
+      "businesses_carrying_this_trade": 1
+    },
+    {
+      "trade": "tailors",
+      "classes": [
+        "other"
+      ],
+      "basis": "a tailor makes what he sells (B2)",
+      "businesses_carrying_this_trade": 1
+    },
+    {
+      "trade": "tavern",
+      "classes": [
+        "tavern"
+      ],
+      "basis": "the printed trade is a tavern",
+      "businesses_carrying_this_trade": 5
+    },
+    {
+      "trade": "tavern and hotel",
+      "classes": [
+        "tavern"
+      ],
+      "basis": "the notice prints both words of the one house",
+      "businesses_carrying_this_trade": 1
+    },
+    {
+      "trade": "tavern keeper, and dealer in chairs, harnesses and saddles",
+      "classes": [
+        "tavern",
+        "store"
+      ],
+      "basis": "the house, and a dealing in goods he did not make (B1, B3)",
+      "businesses_carrying_this_trade": 1
+    },
+    {
+      "trade": "tin, sheet iron and copper factory",
+      "classes": [
+        "tin_and_copper_manufactory"
+      ],
+      "basis": "a tin and copper manufactory (B4)",
+      "businesses_carrying_this_trade": 1
+    },
+    {
+      "trade": "tin, sheet iron and copper ware, stoves and castings",
+      "classes": [
+        "tin_and_copper_manufactory"
+      ],
+      "basis": "a tin and copper manufactory (B4)",
+      "businesses_carrying_this_trade": 1
+    },
+    {
+      "trade": "tin, sheet iron and stove work",
+      "classes": [
+        "tin_and_copper_manufactory"
+      ],
+      "basis": "a tin and copper manufactory (B4)",
+      "businesses_carrying_this_trade": 1
+    },
+    {
+      "trade": "unstated — the notice announces only its closing",
+      "classes": [
+        "not_stated"
+      ],
+      "basis": "the notice prints no trade and names no goods",
+      "businesses_carrying_this_trade": 1
+    },
+    {
+      "trade": "unstated — the notice announces only its dissolution",
+      "classes": [
+        "not_stated"
+      ],
+      "basis": "the notice prints no trade and names no goods",
+      "businesses_carrying_this_trade": 1
+    },
+    {
+      "trade": "vocal and instrumental music school, and the repair and tuning of piano fortes",
+      "classes": [
+        "school",
+        "other"
+      ],
+      "basis": "a school kept, and a repairing trade the census counts nowhere (B3)",
+      "businesses_carrying_this_trade": 1
+    },
+    {
+      "trade": "watches, jewelry, engravings and fancy goods",
+      "classes": [
+        "silversmith_jeweller"
+      ],
+      "basis": "the census's silversmiths-and-jewellers line (B4)",
+      "businesses_carrying_this_trade": 1
+    },
+    {
+      "trade": "wholesale and retail dry goods, groceries, hardware and crockery",
+      "classes": [
+        "store"
+      ],
+      "basis": "the census's own three lines (B1)",
+      "businesses_carrying_this_trade": 1
+    },
+    {
+      "trade": "wholesale and retail store — groceries, hardware, crockery and drugs",
+      "classes": [
+        "store"
+      ],
+      "basis": "a store; the drugs are one line among many and do not make it a druggist's shop (B4)",
+      "businesses_carrying_this_trade": 1
+    },
+    {
+      "trade": "wholesale grocery",
+      "classes": [
+        "store"
+      ],
+      "basis": "groceries, one of the census's own three lines",
+      "businesses_carrying_this_trade": 1
+    },
+    {
+      "trade": "wholesale wine and liquors",
+      "classes": [
+        "store"
+      ],
+      "basis": "liquors were a grocer's line in this town (B1, B5)",
+      "businesses_carrying_this_trade": 1
+    }
+  ],
+  "business_overrides": [
+    {
+      "business_id": "business_c_h_chapman",
+      "classes": [
+        "other"
+      ],
+      "basis": "the notice prints no trade and offers oxen; no shop, store or ware-room is named (B6)"
+    },
+    {
+      "business_id": "business_goss_cobb",
+      "classes": [
+        "other"
+      ],
+      "basis": "the notice prints no trade; its goods are saddles, harness, trunks and coach trimming, all made on the premises (B2)"
+    },
+    {
+      "business_id": "business_john_dave_north_water_street",
+      "classes": [
+        "not_stated"
+      ],
+      "basis": "the notice prints neither a trade nor a single article of goods"
+    },
+    {
+      "business_id": "business_newberry_dole",
+      "classes": [
+        "store"
+      ],
+      "basis": "the notice prints no trade; its goods are dry goods, groceries, hardware, crockery, flour, salt and provisions — the census's own three lines (B1)"
+    }
+  ],
+  "register_cautions": [
+    {
+      "what": "two records, one firm",
+      "business_ids": [
+        "business_noble_wesencraft",
+        "business_uncertain_noble_wesencaft"
+      ],
+      "detail": "The register carries 'Noble & Wesencraft' and '[uncertain: Noble & Wesencaft]', both ruled `steam_saw_mill`. The second record's own id declares the reading uncertain. NO IDENTITY RULING IS MADE HERE — the class count reports both and names the pair, so a reader can see the double rather than have it hidden."
+    },
+    {
+      "what": "readings printed as standing outside the town",
+      "business_ids": [
+        "business_deacon_mccaleb",
+        "business_e_p_deacon",
+        "business_m_cormick_moon"
+      ],
+      "detail": "Two St. Joseph steam saw mills and a Detroit hat house advertised in Chicago papers. The census counted the town; these are scoped `outside_town` and are counted apart from it."
+    }
+  ]
+}

@@ -1,0 +1,36 @@
+{
+  "id": "fergus_1843_old_settler_death_notices",
+  "type": "book",
+  "citation": "\"OBITUARY. Names, places, dates, and ages at death of some of Chicago's Old Settlers, prior to 1843, and other well-known citizens who arrived after 1843, together with others prominently connected with Illinois history\", in Robert Fergus, Directory of the City of Chicago, Illinois, for 1843, Fergus Historical Series No. 28 (Chicago: Fergus Printing Company, 1896)",
+  "author": "Robert Fergus, compiler",
+  "date": "printed 1896 as part of the 1843 directory reprint; transcription accessed and cached 2026-09-03",
+  "describes_date": "deaths 1675-1896, of settlers and citizens the compiler places at Chicago",
+  "locator": "the OBITUARY, twenty-three letter sections A-Y, 757 entries",
+  "url": "https://genealogytrails.com/ill/cook/earlysettlerobits.html",
+  "archived_url": "https://genealogytrails.com/ill/cook/earlysettlerobits.html",
+  "tier": 4,
+  "rights_status": "public_domain",
+  "asset_use": "text_only",
+  "verified": true,
+  "transcribes": [
+    {
+      "work": "OBITUARY — names, places, dates and ages at death of Chicago's Old Settlers, printed by Robert Fergus in his 1896 reprint of the Directory of the City of Chicago for 1843",
+      "date": "1896",
+      "tier": 4,
+      "note": "The compiler is fifty-three years and more after most of the deaths he lists, and his own preface calls the 1843 canvass behind the directory 'careless and indifferent'. The list carries this project's only body of ages at death, and through them its only body of derived birth windows."
+    }
+  ],
+  "what_it_supplies": [
+    "a date of death for 725 named people the compiler connects with Chicago",
+    "an age at death for 608 of them, printed as the volume prints it — 'aged 40', 'a. 89½', 'aged 82-2-15'",
+    "through that age, an interval the birth falls in: 599 derived birth windows, 166 of them narrow enough to name a single year",
+    "a trade or office for 325 of them, and a place of death for 358 who did not die in Chicago",
+    "four printed dates of birth, which are documented and not derived"
+  ],
+  "what_it_does_not_supply": [
+    "arrival before 1843 — the list's own header says it also names 'other well-known citizens who arrived after 1843, together with others prominently connected with Illinois history', and Gov. Richard Yates, Henry Ward Beecher, Marquette and La Salle are all printed in it",
+    "residence in Chicago on 1 July 1835, which nothing in the list speaks to",
+    "a year of arrival, which the list never prints"
+  ],
+  "note": "THIS PROJECT HAS NOT SEEN THE PRINTED VOLUME. What it has read is K. Torp's 2007 transcription on Genealogy Trails, cached in this repository on 2026-09-03 at data/research/genealogytrails/text/earlysettlerobits.txt and copied byte for byte to data/research/old_settlers/text/fergus_1843_old_settler_death_notices.txt. Every reading made from it is therefore transcription_mediated; a reading made off a page image would be scan_verified and would outrank it. The list is a separate record from fergus_chicago_directory_1843 because it is a separate document within the same volume, read under a different ticket into a different domain, with a describes_date its parent does not share: the directory describes 1843, and this list describes deaths from 1675 to 1896. Read under T-0574 into data/research/old_settlers/; the crosswalk that names the candidates in the 1835 layer changes no resident record."
+}

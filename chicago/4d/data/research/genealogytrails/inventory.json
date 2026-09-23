@@ -1,0 +1,436 @@
+{
+ "schema": 1,
+ "site": "https://genealogytrails.com/ill/cook/",
+ "_doc": "HAND-AUTHORED. The assessment half of T-0556: what the Genealogy Trails Cook County site holds, how much of it is 1830s, and what is worth a run. Gated by tools/read_genealogytrails.py --check, which re-reads html/index.htm and fails if a section the index links has no row here. Nothing in this file is payload: the extraction lives in the split tickets, and each of those lands in the domain of the ORIGINAL, not in a domain named after the website.",
+ "generated_by": "hand — tools/read_genealogytrails.py --fetch caches the pages, a reader grades them",
+ "read_on": "2026-09-03",
+ "read_by": "T-0556",
+ "what_the_site_is": "A volunteer transcription site. Every page is a copy of something else — a county history, a printed directory, a newspaper column, a state archives database, a record book — and the site names its original on most pages and on some does not. A transcription is a POINTER TO ITS ORIGINAL: cite the original where the page names it, and cite the page where it does not.",
+ "grades": {
+  "A": "1830s Chicago names or facts in quantity, from a named original — read it in full.",
+  "B": "Later evidence that dates, corroborates or enriches 1835 people, trades and places.",
+  "C": "Chicago, but wholly post-1850 — no bearing on the scene except by accident.",
+  "D": "Nothing here for this project."
+ },
+ "states": {
+  "unread": "This project has not read it.",
+  "partly_read_in_repo": "Some of what this section holds is already in the repo; the row says which part.",
+  "already_read_in_repo": "Read in full already — do not spend a run on it again."
+ },
+ "counting": "An `items_1830s` count is a MEASURED count of entry-shaped lines in the cached text, not an estimate, and the row's note says what was counted. Where a section's 1830s content is one leaf page, the section's count is that page's count.",
+ "sections": [
+  {
+   "section": "Census Records",
+   "url": "https://genealogytrails.com/ill/cook/censusindex.html",
+   "text_file": "censusindex.txt",
+   "transcribes": "Census and census-substitute transcriptions for Cook County, 1818 to 1930, arranged by year. Its 1830 band is not a census at all: it is the town's own poll and tax lists of 1833, 1834 and 1835.",
+   "original": "Various, per item; the 1830 band is the Illinois Regional Archives Depository originals via Chicago Genealogist XXV/4 (1993).",
+   "era": "1818-1930",
+   "items_1830s": 345,
+   "grade": "A",
+   "state": "partly_read_in_repo",
+   "notes": "The 1830 band is the single richest thing on this site for 1835 Chicago AND THE REPO ALREADY HOLDS IT: data/research/civic/records/voter_lists_1833_1835.json carries all 345 entries, read from this very page under T-0493, with data/sources/chicago_voter_lists_1833_1835_irad.json as the source record. Do not spend a run re-reading it. Everything else in the section is 1850 or later.",
+   "items": [
+    {
+     "item": "Poll lists 1833, 1834, 1835 and the Town of Chicago tax list of 1833",
+     "url": "https://genealogytrails.com/ill/cook/polllist.html",
+     "text_file": "polllist.txt",
+     "original": "IRAD originals, transcribed by Ingrid Latimer Schulz and published in Chicago Genealogist XXV/4 (Summer 1993).",
+     "era": "1833-1835",
+     "items_1830s": 345,
+     "grade": "A",
+     "state": "already_read_in_repo",
+     "notes": "Counted here independently as 29 + 115 + 115 + 85 name lines; the repo's own reading of the same page is 345 records and is the authority. The 1833 TAX list is the one to remember when a lot needs an occupant: it names who was taxed in the town two years before the scene."
+    },
+    {
+     "item": "1818 Crawford County census (the county Cook was then part of)",
+     "url": "https://genealogytrails.com/ill/crawford/1818census.html",
+     "text_file": null,
+     "original": "1818 Illinois territorial census, Crawford County.",
+     "era": "1818",
+     "items_1830s": 0,
+     "grade": "C",
+     "state": "unread",
+     "notes": "Seventeen years before the scene and before any of the town existed. Not fetched; the link leaves the Cook County site."
+    }
+   ]
+  },
+  {
+   "section": "City Directories",
+   "url": "https://genealogytrails.com/ill/cook/citydirectoryindex.html",
+   "text_file": "citydirectoryindex.txt",
+   "transcribes": "Chicago city and business directories, 1839 to 1949. Three of them are complete transcriptions and the rest are 'a page here and there'.",
+   "original": "The printed directories themselves — the 1839 city register, Fergus's 1843 directory, and J. W. Norris's Chicago Directory for 1844.",
+   "era": "1839-1949",
+   "items_1830s": 148,
+   "grade": "A",
+   "state": "unread",
+   "notes": "THE HEADLINE FINDING OF THIS PASS, AND IT MOVED WHILE THE PASS WAS RUNNING. This section holds three COMPLETE Chicago directories free, in text, with occupation and street for nearly every name: 1839, 1843 and Norris's 1844. When this walk began, data/research/directories/ was empty and not one directory entry had ever been read into the project. On 2026-09-03 a parallel run closed T-0566 (PR #704) and read Norris's 1844 in full — 2,073 entries — from the Internet Archive scan generaldirectory19norr, so the 1844 row below is now a SECOND READING of a book the repo has, not a first reading of one it lacks. The 1839 and the 1843 are still unread by anyone; the 1839 is the 'web transcription' T-0506 says is cited and never extracted, and this is it.",
+   "items": [
+    {
+     "item": "1839 Chicago city register and business directory",
+     "url": "https://genealogytrails.com/ill/cook/1839chicagodirectory.html",
+     "text_file": "1839chicagodirectory.txt",
+     "original": "1839 City Register for Chicago (the page marks itself '(partial list?)').",
+     "era": "1839",
+     "items_1830s": 148,
+     "grade": "A",
+     "state": "unread",
+     "notes": "148 entry-shaped lines: the mayor, six wards of aldermen, the assessors, engineers, clerk, collector, treasurer, street commissioner, city attorney, physician and surveyor, then the business list. Four years after the scene and the closest printed roll of the town's trades to it. T-0506 owns the extraction.",
+     "counted": "entry-shaped lines in the cached text"
+    },
+    {
+     "item": "1843 Chicago directory — businesses, and residents A-G, H-O, P-Z",
+     "url": "https://genealogytrails.com/ill/cook/1843directory_1.html",
+     "text_file": "1843directory_1.txt",
+     "original": "Directory of the City of Chicago, Illinois for 1843, compiled by Robert Fergus.",
+     "era": "1843",
+     "items_1830s": 0,
+     "grade": "B",
+     "state": "unread",
+     "notes": "2,427 entry-shaped lines across the four pages (84 + 916 + 726 + 701), each typically name, trade and street. Eight years after the scene: later evidence that dates and enriches, never an 1835 fact on its own. The repo cites Fergus 1843 (data/sources/fergus_chicago_directory_1843.json) and has extracted nothing from it."
+    },
+    {
+     "item": "1844 Chicago directory, complete — ABBOTT-MCBRIDE, MCCADE-ZIGLER, and the addenda",
+     "url": "https://genealogytrails.com/ill/cook/1844directory.html",
+     "text_file": "1844directory.txt",
+     "original": "Norris' Chicago Directory (J. W. Norris, 1844), transcribed by Kim Torp.",
+     "era": "1844",
+     "items_1830s": 0,
+     "grade": "B",
+     "state": "already_read_in_repo",
+     "notes": "1,972 entry-shaped lines over the two pages (1,086 + 886), in the shape 'Ackhoff, Nicholas, teamster, res Canal st. b Lake and N. Water' — name, trade, employer, and residence located BETWEEN TWO CROSS STREETS. THE BOOK IS ALREADY READ: T-0566 (PR #704, 2026-09-03) took 2,073 entries off the Internet Archive scan into data/research/directories/. What is left here is worth more than a re-read — this is an INDEPENDENT transcription of the same printed book, by a different hand, from a different copy, and the repo already has an idiom for exactly that in data/research/census_1840/second_readings/. Kim Torp's transcription and the Archive reading will disagree in places, and every place they disagree is a name somebody read twice. Norris's own preface is transcribed with it."
+    }
+   ]
+  },
+  {
+   "section": "Military Records",
+   "url": "https://genealogytrails.com/ill/cook/militaryindex.html",
+   "text_file": "militaryindex.txt",
+   "transcribes": "Cook County military rolls and veteran lists, Revolutionary War through Vietnam.",
+   "original": "Various; the 1830s item is the Illinois State Archives' index of volume 1 of Ellen M. Whitney, The Black Hawk War 1831-1832.",
+   "era": "1776-1975",
+   "items_1830s": 134,
+   "grade": "A",
+   "state": "partly_read_in_repo",
+   "notes": "One item carries the whole grade: 134 Black Hawk War veterans WHO ENROLLED AT CHICAGO, three years before the scene, each with rank, company, place of enrollment and regiment. Every one of them was a man standing in this town in 1832. The rest of the section is 1861 and later. READ 2026-09-03 (T-0572): the 134 Black Hawk War rows are transcribed in full at data/research/civic/records/blackhawk_war_1832_chicago.json. The rest of the section is 1861 and later and stays unread.",
+   "items": [
+    {
+     "item": "Black Hawk War veterans enrolled at Chicago",
+     "url": "https://genealogytrails.com/ill/cook/blackhawkwar.htm",
+     "text_file": "blackhawkwar.txt",
+     "original": "Illinois State Archives database indexing vol. 1 of Ellen M. Whitney, 'The Black Hawk War 1831-1832'.",
+     "era": "1832",
+     "items_1830s": 134,
+     "grade": "A",
+     "state": "already_read_in_repo",
+     "notes": "134 table rows counted, header excluded. Names as printed include French and Potawatomi forms without a surname comma ('AS KE WITT'), so a reader must not filter on the comma. Kercheval's company is the commonest. The Archives will supply the book entry per soldier by post only — this index is the free layer. READ IN FULL 2026-09-03 by T-0572, out of the page itself rather than the flattened text: html/blackhawkwar.htm was cached the same day because the flattening drops an empty cell, and 94 of the 134 rows leave Rank empty, so the text alone cannot say whether 'INDIAN' is the rank or the company. It is the COMPANY. 83 names carry no surname comma and all 83 are carried."
+    },
+    {
+     "item": "War of 1812 veterans data, and the Fort Dearborn massacre muster roll",
+     "url": "https://genealogytrails.com/ill/cook/warof1812.html",
+     "text_file": "warof1812.txt",
+     "original": "Not named on the page.",
+     "era": "1812",
+     "items_1830s": 0,
+     "grade": "C",
+     "state": "unread",
+     "notes": "A short page. The garrison of 1812 is twenty-three years before the scene and the fort's own history is already better sourced in docs/RESEARCH/fort_dearborn.md."
+    }
+   ]
+  },
+  {
+   "section": "Marriage Records",
+   "url": "https://genealogytrails.com/ill/cook/marriageindex.html",
+   "text_file": "marriageindex.txt",
+   "transcribes": "An index to four kinds of marriage evidence: the first Catholic church register, clerk's register transcriptions, licences granted as printed in newspapers, and newspaper marriage notices.",
+   "original": "The 1830s item is the Illinois Catholic Historical Review, vol. 4 (July 1921 - April 1922), printing Father St. Cyr's register.",
+   "era": "1833-1900s",
+   "items_1830s": 87,
+   "grade": "A",
+   "state": "unread",
+   "notes": "87 dated marriages, ALL of them 1834-1839 (1834:4, 1835:6, 1836:8, 1837:36, 1838:21, 1839:12), each giving date, groom, bride, the witnesses by name, and the priest. Six of them are IN THE SCENE YEAR, and every witness is a person standing in Chicago on a named day of 1835. The repo cites data/sources/catholic_chicago_st_cyr_1833.json and holds none of these entries.",
+   "items": [
+    {
+     "item": "The first Chicago Catholic church marriages, 1834-1839",
+     "url": "https://genealogytrails.com/ill/cook/marriages_catholic.html",
+     "text_file": "marriages_catholic.txt",
+     "original": "Illinois Catholic Historical Review, vol. 4, July 1921 - April 1922.",
+     "era": "1834-1839",
+     "items_1830s": 87,
+     "grade": "A",
+     "state": "unread",
+     "notes": "Counted as date-headed lines in the cached text. The footnotes travel with the entries and matter: one says three couples were married at Bear Creek, Sangamon County, not at Chicago, so a reader who takes the register as a Chicago roll will place three households in the wrong town."
+    }
+   ]
+  },
+  {
+   "section": "Church Histories / Records",
+   "url": "https://genealogytrails.com/ill/cook/churchdata.html",
+   "text_file": "churchdata.txt",
+   "transcribes": "Congregational histories and registers, mostly Chicago, 1832 to 1934.",
+   "original": "Various; the 1830s items come from the Illinois Catholic Historical Review vol. 4 and from '100 Years of Chicago Jewry'.",
+   "era": "1832-1934",
+   "items_1830s": 9,
+   "grade": "A",
+   "state": "unread",
+   "notes": "The index reads as a post-1890 section and it is not. 'St. Cyr Early Death Records' is a page of NINE named Chicago deaths and burials, June 1834 to July 1836, dated to the month, and one of them is the death of the Indian agent in the scene year. '100 Years of Chicago Jewry' opens at 1832. The First Presbyterian history covers 1833-1913 but the site transcribes only 1894-1913.",
+   "items": [
+    {
+     "item": "St. Cyr early death records",
+     "url": "https://genealogytrails.com/ill/cook/church_catholicdeaths.html",
+     "text_file": "church_catholicdeaths.txt",
+     "original": "Illinois Catholic Historical Review, vol. 4, July 1921 - April 1922, printing the death page of St. Cyr's register.",
+     "era": "1834-1836",
+     "items_1830s": 9,
+     "grade": "A",
+     "state": "unread",
+     "notes": "Nine named deaths and burials. Four are 1835 or earlier and two are burials St. Cyr performed in July 1835. The death of Thomas Owen, the agent of the Indians, on 15 October 1835, is a scene-year fact about a man who signed the 1833 poll list; it is filed as a claim in claims/town_findings_genealogytrails.json rather than left in a text file."
+    },
+    {
+     "item": "\"100 Years of Chicago Jewry\", 1832-1848 portion",
+     "url": "https://genealogytrails.com/ill/cook/jewry.html",
+     "text_file": "jewry.txt",
+     "original": "'100 Years of Chicago Jewry' (title page not transcribed).",
+     "era": "1832-1948",
+     "items_1830s": 0,
+     "grade": "B",
+     "state": "unread",
+     "notes": "Cached and skimmed, not read. Its 1830s pages are prose about the first Jewish arrivals rather than a list, so it is a claims read, not a records read, and it belongs to the books domain."
+    }
+   ]
+  },
+  {
+   "section": "Obituaries and Death Notices",
+   "url": "https://genealogytrails.com/ill/cook/obits.htm",
+   "text_file": "obits.txt",
+   "transcribes": "Newspaper obituaries and death notices by surname, plus special rolls.",
+   "original": "The 1830s-bearing item is Fergus's Directory of the City of Chicago for 1843 (Fergus Printing Company reprint, 1896); the rest are newspapers.",
+   "era": "1840s-1950s",
+   "items_1830s": 743,
+   "grade": "B",
+   "state": "unread",
+   "notes": "The whole section is post-1843 except one page, and that page is a good one: 'Early Settlers Deaths' is Fergus's list of the deaths of Chicago's old settlers, 743 entries, each with a death date and an age, often a trade and a place. An age at death is a birth year, and a birth year plus 'a settler prior to 1843' is exactly the dating evidence the resident layer is short of. This is the same genre of source as T-0554's Calumet Club receptions and should be read beside them.",
+   "items": [
+    {
+     "item": "Early settlers' deaths, from the 1843 directory",
+     "url": "https://genealogytrails.com/ill/cook/earlysettlerobits.html",
+     "text_file": "earlysettlerobits.txt",
+     "original": "Directory of the City of Chicago, Illinois for 1843, compiled by Robert Fergus (Fergus Printing Company, 1896); transcribed by K. Torp, 2007.",
+     "era": "deaths 1846-1896, of settlers resident before 1843",
+     "items_1830s": 743,
+     "grade": "B",
+     "state": "already_read_in_repo",
+     "notes": "743 entry-shaped lines counted. Reads 'Allen, Col. James, U. S. Army, died, Fort Leavenworth, Kansas, August 23, 1846, aged 40' — and Lt. James Allen is the first name on the 1833 Chicago tax list. The list is explicitly NOT all settlers: its own header admits 'some of Chicago's Old Settlers... and other well-known citizens who arrived after 1843', so arrival before 1843 may not be inferred from presence here. READ under T-0574 into data/research/old_settlers/ — 757 entries (743 was a count of lines; the difference is segmentation, and data/research/old_settlers/coverage.json states it). 725 carry a death date, 608 a printed age, and 599 yield a derived birth window, 166 of them narrow enough to name a single year.",
+     "read_by": "T-0574"
+    }
+   ]
+  },
+  {
+   "section": "Vital Records",
+   "url": "https://genealogytrails.com/ill/cook/vitalrecordlindex.html",
+   "text_file": "vitalrecordlindex.txt",
+   "transcribes": "The index page over deaths, births, marriages, divorces, wills and social security applications.",
+   "original": "Various; it is an index, and every 1830s item under it is reached and graded elsewhere in this file.",
+   "era": "1830s-1900s",
+   "items_1830s": 0,
+   "grade": "C",
+   "state": "unread",
+   "notes": "A hub, not a holding. Its only 1830s-bearing links are the Early Settlers Death Notices (graded under Obituaries) and the marriage index (graded under Marriage Records). Executions 1840-1925, House of Correction deaths 1889-1890 and two transcribed wills are the rest."
+  },
+  {
+   "section": "News Gleanings and Stories",
+   "url": "https://genealogytrails.com/ill/cook/newspaperindex.html",
+   "text_file": "newspaperindex.txt",
+   "transcribes": "Newspaper extracts sorted by subject — court, crime, church, society, marriage, birth, weather, real estate transfers, building permits.",
+   "original": "Chicago newspapers, chiefly the Tribune, from the 1850s on.",
+   "era": "1850s-1940s",
+   "items_1830s": 0,
+   "grade": "C",
+   "state": "unread",
+   "notes": "The dated items are 1855 and later — burial permits from 1900, real estate transfers 1902-03, building permits 1897. This project already holds seventy-three Chicago Democrats and thirteen Chicago Americans covering 1833-1835 in full; nothing here reaches back to them. The section's two useful links (Early Settlers Deaths, Marriage Notices) are graded above."
+  },
+  {
+   "section": "History Topics",
+   "url": "https://genealogytrails.com/ill/cook/historicalindex.html",
+   "text_file": "historicalindex.txt",
+   "transcribes": "Chicago history essays and lists, largely reprinted from the 1901 Historical Encyclopedia of Illinois and from Hurlbut.",
+   "original": "Named per item — Hurlbut's Chicago Antiquities (1881) for the fur company piece, the 1901 encyclopedia for the rest.",
+   "era": "1804-1967",
+   "items_1830s": 2,
+   "grade": "B",
+   "state": "unread",
+   "notes": "Two items touch the scene: the American Fur Company piece (its own row below, since the county index links it directly) and the Fort Dearborn massacre page with the muster roll of the garrison. 'Chicago History from 1837' begins two years too late, which is itself worth knowing — the site's narrative history starts at incorporation, so the town of 1835 is only ever reached through its lists."
+  },
+  {
+   "section": "The American Fur Company and Chicago",
+   "url": "https://genealogytrails.com/ill/americanfurco.html",
+   "text_file": "americanfurco.txt",
+   "transcribes": "Hurlbut's chapter on the fur company's Chicago agents, transcribed in full with its spelling kept.",
+   "original": "Henry H. Hurlbut, 'Chicago Antiquities' (Chicago, 1881), pages 28-36.",
+   "era": "1780s-1830s",
+   "items_1830s": 4,
+   "grade": "B",
+   "state": "unread",
+   "notes": "Names Hubbard, Beaubien, Crafts and the Kinzies as the company's Chicago men and describes what the trade did here — 'Chicago was the port and point of a very limited district of distribution'. That is a claim about what the town WAS, in a year the reconstruction models, and it comes from a named book with a page range. A books-domain claims read, not a records read. One quote is filed already; the rest is a run.",
+   "items": []
+  },
+  {
+   "section": "Biographies",
+   "url": "https://genealogytrails.com/ill/cook/biographies.html",
+   "text_file": "biographies.txt",
+   "transcribes": "An A-Z index of biographies, most of them not yet transcribed, plus the mayors and one brewery.",
+   "original": "'Album of Genealogy & Biography, Cook Co., Illinois', 1897.",
+   "era": "1837-1900s",
+   "items_1830s": 0,
+   "grade": "C",
+   "state": "unread",
+   "notes": "The page says so itself: 'This is an INDEX ONLY with only a few of the biographies actually transcribed so far'. An 1897 album's subjects were born too late to be 1835 householders, and the mayors begin in 1837. Worth a single sweep of the A-Z index for the twenty-odd surnames the resident layer is still short on, and nothing more."
+  },
+  {
+   "section": "Cemeteries",
+   "url": "https://genealogytrails.com/ill/cook/cemeteryindex.htm",
+   "text_file": "cemeteryindex.txt",
+   "transcribes": "A directory of Cook County cemeteries with contact details, a history of Chicago's burying grounds, on-site burial transcriptions, and a 1933 cemetery map.",
+   "original": "Andreas and others, quoted in the history page; the 1929 'Roll of Honor' for the veteran burials.",
+   "era": "1832-1933",
+   "items_1830s": 1,
+   "grade": "B",
+   "state": "unread",
+   "notes": "The burial transcriptions are all from cemeteries laid out after the scene — the first city cemetery is 1847 — so no 1835 grave is readable here. The history page is the exception and it is a landscape source: it places the hasty 1832 cholera burials near Lake Street and Wabash Avenue, ground the reconstruction models. One quote from it is filed.",
+   "items": [
+    {
+     "item": "History of Chicago's cemeteries",
+     "url": "https://genealogytrails.com/ill/cook/cemeteryhistory.html",
+     "text_file": "cemeteryhistory.txt",
+     "original": "Quotes Andreas and unnamed later writers.",
+     "era": "1832-1900s",
+     "items_1830s": 1,
+     "grade": "B",
+     "state": "unread",
+     "notes": "The 1832 cholera burials at Lake and Wabash are the only pre-1840 fact, and it is a good one because it is a PLACE. Everything else is the 1847 City Cemetery and the 1865 removals."
+    }
+   ]
+  },
+  {
+   "section": "Cities and Towns (townships and neighborhoods)",
+   "url": "https://genealogytrails.com/ill/cook/townshipindex.html",
+   "text_file": "townshipindex.txt",
+   "transcribes": "A table of Cook County's townships against the modern municipalities inside them, each linking to its own page.",
+   "original": "Not named; compiled by the site.",
+   "era": "1850s-modern",
+   "items_1830s": 0,
+   "grade": "C",
+   "state": "unread",
+   "notes": "Thirty townships of suburbs — Barrington, Berwyn, Schaumburg — none of which existed in 1835, when the settled town was a few streets either side of the river. The township pages may carry early settlement paragraphs, but the return per page is low and no township page is worth a run before the directories are read."
+  },
+  {
+   "section": "County Records",
+   "url": "https://genealogytrails.com/ill/cook/countyrecords.html",
+   "text_file": "countyrecords.txt",
+   "transcribes": "Naturalizations, township links, crime news, maps and institution lists.",
+   "original": "Federal naturalization papers; the 1901, 1905 and 1928 institution lists.",
+   "era": "1871-1984",
+   "items_1830s": 0,
+   "grade": "D",
+   "state": "unread",
+   "notes": "Every dated item post-dates the scene by two generations. Included for completeness: a section with nothing in it is a finding too, and saying so here is what stops the next run opening it."
+  },
+  {
+   "section": "Naturalization Records (page 2)",
+   "url": "https://genealogytrails.com/ill/cook/naturalizations_pg2.html",
+   "text_file": "naturalizations_pg2.txt",
+   "transcribes": "Cook County petitions for citizenship, 1922-1931, volume 484, numbers 99251-99550, with port and date of entry, birth date, occupation and witnesses.",
+   "original": "U.S. Department of Labor naturalization papers, Cook County.",
+   "era": "1922-1931",
+   "items_1830s": 0,
+   "grade": "D",
+   "state": "unread",
+   "notes": "The county index links it bare, with no label, which is why it is easy to mistake for something older. It is not: ninety years after the scene."
+  },
+  {
+   "section": "Family Bibles and Records",
+   "url": "https://genealogytrails.com/ill/cook/familyindex.html",
+   "text_file": "familyindex.txt",
+   "transcribes": "Two family bible records, a bible history, and three family record pages.",
+   "original": "The families' own bibles.",
+   "era": "1685-2000",
+   "items_1830s": 0,
+   "grade": "C",
+   "state": "unread",
+   "notes": "Six items in total — Van Zandt, Vernon, Dreffein/O'Malley, Horton, Kieslich, Souhrada. None of those surnames appears in the 1833-1835 voter and tax lists. A bible record that DID name an 1835 household would be first-rate evidence, so this section is worth re-checking whenever the site updates; today it holds none."
+  },
+  {
+   "section": "Events",
+   "url": "https://genealogytrails.com/ill/cook/events.html",
+   "text_file": "events.txt",
+   "transcribes": "Set-piece events in Chicago's history.",
+   "original": "Various; the earliest is an Old Settlers' Reunion oration by Hon. G. O. Barnes.",
+   "era": "1810s-1941",
+   "items_1830s": 0,
+   "grade": "C",
+   "state": "unread",
+   "notes": "One item reaches back past the scene — 'The First Wedding in Chicago', which is about Fort Dearborn before the town, told in a reunion speech and unreliable as printed. The other seven are 1871 and later."
+  },
+  {
+   "section": "Maps",
+   "url": "https://genealogytrails.com/ill/cook/maps.html",
+   "text_file": "maps.txt",
+   "transcribes": "Three maps: township, Chicago neighborhoods, and the 1933 cemetery map.",
+   "original": "Not named.",
+   "era": "1900s-1933",
+   "items_1830s": 0,
+   "grade": "D",
+   "state": "unread",
+   "notes": "Nothing here is a survey of the town, and this project's plat evidence is already the 1834 sheets and the Thompson module. Recorded so no run opens it looking for one."
+  },
+  {
+   "section": "School Records",
+   "url": "https://genealogytrails.com/ill/cook/educationindex.html",
+   "text_file": "educationindex.txt",
+   "transcribes": "College and school class lists, faculty and yearbook pages.",
+   "original": "The institutions' own publications.",
+   "era": "1830-1926",
+   "items_1830s": 0,
+   "grade": "D",
+   "state": "unread",
+   "notes": "One item nominally spans the scene — 'Chicago Graduates of Indiana University, 1830-1910' — but a Chicago resident graduating in the 1830s from Bloomington would be a curiosity, not a household. Chicago's own first school is not here."
+  },
+  {
+   "section": "Miscellaneous Data",
+   "url": "https://genealogytrails.com/ill/cook/miscindex.html",
+   "text_file": "miscindex.txt",
+   "transcribes": "Six unrelated items: a 1936 recital programme, Titanic passengers, the Art Institute, an 1903 steamboat inspection report, haunted Chicago, postcards.",
+   "original": "Various.",
+   "era": "1903-1936",
+   "items_1830s": 0,
+   "grade": "D",
+   "state": "unread",
+   "notes": "Nothing."
+  },
+  {
+   "section": "Societies & Associations",
+   "url": "https://genealogytrails.com/ill/cook/societies.htm",
+   "text_file": "societies.txt",
+   "transcribes": "Not a transcription at all: libraries, family history centres, where to write for records, and IRAD.",
+   "original": "n/a — a directory of repositories.",
+   "era": "modern",
+   "items_1830s": 0,
+   "grade": "C",
+   "state": "unread",
+   "notes": "No data, but it is the section that says where the ORIGINALS are, and two of them are already load-bearing here: IRAD holds the poll and tax list originals this project reads at second hand, and the Newberry Library is the repository behind T-0562's genealogical index. Worth citing in a source record, never worth a reading run."
+  },
+  {
+   "section": "Previous Updates",
+   "url": "https://genealogytrails.com/ill/cook/updates.html",
+   "text_file": "updates.txt",
+   "transcribes": "The site's own change log, most recent first; the top entry is December 2025.",
+   "original": "n/a.",
+   "era": "modern",
+   "items_1830s": 0,
+   "grade": "D",
+   "state": "unread",
+   "notes": "No content — but it is how a later run learns whether the site has added anything since 2026-09-03 without re-walking twenty-two sections. Cached deliberately for that."
+  }
+ ]
+}

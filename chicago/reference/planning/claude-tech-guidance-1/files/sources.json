@@ -1,0 +1,38 @@
+{
+  "sources": [
+    {
+      "id": "hathaway_1834",
+      "type": "map",
+      "citation": "Hathaway, Joshua. Chicago with the School Section, Wabansia, and Kinzie's Addition. 1834.",
+      "repository": "Newberry Library",
+      "rights": "Public domain (1834). Verify reproduction terms for the specific scan used.",
+      "note": "Master geometry source. Commissioned by John H. Kinzie to facilitate lot sales. Small rectangles denote individual buildings; bold rectangles denote fully built-up blocks.",
+      "verified": false
+    },
+    {
+      "id": "wright_1834",
+      "type": "map",
+      "citation": "Chicago, drawn by J.S. Wright according to survey. 1834.",
+      "repository": "Newberry Library",
+      "rights": "Public domain (1834).",
+      "note": "Best source for shoreline, river mouth and the sandbar. Records the river's outward flow direction.",
+      "verified": false
+    },
+    {
+      "id": "andreas_1884_v1",
+      "type": "book",
+      "citation": "Andreas, A.T. History of Chicago: From the Earliest Period to the Present Time. Vol. 1. Chicago: A.T. Andreas, 1884.",
+      "rights": "Public domain.",
+      "note": "Pioneer recollection compiled 50 years after the fact. Treat as secondary. Cite the page for every claim and prefer it only where no primary source exists.",
+      "verified": false
+    },
+    {
+      "id": "conley_stelzer_1833",
+      "type": "map",
+      "citation": "Conley, Walter H. (designer) and O.E. Stelzer (draftsman). Plan of Chicago in 1833. Reconstructed; compiled with Caroline McIlvaine.",
+      "rights": "Reproduction rights unclear — CHECK BEFORE USE.",
+      "note": "A modern reconstruction, not a period document. Useful as a cross-check, never as sole evidence.",
+      "verified": false
+    }
+  ]
+}

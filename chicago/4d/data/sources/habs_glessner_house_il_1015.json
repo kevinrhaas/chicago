@@ -1,0 +1,26 @@
+{
+ "id": "habs_glessner_house_il_1015",
+ "type": "article",
+ "citation": "Historic American Buildings Survey. John J. Glessner House, 1800 South Prairie Avenue, Chicago, Cook County, IL. HABS IL-1015 (HABS ILL,16-CHIG,17-). Documentation compiled after 1933; historians David T. Van Zanten and Osmund R. Overby. Washington, D.C.: Library of Congress, Prints and Photographs Division.",
+ "author": "Historic American Buildings Survey; David T. Van Zanten and Osmund R. Overby, historians",
+ "date": "compiled after 1933",
+ "describes_date": "1885-1887",
+ "repository": "Library of Congress, Prints and Photographs Division (HABS/HAER/HALS collection)",
+ "url": "https://www.loc.gov/item/il0118/",
+ "locator": "HABS IL-1015, survey record item il0118; the two dating statements quoted here are the item's `Significance` note and its `Building/structure dates` note, read from https://www.loc.gov/item/il0118/?fo=json on 2026-09-17. 17 photographs, 6 measured drawings, 27 data pages; the data pages themselves were NOT read.",
+ "tier": 4,
+ "rights_status": "no_known_restrictions",
+ "rights_note": "LOC rights advisory: \"No known restrictions on images made by the U.S. Government; images copied from other sources may be restricted.\" Nothing is copied from this record into the model; it is cited for two dates.",
+ "asset_use": "text_only",
+ "verified": true,
+ "what_it_supplies": [
+  "the construction window of the Glessner House at 1800 South Prairie Avenue, which is the binding lower bound on any representative 1880s scene date that wants the Prairie Avenue landmark core standing",
+  "the house's NRHP reference number, 70000233, and its 1958 Chicago Architectural Landmark designation"
+ ],
+ "what_it_does_not_supply": [
+  "any position, footprint or dimension used by this model — the measured drawings were not opened and nothing is traced from this record",
+  "the dates of any OTHER Prairie Avenue house; HABS records date buildings one at a time and most of the avenue's HABS records carry no dates at all (see habs_kimball_house_il_1077)",
+  "anything about the ground, the grade, the lake edge or the Illinois Central corridor"
+ ],
+ "note": "TWO DATING STATEMENTS, AND THEY DO NOT SAY THE SAME THING, which is why both are quoted rather than one being adopted. The significance note reads \"Designed and built between May 1885 and December 1887\"; the structured note reads \"Building/structure dates: 1886- 1887 Initial Construction\". The wider statement contains the narrower one and both end in 1887, so the only claim this project takes from the record is the one both support: the house was not finished before the end of 1887. That is a LOWER BOUND on a scene date and not a completion date, and data/terrain/1880s_scene_date_constraints.json carries it as one. The LOC item endpoint answered 200 to unattended retrieval on 2026-09-17; the LOC SEARCH endpoint answered 403 to the same client on the same day, so a future run looking for sibling HABS records should expect to reach them by item id and not by search."
+}

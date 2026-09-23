@@ -1,0 +1,55 @@
+{
+  "id": "chicago_voter_lists_1833_1835_irad",
+  "type": "website",
+  "citation": "\"Early Chicago Voter Lists\" — the poll list of the first election of the Board of Trustees of the Town of Chicago (10 August 1833), the tax list of the Town of Chicago, 1833, the election returns and poll list of 1834 filed 11 August 1834, and the 1835 poll list. Transcribed from the Illinois Regional Archives Depository originals by Ingrid Latimer Schulz, published in Chicago Genealogist XXV/4 (Summer 1993), and republished by the Genealogy Trails Transcription Team.",
+  "author": "Ingrid Latimer Schulz (transcriber); Genealogy Trails Transcription Team",
+  "date": "1993",
+  "describes_date": "1833-1835",
+  "repository": "Illinois Regional Archives Depository (IRAD) holds the originals; this project has seen only the republication and the deposit copy",
+  "url": "https://genealogytrails.com/ill/cook/polllist.html",
+  "locator": "chicago/reference/voter-roll/ — the transcription (.txt and .docx) and the supplied PDF; the same text is committed byte-identical at chicago/4d/data/research/civic/text/voter_lists_1833_1835.txt, and every record's locator names its line there",
+  "tier": 1,
+  "rights_status": "public_domain",
+  "asset_use": "text_only",
+  "verified": true,
+  "transcribes": [
+    {
+      "work": "Poll list for the first election of Board of Trustees of the Town of Chicago (10 August 1833)",
+      "date": "1833-08-10",
+      "tier": 1,
+      "note": "30 entries. Andreas says twenty-eight men voted at this election; the list prints thirty names. T-0542 searched for a count outside Andreas and found none — the Chicago Democrat did not exist until 26 November 1833 and its whole run to August 1835 carries no retrospective count of this poll — so the discrepancy STANDS, with the negative search recorded (claims/town_findings_voter_lists.json v004). On weight the thirty are the enrolments and Andreas's twenty-eight is an 1884 belief-statement ('It is believed') about the number of legal voters; neither count is repaired."
+    },
+    {
+      "work": "Tax List of the Town of Chicago - 1833",
+      "date": "1833",
+      "tier": 1,
+      "note": "115 entries. Names only — as published it carries no valuation, no lot and no figure, so it is not a ranked property roll (claims/town_findings_voter_lists.json v001)."
+    },
+    {
+      "work": "Election Returns - Poll List of 1834, filed 11 August 1834",
+      "date": "1834-08-11",
+      "tier": 1,
+      "note": "115 entries. Andreas independently dates the second town election to 11 August 1834, which corroborates the list's own heading."
+    },
+    {
+      "work": "1835 Poll List",
+      "date": "1835",
+      "tier": 1,
+      "note": "85 entries. THE LIST PRINTS NO DATE, AND IT IS NOT THE POLL BOOK OF THE THIRD TOWN ELECTION. That election is now dated from the town's own newspaper rather than from Andreas: the Chicago Democrat of 8 July 1835 announced the election of Trustees under the new charter for 'Friday of this week' and the issue of 15 July reported that it 'took place on Friday last' with the return — FRIDAY 10 JULY 1835, nine days after the 1835-07-01 scene date (claims/town_election_1835_democrat.json d001-d005). Andreas's town chapter, 'in July, 1835', is corroborated; his police chapter's 5 August 1835 is the day the newly elected board sat and passed the town's ordinance code over Hugunin's name as President. But that return gives single candidates 124 and 142 votes, which 85 men cannot cast, and six of the ten men who stood are absent from these 85 while the list runs unbroken from Adams to Wright — so this is a DIFFERENT poll, not a short printing of that one (claims/town_findings_voter_lists.json v003). Which poll is open; the county and state general election of Monday 3 August 1835 is the nearest candidate. Until it is settled, a name here evidences presence in Chicago in 1835 and not presence on any particular day."
+    }
+  ],
+  "access_notes": "VERIFIED 2026-09-03 by fetching the live Genealogy Trails page and comparing it with the deposit entry for entry: all 345 entries appear on the page, in the same order, with the same spelling, and the page carries no entry the deposit lacks. That verifies the DEPOSIT against the publication. It does NOT verify the publication against the IRAD originals, which remain unseen — the reading is mediated twice, by Schulz and then by the Genealogy Trails team, and every record citing this source is graded `transcription_mediated`. The page answers a browser user-agent; a default one is refused with HTTP 406.",
+  "what_it_supplies": [
+    "345 names of men who voted at, or were taxed by, the Town of Chicago in 1833, 1834 and 1835, as printed",
+    "which of the four lists each name stands on, and its position in that list",
+    "the courtesy and rank titles the lists print in front of a name (Col., Lt., Major, Dr.)",
+    "for the 1835 poll list: presence in Chicago during 1835, which is the strongest residence evidence this project holds short of a newspaper naming the man — but NOT presence on a stated day, because the list is undated and is shown not to be the poll book of the 10 July 1835 town election (T-0542)"
+  ],
+  "what_it_does_not_supply": [
+    "any address, street, lot or dwelling",
+    "any age, trade, household or family member",
+    "any date more precise than a list's own heading — and the 1835 list has no heading date at all",
+    "any woman, and any man who neither voted nor was taxed"
+  ],
+  "note": "A poll list records who VOTED, not who lived in the town: absence from it is not absence from Chicago. Spellings are the transcription's and are preserved exactly, including the ambiguous 'S---?, Albert' in the 1834 list and the apparent misprints 'Smow, George W.' (1833) and 'Shatttuck, Walter' (1835) — repairing them is a reading and belongs to the identity layer, not to the record. The tier carried here is the rung the DOCUMENTS sit on; the reading of them is twice mediated and is graded on every record that cites it."
+}

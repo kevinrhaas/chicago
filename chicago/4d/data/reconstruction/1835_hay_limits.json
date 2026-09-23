@@ -1,0 +1,502 @@
+{
+ "$schema_note": "Derived. Not hand-editable — tools/derive_hay_limits.py --check re-derives this file from committed geometry on every commit.",
+ "id": "1835_hay_limits",
+ "target_date": "1835-07-01",
+ "ticket": "T-0334",
+ "tool": "tools/derive_hay_limits.py",
+ "reads": [
+  "data/streets/1835.json — path_local_enu_m, the PLATTED lines",
+  "data/reconstruction/1835_survey_tracts.json — us_military_reservation",
+  "data/terrain/epochs/e1834_harbor_cut/shoreline.geojson — the north shore run",
+  "data/datum.json — origin_utm_e / origin_utm_n",
+  "data/sidecars/1835/*.json — committed structure positions",
+  "data/reconstruction/1835_665_roof_programme.json — the block-infill schedule"
+ ],
+ "why_this_file_exists": "THE ONLY DOCUMENTED STATEMENT THIS PROJECT HOLDS ABOUT WHERE THE BUILT TOWN ENDED IN THE SCENE YEAR. Every other judgement about density here — which blocks get roofs, which stay open ground — is made from the plat, from the land deal and from measured frontage. This one is the town's own, in the town's own words, and it is a fire rule: the Trustees drew a line round the ground they thought was built up closely enough that a hay stack inside it would take the town with it.",
+ "ordinance": {
+  "section": "Sec. 22",
+  "passed": "1835-08-05",
+  "passed_over": "J. Hugunin, President; Alex. N. Fullerton, Secretary",
+  "printed": "1835-08-19",
+  "forbids": "stacking hay inside the limits",
+  "penalty_dollars": 25,
+  "penalty_note": "Twenty-five dollars for each offence and the cost of removing the stack — the heaviest penalty in the whole ordinance except gaming.",
+  "quote": "commencing on Washington street, at the United States Reservation, and running thence West to the intersection of Canal Street, thence North to the intersection of Kinzie Street, thence East to the intersection of Wolcott street, thence to Illinois Street, and thence to Lake Michigan",
+  "source_id": "chicago_democrat_1833_1835",
+  "locator": "The Chicago Democrat, Vol. II No. 18, 19 August 1835, page 1, columns 1–2; transcription claim c006 in data/research/newspapers/extracted/chicago_democrat_1835_08_19.json",
+  "confidence": "documented"
+ },
+ "date_standing": {
+  "scene_date": "1835-07-01",
+  "ordinance_date": "1835-08-05",
+  "days_after_the_scene_date": 35,
+  "note": "THE ORDINANCE IS FIVE WEEKS LATER THAN THE SCENE. It is carried here as evidence about the town of 1835 and not as something standing in the scene on 1 July: nothing is placed, moved or drawn because of it. A line the Trustees walked on 5 August describes ground that was already built up when they walked it, which is exactly why it is worth having; it is still a claim about August and it says so."
+ },
+ "walk": [
+  {
+   "vertex": "v1_washington_at_the_reservation",
+   "streets": [
+    "washington",
+    "us_military_reservation west side"
+   ],
+   "reading": "“commencing on Washington street, at the United States Reservation” — the point where Washington Street meets the committed reservation ring's west side. Washington runs no further east than this because the reservation is where it stops, which is why the ordinance can name the spot without a cross street.",
+   "local_e": 838.69,
+   "local_n": -394.6,
+   "is_a_crossing": true,
+   "extension_m": {
+    "washington": 0.0,
+    "us_military_reservation west side": 0.0
+   },
+   "confidence": "documented",
+   "sources": [
+    "chicago_democrat_1833_1835"
+   ]
+  },
+  {
+   "vertex": "v2_washington_and_canal",
+   "streets": [
+    "washington",
+    "canal"
+   ],
+   "reading": "“running thence West to the intersection of Canal Street”.",
+   "local_e": -151.21,
+   "local_n": -386.57,
+   "is_a_crossing": true,
+   "extension_m": {
+    "washington": 0.0,
+    "canal": 0.0
+   },
+   "confidence": "documented",
+   "sources": [
+    "chicago_democrat_1833_1835"
+   ]
+  },
+  {
+   "vertex": "v3_canal_and_kinzie",
+   "streets": [
+    "canal",
+    "kinzie"
+   ],
+   "reading": "“thence North to the intersection of Kinzie Street”.",
+   "local_e": -181.0,
+   "local_n": 262.0,
+   "is_a_crossing": true,
+   "extension_m": {
+    "canal": 0.0,
+    "kinzie": 0.0
+   },
+   "confidence": "documented",
+   "sources": [
+    "chicago_democrat_1833_1835"
+   ]
+  },
+  {
+   "vertex": "v4_kinzie_and_wolcott",
+   "streets": [
+    "kinzie",
+    "wolcott"
+   ],
+   "reading": "“thence East to the intersection of Wolcott street” — Wolcott Street is modern North State Street.",
+   "local_e": 828.0,
+   "local_n": 253.97,
+   "is_a_crossing": true,
+   "extension_m": {
+    "kinzie": 0.0,
+    "wolcott": 0.0
+   },
+   "confidence": "documented",
+   "sources": [
+    "chicago_democrat_1833_1835"
+   ]
+  },
+  {
+   "vertex": "v5_wolcott_and_illinois",
+   "streets": [
+    "wolcott",
+    "illinois_north"
+   ],
+   "reading": "“thence to Illinois Street” — north up Wolcott to the Illinois Street line of Kinzie's Addition.",
+   "local_e": 829.55,
+   "local_n": 481.2,
+   "is_a_crossing": true,
+   "extension_m": {
+    "wolcott": 0.0,
+    "illinois_north": 0.0
+   },
+   "confidence": "documented",
+   "sources": [
+    "chicago_democrat_1833_1835"
+   ]
+  },
+  {
+   "vertex": "v6_illinois_at_the_lake",
+   "streets": [
+    "illinois_north",
+    "traced 1834 lake shore"
+   ],
+   "reading": "“and thence to Lake Michigan” — east along the Illinois Street line to the traced shore. The committed street stops short of the water, so this leg carries the platted line beyond its own east end; the distance is recorded and gated.",
+   "local_e": 1376.56,
+   "local_n": 476.71,
+   "is_a_crossing": false,
+   "extension_m": {
+    "illinois_north": 100.78,
+    "traced 1834 lake shore": 0.0
+   },
+   "confidence": "documented",
+   "sources": [
+    "chicago_democrat_1833_1835"
+   ]
+  }
+ ],
+ "closure": {
+  "why": "The ordinance walks six vertices and stops at Lake Michigan. An AREA needs the two sides it names but does not draw, and both are added here rather than read off the page.",
+  "edges": [
+   {
+    "edge": "lake_shore_illinois_to_the_north_pier",
+    "vertices": 7,
+    "length_m": 175.18,
+    "confidence": "inferred",
+    "note": "The 1834 lake shore as traced by tools/trace_shoreline.py, walked south from the Illinois Street line to the outer end of the north pier. The ordinance says “to Lake Michigan” and the shore is where the lake is; the pier's outer end is where the shore ends and the harbour entrance begins.",
+    "sources": [
+     "wright_1834_nara_hup"
+    ]
+   },
+   {
+    "edge": "across_the_harbour_entrance",
+    "vertices": 2,
+    "length_m": 236.59,
+    "confidence": "inferred",
+    "note": "One straight segment across the 1834 cut, between the outer end of the north pier and the northernmost traced point of the reservation. This is water between two piers: the ordinance draws nothing here, nothing can be stacked here, and the segment exists only so that the limit closes. It is not a claim about anything on the ground.",
+    "sources": [
+     "wright_1834_nara_hup"
+    ]
+   },
+   {
+    "edge": "the_reservation_north_boundary_and_west_side",
+    "vertices": 17,
+    "length_m": 869.6,
+    "confidence": "inferred",
+    "note": "The committed Fort Dearborn reservation ring, walked west along its traced waterline on the south bank of the main stem and then south down its west side to the point the ordinance commenced at. THE READING THIS RESTS ON: the walk commences AT the reservation, so the reservation bounds the limit and the federal ground inside it is outside the town's hay rule. The alternative reading — that the reservation is only a landmark naming the spot where Washington Street ends, and the limit runs on to the lake across the fort — is recorded here and not taken, because it would have the Trustees fining the garrison. Which reading is right is the owner's call and the measured difference is stated below.",
+    "sources": [
+     "wright_1834_nara_hup"
+    ]
+   }
+  ]
+ },
+ "alternative_reading": "The alternative reading is not built as geometry here. What it costs is stated as the count it would move: every structure this file reports as outside the limit ON THE RESERVATION would come inside it, and nothing else would change.",
+ "ring_local_enu_m": [
+  [
+   838.69,
+   -394.6
+  ],
+  [
+   -151.21,
+   -386.57
+  ],
+  [
+   -181.0,
+   262.0
+  ],
+  [
+   828.0,
+   253.97
+  ],
+  [
+   829.55,
+   481.2
+  ],
+  [
+   1376.56,
+   476.71
+  ],
+  [
+   1375.8,
+   464.67
+  ],
+  [
+   1373.04,
+   460.26
+  ],
+  [
+   1371.05,
+   441.38
+  ],
+  [
+   1372.66,
+   405.91
+  ],
+  [
+   1393.26,
+   347.63
+  ],
+  [
+   1400.3,
+   337.63
+  ],
+  [
+   1409.62,
+   297.25
+  ],
+  [
+   1175.16,
+   265.59
+  ],
+  [
+   1117.95,
+   256.44
+  ],
+  [
+   1072.66,
+   238.84
+  ],
+  [
+   1051.08,
+   227.52
+  ],
+  [
+   1024.71,
+   199.44
+  ],
+  [
+   1003.22,
+   171.46
+  ],
+  [
+   986.64,
+   140.68
+  ],
+  [
+   979.8,
+   116.62
+  ],
+  [
+   959.02,
+   89.38
+  ],
+  [
+   938.17,
+   70.84
+  ],
+  [
+   910.32,
+   56.49
+  ],
+  [
+   870.61,
+   41.18
+  ],
+  [
+   862.98,
+   33.05
+  ],
+  [
+   856.06,
+   21.31
+  ],
+  [
+   854.03,
+   10.4
+  ],
+  [
+   850.55,
+   8.16
+  ],
+  [
+   842.05,
+   19.82
+  ]
+ ],
+ "ring_note": "Closed ring, local ENU metres on data/datum.json. The first six vertices are the ordinance's own; the rest are the closure.",
+ "ring_vertices": 30,
+ "area_m2": 804855.9,
+ "area_acres": 198.9,
+ "perimeter_m": 4715.9,
+ "self_intersections": [],
+ "structures": {
+  "counted_from": "data/sidecars/1835/*.json placement.local_e / local_n",
+  "inside": 302,
+  "outside": 81,
+  "no_committed_position": 0,
+  "outside_by_where": {
+   "on_the_united_states_reservation": 23,
+   "north_of_the_limit": 20,
+   "west_of_canal_street": 36,
+   "south_of_washington_street": 1,
+   "east_of_the_limit_in_the_water": 1,
+   "unclassified": 0
+  },
+  "outside_ids_by_where": {
+   "on_the_united_states_reservation": [
+    "beaubien_barn",
+    "chicago_lighthouse_1832",
+    "fort_dearborn_artillery_house",
+    "fort_dearborn_barracks",
+    "fort_dearborn_big_barn",
+    "fort_dearborn_blockhouse",
+    "fort_dearborn_commandants_quarters",
+    "fort_dearborn_flagstaff",
+    "fort_dearborn_garrison_garden",
+    "fort_dearborn_guard_house",
+    "fort_dearborn_magazine",
+    "fort_dearborn_officers_quarters",
+    "fort_dearborn_out_building_a",
+    "fort_dearborn_out_building_b",
+    "fort_dearborn_palisade",
+    "fort_dearborn_parade",
+    "fort_dearborn_root_house",
+    "fort_dearborn_shop",
+    "fort_dearborn_store_house",
+    "fort_dearborn_sutlers_store",
+    "fort_dearborn_us_factors_house",
+    "fort_dearborn_wash_house",
+    "jb_beaubien_homestead"
+   ],
+   "north_of_the_limit": [
+    "clybourn_cabins",
+    "clybourn_slaughterhouse",
+    "recon_1835_north_a1_036",
+    "recon_1835_north_a2_059",
+    "recon_1835_north_d1_013",
+    "recon_1835_north_d1_023",
+    "recon_1835_north_d1_053",
+    "recon_1835_north_d1_054",
+    "recon_1835_north_d1_060",
+    "recon_1835_north_d2_014",
+    "recon_1835_north_d2_029",
+    "recon_1835_north_d3_024",
+    "recon_1835_north_d3_038",
+    "recon_1835_north_d3_055",
+    "recon_1835_north_d4_025",
+    "recon_1835_north_d4_056",
+    "recon_1835_north_d5_057",
+    "recon_1835_north_d6_058",
+    "recon_1835_north_h2_030",
+    "recon_1835_north_i2_015"
+   ],
+   "west_of_canal_street": [
+    "inf_artisan_dwelling_west_a",
+    "inf_artisan_dwelling_west_b",
+    "inf_blacksmith_shop_west",
+    "inf_grocery_west",
+    "inf_labourer_shanty_west_a",
+    "inf_labourer_shanty_west_b",
+    "inf_teamster_dwelling_west",
+    "inf_teamster_stable_west",
+    "inf_wheelwright_shop_west",
+    "recon_1835_blk_randolph_clinton_a1_06",
+    "recon_1835_blk_randolph_clinton_a2_05",
+    "recon_1835_blk_randolph_clinton_a3_07",
+    "recon_1835_blk_randolph_clinton_d1_03",
+    "recon_1835_blk_randolph_clinton_d3_04",
+    "recon_1835_blk_randolph_clinton_d4_02",
+    "recon_1835_blk_randolph_clinton_d5_01",
+    "recon_1835_west_001",
+    "recon_1835_west_002",
+    "recon_1835_west_003",
+    "recon_1835_west_005",
+    "recon_1835_west_006",
+    "recon_1835_west_007",
+    "recon_1835_west_008",
+    "recon_1835_west_009",
+    "recon_1835_west_010",
+    "recon_1835_west_011",
+    "recon_1835_west_012",
+    "recon_1835_west_014",
+    "recon_1835_west_015",
+    "recon_1835_west_016",
+    "recon_1835_west_018",
+    "recon_1835_west_019",
+    "recon_1835_west_021",
+    "recon_1835_west_022",
+    "recon_1835_west_023",
+    "recon_1835_west_024"
+   ],
+   "south_of_washington_street": [
+    "heacock_house_monroe"
+   ],
+   "east_of_the_limit_in_the_water": [
+    "south_pier"
+   ],
+   "unclassified": []
+  },
+  "no_committed_position_ids": [],
+  "note": "A structure is sorted by the single point its record commits, which is where the reconstruction stands it — not by its footprint. A building whose walls straddle the limit is counted by its point. The side a structure outside the limit falls on is read off the committed street itself, carried straight past its own ends where it has to be; the reservation is tested against its committed ring and answered first, because a building on federal ground is outside the town's rule for a different reason than a building up the North Branch. The last class is reached by elimination and then checked: a structure outside the limit that is not on the reservation and not beyond any of the three street edges must lie east of the limit's eastern side, which here is water — so it is required to stand east of Wolcott Street before it is called that, and anything else stays unclassified rather than being tidied away."
+ },
+ "block_infill_programme": {
+  "counted_from": "data/reconstruction/1835_665_roof_programme.json schedule[]",
+  "method": "A block's centre is the mean of the four corners its own four bounding street centrelines make. No block polygon is invented.",
+  "blocks_with_four_bounding_streets": 21,
+  "inside_the_limit": 18,
+  "outside_the_limit": 3,
+  "scheduling_roofs_outside_the_limit": 0,
+  "scheduling_roofs_outside_the_limit_rows": [],
+  "blocks_outside_the_limit": [
+   {
+    "id": "blk_lake_clinton",
+    "state": "at_capacity",
+    "roofs_scheduled": 0,
+    "centre_local_enu_m": [
+     -219.65,
+     -179.3
+    ],
+    "inside_the_limit": false
+   },
+   {
+    "id": "blk_randolph_clinton",
+    "state": "at_capacity",
+    "roofs_scheduled": 0,
+    "centre_local_enu_m": [
+     -215.87,
+     -318.38
+    ],
+    "inside_the_limit": false
+   },
+   {
+    "id": "blk_south_water_clinton",
+    "state": "not_a_block",
+    "roofs_scheduled": 0,
+    "centre_local_enu_m": [
+     -221.58,
+     -111.66
+    ],
+    "inside_the_limit": false
+   }
+  ],
+  "rows_without_block_geometry": [
+   {
+    "id": "west_wolf_point_outer",
+    "kind": "reviewed_recipe_remainder",
+    "state": "gated",
+    "roofs": 35
+   },
+   {
+    "id": "south_plat_beyond_committed_control",
+    "kind": "district_balance",
+    "state": "gated",
+    "roofs": 104
+   },
+   {
+    "id": "west_division_beyond_committed_control",
+    "kind": "district_balance",
+    "state": "gated",
+    "roofs": 52
+   },
+   {
+    "id": "north_division_beyond_modelled_ground",
+    "kind": "district_balance",
+    "state": "gated",
+    "roofs": 67
+   },
+   {
+    "id": "fort_dearborn_compound",
+    "kind": "district_balance",
+    "state": "complete",
+    "roofs": 0
+   }
+  ],
+  "note": "The five schedule rows with no bounding streets are district balances and recipe remainders, not blocks; they are listed and not placed. Every one of them is gated on control or ground this project has not committed, so the limit cannot be asked about them yet.",
+  "what_agreement_means": "The programme and the Trustees were answering different questions — one asks where there was room to build, the other where it was already dangerous to stack hay. That the schedule puts no NEW roof outside the fenced ground is therefore a check that passed, not a tautology: nothing in the schedule's derivation had ever read this line.",
+  "the_one_disagreement": "THE LINE RUNS UP CANAL STREET AND THE PROGRAMME DOES NOT. Three of the twenty-one scheduled blocks sit west of Canal Street, in the Clinton–Canal tier, and the Trustees' boundary turns north AT Canal and leaves them out. Two of the three are the programme's own `at_capacity` — it holds standing roofs there and schedules no more — and the third it already calls `not_a_block`. So the disagreement is not about where to build next; it is that the reconstruction's built town reaches one tier further west than the town's own fire line did, on ground the ordinance was willing to let a hay stack stand on. Which is right is not settled here. The two at-capacity blocks hold 21 standing roofs between them (11 and 10 of a 31-roof capacity each), so this is not a rounding difference: it is twenty-one roofs of reconstructed town standing on ground the Trustees did not fence, and either they were there and the line was drawn short of them, or the tier is a block too far west."
+ },
+ "nothing_is_drawn": "A legal limit is not a fence. Nothing is added to the 3-D scene by this file and docs/LIBERTIES.md carries no new admission for it: drawing an invisible boundary as a visible one would put a line in the town that nobody in 1835 could see. What a visitor gets instead is a line on the card of every building, saying whether it stood inside the limit or outside it and quoting the section that says so."
+}

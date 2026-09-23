@@ -1,0 +1,163 @@
+{
+ "id": "hh_curtiss_j",
+ "name": "The Curtiss household — a documented attorney, unplaced in the town",
+ "division": "unplaced",
+ "head": "curtiss_j",
+ "source_pass": "documented",
+ "arrival": {
+  "value": "1835-05-20",
+  "confidence": "inferred",
+  "sources": [
+   "chicago_democrat_1833_1835"
+  ],
+  "note": "A BOUND FROM THE PAPER, NOT AN ARRIVAL. The corpus first prints this person at the Democrat of 5 August 1835, column 17, so they are in the town's paper by 1835-05-20 and at no stated time before it; nothing reached says when they came. Last printed 1835-08-05.",
+  "precision": "not_later_than"
+ },
+ "party_size_on_arrival": {
+  "value": null,
+  "confidence": "reconstructed",
+  "note": "Not attested."
+ },
+ "origin": {
+  "value": null,
+  "confidence": "reconstructed",
+  "note": "Not attested."
+ },
+ "reason_for_coming": {
+  "value": null,
+  "confidence": "reconstructed",
+  "note": "Not attested."
+ },
+ "lives_at": {
+  "value": null,
+  "confidence": "reconstructed",
+  "note": "Not attested. NOTHING IS BEING WITHHELD HERE: no source reached says where this person lived, and 52 households in this dataset were already in that position before this one was written."
+ },
+ "works_at": {
+  "value": null,
+  "confidence": "reconstructed",
+  "note": "Not attested as a structure this project models. The trade is documented; the premises are not one of the committed records."
+ },
+ "present_on_scene_date": {
+  "value": "present",
+  "confidence": "inferred",
+  "sources": [
+   "chicago_democrat_1833_1835"
+  ],
+  "note": "Printed on or after the scene date — last at the Democrat of 1 July 1835, column 11 — so the corpus itself puts this person in the town's paper at 1835-08-05."
+ },
+ "persons": [
+  {
+   "id": "curtiss_j",
+   "name": "J. Curtiss",
+   "relationship": "head",
+   "grade": "attested",
+   "ladder_rule": "G1b",
+   "occupation": {
+    "value": "attorney",
+    "confidence": "attested",
+    "sources": [
+     "chicago_democrat_1833_1835"
+    ],
+    "note": "THE TRADE IS THE PAPER'S. The corpus reads it as attorney, counsellor at law, solicitor in chancery, at the Democrat of 5 August 1835, column 17; the Democrat of 20 May 1835, column 9; the Democrat of 17 June 1835, column 2; the Democrat of 1 July 1835, column 11. The residents vocabulary's nearest period-correct word for it is `attorney`, and where the corpus prints more than one trade they are all named here rather than reduced to the one the vocabulary could take.",
+    "derived_from": "roles",
+    "roles_at_scene_date": [
+     "attorney"
+    ]
+   },
+   "sources": [
+    "chicago_democrat_1833_1835"
+   ],
+   "note": "A DOCUMENTED PERSON, AND NOTHING ELSE IS CLAIMED. The papers name 'J. CURTISS' and 'J. CURTISS,' and 'J. Curtiss, Esq' and give the trade; they do not say where this household lived, who else was in it, or when it came. So the record around this person carries nothing but the person: no dwelling, no division, no family, each written as unattested in its own block rather than filled in from the shape of the rest of the town. Cited at the Democrat of 5 August 1835, column 17; the Democrat of 20 May 1835, column 9; the Democrat of 17 June 1835, column 2; the Democrat of 1 July 1835, column 11. The corpus associates the name with South Water Street, Chicago; that is where the paper does business with this person and not a statement about where they slept, and the storefront tickets are the ones that may stand a shop there. THE TOWN NEVER INVENTED A ROOF FOR THIS TRADE. The occupation census raised reconstructed households for the trades a town of 3,265 people needed and could not document; `attorney` was not one of them, which is why this person could only ever be ADDED and never seated on an existing record — data/research/newspapers/register_1835.json calls it `new_resident` for exactly that reason. No figure is drawn (docs/LIBERTIES.md L1). READ THROUGH A TRANSCRIPTION, not a scan: the owner's ruling of 2026-08-28 grades a transcription-mediated reading as documented, and the source record for the run states that standard and its limits. A scan read that confirms or corrects the name upgrades this entry.",
+   "resident_research": {
+    "programme": "resident-research-2026",
+    "ticket": "T-0509",
+    "outcome": "candidate_identity",
+    "reviewed_on": "2026-09-05",
+    "asserted_identity": false,
+    "evidence_for": "A strong candidate is attorney James Curtiss, later mayor. The trade, city and date align, but the newspaper record gives only J. Curtiss, so the identification remains unasserted.",
+    "evidence_against": "No reviewed source explicitly equates the abbreviated newspaper name with the mayor.",
+    "notes": "No candidate fact is asserted unless a source bridges the candidate to the 1835 Chicago record by more than name similarity.",
+    "source_ids": [
+     "chicago_democrat_1833_1835",
+     "cpl_james_curtiss_biography",
+     "fergus_chicago_directory_1839"
+    ],
+    "candidate_ids": [
+     "cand_james_curtiss__curtiss_j"
+    ],
+    "summary": "Fergus 1839 prints 'Curtiss, James, attorney and counsellor at law, 17 Lake st' and the library's biography of the later mayor gives the same man's Chicago arrival and practice. The 1835 papers already carry him as an attorney between 20 May and 5 August, so the expansion of the bare J. is safe."
+   },
+   "roles": [
+    {
+     "role": "attorney",
+     "kind": "profession",
+     "as_printed": null,
+     "from": "1833-11",
+     "to": "1835-08",
+     "precision": "source_span",
+     "dated_by": "source_describes_date",
+     "covers_scene_date": true,
+     "confidence": "attested",
+     "sources": [
+      "chicago_democrat_1833_1835"
+     ],
+     "claim": null,
+     "note": "THE BOUND IS THE SOURCE'S, NOT THE MAN'S. This role is carried by the card's 1835 occupation block and is dated by what the cited source or sources are ABOUT, which is why `precision` can be no better than the span they cover. The span reaches 1835, so this role stands in the scene-date view. The printing the trade was read off is not on the card and is fetched by T-1254."
+    }
+   ],
+   "merge_ruling": [
+    {
+     "ticket": "T-1291",
+     "verdict": "distinct",
+     "rule": "R2",
+     "cluster": "curtis-jacob-curtiss-j",
+     "weighed_against": [
+      "curtis_jacob_s"
+     ],
+     "for_merge": "A terminal s, and the initial J agrees with Jacob. Both cards are in the town's records for the scene window: 'Curtis, J.' on the 1835 poll and 'J. Curtiss' in the Democrat of 20 May 1835 (#c009) and 5 August 1835 (#c017).",
+     "against_merge": "THE INITIAL J HAS TWO RIVALS ON THE CURTISS SIDE ALONE, AND A THIRD TRADE ON THE CURTIS SIDE. The directories print two J. Curtisses of this town: 'Curtiss, James, State's attorney, 136 Lake' — later the ninth mayor — and 'Curtiss, J. W., gunsmith, res cor North Water and Wolcott', both in Fergus 1843 and again in Norris 1844. An initial that could expand to two full forenames in the cluster attaches to neither: R2, the rule the newspapers' identity.json ratified. And Jacob S. Curtis is a third man with a third trade — 'Curtis, Jacob S., water borer, bds Michael McDonald' in Fergus 1843, 'res M. McDonald's' in Norris 1844 — so the fold would have to pick one of two Curtisses and then overwrite a printed occupation. Refused by a ratified rule; no ballot needed."
+    }
+   ]
+  }
+ ],
+ "touches_removal": false,
+ "review_required": false,
+ "research_note": "MINTED FROM THE NEWSPAPER REGISTER (T-0376), AND THE HOUSEHOLD IS A CONTAINER RATHER THAN AN ARGUMENT. Every other record in this dataset argues for a household — a family the sources count, or a trade the town demonstrably needed. This one argues for a PERSON: the Democrat and the American name J. Curtiss as a attorney at Chicago 4 time(s), and this reconstruction did not hold them. `data/residents/` has no way to carry a person except inside a household, so one was written around them and told to claim nothing: one member, no dwelling, no division, no origin, no arrival beyond the bound the paper sets. Reading a family, a house or a quarter of town into this record would be reading something the papers do not say. tools/mint_documented_residents.py derives the whole minted set and prints every candidate it refused, with the reason.",
+ "directories": {
+  "note": "LATER EVIDENCE, BESIDE THE 1835 CLAIMS AND NOT INSIDE THEM. A Chicago directory of 1839, 1843 or 1844 meets somebody of this name and this pass records what it prints. Under the ratified ladder a directory read after 1835 can corroborate that a person attested here was still in Chicago and can print a trade or a street the 1835 record never had; on its own it makes nobody a resident of 1835. Nothing on this person's 1835 record was regraded, moved, dated or given an occupation by this entry. WHAT THIS PASS RULED ONTO THIS HOUSEHOLD, named so the ruling can be found again: each volume below is followed by the printed entries it set against this person and the status the crosswalk ruled them at — a single entry carries what its own `could_carry` declares, and an ambiguous or contested match carries nothing and is shown so that the silence is legible. curtiss_j, Fergus's Chicago directory of 1839 — f1839_e0350 (a single entry); curtiss_j, Fergus's Chicago directory of 1843 — f1843_e0751 (a single entry); curtiss_j, Norris's Chicago directory of 1844 — n1844_e0449 (a single entry); curtiss_j, the advertising cards in Norris's directory of 1844 — n1844_ad0006 (a single entry).",
+  "sources": [
+   "fergus_chicago_directory_1839",
+   "fergus_chicago_directory_1843",
+   "norris_directory_1844"
+  ],
+  "people": [
+   {
+    "person_id": "curtiss_j",
+    "address_later": {
+     "value": "Lake st",
+     "confidence": "attested",
+     "describes_date": 1839,
+     "sources": [
+      "fergus_chicago_directory_1839"
+     ],
+     "note": "Fergus's Chicago directory of 1839 prints this address against this person, in the entry quoted on the card: 'Curtiss, James, attorney and counsellor at law, 17^ Lake st'. It is evidence about 1839, written here as 1839's and read back onto no 1835 claim. Under the ratified ladder a directory read after 1835 can corroborate that a person attested here was still in Chicago and can print a trade or a street the 1835 record never had; on its own it makes nobody a resident of 1835. Nothing on this person's 1835 record was regraded, moved, dated or given an occupation by this entry. The value is the volume's own line, split by its crosswalk on the entry's punctuation. These volumes set the trade first and its qualifiers after it on the same line, so the split may carry an employer, a market or a corner along with the trade. The printed entry is quoted beside the value for exactly that reason: the split is checkable against it, and neither is read into an 1835 claim."
+    },
+    "back_projection": {
+     "outcome": "placed",
+     "clause": "3 and 4",
+     "value": "Lake Street",
+     "confidence": "reconstructed",
+     "describes_date": 1839,
+     "read_back_years": 4,
+     "placement": "face",
+     "position_local_enu_m": null,
+     "sources": [
+      "fergus_chicago_directory_1839"
+     ],
+     "note": "A LATER ADDRESS, READ BACKWARDS 4 YEARS. The door is not an 1835 reading: Fergus's Chicago directory of 1839 printed it in 1839, and this pass carries it back to the scene date because the 1835 record attests a trade for this person and nothing in the corpus places it better. What is claimed is the street face and nothing narrower — no lot, no roof, no door count — and the grade is `reconstructed`, which is this dataset's word for a figure the reconstruction supplies rather than a source. Lake Street stands in 1835 under that name and in that place. The directory gives a street and nothing this pass can resolve narrower, so the placement is the FACE — the unit the owner's ruling of 2026-08-29 says a street name constrains — and no roof is dealt. The rule this stands on is docs/ADDRESS-BACK-PROJECTION.md and the liberty is L218; a reader who thinks 4 years is too far to carry a shop should read the grade as the disagreement being invited."
+    }
+   }
+  ]
+ }
+}

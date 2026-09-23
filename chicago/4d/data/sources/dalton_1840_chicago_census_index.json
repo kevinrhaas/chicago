@@ -1,0 +1,28 @@
+{
+  "id": "dalton_1840_chicago_census_index",
+  "type": "website",
+  "citation": "Dalton Data Bank, Illinois census indexes (Dalton/Dolton/Daulton surname extractions), 1840 block",
+  "date": "index read whole 2026-09-05; page last updated by its editor 24 February 2012",
+  "describes_date": "1840",
+  "locator": "Illinois.html, CENSUS INDEXES section (anchor #census), 1840 block — 20 rows",
+  "url": "https://daltondatabank.net/Illinois.html",
+  "tier": 4,
+  "rights_status": "check_required",
+  "asset_use": "text_only",
+  "verified": true,
+  "note": "A ONE-SURNAME genealogical databank, not a census index. Its Illinois page extracts Dalton, Dolton and Daulton entries — 'There are over 5000 surname entries in this file' — from census indexes, marriages, births, deaths, Chicago city directories, land sales and naturalizations. Its 1840 census block is 20 Illinois rows. Genealogy/index access path, not the census image, and a SURNAME databank rather than a city index — T-0497 read it whole and corrected the record, which had described it as a Chicago head-of-household index by ward. Retained as a later-Chicago identity candidate for one man; the index does not bridge the 1835 postal entry to the 1840 household, and the First Ward it names holds two Dalton households, not one. Rows in data/research/census_1840/records/dalton_index.json; adjudication in data/research/census_1840/dalton_index_crosswalk.json. NAMES ONLY are committed: the page's rights are check_required and a name index of a public-domain census is fact while the page is theirs.",
+  "what_it_supplies": [
+    "20 named Illinois heads of household in the 1840 federal census, surname Dalton, with a county and sometimes a precinct, township or Chicago ward",
+    "three of those rows in a Chicago ward: Edward Dalton (1st), Michael Dalton (2nd) and a surname-only 'Mr. Dalton' (1st)",
+    "an access path and a free, text, citable second-hand reading — the whole of it is at daltondatabank.net/Illinois.html",
+    "on its continuation page, Cook County federal land-sale rows for a George Dalton dated 25 and 27 June 1836, and one 1844 Chicago directory line (Michael Dalton, laborer, Water and Kinzie, res. Wolcott St.)"
+  ],
+  "what_it_does_not_supply": [
+    "any head of household not named Dalton, Dolton or Daulton — it is NOT a Chicago head-of-household index and cannot be a second reading of the 964 IPUMS households or of PR #670's 210 heads",
+    "household composition: no age bands, no counts, no line",
+    "the printed page and line of the census sheet, and no route back to the page image",
+    "any 1835 residence, and no bridge from an 1840 household back to 1835",
+    "ward boundaries: the ward is a number written into a place string, with no extent stated"
+  ],
+  "access_notes": "Fetched 2026-09-05, all HTTP 200: https://daltondatabank.net/ (41,224 bytes), https://daltondatabank.net/Illinois.html (165,061 bytes) and https://daltondatabank.net/Illinois_Page_2.html (204,480 bytes). There are no per-ward pages — the site's only Illinois pages are those two plus Newspapers/IllinoisNewspapers.htm, and the ward is a value inside a row — so `verified: true` means every page that exists was retrieved. Read for one row by T-0479; read whole, 1840 block, by T-0497."
+}

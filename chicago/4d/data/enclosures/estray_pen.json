@@ -1,0 +1,97 @@
+{
+  "id": "estray_pen",
+  "name": "The estray pen",
+  "aka": [
+    "the estray-pen",
+    "the town pound",
+    "Chicago's first public building"
+  ],
+  "kind": "pen",
+  "scene": "1835",
+  "target_date": "1835-07-01",
+  "structure_id": "estray_pen",
+  "belongs_to": [],
+  "documented_range": {
+    "from": "1832-03-01",
+    "to": "1835-12-31",
+    "confidence": "inferred",
+    "sources": [
+      "andreas_1884_v1"
+    ],
+    "note": "CARRIED UNCHANGED FROM data/structures/estray_pen.json, which is still the evidence record for this pen and still argues this range at length. Andreas puts the pen up in March 1832 in both places he treats it - the narrative ('there arose upon the southwest corner of the square, the so-called \"estray-pen\"') and the chronological index, where the entry stands under the heading 1832. The close is A HOUSEKEEPING BOUND, NOT A REMOVAL DATE: nothing reached says when the pen came down. What ended in the fall of 1833 was its use as a place of confinement, when the log jail went up at the other corner of the same block - a change of use, not of fabric. Nothing about the dating moves in this record; what moves is the geometry."
+  },
+  "existence": {
+    "value": true,
+    "confidence": "attested",
+    "sources": [
+      "andreas_1884_v1"
+    ],
+    "note": "AND THE SOURCE ATTESTS THE ROOFLESSNESS IN THE SAME SENTENCE, which is the whole reason this record exists: 'Although sometimes designated and dignified as \"the first public building ever erected in Chicago,\" the \"pen\" was a small wooden enclosure and QUITE ROOFLESS' (Andreas I, scan p. 365; emphasis added). From 2026-08-11 to this record the model drew it as a log box with a shed roof, because the only archetype that would build a low walled rectangle could not build a roofless one - docs/LIBERTIES.md L60 admitted exactly that and named the fix in the same words this layer is built to. So the pen is now what the sentence says it was: a wooden enclosure, and nothing over it."
+  },
+  "runs": [
+    {
+      "id": "perimeter",
+      "path_local_enu_m": [
+        [468.50, -377.31],
+        [477.644, -377.31],
+        [477.644, -371.214],
+        [468.50, -371.214],
+        [468.50, -377.31]
+      ],
+      "note": "THE OUTLINE IS THE STRUCTURE RECORD'S OWN FOOTPRINT, RE-EXPRESSED AS A PERIMETER AND NOT RE-INVENTED. data/structures/estray_pen.json puts the pen's south-west corner on the south-west inside corner of the public square block (UTM 447541.2 / 4637018.49, which is local E 468.50 / N -377.31 against data/datum.json's origin) and gives it a 9.144 x 6.096 m rectangle - 30 x 20 ft, recorded converted - at rotation 0. This path walks that same rectangle: south-west corner, east 9.144 m, north 6.096 m, west 9.144 m, and closed. Every metre of it comes from the committed record; not one number here is new. WHAT IS STILL INVENTED IS THE RECTANGLE ITSELF, and it always was: no source reached gives this enclosure a dimension, the corner is a corner of a BLOCK rather than of a lot, and the working uncertainty on the georeference is about 20 m (data/datum.json: 17.5 m RMS on Wright 1834). See docs/LIBERTIES.md L60, which covers the footprint and is not discharged by this record."
+    }
+  ],
+  "openings": [
+    {
+      "id": "pen_gate",
+      "on": "north",
+      "at_local_enu_m": [473.072, -371.214],
+      "width_m": 1.35,
+      "confidence": "reconstructed",
+      "note": "INVENTED, AND DELIBERATELY THE RETIRED MESH'S OWN NUMBER. A pound has to have a gate - a beast is driven or led in, and the whole function requires it - and nothing attests where it stood, how wide it was, which way it opened or what fastened it. The retired outbuilding mesh cut a `stable` doorway, which that archetype's table clears at 1.35 m for a horse led through in hand; that width is carried here unchanged so that the one thing this run changes is the ROOF, not a set of numbers quietly restated while nobody was looking. The position is the same convention: the retired record put its door in the north wall at rotation 0 and said in as many words that the bearing 'is A CONVENTION AND NOT A FINDING'. It stays a convention, centred in the north side, which is the side that faces into the square rather than either street. A HUNG GATE IS NOT DRAWN: this layer leaves a gap in the fence, because a drawn leaf would be an invention on top of an invention."
+    }
+  ],
+  "form": {
+    "fence_type": {
+      "value": "post_and_rail",
+      "confidence": "reconstructed",
+      "note": "INVENTED, AND IT IS THE ALTERNATIVE THE RETIRED RECORD NAMED AGAINST ITSELF. data/structures/estray_pen.json chose `log` and then wrote down why the choice was the tool's: log 'is the value this archetype offers that is closest to a heavy enclosure', and 'THE LIVE ALTERNATIVE IS A SPLIT-RAIL OR POST-AND-RAIL FENCE, WHICH IS WHAT MOST FRONTIER POUNDS ACTUALLY WERE, and which would look completely different - open, horizontal, see-through - from what this record builds.' The constraint that forced the first reading is gone: this layer builds an open horizontal fence and cannot build a notched log wall, and the reading that was recorded rather than lost is the one it can build. So the swing is from one invention to the other invention the record itself argued for, and NOT from an invention to a finding. Nothing states what the pen was made of. What a source does state is that it was 'a small wooden ENCLOSURE and quite roofless', which both readings satisfy and neither settles."
+    },
+    "height_m": {
+      "value": 1.83,
+      "confidence": "reconstructed",
+      "note": "INVENTED. 1.83 m is 6 ft, recorded converted per data/datum.json's units rule. THE RETIRED RECORD'S 2.4 m WAS NOT EVIDENCE AND SAID SO: 'It is also the minimum this archetype will accept with a gate a beast can be led through, so the two numbers are coupled' - a wall height set by a doorway the generator demanded. Nothing attests a height, then or now. The bound is the use, which is stronger here than at any yard fence in the town: a pound holds a beast that means to leave, and for the first months of its life it held prisoners as well, so it has to be past stepping over and past an easy climb. Six feet is the least that is honestly both, and it is a foot and a half over the Western Hotel's yard fence (L127, 4 ft 6 in) for exactly the reason that record gives for being low - 'that is a pound's job, and the pound is on the public square'. The two records now agree with each other in the scene rather than only on paper."
+    },
+    "rail_courses": {
+      "value": 5,
+      "confidence": "reconstructed",
+      "note": "INVENTED. Five courses over 1.83 m puts a rail every 0.37 m, against the wagon yard's 0.46 m. The bound is the same use: a fence a calf can walk through and a man can step between is not a pound, so the bars are closer here than on a fence whose job is to turn a hitched team. Nothing attests a course count, a rail, or a spacing."
+    },
+    "post_spacing_m": {
+      "value": 2.44,
+      "confidence": "reconstructed",
+      "note": "INVENTED. 2.44 m is 8 ft. Shorter than the wagon yard's 2.9 m, and for a reason about this fence rather than about fences: a pound fence is LEANED ON - by the stock inside it and by everyone looking at what has been impounded - so the panels are shorter than the longest span a sawn rail will carry. Nothing attests a bay."
+    },
+    "post_size_m": {
+      "value": 0.18,
+      "confidence": "reconstructed",
+      "note": "INVENTED. 0.18 m square, against the yard fence's 0.14 m: the same argument as the spacing, and the same absence of evidence behind it. This is the town's pound and the heaviest fence in the dataset; it is still a guess about a stick nobody measured."
+    }
+  },
+  "function": {
+    "value": "livestock pound",
+    "confidence": "attested",
+    "sources": [
+      "andreas_1884_v1"
+    ],
+    "note": "An estray is a stray beast and an estray pen is the pound it is held in until its owner claims it - a municipal function, which is why Andreas's chronology can call this the town's FIRST PUBLIC BUILDING. Its secondary use is separately attested and is the reason the log jail exists: for the first months of its life the pen held prisoners as well, faute de mieux. The function is the evidence record's and is repeated here because this is the record that now draws the thing."
+  },
+  "ground": {
+    "value": "bare trodden earth",
+    "confidence": "reconstructed",
+    "geometry": "drawn",
+    "treatment": "trodden_earth",
+    "note": "INVENTED, AND NEW ON THIS RECORD ON 2026-08-21 (T-0067). The research note below used to list this ground as the first of the record's three residuals: 'the pen's GROUND is drawn as prairie sward like everything else on the square, and a pound's ground was not sward'. It is not sward now. The sward is suppressed inside the perimeter and renderers/web/js/yards.js lays `trodden_earth` in its place - bare, fine, poached earth, darker than the wagon yard's dust and with no wheel rut anywhere in it, because nothing on wheels was ever driven in here; a beast was. The treatment reaches the rails with almost no grassy fringe, which is the one thing about a pound's ground that follows from its use: stock held in a 30 x 20 ft pen tread every foot of it. NOTHING ATTESTS ANY OF THIS - no source reached says what the pen stood on - so the ground is graded reconstructed like the fence over it and docs/LIBERTIES.md L158 claims the scheme. THE INTERIOR NEEDS NO NEW COORDINATE: the perimeter run above already closes a ring, and the ground inside this fence is that ring."
+  },
+  "research_note": "CHICAGO'S FIRST PUBLIC BUILDING, AND IT IS A FENCE - and as of 2026-08-18 the model finally draws a fence. What the sources attest is a municipal function, a corner, a month and the word ROOFLESS; what this record adds is a material, a height, a course count, a post rhythm and a gateway, none of which any source states. The evidence, the position, the footprint, the citations and the dating stay in data/structures/estray_pen.json, which is still the record a visitor's card is compiled from; that record now builds no mesh and says so. THE RESIDUAL, stated so that nobody has to find it: the gate is a gap rather than a hung rail gate; and the block itself is drawn dry, where one source remembers the public square as a pond. The GROUND was the third of these and is no longer one - T-0067 lays the trodden earth the ground block above states, and the invention moves from an omission to a claim this record grades. WHAT WOULD UPGRADE THIS RECORD: any town or county order establishing the pound - such an order carries a pound-keeper's fee schedule, an order to build, and often a size and a materials specification, which would settle the material, the height and the size together; the Cook County Sheriff's published jail history, cited in this project's dossier and not yet held as a source record; and Andreas vol. 1 at page-image level around scan pp. 33, 365 and 1315."
+}

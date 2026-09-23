@@ -1,0 +1,308 @@
+{
+ "_doc": "Ground control for REES & RUCKER, MAP OF CHICAGO AND VICINITY, 1849 (4973 x 6601 px). Pixel coordinates are on the Wikimedia Commons full-resolution JPEG named below; the raster is NOT committed (see data/traces/README.md) and is re-fetchable and verifiable by the sha256 here. This is the first sheet in the corpus that reaches Cermak Road: Wright 1834, Hathaway 1834 and the Thompson 1830 plat all end on the School Section's south line, which is why data/terrain/.../terrain_spec.json held the South Branch at a constant easting below Twelfth Street until T-1150.",
+ "source": "rees_rucker_1849",
+ "raster": {
+  "url": "https://upload.wikimedia.org/wikipedia/commons/0/08/1849_Rees_%26_Rucker_Map_of_Chicago_and_Vicinity.jpg",
+  "width": 4973,
+  "height": 6601,
+  "sha256": "f654f187fb779e8b7f1b44466ac632ecb39beb3b87aacc9be8be27de26b6468a",
+  "note": "Wikimedia Commons, credited to the Chicago Historical Society; compiled by Rees & Rucker, land agents, drawn by Wm. Clogher. The sheet is printed 'Scale 1000 feet to one inch' and is a FOLDED map: four fold columns at pixel x 62/1234/2489/3741/4922 and six fold rows at y 64/1076/2181/3295/4397/5510/6538 are visible as long straight lines stronger than anything drawn on it, and they are not survey lines. The fold at y 4397 crosses the South Branch and is the one break in the channel trace."
+ },
+ "fitted_on": "2026-09-15",
+ "control_source": "Modern control from OpenStreetMap via the Overpass API, fetched 2026-09-15, reduced to EPSG:26916 with pyproj -- the same method and the same projection as data/traces/gcp/wright_1834_gcps.json and thompson_1830_gcps.json. Street centrelines were intersected pairwise and the crossings averaged; each point's crossing count and spread are carried below. OpenStreetMap data (c) OpenStreetMap contributors, ODbL.",
+ "control_scope": "Fourteen section corners of the Chicago mile grid: State, Halsted, Ashland and Western against North Avenue, Chicago Avenue, Madison Street, Roosevelt Road (Twelfth), Cermak Road (Twenty-Second) and Thirty-First Street. These are the lines the 1849 sheet rules as SECTION lines and the lines the modern streets were laid on, so both ends of the match are the same survey. Halsted x Chicago Avenue was picked up and DROPPED: its column peak locked onto a neighbouring street 19 px (39 m) east of Halsted's own line, which the other five Halsted readings agree on to 6 px.",
+ "fit": {
+  "type": "affine, least squares, pixel -> EPSG:26916 via local ENU from data/datum.json",
+  "coefficients": {
+   "a": 2.0357724019105405,
+   "b": 0.026531891333751556,
+   "c": -5964.917902787614,
+   "d": 0.022896890611765804,
+   "e": -2.0492221593042808,
+   "f": 6138.335089817062
+  },
+  "formula": "local_e = a*px + b*py + c ; local_n = d*px + e*py + f ; utm = local + data/datum.json origin",
+  "scale_m_per_px": {
+   "x": 2.0359,
+   "y": 2.0494
+  },
+  "axis_scale_difference_pct": 0.66,
+  "rotation_deg": 0.644,
+  "rms_m": 25.02,
+  "max_m": 35.74,
+  "n": 14
+ },
+ "how_it_compares": "RMS 25.0 m against 17.5 m for Wright 1834, 17.7 m for Hathaway 1834 and 4.9 m for the Thompson 1830 reproduction, on the same control method and the same projection. The 0.66 %% axis-scale difference is Thompson's order (0.56 %%) rather than Wright's (3.7 %%), which is what a photographic reproduction of a folded sheet looks like: the paper is not anisotropically stretched, it is locally displaced at the creases.",
+ "residual_pattern": "The residuals are not white. All five Halsted corners read 32-36 m off in the same direction while the four Ashland corners read 8-26 m: Halsted's ruled line on the sheet and the modern street's centreline are offset from each other by about half a street width, which is a real thing about where a street was built relative to the line it was built on, not a fitting failure. In the reach this fit was made for -- the South Branch between Roosevelt and Cermak, bracketed by State x Roosevelt, Halsted x Roosevelt, State x Cermak and Halsted x Cermak -- the four bracketing corners carry RMS 27.3 m.",
+ "use": "For tracing the South Branch's planform below Twelfth Street (data/terrain/epochs/e1834_harbor_cut/south_branch_below_twelfth.geojson, tools/trace_south_branch_rees_1849.py) and, since T-1151, the pre-fill LAKE SHORE beside it (data/terrain/epochs/e1834_harbor_cut/lake_shore_below_twelfth.geojson, tools/trace_lake_shore_rees_1849.py) -- and for nothing else. The shore reading carries a caveat the river reading does not: the fit is extrapolating EAST of its own control, whose easternmost line is State Street, and the shore stands 450-840 m further east again. Over that lever the fit's 0.66 per cent axis-scale difference is 3-6 m, well inside the 25.0 m RMS, so the extrapolation is not what the 93 m offset from Wright's shore is; that offset is the coast's documented erosion and the shore trace says so. No street, lot, block or building geometry in this project is derived from this transform. It is NOT used to move any vertex Wright 1834 draws: this sheet begins where Wright's ends.",
+ "picking_precision_m": 6.0,
+ "picking_precision_note": "A ruled survey line is found to about +/- 1.5 px by the opening peak and the two lines of a corner are independent, so the pick carries about +/- 3 px = 6 m. That is a quarter of the fit's RMS: the residual is the sheet and the streets, not the picking.",
+ "gcps": [
+  {
+   "id": "R1",
+   "map_feature": "State Street x Madison Street",
+   "plss": "section corner on the Chicago mile grid (T39N R13E/R14E)",
+   "pixel": [
+    3307.5,
+    3291.3
+   ],
+   "pixel_note": "intersection of the two ruled survey lines, each located by the column/row peak of a 81 px linear opening of the sheet's high-pass ink mask, read over two 260 px windows either side of the corner so the crossing itself contributes nothing",
+   "modern": {
+    "lon": -87.6278089,
+    "lat": 41.8820455,
+    "local_e": 837.63,
+    "local_n": -525.27,
+    "osm_crossings": 4,
+    "crossing_spread_m": 0.0
+   },
+   "residual_m": 18.8
+  },
+  {
+   "id": "R2",
+   "map_feature": "State Street x Cermak Road (Twenty-Second Street)",
+   "plss": "section corner on the Chicago mile grid (T39N R13E/R14E)",
+   "pixel": [
+    3301.7,
+    4862.6
+   ],
+   "pixel_note": "intersection of the two ruled survey lines, each located by the column/row peak of a 81 px linear opening of the sheet's high-pass ink mask, read over two 260 px windows either side of the corner so the crossing itself contributes nothing",
+   "modern": {
+    "lon": -87.6270931,
+    "lat": 41.8528741,
+    "local_e": 873.37,
+    "local_n": -3764.52,
+    "osm_crossings": 8,
+    "crossing_spread_m": 6.0
+   },
+   "residual_m": 18.46
+  },
+  {
+   "id": "R3",
+   "map_feature": "State Street x Roosevelt Road (Twelfth Street)",
+   "plss": "section corner on the Chicago mile grid (T39N R13E/R14E)",
+   "pixel": [
+    3305.1,
+    4072.7
+   ],
+   "pixel_note": "intersection of the two ruled survey lines, each located by the column/row peak of a 81 px linear opening of the sheet's high-pass ink mask, read over two 260 px windows either side of the corner so the crossing itself contributes nothing",
+   "modern": {
+    "lon": -87.6274484,
+    "lat": 41.8674222,
+    "local_e": 855.68,
+    "local_n": -2149.07,
+    "osm_crossings": 15,
+    "crossing_spread_m": 7.5
+   },
+   "residual_m": 23.52
+  },
+  {
+   "id": "R4",
+   "map_feature": "State Street x Thirty-First Street",
+   "plss": "section corner on the Chicago mile grid (T39N R13E/R14E)",
+   "pixel": [
+    3303.4,
+    5669.0
+   ],
+   "pixel_note": "intersection of the two ruled survey lines, each located by the column/row peak of a 81 px linear opening of the sheet's high-pass ink mask, read over two 260 px windows either side of the corner so the crossing itself contributes nothing",
+   "modern": {
+    "lon": -87.626689,
+    "lat": 41.8382958,
+    "local_e": 895.1,
+    "local_n": -5383.34,
+    "osm_crossings": 7,
+    "crossing_spread_m": 7.7
+   },
+   "residual_m": 24.99
+  },
+  {
+   "id": "R5",
+   "map_feature": "Halsted Street x Madison Street",
+   "plss": "section corner on the Chicago mile grid (T39N R13E/R14E)",
+   "pixel": [
+    2489.3,
+    3300.5
+   ],
+   "pixel_note": "intersection of the two ruled survey lines, each located by the column/row peak of a 81 px linear opening of the sheet's high-pass ink mask, read over two 260 px windows either side of the corner so the crossing itself contributes nothing",
+   "modern": {
+    "lon": -87.6473605,
+    "lat": 41.8817821,
+    "local_e": -784.8,
+    "local_n": -542.46,
+    "osm_crossings": 3,
+    "crossing_spread_m": 0.0
+   },
+   "residual_m": 35.74
+  },
+  {
+   "id": "R6",
+   "map_feature": "Halsted Street x Cermak Road (Twenty-Second Street)",
+   "plss": "section corner on the Chicago mile grid (T39N R13E/R14E)",
+   "pixel": [
+    2488.9,
+    4869.5
+   ],
+   "pixel_note": "intersection of the two ruled survey lines, each located by the column/row peak of a 81 px linear opening of the sheet's high-pass ink mask, read over two 260 px windows either side of the corner so the crossing itself contributes nothing",
+   "modern": {
+    "lon": -87.6464988,
+    "lat": 41.8526658,
+    "local_e": -737.65,
+    "local_n": -3775.7,
+    "osm_crossings": 4,
+    "crossing_spread_m": 0.0
+   },
+   "residual_m": 32.15
+  },
+  {
+   "id": "R7",
+   "map_feature": "Halsted Street x Roosevelt Road (Twelfth Street)",
+   "plss": "section corner on the Chicago mile grid (T39N R13E/R14E)",
+   "pixel": [
+    2488.5,
+    4071.8
+   ],
+   "pixel_note": "intersection of the two ruled survey lines, each located by the column/row peak of a 81 px linear opening of the sheet's high-pass ink mask, read over two 260 px windows either side of the corner so the crossing itself contributes nothing",
+   "modern": {
+    "lon": -87.6469439,
+    "lat": 41.8671754,
+    "local_e": -762.46,
+    "local_n": -2164.46,
+    "osm_crossings": 10,
+    "crossing_spread_m": 10.2
+   },
+   "residual_m": 32.37
+  },
+  {
+   "id": "R8",
+   "map_feature": "Halsted Street x North Avenue",
+   "plss": "section corner on the Chicago mile grid (T39N R13E/R14E)",
+   "pixel": [
+    2491.1,
+    1701.0
+   ],
+   "pixel_note": "intersection of the two ruled survey lines, each located by the column/row peak of a 81 px linear opening of the sheet's high-pass ink mask, read over two 260 px windows either side of the corner so the crossing itself contributes nothing",
+   "modern": {
+    "lon": -87.6482861,
+    "lat": 41.9109266,
+    "local_e": -837.15,
+    "local_n": 2693.96,
+    "osm_crossings": 3,
+    "crossing_spread_m": 0.0
+   },
+   "residual_m": 19.35
+  },
+  {
+   "id": "R9",
+   "map_feature": "Western Avenue x Madison Street",
+   "plss": "section corner on the Chicago mile grid (T39N R13E/R14E)",
+   "pixel": [
+    915.5,
+    3278.7
+   ],
+   "pixel_note": "intersection of the two ruled survey lines, each located by the column/row peak of a 81 px linear opening of the sheet's high-pass ink mask, read over two 260 px windows either side of the corner so the crossing itself contributes nothing",
+   "modern": {
+    "lon": -87.6864316,
+    "lat": 41.8811659,
+    "local_e": -4027.13,
+    "local_n": -585.68,
+    "osm_crossings": 4,
+    "crossing_spread_m": 0.0
+   },
+   "residual_m": 29.25
+  },
+  {
+   "id": "R10",
+   "map_feature": "Western Avenue x Roosevelt Road (Twelfth Street)",
+   "plss": "section corner on the Chicago mile grid (T39N R13E/R14E)",
+   "pixel": [
+    916.3,
+    4087.7
+   ],
+   "pixel_note": "intersection of the two ruled survey lines, each located by the column/row peak of a 81 px linear opening of the sheet's high-pass ink mask, read over two 260 px windows either side of the corner so the crossing itself contributes nothing",
+   "modern": {
+    "lon": -87.6860446,
+    "lat": 41.8666148,
+    "local_e": -4007.93,
+    "local_n": -2201.51,
+    "osm_crossings": 6,
+    "crossing_spread_m": 0.0
+   },
+   "residual_m": 23.03
+  },
+  {
+   "id": "R11",
+   "map_feature": "Ashland Avenue x Chicago Avenue",
+   "plss": "section corner on the Chicago mile grid (T39N R13E/R14E)",
+   "pixel": [
+    1710.2,
+    2495.7
+   ],
+   "pixel_note": "intersection of the two ruled survey lines, each located by the column/row peak of a 81 px linear opening of the sheet's high-pass ink mask, read over two 260 px windows either side of the corner so the crossing itself contributes nothing",
+   "modern": {
+    "lon": -87.6673033,
+    "lat": 41.8960697,
+    "local_e": -2427.15,
+    "local_n": 1056.53,
+    "osm_crossings": 7,
+    "crossing_spread_m": 6.8
+   },
+   "residual_m": 11.96
+  },
+  {
+   "id": "R12",
+   "map_feature": "Ashland Avenue x Madison Street",
+   "plss": "section corner on the Chicago mile grid (T39N R13E/R14E)",
+   "pixel": [
+    1705.0,
+    3299.9
+   ],
+   "pixel_note": "intersection of the two ruled survey lines, each located by the column/row peak of a 81 px linear opening of the sheet's high-pass ink mask, read over two 260 px windows either side of the corner so the crossing itself contributes nothing",
+   "modern": {
+    "lon": -87.666806,
+    "lat": 41.8814645,
+    "local_e": -2398.49,
+    "local_n": -565.37,
+    "osm_crossings": 8,
+    "crossing_spread_m": 7.1
+   },
+   "residual_m": 21.0
+  },
+  {
+   "id": "R13",
+   "map_feature": "Ashland Avenue x Roosevelt Road (Twelfth Street)",
+   "plss": "section corner on the Chicago mile grid (T39N R13E/R14E)",
+   "pixel": [
+    1705.5,
+    4071.7
+   ],
+   "pixel_note": "intersection of the two ruled survey lines, each located by the column/row peak of a 81 px linear opening of the sheet's high-pass ink mask, read over two 260 px windows either side of the corner so the crossing itself contributes nothing",
+   "modern": {
+    "lon": -87.6664075,
+    "lat": 41.8668483,
+    "local_e": -2378.03,
+    "local_n": -2188.42,
+    "osm_crossings": 16,
+    "crossing_spread_m": 8.8
+   },
+   "residual_m": 22.98
+  },
+  {
+   "id": "R14",
+   "map_feature": "Ashland Avenue x North Avenue",
+   "plss": "section corner on the Chicago mile grid (T39N R13E/R14E)",
+   "pixel": [
+    1710.0,
+    1721.4
+   ],
+   "pixel_note": "intersection of the two ruled survey lines, each located by the column/row peak of a 81 px linear opening of the sheet's high-pass ink mask, read over two 260 px windows either side of the corner so the crossing itself contributes nothing",
+   "modern": {
+    "lon": -87.6677009,
+    "lat": 41.9106343,
+    "local_e": -2447.54,
+    "local_n": 2673.86,
+    "osm_crossings": 8,
+    "crossing_spread_m": 4.9
+   },
+   "residual_m": 25.7
+  }
+ ]
+}

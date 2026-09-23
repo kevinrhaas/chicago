@@ -1,0 +1,161 @@
+{
+ "id": "hh_clybourn_archibald",
+ "merged_into": {
+  "person": "clybourne_archibald",
+  "household": "hh_clybourne_archibald",
+  "person_merged": "clybourn_archibald",
+  "rule": "C9",
+  "cluster": "clybourne",
+  "ticket": "T-1002",
+  "on": "2026-09-11",
+  "note": "THIS RECORD IS NOT DELETED AND NOTHING ON IT IS LOST. The card below is the record exactly as it stood when the merge landed; the person it names is now carried by the household above, and data/residents/index.json's `merged` table redirects the id. The reasoning is in data/residents/card_merge_rulings.json."
+ },
+ "superseded_record": {
+  "id": "hh_clybourn_archibald",
+  "name": "The Clybourn household — a name the town's own records carry",
+  "division": "unplaced",
+  "head": "clybourn_archibald",
+  "source_pass": "civic",
+  "arrival": {
+   "value": "1833-12-10",
+   "confidence": "inferred",
+   "sources": [
+    "chicago_democrat_1833_1835",
+    "fergus_chicago_directory_1843"
+   ],
+   "note": "A BOUND FROM THE RECORD, NOT AN ARRIVAL. newspaper_1833_1835 names this person at Chicago by 10 December 1833 and nothing says when they came. The bound is at or before the scene date, so the person was at Chicago by 1 July 1835 on this record's own evidence.",
+   "precision": "not_later_than"
+  },
+  "party_size_on_arrival": {
+   "value": null,
+   "confidence": "reconstructed",
+   "note": "Not attested."
+  },
+  "origin": {
+   "value": null,
+   "confidence": "reconstructed",
+   "note": "Not attested."
+  },
+  "reason_for_coming": {
+   "value": null,
+   "confidence": "reconstructed",
+   "note": "Not attested."
+  },
+  "lives_at": {
+   "value": null,
+   "confidence": "reconstructed",
+   "note": "Not attested: the lists that name this person give no address. The placement sweep assigns homes once the resident list is complete (T-0514, the owner's own sequencing) and this pass will not guess one."
+  },
+  "works_at": {
+   "value": null,
+   "confidence": "reconstructed",
+   "note": "Not attested. No trade is recorded here, so there is no premises to seek; T-0633 is where a later directory's address gets back-projected."
+  },
+  "present_on_scene_date": {
+   "value": "present",
+   "confidence": "inferred",
+   "sources": [
+    "chicago_democrat_1833_1835",
+    "fergus_chicago_directory_1843"
+   ],
+   "note": "THE RECORD BRACKETS THE DAY. This person is named at Chicago at or before 1 July 1835 and named again at or after it, so the sources reach across the scene date rather than stopping at one side of it. Inferred, not documented: no source says where they were on the day."
+  },
+  "persons": [
+   {
+    "id": "clybourn_archibald",
+    "name": "Archibald Clybourn",
+    "relationship": "head",
+    "grade": "attested",
+    "civic_mint": true,
+    "ladder_rule": "G1b",
+    "occupation": {
+     "value": "none_recorded",
+     "confidence": "reconstructed",
+     "later_occupation": {
+      "value": "farmer and cattle-dealer",
+      "describes_date": 1839,
+      "confidence": "attested",
+      "sources": [
+       "fergus_chicago_directory_1839"
+      ],
+      "note": "NONE RECORDED FOR 1835 — AND A TRADE IS RECORDED FOR 1839. This is a POINTER at `directories.people[].occupation_later` on this same record, derived by `tools/qualify_later_trades.py` and holding nothing that block does not already say. It is not a claim about the scene date: the 1835 occupation above still reads `none_recorded`, its grade has not moved, and no premises has been sought on the strength of it, because a directory of 1839 is evidence about 1839. It is written because the field a reader consults was asserting an absence this file contradicts three lines further down, and \"no trade anywhere\" and \"no trade in the scene window, one printed 1839\" are not the same fact (T-0693)."
+     },
+     "note": "No source in this pass's evidence records an occupation for this person. A poll list, a tax list, a muster roll and a baptismal entry each print a name and no trade, and where a later directory prints one it is a trade of 1843 — T-0633 is the rule for back-projecting that, and this pass does not have it."
+    },
+    "sources": [
+     "chicago_democrat_1833_1835",
+     "fergus_chicago_directory_1843"
+    ],
+    "note": "A CONTEMPORARY CHICAGO PAPER OF 1833-1835 PRINTS THIS PERSON BY NAME IN THE TOWN. Read from directory_1843, newspaper_1833_1835. THE GRADE IS THE OWNER'S RATIFIED LADDER OF 2026-09-03 (G1b), applied to every identity at once by tools/consolidate_resident_evidence.py and spent onto this card by tools/mint_civic_residents.py; the evidence blocks below carry the reading AS READ, its locator and the record it came from, so the page can be gone back to. WHAT IS RECONSTRUCTED: everything except the person and the sources — no dwelling, no trade, no origin, no family, no party. A BOUND FROM THE RECORD, NOT AN ARRIVAL. newspaper_1833_1835 names this person at Chicago by 10 December 1833 and nothing says when they came. The bound is at or before the scene date, so the person was at Chicago by 1 July 1835 on this record's own evidence. No figure is drawn (L1).",
+    "book_evidence": [
+     {
+      "list": "directory_1843",
+      "as_read": "Clybourn, Archibald (C. & Hovey), res North Branch, city and county beef and pork inspector [612 Alston ave, died Aug. 2…",
+      "locator": "res North Branch, city and county beef and pork inspector",
+      "record_id": "f1843_e0653",
+      "describes_date": "1843",
+      "source": "fergus_chicago_directory_1843",
+      "rule": "G1b"
+     }
+    ],
+    "press_evidence": [
+     {
+      "list": "newspaper_1833_1835",
+      "as_read": "A. Clybourn",
+      "locator": "chicago_democrat_1833_12_10#c003",
+      "record_id": "person_a_clybourn",
+      "describes_date": "1833-12-10",
+      "source": "chicago_democrat_1833_1835",
+      "rule": "G1b"
+     }
+    ]
+   }
+  ],
+  "touches_removal": false,
+  "review_required": false,
+  "research_note": "MINTED FROM THE CONSOLIDATED CIVIC, CHURCH, PRESS, BOOK AND CENSUS EVIDENCE (T-0513, T-0514). THE HOUSEHOLD IS A CONTAINER, NOT AN ARGUMENT: every other record here is written unattested in its own block, because the lists that name this person name a person and not a family. What is claimed is that the sources cited on the member below name them at Chicago, and the grade is the owner's ratified ladder applied by tools/consolidate_resident_evidence.py --build and spent by tools/mint_civic_residents.py, which prints every refusal. docs/LIBERTIES.md L215 carries the liberty and the tension with L213.",
+  "directories": {
+   "note": "LATER EVIDENCE, BESIDE THE 1835 CLAIMS AND NOT INSIDE THEM. A Chicago directory of 1839, 1843 or 1844 meets somebody of this name and this pass records what it prints. Under the ratified ladder a directory read after 1835 can corroborate that a person attested here was still in Chicago and can print a trade or a street the 1835 record never had; on its own it makes nobody a resident of 1835. Nothing on this person's 1835 record was regraded, moved, dated or given an occupation by this entry.",
+   "sources": [
+    "fergus_chicago_directory_1839",
+    "fergus_chicago_directory_1843"
+   ],
+   "people": [
+    {
+     "person_id": "clybourn_archibald",
+     "occupation_later": {
+      "value": "farmer and cattle-dealer",
+      "confidence": "attested",
+      "describes_date": 1839,
+      "sources": [
+       "fergus_chicago_directory_1839"
+      ],
+      "note": "Fergus's Chicago directory of 1839 prints this trade against this person, in the entry quoted on the card: 'Clybourn, Archibald, farmer and cattle-dealer, 512 Elston ave'. It is evidence about 1839, written here as 1839's and read back onto no 1835 claim. Under the ratified ladder a directory read after 1835 can corroborate that a person attested here was still in Chicago and can print a trade or a street the 1835 record never had; on its own it makes nobody a resident of 1835. Nothing on this person's 1835 record was regraded, moved, dated or given an occupation by this entry. The value is the volume's own line, split by its crosswalk on the entry's punctuation. These volumes set the trade first and its qualifiers after it on the same line, so the split may carry an employer, a market or a corner along with the trade. The printed entry is quoted beside the value for exactly that reason: the split is checkable against it, and neither is read into an 1835 claim."
+     },
+     "address_later": {
+      "value": "Elston ave",
+      "confidence": "attested",
+      "describes_date": 1839,
+      "sources": [
+       "fergus_chicago_directory_1839"
+      ],
+      "note": "Fergus's Chicago directory of 1839 prints this address against this person, in the entry quoted on the card: 'Clybourn, Archibald, farmer and cattle-dealer, 512 Elston ave'. It is evidence about 1839, written here as 1839's and read back onto no 1835 claim. The street NUMBER printed against it is a number in the 1839 grid, a numbering this town's year does not have, so the street name crosses and the number does not. Under the ratified ladder a directory read after 1835 can corroborate that a person attested here was still in Chicago and can print a trade or a street the 1835 record never had; on its own it makes nobody a resident of 1835. Nothing on this person's 1835 record was regraded, moved, dated or given an occupation by this entry. The value is the volume's own line, split by its crosswalk on the entry's punctuation. These volumes set the trade first and its qualifiers after it on the same line, so the split may carry an employer, a market or a corner along with the trade. The printed entry is quoted beside the value for exactly that reason: the split is checkable against it, and neither is read into an 1835 claim."
+     },
+     "back_projection": {
+      "outcome": "refused",
+      "clause": "1",
+      "value": null,
+      "describes_date": 1839,
+      "read_back_years": 4,
+      "placement": null,
+      "position_local_enu_m": null,
+      "sources": [
+       "fergus_chicago_directory_1839"
+      ],
+      "note": "REFUSED, AND THE REFUSAL IS THE RECORD. Fergus's Chicago directory of 1839 prints an address against this name in 1839 and this pass will not carry it back to 1835. The 1835 record prints no trade for this person, so there is no 1835 business for a later door to position. Minting one out of a directory printed after the scene date is the one thing this pass may never do. A refusal is written here rather than dropped so that a later run can see the address was read and ruled on, not missed (docs/ADDRESS-BACK-PROJECTION.md, clause 1)."
+     }
+    }
+   ]
+  }
+ }
+}

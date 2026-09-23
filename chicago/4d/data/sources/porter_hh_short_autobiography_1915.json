@@ -1,0 +1,47 @@
+{
+    "id": "porter_hh_short_autobiography_1915",
+    "type": "book",
+    "citation": "H. H. Porter, A Short Autobiography, Written for His Children and Grandchildren (Chicago: privately printed, 1915), 70 leaves. Written by Porter in the summer of 1904 and printed after his death. READ IN FULL — all seventy leaves — for Chicago before 1836, and it carries none.",
+    "author": "Henry Hobart Porter (the narrative, written in the summer of 1904 about 1794-1904); an unsigned publishers' Introduction and twenty-five leaves of captioned plates, 1915",
+    "date": "1915 (this printing); the narrative was written in the summer of 1904",
+    "describes_date": "1794-1904 in the narrative; its CHICAGO begins in September 1853, which is the author's own arrival, and there is no Chicago in it before that date at all",
+    "repository": "Internet Archive, item chicago1835-hh-porter-autobiography (70 leaves), scanned by the Kansas City Public Library. The deposit pointer is chicago/reference/hh-porter-a-short-autobiography.yaml; the 66 MB scan itself is offloaded to a local archive path outside this repository and nobody in this project has handled the physical book.",
+    "url": "https://archive.org/details/chicago1835-hh-porter-autobiography",
+    "archived_url": "https://archive.org/download/chicago1835-hh-porter-autobiography/4582673_hocr_searchtext.txt.gz",
+    "locator": "chicago/4d/data/research/books/text/porter_hh_short_autobiography_1915.txt — byte-identical to the Internet Archive's own hOCR search text for this item, fetched 2026-09-05 (sha256 of the committed file: b04691bd6e58a802f74e1fecf1716ca0b473a93e9ebd5f4cf3031ed3cd55472f). Every claim's locator names its inclusive line range or its exact character spans in that file, plus the scan LEAF and, where the running head prints one, the PRINTED FOLIO, from data/research/books/page_index/porter_hh_short_autobiography_1915.json. THOSE LEAF BOUNDARIES ARE EXACT AND NOT ALIGNED: the Internet Archive emitted the hOCR page index beside the search text, so leaf i IS text[start:end], and tools/build_book_page_index.py --build refuses to write the index unless the ranges tile the committed text end to end. The deposit copy of both artifacts is at chicago/reference/hh-porter-a-short-autobiography/ (page index sha256 e68f218b084a056f3398e0e1dac4ffc6d4f6cf1d322c7d978107a4f8b66201c5); the offloaded PDF's sha256, from the deposit pointer, is cc884a721b7390aeb717753d19fa7143af8b2a09044db37e8f3a606d763030dc.",
+    "tier": 4,
+    "rights_status": "public_domain",
+    "asset_use": "text_only",
+    "verified": true,
+    "transcribes": [
+        {
+            "work": "Porter's own narrative, leaves 11-45 (printed folios 9-43) — Machias, Eastport, the journey west, and a Chicago railway, banking and stockyard career running from September 1853 to about 1904",
+            "date": "Written summer 1904; printed 1915. Describes 1794-1904.",
+            "tier": 4,
+            "note": "A participant's recollection at fifty years' distance about a town he first saw in 1853. For the scene year it is not a rung at all: he was not born."
+        },
+        {
+            "work": "The publishers' unsigned Introduction (leaf 9) and the twenty-five leaves of captioned plates (leaves 46-70), most of them supplied by the Chicago & North Western Railway, the Chicago Historical Society and the First National Bank",
+            "date": "1915",
+            "tier": 4,
+            "note": "Compilation. The plate captions date Porter's Chicago residence from 1853 and picture the town in 1853, 1866, 1871, 1888, 1910, 1913 and 1915. None pictures or describes the 1830s."
+        }
+    ],
+    "access_notes": "Fetched 2026-09-05 from archive.org. THE ITEM IS THIS PROJECT'S OWN UPLOAD OF ITS OWN DEPOSIT — chicago/reference/hh-porter-a-short-autobiography.yaml names the identifier — so the OCR read here is OCR of the very scan the deposit holds, and not of a different copy. The ticket's warning about the PDF's text layer is confirmed and routed around rather than fought: the embedded layer uses subset encodings that come out as garbage, and the Internet Archive's own hOCR output of the same scan does not. Two derived texts of it were compared before one was chosen — the djvu text (4582673_djvu.txt) and the hOCR search text — and the hOCR text was committed because the page index was emitted with it and therefore gives exact leaf boundaries where the djvu text gives none. Neither is a reading off the page image: this whole reading is transcription_mediated and every claim says so. No page render was made and none is committed.",
+    "what_it_supplies": [
+        "a dated statement that the old blockhouse of Fort Dearborn was still standing in September 1853 — a terminus ante quem non for its removal, and the only sentence in seventy leaves that touches anything this project models",
+        "a dated statement of the grade raising: in 1853 the street level from the river south to Monroe stood five to twelve feet below the grade of 1904, and the raising had begun some years before the fire of 1871",
+        "a description of Chicago as a newcomer found it in September 1853 — twenty-five or thirty thousand people, balloon-framed timber with a few good brick buildings, Lake and Clark planked for half a mile and the rest prairie mud with no sewerage, three brick market halls with public halls above them, float-draw bridges and none east of Clark, little docking south of Randolph, and the just-finished two-engine waterworks",
+        "the birth date and birthplace of Henry Hobart Porter — Machias, Maine, 7 December 1835 — which is what resolves him away from the 'Porter, H.' of the 1835 poll list",
+        "his parents' names, dates and residences, all of them in Maine and Massachusetts"
+    ],
+    "what_it_does_not_supply": [
+        "ANY DOCUMENT OF CHICAGO BETWEEN 1830 AND 1836. This is the finding of T-0502 and it is the reason this record exists. All seventy leaves were swept; the volume prints no year between 1829 and 1848 except the author's own birth year, and its earliest Chicago is September 1853",
+        "any family memory of the 1830s town. The trap the ticket warned of does not even arise: Porter's father lived and died at Machias, Maine, and his mother at Machias too, so there is no relative here through whom an 1830s Chicago could be remembered",
+        "any person who can be placed in the town in 1835. Not one name in the volume is placed at Chicago before 1853",
+        "any statement about the appearance, position or dimensions of an 1835 building. The blockhouse sentence says a thing existed in 1853 and says nothing about what it looked like",
+        "the 1835 street surface. The grade statement is a reading of 1853 against 1904 and it is not evidence for the natural surface of 1835; data/datum.json is derived from committed ground control and nothing here touches it",
+        "page images. This reading is of the Internet Archive's hOCR text of the deposited scan; no claim here is scan_verified"
+    ],
+    "note": "A CARRIES-NO-DOCUMENT FINDING, and the point of it is that the absence has been looked for. The owner listed this book among the reference materials to read; T-0502 read it, and the answer is that it holds nothing for 1835. That is worth a source record because an absence a pass has looked for is evidence and an absence nobody looked for is a hole: without this record the next run that meets a 66 MB scan of a Chicago memoir will spend its budget discovering the same nothing. THREE PORTERS MUST NOT BE CONFLATED, and data/research/books/crosswalk.json rules on them: Henry Hobart Porter of this book (born Machias 1835, in Chicago from 1853) is NOT the 'Porter, H.' of the 1835 poll list, and neither of them is the Reverend Jeremiah Porter, the Presbyterian chaplain the project already holds at hh_porter_jeremiah. Nothing in data/residents/, data/structures/ or data/assets/ was edited by this reading. Two claims are graded town_finding true and both describe 1853; they are recorded because they are what the sweep yielded, not because the scene uses them."
+}

@@ -1,0 +1,323 @@
+{
+  "schema": 1,
+  "issue_id": "chicago_democrat_1834_04_23",
+  "extracted": "2026-08-28",
+  "extracted_by": "hand, T-0313 — the Democrat read, April 1834",
+  "note": "Vol. I No. 21, the lightest of the five and the one whose page 3 the segmenter cuts hardest: twelve of thirty-two columns carry the fallback banner, but the Vision-read columns of page 3 are cut so far left or right that most advertisements survive as half-lines of five or six characters. The town is therefore read narrowly here — the corner of Dearborn and Lake for the fourth time in the month, the timber arrangement with A. McGregor, the marine list, and the Hennepin letter list, which is recorded and NOT minted. Page 4 is a Waldie's Circulating Library prospectus and a Knickerbocker prospectus across six of its eight columns and carries no town claim.",
+  "claims": [
+    {
+      "id": "c001",
+      "kind": "person",
+      "reading": "transcription_mediated",
+      "normalized": "List of Letters R[E]MAIN[]I[N]G in the P[o]st Office o[f] He[nn]ep[i]n, ILL. o[n] the f[i]r[s]t d[a]y of A[pri]l, [1834:] [—] [Wes]ley Brow[n] 3; Thos. M'Connell; [—] Booth; [—] Clark; [—]nley; Michael Plaster sen.; William Rood; William Miller",
+      "locator": {
+        "artifact_role": "primary",
+        "issue_page": 3,
+        "column": 5,
+        "lines": [
+          3128,
+          3137
+        ],
+        "interleaved": true
+      },
+      "letter_list_only": true,
+      "entities": [],
+      "notes": "THE LIST T-0313'S OWN BRIEF CALLED APRIL'S, and it is not Chicago's — it is the post office at HENNEPIN, in Putnam County, whose uncalled-for letters the Democrat ran as it ran other out-of-county lists. Chicago's April list is in the first two issues of the month and is minted there (1834-04-01 c001, c002). No name here is minted: a Hennepin letter mints a Hennepin resident candidate and this corpus is a register of THIS town, which is the call T-0290 made for the Hennepin list of July 1834 and T-0292 for the Hennepin and Plainfield lists of October. The same list runs at 1834-04-16 and 1834-04-30, so it stood for at least three weeks; each printing is recorded where it stands.",
+      "quote": "List of Letters\nEMAINIG in the Pest Office ot Hes\nyipin, LIL. om the fret doy of Apel, lex\nley Browa 3 Thos. M'Connell\n2s Booth\nh Clark\nbunley\nMichsel Plaster sen.\nhese William Rood .\nWiilliam Miller"
+    },
+    {
+      "id": "c002",
+      "kind": "business",
+      "reading": "transcription_mediated",
+      "normalized": "[Clo]ver Seed. [G]roceries, consisting o[f Brandy, St. Cro]ix R[u]m, P. Wine, […] Soap, &c. &c. [kep]t constantly on hand [by] J. K. BOTSFORD[, corner of DEARBORN] AND LAKE-STREETS. […] [J.] K. BOTSFORD. [corner of D]earborn and Lake-sts.",
+      "locator": {
+        "artifact_role": "primary",
+        "issue_page": 3,
+        "column": 3,
+        "lines": [
+          2777,
+          2819
+        ],
+        "interleaved": true,
+        "lines_of_claim": [
+          2777,
+          2778,
+          2779,
+          2780,
+          2781,
+          2782,
+          2805,
+          2810,
+          2819
+        ]
+      },
+      "entities": [
+        {
+          "as_printed": "• K. BOTSFORD.",
+          "normalized": "J. K. Botsford",
+          "role": "proprietor",
+          "occupations": [
+            "grocer",
+            "tinsmith"
+          ],
+          "associated_places": [
+            "Chicago",
+            "Dearborn Street",
+            "Lake Street"
+          ]
+        }
+      ],
+      "business": {
+        "name": "J. K. Botsford",
+        "proprietors": [
+          "J. K. Botsford"
+        ],
+        "trade": "grocer and dealer in hardware, tin ware and stoves",
+        "goods": [
+          "Brandy",
+          "Clover Seed",
+          "Groceries",
+          "Soap",
+          "St. Croix Rum",
+          "Wine"
+        ],
+        "street": "Lake Street",
+        "placement": {
+          "class": "corner",
+          "anchor": "corner of Dearborn and Lake-sts.",
+          "offset_text": "Pearborn and Lakc-sts.",
+          "offset_normalized": "[corner of D]earborn and Lake-sts.",
+          "street": "Lake Street"
+        }
+      },
+      "notes": "The third and fourth readings of the same corner in the same month, and both fall in this column: line 2805 gives `AND LAKK-STREETS` and line 2819 gives `Pearborn and Lakc-sts.` The segmenter has cut this column to its right-hand third, so `lines_of_claim` names nine lines out of forty-three and everything between them belongs to other advertisers. The goods here are groceries and seed; the same house's 1834-04-01 notice was tin ware and its 1834-04-30 notice is iron and stoves, so the shop widened its stock across the month and the goods list in the gazetteer is the union of all three.",
+      "quote": "cer Seed.\nroceries, consisting o\num, P. Wine\nSoap, &c. &c.\nt constantly on hand\n• K. BOTSFORD.\nAND LAKK-STREETS.\nK. BOTSFORD.\"\nPearborn and Lakc-sts."
+    },
+    {
+      "id": "c003",
+      "kind": "business",
+      "reading": "transcription_mediated",
+      "normalized": "C[OR]NER OF DEAR[BORN and Lake streets.] THE subscriber [respectfully informs his friends and the public that] he has commenced the [above business, where] an assort[m]ent [will be kept …] [a]ll order[s] from the countr[y will be thankfully receiv]ed and punctually attende[d to.] April 22, 1834.",
+      "locator": {
+        "artifact_role": "primary",
+        "issue_page": 3,
+        "column": 2,
+        "lines": [
+          2662,
+          2673
+        ],
+        "interleaved": true,
+        "lines_of_claim": [
+          2662,
+          2663,
+          2665,
+          2667,
+          2669,
+          2671,
+          2673
+        ]
+      },
+      "entities": [],
+      "business": {
+        "name": "J. K. Botsford",
+        "proprietors": [],
+        "trade": "grocer and dealer in hardware, tin ware and stoves",
+        "goods": [],
+        "street": "Lake Street",
+        "placement": {
+          "class": "corner",
+          "anchor": "corner of Dearborn and Lake streets",
+          "offset_text": "CHINER OF DEARLORS.",
+          "offset_normalized": "C[OR]NER OF DEAR[BORN and Lake streets]",
+          "street": "Lake Street"
+        }
+      },
+      "notes": "The heading of the other half of the same advertisement c002 quotes, standing in the segmenter column to its left: `CHINER OF DEARLORS` is CORNER OF DEARBORN, and the second street is cut. It is compiled onto the same business as c002 because the two halves are one printed advertisement, one corner and one date — 22 April 1834 — and because `he has commenced` beside a new stock is worth recording as its own sentence. NO PROPRIETOR IS MINTED FROM THIS HALF: the signature is not in it, and the attribution rests on the other half, which carries both.",
+      "quote": "CHINER OF DEARLORS.\nTHE subscriber\n[uncertain: he has commenced the l pr]\nan assorticent\nll order trom the countr\ned and punctually altendee\nApril 22, 1834."
+    },
+    {
+      "id": "c004",
+      "kind": "business",
+      "reading": "transcription_mediated",
+      "normalized": "NEW HAR[DWARE.] CHASE & BA[LLARD] HAVE just received a ve[ry unusually exten]sive assortment o[f] Hardware, Stoves, Ir[on, Nails, &c.] […] [which will be sold at great] bargains, for cash or approve[d credit] […] Detroit, [M]. T. April, 1834",
+      "locator": {
+        "artifact_role": "primary",
+        "issue_page": 3,
+        "column": 2,
+        "lines": [
+          2684,
+          2761
+        ],
+        "interleaved": true,
+        "lines_of_claim": [
+          2684,
+          2685,
+          2687,
+          2689,
+          2690,
+          2692,
+          2694,
+          2761
+        ]
+      },
+      "entities": [],
+      "business": {
+        "name": "Chase & Ballard",
+        "proprietors": [],
+        "trade": "hardware, stoves and iron",
+        "goods": [
+          "Hardware",
+          "Iron",
+          "Nails",
+          "Stoves"
+        ],
+        "street": null,
+        "placement": {
+          "class": "none",
+          "street": null
+        }
+      },
+      "notes": "A DETROIT HOUSE ADVERTISING INTO CHICAGO, and the dateline at line 2761 — `Detroil, W. T. April, T834` — is what says so; the 1834-04-30 printing of the same advertisement reads `Detroit, M.'T` the same way. It is recorded because the goods column beneath it is the longest hardware list the month prints and it is a catalogue of what a western store could order in 1834, but the business is NOT placed in this town and its placement is `none`. `M. T.` is Michigan Territory; the OCR gives `W. T.` here and `M.'T` there, and the reading is settled by Detroit being in Michigan Territory in 1834.",
+      "quote": "NEW\nHARI\nCHASE & BA\nHAVE just received a ve\n[uncertain: sivenesortmento]\nHardware, Stoves, Ir\n[uncertain: bargin, for cald or appoe]\nDetroil, W. T. April, T834"
+    },
+    {
+      "id": "c005",
+      "kind": "business",
+      "reading": "transcription_mediated",
+      "normalized": "TIMB[ER.] THE subscribers havin[g this day made an arrangement] with [Mr. A. McGregor, are en]abled to offer to the publ[ic, on as reasonable terms as] can be had in Ch[icago, fine timber of every description,] […] From [12] to [6]0 [feet] in [length …] [war]ranted, from [—] Ap'l. 22.",
+      "locator": {
+        "artifact_role": "primary",
+        "issue_page": 3,
+        "column": 2,
+        "lines": [
+          2641,
+          2655
+        ],
+        "interleaved": true,
+        "lines_of_claim": [
+          2641,
+          2642,
+          2646,
+          2648,
+          2652,
+          2653,
+          2655
+        ]
+      },
+      "entities": [],
+      "business": {
+        "name": "P. Pruyne & Co.",
+        "proprietors": [],
+        "trade": "wholesale and retail dry goods, hardware, groceries, drugs and stone ware",
+        "goods": [
+          "Pine Timber"
+        ],
+        "street": null,
+        "placement": {
+          "class": "relative",
+          "anchor": "between Clark and Dearborn-streets",
+          "offset_text": "RK AND DEARBORS-STREETS.",
+          "offset_normalized": "[STORE BETWEEN CLA]RK AND DEARBORN-STREETS",
+          "street": null
+        }
+      },
+      "notes": "PINE TIMBER TO SIXTY FEET, ADVERTISED IN CHICAGO IN APRIL 1834 — the longest structural stick the month prices, and worth more to a reconstruction than the firm that sells it. The 1834-04-30 printing of the same notice reads the length `[fro]m 12 to 60 [ft] in length` at its line 3132 and is signed two lines below by `[P.] PRUYNE & CO.`, which is why the claim is compiled onto that house; the signature is not in THIS quote and no proprietor is minted from it. `Mr. A. McGregor` is cut here to `A. M Gregor` in the other half of the same printed lines at page 3 column 3 line 2791 and is not minted either, for the same reason. The placement carried on the business is Pruyne's own, from the 1834-04-08 reading of their store heading, and is not claimed by these lines.",
+      "quote": "TIMB\nTHE subscribers havin\nabled to ofter to the publ\ncan be had in Ch\nFrom to 14 in\nranted, from\n4p'l. 22."
+    },
+    {
+      "id": "c006",
+      "kind": "shipping",
+      "reading": "transcription_mediated",
+      "normalized": "MARINE LIST. ARRIVED. [S]ch. [Prudence] Sweet, Cleve[land …] April 15. Sc[hooner …] CLEARED. [S]loop West[w]ard H[o], St. [Joseph]",
+      "locator": {
+        "artifact_role": "primary",
+        "issue_page": 3,
+        "column": 1,
+        "lines": [
+          2582,
+          2587
+        ],
+        "interleaved": false
+      },
+      "entities": [],
+      "notes": "Two entries, and the second is the Westward Ho clearing for St. Joseph again — her fourth appearance in the month's four marine lists. The arrival is from CLEVELAND, which is a lower-lake port and not the St. Joseph shuttle: April 1834 is the month the long-haul season opened, and the 1834-04-16 editorial's five vessels on passage from the east are the same fact from the other end. The schooner's name reads `Predest Sweet` and is given as `[Prudence] Sweet` in brackets; the second arrival's name is cut entirely.",
+      "quote": "MARINE LIST.\nARRIVED.\nsch. Predest Sweet, Cleven\nApril 15. Scat\nCLEARED.\n[uncertain: loop West Vard Hi, St Sec]"
+    },
+    {
+      "id": "c007",
+      "kind": "notice",
+      "reading": "transcription_mediated",
+      "normalized": "FOR THE STATE LEGISLATU[RE.] SENATE. JAMES B. CAMPBELL[,] [uncertain: AUCENTEs LANOWORTHY.] HOUSE OF REPRESENTATIVES. EDMUND S. KIMBERLY,",
+      "locator": {
+        "artifact_role": "primary",
+        "issue_page": 3,
+        "column": 1,
+        "lines": [
+          2597,
+          2602
+        ],
+        "interleaved": false
+      },
+      "entities": [
+        {
+          "as_printed": "JAMES B. CAMPBELI",
+          "normalized": "James B. Campbell",
+          "role": "announced candidate for the State Senate",
+          "associated_places": [
+            "Ottawa"
+          ]
+        },
+        {
+          "as_printed": "EDMUND S. KiMBERLY,",
+          "normalized": "Edmund S. Kimberly",
+          "role": "announced candidate for the House of Representatives",
+          "associated_places": [
+            "Chicago"
+          ]
+        }
+      ],
+      "notes": "The paper's standing ticket, extracted for two men who are in this town's record elsewhere: Edmund S. Kimberly, whose name the 1834-04-30 issue gives as one of six Chicago houses selling tickets to a public entertainment, and James B. Campbell of Ottawa, whom Newberry & Dole print as a reference in their own advertisement three weeks earlier. The third name on the list is transcription debris — `AUCENTEs LANOWORTHY` — and is quoted with its brackets and not minted, because a candidate whose given name cannot be read is not a person this gazetteer can key.",
+      "quote": "FOR THE STATE LEGISLATUT\nSENATE.\nJAMES B. CAMPBELI\n[uncertain: AUCENTEs LANOWORTHY.]\nHOUSE OF REPRESENTATIVES\nEDMUND S. KiMBERLY,"
+    },
+    {
+      "id": "c008",
+      "kind": "business",
+      "reading": "transcription_mediated",
+      "normalized": "WINDOW SASH kept [constantly on hand …] [received] from the Factory at Det[roit.] Chicago, April 22, 1834.",
+      "locator": {
+        "artifact_role": "primary",
+        "issue_page": 3,
+        "column": 2,
+        "lines": [
+          2629,
+          2633
+        ],
+        "interleaved": true,
+        "lines_of_claim": [
+          2629,
+          2632,
+          2633
+        ]
+      },
+      "entities": [],
+      "business": {
+        "name": "J. K. Botsford",
+        "proprietors": [],
+        "trade": "grocer and dealer in hardware, tin ware and stoves",
+        "goods": [
+          "Window Sash"
+        ],
+        "street": "Lake Street",
+        "placement": {
+          "class": "corner",
+          "anchor": "corner of Dearborn and Lake-sts.",
+          "offset_text": "Pearborn and Lakc-sts.",
+          "offset_normalized": "[corner of D]earborn and Lake-sts.",
+          "street": "Lake Street"
+        }
+      },
+      "notes": "WINDOW SASH CAME FROM DETROIT BY THE FACTORY, and two Chicago houses were keeping it in stock in April 1834 — this one and John H. Kinzie, whose warehouse advertisement opposite the fort names the same article a week earlier. That is a fabric fact about the buildings the town was raising that same month: their windows were bought made, not joined here. The dateline of 22 April and the position of these lines in the column put them in the same advertisement as c002 and c003, so the claim is compiled onto that house; the goods, not the placement, are what these three lines add.",
+      "quote": "WINDOW SASH kept\nfrom the Factory at Det\nChicago, April 22, 1834."
+    }
+  ]
+}

@@ -1,0 +1,143 @@
+{
+  "id": "wright_building_to_let_b",
+  "name": "John Wright's Building to Let (b)",
+  "archetype": "frame_dwelling",
+  "phases": [
+    {
+      "id": "documented_1835",
+      "documented_range": {
+        "from": "1835-01-01",
+        "to": "1835-12-31",
+        "confidence": "attested",
+        "sources": [
+          "chicago_democrat_1833_11_26"
+        ],
+        "note": "'TWO BUILDINGS TO LET' - John Wright's own advertisement in the Chicago Democrat of 26 November 1833, offering them until 1 June 1834. Two buildings existed, they were his, and they were rental stock. This is one of the two. The advertisement's own term of 1 June 1834 is not the building's life: a building does not cease at the end of a tenancy, and the range runs to the end of 1835 as the last date this record needs."
+      },
+      "position": {
+        "utm_e": 447619.812,
+        "utm_n": 4637156.065,
+        "rotation_deg": 0.36,
+        "symbolic_location": "South Division, on the Randolph Street frontage of the block bounded by Lake, Clark, Randolph and LaSalle, facing the public square across the street",
+        "confidence": "reconstructed",
+        "note": "INVENTED, AND MOVED OFF THE PUBLIC SQUARE 2026-08-15 (ROADMAP T-A16). The advertisement gives no address at all, so this is a band assignment and not a reading of any source. WHAT WAS WRONG WITH THE OLD ONE. Both buildings were placed together in 'the South Division band the recipes use for ordinary dwellings', and that band ran across the block bounded by Randolph, Clark, Washington and LaSalle - the public square, which carried the county's estray pen, its log jail and its court-house, and which this project's own ground control names as such. The old placement was tested for clearance and for buildable ground, which is every question this project knew how to ask; none of them was whether the ground was for sale. WHERE THEY WENT, AND BY WHAT RULE. Each building takes the nearest free platted lot that no committed block recipe has already spoken for - the recipes name their open lots and say why, and taking one would rewrite a parcel that has already landed. Under that rule the pair moves 83 m and 69 m, onto the Randolph Street frontage of the two blocks directly across Randolph from the square, which is the least this record can move and still stand on ground the town was selling. THE COORDINATE IS COMPUTED, NOT TYPED: the lot's own street edge and inward axis, with a 5.0 m setback, through the same lot frame every anonymous roof in the town is placed by. WHAT IS STILL INVENTED: the block, the lot, the setback, and that the two buildings stood near each other at all. One advertisement offering two buildings is not a statement that they shared a holding, and the pair is no longer on one block - the ground to keep them on one was 200 m further away and faced two different streets, which would have been a worse answer bought with a better-sounding sentence. THE SUFFIX IS A DISAMBIGUATOR AND NOT A BEARING (T-0415, 2026-09-05). This record and its pair were called (east) and (west) from the single commit that minted them both, 9d208471 of 2026-08-13. THE WORDS NEVER DESCRIBED THE GROUND, NOT EVEN THEN: on that commit wright_building_to_let_a stood at utm_e 447555.957 and wright_building_to_let_b at 447581.957, so the record called (east) was already 26 m WEST of the record called (west). The move off the public square of 2026-08-15 therefore did not reverse a true pair of words - it widened an error that was there from the first commit, to 123.198 m, and put the two on different blocks. There is no reading under which this pair has an attested east-west order: the advertisement gives no address at all, and both positions declare themselves invented band assignments in the paragraph above. A name that states a bearing is therefore a claim this project cannot make, and a reader or a later anchor pass would read it as one because that is what the words say. THE SUFFIXES ARE NOW (a) AND (b), matching the record ids: they hold the two records apart, which is the only work they have ever done, and they cannot be misread as a position. Naming each record after the block it stands on was considered and refused - the block is itself invented, so that name would carry an invention where this one carries nothing.",
+        "derivation": {
+          "method": "not_derivable",
+          "reason": "No source gives this building a lot. The placement is a frontage-band assignment tested for clearance and buildable ground, which is a production control and not a derivation from any line in the dataset."
+        }
+      },
+      "footprint": {
+        "polygon": [
+          [
+            0,
+            0
+          ],
+          [
+            5.486,
+            0
+          ],
+          [
+            5.486,
+            7.925
+          ],
+          [
+            0,
+            7.925
+          ]
+        ],
+        "confidence": "reconstructed",
+        "note": "PLACEHOLDER - NO DIMENSION IS ATTESTED. 18 x 26 ft is the schedule's D4 two-room frame cottage: what a merchant builds to let. Every number is invented."
+      },
+      "form": {
+        "stories": {
+          "value": 1,
+          "confidence": "reconstructed",
+          "sources": [
+            "andreas_1884_v1"
+          ],
+          "note": "Type-level choice within the D4 band in the reconstruction specification; it is not evidence for this building."
+        },
+        "wall_height_m": {
+          "value": 2.78,
+          "confidence": "reconstructed",
+          "sources": [
+            "andreas_1884_v1"
+          ],
+          "note": "Type-level choice within the D4 band in the reconstruction specification; it is not evidence for this building."
+        },
+        "roof_type": {
+          "value": "gable",
+          "confidence": "reconstructed",
+          "sources": [
+            "andreas_1884_v1"
+          ],
+          "note": "Type-level choice within the D4 band in the reconstruction specification; it is not evidence for this building."
+        },
+        "roof_pitch_deg": {
+          "value": 38.0,
+          "confidence": "reconstructed",
+          "sources": [
+            "andreas_1884_v1"
+          ],
+          "note": "Type-level choice within the D4 band in the reconstruction specification; it is not evidence for this building."
+        },
+        "construction": {
+          "value": "braced_frame",
+          "confidence": "reconstructed",
+          "sources": [
+            "andreas_1884_v1"
+          ],
+          "note": "Type-level choice within the D4 band in the reconstruction specification; it is not evidence for this building."
+        },
+        "plan": {
+          "value": "hall_parlour",
+          "confidence": "reconstructed",
+          "sources": [
+            "andreas_1884_v1"
+          ],
+          "note": "Type-level choice within the D4 band in the reconstruction specification; it is not evidence for this building."
+        },
+        "bays": {
+          "value": 3,
+          "confidence": "reconstructed",
+          "sources": [
+            "andreas_1884_v1"
+          ],
+          "note": "Type-level choice within the D4 band in the reconstruction specification; it is not evidence for this building."
+        },
+        "chimneys": {
+          "value": 1,
+          "confidence": "reconstructed",
+          "sources": [
+            "andreas_1884_v1"
+          ],
+          "note": "Type-level choice within the D4 band in the reconstruction specification; it is not evidence for this building."
+        },
+        "paint": {
+          "value": "unpainted",
+          "confidence": "reconstructed",
+          "sources": [
+            "andreas_1884_v1"
+          ],
+          "note": "Type-level choice within the D4 band in the reconstruction specification; it is not evidence for this building."
+        }
+      },
+      "change_note": "The building as this dataset can state it on the scene date. Where the sources give a size, a plan or a fabric, the record carries it; where they do not, the note says so attribute by attribute."
+    }
+  ],
+  "function": {
+    "value": "dwelling_to_let",
+    "confidence": "attested",
+    "sources": [
+      "andreas_1884_v1"
+    ],
+    "note": "RENTAL HOUSING STOCK, OTHERWISE INVISIBLE. A town where a merchant advertises two buildings to let is a town with a rental market, which is one of the mechanisms by which 3,265 people fit into 398 dwellings. A TRAP IN THE SAME ADVERTISEMENT: it carries an engraving of a three-storey building which is a jobbing printer's stock cut and NOT a picture of anything in Chicago; nothing about the form of these two buildings comes from it."
+  },
+  "occupants": {
+    "value": "To let - the tenant is not named",
+    "confidence": "reconstructed",
+    "note": "TO LET, AND THE TENANT IS NOT NAMED. The advertisement documents rental housing stock and nobody in it. This building is deliberately left without an occupant household: the honest reading of 'to let' is a building whose tenant this project cannot name."
+  },
+  "research_note": "RENTAL HOUSING STOCK, OTHERWISE INVISIBLE. A town where a merchant advertises two buildings to let is a town with a rental market, which is one of the mechanisms by which 3,265 people fit into 398 dwellings. A TRAP IN THE SAME ADVERTISEMENT: it carries an engraving of a three-storey building which is a jobbing printer's stock cut and NOT a picture of anything in Chicago; nothing about the form of these two buildings comes from it.",
+  "review_required": false
+}

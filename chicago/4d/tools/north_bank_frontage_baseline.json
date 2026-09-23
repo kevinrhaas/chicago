@@ -1,0 +1,45 @@
+{
+  "_doc": "T-0947. The committed north-bank frontages on North Water Street, and which of them stand on the rule stated at docs/RESEARCH/street_module_1830.md § 11. `on_rule` records are held to the derived frontage line (the street's own track kerb plus a 2.00 m clearance) to 0.05 m. `exceptions` are held to their own committed figure to 0.25 m, each with the reason it is not on the rule. A north-bank frontage in neither list FAILS the gate — that is the assertion T-0947 asked for, after two green reconciliations of one ruling placed the same building 36.79 m apart. Rewrite with tools/measure_north_bank_frontage.py --write-baseline, only in the commit that moves something, and never to make a number smaller.",
+  "rule_m": 5.0,
+  "on_rule": [
+    "north_bank_shed_dearborn_w__shed_1835",
+    "north_bank_shed_dearborn_e1__shed_1835",
+    "north_bank_shed_dearborn_e2__shed_1835",
+    "north_bank_shed_dearborn_e3__shed_1835",
+    "steamboat_hotel__frame_1835"
+  ],
+  "exceptions": {
+    "kinzie_hunter_warehouse__warehouse_1834": {
+      "face_m": 0.058,
+      "reason": "DRAWN INSIDE THE TRACK by 2.94 m, and the coordinate outranks the ribbon. The warehouse is placed from a documented position at the forks; `north_water`'s west end is a reconstructed trace that T-0226 already re-derived once off the committed bank. A position with a source beats a line this project drew — the same reading `measure_corridor_intrusion` takes of the platted grid."
+    },
+    "inf_boatman_cabin_north__inferred_1835": {
+      "face_m": 1.0,
+      "reason": "DRAWN INSIDE THE TRACK by 2.00 m. An inferred-household dwelling seated on the bank by the household programme, not by a frontage rule; it is recorded here rather than moved, because moving it is a change to that programme's recipe and its own --check owns it."
+    },
+    "brickyard_north_side__yard_1833": {
+      "face_m": 1.753,
+      "reason": "DRAWN INSIDE THE TRACK by 1.25 m. A yard rather than a frontage: the record places the working ground, and a yard's edge is not a street face."
+    },
+    "north_side_school_1833__log_1833": {
+      "face_m": 2.015,
+      "reason": "DRAWN INSIDE THE TRACK by 0.99 m. Placed 2026-08-11 from Andreas's 'just east of Clark Street' on the north bank, against a book that contradicts itself about which side of Clark the school stood on; the record's own note admits about 110 m of along-street uncertainty. The documented reading holds and the frontage rule does not reach it."
+    },
+    "cobweb_castle__log_1820": {
+      "face_m": 2.886,
+      "reason": "DRAWN INSIDE THE TRACK by 0.11 m, and the corner is documented twice — Wau-Bun's 'southwest corner of Wolcott and N. Water Streets' and Andreas independently. A documented corner outranks a frontage offset; 0.11 m is inside the arithmetic of a traced centreline in any case."
+    },
+    "blacksmith_shop_state_st__log_1823": {
+      "face_m": 4.424,
+      "reason": "CLEAR OF THE TRACK by 1.42 m but 0.58 m short of the frontage line. It is placed on State Street rather than on North Water — it falls in this band only because the two streets converge at Wolcott — so the rule for this street does not govern it."
+    },
+    "council_house__log_1834": {
+      "face_m": 9.654,
+      "reason": "SET BACK 4.65 m BEYOND THE RULE, and deliberately: the record is `conjectural` and admits ±110 m along the bank inside a 215 m attested band, so its coordinate is a placement of last resort and not a frontage. T-0947 leaves it where it is and the Steamboat Hotel's station is measured from its footprint."
+    },
+    "recon_1835_north_c1_020__inferred_1835": {
+      "face_m": 16.941,
+      "reason": "A GENERATED ROOF, placed by the North Division infill recipe against the platted lots and the corridor test its generator already runs; `tools/generate_north_infill.py --check` owns it. It falls inside the 25 m band without fronting this street."
+    }
+  }
+}

@@ -1,0 +1,4574 @@
+{
+ "schema": 1,
+ "generated_by": "tools/concord_letter_list_1834_01_01.py",
+ "_doc": "What each of the 170 printed lines of the 1 January 1834 return reaches (T-1010, out of T-1008).\n\n    python3 tools/concord_letter_list_1834_01_01.py            write\n    python3 tools/concord_letter_list_1834_01_01.py --check    re-derive and diff\n    python3 tools/concord_letter_list_1834_01_01.py --report   the ledger, read out\n    python3 tools/concord_letter_list_1834_01_01.py --self-test the assertions, broken\n\nWHAT THIS IS FOR.\n\nT-0424 read the ninth printing of the Chicago post office's 1 January 1834 return at\nthe page image and counted it: 170 printed lines, set down in printed order in\n`data/research/newspapers/letter_list_1834_01_01_printed.json`. T-0310 minted a cohort\nof residents out of the SAME return, a year of loop-runs earlier, from the\ntranscriptions of two of its nine impressions. Nobody had ever put the two beside each\nother, so the project could say how long the list is and it could say who it minted,\nand it could not say WHICH LINES THOSE PEOPLE ARE — nor, therefore, how many of the\n170 reach no card at all.\n\nThat is the measurement this pass makes, and it makes it as a ledger with one row per\nprinted line. It MINTS NOBODY. Minting is a different decision from reading (T-0424's\nown words) and a different decision again from counting, and the ticket that owns the\nmint is the one this file's counts are for.\n\nHOW A PRINTED LINE IS TIED TO A NAME THE PROJECT EXTRACTED, in four rules, strongest\nfirst, each recorded on the row as `tied_by` so that a tie can be argued with:\n\n  `image`     the extraction's own entity carries `read_at_image.printed_line`. That\n              tie was made at the scan by T-0424 and is simply read back here.\n  `text`      the entity's normalized name and the printed line agree exactly, once\n              both are folded (case, punctuation, the trailing letter-count digit and\n              any [bracketed] illegible glyph dropped). Unique matches only.\n  `spelling`  the two surnames are within one edit of each other and the forenames do\n              not contradict — one initial against the same initial, or a forename\n              against nothing. Two settings of ONE return differ by exactly this much\n              (`Hutchins`/`Huchins`, `Forster`/`Forrister`), and a rule narrower than\n              this leaves those lines looking unread when they are merely respelt.\n  untied      everything else, INCLUDING every ambiguity. A line two entities could\n              equally be, or an entity two lines could equally be, is left untied and\n              listed, because a concordance that guesses is worse than one that counts\n              its own gaps.\n\nWHAT A ROW SAYS THE LINE REACHES. The four outcomes are the four things that can have\nhappened to a name on this list, and the pass derives all four rather than asserting\nany of them — `minted` and `refused` come out of `mint_letter_list_residents.py`'s own\n`mint()`, through the refusals as that pass applies them, so this ledger cannot drift\nfrom the pass it describes:\n\n  `minted`        the letter-list pass minted a household for it, named here.\n  `held_already`  the register ties the name to somebody the town ALREADY holds on\n                  other evidence, so the line reaches a card that is not this cohort's.\n                  A line that reaches Lewis Kercheval reaches Lewis Kercheval.\n  `refused`       the name was in the mint's pool and a named refusal turned it away.\n                  Not a gap: a ruling.\n  `unread`        nothing the project has extracted from any of the nine impressions\n                  carries this line. THIS is the gap the cohort's floor is made of.\n\nTHE THREE LINES THAT ARE NOT A PERSON are marked as what they are, from the roster's\nown reading rather than from a rule here: `Axtel & Steele` and `Jesse B. Winn & Co.`\nare firms, and `Lamira & Laura Carrier` names two people on one line. The printed\nlength is 170 LINES either way; what they are worth in PEOPLE is a different number,\nand `counts.people_named` states it.\n\nWHERE THE TWO READINGS OF A NAME DISAGREE, the row carries both (`printed_as` against\n`extracted_as`) under `name_differs`, and where the line reached a card the card's own\nspelling stands beside them. A corrected claim over an uncorrected card is worse than\nneither (T-1008), and this is the list of the places where that could be true.\n\nAND SINCE T-1139 EVERY ONE OF THOSE ROWS IS RULED ON.\n`letter_list_1834_01_01_name_rulings.json` adjudicates each disagreement — the card takes\nthe image's reading, or it keeps its own and that file names the source outside this\nreturn which outranks the image there — and this pass reads the rulings back onto the\nrows. A row ruled ONTO THE IMAGE moves out of `name_differs` and into `name_ruled`: it is\na settled question and no longer one of the places a card may be wrong. The rows that\nremain under `name_differs` are the ones where a card deliberately spells something the\nninth impression does not, which is exactly what a reader must go on seeing. An UNRULED\ndisagreement fails `--check`, so a row cannot appear here and go unweighed again.",
+ "return": {
+  "office": "Chicago, Illinois",
+  "remaining_as_of": "1834-01-01",
+  "printings": 9,
+  "roster": "data/research/newspapers/letter_list_1834_01_01_printed.json",
+  "roster_read_by": "T-0424, at the page image of the ninth printing"
+ },
+ "claims_read": [
+  "chicago_democrat_1834_01_14#c004",
+  "chicago_democrat_1834_01_28#c001",
+  "chicago_democrat_1834_02_04#c016",
+  "chicago_democrat_1834_03_04#c026",
+  "chicago_democrat_1834_03_04#c027",
+  "chicago_democrat_1834_03_04#c033"
+ ],
+ "counts": {
+  "printed_lines": 170,
+  "people_named": 169,
+  "firm_lines": 2,
+  "lines_naming_two_people": 1,
+  "tied_to_an_extracted_name": 170,
+  "readings_tied": 203,
+  "tied_by": {
+   "image": 130,
+   "text": 58,
+   "part_of_a_line": 1,
+   "spelling": 14
+  },
+  "reaches": {
+   "minted": 90,
+   "refused": 70,
+   "held_already": 10
+  },
+  "reaches_a_card": 100,
+  "refused_by_reason": {
+   "surname already minted": 26,
+   "the town already names that family": 31,
+   "garbled": 12,
+   "a firm, not a person": 1
+  },
+  "readings_that_disagree": 3,
+  "readings_ruled_onto_the_page_image": 16,
+  "readings_unruled": 0,
+  "extracted_names_no_line_carries": 28,
+  "extracted_names_no_line_carries_by_why": {
+   "no line of the printed list carries this surname at all, so either the transcription read a name the ninth impression does not set or the image read lost it": 10,
+   "the list carries this surname and no line's forename agrees with this reading of it": 10,
+   "the list carries this surname on more than one line and this reading has no forename to choose between them": 6,
+   "the postmaster's signature under the list, which the roster counts separately from its 170 addressee lines": 2
+  },
+  "extracted_names_ruled_on_in_identity_json": 11
+ },
+ "lines": [
+  {
+   "n": 1,
+   "column": "left",
+   "as_printed": "Eliphalet Atkins 2",
+   "addressee": "a person",
+   "tie": [
+    {
+     "tied_by": "image",
+     "claim": "chicago_democrat_1834_03_04#c026",
+     "as_printed_in_that_printing": "Atkina 2",
+     "extracted_as": "Eliphalet Atkins 2"
+    }
+   ],
+   "reaches": {
+    "kind": "minted",
+    "person": "person_eliphalet_atkins_2",
+    "household": "hh_eliphalet_atkins_2",
+    "card_name": null,
+    "by": "tools/mint_letter_list_residents.py"
+   }
+  },
+  {
+   "n": 2,
+   "column": "left",
+   "as_printed": "J. W. Anderson",
+   "addressee": "a person",
+   "tie": [
+    {
+     "tied_by": "image",
+     "claim": "chicago_democrat_1834_03_04#c033",
+     "as_printed_in_that_printing": "J. W. Anderson",
+     "extracted_as": "J. W. Anderson"
+    }
+   ],
+   "reaches": {
+    "kind": "refused",
+    "person": "person_j_w_anderson",
+    "reason": "surname already minted",
+    "by": "tools/mint_letter_list_residents.py"
+   }
+  },
+  {
+   "n": 3,
+   "column": "left",
+   "as_printed": "Constant Abbott",
+   "addressee": "a person",
+   "tie": [
+    {
+     "tied_by": "image",
+     "claim": "chicago_democrat_1834_03_04#c033",
+     "as_printed_in_that_printing": "Constant Abbott",
+     "extracted_as": "Constant Abbott"
+    }
+   ],
+   "reaches": {
+    "kind": "refused",
+    "person": "person_constant_abbott",
+    "reason": "the town already names a Abbott",
+    "by": "tools/mint_letter_list_residents.py"
+   }
+  },
+  {
+   "n": 4,
+   "column": "left",
+   "as_printed": "Wm. G. Austin",
+   "addressee": "a person",
+   "tie": [
+    {
+     "tied_by": "image",
+     "claim": "chicago_democrat_1834_03_04#c033",
+     "as_printed_in_that_printing": "Wm. G. Austin",
+     "extracted_as": "Wm. G. Austin"
+    }
+   ],
+   "reaches": {
+    "kind": "held_already",
+    "person": "person_wm_g_austin",
+    "resident": "austin_w_g",
+    "household": "hh_austin_w_g",
+    "card_name": "W G Austin",
+    "action": "enrich"
+   }
+  },
+  {
+   "n": 5,
+   "column": "left",
+   "as_printed": "Almond Axtell 2",
+   "addressee": "a person",
+   "tie": [
+    {
+     "tied_by": "image",
+     "claim": "chicago_democrat_1834_03_04#c033",
+     "as_printed_in_that_printing": "Almond Axtell 2",
+     "extracted_as": "Almond Axtell 2"
+    }
+   ],
+   "reaches": {
+    "kind": "minted",
+    "person": "person_almond_axtell_2",
+    "household": "hh_almond_axtell_2",
+    "card_name": "Axtell [?] Almond",
+    "by": "tools/mint_letter_list_residents.py"
+   }
+  },
+  {
+   "n": 6,
+   "column": "left",
+   "as_printed": "Myron K. Brownson",
+   "addressee": "a person",
+   "tie": [
+    {
+     "tied_by": "image",
+     "claim": "chicago_democrat_1834_03_04#c033",
+     "as_printed_in_that_printing": "Myron K. Brownson",
+     "extracted_as": "Myron K. Brownson"
+    }
+   ],
+   "reaches": {
+    "kind": "minted",
+    "person": "person_myron_k_brownson",
+    "household": "hh_brownson_myron_k",
+    "card_name": "Myron K. Brownson",
+    "by": "tools/mint_letter_list_residents.py"
+   }
+  },
+  {
+   "n": 7,
+   "column": "left",
+   "as_printed": "Timothy Burnett",
+   "addressee": "a person",
+   "tie": [
+    {
+     "tied_by": "image",
+     "claim": "chicago_democrat_1834_03_04#c033",
+     "as_printed_in_that_printing": "Timothy Burnett",
+     "extracted_as": "Timothy Burnett"
+    }
+   ],
+   "reaches": {
+    "kind": "minted",
+    "person": "person_timothy_burnett",
+    "household": "hh_burnett_timothy",
+    "card_name": "Timothy Burnett",
+    "by": "tools/mint_letter_list_residents.py"
+   }
+  },
+  {
+   "n": 8,
+   "column": "left",
+   "as_printed": "B. H. Bertrand",
+   "addressee": "a person",
+   "tie": [
+    {
+     "tied_by": "image",
+     "claim": "chicago_democrat_1834_03_04#c033",
+     "as_printed_in_that_printing": "B. H. Bertrand",
+     "extracted_as": "B. H. Bertrand"
+    }
+   ],
+   "reaches": {
+    "kind": "minted",
+    "person": "person_b_h_bertrand",
+    "household": "hh_bertrand_b_h",
+    "card_name": "B. H. Bertrand",
+    "by": "tools/mint_letter_list_residents.py"
+   }
+  },
+  {
+   "n": 9,
+   "column": "left",
+   "as_printed": "Cyntha Burbee",
+   "addressee": "a person",
+   "tie": [
+    {
+     "tied_by": "image",
+     "claim": "chicago_democrat_1834_03_04#c033",
+     "as_printed_in_that_printing": "Cyntha Burbee",
+     "extracted_as": "Cyntha Burbee"
+    }
+   ],
+   "reaches": {
+    "kind": "refused",
+    "person": "person_cyntha_burbee",
+    "reason": "surname already minted",
+    "by": "tools/mint_letter_list_residents.py"
+   }
+  },
+  {
+   "n": 10,
+   "column": "left",
+   "as_printed": "Joseph Babeu",
+   "addressee": "a person",
+   "tie": [
+    {
+     "tied_by": "image",
+     "claim": "chicago_democrat_1834_03_04#c033",
+     "as_printed_in_that_printing": "Joseph Babeu",
+     "extracted_as": "Joseph Babeu"
+    }
+   ],
+   "reaches": {
+    "kind": "minted",
+    "person": "person_joseph_babeu",
+    "household": "hh_babeu_joseph",
+    "card_name": "Joseph Babeu",
+    "by": "tools/mint_letter_list_residents.py"
+   }
+  },
+  {
+   "n": 11,
+   "column": "left",
+   "as_printed": "Hiram Bennett",
+   "addressee": "a person",
+   "tie": [
+    {
+     "tied_by": "text",
+     "claim": "chicago_democrat_1834_01_28#c001",
+     "as_printed_in_that_printing": "Hiram Bennett",
+     "extracted_as": "Hiram Bennett"
+    }
+   ],
+   "reaches": {
+    "kind": "held_already",
+    "person": "person_hiram_bennett",
+    "resident": "bennett_h_c",
+    "household": "hh_bennett_h_c",
+    "card_name": "H. C. Bennett",
+    "action": "enrich"
+   }
+  },
+  {
+   "n": 12,
+   "column": "left",
+   "as_printed": "Anthony Beers",
+   "addressee": "a person",
+   "tie": [
+    {
+     "tied_by": "image",
+     "claim": "chicago_democrat_1834_03_04#c033",
+     "as_printed_in_that_printing": "Anthony Beers",
+     "extracted_as": "Anthony Beers"
+    }
+   ],
+   "reaches": {
+    "kind": "minted",
+    "person": "person_anthony_heere",
+    "household": "hh_heere_anthony",
+    "card_name": "Anthony Heere",
+    "by": "tools/mint_letter_list_residents.py"
+   }
+  },
+  {
+   "n": 13,
+   "column": "left",
+   "as_printed": "Thomas Bennett",
+   "addressee": "a person",
+   "tie": [
+    {
+     "tied_by": "text",
+     "claim": "chicago_democrat_1834_01_28#c001",
+     "as_printed_in_that_printing": "Thomas Bennett,",
+     "extracted_as": "Thomas Bennett"
+    },
+    {
+     "tied_by": "image",
+     "claim": "chicago_democrat_1834_03_04#c026",
+     "as_printed_in_that_printing": "as Bennett",
+     "extracted_as": "Thomas Bennett"
+    }
+   ],
+   "reaches": {
+    "kind": "refused",
+    "person": "person_thomas_bennett",
+    "reason": "the town already names a Bennett",
+    "by": "tools/mint_letter_list_residents.py"
+   }
+  },
+  {
+   "n": 14,
+   "column": "left",
+   "as_printed": "J. K. Blodgett",
+   "addressee": "a person",
+   "tie": [
+    {
+     "tied_by": "image",
+     "claim": "chicago_democrat_1834_03_04#c033",
+     "as_printed_in_that_printing": "J. K. Blodgett",
+     "extracted_as": "J. K. Blodgett"
+    }
+   ],
+   "reaches": {
+    "kind": "refused",
+    "person": "person_j_k_blodgett",
+    "reason": "the town already names a Blodgett",
+    "by": "tools/mint_letter_list_residents.py"
+   }
+  },
+  {
+   "n": 15,
+   "column": "left",
+   "as_printed": "Jos. Britton",
+   "addressee": "a person",
+   "tie": [
+    {
+     "tied_by": "text",
+     "claim": "chicago_democrat_1834_01_28#c001",
+     "as_printed_in_that_printing": "Jos. Britton",
+     "extracted_as": "Jos. Britton"
+    }
+   ],
+   "reaches": {
+    "kind": "minted",
+    "person": "person_jos_britton",
+    "household": "hh_britton_jos",
+    "card_name": "Jos. Britton",
+    "by": "tools/mint_letter_list_residents.py"
+   }
+  },
+  {
+   "n": 16,
+   "column": "left",
+   "as_printed": "Mary Barrows",
+   "addressee": "a person",
+   "tie": [
+    {
+     "tied_by": "text",
+     "claim": "chicago_democrat_1834_01_28#c001",
+     "as_printed_in_that_printing": "Mary Barrows",
+     "extracted_as": "Mary Barrows"
+    }
+   ],
+   "reaches": {
+    "kind": "minted",
+    "person": "person_mary_barrows",
+    "household": "hh_barrows_mary",
+    "card_name": "Mary Barrows",
+    "by": "tools/mint_letter_list_residents.py"
+   }
+  },
+  {
+   "n": 17,
+   "column": "left",
+   "as_printed": "A. P. Benton",
+   "addressee": "a person",
+   "tie": [
+    {
+     "tied_by": "image",
+     "claim": "chicago_democrat_1834_03_04#c026",
+     "as_printed_in_that_printing": ".E. Bonton",
+     "extracted_as": "A. P. Benton"
+    }
+   ],
+   "reaches": {
+    "kind": "refused",
+    "person": "person_a_p_benton",
+    "reason": "surname already minted",
+    "by": "tools/mint_letter_list_residents.py"
+   }
+  },
+  {
+   "n": 18,
+   "column": "left",
+   "as_printed": "Avice Blodget",
+   "addressee": "a person",
+   "tie": [
+    {
+     "tied_by": "image",
+     "claim": "chicago_democrat_1834_03_04#c026",
+     "as_printed_in_that_printing": "Avice Blodget",
+     "extracted_as": "Avice Blodget"
+    }
+   ],
+   "reaches": {
+    "kind": "refused",
+    "person": "person_avice_blodget",
+    "reason": "the town already names a Blodget",
+    "by": "tools/mint_letter_list_residents.py"
+   }
+  },
+  {
+   "n": 19,
+   "column": "left",
+   "as_printed": "H. S. Bennett 2",
+   "addressee": "a person",
+   "tie": [
+    {
+     "tied_by": "text",
+     "claim": "chicago_democrat_1834_01_28#c001",
+     "as_printed_in_that_printing": "HLS. Bennett 2",
+     "extracted_as": "H. S. Bennett"
+    },
+    {
+     "tied_by": "image",
+     "claim": "chicago_democrat_1834_03_04#c026",
+     "as_printed_in_that_printing": "Bennettra",
+     "extracted_as": "H. S. Bennett 2"
+    }
+   ],
+   "reaches": {
+    "kind": "refused",
+    "person": "person_h_s_bennett",
+    "reason": "the town already names a Bennett",
+    "by": "tools/mint_letter_list_residents.py",
+    "also_resolved_to": [
+     "person_h_s_bennett_2"
+    ]
+   }
+  },
+  {
+   "n": 20,
+   "column": "left",
+   "as_printed": "Aarri[?]t Bradford",
+   "addressee": "a person",
+   "tie": [
+    {
+     "tied_by": "image",
+     "claim": "chicago_democrat_1834_03_04#c033",
+     "as_printed_in_that_printing": "Aarri[?]t Bradford",
+     "extracted_as": "Aarri[?]t Bradford"
+    }
+   ],
+   "reaches": {
+    "kind": "refused",
+    "person": "person_aarri_t_bradford",
+    "reason": "garbled",
+    "by": "tools/mint_letter_list_residents.py"
+   }
+  },
+  {
+   "n": 21,
+   "column": "left",
+   "as_printed": "Russell Baldwin",
+   "addressee": "a person",
+   "tie": [
+    {
+     "tied_by": "text",
+     "claim": "chicago_democrat_1834_01_28#c001",
+     "as_printed_in_that_printing": "‘Russell Baldwin",
+     "extracted_as": "Russell Baldwin"
+    },
+    {
+     "tied_by": "image",
+     "claim": "chicago_democrat_1834_03_04#c026",
+     "as_printed_in_that_printing": "ell Baldwin",
+     "extracted_as": "Russell Baldwin"
+    }
+   ],
+   "reaches": {
+    "kind": "refused",
+    "person": "person_russell_baldwin",
+    "reason": "surname already minted",
+    "by": "tools/mint_letter_list_residents.py"
+   }
+  },
+  {
+   "n": 22,
+   "column": "left",
+   "as_printed": "Hiram Bowen",
+   "addressee": "a person",
+   "tie": [
+    {
+     "tied_by": "text",
+     "claim": "chicago_democrat_1834_01_28#c001",
+     "as_printed_in_that_printing": "Hiram Bowen",
+     "extracted_as": "Hiram Bowen"
+    }
+   ],
+   "reaches": {
+    "kind": "refused",
+    "person": "person_hiram_bowen",
+    "reason": "the town already names a Bowen",
+    "by": "tools/mint_letter_list_residents.py"
+   }
+  },
+  {
+   "n": 23,
+   "column": "left",
+   "as_printed": "Erastus Bowen",
+   "addressee": "a person",
+   "tie": [
+    {
+     "tied_by": "image",
+     "claim": "chicago_democrat_1834_03_04#c033",
+     "as_printed_in_that_printing": "Erastus Bowen",
+     "extracted_as": "Erastus Bowen"
+    }
+   ],
+   "reaches": {
+    "kind": "held_already",
+    "person": "person_erastus_bowen",
+    "resident": "bowen_erastus_selden",
+    "household": "hh_bowen_erastus_selden",
+    "card_name": "Erastus Bowen",
+    "action": "enrich"
+   }
+  },
+  {
+   "n": 24,
+   "column": "left",
+   "as_printed": "Chas. Babcock",
+   "addressee": "a person",
+   "tie": [
+    {
+     "tied_by": "image",
+     "claim": "chicago_democrat_1834_03_04#c033",
+     "as_printed_in_that_printing": "Chas. Babcock",
+     "extracted_as": "Chas. Babcock"
+    }
+   ],
+   "reaches": {
+    "kind": "minted",
+    "person": "person_chas_babcock",
+    "household": "hh_babcock_chas",
+    "card_name": "Chas. Babcock",
+    "by": "tools/mint_letter_list_residents.py"
+   }
+  },
+  {
+   "n": 25,
+   "column": "left",
+   "as_printed": "Aaron Bemis",
+   "addressee": "a person",
+   "tie": [
+    {
+     "tied_by": "image",
+     "claim": "chicago_democrat_1834_03_04#c033",
+     "as_printed_in_that_printing": "Aaron Bemis",
+     "extracted_as": "Aaron Bemis"
+    }
+   ],
+   "reaches": {
+    "kind": "refused",
+    "person": "person_aaron_bemis",
+    "reason": "surname already minted",
+    "by": "tools/mint_letter_list_residents.py"
+   }
+  },
+  {
+   "n": 26,
+   "column": "left",
+   "as_printed": "A. O. T. Breed",
+   "addressee": "a person",
+   "tie": [
+    {
+     "tied_by": "spelling",
+     "claim": "chicago_democrat_1834_01_28#c001",
+     "as_printed_in_that_printing": "4.0.7: Breed",
+     "extracted_as": "[?] Breed"
+    },
+    {
+     "tied_by": "image",
+     "claim": "chicago_democrat_1834_03_04#c026",
+     "as_printed_in_that_printing": "A.O.T. Breed",
+     "extracted_as": "A. O. T. Breed"
+    }
+   ],
+   "reaches": {
+    "kind": "held_already",
+    "person": "person_a_o_t_breed",
+    "resident": "breed_a_o_t",
+    "household": "hh_breed_a_o_t",
+    "card_name": "A O T Breed",
+    "action": "enrich",
+    "also_resolved_to": [
+     "person_breed"
+    ]
+   },
+   "name_differs": true
+  },
+  {
+   "n": 27,
+   "column": "left",
+   "as_printed": "James Burk",
+   "addressee": "a person",
+   "tie": [
+    {
+     "tied_by": "text",
+     "claim": "chicago_democrat_1834_01_28#c001",
+     "as_printed_in_that_printing": "james Burk",
+     "extracted_as": "James Burk"
+    }
+   ],
+   "reaches": {
+    "kind": "minted",
+    "person": "person_james_burk",
+    "household": "hh_burk_james",
+    "card_name": "James Burk",
+    "by": "tools/mint_letter_list_residents.py"
+   }
+  },
+  {
+   "n": 28,
+   "column": "left",
+   "as_printed": "T. R. Covell 2",
+   "addressee": "a person",
+   "tie": [
+    {
+     "tied_by": "text",
+     "claim": "chicago_democrat_1834_01_28#c001",
+     "as_printed_in_that_printing": "T, R. Covell 2",
+     "extracted_as": "T. R. Covell"
+    }
+   ],
+   "reaches": {
+    "kind": "refused",
+    "person": "person_t_r_covell",
+    "reason": "surname already minted",
+    "by": "tools/mint_letter_list_residents.py"
+   }
+  },
+  {
+   "n": 29,
+   "column": "left",
+   "as_printed": "Wm. P. Cleaveland",
+   "addressee": "a person",
+   "tie": [
+    {
+     "tied_by": "text",
+     "claim": "chicago_democrat_1834_01_28#c001",
+     "as_printed_in_that_printing": "Wm. P. Cloaveland",
+     "extracted_as": "Wm. P. Cleaveland"
+    }
+   ],
+   "reaches": {
+    "kind": "minted",
+    "person": "person_wm_p_cleaveland",
+    "household": "hh_cleaveland_wm_p",
+    "card_name": "Wm. P. Cleaveland",
+    "by": "tools/mint_letter_list_residents.py"
+   }
+  },
+  {
+   "n": 30,
+   "column": "left",
+   "as_printed": "Thomas Conger",
+   "addressee": "a person",
+   "tie": [
+    {
+     "tied_by": "image",
+     "claim": "chicago_democrat_1834_03_04#c026",
+     "as_printed_in_that_printing": "Ca Conger",
+     "extracted_as": "Thomas Conger"
+    }
+   ],
+   "reaches": {
+    "kind": "minted",
+    "person": "person_thomas_conger",
+    "household": "hh_conger_thomas",
+    "card_name": "Thomas Conger",
+    "by": "tools/mint_letter_list_residents.py"
+   }
+  },
+  {
+   "n": 31,
+   "column": "left",
+   "as_printed": "O. P. Catran",
+   "addressee": "a person",
+   "tie": [
+    {
+     "tied_by": "image",
+     "claim": "chicago_democrat_1834_03_04#c033",
+     "as_printed_in_that_printing": "O. P. Catran",
+     "extracted_as": "O. P. Catran"
+    }
+   ],
+   "reaches": {
+    "kind": "minted",
+    "person": "person_o_p_catran",
+    "household": "hh_catran_o_p",
+    "card_name": "O. P. Catran",
+    "by": "tools/mint_letter_list_residents.py"
+   }
+  },
+  {
+   "n": 32,
+   "column": "left",
+   "as_printed": "D. P. Clevinger",
+   "addressee": "a person",
+   "tie": [
+    {
+     "tied_by": "image",
+     "claim": "chicago_democrat_1834_03_04#c033",
+     "as_printed_in_that_printing": "D. P. Clevinger",
+     "extracted_as": "D. P. Clevinger"
+    }
+   ],
+   "reaches": {
+    "kind": "minted",
+    "person": "person_d_p_clevinger",
+    "household": "hh_clevinger_d_p",
+    "card_name": "D. P. Clevinger",
+    "by": "tools/mint_letter_list_residents.py"
+   }
+  },
+  {
+   "n": 33,
+   "column": "left",
+   "as_printed": "E. W. Center",
+   "addressee": "a person",
+   "tie": [
+    {
+     "tied_by": "image",
+     "claim": "chicago_democrat_1834_03_04#c033",
+     "as_printed_in_that_printing": "E. W. Center",
+     "extracted_as": "E. W. Center"
+    }
+   ],
+   "reaches": {
+    "kind": "minted",
+    "person": "person_e_w_conte",
+    "household": "hh_conte_e_w",
+    "card_name": "E. W. Conte",
+    "by": "tools/mint_letter_list_residents.py"
+   }
+  },
+  {
+   "n": 34,
+   "column": "left",
+   "as_printed": "Geo. H. Clark",
+   "addressee": "a person",
+   "tie": [
+    {
+     "tied_by": "text",
+     "claim": "chicago_democrat_1834_01_28#c001",
+     "as_printed_in_that_printing": "Geo. H. Clark",
+     "extracted_as": "Geo. H. Clark"
+    }
+   ],
+   "reaches": {
+    "kind": "refused",
+    "person": "person_geo_h_clark",
+    "reason": "the town already names a Clark",
+    "by": "tools/mint_letter_list_residents.py"
+   }
+  },
+  {
+   "n": 35,
+   "column": "left",
+   "as_printed": "Alfred Clarke",
+   "addressee": "a person",
+   "tie": [
+    {
+     "tied_by": "image",
+     "claim": "chicago_democrat_1834_03_04#c033",
+     "as_printed_in_that_printing": "Alfred Clarke",
+     "extracted_as": "Alfred Clarke"
+    }
+   ],
+   "reaches": {
+    "kind": "refused",
+    "person": "person_alfred_clarke",
+    "reason": "the town already names a Clarke",
+    "by": "tools/mint_letter_list_residents.py"
+   }
+  },
+  {
+   "n": 36,
+   "column": "left",
+   "as_printed": "Lamira & Laura Carrier",
+   "addressee": "one line, two people",
+   "tie": [
+    {
+     "tied_by": "image",
+     "claim": "chicago_democrat_1834_03_04#c026",
+     "as_printed_in_that_printing": "Lamira. Laura Carrier C.",
+     "extracted_as": "Lamira & Laura Carrier"
+    }
+   ],
+   "reaches": {
+    "kind": "refused",
+    "person": "person_lamira_laura_carrier",
+    "reason": "a firm, not a person",
+    "by": "tools/mint_letter_list_residents.py"
+   }
+  },
+  {
+   "n": 37,
+   "column": "left",
+   "as_printed": "J. P. Converse",
+   "addressee": "a person",
+   "tie": [
+    {
+     "tied_by": "text",
+     "claim": "chicago_democrat_1834_01_28#c001",
+     "as_printed_in_that_printing": "J.P. Converse",
+     "extracted_as": "J. P. Converse"
+    }
+   ],
+   "reaches": {
+    "kind": "minted",
+    "person": "person_j_p_converse",
+    "household": "hh_converse_j_p",
+    "card_name": "J. P. Converse",
+    "by": "tools/mint_letter_list_residents.py"
+   }
+  },
+  {
+   "n": 38,
+   "column": "left",
+   "as_printed": "Daniel B. Clevinger 4",
+   "addressee": "a person",
+   "tie": [
+    {
+     "tied_by": "image",
+     "claim": "chicago_democrat_1834_03_04#c033",
+     "as_printed_in_that_printing": "Daniel B. Clevinger 4",
+     "extracted_as": "Daniel B. Clevinger 4"
+    }
+   ],
+   "reaches": {
+    "kind": "minted",
+    "person": "person_daniel_b_clevinger_4",
+    "household": "hh_daniel_b_clevinger_4",
+    "card_name": "B. Clevinger [?] Daniel",
+    "by": "tools/mint_letter_list_residents.py"
+   }
+  },
+  {
+   "n": 39,
+   "column": "left",
+   "as_printed": "Henry B. Clarke 2",
+   "addressee": "a person",
+   "tie": [
+    {
+     "tied_by": "image",
+     "claim": "chicago_democrat_1834_03_04#c033",
+     "as_printed_in_that_printing": "Henry B. Clarke 2",
+     "extracted_as": "Henry B. Clarke 2"
+    }
+   ],
+   "reaches": {
+    "kind": "refused",
+    "person": "person_henry_b_clarke_2",
+    "reason": "surname already minted",
+    "by": "tools/mint_letter_list_residents.py"
+   }
+  },
+  {
+   "n": 40,
+   "column": "left",
+   "as_printed": "Alfred Churchill",
+   "addressee": "a person",
+   "tie": [
+    {
+     "tied_by": "image",
+     "claim": "chicago_democrat_1834_03_04#c033",
+     "as_printed_in_that_printing": "Alfred Churchill",
+     "extracted_as": "Alfred Churchill"
+    }
+   ],
+   "reaches": {
+    "kind": "minted",
+    "person": "person_alfred_churchill",
+    "household": "hh_churchill_alfred",
+    "card_name": "Alfred Churchill",
+    "by": "tools/mint_letter_list_residents.py"
+   }
+  },
+  {
+   "n": 41,
+   "column": "left",
+   "as_printed": "James Childress",
+   "addressee": "a person",
+   "tie": [
+    {
+     "tied_by": "spelling",
+     "claim": "chicago_democrat_1834_01_28#c001",
+     "as_printed_in_that_printing": "‘Childreso",
+     "extracted_as": "[uncertain: Childress]"
+    }
+   ],
+   "reaches": {
+    "kind": "refused",
+    "person": "person_uncertain_childress",
+    "reason": "garbled",
+    "by": "tools/mint_letter_list_residents.py"
+   },
+   "name_differs": true
+  },
+  {
+   "n": 42,
+   "column": "left",
+   "as_printed": "William Crissy",
+   "addressee": "a person",
+   "tie": [
+    {
+     "tied_by": "image",
+     "claim": "chicago_democrat_1834_03_04#c026",
+     "as_printed_in_that_printing": "Willism Crisey",
+     "extracted_as": "William Crissy"
+    }
+   ],
+   "reaches": {
+    "kind": "minted",
+    "person": "person_william_crissy",
+    "household": "hh_crissy_william",
+    "card_name": null,
+    "by": "tools/mint_letter_list_residents.py"
+   }
+  },
+  {
+   "n": 43,
+   "column": "left",
+   "as_printed": "Gustavus Clark",
+   "addressee": "a person",
+   "tie": [
+    {
+     "tied_by": "image",
+     "claim": "chicago_democrat_1834_03_04#c033",
+     "as_printed_in_that_printing": "Gustavus Clark",
+     "extracted_as": "Gustavus Clark"
+    }
+   ],
+   "reaches": {
+    "kind": "refused",
+    "person": "person_gustavus_clark",
+    "reason": "the town already names a Clark",
+    "by": "tools/mint_letter_list_residents.py"
+   }
+  },
+  {
+   "n": 44,
+   "column": "left",
+   "as_printed": "Benj. Chapman",
+   "addressee": "a person",
+   "tie": [
+    {
+     "tied_by": "image",
+     "claim": "chicago_democrat_1834_03_04#c033",
+     "as_printed_in_that_printing": "Benj. Chapman",
+     "extracted_as": "Benj. Chapman"
+    }
+   ],
+   "reaches": {
+    "kind": "refused",
+    "person": "person_benj_chapman",
+    "reason": "the town already names a Chapman",
+    "by": "tools/mint_letter_list_residents.py"
+   }
+  },
+  {
+   "n": 45,
+   "column": "left",
+   "as_printed": "Loring Delano",
+   "addressee": "a person",
+   "tie": [
+    {
+     "tied_by": "image",
+     "claim": "chicago_democrat_1834_03_04#c026",
+     "as_printed_in_that_printing": "& Delano",
+     "extracted_as": "Loring Delano"
+    }
+   ],
+   "reaches": {
+    "kind": "minted",
+    "person": "person_loring_delano",
+    "household": "hh_delano_loring",
+    "card_name": "Loring Delano",
+    "by": "tools/mint_letter_list_residents.py"
+   }
+  },
+  {
+   "n": 46,
+   "column": "left",
+   "as_printed": "Samuel Devoe",
+   "addressee": "a person",
+   "tie": [
+    {
+     "tied_by": "spelling",
+     "claim": "chicago_democrat_1834_01_28#c001",
+     "as_printed_in_that_printing": "Devoe",
+     "extracted_as": "[?] Devoe"
+    },
+    {
+     "tied_by": "image",
+     "claim": "chicago_democrat_1834_03_04#c026",
+     "as_printed_in_that_printing": "nel Devoe",
+     "extracted_as": "Samuel Devoe"
+    }
+   ],
+   "reaches": {
+    "kind": "minted",
+    "person": "person_samuel_devoe",
+    "household": "hh_devoe_samuel",
+    "card_name": "Samuel Devoe",
+    "by": "tools/mint_letter_list_residents.py",
+    "also_resolved_to": [
+     "person_devoe"
+    ]
+   },
+   "name_differs": true
+  },
+  {
+   "n": 47,
+   "column": "left",
+   "as_printed": "Noel Dagenet",
+   "addressee": "a person",
+   "tie": [
+    {
+     "tied_by": "spelling",
+     "claim": "chicago_democrat_1834_01_28#c001",
+     "as_printed_in_that_printing": "foal Dagenet",
+     "extracted_as": "[uncertain: Dagenet]"
+    }
+   ],
+   "reaches": {
+    "kind": "refused",
+    "person": "person_uncertain_dagenet",
+    "reason": "garbled",
+    "by": "tools/mint_letter_list_residents.py"
+   },
+   "name_differs": true
+  },
+  {
+   "n": 48,
+   "column": "left",
+   "as_printed": "E. Dimmick",
+   "addressee": "a person",
+   "tie": [
+    {
+     "tied_by": "text",
+     "claim": "chicago_democrat_1834_01_28#c001",
+     "as_printed_in_that_printing": "E. Dimmick",
+     "extracted_as": "E. Dimmick"
+    }
+   ],
+   "reaches": {
+    "kind": "minted",
+    "person": "person_e_dimmick",
+    "household": "hh_dimmick_e",
+    "card_name": "E. Dimmick",
+    "by": "tools/mint_letter_list_residents.py"
+   }
+  },
+  {
+   "n": 49,
+   "column": "left",
+   "as_printed": "David Dickson",
+   "addressee": "a person",
+   "tie": [
+    {
+     "tied_by": "text",
+     "claim": "chicago_democrat_1834_01_28#c001",
+     "as_printed_in_that_printing": "David Dickson.",
+     "extracted_as": "David Dickson"
+    }
+   ],
+   "reaches": {
+    "kind": "minted",
+    "person": "person_david_dickson",
+    "household": "hh_dickson_david",
+    "card_name": "David Dickson",
+    "by": "tools/mint_letter_list_residents.py"
+   }
+  },
+  {
+   "n": 50,
+   "column": "left",
+   "as_printed": "William Elliot 3",
+   "addressee": "a person",
+   "tie": [
+    {
+     "tied_by": "text",
+     "claim": "chicago_democrat_1834_01_28#c001",
+     "as_printed_in_that_printing": "‘William Elliot 3",
+     "extracted_as": "William Elliot"
+    },
+    {
+     "tied_by": "image",
+     "claim": "chicago_democrat_1834_03_04#c026",
+     "as_printed_in_that_printing": "Elliot 3",
+     "extracted_as": "William Elliot 3"
+    }
+   ],
+   "reaches": {
+    "kind": "minted",
+    "person": "person_william_elliot",
+    "household": "hh_elliot_william",
+    "card_name": "William Elliot",
+    "by": "tools/mint_letter_list_residents.py",
+    "also_resolved_to": [
+     "person_william_elliot_3"
+    ]
+   }
+  },
+  {
+   "n": 51,
+   "column": "left",
+   "as_printed": "G. W. Ewing",
+   "addressee": "a person",
+   "tie": [
+    {
+     "tied_by": "text",
+     "claim": "chicago_democrat_1834_01_28#c001",
+     "as_printed_in_that_printing": "G.W. Ewin",
+     "extracted_as": "G. W. Ewin[g]"
+    }
+   ],
+   "reaches": {
+    "kind": "refused",
+    "person": "person_g_w_ewin_g",
+    "reason": "garbled",
+    "by": "tools/mint_letter_list_residents.py"
+   },
+   "name_differs": true
+  },
+  {
+   "n": 52,
+   "column": "left",
+   "as_printed": "Samuel Eberiden",
+   "addressee": "a person",
+   "tie": [
+    {
+     "tied_by": "image",
+     "claim": "chicago_democrat_1834_03_04#c033",
+     "as_printed_in_that_printing": "Samuel Eberiden",
+     "extracted_as": "Samuel Eberiden"
+    }
+   ],
+   "reaches": {
+    "kind": "minted",
+    "person": "person_samuel_eberiden",
+    "household": "hh_eberiden_samuel",
+    "card_name": "Samuel Eberiden",
+    "by": "tools/mint_letter_list_residents.py"
+   }
+  },
+  {
+   "n": 53,
+   "column": "left",
+   "as_printed": "Dean Farren",
+   "addressee": "a person",
+   "tie": [
+    {
+     "tied_by": "text",
+     "claim": "chicago_democrat_1834_01_28#c001",
+     "as_printed_in_that_printing": "‘Dean Farren",
+     "extracted_as": "Dean Farren"
+    }
+   ],
+   "reaches": {
+    "kind": "minted",
+    "person": "person_dean_farren",
+    "household": "hh_farren_dean",
+    "card_name": "Dean Farren",
+    "by": "tools/mint_letter_list_residents.py"
+   }
+  },
+  {
+   "n": 54,
+   "column": "left",
+   "as_printed": "A. W. Flint 2",
+   "addressee": "a person",
+   "tie": [
+    {
+     "tied_by": "text",
+     "claim": "chicago_democrat_1834_01_28#c001",
+     "as_printed_in_that_printing": "‘A. W. Flint",
+     "extracted_as": "A. W. Flint"
+    }
+   ],
+   "reaches": {
+    "kind": "minted",
+    "person": "person_a_w_flint",
+    "household": "hh_flint_a_w",
+    "card_name": "A. W. Flint",
+    "by": "tools/mint_letter_list_residents.py"
+   }
+  },
+  {
+   "n": 55,
+   "column": "left",
+   "as_printed": "Wm. H. Frazer",
+   "addressee": "a person",
+   "tie": [
+    {
+     "tied_by": "spelling",
+     "claim": "chicago_democrat_1834_01_28#c001",
+     "as_printed_in_that_printing": "Wm. H. Fraser",
+     "extracted_as": "Wm. H. Fraser"
+    },
+    {
+     "tied_by": "image",
+     "claim": "chicago_democrat_1834_03_04#c026",
+     "as_printed_in_that_printing": "il. Frazer",
+     "extracted_as": "Wm. H. Frazer"
+    }
+   ],
+   "reaches": {
+    "kind": "minted",
+    "person": "person_wm_h_fraser",
+    "household": "hh_fraser_wm_h",
+    "card_name": "Wm. H. Frazer",
+    "by": "tools/mint_letter_list_residents.py",
+    "also_resolved_to": [
+     "person_wm_h_frazer"
+    ]
+   },
+   "name_differs": true
+  },
+  {
+   "n": 56,
+   "column": "left",
+   "as_printed": "H. K. Fay",
+   "addressee": "a person",
+   "tie": [
+    {
+     "tied_by": "image",
+     "claim": "chicago_democrat_1834_03_04#c033",
+     "as_printed_in_that_printing": "H. K. Fay",
+     "extracted_as": "H. K. Fay"
+    }
+   ],
+   "reaches": {
+    "kind": "minted",
+    "person": "person_h_k_fay",
+    "household": "hh_fay_h_k",
+    "card_name": "H. K. Fay",
+    "by": "tools/mint_letter_list_residents.py"
+   }
+  },
+  {
+   "n": 57,
+   "column": "left",
+   "as_printed": "Aaron Friend",
+   "addressee": "a person",
+   "tie": [
+    {
+     "tied_by": "image",
+     "claim": "chicago_democrat_1834_03_04#c033",
+     "as_printed_in_that_printing": "Aaron Friend",
+     "extracted_as": "Aaron Friend"
+    }
+   ],
+   "reaches": {
+    "kind": "refused",
+    "person": "person_aaron_friend",
+    "reason": "surname already minted",
+    "by": "tools/mint_letter_list_residents.py"
+   }
+  },
+  {
+   "n": 58,
+   "column": "left",
+   "as_printed": "David P. Frame",
+   "addressee": "a person",
+   "tie": [
+    {
+     "tied_by": "text",
+     "claim": "chicago_democrat_1834_01_28#c001",
+     "as_printed_in_that_printing": "David P.Frame",
+     "extracted_as": "David P. Frame"
+    }
+   ],
+   "reaches": {
+    "kind": "minted",
+    "person": "person_david_p_frame",
+    "household": "hh_frame_david_p",
+    "card_name": "David P. Frame",
+    "by": "tools/mint_letter_list_residents.py"
+   }
+  },
+  {
+   "n": 59,
+   "column": "left",
+   "as_printed": "Jane Forrister",
+   "addressee": "a person",
+   "tie": [
+    {
+     "tied_by": "image",
+     "claim": "chicago_democrat_1834_03_04#c033",
+     "as_printed_in_that_printing": "Jane Forrister",
+     "extracted_as": "Jane Forrister"
+    }
+   ],
+   "reaches": {
+    "kind": "minted",
+    "person": "person_jane_forster",
+    "household": "hh_forster_jane",
+    "card_name": "Jane Forster",
+    "by": "tools/mint_letter_list_residents.py"
+   }
+  },
+  {
+   "n": 60,
+   "column": "left",
+   "as_printed": "Caleb Foster",
+   "addressee": "a person",
+   "tie": [
+    {
+     "tied_by": "text",
+     "claim": "chicago_democrat_1834_01_28#c001",
+     "as_printed_in_that_printing": "Caleb Foster",
+     "extracted_as": "Caleb Foster"
+    },
+    {
+     "tied_by": "image",
+     "claim": "chicago_democrat_1834_03_04#c026",
+     "as_printed_in_that_printing": "Caleb Foster",
+     "extracted_as": "Caleb Foster"
+    }
+   ],
+   "reaches": {
+    "kind": "refused",
+    "person": "person_caleb_foster",
+    "reason": "the town already names a Foster",
+    "by": "tools/mint_letter_list_residents.py"
+   }
+  },
+  {
+   "n": 61,
+   "column": "left",
+   "as_printed": "Rob't. Fisher",
+   "addressee": "a person",
+   "tie": [
+    {
+     "tied_by": "text",
+     "claim": "chicago_democrat_1834_01_28#c001",
+     "as_printed_in_that_printing": "Rob't. Fisber",
+     "extracted_as": "Rob't. Fisher"
+    },
+    {
+     "tied_by": "image",
+     "claim": "chicago_democrat_1834_03_04#c026",
+     "as_printed_in_that_printing": "Rob't.",
+     "extracted_as": "Rob't. Fisher"
+    }
+   ],
+   "reaches": {
+    "kind": "refused",
+    "person": "person_rob_t_fisher",
+    "reason": "the town already names a Fisher",
+    "by": "tools/mint_letter_list_residents.py"
+   }
+  },
+  {
+   "n": 62,
+   "column": "left",
+   "as_printed": "P. Field",
+   "addressee": "a person",
+   "tie": [
+    {
+     "tied_by": "image",
+     "claim": "chicago_democrat_1834_03_04#c033",
+     "as_printed_in_that_printing": "P. Field",
+     "extracted_as": "P. Field"
+    }
+   ],
+   "reaches": {
+    "kind": "refused",
+    "person": "person_p_field",
+    "reason": "the town already names a Field",
+    "by": "tools/mint_letter_list_residents.py"
+   }
+  },
+  {
+   "n": 63,
+   "column": "left",
+   "as_printed": "Alva Fowler",
+   "addressee": "a person",
+   "tie": [
+    {
+     "tied_by": "text",
+     "claim": "chicago_democrat_1834_01_28#c001",
+     "as_printed_in_that_printing": "Alva Fowler",
+     "extracted_as": "Alva Fowler"
+    }
+   ],
+   "reaches": {
+    "kind": "refused",
+    "person": "person_alva_fowler",
+    "reason": "the town already names a Fowler",
+    "by": "tools/mint_letter_list_residents.py"
+   }
+  },
+  {
+   "n": 64,
+   "column": "left",
+   "as_printed": "Alburn Foster",
+   "addressee": "a person",
+   "tie": [
+    {
+     "tied_by": "text",
+     "claim": "chicago_democrat_1834_01_28#c001",
+     "as_printed_in_that_printing": "Alburn Foster",
+     "extracted_as": "Alburn Foster"
+    },
+    {
+     "tied_by": "image",
+     "claim": "chicago_democrat_1834_03_04#c026",
+     "as_printed_in_that_printing": "no Poeter",
+     "extracted_as": "Alburn Foster"
+    }
+   ],
+   "reaches": {
+    "kind": "held_already",
+    "person": "person_alburn_foster",
+    "resident": "foster_amos",
+    "household": "hh_foster_amos",
+    "card_name": "Amos Foster",
+    "action": "enrich"
+   }
+  },
+  {
+   "n": 65,
+   "column": "left",
+   "as_printed": "Jacob Fake",
+   "addressee": "a person",
+   "tie": [
+    {
+     "tied_by": "text",
+     "claim": "chicago_democrat_1834_01_28#c001",
+     "as_printed_in_that_printing": "Jacob Fake.",
+     "extracted_as": "Jacob Fake"
+    }
+   ],
+   "reaches": {
+    "kind": "minted",
+    "person": "person_jacob_fake",
+    "household": "hh_fake_jacob",
+    "card_name": "Jacob Fake",
+    "by": "tools/mint_letter_list_residents.py"
+   }
+  },
+  {
+   "n": 66,
+   "column": "left",
+   "as_printed": "Ebenezer Goodrich",
+   "addressee": "a person",
+   "tie": [
+    {
+     "tied_by": "image",
+     "claim": "chicago_democrat_1834_03_04#c033",
+     "as_printed_in_that_printing": "Ebenezer Goodrich",
+     "extracted_as": "Ebenezer Goodrich"
+    }
+   ],
+   "reaches": {
+    "kind": "held_already",
+    "person": "person_ebenezer_goodrich",
+    "resident": "goodrich_ebenezer",
+    "household": "hh_goodrich_ebenezer",
+    "card_name": "Ebenezer Goodrich",
+    "action": "enrich"
+   }
+  },
+  {
+   "n": 67,
+   "column": "left",
+   "as_printed": "Orinda Garyl",
+   "addressee": "a person",
+   "tie": [
+    {
+     "tied_by": "spelling",
+     "claim": "chicago_democrat_1834_01_28#c001",
+     "as_printed_in_that_printing": "Orinds Guryl",
+     "extracted_as": "[uncertain: Orinda Guryl]"
+    }
+   ],
+   "reaches": {
+    "kind": "refused",
+    "person": "person_uncertain_orinda_guryl",
+    "reason": "garbled",
+    "by": "tools/mint_letter_list_residents.py"
+   },
+   "name_differs": true
+  },
+  {
+   "n": 68,
+   "column": "left",
+   "as_printed": "dane Gray",
+   "addressee": "a person",
+   "tie": [
+    {
+     "tied_by": "image",
+     "claim": "chicago_democrat_1834_03_04#c033",
+     "as_printed_in_that_printing": "dane Gray",
+     "extracted_as": "dane Gray"
+    }
+   ],
+   "reaches": {
+    "kind": "minted",
+    "person": "person_dane_gray",
+    "household": "hh_gray_dane",
+    "card_name": "dane Gray",
+    "by": "tools/mint_letter_list_residents.py"
+   }
+  },
+  {
+   "n": 69,
+   "column": "left",
+   "as_printed": "William Gooding 2",
+   "addressee": "a person",
+   "tie": [
+    {
+     "tied_by": "image",
+     "claim": "chicago_democrat_1834_03_04#c033",
+     "as_printed_in_that_printing": "William Gooding 2",
+     "extracted_as": "William Gooding 2"
+    }
+   ],
+   "reaches": {
+    "kind": "refused",
+    "person": "person_william_gooding_2",
+    "reason": "surname already minted",
+    "by": "tools/mint_letter_list_residents.py"
+   }
+  },
+  {
+   "n": 70,
+   "column": "left",
+   "as_printed": "Jos. A. Gooding",
+   "addressee": "a person",
+   "tie": [
+    {
+     "tied_by": "image",
+     "claim": "chicago_democrat_1834_03_04#c033",
+     "as_printed_in_that_printing": "Jos. A. Gooding",
+     "extracted_as": "Jos. A. Gooding"
+    }
+   ],
+   "reaches": {
+    "kind": "refused",
+    "person": "person_jos_a_gooding",
+    "reason": "surname already minted",
+    "by": "tools/mint_letter_list_residents.py"
+   }
+  },
+  {
+   "n": 71,
+   "column": "left",
+   "as_printed": "David Groover",
+   "addressee": "a person",
+   "tie": [
+    {
+     "tied_by": "text",
+     "claim": "chicago_democrat_1834_01_28#c001",
+     "as_printed_in_that_printing": "David Groover",
+     "extracted_as": "David Groover"
+    }
+   ],
+   "reaches": {
+    "kind": "minted",
+    "person": "person_david_groover",
+    "household": "hh_groover_david",
+    "card_name": "David Groover",
+    "by": "tools/mint_letter_list_residents.py"
+   }
+  },
+  {
+   "n": 72,
+   "column": "left",
+   "as_printed": "Eben Griswold",
+   "addressee": "a person",
+   "tie": [
+    {
+     "tied_by": "text",
+     "claim": "chicago_democrat_1834_01_28#c001",
+     "as_printed_in_that_printing": "Eben Griswold",
+     "extracted_as": "Eben Griswold"
+    }
+   ],
+   "reaches": {
+    "kind": "minted",
+    "person": "person_eben_griswold",
+    "household": "hh_griswold_eben",
+    "card_name": "Eben Griswold",
+    "by": "tools/mint_letter_list_residents.py"
+   }
+  },
+  {
+   "n": 73,
+   "column": "left",
+   "as_printed": "Wm. B. Green",
+   "addressee": "a person",
+   "tie": [
+    {
+     "tied_by": "text",
+     "claim": "chicago_democrat_1834_01_28#c001",
+     "as_printed_in_that_printing": "‘Win. B. Green.",
+     "extracted_as": "Wm. B. Green"
+    }
+   ],
+   "reaches": {
+    "kind": "refused",
+    "person": "person_wm_b_green",
+    "reason": "the town already names a Green",
+    "by": "tools/mint_letter_list_residents.py"
+   }
+  },
+  {
+   "n": 74,
+   "column": "left",
+   "as_printed": "O. Grant",
+   "addressee": "a person",
+   "tie": [
+    {
+     "tied_by": "image",
+     "claim": "chicago_democrat_1834_03_04#c033",
+     "as_printed_in_that_printing": "O. Grant",
+     "extracted_as": "O. Grant"
+    }
+   ],
+   "reaches": {
+    "kind": "refused",
+    "person": "person_o_grant",
+    "reason": "the town already names a Grant",
+    "by": "tools/mint_letter_list_residents.py"
+   }
+  },
+  {
+   "n": 75,
+   "column": "left",
+   "as_printed": "J. P. Gobb",
+   "addressee": "a person",
+   "tie": [
+    {
+     "tied_by": "spelling",
+     "claim": "chicago_democrat_1834_01_28#c001",
+     "as_printed_in_that_printing": "J. P. Gobb.",
+     "extracted_as": "J. P. [uncertain: Cobb]"
+    }
+   ],
+   "reaches": {
+    "kind": "refused",
+    "person": "person_j_p_uncertain_cobb",
+    "reason": "garbled",
+    "by": "tools/mint_letter_list_residents.py"
+   },
+   "name_differs": true
+  },
+  {
+   "n": 76,
+   "column": "left",
+   "as_printed": "Pomeroy Goodrich",
+   "addressee": "a person",
+   "tie": [
+    {
+     "tied_by": "image",
+     "claim": "chicago_democrat_1834_03_04#c033",
+     "as_printed_in_that_printing": "Pomeroy Goodrich",
+     "extracted_as": "Pomeroy Goodrich"
+    }
+   ],
+   "reaches": {
+    "kind": "refused",
+    "person": "person_pomeroy_goodrich",
+    "reason": "the town already names a Goodrich",
+    "by": "tools/mint_letter_list_residents.py"
+   }
+  },
+  {
+   "n": 77,
+   "column": "left",
+   "as_printed": "Luther Hatch",
+   "addressee": "a person",
+   "tie": [
+    {
+     "tied_by": "image",
+     "claim": "chicago_democrat_1834_03_04#c033",
+     "as_printed_in_that_printing": "Luther Hatch",
+     "extracted_as": "Luther Hatch"
+    }
+   ],
+   "reaches": {
+    "kind": "minted",
+    "person": "person_luther_hatch",
+    "household": "hh_hatch_luther",
+    "card_name": "Luther Hatch",
+    "by": "tools/mint_letter_list_residents.py"
+   }
+  },
+  {
+   "n": 78,
+   "column": "left",
+   "as_printed": "Nathan Hopkins",
+   "addressee": "a person",
+   "tie": [
+    {
+     "tied_by": "text",
+     "claim": "chicago_democrat_1834_01_28#c001",
+     "as_printed_in_that_printing": "Nathan Hopkine",
+     "extracted_as": "Nathan Hopkins"
+    }
+   ],
+   "reaches": {
+    "kind": "refused",
+    "person": "person_nathan_hopkins",
+    "reason": "surname already minted",
+    "by": "tools/mint_letter_list_residents.py"
+   }
+  },
+  {
+   "n": 79,
+   "column": "left",
+   "as_printed": "Reuben Hart",
+   "addressee": "a person",
+   "tie": [
+    {
+     "tied_by": "image",
+     "claim": "chicago_democrat_1834_03_04#c033",
+     "as_printed_in_that_printing": "Reuben Hart",
+     "extracted_as": "Reuben Hart"
+    }
+   ],
+   "reaches": {
+    "kind": "refused",
+    "person": "person_reuben_hart",
+    "reason": "surname already minted",
+    "by": "tools/mint_letter_list_residents.py"
+   }
+  },
+  {
+   "n": 80,
+   "column": "left",
+   "as_printed": "Nathan Huchins",
+   "addressee": "a person",
+   "tie": [
+    {
+     "tied_by": "spelling",
+     "claim": "chicago_democrat_1834_01_28#c001",
+     "as_printed_in_that_printing": "Nathan Huchins",
+     "extracted_as": "Nathan Hutchins"
+    }
+   ],
+   "reaches": {
+    "kind": "minted",
+    "person": "person_nathan_hutchins",
+    "household": "hh_hutchins_nathan",
+    "card_name": "Nathan Hutchins",
+    "by": "tools/mint_letter_list_residents.py"
+   },
+   "name_differs": true
+  },
+  {
+   "n": 81,
+   "column": "left",
+   "as_printed": "Warren Hanks",
+   "addressee": "a person",
+   "tie": [
+    {
+     "tied_by": "spelling",
+     "claim": "chicago_democrat_1834_01_28#c001",
+     "as_printed_in_that_printing": "Warren Hanke",
+     "extracted_as": "[uncertain: Warren Hanke]"
+    }
+   ],
+   "reaches": {
+    "kind": "refused",
+    "person": "person_uncertain_warren_hanke",
+    "reason": "garbled",
+    "by": "tools/mint_letter_list_residents.py"
+   },
+   "name_differs": true
+  },
+  {
+   "n": 82,
+   "column": "left",
+   "as_printed": "Philip Howard",
+   "addressee": "a person",
+   "tie": [
+    {
+     "tied_by": "text",
+     "claim": "chicago_democrat_1834_01_28#c001",
+     "as_printed_in_that_printing": "Philip Howard",
+     "extracted_as": "Philip Howard"
+    }
+   ],
+   "reaches": {
+    "kind": "refused",
+    "person": "person_philip_howard",
+    "reason": "surname already minted",
+    "by": "tools/mint_letter_list_residents.py"
+   }
+  },
+  {
+   "n": 83,
+   "column": "left",
+   "as_printed": "Wooster Harrison [?]",
+   "addressee": "a person",
+   "tie": [
+    {
+     "tied_by": "image",
+     "claim": "chicago_democrat_1834_03_04#c033",
+     "as_printed_in_that_printing": "Wooster Harrison [?]",
+     "extracted_as": "Wooster Harrison [?]"
+    }
+   ],
+   "reaches": {
+    "kind": "refused",
+    "person": "person_wooster_harrison",
+    "reason": "garbled",
+    "by": "tools/mint_letter_list_residents.py"
+   }
+  },
+  {
+   "n": 84,
+   "column": "left",
+   "as_printed": "Benj. Harrison",
+   "addressee": "a person",
+   "tie": [
+    {
+     "tied_by": "image",
+     "claim": "chicago_democrat_1834_03_04#c033",
+     "as_printed_in_that_printing": "Benj. Harrison",
+     "extracted_as": "Benj. Harrison"
+    }
+   ],
+   "reaches": {
+    "kind": "refused",
+    "person": "person_benj_harrison",
+    "reason": "surname already minted",
+    "by": "tools/mint_letter_list_residents.py"
+   }
+  },
+  {
+   "n": 85,
+   "column": "left",
+   "as_printed": "J. P. Harkness",
+   "addressee": "a person",
+   "tie": [
+    {
+     "tied_by": "image",
+     "claim": "chicago_democrat_1834_03_04#c033",
+     "as_printed_in_that_printing": "J. P. Harkness",
+     "extracted_as": "J. P. Harkness"
+    }
+   ],
+   "reaches": {
+    "kind": "minted",
+    "person": "person_j_p_harkness",
+    "household": "hh_harkness_j_p",
+    "card_name": "J. P. Harkness",
+    "by": "tools/mint_letter_list_residents.py"
+   }
+  },
+  {
+   "n": 86,
+   "column": "right",
+   "as_printed": "Isaac Hays",
+   "addressee": "a person",
+   "tie": [
+    {
+     "tied_by": "image",
+     "claim": "chicago_democrat_1834_03_04#c033",
+     "as_printed_in_that_printing": "Isaac Hays",
+     "extracted_as": "Isaac Hays"
+    }
+   ],
+   "reaches": {
+    "kind": "minted",
+    "person": "person_isaac_hays",
+    "household": "hh_hays_isaac",
+    "card_name": "Isaac Hays",
+    "by": "tools/mint_letter_list_residents.py"
+   }
+  },
+  {
+   "n": 87,
+   "column": "right",
+   "as_printed": "Levi Hills 2",
+   "addressee": "a person",
+   "tie": [
+    {
+     "tied_by": "image",
+     "claim": "chicago_democrat_1834_03_04#c033",
+     "as_printed_in_that_printing": "Levi Hills 2",
+     "extracted_as": "Levi Hills 2"
+    }
+   ],
+   "reaches": {
+    "kind": "minted",
+    "person": "person_levi_hills_2",
+    "household": "hh_levi_hills_2",
+    "card_name": "Hills [?] Levi",
+    "by": "tools/mint_letter_list_residents.py"
+   }
+  },
+  {
+   "n": 88,
+   "column": "right",
+   "as_printed": "H. B. Hoffman",
+   "addressee": "a person",
+   "tie": [
+    {
+     "tied_by": "image",
+     "claim": "chicago_democrat_1834_03_04#c033",
+     "as_printed_in_that_printing": "H. B. Hoffman",
+     "extracted_as": "H. B. Hoffman"
+    }
+   ],
+   "reaches": {
+    "kind": "minted",
+    "person": "person_h_b_hoffman",
+    "household": "hh_hoffman_h_b",
+    "card_name": "H. B. Hoffman",
+    "by": "tools/mint_letter_list_residents.py"
+   }
+  },
+  {
+   "n": 89,
+   "column": "right",
+   "as_printed": "A. H. Howard",
+   "addressee": "a person",
+   "tie": [
+    {
+     "tied_by": "image",
+     "claim": "chicago_democrat_1834_03_04#c027",
+     "as_printed_in_that_printing": "HT. Howard",
+     "extracted_as": "A. H. Howard"
+    }
+   ],
+   "reaches": {
+    "kind": "refused",
+    "person": "person_a_h_howard",
+    "reason": "surname already minted",
+    "by": "tools/mint_letter_list_residents.py"
+   }
+  },
+  {
+   "n": 90,
+   "column": "right",
+   "as_printed": "D. S. Haight",
+   "addressee": "a person",
+   "tie": [
+    {
+     "tied_by": "image",
+     "claim": "chicago_democrat_1834_03_04#c027",
+     "as_printed_in_that_printing": "3, Haight",
+     "extracted_as": "D. S. Haight"
+    }
+   ],
+   "reaches": {
+    "kind": "minted",
+    "person": "person_d_s_haight",
+    "household": "hh_haight_d_s",
+    "card_name": null,
+    "by": "tools/mint_letter_list_residents.py"
+   }
+  },
+  {
+   "n": 91,
+   "column": "right",
+   "as_printed": "Edward Hill",
+   "addressee": "a person",
+   "tie": [
+    {
+     "tied_by": "image",
+     "claim": "chicago_democrat_1834_03_04#c027",
+     "as_printed_in_that_printing": "ward",
+     "extracted_as": "Edward Hill"
+    }
+   ],
+   "reaches": {
+    "kind": "refused",
+    "person": "person_edward_hill",
+    "reason": "surname already minted",
+    "by": "tools/mint_letter_list_residents.py"
+   }
+  },
+  {
+   "n": 92,
+   "column": "right",
+   "as_printed": "Geo. Johnson",
+   "addressee": "a person",
+   "tie": [
+    {
+     "tied_by": "image",
+     "claim": "chicago_democrat_1834_03_04#c027",
+     "as_printed_in_that_printing": "». Johnson",
+     "extracted_as": "Geo. Johnson"
+    }
+   ],
+   "reaches": {
+    "kind": "refused",
+    "person": "person_geo_johnson",
+    "reason": "the town already names a Johnson",
+    "by": "tools/mint_letter_list_residents.py"
+   }
+  },
+  {
+   "n": 93,
+   "column": "right",
+   "as_printed": "Isaac Killigoss",
+   "addressee": "a person",
+   "tie": [
+    {
+     "tied_by": "image",
+     "claim": "chicago_democrat_1834_03_04#c027",
+     "as_printed_in_that_printing": "c Killigoss",
+     "extracted_as": "Isaac Killigoss"
+    }
+   ],
+   "reaches": {
+    "kind": "minted",
+    "person": "person_isaac_killigoss",
+    "household": "hh_killigoss_isaac",
+    "card_name": null,
+    "by": "tools/mint_letter_list_residents.py"
+   }
+  },
+  {
+   "n": 94,
+   "column": "right",
+   "as_printed": "Ira O. Knapp",
+   "addressee": "a person",
+   "tie": [
+    {
+     "tied_by": "image",
+     "claim": "chicago_democrat_1834_03_04#c027",
+     "as_printed_in_that_printing": "QO. Knapp.",
+     "extracted_as": "Ira O. Knapp"
+    }
+   ],
+   "reaches": {
+    "kind": "refused",
+    "person": "person_ira_o_knapp",
+    "reason": "the town already names a Knapp",
+    "by": "tools/mint_letter_list_residents.py"
+   }
+  },
+  {
+   "n": 95,
+   "column": "right",
+   "as_printed": "J. H. Kinzie",
+   "addressee": "a person",
+   "tie": [
+    {
+     "tied_by": "image",
+     "claim": "chicago_democrat_1834_03_04#c027",
+     "as_printed_in_that_printing": "|. Kinzie",
+     "extracted_as": "J. H. Kinzie"
+    }
+   ],
+   "reaches": {
+    "kind": "held_already",
+    "person": "person_j_h_kinzie",
+    "resident": "kinzie_james",
+    "household": "hh_kinzie_james",
+    "card_name": "James Kinzie",
+    "action": "enrich"
+   }
+  },
+  {
+   "n": 96,
+   "column": "right",
+   "as_printed": "Lewis Kerchevel",
+   "addressee": "a person",
+   "tie": [
+    {
+     "tied_by": "spelling",
+     "claim": "chicago_democrat_1834_01_28#c001",
+     "as_printed_in_that_printing": "‘Lewis Kerchevel",
+     "extracted_as": "Lewis Kercheval"
+    },
+    {
+     "tied_by": "image",
+     "claim": "chicago_democrat_1834_03_04#c027",
+     "as_printed_in_that_printing": "Kerchevel",
+     "extracted_as": "Lewis Kerchevel"
+    }
+   ],
+   "reaches": {
+    "kind": "minted",
+    "person": "person_lewis_kerchevel",
+    "household": "hh_kerchevel_lewis",
+    "card_name": null,
+    "by": "tools/mint_letter_list_residents.py",
+    "also_resolved_to": [
+     "person_lewis_kercheval"
+    ]
+   },
+   "name_differs": true
+  },
+  {
+   "n": 97,
+   "column": "right",
+   "as_printed": "Lewis Lafton",
+   "addressee": "a person",
+   "tie": [
+    {
+     "tied_by": "text",
+     "claim": "chicago_democrat_1834_01_28#c001",
+     "as_printed_in_that_printing": "Lewis Lafton",
+     "extracted_as": "Lewis Lafton"
+    },
+    {
+     "tied_by": "image",
+     "claim": "chicago_democrat_1834_03_04#c027",
+     "as_printed_in_that_printing": "‘is Lafton",
+     "extracted_as": "Lewis Lafton"
+    }
+   ],
+   "reaches": {
+    "kind": "minted",
+    "person": "person_lewis_lafton",
+    "household": "hh_lafton_lewis",
+    "card_name": "Lewis Lafton",
+    "by": "tools/mint_letter_list_residents.py"
+   }
+  },
+  {
+   "n": 98,
+   "column": "right",
+   "as_printed": "Lewis Lake",
+   "addressee": "a person",
+   "tie": [
+    {
+     "tied_by": "text",
+     "claim": "chicago_democrat_1834_01_28#c001",
+     "as_printed_in_that_printing": "Lewis Lake",
+     "extracted_as": "Lewis Lake"
+    },
+    {
+     "tied_by": "image",
+     "claim": "chicago_democrat_1834_03_04#c027",
+     "as_printed_in_that_printing": "Lake",
+     "extracted_as": "Lewis Lake"
+    }
+   ],
+   "reaches": {
+    "kind": "minted",
+    "person": "person_lewis_lake",
+    "household": "hh_lake_lewis",
+    "card_name": "Lewis Lake",
+    "by": "tools/mint_letter_list_residents.py"
+   }
+  },
+  {
+   "n": 99,
+   "column": "right",
+   "as_printed": "J. W. Lewis 2",
+   "addressee": "a person",
+   "tie": [
+    {
+     "tied_by": "text",
+     "claim": "chicago_democrat_1834_01_28#c001",
+     "as_printed_in_that_printing": "J. Wi Lewis 2",
+     "extracted_as": "J. W. Lewis"
+    }
+   ],
+   "reaches": {
+    "kind": "refused",
+    "person": "person_j_w_lewis",
+    "reason": "the town already names a Lewis",
+    "by": "tools/mint_letter_list_residents.py"
+   }
+  },
+  {
+   "n": 100,
+   "column": "right",
+   "as_printed": "J. S. Lacey",
+   "addressee": "a person",
+   "tie": [
+    {
+     "tied_by": "image",
+     "claim": "chicago_democrat_1834_03_04#c033",
+     "as_printed_in_that_printing": "J. S. Lacey",
+     "extracted_as": "J. S. Lacey"
+    }
+   ],
+   "reaches": {
+    "kind": "minted",
+    "person": "person_j_s_lacey",
+    "household": "hh_lacey_j_s",
+    "card_name": "J. S. Lacey",
+    "by": "tools/mint_letter_list_residents.py"
+   }
+  },
+  {
+   "n": 101,
+   "column": "right",
+   "as_printed": "Jacob Loose",
+   "addressee": "a person",
+   "tie": [
+    {
+     "tied_by": "image",
+     "claim": "chicago_democrat_1834_03_04#c033",
+     "as_printed_in_that_printing": "Jacob Loose",
+     "extracted_as": "Jacob Loose"
+    }
+   ],
+   "reaches": {
+    "kind": "minted",
+    "person": "person_jacob_loose",
+    "household": "hh_loose_jacob",
+    "card_name": "Jacob Loose",
+    "by": "tools/mint_letter_list_residents.py"
+   }
+  },
+  {
+   "n": 102,
+   "column": "right",
+   "as_printed": "Miranda Miner 2",
+   "addressee": "a person",
+   "tie": [
+    {
+     "tied_by": "image",
+     "claim": "chicago_democrat_1834_03_04#c027",
+     "as_printed_in_that_printing": "nda Miner 2",
+     "extracted_as": "Miranda Miner 2"
+    }
+   ],
+   "reaches": {
+    "kind": "minted",
+    "person": "person_miranda_miner_2",
+    "household": "hh_miranda_miner_2",
+    "card_name": null,
+    "by": "tools/mint_letter_list_residents.py"
+   }
+  },
+  {
+   "n": 103,
+   "column": "right",
+   "as_printed": "A. M'Daniel",
+   "addressee": "a person",
+   "tie": [
+    {
+     "tied_by": "image",
+     "claim": "chicago_democrat_1834_03_04#c027",
+     "as_printed_in_that_printing": "1\" Daniel",
+     "extracted_as": "A. M'Daniel"
+    }
+   ],
+   "reaches": {
+    "kind": "minted",
+    "person": "person_a_m_daniel",
+    "household": "hh_mdaniel_a",
+    "card_name": null,
+    "by": "tools/mint_letter_list_residents.py"
+   }
+  },
+  {
+   "n": 104,
+   "column": "right",
+   "as_printed": "Chas. Miller",
+   "addressee": "a person",
+   "tie": [
+    {
+     "tied_by": "image",
+     "claim": "chicago_democrat_1834_03_04#c027",
+     "as_printed_in_that_printing": "s, Miller",
+     "extracted_as": "Chas. Miller"
+    }
+   ],
+   "reaches": {
+    "kind": "refused",
+    "person": "person_chas_miller",
+    "reason": "the town already names a Miller",
+    "by": "tools/mint_letter_list_residents.py"
+   }
+  },
+  {
+   "n": 105,
+   "column": "right",
+   "as_printed": "Mary Meriams",
+   "addressee": "a person",
+   "tie": [
+    {
+     "tied_by": "image",
+     "claim": "chicago_democrat_1834_03_04#c027",
+     "as_printed_in_that_printing": "y Meriams",
+     "extracted_as": "Mary Meriams"
+    }
+   ],
+   "reaches": {
+    "kind": "minted",
+    "person": "person_mary_meriams",
+    "household": "hh_meriams_mary",
+    "card_name": null,
+    "by": "tools/mint_letter_list_residents.py"
+   }
+  },
+  {
+   "n": 106,
+   "column": "right",
+   "as_printed": "James Mackel",
+   "addressee": "a person",
+   "tie": [
+    {
+     "tied_by": "image",
+     "claim": "chicago_democrat_1834_03_04#c027",
+     "as_printed_in_that_printing": "és Machel",
+     "extracted_as": "James Mackel"
+    }
+   ],
+   "reaches": {
+    "kind": "minted",
+    "person": "person_james_mackel",
+    "household": "hh_mackel_james",
+    "card_name": null,
+    "by": "tools/mint_letter_list_residents.py"
+   }
+  },
+  {
+   "n": 107,
+   "column": "right",
+   "as_printed": "Joseph Meeker",
+   "addressee": "a person",
+   "tie": [
+    {
+     "tied_by": "image",
+     "claim": "chicago_democrat_1834_03_04#c033",
+     "as_printed_in_that_printing": "Joseph Meeker",
+     "extracted_as": "Joseph Meeker"
+    }
+   ],
+   "reaches": {
+    "kind": "held_already",
+    "person": "person_joseph_meeker",
+    "resident": "meeker_joseph",
+    "household": "hh_meeker_joseph",
+    "card_name": "Joseph Meeker",
+    "action": "enrich"
+   }
+  },
+  {
+   "n": 108,
+   "column": "right",
+   "as_printed": "James Makio",
+   "addressee": "a person",
+   "tie": [
+    {
+     "tied_by": "image",
+     "claim": "chicago_democrat_1834_03_04#c033",
+     "as_printed_in_that_printing": "James Makio",
+     "extracted_as": "James Makio"
+    }
+   ],
+   "reaches": {
+    "kind": "minted",
+    "person": "person_james_makio",
+    "household": "hh_makio_james",
+    "card_name": "James Makio",
+    "by": "tools/mint_letter_list_residents.py"
+   }
+  },
+  {
+   "n": 109,
+   "column": "right",
+   "as_printed": "N. M'Carty",
+   "addressee": "a person",
+   "tie": [
+    {
+     "tied_by": "image",
+     "claim": "chicago_democrat_1834_03_04#c027",
+     "as_printed_in_that_printing": "M'Carty",
+     "extracted_as": "N. M'Carty"
+    }
+   ],
+   "reaches": {
+    "kind": "minted",
+    "person": "person_n_m_carty",
+    "household": "hh_mcarty_n",
+    "card_name": null,
+    "by": "tools/mint_letter_list_residents.py"
+   }
+  },
+  {
+   "n": 110,
+   "column": "right",
+   "as_printed": "Chester Marshall 2",
+   "addressee": "a person",
+   "tie": [
+    {
+     "tied_by": "image",
+     "claim": "chicago_democrat_1834_03_04#c027",
+     "as_printed_in_that_printing": "stor Marshall 2",
+     "extracted_as": "Chester Marshall 2"
+    }
+   ],
+   "reaches": {
+    "kind": "minted",
+    "person": "person_chester_marshall_2",
+    "household": "hh_chester_marshall_2",
+    "card_name": null,
+    "by": "tools/mint_letter_list_residents.py"
+   }
+  },
+  {
+   "n": 111,
+   "column": "right",
+   "as_printed": "John Monreou",
+   "addressee": "a person",
+   "tie": [
+    {
+     "tied_by": "image",
+     "claim": "chicago_democrat_1834_03_04#c027",
+     "as_printed_in_that_printing": "| Monreou",
+     "extracted_as": "John Monreou"
+    }
+   ],
+   "reaches": {
+    "kind": "minted",
+    "person": "person_john_monreou",
+    "household": "hh_monreou_john",
+    "card_name": null,
+    "by": "tools/mint_letter_list_residents.py"
+   }
+  },
+  {
+   "n": 112,
+   "column": "right",
+   "as_printed": "F. T. Miner",
+   "addressee": "a person",
+   "tie": [
+    {
+     "tied_by": "image",
+     "claim": "chicago_democrat_1834_03_04#c027",
+     "as_printed_in_that_printing": "'. Miner",
+     "extracted_as": "F. T. Miner"
+    }
+   ],
+   "reaches": {
+    "kind": "refused",
+    "person": "person_f_t_miner",
+    "reason": "surname already minted",
+    "by": "tools/mint_letter_list_residents.py"
+   }
+  },
+  {
+   "n": 113,
+   "column": "right",
+   "as_printed": "F. B. Northrop",
+   "addressee": "a person",
+   "tie": [
+    {
+     "tied_by": "image",
+     "claim": "chicago_democrat_1834_03_04#c033",
+     "as_printed_in_that_printing": "F. B. Northrop",
+     "extracted_as": "F. B. Northrop"
+    }
+   ],
+   "reaches": {
+    "kind": "refused",
+    "person": "person_f_b_northrop",
+    "reason": "surname already minted",
+    "by": "tools/mint_letter_list_residents.py"
+   }
+  },
+  {
+   "n": 114,
+   "column": "right",
+   "as_printed": "J. V. Natta",
+   "addressee": "a person",
+   "tie": [
+    {
+     "tied_by": "image",
+     "claim": "chicago_democrat_1834_03_04#c027",
+     "as_printed_in_that_printing": "Nats",
+     "extracted_as": "J. V. Natta"
+    }
+   ],
+   "reaches": {
+    "kind": "minted",
+    "person": "person_j_v_natta",
+    "household": "hh_natta_j_v",
+    "card_name": null,
+    "by": "tools/mint_letter_list_residents.py"
+   }
+  },
+  {
+   "n": 115,
+   "column": "right",
+   "as_printed": "Lauretta Plympton 2",
+   "addressee": "a person",
+   "tie": [
+    {
+     "tied_by": "image",
+     "claim": "chicago_democrat_1834_03_04#c033",
+     "as_printed_in_that_printing": "Lauretta Plympton 2",
+     "extracted_as": "Lauretta Plympton 2"
+    }
+   ],
+   "reaches": {
+    "kind": "minted",
+    "person": "person_lauretta_plympton_2",
+    "household": "hh_lauretta_plympton_2",
+    "card_name": "Plympton [?] Lauretta",
+    "by": "tools/mint_letter_list_residents.py"
+   }
+  },
+  {
+   "n": 116,
+   "column": "right",
+   "as_printed": "T. E. Parsons 2",
+   "addressee": "a person",
+   "tie": [
+    {
+     "tied_by": "image",
+     "claim": "chicago_democrat_1834_03_04#c033",
+     "as_printed_in_that_printing": "T. E. Parsons 2",
+     "extracted_as": "T. E. Parsons 2"
+    }
+   ],
+   "reaches": {
+    "kind": "refused",
+    "person": "person_t_e_parsons_2",
+    "reason": "the town already names a Parsons",
+    "by": "tools/mint_letter_list_residents.py"
+   }
+  },
+  {
+   "n": 117,
+   "column": "right",
+   "as_printed": "Julius Perrin 2",
+   "addressee": "a person",
+   "tie": [
+    {
+     "tied_by": "image",
+     "claim": "chicago_democrat_1834_03_04#c027",
+     "as_printed_in_that_printing": "is Pestin 2",
+     "extracted_as": "Julius Perrin 2"
+    }
+   ],
+   "reaches": {
+    "kind": "minted",
+    "person": "person_julius_perrin_2",
+    "household": "hh_julius_perrin_2",
+    "card_name": null,
+    "by": "tools/mint_letter_list_residents.py"
+   }
+  },
+  {
+   "n": 118,
+   "column": "right",
+   "as_printed": "Joshua Pruvis",
+   "addressee": "a person",
+   "tie": [
+    {
+     "tied_by": "spelling",
+     "claim": "chicago_democrat_1834_01_28#c001",
+     "as_printed_in_that_printing": "Joshua Provis",
+     "extracted_as": "Joshua Provis"
+    },
+    {
+     "tied_by": "image",
+     "claim": "chicago_democrat_1834_03_04#c027",
+     "as_printed_in_that_printing": "ua Pruvis",
+     "extracted_as": "Joshua Pruvis"
+    }
+   ],
+   "reaches": {
+    "kind": "minted",
+    "person": "person_joshua_provis",
+    "household": "hh_provis_joshua",
+    "card_name": "Joshua Pruvis",
+    "by": "tools/mint_letter_list_residents.py",
+    "also_resolved_to": [
+     "person_joshua_pruvis"
+    ]
+   },
+   "name_differs": true
+  },
+  {
+   "n": 119,
+   "column": "right",
+   "as_printed": "S. F. Plumer",
+   "addressee": "a person",
+   "tie": [
+    {
+     "tied_by": "text",
+     "claim": "chicago_democrat_1834_01_28#c001",
+     "as_printed_in_that_printing": "8. F. Plumer",
+     "extracted_as": "S. F. Plumer"
+    },
+    {
+     "tied_by": "image",
+     "claim": "chicago_democrat_1834_03_04#c027",
+     "as_printed_in_that_printing": "Plumer",
+     "extracted_as": "S. F. Plumer"
+    }
+   ],
+   "reaches": {
+    "kind": "minted",
+    "person": "person_s_f_plumer",
+    "household": "hh_plumer_s_f",
+    "card_name": null,
+    "by": "tools/mint_letter_list_residents.py"
+   }
+  },
+  {
+   "n": 120,
+   "column": "right",
+   "as_printed": "Green Poel",
+   "addressee": "a person",
+   "tie": [
+    {
+     "tied_by": "image",
+     "claim": "chicago_democrat_1834_03_04#c027",
+     "as_printed_in_that_printing": "in Poel",
+     "extracted_as": "Green Poel"
+    }
+   ],
+   "reaches": {
+    "kind": "minted",
+    "person": "person_green_poel",
+    "household": "hh_poel_green",
+    "card_name": null,
+    "by": "tools/mint_letter_list_residents.py"
+   }
+  },
+  {
+   "n": 121,
+   "column": "right",
+   "as_printed": "C. H. Pease",
+   "addressee": "a person",
+   "tie": [
+    {
+     "tied_by": "image",
+     "claim": "chicago_democrat_1834_03_04#c027",
+     "as_printed_in_that_printing": "1. Pease",
+     "extracted_as": "C. H. Pease"
+    }
+   ],
+   "reaches": {
+    "kind": "minted",
+    "person": "person_c_h_pease",
+    "household": "hh_pease_c_h",
+    "card_name": null,
+    "by": "tools/mint_letter_list_residents.py"
+   }
+  },
+  {
+   "n": 122,
+   "column": "right",
+   "as_printed": "Noah Phelps",
+   "addressee": "a person",
+   "tie": [
+    {
+     "tied_by": "image",
+     "claim": "chicago_democrat_1834_03_04#c027",
+     "as_printed_in_that_printing": "1 Phelps",
+     "extracted_as": "Noah Phelps"
+    }
+   ],
+   "reaches": {
+    "kind": "refused",
+    "person": "person_noah_phelps",
+    "reason": "surname already minted",
+    "by": "tools/mint_letter_list_residents.py"
+   }
+  },
+  {
+   "n": 123,
+   "column": "right",
+   "as_printed": "Rob't. Robinson",
+   "addressee": "a person",
+   "tie": [
+    {
+     "tied_by": "image",
+     "claim": "chicago_democrat_1834_03_04#c033",
+     "as_printed_in_that_printing": "Rob't. Robinson",
+     "extracted_as": "Rob't. Robinson"
+    }
+   ],
+   "reaches": {
+    "kind": "refused",
+    "person": "person_rob_t_robinson",
+    "reason": "the town already names a Robinson",
+    "by": "tools/mint_letter_list_residents.py"
+   }
+  },
+  {
+   "n": 124,
+   "column": "right",
+   "as_printed": "Thos. H. Richey",
+   "addressee": "a person",
+   "tie": [
+    {
+     "tied_by": "image",
+     "claim": "chicago_democrat_1834_03_04#c027",
+     "as_printed_in_that_printing": ". H. Riche:",
+     "extracted_as": "Thos. H. Richey"
+    }
+   ],
+   "reaches": {
+    "kind": "minted",
+    "person": "person_thos_h_richey",
+    "household": "hh_richey_thos_h",
+    "card_name": null,
+    "by": "tools/mint_letter_list_residents.py"
+   }
+  },
+  {
+   "n": 125,
+   "column": "right",
+   "as_printed": "Mr. Roult 2",
+   "addressee": "a person",
+   "tie": [
+    {
+     "tied_by": "image",
+     "claim": "chicago_democrat_1834_03_04#c027",
+     "as_printed_in_that_printing": "Rouit 2",
+     "extracted_as": "Mr. Roult 2"
+    }
+   ],
+   "reaches": {
+    "kind": "minted",
+    "person": "person_mr_roult_2",
+    "household": "hh_roult_2",
+    "card_name": null,
+    "by": "tools/mint_letter_list_residents.py"
+   }
+  },
+  {
+   "n": 126,
+   "column": "right",
+   "as_printed": "Salmon Rutherford 3",
+   "addressee": "a person",
+   "tie": [
+    {
+     "tied_by": "text",
+     "claim": "chicago_democrat_1834_01_28#c001",
+     "as_printed_in_that_printing": "‘Salmon Rutherford",
+     "extracted_as": "Salmon Rutherford"
+    },
+    {
+     "tied_by": "image",
+     "claim": "chicago_democrat_1834_03_04#c027",
+     "as_printed_in_that_printing": "on Rutherford 3",
+     "extracted_as": "Salmon Rutherford 3"
+    }
+   ],
+   "reaches": {
+    "kind": "minted",
+    "person": "person_salmon_rutherford",
+    "household": "hh_rutherford_salmon",
+    "card_name": "Salmon Rutherford",
+    "by": "tools/mint_letter_list_residents.py",
+    "also_resolved_to": [
+     "person_salmon_rutherford_3"
+    ]
+   }
+  },
+  {
+   "n": 127,
+   "column": "right",
+   "as_printed": "James H. Rinhart",
+   "addressee": "a person",
+   "tie": [
+    {
+     "tied_by": "text",
+     "claim": "chicago_democrat_1834_01_28#c001",
+     "as_printed_in_that_printing": "James H. Rinhart",
+     "extracted_as": "James H. Rinhart"
+    }
+   ],
+   "reaches": {
+    "kind": "minted",
+    "person": "person_james_h_rinhart",
+    "household": "hh_rinhart_james_h",
+    "card_name": "James H. Rinhart",
+    "by": "tools/mint_letter_list_residents.py"
+   }
+  },
+  {
+   "n": 128,
+   "column": "right",
+   "as_printed": "S. W. Smith",
+   "addressee": "a person",
+   "tie": [
+    {
+     "tied_by": "text",
+     "claim": "chicago_democrat_1834_01_28#c001",
+     "as_printed_in_that_printing": "8.W. Smith",
+     "extracted_as": "S. W. Smith"
+    }
+   ],
+   "reaches": {
+    "kind": "refused",
+    "person": "person_s_w_smith",
+    "reason": "the town already names a Smith",
+    "by": "tools/mint_letter_list_residents.py"
+   }
+  },
+  {
+   "n": 129,
+   "column": "right",
+   "as_printed": "Isaac Scarritt",
+   "addressee": "a person",
+   "tie": [
+    {
+     "tied_by": "text",
+     "claim": "chicago_democrat_1834_01_28#c001",
+     "as_printed_in_that_printing": "Teanc Scarritt",
+     "extracted_as": "Isaac Scarritt"
+    }
+   ],
+   "reaches": {
+    "kind": "minted",
+    "person": "person_isaac_scarritt",
+    "household": "hh_scarritt_isaac",
+    "card_name": null,
+    "by": "tools/mint_letter_list_residents.py"
+   }
+  },
+  {
+   "n": 130,
+   "column": "right",
+   "as_printed": "S. Scott",
+   "addressee": "a person",
+   "tie": [
+    {
+     "tied_by": "text",
+     "claim": "chicago_democrat_1834_01_28#c001",
+     "as_printed_in_that_printing": "§. Scott",
+     "extracted_as": "S. Scott"
+    }
+   ],
+   "reaches": {
+    "kind": "refused",
+    "person": "person_s_scott",
+    "reason": "surname already minted",
+    "by": "tools/mint_letter_list_residents.py"
+   }
+  },
+  {
+   "n": 131,
+   "column": "right",
+   "as_printed": "Axtel & Steele",
+   "addressee": "a firm, not a person",
+   "tie": [
+    {
+     "tied_by": "image",
+     "claim": "chicago_democrat_1834_03_04#c033",
+     "as_printed_in_that_printing": "Axtel & Steele",
+     "extracted_as": "Axtel & Steele"
+    }
+   ],
+   "reaches": {
+    "kind": "held_already",
+    "person": "person_axtel_steele",
+    "resident": "steele_ashbel",
+    "household": "hh_steele_ashbel",
+    "card_name": "Ashbel Steele",
+    "action": "enrich"
+   }
+  },
+  {
+   "n": 132,
+   "column": "right",
+   "as_printed": "D. Sprague",
+   "addressee": "a person",
+   "tie": [
+    {
+     "tied_by": "spelling",
+     "claim": "chicago_democrat_1834_01_28#c001",
+     "as_printed_in_that_printing": "iprague",
+     "extracted_as": "[?] Sprague"
+    }
+   ],
+   "reaches": {
+    "kind": "refused",
+    "person": "person_sprague",
+    "reason": "garbled",
+    "by": "tools/mint_letter_list_residents.py"
+   },
+   "name_differs": true
+  },
+  {
+   "n": 133,
+   "column": "right",
+   "as_printed": "B. P. Stafford",
+   "addressee": "a person",
+   "tie": [
+    {
+     "tied_by": "image",
+     "claim": "chicago_democrat_1834_03_04#c033",
+     "as_printed_in_that_printing": "B. P. Stafford",
+     "extracted_as": "B. P. Stafford"
+    }
+   ],
+   "reaches": {
+    "kind": "minted",
+    "person": "person_b_p_stafford",
+    "household": "hh_stafford_b_p",
+    "card_name": "B. P. Stafford",
+    "by": "tools/mint_letter_list_residents.py"
+   }
+  },
+  {
+   "n": 134,
+   "column": "right",
+   "as_printed": "Chester Smith",
+   "addressee": "a person",
+   "tie": [
+    {
+     "tied_by": "text",
+     "claim": "chicago_democrat_1834_01_28#c001",
+     "as_printed_in_that_printing": "‘Chester Smith",
+     "extracted_as": "Chester Smith"
+    }
+   ],
+   "reaches": {
+    "kind": "refused",
+    "person": "person_chester_smith",
+    "reason": "the town already names a Smith",
+    "by": "tools/mint_letter_list_residents.py"
+   }
+  },
+  {
+   "n": 135,
+   "column": "right",
+   "as_printed": "H. C. Smith",
+   "addressee": "a person",
+   "tie": [
+    {
+     "tied_by": "text",
+     "claim": "chicago_democrat_1834_01_28#c001",
+     "as_printed_in_that_printing": "H.C. Sith",
+     "extracted_as": "H. C. Smith"
+    }
+   ],
+   "reaches": {
+    "kind": "refused",
+    "person": "person_h_c_smith",
+    "reason": "the town already names a Smith",
+    "by": "tools/mint_letter_list_residents.py"
+   }
+  },
+  {
+   "n": 136,
+   "column": "right",
+   "as_printed": "H. S. Steele 2",
+   "addressee": "a person",
+   "tie": [
+    {
+     "tied_by": "image",
+     "claim": "chicago_democrat_1834_03_04#c033",
+     "as_printed_in_that_printing": "H. S. Steele 2",
+     "extracted_as": "H. S. Steele 2"
+    }
+   ],
+   "reaches": {
+    "kind": "refused",
+    "person": "person_h_s_steele_2",
+    "reason": "the town already names a Steele",
+    "by": "tools/mint_letter_list_residents.py"
+   }
+  },
+  {
+   "n": 137,
+   "column": "right",
+   "as_printed": "James Steward",
+   "addressee": "a person",
+   "tie": [
+    {
+     "tied_by": "text",
+     "claim": "chicago_democrat_1834_01_28#c001",
+     "as_printed_in_that_printing": "Jowes Steward",
+     "extracted_as": "[uncertain: James] Steward"
+    },
+    {
+     "tied_by": "image",
+     "claim": "chicago_democrat_1834_03_04#c027",
+     "as_printed_in_that_printing": "a Bteward",
+     "extracted_as": "James Steward"
+    }
+   ],
+   "reaches": {
+    "kind": "refused",
+    "person": "person_uncertain_james_steward",
+    "reason": "garbled",
+    "by": "tools/mint_letter_list_residents.py",
+    "also_resolved_to": [
+     "person_james_steward"
+    ]
+   },
+   "name_differs": true
+  },
+  {
+   "n": 138,
+   "column": "right",
+   "as_printed": "S. C. Stimson 2",
+   "addressee": "a person",
+   "tie": [
+    {
+     "tied_by": "text",
+     "claim": "chicago_democrat_1834_01_28#c001",
+     "as_printed_in_that_printing": "8. C. Stimaon 2",
+     "extracted_as": "S. C. Stimson"
+    }
+   ],
+   "reaches": {
+    "kind": "minted",
+    "person": "person_s_c_stimson",
+    "household": "hh_stimson_s_c",
+    "card_name": "S. C. Stimson",
+    "by": "tools/mint_letter_list_residents.py"
+   }
+  },
+  {
+   "n": 139,
+   "column": "right",
+   "as_printed": "Palmer Stearns 2",
+   "addressee": "a person",
+   "tie": [
+    {
+     "tied_by": "text",
+     "claim": "chicago_democrat_1834_01_28#c001",
+     "as_printed_in_that_printing": "Palmer. Stearns",
+     "extracted_as": "Palmer Stearns"
+    }
+   ],
+   "reaches": {
+    "kind": "minted",
+    "person": "person_palmer_stearns",
+    "household": "hh_stearns_palmer",
+    "card_name": "Palmer Stearns",
+    "by": "tools/mint_letter_list_residents.py"
+   }
+  },
+  {
+   "n": 140,
+   "column": "right",
+   "as_printed": "David Sprague",
+   "addressee": "a person",
+   "tie": [
+    {
+     "tied_by": "text",
+     "claim": "chicago_democrat_1834_01_28#c001",
+     "as_printed_in_that_printing": "David Sprague",
+     "extracted_as": "David Sprague"
+    },
+    {
+     "tied_by": "image",
+     "claim": "chicago_democrat_1834_03_04#c027",
+     "as_printed_in_that_printing": "d Sprague",
+     "extracted_as": "David Sprague"
+    }
+   ],
+   "reaches": {
+    "kind": "refused",
+    "person": "person_david_sprague",
+    "reason": "surname already minted",
+    "by": "tools/mint_letter_list_residents.py"
+   }
+  },
+  {
+   "n": 141,
+   "column": "right",
+   "as_printed": "S. I. Scott",
+   "addressee": "a person",
+   "tie": [
+    {
+     "tied_by": "image",
+     "claim": "chicago_democrat_1834_03_04#c027",
+     "as_printed_in_that_printing": "Scott",
+     "extracted_as": "S. I. Scott"
+    }
+   ],
+   "reaches": {
+    "kind": "refused",
+    "person": "person_s_i_scott",
+    "reason": "surname already minted",
+    "by": "tools/mint_letter_list_residents.py"
+   }
+  },
+  {
+   "n": 142,
+   "column": "right",
+   "as_printed": "Ralph Stowell",
+   "addressee": "a person",
+   "tie": [
+    {
+     "tied_by": "image",
+     "claim": "chicago_democrat_1834_03_04#c027",
+     "as_printed_in_that_printing": "h Stowell",
+     "extracted_as": "Ralph Stowell"
+    }
+   ],
+   "reaches": {
+    "kind": "minted",
+    "person": "person_ralph_stowell",
+    "household": "hh_stowell_ralph",
+    "card_name": "Ralph Stowell",
+    "by": "tools/mint_letter_list_residents.py"
+   }
+  },
+  {
+   "n": 143,
+   "column": "right",
+   "as_printed": "Samuel Stout",
+   "addressee": "a person",
+   "tie": [
+    {
+     "tied_by": "text",
+     "claim": "chicago_democrat_1834_01_28#c001",
+     "as_printed_in_that_printing": "Banus! Stout",
+     "extracted_as": "[uncertain: Samuel] Stout"
+    },
+    {
+     "tied_by": "image",
+     "claim": "chicago_democrat_1834_03_04#c027",
+     "as_printed_in_that_printing": "uel Stout",
+     "extracted_as": "Samuel Stout"
+    }
+   ],
+   "reaches": {
+    "kind": "minted",
+    "person": "person_samuel_stout",
+    "household": "hh_stout_samuel",
+    "card_name": "Samuel Stout",
+    "by": "tools/mint_letter_list_residents.py",
+    "also_resolved_to": [
+     "person_uncertain_samuel_stout"
+    ]
+   },
+   "name_differs": true
+  },
+  {
+   "n": 144,
+   "column": "right",
+   "as_printed": "J. F. Schermerhorn",
+   "addressee": "a person",
+   "tie": [
+    {
+     "tied_by": "image",
+     "claim": "chicago_democrat_1834_03_04#c027",
+     "as_printed_in_that_printing": "Schermerhorn",
+     "extracted_as": "J. F. Schermerhorn"
+    }
+   ],
+   "reaches": {
+    "kind": "refused",
+    "person": "person_j_f_schermerhorn",
+    "reason": "surname already minted",
+    "by": "tools/mint_letter_list_residents.py"
+   }
+  },
+  {
+   "n": 145,
+   "column": "right",
+   "as_printed": "Wm. Shier",
+   "addressee": "a person",
+   "tie": [
+    {
+     "tied_by": "text",
+     "claim": "chicago_democrat_1834_01_28#c001",
+     "as_printed_in_that_printing": "‘Wm. Shier",
+     "extracted_as": "Wm. Shier"
+    },
+    {
+     "tied_by": "image",
+     "claim": "chicago_democrat_1834_03_04#c027",
+     "as_printed_in_that_printing": ", Shier",
+     "extracted_as": "Wm. Shier"
+    }
+   ],
+   "reaches": {
+    "kind": "minted",
+    "person": "person_wm_shier",
+    "household": "hh_shier_wm",
+    "card_name": "Wm. Shier",
+    "by": "tools/mint_letter_list_residents.py"
+   }
+  },
+  {
+   "n": 146,
+   "column": "right",
+   "as_printed": "John Sewell",
+   "addressee": "a person",
+   "tie": [
+    {
+     "tied_by": "text",
+     "claim": "chicago_democrat_1834_01_28#c001",
+     "as_printed_in_that_printing": "John Sewell",
+     "extracted_as": "John Sewell"
+    },
+    {
+     "tied_by": "image",
+     "claim": "chicago_democrat_1834_03_04#c027",
+     "as_printed_in_that_printing": "Sewell",
+     "extracted_as": "John Sewell"
+    }
+   ],
+   "reaches": {
+    "kind": "refused",
+    "person": "person_john_sewel_l",
+    "reason": "garbled",
+    "by": "tools/mint_letter_list_residents.py"
+   }
+  },
+  {
+   "n": 147,
+   "column": "right",
+   "as_printed": "Stephen Sherwood",
+   "addressee": "a person",
+   "tie": [
+    {
+     "tied_by": "text",
+     "claim": "chicago_democrat_1834_01_28#c001",
+     "as_printed_in_that_printing": "Btephen Sherwood",
+     "extracted_as": "Stephen Sherwood"
+    },
+    {
+     "tied_by": "image",
+     "claim": "chicago_democrat_1834_03_04#c027",
+     "as_printed_in_that_printing": "hen Sherwood",
+     "extracted_as": "Stephen Sherwood"
+    }
+   ],
+   "reaches": {
+    "kind": "refused",
+    "person": "person_stephen_sherwood",
+    "reason": "surname already minted",
+    "by": "tools/mint_letter_list_residents.py"
+   }
+  },
+  {
+   "n": 148,
+   "column": "right",
+   "as_printed": "H. C. Shearman",
+   "addressee": "a person",
+   "tie": [
+    {
+     "tied_by": "text",
+     "claim": "chicago_democrat_1834_01_28#c001",
+     "as_printed_in_that_printing": "H.C. Shearman",
+     "extracted_as": "H. C. Shearman"
+    },
+    {
+     "tied_by": "image",
+     "claim": "chicago_democrat_1834_03_04#c027",
+     "as_printed_in_that_printing": ". Shearman",
+     "extracted_as": "H. C. Shearman"
+    }
+   ],
+   "reaches": {
+    "kind": "minted",
+    "person": "person_h_c_shearman",
+    "household": "hh_shearman_h_c",
+    "card_name": "H. C. Shearman",
+    "by": "tools/mint_letter_list_residents.py"
+   }
+  },
+  {
+   "n": 149,
+   "column": "right",
+   "as_printed": "Alden Tuller",
+   "addressee": "a person",
+   "tie": [
+    {
+     "tied_by": "text",
+     "claim": "chicago_democrat_1834_01_28#c001",
+     "as_printed_in_that_printing": "Alden Taller",
+     "extracted_as": "Alden Tuller"
+    },
+    {
+     "tied_by": "image",
+     "claim": "chicago_democrat_1834_03_04#c027",
+     "as_printed_in_that_printing": "n Tuller",
+     "extracted_as": "Alden Tuller"
+    }
+   ],
+   "reaches": {
+    "kind": "refused",
+    "person": "person_alden_tuller",
+    "reason": "surname already minted",
+    "by": "tools/mint_letter_list_residents.py"
+   }
+  },
+  {
+   "n": 150,
+   "column": "right",
+   "as_printed": "Elam Tuller",
+   "addressee": "a person",
+   "tie": [
+    {
+     "tied_by": "text",
+     "claim": "chicago_democrat_1834_01_28#c001",
+     "as_printed_in_that_printing": "Elam Tuller",
+     "extracted_as": "Elam Tuller"
+    }
+   ],
+   "reaches": {
+    "kind": "minted",
+    "person": "person_elam_tuller",
+    "household": "hh_tuller_elam",
+    "card_name": "Elam Tuller",
+    "by": "tools/mint_letter_list_residents.py"
+   }
+  },
+  {
+   "n": 151,
+   "column": "right",
+   "as_printed": "A. H. Taylor",
+   "addressee": "a person",
+   "tie": [
+    {
+     "tied_by": "image",
+     "claim": "chicago_democrat_1834_03_04#c027",
+     "as_printed_in_that_printing": ". Taylor",
+     "extracted_as": "A. H. Taylor"
+    }
+   ],
+   "reaches": {
+    "kind": "held_already",
+    "person": "person_a_h_taylor",
+    "resident": "taylor_anson_h",
+    "household": "hh_taylor_anson",
+    "card_name": "Anson H. Taylor",
+    "action": "enrich"
+   }
+  },
+  {
+   "n": 152,
+   "column": "right",
+   "as_printed": "John Thompson",
+   "addressee": "a person",
+   "tie": [
+    {
+     "tied_by": "image",
+     "claim": "chicago_democrat_1834_03_04#c027",
+     "as_printed_in_that_printing": "Thompaon",
+     "extracted_as": "John Thompson"
+    }
+   ],
+   "reaches": {
+    "kind": "refused",
+    "person": "person_john_thompson",
+    "reason": "the town already names a Thompson",
+    "by": "tools/mint_letter_list_residents.py"
+   }
+  },
+  {
+   "n": 153,
+   "column": "right",
+   "as_printed": "William Teal",
+   "addressee": "a person",
+   "tie": [
+    {
+     "tied_by": "text",
+     "claim": "chicago_democrat_1834_01_28#c001",
+     "as_printed_in_that_printing": "Wiliam Teal",
+     "extracted_as": "William Teal"
+    },
+    {
+     "tied_by": "image",
+     "claim": "chicago_democrat_1834_03_04#c027",
+     "as_printed_in_that_printing": "jam Teal",
+     "extracted_as": "William Teal"
+    }
+   ],
+   "reaches": {
+    "kind": "minted",
+    "person": "person_william_teal",
+    "household": "hh_teal_william",
+    "card_name": "William Teal",
+    "by": "tools/mint_letter_list_residents.py"
+   }
+  },
+  {
+   "n": 154,
+   "column": "right",
+   "as_printed": "Platt Thorn",
+   "addressee": "a person",
+   "tie": [
+    {
+     "tied_by": "image",
+     "claim": "chicago_democrat_1834_03_04#c027",
+     "as_printed_in_that_printing": "Thorn",
+     "extracted_as": "Platt Thorn"
+    }
+   ],
+   "reaches": {
+    "kind": "minted",
+    "person": "person_platt_thorn",
+    "household": "hh_thorn_platt",
+    "card_name": null,
+    "by": "tools/mint_letter_list_residents.py"
+   }
+  },
+  {
+   "n": 155,
+   "column": "right",
+   "as_printed": "Peter Temple 3",
+   "addressee": "a person",
+   "tie": [
+    {
+     "tied_by": "image",
+     "claim": "chicago_democrat_1834_03_04#c027",
+     "as_printed_in_that_printing": "Temple 3",
+     "extracted_as": "Peter Temple 3"
+    }
+   ],
+   "reaches": {
+    "kind": "minted",
+    "person": "person_peter_temple_3",
+    "household": "hh_peter_temple_3",
+    "card_name": null,
+    "by": "tools/mint_letter_list_residents.py"
+   }
+  },
+  {
+   "n": 156,
+   "column": "right",
+   "as_printed": "Lewis Temple",
+   "addressee": "a person",
+   "tie": [
+    {
+     "tied_by": "image",
+     "claim": "chicago_democrat_1834_03_04#c027",
+     "as_printed_in_that_printing": "is Temple",
+     "extracted_as": "Lewis Temple"
+    }
+   ],
+   "reaches": {
+    "kind": "refused",
+    "person": "person_lewis_temple",
+    "reason": "the town already names a Temple",
+    "by": "tools/mint_letter_list_residents.py"
+   }
+  },
+  {
+   "n": 157,
+   "column": "right",
+   "as_printed": "W. Vanzandt 2",
+   "addressee": "a person",
+   "tie": [
+    {
+     "tied_by": "image",
+     "claim": "chicago_democrat_1834_03_04#c027",
+     "as_printed_in_that_printing": "fanzandt 2",
+     "extracted_as": "W. Vanzandt 2"
+    }
+   ],
+   "reaches": {
+    "kind": "minted",
+    "person": "person_w_vanzandt_2",
+    "household": "hh_vanzandt_w_2",
+    "card_name": null,
+    "by": "tools/mint_letter_list_residents.py"
+   }
+  },
+  {
+   "n": 158,
+   "column": "right",
+   "as_printed": "John Vandine",
+   "addressee": "a person",
+   "tie": [
+    {
+     "tied_by": "spelling",
+     "claim": "chicago_democrat_1834_01_28#c001",
+     "as_printed_in_that_printing": "John Vandino",
+     "extracted_as": "John Vandino"
+    },
+    {
+     "tied_by": "image",
+     "claim": "chicago_democrat_1834_03_04#c027",
+     "as_printed_in_that_printing": "Vandine",
+     "extracted_as": "John Vandine"
+    }
+   ],
+   "reaches": {
+    "kind": "minted",
+    "person": "person_john_vandino",
+    "household": "hh_vandino_john",
+    "card_name": "John Vandine",
+    "by": "tools/mint_letter_list_residents.py",
+    "also_resolved_to": [
+     "person_john_vandine"
+    ]
+   },
+   "name_differs": true
+  },
+  {
+   "n": 159,
+   "column": "right",
+   "as_printed": "Adam Vanderwerker",
+   "addressee": "a person",
+   "tie": [
+    {
+     "tied_by": "image",
+     "claim": "chicago_democrat_1834_03_04#c027",
+     "as_printed_in_that_printing": "n Vanderwerker,",
+     "extracted_as": "Adam Vanderwerker"
+    }
+   ],
+   "reaches": {
+    "kind": "minted",
+    "person": "person_adam_vanderwerker",
+    "household": "hh_vanderwerker_adam",
+    "card_name": null,
+    "by": "tools/mint_letter_list_residents.py"
+   }
+  },
+  {
+   "n": 160,
+   "column": "right",
+   "as_printed": "John Wilson 4",
+   "addressee": "a person",
+   "tie": [
+    {
+     "tied_by": "text",
+     "claim": "chicago_democrat_1834_01_28#c001",
+     "as_printed_in_that_printing": "John Wilson",
+     "extracted_as": "John Wilson"
+    },
+    {
+     "tied_by": "image",
+     "claim": "chicago_democrat_1834_03_04#c027",
+     "as_printed_in_that_printing": "Wilson 6 *",
+     "extracted_as": "John Wilson 4"
+    }
+   ],
+   "reaches": {
+    "kind": "minted",
+    "person": "person_john_wilson",
+    "household": "hh_wilson_john",
+    "card_name": "John Wilson",
+    "by": "tools/mint_letter_list_residents.py",
+    "also_resolved_to": [
+     "person_john_wilson_4"
+    ]
+   }
+  },
+  {
+   "n": 161,
+   "column": "right",
+   "as_printed": "Wm. Winson",
+   "addressee": "a person",
+   "tie": [
+    {
+     "tied_by": "text",
+     "claim": "chicago_democrat_1834_01_28#c001",
+     "as_printed_in_that_printing": "Wm. Winson",
+     "extracted_as": "Wm. Winson"
+    },
+    {
+     "tied_by": "image",
+     "claim": "chicago_democrat_1834_03_04#c027",
+     "as_printed_in_that_printing": "_ Winson",
+     "extracted_as": "Wm. Winson"
+    }
+   ],
+   "reaches": {
+    "kind": "minted",
+    "person": "person_wm_winson",
+    "household": "hh_winson_wm",
+    "card_name": "Wm. Winson",
+    "by": "tools/mint_letter_list_residents.py"
+   }
+  },
+  {
+   "n": 162,
+   "column": "right",
+   "as_printed": "Philip Willaee",
+   "addressee": "a person",
+   "tie": [
+    {
+     "tied_by": "image",
+     "claim": "chicago_democrat_1834_03_04#c027",
+     "as_printed_in_that_printing": "p Willece",
+     "extracted_as": "Philip Willaee"
+    }
+   ],
+   "reaches": {
+    "kind": "minted",
+    "person": "person_philip_willaee",
+    "household": "hh_willaee_philip",
+    "card_name": null,
+    "by": "tools/mint_letter_list_residents.py"
+   }
+  },
+  {
+   "n": 163,
+   "column": "right",
+   "as_printed": "Jesse B. Winn & Co.",
+   "addressee": "a firm, not a person",
+   "tie": [
+    {
+     "tied_by": "part_of_a_line",
+     "claim": "chicago_democrat_1834_01_28#c001",
+     "as_printed_in_that_printing": "Jesse B. Winn",
+     "extracted_as": "Jesse B. Winn"
+    },
+    {
+     "tied_by": "image",
+     "claim": "chicago_democrat_1834_03_04#c027",
+     "as_printed_in_that_printing": "» B. Winn & Co.",
+     "extracted_as": "Jesse B. Winn & Co."
+    }
+   ],
+   "reaches": {
+    "kind": "minted",
+    "person": "person_jesse_b_winn",
+    "household": "hh_winn_jesse_b",
+    "card_name": "Jesse B. Winn",
+    "by": "tools/mint_letter_list_residents.py",
+    "also_resolved_to": [
+     "person_jesse_b_winn_co"
+    ]
+   },
+   "name_differs": true
+  },
+  {
+   "n": 164,
+   "column": "right",
+   "as_printed": "Daniel Warren",
+   "addressee": "a person",
+   "tie": [
+    {
+     "tied_by": "spelling",
+     "claim": "chicago_democrat_1834_01_28#c001",
+     "as_printed_in_that_printing": "‘Warren",
+     "extracted_as": "[?] Warren"
+    },
+    {
+     "tied_by": "image",
+     "claim": "chicago_democrat_1834_03_04#c027",
+     "as_printed_in_that_printing": "el Warren",
+     "extracted_as": "Daniel Warren"
+    }
+   ],
+   "reaches": {
+    "kind": "refused",
+    "person": "person_warren",
+    "reason": "garbled",
+    "by": "tools/mint_letter_list_residents.py",
+    "also_resolved_to": [
+     "person_daniel_warren"
+    ]
+   },
+   "name_differs": true
+  },
+  {
+   "n": 165,
+   "column": "right",
+   "as_printed": "Sally Weed",
+   "addressee": "a person",
+   "tie": [
+    {
+     "tied_by": "text",
+     "claim": "chicago_democrat_1834_01_28#c001",
+     "as_printed_in_that_printing": "Bally Weed",
+     "extracted_as": "[uncertain: Sally] Weed"
+    },
+    {
+     "tied_by": "image",
+     "claim": "chicago_democrat_1834_03_04#c027",
+     "as_printed_in_that_printing": "Weed",
+     "extracted_as": "Sally Weed"
+    }
+   ],
+   "reaches": {
+    "kind": "minted",
+    "person": "person_sally_weed",
+    "household": "hh_weed_sally",
+    "card_name": null,
+    "by": "tools/mint_letter_list_residents.py",
+    "also_resolved_to": [
+     "person_uncertain_sally_weed"
+    ]
+   },
+   "name_differs": true
+  },
+  {
+   "n": 166,
+   "column": "right",
+   "as_printed": "Aaron Whitcomb",
+   "addressee": "a person",
+   "tie": [
+    {
+     "tied_by": "text",
+     "claim": "chicago_democrat_1834_01_28#c001",
+     "as_printed_in_that_printing": "Aaron Whitcomb",
+     "extracted_as": "Aaron Whitcomb"
+    },
+    {
+     "tied_by": "image",
+     "claim": "chicago_democrat_1834_03_04#c027",
+     "as_printed_in_that_printing": "n Whitcomb",
+     "extracted_as": "Aaron Whitcomb"
+    }
+   ],
+   "reaches": {
+    "kind": "minted",
+    "person": "person_aaron_whitcomb",
+    "household": "hh_whitcomb_aaron",
+    "card_name": null,
+    "by": "tools/mint_letter_list_residents.py"
+   }
+  },
+  {
+   "n": 167,
+   "column": "right",
+   "as_printed": "Delaney Wells",
+   "addressee": "a person",
+   "tie": [
+    {
+     "tied_by": "text",
+     "claim": "chicago_democrat_1834_01_28#c001",
+     "as_printed_in_that_printing": "Delaney Wells",
+     "extracted_as": "Delaney Wells"
+    },
+    {
+     "tied_by": "image",
+     "claim": "chicago_democrat_1834_03_04#c027",
+     "as_printed_in_that_printing": "ney Wells",
+     "extracted_as": "Delaney Wells"
+    }
+   ],
+   "reaches": {
+    "kind": "refused",
+    "person": "person_delaney_wells",
+    "reason": "the town already names a Wells",
+    "by": "tools/mint_letter_list_residents.py"
+   }
+  },
+  {
+   "n": 168,
+   "column": "right",
+   "as_printed": "Thomas H. Wrickey",
+   "addressee": "a person",
+   "tie": [
+    {
+     "tied_by": "image",
+     "claim": "chicago_democrat_1834_03_04#c027",
+     "as_printed_in_that_printing": "nas H. Wrickey",
+     "extracted_as": "Thomas H. Wrickey"
+    }
+   ],
+   "reaches": {
+    "kind": "minted",
+    "person": "person_thomas_h_wrickey",
+    "household": "hh_wrickey_thomas_h",
+    "card_name": null,
+    "by": "tools/mint_letter_list_residents.py"
+   }
+  },
+  {
+   "n": 169,
+   "column": "right",
+   "as_printed": "Loiza Webb",
+   "addressee": "a person",
+   "tie": [
+    {
+     "tied_by": "image",
+     "claim": "chicago_democrat_1834_03_04#c027",
+     "as_printed_in_that_printing": "» Webb",
+     "extracted_as": "Loiza Webb"
+    }
+   ],
+   "reaches": {
+    "kind": "refused",
+    "person": "person_loiza_webb",
+    "reason": "surname already minted",
+    "by": "tools/mint_letter_list_residents.py"
+   }
+  },
+  {
+   "n": 170,
+   "column": "right",
+   "as_printed": "Samuel Wright",
+   "addressee": "a person",
+   "tie": [
+    {
+     "tied_by": "text",
+     "claim": "chicago_democrat_1834_01_28#c001",
+     "as_printed_in_that_printing": "Samuel Wright",
+     "extracted_as": "Samuel Wright"
+    }
+   ],
+   "reaches": {
+    "kind": "refused",
+    "person": "person_samuel_wright",
+    "reason": "the town already names a Wright",
+    "by": "tools/mint_letter_list_residents.py"
+   }
+  }
+ ],
+ "name_differs": [
+  {
+   "n": 80,
+   "printed_as": "Nathan Huchins",
+   "extracted_as": [
+    "Nathan Hutchins"
+   ],
+   "tied_by": [
+    "spelling"
+   ],
+   "reaches": "minted",
+   "kind": "the two readings disagree in their letters",
+   "card_name": "Nathan Hutchins",
+   "card_follows": "the transcription",
+   "ruled": {
+    "ticket": "T-1139",
+    "rule": "N2",
+    "takes": "the card's held spelling",
+    "because": "THE TWO READINGS OF THE TYPE AGREE — the 28 January OCR sets `Nathan Huchins` and so does the image — so the card's `Hutchins` follows NEITHER printing of this return, and the concordance's `card_follows: the transcription` is a mislabel. It follows a SECOND RETURN: the gazetteer carries `Hutehins, Nathan‘` from the return of 20 May 1835 (chicago_democrat_1835_05_20#c013), whose broken `c` still sets the `t` that `Huchins` lacks, and the card's own note says the papers print the name in two returns. A second return outranks a second reading of one line, so the card keeps `Nathan Hutchins` and this ledger records that both printings of the 1 January return set `Huchins`.",
+    "card": {
+     "name": "Nathan Hutchins",
+     "unchanged": true
+    }
+   }
+  },
+  {
+   "n": 96,
+   "printed_as": "Lewis Kerchevel",
+   "extracted_as": [
+    "Lewis Kercheval"
+   ],
+   "tied_by": [
+    "spelling"
+   ],
+   "reaches": "minted",
+   "kind": "the two readings disagree in their letters",
+   "ruled": {
+    "ticket": "T-1139",
+    "rule": "N2",
+    "takes": "the card's held spelling",
+    "because": "THE TWO READINGS OF THE TYPE AGREE — the 28 January OCR sets `‘Lewis Kerchevel` and the image `Lewis Kerchevel` — so what differs is the extraction's `normalized` field, which spells the stem as the town documents it. The corpus holds Gholson, Benjamin and G. H. Kercheval on evidence that is not a letter list; a documented family name outranks one line's setting of it. The card keeps `Kercheval`, and this ledger records that both printings of this line set `Kerchevel`."
+   }
+  },
+  {
+   "n": 163,
+   "printed_as": "Jesse B. Winn & Co.",
+   "extracted_as": [
+    "Jesse B. Winn"
+   ],
+   "tied_by": [
+    "part_of_a_line"
+   ],
+   "reaches": "minted",
+   "kind": "the two readings disagree in their letters",
+   "card_name": "Jesse B. Winn",
+   "card_follows": "the transcription",
+   "ruled": {
+    "ticket": "T-1139",
+    "rule": "N4",
+    "takes": "neither — the line names a firm and the card names the man in it",
+    "because": "NOT A SPELLING DISAGREEMENT. The image sets `Jesse B. Winn & Co.` and the roster reads the line as a FIRM — one of the three lines of this return that are not a person — while the 28 January reading carries the man alone and the concordance ties it `part_of_a_line`. The man's name is not mis-spelt; the line names his house. Neither reading is overturned and no card moves.",
+    "card": {
+     "name": "Jesse B. Winn",
+     "unchanged": true
+    }
+   }
+  }
+ ],
+ "name_ruled": [
+  {
+   "n": 26,
+   "printed_as": "A. O. T. Breed",
+   "extracted_as": [
+    "[?] Breed"
+   ],
+   "tied_by": [
+    "spelling"
+   ],
+   "reaches": "held_already",
+   "kind": "the two readings disagree in their letters",
+   "card_name": "A O T Breed",
+   "card_follows": "the page image",
+   "ruled": {
+    "ticket": "T-1139",
+    "rule": "N1",
+    "takes": "the page image",
+    "because": "The 28 January reading cut the initials to `4.0.7:` and the extraction carried them as `[?]`. A cut glyph is COMPLETED by the image, not contradicted by it, and the card already spells what the image sets.",
+    "card": {
+     "name": "A O T Breed",
+     "unchanged": true
+    }
+   }
+  },
+  {
+   "n": 41,
+   "printed_as": "James Childress",
+   "extracted_as": [
+    "[uncertain: Childress]"
+   ],
+   "tied_by": [
+    "spelling"
+   ],
+   "reaches": "refused",
+   "kind": "the two readings disagree in their letters",
+   "ruled": {
+    "ticket": "T-1139",
+    "rule": "N1",
+    "takes": "the page image",
+    "because": "`‘Childreso` is OCR damage — no name sets those letters — and the extraction would not vouch for its own repair, bracketing it `[uncertain: Childress]`. The image sets the surname plainly AND supplies a forename the transcription never carried. Nothing reaches a card: the mint refused this line."
+   }
+  },
+  {
+   "n": 46,
+   "printed_as": "Samuel Devoe",
+   "extracted_as": [
+    "[?] Devoe"
+   ],
+   "tied_by": [
+    "spelling"
+   ],
+   "reaches": "minted",
+   "kind": "the two readings disagree in their letters",
+   "card_name": "Samuel Devoe",
+   "card_follows": "the page image",
+   "ruled": {
+    "ticket": "T-1139",
+    "rule": "N1",
+    "takes": "the page image",
+    "because": "The 28 January reading carried the surname alone and the extraction marked the missing forename `[?]`. Completed at the image, and the card already spells what the image sets.",
+    "card": {
+     "name": "Samuel Devoe",
+     "unchanged": true
+    }
+   }
+  },
+  {
+   "n": 47,
+   "printed_as": "Noel Dagenet",
+   "extracted_as": [
+    "[uncertain: Dagenet]"
+   ],
+   "tied_by": [
+    "spelling"
+   ],
+   "reaches": "refused",
+   "kind": "the two readings disagree in their letters",
+   "ruled": {
+    "ticket": "T-1139",
+    "rule": "N1",
+    "takes": "the page image",
+    "because": "`foal Dagenet` is OCR damage at the forename and the extraction bracketed the surname it would not vouch for. The image sets `Noel` where the OCR set `foal`. Nothing reaches a card."
+   }
+  },
+  {
+   "n": 51,
+   "printed_as": "G. W. Ewing",
+   "extracted_as": [
+    "G. W. Ewin[g]"
+   ],
+   "tied_by": [
+    "text"
+   ],
+   "reaches": "refused",
+   "kind": "the transcription bracketed what the image reads",
+   "ruled": {
+    "ticket": "T-1139",
+    "rule": "N1",
+    "takes": "the page image",
+    "because": "The OCR lost the final letter (`G.W. Ewin`) and the extraction supplied it inside brackets, `G. W. Ewin[g]`. Once the bracket is opened the two readings agree; the image is the one that carries the `g` as type. Nothing reaches a card."
+   }
+  },
+  {
+   "n": 55,
+   "printed_as": "Wm. H. Frazer",
+   "extracted_as": [
+    "Wm. H. Fraser"
+   ],
+   "tied_by": [
+    "spelling"
+   ],
+   "reaches": "minted",
+   "kind": "the two readings disagree in their letters",
+   "card_name": "Wm. H. Frazer",
+   "card_follows": "the page image",
+   "ruled": {
+    "ticket": "T-1139",
+    "rule": "N3",
+    "takes": "the page image",
+    "because": "Both readings set plain, complete letters and they disagree: two impressions of one return, re-keyed by the Democrat's compositor between 28 January and 4 March 1834. The standing rule of tools/read_letter_list_1834_image.py applies — a scan-verified reading of the printed line overturns an uncut transcription-mediated one — and nothing outside this return carries `Fraser`. T-1133 folded hh_frazer_wm_h into this card and recorded the defect it was leaving behind: 'the surviving card wears the weaker reading's spelling … T-1139 owns the class'. It is repaired here under N5: the displayed name moves to `Wm. H. Frazer` and the id `fraser_wm_h` does not.",
+    "card": {
+     "household": "hh_fraser_wm_h",
+     "person": "fraser_wm_h",
+     "displayed_name_was": "Wm. H. Fraser",
+     "displayed_name_is": "Wm. H. Frazer",
+     "id_unchanged": true
+    }
+   }
+  },
+  {
+   "n": 67,
+   "printed_as": "Orinda Garyl",
+   "extracted_as": [
+    "[uncertain: Orinda Guryl]"
+   ],
+   "tied_by": [
+    "spelling"
+   ],
+   "reaches": "refused",
+   "kind": "the two readings disagree in their letters",
+   "ruled": {
+    "ticket": "T-1139",
+    "rule": "N1",
+    "takes": "the page image",
+    "because": "`Orinds Guryl` is OCR damage in both names and the extraction bracketed the whole reading. The image sets `Orinda Garyl`. Nothing reaches a card."
+   }
+  },
+  {
+   "n": 75,
+   "printed_as": "J. P. Gobb",
+   "extracted_as": [
+    "J. P. [uncertain: Cobb]"
+   ],
+   "tied_by": [
+    "spelling"
+   ],
+   "reaches": "refused",
+   "kind": "the two readings disagree in their letters",
+   "ruled": {
+    "ticket": "T-1139",
+    "rule": "N2",
+    "takes": "the page image",
+    "because": "THE TWO READINGS OF THE TYPE AGREE. The 28 January OCR sets `J. P. Gobb.` and the image sets `J. P. Gobb`; the disagreement the concordance reports is against the extraction's own `normalized` field, which EMENDED the surname to `[uncertain: Cobb]` and bracketed the emendation as unvouched. No reading of this line carries `Cobb`, so the emendation is refused and the line reads `Gobb`. Nothing reaches a card."
+   }
+  },
+  {
+   "n": 81,
+   "printed_as": "Warren Hanks",
+   "extracted_as": [
+    "[uncertain: Warren Hanke]"
+   ],
+   "tied_by": [
+    "spelling"
+   ],
+   "reaches": "refused",
+   "kind": "the two readings disagree in their letters",
+   "ruled": {
+    "ticket": "T-1139",
+    "rule": "N1",
+    "takes": "the page image",
+    "because": "`Warren Hanke` is the OCR's final letter and the extraction would not vouch for it, bracketing the whole reading. The image sets `Hanks`. Nothing reaches a card."
+   }
+  },
+  {
+   "n": 118,
+   "printed_as": "Joshua Pruvis",
+   "extracted_as": [
+    "Joshua Provis"
+   ],
+   "tied_by": [
+    "spelling"
+   ],
+   "reaches": "minted",
+   "kind": "the two readings disagree in their letters",
+   "card_name": "Joshua Pruvis",
+   "card_follows": "the page image",
+   "ruled": {
+    "ticket": "T-1139",
+    "rule": "N3",
+    "takes": "the page image",
+    "because": "Both readings set plain, complete letters and they disagree. The standing overturn rule applies, and nothing outside this return carries either stem: the resident layer, the 1840 census index and the genealogytrails indices hold no Provis and no Pruvis (every hit is `Provision`, `Provisional` or `Proviso Twp`). T-0424's roster names `Joshua Pruvis` among the settings it preserves verbatim and unamended, which is a caution about the TYPE and not about the reading — and a caution is not a second witness. The displayed name moves to `Joshua Pruvis` under N5; the id `provis_joshua` does not.",
+    "card": {
+     "household": "hh_provis_joshua",
+     "person": "provis_joshua",
+     "displayed_name_was": "Joshua Provis",
+     "displayed_name_is": "Joshua Pruvis",
+     "id_unchanged": true
+    }
+   }
+  },
+  {
+   "n": 132,
+   "printed_as": "D. Sprague",
+   "extracted_as": [
+    "[?] Sprague"
+   ],
+   "tied_by": [
+    "spelling"
+   ],
+   "reaches": "refused",
+   "kind": "the two readings disagree in their letters",
+   "ruled": {
+    "ticket": "T-1139",
+    "rule": "N1",
+    "takes": "the page image",
+    "because": "`iprague` lost the initial to the OCR and the extraction marked it `[?]`. Completed at the image. Nothing reaches a card."
+   }
+  },
+  {
+   "n": 137,
+   "printed_as": "James Steward",
+   "extracted_as": [
+    "[uncertain: James] Steward"
+   ],
+   "tied_by": [
+    "text"
+   ],
+   "reaches": "refused",
+   "kind": "the transcription bracketed what the image reads",
+   "ruled": {
+    "ticket": "T-1139",
+    "rule": "N1",
+    "takes": "the page image",
+    "because": "`Jowes Steward` is OCR damage at the forename and the extraction bracketed its repair. Once the bracket is opened the two readings agree on `James Steward`. Nothing reaches a card."
+   }
+  },
+  {
+   "n": 143,
+   "printed_as": "Samuel Stout",
+   "extracted_as": [
+    "[uncertain: Samuel] Stout"
+   ],
+   "tied_by": [
+    "text"
+   ],
+   "reaches": "minted",
+   "kind": "the transcription bracketed what the image reads",
+   "card_name": "Samuel Stout",
+   "card_follows": "the page image",
+   "ruled": {
+    "ticket": "T-1139",
+    "rule": "N1",
+    "takes": "the page image",
+    "because": "`Banus! Stout` is OCR damage at the forename and the extraction bracketed its repair. Once the bracket is opened both readings agree, and three later notices of 1834 print `samuel stout` plainly. The card already spells what the image sets.",
+    "card": {
+     "name": "Samuel Stout",
+     "unchanged": true
+    }
+   }
+  },
+  {
+   "n": 158,
+   "printed_as": "John Vandine",
+   "extracted_as": [
+    "John Vandino"
+   ],
+   "tied_by": [
+    "spelling"
+   ],
+   "reaches": "minted",
+   "kind": "the two readings disagree in their letters",
+   "card_name": "John Vandine",
+   "card_follows": "the page image",
+   "ruled": {
+    "ticket": "T-1139",
+    "rule": "N3",
+    "takes": "the page image",
+    "because": "Both readings set plain, complete letters and they disagree — the same shape as line 55 and the same two impressions. The standing overturn rule applies and the gazetteer holds no other bearer of the stem; T-1133 folded hh_vandine_john into this card and said in terms that the survivor's spelling is the weaker one and that T-1139 owns it. The displayed name moves to `John Vandine` under N5; the id `vandino_john` does not.",
+    "card": {
+     "household": "hh_vandino_john",
+     "person": "vandino_john",
+     "displayed_name_was": "John Vandino",
+     "displayed_name_is": "John Vandine",
+     "id_unchanged": true
+    }
+   }
+  },
+  {
+   "n": 164,
+   "printed_as": "Daniel Warren",
+   "extracted_as": [
+    "[?] Warren"
+   ],
+   "tied_by": [
+    "spelling"
+   ],
+   "reaches": "refused",
+   "kind": "the two readings disagree in their letters",
+   "ruled": {
+    "ticket": "T-1139",
+    "rule": "N1",
+    "takes": "the page image",
+    "because": "The OCR carried the surname alone as `‘Warren` and the extraction marked the forename `[?]`. Completed at the image. Nothing reaches a card."
+   }
+  },
+  {
+   "n": 165,
+   "printed_as": "Sally Weed",
+   "extracted_as": [
+    "[uncertain: Sally] Weed"
+   ],
+   "tied_by": [
+    "text"
+   ],
+   "reaches": "minted",
+   "kind": "the transcription bracketed what the image reads",
+   "ruled": {
+    "ticket": "T-1139",
+    "rule": "N1",
+    "takes": "the page image",
+    "because": "`Bally Weed` is OCR damage at the forename and the extraction bracketed its repair. Once the bracket is opened the two readings agree, and a later return of 19 August 1835 prints `Weed Sali`. The image sets `Sally Weed`."
+   }
+  }
+ ],
+ "extracted_names_no_line_carries": [
+  {
+   "claim": "chicago_democrat_1834_01_28#c001",
+   "as_printed": "‘Adam Vandorwerk",
+   "extracted_as": "Adam Vandorwerk",
+   "why": "no line of the printed list carries this surname at all, so either the transcription read a name the ninth impression does not set or the image read lost it"
+  },
+  {
+   "claim": "chicago_democrat_1834_01_28#c001",
+   "as_printed": "Anthony Heere",
+   "extracted_as": "Anthony Heere",
+   "ruled_by_identity": {
+    "ruling": "one person with printed line 12",
+    "line": 12,
+    "held_as": "Anthony Heere",
+    "ticket": "T-1011"
+   },
+   "why": "no line of the printed list carries this surname at all, so either the transcription read a name the ninth impression does not set or the image read lost it"
+  },
+  {
+   "claim": "chicago_democrat_1834_01_28#c001",
+   "as_printed": "BP. ‘Biatord",
+   "extracted_as": "B. P. [uncertain: Bickford]",
+   "ruled_by_identity": {
+    "ruling": "refused: not joined to printed line 133",
+    "line": 133,
+    "refused_because": "Line 133 is set 'B. P. Stafford' at the page image and it is the ONLY line of the 170 beginning B. P.; the 1834-01-28 transcription carries 'B. P. [uncertain: Bickford]', read off 'BP. ‘Biatord', and it is the only B. P. on that side. The structural argument therefore names line 133 and no other, and it is still not enough: no reading of the letters 'Biatord' reaches 'Stafford' the way 'Cleviny' reaches 'Clevinger', the crop's neighbours are not in alphabetical order so position adds nothing, and a forename of two initials is a weak thing to merge a surname on by itself. Refused, and recorded rather than dropped: the page image of the 1834-01-28 impression would settle it in one look, and nothing else will. T-1011."
+   },
+   "why": "no line of the printed list carries this surname at all, so either the transcription read a name the ninth impression does not set or the image read lost it"
+  },
+  {
+   "claim": "chicago_democrat_1834_01_28#c001",
+   "as_printed": "Benj. Cl",
+   "extracted_as": "Benj. Cl[…]",
+   "why": "the list carries this surname and no line's forename agrees with this reading of it",
+   "lines_carrying_the_surname": [
+    "Jesse B. Winn & Co."
+   ]
+  },
+  {
+   "claim": "chicago_democrat_1834_01_28#c001",
+   "as_printed": "EW. Conte",
+   "extracted_as": "E. W. Conte",
+   "ruled_by_identity": {
+    "ruling": "one person with printed line 33",
+    "line": 33,
+    "held_as": "E. W. Conte",
+    "ticket": "T-1011"
+   },
+   "why": "no line of the printed list carries this surname at all, so either the transcription read a name the ninth impression does not set or the image read lost it"
+  },
+  {
+   "claim": "chicago_democrat_1834_01_28#c001",
+   "as_printed": "Gustavus C!",
+   "extracted_as": "Gustavus C[…]",
+   "ruled_by_identity": {
+    "ruling": "one person with printed line 43",
+    "line": 43,
+    "held_as": "Gustavus Clark",
+    "ticket": "T-1011"
+   },
+   "why": "the list carries this surname and no line's forename agrees with this reading of it",
+   "lines_carrying_the_surname": [
+    "Jesse B. Winn & Co."
+   ]
+  },
+  {
+   "claim": "chicago_democrat_1834_01_28#c001",
+   "as_printed": "H, B..Steole 2",
+   "extracted_as": "H. B. Steele",
+   "ruled_by_identity": {
+    "ruling": "refused: not joined to printed line 136",
+    "line": 136,
+    "refused_because": "Line 136 is set 'H. S. Steele 2' at the page image and the 1834-01-28 transcription carries 'H. B. Steele'. Same surname, both sets of initials read, and they disagree in the second — so the merge is refused by the rule that has no escape. The structural argument that every untied 1834-01-28 reading is one of the 170 lines would put this reading on line 136 and no other; it is refused anyway, because an argument about which line a reading must be cannot overrule an initial the printer actually set. T-1011."
+   },
+   "why": "the list carries this surname and no line's forename agrees with this reading of it",
+   "lines_carrying_the_surname": [
+    "Axtel & Steele",
+    "H. S. Steele 2"
+   ]
+  },
+  {
+   "claim": "chicago_democrat_1834_01_28#c001",
+   "as_printed": "IK. Blodgett",
+   "extracted_as": "I. K. Blodgett",
+   "ruled_by_identity": {
+    "ruling": "refused: not joined to printed line 14",
+    "line": 14,
+    "refused_because": "Line 14 of the 1 January 1834 return is set 'J. K. Blodgett' at the page image and the 1834-01-28 transcription of the same return carries 'I. K. Blodgett'. The surname is the same string and both first initials are READ — I against J — so this project never merges them, with or without a rule. That the two letters are one another's commonest confusion in this type is an argument about the printer, not evidence about the man, and the families rule exists because the 1835 letter lists are full of brothers. The town holds one Blodgett household either way: the minting pass's refusal 7 turns the second away on the surname. T-1011."
+   },
+   "why": "the list carries this surname and no line's forename agrees with this reading of it",
+   "lines_carrying_the_surname": [
+    "J. K. Blodgett",
+    "Avice Blodget"
+   ]
+  },
+  {
+   "claim": "chicago_democrat_1834_01_28#c001",
+   "as_printed": "Jane Forster",
+   "extracted_as": "Jane Forster",
+   "ruled_by_identity": {
+    "ruling": "one person with printed line 59",
+    "line": 59,
+    "held_as": "Jane Forster",
+    "ticket": "T-1011"
+   },
+   "why": "the list carries this surname and no line's forename agrees with this reading of it",
+   "lines_carrying_the_surname": [
+    "Caleb Foster",
+    "Alburn Foster"
+   ]
+  },
+  {
+   "claim": "chicago_democrat_1834_01_28#c001",
+   "as_printed": "JOHN 8. C. HOGAN, P. ",
+   "extracted_as": "John S. C. Hogan",
+   "why": "the postmaster's signature under the list, which the roster counts separately from its 170 addressee lines"
+  },
+  {
+   "claim": "chicago_democrat_1834_01_28#c001",
+   "as_printed": "Lewis Tem",
+   "extracted_as": "Lewis Tem[…]",
+   "why": "no line of the printed list carries this surname at all, so either the transcription read a name the ninth impression does not set or the image read lost it"
+  },
+  {
+   "claim": "chicago_democrat_1834_01_28#c001",
+   "as_printed": "William Cr",
+   "extracted_as": "William Cr[…]",
+   "ruled_by_identity": {
+    "ruling": "one person with printed line 42",
+    "line": 42,
+    "held_as": "William Crissy",
+    "ticket": "T-0323"
+   },
+   "why": "the list carries this surname and no line's forename agrees with this reading of it",
+   "lines_carrying_the_surname": [
+    "Jesse B. Winn & Co."
+   ]
+  },
+  {
+   "claim": "chicago_democrat_1834_01_28#c001",
+   "as_printed": "¥..B Northrop",
+   "extracted_as": "[?] B. Northrop",
+   "ruled_by_identity": {
+    "ruling": "refused: not joined to printed line 113",
+    "line": 113,
+    "refused_because": "Line 113 is set 'F. B. Northrop' at the page image and the 1834-01-28 transcription carries '[?] B. Northrop', whose first initial is a glyph nobody could read. An unread initial is a POSITION, NOT AN ABSENCE (T-0397): '[?] B.' reads against 'F. B.' and the two refuse, exactly as '[?]. Beegle' refuses 'A. Beegle'. Whether that refusal is right is the open policy question T-0392 puts to the owner; until it is answered the conservative reading stands. Nothing is duplicated by the refusal — the town already holds Francis B. Northrop and the minting pass turns both of these away on the surname. T-1011."
+   },
+   "why": "the list carries this surname and no line's forename agrees with this reading of it",
+   "lines_carrying_the_surname": [
+    "F. B. Northrop"
+   ]
+  },
+  {
+   "claim": "chicago_democrat_1834_01_28#c001",
+   "as_printed": "Blodget",
+   "extracted_as": "[?] Blodget",
+   "why": "the list carries this surname on more than one line and this reading has no forename to choose between them",
+   "lines_carrying_the_surname": [
+    "J. K. Blodgett",
+    "Avice Blodget"
+   ]
+  },
+  {
+   "claim": "chicago_democrat_1834_01_28#c001",
+   "as_printed": "ds Gay”",
+   "extracted_as": "[?] Gay",
+   "why": "the list carries this surname on more than one line and this reading has no forename to choose between them",
+   "lines_carrying_the_surname": [
+    "H. K. Fay",
+    "dane Gray"
+   ]
+  },
+  {
+   "claim": "chicago_democrat_1834_01_28#c001",
+   "as_printed": "Gooding",
+   "extracted_as": "[?] Gooding",
+   "why": "the list carries this surname on more than one line and this reading has no forename to choose between them",
+   "lines_carrying_the_surname": [
+    "William Gooding 2",
+    "Jos. A. Gooding"
+   ]
+  },
+  {
+   "claim": "chicago_democrat_1834_01_28#c001",
+   "as_printed": "4 Goodrich",
+   "extracted_as": "[?] Goodrich",
+   "why": "the list carries this surname on more than one line and this reading has no forename to choose between them",
+   "lines_carrying_the_surname": [
+    "Ebenezer Goodrich",
+    "Pomeroy Goodrich"
+   ]
+  },
+  {
+   "claim": "chicago_democrat_1834_01_28#c001",
+   "as_printed": "& Steele",
+   "extracted_as": "[?] Steele",
+   "why": "the list carries this surname on more than one line and this reading has no forename to choose between them",
+   "lines_carrying_the_surname": [
+    "Axtel & Steele",
+    "H. S. Steele 2"
+   ]
+  },
+  {
+   "claim": "chicago_democrat_1834_01_28#c001",
+   "as_printed": ".T. Miner",
+   "extracted_as": "[?] T. Miner",
+   "why": "the list carries this surname and no line's forename agrees with this reading of it",
+   "lines_carrying_the_surname": [
+    "Miranda Miner 2",
+    "F. T. Miner"
+   ]
+  },
+  {
+   "claim": "chicago_democrat_1834_01_28#c001",
+   "as_printed": "‘Tertple 3",
+   "extracted_as": "[?] Temple",
+   "why": "the list carries this surname on more than one line and this reading has no forename to choose between them",
+   "lines_carrying_the_surname": [
+    "Peter Temple 3",
+    "Lewis Temple"
+   ]
+  },
+  {
+   "claim": "chicago_democrat_1834_01_28#c001",
+   "as_printed": "Astist Bradford",
+   "extracted_as": "[uncertain: Astist] Bradford",
+   "ruled_by_identity": {
+    "ruling": "one person with printed line 20",
+    "line": 20,
+    "held_as": "Aarri[?]t Bradford",
+    "ticket": "T-1011"
+   },
+   "why": "the list carries this surname and no line's forename agrees with this reading of it",
+   "lines_carrying_the_surname": [
+    "Aarri[?]t Bradford"
+   ]
+  },
+  {
+   "claim": "chicago_democrat_1834_01_28#c001",
+   "as_printed": "D. P. Cleviny",
+   "extracted_as": "[uncertain: D. P. Cleviny]",
+   "ruled_by_identity": {
+    "ruling": "one person with printed line 32",
+    "line": 32,
+    "held_as": "D. P. Clevinger",
+    "ticket": "T-1011"
+   },
+   "why": "no line of the printed list carries this surname at all, so either the transcription read a name the ninth impression does not set or the image read lost it"
+  },
+  {
+   "claim": "chicago_democrat_1834_01_28#c001",
+   "as_printed": "alias Perrin",
+   "extracted_as": "[uncertain: Elias] Perrin",
+   "why": "the list carries this surname and no line's forename agrees with this reading of it",
+   "lines_carrying_the_surname": [
+    "Julius Perrin 2"
+   ]
+  },
+  {
+   "claim": "chicago_democrat_1834_01_28#c001",
+   "as_printed": "John Monreou",
+   "extracted_as": "[uncertain: John Monroe]",
+   "why": "no line of the printed list carries this surname at all, so either the transcription read a name the ninth impression does not set or the image read lost it"
+  },
+  {
+   "claim": "chicago_democrat_1834_01_28#c001",
+   "as_printed": "Reka Basten",
+   "extracted_as": "[uncertain: Reka Basten]",
+   "why": "no line of the printed list carries this surname at all, so either the transcription read a name the ninth impression does not set or the image read lost it"
+  },
+  {
+   "claim": "chicago_democrat_1834_03_04#c026",
+   "as_printed": "I Cenige",
+   "extracted_as": "[uncertain: … Cenige]",
+   "why": "no line of the printed list carries this surname at all, so either the transcription read a name the ninth impression does not set or the image read lost it"
+  },
+  {
+   "claim": "chicago_democrat_1834_03_04#c027",
+   "as_printed": "HOGAN, P.M. | encof?ge,—premiums for a varie",
+   "extracted_as": "John S. C. Hogan",
+   "why": "the postmaster's signature under the list, which the roster counts separately from its 170 addressee lines"
+  },
+  {
+   "claim": "chicago_democrat_1834_03_04#c027",
+   "as_printed": "Re Leena,",
+   "extracted_as": "[?] Leena",
+   "why": "no line of the printed list carries this surname at all, so either the transcription read a name the ninth impression does not set or the image read lost it"
+  }
+ ],
+ "ambiguities_this_pass_declined_to_decide": [
+  {
+   "why": "one reading, more than one printed line within a letter",
+   "entity": "[?] Blodget",
+   "lines": [
+    "J. K. Blodgett",
+    "Avice Blodget"
+   ]
+  },
+  {
+   "why": "one reading, more than one printed line within a letter",
+   "entity": "[?] Steele",
+   "lines": [
+    "Axtel & Steele",
+    "H. S. Steele 2"
+   ]
+  },
+  {
+   "why": "one reading, more than one printed line within a letter",
+   "entity": "[?] Gay",
+   "lines": [
+    "H. K. Fay",
+    "dane Gray"
+   ]
+  },
+  {
+   "why": "one reading, more than one printed line within a letter",
+   "entity": "[?] Gooding",
+   "lines": [
+    "William Gooding 2",
+    "Jos. A. Gooding"
+   ]
+  },
+  {
+   "why": "one reading, more than one printed line within a letter",
+   "entity": "[?] Temple",
+   "lines": [
+    "Peter Temple 3",
+    "Lewis Temple"
+   ]
+  },
+  {
+   "why": "one reading, more than one printed line within a letter",
+   "entity": "[?] Goodrich",
+   "lines": [
+    "Ebenezer Goodrich",
+    "Pomeroy Goodrich"
+   ]
+  }
+ ]
+}

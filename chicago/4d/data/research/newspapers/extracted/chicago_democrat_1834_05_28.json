@@ -1,0 +1,436 @@
+{
+  "schema": 1,
+  "issue_id": "chicago_democrat_1834_05_28",
+  "extracted": "2026-08-28",
+  "extracted_by": "hand, T-0314 — the Democrat read, May 1834",
+  "note": "Vol. I No. 26. A legible marine list under the heading PORT OF CHICAGO, the Fort Dearborn beef contract that names the fort's store house as the delivery point, a school district calling its voters to the school house, and a hatter who has come to town to put up a factory at the corner of Lake street.",
+  "claims": [
+    {
+      "id": "c001",
+      "kind": "shipping",
+      "reading": "transcription_mediated",
+      "quote": "MARINE LIST\nPORT OF CHICAGO:\nARRIVED.\nMay 21. Schr. Oragon, Brooks, St. Jor\n21. Stoop Dart, Barnard, St. Jose\n[uncertain: en Big in]\n1 Kinze, Bristel, Det\n25. Sch. 0.\n[uncertain: w. Trot, st. Jose]\n[uncertain: se. in on, Stuart, Detroi]\n20. 5 hr. Napol\n[uncertain: Furpitare]\n3 passeng\nzie, firistol, S\nSip Burt, Barnard,\n[uncertain: Behr.]\n. Brig Jolli Kinzic, Bristol, G.",
+      "normalized": "MARINE LIST[.] PORT OF CHICAGO: ARRIVED. May 21. Schr. Oragon, Brooks, St. Jo[seph.] 21. S[l]oop Dart, Barnard, St. Jose[ph.] [uncertain: en Big in] 1 Kinze, Bristel, Det[roit.] 25. Sch. 0. [uncertain: w. Trot, st. Jose] [uncertain: se. in on, Stuart, Detroi] 20. S[c]hr. Napol[eon …] [uncertain: Furpitare] 3 passeng[ers …]zie, [B]ristol, S[t. Joseph.] S[loo]p [Da]rt, Barnard, […] [uncertain: Behr.] […] Brig Joh[n] Kinzic, Bristol, G[reen Bay?]",
+      "locator": {
+        "artifact_role": "primary",
+        "issue_page": 3,
+        "column": 1,
+        "lines": [
+          2377,
+          2393
+        ]
+      },
+      "entities": [
+        {
+          "as_printed": "Barnard",
+          "normalized": "Barnard",
+          "role": "master of the sloop Dart",
+          "occupations": [
+            "ship master"
+          ],
+          "associated_places": [
+            "St. Joseph"
+          ]
+        },
+        {
+          "as_printed": "Brooks",
+          "normalized": "Brooks",
+          "role": "master of the schooner Oregon",
+          "occupations": [
+            "ship master"
+          ],
+          "associated_places": [
+            "St. Joseph"
+          ]
+        },
+        {
+          "as_printed": "Bristol",
+          "normalized": "Bristol",
+          "role": "master of the brig John Kinzie",
+          "occupations": [
+            "ship master"
+          ],
+          "associated_places": [
+            "Detroit"
+          ]
+        }
+      ],
+      "notes": "THE PORT OF CHICAGO UNDER ITS OWN HEADING, and legible enough to count. Six or seven movements in the last ten days of May 1834, and the trade is SHORT-HAUL LAKE TRAFFIC: St. Joseph across the lake, Detroit, Green Bay. The rigs are the small ones — schooners, a SLOOP (the Dart, Barnard, in twice), one brig — which is what a harbour with a bar across its mouth could take in 1834, and it bounds the size of hull this reconstruction may moor at the river wharves. The brig John Kinzie shares a name with the forwarding merchant advertising three columns away, and the two are NOT identified with one another here beyond the coincidence of the name. Three passengers are entered on one arrival, so the same hulls carried people. Several entries are cut and the ones that are stay bracketed rather than repaired."
+    },
+    {
+      "id": "c002",
+      "kind": "infrastructure",
+      "reading": "transcription_mediated",
+      "quote": "Notice.\nNiE Voters of School Distriet A\nrequested to meet at the Scho\na requested. By order of the Trust\nA punctuel at\nP. PRUYNE,\n* Chicago, Alay 97, 1851",
+      "normalized": "Notice. [T]he Voters of School Distri[c]t [No. …] requested to meet at the Scho[ol house …] a[re] requested. By order of the Trust[ees. …] [Be] punctual at […] P. PRUYNE, […] Chicago, [M]ay 2[7], 1[8]3[4]",
+      "locator": {
+        "artifact_role": "primary",
+        "issue_page": 3,
+        "column": 1,
+        "lines": [
+          2397,
+          2403
+        ]
+      },
+      "entities": [
+        {
+          "as_printed": "P. PRUYNE,",
+          "normalized": "P. Pruyne",
+          "role": "signatory, by order of the Trustees",
+          "occupations": [
+            "school district trustee",
+            "timber merchant"
+          ],
+          "associated_places": [
+            "Chicago"
+          ]
+        }
+      ],
+      "ad_copy_date": {
+        "verbatim": "Chicago, Alay 97, 1851",
+        "iso": "1834-05-27"
+      },
+      "notes": "THERE IS A SCHOOL HOUSE IN CHICAGO IN MAY 1834 AND IT IS THE DISTRICT'S MEETING ROOM. The notice does not describe the building; it does something better for dating purposes — it assumes it. A school district with trustees, voters and a house to meet in is a going institution, and the meeting is called there rather than at a tavern, which is where the militia election of the same month had to be held (chicago_democrat_1834_05_14 c006). So by May 1834 the town has at least one purpose-built or purpose-taken public room. The district number and the school house's location are both cut and are NOT supplied. P. Pruyne signs, the third notice over his name this month."
+    },
+    {
+      "id": "c003",
+      "kind": "business",
+      "reading": "transcription_mediated",
+      "quote": "DENTISTRY.\n[uncertain: 1 CT. M5. 1. Ka?ycott,]\nChirag, that he wily\nwill practice\nproperly cleansed and filled with goid\n* Say 5, 1934.\nOfice at the Eagle Tur",
+      "normalized": "DENTISTRY. […] [Dr. … Ka?ycott,] Chi[ca]g[o], that he wi[ll …] will practice […] properly cleansed and filled with go[l]d […] [M]ay 5, 1[8]34. […] Of[f]ice at the Eagle Ta[vern.]",
+      "locator": {
+        "artifact_role": "primary",
+        "issue_page": 3,
+        "column": 1,
+        "lines": [
+          2406,
+          2412
+        ]
+      },
+      "business": {
+        "name": "[unidentified dentist]",
+        "trade": "dentistry",
+        "placement": {
+          "class": "relative",
+          "anchor": "the Eagle Hotel / Eagle Tavern",
+          "offset_text": "Of[f]ice at the Eagle Ta[vern]"
+        },
+        "address_text": "Of[f]ice at the Eagle Ta[vern]"
+      },
+      "ad_copy_date": {
+        "verbatim": "* Say 5, 1934.",
+        "iso": "1834-05-05"
+      },
+      "notes": "A DENTIST KEEPING OFFICE IN A TAVERN. The premises are the Eagle — the hotel newly taken a fortnight before (chicago_democrat_1834_05_14 c008) — which shows the building doing what a frontier hotel did: letting rooms to transient professional men as well as travellers. Teeth 'properly cleansed and filled with gold' in Chicago in May 1834 is a small fact about how much town there was to support it. The dentist's surname survives only as an uncertain OCR reading and is NOT supplied."
+    },
+    {
+      "id": "c004",
+      "kind": "business",
+      "reading": "transcription_mediated",
+      "quote": "TORE.\nBROWN,\nmacchion in business\na Dearborn street, one\nwberry «& Dole'astore,",
+      "normalized": "[S]TORE. [W. H.] BROWN, […] [com]m[en]c[ed] in business [on] Dearborn street, one [door from Ne]wberry & Dole's store,",
+      "locator": {
+        "artifact_role": "primary",
+        "issue_page": 3,
+        "column": 3,
+        "lines": [
+          2653,
+          2657
+        ]
+      },
+      "entities": [
+        {
+          "as_printed": "BROWN,",
+          "normalized": "W. H. Brown",
+          "role": "proprietor",
+          "occupations": [
+            "merchant"
+          ],
+          "associated_places": [
+            "Dearborn Street",
+            "Chicago"
+          ]
+        }
+      ],
+      "business": {
+        "name": "W. H. Brown",
+        "trade": "store; groceries and general goods",
+        "placement": {
+          "class": "relative",
+          "anchor": "Newberry & Dole's store",
+          "offset_text": "a Dearborn street, one\nwberry «& Dole'astore,",
+          "street": "Dearborn Street"
+        },
+        "address_text": "[on] Dearborn street, one [door from Ne]wberry & Dole's store"
+      },
+      "notes": "A NEW STORE ON DEARBORN STREET, ONE DOOR FROM NEWBERRY & DOLE'S. This is the fourth advertiser in one month to fix himself off Newberry & Dole (see chicago_democrat_1834_05_07 c003 and c005, and c008 here in the same issue), and it is the one that puts a STREET NAME to the forwarding house's neighbourhood: Dearborn street. Newberry & Dole place themselves 'opposite to Fort Dearborn'; W. H. Brown places himself one door from them, on Dearborn street. The two statements are compatible and together they tie a stretch of Dearborn street to the fort's frontage, which is a thing the reconstruction's street layer can use. The word after 'one' is cut and 'door' is supplied only in the normalized reading, where the count of doors is the conventional form of the phrase in every other Chicago advertisement in this month; the quote leaves it out."
+    },
+    {
+      "id": "c005",
+      "kind": "building",
+      "reading": "transcription_mediated",
+      "quote": "mmufacturer & Dealer,\n28 to inform the inhabitants of Chi-\nand vicinity, that he has taken up\ns residence in the town,\nhere he intends to put up\nfactory, and carry on the\nove business in all its va-\nes, which has been his occupation\n0 years. s\n‘a good assortment of Gentlemen's\nMGP39, black, brown anddrab ofhis| !\nturing, now ready for sale—pledg- ‘\n> good, and will sell for no moro 1\nable profit; at the corner of Lake\n| streets, opposite Dr. Temple's. bi\noxcellont double Harness complete, r\nbest Eastern leather expressly fo\nMay 7134) 9G",
+      "normalized": "[hat ma]nufacturer & Dealer, […] to inform the inhabitants of Chi[cago] and vicinity, that he has taken up [hi]s residence in the town, [w]here he intends to put up [a] factory, and carry on the [ab]ove business in all its va[riet]ies, which has been his occupation […] years. […] a good assortment of Gentlemen's [HATS], black, brown and drab of his [own manufac]turing, now ready for sale — pledg[ing them] good, and will sell for no more [than a reason]able profit; at the corner of Lake [and …] streets, opposite Dr. Temple's. [Also, an] excellent double Harness complete, [of the] best Eastern leather expressly fo[r …] May [1834.]",
+      "locator": {
+        "artifact_role": "primary",
+        "issue_page": 3,
+        "column": 4,
+        "lines": [
+          2714,
+          2731
+        ]
+      },
+      "entities": [
+        {
+          "as_printed": "Dr. Temple's",
+          "normalized": "Dr. Temple",
+          "role": "landmark the shop stands opposite",
+          "occupations": [
+            "physician"
+          ],
+          "associated_places": [
+            "Lake Street"
+          ]
+        }
+      ],
+      "business": {
+        "name": "[unnamed] hat manufacturer & dealer",
+        "trade": "hat manufacturer and dealer; also harness",
+        "placement": {
+          "class": "corner",
+          "anchor": "Lake street, opposite Dr. Temple's",
+          "street": "Lake Street"
+        },
+        "address_text": "at the corner of Lake [and …] streets, opposite Dr. Temple's"
+      },
+      "ad_copy_date": {
+        "verbatim": "May 7134)",
+        "iso": "1834-05-01"
+      },
+      "notes": "A MANUFACTORY IS ABOUT TO BE BUILT, AND THE PAPER SAYS SO IN ADVANCE. A hatter has moved to Chicago and INTENDS TO PUT UP A FACTORY — a stated future building, dated May 1834, on the record before it exists. For a reconstruction that is a rare thing: a construction intention with a date and a trade attached, which either was or was not carried out by the scene date and can be looked for. Meanwhile he sells from the CORNER OF LAKE STREET, opposite Dr. Temple's — the second advertiser this month to use Temple's as the anchor (chicago_democrat_1834_05_14 c002), confirming it as a Lake street landmark. The cross street at the corner is cut and is NOT supplied, so the placement is recorded as a corner on Lake with Temple's as its anchor and one arm unknown. Hats in black, brown and drab, of his own making: three colours is what a Chicago head wore."
+    },
+    {
+      "id": "c006",
+      "kind": "infrastructure",
+      "reading": "transcription_mediated",
+      "quote": "Proposals.\nproposals will be received by the\nr until the 10th of June next, for | noi\nof Fresh Bef to the troops of the | giv!\nsat Fort Dearborn, for one year, | Coc\non the 20th of June, 1834, und\nust be delivered in quarters, at the | my\nore house of Fort Dearborn, and | rive\n| quarters and at such times ag the | 0'cl\nof Sub. may require, But it isun- | nel,\nthe beef will be received in equal | cou!\nfeach quarter, and required no 3w2\nree times a week, nor Jess than once | ——\nunting probably to 400 pounds per\n80 be received scparately for the V\nesh beef or other meat, to the Of: tirer\n\\rmy at this Post, and if accepted | whi\njorated in the contract.\nate surctics will aceompany the\nbid, whose sufficiency if not known M\nber, must be certified by some Dis-\nor other officer hi ig authori\n- T.\nLieut, 5th In’f., Asz't. Com. Sub. @\norn, Chicago, Ill.\nMay 26, 1834. 26] war",
+      "normalized": "Proposals. [Sealed] proposals will be received by the [subscribe]r until the 10th of June next, for [the supply] of Fresh Be[e]f to the troops of the [garrison] at Fort Dearborn, for one year, [commencing] on the 20th of June, 1834, and […] [m]ust be delivered in quarters, at the [st]ore house of Fort Dearborn, and [in such] quarters and at such times as the [Commissary] of Sub[sistence] may require. But it is un[derstood that] the beef will be received in equal [proportions o]f each quarter, and required no[t more than] three times a week, nor less than once [… amo]unting probably to 400 pounds per [week. Proposals will al]so be received separately for the [supply of fr]esh beef or other meat, to the Of[ficers of the A]rmy at this Post, and if accepted [will be incorp]orated in the contract. [Approved and adequ]ate sureties will accompany the […] bid, whose sufficiency if not known [to the subscri]ber, must be certified by some Dis[trict Attorney] or other officer h[av]i[n]g authori[ty …] T. […] Lieut, 5th In[fantry]., Ass't. Com. Sub. [Fort Dearb]orn, Chicago, Ill. May 26, 1834.",
+      "locator": {
+        "artifact_role": "primary",
+        "issue_page": 3,
+        "column": 4,
+        "lines": [
+          2732,
+          2757
+        ]
+      },
+      "entities": [
+        {
+          "as_printed": "Lieut, 5th In'f., Asz't. Com. Sub.",
+          "normalized": "[…], Lieutenant, 5th Infantry, Assistant Commissary of Subsistence",
+          "role": "contracting officer at Fort Dearborn",
+          "occupations": [
+            "army officer"
+          ],
+          "associated_places": [
+            "Fort Dearborn"
+          ]
+        }
+      ],
+      "ad_copy_date": {
+        "verbatim": "May 26, 1834.",
+        "iso": "1834-05-26"
+      },
+      "notes": "THE FORT'S STORE HOUSE IS THE DELIVERY DOOR, AND THE GARRISON IS SIZED BY ITS BEEF. Two hard facts for the Fort Dearborn model, both stated and neither inferred. FIRST: a building called THE STORE HOUSE OF FORT DEARBORN exists on 26 May 1834 and is the point at which quartered beef is received — so it is a provision store with cart access, which is a placement constraint (it must front something a beef wagon can reach) and a use, not just a footprint on a plan. The reconstruction's fort currently builds its ranges without distinguishing what they were for; this names one. SECOND: 'probably 400 pounds per week' of fresh beef, delivered one to three times a week for a year from 20 June 1834. At the army ration of the period that is a garrison in the low hundreds at most — the arithmetic is NOT done here and no headcount is claimed, because the ration rate is not in this document; what the line does establish is that the post was provisioned continuously by CIVILIAN CONTRACT from the surrounding country, on a bid advertised in the town's own newspaper, which is a relationship between fort and town worth drawing. The contracting officer's name survives only as an initial and is NOT supplied; he is a lieutenant of the 5th Infantry acting as Assistant Commissary of Subsistence."
+    },
+    {
+      "id": "c007",
+      "kind": "business",
+      "reading": "transcription_mediated",
+      "quote": "CHAIRS333\nJest opened for\n° sale, aquantity of\nlaa. Chairs of the best qual-\nj f ity, cheap for cash, at\na4 the cabinet shop of\nClark, Filer & Co.\nMay 20, 1834.",
+      "normalized": "CHAIRS[.] [J]ust opened for sale, a quantity of […] Chairs of the best qual[…] ity, cheap for cash, at […] the cabinet shop of Clark, Filer & Co. May 20, 1834.",
+      "locator": {
+        "artifact_role": "primary",
+        "issue_page": 3,
+        "column": 5,
+        "lines": [
+          2936,
+          2943
+        ]
+      },
+      "entities": [
+        {
+          "as_printed": "Clark, Filer & Co.",
+          "normalized": "Clark, Filer & Co.",
+          "role": "firm",
+          "occupations": [
+            "cabinet maker",
+            "chair maker"
+          ],
+          "associated_places": [
+            "South Water Street",
+            "Chicago"
+          ]
+        }
+      ],
+      "business": {
+        "name": "Clark, Filer & Co.",
+        "trade": "cabinet shop; chairs",
+        "placement": {
+          "class": "none"
+        },
+        "address_text": "the cabinet shop of Clark, Filer & Co."
+      },
+      "ad_copy_date": {
+        "verbatim": "May 20, 1834.",
+        "iso": "1834-05-20"
+      },
+      "notes": "THE CABINET SHOP AGAIN, UNDER A THIRD NAME IN ONE MONTH. A. Filer & Co on 21 May (chicago_democrat_1834_05_21 c003), Clark, Filer & Co on 28 May, and the premises are 'the cabinet shop' — definite article, no address, because by now the reader knows which one. That is a shop established enough in four weeks to be THE cabinet shop of the town. The two firm names are recorded as they are printed and are NOT merged into one entry here: Filer is common to both and the identity is likely, but identity is identity.json's business and not a reading pass's."
+    },
+    {
+      "id": "c008",
+      "kind": "business",
+      "reading": "transcription_mediated",
+      "quote": "NEW STORE\nVOW @eone.\nDOTY & CO. have taken the St\nthe east end of South Water-s\n‘occupied by Peter Cohen, which they\nup as a Dry Goods Store, and are na\niving a large and splendid vasortinent of\nDry Goods, Groceries,\nCrockery, &c.\nevery description, together with a goc\nrtment of OTHING. Also,\nBOOTS & SHOHE\nAll of which they offer as cheap for c\ny other Store in the place.\nChicago, April 29, 1834.",
+      "normalized": "NEW STORE […] […] DOTY & CO. have taken the St[ore at] the east end of South Water-s[treet, lately] occupied by Peter Cohen, which they [have fitted] up as a Dry Goods Store, and are n[ow rece]iving a large and splendid [a]ssort[m]ent of Dry Goods, Groceries, Crockery, &c. [of] every description, together with a go[od asso]rtment of [CL]OTHING. Also, BOOTS & SHO[ES.] All of which they offer as cheap for c[ash as an]y other Store in the place. Chicago, April 29, 1834.",
+      "locator": {
+        "artifact_role": "primary",
+        "issue_page": 3,
+        "column": 5,
+        "lines": [
+          2945,
+          2959
+        ]
+      },
+      "entities": [
+        {
+          "as_printed": "DOTY & CO.",
+          "normalized": "Doty & Co.",
+          "role": "firm taking the store",
+          "occupations": [
+            "merchants"
+          ],
+          "associated_places": [
+            "South Water Street"
+          ]
+        },
+        {
+          "as_printed": "Peter Cohen",
+          "normalized": "Peter Cohen",
+          "role": "previous occupant of the store",
+          "occupations": [
+            "merchant"
+          ],
+          "associated_places": [
+            "South Water Street"
+          ]
+        }
+      ],
+      "business": {
+        "name": "Doty & Co.",
+        "trade": "dry goods, groceries, crockery, clothing, boots and shoes",
+        "placement": {
+          "class": "relative",
+          "anchor": "the east end of South Water-street",
+          "offset_text": "the east end of South Water-s\n'occupied by Peter Cohen, which they",
+          "street": "South Water Street"
+        },
+        "address_text": "the St[ore at] the east end of South Water-s[treet, lately] occupied by Peter Cohen"
+      },
+      "ad_copy_date": {
+        "verbatim": "Chicago, April 29, 1834.",
+        "iso": "1834-04-29"
+      },
+      "notes": "A NAMED STOREFRONT AT THE EAST END OF SOUTH WATER STREET, WITH ITS PREVIOUS OCCUPANT NAMED. This is the 'building lately occupied by…' chain the epic asks for, in its cleanest May 1834 form: the premises pass from Peter Cohen to Doty & Co, are FITTED UP as a dry goods store, and are located by the end of the street rather than by a cross-street. 'The east end of South Water-street' is a placement the reconstruction's South Water frontage can act on — it is the river-mouth end, the end nearest the fort and the wharves, and it is where the month's salt came off (chicago_democrat_1834_05_14 c003). Two proprietors in a row in one building is also the clearest evidence in the month that South Water shopfronts turned over fast, which is what a survival liberty reaching to 1835 has to reckon with. The same advertisement stands in the 21 May issue."
+    },
+    {
+      "id": "c009",
+      "kind": "business",
+      "reading": "transcription_mediated",
+      "quote": "G. SPRING.\nTTORNEY AND COUNSELLOR AT\nAnd Soliciter in ipaag\nC! e\nyr Fracklin and South W er-tret\n‘Chicago, Dec. 17, 1333.",
+      "normalized": "G. SPRING. [A]TTORNEY AND COUNSELLOR AT [LAW,] And Solici[t]or in [Chancery …] C[hicago, Illinois …] [corne]r [F]ra[n]klin and South W[at]er-str[ee]t[.] [C]hicago, Dec. 17, 18[3]3.",
+      "locator": {
+        "artifact_role": "primary",
+        "issue_page": 3,
+        "column": 5,
+        "lines": [
+          2992,
+          2997
+        ]
+      },
+      "entities": [
+        {
+          "as_printed": "G. SPRING.",
+          "normalized": "G. Spring",
+          "role": "proprietor",
+          "occupations": [
+            "attorney"
+          ],
+          "associated_places": [
+            "South Water Street",
+            "Franklin Street"
+          ]
+        }
+      ],
+      "business": {
+        "name": "G. Spring",
+        "trade": "attorney and counsellor at law; solicitor in chancery",
+        "placement": {
+          "class": "corner",
+          "anchor": "Franklin and South Water streets",
+          "street": "Franklin Street and South Water Street"
+        },
+        "address_text": "[corne]r [F]ra[n]klin and South W[at]er-str[ee]t"
+      },
+      "ad_copy_date": {
+        "verbatim": "'Chicago, Dec. 17, 1333.",
+        "iso": "1833-12-17"
+      },
+      "notes": "A CORNER PLACEMENT ON SOUTH WATER, AND THE ONLY ONE IN THE MONTH THAT NAMES BOTH STREETS. Franklin and South Water: an attorney's office standing at that intersection, advertised continuously since December 1833 and still running in May 1834. Franklin is at the WEST end of the platted South Water frontage, so with Doty & Co at the east end (claim c008) the month's two firmest South Water addresses bracket the street. An attorney's office is a small tenancy — one room — and it is the kind of use the reconstruction currently has no record for on a corner lot."
+    },
+    {
+      "id": "c010",
+      "kind": "business",
+      "reading": "transcription_mediated",
+      "quote": "hr Gh\n| Moun and Land Age\nRe purchased and Sold, or by c\nR\n2@ Building Lots for sale, i :\n@ School seton. ee\nlouses to Enquire\nat. opposite Dr. Temple's. ae",
+      "normalized": "[…] [H]ous[es] and Land Age[nt.] [LOTS] purchased and Sold, or by c[ommis]sion. […] Building Lots for sale, i[n the town and] School se[c]tion. [H]ouses to [Let.] Enquire [at the Office on Lake] st. opposite Dr. Temple's. […]",
+      "locator": {
+        "artifact_role": "primary",
+        "issue_page": 3,
+        "column": 5,
+        "lines": [
+          2861,
+          2868
+        ],
+        "lines_of_claim": [
+          2861,
+          2862,
+          2863,
+          2864,
+          2865,
+          2866,
+          2867,
+          2868
+        ],
+        "interleaved": false
+      },
+      "business": {
+        "name": "W. G. Blanchard",
+        "proprietors": [
+          "W. G. Blanchard"
+        ],
+        "trade": "house and land agent",
+        "goods": [],
+        "street": null,
+        "placement": {
+          "class": "relative",
+          "anchor": "Dr. Temple's",
+          "offset_text": "at. opposite Dr. Temple's. ae",
+          "offset_normalized": "[…] st. opposite Dr. Temple's.",
+          "street": null
+        }
+      },
+      "notes": "ONE IMPRESSION OF THE STANDING LAKE STREET LAND-AGENCY CARD. The Democrat sets this advertisement, word for word the same, in every issue from 1834-05-14 to 1834-10-01 — twenty consecutive weeks, eighteen of which set the line ‘purchased and Sold, or by commi[s]sion’ recognisably (T-1051). The card is identified by its copy and not by its display line: the same trade (‘House and Land Agent’), the same offer of building lots in the town and the School Section, the same houses to let, and the same office on Lake street opposite Dr. Temple's. The display line survives as 'hr Gh' (line 2861) in another Tesseract-fallback column (the flag is line 2860) and nothing can be read off it. THE PROPRIETOR'S NAME IS NOT READ HERE and none is supplied into the quote: the record's ‘W. G. Blanchard’ stands on T-0408's reading of the two impressions whose columns are NOT Tesseract fallbacks (1834-07-16 line 5527, 1834-09-17 line 3292) and on identity.json's declared firm merge, not on this impression. THE STREET IS NOT SET HERE: the address line reads 'at. opposite Dr. Temple's.' and the word 'Lake' did not survive the left margin, so the anchor is read and the street is left null rather than carried in from the weeks either side. 'R' at line 2864 and the trailing 'ee'/'ae' are margin droppings of the fallback column, quoted where they stand rather than cleaned away."
+    }
+  ]
+}

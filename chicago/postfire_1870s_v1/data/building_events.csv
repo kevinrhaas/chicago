@@ -1,0 +1,953 @@
+building_event_id,building_id,event_type,event_date,date_precision,cause,description
+CHI-POSTFIRE-CHI1872-001-E01,CHI-POSTFIRE-CHI1872-001,construction_start,1872,year-only,,reconstruction
+CHI-POSTFIRE-CHI1872-001-E02,CHI-POSTFIRE-CHI1872-001,completion,1872,year-only,,reconstruction
+CHI-POSTFIRE-CHI1872-001-E03,CHI-POSTFIRE-CHI1872-001,opening,1872,as_reported,,retail and commercial
+CHI-POSTFIRE-CHI1872-002-E01,CHI-POSTFIRE-CHI1872-002,construction_start,1872,year-only,,new_construction
+CHI-POSTFIRE-CHI1872-002-E02,CHI-POSTFIRE-CHI1872-002,completion,1872,year-only,,new_construction
+CHI-POSTFIRE-CHI1872-002-E03,CHI-POSTFIRE-CHI1872-002,opening,1872,as_reported,,commercial lofts and stores
+CHI-POSTFIRE-CHI1872-003-E01,CHI-POSTFIRE-CHI1872-003,construction_start,1872,approximate,,new_construction
+CHI-POSTFIRE-CHI1872-003-E02,CHI-POSTFIRE-CHI1872-003,completion,1872,approximate,,new_construction
+CHI-POSTFIRE-CHI1872-003-E03,CHI-POSTFIRE-CHI1872-003,opening,1872,as_reported,,residence
+CHI-POSTFIRE-CHI1872-004-E01,CHI-POSTFIRE-CHI1872-004,construction_start,1872,range,,construction_start
+CHI-POSTFIRE-CHI1872-004-E02,CHI-POSTFIRE-CHI1872-004,completion,1875,range,,construction_start
+CHI-POSTFIRE-CHI1872-005-E01,CHI-POSTFIRE-CHI1872-005,construction_start,1872,range,,construction_start
+CHI-POSTFIRE-CHI1872-005-E02,CHI-POSTFIRE-CHI1872-005,completion,1874,range,,construction_start
+CHI-POSTFIRE-CHI1872-006-E01,CHI-POSTFIRE-CHI1872-006,construction_start,1871,exact,,reconstruction
+CHI-POSTFIRE-CHI1872-006-E02,CHI-POSTFIRE-CHI1872-006,completion,1872,exact,,reconstruction
+CHI-POSTFIRE-CHI1872-006-E03,CHI-POSTFIRE-CHI1872-006,opening,1872,as_reported,,"city offices, courts, recorder and law library"
+CHI-POSTFIRE-CHI1872-006-E04,CHI-POSTFIRE-CHI1872-006,demolition_or_loss,1885,year-only,redevelopment,demolished
+CHI-POSTFIRE-CHI1872-007-E01,CHI-POSTFIRE-CHI1872-007,construction_start,1871,exact,,reconstruction
+CHI-POSTFIRE-CHI1872-007-E02,CHI-POSTFIRE-CHI1872-007,completion,1872,exact,,reconstruction
+CHI-POSTFIRE-CHI1872-007-E03,CHI-POSTFIRE-CHI1872-007,opening,1872,as_reported,,commodity exchange and offices
+CHI-POSTFIRE-CHI1872-007-E04,CHI-POSTFIRE-CHI1872-007,demolition_or_loss,1890,year-only,redevelopment,demolished
+CHI-POSTFIRE-CHI1872-008-E01,CHI-POSTFIRE-CHI1872-008,construction_start,1871,exact,,reconstruction
+CHI-POSTFIRE-CHI1872-008-E02,CHI-POSTFIRE-CHI1872-008,completion,1872,exact,,reconstruction
+CHI-POSTFIRE-CHI1872-008-E03,CHI-POSTFIRE-CHI1872-008,opening,1872,as_reported,,newspaper offices and printing
+CHI-POSTFIRE-CHI1872-008-E04,CHI-POSTFIRE-CHI1872-008,demolition_or_loss,1901,year-only,redevelopment,demolished
+CHI-POSTFIRE-CHI1872-009-E01,CHI-POSTFIRE-CHI1872-009,construction_start,1871,year-only,,reconstruction
+CHI-POSTFIRE-CHI1872-009-E02,CHI-POSTFIRE-CHI1872-009,completion,1872,year-only,,reconstruction
+CHI-POSTFIRE-CHI1872-009-E03,CHI-POSTFIRE-CHI1872-009,opening,1872,as_reported,,bank and safe deposit
+CHI-POSTFIRE-CHI1872-009-E04,CHI-POSTFIRE-CHI1872-009,demolition_or_loss,1883,year-only,redevelopment,demolished
+CHI-POSTFIRE-CHI1872-010-E01,CHI-POSTFIRE-CHI1872-010,construction_start,1871,exact,,reconstruction
+CHI-POSTFIRE-CHI1872-010-E02,CHI-POSTFIRE-CHI1872-010,completion,1872,exact,,reconstruction
+CHI-POSTFIRE-CHI1872-010-E03,CHI-POSTFIRE-CHI1872-010,opening,1872,as_reported,,wholesale dry goods
+CHI-POSTFIRE-CHI1872-010-E04,CHI-POSTFIRE-CHI1872-010,demolition_or_loss,1933,approximate,redevelopment,demolished
+CHI-POSTFIRE-CHI1872-011-E01,CHI-POSTFIRE-CHI1872-011,construction_start,1872,year-only,,reconstruction
+CHI-POSTFIRE-CHI1872-011-E02,CHI-POSTFIRE-CHI1872-011,completion,1872,year-only,,reconstruction
+CHI-POSTFIRE-CHI1872-011-E03,CHI-POSTFIRE-CHI1872-011,opening,1872,as_reported,,hardware warehouse and salesrooms
+CHI-POSTFIRE-CHI1872-011-E04,CHI-POSTFIRE-CHI1872-011,demolition_or_loss,1925,year-only,redevelopment,demolished
+CHI-POSTFIRE-CHI1872-012-E01,CHI-POSTFIRE-CHI1872-012,construction_start,1872,approximate,,reconstruction
+CHI-POSTFIRE-CHI1872-012-E02,CHI-POSTFIRE-CHI1872-012,completion,1872,approximate,,reconstruction
+CHI-POSTFIRE-CHI1872-012-E03,CHI-POSTFIRE-CHI1872-012,opening,1872,as_reported,,banks and offices
+CHI-POSTFIRE-CHI1872-012-E04,CHI-POSTFIRE-CHI1872-012,demolition_or_loss,1911,year-only,redevelopment,demolished
+CHI-POSTFIRE-CHI1872-013-E01,CHI-POSTFIRE-CHI1872-013,construction_start,1872,exact,,reconstruction
+CHI-POSTFIRE-CHI1872-013-E02,CHI-POSTFIRE-CHI1872-013,completion,1872,exact,,reconstruction
+CHI-POSTFIRE-CHI1872-013-E03,CHI-POSTFIRE-CHI1872-013,opening,1872,as_reported,,hardware warehouse and salesrooms
+CHI-POSTFIRE-CHI1872-013-E04,CHI-POSTFIRE-CHI1872-013,demolition_or_loss,1941,year-only,redevelopment,demolished
+CHI-POSTFIRE-CHI1872-014-E01,CHI-POSTFIRE-CHI1872-014,construction_start,1872,approximate,,reconstruction
+CHI-POSTFIRE-CHI1872-014-E02,CHI-POSTFIRE-CHI1872-014,completion,1872,approximate,,reconstruction
+CHI-POSTFIRE-CHI1872-014-E03,CHI-POSTFIRE-CHI1872-014,opening,1872,as_reported,,railroad general offices
+CHI-POSTFIRE-CHI1872-015-E01,CHI-POSTFIRE-CHI1872-015,construction_start,1872,approximate,,reconstruction
+CHI-POSTFIRE-CHI1872-015-E02,CHI-POSTFIRE-CHI1872-015,completion,1872,approximate,,reconstruction
+CHI-POSTFIRE-CHI1872-015-E03,CHI-POSTFIRE-CHI1872-015,opening,1872,as_reported,,stove and hardware trade
+CHI-POSTFIRE-CHI1872-015-E04,CHI-POSTFIRE-CHI1872-015,demolition_or_loss,1949,approximate,redevelopment,demolished
+CHI-POSTFIRE-CHI1872-016-E01,CHI-POSTFIRE-CHI1872-016,construction_start,1872,approximate,,reconstruction
+CHI-POSTFIRE-CHI1872-016-E02,CHI-POSTFIRE-CHI1872-016,completion,1872,approximate,,reconstruction
+CHI-POSTFIRE-CHI1872-016-E03,CHI-POSTFIRE-CHI1872-016,opening,1872,as_reported,,rental property supporting Garrett Biblical Institute
+CHI-POSTFIRE-CHI1872-016-E04,CHI-POSTFIRE-CHI1872-016,demolition_or_loss,1898,year-only,redevelopment,demolished
+CHI-POSTFIRE-CHI1872-017-E01,CHI-POSTFIRE-CHI1872-017,construction_start,1872,approximate,,reconstruction
+CHI-POSTFIRE-CHI1872-017-E02,CHI-POSTFIRE-CHI1872-017,completion,1872,approximate,,reconstruction
+CHI-POSTFIRE-CHI1872-017-E03,CHI-POSTFIRE-CHI1872-017,opening,1872,as_reported,,offices and commercial tenants
+CHI-POSTFIRE-CHI1872-017-E04,CHI-POSTFIRE-CHI1872-017,demolition_or_loss,1907,year-only,redevelopment,demolished
+CHI-POSTFIRE-CHI1872-018-E01,CHI-POSTFIRE-CHI1872-018,construction_start,1872,approximate,,reconstruction
+CHI-POSTFIRE-CHI1872-018-E02,CHI-POSTFIRE-CHI1872-018,completion,1872,approximate,,reconstruction
+CHI-POSTFIRE-CHI1872-018-E03,CHI-POSTFIRE-CHI1872-018,opening,1872,as_reported,,"banks, stores and offices"
+CHI-POSTFIRE-CHI1872-018-E04,CHI-POSTFIRE-CHI1872-018,demolition_or_loss,1914,year-only,redevelopment,demolished
+CHI-POSTFIRE-CHI1872-019-E01,CHI-POSTFIRE-CHI1872-019,construction_start,1872,exact,,reconstruction
+CHI-POSTFIRE-CHI1872-019-E02,CHI-POSTFIRE-CHI1872-019,completion,1872,exact,,reconstruction
+CHI-POSTFIRE-CHI1872-019-E03,CHI-POSTFIRE-CHI1872-019,opening,1872,as_reported,,boot and shoe factory and salesrooms
+CHI-POSTFIRE-CHI1872-019-E04,CHI-POSTFIRE-CHI1872-019,demolition_or_loss,1907,year-only,redevelopment,demolished
+CHI-POSTFIRE-CHI1872-020-E01,CHI-POSTFIRE-CHI1872-020,construction_start,1872,approximate,,reconstruction
+CHI-POSTFIRE-CHI1872-020-E02,CHI-POSTFIRE-CHI1872-020,completion,1872,approximate,,reconstruction
+CHI-POSTFIRE-CHI1872-020-E03,CHI-POSTFIRE-CHI1872-020,opening,1872,as_reported,,stores and offices
+CHI-POSTFIRE-CHI1872-020-E04,CHI-POSTFIRE-CHI1872-020,demolition_or_loss,1910,year-only,redevelopment,demolished
+CHI-POSTFIRE-CHI1872-021-E01,CHI-POSTFIRE-CHI1872-021,construction_start,1872,approximate,,reconstruction
+CHI-POSTFIRE-CHI1872-021-E02,CHI-POSTFIRE-CHI1872-021,completion,1872,approximate,,reconstruction
+CHI-POSTFIRE-CHI1872-021-E03,CHI-POSTFIRE-CHI1872-021,opening,1872,as_reported,,store and offices
+CHI-POSTFIRE-CHI1872-021-E04,CHI-POSTFIRE-CHI1872-021,demolition_or_loss,1911,year-only,redevelopment,demolished
+CHI-POSTFIRE-CHI1872-022-E01,CHI-POSTFIRE-CHI1872-022,construction_start,1872,approximate,,reconstruction
+CHI-POSTFIRE-CHI1872-022-E02,CHI-POSTFIRE-CHI1872-022,completion,1872,approximate,,reconstruction
+CHI-POSTFIRE-CHI1872-022-E03,CHI-POSTFIRE-CHI1872-022,opening,1872,as_reported,,boots and shoes wholesale
+CHI-POSTFIRE-CHI1872-022-E04,CHI-POSTFIRE-CHI1872-022,demolition_or_loss,1949,approximate,redevelopment,demolished
+CHI-POSTFIRE-CHI1872-023-E01,CHI-POSTFIRE-CHI1872-023,construction_start,1872,year-only,,reconstruction
+CHI-POSTFIRE-CHI1872-023-E02,CHI-POSTFIRE-CHI1872-023,completion,1872,year-only,,reconstruction
+CHI-POSTFIRE-CHI1872-023-E03,CHI-POSTFIRE-CHI1872-023,opening,1872,as_reported,,retail and offices
+CHI-POSTFIRE-CHI1872-023-E04,CHI-POSTFIRE-CHI1872-023,demolition_or_loss,1955,year-only,redevelopment,demolished
+CHI-POSTFIRE-CHI1872-024-E01,CHI-POSTFIRE-CHI1872-024,construction_start,1872,approximate,,reconstruction
+CHI-POSTFIRE-CHI1872-024-E02,CHI-POSTFIRE-CHI1872-024,completion,1872,approximate,,reconstruction
+CHI-POSTFIRE-CHI1872-024-E03,CHI-POSTFIRE-CHI1872-024,opening,1872,as_reported,,"bank, steamship agency and offices"
+CHI-POSTFIRE-CHI1872-024-E04,CHI-POSTFIRE-CHI1872-024,demolition_or_loss,1888,year-only,redevelopment,demolished
+CHI-POSTFIRE-CHI1872-025-E01,CHI-POSTFIRE-CHI1872-025,construction_start,1872,year-only,,reconstruction
+CHI-POSTFIRE-CHI1872-025-E02,CHI-POSTFIRE-CHI1872-025,completion,1872,year-only,,reconstruction
+CHI-POSTFIRE-CHI1872-025-E03,CHI-POSTFIRE-CHI1872-025,opening,1872,as_reported,,railway supplies
+CHI-POSTFIRE-CHI1872-025-E04,CHI-POSTFIRE-CHI1872-025,demolition_or_loss,1910,year-only,redevelopment,demolished
+CHI-POSTFIRE-CHI1872-026-E01,CHI-POSTFIRE-CHI1872-026,construction_start,1872,year-only,,new_construction
+CHI-POSTFIRE-CHI1872-026-E02,CHI-POSTFIRE-CHI1872-026,completion,1872,year-only,,new_construction
+CHI-POSTFIRE-CHI1872-026-E03,CHI-POSTFIRE-CHI1872-026,opening,1872,as_reported,,"china, glassware, guns and cutlery retail"
+CHI-POSTFIRE-CHI1872-026-E04,CHI-POSTFIRE-CHI1872-026,demolition_or_loss,1949,year-only,redevelopment,demolished
+CHI-POSTFIRE-CHI1872-027-E01,CHI-POSTFIRE-CHI1872-027,construction_start,1872,exact,,reconstruction
+CHI-POSTFIRE-CHI1872-027-E02,CHI-POSTFIRE-CHI1872-027,completion,1872,exact,,reconstruction
+CHI-POSTFIRE-CHI1872-027-E03,CHI-POSTFIRE-CHI1872-027,opening,1872,as_reported,,type foundry and printing offices
+CHI-POSTFIRE-CHI1872-027-E04,CHI-POSTFIRE-CHI1872-027,demolition_or_loss,1894,year-only,redevelopment,demolished
+CHI-POSTFIRE-CHI1872-028-E01,CHI-POSTFIRE-CHI1872-028,construction_start,1872,approximate,,reconstruction
+CHI-POSTFIRE-CHI1872-028-E02,CHI-POSTFIRE-CHI1872-028,completion,1872,approximate,,reconstruction
+CHI-POSTFIRE-CHI1872-028-E03,CHI-POSTFIRE-CHI1872-028,opening,1872,as_reported,,savings bank and safe depository
+CHI-POSTFIRE-CHI1872-028-E04,CHI-POSTFIRE-CHI1872-028,demolition_or_loss,1924,year-only,redevelopment,demolished
+CHI-POSTFIRE-CHI1872-029-E01,CHI-POSTFIRE-CHI1872-029,construction_start,1872,year-only,,new_construction
+CHI-POSTFIRE-CHI1872-029-E02,CHI-POSTFIRE-CHI1872-029,completion,1872,year-only,,new_construction
+CHI-POSTFIRE-CHI1872-029-E03,CHI-POSTFIRE-CHI1872-029,opening,1872,as_reported,,newspaper offices and printing
+CHI-POSTFIRE-CHI1872-029-E04,CHI-POSTFIRE-CHI1872-029,demolition_or_loss,1874,year-only,fire,demolished
+CHI-POSTFIRE-CHI1872-030-E01,CHI-POSTFIRE-CHI1872-030,construction_start,1872,approximate,,reconstruction
+CHI-POSTFIRE-CHI1872-030-E02,CHI-POSTFIRE-CHI1872-030,completion,1872,approximate,,reconstruction
+CHI-POSTFIRE-CHI1872-030-E03,CHI-POSTFIRE-CHI1872-030,opening,1872,as_reported,,wholesale grocery trade
+CHI-POSTFIRE-CHI1872-030-E04,CHI-POSTFIRE-CHI1872-030,demolition_or_loss,1899,year-only,redevelopment,demolished
+CHI-POSTFIRE-CHI1872-031-E01,CHI-POSTFIRE-CHI1872-031,construction_start,1872,exact,,new_construction
+CHI-POSTFIRE-CHI1872-031-E02,CHI-POSTFIRE-CHI1872-031,completion,1872,exact,,new_construction
+CHI-POSTFIRE-CHI1872-031-E03,CHI-POSTFIRE-CHI1872-031,opening,1872,as_reported,,hotel
+CHI-POSTFIRE-CHI1872-031-E04,CHI-POSTFIRE-CHI1872-031,demolition_or_loss,1906,year-only,redevelopment,demolished
+CHI-POSTFIRE-CHI1872-032-E01,CHI-POSTFIRE-CHI1872-032,construction_start,1872,year-only,,reconstruction
+CHI-POSTFIRE-CHI1872-032-E02,CHI-POSTFIRE-CHI1872-032,completion,1872,year-only,,reconstruction
+CHI-POSTFIRE-CHI1872-032-E03,CHI-POSTFIRE-CHI1872-032,opening,1872,as_reported,,safe and lock showroom
+CHI-POSTFIRE-CHI1872-032-E04,CHI-POSTFIRE-CHI1872-032,demolition_or_loss,1901,year-only,redevelopment,demolished
+CHI-POSTFIRE-CHI1872-033-E01,CHI-POSTFIRE-CHI1872-033,construction_start,1871,approximate,,reconstruction
+CHI-POSTFIRE-CHI1872-033-E02,CHI-POSTFIRE-CHI1872-033,completion,1872,approximate,,reconstruction
+CHI-POSTFIRE-CHI1872-033-E03,CHI-POSTFIRE-CHI1872-033,opening,1872,as_reported,,drugstore and offices
+CHI-POSTFIRE-CHI1872-033-E04,CHI-POSTFIRE-CHI1872-033,demolition_or_loss,1904,year-only,redevelopment,demolished
+CHI-POSTFIRE-CHI1872-034-E01,CHI-POSTFIRE-CHI1872-034,construction_start,1872,approximate,,reconstruction
+CHI-POSTFIRE-CHI1872-034-E02,CHI-POSTFIRE-CHI1872-034,completion,1872,approximate,,reconstruction
+CHI-POSTFIRE-CHI1872-034-E03,CHI-POSTFIRE-CHI1872-034,opening,1872,as_reported,,bank and offices
+CHI-POSTFIRE-CHI1872-034-E04,CHI-POSTFIRE-CHI1872-034,demolition_or_loss,1908,year-only,redevelopment,demolished
+CHI-POSTFIRE-CHI1872-035-E01,CHI-POSTFIRE-CHI1872-035,construction_start,1872,approximate,,reconstruction
+CHI-POSTFIRE-CHI1872-035-E02,CHI-POSTFIRE-CHI1872-035,completion,1872,approximate,,reconstruction
+CHI-POSTFIRE-CHI1872-035-E03,CHI-POSTFIRE-CHI1872-035,opening,1872,as_reported,,Marine Bank and Mechanics' National Bank
+CHI-POSTFIRE-CHI1872-035-E04,CHI-POSTFIRE-CHI1872-035,demolition_or_loss,1928,year-only,redevelopment,demolished
+CHI-POSTFIRE-CHI1872-036-E01,CHI-POSTFIRE-CHI1872-036,construction_start,1872,approximate,,reconstruction
+CHI-POSTFIRE-CHI1872-036-E02,CHI-POSTFIRE-CHI1872-036,completion,1872,approximate,,reconstruction
+CHI-POSTFIRE-CHI1872-036-E03,CHI-POSTFIRE-CHI1872-036,opening,1872,as_reported,,"wholesale hats, caps, furs and millinery"
+CHI-POSTFIRE-CHI1872-036-E04,CHI-POSTFIRE-CHI1872-036,demolition_or_loss,1980,approximate,redevelopment,demolished
+CHI-POSTFIRE-CHI1872-037-E01,CHI-POSTFIRE-CHI1872-037,construction_start,1872,approximate,,reconstruction
+CHI-POSTFIRE-CHI1872-037-E02,CHI-POSTFIRE-CHI1872-037,completion,1872,approximate,,reconstruction
+CHI-POSTFIRE-CHI1872-037-E03,CHI-POSTFIRE-CHI1872-037,opening,1872,as_reported,,theater
+CHI-POSTFIRE-CHI1872-038-E01,CHI-POSTFIRE-CHI1872-038,construction_start,1872,year-only,,new_construction
+CHI-POSTFIRE-CHI1872-038-E02,CHI-POSTFIRE-CHI1872-038,completion,1872,year-only,,new_construction
+CHI-POSTFIRE-CHI1872-038-E03,CHI-POSTFIRE-CHI1872-038,opening,1872,as_reported,,"cottage, restaurant, hall and saloon"
+CHI-POSTFIRE-CHI1872-038-E04,CHI-POSTFIRE-CHI1872-038,demolition_or_loss,1929,year-only,redevelopment,demolished
+CHI-POSTFIRE-CHI1872-039-E01,CHI-POSTFIRE-CHI1872-039,construction_start,1872,incomplete,,cornerstone_and_incomplete_construction
+CHI-POSTFIRE-CHI1872-040-E01,CHI-POSTFIRE-CHI1872-040,construction_start,1872,year-only,,new_construction
+CHI-POSTFIRE-CHI1872-040-E02,CHI-POSTFIRE-CHI1872-040,completion,1872,year-only,,new_construction
+CHI-POSTFIRE-CHI1872-040-E03,CHI-POSTFIRE-CHI1872-040,opening,1872,as_reported,,mixed commercial uses
+CHI-POSTFIRE-CHI1872-040-E04,CHI-POSTFIRE-CHI1872-040,demolition_or_loss,2024,approximate,redevelopment,demolished
+CHI-POSTFIRE-CHI1872-041-E01,CHI-POSTFIRE-CHI1872-041,construction_start,1872,year-only,,new_construction
+CHI-POSTFIRE-CHI1872-041-E02,CHI-POSTFIRE-CHI1872-041,completion,1872,year-only,,new_construction
+CHI-POSTFIRE-CHI1872-041-E03,CHI-POSTFIRE-CHI1872-041,opening,1872,as_reported,,commercial building converted to hotel
+CHI-POSTFIRE-CHI1872-042-E01,CHI-POSTFIRE-CHI1872-042,construction_start,1871,exact,,new_construction
+CHI-POSTFIRE-CHI1872-042-E02,CHI-POSTFIRE-CHI1872-042,completion,1872,exact,,new_construction
+CHI-POSTFIRE-CHI1872-042-E03,CHI-POSTFIRE-CHI1872-042,opening,1872,as_reported,,hotel
+CHI-POSTFIRE-CHI1872-043-E01,CHI-POSTFIRE-CHI1872-043,construction_start,1871,year-only,,reconstruction
+CHI-POSTFIRE-CHI1872-043-E02,CHI-POSTFIRE-CHI1872-043,completion,1872,year-only,,reconstruction
+CHI-POSTFIRE-CHI1872-043-E03,CHI-POSTFIRE-CHI1872-043,opening,1872,as_reported,,hotel
+CHI-POSTFIRE-CHI1872-044-E01,CHI-POSTFIRE-CHI1872-044,construction_start,1872,year-only,,reconstruction
+CHI-POSTFIRE-CHI1872-044-E02,CHI-POSTFIRE-CHI1872-044,completion,1872,year-only,,reconstruction
+CHI-POSTFIRE-CHI1872-044-E03,CHI-POSTFIRE-CHI1872-044,opening,1872,as_reported,,hotel
+CHI-POSTFIRE-CHI1872-045-E01,CHI-POSTFIRE-CHI1872-045,construction_start,1872,year-only,,reconstruction
+CHI-POSTFIRE-CHI1872-045-E02,CHI-POSTFIRE-CHI1872-045,completion,1872,year-only,,reconstruction
+CHI-POSTFIRE-CHI1872-045-E03,CHI-POSTFIRE-CHI1872-045,opening,1872,as_reported,,hotel
+CHI-POSTFIRE-CHI1872-046-E01,CHI-POSTFIRE-CHI1872-046,construction_start,1871,year-only,,new_construction
+CHI-POSTFIRE-CHI1872-046-E02,CHI-POSTFIRE-CHI1872-046,completion,1872,year-only,,new_construction
+CHI-POSTFIRE-CHI1872-046-E03,CHI-POSTFIRE-CHI1872-046,opening,1873,as_reported,,hotel
+CHI-POSTFIRE-CHI1872-046-E04,CHI-POSTFIRE-CHI1872-046,demolition_or_loss,1915,year-only,redevelopment,demolished
+CHI-POSTFIRE-CHI1872-047-E01,CHI-POSTFIRE-CHI1872-047,construction_start,1871,year-only,,construction_phase
+CHI-POSTFIRE-CHI1872-047-E02,CHI-POSTFIRE-CHI1872-047,completion,1873,year-only,,construction_phase
+CHI-POSTFIRE-CHI1872-047-E03,CHI-POSTFIRE-CHI1872-047,opening,1873,as_reported,,joint passenger depot
+CHI-POSTFIRE-CHI1872-047-E04,CHI-POSTFIRE-CHI1872-047,demolition_or_loss,1901,year-only,redevelopment,demolished
+CHI-POSTFIRE-CHI1872-048-E01,CHI-POSTFIRE-CHI1872-048,construction_start,1871,year-only,,construction_phase
+CHI-POSTFIRE-CHI1872-048-E02,CHI-POSTFIRE-CHI1872-048,completion,1873,year-only,,construction_phase
+CHI-POSTFIRE-CHI1872-048-E03,CHI-POSTFIRE-CHI1872-048,opening,1873,as_reported,,"printing, publishing and offices"
+CHI-POSTFIRE-CHI1872-048-E04,CHI-POSTFIRE-CHI1872-048,demolition_or_loss,1926,year-only,redevelopment,demolished
+CHI-POSTFIRE-CHI1872-049-E01,CHI-POSTFIRE-CHI1872-049,construction_start,1871,year-only,,construction_phase
+CHI-POSTFIRE-CHI1872-049-E02,CHI-POSTFIRE-CHI1872-049,completion,1873,year-only,,construction_phase
+CHI-POSTFIRE-CHI1872-049-E03,CHI-POSTFIRE-CHI1872-049,opening,1873,as_reported,,hotel
+CHI-POSTFIRE-CHI1872-050-E01,CHI-POSTFIRE-CHI1872-050,construction_start,1871,year-only,,construction_phase
+CHI-POSTFIRE-CHI1872-050-E02,CHI-POSTFIRE-CHI1872-050,completion,1873,year-only,,construction_phase
+CHI-POSTFIRE-CHI1872-050-E03,CHI-POSTFIRE-CHI1872-050,opening,1873,as_reported,,hotel
+CHI-POSTFIRE-CHI1872-051-E01,CHI-POSTFIRE-CHI1872-051,construction_start,1871,year-only,,construction_phase
+CHI-POSTFIRE-CHI1872-051-E02,CHI-POSTFIRE-CHI1872-051,completion,1873,year-only,,construction_phase
+CHI-POSTFIRE-CHI1872-051-E03,CHI-POSTFIRE-CHI1872-051,opening,1873,as_reported,,hotel
+CHI-POSTFIRE-CHI1872-051-E04,CHI-POSTFIRE-CHI1872-051,demolition_or_loss,1910,approximate,redevelopment,demolished
+CHI-POSTFIRE-CHI1872-052-E01,CHI-POSTFIRE-CHI1872-052,construction_start,1871,approximate,,construction_phase
+CHI-POSTFIRE-CHI1872-052-E02,CHI-POSTFIRE-CHI1872-052,completion,1873,approximate,,construction_phase
+CHI-POSTFIRE-CHI1872-052-E03,CHI-POSTFIRE-CHI1872-052,opening,1873,as_reported,,hotel
+CHI-POSTFIRE-CHI1872-053-E01,CHI-POSTFIRE-CHI1872-053,construction_start,1871,year-only,,construction_phase
+CHI-POSTFIRE-CHI1872-053-E02,CHI-POSTFIRE-CHI1872-053,completion,1873,year-only,,construction_phase
+CHI-POSTFIRE-CHI1872-053-E03,CHI-POSTFIRE-CHI1872-053,opening,1873,as_reported,,hotel
+CHI-POSTFIRE-CHI1872-054-E01,CHI-POSTFIRE-CHI1872-054,construction_start,1872,exact,,construction_start
+CHI-POSTFIRE-CHI1872-054-E02,CHI-POSTFIRE-CHI1872-054,completion,1873,exact,,construction_start
+CHI-POSTFIRE-CHI1872-054-E03,CHI-POSTFIRE-CHI1872-054,opening,1873,as_reported,,Methodist worship
+CHI-POSTFIRE-CHI1872-055-E01,CHI-POSTFIRE-CHI1872-055,construction_start,1871,approximate,,reconstruction
+CHI-POSTFIRE-CHI1872-055-E02,CHI-POSTFIRE-CHI1872-055,completion,1872,approximate,,reconstruction
+CHI-POSTFIRE-CHI1872-055-E03,CHI-POSTFIRE-CHI1872-055,opening,1872,as_reported,,"worship, stores, offices and meeting hall"
+CHI-POSTFIRE-CHI1872-056-E01,CHI-POSTFIRE-CHI1872-056,construction_start,1871,phase,,partial_completion_and_dedication
+CHI-POSTFIRE-CHI1872-056-E02,CHI-POSTFIRE-CHI1872-056,completion,1872,phase,,partial_completion_and_dedication
+CHI-POSTFIRE-CHI1872-056-E03,CHI-POSTFIRE-CHI1872-056,opening,1872,as_reported,,Methodist worship
+CHI-POSTFIRE-CHI1872-057-E01,CHI-POSTFIRE-CHI1872-057,completion,1872,phase,,partial_completion_and_occupancy
+CHI-POSTFIRE-CHI1872-057-E02,CHI-POSTFIRE-CHI1872-057,opening,1872,as_reported,,Catholic worship
+CHI-POSTFIRE-CHI1872-058-E01,CHI-POSTFIRE-CHI1872-058,construction_start,1872,year-only,,new_construction
+CHI-POSTFIRE-CHI1872-058-E02,CHI-POSTFIRE-CHI1872-058,completion,1872,year-only,,new_construction
+CHI-POSTFIRE-CHI1872-058-E03,CHI-POSTFIRE-CHI1872-058,opening,1872,as_reported,,Lutheran worship and parochial school
+CHI-POSTFIRE-CHI1872-059-E01,CHI-POSTFIRE-CHI1872-059,construction_start,1872,year-only,,new_construction
+CHI-POSTFIRE-CHI1872-059-E02,CHI-POSTFIRE-CHI1872-059,completion,1872,year-only,,new_construction
+CHI-POSTFIRE-CHI1872-059-E03,CHI-POSTFIRE-CHI1872-059,opening,1872,as_reported,,Swedenborgian worship
+CHI-POSTFIRE-CHI1872-060-E01,CHI-POSTFIRE-CHI1872-060,construction_start,1872,exact,,foundation_phase
+CHI-POSTFIRE-CHI1872-060-E02,CHI-POSTFIRE-CHI1872-060,completion,1873,exact,,foundation_phase
+CHI-POSTFIRE-CHI1872-060-E03,CHI-POSTFIRE-CHI1872-060,opening,1873,as_reported,,Unitarian worship
+CHI-POSTFIRE-CHI1872-061-E01,CHI-POSTFIRE-CHI1872-061,construction_start,1872,year-only,,construction_start
+CHI-POSTFIRE-CHI1872-061-E02,CHI-POSTFIRE-CHI1872-061,completion,1873,year-only,,construction_start
+CHI-POSTFIRE-CHI1872-061-E03,CHI-POSTFIRE-CHI1872-061,opening,1873,as_reported,,Universalist worship
+CHI-POSTFIRE-CHI1872-062-E01,CHI-POSTFIRE-CHI1872-062,construction_start,1872,year-only,,construction_phase
+CHI-POSTFIRE-CHI1872-062-E02,CHI-POSTFIRE-CHI1872-062,completion,1875,year-only,,construction_phase
+CHI-POSTFIRE-CHI1872-062-E03,CHI-POSTFIRE-CHI1872-062,opening,1875,as_reported,,Episcopal worship
+CHI-POSTFIRE-CHI1872-063-E01,CHI-POSTFIRE-CHI1872-063,construction_start,1871,year-only,,reconstruction_phase
+CHI-POSTFIRE-CHI1872-063-E02,CHI-POSTFIRE-CHI1872-063,completion,1873,year-only,,reconstruction_phase
+CHI-POSTFIRE-CHI1872-063-E03,CHI-POSTFIRE-CHI1872-063,opening,1873,as_reported,,Catholic worship
+CHI-POSTFIRE-CHI1872-064-E01,CHI-POSTFIRE-CHI1872-064,construction_start,1872,year-only,,partial_reconstruction
+CHI-POSTFIRE-CHI1872-064-E02,CHI-POSTFIRE-CHI1872-064,completion,1876,year-only,,partial_reconstruction
+CHI-POSTFIRE-CHI1872-064-E03,CHI-POSTFIRE-CHI1872-064,opening,1876,as_reported,,clergy residence
+CHI-POSTFIRE-CHI1872-065-E01,CHI-POSTFIRE-CHI1872-065,construction_start,1872,year-only,,reconstruction
+CHI-POSTFIRE-CHI1872-065-E02,CHI-POSTFIRE-CHI1872-065,completion,1872,year-only,,reconstruction
+CHI-POSTFIRE-CHI1872-065-E03,CHI-POSTFIRE-CHI1872-065,opening,1872,as_reported,,Dominican convent and school
+CHI-POSTFIRE-CHI1872-066-E01,CHI-POSTFIRE-CHI1872-066,construction_start,1871,year-only,,reconstruction
+CHI-POSTFIRE-CHI1872-066-E02,CHI-POSTFIRE-CHI1872-066,completion,1872,year-only,,reconstruction
+CHI-POSTFIRE-CHI1872-066-E03,CHI-POSTFIRE-CHI1872-066,opening,1872,as_reported,,religious residence and school support
+CHI-POSTFIRE-CHI1872-067-E01,CHI-POSTFIRE-CHI1872-067,construction_start,1871,year-only,,reconstruction
+CHI-POSTFIRE-CHI1872-067-E02,CHI-POSTFIRE-CHI1872-067,completion,1872,year-only,,reconstruction
+CHI-POSTFIRE-CHI1872-067-E03,CHI-POSTFIRE-CHI1872-067,opening,1872,as_reported,,machinery shops and sales
+CHI-POSTFIRE-CHI1872-068-E01,CHI-POSTFIRE-CHI1872-068,construction_start,1872,exact,,new_construction
+CHI-POSTFIRE-CHI1872-068-E02,CHI-POSTFIRE-CHI1872-068,completion,1872,exact,,new_construction
+CHI-POSTFIRE-CHI1872-068-E03,CHI-POSTFIRE-CHI1872-068,opening,1872,as_reported,,dance instruction and assemblies
+CHI-POSTFIRE-CHI1872-069-E01,CHI-POSTFIRE-CHI1872-069,construction_start,1872,year-only,,new_construction
+CHI-POSTFIRE-CHI1872-069-E02,CHI-POSTFIRE-CHI1872-069,completion,1872,year-only,,new_construction
+CHI-POSTFIRE-CHI1872-069-E03,CHI-POSTFIRE-CHI1872-069,opening,1872,as_reported,,"picture frames, mirrors and engravings"
+CHI-POSTFIRE-CHI1872-070-E01,CHI-POSTFIRE-CHI1872-070,construction_start,1872,exact,,new_construction
+CHI-POSTFIRE-CHI1872-070-E02,CHI-POSTFIRE-CHI1872-070,completion,1872,exact,,new_construction
+CHI-POSTFIRE-CHI1872-070-E03,CHI-POSTFIRE-CHI1872-070,opening,1872,as_reported,,livery and boarding stable
+CHI-POSTFIRE-CHI1872-071-E01,CHI-POSTFIRE-CHI1872-071,construction_start,1872,year-only,,addition
+CHI-POSTFIRE-CHI1872-071-E02,CHI-POSTFIRE-CHI1872-071,completion,1872,year-only,,addition
+CHI-POSTFIRE-CHI1872-071-E03,CHI-POSTFIRE-CHI1872-071,opening,1872,as_reported,,brewery ice storage
+CHI-POSTFIRE-CHI1872-072-E01,CHI-POSTFIRE-CHI1872-072,construction_start,1871,range,,addition
+CHI-POSTFIRE-CHI1872-072-E02,CHI-POSTFIRE-CHI1872-072,completion,1872,range,,addition
+CHI-POSTFIRE-CHI1872-072-E03,CHI-POSTFIRE-CHI1872-072,opening,1872,as_reported,,beer production
+CHI-POSTFIRE-CHI1872-073-E01,CHI-POSTFIRE-CHI1872-073,construction_start,1872,year-only,,addition
+CHI-POSTFIRE-CHI1872-073-E02,CHI-POSTFIRE-CHI1872-073,completion,1872,year-only,,addition
+CHI-POSTFIRE-CHI1872-073-E03,CHI-POSTFIRE-CHI1872-073,opening,1872,as_reported,,brewery ice storage
+CHI-POSTFIRE-CHI1872-074-E01,CHI-POSTFIRE-CHI1872-074,construction_start,1871,range,,reconstruction
+CHI-POSTFIRE-CHI1872-074-E02,CHI-POSTFIRE-CHI1872-074,completion,1872,range,,reconstruction
+CHI-POSTFIRE-CHI1872-074-E03,CHI-POSTFIRE-CHI1872-074,opening,1872,as_reported,,municipal water pumping
+CHI-POSTFIRE-CHI1872-075-E01,CHI-POSTFIRE-CHI1872-075,construction_start,1872,exact,,construction_start
+CHI-POSTFIRE-CHI1872-075-E02,CHI-POSTFIRE-CHI1872-075,completion,1874,exact,,construction_start
+CHI-POSTFIRE-CHI1872-075-E03,CHI-POSTFIRE-CHI1872-075,opening,1874,as_reported,,municipal water supply
+CHI-POSTFIRE-CHI1872-076-E01,CHI-POSTFIRE-CHI1872-076,construction_start,1872,exact,,infrastructure_installation
+CHI-POSTFIRE-CHI1872-076-E02,CHI-POSTFIRE-CHI1872-076,completion,1872,exact,,infrastructure_installation
+CHI-POSTFIRE-CHI1872-076-E03,CHI-POSTFIRE-CHI1872-076,opening,1872,as_reported,,municipal water supply
+CHI-POSTFIRE-CHI1872-077-E01,CHI-POSTFIRE-CHI1872-077,construction_start,1871,range,,reconstruction
+CHI-POSTFIRE-CHI1872-077-E02,CHI-POSTFIRE-CHI1872-077,completion,1872,range,,reconstruction
+CHI-POSTFIRE-CHI1872-077-E03,CHI-POSTFIRE-CHI1872-077,opening,1872,as_reported,,transportation infrastructure
+CHI-POSTFIRE-CHI1872-078-E01,CHI-POSTFIRE-CHI1872-078,construction_start,1871,range,,reconstruction
+CHI-POSTFIRE-CHI1872-078-E02,CHI-POSTFIRE-CHI1872-078,completion,1872,range,,reconstruction
+CHI-POSTFIRE-CHI1872-078-E03,CHI-POSTFIRE-CHI1872-078,opening,1872,as_reported,,transportation infrastructure
+CHI-POSTFIRE-CHI1872-079-E01,CHI-POSTFIRE-CHI1872-079,construction_start,1871,range,,reconstruction
+CHI-POSTFIRE-CHI1872-079-E02,CHI-POSTFIRE-CHI1872-079,completion,1872,range,,reconstruction
+CHI-POSTFIRE-CHI1872-079-E03,CHI-POSTFIRE-CHI1872-079,opening,1872,as_reported,,transportation infrastructure
+CHI-POSTFIRE-CHI1872-080-E01,CHI-POSTFIRE-CHI1872-080,construction_start,1871,range,,reconstruction
+CHI-POSTFIRE-CHI1872-080-E02,CHI-POSTFIRE-CHI1872-080,completion,1872,range,,reconstruction
+CHI-POSTFIRE-CHI1872-080-E03,CHI-POSTFIRE-CHI1872-080,opening,1872,as_reported,,transportation infrastructure
+CHI-POSTFIRE-CHI1872-081-E01,CHI-POSTFIRE-CHI1872-081,construction_start,1871,range,,reconstruction
+CHI-POSTFIRE-CHI1872-081-E02,CHI-POSTFIRE-CHI1872-081,completion,1872,range,,reconstruction
+CHI-POSTFIRE-CHI1872-081-E03,CHI-POSTFIRE-CHI1872-081,opening,1872,as_reported,,transportation infrastructure
+CHI-POSTFIRE-CHI1872-082-E01,CHI-POSTFIRE-CHI1872-082,construction_start,1871,range,,reconstruction
+CHI-POSTFIRE-CHI1872-082-E02,CHI-POSTFIRE-CHI1872-082,completion,1872,range,,reconstruction
+CHI-POSTFIRE-CHI1872-082-E03,CHI-POSTFIRE-CHI1872-082,opening,1872,as_reported,,transportation infrastructure
+CHI-POSTFIRE-CHI1872-083-E01,CHI-POSTFIRE-CHI1872-083,construction_start,1871,range,,reconstruction
+CHI-POSTFIRE-CHI1872-083-E02,CHI-POSTFIRE-CHI1872-083,completion,1872,range,,reconstruction
+CHI-POSTFIRE-CHI1872-083-E03,CHI-POSTFIRE-CHI1872-083,opening,1872,as_reported,,transportation infrastructure
+CHI-POSTFIRE-CHI1872-084-E01,CHI-POSTFIRE-CHI1872-084,construction_start,1871,range,,reconstruction
+CHI-POSTFIRE-CHI1872-084-E02,CHI-POSTFIRE-CHI1872-084,completion,1872,range,,reconstruction
+CHI-POSTFIRE-CHI1872-084-E03,CHI-POSTFIRE-CHI1872-084,opening,1872,as_reported,,transportation infrastructure
+CHI-POSTFIRE-CHI1872-085-E01,CHI-POSTFIRE-CHI1872-085,construction_start,1871,range,,reconstruction
+CHI-POSTFIRE-CHI1872-085-E02,CHI-POSTFIRE-CHI1872-085,completion,1872,range,,reconstruction
+CHI-POSTFIRE-CHI1872-085-E03,CHI-POSTFIRE-CHI1872-085,opening,1872,as_reported,,transportation infrastructure
+CHI-POSTFIRE-CHI1872-086-E01,CHI-POSTFIRE-CHI1872-086,construction_start,1871,range,,reconstruction
+CHI-POSTFIRE-CHI1872-086-E02,CHI-POSTFIRE-CHI1872-086,completion,1872,range,,reconstruction
+CHI-POSTFIRE-CHI1872-086-E03,CHI-POSTFIRE-CHI1872-086,opening,1872,as_reported,,transportation infrastructure
+CHI-POSTFIRE-CHI1872-087-E01,CHI-POSTFIRE-CHI1872-087,construction_start,1871,range,,reconstruction
+CHI-POSTFIRE-CHI1872-087-E02,CHI-POSTFIRE-CHI1872-087,completion,1872,range,,reconstruction
+CHI-POSTFIRE-CHI1872-087-E03,CHI-POSTFIRE-CHI1872-087,opening,1872,as_reported,,transportation infrastructure
+CHI-POSTFIRE-CHI1872-088-E01,CHI-POSTFIRE-CHI1872-088,construction_start,1872,exact,,new_construction
+CHI-POSTFIRE-CHI1872-088-E02,CHI-POSTFIRE-CHI1872-088,completion,1872,exact,,new_construction
+CHI-POSTFIRE-CHI1872-088-E03,CHI-POSTFIRE-CHI1872-088,opening,1872,as_reported,,theater and concert venue
+CHI-POSTFIRE-CHI1872-089-E01,CHI-POSTFIRE-CHI1872-089,construction_start,1872,approximate,,reconstruction
+CHI-POSTFIRE-CHI1872-089-E02,CHI-POSTFIRE-CHI1872-089,completion,1872,approximate,,reconstruction
+CHI-POSTFIRE-CHI1872-089-E03,CHI-POSTFIRE-CHI1872-089,opening,1872,as_reported,,hotel
+CHI-POSTFIRE-CHI1873-001-E01,CHI-POSTFIRE-CHI1873-001,construction_start,1872,year-only,,reconstruction
+CHI-POSTFIRE-CHI1873-001-E02,CHI-POSTFIRE-CHI1873-001,completion,1873,year-only,,reconstruction
+CHI-POSTFIRE-CHI1873-001-E03,CHI-POSTFIRE-CHI1873-001,demolition_or_loss,1957,year-only,redevelopment,demolished
+CHI-POSTFIRE-CHI1873-002-E01,CHI-POSTFIRE-CHI1873-002,construction_start,1872,year-only,,reconstruction
+CHI-POSTFIRE-CHI1873-002-E02,CHI-POSTFIRE-CHI1873-002,completion,1873,year-only,,reconstruction
+CHI-POSTFIRE-CHI1873-002-E03,CHI-POSTFIRE-CHI1873-002,demolition_or_loss,1926,year-only,redevelopment,demolished
+CHI-POSTFIRE-CHI1873-003-E01,CHI-POSTFIRE-CHI1873-003,construction_start,1872,year-only,,reconstruction
+CHI-POSTFIRE-CHI1873-003-E02,CHI-POSTFIRE-CHI1873-003,completion,1873,year-only,,reconstruction
+CHI-POSTFIRE-CHI1873-003-E03,CHI-POSTFIRE-CHI1873-003,opening,1873,as_reported,,newspaper production and offices
+CHI-POSTFIRE-CHI1873-004-E01,CHI-POSTFIRE-CHI1873-004,completion,1873,year-only,,reconstruction
+CHI-POSTFIRE-CHI1873-005-E01,CHI-POSTFIRE-CHI1873-005,completion,1873,year-only,,reconstruction
+CHI-POSTFIRE-CHI1873-005-E02,CHI-POSTFIRE-CHI1873-005,opening,1873,as_reported,,hotel
+CHI-POSTFIRE-CHI1873-006-E01,CHI-POSTFIRE-CHI1873-006,construction_start,1871,year-only,,reconstruction
+CHI-POSTFIRE-CHI1873-006-E02,CHI-POSTFIRE-CHI1873-006,completion,1873,year-only,,reconstruction
+CHI-POSTFIRE-CHI1873-006-E03,CHI-POSTFIRE-CHI1873-006,opening,1873,as_reported,,hotel
+CHI-POSTFIRE-CHI1873-007-E01,CHI-POSTFIRE-CHI1873-007,construction_start,1871,year-only,,reconstruction
+CHI-POSTFIRE-CHI1873-007-E02,CHI-POSTFIRE-CHI1873-007,completion,1873,year-only,,reconstruction
+CHI-POSTFIRE-CHI1873-007-E03,CHI-POSTFIRE-CHI1873-007,opening,1873,as_reported,,hotel
+CHI-POSTFIRE-CHI1873-008-E01,CHI-POSTFIRE-CHI1873-008,construction_start,1871,year-only,,reconstruction
+CHI-POSTFIRE-CHI1873-008-E02,CHI-POSTFIRE-CHI1873-008,completion,1873,year-only,,reconstruction
+CHI-POSTFIRE-CHI1873-008-E03,CHI-POSTFIRE-CHI1873-008,opening,1873,as_reported,,hotel
+CHI-POSTFIRE-CHI1873-009-E01,CHI-POSTFIRE-CHI1873-009,construction_start,1871,year-only,,reconstruction
+CHI-POSTFIRE-CHI1873-009-E02,CHI-POSTFIRE-CHI1873-009,completion,1873,year-only,,reconstruction
+CHI-POSTFIRE-CHI1873-009-E03,CHI-POSTFIRE-CHI1873-009,opening,1873,as_reported,,hotel
+CHI-POSTFIRE-CHI1873-010-E01,CHI-POSTFIRE-CHI1873-010,construction_start,1873,year-only,,reconstruction
+CHI-POSTFIRE-CHI1873-010-E02,CHI-POSTFIRE-CHI1873-010,completion,1873,year-only,,reconstruction
+CHI-POSTFIRE-CHI1873-010-E03,CHI-POSTFIRE-CHI1873-010,opening,1873,as_reported,,hotel
+CHI-POSTFIRE-CHI1873-011-E01,CHI-POSTFIRE-CHI1873-011,construction_start,1871,approximate,,reconstruction
+CHI-POSTFIRE-CHI1873-011-E02,CHI-POSTFIRE-CHI1873-011,completion,1873,approximate,,reconstruction
+CHI-POSTFIRE-CHI1873-011-E03,CHI-POSTFIRE-CHI1873-011,opening,1873,as_reported,,hotel
+CHI-POSTFIRE-CHI1873-012-E01,CHI-POSTFIRE-CHI1873-012,construction_start,1871,year-only,,reconstruction
+CHI-POSTFIRE-CHI1873-012-E02,CHI-POSTFIRE-CHI1873-012,completion,1873,year-only,,reconstruction
+CHI-POSTFIRE-CHI1873-012-E03,CHI-POSTFIRE-CHI1873-012,opening,1873,as_reported,,hotel
+CHI-POSTFIRE-CHI1873-013-E01,CHI-POSTFIRE-CHI1873-013,completion,1872,year-only,,occupancy_only
+CHI-POSTFIRE-CHI1873-013-E02,CHI-POSTFIRE-CHI1873-013,opening,1873,as_reported,,hotel
+CHI-POSTFIRE-CHI1873-014-E01,CHI-POSTFIRE-CHI1873-014,opening,1873,as_reported,,hotel
+CHI-POSTFIRE-CHI1873-015-E01,CHI-POSTFIRE-CHI1873-015,construction_start,1873,year-only,,new_construction
+CHI-POSTFIRE-CHI1873-015-E02,CHI-POSTFIRE-CHI1873-015,completion,1873,year-only,,new_construction
+CHI-POSTFIRE-CHI1873-015-E03,CHI-POSTFIRE-CHI1873-015,opening,1873,as_reported,,hotel
+CHI-POSTFIRE-CHI1873-016-E01,CHI-POSTFIRE-CHI1873-016,construction_start,1873,year-only,,construction_start
+CHI-POSTFIRE-CHI1873-016-E02,CHI-POSTFIRE-CHI1873-016,completion,1879,year-only,,construction_start
+CHI-POSTFIRE-CHI1873-017-E01,CHI-POSTFIRE-CHI1873-017,construction_start,1873,phase,,construction_start
+CHI-POSTFIRE-CHI1873-018-E01,CHI-POSTFIRE-CHI1873-018,construction_start,1873,year-only,,infrastructure
+CHI-POSTFIRE-CHI1873-018-E02,CHI-POSTFIRE-CHI1873-018,completion,1873,year-only,,infrastructure
+CHI-POSTFIRE-CHI1873-019-E01,CHI-POSTFIRE-CHI1873-019,construction_start,1873,year-only,,new_construction
+CHI-POSTFIRE-CHI1873-019-E02,CHI-POSTFIRE-CHI1873-019,completion,1873,year-only,,new_construction
+CHI-POSTFIRE-CHI1873-019-E03,CHI-POSTFIRE-CHI1873-019,opening,1873,as_reported,,industrial and art exposition
+CHI-POSTFIRE-CHI1873-019-E04,CHI-POSTFIRE-CHI1873-019,demolition_or_loss,1890,year-only,redevelopment,demolished
+CHI-POSTFIRE-CHI1873-020-E01,CHI-POSTFIRE-CHI1873-020,construction_start,1871,year-only,,reconstruction
+CHI-POSTFIRE-CHI1873-020-E02,CHI-POSTFIRE-CHI1873-020,completion,1873,year-only,,reconstruction
+CHI-POSTFIRE-CHI1873-020-E03,CHI-POSTFIRE-CHI1873-020,opening,1873,as_reported,,hospital
+CHI-POSTFIRE-CHI1873-021-E01,CHI-POSTFIRE-CHI1873-021,construction_start,1872,year-only,,reconstruction
+CHI-POSTFIRE-CHI1873-021-E02,CHI-POSTFIRE-CHI1873-021,completion,1873,year-only,,reconstruction
+CHI-POSTFIRE-CHI1873-021-E03,CHI-POSTFIRE-CHI1873-021,opening,1873,as_reported,,Methodist worship
+CHI-POSTFIRE-CHI1873-022-E01,CHI-POSTFIRE-CHI1873-022,construction_start,1873,year-only,,new_construction
+CHI-POSTFIRE-CHI1873-022-E02,CHI-POSTFIRE-CHI1873-022,completion,1873,year-only,,new_construction
+CHI-POSTFIRE-CHI1873-022-E03,CHI-POSTFIRE-CHI1873-022,opening,1873,as_reported,,Methodist worship
+CHI-POSTFIRE-CHI1873-023-E01,CHI-POSTFIRE-CHI1873-023,construction_start,1873,year-only,,new_construction
+CHI-POSTFIRE-CHI1873-023-E02,CHI-POSTFIRE-CHI1873-023,completion,1873,year-only,,new_construction
+CHI-POSTFIRE-CHI1873-023-E03,CHI-POSTFIRE-CHI1873-023,opening,1873,as_reported,,Presbyterian worship
+CHI-POSTFIRE-CHI1873-024-E01,CHI-POSTFIRE-CHI1873-024,construction_start,1873,year-only,,cornerstone_and_construction_phase
+CHI-POSTFIRE-CHI1873-024-E02,CHI-POSTFIRE-CHI1873-024,completion,1874,year-only,,cornerstone_and_construction_phase
+CHI-POSTFIRE-CHI1873-024-E03,CHI-POSTFIRE-CHI1873-024,opening,1874,as_reported,,Episcopal worship
+CHI-POSTFIRE-CHI1873-025-E01,CHI-POSTFIRE-CHI1873-025,construction_start,1872,year-only,,interrupted_reconstruction_phase
+CHI-POSTFIRE-CHI1873-025-E02,CHI-POSTFIRE-CHI1873-025,completion,1875,year-only,,interrupted_reconstruction_phase
+CHI-POSTFIRE-CHI1873-025-E03,CHI-POSTFIRE-CHI1873-025,opening,1875,as_reported,,Episcopal worship
+CHI-POSTFIRE-CHI1873-026-E01,CHI-POSTFIRE-CHI1873-026,construction_start,1872,year-only,,reconstruction
+CHI-POSTFIRE-CHI1873-026-E02,CHI-POSTFIRE-CHI1873-026,completion,1873,year-only,,reconstruction
+CHI-POSTFIRE-CHI1873-026-E03,CHI-POSTFIRE-CHI1873-026,opening,1873,as_reported,,Sunday school and congregational gatherings
+CHI-POSTFIRE-CHI1873-027-E01,CHI-POSTFIRE-CHI1873-027,construction_start,1873,year-only,,basement_phase
+CHI-POSTFIRE-CHI1873-027-E02,CHI-POSTFIRE-CHI1873-027,completion,1875,year-only,,basement_phase
+CHI-POSTFIRE-CHI1873-027-E03,CHI-POSTFIRE-CHI1873-027,opening,1875,as_reported,,evangelical worship
+CHI-POSTFIRE-CHI1873-028-E01,CHI-POSTFIRE-CHI1873-028,construction_start,1872,year-only,,new_construction
+CHI-POSTFIRE-CHI1873-028-E02,CHI-POSTFIRE-CHI1873-028,completion,1873,year-only,,new_construction
+CHI-POSTFIRE-CHI1873-028-E03,CHI-POSTFIRE-CHI1873-028,opening,1873,as_reported,,Unitarian worship
+CHI-POSTFIRE-CHI1873-029-E01,CHI-POSTFIRE-CHI1873-029,construction_start,1872,year-only,,reconstruction
+CHI-POSTFIRE-CHI1873-029-E02,CHI-POSTFIRE-CHI1873-029,completion,1873,year-only,,reconstruction
+CHI-POSTFIRE-CHI1873-029-E03,CHI-POSTFIRE-CHI1873-029,opening,1873,as_reported,,Unitarian worship
+CHI-POSTFIRE-CHI1873-030-E01,CHI-POSTFIRE-CHI1873-030,construction_start,1872,year-only,,reconstruction
+CHI-POSTFIRE-CHI1873-030-E02,CHI-POSTFIRE-CHI1873-030,completion,1873,year-only,,reconstruction
+CHI-POSTFIRE-CHI1873-030-E03,CHI-POSTFIRE-CHI1873-030,opening,1873,as_reported,,Universalist worship
+CHI-POSTFIRE-CHI1873-031-E01,CHI-POSTFIRE-CHI1873-031,construction_start,1873,phase,,partial_completion_and_occupancy
+CHI-POSTFIRE-CHI1873-031-E02,CHI-POSTFIRE-CHI1873-031,opening,1873,as_reported,,"church, sailors' home, stores"
+CHI-POSTFIRE-CHI1873-032-E01,CHI-POSTFIRE-CHI1873-032,construction_start,1872,year-only,,conversion
+CHI-POSTFIRE-CHI1873-032-E02,CHI-POSTFIRE-CHI1873-032,completion,1873,year-only,,conversion
+CHI-POSTFIRE-CHI1873-032-E03,CHI-POSTFIRE-CHI1873-032,opening,1873,as_reported,,public library book room and reading room
+CHI-POSTFIRE-CHI1873-033-E01,CHI-POSTFIRE-CHI1873-033,opening,1873,as_reported,,Catholic worship
+CHI-POSTFIRE-CHI1873-034-E01,CHI-POSTFIRE-CHI1873-034,construction_start,1873,phase,,preliminary_site_work
+CHI-POSTFIRE-CHI1873-035-E01,CHI-POSTFIRE-CHI1873-035,construction_start,1871,year-only,,reconstruction
+CHI-POSTFIRE-CHI1873-035-E02,CHI-POSTFIRE-CHI1873-035,completion,1873,year-only,,reconstruction
+CHI-POSTFIRE-CHI1873-035-E03,CHI-POSTFIRE-CHI1873-035,opening,1873,as_reported,,passenger depot and railroad offices
+CHI-POSTFIRE-CHI1873-035-E04,CHI-POSTFIRE-CHI1873-035,demolition_or_loss,1901,year-only,replaced,demolished
+CHI-POSTFIRE-CHI1873-036-E01,CHI-POSTFIRE-CHI1873-036,construction_start,1872,year-only,,reconstruction
+CHI-POSTFIRE-CHI1873-036-E02,CHI-POSTFIRE-CHI1873-036,completion,1873,year-only,,reconstruction
+CHI-POSTFIRE-CHI1873-036-E03,CHI-POSTFIRE-CHI1873-036,opening,1873,as_reported,,banking and offices
+CHI-POSTFIRE-CHI1873-036-E04,CHI-POSTFIRE-CHI1873-036,demolition_or_loss,1908,year-only,redevelopment,demolished
+CHI-POSTFIRE-CHI1873-037-E01,CHI-POSTFIRE-CHI1873-037,construction_start,1873,phase,,construction_start
+CHI-POSTFIRE-CHI1873-038-E01,CHI-POSTFIRE-CHI1873-038,construction_start,1872,year-only,,new_construction
+CHI-POSTFIRE-CHI1873-038-E02,CHI-POSTFIRE-CHI1873-038,completion,1873,year-only,,new_construction
+CHI-POSTFIRE-CHI1873-038-E03,CHI-POSTFIRE-CHI1873-038,opening,1873,as_reported,,"Field, Leiter & Company retail dry goods store"
+CHI-POSTFIRE-CHI1873-038-E04,CHI-POSTFIRE-CHI1873-038,demolition_or_loss,1877,year-only,fire,demolished
+CHI-POSTFIRE-CHI1873-039-E01,CHI-POSTFIRE-CHI1873-039,construction_start,1872,year-only,,reconstruction
+CHI-POSTFIRE-CHI1873-039-E02,CHI-POSTFIRE-CHI1873-039,completion,1873,year-only,,reconstruction
+CHI-POSTFIRE-CHI1873-039-E03,CHI-POSTFIRE-CHI1873-039,opening,1873,as_reported,,newspaper printing; offices; banking
+CHI-POSTFIRE-CHI1873-039-E04,CHI-POSTFIRE-CHI1873-039,demolition_or_loss,1962,year-only,redevelopment,demolished
+CHI-POSTFIRE-CHI1873-040-E01,CHI-POSTFIRE-CHI1873-040,construction_start,1872,year-only,,reconstruction
+CHI-POSTFIRE-CHI1873-040-E02,CHI-POSTFIRE-CHI1873-040,completion,1873,year-only,,reconstruction
+CHI-POSTFIRE-CHI1873-040-E03,CHI-POSTFIRE-CHI1873-040,opening,1873,as_reported,,Methodist worship; stores and offices
+CHI-POSTFIRE-CHI1873-040-E04,CHI-POSTFIRE-CHI1873-040,demolition_or_loss,1922,year-only,redevelopment,demolished
+CHI-POSTFIRE-CHI1873-041-E01,CHI-POSTFIRE-CHI1873-041,construction_start,1873,year-only,,construction_phase
+CHI-POSTFIRE-CHI1873-041-E02,CHI-POSTFIRE-CHI1873-041,completion,1874,year-only,,construction_phase
+CHI-POSTFIRE-CHI1873-041-E03,CHI-POSTFIRE-CHI1873-041,opening,1874,as_reported,,professional and commercial offices
+CHI-POSTFIRE-CHI1873-042-E01,CHI-POSTFIRE-CHI1873-042,construction_start,1873,year-only,,new_construction
+CHI-POSTFIRE-CHI1873-042-E02,CHI-POSTFIRE-CHI1873-042,completion,1873,year-only,,new_construction
+CHI-POSTFIRE-CHI1873-042-E03,CHI-POSTFIRE-CHI1873-042,opening,1873,as_reported,,wholesale and manufacturing loft
+CHI-POSTFIRE-CHI1873-043-E01,CHI-POSTFIRE-CHI1873-043,construction_start,1873,year-only,,new_construction
+CHI-POSTFIRE-CHI1873-043-E02,CHI-POSTFIRE-CHI1873-043,completion,1873,year-only,,new_construction
+CHI-POSTFIRE-CHI1873-043-E03,CHI-POSTFIRE-CHI1873-043,opening,1873,as_reported,,wholesale and manufacturing loft
+CHI-POSTFIRE-CHI1873-044-E01,CHI-POSTFIRE-CHI1873-044,construction_start,1873,year-only,,new_construction
+CHI-POSTFIRE-CHI1873-044-E02,CHI-POSTFIRE-CHI1873-044,completion,1873,year-only,,new_construction
+CHI-POSTFIRE-CHI1873-044-E03,CHI-POSTFIRE-CHI1873-044,opening,1873,as_reported,,public school
+CHI-POSTFIRE-CHI1873-045-E01,CHI-POSTFIRE-CHI1873-045,construction_start,1873,year-only,,reconstruction
+CHI-POSTFIRE-CHI1873-045-E02,CHI-POSTFIRE-CHI1873-045,completion,1873,year-only,,reconstruction
+CHI-POSTFIRE-CHI1873-045-E03,CHI-POSTFIRE-CHI1873-045,opening,1873,as_reported,,public school
+CHI-POSTFIRE-CHI1873-045-E04,CHI-POSTFIRE-CHI1873-045,demolition_or_loss,1874,year-only,fire,demolished
+CHI-POSTFIRE-CHI1873-046-E01,CHI-POSTFIRE-CHI1873-046,construction_start,1873,year-only,,new_construction
+CHI-POSTFIRE-CHI1873-046-E02,CHI-POSTFIRE-CHI1873-046,completion,1873,year-only,,new_construction
+CHI-POSTFIRE-CHI1873-046-E03,CHI-POSTFIRE-CHI1873-046,opening,1873,as_reported,,public school
+CHI-POSTFIRE-CHI1873-047-E01,CHI-POSTFIRE-CHI1873-047,construction_start,1873,year-only,,new_construction
+CHI-POSTFIRE-CHI1873-047-E02,CHI-POSTFIRE-CHI1873-047,completion,1873,year-only,,new_construction
+CHI-POSTFIRE-CHI1873-047-E03,CHI-POSTFIRE-CHI1873-047,opening,1873,as_reported,,public school
+CHI-POSTFIRE-CHI1873-048-E01,CHI-POSTFIRE-CHI1873-048,construction_start,1873,year-only,,new_construction
+CHI-POSTFIRE-CHI1873-048-E02,CHI-POSTFIRE-CHI1873-048,completion,1873,year-only,,new_construction
+CHI-POSTFIRE-CHI1873-048-E03,CHI-POSTFIRE-CHI1873-048,opening,1873,as_reported,,public school
+CHI-POSTFIRE-CHI1873-049-E01,CHI-POSTFIRE-CHI1873-049,construction_start,1873,year-only,,new_construction
+CHI-POSTFIRE-CHI1873-049-E02,CHI-POSTFIRE-CHI1873-049,completion,1873,year-only,,new_construction
+CHI-POSTFIRE-CHI1873-049-E03,CHI-POSTFIRE-CHI1873-049,opening,1873,as_reported,,municipal gas production
+CHI-POSTFIRE-CHI1873-050-E01,CHI-POSTFIRE-CHI1873-050,construction_start,1873,year-only,,addition
+CHI-POSTFIRE-CHI1873-050-E02,CHI-POSTFIRE-CHI1873-050,completion,1873,year-only,,addition
+CHI-POSTFIRE-CHI1873-050-E03,CHI-POSTFIRE-CHI1873-050,opening,1873,as_reported,,psychiatric care
+CHI-POSTFIRE-CHI1873-051-E01,CHI-POSTFIRE-CHI1873-051,construction_start,1873,year-only,,infrastructure
+CHI-POSTFIRE-CHI1873-051-E02,CHI-POSTFIRE-CHI1873-051,completion,1873,year-only,,infrastructure
+CHI-POSTFIRE-CHI1873-051-E03,CHI-POSTFIRE-CHI1873-051,opening,1873,as_reported,,water-main river crossing
+CHI-POSTFIRE-CHI1873-052-E01,CHI-POSTFIRE-CHI1873-052,construction_start,1873,year-only,,construction_start
+CHI-POSTFIRE-CHI1873-052-E02,CHI-POSTFIRE-CHI1873-052,completion,1874,year-only,,construction_start
+CHI-POSTFIRE-CHI1873-052-E03,CHI-POSTFIRE-CHI1873-052,opening,1874,as_reported,,water supply conveyance
+CHI-POSTFIRE-CHI1873-053-E01,CHI-POSTFIRE-CHI1873-053,construction_start,1873,year-only,,new_construction
+CHI-POSTFIRE-CHI1873-053-E02,CHI-POSTFIRE-CHI1873-053,completion,1873,year-only,,new_construction
+CHI-POSTFIRE-CHI1873-053-E03,CHI-POSTFIRE-CHI1873-053,opening,1873,as_reported,,Polish Catholic worship
+CHI-POSTFIRE-CHI1873-053-E04,CHI-POSTFIRE-CHI1873-053,demolition_or_loss,1905,approximate,replaced,demolished
+CHI-POSTFIRE-CHI-1874-001-E01,CHI-POSTFIRE-CHI-1874-001,construction_start,1871,reported completion year,,completion_phase
+CHI-POSTFIRE-CHI-1874-001-E02,CHI-POSTFIRE-CHI-1874-001,completion,1874,reported completion year,,completion_phase
+CHI-POSTFIRE-CHI-1874-001-E03,CHI-POSTFIRE-CHI-1874-001,opening,1873,as_reported,,hotel
+CHI-POSTFIRE-CHI-1874-001-E04,CHI-POSTFIRE-CHI-1874-001,demolition_or_loss,1923,year,replaced by present hotel,demolished/replaced
+CHI-POSTFIRE-CHI-1874-002-E01,CHI-POSTFIRE-CHI-1874-002,construction_start,1873,exact year,,complex_completion_and_opening_phase
+CHI-POSTFIRE-CHI-1874-002-E02,CHI-POSTFIRE-CHI-1874-002,completion,1874,exact year,,complex_completion_and_opening_phase
+CHI-POSTFIRE-CHI-1874-002-E03,CHI-POSTFIRE-CHI-1874-002,opening,1874,as_reported,,"criminal court, county jail, sheriff/jailer residence"
+CHI-POSTFIRE-CHI-1874-002-E04,CHI-POSTFIRE-CHI-1874-002,demolition_or_loss,1892,mixed/partial,court building replaced; jail survived longer,demolished
+CHI-POSTFIRE-CHI-1874-003-E01,CHI-POSTFIRE-CHI-1874-003,construction_start,1872,opening-supported completion,,completion_and_opening_phase
+CHI-POSTFIRE-CHI-1874-003-E02,CHI-POSTFIRE-CHI-1874-003,completion,1874,opening-supported completion,,completion_and_opening_phase
+CHI-POSTFIRE-CHI-1874-003-E03,CHI-POSTFIRE-CHI-1874-003,opening,1874,as_reported,,"express-company offices, freight handling, stores, halls"
+CHI-POSTFIRE-CHI-1874-003-E04,CHI-POSTFIRE-CHI-1874-003,demolition_or_loss,1930,exact year,fire damage and demolition,demolished
+CHI-POSTFIRE-CHI-1874-004-E01,CHI-POSTFIRE-CHI-1874-004,construction_start,1873,year range endpoint,,completion_phase
+CHI-POSTFIRE-CHI-1874-004-E02,CHI-POSTFIRE-CHI-1874-004,completion,1874,year range endpoint,,completion_phase
+CHI-POSTFIRE-CHI-1874-004-E03,CHI-POSTFIRE-CHI-1874-004,opening,1874,as_reported,,offices and commercial space
+CHI-POSTFIRE-CHI-1874-005-E01,CHI-POSTFIRE-CHI-1874-005,construction_start,1874,directory-reported year,,new_construction
+CHI-POSTFIRE-CHI-1874-005-E02,CHI-POSTFIRE-CHI-1874-005,completion,1874,directory-reported year,,new_construction
+CHI-POSTFIRE-CHI-1874-005-E03,CHI-POSTFIRE-CHI-1874-005,opening,1874,as_reported,,wholesale grocery trade
+CHI-POSTFIRE-CHI-1874-006-E01,CHI-POSTFIRE-CHI-1874-006,construction_start,1874,season-specific contemporary-history report,,replacement_new_construction
+CHI-POSTFIRE-CHI-1874-006-E02,CHI-POSTFIRE-CHI-1874-006,completion,1874,season-specific contemporary-history report,,replacement_new_construction
+CHI-POSTFIRE-CHI-1874-006-E03,CHI-POSTFIRE-CHI-1874-006,opening,1874,as_reported,,pie factory
+CHI-POSTFIRE-CHI-1874-007-E01,CHI-POSTFIRE-CHI-1874-007,construction_start,1874,exact year,,new_construction
+CHI-POSTFIRE-CHI-1874-007-E02,CHI-POSTFIRE-CHI-1874-007,completion,1874,exact year,,new_construction
+CHI-POSTFIRE-CHI-1874-007-E03,CHI-POSTFIRE-CHI-1874-007,opening,1874,as_reported,,"stairs, railings, balusters, sash, doors, and window frames"
+CHI-POSTFIRE-CHI-1874-008-E01,CHI-POSTFIRE-CHI-1874-008,construction_start,1874,exact year,,new_construction
+CHI-POSTFIRE-CHI-1874-008-E02,CHI-POSTFIRE-CHI-1874-008,completion,1874,exact year,,new_construction
+CHI-POSTFIRE-CHI-1874-008-E03,CHI-POSTFIRE-CHI-1874-008,opening,1874,as_reported,,"ice tools, specialized wagons, and related equipment"
+CHI-POSTFIRE-CHI-1874-009-E01,CHI-POSTFIRE-CHI-1874-009,construction_start,1874,exact year,,post_fire_reconstruction
+CHI-POSTFIRE-CHI-1874-009-E02,CHI-POSTFIRE-CHI-1874-009,completion,1874,exact year,,post_fire_reconstruction
+CHI-POSTFIRE-CHI-1874-009-E03,CHI-POSTFIRE-CHI-1874-009,opening,1874,as_reported,,ophthalmic and aural hospital
+CHI-POSTFIRE-CHI-1874-010-E01,CHI-POSTFIRE-CHI-1874-010,construction_start,1874,exact year,,new_construction
+CHI-POSTFIRE-CHI-1874-010-E02,CHI-POSTFIRE-CHI-1874-010,completion,1874,exact year,,new_construction
+CHI-POSTFIRE-CHI-1874-010-E03,CHI-POSTFIRE-CHI-1874-010,opening,1874,as_reported,,horse-drawn fire apparatus and company quarters
+CHI-POSTFIRE-CHI-1874-011-E01,CHI-POSTFIRE-CHI-1874-011,construction_start,1873,opened January 4; dedicated early 1874,,post_fire_reconstruction
+CHI-POSTFIRE-CHI-1874-011-E02,CHI-POSTFIRE-CHI-1874-011,completion,1874,opened January 4; dedicated early 1874,,post_fire_reconstruction
+CHI-POSTFIRE-CHI-1874-011-E03,CHI-POSTFIRE-CHI-1874-011,opening,1874,as_reported,,Presbyterian worship
+CHI-POSTFIRE-CHI-1874-011-E04,CHI-POSTFIRE-CHI-1874-011,demolition_or_loss,1912,approximate year,congregation relocated; stone reused elsewhere,demolished
+CHI-POSTFIRE-CHI-1874-012-E01,CHI-POSTFIRE-CHI-1874-012,construction_start,1872,year range endpoint,,completion_phase
+CHI-POSTFIRE-CHI-1874-012-E02,CHI-POSTFIRE-CHI-1874-012,completion,1874,year range endpoint,,completion_phase
+CHI-POSTFIRE-CHI-1874-012-E03,CHI-POSTFIRE-CHI-1874-012,opening,1874,as_reported,,Presbyterian worship
+CHI-POSTFIRE-CHI-1874-013-E01,CHI-POSTFIRE-CHI-1874-013,construction_start,1873,exact completion date,,reconstruction
+CHI-POSTFIRE-CHI-1874-013-E02,CHI-POSTFIRE-CHI-1874-013,completion,1874,exact completion date,,reconstruction
+CHI-POSTFIRE-CHI-1874-013-E03,CHI-POSTFIRE-CHI-1874-013,opening,1874,as_reported,,Congregational worship
+CHI-POSTFIRE-CHI-1874-014-E01,CHI-POSTFIRE-CHI-1874-014,construction_start,1872,completed in fall,,post_fire_reconstruction_around_retained_basement
+CHI-POSTFIRE-CHI-1874-014-E02,CHI-POSTFIRE-CHI-1874-014,completion,1874,completed in fall,,post_fire_reconstruction_around_retained_basement
+CHI-POSTFIRE-CHI-1874-014-E03,CHI-POSTFIRE-CHI-1874-014,opening,1874,as_reported,,Roman Catholic worship
+CHI-POSTFIRE-CHI-1874-015-E01,CHI-POSTFIRE-CHI-1874-015,construction_start,1874,exact year,,new_construction
+CHI-POSTFIRE-CHI-1874-015-E02,CHI-POSTFIRE-CHI-1874-015,completion,1874,exact year,,new_construction
+CHI-POSTFIRE-CHI-1874-015-E03,CHI-POSTFIRE-CHI-1874-015,opening,1874,as_reported,,Catholic boys' and commercial school
+CHI-POSTFIRE-CHI-1874-016-E01,CHI-POSTFIRE-CHI-1874-016,construction_start,1874,exact addition year,,addition
+CHI-POSTFIRE-CHI-1874-016-E02,CHI-POSTFIRE-CHI-1874-016,completion,1874,exact addition year,,addition
+CHI-POSTFIRE-CHI-1874-016-E03,CHI-POSTFIRE-CHI-1874-016,opening,1874,as_reported,,Jesuit college classrooms and institutional use
+CHI-POSTFIRE-CHI-1874-017-E01,CHI-POSTFIRE-CHI-1874-017,construction_start,1874,City record range 1874-75,,construction_start
+CHI-POSTFIRE-CHI-1874-017-E02,CHI-POSTFIRE-CHI-1874-017,completion,1875,City record range 1874-75,,construction_start
+CHI-POSTFIRE-CHI-1874-017-E03,CHI-POSTFIRE-CHI-1874-017,opening,1875,as_reported,,Chicago public elementary school
+CHI-POSTFIRE-CHI-1874-018-E01,CHI-POSTFIRE-CHI-1874-018,construction_start,1874,exact year,,new_construction
+CHI-POSTFIRE-CHI-1874-018-E02,CHI-POSTFIRE-CHI-1874-018,completion,1874,exact year,,new_construction
+CHI-POSTFIRE-CHI-1874-018-E03,CHI-POSTFIRE-CHI-1874-018,opening,1874,as_reported,,single-family residence
+CHI-POSTFIRE-CHI-1874-019-E01,CHI-POSTFIRE-CHI-1874-019,construction_start,1874,exact year,,new_construction
+CHI-POSTFIRE-CHI-1874-019-E02,CHI-POSTFIRE-CHI-1874-019,completion,1874,exact year,,new_construction
+CHI-POSTFIRE-CHI-1874-019-E03,CHI-POSTFIRE-CHI-1874-019,opening,1874,as_reported,,single-family residence
+CHI-POSTFIRE-CHI-1874-020-E01,CHI-POSTFIRE-CHI-1874-020,construction_start,1872,conflicting source dates,,completion_phase
+CHI-POSTFIRE-CHI-1874-020-E02,CHI-POSTFIRE-CHI-1874-020,completion,1874,conflicting source dates,,completion_phase
+CHI-POSTFIRE-CHI-1874-020-E03,CHI-POSTFIRE-CHI-1874-020,opening,1874,as_reported,,single-family residence
+CHI-POSTFIRE-CHI-1874-021-E01,CHI-POSTFIRE-CHI-1874-021,construction_start,1874,NRHP inventory date,,new_auxiliary_building
+CHI-POSTFIRE-CHI-1874-021-E02,CHI-POSTFIRE-CHI-1874-021,completion,1874,NRHP inventory date,,new_auxiliary_building
+CHI-POSTFIRE-CHI-1874-021-E03,CHI-POSTFIRE-CHI-1874-021,opening,1874,as_reported,,temporary residence and coach house; later single-family residence
+CHI-POSTFIRE-CHI-1874-022-E01,CHI-POSTFIRE-CHI-1874-022,construction_start,1874,exact year,,replacement_temporary_building
+CHI-POSTFIRE-CHI-1874-022-E02,CHI-POSTFIRE-CHI-1874-022,completion,1874,exact year,,replacement_temporary_building
+CHI-POSTFIRE-CHI-1874-022-E03,CHI-POSTFIRE-CHI-1874-022,opening,1874,as_reported,,rowing club and boat storage
+CHI-POSTFIRE-CHI-1874-023-E01,CHI-POSTFIRE-CHI-1874-023,construction_start,1874,exact reopening date,,conversion_and_reopening
+CHI-POSTFIRE-CHI-1874-023-E02,CHI-POSTFIRE-CHI-1874-023,completion,1874,exact reopening date,,conversion_and_reopening
+CHI-POSTFIRE-CHI-1874-023-E03,CHI-POSTFIRE-CHI-1874-023,opening,1874,as_reported,,variety theatre
+CHI-POSTFIRE-CHI-1874-023-E04,CHI-POSTFIRE-CHI-1874-023,demolition_or_loss,1874,exact date,"destroyed in July 14, 1874 fire",destroyed
+CHI-POSTFIRE-CHI-1874-024-E01,CHI-POSTFIRE-CHI-1874-024,construction_start,1874,year range,,construction_start
+CHI-POSTFIRE-CHI-1874-024-E02,CHI-POSTFIRE-CHI-1874-024,completion,1875,year range,,construction_start
+CHI-POSTFIRE-CHI-1874-024-E03,CHI-POSTFIRE-CHI-1874-024,opening,1875,as_reported,,Roman Catholic cathedral
+CHI-POSTFIRE-CHI-1874-025-E01,CHI-POSTFIRE-CHI-1874-025,construction_start,1874,annual infrastructure phase,,infrastructure_phase
+CHI-POSTFIRE-CHI-1874-025-E02,CHI-POSTFIRE-CHI-1874-025,completion,1874,annual infrastructure phase,,infrastructure_phase
+CHI-POSTFIRE-CHI-1874-025-E03,CHI-POSTFIRE-CHI-1874-025,opening,1874,as_reported,,freight and harbor connection
+CHI-POSTFIRE-CHI1875-001-E01,CHI-POSTFIRE-CHI1875-001,construction_start,1874,exact,,new_construction
+CHI-POSTFIRE-CHI1875-001-E02,CHI-POSTFIRE-CHI1875-001,completion,1875,exact,,new_construction
+CHI-POSTFIRE-CHI1875-001-E03,CHI-POSTFIRE-CHI1875-001,opening,1875,as_reported,,Roman Catholic cathedral
+CHI-POSTFIRE-CHI1875-002-E01,CHI-POSTFIRE-CHI1875-002,construction_start,1872,exact,,completed_reconstruction
+CHI-POSTFIRE-CHI1875-002-E02,CHI-POSTFIRE-CHI1875-002,completion,1875,exact,,completed_reconstruction
+CHI-POSTFIRE-CHI1875-002-E03,CHI-POSTFIRE-CHI1875-002,opening,1875,as_reported,,Episcopal worship
+CHI-POSTFIRE-CHI1875-003-E01,CHI-POSTFIRE-CHI1875-003,construction_start,1873,year-only,,continuing_construction
+CHI-POSTFIRE-CHI1875-003-E02,CHI-POSTFIRE-CHI1875-003,completion,1876,year-only,,continuing_construction
+CHI-POSTFIRE-CHI1875-003-E03,CHI-POSTFIRE-CHI1875-003,opening,1876,as_reported,,evangelical worship
+CHI-POSTFIRE-CHI1875-003-E04,CHI-POSTFIRE-CHI1875-003,demolition_or_loss,1915,year,replaced after congregation moved,demolished
+CHI-POSTFIRE-CHI1875-004-E01,CHI-POSTFIRE-CHI1875-004,construction_start,1874,exact,,new_construction
+CHI-POSTFIRE-CHI1875-004-E02,CHI-POSTFIRE-CHI1875-004,completion,1875,exact,,new_construction
+CHI-POSTFIRE-CHI1875-004-E03,CHI-POSTFIRE-CHI1875-004,opening,1875,as_reported,,Baptist worship
+CHI-POSTFIRE-CHI1875-005-E01,CHI-POSTFIRE-CHI1875-005,construction_start,1875,exact,,new_construction
+CHI-POSTFIRE-CHI1875-005-E02,CHI-POSTFIRE-CHI1875-005,completion,1875,exact,,new_construction
+CHI-POSTFIRE-CHI1875-005-E03,CHI-POSTFIRE-CHI1875-005,opening,1875,as_reported,,Catholic worship then parish school
+CHI-POSTFIRE-CHI1875-006-E01,CHI-POSTFIRE-CHI1875-006,construction_start,1875,exact,,new_construction
+CHI-POSTFIRE-CHI1875-006-E02,CHI-POSTFIRE-CHI1875-006,completion,1875,exact,,new_construction
+CHI-POSTFIRE-CHI1875-006-E03,CHI-POSTFIRE-CHI1875-006,opening,1875,as_reported,,parochial boys' school
+CHI-POSTFIRE-CHI1875-007-E01,CHI-POSTFIRE-CHI1875-007,completion,1875,exact,,completion_phase
+CHI-POSTFIRE-CHI1875-007-E02,CHI-POSTFIRE-CHI1875-007,opening,1875,as_reported,,Jewish worship
+CHI-POSTFIRE-CHI1875-008-E01,CHI-POSTFIRE-CHI1875-008,construction_start,1875,exact,,construction_start_or_major_phase
+CHI-POSTFIRE-CHI1875-008-E02,CHI-POSTFIRE-CHI1875-008,completion,1876,exact,,construction_start_or_major_phase
+CHI-POSTFIRE-CHI1875-008-E03,CHI-POSTFIRE-CHI1875-008,opening,1876,as_reported,,Reform Jewish worship
+CHI-POSTFIRE-CHI1875-009-E01,CHI-POSTFIRE-CHI1875-009,construction_start,1875,exact,,construction_start_or_major_phase
+CHI-POSTFIRE-CHI1875-009-E02,CHI-POSTFIRE-CHI1875-009,completion,1876,exact,,construction_start_or_major_phase
+CHI-POSTFIRE-CHI1875-009-E03,CHI-POSTFIRE-CHI1875-009,opening,1876,as_reported,,Baptist worship
+CHI-POSTFIRE-CHI1875-010-E01,CHI-POSTFIRE-CHI1875-010,construction_start,1874,exact,,completion_phase
+CHI-POSTFIRE-CHI1875-010-E02,CHI-POSTFIRE-CHI1875-010,completion,1875,exact,,completion_phase
+CHI-POSTFIRE-CHI1875-010-E03,CHI-POSTFIRE-CHI1875-010,opening,1875,as_reported,,Chicago public elementary school
+CHI-POSTFIRE-CHI1875-011-E01,CHI-POSTFIRE-CHI1875-011,construction_start,1875,exact,,new_construction
+CHI-POSTFIRE-CHI1875-011-E02,CHI-POSTFIRE-CHI1875-011,completion,1875,exact,,new_construction
+CHI-POSTFIRE-CHI1875-011-E03,CHI-POSTFIRE-CHI1875-011,opening,1875,as_reported,,county hospital medical wards
+CHI-POSTFIRE-CHI1875-011-E04,CHI-POSTFIRE-CHI1875-011,demolition_or_loss,1913,circa,replaced by later hospital complex,demolished/replaced
+CHI-POSTFIRE-CHI1875-012-E01,CHI-POSTFIRE-CHI1875-012,construction_start,1875,exact,,new_construction
+CHI-POSTFIRE-CHI1875-012-E02,CHI-POSTFIRE-CHI1875-012,completion,1875,exact,,new_construction
+CHI-POSTFIRE-CHI1875-012-E03,CHI-POSTFIRE-CHI1875-012,opening,1875,as_reported,,two related family residences
+CHI-POSTFIRE-CHI1875-013-E01,CHI-POSTFIRE-CHI1875-013,completion,1875,contemporary_report,,completion_or_occupancy_phase
+CHI-POSTFIRE-CHI1875-013-E02,CHI-POSTFIRE-CHI1875-013,opening,1875,as_reported,,private residence
+CHI-POSTFIRE-CHI1875-013-E03,CHI-POSTFIRE-CHI1875-013,demolition_or_loss,1954,year,demolished for redevelopment,demolished
+CHI-POSTFIRE-CHI1875-014-E01,CHI-POSTFIRE-CHI1875-014,construction_start,1875,exact,,new_construction
+CHI-POSTFIRE-CHI1875-014-E02,CHI-POSTFIRE-CHI1875-014,completion,1875,exact,,new_construction
+CHI-POSTFIRE-CHI1875-014-E03,CHI-POSTFIRE-CHI1875-014,opening,1875,as_reported,,Peter Emmel painting/decorating business and family residence
+CHI-POSTFIRE-CHI1875-015-E01,CHI-POSTFIRE-CHI1875-015,construction_start,1875,year_range,,construction_start_or_major_phase
+CHI-POSTFIRE-CHI1875-015-E02,CHI-POSTFIRE-CHI1875-015,completion,1876,year_range,,construction_start_or_major_phase
+CHI-POSTFIRE-CHI1875-015-E03,CHI-POSTFIRE-CHI1875-015,opening,1876,as_reported,,private residence
+CHI-POSTFIRE-CHI1875-016-E01,CHI-POSTFIRE-CHI1875-016,construction_start,1875,exact,,new_construction
+CHI-POSTFIRE-CHI1875-016-E02,CHI-POSTFIRE-CHI1875-016,completion,1875,exact,,new_construction
+CHI-POSTFIRE-CHI1875-016-E03,CHI-POSTFIRE-CHI1875-016,opening,1875,as_reported,,commercial loft
+CHI-POSTFIRE-CHI1875-017-E01,CHI-POSTFIRE-CHI1875-017,construction_start,1875,exact,,new_construction
+CHI-POSTFIRE-CHI1875-017-E02,CHI-POSTFIRE-CHI1875-017,completion,1875,exact,,new_construction
+CHI-POSTFIRE-CHI1875-017-E03,CHI-POSTFIRE-CHI1875-017,opening,1875,as_reported,,commercial loft
+CHI-POSTFIRE-CHI1875-018-E01,CHI-POSTFIRE-CHI1875-018,construction_start,1875,exact,,new_construction
+CHI-POSTFIRE-CHI1875-018-E02,CHI-POSTFIRE-CHI1875-018,completion,1875,exact,,new_construction
+CHI-POSTFIRE-CHI1875-018-E03,CHI-POSTFIRE-CHI1875-018,opening,1875,as_reported,,commercial warehouse/loft
+CHI-POSTFIRE-CHI1875-019-E01,CHI-POSTFIRE-CHI1875-019,completion,1875,circa,,completion_phase
+CHI-POSTFIRE-CHI1875-019-E02,CHI-POSTFIRE-CHI1875-019,opening,1875,as_reported,,main entrance to Union Stock Yard
+CHI-POSTFIRE-CHI1875-020-E01,CHI-POSTFIRE-CHI1875-020,construction_start,1875,exact,,new_construction
+CHI-POSTFIRE-CHI1875-020-E02,CHI-POSTFIRE-CHI1875-020,completion,1875,exact,,new_construction
+CHI-POSTFIRE-CHI1875-020-E03,CHI-POSTFIRE-CHI1875-020,opening,1875,as_reported,,postal service for the stockyards
+CHI-POSTFIRE-CHI1875-021-E01,CHI-POSTFIRE-CHI1875-021,construction_start,1875,exact,,new_construction
+CHI-POSTFIRE-CHI1875-021-E02,CHI-POSTFIRE-CHI1875-021,completion,1875,exact,,new_construction
+CHI-POSTFIRE-CHI1875-021-E03,CHI-POSTFIRE-CHI1875-021,opening,1875,as_reported,,newspaper printing and offices
+CHI-POSTFIRE-CHI1875-022-E01,CHI-POSTFIRE-CHI1875-022,construction_start,1875,exact,,new_construction
+CHI-POSTFIRE-CHI1875-022-E02,CHI-POSTFIRE-CHI1875-022,completion,1875,exact,,new_construction
+CHI-POSTFIRE-CHI1875-022-E03,CHI-POSTFIRE-CHI1875-022,opening,1875,as_reported,,freight handling
+CHI-POSTFIRE-CHI1875-023-E01,CHI-POSTFIRE-CHI1875-023,construction_start,1875,exact,,new_construction
+CHI-POSTFIRE-CHI1875-023-E02,CHI-POSTFIRE-CHI1875-023,completion,1875,exact,,new_construction
+CHI-POSTFIRE-CHI1875-023-E03,CHI-POSTFIRE-CHI1875-023,opening,1875,as_reported,,grain storage and transfer
+CHI-POSTFIRE-CHI1875-024-E01,CHI-POSTFIRE-CHI1875-024,construction_start,1875,exact,,reconstruction
+CHI-POSTFIRE-CHI1875-024-E02,CHI-POSTFIRE-CHI1875-024,completion,1875,exact,,reconstruction
+CHI-POSTFIRE-CHI1875-024-E03,CHI-POSTFIRE-CHI1875-024,opening,1875,as_reported,,road and pedestrian crossing
+CHI-POSTFIRE-CHI1875-025-E01,CHI-POSTFIRE-CHI1875-025,construction_start,1875,exact,,multi_site_program
+CHI-POSTFIRE-CHI1875-025-E02,CHI-POSTFIRE-CHI1875-025,completion,1875,exact,,multi_site_program
+CHI-POSTFIRE-CHI1875-025-E03,CHI-POSTFIRE-CHI1875-025,opening,1875,as_reported,,bridge-tender houses
+CHI-POSTFIRE-CHI1875-026-E01,CHI-POSTFIRE-CHI1875-026,construction_start,1875,exact,,construction_start
+CHI-POSTFIRE-CHI1875-026-E02,CHI-POSTFIRE-CHI1875-026,completion,1876,exact,,construction_start
+CHI-POSTFIRE-CHI1875-026-E03,CHI-POSTFIRE-CHI1875-026,opening,1876,as_reported,,grade-separated street crossing
+CHI-POSTFIRE-CHI1875-027-E01,CHI-POSTFIRE-CHI1875-027,construction_start,1875,exact,,construction_start
+CHI-POSTFIRE-CHI1875-027-E02,CHI-POSTFIRE-CHI1875-027,completion,1877,exact,,construction_start
+CHI-POSTFIRE-CHI1875-027-E03,CHI-POSTFIRE-CHI1875-027,opening,1877,as_reported,,road and pedestrian crossing
+CHI-POSTFIRE-CHI1875-028-E01,CHI-POSTFIRE-CHI1875-028,construction_start,1875,exact,,reconstruction
+CHI-POSTFIRE-CHI1875-028-E02,CHI-POSTFIRE-CHI1875-028,completion,1875,exact,,reconstruction
+CHI-POSTFIRE-CHI1875-028-E03,CHI-POSTFIRE-CHI1875-028,opening,1875,as_reported,,road crossing
+CHI-POSTFIRE-CHI1875-029-E01,CHI-POSTFIRE-CHI1875-029,construction_start,1875,exact,,complex_addition
+CHI-POSTFIRE-CHI1875-029-E02,CHI-POSTFIRE-CHI1875-029,completion,1875,exact,,complex_addition
+CHI-POSTFIRE-CHI1875-029-E03,CHI-POSTFIRE-CHI1875-029,opening,1875,as_reported,,brewery cold storage
+CHI-POSTFIRE-CHI1875-030-E01,CHI-POSTFIRE-CHI1875-030,construction_start,1874,exact,,conversion
+CHI-POSTFIRE-CHI1875-030-E02,CHI-POSTFIRE-CHI1875-030,completion,1875,exact,,conversion
+CHI-POSTFIRE-CHI1875-030-E03,CHI-POSTFIRE-CHI1875-030,opening,1875,as_reported,,theatrical performance
+CHI-POSTFIRE-CHI1875-030-E04,CHI-POSTFIRE-CHI1875-030,demolition_or_loss,1882,year,demolished for First National Bank building,demolished
+CHI-POSTFIRE-CHI1875-031-E01,CHI-POSTFIRE-CHI1875-031,construction_start,1875,exact,,new_construction_group
+CHI-POSTFIRE-CHI1875-031-E02,CHI-POSTFIRE-CHI1875-031,completion,1875,exact,,new_construction_group
+CHI-POSTFIRE-CHI1875-031-E03,CHI-POSTFIRE-CHI1875-031,opening,1875,as_reported,,speculative residential row houses
+CHI-POSTFIRE-CHI1875-032-E01,CHI-POSTFIRE-CHI1875-032,construction_start,1875,exact,,new_construction_group
+CHI-POSTFIRE-CHI1875-032-E02,CHI-POSTFIRE-CHI1875-032,completion,1875,exact,,new_construction_group
+CHI-POSTFIRE-CHI1875-032-E03,CHI-POSTFIRE-CHI1875-032,opening,1875,as_reported,,speculative residential row houses
+CHI-POSTFIRE-CHI1875-033-E01,CHI-POSTFIRE-CHI1875-033,construction_start,1875,exact,,new_construction_group
+CHI-POSTFIRE-CHI1875-033-E02,CHI-POSTFIRE-CHI1875-033,completion,1875,exact,,new_construction_group
+CHI-POSTFIRE-CHI1875-033-E03,CHI-POSTFIRE-CHI1875-033,opening,1875,as_reported,,speculative residential row houses
+CHI-POSTFIRE-CHI1875-034-E01,CHI-POSTFIRE-CHI1875-034,construction_start,1875,year_range,,construction_start_or_major_phase
+CHI-POSTFIRE-CHI1875-034-E02,CHI-POSTFIRE-CHI1875-034,completion,1876,year_range,,construction_start_or_major_phase
+CHI-POSTFIRE-CHI1875-034-E03,CHI-POSTFIRE-CHI1875-034,opening,1876,as_reported,,company superintendent residence
+CHI-POSTFIRE-CHI1875-035-E01,CHI-POSTFIRE-CHI1875-035,construction_start,1874,fiscal_year_report,,completion_reported_in_fiscal_year
+CHI-POSTFIRE-CHI1875-035-E02,CHI-POSTFIRE-CHI1875-035,completion,1875,fiscal_year_report,,completion_reported_in_fiscal_year
+CHI-POSTFIRE-CHI1875-035-E03,CHI-POSTFIRE-CHI1875-035,opening,1875,as_reported,,road crossing
+CHI-POSTFIRE-CHI1875-036-E01,CHI-POSTFIRE-CHI1875-036,construction_start,1874,fiscal_year_report,,completion_reported_in_fiscal_year
+CHI-POSTFIRE-CHI1875-036-E02,CHI-POSTFIRE-CHI1875-036,completion,1875,fiscal_year_report,,completion_reported_in_fiscal_year
+CHI-POSTFIRE-CHI1875-036-E03,CHI-POSTFIRE-CHI1875-036,opening,1875,as_reported,,road crossing
+CHI-POSTFIRE-CHI1875-037-E01,CHI-POSTFIRE-CHI1875-037,construction_start,1874,fiscal_year_report,,completion_reported_in_fiscal_year
+CHI-POSTFIRE-CHI1875-037-E02,CHI-POSTFIRE-CHI1875-037,completion,1875,fiscal_year_report,,completion_reported_in_fiscal_year
+CHI-POSTFIRE-CHI1875-037-E03,CHI-POSTFIRE-CHI1875-037,opening,1875,as_reported,,road crossing
+CHI-POSTFIRE-CHI1875-038-E01,CHI-POSTFIRE-CHI1875-038,construction_start,1874,fiscal_year_report,,completion_reported_in_fiscal_year
+CHI-POSTFIRE-CHI1875-038-E02,CHI-POSTFIRE-CHI1875-038,completion,1875,fiscal_year_report,,completion_reported_in_fiscal_year
+CHI-POSTFIRE-CHI1875-038-E03,CHI-POSTFIRE-CHI1875-038,opening,1875,as_reported,,grade-separated street crossing
+CHI-POSTFIRE-CHI1876-001-E01,CHI-POSTFIRE-CHI1876-001,construction_start,1875,exact,,completion_phase
+CHI-POSTFIRE-CHI1876-001-E02,CHI-POSTFIRE-CHI1876-001,completion,1876,exact,,completion_phase
+CHI-POSTFIRE-CHI1876-001-E03,CHI-POSTFIRE-CHI1876-001,opening,1876,as_reported,,grade-separated street crossing
+CHI-POSTFIRE-CHI1876-002-E01,CHI-POSTFIRE-CHI1876-002,completion,1876,exact,,new_infrastructure
+CHI-POSTFIRE-CHI1876-002-E02,CHI-POSTFIRE-CHI1876-002,opening,1876,as_reported,,grade-separated street crossing
+CHI-POSTFIRE-CHI1876-003-E01,CHI-POSTFIRE-CHI1876-003,construction_start,1865,exact,,destruction_event
+CHI-POSTFIRE-CHI1876-003-E02,CHI-POSTFIRE-CHI1876-003,completion,1865,exact,,destruction_event
+CHI-POSTFIRE-CHI1876-003-E03,CHI-POSTFIRE-CHI1876-003,opening,1865,as_reported,,street and pedestrian river crossing
+CHI-POSTFIRE-CHI1876-003-E04,CHI-POSTFIRE-CHI1876-003,demolition_or_loss,1876,exact,"destroyed by the gale of May 5, 1876",destroyed
+CHI-POSTFIRE-CHI1876-004-E01,CHI-POSTFIRE-CHI1876-004,construction_start,1876,exact,,project_initiation_planning
+CHI-POSTFIRE-CHI1876-004-E02,CHI-POSTFIRE-CHI1876-004,completion,1884,exact,,project_initiation_planning
+CHI-POSTFIRE-CHI1876-004-E03,CHI-POSTFIRE-CHI1876-004,opening,1884,as_reported,,municipal water pumping
+CHI-POSTFIRE-CHI1876-005-E01,CHI-POSTFIRE-CHI1876-005,construction_start,1876,year_range,,construction_start_or_major_phase
+CHI-POSTFIRE-CHI1876-005-E02,CHI-POSTFIRE-CHI1876-005,completion,1877,year_range,,construction_start_or_major_phase
+CHI-POSTFIRE-CHI1876-005-E03,CHI-POSTFIRE-CHI1876-005,opening,1877,as_reported,,clinical teaching amphitheater and pavilion connections
+CHI-POSTFIRE-CHI1876-006-E01,CHI-POSTFIRE-CHI1876-006,construction_start,1876,exact,,new_construction
+CHI-POSTFIRE-CHI1876-006-E02,CHI-POSTFIRE-CHI1876-006,completion,1876,exact,,new_construction
+CHI-POSTFIRE-CHI1876-006-E03,CHI-POSTFIRE-CHI1876-006,opening,1876,as_reported,,Catholic girls' academy
+CHI-POSTFIRE-CHI1876-007-E01,CHI-POSTFIRE-CHI1876-007,construction_start,1872,exact,,completed_reconstruction
+CHI-POSTFIRE-CHI1876-007-E02,CHI-POSTFIRE-CHI1876-007,completion,1876,exact,,completed_reconstruction
+CHI-POSTFIRE-CHI1876-007-E03,CHI-POSTFIRE-CHI1876-007,opening,1876,as_reported,,Catholic clergy residence
+CHI-POSTFIRE-CHI1876-008-E01,CHI-POSTFIRE-CHI1876-008,construction_start,1876,exact,,construction_start_cornerstone
+CHI-POSTFIRE-CHI1876-008-E02,CHI-POSTFIRE-CHI1876-008,completion,1878,exact,,construction_start_cornerstone
+CHI-POSTFIRE-CHI1876-008-E03,CHI-POSTFIRE-CHI1876-008,opening,1878,as_reported,,Catholic worship
+CHI-POSTFIRE-CHI1876-009-E01,CHI-POSTFIRE-CHI1876-009,construction_start,1876,year_range,,construction_start_or_major_phase
+CHI-POSTFIRE-CHI1876-009-E02,CHI-POSTFIRE-CHI1876-009,completion,1885,year_range,,construction_start_or_major_phase
+CHI-POSTFIRE-CHI1876-010-E01,CHI-POSTFIRE-CHI1876-010,construction_start,1876,exact,,construction_start_or_major_phase
+CHI-POSTFIRE-CHI1876-010-E02,CHI-POSTFIRE-CHI1876-010,completion,1877,exact,,construction_start_or_major_phase
+CHI-POSTFIRE-CHI1876-010-E03,CHI-POSTFIRE-CHI1876-010,opening,1877,as_reported,,Presbyterian worship
+CHI-POSTFIRE-CHI1876-011-E01,CHI-POSTFIRE-CHI1876-011,construction_start,1874,exact,,completed_reconstruction
+CHI-POSTFIRE-CHI1876-011-E02,CHI-POSTFIRE-CHI1876-011,completion,1876,exact,,completed_reconstruction
+CHI-POSTFIRE-CHI1876-011-E03,CHI-POSTFIRE-CHI1876-011,opening,1876,as_reported,,Congregational worship
+CHI-POSTFIRE-CHI1876-012-E01,CHI-POSTFIRE-CHI1876-012,construction_start,1875,exact,,completion_phase
+CHI-POSTFIRE-CHI1876-012-E02,CHI-POSTFIRE-CHI1876-012,completion,1876,exact,,completion_phase
+CHI-POSTFIRE-CHI1876-012-E03,CHI-POSTFIRE-CHI1876-012,opening,1876,as_reported,,Baptist worship
+CHI-POSTFIRE-CHI1876-013-E01,CHI-POSTFIRE-CHI1876-013,construction_start,1875,exact,,completion_phase
+CHI-POSTFIRE-CHI1876-013-E02,CHI-POSTFIRE-CHI1876-013,completion,1876,exact,,completion_phase
+CHI-POSTFIRE-CHI1876-013-E03,CHI-POSTFIRE-CHI1876-013,opening,1876,as_reported,,Reform Jewish worship
+CHI-POSTFIRE-CHI1876-014-E01,CHI-POSTFIRE-CHI1876-014,construction_start,1876,exact,,equipment_installation
+CHI-POSTFIRE-CHI1876-014-E02,CHI-POSTFIRE-CHI1876-014,completion,1876,exact,,equipment_installation
+CHI-POSTFIRE-CHI1876-014-E03,CHI-POSTFIRE-CHI1876-014,opening,1876,as_reported,,nine-bell memorial chime
+CHI-POSTFIRE-CHI1876-015-E01,CHI-POSTFIRE-CHI1876-015,construction_start,1876,exact,,adaptive_reuse_remodel
+CHI-POSTFIRE-CHI1876-015-E02,CHI-POSTFIRE-CHI1876-015,completion,1876,exact,,adaptive_reuse_remodel
+CHI-POSTFIRE-CHI1876-015-E03,CHI-POSTFIRE-CHI1876-015,opening,1876,as_reported,,Catholic worship
+CHI-POSTFIRE-CHI1876-016-E01,CHI-POSTFIRE-CHI1876-016,construction_start,1876,exact,,equipment_installation
+CHI-POSTFIRE-CHI1876-016-E02,CHI-POSTFIRE-CHI1876-016,completion,1876,exact,,equipment_installation
+CHI-POSTFIRE-CHI1876-016-E03,CHI-POSTFIRE-CHI1876-016,opening,1876,as_reported,,"6,000-pound church bell"
+CHI-POSTFIRE-CHI1876-017-E01,CHI-POSTFIRE-CHI1876-017,construction_start,1875,year_range,,completion_phase
+CHI-POSTFIRE-CHI1876-017-E02,CHI-POSTFIRE-CHI1876-017,completion,1876,year_range,,completion_phase
+CHI-POSTFIRE-CHI1876-017-E03,CHI-POSTFIRE-CHI1876-017,opening,1876,as_reported,,company superintendent residence
+CHI-POSTFIRE-CHI1876-018-E01,CHI-POSTFIRE-CHI1876-018,construction_start,1876,year-only,,new_construction_initial_phase
+CHI-POSTFIRE-CHI1876-018-E02,CHI-POSTFIRE-CHI1876-018,completion,1876,year-only,,new_construction_initial_phase
+CHI-POSTFIRE-CHI1876-018-E03,CHI-POSTFIRE-CHI1876-018,opening,1876,as_reported,,private residence
+CHI-POSTFIRE-CHI1876-018-E04,CHI-POSTFIRE-CHI1876-018,demolition_or_loss,1922,exact,demolished after Prairie Avenue's residential decline,demolished
+CHI-POSTFIRE-CHI1876-019-E01,CHI-POSTFIRE-CHI1876-019,construction_start,1875,year_range,,completion_phase
+CHI-POSTFIRE-CHI1876-019-E02,CHI-POSTFIRE-CHI1876-019,completion,1876,year_range,,completion_phase
+CHI-POSTFIRE-CHI1876-019-E03,CHI-POSTFIRE-CHI1876-019,opening,1875,as_reported,,private residence
+CHI-POSTFIRE-CHI1876-020-E01,CHI-POSTFIRE-CHI1876-020,construction_start,1875,exact,,completion_phase
+CHI-POSTFIRE-CHI1876-020-E02,CHI-POSTFIRE-CHI1876-020,completion,1876,exact,,completion_phase
+CHI-POSTFIRE-CHI1876-020-E03,CHI-POSTFIRE-CHI1876-020,opening,1876,as_reported,,private social club
+CHI-POSTFIRE-CHI1876-020-E04,CHI-POSTFIRE-CHI1876-020,demolition_or_loss,1939,exact,demolished for replacement development,demolished
+CHI-POSTFIRE-CHI1876-021-E01,CHI-POSTFIRE-CHI1876-021,construction_start,1876,exact,,temporary_new_construction
+CHI-POSTFIRE-CHI1876-021-E02,CHI-POSTFIRE-CHI1876-021,completion,1876,exact,,temporary_new_construction
+CHI-POSTFIRE-CHI1876-021-E03,CHI-POSTFIRE-CHI1876-021,opening,1876,as_reported,,temporary evangelistic meeting hall
+CHI-POSTFIRE-CHI1876-022-E01,CHI-POSTFIRE-CHI1876-022,construction_start,1876,year-only,,complex_addition
+CHI-POSTFIRE-CHI1876-022-E02,CHI-POSTFIRE-CHI1876-022,completion,1876,year-only,,complex_addition
+CHI-POSTFIRE-CHI1876-022-E03,CHI-POSTFIRE-CHI1876-022,opening,1876,as_reported,,brewery cold storage
+CHI-POSTFIRE-CHI1876-023-E01,CHI-POSTFIRE-CHI1876-023,construction_start,1876,year_range,,construction_start_or_major_phase
+CHI-POSTFIRE-CHI1876-023-E02,CHI-POSTFIRE-CHI1876-023,completion,1877,year_range,,construction_start_or_major_phase
+CHI-POSTFIRE-CHI1876-023-E03,CHI-POSTFIRE-CHI1876-023,opening,1877,as_reported,,beer production and storage
+CHI-POSTFIRE-CHI1876-023-E04,CHI-POSTFIRE-CHI1876-023,demolition_or_loss,1885,exact,"destroyed by fire May 13, 1885",destroyed/rebuilt
+CHI-POSTFIRE-CHI1876-024-E01,CHI-POSTFIRE-CHI1876-024,construction_start,1876,exact,,adaptive_reuse_conversion
+CHI-POSTFIRE-CHI1876-024-E02,CHI-POSTFIRE-CHI1876-024,completion,1876,exact,,adaptive_reuse_conversion
+CHI-POSTFIRE-CHI1876-024-E03,CHI-POSTFIRE-CHI1876-024,opening,1876,as_reported,,hotel in upper three stories; stores and offices below
+CHI-POSTFIRE-CHI1876-025-E01,CHI-POSTFIRE-CHI1876-025,opening,1876,as_reported,,hotel in upper four stories above commercial space
+CHI-POSTFIRE-CHI1876-026-E01,CHI-POSTFIRE-CHI1876-026,opening,1876,as_reported,,summer hospital and convalescent care for children
+CHI-POSTFIRE-CHI1876-027-E01,CHI-POSTFIRE-CHI1876-027,opening,1876,as_reported,,dry-goods retail
+CHI-POSTFIRE-CHI1876-028-E01,CHI-POSTFIRE-CHI1876-028,construction_start,1876,year-only,,complex_addition
+CHI-POSTFIRE-CHI1876-028-E02,CHI-POSTFIRE-CHI1876-028,completion,1876,year-only,,complex_addition
+CHI-POSTFIRE-CHI1876-028-E03,CHI-POSTFIRE-CHI1876-028,opening,1876,as_reported,,Sunday school and parish education
+CHI-POSTFIRE-CHI1877-001-E01,CHI-POSTFIRE-CHI1877-001,construction_start,1877,year-only,,foundation_and_subbasement_phase
+CHI-POSTFIRE-CHI1877-001-E02,CHI-POSTFIRE-CHI1877-001,completion,1885,year-only,,foundation_and_subbasement_phase
+CHI-POSTFIRE-CHI1877-001-E03,CHI-POSTFIRE-CHI1877-001,opening,1885,as_reported,,municipal offices
+CHI-POSTFIRE-CHI1877-002-E01,CHI-POSTFIRE-CHI1877-002,construction_start,1877,exact,,replacement_after_storm
+CHI-POSTFIRE-CHI1877-002-E02,CHI-POSTFIRE-CHI1877-002,completion,1877,exact,,replacement_after_storm
+CHI-POSTFIRE-CHI1877-002-E03,CHI-POSTFIRE-CHI1877-002,opening,1877,as_reported,,road and pedestrian river crossing
+CHI-POSTFIRE-CHI1877-003-E01,CHI-POSTFIRE-CHI1877-003,construction_start,1877,exact,,construction_start_and_phase
+CHI-POSTFIRE-CHI1877-003-E02,CHI-POSTFIRE-CHI1877-003,completion,1878,exact,,construction_start_and_phase
+CHI-POSTFIRE-CHI1877-003-E03,CHI-POSTFIRE-CHI1877-003,opening,1878,as_reported,,road and pedestrian river crossing
+CHI-POSTFIRE-CHI1877-004-E01,CHI-POSTFIRE-CHI1877-004,construction_start,1877,exact,,new_infrastructure
+CHI-POSTFIRE-CHI1877-004-E02,CHI-POSTFIRE-CHI1877-004,completion,1877,exact,,new_infrastructure
+CHI-POSTFIRE-CHI1877-004-E03,CHI-POSTFIRE-CHI1877-004,opening,1877,as_reported,,road river crossing
+CHI-POSTFIRE-CHI1877-005-E01,CHI-POSTFIRE-CHI1877-005,construction_start,1875,exact,,completion_after_delay
+CHI-POSTFIRE-CHI1877-005-E02,CHI-POSTFIRE-CHI1877-005,completion,1877,exact,,completion_after_delay
+CHI-POSTFIRE-CHI1877-005-E03,CHI-POSTFIRE-CHI1877-005,opening,1877,as_reported,,road and pedestrian river crossing
+CHI-POSTFIRE-CHI1877-006-E01,CHI-POSTFIRE-CHI1877-006,construction_start,1877,exact,,contract_award_and_construction_start
+CHI-POSTFIRE-CHI1877-006-E02,CHI-POSTFIRE-CHI1877-006,completion,1878,exact,,contract_award_and_construction_start
+CHI-POSTFIRE-CHI1877-006-E03,CHI-POSTFIRE-CHI1877-006,opening,1878,as_reported,,road river crossing
+CHI-POSTFIRE-CHI1877-007-E01,CHI-POSTFIRE-CHI1877-007,completion,1877,year-only,,addition_and_enlargement
+CHI-POSTFIRE-CHI1877-007-E02,CHI-POSTFIRE-CHI1877-007,opening,1877,as_reported,,Roman Catholic worship
+CHI-POSTFIRE-CHI1877-008-E01,CHI-POSTFIRE-CHI1877-008,construction_start,1876,exact,,completed_new_construction
+CHI-POSTFIRE-CHI1877-008-E02,CHI-POSTFIRE-CHI1877-008,completion,1877,exact,,completed_new_construction
+CHI-POSTFIRE-CHI1877-008-E03,CHI-POSTFIRE-CHI1877-008,opening,1877,as_reported,,Presbyterian worship
+CHI-POSTFIRE-CHI1877-009-E01,CHI-POSTFIRE-CHI1877-009,completion,1877,early-1877,,new_industrial_construction
+CHI-POSTFIRE-CHI1877-009-E02,CHI-POSTFIRE-CHI1877-009,opening,1877,as_reported,,planing mill plus sash door blind and furniture manufacturing
+CHI-POSTFIRE-CHI1877-010-E01,CHI-POSTFIRE-CHI1877-010,construction_start,1877,exact,,rapid_reconstruction_after_fire
+CHI-POSTFIRE-CHI1877-010-E02,CHI-POSTFIRE-CHI1877-010,completion,1877,exact,,rapid_reconstruction_after_fire
+CHI-POSTFIRE-CHI1877-010-E03,CHI-POSTFIRE-CHI1877-010,opening,1877,as_reported,,elevator manufacturing
+CHI-POSTFIRE-CHI1877-011-E01,CHI-POSTFIRE-CHI1877-011,construction_start,1877,year-only,,cornerstone_and_construction_start
+CHI-POSTFIRE-CHI1877-011-E02,CHI-POSTFIRE-CHI1877-011,completion,1881,year-only,,cornerstone_and_construction_start
+CHI-POSTFIRE-CHI1877-011-E03,CHI-POSTFIRE-CHI1877-011,opening,1881,as_reported,,Roman Catholic worship
+CHI-POSTFIRE-CHI1877-012-E01,CHI-POSTFIRE-CHI1877-012,construction_start,1870,year-only,,completion_and_opening
+CHI-POSTFIRE-CHI1877-012-E02,CHI-POSTFIRE-CHI1877-012,completion,1877,year-only,,completion_and_opening
+CHI-POSTFIRE-CHI1877-012-E03,CHI-POSTFIRE-CHI1877-012,opening,1877,as_reported,,Roman Catholic worship
+CHI-POSTFIRE-CHI1877-012-E04,CHI-POSTFIRE-CHI1877-012,demolition_or_loss,1975,year,parish consolidation and demolition,demolished
+CHI-POSTFIRE-CHI1877-013-E01,CHI-POSTFIRE-CHI1877-013,construction_start,1877,year-only,,acquisition_or_new_construction
+CHI-POSTFIRE-CHI1877-013-E02,CHI-POSTFIRE-CHI1877-013,completion,1877,year-only,,acquisition_or_new_construction
+CHI-POSTFIRE-CHI1877-013-E03,CHI-POSTFIRE-CHI1877-013,opening,1877,as_reported,,medical education
+CHI-POSTFIRE-CHI1877-014-E01,CHI-POSTFIRE-CHI1877-014,construction_start,1877,exact,,temporary_building_and_future_wing_nucleus
+CHI-POSTFIRE-CHI1877-014-E02,CHI-POSTFIRE-CHI1877-014,completion,1877,exact,,temporary_building_and_future_wing_nucleus
+CHI-POSTFIRE-CHI1877-014-E03,CHI-POSTFIRE-CHI1877-014,opening,1877,as_reported,,library museum and historical collections
+CHI-POSTFIRE-CHI1877-014-E04,CHI-POSTFIRE-CHI1877-014,demolition_or_loss,1892,year,removed for later society building,demolished
+CHI-POSTFIRE-CHI1877-015-E01,CHI-POSTFIRE-CHI1877-015,construction_start,1877,year-only,,new_commercial_construction
+CHI-POSTFIRE-CHI1877-015-E02,CHI-POSTFIRE-CHI1877-015,completion,1877,year-only,,new_commercial_construction
+CHI-POSTFIRE-CHI1877-015-E03,CHI-POSTFIRE-CHI1877-015,opening,1877,as_reported,,store and wholesale commercial space
+CHI-POSTFIRE-CHI1877-016-E01,CHI-POSTFIRE-CHI1877-016,construction_start,1877,circa,,new_residential_group
+CHI-POSTFIRE-CHI1877-016-E02,CHI-POSTFIRE-CHI1877-016,completion,1877,circa,,new_residential_group
+CHI-POSTFIRE-CHI1877-016-E03,CHI-POSTFIRE-CHI1877-016,opening,1877,as_reported,,residential rowhouses
+CHI-POSTFIRE-CHI1877-017-E01,CHI-POSTFIRE-CHI1877-017,construction_start,1877,year-only,,new_residential_construction
+CHI-POSTFIRE-CHI1877-017-E02,CHI-POSTFIRE-CHI1877-017,completion,1877,year-only,,new_residential_construction
+CHI-POSTFIRE-CHI1877-017-E03,CHI-POSTFIRE-CHI1877-017,opening,1877,as_reported,,private residence
+CHI-POSTFIRE-CHI1877-017-E04,CHI-POSTFIRE-CHI1877-017,demolition_or_loss,1918,year,street widening,demolished
+CHI-POSTFIRE-CHI1877-018-E01,CHI-POSTFIRE-CHI1877-018,construction_start,1877,exact,,new_commercial_construction
+CHI-POSTFIRE-CHI1877-018-E02,CHI-POSTFIRE-CHI1877-018,completion,1877,exact,,new_commercial_construction
+CHI-POSTFIRE-CHI1877-018-E03,CHI-POSTFIRE-CHI1877-018,opening,1877,as_reported,,family hotel
+CHI-POSTFIRE-CHI1877-018-E04,CHI-POSTFIRE-CHI1877-018,demolition_or_loss,1887,year,replaced by Auditorium development,demolished
+CHI-POSTFIRE-CHI1877-019-E01,CHI-POSTFIRE-CHI1877-019,construction_start,1877,,,documented_construction_phase
+CHI-POSTFIRE-CHI1877-020-E01,CHI-POSTFIRE-CHI1877-020,construction_start,1877,,,near_completion_construction_phase
+CHI-POSTFIRE-CHI1877-021-E01,CHI-POSTFIRE-CHI1877-021,opening,1877,as_reported,,affordable Christian boarding house for working and studying women
+CHI-POSTFIRE-CHI1877-022-E01,CHI-POSTFIRE-CHI1877-022,construction_start,1877,exact,,temporary_retail_conversion
+CHI-POSTFIRE-CHI1877-022-E02,CHI-POSTFIRE-CHI1877-022,completion,1877,exact,,temporary_retail_conversion
+CHI-POSTFIRE-CHI1877-022-E03,CHI-POSTFIRE-CHI1877-022,opening,1877,as_reported,,temporary department store
+CHI-POSTFIRE-CHI1877-022-E04,CHI-POSTFIRE-CHI1877-022,demolition_or_loss,1892,year,Exposition Building demolition,demolished
+CHI-POSTFIRE-CHI1877-023-E01,CHI-POSTFIRE-CHI1877-023,construction_start,1875,year-only,,infrastructure_commissioning_test
+CHI-POSTFIRE-CHI1877-023-E02,CHI-POSTFIRE-CHI1877-023,completion,1876,year-only,,infrastructure_commissioning_test
+CHI-POSTFIRE-CHI1877-023-E03,CHI-POSTFIRE-CHI1877-023,opening,1876,as_reported,,potable-water pumping
+CHI-POSTFIRE-CHI1877-024-E01,CHI-POSTFIRE-CHI1877-024,construction_start,1877,year-only,,citywide_infrastructure_expansion
+CHI-POSTFIRE-CHI1877-024-E02,CHI-POSTFIRE-CHI1877-024,completion,1877,year-only,,citywide_infrastructure_expansion
+CHI-POSTFIRE-CHI1877-024-E03,CHI-POSTFIRE-CHI1877-024,opening,1877,as_reported,,municipal fire alarm and dispatch
+CHI-POSTFIRE-CHI1877-025-E01,CHI-POSTFIRE-CHI1877-025,construction_start,1877,exact,,new_underground_infrastructure
+CHI-POSTFIRE-CHI1877-025-E02,CHI-POSTFIRE-CHI1877-025,completion,1877,exact,,new_underground_infrastructure
+CHI-POSTFIRE-CHI1877-025-E03,CHI-POSTFIRE-CHI1877-025,opening,1877,as_reported,,municipal fire-alarm telegraph
+CHI-POSTFIRE-CHI1877-026-E01,CHI-POSTFIRE-CHI1877-026,construction_start,1874,year-only,,cut_stone_construction_phase
+CHI-POSTFIRE-CHI1877-026-E02,CHI-POSTFIRE-CHI1877-026,completion,1880,year-only,,cut_stone_construction_phase
+CHI-POSTFIRE-CHI1877-026-E03,CHI-POSTFIRE-CHI1877-026,opening,1879,as_reported,,post office custom house courts and federal offices
+CHI-POSTFIRE-CHI1877-026-E04,CHI-POSTFIRE-CHI1877-026,demolition_or_loss,1896,year,demolition for replacement federal building,demolished
+CHI-POSTFIRE-CHI1878-001-E01,CHI-POSTFIRE-CHI1878-001,construction_start,1876,exact,,completion_and_dedication
+CHI-POSTFIRE-CHI1878-001-E02,CHI-POSTFIRE-CHI1878-001,completion,1878,exact,,completion_and_dedication
+CHI-POSTFIRE-CHI1878-001-E03,CHI-POSTFIRE-CHI1878-001,opening,1878,as_reported,,Catholic worship
+CHI-POSTFIRE-CHI1878-002-E01,CHI-POSTFIRE-CHI1878-002,construction_start,1877,month,,completion
+CHI-POSTFIRE-CHI1878-002-E02,CHI-POSTFIRE-CHI1878-002,completion,1878,month,,completion
+CHI-POSTFIRE-CHI1878-002-E03,CHI-POSTFIRE-CHI1878-002,opening,1878,as_reported,,road and pedestrian river crossing
+CHI-POSTFIRE-CHI1878-003-E01,CHI-POSTFIRE-CHI1878-003,construction_start,1877,exact,,completion
+CHI-POSTFIRE-CHI1878-003-E02,CHI-POSTFIRE-CHI1878-003,completion,1878,exact,,completion
+CHI-POSTFIRE-CHI1878-003-E03,CHI-POSTFIRE-CHI1878-003,opening,1878,as_reported,,road river crossing
+CHI-POSTFIRE-CHI1878-004-E01,CHI-POSTFIRE-CHI1878-004,construction_start,1878,exact,,new_infrastructure_construction
+CHI-POSTFIRE-CHI1878-004-E02,CHI-POSTFIRE-CHI1878-004,completion,1878,exact,,new_infrastructure_construction
+CHI-POSTFIRE-CHI1878-004-E03,CHI-POSTFIRE-CHI1878-004,opening,1879,as_reported,,grade-separated road and pedestrian crossing
+CHI-POSTFIRE-CHI1878-005-E01,CHI-POSTFIRE-CHI1878-005,construction_start,1878,unknown,,construction_start_and_phase
+CHI-POSTFIRE-CHI1878-006-E01,CHI-POSTFIRE-CHI1878-006,construction_start,1877,year-only,,superstructure_contract_and_construction_phase
+CHI-POSTFIRE-CHI1878-006-E02,CHI-POSTFIRE-CHI1878-006,completion,1885,year-only,,superstructure_contract_and_construction_phase
+CHI-POSTFIRE-CHI1878-006-E03,CHI-POSTFIRE-CHI1878-006,opening,1885,as_reported,,municipal and county government
+CHI-POSTFIRE-CHI1878-007-E01,CHI-POSTFIRE-CHI1878-007,completion,1880,year-only,,appropriation_and_active_construction_phase
+CHI-POSTFIRE-CHI1878-007-E02,CHI-POSTFIRE-CHI1878-007,opening,1879,as_reported,,"post office, custom house, sub-treasury, federal courts, pension and internal revenue offices"
+CHI-POSTFIRE-CHI1878-007-E03,CHI-POSTFIRE-CHI1878-007,demolition_or_loss,1896,year,demolished for replacement federal building,demolished
+CHI-POSTFIRE-CHI1878-008-E01,CHI-POSTFIRE-CHI1878-008,construction_start,1878,year-only,,new_construction
+CHI-POSTFIRE-CHI1878-008-E02,CHI-POSTFIRE-CHI1878-008,completion,1878,year-only,,new_construction
+CHI-POSTFIRE-CHI1878-008-E03,CHI-POSTFIRE-CHI1878-008,opening,1878,as_reported,,"military drill, company rooms, exhibitions, concerts, and rifle practice"
+CHI-POSTFIRE-CHI1878-008-E04,CHI-POSTFIRE-CHI1878-008,demolition_or_loss,1890,year,converted/replaced after regiment moved,demolished/converted
+CHI-POSTFIRE-CHI1878-009-E01,CHI-POSTFIRE-CHI1878-009,construction_start,1878,exact,,reconstruction
+CHI-POSTFIRE-CHI1878-009-E02,CHI-POSTFIRE-CHI1878-009,completion,1878,exact,,reconstruction
+CHI-POSTFIRE-CHI1878-009-E03,CHI-POSTFIRE-CHI1878-009,opening,1878,as_reported,,stage theater
+CHI-POSTFIRE-CHI1878-009-E04,CHI-POSTFIRE-CHI1878-009,demolition_or_loss,1880,exact,fire,destroyed
+CHI-POSTFIRE-CHI1878-010-E01,CHI-POSTFIRE-CHI1878-010,construction_start,1877,season,,completion_and_occupancy
+CHI-POSTFIRE-CHI1878-010-E02,CHI-POSTFIRE-CHI1878-010,completion,1878,season,,completion_and_occupancy
+CHI-POSTFIRE-CHI1878-010-E03,CHI-POSTFIRE-CHI1878-010,opening,1878,as_reported,,"retail, classrooms, library, reading room, and gymnasium"
+CHI-POSTFIRE-CHI1878-011-E01,CHI-POSTFIRE-CHI1878-011,completion,1878,exact,,completion_and_specialized_fitout
+CHI-POSTFIRE-CHI1878-011-E02,CHI-POSTFIRE-CHI1878-011,opening,1878,as_reported,,insurance fire salvage patrol
+CHI-POSTFIRE-CHI1878-012-E01,CHI-POSTFIRE-CHI1878-012,construction_start,1878,unknown,,construction_start_cornerstone
+CHI-POSTFIRE-CHI1878-013-E01,CHI-POSTFIRE-CHI1878-013,construction_start,1878,unknown,,addition
+CHI-POSTFIRE-CHI1878-014-E01,CHI-POSTFIRE-CHI1878-014,construction_start,1878,year-only,,new_construction
+CHI-POSTFIRE-CHI1878-014-E02,CHI-POSTFIRE-CHI1878-014,completion,1878,year-only,,new_construction
+CHI-POSTFIRE-CHI1878-014-E03,CHI-POSTFIRE-CHI1878-014,opening,1878,as_reported,,Catholic priest residence
+CHI-POSTFIRE-CHI1878-015-E01,CHI-POSTFIRE-CHI1878-015,completion,1878,month,,completion_and_occupancy
+CHI-POSTFIRE-CHI1878-015-E02,CHI-POSTFIRE-CHI1878-015,opening,1878,as_reported,,Presbyterian worship
+CHI-POSTFIRE-CHI1878-015-E03,CHI-POSTFIRE-CHI1878-015,demolition_or_loss,1884,exact,fire,destroyed and rebuilt
+CHI-POSTFIRE-CHI1878-016-E01,CHI-POSTFIRE-CHI1878-016,completion,1878,year-only,,new_construction
+CHI-POSTFIRE-CHI1878-016-E02,CHI-POSTFIRE-CHI1878-016,opening,1878,as_reported,,women's seminary
+CHI-POSTFIRE-CHI1878-017-E01,CHI-POSTFIRE-CHI1878-017,completion,1878,year-only,,new_residential_construction
+CHI-POSTFIRE-CHI1878-017-E02,CHI-POSTFIRE-CHI1878-017,opening,1878,as_reported,,four private residences
+CHI-POSTFIRE-CHI1878-018-E01,CHI-POSTFIRE-CHI1878-018,completion,1878,year-only,,new_outbuilding_construction
+CHI-POSTFIRE-CHI1878-018-E02,CHI-POSTFIRE-CHI1878-018,opening,1878,as_reported,,residential barns/stables
+CHI-POSTFIRE-CHI1878-019-E01,CHI-POSTFIRE-CHI1878-019,construction_start,1878,year-only,,new_construction
+CHI-POSTFIRE-CHI1878-019-E02,CHI-POSTFIRE-CHI1878-019,completion,1878,year-only,,new_construction
+CHI-POSTFIRE-CHI1878-019-E03,CHI-POSTFIRE-CHI1878-019,opening,1878,as_reported,,"heavy printing, paper company, and commercial tenants"
+CHI-POSTFIRE-CHI1878-020-E01,CHI-POSTFIRE-CHI1878-020,construction_start,1878,year-only,,new_construction
+CHI-POSTFIRE-CHI1878-020-E02,CHI-POSTFIRE-CHI1878-020,completion,1878,year-only,,new_construction
+CHI-POSTFIRE-CHI1878-020-E03,CHI-POSTFIRE-CHI1878-020,opening,1878,as_reported,,printing offices and commercial rental
+CHI-POSTFIRE-CHI1878-021-E01,CHI-POSTFIRE-CHI1878-021,construction_start,1878,year-only,,new_residential_construction
+CHI-POSTFIRE-CHI1878-021-E02,CHI-POSTFIRE-CHI1878-021,completion,1878,year-only,,new_residential_construction
+CHI-POSTFIRE-CHI1878-021-E03,CHI-POSTFIRE-CHI1878-021,opening,1878,as_reported,,private residence
+CHI-POSTFIRE-CHI1878-022-E01,CHI-POSTFIRE-CHI1878-022,construction_start,1878,year-only,,new_residential_construction
+CHI-POSTFIRE-CHI1878-022-E02,CHI-POSTFIRE-CHI1878-022,completion,1878,year-only,,new_residential_construction
+CHI-POSTFIRE-CHI1878-022-E03,CHI-POSTFIRE-CHI1878-022,opening,1878,as_reported,,flats
+CHI-POSTFIRE-CHI1878-023-E01,CHI-POSTFIRE-CHI1878-023,construction_start,1878,year-range,,construction_start_and_phase
+CHI-POSTFIRE-CHI1878-023-E02,CHI-POSTFIRE-CHI1878-023,completion,1879,year-range,,construction_start_and_phase
+CHI-POSTFIRE-CHI1878-023-E03,CHI-POSTFIRE-CHI1878-023,opening,1879,as_reported,,"stores, commercial space, and corner hotel"
+CHI-POSTFIRE-CHI1878-024-E01,CHI-POSTFIRE-CHI1878-024,construction_start,1878,year-only,,industrial_addition
+CHI-POSTFIRE-CHI1878-024-E02,CHI-POSTFIRE-CHI1878-024,completion,1878,year-only,,industrial_addition
+CHI-POSTFIRE-CHI1878-024-E03,CHI-POSTFIRE-CHI1878-024,opening,1878,as_reported,,brewery cold storage
+CHI-POSTFIRE-CHI1878-025-E01,CHI-POSTFIRE-CHI1878-025,construction_start,1878,year-only,,industrial_addition
+CHI-POSTFIRE-CHI1878-025-E02,CHI-POSTFIRE-CHI1878-025,completion,1878,year-only,,industrial_addition
+CHI-POSTFIRE-CHI1878-025-E03,CHI-POSTFIRE-CHI1878-025,opening,1878,as_reported,,"brewery horses, vehicles, and service functions"
+CHI-POSTFIRE-CHI1878-026-E01,CHI-POSTFIRE-CHI1878-026,construction_start,1878,exact,,major_reconstruction_and_redecoration
+CHI-POSTFIRE-CHI1878-026-E02,CHI-POSTFIRE-CHI1878-026,completion,1878,exact,,major_reconstruction_and_redecoration
+CHI-POSTFIRE-CHI1878-026-E03,CHI-POSTFIRE-CHI1878-026,opening,1878,as_reported,,stage theater
+CHI-POSTFIRE-CHI1878-026-E04,CHI-POSTFIRE-CHI1878-026,demolition_or_loss,1882,year,demolished when lease expired,demolished
+CHI-POSTFIRE-CHI1878-027-E01,CHI-POSTFIRE-CHI1878-027,construction_start,1878,month,,conversion_and_reconstruction
+CHI-POSTFIRE-CHI1878-027-E02,CHI-POSTFIRE-CHI1878-027,completion,1878,month,,conversion_and_reconstruction
+CHI-POSTFIRE-CHI1878-027-E03,CHI-POSTFIRE-CHI1878-027,opening,1878,as_reported,,regular stage theater
+CHI-POSTFIRE-CHI1878-028-E01,CHI-POSTFIRE-CHI1878-028,construction_start,1878,year-only,,reported_rebuild
+CHI-POSTFIRE-CHI1878-028-E02,CHI-POSTFIRE-CHI1878-028,completion,1878,year-only,,reported_rebuild
+CHI-POSTFIRE-CHI1878-028-E03,CHI-POSTFIRE-CHI1878-028,opening,1878,as_reported,,road crossing
+CHI-POSTFIRE-CHI1879-001-E01,CHI-POSTFIRE-CHI1879-001,construction_start,1879,exact,,new_construction
+CHI-POSTFIRE-CHI1879-001-E02,CHI-POSTFIRE-CHI1879-001,completion,1879,exact,,new_construction
+CHI-POSTFIRE-CHI1879-001-E03,CHI-POSTFIRE-CHI1879-001,opening,1879,as_reported,,wholesale clothing store and loft building
+CHI-POSTFIRE-CHI1879-001-E04,CHI-POSTFIRE-CHI1879-001,demolition_or_loss,1972,exact,redevelopment,demolished
+CHI-POSTFIRE-CHI1879-002-E01,CHI-POSTFIRE-CHI1879-002,construction_start,1878,exact,,acquisition_fitout_and_occupancy
+CHI-POSTFIRE-CHI1879-002-E02,CHI-POSTFIRE-CHI1879-002,completion,1878,exact,,acquisition_fitout_and_occupancy
+CHI-POSTFIRE-CHI1879-002-E03,CHI-POSTFIRE-CHI1879-002,opening,1879,as_reported,,retail and wholesale dry goods
+CHI-POSTFIRE-CHI1879-003-E01,CHI-POSTFIRE-CHI1879-003,construction_start,1873,exact,,partial_completion_and_occupancy_phase
+CHI-POSTFIRE-CHI1879-003-E02,CHI-POSTFIRE-CHI1879-003,completion,1880,exact,,partial_completion_and_occupancy_phase
+CHI-POSTFIRE-CHI1879-003-E03,CHI-POSTFIRE-CHI1879-003,opening,1879,as_reported,,"post office, custom house and federal offices"
+CHI-POSTFIRE-CHI1879-003-E04,CHI-POSTFIRE-CHI1879-003,demolition_or_loss,1965,exact,Federal Center redevelopment,demolished
+CHI-POSTFIRE-CHI1879-004-E01,CHI-POSTFIRE-CHI1879-004,construction_start,1879,exact,,new_construction
+CHI-POSTFIRE-CHI1879-004-E02,CHI-POSTFIRE-CHI1879-004,completion,1879,exact,,new_construction
+CHI-POSTFIRE-CHI1879-004-E03,CHI-POSTFIRE-CHI1879-004,opening,1879,as_reported,,"music hall, public assembly, offices and stores"
+CHI-POSTFIRE-CHI1879-004-E04,CHI-POSTFIRE-CHI1879-004,demolition_or_loss,1901,exact,Marshall Field commercial expansion,demolished
+CHI-POSTFIRE-CHI1879-005-E01,CHI-POSTFIRE-CHI1879-005,construction_start,1879,exact,,new_construction
+CHI-POSTFIRE-CHI1879-005-E02,CHI-POSTFIRE-CHI1879-005,completion,1879,exact,,new_construction
+CHI-POSTFIRE-CHI1879-005-E03,CHI-POSTFIRE-CHI1879-005,opening,1879,as_reported,,wholesale and manufacturing lofts
+CHI-POSTFIRE-CHI1879-006-E01,CHI-POSTFIRE-CHI1879-006,construction_start,1875,exact,,completion_and_occupancy_phase
+CHI-POSTFIRE-CHI1879-006-E02,CHI-POSTFIRE-CHI1879-006,completion,1879,exact,,completion_and_occupancy_phase
+CHI-POSTFIRE-CHI1879-006-E03,CHI-POSTFIRE-CHI1879-006,opening,1879,as_reported,,single-family residence
+CHI-POSTFIRE-CHI1879-006-E04,CHI-POSTFIRE-CHI1879-006,demolition_or_loss,1954,exact,Sanitary District office development,demolished
+CHI-POSTFIRE-CHI1879-007-E01,CHI-POSTFIRE-CHI1879-007,construction_start,1879,exact,,construction_start_or_commission
+CHI-POSTFIRE-CHI1879-007-E02,CHI-POSTFIRE-CHI1879-007,completion,1883,exact,,construction_start_or_commission
+CHI-POSTFIRE-CHI1879-007-E03,CHI-POSTFIRE-CHI1879-007,opening,1883,as_reported,,single-family residence
+CHI-POSTFIRE-CHI1879-008-E01,CHI-POSTFIRE-CHI1879-008,construction_start,1878,academic_year,,completion_and_opening_phase
+CHI-POSTFIRE-CHI1879-008-E02,CHI-POSTFIRE-CHI1879-008,completion,1879,academic_year,,completion_and_opening_phase
+CHI-POSTFIRE-CHI1879-008-E03,CHI-POSTFIRE-CHI1879-008,opening,1879,as_reported,,public elementary school
+CHI-POSTFIRE-CHI1879-009-E01,CHI-POSTFIRE-CHI1879-009,construction_start,1879,exact,,new_construction
+CHI-POSTFIRE-CHI1879-009-E02,CHI-POSTFIRE-CHI1879-009,completion,1879,exact,,new_construction
+CHI-POSTFIRE-CHI1879-009-E03,CHI-POSTFIRE-CHI1879-009,opening,1879,as_reported,,public elementary school
+CHI-POSTFIRE-CHI1879-010-E01,CHI-POSTFIRE-CHI1879-010,construction_start,1879,exact,,new_construction
+CHI-POSTFIRE-CHI1879-010-E02,CHI-POSTFIRE-CHI1879-010,completion,1879,exact,,new_construction
+CHI-POSTFIRE-CHI1879-010-E03,CHI-POSTFIRE-CHI1879-010,opening,1879,as_reported,,public elementary school
+CHI-POSTFIRE-CHI1879-011-E01,CHI-POSTFIRE-CHI1879-011,construction_start,1879,exact,,new_infrastructure
+CHI-POSTFIRE-CHI1879-011-E02,CHI-POSTFIRE-CHI1879-011,completion,1879,exact,,new_infrastructure
+CHI-POSTFIRE-CHI1879-011-E03,CHI-POSTFIRE-CHI1879-011,opening,1879,as_reported,,street crossing
+CHI-POSTFIRE-CHI1879-012-E01,CHI-POSTFIRE-CHI1879-012,construction_start,1879,exact,,infrastructure_addition
+CHI-POSTFIRE-CHI1879-012-E02,CHI-POSTFIRE-CHI1879-012,completion,1879,exact,,infrastructure_addition
+CHI-POSTFIRE-CHI1879-012-E03,CHI-POSTFIRE-CHI1879-012,opening,1879,as_reported,,pedestrian crossing over tunnel approach
+CHI-POSTFIRE-CHI1879-013-E01,CHI-POSTFIRE-CHI1879-013,construction_start,1879,exact,,new_infrastructure
+CHI-POSTFIRE-CHI1879-013-E02,CHI-POSTFIRE-CHI1879-013,completion,1879,exact,,new_infrastructure
+CHI-POSTFIRE-CHI1879-013-E03,CHI-POSTFIRE-CHI1879-013,opening,1879,as_reported,,street crossing
+CHI-POSTFIRE-CHI1879-014-E01,CHI-POSTFIRE-CHI1879-014,construction_start,1878,exact,,opening_or_occupancy_only
+CHI-POSTFIRE-CHI1879-014-E02,CHI-POSTFIRE-CHI1879-014,completion,1878,exact,,opening_or_occupancy_only
+CHI-POSTFIRE-CHI1879-014-E03,CHI-POSTFIRE-CHI1879-014,opening,1879,as_reported,,grade-separated street crossing
+CHI-POSTFIRE-CHI1879-015-E01,CHI-POSTFIRE-CHI1879-015,construction_start,1879,exact,,infrastructure_extension_and_equipment_upgrade
+CHI-POSTFIRE-CHI1879-015-E02,CHI-POSTFIRE-CHI1879-015,completion,1879,exact,,infrastructure_extension_and_equipment_upgrade
+CHI-POSTFIRE-CHI1879-015-E03,CHI-POSTFIRE-CHI1879-015,opening,1879,as_reported,,municipal fire alarm and dispatch
+CHI-POSTFIRE-CHI1879-016-E01,CHI-POSTFIRE-CHI1879-016,construction_start,1879,year_only,,industrial_complex_addition
+CHI-POSTFIRE-CHI1879-016-E02,CHI-POSTFIRE-CHI1879-016,completion,1879,year_only,,industrial_complex_addition
+CHI-POSTFIRE-CHI1879-016-E03,CHI-POSTFIRE-CHI1879-016,opening,1879,as_reported,,brewery cold storage
+CHI-POSTFIRE-CHI1879-017-E01,CHI-POSTFIRE-CHI1879-017,construction_start,1879,exact,,industrial_complex_addition
+CHI-POSTFIRE-CHI1879-017-E02,CHI-POSTFIRE-CHI1879-017,completion,1879,exact,,industrial_complex_addition
+CHI-POSTFIRE-CHI1879-017-E03,CHI-POSTFIRE-CHI1879-017,opening,1879,as_reported,,brewery administration and billiard rooms
+CHI-POSTFIRE-CHI1879-018-E01,CHI-POSTFIRE-CHI1879-018,construction_start,1879,exact,,new_construction_or_complex_addition
+CHI-POSTFIRE-CHI1879-018-E02,CHI-POSTFIRE-CHI1879-018,completion,1879,exact,,new_construction_or_complex_addition
+CHI-POSTFIRE-CHI1879-018-E03,CHI-POSTFIRE-CHI1879-018,opening,1879,as_reported,,"Catholic sodality meetings, reading room and libraries"
+CHI-POSTFIRE-CHI1879-019-E01,CHI-POSTFIRE-CHI1879-019,construction_start,1879,exact,,institutional_complex_addition
+CHI-POSTFIRE-CHI1879-019-E02,CHI-POSTFIRE-CHI1879-019,completion,1879,exact,,institutional_complex_addition
+CHI-POSTFIRE-CHI1879-019-E03,CHI-POSTFIRE-CHI1879-019,opening,1879,as_reported,,Catholic school worship
+CHI-POSTFIRE-CHI1879-020-E01,CHI-POSTFIRE-CHI1879-020,construction_start,1876,exact,,completion_and_dedication
+CHI-POSTFIRE-CHI1879-020-E02,CHI-POSTFIRE-CHI1879-020,completion,1879,exact,,completion_and_dedication
+CHI-POSTFIRE-CHI1879-020-E03,CHI-POSTFIRE-CHI1879-020,opening,1879,as_reported,,Catholic worship
+CHI-POSTFIRE-CHI1879-021-E01,CHI-POSTFIRE-CHI1879-021,completion,1879,exact,,acquisition_repair_and_adaptive_reuse
+CHI-POSTFIRE-CHI1879-021-E02,CHI-POSTFIRE-CHI1879-021,opening,1879,as_reported,,Lutheran worship
+CHI-POSTFIRE-CHI1879-022-E01,CHI-POSTFIRE-CHI1879-022,construction_start,1879,year_only,,new_construction
+CHI-POSTFIRE-CHI1879-022-E02,CHI-POSTFIRE-CHI1879-022,completion,1879,year_only,,new_construction
+CHI-POSTFIRE-CHI1879-022-E03,CHI-POSTFIRE-CHI1879-022,opening,1879,as_reported,,Presbyterian worship
+CHI-POSTFIRE-CHI1879-022-E04,CHI-POSTFIRE-CHI1879-022,demolition_or_loss,2009,year_only,Chicago Housing Authority demolition,demolished
+CHI-POSTFIRE-CHI1879-023-E01,CHI-POSTFIRE-CHI1879-023,completion,1879,exact,,renovation_conversion_and_reopening
+CHI-POSTFIRE-CHI1879-023-E02,CHI-POSTFIRE-CHI1879-023,opening,1879,as_reported,,public entertainment
+CHI-POSTFIRE-CHI1879-024-E01,CHI-POSTFIRE-CHI1879-024,construction_start,1879,year_only,,building_addition
+CHI-POSTFIRE-CHI1879-024-E02,CHI-POSTFIRE-CHI1879-024,completion,1879,year_only,,building_addition
+CHI-POSTFIRE-CHI1879-024-E03,CHI-POSTFIRE-CHI1879-024,opening,1879,as_reported,,gymnasium and bathing facilities
+CHI-POSTFIRE-CHI1879-025-E01,CHI-POSTFIRE-CHI1879-025,opening,1879,as_reported,,carriage manufacture and showroom

@@ -1,0 +1,498 @@
+{
+  "schema": 1,
+  "_doc": "THE DERIVED RESEARCH LAYER, AND THE COMMAND THAT REBUILDS EACH PART OF IT. Read by tools/rederive.mjs, which .github/steward/pr-lap.sh calls when a merge conflicts. WHY THIS EXISTS (owner, 2026-09-10): with the lap finally able to merge at all (PR #1058), every remaining open PR was left alone for a REAL CONFLICT, and every conflicting file was a tool output two runs had each re-derived — directory crosswalks, the land-sale spend, identity_master. pr-lap.sh already draws exactly the right line for this: 'A conflict here is never resolved by hand: the merge takes either side to clear the marker and the tool then rewrites the file from source.' It just drew it around five bookkeeping files. This file widens it, EXPLICITLY, so the widening is auditable rather than a glob nobody can audit.",
+  "_the_rule": "A path under `resolves` may have its conflict cleared by taking either side, because a step below rewrites it from its inputs. A path NOT listed here is refused exactly as before — that is the whole safety property, and it is why this file enumerates rather than pattern-matches. `resolves: []` means the step runs to keep the tree consistent but resolves no conflict: its outputs are still content a run may have meant to change.",
+  "_the_backstop": "Nothing here is trusted on its say-so. After the sequence runs, tools/check.sh must pass, and it is check.sh that asserts each of these files re-derives from its inputs. A wrong entry here makes the gate RED, and pr-lap.sh does not push a red tree. The failure mode is a PR that stays open — the one it was already in — never a bad merge onto dev.",
+  "_only_gated_tools": "A step may only appear here if tools/check.sh runs its tool with --check. That invariant is enforced by rederive.mjs --check, and it is not decoration — it is the whole reason the backstop above is real. Learned by nearly shipping the opposite: crosswalk_norris_1844_advertiser.py was in this file on first draft, and running it rebuilt norris_1844_advertiser_crosswalk_1835.json from 443 lines to 195, taking data/residents/directories.json down with it. check.sh did not invoke that tool AT ALL, so nothing in the gate would have gone red and the lap would have pushed the loss. An ungated derivation is one whose committed file nobody has ever asserted re-derives, and this file may not resolve a conflict by re-running one. READ THAT IN THE PAST TENSE: T-0867 gated the advertising crosswalk for the same reason, and it is listed below now. The example stands as the reason for the rule, not as a live claim about that tool — check what check.sh runs today, never what this sentence remembers.",
+  "_must_actually_write": "A step's command must WRITE the files it claims. Obvious, and it is the one thing --check cannot see by reading, so `rederive.mjs --prove` runs every command and asserts each `resolves` file's mtime advanced. It exists because read_newberry_index.py was listed here for `data/research/newberry_index/leads.json` and, invoked bare, PRINTS ITS USAGE AND EXITS 0 — it writes nothing, and rebuilding leads.json needs --parse over OCR shards that live outside the repo. The bad entry survived a --check (the tool is gated), an idempotency test (nothing changed, because nothing ran) and a full-sequence run. It failed only when a real merge needed it, as `leads.json does not re-derive from its inputs`. The idempotency test that missed it used `timeout 400` with output suppressed, so a killed tool and a no-op tool looked identical. Run --prove when this file changes; a tool that needs inputs from outside the repo does not belong here at all.",
+  "_must_reproduce": "AND A GATED TOOL THAT PASSES --check MAY STILL NOT BELONG HERE, which is the rule `_only_gated_tools` does not cover and the one that nearly admitted two more files on 2026-09-14. `--check` asks whether the committed OUTCOMES still follow from the inputs; a manifest entry resolves a conflict by re-running the BUILD and keeping whatever it writes. Those are different questions and they can disagree. Measured on a clean `dev` that afternoon: `crosswalk_census_1840_heads.py --check` reported `OK: 965 named 1840 head(s) — 13 matched, 18 candidate, 934 refused` and exited 0, while `--build` on the SAME TREE rewrote 137 lines of census_1840/crosswalk.json and resident_crosswalk.json — rule prose and evidence lists that had drifted, picking up the 1844 directory and a fourth Sherman. Nothing is stale by the gate's measure and the file still does not rebuild to itself. Listing it would have made the lap push those 137 lines into EVERY pull request it lapped, as a silent content change no ticket asked for. So before adding a step: run its command on a clean base and require that git reports NOTHING moved. A green --check is necessary and it is not sufficient.",
+  "_never": "A file declaring `hand_authored: true` is refused even if listed. data/research/land_sales/resident_rulings.json is the one such file today: a judgement is not a derivation, and re-running a tool over it would erase the argument. rederive.mjs --check fails if any listed path declares it.",
+  "steps": [
+    {
+      "why": "The directory crosswalks: each reads its own transcribed claims file and adjudicates it against the residents layer. Two runs that both touch the residents layer both re-derive all of these, which is why they conflict so readily.",
+      "command": [
+        "python3",
+        "tools/crosswalk_fergus_1839.py"
+      ],
+      "resolves": [
+        "chicago/4d/data/research/directories/fergus_1839_crosswalk_1835.json"
+      ]
+    },
+    {
+      "command": [
+        "python3",
+        "tools/crosswalk_fergus_1839_election.py"
+      ],
+      "resolves": [
+        "chicago/4d/data/research/directories/fergus_1839_election_crosswalk_1835.json"
+      ]
+    },
+    {
+      "command": [
+        "python3",
+        "tools/crosswalk_fergus_1839_lots.py"
+      ],
+      "resolves": [
+        "chicago/4d/data/research/directories/fergus_1839_lots_crosswalk_1835.json"
+      ]
+    },
+    {
+      "command": [
+        "python3",
+        "tools/crosswalk_fergus_1839_register.py"
+      ],
+      "resolves": [
+        "chicago/4d/data/research/directories/fergus_1839_register_crosswalk_1835.json"
+      ]
+    },
+    {
+      "command": [
+        "python3",
+        "tools/crosswalk_fergus_1843.py"
+      ],
+      "resolves": [
+        "chicago/4d/data/research/directories/fergus_1843_crosswalk_1835.json"
+      ]
+    },
+    {
+      "command": [
+        "python3",
+        "tools/crosswalk_norris_1844.py"
+      ],
+      "resolves": [
+        "chicago/4d/data/research/directories/norris_1844_crosswalk_1835.json"
+      ]
+    },
+    {
+      "why": "The ADVERTISING directory's crosswalk, the fourth of the four. It is the tool this file's `_only_gated_tools` note names as the near-miss, and it is listed now because the thing that disqualified it has been fixed: T-0867 added `step \"…and the advertising directory's crosswalk re-derives too\" python3 tools/crosswalk_norris_1844_advertiser.py --check` to check.sh, for the same reason the note gives — an ungated derivation stops describing the town it describes. The rule did not change; the tool crossed it. Verified byte-identical on a clean `dev` before listing (2026-09-14) — see `_must_reproduce`, which is the check the first draft never ran and which a green --check does not stand in for.",
+      "command": [
+        "python3",
+        "tools/crosswalk_norris_1844_advertiser.py"
+      ],
+      "resolves": [
+        "chicago/4d/data/research/directories/norris_1844_advertiser_crosswalk_1835.json"
+      ]
+    },
+    {
+      "why": "The ADDRESS back-projection (T-0633), the business-face half of the grammar whose residence half is the last step in this file. Same argument, same omission: the file says `generated_by` and nothing listed it, so the lap refused as a REAL CONFLICT every PR that had re-derived it — #1268 among them, where it conflicted alongside seven other tool outputs and not one disagreement about the town. Gated at check.sh by `back_project_addresses.py --check` AND a `--self-test`, and verified byte-identical on a clean `dev` before listing.",
+      "command": [
+        "python3",
+        "tools/back_project_addresses.py",
+        "--write"
+      ],
+      "resolves": [
+        "chicago/4d/data/research/directories/address_back_projection.json"
+      ]
+    },
+    {
+      "why": "The church rolls, rebuilt from their transcribed records. T-0962 found second_presbyterian's 83 matched rows this morning; the count moves whenever the town gains a card the roll reaches, which is exactly the kind of drift two slices produce.",
+      "command": [
+        "python3",
+        "tools/read_second_presbyterian.py",
+        "--build"
+      ],
+      "resolves": [
+        "chicago/4d/data/research/church/second_presbyterian_crosswalk.json"
+      ]
+    },
+    {
+      "why": "The Second Presbyterian roll's spend, after the crosswalk it spends.",
+      "command": [
+        "python3",
+        "tools/spend_second_presbyterian_roll.py"
+      ],
+      "resolves": [
+        "chicago/4d/data/research/church/second_presbyterian_roll_spend_1835.json"
+      ],
+      "verify": [
+        "python3",
+        "tools/spend_second_presbyterian_roll.py",
+        "--check"
+      ]
+    },
+    {
+      "command": [
+        "python3",
+        "tools/read_st_cyr_register.py",
+        "--build"
+      ],
+      "resolves": [
+        "chicago/4d/data/research/church/st_cyr_crosswalk.json",
+        "chicago/4d/data/research/church/crosswalk.json",
+        "chicago/4d/data/research/church/coverage.json"
+      ]
+    },
+    {
+      "why": "The land-sale crosswalk folds resident_rulings.json — HAND-AUTHORED, and refused above — onto the deposit. The crosswalk is a derivation of the two; the rulings are not.",
+      "command": [
+        "python3",
+        "tools/read_land_sales.py",
+        "--build"
+      ],
+      "resolves": [
+        "chicago/4d/data/research/land_sales/resident_crosswalk.json"
+      ],
+      "verify": [
+        "python3",
+        "tools/read_land_sales.py",
+        "--check"
+      ]
+    },
+    {
+      "why": "The spends run AFTER their crosswalks, because a spend reads the crosswalk it is spending.",
+      "command": [
+        "python3",
+        "tools/spend_directories.py"
+      ],
+      "resolves": [
+        "chicago/4d/data/research/directories/spend_crosswalk_1835.json",
+        "chicago/4d/data/residents/directories.json"
+      ]
+    },
+    {
+      "why": "Norris's 1844 businesses, dated back to the window.",
+      "command": [
+        "python3",
+        "tools/date_norris_1844_businesses.py"
+      ],
+      "resolves": [
+        "chicago/4d/data/research/directories/norris_1844_businesses_1835.json"
+      ],
+      "verify": [
+        "python3",
+        "tools/date_norris_1844_businesses.py",
+        "--check"
+      ]
+    },
+    {
+      "why": "The later Fergus lists' spend, after the directory crosswalks it reads.",
+      "command": [
+        "python3",
+        "tools/spend_fergus_1839_later_lists.py"
+      ],
+      "resolves": [
+        "chicago/4d/data/research/directories/fergus_1839_later_spend_1835.json"
+      ],
+      "verify": [
+        "python3",
+        "tools/spend_fergus_1839_later_lists.py",
+        "--check"
+      ]
+    },
+    {
+      "command": [
+        "python3",
+        "tools/spend_land_sales.py"
+      ],
+      "resolves": [
+        "chicago/4d/data/research/land_sales/resident_spend_1835.json"
+      ],
+      "verify": [
+        "python3",
+        "tools/spend_land_sales.py",
+        "--check"
+      ]
+    },
+    {
+      "why": "The obituary crosswalk: the old-settlers death notices adjudicated against the residents layer, on the same footing as the directory crosswalks above.",
+      "command": [
+        "python3",
+        "tools/read_fergus_obits.py",
+        "--build"
+      ],
+      "resolves": [
+        "chicago/4d/data/research/old_settlers/death_notices_crosswalk_1835.json"
+      ],
+      "verify": [
+        "python3",
+        "tools/read_fergus_obits.py",
+        "--check"
+      ]
+    },
+    {
+      "why": "The 1835 business register, compiled from the newspaper corpus.",
+      "command": [
+        "python3",
+        "tools/compile_register.py",
+        "--build"
+      ],
+      "resolves": [
+        "chicago/4d/data/research/newspapers/register_1835.json"
+      ],
+      "verify": [
+        "python3",
+        "tools/compile_register.py",
+        "--check"
+      ]
+    },
+    {
+      "why": "The resident-research synthesis, downstream of the crosswalks and read by the ladder.",
+      "command": [
+        "python3",
+        "tools/synthesize_resident_research.py"
+      ],
+      "resolves": [
+        "chicago/4d/data/research/residents/synthesis_2026_09_02.json",
+        "chicago/4d/docs/RESEARCH/resident-household-synthesis-2026-09-02.md"
+      ],
+      "verify": [
+        "python3",
+        "tools/synthesize_resident_research.py",
+        "--check"
+      ]
+    },
+    {
+      "why": "The cross-domain consolidation reads every crosswalk above, so it runs after all of them.",
+      "command": [
+        "python3",
+        "tools/consolidate_resident_evidence.py",
+        "--build"
+      ],
+      "resolves": [
+        "chicago/4d/data/research/residents/identity_master.json",
+        "chicago/4d/data/research/residents/source_coverage.json",
+        "chicago/4d/data/research/residents/grading_proposal.json",
+        "chicago/4d/data/research/residents/ladder_coverage.json"
+      ],
+      "verify": [
+        "python3",
+        "tools/consolidate_resident_evidence.py",
+        "--check"
+      ]
+    },
+    {
+      "why": "T-1138's PR sat DIRTY for five hours on this file. lead_crosswalk.json is a recomputed summary of the residents layer — counts and a fingerprint, not a list two branches can append to — so a merge leaves two disagreeing totals (1010 leads on 1418 cards against 1008 on 1416) and neither side is right: the merged corpus answers 1009 on 1417. The lap could not heal it because the step was not here, so every lap left the conflict exactly where it found it. It costs 0 s measured, which is the whole argument for adding it.\nNOT ADDED BESIDE IT, DELIBERATELY: tools/read_newberry_index.py --parse, which rebuilds leads.json itself. Measured on 2026-09-15 it is 132 s for ONE of its four volumes — about nine minutes for the set, against a lap that runs in 23-37 s for a whole queue of PRs. A lap that took nine minutes per branch would be the gating problem this manifest was built to end. When leads.json itself goes stale (the volumes, the WORKS table or the card text moved, and read_newberry_index.py --check says which) that parse is a run's own work, not the lap's.",
+      "command": [
+        "python3",
+        "tools/rule_newberry_leads.py",
+        "--write"
+      ],
+      "resolves": [
+        "chicago/4d/data/research/newberry_index/lead_crosswalk.json"
+      ]
+    },
+    {
+      "why": "Cohort 14's ruled ledger. It reads the four directory crosswalks and T-0816's rulings, so every stretch of T-0987 and every re-derivation of a crosswalk moves it — and nothing regenerated it, because it was not here. That is T-1109's whole subject: PR #1341's gate went red on `pass_14_findings.json does not match a re-derivation` for refusals the crosswalks had gained (fergus_1839, fergus_1843, norris_1844 appearing in `refusals_seen`), with a CLEAN merge and nothing to flag it — the #1333 shape, where the base changes an input the branch never touched. It is admissible now because #1341 is what made it so: that PR adds `complete_resident_research_pass_14.py --check` to check.sh, which is the gate `_only_gated_tools` requires. Verified idempotent before listing, per `_must_reproduce`. IT ALSO WRITES T-0509's WORKING WORKBOOK (line 594), and that path was missing from this list — which is what left six pull requests stranded on 2026-09-17. The workbook is a zip and every run gives it fresh member timestamps, so two branches that both ran this step hold different bytes for the same content and the merge conflicts every time. The lap asks `rederive --resolvable` before it clears anything; an unlisted path is refused BY DESIGN, so the lap abandoned the whole pull request — nine of its refusals that afternoon named this one file. Listing it is the fix, and it is honest: the step rewrites it from source on every run.",
+      "command": [
+        "python3",
+        "tools/complete_resident_research_pass_14.py"
+      ],
+      "resolves": [
+        "chicago/4d/data/research/residents/pass_14_findings.json",
+        "chicago/reference/resident-research/T-0509/T-0509_resident_research_working.xlsx"
+      ],
+      "verify": [
+        "python3",
+        "tools/complete_resident_research_pass_14.py",
+        "--check"
+      ]
+    },
+    {
+      "why": "REBUILD ONLY, resolves nothing — and the ordering here was learned the hard way on PR #1055. mint_civic_residents writes 486 resident CARDS from the ladder, and consolidate moves the inputs it reads: built before consolidate it still differed on two cards, and only converged when re-run after it. Its outputs are resident cards, which a run may have meant to change by hand, so a conflict in one is never cleared by this file.",
+      "command": [
+        "python3",
+        "tools/mint_civic_residents.py",
+        "--build"
+      ],
+      "resolves": [],
+      "verify": [
+        "python3",
+        "tools/mint_civic_residents.py",
+        "--check"
+      ]
+    },
+    {
+      "why": "The duplicate-cluster ledger, rebuilt from the town and the merge rulings — it runs after mint because it reads the cards mint writes. `--candidates` and NOT `--apply`: --apply performs the card merges and rewrites resident cards (tested on a clean dev, it modified hh_kinzie_john_h.json), which is a judgement being carried out and never something a merge resolution may do on its own. --candidates writes this one ledger and nothing else. Added after the first real use of this manifest left check.sh red on `town_card_candidates.json does not re-derive`.",
+      "command": [
+        "python3",
+        "tools/consolidate_town_cards.py",
+        "--candidates"
+      ],
+      "resolves": [
+        "chicago/4d/data/research/residents/town_card_candidates.json"
+      ],
+      "verify": [
+        "python3",
+        "tools/consolidate_town_cards.py",
+        "--check"
+      ]
+    },
+    {
+      "why": "data/residents/index.json — the town's index and its `merged` redirect table, rebuilt from the cards. The single most frequent blocker in the laps of 2026-09-10/11: it was named in nine of the five laps' refusals, more than any other file.",
+      "command": [
+        "python3",
+        "tools/rebuild_resident_index.py",
+        "--write"
+      ],
+      "resolves": [
+        "chicago/4d/data/residents/index.json"
+      ],
+      "verify": [
+        "python3",
+        "tools/rebuild_resident_index.py",
+        "--check"
+      ]
+    },
+    {
+      "why": "The ladder's spend, which reads the consolidated evidence above it.",
+      "command": [
+        "python3",
+        "tools/spend_ladder_rungs.py",
+        "--build"
+      ],
+      "resolves": [
+        "chicago/4d/data/research/residents/ladder_spend.json"
+      ],
+      "verify": [
+        "python3",
+        "tools/spend_ladder_rungs.py",
+        "--check"
+      ]
+    },
+    {
+      "why": "Writes the later-trade pointer onto a card, and T-0693's gate refuses a bare `none_recorded` beside a dated trade. MUST RUN BEFORE any writer that re-derives roles from the same card: both write hh_elston_daniel, and the other order leaves whichever ran first reporting red, which reads like a loop and is not (2026-09-17).",
+      "command": [
+        "python3",
+        "tools/qualify_later_trades.py"
+      ],
+      "resolves": [],
+      "verify": [
+        "python3",
+        "tools/qualify_later_trades.py",
+        "--check"
+      ]
+    },
+    {
+      "why": "The person-fact table (T-1232). It reached dev on 2026-09-17 and was in no lap, so every branch the janitor lapped that day went red on it — four of them — with the gate naming the one command that fixes it.",
+      "command": [
+        "python3",
+        "tools/spend_person_facts.py"
+      ],
+      "resolves": [
+        "chicago/4d/data/residents/person_facts.json"
+      ],
+      "verify": [
+        "python3",
+        "tools/spend_person_facts.py",
+        "--check"
+      ]
+    },
+    {
+      "why": "The liberties register, compiled from the sidecars and the town — every liberty the reconstruction takes, with its reason.",
+      "command": [
+        "python3",
+        "tools/compile_liberties.py"
+      ],
+      "resolves": [
+        "chicago/4d/data/liberties.json"
+      ],
+      "verify": [
+        "python3",
+        "tools/compile_liberties.py",
+        "--check"
+      ]
+    },
+    {
+      "why": "The scene compiles from the residents layer, so it runs last but one.",
+      "command": [
+        "python3",
+        "tools/compile_scene.py",
+        "--all"
+      ],
+      "resolves": [
+        "chicago/4d/data/sidecars/1835/people.json"
+      ]
+    },
+    {
+      "why": "The town census counts what stands and who is housed, and it is its OWN tool — compile_scene --all does not write it. Found by --prove, which is the only thing that asks whether a step writes what it claims.",
+      "command": [
+        "python3",
+        "tools/town_census.py"
+      ],
+      "resolves": [
+        "chicago/4d/data/town_census.json"
+      ],
+      "verify": [
+        "python3",
+        "tools/town_census.py",
+        "--check"
+      ]
+    },
+    {
+      "why": "The agency relation compiles from the gazetteer, the street-face adoptions and the households, so it runs after the residents layer is rebuilt and before the audit that reads none of it. The card fetches the output, so a stale one is a relation missing from two cards rather than a number being wrong.",
+      "command": [
+        "python3",
+        "tools/compile_agencies.py"
+      ],
+      "resolves": [
+        "chicago/4d/data/reconstruction/1835_agencies.json"
+      ],
+      "verify": [
+        "python3",
+        "tools/compile_agencies.py",
+        "--check"
+      ]
+    },
+    {
+      "why": "The final audit package re-derives from the residents layer and is the last thing downstream of all of it.",
+      "command": [
+        "python3",
+        "tools/export_resident_audit.py",
+        "--build"
+      ],
+      "resolves": [
+        "chicago/reference/resident-research/final/audit/resident_audit_master.xlsx",
+        "chicago/reference/resident-research/final/audit/resident_audit_master.csv",
+        "chicago/reference/resident-research/final/audit/README.md"
+      ],
+      "verify": [
+        "python3",
+        "tools/export_resident_audit.py",
+        "--check"
+      ]
+    },
+    {
+      "why": "The residence back-projection (T-0669, liberty L223). It is GENERATED by its own tool — the file's own `generated_by` says so — but it was not in this manifest, so the lap refused every PR that touched it as a REAL CONFLICT and left it for the run that owned the ticket. Measured on lap 307, 2026-09-14: #1316 was left alone for this file and nothing else. It reads the residents layer, so any two runs that touch a resident both re-derive it and it conflicts as readily as the crosswalks above.",
+      "command": [
+        "python3",
+        "tools/back_project_residences.py",
+        "--write"
+      ],
+      "resolves": [
+        "chicago/4d/data/research/directories/residence_back_projection.json"
+      ]
+    },
+    {
+      "why": "The closed research-spend ledger (T-1143), which counts over every layer above it and so has to be last of the research steps.",
+      "command": [
+        "python3",
+        "tools/measure_research_spend.py",
+        "--ledger-build"
+      ],
+      "resolves": [
+        "chicago/4d/data/research/research_spend_ledger.json.gz",
+        "chicago/4d/docs/RESEARCH/research-spend-ledger-2026-09-15.md"
+      ],
+      "verify": [
+        "python3",
+        "tools/measure_research_spend.py",
+        "--check",
+        "--quiet"
+      ]
+    },
+    {
+      "why": "SHRINK ONLY, and the flag is not --write-baseline on purpose. Step 19 re-runs the synthesizer, so after a lap its outputs no longer drift and the T-0838 baseline still lists them — a ratchet that has tightened, reported as red. Shrinking can only make the gate stricter. --write-baseline regenerates and could ADD a path, recording a brand-new drift as expected; that is a judgement and stays a human's, so this step REFUSES a new drift and leaves the gate red. `resolves` is empty because there is nothing to shrink on most laps and --prove asserts a write.",
+      "command": [
+        "python3",
+        "tools/synthesize_resident_research.py",
+        "--shrink-baseline"
+      ],
+      "resolves": [],
+      "verify": [
+        "python3",
+        "tools/synthesize_resident_research.py",
+        "--drift"
+      ]
+    }
+  ]
+}

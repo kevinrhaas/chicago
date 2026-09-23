@@ -1,0 +1,221 @@
+{
+ "id": "hh_fullerton_alexander",
+ "name": "The Fullerton household",
+ "division": "south",
+ "head": "fullerton_alexander",
+ "arrival": {
+  "value": "1833",
+  "confidence": "attested",
+  "sources": [
+   "andreas_1884_v1"
+  ],
+  "note": "'Put out their signs in 1833'.",
+  "precision": "year"
+ },
+ "party_size_on_arrival": {
+  "value": null,
+  "confidence": "reconstructed",
+  "note": "Not attested in anything this project holds."
+ },
+ "origin": {
+  "value": null,
+  "confidence": "reconstructed",
+  "note": "Not attested in anything this project holds."
+ },
+ "reason_for_coming": {
+  "value": null,
+  "confidence": "reconstructed",
+  "note": "Not attested in anything this project holds."
+ },
+ "lives_at": {
+  "value": null,
+  "confidence": "reconstructed",
+  "note": "Not attested in anything this project holds."
+ },
+ "works_at": {
+  "value": null,
+  "confidence": "reconstructed",
+  "note": "NOT MODELLED; no lawyer's office in the 1835 town is a structure record."
+ },
+ "present_on_scene_date": {
+  "value": "present",
+  "confidence": "attested",
+  "sources": [
+   "andreas_1884_v1"
+  ],
+  "note": "Elected or appointed town clerk in the scene month or the one after it."
+ },
+ "persons": [
+  {
+   "id": "fullerton_alexander",
+   "name": "Alexander N. Fullerton",
+   "relationship": "head",
+   "grade": "attested",
+   "ladder_rule": "G1b",
+   "sex": "male",
+   "occupation": {
+    "value": "attorney",
+    "confidence": "attested",
+    "sources": [
+     "andreas_1884_v1"
+    ],
+    "note": "One of the six lawyers Andreas counts at the close of 1833, having put out his sign that year.",
+    "derived_from": "roles",
+    "roles_at_scene_date": [
+     "attorney"
+    ]
+   },
+   "sources": [
+    "andreas_1884_v1",
+    "chicago_american_1835",
+    "chicago_democrat_1833_1835",
+    "chicago_voter_lists_1833_1835_irad",
+    "fergus_chicago_directory_1839",
+    "isa_public_domain_land_tract_sales",
+    "norris_directory_1844",
+    "second_presbyterian_chicago_1892"
+   ],
+   "note": "TOWN CLERK AT THE THIRD ELECTION, WHICH IS THE OFFICE NEAREST THE SCENE DATE ANY LAWYER IN THIS PARCEL HOLDS. Andreas's 1835 roster: 'A. N. Fullerton, Clerk, who was succeeded by Ebenezer Peck, who also acted as Counsel.' Whether he had taken the clerkship by 1 July 1835 depends on the date of the July 1835 election, which Andreas does not give - see hh_kinzie_john_h. He also appears among the subscribers Andreas prints for the town's early public undertakings. THE TOWN'S OWN ROLLS, 1833-1835 — CORROBORATION, NOT A GRADE. The early Chicago voter and tax lists held by the Illinois Regional Archives Depository name this person 1 time: Tax list of the Town of Chicago, 1833 — “Fullerton, Alexander” (tax_1833_035, line 87). These are the town's own contemporary paper rather than a recollection of it, and each appearance says that a man of that name stood on that roll in that year — no more. The reading is twice mediated (Schulz's transcription, then Genealogy Trails' republication) and this project has not seen the IRAD originals. Under the ratified ladder (T-0513) the 1835 poll with a second independent source is attested, the 1835 poll alone or a 1833/1834 list with another source is inferred, and a single appearance with nothing else is a projected resident. This pass WRITES THE EVIDENCE AND MOVES NO GRADE — T-0515 applies the ladder against every source at once. Identity by the crosswalk's own rule: one resident of the surname 'Fullerton' agrees with the entry's forenames; 1 bearer(s) of the surname were considered. (data/research/civic/voter_crosswalk.json). FERGUS 1839'S LATER LISTS — 1837 AND 1839 EVIDENCE, NEVER AN 1835 FACT. Fergus' Chicago Directory for 1839 names this person 1 time in its two later lists: the poll of Chicago's first city election, 2 May 1837 — “Alex. N. Fullerton,” (f1839_v0064, printed page 41, ward 1, voting for William B. Ogden). What a match may carry, and it is short: that the man was in Chicago on 2 May 1837 and in that ward. It is written as 1837 evidence with describes_date 1837-05-02, never as an 1835 fact, and the person's grade does not move on this alone. Under the ratified ladder a second contemporary source is what lifts projected_resident, and a poll twenty-two months after the scene date is a second source about CONTINUED RESIDENCE, not about July 1835. The ward is a location in the CITY of 1837, whose six wards are drawn on printed page 46; it is not a location in the town of 1835 and does not place a house. Identity by the crosswalk's own rule: Surname 'Fullerton' folds to the same string as the 1837 entry's, and the given name of both begins A. (data/research/directories/fergus_1839_election_crosswalk_1835.json and fergus_1839_register_crosswalk_1835.json). This pass WRITES THE EVIDENCE AND MOVES NO GRADE. Under the ratified ladder (T-0513) a second independent source is what lifts a projected resident, and a poll twenty-two months after the scene date — or a register four years after it — is a second source about CONTINUED RESIDENCE rather than about July 1835. T-0515 applies the ladder against every source at once; this pass hands it the evidence and not the verdict. THE FEDERAL LAND TRACT SALES — A PURCHASE, AND NEVER A RESIDENCE. The Illinois State Archives' Public Domain Land Tract Sales register enters this person 9 times, as “FULLERTON ALEXANDER”, “FULLERTON A N”, 1833-10-24 to 1836-06-24: 3 federal land entries — W2SE sec 03 T39N R13E; W2SE sec 32 T39N R13E; W2SW sec 02 T39N R13E and 3 lots in the platted town — lot 7 of block 54 in the town the register codes CHIOT (L7BL54CHIOT, as printed); lot 7 of block 55 in the town the register codes CHIOT (L7BL55CHIOT, as printed); lot 7 of block 58 in the town the register codes CHIOT (L7BL58CHIOT, as printed) and 3 parcels of the school section — lot 3 of block 82 of the school section (sec 16 T39N R14E); lot 4 of block 82 of the school section (sec 16 T39N R14E); lot 5 of block 96 of the school section (sec 16 T39N R14E), 240.00 acres stated in all, for $7541.00 (ls0160, ls0161, ls0162, ls0737, ls0745, ls0863, ls1155, ls1156, ls1157). THE REGISTER'S OWN RESIDENCE COLUMN READS UNKNOWN on these rows: a county, a state or nothing, and never a town, which is why a purchase here places nobody. THE SCHOOL-SECTION ROWS ARE GROUND INSIDE THE TOWN, NOT FARMLAND: section 16 of T39N R14E was platted and sold off by lot and by block at the sale of 1833, which is why the register states 0000.00 acres against most of them. Ground inside the town is nearer to this reconstruction than a quarter-section is, and it is still a purchase: the register names a purchaser and never an occupant, and nothing here puts this person on that ground. THE TOWN LOTS ARE THE PLAT ITSELF, AND THEY ARE NOT ACRES: Cook County's register describes them by lot and block in a platted town and gives them no section, no township and no acreage at all, so they add nothing to the acre figure above and $6880.00 to the money. This project does not expand the register's town codes, so which addition a lot stands in is carried as the code and not as a name. It is still a purchase and it still places nobody. A purchase and nothing more. It dates and places a transaction; it proposes no residence, and under the ratified ladder it corroborates rather than mints. Identity by the crosswalk's own rule: FULLERTON ALEXANDER matches Alexander N. Fullerton: the forename names Alexander N. Fullerton of the 1 person of this surname, and the forename agrees in full. (data/research/land_sales/resident_crosswalk.json). This pass WRITES THE EVIDENCE AND MOVES NO GRADE. Under the ratified ladder (T-0513) a second independent source is what lifts a projected resident, and a land entry is a second source about a TRANSACTION rather than about who was living at Chicago on 1 July 1835 — a man may buy a quarter-section he never sees. T-0515 applies the ladder against every source at once; this pass hands it the evidence and not the verdict. THE SECOND PRESBYTERIAN ROLL — A NAME ON A CHURCH LIST THAT OPENS IN 1842, AND NEVER AN 1835 FACT. The 1892 printed membership roll of the Second Presbyterian Church of Chicago, read line by line into this repository, carries 1 line whose surname and given initial agree with this person's — “Fullerton, Mrs. A. N. | Letter. | June I, 1842. | Deceased.” (second_presb_0555, printed page 186), admitted 1842-06-01 by letter. Under the rule that decided it: Surname 'Fullerton' folds to the same string as the roll line's, and the given name of both begins A. WHAT THE MATCH MINTS OR REGRADES: “NOTHING. A line on a roll that opens in June 1842 cannot place a person in the town of July 1835, and this file makes no proposal that it does. What a match IS: the same surname and initial, in Chicago, within seven years — a lead for a later pass that is allowed to write people.” THE LINE IS A MARRIED WOMAN'S ENTRY, and the crosswalk's own Mrs rule governs what it can have met: “a line flagged a_married_womans_entry that meets a MAN in the 1835 layer has met his name, not him: it corroborates that the name was a Chicago name in the 1840s and it does not put that man on this roll.” The match is filed rather than suppressed, because a suppressed match is invisible and a flagged one can be argued with. This pass WRITES THE EVIDENCE AND MOVES NO GRADE: under the ratified ladder (T-0513) the roll is handed to the card as a thing a reader may weigh, and the verdict stays with T-0515, which applies the ladder against every source at once.",
+   "resident_research": {
+    "programme": "resident-research-2026",
+    "ticket": "T-0509",
+    "outcome": "corroborated",
+    "reviewed_on": "2026-09-05",
+    "asserted_identity": true,
+    "evidence_for": "forenames agree initial for initial: entry 'Alexander Fullerton' against resident 'Alexander N. Fullerton'",
+    "source_ids": [
+     "chicago_democrat_1833_1835",
+     "chicago_voter_lists_1833_1835_irad",
+     "goodman_history_cook_county_early"
+    ],
+    "refusals": [
+     {
+      "regraded_on": "2026-09-04",
+      "rule": "G3",
+      "withheld": "the downgrade to inferred",
+      "reason": "This card rests on 1 thing(s) the consolidation did not read — andreas_1884_v1. G3 fired on the seven domains the ladder reads and says nothing about the evidence outside them, so the grade stands. The same reasoning the ladder's own G5 gives for abstaining (T-0515)."
+     },
+     {
+      "regraded_on": "2026-09-04",
+      "rule": "G2b",
+      "withheld": "the downgrade to inferred",
+      "reason": "This card rests on 5 thing(s) the consolidation did not read — andreas_1884_v1, chicago_american_1835, chicago_democrat_1833_1835, fergus_chicago_directory_1839 and others. G2b fired on the seven domains the ladder reads and says nothing about the evidence outside them, so the grade stands. The same reasoning the ladder's own G5 gives for abstaining (T-0515)."
+     }
+    ],
+    "summary": "Matched on the 1833 tax list as 'Fullerton, Alexander', one bearer of the surname considered. The Cook County history read in pass 3 places him in the town's legal and municipal record including the 1835 town-clerk chronology; pass 3 graded that alone an enrichment, and the tax list lifts it."
+   },
+   "civic_evidence": [
+    {
+     "list": "poll_1834",
+     "as_read": "Fullerton, Alexander M.",
+     "locator": "poll_1834",
+     "record_id": "poll_1834_042",
+     "describes_date": "1834",
+     "source": "chicago_voter_lists_1833_1835_irad",
+     "rule": "G3"
+    }
+   ],
+   "press_evidence": [
+    {
+     "list": "newspaper_1833_1835",
+     "as_read": "A. N. Fullerton",
+     "locator": "chicago_american_1835_06_13#c004",
+     "record_id": "person_a_n_fullerton",
+     "describes_date": "1835-06-13",
+     "source": "chicago_american_1835",
+     "rule": "G1b"
+    },
+    {
+     "list": "newspaper_1833_1835",
+     "as_read": "Fullerton, Alex. N.",
+     "locator": "chicago_democrat_1835_08_19#c006",
+     "record_id": "person_fullerton_alex_n",
+     "describes_date": "1835-08-19",
+     "source": "chicago_democrat_1833_1835",
+     "rule": "G1b"
+    }
+   ],
+   "book_evidence": [
+    {
+     "list": "directory_1844",
+     "as_read": "Fullerton, A. N. attorney at law, h Dearborn st",
+     "locator": "h Dearborn st",
+     "record_id": "n1844_e0659",
+     "describes_date": "1844",
+     "source": "norris_directory_1844",
+     "rule": "G1b"
+    }
+   ],
+   "merged_from": [
+    {
+     "ticket": "T-0839",
+     "rule": "C0",
+     "cluster": "fullerton",
+     "cards": [
+      "fullerton_a_n",
+      "fullerton_alex_n",
+      "fullerton_alexander_m"
+     ],
+     "note": "THE UNION OF THE CARDS THIS PERSON WAS SPLIT ACROSS. The sources and evidence blocks above include everything the folded cards cited; each folded record is kept whole under data/residents/merged/ and is redirected by index.json's `merged` table. The reasoning for the merge is in data/residents/card_merge_rulings.json."
+    }
+   ],
+   "roles": [
+    {
+     "role": "attorney",
+     "kind": "profession",
+     "as_printed": null,
+     "from": "1673",
+     "to": "1857",
+     "precision": "source_span",
+     "dated_by": "source_describes_date",
+     "covers_scene_date": true,
+     "confidence": "attested",
+     "sources": [
+      "andreas_1884_v1"
+     ],
+     "claim": null,
+     "note": "THE BOUND IS THE SOURCE'S, NOT THE MAN'S. This role is carried by the card's 1835 occupation block and is dated by what the cited source or sources are ABOUT, which is why `precision` can be no better than the span they cover. The span reaches 1835, so this role stands in the scene-date view. The printing the trade was read off is not on the card and is fetched by T-1254."
+    }
+   ]
+  }
+ ],
+ "touches_removal": false,
+ "review_required": false,
+ "research_note": "A LAWYER WHO BECAME THE TOWN'S CLERK IN THE SCENE MONTH, and a household written mainly to keep the count of documented lawyers honest at six. The office-holding claim is deliberately left soft because the election that produced it cannot be dated inside July 1835.",
+ "directories": {
+  "note": "LATER EVIDENCE, BESIDE THE 1835 CLAIMS AND NOT INSIDE THEM. A Chicago directory of 1839, 1843 or 1844 meets somebody of this name and this pass records what it prints. Under the ratified ladder a directory read after 1835 can corroborate that a person attested here was still in Chicago and can print a trade or a street the 1835 record never had; on its own it makes nobody a resident of 1835. Nothing on this person's 1835 record was regraded, moved, dated or given an occupation by this entry. WHAT THIS PASS RULED ONTO THIS HOUSEHOLD, named so the ruling can be found again: each volume below is followed by the printed entries it set against this person and the status the crosswalk ruled them at — a single entry carries what its own `could_carry` declares, and an ambiguous or contested match carries nothing and is shown so that the silence is legible. fullerton_alexander, Fergus's Chicago directory of 1839 — f1839_e0508 (a single entry); fullerton_alexander, Fergus's Chicago directory of 1843 — f1843_e1030 (a single entry); fullerton_alexander, Norris's Chicago directory of 1844 — n1844_e0659 (a single entry).",
+  "sources": [
+   "fergus_chicago_directory_1839",
+   "fergus_chicago_directory_1843",
+   "norris_directory_1844"
+  ],
+  "people": [
+   {
+    "person_id": "fullerton_alexander",
+    "address_later": {
+     "value": "North Water st",
+     "confidence": "attested",
+     "describes_date": 1839,
+     "sources": [
+      "fergus_chicago_directory_1839"
+     ],
+     "note": "Fergus's Chicago directory of 1839 prints this address against this person, in the entry quoted on the card: 'Fullerton, Alex. N., lumber merchant, North Water st'. It is evidence about 1839, written here as 1839's and read back onto no 1835 claim. Under the ratified ladder a directory read after 1835 can corroborate that a person attested here was still in Chicago and can print a trade or a street the 1835 record never had; on its own it makes nobody a resident of 1835. Nothing on this person's 1835 record was regraded, moved, dated or given an occupation by this entry. The value is the volume's own line, split by its crosswalk on the entry's punctuation. These volumes set the trade first and its qualifiers after it on the same line, so the split may carry an employer, a market or a corner along with the trade. The printed entry is quoted beside the value for exactly that reason: the split is checkable against it, and neither is read into an 1835 claim."
+    },
+    "back_projection": {
+     "outcome": "placed",
+     "clause": "3 and 4",
+     "value": "North Water Street",
+     "confidence": "reconstructed",
+     "describes_date": 1839,
+     "read_back_years": 4,
+     "placement": "face",
+     "position_local_enu_m": null,
+     "sources": [
+      "fergus_chicago_directory_1839"
+     ],
+     "note": "A LATER ADDRESS, READ BACKWARDS 4 YEARS. The door is not an 1835 reading: Fergus's Chicago directory of 1839 printed it in 1839, and this pass carries it back to the scene date because the 1835 record attests a trade for this person and nothing in the corpus places it better. What is claimed is the street face and nothing narrower — no lot, no roof, no door count — and the grade is `reconstructed`, which is this dataset's word for a figure the reconstruction supplies rather than a source. North Water Street stands in 1835 under that name and in that place. The directory gives a street and nothing this pass can resolve narrower, so the placement is the FACE — the unit the owner's ruling of 2026-08-29 says a street name constrains — and no roof is dealt. The rule this stands on is docs/ADDRESS-BACK-PROJECTION.md and the liberty is L218; a reader who thinks 4 years is too far to carry a shop should read the grade as the disagreement being invited."
+    }
+   }
+  ]
+ }
+}

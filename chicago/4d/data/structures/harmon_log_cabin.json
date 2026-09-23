@@ -1,0 +1,130 @@
+{
+  "id": "harmon_log_cabin",
+  "name": "Dr Elijah Harmon's Cabin",
+  "archetype": "log_dwelling",
+  "phases": [
+    {
+      "id": "documented_1835",
+      "documented_range": {
+        "from": "1835-01-01",
+        "to": "1835-12-31",
+        "confidence": "attested",
+        "sources": [
+          "andreas_1884_v1"
+        ],
+        "note": "'HIS RESIDENCE WAS A CABIN OF HEWN LOGS' - Andreas's medical chapter, in the passage that also gives Harmon's rusty instruments, his hundred books and his larder of flour, bacon and coffee. The fabric and the use are documented; the far end of the range is inferred, and note that the household's own presence on the scene date is recorded as UNCERTAIN because Harmon may have been in Texas. The cabin does not move when its owner does."
+      },
+      "position": {
+        "utm_e": 447318.652,
+        "utm_n": 4637119.837,
+        "rotation_deg": 0.0,
+        "symbolic_location": "South Division, local ENU E 249 N -272",
+        "confidence": "reconstructed",
+        "note": "INVENTED. No source places Harmon's cabin. What is known is negative: he pre-empted a hundred and forty acres whose northern boundary was near Sixteenth Street, which is two kilometres south of the modelled ground and is a farm rather than a residence. This record sits in the South Division outer band where the reconstruction recipes put older log dwellings, at the first free position the placement rule found. It is a guess inside the right district.",
+        "derivation": {
+          "method": "not_derivable",
+          "reason": "No source gives this building a lot. The placement is a frontage-band assignment tested for clearance and buildable ground, which is a production control and not a derivation from any line in the dataset."
+        }
+      },
+      "footprint": {
+        "polygon": [
+          [
+            0,
+            0
+          ],
+          [
+            6.096,
+            0
+          ],
+          [
+            6.096,
+            7.925
+          ],
+          [
+            0,
+            7.925
+          ]
+        ],
+        "confidence": "reconstructed",
+        "note": "PLACEHOLDER - NO DIMENSION IS ATTESTED. 20 x 26 ft is the schedule's D1 older-log-cabin band: one room and a loft, which is what a doctor's residence-and-surgery would have been in a town this size. Every number is invented."
+      },
+      "form": {
+        "stories": {
+          "value": 1,
+          "confidence": "reconstructed",
+          "sources": [
+            "andreas_1884_v1"
+          ],
+          "note": "Type-level choice within the D1 band in the reconstruction specification; it is not evidence for this building."
+        },
+        "wall_height_m": {
+          "value": 2.6,
+          "confidence": "reconstructed",
+          "sources": [
+            "andreas_1884_v1"
+          ],
+          "note": "Type-level choice within the D1 band in the reconstruction specification; it is not evidence for this building."
+        },
+        "roof_type": {
+          "value": "gable",
+          "confidence": "reconstructed",
+          "sources": [
+            "andreas_1884_v1"
+          ],
+          "note": "Type-level choice within the D1 band in the reconstruction specification; it is not evidence for this building."
+        },
+        "roof_pitch_deg": {
+          "value": 35.0,
+          "confidence": "reconstructed",
+          "sources": [
+            "andreas_1884_v1"
+          ],
+          "note": "Type-level choice within the D1 band in the reconstruction specification; it is not evidence for this building."
+        },
+        "construction": {
+          "value": "log",
+          "confidence": "reconstructed",
+          "sources": [
+            "andreas_1884_v1"
+          ],
+          "note": "Type-level choice within the D1 band in the reconstruction specification; it is not evidence for this building."
+        },
+        "loft": {
+          "value": true,
+          "confidence": "reconstructed",
+          "sources": [
+            "andreas_1884_v1"
+          ],
+          "note": "Type-level choice within the D1 band in the reconstruction specification; it is not evidence for this building."
+        },
+        "chimneys": {
+          "value": 1,
+          "confidence": "reconstructed",
+          "sources": [
+            "andreas_1884_v1"
+          ],
+          "note": "Type-level choice within the D1 band in the reconstruction specification; it is not evidence for this building."
+        }
+      },
+      "change_note": "The building as this dataset can state it on the scene date. Where the sources give a size, a plan or a fabric, the record carries it; where they do not, the note says so attribute by attribute."
+    }
+  ],
+  "function": {
+    "value": "dwelling",
+    "confidence": "attested",
+    "sources": [
+      "andreas_1884_v1"
+    ],
+    "note": "THE HEWN-VERSUS-ROUND DISTINCTION ROADMAP K4 ASKS FOR, ATTESTED. Andreas says HEWN logs, which is the more finished construction and the commoner one at the forks; the log_dwelling archetype builds hewn logs, so the record and the mesh agree without any further parameter. When K4 adds a round-log variant, this record is the reference for the other side of the distinction."
+  },
+  "occupants": {
+    "value": "Dr Elijah Dewey Harmon",
+    "confidence": "attested",
+    "sources": [
+      "andreas_1884_v1"
+    ],
+    "note": "Dr Elijah Dewey Harmon, the town's first physician (data/residents/households/hh_harmon_elijah_d.json). His presence on 1835-07-01 is recorded as uncertain in that record and this building does not assert it."
+  },
+  "research_note": "THE HEWN-VERSUS-ROUND DISTINCTION ROADMAP K4 ASKS FOR, ATTESTED. Andreas says HEWN logs, which is the more finished construction and the commoner one at the forks; the log_dwelling archetype builds hewn logs, so the record and the mesh agree without any further parameter. When K4 adds a round-log variant, this record is the reference for the other side of the distinction.",
+  "review_required": false
+}

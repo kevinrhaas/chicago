@@ -1,0 +1,44 @@
+{
+  "id": "blackhawk_war_chicago_enrollments_isa",
+  "type": "dataset",
+  "citation": "\"Black Hawk War Veterans who Enlisted at Chicago\" — the Illinois State Archives database indexing volume 1 of Ellen M. Whitney, ed., *The Black Hawk War 1831-1832* (Springfield: Illinois State Historical Library, 1970), transcribed and donated to the Archives by Fred Delap of Kansas, Illinois, and republished by the Genealogy Trails Transcription Team. 134 rows, each giving name, rank, company, place of enrollment and regiment or brigade.",
+  "author": "Illinois State Archives (index); Ellen M. Whitney (editor of the original volume); Fred Delap (transcriber of the book into the Archives database); Genealogy Trails Transcription Team (republication)",
+  "date": "1970 (Whitney); the State Archives index and its Genealogy Trails republication are undated on the page",
+  "describes_date": "1832",
+  "repository": "Illinois State Archives, Margaret Cross Norton Building, Springfield, Illinois — the Archives holds the database and will supply a copy of a soldier's entry in Whitney's book by post, no more than two names per request. This project has seen only the republication.",
+  "url": "https://genealogytrails.com/ill/cook/blackhawkwar.htm",
+  "locator": "chicago/4d/data/research/genealogytrails/text/blackhawkwar.txt (the flattened page, cached 2026-09-03) and chicago/4d/data/research/genealogytrails/html/blackhawkwar.htm (the page itself, cached 2026-09-03 for T-0572). The same text is committed byte-identical at chicago/4d/data/research/civic/text/blackhawk_war_1832_chicago.txt, and every record's locator names its line there.",
+  "tier": 1,
+  "rights_status": "public_domain",
+  "asset_use": "text_only",
+  "verified": true,
+  "transcribes": [
+    {
+      "work": "Ellen M. Whitney, ed., The Black Hawk War 1831-1832, volume 1 (Illinois State Historical Library, 1970)",
+      "date": "1832",
+      "tier": 1,
+      "note": "THE ORIGINAL. It prints, for each veteran, name, rank, unit, place and dates of enrollment, and remarks on his service, with unit history following the rolls. Nobody in this project has seen it: the layer actually read is the State Archives INDEX of it, which carries the name, the rank, the company, the place of enrollment and the regiment and nothing else — no date of enrollment, no remark, no service record."
+    },
+    {
+      "work": "Illinois State Archives Black Hawk War veterans database — the Chicago enrollments",
+      "date": "1832",
+      "tier": 1,
+      "note": "134 rows. Ninety-four of them carry the company 'INDIAN' with the Rank cell left empty; forty stand in G Kercheval's company (one CPT, one 1LT, one 2LT, 37 PVT). One hundred and thirty-three carry the regiment 'ODD', which the page's own footnote expands as 'Unassigned Colonel'; the row for ZARLEY, J W leaves that cell empty."
+    }
+  ],
+  "access_notes": "VERIFIED 2026-09-03 by fetching the live Genealogy Trails page for T-0572 and caching the HTML beside the flattened text that was already committed. The fetch was made for one reason, stated here so it is not repeated as habit: the flattened text DROPS AN EMPTY CELL, so a row printed 'AS KE WITT / INDIAN / CHICAGO / ODD' does not say whether 'INDIAN' stands in the Rank column or the COMPANY column, and 94 of the 134 rows are of that shape. The cached page settles it — the Rank cell of those rows is '&nbsp;' and 'INDIAN' is the COMPANY. That verifies the DEPOSIT against the publication. It does NOT verify the publication against Whitney's volume or the Archives database, which remain unseen: the reading is mediated twice and every record citing this source is graded `transcription_mediated`. The page answers a browser user-agent.",
+  "what_it_supplies": [
+    "134 men who demonstrably stood in Chicago in 1832 to enroll for the Black Hawk War, three years before the scene",
+    "the rank and company each man enrolled in, and the regiment or brigade he was assigned to",
+    "83 names printed WITHOUT a surname comma — the French and Potawatomi forms ('AS KE WITT', 'WAB-ME-MIC', 'BOURBONNOIS, FRANCIS SR' being of the other kind) — which is the part of the town's population this project is least able to recover elsewhere",
+    "Gholson Kercheval's company as the commonest single body of Chicago enrollments, which touches a man who signs the 1833 poll list this project already holds"
+  ],
+  "what_it_does_not_supply": [
+    "any date of enrollment beyond the year of the war — the index drops the dates the book prints",
+    "any residence, address, lot, trade, age or household",
+    "any evidence at all that a man was still in Chicago in 1835: enrolling at a place is presence at that place on that day and nothing more",
+    "any woman, and any man who did not enroll",
+    "the remarks on service that Whitney's volume carries, which are only obtainable from the Archives by post"
+  ],
+  "note": "A MUSTER IS NOT A CENSUS. Enrollment at Chicago in 1832 places a man in the town in 1832; it does not place him there in 1835, and under the grading ladder ratified on 2026-09-03 it never mints an 1835 resident on its own. It dates, it corroborates, it enriches. The spellings are the index's and are preserved exactly, in the capitals the page sets them in; 'CAU O SETT' is printed twice and both rows are carried, because a duplicate on the page is a fact about the page."
+}

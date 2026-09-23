@@ -1,0 +1,119 @@
+{
+  "schema": 1,
+  "familysearch_id": "33SQ-GYYJ-FS",
+  "source_id": "census_1840_chicago_familysearch_images",
+  "image": "chicago/reference/census1840/33SQ-GYYJ-FS.jpg",
+  "image_sha256": "cdb3c9aef597e4d00283b9f2b529f640d52be05c3491060afacbbdd215c92c56",
+  "printed_page": null,
+  "printed_page_note": "No legible printed page number is carried by this continuation exposure; show-through is not used as a locator.",
+  "sheet_side": "right",
+  "division": null,
+  "division_note": "Illinois is legible in the heading. No division name is recovered or inferred from filename order.",
+  "state": "Illinois",
+  "county": "Cook",
+  "reading": "scan_verified",
+  "read_pass": "T-0983: whole scan; native-resolution heading, TOTAL, industry, slave, pensioner, disability, school and footing crops; individually labelled TOTAL and industry crops for every occupied row; the established stroke-overlap instrument applied to the two-stroke figures. Inspection derivatives remain outside the repository.",
+  "ticket": "T-0983, first leaf split from T-0982",
+  "lines_ruled_with_an_entry": 27,
+  "column_geometry": {
+    "image_size": [3912, 3208],
+    "body_y": [620, 2960],
+    "heading_crop": [1150, 260, 2050, 690],
+    "footing_crop": [1190, 2970, 1940, 3070],
+    "middle_columns": [
+      "total",
+      "mining",
+      "agriculture",
+      "commerce",
+      "manufactures_and_trades",
+      "navigation_ocean",
+      "navigation_canals_lakes_rivers",
+      "learned_professions_and_engineers"
+    ],
+    "middle_rules_by_band": [
+      {"y0": 620, "y1": 1000, "rules": [1170, 1361, 1430, 1492, 1558, 1640, 1720, 1799, 1866]},
+      {"y0": 1000, "y1": 1800, "rules": [1180, 1370, 1440, 1498, 1563, 1646, 1726, 1803, 1872]},
+      {"y0": 1800, "y1": 2600, "rules": [1191, 1383, 1451, 1519, 1580, 1657, 1736, 1823, 1886]},
+      {"y0": 2600, "y1": 2960, "rules": [1198, 1395, 1460, 1524, 1588, 1670, 1750, 1830, 1897]}
+    ],
+    "method": "Printed headings were checked against vertical-rule darkness measured in four narrow bands because the rules lean about 28 px through the body. The default whole-body continuation reader refuses this leaf with too few vertical rules, so no column is assigned from that failed run. The banded bounds retained here were confirmed against the heading and every written footing."
+  },
+  "line_index": {
+    "centres_y_px": [681, 757, 841, 918, 985, 1061, 1215, 1297, 1373, 1449, 1525, 1600, 1674, 1755, 1830, 1901, 1980, 2045, 2194, 2282, 2350, 2430, 2509, 2649, 2733, 2803, 2875],
+    "blank_ruled_positions_y_px": [1138, 2120, 2580],
+    "total_crop_rule": "for each centre y, native-resolution box [1200, y-44, 1395, y+44]",
+    "method": "Twenty-seven occupied TOTAL entries were indexed in visual order with per-line crops. Three ruled positions inside the run carry no family-total or industry entry. The inventory's contact-sheet count of 28 had counted long by one; the apparent final group was the 125 footing below the closing rule, not another household."
+  },
+  "blank_convention": "null with state blank means inspected and no written entry. An inspected blank may be counted as zero for a diagnostic sum, but it is not an enumerated written zero.",
+  "other_blocks": {
+    "slaves": {"state": "blank", "columns": 12, "body_and_footing_inspected": true},
+    "pensioners": {"state": "blank", "names_and_ages_inspected": true},
+    "deaf_dumb_blind_insane": {"state": "blank", "body_and_footing_inspected": true},
+    "schools": {
+      "universities_or_colleges_and_students": "blank; body and footing inspected",
+      "academies_or_grammar_schools_and_scholars": "one unresolved horizontal mark at [3333, 879, 3353, 933] straddles a printed rule between school columns; its shape is not a numeral and the footing is blank, so it is preserved as unresolved rather than counted or declared blank",
+      "primary_or_common_schools": "blank; body and footing inspected",
+      "scholars_in_primary_or_common_schools": "blank; body and footing inspected",
+      "scholars_at_public_charge": "blank in the visible body and footing",
+      "illiteracy_column": "unread at the bound edge; not declared blank"
+    }
+  },
+  "footer_as_read": {
+    "total": 125,
+    "manufactures_and_trades": 12,
+    "navigation_canals_lakes_rivers": 1,
+    "learned_professions_and_engineers": 1,
+    "unwritten_industry_columns": ["mining", "agriculture", "commerce", "navigation_ocean"],
+    "note": "The coarse inventory transposed the last two family-total digits and called this 152. At native resolution the three glyphs read 1, 2, 5: the middle glyph matches the 2 repeated in the body and the last matches the barred 5 repeated there. The 27 body totals were read before addition and independently sum to 125. The three written industry footings also close exactly."
+  },
+  "records": [
+    {"line": 1, "y": 681, "total": 2, "total_confidence": "high", "industry": {}},
+    {"line": 2, "y": 757, "total": 5, "total_confidence": "high", "industry": {"manufactures_and_trades": 1}},
+    {"line": 3, "y": 841, "total": 15, "total_confidence": "high", "industry": {}},
+    {"line": 4, "y": 918, "total": 4, "total_confidence": "high", "industry": {"manufactures_and_trades": 2}},
+    {"line": 5, "y": 985, "total": 2, "total_confidence": "high", "industry": {"manufactures_and_trades": 1}},
+    {"line": 6, "y": 1061, "total": 5, "total_confidence": "high", "industry": {}},
+    {"line": 7, "y": 1215, "total": 6, "total_confidence": "medium", "industry": {}},
+    {"line": 8, "y": 1297, "total": 1, "total_confidence": "high", "industry": {}},
+    {"line": 9, "y": 1373, "total": 1, "total_confidence": "high", "industry": {}},
+    {"line": 10, "y": 1449, "total": 1, "total_confidence": "high", "industry": {}},
+    {"line": 11, "y": 1525, "total": 2, "total_confidence": "high", "industry": {"navigation_canals_lakes_rivers": 1}},
+    {"line": 12, "y": 1600, "total": 6, "total_confidence": "medium", "industry": {"manufactures_and_trades": 3}},
+    {"line": 13, "y": 1674, "total": 2, "total_confidence": "medium", "industry": {"manufactures_and_trades": 1}},
+    {"line": 14, "y": 1755, "total": 5, "total_confidence": "high", "industry": {"manufactures_and_trades": 1}},
+    {"line": 15, "y": 1830, "total": 5, "total_confidence": "high", "industry": {"learned_professions_and_engineers": 1}},
+    {"line": 16, "y": 1901, "total": 1, "total_confidence": "high", "industry": {}},
+    {"line": 17, "y": 1980, "total": 9, "total_confidence": "medium", "industry": {}},
+    {"line": 18, "y": 2045, "total": 3, "total_confidence": "medium", "industry": {}},
+    {"line": 19, "y": 2194, "total": 12, "total_confidence": "high", "industry": {}},
+    {"line": 20, "y": 2282, "total": 6, "total_confidence": "medium", "industry": {}},
+    {"line": 21, "y": 2350, "total": 3, "total_confidence": "medium", "industry": {"manufactures_and_trades": 1}},
+    {"line": 22, "y": 2430, "total": 5, "total_confidence": "high", "industry": {}},
+    {"line": 23, "y": 2509, "total": 5, "total_confidence": "high", "industry": {"manufactures_and_trades": 1}},
+    {"line": 24, "y": 2649, "total": 3, "total_confidence": "medium", "industry": {}},
+    {"line": 25, "y": 2733, "total": 11, "total_confidence": "medium", "industry": {}, "total_note": "Two visibly separate parallel slashes. The stroke-overlap instrument returns +15 px, inside its one-glyph-4 calibration, but this leaf's written 4 on line 4 joins and closes its two strokes while these do not. Recorded as 11 from form, not from the footing; with it the independently read column then closes."},
+    {"line": 26, "y": 2803, "total": 3, "total_confidence": "medium", "industry": {"manufactures_and_trades": 1}},
+    {"line": 27, "y": 2875, "total": 2, "total_confidence": "high", "industry": {}}
+  ],
+  "use_constraint": "Later 1840 evidence only. No resident minted, renamed, regraded or placed in 1835; no occupation count assigned to an 1835 person.",
+  "closure": {
+    "total": {"printed": 125, "read": 125, "reconciles": true, "residual": 0, "note": "All 27 totals were read off their own cells before addition. They sum to the independently read 125 footing."},
+    "mining": {"read": 0, "printed": null, "reconciles": null},
+    "agriculture": {"read": 0, "printed": null, "reconciles": null},
+    "commerce": {"read": 0, "printed": null, "reconciles": null},
+    "manufactures_and_trades": {"read": 12, "printed": 12, "reconciles": true},
+    "navigation_ocean": {"read": 0, "printed": null, "reconciles": null},
+    "navigation_canals_lakes_rivers": {"read": 1, "printed": 1, "reconciles": true},
+    "learned_professions_and_engineers": {"read": 1, "printed": 1, "reconciles": true}
+  },
+  "pairing_test": {
+    "rule": "T-0642/T-0656: both household count and printed population must agree. Sequence evidence is used only after both keys pass.",
+    "right_keys": {"lines": 27, "printed_population": 125},
+    "candidates_by_line_count": [],
+    "candidates_by_population": [],
+    "unkeyed_same_count_leaf": {"familysearch_id": "33SQ-GYYJ-CK", "printed_page": 240, "lines_with_an_entry": 27, "population_key": null, "verdict": "cannot_pass_population_key", "note": "Four unread age-band cells leave printed 240 with only a population floor, so it supplies no population key."},
+    "sequence_screen": null,
+    "verdict": "unpaired",
+    "why": "Neither published pairing key contains a 27-line left sheet or a 125-person left-sheet population. Printed 240 has 27 occupied names but no committed population key. No candidate passes both keys, so no sequence screen is licensed and no household name is attached."
+  }
+}

@@ -1,0 +1,15 @@
+{
+  "id": "illinois_wildflowers",
+  "type": "website",
+  "citation": "Hilty, John. Illinois Wildflowers. 2002-2020.",
+  "author": "John Hilty",
+  "date": "accessed 2026-08-10",
+  "url": "https://www.illinoiswildflowers.info/",
+  "locator": "site index, and the Liatris pycnostachya (prairie blazingstar) species page at /prairie/plantx/pr_blazingstarx.htm",
+  "tier": 4,
+  "rights_status": "check_required",
+  "asset_use": "text_only",
+  "verified": true,
+  "access_notes": "Retrieved and read on 2026-08-10: the site index (author and scope) and the Liatris pycnostachya page (height 'up to 4 feet tall and unbranched', flowers '5-10 pink to purplish pink', blooming period 'late summer and lasts about a month'). Other species pages on the site were NOT opened in this session. No Wayback snapshot could be confirmed: the archive.org availability API returned HTTP 429 to this environment on 2026-08-10, so no archived_url is recorded rather than one being guessed at.",
+  "note": "The retrievable companion to the print regional flora, used for July phenology and flower colour. It disagrees with the dossier on one point the zone records carry openly: it calls prairie blazing star a late-summer flower where the dossier makes it the signature mid-July colour. The disagreement is recorded on the species entry rather than resolved silently."
+}

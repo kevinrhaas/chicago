@@ -1,0 +1,200 @@
+{
+  "id": "wright_building_to_let_a",
+  "phase": "documented_1835",
+  "name": "John Wright's Building to Let (a)",
+  "aka": [],
+  "archetype": "frame_dwelling",
+  "asset": "gltf/wright_building_to_let_a__documented_1835.glb",
+  "scene": "1835",
+  "target_date": "1835-07-01",
+  "documented_range": {
+    "from": "1835-01-01",
+    "to": "1835-12-31",
+    "confidence": "attested",
+    "sources": [
+      "chicago_democrat_1833_11_26"
+    ],
+    "note": "'TWO BUILDINGS TO LET' - John Wright's own advertisement in the Chicago Democrat of 26 November 1833, offering them until 1 June 1834. Two buildings existed, they were his, and they were rental stock. This is one of the two. The advertisement's own term of 1 June 1834 is not the building's life: a building does not cease at the end of a tenancy, and the range runs to the end of 1835 as the last date this record needs."
+  },
+  "change_note": "The building as this dataset can state it on the scene date. Where the sources give a size, a plan or a fabric, the record carries it; where they do not, the note says so attribute by attribute.",
+  "placement": {
+    "local_e": 423.914,
+    "local_n": -238.726,
+    "rotation_deg": 0.34,
+    "position_confidence": "reconstructed",
+    "position_sources": [],
+    "position_note": "INVENTED, AND MOVED OFF THE PUBLIC SQUARE 2026-08-15 (ROADMAP T-A16). The advertisement gives no address at all, so this is a band assignment and not a reading of any source. WHAT WAS WRONG WITH THE OLD ONE. Both buildings were placed together in 'the South Division band the recipes use for ordinary dwellings', and that band ran across the block bounded by Randolph, Clark, Washington and LaSalle - the public square, which carried the county's estray pen, its log jail and its court-house, and which this project's own ground control names as such. The old placement was tested for clearance and for buildable ground, which is every question this project knew how to ask; none of them was whether the ground was for sale. WHERE THEY WENT, AND BY WHAT RULE. Each building takes the nearest free platted lot that no committed block recipe has already spoken for - the recipes name their open lots and say why, and taking one would rewrite a parcel that has already landed. Under that rule the pair moves 83 m and 69 m, onto the Randolph Street frontage of the two blocks directly across Randolph from the square, which is the least this record can move and still stand on ground the town was selling. THE COORDINATE IS COMPUTED, NOT TYPED: the lot's own street edge and inward axis, with a 5.0 m setback, through the same lot frame every anonymous roof in the town is placed by. WHAT IS STILL INVENTED: the block, the lot, the setback, and that the two buildings stood near each other at all. One advertisement offering two buildings is not a statement that they shared a holding, and the pair is no longer on one block - the ground to keep them on one was 200 m further away and faced two different streets, which would have been a worse answer bought with a better-sounding sentence. THE SUFFIX IS A DISAMBIGUATOR AND NOT A BEARING (T-0415, 2026-09-05). This record and its pair were called (east) and (west) from the single commit that minted them both, 9d208471 of 2026-08-13. THE WORDS NEVER DESCRIBED THE GROUND, NOT EVEN THEN: on that commit wright_building_to_let_a stood at utm_e 447555.957 and wright_building_to_let_b at 447581.957, so the record called (east) was already 26 m WEST of the record called (west). The move off the public square of 2026-08-15 therefore did not reverse a true pair of words - it widened an error that was there from the first commit, to 123.198 m, and put the two on different blocks. There is no reading under which this pair has an attested east-west order: the advertisement gives no address at all, and both positions declare themselves invented band assignments in the paragraph above. A name that states a bearing is therefore a claim this project cannot make, and a reader or a later anchor pass would read it as one because that is what the words say. THE SUFFIXES ARE NOW (a) AND (b), matching the record ids: they hold the two records apart, which is the only work they have ever done, and they cannot be misread as a position. Naming each record after the block it stands on was considered and refused - the block is itself invented, so that name would carry an invention where this one carries nothing.",
+    "symbolic_location": "South Division, on the Randolph Street frontage of the block bounded by Lake, LaSalle, Randolph and Wells",
+    "uncertainty_m": 20,
+    "placement_provisional": false,
+    "vertical_anchor": "terrain",
+    "walk_surface_m": null
+  },
+  "footprint": {
+    "polygon": [
+      [
+        0,
+        0
+      ],
+      [
+        5.486,
+        0
+      ],
+      [
+        5.486,
+        7.925
+      ],
+      [
+        0,
+        7.925
+      ]
+    ],
+    "confidence": "reconstructed",
+    "sources": [],
+    "note": "PLACEHOLDER - NO DIMENSION IS ATTESTED. 18 x 26 ft is the schedule's D4 two-room frame cottage: what a merchant builds to let. Every number is invented."
+  },
+  "attributes": {
+    "stories": {
+      "value": 1,
+      "confidence": "reconstructed",
+      "sources": [
+        "andreas_1884_v1"
+      ],
+      "note": "Type-level choice within the D4 band in the reconstruction specification; it is not evidence for this building."
+    },
+    "wall_height_m": {
+      "value": 2.78,
+      "confidence": "reconstructed",
+      "sources": [
+        "andreas_1884_v1"
+      ],
+      "note": "Type-level choice within the D4 band in the reconstruction specification; it is not evidence for this building."
+    },
+    "roof_type": {
+      "value": "gable",
+      "confidence": "reconstructed",
+      "sources": [
+        "andreas_1884_v1"
+      ],
+      "note": "Type-level choice within the D4 band in the reconstruction specification; it is not evidence for this building."
+    },
+    "roof_pitch_deg": {
+      "value": 38.0,
+      "confidence": "reconstructed",
+      "sources": [
+        "andreas_1884_v1"
+      ],
+      "note": "Type-level choice within the D4 band in the reconstruction specification; it is not evidence for this building."
+    },
+    "construction": {
+      "value": "braced_frame",
+      "confidence": "reconstructed",
+      "sources": [
+        "andreas_1884_v1"
+      ],
+      "note": "Type-level choice within the D4 band in the reconstruction specification; it is not evidence for this building."
+    },
+    "plan": {
+      "value": "hall_parlour",
+      "confidence": "reconstructed",
+      "sources": [
+        "andreas_1884_v1"
+      ],
+      "note": "Type-level choice within the D4 band in the reconstruction specification; it is not evidence for this building."
+    },
+    "bays": {
+      "value": 3,
+      "confidence": "reconstructed",
+      "sources": [
+        "andreas_1884_v1"
+      ],
+      "note": "Type-level choice within the D4 band in the reconstruction specification; it is not evidence for this building."
+    },
+    "chimneys": {
+      "value": 1,
+      "confidence": "reconstructed",
+      "sources": [
+        "andreas_1884_v1"
+      ],
+      "note": "Type-level choice within the D4 band in the reconstruction specification; it is not evidence for this building."
+    },
+    "paint": {
+      "value": "unpainted",
+      "confidence": "reconstructed",
+      "sources": [
+        "andreas_1884_v1"
+      ],
+      "note": "Type-level choice within the D4 band in the reconstruction specification; it is not evidence for this building."
+    },
+    "function": {
+      "value": "dwelling_to_let",
+      "confidence": "attested",
+      "sources": [
+        "andreas_1884_v1"
+      ],
+      "note": "RENTAL HOUSING STOCK, OTHERWISE INVISIBLE. A town where a merchant advertises two buildings to let is a town with a rental market, which is one of the mechanisms by which 3,265 people fit into 398 dwellings. A TRAP IN THE SAME ADVERTISEMENT: it carries an engraving of a three-storey building which is a jobbing printer's stock cut and NOT a picture of anything in Chicago; nothing about the form of these two buildings comes from it."
+    },
+    "occupants": {
+      "value": "To let - the tenant is not named",
+      "confidence": "reconstructed",
+      "note": "TO LET, AND THE TENANT IS NOT NAMED. The advertisement documents rental housing stock and nobody in it. This building is deliberately left without an occupant household: the honest reading of 'to let' is a building whose tenant this project cannot name."
+    }
+  },
+  "residents": [],
+  "citations": [
+    {
+      "source_id": "andreas_1884_v1",
+      "citation": "Andreas, A. T. History of Chicago: From the Earliest Period to the Present Time. Vol. 1. Chicago: A. T. Andreas, 1884.",
+      "url": "https://archive.org/details/historyofchicago01andr",
+      "archived_url": "",
+      "tier": 3,
+      "tier_label": "compiled secondary (Andreas)"
+    },
+    {
+      "source_id": "chicago_democrat_1833_11_26",
+      "citation": "The Chicago Democrat. Vol. I, No. 1. Chicago, Ill.: John Calhoun, Tuesday, November 26, 1833.",
+      "url": "",
+      "archived_url": "",
+      "tier": 1,
+      "tier_label": "period/eyewitness",
+      "what_it_supplies": [
+        "that a named trade was being carried on in Chicago in November 1833",
+        "the Chicago Democrat's own address, self-reported: the corner of South Water and Clark streets",
+        "Philo Carpenter advertising drugs, medicines, oils, paints and dye-stuffs, dated Nov. 22, 1833 — with NO address, so it cannot disambiguate his two shops",
+        "C. & I. Harmon advertising dry goods, crockery, hardware and wet and dry groceries, dated Nov. 18, 1833 — with NO address, so it does NOT corroborate the Clark/South Water corner Andreas gives them",
+        "W. Kimball's 'New Store' at the corner of South Water and Clark — a SECOND, independently attested occupant of that junction in the same issue, signed",
+        "Peter Cohen, clothier and grocer, self-reported at the EAST END OF SOUTH WATER-STREET, and trading in Chicago before Nov 1833 ('old customers ... past favors')",
+        "Goss & Cobb, saddle and harness makers, self-reported on the corner of Lake and Canal streets",
+        "Matthias Mason & Co., blacksmiths, on 'Main-street, nearly opposite Graves' Tavern' — a street name this project does not otherwise hold",
+        "B. Jones, grocery and provision store, and separately a storage/forwarding/commission business — both ads give NO street",
+        "Newberry & Dole, forwarding and commission merchants — no address",
+        "John Wright, cut nails and general merchandise; and TWO BUILDINGS TO LET until 1 June 1834",
+        "Daniel Elston & [illegible], soap and candle manufactory, paying cash for tallow and house ashes",
+        "a tavern stand kept by Chester Ingersoll, 'lately occupied by Mr. Wm. W. WATTLES', dated 4 October 1833",
+        "the house of Chester Ingersoll used as the district polling place, 9 December 1833",
+        "THE VILLAGE ORDINANCES of 7 November 1833, complete — the richest single item in the paper",
+        "Ordinance 1: the corporate limits surveyed ALONG the northern United States' Pier 'to the termination thereof' — the pier as an existing, walkable structure with a definite landward end",
+        "Ordinance 5: 'either of the bridges in said town' and their 'plank or any piece of timber' — EXACTLY TWO bridges on 7 Nov 1833, of plank-and-timber construction",
+        "Ordinance 6: wooden buildings with wooden and lath-and-plaster partitions, heated by STOVES not fireplaces, pipes passing through roof or side wall and carried 18 inches above the roof, guarded by stone-ware pipe, brick, tin or sheet iron",
+        "Ordinance 9: timber, stone, brick, boxes and barrels stacked in the streets",
+        "Ordinances 3, 7 and 8: hogs at large, horses run through the streets, stallions",
+        "the schooner Austerlitz, Capt. Smith, from Buffalo, arrived about the 1[9]th inst. with a full cargo of merchandise for citizens of this village and cleared on the 21st IN BALLAST",
+        "a school established in the village by Mr. Sproat of Boston, already running on 26 Nov 1833",
+        "a public auction of United States property held AT FORT DEARBORN, 2 December 1833",
+        "the village population passing 'more than eight hundred souls' in late 1833"
+      ],
+      "what_it_does_not_supply": [
+        "any building's dimensions",
+        "any building's form, material, storey count or fenestration",
+        "the specific corner of any junction it names — the imprint says 'on the corner of', and which of the four is not in the sentence",
+        "evidence that any building named here still stood on 1835-07-01 — this issue is NINETEEN MONTHS before the scene date, in the town's fastest-changing period, and the population went from 800 to 3,265 in between",
+        "any building footprint or plan",
+        "any length or width for the piers",
+        "any corroboration of the estray pen — see the negative finding in the note"
+      ]
+    }
+  ],
+  "research_note": "RENTAL HOUSING STOCK, OTHERWISE INVISIBLE. A town where a merchant advertises two buildings to let is a town with a rental market, which is one of the mechanisms by which 3,265 people fit into 398 dwellings. A TRAP IN THE SAME ADVERTISEMENT: it carries an engraving of a three-storey building which is a jobbing printer's stock cut and NOT a picture of anything in Chicago; nothing about the form of these two buildings comes from it.",
+  "research_doc": "",
+  "review_required": false
+}

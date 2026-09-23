@@ -1,0 +1,323 @@
+{
+ "id": "hh_wright_john",
+ "name": "The Wright household",
+ "division": "south",
+ "head": "wright_john",
+ "arrival": {
+  "value": "1832",
+  "confidence": "attested",
+  "sources": [
+   "andreas_1884_v1"
+  ],
+  "note": "Both men, same year, stated twice.",
+  "precision": "year"
+ },
+ "party_size_on_arrival": {
+  "value": 2,
+  "confidence": "inferred",
+  "sources": [
+   "andreas_1884_v1"
+  ],
+  "note": "Two named Wrights arrive in 1832 and are grouped here as one household. Whether a mother or other children travelled with them is not stated."
+ },
+ "origin": {
+  "value": null,
+  "confidence": "reconstructed",
+  "note": "Not attested."
+ },
+ "reason_for_coming": {
+  "value": null,
+  "confidence": "reconstructed",
+  "note": "Not attested."
+ },
+ "lives_at": {
+  "value": null,
+  "confidence": "reconstructed",
+  "note": "Not attested."
+ },
+ "works_at": {
+  "value": null,
+  "confidence": "reconstructed",
+  "note": "NOT MODELLED. Wright's store is documented by his own advertisement of November 1833 and has no record in data/structures/, so there is nothing to link to. A second gap from the same advertisement: the TWO BUILDINGS he had to let are two more documented structures with no records, and they are evidence about the town's rental housing stock, which is otherwise invisible."
+ },
+ "present_on_scene_date": {
+  "value": "present",
+  "confidence": "inferred",
+  "sources": [
+   "andreas_1884_v1"
+  ],
+  "note": "John S. Wright's later Chicago career is continuous; the father is not followed past 1833 in anything reached, which is why the household is present on inference rather than on a statement."
+ },
+ "persons": [
+  {
+   "id": "wright_john",
+   "name": "John Wright",
+   "relationship": "head",
+   "grade": "attested",
+   "ladder_rule": "G1b",
+   "sex": "male",
+   "occupation": {
+    "value": "merchant",
+    "confidence": "attested",
+    "sources": [
+     "andreas_1884_v1",
+     "chicago_democrat_1833_11_26"
+    ],
+    "note": "'John Wright, came in 1832, a merchant'. His advertisement in the Chicago Democrat of 26 November 1833 offers cut nails and general merchandise, and he separately advertises TWO BUILDINGS TO LET until 1 June 1834 - which makes him the only documented landlord of rental property in this parcel.",
+    "derived_from": "roles",
+    "roles_at_scene_date": [
+     "merchant"
+    ]
+   },
+   "sources": [
+    "andreas_1884_v1",
+    "chicago_democrat_1833_11_26"
+   ],
+   "note": "ONE OF THE TWELVE WHO VOTED FOR INCORPORATION on 5 August 1833 (Andreas prints the poll: 'John W. Wright'), one of the twenty-eight electors five days later, a candidate who took two votes, and one of the nine village citizens founding the First Presbyterian Church on 26 June 1833 and one of its three first elders. Charles Butler met him on his first morning in Chicago in August 1833, at the funeral of a child. The Chicago Democrat of 26 November 1833 is the only contemporary Chicago document this project holds, and an advertisement in it is a peculiarly good witness: the advertiser was paying for it and his customers had to be able to find him. It is also NINETEEN MONTHS before the scene date, in the town's fastest-changing period, so it is strong evidence of existence and address in November 1833 and weak evidence of survival to 1 July 1835.",
+   "resident_research": {
+    "programme": "resident-research-2026",
+    "ticket": "T-0510",
+    "outcome": "corroborated_enrichment",
+    "reviewed_on": "2026-09-05",
+    "asserted_identity": true,
+    "evidence_for": "Surname 'Wright' folds to the same string as the entry's, and the given name of both begins J. Surname 'Wright' folds to the same string as the bidder's, and the given name of both begins J. Surname 'Wright' folds to the same string as the 1837 entry's, and the given name of both begins J.",
+    "evidence_against": "'John Wright' at printed page 207 line 17 (33SQ-GYYJ-93G) is NOT 'John S. Wright': The name 'John Wright' is borne by 2 person(s) of 1835 and appears on 1 named 1840 head line(s). A name that two people share cannot identify either of them, so the pair is refused by measurement rather than by anyone's list of common names. L5 name_is_not_unique The surname 'Wright' is in Norris 1844 and no entry under it carries the initial 'J' of 'John Wright'. A surname-only agreement is a refusal. The same volume's obituary list prints 'Wright, John, died September 20, 1810, aged 57' — a death 25 years before the scene date, so that entry is not this man; the 1840 census pair is refused in the repository because 'John Wright' is borne by two people of 1835.",
+    "summary": "Corroborated in a volume printed after the scene date. John Wright agrees with an entry in the Fergus 1839/1843 and Norris 1844 directories, the old-settler rolls and Fergus's death notices. The reading enriches the biography and adds no 1835 attestation.",
+    "notes": "Research only. Later-volume readings are recorded here and NOT promoted: T-0513 consolidates and T-0514/T-0515 apply.",
+    "source_ids": [
+     "chicago_democrat_1833_1835",
+     "fergus_1843_old_settler_death_notices",
+     "fergus_chicago_directory_1839"
+    ]
+   },
+   "merge_ruling": [
+    {
+     "ticket": "T-1291",
+     "verdict": "distinct",
+     "rule": "R2",
+     "cluster": "wight-wright-john",
+     "weighed_against": [
+      "wight_j_f"
+     ],
+     "for_merge": "A dropped r, and the initial J agrees with John Wright the merchant — the 1833 poll and tax lists, the Democrat of 26 November 1833 and 25 February 1834, the 1840 census at 207:17.",
+     "against_merge": "THE INITIAL J HAS TWO RIVALS AMONG THE WRIGHTS AND THE `wright` CLUSTER HAS ALREADY SAID SO. Its standing U1/R2 ruling refuses a bare 'J. Wright' because the father and the son share the forename John and the initial cannot choose between them; folding the surname as well adds a third candidate and removes nothing. 'J. F. Wight' is one reading, the Democrat of 11 June 1834 (#c007), and its middle initial F is carried by no Wright of this town — John S. Wright's is S, and T-0997's C2 merge inside that cluster turned on exactly that printed letter. The town holds six Wright cards and one Wight. Refused by a ratified rule; no ballot needed."
+    },
+    {
+     "ticket": "T-0839",
+     "verdict": "undecided",
+     "rule": "R2",
+     "cluster": "wright",
+     "weighed_against": [
+      "wright_j",
+      "wright_john_s"
+     ],
+     "referred_to": "rule",
+     "for_merge": "'J. Wright' in the American of 11 July 1835 is a Wright in the town in the scene year.",
+     "against_merge": "The initial J has two rivals — the father and the son, who share a forename. R2 refuses. Refused by a ratified rule; no ballot needed."
+    }
+   ],
+   "roles": [
+    {
+     "role": "merchant",
+     "kind": "trade",
+     "as_printed": null,
+     "from": "1673",
+     "to": "1857",
+     "precision": "source_span",
+     "dated_by": "source_describes_date",
+     "covers_scene_date": true,
+     "confidence": "attested",
+     "sources": [
+      "andreas_1884_v1",
+      "chicago_democrat_1833_11_26"
+     ],
+     "claim": null,
+     "note": "THE BOUND IS THE SOURCE'S, NOT THE MAN'S. This role is carried by the card's 1835 occupation block and is dated by what the cited source or sources are ABOUT, which is why `precision` can be no better than the span they cover. The span reaches 1835, so this role stands in the scene-date view. The printing the trade was read off is not on the card and is fetched by T-1254."
+    }
+   ]
+  },
+  {
+   "id": "wright_john_s",
+   "name": "John S. Wright",
+   "relationship": "son",
+   "grade": "attested",
+   "ladder_rule": "G1b",
+   "sex": "male",
+   "occupation": {
+    "value": "clerk",
+    "confidence": "inferred",
+    "sources": [
+     "andreas_1884_v1"
+    ],
+    "note": "NO TRADE IS RECORDED FOR HIM IN 1833-35 and this value is a reconstruction. Andreas calls him 'John S. Wright, then a minor, afterward editor of Prairie Farmer, and one of the most meritorious pioneers of Chicago, came in 1832'. A minor in his merchant father's business is a clerk on the ordinary reading of the period; the source says only that he was young and that he came.",
+    "derived_from": "roles",
+    "roles_at_scene_date": [
+     "clerk"
+    ]
+   },
+   "sources": [
+    "andreas_1884_v1",
+    "chicago_democrat_1833_1835"
+   ],
+   "note": "A MINOR IN 1833 AND A FOUNDING MEMBER OF THE FIRST PRESBYTERIAN CHURCH IN JUNE OF THAT YEAR - his name is in the list of nine village citizens alongside his father's. He would have been about twenty in 1835. THE RELATIONSHIP IS THIS RECORD'S READING: Andreas lists the two Wrights separately and never says they are father and son, and 'John Wright, came in 1832, a merchant' and 'John S. Wright, then a minor ... came in 1832' arriving in the same year with the same surname and joining the same church on the same day is a strong reading and not a statement.",
+   "resident_research": {
+    "programme": "resident-research-2026",
+    "ticket": "T-0479",
+    "outcome": "corroborated_enrichment",
+    "reviewed_on": "2026-09-02",
+    "asserted_identity": true,
+    "evidence_for": "The Chicago Public Library finding aid identifies John S. Wright's Chicago land purchases and original-town lots; Augustine W. Wright's 1885 In Memoriam further anchors the exact Chicago figure and his early chronology. Later deed dates are not back-projected to 1835.",
+    "summary": "The Chicago Public Library finding aid identifies John S. Wright's Chicago land purchases and original-town lots; Augustine W. Wright's 1885 In Memoriam further anchors the exact Chicago figure and his early chronology. Later deed dates are not back-projected to 1835.",
+    "notes": "The Chicago Public Library finding aid identifies John S. Wright's Chicago land purchases and original-town lots; Augustine W. Wright's 1885 In Memoriam further anchors the exact Chicago figure and his early chronology. Later deed dates are not back-projected to 1835.",
+    "source_ids": [
+     "cpl_john_s_wright_papers",
+     "wright_in_memoriam_1885"
+    ]
+   },
+   "merge_ruling": [
+    {
+     "ticket": "T-1291",
+     "verdict": "distinct",
+     "rule": "R2",
+     "cluster": "wight-wright-john-s",
+     "weighed_against": [
+      "wight_j_f"
+     ],
+     "for_merge": "A dropped r, and the initial J agrees with John S. Wright his son — 'J. S. Wright' in the Democrat of 29 October 1834, and Fergus 1843's 'Wright, John Stephen, editor and proprietor Prairie Farmer'.",
+     "against_merge": "THE INITIAL J HAS TWO RIVALS AMONG THE WRIGHTS AND THE `wright` CLUSTER HAS ALREADY SAID SO. Its standing U1/R2 ruling refuses a bare 'J. Wright' because the father and the son share the forename John and the initial cannot choose between them; folding the surname as well adds a third candidate and removes nothing. 'J. F. Wight' is one reading, the Democrat of 11 June 1834 (#c007), and its middle initial F is carried by no Wright of this town — John S. Wright's is S, and T-0997's C2 merge inside that cluster turned on exactly that printed letter. The town holds six Wright cards and one Wight. Refused by a ratified rule; no ballot needed."
+    },
+    {
+     "ticket": "T-0839",
+     "verdict": "undecided",
+     "rule": "R2",
+     "cluster": "wright",
+     "weighed_against": [
+      "wright_j",
+      "wright_john"
+     ],
+     "referred_to": "rule",
+     "for_merge": "'J. Wright' in the American of 11 July 1835 is a Wright in the town in the scene year.",
+     "against_merge": "The initial J has two rivals — the father and the son, who share a forename. R2 refuses. Refused by a ratified rule; no ballot needed."
+    }
+   ],
+   "press_evidence": [
+    {
+     "list": "newspaper_1833_1835",
+     "as_read": "J. S. Wright",
+     "locator": "chicago_democrat_1834_10_29#c006",
+     "record_id": "person_j_s_wright",
+     "describes_date": "1834-10-29",
+     "source": "chicago_democrat_1833_1835",
+     "rule": "G1b"
+    }
+   ],
+   "merged_from": [
+    {
+     "ticket": "T-0997",
+     "rule": "C2",
+     "cluster": "wright",
+     "cards": [
+      "wright_j_s"
+     ],
+     "note": "THE UNION OF THE CARDS THIS PERSON WAS SPLIT ACROSS. The sources and evidence blocks above include everything the folded cards cited; each folded record is kept whole under data/residents/merged/ and is redirected by index.json's `merged` table. The reasoning for the merge is in data/residents/card_merge_rulings.json."
+    }
+   ],
+   "profile_facts": [
+    {
+     "field": "life_event",
+     "value": "Bought Chicago land and original-town lots",
+     "confidence": "inferred",
+     "sources": [
+      "cpl_john_s_wright_papers"
+     ],
+     "describes_date": "1835-01-01",
+     "place_class": "chicago",
+     "record_id": "resident_research:T-0479#01",
+     "as_read": "identifies John S. Wright's Chicago land purchases and original-town lots",
+     "note": "Landholding, stated by the library's finding aid. The block is explicit that later deed dates are not back-projected, and this row carries no deed date."
+    }
+   ],
+   "roles": [
+    {
+     "role": "clerk",
+     "kind": "trade",
+     "as_printed": null,
+     "from": "1673",
+     "to": "1857",
+     "precision": "source_span",
+     "dated_by": "source_describes_date",
+     "covers_scene_date": true,
+     "confidence": "inferred",
+     "sources": [
+      "andreas_1884_v1"
+     ],
+     "claim": null,
+     "note": "THE BOUND IS THE SOURCE'S, NOT THE MAN'S. This role is carried by the card's 1835 occupation block and is dated by what the cited source or sources are ABOUT, which is why `precision` can be no better than the span they cover. The span reaches 1835, so this role stands in the scene-date view. The printing the trade was read off is not on the card and is fetched by T-1254."
+    }
+   ]
+  }
+ ],
+ "touches_removal": false,
+ "review_required": false,
+ "research_note": "A FATHER-AND-SON HOUSEHOLD ASSEMBLED FROM TWO SEPARATE ROSTER ENTRIES, and one of only three multi-generation households in this parcel. THE ADVERTISEMENT IS WORTH MORE THAN THE PEOPLE HERE: 'Two Buildings to Let' until 1 June 1834 documents a rental market in a town of perhaps a thousand people, and this project holds a trap about that same advertisement - it carries an engraving of a three-storey building which is a jobbing printer's stock cut and NOT a picture of anything in Chicago.",
+ "directories": {
+  "note": "LATER EVIDENCE, BESIDE THE 1835 CLAIMS AND NOT INSIDE THEM. A Chicago directory of 1839, 1843 or 1844 meets somebody of this name and this pass records what it prints. Under the ratified ladder a directory read after 1835 can corroborate that a person attested here was still in Chicago and can print a trade or a street the 1835 record never had; on its own it makes nobody a resident of 1835. Nothing on this person's 1835 record was regraded, moved, dated or given an occupation by this entry. WHAT THIS PASS RULED ONTO THIS HOUSEHOLD, named so the ruling can be found again: each volume below is followed by the printed entries it set against this person and the status the crosswalk ruled them at — a single entry carries what its own `could_carry` declares, and an ambiguous or contested match carries nothing and is shown so that the silence is legible. wright_john, Fergus's Chicago directory of 1839 — f1839_e1647 (a single entry); wright_john_s, Fergus's Chicago directory of 1839 — f1839_e1648 (a single entry); wright_john_s, Fergus's Chicago directory of 1843 — f1843_e2675 (a single entry).",
+  "sources": [
+   "fergus_chicago_directory_1839",
+   "fergus_chicago_directory_1843"
+  ],
+  "people": [
+   {
+    "person_id": "wright_john",
+    "address_later": {
+     "value": "Michigan ave. cor. Madison st",
+     "confidence": "attested",
+     "describes_date": 1839,
+     "sources": [
+      "fergus_chicago_directory_1839"
+     ],
+     "note": "Fergus's Chicago directory of 1839 prints this address against this person, in the entry quoted on the card: 'Wright, John, Michigan ave. cor. Madison st'. It is evidence about 1839, written here as 1839's and read back onto no 1835 claim. Under the ratified ladder a directory read after 1835 can corroborate that a person attested here was still in Chicago and can print a trade or a street the 1835 record never had; on its own it makes nobody a resident of 1835. Nothing on this person's 1835 record was regraded, moved, dated or given an occupation by this entry. The value is the volume's own line, split by its crosswalk on the entry's punctuation. These volumes set the trade first and its qualifiers after it on the same line, so the split may carry an employer, a market or a corner along with the trade. The printed entry is quoted beside the value for exactly that reason: the split is checkable against it, and neither is read into an 1835 claim."
+    },
+    "back_projection": {
+     "outcome": "refused",
+     "clause": "3",
+     "value": null,
+     "describes_date": 1839,
+     "read_back_years": 4,
+     "placement": null,
+     "position_local_enu_m": null,
+     "sources": [
+      "fergus_chicago_directory_1839"
+     ],
+     "note": "REFUSED, AND THE REFUSAL IS THE RECORD. Fergus's Chicago directory of 1839 prints an address against this name in 1839 and this pass will not carry it back to 1835. Michigan Avenue is the lakefront street south of the river and is NOT the 1835 layer's Michigan Street, which runs east from La Salle on the north side. Two streets, one word, and the 1839 directory prints both. A refusal is written here rather than dropped so that a later run can see the address was read and ruled on, not missed (docs/ADDRESS-BACK-PROJECTION.md, clause 3)."
+    }
+   },
+   {
+    "person_id": "wright_john_s",
+    "address_later": {
+     "value": "N. Water st",
+     "confidence": "attested",
+     "describes_date": 1839,
+     "sources": [
+      "fergus_chicago_directory_1839"
+     ],
+     "note": "Fergus's Chicago directory of 1839 prints this address against this person, in the entry quoted on the card: 'Wright, John S., forwarding commission merchant, N. Water st'. It is evidence about 1839, written here as 1839's and read back onto no 1835 claim. Under the ratified ladder a directory read after 1835 can corroborate that a person attested here was still in Chicago and can print a trade or a street the 1835 record never had; on its own it makes nobody a resident of 1835. Nothing on this person's 1835 record was regraded, moved, dated or given an occupation by this entry. The value is the volume's own line, split by its crosswalk on the entry's punctuation. These volumes set the trade first and its qualifiers after it on the same line, so the split may carry an employer, a market or a corner along with the trade. The printed entry is quoted beside the value for exactly that reason: the split is checkable against it, and neither is read into an 1835 claim."
+    },
+    "back_projection": {
+     "outcome": "placed",
+     "clause": "3 and 4",
+     "value": "North Water Street",
+     "confidence": "reconstructed",
+     "describes_date": 1839,
+     "read_back_years": 4,
+     "placement": "face",
+     "position_local_enu_m": null,
+     "sources": [
+      "fergus_chicago_directory_1839"
+     ],
+     "note": "A LATER ADDRESS, READ BACKWARDS 4 YEARS. The door is not an 1835 reading: Fergus's Chicago directory of 1839 printed it in 1839, and this pass carries it back to the scene date because the 1835 record attests a trade for this person and nothing in the corpus places it better. What is claimed is the street face and nothing narrower — no lot, no roof, no door count — and the grade is `reconstructed`, which is this dataset's word for a figure the reconstruction supplies rather than a source. North Water Street stands in 1835 under that name and in that place. The directory gives a street and nothing this pass can resolve narrower, so the placement is the FACE — the unit the owner's ruling of 2026-08-29 says a street name constrains — and no roof is dealt. The rule this stands on is docs/ADDRESS-BACK-PROJECTION.md and the liberty is L218; a reader who thinks 4 years is too far to carry a shop should read the grade as the disagreement being invited."
+    }
+   }
+  ]
+ }
+}

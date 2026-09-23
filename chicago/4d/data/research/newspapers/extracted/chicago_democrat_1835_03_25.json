@@ -1,0 +1,164 @@
+{
+ "schema": 1,
+ "issue_id": "chicago_democrat_1835_03_25",
+ "extracted": "2026-08-29",
+ "extracted_by": "hand, T-0326",
+ "note": "The Extra, printed while the paper itself was suspended: eight pages of source scan, four Extra pages, three columns on pages 1-3 and a single-column subscription prospectus on page 4. Nine of the ten columns are the Illinois and Michigan Canal act of 10 February 1835 printed entire, the federal land-sale proclamation, and an abstract of the Chicago and Vincennes Rail-Road charter; the town matter is the whole of page 3 column 3 and the whole of page 4.\n\nTHE TICKET EXPECTED PAGE 4 TO NAME PEOPLE AND IT DOES NOT, AND THAT IS THE FINDING. T-0326 says of page 4: 'Calhoun's own subscription list — a single-column prospectus, resolved as that page's column 1 — and it names people. Read it as the letter lists are read.' Read as the letter lists are read, it names ONE: J. CALHOUN, over the prospectus. The page is headed 'SUBSCRIPTION LIST' and ends at line 198 with the RULED HEADINGS of a blank canvassing form — 'SUBSCRIBER'S NAMES. | No. OF COPIES. | RESIDENCE.' — and the transcription stops there because there is nothing under them. It is a form to be filled in by whoever carried the Extra round, not a return of subscribers already taken. c006 records that absence as a claim rather than leaving it as a silence, on the discipline T-0308 and T-0309 used for the months that carry no letter list. Nobody is minted from it.",
+ "claims": [
+  {
+   "id": "c001",
+   "kind": "event",
+   "reading": "transcription_mediated",
+   "quote": "In asking for the CHICAGO DEMOCRAT a more extended patronage and circulation, the publisher deems it proper to state the causes which have led to its temporary suspension. It is generally known that the paper used in this section is manufactured in the older States, and that it cannot be procured without great expense while navigation on the Lakes is closed. Early in the fall we had made arrangements for our supply, but winter set in, before it was received. We have since endeavored to obtain paper from various places, but have been unsuccessful. At St. Louis, there was no surplus, and the commencement of a number of newspapers in Michigan, had consumed the little at Detroit. We have thus been in the hope and expectation of obtaining paper, first from one place then from the other, until so recently, and so near the opening of navigation, that it was thought not expedient to take a personal journey to Buffalo, or Cleveland, the nearest places at which it could be obtained, for that purpose; as by the expense of the journey, and land carriage of the paper for such a distance, we could anticipate the arrival of a supply by water but a week or two at most. We trust that this explanation may prove satisfactory to our friends, and the community generally. A supply of paper will be received by the first vessels from Cleveland, and also from Buffalo, and the paper will be re-commenced immediately on their arrival, and such arrangements have been made and will be made, as will prevent the possibility of such a suspension hereafter.",
+   "normalized": "In asking for the CHICAGO DEMOCRAT a more extended patronage and circulation, the publisher deems it proper to state the causes which have led to its temporary suspension. It is generally known that the paper used in this section is manufactured in the older States, and that it cannot be procured without great expense while navigation on the Lakes is closed. Early in the fall we had made arrangements for our supply, but winter set in, before it was received. […] At St. Louis, there was no surplus, and the commencement of a number of newspapers in Michigan, had consumed the little at Detroit. […] A supply of paper will be received by the first vessels from Cleveland, and also from Buffalo, and the paper will be re-commenced immediately on their arrival […]",
+   "locator": {
+    "artifact_role": "primary",
+    "issue_page": 4,
+    "column": 1,
+    "lines": [
+     179,
+     179
+    ]
+   },
+   "entities": [
+    {
+     "as_printed": "J. CALHOUN",
+     "normalized": "John Calhoun",
+     "role": "publisher of the Chicago Democrat, explaining the paper's suspension",
+     "occupations": [
+      "printer",
+      "newspaper publisher"
+     ],
+     "associated_places": [
+      "Chicago"
+     ]
+    }
+   ],
+   "notes": "WHY THIS CORPUS HAS A HOLE BETWEEN 1835-01-21 AND 1835-05-20, IN THE PUBLISHER'S OWN WORDS, and it is a fact about the town and not only about the paper: Chicago in the winter of 1834-35 could not get newsprint at any price once the lakes closed, and the nearest places that had it were Buffalo and Cleveland. The Democrat resumed on 1835-05-20 — 'the paper will be re-commenced immediately on their arrival' — and the 1835-05-20 editorial's 'During the suspension of our paper' paragraphs confirm the resumption date. The corpus's gap is therefore a printed fact, not a lost file."
+  },
+  {
+   "id": "c002",
+   "kind": "infrastructure",
+   "reading": "transcription_mediated",
+   "quote": "Chicago Harbor.—We learn from a friend at Washington that $32,800 has been appropriated by Congress towards the completion of our harbor.",
+   "normalized": "Chicago Harbor.—We learn from a friend at Washington that $32,800 has been appropriated by Congress towards the completion of our harbor.",
+   "locator": {
+    "artifact_role": "primary",
+    "issue_page": 3,
+    "column": 3,
+    "lines": [
+     156,
+     156
+    ]
+   },
+   "notes": "The 1835 federal appropriation for the Chicago harbor works, as the town first heard it — second-hand, from a friend at Washington, and the paper says so. Sits beside the 1835-01-21 report of the first season's 180 arrivals: the works were unfinished at the scene date and money for them was still arriving."
+  },
+  {
+   "id": "c003",
+   "kind": "event",
+   "reading": "transcription_mediated",
+   "quote": "We have also placed in our sheet the advertisement of the Public lands, to be sold at this place the 15th of June next, and as much of the charter of the Chicago and Vincennes Rail-Road Company, as we can find room for. The charter of this company is liberal, and investments in the stock would unquestionably be profitable.",
+   "normalized": "We have also placed in our sheet the advertisement of the Public lands, to be sold at this place the 15th of June next, and as much of the charter of the Chicago and Vincennes Rail-Road Company, as we can find room for.",
+   "locator": {
+    "artifact_role": "primary",
+    "issue_page": 3,
+    "column": 3,
+    "lines": [
+     154,
+     154
+    ]
+   },
+   "notes": "The federal land sale of 15 June 1835 AT CHICAGO, announced three months out. It is the single largest thing happening in the town in the weeks before the scene date and every June 1835 issue is bent around it: 'the Land sale and the speculation in town lots, keep one [as] close to the desk as his honor Judge [Breese's] Court' (1835-06-10), and C. C. Van Horn's standing advertisement promises he 'will be in Chicago from the 25th until after the land sale.' The proclamation itself is reprinted at length on this Extra's pages and again on 1835-05-20 page 4."
+  },
+  {
+   "id": "c004",
+   "kind": "person",
+   "reading": "transcription_mediated",
+   "quote": "APPOINTMENTS BY THE PRESIDENT.\nWith the advice and consent of the Senate.\nJAMES WHITLOCK, Register of the Land Office at Chicago, Illinois, from the day of date.\nE. D. TAYLOR, Receiver of Public Moneys at Chicago, from this date.",
+   "normalized": "APPOINTMENTS BY THE PRESIDENT. With the advice and consent of the Senate. JAMES WHITLOCK, Register of the Land Office at Chicago, Illinois, from the day of date. E. D. TAYLOR, Receiver of Public Moneys at Chicago, from this date.",
+   "locator": {
+    "artifact_role": "primary",
+    "issue_page": 3,
+    "column": 3,
+    "lines": [
+     162,
+     166
+    ],
+    "lines_of_claim": [
+     162,
+     163,
+     165,
+     166
+    ],
+    "interleaved": true
+   },
+   "entities": [
+    {
+     "as_printed": "JAMES WHITLOCK",
+     "normalized": "James Whitlock",
+     "role": "Register of the Land Office at Chicago",
+     "occupations": [
+      "Register of the Land Office"
+     ],
+     "associated_places": [
+      "Chicago"
+     ]
+    },
+    {
+     "as_printed": "E. D. TAYLOR",
+     "normalized": "Edmund D. Taylor",
+     "role": "Receiver of Public Moneys at Chicago",
+     "occupations": [
+      "Receiver of Public Moneys"
+     ],
+     "associated_places": [
+      "Chicago"
+     ]
+    }
+   ],
+   "notes": "THE TWO OFFICERS OF THE CHICAGO LAND OFFICE, NAMED. The cited range 162-166 also carries the Galena and Danville appointments; `lines_of_claim` names only the heading, the Senate line and the two Chicago rows. E. D. Taylor signs the Land Office's own advertisement in every June 1835 issue — 'will be received at the Land Office at Chicago, E. D. TAYLOR, Rec'r' — which is the same man in the same office ten weeks later and is what makes the Land Office a placeable institution rather than a name. 'Edmund D.' is supplied from the 1835-05-20 list of appointments, which prints 'Edmund D. Taylor of [Illinois] […] Receiver of Public Moneys'; it is not expanded out of nothing."
+  },
+  {
+   "id": "c005",
+   "kind": "price",
+   "reading": "transcription_mediated",
+   "quote": "TERMS.\nTown subscribers who have their papers delivered by the Carrier $3.\nMail subscribers, and those who receive their papers at the office, $2 50.\nFifty Cents in addition will be charged in all cases where payment is not made IN ADVANCE. Papers will not in any instance be sent to places where we have no authorized Agent, unless the subscription is accompanied by the money.\nAny person procuring six mail subscribers, and forwarding the money, will be entitled to a seventh copy gratis.",
+   "normalized": "TERMS. Town subscribers who have their papers delivered by the Carrier $3. Mail subscribers, and those who receive their papers at the office, $2 50. Fifty Cents in addition will be charged in all cases where payment is not made IN ADVANCE. Papers will not in any instance be sent to places where we have no authorized Agent, unless the subscription is accompanied by the money. Any person procuring six mail subscribers, and forwarding the money, will be entitled to a seventh copy gratis.",
+   "locator": {
+    "artifact_role": "primary",
+    "issue_page": 4,
+    "column": 1,
+    "lines": [
+     191,
+     196
+    ],
+    "lines_of_claim": [
+     191,
+     193,
+     194,
+     195,
+     196
+    ]
+   },
+   "notes": "What a year of the town's only newspaper cost, and the two rates are the useful part: $3 if a CARRIER brought it to your door in town, $2.50 if you fetched it from the office or took it by mail. So there was a delivery round in Chicago in 1835 and it was worth fifty cents a year. The same terms are reprinted verbatim in the colophon of every issue from 1835-05-20 on, which is how the rate is known to have held to the scene date."
+  },
+  {
+   "id": "c006",
+   "kind": "notice",
+   "reading": "transcription_mediated",
+   "quote": "SUBSCRIBER'S NAMES. | No. OF COPIES. | RESIDENCE.",
+   "normalized": "SUBSCRIBER'S NAMES. | No. OF COPIES. | RESIDENCE.",
+   "locator": {
+    "artifact_role": "primary",
+    "issue_page": 4,
+    "column": 1,
+    "lines": [
+     198,
+     198
+    ]
+   },
+   "letter_list_only": false,
+   "notes": "THE SUBSCRIPTION LIST NAMES NO SUBSCRIBERS, AND THIS IS THE DEMONSTRATION. Page 4 is headed 'SUBSCRIPTION LIST OF THE CHICAGO DEMOCRAT, VOLUME 2, 1835' and the page-3 editorial directs readers to it ('We invite the attention of our friends to the \"Subscription List\" which we have placed on the last page of our paper'), which is what made T-0326 expect names. What is actually printed is Calhoun's prospectus, his signature, the TERMS, and then these three ruled column headings — a blank canvassing form for an agent to fill in. The transcription ends at this line, and its own file header calls the page a 'single-column subscription prospectus'. Read for names as a letter list is read, the page yields ONE, J. Calhoun, minted at c001. Nothing is minted here.\n\nCOULD THE NAMES BE UNDER A LOSS MARKER INSTEAD? No. This page carries no [missing/obscured] marker at all, unlike page 3 columns 1-2 and the lower right of page 3 column 3, which do; the transcription simply stops because the form is empty. If a filled-in copy of this Extra survives anywhere it would be a first-rate source for who was in the town in March 1835, and that is worth an owner ticket rather than an inference here."
+  }
+ ]
+}

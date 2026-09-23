@@ -1,0 +1,92 @@
+{
+  "$schema_note": "Derived. Not hand-editable — tools/compile_agencies.py --check re-derives this file from the committed register on every commit.",
+  "id": "1835_agencies",
+  "target_date": "1835-07-01",
+  "ticket": "T-1041",
+  "tool": "tools/compile_agencies.py",
+  "reads": [
+    "data/research/newspapers/gazetteer.json",
+    "data/research/newspapers/street_face_adoptions.json",
+    "data/residents/households/*.json"
+  ],
+  "why_this_file_exists": "AN AGENCY IS A RELATION, AND THE CARD HAD NO PLACE FOR ONE. T-0410 recorded that a house or a man held an agency for a named principal and nothing read it, so a visitor met Hubbard & Co. on La Salle Street with no way to learn that it insured property against loss by fire for the Howard of New-York, nor that the agency left it for one man three weeks before the scene date. This file carries the relation, unchanged, to the two cards it belongs on: the roof the holder is seated under and the town card of the man who signed.",
+  "nothing_is_judged_here": "Every principal, window, signature, witness and note below is the gazetteer's own text, copied. The three derived fields are `structure_id`, `household_id` and `printings_bracket_the_scene_date`, each read off a committed file and each named in the tool's docstring. A relation re-argued in a second file would be a second relation.",
+  "the_caveat_the_card_prints": "A holding is a relation and nothing more. Nothing here says this holder dealt in the principal's line, kept a roof for it, or was a partner in any house that signed for it.",
+  "the_window_is_printings": "The dates are the first and last PRINTING of this holder's notice in the corpus, not the term of the appointment: no printing says when the agency began or ended.",
+  "counts": {
+    "agencies": 1,
+    "holdings": 2,
+    "refused_holdings": 1,
+    "reaching_a_card": 3
+  },
+  "agencies": [
+    {
+      "id": "agency_howard_fire_insurance_company",
+      "principal": "Howard Fire Insurance Company",
+      "principal_seat": "the city of New-York",
+      "trade": "fire insurance",
+      "first_issue": "1834-07-02",
+      "last_issue": "1835-08-05",
+      "why": "The Howard Fire Insurance Company is a New York company that never stood in this town. It sold fire insurance in Chicago through a LOCAL AGENT, and one standing advertisement — the same setting word for word, only the signature and the number of the verb changing — runs across thirteen months of the corpus: 'THE subscribers having been appointed Agents for the Howard Fire Insurance Company of the city of New-York, for Chicago and the vicinity, will insure property against loss by Fire, on reasonable terms. HUBBARD & CO.' from 1834-07-02, and the identical copy in the SINGULAR over one man, 'THE subscriber having been appointed Agent … E. K. HUBBARD.', from 1835-06-20. Neither the company nor the agency is a house in this town: no printing gives either a street, and nothing here decides whether E. K. Hubbard was a partner in Hubbard & Co., because no printing says so.",
+      "holdings": [
+        {
+          "holder": "Hubbard & Co.",
+          "holder_kind": "business",
+          "holder_id": "business_hubbard_co",
+          "structure_id": "recon_1835_blk_randolph_wells_d2_07",
+          "household_id": null,
+          "first_issue": "1834-07-02",
+          "last_issue": "1835-05-20",
+          "printings_bracket_the_scene_date": false,
+          "signature": "HUBBARD & CO.",
+          "number": "plural",
+          "witnesses": [
+            "chicago_democrat_1834_07_02#c048",
+            "chicago_democrat_1834_10_15#c005",
+            "chicago_democrat_1835_05_20#c023"
+          ],
+          "note": "Hubbard & Co. held the agency first and advertised it in the PLURAL over the firm's own signature: '[The su]bscribers having been appointed [Ag]ents for the Howard Fire Insurance [Company of] the city of New-York … HUBBARD & CO.' (1834-07-02 c048). The 1834-10-15 c005 and 1835-05-20 c023 printings are the same setting over the copy date 'July 1'. The plural verb and the firm signature are the whole of what makes this the FIRM's holding rather than a partner's, and it is all they make it: the commission and forwarding house gains a line on its card and nothing else — no trade, no street, no roof. 'fire insurance' stands in this record's goods because the notice ran over its signature, which is a fact about the printing and not a second trade."
+        },
+        {
+          "holder": "E. K. Hubbard",
+          "holder_kind": "person",
+          "holder_id": "person_e_k_hubbard",
+          "structure_id": null,
+          "household_id": "hh_hubbard_elijah_kent",
+          "first_issue": "1835-06-20",
+          "last_issue": "1835-08-05",
+          "printings_bracket_the_scene_date": true,
+          "signature": "E. K. HUBBARD.",
+          "number": "singular",
+          "witnesses": [
+            "chicago_american_1835_06_20#c015",
+            "chicago_democrat_1835_07_01#c017",
+            "chicago_democrat_1835_07_08#c005",
+            "chicago_democrat_1835_07_29#c011",
+            "chicago_democrat_1835_08_05#c008"
+          ],
+          "note": "From 1835-06-20 the identical copy runs in the SINGULAR over one man — 'THE su[bs]criber ha[v]ing been [a]p[poin]t[e]d [agent] for the Howard Fire Insurance [Company] … E. K. [H]UBBARD.', American 1835-06-20 c015, copy-dated June 20, 1835 — and the Democrat reprints it at 1835-07-01 c017, 1835-07-08 c005, 1835-07-29 c011 and 1835-08-05 c008 over the copy date 'July 1'. So on the scene date the agency sits with E. K. Hubbard, and the forwarding house goes on trading under its own name to 1835-08-29. This project never reads a shared surname with different initials as one man, so the holder here is the MAN the signature names and nothing joins him to Hubbard & Co.'s partners, Gurdon S. Hubbard and Henry G. Hubbard. That refusal is exactly what the old `refused_firm_merges` entry was for, and it is what this relation replaces: the two records are not confused, they are joined — by an agency that passed from the firm to one man."
+        }
+      ],
+      "refused_holdings": [
+        {
+          "holder": "Jones, King & Co.",
+          "holder_kind": "business",
+          "holder_id": "business_jones_king_co",
+          "structure_id": "recon_1835_blk_south_water_franklin_d5_01",
+          "household_id": null,
+          "first_issue": "1835-08-05",
+          "last_issue": "1835-08-05",
+          "printings_bracket_the_scene_date": false,
+          "signature": null,
+          "number": null,
+          "witnesses": [
+            "chicago_democrat_1835_08_05#c008"
+          ],
+          "note": "",
+          "refused_because": "T-0410 was filed reading a THIRD holder off 1835-08-05 c008, where the agency notice is claimed on the Jones, King & Co. business record and that record therefore announced itself 'appointed Agent for the Howard Fire Insurance Company'. The fragment refutes it. Its own reading runs 'July 1, [1835]. [E]. K. [H]UBBARD. — Hardware, Stoves, &c. Th[e] u[n]dersigned have [formed a] connect[ion] in the mercantile business, under the [f]irm o[f] Jones, [King] & [C]o.': two notices on one fragment, as that claim's own notes say, and the fire-insurance card is signed by the man while the hardware notice below it is signed WILLIAM JONES, BYRAM KING, W. B. CLARKE. The claim's own entity list reads 'UCBRARB,' as 'Hubbard, E. K.' with the role 'insurance agent'. Nothing in the setting puts the agency in Jones, King & Co.'s hands; the segmenter put the two advertisements on one line. So there is no handover in the week of 5 August, and this is the fifth printing of the E. K. Hubbard holding above. The claim's `announces_opening` is dropped in the same pass, because it was the agency's sentence read onto the hardware firm's record."
+        }
+      ]
+    }
+  ]
+}

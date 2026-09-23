@@ -1,0 +1,163 @@
+{
+  "id": "fort_dearborn_guard_house",
+  "phase": "log_1816",
+  "name": "Fort Dearborn — guard house",
+  "aka": [
+    "the guard-house"
+  ],
+  "archetype": "fort_structure",
+  "asset": "gltf/fort_dearborn_guard_house__log_1816.glb",
+  "scene": "1835",
+  "target_date": "1835-07-01",
+  "documented_range": {
+    "from": "1816-07-01",
+    "to": "1856-08-31",
+    "confidence": "inferred",
+    "sources": [
+      "andreas_1884_v1",
+      "harrison_1830_river_mouth"
+    ],
+    "note": "THE RANGE IS THE FORT'S, NOT THIS BUILDING'S. No source reached dates any individual building inside Fort Dearborn. It opens with the rebuild of 1816 and closes with the demolition of the fort's principal structures in the summer of 1856 (Andreas). What carries the scene date is the middle: the post was garrisoned continuously from June 1832 to 29 December 1836."
+  },
+  "change_note": "",
+  "placement": {
+    "local_e": 1138.27,
+    "local_n": 200.91,
+    "rotation_deg": 8.0,
+    "position_confidence": "inferred",
+    "position_sources": [
+      "harrison_1830_river_mouth",
+      "andreas_1884_v1"
+    ],
+    "position_note": "READ OFF THE 1830 HARRISON PLAN. Position in pixels on the plate Andreas reproduces at vol. 1 p. 113, scaled at 1.10 ft per pixel (the derivation is on fort_dearborn_palisade and in docs/RESEARCH/fort_dearborn.md section 3), rotated to the sheet's true-north arrow, and hung on the fort centre at local E +1152, N +221. Carry +/-20 percent on the offset from the fort centre and +/-20 m on the fort itself. Hubbard, 1827: 'The store-house and guard-house were on either side of the southern gate'. The 1830 plan draws exactly two small buildings flanking the break in the south wall, which is that sentence in ink. WHICH OF THE TWO IS WHICH IS NOT STATED by either source, and the assignment here is not a coin flip: Hubbard's next clause puts the magazine 'about half way between the west end of the guard and block-houses', and the block-house is at the south-west angle. That sentence only describes a real gap if the guard-house is the WESTERN of the two, so this record takes the west building and fort_dearborn_store_house takes the east. If the assignment is wrong the two buildings swap and nothing else in the complex moves.",
+    "symbolic_location": "Inside the south wall of Fort Dearborn, immediately west of the south gate, fronting north onto the parade.",
+    "uncertainty_m": 20,
+    "placement_provisional": false,
+    "vertical_anchor": "terrain",
+    "walk_surface_m": null
+  },
+  "footprint": {
+    "polygon": [
+      [
+        0,
+        0
+      ],
+      [
+        10.91,
+        0
+      ],
+      [
+        10.91,
+        4.22
+      ],
+      [
+        0,
+        4.22
+      ]
+    ],
+    "confidence": "inferred",
+    "sources": [
+      "harrison_1830_river_mouth"
+    ],
+    "note": "NO SOURCE GIVES THIS BUILDING'S SIZE. 10.91 x 4.22 m (about 36 x 14 ft) is the western of the two small south-wall buildings as drawn on the 1830 plan at the derived scale. Read the 14 ft depth with particular suspicion: on the plate that dimension is seventeen pixels and the engraved outline is three of them."
+  },
+  "attributes": {
+    "kind": {
+      "value": "guard",
+      "confidence": "attested",
+      "sources": [
+        "andreas_1884_v1"
+      ],
+      "note": "Hubbard names a guard-house beside the southern gate in 1827, which is where a guard-house belongs: the gate it watches is the one it sits on."
+    },
+    "construction": {
+      "value": "log",
+      "confidence": "inferred",
+      "note": "Not stated. Log by the same argument as the barracks."
+    },
+    "stories": {
+      "value": 1,
+      "confidence": "inferred",
+      "note": "Not attested. A guard-house is a guard room and a cell; single storey is the type and the 1830 plan draws it small."
+    },
+    "wall_height_m": {
+      "value": 2.6,
+      "confidence": "inferred",
+      "note": "No height attested. About eight and a half feet, one storey of log wall at period course counts."
+    },
+    "roof_type": {
+      "value": "gable",
+      "confidence": "inferred",
+      "note": "Not attested; gable is the type."
+    },
+    "roof_pitch_deg": {
+      "value": 34.0,
+      "confidence": "inferred",
+      "note": "No pitch is attested for any building in this fort. 34 degrees is the archetype's mid-range for a shingled or riven-shake roof of this period and span, inferred from construction practice rather than measured."
+    },
+    "chimneys": {
+      "value": 1,
+      "confidence": "inferred",
+      "note": "Not attested. A room occupied by a guard through the night in winter has a stack. The COUNT is the inference."
+    },
+    "function": {
+      "value": "guard house",
+      "confidence": "attested",
+      "sources": [
+        "andreas_1884_v1"
+      ],
+      "note": "The post guard's room, at the south gate. Part of it burned in the September 1827 fire that destroyed the barracks and the store-house - 'the east end of which was on fire' - and was saved by John Kinzie's son on the roof with a wet blanket, which is the most vivid thing anyone wrote about the inside of this fort."
+    },
+    "land_owner": {
+      "value": "The ground was entered by John Baptist Baubian, 28 May 1835",
+      "confidence": "inferred",
+      "sources": [
+        "isa_public_domain_land_tract_sales"
+      ],
+      "note": "THE UNITED STATES RESERVATION. This is the same tract L108 already derives for `1835_no_build_ground.json` — from G1, Madison's line and the traced waterline — so the polygon is inherited rather than built again, and `check.sh` already re-derives it. The register's own row is the second, independent witness to the date L108 quotes from Andreas: Beaubien's pre-emption, 28 May 1835, five weeks before the scene date. The derived polygon is short of the documented 75.69 acres for the reasons L108 states, and is a floor rather than the reservation. WHETHER THE ENTRY HELD IS NOT READ HERE: it was disputed, and this row records the entry the register carries and nothing about its outcome. THE MARGIN IS 58 m: this footprint stands that far inside the tract's nearest boundary, which is more than twice the working horizontal uncertainty of anything traced off the 1834 sheets (about 20 m), so the assignment survives the error the construction carries. WHAT THIS ROW CLAIMS AND WHAT IT DOES NOT. It claims that the tract the Illinois State Archives' land-sale register describes contains this structure's committed position — the patent for this ground was ENTERED by this man on this date. It does not claim he still held the ground on 1 July 1835, that he lived here, or that he ever stood on it: a sale is a transaction, and the register's only column about residence names a county. THE SECTION LINES ARE CONSTRUCTED, NOT TRACED (L219): the grid is carried from the single PLSS corner at State & Madison, on the plat's own east-west bearing, in nominal one-mile squares."
+    }
+  },
+  "residents": [],
+  "citations": [
+    {
+      "source_id": "andreas_1884_v1",
+      "citation": "Andreas, A. T. History of Chicago: From the Earliest Period to the Present Time. Vol. 1. Chicago: A. T. Andreas, 1884.",
+      "url": "https://archive.org/details/historyofchicago01andr",
+      "archived_url": "",
+      "tier": 3,
+      "tier_label": "compiled secondary (Andreas)"
+    },
+    {
+      "source_id": "harrison_1830_river_mouth",
+      "citation": "Harrison, F., Jr., Ass't U.S. Civil Engineer. \"Map of the Mouth of Chicago River, drawn for the Purpose of showing the proposed Harbor Improvements. With additions and changes suggested by the Memory of Early Settlers. The original received and approved by William Howard, U.S. Civil Engineer, February 24, 1830.\" Reproduced in Andreas, A. T., History of Chicago, vol. 1 (Chicago, 1884), p. 113.",
+      "url": "https://archive.org/details/historyofchicago01andr/page/n242/mode/1up",
+      "archived_url": "",
+      "tier": 2,
+      "tier_label": "near-primary recollection",
+      "what_it_supplies": [
+        "the fort's plan arrangement: a quadrangular picket enclosure, corner works, four ranges, two gates",
+        "which building stood on which side of the parade",
+        "the relative proportions of the enclosure and the buildings in it",
+        "the fort's rotation relative to true north",
+        "the named ground around the fort: garrison garden, cultivated field, barn, wash house, well, shop, cemetery, ferry"
+      ],
+      "what_it_does_not_supply": [
+        "any dimension in feet - there is no scale bar",
+        "elevations, heights, roof forms or materials",
+        "the state of the fort in 1835 - it is five years earlier",
+        "a separation between the 1830 survey and the settler-memory additions the plate admits to"
+      ]
+    },
+    {
+      "source_id": "isa_public_domain_land_tract_sales",
+      "citation": "Illinois State Archives, Illinois Public Domain Land Tract Sales Database (Springfield: Office of the Secretary of State).",
+      "url": "https://apps.ilsos.gov/isa/landSalesSearch.do",
+      "archived_url": "",
+      "tier": 1,
+      "tier_label": "period/eyewitness"
+    }
+  ],
+  "research_note": "One of the two buildings flanking the south gate. Its position note carries the small piece of reasoning that decides which of the two it is, and that reasoning also places the magazine - see fort_dearborn_magazine.",
+  "research_doc": "docs/RESEARCH/fort_dearborn_guard_house.md",
+  "review_required": false
+}

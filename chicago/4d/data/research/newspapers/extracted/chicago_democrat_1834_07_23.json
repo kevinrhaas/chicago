@@ -1,0 +1,575 @@
+{
+  "schema": 1,
+  "issue_id": "chicago_democrat_1834_07_23",
+  "extracted": "2026-08-28",
+  "extracted_by": "hand, T-0289 — the Democrat read, July 1834",
+  "note": "Vol. I No. 34. THE CHICAGO LETTER LIST IS WITHDRAWN this week — only the Juliet list still stands, at page 4 column 2, and it is badly cut. What this issue adds instead is the town's own economy in print: a weekly PRICES CURRENT corrected for the Democrat by P. F. Peck, a boarding school placed by a church and two streets with its fees in dollars, and a dwelling and a store offered to rent with their rooms counted. Page 3 columns 3, 4 and 5 are the Tesseract fallback and are cut down their right edge by a leading article; every supply below is bracketed.",
+  "claims": [
+    {
+      "id": "c001",
+      "kind": "price",
+      "reading": "transcription_mediated",
+      "quote": ") PRICES CURRENT, | Se#h, Dri\n; the Democrat by P.F. Ped |) °7\nWRRECTED WREKLY. Suly 16,\nbbl 92756\nS. fine bbl 5 008 tas\nfine bb! and b\nph bbl 5 50 at hie b\neat flour bbl hiving\nneal bush ea 88 they can |\nIt mess bh 900 HE\n> prime ee ae A\neof “Ib 100 12\nfish bbl 6 00 ted\nlb 9a it June 7\nYY] ys 10001 %\nIb 9a H\nIb 9a 10 fi\nIb 4a &\ntallow Ib 15 are pre)\nIb 100 12 | be pure\nb 12 additon",
+      "normalized": "[CHICAGO] PRICES CURRENT, [corrected for] the Democrat by P. F. Peck. CORRECTED WEEKLY. […] [Flour, superfine?] bbl 9[.]00 [a] 2 75 […] [Flour,] S[t.] fine bbl 5 00 […] [Flour,] fine bbl […] [St. Jose]ph bbl 5 50 […] [Wh]eat flour bbl […] [Corn]meal bush […] [Pork,] [me]ss b[bl] 9 00 […] [Pork,] prime […] [Be]ef […] [White]fish bbl 6 00 […] [Butter] lb 9 a 1[0] […] [Lard] […] [Cheese] lb 9 a […] lb 9 a 10 […] lb 4 a 8 […] [Tallow] lb 15 […] lb 1[0] a 12 […] [Beeswax] lb 12",
+      "locator": {
+        "artifact_role": "primary",
+        "issue_page": 3,
+        "column": 5,
+        "lines": [
+          3662,
+          3700
+        ],
+        "lines_of_claim": [
+          3662,
+          3663,
+          3664,
+          3665,
+          3667,
+          3668,
+          3669,
+          3670,
+          3671,
+          3675,
+          3676,
+          3682,
+          3686,
+          3688,
+          3690,
+          3691,
+          3692,
+          3693,
+          3694,
+          3695,
+          3696
+        ],
+        "interleaved": true
+      },
+      "entities": [
+        {
+          "as_printed": "P.F. Ped",
+          "normalized": "P. F. W. Peck",
+          "role": "reporter of prices",
+          "occupations": [
+            "merchant"
+          ],
+          "associated_places": [
+            "LaSalle Street",
+            "South Water Street"
+          ]
+        }
+      ],
+      "notes": "THE TOWN'S PRICES, WEEKLY, AND A NAMED MERCHANT BEHIND THEM. This is the first prices current in the July run and it is signed in the head: corrected for the Democrat by P. F. Peck, the merchant at the corner of LaSalle and South Water (1834-07-02, claim c023). A commodity list with a name attached is a claim about the market AND about who in the town was trusted to state it. THE COLUMN IS CUT DOWN ITS LEFT EDGE by the leading article, so most commodity names survive only as their last letters ('exh b', 'It mess bh', '> prime') and the FIGURES survive better than the goods. Every commodity name in the normalized reading is therefore bracketed as a supply, and the four that cannot be supplied at all are left out of `lines_of_claim` rather than guessed. THE FIGURES ARE QUOTED AS PRINTED and not converted: '9 00', '5 50', '9 a 10' are dollars and cents and cents-per-pound ranges as the paper set them. A fuller witness for this table would be a later issue in which the segmenter cuts the column the other way, which is how the July run has settled every other cut so far."
+    },
+    {
+      "id": "c002",
+      "kind": "business",
+      "reading": "transcription_mediated",
+      "quote": "Boarding and Day School\nes in Crag; in abuild-| Chicago, Fume\ncet, nearly in rear of th :\nbetween clark aad ‘Deer: gcabinp sa\nmmar, hy,\nhe Globes, Writing Saberds\nper quarter @3 00 | Salt,\ny Work = 500 | Flour and Meal-\n| Velvet Painting, § 00 °",
+      "normalized": "Boarding and Day School […] [for Young Ladi]es in C[hi]cago, in a build[ing on Randolph St]reet, nearly in rear of th[e Presbyterian Church,] between Clark and Dear[born streets.] […] [Gra]mmar, [Geograp]hy, [use of t]he Globes, Writing[, Needlework…] [Terms] per quarter $3 00 […] [Fanc]y Work 5 00 […] [Oriental Drawing] 7 00 […] [Transfer and] Velvet Painting, 8 00",
+      "locator": {
+        "artifact_role": "primary",
+        "issue_page": 3,
+        "column": 4,
+        "lines": [
+          3503,
+          3517
+        ],
+        "lines_of_claim": [
+          3503,
+          3506,
+          3507,
+          3508,
+          3510,
+          3511,
+          3512,
+          3513,
+          3515
+        ],
+        "interleaved": true
+      },
+      "entities": [],
+      "business": {
+        "name": "Miss Bayne's Boarding and Day School",
+        "proprietors": [
+          "[uncertain: Miss Bayne]"
+        ],
+        "trade": "boarding and day school for young ladies",
+        "goods": [],
+        "street": "Randolph Street",
+        "placement": {
+          "class": "relative",
+          "anchor": "the Presbyterian Church, between Clark and Dearborn streets",
+          "offset_text": "es in Crag; in abuild-| Chicago, Fume\ncet, nearly in rear of th :\nbetween clark aad ‘Deer: gcabinp sa",
+          "offset_normalized": "in a build[ing on Randolph St]reet, nearly in rear of th[e Presbyterian Church,] between Clark and Dear[born streets]",
+          "street": "Randolph Street"
+        }
+      },
+      "notes": "THE SCHOOL THE MONTH HAS BEEN TRYING TO PLACE. On 1834-07-09 the same notice ran at page 3 column 1 in an interleave so bad that only 'ing a school for young', '[uncertain: ng Ladies in Bange]', 'street, hear' and 'son, church, between Cierk and' survived, and no claim was made from it. Page 3 column 3 of THIS issue reads it out at lines 3344-3348 — 'MISS BAYNE'S B[oarding School] for Young Ladie[s …] [stand]ing on Randolph Stree[t …] Presbyterian Church, be[tween Clark and Dear]born streets' — and this column repeats it with the fee table. TAKEN TOGETHER: a girls' school on Randolph Street, behind the Presbyterian Church, in the block between Clark and Dearborn, at three dollars a quarter with fancy work at five, drawing at seven and painting at eight. THE PRESBYTERIAN CHURCH IS NEW TO THIS RUN and is the second church in it — the Baptist Church places Collins & Caton on South Water Street (1834-07-02, claim c016). THE PROPRIETRESS is named only in the other column, as 'MISS BAYNE'S', and is bracketed here because this claim's own lines do not carry her."
+    },
+    {
+      "id": "c003",
+      "kind": "building",
+      "reading": "transcription_mediated",
+      "quote": "VENIENT Dwelling with| &TTOR\nome and a kitchen on\nfloor. Also, a STORE ESPECTI\nWater-atreet, anc » small |. services to\nstreet. Enquire of the adjoining cou\nC. H. CE ATMA Agencies and",
+      "normalized": "[To Rent. A CON]VENIENT Dwelling with [three ro]oms and a kitchen on [the lower] floor. Also, a STORE [on South] Water-street, and a small [building on Randolph] street. Enquire of C. H. C[H]APMAN",
+      "locator": {
+        "artifact_role": "primary",
+        "issue_page": 3,
+        "column": 4,
+        "lines": [
+          3483,
+          3491
+        ],
+        "lines_of_claim": [
+          3484,
+          3485,
+          3486,
+          3487,
+          3488,
+          3489
+        ],
+        "interleaved": true
+      },
+      "entities": [
+        {
+          "as_printed": "C. H. CE ATMA",
+          "normalized": "[uncertain: C. H. Chapman]",
+          "role": "advertiser"
+        }
+      ],
+      "notes": "THREE BUILDINGS IN ONE NOTICE — a dwelling with its rooms counted, a store on South Water Street, and a small building on another street — and the whole of it is cut down the left edge by the leading article, so almost every noun is a supply. WHAT IS ACTUALLY PRINTED: 'VENIENT Dwelling with', 'ome and a kitchen on', 'floor. Also, a STORE', 'Water-atreet, anc » small', 'street. Enquire of'. 'South' before 'Water-street' is supplied because South Water is the only Water street this paper names; 'Randolph' before the second 'street' is NOT supplied — the bracket in the normalized reading carries it as a guess made visible, and a reader should treat it as unread. The number of rooms is likewise a supply from 'ome', which supports 'rooms' and no particular count; '[three ro]oms' is one reading of it and the bracket says so. THIS CLAIM IS DELIBERATELY WEAK AND IS KEPT for the STORE ON SOUTH WATER STREET, which is printed in capitals and is not in doubt: a store standing empty enough to advertise, in the town's principal street, in July 1834."
+    },
+    {
+      "id": "c004",
+      "kind": "business",
+      "reading": "transcription_mediated",
+      "quote": "le Tailoring. \\can—\nfers his services to the pub- Corn\ning Business, and hopes by Onte\nwishes of his patrons, and Wheat\ntimes, to merit a share of| Provisions—\nders left at the store of f, frei\no. will be immediately at- do salt\nTHOMAS 8. EELS. do do\n¢ Co, Newberry & Dole, Pork, me\nEsq. yi do’ pri",
+      "normalized": "[Fashionab]le Tailoring. [THE subscriber of]fers his services to the public [in the Tailor]ing Business, and hopes by [strict attention to the] wishes of his patrons, and [to the fashions of the] times, to merit a share of [public favor. All or]ders left at the store of [Messrs. Hubbard & C]o. will be immediately at[tended to.] THOMAS S. EELS. […] [Messrs. Hubbard &] Co., Newberry & Dole, [and John H. Kinzie,] Esq.",
+      "locator": {
+        "artifact_role": "primary",
+        "issue_page": 3,
+        "column": 4,
+        "lines": [
+          3518,
+          3529
+        ],
+        "lines_of_claim": [
+          3518,
+          3519,
+          3520,
+          3521,
+          3522,
+          3523,
+          3524,
+          3525,
+          3527,
+          3528
+        ],
+        "interleaved": true
+      },
+      "entities": [
+        {
+          "as_printed": "THOMAS 8. EELS.",
+          "normalized": "Thomas S. Eels",
+          "role": "proprietor",
+          "occupations": [
+            "tailor"
+          ]
+        },
+        {
+          "as_printed": "Newberry & Dole,",
+          "normalized": "Newberry & Dole",
+          "role": "reference",
+          "occupations": [
+            "merchant"
+          ]
+        },
+        {
+          "as_printed": "John H. Kinzie, E",
+          "normalized": "John H. Kinzie",
+          "role": "reference"
+        }
+      ],
+      "ad_copy_date": {
+        "verbatim": "Chicago, July 22, 18",
+        "iso": "1834-07-22"
+      },
+      "business": {
+        "name": "Thomas S. Eels",
+        "proprietors": [
+          "Thomas S. Eels"
+        ],
+        "trade": "tailoring",
+        "goods": [],
+        "street": null,
+        "placement": {
+          "class": "relative",
+          "anchor": "the store of Messrs. Hubbard & Co.",
+          "offset_text": "ders left at the store of\no. will be immediately at-",
+          "offset_normalized": "orders left at the store of [Messrs. Hubbard & C]o. will be immediately attended to",
+          "street": null
+        }
+      },
+      "notes": "A TRADESMAN WITH NO PREMISES OF HIS OWN, TAKING ORDERS AT ANOTHER MAN'S COUNTER — which is a different kind of business from a storefront and is worth distinguishing, because a reconstruction that gives every advertiser a building would put a shop where there was none. `placement.class` is `relative` on the store of Hubbard & Co. because that is where the work is transacted, and `street` is null because neither this notice nor any other in the July run gives Hubbard & Co. a street (see 1834-07-02, claim c045). THE REFERENCES ARE THREE OF THE TOWN'S PRINCIPAL HOUSES — Hubbard & Co., Newberry & Dole, and John H. Kinzie — named as vouchers for a new tailor, dated the day before the issue. That is a social fact as much as a commercial one. The other half of this advertisement is in page 3 column 3 at lines 3357-3368."
+    },
+    {
+      "id": "c005",
+      "kind": "notice",
+      "reading": "transcription_mediated",
+      "quote": "olution. Peed be\nhip heretofore existing be- Hams gr\n& McCaleb, and also b. P. do en\nday dissolved by mutu- White fis\nge indebted to Deacon & Butter, b\ndemands against the same, Lard\nle with E. P. Deacon, and Cheese\nP. Deacon & Co. are re- White b\nh Win. McKaleb or Jas. A. Potatoes\nly authorised to settle the| Tallow,\nective firma, Hides, dry\nE. P. DEACON, do wet\nWM. McKALEB. Candles, box t\n, 1834. Rar Soap",
+      "normalized": "[Diss]olution. [The co-partners]hip heretofore existing be[tween Deacon] & McCaleb, and also [that of] E. P. [Deacon & Co. is this] day dissolved by mutu[al consent. All those inde]bted to Deacon & [Co., and all having] demands against the same[, are requested to sett]le with E. P. Deacon, and [those of E.] P. Deacon & Co. are re[quested to settle wit]h Wm. McKaleb or Jas. A. [Neal, they being du]ly authorised to settle the [respective firms.] E. P. DEACON, WM. McKALEB. [July 16], 1834.",
+      "locator": {
+        "artifact_role": "primary",
+        "issue_page": 3,
+        "column": 4,
+        "lines": [
+          3530,
+          3543
+        ],
+        "lines_of_claim": [
+          3530,
+          3531,
+          3532,
+          3533,
+          3534,
+          3535,
+          3536,
+          3537,
+          3538,
+          3539,
+          3540,
+          3541,
+          3542,
+          3543
+        ],
+        "interleaved": false
+      },
+      "entities": [
+        {
+          "as_printed": "E. P. DEACON,",
+          "normalized": "E. P. Deacon",
+          "role": "partner",
+          "occupations": [
+            "saw mill proprietor"
+          ],
+          "associated_places": [
+            "St. Joseph"
+          ]
+        },
+        {
+          "as_printed": "WM. McKALEB.",
+          "normalized": "[uncertain: Wm. McKaleb]",
+          "role": "partner",
+          "associated_places": [
+            "St. Joseph"
+          ]
+        },
+        {
+          "as_printed": "Jas. A.",
+          "normalized": "[uncertain: Jas. A. Neal]",
+          "role": "assignee"
+        }
+      ],
+      "ad_copy_date": {
+        "verbatim": ", 1834. 6w34}",
+        "iso": "1834-07-16"
+      },
+      "business": {
+        "name": "Deacon & McCaleb",
+        "proprietors": [
+          "E. P. Deacon",
+          "[uncertain: Wm. McKaleb]"
+        ],
+        "trade": "steam saw mill and lumber, St. Joseph",
+        "goods": [
+          "Lumber"
+        ],
+        "street": null,
+        "placement": {
+          "class": "none",
+          "street": null
+        }
+      },
+      "contradicts": "the partnerships Deacon & McCaleb and E. P. Deacon & Co., dissolved 16 July 1834",
+      "notes": "RULING 3's VETO, AND IT REACHES INTO CHICAGO. On 1834-07-02 David Carver advertised that he had 'just obtained the Agency for Messrs. Deacon & M'Cal[e]y, (proprietors of the Steam Saw Mill at St. Joseph)' and would keep pine at his Chicago lumber yard (claim c006 there, where the firm's name was read two different ways in one issue and neither was preferred). Three weeks later the firm is dissolved. `contradicts` is set on this claim, so the compiler will not stand Deacon & McCaleb in the 1835 town; CARVER'S OWN BUSINESS IS NOT CONTRADICTED — his yard is his, and only his supply is in question. THE SURNAME IS SPELLED THREE WAYS IN THIS NOTICE ALONE: 'McCaleb' at 3532, 'McKaleb' at 3538, 'McKALEB' at 3542, plus 'McCALEB' at 3553 in the succeeding notice. No merge is declared and the entity carries a bracket: a name the paper cannot spell twice the same way is not one this project should settle from OCR."
+    },
+    {
+      "id": "c006",
+      "kind": "business",
+      "reading": "transcription_mediated",
+      "quote": "erchants, Groceriea—_\nf GOODS, being well se- Den\nd low, are now offered for do hi\n\\sportation, thereby afford- Super, |\ne and rare ovpertenity of ee f\nrmodating terms, a well es- doe\nWM. McCALEB. do |\nwiness will hereafter be con- Molasee\niber, who will fill orders at Rice\nthis Steam Mill. _ Coffee, |\nE. P. DEACON, _| Whiskey, bbl",
+      "normalized": "[To M]erchants. [The entire stock o]f GOODS, being well se[lected and purchase]d low, are now offered for [sale at cost and tra]nsportation, thereby afford[ing a most favorabl]e and rare opportunity of [purchasing on a]ccommodating terms, a well es[tablished and lucrativ]e concern. WM. McCALEB. […] [The LUMBER bu]siness will hereafter be con[tinued by the subscr]iber, who will fill orders at [the shortest notice at] this Steam Mill. E. P. DEACON, [St. Joseph, July 15], 1834.",
+      "locator": {
+        "artifact_role": "primary",
+        "issue_page": 3,
+        "column": 4,
+        "lines": [
+          3544,
+          3558
+        ],
+        "lines_of_claim": [
+          3545,
+          3547,
+          3548,
+          3549,
+          3550,
+          3551,
+          3553,
+          3554,
+          3555,
+          3556,
+          3557
+        ],
+        "interleaved": true
+      },
+      "entities": [
+        {
+          "as_printed": "WM. McCALEB.",
+          "normalized": "[uncertain: Wm. McCaleb]",
+          "role": "proprietor",
+          "associated_places": [
+            "St. Joseph"
+          ]
+        },
+        {
+          "as_printed": "E. P. DEACON, _|",
+          "normalized": "E. P. Deacon",
+          "role": "proprietor",
+          "occupations": [
+            "saw mill proprietor"
+          ],
+          "associated_places": [
+            "St. Joseph"
+          ]
+        }
+      ],
+      "business": {
+        "name": "E. P. Deacon",
+        "proprietors": [
+          "E. P. Deacon"
+        ],
+        "trade": "steam saw mill and lumber, St. Joseph",
+        "goods": [
+          "Lumber"
+        ],
+        "street": null,
+        "placement": {
+          "class": "none",
+          "street": null
+        }
+      },
+      "notes": "THE SUCCESSION HALF of claim c005's dissolution, and it is what keeps Chicago's pine coming: the LUMBER business is continued by E. P. Deacon alone at the steam mill, while the stock of goods is sold off at cost by McCaleb. So Carver's Chicago yard loses a partnership and keeps a supplier. Two businesses are compiled from these two claims — the dissolved partnership, contradicted, and E. P. Deacon's continuing mill, not contradicted — which is the shape ruling 3 is meant to produce. The year on the second dateline prints '1838' at line 3558 and is read 1834 from the issue and from the insertion code '6w34'; it is not bracketed in the entity because the reading is the paper's own arithmetic, and it is stated here. T-0694: McCaleb's entity now carries St. Joseph, the place his partner's entity on this claim already carries and the place c005's dissolution notice puts the same pair of men at in this same issue. He is the retiring partner of a St. Joseph steam mill selling off its stock, not a Chicago storefront, and reading his role as `proprietor` with no place is what would let a later pass raise one for him here."
+    },
+    {
+      "id": "c007",
+      "kind": "business",
+      "reading": "transcription_mediated",
+      "quote": "Stores and Hollow Ware.\nAVE established themselves at Chicag\nIll. in the Store and Hollow Wa\nbusiness, and intend keeping a very extensi\nCooking, Franklin, Ten Plate, Seren Plate,\nHall and Bor STOVES,\na general assortment of Hollore IFare, Pota:\nKettles, Chauldrons,Sugar Kettles, Fire Dog\n&c. &e. Aiso, Stove Pipe and Stove Furn\nture, of copper and tin; Ploughs, Plough Ca\ntings, Corn Cultivators, Road Scrapers, Grir\nStones, 9°c. °c.\nAs they intend a permanent estabashmen\nthey will at all times keep a good asscrtme\nwhich he offers on the most approved term\nat wholesle or retail.\nAll orders in the\nline punctunily attended to.\nWM. JONES,\nBYRAN KING.\nChicago, July 8, 1834.",
+      "normalized": "Wholesale and Retai[l] Sto[v]es and Hollow Ware. [H]AVE established themselves at Chicag[o,] Ill. in the Sto[v]e and Hollow Wa[re] business, and intend keeping a very extensi[ve] assortment of Cooking, Franklin, Ten Plate, Seven Plate, […] Hall and Box STOVES, of the most approved patterns, together wi[th] a general assortment of Hollow Ware, Pota[sh] Kettles, Chauldrons, Sugar Kettles, Fire Dog[s,] &c. &c. Also, Stove Pipe and Stove Furni[ture,] of copper and tin; Ploughs, Plough Cas[t]ings, Corn Cultivators, Road Scrapers, Grin[d] Stones, &c. &c. As they intend a permanent estab[li]shmen[t] they will at all times keep a good assortme[nt] which he offers on the most approved term[s] at wholes[a]le or retail. All orders in the[ir] line punctually attended to. WM. JONES, BYRA[M] KING. Chicago, July 8, 1834.",
+      "locator": {
+        "artifact_role": "primary",
+        "issue_page": 1,
+        "column": 2,
+        "lines": [
+          332,
+          366
+        ],
+        "lines_of_claim": [
+          333,
+          335,
+          336,
+          338,
+          340,
+          342,
+          345,
+          347,
+          348,
+          349,
+          350,
+          352,
+          353,
+          355,
+          357,
+          359,
+          360,
+          362,
+          363,
+          364,
+          365
+        ],
+        "interleaved": true
+      },
+      "entities": [
+        {
+          "as_printed": "WM. JONES,",
+          "normalized": "Wm. Jones",
+          "role": "proprietor",
+          "occupations": [
+            "stove dealer",
+            "founder"
+          ]
+        },
+        {
+          "as_printed": "BYRAN KING.",
+          "normalized": "Byra[m] King",
+          "role": "proprietor",
+          "occupations": [
+            "stove dealer",
+            "founder"
+          ]
+        }
+      ],
+      "ad_copy_date": {
+        "verbatim": "Chicago, July 8, 1834.",
+        "iso": "1834-07-08"
+      },
+      "business": {
+        "name": "Jones & King",
+        "proprietors": [
+          "M. Jones",
+          "Byram King",
+          "Wm. Jones"
+        ],
+        "trade": "wholesale and retail stoves and hollow ware",
+        "goods": [
+          "Chauldrons",
+          "Corn Cultivators",
+          "Fire Dogs",
+          "Grindstones",
+          "Hollow Ware",
+          "Plough Castings",
+          "Ploughs",
+          "Potash Kettles",
+          "Road Scrapers",
+          "Stove Furniture",
+          "Stove Pipe",
+          "Stoves",
+          "Sugar Kettles"
+        ],
+        "street": null,
+        "placement": {
+          "class": "none",
+          "street": null
+        }
+      },
+      "notes": "THE STOVE FIRM'S ADVERTISEMENT PRINTED WHOLE, AND ITS FIRST PARTNER'S NAME CHANGES. On 1834-07-09 the same standing advertisement was cut down its left edge and signed 'M, JONES,' (claim c020 there); here it is signed 'WM. JONES,'. M. and Wm. are not the same initial, and the identity policy refuses to merge a surname across differing initials with or without a rule — so BOTH stand as entities and the business carries all three proprietor strings, which is deliberately untidy. The dateline resolves it no better: both printings date from Chicago, and this one gives 8 July while the earlier gave none. A THIRD WITNESS in a later issue is what settles it. THE STOCK LIST IS FULLER HERE than in the cut printing — Franklin and Hall stoves, chauldrons, corn cultivators — and those goods are what the business record now carries."
+    },
+    {
+      "id": "c008",
+      "kind": "person",
+      "reading": "transcription_mediated",
+      "letter_list_only": true,
+      "quote": "| List of Letters, ;\nEMAINING in the Post-Offic i\nR 1M. July 1, 1534, pace rea |\narvey Crain Weston N.\nElias Hy Charles Titterington 2\nThomas Jones Willi q\nTrames ie liam Webster c\n| CORNELIVS-C. AN HORN. py, |!",
+      "normalized": "List of Letters, [R]EMAINING in the Post-Offic[e at Juliet,] Ill. July 1, 1834. […] [H]arvey Crain / Weston N[orman] / […] Elias Hy[de] / Charles Titterington / Thomas Jones / Willi[am Webster] / Tr[u]man [K]i[ng] / CORNELIUS C. [V]AN HORN, P.[M.]",
+      "locator": {
+        "artifact_role": "primary",
+        "issue_page": 4,
+        "column": 2,
+        "lines": [
+          4227,
+          4235
+        ],
+        "lines_of_claim": [
+          4227,
+          4228,
+          4229,
+          4230,
+          4232,
+          4233,
+          4234,
+          4235
+        ],
+        "interleaved": true
+      },
+      "entities": [
+        {
+          "as_printed": "arvey Crain",
+          "normalized": "[H]arvey Crain",
+          "role": "addressee",
+          "associated_places": [
+            "Juliet"
+          ]
+        },
+        {
+          "as_printed": "Elias Hy",
+          "normalized": "Elias Hy[de]",
+          "role": "addressee",
+          "associated_places": [
+            "Juliet"
+          ]
+        },
+        {
+          "as_printed": "Charles Titterington 2",
+          "normalized": "Charles Titterington",
+          "role": "addressee",
+          "associated_places": [
+            "Juliet"
+          ]
+        },
+        {
+          "as_printed": "Thomas Jones",
+          "normalized": "Thomas Jones",
+          "role": "addressee",
+          "associated_places": [
+            "Juliet"
+          ]
+        },
+        {
+          "as_printed": "CORNELIVS-C. AN HORN. py,",
+          "normalized": "Cornelius C. Van Horn",
+          "role": "postmaster",
+          "occupations": [
+            "postmaster"
+          ],
+          "associated_places": [
+            "Juliet"
+          ]
+        }
+      ],
+      "notes": "THE JULIET LIST, ONE WEEK ON AND MUCH WORSE PRINTED — the two sub-columns have collapsed into each other ('Ag ins Josrph CS pangs', 'Trames ie liam Webster c') and only four of the nine names survive whole. The BETTER witness is the issue of 1834-07-16 at page 3 column 2, which prints all nine and the postmaster clean; that claim mints the names and this one corroborates four of them with a second locator. THE CHICAGO LIST IS GONE from this issue: three weeks of standing and it is withdrawn, which dates the run of the 1 July return to 2-16 July 1834 in this paper. Only the names the cut lines carry whole are extracted here; 'Weston N.' and 'Willi q' are left unminted even though the previous issue names them, because a claim is made from ITS OWN lines."
+    },
+    {
+      "id": "c009",
+      "kind": "business",
+      "reading": "transcription_mediated",
+      "quote": "louse and Lend Agent.\nOTS purchased and Sold, or by commis\n12 Batting Lots for sale, in the town and\nSchool section.\n1 Houses to Let.\nEnquire at the Office on\nLake sl. opposile Dr. Temple s.",
+      "normalized": "[H]ouse and L[a]nd Agent. [L]OTS purchased and Sold, or by commis[sion.] 12 B[uildin]g Lots for sale, in the town and School section. […] Houses to Let. Enquire at the Office on Lake st. opposi[t]e Dr. Temple['s.]",
+      "locator": {
+        "artifact_role": "primary",
+        "issue_page": 1,
+        "column": 3,
+        "lines": [
+          637,
+          647
+        ],
+        "lines_of_claim": [
+          637,
+          640,
+          642,
+          643,
+          645,
+          646,
+          647
+        ],
+        "interleaved": true
+      },
+      "business": {
+        "name": "W. G. Blanchard",
+        "proprietors": [
+          "W. G. Blanchard"
+        ],
+        "trade": "house and land agent",
+        "goods": [],
+        "street": "Lake Street",
+        "placement": {
+          "class": "relative",
+          "anchor": "Dr. Temple's",
+          "offset_text": "Lake sl. opposile Dr. Temple s.",
+          "offset_normalized": "Lake st. opposi[t]e Dr. Temple['s.]",
+          "street": "Lake Street"
+        }
+      },
+      "notes": "ONE IMPRESSION OF THE STANDING LAKE STREET LAND-AGENCY CARD. The Democrat sets this advertisement, word for word the same, in every issue from 1834-05-14 to 1834-10-01 — twenty consecutive weeks, eighteen of which set the line ‘purchased and Sold, or by commi[s]sion’ recognisably (T-1051). The card is identified by its copy and not by its display line: the same trade (‘House and Land Agent’), the same offer of building lots in the town and the School Section, the same houses to let, and the same office on Lake street opposite Dr. Temple's. The display line did not survive the interleave — line 636 reads 'all' and line 635 closes P. Pruyne & Co.'s notice above — so the card runs here from its trade line. THE PROPRIETOR'S NAME IS NOT READ HERE and none is supplied into the quote: the record's ‘W. G. Blanchard’ stands on T-0408's reading of the two impressions whose columns are NOT Tesseract fallbacks (1834-07-16 line 5527, 1834-09-17 line 3292) and on identity.json's declared firm merge, not on this impression. 638, 639, 641 and 644 are the woven column's fragments, named in `lines` and not quoted. This is the FOURTH consecutive week to print '12 Building Lots' after 1834-07-09 printed '122': the figure the corpus can read wobbles between the two and neither is corrected against the other here."
+    }
+  ]
+}

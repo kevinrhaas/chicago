@@ -1,0 +1,33 @@
+{
+  "id": "chicagology_lastwardance",
+  "type": "website",
+  "citation": "\"Chicago's Last Great War Dance.\" Chicagology, transcribing the Chicago Tribune of 14 August 1910, which prints John Dean Caton's written recollection of 18 August 1835, and, below it and unnamed, a first-person passage from an older book.",
+  "date": "accessed 2026-08-10",
+  "describes_date": "1835-08-18",
+  "url": "https://chicagology.com/fortdearborn/lastwardance/",
+  "archived_url": "https://web.archive.org/web/20260517215531/https://chicagology.com/fortdearborn/lastwardance/",
+  "tier": 2,
+  "rights_status": "check_required",
+  "asset_use": "cross_check",
+  "verified": true,
+  "note": "CITED HERE FOR ONE NARROW PURPOSE AND NO OTHER: it is the only statement reached that fixes the state of the two branch bridges within weeks of the scene date. Its account of 18 August 1835 has a procession cross 'the North Branch bridge' and then move 'south along West Water street (now Canal street), in front of the \"Green Tree Tavern\" and \"Wolf's Point Tavern\" to the log raft bridge across the south branch' — which places the crossing, proves the bridge was standing six and a half weeks after 1835-07-01, and shows it carrying a crowd, against Andreas's 'useless for teams' of 1833. THE SUBJECT OF THIS PAGE IS THE FINAL REMOVAL OF THE POTAWATOMI FROM CHICAGO, which AGENTS.md places under the project's standing constraint. Nothing in this dataset depicts, stages or narrates that event, and nothing derived from this source goes beyond the built environment: bridge standing, bridge load-bearing, route of the streets. READ IN FULL 2026-08-11 AND REGRADED 4 -> 2, AND THIS RECORD WAS WRONG ABOUT ITS OWN PAGE — the fifth time that has happened here and the second time the error was in the direction of under-reading. It said 'a later compilation of recollections, unfootnoted'. The page prints one attribution line above its body, 'Chicago Tribune, August 14, 1910', and the article names its witness in its own last paragraph: the description 'was left for coming generations by one who saw it in his youth and who in old age wrote it out', by 'the late Judge John Dean Caton'. Caton reached Chicago in 1833 and was in the town in 1835. So the route this dataset stands on is not a compiler's digest of recollections — it is one identified eyewitness's own written account, printed after his death. That is rung 2 and not rung 1, deliberately: the Tribune neither dates Caton's writing nor prints it as a document, and it glosses him in 1910's voice — 'the \"North Branch bridge\" (which stood where the railroad bridge stands now)' is the newspaper locating the crossing for its readers, not the witness, and no placement here uses it. WHAT IS DELIBERATELY NOT DECLARED is the half below, printed as 'Account of the Last War Dance from an Old Book': it is first-person and it is nearer the event than Caton's paragraph ('immediately opposite our house', 'frightened me dreadfully'), so declaring it could only raise this record's rung, and the page does not name the book. An undeclarable document is apparatus here, and no claim in this dataset rests on it. See docs/RESEARCH/evidence_tiers_round_three.md § 3.",
+  "access_notes": "Site carries no license statement. Textual citation only; no asset may be derived from it.",
+  "transcribes": [
+    {
+      "work": "Chicago Tribune, 'Chicago's Last Great War Dance' — printing the recollection of Judge John Dean Caton, who saw it in his youth and wrote it out in old age",
+      "date": "1910-08-14",
+      "tier": 2,
+      "note": "Carries the one thing this dataset takes: on 18 August 1835 the procession crossed the North Branch bridge on foot in a crowd, then went south along West Water Street past the Green Tree and Wolf's Point taverns to the log raft bridge over the South Branch. That is the bridge standing, the bridge loaded, and the route of two streets, six and a half weeks after the scene date — see data/structures/north_branch_bridge.json. An identified eyewitness's own words at seventy-five years' remove, printed by a newspaper that neither dates nor documents the writing: near-primary recollection, rung 2."
+    }
+  ],
+  "what_it_supplies": [
+    "the North Branch bridge standing and carrying a crowd on 18 August 1835",
+    "the raft bridge over the South Branch standing the same day, and its position relative to the Sauganash",
+    "the route west along the north bank and south along West Water Street past the Green Tree and Wolf's Point taverns"
+  ],
+  "what_it_does_not_supply": [
+    "any dimension, form or material of either bridge — Caton describes crossing them, not building them",
+    "a position for the North Branch bridge: the 'where the railroad bridge stands now' gloss is the 1910 newspaper's, not the witness's, and no placement here uses it",
+    "anything this project may depict of the event itself, which is under the AGENTS.md standing constraint"
+  ]
+}

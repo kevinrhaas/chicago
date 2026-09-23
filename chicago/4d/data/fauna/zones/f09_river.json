@@ -1,0 +1,737 @@
+{
+ "id": "f09_river",
+ "zone": 9,
+ "name": "The river: main stem, forks and branches",
+ "habitat": "river",
+ "dossier": "docs/research/08-fauna.md \u00a7\u00a7 3, 5.5, ZONES 1-2",
+ "scene_date": "1835-07-01",
+ "reads_as": "slack brown water with fish visible in the clear shallows, muskrat wakes at dawn, turtles on every half-sunk log, and a scavenging cluster wherever a carcass has stranded",
+ "in_modelled_extent": true,
+ "extent_from": {
+  "kind": "water",
+  "note": "The water surface of the committed heightfield \u2014 every cell at or below the datum water line. The flora dataset has no counterpart zone because nothing is planted on open water."
+ },
+ "soundscape": {
+  "dawn_chorus": "none",
+  "hero": [
+   "corvus_brachyrhynchos",
+   "anax_junius"
+  ],
+  "note": "The river's July sound is scavengers and insects: crows at carrion, dragonfly wings, and the water itself. Andreas's fish list is the fullest species record for this scene and almost none of it is visible from a bank."
+ },
+ "species": [
+  {
+   "id": "ondatra_zibethicus",
+   "binomial": "Ondatra zibethicus",
+   "common": "muskrat",
+   "class": "mammal",
+   "activity": "crepuscular",
+   "active_periods": [
+    "dawn",
+    "dusk",
+    "night"
+   ],
+   "july": {
+    "status": {
+     "value": "year_round_resident",
+     "confidence": "attested",
+     "sources": [
+      "chicagology_prefire273",
+      "andreas_1884_v1"
+     ],
+     "note": "Trapped at the Public Square pond and hunted with ducks 'in the marshes'; the river margin is the same habitat and the same animals."
+    },
+    "presence": {
+     "value": "visible",
+     "confidence": "attested",
+     "sources": [
+      "chicagology_prefire273"
+     ],
+     "note": "A trapped population is a present population."
+    },
+    "abundance": {
+     "value": "common",
+     "confidence": "inferred",
+     "note": "The signature small mammal of this site; density unrecorded."
+    },
+    "max_group": 3,
+    "vocalization": "silent",
+    "behaviour": "A V-wake crossing the slack water at first and last light; an animal cutting cattail and towing it to a bank feeding platform.",
+    "appearance": "Dark, low in the water, thin flattened tail.",
+    "trace": null
+   },
+   "confidence": "attested",
+   "sources": [
+    "chicagology_prefire273",
+    "andreas_1884_v1"
+   ],
+   "note": "July sign is bank burrows and cut-cattail feeding platforms. Push-ups are a winter structure and must not appear."
+  },
+  {
+   "id": "canis_latrans",
+   "binomial": "Canis latrans",
+   "common": "coyote \u2014 the period 'prairie wolf'",
+   "class": "mammal",
+   "activity": "cathemeral",
+   "active_periods": [
+    "dawn",
+    "day",
+    "dusk",
+    "night"
+   ],
+   "july": {
+    "status": {
+     "value": "year_round_resident",
+     "confidence": "attested",
+     "sources": [
+      "andreas_1884_v1"
+     ],
+     "note": "Andreas p. 1293: 'Wolves were in those days quite numerous; one had the audacity to enter in the day time Wentworth's meat-house, and was by him killed.' The same passage places Wentworth's and Miller's taverns at the Forks with a log bridge over the North Branch \u2014 this happened at Wolf Point itself, inside this zone."
+    },
+    "presence": {
+     "value": "visible_and_audible",
+     "confidence": "attested",
+     "sources": [
+      "andreas_1884_v1"
+     ],
+     "note": "Seen in daylight at a meat-house, and heard howling in daylight from Water Street."
+    },
+    "abundance": {
+     "value": "uncommon",
+     "confidence": "inferred",
+     "note": "One animal at a time on the bank. 'Numerous' in the source is a period judgement about the district, not a density inside the platted grid."
+    },
+    "max_group": 2,
+    "vocalization": "call_only",
+    "behaviour": "A single animal trotting the bank line at dawn, nosing at offal and stranded carrion below the slaughter yards, and moving off when anything approaches.",
+    "appearance": "Buff and grizzled, narrow-muzzled, tail carried low.",
+    "trace": null
+   },
+   "confidence": "attested",
+   "sources": [
+    "andreas_1884_v1"
+   ],
+   "note": "See f01_wet_prairie for the species-identity argument: 'prairie wolf' in 1830s Illinois usage means coyote. The bank-line scavenging is inference from the documented carcass load, not from a record of an animal doing it."
+  },
+  {
+   "id": "neogale_vison",
+   "binomial": "Neogale vison",
+   "common": "American mink",
+   "class": "mammal",
+   "activity": "crepuscular",
+   "active_periods": [
+    "dawn",
+    "dusk",
+    "night"
+   ],
+   "july": {
+    "status": {
+     "value": "year_round_resident",
+     "confidence": "attested",
+     "sources": [
+      "kinzie_waubun_1856"
+     ],
+     "note": "Wau-Bun names 'brown and black mink' among the Chicago furs."
+    },
+    "presence": {
+     "value": "visible",
+     "confidence": "inferred",
+     "note": "A brief sighting along the bank; mink do not linger in the open."
+    },
+    "abundance": {
+     "value": "sparse",
+     "confidence": "inferred",
+     "note": "One animal per long stretch of bank."
+    },
+    "max_group": 1,
+    "vocalization": "silent",
+    "behaviour": "A dark low animal bounding the bank in arches, in and out of the water.",
+    "appearance": "Chocolate-brown, long-bodied, white chin.",
+    "trace": null
+   },
+   "confidence": "attested",
+   "sources": [
+    "kinzie_waubun_1856"
+   ],
+   "note": "See f05_gallery_timber: the Wau-Bun fur list is the record, and it is a trade list of 1831, not an observation of a bank in July 1835."
+  },
+  {
+   "id": "chrysemys_picta",
+   "binomial": "Chrysemys picta",
+   "common": "painted turtle",
+   "class": "reptile",
+   "activity": "diurnal",
+   "active_periods": [
+    "day"
+   ],
+   "july": {
+    "status": {
+     "value": "year_round_resident",
+     "confidence": "inferred",
+     "note": "Modern Chicago-river herp surveys; The dossier's citation for this has no record in data/sources/, so nothing here is graded documented on it."
+    },
+    "presence": {
+     "value": "visible",
+     "confidence": "inferred",
+     "note": "Basking on half-sunk logs and pilings is the animatable behaviour."
+    },
+    "abundance": {
+     "value": "common",
+     "confidence": "inferred",
+     "note": "Habitat reading."
+    },
+    "max_group": 8,
+    "vocalization": "non_vocal",
+    "behaviour": "A row of turtles hauled out on a half-sunk log or a bridge piling, sliding off in sequence as anything approaches.",
+    "appearance": "Smooth dark shell with red edge markings.",
+    "trace": null
+   },
+   "confidence": "inferred",
+   "note": "The turtle assemblage comes from modern Chicago-river surveys with no source record. Basking and July nesting are general biology; the presence here in 1835 is inference."
+  },
+  {
+   "id": "unionidae_spp",
+   "binomial": "Unionidae spp.",
+   "common": "freshwater mussels",
+   "class": "mollusc",
+   "activity": "cathemeral",
+   "active_periods": [
+    "dawn",
+    "day",
+    "dusk",
+    "night"
+   ],
+   "july": {
+    "status": {
+     "value": "year_round_resident",
+     "confidence": "inferred",
+     "note": "Long harvested in the Great Lakes region for food, tools and ornament, and later over-harvested for the pearl-button trade; the dossier's citation is the Shedd Aquarium and The dossier's citation for this has no record in data/sources/, so nothing here is graded documented on it."
+    },
+    "presence": {
+     "value": "trace_only",
+     "confidence": "inferred",
+     "note": "Live beds are on the bottom and invisible from the bank; the visible element is the shell scatter along the shore."
+    },
+    "abundance": {
+     "value": "common",
+     "confidence": "inferred",
+     "note": "Habitat reading; a slow prairie stream with a soft bottom."
+    },
+    "max_group": 0,
+    "vocalization": "non_vocal",
+    "behaviour": "Static: a live bed on the bottom in clear shallows, and shell scatter and old middens on the banks.",
+    "appearance": "Thick brown and cream shells, often half buried.",
+    "trace": "Shell scatter and old shell middens along the banks."
+   },
+   "confidence": "inferred",
+   "note": "Button-cutting is a much later industry and no shell-working of that kind belongs here."
+  },
+  {
+   "id": "esox_lucius",
+   "binomial": "Esox lucius",
+   "common": "northern pike",
+   "class": "fish",
+   "activity": "diurnal",
+   "active_periods": [
+    "dawn",
+    "day",
+    "dusk"
+   ],
+   "july": {
+    "status": {
+     "value": "year_round_resident",
+     "confidence": "inferred",
+     "note": "Andreas p. 1219 lists 'two pikes' among the fishes of the waters adjacent to Chicago. That compilation is 1884 \u2014 AFTER fifty years of degradation \u2014 so it is a conservative FLOOR for 1835, not a ceiling."
+    },
+    "presence": {
+     "value": "visible",
+     "confidence": "inferred",
+     "note": "A long shape holding in weedy shallows, then gone."
+    },
+    "abundance": {
+     "value": "frequent",
+     "confidence": "inferred",
+     "note": "Habitat reading from a slow weedy prairie stream."
+    },
+    "max_group": 2,
+    "vocalization": "non_vocal",
+    "behaviour": "A long dark shape holding motionless in a weedy shallow, then a sudden swirl and a boil at the surface.",
+    "appearance": "Long olive fish with pale bean-shaped spots.",
+    "trace": null
+   },
+   "confidence": "attested",
+   "sources": [
+    "andreas_1884_v1"
+   ],
+   "note": "The species reading is this record's; Andreas gives families and counts, not names."
+  },
+  {
+   "id": "lepomis_spp",
+   "binomial": "Lepomis spp.",
+   "common": "sunfishes",
+   "class": "fish",
+   "activity": "diurnal",
+   "active_periods": [
+    "dawn",
+    "day",
+    "dusk"
+   ],
+   "july": {
+    "status": {
+     "value": "year_round_resident",
+     "confidence": "attested",
+     "sources": [
+      "andreas_1884_v1"
+     ],
+     "note": "Andreas p. 1219 lists eight sunfishes among the fishes adjacent to Chicago \u2014 the largest single group in the list."
+    },
+    "presence": {
+     "value": "visible",
+     "confidence": "inferred",
+     "note": "Visible gliding and darting in clear shallows; the fish a walker actually sees."
+    },
+    "abundance": {
+     "value": "abundant",
+     "confidence": "inferred",
+     "note": "Eight species in the list; abundance is a habitat reading."
+    },
+    "max_group": 20,
+    "vocalization": "non_vocal",
+    "behaviour": "Small fish gliding and darting over sand and weed in the clear shallows; surface dimples where they take insects.",
+    "appearance": "Round-bodied, banded and iridescent in low sun.",
+    "trace": null
+   },
+   "confidence": "attested",
+   "sources": [
+    "andreas_1884_v1"
+   ],
+   "note": "Andreas p. 1219 gives the fullest list of 'the ichthyological specimens that are found in the waters adjacent to Chicago', by family and count. It was compiled in 1884, AFTER fifty years of degradation, so it is a conservative FLOOR for 1835 and not a ceiling. It names no species and no date, so the binomial here is this record's reading of a period family name."
+  },
+  {
+   "id": "catostomidae_spp",
+   "binomial": "Catostomidae spp.",
+   "common": "suckers",
+   "class": "fish",
+   "activity": "cathemeral",
+   "active_periods": [
+    "dawn",
+    "day",
+    "dusk",
+    "night"
+   ],
+   "july": {
+    "status": {
+     "value": "year_round_resident",
+     "confidence": "attested",
+     "sources": [
+      "andreas_1884_v1"
+     ],
+     "note": "Andreas p. 1219: 'seven suckers'."
+    },
+    "presence": {
+     "value": "visible",
+     "confidence": "inferred",
+     "note": "Working the bottom in slow water."
+    },
+    "abundance": {
+     "value": "common",
+     "confidence": "inferred",
+     "note": "Habitat reading."
+    },
+    "max_group": 10,
+    "vocalization": "non_vocal",
+    "behaviour": "Blunt-headed fish working the bottom in slow water, raising small clouds of silt.",
+    "appearance": "Brassy, thick-lipped, bottom-oriented.",
+    "trace": null
+   },
+   "confidence": "attested",
+   "sources": [
+    "andreas_1884_v1"
+   ],
+   "note": "Andreas p. 1219 gives the fullest list of 'the ichthyological specimens that are found in the waters adjacent to Chicago', by family and count. It was compiled in 1884, AFTER fifty years of degradation, so it is a conservative FLOOR for 1835 and not a ceiling. It names no species and no date, so the binomial here is this record's reading of a period family name."
+  },
+  {
+   "id": "ameiurus_spp",
+   "binomial": "Ameiurus spp.",
+   "common": "bullhead catfishes",
+   "class": "fish",
+   "activity": "nocturnal",
+   "active_periods": [
+    "dusk",
+    "night"
+   ],
+   "july": {
+    "status": {
+     "value": "year_round_resident",
+     "confidence": "attested",
+     "sources": [
+      "andreas_1884_v1"
+     ],
+     "note": "Andreas p. 1219: 'three catfishes'."
+    },
+    "presence": {
+     "value": "not_perceptible",
+     "confidence": "inferred",
+     "note": "Bottom-dwelling and nocturnal in turbid water: present, and not visible from the bank at any hour a walker is likely to be there."
+    },
+    "abundance": {
+     "value": "common",
+     "confidence": "inferred",
+     "note": "Habitat reading for a soft-bottomed prairie stream."
+    },
+    "max_group": 0,
+    "vocalization": "non_vocal",
+    "behaviour": "Nothing is drawn.",
+    "appearance": "Not shown.",
+    "trace": null
+   },
+   "confidence": "attested",
+   "sources": [
+    "andreas_1884_v1"
+   ],
+   "note": "Andreas p. 1219 gives the fullest list of 'the ichthyological specimens that are found in the waters adjacent to Chicago', by family and count. It was compiled in 1884, AFTER fifty years of degradation, so it is a conservative FLOOR for 1835 and not a ceiling. It names no species and no date, so the binomial here is this record's reading of a period family name. Recorded although nothing is rendered for it, because a fish list that only holds the fish you can see from a bank is not a fish list."
+  },
+  {
+   "id": "aplodinotus_grunniens",
+   "binomial": "Aplodinotus grunniens",
+   "common": "freshwater drum",
+   "class": "fish",
+   "activity": "cathemeral",
+   "active_periods": [
+    "dawn",
+    "day",
+    "dusk",
+    "night"
+   ],
+   "july": {
+    "status": {
+     "value": "year_round_resident",
+     "confidence": "attested",
+     "sources": [
+      "andreas_1884_v1"
+     ],
+     "note": "Andreas p. 1219 lists 'one maigre' \u2014 the period name for the freshwater drum."
+    },
+    "presence": {
+     "value": "not_perceptible",
+     "confidence": "inferred",
+     "note": "A deep-water bottom fish; not seen from a bank."
+    },
+    "abundance": {
+     "value": "uncommon",
+     "confidence": "inferred",
+     "note": "Habitat reading."
+    },
+    "max_group": 0,
+    "vocalization": "non_vocal",
+    "behaviour": "Nothing is drawn.",
+    "appearance": "Not shown.",
+    "trace": null
+   },
+   "confidence": "attested",
+   "sources": [
+    "andreas_1884_v1"
+   ],
+   "note": "Andreas p. 1219 gives the fullest list of 'the ichthyological specimens that are found in the waters adjacent to Chicago', by family and count. It was compiled in 1884, AFTER fifty years of degradation, so it is a conservative FLOOR for 1835 and not a ceiling. It names no species and no date, so the binomial here is this record's reading of a period family name. 'Maigre' is the period name and the identification as freshwater drum is the dossier's."
+  },
+  {
+   "id": "lota_lota",
+   "binomial": "Lota lota",
+   "common": "burbot",
+   "class": "fish",
+   "activity": "nocturnal",
+   "active_periods": [
+    "night"
+   ],
+   "july": {
+    "status": {
+     "value": "year_round_resident",
+     "confidence": "attested",
+     "sources": [
+      "andreas_1884_v1"
+     ],
+     "note": "Andreas p. 1219 lists 'one cod', which is the burbot \u2014 the only freshwater cod."
+    },
+    "presence": {
+     "value": "not_perceptible",
+     "confidence": "inferred",
+     "note": "A cold-water, deep, nocturnal fish; invisible in a July river."
+    },
+    "abundance": {
+     "value": "rare",
+     "confidence": "inferred",
+     "note": "At the warm edge of its tolerance in a shallow July prairie stream."
+    },
+    "max_group": 0,
+    "vocalization": "non_vocal",
+    "behaviour": "Nothing is drawn.",
+    "appearance": "Not shown.",
+    "trace": null
+   },
+   "confidence": "attested",
+   "sources": [
+    "andreas_1884_v1"
+   ],
+   "note": "Andreas p. 1219 gives the fullest list of 'the ichthyological specimens that are found in the waters adjacent to Chicago', by family and count. It was compiled in 1884, AFTER fifty years of degradation, so it is a conservative FLOOR for 1835 and not a ceiling. It names no species and no date, so the binomial here is this record's reading of a period family name. The burbot is the only freshwater cod, which is what makes 'one cod' identifiable at all."
+  },
+  {
+   "id": "cyprinidae_spp",
+   "binomial": "Cyprinidae spp.",
+   "common": "native minnows",
+   "class": "fish",
+   "activity": "diurnal",
+   "active_periods": [
+    "dawn",
+    "day",
+    "dusk"
+   ],
+   "july": {
+    "status": {
+     "value": "year_round_resident",
+     "confidence": "attested",
+     "sources": [
+      "andreas_1884_v1"
+     ],
+     "note": "Andreas p. 1219: 'twelve carps', which in that compilation means native minnows, not the introduced common carp."
+    },
+    "presence": {
+     "value": "visible",
+     "confidence": "inferred",
+     "note": "Shoals in the shallows are the most animatable fish in the scene."
+    },
+    "abundance": {
+     "value": "abundant",
+     "confidence": "inferred",
+     "note": "Habitat reading."
+    },
+    "max_group": 60,
+    "vocalization": "non_vocal",
+    "behaviour": "Shoals of small fish turning together in clear shallows and scattering from a shadow.",
+    "appearance": "Silver, small, quick.",
+    "trace": null
+   },
+   "confidence": "attested",
+   "sources": [
+    "andreas_1884_v1"
+   ],
+   "note": "NOT Cyprinus carpio. The common carp was not introduced to North America in numbers until the 1870s and must not appear in an 1835 record; the Andreas line is a family count in period usage."
+  },
+  {
+   "id": "ardea_herodias",
+   "binomial": "Ardea herodias",
+   "common": "great blue heron",
+   "class": "bird",
+   "activity": "diurnal",
+   "active_periods": [
+    "dawn",
+    "day",
+    "dusk"
+   ],
+   "july": {
+    "status": {
+     "value": "breeding_resident",
+     "confidence": "inferred",
+     "note": "Herons are named in the regional wet-prairie assemblage."
+    },
+    "presence": {
+     "value": "visible",
+     "confidence": "inferred",
+     "note": "Still-hunting the shallows in the open."
+    },
+    "abundance": {
+     "value": "frequent",
+     "confidence": "inferred",
+     "note": "Singles."
+    },
+    "max_group": 2,
+    "vocalization": "call_only",
+    "behaviour": "A single bird standing motionless in the shallows, striking, then flying off low with a harsh croak.",
+    "appearance": "Tall grey-blue; neck folded in flight.",
+    "trace": null
+   },
+   "confidence": "inferred",
+   "note": "Herons appear in the regional wet-prairie assemblage the dossier quotes from an Illinois DNR publication, which has no source record. The species split between great blue and green heron is this record's."
+  },
+  {
+   "id": "corvus_brachyrhynchos",
+   "binomial": "Corvus brachyrhynchos",
+   "common": "American crow",
+   "class": "bird",
+   "activity": "diurnal",
+   "active_periods": [
+    "dawn",
+    "day",
+    "dusk"
+   ],
+   "july": {
+    "status": {
+     "value": "year_round_resident",
+     "confidence": "inferred",
+     "note": "The dossier places crows and turkey vultures at the slaughter-house offal on the North Branch and at the river's dead-animal dumping; it cites no source for either, so this is inference from the documented waste."
+    },
+    "presence": {
+     "value": "visible_and_audible",
+     "confidence": "inferred",
+     "note": "Loud and obvious at any carcass."
+    },
+    "abundance": {
+     "value": "common",
+     "confidence": "inferred",
+     "note": "Wherever there is offal, which the 1833 ordinance proves there was."
+    },
+    "max_group": 12,
+    "vocalization": "call_only",
+    "behaviour": "Crows at a stranded carcass on the shore, lifting off and resettling, calling continuously; birds working the bank line below the killing yards.",
+    "appearance": "All black, heavy-billed, square-tailed.",
+    "trace": null
+   },
+   "confidence": "inferred",
+   "note": "The 1833 town code prohibited throwing dead animals in the river, which is direct evidence that people did it. The scavengers follow from the waste, not from a record of the birds."
+  },
+  {
+   "id": "cathartes_aura",
+   "binomial": "Cathartes aura",
+   "common": "turkey vulture",
+   "class": "bird",
+   "activity": "diurnal",
+   "active_periods": [
+    "day"
+   ],
+   "july": {
+    "status": {
+     "value": "year_round_resident",
+     "confidence": "inferred",
+     "note": "Inference from the documented carcass load, as for the crow; no Chicago record reached."
+    },
+    "presence": {
+     "value": "visible",
+     "confidence": "inferred",
+     "note": "Circling high over the river and the killing yards; silent."
+    },
+    "abundance": {
+     "value": "uncommon",
+     "confidence": "inferred",
+     "note": "A few birds circling, not a committee on the ground."
+    },
+    "max_group": 4,
+    "vocalization": "silent",
+    "behaviour": "Birds circling high over the river on a shallow dihedral, rocking, and dropping toward the offal ground.",
+    "appearance": "All dark with a small bare red head and silvery flight feathers from below.",
+    "trace": null
+   },
+   "confidence": "inferred",
+   "note": "Vultures are effectively voiceless \u2014 no call belongs to them in any soundscape."
+  },
+  {
+   "id": "calliphoridae_spp",
+   "binomial": "Calliphoridae spp.",
+   "common": "blowflies and flesh flies",
+   "class": "insect",
+   "activity": "diurnal",
+   "active_periods": [
+    "day"
+   ],
+   "july": {
+    "status": {
+     "value": "breeding_resident",
+     "confidence": "inferred",
+     "note": "Follows from the documented waste: the 1833 code forbade throwing dead animals in the river, and the slaughter yards on the branches worked all summer for local consumption."
+    },
+    "presence": {
+     "value": "visible",
+     "confidence": "inferred",
+     "note": "Individually invisible; correct as a shimmering mass over offal and hides, and as the reason every animal in the scene is twitching."
+    },
+    "abundance": {
+     "value": "abundant",
+     "confidence": "inferred",
+     "note": "Maximal in July heat around slaughter waste."
+    },
+    "max_group": 0,
+    "vocalization": "non_vocal",
+    "behaviour": "A dense shimmering cloud over stranded carrion, offal and hides on frames, rising when anything moves through it and resettling.",
+    "appearance": "Metallic blue and green; only the mass reads at any distance.",
+    "trace": null
+   },
+   "confidence": "inferred",
+   "sources": [
+    "chicagology_prefire278"
+   ],
+   "note": "The July river texture the dossier describes is slack water, floating and shore-stranded carcasses, flies, crows, and scavenging dogs and pigs. The ordinance is the evidence for the carcasses; the flies are the inference."
+  },
+  {
+   "id": "anax_junius",
+   "binomial": "Anax junius",
+   "common": "common green darner",
+   "class": "insect",
+   "activity": "diurnal",
+   "active_periods": [
+    "day"
+   ],
+   "july": {
+    "status": {
+     "value": "breeding_resident",
+     "confidence": "inferred",
+     "note": "Breeding along the slow river all summer."
+    },
+    "presence": {
+     "value": "visible",
+     "confidence": "inferred",
+     "note": "Hawking low over the water and perching on reeds."
+    },
+    "abundance": {
+     "value": "abundant",
+     "confidence": "inferred",
+     "note": "Habitat reading."
+    },
+    "max_group": 0,
+    "vocalization": "non_vocal",
+    "behaviour": "Dragonflies hawking back and forth low over the water, holding stations and chasing each other off; damselflies perched on the reed stems.",
+    "appearance": "Green thorax, blue abdomen; the size is what carries.",
+    "trace": null
+   },
+   "confidence": "inferred",
+   "note": "The dossier lists dragonflies and damselflies over the sloughs with no source. The genus is chosen as the commonest large darner of Illinois still water and is not attested here."
+  },
+  {
+   "id": "castor_canadensis",
+   "binomial": "Castor canadensis",
+   "common": "American beaver",
+   "class": "mammal",
+   "activity": "diurnal",
+   "active_periods": [
+    "day"
+   ],
+   "july": {
+    "status": {
+     "value": "absent_extirpated",
+     "confidence": "inferred",
+     "note": "No Chicago-proper 1830s beaver record surfaced, and the regional retrospective places beaver 'particularly in the Calumet region', twelve or more miles south. Statewide the species was becoming rare in Illinois by the mid-1800s. The beaver-hat market had already collapsed to silk by the 1830s, which reduced trapping pressure but did not restore local populations."
+    },
+    "presence": {
+     "value": "absent",
+     "confidence": "inferred",
+     "note": "No Chicago-proper 1830s beaver record surfaced, and the regional retrospective places beaver 'particularly in the Calumet region', twelve or more miles south. Statewide the species was becoming rare in Illinois by the mid-1800s. The beaver-hat market had already collapsed to silk by the 1830s, which reduced trapping pressure but did not restore local populations."
+    },
+    "abundance": {
+     "value": "absent",
+     "confidence": "inferred",
+     "note": "No Chicago-proper 1830s beaver record surfaced, and the regional retrospective places beaver 'particularly in the Calumet region', twelve or more miles south. Statewide the species was becoming rare in Illinois by the mid-1800s. The beaver-hat market had already collapsed to silk by the 1830s, which reduced trapping pressure but did not restore local populations."
+    },
+    "max_group": 0,
+    "vocalization": "silent",
+    "behaviour": "Nothing is placed, drawn or sounded for this species.",
+    "appearance": "Recorded so the absence is a finding rather than an oversight.",
+    "trace": null
+   },
+   "confidence": "inferred",
+   "note": "THE OPERATIVE INSTRUCTION IS ABOUT GEOMETRY, NOT ONLY ANIMATION: no beaver, no lodges, and no beaver-cut stumps at the forks. Wau-Bun does list beaver among the Chicago fur trade's species, which is evidence of a trade REACHING Chicago, not of animals at the forks."
+  }
+ ],
+ "confidence": "attested",
+ "note": "Two documented anchors: Andreas p. 1219's list of the fishes 'found in the waters adjacent to Chicago', compiled in 1884 and therefore a conservative FLOOR for 1835 rather than a ceiling; and the 1833 town code's prohibition on throwing dead animals in the river, which is direct evidence that people were doing it and is the basis for the whole scavenging economy in this zone.",
+ "sources": [
+  "andreas_1884_v1",
+  "chicagology_prefire278"
+ ]
+}

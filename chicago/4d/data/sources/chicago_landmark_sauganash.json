@@ -1,0 +1,14 @@
+{
+  "id": "chicago_landmark_sauganash",
+  "type": "legal",
+  "citation": "City of Chicago, Commission on Chicago Landmarks. \"Site of the Sauganash Hotel/Wigwam.\" Designated 6 November 2002. lanId 1417.",
+  "date": "2002-11-06",
+  "describes_date": "1831-1871",
+  "url": "https://webapps1.chicago.gov/landmarksweb/web/landmarkdetails.htm?lanId=1417",
+  "tier": 4,
+  "rights_status": "public_domain",
+  "asset_use": "cross_check",
+  "verified": false,
+  "note": "Places the Sauganash site at the south-east corner of Lake Street and Wacker Drive (historically Market Street), now 191 N Wacker. Corroborates the Lake and Market location independently of the narrative sources.",
+  "access_notes": "chicago.gov returns 403 to automated fetchers; open in a browser."
+}

@@ -1,0 +1,334 @@
+{
+  "schema": 1,
+  "issue_id": "chicago_american_1835_08_08",
+  "extracted": "2026-08-28",
+  "extracted_by": "hand, T-0261 — the Chicago American read, June to August 1835",
+  "note": "Volume I, Number 10, and the best-set local column since 20 June. Three things the corpus did not have: a physician's office placed ON LAKE STREET, NEAR THE POST OFFICE; a stove and hollow-ware stock, which is the first heating and cooking evidence in the run; and the school of 1835-08-01 revealed as a school FOR YOUNG LADIES, with a fee scale that disagrees with the earlier printing's. The post office's opening hour, cut in every earlier notice, is legible here: six o'clock in the morning.",
+  "claims": [
+    {
+      "id": "c001",
+      "kind": "business",
+      "reading": "transcription_mediated",
+      "quote": "| \" Boranie” MEDICINES:\nDR...W. G. AUST ESPECTFULLY informa the « (Chicago and vicinity, tat ba bas ced the practice of medicine and openec on Lake esrevt, near the Pom Office. ‘D ‘educated in accordance wilh the privelp ‘Old School, bat pracuess pan weystes ally difereol. He subsutiten vogetab inthe tconiment of dioenen in place of preparations, 90 rious 10 ayuem, ‘The vegetable -exaploy Beiently active and powerful in restor te the afBicled, and are destitate of the p injurions effects of morcury and othe!\n‘The vystets upon which Dr. A pra that taught in the reformed medical inst New. York and Ohio, in which the, tse, Die snedibioty te mebde\"aa BACH a cats ence ab the nae of mibarale. Ts has no\nOhieago, Angus 7, 1635",
+      "normalized": "'Botanic' MEDICINES. DR. W. G. AUST[IN] R[E]SPECTFULLY inform[s] the c[itizens of] Chicago and vicinity that h[e] has [commen]ced the practice of medicine and opene[d an office] on Lake s[t]re[et], near the Po[st] Office. [He was] educated in accordance with the pri[nci]p[les of the] Old School, b[u]t pract[i]ses [u]pon [a] system [tot]ally di[ff]ere[nt]. He subs[ti]tut[e]s v[e]getab[le remedies] in the t[r]e[a]tment of di[s]ea[s]e[s] in place of [mineral] preparations, so [inju]rious [t]o [the s]y[st]em. The vegetable[s he] [e]mploy[s are suffi]ciently active and powerful in restor[ing health] to the af[f]l[i]c[t]ed, and are destit[u]te of the p[ernicious and] injurio[u]s effects of mercury and othe[r mineral agents]. The [s]yste[m] upon which Dr. A[ustin] pra[ctises is] that taught in the reformed medical inst[itutions of] New York and Ohio […] Chicago, Augus[t] 7, 18[3]5.",
+      "locator": {
+        "artifact_role": "primary",
+        "issue_page": 3,
+        "column": 5,
+        "lines": [
+          335,
+          341
+        ],
+        "lines_of_claim": [
+          335,
+          336,
+          338,
+          341
+        ],
+        "interleaved": true,
+        "spans": [
+          {
+            "line": 335,
+            "from": 0,
+            "to": 23
+          },
+          {
+            "line": 336,
+            "from": 0,
+            "to": 489
+          },
+          {
+            "line": 338,
+            "from": 0,
+            "to": 191
+          },
+          {
+            "line": 341,
+            "from": 0,
+            "to": 22
+          }
+        ]
+      },
+      "entities": [
+        {
+          "as_printed": "DR...W. G. AUST",
+          "normalized": "W. G. Austin",
+          "role": "proprietor",
+          "occupations": [
+            "physician"
+          ],
+          "associated_places": [
+            "Lake Street"
+          ]
+        }
+      ],
+      "ad_copy_date": {
+        "verbatim": "Ohieago, Angus 7, 1635",
+        "iso": "1835-08-07"
+      },
+      "business": {
+        "name": "Dr. W. G. Austin, botanic physician",
+        "proprietors": [
+          "W. G. Austin"
+        ],
+        "trade": "botanic medicine",
+        "goods": [],
+        "street": "Lake Street",
+        "placement": {
+          "class": "relative",
+          "anchor": "the Post Office",
+          "offset_text": "ced the practice of medicine and openec on Lake esrevt, near the Pom Office.",
+          "offset_normalized": "opene[d an office] on Lake s[t]re[et], near the Po[st] Office",
+          "street": "Lake Street"
+        }
+      },
+      "notes": "A PHYSICIAN'S OFFICE WITH A REAL ADDRESS — 'on Lake street, near the Post Office' — and it puts a useful constraint on the post office at the same time. T-0257's Democrat fixture places J. S. C. Hogan's store 'one [door from] the Post Office' in SOUTH WATER STREET, and 1835-07-04 of this run shows Hogan is the postmaster; this card says the post office is near enough to Lake Street to be a Lake Street anchor. Both can be true where the two streets are close or at a corner between them, and the two together are worth more than either alone. THE MEDICINE IS THE OTHER HALF OF THE CLAIM: a botanic practitioner, Old School trained but practising the reformed New York and Ohio system, advertising vegetable remedies AGAINST mercury by name. Chicago in August 1835 has an allopath (Barnard, at the New York House in Lake Street), a botanic (Austin, in Lake Street), two druggists and a travelling dentist — a medical street, which is a thing a reconstruction can say about a frontage.",
+      "announces_opening": {
+        "verbatim": "h[e] has [commen]ced the practice of medicine and opene[d an office] on Lake s[t]re[et], near the Po[st] Office",
+        "dating": "effected",
+        "iso": "1835-08-07",
+        "note": "The American's printing of the same notice the Democrat carries on 12 August, over the same 7 August 1835 dateline."
+      }
+    },
+    {
+      "id": "c002",
+      "kind": "business",
+      "reading": "transcription_mediated",
+      "quote": "STOVES, HOLLOW WARE,\nCASTINGS. TITRE rabterer_ has just secsined, keep on hand a gene) spd-tiollow ware from the Iron Warks, 0 ‘avorment of essking moves in yen usisting son’, Jampe’s, and Je of the aewaa! improvement, with ampere furniture. Also, coal sioves of several p Fresh, Box, Gores Pinon, Balls pe, com £ of hollow",
+      "normalized": "STOVES, HOLLOW WARE [and] CASTINGS. TH[E] [sub]s[c]r[i]ber has just rec[ei]ved, [and will] keep on hand a gene[ral assortment of stoves] and hollow ware from the […] Iron W[o]rks; [an as]sortment of [coo]king [st]oves in [several patterns], [con]sisting [of uncertain: son's, Jampe's — makers' names this column does not resolve] and […] of the [n]ewe[st] improvement, with [c]omp[l]e[t]e furniture. Also, coal [st]oves of several p[atterns]; Fre[n]ch, Box, [uncertain: Gores Pinon, Balls] […] [an assortment] of hollow [ware].",
+      "locator": {
+        "artifact_role": "primary",
+        "issue_page": 3,
+        "column": 5,
+        "lines": [
+          341,
+          342
+        ],
+        "lines_of_claim": [
+          341,
+          342
+        ],
+        "interleaved": true,
+        "spans": [
+          {
+            "line": 341,
+            "from": 23,
+            "to": 43
+          },
+          {
+            "line": 342,
+            "from": 0,
+            "to": 302
+          }
+        ]
+      },
+      "entities": [],
+      "business": {
+        "name": "a Chicago stove and hollow ware dealer, August 1835",
+        "proprietors": [],
+        "trade": "stoves, hollow ware and castings",
+        "goods": [
+          "Castings",
+          "Coal Stoves",
+          "Cooking Stoves",
+          "Hollow Ware"
+        ],
+        "street": null,
+        "placement": {
+          "class": "none",
+          "anchor": null,
+          "offset_text": null,
+          "offset_normalized": null,
+          "street": null
+        }
+      },
+      "notes": "HOW A CHICAGO HOUSE WAS HEATED AND COOKED IN, in the town's own words and for the first time in this corpus: COOKING STOVES in several patterns 'with complete furniture', COAL STOVES, box stoves, and hollow ware and castings from a named ironworks. That bears directly on this project's chimneys and roof stacks — a town buying cooking stoves is not a town of open hearths only, and the stack question (T-0137) has been argued without any evidence of this kind. THE MAKERS' NAMES AND THE IRONWORKS ARE CUT and are left inside `[uncertain: …]`; so is the seller's signature, which the segmenter has taken entirely, so the business is recorded under an explicit non-name. Dart & Co. advertised castings a fortnight earlier and MAY be the same seller; no attribution is made."
+    },
+    {
+      "id": "c003",
+      "kind": "notice",
+      "reading": "transcription_mediated",
+      "quote": "Mw on permanant fo ‘ouny Ladies, abould ¢ Vncourmgeusht ho offered.\n‘Tho fla ‘Term »'ll commence Mood 10. Persons desiroa) of encouraging mu miiitinn, are requoater Wo Joave thelr ai vias to that day, at the office of Ena, where saliciectory credastinle may”\n‘Veans,—For the ordlinry English 6.00 jr term of vleveu we che.\" For th English branches, 87,00. Fir the Lata, nee ~_Gbicage, Augost 3) 16 =",
+      "normalized": "[… a] permanent [school f]o[r] [Y]oung Ladies, should [sufficient] encour[a]ge[me]nt [b]e offered. The [f]a[ll] Term w[i]ll commence Mo[n]d[ay the] 10[th]. Persons desiro[us] of encouraging [the in]stit[u]tion are requ[e]ste[d] to l[e]ave their [names pre]vio[u]s to that day, at the office of [uncertain: Ena], where sa[t]i[sf]actory cred[ent]i[a]l[s] may [be seen]. TERMS. — For the ordi[na]ry English [branches] $6.00 [pe]r term of eleve[n] we[e]k[s]; for th[e higher] English branches, $7.00; f[o]r the Lat[i]n [and French …] Chicago, Augu[s]t 3[, 18]35.",
+      "locator": {
+        "artifact_role": "primary",
+        "issue_page": 3,
+        "column": 5,
+        "lines": [
+          343,
+          345
+        ],
+        "lines_of_claim": [
+          343,
+          344,
+          345
+        ],
+        "interleaved": true,
+        "spans": [
+          {
+            "line": 343,
+            "from": 0,
+            "to": 67
+          },
+          {
+            "line": 344,
+            "from": 0,
+            "to": 190
+          },
+          {
+            "line": 345,
+            "from": 0,
+            "to": 140
+          }
+        ]
+      },
+      "entities": [],
+      "ad_copy_date": {
+        "verbatim": "Gbicage, Augost 3) 16 =",
+        "iso": "1835-08-03"
+      },
+      "notes": "THE SCHOOL OF 1835-08-01 IS A SCHOOL FOR YOUNG LADIES, and it does not exist yet as a permanent one: it will become permanent 'should sufficient encouragement be offered', and prospective subscribers are to leave their names before the fall term opens on Monday the 10th. So on the scene date Chicago has fee-paying schooling being organised, and no school building of any kind documented. THE FEES DISAGREE WITH THE EARLIER PRINTING and this claim does not reconcile them: 1835-08-01 reads '81100' and '88,00' where this one reads '6.00' and '87,00'. $6.00 and $7.00 for the ordinary and higher English branches are internally consistent with each other and with a Latin-and-French rate above them; the earlier printing's figures are single-pass OCR of the same advertisement and are the ones to distrust. Both quotes stand as printed."
+    },
+    {
+      "id": "c004",
+      "kind": "infrastructure",
+      "reading": "transcription_mediated",
+      "quote": "Post Office. WF The Past Office will be ope fut iho OF Lettars fram Ga'clock, A. AE, win} J\nSager’ Mai rervale sents Basing the office, ut wlbbe- Lepr opsuay ay distiation, Gn Bundays, in cuse rirats, it willbe kept open one hour ny ey distelbutioa,\nN. B. Postage for Letrars runt be paid 2D rhévealter no eredst Will bd given,\nmit 8. C, HOGAN, Post: 3",
+      "normalized": "Post Office. The Po[s]t Office will be ope[n for the delivery] of Letters from [6] o'clock A.M. […] [in case of] Mai[l a]r[ri]v[a]l[s …] [after clo]sing the office, [i]t will be kept op[en for] [a]ny distri[bu]tion. [O]n [S]undays, in ca[s]e [of ar]riva[l]s, it will be kept open one hour […] [for] distributio[n]. N. B. Postage for Le[t]t[e]rs [m]u[s]t be paid [and] th[e]r[e]after no cred[i]t will b[e] given. […] [J.] S. C. HOGAN, Post[master].",
+      "locator": {
+        "artifact_role": "primary",
+        "issue_page": 3,
+        "column": 4,
+        "lines": [
+          312,
+          316
+        ],
+        "lines_of_claim": [
+          312,
+          313,
+          314,
+          316
+        ],
+        "interleaved": true,
+        "spans": [
+          {
+            "line": 312,
+            "from": 0,
+            "to": 91
+          },
+          {
+            "line": 313,
+            "from": 0,
+            "to": 157
+          },
+          {
+            "line": 314,
+            "from": 0,
+            "to": 77
+          },
+          {
+            "line": 316,
+            "from": 0,
+            "to": 24
+          }
+        ]
+      },
+      "entities": [],
+      "notes": "SIX O'CLOCK IN THE MORNING — the post office's opening hour, cut out of both earlier printings of this notice (1835-07-04 and 07-11) and legible here. A town office open from six, kept open after hours whenever a mail comes in, and opening on Sundays too: that is the rhythm of the building, and it is the kind of detail that tells a reconstruction when its streets were busy. The same notice has now run in four consecutive issues over five weeks, each time damaged in a different place, and between them the whole of it is recovered."
+    },
+    {
+      "id": "c005",
+      "kind": "shipping",
+      "reading": "transcription_mediated",
+      "quote": "y 31 Behr Lewellyn, Hose, the St, 30 g-3 Lebr Now York, Neleon, trum Bull 12 Schr Ilineia, Paciesey, Secketo [las\n44 Schr Puillina, Drusiau, fm Kalaron\n15 Bs tag lon. fb Nebr Vita, for Milwak G sehr Lewin, dee”\nBehr Sew York, for Buffalo\nSehr Hineis, do\nBehr Philips, Kelenasen",
+      "normalized": "[Jul]y 31. Sch[r] Lewellyn, Ho[w]e, [from] St. Jo[seph]. [August] 3. [Sc]hr New York, Ne[l]son, [f]r[o]m Buf[falo]. […] Schr Illin[o]is, Pa[ck?]e[r], [from] Sacket[t's Harbor]. […] [Aug. 4?] Schr Ph[i]l[ip]s, Drusia[n], f[ro]m Kala[maz]o[o]. […] Sch[r] Vi[s]ta, for Milwak[ee]; Schr Lew[is], &c.; Sch[r] [N]ew York, for Buffalo; Sch[r] Illinois, do.; Sch[r] Philips, [for] K[a]l[a]ma[zoo].",
+      "locator": {
+        "artifact_role": "primary",
+        "issue_page": 3,
+        "column": 4,
+        "lines": [
+          317,
+          323
+        ],
+        "lines_of_claim": [
+          317,
+          318,
+          320,
+          321,
+          322,
+          323
+        ],
+        "interleaved": true,
+        "spans": [
+          {
+            "line": 317,
+            "from": 0,
+            "to": 113
+          },
+          {
+            "line": 318,
+            "from": 0,
+            "to": 37
+          },
+          {
+            "line": 320,
+            "from": 0,
+            "to": 58
+          },
+          {
+            "line": 321,
+            "from": 0,
+            "to": 26
+          },
+          {
+            "line": 322,
+            "from": 0,
+            "to": 15
+          },
+          {
+            "line": 323,
+            "from": 0,
+            "to": 23
+          }
+        ]
+      },
+      "entities": [],
+      "notes": "THE FIRST WEEK OF AUGUST IN THE PORT, and two ports appear that the earlier columns never named: SACKETT'S HARBOR at the far end of Lake Ontario, and KALAMAZOO. With Milwaukee, Buffalo, St. Joseph, Green Bay, Detroit, Root River and Michigan City from the previous columns, the American's shipping list now gives this project eight named ports in regular contact with the Chicago river in the summer of 1835 — which is the trading world the town's wharves actually served, stated rather than assumed."
+    },
+    {
+      "id": "c006",
+      "kind": "price",
+      "reading": "transcription_mediated",
+      "quote": "young byson Tee ‘30 hbde. Bt. Croix,\nHALE Pip OF se) B pes Aan prow!: iss re Gree» nd. 16 darrian: Anwrican Ursndy, b good 12 do” BL Croix Rem. 2 ge, ete gly Gi, 4 Pipes the old pine apple Gia, a 25 bunbela Dried Aj en ba",
+      "normalized": "[… ] young [H]yson Tea; 30 h[h]d[s]. St. Croix [Rum …] HAL[F] Pip[es] of […] [ni]ce […] G[in?]; 16 [barrels?] American Br[a]ndy, […] good; 12 do. St. Croix R[u]m; […] [Holland] Gin; 4 Pipes the old pine apple Gin; 25 bu[s]hels Dried A[pples …]",
+      "locator": {
+        "artifact_role": "primary",
+        "issue_page": 3,
+        "column": 5,
+        "lines": [
+          332,
+          346
+        ],
+        "lines_of_claim": [
+          332,
+          346
+        ],
+        "interleaved": true,
+        "spans": [
+          {
+            "line": 332,
+            "from": 0,
+            "to": 36
+          },
+          {
+            "line": 346,
+            "from": 0,
+            "to": 184
+          }
+        ]
+      },
+      "entities": [],
+      "notes": "A WHOLESALE SPIRITS AND GROCERY STOCK BY THE CASK, in quantities that say what a Chicago storehouse held: thirty hogsheads of St. Croix rum, sixteen of American brandy, twelve more of rum, four pipes of pine-apple gin and twenty-five bushels of dried apples, with young Hyson tea alongside. Recorded as `price` rather than `business` because no seller survives in either span — the signatures at the foot of both lists are taken by the segmenter — so this documents the TRADE and not a firm. Consistent with the Harmon, Loomis stock lists of June and with Hubbard & Co.'s provisions in July: the town's wholesale trade is spirits, groceries and provisions in bulk, arriving by lake and going out to the country."
+    }
+  ]
+}

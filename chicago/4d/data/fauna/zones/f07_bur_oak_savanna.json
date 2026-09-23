@@ -1,0 +1,350 @@
+{
+ "id": "f07_bur_oak_savanna",
+ "zone": 7,
+ "name": "Bur oak savanna \u2014 the grove up the South Branch",
+ "habitat": "bur_oak_savanna",
+ "dossier": "docs/research/08-fauna.md \u00a7 2.6",
+ "scene_date": "1835-07-01",
+ "reads_as": "open-grown oaks over grass, with woodpeckers on the dead limbs and buntings singing from the tops through the middle of a hot day",
+ "in_modelled_extent": false,
+ "extent_from": {
+  "flora_zone": "z07_bur_oak_savanna"
+ },
+ "soundscape": {
+  "dawn_chorus": "reduced",
+  "hero": [
+   "passerina_cyanea",
+   "melanerpes_erythrocephalus"
+  ],
+  "note": "Savanna is the one habitat whose July bird voice is genuinely led by song rather than by calls, because indigo buntings sing straight through July and into August. Everything else here is calling, drumming or silent."
+ },
+ "species": [
+  {
+   "id": "melanerpes_erythrocephalus",
+   "binomial": "Melanerpes erythrocephalus",
+   "common": "red-headed woodpecker",
+   "class": "bird",
+   "activity": "diurnal",
+   "active_periods": [
+    "dawn",
+    "day"
+   ],
+   "july": {
+    "status": {
+     "value": "breeding_resident",
+     "confidence": "inferred",
+     "note": "Open-grown oaks with standing dead limbs are this bird's habitat; see the north-timber record for what the cited page actually says."
+    },
+    "presence": {
+     "value": "visible_and_audible",
+     "confidence": "inferred",
+     "note": "Conspicuous on open snags."
+    },
+    "abundance": {
+     "value": "common",
+     "confidence": "inferred",
+     "note": "Savanna is the species' optimum, so it should be commoner here than in closed timber."
+    },
+    "max_group": 3,
+    "vocalization": "call_only",
+    "behaviour": "Birds sallying after insects from the dead limbs of open-grown bur oaks and returning to the same perch; a harsh churr and short drumming bursts.",
+    "appearance": "Crimson head, black back, big white wing patches.",
+    "trace": null
+   },
+   "confidence": "inferred",
+   "sources": [
+    "fpdcc_ecosystems"
+   ],
+   "note": "See f06_north_timber for the correction: the Forest Preserves page names this bird among Cook County species requiring wild habitat, and does NOT name it as a savanna indicator as the dossier states."
+  },
+  {
+   "id": "colaptes_auratus",
+   "binomial": "Colaptes auratus",
+   "common": "northern flicker",
+   "class": "bird",
+   "activity": "diurnal",
+   "active_periods": [
+    "dawn",
+    "day"
+   ],
+   "july": {
+    "status": {
+     "value": "breeding_resident",
+     "confidence": "inferred",
+     "note": "Open oak ground with ant nests is flicker habitat."
+    },
+    "presence": {
+     "value": "visible_and_audible",
+     "confidence": "inferred",
+     "note": "Feeds on the ground in the open."
+    },
+    "abundance": {
+     "value": "common",
+     "confidence": "inferred",
+     "note": "Habitat reading."
+    },
+    "max_group": 2,
+    "vocalization": "call_only",
+    "behaviour": "A woodpecker on the ground at an ant nest between the oaks, flushing with a white rump flash.",
+    "appearance": "Brown barred back, black bib, white rump.",
+    "trace": null
+   },
+   "confidence": "inferred",
+   "note": "Habitat inference from open oak ground; no Chicago bird record of this period exists."
+  },
+  {
+   "id": "passerina_cyanea",
+   "binomial": "Passerina cyanea",
+   "common": "indigo bunting",
+   "class": "bird",
+   "activity": "diurnal",
+   "active_periods": [
+    "dawn",
+    "day",
+    "dusk"
+   ],
+   "july": {
+    "status": {
+     "value": "breeding_resident",
+     "confidence": "inferred",
+     "note": "A bird of savanna and timber edge in the dossier's defensible July list; regional inference, since no 1830s Chicago bird list survives."
+    },
+    "presence": {
+     "value": "visible_and_audible",
+     "confidence": "inferred",
+     "note": "Sings from the highest exposed twig, in the open."
+    },
+    "abundance": {
+     "value": "common",
+     "confidence": "inferred",
+     "note": "Habitat reading; edge and opening specialist."
+    },
+    "max_group": 2,
+    "vocalization": "song_full",
+    "behaviour": "A small dark-blue bird singing from the topmost twig of an open-grown oak through the middle of a hot day.",
+    "appearance": "The male looks black except in direct sun, when it is hard blue.",
+    "trace": null
+   },
+   "confidence": "inferred",
+   "note": "THE POSITIVE HALF OF THE JULY SONG GATE. Indigo buntings sing straight through July and into August, later than almost anything else, so recording this species silent on 1 July would be as wrong as recording an oriole in full song."
+  },
+  {
+   "id": "pipilo_erythrophthalmus",
+   "binomial": "Pipilo erythrophthalmus",
+   "common": "eastern towhee",
+   "class": "bird",
+   "activity": "diurnal",
+   "active_periods": [
+    "dawn",
+    "day"
+   ],
+   "july": {
+    "status": {
+     "value": "breeding_resident",
+     "confidence": "inferred",
+     "note": "Brushy savanna understorey; regional inference."
+    },
+    "presence": {
+     "value": "audible",
+     "confidence": "inferred",
+     "note": "Scratching in leaf litter under cover, heard before seen."
+    },
+    "abundance": {
+     "value": "frequent",
+     "confidence": "inferred",
+     "note": "Habitat reading."
+    },
+    "max_group": 2,
+    "vocalization": "song_reduced",
+    "behaviour": "Sound mostly: a loud double-scratch in dry leaf litter under the shrub layer, and an occasional drink-your-tea from cover.",
+    "appearance": "Black hood, rufous sides, white belly; white tail corners on the flush.",
+    "trace": null
+   },
+   "confidence": "inferred",
+   "note": "Towhee song falls away through July; the chewink call persists."
+  },
+  {
+   "id": "toxostoma_rufum",
+   "binomial": "Toxostoma rufum",
+   "common": "brown thrasher",
+   "class": "bird",
+   "activity": "diurnal",
+   "active_periods": [
+    "dawn",
+    "day"
+   ],
+   "july": {
+    "status": {
+     "value": "breeding_resident",
+     "confidence": "inferred",
+     "note": "Savanna shrub layer and thicket; regional inference."
+    },
+    "presence": {
+     "value": "visible",
+     "confidence": "inferred",
+     "note": "Feeds on the ground in the open between shrubs."
+    },
+    "abundance": {
+     "value": "uncommon",
+     "confidence": "inferred",
+     "note": "Habitat reading."
+    },
+    "max_group": 1,
+    "vocalization": "call_only",
+    "behaviour": "A long rusty bird thrashing leaf litter with sideways sweeps of the bill, then diving into a thicket with a loud smack call.",
+    "appearance": "Rufous above, heavily streaked below, long tail, yellow eye.",
+    "trace": null
+   },
+   "confidence": "inferred",
+   "note": "THE JULY GATE ON THIS SPECIES IS THE SONG. Thrasher song is an April to June performance and is essentially finished by 1 July \u2014 recording one in full doubled phrase song would date the scene to spring."
+  },
+  {
+   "id": "tyrannus_tyrannus",
+   "binomial": "Tyrannus tyrannus",
+   "common": "eastern kingbird",
+   "class": "bird",
+   "activity": "diurnal",
+   "active_periods": [
+    "day"
+   ],
+   "july": {
+    "status": {
+     "value": "breeding_resident",
+     "confidence": "inferred",
+     "note": "Savanna with open-grown trees is prime kingbird habitat."
+    },
+    "presence": {
+     "value": "visible_and_audible",
+     "confidence": "inferred",
+     "note": "Hunts from exposed perches over open ground."
+    },
+    "abundance": {
+     "value": "common",
+     "confidence": "inferred",
+     "note": "Habitat reading."
+    },
+    "max_group": 3,
+    "vocalization": "call_only",
+    "behaviour": "Birds sallying from open perches after insects, and chasing a crow clean out of the grove.",
+    "appearance": "Black above, white below, white tail band.",
+    "trace": null
+   },
+   "confidence": "inferred",
+   "note": "Habitat inference from open-grown trees over grass; no Chicago record."
+  },
+  {
+   "id": "odocoileus_virginianus",
+   "binomial": "Odocoileus virginianus",
+   "common": "white-tailed deer",
+   "class": "mammal",
+   "activity": "crepuscular",
+   "active_periods": [
+    "dawn",
+    "dusk",
+    "night"
+   ],
+   "july": {
+    "status": {
+     "value": "year_round_resident",
+     "confidence": "attested",
+     "sources": [
+      "andreas_1884_v1"
+     ],
+     "note": "Andreas's deer-skin trade lines; see f06_north_timber for the dating caveat."
+    },
+    "presence": {
+     "value": "visible",
+     "confidence": "inferred",
+     "note": "Feeding between the open-grown oaks at first and last light."
+    },
+    "abundance": {
+     "value": "uncommon",
+     "confidence": "inferred",
+     "note": "Grove and edge, not the open prairie."
+    },
+    "max_group": 4,
+    "vocalization": "silent",
+    "behaviour": "Does with spotted fawns feeding out between the open oaks at dusk; bucks in velvet in cover.",
+    "appearance": "Red summer coat, velvet antlers, spotted fawns.",
+    "trace": null
+   },
+   "confidence": "attested",
+   "sources": [
+    "andreas_1884_v1"
+   ],
+   "note": "See f06_north_timber. The Andreas deer-skin trade lines are undated in the dossier's extraction, so they document the animal and the trade, not the year; the July antler and fawn state is general biology."
+  },
+  {
+   "id": "megatibicen_dorsatus",
+   "binomial": "Megatibicen dorsatus",
+   "common": "prairie cicada",
+   "class": "insect",
+   "activity": "diurnal",
+   "active_periods": [
+    "day"
+   ],
+   "july": {
+    "status": {
+     "value": "breeding_resident",
+     "confidence": "inferred",
+     "note": "Mid-summer emergence in original prairie and savanna."
+    },
+    "presence": {
+     "value": "audible",
+     "confidence": "inferred",
+     "note": "Sound only."
+    },
+    "abundance": {
+     "value": "common",
+     "confidence": "inferred",
+     "note": "Habitat reading."
+    },
+    "max_group": 0,
+    "vocalization": "chorus",
+    "behaviour": "Sound only: a low dry buzzing song from the grass between the oaks through the heat of the day.",
+    "appearance": "Not shown.",
+    "trace": null
+   },
+   "confidence": "inferred",
+   "note": "See f01_wet_prairie: the timbre of this sound is not recoverable, because the habitat was destroyed before anyone recorded it."
+  },
+  {
+   "id": "sciurus_niger",
+   "binomial": "Sciurus niger",
+   "common": "fox squirrel",
+   "class": "mammal",
+   "activity": "diurnal",
+   "active_periods": [
+    "dawn",
+    "day",
+    "dusk"
+   ],
+   "july": {
+    "status": {
+     "value": "year_round_resident",
+     "confidence": "inferred",
+     "note": "Regional list; The dossier's citation for this has no record in data/sources/, so nothing here is graded documented on it."
+    },
+    "presence": {
+     "value": "visible_and_audible",
+     "confidence": "inferred",
+     "note": "Open-grown oaks are the fox squirrel's optimum."
+    },
+    "abundance": {
+     "value": "common",
+     "confidence": "inferred",
+     "note": "Habitat reading."
+    },
+    "max_group": 3,
+    "vocalization": "call_only",
+    "behaviour": "Squirrels crossing the open ground between widely spaced oaks and running the limbs; harsh scolding chatter.",
+    "appearance": "Large, rusty-bellied, heavy-tailed.",
+    "trace": null
+   },
+   "confidence": "inferred",
+   "note": "'Western fox squirrel' is in the regional retrospective, which has no source record. Andreas full-text searches for 'squirrels' returned nothing, and the dossier warns that this scan's index is lossy enough that 'not found' is not 'not present'."
+  }
+ ],
+ "confidence": "inferred",
+ "note": "This zone inherits flora zone z07_bur_oak_savanna, the grove up the South Branch at Hardscrabble, about 5.6 km SSW of the forks and far outside the modelled heightfield \u2014 the flora record marks it not plantable for exactly that reason, and this record reads that answer rather than restating it. Nothing here is placed in the 1835 scene; the record exists because the dataset, not the render, is the durable artifact."
+}

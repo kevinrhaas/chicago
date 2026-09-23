@@ -1,0 +1,261 @@
+{
+  "id": "fort_dearborn_commandants_quarters",
+  "phase": "brick_1816",
+  "name": "Fort Dearborn — commandant's quarters",
+  "aka": [
+    "the brick building",
+    "commanding officer's quarters",
+    "A on the 1855 key"
+  ],
+  "archetype": "fort_structure",
+  "asset": "gltf/fort_dearborn_commandants_quarters__brick_1816.glb",
+  "scene": "1835",
+  "target_date": "1835-07-01",
+  "documented_range": {
+    "from": "1816-07-01",
+    "to": "1856-08-31",
+    "confidence": "inferred",
+    "sources": [
+      "andreas_1884_v1",
+      "wentworth_1881_fort_dearborn",
+      "harrison_1830_river_mouth"
+    ],
+    "note": "THE RANGE IS THE FORT'S, NOT THIS BUILDING'S. No source reached dates any individual building inside Fort Dearborn. It opens with the rebuild of 1816 (Andreas; Wentworth quoting the Adjutant-General, 'the post was reoccupied about June, 1816 ... Nothing is on file respecting the rebuilding of the Fort') and closes with the demolition of the fort's principal structures in the summer of 1856 (Andreas). What carries the scene date is the middle: this building is drawn standing on the 1830 plan and described standing in Hubbard's 1827 walk round the inside, and the post was garrisoned continuously from June 1832 to 29 December 1836."
+  },
+  "change_note": "",
+  "placement": {
+    "local_e": 1149.02,
+    "local_n": 244.98,
+    "rotation_deg": 188.0,
+    "position_confidence": "inferred",
+    "position_sources": [
+      "harrison_1830_river_mouth",
+      "wright_1834",
+      "andreas_1884_v1"
+    ],
+    "position_note": "READ OFF THE 1830 HARRISON PLAN. Position in pixels on the plate Andreas reproduces at vol. 1 p. 113, scaled at 1.10 ft per pixel (the scale derivation is on fort_dearborn_palisade and in docs/RESEARCH/fort_dearborn.md section 3), rotated to the sheet's true-north arrow, and hung on the fort centre at local E +1152, N +221. Carry +/-20 percent on the offset from the fort centre and +/-20 m on the fort itself. The facade bearing is the fort's 8-degree rotation plus the side of the parade this building faces, because every range in this fort fronts the parade. Hubbard puts it exactly here in 1827: 'the brick building, just within the north stockade previously occupied by the commanding officers'. The 1830 plan draws a range against the north wall, west of the break in it, and that range is what this record measures.",
+    "symbolic_location": "Inside the north wall of Fort Dearborn, west of the north gate, fronting south onto the parade.",
+    "uncertainty_m": 20,
+    "placement_provisional": false,
+    "vertical_anchor": "terrain",
+    "walk_surface_m": null
+  },
+  "footprint": {
+    "polygon": [
+      [
+        0,
+        0
+      ],
+      [
+        15.24,
+        0
+      ],
+      [
+        15.24,
+        7.62
+      ],
+      [
+        0,
+        7.62
+      ]
+    ],
+    "confidence": "attested",
+    "sources": [
+      "wentworth_1881_fort_dearborn",
+      "harrison_1830_river_mouth"
+    ],
+    "note": "THE ONLY BUILDING IN THIS FORT WHOSE SIZE A SOURCE STATES. The key to Alexander Hesler's 1855 photograph, printed in Wentworth's 1881 address: 'the Commandant's Quarters, A (brick, about 25x50 ft.)'. 25 x 50 ft is 7.62 x 15.24 m, recorded converted with the original figures stated, per data/datum.json's units rule. IT IS ALSO THE CALIBRATION FOR EVERY OTHER DIMENSION IN THIS COMPLEX, which is worth stating plainly because it makes one number load-bearing far beyond its own building: the 1830 plan draws this range 48 pixels long, and setting 48 px = 50 ft is where the 1.10 ft/px scale comes from. The check that the calibration is not circular is the plate's own aspect - the drawn range is 1.9 times as long as it is deep against the key's stated 2.0 - and the parade width falling out at 71 ft against the same key's 80. THE DATE IS THE WEAKNESS: 'about 25x50' is a caption to a photograph taken twenty years after the scene date, and it is graded documented because it is a stated measurement of this building, not because 1855 is close to 1835."
+  },
+  "attributes": {
+    "kind": {
+      "value": "quarters",
+      "confidence": "attested",
+      "sources": [
+        "andreas_1884_v1",
+        "wentworth_1881_fort_dearborn"
+      ],
+      "note": "Hubbard 1827 has the commanding officers living in it; the 1855 key names it the Commandant's Quarters. Andreas's summary of the rebuilt fort lists 'quarters for the officers' among what the stockade enclosed."
+    },
+    "construction": {
+      "value": "brick",
+      "confidence": "attested",
+      "sources": [
+        "andreas_1884_v1",
+        "wentworth_1881_fort_dearborn"
+      ],
+      "note": "Two independent statements twenty-eight years apart. Hubbard, 1827: 'the brick building, just within the north stockade'. The 1855 key: '(brick, about 25x50 ft.)'. THIS MATTERS BEYOND THIS BUILDING: docs/research/04-structures-south.md section 11 says there was 'no brick building of consequence yet on the south side' in 1835 and excepts the fort - correctly, and this is the building it means."
+    },
+    "stories": {
+      "value": 2,
+      "confidence": "inferred",
+      "note": "Not stated. A 50 x 25 ft brick building housing the commanding officer of a two-company post, standing tall enough to be one of the 'two of the principal buildings of the Fort' identified in a photograph taken from across the river, is two storeys by type. The inference is from the building's size and its prominence, not from a statement."
+    },
+    "wall_height_m": {
+      "value": 5.4,
+      "confidence": "inferred",
+      "note": "No height is attested for any building in this fort. 5.4 m is two storeys at about nine feet of interior height each plus floor structure, which is the ordinary figure for officers' quarters of this class. What is inferred is that the wall falls in this range, not that it is exactly 5.4 m."
+    },
+    "roof_type": {
+      "value": "gable",
+      "confidence": "inferred",
+      "note": "Not attested. Gable is the near-universal roof form for a rectangular range of this period, and it is what the building silhouetted in the 1855 photograph reads as. Inferred from type."
+    },
+    "roof_pitch_deg": {
+      "value": 34.0,
+      "confidence": "inferred",
+      "note": "No pitch is attested for any building in this fort. 34 degrees is the archetype's mid-range for a shingled or riven-shake roof of this period and span, and it is inferred from construction practice rather than measured."
+    },
+    "chimneys": {
+      "value": 2,
+      "confidence": "inferred",
+      "sources": [
+        "wentworth_1881_fort_dearborn"
+      ],
+      "note": "The 1855 caption mentions the building's chimneys in passing while locating the ferry landing - 'under the west chimney of the Commandant's quarters' - which attests at least two by implying a west one and an east one. Two is the ordinary number for a double-pile range of this size in any case. WHERE they stood, how big they were and what they were made of are the archetype's, which is the standing admission in docs/LIBERTIES.md."
+    },
+    "paint": {
+      "value": "brick",
+      "confidence": "inferred",
+      "note": "Bare brick. Nothing says this building was rendered, painted or whitewashed; the whitewash in the sources belongs to the board fence of the 1850s compound and to John H. Kinzie's boyhood memory of the FIRST fort's blockhouses."
+    },
+    "function": {
+      "value": "commanding officer's quarters",
+      "confidence": "attested",
+      "sources": [
+        "andreas_1884_v1",
+        "wentworth_1881_fort_dearborn"
+      ],
+      "note": "Occupied by the commanding officer of the post; on 1835-07-01 that is Maj. John Greene, 5th Infantry (see fort_dearborn_palisade's occupants block). In 1827, with the post ungarrisoned, Dr. Alexander Wolcott the Indian Agent was living in it - which is Hubbard's reason for mentioning it at all."
+    },
+    "land_owner": {
+      "value": "The ground was entered by John Baptist Baubian, 28 May 1835",
+      "confidence": "reconstructed",
+      "sources": [
+        "isa_public_domain_land_tract_sales"
+      ],
+      "note": "THE UNITED STATES RESERVATION. This is the same tract L108 already derives for `1835_no_build_ground.json` — from G1, Madison's line and the traced waterline — so the polygon is inherited rather than built again, and `check.sh` already re-derives it. The register's own row is the second, independent witness to the date L108 quotes from Andreas: Beaubien's pre-emption, 28 May 1835, five weeks before the scene date. The derived polygon is short of the documented 75.69 acres for the reasons L108 states, and is a floor rather than the reservation. WHETHER THE ENTRY HELD IS NOT READ HERE: it was disputed, and this row records the entry the register carries and nothing about its outcome. THE MARGIN IS ONLY 16 m, which is inside the working horizontal uncertainty of the georeference (about 20 m) doubled, so the grade drops a tier: the tract is right if the constructed line is, and nothing here proves the line to better than that. WHAT THIS ROW CLAIMS AND WHAT IT DOES NOT. It claims that the tract the Illinois State Archives' land-sale register describes contains this structure's committed position — the patent for this ground was ENTERED by this man on this date. It does not claim he still held the ground on 1 July 1835, that he lived here, or that he ever stood on it: a sale is a transaction, and the register's only column about residence names a county. THE SECTION LINES ARE CONSTRUCTED, NOT TRACED (L219): the grid is carried from the single PLSS corner at State & Madison, on the plat's own east-west bearing, in nominal one-mile squares."
+    }
+  },
+  "residents": [
+    {
+      "household": "hh_greene_john",
+      "name": "The commandant's household",
+      "division": "fort",
+      "relation": "lived here",
+      "why": "The commanding officer's quarters are a building in this dataset and he was the commanding officer. This is the one lives_at link in the parcel that is true by definition of the building rather than by evidence about the man.",
+      "sources": [
+        "andreas_1884_v1",
+        "drloih_fort_dearborn"
+      ],
+      "basis": "",
+      "persons": [
+        {
+          "name": "Major John Greene",
+          "relationship": "head",
+          "grade": "attested",
+          "occupation": "army_officer",
+          "note": "THE MAN IN COMMAND ON THE SCENE DATE, on a tour that starts eighteen months before it and ends ten weeks after it. Three separately written accounts agree the fort was garrisoned through 1835, and the post surgeon's prescription book carries an entry dated 15 March 1835."
+        }
+      ],
+      "research_note": "THE FORT AS A HOUSEHOLD, WHICH IT WAS NOT - and the record says so rather than pretending. A garrison is not a family; it is a command with a strength, and this record names the one man the sources put at the head of it on 1 July 1835. THE ENLISTED MEN ARE DELIBERATELY NOT WRITTEN. data/structures/fort_dearborn_barracks.json records 'enlisted men of the 5th Infantry garrison' as its occupants and that is where they stay until a muster roll enters data/sources/. Inventing a company of privates would inflate the documented count with people no source names, which is precisely the error the grade vocabulary exists to make impossible."
+    }
+  ],
+  "citations": [
+    {
+      "source_id": "andreas_1884_v1",
+      "citation": "Andreas, A. T. History of Chicago: From the Earliest Period to the Present Time. Vol. 1. Chicago: A. T. Andreas, 1884.",
+      "url": "https://archive.org/details/historyofchicago01andr",
+      "archived_url": "",
+      "tier": 3,
+      "tier_label": "compiled secondary (Andreas)"
+    },
+    {
+      "source_id": "drloih_fort_dearborn",
+      "citation": "\"The Complete History of the First and Second Fort Dearborn in Chicago.\" Digital Research Library of Illinois History Journal, June 2018.",
+      "url": "https://drloihjournal.blogspot.com/2018/06/history-of-the-first-and-second-fort-dearborn-in-Chicago.html",
+      "archived_url": "http://web.archive.org/web/20260801093006/https://drloihjournal.blogspot.com/2018/06/history-of-the-first-and-second-fort-dearborn-in-Chicago.html",
+      "tier": 4,
+      "tier_label": "later scholarship",
+      "what_it_supplies": [
+        "the commandants of the second fort with dates, 1832-1836",
+        "the date of the final evacuation, 29 December 1836"
+      ],
+      "what_it_does_not_supply": [
+        "any independent architectural evidence for the second fort",
+        "footnotes"
+      ]
+    },
+    {
+      "source_id": "harrison_1830_river_mouth",
+      "citation": "Harrison, F., Jr., Ass't U.S. Civil Engineer. \"Map of the Mouth of Chicago River, drawn for the Purpose of showing the proposed Harbor Improvements. With additions and changes suggested by the Memory of Early Settlers. The original received and approved by William Howard, U.S. Civil Engineer, February 24, 1830.\" Reproduced in Andreas, A. T., History of Chicago, vol. 1 (Chicago, 1884), p. 113.",
+      "url": "https://archive.org/details/historyofchicago01andr/page/n242/mode/1up",
+      "archived_url": "",
+      "tier": 2,
+      "tier_label": "near-primary recollection",
+      "what_it_supplies": [
+        "the fort's plan arrangement: a quadrangular picket enclosure, corner works, four ranges, two gates",
+        "which building stood on which side of the parade",
+        "the relative proportions of the enclosure and the buildings in it",
+        "the fort's rotation relative to true north",
+        "the named ground around the fort: garrison garden, cultivated field, barn, wash house, well, shop, cemetery, ferry"
+      ],
+      "what_it_does_not_supply": [
+        "any dimension in feet - there is no scale bar",
+        "elevations, heights, roof forms or materials",
+        "the state of the fort in 1835 - it is five years earlier",
+        "a separation between the 1830 survey and the settler-memory additions the plate admits to"
+      ]
+    },
+    {
+      "source_id": "isa_public_domain_land_tract_sales",
+      "citation": "Illinois State Archives, Illinois Public Domain Land Tract Sales Database (Springfield: Office of the Secretary of State).",
+      "url": "https://apps.ilsos.gov/isa/landSalesSearch.do",
+      "archived_url": "",
+      "tier": 1,
+      "tier_label": "period/eyewitness"
+    },
+    {
+      "source_id": "wentworth_1881_fort_dearborn",
+      "citation": "Wentworth, John. \"Fort Dearborn: An Address delivered at the unveiling of the memorial tablet to mark the site of the Fort, Saturday afternoon, May 21, 1881.\" Fergus' Historical Series No. 16. Chicago: Fergus Printing Company, 1881. With the key to Alexander Hesler's 1855 photograph and Robert Fergus's signed addendum to the 1850 von Schneidau daguerreotype.",
+      "url": "https://chicagology.com/prefire/prefire052/",
+      "archived_url": "http://web.archive.org/web/20260209092824/https://chicagology.com/prefire/prefire052/",
+      "tier": 2,
+      "tier_label": "near-primary recollection",
+      "what_it_supplies": [
+        "the commandant's quarters at about 25 x 50 ft, brick",
+        "the officers' quarters at about 30 x 60 ft, wood, at the north-west corner",
+        "a parade ground 80 ft wide",
+        "which buildings stood on which side of the parade",
+        "the commandants of the second fort by date",
+        "the date the pickets came down is NOT given - only that it was 'at an earlier date' than 1850"
+      ],
+      "what_it_does_not_supply": [
+        "the stockade's dimensions",
+        "anything about the fort in 1835 that is not inferred backwards from an 1850 or 1855 image",
+        "a reliable division between first-fort and second-fort description - the pamphlet reprints both and readers routinely mix them"
+      ]
+    },
+    {
+      "source_id": "wright_1834",
+      "citation": "Wright, J. S. Chicago, drawn by J. S. Wright according to survey. New York: P. A. Mesier's Lith., 1834.",
+      "url": "https://collections.leventhalmap.org/search/commonwealth:js9577436",
+      "archived_url": "",
+      "tier": 1,
+      "tier_label": "period/eyewitness",
+      "what_it_supplies": [
+        "street geometry",
+        "block and lot subdivision",
+        "shoreline",
+        "river channel and the 1834 cut",
+        "survey-date colouring"
+      ],
+      "what_it_does_not_supply": [
+        "building footprints",
+        "building locations"
+      ]
+    }
+  ],
+  "research_note": "THE ONE BUILDING IN FORT DEARBORN WITH A STATED SIZE, and therefore the building the whole complex is measured against. Its footprint note explains why that is both the strength of this record and a risk running through every other record in the fort. Two guards. The '25 x 50 ft' is a caption to an 1855 photograph, not a survey. And the 1855 key's phrase 'occupying the north-west corner of the enclosure' covers this building and the officers' quarters together as a pair seen from across the river; it is not a statement that this range stood in the corner, and Hubbard puts it 'just within the north stockade', which is where the 1830 plan draws it. See docs/RESEARCH/fort_dearborn.md.",
+  "research_doc": "docs/RESEARCH/fort_dearborn_commandants_quarters.md",
+  "review_required": false
+}

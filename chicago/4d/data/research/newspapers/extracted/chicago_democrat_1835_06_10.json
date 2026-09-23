@@ -1,0 +1,778 @@
+{
+ "schema": 1,
+ "issue_id": "chicago_democrat_1835_06_10",
+ "extracted": "2026-08-29",
+ "extracted_by": "hand, T-0326",
+ "note": "Vol. II No. 8, and the single most valuable issue in this reading range for the reconstruction, because page 2 column 5 is a survey of Chicago's public houses written by a man complaining that they are not good enough. It names the Sauganash as newly refitted and the LAKE HOUSE as a new house then BUILDING in Kinzie's Addition, and says where a bigger one ought to go. Around it: the town-election caucus at the Exchange Coffee House, the close of the Circuit Court's May term, twelve vessels anchored off the bar at once, the town charter still missing, and an advertising page carrying four new Chicago houses — Magie & Wilkinson, John Holbrook, P. Pruyne & Co. and James Grant — three of them with placements.",
+ "claims": [
+  {
+   "id": "c001",
+   "kind": "building",
+   "reading": "transcription_mediated",
+   "quote": "We noticed in the Detroit Joural the ope-\nof a new House in that city, under the\not the American Hotel, by Mr. Griswold, Li\nwill donbtless be very interesting & agree-\n\news to travellers who may baye occasion  ™\npat Detroit. Detroit has been far behind\n\nplaces in the weat in its public Houses.—  ™'\navo a number of good houses in this city—\n\nsito be. The Sau ga nash has been re- H\n; fitted up and furnished with peatness and\n\nand go far agit goce, will wo have no T\nbo found just the thing, and there are oth- H\nhose qualities are well known, But there \"\ncalablishment here suiliciently extensire to\n\ny the demands ot those who resort here for\n\neee, or curiosity, or pleasure. There is Li\nnew house building in Kinzio's addition\nnamed we anderstaad, the “ Lake Hous:.\"\n» should be a house about double the size\nlatter, erected this ‘side ofthe river about\nyntre of Lakn Streot or in that vicinity. H",
+   "normalized": "We noticed in the Detroit Jou[r]nal the ope[ning] of a new House in that city, under the [name] of the American Hotel, by Mr. Griswold, [which] will doubtless be very interesting & agree[able] [n]ews to travellers who may have occasion [to stop] at Detroit. Detroit has been far behind [other] places in the west in its public Houses.— [We h]ave a number of good houses in this city— [as it i]s to be. The Sauganash has been re[paired,] fitted up and furnished with neatness and [taste,] and so far as it goes, will[, we have no] [doubt, ] be found just the thing, and there are oth[ers] [w]hose qualities are well known. But there [is no] e[st]ablishment here sufficiently extensive to [satisf]y the demands of those who resort here for [busin]ess, or curiosity, or pleasure. There is [a] new house building in Kinzie's addition [to be] named we understand, the \"Lake Hous[e].\" [There] should be a house about double the size [of that] latter, erected this side of the river about [the ce]ntre of Lake Street or in that vicinity.",
+   "locator": {
+    "artifact_role": "primary",
+    "issue_page": 2,
+    "column": 5,
+    "lines": [
+     1658,
+     1684
+    ],
+    "lines_of_claim": [
+     1658,
+     1659,
+     1660,
+     1661,
+     1662,
+     1663,
+     1664,
+     1665,
+     1666,
+     1667,
+     1668,
+     1669,
+     1670,
+     1671,
+     1672,
+     1673,
+     1674,
+     1675,
+     1676,
+     1677,
+     1678,
+     1679,
+     1680,
+     1681,
+     1682,
+     1683,
+     1684
+    ],
+    "interleaved": true
+   },
+   "entities": [],
+   "notes": "THREE BUILDING FACTS ABOUT CHICAGO IN ONE PARAGRAPH, THREE WEEKS BEFORE THE SCENE DATE.\n\n1. THE SAUGANASH HAS JUST BEEN REFITTED — 'repaired, fitted up and furnished with neatness and taste'. The building is old news; its CONDITION on 1 July 1835 is not, and this says it was freshly done up and not shabby. 'so far as it goes' is the editor's qualification and it means small, not poor.\n\n2. THE LAKE HOUSE IS UNDER CONSTRUCTION IN KINZIE'S ADDITION AND IS NOT YET FINISHED OR NAMED. 'There is a new house building in Kinzie's addition [to be] named we understand, the \"Lake House.\"' Both halves matter: it is a BUILDING SITE at the scene date, north of the main branch, and even its name is reported at second hand ('we understand'). Anything the reconstruction puts on that spot on 1 July 1835 should be a structure going up, not a hotel open for business. This is the only dated statement of the Lake House's state that this corpus has produced.\n\n3. NO HOUSE IN CHICAGO IS BIG ENOUGH, and the editor says where the big one should be: 'about double the size of that latter, erected this side of the river about the centre of Lake Street or in that vicinity.' That is a PROPOSAL and not a building — nothing stood there — but it fixes the Lake House's scale by comparison (a house double it would be the town's largest) and it tells you where the commercial centre of gravity was felt to be: the middle of Lake Street, south of the river.\n\nWITH THE OTHER CLAIMS IN THIS READING RANGE the town's public houses at the scene date are: the Sauganash (refitted, unplaced here), the Exchange Coffee House (corner of Lake and Franklin), the Eagle Coffee House or Trowbridge's (Dearborn Street vicinity), the Tremont House (Dearborn Street), the New-York House (Lake Street), and the Lake House (building, Kinzie's Addition). Six houses and not one of them, on the editor's account, adequate.\n\nThe column is clipped at the right edge line by line; every supply is bracketed and none of them invents a name, a size or a street."
+  },
+  {
+   "id": "c002",
+   "kind": "event",
+   "reading": "transcription_mediated",
+   "quote": "TOWN ELECTION, aie\nsting of the Democratic patty of thir paca\ns held at the Exchange Coffee House,  perat\nrday evening Inst, for the purposs of hint\ning candidates for the offices tobe filled  No.\n\noming townelection. The nominations Suit\nrularly and fairly made. And boing thus Oe\n\ne trust that they will receive the hearty  the\nsupport of evey man who claime to  strer\no the Democratic party, and to be gov- is th\ny Democratic usages. ‘The Democratic ) en!\n thia state have, or should have, higher ed Mi\nin view than the elevation or prostration an\ncular men? Their struggle should be a sip]\nfor principle. A ntruggle to place the  adm\ninciples of Democracy upon a permanant  Nul\nIt is astrnggle between the aristocracy  test\n» democracy—between the people,—the Uni\nnd the fac. Is it not eo? Ifit bo not, Pe\nre 10 have no part or lotin tho matter.—  tio \nlet it be borne in mind by our friends.  and\nt not the principles and the usages of the\nhe sacrificed to individual opinions, and\nal prejudices or predilictions.",
+   "normalized": "TOWN ELECTION. [A mee]ting of the Democratic party of this [town wa]s held at the Exchange Coffee House, [on Satu]rday evening last, for the purpose of [nominat]ing candidates for the offices to be filled [at the c]oming town election. The nominations [were reg]ularly and fairly made. […] Let it be borne in mind by our friends. [Le]t not the principles and the usages of the [party be] sacrificed to individual opinions, and [person]al prejudices or predilictions.",
+   "locator": {
+    "artifact_role": "primary",
+    "issue_page": 2,
+    "column": 5,
+    "lines": [
+     1576,
+     1601
+    ],
+    "lines_of_claim": [
+     1576,
+     1577,
+     1578,
+     1579,
+     1580,
+     1581,
+     1582,
+     1583,
+     1584,
+     1585,
+     1586,
+     1587,
+     1588,
+     1589,
+     1590,
+     1591,
+     1592,
+     1593,
+     1594,
+     1595,
+     1596,
+     1597,
+     1598,
+     1599,
+     1600,
+     1601
+    ],
+    "interleaved": true
+   },
+   "notes": "THE EXCHANGE COFFEE HOUSE AGAIN, AND FOR THE SECOND TIME AS THE TOWN'S POLITICAL ROOM — the April Democratic meeting was there and so is the town-election caucus of Saturday 6 June 1835. Russell E. Heacock's advertisement places the house at the corner of Lake and Franklin streets, so a specific corner building in the reconstruction is where the town's candidates were chosen three weeks before the scene date. By 1835-06-24 the Democrats have moved their meeting to the Eagle Coffee House, Trowbridge's, which is a change worth noticing and is not explained anywhere in these issues.\n\nTHE ELECTION ITSELF STILL HAD NOT HAPPENED — see the town-charter claim in the same column. Candidates were being nominated for an election that kept being adjourned for want of a copy of the law."
+  },
+  {
+   "id": "c003",
+   "kind": "event",
+   "reading": "transcription_mediated",
+   "quote": "CIRCUIT COURT, Ke.\nbusiness of the May Term, of the Cir-\nyurt.in this county, was concluded on\nlast, with the exception of making up the\n. ‘There were nearly two hundred cau-\nored upon the docket, and two indict-\nfor criminal offences;—one for theft, and ! i\nhorace stealing, Tho jury did not agree a\nformor caso,“in. the latter tho indictment  jj,\nashed. As this té Judge Breese’s first  per\n, it is proper that we should note the  Lo\n1, and go faras we have heard, the aniver-  ON\nisfaction which he has given in discharge Mr\nduties of his office. Couretous and affable, pe\npmpt and efficient—while ho has given no  vy,\nuso of complaint, ho has. maintained. the  in \ny ofthe court. On all pointy of Jaw ho  sit\nhibited a readiness highly creditable to\nsa manof talents and legal acquirement. \nusinesy of the court which was expected  .,,\nso best acquainted with the manner of  thy\nbusinose here to have occupied some five  ing\nweeks atleast, has been concluded we be-  ter\no the satisfaction ot all parties,in les than  6°\necks. We regrot to learn from the Judge \n: intends to resign his situation,",
+   "normalized": "CIRCUIT COURT, &c. [The] business of the May Term of the Cir[cuit C]ourt in this county was concluded on [Monday] last, with the exception of making up the [record]. There were nearly two hundred cau[ses d]ocketed upon the docket, and two indict[ments] for criminal offences;—one for theft, and [one for] horse stealing. The jury did not agree [in the] former case, in the latter the indictment [was qu]ashed. As this is Judge Breese's first [term here] it is proper that we should note the [fact] and, so far as we have heard, the univer[sal sat]isfaction which he has given in discharge [of the] duties of his office. Courteous and affable, [yet pro]mpt and efficient—while he has given no [just ca]use of complaint, he has maintained the [dignit]y of the court. […] [The b]usiness of the court which was expected [by th]ose best acquainted with the manner of [doing ]business here to have occupied some five [or six] weeks at least, has been concluded we be[lieve t]o the satisfaction of all parties, in less than [two w]eeks. We regret to learn from the Judge [that he] intends to resign his situation.",
+   "locator": {
+    "artifact_role": "primary",
+    "issue_page": 2,
+    "column": 5,
+    "lines": [
+     1603,
+     1628
+    ],
+    "lines_of_claim": [
+     1603,
+     1604,
+     1605,
+     1606,
+     1607,
+     1608,
+     1609,
+     1610,
+     1611,
+     1612,
+     1613,
+     1614,
+     1615,
+     1616,
+     1617,
+     1618,
+     1619,
+     1620,
+     1621,
+     1622,
+     1623,
+     1624,
+     1625,
+     1626,
+     1627,
+     1628
+    ],
+    "interleaved": true
+   },
+   "entities": [
+    {
+     "as_printed": "Judge Breese",
+     "normalized": "Judge Sidney Breese",
+     "role": "presiding judge of the Circuit Court's May 1835 term at Chicago",
+     "occupations": [
+      "circuit judge"
+     ]
+    }
+   ],
+   "notes": "NEARLY TWO HUNDRED CAUSES ON A CHICAGO DOCKET IN MAY 1835, and only two criminal indictments in the lot — one for theft, one for horse stealing, neither of which convicted (hung jury; indictment quashed). That is a litigious, low-crime, property-disputing town, which is what a place in the middle of a land boom would be.\n\nTHE COURT SAT IN THIS TOWN and the term ran under two weeks against an expected five or six. Combined with Edward W. Casey's office 'adjoining that of the Clerk of the Circuit Court' (1835-05-27), it establishes that the court and its clerk had premises here — the building is not named in any of these eight issues and that is a gap worth stating.\n\nJudge Breese is minted with the forename SIDNEY on the warrant of the same issue's list of state appointments ('Sidney B[reese]', page 2 column 6, line 1975) rather than out of general knowledge."
+  },
+  {
+   "id": "c004",
+   "kind": "shipping",
+   "reading": "transcription_mediated",
+   "quote": "pPixG,—On Monday Morning last we con-\nolye veasels anchored off our harbor, from\nwer lakes, all wo belicve Joaded with mer-\n\ndoing things up about this time in Chi-\nWe apprehend somo of our farmers below\nbegin Lo think it was time for them to\n\nthey can obtain merchandizen hittle cheap-\nnat any other piace in the country.",
+   "normalized": "[SHIP]PING.—On Monday Morning last we co[unted] t[w]elve vessels anchored off our harbor, from [the low]er lakes, all we believe loaded with mer[chandize …] doing things up about this time in Chi[cago.] We apprehend some of our farmers below [may] begin to think it was time for them to [come up, as] they can obtain merchandize a little cheap[er here th]an at any other place in the country.",
+   "locator": {
+    "artifact_role": "primary",
+    "issue_page": 2,
+    "column": 5,
+    "lines": [
+     1631,
+     1640
+    ],
+    "lines_of_claim": [
+     1631,
+     1632,
+     1633,
+     1634,
+     1635,
+     1636,
+     1637,
+     1638,
+     1639,
+     1640
+    ],
+    "interleaved": true
+   },
+   "notes": "TWELVE VESSELS AT ANCHOR OFF THE BAR AT ONCE, counted by the editor on the morning of Monday 8 June 1835, all believed loaded with merchandize from the lower lakes. It is the single best image in this reading range of what the water off Chicago looked like three weeks before the scene date, and the phrase 'anchored OFF our harbor' is the operative one: they are lying in the open lake, not inside. The harbor works were unfinished (1835-03-25: $32,800 just appropriated 'towards the completion of our harbor'), so twelve hulls standing off and lightering in is the picture, not twelve hulls at wharves.\n\nThe marine list in the same issue independently records fourteen arrivals dated 7 June, which is the same fleet counted from the custom-house end and corroborates the twelve."
+  },
+  {
+   "id": "c005",
+   "kind": "event",
+   "reading": "transcription_mediated",
+   "quote": "TOWN CHARTER.\nr readers were apprised some weeks since ed\nn act was passed at the late segsion of\negislature of this slate enlarging the pow- ca\nthe corporation of Chicago, and providing  \"\n“new election of ‘Trustees should take\n\nprised of the fact that thero was no capy  29\nnae charter of the town in possession of in\neraon here. We are advised that no copy po\nB yet been received. The clection has on\nromLpobed, or adjourned, some how or oth-\nym) Lime to time, for the purpose of procn-\n\n, copy of the law.",
+   "normalized": "TOWN CHARTER. [Ou]r readers were apprised some weeks since [that a]n act was passed at the late session of [the L]egislature of this state enlarging the pow[ers of] the corporation of Chicago, and providing [for a] new election of Trustees should take [place …] [ap]prised of the fact that there was no copy [of the] new charter of the town in possession of [any p]erson here. We are advised that no copy [has] yet been received. The election has [been po]stponed, or adjourned, some how or oth[er, fro]m time to time, for the purpose of procu[ring a] copy of the law.",
+   "locator": {
+    "artifact_role": "primary",
+    "issue_page": 2,
+    "column": 5,
+    "lines": [
+     1642,
+     1656
+    ],
+    "lines_of_claim": [
+     1642,
+     1643,
+     1644,
+     1645,
+     1646,
+     1647,
+     1648,
+     1649,
+     1650,
+     1651,
+     1652,
+     1653,
+     1654,
+     1655,
+     1656
+    ],
+    "interleaved": true
+   },
+   "notes": "THE ELECTION KEEPS BEING ADJOURNED BECAUSE NOBODY IN CHICAGO HAS THE LAW. Second of three printings of this grievance (1835-05-20, here, 1835-06-24), and this is the one that says the election was actually POSTPONED 'some how or other, from time to time'. So on 1 July 1835 the town's government is the OLD board of Trustees under the 1833 charter, still in office past the date they should have been replaced, with an enlarged charter passed in February that nobody in the town has read. That is the constitutional position behind the 1835-06-17 town meeting, which asks 'the present Trustees' to clean the streets and offers to give them powers they may be found not to have."
+  },
+  {
+   "id": "c006",
+   "kind": "price",
+   "reading": "transcription_mediated",
+   "quote": "CORRECTED WRKLY,\n\ni, -\nad Meal bhl 2275 a 3 00\nSuper fis bbl 10 00\n\nne * 5800\nHichwhent four” pone,\n\nbeige 3h meal bush 1 Ga 156\nCom ,\nwe! mate\n\nBovisiog u a 6\nPret, frown lb 4a 6\n\ndo galt mews bbl 10 OO all 00\n\nde urine 9 @\nPor, tess no. 1, a1) o\nno, 16 Ww\n\nOne hog * 44 00\nbrine \"42\ntried beef eae\ni re ae\n§ bbl § o\nLary (OP * * ; %\nCheese: .\nwee ib Wa 12\nhite beans bush none.\nTow otalors \" 10a) 0\nHates, ‘ety \" ; ee\nHties. box tallow 24\nig Maen: , eed\nTweed Ln)\n¢ 8\n= iG * ft = O0a29 4\n, penta leugth ny 5 - ° 6\nBion! H 5 00 9 6 00\nlame’ cord 6 a 6 50\nWeas, OT 75a Bs\na : cord Qh a\n",
+   "normalized": "[CHICAGO PRICES CURRENT,] CORRECTED WEEKLY. [Salt, bbl] $2 75 a 3 00. [Flour] and Meal — Super fin[e bbl] 10 00 [a 12 00]; fine 5 [00]; B[u]ckwheat flour none; [Indian] meal bush 1 0[0] a 1 50. [Grain — ]Corn [bush 1 00]; [Oats 62 a 75]; [Wheat a 60]. Provisions — [B]e[e]f, fr[e]s[h] lb 4 a 6; do salt mess bbl 10 00 a 11 00; d[o] [do] [p]rime 9 [00]; Por[k, m]ess no. 1, [20 00]; no. [2, ]16 [00]; One hog 14 00; [p]rime [12 00]; [D]ried beef [lb 10 a 12]; [Hams, smoked 10]; [White fish] bbl 6 [00]; [Butter, keg lb 10 a 12]; Lar[d 8 a 9]; Cheese [lb] 10 a 12; White beans bush none; [P]otatoes 1 0[0 a 1 50]; [Tallow lb 9 a 10]; H[i]des, dry [lb 8 a 9]; [Cand]les, box tallow [lb 12 a 24]; [Buildin]g Mat[erials — Lumber, ass'd 1000 ft 2]8 00 a 29 [00]; [Shingles do 3 00 a 3 50]; [Square t]imber, length [ft] 5 a 6; [Br]ick[, per 1000] 5 00 a 6 00; [St]one, cord 6 [00] a 6 50; [Li]me[, bbl] 75 a 8[8]; Wood, cord 2 [50] a [ ].",
+   "locator": {
+    "artifact_role": "primary",
+    "issue_page": 3,
+    "column": 1,
+    "lines": [
+     2038,
+     2081
+    ],
+    "lines_of_claim": [
+     2038,
+     2039,
+     2040,
+     2041,
+     2042,
+     2043,
+     2044,
+     2045,
+     2046,
+     2047,
+     2048,
+     2049,
+     2050,
+     2051,
+     2052,
+     2053,
+     2054,
+     2055,
+     2056,
+     2057,
+     2058,
+     2059,
+     2060,
+     2061,
+     2062,
+     2063,
+     2064,
+     2065,
+     2066,
+     2067,
+     2068,
+     2069,
+     2070,
+     2071,
+     2072,
+     2073,
+     2074,
+     2075,
+     2076,
+     2077,
+     2078,
+     2079,
+     2080,
+     2081
+    ],
+    "interleaved": true
+   },
+   "notes": "THE THIRD WEEKLY TABLE. Superfine flour holds at $10.00-12.00 — the doubling of the week before has stuck and not yet gone further — and EVERY BUILDING MATERIAL IS AGAIN IDENTICAL: lumber 28-29, shingles 3.00-3.50, square timber 5-6, brick 5-6, stone 6.00-6.50, lime .75-.88, wood 2.50. Three consecutive weeks with no movement in seven materials is what makes the series worth citing as the price of building in Chicago in the summer of 1835 rather than as one week's quotation.\n\nTHE TABLE IS THE WORST-SET OF THE THREE — the transcription has lost most of the item column and the figures survive better than their labels — so the reading is made BY ALIGNMENT with the 1835-05-27 and 1835-06-04 printings, which set the same table in the same order. Every bracket in the normalized reading is a label or figure recovered that way and none of them is a figure this pass chose; where a figure is genuinely gone the bracket is left empty. One cell disagrees with its neighbours and is left as it stands: box tallow candles read '24' here where the other two weeks read '14'."
+  },
+  {
+   "id": "c007",
+   "kind": "shipping",
+   "reading": "transcription_mediated",
+   "quote": "june 4 Sch, Liewellyn, Clark, St. Joseph.\n\" $ \" Indiana, M’Queen, do.\n\"5\" Swan, Dancan, do,\n\"6\" Atalants, Shepherd, Buftalo.\n\n7 Brig John Kinzie, Grover, Detroit.\n\"7 Sch, La Grange, Chanchois, do.\n\"7\" Globe, Perkins, Baffalo.\n\n” 7 ” Benj. Franklin, Blackley, do.\n\"7 ' Fasex, Bassett, Backots Harbor.\n\"7 * Liewellyn, Clark, St. Joseph.\n\"7\" Agnes Barton, Ludlow, Buffalo.\n\n\"7\" Laporte, Chandler, do,\n\"7 Oregon, Howard, do.\n\"7 ” Navigator, Thorp, do.\n\n7\" Hiram, Rathbourn, do.\n\"10 \"* Livwellyn, Clark, St. Joseph.\n\"40-7 St. Joseph Burnham, Detroit.",
+   "normalized": "[Arrivals of vessels at Chicago:] June 4 Sch. Llewellyn, Clark, St. Joseph. 5 [Sch.] Indiana, M'Queen, do. 5 [Sch.] Swan, Duncan, do. 6 [Sch.] Atalanta, Shepherd, Buffalo. 7 Brig John Kinzie, Grover, Detroit. 7 Sch. La Grange, Chauchois, do. 7 [Sch.] Globe, Perkins, Buffalo. 7 [Sch.] Benj. Franklin, Blackley, do. 7 [Sch.] Essex, Bassett, Sackets Harbor. 7 [Sch.] Llewellyn, Clark, St. Joseph. 7 [Sch.] Agnes Barton, Ludlow, Buffalo. 7 [Sch.] Laporte, Chandler, do. 7 [Sch.] Oregon, Howard, do. 7 [Sch.] Navigator, Thorp, do. 7 [Sch.] Hiram, Rathbourn, do. 10 [Sch.] Llewellyn, Clark, St. Joseph. 10 [Sch.] St. Joseph, Burnham, Detroit.",
+   "locator": {
+    "artifact_role": "primary",
+    "issue_page": 3,
+    "column": 2,
+    "lines": [
+     2099,
+     2119
+    ],
+    "lines_of_claim": [
+     2099,
+     2100,
+     2101,
+     2102,
+     2103,
+     2104,
+     2105,
+     2106,
+     2107,
+     2108,
+     2109,
+     2110,
+     2111,
+     2112,
+     2113,
+     2114,
+     2115,
+     2116,
+     2117,
+     2118,
+     2119
+    ],
+    "interleaved": true
+   },
+   "notes": "ELEVEN ARRIVALS ON ONE DAY — 7 June 1835 — and seventeen in a week. This is the list behind the editor's twelve hulls anchored off the bar on Monday the 8th: they came in on the Sunday. Eight of the eleven are from Buffalo, one from Sackets Harbor, one from Detroit, one from St. Joseph, which is the emigrant-and-merchandize season at full flow eight days before the land sale.\n\nTHE LLEWELLYN MAKES THREE ROUND TRIPS IN SEVEN DAYS to St. Joseph (4th, 7th, 10th), which is the advertised packet actually running its advertised service and is the tightest corroboration of a scheduled Chicago service anywhere in this corpus. The brig JOHN KINZIE is in again from Detroit."
+  },
+  {
+   "id": "c008",
+   "kind": "business",
+   "reading": "transcription_mediated",
+   "quote": "JAMES GRANT,\nATTORNEY § COUNSELLOR AT LAW\nChicago, Mlinvis.\nOffiea in the Store of Uubbard & Co,\nLEFERENCE:\nSvypas, Jacksoy & co. 2 4 y ‘\nBrows & Hoye, .\n&. aed & co. Buffalo.\n~ R. Doan. °\n‘ Core & Porrer, ; Detroit.",
+   "normalized": "JAMES GRANT, ATTORNEY [&] COUNSELLOR AT LAW, Chicago, Illi[no]is. Offi[c]e in the Store of [H]ubbard & Co. REFERENCE: S[u]yda[m], Jacks[on] & co.[, New-York City;] Brown & Ho[w]e[; S.] [Thompson] & co., Buffalo[; J.] R. Do[r]r[; ] Cole & Porter, Detroit.",
+   "locator": {
+    "artifact_role": "primary",
+    "issue_page": 3,
+    "column": 2,
+    "lines": [
+     2130,
+     2143
+    ],
+    "lines_of_claim": [
+     2130,
+     2131,
+     2132,
+     2134,
+     2135,
+     2137,
+     2138,
+     2139,
+     2140,
+     2142
+    ],
+    "interleaved": true
+   },
+   "business": {
+    "name": "James Grant",
+    "proprietors": [
+     "James Grant"
+    ],
+    "trade": "attorney and counsellor at law",
+    "goods": [],
+    "street": "La Salle Street",
+    "placement": {
+     "class": "relative",
+     "anchor": "the Store of Hubbard & Co.",
+     "offset_text": "Offiea in the Store of Uubbard & Co,",
+     "offset_normalized": "Office in the Store of Hubbard & Co.",
+     "street": "La Salle Street"
+    }
+   },
+   "entities": [
+    {
+     "as_printed": "JAMES GRANT",
+     "normalized": "James Grant",
+     "role": "proprietor",
+     "occupations": [
+      "attorney",
+      "counsellor at law"
+     ],
+     "associated_places": [
+      "La Salle Street",
+      "Chicago"
+     ]
+    }
+   ],
+   "notes": "AN OFFICE INSIDE A SHOP — 'Office in the Store of Hubbard & Co.' — which is a different and tighter relation than 'next door' or 'over': the lawyer worked in a corner of the merchant's building. Three of the four lawyers placed in this reading range are lodged in somebody else's commercial building (Grant in Hubbard & Co's store, Moore in Kinzie's new building, Heacock in a second storey opposite the Exchange), which is a fact about how professional work was housed in this town: no purpose-built offices, only rooms in stores.\n\nTHE STREET IS CHAINED, NOT STATED. Magie & Wilkinson's notice in this same issue puts 'Hubbard & Co's. brick store' in LA SALLE STREET, which carries Grant there; the placement's own anchor is the store and the street rides on that one witness, so if the chained reading is wrong Grant moves with it. The New York, Buffalo and Detroit references are trade credit references and place nothing."
+  },
+  {
+   "id": "c009",
+   "kind": "business",
+   "reading": "transcription_mediated",
+   "quote": "re subscribers having taken the Ne\nStore, in La Salle street, a few do\nSouth of Hubbard & Co's. brick store, war\nreapcetfully inform tho inhabitants of Chicas\nand ite vicinity, that they have on hand, a\nintend keeping a good and. general assortme\nof\nDry Goods, Grocerics,\nHardware, Crockery, Boots, Shoes, Hats, §\nAT WHOLESALE AND RETAIL.\nage. MAGIE & WILKINSO\nChicago, June 11, 1835.84. fee",
+   "normalized": "[Th]e subscribers having taken the Ne[w] Store, in La Salle street, a few do[ors] South of Hubbard & Co's. brick store, wo[uld] respectfully inform the inhabitants of Chicag[o] and its vicinity, that they have on hand, a[nd] intend keeping a good and general assortme[nt] of Dry Goods, Groceries, Hardware, Crockery, Boots, Shoes, Hats, [&c.] AT WHOLESALE AND RETAIL. […] MAGIE & WILKINSO[N.] Chicago, June 11, 1835.",
+   "locator": {
+    "artifact_role": "primary",
+    "issue_page": 3,
+    "column": 2,
+    "lines": [
+     2220,
+     2282
+    ],
+    "lines_of_claim": [
+     2220,
+     2221,
+     2222,
+     2223,
+     2224,
+     2225,
+     2226,
+     2227,
+     2229,
+     2231,
+     2281,
+     2282
+    ],
+    "interleaved": true
+   },
+   "business": {
+    "name": "Magie & Wilkinson",
+    "proprietors": [
+     "Magie",
+     "Wilkinson"
+    ],
+    "trade": "dry goods, groceries, hardware, crockery, boots, shoes and hats, wholesale and retail",
+    "goods": [
+     "cloths",
+     "cassimeres",
+     "sattinetts",
+     "drillings",
+     "moleskin",
+     "corduroy",
+     "jeans",
+     "bombazines",
+     "bed ticking",
+     "prints",
+     "silks",
+     "muslins",
+     "robbinett laces",
+     "ribbons",
+     "handkerchiefs",
+     "linens",
+     "checks",
+     "ready made clothing",
+     "sugars",
+     "teas",
+     "coffee",
+     "rice",
+     "spices",
+     "chocolate",
+     "raisins",
+     "starch",
+     "soap",
+     "tobacco",
+     "segars",
+     "snuff",
+     "lamp oil",
+     "wines",
+     "mustard",
+     "powder and shot",
+     "log and trace chains",
+     "nails",
+     "sad irons",
+     "shovels and spades",
+     "hoes",
+     "scythes",
+     "steel yards",
+     "shovels and tongs",
+     "tea kettles",
+     "traps",
+     "cow bells",
+     "vices",
+     "anvils",
+     "axes",
+     "trowels",
+     "files",
+     "rasps",
+     "knives and forks",
+     "spoons",
+     "pocket knives",
+     "looking glasses",
+     "carpenter's tools",
+     "boots",
+     "shoes",
+     "brogans",
+     "beaver and fur hats"
+    ],
+    "street": "La Salle Street",
+    "placement": {
+     "class": "relative",
+     "anchor": "Hubbard & Co's. brick store",
+     "offset_text": "re subscribers having taken the Ne\nStore, in La Salle street, a few do\nSouth of Hubbard & Co's. brick store, war",
+     "offset_normalized": "having taken the New Store, in La Salle street, a few doors South of Hubbard & Co's. brick store",
+     "street": "La Salle Street"
+    }
+   },
+   "ad_copy_date": {
+    "verbatim": "Chicago, June 11, 1835.84. fee",
+    "iso": "1835-06-11"
+   },
+   "entities": [
+    {
+     "as_printed": "MAGIE & WILKINSO",
+     "normalized": "Magie & Wilkinson",
+     "role": "proprietor",
+     "occupations": [
+      "merchant"
+     ],
+     "associated_places": [
+      "La Salle Street",
+      "Chicago"
+     ]
+    }
+   ],
+   "notes": "'HUBBARD & CO'S. BRICK STORE', IN LA SALLE STREET — the only building in these eight issues whose WALL MATERIAL the papers state, and it is stated in passing by a neighbour giving directions. A brick store on La Salle Street in June 1835, with brick quoted at $5-6 the thousand in the same paper's prices current. It anchors two other claims (James Grant's office is in that store) and it is the strongest single argument this corpus offers for putting a masonry building into an otherwise timber town.\n\nAND A SECOND NEW BUILDING BESIDE IT: 'the New Store, in La Salle street, a few doors South of' the brick one. New enough that the advertisement calls it 'the New Store' as a proper name.\n\nTHE CONFLICT, RECORDED NOT RESOLVED. Five days later the same firm advertises 'ROOMS over the store of the subscribers, next door to Messrs. Harmon, Loomis & Co.' (1835-06-16, read in the 06-17 issue) — and Harmon, Loomis & Co. state their own store to be in SOUTH WATER STREET. So Magie & Wilkinson are a few doors south of a La Salle Street building and next door to a South Water Street one, five days apart. A corner lot at La Salle and South Water reconciles them without strain and so does a loose use of 'next door'; NEITHER IS ASSERTED. What is certain from both notices is that their store had a second storey with lettable rooms over it.\n\nThe stock list is quoted in the goods field rather than in the quote: sixty-odd lines of it run down the column and the claim cites the head and the signature."
+  },
+  {
+   "id": "c010",
+   "kind": "business",
+   "reading": "transcription_mediated",
+   "quote": "ALG, SLOTILN Gs\nBoots & SHOES,\nWHOLESALE AND RETAIL.\n\nae subscriber ig now opening a heavy 4\nsortment of the above named articles, \nSouth- Water at. one door from Dearborn atres\nvhere he intends to keep on hand a large 3\norlment of the named articles: and will he 1\neiving additions to his assortment every 15\n10 days, through tho erason.\n‘Traders are respectfully requested to call a\nexamino for themselves.\n2 JOUN HOLBROOK,\nAgent for the Mannfacturers.\nChicago, Jane 10, 1835.—8tf",
+   "normalized": "[C]L[O]T[H]ING, BOOTS & SHOES, WHOLESALE AND RETAIL. [Th]e subscriber is now opening a heavy assortment of the above named articles, [on] South-Water st. one door from Dearborn street, where he intends to keep on hand a large assortment of the named articles: and will be receiving additions to his assortment every 15 [or] 20 days, through the season. Traders are respectfully requested to call and examine for themselves. JOHN HOLBROOK, Agent for the Manufacturers. Chicago, June 10, 1835.",
+   "locator": {
+    "artifact_role": "primary",
+    "issue_page": 3,
+    "column": 2,
+    "lines": [
+     2203,
+     2218
+    ],
+    "lines_of_claim": [
+     2203,
+     2204,
+     2205,
+     2206,
+     2207,
+     2208,
+     2209,
+     2210,
+     2211,
+     2212,
+     2213,
+     2214,
+     2215,
+     2216,
+     2217,
+     2218
+    ],
+    "interleaved": true
+   },
+   "business": {
+    "name": "John Holbrook",
+    "proprietors": [
+     "John Holbrook"
+    ],
+    "trade": "clothing, boots and shoes, wholesale and retail, as agent for the manufacturers",
+    "goods": [
+     "clothing",
+     "boots",
+     "shoes"
+    ],
+    "street": "South Water Street",
+    "placement": {
+     "class": "relative",
+     "anchor": "Dearborn Street",
+     "offset_text": "South- Water at. one door from Dearborn atres",
+     "offset_normalized": "on South-Water st. one door from Dearborn street",
+     "street": "South Water Street"
+    }
+   },
+   "ad_copy_date": {
+    "verbatim": "Chicago, Jane 10, 1835.—8tf",
+    "iso": "1835-06-10"
+   },
+   "entities": [
+    {
+     "as_printed": "JOUN HOLBROOK",
+     "normalized": "John Holbrook",
+     "role": "proprietor",
+     "occupations": [
+      "clothing dealer",
+      "boot and shoe dealer",
+      "manufacturers' agent"
+     ],
+     "associated_places": [
+      "South Water Street",
+      "Chicago"
+     ]
+    }
+   ],
+   "notes": "ONE DOOR FROM A CORNER, WHICH IS THE MOST PRECISE PLACEMENT KIND IN THE WHOLE READING RANGE. 'on South-Water st. one door from Dearborn street' fixes a storefront to the first lot east or west of the Dearborn crossing on South Water — a specific building envelope, not a block face. The anchor is recorded as the STREET rather than a building because that is what the paper names; the class is `relative` because the offset ('one door from') is what does the work.\n\nNEW IN THE TOWN ON 10 JUNE 1835 — three weeks before the scene date — and restocking 'every 15 or 20 days, through the season', which is a lake-supplied trade running on the shipping the same issue counts. 'Agent for the Manufacturers' means he is not the maker: this is a wholesale clothing and shoe agency, and it sits on South Water Street a door from Dearborn."
+  },
+  {
+   "id": "c011",
+   "kind": "business",
+   "reading": "transcription_mediated",
+   "quote": "Scythes, Cradies, &c.\nDOZ. Graas Sey thea;\nf 4do. Cradles and Scythes;\nf 26 doz. Scythe Snaths;\n26. '' Hay Forks;\n: 6 * Manure do.\n\" 12\" Shovels; 4 doz. Spades;\ndune 9. FP. PRUYNE & C\n; Hardware.\npe subscribers have just received as\nMm eral an assortment of Hardware, &\nteen offered in Chicago, which they oft\n- sale on the most reasonable terme.\npee P. PRUYNE & C\n\" Chicago, June 9, 1835.",
+   "normalized": "Scythes, Cradles, &c. [12] DOZ. Grass Scythes; 4 do. Cradles and Scythes; 2[5] doz. Scythe Snaths; 2[5] doz. Hay Forks; 6 doz. Manure do.; 12 doz. Shovels; 4 doz. Spades; […] June 9. P. PRUYNE & C[O.] Hardware. [Th]e subscribers have just received as [gen]eral an assortment of Hardware, [as has] been offered in Chicago, which they off[er for] sale on the most reasonable terms. P. PRUYNE & C[O.] Chicago, June 9, 1835.",
+   "locator": {
+    "artifact_role": "primary",
+    "issue_page": 3,
+    "column": 2,
+    "lines": [
+     2283,
+     2299
+    ],
+    "lines_of_claim": [
+     2283,
+     2284,
+     2285,
+     2286,
+     2287,
+     2288,
+     2289,
+     2291,
+     2293,
+     2294,
+     2295,
+     2296,
+     2297,
+     2298,
+     2299
+    ],
+    "interleaved": true
+   },
+   "business": {
+    "name": "P. Pruyne & Co.",
+    "proprietors": [
+     "P. Pruyne"
+    ],
+    "trade": "druggist, chemist and hardware merchant",
+    "goods": [
+     "grass scythes",
+     "cradles",
+     "scythe snaths",
+     "hay forks",
+     "manure forks",
+     "shovels",
+     "spades",
+     "scythe stones",
+     "rifles",
+     "hardware",
+     "iron",
+     "steel",
+     "nail rods",
+     "wire",
+     "vices",
+     "nails and spikes",
+     "salt",
+     "table salt",
+     "rigging",
+     "cordage",
+     "twine",
+     "marline",
+     "bed cords",
+     "oakum",
+     "caulking tools",
+     "sail needles",
+     "palms",
+     "pitch and tar",
+     "boots and shoes",
+     "brooms",
+     "drugs and medicines",
+     "quinine",
+     "iodine",
+     "hydriodate of potash",
+     "sulphate of morphine",
+     "blue pill mass",
+     "extract of belladonna",
+     "extract of hop",
+     "cicuta",
+     "cayenne pepper",
+     "gum myrrh",
+     "lobelia",
+     "patent medicines",
+     "perfumery",
+     "paint brushes",
+     "logwood",
+     "dyewoods"
+    ],
+    "street": null,
+    "placement": {
+     "class": "none"
+    }
+   },
+   "ad_copy_date": {
+    "verbatim": "Chicago, June 9, 1835.",
+    "iso": "1835-06-09"
+   },
+   "entities": [
+    {
+     "as_printed": "P. PRUYNE & C",
+     "normalized": "P. Pruyne & Co.",
+     "role": "proprietor",
+     "occupations": [
+      "druggist",
+      "chemist",
+      "hardware merchant"
+     ],
+     "associated_places": [
+      "Chicago"
+     ]
+    }
+   ],
+   "notes": "THE TOWN'S DRUGGIST IS ALSO ITS SHIP CHANDLER AND ITS HARVEST-TOOL DEALER, and the combination is the finding. Fourteen separate advertisements over this issue and the next, all signed P. Pruyne & Co.: French quinine by the ounce from named Paris chemists, morphine, iodine, belladonna — and in the same column rigging, cordage, twenty-two bales of oakum, caulking tools, sail needles, palms, pitch and tar, and twelve dozen grass scythes with twenty-five dozen hay forks. A single Chicago house supplying the apothecary, the harvest and the shipyard in June 1835.\n\nTHE OAKUM AND CAULKING TOOLS ARE THE INTERESTING PART: somebody in Chicago was paying vessels' seams in the summer of 1835, and twenty-two bales is a quantity. Nothing in this corpus names a shipyard, and this is the closest thing to evidence of one.\n\nUNPLACED IN EVERY PRINTING — no street, no anchor, in any of the fourteen advertisements. A house of this size and range with no stated address is exactly the gap the page images or a later issue might close."
+  },
+  {
+   "id": "c012",
+   "kind": "building",
+   "reading": "transcription_mediated",
+   "quote": "Important Public Sale.\nULL be gold at public auction, at Th\nAuction Room, Dearborn Street Ch\n0, on tho 12th and 13th of June, 50 of\n‘own Lote of Marseilles, also between the ",
+   "normalized": "Important Public Sale. [WI]LL be sold at public auction, at [Bates'] Auction Room, Dearborn Street, Chic[ag]o, on the 12th and 13th of June, 50 of [the T]own Lots of Marseilles, also between the [19th] and 20th, 50 other lots in the aforesaid to[wn.]",
+   "locator": {
+    "artifact_role": "primary",
+    "issue_page": 3,
+    "column": 3,
+    "lines": [
+     2420,
+     2424
+    ],
+    "lines_of_claim": [
+     2420,
+     2421,
+     2422,
+     2423,
+     2424
+    ],
+    "interleaved": true
+   },
+   "entities": [],
+   "notes": "AN AUCTION ROOM ON DEARBORN STREET, AND IT IS BATES'. The name is not in this line — the transcription sets '[at] Auction Room, Dearborn Street' with the possessive lost at the column edge — and it is supplied from the 1835-06-17 issue, which advertises the Episcopal ladies' fair 'to be held at Bates' new auction room' one week later. J. Bates jr. advertises as auctioneer 'at the old stand' in every issue from 1835-05-20. So: an auctioneer with an old stand, and a NEW auction room on Dearborn Street by mid-June 1835, large enough to hold both a two-day land auction and a public fair.\n\nTHAT IS A BUILDING THE RECONSTRUCTION HAS NO EQUIVALENT FOR — a large clear-span commercial room on Dearborn Street, in use for something other than trade three weeks before the scene date. It is the only Chicago interior in these eight issues that is described by what it can hold.\n\nWhat was sold in it was fifty town lots of MARSEILLES, sixty-five miles down the Illinois — Chicago as the auction market for canal-line town lots, which is the land boom seen from its selling end."
+  },
+  {
+   "id": "c013",
+   "kind": "building",
+   "reading": "transcription_mediated",
+   "quote": "aa . To Rent, A ‘\nA HE handsome and ‘convonient Dwelli\nof tlouse, lately erected by Mr. Rezigue,\nKinzie's addition, For terme, ee a, A\n“ Sune 3, 1835,—7. Ee ne",
+   "normalized": "To Rent, [T]HE handsome and convenient Dwelling House, lately erected by Mr. Rezigue, [on] Kinzie's addition. For terms, [etc. apply to E. K. HUBBARD.] June 3, 1835.",
+   "locator": {
+    "artifact_role": "primary",
+    "issue_page": 3,
+    "column": 4,
+    "lines": [
+     2592,
+     2597
+    ],
+    "lines_of_claim": [
+     2592,
+     2593,
+     2594,
+     2596,
+     2597
+    ],
+    "interleaved": true
+   },
+   "entities": [
+    {
+     "as_printed": "Mr. Rezigue",
+     "normalized": "Mr. Rezigue",
+     "role": "erected the dwelling house",
+     "associated_places": [
+      "Kinzie's Addition",
+      "Chicago"
+     ]
+    },
+    {
+     "as_printed": "E. K. HUBBARD",
+     "normalized": "E. K. Hubbard",
+     "role": "agent letting the house",
+     "associated_places": [
+      "Chicago"
+     ]
+    }
+   ],
+   "notes": "A DWELLING HOUSE 'LATELY ERECTED' IN KINZIE'S ADDITION, TO LET AND STANDING EMPTY IN JUNE 1835 — the second dated new building north of the main branch in this reading range, beside the Lake House then going up. 'handsome and convenient' is an advertiser's word and carries no plan; 'lately erected' is the fact, and it dates the structure to the months immediately before the scene date.\n\nWHAT IT SAYS ABOUT KINZIE'S ADDITION AT THE SCENE DATE. Three separate notices in these eight issues put new construction there — John H. Kinzie's finished store with three office rooms (1834), this dwelling, and the Lake House building — and one of the three is empty and advertised. The Addition in mid-1835 is being built up faster than it is being occupied, which is a different picture from the crowded south-side streets the same paper describes.\n\nTHE BUILDER'S NAME. 'Rezigue' is what all four printings set and it is left alone: it is not obviously an OCR error for anything, no other witness in the corpus carries it, and inventing a French Chicago name here would be exactly the kind of improvement this project forbids."
+  }
+ ]
+}

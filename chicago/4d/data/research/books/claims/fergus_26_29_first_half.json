@@ -1,0 +1,1240 @@
+{
+  "schema": 1,
+  "domain": "books",
+  "source_id": "fergus_historical_series_26_29",
+  "ticket": "T-0499",
+  "read": "2026-09-03",
+  "_doc": "Fergus' Historical Series Nos. 26-29 (Chicago: Fergus Printing Company, 1883-1888), leaves 1-429 of 858 - the FIRST HALF of the volume by page index, which is Number 26 entire, Number 27 entire, and the opening thirty-one leaves of Number 28. T-0500 reads the second half. THE VOLUME IS FOUR PAMPHLETS AND ONLY TWO OF THEM ARE ABOUT THIS TOWN, which is the first thing this reading found and the reason the target was stated before it began: Number 26 is William Henry Harrison on the mound-builders of the Ohio valley and reaches Chicago only through the Fort Wayne speeches appended to it; Number 27 is Hiram W. Beckwith's Illinois and Indiana Indians, which is where the site's own inhabitants, the river's name and the ground before the plat are described; Number 28 is the Directory of the City of Chicago for 1843 - COMPILED IN 1896, by a man who arrived in 1839, out of a canvass of 1843 he himself says guessed at locations. Every claim's quote is the committed text at its own character spans and is never typed by hand; tools/research_domains.py --check rebuilds each one character for character. No resident, household, structure or asset record was changed by this reading.",
+  "claims": [
+    {
+      "id": "bk_fer_001",
+      "kind": "notice",
+      "reading": "transcription_mediated",
+      "quote": "FERGUS\nNo.  26  -  29",
+      "normalized": "The volume's own half-title: it is Fergus' Historical Series, Nos. 26-29, four separately printed pamphlets bound as one.",
+      "locator": {
+        "list": "fergus_26_29_front_matter_leaves_1_14",
+        "text_file": "fergus_26_29.txt",
+        "spans": [
+          {
+            "line": 10,
+            "from": 0,
+            "to": 6
+          },
+          {
+            "line": 11,
+            "from": 0,
+            "to": 14
+          }
+        ],
+        "leaf": 10,
+        "printed_page": null
+      },
+      "describes_date": "1883-1888 (the four numbers); the binding is undated",
+      "entities": [
+        "Fergus Printing Company"
+      ],
+      "town_finding": false,
+      "notes": "The only place the volume states its own contents as a range. What that range MEANS - which four numbers, which titles - is nowhere in the front matter and had to be read off the four title pages inside; the table in data/research/books/README.md is that reading."
+    },
+    {
+      "id": "bk_fer_002",
+      "kind": "notice",
+      "reading": "transcription_mediated",
+      "quote": "GENEALOGY  COLLECTION\nALLEN,COUNTY  PUBLIC  LIBRARY",
+      "normalized": "The copy scanned is the Allen County Public Library's, from its genealogy collection.",
+      "locator": {
+        "list": "fergus_26_29_front_matter_leaves_1_14",
+        "text_file": "fergus_26_29.txt",
+        "spans": [
+          {
+            "line": 5,
+            "from": 0,
+            "to": 21
+          },
+          {
+            "line": 6,
+            "from": 0,
+            "to": 29
+          }
+        ],
+        "leaf": [
+          3,
+          4
+        ],
+        "printed_page": null
+      },
+      "describes_date": "2013 (the scan); the plate is undated",
+      "entities": [
+        "Allen County Public Library"
+      ],
+      "town_finding": false,
+      "notes": "The provenance of the artifact and not of the text. NOBODY IN THIS PROJECT HAS SEEN THIS BOOK: what is held is the Internet Archive's OCR of one library's copy, and every claim in this file is at that remove."
+    },
+    {
+      "id": "bk_fer_003",
+      "kind": "notice",
+      "reading": "transcription_mediated",
+      "quote": "Digitized  by  the  Internet  Archive in  2013",
+      "normalized": "The scan this reading rests on was made by the Internet Archive in 2013.",
+      "locator": {
+        "list": "fergus_26_29_front_matter_leaves_1_14",
+        "text_file": "fergus_26_29.txt",
+        "spans": [
+          {
+            "line": 8,
+            "from": 0,
+            "to": 46
+          }
+        ],
+        "leaf": 5,
+        "printed_page": null
+      },
+      "describes_date": "2013",
+      "entities": [
+        "Internet Archive"
+      ],
+      "town_finding": false,
+      "notes": "Dates the OCR. The committed text is that OCR verbatim, not a re-recognition, so its errors are 2013's errors and are reproduced here rather than corrected - the tidied reading of each quote is in `normalized`."
+    },
+    {
+      "id": "bk_fer_010",
+      "kind": "notice",
+      "reading": "transcription_mediated",
+      "quote": "A    DISCOURSE\nAIIORIGIXES  OF  THE  0!!10  VALLEI",
+      "normalized": "Number 26 is A Discourse on the Aborigines of the Ohio Valley - William Henry Harrison's address to the Historical Society of Ohio, reprinted by Fergus.",
+      "locator": {
+        "list": "fergus_no26_harrison_discourse_leaves_15_206",
+        "text_file": "fergus_26_29.txt",
+        "spans": [
+          {
+            "line": 80,
+            "from": 0,
+            "to": 14
+          },
+          {
+            "line": 82,
+            "from": 0,
+            "to": 35
+          }
+        ],
+        "leaf": [
+          15,
+          16
+        ],
+        "printed_page": null
+      },
+      "describes_date": "1838 (the address); 1883 (this reprint)",
+      "entities": [
+        "William Henry Harrison",
+        "Historical Society of Ohio"
+      ],
+      "town_finding": false,
+      "notes": "THE FIRST OF THE TWO ANSWERS THIS HALF GIVES TO 'what is in the Fergus volume'. It is not Chicago. The discourse argues about the mound-builders and the Iroquois conquest of the Ohio valley and never reaches the Illinois lakeshore; its running head through the whole number is HARRISONS HISTORICAL DISCOURSE. What made the number worth sweeping is its APPENDIX - the Fort Wayne speeches of 1811, where Potawatomi chiefs speak for a range that includes Chicago."
+    },
+    {
+      "id": "bk_fer_011",
+      "kind": "person",
+      "reading": "transcription_mediated",
+      "quote": "we,  the  Puttawatamies, inhabiting  the  Lakes,  from  Chicago  around  to  the  east",
+      "normalized": "Oseemit, a Potawatomi chief, at Fort Wayne in 1811 describes his people as the Potawatomies inhabiting the lakes from Chicago round to the east.",
+      "locator": {
+        "list": "fergus_no26_harrison_discourse_leaves_15_206",
+        "text_file": "fergus_26_29.txt",
+        "spans": [
+          {
+            "line": 548,
+            "from": 45,
+            "to": 131
+          }
+        ],
+        "leaf": 156,
+        "printed_page": null
+      },
+      "describes_date": "1811",
+      "entities": [
+        "Oseemit",
+        "Potawatomi"
+      ],
+      "town_finding": true,
+      "notes": "THE EARLIEST STATEMENT IN THIS VOLUME OF WHAT CHICAGO WAS TO THE PEOPLE WHO LIVED THERE, and it is made by one of them rather than about them. Twenty-four years before the scene date, Chicago is named as the western limit of a Potawatomi range - a place on their own map, not a fort with Indians near it. The project's 1835 town stands on ground that this speech says was inhabited, and the record of that habitation is a claim and not a decoration."
+    },
+    {
+      "id": "bk_fer_012",
+      "kind": "person",
+      "reading": "transcription_mediated",
+      "quote": "To-pen-ne-bec,  i)riiicipal  chief  of  the  Pottawatomie  nation,  the  protector of  Mr,  Kinzie's  family  at  the  Chicago  massacre",
+      "normalized": "A footnote identifies To-pen-ne-bec as principal chief of the Potawatomi nation and the protector of the Kinzie family at the Chicago massacre, citing Mrs Kinzie's Wau-Bun.",
+      "locator": {
+        "list": "fergus_no26_harrison_discourse_leaves_15_206",
+        "text_file": "fergus_26_29.txt",
+        "spans": [
+          {
+            "line": 573,
+            "from": 3,
+            "to": 139
+          }
+        ],
+        "leaf": 160,
+        "printed_page": "74"
+      },
+      "describes_date": "1812 (the massacre); 1811 (the speech the note hangs on); 1883 (the note)",
+      "entities": [
+        "To-pen-ne-bec",
+        "John Kinzie",
+        "Juliette Augusta Magill Kinzie"
+      ],
+      "town_finding": false,
+      "notes": "The footnote is Hiram W. Beckwith's, written for the 1883 reprint, and it cites Wau-Bun - which this project already grades as a tier-2 source. It is a pointer, not evidence: the note adds nothing to Wau-Bun that Wau-Bun does not say better. 'Mr. Kinzie' here is JOHN Kinzie the elder, dead in 1828, and the crosswalk refuses him against John Harris Kinzie."
+    },
+    {
+      "id": "bk_fer_013",
+      "kind": "event",
+      "reading": "transcription_mediated",
+      "quote": "Killed  at  the  Chicago  Massacre,  August  15,  1812.",
+      "normalized": "A footnote dates the Chicago massacre to 15 August 1812 and records that Captain William Wells was killed in it.",
+      "locator": {
+        "list": "fergus_no26_harrison_discourse_leaves_15_206",
+        "text_file": "fergus_26_29.txt",
+        "spans": [
+          {
+            "line": 579,
+            "from": 3,
+            "to": 58
+          }
+        ],
+        "leaf": 162,
+        "printed_page": null
+      },
+      "describes_date": "1812",
+      "entities": [
+        "William Wells"
+      ],
+      "town_finding": false,
+      "notes": "Dates an event this project does not model and never will: the reconstruction's scene is 1835 and the second Fort Dearborn. Kept because the volume's Chicago material is thin enough that a run needs to know it was swept and what it held."
+    },
+    {
+      "id": "bk_fer_020",
+      "kind": "notice",
+      "reading": "transcription_mediated",
+      "quote": "FERGUS'     HISTORICAL     SERIES,     No.     2  7.\nILLINOIS  AND  INDIANA  INDIANS\nHIRAM  \\V.  BECKWITH,\nILLINOIS    STREET. 1884.",
+      "normalized": "Number 27 is Hiram W. Beckwith's The Illinois and Indiana Indians, printed by the Fergus Printing Company in Illinois Street, Chicago, 1884.",
+      "locator": {
+        "list": "fergus_no27_beckwith_indians_leaves_207_398",
+        "text_file": "fergus_26_29.txt",
+        "spans": [
+          {
+            "line": 824,
+            "from": 0,
+            "to": 52
+          },
+          {
+            "line": 826,
+            "from": 0,
+            "to": 31
+          },
+          {
+            "line": 828,
+            "from": 0,
+            "to": 21
+          },
+          {
+            "line": 834,
+            "from": 0,
+            "to": 25
+          }
+        ],
+        "leaf": [
+          207,
+          208
+        ],
+        "printed_page": null
+      },
+      "describes_date": "1884 (the printing); the text describes the seventeenth century to 1837",
+      "entities": [
+        "Hiram W. Beckwith",
+        "Fergus Printing Company"
+      ],
+      "town_finding": false,
+      "notes": "THE SECOND ANSWER, and the one that pays. Beckwith is a compiler writing in 1884 from treaties, government correspondence, Schoolcraft's journals and his own father's survey work - so he is tier 3 for what he argues and a transmitter of tier-1 material for what he quotes. Every claim below says which of the two it is."
+    },
+    {
+      "id": "bk_fer_021",
+      "kind": "street",
+      "reading": "transcription_mediated",
+      "quote": "a  scattering  village  upon  both the  north  and  south  branches  of  the  \"Chicago\",  the  name  of  the  stream  sig- nifying a  skunk  in  its  primary,  and  a  wild  onion  in  its  secondary  sense",
+      "normalized": "Beckwith records a scattered Potawatomi village on both the north and south branches of the Chicago, and gives the stream name as meaning a skunk primarily and a wild onion secondarily.",
+      "locator": {
+        "list": "fergus_no27_beckwith_indians_leaves_207_398",
+        "text_file": "fergus_26_29.txt",
+        "spans": [
+          {
+            "line": 1484,
+            "from": 410,
+            "to": 616
+          }
+        ],
+        "leaf": 374,
+        "printed_page": "75"
+      },
+      "describes_date": "before 1833 (the villages); 1884 (Beckwith's note)",
+      "entities": [
+        "Potawatomi"
+      ],
+      "town_finding": true,
+      "notes": "TWO TOWN FINDINGS IN ONE SENTENCE. First, the site of this project's town was itself inhabited, and not at a single point: the village was SCATTERED along both branches, which is the settlement pattern the reconstruction's own north and south divisions sit on top of. Second, the etymology - and Beckwith puts the skunk FIRST and the wild onion second, which is the opposite emphasis to the one usually printed. Neither is placed on the plat by this claim; both are recorded so a later pass can argue from them."
+    },
+    {
+      "id": "bk_fer_022",
+      "kind": "landscape",
+      "reading": "transcription_mediated",
+      "quote": "others, on  the  \"  She-shick-ma-o-shi-ke\"  (the  tree  from  which  the  water  flows),  or  the River  des  Plaines,  from  French-Cana''ian  word  Plaine  or  Flein,  meaning  a variety  of  maple  growing  along  its  borders",
+      "normalized": "The Des Plaines is given its Potawatomi name, 'the tree from which the water flows', and its French name is derived from a variety of maple growing along its banks.",
+      "locator": {
+        "list": "fergus_no27_beckwith_indians_leaves_207_398",
+        "text_file": "fergus_26_29.txt",
+        "spans": [
+          {
+            "line": 1484,
+            "from": 619,
+            "to": 848
+          }
+        ],
+        "leaf": 374,
+        "printed_page": "75"
+      },
+      "describes_date": "before 1833 (the villages and the naming); 1884 (Beckwith's note)",
+      "entities": [
+        "Potawatomi"
+      ],
+      "town_finding": true,
+      "notes": "A SPECIES STATEMENT ABOUT THE TIMBER ON THE DES PLAINES, and the project's timber belt is currently generic. Both namings are about the same tree: a maple tapped for its sap. It is an 1884 etymology and not a botanical survey, so it argues for maple in that belt and does not settle it - and this claim does not change one asset."
+    },
+    {
+      "id": "bk_fer_023",
+      "kind": "landscape",
+      "reading": "transcription_mediated",
+      "quote": "still  other  towns  upon  the ' iJnPagc,  so  called  from  a  Frenchman  who  formerly  lived  and  died  on  its  banks, and  the  Pottawatomie  name  for  which  was  \"  0-to-ka-ke-nog\"  (the  uncovered breast)",
+      "normalized": "The DuPage is named for a Frenchman who lived and died on its banks; its Potawatomi name was O-to-ka-ke-nog, the uncovered breast.",
+      "locator": {
+        "list": "fergus_no27_beckwith_indians_leaves_207_398",
+        "text_file": "fergus_26_29.txt",
+        "spans": [
+          {
+            "line": 1484,
+            "from": 856,
+            "to": 1070
+          }
+        ],
+        "leaf": 374,
+        "printed_page": "75"
+      },
+      "describes_date": "before 1833; 1884 (Beckwith's note)",
+      "entities": [
+        "Potawatomi"
+      ],
+      "town_finding": false,
+      "notes": "Outside the reconstruction's ground - the DuPage is thirty miles west - and recorded because the same footnote is the source of two findings that are not, and a reader checking those needs to see the whole of what the footnote says."
+    },
+    {
+      "id": "bk_fer_024",
+      "kind": "person",
+      "reading": "transcription_mediated",
+      "quote": "Min-ne-mung\"  (the  yellow  headl  The  latter's sister  was  the  v/ife  of  Billy  Caldwell,  whose  name  is  so  intimately  connected with  early  Chicago",
+      "normalized": "Min-ne-mung's sister was the wife of Billy Caldwell, whom Beckwith calls intimately connected with early Chicago.",
+      "locator": {
+        "list": "fergus_no27_beckwith_indians_leaves_207_398",
+        "text_file": "fergus_26_29.txt",
+        "spans": [
+          {
+            "line": 1488,
+            "from": 204,
+            "to": 363
+          }
+        ],
+        "leaf": 376,
+        "printed_page": null
+      },
+      "describes_date": "before 1833 (the marriage); 1884 (the note)",
+      "entities": [
+        "Billy Caldwell",
+        "Min-ne-mung"
+      ],
+      "town_finding": true,
+      "notes": "A DOCUMENTED CHICAGO RESIDENT'S KIN, and the crosswalk merges this Billy Caldwell into the project's own Billy Caldwell (Sauganash), interpreter at the Indian agency and present on the scene date. The connection this adds is a marriage into the Yellow Head's family on the Kankakee, which the resident record does not carry. It changes no placement."
+    },
+    {
+      "id": "bk_fer_025",
+      "kind": "person",
+      "reading": "transcription_mediated",
+      "quote": "were  surveyed  off  in  the  presence  of the  beneficiaries  and  Gen.  Tipton,  Indian  agent,  by  the  writer's  father,  Major Dan.  W.  Beckwith,  U.  .S.  Deputy  Surveyor,  in  May,  1834",
+      "normalized": "The reservations secured by the Treaty of Camp Tippecanoe were surveyed in May 1834 by the author's father, Major Daniel W. Beckwith, US Deputy Surveyor, before the beneficiaries and General Tipton.",
+      "locator": {
+        "list": "fergus_no27_beckwith_indians_leaves_207_398",
+        "text_file": "fergus_26_29.txt",
+        "spans": [
+          {
+            "line": 1488,
+            "from": 729,
+            "to": 925
+          }
+        ],
+        "leaf": 376,
+        "printed_page": null
+      },
+      "describes_date": "1834",
+      "entities": [
+        "Daniel W. Beckwith",
+        "John Tipton"
+      ],
+      "town_finding": false,
+      "notes": "Dates the author's own family inside the scene window and is the reason parts of this number read as testimony rather than compilation. The survey is on the Kankakee, not at Chicago, so it places nobody here; it is recorded because a run weighing Beckwith's authority should see where it comes from."
+    },
+    {
+      "id": "bk_fer_026",
+      "kind": "event",
+      "reading": "transcription_mediated",
+      "quote": "A  notable  instance  of  this  occurred  at  the  treaty  con- cluded Aug.  29,  1 82 1,  at  Chicago,  111.,  with  the  Pottawatomie, Ottawa,  and  Chippeway  tribes.",
+      "normalized": "A treaty was concluded at Chicago on 29 August 1821 with the Potawatomi, Ottawa and Chippewa.",
+      "locator": {
+        "list": "fergus_no27_beckwith_indians_leaves_207_398",
+        "text_file": "fergus_26_29.txt",
+        "spans": [
+          {
+            "line": 1483,
+            "from": 452,
+            "to": 621
+          }
+        ],
+        "leaf": 374,
+        "printed_page": "75"
+      },
+      "describes_date": "1821",
+      "entities": [
+        "Potawatomi",
+        "Ottawa",
+        "Chippewa"
+      ],
+      "town_finding": false,
+      "notes": "The frame for the four claims that follow, which are Schoolcraft's eyewitness account of the ground the treaty was held on. Fourteen years before the scene, and the last description in this volume of the site before the town was platted."
+    },
+    {
+      "id": "bk_fer_027",
+      "kind": "landscape",
+      "reading": "transcription_mediated",
+      "quote": "After  crossing  the  south-fork  of  the  Chicago,  and  emerg- ing from  the  forest  that  skirts  it,  nearly  the  whole  number  of those  who  had  preceded  us  appeared  on  the  extensive  and  level plain  that  stretches  along  the  shore  of  the  lake",
+      "normalized": "Schoolcraft, arriving in August 1821, crossed the south branch of the Chicago, emerged from the forest skirting it, and came out on the extensive level plain stretching along the lake shore.",
+      "locator": {
+        "list": "fergus_no27_beckwith_indians_leaves_207_398",
+        "text_file": "fergus_26_29.txt",
+        "spans": [
+          {
+            "line": 1493,
+            "from": 218,
+            "to": 484
+          }
+        ],
+        "leaf": 378,
+        "printed_page": null
+      },
+      "describes_date": "1821",
+      "entities": [
+        "Henry Rowe Schoolcraft"
+      ],
+      "town_finding": true,
+      "notes": "THE MOST USEFUL SENTENCE IN THIS NUMBER FOR THE GROUND ITSELF, and it is eyewitness: a belt of FOREST skirting the south branch, and beyond it a level plain running to the lake. That is the shape the project's heightfield and timber belt already assume, described by a man walking it in 1821, and it is the first independent corroboration of it in this domain. It is fourteen years early and it fixes no edge: a forest that skirted the south fork in 1821 had been cut into by 1835 and this claim does not say by how much."
+    },
+    {
+      "id": "bk_fer_028",
+      "kind": "infrastructure",
+      "reading": "transcription_mediated",
+      "quote": "an  open bower,  provided  with  seats  for  the  principal  chiefs  and  headmen, had  been  put  up  on  the  green,  extending  along  the  north  bank of  Chicago  Creek.  [Near  the  old  John  Kinzie  house.]  This site,  being  at  some  distance  from  the  principal  encampments, and  directly  under  the  guns  of  the  fort,  ensured  both  safety  and order  for  the  occasion.",
+      "normalized": "For the 1821 treaty an open bower with seats for the chiefs was built on the green along the north bank of the Chicago, near the old John Kinzie house, at some distance from the encampments and directly under the guns of the fort.",
+      "locator": {
+        "list": "fergus_no27_beckwith_indians_leaves_207_398",
+        "text_file": "fergus_26_29.txt",
+        "spans": [
+          {
+            "line": 1493,
+            "from": 988,
+            "to": 1380
+          }
+        ],
+        "leaf": 378,
+        "printed_page": null
+      },
+      "describes_date": "1821",
+      "entities": [
+        "Henry Rowe Schoolcraft",
+        "John Kinzie"
+      ],
+      "town_finding": true,
+      "notes": "A STRUCTURE ON THE NORTH BANK, PLACED BY TWO LANDMARKS THIS PROJECT HOLDS - the Kinzie house and the fort's field of fire. It is 1821 and it was temporary; nothing here argues it stood in 1835 and no structure record is minted from it. What it supplies is the ground's USE: the green on the north bank was open enough in 1821 to seat several thousand people, which is a constraint on how built that bank can have been fourteen years before the scene. The bracket is the compiler's, not Schoolcraft's, and the normalized reading keeps it as such."
+    },
+    {
+      "id": "bk_fer_029",
+      "kind": "event",
+      "reading": "transcription_mediated",
+      "quote": "We  found,  on  reaching  the  post,  that between  two  and  three  thousand  Indians  were  assembled — chiefly Pottawatomies,  Ottawas,  and  Chippeways.\nprovisions  were  daily  issued  by  the  Indian department,  to  about  three  thousand,  daily,  during  the  treaty.",
+      "normalized": "Between two and three thousand Indians, chiefly Potawatomi, Ottawa and Chippewa, were assembled at Chicago for the 1821 treaty, and the Indian department issued provisions daily to about three thousand.",
+      "locator": {
+        "list": "fergus_no27_beckwith_indians_leaves_207_398",
+        "text_file": "fergus_26_29.txt",
+        "spans": [
+          {
+            "line": 1493,
+            "from": 611,
+            "to": 767
+          },
+          {
+            "line": 1493,
+            "from": 815,
+            "to": 934
+          }
+        ],
+        "leaf": 378,
+        "printed_page": null
+      },
+      "describes_date": "1821",
+      "entities": [
+        "Potawatomi",
+        "Ottawa",
+        "Chippewa"
+      ],
+      "town_finding": true,
+      "notes": "THE LARGEST POPULATION FIGURE THIS PROJECT HOLDS FOR THE SITE, and it is fourteen years before a town of some three hundred and fifty roofs. It is a gathering and not a residence, and this claim does not turn it into one; what it does is set the scale of what the ground was used for, and it is the number a visitor asking 'was this empty before the town' should be shown."
+    },
+    {
+      "id": "bk_fer_030",
+      "kind": "building",
+      "reading": "transcription_mediated",
+      "quote": "Capt,  John  Whistler,  who  succes- sively commanded  at  Forts  St.  Mary,  Wayne,  and  old  Fort  Dearborn  at  Chi- cago; the  latter  he  built  in  1803.",
+      "normalized": "Captain John Whistler commanded at Forts St Mary, Wayne and old Fort Dearborn in turn, and built Fort Dearborn in 1803.",
+      "locator": {
+        "list": "fergus_no27_beckwith_indians_leaves_207_398",
+        "text_file": "fergus_26_29.txt",
+        "spans": [
+          {
+            "line": 1500,
+            "from": 117,
+            "to": 277
+          }
+        ],
+        "leaf": 380,
+        "printed_page": "178"
+      },
+      "describes_date": "1803",
+      "entities": [
+        "John Whistler",
+        "Fort Dearborn"
+      ],
+      "town_finding": true,
+      "notes": "THE FIRST FORT AND NOT THE ONE IN THE SCENE. The town of 1835 stands beside the SECOND Fort Dearborn, rebuilt in 1816 after the first was burned; this claim is about the first, and the date is Beckwith's footnote at eighty years' distance. It is recorded because the fort record's chronology should carry every dating it has been given and because this one - 1803 - disagrees with the 1804 establishment this project already holds from Hubbard. NEITHER IS UPGRADED BY THE OTHER: the disagreement is the finding."
+    },
+    {
+      "id": "bk_fer_031",
+      "kind": "notice",
+      "reading": "transcription_mediated",
+      "quote": "A  more  detailed  account  of  the  Winnebago  War,  as  it  manifested  itself in  the  vicinity  of  Chicago,  will  be  found  in  Number  Ten",
+      "normalized": "Beckwith refers a reader wanting the Winnebago war around Chicago to Number Ten of the Fergus Historical Series.",
+      "locator": {
+        "list": "fergus_no27_beckwith_indians_leaves_207_398",
+        "text_file": "fergus_26_29.txt",
+        "spans": [
+          {
+            "line": 1227,
+            "from": 3,
+            "to": 149
+          }
+        ],
+        "leaf": 314,
+        "printed_page": "144"
+      },
+      "describes_date": "1827 (the war); 1884 (the reference)",
+      "entities": [],
+      "town_finding": false,
+      "notes": "A RESEARCH LEAD AND NOT EVIDENCE. Number 10 of the series is NOT in this volume and is not in the deposit; the project's account of the Winnebago Scare currently comes from Hubbard, whose own source note says the same - that his Winnebago section came from his statements in Historical Series No. 10. Two sources leaning on one unread pamphlet is worth knowing before either is cited again."
+    },
+    {
+      "id": "bk_fer_032",
+      "kind": "event",
+      "reading": "transcription_mediated",
+      "quote": "Between  the  years  1789  and  1837. they,  by  themselves,  or  in  connection  with  other  tribes,  made  no less  than  thirty-eight  treaties  with  the  United  States",
+      "normalized": "Beckwith counts thirty-eight treaties made by the Potawatomi with the United States, alone or with other tribes, between 1789 and 1837.",
+      "locator": {
+        "list": "fergus_no27_beckwith_indians_leaves_207_398",
+        "text_file": "fergus_26_29.txt",
+        "spans": [
+          {
+            "line": 1463,
+            "from": 30,
+            "to": 204
+          }
+        ],
+        "leaf": 372,
+        "printed_page": null
+      },
+      "describes_date": "1789-1837",
+      "entities": [
+        "Potawatomi"
+      ],
+      "town_finding": false,
+      "notes": "The frame in which the town of 1835 exists at all: the ground it stands on was ceded two years before the scene, at Chicago, and the last of these treaties is two years after it. Beckwith's count is a compiler's tally and this project does not check it."
+    },
+    {
+      "id": "bk_fer_040",
+      "kind": "notice",
+      "reading": "transcription_mediated",
+      "quote": "CITY  OF  CHICAGO\n184^3\nROBERT  FERGUS,  Printer,\nA  Resident  of  Chicago  since  July  i,  1839.\n1896.",
+      "normalized": "Number 28 is the Directory of the City of Chicago for 1843, compiled by Robert Fergus, printer, a resident of Chicago since 1 July 1839, and published in 1896.",
+      "locator": {
+        "list": "fergus_no28_directory_1843_leaves_399_429",
+        "text_file": "fergus_26_29.txt",
+        "spans": [
+          {
+            "line": 1839,
+            "from": 0,
+            "to": 17
+          },
+          {
+            "line": 1842,
+            "from": 0,
+            "to": 5
+          },
+          {
+            "line": 1844,
+            "from": 0,
+            "to": 25
+          },
+          {
+            "line": 1845,
+            "from": 0,
+            "to": 48
+          },
+          {
+            "line": 1848,
+            "from": 0,
+            "to": 5
+          }
+        ],
+        "leaf": 400,
+        "printed_page": null
+      },
+      "describes_date": "1843 (the directory); 1896 (the compilation and printing)",
+      "entities": [
+        "Robert Fergus"
+      ],
+      "town_finding": false,
+      "notes": "THE SINGLE MOST IMPORTANT FACT ABOUT THIS PAMPHLET AND IT IS ON ITS OWN TITLE PAGE: a directory FOR 1843 that was COMPILED IN 1896, by a man who did not reach Chicago until July 1839. It is a fifty-three-year retrospective, not a contemporary canvass, and anything taken from it is tier 3 at best however contemporary its subject looks. The same caution applies to Fergus' Directory for 1839, which T-0506 is about."
+    },
+    {
+      "id": "bk_fer_041",
+      "kind": "notice",
+      "reading": "transcription_mediated",
+      "quote": "THE  cordial  reception  and  flattering  endorsements  given  in 1876  to  the  Directory  for  1S39,  by  many  of  Chicago's oldest,  well-known,  and  best-informed  citizens,  induced  the compiler  to  undertake  and  to  complete  this  little  volume",
+      "normalized": "Fergus says the reception given in 1876 to his Directory for 1839 by Chicago's oldest citizens is what induced him to compile this one.",
+      "locator": {
+        "list": "fergus_no28_directory_1843_leaves_399_429",
+        "text_file": "fergus_26_29.txt",
+        "spans": [
+          {
+            "line": 1853,
+            "from": 0,
+            "to": 258
+          }
+        ],
+        "leaf": 402,
+        "printed_page": null
+      },
+      "describes_date": "1876 (the 1839 directory as published); 1896 (this preface)",
+      "entities": [
+        "Robert Fergus"
+      ],
+      "town_finding": false,
+      "notes": "BEARS DIRECTLY ON T-0506. The '1839 Chicago directory' this project cites from a web transcription is on the compiler's own account a publication of 1876 - the same retrospective act as this one, thirty-seven years after its year, checked with old settlers rather than canvassed. Whatever T-0506 extracts should be graded as that and not as an 1839 record."
+    },
+    {
+      "id": "bk_fer_042",
+      "kind": "notice",
+      "reading": "transcription_mediated",
+      "quote": "The  basis  for  this  work  was  Chicago's  first  Directory  of  1844^ printed  and  published  by  Ellis  &  Fergus,  from  a  careless  and indifferent  canvass  made  during  1843 — August  to  December,  by James  W.  Norris,  and  issued  in  December  of  that  year.",
+      "normalized": "Fergus states his basis was Chicago's first directory, printed by Ellis & Fergus from James W. Norris's canvass of August to December 1843 and issued that December.",
+      "locator": {
+        "list": "fergus_no28_directory_1843_leaves_399_429",
+        "text_file": "fergus_26_29.txt",
+        "spans": [
+          {
+            "line": 1855,
+            "from": 0,
+            "to": 275
+          }
+        ],
+        "leaf": 402,
+        "printed_page": null
+      },
+      "describes_date": "1843 (the canvass); 1844 (the first directory); 1896 (this statement)",
+      "entities": [
+        "Robert Fergus",
+        "James W. Norris",
+        "William Ellis"
+      ],
+      "town_finding": false,
+      "notes": "NAMES THE ONE CONTEMPORARY DOCUMENT UNDER ALL OF THIS. Everything in Number 28 descends from Norris's canvass of the last five months of 1843; the rest is Fergus's memory and his correspondents'. This project already holds data/residents/directory_1844.json, and a run that wants directory evidence should reach for the 1844 canvass and not for the 1896 recension of it."
+    },
+    {
+      "id": "bk_fer_043",
+      "kind": "notice",
+      "reading": "transcription_mediated",
+      "quote": "sailors  were  made  tailors,  and  tailors sailors,  names   were   spelled  at  and  locations  guessed",
+      "normalized": "Fergus, who set the type of the 1844 directory, says its trades were interchanged, its names spelled by guess and its locations guessed at.",
+      "locator": {
+        "list": "fergus_no28_directory_1843_leaves_399_429",
+        "text_file": "fergus_26_29.txt",
+        "spans": [
+          {
+            "line": 1856,
+            "from": 604,
+            "to": 709
+          }
+        ],
+        "leaf": 402,
+        "printed_page": null
+      },
+      "describes_date": "1843-1844 (the directory described); 1896 (the judgement)",
+      "entities": [
+        "Robert Fergus"
+      ],
+      "town_finding": false,
+      "notes": "THE COMPILER OF A CHICAGO DIRECTORY SAYING IN PRINT THAT CHICAGO DIRECTORIES GUESS AT LOCATIONS, and he set the type of the one he is describing. This project places buildings from documentary evidence and grades each placement; a directory address is now known, from the trade itself, to be the weakest such evidence, and the 1844 directory this repo holds is the very book he means."
+    },
+    {
+      "id": "bk_fer_044",
+      "kind": "notice",
+      "reading": "transcription_mediated",
+      "quote": "Robert  Fergus,  Compiler. Chicago,  August  4,  1896.\n(My  8i5t  Birthday.)",
+      "normalized": "The preface is signed by Robert Fergus at Chicago on 4 August 1896, his eighty-first birthday.",
+      "locator": {
+        "list": "fergus_no28_directory_1843_leaves_399_429",
+        "text_file": "fergus_26_29.txt",
+        "spans": [
+          {
+            "line": 1863,
+            "from": 0,
+            "to": 54
+          },
+          {
+            "line": 1864,
+            "from": 0,
+            "to": 21
+          }
+        ],
+        "leaf": 404,
+        "printed_page": "4"
+      },
+      "describes_date": "1896",
+      "entities": [
+        "Robert Fergus"
+      ],
+      "town_finding": false,
+      "notes": "Dates the compilation exactly and gives the compiler's age at it: eighty-one, recalling a town he first saw at twenty-four. Recorded because the pamphlet's front cover says 1843 and nothing but this line and the title page says otherwise."
+    },
+    {
+      "id": "bk_fer_045",
+      "kind": "building",
+      "reading": "transcription_mediated",
+      "quote": "First  Presbyterian  Church,  Clark  vStreet,  between  Washington  and  Madison.\nSecond  Presbyterian  Church,  Randolph  Street,  between  Clark  and  I^earborn.",
+      "normalized": "In 1843 the First Presbyterian Church stood in Clark Street between Washington and Madison, and the Second Presbyterian in Randolph Street between Clark and Dearborn.",
+      "locator": {
+        "list": "fergus_no28_directory_1843_leaves_399_429",
+        "text_file": "fergus_26_29.txt",
+        "spans": [
+          {
+            "line": 1941,
+            "from": 0,
+            "to": 81
+          },
+          {
+            "line": 1942,
+            "from": 0,
+            "to": 81
+          }
+        ],
+        "leaf": 410,
+        "printed_page": "7"
+      },
+      "describes_date": "1843",
+      "entities": [
+        "First Presbyterian Church",
+        "Second Presbyterian Church"
+      ],
+      "town_finding": true,
+      "notes": "TWO CHURCHES PLACED TO THE BLOCK FACE, eight years after the scene. The First Presbyterian congregation existed in 1833 and this project may want it; what this claim supplies is where its 1843 house stood, which is NOT evidence of where its 1835 house stood - the congregation built more than once. Placed here as a bound, not a placement."
+    },
+    {
+      "id": "bk_fer_046",
+      "kind": "building",
+      "reading": "transcription_mediated",
+      "quote": "Catholic  Church,  n.-w.  corner  Michigan  Avenue  and  Madison  Street.\nThe  new  Catholic  Church  at  the  s. -w,  corner  of  Wabash  Avenue  and  Madison Street  is  progressing  to  completion.  Dimensions — Length,  112  feet,  in- cluding 12  feet  portico;  ^vidth,  55  feet;  height  of  walls,  34  feet;  stone  foun- dation, 4  feet  from  the  ground.",
+      "normalized": "In 1843 the Catholic church stood at the north-west corner of Michigan Avenue and Madison Street, and a new one was rising at the south-west corner of Wabash Avenue and Madison, 112 feet long including a 12-foot portico, 55 feet wide, walls 34 feet high on a stone foundation standing 4 feet out of the ground.",
+      "locator": {
+        "list": "fergus_no28_directory_1843_leaves_399_429",
+        "text_file": "fergus_26_29.txt",
+        "spans": [
+          {
+            "line": 1944,
+            "from": 0,
+            "to": 73
+          },
+          {
+            "line": 1945,
+            "from": 0,
+            "to": 293
+          }
+        ],
+        "leaf": 410,
+        "printed_page": "7"
+      },
+      "describes_date": "1843",
+      "entities": [
+        "St Mary's Catholic Church"
+      ],
+      "town_finding": true,
+      "notes": "THE ONLY MEASURED BUILDING IN THIS HALF OF THE VOLUME, and the measurements are of an 1843 church and not an 1835 one. Its value here is as a YARDSTICK: it says what a substantial Chicago church was dimensioned at eight years after the scene, which bounds from above what the project's 1835 religious buildings can be. No structure record is changed."
+    },
+    {
+      "id": "bk_fer_047",
+      "kind": "building",
+      "reading": "transcription_mediated",
+      "quote": "St,  James' Church  (Protestant  Episcopal),  Cass  Street,  between  Michigan  and Illinois.  Church  erected  in  1837,  at  a  cost  of  about  $10,000.",
+      "normalized": "St James' Church (Protestant Episcopal) stood in Cass Street between Michigan and Illinois, erected in 1837 at a cost of about $10,000.",
+      "locator": {
+        "list": "fergus_no28_directory_1843_leaves_399_429",
+        "text_file": "fergus_26_29.txt",
+        "spans": [
+          {
+            "line": 1949,
+            "from": 0,
+            "to": 155
+          }
+        ],
+        "leaf": 410,
+        "printed_page": "7"
+      },
+      "describes_date": "1837 (the erection); 1843 (the entry)",
+      "entities": [
+        "St James' Church"
+      ],
+      "town_finding": true,
+      "notes": "THE NEAREST DATED BUILDING TO THE SCENE IN THE WHOLE OF THIS HALF - two years after it, on the north side, for ten thousand dollars. St James' parish organised in 1834 and worshipped somewhere before 1837; this claim is evidence of the 1837 building and is NOT evidence of what stood in 1835. It is recorded as the upper bound on what the parish had built by then, and as a price: ten thousand dollars is what a north-side church cost in this decade."
+    },
+    {
+      "id": "bk_fer_048",
+      "kind": "building",
+      "reading": "transcription_mediated",
+      "quote": "Baptist  Church,  s.-e.  corner  of  Washington  and  LaSalle  Streets.\nMethodist  Episcopal  Church,  s.-e.  comer  Clark  and  Washington  Streets;  new church,  s.-w.  corner  Randolph  and  Canal  Streets,  3d  ward.",
+      "normalized": "In 1843 the Baptist church stood at the south-east corner of Washington and LaSalle, and the Methodist Episcopal at the south-east corner of Clark and Washington with a new church at the south-west corner of Randolph and Canal in the third ward.",
+      "locator": {
+        "list": "fergus_no28_directory_1843_leaves_399_429",
+        "text_file": "fergus_26_29.txt",
+        "spans": [
+          {
+            "line": 1947,
+            "from": 0,
+            "to": 71
+          },
+          {
+            "line": 1950,
+            "from": 0,
+            "to": 148
+          }
+        ],
+        "leaf": 410,
+        "printed_page": "7"
+      },
+      "describes_date": "1843",
+      "entities": [
+        "First Baptist Church",
+        "Methodist Episcopal Church"
+      ],
+      "town_finding": true,
+      "notes": "Both congregations were meeting in Chicago in 1835 and both are candidates for the project's religious buildings; both corners here are 1843 corners. A run tempted to back-date one of them should read bk_fer_043 first - the compiler of this book says directory locations were guessed at."
+    },
+    {
+      "id": "bk_fer_049",
+      "kind": "business",
+      "reading": "transcription_mediated",
+      "quote": "Masonic  Lodge : Corner  of  [6]  Clark  and  [[45I  South- Water  Streets,  third  story.",
+      "normalized": "The Masonic Lodge met in the third storey at the corner of Clark and South Water Streets, numbered 6 Clark and 45 South Water.",
+      "locator": {
+        "list": "fergus_no28_directory_1843_leaves_399_429",
+        "text_file": "fergus_26_29.txt",
+        "spans": [
+          {
+            "line": 1992,
+            "from": 0,
+            "to": 90
+          }
+        ],
+        "leaf": 412,
+        "printed_page": null
+      },
+      "describes_date": "1843",
+      "entities": [
+        "Masonic Lodge"
+      ],
+      "town_finding": true,
+      "notes": "A SOUTH WATER STREET ADDRESS WITH A STREET NUMBER ON IT, on the corridor this project reconstructs in most detail, and a THIRD STOREY at that corner in 1843. The lodge was chartered in Chicago in 1843 and this is its own year, so nothing back-dates to 1835; what the claim gives the town is the height a South Water corner had reached eight years after the scene, and the numbering scheme the street used - 6 Clark, 45 South Water - which is the kind of thing the project's own street numbering will one day have to answer to."
+    },
+    {
+      "id": "bk_fer_050",
+      "kind": "civic",
+      "reading": "transcription_mediated",
+      "quote": "Chicago  Lyceum :\nInstituted  Dec.  2,  1S34.\nIncorporated  Feb.  27,  1839.",
+      "normalized": "The Chicago Lyceum was instituted on 2 December 1834 and incorporated on 27 February 1839.",
+      "locator": {
+        "list": "fergus_no28_directory_1843_leaves_399_429",
+        "text_file": "fergus_26_29.txt",
+        "spans": [
+          {
+            "line": 1994,
+            "from": 31,
+            "to": 48
+          },
+          {
+            "line": 1995,
+            "from": 0,
+            "to": 27
+          },
+          {
+            "line": 1998,
+            "from": 0,
+            "to": 30
+          }
+        ],
+        "leaf": 414,
+        "printed_page": null
+      },
+      "describes_date": "1834 (institution); 1839 (incorporation); 1843 (the entry)",
+      "entities": [
+        "Chicago Lyceum"
+      ],
+      "town_finding": true,
+      "notes": "AN INSTITUTION OF THE SCENE YEAR'S OWN TOWN, dated to the day, eleven months before the scene date. The Lyceum was meeting in Chicago in 1835 and this project has no record of it; where it MET is not given here and is not invented. This is the strongest single reason the 1843 directory was worth reading for an 1835 town."
+    },
+    {
+      "id": "bk_fer_051",
+      "kind": "business",
+      "reading": "transcription_mediated",
+      "quote": "Book  and  Job  Printing-Office : Ellis  [Will.]  &  Fergus  [Robert],  37  Clark  St.,  Saloon  Bldgs,  s.-e.  cor.  Lake.",
+      "normalized": "Ellis & Fergus, book and job printers, were at 37 Clark Street in the Saloon Buildings, south-east corner of Lake.",
+      "locator": {
+        "list": "fergus_no28_directory_1843_leaves_399_429",
+        "text_file": "fergus_26_29.txt",
+        "spans": [
+          {
+            "line": 2064,
+            "from": 0,
+            "to": 123
+          }
+        ],
+        "leaf": 418,
+        "printed_page": null
+      },
+      "describes_date": "1843",
+      "entities": [
+        "William Ellis",
+        "Robert Fergus"
+      ],
+      "town_finding": true,
+      "notes": "The compiler's own firm, at its own address, in his own directory - which is worth noticing when weighing the rest of the book. The Saloon Building is a Chicago landmark this project may eventually want; it was built in 1836, a year after the scene, and this entry is not evidence for 1835."
+    },
+    {
+      "id": "bk_fer_052",
+      "kind": "infrastructure",
+      "reading": "transcription_mediated",
+      "quote": "A  weekly  mail  from  the  East  was  received  here  on  horseback  in  1832 — Jonathan  Nash  Bailey  being  postmaster.  The  ne\\t  year  it  was  received  in  a one-horse  wagon,  weekly — John  Stephen  Coates  Hogan,  postmaster. .  In 1833,  a  two-horse  wagon  was  substituted.  In  1834,  a  four-horse  stage  line was  established  semi-weekly;  tri-weekly  in  1835.  In  1837,  there  was  a  daily Eastern  mail",
+      "normalized": "The eastern mail reached Chicago weekly on horseback in 1832 under postmaster Jonathan Nash Bailey; weekly by one-horse wagon the next year under postmaster John Stephen Coates Hogan; by two-horse wagon in 1833; by a semi-weekly four-horse stage line from 1834, tri-weekly in 1835; and daily from 1837.",
+      "locator": {
+        "list": "fergus_no28_directory_1843_leaves_399_429",
+        "text_file": "fergus_26_29.txt",
+        "spans": [
+          {
+            "line": 2067,
+            "from": 0,
+            "to": 429
+          }
+        ],
+        "leaf": 418,
+        "printed_page": null
+      },
+      "describes_date": "1832-1837",
+      "entities": [
+        "Jonathan Nash Bailey",
+        "John Stephen Coates Hogan",
+        "Sidney Abell"
+      ],
+      "town_finding": true,
+      "notes": "THE BEST TOWN FINDING IN THIS HALF AND IT LANDS ON THE SCENE YEAR ITSELF: in 1835 Chicago's eastern mail came in by four-horse stage, three times a week. That is a rhythm a walkable town can be built to - the arrival that empties the post office, the stage in the street - and this project holds nothing else that dates it. It is a 1896 recollection of a 1843 directory's own history section, so it is tier 3; the crosswalk merges Hogan into the project's own John S. C. Hogan, whose store IS where Chicago's mail began, and refuses Bailey against the letter-list Bennet Bailey."
+    },
+    {
+      "id": "bk_fer_053",
+      "kind": "infrastructure",
+      "reading": "transcription_mediated",
+      "quote": "Post-Office:\n50  Clark  St.,  M'est  side,  bet.  Lake  and  Randolph.     Win.  Stuart,  Postmaster.",
+      "normalized": "In 1843 the post office was at 50 Clark Street, west side, between Lake and Randolph, William Stuart postmaster.",
+      "locator": {
+        "list": "fergus_no28_directory_1843_leaves_399_429",
+        "text_file": "fergus_26_29.txt",
+        "spans": [
+          {
+            "line": 2065,
+            "from": 0,
+            "to": 12
+          },
+          {
+            "line": 2066,
+            "from": 0,
+            "to": 88
+          }
+        ],
+        "leaf": 418,
+        "printed_page": null
+      },
+      "describes_date": "1843",
+      "entities": [
+        "William Stuart"
+      ],
+      "town_finding": true,
+      "notes": "Where the post office had got to eight years after the scene. In 1835 it was in Hogan's store, which this project holds as hogan_store; the two addresses are different places and this claim does not move anything. It bounds the drift: the office was still within two blocks of where it started."
+    },
+    {
+      "id": "bk_fer_054",
+      "kind": "civic",
+      "reading": "transcription_mediated",
+      "quote": "Military  Companies  : Chicago  Guards:  1  Montgomery  Guards:\nChicago  Cavalry:",
+      "normalized": "Chicago in 1843 had three military companies: the Chicago Guards, the Montgomery Guards and the Chicago Cavalry.",
+      "locator": {
+        "list": "fergus_no28_directory_1843_leaves_399_429",
+        "text_file": "fergus_26_29.txt",
+        "spans": [
+          {
+            "line": 2085,
+            "from": 0,
+            "to": 63
+          },
+          {
+            "line": 2089,
+            "from": 0,
+            "to": 17
+          }
+        ],
+        "leaf": 418,
+        "printed_page": null
+      },
+      "describes_date": "1843",
+      "entities": [
+        "Chicago Guards",
+        "Montgomery Guards",
+        "Chicago Cavalry"
+      ],
+      "town_finding": false,
+      "notes": "Eight years after the scene and after the fort was abandoned in 1836. Recorded as the shape of what replaced a garrison, and to close the civic list this pass swept rather than leave it looking unread."
+    },
+    {
+      "id": "bk_fer_055",
+      "kind": "civic",
+      "reading": "transcription_mediated",
+      "quote": "Chicago  Fire  Companies : Alson  S.  Sherman,  Chief-Engineer.\nChicago  Fire-Bucket  Co.  No.  1 :",
+      "normalized": "The Chicago fire companies of 1843 were under chief engineer Alson S. Sherman and included Fire-Bucket Company No. 1.",
+      "locator": {
+        "list": "fergus_no28_directory_1843_leaves_399_429",
+        "text_file": "fergus_26_29.txt",
+        "spans": [
+          {
+            "line": 2100,
+            "from": 0,
+            "to": 63
+          },
+          {
+            "line": 2104,
+            "from": 0,
+            "to": 35
+          }
+        ],
+        "leaf": 420,
+        "printed_page": "12"
+      },
+      "describes_date": "1843",
+      "entities": [
+        "Alson S. Sherman"
+      ],
+      "town_finding": false,
+      "notes": "The town of 1835 had one fire engine, bought by Gurdon Hubbard, and a bucket company is the institution that comes before an engine company rather than after it. Recorded for the shape of the thing, not for a placement."
+    },
+    {
+      "id": "bk_fer_056",
+      "kind": "civic",
+      "reading": "transcription_mediated",
+      "quote": "According  to  the  Census  taken  by  Jas.  W.  Norris,  August  i,  1843,  under the  authority  of  the  Common  Council\nall  persons  not  permanently  residing  in  the  City  being  in  every  instance excluded",
+      "normalized": "The 1843 city census was taken by James W. Norris on 1 August 1843 under the Common Council, excluding in every instance all persons not permanently residing in the city.",
+      "locator": {
+        "list": "fergus_no28_directory_1843_leaves_399_429",
+        "text_file": "fergus_26_29.txt",
+        "spans": [
+          {
+            "line": 2172,
+            "from": 0,
+            "to": 123
+          },
+          {
+            "line": 2173,
+            "from": 81,
+            "to": 173
+          }
+        ],
+        "leaf": 424,
+        "printed_page": "14"
+      },
+      "describes_date": "1843",
+      "entities": [
+        "James W. Norris"
+      ],
+      "town_finding": true,
+      "notes": "A METHOD STATEMENT THIS PROJECT CAN USE ON ITS OWN NUMBERS. The 1843 count is of PERMANENT residents only and says so; the note goes on to estimate that including transitory persons would have added some hundreds. The project's 1835 population is built from letter lists, voter rolls and directories, which catch and miss transients differently - and this is the earliest Chicago count that states which of the two it is."
+    },
+    {
+      "id": "bk_fer_057",
+      "kind": "civic",
+      "reading": "transcription_mediated",
+      "quote": "Population  1843, Population  1S40,\nIncrease.",
+      "normalized": "The census page compares the population of 1843 with that of 1840 and states the increase.",
+      "locator": {
+        "list": "fergus_no28_directory_1843_leaves_399_429",
+        "text_file": "fergus_26_29.txt",
+        "spans": [
+          {
+            "line": 2287,
+            "from": 0,
+            "to": 35
+          },
+          {
+            "line": 2288,
+            "from": 0,
+            "to": 9
+          }
+        ],
+        "leaf": 424,
+        "printed_page": "14"
+      },
+      "describes_date": "1840 and 1843",
+      "entities": [
+        "James W. Norris"
+      ],
+      "town_finding": false,
+      "notes": "THE NUMBERS THEMSELVES ARE NOT QUOTED HERE AND THAT IS DELIBERATE. The OCR wove the six ward columns and the totals column of this table into single lines of loose digits; the totals appear to read 7,580 for 1843 against 4,853 for 1840, an increase of 2,727, but 'appear to read' is not a transcription and this domain's rule is that a quote is what the committed text says. A run that needs these figures should read them off the page image, which nobody in this project has seen, and regrade the claim scan_verified."
+    },
+    {
+      "id": "bk_fer_058",
+      "kind": "shipping",
+      "reading": "transcription_mediated",
+      "quote": "Port  of  Chicago:\nRevenue  Office,  38  Clark  Street.\nvery  serious  difficulty  has  existed  heretofore  in  ascertaining the  actual  amount  of  exports  and  imports  of  the  place,  especially  the  exports, ■owing  to  the  fact  that  a  great  many  vessels  arrive  and  depart  during  the season  of  navigation  without  being  reported  at  the  Custom- House",
+      "normalized": "The Port of Chicago's revenue office was at 38 Clark Street, and the directory warns that many vessels arrived and departed each season without reporting at the custom house, so the trade figures understate both exports and imports.",
+      "locator": {
+        "list": "fergus_no28_directory_1843_leaves_399_429",
+        "text_file": "fergus_26_29.txt",
+        "spans": [
+          {
+            "line": 2309,
+            "from": 0,
+            "to": 18
+          },
+          {
+            "line": 2311,
+            "from": 0,
+            "to": 36
+          },
+          {
+            "line": 2312,
+            "from": 194,
+            "to": 514
+          }
+        ],
+        "leaf": 426,
+        "printed_page": null
+      },
+      "describes_date": "1843",
+      "entities": [
+        "Port of Chicago"
+      ],
+      "town_finding": true,
+      "notes": "WHY EVERY CHICAGO SHIPPING FIGURE THIS PROJECT HOLDS IS A FLOOR AND NOT A COUNT, said by the custom house's own directory. The project reads arrivals and clearances out of the newspapers for 1835; this is the reason a newspaper's marine list can be more complete than the customs return, and it should be cited whenever a shipping total is put in front of a visitor."
+    },
+    {
+      "id": "bk_fer_059",
+      "kind": "price",
+      "reading": "transcription_mediated",
+      "quote": "1836,\n$1,000.64\n$325,203.90",
+      "normalized": "The port table begins at 1836, the earliest year it carries, with exports of $1,000.64 and imports of $325,203.90.",
+      "locator": {
+        "list": "fergus_no28_directory_1843_leaves_399_429",
+        "text_file": "fergus_26_29.txt",
+        "spans": [
+          {
+            "line": 2316,
+            "from": 0,
+            "to": 5
+          },
+          {
+            "line": 2318,
+            "from": 0,
+            "to": 9
+          },
+          {
+            "line": 2321,
+            "from": 0,
+            "to": 11
+          }
+        ],
+        "leaf": 426,
+        "printed_page": null
+      },
+      "describes_date": "1836",
+      "entities": [
+        "Port of Chicago"
+      ],
+      "town_finding": true,
+      "notes": "THE EARLIEST CUSTOMS FIGURES FOR CHICAGO THIS PROJECT HOLDS, one year after the scene, and the shape of them is the finding: imports of three hundred and twenty-five thousand dollars against exports of one thousand. The town of 1835 consumed and did not yet ship. The three figures are on separate lines because the OCR broke the table into a column of loose numbers, and the pairing of $1,000.64 to exports and $325,203.90 to imports is read from the two column headings above them; bk_fer_057 is the same table's other half, and it is NOT read for that reason. Grade this one no higher until somebody sees the page."
+    },
+    {
+      "id": "bk_fer_060",
+      "kind": "notice",
+      "reading": "transcription_mediated",
+      "quote": "CHICAGO    ANTIQUITIES,\nto  Eariv  Chicago;  embellished  v.ith  VieNv>,  Portraits   Autographs,  etc.     By  Henry  H.  Hurlblt.",
+      "normalized": "The Fergus Printing Company's advertisement pages carry Henry H. Hurlbut's Chicago Antiquities, comprising original items, relations, letters, extracts and notes pertaining to early Chicago.",
+      "locator": {
+        "list": "fergus_no28_directory_1843_leaves_399_429",
+        "text_file": "fergus_26_29.txt",
+        "spans": [
+          {
+            "line": 1803,
+            "from": 0,
+            "to": 23
+          },
+          {
+            "line": 1804,
+            "from": 0,
+            "to": 107
+          }
+        ],
+        "leaf": 398,
+        "printed_page": null
+      },
+      "describes_date": "1881 (the book advertised); 1884-1888 (the advertisement)",
+      "entities": [
+        "Henry H. Hurlbut"
+      ],
+      "town_finding": false,
+      "notes": "THE BOOK THIS PROJECT ALREADY QUOTES, advertised in the volume it has just read. Nine of its pages are held at text/hurlbut_chicago_antiquities_28_36.txt from a web transcription, and the advertisement says the whole book runs to 673 pages - so what this project holds is about one and a third per cent of it. Recorded as the measure of that gap."
+    }
+  ]
+}

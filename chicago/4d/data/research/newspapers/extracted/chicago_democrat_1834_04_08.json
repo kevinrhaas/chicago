@@ -1,0 +1,645 @@
+{
+  "schema": 1,
+  "issue_id": "chicago_democrat_1834_04_08",
+  "extracted": "2026-08-28",
+  "extracted_by": "hand, T-0313 — the Democrat read, April 1834",
+  "note": "Vol. I No. 19. THE 1 APRIL LETTER LIST IS PRINTED AGAIN HERE, in the same two cut columns of page 3, and it is NOT minted again: the cohort was minted from 1834-04-01, and c001 and c002 below mint ONLY the sixteen names this printing carries that the first printing's OCR crushed. One list makes one cohort of people (T-0299, and the rule T-0292 set for the October list, which was printed three times). This issue's own contribution is the town rather than the list: the spring building season opening, a soap and candle manufactory, and the block of storefronts on South Water Street that page 4 column 3 reads more cleanly than any other column in the month — Peter Cohen's store, the boot and shoe shop next door to it, and Philo Carpenter's drugs. Sixteen of thirty-two segmenter columns carry the Tesseract fallback banner, and page 4's eight all do.",
+  "claims": [
+    {
+      "id": "c001",
+      "kind": "person",
+      "reading": "transcription_mediated",
+      "normalized": "List of [Letters] R[E]MAIN[]IG in the P[ost Office at Chicago, I]ll. on the first day [of April, 1834 — the second printing. The names minted from this printing, and only these, are the ones 1834-04-01's transcription lost:] Harriet Bradford; Eli Benn; Stephen R. Brigg[s]; Joseph Chandler; Alonzo Castle; [uncertain: — Duncklo]; [uncertain: — Denny]; Thos. Fitzgerald; H. B. Fowler; Albert Fowler 2; [uncertain: James S. Gansodus].",
+      "locator": {
+        "artifact_role": "primary",
+        "issue_page": 3,
+        "column": 3,
+        "lines": [
+          2405,
+          2505
+        ],
+        "interleaved": true,
+        "lines_of_claim": [
+          2405,
+          2406,
+          2407,
+          2432,
+          2433,
+          2434,
+          2445,
+          2446,
+          2468,
+          2470,
+          2476,
+          2477,
+          2478,
+          2480
+        ]
+      },
+      "letter_list_only": true,
+      "entities": [
+        {
+          "as_printed": "Harriet Bradford",
+          "normalized": "Harriet Bradford",
+          "role": "named in the list of letters remaining in the Post Office at Chicago, 1 April 1834"
+        },
+        {
+          "as_printed": "of Eli Benn",
+          "normalized": "Eli Benn",
+          "role": "named in the list of letters remaining in the Post Office at Chicago, 1 April 1834"
+        },
+        {
+          "as_printed": "Stephen R. Briggn",
+          "normalized": "Stephen R. Brigg[s]",
+          "role": "named in the list of letters remaining in the Post Office at Chicago, 1 April 1834"
+        },
+        {
+          "as_printed": "Joveph Chandler",
+          "normalized": "Joseph Chandler",
+          "role": "named in the list of letters remaining in the Post Office at Chicago, 1 April 1834"
+        },
+        {
+          "as_printed": "Alonzo Castle",
+          "normalized": "Alonzo Castle",
+          "role": "named in the list of letters remaining in the Post Office at Chicago, 1 April 1834"
+        },
+        {
+          "as_printed": "yy Duncklo",
+          "normalized": "[uncertain: — Duncklo]",
+          "role": "named in the list of letters remaining in the Post Office at Chicago, 1 April 1834"
+        },
+        {
+          "as_printed": "rt Denny",
+          "normalized": "[uncertain: — Denny]",
+          "role": "named in the list of letters remaining in the Post Office at Chicago, 1 April 1834"
+        },
+        {
+          "as_printed": "Thos. Fitagerald",
+          "normalized": "Thos. Fitzgerald",
+          "role": "named in the list of letters remaining in the Post Office at Chicago, 1 April 1834"
+        },
+        {
+          "as_printed": "H. B. Fowler",
+          "normalized": "H. B. Fowler",
+          "role": "named in the list of letters remaining in the Post Office at Chicago, 1 April 1834"
+        },
+        {
+          "as_printed": "Albert Fowler 2",
+          "normalized": "Albert Fowler",
+          "role": "named in the list of letters remaining in the Post Office at Chicago, 1 April 1834"
+        },
+        {
+          "as_printed": "James S. Gansodus",
+          "normalized": "[uncertain: James S. Gansodus]",
+          "role": "named in the list of letters remaining in the Post Office at Chicago, 1 April 1834"
+        }
+      ],
+      "notes": "A REPRINT, RECORDED AND ALMOST ENTIRELY UNMINTED. The heading here reads `List of` then `EMAINIG in the P` then `IM. on the first day` — the same 1 April 1834 Chicago list the previous week printed, run a second time as the post office of the period ran its lists for two or three weeks. T-0292 settled what to do with a list printed more than once: mint it ONCE, from the witness that carries it whole, and record the other printings without minting their names, so one list makes one cohort. NEITHER PRINTING CARRIES IT WHOLE, which is the wrinkle here. This column reads distinctly cleaner than 1834-04-01's for A-J — it is what settles `Robt. V. Allen`, `Maria S. Arnold` and `Oscar L. Hawley` in that issue's normalized reading — and it carries eleven names that the first printing's lines lost to the interleaved editorial. Those eleven are minted HERE, once, and nothing else in this column is. `lines_of_claim` names only the heading and the eleven lines those names stand on, so the quote is not the whole list a second time.",
+      "quote": ",000, or in List of |\nand the re- EMAINIG in the P\ney. IM. on the first day\nRewards! Harriet Bradford He\nof Eli Benn En\nStephen R. Briggn Jac\n1829, | Joveph Chandler Wi\nhe Senate. | Alonzo Castle Dat\nUsage SIN) yy Duncklo Rol\nthe Office, rt Denny HRs\nThos. Fitagerald Ste\nme oy H. B. Fowler Ber\n[uncertain: ?y he who! Albert Fowler 2 Ina]\no daggers. | James S. Gansodus Jos"
+    },
+    {
+      "id": "c002",
+      "kind": "person",
+      "reading": "transcription_mediated",
+      "normalized": "[List of] Letters [— second printing, second half. Minted from this printing only, being the names 1834-04-01's transcription lost to the interleave at its lines 3039-3045:] Isaac Merrill; Chas. Mannin[g]; [uncertain: James Mulford]; Philo C. Mills; James McKee.",
+      "locator": {
+        "artifact_role": "primary",
+        "issue_page": 3,
+        "column": 4,
+        "lines": [
+          2579,
+          2667
+        ],
+        "interleaved": true,
+        "lines_of_claim": [
+          2579,
+          2599,
+          2600,
+          2601,
+          2602,
+          2603
+        ]
+      },
+      "letter_list_only": true,
+      "entities": [
+        {
+          "as_printed": "lsaac Merrill",
+          "normalized": "Isaac Merrill",
+          "role": "named in the list of letters remaining in the Post Office at Chicago, 1 April 1834"
+        },
+        {
+          "as_printed": "Chas. Mannin",
+          "normalized": "Chas. Mannin[g]",
+          "role": "named in the list of letters remaining in the Post Office at Chicago, 1 April 1834"
+        },
+        {
+          "as_printed": "lomes Mulfc",
+          "normalized": "[uncertain: James Mulford]",
+          "role": "named in the list of letters remaining in the Post Office at Chicago, 1 April 1834"
+        },
+        {
+          "as_printed": "Philo C. Mills",
+          "normalized": "Philo C. Mills",
+          "role": "named in the list of letters remaining in the Post Office at Chicago, 1 April 1834"
+        },
+        {
+          "as_printed": "lames McKee",
+          "normalized": "James McKee",
+          "role": "named in the list of letters remaining in the Post Office at Chicago, 1 April 1834"
+        }
+      ],
+      "notes": "The five names the first printing does not have. 1834-04-01's column 4 loses seven consecutive lines to the interleaved editorial — its lines 3039 to 3045 read `diy`, `lihg that o`, `ties compo`, `by the ae` — and this column shows what stood there: Isaac Merrill, Chas. Manning, James Mulford, Philo C. Mills and James McKee, between Leonard Morse and Henry S. Misner. PHILO C. MILLS IS NOT PHILO CARPENTER and the two are not merged; `Chas. Manning` is cut after the n and the g is supplied. This half of the reprint is otherwise WORSE than the first printing, because the segmenter cuts it further left and strips the leading letter off most names (`lsaac`, `lomes`, `ingston`), which is why the cohort was minted from 04-01 and not from here.",
+      "quote": "Letters\nlsaac Merrill\nChas. Mannin\nlomes Mulfc\nPhilo C. Mills\nlames McKee"
+    },
+    {
+      "id": "c003",
+      "kind": "building",
+      "reading": "transcription_mediated",
+      "normalized": "The weather for the past w[e]ek h[as been un]usually fine, and our town again presen[ts a bu]sy scene of bu[st]le […] The mechanic is [busy at his bu]siness, and we already se[e new] [uncertain: baildings tie erir] [being erected, and ar]rangements for putting up others [are making.]",
+      "locator": {
+        "artifact_role": "primary",
+        "issue_page": 2,
+        "column": 8,
+        "lines": [
+          2195,
+          2202
+        ],
+        "interleaved": true
+      },
+      "entities": [],
+      "notes": "THE SPRING BUILDING SEASON OPENING, in the editor's own words and dated to the week before 8 April 1834. It is the first of two such notices in this month — 1834-04-16 counts `seven or eight buildings` raised in one week — and together they say that the town's fabric in the spring of 1834 was being added to at something like a building every day of good weather. The line the count would be on, 2200, is debris the transcription itself flags `[uncertain: baildings tie erir]`, so NO NUMBER IS READ HERE; the number belongs to the 1834-04-16 claim, which has one. `The mechanic` is the building trades, and the sentence is quoted rather than paraphrased because its subject is exactly who was at work.",
+      "quote": "The weather for the past wuek harl\nsually fing, and our town again presen\nsy sena of buaile\nThe mechanic is e\nsiness, and we already se\n[uncertain: baildings tie erir]\nranger\nente for putting up others will."
+    },
+    {
+      "id": "c004",
+      "kind": "event",
+      "reading": "transcription_mediated",
+      "normalized": "A man [b]y the [n]a[m]e of [Ni]les Ross[, living] a[bo]ut si[x] miles up the north bra[nch of the] Chicag[o] river, [d]ie[d] o[n] Wednesday of l[ast week] in conseq[ue]nce of intemperance[.] […] drunkards.",
+      "locator": {
+        "artifact_role": "primary",
+        "issue_page": 2,
+        "column": 8,
+        "lines": [
+          2210,
+          2214
+        ],
+        "interleaved": true
+      },
+      "entities": [],
+      "notes": "A DEATH SIX MILES UP THE NORTH BRANCH, and the paper gets the name wrong: 1834-04-16 prints a correction at the request of Mr. Ruel Rose that no such person as the name given here lived on the north branch, and settles the dead man's name as Niles Ross. The two claims are recorded as the paper printed them, a week apart, and NEITHER name is minted as a person from this one — the retraction is the better witness and its claim carries the entity. What survives either way is the settlement pattern: people living six miles up the north branch in 1834, outside anything the plat covers.",
+      "quote": "A man ly the saae of Siles Rose\naut sizit sales up the nortle bra\nChicage river, ries wa Wadseniay of le\nin conseqsence of intemperates: 4 c\ndrunkerds."
+    },
+    {
+      "id": "c005",
+      "kind": "business",
+      "reading": "transcription_mediated",
+      "normalized": "Chicago Soap and C[andle] MANUFACTO[RY.] Messrs. DANIEL ELSTON [& CO.] BEG to inform[ the pu]bl[ic] th[at they have] commenced th[e above business] and hope by punctuality [and attention to bus]ines[s …]",
+      "locator": {
+        "artifact_role": "primary",
+        "issue_page": 3,
+        "column": 2,
+        "lines": [
+          2391,
+          2397
+        ],
+        "interleaved": true
+      },
+      "entities": [
+        {
+          "as_printed": "Messrs. DANIEL ELSTON",
+          "normalized": "Daniel Elston",
+          "role": "proprietor",
+          "occupations": [
+            "soap boiler",
+            "chandler",
+            "provision dealer"
+          ],
+          "associated_places": [
+            "Chicago"
+          ]
+        }
+      ],
+      "business": {
+        "name": "the Chicago Soap and Candle Manufactory",
+        "proprietors": [
+          "Daniel Elston"
+        ],
+        "trade": "soap and candle manufactory",
+        "goods": [
+          "candles",
+          "soap"
+        ],
+        "street": null,
+        "placement": {
+          "class": "none",
+          "street": null
+        }
+      },
+      "ad_copy_date": {
+        "verbatim": "I% Chirage, April, 1624",
+        "iso": "1834-04-01"
+      },
+      "notes": "A MANUFACTORY IS A BUILDING WITH A PROCESS IN IT, and this one is new in April 1834 — `have commenced`. No address is printed, so the placement is `none`; a soap and candle works is the kind of neighbour a town puts at its edge and this one's site is simply not stated. The same Daniel Elston fitted up a smoke house earlier in the year (1834-04-01 c007), so the house runs two rendering trades by the spring. The dateline gives `April` and no day; the copy date is the first of the month by convention.",
+      "quote": "Chicago Seap and C\nMANUFACTOF\nMessrs. DANIEL ELSTON\nBEG to informie Mable unat\ncommenced thi\n/ and hope by punctuality •\n[uncertain: ines]"
+    },
+    {
+      "id": "c006",
+      "kind": "business",
+      "reading": "transcription_mediated",
+      "normalized": "PETER COHEN, [EAST END OF] SOUTH WATER-STREET, [Chi]cago—Illinois. [RESPECTFU]LLY informs the public, that [he has received] a large and splendid as[sortment of WINTE]R CLOTHING. [ALSO], a fresh supply of Groceries and Liqu[o]rs, [f]or sale at reduced prices. [To the public i]n general, and to old cus[tomers in particu]lar, he tenders his grateful ac[knowledgements] for past favors; and he indul[ges the belief tha]t his reduced prices will ensure [him a continuanc]e of their patronage.",
+      "locator": {
+        "artifact_role": "primary",
+        "issue_page": 4,
+        "column": 3,
+        "lines": [
+          3462,
+          3475
+        ],
+        "interleaved": true
+      },
+      "entities": [
+        {
+          "as_printed": "ER COHEN,",
+          "normalized": "Peter Cohen",
+          "role": "proprietor",
+          "occupations": [
+            "merchant",
+            "grocer",
+            "clothier"
+          ],
+          "associated_places": [
+            "Chicago",
+            "South Water Street"
+          ]
+        }
+      ],
+      "business": {
+        "name": "Peter Cohen",
+        "proprietors": [
+          "Peter Cohen"
+        ],
+        "trade": "clothing, groceries and liquors",
+        "goods": [
+          "Groceries",
+          "Liquors",
+          "Winter Clothing"
+        ],
+        "street": "South Water Street",
+        "placement": {
+          "class": "street_only",
+          "street": "South Water Street"
+        }
+      },
+      "notes": "THE ANCHOR THE REST OF THE BLOCK IS MEASURED FROM. Peter Cohen on South Water Street is the worked fixture of this whole corpus (T-0257, from the scene-date issue of 1835-07-01) and here he is fifteen months earlier, in the same street, with the same trade widened to clothing. The head of the advertisement is cut to `ER COHEN` in this column and the qualifier `EAST END OF` stands in the 1834-04-01 printing of the same ad (its line 3933, `TAST EID OF S`); it is bracketed here and the placement is `street_only`, because `east end of South Water street` is a quarter of a street and not an address. What makes the store placeable at all is the NEXT advertisement in this column (c007), which is placed against it.",
+      "quote": "ER COHEN,\ny SOUTH WATER-STREET,\nrago,eoHtlinots,\n!LLY informs the public, that\nand a large and splendid as-\nR CLOTHING.\n), a fresh supply of\nGroccrics and Liquers,\nor sale at reduced prices.\nn general, ‘and to old cus-\nlar, he tenders his grateful ac-\nfor past favore; and. be indol-\nt his reduced prices wilt ensure\n¢ of their patronage."
+    },
+    {
+      "id": "c007",
+      "kind": "business",
+      "reading": "transcription_mediated",
+      "normalized": "[Bo]ot & Shoe Making. [The s]ubscriber having recently commenced [the] above busi[ness], next door to P. Co[h]en's Store, will be kept on hand a good assortment of [boots and shoes suited to t]he call of the country. Gentlemen [wishing f]ine Boots, water proof, will be accom[modated] with the best mater[i]als, and fashiona[ble style.] Most kinds of work kept constantly [on hand,] or made to order on short notice. L. W. MONTGOMERY. [Chicago], Dec. 19, 1833.",
+      "locator": {
+        "artifact_role": "primary",
+        "issue_page": 4,
+        "column": 4,
+        "lines": [
+          3527,
+          3538
+        ],
+        "interleaved": true
+      },
+      "entities": [
+        {
+          "as_printed": "L. W. MONTGOMERY.",
+          "normalized": "L. W. Montgomery",
+          "role": "proprietor",
+          "occupations": [
+            "boot and shoe maker"
+          ],
+          "associated_places": [
+            "Chicago",
+            "South Water Street"
+          ]
+        },
+        {
+          "as_printed": "hon’s Store",
+          "normalized": "P. Cohen",
+          "role": "the store the shop is placed next to",
+          "associated_places": [
+            "South Water Street"
+          ]
+        }
+      ],
+      "business": {
+        "name": "L. W. Montgomery, boot and shoe maker",
+        "proprietors": [
+          "L. W. Montgomery"
+        ],
+        "trade": "boot and shoe making",
+        "goods": [
+          "Boots",
+          "Shoes",
+          "water proof Boots"
+        ],
+        "street": "South Water Street",
+        "placement": {
+          "class": "relative",
+          "anchor": "P. Cohen's Store",
+          "offset_text": "above busi , next door to P. Co-\nhon’s Store, will be kept on hand",
+          "offset_normalized": "next door to P. Co[h]en's Store",
+          "street": "South Water Street"
+        }
+      },
+      "notes": "THE BEST PLACEMENT IN THE MONTH, and the reason is that it is measured off a storefront this corpus already carries rather than off a street: `next door to P. Cohen's Store`. Cohen is on South Water Street in the same column (c006) and in the scene-date issue fifteen months later, so a boot and shoe shop can be put beside him with one door's worth of uncertainty and no invention. `P. Cohen` is minted as a separate spelling of the same man and IS a candidate for an identity.json merge with `Peter Cohen`; no merge is declared here, because a merge needs a rule that names both spellings and the rule belongs with whoever writes it, not with the claim. `recently commenced` and a copy date of 19 December 1833 put the shop's opening in the previous winter, so it stands under ruling 3 with a survival liberty if it is wanted at the scene date.",
+      "quote": "ot & Shoe Making:\nubscriber having recently commenced\nabove busi , next door to P. Co-\nhon’s Store, will be kept on hand\na good assortment of\n[uncertain: he call, of the ‘country. Gentlemen | ?]\nine Boots, water proof, will he accom\nvith Ue best matenals, and fashiona-\nMost kinds of work kept constantly |r\nor made to order on short notice.\nL. W. MONTGOMERY.\n», Dec. 19, 1833... 4"
+    },
+    {
+      "id": "c008",
+      "kind": "business",
+      "reading": "transcription_mediated",
+      "normalized": "[Wholesa]le and Retail. [STORE BETWEEN CLA]RK AND DEARBORN-STREETS. [P. PRU]YNE & [C]O. [resp]ectfully inform their friends [and the public t]hat they have just received [a large addition to] their former Stock, which [makes it one of the] most extensive in Chicago[, consisting of Dry Good]s, Hardware, [Groceries,] Glassware, [A LARGE] ASSORTMENT OF [DRUGS &] MEDICINES, [BOOTS] AND SHOES, [IRON AND STEEL, WINDOW GLASS, &c. Also, a] large assortment of [STONE WA]RE […] all of which they offer for sale on the most ac[commodating terms, and] all kinds of Country Produce [taken in exchange.]",
+      "locator": {
+        "artifact_role": "primary",
+        "issue_page": 4,
+        "column": 3,
+        "lines": [
+          3431,
+          3458
+        ],
+        "interleaved": true,
+        "lines_of_claim": [
+          3431,
+          3432,
+          3433,
+          3434,
+          3435,
+          3436,
+          3437,
+          3440,
+          3441,
+          3442,
+          3444,
+          3445,
+          3446,
+          3447,
+          3456,
+          3458
+        ]
+      },
+      "entities": [],
+      "business": {
+        "name": "P. Pruyne & Co.",
+        "proprietors": [],
+        "trade": "wholesale and retail dry goods, hardware, groceries, drugs and stone ware",
+        "goods": [
+          "Boots and Shoes",
+          "Drugs and Medicines",
+          "Dry Goods",
+          "Glassware",
+          "Groceries",
+          "Hardware",
+          "Iron and Steel",
+          "Stone Ware",
+          "Window Glass"
+        ],
+        "street": null,
+        "placement": {
+          "class": "relative",
+          "anchor": "between Clark and Dearborn-streets",
+          "offset_text": "RK AND DEARBORS-STREETS.",
+          "offset_normalized": "[STORE BETWEEN CLA]RK AND DEARBORN-STREETS",
+          "street": null
+        }
+      },
+      "notes": "A PLACEMENT THAT NAMES A BLOCK FACE AND NOT A CORNER. The heading is cut here to `RK AND DEARBORS-STREETS` and the 1834-04-16 issue carries the whole of it twice, at its lines 2948 (`I STORE BETWEEN CLACK A`) and 3069 (`NO DEABORN-STRESTA`): the store stands BETWEEN Clark and Dearborn streets, which is one side of one block. THE AD NAMES NO STREET for that block face, so `business.street` is null and the class is `relative` rather than `corner` — the anchor is a stretch of frontage, not an intersection, and supplying South Water Street here would be an invention this evidence does not carry. The proprietors are not minted: the firm name is cut to `E & co.` and `(WNE & CO.` in every April column that carries it, and P. Pruyne & Co. is read from the same house's flour advertisements elsewhere in this issue, not from these lines.",
+      "quote": "le and Retail. import thei\nRK AND DEARBORS-STREETS. thes a ae\n[uncertain: IYNE & ?O. enables the]\neafully inform their friends | tan the\nhat they have just received | 9\"\ntheir former Stock, which Dut\nmost extensive in Chicago, | of every nv\n8, Hardware, Roistin\ny, Glassware, les\nK ASSORTMENT OF Bent .\n; MEDICINES, |rounbr\nAND SHOES, = [fresh\njarge assortment 0!\n‘EE WARE,\noffer for sale on the most ac-\nall kinds of Country Produce."
+    },
+    {
+      "id": "c009",
+      "kind": "business",
+      "reading": "transcription_mediated",
+      "normalized": "[PHILO CARPEN]TER, [CHICA]GO—ILL. [S]TILL keep constantly on hand, a general assort[ment of] D[R]UGS AND [MEDICINES, … Dye-Stuffs, Oils, Paints,] Glass, Nails, &c. […] [wholesa]le and retail, by PHILO CARPENTER.",
+      "locator": {
+        "artifact_role": "primary",
+        "issue_page": 4,
+        "column": 3,
+        "lines": [
+          3407,
+          3461
+        ],
+        "interleaved": true,
+        "lines_of_claim": [
+          3407,
+          3408,
+          3409,
+          3410,
+          3412,
+          3416,
+          3459,
+          3460,
+          3461
+        ]
+      },
+      "entities": [
+        {
+          "as_printed": "\"PHILO CARPENTER. _",
+          "normalized": "Philo Carpenter",
+          "role": "proprietor",
+          "occupations": [
+            "druggist"
+          ],
+          "associated_places": [
+            "Chicago"
+          ]
+        }
+      ],
+      "business": {
+        "name": "Philo Carpenter",
+        "proprietors": [
+          "Philo Carpenter"
+        ],
+        "trade": "druggist",
+        "goods": [
+          "Drugs",
+          "Dye-Stuffs",
+          "Glass",
+          "Medicines",
+          "Nails",
+          "Oils",
+          "Paints"
+        ],
+        "street": null,
+        "placement": {
+          "class": "none",
+          "street": null
+        }
+      },
+      "notes": "The druggist the first issue of this paper carried (T-0308, 1833-11-26) still advertising five months later, and still with no address — `STILL keep constantly on hand` is the whole of the continuity the ad claims and the placement is `none`. The head of the advertisement is cut to `PRITTER, GO—ILL.` and is read from the signature at the foot of the same advertisement, which survives whole; `lines_of_claim` names only Carpenter's own lines, because the column between them carries two other advertisers.",
+      "quote": "PRITTER,\nGO—ILL.\nTILL kecp constantly on\nhand, a general mesort- HE nt\nRUGS AND\n| Glansy Nails, ie. | modated wi\nleas, 8 2\nje and retail, by\n\"PHILO CARPENTER. _"
+    },
+    {
+      "id": "c010",
+      "kind": "business",
+      "reading": "transcription_mediated",
+      "normalized": "[JOHN? GIBSON,] [Chica]g[o]—Illinois. [Has t]aken that noted Tavern [la]tely occupied by Mr. [W…], [and] w[ill] [make] every possib[le exertion to render the] [Trav]ellers' Home[— …] [the patronage of] th[e] public will be gratefully [receiv]ed",
+      "locator": {
+        "artifact_role": "primary",
+        "issue_page": 4,
+        "column": 3,
+        "lines": [
+          3422,
+          3429
+        ],
+        "interleaved": true
+      },
+      "entities": [],
+      "notes": "A TAVERN CHANGING HANDS, which is a succession notice in substance: `has taken that noted Tavern lately occupied by Mr. W—` says the house predates the notice and names neither the house nor the man who kept it before, because both are cut. The 1834-04-01 printing of the same advertisement reads the predecessor as `Mr. Him` and the 1834-04-16 printing as `Mr. Wi`, which agree on nothing, so NOTHING IS SUPPLIED — the tavern is recorded as an unnamed one under new management in the spring of 1834 and no business is compiled from it, because a business with no readable name and no address would be an entry nobody could ever check. `Travellers' Home` is the house's promise and may be its sign; it is left in the normalized reading and not made the name.",
+      "quote": "UIT GIBRSOW Frenc\np=-ELinois. Ahir\nsinken that noted Tavern Pe old bi\nstoly occupied by, 24r, ee\nvil 0 every possib! 7 5\now nvollen’s ome.— lene\n@ pantie willbe gratefully |) ng an\ned Ci varios in"
+    },
+    {
+      "id": "c011",
+      "kind": "business",
+      "reading": "transcription_mediated",
+      "normalized": "[N]EW BLACKS[MITH] SHOP. PIERCE & ABB[OTT] W[O]U[LD] respectfully in[form the inhabit]ants of Chicago and the [neighbouring set]tlements, that they have comm[enced the blacksmithing] business in said town, nearly [opposite the Chi]cago Hotel, where they are re[ady to serve] all those who may have any ki[nd of work] in their line of business, on [the most liberal] terms. They will manufactur[e Prairie Ploughs] to order, and on the shortest [notice. By strict] attention to business, they h[ope to receive a] [share of pat]ronage. [Chicago,] Dec. 16, 1833.",
+      "locator": {
+        "artifact_role": "primary",
+        "issue_page": 4,
+        "column": 1,
+        "lines": [
+          3166,
+          3179
+        ],
+        "interleaved": true
+      },
+      "entities": [
+        {
+          "as_printed": "PIERCE & ABE",
+          "normalized": "Pierce & Abb[ott]",
+          "role": "proprietor",
+          "occupations": [
+            "blacksmith"
+          ],
+          "associated_places": [
+            "Chicago"
+          ]
+        }
+      ],
+      "business": {
+        "name": "Pierce & Abbott, blacksmiths",
+        "proprietors": [
+          "Pierce & Abb[ott]"
+        ],
+        "trade": "blacksmith",
+        "goods": [
+          "Prairie Ploughs"
+        ],
+        "street": null,
+        "placement": {
+          "class": "relative",
+          "anchor": "the Chicago Hotel",
+          "offset_text": "business in said town, nearly: ¢\ncago Hotel, where they are rey",
+          "offset_normalized": "nearly [opposite the Chi]cago Hotel",
+          "street": null
+        }
+      },
+      "notes": "THE SECOND BLACKSMITH SHOP THIS MONTH PLACES, and like the first (Matthias Mason, opposite Graves' Tavern) it is placed against a public house rather than a street: `nearly opposite the Chicago Hotel`. The word `opposite` is in the cut and is supplied from the 1834-04-01 printing, whose line 3786 reads `business in said town, nearly op`; `nearly opposite` is what both halves together give and it is bracketed here. The firm's second name is cut after two letters in every April printing and stays bracketed. `Prairie Ploughs` is read from the 1834-04-08 column 2 fragment of the same ad and is bracketed because it is not in these lines.",
+      "quote": "EW BLACK!\nPIERCE & ABE\nWak respectfully’ ing\nants of Chicago and the\ntlemente, t they have comn\nbusiness in said town, nearly: ¢\ncago Hotel, where they are rey\nall those who may have any ki\nin their line of Business, on\nterns, They witl maoufactar\nto order, and on the shortest.\nattention to business, they: h\nro tronage.\nDee. 16, 1803."
+    },
+    {
+      "id": "c012",
+      "kind": "business",
+      "reading": "transcription_mediated",
+      "normalized": "[PU]BLIC HOUSE. [E. W]ENTWORTH[, has opened a] TAVERN on Flag Creek, [thirteen miles sou]th of Chicago, on the road [leadi]ng [to] Ottawa. His house will [be fur]nished with the best the coun[try affor]ds, and solicits travellers to [give him a] call. He intends to keep [constantly on hand CORN and] OATS.",
+      "locator": {
+        "artifact_role": "primary",
+        "issue_page": 4,
+        "column": 3,
+        "lines": [
+          3477,
+          3485
+        ],
+        "interleaved": true
+      },
+      "entities": [
+        {
+          "as_printed": "'ENTWORTRH,",
+          "normalized": "E. Wentworth",
+          "role": "proprietor",
+          "occupations": [
+            "tavern keeper"
+          ],
+          "associated_places": [
+            "Flag Creek"
+          ]
+        }
+      ],
+      "business": {
+        "name": "E. Wentworth's public house on Flag Creek",
+        "proprietors": [
+          "E. Wentworth"
+        ],
+        "trade": "tavern",
+        "goods": [
+          "Corn",
+          "Oats"
+        ],
+        "street": null,
+        "placement": {
+          "class": "relative",
+          "anchor": "on Flag Creek, on the road to Ottawa",
+          "offset_text": "\\ TAVERN on Flag Crock,\nth of Chicago, on the road",
+          "offset_normalized": "a TAVERN on Flag Creek, [thirteen miles sou]th of Chicago, on the road [leading to] Ottawa",
+          "street": null
+        }
+      },
+      "notes": "OUTSIDE THE TOWN AND RECORDED ANYWAY, because it fixes a road: the Ottawa road ran south from Chicago and had a tavern on Flag Creek on it, which is the sort of thing the reconstruction's edges need. The distance is cut to `th of Chicago` and `thirteen` is supplied from the 1834-04-08 fragment at line 3344 (`13 qriles Ben`) and from the 1834-04-16 printing; it is bracketed. The placement is `relative` because a creek and a road are an anchor, and the business is flagged nowhere as being in the town — the gazetteer will carry it with a Flag Creek place and no Chicago street.",
+      "quote": "IC HOUSE.\n'ENTWORTRH,\n\\ TAVERN on Flag Crock,\nth of Chicago, on the road\nngie Ottawa, His house will\nmijhed with the best the coun-\nfoda, ind solicits travellers to\nis acall. He intends to keep\nwt OATS."
+    },
+    {
+      "id": "c013",
+      "kind": "notice",
+      "reading": "transcription_mediated",
+      "contradicts": true,
+      "normalized": "[The co-partnership existing between the subscriber and William H. S. — under the fi]rm of John Wellmaker & Co. [was by mutual con]sent dissolved, on the 21st [day of March, 1834]. This is to give notice that [no future contrac]t[s] or responsibilities will be [made or assumed], with the consent of the sub[scriber, under the na]me of the above firm. JOHN WELLMAKER.",
+      "locator": {
+        "artifact_role": "primary",
+        "issue_page": 4,
+        "column": 3,
+        "lines": [
+          3486,
+          3493
+        ],
+        "interleaved": true
+      },
+      "entities": [
+        {
+          "as_printed": ": JOHN WELLMAKER.",
+          "normalized": "John Wellmaker",
+          "role": "partner giving notice of the dissolution",
+          "associated_places": [
+            "Chicago"
+          ]
+        }
+      ],
+      "business": {
+        "name": "John Wellmaker & Co.",
+        "proprietors": [
+          "John Wellmaker"
+        ],
+        "trade": "co-partnership, trade not stated",
+        "goods": [],
+        "street": null,
+        "placement": {
+          "class": "none",
+          "street": null
+        }
+      },
+      "ad_copy_date": {
+        "verbatim": "March 4, 1834,",
+        "iso": "1834-03-04"
+      },
+      "notes": "THE MONTH'S ONE CONTRADICTION, and it is what ruling 3's veto is for: a firm named in April 1834 that a claim in April 1834 says had already dissolved, on the 21st of the previous month. `contradicts` is set on the claim rather than a flag being set on the business, so the compiler computes `built_at_scene_date: false` for John Wellmaker & Co. and no survival liberty is needed or allowed for it. The trade is NOT stated anywhere in the surviving half and is not guessed at. The dateline `March 4, 1834` is the notice's own and is a week before the dissolution it reports, which is how these notices ran — the copy was set for the first insertion and the date of dissolution is inside the text.",
+      "quote": "sirm of John Wellmaker & Co.\nment dissolved, on the 2ist\n3, This ts to give notice that\nt. of responsibilities will be\n1, vith the consent of the eub-\n} time of the above firm.\n: JOHN WELLMAKER.\n“7"
+    }
+  ]
+}

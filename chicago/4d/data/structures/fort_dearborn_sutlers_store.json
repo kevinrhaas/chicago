@@ -1,0 +1,133 @@
+{
+  "id": "fort_dearborn_sutlers_store",
+  "name": "Fort Dearborn — sutler's store",
+  "aka": [
+    "the sutler's",
+    "D on the 1855 key"
+  ],
+  "archetype": "fort_structure",
+  "phases": [
+    {
+      "id": "log_1816",
+      "documented_range": {
+        "from": "1816-07-01",
+        "to": "1856-08-31",
+        "confidence": "inferred",
+        "sources": [
+          "andreas_1884_v1",
+          "harrison_1830_river_mouth"
+        ],
+        "note": "THE RANGE IS THE FORT'S, NOT THIS BUILDING'S. No source reached dates any individual building inside Fort Dearborn. It opens with the rebuild of 1816 and closes with the demolition of the fort's principal structures in the summer of 1856 (Andreas). What carries the scene date is the middle: the post was garrisoned continuously from June 1832 to 29 December 1836."
+      },
+      "position": {
+        "utm_e": 448248.48,
+        "utm_n": 4637636.32,
+        "rotation_deg": 188.0,
+        "symbolic_location": "Inside the north-east of Fort Dearborn, east of the north gate and north of the soldiers' barracks.",
+        "confidence": "inferred",
+        "sources": [
+          "harrison_1830_river_mouth",
+          "andreas_1884_v1"
+        ],
+        "note": "READ OFF THE 1830 HARRISON PLAN. Position in pixels on the plate Andreas reproduces at vol. 1 p. 113, scaled at 1.10 ft per pixel (the derivation is on fort_dearborn_palisade and in docs/RESEARCH/fort_dearborn.md section 3), rotated to the sheet's true-north arrow, and hung on the fort centre at local E +1152, N +221. Carry +/-20 percent on the offset from the fort centre and +/-20 m on the fort itself. Hubbard's 1827 sentence is a two-way fix and the plan satisfies both halves of it: 'the sutler's store was east of the north gate, and north of the soldiers' barracks'. The 1830 plan draws a short range in exactly that pocket - against the north wall, east of the break in it, with the long east range below.",
+        "derivation": {
+          "method": "not_derivable",
+          "reason": "This placement predates the derivation module. Its provenance and reasoning are recorded in position.note, but no machine-checkable derivation block has been authored for it yet."
+        }
+      },
+      "footprint": {
+        "polygon": [
+          [
+            0,
+            0
+          ],
+          [
+            15.01,
+            0
+          ],
+          [
+            15.01,
+            6.35
+          ],
+          [
+            0,
+            6.35
+          ]
+        ],
+        "confidence": "inferred",
+        "sources": [
+          "harrison_1830_river_mouth"
+        ],
+        "note": "NO SOURCE GIVES THIS BUILDING'S SIZE. 15.01 x 6.35 m (about 49 x 21 ft) is the north-east range as drawn on the 1830 plan at the derived scale. It comes out almost exactly the same length as the commandant's quarters opposite, which is what the plate draws and not an assumption. Carry +/-20 percent."
+      },
+      "form": {
+        "kind": {
+          "value": "sutler",
+          "confidence": "attested",
+          "sources": [
+            "andreas_1884_v1",
+            "wentworth_1881_fort_dearborn"
+          ],
+          "note": "Hubbard names 'the sutler's store' in 1827 and the 1855 photograph key letters 'D is the Sutler's'. AN ALTERNATIVE IDENTIFICATION EXISTS AND IS NOT RESOLVED: Robert Fergus, describing the fort in 1850, mentions 'another building in the Fort enclosure ... just east of the block-house' which 'was the quartermaster's or sutler's quarters' - his own 'or'. That building is at the other end of the fort from this one, so it is either a second building this project does not model or a confused memory; either way no quartermaster's quarters is built, because a source that cannot decide between two names is not evidence for either."
+        },
+        "construction": {
+          "value": "log",
+          "confidence": "inferred",
+          "note": "Not stated. Log by the same argument as the barracks: everything in this fort except the commandant's quarters and the magazine is described as timber where it is described at all."
+        },
+        "stories": {
+          "value": 1,
+          "confidence": "inferred",
+          "note": "Not attested. A sutler's store is a shop and a store-room; single storey is the type, and the 1830 plan draws it with the same footprint depth as the small south buildings rather than the ranges."
+        },
+        "wall_height_m": {
+          "value": 2.9,
+          "confidence": "inferred",
+          "note": "No height attested. About nine and a half feet: one storey of log wall with the extra height a store needs over a dwelling."
+        },
+        "roof_type": {
+          "value": "gable",
+          "confidence": "inferred",
+          "note": "Not attested; gable is the form for a range of this plan."
+        },
+        "roof_pitch_deg": {
+          "value": 34.0,
+          "confidence": "inferred",
+          "note": "No pitch is attested for any building in this fort. 34 degrees is the archetype's mid-range for a shingled or riven-shake roof of this period and span, inferred from construction practice rather than measured."
+        },
+        "chimneys": {
+          "value": 1,
+          "confidence": "inferred",
+          "note": "Not attested. One stack is the minimum for a shop kept through a Chicago winter. The COUNT is the inference; everything else about the stack is the archetype's."
+        }
+      }
+    }
+  ],
+  "function": {
+    "value": "sutler's store",
+    "confidence": "attested",
+    "sources": [
+      "andreas_1884_v1",
+      "wentworth_1881_fort_dearborn"
+    ],
+    "note": "The post trader's shop: the place a garrison bought what the ration did not supply. Who held the sutlership at Chicago on 1835-07-01 was not established; Andreas has John Kinzie's brother-in-law employed as sutler to the fort about 1830, which is five years early and a different question."
+  },
+  "research_note": "The one building whose position two sources fix independently and in the same words - east of the north gate, north of the barracks - which is the clearest single corroboration between Hubbard's 1827 walk and the 1830 plan. Its own name is less certain than its place: see the kind note for Fergus's 'quartermaster's or sutler's'.",
+  "review_required": false,
+  "land_owner": {
+    "value": "The ground was entered by John Baptist Baubian, 28 May 1835",
+    "confidence": "reconstructed",
+    "sources": [
+      "isa_public_domain_land_tract_sales"
+    ],
+    "note": "THE UNITED STATES RESERVATION. This is the same tract L108 already derives for `1835_no_build_ground.json` — from G1, Madison's line and the traced waterline — so the polygon is inherited rather than built again, and `check.sh` already re-derives it. The register's own row is the second, independent witness to the date L108 quotes from Andreas: Beaubien's pre-emption, 28 May 1835, five weeks before the scene date. The derived polygon is short of the documented 75.69 acres for the reasons L108 states, and is a floor rather than the reservation. WHETHER THE ENTRY HELD IS NOT READ HERE: it was disputed, and this row records the entry the register carries and nothing about its outcome. THE MARGIN IS ONLY 24 m, which is inside the working horizontal uncertainty of the georeference (about 20 m) doubled, so the grade drops a tier: the tract is right if the constructed line is, and nothing here proves the line to better than that. WHAT THIS ROW CLAIMS AND WHAT IT DOES NOT. It claims that the tract the Illinois State Archives' land-sale register describes contains this structure's committed position — the patent for this ground was ENTERED by this man on this date. It does not claim he still held the ground on 1 July 1835, that he lived here, or that he ever stood on it: a sale is a transaction, and the register's only column about residence names a county. THE SECTION LINES ARE CONSTRUCTED, NOT TRACED (L219): the grid is carried from the single PLSS corner at State & Madison, on the plat's own east-west bearing, in nominal one-mile squares.",
+    "tract": "the south-west fractional quarter of section 10",
+    "entries": [
+      "ls0057"
+    ],
+    "date_purchased": "1835-05-28",
+    "type_of_sale": "federal land sale (cash entry)",
+    "margin_m": 24.2,
+    "generated_by": "tools/resolve_land_tracts.py --build"
+  }
+}

@@ -1,0 +1,32 @@
+{
+  "id": "trowbridge_green_tree_1902",
+  "type": "illustration",
+  "citation": "W. E. S. Trowbridge. \"The Green Tree Tavern in 1835\" — drawing, signed \"W. E. S. Trowbridge ’02\" at the lower left. Reproduced on Chicagology, \"Green Tree Tavern\", captioned \"The Green Tree Tavern in 1835. On the Northeast corner of Lake and West Water (Now Canal) streets. Illustrated by W. E. S Trowbridge, 1902.\"",
+  "author": "W. E. S. Trowbridge",
+  "date": "1902",
+  "describes_date": "1835",
+  "repository": "reproduced on chicagology.com; the original drawing's holding institution is not stated there",
+  "url": "https://chicagology.com/prefire/prefire127/",
+  "archived_url": "http://web.archive.org/web/20260217122931/https://chicagology.com/prefire/prefire127/",
+  "locator": "The drawing captioned \"The Green Tree Tavern in 1835\", roughly two-thirds down the page, between the Inter Ocean feature of 1 July 1883 and the 1855 map; image file greentreetaverntrowbridge.jpg.",
+  "tier": 5,
+  "rights_status": "check_required",
+  "rights_note": "The drawing is dated 1902 and its author died at an unestablished date, so the underlying work is very probably out of copyright in the United States; the reproduction carries no licence statement and chicagology publishes no rights terms. Textual citation is allowed and nothing may be derived from it as an asset until the plate is located in a repository that states its terms.",
+  "asset_use": "cross_check",
+  "verified": true,
+  "note": "IMAGE 7 OF THE OWNER'S BRIEF OF 2026-08-18, identified. The brief describes it as \"The Green Tree Inn (Trowbridge drawing) — same inn from the other quarter: the hanging 'GREEN TREE' sign on its post, a bench of sitters against the front wall, an open-sided wagon shed attached at the left with a covered wagon under it, farm wagons in the yard, a dirt road with grass verges, brush and small trees at the fence lines.\" The plate at this locator was retrieved and read on 2026-08-22 and carries every one of those features, which is what settles the identification: the hanging board lettered GREEN TREE on a post at the street edge, four figures seated on a bench against the front wall under it, a shed-roofed open bay attached at the left gable with a covered wagon standing under it, a farm wagon at the left and a second on the road at the right, a dirt road with grass verges, and brush at the field edges.\n\nDATED 1902 AND DRAWN OF 1835 — sixty-seven years. That gap is the record's whole limit and it is why this is tier 5 rather than the rung its subject would earn. It is a retrospective reconstruction by an illustrator working from other people's memories and, very probably, from the 1859 photograph the same page carries (chm_green_tree_1859): the building it draws is the building in that photograph, seen from the other quarter.\n\nWHAT THE PROJECT ALREADY TOOK FROM IT, by path rather than by citation, before this record existed: the post-mounted hanging signboard at the Green Tree (docs/LIBERTIES.md L110), the bench of sitters, the wagon shed, and the wagons in the yard (T-0064). Those readings do not change. What changes is that they now cite an identified plate with a date and an artist on it instead of a line in a README.",
+  "what_it_supplies": [
+    "the Green Tree's hanging signboard, lettered GREEN TREE, swinging from a post set at the street edge rather than fixed to the wall",
+    "a bench against the front wall between the door and the corner",
+    "an open-sided, shed-roofed wagon bay attached at the left gable, with a covered wagon standing under it",
+    "farm wagons standing on the yard and on the road",
+    "two brick chimneys, one at each end of the ridge, and an even rhythm of sash on both floors",
+    "a dirt road with grass verges and brush at the field edges rather than a made street"
+  ],
+  "what_it_does_not_supply": [
+    "any coordinate, footprint outline or dimension — a retrospective drawing may drive form and setting and may never move a building an inch",
+    "the state of the inn on 1 July 1835: the drawing is dated 1902 and titled to 1835, and nothing on it records what was checked",
+    "independent testimony — the building it draws is the building in the 1859 photograph on the same page, so it is very probably that photograph's descendant rather than a second witness",
+    "the wolf, lettering or colour of any sign but the Green Tree's own"
+  ]
+}

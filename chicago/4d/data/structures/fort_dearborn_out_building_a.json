@@ -1,0 +1,127 @@
+{
+  "id": "fort_dearborn_out_building_a",
+  "name": "Fort Dearborn — out building (a)",
+  "aka": [
+    "one of the fort's out buildings",
+    "the larger of the pair"
+  ],
+  "archetype": "outbuilding",
+  "phases": [
+    {
+      "id": "out_building_a_1830",
+      "documented_range": {
+        "from": "1830-02-24",
+        "to": "1836-12-29",
+        "confidence": "inferred",
+        "sources": [
+          "harrison_1830_river_mouth"
+        ],
+        "note": "ONE WITNESS, AND IT IS PRE-1835. The range opens 24 February 1830, the date on the Harrison plan, because that plan is the only source this project holds that says anything at all about this building — Hubbard describes the fort's well and its wash-houses and says nothing about out buildings, so the second witness the wash house record carries does not exist here. IT CLOSES 29 DECEMBER 1836, the evacuation, and that is a floor rather than a demolition: nothing attests when the fort's outer buildings came down. WHAT CARRIES THE SCENE DATE OF 1 JULY 1835 is the middle of that range and not either end of it — the post was garrisoned continuously from June 1832 to 29 December 1836, so a service building the garrison's own engineer drew in 1830 is standing five years later unless something says it stopped, and nothing does. That is an argument, not an assumption, and it is the argument every Fort Dearborn record here rests on. IT IS A THINNER ARGUMENT THAN THE WASH HOUSE'S because it stands on one witness instead of two, and the grade says so."
+      },
+      "position": {
+        "utm_e": 448248.94,
+        "utm_n": 4637452.38,
+        "rotation_deg": 154.0,
+        "symbolic_location": "South of Fort Dearborn on the fort's own ground, in the pair of small buildings the plan letters Out Buildings, the south-westerly and larger of the two.",
+        "confidence": "inferred",
+        "sources": [
+          "harrison_1830_river_mouth"
+        ],
+        "note": "THE PLATE GIVES THE COORDINATE AND NOTHING ELSE DOES. The plan letters `Out Buildings` — plural — against a PAIR of solid blocks on the fort's south ground, and this record is the larger of the two.\n\nREAD OFF THE 1830 HARRISON PLAN, BY THE SAME TRANSFORM AS THE FOURTEEN RECORDS ALREADY TAKEN FROM IT. Internet Archive leaf n242 of historyofchicago01andr (Andreas vol. 1, p. 113), rotated 90 degrees anticlockwise so the sheet's own true-north arrow stands vertical, is 2715 x 2003 px. On that image the stockade's ink runs from x 1356 to x 1535 and from y 553 to y 730, so the enclosure's centre is pixel (1445, 644); the committed palisade record hangs that centre on local E +1152, N +221, which is UTM 448224.70 E, 4637616.80 N. Pixels convert at 1.10 ft/px (0.33528 m/px), the scale docs/RESEARCH/fort_dearborn.md section 3 derives from the commandant's quarters. THE ANCHOR AND THE SCALE ARE CHECKED, NOT ASSUMED: the garrison garden's committed centre lands at pixel (1209, 1008) under this transform against a drawn diamond measuring (1207, 1002), and the committed blockhouse predicts (1385, 698) against a drawn square at (1375, 710). CARRY +/-20 % on this offset and +/-20 m on the fort itself, exactly as every plate-derived record here does.\n\nHOW THE TWO BLOCKS WERE SEPARATED FROM THE FENCE, because they touch it. Ink is every pixel below luminance 110 in the window x 1495-1565, y 1100-1160; that mask is eroded by a 3 x 3 window, which deletes the 2-3 px fence line and leaves the two solid blocks whole; the survivors are grouped into connected components and each component's centre, orientation and extents are its own second moments, with the two eroded pixels added back on each dimension. The method is stated because it is the only thing that makes this reading reproducible: the fence crosses both blocks and an eye-read bounding box would have carried it.\n\nTHE PIXEL. The larger block is 224 px of eroded ink centred on (1517.3, 1134.4), with principal extents 21.8 x 17.4 px and its long axis at -25.6 degrees in image coordinates, which is a bearing of 64 degrees. That centre is 72.3 px east and 490.4 px south of the fort centre, which is 24.2 m east and 164.4 m south of it.\n\nWHERE IT STANDS RELATIVE TO ITS PAIR AND TO THE FENCE. The smaller block stands 14.2 px north-east of this one — 7.0 m centre to centre — and the outer enclosure's fence line runs BETWEEN the two and touches this block's north corner. WHICH OF THE PAIR STOOD INSIDE THE FENCE AND WHICH OUTSIDE IS NOT CLAIMED: the drawn line is two to three pixels wide, which is a metre on the ground at this scale, and both blocks touch it. Reading a side off that would be reading the engraver's pen.",
+        "derivation": {
+          "method": "not_derivable",
+          "reason": "The two machine-checkable methods this project holds are a platted corner and a traced waterline, and this is neither: it is a pixel offset on a re-engraved plate, hung on a fort centre that is itself an inference. The whole rule is written out in position.note and is reproducible by hand from the numbers there — the leaf, the window, the threshold, the erosion, the pixel, the scale and the anchor — so declaring a derivation method that could not recompute it would be worse than declaring none."
+        }
+      },
+      "footprint": {
+        "polygon": [
+          [
+            0,
+            0
+          ],
+          [
+            7.3,
+            0
+          ],
+          [
+            7.3,
+            5.8
+          ],
+          [
+            0,
+            5.8
+          ]
+        ],
+        "confidence": "inferred",
+        "sources": [
+          "harrison_1830_river_mouth"
+        ],
+        "note": "NO SOURCE GIVES THIS BUILDING A DIMENSION. 7.3 x 5.8 m is the drawn block's own principal extents — 21.8 x 17.4 px of solid ink at the derived 1.10 ft/px — and it wants the same +/-20 % as everything else off this plate. THE BLOCK IS FILLED, NOT OUTLINED, which is a difference from the wash house and the shop and is worth stating: there is no interior line to take a centreline from, so this figure is the OUTSIDE of the engraved mass and is a ceiling on the building rather than an estimate of it. The long side runs at bearing 64 degrees as drawn."
+      },
+      "form": {
+        "construction": {
+          "value": "log",
+          "confidence": "reconstructed",
+          "note": "NOT ATTESTED, AND NOT INFERRED EITHER. The plan draws a filled rectangle and letters it; it says nothing about fabric, and no second source mentions these buildings at all. Log is this project's default for a secondary building at a frontier post whose principal ranges were of logs, and it is recorded as INVENTED rather than dressed up as an inference from the garrison's practice. The wash house next door carries `plank` on Hubbard's word `rude`; there is no equivalent word here."
+        },
+        "roof_type": {
+          "value": "gable",
+          "confidence": "reconstructed",
+          "note": "Not attested. Gable is the archetype's own default for a building of this depth. Invented."
+        },
+        "roof_pitch_deg": {
+          "value": 32.0,
+          "confidence": "reconstructed",
+          "note": "No pitch is attested for any building at this fort. Invented, at the archetype's default for this roof."
+        },
+        "wall_height_m": {
+          "value": 2.4,
+          "confidence": "reconstructed",
+          "note": "No height attested. The archetype's own size-aware default for this footprint. Invented."
+        },
+        "door": {
+          "value": "man",
+          "confidence": "reconstructed",
+          "note": "Not attested. The smallest of the three door kinds the archetype offers, which is the smallest claim available. Invented."
+        },
+        "door_side": {
+          "value": "front",
+          "confidence": "reconstructed",
+          "note": "The long wall, facing back toward the fort. Invented."
+        },
+        "paint": {
+          "value": "unpainted",
+          "confidence": "reconstructed",
+          "note": "Not stated either way. Unpainted is the archetype's default and the cheaper claim."
+        }
+      },
+      "change_note": "One phase. The single witness draws the pair once and describes no change."
+    }
+  ],
+  "function": {
+    "value": "outbuilding",
+    "confidence": "inferred",
+    "sources": [
+      "harrison_1830_river_mouth"
+    ],
+    "note": "THE LABEL IS THE FUNCTION AND THE LABEL IS A CATEGORY. `Out Buildings` names what a building is NOT — not the barn, not the shop, not the wash house, all three of which this plate letters separately a hundred metres north of here — and says nothing about what went on inside. A post's out buildings are privies, wood sheds, stores and pens; which of those this was is not on the sheet and is not guessed at here."
+  },
+  "research_note": "PLACED UNDER T-0881, AND THE TICKET'S OWN PREMISE IS CORRECTED BY THE READING. T-0881 was opened as `a plural label the plate draws once` — the wash house's problem, where Hubbard remembered wash-housES and the engineer drew one, and the record built the one that was drawn. THE OUT BUILDINGS ARE THE OPPOSITE CASE. The label is plural and the plate draws TWO: a solid block of 224 px and a solid block of 69 px, 7.0 m apart, with the outer fence line running between them. The premise came from a reading of the sheet at page scale, where the fence crossing the pair reads as one mass; it does not survive the measurement, and the measurement is above. So the plural is honoured here rather than argued away, and it is honoured for the only reason this project ever honours one — the drawing has two things in it.\n\nWHAT IS WEAK ABOUT BOTH RECORDS, STATED PLAINLY. One witness, pre-1835 by five years, on a plate with no scale bar that admits on its own face to carrying 'additions and changes suggested by the Memory of Early Settlers'. Every dimension is a ceiling read off filled ink, every form value is invented, and the function is a category rather than a use. What IS strong is the position relative to the fort, which is the same transform that lands the garrison garden within 2.3 m of where it is already committed. WHAT WOULD IMPROVE IT: a post return, a quartermaster's account, or any second plan of this fort.\n\nTHIS IS (a), THE LARGER: 7.3 x 5.8 m against the other's 3.9 x 2.9 m, and south-west of it. THE LETTERS (a) AND (b) ARE NOT BEARINGS AND ARE NOT AN ORDER THE SOURCE GIVES — they are this project's convention for a pair the record cannot name, adopted under T-0415 when `(east)` and `(west)` were found to be doing exactly that job badly. (a) is the larger; that is the whole rule.",
+  "review_required": false,
+  "land_owner": {
+    "value": "The ground was entered by John Baptist Baubian, 28 May 1835",
+    "confidence": "inferred",
+    "sources": [
+      "isa_public_domain_land_tract_sales"
+    ],
+    "note": "THE UNITED STATES RESERVATION. This is the same tract L108 already derives for `1835_no_build_ground.json` — from G1, Madison's line and the traced waterline — so the polygon is inherited rather than built again, and `check.sh` already re-derives it. The register's own row is the second, independent witness to the date L108 quotes from Andreas: Beaubien's pre-emption, 28 May 1835, five weeks before the scene date. The derived polygon is short of the documented 75.69 acres for the reasons L108 states, and is a floor rather than the reservation. WHETHER THE ENTRY HELD IS NOT READ HERE: it was disputed, and this row records the entry the register carries and nothing about its outcome. THE MARGIN IS 81 m: this footprint stands that far inside the tract's nearest boundary, which is more than twice the working horizontal uncertainty of anything traced off the 1834 sheets (about 20 m), so the assignment survives the error the construction carries. WHAT THIS ROW CLAIMS AND WHAT IT DOES NOT. It claims that the tract the Illinois State Archives' land-sale register describes contains this structure's committed position — the patent for this ground was ENTERED by this man on this date. It does not claim he still held the ground on 1 July 1835, that he lived here, or that he ever stood on it: a sale is a transaction, and the register's only column about residence names a county. THE SECTION LINES ARE CONSTRUCTED, NOT TRACED (L219): the grid is carried from the single PLSS corner at State & Madison, on the plat's own east-west bearing, in nominal one-mile squares.",
+    "tract": "the south-west fractional quarter of section 10",
+    "entries": [
+      "ls0057"
+    ],
+    "date_purchased": "1835-05-28",
+    "type_of_sale": "federal land sale (cash entry)",
+    "margin_m": 81.1,
+    "generated_by": "tools/resolve_land_tracts.py --build"
+  }
+}

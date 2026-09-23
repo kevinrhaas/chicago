@@ -1,0 +1,233 @@
+{
+  "scene": "1835",
+  "standard": "Every source the plant records cite, joined once so the plants section of the Evidence panel quotes a source exactly the way the building card and the wildlife list do.",
+  "citations": {
+    "andreas_1884_v1": {
+      "source_id": "andreas_1884_v1",
+      "citation": "Andreas, A. T. History of Chicago: From the Earliest Period to the Present Time. Vol. 1. Chicago: A. T. Andreas, 1884.",
+      "url": "https://archive.org/details/historyofchicago01andr",
+      "archived_url": "",
+      "tier": 3,
+      "tier_label": "compiled secondary (Andreas)"
+    },
+    "bowles_mcbride_1994_barrens": {
+      "source_id": "bowles_mcbride_1994_barrens",
+      "citation": "Bowles, Marlin L. and Jeanette L. McBride. Presettlement Barrens in the Glaciated Prairie Region of Illinois. Proceedings of the North American Conference on Savannas and Barrens (Midwest Oak Savanna Conferences), 1994.",
+      "url": "https://archive.epa.gov/ecopage/web/html/bowlespre.html",
+      "archived_url": "",
+      "tier": 4,
+      "tier_label": "later scholarship",
+      "what_it_does_not_supply": [
+        "tree densities per hectare - this paper gives none, so the savanna and woodland density figures in the zone records come from the seven-county Public Land Survey analysis instead"
+      ]
+    },
+    "chicagology_prefire273": {
+      "source_id": "chicagology_prefire273",
+      "citation": "\"Wolf's Point and the Town of Chicago.\" Chicagology. Transcribing the Chicago Magazine of 15 May 1857 — the account of the Wolf's Point settlement built on George Davis's 1832 drawing and on Gurdon S. Hubbard's own description of the place as he found it in 1818 — with A. T. Andreas and modern editorial matter around it.",
+      "url": "https://chicagology.com/prefire/prefire273/",
+      "archived_url": "https://web.archive.org/web/20260217122628/https://chicagology.com/prefire/prefire273/",
+      "tier": 2,
+      "tier_label": "near-primary recollection",
+      "transcribes": [
+        {
+          "work": "Chicago Magazine, 'Wolf's Point' — the account of the settlement at the forks, engraved from George Davis's 1832 drawing and incorporating Gurdon S. Hubbard's description of Chicago as he first saw it in 1818",
+          "date": "1857-05-15",
+          "tier": 2,
+          "note": "Carries the Miller House's log construction ('a log structure partly sided') and the Wolf Point Tavern's ('partly log and partly frame'), the fact of a frame element on each, and — through Hubbard — the marshy river-shore strip that grades the south division's marsh surface in terrain_spec.json. Twenty-five years after the fact, from a resident's drawing and a named witness speaking to the writer: rung 2."
+        }
+      ]
+    },
+    "chicagology_prefire274": {
+      "source_id": "chicagology_prefire274",
+      "citation": "\"Fort Dearborn I.\" Chicagology, transcribing Chicago Magazine, March 1857, with a Whistler plan of 1808, a Kinzie-supplied view of the first fort, and a 1902 Lawrence C. Earle mural.",
+      "url": "https://chicagology.com/prefire/prefire274/",
+      "archived_url": "https://web.archive.org/web/20260308050246/https://chicagology.com/prefire/prefire274/",
+      "tier": 2,
+      "tier_label": "near-primary recollection",
+      "transcribes": [
+        {
+          "work": "Chicago Magazine, 'Fort Dearborn I' — the account of the first fort and of the site it stood on, printed under its own attribution line and illustrated with a view 'through the kindness of Mrs. J. H. Kinzie, who furnished the sketch'",
+          "date": "1857-03",
+          "tier": 2,
+          "note": "Carries the landform this project's e1830_natural and e1834_harbor_cut epochs cite: the flattened mound half-surrounded by the river, standing 'as high as any other point'; the white sand hills north and south; and the long low sandy barrier ridge that deflected the river south 'for nearly half a mile' before the cut. Recollection of ground within the writer's own and his informants' memory, twenty-odd years after: the same rung as the May installment, on the same serial's method. Its 1803-1812 narrative is compilation, is not recollection, and is cited by nothing here."
+        }
+      ],
+      "what_it_supplies": [
+        "the fort platform as a landform — a flattened mound, curved river on three sides, as high as any other point in the quadrant",
+        "the sandy barrier ridge between the deflected river and the lake, running south nearly half a mile",
+        "the white sand hills north and south of the river mouth",
+        "that the old southward channel's mouth was choked by sand bars, obstructing the smallest sail vessels"
+      ],
+      "what_it_does_not_supply": [
+        "the fort of 1835 — this installment stops at the 1812 massacre and the fort it describes is the FIRST fort, demolished that year",
+        "any dimension, plan or outline of either fort; the Whistler 1808 plan is reproduced as a picture and is not read here",
+        "a usable date for the harbour cut: it says 1838, against Andreas's works of 1833-34, and Andreas is followed",
+        "any elevation in feet — 'as high as any other point' is a comparison, not a measurement, and the modelled box's total relief is 4.30 ft"
+      ]
+    },
+    "chicagology_prefire278": {
+      "source_id": "chicagology_prefire278",
+      "citation": "\"Town of Chicago.\" Chicagology. Transcribing the Inter Ocean of 22 July 1883 — 'Old Chicago: The Town in 1833', which carries both the town's incorporation record and 'The Old Western Hotel', an interview feature with named old settlers who used the house.",
+      "url": "https://chicagology.com/prefire/prefire278/",
+      "archived_url": "https://web.archive.org/web/20260308051207/https://chicagology.com/prefire/prefire278/",
+      "tier": 2,
+      "tier_label": "near-primary recollection",
+      "transcribes": [
+        {
+          "work": "Inter Ocean, 'Old Chicago: The Town in 1833' — the section headed 'The Old Western Hotel: First Frame House on the West Side', with the reporter's description of the surviving fragment and interviews with old settlers and with the builder's son",
+          "date": "1883-07-22",
+          "tier": 2,
+          "note": "Carries all four Western Hotel claims in this dataset — the farmers' and teamsters' house, W. H. Stow as builder and proprietor, the original two storeys, and the large stable and wagon yard with entrances from both streets — and it carries the dispute over the build date that keeps the dated range at `inferred`. Men recalling a house they used: rung 2."
+        }
+      ]
+    },
+    "cowles_1901": {
+      "source_id": "cowles_1901",
+      "citation": "Cowles, Henry Chandler. The Physiographic Ecology of Chicago and Vicinity; A Study of the Origin, Development, and Classification of Plant Societies. Botanical Gazette 31 (1901): 73-108, 145-182.",
+      "url": "https://archive.org/details/jstor-2465280",
+      "archived_url": "",
+      "tier": 4,
+      "tier_label": "later scholarship"
+    },
+    "dollard_2018_beach_pea": {
+      "source_id": "dollard_2018_beach_pea",
+      "citation": "Dollard, John J., Jr. Experimental reintroduction of state-endangered beach pea (Lathyrus japonicus) to Indiana Dunes National Lakeshore. Park Science 34, no. 1 (2018): 47-53. National Park Service.",
+      "url": "https://www.nps.gov/articles/parkscience34-1_47-53_dollard_3878.htm",
+      "archived_url": "",
+      "tier": 4,
+      "tier_label": "later scholarship",
+      "what_it_does_not_supply": [
+        "historical vegetation; it is a 2010s restoration study, and nothing in it attests the 1835 Chicago lakefront"
+      ]
+    },
+    "drloih_chicago_name": {
+      "source_id": "drloih_chicago_name",
+      "citation": "The Origin and Meaning of the Name Chicago. Dr. Loih Journal, December 2016.",
+      "url": "https://drloihjournal.blogspot.com/2016/12/the-origin-and-meaning-of-name-chicago.html",
+      "archived_url": "",
+      "tier": 4,
+      "tier_label": "later scholarship"
+    },
+    "fpdcc_ecosystems": {
+      "source_id": "fpdcc_ecosystems",
+      "citation": "Forest Preserves of Cook County. A Tour of Our Ecosystems.",
+      "url": "https://fpdcc.com/nature/a-tour-of-our-ecosystems/",
+      "archived_url": "",
+      "tier": 4,
+      "tier_label": "later scholarship"
+    },
+    "idnr_tallgrass_plantlist": {
+      "source_id": "idnr_tallgrass_plantlist",
+      "citation": "Illinois Department of Natural Resources. Tall Prairie: Requirements and Plant Lists.",
+      "url": "https://dnr.illinois.gov/education/plantlists/plantlisttallprairie.html",
+      "archived_url": "",
+      "tier": 4,
+      "tier_label": "later scholarship",
+      "what_it_does_not_supply": [
+        "bloom time or height - the page has no such column, so nothing about July phenology may be cited to it"
+      ]
+    },
+    "illinois_wildflowers": {
+      "source_id": "illinois_wildflowers",
+      "citation": "Hilty, John. Illinois Wildflowers. 2002-2020.",
+      "url": "https://www.illinoiswildflowers.info/",
+      "archived_url": "",
+      "tier": 4,
+      "tier_label": "later scholarship"
+    },
+    "kinzie_waubun_1856": {
+      "source_id": "kinzie_waubun_1856",
+      "citation": "Kinzie, Juliette A. M. Wau-Bun: The 'Early Day' in the North-West. New York: Derby & Jackson, 1856.",
+      "url": "https://www.authorama.com/wau-bun-19.html",
+      "archived_url": "https://archive.org/details/waubunearlydayin00kinzbyu",
+      "tier": 2,
+      "tier_label": "near-primary recollection"
+    },
+    "mcbride_bowles_2007": {
+      "source_id": "mcbride_bowles_2007",
+      "citation": "McBride, Jeanette L. and Marlin L. Bowles. Searching the Public Land Survey for Illinois Natural History. The Morton Arboretum, December 2007.",
+      "url": "https://www.greenmapping.org/orgs/2/report/general/",
+      "archived_url": "",
+      "tier": 4,
+      "tier_label": "later scholarship",
+      "what_it_supplies": [
+        "regional species proportions and tree densities per hectare",
+        "the structural argument that even ground called timber was mostly open",
+        "undergrowth composition, hazel in particular"
+      ],
+      "what_it_does_not_supply": [
+        "any vegetation record for the 640 m box at the forks itself - the nearest quoted survey line is about 2.5 km north",
+        "herbaceous species lists; the Public Land Survey recorded trees and land types, not forbs"
+      ]
+    },
+    "mnfi_open_dunes": {
+      "source_id": "mnfi_open_dunes",
+      "citation": "Michigan Natural Features Inventory. Open Dunes (natural community abstract). Michigan State University Extension.",
+      "url": "https://mnfi.anr.msu.edu/communities/description/10699",
+      "archived_url": "",
+      "tier": 4,
+      "tier_label": "later scholarship"
+    },
+    "swenson_1991": {
+      "source_id": "swenson_1991",
+      "citation": "Swenson, John F. Chicagoua/Chicago: The Origin, Meaning, and Etymology of a Place Name. Illinois Historical Journal 84, no. 4 (Winter 1991): 235-248.",
+      "url": "",
+      "archived_url": "",
+      "tier": 4,
+      "tier_label": "later scholarship"
+    },
+    "swink_wilhelm_1994": {
+      "source_id": "swink_wilhelm_1994",
+      "citation": "Swink, Floyd and Gerould Wilhelm. Plants of the Chicago Region, 4th edition. Indiana Academy of Science, Indianapolis, 1994. Extended by Wilhelm, Gerould and Laura Rericha, Flora of the Chicago Region: A Floristic and Ecological Synthesis, Indiana Academy of Science, 2017.",
+      "url": "",
+      "archived_url": "",
+      "tier": 4,
+      "tier_label": "later scholarship",
+      "what_it_supplies": [
+        "which species belong to which Chicago-region community",
+        "regional heights and blooming periods"
+      ],
+      "what_it_does_not_supply": [
+        "any record of what grew on the Chicago town site in 1835; a species on its regional list is inferred for this site, never documented, unless a period account names it"
+      ]
+    },
+    "white_1978_inai": {
+      "source_id": "white_1978_inai",
+      "citation": "White, John. Illinois Natural Areas Inventory Technical Report, Volume 1: Survey Methods and Results. Illinois Natural Areas Inventory, Urbana, 1978.",
+      "url": "",
+      "archived_url": "",
+      "tier": 4,
+      "tier_label": "later scholarship",
+      "what_it_does_not_supply": [
+        "any statement about Chicago in 1835; it classifies surviving natural areas surveyed in the 1970s, which is why species drawn from it are inferred for the site unless a period account names them"
+      ]
+    },
+    "white_1994_savanna_terms": {
+      "source_id": "white_1994_savanna_terms",
+      "citation": "White, John. How the Terms Savanna, Barrens, and Oak Openings Were Used in Early Illinois. Proceedings of the North American Conference on Savannas and Barrens (Midwest Oak Savanna Conferences), 1994.",
+      "url": "https://archive.epa.gov/ecopage/web/html/white-2.html",
+      "archived_url": "",
+      "tier": 4,
+      "tier_label": "later scholarship"
+    },
+    "wright_1834": {
+      "source_id": "wright_1834",
+      "citation": "Wright, J. S. Chicago, drawn by J. S. Wright according to survey. New York: P. A. Mesier's Lith., 1834.",
+      "url": "https://collections.leventhalmap.org/search/commonwealth:js9577436",
+      "archived_url": "",
+      "tier": 1,
+      "tier_label": "period/eyewitness",
+      "what_it_supplies": [
+        "street geometry",
+        "block and lot subdivision",
+        "shoreline",
+        "river channel and the 1834 cut",
+        "survey-date colouring"
+      ],
+      "what_it_does_not_supply": [
+        "building footprints",
+        "building locations"
+      ]
+    }
+  }
+}

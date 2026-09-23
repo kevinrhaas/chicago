@@ -1,0 +1,81 @@
+{
+  "id": "james_kinzie_house",
+  "name": "James Kinzie's Residence",
+  "aka": [
+    "James Kinzie's house, Wolf Point"
+  ],
+  "archetype": "log_dwelling",
+  "phases": [
+    {
+      "id": "dwelling_1830",
+      "documented_range": {
+        "from": "1830-01-01",
+        "to": "1835-12-31",
+        "confidence": "inferred",
+        "sources": [
+          "chicagology_prefire273"
+        ],
+        "note": "NO SOURCE REACHED DATES THIS BUILDING AT EITHER END, and the range is a coverage statement rather than a finding. What is attested is that the house stood in the west-bank row at Wolf Point in the years chicagology's account describes; the source record gives that account's describes_date as 1830-1835, so the range opens at the start of 1830 because that is the earliest year the description can be held to and NOT because anything says the house was built then. It may well be older: James Kinzie built the Wolf Point Tavern next door in 1828 (see data/structures/wolf_point_tavern.json, where the build date is itself disputed 1823 against 1828) and he was trading at the forks through the 1820s, so a residence of the middle 1820s is entirely possible. The range closes at the end of 1835 on this project's usual rule — the last date the record needs to claim — and not on any statement about the house coming down. Extend it in either direction when evidence appears; do not widen it to make something pass."
+      },
+      "position": {
+        "utm_e": 447026.0,
+        "utm_n": 4637316.0,
+        "rotation_deg": 90.0,
+        "symbolic_location": "West bank of the river at Wolf Point, south of Wentworth's tavern (the Wolf Point Tavern) and north of the Lake Street crossing.",
+        "confidence": "inferred",
+        "sources": [
+          "chicagology_prefire273",
+          "osm_streets_2026"
+        ],
+        "note": "PLACED 2026-08-11, AND IT IS A POSITION DERIVED FROM A NEIGHBOUR RATHER THAN FROM ANYTHING SURVEYED. What the source gives is an ORDER along the west bank and no distances: chicagology's Wolf Point narrative puts James Kinzie's residence south of Wentworth's tavern and Father Walker's log meeting house north of it, which is the same three-building sequence this project's wolf_point_tavern record already carries in its own symbolic_location. So this coordinate is anchored to that record: the tavern's south face sits at local N -57.1 and the north kerb of Lake Street at local N -97.1, leaving a 40 m stretch of west-bank frontage between the tavern and the crossing, and this house is set inside it with its south face at local N -87.8 — about 9 m clear of the street line and about 30 m south of the tavern, with room left between for robert_kinzie_store, which Andreas puts 'near Wentworth's tavern' (scan p. 235). ACROSS THE BANK: the east face is set about 13 m back from the modern west-bank line read from OpenStreetMap water polygons at the house's north face, widening to about 26 m at its south face because the bank swings east here as it runs down to the Lake Street crossing. That is the same setback band the tavern's record uses (11 to 19 m) and it is chosen for consistency with the row, not measured. UNCERTAINTY IS THE TAVERN'S PLUS THIS RECORD'S OWN: about 40 m along the bank (docs/LIBERTIES.md L7 — nothing fixes how far north of the bridge the tavern stood, and everything hung off it inherits that) and about 20 m across it from the georeference, compounded by the modern bank not being the 1835 bank on a reach that was wharfed and rebuilt. Facade bearing 90, due east onto the water, following the row: Wau-Bun's 1831 sequence reads 'Facing down the river from the west was, first a small tavern kept by Mr. Wentworth', and the tavern, the Robinson cabins and the meeting house are all given that bearing in this dataset. Anything from about 75 to 105 is equally defensible.",
+        "derivation": {
+          "method": "not_derivable",
+          "reason": "This placement predates the derivation module. Its provenance and reasoning are recorded in position.note, but no machine-checkable derivation block has been authored for it yet."
+        }
+      },
+      "footprint": {
+        "polygon": [
+          [
+            0,
+            0
+          ],
+          [
+            8,
+            0
+          ],
+          [
+            8,
+            6.5
+          ],
+          [
+            0,
+            6.5
+          ]
+        ],
+        "confidence": "reconstructed",
+        "note": "PLACEHOLDER — NOT ONE DIMENSION, PROPORTION OR PLAN FORM IS ATTESTED FOR THIS BUILDING. Unlike the Miller house, where the SHAPE carries evidence and only the size is invented, here neither does: the dossier's entry for this structure reads, in full, 'Location: south of Wentworth's tavern, west bank. Type/date/appearance: not attested in sources reached.' 8 x 6.5 m is about 26 x 21 ft, an ordinary one-and-a-half-pen log house of the type and period, and it is a shape chosen to sit in a river-front row rather than a shape anybody described. The 8 m runs north-south along the frontage and the 6.5 m is the depth. Sources are deliberately omitted from this attribute because none supports it. To resolve: Andreas vol. 1 at page-image level around the Wolf Point material (the index gives Wolf Point at pp. 111, 114, 174, 629-631), or the Braunhold-style retrospective view 'Wolf Point in 1830' that Andreas reproduces, which shows the west-bank row and has not been examined at plate level for this parcel."
+      },
+      "form": {
+        "construction": {
+          "value": "log",
+          "confidence": "inferred",
+          "sources": [
+            "chicagology_prefire273"
+          ],
+          "note": "NOT ATTESTED FOR THIS BUILDING and inferred from its neighbours, which is the weaker of the two kinds of inference this dataset makes. Every building chicagology describes in the west-bank row at Wolf Point in these years is log or log-and-frame — Wentworth's tavern 'partly log and partly frame', Father Walker's 'oblong log building', the Robinson cabins log — and the frame buildings the sources single out (the Sauganash's white two-storey block, the Green Tree, the Western) are singled out precisely because frame was the exception at the forks. The archetype choice follows the same inference and is therefore no stronger than it: if the residence turns out to have been frame, this record moves to frame_dwelling and the massing changes with it."
+        }
+      },
+      "change_note": "The house as the west-bank row carried it through the early 1830s. No documented change of fabric falls inside the phase, because no fabric is documented at all — this is one state because there is nothing to divide it into, not because the building is known to have stayed still."
+    }
+  ],
+  "function": {
+    "value": "residence",
+    "confidence": "attested",
+    "sources": [
+      "chicagology_prefire273"
+    ],
+    "note": "The source calls it James Kinzie's residence, and that is the whole of what it says about the building's use. Whether anyone was living in it on 1835-07-01 is a separate question this record does not answer: James Kinzie built the Green Tree Tavern at Lake and Canal in 1833 and was trading and building across the west side through these years, and no source reached puts him under this roof in the summer of 1835. The record deliberately carries no occupants block rather than guessing."
+  },
+  "research_note": "ONE OF THE THINNEST RECORDS IN THE DATASET, AND DELIBERATELY BUILT ANYWAY. The evidence is a single clause — a residence of James Kinzie's standing south of Wentworth's tavern on the west bank — and everything else here is inference or invention, graded so a visitor can see which is which: existence documented, position inferred from a documented ORDER along a bank, construction inferred from the neighbours, footprint and all massing conjectural. The alternative was to leave a documented building out of the town because nobody measured it, which makes the gap invisible instead of legible. James Kinzie is the busiest builder at Wolf Point in this dataset — he built the Wolf Point Tavern (1828 or 1823, disputed), the Green Tree Tavern at Lake and Canal in 1833, and he sold Mark Beaubien the cabin that became the Sauganash — so a house of his standing in the row is exactly what the row should contain. WHAT WOULD UPGRADE THIS RECORD, in order of value: any measured or descriptive sentence in Andreas vol. 1 at page-image level; the Blanchard & Shober 1867 'Wolf's Point in 1833' chromolithograph or the Braunhold view Andreas reproduces, examined at plate level for the row's storey counts and massing; and the Conley & Stelzer 1933 numbered key, which may carry the building as a numbered item. See docs/research/03-structures-north.md section 2.3, where this structure is listed with an explicit [GAP] tag on type, date and appearance.",
+  "review_required": false
+}

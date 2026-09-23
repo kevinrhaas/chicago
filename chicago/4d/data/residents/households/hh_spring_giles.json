@@ -1,0 +1,176 @@
+{
+ "id": "hh_spring_giles",
+ "name": "The Spring household",
+ "division": "south",
+ "head": "spring_giles",
+ "arrival": {
+  "value": "1833",
+  "confidence": "attested",
+  "sources": [
+   "andreas_1884_v1"
+  ],
+  "note": "'Put out their signs in 1833' - year precision, and 'separated from him by a few days' from Caton's 19 June puts him within about a week of it, which is a bound and not a date.",
+  "precision": "year"
+ },
+ "party_size_on_arrival": {
+  "value": null,
+  "confidence": "reconstructed",
+  "note": "Not attested in anything this project holds."
+ },
+ "origin": {
+  "value": null,
+  "confidence": "reconstructed",
+  "note": "Not attested in anything this project holds."
+ },
+ "reason_for_coming": {
+  "value": null,
+  "confidence": "reconstructed",
+  "note": "Not attested in anything this project holds."
+ },
+ "lives_at": {
+  "value": null,
+  "confidence": "reconstructed",
+  "note": "Not attested in anything this project holds."
+ },
+ "works_at": {
+  "value": null,
+  "confidence": "reconstructed",
+  "note": "NOT MODELLED. He had desk-room in Caton's office from December 1833, in Dr Temple's Lake Street building, which has no structure record."
+ },
+ "present_on_scene_date": {
+  "value": "present",
+  "confidence": "inferred",
+  "sources": [
+   "andreas_1884_v1"
+  ],
+  "note": "Continuous in the Chicago legal record; Andreas's index carries him across the 1830s and 1840s."
+ },
+ "persons": [
+  {
+   "id": "spring_giles",
+   "name": "Giles Spring",
+   "relationship": "head",
+   "grade": "attested",
+   "ladder_rule": "G1a",
+   "sex": "male",
+   "occupation": {
+    "value": "attorney",
+    "confidence": "attested",
+    "sources": [
+     "andreas_1884_v1"
+    ],
+    "note": "'The first lawyer in Chicago to make a living by his profession alone was Giles Spring', one of the six Andreas counts at the close of 1833, having 'put out his sign' that year.",
+    "derived_from": "roles",
+    "roles_at_scene_date": [
+     "attorney"
+    ]
+   },
+   "sources": [
+    "andreas_1884_v1",
+    "chicago_voter_lists_1833_1835_irad",
+    "isa_public_domain_land_tract_sales"
+   ],
+   "note": "HIS FIRST OFFICE WAS A BARREL-HEAD AND HIS SECOND WAS DESK-ROOM IN CATON'S. The two of them opposed each other in the first larceny case heard before a justice of the peace in July 1833, and Caton's account of hiring out to carry the chain for a surveyor on the North Side that same month - because clients were few, fees small and board bills maturing - is the only description in this dataset of what an educated newcomer actually did for money in the town's first summer. THE TOWN'S OWN ROLLS, 1833-1835 — CORROBORATION, NOT A GRADE. The early Chicago voter and tax lists held by the Illinois Regional Archives Depository name this person 2 times: Election returns — poll list of 1834, filed 11 August 1834 — “Spring, Giles” (poll_1834_103, line 272); Poll list of 1835 — “Spring, G.” (poll_1835_075, line 362). These are the town's own contemporary paper rather than a recollection of it, and each appearance says that a man of that name stood on that roll in that year — no more. The reading is twice mediated (Schulz's transcription, then Genealogy Trails' republication) and this project has not seen the IRAD originals. Under the ratified ladder (T-0513) the 1835 poll with a second independent source is attested, the 1835 poll alone or a 1833/1834 list with another source is inferred, and a single appearance with nothing else is a projected resident. This pass WRITES THE EVIDENCE AND MOVES NO GRADE — T-0515 applies the ladder against every source at once. Identity by the crosswalk's own rule: one resident of the surname 'Spring' agrees with the entry's forenames; 1 bearer(s) of the surname were considered. (data/research/civic/voter_crosswalk.json). THE FEDERAL LAND TRACT SALES — A PURCHASE, AND NEVER A RESIDENCE. The Illinois State Archives' Public Domain Land Tract Sales register enters this person 3 times, as “SPRING GILES”, 1836-06-29 to 1836-09-05: 3 lots in the platted town — lot 4 of block 41 in the town the register codes CHIOT (L4BL41CHIOT, as printed); lot 5 of block 12 in the town the register codes CHIOTV (L5BL12CHIOTV, as printed); lot 6 of block 12 in the town the register codes CHIOTV (L6BL12CHIOTV, as printed), 0.00 acres stated in all, for $5850.00 (ls1465, ls1466, ls1467). THE REGISTER'S OWN RESIDENCE COLUMN READS UNKNOWN on these rows: a county, a state or nothing, and never a town, which is why a purchase here places nobody. THE TOWN LOTS ARE THE PLAT ITSELF, AND THEY ARE NOT ACRES: Cook County's register describes them by lot and block in a platted town and gives them no section, no township and no acreage at all, so they add nothing to the acre figure above and $5850.00 to the money. This project does not expand the register's town codes, so which addition a lot stands in is carried as the code and not as a name. It is still a purchase and it still places nobody. A purchase and nothing more. It dates and places a transaction; it proposes no residence, and under the ratified ladder it corroborates rather than mints. Identity by the crosswalk's own rule: SPRING GILES matches Giles Spring: the forename names Giles Spring of the 1 person of this surname, and the forename agrees in full. (data/research/land_sales/resident_crosswalk.json). This pass WRITES THE EVIDENCE AND MOVES NO GRADE. Under the ratified ladder (T-0513) a second independent source is what lifts a projected resident, and a land entry is a second source about a TRANSACTION rather than about who was living at Chicago on 1 July 1835 — a man may buy a quarter-section he never sees. T-0515 applies the ladder against every source at once; this pass hands it the evidence and not the verdict.",
+   "resident_research": {
+    "programme": "resident-research-2026",
+    "ticket": "T-0510",
+    "outcome": "corroborated",
+    "reviewed_on": "2026-09-05",
+    "asserted_identity": true,
+    "evidence_for": "one resident of the surname 'Spring' agrees with the entry's forenames; 1 bearer(s) of the surname were considered. Surname 'Spring' folds to the same string as the 1844 entry's, and the given name of both begins G. Surname 'Spring' folds to the same string as the 1843 entry's, and the given name of both begins G.",
+    "evidence_against": "The surname 'Spring' is in Fergus's death notices and no entry under it carries the initial 'G' of 'Giles Spring'. A surname-only agreement is a refusal, here as everywhere: the list prints eleven Smiths. The surname 'Spring' stands on an 1844 advertising card and no proprietor under it carries the initial 'G' of 'Giles Spring'. A surname-only agreement is a refusal.",
+    "summary": "Independently corroborated. Giles Spring agrees, forename for forename or initial for initial, with a record outside the post-office lists in the town's 1833 tax and 1834/1835 poll lists, the Fergus 1839/1843 and Norris 1844 directories. one resident of the surname 'Spring' agrees with the entry's forenames; 1 bearer(s) of the surname were considered.",
+    "notes": "FERGUS 26-29, AS PRINTED: \"Spring, Giles (S[pring] & Goodrich), res 62 Adams near State [died May 14, 1851]\". The 1843 directory prints the exact name, the firm Spring & Goodrich, attorneys, 124 Lake, and a death date of 14 May 1851. Research only. Later-volume readings are recorded here and NOT promoted: T-0513 consolidates and T-0514/T-0515 apply.",
+    "source_ids": [
+     "chicago_democrat_1833_1835",
+     "chicago_voter_lists_1833_1835_irad",
+     "fergus_chicago_directory_1839",
+     "fergus_chicago_directory_1843",
+     "fergus_historical_series_26_29",
+     "norris_directory_1844"
+    ]
+   },
+   "roles": [
+    {
+     "role": "attorney",
+     "kind": "profession",
+     "as_printed": null,
+     "from": "1673",
+     "to": "1857",
+     "precision": "source_span",
+     "dated_by": "source_describes_date",
+     "covers_scene_date": true,
+     "confidence": "attested",
+     "sources": [
+      "andreas_1884_v1"
+     ],
+     "claim": null,
+     "note": "THE BOUND IS THE SOURCE'S, NOT THE MAN'S. This role is carried by the card's 1835 occupation block and is dated by what the cited source or sources are ABOUT, which is why `precision` can be no better than the span they cover. The span reaches 1835, so this role stands in the scene-date view. The printing the trade was read off is not on the card and is fetched by T-1254."
+    }
+   ],
+   "merge_ruling": [
+    {
+     "ticket": "T-1291",
+     "verdict": "distinct",
+     "rule": "D7",
+     "cluster": "spring-springs",
+     "weighed_against": [
+      "springs_g"
+     ],
+     "for_merge": "A stray terminal s, and the anchor side is one of the best-documented men in the layer: Giles Spring, attorney of S. & Goodrich, res 62 Adams, on the 1834 poll, the 1835 poll as 'Spring, G.', and in the Democrat as 'G. Spring' and 'Spring, G.'. The initial G agrees, the town holds exactly one Spring and one Springs, and a man the paper already prints under a bare G is the obvious referent for 'G. Springs'.",
+     "against_merge": "NO ISSUE SETS BOTH SPELLINGS, AND THE SPRINGS STEM IS NOT EMPTY. 'G. Springs' is the Democrat of 29 October 1834 (#c008); Giles Spring's own Democrat settings are 28 January 1834 (#c006), 3 September 1834 (#c005) and 12 November 1834 (#c008) — four different issues of one paper and not one of them sets Spring and Springs together. The corpus sets Springs 53 times in its own right. C9's demonstration is what is missing and nothing else, which is D7 exactly; the anchor makes the fold attractive and D7 is the rule that says an attractive fold with no page is still a refusal."
+    }
+   ]
+  }
+ ],
+ "touches_removal": false,
+ "review_required": false,
+ "research_note": "THE FIRST MAN IN CHICAGO TO LIVE BY LAW ALONE, in a town where in that same summer he had to carry a surveyor's chain to pay his board. Both halves are documented and both belong in a population dataset: a trade is not the same thing as an income.",
+ "directories": {
+  "note": "LATER EVIDENCE, BESIDE THE 1835 CLAIMS AND NOT INSIDE THEM. A Chicago directory of 1839, 1843 or 1844 meets somebody of this name and this pass records what it prints. Under the ratified ladder a directory read after 1835 can corroborate that a person attested here was still in Chicago and can print a trade or a street the 1835 record never had; on its own it makes nobody a resident of 1835. Nothing on this person's 1835 record was regraded, moved, dated or given an occupation by this entry. WHAT THIS PASS RULED ONTO THIS HOUSEHOLD, named so the ruling can be found again: each volume below is followed by the printed entries it set against this person and the status the crosswalk ruled them at — a single entry carries what its own `could_carry` declares, and an ambiguous or contested match carries nothing and is shown so that the silence is legible. spring_giles, Fergus's Chicago directory of 1843 — f1843_e2336 (a single entry); spring_giles, Norris's Chicago directory of 1844 — n1844_e1684 (a single entry).",
+  "sources": [
+   "fergus_chicago_directory_1843",
+   "norris_directory_1844"
+  ],
+  "people": [
+   {
+    "person_id": "spring_giles",
+    "address_later": {
+     "value": "res 62 Adams near State",
+     "confidence": "attested",
+     "describes_date": 1843,
+     "sources": [
+      "fergus_chicago_directory_1843"
+     ],
+     "note": "Fergus's Chicago directory of 1843 prints this address against this person, in the entry quoted on the card: 'Spring, Giles (S. & Goodrich), res 62 Adams near State [died May 14, 1851, aged 41¾.]'. It is evidence about 1843, written here as 1843's and read back onto no 1835 claim. Under the ratified ladder a directory read after 1835 can corroborate that a person attested here was still in Chicago and can print a trade or a street the 1835 record never had; on its own it makes nobody a resident of 1835. Nothing on this person's 1835 record was regraded, moved, dated or given an occupation by this entry. The value is the volume's own line, split by its crosswalk on the entry's punctuation. These volumes set the trade first and its qualifiers after it on the same line, so the split may carry an employer, a market or a corner along with the trade. The printed entry is quoted beside the value for exactly that reason: the split is checkable against it, and neither is read into an 1835 claim."
+    },
+    "back_projection": {
+     "outcome": "refused",
+     "clause": "2",
+     "value": null,
+     "describes_date": 1843,
+     "read_back_years": 8,
+     "placement": null,
+     "position_local_enu_m": null,
+     "sources": [
+      "fergus_chicago_directory_1843"
+     ],
+     "note": "REFUSED, AND THE REFUSAL IS THE RECORD. Fergus's Chicago directory of 1843 prints an address against this name in 1843 and this pass will not carry it back to 1835. The directory prints this as a RESIDENCE — its own `res`, `bds`, `house` or Norris's `h` — and this pass positions businesses. Reading a home address as a shop door would be the pass answering a question nobody asked it. The residence half is T-0669. A refusal is written here rather than dropped so that a later run can see the address was read and ruled on, not missed (docs/ADDRESS-BACK-PROJECTION.md, clause 2)."
+    },
+    "residence_back_projection": {
+     "outcome": "refused",
+     "clause": "R4",
+     "kind": "resides",
+     "value": null,
+     "describes_date": 1843,
+     "read_back_years": 8,
+     "placement": null,
+     "sources": [
+      "fergus_chicago_directory_1843"
+     ],
+     "note": "REFUSED, AND THE REFUSAL IS THE RECORD. Fergus's Chicago directory of 1843 prints where this person lived in 1843 and this pass will not carry it back to 1835. Adams Street is south of Madison, outside the platted town of 1835. A refusal is written here rather than dropped so that a later run can see the address was read and ruled on, not missed (docs/RESIDENCE-BACK-PROJECTION.md, clause R4)."
+    }
+   }
+  ]
+ }
+}

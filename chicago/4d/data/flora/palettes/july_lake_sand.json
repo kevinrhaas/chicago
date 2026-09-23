@@ -1,0 +1,11 @@
+{
+ "id": "july_lake_sand",
+ "name": "Beach, foredune and sand prairie, mid-July",
+ "greens": [[72,92,56],[100,120,74],[128,146,96],[156,172,120]],
+ "dry_accent": [186,178,142],
+ "ground": {"rgb":[198,190,166],"wet_rgb":[156,148,130],"dry_rgb":[216,208,184]},
+ "wind": {"speed_mps":4.5,"gust":0.45,"sway_deg":13,"wave_m":6.0},
+ "lod": {"near_m":14,"mid_m":70,"far_m":300},
+ "budget": {"instances_near":6000,"instances_mid":16000},
+ "note": "Ground dominates: on the open beach the sand is 85-98 per cent of the surface, and the plants are lighter and greyer than anything on the clay plain. Sand colours are chosen, not sampled: no verified July photograph of this shoreline was obtained. Greens sampled from the July reference photographs used to judge this scene: James Woodworth Prairie Preserve, Glenview IL, 29 July 2021 (a Chicago-region tallgrass remnant) and a DuPage County tallgrass prairie, 24 July 2018. Those are modern remnants photographed in the right month at the right latitude, not evidence about 1835, which is why this record carries no source_id: colours here are render tuning and the evidence lives in the zone records."
+}

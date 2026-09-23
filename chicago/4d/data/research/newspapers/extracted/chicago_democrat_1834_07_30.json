@@ -1,0 +1,591 @@
+{
+  "schema": 1,
+  "issue_id": "chicago_democrat_1834_07_30",
+  "extracted": "2026-08-28",
+  "extracted_by": "hand, T-0289 — the Democrat read, July 1834",
+  "note": "Vol. I No. 35, the last issue of the month. THE MOST CONSEQUENTIAL CLAIM IN THE WHOLE JULY RUN IS HERE: a town ordinance directing the Surveyor to GRADUATE South Water Street to a crown on the north line of each block and to fall so that water runs into the river at every cross street. That is the shape of the town's principal street, printed. Beside it: the election notice that names the Mansion House as E. H. Haddock's, a prices current whose building-materials section is priced, an estray, and the Hennepin post-office list. The prices table is SPLIT ACROSS TWO SEGMENTER COLUMNS — its commodity names are in page 3 column 4 and its figures in column 5 — so it takes two claims, one per column, because a locator cannot cross a column.",
+  "claims": [
+    {
+      "id": "c001",
+      "kind": "street",
+      "reading": "transcription_mediated",
+      "quote": "# furthhr Ordained, That the Surveyor\nlate South- Water Btreet, so tlint die cen-\nthe north line of each block, on said street.\nbe the highest point in front ofcach block\nhall further graduste said street in aach\ner, that the water shall Bow into the river\nthe intersection of each cross street.\nTH. J. V. OWEN, Preit\ntest-IsaAc Harmon, Cleris.",
+      "normalized": "[Be it] further Ordained, That the Surveyor [shall gradu]ate South Water Street, so that the cen[tre… at] the north line of each block, on said street, [shall] be the highest point in front of each block[. He] shall further graduate said street in such [mann]er, that the water shall flow into the river [at] the intersection of each cross street. […] TH. J. V. OWEN, Pres[']t. […] Attest — ISAAC HARMON, Clerk.",
+      "locator": {
+        "artifact_role": "primary",
+        "issue_page": 3,
+        "column": 3,
+        "lines": [
+          3445,
+          3469
+        ],
+        "lines_of_claim": [
+          3445,
+          3446,
+          3448,
+          3449,
+          3451,
+          3452,
+          3455,
+          3467,
+          3469
+        ],
+        "interleaved": true
+      },
+      "entities": [
+        {
+          "as_printed": "TH. J. V. OWEN, Preit",
+          "normalized": "Th. J. V. Owen",
+          "role": "president of the board of trustees",
+          "occupations": [
+            "indian agent"
+          ]
+        },
+        {
+          "as_printed": "IsaAc Harmon, Cleris.",
+          "normalized": "Isaac Harmon",
+          "role": "clerk of the board of trustees"
+        }
+      ],
+      "notes": "THE PROFILE OF SOUTH WATER STREET, ORDERED BY THE TOWN AND PRINTED. A crown running along the NORTH line of each block — the river side is the north side here — with the street graduated so that surface water runs off into the river at each cross-street intersection. For a reconstruction that has to decide whether the town's main street is flat, crowned or cambered, and where its water goes, this is a documented answer rather than an inferred one, and it is dated to the summer before the scene. THE LINE IS CUT down its left edge by the chancery order interleaved beside it, so the verbs are supplies: 'late South- Water Btreet' at 3446 is read '[gradu]ate South Water Street' from the ordinance's own second sentence, which prints 'shall further graduate said street' whole at 3451. That is a supply from the SAME sentence pair and is the strongest kind this run offers; it is still bracketed. THE CLERK IS NEW: Isaac Harmon attests where G. W. Snow was clerk pro tem on 6 June (1834-07-02, claim c017), so the board has a standing clerk by the end of July. No merge with the Harmon of Harmon, Loomis & Co. is declared."
+    },
+    {
+      "id": "c002",
+      "kind": "infrastructure",
+      "reading": "transcription_mediated",
+      "quote": "it further Ordained, That all orders making\nances to individuals, by the Board of Trus-\nshall be receited by the Collecior, in dis-\nge of taxes or other demands, which may\nno payable to the corporation.\nOrdinance relating to the revenue, and pre-\nibing the duties of Toten Collector.\nit ordained by the President and Trustces of\nonen of Chicugo,\nThat it shall be the duty\no Collector, appointed by the President and\ntees aforesaid, before be enters on the du-\nof his office, to give a bond with approved\ny, in double the amount of the tax list put\nhis hands for collection, conditioned for the\nful collecting and accounting to the said\ndent and Trustees, of all sums of money\nI may come to his hands, in virtue of the\nwithin siaty days from the\nof this Ordinance. And it is hereby made\nurther duty of the collector to make per-\nI application to the person or persons char-\nwith tases in the list of asacsament, if they\nbe residents of said Town, and if the s-\nshall not he paid to said collector with-\nfor said collector to seize and expose\nle, (giving five days notice thereof,) any\n, the tax and conta of sale aforesaid.",
+      "normalized": "[Be] it further Ordained, That all orders making [allow]ances to individuals, by the Board of Trus[tees] shall be received by the Collector, in dis[char]ge of taxes or other demands, which may [be] payable to the corporation. […] [An] Ordinance relating to the revenue, and pre[scr]ibing the duties of Town Collector. [Be] it ordained by the President and Trustees of [the T]own of Chicago, That it shall be the duty [of th]e Collector, appointed by the President and [Trus]tees aforesaid, before he enters on the du[ties] of his office, to give a bond with approved [securit]y, in double the amount of the tax list put [into] his hands for collection, conditioned for the [faith]ful collecting and accounting to the said [Presi]dent and Trustees, of all sums of money [which] may come to his hands, in virtue of the [list o]f assessment, within sixty days from the [date] of this Ordinance. And it is hereby made [the f]urther duty of the collector to make per[sona]l application to the person or persons char[ged] with taxes in the list of assessment, if they [shall] be residents of said Town, and if the [amo]unt of said tax so due by any person or per[sons] shall not be paid to said collector with[in te]n days after such application, it shall be [lawful] for said collector to seize and expose [to sa]le, (giving five days notice thereof,) any [perso]nal property of any such delinquent, to [pay] the tax and costs of sale aforesaid.",
+      "locator": {
+        "artifact_role": "primary",
+        "issue_page": 3,
+        "column": 3,
+        "lines": [
+          3457,
+          3515
+        ],
+        "lines_of_claim": [
+          3457,
+          3458,
+          3460,
+          3461,
+          3463,
+          3471,
+          3474,
+          3476,
+          3478,
+          3479,
+          3481,
+          3483,
+          3485,
+          3487,
+          3489,
+          3491,
+          3493,
+          3495,
+          3498,
+          3500,
+          3502,
+          3504,
+          3506,
+          3508,
+          3510,
+          3512,
+          3513,
+          3515
+        ],
+        "interleaved": true
+      },
+      "entities": [],
+      "notes": "THE TOWN'S REVENUE MACHINERY, four weeks after the assessment ordinance of 6 June that the issue of 1834-07-02 printed (claim c017 there). Together the two say: the assessor lists and values every taxable property in the corporation by 1 June and returns it by the first Wednesday of July; the collector then takes the list, gives a bond of double its amount, calls PERSONALLY on every resident charged, and after ten days may seize and sell personal property on five days' notice. A town that legislates this in its first summer is a town with property worth listing, and the ordinance is the reason a tax list of 1834 should exist. Every supply here is a word cut at the left column edge and closed from the sentence it sits in; none adds a fact. The chancery order interleaved down the right of this column (lines 3459-3520's right halves) is excluded."
+    },
+    {
+      "id": "c003",
+      "kind": "event",
+      "reading": "transcription_mediated",
+      "quote": "Notice.\nN Election will be held on\nMoriday. the eleventh Jay\nof Augut next, at the Mansion\n(E. H. Hadduck's, for the election of\nglees, for the Towt of Cuicago, for one\nthe law directs. The polls will open at\ni.A. sl. and close pretsely at 4o clock\nBy order of the Board of 1\n3, 1834,\nTH. J. V. OWEN\nrustees.\n• Pres't.",
+      "normalized": "Notice. [A]N Election will be held on Monday, the eleventh day of Augu[s]t next, at the Mansion [House,] E. H. Haddock's, for the election of [Trus]tees, for the Town of Chicago, for one [year, as] the law directs. The polls will open at [9 o'clock] A. M. and close precisely at 4 o'clock […] By order of the Board of T[rustees.] [July] 3, 1834. TH. J. V. OWEN […] Pres't.",
+      "locator": {
+        "artifact_role": "primary",
+        "issue_page": 3,
+        "column": 4,
+        "lines": [
+          3565,
+          3584
+        ],
+        "lines_of_claim": [
+          3565,
+          3566,
+          3567,
+          3568,
+          3569,
+          3570,
+          3572,
+          3574,
+          3577,
+          3578,
+          3579,
+          3580,
+          3582
+        ],
+        "interleaved": true
+      },
+      "entities": [
+        {
+          "as_printed": "E. H. Hadduck's",
+          "normalized": "E. H. Haddock",
+          "role": "householder",
+          "occupations": [
+            "tavern keeper"
+          ]
+        },
+        {
+          "as_printed": "TH. J. V. OWEN",
+          "normalized": "Th. J. V. Owen",
+          "role": "president of the board of trustees"
+        }
+      ],
+      "ad_copy_date": {
+        "verbatim": "3, 1834,",
+        "iso": "1834-07-03"
+      },
+      "notes": "THE MANSION HOUSE IS E. H. HADDOCK'S, AND THIS IS WHERE THE MONTH SAYS SO. The Fourth of July dinner is 'on the table at the Mansion House' (1834-07-02, claim c044); a physician's residence 'is at the Mansion-house' (c046); the Board of Trustees met 'at the house of E. H. Haddock' on 6 June (c017). This notice puts the two names in one phrase — the town's annual election is held at the Mansion House, E. H. Haddock's — which makes the Mansion House the town's public room as well as its hotel. IT DOES NOT SETTLE MADDOCK'S TAVERN: the issue of 1834-07-09 places Lot No. 7 of Block 16 'one lot east of Maddock's Tavern, on Lake street' (claim c010 there), and Maddock against Haddock is one consonant. No merge is declared, and the two anchors stay separate until an issue prints both spellings in a way that decides it. THE POLLS: nine in the morning to four precisely, on Monday 11 August 1834, for trustees serving one year."
+    },
+    {
+      "id": "c004",
+      "kind": "building",
+      "reading": "transcription_mediated",
+      "quote": "Te Let.\nCONVENIENT Delling with\n3 poons and a kitchen on\nthe lower floor.\non Randolph-trech. CHAPNAN.\non South Water-stret, and a small\nAiso, a STORE\nEnquite of\n3, 1831.",
+      "normalized": "To Let. [A] CONVENIENT D[we]lling with 3 [r]ooms and a kitchen on the lower floor. […] on Randolph-stre[et.] [C. H.] CHAPMAN. […] on South Water-stre[e]t, and a small [building] […] Also, a STORE […] Enquire of […] [July] 3, 1834. 4w34",
+      "locator": {
+        "artifact_role": "primary",
+        "issue_page": 3,
+        "column": 4,
+        "lines": [
+          3585,
+          3598
+        ],
+        "lines_of_claim": [
+          3585,
+          3587,
+          3589,
+          3591,
+          3592,
+          3593,
+          3594,
+          3595,
+          3597
+        ],
+        "interleaved": true
+      },
+      "entities": [
+        {
+          "as_printed": "CHAPNAN.",
+          "normalized": "[uncertain: C. H. Chapman]",
+          "role": "advertiser"
+        }
+      ],
+      "ad_copy_date": {
+        "verbatim": "3, 1831.",
+        "iso": "1834-07-03"
+      },
+      "notes": "THE NOTICE THE PREVIOUS ISSUE COULD ONLY GUESS AT, AND BOTH GUESSES WERE RIGHT. On 1834-07-23 this advertisement ran cut down its left edge and that issue's claim c003 supplied '[three ro]oms' and '[building on Randolph] street' inside brackets while saying plainly that the second was unread. This printing carries '3 [r]ooms and a kitchen on the lower floor' and 'on Randolph-stre[et]' in the clear. So the notice offers THREE buildings: a dwelling of three rooms and a kitchen on its lower floor; a STORE on South Water Street; and a small building on Randolph Street. THE LINES ARE OUT OF ORDER in this printing — the segmenter has put 'on Randolph-street' (3592) above 'on South Water-street' (3593) and 'Also, a STORE' (3594) below both — and the normalized reading keeps the transcription's order rather than resequencing it, with the previous week's printing as the witness for the sense. The advertiser's name is 'CHAPNAN' here and 'CE ATMA' there; 'C. H. Chapman' stays bracketed on both."
+    },
+    {
+      "id": "c005",
+      "kind": "price",
+      "reading": "transcription_mediated",
+      "quote": "Building Materials-\nLumber, poplar ass\nSqzare timber, leng\nSuingles\nBrick,\nStone,\nLitte,\nWood,\n1 bus.",
+      "normalized": "Building Materials — Lumber, poplar ass[orted…] Sq[u]are timber, leng[th…] S[h]ingles […] Brick, […] Stone, […] Li[m]e, […] Wood, […] 1 bus[hel…]",
+      "locator": {
+        "artifact_role": "primary",
+        "issue_page": 3,
+        "column": 4,
+        "lines": [
+          3741,
+          3768
+        ],
+        "lines_of_claim": [
+          3746,
+          3748,
+          3750,
+          3751,
+          3755,
+          3758,
+          3761,
+          3763,
+          3765
+        ],
+        "interleaved": true
+      },
+      "entities": [],
+      "notes": "THE PRICE OF THE TOWN'S OWN FABRIC — poplar lumber, square timber by length, shingles, brick, stone, lime and wood, as a standing section of the Democrat's weekly prices current. For a reconstruction that has to decide what a building of 1835 Chicago was made of and what was cheap, a printed materials list from the summer before is evidence of the first order, and it names POPLAR beside pine, SQUARE TIMBER priced by length, and BRICK, STONE and LIME all available in one market. THE FIGURES ARE NOT IN THIS COLUMN. The segmenter split the table down the middle: the commodity names are here in page 3 column 4 and the figures are in column 5, where they survive as a ladder of bare numbers (lines 3946-4030). A locator cannot cross a column, so the figures are claimed separately at c006 and NEITHER CLAIM ASSERTS A PRICE FOR A NAMED MATERIAL — pairing a number in one column with a word in another is precisely the join this project does not make on position alone. The list is interleaved with the Hennepin letter list, whose lines are excluded. Furs are priced immediately above: 'Muskrat skins' (3741) and 'Raccoon do' (3744)."
+    },
+    {
+      "id": "c006",
+      "kind": "price",
+      "reading": "transcription_mediated",
+      "quote": ") PRICES CURRENT,\n• the Democrat by P. F. lech.\nBRECTED WEEKLY\n8 9 75 •\nS. fine\n5 00 •\nfine\nat flour\n5 50\nbush\n75 a\n85",
+      "normalized": "[CHICAGO] PRICES CURRENT, [Corrected for] the Democrat by P. F. Pec[k.] [COR]RECTED WEEKLY […] [$]9 75 […] S. fine […] 5 00 […] fine […] [Whe]at flour […] 5 50 […] bush[el] 75 a […] 85",
+      "locator": {
+        "artifact_role": "primary",
+        "issue_page": 3,
+        "column": 5,
+        "lines": [
+          3939,
+          4030
+        ],
+        "lines_of_claim": [
+          3939,
+          3941,
+          3943,
+          3947,
+          3950,
+          3952,
+          3954,
+          3958,
+          3960,
+          3963,
+          3964,
+          3966
+        ],
+        "interleaved": true
+      },
+      "entities": [
+        {
+          "as_printed": "P. F. lech.",
+          "normalized": "P. F. W. Peck",
+          "role": "reporter of prices",
+          "occupations": [
+            "merchant"
+          ],
+          "associated_places": [
+            "LaSalle Street",
+            "South Water Street"
+          ]
+        }
+      ],
+      "notes": "THE SAME WEEKLY TABLE AS 1834-07-23, corrected for the paper by the same merchant, and this printing keeps the heading legible where the figures are reduced to a ladder of loose numerals down the column. IT IS THE OTHER HALF of claim c005: names there, figures here, and the two are NOT paired. Only the figures that stand on a line with a word are quoted — '5 00' beside 'S. fine', '5 50' beside 'at flour', '75 a' and '85' beside 'bush' — and even those pairings are the transcription's line order rather than the paper's table, so they are read as flour at five dollars the barrel and grain at seventy-five to eighty-five cents the bushel with that caveat stated. THE TWO ISSUES TOGETHER give the run of the table: P. F. Peck corrected the Democrat's prices weekly through July 1834, which is a role for a named townsman as much as a set of numbers."
+    },
+    {
+      "id": "c007",
+      "kind": "person",
+      "reading": "transcription_mediated",
+      "letter_list_only": true,
+      "quote": "List of Letters,\nPost-Uffice at Hensepu, Ill. on the\nof July, 1e34; in hot taken out be-\n, of Uctober, will be sent to the l'ost\nrument as dead letters.\nAmos Leonard\nLevi Lucas\nHenry F. Miller\nCharies Nock\nDaniel yew ton\nJerry l'arsons\nJoseph Itoss\nJotin Reed\nKev. Wui. Royal\nTHoS. GALAHER, Jr. P.M.",
+      "normalized": "List of Letters, [remaining in the] Post-Office at Hen[n]epin, Ill. on the [1st day] of July, 1[8]34; i[f] not taken out be[fore the 1st day] of October, will be sent to the Post [Office] [Depa]rtment as dead letters. Amos Leonard / Levi Lucas / Henry F. Miller / Cha[r]les Nock / Daniel [N]ewton / Jerry [P]arsons / Joseph [R]oss / Jo[h]n Reed / Rev. W[m]. Royal / […] THOS. GALAHER, Jr. P.M.",
+      "locator": {
+        "artifact_role": "primary",
+        "issue_page": 3,
+        "column": 4,
+        "lines": [
+          3710,
+          3771
+        ],
+        "lines_of_claim": [
+          3710,
+          3714,
+          3716,
+          3718,
+          3721,
+          3722,
+          3725,
+          3727,
+          3734,
+          3737,
+          3740,
+          3743,
+          3745,
+          3747,
+          3771
+        ],
+        "interleaved": true
+      },
+      "entities": [
+        {
+          "as_printed": "Amos Leonard",
+          "normalized": "Amos Leonard",
+          "role": "addressee",
+          "associated_places": [
+            "Hennepin"
+          ]
+        },
+        {
+          "as_printed": "Levi Lucas",
+          "normalized": "Levi Lucas",
+          "role": "addressee",
+          "associated_places": [
+            "Hennepin"
+          ]
+        },
+        {
+          "as_printed": "Henry F. Miller",
+          "normalized": "Henry F. Miller",
+          "role": "addressee",
+          "associated_places": [
+            "Hennepin"
+          ]
+        },
+        {
+          "as_printed": "Charies Nock",
+          "normalized": "Cha[r]les Nock",
+          "role": "addressee",
+          "associated_places": [
+            "Hennepin"
+          ]
+        },
+        {
+          "as_printed": "Daniel yew ton",
+          "normalized": "Daniel [N]ewton",
+          "role": "addressee",
+          "associated_places": [
+            "Hennepin"
+          ]
+        },
+        {
+          "as_printed": "Jerry l'arsons",
+          "normalized": "Jerry [P]arsons",
+          "role": "addressee",
+          "associated_places": [
+            "Hennepin"
+          ]
+        },
+        {
+          "as_printed": "Joseph Itoss",
+          "normalized": "Joseph [R]oss",
+          "role": "addressee",
+          "associated_places": [
+            "Hennepin"
+          ]
+        },
+        {
+          "as_printed": "Jotin Reed",
+          "normalized": "Jo[h]n Reed",
+          "role": "addressee",
+          "associated_places": [
+            "Hennepin"
+          ]
+        },
+        {
+          "as_printed": "Kev. Wui. Royal",
+          "normalized": "Rev. W[m]. Royal",
+          "role": "addressee",
+          "occupations": [
+            "clergyman"
+          ],
+          "associated_places": [
+            "Hennepin"
+          ]
+        },
+        {
+          "as_printed": "THoS. GALAHER, Jr. P.M.",
+          "normalized": "Thos. Galaher jr.",
+          "role": "postmaster",
+          "occupations": [
+            "postmaster"
+          ],
+          "associated_places": [
+            "Hennepin"
+          ]
+        }
+      ],
+      "notes": "A FOURTH POST OFFICE — Hennepin, on the Illinois River — and the ONLY list in the July run that prints the dead-letter rule: uncollected by 1 October and the letters go back to the Post Office Department as dead. That is what the quarterly cycle behind all four lists actually was, and it is why Chicago's list stood for three weeks and then vanished. NINE NAMES ARE MINTED and none of them is a Chicago resident; `associated_places` says Hennepin on every one. THE LIST IS INTERLEAVED WITH THE PRICES CURRENT and cut, so seven further lines are left unminted: 'Wir. L. alay' (3729), '[uncertain: Henry shiller]' (3732), '[uncertain: Jona t. tricay]' (3753), '[uncertain: Martin Thospous]' (3754), '[uncertain: Aaron Willaace s]' (3757), '[uncertain: Alley saison]' (3760) and '[uncertain: Alone Wood]' (3767). Four of the seven carry a recognizable forename and a wrecked surname; none is supplied. Thos. Galaher jr. is the Democrat's Hennepin agent — the prospectus of 1834-07-02 lists 'Thomas Hartaell' at Hennepin (claim c028 there), which is a DIFFERENT name at the same office, and no identification is made."
+    },
+    {
+      "id": "c008",
+      "kind": "notice",
+      "reading": "transcription_mediated",
+      "quote": "Taken Up,\nAlbert Noon, in Eagle Pre-\ncinct, Lasalie county, & light\nbay HORSE, fourteen hands high,\nboth hind feet white: appraised to\nsix years old, with a bald face and\nollars and seventy-fivecents, by Wm.\nid Gaylard Hayes, before\nP. on the 27th June, 1634.\nJ. CLOUD, Clek.",
+      "normalized": "Taken Up, [By] Albert Noon, in Eagle Pre[c]inct, Lasalle county, [a] light bay HORSE, fourteen hands high, […] six years old, with a bald face and […] both hind feet white: appraised to [ … d]ollars and seventy-five cents, by Wm. […] [an]d Gaylard Hayes, before […] P. on the 27th June, 1834. […] J. CLOUD, Cl[er]k.",
+      "locator": {
+        "artifact_role": "primary",
+        "issue_page": 3,
+        "column": 4,
+        "lines": [
+          3833,
+          3854
+        ],
+        "lines_of_claim": [
+          3833,
+          3836,
+          3838,
+          3840,
+          3842,
+          3843,
+          3845,
+          3847,
+          3850,
+          3854
+        ],
+        "interleaved": true
+      },
+      "entities": [
+        {
+          "as_printed": "Albert Noon",
+          "normalized": "Albert Noon",
+          "role": "taker-up",
+          "associated_places": [
+            "Eagle Precinct, Lasalle county"
+          ]
+        },
+        {
+          "as_printed": "Gaylard Hayes",
+          "normalized": "[uncertain: Gaylard Hayes]",
+          "role": "appraiser"
+        },
+        {
+          "as_printed": "J. CLOUD, Clek.",
+          "normalized": "J. Cloud",
+          "role": "clerk"
+        }
+      ],
+      "ad_copy_date": {
+        "verbatim": "P. on the 27th June, 1634.",
+        "iso": "1834-06-27"
+      },
+      "notes": "AN ESTRAY, WHICH IS ONE OF THE KINDS OF CLAIM THIS TICKET ASKS FOR BY NAME. The procedure is the whole point: a stray is taken up by a named man in a named precinct, described to the hand and the marking, APPRAISED by two named neighbours before a justice, and the appraisal published by the county clerk. That is the legal machinery a town's loose livestock ran through, and it is evidence for what an 1830s street had wandering in it. THIS ONE IS NOT IN CHICAGO — Eagle Precinct, Lasalle county — and no Chicago estray is printed in the July run, which is an absence worth recording rather than a gap to fill. THE APPRAISED VALUE IS CUT: line 3845 reads 'ollars and seventy-fivecents, by Wm.' and the number of dollars is gone. It is NOT supplied. The first appraiser's surname is gone with it. J. Cloud is the Democrat's Ottawa agent in the prospectus of 1834-07-02 and the clerk of the Lasalle Circuit Court in this issue; the two are the same written name and no merge is needed."
+    },
+    {
+      "id": "c009",
+      "kind": "business",
+      "reading": "transcription_mediated",
+      "quote": "Auction Store.\nuction Store on the Street leading\nthe draw-bridge to the oil woods\nand, is in readiness to receive goods,\nsed of at private sale or public alc.\n• Goods will be offered at auctioti,\nted price.\nJ. BATES, jr. ducT.\nJuly 15, 1834.",
+      "normalized": "Auction Store. […] [The A]uction Store on the Street leading [from] the draw-bridge to the o[a]k woods [and Blue Isl]and, is in readiness to receive goods, [to be dispo]sed of at private sale or public a[u]c[tion.] […] [N. B. No] Goods will be offered at auction[, at any limi]ted price. J. BATES, jr. Auct. July 15, 1834.",
+      "locator": {
+        "artifact_role": "primary",
+        "issue_page": 3,
+        "column": 4,
+        "lines": [
+          3856,
+          3872
+        ],
+        "lines_of_claim": [
+          3856,
+          3859,
+          3861,
+          3863,
+          3865,
+          3867,
+          3870,
+          3871,
+          3872
+        ],
+        "interleaved": true
+      },
+      "entities": [
+        {
+          "as_printed": "J. BATES, jr. ducT.",
+          "normalized": "J. Bates jr.",
+          "role": "proprietor",
+          "occupations": [
+            "auctioneer"
+          ]
+        }
+      ],
+      "ad_copy_date": {
+        "verbatim": "July 15, 1834.",
+        "iso": "1834-07-15"
+      },
+      "business": {
+        "name": "J. Bates jr., Auction Store",
+        "proprietors": [
+          "J. Bates jr."
+        ],
+        "trade": "auction store",
+        "goods": [],
+        "street": null,
+        "placement": {
+          "class": "relative",
+          "anchor": "the Street leading from the draw-bridge to the oak woods and Blue Island",
+          "offset_text": "uction Store on the Street leading\nthe draw-bridge to the oil woods\nand, is in readiness to receive goods,",
+          "offset_normalized": "The Auction Store on the Street leading from the draw-bridge to the o[a]k woods [and Blue Isl]and",
+          "street": null
+        }
+      },
+      "notes": "THE DRAW-BRIDGE ADDRESS, A SECOND WITNESS, AND ONE WORD DIFFERENT. This printing reads 'the oil woods' where 1834-07-16 read 'the oak woo[ds]' (claim c010 there). OAK is the reading both printings together support — an oil wood is not a thing and an oak wood outside Chicago is — so 'o[a]k' is bracketed here and the disagreement is recorded rather than smoothed. Two independent printings of the same anchor a fortnight apart is what makes the draw-bridge placement solid; the STREET is still not named in either, and none is asserted. This is the only business in the July run placed on the river crossing."
+    },
+    {
+      "id": "c010",
+      "kind": "event",
+      "reading": "transcription_mediated",
+      "quote": "1o the Electors of Cook County-\nTaLLow-Crizens-Coming before you si\nts or my fiends, and 1 now throw myself on\nthe favor of the people, and ask them for their\nfrager for the Sheniffalty at the approseh-\ning election.\nYour Out. Servent,\nChicago, July 94, 1531.\nSILAS W. SHERMAN.",
+      "normalized": "To the Electors of Cook County. [FE]LLOW-CITIZENS — Coming before you a[t this] late period, justice to myself as well as to […] [and] I now throw myself on the favor of the people, and ask them for their [suf]frages for the Sheriffalty at the approach[ing] election. […] Your Ob[e]d[ien]t Servant, Chicago, July 2[4], 18[34]. SILAS W. SHERMAN.",
+      "locator": {
+        "artifact_role": "primary",
+        "issue_page": 3,
+        "column": 1,
+        "lines": [
+          2990,
+          3025
+        ],
+        "lines_of_claim": [
+          2994,
+          2996,
+          3007,
+          3008,
+          3009,
+          3010,
+          3023,
+          3024,
+          3025
+        ],
+        "interleaved": true
+      },
+      "entities": [
+        {
+          "as_printed": "SILAS W. SHERMAN.",
+          "normalized": "Silas W. Sherman",
+          "role": "candidate for sheriff"
+        }
+      ],
+      "ad_copy_date": {
+        "verbatim": "Chicago, July 94, 1531.",
+        "iso": "1834-07-24"
+      },
+      "notes": "A MAN STANDING FOR SHERIFF OF COOK COUNTY, addressing the electors from Chicago six days before the issue and a fortnight before the general election of Monday 11 August that claim c003 advertises. The standing candidate lists this paper prints weekly name three others for sheriff — Blackstone, Reed and Heacock, at page 3 column 1 of 1834-07-02 — and Sherman is not among them, which is what 'coming before you at this late period' means. He is extracted as a person and no business record is made. '94'→'2[4]' and '1531'→'18[34]': the year is the run's and the day is read from the digits, which support 24 and not 94 in a month of thirty-one days."
+    },
+    {
+      "id": "c011",
+      "kind": "business",
+      "reading": "transcription_mediated",
+      "quote": "house and Lend digest.\nOTS purchased and Sold, or by comicis-\nA nion.\n1:2 Buiking Lots for sale, in the town and\nSchool section.\n1 Houses to let.\nEnquire at the Ofice on\ndest opposite Dr. Ten plis.",
+      "normalized": "[H]ouse and L[a]nd [A]g[en]t. [L]OTS purchased and Sold, or by com[m]is-[s]ion. 1[2]2 Bui[ld]ing Lots for sale, in the town and School section. […] Houses to let. Enquire at the Ofice on [Lake st.] opposite Dr. Te[m]pl[e']s.",
+      "locator": {
+        "artifact_role": "primary",
+        "issue_page": 1,
+        "column": 3,
+        "lines": [
+          596,
+          606
+        ],
+        "lines_of_claim": [
+          596,
+          598,
+          600,
+          602,
+          603,
+          604,
+          605,
+          606
+        ],
+        "interleaved": true
+      },
+      "business": {
+        "name": "W. G. Blanchard",
+        "proprietors": [
+          "W. G. Blanchard"
+        ],
+        "trade": "house and land agent",
+        "goods": [],
+        "street": null,
+        "placement": {
+          "class": "relative",
+          "anchor": "Dr. Temple's",
+          "offset_text": "dest opposite Dr. Ten plis.",
+          "offset_normalized": "[…] opposite Dr. Te[m]pl[e']s.",
+          "street": null
+        }
+      },
+      "notes": "ONE IMPRESSION OF THE STANDING LAKE STREET LAND-AGENCY CARD. The Democrat sets this advertisement, word for word the same, in every issue from 1834-05-14 to 1834-10-01 — twenty consecutive weeks, eighteen of which set the line ‘purchased and Sold, or by commi[s]sion’ recognisably (T-1051). The card is identified by its copy and not by its display line: the same trade (‘House and Land Agent’), the same offer of building lots in the town and the School Section, the same houses to let, and the same office on Lake street opposite Dr. Temple's. The display line is lost in the interleave (line 595 reads 'Adieu,'), and 594, 597, 599 and 601 are the woven column's fragments. THE PROPRIETOR'S NAME IS NOT READ HERE and none is supplied into the quote: the record's ‘W. G. Blanchard’ stands on T-0408's reading of the two impressions whose columns are NOT Tesseract fallbacks (1834-07-16 line 5527, 1834-09-17 line 3292) and on identity.json's declared firm merge, not on this impression. THE STREET IS NOT SET HERE: the address line reads 'dest opposite Dr. Ten plis.' and the words before 'opposite' are not 'Lake st.' on the page, so the anchor is read and the street left null."
+    }
+  ]
+}

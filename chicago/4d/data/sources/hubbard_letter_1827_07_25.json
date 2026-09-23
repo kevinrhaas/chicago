@@ -1,0 +1,36 @@
+{
+  "id": "hubbard_letter_1827_07_25",
+  "type": "manuscript",
+  "citation": "Gurdon S. Hubbard to his sister Elizabeth Hubbard at Middletown, Connecticut, headed 'Chicago, July 25, 1827' — printed as an editorial note at page 174 of The Autobiography of Gurdon Saltonstall Hubbard (Chicago: Lakeside Press, 1911). It reports Governor Cass's arrival at Chicago on the 21st with the first news of the Winnebago hostilities, and the attacks at Prairie du Chien and on the Mississippi.",
+  "author": "Gurdon Saltonstall Hubbard",
+  "date": "1827-07-25",
+  "describes_date": "1827-07",
+  "repository": "The manuscript's whereabouts are not stated. What this project has read is the letter as printed in the 1911 volume; the Internet Archive scan of that volume is item autobiographyofg00hubb.",
+  "url": "https://archive.org/details/autobiographyofg00hubb",
+  "archived_url": "https://archive.org/download/autobiographyofg00hubb/autobiographyofg00hubb_djvu.txt",
+  "locator": "chicago/4d/data/research/books/text/hubbard_autobiography_1911.txt, lines 7902-7913 — leaf 212 of the scan, printed page 174.",
+  "tier": 1,
+  "rights_status": "public_domain",
+  "asset_use": "text_only",
+  "verified": true,
+  "transcribes": [
+    {
+      "work": "Gurdon S. Hubbard's autograph letter to his sister Elizabeth at Middletown, Conn., dated at Chicago 25 July 1827",
+      "date": "1827-07-25",
+      "tier": 1,
+      "note": "A letter written at Chicago on a stated day by a man standing in the town, printed with its dateline. THE ONLY RUNG-1 DOCUMENT IN THE VOLUME, and the reason it has a record of its own: everything else between those covers is recollection at fifty years' distance or compilation at seventy-six, and a source record cites a place and not a volume."
+    }
+  ],
+  "access_notes": "Read at one remove, off the 1911 printing, in the Internet Archive's OCR of it. Nobody in this project has seen the manuscript, and the printing gives no shelfmark for it. The reading is therefore transcription_mediated like every other claim taken from this book, and the tier grades the DOCUMENT and not the reading of it.",
+  "what_it_supplies": [
+    "a dated day for Governor Cass's arrival at Chicago — the 21st of July 1827 — from a man who was there when he arrived",
+    "the news that reached Chicago and in what order: the Winnebago hostilities at Prairie du Chien and the attack on the boat descending the Mississippi, with its casualties",
+    "the date that settles the volume's own contradiction: page 167 prints 'September of the year 1828' for the payment and the fort fire, and this letter, the section heading and the surrounding narrative all say July 1827"
+  ],
+  "what_it_does_not_supply": [
+    "anything about 1835. The letter is eight years earlier",
+    "any building, street or resident of the town. It is war news sent east",
+    "a manuscript this project can go back to. The 1911 printing is the only text there is here, and it gives no repository"
+  ],
+  "note": "SPLIT OUT OF data/sources/hubbard_autobiography_1911.json ON PURPOSE, under the rule that a record's rung is the best rung it transcribes. Left inside that record, this letter's rung 1 would have graded a volume whose 1835 material is a 1911 librarian's compilation, and every future citation of 'Hubbard 1911' would have inherited a rung it has not earned. Two records of one book is the pattern chicago_antiquities_pratt.json and chicago_antiquities_american_fur_co.json already set."
+}

@@ -1,0 +1,2425 @@
+{
+  "_doc": "RETIRED PROGRAMME RECORD, 2026-09-02. THIS FILE NO LONGER PRODUCES PEOPLE. The owner retired the reconstructed resident population that day - \"remove any pre-existing reconstructed people from the resident list and household\" - and, asked whether the roofs raised for them should be abandoned or kept, ruled \"Keep as anonymous stock\". So its 101 households were deleted from data/residents/ (T-0489) and its 31 roofs were enrolled in the 665-roof programme as anonymous count-units (T-0516). Read `retirement` below for what became of each half.\n\nWHY THE FILE IS KEPT WHOLE AND VERBATIM RATHER THAN REWRITTEN. The alternative considered in T-0516 was to move the surviving half into a new data/reconstruction/1835_anonymous_stock.json and leave this one as history. It was refused for two reasons. The first is that the argument is the part worth keeping: `occupation_census` is 29 reasoned counts against the 1835 census, the 1833 trade roster and the roof schedule, and `calibration` is what made them checkable - splitting the roofs away from the reasoning that raised them would leave 31 buildings in the town with their argument in another file. The second is that this file is still READ: tools/inferred_occupancy.py, tools/adopt_street_faces.py, tools/deal_siding_stock.py, tools/measure_adoption_tests.py and tools/reconcile_665.py all resolve a roof through it, and a retired programme that still answers questions is a record, not a ruin. What changed is the ANSWER it gives: `resident_population_active` is false, and tools/inferred_occupancy.py reads that flag and seats nobody, so the adoption blocks the 101 households had put on 104 anonymous roofs are gone from those records. Turning the flag back to true is all it would take to restore them, which is the property that makes this a retirement rather than a demolition.\n\nTHE OCCUPATION CENSUS IS KEPT AS HISTORY, not as a live calibration. T-0507 is its successor: the town's occupation mix is calibrated there against evidence rather than against this parcel's ratios. Nothing downstream should read `occupation_census` as a claim about the town as it now stands.\n\nPHASE TWO OF THE INFERRED-RESIDENTS PROGRAMME (docs/ROADMAP.md K1): the inferred layer, and the buildings it justifies. Phase one wrote the town's DOCUMENTED and DERIVED people - 72 households, 96 person entries, no inferred persons at all - and left the volume to this parcel. This file is the authored recipe; tools/generate_inferred_households.py expands it into data/residents/households/*.json, the occupancy blocks on the adopted anonymous roofs, and the new structure records, and re-derives all three on every commit so the expansion cannot drift from the recipe.\n\nWHAT AN INFERRED HOUSEHOLD IS AND IS NOT. It is a hypothesised resident filling a demonstrable need of the town, at a count argued from ratios this dataset can check: the 1835 census, the 1833 trade roster, and the reconstruction specification's own roof schedule. It is NOT a person. NO INFERRED PERSON IS GIVEN A NAME - every one carries a designation ('A cooper', 'A journeyman carpenter') and the note says the person is hypothesised. Inventing surnames would produce records indistinguishable at a glance from the documented layer, which is the one thing this programme must never do. No person is drawn either: docs/LIBERTIES.md L1 stands.\n\nTHE COUNTS ARE THE CLAIM. A household here asserts that a town of 3,265 people in 398 dwellings held AT LEAST this many households of this trade; it asserts nothing whatever about any individual. Read occupation_census for the argument behind each number.",
+  "id": "chicago_july_1835_inferred_household_programme",
+  "status": "phase2_inferred_households",
+  "target_date": "1835-07-01",
+  "programme": "chicago_july_1835_building_inventory",
+  "dossier": "docs/RESEARCH/residents_1835_inferred.md",
+  "source_ids": [
+    "andreas_1884_v1",
+    "chicago_democrat_1833_11_26",
+    "owner_chicago_1835_reconstruction_spec_2026",
+    "thompson_plat_1830",
+    "hathaway_1834"
+  ],
+  "calibration": {
+    "population_1835": {
+      "value": 3265,
+      "source": "andreas_1884_v1",
+      "note": "The town census of 1835, Andreas vol. 1, printed p. 180 (scan p. 377)."
+    },
+    "dwellings_1835": {
+      "value": 398,
+      "source": "andreas_1884_v1",
+      "note": "The same census. 3,265 / 398 = 8.2 people per dwelling, which is what a town of boarding houses looks like."
+    },
+    "population_1833": {
+      "value": 350,
+      "source": "andreas_1884_v1",
+      "note": "The settlement of the fall of 1833, as ROADMAP K1 states it. The 1833-to-1835 multiplier is therefore about 9.3, and it is the multiplier this census applies to the 1833 trade roster."
+    },
+    "documented_trade_roster_1833": {
+      "value": 50,
+      "source": "andreas_1884_v1",
+      "note": "'The following is an imperfect list of the denizens of the town in the fall of 1833, not before named' - about fifty names, most with a trade, printed p. 132 (scan p. 281). It is the only list this project holds that names artisans at all, and it is the calibration for every ratio in this file."
+    },
+    "documented_persons_phase_one": {
+      "value": 96,
+      "source": "data/residents/index.json",
+      "note": "76 documented and 20 derived person entries in 72 households, of which 85 carry a trade. This layer is measured against that spread, not against a modern occupational census."
+    },
+    "roof_schedule": {
+      "value": 662,
+      "source": "owner_chicago_1835_reconstruction_spec_2026",
+      "note": "The building inventory's roof total — 665 until 2026-08-27, when T-0032 took three phantom civic roofs off it — with its family targets: 30 workshops (W1 6, W2 8, W3 6, W4 6, W5 4), 52 stores and mixed use, 42 boarding houses, 10 inns and taverns, 20 warehouses, 335 ordinary dwellings. WHERE A TRADE HAS A SHOP FAMILY, THAT TARGET IS THE CEILING THIS CENSUS WORKS UNDER."
+    },
+    "packing_volumes": {
+      "value": "250 cattle + 2,000 hogs (Clybourne 1833); 250 + 1,000 (Dole, same place); 300 cattle + 1,400 hogs (Newberry & Dole 1834)",
+      "source": "andreas_1884_v1",
+      "note": "Scan p. 1151. The cooper argument rests on these figures and on nothing else."
+    }
+  },
+  "method": [
+    "Take the documented trade spread of the 1833 roster as the shape of the town's economy.",
+    "Where the reconstruction specification gives a workshop or store family a roof target, treat that target as the ceiling on the trade's household count and subtract the documented practitioners already in data/residents/.",
+    "Where no roof family bounds the trade (carpenters, labourers, laundresses, teamsters), argue the count from the town's own building rate and from documented volumes - the packing figures, the brickyard, the harbour works - and say so in the argument field.",
+    "Never infer a person where a documented one is available: every count here is stated net of the documented layer.",
+    "House every household. A household that justifies no roof is a household this programme has no use for: adopt an anonymous roof already on the plat where one of the right family and district exists, and raise a new record only where it does not.",
+    "A NEW ANONYMOUS ROOF DOES NOT ENTITLE THIS CENSUS TO A NEW HOUSEHOLD. The platted-block parcels (docs/ROADMAP.md T-A2 onward) put dwellings of known families on the plat faster than any argument about the town's trade mix can move, and the mix is a claim about the TOWN rather than about what has been drawn: letting a drawn roof raise a trade's count would be fitting the evidence to the model. A block roof may therefore be adopted only where ALL THREE tests pass - the trade's own argument above states in its committed text that its count is a floor rather than a bound; the roof's family is one this layer already houses that trade in; and the roof's DIVISION is one this layer already houses that trade in. Everything else on the block stays an anonymous count-unit, which is what it was. The three tests are independent. THE DIVISION TEST WAS ADDED 2026-08-14 BY T-A5 AND IS NOT A NEW IDEA: it is the family test made about the other axis of the same table, because where a trade lived is as much a claim about the town as what it lived in, and T-A4 had already applied it by hand - refusing a D3 carpenter on the first West Division block because all eleven carpenter households stood north or south, so a twelfth west of the river would have been a new claim about the town arriving as a side effect of a block parcel. Written down rather than re-argued by each parcel, it reproduces every adoption decision taken before it: the T-A2h carpenter and labourer adopted, the T-A4 labourer adopted, the T-A4 carpenter refused. A test that had to be told those answers would be a preference; one that recovers them is a rule. THE FAMILY TEST BECAME ANSWERABLE FOR EVERY TRADE ON 2026-08-15 (K21), AND IT WAS NOT ANSWERABLE WHEN IT WAS WRITTEN. It is evaluated against `reconstruction.family` on the roofs this layer already houses the trade in - and the 31 roofs this layer RAISES carried no such field, only the band's name in their prose, so a trade housed exclusively on them had no families to compare against. Four trades were in that position (brickmaker, packer, sawyer, wheelwright) and eight more were partly so; the test returned nothing for them, and nothing is not a refusal. T-A5 refused the sawyer adoption on that silence and said so at the time. The 31 records now carry the family the programme dealt them - the same string their own footprint notes have always printed - and tools/generate_inferred_households.py now fails if any roof a household lives or works in names no family, so the test cannot go silent again without a gate saying so. All 29 census trades resolve, across 44 trade-family pairs. THIS ADDS NO FOURTH CLAUSE AND GRANTS NO TRADE A PASS: a trade whose families are readable can still fail the test, and the two sawyer households' families (D3 and D2) are now facts a parcel can check rather than a question it could not ask. K28 IS SETTLED, 2026-08-16, AND ALL THREE OF THE QUESTIONS UNDER IT ARE NOW GATED RATHER THAN HABITUAL. Nine block parcels between T-A9 and T-A3h refused a second roof to a trade and every one of them recorded the refusal as a choice rather than a rule, because rule 6 as written is silent about how many roofs of one block a trade may take, about whether its tests read the housing table as PAIRS or as two projections of it, and about whether test 1 means the trade's own text or method rule 3's list of unbounded trades. The three are one question - each decides how fast a drawing may move a claim about the town - so they are settled together, and the settlement deliberately does not run conservative three times: (i) is the permissive answer and (ii) and (iii) are what make it safe. (i) THE TESTS READ TWO PROJECTIONS OF THE TABLE AND NOT A SET OF PAIRS. Test 2 asks the set of families this layer already houses the trade in and test 3 the set of divisions, evaluated independently, exactly as the sentence \"The three tests are independent\" above already says: a roof may pass on a family taken from one division and a division taken from another. What that admits is measured rather than guessed - tools/measure_adoption_tests.py --pairs prints 20 (family, division) pairs across 8 trades that the projections admit and this layer houses none of - and the stricter PAIR reading is REFUSED on this rule's own standard. Requiring the pair refuses the fourteenth labouring household: T-A4 adopted a D1 log cabin in the WEST Division when this layer housed labourers west of the river only in D2 shanties, which is exactly the projected form, and this rule names that adoption as one of the four decisions its third test RECOVERS. This rule also says, in the paragraph that added that test, that a test which has to be told the answers is a preference and one that recovers them is a rule. The pair reading has to be told one of the four. It is therefore a preference, and it is not adopted. (ii) THERE IS A CAP, AND IT IS ONE ADOPTION PER TRADE PER BLOCK PARCEL. Passing all three tests is permission and not an instruction: a block dealt two of a trade's families may hand it one roof. The block is an artefact of the drawing rather than a unit of the town - the same two roofs dealt to two blocks would both have been adopted without anybody pausing - and that is the reason for the cap rather than an objection to it, because without one the granularity of the plat sets the rate at which this census grows, which is the fitting-the-model-to-the-drawing the first sentence of this rule exists to stop. The cap is also what makes (i) safe: the projections widen WHICH roofs are eligible and the cap bounds HOW FAST any of them may move a count. It reverses no decision already taken - all 21 block adoptions standing on 2026-08-16 are one per trade per block - so nine parcels' habit becomes a rule without a record moving, and tools/generate_inferred_households.py now fails if a block ever raises a trade twice. (iii) TEST 1 MEANS THE TRADE'S OWN COMMITTED TEXT AND NOT METHOD RULE 3'S LIST. Rule 3 names four trades whose count is argued from the town's building rate because no roof family bounds it - carpenters, labourers, laundresses, teamsters - and being unbounded is not the same claim as calling one's own count a floor: the first says where a number came from, the second says the number is too low. Only the carpenters and the labourers state it (tools/measure_adoption_tests.py --floors), so the laundresses' D2 and the teamsters' D4 - the two candidacies T-A14 recorded and T-A15 could not reproduce - fail test 1 and are refused. THE REMEDY IS NAMED SO THE REFUSAL IS NOT MISTAKEN FOR A CLOSED DOOR: if either count really is a floor, the place to say so is that trade's own argument in this census, argued from the town, and once it says so the roofs follow. What is refused is a trade acquiring a floor as a side effect of a block being dealt a D2. THE FOUR T-A9 CANDIDATES ARE RE-DECIDED UNDER THE SETTLED RULE AND THE OUTCOME IS UNCHANGED. blk_south_water_wells's D3 and D1 stay adopted; its D4 and D2 stay refused, now under (ii) rather than under a reading, because the block had already adopted a carpenter and a labourer. T-A4's fourteenth labouring household stays adopted, under (i). Rule 6 gains a fourth clause and two definitions, and no household, roof or coordinate moves."
+  ],
+  "placement_rule": [
+    "Businesses toward the river and the built streets; residences further out, exactly as ROADMAP K1 directs. The new shop roofs sit on the South Water and Lake Street frontages and on the Canal Street approach at Wolf Point; the new dwellings sit in the outer bands and on the fringes.",
+    "Every new centre was tested before it was frozen: against the oriented footprint of EVERY structure record in the dataset, against the reserved-but-uninstantiated slots of the West Division and South Division phase-2 recipes so a later parcel does not collide with this one, against the platted street corridors of the K7 block grid so that no invented building stands in the road, and against the committed heightfield for coverage, dry ground and a perimeter that spans less than the walker's step tolerance. tools/generate_inferred_households.py --check re-runs all of it.",
+    "SNAPPED TO THE K7 GRID, 2026-08-13. The rule this replaces said the centres came from the 80 ft frontage bands alone and should be snapped to the plat when ROADMAP K7 landed. It has landed, and it found the recipe reading those bands as lines to sit ON rather than edges to sit BEHIND: 23 of the 38 buildings put some part of a footprint inside a platted corridor and twelve had their CENTRE in one. Every centre here is now clear of every corridor by construction, and tools/plat_corridors.py re-checks it on every run - the same module tools/generate_plat_lots.py --report reads, so the gate and the report cannot disagree. STILL NO LOT LINE IS CLAIMED: a corridor is the plat's legal street, the lot lines inside the blocks are conjectural (K7), and clearing the roadway is not the same as standing on a recovered lot.",
+    "STANDING ON A COMMITTED BLOCK FACE, 2026-08-27 (T-0182). A building here may declare a `frontage` instead of a centre, and then its line, its bearing and its outward offset are read from the block boundary in data/traces/vectors/thompson_lots.json through tools/block_faces.py — the one module both anonymous-infill generators already use for their party-line rows. Two do: inf_bakery_lake and inf_butcher_market, which front the north face of blk_lake_clark. Written as centres at bearing 0 they stood 0.804 m and 0.784 m off a face that runs at 0.465 and carries every other record at 0.800 m, and the party wall recon_1835_south_d3_013 declares with the butcher was 16 mm open — banked by name in tools/measure_street_line.py, because no run could repair it from the other side. What the programme still authors for these two is where ALONG the face the west wall stands, which is the same interpretive choice a frontage row makes as its corner clearance. STILL NO LOT LINE IS CLAIMED: a face is the plat's block boundary, and standing on a derived block face is not standing on a recovered lot."
+  ],
+  "occupation_census": [
+    {
+      "occupation": "carpenter",
+      "documented_persons": 4,
+      "inferred_households": 20,
+      "planned_households": 20,
+      "argument": "THE TRADE THE TOWN NEEDED MOST AND THE ONE THE DOCUMENTED LAYER UNDER-COUNTS WORST. The 1835 town census counts 3,265 people in 398 dwellings; Andreas's roster of the fall of 1833 describes a settlement of a few dozen buildings, and the reconstruction specification puts 665 roofs on the ground by July 1835. Several hundred of those roofs went up inside eighteen months. Even at a crew of three raising a one-room frame cottage in three weeks, that is on the order of forty carpenter-years of work in a year and a half. Andreas names four carpenters and one ship carpenter in the whole of the 1833 town. Ten carpenter households are inferred against the schedule's eight W2 carpenter-or-joiner shops, because a house carpenter worked on the frame in the street and not in a shop: the shop count is a floor under the trade, not a measure of it. ONE FURTHER CARPENTER HOUSEHOLD, 2026-08-14, AND THE ROOF IS THE REASON RATHER THAN A NEW FINDING ABOUT THE TRADE. The count above is stated as a floor in its own last clause, and what held it at ten was method rule 5: every household must be housed, and housing one where no anonymous roof of the right family and district stands means raising an invented building. The block parcel at Randolph and Wells has since put a D3 one-room frame cottage on the plat in the South Division - a roof the 665-roof programme had already counted, in the family this layer houses nine of its ten carpenters in. Adopting it raises no building, invents no position and moves no other record; it puts an argued occupant under a roof that was standing anonymously. Eleven carpenter households are inferred, still against eight W2 shops and still a floor. ONE FURTHER CARPENTER HOUSEHOLD, 2026-08-14, ON THE SAME TERMS AND UNDER A RULE THAT NOW HAS THREE TESTS RATHER THAN TWO. The count is still a floor by its own text and still stated against eight W2 shops. The block parcel at Randolph and Market has put a second D3 one-room frame cottage on the plat in the South Division - a roof the 665-roof programme had already counted, in the family this layer houses ten of its eleven carpenters in, and in the division it houses five of them in. The third test is the one T-A4 applied by hand when it refused this trade a roof west of the river; here it passes rather than being waived, which is the difference. Twelve carpenter households are inferred. Adopting the roof raises no building, invents no position and moves no other record. ONE FURTHER CARPENTER HOUSEHOLD, 2026-08-15, ON THE SAME TERMS AND UNDER THE SAME THREE TESTS. The count is still a floor by its own text and still stated against eight W2 shops. The block parcel at South Water and Franklin has put a third D3 one-room frame cottage on the plat in the South Division - a roof the 665-roof programme had already counted, in the family this layer houses eleven of its twelve carpenters in, and in the division it houses six of them in. Thirteen carpenter households are inferred. Adopting the roof raises no building, invents no position and moves no other record. WHAT IS NEW HERE IS THE FRONTAGE, AND IT DOES NOT CHANGE THE ANSWER: this is the first block roof adopted on South Water Street, the town's business front, rather than one street back from it. Rule 6 asks about the trade's family and the trade's division and says nothing about which street a roof stands on, deliberately - the roof is a dwelling either way, and a carpenter living on the busiest street in town is not a claim this layer has to argue, because the 665-roof programme already put a dwelling there and the adoption changes only who is under it. ONE FURTHER CARPENTER HOUSEHOLD, 2026-08-15, ON THE SAME TERMS AND UNDER THE SAME THREE TESTS. The count is still a floor by its own text and still stated against eight W2 shops. The block parcel at South Water and Wells has put a fourth D3 one-room frame cottage on the plat in the South Division - a roof the 665-roof programme had already counted, in the family this layer houses twelve of its thirteen carpenters in, and in the division it houses seven of them in. Fourteen carpenter households are inferred. Adopting the roof raises no building, invents no position and moves no other record. THE SAME BLOCK OFFERED A SECOND ROOF THIS TRADE PASSES ALL THREE TESTS ON, AND IT WAS REFUSED: the block was also dealt a D4 two-room cottage, and D4 is a family this layer already houses a carpenter in (one, in the North Division), so read literally rule 6 admits it. It is refused because rule 6 opens by saying the mix is a claim about the TOWN rather than about what has been drawn, and taking two roofs for one trade because one block happened to be dealt two of its families is exactly the fitting-the-model-to-the-drawing the rule exists to stop. One roof per trade per block is what every parcel since T-A2h has actually done; this is the first block on which the difference was visible, and ROADMAP K28 is raised to settle whether it is a rule or a habit. ONE FURTHER CARPENTER HOUSEHOLD, 2026-08-15, ON THE SAME TERMS AND UNDER THE SAME THREE TESTS. The count is still a floor by its own text and still stated against eight W2 shops. The block parcel at South Water and LaSalle has put a fifth D3 one-room frame cottage on the plat in the South Division - a roof the 665-roof programme had already counted, in the family this layer houses thirteen of its fourteen carpenters in, and in the division it houses eight of them in. Fifteen carpenter households are inferred. Adopting the roof raises no building, invents no position and moves no other record. THE SECOND BLOCK RUNNING HAS OFFERED THIS TRADE A ROOF IT COULD ALSO HAVE TAKEN, AND THE REFUSAL IS T-A9'S: this block was dealt a D4 two-room cottage as well, which is a family this layer houses a carpenter in, so read literally rule 6 admits it. What T-A9 could not know, because it was the first block to meet the case, is that the case is not a one-off - two consecutive blocks have now dealt this trade both of the families it is housed in, which is what turns rule 6's silence from an edge case into a defect. This parcel keeps the conservative reading rather than inventing a second one; ROADMAP K28 is where it is settled, and this block is its second piece of evidence. ONE FURTHER CARPENTER HOUSEHOLD, 2026-08-15, ON THE SAME TERMS AND UNDER THE SAME THREE TESTS. The count is still a floor by its own text and still stated against eight W2 shops. The block parcel at South Water and Clark has put a sixth D3 one-room frame cottage on the plat in the South Division - a roof the 665-roof programme had already counted, in the family this layer houses fourteen of its fifteen carpenters in, and in the division it houses nine of them in. Sixteen carpenter households are inferred. Adopting the roof raises no building, invents no position and moves no other record. A THIRD CONSECUTIVE BLOCK HAS DEALT THIS TRADE BOTH OF ITS FAMILIES, AND THE THIRD REFUSAL IS THE ONE THAT SHOULD SETTLE K28: the D4 two-room cottage on lot 2 passes all three tests as literally as the two before it did. T-A9 met the case as an edge, T-A10 found it twice and called it the shape of a South Division block; three for three is no longer evidence that the case recurs but evidence that it is the norm, and a rule that stays silent about the norm is being supplied by habit on every block that lands. Held to one per trade again, on the same conservative reading and as a choice rather than a rule. ONE FURTHER CARPENTER HOUSEHOLD, 2026-08-15, ON THE SAME TERMS AND UNDER THE SAME THREE TESTS. The count is still a floor by its own text and still stated against eight W2 shops. The block parcel at South Water and Dearborn has put a seventh D3 one-room frame cottage on the plat in the South Division - a roof the 665-roof programme had already counted, in the family this layer houses fifteen of its sixteen carpenters in, and in the division it houses ten of them in. Seventeen carpenter households are inferred. Adopting the roof raises no building, invents no position and moves no other record. A FOURTH CONSECUTIVE BLOCK HAS DEALT THIS TRADE BOTH OF ITS FAMILIES, AND T-A11 ASKED THAT A FOURTH PRECEDENT NOT BE COLLECTED: the D4 two-room cottage on lot 2 passes all three tests as literally as the three before it did, and T-A11 recorded that three for three had already made the case the ordinary shape of a South Division block rather than a recurring edge. What this parcel adds is therefore not evidence but a measure of how long the question has stood open, and it is the last block of the South Water row to add it: four of the row's five blocks offered this trade a second roof and all four refusals were made on the same conservative reading. Held to one per trade again, as a choice rather than a rule, because settling rule 6 is ROADMAP K28's parcel and not a block parcel's to take. ONE FURTHER CARPENTER HOUSEHOLD, 2026-08-15, ON THE SAME TERMS AND UNDER THE SAME THREE TESTS, AND THE FIRST OF THEM OFF SOUTH WATER STREET. The count is still a floor by its own text and still stated against eight W2 shops. The block parcel at Lake and Market has put an eighth D3 one-room frame cottage on the plat in the South Division - a roof the 665-roof programme had already counted, in the family this layer houses sixteen of its seventeen carpenters in, and in the division it houses eleven of them in. Eighteen carpenter households are inferred. Adopting the roof raises no building, invents no position and moves no other record. THE SECOND-ROOF QUESTION SURVIVES THE END OF THE SOUTH WATER ROW, WHICH IS WHAT THIS BLOCK ADDS TO IT: the D4 two-room cottage on lot 4 passes all three tests as literally as the four before it did, and T-A11 read three consecutive cases as evidence that the double candidacy is the ordinary shape of a South WATER block. It is not. This is the first block of the parcel shape on a different street, one row back, and it deals the same pair - so the case rule 6 is silent about is the ordinary shape of a South Division block of five dwellings, wherever it stands, and the sample K28 has to settle is larger than the row that produced it. Held to one per trade again, as a choice rather than a rule, because settling rule 6 is ROADMAP K28's parcel and not a block parcel's to take. ONE FURTHER CARPENTER HOUSEHOLD, 2026-08-15, ON THE SAME TERMS AND UNDER THE SAME THREE TESTS. The count is still a floor by its own text and still stated against eight W2 shops. The block parcel at Randolph and Franklin has put a ninth D3 one-room frame cottage on the plat in the South Division - a roof the 665-roof programme had already counted, in the family this layer houses seventeen of its eighteen carpenters in, and in the division it houses twelve of them in. Nineteen carpenter households are inferred. Adopting the roof raises no building, invents no position and moves no other record. THE SECOND-ROOF QUESTION IS NOT WHAT SIX BLOCKS HAVE CALLED IT, AND THIS IS THE FINDING THIS BLOCK ADDS RATHER THAN A SEVENTH PRECEDENT. Every block of this shape since T-A9 has recorded the D4 it was dealt as a SECOND roof for the carpenters and refused it on a conservative reading. The D4 two-room cottage on lot 0 here passes all three tests as literally as the five before it did and is refused on the same reading. But the D4 is also the FIRST roof of the teamsters, who are one of the four trades method rule 2 argues from the town's building rate rather than from a roof cap, who are housed in D4 and in no other family, and who this layer already places in the South Division - so it passes all three tests for them too, and no parcel has ever said so. Sixteen anonymous D2 and D4 roofs now stand in the South Division under exactly this description. What K28 has to settle is therefore larger than six blocks of one question: it is whether rule 6 admits a roof for a trade that has not asked for it. Held to one per trade again, as a choice rather than a rule, because settling rule 6 is ROADMAP K28's parcel and not a block parcel's to take. ONE FURTHER CARPENTER HOUSEHOLD, 2026-08-15, ON THE SAME TERMS AND UNDER THE SAME THREE TESTS, AND IT IS THE BACKFILL RATHER THAN A NEW BLOCK. The count is still a floor by its own text and still stated against eight W2 shops. blk_randolph_dearborn landed on 2026-08-14, before rule 6 had its third test and before the household question was asked of a block at all, so its five dwellings have stood unexamined ever since; ROADMAP T-A3h is the parcel that examines them. Its D3 one-room frame cottage on lot 0 is a roof the 665-roof programme had already counted, in the family this layer houses eighteen of its nineteen carpenters in, and in the division it houses thirteen of them in. Twenty carpenter households are inferred. Adopting the roof raises no building, invents no position and moves no other record. THE SECOND ROOF IS REFUSED FOR THE SEVENTH TIME AND FOR THE FIRST TIME WITH ITS EVIDENCE TRACED, AND THAT TRACE IS THIS PARCEL'S FINDING RATHER THAN THE ADOPTION. The D4 two-room cottage on lot 6 passes all three tests as literally as the six before it did - tools/measure_adoption_tests.py D4 south prints ADOPTABLE for the carpenters and for no one else. What no parcel had asked is WHERE the D4 half of that verdict comes from. This layer houses exactly one carpenter in a D4: hh_inf_carpenter_north_10, in inf_carpenter_dwelling_north, which stands in the NORTH Division. All thirteen carpenters it houses in the SOUTH Division are in a D3. So the candidacy is assembled from a family taken out of one division and a division taken out of another family, and this layer has never housed a carpenter in a D4 in the South Division - nor can it, until some parcel adopts one and makes it true. Rule 6 states in its own text that the three tests are independent, so the literal reading admits the roof and the refusal stands as the same choice the six before it made. What changes is K28's question: before deciding how many roofs of a block a trade may take, it has to decide whether rule 6's table is a set of (family, division) PAIRS or two projections of one. Measured with tools/measure_adoption_tests.py --pairs; nothing is decided here."
+    },
+    {
+      "occupation": "joiner",
+      "documented_persons": 0,
+      "inferred_households": 2,
+      "planned_households": 2,
+      "argument": "The finish half of the building trade - doors, sash, stairs, counters and shop fronts - which the reconstruction schedule names in the same family as the carpenter (W2, 'carpenter or joiner shop') and which the documented layer does not hold at all. A town raising two-storey stores with glazed fronts on South Water and Lake employs men who do nothing else."
+    },
+    {
+      "occupation": "sawyer",
+      "documented_persons": 0,
+      "inferred_households": 2,
+      "planned_households": 2,
+      "argument": "Asahel Pierce, building his smithy in October 1833, 'was obliged to haul his material from Plainfield, forty miles', because no suitable lumber could be had in Chicago (Andreas, scan p. 1161). Two years later the town is framing in sawn boards at a rate of hundreds of roofs a year. Some of that lumber came in by schooner and some was cut here; two sawyer households are inferred, the smallest number that answers the demand, and they work a sawpit on the river rather than a mill, because no mill in the town is attested."
+    },
+    {
+      "occupation": "mason",
+      "documented_persons": 1,
+      "inferred_households": 4,
+      "planned_households": 4,
+      "argument": "EVERY FRAME HOUSE IN THE TOWN CARRIES A HEARTH AND A STACK. Blodgett's yard on the north side has made brick since the spring of 1833 (Andreas, scan p. 1161), and the most ambitious building under way on the scene date - the Lake House - is going up in brick in a town otherwise built of logs and boards. The documented layer holds one mason. Three more mason households are inferred: the chimney trade alone, at 398 dwellings, is more work than one man's."
+    },
+    {
+      "occupation": "plasterer",
+      "documented_persons": 1,
+      "inferred_households": 1,
+      "planned_households": 1,
+      "argument": "The inside face of the same trade. One plasterer is documented; a second is inferred, and no more than a second, because a frontier town plasters its best rooms and leaves the rest in bare board."
+    },
+    {
+      "occupation": "brickmaker",
+      "documented_persons": 2,
+      "inferred_households": 1,
+      "planned_households": 1,
+      "argument": "Two brickmakers are documented at Blodgett's yard - Blodgett himself and Henry S. Lampman of Ann Arbor, 'undoubtedly the first brick-maker'. A yard that supplied the brick for the town's first brick dwelling and is now supplying a three-storey brick hotel is not a two-man operation. One further brickmaking household is inferred and housed beside the yard."
+    },
+    {
+      "occupation": "cooper",
+      "documented_persons": 0,
+      "inferred_households": 4,
+      "planned_households": 4,
+      "argument": "A TOWN PACKING THOUSANDS OF HOGS A SEASON NEEDS COOPERS, AND THIS DATASET HELD NONE. Andreas records that Clybourne packed some 250 head of cattle and about 2,000 hogs in the season of 1833, that George W. Dole packed a further 250 cattle and 1,000 hogs at the same place, and that the Newberry & Dole house on the South Branch packed 300 cattle and 1,400 hogs in 1834 (scan p. 1151). Packed provisions travel in barrels and barrels are made by coopers. The documented layer holds a packer, two slaughter-houses and not one cooper. Four cooper households are inferred against the schedule's six W3 cooper, wagon or wheelwright shops."
+    },
+    {
+      "occupation": "teamster",
+      "documented_persons": 0,
+      "inferred_households": 5,
+      "planned_households": 5,
+      "argument": "The town's freight moves by wagon: between the forwarding houses on South Water, the piers at the river mouth, the brickyard, the slaughter-houses and the country roads. Pierce ironed the first Chicago-to-St-Louis stage line in January 1834 (Andreas, scan p. 1161), and the Western Hotel keeps a wagon yard and a stable, both modelled here. Five teamster households are inferred, three of them working from anonymous stables the reconstruction programme has already placed."
+    },
+    {
+      "occupation": "drover",
+      "documented_persons": 1,
+      "inferred_households": 1,
+      "planned_households": 1,
+      "argument": "The cattle the packing houses killed walked here. One drover is documented; a second is inferred, and no more, because droving is seasonal work done by men who live on the road."
+    },
+    {
+      "occupation": "labourer",
+      "documented_persons": 0,
+      "inferred_households": 23,
+      "planned_households": 23,
+      "argument": "THE LARGEST TRADE IN ANY WESTERN TOWN AND THE ONE NO ROSTER RECORDS, because a labourer advertises nothing, holds no office and joins no church committee - the three ways almost every documented person in this dataset became documented. The harbour works were under construction through 1834 and 1835 (both piers are structure records here), the streets were being graded, and several hundred buildings were being raised. Twelve labouring households are inferred - the largest single group in this layer and still a small fraction of what 3,265 people implies - and every one of them is housed in the meanest roof the schedule carries: a D1 log cabin or a D2 plank shanty. ONE FURTHER LABOURING HOUSEHOLD, 2026-08-14, ON THE SAME TERMS AND FOR THE SAME REASON. The count above calls itself a small fraction of what 3,265 people implies, so it is a floor by its own text, and twelve was where method rule 5 stopped it: another household needed another roof. The Randolph and Wells block parcel has since put a D1 log cabin on the plat in the South Division, which is the family this layer houses every one of its eight adopted labourers in and the meanest roof the schedule carries. Thirteen labouring households are inferred. The arithmetic against the 1835 census is unchanged; what changed is that a roof exists to hold one more of the households that arithmetic already implied. ONE FURTHER LABOURING HOUSEHOLD, 2026-08-14, ON THE TERMS METHOD RULE 6 SETS AND FOR THE SAME REASON AS THE THIRTEENTH. The count above calls itself a small fraction of what 3,265 people implies, so it is a floor by its own text, and thirteen was where method rule 5 stopped it: another household needed another roof. The block parcel at Randolph and Clinton has since put a D1 log cabin on the plat in the WEST Division - the meanest roof the schedule carries, the family this layer houses nine of its eleven housed labourers in, and the first anonymous roof of that family to stand west of the river. This layer already places two labouring households in the West Division, in raised D2 plank shanties, so the adoption moves no trade across a division line that this programme had not already argued: it houses the fourteenth labourer in a roof the 665-roof programme had already counted instead of raising a fifteenth building. Fourteen labouring households are inferred. The arithmetic against the 1835 census is unchanged. ONE FURTHER LABOURING HOUSEHOLD, 2026-08-15, ON THE SAME TERMS AS THE FOURTEENTH. The count above calls itself a small fraction of what 3,265 people implies, so it is a floor by its own text, and fourteen was where method rule 5 stopped it: another household needed another roof. The block parcel at South Water and Franklin has put a D1 log cabin on the plat in the South Division - the meanest roof the schedule carries, the family this layer houses ten of its twelve housed labourers in, and a division it already places three labouring households in. Fifteen labouring households are inferred. The arithmetic against the 1835 census is unchanged; what changed is that a roof exists to hold one more of the households that arithmetic already implied. BOTH TRADES PASSED ON THIS ONE BLOCK, WHICH IS THE FIRST TIME SINCE THE RULE TOOK ITS THIRD TEST. That is the rule working rather than a quota being filled: the block was dealt a D3 and a D1 by a schedule that knows nothing about this census, and each of the two trades whose committed argument calls its own count a floor is housed in exactly one of those two families in exactly this division. Refusing one of them to keep a parcel to a single adoption would have been a preference dressed as caution. ONE FURTHER LABOURING HOUSEHOLD, 2026-08-15, ON THE SAME TERMS AS THE FIFTEENTH. The count above calls itself a small fraction of what 3,265 people implies, so it is a floor by its own text, and fifteen was where method rule 5 stopped it: another household needed another roof. The block parcel at South Water and Wells has put a D1 log cabin on the plat in the South Division - the meanest roof the schedule carries, the family this layer houses eleven of its fifteen labourers in, and a division it already places four labouring households in. Sixteen labouring households are inferred. THE SAME BLOCK OFFERED A SECOND ROOF THIS TRADE PASSES ALL THREE TESTS ON, AND IT WAS REFUSED, for the reason recorded under the carpenters: the block was also dealt a D2 plank shanty, a family this layer houses four labourers in, and the three tests are silent about how many roofs of one block a single trade may take. Both trades were offered a second roof here and both were held to one, which is the conservative reading of a rule that does not say - not a finding that a D2 on this block would have been wrong. ROADMAP K28 records the question. ONE FURTHER LABOURING HOUSEHOLD, 2026-08-15, ON THE SAME TERMS AS THE SIXTEENTH. The count above calls itself a small fraction of what 3,265 people implies, so it is a floor by its own text, and sixteen was where method rule 5 stopped it: another household needed another roof. The block parcel at South Water and LaSalle has put a D1 log cabin on the plat in the South Division - the meanest roof the schedule carries, the family this layer houses twelve of its sixteen labourers in, and a division it already places five labouring households in. Seventeen labouring households are inferred. THE SECOND ROOF WAS REFUSED HERE TOO, AND THE REPETITION IS THE FINDING: this block was also dealt a D2 plank shanty, the other family this layer houses labourers in, exactly as South Water and Wells was. Two consecutive blocks have now offered both of this layer's floor trades a second roof apiece, so the case rule 6 does not speak to is not rare - it is what a block of five dwellings in this division looks like when the schedule deals it. Held to one per trade under T-A9's reading, and recorded here as a choice rather than as a rule. ONE FURTHER LABOURING HOUSEHOLD, 2026-08-15, ON THE SAME TERMS AS THE SEVENTEENTH. The count above calls itself a small fraction of what 3,265 people implies, so it is a floor by its own text, and seventeen was where method rule 5 stopped it: another household needed another roof. The block parcel at South Water and Clark has put a D1 log cabin on the plat in the South Division - the meanest roof the schedule carries, the family this layer houses thirteen of its seventeen labourers in, and a division it already places six labouring households in. Eighteen labouring households are inferred. THIS BLOCK DEALT NO D2, WHICH IS THE FIRST TIME SINCE T-A8 THAT THIS TRADE WAS OFFERED ONLY ONE ROOF - so the second-roof question the carpenters met again here did not arise for the labourers, and the one-per-trade reading cost this trade nothing on this block. The arithmetic against the 1835 census is unchanged. ONE FURTHER LABOURING HOUSEHOLD, 2026-08-15, ON THE SAME TERMS AS THE EIGHTEENTH. The count above calls itself a small fraction of what 3,265 people implies, so it is a floor by its own text, and eighteen was where method rule 5 stopped it: another household needed another roof. The block parcel at South Water and Dearborn has put a D1 log cabin on the plat in the South Division - the meanest roof the schedule carries, the family this layer houses fourteen of its eighteen labourers in, and a division it already places seven labouring households in. Nineteen labouring households are inferred. THE SECOND-ROOF QUESTION RETURNED WITH THE D2 THIS BLOCK WAS DEALT, having skipped one block: T-A11 dealt this trade no D2 at all, and this one does, so the refusal is the same as T-A9's and T-A10's rather than a new argument. Read literally rule 6 admits it - a D2 plank shanty is the other family this layer houses labourers in - and it is refused beside the carpenters' D4 on the same conservative reading. THE ROW CLOSES WITH THE QUESTION OPEN, which is the finding rather than the refusal: of the five blocks of the South Water row, one dealt neither floor trade a second roof, one dealt it to the carpenters alone and three dealt it to both, so the case rule 6 is silent about is what a South Division block of five dwellings ordinarily looks like. The arithmetic against the 1835 census is unchanged. ONE FURTHER LABOURING HOUSEHOLD, 2026-08-15, ON THE SAME TERMS AS THE NINETEENTH. The count above calls itself a small fraction of what 3,265 people implies, so it is a floor by its own text, and nineteen was where method rule 5 stopped it: another household needed another roof. The block parcel at Lake and Market has put a D1 log cabin on the plat in the South Division - the meanest roof the schedule carries, the family this layer houses fifteen of its nineteen labourers in, and a division it already places eight labouring households in. Twenty labouring households are inferred. THE SECOND-ROOF QUESTION ARRIVES WITH THE D2 THIS BLOCK WAS DEALT and is refused beside the carpenters' D4 on the same conservative reading, for the sixth time and the first on a block that is not on South Water Street. Read literally rule 6 admits it - a D2 plank shanty is the other family this layer houses labourers in. What the refusal is worth has changed, though: five of the six cases were on one street and could be read as a property of that frontage, and this one cannot, so K28 is settling a question about South Division blocks rather than about the business front. The arithmetic against the 1835 census is unchanged. ONE FURTHER LABOURING HOUSEHOLD, 2026-08-15, ON THE SAME TERMS AS THE TWENTIETH. The count above calls itself a small fraction of what 3,265 people implies, so it is a floor by its own text, and twenty was where method rule 5 stopped it: another household needed another roof. The block parcel at Randolph and Franklin has put a D1 log cabin on the plat in the South Division - the meanest dwelling the schedule carries, the family this layer houses sixteen of its twenty labourers in, and a division it already places nine labouring households in. Twenty-one labouring households are inferred. THE D2 THIS BLOCK WAS DEALT IS REFUSED FOR THE SEVENTH TIME AND FOR THE FIRST TIME WITH ITS OTHER CLAIMANT NAMED. Read literally rule 6 admits it - a D2 plank shanty is the other family this layer houses labourers in - and it is refused beside the carpenters' D4 on the same conservative reading. What is new is that the D2 is also the first roof of the LAUNDRESSES, the third of method rule 2's four unbounded trades, housed in D2 and in no other family and already placed in the South Division. So this block's two refused roofs are not two second helpings for two trades; they are four candidacies across four trades, two of which no block parcel has ever named. The arithmetic against the 1835 census is unchanged. ONE FURTHER LABOURING HOUSEHOLD, 2026-08-15, ON THE SAME TERMS AS THE TWENTY-FIRST. The count above calls itself a small fraction of what 3,265 people implies, so it is a floor by its own text, and twenty-one was where method rule 5 stopped it: another household needed another roof. The block parcel at Randolph and Clark has put a D1 log cabin on the plat in the South Division - the meanest dwelling the schedule carries, the family this layer houses seventeen of its twenty-one labourers in, and a division it already places ten labouring households in. Twenty-two labouring households are inferred. THE D2 THIS BLOCK WAS DEALT IS REFUSED FOR THE EIGHTH TIME, AND THIS TIME THE THREE TESTS WERE RUN RATHER THAN RECALLED. tools/measure_adoption_tests.py is committed with this parcel and evaluates rule 6 against the committed text: on a D2 in the South Division exactly one trade passes all three tests, and it is the labourers, taking a second roof on the same conservative reading that has refused it seven times before. WHAT THE COMMAND FOUND THAT NO PARCEL HAD IS THAT T-A14's OTHER TWO CANDIDACIES DO NOT REPRODUCE. T-A14 recorded that the D2 also passes all three tests for the LAUNDRESSES and its D4 for the TEAMSTERS, each being one of method rule 3's four trades argued from the town's building rate rather than from a roof cap. Tests 2 and 3 hold for both. Test 1 does not: rule 6 asks whether the trade's OWN ARGUMENT states in its committed text that its count is a floor, and neither of those two arguments contains any such statement - the only occurrence of the word in the laundress argument is Andreas's 'with the floor covered besides', which is a plank floor in a boarding house. Only the carpenters and the labourers state it, and they have stated it since they were written. So the literal reading of rule 6 admits ONE claimant to this block's D2, not three, and K28's question narrows accordingly: it is no longer 'may a trade that has not asked for a roof be given one' but 'does test 1 mean the trade's own text, or method rule 3's list of unbounded trades'. The two readings disagree for exactly two trades. Nothing here is decided; the refusal stands and the measurement is now a command. The arithmetic against the 1835 census is unchanged. ONE FURTHER LABOURING HOUSEHOLD, 2026-08-15, ON THE SAME TERMS AS THE TWENTY-SECOND, AND AS A BACKFILL RATHER THAN A NEW BLOCK. The count above calls itself a small fraction of what 3,265 people implies, so it is a floor by its own text, and twenty-two was where method rule 5 stopped it: another household needed another roof. blk_randolph_dearborn - which landed before rule 6 had its third test and was never asked the question - has a D1 log cabin standing on lot 3 in the South Division: the meanest dwelling the schedule carries, the family this layer houses eighteen of its twenty-two labourers in, and a division it already places eleven labouring households in. Twenty-three labouring households are inferred. The arithmetic against the 1835 census is unchanged. THE D2 THIS BLOCK WAS DEALT IS REFUSED FOR THE NINTH TIME, AND THE NINTH REFUSAL IS THE ONE THAT SAYS WHAT THE CANDIDACY WAS MADE OF. Read literally rule 6 admits it, and tools/measure_adoption_tests.py D2 south prints ADOPTABLE for the labourers and for no one else - T-A15's refutation of the laundresses holds here too, on test 1. But the four labouring households this layer houses in a D2 are inf_labourer_shanty_north_a and _b in the NORTH Division and inf_labourer_shanty_west_a and _b in the WEST, and all eleven labourers it houses in the SOUTH Division are in a D1. This layer has never housed a labourer in a D2 in the South Division, so the D2's candidacy - like the carpenters' D4 beside it, and like all sixteen of the anonymous D2 and D4 roofs T-A14 counted in this division - exists only because rule 6 says its three tests are independent. THE STRICTER READING IS NOT OBVIOUSLY RIGHT, AND THE EVIDENCE AGAINST IT IS IN THIS FIELD ALREADY. Requiring the PAIR would refuse the fourteenth labouring household above: T-A4 adopted a D1 in the WEST Division when this layer housed labourers west of the river only in D2 shanties, and argued the adoption in exactly the projected form - the family from one division, the division from another family. Rule 6 names that adoption as one of the four decisions its third test recovers, so a pair reading would break the calibration the rule rests on. That is K28's to settle with both facts in front of it; this parcel measures and refuses to decide."
+    },
+    {
+      "occupation": "laundress",
+      "documented_persons": 0,
+      "inferred_households": 3,
+      "planned_households": 3,
+      "argument": "Andreas says the hotels and boarding houses of 1834 'were always full; and full meant three in a bed sometimes, with the floor covered besides'. Four hotels, a garrison and the schedule's forty-two boarding houses generate washing in volume, and it was done by women. THE DOCUMENTED LAYER OF THIS DATASET HOLDS NOT ONE WOMAN IN A SERVICE TRADE - not because none were here, but because these sources name women almost exclusively as wives and as proprietors' widows."
+    },
+    {
+      "occupation": "domestic",
+      "documented_persons": 0,
+      "inferred_households": 4,
+      "planned_households": 4,
+      "argument": "The same argument and the same silence. Four domestic households are inferred as households in their own right rather than as servants attached to named families, because attaching an invented servant to a documented household would put a fabricated person inside a real one."
+    },
+    {
+      "occupation": "shoemaker",
+      "documented_persons": 0,
+      "inferred_households": 3,
+      "planned_households": 3,
+      "argument": "Three thousand two hundred and sixty-five people wear out boots in a town whose streets are mud for half the year, and the nearest bench otherwise is Detroit. The schedule allows six W4 small artisan shops; three shoemaking households are inferred, one of them working from an anonymous shop roof already on the plat."
+    },
+    {
+      "occupation": "tailor",
+      "documented_persons": 0,
+      "inferred_households": 2,
+      "planned_households": 2,
+      "argument": "The same argument as the shoemaker at the smaller count a frontier town supports: ready-made clothing was a store trade and tailoring a bespoke one. Two households."
+    },
+    {
+      "occupation": "baker",
+      "documented_persons": 0,
+      "inferred_households": 1,
+      "planned_households": 1,
+      "argument": "A town whose hotels and boarding houses are 'always full', and where several hundred single men are living in them, buys its bread rather than baking it. One baker is inferred - the town's first, on Lake Street where the trade is - and only one, because a bakehouse serves a great many people and nothing attests a second."
+    },
+    {
+      "occupation": "butcher",
+      "documented_persons": 1,
+      "inferred_households": 1,
+      "planned_households": 1,
+      "argument": "One butcher is documented: Clybourne, the government butcher, who is also a packer and lives three kilometres out on the North Branch. A town of 3,265 buys fresh meat daily and does not walk to the North Branch for it. One butchering household is inferred, keeping a market shop on the built streets."
+    },
+    {
+      "occupation": "grocer",
+      "documented_persons": 1,
+      "inferred_households": 4,
+      "planned_households": 4,
+      "argument": "One grocer is documented against fifty-two store and mixed-use roofs in the building schedule. Groceries - flour, salt, whisky, tea, candles - are the commonest small trade in a supply town. Four grocer households are inferred, placed toward the river and the built streets where the schedule puts its C-family store roofs, and three of them live over the shop, which is what the schedule's C2 'store-residence' family means."
+    },
+    {
+      "occupation": "blacksmith",
+      "documented_persons": 5,
+      "inferred_households": 3,
+      "planned_households": 3,
+      "argument": "THE OWNER'S OWN EXAMPLE, AND THE ARITHMETIC IS ALREADY IN THE DOCUMENTED LAYER. Five smiths are documented - Asahel Pierce, David McKee at the agency, Matthias Mason of 'Mason & Co.', Lemuel Brown, and the Rev. Mr See whose tools Pierce bought - and the reconstruction schedule allows six W1 blacksmith shops. This parcel builds Mason's documented third smithy and infers three more smith households, which brings the town to the schedule's six shops exactly: the smithies the wagon, plough and horse traffic of a town of 3,265 requires beyond the ones the sources happen to name."
+    },
+    {
+      "occupation": "wheelwright",
+      "documented_persons": 0,
+      "inferred_households": 1,
+      "planned_households": 1,
+      "argument": "A wagon town wears out wheels. One wheelwright household is inferred, on the west side where the country roads come in and where the Western Hotel's wagon yard already stands."
+    },
+    {
+      "occupation": "harness_maker",
+      "documented_persons": 0,
+      "inferred_households": 1,
+      "planned_households": 1,
+      "argument": "Two saddlers are documented (Goss & Cobb, whose shop is modelled). Harness is a different bench from a saddle and the draught trade needs it; one household is inferred."
+    },
+    {
+      "occupation": "gunsmith",
+      "documented_persons": 0,
+      "inferred_households": 1,
+      "planned_households": 1,
+      "argument": "A trading town at the edge of the prairie, with a garrison, a militia enrolment of some forty men in 1832 and a hunting hinterland, supports one gunsmith. One household, and only one."
+    },
+    {
+      "occupation": "painter",
+      "documented_persons": 0,
+      "inferred_households": 1,
+      "planned_households": 1,
+      "argument": "Most Chicago building of 1835 was unpainted weatherboard - paint was expensive, which is the argument ROADMAP K4 makes about the whole town's facades - but the hotels, the churches and the best stores were painted or whitewashed, and somebody did that work. One household."
+    },
+    {
+      "occupation": "clerk",
+      "documented_persons": 1,
+      "inferred_households": 3,
+      "planned_households": 3,
+      "argument": "Fifty-two store and warehouse roofs in the schedule and one clerk in the documented layer. A store keeps a clerk and a forwarding house keeps two. Three clerk households are inferred, housed in the better cottages, which is what a salaried man could afford."
+    },
+    {
+      "occupation": "boatman",
+      "documented_persons": 0,
+      "inferred_households": 3,
+      "planned_households": 3,
+      "argument": "The harbour cut of 1834 opened the river to lake craft, and this dataset models both piers, two warehouses and a forwarding trade. Cargo still moved between ship and shore in lighters and Mackinac boats, and up the branches in flat-boats. Three boatman households are inferred, on the water side of the town."
+    },
+    {
+      "occupation": "boarding_house_keeper",
+      "documented_persons": 2,
+      "inferred_households": 3,
+      "planned_households": 3,
+      "argument": "THE BUILDING TYPE THAT BRIDGES THE GAP BETWEEN 3,265 PEOPLE AND 398 DWELLINGS. The schedule carries forty-two boarding houses; the documented layer names two keepers. Andreas: the houses 'were always full; and full meant three in a bed sometimes, with the floor covered besides', with emigrants living in their covered wagons outside. Three keeper households are inferred, and each adopts one of the three anonymous H-family boarding-house roofs already on the plat."
+    },
+    {
+      "occupation": "tavern_keeper",
+      "documented_persons": 7,
+      "inferred_households": 1,
+      "planned_households": 1,
+      "argument": "Seven tavern and hotel keepers are documented and the schedule allows ten inn or tavern roofs. One further keeper is inferred, for the single anonymous T1 roof the North Division parcel placed - a small inn on the north side, which the documented layer does not reach."
+    },
+    {
+      "occupation": "physician",
+      "documented_persons": 4,
+      "inferred_households": 1,
+      "planned_households": 1,
+      "argument": "EIGHT PHYSICIANS ARE DOCUMENTED IN THE 1833 TOWN AND THIS DATASET HELD NOT ONE DOCTOR'S OFFICE. Four are written as households in the documented layer. One further physician household is inferred to occupy the office this parcel builds, because naming that office for a documented doctor would attach a real man to an invented building."
+    },
+    {
+      "occupation": "packer",
+      "documented_persons": 1,
+      "inferred_households": 1,
+      "planned_households": 1,
+      "argument": "One packer is documented. The two slaughter-houses in this dataset killed and packed several thousand animals between them in two seasons, work done by gangs and not by one man; one further packing household is inferred beside the South Branch plant."
+    },
+    {
+      "occupation": "barber_surgeon",
+      "documented_persons": 1,
+      "inferred_households": 1,
+      "planned_households": 1,
+      "argument": "THE OWNER'S OTHER EXAMPLE. One barber-surgeon is documented in the 1833 town of perhaps three hundred and fifty people. At ten times the population, the second barber is not a guess about a person: it is a statement about a ratio."
+    }
+  ],
+  "households": [
+    {
+      "id": "hh_inf_carpenter_south_01",
+      "occupation": "carpenter",
+      "division": "south",
+      "ordinal": 1,
+      "of": 20,
+      "lives_at": "recon_1835_south_d3_001",
+      "works_at": "recon_1835_south_w2_026",
+      "extras": [
+        {
+          "relationship": "journeyman",
+          "occupation": "carpenter"
+        }
+      ]
+    },
+    {
+      "id": "hh_inf_carpenter_south_02",
+      "occupation": "carpenter",
+      "division": "south",
+      "ordinal": 2,
+      "of": 20,
+      "lives_at": "recon_1835_south_d3_008",
+      "works_at": null,
+      "extras": [
+        {
+          "relationship": "journeyman",
+          "occupation": "carpenter"
+        }
+      ]
+    },
+    {
+      "id": "hh_inf_carpenter_south_03",
+      "occupation": "carpenter",
+      "division": "south",
+      "ordinal": 3,
+      "of": 20,
+      "lives_at": "recon_1835_south_d3_013",
+      "works_at": null,
+      "extras": [
+        {
+          "relationship": "journeyman",
+          "occupation": "carpenter"
+        }
+      ]
+    },
+    {
+      "id": "hh_inf_carpenter_south_04",
+      "occupation": "carpenter",
+      "division": "south",
+      "ordinal": 4,
+      "of": 20,
+      "lives_at": "recon_1835_south_d3_017",
+      "works_at": null,
+      "extras": [
+        {
+          "relationship": "journeyman",
+          "occupation": "carpenter"
+        }
+      ]
+    },
+    {
+      "id": "hh_inf_joiner_south_01",
+      "occupation": "joiner",
+      "division": "south",
+      "ordinal": 1,
+      "of": 2,
+      "lives_at": "recon_1835_south_d3_022",
+      "works_at": "recon_1835_south_w4_032",
+      "extras": []
+    },
+    {
+      "id": "hh_inf_mason_south_01",
+      "occupation": "mason",
+      "division": "south",
+      "ordinal": 1,
+      "of": 4,
+      "lives_at": "recon_1835_south_d4_002",
+      "works_at": null,
+      "extras": []
+    },
+    {
+      "id": "hh_inf_mason_south_02",
+      "occupation": "mason",
+      "division": "south",
+      "ordinal": 2,
+      "of": 4,
+      "lives_at": "recon_1835_south_d4_006",
+      "works_at": null,
+      "extras": []
+    },
+    {
+      "id": "hh_inf_plasterer_south_01",
+      "occupation": "plasterer",
+      "division": "south",
+      "ordinal": 1,
+      "of": 1,
+      "lives_at": "recon_1835_south_d3_027",
+      "works_at": null,
+      "extras": []
+    },
+    {
+      "id": "hh_inf_shoemaker_south_01",
+      "occupation": "shoemaker",
+      "division": "south",
+      "ordinal": 1,
+      "of": 3,
+      "lives_at": "recon_1835_south_d4_009",
+      "works_at": "inf_shoemaker_shop",
+      "extras": []
+    },
+    {
+      "id": "hh_inf_shoemaker_south_02",
+      "occupation": "shoemaker",
+      "division": "south",
+      "ordinal": 2,
+      "of": 3,
+      "lives_at": "recon_1835_south_d4_014",
+      "works_at": "recon_1835_south_c1_003",
+      "extras": []
+    },
+    {
+      "id": "hh_inf_tailor_south_01",
+      "occupation": "tailor",
+      "division": "south",
+      "ordinal": 1,
+      "of": 2,
+      "lives_at": "recon_1835_south_d4_019",
+      "works_at": "inf_tailor_shop",
+      "extras": []
+    },
+    {
+      "id": "hh_inf_baker_south_01",
+      "occupation": "baker",
+      "division": "south",
+      "ordinal": 1,
+      "of": 1,
+      "lives_at": "recon_1835_south_d5_004",
+      "works_at": "inf_bakery_lake",
+      "extras": []
+    },
+    {
+      "id": "hh_inf_butcher_south_01",
+      "occupation": "butcher",
+      "division": "south",
+      "ordinal": 1,
+      "of": 1,
+      "lives_at": "recon_1835_south_d5_011",
+      "works_at": "inf_butcher_market",
+      "extras": []
+    },
+    {
+      "id": "hh_inf_grocer_south_01",
+      "occupation": "grocer",
+      "division": "south",
+      "ordinal": 1,
+      "of": 4,
+      "lives_at": "recon_1835_south_c2_007",
+      "works_at": "recon_1835_south_c2_007",
+      "extras": []
+    },
+    {
+      "id": "hh_inf_grocer_south_02",
+      "occupation": "grocer",
+      "division": "south",
+      "ordinal": 2,
+      "of": 4,
+      "lives_at": "recon_1835_south_c2_036",
+      "works_at": "recon_1835_south_c2_036",
+      "extras": []
+    },
+    {
+      "id": "hh_inf_cooper_south_01",
+      "occupation": "cooper",
+      "division": "south",
+      "ordinal": 1,
+      "of": 4,
+      "lives_at": "recon_1835_south_d4_025",
+      "works_at": "recon_1835_south_w3_029",
+      "extras": [
+        {
+          "relationship": "apprentice",
+          "occupation": "cooper"
+        }
+      ]
+    },
+    {
+      "id": "hh_inf_cooper_south_02",
+      "occupation": "cooper",
+      "division": "south",
+      "ordinal": 2,
+      "of": 4,
+      "lives_at": "recon_1835_south_d4_030",
+      "works_at": "inf_cooperage_south",
+      "extras": [
+        {
+          "relationship": "apprentice",
+          "occupation": "cooper"
+        }
+      ]
+    },
+    {
+      "id": "hh_inf_blacksmith_south_01",
+      "occupation": "blacksmith",
+      "division": "south",
+      "ordinal": 1,
+      "of": 3,
+      "lives_at": "recon_1835_south_d5_016",
+      "works_at": "recon_1835_south_w1_023",
+      "extras": [
+        {
+          "relationship": "journeyman",
+          "occupation": "blacksmith"
+        }
+      ]
+    },
+    {
+      "id": "hh_inf_barber_surgeon_south_01",
+      "occupation": "barber_surgeon",
+      "division": "south",
+      "ordinal": 1,
+      "of": 1,
+      "lives_at": "recon_1835_south_d6_012",
+      "works_at": "inf_barber_shop",
+      "extras": []
+    },
+    {
+      "id": "hh_inf_harness_maker_south_01",
+      "occupation": "harness_maker",
+      "division": "south",
+      "ordinal": 1,
+      "of": 1,
+      "lives_at": "recon_1835_south_d6_020",
+      "works_at": "inf_harness_shop",
+      "extras": []
+    },
+    {
+      "id": "hh_inf_gunsmith_south_01",
+      "occupation": "gunsmith",
+      "division": "south",
+      "ordinal": 1,
+      "of": 1,
+      "lives_at": "recon_1835_south_d6_031",
+      "works_at": "inf_gunsmith_shop",
+      "extras": []
+    },
+    {
+      "id": "hh_inf_physician_south_01",
+      "occupation": "physician",
+      "division": "south",
+      "ordinal": 1,
+      "of": 1,
+      "lives_at": "recon_1835_south_d7_035",
+      "works_at": "physicians_office",
+      "extras": []
+    },
+    {
+      "id": "hh_inf_labourer_south_01",
+      "occupation": "labourer",
+      "division": "south",
+      "ordinal": 1,
+      "of": 23,
+      "lives_at": "recon_1835_south_d1_021",
+      "works_at": null,
+      "extras": []
+    },
+    {
+      "id": "hh_inf_labourer_south_02",
+      "occupation": "labourer",
+      "division": "south",
+      "ordinal": 2,
+      "of": 23,
+      "lives_at": "recon_1835_south_d1_033",
+      "works_at": null,
+      "extras": []
+    },
+    {
+      "id": "hh_inf_drover_south_01",
+      "occupation": "drover",
+      "division": "south",
+      "ordinal": 1,
+      "of": 1,
+      "lives_at": "recon_1835_south_d2_005",
+      "works_at": null,
+      "extras": []
+    },
+    {
+      "id": "hh_inf_laundress_south_01",
+      "occupation": "laundress",
+      "division": "south",
+      "ordinal": 1,
+      "of": 3,
+      "lives_at": "recon_1835_south_d2_024",
+      "works_at": null,
+      "extras": []
+    },
+    {
+      "id": "hh_inf_clerk_south_01",
+      "occupation": "clerk",
+      "division": "south",
+      "ordinal": 1,
+      "of": 3,
+      "lives_at": "recon_1835_south_d5_028",
+      "works_at": "recon_1835_south_c3_015",
+      "extras": []
+    },
+    {
+      "id": "hh_inf_clerk_south_02",
+      "occupation": "clerk",
+      "division": "south",
+      "ordinal": 2,
+      "of": 3,
+      "lives_at": "recon_1835_south_d5_034",
+      "works_at": "recon_1835_south_c3_037",
+      "extras": []
+    },
+    {
+      "id": "hh_inf_sawyer_south_01",
+      "occupation": "sawyer",
+      "division": "south",
+      "ordinal": 1,
+      "of": 2,
+      "lives_at": "inf_sawyer_dwelling_a",
+      "works_at": "inf_sawpit_shed",
+      "extras": []
+    },
+    {
+      "id": "hh_inf_sawyer_south_02",
+      "occupation": "sawyer",
+      "division": "south",
+      "ordinal": 2,
+      "of": 2,
+      "lives_at": "inf_sawyer_dwelling_b",
+      "works_at": "inf_sawpit_shed",
+      "extras": []
+    },
+    {
+      "id": "hh_inf_packer_south_01",
+      "occupation": "packer",
+      "division": "south",
+      "ordinal": 1,
+      "of": 1,
+      "lives_at": "inf_packer_dwelling",
+      "works_at": "recon_1835_south_f2_039",
+      "extras": []
+    },
+    {
+      "id": "hh_inf_teamster_south_01",
+      "occupation": "teamster",
+      "division": "south",
+      "ordinal": 1,
+      "of": 5,
+      "lives_at": "inf_teamster_dwelling_south",
+      "works_at": "recon_1835_south_a1_046",
+      "extras": []
+    },
+    {
+      "id": "hh_inf_cooper_south_03",
+      "occupation": "cooper",
+      "division": "south",
+      "ordinal": 3,
+      "of": 4,
+      "lives_at": "inf_cooperage_south_branch",
+      "works_at": "inf_cooperage_south_branch",
+      "extras": []
+    },
+    {
+      "id": "hh_inf_carpenter_north_05",
+      "occupation": "carpenter",
+      "division": "north",
+      "ordinal": 5,
+      "of": 20,
+      "lives_at": "recon_1835_north_d3_002",
+      "works_at": "recon_1835_north_w2_005",
+      "extras": [
+        {
+          "relationship": "journeyman",
+          "occupation": "carpenter"
+        }
+      ]
+    },
+    {
+      "id": "hh_inf_carpenter_north_06",
+      "occupation": "carpenter",
+      "division": "north",
+      "ordinal": 6,
+      "of": 20,
+      "lives_at": "recon_1835_north_d3_006",
+      "works_at": null,
+      "extras": [
+        {
+          "relationship": "journeyman",
+          "occupation": "carpenter"
+        }
+      ]
+    },
+    {
+      "id": "hh_inf_carpenter_north_07",
+      "occupation": "carpenter",
+      "division": "north",
+      "ordinal": 7,
+      "of": 20,
+      "lives_at": "recon_1835_north_d3_016",
+      "works_at": null,
+      "extras": [
+        {
+          "relationship": "journeyman",
+          "occupation": "carpenter"
+        }
+      ]
+    },
+    {
+      "id": "hh_inf_carpenter_north_08",
+      "occupation": "carpenter",
+      "division": "north",
+      "ordinal": 8,
+      "of": 20,
+      "lives_at": "recon_1835_north_d3_024",
+      "works_at": null,
+      "extras": [
+        {
+          "relationship": "journeyman",
+          "occupation": "carpenter"
+        }
+      ]
+    },
+    {
+      "id": "hh_inf_carpenter_north_09",
+      "occupation": "carpenter",
+      "division": "north",
+      "ordinal": 9,
+      "of": 20,
+      "lives_at": "recon_1835_north_d3_038",
+      "works_at": null,
+      "extras": [
+        {
+          "relationship": "journeyman",
+          "occupation": "carpenter"
+        }
+      ]
+    },
+    {
+      "id": "hh_inf_joiner_north_02",
+      "occupation": "joiner",
+      "division": "north",
+      "ordinal": 2,
+      "of": 2,
+      "lives_at": "recon_1835_north_d4_004",
+      "works_at": null,
+      "extras": []
+    },
+    {
+      "id": "hh_inf_mason_north_03",
+      "occupation": "mason",
+      "division": "north",
+      "ordinal": 3,
+      "of": 4,
+      "lives_at": "recon_1835_north_d4_012",
+      "works_at": null,
+      "extras": []
+    },
+    {
+      "id": "hh_inf_labourer_north_03",
+      "occupation": "labourer",
+      "division": "north",
+      "ordinal": 3,
+      "of": 23,
+      "lives_at": "recon_1835_north_d1_001",
+      "works_at": null,
+      "extras": []
+    },
+    {
+      "id": "hh_inf_labourer_north_04",
+      "occupation": "labourer",
+      "division": "north",
+      "ordinal": 4,
+      "of": 23,
+      "lives_at": "recon_1835_north_d1_013",
+      "works_at": null,
+      "extras": []
+    },
+    {
+      "id": "hh_inf_labourer_north_05",
+      "occupation": "labourer",
+      "division": "north",
+      "ordinal": 5,
+      "of": 23,
+      "lives_at": "recon_1835_north_d1_023",
+      "works_at": null,
+      "extras": []
+    },
+    {
+      "id": "hh_inf_labourer_north_06",
+      "occupation": "labourer",
+      "division": "north",
+      "ordinal": 6,
+      "of": 23,
+      "lives_at": "recon_1835_north_d1_053",
+      "works_at": null,
+      "extras": []
+    },
+    {
+      "id": "hh_inf_labourer_north_07",
+      "occupation": "labourer",
+      "division": "north",
+      "ordinal": 7,
+      "of": 23,
+      "lives_at": "recon_1835_north_d1_054",
+      "works_at": null,
+      "extras": []
+    },
+    {
+      "id": "hh_inf_labourer_north_08",
+      "occupation": "labourer",
+      "division": "north",
+      "ordinal": 8,
+      "of": 23,
+      "lives_at": "recon_1835_north_d1_060",
+      "works_at": null,
+      "extras": []
+    },
+    {
+      "id": "hh_inf_teamster_north_02",
+      "occupation": "teamster",
+      "division": "north",
+      "ordinal": 2,
+      "of": 5,
+      "lives_at": "recon_1835_north_d4_017",
+      "works_at": "recon_1835_north_a1_008",
+      "extras": []
+    },
+    {
+      "id": "hh_inf_teamster_north_03",
+      "occupation": "teamster",
+      "division": "north",
+      "ordinal": 3,
+      "of": 5,
+      "lives_at": "recon_1835_north_d4_025",
+      "works_at": "recon_1835_north_a1_032",
+      "extras": []
+    },
+    {
+      "id": "hh_inf_teamster_north_04",
+      "occupation": "teamster",
+      "division": "north",
+      "ordinal": 4,
+      "of": 5,
+      "lives_at": "recon_1835_north_d4_039",
+      "works_at": "recon_1835_north_a1_036",
+      "extras": []
+    },
+    {
+      "id": "hh_inf_boatman_north_01",
+      "occupation": "boatman",
+      "division": "north",
+      "ordinal": 1,
+      "of": 3,
+      "lives_at": "recon_1835_north_d2_003",
+      "works_at": null,
+      "extras": []
+    },
+    {
+      "id": "hh_inf_boatman_north_02",
+      "occupation": "boatman",
+      "division": "north",
+      "ordinal": 2,
+      "of": 3,
+      "lives_at": "recon_1835_north_d2_014",
+      "works_at": null,
+      "extras": []
+    },
+    {
+      "id": "hh_inf_laundress_north_02",
+      "occupation": "laundress",
+      "division": "north",
+      "ordinal": 2,
+      "of": 3,
+      "lives_at": "recon_1835_north_d2_029",
+      "works_at": "inf_laundry_north",
+      "extras": []
+    },
+    {
+      "id": "hh_inf_laundress_north_03",
+      "occupation": "laundress",
+      "division": "north",
+      "ordinal": 3,
+      "of": 3,
+      "lives_at": "recon_1835_north_d2_046",
+      "works_at": null,
+      "extras": []
+    },
+    {
+      "id": "hh_inf_domestic_north_01",
+      "occupation": "domestic",
+      "division": "north",
+      "ordinal": 1,
+      "of": 4,
+      "lives_at": "recon_1835_north_d3_042",
+      "works_at": null,
+      "extras": []
+    },
+    {
+      "id": "hh_inf_domestic_north_02",
+      "occupation": "domestic",
+      "division": "north",
+      "ordinal": 2,
+      "of": 4,
+      "lives_at": "recon_1835_north_d3_055",
+      "works_at": null,
+      "extras": []
+    },
+    {
+      "id": "hh_inf_domestic_north_03",
+      "occupation": "domestic",
+      "division": "north",
+      "ordinal": 3,
+      "of": 4,
+      "lives_at": "recon_1835_north_d4_043",
+      "works_at": null,
+      "extras": []
+    },
+    {
+      "id": "hh_inf_domestic_north_04",
+      "occupation": "domestic",
+      "division": "north",
+      "ordinal": 4,
+      "of": 4,
+      "lives_at": "recon_1835_north_d4_056",
+      "works_at": null,
+      "extras": []
+    },
+    {
+      "id": "hh_inf_shoemaker_north_03",
+      "occupation": "shoemaker",
+      "division": "north",
+      "ordinal": 3,
+      "of": 3,
+      "lives_at": "recon_1835_north_d5_019",
+      "works_at": "recon_1835_north_w5_040",
+      "extras": []
+    },
+    {
+      "id": "hh_inf_cooper_north_04",
+      "occupation": "cooper",
+      "division": "north",
+      "ordinal": 4,
+      "of": 4,
+      "lives_at": "recon_1835_north_d5_026",
+      "works_at": "recon_1835_north_c1_020",
+      "extras": []
+    },
+    {
+      "id": "hh_inf_grocer_north_03",
+      "occupation": "grocer",
+      "division": "north",
+      "ordinal": 3,
+      "of": 4,
+      "lives_at": "recon_1835_north_d5_037",
+      "works_at": "recon_1835_north_c2_027",
+      "extras": []
+    },
+    {
+      "id": "hh_inf_clerk_north_03",
+      "occupation": "clerk",
+      "division": "north",
+      "ordinal": 3,
+      "of": 3,
+      "lives_at": "recon_1835_north_d5_041",
+      "works_at": "recon_1835_north_f1_022",
+      "extras": []
+    },
+    {
+      "id": "hh_inf_painter_north_01",
+      "occupation": "painter",
+      "division": "north",
+      "ordinal": 1,
+      "of": 1,
+      "lives_at": "recon_1835_north_d5_057",
+      "works_at": "recon_1835_north_c1_047",
+      "extras": []
+    },
+    {
+      "id": "hh_inf_blacksmith_north_02",
+      "occupation": "blacksmith",
+      "division": "north",
+      "ordinal": 2,
+      "of": 3,
+      "lives_at": "recon_1835_north_d6_021",
+      "works_at": "recon_1835_north_w1_018",
+      "extras": []
+    },
+    {
+      "id": "hh_inf_tailor_north_02",
+      "occupation": "tailor",
+      "division": "north",
+      "ordinal": 2,
+      "of": 2,
+      "lives_at": "recon_1835_north_d6_044",
+      "works_at": null,
+      "extras": []
+    },
+    {
+      "id": "hh_inf_tavern_keeper_north_01",
+      "occupation": "tavern_keeper",
+      "division": "north",
+      "ordinal": 1,
+      "of": 1,
+      "lives_at": "recon_1835_north_d7_031",
+      "works_at": "recon_1835_north_t1_028",
+      "extras": []
+    },
+    {
+      "id": "hh_inf_boarding_house_keeper_north_01",
+      "occupation": "boarding_house_keeper",
+      "division": "north",
+      "ordinal": 1,
+      "of": 3,
+      "lives_at": "recon_1835_north_h1_007",
+      "works_at": "recon_1835_north_h1_007",
+      "extras": []
+    },
+    {
+      "id": "hh_inf_boarding_house_keeper_north_02",
+      "occupation": "boarding_house_keeper",
+      "division": "north",
+      "ordinal": 2,
+      "of": 3,
+      "lives_at": "recon_1835_north_h2_030",
+      "works_at": "recon_1835_north_h2_030",
+      "extras": []
+    },
+    {
+      "id": "hh_inf_boarding_house_keeper_north_03",
+      "occupation": "boarding_house_keeper",
+      "division": "north",
+      "ordinal": 3,
+      "of": 3,
+      "lives_at": "recon_1835_north_h3_045",
+      "works_at": "recon_1835_north_h3_045",
+      "extras": []
+    },
+    {
+      "id": "hh_inf_carpenter_north_10",
+      "occupation": "carpenter",
+      "division": "north",
+      "ordinal": 10,
+      "of": 20,
+      "lives_at": "inf_carpenter_dwelling_north",
+      "works_at": null,
+      "extras": []
+    },
+    {
+      "id": "hh_inf_mason_north_04",
+      "occupation": "mason",
+      "division": "north",
+      "ordinal": 4,
+      "of": 4,
+      "lives_at": "inf_mason_dwelling_north",
+      "works_at": null,
+      "extras": []
+    },
+    {
+      "id": "hh_inf_boatman_north_03",
+      "occupation": "boatman",
+      "division": "north",
+      "ordinal": 3,
+      "of": 3,
+      "lives_at": "inf_boatman_cabin_north",
+      "works_at": null,
+      "extras": []
+    },
+    {
+      "id": "hh_inf_brickmaker_north_01",
+      "occupation": "brickmaker",
+      "division": "north",
+      "ordinal": 1,
+      "of": 1,
+      "lives_at": "inf_brickmaker_dwelling_north",
+      "works_at": null,
+      "extras": []
+    },
+    {
+      "id": "hh_inf_labourer_north_09",
+      "occupation": "labourer",
+      "division": "north",
+      "ordinal": 9,
+      "of": 23,
+      "lives_at": "inf_labourer_shanty_north_a",
+      "works_at": null,
+      "extras": []
+    },
+    {
+      "id": "hh_inf_labourer_north_10",
+      "occupation": "labourer",
+      "division": "north",
+      "ordinal": 10,
+      "of": 23,
+      "lives_at": "inf_labourer_shanty_north_b",
+      "works_at": null,
+      "extras": []
+    },
+    {
+      "id": "hh_inf_labourer_west_11",
+      "occupation": "labourer",
+      "division": "west",
+      "ordinal": 11,
+      "of": 23,
+      "lives_at": "inf_labourer_shanty_west_a",
+      "works_at": null,
+      "extras": []
+    },
+    {
+      "id": "hh_inf_labourer_west_12",
+      "occupation": "labourer",
+      "division": "west",
+      "ordinal": 12,
+      "of": 23,
+      "lives_at": "inf_labourer_shanty_west_b",
+      "works_at": null,
+      "extras": []
+    },
+    {
+      "id": "hh_inf_teamster_west_05",
+      "occupation": "teamster",
+      "division": "west",
+      "ordinal": 5,
+      "of": 5,
+      "lives_at": "inf_teamster_dwelling_west",
+      "works_at": "inf_teamster_stable_west",
+      "extras": []
+    },
+    {
+      "id": "hh_inf_blacksmith_west_03",
+      "occupation": "blacksmith",
+      "division": "west",
+      "ordinal": 3,
+      "of": 3,
+      "lives_at": "inf_artisan_dwelling_west_a",
+      "works_at": "inf_blacksmith_shop_west",
+      "extras": []
+    },
+    {
+      "id": "hh_inf_wheelwright_west_01",
+      "occupation": "wheelwright",
+      "division": "west",
+      "ordinal": 1,
+      "of": 1,
+      "lives_at": "inf_artisan_dwelling_west_b",
+      "works_at": "inf_wheelwright_shop_west",
+      "extras": []
+    },
+    {
+      "id": "hh_inf_grocer_west_04",
+      "occupation": "grocer",
+      "division": "west",
+      "ordinal": 4,
+      "of": 4,
+      "lives_at": "inf_grocery_west",
+      "works_at": "inf_grocery_west",
+      "extras": []
+    },
+    {
+      "id": "hh_inf_carpenter_south_11",
+      "occupation": "carpenter",
+      "division": "south",
+      "ordinal": 11,
+      "of": 20,
+      "lives_at": "recon_1835_blk_randolph_wells_d3_05",
+      "works_at": null,
+      "extras": []
+    },
+    {
+      "id": "hh_inf_carpenter_south_12",
+      "occupation": "carpenter",
+      "division": "south",
+      "ordinal": 12,
+      "of": 20,
+      "lives_at": "recon_1835_blk_randolph_market_d3_04",
+      "works_at": null,
+      "extras": []
+    },
+    {
+      "id": "hh_inf_labourer_south_13",
+      "occupation": "labourer",
+      "division": "south",
+      "ordinal": 13,
+      "of": 23,
+      "lives_at": "recon_1835_blk_randolph_wells_d1_06",
+      "works_at": null,
+      "extras": []
+    },
+    {
+      "id": "hh_inf_labourer_west_14",
+      "occupation": "labourer",
+      "division": "west",
+      "ordinal": 14,
+      "of": 23,
+      "lives_at": "recon_1835_blk_randolph_clinton_d1_03",
+      "works_at": null,
+      "extras": []
+    },
+    {
+      "id": "hh_inf_carpenter_south_13",
+      "occupation": "carpenter",
+      "division": "south",
+      "ordinal": 13,
+      "of": 20,
+      "lives_at": "recon_1835_blk_south_water_franklin_d3_03",
+      "works_at": null,
+      "extras": []
+    },
+    {
+      "id": "hh_inf_carpenter_south_14",
+      "occupation": "carpenter",
+      "division": "south",
+      "ordinal": 14,
+      "of": 20,
+      "lives_at": "recon_1835_blk_south_water_wells_d3_04",
+      "works_at": null,
+      "extras": []
+    },
+    {
+      "id": "hh_inf_labourer_south_15",
+      "occupation": "labourer",
+      "division": "south",
+      "ordinal": 15,
+      "of": 23,
+      "lives_at": "recon_1835_blk_south_water_franklin_d1_04",
+      "works_at": null,
+      "extras": []
+    },
+    {
+      "id": "hh_inf_labourer_south_16",
+      "occupation": "labourer",
+      "division": "south",
+      "ordinal": 16,
+      "of": 23,
+      "lives_at": "recon_1835_blk_south_water_wells_d1_05",
+      "works_at": null,
+      "extras": []
+    },
+    {
+      "id": "hh_inf_carpenter_south_15",
+      "occupation": "carpenter",
+      "division": "south",
+      "ordinal": 15,
+      "of": 20,
+      "lives_at": "recon_1835_blk_south_water_lasalle_d3_03",
+      "works_at": null,
+      "extras": []
+    },
+    {
+      "id": "hh_inf_labourer_south_17",
+      "occupation": "labourer",
+      "division": "south",
+      "ordinal": 17,
+      "of": 23,
+      "lives_at": "recon_1835_blk_south_water_lasalle_d1_04",
+      "works_at": null,
+      "extras": []
+    },
+    {
+      "id": "hh_inf_carpenter_south_16",
+      "occupation": "carpenter",
+      "division": "south",
+      "ordinal": 16,
+      "of": 20,
+      "lives_at": "recon_1835_blk_south_water_clark_d3_03",
+      "works_at": null,
+      "extras": []
+    },
+    {
+      "id": "hh_inf_labourer_south_18",
+      "occupation": "labourer",
+      "division": "south",
+      "ordinal": 18,
+      "of": 23,
+      "lives_at": "recon_1835_blk_south_water_clark_d1_04",
+      "works_at": null,
+      "extras": []
+    },
+    {
+      "id": "hh_inf_carpenter_south_17",
+      "occupation": "carpenter",
+      "division": "south",
+      "ordinal": 17,
+      "of": 20,
+      "lives_at": "recon_1835_blk_south_water_dearborn_h1_03",
+      "works_at": null,
+      "extras": []
+    },
+    {
+      "id": "hh_inf_labourer_south_19",
+      "occupation": "labourer",
+      "division": "south",
+      "ordinal": 19,
+      "of": 23,
+      "lives_at": "recon_1835_blk_south_water_dearborn_d1_05",
+      "works_at": null,
+      "extras": []
+    },
+    {
+      "id": "hh_inf_carpenter_south_18",
+      "occupation": "carpenter",
+      "division": "south",
+      "ordinal": 18,
+      "of": 20,
+      "lives_at": "recon_1835_blk_lake_market_d3_03",
+      "works_at": null,
+      "extras": []
+    },
+    {
+      "id": "hh_inf_carpenter_south_19",
+      "occupation": "carpenter",
+      "division": "south",
+      "ordinal": 19,
+      "of": 20,
+      "lives_at": "recon_1835_blk_randolph_franklin_d3_04",
+      "works_at": null,
+      "extras": []
+    },
+    {
+      "id": "hh_inf_labourer_south_20",
+      "occupation": "labourer",
+      "division": "south",
+      "ordinal": 20,
+      "of": 23,
+      "lives_at": "recon_1835_blk_lake_market_d1_05",
+      "works_at": null,
+      "extras": []
+    },
+    {
+      "id": "hh_inf_labourer_south_21",
+      "occupation": "labourer",
+      "division": "south",
+      "ordinal": 21,
+      "of": 23,
+      "lives_at": "recon_1835_blk_randolph_franklin_d1_06",
+      "works_at": null,
+      "extras": []
+    },
+    {
+      "id": "hh_inf_labourer_south_22",
+      "occupation": "labourer",
+      "division": "south",
+      "ordinal": 22,
+      "of": 23,
+      "lives_at": "recon_1835_blk_randolph_clark_d1_06",
+      "works_at": null,
+      "extras": []
+    },
+    {
+      "id": "hh_inf_carpenter_south_20",
+      "occupation": "carpenter",
+      "division": "south",
+      "ordinal": 20,
+      "of": 20,
+      "lives_at": "recon_1835_blk_randolph_dearborn_d3_01",
+      "works_at": null,
+      "extras": []
+    },
+    {
+      "id": "hh_inf_labourer_south_23",
+      "occupation": "labourer",
+      "division": "south",
+      "ordinal": 23,
+      "of": 23,
+      "lives_at": "recon_1835_blk_randolph_dearborn_d1_04",
+      "works_at": null,
+      "extras": []
+    }
+  ],
+  "buildings": [
+    {
+      "id": "brown_boarding_house",
+      "kind": "documented",
+      "archetype": "log_dwelling",
+      "district": "south",
+      "family": "H1",
+      "center_local_enu_m": [
+        428,
+        -30
+      ],
+      "footprint_ft": [
+        24,
+        40
+      ],
+      "rotation_deg": 0,
+      "anchor_shift_steps": 0
+    },
+    {
+      "id": "mason_blacksmith_shop",
+      "kind": "documented",
+      "archetype": "outbuilding",
+      "district": "south",
+      "family": "W1",
+      "center_local_enu_m": [
+        735,
+        -133
+      ],
+      "footprint_ft": [
+        20,
+        30
+      ],
+      "rotation_deg": 0,
+      "anchor_shift_steps": 0
+    },
+    {
+      "id": "temple_lake_st_building",
+      "kind": "documented",
+      "archetype": "frame_storefront",
+      "district": "south",
+      "family": "C3",
+      "center_local_enu_m": [
+        299,
+        -131
+      ],
+      "footprint_ft": [
+        22,
+        34
+      ],
+      "rotation_deg": 0,
+      "anchor_shift_steps": 0
+    },
+    {
+      "id": "harmon_log_cabin",
+      "kind": "documented",
+      "archetype": "log_dwelling",
+      "district": "south",
+      "family": "D1",
+      "center_local_enu_m": [
+        249,
+        -272
+      ],
+      "footprint_ft": [
+        20,
+        26
+      ],
+      "rotation_deg": 0,
+      "anchor_shift_steps": 0
+    },
+    {
+      "id": "wright_building_to_let_a",
+      "kind": "documented",
+      "archetype": "frame_dwelling",
+      "district": "south",
+      "family": "D4",
+      "center_local_enu_m": [
+        426.68,
+        -234.78
+      ],
+      "footprint_ft": [
+        18,
+        26
+      ],
+      "rotation_deg": 0.34,
+      "anchor_shift_steps": 0,
+      "symbolic_location": "South Division, on the Randolph Street frontage of the block bounded by Lake, LaSalle, Randolph and Wells",
+      "stands_on_lot": {
+        "block_id": "blk_lake_wells",
+        "lot_index": 7,
+        "note": "The lot is a conjectural subdivision of a defensible block face; recorded so the placement can be re-derived, not because any source numbers a lot here."
+      }
+    },
+    {
+      "id": "wright_building_to_let_b",
+      "kind": "documented",
+      "archetype": "frame_dwelling",
+      "district": "south",
+      "family": "D4",
+      "center_local_enu_m": [
+        549.88,
+        -235.79
+      ],
+      "footprint_ft": [
+        18,
+        26
+      ],
+      "rotation_deg": 0.36,
+      "anchor_shift_steps": 0,
+      "symbolic_location": "South Division, on the Randolph Street frontage of the block bounded by Lake, Clark, Randolph and LaSalle, facing the public square across the street",
+      "stands_on_lot": {
+        "block_id": "blk_lake_lasalle",
+        "lot_index": 7,
+        "note": "The lot is a conjectural subdivision of a defensible block face; recorded so the placement can be re-derived, not because any source numbers a lot here."
+      }
+    },
+    {
+      "id": "heacock_house_monroe",
+      "kind": "documented",
+      "archetype": "frame_dwelling",
+      "district": "south",
+      "family": "D5",
+      "center_local_enu_m": [
+        465,
+        -615
+      ],
+      "footprint_ft": [
+        22,
+        30
+      ],
+      "rotation_deg": 0,
+      "anchor_shift_steps": 0
+    },
+    {
+      "id": "physicians_office",
+      "kind": "inferred",
+      "archetype": "frame_storefront",
+      "district": "south",
+      "family": "C1",
+      "center_local_enu_m": [
+        560,
+        -139
+      ],
+      "footprint_ft": [
+        16,
+        24
+      ],
+      "rotation_deg": 0,
+      "anchor_shift_steps": 0,
+      "function": "physicians_office",
+      "occupation": "physician",
+      "role": "EIGHT DOCUMENTED DOCTORS AND NOT ONE OFFICE. A physician's office and apothecary's back room on the Lake Street frontage, where a doctor is found by people who need one. It is left unnamed on purpose: four of the eight are documented households in this dataset and attaching any of them to an invented building would turn a hypothesis into a false attribution."
+    },
+    {
+      "id": "inf_cooperage_south",
+      "kind": "inferred",
+      "archetype": "outbuilding",
+      "district": "south",
+      "family": "W3",
+      "center_local_enu_m": [
+        165,
+        -38
+      ],
+      "footprint_ft": [
+        22,
+        34
+      ],
+      "rotation_deg": 0,
+      "anchor_shift_steps": 0,
+      "function": "cooperage",
+      "occupation": "cooper",
+      "role": "The cooperage the packing trade requires, on the South Water frontage near the forwarding houses and the warehouses whose barrels it makes."
+    },
+    {
+      "id": "inf_bakery_lake",
+      "kind": "inferred",
+      "archetype": "frame_storefront",
+      "district": "south",
+      "family": "C1",
+      "frontage": {
+        "block": "blk_lake_clark",
+        "face": "north",
+        "setback_m": 0.8,
+        "west_wall_along_m": 28.935,
+        "why": "T-0182. This building was authored as a centre at bearing 0 and its front wall landed 0.804 m off the committed face, which runs at 0.465 — near the line the other records on it stand on, parallel to nothing, and by arithmetic nobody re-derived. It now takes its line, bearing and outward offset from the block boundary in data/traces/vectors/thompson_lots.json. The along-face position is the one it already occupied, so no building moves along the street."
+      },
+      "footprint_ft": [
+        18,
+        28
+      ],
+      "anchor_shift_steps": 0,
+      "function": "bakery",
+      "occupation": "baker",
+      "role": "The town's bakehouse, on Lake Street among the taverns and stores whose boarders it feeds."
+    },
+    {
+      "id": "inf_butcher_market",
+      "kind": "inferred",
+      "archetype": "frame_storefront",
+      "district": "south",
+      "family": "C1",
+      "frontage": {
+        "block": "blk_lake_clark",
+        "face": "north",
+        "setback_m": 0.8,
+        "west_wall_along_m": 68.936,
+        "why": "T-0182. Authored as a centre at bearing 0, this building's front wall landed 0.784 m off the committed face against the 0.800 m every record on it stands at, and recon_1835_south_d3_013 — which declares a shared party wall with it — could not close that wall: 16 mm open, banked by name in tools/measure_street_line.py because nothing could repair it from the infill side. It now takes its line, bearing and outward offset from the block boundary in data/traces/vectors/thompson_lots.json, the party wall closes, and the banked residual is gone. The along-face position is the one it already occupied, so no building moves along the street."
+      },
+      "footprint_ft": [
+        18,
+        26
+      ],
+      "anchor_shift_steps": 0,
+      "function": "butcher_shop",
+      "occupation": "butcher",
+      "role": "A meat market on the built streets, because a town of 3,265 does not walk three kilometres up the North Branch to Clybourne's for its dinner."
+    },
+    {
+      "id": "inf_shoemaker_shop",
+      "kind": "inferred",
+      "archetype": "frame_storefront",
+      "district": "south",
+      "family": "W4",
+      "center_local_enu_m": [
+        349,
+        -129
+      ],
+      "footprint_ft": [
+        16,
+        24
+      ],
+      "rotation_deg": 0,
+      "anchor_shift_steps": 0,
+      "function": "shoemaker_shop",
+      "occupation": "shoemaker",
+      "role": "A shoemaker's shop on the Lake Street frontage - one of the schedule's six W4 small artisan roofs."
+    },
+    {
+      "id": "inf_tailor_shop",
+      "kind": "inferred",
+      "archetype": "frame_storefront",
+      "district": "south",
+      "family": "W4",
+      "center_local_enu_m": [
+        379,
+        -129
+      ],
+      "footprint_ft": [
+        16,
+        22
+      ],
+      "rotation_deg": 0,
+      "anchor_shift_steps": 0,
+      "function": "tailor_shop",
+      "occupation": "tailor",
+      "role": "A tailor's shop on the same frontage, at the smaller scale a bespoke trade supports."
+    },
+    {
+      "id": "inf_barber_shop",
+      "kind": "inferred",
+      "archetype": "frame_storefront",
+      "district": "south",
+      "family": "W4",
+      "center_local_enu_m": [
+        409,
+        -129
+      ],
+      "footprint_ft": [
+        14,
+        20
+      ],
+      "rotation_deg": 0,
+      "anchor_shift_steps": 0,
+      "function": "barber_shop",
+      "occupation": "barber_surgeon",
+      "role": "THE SECOND BARBER, which is the owner's own example of what this layer is for. The smallest commercial roof in this parcel, on the street where the hotels are."
+    },
+    {
+      "id": "inf_harness_shop",
+      "kind": "inferred",
+      "archetype": "outbuilding",
+      "district": "south",
+      "family": "W4",
+      "center_local_enu_m": [
+        682,
+        -241
+      ],
+      "footprint_ft": [
+        16,
+        24
+      ],
+      "rotation_deg": 0,
+      "anchor_shift_steps": 0,
+      "function": "harness_shop",
+      "occupation": "harness_maker",
+      "role": "A harness maker's shop in the outer band: the draught trade's bench, distinct from the documented saddlery of Goss & Cobb."
+    },
+    {
+      "id": "inf_gunsmith_shop",
+      "kind": "inferred",
+      "archetype": "outbuilding",
+      "district": "south",
+      "family": "W4",
+      "center_local_enu_m": [
+        599,
+        -274
+      ],
+      "footprint_ft": [
+        16,
+        24
+      ],
+      "rotation_deg": 0,
+      "anchor_shift_steps": 0,
+      "function": "gunsmith_shop",
+      "occupation": "gunsmith",
+      "role": "The town's one gunsmith, in the outer band where a shop that works with powder belongs."
+    },
+    {
+      "id": "inf_sawpit_shed",
+      "kind": "inferred",
+      "archetype": "outbuilding",
+      "district": "south",
+      "family": "W5",
+      "center_local_enu_m": [
+        136,
+        -68
+      ],
+      "footprint_ft": [
+        20,
+        36
+      ],
+      "rotation_deg": 0,
+      "anchor_shift_steps": 0,
+      "function": "sawpit_shed",
+      "occupation": "sawyer",
+      "role": "A sawpit and its shed on the river bank west of the built blocks: two men, a pit, a whip-saw and a stack of boards. NOT A MILL - no mill in the town is attested and none is claimed."
+    },
+    {
+      "id": "inf_cooperage_south_branch",
+      "kind": "inferred",
+      "archetype": "outbuilding",
+      "district": "south",
+      "family": "W3",
+      "center_local_enu_m": [
+        72,
+        -235
+      ],
+      "footprint_ft": [
+        20,
+        32
+      ],
+      "rotation_deg": 0,
+      "anchor_shift_steps": 0,
+      "function": "cooperage",
+      "occupation": "cooper",
+      "role": "A second cooperage, beside the Newberry & Dole slaughter-house on the South Branch: barrels are made where the packing is done, and this dataset already models the plant.",
+      "corridor_clearance": {
+        "street": "market",
+        "clear_m": 0.5,
+        "why": "T-0827 re-fitted Market Street off the plat's own 400 ft module on 2026-09-12, instead of off the modern junction on N Wacker Drive it had been hung from, and the platted corridor came 3.0 m west onto this footprint. The building's own placement is a band assignment with no evidence in it, so it has nothing to encroach with and the corridor wins. 0.5 m is T-0827's own margin, kept. The centre above is still the band assignment; the generator moves the least distance that clears the kerb, so re-fitting Market again moves this building again instead of leaving it to disagree with the street in silence."
+      }
+    },
+    {
+      "id": "inf_packer_dwelling",
+      "kind": "inferred",
+      "archetype": "frame_dwelling",
+      "district": "south",
+      "family": "D3",
+      "center_local_enu_m": [
+        123,
+        -237
+      ],
+      "footprint_ft": [
+        16,
+        22
+      ],
+      "rotation_deg": 0,
+      "anchor_shift_steps": 0,
+      "function": "dwelling",
+      "occupation": "packer",
+      "role": "A packer's cottage beside the South Branch plant."
+    },
+    {
+      "id": "inf_sawyer_dwelling_a",
+      "kind": "inferred",
+      "archetype": "frame_dwelling",
+      "district": "south",
+      "family": "D3",
+      "center_local_enu_m": [
+        159,
+        -270
+      ],
+      "footprint_ft": [
+        16,
+        22
+      ],
+      "rotation_deg": 0,
+      "anchor_shift_steps": 0,
+      "function": "dwelling",
+      "occupation": "sawyer",
+      "role": "A sawyer's cottage near the pit he works."
+    },
+    {
+      "id": "inf_sawyer_dwelling_b",
+      "kind": "inferred",
+      "archetype": "outbuilding",
+      "district": "south",
+      "family": "D2",
+      "center_local_enu_m": [
+        189,
+        -270
+      ],
+      "footprint_ft": [
+        14,
+        20
+      ],
+      "rotation_deg": 0,
+      "anchor_shift_steps": 0,
+      "function": "dwelling",
+      "occupation": "sawyer",
+      "role": "The second sawyer's roof: a plank dwelling of the schedule's D2 shanty family, which is what the meanest end of the building trade lived in."
+    },
+    {
+      "id": "inf_teamster_dwelling_south",
+      "kind": "inferred",
+      "archetype": "frame_dwelling",
+      "district": "south",
+      "family": "D4",
+      "center_local_enu_m": [
+        429,
+        -130
+      ],
+      "footprint_ft": [
+        18,
+        26
+      ],
+      "rotation_deg": 0,
+      "anchor_shift_steps": 0,
+      "function": "dwelling",
+      "occupation": "teamster",
+      "role": "A teamster's cottage on the south side, within reach of the stable he works from."
+    },
+    {
+      "id": "inf_teamster_stable_west",
+      "kind": "inferred",
+      "archetype": "outbuilding",
+      "district": "west",
+      "family": "A2",
+      "center_local_enu_m": [
+        -175,
+        -230
+      ],
+      "footprint_ft": [
+        20,
+        34
+      ],
+      "rotation_deg": 0,
+      "anchor_shift_steps": 0,
+      "function": "stable_and_wagon_yard",
+      "occupation": "teamster",
+      "role": "A teamster's stable on the Canal Street approach, where the country roads come into the town and where the Western Hotel already keeps its own wagon yard."
+    },
+    {
+      "id": "inf_teamster_dwelling_west",
+      "kind": "inferred",
+      "archetype": "frame_dwelling",
+      "district": "west",
+      "family": "D4",
+      "center_local_enu_m": [
+        -175,
+        -200
+      ],
+      "footprint_ft": [
+        18,
+        26
+      ],
+      "rotation_deg": 0,
+      "anchor_shift_steps": 0,
+      "function": "dwelling",
+      "occupation": "teamster",
+      "role": "The west-side teamster's own roof."
+    },
+    {
+      "id": "inf_blacksmith_shop_west",
+      "kind": "inferred",
+      "archetype": "outbuilding",
+      "district": "west",
+      "family": "W1",
+      "center_local_enu_m": [
+        -175,
+        -160
+      ],
+      "footprint_ft": [
+        18,
+        28
+      ],
+      "rotation_deg": 0,
+      "anchor_shift_steps": 0,
+      "function": "blacksmith_shop",
+      "occupation": "blacksmith",
+      "role": "A smithy on the west side, on the road traffic, which is where a smith who lives off passing horses and wagons wants to be - the same argument this dataset already makes for Pierce's shop one block north."
+    },
+    {
+      "id": "inf_wheelwright_shop_west",
+      "kind": "inferred",
+      "archetype": "outbuilding",
+      "district": "west",
+      "family": "W3",
+      "center_local_enu_m": [
+        -179,
+        -61
+      ],
+      "footprint_ft": [
+        20,
+        30
+      ],
+      "rotation_deg": 0,
+      "anchor_shift_steps": 0,
+      "function": "wheelwright_shop",
+      "occupation": "wheelwright",
+      "role": "A wheelwright's shop beside the smithy: the two trades work on the same wagon and in 1835 they stand next door to each other."
+    },
+    {
+      "id": "inf_artisan_dwelling_west_a",
+      "kind": "inferred",
+      "archetype": "frame_dwelling",
+      "district": "west",
+      "family": "D3",
+      "center_local_enu_m": [
+        -175,
+        -130
+      ],
+      "footprint_ft": [
+        16,
+        22
+      ],
+      "rotation_deg": 0,
+      "anchor_shift_steps": 0,
+      "function": "dwelling",
+      "occupation": "blacksmith",
+      "role": "The west-side smith's own roof."
+    },
+    {
+      "id": "inf_artisan_dwelling_west_b",
+      "kind": "inferred",
+      "archetype": "frame_dwelling",
+      "district": "west",
+      "family": "D3",
+      "center_local_enu_m": [
+        -180,
+        -31
+      ],
+      "footprint_ft": [
+        16,
+        22
+      ],
+      "rotation_deg": 0,
+      "anchor_shift_steps": 0,
+      "function": "dwelling",
+      "occupation": "wheelwright",
+      "role": "The wheelwright's own roof."
+    },
+    {
+      "id": "inf_grocery_west",
+      "kind": "inferred",
+      "archetype": "frame_storefront",
+      "district": "west",
+      "family": "C2",
+      "center_local_enu_m": [
+        -182,
+        -11
+      ],
+      "footprint_ft": [
+        20,
+        30
+      ],
+      "rotation_deg": 0,
+      "anchor_shift_steps": 0,
+      "function": "store_residence",
+      "occupation": "grocer",
+      "role": "A grocery on the west-side approach with the keeper's rooms behind and above it - the schedule's C2 store-residence family, which is the commonest small commercial building in a town this size."
+    },
+    {
+      "id": "inf_labourer_shanty_west_a",
+      "kind": "inferred",
+      "archetype": "outbuilding",
+      "district": "west",
+      "family": "D2",
+      "center_local_enu_m": [
+        -230,
+        120
+      ],
+      "footprint_ft": [
+        14,
+        18
+      ],
+      "rotation_deg": 0,
+      "anchor_shift_steps": 0,
+      "function": "dwelling",
+      "occupation": "labourer",
+      "role": "A labourer's plank shanty on the western fringe, where the plat is barely built and the cheapest roofs stand."
+    },
+    {
+      "id": "inf_labourer_shanty_west_b",
+      "kind": "inferred",
+      "archetype": "outbuilding",
+      "district": "west",
+      "family": "D2",
+      "center_local_enu_m": [
+        -230,
+        150
+      ],
+      "footprint_ft": [
+        14,
+        18
+      ],
+      "rotation_deg": 0,
+      "anchor_shift_steps": 0,
+      "function": "dwelling",
+      "occupation": "labourer",
+      "role": "A second labourer's shanty on the same fringe."
+    },
+    {
+      "id": "inf_laundry_north",
+      "kind": "inferred",
+      "archetype": "outbuilding",
+      "district": "north",
+      "family": "A5",
+      "center_local_enu_m": [
+        300,
+        200
+      ],
+      "footprint_ft": [
+        14,
+        20
+      ],
+      "rotation_deg": 0,
+      "anchor_shift_steps": 0,
+      "function": "wash_house",
+      "occupation": "laundress",
+      "role": "A wash house on the north side: a copper, a hearth and a drying yard, serving the boarding houses the schedule puts on the same ground. The work is documented in aggregate by the hotels' own crowding and named nowhere."
+    },
+    {
+      "id": "inf_boatman_cabin_north",
+      "kind": "inferred",
+      "archetype": "log_dwelling",
+      "district": "north",
+      "family": "D1",
+      "center_local_enu_m": [
+        250,
+        130
+      ],
+      "footprint_ft": [
+        16,
+        20
+      ],
+      "rotation_deg": 180,
+      "anchor_shift_steps": 0,
+      "function": "dwelling",
+      "occupation": "boatman",
+      "role": "A boatman's cabin set back from the north bank, facing the water it works."
+    },
+    {
+      "id": "inf_brickmaker_dwelling_north",
+      "kind": "inferred",
+      "archetype": "frame_dwelling",
+      "district": "north",
+      "family": "D3",
+      "center_local_enu_m": [
+        660,
+        140
+      ],
+      "footprint_ft": [
+        18,
+        24
+      ],
+      "rotation_deg": 0,
+      "anchor_shift_steps": 0,
+      "function": "dwelling",
+      "occupation": "brickmaker",
+      "role": "A brickmaker's cottage beside Blodgett's yard, which this dataset already models."
+    },
+    {
+      "id": "inf_labourer_shanty_north_a",
+      "kind": "inferred",
+      "archetype": "outbuilding",
+      "district": "north",
+      "family": "D2",
+      "center_local_enu_m": [
+        300,
+        260
+      ],
+      "footprint_ft": [
+        14,
+        18
+      ],
+      "rotation_deg": 0,
+      "anchor_shift_steps": 0,
+      "function": "dwelling",
+      "occupation": "labourer",
+      "role": "A labourer's shanty on the north-side fringe."
+    },
+    {
+      "id": "inf_labourer_shanty_north_b",
+      "kind": "inferred",
+      "archetype": "outbuilding",
+      "district": "north",
+      "family": "D2",
+      "center_local_enu_m": [
+        340,
+        260
+      ],
+      "footprint_ft": [
+        14,
+        18
+      ],
+      "rotation_deg": 0,
+      "anchor_shift_steps": 0,
+      "function": "dwelling",
+      "occupation": "labourer",
+      "role": "A second shanty on the same ground."
+    },
+    {
+      "id": "inf_carpenter_dwelling_north",
+      "kind": "inferred",
+      "archetype": "frame_dwelling",
+      "district": "north",
+      "family": "D4",
+      "center_local_enu_m": [
+        380,
+        200
+      ],
+      "footprint_ft": [
+        18,
+        24
+      ],
+      "rotation_deg": 0,
+      "anchor_shift_steps": 0,
+      "function": "dwelling",
+      "occupation": "carpenter",
+      "role": "A carpenter's own house on the north side - built, one assumes, rather better than the ones he was raising for other people, though nothing attests that and the record claims only the schedule's ordinary D4 cottage."
+    },
+    {
+      "id": "inf_mason_dwelling_north",
+      "kind": "inferred",
+      "archetype": "frame_dwelling",
+      "district": "north",
+      "family": "D4",
+      "center_local_enu_m": [
+        380,
+        260
+      ],
+      "footprint_ft": [
+        18,
+        24
+      ],
+      "rotation_deg": 0,
+      "anchor_shift_steps": 0,
+      "function": "dwelling",
+      "occupation": "mason",
+      "role": "A mason's house on the north side, on the brickyard's own bank."
+    }
+  ],
+  "building_prose": {
+    "brown_boarding_house": {
+      "occupants_value": "Mrs Rufus Brown, proprietor, and the Brown household",
+      "name": "Rufus Brown's Boarding House",
+      "function": "boarding_house",
+      "existence": [
+        "attested",
+        [
+          "andreas_1884_v1"
+        ],
+        "DOCUMENTED IN FABRIC, USE, KEEPER AND POSITION, and absent from this dataset until now. Andreas describes a log house kept as a first-class boarding house by Mrs Rufus Brown, 'the first building in the rear of this store' - Peck's store at South Water and LaSalle. The range opens at the start of 1833, which is not a build date: what is documented is that the house was standing and keeping boarders in the town of 1833-34, and nothing follows it past 1835."
+      ],
+      "position": [
+        "reconstructed",
+        [
+          "andreas_1884_v1"
+        ],
+        "THE RELATIVE POSITION IS DOCUMENTED AND THE ABSOLUTE ONE IS DERIVED FROM IT. 'The first building in the rear of this store' puts the boarding house immediately behind Peck's store, which this dataset places at the south-west corner of South Water and LaSalle. This record sits directly south of peck_store's footprint, on the same lot line, facing north onto the same yard. WHAT IS NOT DOCUMENTED: the distance behind the store, the orientation, and whether 'in the rear' means the same lot or the next one. The 20 m working georeference uncertainty of the whole dataset applies on top."
+      ],
+      "footprint": "PLACEHOLDER - NO DIMENSION IS ATTESTED. 24 x 40 ft is a log boarding house with a hall and two rooms below and a sleeping loft above, which is the smallest thing that answers 'a first-class boarding house' with a keeper, her household and paying boarders in it. Every number is invented.",
+      "occupants": [
+        "attested",
+        [
+          "andreas_1884_v1"
+        ],
+        "Mrs Rufus Brown, named by Andreas as the proprietor in her own right, and the Brown household (data/residents/households/hh_brown_rufus.json). The boarders are not named anywhere."
+      ],
+      "research": "THE HIGHEST-VALUE SINGLE BUILDING PHASE ONE FOUND, and the reason is that boarding houses bridge the gap between 3,265 people and 398 dwellings. Andreas on the houses of 1834: they 'were always full; and full meant three in a bed sometimes, with the floor covered besides', with emigrants living in their covered wagons outside. The building is log rather than frame on Andreas's own word, which also makes it one of the few log records in the commercial core.",
+      "form": {
+        "construction": "log",
+        "stories": 1,
+        "wall_height_m": 2.9,
+        "loft": true,
+        "roof_pitch_deg": 35.0,
+        "chimneys": 2
+      }
+    },
+    "mason_blacksmith_shop": {
+      "occupants_value": "Matthias Mason & Co., blacksmiths",
+      "name": "Matthias Mason & Co.'s Blacksmith Shop",
+      "function": "blacksmith_shop",
+      "existence": [
+        "attested",
+        [
+          "chicago_democrat_1833_11_26",
+          "chicago_democrat_1833_1835",
+          "andreas_1884_v1"
+        ],
+        "SELF-REPORTED IN THE CHICAGO DEMOCRAT, AND THE ADVERTISEMENT RAN FOR A YEAR. Mason & Co. advertise as blacksmiths in the issue of 26 November 1833, on 'Main-street, nearly opposite Graves' Tavern'. The '& Co.' says the shop employed more than one man. Eleven printings of that one notice are now read out of the Democrat, the last on 10 December 1834, all under the same copy date - so the firm is documented trading thirteen months and not one day, and the far end of the range is inferred from a shorter reach than it was: a working smithy in a town growing tenfold is far more likely to have continued than to have closed. THE NOTICE CHANGES ITS ANCHOR PART WAY THROUGH, and the position note is where that is set out."
+      ],
+      "position": [
+        "reconstructed",
+        [
+          "chicago_democrat_1833_11_26",
+          "chicago_democrat_1833_1835",
+          "andreas_1884_v1"
+        ],
+        "THE ADDRESS IS DOCUMENTED IN A STREET NAME NOBODY ELSE USES, AND THE CROSS-REFERENCE IS WHAT PLACES IT. 'Main-street' appears nowhere in data/traces/street_control.json, the Thompson plat module or either 1834 sheet. Graves' Tavern is Dexter Graves's log tavern, which this dataset models as mansion_house at what became 84-86 Lake Street, on the NORTH side of Lake near Dearborn. 'Nearly opposite' therefore puts the smithy on the SOUTH side of Lake Street facing north across it, and 'Main-street' in November 1833 is very probably Lake Street under a colloquial name. The northing is the Lake Street south frontage band this dataset's reconstruction recipes already use; the easting is set opposite mansion_house. WHAT IS INVENTED: the exact lot, the setback and the facade bearing. AND THE ADVERTISEMENT DOES NOT KEEP THIS ANCHOR. Seven printings to 11 June 1834 read 'nearly opposite Graves' Tavern'; from 10 September 1834 the same standing copy, word for word otherwise and under the same 26 November 1833 dateline, reads 'opposite the Tremont House' - four printings, the last on 10 December 1834. The Democrat carries no printing of it between those two dates, so the change is bracketed by 1834-06-11 and 1834-09-10 and no closer. The first Tremont House stands at the north-west corner of Lake and Dearborn in this dataset, about 36 m west of mansion_house and on the same north side of the street, so the later reading would put this shop the same distance west along the same south frontage. NOTHING PRINTED SAYS WHICH CHANGED - the shop may have moved, or the house across from it may have changed hands and name, or a compositor may have been handed fresh copy for a reason nobody printed; all three read exactly like this. THE POSITION HERE IS THE EARLIER READING'S AND HAS NOT BEEN MOVED, because moving it would decide that question on no evidence. The scene date is 1835-07-01, ten months after the later reading first ran, and the dated history of both anchors is carried in data/research/newspapers/register_1835.json under business_matthias_mason_co."
+      ],
+      "footprint": "PLACEHOLDER - NO DIMENSION IS ATTESTED. 20 x 30 ft is a two-fire shop: room for two hearths, an anvil each and a horse standing in, which is what '& Co.' implies. Every number is invented.",
+      "occupants": [
+        "attested",
+        [
+          "chicago_democrat_1833_11_26",
+          "chicago_democrat_1833_1835"
+        ],
+        "Matthias Mason and at least one partner or journeyman - the firm advertises as 'Mason & Co.' (data/residents/households/hh_mason_matthias.json). No other name is given. The Democrat sets the style four ways across eleven printings of one notice - 'Matthias Mason & Co.', 'Matthias Mason & Co., blacksmiths', 'MA[T]HIAS MASON & CO.' where the impression drops a T, and 'MATTHIAS MA[SON & CO.]' where the line is damaged - and the newspaper gazetteer holds all four as one house under business_matthias_mason_co, with the reasoning written out in data/research/newspapers/identity.json."
+      ],
+      "research": "THE THIRD SMITHY, and the one phase one identified as a documented building with no record. This dataset already holds pierce_blacksmith_shop on the south side and blacksmith_shop_state_st at the Indian agency; DO NOT MERGE ANY OF THE THREE. The street name 'Main-street' is recorded as a finding for the streets layer in docs/RESEARCH/residents_1835.md section 7 and is not acted on beyond this placement.",
+      "form": {
+        "construction": "light_frame",
+        "wall_height_m": 3.1,
+        "roof_type": "gable",
+        "roof_pitch_deg": 32.0,
+        "door": "stable",
+        "door_side": "front",
+        "loft": false,
+        "board_gap_m": 0.012,
+        "paint": "unpainted"
+      }
+    },
+    "temple_lake_st_building": {
+      "occupants_value": "John Dean Caton's law office and lodging; the building is Dr John T. Temple's",
+      "name": "Dr Temple's Building, Lake Street",
+      "function": "office_and_lodging",
+      "existence": [
+        "attested",
+        [
+          "andreas_1884_v1"
+        ],
+        "DOCUMENTED THROUGH ITS TENANT. Andreas's account of the bar has John Dean Caton opening the town's first law office in Dr Temple's building on Lake Street in 1833 and sleeping in the attic of the same building. That is a building, a street, a use and an occupant. NOT THE TEMPLE BUILDING at Franklin and South Water, which is a different structure already in this dataset (temple_building) - the two must not be merged."
+      ],
+      "position": [
+        "reconstructed",
+        null,
+        "THE STREET IS DOCUMENTED AND NOTHING ELSE IS. 'On Lake Street' is the whole of the evidence: no cross street, no side, no block. This record sits on the Lake Street south frontage band the reconstruction recipes use, west of the Clark Street crossing, in the first free frontage the placement rule found. The position is an invention within a documented street and is graded accordingly."
+      ],
+      "footprint": "PLACEHOLDER - NO DIMENSION IS ATTESTED. 22 x 34 ft is a two-storey frame building with a business room below and a habitable attic above, which is the minimum that answers a law office on the ground floor and a bed in the attic. Every number is invented.",
+      "occupants": [
+        "attested",
+        [
+          "andreas_1884_v1"
+        ],
+        "John Dean Caton's first law office, and Caton's own lodging in the attic (data/residents/households/hh_caton_john_dean.json). The building is Dr John T. Temple's."
+      ],
+      "research": "CATON'S ATTIC IS THE POINT. It is the only account in this corpus of what an educated newcomer actually did for money and where he slept in the town's first summer, and it makes this building a lodging as well as an office - which is exactly the mixed use the reconstruction schedule's C-family roofs are for.",
+      "form": {
+        "stories": 2,
+        "wall_height_m": 5.05,
+        "roof_type": "gable",
+        "roof_pitch_deg": 36.0,
+        "construction": "braced_frame",
+        "cladding": "clapboard",
+        "paint": "unpainted",
+        "gable_front": false,
+        "shopfront": false,
+        "loft": true,
+        "chimneys": 1
+      }
+    },
+    "harmon_log_cabin": {
+      "occupants_value": "Dr Elijah Dewey Harmon",
+      "name": "Dr Elijah Harmon's Cabin",
+      "function": "dwelling",
+      "existence": [
+        "attested",
+        [
+          "andreas_1884_v1"
+        ],
+        "'HIS RESIDENCE WAS A CABIN OF HEWN LOGS' - Andreas's medical chapter, in the passage that also gives Harmon's rusty instruments, his hundred books and his larder of flour, bacon and coffee. The fabric and the use are documented; the far end of the range is inferred, and note that the household's own presence on the scene date is recorded as UNCERTAIN because Harmon may have been in Texas. The cabin does not move when its owner does."
+      ],
+      "position": [
+        "reconstructed",
+        null,
+        "INVENTED. No source places Harmon's cabin. What is known is negative: he pre-empted a hundred and forty acres whose northern boundary was near Sixteenth Street, which is two kilometres south of the modelled ground and is a farm rather than a residence. This record sits in the South Division outer band where the reconstruction recipes put older log dwellings, at the first free position the placement rule found. It is a guess inside the right district."
+      ],
+      "footprint": "PLACEHOLDER - NO DIMENSION IS ATTESTED. 20 x 26 ft is the schedule's D1 older-log-cabin band: one room and a loft, which is what a doctor's residence-and-surgery would have been in a town this size. Every number is invented.",
+      "occupants": [
+        "attested",
+        [
+          "andreas_1884_v1"
+        ],
+        "Dr Elijah Dewey Harmon, the town's first physician (data/residents/households/hh_harmon_elijah_d.json). His presence on 1835-07-01 is recorded as uncertain in that record and this building does not assert it."
+      ],
+      "research": "THE HEWN-VERSUS-ROUND DISTINCTION ROADMAP K4 ASKS FOR, ATTESTED. Andreas says HEWN logs, which is the more finished construction and the commoner one at the forks; the log_dwelling archetype builds hewn logs, so the record and the mesh agree without any further parameter. When K4 adds a round-log variant, this record is the reference for the other side of the distinction.",
+      "form": {
+        "construction": "log",
+        "stories": 1,
+        "wall_height_m": 2.6,
+        "roof_type": "gable",
+        "roof_pitch_deg": 35.0,
+        "loft": true,
+        "chimneys": 1
+      }
+    },
+    "wright_building_to_let_a": {
+      "occupants_value": "To let - the tenant is not named",
+      "name": "John Wright's Building to Let (east)",
+      "function": "dwelling_to_let",
+      "existence": [
+        "attested",
+        [
+          "chicago_democrat_1833_11_26"
+        ],
+        "'TWO BUILDINGS TO LET' - John Wright's own advertisement in the Chicago Democrat of 26 November 1833, offering them until 1 June 1834. Two buildings existed, they were his, and they were rental stock. This is one of the two. The advertisement's own term of 1 June 1834 is not the building's life: a building does not cease at the end of a tenancy, and the range runs to the end of 1835 as the last date this record needs."
+      ],
+      "position": [
+        "reconstructed",
+        null,
+        "INVENTED, AND MOVED OFF THE PUBLIC SQUARE 2026-08-15 (ROADMAP T-A16). The advertisement gives no address at all, so this is a band assignment and not a reading of any source. WHAT WAS WRONG WITH THE OLD ONE. Both buildings were placed together in 'the South Division band the recipes use for ordinary dwellings', and that band ran across the block bounded by Randolph, Clark, Washington and LaSalle - the public square, which carried the county's estray pen, its log jail and its court-house, and which this project's own ground control names as such. The old placement was tested for clearance and for buildable ground, which is every question this project knew how to ask; none of them was whether the ground was for sale. WHERE THEY WENT, AND BY WHAT RULE. Each building takes the nearest free platted lot that no committed block recipe has already spoken for - the recipes name their open lots and say why, and taking one would rewrite a parcel that has already landed. Under that rule the pair moves 83 m and 69 m, onto the Randolph Street frontage of the two blocks directly across Randolph from the square, which is the least this record can move and still stand on ground the town was selling. THE COORDINATE IS COMPUTED, NOT TYPED: the lot's own street edge and inward axis, with a 5.0 m setback, through the same lot frame every anonymous roof in the town is placed by. WHAT IS STILL INVENTED: the block, the lot, the setback, and that the two buildings stood near each other at all. One advertisement offering two buildings is not a statement that they shared a holding, and the pair is no longer on one block - the ground to keep them on one was 200 m further away and faced two different streets, which would have been a worse answer bought with a better-sounding sentence."
+      ],
+      "footprint": "PLACEHOLDER - NO DIMENSION IS ATTESTED. 18 x 26 ft is the schedule's D4 two-room frame cottage: what a merchant builds to let. Every number is invented.",
+      "occupants": [
+        "reconstructed",
+        null,
+        "TO LET, AND THE TENANT IS NOT NAMED. The advertisement documents rental housing stock and nobody in it. This building is deliberately left without an occupant household: the honest reading of 'to let' is a building whose tenant this project cannot name."
+      ],
+      "research": "RENTAL HOUSING STOCK, OTHERWISE INVISIBLE. A town where a merchant advertises two buildings to let is a town with a rental market, which is one of the mechanisms by which 3,265 people fit into 398 dwellings. A TRAP IN THE SAME ADVERTISEMENT: it carries an engraving of a three-storey building which is a jobbing printer's stock cut and NOT a picture of anything in Chicago; nothing about the form of these two buildings comes from it.",
+      "form": {
+        "stories": 1,
+        "wall_height_m": 2.78,
+        "roof_type": "gable",
+        "roof_pitch_deg": 38.0,
+        "construction": "braced_frame",
+        "plan": "hall_parlour",
+        "bays": 3,
+        "chimneys": 1,
+        "paint": "unpainted"
+      },
+      "symbolic_location": "South Division, on the Randolph Street frontage of the block bounded by Lake, LaSalle, Randolph and Wells"
+    },
+    "heacock_house_monroe": {
+      "occupants_value": "Russel E. Heacock and his household of seven",
+      "name": "Russel E. Heacock's House, Monroe Street",
+      "function": "dwelling",
+      "existence": [
+        "attested",
+        [
+          "andreas_1884_v1"
+        ],
+        "BUILT IN THE SPRING OF 1835, WHICH IS INSIDE THE SCENE YEAR AND BEFORE THE SCENE DATE. Andreas: 'In the spring of 1835, he built a house on what he supposed was his lot, only to find that he was on Monroe Street, not Adams, whither he proceeded to remove it on rollers.' The house, its season, its owner and the fact that it was moved a block are all documented. The range opens on 1835-03-01 as the earliest reading of 'the spring'."
+      ],
+      "position": [
+        "reconstructed",
+        null,
+        "OUTSIDE THE MODELLED GROUND, AND THE DATE OF THE MOVE IS UNKNOWN. Two things are invented here. First, WHICH STREET IT STOOD ON on 1 July 1835: Andreas gives no date for the removal, so the house may have been on Monroe or already on Adams. This record puts it on Monroe, where it was built, because that is the position the source actually states. Second, WHERE ON MONROE: nothing says. The northing is estimated from the plat module - the block pitch implied by the reconstruction recipes' Randolph-to-Washington bands, carried two blocks further south - and landed about 215 m beyond the southern edge of the e1834_harbor_cut heightfield, so the phase declared ground_contact: outside_modelled_ground. IT NO LONGER DOES: T-0464 carried the heightfield south from Madison Street to Twenty-Second, the outline now stands within 0.35 m of the terrain under it, and the declaration is dropped. The northing is still an estimate from the plat module and the street is still undecided between Monroe and Adams - what changed is only that there is ground."
+      ],
+      "footprint": "PLACEHOLDER - NO DIMENSION IS ATTESTED. 22 x 30 ft is the schedule's D5 deep-plan frame cottage, sized for the largest documented household in the residents layer: a wife and five sons, the youngest born in this house. Every number is invented.",
+      "occupants": [
+        "attested",
+        [
+          "andreas_1884_v1"
+        ],
+        "Russel E. Heacock, the one vote against incorporating the town, and his household of seven (data/residents/households/hh_heacock_russel_e.json). Andreas quotes his son: 'This house he occupied, off and on, until his death.'"
+      ],
+      "research": "THE ROLLERS ARE THE FINDING. A documented instance of a Chicago house being moved bodily one block in 1835 is evidence about construction, weight and the town's attitude to its own buildings, and it belongs to ROADMAP K4 as much as to K1. WHAT WOULD UPGRADE THIS RECORD: any date for the removal, which would settle which street the house stood on at the scene date; and a terrain epoch reaching south of Madison, which would put ground under it.",
+      "form": {
+        "stories": 1,
+        "wall_height_m": 2.9,
+        "roof_type": "gable",
+        "roof_pitch_deg": 38.0,
+        "construction": "braced_frame",
+        "plan": "hall_parlour",
+        "bays": 3,
+        "chimneys": 1,
+        "paint": "unpainted"
+      }
+    },
+    "wright_building_to_let_b": {
+      "occupants_value": "To let - the tenant is not named",
+      "name": "John Wright's Building to Let (west)",
+      "function": "dwelling_to_let",
+      "existence": [
+        "attested",
+        [
+          "chicago_democrat_1833_11_26"
+        ],
+        "'TWO BUILDINGS TO LET' - John Wright's own advertisement in the Chicago Democrat of 26 November 1833, offering them until 1 June 1834. Two buildings existed, they were his, and they were rental stock. This is one of the two. The advertisement's own term of 1 June 1834 is not the building's life: a building does not cease at the end of a tenancy, and the range runs to the end of 1835 as the last date this record needs."
+      ],
+      "position": [
+        "reconstructed",
+        null,
+        "INVENTED, AND MOVED OFF THE PUBLIC SQUARE 2026-08-15 (ROADMAP T-A16). The advertisement gives no address at all, so this is a band assignment and not a reading of any source. WHAT WAS WRONG WITH THE OLD ONE. Both buildings were placed together in 'the South Division band the recipes use for ordinary dwellings', and that band ran across the block bounded by Randolph, Clark, Washington and LaSalle - the public square, which carried the county's estray pen, its log jail and its court-house, and which this project's own ground control names as such. The old placement was tested for clearance and for buildable ground, which is every question this project knew how to ask; none of them was whether the ground was for sale. WHERE THEY WENT, AND BY WHAT RULE. Each building takes the nearest free platted lot that no committed block recipe has already spoken for - the recipes name their open lots and say why, and taking one would rewrite a parcel that has already landed. Under that rule the pair moves 83 m and 69 m, onto the Randolph Street frontage of the two blocks directly across Randolph from the square, which is the least this record can move and still stand on ground the town was selling. THE COORDINATE IS COMPUTED, NOT TYPED: the lot's own street edge and inward axis, with a 5.0 m setback, through the same lot frame every anonymous roof in the town is placed by. WHAT IS STILL INVENTED: the block, the lot, the setback, and that the two buildings stood near each other at all. One advertisement offering two buildings is not a statement that they shared a holding, and the pair is no longer on one block - the ground to keep them on one was 200 m further away and faced two different streets, which would have been a worse answer bought with a better-sounding sentence."
+      ],
+      "footprint": "PLACEHOLDER - NO DIMENSION IS ATTESTED. 18 x 26 ft is the schedule's D4 two-room frame cottage: what a merchant builds to let. Every number is invented.",
+      "occupants": [
+        "reconstructed",
+        null,
+        "TO LET, AND THE TENANT IS NOT NAMED. The advertisement documents rental housing stock and nobody in it. This building is deliberately left without an occupant household: the honest reading of 'to let' is a building whose tenant this project cannot name."
+      ],
+      "research": "RENTAL HOUSING STOCK, OTHERWISE INVISIBLE. A town where a merchant advertises two buildings to let is a town with a rental market, which is one of the mechanisms by which 3,265 people fit into 398 dwellings. A TRAP IN THE SAME ADVERTISEMENT: it carries an engraving of a three-storey building which is a jobbing printer's stock cut and NOT a picture of anything in Chicago; nothing about the form of these two buildings comes from it.",
+      "form": {
+        "stories": 1,
+        "wall_height_m": 2.78,
+        "roof_type": "gable",
+        "roof_pitch_deg": 38.0,
+        "construction": "braced_frame",
+        "plan": "hall_parlour",
+        "bays": 3,
+        "chimneys": 1,
+        "paint": "unpainted"
+      },
+      "symbolic_location": "South Division, on the Randolph Street frontage of the block bounded by Lake, Clark, Randolph and LaSalle, facing the public square across the street"
+    }
+  },
+  "documented_household_links": [
+    {
+      "household": "hh_brown_rufus",
+      "lives_at": "brown_boarding_house",
+      "works_at": "brown_boarding_house",
+      "note": "Phase one recorded both links as null with the reason 'NOT MODELLED, AND IT SHOULD BE'. The building now exists and both fields point at it."
+    },
+    {
+      "household": "hh_mason_matthias",
+      "works_at": "mason_blacksmith_shop",
+      "note": "The third smithy, documented by Mason's own advertisement, now has a record."
+    },
+    {
+      "household": "hh_harmon_elijah_d",
+      "lives_at": "harmon_log_cabin",
+      "note": "'His residence was a cabin of hewn logs' now has a structure to point at. The household's presence on the scene date remains uncertain and the link does not change that."
+    },
+    {
+      "household": "hh_heacock_russel_e",
+      "lives_at": "heacock_house_monroe",
+      "note": "The house he built in the spring of 1835 and moved on rollers."
+    },
+    {
+      "household": "hh_caton_john_dean",
+      "works_at": "temple_lake_st_building",
+      "note": "His first law office, and his bedroom in the attic of the same building."
+    }
+  ],
+  "resident_population_active": false,
+  "resident_population_status": "Retired from resident list by owner ruling 2026-09-02; building stock may remain anonymous until a later explicit reconstructed-population pass.",
+  "retirement": {
+    "date": "2026-09-02",
+    "ruling": "The owner, 2026-09-03, on the pass that retired the people: \"when you remove a reconstructed resident, make sure that if there is a structure you already made for them, you can abandon that structure or remove it because we will want to do a sweep later and assign these residents a place to live and work once we complete the full 3600ish resident list best we can.\" Asked which of the two, he ruled: \"Keep as anonymous stock.\"",
+    "tickets": [
+      "T-0489",
+      "T-0516"
+    ],
+    "households": {
+      "count": 101,
+      "state": "retired",
+      "where": "Deleted from data/residents/ on 2026-09-02 by tools/synthesize_resident_research.py. The recipe rows below are kept verbatim as the record of what was argued and which roof each household had taken; no file in data/residents/ answers to any of these ids."
+    },
+    "buildings": {
+      "count": 38,
+      "raised_by_this_programme": 31,
+      "documented_buildings_this_programme_built": 7,
+      "state": "anonymous_stock",
+      "where": "The 31 roofs this programme RAISED now carry `reconstruction.status: inferred_anonymous` and `resident_assignment.status: unassigned`, and are counted by tools/reconcile_665.py as anonymous stock under source `retired_household_roofs`. No roof was removed and no geometry moved: the trade each was raised for is kept in `reconstruction.occupation` so the later placement sweep has it. The seven DOCUMENTED buildings this programme built are not affected — they were never occupied by an inferred household."
+    },
+    "adoptions_withdrawn": {
+      "count": 104,
+      "where": "104 anonymous roofs of the 665-roof programme had been adopted as the dwelling or workplace of a household listed below. tools/inferred_occupancy.py reads `resident_population_active` and seats nobody while it is false, so those roofs carry no `occupants` block and read as the anonymous count-units they were before the adoption. docs/LIBERTIES.md L94 and L109, which recorded four of those adoptions, are Resolved."
+    },
+    "occupation_census": "Kept as history. T-0507 is the live calibration of the town's occupation mix; nothing here is a claim about the town as it stands."
+  }
+}

@@ -1,0 +1,385 @@
+{
+  "schema": 1,
+  "issue_id": "chicago_american_1835_07_18",
+  "extracted": "2026-08-28",
+  "extracted_by": "hand, T-0261 — the Chicago American read, June to August 1835",
+  "note": "Volume I, Number 7. The single most useful paragraph in the run is here: the Chicago Reading Room's directors resolve to put a building ON THE PUBLIC SQUARE, on a rent-free lease, for a reading room 'and for other public purposes' — a proposal, three weeks after the scene date, which is a negative claim about the square as it stood on 1835-07-01. The Marine Journal for July 7-16 is the run's fullest, twelve arrivals in ten days including a brig named John Kinzie.",
+  "claims": [
+    {
+      "id": "c001",
+      "kind": "building",
+      "reading": "transcription_mediated",
+      "quote": "meek vortpeny mig by fo reild “epprepriai tebe o: he erection of verte bers penis evitable tor a Reeding Room? mo lel shot aight to wend Sor wsmentla are rod, and for other public purposes; derstood that lexie cen probably be obt Souspany to place such a building on th iyware free of rent; and believing tha milding would be a greathenefit and con othe Reading Réot Association, as w he public genarally, while ite. proprivto robably be enabled, from the rents, to eencnable return for their investment, t ‘That this board do fally ap be above plan for obtalaing « building, rill, ap fai aa practicable, give to it thei upport and ¢6-operation, Resolved, That C. Pettil, Lieut. J, Al 1. Moore, be ap",
+      "normalized": "[… the] company mi[ght …] [ap]pr[o]pri[ate … t]o the erection of […] [a building] [s]uitable for a Reading Room […] and for other public purposes; [it is un]derstood that [a] le[as]e can probably be obt[ained by the] company to place such a building on th[e Public Sq]uare free of rent; and believing tha[t such a] [b]uilding would be a great benefit and con[venience] [t]o the Reading Ro[o]m Association, as w[ell as to] [t]he public gen[e]rally, while its proprieto[rs would] [p]robably be enabled, from the rents, to [make a r]e[aso]nable return for their investment, [Resolved,] That this board do f[u]lly ap[prove] [t]he above plan for obta[in]ing a building, [and] [w]ill, a[s] fa[r] a[s] practicable, give to it thei[r] [s]upport and co-operation. Resolved, That C. Pett[it], Lieut. J. Al[len] [and H.] Moore, be ap[pointed …]",
+      "locator": {
+        "artifact_role": "primary",
+        "issue_page": 3,
+        "column": 5,
+        "lines": [
+          264,
+          264
+        ],
+        "lines_of_claim": [
+          264
+        ],
+        "interleaved": true,
+        "spans": [
+          {
+            "line": 264,
+            "from": 0,
+            "to": 700
+          }
+        ]
+      },
+      "entities": [
+        {
+          "as_printed": "C. Pettil",
+          "normalized": "C. Pettit",
+          "role": "committee member",
+          "occupations": [],
+          "associated_places": []
+        },
+        {
+          "as_printed": "Lieut. J, Al",
+          "normalized": "Lieut. J. Allen",
+          "role": "committee member",
+          "occupations": [
+            "army officer"
+          ],
+          "associated_places": []
+        }
+      ],
+      "notes": "THE PUBLIC SQUARE, WITH A BUILDING PROPOSED ON IT AND NOTHING ON IT YET — which is why this is the run's most valuable paragraph for a reconstruction dated 1835-07-01. The directors resolve that a joint-stock company should put up a building on the square under a RENT-FREE LEASE, for a reading room 'and for other public purposes', paying its investors back out of the rents. Three things follow. On the scene date the square carries no reading room and no such building; the square is understood to be leasable ground a private company could build on; and a committee is named to pursue it. WHERE THE SQUARE'S NAME IS CUT: the transcription reads 'on th iyware free of rent' — 'th[e … Sq]uare', with the qualifier destroyed. It is read as the Public Square because this is a public-purposes building on rent-free public ground in a town with one such square, and because the same run separately places a dwelling against 'the Public Square' (1835-07-04). The reading is stated here rather than left to look certain. 'Lieut. J. Al[len]' is completed and bracketed; a serving lieutenant on a civic committee is itself worth noting in a garrison town."
+    },
+    {
+      "id": "c002",
+      "kind": "shipping",
+      "reading": "transcription_mediated",
+      "quote": "Marine Journal. PORT OF CHICAGO,\nARRIVED.\naly 7. Bebe Marenga, Dingley. from shandisa, fluur, pasteny\naly 20, Brg John “John -Kinele, Grover frost\nr, de. Bete Hanah, from\nNey. it four ae” aly 11. Schr, Swan, Gilbert, from St\nih merchandise, passengers, 4 july 12. Bhs Ilingis, Wagatati from with salt, mecebandize, and. 90\nply 13, Eo Baesing, ‘Clark, from Ro uly 14 oe ia Grange Gauchyois, | 12 1 1 45 1019 26 25 59.619453 Seu i ram, Rethgra, oon Ch 1 12 1 2 1 45 1047 26 11 62.218750 vith lutaber, paavongers, Mc, 1 12 1 3 1 0 1061 42 15 37.156769 ily 16, Sake, ‘Napoleon, Chases from 1 12 1 4 1 60 1070 11 24 93.854485 th flour and lumbe) 1 12 1 5 1 0 1088 21 13 52.315197 oly 18. “See ‘Beran, Gilbert. from 8t, 13 1 1 46 1102 56 40 26.428566 Ear ai Austin, from 1 13 1 2 1 109 1131 41 12 20.263474 lumber, Bec. 1 13 1 3 1 0 1144 22 15 56.704197 aly 168 sara atanah, from Bt. Joseph, 1 13 1 4 1 64 1149 25 30 75.697449 ‘aod passengers. 1 13 1 5 1 0 1173 22 13 57.367241 aly 16. Guemboat Usied\nBaron, Hl Buffalo, with freight and passeng\nCLEARED. 19. Behp Swan, Gilbert, for St. Jou pats Brig Jobo. Riesia, ft, Bafialo, Hannah, fur Bt Joseph.\nSchr Lieweling, for Root River, Buffalo.\naly 16. Brig Itioate for Michigan Ci 6. it Bebt La Ortage, far Deteit Seexnbons United Stes for Ba ‘Milwakes.",
+      "normalized": "Marine Journal. PORT OF CHICAGO. ARRIVED. [Ju]ly 7. Sch[r] Mareng[o], Dingley, from […] [merc]handi[z]e, flour, passeng[ers]. [Ju]ly [1]0. Br[i]g John Kin[zi]e, Grover, fro[m …], &c.; Sch[r] Ha[n]nah, from […] [with] flour, &c. [Ju]ly 11. Schr Swan, Gilbert, from St. [Joseph w]ith merchandi[z]e, passengers. July 12. B[ri]g Illinois, Wagstaf[f], from […] with salt, merchandize and 90 […]. [Ju]ly 13. [Schr Llew]elling, Clark, from Ro[ot River]. [J]uly 14. [Schr] La Grange, Gauch[n]ois, […]; Sch[r H]iram, R[a]thb[ur]n, [from …] with lu[m]ber, pa[ss]engers, &c. [Ju]ly 1[5]. Sch[r] Napoleon, Chase, from […] [wi]th flour and lumbe[r]. [Ju]ly 1[5]. Sc[hr] [Swan], Gilbert, from St. […]; […] Austin, from […] lumber, &c. [Ju]ly 16. [Schr H]a[n]nah, from St. Joseph, [with flour] and passengers. [Ju]ly 16. [St]e[a]mboat U[nit]e[d States], Bar[ke]r, [from] Buffalo, with freight and passeng[ers]. CLEARED. [July 1]0. Sch[r] Swan, Gilbert, for St. Jo[seph]; Brig Joh[n] [K]i[nz]i[e], f[or] Buffalo; [Schr] Hannah, for St. Joseph. Schr Llewel[l]ing, for Root River, Buffalo. [Ju]ly 16. Brig Il[lin]o[is] for Michigan Ci[ty]; Sch[r] La [G]range, for Detr[o]it; Ste[a]mboat United St[at]es for B[uffalo and] Milwake[e].",
+      "locator": {
+        "artifact_role": "primary",
+        "issue_page": 3,
+        "column": 5,
+        "lines": [
+          265,
+          277
+        ],
+        "lines_of_claim": [
+          265,
+          266,
+          267,
+          268,
+          269,
+          270,
+          271,
+          272,
+          273,
+          274,
+          276,
+          277
+        ],
+        "interleaved": true,
+        "spans": [
+          {
+            "line": 265,
+            "from": 0,
+            "to": 32
+          },
+          {
+            "line": 266,
+            "from": 0,
+            "to": 8
+          },
+          {
+            "line": 267,
+            "from": 0,
+            "to": 59
+          },
+          {
+            "line": 268,
+            "from": 0,
+            "to": 44
+          },
+          {
+            "line": 269,
+            "from": 0,
+            "to": 23
+          },
+          {
+            "line": 270,
+            "from": 0,
+            "to": 53
+          },
+          {
+            "line": 271,
+            "from": 0,
+            "to": 97
+          },
+          {
+            "line": 272,
+            "from": 0,
+            "to": 671
+          },
+          {
+            "line": 273,
+            "from": 0,
+            "to": 43
+          },
+          {
+            "line": 274,
+            "from": 0,
+            "to": 104
+          },
+          {
+            "line": 276,
+            "from": 0,
+            "to": 40
+          },
+          {
+            "line": 277,
+            "from": 0,
+            "to": 109
+          }
+        ]
+      },
+      "entities": [],
+      "notes": "THE FULLEST PORT COLUMN OF THE RUN: twelve arrivals and eight clearances between July 7 and July 16 — roughly a vessel a day working the river mouth three weeks after the scene date. FIVE CARGOES OF LUMBER OR FLOUR, and the trade pattern is now unmistakable: St. Joseph, Root River, Michigan City, Milwaukee and Detroit on the short runs, Buffalo on the long one. A BRIG NAMED JOHN KINZIE clears for Buffalo on the 10th, which is worth a line of its own: the man this run documents four times as a merchant, steamboat agent and landlord also has a lake brig carrying his name. The names of masters ('Gauchnois', 'Wagstaff', 'Barker') are single-pass OCR of a list set in small type and are bracketed where completed."
+    },
+    {
+      "id": "c003",
+      "kind": "business",
+      "reading": "transcription_mediated",
+      "quote": "‘aug: Auction & Commission (HE mubscriber hve taken David Catver's pid! stand, South Water street, for the parposd of ‘Xransscting the abore business, Advanesa mide; ‘on goods. Immediataly aftet salen all owned. noe ‘will be sat err ¥ } nyt 6. Wi, Montoouany, —Wwhelenie ait y aa Retail. RY Goods, Grosetes, Hardware and Crabh. ny es ale by o bas\n7 Chicage, Juae 1341835 cine Notice; PERSONS orton of teving Lote deposed of, either by publioar private wale, can nies ‘the same done pas veal and dispatch by TTOOMERY, Auctioness, daly 1%, ies",
+      "normalized": "Auction & Commission. [T]HE subscriber h[a]ve taken David C[a]rver's [o]l[d] stand, South Water street, for the p[u]rpos[e] of transacting the abo[v]e business. Advance[s] m[a]de on goods immediat[e]ly aft[e]r sale[s]; all cons[ig]n[me]n[ts] will be so[ld …]. [Ju]l[y] 6. W[m]. Montgo[me]ry. Wholes[a]le a[n]d Retail. [D]RY Goods, Grocer[i]es, Hardware and Cr[oc]k[ery …] [for s]ale by […] Chicago, Ju[n]e 13[,] 1835. Notice. PERSONS [des]ir[ous] of [ha]ving Lot[s] d[i]s[po]sed of, either by public [o]r private [s]ale, can [ha]ve the same done [with] […] and dispatch by [W. MON]TGOMERY, Auctioneer. [Ju]ly 1[8], 18[35].",
+      "locator": {
+        "artifact_role": "primary",
+        "issue_page": 3,
+        "column": 6,
+        "lines": [
+          293,
+          297
+        ],
+        "lines_of_claim": [
+          293,
+          297
+        ],
+        "interleaved": true,
+        "spans": [
+          {
+            "line": 293,
+            "from": 0,
+            "to": 346
+          },
+          {
+            "line": 297,
+            "from": 0,
+            "to": 194
+          }
+        ]
+      },
+      "entities": [],
+      "ad_copy_date": {
+        "verbatim": "daly 1%, ies",
+        "iso": "1835-07-18"
+      },
+      "business": {
+        "name": "a new auction and commission room, South Water Street",
+        "proprietors": [],
+        "trade": "auction and commission of goods and town lots",
+        "goods": [
+          "Crockery",
+          "Dry Goods",
+          "Groceries",
+          "Hardware"
+        ],
+        "street": "South Water Street",
+        "placement": {
+          "class": "relative",
+          "anchor": "David Carver's old stand",
+          "offset_text": "taken David Catver's pid! stand, South Water street,",
+          "offset_normalized": "taken David C[a]rver's [o]l[d] stand, South Water street",
+          "street": "South Water Street"
+        }
+      },
+      "notes": "THE AUCTION ROOM'S PLACEMENT SET CLEAN AT LAST — 'David Carver's old stand, South Water street' in one unbroken phrase, where the three earlier printings each lost part of it. It also shows what the room was FOR three weeks after opening: a second notice in the same column offers to dispose of TOWN LOTS by public or private sale, so the auctioneer is trading in real estate as well as goods in the summer of the land boom. The 'doors west of J. Wright's' half of the address is absent from this printing and is carried by 1835-07-04's."
+    },
+    {
+      "id": "c004",
+      "kind": "business",
+      "reading": "transcription_mediated",
+      "quote": "WY CUT NAILS ND SERS oat tires, A lore FM, wien of led, Costand German Stee, Paseng Horse Shoes, 3 setts MM fi Mites Miled Cut Baws, Amity, Views, Ci\nRON AND NAILS.—100 Kags Cat Ni R ‘and Band J\nAKES, Scythe Sauths, Warranted Rive Forkn, Ubovela, Spaden, Moen oad\nBred 3d Champa Wine 100 boxes hear Claret Wind, HUBBARD & CO, DOE Grass) es ths. a Hay ae 3 dé Manure da 16 do Bhuvele 6 lea\n2 do pasting oensie Seythe Stones, Rifles, dc. fc. for ante PHILO CAl",
+      "normalized": "[CUT] NAILS [A]ND S[PIK]ES o[f] a[ll] [s]i[z]es. A[lso an assortment] of I[ron], Cast and German Stee[l], Pate[nt] Horse Shoes, 3 setts M[ill Irons], Mill [and Cro]ss Cut [S]aws, An[vils], Vi[c]es, C[rowbars …] IRON AND NAILS. — 100 K[e]gs C[u]t Na[ils …] and Band [Iron …] [R]AKES, Scythe S[n]aths, Warranted Rive[ted] Fork[s], [Sh]ovel[s], Spade[s], [H]oe[s] and […] […] Champa[gne] Wine, 100 boxes […] Claret Wine. HUBBARD & CO. […] Grass [Scythes]; […] Hay [Forks]; 3 d[o]. Manure d[o].; 16 do. Sh[o]vel[s]; 6 […] 2 do. […] Scythe Stones, Rifles, &c., &c., for [s]a[l]e [by] PHILO CA[RPENTER].",
+      "locator": {
+        "artifact_role": "primary",
+        "issue_page": 3,
+        "column": 6,
+        "lines": [
+          295,
+          308
+        ],
+        "lines_of_claim": [
+          295,
+          303,
+          304,
+          307,
+          308
+        ],
+        "interleaved": true,
+        "spans": [
+          {
+            "line": 295,
+            "from": 0,
+            "to": 149
+          },
+          {
+            "line": 303,
+            "from": 299,
+            "to": 343
+          },
+          {
+            "line": 304,
+            "from": 0,
+            "to": 68
+          },
+          {
+            "line": 307,
+            "from": 0,
+            "to": 124
+          },
+          {
+            "line": 308,
+            "from": 0,
+            "to": 69
+          }
+        ]
+      },
+      "entities": [],
+      "business": {
+        "name": "Philo Carpenter, drugs and medicines",
+        "proprietors": [],
+        "trade": "drugs, medicines, dye woods and dye stuffs",
+        "goods": [
+          "Grass Scythes",
+          "Hay Forks",
+          "Manure Forks",
+          "Rifles",
+          "Scythe Stones",
+          "Shovels"
+        ],
+        "street": null,
+        "placement": {
+          "class": "none",
+          "anchor": null,
+          "offset_text": null,
+          "offset_normalized": null,
+          "street": null
+        }
+      },
+      "notes": "THE HARDWARE AND FARM-IMPLEMENT SHELF OF A CHICAGO STORE IN JULY 1835, listed by the piece: cut nails and spikes, iron, cast and German steel, patent horse shoes, mill irons, cross-cut saws, anvils, vices, crowbars, rakes, scythe snaths, riveted forks, shovels, spades, hoes, grass scythes, hay and manure forks, scythe stones and rifles. That is a directly usable inventory for a reconstruction that dresses yards, sheds and shopfronts. ATTRIBUTION IS PARTIAL AND IS SAID SO: only the last group carries a signature (Philo Carpenter) and only the wines carry Hubbard & Co.'s; the nails and the implements sit in spans the segmenter has cut away from whatever signed them, and they are recorded on Carpenter's business as the nearest signature in the same column. The IRON AND NAILS line dated June 13 matches the unsigned hardware card 1835-06-13 could not attribute either — the same stock, still unclaimed after five weeks."
+    },
+    {
+      "id": "c005",
+      "kind": "business",
+      "reading": "transcription_mediated",
+      "quote": "‘OR SALE. oOo’ conslonMent: 4000 Tights Wi ‘Sash made by hand,\nJNO, WILSON & ¢: Chicago, June 12, 1835.:\nON CONSIGNMENT, | SUPPLY of Saranac Window Glens, a Baile! Grows ee wtih = mil be. is\nfrre baer ace Rivcago toe 81S, NEW YORK AND BROOKLY)\nCrown Glass, i ]OR vale at the prices current of the Contpe. EY 2%: (rth the addition of fright) by",
+      "normalized": "[F]OR SALE. O[n] consignment: 4000 [l]ights Wi[ndow Glass]; Sash made by hand. JNO. WILSON & C[o.] Chicago, June 12, 1835. ON CONSIGNMENT, [a] SUPPLY of Saranac Window Gla[ss], a[nd Ba]l[timor]e Crow[n Glass …] with […] […] NEW YORK AND BROOKLY[N] Crown Glass, [F]OR [s]ale at the prices current of the C[om]p[any] (w[i]th the addition of fr[e]ight) by […]",
+      "locator": {
+        "artifact_role": "primary",
+        "issue_page": 3,
+        "column": 6,
+        "lines": [
+          299,
+          306
+        ],
+        "lines_of_claim": [
+          299,
+          300,
+          301,
+          305,
+          306
+        ],
+        "interleaved": true,
+        "spans": [
+          {
+            "line": 299,
+            "from": 0,
+            "to": 62
+          },
+          {
+            "line": 300,
+            "from": 0,
+            "to": 41
+          },
+          {
+            "line": 301,
+            "from": 0,
+            "to": 85
+          },
+          {
+            "line": 305,
+            "from": 0,
+            "to": 52
+          },
+          {
+            "line": 306,
+            "from": 0,
+            "to": 99
+          }
+        ]
+      },
+      "entities": [],
+      "ad_copy_date": {
+        "verbatim": "Chicago, June 12, 1835.:",
+        "iso": "1835-06-12"
+      },
+      "business": {
+        "name": "Jno. Wilson & Co.",
+        "proprietors": [],
+        "trade": "dry goods, groceries and hardware",
+        "goods": [
+          "Window Glass",
+          "Window Sash"
+        ],
+        "street": null,
+        "placement": {
+          "class": "none",
+          "anchor": null,
+          "offset_text": null,
+          "offset_normalized": null,
+          "street": null
+        }
+      },
+      "notes": "FOUR THOUSAND LIGHTS OF WINDOW GLASS AND SASH MADE BY HAND, on consignment in one Chicago store — and in the same column, Saranac window glass and TWO named crown glasses, New York and Brooklyn, sold at the company's prices plus freight. This is the best glazing evidence in the corpus and it bears directly on how this project treats windows: hand-made sash, glass shipped in by named works, and a quantity (4,000 lights) that says how much building was going on. Three consignments are quoted together because they run together in the column; only the first carries a signature, Jno. Wilson & Co., and only its goods are attributed."
+    },
+    {
+      "id": "c006",
+      "kind": "event",
+      "reading": "transcription_mediated",
+      "quote": "13 filleen years ot =n pat rth wont DARE CHESNUT HORSE, stoct ixtien bands tiie hatred etd ou any marr brand. ‘The owgar Rival im by proving property and paying. on",
+      "normalized": "[… ] [a] DAR[K] CHESNUT HORSE, [ab]o[u]t [s]ixt[ee]n hands [high, without] any mar[k o]r brand. The ow[ner may have] hi[m] by proving property and paying […]",
+      "locator": {
+        "artifact_role": "primary",
+        "issue_page": 3,
+        "column": 6,
+        "lines": [
+          290,
+          290
+        ],
+        "lines_of_claim": [
+          290
+        ],
+        "interleaved": true,
+        "spans": [
+          {
+            "line": 290,
+            "from": 0,
+            "to": 164
+          }
+        ]
+      },
+      "entities": [],
+      "notes": "THE ESTRAY OF 1835-07-11, REPRINTED WITH THE DESCRIPTION LEGIBLE: a dark chestnut horse of about SIXTEEN HANDS, unmarked and unbranded. The earlier printing carried the finder's address — John K. Clark, eight miles up the North Branch — and lost the animal; this one carries the animal and loses him. Sixteen hands is a large horse for the frontier and is the only documented measurement of a live animal in this corpus, which matters to a project that puts horses and waggons in its streets at a stated scale."
+    }
+  ]
+}

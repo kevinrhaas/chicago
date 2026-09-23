@@ -1,0 +1,96 @@
+{
+  "id": "newberry_dole_slaughterhouse_south_branch",
+  "name": "Newberry & Dole's Slaughter-House, South Branch",
+  "aka": [
+    "Oliver Newberry and George W. Dole's slaughter-house"
+  ],
+  "archetype": "outbuilding",
+  "phases": [
+    {
+      "id": "works_1834",
+      "documented_range": {
+        "from": "1834-01-01",
+        "to": "1835-12-31",
+        "confidence": "inferred",
+        "sources": [
+          "andreas_1884_v1"
+        ],
+        "note": "THE YEAR IS DOCUMENTED AND THE MONTH IS NOT. Andreas, in the packing-house chapter: 'In 1834, Oliver Newberry and George W. Dole had a slaughter-house erected on the South Branch of the river, where some three hundred head of cattle and fourteen hundred hogs were packed during the year' (scan p. 1151). The range therefore opens at the start of 1834 for want of a month; packing is winter work, so the plant was probably up by the autumn of that year rather than in January, and the phrase 'during the year' means the 1834 season. THE SURVIVAL TO 1835-07-01 IS ORDINARY CONTINUITY AND IS NOT ATTESTED — nothing reached follows this building past its first season. What can be said for it is that a purpose-built plant which handled 300 cattle and 1,400 hogs in its first year was not abandoned within eighteen months, and that the firm was still trading in Chicago through the decade. The range closes at the end of 1835 as the last date this record needs to claim."
+      },
+      "position": {
+        "utm_e": 447147.0,
+        "utm_n": 4637130.0,
+        "rotation_deg": 270.0,
+        "symbolic_location": "On the South Branch of the Chicago River below the town, on the east bank, about 270 m south of the datum origin at the forks. The reach and the side of the branch are not attested.",
+        "confidence": "reconstructed",
+        "note": "A POINT CHOSEN ON A NAMED RIVER, NOT A DERIVATION. What Andreas gives is 'on the South Branch of the river' (scan p. 1151) and nothing else — no reach, no bank, no cross street, no distance from the town. The South Branch runs about 3 km south and south-west from the forks before the modelled ground gives out, so the attested statement locates this building to a corridor kilometres long. TWO CHOICES WERE MADE AND BOTH ARE INVENTIONS. First, the SIDE: the east bank, because it is the South Division side and because both partners' other premises in this dataset are in the South Division — dole_warehouse_south at Lake and Dearborn, newberry_dole_warehouse on South Water Street — which is an argument about where the firm did business and not a statement about this building. Second, the REACH: local N -264 to -254, about 260 m south of the forks and 80 m south of the south_branch_raft_bridge, which puts the plant below the town limits of November 1833 (Jackson Street on the south) and clear of the built-up ground, where a nuisance trade belongs and where the sources do put slaughtering generally. Both readings are plausible and neither is evidence. METHOD: the west face is set about 13 m back from the east bank line traced for this terrain epoch (data/terrain/epochs/e1834_harbor_cut/river.geojson), which leaves room for the landing and the pens that are not modelled. Facade bearing 270, due west onto the branch, on the same reasoning as clybourn_slaughterhouse — a killing floor works to the water — which is an argument from the trade, not a source. WORKING UNCERTAINTY IS THE COARSEST IN THIS PARCEL after the two displaced Clybourne records: hundreds of metres along the branch, and a coin-flip on the bank.",
+        "derivation": {
+          "method": "not_derivable",
+          "reason": "This placement predates the derivation module. Its provenance and reasoning are recorded in position.note, but no machine-checkable derivation block has been authored for it yet."
+        }
+      },
+      "footprint": {
+        "polygon": [
+          [
+            0,
+            0
+          ],
+          [
+            12,
+            0
+          ],
+          [
+            12,
+            10
+          ],
+          [
+            0,
+            10
+          ]
+        ],
+        "confidence": "reconstructed",
+        "note": "PLACEHOLDER — NO DIMENSION IS ATTESTED, and as with clybourn_slaughterhouse the size answers a documented CAPACITY rather than being chosen freely. Andreas records 300 head of cattle and 1,400 hogs packed here during 1834 (scan p. 1151), a throughput a little larger than the Clybourne plant's for the same season, so this footprint is drawn a little larger: 12 x 10 m, about 39 x 33 ft, with the 12 m along the bank and the 10 m as the depth. Every number is invented and the polygon cites no sources; the capacity constrains the order of magnitude and nothing finer. The pens, the yard and the barrelling and salting space that a packing operation needs are outside the footprint and outside this archetype, which builds a building rather than a works."
+      },
+      "form": {
+        "wall_height_m": {
+          "value": 3.2,
+          "confidence": "inferred",
+          "note": "No figure is attested. 3.2 m is about 10 1/2 ft, a working height for a killing floor where beasts are hoisted and dressed hanging — higher than a dwelling's wall and lower than the archetype's size-aware default of 3.69 m for a footprint this size, which would read as a building with a room over it. What is inferred is the range, not the number."
+        },
+        "door": {
+          "value": "stable",
+          "confidence": "inferred",
+          "note": "No source describes an opening. 'stable' is the archetype's term for a doorway wide enough to lead a beast through in hand, and the documented throughput — 300 cattle in a season — requires one. Anything narrower would assert that the killing was done in a yard, which nothing says."
+        },
+        "door_side": {
+          "value": "front",
+          "confidence": "reconstructed",
+          "note": "NOT ATTESTED. Placed on the elevation facing the branch, matching the facade bearing, for the same unevidenced reason: the water is where the landing and the offal went. If the stock came overland off the prairie the door belongs on the other side. Recorded conjectural rather than allowed to arrive as a default."
+        }
+      },
+      "change_note": "The plant as erected in 1834 and worked through that packing season. No change of fabric is documented inside the phase, because nothing describes the building at all after the sentence that records its erection."
+    }
+  ],
+  "function": {
+    "value": "slaughterhouse_packing",
+    "confidence": "attested",
+    "sources": [
+      "andreas_1884_v1"
+    ],
+    "note": "'a slaughter-house erected on the South Branch of the river, where some three hundred head of cattle and fourteen hundred hogs were packed during the year' (scan p. 1151). The building and its first season's throughput are the whole of what is recorded. Note that July is between packing seasons — the trade is winter work — so the honest reading of the scene date is a standing plant not in operation."
+  },
+  "occupants": {
+    "value": "George W. Dole and Walter L. Newberry, trading as Newberry & Dole",
+    "confidence": "inferred",
+    "sources": [
+      "chicago_democrat_1833_11_26",
+      "chicago_democrat_1833_1835",
+      "chicago_american_1835",
+      "fergus_chicago_directory_1839",
+      "andreas_1884_v1"
+    ],
+    "note": "THE FIRM IS DOCUMENTED AND THE PARTNER WAS MIS-ATTRIBUTED; T-0396 IS THE RULING (2026-09-12). This field read 'Oliver Newberry and George W. Dole' at `attested` on Andreas's packing-house chapter (scan p. 1151). Andreas is wrong on the Newberry, and the firm's own paid advertisement is what says so. IN EVERY SETTING OF THE NEWBERRY & DOLE CARD THAT NAMES OLIVER NEWBERRY HE STANDS IN ITS REFERENCE LIST, UNDER DETROIT — 'Oliver Newberry, [Det]roit' (Chicago Democrat, 1 April 1834, claim chicago_democrat_1834_04_01#c013) and 'OLIVER NKWBERRY, Detroit.' (1 July 1835, chicago_democrat_1835_07_01#c015) — one correspondent per port, beside Coenties Slip in New York, Barker & Holt of Buffalo, Calvin Britain at the mouth of the St Joseph and James B. Campbell at Ottawa. Both claims' own entity blocks give his role as a reference named in the advertisement, and neither gives him a trade. A house does not print its own resident partner as the man to write to in another city. THE SETTING OF 5 AUGUST 1835 (chicago_democrat_1835_08_05#c022) HOLDS BOTH MEN AT ONCE, which is what makes this a decision and not a preference: its partner entity reads 'NEWRERRY' at the trade of forwarding and commission merchant, while 'Oliver Newb[err]y, Detro[it]' still stands in the same card's reference list. THE TWO LIMBS ARE GRADED SEPARATELY, and the weaker one sets the confidence of the whole attribute. That Oliver Newberry was NOT the Chicago partner rests on the firm's own contemporary card against a compiler writing in 1884. WHICH Newberry he was is INFERRED: Fergus's directory of 1839 prints 'Newberry, Walter L., att'y and real est., office Newberry & Dole' — the firm's office as his office; the Chicago American of 8 June 1835 prints 'W. L. NEWBERRY' over the great sale of town lots and sets 'NEWBERRY & DOLE' over the same date in the adjacent column of the same issue; and no other Newberry forename is printed for Chicago anywhere in this corpus. The firm style is unbroken from 26 November 1833 to 5 August 1835 and no printing records a change of partner, so the ruling reaches across this record's whole range rather than only the scene date. THE ONE RIVAL LEFT UNRESOLVED IS NOT A PRINTING: the land register's WALTER S / W S, read at data/research/land_sales/README.md § The two Newberrys the register writes. The ruling itself is declared at data/research/newspapers/identity.json § proprietor_distinctions, which is where the corpus put the question. The value records who had it erected and worked it, not who was on the premises on any given day. `aka` KEEPS ANDREAS'S OWN PHRASE, 'Oliver Newberry and George W. Dole's slaughter-house', because it is what the literature calls this building and a reader arriving with that phrase must still find the record; it is kept as the received name it is and not as an attribution this dataset makes."
+  },
+  "research_note": "PART OF A THREE-BUILDING TANGLE THAT THIS DATASET MUST KEEP APART, and the tangle is the reason this record's name carries its river in it. Andreas's packing chapter describes, within a few sentences: George W. Dole's 1832 warehouse and slaughter yard on the SOUTH SIDE near the later Tremont House site at Lake and Dearborn, which is this dataset's dole_warehouse_south; this 1834 Newberry and Dole slaughter-house on the SOUTH BRANCH, which is this record; and Newberry & Dole's forwarding warehouse, whose bank is disputed and which is this dataset's newberry_dole_warehouse. Three different buildings, two of them sharing a firm and a partner, all of them called some combination of the same words in the literature. Merging any two of them would put a packing plant in the middle of the town's mercantile street or a commission house on an empty branch bank. THE READING THAT THIS RECORD ADDS TO THE OTHERS: the 1834 South Branch plant is very likely why the slaughtering half of Dole's 1832 south-side yard stopped — a killing yard behind a warehouse two blocks from the river is what a firm builds before it can afford a plant, and the plant arrives in 1834. That is inference and it belongs in the reading of the scene, not in either record's date range. See docs/research/04-structures-south.md, 'Date/location guards for South Water'.",
+  "review_required": false
+}

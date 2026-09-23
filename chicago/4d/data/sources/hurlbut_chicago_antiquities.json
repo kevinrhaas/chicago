@@ -1,0 +1,29 @@
+{
+  "id": "hurlbut_chicago_antiquities",
+  "type": "book",
+  "citation": "Henry Higgins Hurlbut, Chicago Antiquities: Comprising Original Items and Relations, Letters, Extracts, and Notes, Pertaining to Early Chicago. Chicago: printed for the author, 1881. A compiler's gathering of documents and recollections about Chicago before the city — letters, extracts, muster and subscription lists, and long passages quoted from men who were here — with Hurlbut's own bracketed notes between them.",
+  "author": "Henry Higgins Hurlbut (1813-1890), compiler; the documents and recollections are by their own authors",
+  "date": "1881",
+  "describes_date": "Chicago from the fort to about 1840, densest on the 1820s and 1830s",
+  "repository": "Internet Archive, from the New York Public Library copy",
+  "url": "https://archive.org/details/chicagoantiquiti00hurl",
+  "archived_url": "https://archive.org/details/chicagoantiquiti00hurl",
+  "locator": "Internet Archive item chicagoantiquiti00hurl, 710 images; text layer chicagoantiquiti00hurl_djvu.txt, 1,913,632 bytes, sha256 54c31bbadb7b5a625bcc46d0bd87aff27568e5501b13cb52cf59c0500a7e1242. The Cornell scan cu31924006546513 is the same book and is the copy chicago_antiquities_pratt cites. Cite the printed page; the chapter on the American Fur Company and Chicago is printed pages 28-36.",
+  "tier": 4,
+  "rights_status": "public_domain",
+  "rights_note": "Published 1881, and the Internet Archive item carries possible-copyright-status NOT_IN_COPYRIGHT.",
+  "asset_use": "text_only",
+  "verified": true,
+  "access_notes": "LOCATED AND OPENED 2026-09-05 for T-0582, which listed this work as absent from the project's sources. IT IS HALF ABSENT, and the correction is the point of this record. Two records already cite Hurlbut — chicago_antiquities_pratt (the printing-press passage, read from a Wikimedia copy of the Cornell scan) and chicago_antiquities_american_fur_co (pages 28-36, read from a Genealogy Trails web transcription, whose repository field says in as many words 'Nobody in this project has seen the book'). Neither is a record of the VOLUME, and until this file there was no locator anyone could open to check either of them or to read anything else. The NYPL scan's text layer was downloaded in full, its sha256 is above, and the American Fur Company chapter was read back against the transcription: the scan opens that chapter 'THE AMERICAN FUR COMPANY AND CHICAGO. During the existence of the American Fur Company, Chicago was at times the home or head-quarters of various of its agents; Hubbard, Beaubien, Crafts, and the Kinzies, at least, sojourned here more or less' — the sentence the transcription carries. WHAT THE OPENING MEASURED: 'Kinzie' 467 times, 'Beaubien' 345, '1835' 83, 'Sauganash' 44, 'Hubbard' 78. That is denser in 1830s Chicago names than any of the other three works located under T-0582 by a factor of ten, on TWO Newberry cards. The Newberry index is the wrong instrument for ranking this book.",
+  "what_it_supplies": [
+    "documents and recollections about Chicago in the 1820s and 1830s printed at length, with the compiler's own notes kept typographically separate",
+    "a scan whose printed pages can be cited, for the two passage records this project already rests on and for anything read from the book next",
+    "names, and the settings they are named in: the Sauganash corner, a hardware store, the fur company's agents"
+  ],
+  "what_it_does_not_supply": [
+    "a single rung: the volume is a compilation, and what a passage is worth depends on the document Hurlbut printed there, not on the book. chicago_antiquities_american_fur_co is graded tier 1 for Hubbard's own quoted account and declares it in `transcribes`; this volume-level record is graded 4 for the compiler's apparatus and must not be used to lift a claim",
+    "any systematic coverage: it is what one man gathered, in the order he gathered it, and its silence about a person or a building means nothing",
+    "any geometry, dimension or position that is not stated in a document it prints"
+  ],
+  "note": "Written for T-0582 as a LOCATION. Grade a claim on the document Hurlbut prints, in its own record, the way chicago_antiquities_american_fur_co does — this file exists so that the book behind those records can be opened at a page."
+}

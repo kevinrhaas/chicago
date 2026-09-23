@@ -1,0 +1,130 @@
+{
+  "schema": 1,
+  "_doc": "HAND-AUTHORED, and rebuilt from the committed text by tools/read_st_cyr_register.py --check, which fails on one changed character. The marriage page is a LIST wrapped in an ARTICLE, and the article carries things the entries cannot: which marriages were not at Chicago, which witness the author read differently from the register, how long each priest was here, and the register's own totals. Those are claims, and they live here rather than in a record row.",
+  "generated_by": "tools/read_st_cyr_register.py --build",
+  "source_id": "st_cyr_register_ichr_v4",
+  "claims": [
+    {
+      "id": "st_cyr_c001",
+      "kind": "event",
+      "reading": "transcription_mediated",
+      "quote": "5 At this point on the marriage record appears the following: \"They all (the last three couples) were married in the home of Hy Durbin in the presence of several witnesses, Bear Creek, Sangamon County, Illinois.\"",
+      "normalized": "Three of the four 1834 marriages on this page — John Simmons to Mary Durbin on 20 May and the two of 21 May — were performed at Bear Creek, Sangamon County, on St. Cyr's return journey from St. Louis, not at Chicago.",
+      "locator": {
+        "text_file": "st_cyr_marriages_1834_1839.txt",
+        "lines": [
+          12,
+          12
+        ],
+        "list": "st_cyr_marriages_1834_1839"
+      },
+      "describes_date": "1834-05",
+      "entities": [
+        "John Simmons",
+        "Mary Durbin",
+        "John Vincent",
+        "Marion Simmons",
+        "Henry Simmons",
+        "Cery Logdson",
+        "Hy Durbin"
+      ],
+      "town_finding": true,
+      "notes": "The page is titled \"First Chicago Marriage Records\" and three of its first four entries are not Chicago at all. Carried onto those three rows themselves as place and at_chicago: false, because a caveat filed somewhere else is a caveat nobody reads."
+    },
+    {
+      "id": "st_cyr_c002",
+      "kind": "person",
+      "reading": "transcription_mediated",
+      "quote": "The marriage of Patrick Carroll and Mary Hogan, which occurred on April 21, 1835, was witnessed by Thomas Watkins and Patrick Meleney.",
+      "normalized": "The article reads the witness the register spells Thomas Witkins as Thomas Watkins, and identifies him with the Watkins of the cholera-ice incident on a lake boat that Rev. Jeremiah Porter publicly objected to in 1834.",
+      "locator": {
+        "text_file": "st_cyr_marriages_1834_1839.txt",
+        "lines": [
+          149,
+          149
+        ],
+        "list": "st_cyr_marriages_1834_1839"
+      },
+      "describes_date": "1835-04-21",
+      "entities": [
+        "Thomas Watkins",
+        "Patrick Carroll",
+        "Mary Hogan",
+        "Patrick Meleney",
+        "Jeremiah Porter"
+      ],
+      "town_finding": true,
+      "notes": "TWO READINGS OF ONE MAN ON ONE PAGE. The entry prints Thomas Witkins; this paragraph prints Thomas Watkins. The record keeps the entry's spelling in as_read and this claim keeps the article's, and the pair is refused against the project's attested John Watkins in crosswalk.json. The cholera story is also the page's only description of Rev. Jeremiah Porter, whom this reconstruction already holds."
+    },
+    {
+      "id": "st_cyr_c003",
+      "kind": "person",
+      "reading": "transcription_mediated",
+      "quote": "As will be remembered, Father St. Cyr arrived in Chicago on May 5, 1833, and left Chicago in the latter part of March, 1837. 10 Father Bernard Schaeffer, the next to arrive, was here early in May, 1836, and died here October 2, 1837. 11",
+      "normalized": "Father J. M. I. St. Cyr was at Chicago from 5 May 1833 to late March 1837; Father Bernard Schaeffer arrived early in May 1836 and died at Chicago on 2 October 1837.",
+      "locator": {
+        "text_file": "st_cyr_marriages_1834_1839.txt",
+        "lines": [
+          164,
+          164
+        ],
+        "list": "st_cyr_marriages_1834_1839"
+      },
+      "describes_date": "1833-1837",
+      "entities": [
+        "J. M. I. St. Cyr",
+        "Bernard Schaeffer"
+      ],
+      "town_finding": true,
+      "notes": "The bound that makes the register usable: St. Cyr was the only Catholic priest at Chicago through the whole of 1835, which is why every one of the six scene-year marriages and every scene-year burial is signed by him and by nobody else. It also independently supports data/sources/catholic_chicago_st_cyr_1833.json, which was until now the only thing bounding his ministry here."
+    },
+    {
+      "id": "st_cyr_c004",
+      "kind": "notice",
+      "reading": "transcription_mediated",
+      "quote": "Rev. John Mary Iranaeus St. Cyr, baptisms, 46; marriages, 22. Rev. Bernard Schaeffer, baptisms, 31; marriages, 18. Rev. Timothy O'Meara, baptisms, 195; marriages, 87.",
+      "normalized": "The article's own tally of the first Chicago church register: St. Cyr 46 baptisms and 22 marriages, Schaeffer 31 and 18, O'Meara 195 and 87, with 6 baptisms and 1 marriage by John F. Plunkett and 4 baptisms by Bishop Brute.",
+      "locator": {
+        "text_file": "st_cyr_marriages_1834_1839.txt",
+        "lines": [
+          171,
+          171
+        ],
+        "list": "st_cyr_marriages_1834_1839"
+      },
+      "describes_date": "1834-1839",
+      "entities": [
+        "J. M. I. St. Cyr",
+        "Bernard Schaeffer",
+        "Timothy O'Meara",
+        "John F. Plunkett",
+        "Simon William Gabriel Brute"
+      ],
+      "town_finding": false,
+      "notes": "THIS IS THE CHECK, and it is why the reading can be trusted without the book. 22 + 18 + 87 + 1 = 128, and the parse of the entries above returns 22, 18, 87 and 1 by priest, independently. It is also where T-0573's \"87 marriages\" came from: 87 is O'Meara's subtotal, not the page. The baptism counts are the measure of what is still unread — 282 baptisms are tallied here and this page prints none of them, which is the size of T-0503's object."
+    },
+    {
+      "id": "st_cyr_c005",
+      "kind": "business",
+      "reading": "transcription_mediated",
+      "quote": "The next name on the record which is more or less familiar is that of Charles McDonnell, who married Ann Charles on September 20, 1836. McDonnell, so we are told in the writings of some of the earlier residents, was the first book seller in Chicago, a devout and active Catholic gentleman, and a worthy member of all the early Catholic societies.",
+      "locator": {
+        "text_file": "st_cyr_marriages_1834_1839.txt",
+        "lines": [
+          153,
+          153
+        ],
+        "list": "st_cyr_marriages_1834_1839"
+      },
+      "normalized": "Charles McDonnell, married at Chicago 20 September 1836, is described as the town's first book seller; Bishop Quarter's diary dates his Catholic book store to March 1845.",
+      "describes_date": "1836-09-20",
+      "entities": [
+        "Charles McDonnell",
+        "Ann Charles",
+        "William Quarter"
+      ],
+      "town_finding": false,
+      "notes": "LATER EVIDENCE, and filed as a business claim only so the next sweep does not have to find it again. The marriage is 1836 and the book store is 1845; neither reaches 1835 and no business record is created. The article's own footnote is what dates the store, and it contradicts the loose \"first book seller in Chicago\" the sentence opens with."
+    }
+  ]
+}

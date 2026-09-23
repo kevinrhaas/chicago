@@ -1,0 +1,1458 @@
+{
+ "_doc": "T-1232. Every matched resident-research block (asserted_identity: true) read once, by hand, for the person-profile facts it states and the record does not hold. A row is a CANDIDATE FACT and never a finding on its own: tools/spend_person_facts.py adjudicates it, holds the verdicts against its own rules, and writes only the asserted ones onto the records. The file is the reading; the table at data/residents/person_facts.json is what the reading became. Both are gated by `spend_person_facts.py --check`.\n\nWHY SO MANY ROWS ARE WITHHELD. Three standing rulings do most of the withholding and none of them is this ticket's to overturn: T-0513/T-0514/T-0515 say a later-volume reading may date and corroborate and may never promote, so a birth year arithmetic'd out of an 1876 death notice is `later_only`; a source that places the person somewhere else is `outside_chicago`; and a trade, office or interest belongs to the plural-roles field T-1145 is building, so it is `unresolved:T-1145` here rather than spent twice. A withheld fact is not a lost one — it is written down with its reason, which is the whole point of the table.\n\nNO PERSON IS CREATED BY THIS FILE. A marriage names a spouse and a chronology names a travelling companion; neither mints a household member. T-1170 fills families from exactly these rows.",
+ "ticket": "T-1232",
+ "read_on": "2026-09-17",
+ "scene_date": "1835-07-01",
+ "fact_classes": {
+  "arrival_at_chicago": "A dated arrival at Chicago, stated by a source rather than bounded by a postal return.",
+  "origin": "Where the person came from.",
+  "reason_for_coming": "Why they came.",
+  "sex": "Stated or titled by the source; never guessed from a forename here (that is T-1168).",
+  "name_as_printed": "A fuller or different printing of the name, carried BESIDE the read name and never over it.",
+  "birth_year_bound": "A birth year or bracket, usually arithmetic from an age at death.",
+  "death": "A dated death, with its place where the source gives one.",
+  "marriage": "A dated marriage and the party the source names.",
+  "life_event": "Anything else dated the source states about the person.",
+  "departure_from_chicago": "A dated leaving, which bears on presence and never moves it.",
+  "workplace": "A named premises or employer.",
+  "role": "A trade, office or interest."
+ },
+ "no_candidate": {
+  "_doc": "Matched blocks whose text is the consolidation's own 'Independently corroborated; confirmed, not moved' — a verdict on the identity that proposes no fact about the person. Listed so the table can prove all 94 matched blocks were read, rather than only the ones that yielded.",
+  "person_ids": [
+   "adams_william_h",
+   "bates_john_jr",
+   "beaubien_jean_baptiste",
+   "beaubien_josette",
+   "beaubien_madore",
+   "beaubien_mark",
+   "beckford_printer",
+   "blodgett_tyler_k",
+   "boyer_j_k",
+   "brooks_gardner",
+   "brown_lemuel",
+   "brown_mrs_rufus",
+   "brown_rufus",
+   "caldwell_billy",
+   "calhoun_john",
+   "carpenter_philo",
+   "carver_david",
+   "casey_edward_w",
+   "caton_john_dean",
+   "church_thomas",
+   "clybourne_archibald",
+   "cobb_silas_b",
+   "cohen_peter",
+   "couch_ira",
+   "couch_james",
+   "davis_john",
+   "davis_t_o",
+   "dole_george_w",
+   "frame_david_p",
+   "fullerton_alexander",
+   "gale_stephen_f",
+   "garrett_a",
+   "hamilton_richard_j",
+   "harmon_charles_l",
+   "harmon_isaac_d",
+   "hubbard_gurdon",
+   "ingersoll_chester",
+   "kinzie_john_h",
+   "temple_john_t",
+   "wright_john"
+  ]
+ },
+ "readings": {
+  "andrus_thomas": [
+   {
+    "field": "arrival_at_chicago",
+    "value": "1833-12-01",
+    "precision": "day",
+    "confidence": "inferred",
+    "source": "rr_dupage_andrus_1882",
+    "describes_date": "1833-12-01",
+    "place_class": "chicago",
+    "quote": "arrival in Chicago Dec. 1, 1833",
+    "adjudication": "asserted",
+    "reason": "The DuPage history gives a day, and the household's own arrival block is explicit that its 1835-03-31 is a BOUND FROM THE RETURN and not an arrival. The two are different claims about different things and both stand; the bound is not touched."
+   },
+   {
+    "field": "departure_from_chicago",
+    "value": "Returned east in the autumn of 1834",
+    "confidence": "inferred",
+    "source": "rr_dupage_andrus_1882",
+    "describes_date": "1834-09-01",
+    "place_class": "chicago",
+    "quote": "return east in autumn 1834",
+    "adjudication": "asserted",
+    "reason": "A dated leaving, carried as a life event. It does not move present_on_scene_date, which stays 'uncertain' on its own reasoning."
+   },
+   {
+    "field": "life_event",
+    "value": "Back at Chicago in June 1835",
+    "confidence": "inferred",
+    "source": "rr_dupage_andrus_1882",
+    "describes_date": "1835-06-01",
+    "place_class": "chicago",
+    "quote": "arrival back at Chicago in June 1835",
+    "adjudication": "asserted",
+    "reason": "The month before the scene date, from the same chronology. Recorded as the source states it and not converted into presence on 1 July."
+   },
+   {
+    "field": "departure_from_chicago",
+    "value": "Settled in DuPage in July 1835",
+    "confidence": "inferred",
+    "source": "rr_dupage_andrus_1882",
+    "describes_date": "1835-07-01",
+    "place_class": "outside_chicago",
+    "quote": "before settling in DuPage in July",
+    "adjudication": "asserted",
+    "reason": "The same month as the scene. It is why the record's presence is 'uncertain' rather than 'present', and writing it down is what makes that grade legible instead of unexplained."
+   }
+  ],
+  "lampman_henry_s": [
+   {
+    "field": "origin",
+    "value": "Ann Arbor, Michigan",
+    "confidence": "inferred",
+    "source": "chicagology_chicago_brick",
+    "describes_date": "1833-03-01",
+    "place_class": "outside_chicago",
+    "quote": "then of Ann Arbor",
+    "adjudication": "asserted",
+    "reason": "The compilation says where he was of when the brickyard engaged him. An origin is a fact about the person and does not depend on a Chicago address."
+   },
+   {
+    "field": "workplace",
+    "value": "Tyler K. Blodgett's north-side brickyard",
+    "confidence": "inferred",
+    "source": "chicagology_chicago_brick",
+    "describes_date": "1833-03-01",
+    "place_class": "chicago",
+    "quote": "Tyler K. Blodgett's spring 1833 north-side brickyard engaged Henry S. Lampman ... as a workman",
+    "adjudication": "unresolved:T-1147",
+    "reason": "A named workplace is a location finding and T-1147 owns the location spend, with its 123 location limits. Recorded here so the lead is not lost; not written as a works_at."
+   },
+   {
+    "field": "role",
+    "value": "brickmaker",
+    "confidence": "inferred",
+    "source": "chicagology_chicago_brick",
+    "describes_date": "1833-03-01",
+    "place_class": "chicago",
+    "quote": "it calls him Chicago's first brickmaker",
+    "adjudication": "duplicate",
+    "reason": "The record already carries brickmaker as his occupation from this reading."
+   }
+  ],
+  "chandler_joseph": [
+   {
+    "field": "arrival_at_chicago",
+    "value": "1833-06-27",
+    "precision": "day",
+    "confidence": "inferred",
+    "source": "resident_research_chandler_cook_history",
+    "describes_date": "1833-06-27",
+    "place_class": "chicago",
+    "quote": "Chandler arrived from Buffalo on 27 June 1833 with Samuel Jackson and Shapley",
+    "adjudication": "asserted",
+    "reason": "Andreas gives the day. The household's 1834-04-01 is a postal bound and is not touched."
+   },
+   {
+    "field": "origin",
+    "value": "Buffalo, New York",
+    "confidence": "inferred",
+    "source": "resident_research_chandler_cook_history",
+    "describes_date": "1833-06-27",
+    "place_class": "outside_chicago",
+    "quote": "arrived from Buffalo on 27 June 1833",
+    "adjudication": "asserted",
+    "reason": "Where he came from, in the same sentence as the day he came."
+   },
+   {
+    "field": "life_event",
+    "value": "Travelled to Chicago with Samuel Jackson and Morgan L. Shapley",
+    "confidence": "inferred",
+    "source": "resident_research_chandler_cook_history",
+    "describes_date": "1833-06-27",
+    "place_class": "chicago",
+    "quote": "with Samuel Jackson and Shapley",
+    "adjudication": "asserted",
+    "reason": "Two named companions, one of whom (Samuel Jackson) this layer carries. A shared journey is not a household and mints nobody; it is the kind of tie T-1170 will read."
+   },
+   {
+    "field": "role",
+    "value": "executive charge of the Chicago harbour work",
+    "confidence": "inferred",
+    "source": "resident_research_chandler_cook_history",
+    "describes_date": "1833-07-01",
+    "place_class": "chicago",
+    "quote": "having executive charge of Chicago harbor work that began 1 July 1833",
+    "adjudication": "unresolved:T-1145",
+    "reason": "A dated office. The plural-roles field T-1145 is building is where a second role belongs; asserting it into the single occupation field here would have to displace one."
+   }
+  ],
+  "jackson_samuel": [
+   {
+    "field": "arrival_at_chicago",
+    "value": "1833-06-27",
+    "precision": "day",
+    "confidence": "inferred",
+    "source": "chicago_voter_lists_1833_1835_irad",
+    "describes_date": "1833-06-27",
+    "place_class": "chicago",
+    "quote": "Samuel Jackson arrived from Buffalo June 27, 1833",
+    "adjudication": "asserted",
+    "reason": "The same journey Andreas dates for Joseph Chandler, from the other end. Two independent readings of one arrival agree to the day."
+   },
+   {
+    "field": "origin",
+    "value": "Buffalo, New York",
+    "confidence": "inferred",
+    "source": "chicago_voter_lists_1833_1835_irad",
+    "describes_date": "1833-06-27",
+    "place_class": "outside_chicago",
+    "quote": "arrived from Buffalo June 27, 1833",
+    "adjudication": "asserted",
+    "reason": "Stated in the same sentence as the day he arrived. The household's origin block reads 'Not attested.' and this is the source that attests it."
+   },
+   {
+    "field": "role",
+    "value": "foreman of the Chicago harbour construction",
+    "confidence": "inferred",
+    "source": "chicago_voter_lists_1833_1835_irad",
+    "describes_date": "1833-07-01",
+    "place_class": "chicago",
+    "quote": "served as foreman of Chicago harbor construction for some time",
+    "adjudication": "unresolved:T-1145",
+    "reason": "A trade the record does not hold, and a second role for a person whose occupation field can take one value. T-1145 is the field for it."
+   }
+  ],
+  "hugunin_leonard_c": [
+   {
+    "field": "arrival_at_chicago",
+    "value": "1833-08-17",
+    "precision": "day",
+    "confidence": "inferred",
+    "source": "chicago_old_settlers_hugunin_1883",
+    "describes_date": "1833-08-17",
+    "place_class": "chicago",
+    "quote": "record Leonard C. Hugunin as arriving 17 August 1833",
+    "adjudication": "asserted",
+    "reason": "The Old Settlers' proceedings give the day. The household's 1835-06-30 is a postal bound and stands."
+   },
+   {
+    "field": "role",
+    "value": "speculator",
+    "confidence": "inferred",
+    "source": "chicago_old_settlers_hugunin_1883",
+    "describes_date": "1839-01-01",
+    "place_class": "chicago",
+    "quote": "the 1839 Chicago directory lists Leonard C. Hugunin as a speculator",
+    "adjudication": "later_only",
+    "reason": "1839 is four years after the scene. Under the ladder ratified 2026-09-03 (T-0513/T-0514/T-0515) a later volume may date and corroborate and may never promote a trade into 1835."
+   }
+  ],
+  "woodworth_james_h": [
+   {
+    "field": "arrival_at_chicago",
+    "value": "1833",
+    "precision": "year",
+    "confidence": "inferred",
+    "source": "ushouse_james_h_woodworth",
+    "describes_date": "1833-01-01",
+    "place_class": "chicago",
+    "quote": "James Hutchinson Woodworth moved to Chicago in 1833",
+    "adjudication": "duplicate",
+    "reason": "The household already carries 1833 at year precision. The U.S. House historian's biography is the independent source behind it, and the pass's own ledger calls this a safe chronology enrichment; the row records which source the year rests on rather than adding a second one."
+   },
+   {
+    "field": "name_as_printed",
+    "value": "James Hutchinson Woodworth",
+    "confidence": "inferred",
+    "source": "ushouse_james_h_woodworth",
+    "describes_date": "1833-01-01",
+    "place_class": "not_a_place",
+    "quote": "James Hutchinson Woodworth",
+    "adjudication": "asserted",
+    "reason": "The middle name behind the record's 'James H.'. Carried beside the read name; the card's displayed name does not move."
+   }
+  ],
+  "orsemus_morrison": [
+   {
+    "field": "arrival_at_chicago",
+    "value": "1833",
+    "precision": "year",
+    "confidence": "inferred",
+    "source": "resident_research_cook_morrison_album",
+    "describes_date": "1833-01-01",
+    "place_class": "chicago",
+    "quote": "Orsemus Morrison came to Chicago in 1833",
+    "adjudication": "duplicate",
+    "reason": "The household already carries 1833 at year precision. The album is the source that says so, and naming it is worth more than repeating the year: the arrival was minted without a citation a query could reach, and this row is that citation."
+   },
+   {
+    "field": "name_as_printed",
+    "value": "Orsemus Morrison",
+    "confidence": "inferred",
+    "source": "resident_research_cook_morrison_album",
+    "describes_date": "1833-01-01",
+    "place_class": "not_a_place",
+    "quote": "Orsemus Morrison",
+    "adjudication": "asserted",
+    "reason": "The record displays 'Morrison Orsemus' — the same two words the other way round. The album prints Orsemus as the forename. The printing is carried; whether the CARD should lead with it is the question T-1217 owns, and this row is not allowed to answer it."
+   },
+   {
+    "field": "role",
+    "value": "mechanic and builder",
+    "confidence": "inferred",
+    "source": "resident_research_cook_morrison_album",
+    "describes_date": "1833-01-01",
+    "place_class": "chicago",
+    "quote": "worked as a mechanic/builder",
+    "adjudication": "unresolved:T-1145",
+    "reason": "A trade the occupation field reads as none_recorded. T-1145 is replacing that field with dated plural roles and is where this belongs."
+   }
+  ],
+  "cleland_martin": [
+   {
+    "field": "origin",
+    "value": "Chautauqua, New York",
+    "confidence": "inferred",
+    "source": "marsh_genealogy_martin_cleland_1886",
+    "describes_date": "1834-01-01",
+    "place_class": "outside_chicago",
+    "quote": "traveled from Chautauqua, New York, to Chicago on a prospecting tour in 1834",
+    "adjudication": "asserted",
+    "reason": "Where he travelled from. An 1886 family genealogy is a late source for a trade or an address and an ordinary one for where a family was of."
+   },
+   {
+    "field": "life_event",
+    "value": "A prospecting tour to Chicago in 1834",
+    "confidence": "inferred",
+    "source": "marsh_genealogy_martin_cleland_1886",
+    "describes_date": "1834-01-01",
+    "place_class": "chicago",
+    "quote": "to Chicago on a prospecting tour in 1834",
+    "adjudication": "asserted",
+    "reason": "A dated visit, and the thing that puts the postal name in the town at all."
+   },
+   {
+    "field": "life_event",
+    "value": "Selected a future home near Niles, Michigan; the family moved west in 1835",
+    "confidence": "inferred",
+    "source": "marsh_genealogy_martin_cleland_1886",
+    "describes_date": "1835-01-01",
+    "place_class": "outside_chicago",
+    "quote": "selected a future home near Niles, Michigan; the family moved west in 1835",
+    "adjudication": "outside_chicago",
+    "reason": "The destination is Niles and not Chicago, so nothing here can become a July 1835 Chicago residence. Recorded because it is the reason the presence on this card cannot be lifted."
+   }
+  ],
+  "pugsley_john_k": [
+   {
+    "field": "origin",
+    "value": "Near Utica, New York",
+    "confidence": "inferred",
+    "source": "resident_research_pugsley_barrien_vanburen",
+    "describes_date": "1835-06-01",
+    "place_class": "outside_chicago",
+    "quote": "left near Utica, New York in June 1835",
+    "adjudication": "asserted",
+    "reason": "Where he set out from, with the month he set out. The household's origin block reads 'Not attested.' and an 1880 county history is an ordinary source for where a family was of."
+   },
+   {
+    "field": "life_event",
+    "value": "Travelled to Chicago in June 1835 and prospected there",
+    "confidence": "inferred",
+    "source": "resident_research_pugsley_barrien_vanburen",
+    "describes_date": "1835-06-01",
+    "place_class": "chicago",
+    "quote": "traveled to Chicago, prospected there",
+    "adjudication": "asserted",
+    "reason": "Dated to the month before the scene, directly adjacent to the 1 July letter-list return the record is minted from."
+   },
+   {
+    "field": "departure_from_chicago",
+    "value": "Returned to Paw Paw Township and entered land",
+    "confidence": "inferred",
+    "source": "resident_research_pugsley_barrien_vanburen",
+    "describes_date": "1835-07-01",
+    "place_class": "outside_chicago",
+    "quote": "then returned to Paw Paw Township and entered land",
+    "adjudication": "outside_chicago",
+    "reason": "A transient, not a resident. The record's presence stays where it is and this row says why."
+   }
+  ],
+  "kingston_paul": [
+   {
+    "field": "departure_from_chicago",
+    "value": "Came from Chicago to Racine on 2 January 1835",
+    "confidence": "inferred",
+    "source": "rr_racine_old_settlers_1871",
+    "describes_date": "1835-01-02",
+    "place_class": "outside_chicago",
+    "quote": "a Racine old-settlers record says he came from Chicago on January 2, 1835",
+    "adjudication": "asserted",
+    "reason": "A dated leaving six months before the scene, and the strongest thing this card holds about where the man was on 1 July. Presence is not moved by this ticket; the fact is written down so the next reader can move it on evidence."
+   },
+   {
+    "field": "life_event",
+    "value": "Held land at Chicago",
+    "confidence": "inferred",
+    "source": "rr_andreas_chicago_1884_pass11",
+    "describes_date": "1834-01-01",
+    "place_class": "chicago",
+    "quote": "identify Paul Kingston as a Chicago landholder",
+    "adjudication": "asserted",
+    "reason": "Landholding is a fact about the person that the early-Chicago sources state; it is not a residence and is not read as one."
+   }
+  ],
+  "hobson_jesse": [
+   {
+    "field": "marriage",
+    "value": "Married Catherine Daugherty at Naperville on 6 April 1835",
+    "confidence": "inferred",
+    "source": "resident_research_hobson_pioneer",
+    "describes_date": "1835-04-06",
+    "place_class": "outside_chicago",
+    "quote": "married Catherine Daugherty at Naperville on April 6, 1835",
+    "adjudication": "asserted",
+    "reason": "A dated marriage, the party named, three months before the scene. It names a spouse and MINTS NOBODY: no person record is created and no household membership follows, which is the rule T-1170 will fill families under."
+   },
+   {
+    "field": "life_event",
+    "value": "Living in Cook County in 1835",
+    "confidence": "inferred",
+    "source": "resident_research_hobson_woodruff",
+    "describes_date": "1835-01-01",
+    "place_class": "outside_chicago",
+    "quote": "Jesse Hobson was living in Cook County in 1835",
+    "adjudication": "asserted",
+    "reason": "The county and not the town. Recorded at the level the source states it, which is why it cannot lift the card's presence."
+   }
+  ],
+  "mitchell_henry": [
+   {
+    "field": "life_event",
+    "value": "At work in Chicago wagon-factory work in 1834",
+    "confidence": "inferred",
+    "source": "resident_research_tribune_mitchell_1883",
+    "describes_date": "1834-01-01",
+    "place_class": "chicago",
+    "quote": "places Henry Mitchell in Chicago wagon-factory work in 1834",
+    "adjudication": "asserted",
+    "reason": "A dated appearance in the town a year before the postal seed, from an 1883 old-settlers report. Carried as the event it is; the trade itself is T-1145's."
+   }
+  ],
+  "boilvin_nicholas": [
+   {
+    "field": "life_event",
+    "value": "Named in the 1833 Treaty of Chicago payment schedule",
+    "confidence": "inferred",
+    "source": "fcp_treaty_chicago_1833_payments",
+    "describes_date": "1833-09-26",
+    "place_class": "chicago",
+    "quote": "independently in the 1833 Treaty of Chicago payment schedule",
+    "adjudication": "asserted",
+    "reason": "A contemporary federal record naming the person at Chicago, two years before the scene. It is the reading that corroborated the identity and it was carried only as prose."
+   }
+  ],
+  "vasseur_noel": [
+   {
+    "field": "life_event",
+    "value": "Named in the 1833 Treaty of Chicago payment schedule",
+    "confidence": "inferred",
+    "source": "fcp_treaty_chicago_1833_payments",
+    "describes_date": "1833-09-26",
+    "place_class": "chicago",
+    "quote": "independently in the 1833 Treaty of Chicago payment schedule",
+    "adjudication": "asserted",
+    "reason": "Contemporary and at Chicago. The block's own warning about later Will and Kankakee geography is the next row and is not softened by this one."
+   },
+   {
+    "field": "life_event",
+    "value": "Later of the Will and Kankakee country",
+    "confidence": "inferred",
+    "source": "chicago_democrat_1833_1835",
+    "describes_date": "1836-01-01",
+    "place_class": "outside_chicago",
+    "quote": "later Will/Kankakee geography means the letter must not be converted into a Chicago household claim",
+    "adjudication": "outside_chicago",
+    "reason": "The block states this as the reason the postal name may not become a household. Written down so the refusal is legible rather than implicit."
+   }
+  ],
+  "lathrop_samuel_s": [
+   {
+    "field": "life_event",
+    "value": "An early member of Chicago's First Baptist Church after its organisation of October 1833",
+    "confidence": "inferred",
+    "source": "rr_baptist_chicago_lathrop",
+    "describes_date": "1833-10-01",
+    "place_class": "chicago",
+    "quote": "names Samuel S. Lathrop as one of the church's early members after its October 1833 organization",
+    "adjudication": "asserted",
+    "reason": "A dated Chicago appearance nearly two years before the postal seed the record is minted from."
+   },
+   {
+    "field": "life_event",
+    "value": "Built the fence around Rev. A. B. Freeman's Chicago grave",
+    "confidence": "inferred",
+    "source": "rr_baptist_chicago_lathrop",
+    "describes_date": "1835-01-01",
+    "place_class": "chicago",
+    "quote": "records him building the fence around Rev. A. B. Freeman's Chicago grave",
+    "adjudication": "asserted",
+    "reason": "An undated act in the source, bounded to the church's early years. Carried at year precision with the source's own vagueness intact."
+   }
+  ],
+  "hathaway_joshua": [
+   {
+    "field": "life_event",
+    "value": "Drew the 1834 Chicago cadastral map this project reads as a tier-1 source",
+    "confidence": "attested",
+    "source": "hathaway_1834",
+    "describes_date": "1834-01-01",
+    "place_class": "chicago",
+    "quote": "the named creator of the 1834 Chicago cadastral map already registered as a tier-1 project source",
+    "adjudication": "asserted",
+    "reason": "The map carries his authorship and the project already stands on the map. This is the rare case where the corroborating record is one of the project's own primary sources, so it is graded attested."
+   }
+  ],
+  "elston_daniel": [
+   {
+    "field": "origin",
+    "value": "England",
+    "confidence": "inferred",
+    "source": "uiuc_daniel_elston_papers",
+    "describes_date": "1833-01-01",
+    "place_class": "outside_chicago",
+    "quote": "identifies the English merchant who reached Chicago in 1833",
+    "adjudication": "asserted",
+    "reason": "The finding aid says where he was from. The household's origin is null and this fills it with the source that states it."
+   },
+   {
+    "field": "arrival_at_chicago",
+    "value": "1833",
+    "precision": "year",
+    "confidence": "inferred",
+    "source": "uiuc_daniel_elston_papers",
+    "describes_date": "1833-01-01",
+    "place_class": "chicago",
+    "quote": "reached Chicago in 1833",
+    "adjudication": "duplicate",
+    "reason": "The household already carries 1833-11-26, a sharper date from the paper's first issue. A year is not an improvement on a day and does not displace it."
+   },
+   {
+    "field": "role",
+    "value": "distiller and brewer",
+    "confidence": "inferred",
+    "source": "uiuc_daniel_elston_papers",
+    "describes_date": "1840-01-01",
+    "place_class": "chicago",
+    "quote": "later operated a distillery and brewery",
+    "adjudication": "later_only",
+    "reason": "The finding aid's 'later' is after the scene and undated. A trade the person took up afterwards is not an 1835 trade."
+   }
+  ],
+  "barrows_mary": [
+   {
+    "field": "life_event",
+    "value": "Associate and assistant of Miss Chappel in the town's first school",
+    "confidence": "inferred",
+    "source": "early_illinois_barrows_school",
+    "describes_date": "1834-01-01",
+    "place_class": "chicago",
+    "quote": "name Mary Barrows as Miss Chappel's associate/assistant",
+    "adjudication": "asserted",
+    "reason": "A dated Chicago role stated by the education histories. The teaching trade itself is T-1145's field; the association with a named person is this one."
+   },
+   {
+    "field": "workplace",
+    "value": "The LaSalle Street boarding house for scholars",
+    "confidence": "inferred",
+    "source": "early_illinois_barrows_school",
+    "describes_date": "1834-01-01",
+    "place_class": "chicago",
+    "quote": "a participant in the LaSalle Street boarding house for scholars",
+    "adjudication": "unresolved:T-1147",
+    "reason": "A named premises on a named street. T-1147 owns the location spend and its limits; recorded here so the lead survives."
+   },
+   {
+    "field": "sex",
+    "value": "female",
+    "confidence": "inferred",
+    "source": "early_illinois_barrows_school",
+    "describes_date": "1834-01-01",
+    "place_class": "not_a_place",
+    "quote": "Miss Chappel's associate/assistant",
+    "adjudication": "unresolved:T-1168",
+    "reason": "The source titles Chappel and not Barrows. Reading a sex off the forename alone is exactly what T-1168 was written to do under a stated rule, and doing it here without one would be the guess that ticket exists to avoid."
+   }
+  ],
+  "andrews_davi": [
+   {
+    "field": "name_as_printed",
+    "value": "David Andrews",
+    "confidence": "inferred",
+    "source": "resident_research_cook_county_andrews_1884",
+    "describes_date": "1834-01-01",
+    "place_class": "not_a_place",
+    "quote": "identifies David Andrews in Cook County from 1834",
+    "adjudication": "asserted",
+    "reason": "The biography prints the forename the postal transcription clipped to 'Davi'. Carried beside the read name — the id and the displayed name do not move, which is the rule the whole layer is minted under."
+   },
+   {
+    "field": "life_event",
+    "value": "In Cook County from 1834",
+    "confidence": "inferred",
+    "source": "resident_research_cook_county_andrews_1884",
+    "describes_date": "1834-01-01",
+    "place_class": "outside_chicago",
+    "quote": "in Cook County from 1834 and supports exact-name continuity",
+    "adjudication": "asserted",
+    "reason": "The county, which is what the source says. The block is explicit that it does not reach a 1 July 1835 roof and this row does not either."
+   }
+  ],
+  "clarke_h_b": [
+   {
+    "field": "name_as_printed",
+    "value": "Henry B. Clarke",
+    "confidence": "inferred",
+    "source": "fergus_chicago_directory_1839",
+    "describes_date": "1837-05-02",
+    "place_class": "chicago",
+    "quote": "The 1837 election return prints 'Henry B. Clarke', expanding both initials of H. B. Clarke",
+    "adjudication": "later_only",
+    "reason": "1837 is two years after the scene. The expansion is real and is recorded; under T-0513/T-0514/T-0515 a later volume may date and corroborate and may never promote, so the card's name stays H. B. Clarke."
+   },
+   {
+    "field": "death",
+    "value": "Dr Henry Clarke, died at Walworth, Wisconsin, before 23 April 1853, aged 60",
+    "confidence": "inferred",
+    "source": "fergus_chicago_directory_1839",
+    "describes_date": "1853-04-23",
+    "place_class": "outside_chicago",
+    "quote": "Clarke, Dr. Henry, died, Walworth, Wis., before April 23, 1853, aged 60",
+    "adjudication": "contradicted",
+    "reason": "The pass refused this in terms: surname and first initial only, a doctor rather than a hardware merchant, and a Wisconsin death. A different man. Recorded so the refusal is legible and cannot be re-made as a find."
+   }
+  ],
+  "collins_j_h": [
+   {
+    "field": "name_as_printed",
+    "value": "James H. Collins",
+    "confidence": "inferred",
+    "source": "fergus_chicago_directory_1839",
+    "describes_date": "1837-05-02",
+    "place_class": "chicago",
+    "quote": "The 1837 election return prints 'James H. Collins.', expanding both initials",
+    "adjudication": "later_only",
+    "reason": "The 1837 return is what makes the identity and it is still 1837. The expansion is recorded and not promoted into the 1835 card."
+   },
+   {
+    "field": "life_event",
+    "value": "Moved to Illinois in 1833 and practised at Chicago in 1834 with his former student John D. Caton",
+    "confidence": "inferred",
+    "source": "fergus_chicago_directory_1839",
+    "describes_date": "1834-01-01",
+    "place_class": "chicago",
+    "quote": "says he moved to Illinois in 1833, and records his 1834 Chicago practice with former student John D. Caton",
+    "adjudication": "asserted",
+    "reason": "Dated before the scene, and it names a second person this layer carries. The partnership is a working tie and not a household."
+   }
+  ],
+  "stewart_r": [
+   {
+    "field": "name_as_printed",
+    "value": "Royal Stewart",
+    "confidence": "inferred",
+    "source": "fergus_chicago_directory_1839",
+    "describes_date": "1837-05-02",
+    "place_class": "chicago",
+    "quote": "Fergus 1839, 'Stewart, Royal, attorney at law, Lake street', and the 1837 election return, 'Royal Stewart'",
+    "adjudication": "later_only",
+    "reason": "Two later records expand the bare R. the same way, which is the discriminator that made the identity. Both are after the scene, so the expansion is recorded and the card's name does not move."
+   }
+  ],
+  "thrall_e_l": [
+   {
+    "field": "name_as_printed",
+    "value": "Edward L. Thrall",
+    "confidence": "inferred",
+    "source": "fergus_chicago_directory_1839",
+    "describes_date": "1837-05-02",
+    "place_class": "chicago",
+    "quote": "The 1837 election return prints 'Edward L. Thrall'",
+    "adjudication": "later_only",
+    "reason": "1837, and the ladder's rule about later volumes applies whatever the reading reaches."
+   },
+   {
+    "field": "life_event",
+    "value": "In Chicago and in ward 1 on 2 May 1837",
+    "confidence": "inferred",
+    "source": "fergus_chicago_directory_1839",
+    "describes_date": "1837-05-02",
+    "place_class": "chicago",
+    "quote": "carries that he was in Chicago and in ward 1 on 2 May 1837",
+    "adjudication": "later_only",
+    "reason": "A dated appearance two years after the scene. It corroborates and dates; it does not say anything about 1 July 1835."
+   }
+  ],
+  "sabine_wm": [
+   {
+    "field": "name_as_printed",
+    "value": "William A. Sabine",
+    "confidence": "inferred",
+    "source": "fergus_chicago_directory_1839",
+    "describes_date": "1839-01-01",
+    "place_class": "chicago",
+    "quote": "Fergus 1839 prints 'Sabine, William A., boarding-house, 161 Lake street, up stairs'",
+    "adjudication": "later_only",
+    "reason": "The block itself says the middle initial A. is 1839's and is carried as 1839's, not as an 1835 fact. This row is that ruling, written where a query can reach it."
+   }
+  ],
+  "marshall_j_a": [
+   {
+    "field": "name_as_printed",
+    "value": "James A. Marshall",
+    "confidence": "inferred",
+    "source": "fergus_chicago_directory_1839",
+    "describes_date": "1839-01-01",
+    "place_class": "chicago",
+    "quote": "Fergus 1839 prints 'Marshall, James A., auctioneer, commission, etc., So. Water st', expanding J. A. exactly",
+    "adjudication": "later_only",
+    "reason": "An exact expansion, four years late. Recorded, not promoted."
+   },
+   {
+    "field": "death",
+    "value": "James Monroe Marshall, real estate, died 1 July 1880, aged 45-9",
+    "confidence": "inferred",
+    "source": "fergus_chicago_directory_1839",
+    "describes_date": "1880-07-01",
+    "place_class": "chicago",
+    "quote": "the old-settler notice 'Marshall, James Monroe, real estate, died July 1, 1880, aged 45-9'",
+    "adjudication": "contradicted",
+    "reason": "The pass refused it: a middle name conflicting with the A., and an age that would make him an infant in 1835. Not the same man, and the refusal is kept where it can be seen."
+   }
+  ],
+  "grant_james": [
+   {
+    "field": "death",
+    "value": "Died at Oakland, California, 14 March 1891, aged 78",
+    "confidence": "inferred",
+    "source": "chicago_tribune_1882_04_25_old_settler_deaths",
+    "describes_date": "1891-03-14",
+    "place_class": "outside_chicago",
+    "quote": "Grant, James, lawyer, died, Oakland, Cal., Mar. 14, 1891, aged 78",
+    "adjudication": "later_only",
+    "reason": "An old-settler death notice. Under the ladder it may date and corroborate and may never promote; the arithmetic it supports is the next row and is withheld on the same rule."
+   },
+   {
+    "field": "birth_year_bound",
+    "value": "1812 or 1813",
+    "confidence": "inferred",
+    "source": "chicago_tribune_1882_04_25_old_settler_deaths",
+    "describes_date": "1891-03-14",
+    "place_class": "not_a_place",
+    "quote": "The 1891 age puts his birth at 1812-13, which makes him about 22 in the scene",
+    "adjudication": "later_only",
+    "reason": "The block does the arithmetic and stops. So does this: a birth year arithmetic'd from an age at death in 1891 is a later-volume reading, and T-0513/T-0514/T-0515 hold it out of the 1835 card."
+   }
+  ],
+  "myers_frederick": [
+   {
+    "field": "life_event",
+    "value": "Quartermaster's clerk at Fort Dearborn, 1831-1833",
+    "confidence": "inferred",
+    "source": "chicago_voter_lists_1833_1835_irad",
+    "describes_date": "1831-01-01",
+    "place_class": "chicago",
+    "quote": "served as quartermaster's clerk at Fort Dearborn in 1831-33",
+    "adjudication": "asserted",
+    "reason": "A dated Chicago post before the scene, from a 1928 local history that names the fort. The office itself is a role and T-1145's; the dated presence at the fort is the fact carried here."
+   },
+   {
+    "field": "life_event",
+    "value": "A veteran of the War of 1812",
+    "confidence": "inferred",
+    "source": "chicago_voter_lists_1833_1835_irad",
+    "describes_date": "1812-01-01",
+    "place_class": "not_a_place",
+    "quote": "identifies Frederick Myers as a War of 1812 veteran",
+    "adjudication": "asserted",
+    "reason": "A biographical fact stated outright. It bears on his age without naming one, and it is not turned into a birth year here."
+   }
+  ],
+  "wright_john_s": [
+   {
+    "field": "life_event",
+    "value": "Bought Chicago land and original-town lots",
+    "confidence": "inferred",
+    "source": "cpl_john_s_wright_papers",
+    "describes_date": "1835-01-01",
+    "place_class": "chicago",
+    "quote": "identifies John S. Wright's Chicago land purchases and original-town lots",
+    "adjudication": "asserted",
+    "reason": "Landholding, stated by the library's finding aid. The block is explicit that later deed dates are not back-projected, and this row carries no deed date."
+   },
+   {
+    "field": "life_event",
+    "value": "Later deeds recorded in the finding aid",
+    "confidence": "inferred",
+    "source": "cpl_john_s_wright_papers",
+    "describes_date": "1840-01-01",
+    "place_class": "chicago",
+    "quote": "Later deed dates are not back-projected to 1835",
+    "adjudication": "later_only",
+    "reason": "The block's own refusal, made into a row so it can be counted rather than read."
+   }
+  ],
+  "harmon_elijah_d": [
+   {
+    "field": "death",
+    "value": "Died 3 January 1869, aged 80",
+    "confidence": "inferred",
+    "source": "fergus_historical_series_26_29",
+    "describes_date": "1869-01-03",
+    "place_class": "outside_chicago",
+    "quote": "Harmon, Eli[j]ah D[e]we[y], physician, bds C. L. Harmon [died January 3, 1869, aged 80]",
+    "adjudication": "later_only",
+    "reason": "An obituary line in a volume printed 34 years after the scene. Under the ladder ratified 3 September 2026 (T-0513, applied by T-0514/T-0515) a volume printed after the scene date may date and corroborate and may never promote. The reading is kept; the 1835 card does not move."
+   },
+   {
+    "field": "birth_year_bound",
+    "value": "About 1788 or 1789",
+    "confidence": "inferred",
+    "source": "fergus_historical_series_26_29",
+    "describes_date": "1869-01-03",
+    "place_class": "not_a_place",
+    "quote": "a death date and age that put birth about 1788-89",
+    "adjudication": "contradicted",
+    "reason": "The age at death puts the birth about 1788-89. The record already carries a birth of 20 August 1782 at Bennington, graded attested out of Andreas, and the two do not agree. Neither is smoothed into the other: the arithmetic is recorded as the contradiction it is, which is what the card needs in order to be disagreed with."
+   },
+   {
+    "field": "name_as_printed",
+    "value": "Elijah Dewey Harmon",
+    "confidence": "inferred",
+    "source": "fergus_historical_series_26_29",
+    "describes_date": "1843-01-01",
+    "place_class": "not_a_place",
+    "quote": "Elijah Dewey Harmon",
+    "adjudication": "duplicate",
+    "reason": "The 1843 directory prints the full given names, which the record already displays."
+   }
+  ],
+  "heacock_russel_e": [
+   {
+    "field": "name_as_printed",
+    "value": "Russel Easton Heacock",
+    "confidence": "inferred",
+    "source": "fergus_historical_series_26_29",
+    "describes_date": "1843-01-01",
+    "place_class": "not_a_place",
+    "quote": "Heacock, Russel Easton (Old Shallow-Cut, Chicago’s first attorney at law), res 129 Adams",
+    "adjudication": "later_only",
+    "reason": "The middle name Easton, printed eight years after the scene. Under the ladder ratified 3 September 2026 (T-0513, applied by T-0514/T-0515) a volume printed after the scene date may date and corroborate and may never promote. The reading is kept; the 1835 card does not move."
+   },
+   {
+    "field": "death",
+    "value": "Died at Summit, Illinois, 20 June 1849, aged 70",
+    "confidence": "inferred",
+    "source": "fergus_historical_series_26_29",
+    "describes_date": "1849-06-20",
+    "place_class": "outside_chicago",
+    "quote": "[died, Summit, Ill., June 20, 1849, aged 70]",
+    "adjudication": "later_only",
+    "reason": "A death notice in the same later volume. Under the ladder ratified 3 September 2026 (T-0513, applied by T-0514/T-0515) a volume printed after the scene date may date and corroborate and may never promote. The reading is kept; the 1835 card does not move."
+   },
+   {
+    "field": "birth_year_bound",
+    "value": "About 1779",
+    "confidence": "inferred",
+    "source": "fergus_historical_series_26_29",
+    "describes_date": "1849-06-20",
+    "place_class": "not_a_place",
+    "quote": "a death date and age that put birth about 1779",
+    "adjudication": "later_only",
+    "reason": "Arithmetic from an age at death in a later volume, and withheld on the same rule as the notice it comes from. Under the ladder ratified 3 September 2026 (T-0513, applied by T-0514/T-0515) a volume printed after the scene date may date and corroborate and may never promote. The reading is kept; the 1835 card does not move."
+   },
+   {
+    "field": "life_event",
+    "value": "One of two American families occupying the old log officers’ quarters inside the pickets of the ungarrisoned fort in July 1827",
+    "confidence": "inferred",
+    "source": "census_1830_peoria_county_chicago_precinct",
+    "describes_date": "1827-07-01",
+    "place_class": "chicago",
+    "quote": "one of two American families occupying the old log officers’ quarters inside the pickets of the ungarrisoned fort in July 1827",
+    "adjudication": "asserted",
+    "reason": "A dated Chicago residence eight years before the scene, and the earliest thing the corpus holds about this man. It is contemporary in what it describes and it settles nothing about 1 July 1835, which is why it is a life event and not an arrival."
+   }
+  ],
+  "hogan_john_s_c": [
+   {
+    "field": "name_as_printed",
+    "value": "John Stephen Coates Hogan",
+    "confidence": "inferred",
+    "source": "fergus_historical_series_26_29",
+    "describes_date": "1843-01-01",
+    "place_class": "not_a_place",
+    "quote": "Hogan, John Stephen Coates, ex postmaster, bds Charles L. P. Hogan",
+    "adjudication": "later_only",
+    "reason": "The 1843 directory resolves the initials S. C. to Stephen Coates. Under the ladder ratified 3 September 2026 (T-0513, applied by T-0514/T-0515) a volume printed after the scene date may date and corroborate and may never promote. The reading is kept; the 1835 card does not move."
+   },
+   {
+    "field": "death",
+    "value": "Died at Boonville, Missouri, 2 December 1868, aged 63",
+    "confidence": "inferred",
+    "source": "fergus_historical_series_26_29",
+    "describes_date": "1868-12-02",
+    "place_class": "outside_chicago",
+    "quote": "[died, Boonville, Mo., December 2, 1868, aged 63]",
+    "adjudication": "contradicted",
+    "reason": "THE SAME VOLUME CONTRADICTS ITSELF. Its obituary list also prints 'Hogan, John Stephen Coates, early postmaster, died, Memphis, Tenn., 1866' — a different place and a different year. Both readings are recorded and neither is asserted; a source that disagrees with itself is evidence about the source."
+   },
+   {
+    "field": "death",
+    "value": "Died at Memphis, Tennessee, in 1866",
+    "confidence": "inferred",
+    "source": "fergus_historical_series_26_29",
+    "describes_date": "1866-01-01",
+    "place_class": "outside_chicago",
+    "quote": "Hogan, John Stephen Coates, early postmaster, died, Memphis, Tenn., 1866",
+    "adjudication": "contradicted",
+    "reason": "The second of the volume's two death readings for the same man. Recorded beside the first so the disagreement is visible rather than resolved by whichever line was read last."
+   }
+  ],
+  "jones_benjamin": [
+   {
+    "field": "death",
+    "value": "Died at Manitowoc, Wisconsin, 11 August 1881, aged 87",
+    "confidence": "inferred",
+    "source": "fergus_historical_series_26_29",
+    "describes_date": "1881-08-11",
+    "place_class": "outside_chicago",
+    "quote": "Jones, Benj. (B. J. & Co.), res 109 Randolph [died, Manitowoc, Wis., August 11, 1881, aged 87]",
+    "adjudication": "insufficient_identity",
+    "reason": "The block's own verdict: Jones is one of the town's commonest surnames and the agreement is on the forename initial only, so the reading 'enriches without settling'. A death notice that cannot be tied to this man rather than another Benjamin Jones proves nothing about him."
+   },
+   {
+    "field": "birth_year_bound",
+    "value": "About 1794",
+    "confidence": "inferred",
+    "source": "fergus_historical_series_26_29",
+    "describes_date": "1881-08-11",
+    "place_class": "not_a_place",
+    "quote": "About 1794",
+    "adjudication": "insufficient_identity",
+    "reason": "Arithmetic from a notice this project will not tie to this person. The identity is the thing that fails here, not the sum."
+   }
+  ],
+  "morris_b_s": [
+   {
+    "field": "name_as_printed",
+    "value": "Buckner Smith Morris",
+    "confidence": "inferred",
+    "source": "fergus_historical_series_26_29",
+    "describes_date": "1843-01-01",
+    "place_class": "not_a_place",
+    "quote": "Morris, Buckner Smith, attorney, 59 Clark, res Indiana, bet Cass and Rush",
+    "adjudication": "later_only",
+    "reason": "The 1843 directory resolves the initials B. S. Under the ladder ratified 3 September 2026 (T-0513, applied by T-0514/T-0515) a volume printed after the scene date may date and corroborate and may never promote. The reading is kept; the 1835 card does not move."
+   },
+   {
+    "field": "death",
+    "value": "Died 16 December 1879, aged 79",
+    "confidence": "inferred",
+    "source": "fergus_historical_series_26_29",
+    "describes_date": "1879-12-16",
+    "place_class": "not_a_place",
+    "quote": "[Chicago’s 2d mayor, died December 16, 1879, aged 79]",
+    "adjudication": "later_only",
+    "reason": "A death notice 44 years after the scene. Under the ladder ratified 3 September 2026 (T-0513, applied by T-0514/T-0515) a volume printed after the scene date may date and corroborate and may never promote. The reading is kept; the 1835 card does not move."
+   },
+   {
+    "field": "birth_year_bound",
+    "value": "About 1800",
+    "confidence": "inferred",
+    "source": "fergus_historical_series_26_29",
+    "describes_date": "1879-12-16",
+    "place_class": "not_a_place",
+    "quote": "a death date and age that put birth about 1800",
+    "adjudication": "later_only",
+    "reason": "Arithmetic from that notice, withheld on the rule that withholds the notice. Under the ladder ratified 3 September 2026 (T-0513, applied by T-0514/T-0515) a volume printed after the scene date may date and corroborate and may never promote. The reading is kept; the 1835 card does not move."
+   },
+   {
+    "field": "life_event",
+    "value": "Chicago’s second mayor",
+    "confidence": "inferred",
+    "source": "fergus_historical_series_26_29",
+    "describes_date": "1838-01-01",
+    "place_class": "chicago",
+    "quote": "Chicago’s 2d mayor",
+    "adjudication": "later_only",
+    "reason": "An office held after the scene. It says nothing about the attorney of 1835 beyond that he was still here."
+   }
+  ],
+  "owen_thomas_jv": [
+   {
+    "field": "death",
+    "value": "Died at Chicago on 15 October 1835",
+    "confidence": "inferred",
+    "source": "fergus_historical_series_26_29",
+    "describes_date": "1835-10-15",
+    "place_class": "chicago",
+    "quote": "Died at Chicago the 15th of October, 1835, Thomas Owen, agent of the Indians",
+    "adjudication": "duplicate",
+    "reason": "The person's own note already carries this death out of Andreas, and the register's death page prints it too. The volume is late; the event it describes is inside the scene year, three and a half months after the scene date."
+   },
+   {
+    "field": "birth_year_bound",
+    "value": "About April 1801",
+    "confidence": "inferred",
+    "source": "fergus_historical_series_26_29",
+    "describes_date": "1835-10-15",
+    "place_class": "not_a_place",
+    "quote": "About April 1801",
+    "adjudication": "duplicate",
+    "reason": "The record already carries a birth of 5 April 1801, graded attested out of Andreas, and the age at death agrees with it. Agreement is worth recording and adds nothing."
+   }
+  ],
+  "pearsons_hiram": [
+   {
+    "field": "death",
+    "value": "Died at Almeda, California, 11 August 1868, aged 57",
+    "confidence": "inferred",
+    "source": "fergus_historical_series_26_29",
+    "describes_date": "1868-08-11",
+    "place_class": "outside_chicago",
+    "quote": "Pearsons, Hiram, speculator, bds Tremont House [died, Almeda, Cal., August 11, 1868, aged 57]",
+    "adjudication": "later_only",
+    "reason": "A death notice 33 years after the scene. Under the ladder ratified 3 September 2026 (T-0513, applied by T-0514/T-0515) a volume printed after the scene date may date and corroborate and may never promote. The reading is kept; the 1835 card does not move."
+   },
+   {
+    "field": "birth_year_bound",
+    "value": "About 1811",
+    "confidence": "inferred",
+    "source": "fergus_historical_series_26_29",
+    "describes_date": "1868-08-11",
+    "place_class": "not_a_place",
+    "quote": "About 1811",
+    "adjudication": "later_only",
+    "reason": "Arithmetic from that notice. Under the ladder ratified 3 September 2026 (T-0513, applied by T-0514/T-0515) a volume printed after the scene date may date and corroborate and may never promote. The reading is kept; the 1835 card does not move."
+   }
+  ],
+  "peck_philip": [
+   {
+    "field": "name_as_printed",
+    "value": "Philip Ferdinand Wheeler Peck",
+    "confidence": "inferred",
+    "source": "fergus_historical_series_26_29",
+    "describes_date": "1843-01-01",
+    "place_class": "not_a_place",
+    "quote": "Peck, Phili[p] F[e]rdinand W[h]eeler, ca[p]italist, res 248 Clark, n.-w. cor Jackson",
+    "adjudication": "later_only",
+    "reason": "The 1843 directory resolves the initials F. W. Under the ladder ratified 3 September 2026 (T-0513, applied by T-0514/T-0515) a volume printed after the scene date may date and corroborate and may never promote. The reading is kept; the 1835 card does not move."
+   },
+   {
+    "field": "death",
+    "value": "Died 23 October 1871, aged 62",
+    "confidence": "inferred",
+    "source": "fergus_historical_series_26_29",
+    "describes_date": "1871-10-23",
+    "place_class": "not_a_place",
+    "quote": "[died October 23, 1871, aged 62]",
+    "adjudication": "later_only",
+    "reason": "A death notice 36 years after the scene. Under the ladder ratified 3 September 2026 (T-0513, applied by T-0514/T-0515) a volume printed after the scene date may date and corroborate and may never promote. The reading is kept; the 1835 card does not move."
+   },
+   {
+    "field": "birth_year_bound",
+    "value": "About 1809",
+    "confidence": "inferred",
+    "source": "fergus_historical_series_26_29",
+    "describes_date": "1871-10-23",
+    "place_class": "not_a_place",
+    "quote": "About 1809",
+    "adjudication": "later_only",
+    "reason": "Arithmetic from that notice. Under the ladder ratified 3 September 2026 (T-0513, applied by T-0514/T-0515) a volume printed after the scene date may date and corroborate and may never promote. The reading is kept; the 1835 card does not move."
+   }
+  ],
+  "robinson_alexander": [
+   {
+    "field": "death",
+    "value": "Died on his reservation, 22 April 1872, aged 83",
+    "confidence": "inferred",
+    "source": "fergus_historical_series_26_29",
+    "describes_date": "1872-04-22",
+    "place_class": "outside_chicago",
+    "quote": "Robinson, Alex. (Indian chief), died, on his Reservation, April 22, 1872, aged 83",
+    "adjudication": "later_only",
+    "reason": "A death notice 37 years after the scene, naming the reservation. Under the ladder ratified 3 September 2026 (T-0513, applied by T-0514/T-0515) a volume printed after the scene date may date and corroborate and may never promote. The reading is kept; the 1835 card does not move."
+   },
+   {
+    "field": "birth_year_bound",
+    "value": "About 1789",
+    "confidence": "inferred",
+    "source": "fergus_historical_series_26_29",
+    "describes_date": "1872-04-22",
+    "place_class": "not_a_place",
+    "quote": "About 1789",
+    "adjudication": "contradicted",
+    "reason": "The age at death puts the birth about 1789. The record carries 1762, itself hedged by Andreas as 'according to popular belief ... although the years of his life are somewhat doubtful'. The two readings are 27 years apart and neither is preferred here; the disagreement is the finding."
+   }
+  ],
+  "snow_george_w": [
+   {
+    "field": "name_as_printed",
+    "value": "George Washington Snow",
+    "confidence": "inferred",
+    "source": "fergus_historical_series_26_29",
+    "describes_date": "1843-01-01",
+    "place_class": "not_a_place",
+    "quote": "Snow, George W[a]shington, lumber merchant, S. Water, res 344-6 State, s.-w. cor Jackson",
+    "adjudication": "later_only",
+    "reason": "The 1843 directory resolves the initial W. Under the ladder ratified 3 September 2026 (T-0513, applied by T-0514/T-0515) a volume printed after the scene date may date and corroborate and may never promote. The reading is kept; the 1835 card does not move."
+   },
+   {
+    "field": "death",
+    "value": "Died en route to Philadelphia, at Altoona, Pennsylvania, 20 July 1870, aged 72-10-13",
+    "confidence": "inferred",
+    "source": "fergus_historical_series_26_29",
+    "describes_date": "1870-07-20",
+    "place_class": "outside_chicago",
+    "quote": "[died, en route to Philadelphia, at Altoona Pa., July 20, 1870, aged 72-10-13]",
+    "adjudication": "later_only",
+    "reason": "A death notice with an age given to the day. Under the ladder ratified 3 September 2026 (T-0513, applied by T-0514/T-0515) a volume printed after the scene date may date and corroborate and may never promote. The reading is kept; the 1835 card does not move."
+   },
+   {
+    "field": "birth_year_bound",
+    "value": "About October 1797",
+    "confidence": "inferred",
+    "source": "fergus_historical_series_26_29",
+    "describes_date": "1870-07-20",
+    "place_class": "not_a_place",
+    "quote": "About October 1797",
+    "adjudication": "later_only",
+    "reason": "The age to the day narrows the birth to a month, and the rule that withholds the notice withholds the arithmetic. Under the ladder ratified 3 September 2026 (T-0513, applied by T-0514/T-0515) a volume printed after the scene date may date and corroborate and may never promote. The reading is kept; the 1835 card does not move."
+   }
+  ],
+  "spring_giles": [
+   {
+    "field": "death",
+    "value": "Died 14 May 1851",
+    "confidence": "inferred",
+    "source": "fergus_historical_series_26_29",
+    "describes_date": "1851-05-14",
+    "place_class": "not_a_place",
+    "quote": "[died May 14, 1851]",
+    "adjudication": "later_only",
+    "reason": "A death notice sixteen years after the scene. Under the ladder ratified 3 September 2026 (T-0513, applied by T-0514/T-0515) a volume printed after the scene date may date and corroborate and may never promote. The reading is kept; the 1835 card does not move."
+   },
+   {
+    "field": "life_event",
+    "value": "Of the firm Spring & Goodrich, attorneys, 124 Lake",
+    "confidence": "inferred",
+    "source": "fergus_historical_series_26_29",
+    "describes_date": "1843-01-01",
+    "place_class": "chicago",
+    "quote": "Spring, Giles (S[pring] & Goodrich), res 62 Adams near State",
+    "adjudication": "later_only",
+    "reason": "A partnership and a door, both 1843’s. Under the ladder ratified 3 September 2026 (T-0513, applied by T-0514/T-0515) a volume printed after the scene date may date and corroborate and may never promote. The reading is kept; the 1835 card does not move."
+   }
+  ],
+  "bailey_bennet": [
+   {
+    "field": "name_as_printed",
+    "value": "Bennett Bailey",
+    "confidence": "inferred",
+    "source": "fergus_chicago_directory_1839",
+    "describes_date": "1837-05-02",
+    "place_class": "chicago",
+    "quote": "the 1837 election return ‘Bennett Bailey’",
+    "adjudication": "later_only",
+    "reason": "The 1837 election return spells the uncommon forename out, two years after the scene. The block says in terms that the 1835 grade does not move. Under the ladder ratified 3 September 2026 (T-0513, applied by T-0514/T-0515) a volume printed after the scene date may date and corroborate and may never promote. The reading is kept; the 1835 card does not move."
+   },
+   {
+    "field": "role",
+    "value": "carpenter and builder",
+    "confidence": "inferred",
+    "source": "fergus_chicago_directory_1839",
+    "describes_date": "1839-01-01",
+    "place_class": "chicago",
+    "quote": "Fergus 1839 prints ‘Bailey, Bennett, carpenter and builder’",
+    "adjudication": "later_only",
+    "reason": "Fergus 1839 prints the trade four years after the scene, and the trade is also a further discriminator for the identity. It is carried as 1839 evidence and is not an 1835 occupation."
+   },
+   {
+    "field": "life_event",
+    "value": "A director of the Mechanics’ Institute",
+    "confidence": "inferred",
+    "source": "norris_chicago_directory_1843",
+    "describes_date": "1843-01-01",
+    "place_class": "chicago",
+    "quote": "names Bennet Bailey as a Mechanics’ Institute director",
+    "adjudication": "later_only",
+    "reason": "Eight years after the scene. Pass 3 called it a candidate over a nine-year gap; the 1837 return closed most of that gap, which is what made the identity — not what made the directorship an 1835 fact."
+   }
+  ],
+  "blakesley_harvey_a": [
+   {
+    "field": "life_event",
+    "value": "Listed in the later Chicago directories",
+    "confidence": "inferred",
+    "source": "resident_research_fergus_directory_1839",
+    "describes_date": "1839-01-01",
+    "place_class": "chicago",
+    "quote": "Exact-name Harvey A. Blakesley appears in later Chicago directories",
+    "adjudication": "later_only",
+    "reason": "The block is explicit: Chicago continuity, and no backfilled 1834 occupation or roof. Under the ladder ratified 3 September 2026 (T-0513, applied by T-0514/T-0515) a volume printed after the scene date may date and corroborate and may never promote. The reading is kept; the 1835 card does not move."
+   }
+  ],
+  "chapman_chas_h": [
+   {
+    "field": "name_as_printed",
+    "value": "Charles H. Chapman",
+    "confidence": "inferred",
+    "source": "fergus_chicago_directory_1839",
+    "describes_date": "1839-01-01",
+    "place_class": "chicago",
+    "quote": "Fergus 1839 prints ‘Chapman, Charles II., real estate dealer, Randolph street’",
+    "adjudication": "later_only",
+    "reason": "Fergus 1839 prints 'Chapman, Charles II.', where the II. is the printer's H. The expansion is 1839's. Under the ladder ratified 3 September 2026 (T-0513, applied by T-0514/T-0515) a volume printed after the scene date may date and corroborate and may never promote. The reading is kept; the 1835 card does not move."
+   },
+   {
+    "field": "life_event",
+    "value": "Run by the papers as a merchant from 24 December 1833 to 20 June 1835",
+    "confidence": "inferred",
+    "source": "chicago_democrat_1833_1835",
+    "describes_date": "1833-12-24",
+    "place_class": "chicago",
+    "quote": "The papers run him from 24 December 1833 to 20 June 1835 as a merchant",
+    "adjudication": "duplicate",
+    "reason": "The press appearances are already on the record as press evidence, dated. This row is the same reading and adds nothing to it."
+   }
+  ],
+  "christy_nathan": [
+   {
+    "field": "life_event",
+    "value": "Named in the 1834 Chicago letter lists beside the uncommon Rumsey Christy",
+    "confidence": "inferred",
+    "source": "chicago_democrat_1833_1835",
+    "describes_date": "1834-01-01",
+    "place_class": "chicago",
+    "quote": "The 1834 Chicago letter-list evidence places Nathan Christy beside the uncommon Rumsey Christy",
+    "adjudication": "asserted",
+    "reason": "A paired name in a contemporary return is a far stronger discriminator than a lone same-name match, and it is the reading that carried this identity. Written down as the fact it is; it names a second person and mints nobody."
+   },
+   {
+    "field": "life_event",
+    "value": "Listed with Rumsey Christy in the 1843 Chicago directory",
+    "confidence": "inferred",
+    "source": "fergus_chicago_directory_1843",
+    "describes_date": "1843-01-01",
+    "place_class": "chicago",
+    "quote": "the 1843 Chicago directory independently lists both Nathan Christy and Rumsey Christy",
+    "adjudication": "later_only",
+    "reason": "The pairing survives eight years, which corroborates. Under the ladder ratified 3 September 2026 (T-0513, applied by T-0514/T-0515) a volume printed after the scene date may date and corroborate and may never promote. The reading is kept; the 1835 card does not move."
+   }
+  ],
+  "doolittle_ehjah": [
+   {
+    "field": "life_event",
+    "value": "Named in the old-settler rolls and Fergus’s death notices",
+    "confidence": "inferred",
+    "source": "fergus_1843_old_settler_death_notices",
+    "describes_date": "1843-01-01",
+    "place_class": "chicago",
+    "quote": "Ehjah Doolittle agrees with an entry in the old-settler rolls and Fergus’s death notices",
+    "adjudication": "later_only",
+    "reason": "The block's own words: the reading enriches the biography and adds no 1835 attestation. Under the ladder ratified 3 September 2026 (T-0513, applied by T-0514/T-0515) a volume printed after the scene date may date and corroborate and may never promote. The reading is kept; the 1835 card does not move."
+   }
+  ],
+  "evans_sciota": [
+   {
+    "field": "life_event",
+    "value": "Named among the leading Cook County Democratic-Republicans in the Chicago Democrat’s list of 15 October 1834",
+    "confidence": "inferred",
+    "source": "rr_cook_democratic_republicans_1834",
+    "describes_date": "1834-10-15",
+    "place_class": "chicago",
+    "quote": "the Chicago Democrat’s October 15, 1834 political list names Sciota Evans among leading Cook County Democratic-Republicans",
+    "adjudication": "asserted",
+    "reason": "A contemporary newspaper list, dated to the day, eight months before the postal seed. It is the reading that made the identity and it was carried only as prose."
+   },
+   {
+    "field": "departure_from_chicago",
+    "value": "Constable at Milwaukee in September 1835",
+    "confidence": "inferred",
+    "source": "rr_cook_democratic_republicans_1834",
+    "describes_date": "1835-09-01",
+    "place_class": "outside_chicago",
+    "quote": "Milwaukee records then show Sciota Evans as constable in September 1835",
+    "adjudication": "outside_chicago",
+    "reason": "Two months after the scene, in another town and holding office there. It documents a migration away and is the reason this card's presence cannot be lifted."
+   }
+  ],
+  "kimball_walter": [
+   {
+    "field": "workplace",
+    "value": "W. Kimball’s New Store, at the South Water and Clark junction",
+    "confidence": "inferred",
+    "source": "chicago_democrat_1833_11_26",
+    "describes_date": "1833-11-26",
+    "place_class": "chicago",
+    "quote": "W. Kimball’s New Store at the South Water/Clark junction",
+    "adjudication": "unresolved:T-1147",
+    "reason": "A named premises at a named junction, in the paper's first issue. T-1147 owns the location spend and its 123 limits; recorded here so the lead survives the ticket boundary."
+   },
+   {
+    "field": "name_as_printed",
+    "value": "W. Kimball",
+    "confidence": "inferred",
+    "source": "chicago_democrat_1833_11_26",
+    "describes_date": "1833-11-26",
+    "place_class": "not_a_place",
+    "quote": "W. Kimball",
+    "adjudication": "insufficient_identity",
+    "reason": "The block says it: the initial-plus-surname form matches the record and does not safely expand the initial. The card keeps 'W. Kimball' because that is what was printed."
+   }
+  ],
+  "sen_elijah_wentworth": [
+   {
+    "field": "life_event",
+    "value": "The Wolf Point tavern keeper, resolved against his son by the ‘sen.’ of the transcription",
+    "confidence": "inferred",
+    "source": "nwchicago_elijah_wentworth",
+    "describes_date": "1834-01-01",
+    "place_class": "chicago",
+    "quote": "identify Elijah Wentworth Sr. as the Wolf Point tavern keeper",
+    "adjudication": "asserted",
+    "reason": "Two independent readings resolve the senior man from the junior. That is a finding about which person this record is, and it was held only in prose."
+   },
+   {
+    "field": "departure_from_chicago",
+    "value": "Later kept at Sand Ridge",
+    "confidence": "inferred",
+    "source": "nwchicago_elijah_wentworth",
+    "describes_date": "1835-01-01",
+    "place_class": "outside_chicago",
+    "quote": "who later kept at Sand Ridge",
+    "adjudication": "outside_chicago",
+    "reason": "The block is blunt about what this costs: Sand Ridge is not Wolf Point, and presence in the platted town on the scene date is not established. Written down as the refusal it is."
+   }
+  ],
+  "porter_jeremiah": [
+   {
+    "field": "life_event",
+    "value": "Named in the old-settler rolls and Fergus’s death notices",
+    "confidence": "inferred",
+    "source": "fergus_1843_old_settler_death_notices",
+    "describes_date": "1843-01-01",
+    "place_class": "chicago",
+    "quote": "agrees with an entry in the old-settler rolls and Fergus’s death notices",
+    "adjudication": "later_only",
+    "reason": "The block's own words: the reading enriches the biography and adds no 1835 attestation. Under the ladder ratified 3 September 2026 (T-0513, applied by T-0514/T-0515) a volume printed after the scene date may date and corroborate and may never promote. The reading is kept; the 1835 card does not move."
+   }
+  ],
+  "kinzie_juliette": [
+   {
+    "field": "life_event",
+    "value": "Named in the Fergus 1839/1843 and Norris 1844 directories, the old-settler rolls and Fergus’s death notices",
+    "confidence": "inferred",
+    "source": "fergus_chicago_directory_1839",
+    "describes_date": "1839-01-01",
+    "place_class": "chicago",
+    "quote": "agrees with an entry in the Fergus 1839/1843 and Norris 1844 directories",
+    "adjudication": "later_only",
+    "reason": "Four later volumes agree on the name and none of them speaks about 1835. Under the ladder ratified 3 September 2026 (T-0513, applied by T-0514/T-0515) a volume printed after the scene date may date and corroborate and may never promote. The reading is kept; the 1835 card does not move."
+   }
+  ],
+  "legg_gregory_e": [
+   {
+    "field": "name_as_printed",
+    "value": "Ann Legg",
+    "confidence": "inferred",
+    "source": "st_cyr_register_ichr_v4",
+    "describes_date": "1838-05-31",
+    "place_class": "not_a_place",
+    "quote": "Ann Legg",
+    "adjudication": "insufficient_identity",
+    "reason": "The surname folds equal and no forename agrees initial for initial: 'Ann Legg' against 'Gregory E. Legg'. A surname-only agreement is always a refusal, and the reading is 1838 besides. Recorded so the refusal is countable."
+   }
+  ],
+  "taylor_augustine": [
+   {
+    "field": "name_as_printed",
+    "value": "Louisa M. Taylor",
+    "confidence": "inferred",
+    "source": "st_cyr_register_ichr_v4",
+    "describes_date": "1838-05-31",
+    "place_class": "not_a_place",
+    "quote": "Louisa M. Taylor",
+    "adjudication": "insufficient_identity",
+    "reason": "A surname-only agreement against nine Taylors this layer carries. The block refuses it outright and the refusal is written here rather than left inside a summary."
+   }
+  ],
+  "kercheval_gholson": [
+   {
+    "field": "life_event",
+    "value": "Named of Chicago in a federal payment clause of the 1833 treaty transcription",
+    "confidence": "inferred",
+    "source": "chicago_voter_lists_1833_1835_irad",
+    "describes_date": "1833-09-26",
+    "place_class": "chicago",
+    "quote": "The 1833 treaty transcription names Gholson Kercheval of Chicago in a federal payment clause",
+    "adjudication": "asserted",
+    "reason": "A contemporary federal record that names both the man and the town, two years before the scene. The block calls it a corroboration of the treaty-service chronology and carried it only as prose."
+   }
+  ],
+  "egan_william_b": [
+   {
+    "field": "name_as_printed",
+    "value": "William Bradshaw Egan",
+    "confidence": "inferred",
+    "source": "chicago_voter_lists_1833_1835_irad",
+    "describes_date": "1833-01-01",
+    "place_class": "chicago",
+    "quote": "the 1833 tax list and the 1834 poll both print the whole name ‘Egan, William Bradshaw’",
+    "adjudication": "duplicate",
+    "reason": "The 1833 tax list and the 1834 poll both print the middle name in full — the strongest discriminator this corpus offers — and the record already displays it."
+   },
+   {
+    "field": "life_event",
+    "value": "Boarded at the City Hotel",
+    "confidence": "inferred",
+    "source": "fergus_chicago_directory_1839",
+    "describes_date": "1839-01-01",
+    "place_class": "chicago",
+    "quote": "Fergus 1839 prints ‘Egan, Dr. William B., real estate dealer, bds. City Hotel’",
+    "adjudication": "later_only",
+    "reason": "A lodging four years after the scene. Under the ladder ratified 3 September 2026 (T-0513, applied by T-0514/T-0515) a volume printed after the scene date may date and corroborate and may never promote. The reading is kept; the 1835 card does not move."
+   }
+  ],
+  "moore_henry": [
+   {
+    "field": "death",
+    "value": "Died at Concord, Massachusetts, after 1841",
+    "confidence": "inferred",
+    "source": "chicago_tribune_1882_04_25_old_settler_deaths",
+    "describes_date": "1841-01-01",
+    "place_class": "outside_chicago",
+    "quote": "the old-settler notice ‘Moore, Henry, died, Concord, Mass., after 1841’",
+    "adjudication": "later_only",
+    "reason": "An old-settler notice with no year of its own — only a bound. Under the ladder ratified 3 September 2026 (T-0513, applied by T-0514/T-0515) a volume printed after the scene date may date and corroborate and may never promote. The reading is kept; the 1835 card does not move."
+   },
+   {
+    "field": "life_event",
+    "value": "Attorney and counsellor at law at 9 Clark Street",
+    "confidence": "inferred",
+    "source": "fergus_chicago_directory_1839",
+    "describes_date": "1839-01-01",
+    "place_class": "chicago",
+    "quote": "Fergus 1839 prints ‘Moore, Henry, attorney and counseller at law, 9 Clark st’",
+    "adjudication": "later_only",
+    "reason": "The block says it in one line: the 1839 door is 1839's, not 1835's. Under the ladder ratified 3 September 2026 (T-0513, applied by T-0514/T-0515) a volume printed after the scene date may date and corroborate and may never promote. The reading is kept; the 1835 card does not move."
+   }
+  ]
+ }
+}

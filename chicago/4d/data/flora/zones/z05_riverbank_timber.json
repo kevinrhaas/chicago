@@ -1,0 +1,437 @@
+{
+ "id": "z05_riverbank_timber",
+ "zone": 5,
+ "name": "Riverbank and floodplain timber",
+ "dossier": "docs/research/02-flora.md § ZONE 5",
+ "scene_date": "1835-07-01",
+ "palette": "july_floodplain_timber",
+ "reads_as": "an irregular gallery of cottonwood, elm and silver maple over a dogwood and elder shrub layer, with clonal willow thickets on the point bars",
+ "plantable_in_scene": true,
+ "cover": {"matrix_fraction":0.45,"bare_soil_fraction":0.15,"standing_water_fraction":0.0},
+ "ground": {"rgb":[62,70,44],"wet_rgb":[50,54,38]},
+ "extent": {
+  "kind": "buffer",
+  "of": "water",
+  "distance_m": [8,90],
+  "exclude_polygons": [
+   [
+    [-340,340],
+    [-172,340],
+    [-152,300],
+    [-144,262],
+    [-136,220],
+    [-128,182],
+    [-120,120],
+    [-120,40],
+    [-112,4],
+    [-104,-20],
+    [-88,-42],
+    [-70,-60],
+    [-40,-80],
+    [-10,-100],
+    [-8,-180],
+    [-8,-282],
+    [-24,-340],
+    [-340,-340]
+   ],
+   [
+    [-60,340],
+    [-52,300],
+    [-44,262],
+    [-32,220],
+    [-32,180],
+    [-30,120],
+    [-28,60],
+    [-20,36],
+    [-4,10],
+    [16,-6],
+    [48,8],
+    [80,26],
+    [112,42],
+    [138,58],
+    [152,86],
+    [172,108],
+    [230,118],
+    [340,126],
+    [340,340]
+   ]
+  ],
+  "priority": 30,
+  "confidence": "inferred",
+  "sources": ["chicagology_prefire273"],
+  "note": "Andreas: 'On the South Side, a body of timber grew along the river, extending east as far as Wells Street, and following the bend of the river, crossed Clark Street, and extending south two or three miles', and the North Side carried a thrifty heavy growth of timber. CORRECTED 2026-08-16 (ROADMAP K45(b2)): this sentence used to read 'Wells Street is about 440 m east of this box's east edge, so the whole South Division frontage inside the box is inside that belt', and Wells Street is not there. Its committed centreline in data/streets/1835.json runs E +328.1 to +330.5, a mean of E +329.3 \u2014 nine metres EAST of this box's east edge, not 440. The conclusion happened to survive the error, because the box ends at E +320, but not for the reason written: the South Division frontage inside the 640 m box is inside the belt by nine metres of margin rather than by four hundred. The distinction stopped being academic when the heightfield was carried east to E +1700, because a belt read as running 440 m past the box would have licensed a gallery over the beach ridges. The woody renderer now reads the east end of this belt from the Wells Street record itself. The West Division is excluded by polygon because Andreas documents it as entirely free from timber; the one exception he names, the grove up the South Branch, is about 5 km away. The North Division is excluded too, not because it carries no timber but because the dossier treats the timber north-east of the forks as its own community (ZONE 6) with its own composition, and two records must not both claim the same ground. The 8-90 m band implements the dossier's '30-120 m wide irregular gallery' and is an inference; it is measured from the waterline, so it also keeps the gallery off the 7 m north-side slough, which is not a river."
+ },
+ "species": [
+  {
+   "id": "populus_deltoides",
+   "binomial": "Populus deltoides",
+   "common": "eastern cottonwood",
+   "role": "tree",
+   "form": "tree_gallery",
+   "abundance": {"density_per_ha":[8,20]},
+   "height_m": [22,30],
+   "width_m": [14,22],
+   "july": {
+    "phenology": "vegetative",
+    "foliage_rgb": [78,106,56],
+    "foliage_rgb_alt": [126,148,92],
+    "inflorescence": null,
+    "appearance": "Massive open crown emergent above the gallery; glossy triangular leaves that flash and rattle in wind. Cotton release is finished by mid-July."
+   },
+   "confidence": "attested",
+   "sources": ["mcbride_bowles_2007"],
+   "note": "60-100 cm dbh. Cottonwood is on the PLS species list and is the timber the 1833 lumber trade shipped in as boards, which is why the dossier tags it [D]."
+  },
+  {
+   "id": "salix_nigra",
+   "binomial": "Salix nigra",
+   "common": "black willow",
+   "role": "tree",
+   "form": "tree_leaning",
+   "abundance": {"density_per_ha":[25,60]},
+   "height_m": [10,16],
+   "width_m": [6,11],
+   "july": {
+    "phenology": "vegetative",
+    "foliage_rgb": [96,124,66],
+    "inflorescence": null,
+    "appearance": "Multi-stemmed and leaning out over the water; narrow bright-green leaves, dark furrowed bark."
+   },
+   "confidence": "attested",
+   "sources": ["mcbride_bowles_2007"]
+  },
+  {
+   "id": "salix_interior",
+   "binomial": "Salix interior",
+   "common": "sandbar willow",
+   "role": "thicket",
+   "form": "thicket_clonal",
+   "abundance": {"stems_per_m2":[2,6]},
+   "height_m": [2,4],
+   "july": {
+    "phenology": "vegetative",
+    "foliage_rgb": [132,150,116],
+    "inflorescence": null,
+    "appearance": "Dense clonal screens on the point bars; fine silvery-green linear leaves."
+   },
+   "confidence": "attested",
+   "sources": ["mcbride_bowles_2007"],
+   "note": "Cook County held the only willow thickets the Public Land Survey recorded anywhere in the seven-county area."
+  },
+  {
+   "id": "salix_amygdaloides",
+   "binomial": "Salix amygdaloides",
+   "common": "peachleaf willow",
+   "role": "tree",
+   "form": "tree_leaning",
+   "abundance": {"density_per_ha":[10,25]},
+   "height_m": [8,14],
+   "width_m": [5,9],
+   "july": {
+    "phenology": "vegetative",
+    "foliage_rgb": [104,130,74],
+    "inflorescence": null,
+    "appearance": "Yellowish twigs and drooping paler leaves at the water's edge."
+   },
+   "confidence": "inferred",
+   "sources": ["mcbride_bowles_2007"],
+   "note": "Dossier [I]: on the PLS list, not named here."
+  },
+  {
+   "id": "acer_saccharinum",
+   "binomial": "Acer saccharinum",
+   "common": "silver maple",
+   "role": "tree",
+   "form": "tree_gallery",
+   "abundance": {"density_per_ha":[15,35]},
+   "height_m": [20,28],
+   "width_m": [12,18],
+   "july": {
+    "phenology": "vegetative",
+    "foliage_rgb": [82,108,60],
+    "foliage_rgb_alt": [162,172,150],
+    "inflorescence": null,
+    "appearance": "Deeply cut leaves whose silver undersides flash white when the wind turns them."
+   },
+   "confidence": "attested",
+   "sources": ["mcbride_bowles_2007"],
+   "note": "The 'soft maple' of the survey notes; 50-90 cm dbh."
+  },
+  {
+   "id": "ulmus_americana",
+   "binomial": "Ulmus americana",
+   "common": "American elm",
+   "role": "tree",
+   "form": "tree_gallery",
+   "abundance": {"density_per_ha":[15,35]},
+   "height_m": [18,26],
+   "width_m": [12,20],
+   "july": {
+    "phenology": "vegetative",
+    "foliage_rgb": [72,100,52],
+    "inflorescence": null,
+    "appearance": "Vase form with an arching crown over the bank."
+   },
+   "confidence": "attested",
+   "sources": ["mcbride_bowles_2007"]
+  },
+  {
+   "id": "fraxinus_pennsylvanica",
+   "binomial": "Fraxinus pennsylvanica",
+   "common": "green ash",
+   "role": "tree",
+   "form": "tree_gallery",
+   "abundance": {"density_per_ha":[15,30]},
+   "height_m": [15,22],
+   "width_m": [8,13],
+   "july": {
+    "phenology": "vegetative",
+    "foliage_rgb": [86,112,58],
+    "inflorescence": null,
+    "appearance": "Pinnate leaves and diamond-ridged bark; upright oval crown."
+   },
+   "confidence": "attested",
+   "sources": ["mcbride_bowles_2007"]
+  },
+  {
+   "id": "quercus_bicolor",
+   "binomial": "Quercus bicolor",
+   "common": "swamp white oak",
+   "role": "tree",
+   "form": "tree_open_crown",
+   "abundance": {"density_per_ha":[5,15]},
+   "height_m": [15,20],
+   "width_m": [10,16],
+   "july": {
+    "phenology": "vegetative",
+    "foliage_rgb": [80,104,54],
+    "foliage_rgb_alt": [150,158,128],
+    "inflorescence": null,
+    "appearance": "Two-tone leaves, dark above and white-felted below; peeling twig bark."
+   },
+   "confidence": "inferred",
+   "sources": ["mcbride_bowles_2007"],
+   "note": "Dossier [I]: on the PLS list, not named here."
+  },
+  {
+   "id": "celtis_occidentalis",
+   "binomial": "Celtis occidentalis",
+   "common": "hackberry",
+   "role": "tree",
+   "form": "tree_columnar",
+   "abundance": {"density_per_ha":[5,12]},
+   "height_m": [12,18],
+   "width_m": [7,11],
+   "july": {
+    "phenology": "vegetative",
+    "foliage_rgb": [92,116,62],
+    "inflorescence": null,
+    "appearance": "Warty corky bark and asymmetric rough leaves."
+   },
+   "confidence": "attested",
+   "sources": ["mcbride_bowles_2007"]
+  },
+  {
+   "id": "juglans_nigra",
+   "binomial": "Juglans nigra",
+   "common": "black walnut",
+   "role": "tree",
+   "form": "tree_columnar",
+   "abundance": {"density_per_ha":[1,4]},
+   "height_m": [18,25],
+   "width_m": [9,14],
+   "july": {
+    "phenology": "vegetative",
+    "foliage_rgb": [88,112,56],
+    "inflorescence": null,
+    "appearance": "Long pinnate leaves on a high open crown; occasional, not a component."
+   },
+   "confidence": "inferred",
+   "sources": ["mcbride_bowles_2007"],
+   "note": "Dossier tags it D for the regional PLS list and C for this site. Recorded as inferred from the list at the bottom of its density band; nothing attests a walnut in the gallery at the forks."
+  },
+  {
+   "id": "platanus_occidentalis",
+   "binomial": "Platanus occidentalis",
+   "common": "American sycamore",
+   "role": "tree",
+   "form": "tree_gallery",
+   "abundance": {"density_per_ha":[1,3]},
+   "height_m": [18,25],
+   "width_m": [12,18],
+   "july": {
+    "phenology": "vegetative",
+    "foliage_rgb": [96,120,62],
+    "inflorescence": null,
+    "appearance": "Rare, at its northern edge; white mottled bark flashing on the upper limbs."
+   },
+   "confidence": "inferred",
+   "sources": ["mcbride_bowles_2007"],
+   "note": "Dossier D for the list, C on site. Inferred at the bottom of the band."
+  },
+  {
+   "id": "cornus_sericea",
+   "binomial": "Cornus sericea",
+   "common": "red-osier dogwood",
+   "role": "shrub_low",
+   "form": "shrub_low",
+   "abundance": {"cover_fraction":[0.03,0.08]},
+   "height_m": [1.5,3.0],
+   "width_m": [1.2,2.4],
+   "july": {
+    "phenology": "fruiting",
+    "foliage_rgb": [88,116,66],
+    "inflorescence": {"shape":"berry_cluster","rgb":[214,216,206],"height_frac":0.85,"size_m":[0.05,0.09],"fruit":true},
+    "appearance": "Red stems under the gallery with flat clusters of whitening berries."
+   },
+   "confidence": "inferred",
+   "sources": ["swink_wilhelm_1994"],
+   "note": "Dossier [I]: regional floodplain shrub."
+  },
+  {
+   "id": "cornus_racemosa",
+   "binomial": "Cornus racemosa",
+   "common": "grey dogwood",
+   "role": "shrub_low",
+   "form": "shrub_low",
+   "abundance": {"cover_fraction":[0.03,0.08]},
+   "height_m": [1.5,3.0],
+   "width_m": [1.2,2.4],
+   "july": {
+    "phenology": "flowering",
+    "foliage_rgb": [96,122,70],
+    "inflorescence": {"shape":"panicle_dense","rgb":[230,228,212],"height_frac":0.85,"size_m":[0.05,0.09]},
+    "appearance": "Grey twigs and loose creamy flower clusters at the gallery edge."
+   },
+   "confidence": "inferred",
+   "sources": ["swink_wilhelm_1994"],
+   "note": "Dossier [I]: regional floodplain shrub."
+  },
+  {
+   "id": "sambucus_canadensis",
+   "binomial": "Sambucus canadensis",
+   "common": "common elderberry",
+   "role": "shrub_low",
+   "form": "shrub_low",
+   "abundance": {"cover_fraction":[0.02,0.07]},
+   "height_m": [1.5,3.0],
+   "width_m": [1.5,2.5],
+   "july": {
+    "phenology": "flowering",
+    "foliage_rgb": [92,124,66],
+    "inflorescence": {"shape":"umbel_flat","rgb":[240,240,226],"height_frac":0.88,"size_m":[0.15,0.25]},
+    "appearance": "Flat white elder umbels in full bloom over coarse pinnate leaves — one of the loudest July markers in the shrub layer."
+   },
+   "confidence": "inferred",
+   "sources": ["swink_wilhelm_1994"],
+   "note": "Dossier [I]: regional floodplain shrub."
+  },
+  {
+   "id": "physocarpus_opulifolius",
+   "binomial": "Physocarpus opulifolius",
+   "common": "ninebark",
+   "role": "shrub_low",
+   "form": "shrub_low",
+   "abundance": {"cover_fraction":[0.02,0.06]},
+   "height_m": [1.5,3.0],
+   "width_m": [1.2,2.2],
+   "july": {
+    "phenology": "fruiting",
+    "foliage_rgb": [90,114,62],
+    "inflorescence": {"shape":"cluster_terminal","rgb":[178,118,92],"height_frac":0.85,"size_m":[0.04,0.07],"fruit":true},
+    "appearance": "Shredding bark and clusters of inflating reddish seed pods."
+   },
+   "confidence": "inferred",
+   "sources": ["swink_wilhelm_1994"],
+   "note": "Dossier [I]: regional floodplain shrub."
+  },
+  {
+   "id": "vitis_riparia",
+   "binomial": "Vitis riparia",
+   "common": "riverbank grape",
+   "role": "thicket",
+   "form": "vine_drape",
+   "abundance": {"cover_fraction":[0.05,0.12]},
+   "height_m": [4,12],
+   "july": {
+    "phenology": "fruiting",
+    "foliage_rgb": [86,118,60],
+    "inflorescence": {"shape":"berry_cluster","rgb":[110,132,84],"height_frac":0.6,"size_m":[0.06,0.12],"fruit":true},
+    "appearance": "Heavy curtain vine on the river-facing edge trees, hard green fruit."
+   },
+   "confidence": "inferred",
+   "sources": ["swink_wilhelm_1994"],
+   "note": "Dossier [I]. Drapes 10-20% of the edge trees. form 'vine_drape' is outside the renderer's implemented list on purpose: a vine is neither sward nor tree, and the modules are expected to record it as an unimplemented form and draw nothing rather than substitute a shrub."
+  },
+  {
+   "id": "parthenocissus_quinquefolia",
+   "binomial": "Parthenocissus quinquefolia",
+   "common": "Virginia creeper",
+   "role": "thicket",
+   "form": "vine_drape",
+   "abundance": {"cover_fraction":[0.04,0.1]},
+   "height_m": [3,12],
+   "july": {
+    "phenology": "vegetative",
+    "foliage_rgb": [78,110,56],
+    "inflorescence": null,
+    "appearance": "Five-fingered leaves climbing the trunks on the shaded side."
+   },
+   "confidence": "inferred",
+   "sources": ["swink_wilhelm_1994"],
+   "note": "Dossier [I]. See vitis_riparia on the form."
+  },
+  {
+   "id": "carex_spp_shore",
+   "binomial": "Carex spp.",
+   "common": "sedge grass of the river shore",
+   "role": "matrix",
+   "form": "sedge_tussock",
+   "abundance": {"cover_fraction":[0.15,0.35]},
+   "height_m": [0.3,0.7],
+   "width_m": [0.2,0.4],
+   "width_provenance": {
+    "confidence": "inferred",
+    "sources": ["chicagology_prefire273"],
+    "note": "WHAT ONE DRAWN PLANT COVERS ON THE GROUND, added for ROADMAP K49(c) so this record's cover_fraction can be read as a count of plants. The only graminoid footprint measured anywhere in this project's flora dossier is Carex stricta's, at docs/research/02-flora.md § ZONE 3: \"tussocks 0.3-0.5 m tall x 0.3 m wide, 0.5-1.0 m apart\", which this dataset commits as [0.28, 0.34]. The shore sedge here is an unresolved aggregate rather than a determination, so it is given the measured tussock's band widened downward to cover the finer shore species the aggregate may contain."
+   },
+   "july": {
+    "phenology": "past_bloom",
+    "foliage_rgb": [82,110,58],
+    "inflorescence": {"shape":"spike","rgb":[124,122,88],"height_frac":0.75,"size_m":[0.02,0.05],"fruit":true},
+    "appearance": "The sedge grass of the shore, between the gallery trees and the water, fruited and going lax."
+   },
+   "confidence": "attested",
+   "sources": ["chicagology_prefire273"],
+   "note": "Andreas puts wild onions 'among sedge grass' on the river shores, so a sedge ground layer here is documented; WHICH sedges is not, and no species is named."
+  },
+  {
+   "id": "allium_canadense",
+   "binomial": "Allium canadense",
+   "common": "wild garlic",
+   "role": "forb",
+   "form": "forb_basal_scape",
+   "abundance": {"cover_fraction":[0.01,0.04]},
+   "height_m": [0.3,0.5],
+   "width_m": [0.08,0.15],
+   "width_provenance": {
+    "confidence": "reconstructed",
+    "sources": ["chicagology_prefire273"],
+    "note": "WHAT ONE DRAWN PLANT COVERS ON THE GROUND, added for ROADMAP K49(c) so this record's cover_fraction can be read as a count of plants. RECONSTRUCTED. § ZONE 5 gives wild garlic as \"patches on the sedge-grass shore\", 0.3-0.5 m tall, with an umbel of bulbils — Andreas's \"wild onions... among sedge grass\" — and no width. A single onion's basal leaf tuft is a decimetre-scale object whatever the scape's height, so 0.08-0.15 m. This is the smallest footprint in the sward and therefore the densest conversion; it is invented. docs/LIBERTIES.md L119."
+   },
+   "july": {
+    "phenology": "flowering",
+    "foliage_rgb": [104,134,76],
+    "inflorescence": {"shape":"bulbil_umbel","rgb":[206,190,160],"height_frac":0.9,"size_m":[0.03,0.06]},
+    "appearance": "Patches on the sedge-grass shore: umbels of green-purple bulbils with a few pink flowers among them. This is the onion that is actually visible in July."
+   },
+   "confidence": "attested",
+   "sources": ["chicagology_prefire273"],
+   "note": "Andreas: wild onions grew in great abundance along the river shores among the sedge grass. A. canadense, not A. tricoccum, which is leafless and out of the open by July."
+  }
+ ],
+ "confidence": "attested",
+ "sources": ["chicagology_prefire273","mcbride_bowles_2007"],
+ "note": "Canopy 30-80 trees/ha, the open-to-closed savanna range: this is a thin grassy gallery of medium trees, not a closed eastern hardwood forest. The 'vine_drape' form on the two vines is deliberately outside the renderer's implemented list.",
+ "review_required": false
+}

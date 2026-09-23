@@ -1,0 +1,225 @@
+{
+ "id": "hh_wolcott_alexander",
+ "name": "The Wolcott household — a name the town's own records carry",
+ "division": "unplaced",
+ "head": "wolcott_alexander",
+ "source_pass": "civic",
+ "arrival": {
+  "value": "1830-10-25",
+  "confidence": "inferred",
+  "sources": [
+   "chicago_voter_lists_1833_1835_irad",
+   "fergus_1843_old_settler_death_notices",
+   "fergus_chicago_directory_1843"
+  ],
+  "note": "A BOUND FROM THE RECORD, NOT AN ARRIVAL. death_notice names this person at Chicago by 25 October 1830 and nothing says when they came. The bound is at or before the scene date, so the person was at Chicago by 1 July 1835 on this record's own evidence.",
+  "precision": "not_later_than"
+ },
+ "party_size_on_arrival": {
+  "value": null,
+  "confidence": "reconstructed",
+  "note": "Not attested."
+ },
+ "origin": {
+  "value": null,
+  "confidence": "reconstructed",
+  "note": "Not attested."
+ },
+ "reason_for_coming": {
+  "value": null,
+  "confidence": "reconstructed",
+  "note": "Not attested."
+ },
+ "lives_at": {
+  "value": null,
+  "confidence": "reconstructed",
+  "note": "Not attested: the lists that name this person give no address. The placement sweep assigns homes once the resident list is complete (T-0514, the owner's own sequencing) and this pass will not guess one."
+ },
+ "works_at": {
+  "value": null,
+  "confidence": "reconstructed",
+  "note": "Not attested. No trade is recorded here, so there is no premises to seek; T-0633 is where a later directory's address gets back-projected."
+ },
+ "present_on_scene_date": {
+  "value": "absent",
+  "confidence": "attested",
+  "sources": [
+   "chicago_voter_lists_1833_1835_irad",
+   "fergus_1843_old_settler_death_notices",
+   "fergus_chicago_directory_1843"
+  ],
+  "note": "THE RECORD PLACES THIS PERSON NOWHERE ON THE DAY, BECAUSE HE WAS DEAD. The old settlers' obituary dates the death 25 October 1830, before the scene date of 1 July 1835, and no record that places a person at Chicago names this one after it. A DEATH NOTICE IS NOT A PRESENCE (T-1131): the old settlers' obituary declares `places_in_1835: false` on every record it publishes, because its own header admits it prints citizens who arrived after 1843. It dates a death; it never says the man was standing in the town on 1 July 1835 — so it cannot be the at-or-before leg of a bracket, and a later source on the far side cannot close one over a dead man. `absent` and not `uncertain`: a silence is somewhere the sources have not looked, and a death is not a silence."
+ },
+ "persons": [
+  {
+   "id": "wolcott_alexander",
+   "name": "Alexander Wolcott",
+   "relationship": "head",
+   "grade": "inferred",
+   "civic_mint": true,
+   "ladder_rule": "G2b",
+   "occupation": {
+    "value": "none_recorded",
+    "confidence": "reconstructed",
+    "later_occupation": {
+     "value": "clerk Steamer Geo. W. Dole, for St. Joseph",
+     "describes_date": 1839,
+     "confidence": "attested",
+     "sources": [
+      "fergus_chicago_directory_1839"
+     ],
+     "note": "NONE RECORDED FOR 1835 — AND A TRADE IS RECORDED FOR 1839. This is a POINTER at `directories.people[].occupation_later` on this same record, derived by `tools/qualify_later_trades.py` and holding nothing that block does not already say. It is not a claim about the scene date: the 1835 occupation above still reads `none_recorded`, its grade has not moved, and no premises has been sought on the strength of it, because a directory of 1839 is evidence about 1839. It is written because the field a reader consults was asserting an absence this file contradicts three lines further down, and \"no trade anywhere\" and \"no trade in the scene window, one printed 1839\" are not the same fact (T-0693)."
+    },
+    "note": "No source in this pass's evidence records an occupation for this person. A poll list, a tax list, a muster roll and a baptismal entry each print a name and no trade, and where a later directory prints one it is a trade of 1843 — T-0633 is the rule for back-projecting that, and this pass does not have it.",
+    "derived_from": "roles",
+    "roles_at_scene_date": []
+   },
+   "sources": [
+    "calumet_club_early_chicago_1879",
+    "chicago_tribune_1882_05_19_fourth_reception",
+    "chicago_voter_lists_1833_1835_irad",
+    "fergus_1843_old_settler_death_notices",
+    "fergus_chicago_directory_1843",
+    "isa_public_domain_land_tract_sales"
+   ],
+   "note": "AN 1833 OR 1834 LIST — POLL, TAX OR MUSTER — WITH ANOTHER SOURCE. Read from death_notice, directory_1843, tax_1833. THE GRADE IS THE OWNER'S RATIFIED LADDER OF 2026-09-03 (G2b), applied to every identity at once by tools/consolidate_resident_evidence.py and spent onto this card by tools/mint_civic_residents.py; the evidence blocks below carry the reading AS READ, its locator and the record it came from, so the page can be gone back to. WHAT IS RECONSTRUCTED: everything except the person and the sources — no dwelling, no trade, no origin, no family, no party. A BOUND FROM THE RECORD, NOT AN ARRIVAL. death_notice names this person at Chicago by 25 October 1830 and nothing says when they came. The bound is at or before the scene date, so the person was at Chicago by 1 July 1835 on this record's own evidence. No figure is drawn (L1). OLD SETTLERS, 1882 — CORROBORATION, NOT A NEW FACT ABOUT 1835. The Calumet Club's fourth annual reception to the settlers of Chicago prior to 1840, held 18 May 1882, printed this man among the guests present as “Wolcott, Alexander, City-Hall, Chicago.” (Chicago Tribune, 19 May 1882). The club's criterion was residence in Chicago before 1 January 1840 and majority by then: the roster therefore corroborates a pre-1840 Chicago residence and says he was alive in 1882. It gives NO year of arrival, and the address it prints is where he lived in 1882, forty-seven years after the scene date — it is not an 1835 residence and is not read as one. Under the ratified ladder (T-0513) a later recollection corroborates, enriches and dates and cannot lift a rung by itself, so this record's GRADE IS UNCHANGED by it: T-0513 consolidates the identity and T-0515 regrades. Identity by rule OS1 — surname and spelled-out forename agree, one bearer (data/research/old_settlers/crosswalk.json). OLD SETTLERS, 1879 — A DATE THIS MAN GAVE FOR HIMSELF, AND STILL NOT A FACT ABOUT 1835. The Calumet Club's FIRST reception to the settlers of Chicago prior to 1840, 27 May 1879, printed its register in the proceedings (Early Chicago, Chicago, 1879, pages 84-90), and this man's entry reads “Wolcott, Alexander, | 1834, June 4, | Middletown, Conn. | 64 | Chicago.” — name, his own date of arrival, his birthplace, his age and his 1879 post-office address, in the register's five columns. The date of arrival is HIS RECOLLECTION, set down forty to sixty years after the event; the address is where he lived in 1879 and is never read as an 1835 residence. Under the ratified ladder (T-0513) a later recollection corroborates, enriches and dates and cannot lift a rung by itself, so this record's GRADE IS UNCHANGED by it: T-0513 consolidates the identity and T-0515 regrades. AND THIS CARD CONTRADICTS ITSELF ON THE POINT: it already carries a death notice, “Wolcott, Dr. Alexander”, dated Oct. 25, 1830 — before the register was signed. A man dead by then did not sign it, so either the register's entry is another man of the same name or this card is two men. Nothing is withdrawn and no record is split here; the case is filed in data/research/old_settlers/receptions.json under os_q_registered_after_a_documented_death for the identity master (T-0513). Identity by rule OS1 — surname and spelled-out forename agree, one bearer (data/research/old_settlers/crosswalk.json). THE FEDERAL LAND TRACT SALES — A PURCHASE, AND NEVER A RESIDENCE. The Illinois State Archives' Public Domain Land Tract Sales register enters this person 10 times, as “WOLCOTT ALEXANDER”, 1830-09-27 to 1830-09-29: 2 federal land entries — E2NE sec 09 T39N R14E; E2NEVO sec 09 T39N R14E and 8 lots in the platted town — lot 1 of block 1 in the town the register codes CHIOT (L1BL1CHIOT, as printed); lot 2 of block 1 in the town the register codes CHIOT (L2BL1CHIOT, as printed); lot 3 of block 1 in the town the register codes CHIOT (L3BL1CHIOT, as printed); lot 4 of block 1 in the town the register codes CHIOT (L4BL1CHIOT, as printed); lot 5 of block 1 in the town the register codes CHIOT (L5BL1CHIOT, as printed); lot 6 of block 1 in the town the register codes CHIOT (L6BL1CHIOT, as printed); lot 7 of block 1 in the town the register codes CHIOT (L7BL1CHIOT, as printed); lot 8 of block 1 in the town the register codes CHIOT (L8BL1CHIOT, as printed), 160.00 acres stated in all, for $945.00 (ls0055, ls0056, ls1550, ls1551, ls1552, ls1553, ls1554, ls1555, ls1556, ls1557). THE REGISTER'S OWN RESIDENCE COLUMN READS ILLINOIS, UNKNOWN on these rows: a county, a state or nothing, and never a town, which is why a purchase here places nobody. THE TOWN LOTS ARE THE PLAT ITSELF, AND THEY ARE NOT ACRES: Cook County's register describes them by lot and block in a platted town and gives them no section, no township and no acreage at all, so they add nothing to the acre figure above and $685.00 to the money. This project does not expand the register's town codes, so which addition a lot stands in is carried as the code and not as a name. It is still a purchase and it still places nobody. A purchase and nothing more. It dates and places a transaction; it proposes no residence, and under the ratified ladder it corroborates rather than mints. Identity by the crosswalk's own rule: WOLCOTT ALEXANDER matches Alexander Wolcott: the forename names Alexander Wolcott of the 1 person of this surname, and the forename agrees in full. (data/research/land_sales/resident_crosswalk.json). This pass WRITES THE EVIDENCE AND MOVES NO GRADE. Under the ratified ladder (T-0513) a second independent source is what lifts a projected resident, and a land entry is a second source about a TRANSACTION rather than about who was living at Chicago on 1 July 1835 — a man may buy a quarter-section he never sees. T-0515 applies the ladder against every source at once; this pass hands it the evidence and not the verdict. THE TOWN'S OWN ROLLS, 1833-1835 — CORROBORATION, NOT A GRADE. The early Chicago voter and tax lists held by the Illinois Regional Archives Depository name this person 1 time: Tax list of the Town of Chicago, 1833 — “Wolcott, Alexander” (tax_1833_110, line 162). These are the town's own contemporary paper rather than a recollection of it, and each appearance says that a man of that name stood on that roll in that year — no more. The reading is twice mediated (Schulz's transcription, then Genealogy Trails' republication) and this project has not seen the IRAD originals. Under the ratified ladder (T-0513) the 1835 poll with a second independent source is attested, the 1835 poll alone or a 1833/1834 list with another source is inferred, and a single appearance with nothing else is a projected resident. This pass WRITES THE EVIDENCE AND MOVES NO GRADE — T-0515 applies the ladder against every source at once. Identity by the crosswalk's own rule: one resident of the surname 'Wolcott' agrees with the entry's forenames; 1 bearer(s) of the surname were considered. (data/research/civic/voter_crosswalk.json).",
+   "civic_evidence": [
+    {
+     "list": "tax_1833",
+     "as_read": "Wolcott, Alexander",
+     "locator": "tax_1833",
+     "record_id": "tax_1833_110",
+     "describes_date": "1833",
+     "source": "chicago_voter_lists_1833_1835_irad",
+     "rule": "G2b"
+    }
+   ],
+   "book_evidence": [
+    {
+     "list": "directory_1843",
+     "as_read": "Wolcott, Alex., surveyor, bds H. Wolcott [died Aug. 11,l884, a. 69].",
+     "locator": "bds H. Wolcott",
+     "record_id": "f1843_e2651",
+     "describes_date": "1843",
+     "source": "fergus_chicago_directory_1843",
+     "rule": "G2b"
+    },
+    {
+     "list": "death_notice",
+     "as_read": "Wolcott, Dr. Alexander",
+     "locator": "W",
+     "record_id": "fdn0742",
+     "describes_date": "Oct. 25, 1830",
+     "source": "fergus_1843_old_settler_death_notices",
+     "rule": "G2b"
+    }
+   ],
+   "roles": [
+    {
+     "role": null,
+     "kind": "trade",
+     "as_printed": "clerk Steamer Geo. W. Dole, for St. Joseph",
+     "from": "1839",
+     "to": "1839",
+     "precision": "year",
+     "dated_by": "printing_year",
+     "covers_scene_date": false,
+     "confidence": "attested",
+     "sources": [
+      "fergus_chicago_directory_1839"
+     ],
+     "claim": null,
+     "note": "A TRADE PRINTED AGAINST THIS NAME IN A LATER VOLUME, and this row says which year rather than leaving it to a pointer (T-0693, carried here by tools/derive_resident_roles.py). `role` is null because the directory's wording has not been adjudicated into the closed vocabulary — the printing is what the source gives and the printing is what is kept. T-1254 is where the controlled term is ruled on. It is not a claim about 1835-07-01 and never becomes one: the year is 1839."
+    }
+   ]
+  }
+ ],
+ "touches_removal": false,
+ "review_required": false,
+ "research_note": "MINTED FROM THE CONSOLIDATED CIVIC, CHURCH, PRESS, BOOK AND CENSUS EVIDENCE (T-0513, T-0514). THE HOUSEHOLD IS A CONTAINER, NOT AN ARGUMENT: every other record here is written unattested in its own block, because the lists that name this person name a person and not a family. What is claimed is that the sources cited on the member below name them at Chicago, and the grade is the owner's ratified ladder applied by tools/consolidate_resident_evidence.py --build and spent by tools/mint_civic_residents.py, which prints every refusal. docs/LIBERTIES.md L215 carries the liberty and the tension with L213.",
+ "old_settler_deaths": {
+  "the_header_admission": "Names, places * , dates, and ages at death\nof some of Chicago's Old Settlers, prior to 1843, and other well - known citizens who arrived after 1843, together\nwith others prominently connected with Illinois history:",
+  "note": "LATER EVIDENCE OF A DEATH, BESIDE THE 1835 CLAIMS AND NOT INSIDE THEM. Fergus's 1843 directory (1896) prints an obituary list of old settlers, and one of its entries meets somebody of this name. THE HEADER OF THE LIST IS QUOTED ABOVE, and it is the limit the whole reading turns on. It does not mean the person was in Chicago in 1835, and it does not mean they arrived before 1843 — the list's own header, quoted above, says it also names citizens who arrived later and others merely 'prominently connected with Illinois history'. A match means one thing: a name in the 1835 layer and a name in this list agree on surname and first initial, and the list gives that name a death date and an age. The date and the interval are the payload. Whatever is carried is carried as evidence of a DEATH and of an interval the birth falls in, never as an 1835 fact and never as a grade. T-0513 consolidates and T-0514/T-0515 apply; this file changes no record. This pass WRITES THE EVIDENCE AND MOVES NO GRADE. A death notice printed in 1896 says a person of this name died on a day; under the ratified ladder (T-0513) that is later evidence about a DEATH, and it is never an 1835 residence. T-0515 applies the ladder against every source at once; this pass hands it the evidence and not the verdict.",
+  "sources": [
+   "fergus_1843_old_settler_death_notices"
+  ],
+  "people": [
+   {
+    "person_id": "wolcott_alexander",
+    "matched_as": "Alexander Wolcott",
+    "matched_by": "Surname 'Wolcott' folds to the same string as the entry's, and the given name of both begins A.",
+    "matched_on_initial_only": false,
+    "resident_given_is_initial_only": false,
+    "entry_given_as_read": "Dr. Alexander",
+    "entry_given_is_initial_only": false,
+    "the_agreement": "a surname and a forename spelled out on both sides",
+    "record_id": "fdn0742",
+    "trade_or_office": "Indian agent",
+    "manner_of_death": "died",
+    "place_of_death": null,
+    "death_date": "1830-10-25",
+    "age_as_printed": "aged 40",
+    "birth_year_earliest": 1789,
+    "birth_year_latest": 1790,
+    "birth_year_arithmetic": "The page prints the death as 'Oct. 25, 1830' and the age as 'aged 40'. An age of 40 completed years means at least 40 and less than 41, so the birth falls between 1789-10-26 and 1790-10-25: the birth year is 1789 or 1790. The subtraction is this project's; the page states no year of birth.",
+    "as_read": "Wolcott, Dr. Alexander, Indian agent, died Oct. 25, 1830, aged 40; his will was the first probated in Cook County."
+   }
+  ]
+ },
+ "directories": {
+  "note": "LATER EVIDENCE, BESIDE THE 1835 CLAIMS AND NOT INSIDE THEM. A Chicago directory of 1839, 1843 or 1844 meets somebody of this name and this pass records what it prints. Under the ratified ladder a directory read after 1835 can corroborate that a person attested here was still in Chicago and can print a trade or a street the 1835 record never had; on its own it makes nobody a resident of 1835. Nothing on this person's 1835 record was regraded, moved, dated or given an occupation by this entry. WHAT THIS PASS RULED ONTO THIS HOUSEHOLD, named so the ruling can be found again: each volume below is followed by the printed entries it set against this person and the status the crosswalk ruled them at — a single entry carries what its own `could_carry` declares, and an ambiguous or contested match carries nothing and is shown so that the silence is legible. wolcott_alexander, Fergus's Chicago directory of 1839 — f1839_e1632 (a single entry); wolcott_alexander, Fergus's Chicago directory of 1843 — f1843_e2651 (a single entry).",
+  "sources": [
+   "fergus_chicago_directory_1839",
+   "fergus_chicago_directory_1843"
+  ],
+  "people": [
+   {
+    "person_id": "wolcott_alexander",
+    "occupation_later": {
+     "value": "clerk Steamer Geo. W. Dole, for St. Joseph",
+     "confidence": "attested",
+     "describes_date": 1839,
+     "sources": [
+      "fergus_chicago_directory_1839"
+     ],
+     "note": "Fergus's Chicago directory of 1839 prints this trade against this person, in the entry quoted on the card: 'Wolcott, Alex., clerk Steamer Geo. W. Dole, for St. Joseph'. It is evidence about 1839, written here as 1839's and read back onto no 1835 claim. Under the ratified ladder a directory read after 1835 can corroborate that a person attested here was still in Chicago and can print a trade or a street the 1835 record never had; on its own it makes nobody a resident of 1835. Nothing on this person's 1835 record was regraded, moved, dated or given an occupation by this entry. The value is the volume's own line, split by its crosswalk on the entry's punctuation. These volumes set the trade first and its qualifiers after it on the same line, so the split may carry an employer, a market or a corner along with the trade. The printed entry is quoted beside the value for exactly that reason: the split is checkable against it, and neither is read into an 1835 claim."
+    },
+    "address_later": {
+     "value": "bds H. Wolcott",
+     "confidence": "attested",
+     "describes_date": 1843,
+     "sources": [
+      "fergus_chicago_directory_1843"
+     ],
+     "note": "Fergus's Chicago directory of 1843 prints this address against this person, in the entry quoted on the card: 'Wolcott, Alex., surveyor, bds H. Wolcott [died Aug. 11,l884, a. 69].'. It is evidence about 1843, written here as 1843's and read back onto no 1835 claim. Under the ratified ladder a directory read after 1835 can corroborate that a person attested here was still in Chicago and can print a trade or a street the 1835 record never had; on its own it makes nobody a resident of 1835. Nothing on this person's 1835 record was regraded, moved, dated or given an occupation by this entry. The value is the volume's own line, split by its crosswalk on the entry's punctuation. These volumes set the trade first and its qualifiers after it on the same line, so the split may carry an employer, a market or a corner along with the trade. The printed entry is quoted beside the value for exactly that reason: the split is checkable against it, and neither is read into an 1835 claim."
+    },
+    "back_projection": {
+     "outcome": "refused",
+     "clause": "1",
+     "value": null,
+     "describes_date": 1843,
+     "read_back_years": 8,
+     "placement": null,
+     "position_local_enu_m": null,
+     "sources": [
+      "fergus_chicago_directory_1843"
+     ],
+     "note": "REFUSED, AND THE REFUSAL IS THE RECORD. Fergus's Chicago directory of 1843 prints an address against this name in 1843 and this pass will not carry it back to 1835. The 1835 record prints no trade for this person, so there is no 1835 business for a later door to position. Minting one out of a directory printed after the scene date is the one thing this pass may never do. A refusal is written here rather than dropped so that a later run can see the address was read and ruled on, not missed (docs/ADDRESS-BACK-PROJECTION.md, clause 1)."
+    },
+    "residence_back_projection": {
+     "outcome": "refused",
+     "clause": "R4",
+     "kind": "boards",
+     "value": null,
+     "describes_date": 1843,
+     "read_back_years": 8,
+     "placement": null,
+     "sources": [
+      "fergus_chicago_directory_1843"
+     ],
+     "note": "REFUSED, AND THE REFUSAL IS THE RECORD. Fergus's Chicago directory of 1843 prints where this person boarded in 1843 and this pass will not carry it back to 1835. The entry names the person the householder boarded with, set with an initial, and not a street — and the surname is also a street this town carries, which is the collision this test is ordered in front of the street table to catch. Where that person is also in this town the two records could be joined, but that is a crosswalk between two people and not an address read backwards. A refusal is written here rather than dropped so that a later run can see the address was read and ruled on, not missed (docs/RESIDENCE-BACK-PROJECTION.md, clause R4)."
+    }
+   }
+  ]
+ }
+}

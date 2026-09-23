@@ -1,0 +1,254 @@
+{
+ "id": "hh_goss_cobb",
+ "name": "The Goss and Cobb household",
+ "division": "west",
+ "head": "goss_o",
+ "arrival": {
+  "value": "1833-06-01",
+  "confidence": "attested",
+  "sources": [
+   "andreas_1884_v1"
+  ],
+  "note": "Cobb's arrival, dated to the day by Andreas's roster: 'S. B. Cobb, a minor, came June 1, 1833.' Goss's own arrival is undated; his canal-lot purchase of 3 September 1832 would put him in the country a year earlier if he is the same O. Goss.",
+  "precision": "day"
+ },
+ "party_size_on_arrival": {
+  "value": null,
+  "confidence": "reconstructed",
+  "note": "Not attested in anything this project holds."
+ },
+ "origin": {
+  "value": "Washington County, Vermont",
+  "confidence": "inferred",
+  "sources": [
+   "andreas_1884_v1"
+  ],
+  "note": "From the canal-lot purchaser's entry, which gives 'O. Goss, Washington Co. Vermont'. It is an origin for a man identified with this one by initial alone."
+ },
+ "reason_for_coming": {
+  "value": null,
+  "confidence": "reconstructed",
+  "note": "Not attested in anything this project holds."
+ },
+ "lives_at": {
+  "value": null,
+  "confidence": "reconstructed",
+  "note": "Not attested in anything this project holds."
+ },
+ "works_at": {
+  "value": "goss_cobb_saddlery",
+  "confidence": "attested",
+  "sources": [
+   "chicago_democrat_1833_11_26"
+  ],
+  "note": "The firm names itself and its corner in its own advertisement."
+ },
+ "present_on_scene_date": {
+  "value": "uncertain",
+  "confidence": "inferred",
+  "sources": [
+   "chicago_democrat_1833_11_26"
+  ],
+  "note": "Documented at Lake and Canal in November 1833. Silas B. Cobb's later Chicago career is long and prominent, which argues he stayed; the firm's survival is a different question and is not attested."
+ },
+ "persons": [
+  {
+   "id": "goss_o",
+   "name": "O. Goss",
+   "relationship": "head",
+   "grade": "attested",
+   "ladder_rule": "G1b",
+   "sex": "male",
+   "occupation": {
+    "value": "none_recorded",
+    "confidence": "reconstructed",
+    "sources": [
+     "chicago_democrat_1833_11_26",
+     "chicago_american_1835"
+    ],
+    "note": "NO TRADE STANDS FOR THIS MAN IN JULY 1835, AND THE CORPUS IS WHY (T-0991). The firm 'Goss & Cobb, saddle and harness makers' advertises in the Chicago Democrat of 26 November 1833, self-reported on the corner of Lake and Canal streets — and that printing is the ONLY one this card ever had. The Chicago American of 8 June 1835 prints the partnership's DISSOLUTION over copy dated 'Chicago, Feb. 18, 1835' (chicago_american_1835_06_08#c006), and the issue of 13 June reprints it with this man's own signature now readable — 'OL[IVE]R GOS[S]' (#c015). The newspaper register reads business_goss_cobb as `present_at_scene_date: false` on those two notices, with exclusion `contradicted_before_scene_date`. So the trade held here at `attested` for 1 July 1835 was not merely undated by the corpus: it was CONTRADICTED by it, four and a half months before the scene date. The surviving partner carried the shop on alone — the American of 13 June prints 'S. B. COBB will continue the above business' — and nothing in the corpus prints a trade for Oliver Goss after the dissolution. The 1835 field is therefore `none_recorded` at `reconstructed`, this dataset's reading for a figure the reconstruction supplies rather than a source. THE 1833 SADDLERY IS NOT LOST: it stands in the structures layer at goss_cobb_saddlery and in the newspaper register's own compilation, dated to the years that print it. This is the one row of T-0991's eight the corpus decided by itself; the other rows are a grading question and are the owner's."
+   },
+   "sources": [
+    "andreas_1884_v1",
+    "chicago_american_1835",
+    "chicago_democrat_1833_11_26"
+   ],
+   "note": "THE FORENAME IS A GUESS AT AN INITIAL AND THE RECORD SAYS SO. The advertisement gives 'Goss' with no initial. Andreas's table of first purchasers of canal lots carries an 'O. Goss, Washington Co. Vermont' buying on 3 September 1832, which is the only Goss in the volume near this date and place, and this record adopts that initial while grading the person derived because the identification is a reading and not a statement. The Chicago Democrat of 26 November 1833 is the only contemporary Chicago document this project holds; an advertiser in it was paying to be found, which makes it strong evidence of existence and address in November 1833 and weak evidence of survival to 1 July 1835, nineteen months and about 2,400 people later.",
+   "press_evidence": [
+    {
+     "list": "newspaper_1833_1835",
+     "as_read": "Oliver Goss",
+     "locator": "chicago_american_1835_06_13#c015",
+     "record_id": "person_oliver_goss",
+     "describes_date": "1835-06-13",
+     "source": "chicago_american_1835",
+     "rule": "G1b"
+    }
+   ],
+   "resident_research": {
+    "programme": "resident-research-2026",
+    "ticket": "T-0509",
+    "outcome": "no_corroboration",
+    "reviewed_on": "2026-09-05",
+    "asserted_identity": false,
+    "evidence_for": "No reliable record found in the reviewed contemporary, institutional, local-history and index searches could be tied to this person by more than the recorded name. This is a documented no-find, not evidence that the person did not exist.",
+    "notes": "Candidate facts remain unasserted until a source bridges the candidate to the historical record by more than name similarity.",
+    "summary": "Nothing reviewed in this pass corroborates O. Goss from outside the record already held: the fergus chicago directory 1843, norris directory 1844 agreement is a surname-only refusal; the papers carry the name 1835-06-13.",
+    "source_ids": [
+     "andreas_1884_v1",
+     "chicago_american_1835",
+     "chicago_democrat_1833_11_26"
+    ]
+   }
+  },
+  {
+   "id": "cobb_silas_b",
+   "name": "Silas B. Cobb",
+   "relationship": "partner",
+   "grade": "attested",
+   "ladder_rule": "G1b",
+   "sex": "male",
+   "occupation": {
+    "value": "saddler",
+    "confidence": "inferred",
+    "sources": [
+     "andreas_1884_v1",
+     "chicago_democrat_1833_11_26"
+    ],
+    "note": "'Cobb' in the firm name is the documented part. Silas B. Cobb is Andreas's 'S. B. Cobb, a minor, came June 1, 1833' - AN ARRIVAL DATED TO THE DAY, which is rare - and this project's building record notes that DRLOIH names a Silas B. Cobb as the carpenter who built the Green Tree Tavern on the opposite corner of the same crossing in the same year.",
+    "derived_from": "roles",
+    "roles_at_scene_date": [
+     "saddler"
+    ]
+   },
+   "sources": [
+    "andreas_1884_v1",
+    "calumet_club_early_chicago_1879",
+    "chicago_american_1835",
+    "chicago_democrat_1833_11_26",
+    "fergus_chicago_directory_1839",
+    "fergus_chicago_directory_1843",
+    "norris_directory_1844",
+    "second_presbyterian_chicago_1892"
+   ],
+   "note": "IDENTIFIED, NOT PROVEN, AND ALREADY FLAGGED IN THE STRUCTURES LAYER. data/structures/goss_cobb_saddlery.json says in terms: 'Neither source connects the saddler to the carpenter in terms, so the identification is not made.' This household makes it, one grade down, because a minor arriving on 1 June 1833 and a Cobb advertising at Lake and Canal that November is a coherent single person and because leaving the initial unresolved loses a dated arrival. THE GRADE IS THE WARNING and a source that separates the two men should split this record. OLD SETTLERS, 1879 — A DATE THIS MAN GAVE FOR HIMSELF, AND STILL NOT A FACT ABOUT 1835. The Calumet Club's FIRST reception to the settlers of Chicago prior to 1840, 27 May 1879, printed its register in the proceedings (Early Chicago, Chicago, 1879, pages 84-90), and this man's entry reads “Cobb, Silas B. | 1833, May 29, | Montpelier, Vt. | 67 | Chicago.” — name, his own date of arrival, his birthplace, his age and his 1879 post-office address, in the register's five columns. The date of arrival is HIS RECOLLECTION, set down forty to sixty years after the event; the address is where he lived in 1879 and is never read as an 1835 residence. Under the ratified ladder (T-0513) a later recollection corroborates, enriches and dates and cannot lift a rung by itself, so this record's GRADE IS UNCHANGED by it: T-0513 consolidates the identity and T-0515 regrades. Identity by rule OS1 — surname and spelled-out forename agree, one bearer (data/research/old_settlers/crosswalk.json). FERGUS 1839'S LATER LISTS — 1837 AND 1839 EVIDENCE, NEVER AN 1835 FACT. Fergus' Chicago Directory for 1839 names this person 1 time in its two later lists: the poll of Chicago's first city election, 2 May 1837 — “Silas B. Cobb” (f1839_v0352, printed page 43, ward 2, voting for John H. Kinzie). What a match may carry, and it is short: that the man was in Chicago on 2 May 1837 and in that ward. It is written as 1837 evidence with describes_date 1837-05-02, never as an 1835 fact, and the person's grade does not move on this alone. Under the ratified ladder a second contemporary source is what lifts projected_resident, and a poll twenty-two months after the scene date is a second source about CONTINUED RESIDENCE, not about July 1835. The ward is a location in the CITY of 1837, whose six wards are drawn on printed page 46; it is not a location in the town of 1835 and does not place a house. Identity by the crosswalk's own rule: Surname 'Cobb' folds to the same string as the 1837 entry's, and the given name of both begins S. (data/research/directories/fergus_1839_election_crosswalk_1835.json and fergus_1839_register_crosswalk_1835.json). This pass WRITES THE EVIDENCE AND MOVES NO GRADE. Under the ratified ladder (T-0513) a second independent source is what lifts a projected resident, and a poll twenty-two months after the scene date — or a register four years after it — is a second source about CONTINUED RESIDENCE rather than about July 1835. T-0515 applies the ladder against every source at once; this pass hands it the evidence and not the verdict. FERGUS 1839'S FORT DEARBORN ADDITION LOT SALE — JUNE 1839 EVIDENCE, NEVER AN 1835 FACT. This person bid at the sale of the Fort Dearborn Addition, 10-24 June 1839, printed in Fergus' Chicago Directory for 1839 at pages 47-49. The bidder is printed as “S. B. Cobb”. 2 lot rows, $516.0 in all: block 10 lot 10 at $268.5 (f1839_lot0183, printed page 49); block 10 lot 11 at $247.5 (f1839_lot0184, printed page 49). The sale table's own shorthand, recorded and not flattened: 1 of those rows prints the bidder as a ditto mark under the name above rather than the name itself; 2 carry the block number forward from the last row that printed one. What a match may carry, and it is short: that the man was in Chicago between the 10th and the 24th of June 1839 and bid at the Fort Dearborn Addition sale. It is written as 1839 evidence with describes_date 1839-06, never as an 1835 fact, and the person's grade does not move on this alone. Under the ratified ladder a second contemporary source is what lifts projected_resident, and a land sale four years after the scene date is a second source about CONTINUED RESIDENCE, not about July 1835. THE LOT IS NOT A LOCATION FOR 1835: the Fort Dearborn Addition is the Beaubien, or Reservation, lands, which in July 1835 were the garrison's ground and were not platted into lots at all. It places no house, no shop and no household in the town this project builds. No trade, no address in the town of 1835, no household and no house. The block and lot are the only location on the page, they are ground platted in 1839 out of the garrison's reservation, and they place nobody in the town of 1835. Identity by the crosswalk's own rule: Surname 'Cobb' folds to the same string as the bidder's, and the given name of both begins S. (data/research/directories/fergus_1839_lots_crosswalk_1835.json). This pass WRITES THE EVIDENCE AND MOVES NO GRADE. Under the ratified ladder (T-0513) a second independent source is what lifts a projected resident, and a lot sale four years after the scene date is a second source about CONTINUED RESIDENCE rather than about July 1835. T-0515 applies the ladder against every source at once; this pass hands it the evidence and not the verdict. THE SECOND PRESBYTERIAN ROLL — A NAME ON A CHURCH LIST THAT OPENS IN 1842, AND NEVER AN 1835 FACT. The 1892 printed membership roll of the Second Presbyterian Church of Chicago, read line by line into this repository, carries 1 line whose surname and given initial agree with this person's — “Cobb, Stephen A, | Profession. | April 3, 1889.” (second_presb_0120, printed page 160), admitted 1889-04-03 by profession. Under the rule that decided it: Surname 'Cobb' folds to the same string as the roll line's, and the given name of both begins S. WHAT THE MATCH MINTS OR REGRADES: “NOTHING. A line on a roll that opens in June 1842 cannot place a person in the town of July 1835, and this file makes no proposal that it does. What a match IS: the same surname and initial, in Chicago, within seven years — a lead for a later pass that is allowed to write people.” This pass WRITES THE EVIDENCE AND MOVES NO GRADE: under the ratified ladder (T-0513) the roll is handed to the card as a thing a reader may weigh, and the verdict stays with T-0515, which applies the ladder against every source at once.",
+   "resident_research": {
+    "programme": "resident-research-2026",
+    "ticket": "T-0508",
+    "outcome": "corroborated",
+    "reviewed_on": "2026-09-05",
+    "asserted_identity": true,
+    "evidence_for": "Independent of the post office in books, directories, county histories and more.",
+    "notes": "Candidate facts remain unasserted until a source bridges the candidate to the historical record by more than name similarity.",
+    "source_ids": [
+     "chicagology_prefire127",
+     "andreas_1884_v1",
+     "calumet_club_early_chicago_1879",
+     "chicago_democrat_1833_11_26"
+    ],
+    "summary": "Independently corroborated; confirmed, not moved.",
+    "regraded_on": "2026-09-04",
+    "rule": "G1b"
+   },
+   "press_evidence": [
+    {
+     "list": "newspaper_1833_1835",
+     "as_read": "S. B. Cobb",
+     "locator": "chicago_american_1835_06_13#c016",
+     "record_id": "person_s_b_cobb",
+     "describes_date": "1835-06-13",
+     "source": "chicago_american_1835",
+     "rule": "G1b"
+    }
+   ],
+   "merged_from": [
+    {
+     "ticket": "T-0839",
+     "rule": "C2",
+     "cluster": "cobb",
+     "cards": [
+      "cobb_s_b"
+     ],
+     "note": "THE UNION OF THE CARDS THIS PERSON WAS SPLIT ACROSS. The sources and evidence blocks above include everything the folded cards cited; each folded record is kept whole under data/residents/merged/ and is redirected by index.json's `merged` table. The reasoning for the merge is in data/residents/card_merge_rulings.json."
+    }
+   ],
+   "book_evidence": [
+    {
+     "list": "directory_1843",
+     "as_read": "SILAS B. COBB, general dealer in saddles, harnesses, trunks, valises, collars, whips, carpet bags, etc., etc.; 171 Lake…",
+     "locator": "business directory",
+     "record_id": "f1843_e0141",
+     "describes_date": "1843",
+     "source": "fergus_chicago_directory_1843",
+     "rule": "G1b"
+    },
+    {
+     "list": "directory_1844",
+     "as_read": "Cobb, Silas B. saddler and harness maker, 171 Lake st. res Michi- gan avenue",
+     "locator": "res Michi gan avenue",
+     "record_id": "n1844_e0377",
+     "describes_date": "1844",
+     "source": "norris_directory_1844",
+     "rule": "G1b"
+    }
+   ],
+   "roles": [
+    {
+     "role": "saddler",
+     "kind": "trade",
+     "as_printed": null,
+     "from": "1673",
+     "to": "1857",
+     "precision": "source_span",
+     "dated_by": "source_describes_date",
+     "covers_scene_date": true,
+     "confidence": "inferred",
+     "sources": [
+      "andreas_1884_v1",
+      "chicago_democrat_1833_11_26"
+     ],
+     "claim": null,
+     "note": "THE BOUND IS THE SOURCE'S, NOT THE MAN'S. This role is carried by the card's 1835 occupation block and is dated by what the cited source or sources are ABOUT, which is why `precision` can be no better than the span they cover. The span reaches 1835, so this role stands in the scene-date view. The printing the trade was read off is not on the card and is fetched by T-1254."
+    }
+   ]
+  }
+ ],
+ "touches_removal": false,
+ "review_required": false,
+ "research_note": "SADDLERY IS THE TRADE THAT PROVES THE TOWN HAD TRAFFIC. Two saddle and harness makers advertising at Lake and Canal in 1833 - on the west side, on the road out of town - is evidence about wagons, teams and the overland trade that this dataset otherwise sees only through Ordinance 9's barrels in the street. THIS HOUSEHOLD MAKES AN IDENTIFICATION THE STRUCTURES LAYER DECLINED TO MAKE, one grade down and with the disagreement written on both persons; that asymmetry is deliberate and should be read as the residents layer proposing a reading, not as the dataset having changed its mind.",
+ "directories": {
+  "note": "LATER EVIDENCE, BESIDE THE 1835 CLAIMS AND NOT INSIDE THEM. A Chicago directory of 1839, 1843 or 1844 meets somebody of this name and this pass records what it prints. Under the ratified ladder a directory read after 1835 can corroborate that a person attested here was still in Chicago and can print a trade or a street the 1835 record never had; on its own it makes nobody a resident of 1835. Nothing on this person's 1835 record was regraded, moved, dated or given an occupation by this entry. WHAT THIS PASS RULED ONTO THIS HOUSEHOLD, named so the ruling can be found again: each volume below is followed by the printed entries it set against this person and the status the crosswalk ruled them at — a single entry carries what its own `could_carry` declares, and an ambiguous or contested match carries nothing and is shown so that the silence is legible. cobb_silas_b, Fergus's Chicago directory of 1839 — f1839_e0299 (a single entry); cobb_silas_b, Fergus's Chicago directory of 1843 — f1843_e0656 (a single entry); cobb_silas_b, Norris's Chicago directory of 1844 — n1844_e0377 (a single entry); cobb_silas_b, the advertising cards in Norris's directory of 1844 — n1844_ad0139 (a single entry).",
+  "sources": [
+   "fergus_chicago_directory_1839",
+   "fergus_chicago_directory_1843",
+   "norris_directory_1844"
+  ],
+  "people": [
+   {
+    "person_id": "cobb_silas_b",
+    "address_later": {
+     "value": "1 Lake st",
+     "confidence": "attested",
+     "describes_date": 1839,
+     "sources": [
+      "fergus_chicago_directory_1839"
+     ],
+     "note": "Fergus's Chicago directory of 1839 prints this address against this person, in the entry quoted on the card: 'Cobb, Silas B. , saddle, harness, and trunk maker, 1 7 1 Lake st'. It is evidence about 1839, written here as 1839's and read back onto no 1835 claim. Under the ratified ladder a directory read after 1835 can corroborate that a person attested here was still in Chicago and can print a trade or a street the 1835 record never had; on its own it makes nobody a resident of 1835. Nothing on this person's 1835 record was regraded, moved, dated or given an occupation by this entry. The value is the volume's own line, split by its crosswalk on the entry's punctuation. These volumes set the trade first and its qualifiers after it on the same line, so the split may carry an employer, a market or a corner along with the trade. The printed entry is quoted beside the value for exactly that reason: the split is checkable against it, and neither is read into an 1835 claim."
+    },
+    "back_projection": {
+     "outcome": "already_better_placed",
+     "clause": "2",
+     "value": null,
+     "describes_date": 1839,
+     "read_back_years": 4,
+     "placement": null,
+     "position_local_enu_m": null,
+     "sources": [
+      "fergus_chicago_directory_1839"
+     ],
+     "note": "NOT READ BACK, BECAUSE SOMETHING BETTER ALREADY STANDS. Fergus's Chicago directory of 1839 prints an address against this name in 1839, and it is left where it is. An 1835 placement already stands: this household works at `goss_cobb_saddlery`, and clause 2 says an attested 1835 placement always beats a door printed 4 years later. The later address stays on the record as 1839's evidence and moves nothing."
+    }
+   }
+  ]
+ }
+}

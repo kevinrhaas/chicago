@@ -1,0 +1,64 @@
+{
+  "schema": 1,
+  "_doc": "Hand-authored for T-0498. Every search made for a transcription of the 1830 schedule that contained Chicago, positive and negative alike, in the civic domain's search_log.json shape. A negative is evidence; an unrecorded search is work the next run repeats. A site that will not answer THIS RUNNER is recorded as inaccessible and never as an absence of record — the two read completely differently to whoever comes next.",
+  "ticket": "T-0498",
+  "searched_on": "2026-09-03",
+  "what_was_wanted": "A named 1830 schedule for the Chicago settlement. The repo held only aggregates — chicago/reference/ipums/nhgis0001_csv/nhgis0001_ds5_1830_county.csv, NHGIS total population by Illinois county — and no name from 1830 anywhere in the tree.",
+  "outcome": "FOUND, and better than the ticket asked for: not a genealogy transcription but the SCHEDULE ITSELF, as page images with no text layer, on the Internet Archive. It was read off the film rather than out of somebody's typing, which is why the records are graded `scan_verified` and not `transcription_mediated`.",
+  "probes": [
+    {
+      "source": "USGenWeb Archives — Peoria County, Illinois census files",
+      "url": "http://files.usgwarchives.net/il/peoria/census/ and http://www.usgwarchives.net/il/peoria/census/ and the https forms of both",
+      "result": "UNREACHABLE. Four requests, two hosts, both schemes: connection timed out after 40 s with no bytes returned. The host holds no opinion about an 1830 Peoria transcription and nothing here may be read as its absence.",
+      "verdict": "inaccessible_from_this_runner"
+    },
+    {
+      "source": "The USGenWeb Census Project — Illinois, Peoria County",
+      "url": "http://us-census.org/pub/usgenweb/census/il/peoria/",
+      "result": "REACHED, HTTP 200, and it is a browsable directory listing. Peoria County holds 1840, 1850, 1860, 1870, 1900 and 1910 — and no 1830. The Illinois index above it lists 90-odd counties in the same shape.",
+      "verdict": "negative — a real absence in a reachable, complete, browsable archive, and the strongest negative of the set"
+    },
+    {
+      "source": "Genealogy Trails — Peoria County and Cook County census pages",
+      "url": "http://genealogytrails.com/ill/peoria/census1830.html, http://genealogytrails.com/ill/peoria/, http://genealogytrails.com/ill/cook/census1830.html",
+      "result": "BLOCKED. All three return HTTP 406 with the body 'Error 406 - Not Acceptable … blocked by Mod Security', under two different user agents including a browser one. The site answered a browser user-agent for T-0572 on the same day, so this is the block moving rather than the site going down.",
+      "verdict": "inaccessible_from_this_runner"
+    },
+    {
+      "source": "AccessGenealogy — 1830 Peoria County Illinois census",
+      "url": "https://accessgenealogy.com/illinois/1830-peoria-county-illinois-census.htm",
+      "result": "BLOCKED. HTTP 403.",
+      "verdict": "inaccessible_from_this_runner"
+    },
+    {
+      "source": "A. T. Andreas, History of Chicago, volume 1 (1884)",
+      "url": "https://archive.org/download/historyofchicago01andr/historyofchicago01andr_djvu.txt",
+      "result": "READ IN FULL — 5,233,680 bytes of OCR, every occurrence of 'census' and 'Peoria' examined. Andreas prints the 4 August 1830 'commercial strength of Chicago' directory (taverns, Indian traders and the rest), the 1835 school census figure of 3,279, and the first city census of 1 July 1837 column by column. He does NOT print an 1830 federal schedule and does not mention that Chicago was enumerated in Peoria County.",
+      "verdict": "negative — the standard printed authority does not reprint the schedule, which is why no earlier pass of this project found it"
+    },
+    {
+      "source": "Hurlbut, Chicago Antiquities",
+      "url": "https://archive.org/download/chicagoantiquiti00hurl/chicagoantiquiti00hurl_djvu.txt",
+      "result": "NOT READ. The download redirected and returned zero bytes on the one attempt made; four other Internet Archive copies of the book exist and were not tried, because by then the schedule itself had been found and a transcription of it was no longer wanted.",
+      "verdict": "not_pursued — recorded so it is not mistaken for a negative"
+    },
+    {
+      "source": "Internet Archive full-text and metadata search",
+      "url": "https://archive.org/advancedsearch.php",
+      "result": "POSITIVE, and this is the find. The 1830 Illinois population schedules are on the Archive as NARA microfilm M19 reels 22-25 (items populationsc1830002{2,3,4,5}unit). Reel 24's own description names its counties and Peoria is the thirteenth of fifteen. The item is a 147 MB image PDF of 620 leaves with NO text layer — its OCR metadata says 'language not currently OCRable' and its search-text file is 28 bytes — so the district had to be found by reading the county column down the last fifth of the reel. It is written on leaf n580.",
+      "verdict": "positive"
+    },
+    {
+      "source": "FamilySearch and Ancestry images of the same schedule",
+      "url": "not requested",
+      "result": "NOT ATTEMPTED. Both are login-walled and this runner has no account. That is inaccessibility, not absence — and in this case it does not matter, because the same NARA filming is open on the Internet Archive.",
+      "verdict": "login_walled"
+    },
+    {
+      "source": "Illinois State Archives",
+      "url": "not requested for this ticket",
+      "result": "NOT ATTEMPTED. The Archives host returned HTTP 403 to this runner for T-0493 on the same day and is recorded there.",
+      "verdict": "not_pursued"
+    }
+  ]
+}

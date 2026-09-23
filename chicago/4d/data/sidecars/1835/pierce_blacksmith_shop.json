@@ -1,0 +1,151 @@
+{
+  "id": "pierce_blacksmith_shop",
+  "phase": "shop_1833",
+  "name": "Asahel Pierce's Blacksmith Shop",
+  "aka": [
+    "Pierce's smithy, Lake and Canal",
+    "the Bull plough shop"
+  ],
+  "archetype": "outbuilding",
+  "asset": "gltf/pierce_blacksmith_shop__shop_1833.glb",
+  "scene": "1835",
+  "target_date": "1835-07-01",
+  "documented_range": {
+    "from": "1833-10-08",
+    "to": "1835-12-31",
+    "confidence": "inferred",
+    "sources": [
+      "andreas_1884_v1"
+    ],
+    "note": "THE START IS DOCUMENTED TO THE DAY, WHICH IS RARE IN THIS DATASET. Andreas: 'It was upon the eighth day of October, 1833, that a young man named Asahel Pierce arrived in Chicago from Vermont, and commenced the erection of a blacksmith shop, on Lake Street, corner of Canal' (scan p. 1161). The range opens on that date, which is when building BEGAN rather than when the shop was working — nothing says how long it took, and a small board shop is a matter of weeks. The range is tagged inferred rather than documented for the far end only: nothing reached follows the building past 1834, and it closes at the end of 1835 as the last date this record needs to claim. THE SURVIVAL IS BETTER SUPPORTED THAN MOST HERE: Andreas has Pierce ironing the first Chicago-to-St-Louis stage line for John T. Temple & Co. in January 1834 and beginning the manufacture of the old-fashioned 'Bull' plough with a wooden mould-board in the spring of that year, which is a business growing rather than folding, and Pierce is still a Chicago figure decades later, an alderman in 1843 and 1844 with two streets named after him (scan pp. 387, 411)."
+  },
+  "change_note": "The shop at its enlarged size, which is the state the scene date needs. Andreas records the enlargement — 'he was soon obliged to enlarge his shop' — WITHOUT A DATE and without a size at either stage, so it is folded into this single phase rather than split into two: a second phase would have to invent the date of the change, the size before it and the size after it, which is three inventions to express one documented sentence. If a date ever appears, split the phase then.",
+  "placement": {
+    "local_e": -145.0,
+    "local_n": -131.0,
+    "rotation_deg": 0.0,
+    "position_confidence": "inferred",
+    "position_sources": [
+      "andreas_1884_v1",
+      "osm_streets_2026"
+    ],
+    "position_note": "THE JUNCTION IS DOCUMENTED AND THE CORNER IS NOT, which is the same shape of gap the Chicago Democrat's own imprint leaves at South Water and Clark. Andreas gives 'a blacksmith shop, on Lake Street, corner of Canal' (scan p. 1161) and no more. ONE CORNER IS ALREADY SPOKEN FOR: the Green Tree Tavern, built the same year, stands on the NORTH-EAST corner of Lake and Canal in this dataset, with its front on Canal and its long side on Lake, so three corners remain. THE SOUTH-EAST IS TAKEN, and the reason is a preference rather than evidence: it is the town side of Canal and the first corner a traveller coming out of Chicago along Lake Street reaches, which is where a smith who lives off passing horses and wagons wants to be, and it keeps the shop off the Green Tree's ground and out of its yard. The north-west and south-west corners are equally available and would move the building 25 to 50 m. METHOD: the modern Canal Street and Lake Street intersection is one of this project's ground control points, EPSG:26916 E 446913.0, N 4637287.4 (data/traces/gcp/wright_1834_gcps.json), and the platted streets are 80 ft wide, so the kerb lines sit 12.2 m from the centreline: Canal's east kerb at local E -147.5, Lake's south kerb at local N -121.5. The shop is set 2.5 m inside both, which is a corner lot with the building close up to the street on two sides, as the Green Tree opposite is modelled. WORKING UNCERTAINTY about 20 m from the georeference, plus the corner choice, which is a discrete 25-to-50 m error rather than a radius. Facade bearing 0, due north onto Lake Street, the through road.",
+    "symbolic_location": "Lake Street at the corner of Canal Street (historically Lake and West Water), west side, one block west of the river — modelled on the SOUTH-EAST corner. Which of the four corners is not attested.",
+    "uncertainty_m": 20,
+    "placement_provisional": false,
+    "vertical_anchor": "terrain",
+    "walk_surface_m": null
+  },
+  "footprint": {
+    "polygon": [
+      [
+        0,
+        0
+      ],
+      [
+        9,
+        0
+      ],
+      [
+        9,
+        7
+      ],
+      [
+        0,
+        7
+      ]
+    ],
+    "confidence": "reconstructed",
+    "sources": [],
+    "note": "PLACEHOLDER — NO DIMENSION IS ATTESTED, AND THE BUILDING IS MODELLED AT ITS ENLARGED SIZE. Andreas records that Pierce 'was soon obliged to enlarge his shop' and gives no date for it and no size at either stage (scan p. 1161), so this polygon is the shop as it stood after that enlargement, which is the state the scene date needs. 9 x 7 m is about 30 x 23 ft: room for a forge, an anvil, a horse standing in to be shod, and the plough work he took up in the spring of 1834. The 9 m fronts Lake Street and the 7 m is the depth. Every number is invented and the polygon cites no sources."
+  },
+  "attributes": {
+    "construction": {
+      "value": "light_frame",
+      "confidence": "inferred",
+      "sources": [
+        "andreas_1884_v1"
+      ],
+      "note": "THAT IT WAS BUILT OF SAWN LUMBER IS DOCUMENTED BY IMPLICATION AND THE REST IS THE ARCHETYPE'S. Andreas: 'Being unable to find suitable lumber in Chicago, he was obliged to haul his material from Plainfield, forty miles' — a man does not haul boards forty miles by ox team to build a log pen, so the shop was a board building and not log, which is a genuine finding and the reason this record uses outbuilding rather than log_dwelling. WHICH WAY THE BOARDS WENT IS NOT ATTESTED: `light_frame` is the archetype's term for boards laid horizontally on a stick frame and `plank` for boards nailed on vertically, and nothing chooses between them here. The horizontal reading is taken because it is the more finished of the two and this was a shop on the town's main street rather than a field shelter. That last step is a preference."
+    },
+    "wall_height_m": {
+      "value": 3.0,
+      "confidence": "inferred",
+      "note": "No figure is attested. 3.0 m is about 10 ft at the eave: headroom to swing a sledge and to stand a horse under, with air over a forge. Stated rather than left to the archetype's size-aware default of 3.14 m for this footprint, which is close enough that the difference is not the point — the point is that the number is the record's and its reasoning is on the record."
+    },
+    "door": {
+      "value": "stable",
+      "confidence": "inferred",
+      "note": "No source describes an opening. 'stable' is the archetype's 1.35 m clear doorway, sized for a horse led through in hand, and shoeing is half of what a frontier smith did. The wider 'wagon' opening is tempting because Pierce ironed wagons and stage gear, but that work is done to the ironwork rather than to the assembled vehicle, and a 2.9 m opening would need a taller wall than this record claims."
+    },
+    "forge": {
+      "value": "forge, bellows and chimney",
+      "confidence": "inferred",
+      "geometry": "absent",
+      "sources": [
+        "andreas_1884_v1"
+      ],
+      "note": "STATED AND NOT BUILT, AND IT IS THE WHOLE POINT OF THE BUILDING. Andreas records that Pierce bought the Rev. Mr See's old set of tools and set up in business, that he ironed the first Chicago-to-St-Louis stage line in January 1834 and that he began making the 'Bull' plough in the spring — none of which is possible without a forge, a bellows and a stack to take the smoke. The outbuilding archetype has no chimney parameter and no interior, so the mesh shows a shed with a doorway and NO SMOKE, which is the one feature of a smithy anybody in the street would have noticed. Nothing about the forge's size, position or the stack's material is attested in any case. Owed an admission in docs/LIBERTIES.md."
+    },
+    "function": {
+      "value": "blacksmith_shop",
+      "confidence": "attested",
+      "sources": [
+        "andreas_1884_v1"
+      ],
+      "note": "A blacksmith shop from October 1833, doing the ironwork the town and the road trade needed: Andreas records the order from John T. Temple & Co. for 'doing the ironing for the first stage line between Chicago and St. Louis' in January 1834, and the manufacture of the old-fashioned 'Bull' plough with a wooden mould-board from the spring of 1834 (scan p. 1161). THAT PLOUGH IS THE REASON THIS BUILDING MATTERS BEYOND ITS OWN CORNER: it is the wet-prairie tool, and a smith on the west side making them is the town's agricultural hinterland arriving in the town. Whether he was making them on 1835-07-01 specifically is not attested."
+    },
+    "occupants": {
+      "value": "Asahel Pierce",
+      "confidence": "attested",
+      "sources": [
+        "andreas_1884_v1"
+      ],
+      "note": "Named as the builder and proprietor, arriving from Vermont on 8 October 1833 (scan p. 1161). Andreas gives his later Chicago career — alderman in 1843 and 1844, and two streets named after him (scan pp. 387, 411) — which corroborates the man and says nothing about who was at the anvil in July 1835."
+    }
+  },
+  "residents": [
+    {
+      "household": "hh_pierce_asahel",
+      "name": "The Pierce household",
+      "division": "south",
+      "relation": "worked here",
+      "why": "Named as both the builder and the proprietor of the shop.",
+      "sources": [
+        "andreas_1884_v1"
+      ],
+      "basis": "",
+      "persons": [
+        {
+          "name": "Asahel Pierce",
+          "relationship": "head",
+          "grade": "attested",
+          "occupation": "blacksmith",
+          "note": "ARRIVING FROM VERMONT ON 8 OCTOBER 1833 - a day-precise arrival WITH an origin, which is a combination no other household in this parcel has. Andreas gives his later Chicago career - alderman in 1837, 1838, 1843, 1844 and 1845 and two streets named after him - which corroborates the man's long residence and says nothing at all about who was at the anvil in July 1835. HE IS IN THE DATASET BECAUSE THE 1835 TOWN CANNOT BE BUILT WITHOUT HIS TRADE. Andreas's roster is the only list this project holds that names artisans at all, and every name on it is a documented alternative to an inferred one. OLD SETTLERS, 1879 — A DATE THIS MAN GAVE FOR HIMSELF, AND STILL NOT A FACT ABOUT 1835. The Calumet Club's FIRST reception to the settlers of Chicago prior to 1840, 27 May 1879, printed its register in the proceedings (Early Chicago, Chicago, 1879, pages 84-90), and this man's entry reads “Pierce, Asahel, | 1833, Oct. 8, | East Calais, Wash. Co., Vt. | 66 | Chicago.” — name, his own date of arrival, his birthplace, his age and his 1879 post-office address, in the register's five columns. The date of arrival is HIS RECOLLECTION, set down forty to sixty years after the event; the address is where he lived in 1879 and is never read as an 1835 residence. Under the ratified ladder (T-0513) a later recollection corroborates, enriches and dates and cannot lift a rung by itself, so this record's GRADE IS UNCHANGED by it: T-0513 consolidates the identity and T-0515 regrades. Identity by rule OS1 — surname and spelled-out forename agree, one bearer (data/research/old_settlers/crosswalk.json). FERGUS 1839'S LATER LISTS — 1837 AND 1839 EVIDENCE, NEVER AN 1835 FACT. Fergus' Chicago Directory for 1839 names this person 1 time in its two later lists: the city register of 1839 — “Asahel Pierce” as alderman (f1839_r0018, printed page 38). What a match may carry, and it depends on WHICH TABLE it landed in. A match on printed page 38, or on any row of the mayors' table, is 1839-or-later evidence: it says the man held that office in that year and was therefore in Chicago in that year, it is written with the row's own describes_date and never as an 1835 fact, and the person's grade does not move on it alone — a later appearance is corroboration of CONTINUED RESIDENCE, not of July 1835. A match on the sheriffs' rows of 1831, 1832, 1834 or 1836 is different in kind: the office is contemporary with the town, the 1834 row's term covers the scene date outright, and such a match carries reaches_scene. Even there the SOURCE is a retrospect — a table running to 1874, set in 1876 out of Old Settlers' recollections per the compiler's warning on printed page 3 — so it may be cited as a contemporary office and may not be graded `documented` without a second, nearer record. The ward on printed page 38 is a ward of the CITY of 1839 and places no house in the town of 1835. Identity by the crosswalk's own rule: Surname 'Pierce' folds to the same string as the register entry's, and the given name of both begins A. (data/research/directories/fergus_1839_election_crosswalk_1835.json and fergus_1839_register_crosswalk_1835.json). This pass WRITES THE EVIDENCE AND MOVES NO GRADE. Under the ratified ladder (T-0513) a second independent source is what lifts a projected resident, and a poll twenty-two months after the scene date — or a register four years after it — is a second source about CONTINUED RESIDENCE rather than about July 1835. T-0515 applies the ladder against every source at once; this pass hands it the evidence and not the verdict."
+        }
+      ],
+      "research_note": "ONE OF TWO BLACKSMITHS THIS DATASET CAN NAME AND PLACE, the other being David McKee at the agency. A third, Matthias Mason & Co., is documented by advertisement with no building, and Lemuel Brown is documented by roster with neither. FOUR NAMED SMITHS FOR A TOWN OF 3,265 IS PROBABLY CLOSE TO RIGHT for the documented layer and certainly short for the real one; the inferred phase should treat that ratio as its starting point rather than inventing from scratch."
+    }
+  ],
+  "citations": [
+    {
+      "source_id": "andreas_1884_v1",
+      "citation": "Andreas, A. T. History of Chicago: From the Earliest Period to the Present Time. Vol. 1. Chicago: A. T. Andreas, 1884.",
+      "url": "https://archive.org/details/historyofchicago01andr",
+      "archived_url": "",
+      "tier": 3,
+      "tier_label": "compiled secondary (Andreas)"
+    },
+    {
+      "source_id": "osm_streets_2026",
+      "citation": "OpenStreetMap contributors. Street centerline intersection nodes for downtown Chicago, retrieved via the Overpass API, 2026-08-09.",
+      "url": "https://www.openstreetmap.org/",
+      "archived_url": "https://overpass-api.de/",
+      "tier": 4,
+      "tier_label": "later scholarship"
+    }
+  ],
+  "research_note": "NOT ON THE PARCEL'S ORIGINAL LIST AND ADDED ON THE EVIDENCE. The task that produced this parcel asked whether Matthias Mason & Co., blacksmiths, could be placed from the Chicago Democrat of 26 November 1833; they cannot — the advertisement gives no address, and inventing one would put a named smithy at a false corner. A full-text search of Andreas turned up a better answer three lines below the brickyard passage: a smithy at a DOCUMENTED junction, with a documented date, a documented reason for its construction method, and two documented pieces of work, on the west side in this parcel's own ground. So the town gets its working smithy from the evidence rather than from a guess. TWO CAUTIONS. First, do not merge this with blacksmith_shop_state_st, the shop attested near the Agency House at the foot of State Street on the north side (Andreas scan p. 1161 also) — they are different buildings on opposite sides of the town, and this dataset carries both. Second, do not attach Mason's name to either: nothing connects the Democrat's advertiser to either shop, and the identification would be an invention wearing a citation. WHAT WOULD UPGRADE THIS RECORD: any statement of which corner, which is the one real gap in an otherwise unusually well-attested small building; and further issues of the Chicago Democrat, whose advertising columns are where a smith says where his shop is.",
+  "research_doc": "",
+  "review_required": false
+}

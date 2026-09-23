@@ -1,0 +1,175 @@
+{
+  "id": "recon_1835_blk_south_water_dearborn_h1_03",
+  "name": "Reconstructed H1 larger one-and-a-half-story house #03",
+  "archetype": "frame_dwelling",
+  "phases": [
+    {
+      "id": "inferred_1835",
+      "documented_range": {
+        "from": "1835-01-01",
+        "to": "1835-12-31",
+        "confidence": "reconstructed",
+        "note": "Anonymous count-unit toward the July 1835 665-roof programme. No evidence establishes that this particular building existed, and no source names an occupant of this lot."
+      },
+      "position": {
+        "utm_e": 447850.044,
+        "utm_n": 4637307.455,
+        "rotation_deg": 180.37,
+        "symbolic_location": "Anonymous reconstructed roof in the South Division block bounded by South Water, State, Lake and Dearborn; standing back from the Lake Street frontage",
+        "confidence": "reconstructed",
+        "note": "Interpretive placement on a GENERATED lot, not a recovered parcel. The lot geometry is the K7 plat module's — this project has never read Thompson's numbering off a sheet, and the side lot lines and the alley are conjectural even where the block face is not. The building stands 5.5 m back from its street edge, which is a typology for the period and not a measurement of this lot. The whole footprint — not its centre — is tested against the platted street corridors, against its own lot lines and against every other footprint in the dataset, so no invented building of this parcel stands in the roadway; clearing the roadway is not the same as standing on a recovered lot.",
+        "derivation": {
+          "method": "not_derivable",
+          "reason": "No parcel-by-parcel July 1835 roof register survives in the supplied evidence, and no lot in this block is numbered."
+        }
+      },
+      "footprint": {
+        "polygon": [
+          [
+            0,
+            0
+          ],
+          [
+            8.03,
+            0
+          ],
+          [
+            8.03,
+            9.963
+          ],
+          [
+            0,
+            9.963
+          ]
+        ],
+        "confidence": "reconstructed",
+        "note": "A 8.03 × 9.96 m rectangle sampled deterministically inside the H1 family's authored footprint band; no individual dimensions are documented."
+      },
+      "form": {
+        "stories": {
+          "value": 1.5,
+          "confidence": "reconstructed",
+          "sources": [
+            "owner_chicago_1835_reconstruction_spec_2026"
+          ],
+          "note": "INVENTED, NOT DERIVED. This value comes from a typology in the reconstruction spec — what a building of this kind was ordinarily like — and NOT from evidence about this particular building, because there is no particular building: the structure itself is an invention filling a demonstrable need of the town. The spec is cited because the invention is bounded by it, which is what makes it defensible rather than arbitrary; the GRADE is the bottom tier because nothing here is a reading of a source about this thing. Type-level choice within the H1 band in the supplied reconstruction specification; it is not evidence for this anonymous instance."
+        },
+        "wall_height_m": {
+          "value": 3.374,
+          "confidence": "reconstructed",
+          "sources": [
+            "owner_chicago_1835_reconstruction_spec_2026"
+          ],
+          "note": "INVENTED, NOT DERIVED. This value comes from a typology in the reconstruction spec — what a building of this kind was ordinarily like — and NOT from evidence about this particular building, because there is no particular building: the structure itself is an invention filling a demonstrable need of the town. The spec is cited because the invention is bounded by it, which is what makes it defensible rather than arbitrary; the GRADE is the bottom tier because nothing here is a reading of a source about this thing. Type-level choice within the H1 band in the supplied reconstruction specification; it is not evidence for this anonymous instance."
+        },
+        "roof_type": {
+          "value": "gable",
+          "confidence": "reconstructed",
+          "sources": [
+            "owner_chicago_1835_reconstruction_spec_2026"
+          ],
+          "note": "INVENTED, NOT DERIVED. This value comes from a typology in the reconstruction spec — what a building of this kind was ordinarily like — and NOT from evidence about this particular building, because there is no particular building: the structure itself is an invention filling a demonstrable need of the town. The spec is cited because the invention is bounded by it, which is what makes it defensible rather than arbitrary; the GRADE is the bottom tier because nothing here is a reading of a source about this thing. Type-level choice within the H1 band in the supplied reconstruction specification; it is not evidence for this anonymous instance."
+        },
+        "roof_pitch_deg": {
+          "value": 39.6,
+          "confidence": "reconstructed",
+          "sources": [
+            "owner_chicago_1835_reconstruction_spec_2026"
+          ],
+          "note": "INVENTED, NOT DERIVED. This value comes from a typology in the reconstruction spec — what a building of this kind was ordinarily like — and NOT from evidence about this particular building, because there is no particular building: the structure itself is an invention filling a demonstrable need of the town. The spec is cited because the invention is bounded by it, which is what makes it defensible rather than arbitrary; the GRADE is the bottom tier because nothing here is a reading of a source about this thing. Type-level choice within the H1 band in the supplied reconstruction specification; it is not evidence for this anonymous instance."
+        },
+        "construction": {
+          "value": "braced_frame",
+          "confidence": "reconstructed",
+          "sources": [
+            "owner_chicago_1835_reconstruction_spec_2026"
+          ],
+          "note": "INVENTED, NOT DERIVED. This value comes from a typology in the reconstruction spec — what a building of this kind was ordinarily like — and NOT from evidence about this particular building, because there is no particular building: the structure itself is an invention filling a demonstrable need of the town. The spec is cited because the invention is bounded by it, which is what makes it defensible rather than arbitrary; the GRADE is the bottom tier because nothing here is a reading of a source about this thing. Type-level choice within the H1 band in the supplied reconstruction specification; it is not evidence for this anonymous instance."
+        },
+        "plan": {
+          "value": "hall_parlour",
+          "confidence": "reconstructed",
+          "sources": [
+            "owner_chicago_1835_reconstruction_spec_2026"
+          ],
+          "note": "INVENTED, NOT DERIVED. This value comes from a typology in the reconstruction spec — what a building of this kind was ordinarily like — and NOT from evidence about this particular building, because there is no particular building: the structure itself is an invention filling a demonstrable need of the town. The spec is cited because the invention is bounded by it, which is what makes it defensible rather than arbitrary; the GRADE is the bottom tier because nothing here is a reading of a source about this thing. Type-level choice within the H1 band in the supplied reconstruction specification; it is not evidence for this anonymous instance."
+        },
+        "bays": {
+          "value": 3,
+          "confidence": "reconstructed",
+          "sources": [
+            "owner_chicago_1835_reconstruction_spec_2026"
+          ],
+          "note": "INVENTED, NOT DERIVED. This value comes from a typology in the reconstruction spec — what a building of this kind was ordinarily like — and NOT from evidence about this particular building, because there is no particular building: the structure itself is an invention filling a demonstrable need of the town. The spec is cited because the invention is bounded by it, which is what makes it defensible rather than arbitrary; the GRADE is the bottom tier because nothing here is a reading of a source about this thing. Type-level choice within the H1 band in the supplied reconstruction specification; it is not evidence for this anonymous instance."
+        },
+        "chimneys": {
+          "value": 1,
+          "confidence": "reconstructed",
+          "sources": [
+            "owner_chicago_1835_reconstruction_spec_2026"
+          ],
+          "note": "INVENTED, NOT DERIVED. This value comes from a typology in the reconstruction spec — what a building of this kind was ordinarily like — and NOT from evidence about this particular building, because there is no particular building: the structure itself is an invention filling a demonstrable need of the town. The spec is cited because the invention is bounded by it, which is what makes it defensible rather than arbitrary; the GRADE is the bottom tier because nothing here is a reading of a source about this thing. NOT BOUNDED BY THE SPECIFICATION, and the sentence above about the invention being bounded does not hold for this value: the H1 family's key geometry parameters do not speak to chimneys, so there is nothing here for a citation to point at. The value is the reconstruction generator's type default; it is not evidence for this anonymous instance."
+        },
+        "paint": {
+          "value": "whitewash",
+          "confidence": "reconstructed",
+          "sources": [
+            "owner_chicago_1835_reconstruction_spec_2026"
+          ],
+          "note": "INVENTED, NOT DERIVED. This value comes from a typology in the reconstruction spec — what a building of this kind was ordinarily like — and NOT from evidence about this particular building, because there is no particular building: the structure itself is an invention filling a demonstrable need of the town. The spec is cited because the invention is bounded by it, which is what makes it defensible rather than arbitrary; the GRADE is the bottom tier because nothing here is a reading of a source about this thing. Type-level choice within the H1 band in the supplied reconstruction specification; it is not evidence for this anonymous instance."
+        },
+        "siding_exposure_m": {
+          "value": 0.14,
+          "confidence": "reconstructed",
+          "note": "INVENTED WITHIN A STOCK SET, NOT DERIVED. No source states the exposed face of any Chicago building's siding. The value is one of four period mill sidings — 4.5, 5, 5.5 or 6 in to the weather; this roof wears 5.5 in — dealt in this building's own parcel recipe: drawn from the set on this record's stable key, then advanced so that no roof of the parcel standing within 60 m hangs the same course. It is NOT keyed to a construction season the way the named buildings' stocks are: this record's 1835-01-01 is the programme's count-unit convention and not a date anything was built, so keying to it would deal every anonymous roof in the town one stock. The separation is the surface variety T-0049 reconstructs, not a claim about 1835. docs/LIBERTIES.md L148 owns the invention and the recipe half is recorded beside it, under `tools/siding_stock.py`."
+        }
+      },
+      "change_note": "Reconstructed anonymous July 1835 block infill; a better-evidenced named roof substitutes for a compatible count-unit rather than increasing the 665-roof total."
+    }
+  ],
+  "function": {
+    "value": "larger one-and-a-half-story house",
+    "confidence": "reconstructed",
+    "sources": [
+      "owner_chicago_1835_reconstruction_spec_2026"
+    ],
+    "note": "INVENTED, NOT DERIVED. This value comes from a typology in the reconstruction spec — what a building of this kind was ordinarily like — and NOT from evidence about this particular building, because there is no particular building: the structure itself is an invention filling a demonstrable need of the town. The spec is cited because the invention is bounded by it, which is what makes it defensible rather than arbitrary; the GRADE is the bottom tier because nothing here is a reading of a source about this thing. Assigned from the H1 family to satisfy the block's scheduled mix; no occupant or individual use is known."
+  },
+  "reconstruction": {
+    "status": "inferred_anonymous",
+    "family": "H1",
+    "district": "south",
+    "inventory_class": "principal_functional",
+    "programme_phase": "phase3_platted_block_south_water_dearborn",
+    "source_id": "owner_chicago_1835_reconstruction_spec_2026",
+    "block_id": "blk_south_water_dearborn",
+    "lot_index": 5,
+    "stands_on": "street",
+    "fronts": "lake",
+    "sequence": 3,
+    "finish_key": "whitewash",
+    "roof_condition": "weathered",
+    "age_state": "older_frontier"
+  },
+  "lot_address": {
+    "claims_lot": true,
+    "block_number": 16,
+    "lot_number": 7,
+    "block_id": "blk_south_water_dearborn",
+    "address_text": "LOT No. 7, in block No. 16, one lot east of Haddock's Tavern, on Lake street, in the town of Chicago",
+    "title": "The dwelling-house on lot 7, block 16",
+    "confidence": "reconstructed",
+    "sources": [
+      "chicago_democrat_1833_1835"
+    ],
+    "cites": [
+      "chicago_democrat_1834_06_18#c006",
+      "chicago_democrat_1834_09_03#c005",
+      "chicago_democrat_1834_10_15#c006",
+      "chicago_democrat_1834_11_19#c010"
+    ],
+    "note": "SEATED BY THE LOT-ADDRESS POLICY (docs/LOT-ADDRESS.md; liberty L216). The Lake Street notice prints a LOT AND A BLOCK — LOT No. 7, in block No. 16, one lot east of Haddock's Tavern, on Lake street, in the town of Chicago — which is the plat's own language and the strongest placement statement in the corpus; 6 printings, 1834-06-18 to 1834-11-19, 4 of them cited here as legible, claims chicago_democrat_1834_06_18#c006, chicago_democrat_1834_09_03#c005, chicago_democrat_1834_10_15#c006, chicago_democrat_1834_11_19#c010. THE ADDRESS IS WHAT THIS ROOF GAINS AND THE ONLY THING IT GAINS: its existence, its position, its footprint and every form value are the 665-roof programme's and are unchanged, its `function` still reads as the anonymous family the recipe dealt it, and no coordinate moved to seat this. THE NOTICE SAYS OF THIS LOT: a large dwelling-house; a fine well. The notice says 'There is on said lot a large Dwelling-House'. Four of the six printings carry the words unbroken. WHAT IS DRAWN AT THIS ADDRESS IS STILL NOT THIS HOUSE, and it now answers the word: the roof standing on the lot is the 665-roof programme's own count-unit, and T-0593 re-dealt it out of the D3 one-room cottage band into H1, 'Larger one-and-a-half-story house', at 8.03 x 9.96 m and one and a half storeys. H1 is the lowest rung the family crosswalk itself calls larger and calls a house, which is the whole of what this notice's adjective supports; the south district's remainder paid for the slot and the displaced D3 went back into it, so no total moved. Until 2026-09-04 the fabric was a 5.36 x 6.38 m one-room cottage and this note said the mismatch was stated rather than repaired. The ADDRESS is still what this record gains: existence, position, footprint and every form value stay conjectural and the grade does not move. docs/LOT-ADDRESS.md § 'When the notice describes the building' is the rule and L222 is the ruling. NOT DRAWN, and T-0592 has now settled why. The notice's second structure is a well and it is documented as plainly as the house; what was missing was a rule to place it by, and the reason recorded here used to be an absence — 'the town has no well' — which described the model rather than the town. THE READING IS docs/RESEARCH/wells.md AND ITS ANSWER IS NOT A WELL. Chicago in July 1835 took its drinking water from the lake by cart: the Board of Trustees paid $95.50 on 10 November 1834 for the digging of ONE public well, in Kinzie's Addition, and after that the town was served by two-wheeled carts carrying a hogshead, filled by pail at the foot of Randolph Street and run off at a customer's door through a short leathern hose at five to ten cents the barrel (town_findings_andreas_v1#c012, #c013); the Chicago Hydraulic Company was not chartered until 18 January 1836 and its works were not finished until 1842 (#c014). No ordinance of this town requires, sites or pays for a well — the fire ordinances of 1833, September and October 1834 and the code of 5 August 1835 legislate wardens, bystanders and a bucket line and never the water in the buckets. So there is no density to deal a well class from, and inventing one would misdescribe the town more badly than leaving it with none. THE WELL STAYS DOCUMENTED AND ABSENT, on that argument rather than on an absence. It is one of only three wells this project can name in a town of 3,265 people, and the fact that G. Spring advertised it in all six printings, beside the size of his house, is the argument that a well was a thing worth mentioning rather than a thing every lot had. The notice ends 'For terms enquire of G. SPRING' and says NOTHING ELSE about him. He is the man to apply to, which is not a statement that he owned the lot, and is certainly not a statement that he lived in the house — the same G. Spring is the attorney whose office the papers put second door west of the corner of Franklin and South Water. So this house is not named for him, and the register's business_g_spring is not moved here. T-0412 is the same trap read from the other side: a building offered FOR SALE must not mint a placement on its vendor. THE ADDRESS IS READ; WHERE THE ADDRESS LANDS IS THE BOTTOM TIER, and the chain is short enough to state in one breath. The words 'lot 7, block 16' are a direct reading of four printings. The block number is `inferred` — three blocks counted east of the one numeral the Wright sheet shows (data/traces/thompson_block_numbering.json). The lot number is `conjectural` twice over: four lots to a block face is a reading of one block, the lot lines it numbers are the plat module's and are drawn from no sheet, and the counter-clockwise scheme itself was read off block 18. A chain is as strong as its weakest link, so which committed roof stands at this address is graded at the bottom tier — the same grade the roof already carried, and it does not rise because a documented address was put on it."
+  },
+  "research_note": "RECONSTRUCTED / GENERATED, NOT AN ATTESTED NAMED BUILDING. The block, its scheduled roof count and its family mix follow the 665-roof programme; exact presence, lot, position, footprint, finish and instance-level form are interpretive. H-family house massing currently resolves through the frame dwelling archetype; no larger house generator is implemented.",
+  "review_required": false
+}

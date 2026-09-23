@@ -1,0 +1,661 @@
+{
+  "schema": 1,
+  "issue_id": "chicago_democrat_1835_08_12",
+  "extracted": "2026-08-29",
+  "extracted_by": "hand, T-0335 — the Democrat read, August 1835",
+  "note": "Vol. II No. 17. THE STANDING ADVERTISING BLOCK OF THIS MONTH IS CLAIMED FROM THE 5 AUGUST ISSUE and is not re-claimed here (chicago_democrat_1835_08_05.json); what is claimed in this file is what is NEW in it. That is a good deal: the prices current with its Building Materials block, which the 5 August printing set without one; a death in a named store and a funeral out of the Exchange Coffee House; two schools opening in one week; a new physician whose office places the post office on Lake street; Samuel Lewis's music room acquiring an anchor it did not have a week earlier; the New Store in La Salle street next door to Hubbard & Co.'s brick store, which the 5 August column was too damaged to place; John Holbrook's store one door from Dearborn; and J. H. Mulford's name, which 5 August gave only as initials. THE TOWN ORDINANCES run across page 1 columns 1 and 2 of this issue and are CLAIMED FROM THE 19 AUGUST PRINTING, where the same forme is set line by line instead of woven into two 5,000-character segmenter columns — the reading is the same ordinances and the 19 August column is the one a quote can be built from. THE POST-OFFICE LETTER LIST of 31 July 1835 stands on page 4 columns 2 and 3; its heading and the postmaster's signature are claimed (c014) and its six hundred names are T-0336's, not this ticket's. NOT CLAIMED: pages 1 and 2 of miscellany and national politics, and the Lasalle county probate and attachment notices, which are Ottawa's business and not Chicago's.",
+  "claims": [
+    {
+      "id": "c001",
+      "kind": "event",
+      "reading": "transcription_mediated",
+      "quote": "Mr. Smith was a young (map, of character Lah orgs, layer gi , | bean bere ebdut three monthe and was ed in tho ntore of Mr. Holtrook, “when the jeiek. “Ie Farias ratifying te: Bis i Me - know that be repeived every ‘attention this |bis short coufinement, Hiv funeral. will | pice to-morrow, iat 10 o’¢lock ASM. frow ith ent { Exchange Gofies Hove",
+      "normalized": "Mr. Smith was a young [man] of character […] [had] been here about three months and was [employ]ed in the store of Mr. Holbrook when the [sickness overtook him. It is gratifying to] his [friends to] know that he received every attention [during] his short confinement. His funeral will [take] place to-morrow at 10 o'clock A.M. from the [Exchange] Coffee House.",
+      "locator": {
+        "artifact_role": "primary",
+        "issue_page": 3,
+        "column": 2,
+        "lines": [
+          226,
+          226
+        ],
+        "spans": [
+          {
+            "line": 226,
+            "from": 63,
+            "to": 409
+          }
+        ]
+      },
+      "entities": [
+        {
+          "as_printed": "Mr. Smith",
+          "normalized": "Smith, Mr.",
+          "role": "deceased",
+          "associated_places": [
+            "Mr. Holbrook's store"
+          ]
+        },
+        {
+          "as_printed": "Mr. Holtrook,",
+          "normalized": "Holbrook, Mr.",
+          "role": "employer"
+        }
+      ],
+      "notes": "A DEATH THAT PUTS TWO BUILDINGS TO USE IN ONE SENTENCE: a clerk in Mr. Holbrook's store, buried out of the Exchange Coffee House. John Holbrook advertises his own hats, clothing, boots and shoes store on Water street one door from Dearborn in this same issue (claim c012), so the store the young man clerked in is placed even though this notice does not place it. The Exchange Coffee House is a public house doing what public houses did in a town with one church of each denomination and no undertaker — the funeral leaves from it. Only the surname survives and no forename is minted. The passage stands at the head of the column with its opening sentence cut away, so the cause of death is a supply and is bracketed."
+    },
+    {
+      "id": "c002",
+      "kind": "price",
+      "reading": "transcription_mediated",
+      "quote": "CHICAGO PRICES CURRENT} SURKYCTED WEEBLY; | lea, bbl ($2500. | jee and eal mie gh Super fine < bb act up- Pe “760 5) cA Buckwheat our \"none, | | Indian meal bush 1 00 a 1/50 to Grain— | 80, Com bush 1.00 1} nas | Oata \"Vee 3 0 Wheat ee a Grae Provisions— ‘ it ef Becf, fresh th 4. 6 in= do valt mess bbl 10 Oo n At 0d er do do prime 90000 1) a Pork, mess no. 1, ”) 90 00 2 A? go. 2, 16 00, } Fe Oue hog \"14am Ft in rime \"3200 ti . Dried beet ho We ad th Hams, mnoked 0 4 White fish bbl 8 00. { Batter, keg Th ida Ba x Lard\" * woe e- Cheese h 10a 4 st White beans bush none. | le Potatocs Be Bal Tallow, Ib a | nO | Hides, dry Ib Be 6g he | Candley, box tallow Ib J2a 1d Building Materials— | Lamber, gus'd 100) f 20 00.525 00 Shingles do 40004 50 | Square timber. longth A 5a 6 Y Brick, per 1000 5M) 2 6 00 “| Stone, cord 6.00 a 6 SO 1e | I-isne, BLL | 75 a 2 00/ sh | Rood, cord",
+      "normalized": "CHICAGO PRICES CURRENT, CORRECTED WEEKLY. Salt, bbl $2 50. Flour and Meal — Superfine bbl 8 00; fine 7 50; Buckwheat flour none; Indian meal bush 1 00 a 1 50. Grain — Corn bush 1 00; Oats 75; Wheat 62 a 69. Provisions — Beef, fresh lb 4 a 6; do. salt mess bbl 10 00; do. do. prime 9 00; Pork, mess no. 1, 20 00; no. 2, 16 00; One hog 14 00; prime 12 00. Dried beef lb 10; Hams, smoked 10 a 12; White fish bbl 8 00; Butter, keg 18 a 25; Lard 10; Cheese lb 10 a 12; White beans bush none; Potatoes 75 a 1 00; Tallow lb 9 a 10; Hides, dry lb 8 a 9; Candles, box tallow lb 12 a 14. BUILDING MATERIALS — Lumber, ass'd 1000 ft 20 00 a 25 00; Shingles do. 4 00 a 4 50; Square timber, length ft 5 a 6; Brick, per 1000 5 00 a 6 00; Stone, cord 6 00 a 6 50; Lime, bbl 1 75 a 2 00; Wood, cord 2 00 a 2 50.",
+      "locator": {
+        "artifact_role": "primary",
+        "issue_page": 3,
+        "column": 2,
+        "lines": [
+          226,
+          226
+        ],
+        "spans": [
+          {
+            "line": 226,
+            "from": 420,
+            "to": 1299
+          }
+        ]
+      },
+      "entities": [],
+      "notes": "THE PRICE OF THE TOWN'S OWN FABRIC, QUOTED WEEKLY. This is the single most useful passage in the month for a reconstruction: brick at five to six dollars the thousand, lime at $1.75 to $2.00 the barrel, cut stone at six dollars the cord, assorted lumber at twenty to twenty-five dollars the thousand feet, shingles at four to four and a half, square timber at five to six cents the running foot, and firewood at two dollars the cord. A materials list that a paper prints WEEKLY is a materials list a builder could buy from, so it says what Chicago was actually built of in August 1835 — brick and dressed stone are both quoted, which is why the town's few brick stores are worth naming when a notice names one. The figures are read column by column against the identical tables of 19 and 26 August, which set the same block with different errors; where all three agree the figure is given without a bracket, and none of the three carries a figure this reading had to guess."
+    },
+    {
+      "id": "c003",
+      "kind": "notice",
+      "reading": "transcription_mediated",
+      "quote": "Wanted Linmediately, | | i AY spprentice to the Printing’ busines, (A hoy U4 or 15 years of age, steady and ib- *F | dustrious babits, will meet with good encour agemcbt by an immediate spplication at this df- fice. Aug. 12, 18%. ial",
+      "normalized": "Wanted Immediately, an apprentice to the Printing business. A boy 14 or 15 years of age, [of] steady and industrious habits, will meet with good encouragement by an immediate application at this office. Aug. 12, 18[35].",
+      "locator": {
+        "artifact_role": "primary",
+        "issue_page": 3,
+        "column": 2,
+        "lines": [
+          226,
+          226
+        ],
+        "spans": [
+          {
+            "line": 226,
+            "from": 1311,
+            "to": 1544
+          }
+        ]
+      },
+      "entities": [],
+      "notes": "THE DEMOCRAT'S OWN PRINTING OFFICE IS HIRING, AND THE OFFICE IS ON SOUTH WATER STREET over Jones & King's hardware store (chicago_democrat_1835_08_05.json c026). A boy of fourteen wanted for the press is the closest this month comes to saying how the office was staffed. The advertisement runs unchanged on 19 and 26 August and is not re-claimed from them.",
+      "ad_copy_date": {
+        "verbatim": "Aug. 12, 18%.",
+        "iso": "1835-08-12"
+      }
+    },
+    {
+      "id": "c004",
+      "kind": "business",
+      "reading": "transcription_mediated",
+      "quote": "Botanic Medicines. : | DR. W. G. AUSTIN, adi | FR ESPESTRELLY joterme the citizeae of | Chicagoand vicinity, that by has cominbn- | | ced the practice of Modicine, and apaned an of fice on Lake street, near tho post office. Dr. A. | was educated in accordance with the prineaples || af the Old Sclivot, but practices upon s sysibm| | miaterially difcrent.~ He substitutes Ns ivenpe) = | ageats in the treatment of diseases, in place j the mineral preparations, so daletorious to {he | human system. ‘The vogetable agenta employ- | / ed are sufficiently active and powerful in‘restbr-| ¢ tng health to the ufflicted, und are destitute of | ® the permanent injurious eects of mercury and other mineral agents. aie ‘The system upon which Dr. A. practices; is j Mia evebl Jn the reformed medical institutions tn New-York und Obio, in which the use of te- stlable medicines sx made as much & matteriof| J | science as the uso of minerals, He is sapped ie [witha food smsortinent of medicines, and will cheerfully give further information ‘aa to his practice to any persom who will call at his pf fee, where ail thse who are afflicted with jetve, are invited \\to call ov send, that they may. | ibayd an opportusity to witness and ‘epee he blessings of his improved practice of medicijad | # _Chicago, Aogust 7, 1835—17",
+      "normalized": "Botanic Medicines. DR. W. G. AUSTIN R[E]SP[E]CTFULLY informs the citizens of Chicago and vicinity that he has commenced the practice of Medicine and opened an office on Lake street near the post office. Dr. A. was educated in accordance with the principles of the Old School but practices upon a system materially different. He substitutes [vegetable] agents in the treatment of diseases in place [of] the mineral preparations, so deleterious to the human system. The vegetable agents employed are sufficiently active and powerful in restoring health to the afflicted, and are destitute of the permanent injurious effects of mercury and other mineral agents. The system upon which Dr. A. practices is [that taught] in the reformed medical institutions in New-York and Ohio, in which the use of ve[ge]table medicines is made as much a matter of science as the use of minerals. He is suppl[ied] with a [g]ood assortment of medicines and will cheerfully give further information as to his practice to any person who will call at his [of]f[i]ce, where all those who are afflicted with [disease] are invited to call or send, that they may [h]av[e] an opportunity to witness and [experience t]he blessings of his improved practice of medic[ine]. Chicago, August 7, 1835.",
+      "locator": {
+        "artifact_role": "primary",
+        "issue_page": 3,
+        "column": 2,
+        "lines": [
+          226,
+          226
+        ],
+        "spans": [
+          {
+            "line": 226,
+            "from": 3649,
+            "to": 4961
+          }
+        ]
+      },
+      "entities": [
+        {
+          "as_printed": "DR. W. G. AUSTIN",
+          "normalized": "Austin, W. G.",
+          "role": "proprietor",
+          "occupations": [
+            "physician",
+            "botanic practitioner"
+          ],
+          "associated_places": [
+            "Lake Street"
+          ]
+        }
+      ],
+      "notes": "A NEW DOCTOR'S OFFICE ON LAKE STREET, AND IT PLACES THE POST OFFICE. 'on Lake street, near the post office' is the only statement in the month that puts the Chicago post office on a named street — the post office whose letter list fills two columns of every issue in the month over J. S. C. Hogan's signature. The placement is relative and the anchor is a public building, which is the strongest kind this corpus carries. Austin's own room is placed again a week later from the other side: Sarah D. Howe takes a room in Lake-street 'in the house occupied by Dr. Austin, and opposite Dr. Temple's' (chicago_democrat_1835_08_19.json c007), so one Lake Street house holds a physician's office, a dressmaker's room and a post office within a few doors, and a second physician stands opposite it.",
+      "business": {
+        "name": "Dr. W. G. Austin",
+        "proprietors": [
+          "Austin, W. G."
+        ],
+        "trade": "practice of medicine, botanic system",
+        "goods": [
+          "medicines"
+        ],
+        "street": "Lake Street",
+        "placement": {
+          "class": "relative",
+          "anchor": "the post office",
+          "offset_text": "fice on Lake street, near tho post office."
+        }
+      },
+      "ad_copy_date": {
+        "verbatim": "Chicago, Aogust 7, 1835—17",
+        "iso": "1835-08-07"
+      },
+      "announces_opening": {
+        "verbatim": "he has commenced the practice of Medicine and opened an office on Lake street near the post office",
+        "dating": "effected",
+        "iso": "1835-08-07",
+        "note": "'Has commenced ... and opened' over a dateline of 7 August 1835. The opening is on or before that day and the copy is silent about 1 July."
+      }
+    },
+    {
+      "id": "c005",
+      "kind": "business",
+      "reading": "transcription_mediated",
+      "quote": "Teaching of Music. | . SAMUEL LEWIs, “ile ‘AS commenced his profession of: i ED Scares ie retain fee 2 cago, Heads of fumilies who wish their and daughters instrnated in the shows i tye requested to call at ita room pa South | ter street, (A. Gartetl's Auctiog Rowe), @ | NB. Piano Fortes tuned. BEES AME | Aegust 12, 1835.14",
+      "normalized": "Teaching of Music. SAMUEL LEWIS [H]AS commenced his profession of [teaching music in Chi]cago. Heads of families who wish their [sons] and daughters instructed in the [above are] requested to call at [h]i[s] room [o]n South [Wa]ter street (A. Garrett's Auction Room). N.B. Piano Fortes tuned. August 12, 1835.",
+      "locator": {
+        "artifact_role": "primary",
+        "issue_page": 3,
+        "column": 2,
+        "lines": [
+          226,
+          226
+        ],
+        "spans": [
+          {
+            "line": 226,
+            "from": 4967,
+            "to": 5292
+          }
+        ]
+      },
+      "entities": [
+        {
+          "as_printed": "SAMUEL LEWIs,",
+          "normalized": "Lewis, Samuel",
+          "role": "proprietor",
+          "occupations": [
+            "music teacher",
+            "piano forte tuner"
+          ],
+          "associated_places": [
+            "South Water Street",
+            "A. Garrett's Auction Room"
+          ]
+        },
+        {
+          "as_printed": "A. Gartetl's Auctiog Rowe",
+          "normalized": "Garrett, A.",
+          "role": "premises holder",
+          "occupations": [
+            "auctioneer"
+          ],
+          "associated_places": [
+            "South Water Street"
+          ]
+        }
+      ],
+      "notes": "THE MUSIC SCHOOL OPENS, AND ITS ROOM ACQUIRES AN ANCHOR. On 5 August Samuel Lewis advertised that he WOULD begin when enough scholars offered, from an unplaced 'room on south water street' (chicago_democrat_1835_08_05.json c004); a week later he has commenced and the room is named — it is in A. Garrett's Auction Room. That is the month's clearest example of why a street_only placement should not be thrown away: the same room becomes placeable when the next issue supplies the building. Two auction rooms therefore stand on South Water Street in August 1835, Garrett's and W. Montgomery's on David Carver's old stand, and nothing here says how far apart.",
+      "business": {
+        "name": "Samuel Lewis",
+        "proprietors": [
+          "Lewis, Samuel"
+        ],
+        "trade": "vocal and instrumental music school; repair and tuning of piano fortes",
+        "goods": [],
+        "street": "South Water Street",
+        "placement": {
+          "class": "relative",
+          "anchor": "A. Garrett's Auction Room",
+          "offset_text": "call at ita room pa South | ter street, (A. Gartetl's Auctiog Rowe)"
+        }
+      },
+      "ad_copy_date": {
+        "verbatim": "Aegust 12, 1835.14",
+        "iso": "1835-08-12"
+      },
+      "announces_opening": {
+        "verbatim": "[H]AS commenced his profession of [teaching music in Chi]cago",
+        "dating": "effected",
+        "iso": "1835-08-12",
+        "note": "The second notice: in July Lewis 'intends commencing' a school when scholars offer, and by 12 August 1835 he 'has commenced'. The July copy is itself dated 22 June 1835, before the scene date."
+      }
+    },
+    {
+      "id": "c006",
+      "kind": "business",
+      "reading": "transcription_mediated",
+      "quote": "EDUCATION. ~ R. HIRAM EVERTS, informs the \\ MM habitants of Chicago, ‘that he will @HIGH SCHOOL for Young Gentlanee the 10th of the prevent month, should sulfiei encouragement be offped.\nTERMS,—Por the ofdinary English brane 5. per term of cleven works, For the hig English branches 86. For tho Latin oud Gre Innguages $3.\n‘Tedimosiais to the charneter and _scqut vents of Mr. E., from Professor Whitman, Hamilton Institution, New York, which it ‘Presomed cannot fail tobe perfectly satisfac ry, nay be teen at the house of Be. 8. Te\nle,\nM Chicogo, Aunt §, 1856. ae",
+      "normalized": "EDUCATION. M[R]. HIRAM EVERTS informs the [in]habitants of Chicago that he will [open a] HIGH SCHOOL for Young Gentlemen [on] the 10th of the present month, should sufficient encouragement be off[e]red. TERMS — For the ordinary English branch[es] $5 per term of eleven weeks. For the high[er] English branches $6. For the Latin and Greek languages $8. Testimonials to the character and acqui[re]ments of Mr. E. from Professor Whitman [of the] Hamilton Institution, New York, which it [is] presumed cannot fail to be perfectly satisfacto[r]y, may be seen at the house of [Rev.] S. T[…]. Chicago, August [5], 183[5].",
+      "locator": {
+        "artifact_role": "primary",
+        "issue_page": 3,
+        "column": 3,
+        "lines": [
+          231,
+          235
+        ]
+      },
+      "entities": [
+        {
+          "as_printed": "R. HIRAM EVERTS,",
+          "normalized": "Everts, Hiram",
+          "role": "proprietor",
+          "occupations": [
+            "schoolmaster"
+          ]
+        }
+      ],
+      "notes": "ONE OF TWO SCHOOLS OPENING IN CHICAGO IN THE SAME WEEK, and this one is dated to a day: 10 August 1835, three days before this paper reached its readers. Both are conditional on 'sufficient encouragement', which is what a schoolmaster wrote when the subscription list was not yet full, so neither is certainly standing at the end of the month. The testimonials are shown at a private house whose occupant's name the column cut in half; it is not supplied. Nothing here says WHERE the school itself would sit.",
+      "business": {
+        "name": "Hiram Everts, High School for Young Gentlemen",
+        "proprietors": [
+          "Everts, Hiram"
+        ],
+        "trade": "school",
+        "goods": [],
+        "street": null,
+        "placement": {
+          "class": "none",
+          "anchor": null
+        }
+      },
+      "ad_copy_date": {
+        "verbatim": "M Chicogo, Aunt §, 1856. ae",
+        "iso": "1835-08-05"
+      },
+      "announces_opening": {
+        "verbatim": "he will [open a] HIGH SCHOOL for Young Gentlemen [on] the 10th of the present month",
+        "dating": "stated",
+        "iso": "1835-08-10",
+        "note": "The advertisement is dated 5 August 1835, so 'the present month' is August and the school opens on 10 August 1835 — and only 'should sufficient encouragement be offered'. It was not open on 1 July."
+      }
+    },
+    {
+      "id": "c007",
+      "kind": "business",
+      "reading": "transcription_mediated",
+      "quote": "High School for Young\nLadies.\nCanes HUNT propoges to establish | Chicago. on a permanent foundation HIGH SCHOOL for Young Ladien should’e ficient encouragement be ofred the’ first te will couience Monday August 17. Perso desirons of eucoursytmg auch un inatitation & requested 9 Joave their names, previous to th Unne, at the office of Henry Moore, Faq, whe salivfactory credentials may ba seen.\nTerms—-For the ordinary English branch $8. por term of eleven weeks. For the high english branches $7, for the Latin, Gre and French Languages Kia —Pieage, Asgust, 18S Iw ioe",
+      "normalized": "High School for Young Ladies. C[HARLE]S HUNT proposes to establish [in] Chicago on a permanent foundation [a] HIGH SCHOOL for Young Ladies, should [su]fficient encouragement be off[e]red. The first te[rm] will co[m]mence Monday August 17. Persons desirous of encouraging such an institution are requested to leave their names, previous to that time, at the office of Henry Moore, Esq., where satisfactory credentials may be seen. Terms — For the ordinary English branch[es] $[6] per term of eleven weeks. For the high[er] English branches $7, for the Latin, Gre[ek] and French Languages [$8]. [Ch]icago, August, 183[5].",
+      "locator": {
+        "artifact_role": "primary",
+        "issue_page": 3,
+        "column": 3,
+        "lines": [
+          236,
+          239
+        ]
+      },
+      "entities": [
+        {
+          "as_printed": "Canes HUNT",
+          "normalized": "Hunt, C[harle]s",
+          "role": "proprietor",
+          "occupations": [
+            "schoolmaster"
+          ]
+        },
+        {
+          "as_printed": "Henry Moore, Faq,",
+          "normalized": "Moore, Henry",
+          "role": "subscription agent"
+        }
+      ],
+      "notes": "THE SECOND SCHOOL, AND THE SUBSCRIPTION LIST LIES IN A LAWYER'S OFFICE. Henry Moore's office is in J. H. Kinzie's new store (chicago_democrat_1835_08_05.json c018), so the names of everyone in Chicago willing to pay for a girls' high school were being collected inside a store building in August 1835 — the ordinary way a town without a public room did public business. The first term is dated Monday 17 August. The proprietor's forename is read 'Charles' from the 26 August printing, which sets it whole where this one gives only the ending.",
+      "business": {
+        "name": "Charles Hunt, High School for Young Ladies",
+        "proprietors": [
+          "Hunt, C[harle]s"
+        ],
+        "trade": "school",
+        "goods": [],
+        "street": null,
+        "placement": {
+          "class": "relative",
+          "anchor": "the office of Henry Moore, Esq.",
+          "offset_text": "at the office of Henry Moore, Faq, whe salivfactory credentials may ba seen."
+        }
+      },
+      "announces_opening": {
+        "verbatim": "The first te[rm] will co[m]mence Monday August 17",
+        "dating": "stated",
+        "iso": "1835-08-17",
+        "note": "The paper names the date in full. Hunt 'proposes to establish' the school and asks for names to be left beforehand, so nothing was teaching on 1 July 1835."
+      }
+    },
+    {
+      "id": "c008",
+      "kind": "notice",
+      "reading": "transcription_mediated",
+      "quote": "ANEED Man to Ring Bel for Au ons, Apnly fo , W. MONTGOMERY, Auc'r. Chicago; Anza 8188",
+      "normalized": "[W]ANTED, a Man to Ring [the] Bell for Auctions. Apply to W. MONTGOMERY, Auc'[tioneer]. Chicago, Aug[ust] [8], 18[35].",
+      "locator": {
+        "artifact_role": "primary",
+        "issue_page": 3,
+        "column": 3,
+        "lines": [
+          241,
+          241
+        ],
+        "spans": [
+          {
+            "line": 241,
+            "from": 308,
+            "to": 393
+          }
+        ]
+      },
+      "entities": [
+        {
+          "as_printed": "W. MONTGOMERY, Auc'r.",
+          "normalized": "Montgomery, W.",
+          "role": "advertiser",
+          "occupations": [
+            "auctioneer"
+          ]
+        }
+      ],
+      "notes": "A BELL RUNG THROUGH THE STREETS TO CALL AN AUCTION — the only sound the month records the town making. It is claimed because a reconstruction that carries an auction room on South Water Street should carry the fact that its sales were cried, and because it is evidence the auction business was busy enough in August 1835 to need a man kept for it."
+    },
+    {
+      "id": "c009",
+      "kind": "building",
+      "reading": "transcription_mediated",
+      "quote": "efuction and Commission HOUSE.\nE HOUSE. blie that Te tae Tented the New Store od Dentin st. for the purpose of transecling the Auction aad Commision business 4 goueral, sad is re: dy to receive oa consignenant ell hinds of sf and dispose of them to order. Liberal advan: Be tri all inauons seqeived: aoe eccroaea |\nvty at ected 90 FCP af request dae, Chicago, ‘Joly 27, thee",
+      "normalized": "Auction and Commission HOUSE. [The subscriber informs the pu]blic that he has rented the New Store [on] Dearborn st. for the purpose of transacting the Auction and Commission business [in] general, and is ready to receive on consignment all kinds of [goods] and dispose of them to order. Liberal advan[ces made on all consignments] required. […] Chicago, July 27, 18[35].",
+      "locator": {
+        "artifact_role": "primary",
+        "issue_page": 3,
+        "column": 3,
+        "lines": [
+          254,
+          256
+        ],
+        "spans": [
+          {
+            "line": 254,
+            "from": 50,
+            "to": 80
+          },
+          {
+            "line": 255,
+            "from": 0,
+            "to": 283
+          },
+          {
+            "line": 256,
+            "from": 0,
+            "to": 59
+          }
+        ]
+      },
+      "entities": [],
+      "notes": "A BUILDING NAMED ONLY AS 'THE NEW STORE ON DEARBORN ST.' — no owner, no neighbour, no number, and the definite article doing all the work. A town small enough for that to be a sufficient address in July 1835 is the fact worth keeping; it is also why this claim is `building` and not `business`, since the advertisement is unsigned in this printing and nothing here says who the auctioneer is. He is not W. Montgomery, whose auction room is on South Water Street on David Carver's old stand and who advertises separately in the same issue. A third auction concern in one town in one month.",
+      "ad_copy_date": {
+        "verbatim": "Chicago, ‘Joly 27, thee ; For Sale,",
+        "iso": "1835-07-27"
+      },
+      "announces_opening": {
+        "verbatim": "he has rented the New Store [on] Dearborn st. for the purpose of transacting the Auction and Commission business",
+        "dating": "effected",
+        "iso": "1835-07-27",
+        "note": "The reprint of the 29 July notice, over the same 27 July 1835 dateline. This claim is graded `building` because the printing is unsigned."
+      }
+    },
+    {
+      "id": "c010",
+      "kind": "building",
+      "reading": "transcription_mediated",
+      "quote": "A: | PENWO good Stores Re ly to, ie: Ty TOUN 'T. SEMPLE. ; July 20, 1835,",
+      "normalized": "[T]WO good Stores to [let]. Apply to JOHN T. [TEMPLE]. July 20, 1835.",
+      "locator": {
+        "artifact_role": "primary",
+        "issue_page": 3,
+        "column": 5,
+        "lines": [
+          267,
+          267
+        ],
+        "spans": [
+          {
+            "line": 267,
+            "from": 1267,
+            "to": 1340
+          }
+        ]
+      },
+      "entities": [
+        {
+          "as_printed": "TOUN 'T. SEMPLE.",
+          "normalized": "T[e]mple, John T.",
+          "role": "lessor"
+        }
+      ],
+      "notes": "TWO STORES STANDING EMPTY AND FOR LET IN THE MIDDLE OF THE SPECULATIVE SUMMER — the only vacancy the month advertises, and it says nothing about where they are. The surname is set 'SEMPLE' here and 'TEMPLE' in the 19 August printing of the same three lines; John T. Temple is the Chicago name and is preferred, but the reading is bracketed and no merge between the two spellings is written, because identity.json is the only place that judgement may be made.",
+      "ad_copy_date": {
+        "verbatim": "July 20, 1835,",
+        "iso": "1835-07-20"
+      }
+    },
+    {
+      "id": "c011",
+      "kind": "building",
+      "reading": "transcription_mediated",
+      "quote": "a daving’ ore, its La Malle etree, | wF thubbard 2 Cole.” brick atore, ly inform the a eee af a6 lend itsvicwnity, that they Lave ly {ntead keeping s good general assortment",
+      "normalized": "[The subscribers h]aving [taken the New St]ore in La Salle stree[t], [next door to] Hubbard & Co[.]'s brick store, [respectful]ly inform the [inhabitants] of [Chicago] and its vicinity that they have [taken it and] intend keeping a good general assortment […]",
+      "locator": {
+        "artifact_role": "primary",
+        "issue_page": 4,
+        "column": 4,
+        "lines": [
+          372,
+          372
+        ],
+        "spans": [
+          {
+            "line": 372,
+            "from": 0,
+            "to": 173
+          }
+        ]
+      },
+      "entities": [],
+      "notes": "THE NEW STORE IN LA SALLE STREET, NEXT DOOR TO HUBBARD & CO.'S BRICK STORE — and the word 'brick' is the point. Brick stands in the Chicago prices current of this same issue at five to six dollars the thousand (claim c002), and a notice that identifies a neighbour by its material is telling you brick was rare enough to be a landmark. This is the same advertisement that runs on 5 August in a column too damaged to read the street from (chicago_democrat_1835_08_05.json, not claimed there); this printing sets it whole and is where the placement is taken. The subscribers are unnamed in the surviving type and nothing is minted from it.",
+      "business": {
+        "name": "[unnamed] New Store, La Salle street",
+        "proprietors": [],
+        "trade": "dry goods, groceries, hardware, crockery, boots, shoes and hats, wholesale and retail",
+        "goods": [
+          "dry goods",
+          "groceries",
+          "hardware",
+          "crockery",
+          "boots",
+          "shoes",
+          "hats"
+        ],
+        "street": "La Salle Street",
+        "placement": {
+          "class": "relative",
+          "anchor": "Hubbard & Co.'s brick store",
+          "offset_text": "a daving’ ore, its La Malle etree, | wF thubbard 2 Cole.” brick atore,"
+        }
+      },
+      "announces_opening": {
+        "verbatim": "[The subscribers h]aving [taken the New St]ore in La Salle stree[t]",
+        "dating": "undated",
+        "iso": null,
+        "note": "The subscribers are unnamed and the notice is undated; the New Store is next door to Hubbard & Co.'s brick store and nothing dates the taking."
+      }
+    },
+    {
+      "id": "c012",
+      "kind": "business",
+      "reading": "transcription_mediated",
+      "quote": "1 Ohcage, Jima (fe ree es | HALF, CLOLTEEN Es L. BOOTS & SHOES,\nJet WHOLESALE AND RETAIL. _. |FAPNUSE enbscriber is now opening a heayy ™\n.D. ‘\nrhinent of the abave named articies, 0 )-Water ut. one door fron: Dearborn stree' _ |whare bo intends to keep on hand a large a i+ | sortunent of the named articles: and will bo r calving additions to bin axaortnent every 15 ¢\n+ the [20 days, Shrough the wrason. tate, | ‘Fraders aro respectfully requested to call an\nben | xammine for themavives ok JOHN HOLBROOK,\nCook | c ere Agent for the Manwfabtwrers. voter | Caitagn, Jane 10. of",
+      "normalized": "HA[T]S, CLO[TH]ING, BOOTS & SHOES, WHOLESALE AND RETAIL. TH[E] subscriber is now opening a heavy [asso]rtment of the above named articles [on South] Water st., one door from Dearborn street, where he intends to keep on hand a large assortment of the named articles, and will be receiving additions to his assortment every 15 or 20 days through the season. Traders are respectfully requested to call and examine for themselves. JOHN HOLBROOK, Agent for the Manufacturers. Ch[i]cago, June 10.",
+      "locator": {
+        "artifact_role": "primary",
+        "issue_page": 4,
+        "column": 4,
+        "lines": [
+          386,
+          392
+        ]
+      },
+      "entities": [
+        {
+          "as_printed": "JOHN HOLBROOK,",
+          "normalized": "Holbrook, John",
+          "role": "proprietor",
+          "occupations": [
+            "hatter",
+            "clothier",
+            "boot and shoe dealer"
+          ],
+          "associated_places": [
+            "South Water Street"
+          ]
+        }
+      ],
+      "notes": "THE STORE THE DEAD CLERK WORKED IN, PLACED ONE DOOR FROM A CORNER. Page 3 of this issue reports that young Mr. Smith 'was employed in the store of Mr. Holbrook' (claim c001); this is that store, and 'one door from Dearborn street' on Water street is one of the two tightest placements the month gives — the other is G. Spring's law office one door north of the Tremont House. The word before 'Water st.' is cut and is supplied as South from the geography of the trade; a Water street storefront one door off Dearborn on the north side would be North Water, and the supply is therefore bracketed and not certain.",
+      "business": {
+        "name": "John Holbrook",
+        "proprietors": [
+          "Holbrook, John"
+        ],
+        "trade": "hats, clothing, boots and shoes, wholesale and retail; agent for the manufacturers",
+        "goods": [
+          "hats",
+          "clothing",
+          "boots",
+          "shoes"
+        ],
+        "street": "South Water Street",
+        "placement": {
+          "class": "relative",
+          "anchor": "Dearborn street",
+          "offset_text": ")-Water ut. one door fron: Dearborn stree'"
+        }
+      },
+      "ad_copy_date": {
+        "verbatim": "Caitagn, Jane 10.",
+        "iso": "1835-06-10"
+      },
+      "announces_opening": {
+        "verbatim": "is now opening a heavy [asso]rtment of the above named articles [on South] Water st., one door from Dearborn street",
+        "dating": "effected",
+        "iso": "1835-06-10",
+        "note": "Dated 10 June 1835, three weeks BEFORE the scene date: Holbrook's store was opening its stock in June and stood on South Water Street on 1 July."
+      }
+    },
+    {
+      "id": "c013",
+      "kind": "business",
+      "reading": "transcription_mediated",
+      "quote": "rh) “Watches and Jewelry. that J. HW. MULFORD,\nAVING just rotun cd from New-Y, and Philadelphia, with e extensive assortnient of\nClo kx, Watcher, Jewelry, &e ae comprising us great a vai ay of goods in hiv ine, as has evor been offer ‘West of Buffalo; consisting of Gold and Silver Patent Lever, Lopine, En\nment lish and common Watches; ston| Alabaster and Ebony 16 duy Time Piecos— duly stnke hourse and'half hours;\nrevit} Curtis’ and Dunning'a 8 day time pieces: ,ere-) ‘Rich diamond, pearl, camoo, und agate Bree re Pins: do. do, — Jet Finger Ringa: Lyon| Pearl, jet, camed, filagre and vine fer Ring nits, | Gold cable aud curb Ladien’ Watch Chain eee Catlery and Fancy Articles. varleg |\" Muthonnatical laatruments;, Pockol Piatole a Roger's best silver steel Raizors; a the| Posrder Flauks and Shot Pouche: ered | | ‘Thermometors; Meaxure Taupo ached | Double and single barreled Fowling Pieces Table aud desort Knives and Forks; et. | Back gammnon, chequer and chess boards, di ‘and chexs ine! able: Mirrors; ‘Bnuffer and Trays ; pocket books and wallet |. A great variety of dirk, pocket and pen Kniv blic | Spectacles. Nhat | Gold, Silver, Plated and Btec! Spectacles, {Fort | sit any persons eyes. inois, | Musics !Uni. | _ A lot of good Music Boxes, of different aiv hands | Harmonicas, and many other articles too t merous to mentioa. outre- | Hilver Ware. other-| A good assortment evér pointed Poncil Cas nand| ‘Table, tea, dewert, cream, mustard and § le re Spoons; Sugar Tonga; Bottor Knives, ysub-| Jodian silvor work manufactured on the ah ‘teat notice, and as cheap az can be boaght ‘tho United States.\na Watch Repairing.\n3. H. M. is determined that no pains ball #pared in repairing ell Watches entrusted to Hie of ike taeinee Coak yond [ov ald Golced Si\nfor Chicago, Mey, weet i",
+      "normalized": "Watches and Jewelry. J. H. MULFORD, [H]AVING just retur[n]ed from New-Y[ork] and Philadelphia with [an] extensive assortment of Clo[c]ks, Watches, Jewelry, &c., comprising as great a var[i]ety of goods in his line as has ever been offer[ed] West of Buffalo; consisting of Gold and Silver Patent Lever, Lepine, English and common Watches; Alabaster and Ebony 16 day Time Pieces […] Curtis' and Dunning's 8 day time pieces; Rich diamond, pearl, cameo and agate Bre[ast] Pins […] Cutlery and Fancy Articles […] Silver Ware […] Indian silver work manufactured on the shor[t]est notice and as cheap as can be bought [in] the United States. Watch Repairing. J. H. M. is determined that no pains [shall be] spared in repairing all Watches entrusted to […] Cash [paid f]o[r] old Gold [and] Si[lver]. Chicago, May, 18[35].",
+      "locator": {
+        "artifact_role": "primary",
+        "issue_page": 4,
+        "column": 4,
+        "lines": [
+          393,
+          400
+        ]
+      },
+      "entities": [
+        {
+          "as_printed": "J. HW. MULFORD,",
+          "normalized": "Mulford, J. H.",
+          "role": "proprietor",
+          "occupations": [
+            "watchmaker",
+            "jeweller",
+            "silversmith"
+          ]
+        }
+      ],
+      "notes": "A WATCHMAKER WHO MAKES INDIAN SILVER WORK TO ORDER. The trade goods line is the one that matters here: silver ornaments made for the Indian trade, advertised beside patent lever watches by the same hand, in the summer the Potawatomi were being removed from the town. He also buys old gold and silver for cash, which makes his shop a place metal came back to. This is the advertisement that runs unsigned but for the initials 'J. H. M.' on 5 August; the name is read from this printing. No address is given in any printing.",
+      "business": {
+        "name": "J. H. Mulford",
+        "proprietors": [
+          "Mulford, J. H."
+        ],
+        "trade": "clocks, watches, jewelry and silver work; watch repairing",
+        "goods": [
+          "clocks",
+          "watches",
+          "jewelry",
+          "silver ware",
+          "Indian silver work",
+          "cutlery",
+          "spectacles",
+          "fowling pieces"
+        ],
+        "street": null,
+        "placement": {
+          "class": "none",
+          "anchor": null
+        }
+      },
+      "ad_copy_date": {
+        "verbatim": "for Chicago, Mey, weet",
+        "iso": "1835-05-01"
+      }
+    },
+    {
+      "id": "c014",
+      "kind": "infrastructure",
+      "reading": "transcription_mediated",
+      "quote": "JOHN 8. C. HOGAN, P. AL | *,*Perons calling for any of Uie above",
+      "normalized": "JOHN S. C. HOGAN, P. M. *,* Per[s]ons calling for any of the above [let]ters will please say they are advertised.",
+      "locator": {
+        "artifact_role": "primary",
+        "issue_page": 4,
+        "column": 3,
+        "lines": [
+          369,
+          369
+        ],
+        "spans": [
+          {
+            "line": 369,
+            "from": 1769,
+            "to": 1833
+          }
+        ]
+      },
+      "entities": [
+        {
+          "as_printed": "JOHN 8. C. HOGAN, P. AL",
+          "normalized": "Hogan, John S. C.",
+          "role": "postmaster",
+          "occupations": [
+            "postmaster"
+          ],
+          "associated_places": [
+            "the Chicago post office"
+          ]
+        }
+      ],
+      "notes": "THE POSTMASTER AND HIS STANDING INSTRUCTION, claimed here and the six hundred names above it deliberately NOT minted from this printing. The list is ONE list — letters remaining in the Post Office at Chicago on 31 July 1835 — set once and printed unchanged in all four August issues, and T-0299 measured what happens when a standing list is minted from every printing of it: 298 names became 638 persons off three printings of the 1834 list, because the identity policy correctly keys on the whole normalized name and the segmenter cuts each printing differently. The name-level extraction is T-0336 and will be made from ONE printing. What is claimed here is the post office itself: J. S. C. Hogan, postmaster, and an office whose street Dr. Austin's advertisement in this same issue supplies — Lake street (claim c004).",
+      "letter_list_only": true
+    }
+  ]
+}

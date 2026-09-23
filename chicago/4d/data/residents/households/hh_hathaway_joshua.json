@@ -1,0 +1,136 @@
+{
+ "id": "hh_hathaway_joshua",
+ "name": "The Hathaway household — a name from the post office's letter lists",
+ "division": "unplaced",
+ "head": "hathaway_joshua",
+ "source_pass": "letter_list",
+ "arrival": {
+  "value": "1834-04-01",
+  "confidence": "inferred",
+  "sources": [
+   "chicago_democrat_1833_1835"
+  ],
+  "note": "A BOUND FROM THE RETURN, NOT AN ARRIVAL. The office's list of letters uncalled-for is a RETURN — its statement of what was still unclaimed on ONE day — and the paper reprinted one return over as many consecutive issues as it took, so the bound is dated by the return of 1 April 1834 and not by the issue it was read in (T-0425). Somebody was writing to this name at Chicago by 1834-04-01 and at no stated time before it; nothing says when they came. The date lines the printings set, and how they were weighed, stand beside this rule in tools/mint_letter_list_residents.py.",
+  "precision": "not_later_than"
+ },
+ "party_size_on_arrival": {
+  "value": null,
+  "confidence": "reconstructed",
+  "note": "Not attested."
+ },
+ "origin": {
+  "value": null,
+  "confidence": "reconstructed",
+  "note": "Not attested."
+ },
+ "reason_for_coming": {
+  "value": null,
+  "confidence": "reconstructed",
+  "note": "Not attested."
+ },
+ "lives_at": {
+  "value": null,
+  "confidence": "reconstructed",
+  "note": "Not attested: a letter list gives a name and no address."
+ },
+ "works_at": {
+  "value": null,
+  "confidence": "reconstructed",
+  "note": "Not attested. No trade is recorded, so there is no premises to seek."
+ },
+ "present_on_scene_date": {
+  "value": "uncertain",
+  "confidence": "inferred",
+  "sources": [
+   "chicago_democrat_1833_1835"
+  ],
+  "note": "THE CORPUS STOPS BEFORE THE SCENE DATE. Nothing after 1834-04-01 follows this person to 1 July 1835 or says they left. `uncertain` rather than dropped — the distinction index.json draws for Jeremiah Porter, and a finding, not a gap."
+ },
+ "persons": [
+  {
+   "id": "hathaway_joshua",
+   "name": "Joshua Hathaway jr.",
+   "relationship": "head",
+   "grade": "attested",
+   "letter_list_only": true,
+   "letter_list_returns": [
+    "1834-04-01"
+   ],
+   "occupation": {
+    "value": "none_recorded",
+    "confidence": "reconstructed",
+    "sources": [
+     "hathaway_1834"
+    ],
+    "note": "NO TRADE IS PRINTED FOR THIS MAN ANYWHERE THIS PROJECT HOLDS, AND `forwarding_and_commission` WAS NEVER READ OFF THE SOURCE THAT CARRIED IT (T-0991). The one citation this trade ever had is `hathaway_1834` — 'Chicago with the School Section, Wabansia, and Kinzie's Addition', a MAP, and by this repository's own inspection of it at native resolution a PURE CADASTRAL LOT PLAT: block outlines, numbered lots, street names and survey bearings, and nothing else. It prints no trades, for this man or any other. What it does carry is his AUTHORSHIP, in the cartouche — evidence that he drew the map, which is a fact about a surveyor's hand and not a forwarding and commission house. The trade was read in rather than read off, and the repair is not a question of grade: no tier can hold a figure no source states. The man himself is unaffected and stands where he stood — the Chicago Democrat of 1 April 1834 prints 'joshua Hathaway jr.' in a single return of letters uncalled-for at the post office, which is how this record is known at all, and it prints no trade either. The 1835 field is therefore `none_recorded` at `reconstructed`. THE CARTOUCHE IS LEFT UNSPENT DELIBERATELY: reading `surveyor` off an authorship line would be the same move in the other direction, out of a sheet whose own describes_date is 1834, and it wants a source that prints the trade."
+   },
+   "sources": [
+    "chicago_democrat_1833_1835",
+    "hathaway_1834"
+   ],
+   "note": "INDEPENDENTLY CORROBORATED RESIDENT. Originally documented in Chicago post-office evidence; independent resident research now corroborates the identity. KNOWN ONLY FROM THE POST OFFICE, IN ONE RETURN. The papers print 'joshua Hathaway jr. 2)' in a single return of letters uncalled-for at the Chicago post office — the Democrat of 1 April 1834, column 1 — dated 1834-04-01. WHAT THAT IS WORTH: a correspondent believed a person of this name reachable at Chicago on that date, and nothing further — not that they lived here, kept a trade here, or were here on 1 July 1835. It is the weakest evidence this project accepts for a resident, and a source placing them elsewhere retires the record. THE ARGUMENT EVERY RECORD OF THIS KIND SHARES is written once instead of once per file: the ruling of 2026-08-30 and what it cost the town (docs/LIBERTIES.md L214), the refusals and the transcription standard behind the reading (tools/mint_letter_list_residents.py). No figure is drawn (L1).",
+   "resident_research": {
+    "programme": "resident-research-2026",
+    "ticket": "T-0483",
+    "outcome": "corroborated_enrichment",
+    "reviewed_on": "2026-09-02",
+    "asserted_identity": true,
+    "evidence_for": "Exact name with Jr. discriminator; primary 1834 Chicago map carrying his authorship.",
+    "evidence_against": "The map proves professional activity, not residence address or presence on 1 July 1835.",
+    "summary": "Joshua Hathaway Jr. is the named creator of the 1834 Chicago cadastral map already registered as a tier-1 project source. This independently anchors the letter-list name to professional work in Chicago in the same year.",
+    "notes": "Joshua Hathaway Jr. is the named creator of the 1834 Chicago cadastral map already registered as a tier-1 project source. This independently anchors the letter-list name to professional work in Chicago in the same year.",
+    "source_ids": [
+     "chicago_democrat_1833_1835",
+     "hathaway_1834"
+    ],
+    "refusals": [
+     {
+      "regraded_on": "2026-09-04",
+      "rule": "G3",
+      "withheld": "the downgrade to inferred",
+      "reason": "This card rests on 1 thing(s) the consolidation did not read — hathaway_1834. G3 fired on the seven domains the ladder reads and says nothing about the evidence outside them, so the grade stands. The same reasoning the ladder's own G5 gives for abstaining (T-0515)."
+     }
+    ]
+   },
+   "biographical_evidence": {
+    "birth_year": {
+     "value": 1810,
+     "confidence": "attested",
+     "sources": [
+      "hathaway_1834"
+     ],
+     "note": "Birth year stated by independently corroborating source(s)."
+    },
+    "age_on_1835_07_01": {
+     "value": {
+      "min": 24,
+      "max": 25
+     },
+     "confidence": "inferred",
+     "sources": [
+      "hathaway_1834"
+     ],
+     "note": "Age range derived from birth year because birth month/day is not asserted here."
+    }
+   },
+   "profile_facts": [
+    {
+     "field": "life_event",
+     "value": "Drew the 1834 Chicago cadastral map this project reads as a tier-1 source",
+     "confidence": "attested",
+     "sources": [
+      "hathaway_1834"
+     ],
+     "describes_date": "1834-01-01",
+     "place_class": "chicago",
+     "record_id": "resident_research:T-0483#01",
+     "as_read": "the named creator of the 1834 Chicago cadastral map already registered as a tier-1 project source",
+     "note": "The map carries his authorship and the project already stands on the map. This is the rare case where the corroborating record is one of the project's own primary sources, so it is graded attested."
+    }
+   ]
+  }
+ ],
+ "touches_removal": false,
+ "review_required": false,
+ "research_note": "MINTED FROM THE LETTER LISTS (T-0378, T-0379). THE HOUSEHOLD IS A CONTAINER, NOT AN ARGUMENT: every other record here argues for a household, and this one argues for a PERSON. `data/residents/` cannot carry a person outside a household, so one was written around them and told to claim nothing — one member, no dwelling, no division, no trade, no family, no arrival beyond the paper's bound. tools/mint_letter_list_residents.py derives the set and prints every refusal, `--gate` proves no record here gained a roof, a trade or a second member, and docs/LIBERTIES.md L214 carries the change of scale."
+}

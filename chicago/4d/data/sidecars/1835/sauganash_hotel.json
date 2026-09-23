@@ -1,0 +1,357 @@
+{
+  "id": "sauganash_hotel",
+  "phase": "frame_1831",
+  "name": "Sauganash Hotel",
+  "aka": [
+    "Eagle Exchange Tavern",
+    "Beaubien's tavern",
+    "Chicago Hotel"
+  ],
+  "archetype": "frame_tavern",
+  "asset": "gltf/sauganash_hotel__frame_1831.glb",
+  "scene": "1835",
+  "target_date": "1835-07-01",
+  "documented_range": {
+    "from": "1831-01-01",
+    "to": "1851-03-04",
+    "confidence": "attested",
+    "sources": [
+      "kinzie_waubun_1856",
+      "drloih_hotels"
+    ],
+    "note": "Wau-Bun, describing 1831: 'a house just completed by Mark Beaubien.' Destroyed by fire 4 March 1851. The 1838 rename to Chicago Hotel and the 1837 arrival of the Chicago Theatre Company in the dining room are changes of use, not of form, so they do not open a new phase."
+  },
+  "change_note": "Two-story frame block built onto the log core at the Lake and Market corner, 1831; the whole then known as the Sauganash Hotel, Chicago's first hotel.",
+  "placement": {
+    "local_e": 101.4,
+    "local_n": -130.6,
+    "rotation_deg": 0.0,
+    "position_confidence": "inferred",
+    "position_sources": [
+      "chicagology_prefire273",
+      "chicago_landmark_sauganash",
+      "wright_1834"
+    ],
+    "position_note": "PLACED 2026-08-09. The corner is documented — chicagology and the Chicago Landmark record both put the Sauganash at the south-east corner of Lake and Market — but the COORDINATE is inferred, so the tag follows the weaker half. Method: Market Street is today's N Wacker Drive and Lake Street is unchanged, an equivalence the research dossier states and the georeference independently corroborates, since the 1834 plats warped onto the modern street centrelines at 17.5 m RMS. The modern intersection centre was read from OpenStreetMap (EPSG:26916 E 447161.9, N 4637285.4) and the footprint origin offset 12.2 m east and 20.2 m south of it: half of an 80 ft platted street to reach the kerb, and the footprint's own 8 m depth so the building's north face sits on the Lake Street frontage of a south-east corner lot. Working uncertainty about 20 m, which is the georeference's, not an additional guess. Facade bearing 0 (north, onto Lake Street): the sources say it faced the forks to the north-west, so the true bearing is likely nearer 315, but the plat lot lines are orthogonal and a corner building fronting Lake is the defensible reading until better evidence appears.",
+    "symbolic_location": "South-east corner of Lake Street and Market Street (today Lake St and N Wacker Dr).",
+    "uncertainty_m": 20,
+    "placement_provisional": false,
+    "vertical_anchor": "terrain",
+    "walk_surface_m": null
+  },
+  "footprint": {
+    "polygon": [
+      [
+        0,
+        0
+      ],
+      [
+        9.92,
+        0
+      ],
+      [
+        9.92,
+        8
+      ],
+      [
+        0,
+        8
+      ]
+    ],
+    "confidence": "reconstructed",
+    "sources": [
+      "andreas_1884_v1"
+    ],
+    "note": "THE TWO-MASS PLAN, AND THE 12 x 8 m PLACEHOLDER IS RETIRED (T-0626, spending T-0617's reading). THE FRONTAGE IS DERIVED AND THE DEPTH IS NOT, and the block is graded at the weaker of the two. FRONTAGE 9.92 m: Braunhold's engraving draws five bays on the street face and rectified against that face's own vanishing point the five are EQUAL to 2.4 % (tools/measure_sauganash_plate.py, bay_rhythm.rectified_gaps 0.997 / 1.011 / 1.020 / 0.972). The bay measures 1.984 m at the plate's stated scale datum — a standing adult at 1.70 m, hat included, the two men on the walk reading 147 and 143 px — so five bays are 9.92 m. THE DATUM'S BIAS IS SMALL AND BOUNDED, which is what makes this a measurement rather than a floor: the men stand a pace forward of the wall, and the plate's own focal length puts them 43.0 m from the station (f 3664.7 px on a 145 px figure of 1.70 m), so a pace is 2.7 %. The frontage is therefore 9.9-10.2 m and 12 m IS REFUTED rather than merely unsupported. The value taken is the measured 9.92 and is not fudged up into the correction. What does still move it is the 1.70 m datum itself: at 1.60 m the frontage reads 9.3 m and at 1.80 m 10.5 m. DEPTH 8.0 m IS UNCHANGED AND IS STILL A RECONSTRUCTION. One plate gives no depth (docs/RESEARCH/sauganash_image_accuracy.md row 11), so nothing has measured it; it is held at the placeholder's own figure deliberately, because the placement above offsets this origin by the footprint's own 8 m depth to stand the north face on the Lake Street frontage, and moving a number with no evidence behind it would move the building. THE SECOND MASS IS NOT IN THIS POLYGON, on the precedent green_tree_tavern's rear ell set: an attached wing is the archetype's, sized by this phase's own form attributes (cross_wing, cross_wing_depth_m, cross_wing_end), and the polygon is the main block's plan. The one lead this note used to carry is still open: Andreas vol. 1 p. 106 ('Eagle Exchange'), not yet read at page-image level, and the individual building rectangle on Hathaway 1834. NOTE ON WHAT THIS TAG MEANS: conjectural here is about SIZE, not about existence or character. That the building was a two-storey white frame block is documented (Wau-Bun); how big it was is measured off one retrospective sheet and no better. The renderer therefore does NOT dither the massing on account of this tag — see generators/archetypes/frame_tavern.py — and the dimensional uncertainty is carried in the sidecar instead."
+  },
+  "attributes": {
+    "stories": {
+      "value": 2,
+      "confidence": "attested",
+      "sources": [
+        "kinzie_waubun_1856"
+      ],
+      "note": "Wau-Bun: 'a pretentious white two-story building.'"
+    },
+    "paint": {
+      "value": "white",
+      "confidence": "attested",
+      "sources": [
+        "kinzie_waubun_1856"
+      ],
+      "note": "Wau-Bun: 'a pretentious white two-story building, with bright-blue wooden shutters.' Painted white siding was itself remarkable at Wolf Point in 1831 — the description exists because the building stood out."
+    },
+    "shutters": {
+      "value": "bright_blue",
+      "confidence": "attested",
+      "sources": [
+        "kinzie_waubun_1856"
+      ],
+      "note": "Wau-Bun, same sentence. The single most distinctive documented visual feature of the building. Wau-Bun gives the COLOUR and nothing else about the leaves; since T-0092 the leaf construction is carried by shutter_type — a far weaker, single-view claim graded on its own."
+    },
+    "shutter_type": {
+      "value": "louvred",
+      "confidence": "inferred",
+      "sources": [
+        "trowbridge_sauganash_hotel"
+      ],
+      "note": "THE WEAKEST OF THE THREE VIEWS' CLAIMS, AND CARDED AS SUCH — IMAGE 10 ONLY. The Trowbridge drawing (image 10 of data/sources/assets/owner_brief_2026_08_18/README.md) is the one view that resolves the leaves at all, and it draws 'louvred shutters on the sash'; the Petford watercolour and the Braunhold engraving read at no such grain and can neither agree nor disagree, and Wau-Bun's sentence gives only the colour. One tier-5 retrospective drawing may still drive a fenestration detail as inferred — the same rule that admitted the Green Tree's plate-read chimney placement — but nothing corroborates this one, so the slats carry this attribute's confidence in the mesh rather than the attested colour's. T-0075 LANDED THE IDENTIFICATION ON 2026-08-22: image 10 is W. E. S. Trowbridge's drawing of the Sauganash, held as `trowbridge_sauganash_hotel`, and this row cites it instead of a README path. The plate was retrieved and read to confirm the louvres before the record was written. The citation changes nothing about the grade — a tier-5 retrospective still may not drive a coordinate, and this one is still uncorroborated by the other two views. Slat count and pitch are the archetype's numbers: docs/LIBERTIES.md L154."
+    },
+    "construction": {
+      "value": "balloon_frame",
+      "confidence": "inferred",
+      "sources": [
+        "andreas_1884_v1"
+      ],
+      "note": "Balloon framing was developed in Chicago in 1832-33 and became the dominant local method. This building predates that by a year, so balloon framing is the LESS likely reading: a braced frame built onto a log core is more probable for 1831. Flagged for correction — the value is retained only until the framing question is researched, and it should probably become braced_frame. Do not treat this as settled."
+    },
+    "cladding": {
+      "value": "clapboard",
+      "confidence": "inferred",
+      "note": "Implied by 'white' painted finish on a frame building; clapboard is the standard cladding for the type and period. Not directly attested.",
+      "geometry": "simplified"
+    },
+    "wall_height_m": {
+      "value": 5.5,
+      "confidence": "inferred",
+      "note": "RETAGGED 2026-08-09 from conjectural to inferred. No figure is attested for this building, but two full storeys at typical period floor heights is derivation from typology and construction practice, which is what 'inferred' means — the previous tag said 'no evidence' while this very note gave the reasoning. 5.5 m is about 18 ft: two 8 ft storeys plus floor structure and a low sill course. The DIMENSION remains uncertain; what is inferred is that it falls in this range, not that it is exactly 5.5 m."
+    },
+    "roof_type": {
+      "value": "gable",
+      "confidence": "inferred",
+      "note": "RETAGGED 2026-08-09 from conjectural to inferred, for the same reason as wall_height_m: gable is the near-universal roof form for frame buildings of this type, period and region, and both retrospective depictions show one. Typological derivation is 'inferred'. Not separately attested for this building by any period source."
+    },
+    "gallery": {
+      "value": false,
+      "confidence": "inferred",
+      "sources": [
+        "andreas_1884_v1",
+        "kurz_allison_1893"
+      ],
+      "note": "REVISED 2026-08-09 after examining the images directly. No period source attests a gallery or porch either way, but the two surviving retrospective depictions both show the building WITHOUT one: the F. Braunhold engraving in Andreas (1884) and panel 14 of the Kurz and Allison sheet (1893) each show a plain two-story clapboard block with a modest entrance and no veranda. Caveat on independence — the Kurz and Allison panel closely follows the Andreas composition and is probably derived from it, so these are not two witnesses so much as one witness and a copy. 'No gallery' is therefore better attested than 'gallery' without being documented. See docs/RESEARCH/sauganash_hotel.md."
+    },
+    "log_wing": {
+      "value": false,
+      "confidence": "inferred",
+      "sources": [
+        "andreas_1884_v1",
+        "kurz_allison_1893"
+      ],
+      "note": "RETIRED 2026-09-04 (T-0626), BECAUSE IT WAS THE SAME BUILDING DRAWN TWICE. This attribute stood a one-storey log wing FORWARD of the frame block's street face at its left third, and the owner reported exactly that from the dev preview: 'there is an extra log structure you have in front'. Two things are wrong with it and they are different. WHERE: all three views put the log annex at the END of the composition, beside the tall wing, and the main block's street face is unobstructed in every one of them. WHOSE: the annex is not this record's to draw. drloih_beaubien captions the very engraving this project measures — 'The Sauganash Hotel. The log cabin on the left was Chicago's first drugstore' — and that cabin is data/structures/philo_carpenter_log_shop.json, the 16 x 20 ft log building Andreas puts on Lake Street near the river, held here since 2026-08-11 and already sited hard against this block's EAST face on the same Lake Street frontage. So the annex stands in the scene, at the end, beside the wing; it simply stood there twice. The value is false rather than deleted so that the claim, its sources and its grade stay legible. The 1829 cabin's survival is not withdrawn — it is carried on the log_1829 phase below, which is that same building, and on the shop's own record."
+    },
+    "log_wing_door": {
+      "value": false,
+      "confidence": "inferred",
+      "sources": [
+        "andreas_1884_v1"
+      ],
+      "note": "RETIRED 2026-09-04 (T-0626), BECAUSE IT WAS THE SAME BUILDING DRAWN TWICE. This attribute stood a one-storey log wing FORWARD of the frame block's street face at its left third, and the owner reported exactly that from the dev preview: 'there is an extra log structure you have in front'. Two things are wrong with it and they are different. WHERE: all three views put the log annex at the END of the composition, beside the tall wing, and the main block's street face is unobstructed in every one of them. WHOSE: the annex is not this record's to draw. drloih_beaubien captions the very engraving this project measures — 'The Sauganash Hotel. The log cabin on the left was Chicago's first drugstore' — and that cabin is data/structures/philo_carpenter_log_shop.json, the 16 x 20 ft log building Andreas puts on Lake Street near the river, held here since 2026-08-11 and already sited hard against this block's EAST face on the same Lake Street frontage. So the annex stands in the scene, at the end, beside the wing; it simply stood there twice. The value is false rather than deleted so that the claim, its sources and its grade stay legible. The 1829 cabin's survival is not withdrawn — it is carried on the log_1829 phase below, which is that same building, and on the shop's own record. The door itself is not withdrawn: two views draw the cabin's own entrance direct to grade, and it belongs to the record that holds the cabin."
+    },
+    "log_wing_porch_hood": {
+      "value": false,
+      "confidence": "inferred",
+      "sources": [
+        "andreas_1884_v1"
+      ],
+      "note": "RETIRED 2026-09-04 (T-0626), BECAUSE IT WAS THE SAME BUILDING DRAWN TWICE. This attribute stood a one-storey log wing FORWARD of the frame block's street face at its left third, and the owner reported exactly that from the dev preview: 'there is an extra log structure you have in front'. Two things are wrong with it and they are different. WHERE: all three views put the log annex at the END of the composition, beside the tall wing, and the main block's street face is unobstructed in every one of them. WHOSE: the annex is not this record's to draw. drloih_beaubien captions the very engraving this project measures — 'The Sauganash Hotel. The log cabin on the left was Chicago's first drugstore' — and that cabin is data/structures/philo_carpenter_log_shop.json, the 16 x 20 ft log building Andreas puts on Lake Street near the river, held here since 2026-08-11 and already sited hard against this block's EAST face on the same Lake Street frontage. So the annex stands in the scene, at the end, beside the wing; it simply stood there twice. The value is false rather than deleted so that the claim, its sources and its grade stay legible. The 1829 cabin's survival is not withdrawn — it is carried on the log_1829 phase below, which is that same building, and on the shop's own record. The hood is not withdrawn either; like the door it belongs to the cabin's own record, and it rested on the engraving alone."
+    },
+    "roof_pitch_deg": {
+      "value": 38.0,
+      "confidence": "inferred",
+      "note": "No pitch is attested. 38 degrees is mid-range for period gable framing — steep enough to shed snow, shallow enough for the timber spans available. Inferred from construction practice, not measured."
+    },
+    "fenestration": {
+      "value": "five_bay_regular",
+      "confidence": "inferred",
+      "note": "No period source describes the window arrangement. A regular five-bay elevation with a centred entrance is the standard disposition for a building of this size and type, and both retrospective depictions show regular bays. The COUNT and SPACING are inference; that it was regularly fenestrated is safe. MEASURED 2026-09-04 (T-0626, spending T-0617): the scheme this attribute has carried all along is the one the plate draws, and it is no longer typological inference. Braunhold's street face detects five openings in the upper storey and five in the ground storey, with the door the MIDDLE of the five — the darkest opening on the ground storey at ink 0.494, and nothing else on the sheet is inked like an open door onto an unlit room. The five are EQUAL: drawn gaps of 169.2, 161.1, 153.0 and 137.5 px are a 20.4 % spread that reads as an irregular rhythm and is not one, rectifying to 0.997, 1.011, 1.020 and 0.972 against the face's own vanishing point. The GRADE does not move — one sheet, tier 5, its two companions copies of it — and neither does the geometry, which already drew this. What changes is that the row now rests on a measurement: docs/RESEARCH/sauganash_image_accuracy.md rows 1-4.",
+      "geometry": "simplified"
+    },
+    "entrance_frontispiece": {
+      "value": true,
+      "confidence": "inferred",
+      "sources": [
+        "andreas_1884_v1"
+      ],
+      "note": "A SMALL FLAT-HOODED FRONTISPIECE ON THE MAIN BLOCK'S FRONT DOOR. Both street views of the 2026-08-18 owner brief draw it (data/sources/assets/owner_brief_2026_08_18/README.md): the Petford 1831 watercolour puts 'a small flat-hooded entrance frontispiece/porch on the front door' (image 8), and the Braunhold engraving in Andreas draws 'the clapboard block's wide entrance surround' (image 9). This is a door SURROUND, not the veranda the gallery attribute records as absent — the same views that show the frontispiece show no gallery, so the two claims agree rather than conflict. Tier-5 retrospective views may drive form as inferred and never a dimension: the hood and pilaster sizes are the archetype's numbers, claimed at docs/LIBERTIES.md L154. The brief's binaries are not yet committed, so the citation is the README until T-0075 lands identifications."
+    },
+    "chimneys": {
+      "value": 2,
+      "confidence": "inferred",
+      "note": "Both retrospective depictions show two. A tavern of this size needed multiple fireplaces. Not attested by a period source; the number is inference. The stacks' material is carried by chimney_material since T-0092."
+    },
+    "chimney_material": {
+      "value": "brick",
+      "confidence": "inferred",
+      "note": "BRICK STACKS, AND THE COLOUR RESTS ON ONE VIEW: the Petford 1831 watercolour (image 8 of data/sources/assets/owner_brief_2026_08_18/README.md) colours both chimneys brick-red over the white clapboard — the only coloured witness to this building — and the engraved views draw masonry stacks without being able to say of what. Brick is also the plausible reading on its own terms: a hotel raised in 1831 at the settlement's centre, when brick was reaching Chicago in trade, and no period text describes the stacks either way. A single tier-5 view may drive a material as inferred; the brief's binaries are not yet committed, so the citation is the README until T-0075 lands identifications."
+    },
+    "roof_colour": {
+      "value": "moss_green",
+      "confidence": "inferred",
+      "note": "THE PETFORD VIEW'S TONE, AND ONLY ITS: the 1831 watercolour (image 8 of data/sources/assets/owner_brief_2026_08_18/README.md) gives the shingle roof a dark green/moss colour — weathered shingles gone green, or the painter's reading of them — and the engravings, being monochrome, can neither agree nor disagree. A single tier-5 watercolour may drive a material tone as inferred; the exact colour value is the archetype's, claimed at docs/LIBERTIES.md L154. The brief's binaries are not yet committed, so the citation is the README until T-0075 lands identifications."
+    },
+    "siding_exposure_m": {
+      "value": 0.152,
+      "confidence": "reconstructed",
+      "note": "INVENTED WITHIN A STOCK SET, NOT DERIVED. No source states the exposed face of any Chicago building's siding. The value is one of four period mill sidings — 4.5, 5, 5.5 or 6 in to the weather; this record wears 6 in — dealt by tools/deal_siding_stock.py: keyed to the phase's construction season, because buildings sided from the same season's shipments of St Joseph sawn lumber tend toward one stock, then advanced so no frame building within 60 m shares this one's. The separation is the surface variety T-0049 reconstructs, not a claim about 1835. docs/LIBERTIES.md L148 owns the invention."
+    },
+    "cross_wing": {
+      "value": true,
+      "confidence": "inferred",
+      "sources": [
+        "andreas_1884_v1"
+      ],
+      "note": "THE SECOND TWO-STOREY MASS, AND THE PLATE PROVES IT BY ARITHMETIC. The owner reported it missing on 2026-09-03 from the dev preview: 'i think there is a structure missing but you have it on the front and they have it on the rear in pictures, and it looks like the full height of the main building and similar design as the main building appears to be almost the same size, it connects from the back and side in the images.' T-0617 measured the near apex at (648, 350) with one line running out of it at image slope -0.318 and one at +0.095, and called the right-hand one a ridge on the strength of the asymmetry alone. T-0626 finished the sum. Project each line onto the vertical through the vanishing point of the plane it lies in — the plate gives both horizontal vanishing points and its own focal length, recovered from their orthogonality — and BOTH come out horizontal in the world: 1.35 deg and 0.11 deg, where a 38 deg rake in the same plane would have been DRAWN at image slope -1.99 against the -0.318 measured. So they are two RIDGES meeting at one apex, not a ridge and a rake, and the mass the owner reported is on the sheet as a measurement rather than as an impression. tools/sauganash_apex_lines.py is that arithmetic and tools/check.sh gates on it. THE SHARED APEX IS ALSO WHAT SIZES THE WING: two gable ridges of one wall height and one pitch meet at a point only when they span the same width, so the wing's span is this block's own depth and the archetype refuses to build it at any other. GRADE. One sheet — Braunhold's. The Petford watercolour and the Trowbridge drawing are the same composition from the same station, so they copy it rather than corroborate it (docs/RESEARCH/sauganash_image_accuracy.md section 1), and a tier-5 retrospective that passes its own perspective test may be read for PROPORTION and never for a coordinate. CITED ON BRAUNHOLD ALONE. The Petford and Trowbridge views were dropped from this row on 2026-09-04 for the reason the reading itself gives: they are the same composition from the same station, so listing them would dress a copy as a corroboration — and trowbridge_sauganash_hotel's rights are unresolved, so citing it here would put a mesh on a source nobody has checked for nothing gained."
+    },
+    "cross_wing_end": {
+      "value": "x_max",
+      "confidence": "inferred",
+      "note": "WHICH END IS DECIDED BY THE PLAT, NOT BY THE PLATE. All three views put the tall wing and the log annex at the LEFT of the composition, at the same end of the building; nothing in any of them says which real end of it that is, and a retrospective view may not drive a coordinate in any case. The lot decides. This phase's placement stands the block's WEST face on Market Street's east kerb line at a 0 m setback, so a wing at the west end would stand in Market Street. It goes at the EAST end — x_max in the archetype's local frame — which is also the end the log annex already stands against: data/structures/philo_carpenter_log_shop.json is set hard on this block's east face, by the same elimination and stated there since 2026-08-11. Graded inferred, because the premise the elimination runs on — a 0 m setback from an 80 ft platted street — is itself the placement's own inference. NO SOURCES ON THIS ROW, DELIBERATELY: it cites nothing because it rests on nothing new. The plat equivalence, the kerb line and the 0 m setback are all this phase's own position block, which carries its sources; repeating them here would claim a second, independent standing this row does not have."
+    },
+    "cross_wing_depth_m": {
+      "value": 8.0,
+      "confidence": "reconstructed",
+      "note": "INVENTED WITHIN A BOUND, AND IT IS THE ONLY NUMBER ON THIS MASS THAT IS. How far the wing runs BACK is what one sheet cannot give (docs/RESEARCH/sauganash_image_accuracy.md row 11): from the plate's station the wing stands behind the main block with only its ridge showing, so the drawing carries its height and its direction and not its length. 8.0 m is the owner's own reading of the views — 'almost the same size' as the main block — taken as equal to the block's 8 m depth, which is also the span the shared apex forces on the wing, so the wing comes out square in plan. docs/LIBERTIES.md L217 owns the invention. The number was also chosen to leave the fenced rear yard, its Market Street gateway and its three kept trees their room: nothing about that yard is attested either, and a wing sized to fill it would be one guess crowding another."
+    },
+    "function": {
+      "value": "tavern_inn",
+      "confidence": "attested",
+      "sources": [
+        "kinzie_waubun_1856",
+        "chicagology_prefire273",
+        "drloih_hotels"
+      ],
+      "note": "A tavern from 1829 and a hotel from 1831; the social centre of the settlement in the target window. Chicago's first billiard table in a public house stood here."
+    },
+    "occupants": {
+      "value": "a Mr. Davis, proprietor",
+      "confidence": "inferred",
+      "sources": [
+        "drloih_hotels"
+      ],
+      "note": "The Beaubiens owned it until 1834; the hotel chronology gives 'Davis (1835)' as operator, possibly the John Davis running the Steamboat Hotel on North Water Street. Mark Beaubien himself had moved on by the scene date — he built the Exchange Coffee House at Lake and Wells in 1834. The 1835 proprietor is a lead, not a settled fact."
+    }
+  },
+  "residents": [],
+  "citations": [
+    {
+      "source_id": "andreas_1884_v1",
+      "citation": "Andreas, A. T. History of Chicago: From the Earliest Period to the Present Time. Vol. 1. Chicago: A. T. Andreas, 1884.",
+      "url": "https://archive.org/details/historyofchicago01andr",
+      "archived_url": "",
+      "tier": 3,
+      "tier_label": "compiled secondary (Andreas)"
+    },
+    {
+      "source_id": "chicago_landmark_sauganash",
+      "citation": "City of Chicago, Commission on Chicago Landmarks. \"Site of the Sauganash Hotel/Wigwam.\" Designated 6 November 2002. lanId 1417.",
+      "url": "https://webapps1.chicago.gov/landmarksweb/web/landmarkdetails.htm?lanId=1417",
+      "archived_url": "",
+      "tier": 4,
+      "tier_label": "later scholarship"
+    },
+    {
+      "source_id": "chicagology_prefire273",
+      "citation": "\"Wolf's Point and the Town of Chicago.\" Chicagology. Transcribing the Chicago Magazine of 15 May 1857 — the account of the Wolf's Point settlement built on George Davis's 1832 drawing and on Gurdon S. Hubbard's own description of the place as he found it in 1818 — with A. T. Andreas and modern editorial matter around it.",
+      "url": "https://chicagology.com/prefire/prefire273/",
+      "archived_url": "https://web.archive.org/web/20260217122628/https://chicagology.com/prefire/prefire273/",
+      "tier": 2,
+      "tier_label": "near-primary recollection",
+      "transcribes": [
+        {
+          "work": "Chicago Magazine, 'Wolf's Point' — the account of the settlement at the forks, engraved from George Davis's 1832 drawing and incorporating Gurdon S. Hubbard's description of Chicago as he first saw it in 1818",
+          "date": "1857-05-15",
+          "tier": 2,
+          "note": "Carries the Miller House's log construction ('a log structure partly sided') and the Wolf Point Tavern's ('partly log and partly frame'), the fact of a frame element on each, and — through Hubbard — the marshy river-shore strip that grades the south division's marsh surface in terrain_spec.json. Twenty-five years after the fact, from a resident's drawing and a named witness speaking to the writer: rung 2."
+        }
+      ]
+    },
+    {
+      "source_id": "drloih_hotels",
+      "citation": "\"A Chronology of Early Chicago Area Hotels.\" Digital Research Library of Illinois History Journal.",
+      "url": "https://drloihjournal.blogspot.com/2022/07/chronology-of-early-chicago-area-hotels.html",
+      "archived_url": "",
+      "tier": 4,
+      "tier_label": "later scholarship"
+    },
+    {
+      "source_id": "kinzie_waubun_1856",
+      "citation": "Kinzie, Juliette A. M. Wau-Bun: The 'Early Day' in the North-West. New York: Derby & Jackson, 1856.",
+      "url": "https://www.authorama.com/wau-bun-19.html",
+      "archived_url": "https://archive.org/details/waubunearlydayin00kinzbyu",
+      "tier": 2,
+      "tier_label": "near-primary recollection"
+    },
+    {
+      "source_id": "kurz_allison_1893",
+      "citation": "Kurz & Allison. Chicago In Early Days, 1779-1857. Chicago: Kurz & Allison, 76 & 78 Wabash Avenue, 1893. Chromolithograph, fifteen numbered vignettes with printed key.",
+      "url": "https://www.loc.gov/pictures/item/2003656685/",
+      "archived_url": "",
+      "tier": 5,
+      "tier_label": "modern retrospective illustration/reconstruction",
+      "what_it_supplies": [
+        "panel 1: Old Fort Dearborn of 1803 from across the river - the palisade under a ruled cap line, the barracks ranges, the blockhouses and the bare trodden ground outside the walls that data/enclosures/fort_dearborn_apron.json is built on",
+        "panel 8: the town from the lake in 1830, population 96 - the low far bank, a lodge and bark canoes on the shore, and trees round the buildings on both banks; a scene-adjacent TOWN view, five years early, not a second view of the fort",
+        "panel 12: the long low Kinzie house with a full-width piazza on its front, a red roof, and outbuildings up the rise behind it",
+        "panel 12: a row of four Lombardy poplars standing between the house and the river — the count and rhythm tools/generate_planted_rows.py measures across seven plates",
+        "panel 12: PICKET-FENCED garden plots at the house — close-set vertical pales, the treatment data/enclosures/town_dooryard_pickets.json deals to the town's house lots",
+        "panel 12: the fenced green between house and water that Wau-Bun describes in words, drawn",
+        "panel 11: the Green Tree Hotel as a two-storey clapboard block with end chimneys and even sash, with ship masts behind it",
+        "panel 5: Fort Dearborn as rebuilt 1835 — picket palisade, galleried barracks range, blockhouse",
+        "panel 14: the Sauganash Hotel as a two-storey clapboard block with an attached single-storey log wing and no full-width gallery",
+        "the sheet's printed key, which names each panel and dates several of the buildings"
+      ],
+      "what_it_does_not_supply": [
+        "any coordinate, footprint outline or dimension — tier 5, and a perspective vignette cannot be asked for a metre",
+        "a date for anything it draws that can be relied on: its own key puts the Kinzie Mansion at 1832, which contradicts every documentary source this project holds",
+        "independent testimony for panel 14, which follows the F. Braunhold engraving in Andreas (1884) closely enough to be probably derived from it",
+        "any evidence that a garden fence stood on a lot in the town: panel 12 is the north bank, and the house it draws is excluded from the 1835 scene (data/exclusions.json, kinzie_house)",
+        "a height, a pale width or a bay for the fence it draws — every dimension on the fence layer is invented, and docs/LIBERTIES.md L129 says so",
+        "a Lombardy poplar anywhere in Chicago but this one group",
+        "a view of the 1835 fort in panel 8: that panel is dated 1830 by the sheet's own key and was mistaken for a fort plate for a month (T-1107)"
+      ]
+    },
+    {
+      "source_id": "trowbridge_sauganash_hotel",
+      "citation": "W. E. S. Trowbridge. Drawing of the Sauganash Hotel, Mark Beaubien's tavern on Lake Street near Market Street — signed \"W. E. S. Trowbridge\" at the lower left. Reproduced on Chicagology, \"Lake Street\", captioned \"A drawing by W. E. S. Trowbridge of Mark Beaubien's Sauganash hotel on Lake st. near Market st. It was built in 1831. It burned down in 1851.\"",
+      "url": "https://chicagology.com/chicagostreets/lakestreet/",
+      "archived_url": "http://web.archive.org/web/20260611044628/https://chicagology.com/chicagostreets/lakestreet/",
+      "tier": 5,
+      "tier_label": "modern retrospective illustration/reconstruction",
+      "what_it_supplies": [
+        "louvred shutters flanking the sash of the clapboard block",
+        "a tall vertical-board fence enclosing the ground behind and to the right of the building",
+        "hitching or corner posts standing at the road edge in front of the frontage",
+        "the log wing attached at the left, single-storey, under its own shingled roof, its door opening direct to grade",
+        "the clapboard block's two brick chimneys and its entrance without a veranda or gallery"
+      ],
+      "what_it_does_not_supply": [
+        "any coordinate, footprint outline or dimension",
+        "its own date — the plate as reproduced does not give a legible year",
+        "independent corroboration of the Braunhold engraving: it belongs to the same retrospective descent",
+        "the state of the building on 1 July 1835 as against any other year of its 1831-1851 life"
+      ]
+    },
+    {
+      "source_id": "wright_1834",
+      "citation": "Wright, J. S. Chicago, drawn by J. S. Wright according to survey. New York: P. A. Mesier's Lith., 1834.",
+      "url": "https://collections.leventhalmap.org/search/commonwealth:js9577436",
+      "archived_url": "",
+      "tier": 1,
+      "tier_label": "period/eyewitness",
+      "what_it_supplies": [
+        "street geometry",
+        "block and lot subdivision",
+        "shoreline",
+        "river channel and the 1834 cut",
+        "survey-date colouring"
+      ],
+      "what_it_does_not_supply": [
+        "building footprints",
+        "building locations"
+      ]
+    }
+  ],
+  "research_note": "MILESTONE 0 REFERENCE RECORD. Two things are documented and vivid — the white two-story frame and the bright-blue shutters, both from Wau-Bun — and two things are unknown: the building's dimensions and whether it had a gallery. That combination is exactly why the per-attribute confidence model exists, and this record is deliberately the first one in the dataset. See docs/RESEARCH/sauganash_hotel.md for the source conflicts and the reasoning behind each reading. The Wigwam of 1860 stood on this site later; the hotel burned 4 March 1851.",
+  "research_doc": "docs/RESEARCH/sauganash_hotel.md",
+  "review_required": false
+}

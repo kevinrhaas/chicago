@@ -1,0 +1,732 @@
+{
+ "schema": 1,
+ "issue_id": "chicago_democrat_1835_06_17",
+ "extracted": "2026-08-29",
+ "extracted_by": "hand, T-0326",
+ "note": "Vol. II No. 9. The masthead is dated 17 June and the interior editorial block visibly prints 10 June; corpus.json records the printed mismatch and so does this reading. A photographer's hand covers part of source page 25.\n\nTHIS IS THE SANITARY ISSUE. The editor's second and far angrier complaint about the state of the streets is answered inside the same paper by a town meeting held at the Presbyterian church, whose resolutions are set cleanly and in full — the best-transcribed civic document in the whole reading range, with a chairman, a secretary, four speakers and a committee of seven all named. Around it: the first annual fair of the Episcopal ladies at Bates' new auction room, a school district meeting called to build a school house, green peas from up the North Branch, and Hubbard & Co. selling forty thousand feet of hewn building timber.",
+ "claims": [
+  {
+   "id": "c001",
+   "kind": "street",
+   "reading": "transcription_mediated",
+   "quote": "We have heretofore called the public atton.\ntion to the deplorable atate of Chicago, as it re-\ngards filth! Every day, the situation of our\nstrects and the vacant lots is becoming worse,\nand nothing is done. We learn that in a buil-\nding in the most populous quarter of the town,\nthere are a number of barrels of putrid meat.-\nOur streets would disgrace a piggery-and the\nvacant lots and spaces about the buildings, •-\nbound with holes filled with green putrid water\nand decaying vegetable matter. The atmos-\nphere has already become poisoned. A great\nproportion of these nuisances might be removed\nat a very trifling expense. Is there no time-\nand no care in the community for these things!\nIs the reputation of Chicago for health, and are\nthe lives of the people to be thus negligently\nfooled away! The corporation hase the neces.\nsary power to act, if they will exercise it, and\nif they do not, the community ought to take the\nmatter into their own hands. Our town still\ncontinues henlthy, but we warn our fellow-citi-\nzens that unless something be done, and that\nspeedily, they may expect sickness and the pes\ntilence-for they will surely come, if it be in\nthe power of filth, exposed to a hot eun, in\ncrowded strects, and about dwelling houses to\nproduce then. To which we may superadd the\nimmense congregation of strangers crowding\nevery room of our public bouses, and every\nroom in which they can obtain accommodstions,\neven to the extent of sleeping on the floor.\nSince the above was in type, as will be seen\nin another column, a meeting of our citizens has\nbeen held, at which sundry resolutions have\nbeen parsed, and the business of purifing will\nbe attended to. This is as it ahould be.\nLet\nthose whose duty it is to attend to this business\nnow go-alicad, and the citizens will sustain\nthem.",
+   "normalized": "We have heretofore called the public atten[t]ion to the deplorable state of Chicago, as it regards filth! Every day, the situation of our streets and the vacant lots is becoming worse, and nothing is done. We learn that in a buil[d]ing in the most populous quarter of the town, there are a number of barrels of putrid meat. Our streets would disgrace a piggery — and the vacant lots and spaces about the buildings a[b]ound with holes filled with green putrid water and decaying vegetable matter. The atmosphere has already become poisoned. A great proportion of these nuisances might be removed at a very trifling expense. […] The corporation ha[ve] the neces[s]ary power to act, if they will exercise it, and if they do not, the community ought to take the matter into their own hands. Our town still continues healthy, but we warn our fellow-citizens that unless something be done, and that speedily, they may expect sickness and the pes[ti]lence […] To which we may superadd the immense congregation of strangers crowding every room of our public houses, and every room in which they can obtain accommod[a]tions, even to the extent of sleeping on the floor. Since the above was in type, as will be seen in another column, a meeting of our citizens has been held, at which sundry resolutions have been pa[s]sed, and the business of puri[fy]ing will be attended to.",
+   "locator": {
+    "artifact_role": "primary",
+    "issue_page": 2,
+    "column": 4,
+    "lines": [
+     821,
+     872
+    ],
+    "lines_of_claim": [
+     821,
+     822,
+     824,
+     826,
+     827,
+     828,
+     830,
+     832,
+     833,
+     834,
+     835,
+     837,
+     838,
+     839,
+     840,
+     841,
+     842,
+     843,
+     844,
+     845,
+     846,
+     847,
+     848,
+     849,
+     851,
+     852,
+     853,
+     855,
+     856,
+     857,
+     859,
+     860,
+     861,
+     862,
+     864,
+     866,
+     867,
+     868,
+     869,
+     871,
+     872
+    ],
+    "interleaved": true
+   },
+   "notes": "THE TOWN'S SURFACE, TWO WEEKS BEFORE THE SCENE DATE, DESCRIBED BY SOMEBODY WALKING IT AND FURIOUS. Four facts and every one of them is about the ground the reconstruction models.\n\n1. THE STREETS ARE FOUL — 'would disgrace a piggery'. 2. THE VACANT LOTS AND THE SPACES BETWEEN BUILDINGS HOLD STANDING WATER: 'holes filled with green putrid water and decaying vegetable matter'. That is the same complaint as 1835-05-20's 'sunken spots in the vacant lots all about the buildings', four weeks later and worse, and it is the best-evidenced statement in this corpus about what the unbuilt ground BETWEEN Chicago's buildings actually looked like in the summer of 1835: not lawn, not bare earth, but pitted, water-filled and rank. 3. BARRELS OF PUTRID MEAT IN A BUILDING IN THE MOST POPULOUS QUARTER — reported at second hand ('We learn that') and quoted as such. 4. THE PUBLIC HOUSES ARE OVERFULL and strangers are sleeping on floors, which is the same crowd the flour price and the land sale describe from other angles.\n\nTHE TOWN IS STILL WELL. 'Our town still continues healthy' — and 1835-06-24 says so again in the middle of a state-wide cholera scare. So the conditions described here had NOT produced an epidemic by the scene date, which matters because it would be easy to read this paragraph as describing a sick town. It describes a filthy healthy one whose editor expects that not to last.\n\nAND IT WAS ACTED ON, THE SAME WEEK. The closing lines were set after the town meeting had been held; the meeting's own resolutions are the next claim. The column is interleaved with three others line by line and `lines_of_claim` names only this article's lines."
+  },
+  {
+   "id": "c002",
+   "kind": "event",
+   "reading": "transcription_mediated",
+   "quote": "TOWN MEETING.\nPursuant to previous public notice, a public meeting of the citizens of Chicago was held at the Presbyterian church yesterday morning. The meeting was called to order by Col. G. S. Hubbard, and E. K. Hubbard was chosen Chairman, and J. Curtiss was chosen Secretary.\nThe object of the meeting was stated by Col. G. S. Hubbard, and pertinent addresses were severally made by Messrs. Peck, Morris, Fullerton, and others; and on motion the following resolutions were unanimously adopted:\nResolved, That the situation of this town, abounding in nuisances, is such as to require immediate and energetic action on the part of its officers—that it is only by such action that our present state of health and prosperity can be preserved.\nResolved, That the present Trustees be requested to exercise the necessary powers to cleanse and purify the streets of the town, and to do whatever may be necessary for them to do to preserve the health of the citizens; and that they be directed to obtain the requisite funds on the faith of the town, or in any other way which may be feasible.\nResolved, That we will sustain the present Trustees in prompt and efficient action upon this subject.\nResolved, That if the Trustees find the same necessary, they be requested to call another public meeting of the citizens, to act upon this subject, and to take any powers which may be necessary and which they may be found not to have.\nResolved, That there be a committee of seven persons appointed to co-operate with the Trustees in effecting the objects of this meeting; and Messrs. J. Curtiss, Peck, B. S. Morris, A. N. Fullerton, A. Sweet, J. T. Temple, and B. King were chosen said committee.\nE. K. HUBBARD, Ch'n.\nJ. CURTISS, Sec'y.",
+   "normalized": "TOWN MEETING. Pursuant to previous public notice, a public meeting of the citizens of Chicago was held at the Presbyterian church yesterday morning. The meeting was called to order by Col. G. S. Hubbard, and E. K. Hubbard was chosen Chairman, and J. Curtiss was chosen Secretary. The object of the meeting was stated by Col. G. S. Hubbard, and pertinent addresses were severally made by Messrs. Peck, Morris, Fullerton, and others; and on motion the following resolutions were unanimously adopted: Resolved, That the situation of this town, abounding in nuisances, is such as to require immediate and energetic action on the part of its officers—that it is only by such action that our present state of health and prosperity can be preserved. Resolved, That the present Trustees be requested to exercise the necessary powers to cleanse and purify the streets of the town, and to do whatever may be necessary for them to do to preserve the health of the citizens; and that they be directed to obtain the requisite funds on the faith of the town, or in any other way which may be feasible. Resolved, That we will sustain the present Trustees in prompt and efficient action upon this subject. Resolved, That if the Trustees find the same necessary, they be requested to call another public meeting of the citizens, to act upon this subject, and to take any powers which may be necessary and which they may be found not to have. Resolved, That there be a committee of seven persons appointed to co-operate with the Trustees in effecting the objects of this meeting; and Messrs. J. Curtiss, Peck, B. S. Morris, A. N. Fullerton, A. Sweet, J. T. Temple, and B. King were chosen said committee. E. K. HUBBARD, Ch'n. J. CURTISS, Sec'y.",
+   "locator": {
+    "artifact_role": "primary",
+    "issue_page": 2,
+    "column": 5,
+    "lines": [
+     965,
+     982
+    ],
+    "lines_of_claim": [
+     965,
+     967,
+     969,
+     971,
+     973,
+     975,
+     977,
+     979,
+     981,
+     982
+    ]
+   },
+   "entities": [
+    {
+     "as_printed": "Col. G. S. Hubbard",
+     "normalized": "Col. G. S. Hubbard",
+     "role": "called the meeting to order and stated its object",
+     "associated_places": [
+      "Chicago"
+     ]
+    },
+    {
+     "as_printed": "E. K. HUBBARD",
+     "normalized": "E. K. Hubbard",
+     "role": "chairman",
+     "associated_places": [
+      "Chicago"
+     ]
+    },
+    {
+     "as_printed": "J. CURTISS",
+     "normalized": "J. Curtiss",
+     "role": "secretary, and of the committee of seven",
+     "occupations": [
+      "attorney"
+     ],
+     "associated_places": [
+      "South Water Street",
+      "Chicago"
+     ]
+    },
+    {
+     "as_printed": "Peck",
+     "normalized": "Peck",
+     "role": "addressed the meeting, and of the committee of seven",
+     "associated_places": [
+      "Chicago"
+     ]
+    },
+    {
+     "as_printed": "B. S. Morris",
+     "normalized": "B. S. Morris",
+     "role": "addressed the meeting, and of the committee of seven",
+     "associated_places": [
+      "Chicago"
+     ]
+    },
+    {
+     "as_printed": "A. N. Fullerton",
+     "normalized": "A. N. Fullerton",
+     "role": "addressed the meeting, and of the committee of seven",
+     "associated_places": [
+      "Chicago"
+     ]
+    },
+    {
+     "as_printed": "A. Sweet",
+     "normalized": "A. Sweet",
+     "role": "of the committee of seven",
+     "associated_places": [
+      "Chicago"
+     ]
+    },
+    {
+     "as_printed": "J. T. Temple",
+     "normalized": "John T. Temple",
+     "role": "of the committee of seven",
+     "associated_places": [
+      "South Water Street",
+      "Lake Street",
+      "Chicago"
+     ]
+    },
+    {
+     "as_printed": "B. King",
+     "normalized": "Byram King",
+     "role": "of the committee of seven",
+     "occupations": [
+      "merchant"
+     ],
+     "associated_places": [
+      "South Water Street",
+      "Chicago"
+     ]
+    }
+   ],
+   "notes": "THE TOWN GOVERNS ITSELF IN A CHURCH, AND THE CHURCH IS THE PRESBYTERIAN. A public meeting of the CITIZENS OF CHICAGO, held in the Presbyterian church on the morning of 16 June 1835 — a building already documented in this corpus (T-0310 read its dedication in January 1834) now shown in civic use two weeks before the scene date. The same building hosts School District No. 4's meeting on 7 July (next claim but one). A meeting house doing double duty as the town's assembly room is a fact about how this town used its few large interiors, and it belongs beside the Exchange Coffee House and Bates' auction room, which did the same job.\n\nTHE RESOLUTIONS ARE A CONSTITUTIONAL DOCUMENT AS MUCH AS A SANITARY ONE. They ask the PRESENT Trustees to act — the board whose replacement election kept being adjourned for want of a copy of the new charter — direct them to borrow 'on the faith of the town' to pay for it, and offer, if the Trustees 'may be found not to have' the powers, to call another meeting to give them some. That is a town whose citizens are working around a legal vacuum they know they are in.\n\nNINE MEN NAMED, AND SEVEN OF THEM ON ONE COMMITTEE. Four of the nine are placed by their own advertising elsewhere in these eight issues: J. Curtiss (South Water Street, first door west of Jones, King & Co.), J. T. Temple (two stores and a dwelling to let), B. King (Byram King of Jones, King & Co., read as such on the warrant of the School District notice in this same issue, which signs 'BYRAM KING, Clerk'), and E. K. Hubbard (lots in the School Section, agent for the Rezigue house). Peck, Morris, Fullerton and Sweet are minted on this claim alone. Col. G. S. Hubbard and E. K. Hubbard are NOT merged with each other or with Hubbard & Co.; that is T-0299's work.\n\nThis is the cleanest-set column of the eight issues — the transcriber gives it as continuous prose with no losses — which is why the quote runs to full sentences where most claims here are read through breakage."
+  },
+  {
+   "id": "c003",
+   "kind": "event",
+   "reading": "transcription_mediated",
+   "quote": "The examination of claims under the Chicago Treaty of 1833, by the commissioner on behalf of the U. States, will be commenced on the 29th instant.",
+   "normalized": "The examination of claims under the Chicago Treaty of 1833, by the commissioner on behalf of the U. States, will be commenced on the 29th instant.",
+   "locator": {
+    "artifact_role": "primary",
+    "issue_page": 2,
+    "column": 4,
+    "lines": [
+     874,
+     874
+    ]
+   },
+   "notes": "THE 1833 TREATY CLAIMS COMMISSION SITS IN CHICAGO ON 29 JUNE 1835 — two days before the scene date. Whatever room it used was in use at the modelled moment, and the town would have been holding the claimants. The Treaty of Chicago of 1833 is the instrument by which the Potawatomi ceded the land the town stands on, and its claims process was still running two years later, in the town, in the same fortnight as the federal land sale. Nothing here places the commission or names the commissioner, and neither is invented.\n\nThe 'payment last fall' which the standing Pocket Book Found notice refers to — a pocket book 'found by an Indian in Chicago during the payment last fall' — is the annuity payment under the same treaty, so this issue and that one are the same business a year apart."
+  },
+  {
+   "id": "c004",
+   "kind": "event",
+   "reading": "transcription_mediated",
+   "quote": "05 We learn that green peas were sold in\nour market yesterday, which were raised up\nthe North Branch.",
+   "normalized": "We learn that green peas were sold in our market yesterday, which were raised up the North Branch.",
+   "locator": {
+    "artifact_role": "primary",
+    "issue_page": 2,
+    "column": 4,
+    "lines": [
+     875,
+     878
+    ],
+    "lines_of_claim": [
+     875,
+     876,
+     878
+    ],
+    "interleaved": true
+   },
+   "notes": "GREEN PEAS, RAISED UP THE NORTH BRANCH, SOLD IN CHICAGO ON 16 JUNE 1835. Small and unusually useful: it dates a garden crop to the middle of June in this latitude in this year, and it locates market gardening UP THE NORTH BRANCH — not on the platted blocks and not on the open prairie, but along the north fork of the river. It is the only statement in these eight issues about where the town's fresh food was grown, and it is printed as a novelty, which suggests the traffic was new.\n\nThe prices current in the same issues quote no vegetables except potatoes and beans, and beans read 'none' every week, so a pea crop coming in is genuinely news."
+  },
+  {
+   "id": "c005",
+   "kind": "building",
+   "reading": "transcription_mediated",
+   "quote": "COME HASTE TO THE FAIR.\nWe would beg leave to call the attention\nof the citizens of Chicago, and strangers, to\nthe first annual Fair of the Ladice of the Pro-\nIstant Episcopal Church,\" of this town.o\nbe held at Bates' new auction room, on Thurs-\nday, the 18th inst. at half past 7 o'elock P.M.\nThe variety of articles, both useful and fancy,\nthat are to be offered for sale, will give every\nviriter an opportunity of electing something,\nthat will please himself, or that will be anne.\nceptable present to his friends.\nA fair being\na novelty in Chicago, will afford our citizens\nan opportunity of relaxing their minds fron\nbusiness, and of brenking in, upon the monoto-\nnous cry of Land sales and land speculations.\nTbe articles have been prepared during tbe\npast winter, by the Ladies, with great care\nand attention, and we trust the appeal now\nmade to the liberality of our citizens, will not\nbe disregarded.\nWe hope that our young\nmen will show their accustomed liberality, bn\nthis occasion, by which they will not only aid\na worthy object, but ehow their gollantry, by\npurchasing what the ladies have with so muci\nskill and care prepared for them.\nWe wist\nparticularly to show our Eastern friends wi\nnre now with us, that \"some things can b\ndone as well as others\" and that though *fa\nbeyond the Weet,\" we are not behind easter\ncities in liberality. Once for all, we hepe t\nBe our Ladies present deck'd with their hap\npiest smiles, and our young men with pocket\nwell stored with the ready.",
+   "normalized": "COME HASTE TO THE FAIR. We would beg leave to call the attention of the citizens of Chicago, and strangers, to the first annual Fair of the Ladi[e]s of the Pro[t]estant Episcopal Church, of this town, [to] be held at Bates' new auction room, on Thursday, the 18th inst. at half past 7 o'clock P.M. The variety of articles, both useful and fancy, that are to be offered for sale, will give every vi[s]iter an opportunity of [s]electing something that will please himself, or that will be an ac[c]eptable present to his friends. A fair being a novelty in Chicago, will afford our citizens an opportunity of relaxing their minds from business, and of breaking in upon the monotonous cry of Land sales and land speculations. The articles have been prepared during the past winter, by the Ladies, with great care and attention […]",
+   "locator": {
+    "artifact_role": "primary",
+    "issue_page": 2,
+    "column": 4,
+    "lines": [
+     880,
+     930
+    ],
+    "lines_of_claim": [
+     880,
+     882,
+     883,
+     884,
+     886,
+     887,
+     888,
+     890,
+     891,
+     893,
+     894,
+     896,
+     897,
+     898,
+     899,
+     900,
+     902,
+     903,
+     905,
+     906,
+     908,
+     910,
+     911,
+     913,
+     914,
+     915,
+     917,
+     918,
+     919,
+     920,
+     922,
+     923,
+     924,
+     926,
+     927,
+     928,
+     929
+    ],
+    "interleaved": true
+   },
+   "notes": "TWO BUILDINGS AND AN INSTITUTION IN ONE NOTICE. BATES' NEW AUCTION ROOM is named — which is what supplies the possessive missing from the 1835-06-10 land-auction advertisement's 'Auction Room, Dearborn Street' — and it is NEW, and it is big enough and public enough to hold an evening fair as well as a two-day land sale. That is the only Chicago interior in these eight issues described by two different uses.\n\nTHE PROTESTANT EPISCOPAL CHURCH OF THIS TOWN HAS A LADIES' SOCIETY, and it is holding its FIRST ANNUAL fair. The congregation therefore exists as an organised body by June 1835 — this corpus has the Presbyterian and Baptist meeting houses as buildings and now has a third denomination as a body, though NOT as a building: nothing here says the Episcopalians had one, and the fact that they borrowed an auction room rather than using their own church is weak evidence that they did not.\n\n'A FAIR BEING A NOVELTY IN CHICAGO' and 'breaking in upon the monotonous cry of Land sales and land speculations' are the two phrases to keep: the first dates the town's first bazaar to 18 June 1835, thirteen days before the scene date, and the second is how the fortnight before the land sale felt to the people living through it."
+  },
+  {
+   "id": "c006",
+   "kind": "building",
+   "reading": "transcription_mediated",
+   "quote": "Notice.\n-\n11%\nMEETING of the inhabitanta of Schoo\nDistrict No. 4, will be held on Tuesda\n7th July, at 6 o'clock, P.M. in the Presbyteri\nan Church, to take into consideration measure\nrt.\nfor building a School House in said district-\n61l\nthe election of'a Trustee, and transact any oth\nor business that may come before the meeting.\nBYRAM KING, Clerk.\nChicago, June 17, 1835.—9",
+   "normalized": "Notice. [A] MEETING of the inhabitants of Schoo[l] District No. 4 will be held on Tuesda[y] 7th July, at 6 o'clock, P.M. in the Presbyteri[a]n Church, to take into consideration measure[s] for building a School House in said district[,] the election of a Trustee, and transact any oth[e]r business that may come before the meeting. BYRAM KING, Clerk. Chicago, June 17, 1835.",
+   "locator": {
+    "artifact_role": "primary",
+    "issue_page": 3,
+    "column": 3,
+    "lines": [
+     1560,
+     1573
+    ],
+    "lines_of_claim": [
+     1560,
+     1561,
+     1562,
+     1563,
+     1564,
+     1565,
+     1566,
+     1567,
+     1568,
+     1569,
+     1570,
+     1571,
+     1572,
+     1573
+    ],
+    "interleaved": true
+   },
+   "entities": [
+    {
+     "as_printed": "BYRAM KING, Clerk",
+     "normalized": "Byram King",
+     "role": "clerk of School District No. 4",
+     "occupations": [
+      "merchant",
+      "school district clerk"
+     ],
+     "associated_places": [
+      "South Water Street",
+      "Chicago"
+     ]
+    }
+   ],
+   "notes": "SCHOOL DISTRICT NO. 4 HAS NO SCHOOL HOUSE ON THE SCENE DATE AND IS ABOUT TO MEET ABOUT BUILDING ONE — the meeting is called for 7 July 1835, six days AFTER the modelled day. So on 1 July the district exists, has a clerk, and has no building; anything the reconstruction puts up for it would be wrong. That is a negative fact and it is worth as much as a positive one.\n\nTHE PRESBYTERIAN CHURCH AGAIN, and this is its second civic use in one issue (the town meeting of 16 June is the other). A district without a school house meets in the meeting-house, which is what a town with three large interiors does.\n\nSCHOOL DISTRICT No. 4, not No. 2 — T-0310 read School District No. 2's trustee election held in the Baptist meeting house in January 1834. Two numbered districts, eighteen months apart, meeting in two different churches. Byram King the district clerk is read as the Byram King of Jones, King & Co. on the strength of the unusual forename and the same town in the same month; the merge is stated here rather than performed silently, and if it is wrong the two men separate cleanly."
+  },
+  {
+   "id": "c007",
+   "kind": "business",
+   "reading": "transcription_mediated",
+   "quote": "To Let,\nROOMS over the store of the subscribers,\nnext door to Messrs. Harmon, Loomis &\nCo.\nMAGIE & WILKINSON.\n16, 1833.",
+   "normalized": "To Let, ROOMS over the store of the subscribers, next door to Messrs. Harmon, Loomis & Co. MAGIE & WILKINSON. [June] 16, 183[5].",
+   "locator": {
+    "artifact_role": "primary",
+    "issue_page": 3,
+    "column": 3,
+    "lines": [
+     1497,
+     1502
+    ],
+    "lines_of_claim": [
+     1497,
+     1498,
+     1499,
+     1500,
+     1501,
+     1502
+    ],
+    "interleaved": true
+   },
+   "business": {
+    "name": "Magie & Wilkinson",
+    "proprietors": [
+     "Magie",
+     "Wilkinson"
+    ],
+    "trade": "dry goods, groceries, hardware, crockery, boots, shoes and hats, wholesale and retail",
+    "goods": [
+     "rooms to let"
+    ],
+    "street": "La Salle Street",
+    "placement": {
+     "class": "relative",
+     "anchor": "Messrs. Harmon, Loomis & Co.",
+     "offset_text": "ROOMS over the store of the subscribers,\nnext door to Messrs. Harmon, Loomis &\nCo.",
+     "offset_normalized": "ROOMS over the store of the subscribers, next door to Messrs. Harmon, Loomis & Co.",
+     "street": "La Salle Street"
+    }
+   },
+   "ad_copy_date": {
+    "verbatim": "16, 1833.",
+    "iso": "1835-06-16"
+   },
+   "notes": "THE PLACEMENT CONFLICT, PRINTED. Five days earlier the same firm advertised its New Store 'in La Salle street, a few doors South of Hubbard & Co's. brick store'; here the same store is 'next door to Messrs. Harmon, Loomis & Co.', and Harmon, Loomis & Co. state their own store to be IN SOUTH WATER STREET. Both notices are signed by the same firm, both describe the same building ('the store of the subscribers'), and they name two different streets' neighbours.\n\nWHAT IS NOT DONE ABOUT IT. Neither reading is discarded and neither street is declared wrong. Three explanations fit and the paper chooses none: a CORNER LOT at La Salle and South Water would make both true at once; 'next door' may be loose for 'near'; or the firm moved inside five days, which the 'To Let' notice makes unlikely since it is letting rooms over the store it has just taken. `business.street` keeps La Salle Street because that is the firm's own explicit street in its own opening advertisement, and this claim's anchor keeps Harmon, Loomis & Co. because that is what THIS notice says. A pass that can test it — T-0324's shape of problem, two addresses for one advertiser in one paper — should take it.\n\nTHE DATELINE PRINTS '1833' and cannot stand: the firm opened on 11 June 1835 and this is its second notice. Read as 1835-06-16.\n\nWHAT IS CERTAIN EITHER WAY: their store had a second storey with rooms over it, offered to let two weeks before the scene date."
+  },
+  {
+   "id": "c008",
+   "kind": "business",
+   "reading": "transcription_mediated",
+   "quote": "New and Cheap Goods,\nTIlE subscriber is now opening a large and\nAT HIS OLD STAND.\naplendid assortment of\nDry Goods, Groceries,\nReady Made Clothing and Mircellaneous Arti-\ncles.\nHe respectfully requests the public gon-\nerally, and his friends in particular, to call and\nexamine his stock of goods.\nPETER COHEN.\nChicago, June 11, 1935.",
+   "normalized": "New and Cheap Goods, [AT HIS OLD STAND.] THE subscriber is now opening a large and splendid assortment of Dry Goods, Groceries, Ready Made Clothing and Mi[s]cellaneous Articles. He respectfully requests the public gen[e]rally, and his friends in particular, to call and examine his stock of goods. PETER COHEN. Chicago, June 11, 18[3]5.",
+   "locator": {
+    "artifact_role": "primary",
+    "issue_page": 3,
+    "column": 3,
+    "lines": [
+     1503,
+     1514
+    ],
+    "lines_of_claim": [
+     1503,
+     1504,
+     1505,
+     1506,
+     1507,
+     1508,
+     1509,
+     1510,
+     1511,
+     1512,
+     1513,
+     1514
+    ],
+    "interleaved": true
+   },
+   "business": {
+    "name": "Peter Cohen",
+    "proprietors": [
+     "Peter Cohen"
+    ],
+    "trade": "dry goods, groceries, ready made clothing and miscellaneous articles",
+    "goods": [
+     "Dry Goods",
+     "Groceries",
+     "Ready Made Clothing",
+     "clothing",
+     "liquors"
+    ],
+    "street": "South Water Street",
+    "placement": {
+     "class": "relative",
+     "anchor": "Messrs. Newberry and Dole's",
+     "offset_text": "AT HIS OLD STAND.",
+     "offset_normalized": "AT HIS OLD STAND [— 'below Messrs. Newberry and Dole's on south water street', per his standing advertisement of 1834-11-03]",
+     "street": "South Water Street"
+    }
+   },
+   "ad_copy_date": {
+    "verbatim": "Chicago, June 11, 1935.",
+    "iso": "1835-06-11"
+   },
+   "entities": [
+    {
+     "as_printed": "PETER COHEN",
+     "normalized": "Peter Cohen",
+     "role": "proprietor",
+     "occupations": [
+      "merchant"
+     ],
+     "associated_places": [
+      "South Water Street",
+      "Chicago"
+     ]
+    }
+   ],
+   "notes": "PETER COHEN IS STILL AT HIS OLD STAND ON 11 JUNE 1835, WHICH IS THE POINT. T-0257's worked fixture read Cohen's standing advertisement of 3 November 1834 — 'at his store [be]low Messrs. Newberry and Dole's on south water street' — and this pass now has him opening a NEW stock at that SAME stand three weeks before the scene date. Ruling 3 gives a documented business survival unless contradicted; this is better than that, it is positive continuity, and it means the storefront the fixture placed is occupied and trading on 1 July 1835 without any liberty being required.\n\nTHE PLACEMENT IS INHERITED AND SAYS SO. 'AT HIS OLD STAND' names no street and no anchor; the offset text quoted in the placement is that phrase, and the bracketed part of the normalized offset is the 1834 advertisement's own words, attributed. This claim does not re-place Cohen — it carries the fixture's placement forward on the warrant of his own words.\n\nAND IT ANCHORS A THIRD PARTY. L. W. Montgomery's boot and shoe shop is 'next door to P. Cohen's Store', so Montgomery's placement depends on Cohen still standing here, which this notice supplies."
+  },
+  {
+   "id": "c009",
+   "kind": "business",
+   "reading": "transcription_mediated",
+   "quote": "40\nM. feet Hewn Timber, suitable for building,\ndang, for sale by\njune 10.\nHUBBARD & CO.",
+   "normalized": "40 M. feet Hewn Timber, suitable for building, [also, for] sale by [June] 1[6]. HUBBARD & CO.",
+   "locator": {
+    "artifact_role": "primary",
+    "issue_page": 3,
+    "column": 3,
+    "lines": [
+     1554,
+     1559
+    ],
+    "lines_of_claim": [
+     1554,
+     1555,
+     1556,
+     1558,
+     1559
+    ],
+    "interleaved": true
+   },
+   "business": {
+    "name": "Hubbard & Co.",
+    "proprietors": [
+     "Hubbard"
+    ],
+    "trade": "wholesale and retail dry goods, groceries, hardware and crockery, provisions, and building timber",
+    "goods": [
+     "hewn timber",
+     "sperm oil",
+     "hams",
+     "shoulders",
+     "lard",
+     "mess pork",
+     "prime pork",
+     "vinegar",
+     "Dry Goods",
+     "Groceries",
+     "Hardware",
+     "Crockery",
+     "fire insurance"
+    ],
+    "street": "La Salle Street",
+    "placement": {
+     "class": "none"
+    }
+   },
+   "ad_copy_date": {
+    "verbatim": "june 10.",
+    "iso": "1835-06-16"
+   },
+   "notes": "FORTY THOUSAND FEET OF HEWN TIMBER, SUITABLE FOR BUILDING, ON SALE IN CHICAGO TWO WEEKS BEFORE THE SCENE DATE. 'M.' is the Roman thousand, as it is throughout this paper's advertising ('per 1000' in the prices current). HEWN, not sawn — squared with an axe or broadaxe, which is the timber of a braced frame and a log structure rather than of a balloon frame, and it is offered as a commodity by a dry-goods house alongside sperm oil and hams.\n\nWHY IT MATTERS MORE THAN THE PRICE TABLE. The prices current quotes 'Square timber, length ft 5 a 6' every week, which says squared timber was a traded good; this says HOW MUCH of it was standing in one merchant's yard at once. Forty thousand feet is a large stack — enough framing for a good many buildings — and it is a visible object somewhere in the town in June 1835. Nothing places it, and the yard is not invented.\n\nHubbard & Co's own store is the brick one in La Salle Street (per Magie & Wilkinson); the timber's location is not stated."
+  },
+  {
+   "id": "c010",
+   "kind": "business",
+   "reading": "transcription_mediated",
+   "quote": "Wanted,\nEMMEDIATELY, one copper smith, and one\ntin and sheet iron worker.\njune 17, '35.\nJONES, KING & CO.",
+   "normalized": "Wanted, [IM]MEDIATELY, one copper smith, and one tin and sheet iron worker. June 17, '35. JONES, KING & CO.",
+   "locator": {
+    "artifact_role": "primary",
+    "issue_page": 3,
+    "column": 3,
+    "lines": [
+     1515,
+     1519
+    ],
+    "lines_of_claim": [
+     1515,
+     1516,
+     1517,
+     1518,
+     1519
+    ],
+    "interleaved": true
+   },
+   "ad_copy_date": {
+    "verbatim": "june 17, '35.",
+    "iso": "1835-06-17"
+   },
+   "notes": "TWO METAL TRADES WANTED IMMEDIATELY, IN A TOWN THAT ALREADY HAS AT LEAST ONE TIN AND SHEET-IRON SHOP (the unnamed manufactory at the corner of Dearborn and Lake, 1835-05-20). A hardware house advertising for a coppersmith and a tinner in the same week it takes an agency for Avery's Patent rotary engines is a house adding a WORKSHOP to a counter — which is a different building programme from a store, and it is happening two weeks before the scene date.\n\nIt also says the trades were scarce enough to need advertising for, in a town whose editor complains that everything is scarce."
+  },
+  {
+   "id": "c011",
+   "kind": "business",
+   "reading": "transcription_mediated",
+   "quote": "Insurance.\nThe North Western Fire and Marine Insuran:\nCompany of Oswego,\nNCORPORATED by the Legislature of th\nState of New-York, CAPITAL, $150,000.\nDIRECTORS:\nWILLIAM DENNING,\nALVIS BRONSON,\nFREDERICK STANLEY,\nWILLIAM BACON,\nP. D. CROCKER,\nC. PALMER,\nJAMES BOGERT, Jr.,\nH. FITZHUGH,\nJOHN GRANT, Jr.,\nGEO. FISHER.\nT. S. MORGAN, President.\nWM. H. DENNING, Vice President.\nMOSES P. HATCH, Secretary.\nOswego, June, 1835.—6m9.\nCapt. HIRAM HUGUNIN, Agent, Chicago.",
+   "normalized": "Insurance. The North Western Fire and Marine Insuran[ce] Company of Oswego, [I]NCORPORATED by the Legislature of th[e] State of New-York, CAPITAL, $150,000. […] DIRECTORS: WILLIAM DENNING, ALVIS BRONSON, FREDERICK STANLEY, WILLIAM BACON, P. D. CROCKER, C. PALMER, JAMES BOGERT, Jr., H. FITZHUGH, JOHN GRANT, Jr., GEO. FISHER. T. S. MORGAN, President. WM. H. DENNING, Vice President. MOSES P. HATCH, Secretary. Oswego, June, 1835. Capt. HIRAM HUGUNIN, Agent, Chicago.",
+   "locator": {
+    "artifact_role": "primary",
+    "issue_page": 3,
+    "column": 3,
+    "lines": [
+     1574,
+     1611
+    ],
+    "lines_of_claim": [
+     1574,
+     1575,
+     1576,
+     1577,
+     1578,
+     1595,
+     1596,
+     1597,
+     1598,
+     1599,
+     1600,
+     1601,
+     1602,
+     1603,
+     1604,
+     1605,
+     1607,
+     1608,
+     1609,
+     1610,
+     1611
+    ],
+    "interleaved": true
+   },
+   "business": {
+    "name": "North Western Fire and Marine Insurance Company of Oswego, Chicago agency",
+    "proprietors": [
+     "Capt. Hiram Hugunin"
+    ],
+    "trade": "fire insurance, and marine risks on lake and canal vessels and cargoes",
+    "goods": [
+     "fire insurance",
+     "marine insurance"
+    ],
+    "street": null,
+    "placement": {
+     "class": "none"
+    }
+   },
+   "ad_copy_date": {
+    "verbatim": "Oswego, June, 1835.—6m9.",
+    "iso": "1835-06-01"
+   },
+   "entities": [
+    {
+     "as_printed": "Capt. HIRAM HUGUNIN, Agent, Chicago",
+     "normalized": "Hiram Hugunin",
+     "role": "Chicago agent of the company",
+     "occupations": [
+      "insurance agent",
+      "master mariner"
+     ],
+     "associated_places": [
+      "Chicago"
+     ]
+    }
+   ],
+   "notes": "THE SECOND FIRE INSURER IN THE TOWN IN FOUR WEEKS. Hubbard & Co. took the Howard of New York in May; here is the North Western of Oswego, capital $150,000, with Capt. Hiram Hugunin as its Chicago agent, writing fire AND marine risks on vessels, boats and cargoes on any lake, canal or river.\n\nTWO INSURERS AND NOT ONE FIRE BUCKET (1835-05-20). That pairing is the town's fire position at the scene date and it is drawn from two independent advertisements and one editorial, none of which is about the other.\n\nHIRAM HUGUNIN CHAIRED THE DEMOCRATIC MEETING AT THE EXCHANGE COFFEE HOUSE on 13 April 1835 and is on the corresponding committee of five — the same man, and the 'Capt.' here is a master mariner's title, which fits an agent writing marine risks. The two readings are merged on the name, the town and the eight-week interval; the ten Oswego directors are NOT minted as Chicago people and are left in the quote where they belong.\n\nThe advertisement is interleaved with a school-lands notice and a ferry petition; `lines_of_claim` names only its own lines and the body of the terms is not quoted."
+  },
+  {
+   "id": "c012",
+   "kind": "business",
+   "reading": "transcription_mediated",
+   "quote": "Chieage Lands For Sale.\nTite lowing late of Land, situated near\nthe Town of Chicago, on the canal route,\nare offered for sale, to wit: the East half of the\nN. W. quarter of section 30, and the East half\nof the S. W. of 28, both in Township 39 north,\nrange 14 cast. Also, the East half of the N\nW. of section 3a, township 40, north range 12\neast.\nThe last mentioned lot is covered with\nexcellent timber. For térins, apply to the sub-\nscriber, at the N. Y. House.\nJ. W. FELL.\nJune 16, 1835.-1w99.",
+   "normalized": "Chicago Lands For Sale. Th[e fol]lowing lots of Land, situated near the Town of Chicago, on the canal route, are offered for sale, to wit: the East half of the N. W. quarter of section 30, and the East half of the S. W. of 28, both in Township 39 north, range 14 east. Also, the East half of the N. W. of section 3[0], township 40, north range 12 east. The last mentioned lot is covered with excellent timber. For t[e]rms, apply to the subscriber, at the N. Y. House. J. W. FELL. June 16, 1835.",
+   "locator": {
+    "artifact_role": "primary",
+    "issue_page": 3,
+    "column": 3,
+    "lines": [
+     1472,
+     1485
+    ],
+    "lines_of_claim": [
+     1472,
+     1473,
+     1474,
+     1475,
+     1476,
+     1477,
+     1478,
+     1479,
+     1480,
+     1481,
+     1482,
+     1483,
+     1484,
+     1485
+    ],
+    "interleaved": true
+   },
+   "entities": [
+    {
+     "as_printed": "J. W. FELL",
+     "normalized": "J. W. Fell",
+     "role": "the person offering the lands, receiving at the New-York House",
+     "associated_places": [
+      "Lake Street",
+      "Chicago"
+     ]
+    }
+   ],
+   "notes": "THE NEW-YORK HOUSE IS A BUSINESS ADDRESS AS WELL AS A LODGING — 'apply to the subscriber, at the N. Y. House' — which is the second independent witness to it in this reading range after Dr. Barnard's practice there. A land-seller receiving callers at a Lake Street house and a physician keeping his rooms in it make it a working commercial building and not just an inn, two weeks before the scene date.\n\nAND THE LANDS THEMSELVES ARE PLACEABLE, which is rare here: Township 39 north, range 14 east is the township Chicago stands in, and the east halves of the north-west quarter of section 30 and the south-west quarter of section 28 are specific quarter-quarter sections on the canal route near the town. The third parcel, in township 40 north range 12 east, is 'covered with excellent timber' — a stated woodland quarter, which is the kind of fact the timber-belt work can use, although it lies well outside the modelled ground.\n\nOffered nine days before the federal land sale, by a private holder, which is the speculative market running alongside the government one."
+  },
+  {
+   "id": "c013",
+   "kind": "business",
+   "reading": "transcription_mediated",
+   "quote": "Lost.\nETWEEN\nmy store and Col. Owen's\nhouse, a top or slide to a silver Candie\nStick, which will be of no use to sny person\nb-\nbut the owner.\nThe finder will confer a favor\nby leaving it with me at my store, and be liber-\nally rewarded.\nA-\nJ. H. MULFORD.\nla-\nChicago, June Sth, 1H35.",
+   "normalized": "Lost. BETWEEN my store and Col. Owen's house, a top or slide to a silver Candle Stick, which will be of no use to [a]ny person but the owner. The finder will confer a favor by leaving it with me at my store, and be liber[a]lly rewarded. J. H. MULFORD. Chicago, June [9]th, 1[8]35.",
+   "locator": {
+    "artifact_role": "primary",
+    "issue_page": 3,
+    "column": 4,
+    "lines": [
+     1737,
+     1750
+    ],
+    "lines_of_claim": [
+     1737,
+     1738,
+     1739,
+     1740,
+     1741,
+     1742,
+     1743,
+     1744,
+     1745,
+     1746,
+     1747,
+     1748,
+     1749,
+     1750
+    ],
+    "interleaved": true
+   },
+   "entities": [
+    {
+     "as_printed": "J. H. MULFORD",
+     "normalized": "J. H. Mulford",
+     "role": "keeps a store in the town",
+     "occupations": [
+      "merchant"
+     ],
+     "associated_places": [
+      "Chicago"
+     ]
+    },
+    {
+     "as_printed": "Col. Owen",
+     "normalized": "Col. T. J. V. Owen",
+     "role": "his house is named as one end of the walk",
+     "associated_places": [
+      "Chicago"
+     ]
+    }
+   ],
+   "notes": "A WALK ACROSS TOWN, DESCRIBED BY ITS TWO ENDS: Mulford's store and Col. Owen's house. Neither is placed anywhere in this corpus, so the line cannot be drawn — but it names a PRIVATE DWELLING by its owner as a landmark somebody could be expected to find, which is what a well-known house does, and Col. T. J. V. Owen is the man who called the April 1835 Democratic meeting to order and sat on its resolutions committee. A named house belonging to a named public figure is a target the page images or a later issue could locate, and it is worth recording as a wanted position rather than losing.\n\nA SILVER CANDLESTICK, and the top or slide off it. Small domestic metalwork, in a town where the paper is advertising for a coppersmith. J. H. Mulford also runs the 'Twig This' dunning notice ('pay up by the 1st of June, or they will be sued without further notice—fair warning'), which is the same man's store in the same weeks and is not separately claimed."
+  },
+  {
+   "id": "c014",
+   "kind": "shipping",
+   "reading": "transcription_mediated",
+   "quote": "14 8. B. Jefferson, Wilkins, Buffalo.\nLLEWELLYN, Clark, St. Joseph.\n: 15 Schr Samiraum, shin.\nSwan, Duncan, St. Joseph.",
+   "normalized": "[June] 14 S. B. Jefferson, Wilkins, Buffalo. [14 Schr.] LLEWELLYN, Clark, St. Joseph. 15 Schr S[e]mira[m]is, [Ash?]. 15 [Schr.] Swan, Duncan, St. Joseph.",
+   "locator": {
+    "artifact_role": "primary",
+    "issue_page": 3,
+    "column": 3,
+    "lines": [
+     1467,
+     1471
+    ],
+    "lines_of_claim": [
+     1467,
+     1468,
+     1469,
+     1471
+    ],
+    "interleaved": true
+   },
+   "notes": "THE LAST MARINE LIST BEFORE THE LAND SALE, and it is short — four entries for 14 and 15 June against seventeen the week before. A second STEAM BOAT, the Jefferson from Buffalo, and the Llewellyn and the Swan on their St. Joseph shuttle again. The rest of the list is lost to the interleave: the column runs into the Chicago Lands advertisement line by line and only these four survive as readable entries, so NO WEEKLY TOTAL is asserted from it. The one master whose name will not resolve, on the Semiramis, is left bracketed rather than guessed."
+  }
+ ]
+}

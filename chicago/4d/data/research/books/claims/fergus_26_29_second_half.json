@@ -1,0 +1,1716 @@
+{
+  "schema": 1,
+  "domain": "books",
+  "source_id": "fergus_historical_series_26_29",
+  "ticket": "T-0500",
+  "read": "2026-09-03",
+  "target_before_reading": {
+    "declared": "2026-09-03, before a single page of the second half was read, and committed in its own commit so the count below is a MEASUREMENT and not a rationalisation.",
+    "claims": 50,
+    "town_findings": 20,
+    "reasoning": "The second half of the volume is leaves 430-858: the 1843 Business Directory (leaves 430-457), the 1843 alphabetical name directory (458-605), the Obituary (606-644), the publisher's advertisement leaves (645-657 and 851-858), and the whole of Fergus No. 29, the Biographical Sketch of Joseph Duncan (658-850). A structural sweep before reading found an 1820s-or-1830s date on 70 of those 429 leaves and they cluster in two places: Fergus's bracketed later annotations inside the 1843 directory, and the Duncan sketch's canal and 1834-5 legislature material. NONE of the 1843 directory's own entries is 1835 evidence, and this file will not pretend otherwise, so the yield was priced off those two clusters and not off the volume's length."
+  },
+  "_doc": "Fergus' Historical Series Nos. 26-29, SECOND HALF BY PAGE INDEX — scan leaves 430 to 858 of 858, read for everything they say about Chicago and Illinois between 1830 and 1836. The half divides into five things and each has its own coverage declaration: the 1843 Business Directory (leaves 430-457), the 1843 alphabetical name directory (458-605), the Obituary (606-644), the Fergus Printing Company's own book lists (645-657 and 851-858), and the whole of Fergus No. 29, the Biographical Sketch of Joseph Duncan (658-850). The volume's own part boundaries are T-0499's, read off the four title pages and tabled in README.md: No. 28 runs to leaf 656 and No. 29 begins at 657, so the advertisement leaves between the two numbers are bound with No. 28 and each locator's `part` says so. TWO DATES, AND EVERY CLAIM SAYS WHICH IT CARRIES. Fergus No. 28 is a directory of 1843 and describes 1843; its only pre-1837 statements are Robert Fergus's own bracketed annotations, written in the 1880s and 1890s by a man who did not reach Chicago until 1 July 1839 (bk_fer2_044). Fergus No. 29 is a daughter's paper read in 1885 about her father, and its scene-year material is the Illinois-and-Michigan Canal. NOTHING HERE IS AN 1835 CHICAGO PLACEMENT. The quote is the committed text at the locator's own spans and is never typed by hand; tools/research_domains.py --check rebuilds it character for character out of text/fergus_26_29.txt, which is the deposit's OCR committed byte for byte, so the quotes carry the OCR's own damage and the reading is in `normalized` beside each one. Every claim is transcription_mediated: this project holds the Internet Archive's hOCR search text of the scan and has not read a page image.",
+  "claims": [
+    {
+      "id": "bk_fer2_001",
+      "kind": "notice",
+      "reading": "transcription_mediated",
+      "quote": "Read  before  the  Historical  Society  of  Jacksonville,  Ilt,. May  7,   1885.",
+      "normalized": "Fergus' Historical Series No. 29 is a paper Julia Duncan Kirby read to the Historical Society of Jacksonville, Illinois, on 7 May 1885, printed by the Fergus Printing Company at Chicago in 1888.",
+      "locator": {
+        "list": "fergus_29_duncan_sketch_leaves_658_850",
+        "text_file": "fergus_26_29.txt",
+        "spans": [
+          {
+            "line": 5590,
+            "from": 0,
+            "to": 80
+          }
+        ],
+        "leaf": 658,
+        "part": "fergus_29",
+        "printed_page": null,
+        "page": null
+      },
+      "describes_date": "1885 (read); 1888 (printed)",
+      "entities": [
+        "Julia Duncan Kirby",
+        "Historical Society of Jacksonville"
+      ],
+      "town_finding": false,
+      "notes": "The number's own imprint, and the reason everything in it is graded tier 3: a daughter's recollection of her father, delivered fifty years after the events it describes and printed three years after that."
+    },
+    {
+      "id": "bk_fer2_002",
+      "kind": "notice",
+      "reading": "transcription_mediated",
+      "quote": "yet  it  is  thought  that the  student  of  Illinois  history  may  be  pleased  to  learn Gov.  Duncan's  views  in  regard  to  State  Banks,  Internal Improvements,  the  Illinois-and-Michigan  Canal,  and  other questions  of  great  importance  in  the  early  history  of  the State;",
+      "normalized": "The author states the paper was not written for publication and was printed at the request of relatives, and names the Illinois-and-Michigan Canal among the subjects a student of Illinois history may find in it.",
+      "locator": {
+        "list": "fergus_29_duncan_sketch_leaves_658_850",
+        "text_file": "fergus_26_29.txt",
+        "spans": [
+          {
+            "line": 5602,
+            "from": 165,
+            "to": 455
+          }
+        ],
+        "leaf": 660,
+        "part": "fergus_29",
+        "printed_page": null,
+        "page": null
+      },
+      "describes_date": "1888",
+      "entities": [
+        "Illinois and Michigan Canal"
+      ],
+      "town_finding": false,
+      "notes": "The preface says in the author's own words what this number is FOR, and it is the reason the canal material below is worth reading out of a Jacksonville family memoir at all."
+    },
+    {
+      "id": "bk_fer2_003",
+      "kind": "infrastructure",
+      "reading": "transcription_mediated",
+      "quote": "getting  the  Illinois-and-Lake-r\\Iichigan  canal  located  and  the route  from  the  Illinois  River  to  Lake  Erie  examined.  .Saw  Gen. Gratiot;  got  him  to  go  with  me  to  the  war  department;  found him  very  friendly  to  my  views  and  to  the  West.  The  secretary thinks  the  law  does  not  authorize  him  to  send  engineers  to  locate. Referred  him  to  the  case  in  Indiana  under  the  same  law.  He appears  disposed  to  do  right,  and  says  if  the  favor  has  been  done to  Indiana  it  should  also  be  extended  to  Illinois;  promises  it shall  be  ordered.",
+      "normalized": "Joseph Duncan's diary, kept at Washington in March 1829, records him pressing the War Department to send engineers to LOCATE the Illinois-and-Lake-Michigan canal and to examine the route from the Illinois River to Lake Erie; the secretary doubted the law authorised it, Duncan cited the Indiana precedent under the same law, and the secretary promised the order.",
+      "locator": {
+        "list": "fergus_29_duncan_sketch_leaves_658_850",
+        "text_file": "fergus_26_29.txt",
+        "spans": [
+          {
+            "line": 5770,
+            "from": 0,
+            "to": 603
+          }
+        ],
+        "leaf": 700,
+        "part": "fergus_29",
+        "printed_page": null,
+        "page": null
+      },
+      "describes_date": "10 March 1829",
+      "entities": [
+        "Joseph Duncan",
+        "Gen. Gratiot",
+        "Illinois and Michigan Canal"
+      ],
+      "town_finding": true,
+      "notes": "THE DATE IS NOT ON THIS LEAF. The diary entry opens at line 5765 on leaf 698 — '\"March ^oth, 1829. Still in Washington waiting on my wife's health. Went to see the President and secretary of war about\"' — and runs on across the leaf break into this quote. The OCR prints the day as '^oth', which this project reads as neither 10th nor 30th and does not assert; the MONTH and YEAR are unambiguous and are what the describes_date carries. The canal is the reason 1835 Chicago existed at the size it did, and this is the earliest step in it the volume records."
+    },
+    {
+      "id": "bk_fer2_004",
+      "kind": "civic",
+      "reading": "transcription_mediated",
+      "quote": "The  legislature  of  1834-35  adjourned  without  taking  any  effi- cient action  upon  the  recommendations  of  Gov.  Duncan  on  the subject  of  education  and  the  canal.",
+      "normalized": "The Illinois legislature of 1834-35 adjourned without acting on Governor Duncan's recommendations on education or on the canal.",
+      "locator": {
+        "list": "fergus_29_duncan_sketch_leaves_658_850",
+        "text_file": "fergus_26_29.txt",
+        "spans": [
+          {
+            "line": 5891,
+            "from": 0,
+            "to": 178
+          }
+        ],
+        "leaf": 724,
+        "part": "fergus_29",
+        "printed_page": "35",
+        "page": null
+      },
+      "describes_date": "1835 (the session of 1834-35)",
+      "entities": [
+        "Joseph Duncan",
+        "Illinois General Assembly"
+      ],
+      "town_finding": true,
+      "notes": "The canal stood still through the scene year's own legislature, which is a fact about the state of the work during 1835 and not about the town."
+    },
+    {
+      "id": "bk_fer2_005",
+      "kind": "civic",
+      "reading": "transcription_mediated",
+      "quote": "A  call  of  the  legislature  was made  for  a  special  session  to  assemble  on  the  first  Monday  of December,  1835,  i^i^iii^ly  for  an  apportionment  of  representation under  the  census  of  that  year.",
+      "normalized": "A special session of the Illinois legislature was called to assemble on the first Monday of December 1835, mainly to reapportion representation under the state census taken that year.",
+      "locator": {
+        "list": "fergus_29_duncan_sketch_leaves_658_850",
+        "text_file": "fergus_26_29.txt",
+        "spans": [
+          {
+            "line": 5891,
+            "from": 180,
+            "to": 396
+          }
+        ],
+        "leaf": 724,
+        "part": "fergus_29",
+        "printed_page": "35",
+        "page": null
+      },
+      "describes_date": "December 1835",
+      "entities": [
+        "Illinois General Assembly"
+      ],
+      "town_finding": true,
+      "notes": "AN 1835 STATE CENSUS IS ASSERTED HERE IN PASSING, and the project's 1835 population work should know the assertion exists. This source does not print the census, does not give Cook County's return, and is a memoir written in 1885: it is a lead to the enumeration and is not the enumeration."
+    },
+    {
+      "id": "bk_fer2_006",
+      "kind": "infrastructure",
+      "reading": "transcription_mediated",
+      "quote": "Gov.  Duncan  addressed  a  written message  to  this  legislature,  and,  after  advising  them  that  all  efforts to  obtain  a  loan  to  complete  the  canal  under  the  act  of  the  last session  had  failed,  he  recommended  them  to  authorize  a  loan  on a  pledge  of  the  fiith  of  the  State  for  such  a  sum  as,  in  their  dis- cretion, they  may  consider  necessary  for  a  vigorous  prosecution of  the  work.",
+      "normalized": "In his written message to the special session of December 1835 Duncan reported that every attempt to raise a loan for the canal under the act of the previous session had failed, and recommended the legislature authorise a loan on a pledge of the faith of the State.",
+      "locator": {
+        "list": "fergus_29_duncan_sketch_leaves_658_850",
+        "text_file": "fergus_26_29.txt",
+        "spans": [
+          {
+            "line": 5891,
+            "from": 398,
+            "to": 834
+          }
+        ],
+        "leaf": 724,
+        "part": "fergus_29",
+        "printed_page": "35",
+        "page": null
+      },
+      "describes_date": "December 1835",
+      "entities": [
+        "Joseph Duncan",
+        "Illinois and Michigan Canal"
+      ],
+      "town_finding": true,
+      "notes": "The canal's finances IN the scene year, from the governor's own message: the work was unfunded in December 1835 and its first act of that month was to admit it."
+    },
+    {
+      "id": "bk_fer2_007",
+      "kind": "infrastructure",
+      "reading": "transcription_mediated",
+      "quote": "That  legislature  did  pass  a  law  authorizing  a loan  to  be  made  and  a  pledge  of  the  faith  of  the  State  given  for its  repayment.  Under  this  law  a  loan  was  made  and  was  the efificient  means  of  completing  the  building  of  the  Illinois -and- Michigan  Canal.",
+      "normalized": "The December 1835 special session passed a law authorising the loan with the faith of the State pledged for repayment, and the loan made under it is described as the efficient means by which the canal was completed.",
+      "locator": {
+        "list": "fergus_29_duncan_sketch_leaves_658_850",
+        "text_file": "fergus_26_29.txt",
+        "spans": [
+          {
+            "line": 5892,
+            "from": 324,
+            "to": 615
+          }
+        ],
+        "leaf": 724,
+        "part": "fergus_29",
+        "printed_page": "35",
+        "page": null
+      },
+      "describes_date": "December 1835 onward",
+      "entities": [
+        "Illinois General Assembly",
+        "Illinois and Michigan Canal"
+      ],
+      "town_finding": true,
+      "notes": "The turning point that made the canal buildable, dated to the month the scene year ends in."
+    },
+    {
+      "id": "bk_fer2_008",
+      "kind": "civic",
+      "reading": "transcription_mediated",
+      "quote": "He  was  elected  governor  of  Illinois  in  1834,  over  his  competi- tor, William  Kinney,  who  had  been  lieutenant-governor  of  the State  and  was  a  man  of  great  popularity.  Duncan's  majority  was about  seven  thousand  over  Kinney.",
+      "normalized": "Joseph Duncan was elected governor of Illinois in 1834 over William Kinney, formerly lieutenant-governor, by a majority of about seven thousand.",
+      "locator": {
+        "list": "fergus_29_duncan_sketch_leaves_658_850",
+        "text_file": "fergus_26_29.txt",
+        "spans": [
+          {
+            "line": 5803,
+            "from": 0,
+            "to": 251
+          }
+        ],
+        "leaf": 706,
+        "part": "fergus_29",
+        "printed_page": "26",
+        "page": null
+      },
+      "describes_date": "1834",
+      "entities": [
+        "Joseph Duncan",
+        "William Kinney"
+      ],
+      "town_finding": false,
+      "notes": "Duncan held the governorship through the whole of the scene year."
+    },
+    {
+      "id": "bk_fer2_009",
+      "kind": "civic",
+      "reading": "transcription_mediated",
+      "quote": "While  still  a  member  of  Congress,  he  was  appointed,  in  1831, by  Gov.  Reynolds,  brigadier -general  of  volunteers  in  the  expedi- tion against  the  Indians  in  what  is  known  as  the  Black-Hawk War.  That  expedition  marched  to  Rock  Island,  and  at  its approach-  the  Indians  crossed  the  Mississippi  and  concluded  a treaty  of  peace.",
+      "normalized": "Duncan was appointed brigadier-general of volunteers by Governor Reynolds in 1831 for the expedition against the Indians known as the Black-Hawk War; the force marched to Rock Island and the Indians crossed the Mississippi and made peace at its approach.",
+      "locator": {
+        "list": "fergus_29_duncan_sketch_leaves_658_850",
+        "text_file": "fergus_26_29.txt",
+        "spans": [
+          {
+            "line": 5802,
+            "from": 0,
+            "to": 367
+          }
+        ],
+        "leaf": 706,
+        "part": "fergus_29",
+        "printed_page": "26",
+        "page": null
+      },
+      "describes_date": "1831",
+      "entities": [
+        "Joseph Duncan",
+        "Gov. John Reynolds",
+        "Black Hawk War"
+      ],
+      "town_finding": false,
+      "notes": "THE YEAR IS THE 1831 EXPEDITION AND NOT THE 1832 WAR, and the sketch keeps them apart where much later writing does not."
+    },
+    {
+      "id": "bk_fer2_010",
+      "kind": "civic",
+      "reading": "transcription_mediated",
+      "quote": "In  1832,  when  three  congressmen  were  appor- tioned to  Illinois,  Joseph  Duncan,  the  previous  sole  member from  the  State,  was  elected  from  the  northern  district,  and  Chas. Slade  and  Zadoc  Casey  from  the  two  southern  districts.",
+      "normalized": "When three congressmen were apportioned to Illinois in 1832, Joseph Duncan — until then the state's sole member — was elected from the NORTHERN district, and Charles Slade and Zadoc Casey from the two southern districts.",
+      "locator": {
+        "list": "fergus_29_duncan_sketch_leaves_658_850",
+        "text_file": "fergus_26_29.txt",
+        "spans": [
+          {
+            "line": 5804,
+            "from": 304,
+            "to": 559
+          }
+        ],
+        "leaf": 706,
+        "part": "fergus_29",
+        "printed_page": "26",
+        "page": null
+      },
+      "describes_date": "1832",
+      "entities": [
+        "Joseph Duncan",
+        "Charles Slade",
+        "Zadoc Casey"
+      ],
+      "town_finding": false,
+      "notes": "Chicago sat in that northern district, so the man the town's congressional representation ran through between 1832 and 1834 is named here."
+    },
+    {
+      "id": "bk_fer2_011",
+      "kind": "civic",
+      "reading": "transcription_mediated",
+      "quote": "Gov.  Duncan,  in  his  first  messao^e  at  the  session  of  the  le^risla- ture  of  1834,  forcibly  called  the  attention  of  that  body  to  the subject  of  education  and  common -schools",
+      "normalized": "Duncan's first message, at the legislative session of 1834, called that body's attention to education and common schools.",
+      "locator": {
+        "list": "fergus_29_duncan_sketch_leaves_658_850",
+        "text_file": "fergus_26_29.txt",
+        "spans": [
+          {
+            "line": 5865,
+            "from": 0,
+            "to": 197
+          }
+        ],
+        "leaf": 718,
+        "part": "fergus_29",
+        "printed_page": "32",
+        "page": null
+      },
+      "describes_date": "1834",
+      "entities": [
+        "Joseph Duncan"
+      ],
+      "town_finding": false,
+      "notes": "The OCR mangles 'message' and 'legislature'; the quote is committed as the text prints it and the normalized reading is where the words are restored."
+    },
+    {
+      "id": "bk_fer2_012",
+      "kind": "infrastructure",
+      "reading": "transcription_mediated",
+      "quote": "the  probable  difticulty  of  collecting  the second  instalment  on  the  lots  sold  in  Chicago,  which  fell  due  on the  2oth  of  June  last.",
+      "normalized": "The canal commissioners urged that the legislature be called together because of the probable difficulty of collecting the second instalment on the lots sold in Chicago, which had fallen due on the 20th of June preceding.",
+      "locator": {
+        "list": "fergus_29_duncan_sketch_leaves_658_850",
+        "text_file": "fergus_26_29.txt",
+        "spans": [
+          {
+            "line": 5936,
+            "from": 317,
+            "to": 466
+          }
+        ],
+        "leaf": 734,
+        "part": "fergus_29",
+        "printed_page": null,
+        "page": null
+      },
+      "describes_date": "1837 — NOT 1835",
+      "entities": [
+        "canal commissioners",
+        "Chicago canal lots"
+      ],
+      "town_finding": true,
+      "notes": "A TRAP, AND IT IS RECORDED SO THAT NOBODY FALLS INTO IT TWICE. The passage names Chicago and instalments on Chicago lots, and a run sweeping for 'Chicago' plus a 1830s canal context would take it for the scene year. It is not: the message this is quoted from is headed 'July 11, 1837, Vandalia' at line 5919 on leaf 730, so 'the 20th of June last' is 20 June 1837 and the sale it collects on is a later one. The OCR prints the day as '2oth'."
+    },
+    {
+      "id": "bk_fer2_013",
+      "kind": "infrastructure",
+      "reading": "transcription_mediated",
+      "quote": "As  I  consider  it  a  national  work  and  ourselves  as  managers of  the  fund  appropriated  by  Congress  for  its  accomplishment,  it would  seem  to  be  our  duty  faithfully  to  apply  these  means;  and upon  its  completion,  after  a  suitable  reservation  for  repair's  and improvements,  and  with  due  consideration  for  the  rights  of  the State,  it  will  be  equally  our  duty  and  interest  to  make  this  canal free  as  the  waters  of  the  lakes.",
+      "normalized": "In his message of July 1837 Duncan called the canal a national work built with a fund appropriated by Congress, and said that on its completion it would be the State's duty and interest to make the canal as free as the waters of the lakes.",
+      "locator": {
+        "list": "fergus_29_duncan_sketch_leaves_658_850",
+        "text_file": "fergus_26_29.txt",
+        "spans": [
+          {
+            "line": 5940,
+            "from": 1,
+            "to": 482
+          }
+        ],
+        "leaf": 736,
+        "part": "fergus_29",
+        "printed_page": null,
+        "page": null
+      },
+      "describes_date": "11 July 1837",
+      "entities": [
+        "Joseph Duncan",
+        "Illinois and Michigan Canal"
+      ],
+      "town_finding": true,
+      "notes": "Later evidence, plainly dated. It is kept because the canal's intended character — free, national, funded from Congress's land grant — is the argument the town of 1835 was built on the strength of."
+    },
+    {
+      "id": "bk_fer2_014",
+      "kind": "price",
+      "reading": "transcription_mediated",
+      "quote": "$444,292  has  been  received by  the  canal  commissioners  on  account  of  lots  and  lands  sold. $500,000  of  State  bonds  were  sold  in  1836  and  1837  in  New York  at  five  per  cent  premium.",
+      "normalized": "By July 1837 the canal commissioners had received $444,292 on account of lots and lands sold, and $500,000 of State bonds had been sold in New York in 1836 and 1837 at five per cent premium.",
+      "locator": {
+        "list": "fergus_29_duncan_sketch_leaves_658_850",
+        "text_file": "fergus_26_29.txt",
+        "spans": [
+          {
+            "line": 5968,
+            "from": 106,
+            "to": 312
+          }
+        ],
+        "leaf": 742,
+        "part": "fergus_29",
+        "printed_page": "44",
+        "page": null
+      },
+      "describes_date": "1836-1837",
+      "entities": [
+        "canal commissioners",
+        "State Bank of Illinois"
+      ],
+      "town_finding": true,
+      "notes": "The only figure in this half of the volume for what the canal lands and lots actually raised. It is a 1837 total and includes the Chicago sales of 1836; it is NOT a figure for 1835 and must never be cited as one."
+    },
+    {
+      "id": "bk_fer2_015",
+      "kind": "civic",
+      "reading": "transcription_mediated",
+      "quote": "of  February,   1835,  ^^^^  President  of  the  United  States  was  re-\nquested  among  other  things  to  present  you  a  sword  in  testimony",
+      "normalized": "A joint resolution of Congress approved 13 February 1835 requested the President to present Joseph Duncan a sword for his conduct as an ensign at the defence of Fort Stephenson in August 1813.",
+      "locator": {
+        "list": "fergus_29_duncan_sketch_leaves_658_850",
+        "text_file": "fergus_26_29.txt",
+        "spans": [
+          {
+            "line": 5700,
+            "from": 0,
+            "to": 73
+          },
+          {
+            "line": 5701,
+            "from": 0,
+            "to": 72
+          }
+        ],
+        "leaf": 686,
+        "part": "fergus_29",
+        "printed_page": null,
+        "page": null
+      },
+      "describes_date": "13 February 1835",
+      "entities": [
+        "Joseph Duncan",
+        "Congress of the United States"
+      ],
+      "town_finding": false,
+      "notes": "The date of approval is printed at the end of line 5699 on the same leaf ('approved on the 13th'); this quote carries the month and year. A dated fact about the sitting governor of Illinois inside the scene year, and nothing more than that."
+    },
+    {
+      "id": "bk_fer2_016",
+      "kind": "person",
+      "reading": "transcription_mediated",
+      "quote": "In  1S34,  Mr.  Duncan  was  elected  governor  of  Illinois. We  came  West  to  remain.  He  had  a  close-carriage  \"fitted  up with  a  spring -bed,  and  I  was  brought  out  West  on  it.  I  was  in very  delicate  health.  Another  carriage  followed  with  my  three children,  St.  Clair,  Mary,  and  Nannie,  Cousin  Ann  Caldwell  — daughter  of  PZlias  Boudinot  Caldwell,  clerk  of  the  supreme  court, Washington,  D.C. — an  English  nurse,  and  John  McClusky  for driver.",
+      "normalized": "Mrs Duncan's reminiscence: on her husband's election as governor in 1834 the family came West to stay, travelling in two carriages — one fitted with a spring-bed for her, the other carrying the three children St Clair, Mary and Nannie, her cousin Ann Caldwell, an English nurse, and John McClusky driving.",
+      "locator": {
+        "list": "fergus_29_duncan_sketch_leaves_658_850",
+        "text_file": "fergus_26_29.txt",
+        "spans": [
+          {
+            "line": 6149,
+            "from": 79,
+            "to": 574
+          }
+        ],
+        "leaf": 778,
+        "part": "fergus_29",
+        "printed_page": "62",
+        "page": null
+      },
+      "describes_date": "1834",
+      "entities": [
+        "Elizabeth C. Duncan",
+        "Joseph Duncan",
+        "Ann Caldwell",
+        "John McClusky"
+      ],
+      "town_finding": false,
+      "notes": "How a governor's household moved across Illinois in 1834, in the words of the woman who moved in it. Jacksonville and not Chicago."
+    },
+    {
+      "id": "bk_fer2_017",
+      "kind": "building",
+      "reading": "transcription_mediated",
+      "quote": "1S35,  moved  into  the  house.  It  has  been  over a  year  being  built.  The  plan  was  drawn  from  Mrs.  M.  St.  C. Clarke's  house,  only  made  smaller.",
+      "normalized": "In 1835 the Duncans moved into their house at Jacksonville, which had taken over a year to build and whose plan was drawn from Mrs M. St. C. Clarke's house, made smaller.",
+      "locator": {
+        "list": "fergus_29_duncan_sketch_leaves_658_850",
+        "text_file": "fergus_26_29.txt",
+        "spans": [
+          {
+            "line": 6149,
+            "from": 584,
+            "to": 746
+          }
+        ],
+        "leaf": 778,
+        "part": "fergus_29",
+        "printed_page": "62",
+        "page": null
+      },
+      "describes_date": "1835",
+      "entities": [
+        "Elizabeth C. Duncan",
+        "Mrs M. St. C. Clarke"
+      ],
+      "town_finding": false,
+      "notes": "A house of the scene year, dated and described — but in Jacksonville, two hundred miles from the town this project reconstructs, so it is NOT a town finding and must not be reached for as an 1835 Chicago dwelling."
+    },
+    {
+      "id": "bk_fer2_018",
+      "kind": "household",
+      "reading": "transcription_mediated",
+      "quote": "October,  1835,  Joseph  Duncan,  Jr.,  was  born;  baptized  Nov. 5»  1^35^  gave  him  his  fathers  name.  His  father  united  with the  First  Presbyterian  church  the  same  day.",
+      "normalized": "Joseph Duncan Jr was born in October 1835 and baptised on 5 November 1835, on which day his father joined the First Presbyterian church.",
+      "locator": {
+        "list": "fergus_29_duncan_sketch_leaves_658_850",
+        "text_file": "fergus_26_29.txt",
+        "spans": [
+          {
+            "line": 6150,
+            "from": 1,
+            "to": 186
+          }
+        ],
+        "leaf": 778,
+        "part": "fergus_29",
+        "printed_page": "62",
+        "page": null
+      },
+      "describes_date": "October-November 1835",
+      "entities": [
+        "Joseph Duncan",
+        "Joseph Duncan Jr"
+      ],
+      "town_finding": false,
+      "notes": "The OCR prints the baptism date as 'Nov. 5» 1^35^'; the year is confirmed at line 6168 on leaf 784, which repeats the same date in clean type."
+    },
+    {
+      "id": "bk_fer2_019",
+      "kind": "landscape",
+      "reading": "transcription_mediated",
+      "quote": "She  cried  in  the  morning  when  she  found  the  snow  up  above  the window-sills,  fearing  she  would  be  buried  alive.     There  came  a •  heavy  sleet-storm,  forming  a  crust,  so  that   for   several  days  we rode  over  the  worm  fences  from  one  house  to  another.",
+      "normalized": "Of the winter of the deep snow in Illinois: the snow stood above the window-sills, and a heavy sleet-storm formed a crust hard enough that for several days the household rode over the worm fences from house to house.",
+      "locator": {
+        "list": "fergus_29_duncan_sketch_leaves_658_850",
+        "text_file": "fergus_26_29.txt",
+        "spans": [
+          {
+            "line": 6148,
+            "from": 0,
+            "to": 288
+          }
+        ],
+        "leaf": 778,
+        "part": "fergus_29",
+        "printed_page": "62",
+        "page": null
+      },
+      "describes_date": "the winter of 1830-31",
+      "entities": [
+        "Elizabeth C. Duncan"
+      ],
+      "town_finding": true,
+      "notes": "The year is fixed at line 6140 on leaf 776, which says '1830 was the winter of the deep snow'. An eyewitness measure of an Illinois winter five years before the scene, kept because the project renders weather and ground and has almost no first-hand testimony of either. It is Morgan County and not Cook."
+    },
+    {
+      "id": "bk_fer2_020",
+      "kind": "business",
+      "reading": "transcription_mediated",
+      "quote": "G.  S.  HUBBARD,  forwarding  merchant  and  dealer  in  produce  and  provi- sions, South- Water  Street,  between  Clark  and  LaSalle  streets,  Chicago.",
+      "normalized": "Gurdon S. Hubbard advertised in 1843 as a forwarding merchant and dealer in produce and provisions on South Water Street between Clark and LaSalle streets.",
+      "locator": {
+        "list": "fergus_28_business_directory_1843_leaves_430_457",
+        "text_file": "fergus_26_29.txt",
+        "spans": [
+          {
+            "line": 2581,
+            "from": 0,
+            "to": 156
+          }
+        ],
+        "leaf": 438,
+        "part": "fergus_28",
+        "printed_page": null,
+        "page": null
+      },
+      "describes_date": "1843",
+      "entities": [
+        "Gurdon S. Hubbard"
+      ],
+      "town_finding": true,
+      "notes": "EIGHT YEARS AFTER THE SCENE. Hubbard's 1843 frontage is not evidence of his 1835 frontage and is recorded here only as the later end of a continuity the consolidation may want to test."
+    },
+    {
+      "id": "bk_fer2_021",
+      "kind": "business",
+      "reading": "transcription_mediated",
+      "quote": "NEWBERRY  &  DOLE,  storage,  forwarding,  and  commission  merchants, foot  of  Clark  Street,  at  the  bridge,  Chicago,  111.",
+      "normalized": "Newberry & Dole advertised in 1843 as storage, forwarding and commission merchants at the foot of Clark Street, at the bridge.",
+      "locator": {
+        "list": "fergus_28_business_directory_1843_leaves_430_457",
+        "text_file": "fergus_26_29.txt",
+        "spans": [
+          {
+            "line": 2586,
+            "from": 0,
+            "to": 129
+          }
+        ],
+        "leaf": 438,
+        "part": "fergus_28",
+        "printed_page": null,
+        "page": null
+      },
+      "describes_date": "1843",
+      "entities": [
+        "Newberry & Dole",
+        "Oliver Newberry",
+        "George W. Dole"
+      ],
+      "town_finding": true,
+      "notes": "BEARS ON T-0396, which asks which Newberry stood in the firm. This advertisement names 'O. Newberry, Detroit' among the line's agents further along the same line, which is Oliver Newberry at Detroit in 1843 — evidence about the firm's Detroit end in 1843 and NOT a ruling on the 1835 partner. The identity is left where T-0396 has it."
+    },
+    {
+      "id": "bk_fer2_022",
+      "kind": "business",
+      "reading": "transcription_mediated",
+      "quote": "BRISTOL  &   rORTER,  storage,   forwarding,   and   commission  merchants, Chicago,  111.      Robert  C.  Bristol,  Hibbard  Porter.",
+      "normalized": "Bristol & Porter, storage, forwarding and commission merchants of Chicago, are named in 1843 as Robert C. Bristol and Hibbard Porter.",
+      "locator": {
+        "list": "fergus_28_business_directory_1843_leaves_430_457",
+        "text_file": "fergus_26_29.txt",
+        "spans": [
+          {
+            "line": 2576,
+            "from": 0,
+            "to": 134
+          }
+        ],
+        "leaf": 436,
+        "part": "fergus_28",
+        "printed_page": null,
+        "page": null
+      },
+      "describes_date": "1843",
+      "entities": [
+        "Robert C. Bristol",
+        "Hibbard Porter"
+      ],
+      "town_finding": true,
+      "notes": "The same volume's alphabetical directory calls the partner 'Bristol, Richard Clark' at line 2944, so Fergus's own two pages disagree on the man's given names. Recorded, not resolved: see the crosswalk."
+    },
+    {
+      "id": "bk_fer2_023",
+      "kind": "building",
+      "reading": "transcription_mediated",
+      "quote": "L.  M.  OSTERHOUDT,  Sauganash  Hotel,  corner  of  Lake  and  Market  sts.",
+      "normalized": "In 1843 the Sauganash Hotel stood at the corner of Lake and Market streets and was kept by L. M. Osterhoudt.",
+      "locator": {
+        "list": "fergus_28_business_directory_1843_leaves_430_457",
+        "text_file": "fergus_26_29.txt",
+        "spans": [
+          {
+            "line": 2625,
+            "from": 0,
+            "to": 75
+          }
+        ],
+        "leaf": 444,
+        "part": "fergus_28",
+        "printed_page": "24",
+        "page": null
+      },
+      "describes_date": "1843",
+      "entities": [
+        "Sauganash Hotel",
+        "L. M. Osterhoudt"
+      ],
+      "town_finding": true,
+      "notes": "The Sauganash is a building of the scene year and this is a dated later sighting of it on the same corner, with a different keeper."
+    },
+    {
+      "id": "bk_fer2_024",
+      "kind": "building",
+      "reading": "transcription_mediated",
+      "quote": "RYERSON  Sc  BLAIKIE,  90  Lake-  Street,  opposite  the  Tremont  House",
+      "normalized": "Ryerson & Blaikie's iron store stood at 90 Lake Street in 1843, opposite the Tremont House.",
+      "locator": {
+        "list": "fergus_28_business_directory_1843_leaves_430_457",
+        "text_file": "fergus_26_29.txt",
+        "spans": [
+          {
+            "line": 2608,
+            "from": 0,
+            "to": 72
+          }
+        ],
+        "leaf": 440,
+        "part": "fergus_28",
+        "printed_page": "22",
+        "page": null
+      },
+      "describes_date": "1843",
+      "entities": [
+        "Ryerson & Blaikie",
+        "Tremont House"
+      ],
+      "town_finding": true,
+      "notes": "THE TREMONT HOUSE OF 1843 IS NOT THE TREMONT HOUSE OF 1835. T-0406 records that the committed structure is 'Tremont House (the first)'; the first burnt in 1839. This sighting places a LATER Tremont on Lake Street and is filed as such."
+    },
+    {
+      "id": "bk_fer2_025",
+      "kind": "business",
+      "reading": "transcription_mediated",
+      "quote": "OGDF^N  &  JONES,  northwestern  land-agency,  general  land-agents  for  the northwestern  states  and  territories,  office  on  Kinzie  Street,  east  of  North Dearborn,  Chicago,  ill.      William  B.  Ogden,  William  E.  Jones.",
+      "normalized": "Ogden & Jones, north-western land agents, kept an office on Kinzie Street east of North Dearborn in 1843; the partners were William B. Ogden and William E. Jones.",
+      "locator": {
+        "list": "fergus_28_business_directory_1843_leaves_430_457",
+        "text_file": "fergus_26_29.txt",
+        "spans": [
+          {
+            "line": 2642,
+            "from": 0,
+            "to": 235
+          }
+        ],
+        "leaf": 446,
+        "part": "fergus_28",
+        "printed_page": "25",
+        "page": null
+      },
+      "describes_date": "1843",
+      "entities": [
+        "William B. Ogden",
+        "William E. Jones"
+      ],
+      "town_finding": true,
+      "notes": "Ogden was in Chicago from 1835 and is a name the project's 1835 records already hold; his 1843 office is later evidence of the man and not of the office he kept in the scene year."
+    },
+    {
+      "id": "bk_fer2_026",
+      "kind": "building",
+      "reading": "transcription_mediated",
+      "quote": "GARRETT  &  SEAMAN,  general  agency  and  commission  store,  in  the  four- story  brick  building  on  South- Water  Street,  2d  door  from  Clark  Street.",
+      "normalized": "Garrett & Seaman kept a general agency and commission store in 1843 in the four-storey brick building on South Water Street, second door from Clark Street.",
+      "locator": {
+        "list": "fergus_28_business_directory_1843_leaves_430_457",
+        "text_file": "fergus_26_29.txt",
+        "spans": [
+          {
+            "line": 2633,
+            "from": 0,
+            "to": 159
+          }
+        ],
+        "leaf": 446,
+        "part": "fergus_28",
+        "printed_page": "25",
+        "page": null
+      },
+      "describes_date": "1843",
+      "entities": [
+        "Garrett & Seaman",
+        "Augustus Garrett"
+      ],
+      "town_finding": true,
+      "notes": "A FOUR-STOREY BRICK BUILDING ON SOUTH WATER STREET IN 1843. The project's South Water of 1835 has nothing of the kind, and this is a measure of how far the street moved in eight years — not a licence to put a fourth storey on anything in the scene."
+    },
+    {
+      "id": "bk_fer2_027",
+      "kind": "building",
+      "reading": "transcription_mediated",
+      "quote": "RICHARD  K.  SWIFT  will  loan  money  on  bonds  and  mortgages  and  other undoubted  securities,  office  in  the  \"Tremont  Buildings,\"  2d  story,  over Clarke's  drug  store,  102  Lake  Street,  Chicago.",
+      "normalized": "Richard K. Swift lent money on bonds and mortgages in 1843 from an office on the second storey of the 'Tremont Buildings', over Clarke's drug store at 102 Lake Street.",
+      "locator": {
+        "list": "fergus_28_business_directory_1843_leaves_430_457",
+        "text_file": "fergus_26_29.txt",
+        "spans": [
+          {
+            "line": 2517,
+            "from": 0,
+            "to": 210
+          }
+        ],
+        "leaf": 432,
+        "part": "fergus_28",
+        "printed_page": null,
+        "page": null
+      },
+      "describes_date": "1843",
+      "entities": [
+        "Richard K. Swift",
+        "Tremont Buildings"
+      ],
+      "town_finding": true,
+      "notes": "'Tremont Buildings' and 'Tremont House' are two names in this one directory and the same page uses both; a later reading must not weld them."
+    },
+    {
+      "id": "bk_fer2_028",
+      "kind": "business",
+      "reading": "transcription_mediated",
+      "quote": "D.  A.  &  E.  M.  JONES,  cabinet  and  chair  manufacturers,  Dearborn  Street,\nthree  doors  north  of  Tremont  Buildings,  Chicago,  111.",
+      "normalized": "D. A. & E. M. Jones, cabinet and chair manufacturers, stood on Dearborn Street three doors north of the Tremont Buildings in 1843.",
+      "locator": {
+        "list": "fergus_28_business_directory_1843_leaves_430_457",
+        "text_file": "fergus_26_29.txt",
+        "spans": [
+          {
+            "line": 2534,
+            "from": 0,
+            "to": 81
+          },
+          {
+            "line": 2535,
+            "from": 0,
+            "to": 60
+          }
+        ],
+        "leaf": 434,
+        "part": "fergus_28",
+        "printed_page": "19",
+        "page": null
+      },
+      "describes_date": "1843",
+      "entities": [
+        "D. A. & E. M. Jones"
+      ],
+      "town_finding": true,
+      "notes": "AN ORDINAL OFF A NAMED BUILDING, in the same grammar T-0384 and T-0385 read for 1835 — 'three doors north of' a landmark on a named street. The reading is the same eight years later, which is a small piece of evidence that the grammar itself is stable."
+    },
+    {
+      "id": "bk_fer2_029",
+      "kind": "infrastructure",
+      "reading": "transcription_mediated",
+      "quote": "C.  McDOXXELL,  grocery  store  and  boarding-house  attached,  and  stabling in  the  rear,  corner  of  ^larket  and  Randolph  streets,  between  the  South- Branch  bridge  and  the  Sauganash  Hotel,  Chicago,  111.",
+      "normalized": "C. McDonnell's grocery, boarding-house and stabling stood in 1843 at the corner of Market and Randolph streets, between the South Branch bridge and the Sauganash Hotel.",
+      "locator": {
+        "list": "fergus_28_business_directory_1843_leaves_430_457",
+        "text_file": "fergus_26_29.txt",
+        "spans": [
+          {
+            "line": 2595,
+            "from": 0,
+            "to": 220
+          }
+        ],
+        "leaf": 440,
+        "part": "fergus_28",
+        "printed_page": "22",
+        "page": null
+      },
+      "describes_date": "1843",
+      "entities": [
+        "C. McDonnell",
+        "Sauganash Hotel",
+        "South Branch bridge"
+      ],
+      "town_finding": true,
+      "notes": "A bridge over the South Branch fixed as a landmark on Randolph in 1843, and a distance given as the run between it and the Sauganash."
+    },
+    {
+      "id": "bk_fer2_030",
+      "kind": "business",
+      "reading": "transcription_mediated",
+      "quote": "THOMAS  &  WHEELOCK,  the  \\Yashington  Coffee- House,  Lake  Street, third  door  east  of  the  Tremont  Elouse;",
+      "normalized": "Thomas & Wheelock's Washington Coffee-House stood on Lake Street in 1843, third door east of the Tremont House.",
+      "locator": {
+        "list": "fergus_28_business_directory_1843_leaves_430_457",
+        "text_file": "fergus_26_29.txt",
+        "spans": [
+          {
+            "line": 2628,
+            "from": 0,
+            "to": 114
+          }
+        ],
+        "leaf": 444,
+        "part": "fergus_28",
+        "printed_page": "24",
+        "page": null
+      },
+      "describes_date": "1843",
+      "entities": [
+        "Thomas & Wheelock",
+        "Tremont House"
+      ],
+      "town_finding": true,
+      "notes": "A second ordinal off the Tremont on the same street, from a different advertiser on a different leaf."
+    },
+    {
+      "id": "bk_fer2_031",
+      "kind": "business",
+      "reading": "transcription_mediated",
+      "quote": "P.  NICKALLS,  livery,  commission,  and  bait  stable,  corner  of  \\Yolcott  and Kinzie  streets,  Chicago.",
+      "normalized": "P. Nickalls kept a livery, commission and bait stable at the corner of Wolcott and Kinzie streets in 1843.",
+      "locator": {
+        "list": "fergus_28_business_directory_1843_leaves_430_457",
+        "text_file": "fergus_26_29.txt",
+        "spans": [
+          {
+            "line": 2706,
+            "from": 0,
+            "to": 109
+          }
+        ],
+        "leaf": 454,
+        "part": "fergus_28",
+        "printed_page": "29",
+        "page": null
+      },
+      "describes_date": "1843",
+      "entities": [
+        "P. Nickalls"
+      ],
+      "town_finding": true,
+      "notes": "Wolcott Street is the north-side street the project's own street list carries under that name for the 1830s; this is a dated 1843 sighting of it still so called."
+    },
+    {
+      "id": "bk_fer2_032",
+      "kind": "business",
+      "reading": "transcription_mediated",
+      "quote": "J.  W,  NORRIS,  law  office,  Clark  Street,  opposite  City  Saloon.",
+      "normalized": "J. W. Norris kept a law office on Clark Street opposite the City Saloon in 1843.",
+      "locator": {
+        "list": "fergus_28_business_directory_1843_leaves_430_457",
+        "text_file": "fergus_26_29.txt",
+        "spans": [
+          {
+            "line": 2504,
+            "from": 0,
+            "to": 70
+          }
+        ],
+        "leaf": 430,
+        "part": "fergus_28",
+        "printed_page": null,
+        "page": null
+      },
+      "describes_date": "1843",
+      "entities": [
+        "J. W. Norris"
+      ],
+      "town_finding": true,
+      "notes": "THE COMPILER OF THE 1844 DIRECTORY THIS PROJECT ALREADY READS. tools/crosswalk_norris_1844.py works from Norris's own directory of the following year; this entry is Fergus's independent notice of the man a year before it, and it says he was a lawyer."
+    },
+    {
+      "id": "bk_fer2_033",
+      "kind": "business",
+      "reading": "transcription_mediated",
+      "quote": "SCAMMON  Si  JUDD,  attorneys  and  counsellors  at  law,  office  123  Lake  St., City  Saloon.     Jonathan  Young  Scammon,  Norman  Buel  Judd.",
+      "normalized": "Scammon & Judd, attorneys and counsellors at law, kept an office at 123 Lake Street, City Saloon, in 1843; the partners were Jonathan Young Scammon and Norman Buel Judd.",
+      "locator": {
+        "list": "fergus_28_business_directory_1843_leaves_430_457",
+        "text_file": "fergus_26_29.txt",
+        "spans": [
+          {
+            "line": 2506,
+            "from": 0,
+            "to": 147
+          }
+        ],
+        "leaf": 430,
+        "part": "fergus_28",
+        "printed_page": null,
+        "page": null
+      },
+      "describes_date": "1843",
+      "entities": [
+        "Jonathan Young Scammon",
+        "Norman Buel Judd"
+      ],
+      "town_finding": true,
+      "notes": "Scammon was in Chicago from 1835. Later evidence of the man; no 1835 address is taken from it."
+    },
+    {
+      "id": "bk_fer2_034",
+      "kind": "business",
+      "reading": "transcription_mediated",
+      "quote": "CLARKE;  &  CO.,  102  Lake  Street,  Chicago,  drugs  and  medicines,  manu- facturers of  lard-oil  and  candles.",
+      "normalized": "Clarke & Co. sold drugs and medicines at 102 Lake Street in 1843 and manufactured lard-oil and candles.",
+      "locator": {
+        "list": "fergus_28_business_directory_1843_leaves_430_457",
+        "text_file": "fergus_26_29.txt",
+        "spans": [
+          {
+            "line": 2542,
+            "from": 0,
+            "to": 115
+          }
+        ],
+        "leaf": 434,
+        "part": "fergus_28",
+        "printed_page": "19",
+        "page": null
+      },
+      "describes_date": "1843",
+      "entities": [
+        "Clarke & Co."
+      ],
+      "town_finding": true,
+      "notes": "The same 102 Lake Street the Swift advertisement calls the Tremont Buildings, from the ground-floor tenant's side."
+    },
+    {
+      "id": "bk_fer2_035",
+      "kind": "business",
+      "reading": "transcription_mediated",
+      "quote": "PHILO  C.  SHELDON,  254,  corner  of  Lake  and  Water  streets,  opposite  the Sauganash;",
+      "normalized": "Philo C. Sheldon's grocery stood at 254, corner of Lake and Water streets, opposite the Sauganash, in 1843.",
+      "locator": {
+        "list": "fergus_28_business_directory_1843_leaves_430_457",
+        "text_file": "fergus_26_29.txt",
+        "spans": [
+          {
+            "line": 2598,
+            "from": 0,
+            "to": 91
+          }
+        ],
+        "leaf": 440,
+        "part": "fergus_28",
+        "printed_page": "22",
+        "page": null
+      },
+      "describes_date": "1843",
+      "entities": [
+        "Philo C. Sheldon",
+        "Sauganash Hotel"
+      ],
+      "town_finding": true,
+      "notes": "A THIRD BEARING ON THE SAUGANASH, and it disagrees with the other two: Osterhoudt puts the hotel at Lake and Market, this puts a shop 'opposite the Sauganash' at Lake and Water. Recorded as printed and not reconciled."
+    },
+    {
+      "id": "bk_fer2_036",
+      "kind": "business",
+      "reading": "transcription_mediated",
+      "quote": "C.  W.  COOK,  American  Temperance  House,  corner  of  Lake  Street  and Wabash  Ave.,  near  the  steamboat  landing,  Chicago,  111.",
+      "normalized": "C. W. Cook kept the American Temperance House at the corner of Lake Street and Wabash Avenue in 1843, near the steamboat landing.",
+      "locator": {
+        "list": "fergus_28_business_directory_1843_leaves_430_457",
+        "text_file": "fergus_26_29.txt",
+        "spans": [
+          {
+            "line": 2620,
+            "from": 0,
+            "to": 136
+          }
+        ],
+        "leaf": 442,
+        "part": "fergus_28",
+        "printed_page": "23",
+        "page": null
+      },
+      "describes_date": "1843",
+      "entities": [
+        "C. W. Cook",
+        "American Temperance House"
+      ],
+      "town_finding": true,
+      "notes": "A steamboat landing named as a landmark at the east end of Lake Street in 1843."
+    },
+    {
+      "id": "bk_fer2_037",
+      "kind": "business",
+      "reading": "transcription_mediated",
+      "quote": "D.  L.  ROBERTvS,  Chicago  Temperance  House,  LaSalle  Street,  nearly  oppo- site the  [State]  bank  building,  Chicago,  111.",
+      "normalized": "D. L. Roberts kept the Chicago Temperance House on LaSalle Street in 1843, nearly opposite the State bank building.",
+      "locator": {
+        "list": "fergus_28_business_directory_1843_leaves_430_457",
+        "text_file": "fergus_26_29.txt",
+        "spans": [
+          {
+            "line": 2626,
+            "from": 0,
+            "to": 130
+          }
+        ],
+        "leaf": 444,
+        "part": "fergus_28",
+        "printed_page": "24",
+        "page": null
+      },
+      "describes_date": "1843",
+      "entities": [
+        "D. L. Roberts",
+        "Chicago Temperance House"
+      ],
+      "town_finding": true,
+      "notes": "The square brackets are Fergus's own editorial insertion into the advertisement he is reprinting, and they are quoted as printed."
+    },
+    {
+      "id": "bk_fer2_038",
+      "kind": "business",
+      "reading": "transcription_mediated",
+      "quote": "BILLIARD  SALOON,  west  side  of  Clark  Street,  over  J.  Johnson's  barber shop.     [James  L.  Dole.]",
+      "normalized": "A billiard saloon stood on the west side of Clark Street in 1843, over J. Johnson's barber shop; Fergus adds the proprietor's name in brackets as James L. Dole.",
+      "locator": {
+        "list": "fergus_28_business_directory_1843_leaves_430_457",
+        "text_file": "fergus_26_29.txt",
+        "spans": [
+          {
+            "line": 2520,
+            "from": 0,
+            "to": 107
+          }
+        ],
+        "leaf": 432,
+        "part": "fergus_28",
+        "printed_page": null,
+        "page": null
+      },
+      "describes_date": "1843",
+      "entities": [
+        "James L. Dole",
+        "J. Johnson"
+      ],
+      "town_finding": true,
+      "notes": "Fergus's bracketed additions run through the whole directory and are HIS later editorial layer, not the 1843 page; every claim that rests on one says so."
+    },
+    {
+      "id": "bk_fer2_039",
+      "kind": "business",
+      "reading": "transcription_mediated",
+      "quote": "A.  GARRETT,  agent,  Marine  and  Inland  Insurance,  agency  of  the  Atlantic Mutual  Insurance  Company  of  the  city  of  New  York  in  the  City  of  Chi- cago; cash  capital,  $100,000;",
+      "normalized": "Augustus Garrett acted in 1843 as Chicago agent for the Atlantic Mutual Insurance Company of New York, cash capital $100,000.",
+      "locator": {
+        "list": "fergus_28_business_directory_1843_leaves_430_457",
+        "text_file": "fergus_26_29.txt",
+        "spans": [
+          {
+            "line": 2630,
+            "from": 0,
+            "to": 194
+          }
+        ],
+        "leaf": 444,
+        "part": "fergus_28",
+        "printed_page": "24",
+        "page": null
+      },
+      "describes_date": "1843",
+      "entities": [
+        "Augustus Garrett",
+        "Atlantic Mutual Insurance Company"
+      ],
+      "town_finding": true,
+      "notes": "BEARS ON T-0410, which asks how a fire-insurance agency passes between houses and finds the gazetteer has no relation that can hold it. Here is the same shape eight years later and it is still an agency of a New York company held by a Chicago man."
+    },
+    {
+      "id": "bk_fer2_040",
+      "kind": "business",
+      "reading": "transcription_mediated",
+      "quote": "P.  A.  BARKER,  Farmers'  Exchange,  corner  of  Lake  St.  and  Wabash  Ave. ; the  Farmers'  Exchange  has  been  removed  to  the  corner  of  Lake  Street and  Wabash  Ave.,  opposite  the  American  Temperance  House,",
+      "normalized": "P. A. Barker's Farmers' Exchange had been removed by 1843 to the corner of Lake Street and Wabash Avenue, opposite the American Temperance House.",
+      "locator": {
+        "list": "fergus_28_business_directory_1843_leaves_430_457",
+        "text_file": "fergus_26_29.txt",
+        "spans": [
+          {
+            "line": 2619,
+            "from": 0,
+            "to": 223
+          }
+        ],
+        "leaf": 442,
+        "part": "fergus_28",
+        "printed_page": "23",
+        "page": null
+      },
+      "describes_date": "1843",
+      "entities": [
+        "P. A. Barker",
+        "Farmers' Exchange"
+      ],
+      "town_finding": true,
+      "notes": "A house that states its own MOVE in its advertisement, which is the one shape of notice that dates a change of address rather than an address."
+    },
+    {
+      "id": "bk_fer2_041",
+      "kind": "business",
+      "reading": "transcription_mediated",
+      "quote": "Democrat,  Ch^'cfff^/o,  107  Lake,  John  Wentworth,  editor  and  pro]). official  paper,  first  number  issued  Nov.  20.  1833,  by  John  Calhoun",
+      "normalized": "The Chicago Democrat is entered in 1843 at 107 Lake Street, John Wentworth editor and proprietor, as the official paper, with the note that its first number was issued on 20 November 1833 by John Calhoun.",
+      "locator": {
+        "list": "fergus_28_name_directory_1843_leaves_458_605",
+        "text_file": "fergus_26_29.txt",
+        "spans": [
+          {
+            "line": 3251,
+            "from": 58,
+            "to": 209
+          }
+        ],
+        "leaf": 494,
+        "part": "fergus_28",
+        "printed_page": "49",
+        "page": null
+      },
+      "describes_date": "20 November 1833 (the first number); 1843 (the address and proprietor)",
+      "entities": [
+        "Chicago Democrat",
+        "John Wentworth",
+        "John Calhoun"
+      ],
+      "town_finding": true,
+      "notes": "BEARS DIRECTLY ON T-0403, which turns on the Democrat's office moving along South Water Street before the scene date. This entry does NOT give an 1835 address: it gives a founding date and an 1843 address at 107 Lake, with nothing in between. It is evidence that the paper had left South Water by 1843 and evidence of nothing about when."
+    },
+    {
+      "id": "bk_fer2_042",
+      "kind": "person",
+      "reading": "transcription_mediated",
+      "quote": "Sherman,  Silas  Wooster,  [elected  sheriff  Cook  County  in  1834  and  1S3G",
+      "normalized": "Silas Wooster Sherman is annotated as having been elected sheriff of Cook County in 1834 and in 1836.",
+      "locator": {
+        "list": "fergus_28_name_directory_1843_leaves_458_605",
+        "text_file": "fergus_26_29.txt",
+        "spans": [
+          {
+            "line": 4237,
+            "from": 0,
+            "to": 79
+          }
+        ],
+        "leaf": 576,
+        "part": "fergus_28",
+        "printed_page": "90",
+        "page": null
+      },
+      "describes_date": "1834 and 1836",
+      "entities": [
+        "Silas Wooster Sherman",
+        "Cook County"
+      ],
+      "town_finding": true,
+      "notes": "A COOK COUNTY OFFICER ACROSS THE SCENE YEAR, and one of the very few pre-1837 facts in the whole alphabetical directory. It is Fergus's bracketed later annotation and not the 1843 entry; the OCR prints the second year as '1S3G', which is 1836."
+    },
+    {
+      "id": "bk_fer2_043",
+      "kind": "building",
+      "reading": "transcription_mediated",
+      "quote": "Bristol  &i  Porter,  forwarding  and  commission  merchants.  South  Water n.-e.  cor  State    [first  warehouse  on  South  Side,  erected  fall  of  1839]",
+      "normalized": "Bristol & Porter are entered in 1843 on South Water at the north-east corner of State, with Fergus's bracketed note that this was the first warehouse on the South Side, erected in the fall of 1839.",
+      "locator": {
+        "list": "fergus_28_name_directory_1843_leaves_458_605",
+        "text_file": "fergus_26_29.txt",
+        "spans": [
+          {
+            "line": 2944,
+            "from": 0,
+            "to": 158
+          }
+        ],
+        "leaf": 474,
+        "part": "fergus_28",
+        "printed_page": "39",
+        "page": null
+      },
+      "describes_date": "1839 (the warehouse); 1843 (the entry)",
+      "entities": [
+        "Bristol & Porter"
+      ],
+      "town_finding": true,
+      "notes": "A DATED NEGATIVE FOR THE SCENE YEAR, and the most useful thing this half of the directory yields. If the first South Side warehouse was built in the fall of 1839 then there was none in 1835, and any reconstruction that puts a warehouse on the south bank in the scene year is contradicted by Fergus. It is his annotation, made fifty years later, and it is a claim and not a settled fact."
+    },
+    {
+      "id": "bk_fer2_044",
+      "kind": "person",
+      "reading": "transcription_mediated",
+      "quote": "Fergus.  Roijert  (Ellis  ^  F.j.  printer,  res  179  State,  Lot  0,  Block  o.  Sec.\nlo;  ^born,  Glasgow,  Scotland,  Aug.  4.  181.\");  ai'rived  July  1,  1839.",
+      "normalized": "Robert Fergus, printer, of Ellis & Fergus, is entered in 1843 at 179 State Street, born at Glasgow, Scotland, 4 August 1815, and arrived 1 July 1839.",
+      "locator": {
+        "list": "fergus_28_name_directory_1843_leaves_458_605",
+        "text_file": "fergus_26_29.txt",
+        "spans": [
+          {
+            "line": 3330,
+            "from": 505,
+            "to": 592
+          },
+          {
+            "line": 3331,
+            "from": 0,
+            "to": 78
+          }
+        ],
+        "leaf": 502,
+        "part": "fergus_28",
+        "printed_page": "53",
+        "page": null
+      },
+      "describes_date": "1815 (birth); 1 July 1839 (arrival); 1843 (the entry)",
+      "entities": [
+        "Robert Fergus"
+      ],
+      "town_finding": true,
+      "notes": "THE COMPILER'S OWN ARRIVAL DATE, AND IT GRADES THE WHOLE VOLUME. Robert Fergus reached Chicago on 1 July 1839. He did not see the town of 1835 and every bracketed annotation of his about the 1830s — including the warehouse note above — is at second hand from other men's memories. The OCR mangles the birth year to '181.\")' and the lot and section to 'Lot 0, Block o. Sec. lo'; the year 1815 is read from the printed digits that survive and is marked as read, not asserted."
+    },
+    {
+      "id": "bk_fer2_045",
+      "kind": "person",
+      "reading": "transcription_mediated",
+      "quote": "Hood.  David  (H.  ^t  Gallaq-lier),  res  allev  bet  AVolcott  and  Dearborn\n[died.  Gro>s  Point,  Cook  Co.,  111.,  April  10,  1S33,  age.l  42.",
+      "normalized": "David Hood of Hood & Gallagher, butchers, is entered in 1843 living in the alley between Wolcott and Dearborn, with a bracketed death at Gross Point, Cook County, on 10 April in a year the OCR prints as 1S33, aged 42.",
+      "locator": {
+        "list": "fergus_28_name_directory_1843_leaves_458_605",
+        "text_file": "fergus_26_29.txt",
+        "spans": [
+          {
+            "line": 3595,
+            "from": 0,
+            "to": 78
+          },
+          {
+            "line": 3596,
+            "from": 0,
+            "to": 71
+          }
+        ],
+        "leaf": 524,
+        "part": "fergus_28",
+        "printed_page": null,
+        "page": null
+      },
+      "describes_date": "1843 (the entry); the death year is NOT READ",
+      "entities": [
+        "David Hood",
+        "Hood & Gallagher"
+      ],
+      "town_finding": false,
+      "notes": "A DATE THAT CANNOT BE WHAT IT PRINTS, RECORDED SO THAT NOBODY MINTS IT. A man listed as living in the 1843 directory cannot have died in 1833, so '1S33' is an OCR failure for a later year — 1883 and 1893 both fit the glyphs — and this project reads it as neither. The claim exists to stop a sweep for 1830s dates from taking it: it is a REFUSAL and describes_date says so."
+    },
+    {
+      "id": "bk_fer2_046",
+      "kind": "person",
+      "reading": "transcription_mediated",
+      "quote": "Beaubien,  Gen.  Jean  Bajjtiste,",
+      "normalized": "Gen. Jean Baptiste Beaubien is entered by name in the 1843 alphabetical directory; his occupation and address run on to the next leaf.",
+      "locator": {
+        "list": "fergus_28_name_directory_1843_leaves_458_605",
+        "text_file": "fergus_26_29.txt",
+        "spans": [
+          {
+            "line": 2835,
+            "from": 95,
+            "to": 128
+          }
+        ],
+        "leaf": 466,
+        "part": "fergus_28",
+        "printed_page": "35",
+        "page": null
+      },
+      "describes_date": "1843",
+      "entities": [
+        "Jean Baptiste Beaubien"
+      ],
+      "town_finding": true,
+      "notes": "Beaubien is one of the names the project's 1835 records hold. THE ENTRY IS QUOTED ONLY AS FAR AS THE NAME because the line ends there and the rest of the entry stands on leaf 468's next line; no address is taken from it."
+    },
+    {
+      "id": "bk_fer2_047",
+      "kind": "notice",
+      "reading": "transcription_mediated",
+      "quote": "Names,  places,*  dates,  and  ages  at  death  of  some  of Chicago's  Old  Settlers,  prior  to  184.3,  and  other well  -  knov/n  citizens  who  arrived  after  1843, together  \\vith  others  prominently  connected with    Illinois    history :",
+      "normalized": "The Obituary's own statement of scope: names, places, dates and ages at death of some of Chicago's old settlers prior to 1843, of well-known citizens who arrived after 1843, and of others prominently connected with Illinois history.",
+      "locator": {
+        "list": "fergus_28_obituary_leaves_606_644",
+        "text_file": "fergus_26_29.txt",
+        "spans": [
+          {
+            "line": 5124,
+            "from": 0,
+            "to": 249
+          }
+        ],
+        "leaf": 606,
+        "part": "fergus_28",
+        "printed_page": null,
+        "page": null
+      },
+      "describes_date": "1843 and after (the list's own frame)",
+      "entities": [],
+      "town_finding": true,
+      "notes": "WHAT THE LIST IS AND IS NOT. It says 'SOME of', so a name's absence from it means nothing at all, and it mixes old settlers with later arrivals, so membership is not evidence of residence in any year. Every claim taken from it below is a single dated death and nothing more."
+    },
+    {
+      "id": "bk_fer2_048",
+      "kind": "person",
+      "reading": "transcription_mediated",
+      "quote": "Owen,  Thomas  J.  Y.  (Iiiaian  ag-ent),  died  Oct.  15, 1835,  aged  34i^.",
+      "normalized": "Thomas J. V. Owen, Indian agent, died 15 October 1835 aged about 34 and a half.",
+      "locator": {
+        "list": "fergus_28_obituary_leaves_606_644",
+        "text_file": "fergus_26_29.txt",
+        "spans": [
+          {
+            "line": 5342,
+            "from": 57,
+            "to": 134
+          }
+        ],
+        "leaf": 632,
+        "part": "fergus_28",
+        "printed_page": null,
+        "page": null
+      },
+      "describes_date": "15 October 1835",
+      "entities": [
+        "Thomas J. V. Owen"
+      ],
+      "town_finding": true,
+      "notes": "THE MOST DIRECTLY USEFUL LINE IN THE OBITUARY. Owen was the United States Indian agent at Chicago and the town's first board president, and this dates his death INSIDE the scene year — which bears on whether he may stand in a scene set later than 15 October 1835. The OCR prints the middle initial as 'Y' where the man is normally 'J. V.'; the age is printed '34i^' for 34 and a half."
+    },
+    {
+      "id": "bk_fer2_049",
+      "kind": "person",
+      "reading": "transcription_mediated",
+      "quote": "Spring,  Dr.,  died  November  10,  1835",
+      "normalized": "A Dr Spring died on 10 November 1835; the list gives no age and no given name.",
+      "locator": {
+        "list": "fergus_28_obituary_leaves_606_644",
+        "text_file": "fergus_26_29.txt",
+        "spans": [
+          {
+            "line": 5377,
+            "from": 103,
+            "to": 143
+          }
+        ],
+        "leaf": 636,
+        "part": "fergus_28",
+        "printed_page": null,
+        "page": null
+      },
+      "describes_date": "10 November 1835",
+      "entities": [
+        "Dr Spring"
+      ],
+      "town_finding": true,
+      "notes": "BEARS ON T-0423, which would put G. Spring's large dwelling-house and fine well on lot 7 of block 16. A death inside the scene year is a fact about how long the household stood, and this line does NOT supply the given name, so it cannot by itself be attached to that G. Spring. Recorded as a lead and refused as an identity; see the crosswalk."
+    },
+    {
+      "id": "bk_fer2_050",
+      "kind": "person",
+      "reading": "transcription_mediated",
+      "quote": "AYalker,  Ilev.  Jesse,  died,  12  m.  w.  of  Chicago,  Oct  5,  1835,  aged  69.",
+      "normalized": "The Rev. Jesse Walker died twelve miles west of Chicago on 5 October 1835, aged 69.",
+      "locator": {
+        "list": "fergus_28_obituary_leaves_606_644",
+        "text_file": "fergus_26_29.txt",
+        "spans": [
+          {
+            "line": 5402,
+            "from": 99,
+            "to": 182
+          }
+        ],
+        "leaf": 640,
+        "part": "fergus_28",
+        "printed_page": "122",
+        "page": null
+      },
+      "describes_date": "5 October 1835",
+      "entities": [
+        "Rev. Jesse Walker"
+      ],
+      "town_finding": true,
+      "notes": "A death inside the scene year, and it carries a distance and a bearing from the town — twelve miles west — which is the sort of statement the project's own extent work can use."
+    },
+    {
+      "id": "bk_fer2_051",
+      "kind": "person",
+      "reading": "transcription_mediated",
+      "quote": "Xewion,  Hoi  lis.  hotel-keeper,  died  August  25,  1835,  aged  — .",
+      "normalized": "Hollis Newton, hotel-keeper, died 25 August 1835; the list gives no age.",
+      "locator": {
+        "list": "fergus_28_obituary_leaves_606_644",
+        "text_file": "fergus_26_29.txt",
+        "spans": [
+          {
+            "line": 5336,
+            "from": 547,
+            "to": 617
+          }
+        ],
+        "leaf": 630,
+        "part": "fergus_28",
+        "printed_page": null,
+        "page": null
+      },
+      "describes_date": "25 August 1835",
+      "entities": [
+        "Hollis Newton"
+      ],
+      "town_finding": true,
+      "notes": "A HOTEL-KEEPER WHO DIED INSIDE THE SCENE YEAR. The list gives no house and no street, so it names a trade and a date and nothing that places him."
+    },
+    {
+      "id": "bk_fer2_052",
+      "kind": "person",
+      "reading": "transcription_mediated",
+      "quote": "Eailly,  Jo=e])h,  died,  Baillytown,'lnd.,  December  21, 1835,  aged  61.",
+      "normalized": "Joseph Bailly died at Baillytown, Indiana, on 21 December 1835, aged 61.",
+      "locator": {
+        "list": "fergus_28_obituary_leaves_606_644",
+        "text_file": "fergus_26_29.txt",
+        "spans": [
+          {
+            "line": 5130,
+            "from": 217,
+            "to": 292
+          }
+        ],
+        "leaf": 606,
+        "part": "fergus_28",
+        "printed_page": null,
+        "page": null
+      },
+      "describes_date": "21 December 1835",
+      "entities": [
+        "Joseph Bailly"
+      ],
+      "town_finding": false,
+      "notes": "A trader of the Chicago region, but he died in Indiana and the list places nothing of his in the town."
+    },
+    {
+      "id": "bk_fer2_053",
+      "kind": "person",
+      "reading": "transcription_mediated",
+      "quote": "Bogart,  Dr.  llenrx'  Xau  dei\",  died,  Xaperville,  111.,  April  8,  1835,",
+      "normalized": "Dr Henry Van der Bogart died at Naperville, Illinois, on 8 April 1835.",
+      "locator": {
+        "list": "fergus_28_obituary_leaves_606_644",
+        "text_file": "fergus_26_29.txt",
+        "spans": [
+          {
+            "line": 5143,
+            "from": 193,
+            "to": 271
+          }
+        ],
+        "leaf": 608,
+        "part": "fergus_28",
+        "printed_page": null,
+        "page": null
+      },
+      "describes_date": "8 April 1835",
+      "entities": [
+        "Dr Henry Van der Bogart"
+      ],
+      "town_finding": false,
+      "notes": "THE SAME MAN IS LISTED TWICE IN THE SAME OBITUARY, once under 'Bogart' at this line and again under 'Van der Bogart' at line 5399 on leaf 640, with the same place and the same date. That is a fact about the list's own construction and it is why a count of names in it is not a count of people."
+    },
+    {
+      "id": "bk_fer2_054",
+      "kind": "person",
+      "reading": "transcription_mediated",
+      "quote": "Freeman,  Ptcv.  Allen  B..  died  Df'cendx>r  17,  1834,  aged  27.",
+      "normalized": "The Rev. Allen B. Freeman died on 17 December 1834, aged 27.",
+      "locator": {
+        "list": "fergus_28_obituary_leaves_606_644",
+        "text_file": "fergus_26_29.txt",
+        "spans": [
+          {
+            "line": 5207,
+            "from": 215,
+            "to": 283
+          }
+        ],
+        "leaf": 616,
+        "part": "fergus_28",
+        "printed_page": null,
+        "page": null
+      },
+      "describes_date": "17 December 1834",
+      "entities": [
+        "Rev. Allen B. Freeman"
+      ],
+      "town_finding": true,
+      "notes": "A clergyman dead the winter before the scene year, which bears on who could have been preaching in it."
+    },
+    {
+      "id": "bk_fer2_055",
+      "kind": "person",
+      "reading": "transcription_mediated",
+      "quote": "AYolcott,  Dr.  Alexander,  Indian  agent,  died  Oct.  25,  1830,  aged  40;\nhis  will  was  the  first  probated  in  Cook  County.",
+      "normalized": "Dr Alexander Wolcott, Indian agent, died 25 October 1830 aged 40, and his will was the first probated in Cook County.",
+      "locator": {
+        "list": "fergus_28_obituary_leaves_606_644",
+        "text_file": "fergus_26_29.txt",
+        "spans": [
+          {
+            "line": 5411,
+            "from": 599,
+            "to": 676
+          },
+          {
+            "line": 5412,
+            "from": 0,
+            "to": 55
+          }
+        ],
+        "leaf": 642,
+        "part": "fergus_28",
+        "printed_page": "123",
+        "page": null
+      },
+      "describes_date": "25 October 1830",
+      "entities": [
+        "Dr Alexander Wolcott",
+        "Cook County"
+      ],
+      "town_finding": true,
+      "notes": "Wolcott Street carried his name and the project's street list holds it. The probate note dates the county's own record-keeping to within months of its organisation."
+    },
+    {
+      "id": "bk_fer2_056",
+      "kind": "person",
+      "reading": "transcription_mediated",
+      "quote": "Kinzie,  Jolm  iSha-ne-au-kei,  Indian  agent  and  trader,  ilrst  white\nAmerican  settler  at  Ciiicago,  1803;  died  Jan.  6,  1828,  a.  65-U-14.",
+      "normalized": "John Kinzie, called Sha-ne-au-kee, Indian agent and trader, is entered as the first white American settler at Chicago in 1803, dead 6 January 1828 aged 65 years 11 months and 14 days.",
+      "locator": {
+        "list": "fergus_28_obituary_leaves_606_644",
+        "text_file": "fergus_26_29.txt",
+        "spans": [
+          {
+            "line": 5262,
+            "from": 103,
+            "to": 176
+          },
+          {
+            "line": 5263,
+            "from": 0,
+            "to": 76
+          }
+        ],
+        "leaf": 624,
+        "part": "fergus_28",
+        "printed_page": null,
+        "page": null
+      },
+      "describes_date": "1803 (the settlement); 6 January 1828 (the death)",
+      "entities": [
+        "John Kinzie"
+      ],
+      "town_finding": true,
+      "notes": "'FIRST WHITE AMERICAN SETTLER AT CHICAGO, 1803' IS A CLAIM AND NOT A FACT, and it is a claim this project should hold at arm's length: Point de Sable was there before him and the qualifier 'white American' is doing the work. Recorded as the list prints it, graded tier 3, and not carried into any record."
+    },
+    {
+      "id": "bk_fer2_057",
+      "kind": "notice",
+      "reading": "transcription_mediated",
+      "quote": "Reminiscences  of  Early  Chicago  (1833). By  Charles  Cleaver.    Pp.52;  Svo.    1S82.",
+      "normalized": "The Fergus Printing Company's own list advertises 'Reminiscences of Early Chicago (1833)' by Charles Cleaver, 52 pages, octavo, 1882.",
+      "locator": {
+        "list": "fergus_publisher_advertisement_leaves_645_657_and_851_858",
+        "text_file": "fergus_26_29.txt",
+        "spans": [
+          {
+            "line": 5438,
+            "from": 0,
+            "to": 89
+          }
+        ],
+        "leaf": 646,
+        "part": "fergus_28",
+        "printed_page": null,
+        "page": null
+      },
+      "describes_date": "1882 (the printing); 1833 (its subject)",
+      "entities": [
+        "Charles Cleaver"
+      ],
+      "town_finding": true,
+      "notes": "A SOURCE LEAD AND NOT A SOURCE. Cleaver's reminiscence of 1833 Chicago is a Fergus number this project does not hold; the advertisement fixes its title, author, length and year so that a later run can go and find it."
+    },
+    {
+      "id": "bk_fer2_058",
+      "kind": "notice",
+      "reading": "transcription_mediated",
+      "quote": "Chicago   in   1836:    \"Strange    Early    Days.\"     By\nH.xkKiET  ^L•\\H  rTr.K.i.';,  autl.or'of  \".'society  in  Ameri- ca,\" etc.     Pp.  .\\<:;  ivo.      1876.",
+      "normalized": "The same list advertises 'Chicago in 1836: \"Strange Early Days\"' by Harriet Martineau, reprinted 1876.",
+      "locator": {
+        "list": "fergus_publisher_advertisement_leaves_645_657_and_851_858",
+        "text_file": "fergus_26_29.txt",
+        "spans": [
+          {
+            "line": 5509,
+            "from": 55,
+            "to": 113
+          },
+          {
+            "line": 5510,
+            "from": 0,
+            "to": 106
+          }
+        ],
+        "leaf": 648,
+        "part": "fergus_28",
+        "printed_page": null,
+        "page": null
+      },
+      "describes_date": "1876 (the reprint); 1836 (its subject)",
+      "entities": [
+        "Harriet Martineau"
+      ],
+      "town_finding": true,
+      "notes": "THE STRONGEST LEAD IN THE HALF. Harriet Martineau saw Chicago in June 1836, six months after the scene date, and wrote it down; her account is the nearest thing to an eyewitness description of the town at the scene's own scale that this volume points at. The OCR of her name is badly broken and the quote carries it as printed."
+    }
+  ]
+}

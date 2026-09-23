@@ -1,0 +1,267 @@
+{
+  "id": "south_branch_raft_bridge",
+  "phase": "log_1833",
+  "name": "South Branch Bridge",
+  "aka": [
+    "the log raft bridge across the south branch",
+    "the first bridge over the South Branch",
+    "the Randolph Street crossing"
+  ],
+  "archetype": "bridge_timber",
+  "asset": "gltf/south_branch_raft_bridge__log_1833.glb",
+  "scene": "1835",
+  "target_date": "1835-07-01",
+  "documented_range": {
+    "from": "1833-03-01",
+    "to": "1835-08-18",
+    "confidence": "inferred",
+    "sources": [
+      "chicagology_prefire252",
+      "chicagology_lastwardance"
+    ],
+    "note": "BOTH ENDS ARE READINGS AND NEITHER IS A DATE ANYBODY WROTE. The opening: Charles Cleaver, in the Chicago Tribune of 29 October 1893, 'that the first bridge over the South Branch was built in the [winter] of 1832-33'. A winter is not a day, so the range opens on 1 March 1833 — the end of that winter, the earliest date on which the finished bridge certainly stood. The same caution the North Branch record applies to Cleaver applies here and more strongly: he did not reach Chicago until 23 October 1833, so a build date in the winter before his arrival is hearsay reported sixty years later, and it is the only date reached. THE 1883 STATEMENT'S SOUTH BRANCH DATES ARE DELIBERATELY NOT CITED: data/sources/old_settlers_bridges_1883.json records that the two archive.org scans of that footnote DISAGREE on them, and a number two readings cannot agree on is not evidence. The close: 18 August 1835, the last date on which any source reached puts this bridge in use — the procession that crossed it six and a half weeks after the scene date. THAT IS THE RANGE OF THE ATTESTATION AND NOT A CLAIM THAT THE BRIDGE FELL ON 19 AUGUST. Nothing reached says when it was replaced; the North Branch record could close in 1839 because a chronology table says so, and no equivalent table for this crossing was found. Closing on the last attestation rather than guessing forward is the conservative error: a later scene will exclude this bridge and report the exclusion, which is a visible question, where a widened range would be an invisible answer."
+  },
+  "change_note": "The single phase this structure has: a log stringer bridge on log abutments and two bents, carrying the crossing between Lake and Randolph over the South Branch. One phase because no source dates any change to it, and because the record's whole span of attestation is two and a half years.",
+  "placement": {
+    "local_e": 6.86,
+    "local_n": -178.07,
+    "rotation_deg": 0.292,
+    "position_confidence": "inferred",
+    "position_sources": [
+      "chicagology_lastwardance",
+      "wright_1834",
+      "osm_streets_2026"
+    ],
+    "position_note": "PLACED 2026-08-11 AT THE MIDPOINT OF A BAND, BECAUSE THE TWO ACCOUNTS PULL OPPOSITE WAYS AND THE MIDPOINT IS THE ONLY STATION THAT PREFERS NEITHER. docs/research/03-structures-north.md section 5 gives the crossing as 'South Branch, between Lake and Randolph' and 'just north of the present Randolph street bridge'; the war-dance account has the procession come south along West Water Street from the North Branch bridge to 'the log raft bridge across the south branch near Lake Street', and then reach the Sauganash at Lake and Market. One source pulls the crossing to Randolph and the other to Lake. METHOD, the same one the North Branch record used. The modern Lake and Randolph centrelines were read from OpenStreetMap — Lake from Canal Street (OSM control already committed in data/traces/gcp/wright_1834_gcps.json G5, the best-fitting point in that set at 1.8 m residual) to Dearborn Street (node 27477597), Randolph from LaSalle Street (G3) to Dearborn Street (node 28290271) — and both survive on their 1830s alignment. They lie 137.69 m apart; the crossing line is drawn parallel to them through the midpoint of that separation, at local N -177.2, and its ends are set where the traced 1834 waterlines cross it, not where the modern channel is. The value recorded here is the footprint polygon's own origin, which is the deck's south-west corner: the traced west waterline point on the crossing line, taken as the corner rather than the centre, an offset of 1.52 m that is two per cent of the georeference's own uncertainty. Facade bearing 0.292: the archetype's convention is that a deck at rotation 0 runs due east, and the Lake and Randolph line runs at 90.292 degrees from grid north. WHAT THE CONVENTION'S OTHER HALF DOES NOT SAY HERE: it also has the upstream side facing north, which is true of the North Branch and false of this crossing, because the South Branch flows north into the forks. Nothing in the mesh turns on it — this archetype's section is symmetric across the deck — but the record should not be read as claiming the upstream side is the north one. Working uncertainty about 20 m from the georeference, plus the trace's own, plus the 69 m of river along which the crossing could have stood. THE PARENTHETICAL ‘now Canal Street’ IS WITHDRAWN FROM THE LOCATION SENTENCE, 2026-09-12 (T-0770), AND WHAT IT WAS IS RECORDED HERE BECAUSE A READER WILL MEET IT AGAIN IN THE SOURCE. Until this date the sentence read ‘… its west landing on West Water Street (now Canal Street) below Wolf Point’, and the parenthesis was never this project’s identification. It is carried verbatim out of chicagology_lastwardance, whose account moves the procession of 18 August 1835 ‘south along West Water street (now Canal street), in front of the “Green Tree Tavern” and “Wolf’s Point Tavern” to the log raft bridge across the south branch’ — the same sentence this record cites for the crossing and its load. THAT SOURCE’S OWN RECORD ALREADY RULES ON THIS CLASS OF WORDS, which is what makes the carry an error rather than a disagreement: the page is one attribution line, ‘Chicago Tribune, August 14, 1910’, over John Dean Caton’s written account printed after his death, and data/sources/chicagology_lastwardance.json says the Tribune ‘glosses him in 1910’s voice’, naming the parallel gloss ‘the “North Branch bridge” (which stood where the railroad bridge stands now)’ as ‘the newspaper locating the crossing for its readers, not the witness, and no placement here uses it’. A 1910 editor’s street-name equation is the newspaper’s voice on the same terms, and it had been let into the one sentence that tells a reader WHY this bridge stands where it does. AND THE COMMITTED GEOMETRY REFUSES THE EQUATION INDEPENDENTLY OF WHO SAID IT. T-0445 seated `west_water` in data/streets/1835.json off the committed 1834 west bank, and `canal` is fitted to modern Canal Street’s own surviving intersections (T-0446 records the OSM nodes). AT THIS BRIDGE’S OWN NORTHING, local north −178, the two centrelines stand 152.09 m apart, and 131.00 to 159.44 m apart over the whole reach they share — recomputed from committed files by tools/measure_west_division_streets.py § 4, which tools/check.sh runs. The plat’s own module is 458 ft = 139.60 m (T-0444), so the separation is a module and not a rounding, and the Thompson plat draws West Water and Canal as two of the West Division’s five north-south streets. Two streets a module apart cannot be one street under two names, so the landing is on the eastern of them and the gloss is withdrawn rather than restated. NOTHING ABOUT THE BRIDGE’S POSITION MOVES: what is withdrawn is a modern name for the street, not the street, and the coordinate above is still the midpoint of the band argued for at the head of this note. docs/RESEARCH/west_division_streets.md § 1 holds the seating and the measurement; docs/RESEARCH/south_branch_raft_bridge.md § 3a holds this withdrawal.",
+    "symbolic_location": "Across the South Branch between Lake and Randolph Streets, its west landing on West Water Street below Wolf Point.",
+    "uncertainty_m": 20,
+    "placement_provisional": false,
+    "vertical_anchor": "water",
+    "walk_surface_m": 2.22
+  },
+  "footprint": {
+    "polygon": [
+      [
+        0.0,
+        0.0
+      ],
+      [
+        55.96,
+        0.0
+      ],
+      [
+        55.96,
+        3.048
+      ],
+      [
+        0.0,
+        3.048
+      ]
+    ],
+    "confidence": "inferred",
+    "sources": [
+      "old_settlers_bridges_1883",
+      "chicagology_prefire252",
+      "wright_1834"
+    ],
+    "note": "THE DECK OUTLINE, AND BOTH OF ITS DIMENSIONS COME FROM SOMETHING. The width, 3.048 m, is the ten feet the 1883 old-settlers statement and Cleaver's 1893 recollection both give for both branch bridges, recorded in its original unit. The length, 55.96 m, is MEASURED rather than chosen: it is the distance between the two traced 1834 waterlines along the crossing line described in the position note, read off data/terrain/epochs/e1834_harbor_cut/river.geojson at the midpoint station (west bank local E +6.86, east bank local E +62.82), which is the same Wright 1834 segmentation the ground and the river are built from. THE CROSS-CHECK IS THE INTERESTING PART: the same file's drafted mean width for the South Branch reach is 57.3 m, and the measured crossing comes out 55.96 m — an agreement to 1.3 m, exactly the agreement the North Branch bridge's 71.83 m makes against its own reach's 72.9 m. Two crossings measured the same way, each landing within a metre and a half of its reach's independent mean. WHAT THE MEASUREMENT CANNOT DO IS CHOOSE THE STATION, and that is the honest error bar rather than the georeference. This reach narrows fast: the same method gives 74.38 m at the Lake Street line and 46.79 m at Randolph, so a crossing anywhere in the band the sources allow is between about 47 and 74 m and the recorded 55.96 m is the middle of the band and not the middle of that range. AND AS ON THE NORTH BRANCH, THE SPAN OVERSTATES THE CLEAR SPAN BY AN UNRECORDED AMOUNT: the 1883 statement puts the abutments 'in the shallow water near the banks', inside the drawn line, and nobody said how far inside. Landing the deck on the traced waterline is chosen because that line is the evidence — the terrain surface crosses Z=0 along it by construction — and an inset would be a second invention on top of the first."
+  },
+  "attributes": {
+    "construction": {
+      "value": "log",
+      "confidence": "attested",
+      "sources": [
+        "old_settlers_bridges_1883",
+        "chicagology_prefire252"
+      ],
+      "note": "'The abutments were built of logs in the shallow water near the banks. The bents were of four heavy logs... Stringers of heavy logs stretched from the abutments to the bents.' Round or hewn timber throughout rather than framed carpentry, which is what this archetype's 'log' value means."
+    },
+    "width_m": {
+      "value": 3.048,
+      "confidence": "attested",
+      "sources": [
+        "old_settlers_bridges_1883",
+        "chicagology_prefire252"
+      ],
+      "note": "TEN FEET, AND UNUSUALLY FOR THIS DATASET IT IS SAID TWICE. The 1883 old-settlers statement: 'These bridges were about ten feet wide and without railings, for the first few years.' Cleaver in the Tribune ten years later: 'These bridges were ten feet wide.' Both sentences are about BOTH branch bridges, which is what makes this crossing's width evidence rather than an analogy from its neighbour. Cleaver signed the first and gave the second, so the two are one man corroborated by three rather than two independent witnesses; the North Branch record makes the same reservation about the same sentence. Recorded as 3.048 m exactly, being the conversion and not a rounding. The same footnote adds, of the North Branch bridge alone, 'ten or twelve feet wide' — a spread this record does not inherit, because it is stated of the other crossing."
+    },
+    "clearance_m": {
+      "value": 1.83,
+      "confidence": "attested",
+      "sources": [
+        "old_settlers_bridges_1883"
+      ],
+      "note": "SIX FEET, AND THE REASON IS BETTER THAN THE NUMBER. Andreas prints at the foot of pp. 631-632 a statement signed by J. D. Caton, John Bates, Charles Cleaver and John Noble: 'These were both wagon bridges, and were about six feet above the water, so that teams passed under them on the ice freely.' The clearance is not a builder's convenience, it is the winter road under the deck, stated by four men who used the crossing. It is also the sentence that does the most damage to the raft reading recorded in this record's research note: a floating deck has no clearance at all, and nothing passes under it on the ice."
+    },
+    "abutments": {
+      "value": true,
+      "confidence": "attested",
+      "sources": [
+        "old_settlers_bridges_1883",
+        "chicagology_prefire252"
+      ],
+      "note": "'Both bridges were built on abutments and two bents. The abutments were built of logs in the shallow water near the banks.' The ends were carried on log cribs standing OUT IN THE WATER rather than on dry-land bearings — which is also why the modelled span, measured waterline to waterline, is longer than the clear span between the abutments by an amount nobody recorded."
+    },
+    "pier_kind": {
+      "value": "bent",
+      "confidence": "attested",
+      "sources": [
+        "old_settlers_bridges_1883"
+      ],
+      "note": "'The bents were of four heavy logs, resting on the bottom, in deeper water.' The archetype builds four heavy logs under a cap at each support, which is the count and the heaviness the sentence gives. 'Resting on the bottom' is the other half of it and is invisible here: this project models neither the riverbed nor anything more than half a metre below the waterline, so a bent stood on the bed and a bent driven into it are the same picture above water. The distinction lives in this note, exactly as it does on the North Branch record."
+    },
+    "pier_count": {
+      "value": 2,
+      "confidence": "attested",
+      "sources": [
+        "old_settlers_bridges_1883"
+      ],
+      "note": "TWO, from 'both bridges were built on abutments and two bents', with 'stringers of heavy logs stretched from the abutments to the bents, and between the bents' — a three-span crossing, stated twice over in one sentence, and stated of BOTH branch bridges. WHERE THEY STAND IS STILL THE ARCHETYPE'S: the letter puts the bents 'in deeper water' between abutments 'in the shallow water near the banks' and gives no station for either, so the two are built at the third points of the span — 18.65 m and 37.31 m from the west landing — because that is what a builder would do and not because anybody wrote it down. The confidence chip on this row grades HOW MANY and nothing else; docs/LIBERTIES.md is where the positions are admitted, on the same terms as L31 for the North Branch."
+    },
+    "deck_kind": {
+      "value": "puncheon",
+      "confidence": "attested",
+      "sources": [
+        "old_settlers_bridges_1883"
+      ],
+      "note": "'On these stringers puncheons or split logs were laid for a floor.' Riven stock of uneven width, laid across the stringers flat face up, which is what the archetype builds when this value is puncheon rather than sawn plank. Nothing in this dataset carries plank."
+    },
+    "stringer_count": {
+      "value": 4,
+      "confidence": "inferred",
+      "sources": [
+        "old_settlers_bridges_1883"
+      ],
+      "note": "FOUR IS THE ARCHETYPE'S NUMBER; WHAT THE SOURCE GIVES IS THE LOAD. The 1883 statement calls both branch bridges WAGON bridges with stringers of heavy logs running abutment to bent and bent to bent, and the 18 August 1835 procession crossed this one. A deck carrying teams over three spans of 18.7 m needs more than the two stringers of a footway, so four under a full-width deck is the load-carrying reading — but the number itself is nobody's, and a source that said three or five would replace it without disturbing anything else on this record. The North Branch record reaches the same value by a harder route, because that crossing is described as a footway in 1833 and has to be argued forward to 1835; this one is described as a wagon bridge from the start."
+    },
+    "railing": {
+      "value": false,
+      "confidence": "inferred",
+      "sources": [
+        "old_settlers_bridges_1883"
+      ],
+      "note": "A STATED SEQUENCE WITHOUT A DATE IN IT. The 1883 statement says the branch bridges were 'about ten feet wide and without railings, for the first few years, after which guards, or railings, were added'. The scene date is two years and four months after this bridge was built, so 'the first few years' covers it on the most natural reading and the value is false — but it is a reading of a sequence rather than a measurement, and it is the kind of phrase that cannot settle a particular July on its own. If a date for the guards is ever found and it falls before July 1835, this attribute flips. What hangs on it is not decoration: a railed deck reads to a visitor as considered infrastructure and an unrailed one reads as a causeway of logs, so the difference is a claim about how developed the town was."
+    },
+    "function": {
+      "value": "river_crossing",
+      "confidence": "attested",
+      "sources": [
+        "chicagology_lastwardance",
+        "chicagology_prefire252"
+      ],
+      "note": "A public crossing, the town's second bridge, and the link between the West Division's West Water Street frontage and the South Division's Lake and Randolph blocks. It superseded Beaubien's rope-worked canoe ferry from the Point, which docs/research/03-structures-north.md has running across the same water in 1831."
+    }
+  },
+  "residents": [
+    {
+      "household": "hh_taylor_anson",
+      "name": "The Anson Taylor household",
+      "division": "south",
+      "relation": "worked here",
+      "why": "THIS IS A BUILT-BY LINK AND NOT A WORKPLACE, and the grade says so. Andreas credits the log bridge across the South Branch between Randolph and Lake to Anson H. Taylor and his brother in 1832; data/structures/south_branch_raft_bridge.json is this project's record of a crossing at that reach. Whether the raft bridge of 1835 is the same fabric as the log bridge of 1832 is a structures question this record does not settle.",
+      "sources": [
+        "andreas_1884_v1"
+      ],
+      "basis": "",
+      "persons": [
+        {
+          "name": "Anson H. Taylor",
+          "relationship": "head",
+          "grade": "attested",
+          "occupation": "carpenter",
+          "note": "THE MAN WHO BUILT THE ONLY BRIDGE TEAMS COULD CROSS. Andreas: the log bridge across the South Branch between Randolph and Lake 'was, prior to 1834, the only bridge across the river or its branches over which teams could pass', and its total cost was $486.20, 'of which sum the Pottawatomie Indians contributed $200'. That last clause is a documented fact about who paid for the town's first serious piece of infrastructure and it is recorded here because it belongs to the population question as much as to the bridge. THE FEDERAL LAND TRACT SALES — A PURCHASE, AND NEVER A RESIDENCE. The Illinois State Archives' Public Domain Land Tract Sales register enters this person 1 time, as “TAYLOR ANSON H”, 1835-06-08: 1 federal land entry — SW sec 30 T40N R14E, 160.00 acres stated in all, for $200.00 (ls0552). THE REGISTER'S OWN RESIDENCE COLUMN READS UNKNOWN on these rows: a county, a state or nothing, and never a town, which is why a purchase here places nobody. A purchase and nothing more. It dates and places a transaction; it proposes no residence, and under the ratified ladder it corroborates rather than mints. Identity by the crosswalk's own rule: TAYLOR ANSON H matches Anson H. Taylor: the forename names Anson H. Taylor of the 7 people of this surname, and the forename agrees in full. (data/research/land_sales/resident_crosswalk.json). This pass WRITES THE EVIDENCE AND MOVES NO GRADE. Under the ratified ladder (T-0513) a second independent source is what lifts a projected resident, and a land entry is a second source about a TRANSACTION rather than about who was living at Chicago on 1 July 1835 — a man may buy a quarter-section he never sees. T-0515 applies the ladder against every source at once; this pass hands it the evidence and not the verdict. THE SECOND PRESBYTERIAN ROLL — A NAME ON A CHURCH LIST THAT OPENS IN 1842, AND NEVER AN 1835 FACT. The 1892 printed membership roll of the Second Presbyterian Church of Chicago, read line by line into this repository, carries 1 line whose surname and given initial agree with this person's — “Taylor, Miss Anna M. | Letter, | January 29, 1890.” (second_presb_0325, printed page 172), admitted 1890-01-29 by letter. Under the rule that decided it: Surname 'Taylor' folds to the same string as the roll line's, and the given name of both begins A. WHAT THE MATCH MINTS OR REGRADES: “NOTHING. A line on a roll that opens in June 1842 cannot place a person in the town of July 1835, and this file makes no proposal that it does. What a match IS: the same surname and initial, in Chicago, within seven years — a lead for a later pass that is allowed to write people.” THE SAME ROLL LINE IS MET BY OTHER TOWNSPEOPLE OF THIS NAME: second_presb_0325 is matched under this same rule to Augustine Deodat Taylor (taylor_augustine), so it is met by two townspeople of this name, and it says which of them it was about no more than it says it was about this one — the test that decided it is a surname and a given initial agreeing, which cannot tell them apart. This pass WRITES THE EVIDENCE AND MOVES NO GRADE: under the ratified ladder (T-0513) the roll is handed to the card as a thing a reader may weigh, and the verdict stays with T-0515, which applies the ladder against every source at once."
+        },
+        {
+          "name": "Charles H. Taylor",
+          "relationship": "brother",
+          "grade": "attested",
+          "occupation": "carpenter",
+          "note": "ONE OF THE TWENTY-EIGHT ELECTORS OF 10 AUGUST 1833, listed by Andreas as 'Charles Taylor'. This project's wolf_point_tavern record has 'Charles and Mary Taylor' keeping that house from 1831 to 1833, which would make him a tavern keeper before he was anything else and gives him a named wife; the identification is not made here because the Taylor surname is carried by at least four distinct men in this parcel's sources and merging them on a forename would be exactly the error the Isaac Harmon case was avoided for. THE TOWN'S OWN ROLLS, 1833-1835 — CORROBORATION, NOT A GRADE. The early Chicago voter and tax lists held by the Illinois Regional Archives Depository name this person 3 times: Poll list of the first election of the Board of Trustees of the Town of Chicago, 10 August 1833 — “Taylor, Charles” (poll_1833_026, line 47); Election returns — poll list of 1834, filed 11 August 1834 — “Taylor, Charles” (poll_1834_106, line 275); Poll list of 1835 — “Taylor, Charles” (poll_1835_079, line 366). These are the town's own contemporary paper rather than a recollection of it, and each appearance says that a man of that name stood on that roll in that year — no more. The reading is twice mediated (Schulz's transcription, then Genealogy Trails' republication) and this project has not seen the IRAD originals. Under the ratified ladder (T-0513) the 1835 poll with a second independent source is attested, the 1835 poll alone or a 1833/1834 list with another source is inferred, and a single appearance with nothing else is a projected resident. This pass WRITES THE EVIDENCE AND MOVES NO GRADE — T-0515 applies the ladder against every source at once. Identity by the crosswalk's own rule: one resident of the surname 'Taylor' agrees with the entry's forenames; 3 bearer(s) of the surname were considered. (data/research/civic/voter_crosswalk.json). THE 1840 FEDERAL CENSUS — A HEAD FIVE YEARS AFTER THE SCENE, AND NEVER AN 1835 FACT. The 1840 federal census of Chicago, read line by line off the left sheets in this repository, carries 1 head of this name — “Chas Taylor” (33S7-9YYJ-JM, printed page 224, line 13). This project has ruled the head a MATCH for this person: the full name agrees, it is unique on both sides, and a discriminator independent of the name — directory persistence — separately places the same person in Chicago after the 1840 book was taken. Under the rule that decided it (L6 matched), by the crosswalk's own ladder (data/research/census_1840/resident_crosswalk.json). LATER EVIDENCE ONLY. The ratified grading ladder binds: an 1839 or 1840 appearance alone is never an 1835 resident, and 1840 household composition is never back-projected to the 1835-07-01 scene. This pass WRITES THE EVIDENCE AND MOVES NO GRADE. Under the ratified ladder (T-0513) a second independent source is what lifts a projected resident, and an 1840 head is a second source about CONTINUED RESIDENCE rather than about who was living at Chicago on 1 July 1835. T-0515 applies the ladder against every source at once; this pass hands it the evidence and not the verdict. THE SECOND PRESBYTERIAN ROLL — A NAME ON A CHURCH LIST THAT OPENS IN 1842, AND NEVER AN 1835 FACT. The 1892 printed membership roll of the Second Presbyterian Church of Chicago, read line by line into this repository, carries 1 line whose surname and given initial agree with this person's — “Taylor, Mrs. Charle's | Letter. | Januarys, 1843. | Dismissed.” (second_presb_0875, printed page 203), admitted 1843 by letter. Under the rule that decided it: Surname 'Taylor' folds to the same string as the roll line's, and the given name of both begins C. WHAT THE MATCH MINTS OR REGRADES: “NOTHING. A line on a roll that opens in June 1842 cannot place a person in the town of July 1835, and this file makes no proposal that it does. What a match IS: the same surname and initial, in Chicago, within seven years — a lead for a later pass that is allowed to write people.” THE LINE IS A MARRIED WOMAN'S ENTRY, and the crosswalk's own Mrs rule governs what it can have met: “a line flagged a_married_womans_entry that meets a MAN in the 1835 layer has met his name, not him: it corroborates that the name was a Chicago name in the 1840s and it does not put that man on this roll.” The match is filed rather than suppressed, because a suppressed match is invisible and a flagged one can be argued with. THE SAME ROLL LINE IS MET BY OTHER TOWNSPEOPLE OF THIS NAME: second_presb_0875 is matched under this same rule to Mrs. C. Taylor (taylor_c), so it is met by two townspeople of this name, and it says which of them it was about no more than it says it was about this one — the test that decided it is a surname and a given initial agreeing, which cannot tell them apart. This pass WRITES THE EVIDENCE AND MOVES NO GRADE: under the ratified ladder (T-0513) the roll is handed to the card as a thing a reader may weigh, and the verdict stays with T-0515, which applies the ladder against every source at once."
+        }
+      ],
+      "research_note": "THE TOWN'S BRIDGE-BUILDERS, AND A CAUTION ABOUT SURNAMES. This parcel's sources carry at least four Taylors - Anson H., Charles H., Augustine D. (a separate household here) and the 'Charles and Mary Taylor' who kept the Wolf Point tavern - plus a Mary Taylor among the First Presbyterian Church's nine founding villagers and an A. W. Taylor on the 1832 militia roll. NO TWO OF THEM ARE MERGED HERE. Merging on a surname is how a documented population quietly becomes a fictional one."
+    }
+  ],
+  "citations": [
+    {
+      "source_id": "andreas_1884_v1",
+      "citation": "Andreas, A. T. History of Chicago: From the Earliest Period to the Present Time. Vol. 1. Chicago: A. T. Andreas, 1884.",
+      "url": "https://archive.org/details/historyofchicago01andr",
+      "archived_url": "",
+      "tier": 3,
+      "tier_label": "compiled secondary (Andreas)"
+    },
+    {
+      "source_id": "chicagology_lastwardance",
+      "citation": "\"Chicago's Last Great War Dance.\" Chicagology, transcribing the Chicago Tribune of 14 August 1910, which prints John Dean Caton's written recollection of 18 August 1835, and, below it and unnamed, a first-person passage from an older book.",
+      "url": "https://chicagology.com/fortdearborn/lastwardance/",
+      "archived_url": "https://web.archive.org/web/20260517215531/https://chicagology.com/fortdearborn/lastwardance/",
+      "tier": 2,
+      "tier_label": "near-primary recollection",
+      "transcribes": [
+        {
+          "work": "Chicago Tribune, 'Chicago's Last Great War Dance' — printing the recollection of Judge John Dean Caton, who saw it in his youth and wrote it out in old age",
+          "date": "1910-08-14",
+          "tier": 2,
+          "note": "Carries the one thing this dataset takes: on 18 August 1835 the procession crossed the North Branch bridge on foot in a crowd, then went south along West Water Street past the Green Tree and Wolf's Point taverns to the log raft bridge over the South Branch. That is the bridge standing, the bridge loaded, and the route of two streets, six and a half weeks after the scene date — see data/structures/north_branch_bridge.json. An identified eyewitness's own words at seventy-five years' remove, printed by a newspaper that neither dates nor documents the writing: near-primary recollection, rung 2."
+        }
+      ],
+      "what_it_supplies": [
+        "the North Branch bridge standing and carrying a crowd on 18 August 1835",
+        "the raft bridge over the South Branch standing the same day, and its position relative to the Sauganash",
+        "the route west along the north bank and south along West Water Street past the Green Tree and Wolf's Point taverns"
+      ],
+      "what_it_does_not_supply": [
+        "any dimension, form or material of either bridge — Caton describes crossing them, not building them",
+        "a position for the North Branch bridge: the 'where the railroad bridge stands now' gloss is the 1910 newspaper's, not the witness's, and no placement here uses it",
+        "anything this project may depict of the event itself, which is under the AGENTS.md standing constraint"
+      ]
+    },
+    {
+      "source_id": "chicagology_prefire252",
+      "citation": "\"Chicago Ale & Malt Company.\" Chicagology, transcribing the Chicago Tribune, 29 October 1893 — a retrospective of Charles Cleaver (1814-1893), who reached Chicago 23 October 1833.",
+      "url": "https://chicagology.com/prefire/prefire252/",
+      "archived_url": "https://web.archive.org/web/20260511030941/https://chicagology.com/prefire/prefire252/",
+      "tier": 2,
+      "tier_label": "near-primary recollection"
+    },
+    {
+      "source_id": "old_settlers_bridges_1883",
+      "citation": "Statement on the first bridges over the branches of the Chicago River, agreed at a meeting of old settlers held late in the fall of 1883 and signed J. D. Caton, John Bates, Charles Cleaver and John Noble; presented to the editors by John Bates and printed as a footnote in Andreas, History of Chicago, vol. 1 (Chicago: A. T. Andreas, 1884), pp. 631-632.",
+      "url": "https://archive.org/details/historyofchicago01andr",
+      "archived_url": "",
+      "tier": 2,
+      "tier_label": "near-primary recollection"
+    },
+    {
+      "source_id": "osm_streets_2026",
+      "citation": "OpenStreetMap contributors. Street centerline intersection nodes for downtown Chicago, retrieved via the Overpass API, 2026-08-09.",
+      "url": "https://www.openstreetmap.org/",
+      "archived_url": "https://overpass-api.de/",
+      "tier": 4,
+      "tier_label": "later scholarship"
+    },
+    {
+      "source_id": "wright_1834",
+      "citation": "Wright, J. S. Chicago, drawn by J. S. Wright according to survey. New York: P. A. Mesier's Lith., 1834.",
+      "url": "https://collections.leventhalmap.org/search/commonwealth:js9577436",
+      "archived_url": "",
+      "tier": 1,
+      "tier_label": "period/eyewitness",
+      "what_it_supplies": [
+        "street geometry",
+        "block and lot subdivision",
+        "shoreline",
+        "river channel and the 1834 cut",
+        "survey-date colouring"
+      ],
+      "what_it_does_not_supply": [
+        "building footprints",
+        "building locations"
+      ]
+    }
+  ],
+  "research_note": "THE SECOND BRIDGE IN CHICAGO, AND THE RECORD EXISTS TO HOLD ONE CONFLICT OPEN RATHER THAN TO CLOSE IT. Every retelling this project has reached calls this crossing a FLOATING LOG RAFT. docs/research/03-structures-north.md section 5 gives it as 'Log floating raft bridge'; the account of 18 August 1835 has the procession reach 'the log raft bridge across the south branch'; the archetype module that builds the branch bridges said in its own docstring, until this record was written, that a raft is a different structure needing its own archetype and that pointing one at bridge_timber would be a false claim of solidity. AND THE ONLY SOURCE THAT DESCRIBES HOW EITHER BRANCH BRIDGE WAS PUT TOGETHER SAYS IT WAS NOT A RAFT. The statement Andreas prints at the foot of pp. 631-632, agreed at a meeting of old settlers late in the fall of 1883 and signed J. D. Caton, John Bates, Charles Cleaver and John Noble, is about BOTH bridges in every sentence: 'both bridges were built on abutments and two bents'; 'the bents were of four heavy logs, resting on the bottom, in deeper water'; 'these bridges were about ten feet wide'; 'these were BOTH wagon bridges, and were about six feet above the water, so that teams passed under them on the ice freely'. A floating raft has no abutments, no bents resting on the bottom, no six feet of air under it, and nothing passes beneath it on the ice. HOW THE DISAGREEMENT IS SETTLED, AND IT IS THE SAME RULE THE NORTH BRANCH RECORD USED TWICE. That record chose an eyewitness over a modern chronology table's type-word, was wrong, and was corrected when the footnote under the prose turned out to be the settlers' own word: the test it settled on is not who is more famous but who was in a position to know the thing being claimed, and joinery is what a man who drove a team over a structure knows. Four men who used these bridges describe fixed carpentry in writing. 'Raft' is what a phrase becomes when it is retold for sixty years, and it is a very good description of what a low log bridge on two bents LOOKS like from the bank. So the fixed reading is adopted, the name is kept — the structure id and the aka list both keep the word, because that is what the sources call it and a record that renamed it would make its own evidence unfindable — and the conflict is recorded here rather than resolved away. WHAT WOULD REVERSE IT: any source that puts a floating deck on the South Branch in the 1830s against the settlers' signatures, or a reading of the 1883 footnote showing the South Branch sentences are a later interpolation. The right response would be a raft_timber archetype, not a parameter on this one. TWO THINGS THIS RECORD SHARES WITH THE FIRST BRIDGE AND ONE IT DOES NOT. Shared: a measured span, 55.96 m between the traced 1834 waterlines, agreeing with the reach's own drafted mean to 1.3 m; and a deck that arrives nowhere, because no source describes the approach at either end. Not shared: the 1883 statement calls both bridges wagon bridges from the start, so this record needs none of the argument the North Branch record has to make about a footway that somehow carried hundreds of people by 1835. WHAT IS STILL UNSETTLED IS WHERE ALONG THE RIVER IT STOOD. The sources give a band, not a point — 'between Lake and Randolph', 'just north of the present Randolph street bridge', 'near Lake Street' — and the South Branch narrows from 74 m to 47 m across that band, so the station is worth more to this record than another decimal place on the georeference. docs/ROADMAP.md names the Conley/Stelzer 1933 reconstruction as the sheet that draws the bridges in place, at tier 5 and therefore able to carry a position to inferred; it has not been read at this crossing's pixel by this parcel, and it is the first thing to try.",
+  "research_doc": "docs/RESEARCH/south_branch_raft_bridge.md",
+  "review_required": false
+}

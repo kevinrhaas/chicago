@@ -1,0 +1,39 @@
+id: hh-porter-autobiography
+title: "H. H. Porter: A Short Autobiography, Written for His Children and Grandchildren"
+creator: H. H. Porter
+date: 1915
+description: >
+  Privately-printed 1915 autobiography, scanned from Kansas City Public
+  Library (same digitization pipeline as Kirkland's Story of Chicago).
+  Used as a source in the Chicago 1830s research corpus.
+redistribution_status: public
+copyright_status: public-domain
+internet_archive:
+  item: chicago1835-hh-porter-autobiography
+  url: https://archive.org/details/chicago1835-hh-porter-autobiography
+files:
+  - name: 4582673.pdf
+    bytes: 65888855
+    sha256: cc884a721b7390aeb717753d19fa7143af8b2a09044db37e8f3a606d763030dc
+    held: local_archive
+  # The scan is offloaded; these two are the Internet Archive's own OCR of it, held
+  # HERE so that the reading can be re-checked by someone who does not have the PDF.
+  # Derived text, never a scan or a render. Added by T-0502, 2026-09-05.
+  - name: 4582673_hocr_searchtext
+    bytes: 74183
+    sha256: b04691bd6e58a802f74e1fecf1716ca0b473a93e9ebd5f4cf3031ed3cd55472f
+    held: repository
+    note: >
+      hOCR search text, gunzipped from 4582673_hocr_searchtext.txt.gz and committed
+      byte for byte. Copied verbatim to
+      chicago/4d/data/research/books/text/porter_hh_short_autobiography_1915.txt,
+      which is what every claim's quote is rebuilt from.
+  - name: 4582673_hocr_pageindex.json
+    bytes: 2226
+    sha256: e68f218b084a056f3398e0e1dac4ffc6d4f6cf1d322c7d978107a4f8b66201c5
+    held: repository
+    note: >
+      The hOCR page index emitted with that text: each leaf's exact character range
+      in it. tools/build_book_page_index.py --build reads it and refuses to write a
+      page index unless the seventy ranges tile the text with no gap and no overlap.
+local_archive_path: projects/archive/data/chicago/reference/hh-porter-a-short-autobiography/

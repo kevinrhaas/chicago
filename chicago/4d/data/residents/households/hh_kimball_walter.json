@@ -1,0 +1,203 @@
+{
+ "id": "hh_kimball_walter",
+ "name": "The Kimball household",
+ "division": "south",
+ "head": "kimball_walter",
+ "arrival": {
+  "value": "1833-11-26",
+  "confidence": "attested",
+  "sources": [
+   "chicago_democrat_1833_11_26"
+  ],
+  "note": "Not_later_than precision on the issue date. A 'New Store' implies a recent opening and dates nothing.",
+  "precision": "not_later_than"
+ },
+ "party_size_on_arrival": {
+  "value": null,
+  "confidence": "reconstructed",
+  "note": "Not attested in anything this project holds."
+ },
+ "origin": {
+  "value": null,
+  "confidence": "reconstructed",
+  "note": "Not attested in anything this project holds."
+ },
+ "reason_for_coming": {
+  "value": null,
+  "confidence": "reconstructed",
+  "note": "Not attested in anything this project holds."
+ },
+ "lives_at": {
+  "value": null,
+  "confidence": "reconstructed",
+  "note": "Not attested in anything this project holds."
+ },
+ "works_at": {
+  "value": "chicago_democrat_office",
+  "confidence": "inferred",
+  "sources": [
+   "chicago_democrat_1833_11_26"
+  ],
+  "note": "data/structures/chicago_democrat_office.json is recorded as a printing office AND a store on exactly this reading: the paper's imprint and Kimball's advertisement put both at the corner of South Water and Clark in the same issue. Inferred rather than documented because 'on the corner of' names a junction and not a building, and two businesses at one junction need not share one roof."
+ },
+ "present_on_scene_date": {
+  "value": "uncertain",
+  "confidence": "inferred",
+  "sources": [
+   "andreas_1884_v1",
+   "chicago_democrat_1833_11_26"
+  ],
+  "note": "Documented at the junction in November 1833; a W. Kimball is a town trustee in July 1835 and may or may not be the same man."
+ },
+ "persons": [
+  {
+   "id": "kimball_walter",
+   "name": "W. Kimball",
+   "relationship": "head",
+   "grade": "attested",
+   "ladder_rule": "G1b",
+   "sex": "male",
+   "occupation": {
+    "value": "none_recorded",
+    "confidence": "reconstructed",
+    "later_occupation": {
+     "value": "probate judge, cor. Clark and",
+     "describes_date": 1839,
+     "confidence": "attested",
+     "sources": [
+      "fergus_chicago_directory_1839"
+     ],
+     "note": "NONE RECORDED FOR 1835 — AND A TRADE IS RECORDED FOR 1839. This is a POINTER at `directories.people[].occupation_later` on this same record, derived by `tools/qualify_later_trades.py` and holding nothing that block does not already say. It is not a claim about the scene date: the 1835 occupation above still reads `none_recorded`, its grade has not moved, and no premises has been sought on the strength of it, because a directory of 1839 is evidence about 1839. It is written because the field a reader consults was asserting an absence this file contradicts three lines further down, and \"no trade anywhere\" and \"no trade in the scene window, one printed 1839\" are not the same fact (T-0693)."
+    },
+    "sources": [
+     "chicago_democrat_1833_11_26"
+    ],
+    "note": "NO TRADE IS RECORDED FOR 1835-07-01, AND ONE IS RECORDED FOR ANOTHER YEAR. The trade this field used to carry — `dry_goods_merchant` — is not gone: it stands in `roles[]` with the bound its sources permit, and `withdrawn_from_scene_date` above carries the audit's verdict for withdrawing it. The 1835 field asserts what the sources reach, which here is nothing, because no source cited for the trade describes 1835 (T-0837's write rule, T-0872's measurement, T-0991's repair, made by tools/derive_resident_roles.py).",
+    "withdrawn_from_scene_date": {
+     "value": "dry_goods_merchant",
+     "confidence": "attested",
+     "verdict": "pre_scene_printing",
+     "ticket": "T-0991",
+     "note": "His own signed 'New Store' advertisement, Chicago Democrat, 26 November 1833. The corpus last prints the store at the issue of 4 June 1834 (business_w_kimball); the paper's later readings of the man give `grocer`, to 3 December 1834. Nothing inside the window."
+    },
+    "derived_from": "roles",
+    "roles_at_scene_date": []
+   },
+   "sources": [
+    "andreas_1884_v1",
+    "chicago_democrat_1833_11_26",
+    "chicago_tribune_1882_05_19_fourth_reception",
+    "calumet_club_early_chicago_1879",
+    "fergus_chicago_directory_1839",
+    "isa_public_domain_land_tract_sales"
+   ],
+   "note": "A SECOND, INDEPENDENTLY ATTESTED OCCUPANT OF THE DEMOCRAT'S OWN JUNCTION in the same issue of the same paper - which is why this project reads the printing office and the new store as sharing a building. Andreas's 1835 town officers list has a 'W. Kimball' among the nine trustees elected at the third town election of July 1835, and if that is this man he holds office on or about the scene date. THE IDENTIFICATION IS NOT MADE HERE: the surname is common in this record, and this project already keeps a separate Kimball (Dr E. S. Kimberly's partner is Pruyne, but a druggist 'Kimball & Porter' occupied the same corner later, and Andreas spells both Kimball and Kimberly loosely). The Chicago Democrat of 26 November 1833 is the only contemporary Chicago document this project holds; an advertiser in it was paying to be found, which makes it strong evidence of existence and address in November 1833 and weak evidence of survival to 1 July 1835, nineteen months and about 2,400 people later. OLD SETTLERS, 1882 — CORROBORATION, NOT A NEW FACT ABOUT 1835. The Calumet Club's fourth annual reception to the settlers of Chicago prior to 1840, held 18 May 1882, printed this man among the guests present as “Kimball, Walter, 291 Oak street, Chicago.” (Chicago Tribune, 19 May 1882). The club's criterion was residence in Chicago before 1 January 1840 and majority by then: the roster therefore corroborates a pre-1840 Chicago residence and says he was alive in 1882. It gives NO year of arrival, and the address it prints is where he lived in 1882, forty-seven years after the scene date — it is not an 1835 residence and is not read as one. Under the ratified ladder (T-0513) a later recollection corroborates, enriches and dates and cannot lift a rung by itself, so this record's GRADE IS UNCHANGED by it: T-0513 consolidates the identity and T-0515 regrades. Identity by rule OS2A — one bearer of the surname, the forename initial agrees, and the resident's own record spells the roster's forename 'walter' — the discriminator the roster's initials do not supply (data/research/old_settlers/crosswalk.json). OLD SETTLERS, 1879 — A DATE THIS MAN GAVE FOR HIMSELF, AND STILL NOT A FACT ABOUT 1835. The Calumet Club's FIRST reception to the settlers of Chicago prior to 1840, 27 May 1879, printed its register in the proceedings (Early Chicago, Chicago, 1879, pages 84-90), and this man's entry reads “Kimball, Walter, | 1833, Sept. | Rome, N.Y. | 69 | Chicago.” — name, his own date of arrival, his birthplace, his age and his 1879 post-office address, in the register's five columns. The date of arrival is HIS RECOLLECTION, set down forty to sixty years after the event; the address is where he lived in 1879 and is never read as an 1835 residence. Under the ratified ladder (T-0513) a later recollection corroborates, enriches and dates and cannot lift a rung by itself, so this record's GRADE IS UNCHANGED by it: T-0513 consolidates the identity and T-0515 regrades. Identity by rule OS2A — one bearer of the surname, the forename initial agrees, and the resident's own record spells the roster's forename 'walter' — the discriminator the roster's initials do not supply (data/research/old_settlers/crosswalk.json). FERGUS 1839'S FORT DEARBORN ADDITION LOT SALE — JUNE 1839 EVIDENCE, NEVER AN 1835 FACT. This person bid at the sale of the Fort Dearborn Addition, 10-24 June 1839, printed in Fergus' Chicago Directory for 1839 at pages 47-49. The bidder is printed as “Walter Kimball”. 2 lot rows, $1,050 in all: block 7 lot 1 at $600 (f1839_lot0081, printed page 48); block 7 lot 2 at $450 (f1839_lot0082, printed page 48). The sale table's own shorthand, recorded and not flattened: 1 of those rows prints the bidder as a ditto mark under the name above rather than the name itself; 1 carries the block number forward from the last row that printed one. What a match may carry, and it is short: that the man was in Chicago between the 10th and the 24th of June 1839 and bid at the Fort Dearborn Addition sale. It is written as 1839 evidence with describes_date 1839-06, never as an 1835 fact, and the person's grade does not move on this alone. Under the ratified ladder a second contemporary source is what lifts projected_resident, and a land sale four years after the scene date is a second source about CONTINUED RESIDENCE, not about July 1835. THE LOT IS NOT A LOCATION FOR 1835: the Fort Dearborn Addition is the Beaubien, or Reservation, lands, which in July 1835 were the garrison's ground and were not platted into lots at all. It places no house, no shop and no household in the town this project builds. No trade, no address in the town of 1835, no household and no house. The block and lot are the only location on the page, they are ground platted in 1839 out of the garrison's reservation, and they place nobody in the town of 1835. Identity by the crosswalk's own rule: Surname 'Kimball' folds to the same string as the bidder's, and the given name of both begins W. (data/research/directories/fergus_1839_lots_crosswalk_1835.json). This pass WRITES THE EVIDENCE AND MOVES NO GRADE. Under the ratified ladder (T-0513) a second independent source is what lifts a projected resident, and a lot sale four years after the scene date is a second source about CONTINUED RESIDENCE rather than about July 1835. T-0515 applies the ladder against every source at once; this pass hands it the evidence and not the verdict. THE FEDERAL LAND TRACT SALES — A PURCHASE, AND NEVER A RESIDENCE. The Illinois State Archives' Public Domain Land Tract Sales register enters this person 1 time, as “KIMBALL WALTER”, 1833-10-25: 1 parcel of the school section — lot 2 of block 49 of the school section (sec 16 T39N R14E), 0.00 acres stated in all, for $88.00 (ls0262). THE REGISTER'S OWN RESIDENCE COLUMN READS UNKNOWN on these rows: a county, a state or nothing, and never a town, which is why a purchase here places nobody. THE SCHOOL-SECTION ROWS ARE GROUND INSIDE THE TOWN, NOT FARMLAND: section 16 of T39N R14E was platted and sold off by lot and by block at the sale of 1833, which is why the register states 0000.00 acres against most of them. Ground inside the town is nearer to this reconstruction than a quarter-section is, and it is still a purchase: the register names a purchaser and never an occupant, and nothing here puts this person on that ground. A purchase and nothing more. It dates and places a transaction; it proposes no residence, and under the ratified ladder it corroborates rather than mints. Identity by the crosswalk's own rule: KIMBALL WALTER matches W. Kimball: the forename names W. Kimball of the 1 person of this surname, and the forename agrees as an initial only. (data/research/land_sales/resident_crosswalk.json). This pass WRITES THE EVIDENCE AND MOVES NO GRADE. Under the ratified ladder (T-0513) a second independent source is what lifts a projected resident, and a land entry is a second source about a TRANSACTION rather than about who was living at Chicago on 1 July 1835 — a man may buy a quarter-section he never sees. T-0515 applies the ladder against every source at once; this pass hands it the evidence and not the verdict.",
+   "resident_research": {
+    "programme": "resident-research-2026",
+    "ticket": "T-0479",
+    "outcome": "corroborated_enrichment",
+    "reviewed_on": "2026-09-02",
+    "asserted_identity": true,
+    "evidence_for": "The project's 26 November 1833 Chicago Democrat source records W. Kimball's New Store at the South Water/Clark junction. The unusual initial-plus-surname form matches the resident record and strengthens the merchant identity, but does not safely expand the initial or prove scene-date occupancy.",
+    "summary": "The project's 26 November 1833 Chicago Democrat source records W. Kimball's New Store at the South Water/Clark junction. The unusual initial-plus-surname form matches the resident record and strengthens the merchant identity, but does not safely expand the initial or prove scene-date occupancy.",
+    "notes": "The project's 26 November 1833 Chicago Democrat source records W. Kimball's New Store at the South Water/Clark junction. The unusual initial-plus-surname form matches the resident record and strengthens the merchant identity, but does not safely expand the initial or prove scene-date occupancy.",
+    "source_ids": [
+     "chicago_democrat_1833_11_26"
+    ]
+   },
+   "roles": [
+    {
+     "role": "dry_goods_merchant",
+     "kind": "trade",
+     "as_printed": null,
+     "from": "1833-11",
+     "to": "1833-11",
+     "precision": "month",
+     "dated_by": "source_describes_date",
+     "covers_scene_date": false,
+     "confidence": "attested",
+     "sources": [
+      "chicago_democrat_1833_11_26"
+     ],
+     "claim": null,
+     "note": "A DATED ROLE THAT DOES NOT REACH THE SCENE DATE (T-0991, withdrawn from the 1835 field by tools/derive_resident_roles.py). No source cited for this trade describes 1835, so it is retained here with the bound its evidence permits and the 1835 compatibility view reads `none_recorded` instead. tools/audit_scene_window_trades.py's verdict is `pre_scene_printing`: His own signed 'New Store' advertisement, Chicago Democrat, 26 November 1833. The corpus last prints the store at the issue of 4 June 1834 (business_w_kimball); the paper's later readings of the man give `grocer`, to 3 December 1834. Nothing inside the window."
+    },
+    {
+     "role": null,
+     "kind": "trade",
+     "as_printed": "probate judge, cor. Clark and",
+     "from": "1839",
+     "to": "1839",
+     "precision": "year",
+     "dated_by": "printing_year",
+     "covers_scene_date": false,
+     "confidence": "attested",
+     "sources": [
+      "fergus_chicago_directory_1839"
+     ],
+     "claim": null,
+     "note": "A TRADE PRINTED AGAINST THIS NAME IN A LATER VOLUME, and this row says which year rather than leaving it to a pointer (T-0693, carried here by tools/derive_resident_roles.py). `role` is null because the directory's wording has not been adjudicated into the closed vocabulary — the printing is what the source gives and the printing is what is kept. T-1254 is where the controlled term is ruled on. It is not a claim about 1835-07-01 and never becomes one: the year is 1839."
+    }
+   ],
+   "merge_ruling": [
+    {
+     "ticket": "T-1291",
+     "verdict": "distinct",
+     "rule": "D10",
+     "cluster": "kimbal-kimball",
+     "weighed_against": [
+      "kimbal_wm"
+     ],
+     "for_merge": "A doubled terminal l, and the Kimball card is an anchor with a workplace — W. Kimball of the Democrat's own junction, in the paper of 26 November and 10 December 1833, in Andreas's 1835 town officers list, and in Fergus 1843 as 'Kimball, Walter'. 'Wm.' and 'W.' agree at the initial. 'Kimbal' is set nowhere in the deposited corpus.",
+     "against_merge": "WM. IS NOT WALTER. The anchor's forename is printed whole — Walter — by Fergus 1843, and the 1840 census sets him 'W. R. Kimball' with a middle initial R the other card does not carry; the letter-list card is printed 'Wm. Kimbal', which is William written short. Two different given names that happen to share an initial is D10's shape, not C9's, and the fold would rename a documented man. The two readings besides never touch: a post-office return of 9 July 1834 (#c012) against a newspaper, a directory and a census. D10."
+    }
+   ]
+  }
+ ],
+ "touches_removal": false,
+ "review_required": false,
+ "research_note": "THE ADVERTISEMENT THAT SHAPED A STRUCTURE RECORD, now written from the population side. This household exists mainly to make the reasoning behind chicago_democrat_office visible as a person rather than as a paragraph: two named businesses, one junction, one building in the model, one inference holding them together.",
+ "directories": {
+  "note": "LATER EVIDENCE, BESIDE THE 1835 CLAIMS AND NOT INSIDE THEM. A Chicago directory of 1839, 1843 or 1844 meets somebody of this name and this pass records what it prints. Under the ratified ladder a directory read after 1835 can corroborate that a person attested here was still in Chicago and can print a trade or a street the 1835 record never had; on its own it makes nobody a resident of 1835. Nothing on this person's 1835 record was regraded, moved, dated or given an occupation by this entry. WHAT THIS PASS RULED ONTO THIS HOUSEHOLD, named so the ruling can be found again: each volume below is followed by the printed entries it set against this person and the status the crosswalk ruled them at — a single entry carries what its own `could_carry` declares, and an ambiguous or contested match carries nothing and is shown so that the silence is legible. kimball_walter, Fergus's Chicago directory of 1839 — f1839_e0849 (a single entry); kimball_walter, Fergus's Chicago directory of 1843 — f1843_e1486 (a single entry).",
+  "sources": [
+   "fergus_chicago_directory_1839",
+   "fergus_chicago_directory_1843"
+  ],
+  "people": [
+   {
+    "person_id": "kimball_walter",
+    "occupation_later": {
+     "value": "probate judge, cor. Clark and",
+     "confidence": "attested",
+     "describes_date": 1839,
+     "sources": [
+      "fergus_chicago_directory_1839"
+     ],
+     "note": "Fergus's Chicago directory of 1839 prints this trade against this person, in the entry quoted on the card: 'Kimball, Walter, probate judge, cor. Clark and South Water st'. It is evidence about 1839, written here as 1839's and read back onto no 1835 claim. Under the ratified ladder a directory read after 1835 can corroborate that a person attested here was still in Chicago and can print a trade or a street the 1835 record never had; on its own it makes nobody a resident of 1835. Nothing on this person's 1835 record was regraded, moved, dated or given an occupation by this entry. The value is the volume's own line, split by its crosswalk on the entry's punctuation. These volumes set the trade first and its qualifiers after it on the same line, so the split may carry an employer, a market or a corner along with the trade. The printed entry is quoted beside the value for exactly that reason: the split is checkable against it, and neither is read into an 1835 claim."
+    },
+    "address_later": {
+     "value": "South Water st",
+     "confidence": "attested",
+     "describes_date": 1839,
+     "sources": [
+      "fergus_chicago_directory_1839"
+     ],
+     "note": "Fergus's Chicago directory of 1839 prints this address against this person, in the entry quoted on the card: 'Kimball, Walter, probate judge, cor. Clark and South Water st'. It is evidence about 1839, written here as 1839's and read back onto no 1835 claim. Under the ratified ladder a directory read after 1835 can corroborate that a person attested here was still in Chicago and can print a trade or a street the 1835 record never had; on its own it makes nobody a resident of 1835. Nothing on this person's 1835 record was regraded, moved, dated or given an occupation by this entry. The value is the volume's own line, split by its crosswalk on the entry's punctuation. These volumes set the trade first and its qualifiers after it on the same line, so the split may carry an employer, a market or a corner along with the trade. The printed entry is quoted beside the value for exactly that reason: the split is checkable against it, and neither is read into an 1835 claim."
+    },
+    "back_projection": {
+     "outcome": "already_better_placed",
+     "clause": "2",
+     "value": null,
+     "describes_date": 1839,
+     "read_back_years": 4,
+     "placement": null,
+     "position_local_enu_m": null,
+     "sources": [
+      "fergus_chicago_directory_1839"
+     ],
+     "note": "NOT READ BACK, BECAUSE SOMETHING BETTER ALREADY STANDS. Fergus's Chicago directory of 1839 prints an address against this name in 1839, and it is left where it is. An 1835 placement already stands: this household works at `chicago_democrat_office`, and clause 2 says an attested 1835 placement always beats a door printed 4 years later. The later address stays on the record as 1839's evidence and moves nothing."
+    }
+   }
+  ]
+ }
+}

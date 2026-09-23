@@ -1,0 +1,449 @@
+{
+  "schema": 1,
+  "issue_id": "chicago_democrat_1834_04_30",
+  "extracted": "2026-08-28",
+  "extracted_by": "hand, T-0313 — the Democrat read, April 1834",
+  "note": "Vol. I No. 22, the last of the month. Its town matter is the death of Richard J. Hamilton's wife in this town on the 22d, the lines the INFANT SCHOOL children spoke at a funeral — the first sighting of a school of that kind in this corpus — and a public entertainment whose ticket agents name SIX Chicago houses in one line, which is the densest single sentence of commercial geography April prints. Thirteen of thirty-two segmenter columns are the fallback reading and page 4's eight all are, so everything here is from pages 2 and 3. The Hennepin letter list runs for its third week and is recorded, not minted.",
+  "claims": [
+    {
+      "id": "c001",
+      "kind": "event",
+      "reading": "transcription_mediated",
+      "normalized": "D[IED, in] th[i]s town, on the 22d [in]st. Mrs. Dia[n]a [—], wi[f]e of Richard [J.] H[a]milton, Esq[., in the — ] year of her age, leaving an infa[nt of about] one week old. [By] this afflicting dispensation, a tender hu[sba]nd is le[f]t a bereaved and a widowed paren[t …] […] The deceased had been [for so]me [y]ears a member of the Methodist Church",
+      "locator": {
+        "artifact_role": "primary",
+        "issue_page": 3,
+        "column": 1,
+        "lines": [
+          2764,
+          2795
+        ],
+        "interleaved": true,
+        "lines_of_claim": [
+          2764,
+          2765,
+          2766,
+          2767,
+          2768,
+          2769,
+          2770,
+          2794,
+          2795
+        ]
+      },
+      "entities": [
+        {
+          "as_printed": "vos, wile of Richard £ Hanvilton, Ess",
+          "normalized": "Mrs. Diana Hamilton",
+          "role": "died in this town, 22 April 1834, leaving an infant one week old",
+          "associated_places": [
+            "Chicago"
+          ]
+        },
+        {
+          "as_printed": "Richard £ Hanvilton, Ess",
+          "normalized": "Richard J. Hamilton",
+          "role": "husband of the deceased; Clerk of the Cook Circuit Court",
+          "occupations": [
+            "clerk of court"
+          ],
+          "associated_places": [
+            "Chicago"
+          ]
+        }
+      ],
+      "notes": "THE SAME MAN'S NAME IN TWO REGISTERS OF ONE MONTH: Richard J. Hamilton signs every attachment and divorce notice on the 1834-04-16 court page as Clerk of the Cook Circuit Court, and here his wife's death is announced ten days before he must sit at the May term. That pairing is why a gazetteer is worth compiling. HER OWN NAME IS NOT FULLY READ: line 2765 gives `Mrs, Diasa V` and 2766 opens `vos,`, so the given name is Diana and what follows it — a maiden name or a second given name — is debris. It is NOT supplied: she is minted as Mrs. Diana Hamilton, under her husband's surname, and the bracket says the middle of the name is missing. Her age is cut away with the words `year of her age` left standing. A METHODIST CONGREGATION IS IMPLIED: `a member of the Methodist Church` for some years puts a Methodist society in or near this town before April 1834, which is a claim about the town's religious fabric and not only about her.",
+      "quote": "Dir,\nthie town, on the 22d gust. Mrs, Diasa V\nvos, wile of Richard £ Hanvilton, Ess\nyear of her age, Jeaying an inta\nid one week old,\nthis afflicting dispensation, a tender hu\nnul is leit a beresved and a widowed paren\nANnK associations, The deceased had bee\nne Jeers a member of the Methodist Churel"
+    },
+    {
+      "id": "c002",
+      "kind": "building",
+      "reading": "transcription_mediated",
+      "normalized": "FOR THE CHICAGO DEMOCRAT. [Lines addressed to — ] [uncertain: jdrewned Tibet Beh 1 children,] [spoken] by the Infant [Sch]ool children, [Miss? — ] Tallon, at the funeral of her mother",
+      "locator": {
+        "artifact_role": "primary",
+        "issue_page": 3,
+        "column": 1,
+        "lines": [
+          2727,
+          2730
+        ],
+        "interleaved": true
+      },
+      "entities": [],
+      "notes": "AN INFANT SCHOOL IN CHICAGO, and it is the first time one appears in this corpus. The words are four lines of a heading over a set of funeral verses `FOR THE CHICAGO DEMOCRAT`, and what they carry is institutional: an infant school with enough children in it to speak at a funeral, in April 1834, in a town whose only other documented schooling in this corpus is School District No. 2's trustee election in a Baptist meeting house (T-0310, January 1834). NO BUILDING IS PLACED — an infant school is a class as often as it is a house, and nothing here says where it met. Whose funeral it was is NOT asserted: the death of Mrs. Hamilton is printed thirty lines below in this same column and the dates fit, but the heading names a `Tallon` and the notice names a Hamilton, and joining them would be an invention. The name in line 2728 is transcription debris and is quoted with its brackets.",
+      "quote": "FOR THE CHICAGO DEMOCRAT.\njdrewned Tibet Beh 1 children,\nds by the Infant ool children,\nor Tallon, at the funeral of her mother"
+    },
+    {
+      "id": "c003",
+      "kind": "event",
+      "reading": "transcription_mediated",
+      "normalized": "[uncertain: Tickets of admision 25 cents] [— to be had at In]gersoll's tavern, Hogan's, Pa[…], [K]imberly's, Dole's and Wright['s …] [uncertain: y star un hepromis] [uncertain: are 2 ?etc?] [uncertain: R. E. 1] [uncertain: Chicago, 4pril 29, 1834]",
+      "locator": {
+        "artifact_role": "primary",
+        "issue_page": 3,
+        "column": 2,
+        "lines": [
+          2893,
+          2899
+        ],
+        "interleaved": true
+      },
+      "entities": [],
+      "notes": "SIX CHICAGO HOUSES IN ONE LINE, and it is the densest sentence of commercial geography the month prints: tickets at Ingersoll's tavern, at Hogan's, at Pa[…]'s, at Kimberly's, at Dole's and at Wright's. Every one of those is a place a stranger could be expected to find without an address, which is what a ticket agency list is evidence OF — these were the town's public counters in April 1834. Four are corroborated elsewhere in this corpus: J. S. C. Hogan the postmaster keeps a store, Dole is the Dole of Newberry & Dole, John Wright advertises flour and bread through the month, and E. S. Kimberly is the month's candidate for the legislature. INGERSOLL'S TAVERN IS NEW HERE. The fifth name is cut to `Pa` and is not guessed at, and NO PERSON IS MINTED from this claim at all: these are possessives naming houses, the surnames are cut on both sides, and the transcription flags every line `[uncertain: …]`. What the event was is on the lines above, which the segmenter did not keep. The signature survives as `R. E. 1` and the dateline as Chicago, 29 April 1834.",
+      "quote": "[uncertain: Tickets of admision 25 cents]\n[uncertain: agersoll', tavero, Hogan's, Pa]\n[uncertain: Imberly'+, Dole's and Wright]\n[uncertain: y star un hepromis]\n[uncertain: are 2 ?etc?]\n[uncertain: R. E. 1]\n[uncertain: Chicago, 4pril 29, 1834]"
+    },
+    {
+      "id": "c004",
+      "kind": "building",
+      "reading": "transcription_mediated",
+      "normalized": "Wanted to rent a Store for the [—] [—]ts.— in a central part of the town.",
+      "locator": {
+        "artifact_role": "primary",
+        "issue_page": 3,
+        "column": 2,
+        "lines": [
+          2883,
+          2884
+        ],
+        "interleaved": true
+      },
+      "entities": [],
+      "notes": "Two lines, and they are worth extracting because of what they take for granted: that by April 1834 this town HAD a central part, distinct enough that an advertiser could ask for premises in it without naming a street. It is the demand side of the same fact the 1834-04-16 to-let notice records from the supply side. Nothing is placed: `a central part of the town` is not an address, and no street is supplied for it.",
+      "quote": "Wanted to rent a Store for the\nts.— in a central part of the town."
+    },
+    {
+      "id": "c005",
+      "kind": "business",
+      "reading": "transcription_mediated",
+      "normalized": "Iron and Store[s.] [CORNER OF DEARB]ORN AND LAKE-STREETS. […] [thankfully] receiv[ed …] J. K. BOTSFORD […] [cor]ner of Dearborn and [L]ake-sts.",
+      "locator": {
+        "artifact_role": "primary",
+        "issue_page": 3,
+        "column": 4,
+        "lines": [
+          3135,
+          3147
+        ],
+        "interleaved": true,
+        "lines_of_claim": [
+          3135,
+          3136,
+          3138,
+          3139,
+          3147
+        ]
+      },
+      "entities": [
+        {
+          "as_printed": "J. K. BOTSFORD",
+          "normalized": "J. K. Botsford",
+          "role": "proprietor",
+          "occupations": [
+            "grocer",
+            "tinsmith",
+            "ironmonger"
+          ],
+          "associated_places": [
+            "Chicago",
+            "Dearborn Street",
+            "Lake Street"
+          ]
+        }
+      ],
+      "business": {
+        "name": "J. K. Botsford",
+        "proprietors": [
+          "J. K. Botsford"
+        ],
+        "trade": "grocer and dealer in hardware, tin ware and stoves",
+        "goods": [
+          "Iron",
+          "Stoves"
+        ],
+        "street": "Lake Street",
+        "placement": {
+          "class": "corner",
+          "anchor": "corner of Dearborn and Lake-sts.",
+          "offset_text": "ner of Dearborn and Take-sts.",
+          "offset_normalized": "[cor]ner of Dearborn and [L]ake-sts.",
+          "street": "Lake Street"
+        }
+      },
+      "notes": "THE FIFTH AND SIXTH READINGS OF THE SAME CORNER, in the last issue of the month, and the full form of the name — `J. K. BOTSFORD` — survives here where the 1834-04-01 printing had only `K. BOTSFORD`. The trade has moved again: tin ware by express from Detroit on the 1st, groceries and clover seed on the 23rd, iron and stoves on the 30th. That is one house widening its stock as the navigation season opened, documented four times in four weeks, and it is the best-evidenced storefront April 1834 gives this project.",
+      "quote": "Iron and Store\nKROEN AND LAKE-STREETS.\nthankfilly receiv\nJ. K. BOTSFORD\nner of Dearborn and Take-sts."
+    },
+    {
+      "id": "c006",
+      "kind": "business",
+      "reading": "transcription_mediated",
+      "normalized": "[JOHN H. KINZIE,] Forwarding & Com[mission] MERCHA[NT,] [CHIC]A[G]O[.] Age[n]t for the Troy & [Erie Line.] [R.] PUTNAM, New-[Y]ork; G[r]i[ffi]t[h]s, Brothers & Son[s]; [TOWN]SEND & CO[I]T[, Buffalo …] [H]IS WARE HOUSE, opposite to t[he Fort.] April 14, 1834.",
+      "locator": {
+        "artifact_role": "primary",
+        "issue_page": 3,
+        "column": 2,
+        "lines": [
+          2912,
+          2920
+        ],
+        "interleaved": true
+      },
+      "entities": [],
+      "business": {
+        "name": "John H. Kinzie",
+        "proprietors": [],
+        "trade": "forwarding and commission merchant",
+        "goods": [],
+        "street": null,
+        "placement": {
+          "class": "relative",
+          "anchor": "opposite to the Fort",
+          "offset_text": "[uncertain: ES WY ATR Elousk, opposite to t]",
+          "offset_normalized": "[h]is Ware House, opposite to t[he Fort]",
+          "street": null
+        }
+      },
+      "notes": "The second printing of the placement that matters most in this month: the warehouse stands OPPOSITE THE FORT. The two readings are a fortnight apart and independent of one another as OCR — 1834-04-16 gives `opposite to Fort` and this gives `opposite to t`, and both come from the same standing copy dated 14 April 1834 — so the anchor is not one machine's guess. The proprietor's name is cut off the head of the advertisement here and is not minted from this quote; the 1834-04-16 claim carries it. The transcription flags nearly every line of this column `[uncertain: …]` and the brackets are quoted as they stand.",
+      "quote": "[uncertain: Forwarding os Com]\n[uncertain: MERCHA]\n[uncertain: OURAGO]\n[uncertain: Ageut for the Troy '&:]\n[uncertain: PETNAM, New-Fork]\n[uncertain: Gairrrra, BRoturas & Soss,]\n[uncertain: JORNSEND & COrT]\n[uncertain: ES WY ATR Elousk, opposite to t]\n-April 14, 1831."
+    },
+    {
+      "id": "c007",
+      "kind": "notice",
+      "reading": "transcription_mediated",
+      "normalized": "LOTS FOR S[ALE.] On the credit syste[m …] both on the schoo[l] secti[on …] [L]OT No. 6, in block 111 [and …] April 23, 1834.",
+      "locator": {
+        "artifact_role": "primary",
+        "issue_page": 3,
+        "column": 2,
+        "lines": [
+          2900,
+          2904
+        ],
+        "interleaved": true
+      },
+      "entities": [],
+      "notes": "Recorded for the block number and for the phrase `both on the school section`, which is the same section 16 the attachment against John Hale enumerates two weeks earlier — the state's own land, being sold on credit in the spring of 1834. Block 111 is on the canal-and-school ground south and west of the original town, and nothing is said to stand on it. Every line here is flagged `[uncertain: …]` by the transcription except the dateline, and the brackets are quoted.",
+      "quote": "[uncertain: LOTS FOR S.]\n[uncertain: On the credit syster]\n[uncertain: both on the schoei sectori]\n[uncertain: OT No. 6, in block 111-ar]\nApril 23, 1831."
+    },
+    {
+      "id": "c008",
+      "kind": "notice",
+      "reading": "transcription_mediated",
+      "normalized": "[$16 REWARD. Strayed or stolen fr]om the subscri[ber, on the] 7th inst. a dark [brown horse,] about 15 hands [high, a star] in his forehead[, no other marks] or brands recol[lected. He was last seen in the possession] of Mr. Barnett[. Whoever will] give the above [horse] up without the[…] [—], with all [reasonable charges …] [—] [V.] OWEN.",
+      "locator": {
+        "artifact_role": "primary",
+        "issue_page": 3,
+        "column": 3,
+        "lines": [
+          2993,
+          3005
+        ],
+        "interleaved": true,
+        "lines_of_claim": [
+          2993,
+          2994,
+          2995,
+          2996,
+          2997,
+          2998,
+          2999,
+          3000,
+          3001,
+          3002,
+          3003,
+          3005
+        ]
+      },
+      "entities": [
+        {
+          "as_printed": "of Mr. Barnett,",
+          "normalized": "Mr. Barnett",
+          "role": "last had the strayed horse in his possession",
+          "associated_places": [
+            "Chicago"
+          ]
+        },
+        {
+          "as_printed": ". V. OWEN,",
+          "normalized": "[—] V. Owen",
+          "role": "advertiser of a strayed horse",
+          "associated_places": [
+            "Chicago"
+          ]
+        }
+      ],
+      "notes": "A strayed-horse notice, which is the ordinary texture of a town this size and is extracted for two names the corpus has nowhere else. `V. OWEN` also signs the 1834-04-16 to-let notice for offices, in the cut half of that column, and the two are the same advertiser as far as the initial goes; the given name is cut in both and he is minted with the gap marked rather than under a supplied first name. The reward figure survives as `SI6 REWAR` in the other half of these printed lines at page 3 column 2 line 2888 and is bracketed here because that line is a different segmenter column.",
+      "quote": "RD.\nom the subscri-\n7th inst. n dark NEW wh\nabout 15 hands tect ea\nin his forehead, CHASE &\nor brands recol- AVE just receiy\nof Mr. Barnett, sive assortmen\ngive the above Hardware, Stoy\nup without the] whieh will be sold at\ntome, with alll bargains, for cask o\nlars should he be Mosier\n. V. OWEN, Scissors; Carver's"
+    },
+    {
+      "id": "c009",
+      "kind": "shipping",
+      "reading": "transcription_mediated",
+      "normalized": "MARINE LI[ST.] ARRIVED. April 25. Sloop Westward Ho[, …]; Schr. Austerlit[z, M'Kinstry, Detroit, mer]ch[andi]ze, lumber, &c.; [S]chr. [Oregon, Brooks, …] April [—]. Schr. [White Pigeon, …] [April] 21. Schr. Or[e]gon, Brook[s …]; [April] 29. Schr. Austerlitz, M'K[instry …]",
+      "locator": {
+        "artifact_role": "primary",
+        "issue_page": 3,
+        "column": 2,
+        "lines": [
+          2846,
+          2871
+        ],
+        "interleaved": true,
+        "lines_of_claim": [
+          2846,
+          2849,
+          2851,
+          2852,
+          2853,
+          2855,
+          2857,
+          2860,
+          2861,
+          2863,
+          2865,
+          2867
+        ]
+      },
+      "entities": [],
+      "notes": "FOUR NAMED SCHOONERS AND A SLOOP IN ONE WEEK, at the end of the month the 1834-04-16 editorial said five vessels were on passage for this place. The Austerlitz comes in from Detroit with MERCHANDIZE AND LUMBER and clears again four days later, and the Oregon makes two entries — so the harbour that had one sloop shuttling to St. Joseph at the start of April had lower-lake trade in it by the end. Lumber arriving by schooner is the material half of the seven or eight buildings raised in a week. Every line of this column is flagged `[uncertain: …]` and the brackets are quoted as they stand; several masters' and vessels' names are cut and are left bracketed.",
+      "quote": "MARINE LI\n[uncertain: ARRIVED.]\nApril 25.\n[uncertain: Sloop West ward Ilo,]\n[uncertain: Schr. Austerlite, M]\n[uncertain: mer'ze, lumber, dic.]\n[uncertain: chr. oraron, brod]\nApril\n[uncertain: Schr.]\n[uncertain: White Pigeon,]\n[uncertain: 21. Schr. Orngon, Brook]\n[uncertain: 29. Schr. Austertitz, M'K]"
+    },
+    {
+      "id": "c010",
+      "kind": "business",
+      "reading": "transcription_mediated",
+      "normalized": "[—] GRA[NT? …] Chicago—Il[l.] [—] [—] [an] assortment of HATS & C[APS …] [for the] season, and of[…] Chicago, April 30, 183[4]",
+      "locator": {
+        "artifact_role": "primary",
+        "issue_page": 3,
+        "column": 2,
+        "lines": [
+          2872,
+          2882
+        ],
+        "interleaved": true,
+        "lines_of_claim": [
+          2872,
+          2873,
+          2878,
+          2879,
+          2881,
+          2882
+        ]
+      },
+      "entities": [],
+      "notes": "A HATTER IN CHICAGO, dated the day the paper was printed, and almost nothing else survives of it. The proprietor's name is cut to `GRAN` and is NOT expanded — Grant, Granger and Granger's several spellings all stand in this month's letter list and the difference between them is a different man. It is recorded because the trade is new to this corpus in Chicago: hats and caps had been advertised into the town from Detroit (M'Cormick & Moon) all spring, and this is a local house selling them. No business is compiled, because a business keyed on `GRAN` would be an entry nobody could ever check.",
+      "quote": "GRAN\n[uncertain: Chicago--Wi]\n[uncertain: assortment of]\n[uncertain: HATS & C]\n[uncertain: season, and oft]\nChicago, April 30, 1631."
+    },
+    {
+      "id": "c011",
+      "kind": "person",
+      "reading": "transcription_mediated",
+      "normalized": "List of Letters [uncertain: RE]MAIN[]IG [uncertain: in the] [Post Office at Hennepin, Ill., on the first day] of April, [1834:] [—], Brown 3; Joan Pool 2; Michael Plan[t]er sen.; Reede; [—] the stephen; Reede; [—] Lads; [uncertain: I Hall]; Stewart; [uncertain: Tarris]; [—]ingrove [es]q; Johnston; [—] Casley 3. [G]ALAHE[R], J[r]. P. M.",
+      "locator": {
+        "artifact_role": "primary",
+        "issue_page": 3,
+        "column": 5,
+        "lines": [
+          3303,
+          3320
+        ],
+        "interleaved": true
+      },
+      "letter_list_only": true,
+      "entities": [],
+      "notes": "The Hennepin list in its third week, and by now the transcription has almost nothing left of it — half the entries are single words and the heading is three lines of flagged debris. Recorded and NOT minted, for the same reason as the 1834-04-16 and 1834-04-23 printings: these are Putnam County residents and this is a register of Chicago. It is extracted at all so that the month's declared coverage can say honestly what the Democrat printed under the words `List of Letters` in April 1834 — three printings of Hennepin's list and two of Chicago's — rather than leaving the next reader to find the heading and wonder whether anyone had looked at it.",
+      "quote": "List of Letters\n[uncertain: MAINIG]\n[uncertain: in theM]\n[uncertain: Vory of April, Tea.]\n, Brown 3\nJoan Pool 2\nMichael Planter sen.\nReede\nthe stephen\nReede\ni Lads\n[uncertain: I Hall]\nStewart\nTarris\n12\ningrove eeg\nJohnston\nCasley 3s. GALAHEI, JF. P.M."
+    },
+    {
+      "id": "c012",
+      "kind": "business",
+      "reading": "transcription_mediated",
+      "normalized": "[T]IMBER. [The subscrib]ers having this day ma[de an arrangement] with Mr. A. M[c]G[regor, are enabled to offer to] the public, on [as reasonable terms as can be ha]d in Chicago, Pine Timber [fro]m 12 to 60 [feet] in length, and [—] for which [—] [P.] PRUYNE & CO.",
+      "locator": {
+        "artifact_role": "primary",
+        "issue_page": 3,
+        "column": 4,
+        "lines": [
+          3126,
+          3134
+        ],
+        "interleaved": true
+      },
+      "entities": [],
+      "business": {
+        "name": "P. Pruyne & Co.",
+        "proprietors": [],
+        "trade": "wholesale and retail dry goods, hardware, groceries, drugs and stone ware",
+        "goods": [
+          "Pine Timber"
+        ],
+        "street": null,
+        "placement": {
+          "class": "relative",
+          "anchor": "between Clark and Dearborn-streets",
+          "offset_text": "RK AND DEARBORS-STREETS.",
+          "offset_normalized": "[STORE BETWEEN CLA]RK AND DEARBORN-STREETS",
+          "street": null
+        }
+      },
+      "notes": "The half of the timber advertisement that carries its signature, where the 1834-04-23 printing carried only its heading — `[On] FRUYTE & CO.` at line 3134 is P. PRUYNE & CO., the same house whose store stands between Clark and Dearborn streets. PINE TIMBER FROM TWELVE TO SIXTY FEET is the length range a builder could buy in this town in April 1834, stated by the seller, and it bounds what the reconstruction may put in a roof or a wharf without inventing a stick nobody could have had. Mr. A. McGregor is the party the arrangement is with and is not minted: the surname survives, the given name is an initial, and he is named nowhere else in this corpus.",
+      "quote": "IMBER.\nors naving mis day ma\nth Mr. A. MG\nhe public, on\nd in\nChicago, Pine Timber\nm 12 to 60 n. in length, and\nfor which it\n[uncertain: On FRUYTE & CO.]"
+    },
+    {
+      "id": "c013",
+      "kind": "business",
+      "reading": "transcription_mediated",
+      "normalized": "[Storage, Auction &] commission Store[. The subscriber] would inform his friends an[d the public] that he has now commence[d the] [business as above,] where he intends [to keep constantly on hand] all articles in the [line …] DAVID CARVER.",
+      "locator": {
+        "artifact_role": "primary",
+        "issue_page": 3,
+        "column": 4,
+        "lines": [
+          3216,
+          3225
+        ],
+        "interleaved": true,
+        "lines_of_claim": [
+          3216,
+          3217,
+          3218,
+          3219,
+          3220,
+          3221,
+          3224
+        ]
+      },
+      "entities": [
+        {
+          "as_printed": "DAVID CARVER.",
+          "normalized": "David Carver",
+          "role": "proprietor",
+          "occupations": [
+            "auctioneer",
+            "commission merchant",
+            "lumber merchant"
+          ],
+          "associated_places": [
+            "Chicago"
+          ]
+        }
+      ],
+      "business": {
+        "name": "David Carver, storage, commission and lumber",
+        "proprietors": [
+          "David Carver"
+        ],
+        "trade": "storage, commission and lumber",
+        "goods": [],
+        "street": null,
+        "placement": {
+          "class": "none",
+          "street": null
+        }
+      },
+      "notes": "The last of four sightings of David Carver in this month — the lumber and storage notice on the 1st and the 8th, the auction at his own store house on the 16th, and this. The house is documented across the whole of April 1834 and still never says where it is, so its placement stays `none` in every one of them: four claims, no address, and no temptation to supply one. The signature here is whole, which is what settled the cut `DAVID` of the 1834-04-01 advertisement.",
+      "quote": "211r\ncommission Store\nvould inform his friends an\nint he has now commencer\nwhere he intends\nI, all articles in the\nDAVID CARVER."
+    }
+  ]
+}

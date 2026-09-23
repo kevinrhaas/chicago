@@ -1,0 +1,87 @@
+{
+  "schema": 1,
+  "_doc": "WHAT THE THREE PRINTINGS ACTUALLY SET FOR CLARK, FILER & CO.'S CROSS STREET, READ AT THE PAGE IMAGES (T-0869). T-0771 closed on the register answer -- Randolph and South Water are parallel east-west lines of the Original Town, they never meet, so `compile_register.streets_cross` refuses the ordinal and the ware house keeps the `street_only` reading it already had. That is the right register answer and it is not a reading of the page. This file is the reading of the page, and the ruling it supports. It changes no geometry and places nothing: the ware house is still unplaced, and this record is why it will stay that way.",
+
+  "question": "The ware house is advertised 'on South water St. five doors east of the corner of Randolph st.' and the plat has no such corner. Is the cross street MIS-SET -- a compositor's slip that put the wrong street name in -- or did the firm name a corner it did not stand on?",
+
+  "image": {
+    "reading": "scan_verified",
+    "read_on": "2026-09-11",
+    "source_id": "chicago_democrat_1833_1835",
+    "deposit_manifest": "chicago/reference/newspapers/ChicagoDemocrat/1834.yaml",
+    "internet_archive_item": "chicago1835-newspaper-chicago-democrat-1834",
+    "file": "Jun1834-Jul1834.pdf",
+    "file_sha256": "e11fa2022a03d12df041cad0d8807ea6f4aae1cfd1d37626e399db91d34032f0",
+    "how": "The deposit PDF was fetched from the Internet Archive item above and its sha256 checked against the committed manifest before a page was opened. Pages were rasterised with poppler's pdftoppm at 600 dpi over a 300 ppi source image (page box 2624 x 3744 px native, 5248 x 7488 px at the render), and the regions below are [x, y, width, height] in the 600 dpi raster, from the page's top-left. Nothing was sharpened, thresholded or OCR'd: every letter set down here was read off the raster by eye.",
+    "not_a_locator_escape": "These readings do NOT use the `read_at_image` locator escape. All three claims still cite, and still resolve against, their transcription lines; the image is corroboration on top of a locator that already checks, not a way around one that does not."
+  },
+
+  "printings_read": [
+    {
+      "issue_id": "chicago_democrat_1834_06_11",
+      "date": "1834-06-11",
+      "volume": "I", "number": "28",
+      "issue_page": 3, "printed_column": 1,
+      "pdf_page": 7,
+      "region": [40, 2850, 880, 950],
+      "claim": "c005",
+      "cross_street_as_set": "Randolph st.",
+      "damaged": false,
+      "sets": "THE subscribers ha- / ving on hand (at / their ware house on / South water St. five / doors east of the corner / of Randolph st.) a very / large assortment of cherry. curl and pin maple, / black walnut and mahogany FURNITURE, / cosisting of Sofas; Sideboards; Secretaries; Bu- / reaus; Dress do. Dress and Book Cases; Center, / Card, Pier, Dress. Tea, and Dining Tables: Port- / able, School, and Counting Room Desks; Work, / Wash, and Candle Stands; Show Cases; Com- / mon, French, and High-Post Bedsteads; Cribs; / Cradles; Music Stools, &c. Also,",
+      "note": "THE WORDS THE COMMITTED CLAIM BRACKETED ARE ON THIS PAGE. Claim c005 read 'five [doors east] of the corner [of Randolph st.]' and its note said the bracketed words 'come from that later printing and from nowhere else'. They do not: the senior witness sets them itself, in full, and the brackets were an artifact of the transcription's interleaving -- the segmenter lost the lines to the advertisement standing down the middle of the column, not the compositor. The claim is corrected here and on the claim itself."
+    },
+    {
+      "issue_id": "chicago_democrat_1834_06_18",
+      "date": "1834-06-18",
+      "volume": "I", "number": "29",
+      "issue_page": 3, "printed_column": 3,
+      "pdf_page": 11,
+      "region": [1580, 3540, 780, 1050],
+      "claim": "c009",
+      "cross_street_as_set": "Randolph st.",
+      "damaged": false,
+      "sets": "…their ware house on / South water St. five / doors east of the corner / of Randolph st.) a very … CLARK, FILER, & C[o]. / N. B. Sign and ornamental painting [neatly] executed. / Chicago, June 10, 1834.",
+      "note": "The clean impression, and the one whose tail carries the firm's signature, the N.B. and the dateline."
+    },
+    {
+      "issue_id": "chicago_democrat_1834_07_02",
+      "date": "1834-07-02",
+      "volume": "I", "number": "31",
+      "issue_page": 4, "printed_column": 2,
+      "pdf_page": 20,
+      "region": [1230, 2300, 720, 1100],
+      "zoom_region": [1620, 2380, 340, 120],
+      "claim": "c014",
+      "cross_street_as_set": "Rando!ph st.",
+      "damaged": true,
+      "sets": "…their ware house on / South water St. five / doors east of the / corner of Rando!ph st.) …",
+      "note": "THE 'Rando!ph' IS A BROKEN LETTER, NOT A DIFFERENT WORD. At the zoom region the `l` prints as a short vertical stroke with a gap under the ascender -- an under-inked or damaged sort in type that is otherwise the same setting, on the same line, in the same place, as the two clean impressions above. It is damage to one letter of Randolph and it is not evidence of any other street."
+    }
+  ],
+
+  "standing_type": {
+    "finding": "The three printings are ONE setting, re-impressed -- not three independent compositions.",
+    "evidence": [
+      "Identical line breaks through the placement: 'their ware house on' / 'South water St. five' / 'doors east of the corner' / 'of Randolph st.) a very'.",
+      "The same misprint in the same place in all three: 'cosisting' for 'consisting', read at the image in 1834-06-11 and 1834-06-18 and in the 1834-07-02 column.",
+      "The same odd full stop in 'Card, Pier, Dress. Tea, and Dining Tables'.",
+      "The same pair of chair cuts flanking the drop cap.",
+      "The same dateline and advertising number at the foot: 'Chicago, June 10, 1834. 28'."
+    ],
+    "how_long_it_ran": {
+      "measured": "A regular-expression sweep of the committed Democrat transcriptions for the phrase 'doors east of the corner' returns five issues -- 1834-06-18, 06-25, 07-02, 07-09 and 07-23 -- four of which set 'of Randolph st.) a very' on the following line. 1834-06-11 does not return, because interleaving ate the line there; it is read at the image above. 'Filer' appears in twenty-nine issues of 1834.",
+      "reproduce": "grep -c 'doors east of the corner' chicago/reference/newspapers/Transcriptions/Chicago_Democrat_1833-11_to_1835-08/Chicago_Democrat_1834-*.txt, allowing for the transcriptions' own OCR damage ('doors cast', 'doory east').",
+      "so": "The setting stood in the forme for at least six weeks, from 1834-06-11 to 1834-07-23, and the firm signed and paid for it at every insertion."
+    }
+  },
+
+  "ruling": {
+    "on": "T-0869",
+    "ruled": "2026-09-11",
+    "reading_1_mis_set_cross_street": "REFUTED as the ticket states it. A compositor's hand slipping is a per-impression accident, and there is no per-impression variation here to be the accident: it is one setting, re-impressed, so there was exactly one act of composition, and both clean impressions of it set 'Randolph st.' letter for letter. The 'Rando!ph' of 1834-07-02, which the ticket offered as the sign of a slip, is the opposite -- a broken sort inside the same word in the same standing line.",
+    "reading_2_the_firm_named_a_corner_it_did_not_stand_on": "SUPPORTED, and it is what the evidence leaves standing. The firm locates by landmark elsewhere in the same month: its 1834-06-04 notice puts a cabinet and chair manufactory 'on South Water Street three doors from the Baptist meeting house', a bearing to a thing the readers knew and not a surveyed address. An 1834 advertisement giving a rough bearing is the habit, not the exception.",
+    "what_this_ruling_does_not_settle": "Refuting a slipped IMPRESSION does not refute a wrong word in the copy the firm handed in, reproduced by standing type for six weeks. Nothing on the page can separate that from reading 2, and nothing on the page names a replacement street -- so no ruling here names one, and naming one would be invention. For the town the two are the same answer anyway: either way the phrase does not measure onto the committed plat, and the ware house cannot be placed by it.",
+    "consequence": "The ware house keeps `street_only`. `compile_register.streets_cross` is right to refuse the ordinal, and the refusal now rests on a reading of the column as well as on the geometry. The `anchor` field is left exactly as printed -- 'the corner of Randolph st.' -- because the record of what the paper said is not amended to what the plat allows.",
+    "reopening": "Reopen this only on new evidence of the same kind: another 1834 impression of this advertisement that sets a DIFFERENT cross street, or a source placing the ware house on the ground. A closer reading of these three columns will not move it."
+  }
+}

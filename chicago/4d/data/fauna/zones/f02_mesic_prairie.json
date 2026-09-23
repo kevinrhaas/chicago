@@ -1,0 +1,455 @@
+{
+ "id": "f02_mesic_prairie",
+ "zone": 2,
+ "name": "The drier prairie crest",
+ "habitat": "mesic_prairie",
+ "dossier": "docs/research/08-fauna.md \u00a7 ZONE 4",
+ "scene_date": "1835-07-01",
+ "reads_as": "shorter, drier grass on the inland rise, with ground squirrels out in the midday heat and sparrow song that is genuinely still going in July",
+ "in_modelled_extent": true,
+ "extent_from": {
+  "flora_zone": "z02_mesic_prairie"
+ },
+ "soundscape": {
+  "dawn_chorus": "reduced",
+  "hero": [
+   "colinus_virginianus",
+   "pooecetes_gramineus"
+  ],
+  "note": "The drier ground carries the small set of grassland birds that really do sing into July \u2014 bobwhite, vesper and field sparrow \u2014 so this is the one zone where bird voice is a legitimate lead. It is still not a May dawn chorus: the total number of singers is small and they are spread thin."
+ },
+ "species": [
+  {
+   "id": "colinus_virginianus",
+   "binomial": "Colinus virginianus",
+   "common": "northern bobwhite",
+   "class": "bird",
+   "activity": "diurnal",
+   "active_periods": [
+    "dawn",
+    "day",
+    "dusk"
+   ],
+   "july": {
+    "status": {
+     "value": "breeding_resident",
+     "confidence": "inferred",
+     "note": "The Chicago record is 1837 \u2014 a visitor stepping onto a plank sidewalk saw 'a flock of quail on the plank' \u2014 which is two years after this scene and inside the town. Presence on the prairie in 1835 follows from that, but is not itself attested."
+    },
+    "presence": {
+     "value": "visible_and_audible",
+     "confidence": "attested",
+     "sources": [
+      "andreas_1884_v1"
+     ],
+     "note": "Andreas p. 977 puts a covey in the open, at street level, in daylight."
+    },
+    "abundance": {
+     "value": "frequent",
+     "confidence": "inferred",
+     "note": "By July the winter coveys have broken into pairs with chicks, so the birds are spread thin and the groups are small."
+    },
+    "max_group": 10,
+    "vocalization": "song_full",
+    "behaviour": "A pair with chicks working a grassy edge; the clear two-note whistle from a rise.",
+    "appearance": "Small, round, cryptic quail; the male's white throat and eyebrow are the only pattern that carries at distance.",
+    "trace": null
+   },
+   "confidence": "attested",
+   "sources": [
+    "andreas_1884_v1"
+   ],
+   "note": "ONE OF THE GENUINELY FULL-VOICED BIRDS OF 1 JULY. Unlike the passerines, bobwhite whistling peaks in June and July as unpaired males keep calling, so full song here is not a spring leftover \u2014 it is the correct July state."
+  },
+  {
+   "id": "pooecetes_gramineus",
+   "binomial": "Pooecetes gramineus",
+   "common": "vesper sparrow",
+   "class": "bird",
+   "activity": "diurnal",
+   "active_periods": [
+    "dawn",
+    "day",
+    "dusk"
+   ],
+   "july": {
+    "status": {
+     "value": "breeding_resident",
+     "confidence": "inferred",
+     "note": "A dry-prairie breeder in the regional assemblage; no Chicago 1830s record reached."
+    },
+    "presence": {
+     "value": "audible",
+     "confidence": "inferred",
+     "note": "Heard far more often than seen \u2014 a small brown bird in tall grass."
+    },
+    "abundance": {
+     "value": "common",
+     "confidence": "inferred",
+     "note": "Habitat reading."
+    },
+    "max_group": 2,
+    "vocalization": "song_full",
+    "behaviour": "Sound only in most conditions: a slow, sweet, descending song from a low perch, carrying best at dusk.",
+    "appearance": "Small streaked sparrow with white outer tail feathers that flash on the flush.",
+    "trace": null
+   },
+   "confidence": "inferred",
+   "note": "Vesper sparrows sing into late July and are at their most vocal at dusk, so full song on 1 July is correct rather than a spring holdover."
+  },
+  {
+   "id": "spizella_pusilla",
+   "binomial": "Spizella pusilla",
+   "common": "field sparrow",
+   "class": "bird",
+   "activity": "diurnal",
+   "active_periods": [
+    "dawn",
+    "day",
+    "dusk"
+   ],
+   "july": {
+    "status": {
+     "value": "breeding_resident",
+     "confidence": "inferred",
+     "note": "A breeder of grassy openings and prairie edge in the regional assemblage."
+    },
+    "presence": {
+     "value": "audible",
+     "confidence": "inferred",
+     "note": "The song is the encounter; the bird stays low."
+    },
+    "abundance": {
+     "value": "common",
+     "confidence": "inferred",
+     "note": "Habitat reading."
+    },
+    "max_group": 2,
+    "vocalization": "song_full",
+    "behaviour": "Sound only: an accelerating bouncing-ball trill from the scrubby prairie edge, through the day and into July evenings.",
+    "appearance": "Plain grey-faced sparrow with a pink bill and a rusty cap.",
+    "trace": null
+   },
+   "confidence": "inferred",
+   "note": "Field sparrows are among the very last species still singing hard in July, which is why this one is graded full song where most of the passerine list is not."
+  },
+  {
+   "id": "ammodramus_savannarum",
+   "binomial": "Ammodramus savannarum",
+   "common": "grasshopper sparrow",
+   "class": "bird",
+   "activity": "diurnal",
+   "active_periods": [
+    "dawn",
+    "day"
+   ],
+   "july": {
+    "status": {
+     "value": "breeding_resident",
+     "confidence": "inferred",
+     "note": "A short-grass prairie breeder; regional inference."
+    },
+    "presence": {
+     "value": "audible",
+     "confidence": "inferred",
+     "note": "An insect-like buzz from a grass stem; the bird is almost never seen."
+    },
+    "abundance": {
+     "value": "uncommon",
+     "confidence": "inferred",
+     "note": "Wants shorter, sparser grass than most of this zone carries."
+    },
+    "max_group": 1,
+    "vocalization": "song_reduced",
+    "behaviour": "Sound only: a dry insect buzz from a grass stem, easily lost among the actual insects.",
+    "appearance": "Not shown.",
+    "trace": null
+   },
+   "confidence": "inferred",
+   "note": "Graded reduced rather than full: song output falls through July as second broods start."
+  },
+  {
+   "id": "melospiza_melodia",
+   "binomial": "Melospiza melodia",
+   "common": "song sparrow",
+   "class": "bird",
+   "activity": "diurnal",
+   "active_periods": [
+    "dawn",
+    "day",
+    "dusk"
+   ],
+   "july": {
+    "status": {
+     "value": "breeding_resident",
+     "confidence": "inferred",
+     "note": "A near-ubiquitous breeder of damp edges."
+    },
+    "presence": {
+     "value": "visible_and_audible",
+     "confidence": "inferred",
+     "note": "Sings from an exposed perch on a shrub or fence-less rise."
+    },
+    "abundance": {
+     "value": "common",
+     "confidence": "inferred",
+     "note": "Habitat reading."
+    },
+    "max_group": 2,
+    "vocalization": "song_reduced",
+    "behaviour": "A bird singing from a low exposed perch, less often than a month ago.",
+    "appearance": "Heavily streaked brown sparrow with a central breast spot.",
+    "trace": null
+   },
+   "confidence": "inferred",
+   "note": "Song sparrows sing into late summer but the July output is well below the May peak."
+  },
+  {
+   "id": "tyrannus_tyrannus",
+   "binomial": "Tyrannus tyrannus",
+   "common": "eastern kingbird",
+   "class": "bird",
+   "activity": "diurnal",
+   "active_periods": [
+    "day"
+   ],
+   "july": {
+    "status": {
+     "value": "breeding_resident",
+     "confidence": "inferred",
+     "note": "A breeder of prairie edge and scattered trees in the regional assemblage."
+    },
+    "presence": {
+     "value": "visible_and_audible",
+     "confidence": "inferred",
+     "note": "Conspicuous: hunts from exposed perches and attacks anything larger."
+    },
+    "abundance": {
+     "value": "frequent",
+     "confidence": "inferred",
+     "note": "Habitat reading."
+    },
+    "max_group": 2,
+    "vocalization": "call_only",
+    "behaviour": "A bird sallying from a bare perch after insects, then chasing a crow or a hawk off the line of the horizon.",
+    "appearance": "Black above, white below, with a white tail band.",
+    "trace": null
+   },
+   "confidence": "inferred",
+   "note": "Kingbirds have no song in any ordinary sense \u2014 a sputtering electric call is the whole vocabulary, and calling all July is correct for them."
+  },
+  {
+   "id": "sylvilagus_floridanus",
+   "binomial": "Sylvilagus floridanus",
+   "common": "eastern cottontail ('grey rabbit')",
+   "class": "mammal",
+   "activity": "crepuscular",
+   "active_periods": [
+    "dawn",
+    "dusk",
+    "night"
+   ],
+   "july": {
+    "status": {
+     "value": "year_round_resident",
+     "confidence": "inferred",
+     "note": "'Grey rabbit' is in the Chicago Academy of Sciences regional list the dossier quotes; The dossier's citation for this has no record in data/sources/, so nothing here is graded documented on it, so this is graded inferred at the record level."
+    },
+    "presence": {
+     "value": "visible",
+     "confidence": "inferred",
+     "note": "Feeding on grassy edges at first and last light."
+    },
+    "abundance": {
+     "value": "common",
+     "confidence": "inferred",
+     "note": "Regional list; no local count."
+    },
+    "max_group": 2,
+    "vocalization": "silent",
+    "behaviour": "A rabbit feeding at a grassy edge at dusk, freezing and then bolting.",
+    "appearance": "Grey-brown with a white tail flash.",
+    "trace": null
+   },
+   "confidence": "inferred",
+   "note": "Graded inferred because the regional retrospective that lists it has no source record and is in any case a post-1870 compilation of what the region 'once' held."
+  },
+  {
+   "id": "marmota_monax",
+   "binomial": "Marmota monax",
+   "common": "woodchuck",
+   "class": "mammal",
+   "activity": "diurnal",
+   "active_periods": [
+    "dawn",
+    "day",
+    "dusk"
+   ],
+   "july": {
+    "status": {
+     "value": "year_round_resident",
+     "confidence": "inferred",
+     "note": "'Woodchuck/groundhog' is in the same regional retrospective; The dossier's citation for this has no record in data/sources/, so nothing here is graded documented on it."
+    },
+    "presence": {
+     "value": "visible",
+     "confidence": "inferred",
+     "note": "Feeding near the burrow mouth in the morning and evening."
+    },
+    "abundance": {
+     "value": "uncommon",
+     "confidence": "inferred",
+     "note": "Regional; wants drier, firmer ground than the wet prairie."
+    },
+    "max_group": 1,
+    "vocalization": "silent",
+    "behaviour": "A single animal feeding within a bolt of its burrow, sitting up, then dropping in.",
+    "appearance": "Heavy grizzled brown rodent; the burrow spoil mound is bare soil in unbroken grass.",
+    "trace": "Bare-earth spoil mounds and burrow mouths on the drier rises."
+   },
+   "confidence": "inferred",
+   "note": "Regional retrospective only. The Chicago Academy of Sciences list the dossier quotes is a post-1870 compilation of what the region once held, it has no source record in data/sources/, and it names no date. The animal is placed on habitat reasoning."
+  },
+  {
+   "id": "ictidomys_tridecemlineatus",
+   "binomial": "Ictidomys tridecemlineatus",
+   "common": "thirteen-lined ground squirrel ('striped gopher')",
+   "class": "mammal",
+   "activity": "diurnal",
+   "active_periods": [
+    "day"
+   ],
+   "july": {
+    "status": {
+     "value": "year_round_resident",
+     "confidence": "inferred",
+     "note": "'Striped and grey gophers' are in the regional retrospective; The dossier's citation for this has no record in data/sources/, so nothing here is graded documented on it."
+    },
+    "presence": {
+     "value": "visible",
+     "confidence": "inferred",
+     "note": "Active in the hottest part of the day, unlike most of this list."
+    },
+    "abundance": {
+     "value": "frequent",
+     "confidence": "inferred",
+     "note": "Regional; wants short, dry, disturbed turf."
+    },
+    "max_group": 3,
+    "vocalization": "call_only",
+    "behaviour": "Animals standing upright at burrow mouths on bare rises, dropping under with a thin whistle when anything crosses.",
+    "appearance": "Small, low, striped and spotted along the back.",
+    "trace": null
+   },
+   "confidence": "inferred",
+   "note": "The one prairie mammal reliably out in the middle of a hot July day."
+  },
+  {
+   "id": "vulpes_vulpes",
+   "binomial": "Vulpes vulpes",
+   "common": "red fox",
+   "class": "mammal",
+   "activity": "crepuscular",
+   "active_periods": [
+    "dawn",
+    "dusk",
+    "night"
+   ],
+   "july": {
+    "status": {
+     "value": "doubtful",
+     "confidence": "inferred",
+     "note": "The regional retrospective lists 'red and grey fox' together, and which of the two was at the Chicago town site in 1835 is not recoverable from it. Red fox expanded across the Midwest with settlement, so its 1835 status here is genuinely uncertain and is recorded as uncertain rather than resolved by preference."
+    },
+    "presence": {
+     "value": "visible",
+     "confidence": "inferred",
+     "note": "A single animal at distance, if at all."
+    },
+    "abundance": {
+     "value": "sparse",
+     "confidence": "inferred",
+     "note": "One animal on the prairie margin, not a population in view."
+    },
+    "max_group": 1,
+    "vocalization": "silent",
+    "behaviour": "A single fox at distance on the prairie margin at first light, hunting mice and not approaching.",
+    "appearance": "Slight, red, black-legged, white tail tip.",
+    "trace": null
+   },
+   "confidence": "inferred",
+   "note": "The gray fox Urocyon cinereoargenteus is the timber counterpart and is recorded in the north-side timber zone. Neither is attested at the town site; both are carried at low abundance so that a renderer showing one is showing an inference."
+  },
+  {
+   "id": "neotibicen_spp",
+   "binomial": "Neotibicen spp.",
+   "common": "dog-day cicadas",
+   "class": "insect",
+   "activity": "diurnal",
+   "active_periods": [
+    "day",
+    "dusk"
+   ],
+   "july": {
+    "status": {
+     "value": "breeding_resident",
+     "confidence": "inferred",
+     "note": "Annual cicadas on the wing July-September."
+    },
+    "presence": {
+     "value": "audible",
+     "confidence": "inferred",
+     "note": "Heard from scattered trees and the timber edge."
+    },
+    "abundance": {
+     "value": "frequent",
+     "confidence": "inferred",
+     "note": "Habitat reading; fewer than in the timber."
+    },
+    "max_group": 0,
+    "vocalization": "chorus",
+    "behaviour": "Sound only: the whine of annual cicadas carrying across open ground from the timber edge.",
+    "appearance": "Not shown.",
+    "trace": null
+   },
+   "confidence": "inferred",
+   "note": "Genus-level on purpose: which annual cicadas were at Chicago in 1835 is not recoverable, and naming a species would be a false precision. The July-to-September flight period is the whole of the claim."
+  },
+  {
+   "id": "papilio_glaucus",
+   "binomial": "Papilio glaucus",
+   "common": "eastern tiger swallowtail",
+   "class": "insect",
+   "activity": "diurnal",
+   "active_periods": [
+    "day"
+   ],
+   "july": {
+    "status": {
+     "value": "breeding_resident",
+     "confidence": "inferred",
+     "note": "On the wing through July; listed by the dossier among the July butterflies."
+    },
+    "presence": {
+     "value": "visible",
+     "confidence": "inferred",
+     "note": "Patrolling and nectaring over the July bloom."
+    },
+    "abundance": {
+     "value": "uncommon",
+     "confidence": "inferred",
+     "note": "A woodland-edge butterfly out on the prairie, not a prairie species."
+    },
+    "max_group": 2,
+    "vocalization": "non_vocal",
+    "behaviour": "Large yellow butterflies patrolling the edge between the grass and the timber.",
+    "appearance": "Yellow with black tiger stripes; the size is what reads at distance.",
+    "trace": null
+   },
+   "confidence": "inferred",
+   "note": "Named by the dossier among the July prairie butterflies with no source attached. Placed on flight-period reasoning alone."
+  }
+ ],
+ "confidence": "inferred",
+ "note": "No source distinguishes wet from mesic prairie at the forks; this zone follows the flora dataset's reading of the terrain and inherits its extent. The fauna split between the two is ecological reasoning, not evidence."
+}

@@ -1,0 +1,10 @@
+{
+  "issue": 669,
+  "status": "complete",
+  "completed": "2026-09-03",
+  "completed_by": "T-0491",
+  "confirmed_v4_bridges": 3,
+  "canonical_links_written": 3,
+  "canonical_ids_pending": 0,
+  "note": "All three recovered v4 identity bridges are written to canonical residents (adams_william_h, miller_john, murphy_john) and carried on their person records as later_census. census_1840_identity_bridges_pending.csv held one row \u2014 William Hanford Adams, canonical_person_id_not_yet_resolved \u2014 which PR #670 resolved to adams_william_h without clearing the file; it was deleted under T-0491 rather than left as a pending queue of one already-finished item."
+}

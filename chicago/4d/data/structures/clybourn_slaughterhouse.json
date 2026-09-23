@@ -1,0 +1,117 @@
+{
+  "id": "clybourn_slaughterhouse",
+  "name": "Archibald Clybourne's Log Slaughter-House",
+  "aka": [
+    "the first slaughter-house",
+    "Clybourn's slaughter house on the North Branch"
+  ],
+  "archetype": "outbuilding",
+  "phases": [
+    {
+      "id": "log_1827",
+      "documented_range": {
+        "from": "1827-01-01",
+        "to": "1835-12-31",
+        "confidence": "inferred",
+        "sources": [
+          "andreas_1884_v1"
+        ],
+        "note": "THE BUILD YEAR IS DOCUMENTED AND THE MONTH IS NOT, so the range opens at the start of 1827: Andreas, in the packing-house chapter, 'The site of the original log slaughter-house, built by Archibald Clybourne in 1827, for the killing of such cattle as were required by the garrison at Fort Dearborn' (scan p. 1149). THE SURVIVAL TO THE SCENE DATE IS UNUSUALLY WELL SUPPORTED for this dataset: the same building is working six years later — 'The following year [1833] Archibald Clybourne, the Government butcher for the Pottawatomies, engaged in the packing business, at his log slaughter-house on the east side of the North Branch, where he packed some two hundred and fifty head of cattle and about two thousand hogs' (scan p. 1151) — which puts it in full operation nineteen months before 1835-07-01. The range closes at the end of 1835 as the last date this record needs to claim; Andreas writing in 1883 says the site was BY THEN occupied by a later frame slaughter-house of Clybourne's 'now falling into pieces from sheer old age', so the log building came down at some point between 1835 and 1883 and nothing reached dates that."
+      },
+      "position": {
+        "utm_e": 447042.0,
+        "utm_n": 4637690.0,
+        "rotation_deg": 270.0,
+        "symbolic_location": "DISPLACED. The attested site is the east (south) bank of the North Branch, south of the Bloomingdale Road and opposite the later North Chicago Rolling Mills — roughly 3 km north-north-west of the forks and far outside the modelled terrain. This coordinate stands at the northern edge of modelled ground on the east bank of the North Branch instead.",
+        "confidence": "reconstructed",
+        "note": "THIS COORDINATE IS NOT WHERE THE BUILDING STOOD AND THE RECORD SAYS SO IN AS MANY WORDS. The site is attested twice over and both statements agree: Andreas scan p. 1149, 'The first slaughter-house was built on the south bank of the North Branch of the Chicago River, south of the Bloomingdale Road and opposite the North Chicago Rolling Mills'; and scan p. 1151, 'his log slaughter-house on the east side of the North Branch'. The two banks named are the same bank — the North Branch runs north-west out of the forks, so its east side and its south bank are one and the same face along that reach. Andreas scan p. 215 puts the family in the same country: 'Jonas Clybourne and John K. Clark lived several miles up the North Branch, where now are the North Chicago rolling-mills.' Bloomingdale Road is modern Bloomingdale Avenue, 1800 north on the Chicago grid; carried through the modern street grid that puts the site somewhere around 3 km north-north-west of this project's datum origin at the forks, in the neighbourhood of modern Cortland and the river. That figure is an estimate off the grid, not a survey, and it is stated so a later parcel can go and place the building properly. THE MODELLED TERRAIN BOX IS 640 m SQUARE, local E and N -320 to +320 (data/terrain/epochs/e1834_harbor_cut/heightfield.json: 257 x 257 samples at 2.5 m from origin -320, -320), so the real site is roughly 2.8 km beyond its northern edge. Under the project owner's instruction of 2026-08-11 the building is placed at the edge of modelled ground rather than dropped, because a building nobody can see is a building nobody can correct. It is set on the correct BANK — the east side of the North Branch, about 14 m back from the traced bank line — at the northern limit of the modelled field, local N +294 to +306. Treat the coordinate as a placeholder with an error of kilometres, not metres, and the BANK and the setback as the only parts of it that carry evidence. Facade bearing 270, due west onto the branch: a slaughter-house works to the water, for the offal and for the boats, which is an argument from the trade and not a statement in any source. WHAT WOULD RESOLVE IT: extending the terrain epoch north up the North Branch, at which point this record moves to its attested reach and the position can be re-tagged.",
+        "derivation": {
+          "method": "not_derivable",
+          "reason": "This placement predates the derivation module. Its provenance and reasoning are recorded in position.note, but no machine-checkable derivation block has been authored for it yet."
+        }
+      },
+      "footprint": {
+        "polygon": [
+          [
+            0,
+            0
+          ],
+          [
+            12,
+            0
+          ],
+          [
+            12,
+            9
+          ],
+          [
+            0,
+            9
+          ]
+        ],
+        "confidence": "reconstructed",
+        "note": "PLACEHOLDER — NO DIMENSION IS ATTESTED, but unlike most of the invented footprints in this dataset this one has a CAPACITY behind it and the size was chosen against that capacity rather than freely. Andreas records 250 head of cattle and about 2,000 hogs packed here by Clybourne in 1833, plus 250 head of cattle and 1,000 hogs packed at the same place by George W. Dole (scan p. 1151) — a season's throughput on that scale needs a killing floor several beasts wide, hanging room, and a working yard beside it. 12 x 9 m is about 39 x 30 ft, which is a large log building by the standards of this town and a small one by the standards of that throughput; the 12 m runs along the bank and the 9 m is the depth. Every number is invented and the polygon cites no sources. WHAT IS NOT MODELLED IS ARGUABLY THE BIGGER HALF: the killing pens, the stock yard that later gave the trade the Bull's Head name, and the packing gear are all outside this footprint and outside this archetype, which builds a building and not a works. To resolve: Andreas vol. 1 at page-image level around scan pp. 1149-1151, or any Cook County or Fort Dearborn contract paper describing the premises."
+      },
+      "form": {
+        "construction": {
+          "value": "log",
+          "confidence": "attested",
+          "sources": [
+            "andreas_1884_v1"
+          ],
+          "note": "'the original log slaughter-house, built by Archibald Clybourne in 1827' (scan p. 1149) and 'his log slaughter-house on the east side of the North Branch' (scan p. 1151). Two independent sentences in the same chapter, and the word is the same in both. This is the single best-attested attribute of the building."
+        },
+        "wall_height_m": {
+          "value": 2.8,
+          "confidence": "inferred",
+          "note": "No figure is attested. 2.8 m is about 9 ft: a hewn log wall a course or two higher than a dwelling's, which is what a killing floor needs if a beast is to be hoisted and dressed hanging. Stated rather than left to the archetype's size-aware default, which would put 3.55 m of wall on a footprint this size and read as a two-storey building. What is inferred is that the wall falls in this range, not that it is exactly 2.8 m."
+        },
+        "door": {
+          "value": "stable",
+          "confidence": "inferred",
+          "note": "No source describes an opening. 'stable' is the archetype's term for a doorway a horse or a beast can be led through in hand — 1.35 m clear — and it is the smallest opening consistent with the documented trade: cattle came in on the hoof and 250 of them came in during 1833 alone. A man-door would be a claim that the killing was done outside, which nothing says."
+        },
+        "door_side": {
+          "value": "front",
+          "confidence": "reconstructed",
+          "note": "NOT ATTESTED. The door is put on the elevation facing the branch, which is the same face the facade bearing points at, because that is where the landing and the water were. Nothing says the beasts came from the water rather than overland from the prairie, and if they came overland the door belongs on the far side. Recorded conjectural rather than allowed to arrive as an archetype default."
+        }
+      },
+      "change_note": "The log slaughter-house as it stood from 1827 through the packing seasons of 1833 and 1834. Andreas describes it as still the working plant in 1833 and records a later frame slaughter-house of Clybourne's occupying the site by 1883; nothing dates the change, so this record models the log building and stops. The move from killing for the garrison to commercial packing is a change of BUSINESS, not of fabric, and does not open a phase."
+    }
+  ],
+  "function": {
+    "value": "slaughterhouse_packing",
+    "confidence": "attested",
+    "sources": [
+      "andreas_1884_v1"
+    ],
+    "note": "Built 'for the killing of such cattle as were required by the garrison at Fort Dearborn' (scan p. 1149) and working as a commercial packing house from 1833, when Clybourne 'packed some two hundred and fifty head of cattle and about two thousand hogs' and George W. Dole packed a further 250 cattle and 1,000 hogs at the same place; Andreas gives the prices, $2.80 a head average for the cattle and $3 per hundred pounds net for the hogs (scan p. 1151). THIS IS THE FIRST SLAUGHTER-HOUSE IN CHICAGO and the head of the trade that the city was later built on. Andreas elsewhere calls Archibald Clybourne 'the Government butcher for the Pottawatomies' (scan p. 253), a treaty-provision post — recorded here because it is what the man was, and flagged for review with the rest of this record's Indigenous content rather than paraphrased away."
+  },
+  "occupants": {
+    "value": "Archibald Clybourne",
+    "confidence": "attested",
+    "sources": [
+      "andreas_1884_v1"
+    ],
+    "note": "Andreas names Clybourne as the builder in 1827 and as the operator in the 1833 packing season, with George W. Dole packing at the same premises that year. Whether anyone was working the plant on 1835-07-01 specifically is not attested; July is the wrong end of the year for packing, which is winter work, so the honest reading of the scene date is a standing building between seasons."
+  },
+  "land_owner": {
+    "value": "The ground was entered by James Kinzie, 28 September 1830",
+    "confidence": "reconstructed",
+    "sources": [
+      "isa_public_domain_land_tract_sales"
+    ],
+    "note": "THE MARGIN IS ONLY 8 m, which is inside the working horizontal uncertainty of the georeference (about 20 m) doubled, so the grade drops a tier: the tract is right if the constructed line is, and nothing here proves the line to better than that. WHAT THIS ROW CLAIMS AND WHAT IT DOES NOT. It claims that the tract the Illinois State Archives' land-sale register describes contains this structure's committed position — the patent for this ground was ENTERED by this man on this date. It does not claim he still held the ground on 1 July 1835, that he lived here, or that he ever stood on it: a sale is a transaction, and the register's only column about residence names a county. THE SECTION LINES ARE CONSTRUCTED, NOT TRACED (L219): the grid is carried from the single PLSS corner at State & Madison, on the plat's own east-west bearing, in nominal one-mile squares.",
+    "tract": "E2NW of section 09, T39N R14E",
+    "entries": [
+      "ls0053"
+    ],
+    "date_purchased": "1830-09-28",
+    "type_of_sale": "canal land sale",
+    "margin_m": 7.7,
+    "generated_by": "tools/resolve_land_tracts.py --build"
+  },
+  "research_note": "PLACED OUTSIDE ITS OWN SITE, ON PURPOSE, AND THE POSITION NOTE IS THE MOST IMPORTANT FIELD IN THIS RECORD. The attested site — the east or south bank of the North Branch, south of the Bloomingdale Road, opposite the later North Chicago Rolling Mills — is roughly 3 km north-north-west of the forks and about 2.8 km beyond the northern edge of the 640 m terrain box this scene models, so the building stands at the edge of modelled ground with an error of kilometres and says so. RESEARCH GAINED IN THIS SLICE, and it is more than the dossier had: docs/research/03-structures-north.md section 3.6 records the slaughterhouse as 1827, log, on the north branch, with locations 'not pinned down in reachable sources [GAP]'. A full-text search of Andreas vol. 1 closes that gap — scan p. 1149 gives the reach and the bank, scan p. 1151 gives the bank again and the 1833 throughput, and scan p. 215 puts the family several miles up the branch at the rolling-mill ground. The dossier's [GAP] tag can be retired. WHAT THIS RECORD STILL CANNOT SAY: how big the building was, how it was arranged, where the pens and the stock yard stood, or what the plant looked like in a July between packing seasons. The associated stock yard, later called Bull's Head, is not modelled at all — this archetype builds a building and the yard is an enclosure, which is the same limitation docs/LIBERTIES.md L10 records against the Western Hotel's wagon yard.",
+  "review_required": true
+}

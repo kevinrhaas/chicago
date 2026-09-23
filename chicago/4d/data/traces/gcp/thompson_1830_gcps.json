@@ -1,0 +1,496 @@
+{
+ "_doc": "Ground control for the JAMES THOMPSON 1830 PLAT OF THE TOWN OF CHICAGO, as held in this repository at chicago/pre_fire_v1/maps/images/1830_thompson_plat.png (2728 x 1944 px). Pixel coordinates are in that file's own raster space. T-0685 (piece 2 of T-0453). READ THE LIMIT IN `use` BEFORE USING THIS: the sheet's own record, data/sources/thompson_plat_1830.json, is a PARAMETER SOURCE and its standing instruction -- generate street and alley geometry analytically from the plat's stated figures, never trace it from pixels -- is unchanged by this file. What a fitted transform buys is the ability to MEASURE the sheet against the geometry this project already stands on, and nothing else here is derived from it.",
+ "source": "thompson_plat_1830",
+ "raster": {
+  "path": "chicago/pre_fire_v1/maps/images/1830_thompson_plat.png",
+  "width": 2728,
+  "height": 1944,
+  "sha256": "c0a6403979e628268d6f0e89ab0a8cd0cddfbb255f13487722a886d5e401e701",
+  "note": "The Canal Commissioners' working copy (Chicago History Museum ICHi-34284) as published on Wikimedia Commons; the original burned in 1871. At 0.525 m per pixel this raster resolves a street corridor as 46 px, so a corridor midpoint is a well-conditioned reading; it does NOT resolve a lot line's own width."
+ },
+ "fitted_on": "2026-09-05",
+ "control_source": "Modern control from OpenStreetMap via the Overpass API, fetched 2026-09-05, and reduced to EPSG:26916 with pyproj -- the same method and the same projection as data/traces/gcp/wright_1834_gcps.json, deliberately, so that the two sheets are georeferenced against the same external frame and their disagreement is a disagreement between the SHEETS. Each control point is the mean of every crossing between the two named streets' surface centrelines; `crossing_spread_m` is the largest distance from that mean and is the control's own ambiguity. OSM data is (c) OpenStreetMap contributors, ODbL -- see data/sources/osm_streets_2026.json. Four of these points (Canal & Lake, La Salle & Randolph, Clark & Washington, and -- outside this set -- State & Madison) are the same intersections wright_1834_gcps.json carries, and reproduce its committed coordinates.",
+ "control_scope": "Twenty-two street-corridor crossings: Lake, Randolph and Washington against Franklin, Wells, La Salle, Clark and Dearborn in the South Division, and Fulton, Lake, Randolph and Washington against Clinton and Canal in the West Division. Streets whose modern successor is NOT the 1830 line are excluded on purpose -- Market Street and South Water Street both became Wacker Drive and moved -- and so are the sheet's four boundary lines (Kinzie, Madison, State, and Des Plaines' west line), because a boundary drawn as a single line does not say whether it is the street's centre or the block face, and half a corridor is 12.2 m of unforced ambiguity.",
+ "fit": {
+  "type": "similarity (conformal: uniform scale + rotation + translation), least squares, pixel -> EPSG:26916 via local ENU",
+  "adopted": "similarity",
+  "why_not_affine": "The affine fit (below) reads only 0.56 %% of differential scale between the sheet's two axes, against 3.7 %% on the Wright 1834 sheet. This is a modern photographic reproduction, not the warped original, and 0.56 %% is inside the noise of the picking. A conformal fit is therefore the honest one: it does not invent a stretch to absorb residuals that are really the sheet's own draughting.",
+  "coefficients": {
+   "a": 0.5246506229931488,
+   "b": 0.007185972336401392,
+   "c": -587.3173209881609,
+   "d": 445.4362638066023
+  },
+  "formula": "local_e = a*px - b*(-py) + c ; local_n = b*px + a*(-py) + d ; utm = local + data/datum.json origin",
+  "scale_m_per_px": 0.5247,
+  "rotation_deg": 0.7847,
+  "rms_m": 4.91,
+  "max_m": 7.81,
+  "n": 22
+ },
+ "fit_affine_for_comparison": {
+  "type": "affine, least squares, pixel -> local ENU metres",
+  "coefficients": {
+   "a": 0.5250813406625451,
+   "b": 0.00034572114627440254,
+   "c": -578.9713916414315,
+   "d": 0.008478760090629181,
+   "e": -0.5281162919011276,
+   "f": 448.0503907916806
+  },
+  "scale_m_per_px": {
+   "x": 0.52515,
+   "y": 0.528116
+  },
+  "axis_scale_difference_pct": 0.56,
+  "rms_m": 4.5,
+  "max_m": 9.47
+ },
+ "how_it_compares": "RMS 4.9 m against 17.5 m for Wright 1834 and 17.7 m for Hathaway 1834, on the same control and the same projection. That is not a claim that the 1830 survey is better than the 1834 one: the Thompson town is a rectilinear grid whose modern successor streets still run on it, so its control points are corners of the very figure being fitted, while the 1834 sheets are drawn surveys of a landscape and carry real paper distortion. It IS a claim that this sheet can be positioned to a few metres, which is what the measurement in docs/RESEARCH/thompson_forks_georeference.md needs.",
+ "residual_pattern": "The residuals are not white. Canal Street reads 5-8 m WEST of its fitted place at all four of its crossings and Franklin 3-8 m EAST at all three of its: the sheet's east-west module is very slightly compressed across the river relative to the modern grid. The sign is consistent per street, which is a property of the sheet, not of the picking.",
+ "use": "For MEASURING the sheet against committed geometry, and for nothing else. No street, lot, block or building geometry in this project is derived from this transform, and data/sources/thompson_plat_1830.json still governs: the plat is read for its stated figures. The one thing traced through it is data/traces/vectors/thompson_1830_forks_banks.json, which is committed BESIDE the Wright 1834 planform as evidence and is not the planform of record.",
+ "picking_precision_m": 2.6,
+ "picking_precision_note": "The two block-edge lines that bound a corridor are found to about +/- 2.5 px each, so their midpoint carries about +/- 1.8 px = 0.9 m; the larger figure is the spread actually observed when the same street is picked in three different tiers (about 5 px, 2.6 m).",
+ "gcps": [
+  {
+   "id": "T1",
+   "map_feature": "Canal St & Fulton St",
+   "division": "West",
+   "pixel": [
+    787.6,
+    831.0
+   ],
+   "pixel_note": "midpoint of the two block-edge lines that bound the street corridor, each found by an ink-density peak in a band taken from the neighbouring block face",
+   "modern": {
+    "utm_e": 446910.7,
+    "utm_n": 4637407.97,
+    "local_e": -162.0,
+    "local_n": 12.17,
+    "osm_ways_intersected": 2,
+    "crossing_spread_m": 0.0
+   },
+   "residual_m": 6.8,
+   "residual_affine_m": 4.84
+  },
+  {
+   "id": "T2",
+   "map_feature": "Canal St & Lake St",
+   "division": "West",
+   "pixel": [
+    790.5,
+    1067.0
+   ],
+   "pixel_note": "midpoint of the two block-edge lines that bound the street corridor, each found by an ink-density peak in a band taken from the neighbouring block face",
+   "modern": {
+    "utm_e": 446913.03,
+    "utm_n": 4637287.42,
+    "local_e": -159.67,
+    "local_n": -108.38,
+    "osm_ways_intersected": 6,
+    "crossing_spread_m": 0.0
+   },
+   "residual_m": 5.25,
+   "residual_affine_m": 3.87
+  },
+  {
+   "id": "T3",
+   "map_feature": "Canal St & Randolph St",
+   "division": "West",
+   "pixel": [
+    790.7,
+    1337.0
+   ],
+   "pixel_note": "midpoint of the two block-edge lines that bound the street corridor, each found by an ink-density peak in a band taken from the neighbouring block face",
+   "modern": {
+    "utm_e": 446917.46,
+    "utm_n": 4637144.61,
+    "local_e": -155.24,
+    "local_n": -251.19,
+    "osm_ways_intersected": 9,
+    "crossing_spread_m": 0.0
+   },
+   "residual_m": 7.68,
+   "residual_affine_m": 8.09
+  },
+  {
+   "id": "T4",
+   "map_feature": "Canal St & Washington St",
+   "division": "West",
+   "pixel": [
+    794.6,
+    1600.0
+   ],
+   "pixel_note": "midpoint of the two block-edge lines that bound the street corridor, each found by an ink-density peak in a band taken from the neighbouring block face",
+   "modern": {
+    "utm_e": 446920.9,
+    "utm_n": 4637004.33,
+    "local_e": -151.8,
+    "local_n": -391.47,
+    "osm_ways_intersected": 10,
+    "crossing_spread_m": 0.0
+   },
+   "residual_m": 7.81,
+   "residual_affine_m": 9.47
+  },
+  {
+   "id": "T5",
+   "map_feature": "Clark St & Lake St",
+   "division": "South",
+   "pixel": [
+    2197.2,
+    1098.8
+   ],
+   "pixel_note": "midpoint of the two block-edge lines that bound the street corridor, each found by an ink-density peak in a band taken from the neighbouring block face",
+   "modern": {
+    "utm_e": 447649.73,
+    "utm_n": 4637283.43,
+    "local_e": 577.03,
+    "local_n": -112.37,
+    "osm_ways_intersected": 4,
+    "crossing_spread_m": 0.0
+   },
+   "residual_m": 4.69,
+   "residual_affine_m": 2.28
+  },
+  {
+   "id": "T6",
+   "map_feature": "Clark St & Randolph St",
+   "division": "South",
+   "pixel": [
+    2201.2,
+    1364.2
+   ],
+   "pixel_note": "midpoint of the two block-edge lines that bound the street corridor, each found by an ink-density peak in a band taken from the neighbouring block face",
+   "modern": {
+    "utm_e": 447651.47,
+    "utm_n": 4637142.45,
+    "local_e": 578.77,
+    "local_n": -253.35,
+    "osm_ways_intersected": 4,
+    "crossing_spread_m": 0.0
+   },
+   "residual_m": 1.81,
+   "residual_affine_m": 1.51
+  },
+  {
+   "id": "T7",
+   "map_feature": "Clark St & Washington St",
+   "division": "South",
+   "pixel": [
+    2204.3,
+    1621.8
+   ],
+   "pixel_note": "midpoint of the two block-edge lines that bound the street corridor, each found by an ink-density peak in a band taken from the neighbouring block face",
+   "modern": {
+    "utm_e": 447652.0,
+    "utm_n": 4637005.85,
+    "local_e": 579.3,
+    "local_n": -389.95,
+    "osm_ways_intersected": 3,
+    "crossing_spread_m": 0.0
+   },
+   "residual_m": 1.56,
+   "residual_affine_m": 0.33
+  },
+  {
+   "id": "T8",
+   "map_feature": "Clinton St & Fulton St",
+   "division": "West",
+   "pixel": [
+    568.6,
+    831.0
+   ],
+   "pixel_note": "midpoint of the two block-edge lines that bound the street corridor, each found by an ink-density peak in a band taken from the neighbouring block face",
+   "modern": {
+    "utm_e": 446790.52,
+    "utm_n": 4637407.63,
+    "local_e": -282.18,
+    "local_n": 11.83,
+    "osm_ways_intersected": 4,
+    "crossing_spread_m": 0.0
+   },
+   "residual_m": 1.91,
+   "residual_affine_m": 3.0
+  },
+  {
+   "id": "T9",
+   "map_feature": "Clinton St & Lake St",
+   "division": "West",
+   "pixel": [
+    571.0,
+    1067.0
+   ],
+   "pixel_note": "midpoint of the two block-edge lines that bound the street corridor, each found by an ink-density peak in a band taken from the neighbouring block face",
+   "modern": {
+    "utm_e": 446790.56,
+    "utm_n": 4637287.11,
+    "local_e": -282.14,
+    "local_n": -108.69,
+    "osm_ways_intersected": 6,
+    "crossing_spread_m": 0.0
+   },
+   "residual_m": 2.6,
+   "residual_affine_m": 3.87
+  },
+  {
+   "id": "T10",
+   "map_feature": "Clinton St & Randolph St",
+   "division": "West",
+   "pixel": [
+    572.9,
+    1337.0
+   ],
+   "pixel_note": "midpoint of the two block-edge lines that bound the street corridor, each found by an ink-density peak in a band taken from the neighbouring block face",
+   "modern": {
+    "utm_e": 446792.33,
+    "utm_n": 4637145.19,
+    "local_e": -280.37,
+    "local_n": -250.61,
+    "osm_ways_intersected": 5,
+    "crossing_spread_m": 0.0
+   },
+   "residual_m": 3.48,
+   "residual_affine_m": 3.72
+  },
+  {
+   "id": "T11",
+   "map_feature": "Clinton St & Washington St",
+   "division": "West",
+   "pixel": [
+    575.3,
+    1600.0
+   ],
+   "pixel_note": "midpoint of the two block-edge lines that bound the street corridor, each found by an ink-density peak in a band taken from the neighbouring block face",
+   "modern": {
+    "utm_e": 446794.61,
+    "utm_n": 4637005.33,
+    "local_e": -278.09,
+    "local_n": -390.47,
+    "osm_ways_intersected": 8,
+    "crossing_spread_m": 0.0
+   },
+   "residual_m": 4.15,
+   "residual_affine_m": 2.36
+  },
+  {
+   "id": "T12",
+   "map_feature": "Dearborn St & Lake St",
+   "division": "South",
+   "pixel": [
+    2429.0,
+    1108.2
+   ],
+   "pixel_note": "midpoint of the two block-edge lines that bound the street corridor, each found by an ink-density peak in a band taken from the neighbouring block face",
+   "modern": {
+    "utm_e": 447772.72,
+    "utm_n": 4637283.04,
+    "local_e": 700.02,
+    "local_n": -112.76,
+    "osm_ways_intersected": 4,
+    "crossing_spread_m": 0.0
+   },
+   "residual_m": 7.63,
+   "residual_affine_m": 5.0
+  },
+  {
+   "id": "T13",
+   "map_feature": "Dearborn St & Randolph St",
+   "division": "South",
+   "pixel": [
+    2430.1,
+    1366.6
+   ],
+   "pixel_note": "midpoint of the two block-edge lines that bound the street corridor, each found by an ink-density peak in a band taken from the neighbouring block face",
+   "modern": {
+    "utm_e": 447774.65,
+    "utm_n": 4637142.18,
+    "local_e": 701.95,
+    "local_n": -253.62,
+    "osm_ways_intersected": 4,
+    "crossing_spread_m": 0.0
+   },
+   "residual_m": 4.52,
+   "residual_affine_m": 4.48
+  },
+  {
+   "id": "T14",
+   "map_feature": "Dearborn St & Washington St",
+   "division": "South",
+   "pixel": [
+    2436.3,
+    1624.6
+   ],
+   "pixel_note": "midpoint of the two block-edge lines that bound the street corridor, each found by an ink-density peak in a band taken from the neighbouring block face",
+   "modern": {
+    "utm_e": 447776.69,
+    "utm_n": 4637003.57,
+    "local_e": 703.99,
+    "local_n": -392.23,
+    "osm_ways_intersected": 4,
+    "crossing_spread_m": 0.0
+   },
+   "residual_m": 3.17,
+   "residual_affine_m": 4.32
+  },
+  {
+   "id": "T15",
+   "map_feature": "Franklin St & Lake St",
+   "division": "South",
+   "pixel": [
+    1508.4,
+    1084.1
+   ],
+   "pixel_note": "midpoint of the two block-edge lines that bound the street corridor, each found by an ink-density peak in a band taken from the neighbouring block face",
+   "modern": {
+    "utm_e": 447281.91,
+    "utm_n": 4637284.63,
+    "local_e": 209.21,
+    "local_n": -111.17,
+    "osm_ways_intersected": 4,
+    "crossing_spread_m": 0.0
+   },
+   "residual_m": 2.96,
+   "residual_affine_m": 4.26
+  },
+  {
+   "id": "T16",
+   "map_feature": "Franklin St & Randolph St",
+   "division": "South",
+   "pixel": [
+    1511.8,
+    1350.6
+   ],
+   "pixel_note": "midpoint of the two block-edge lines that bound the street corridor, each found by an ink-density peak in a band taken from the neighbouring block face",
+   "modern": {
+    "utm_e": 447282.42,
+    "utm_n": 4637143.79,
+    "local_e": 209.72,
+    "local_n": -252.01,
+    "osm_ways_intersected": 4,
+    "crossing_spread_m": 0.0
+   },
+   "residual_m": 5.84,
+   "residual_affine_m": 5.61
+  },
+  {
+   "id": "T17",
+   "map_feature": "Franklin St & Washington St",
+   "division": "South",
+   "pixel": [
+    1513.7,
+    1611.2
+   ],
+   "pixel_note": "midpoint of the two block-edge lines that bound the street corridor, each found by an ink-density peak in a band taken from the neighbouring block face",
+   "modern": {
+    "utm_e": 447283.47,
+    "utm_n": 4637007.7,
+    "local_e": 210.77,
+    "local_n": -388.1,
+    "osm_ways_intersected": 4,
+    "crossing_spread_m": 0.0
+   },
+   "residual_m": 7.71,
+   "residual_affine_m": 5.95
+  },
+  {
+   "id": "T18",
+   "map_feature": "La Salle St & Randolph St",
+   "division": "South",
+   "pixel": [
+    1969.2,
+    1359.4
+   ],
+   "pixel_note": "midpoint of the two block-edge lines that bound the street corridor, each found by an ink-density peak in a band taken from the neighbouring block face",
+   "modern": {
+    "utm_e": 447526.05,
+    "utm_n": 4637142.98,
+    "local_e": 453.35,
+    "local_n": -252.82,
+    "osm_ways_intersected": 8,
+    "crossing_spread_m": 5.2
+   },
+   "residual_m": 2.38,
+   "residual_affine_m": 2.17
+  },
+  {
+   "id": "T19",
+   "map_feature": "La Salle St & Washington St",
+   "division": "South",
+   "pixel": [
+    1974.3,
+    1617.8
+   ],
+   "pixel_note": "midpoint of the two block-edge lines that bound the street corridor, each found by an ink-density peak in a band taken from the neighbouring block face",
+   "modern": {
+    "utm_e": 447529.0,
+    "utm_n": 4637006.29,
+    "local_e": 456.3,
+    "local_n": -389.51,
+    "osm_ways_intersected": 6,
+    "crossing_spread_m": 0.0
+   },
+   "residual_m": 3.84,
+   "residual_affine_m": 1.96
+  },
+  {
+   "id": "T20",
+   "map_feature": "Wells St & Lake St",
+   "division": "South",
+   "pixel": [
+    1738.6,
+    1089.3
+   ],
+   "pixel_note": "midpoint of the two block-edge lines that bound the street corridor, each found by an ink-density peak in a band taken from the neighbouring block face",
+   "modern": {
+    "utm_e": 447404.02,
+    "utm_n": 4637283.94,
+    "local_e": 331.32,
+    "local_n": -111.86,
+    "osm_ways_intersected": 4,
+    "crossing_spread_m": 0.0
+   },
+   "residual_m": 2.18,
+   "residual_affine_m": 3.06
+  },
+  {
+   "id": "T21",
+   "map_feature": "Wells St & Randolph St",
+   "division": "South",
+   "pixel": [
+    1742.1,
+    1349.0
+   ],
+   "pixel_note": "midpoint of the two block-edge lines that bound the street corridor, each found by an ink-density peak in a band taken from the neighbouring block face",
+   "modern": {
+    "utm_e": 447405.58,
+    "utm_n": 4637143.22,
+    "local_e": 332.88,
+    "local_n": -252.58,
+    "osm_ways_intersected": 4,
+    "crossing_spread_m": 0.0
+   },
+   "residual_m": 4.46,
+   "residual_affine_m": 4.49
+  },
+  {
+   "id": "T22",
+   "map_feature": "Wells St & Washington St",
+   "division": "South",
+   "pixel": [
+    1745.1,
+    1608.3
+   ],
+   "pixel_note": "midpoint of the two block-edge lines that bound the street corridor, each found by an ink-density peak in a band taken from the neighbouring block face",
+   "modern": {
+    "utm_e": 447407.46,
+    "utm_n": 4637007.11,
+    "local_e": 334.76,
+    "local_n": -388.69,
+    "osm_ways_intersected": 4,
+    "crossing_spread_m": 0.0
+   },
+   "residual_m": 5.81,
+   "residual_affine_m": 3.82
+  }
+ ]
+}

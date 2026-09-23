@@ -1,0 +1,126 @@
+{
+  "_doc": "Ground control for the Hathaway 1834 map (LOC scan). Pixel coordinates are in a 4000 x 5702 working raster = the LOC IIIF image (6536 x 9318) uniformly scaled by 0.61199 (requested as full/4000,). Multiply by 1.634 to reach native LOC pixels. No Allmaps annotation existed for this map as of 2026-08-09; this georeference is new.",
+  "raster": {
+    "iiif_image": "https://tile.loc.gov/image-services/iiif/service:gmd:gmd410:g4104:g4104c:ct007620",
+    "native_width": 6536,
+    "native_height": 9318,
+    "working_width": 4000,
+    "working_height": 5702,
+    "working_copy_sha256": "5c43d51f9a4528494bb78e49071b7ee86c05e58fe36fae6790b2949cbbfe1a9a"
+  },
+  "control_source": "Modern control from OpenStreetMap via the Overpass API, fetched 2026-08-09. Multi-node crossings averaged (max spread 6.4 m). OSM data is (c) OpenStreetMap contributors, ODbL — see data/sources/osm_streets_2026.json.",
+  "gcps": [
+    {
+      "id": "HA",
+      "map_feature": "Canal St & Lake St",
+      "pixel": [
+        1122,
+        2218
+      ],
+      "modern": {
+        "lat": 41.8857338,
+        "lon": -87.6398656,
+        "osm_node_ids": [
+          258020603
+        ],
+        "utm_e": 446913.03,
+        "utm_n": 4637287.42
+      },
+      "residual_m": 12.6
+    },
+    {
+      "id": "HB",
+      "map_feature": "Canal St & Kinzie St",
+      "pixel": [
+        1122,
+        1695
+      ],
+      "modern": {
+        "lat": 41.8890943,
+        "lon": -87.6401853,
+        "osm_node_ids": [
+          10942616788,
+          10942616789,
+          11851144361,
+          11851144367,
+          11851144368
+        ],
+        "utm_e": 446889.29,
+        "utm_n": 4637660.73
+      },
+      "residual_m": 11.8
+    },
+    {
+      "id": "HC",
+      "map_feature": "State St & Madison St",
+      "pixel": [
+        2622,
+        2860
+      ],
+      "modern": {
+        "lat": 41.8820455,
+        "lon": -87.6278089,
+        "osm_node_ids": [
+          27446720
+        ],
+        "utm_e": 447910.33,
+        "utm_n": 4636870.53
+      },
+      "residual_m": 4.4
+    },
+    {
+      "id": "HD",
+      "map_feature": "Cass St & Ohio St",
+      "pixel": [
+        2868,
+        1112
+      ],
+      "modern": {
+        "lat": 41.8924976,
+        "lon": -87.626742,
+        "osm_node_ids": [
+          258023463
+        ],
+        "utm_e": 448007.33,
+        "utm_n": 4638030.35
+      },
+      "residual_m": 25.9
+    },
+    {
+      "id": "HE",
+      "map_feature": "Rush St & Ohio St",
+      "pixel": [
+        3118,
+        1112
+      ],
+      "modern": {
+        "lat": 41.8925217,
+        "lon": -87.6254098,
+        "osm_node_ids": [
+          736861647
+        ],
+        "utm_e": 448117.87,
+        "utm_n": 4638032.22
+      },
+      "residual_m": 24.0
+    }
+  ],
+  "fit": {
+    "type": "affine, least squares, working-raster pixel -> EPSG:26916",
+    "coefficients": {
+      "a": 0.6411040199704474,
+      "b": 0.048288221497382385,
+      "c": 446089.2296523779,
+      "d": -0.002896688369633773,
+      "e": -0.667825438914193,
+      "f": 4638784.223750403
+    },
+    "rms_m": 17.7,
+    "scale_m_per_px": {
+      "x": 0.6411,
+      "y": 0.6696
+    },
+    "rotation_deg": -0.26,
+    "note": "The sheet is varnished and warped; residuals reflect it. Used as the independent cross-check on the Wright-derived origin, not as the master."
+  }
+}

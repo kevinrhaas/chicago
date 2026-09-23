@@ -1,0 +1,13 @@
+{
+  "_doc": "Manifest for the signage layer — the signs the town's businesses put out, over the footway and on their own fronts. A static host cannot be globbed, which is why this file exists: the renderer fetches this manifest and then exactly the files it names, never a probe. A sign here is NOT a structure record and NOT baked geometry: it is a plank on a bracket, under a hood, on a post or fixed to a wall this project has already drawn — or, where the record says facade_painted, the business's name straight onto that wall and no board at all — so all of it is derived from the committed footprint and placement and drawn by renderers/web/js/signage.js from these numbers alone. Records here are GENERATED where the evidence is a treatment rather than a place — town_business_signboards.json is written by tools/generate_business_signboards.py from the sidecars, and tools/check.sh re-derives it byte for byte, because \"which frontage gets a sign, what it says, how it hangs and what colour it is\" is a rule and a rule has to be auditable. Since T-0066 every sign carries the NAME of the business behind it, in one of ten colourways on one of five mountings, all of it reconstructed and claimed at docs/LIBERTIES.md L159. The one board this project can point at a source for is NOT here: the Wolf Point Tavern's painted wolf sign is attested, is archetype geometry, hangs in that building's GLB, and carries no wording at all (docs/LIBERTIES.md L25).",
+  "version": 1,
+  "scene": "1835",
+  "scene_date": "1835-07-01",
+  "coordinates": "Local East-North-Up metres from data/datum.json's origin — the same frame data/enclosures/ and the sidecars' placement.local_e / local_n use.",
+  "signage": [
+    {
+      "id": "town_business_signboards",
+      "file": "town_business_signboards.json"
+    }
+  ]
+}

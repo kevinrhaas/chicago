@@ -1,0 +1,157 @@
+{
+  "id": "steamboat_hotel",
+  "name": "Steamboat Hotel",
+  "aka": [
+    "American Hotel",
+    "American Inn",
+    "the Steam Boat Hotel"
+  ],
+  "archetype": "frame_tavern",
+  "phases": [
+    {
+      "id": "frame_1835",
+      "documented_range": {
+        "from": "1835-01-01",
+        "to": "1835-12-31",
+        "confidence": "inferred",
+        "sources": [
+          "andreas_1884_v1",
+          "drloih_hotels"
+        ],
+        "note": "THE DATE IS THE RISK IN THIS RECORD AND IT IS NOT RESOLVED. Two sources put the house in 1835 and neither gives a month: Andreas, 'The Steamboat Hotel, on North Water Street, near Kinzie, was kept in 1835 by John Davis, and from 1836 to 1839 by William McCorrister, as the American Hotel'; DRLOIH, 'The Steamboat Hotel ... opened in 1835 on North Water Street, near Kinzie Street, and was operated by John Davis.' The range therefore opens on 1 January 1835 because that is the earliest day the attested year permits, NOT because anything says the house was open then. THE SCENE DATE IS SIX MONTHS INTO THAT WINDOW AND THE BUILDING COULD BE ON EITHER SIDE OF IT. What narrows it, a little: John Davis advertised the Steamboat Hotel in the Chicago American, whose first issue Andreas dates 8 June 1835 — so the house was trading under Davis inside the paper's 1835 run, which begins three weeks before the scene date; and DRLOIH has J. Dorsey and J. Force announcing on 9 November 1835 that they had taken over the management, which closes Davis's tenure at that end. Both anchors sit after 1 July and neither reaches back before it. THIS PROJECT EXCLUDES THE TOWN'S FIRST FIRE ENGINE ON EXACTLY THIS GROUND — right year, wrong month — and the difference here is that no source dates the opening at all, so the balance of evidence is that a house 'kept in 1835 by John Davis' and advertising in a paper that began in June was more likely than not in business by 1 July. Tagged inferred, argued rather than assumed, and if a dated advertisement or a licence puts the opening after 1 July this record leaves the scene for data/exclusions.json. NOTE ALSO that neither source says the BUILDING was new in 1835: 'opened in 1835' is a statement about a business. The fabric may be older, in which case the risk above disappears and only the record's silence about it remains."
+      },
+      "position": {
+        "utm_e": 448000.4,
+        "utm_n": 4637616.31,
+        "rotation_deg": 131.4,
+        "symbolic_location": "North Water Street near Kinzie Street, north bank, in the stretch east of Wolcott (N State) Street where the two streets converge.",
+        "confidence": "inferred",
+        "sources": [
+          "andreas_1884_v1",
+          "drloih_hotels",
+          "wright_1834",
+          "osm_streets_2026",
+          "thompson_plat_1830"
+        ],
+        "note": "PLACED 2026-08-11, RE-DERIVED ONTO THE COMMITTED STREETS 2026-09-06 (T-0812), AND PUT ON THE NORTH BANK'S OWN FRONTAGE RULE 2026-09-11 (T-0947). THE STREET IS DOCUMENTED, THE CROSS-STREET IS A PROXIMITY, AND NO SOURCE GIVES A CORNER OR A SIDE. Both sources say the same thing in the same words — 'on North Water Street, near Kinzie' — which is one statement twice, since DRLOIH follows Andreas here as it does elsewhere. THE 2026-08-11 READING OF KINZIE STREET, AND WHY IT DOES NOT STAND. That placement read the Wright 1834 sheet at this project's fitted affine and wrote that the Kinzie Street alignment runs due east at local N +276. The committed `kinzie` record in data/streets/1835.json runs at N +252.8 at this easting — 23.2 m south of the prose — and THE COMMITTED LINE WINS, on three counts. T-0713 made its geometry `attested` on the owner's ruling, because James Thompson's 1830 plat DRAWS the street. Its west end is anchored to real ground control: `kinzie_canal`, Kinzie × Canal, five committed OSM node ids and a GCP, at local E −183.4, N +264.9, which is the record's own second vertex to within the 3.8 m correction that control already has queued against it; its east end is traced from `osm_streets_2026`. And T-0447 derived North Water Street's east end INDEPENDENTLY of all that — as the crossing of the committed bank's offset curve with the committed kinzie line — and landed at local E +973.6, N +252.9, which is 0.1 m from the kinzie record. The argument is written out in full at docs/RESEARCH/kinzie_alignment_1835.md; the reading was wrong about the NORTHING and right about everything else. THE ACROSS-STREET OFFSET IS THE NORTH BANK'S RULE AND NOT THE PLATTED MODULE (T-0947). The street face stands 5.00 m from North Water Street's committed centreline: the street record's own `track_width_m` 6.0 gives a kerb 3.00 m out, and the front wall is set 2.00 m back from that kerb. That is not a figure invented for this house — it is the rule the four Dearborn sheds on this same bank are already placed by, stated four times over in their own notes and now argued once, in the place placement rules are stated, at docs/RESEARCH/street_module_1830.md § 11. `tools/measure_north_bank_frontage.py --gate` re-derives it on every commit. Facade bearing 131.4 is the street's own bearing there, 41.4, turned to face it: south-east, across the roadway to the river. TWO 2026-09-06 DERIVATIONS PUT THIS HOUSE 36.79 M APART AND BOTH WERE GREEN; THIS RECORD SAYS WHICH IS TAKEN AND WHY THE OTHER IS NOT. PR #974, which landed, offset 12.192 m — half the 80 ft platted module — from the same centreline. IT IS NOT TAKEN, because the north bank has no platted module in this dataset: `data/traces/street_control.json` applies the 80 ft figure to Lake, Market, Canal, Randolph and Kinzie, its `measured` block records eleven corridors read off the two 1834 sheets and NOT ONE of them is north of the river, and `tools/plat_corridors.py` gives `north_water` no corridor ring at all because `generate_plat_lots.EW_STREETS`/`NS_STREETS` name no north-bank street. Half a module this street is not known to carry is a number borrowed from the other side of the river, and it left this house standing 12.20 m back where every other building on the bank stands between 0.06 and 5.05 m. PR #975, which was closed, offset 7.00 m and moved the along-street station to 28.9 m short of the convergence. IT IS NOT TAKEN EITHER, on two measurements: its figure does not reproduce — it was argued from a neighbour band of '2.15 to 7.31 m' that re-measures on the committed records as 0.06 to 5.05 m, and its own `derivation.reason` says 3.00 m where its note says 7.00 — and its station put this facade 6.24 m from the committed `kinzie` centreline, which is 5.95 m INSIDE the platted corridor of an `attested`, module-bearing street. The placement committed here keeps #974's along-street station and takes neither of the two offsets: it is 7.87 m from where #974 left it and 32.66 m clear of Kinzie Street's centreline. THE ALONG-STREET STATION IS NOT A FREE CHOICE, AND IT IS #974'S, UNCHANGED IN SUBSTANCE. The house sits short of the convergence because the ground nearer to it is taken: `council_house` stands across the frontage from about 30 to 61 m short of the crossing, and this house is set one platted alley — 18 ft, 5.486 m, the other figure on the same Thompson annotation as the 80 ft street — west of that footprint. Moving the facade forward onto the frontage line opened that gap to 7.86 m, because the Council House stands further back than this house now does, so the station was slid 3.17 m north-east along the street's own bearing to close it again: the committed gap is 5.486 m and the anchor is 56.2 m from the derived convergence at E +973.6, N +252.9. `council_house` is `conjectural` and admits ±110 m along the bank inside a 215 m attested band, so it is the record with room to move and this one is the record with a frontage to keep; if it is ever re-sited, this house has the first claim on the ground it vacates. WHAT MOVED, IN NUMBERS. The anchor was local E +968.0, N +291.0 before T-0812, E +920.2, N +222.9 after it, and is now E +927.7, N +220.5. The T-0812 correction was the large one and it stands: the 2026-08-11 placement stood 38.2 m north of the committed kinzie line, past the convergence and in the block NORTH of Kinzie, on no frontage at all. This ticket's correction is 7.87 m and it is across the street rather than along it. UNCERTAINTY IS STILL BIGGER HERE THAN ANYWHERE ELSE ON THIS BANK: about 20 m from the georeference, plus an unquantified allowance for 'near' — the stretch of North Water Street this reading admits is roughly 150 m long, so treat the along-street position as good to about ±80 m and the side of the street as a coin flip. The north side is chosen because on the 1834 plat the south side of North Water Street east of Wolcott is a single row of riverbank lots between the street and the water, and a hotel is more likely on the block side than on the wharf side; that is an argument, not evidence. WHAT IS NO LONGER UNCERTAIN is the across-street position: the street face is on the frontage line by construction and a gate now re-derives it, so any future along-street move slides it along that line rather than off it. The ground under the new station was sampled on the committed heightfield e1834_harbor_cut: the four corners stand between +1.398 and +1.410 m above the summer-1835 water surface, 0.012 m of relief across the whole rectangle, well inside the 0.35 m the infill generators allow themselves.",
+        "derivation": {
+          "method": "street_frontage",
+          "frontage": {
+            "street": "north_water",
+            "face": "front",
+            "setback_m": 5.0,
+            "note": "THE NORTH BANK'S RULE, NOT THE PLATTED MODULE. T-0947 argued this at docs/RESEARCH/street_module_1830.md § 11 and the argument is the reason for the number: north of the river a frontage comes off the street AS DRAWN, the 6.00 m track's kerb plus the 2.00 m clearance the bank's placements state, which is 5.00 m from north_water's committed centreline. The 12.192 m half module is refused here and the refusal is measured — street_control's eleven platted corridors are all south of the river and plat_corridors gives north_water no ring at all."
+          },
+          "note": "T-0812 derived this placement, T-0947 settled which setback rule the north bank runs on, and T-0946 gave the schema a word for saying it. The building does not move here: the diff on this record is the derivation block and nothing else. What changes is who re-computes the number. `tools/measure_north_bank_frontage.py --gate` already re-derived this facade's 5.00 m on every commit against a baseline, to 0.20 m; that stays, and it is the tool that holds the RULE across the bank's five records and its eight named exceptions. This declaration is the other half — the record itself now states its own street, its own wall and its own setback in the same block every other placement states its derivation in, and tools/validate.py holds it to 0.05 m from the committed path: 5.00 measured against 5.00 declared. Before this the record read `not_derivable`, which by then was untrue twice over — the placement was derivable and it was in fact being derived — and it read that way only because the enum had no term. THE ALONG-STREET STATION IS STILL NOT GATED by either tool: it stands on council_house, which is `conjectural` and admits ±110 m along the bank, so there is nothing firm to hold it to and position.note above states it in full. Nor does any of this touch the ±20 m the georeference carries or the coin flip on which side of the street a hotel stood. What is now checked from two directions is the across-street offset, which is the number two reconciliations of T-0812 disagreed about by 36.79 m."
+        }
+      },
+      "footprint": {
+        "polygon": [
+          [
+            0,
+            0
+          ],
+          [
+            15,
+            0
+          ],
+          [
+            15,
+            8
+          ],
+          [
+            0,
+            8
+          ]
+        ],
+        "confidence": "reconstructed",
+        "note": "PLACEHOLDER — NOTHING ABOUT THIS BUILDING'S FABRIC OR SIZE IS ATTESTED. 15 x 8 m is about 50 x 26 ft: a plausible two-storey town hotel of 1835, sized between the Green Tree (40 x 25 ft, itself derived rather than measured) and the Western Hotel (40 x 60 ft in an L, which is attested). Every number is invented and the rectangle is a rectangle because no source describes a plan. To resolve: the Chicago American and Chicago Democrat advertisements — Davis was advertising this house, and hotel advertisements of the period routinely count rooms and describe the building."
+      },
+      "form": {
+        "construction": {
+          "value": "braced_frame",
+          "confidence": "reconstructed",
+          "note": "NOT ATTESTED, AND THIS IS THE MOST CONSEQUENTIAL GUESS IN THE RECORD, because it also chose the archetype: a frame reading makes this a `frame_tavern` and a log reading would make it a `log_dwelling`, so if it is wrong the building is wrong in kind and not merely in detail. THE ARGUMENT FOR FRAME: every Chicago hotel this dataset can date to 1833 or later is frame — the Green Tree of 1833, the Western of 1834, the Tremont of 1833 — while the log taverns at the forks all belong to the 1828-31 generation; by 1835 the town had sawn lumber, carpenters and a building boom, and it was raising a three-storey brick hotel half a mile east on the same bank. THE ARGUMENT AGAINST TREATING THAT AS EVIDENCE is this project's own line, set in docs/LIBERTIES.md L18: the ordinary reading of a TYPE is not evidence about a BUILDING. Nobody described this house at all. So the value is chosen, declared and tagged conjectural, and the confidence view renders the whole building as massing rather than as a finding."
+        },
+        "stories": {
+          "value": 2,
+          "confidence": "reconstructed",
+          "note": "NOT ATTESTED. Two storeys is what a town hotel of 1835 carried and no source says it of this one. Chosen rather than derived."
+        },
+        "wall_height_m": {
+          "value": 5.2,
+          "confidence": "reconstructed",
+          "note": "NOT ATTESTED. 5.2 m is about 17 ft — two storeys at period floor heights plus structure and a sill, the same figure this project uses for the Miller house's two-storey range. It inherits the storey count above, which is itself a guess."
+        },
+        "roof_type": {
+          "value": "gable",
+          "confidence": "reconstructed",
+          "note": "NOT ATTESTED. Gable is the ordinary roof for a frame block of this type and period and nothing says it of this building."
+        },
+        "roof_pitch_deg": {
+          "value": 38.0,
+          "confidence": "inferred",
+          "note": "No pitch is attested. 38 degrees is this archetype's mid-range for period framing, inferred from construction practice rather than measured — the same value and the same reasoning as the other frame records here. It is an inference about how a roof of this kind was framed, sitting on a roof form the record has already tagged as a guess."
+        },
+        "paint": {
+          "value": "unpainted",
+          "confidence": "reconstructed",
+          "note": "NOT ATTESTED EITHER WAY, and this attribute is read by the archetype, so leaving it out would have painted the building white by default — which is a claim, and one Wau-Bun's account of the Sauganash's white paint being 'the admiration of all the little circle at Wolf Point' shows was worth remarking on in 1831. Unpainted is the cheaper reading for a 1835 speculative-boom house and it is still a choice."
+        },
+        "gallery": {
+          "value": false,
+          "confidence": "reconstructed",
+          "note": "NOT ATTESTED EITHER WAY. False is what the archetype falls back to, not a finding, and the consequence is the one docs/LIBERTIES.md L19 records for the Green Tree and the Western: a plain front reads as the answer while a drawn shape at least announces itself as a choice. A house taking steamboat passengers off the North Water Street frontage is precisely the type that often carried a porch."
+        },
+        "chimneys": {
+          "value": 2,
+          "confidence": "inferred",
+          "note": "Not attested. Two is the count a frame block of this frontage carries if it is heating public rooms and lodging rooms through a Chicago winter, and it is what this project's other two frame hotels record. The COUNT is the inference; position, size and material are the archetype's — docs/LIBERTIES.md L26."
+        },
+        "siding_exposure_m": {
+          "value": 0.152,
+          "confidence": "reconstructed",
+          "note": "INVENTED WITHIN A STOCK SET, NOT DERIVED. No source states the exposed face of any Chicago building's siding. The value is one of four period mill sidings — 4.5, 5, 5.5 or 6 in to the weather; this record wears 6 in — dealt by tools/deal_siding_stock.py: keyed to the phase's construction season, because buildings sided from the same season's shipments of St Joseph sawn lumber tend toward one stock, then advanced so no frame building within 60 m shares this one's. The separation is the surface variety T-0049 reconstructs, not a claim about 1835. docs/LIBERTIES.md L148 owns the invention."
+        }
+      },
+      "change_note": "The house standing on North Water Street in 1835 and kept as the Steamboat Hotel by John Davis. The change of management to J. Dorsey and J. Force in November 1835 and the renaming to the American Hotel under William McCorrister in 1836 are changes of USE and do not open new phases."
+    }
+  ],
+  "function": {
+    "value": "hotel",
+    "confidence": "attested",
+    "sources": [
+      "andreas_1884_v1",
+      "drloih_hotels"
+    ],
+    "note": "'The Steamboat Hotel, on North Water Street, near Kinzie, was kept in 1835 by John Davis' (Andreas). The function is documented for the year; see documented_range for why the year is not the same as the day."
+  },
+  "occupants": {
+    "value": "John Davis, keeper",
+    "confidence": "attested",
+    "sources": [
+      "andreas_1884_v1",
+      "drloih_hotels"
+    ],
+    "note": "Both sources name Davis as the keeper in 1835, and Andreas's list of the Chicago American's advertising patrons carries 'John Davis, Steamboat Hotel' in the paper's first year. THE GRAIN IS THE YEAR, NOT THE DAY: DRLOIH has J. Dorsey and J. Force taking over the management on 9 November 1835, so Davis's tenure covers the scene date if the house was open at all. Note the coincidence this project should not resolve by assumption: a 'Mr. Davis' also took over the Sauganash Hotel in 1835, and whether that is the same John Davis is unattested."
+  },
+  "land_owner": {
+    "value": "The ground was entered by Robert A Kenzie, 7 May 1831",
+    "confidence": "inferred",
+    "sources": [
+      "isa_public_domain_land_tract_sales"
+    ],
+    "note": "KINZIE'S ADDITION. The north fraction of section 10 is the section north of the river, which is why the register prints 102.29 acres and not a quarter's 160. It is resolved as the section's own grid box clipped to the committed north bank of the main stem (`e1834_harbor_cut/shoreline.geojson`), so no boundary here is authored. The two rows the register carries for it — one plain, one with the school-section marker — are the same entry printed twice. THE REGISTER SPELLS THE PURCHASER MORE THAN ONE WAY for this same tract — Robert A Kenzie; Robert A Kinzie — and the spellings are carried rather than merged, which is the land_sales crosswalk's standing rule: tract agreement is where two spellings MIGHT be one man and is never proof that they are. THE MARGIN IS 42 m: this footprint stands that far inside the tract's nearest boundary, which is more than twice the working horizontal uncertainty of anything traced off the 1834 sheets (about 20 m), so the assignment survives the error the construction carries. WHAT THIS ROW CLAIMS AND WHAT IT DOES NOT. It claims that the tract the Illinois State Archives' land-sale register describes contains this structure's committed position — the patent for this ground was ENTERED by this man on this date. It does not claim he still held the ground on 1 July 1835, that he lived here, or that he ever stood on it: a sale is a transaction, and the register's only column about residence names a county. THE SECTION LINES ARE CONSTRUCTED, NOT TRACED (L219): the grid is carried from the single PLSS corner at State & Madison, on the plat's own east-west bearing, in nominal one-mile squares.",
+    "tract": "the north fraction of section 10",
+    "entries": [
+      "ls0058",
+      "ls0059"
+    ],
+    "date_purchased": "1831-05-07",
+    "type_of_sale": "federal land sale (cash entry)",
+    "margin_m": 41.7,
+    "generated_by": "tools/resolve_land_tracts.py --build"
+  },
+  "research_note": "A HOTEL THAT IS ALL BUSINESS AND NO BUILDING: two sources give a street, a cross-street, a year and a keeper, and not one word about the fabric, the size, the plan, the storeys or the finish. So the archetype choice — `frame_tavern` rather than `log_dwelling` — IS the guess, and it is argued at form.construction rather than buried in the filename: every dateable Chicago hotel from 1833 on is frame, the log taverns belong to 1828-31, and the ordinary reading of a type is still not evidence about a building. Everything dimensional is tagged conjectural and the confidence view renders the whole house as massing. THE DATE IS THE OTHER RISK and it is set out in full on documented_range: 'opened in 1835' with no month, in a scene dated 1 July 1835, in a project that excludes the town's first fire engine for being five months late. WHAT WOULD SETTLE BOTH: the Chicago American, which Davis advertised in and whose first issue is dated 8 June 1835, and the Chicago Democrat. A dated advertisement would fix the opening; an advertisement of the ordinary period kind would also describe the house. See docs/RESEARCH/steamboat_hotel.md.",
+  "review_required": false
+}

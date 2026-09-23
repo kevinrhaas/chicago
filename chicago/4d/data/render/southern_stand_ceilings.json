@@ -1,0 +1,591 @@
+{
+ "schema": 1,
+ "_doc": "THE SOUTHERN FIELD READ ON THE INSTRUMENT THE CEILINGS ARE HELD WITH (T-1148). tools/measure_ground_tiling.mjs found the four southern poses standing far over every scene-detail ceiling and declined, correctly, to make a ceiling claim on an instrument it had not calibrated against the gate. This is that reading taken again on tools/measure_detail_ceilings.mjs -- the tool whose header records it reproducing a bake run's desktop figures to the triangle and to the draw call -- at the SAME four poses, plus the five downtown stands tools/smoke_renderer.mjs owns, at all three tiers and both gate viewports. Nothing here moves a ceiling. See `the_finding` for what it turned out to be a reading of.",
+ "ticket": "T-1148",
+ "read_on": "2026-09-15",
+ "generated_by": "PW_EXECUTABLE=<chromium> node tools/measure_detail_ceilings.mjs --south --only desktop|mobile --json <out>",
+ "instrument": "tools/measure_detail_ceilings.mjs, --south, on the PUBLISHED mirror (tools/publish.sh output served over http, entered at /walk/), the real renderer booted on it and driven through the `__chicago4d` handle the gate drives, `a.stats()` read as three.js counts it after two settled frames. The nine stands are visited in one page per viewport, anchors and poses first and the framed stand last, which is the order tools/smoke_renderer.mjs uses and the reason it is used.",
+ "what_this_is": "A reading of the whole scene from nine places, at the three tiers, against the ceilings `renderers/web/js/main.js` DETAIL holds. It is NOT the gate: tools/smoke_renderer.mjs is, and it is the only thing that may fail a branch on a ceiling.",
+ "tree": "dev at the tip this branch was cut from, published with tools/publish.sh",
+ "viewports": [
+  {
+   "viewport": "desktop 1280x800",
+   "tier": "full",
+   "ceiling": 1460000,
+   "worst_downtown": {
+    "id": "lake_at_canal",
+    "label": "Lake Street at Canal, east down the axis",
+    "triangles": 1883619,
+    "calls": 152,
+    "over_by": 423619,
+    "verdict": "OVER"
+   },
+   "worst_south": {
+    "id": "mid_field_looking_north",
+    "label": "mid-field, looking back at the town",
+    "triangles": 2161179,
+    "calls": 130,
+    "over_by": 701179,
+    "verdict": "OVER"
+   },
+   "stands": [
+    {
+     "id": "lake_at_canal",
+     "label": "Lake Street at Canal, east down the axis",
+     "field": "downtown",
+     "triangles": 1883619,
+     "calls": 152,
+     "over_by": 423619
+    },
+    {
+     "id": "the_forks",
+     "label": "the forks, from Wolf Point",
+     "field": "downtown",
+     "triangles": 1793425,
+     "calls": 152,
+     "over_by": 333425
+    },
+    {
+     "id": "from_above",
+     "label": "the open aerial",
+     "field": "downtown",
+     "triangles": 1514651,
+     "calls": 113,
+     "over_by": 54651
+    },
+    {
+     "id": "lake_and_market",
+     "label": "Lake and Market",
+     "field": "downtown",
+     "triangles": 1691611,
+     "calls": 146,
+     "over_by": 231611
+    },
+    {
+     "id": "south_branch_below_town",
+     "label": "the South Branch below the town, looking south",
+     "field": "south",
+     "triangles": 896093,
+     "calls": 47,
+     "over_by": 0
+    },
+    {
+     "id": "mid_field_looking_north",
+     "label": "mid-field, looking back at the town",
+     "field": "south",
+     "triangles": 2161179,
+     "calls": 130,
+     "over_by": 701179
+    },
+    {
+     "id": "south_end_looking_north",
+     "label": "the south end of the field, looking north",
+     "field": "south",
+     "triangles": 1542250,
+     "calls": 110,
+     "over_by": 82250
+    },
+    {
+     "id": "above_south_field",
+     "label": "from the air over the southern field",
+     "field": "south",
+     "triangles": 2143082,
+     "calls": 143,
+     "over_by": 683082
+    },
+    {
+     "id": "sauganash_26",
+     "label": "the Sauganash at 26 m",
+     "field": "downtown",
+     "triangles": 1454297,
+     "calls": 108,
+     "over_by": 0
+    }
+   ]
+  },
+  {
+   "viewport": "desktop 1280x800",
+   "tier": "balanced",
+   "ceiling": 1280000,
+   "worst_downtown": {
+    "id": "lake_at_canal",
+    "label": "Lake Street at Canal, east down the axis",
+    "triangles": 1738020,
+    "calls": 142,
+    "over_by": 458020,
+    "verdict": "OVER"
+   },
+   "worst_south": {
+    "id": "mid_field_looking_north",
+    "label": "mid-field, looking back at the town",
+    "triangles": 1565789,
+    "calls": 48,
+    "over_by": 285789,
+    "verdict": "OVER"
+   },
+   "stands": [
+    {
+     "id": "lake_at_canal",
+     "label": "Lake Street at Canal, east down the axis",
+     "field": "downtown",
+     "triangles": 1738020,
+     "calls": 142,
+     "over_by": 458020
+    },
+    {
+     "id": "the_forks",
+     "label": "the forks, from Wolf Point",
+     "field": "downtown",
+     "triangles": 1658864,
+     "calls": 142,
+     "over_by": 378864
+    },
+    {
+     "id": "from_above",
+     "label": "the open aerial",
+     "field": "downtown",
+     "triangles": 1402968,
+     "calls": 112,
+     "over_by": 122968
+    },
+    {
+     "id": "lake_and_market",
+     "label": "Lake and Market",
+     "field": "downtown",
+     "triangles": 1610972,
+     "calls": 144,
+     "over_by": 330972
+    },
+    {
+     "id": "south_branch_below_town",
+     "label": "the South Branch below the town, looking south",
+     "field": "south",
+     "triangles": 834352,
+     "calls": 46,
+     "over_by": 0
+    },
+    {
+     "id": "mid_field_looking_north",
+     "label": "mid-field, looking back at the town",
+     "field": "south",
+     "triangles": 1565789,
+     "calls": 48,
+     "over_by": 285789
+    },
+    {
+     "id": "south_end_looking_north",
+     "label": "the south end of the field, looking north",
+     "field": "south",
+     "triangles": 1192639,
+     "calls": 46,
+     "over_by": 0
+    },
+    {
+     "id": "above_south_field",
+     "label": "from the air over the southern field",
+     "field": "south",
+     "triangles": 1538905,
+     "calls": 51,
+     "over_by": 258905
+    },
+    {
+     "id": "sauganash_26",
+     "label": "the Sauganash at 26 m",
+     "field": "downtown",
+     "triangles": 1378130,
+     "calls": 108,
+     "over_by": 98130
+    }
+   ]
+  },
+  {
+   "viewport": "desktop 1280x800",
+   "tier": "light",
+   "ceiling": 825000,
+   "worst_downtown": {
+    "id": "lake_at_canal",
+    "label": "Lake Street at Canal, east down the axis",
+    "triangles": 1287059,
+    "calls": 67,
+    "over_by": 462059,
+    "verdict": "OVER"
+   },
+   "worst_south": {
+    "id": "above_south_field",
+    "label": "from the air over the southern field",
+    "triangles": 1379963,
+    "calls": 50,
+    "over_by": 554963,
+    "verdict": "OVER"
+   },
+   "stands": [
+    {
+     "id": "lake_at_canal",
+     "label": "Lake Street at Canal, east down the axis",
+     "field": "downtown",
+     "triangles": 1287059,
+     "calls": 67,
+     "over_by": 462059
+    },
+    {
+     "id": "the_forks",
+     "label": "the forks, from Wolf Point",
+     "field": "downtown",
+     "triangles": 1174110,
+     "calls": 62,
+     "over_by": 349110
+    },
+    {
+     "id": "from_above",
+     "label": "the open aerial",
+     "field": "downtown",
+     "triangles": 1025856,
+     "calls": 65,
+     "over_by": 200856
+    },
+    {
+     "id": "lake_and_market",
+     "label": "Lake and Market",
+     "field": "downtown",
+     "triangles": 1232510,
+     "calls": 80,
+     "over_by": 407510
+    },
+    {
+     "id": "south_branch_below_town",
+     "label": "the South Branch below the town, looking south",
+     "field": "south",
+     "triangles": 667798,
+     "calls": 42,
+     "over_by": 0
+    },
+    {
+     "id": "mid_field_looking_north",
+     "label": "mid-field, looking back at the town",
+     "field": "south",
+     "triangles": 1379916,
+     "calls": 48,
+     "over_by": 554916
+    },
+    {
+     "id": "south_end_looking_north",
+     "label": "the south end of the field, looking north",
+     "field": "south",
+     "triangles": 1122579,
+     "calls": 46,
+     "over_by": 297579
+    },
+    {
+     "id": "above_south_field",
+     "label": "from the air over the southern field",
+     "field": "south",
+     "triangles": 1379963,
+     "calls": 50,
+     "over_by": 554963
+    },
+    {
+     "id": "sauganash_26",
+     "label": "the Sauganash at 26 m",
+     "field": "downtown",
+     "triangles": 1071165,
+     "calls": 68,
+     "over_by": 246165
+    }
+   ]
+  },
+  {
+   "viewport": "mobile 390x780",
+   "tier": "full",
+   "ceiling": 1460000,
+   "worst_downtown": {
+    "id": "lake_at_canal",
+    "label": "Lake Street at Canal, east down the axis",
+    "triangles": 1674254,
+    "calls": 147,
+    "over_by": 214254,
+    "verdict": "OVER"
+   },
+   "worst_south": {
+    "id": "above_south_field",
+    "label": "from the air over the southern field",
+    "triangles": 2200824,
+    "calls": 122,
+    "over_by": 740824,
+    "verdict": "OVER"
+   },
+   "stands": [
+    {
+     "id": "lake_at_canal",
+     "label": "Lake Street at Canal, east down the axis",
+     "field": "downtown",
+     "triangles": 1674254,
+     "calls": 147,
+     "over_by": 214254
+    },
+    {
+     "id": "the_forks",
+     "label": "the forks, from Wolf Point",
+     "field": "downtown",
+     "triangles": 1561548,
+     "calls": 143,
+     "over_by": 101548
+    },
+    {
+     "id": "from_above",
+     "label": "the open aerial",
+     "field": "downtown",
+     "triangles": 1393803,
+     "calls": 97,
+     "over_by": 0
+    },
+    {
+     "id": "lake_and_market",
+     "label": "Lake and Market",
+     "field": "downtown",
+     "triangles": 1515482,
+     "calls": 134,
+     "over_by": 55482
+    },
+    {
+     "id": "south_branch_below_town",
+     "label": "the South Branch below the town, looking south",
+     "field": "south",
+     "triangles": 844523,
+     "calls": 45,
+     "over_by": 0
+    },
+    {
+     "id": "mid_field_looking_north",
+     "label": "mid-field, looking back at the town",
+     "field": "south",
+     "triangles": 2029661,
+     "calls": 118,
+     "over_by": 569661
+    },
+    {
+     "id": "south_end_looking_north",
+     "label": "the south end of the field, looking north",
+     "field": "south",
+     "triangles": 1542207,
+     "calls": 109,
+     "over_by": 82207
+    },
+    {
+     "id": "above_south_field",
+     "label": "from the air over the southern field",
+     "field": "south",
+     "triangles": 2200824,
+     "calls": 122,
+     "over_by": 740824
+    },
+    {
+     "id": "sauganash_26",
+     "label": "the Sauganash at 26 m",
+     "field": "downtown",
+     "triangles": 1393131,
+     "calls": 102,
+     "over_by": 0
+    }
+   ]
+  },
+  {
+   "viewport": "mobile 390x780",
+   "tier": "balanced",
+   "ceiling": 1280000,
+   "worst_downtown": {
+    "id": "lake_at_canal",
+    "label": "Lake Street at Canal, east down the axis",
+    "triangles": 1522359,
+    "calls": 138,
+    "over_by": 242359,
+    "verdict": "OVER"
+   },
+   "worst_south": {
+    "id": "above_south_field",
+    "label": "from the air over the southern field",
+    "triangles": 1594963,
+    "calls": 48,
+    "over_by": 314963,
+    "verdict": "OVER"
+   },
+   "stands": [
+    {
+     "id": "lake_at_canal",
+     "label": "Lake Street at Canal, east down the axis",
+     "field": "downtown",
+     "triangles": 1522359,
+     "calls": 138,
+     "over_by": 242359
+    },
+    {
+     "id": "the_forks",
+     "label": "the forks, from Wolf Point",
+     "field": "downtown",
+     "triangles": 1470379,
+     "calls": 126,
+     "over_by": 190379
+    },
+    {
+     "id": "from_above",
+     "label": "the open aerial",
+     "field": "downtown",
+     "triangles": 1313750,
+     "calls": 97,
+     "over_by": 33750
+    },
+    {
+     "id": "lake_and_market",
+     "label": "Lake and Market",
+     "field": "downtown",
+     "triangles": 1444147,
+     "calls": 133,
+     "over_by": 164147
+    },
+    {
+     "id": "south_branch_below_town",
+     "label": "the South Branch below the town, looking south",
+     "field": "south",
+     "triangles": 783978,
+     "calls": 44,
+     "over_by": 0
+    },
+    {
+     "id": "mid_field_looking_north",
+     "label": "mid-field, looking back at the town",
+     "field": "south",
+     "triangles": 1489621,
+     "calls": 47,
+     "over_by": 209621
+    },
+    {
+     "id": "south_end_looking_north",
+     "label": "the south end of the field, looking north",
+     "field": "south",
+     "triangles": 1192596,
+     "calls": 45,
+     "over_by": 0
+    },
+    {
+     "id": "above_south_field",
+     "label": "from the air over the southern field",
+     "field": "south",
+     "triangles": 1594963,
+     "calls": 48,
+     "over_by": 314963
+    },
+    {
+     "id": "sauganash_26",
+     "label": "the Sauganash at 26 m",
+     "field": "downtown",
+     "triangles": 1313787,
+     "calls": 100,
+     "over_by": 33787
+    }
+   ]
+  },
+  {
+   "viewport": "mobile 390x780",
+   "tier": "light",
+   "ceiling": 825000,
+   "worst_downtown": {
+    "id": "lake_and_market",
+    "label": "Lake and Market",
+    "triangles": 1136437,
+    "calls": 74,
+    "over_by": 311437,
+    "verdict": "OVER"
+   },
+   "worst_south": {
+    "id": "above_south_field",
+    "label": "from the air over the southern field",
+    "triangles": 1382105,
+    "calls": 47,
+    "over_by": 557105,
+    "verdict": "OVER"
+   },
+   "stands": [
+    {
+     "id": "lake_at_canal",
+     "label": "Lake Street at Canal, east down the axis",
+     "field": "downtown",
+     "triangles": 1094612,
+     "calls": 59,
+     "over_by": 269612
+    },
+    {
+     "id": "the_forks",
+     "label": "the forks, from Wolf Point",
+     "field": "downtown",
+     "triangles": 1075905,
+     "calls": 56,
+     "over_by": 250905
+    },
+    {
+     "id": "from_above",
+     "label": "the open aerial",
+     "field": "downtown",
+     "triangles": 962104,
+     "calls": 59,
+     "over_by": 137104
+    },
+    {
+     "id": "lake_and_market",
+     "label": "Lake and Market",
+     "field": "downtown",
+     "triangles": 1136437,
+     "calls": 74,
+     "over_by": 311437
+    },
+    {
+     "id": "south_branch_below_town",
+     "label": "the South Branch below the town, looking south",
+     "field": "south",
+     "triangles": 619628,
+     "calls": 40,
+     "over_by": 0
+    },
+    {
+     "id": "mid_field_looking_north",
+     "label": "mid-field, looking back at the town",
+     "field": "south",
+     "triangles": 1303004,
+     "calls": 47,
+     "over_by": 478004
+    },
+    {
+     "id": "south_end_looking_north",
+     "label": "the south end of the field, looking north",
+     "field": "south",
+     "triangles": 1122536,
+     "calls": 45,
+     "over_by": 297536
+    },
+    {
+     "id": "above_south_field",
+     "label": "from the air over the southern field",
+     "field": "south",
+     "triangles": 1382105,
+     "calls": 47,
+     "over_by": 557105
+    },
+    {
+     "id": "sauganash_26",
+     "label": "the Sauganash at 26 m",
+     "field": "downtown",
+     "triangles": 1005047,
+     "calls": 58,
+     "over_by": 180047
+    }
+   ]
+  }
+ ],
+ "the_finding": {
+  "headline": "The southern four are over. So are the downtown five, at every tier and both viewports, and that is the larger fact this reading turned up.",
+  "calibration": "The question T-1148 was opened to settle -- whether tools/measure_ground_tiling.mjs was reading high -- answers NO. Desktop, `full` tier, the same tree on the same day: lake_at_canal 1,880,503 there against 1,883,619 here (+0.17 per cent), the_forks 1,797,026 against 1,793,425 (-0.20), lake_and_market 1,699,941 against 1,691,611 (-0.49), from_above 1,483,113 against 1,514,651 (+2.13), mid_field_looking_north 2,147,081 against 2,161,179 (+0.66), above_south_field 2,128,678 against 2,143,082 (+0.68). The two instruments agree. What they both disagree with is the CEILING.",
+  "scope": "This is not a southern problem. At desktop `full` the worst downtown stand is over by 423,619 and the worst southern stand by 701,179; at `light` it is 462,059 downtown against 554,963 south. A southern LOD, a distance rule or southern anchors would leave the downtown breach exactly where it is, so none of them is the answer to it.",
+  "when": "tools/dev-smoke-state.json's newest desktop part-4 reading is a PASS of 2026-09-06. Whatever put the town over arrived in the nine days since, and the southern field (T-0464) landing inside every frustum is the first place to look and not yet the answer.",
+  "the_answer_argued": "The answer is a trim, and it is owed where the triangles were added -- town-wide, not in the southern field. It is filed as its own ticket because it is its own unit of work, it is larger than this reading, and it is NOT the southern question. NO CEILING IS MOVED HERE, and none should be moved before the trim has been tried: the ceilings were argued once and a re-budget that follows a regression is the ceiling being moved to fit.",
+  "what_is_deferred": "The southern stands' own question -- whether four poses with no anchors under them should be held to the town's ceilings at all -- stays deferred to T-0467, which puts real anchors down there. T-1148 said to ask it then and not before, and this reading does not overturn that: it only shows that the southern excess sits on top of a town-wide one and cannot be read on its own."
+ },
+ "a_finding_this_is_not_the_ticket_for": "THE DOWNTOWN FIVE ARE OVER EVERY CEILING AT BOTH VIEWPORTS AND ALL THREE TIERS -- worst 1,883,619 against 1,460,000 at `full`, 1,287,059 against 825,000 at `light`, both desktop, at Lake Street at Canal. Two independent instruments read it on 2026-09-15 and agree. Filed as its own ticket rather than folded in here."
+}

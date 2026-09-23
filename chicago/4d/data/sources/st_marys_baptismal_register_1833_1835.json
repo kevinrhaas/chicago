@@ -1,0 +1,44 @@
+{
+  "id": "st_marys_baptismal_register_1833_1835",
+  "type": "manuscript",
+  "citation": "The baptismal register of St Mary's, Chicago — the first Catholic parish in the town — opened by Father John Mary Irenaeus St. Cyr on 22 May 1833 and read here for the years 1833, 1834 and 1835: 57 entries in French and English naming children, parents, godparents and witnesses, with the priest's own signature under every one and eight autographs of the town's own people beside them.",
+  "author": "J. M. I. St. Cyr (the entries of 1833-1835); Timothy O'Meara (one later entry of 1849); an unidentified hand (the pencil year-tallies)",
+  "date": "1833-1835 (the entries read); the book runs on to at least 1849",
+  "describes_date": "1833-1835",
+  "repository": "FamilySearch, as eleven page images deposited in this repository at chicago/reference/catholic-baptisms-1833-1835/. The book itself has not been seen by this project.",
+  "locator": "Eleven images, S3HT-DHG9-SLR, -SKB, -SK8, -S1B, -SKM, -9YM, -SKW, -S1C, -ST3, -SJ8 and -926, carrying the title page and pages 1-19 of the register plus one stray later leaf. Every record's locator names its image, its page and its entry number. data/research/church/coverage.json declares all eleven.",
+  "tier": 1,
+  "rights_status": "check_required",
+  "asset_use": "text_only",
+  "verified": true,
+  "access_notes": "THE DEPOSIT IS READ-ONLY AND NOTHING IS PUBLISHED FROM IT. FamilySearch's image terms are not cleared for redistribution, so no scan, crop or render of these pages is committed and none reaches site/. What is committed is the READING — data/research/church/records/st_marys_baptisms_1833_1835.json, built and gated by tools/read_st_marys_baptisms.py. The FamilySearch site itself is login-walled and was not re-fetched; the deposited images are what was read.",
+  "transcribes": [
+    {
+      "work": "The baptismal register kept at Chicago by Father J. M. I. St. Cyr from May 1833",
+      "date": "1833-1849",
+      "tier": 1,
+      "note": "THE ORIGINAL, and these eleven images are photographs of it. A reading made off them is scan_verified — the higher of this project's two reading grades — and it outranks the marriage and death pages of st_cyr_register_ichr_v4, which reached this project through a 1921-22 article and a web transcription."
+    }
+  ],
+  "what_it_supplies": [
+    "57 dated baptisms of 1833-1835 and 267 named readings of people — 46 of the entries at Chicago and 166 of the readings adults there",
+    "KINSHIP, which no other source this project holds gives at all: a child, its two parents and its two godparents on one dated line, 44 times over",
+    "the town's Catholic population — French, Métis, Irish and German — of whom 85 distinct adults reach no surname in the residents layer",
+    "eight AUTOGRAPHS: Mark Beaubien, Josette Laframboise, Augustin Bonné, Monique Nadeau, Jean Baptiste Lavigne, J. B. Beaubien, Robert A. Kinzie and Gwinthlean Whistler signing under the priest, each placing a named person at a named place on a named day in their own hand",
+    "two adult baptisms with AGES — Josette Laframboise Beaubien at 38 in June 1834 and Geneviève Medera at about 20 in June 1835 — which are the only ages this project has for either woman",
+    "the parish's own start date, 22 May 1833, on a page the book heads '1er Page'",
+    "the register's own arithmetic: pencil tallies of 19, 24 and 14 baptisms for 1833, 1834 and 1835, which check any reading of it",
+    "a hue and cry on the title page describing what a young man of the Illinois country wore in 1833 or 1834 — a white pea coat, gray pants and a fur cap"
+  ],
+  "what_it_does_not_supply": [
+    "any address, lot, street, dwelling or workplace — the register places nobody anywhere in the town, and names no church building on any of the eleven pages",
+    "residence, and this is the trap. A baptism documents a person at a font on a day. Presence is not residence and nothing here mints or regrades a resident",
+    "presence on 1 July 1835 for anyone not baptised or standing as sponsor within days of it",
+    "occupation. One entry writes 'Doctor Egan' — a title inside a name — and that is the only trade the book ever states",
+    "ALL CHICAGO. Entries 1-11 of 1834 were written at Bear Creek, the South Fork of the Sangamon and Springfield, in Sangamon County, on the priest's journey back from St. Louis. A reader who takes the book as a Chicago roll plants eleven households in the wrong county",
+    "reliable spelling. A French priest wrote Irish, English and German names and phoneticised Potawatomi and Odawa ones; the same woman is Nadeau, Nodeau and Nodou in his own hand on three pages",
+    "the sponsors of 1834 entry 4, which stood on a line the scan's frame cuts off",
+    "anything about 1836 or later. The two page-sides in the deposit that carry 1837-38 and 1849 entries are declared and not transcribed"
+  ],
+  "note": "THE ONLY KINSHIP EVIDENCE THIS PROJECT HAS EVER BEEN OFFERED IN A PRIMARY RECORD, and it is the community the poll books miss hardest: the poll books recorded men who voted, and this book records women, children, Métis families and the Irish as they arrived. It is also the only source here in which the townspeople write their own names."
+}

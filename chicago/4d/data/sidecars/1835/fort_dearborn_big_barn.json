@@ -1,0 +1,220 @@
+{
+  "id": "fort_dearborn_big_barn",
+  "phase": "barn_1830",
+  "name": "Fort Dearborn — the Big Barn with Cupola",
+  "aka": [
+    "the military barn",
+    "the fort barn"
+  ],
+  "archetype": "outbuilding",
+  "asset": "gltf/fort_dearborn_big_barn__barn_1830.glb",
+  "scene": "1835",
+  "target_date": "1835-07-01",
+  "documented_range": {
+    "from": "1830-02-24",
+    "to": "1836-12-29",
+    "confidence": "inferred",
+    "sources": [
+      "harrison_1830_river_mouth",
+      "hubbard_autobiography_1911"
+    ],
+    "note": "THE RANGE IS BRACKETED BY ITS TWO WITNESSES, AND BOTH ARE PRE-1835. IT OPENS 24 FEBRUARY 1830, the date on the Harrison plan, because that is the earliest date any source this project holds fixes to this building; Hubbard's narrative of the fort's surroundings is of the late 1820s and carries it earlier without dating it. IT CLOSES 29 DECEMBER 1836, the evacuation, and that is a floor rather than a demolition: nothing attests when the fort's outer buildings came down, and a range that ran on to 1856 with the fort's principal structures would claim a survival for a barn that nobody wrote down. WHAT CARRIES THE SCENE DATE OF 1 JULY 1835 is the middle of that range and not either end of it — the post was garrisoned continuously from June 1832 to 29 December 1836, so a service building the garrison's own engineer drew in 1830 is standing five years later unless something says it stopped, and nothing does. That is an argument, not an assumption, and it is the argument every Fort Dearborn record here rests on."
+  },
+  "change_note": "One phase. Neither witness describes this barn changing, and dividing it would be inventing a history to fill a field.",
+  "placement": {
+    "local_e": 1042.35,
+    "local_n": 144.17,
+    "rotation_deg": 132.0,
+    "position_confidence": "inferred",
+    "position_sources": [
+      "harrison_1830_river_mouth",
+      "hubbard_autobiography_1911"
+    ],
+    "position_note": "TWO WITNESSES PUT THIS BARN IN THE SAME PLACE, TWICE, AND THAT IS WHY IT IS INFERRED RATHER THAN CONJECTURAL. The plate names it — Big Barn with Cupola, lettered beside a drawn building west-south-west of the fort — and Gurdon Hubbard, describing the same ground from memory of the late 1820s, writes: 'West, and a little south, of the fort was the military barn, adjoining which, on the east, was the fort garden, of about four acres' (hubbard_autobiography_1911, leaf 75, printed p. 37, committed text lines 2392-2399). THE SECOND CLAUSE IS THE CHECK, and it is a strong one: the fort garden is already committed, independently, as fort_dearborn_garrison_garden. Its polygon's nearest corner stands 36.4 m from the position this record derives, and the garden lies east and a little south of the barn — which is Hubbard's sentence, in coordinates neither he nor this record's derivation had sight of. Nothing was moved to make that come out.\n\nREAD OFF THE 1830 HARRISON PLAN, BY THE SAME RULE AS THE ELEVEN RECORDS ALREADY TAKEN FROM IT. Internet Archive leaf n242 of historyofchicago01andr (Andreas vol. 1, p. 113), rotated 90 degrees anticlockwise so the sheet's own true-north arrow stands vertical, is 2715 x 2003 px. On that image the stockade's ink runs from x 1356 to x 1535 and from y 553 to y 730, so the enclosure's centre is pixel (1445, 644); the committed palisade record hangs that centre on local E +1152, N +221, which is UTM 448224.70 E, 4637616.80 N. Pixels convert at 1.10 ft/px (0.33528 m/px), the scale docs/RESEARCH/fort_dearborn.md section 3 derives from the commandant's quarters. THE ANCHOR AND THE SCALE ARE CHECKED, NOT ASSUMED, and the check is the garrison garden — the one thing on this plate that is both drawn and already committed. Its committed centre lands at pixel (1209, 1008) under this transform; the drawn diamond's centre measures (1207, 1002). Seven pixels, 2.3 m. A second check runs the other way: the committed blockhouse centre predicts pixel (1385, 698) and the drawn blockhouse square measures (1375, 710), 16 px or 5.4 m. WHAT THE TRANSFORM CANNOT DO is beat its own inputs. The enclosure measures 180 px across at this scale, which is 60 m against the committed palisade's 53 m — a 13 % spread, inside the +/-20 % the scale carries, and the reason is visible on the plate: 180 px is the OUTER edge of an engraved line four to six pixels thick. So carry +/-20 % on this offset from the fort centre and +/-20 m on the fort itself, exactly as every plate-derived record here does.\n\nTHE PIXEL. The drawn barn is a hatched parallelogram whose four corners measure (1118, 872), (1140, 892), (1110, 925) and (1088, 905), centre (1114.0, 898.5) — 331 px west and 254.5 px south of the fort centre, which is 111.0 m west and 85.3 m south of it.\n\nIT IS NOT BEAUBIEN'S BARN, and the question is worth answering because the two stand 50 m apart, which is inside the error either carries. data/structures/beaubien_barn.json is the old cabin Jean Baptiste Beaubien had lived in before 1817 and afterwards used as a barn, placed by eye inside his own group on Block 5; this is the garrison's barn, drawn on a military plan inside the fort's fenced ground and called 'the military barn' by a man who walked through it. Different owner, different evidence, different enclosure. They are not distinguishable by distance and they do not need to be.",
+    "symbolic_location": "West and a little south of Fort Dearborn, outside the pickets in the fort's own outer enclosure, with the garrison garden adjoining it on the east.",
+    "uncertainty_m": 20,
+    "placement_provisional": false,
+    "vertical_anchor": "terrain",
+    "walk_surface_m": null
+  },
+  "footprint": {
+    "polygon": [
+      [
+        0,
+        0
+      ],
+      [
+        14.4,
+        0
+      ],
+      [
+        14.4,
+        9.4
+      ],
+      [
+        0,
+        9.4
+      ]
+    ],
+    "confidence": "inferred",
+    "sources": [
+      "harrison_1830_river_mouth"
+    ],
+    "note": "NO SOURCE GIVES THIS BUILDING A DIMENSION. 14.4 x 9.4 m is about 47 x 31 ft, measured across the ink centreline of the drawn parallelogram — 43 x 28 px — at the derived 1.10 ft/px. Read it at +/-20 %, so somewhere between 38 x 25 and 56 x 37 ft. The long axis is the front, and it runs at bearing 42 degrees as drawn. WHAT SUPPORTS THE SIZE beyond the pixels is the plate's own adjective: it is the only building on this sheet the draughtsman troubled to call BIG, and 47 ft of barn is big for this town in 1830 without being improbable for a garrison that kept teams, forage and the four-acre field Hubbard describes south of it."
+  },
+  "attributes": {
+    "construction": {
+      "value": "log",
+      "confidence": "inferred",
+      "note": "NOT STATED BY EITHER WITNESS, and the two available readings pull opposite ways, so this records the weaker claim rather than the more interesting one. FOR LOG: every building inside this fort that this dataset grades at all is log by the same argument as the barracks, the garrison built with what it cut, and a barn is the last building on a post to get sawn stuff. AGAINST LOG: a cupola is a finished carpenter's detail and sits more naturally on a framed barn. Log is taken because it is the local convention and the smaller claim; the cupola is recorded on its own attribute and argues with this one in the open."
+    },
+    "roof_type": {
+      "value": "gable",
+      "confidence": "inferred",
+      "note": "Not attested. Gable is the type for a barn of this span, and it is what a cupola needs a ridge for."
+    },
+    "roof_pitch_deg": {
+      "value": 34.0,
+      "confidence": "inferred",
+      "note": "No pitch is attested for any building at this fort. 34 degrees is the figure every other Fort Dearborn record here carries, taken from the archetype's mid-range for a riven-shake roof of this period and span, and it is inferred from construction practice rather than measured off anything."
+    },
+    "wall_height_m": {
+      "value": 4.0,
+      "confidence": "inferred",
+      "note": "No height attested. About thirteen feet to the eave: a barn that takes a loaded hay wagon through its door and carries a loft over it, and the archetype's own size-aware default for a 14.4 x 9.4 m footprint is 3.5 m, so this is half a metre above the convention rather than an invention away from it."
+    },
+    "door": {
+      "value": "wagon",
+      "confidence": "inferred",
+      "note": "Not attested. A barn serving a four-acre field and a garrison's teams is a building a loaded wagon drives into, which is what the archetype's `wagon` door is for. A man door on it would be the larger claim."
+    },
+    "door_side": {
+      "value": "front",
+      "confidence": "inferred",
+      "note": "The long wall the plate draws facing south-east, toward the garrison garden and the fort's own ground rather than toward the river bank behind it. The archetype's front faces the bearing `rotation_deg` names."
+    },
+    "loft": {
+      "value": true,
+      "confidence": "reconstructed",
+      "note": "Nobody says this barn had a loft. It is the convention for the type — hay goes over the floor a wagon uses — and it is graded as the invention it is. What a visitor sees of it is the pitching door in the gable."
+    },
+    "paint": {
+      "value": "unpainted",
+      "confidence": "inferred",
+      "note": "Not stated. Unpainted is the archetype's own default and the treatment of every working building in this town; paint on a military barn would be the claim."
+    },
+    "cupola": {
+      "value": true,
+      "confidence": "attested",
+      "geometry": "absent",
+      "sources": [
+        "harrison_1830_river_mouth"
+      ],
+      "note": "THE PLATE PUTS THE WORD ON THE SHEET — 'Big Barn with Cupola' — so the cupola is attested in the strict sense this project means: a source states it. IT IS NOT BUILT. The outbuilding archetype has no cupola and inventing one would mean inventing its size, its glazing, its louvres and its position on a ridge whose pitch is itself inferred, which is four inventions to render one word. The barn therefore stands with a plain gable and this record says so rather than letting the omission pass silently. It is the one thing on this building that a source names outright and the mesh does not show, and it is the reason the draughtsman bothered to letter this barn at all — a cupola is what made it worth naming."
+    },
+    "function": {
+      "value": "military_barn",
+      "confidence": "attested",
+      "sources": [
+        "hubbard_autobiography_1911",
+        "harrison_1830_river_mouth"
+      ],
+      "note": "Hubbard calls it 'the military barn' in so many words; the plan calls it the Big Barn with Cupola and draws it inside the fort's fenced ground beside the Cultivated Field belonging to The Fort. What was kept in it is not stated and is not inferred here: a barn on a post of this date held forage, teams and the field's implements, but which of those is a guess and the record claims the building, not its contents."
+    },
+    "land_owner": {
+      "value": "The ground was entered by John Baptist Baubian, 28 May 1835",
+      "confidence": "inferred",
+      "sources": [
+        "isa_public_domain_land_tract_sales"
+      ],
+      "note": "THE UNITED STATES RESERVATION. This is the same tract L108 already derives for `1835_no_build_ground.json` — from G1, Madison's line and the traced waterline — so the polygon is inherited rather than built again, and `check.sh` already re-derives it. The register's own row is the second, independent witness to the date L108 quotes from Andreas: Beaubien's pre-emption, 28 May 1835, five weeks before the scene date. The derived polygon is short of the documented 75.69 acres for the reasons L108 states, and is a floor rather than the reservation. WHETHER THE ENTRY HELD IS NOT READ HERE: it was disputed, and this row records the entry the register carries and nothing about its outcome. THE MARGIN IS 47 m: this footprint stands that far inside the tract's nearest boundary, which is more than twice the working horizontal uncertainty of anything traced off the 1834 sheets (about 20 m), so the assignment survives the error the construction carries. WHAT THIS ROW CLAIMS AND WHAT IT DOES NOT. It claims that the tract the Illinois State Archives' land-sale register describes contains this structure's committed position — the patent for this ground was ENTERED by this man on this date. It does not claim he still held the ground on 1 July 1835, that he lived here, or that he ever stood on it: a sale is a transaction, and the register's only column about residence names a county. THE SECTION LINES ARE CONSTRUCTED, NOT TRACED (L219): the grid is carried from the single PLSS corner at State & Madison, on the plat's own east-west bearing, in nominal one-mile squares."
+    }
+  },
+  "residents": [],
+  "citations": [
+    {
+      "source_id": "harrison_1830_river_mouth",
+      "citation": "Harrison, F., Jr., Ass't U.S. Civil Engineer. \"Map of the Mouth of Chicago River, drawn for the Purpose of showing the proposed Harbor Improvements. With additions and changes suggested by the Memory of Early Settlers. The original received and approved by William Howard, U.S. Civil Engineer, February 24, 1830.\" Reproduced in Andreas, A. T., History of Chicago, vol. 1 (Chicago, 1884), p. 113.",
+      "url": "https://archive.org/details/historyofchicago01andr/page/n242/mode/1up",
+      "archived_url": "",
+      "tier": 2,
+      "tier_label": "near-primary recollection",
+      "what_it_supplies": [
+        "the fort's plan arrangement: a quadrangular picket enclosure, corner works, four ranges, two gates",
+        "which building stood on which side of the parade",
+        "the relative proportions of the enclosure and the buildings in it",
+        "the fort's rotation relative to true north",
+        "the named ground around the fort: garrison garden, cultivated field, barn, wash house, well, shop, cemetery, ferry"
+      ],
+      "what_it_does_not_supply": [
+        "any dimension in feet - there is no scale bar",
+        "elevations, heights, roof forms or materials",
+        "the state of the fort in 1835 - it is five years earlier",
+        "a separation between the 1830 survey and the settler-memory additions the plate admits to"
+      ]
+    },
+    {
+      "source_id": "hubbard_autobiography_1911",
+      "citation": "Gurdon Saltonstall Hubbard, The Autobiography of Gurdon Saltonstall Hubbard, Pa-pa-ma-ta-be, \"The Swift Walker\", with an Introduction by Caroline M. McIlvaine, Librarian of the Chicago Historical Society (Chicago: R. R. Donnelley & Sons Company, The Lakeside Press, Christmas 1911) — The Lakeside Classics. Read in full for its Chicago material before 1836: the front matter, McIlvaine's Introduction (pages ix-xxvii), and Hubbard's own narrative at pages 27-41, 135-138, 141-144, 153-159, 165-174 and 178-182. Hubbard's letter of 25 July 1827, printed as a note at page 174, is a separate source record.",
+      "url": "https://archive.org/details/autobiographyofg00hubb",
+      "archived_url": "https://archive.org/download/autobiographyofg00hubb/autobiographyofg00hubb_djvu.txt",
+      "tier": 2,
+      "tier_label": "near-primary recollection",
+      "transcribes": [
+        {
+          "work": "Hubbard's own autobiographical narrative — his engagement with the American Fur Company at Montreal and Mackinaw, the voyage of September 1818, his first entry into Chicago on 1 October 1818, the fort and its neighbours as he first saw them, the Chicago portage and Mud Lake, Hubbard's Trail, the trading posts of the Illinois River, and the Winnebago Scare of 1827 — ending abruptly at November 1830",
+          "date": "Written in the 1880s; printed 1888 and again 1911. Describes 1818-1830.",
+          "tier": 2,
+          "note": "A participant's recollection at more than fifty years' distance, and the rung most of this reading sits on. It is a recollection and not a record: the Fort Dearborn measurements are paces remembered, the payment of page 167 is dated to the wrong year, and the commanders' list is Hubbard's own search of the War Department records, which he says failed for the years after June 1833. The Winnebago Scare section (pages 166-174) is footnoted as coming not from the Diary but 'from statements by Mr. Hubbard in Chicago Historical Series, No. 10', which is one remove further."
+        },
+        {
+          "work": "Caroline M. McIlvaine's Introduction, pages ix-xxvii — a 1911 review of the fifty-six years the Autobiography does not cover, compiled from letters, memoranda, contemporaries' reminiscences and printed history, and quoting E. O. Gale's Reminiscences of Early Chicago, The Chicago American of 10 October 1835, the Sunday Times of 24 October 1875 and Henry E. Hamilton's 1907 biographical sketch",
+          "date": "1911",
+          "tier": 4,
+          "note": "EVERY STATEMENT THIS PROJECT TAKES ABOUT 1834, 1835 OR 1836 COMES FROM HERE AND NOT FROM HUBBARD. The brick building at La Salle and South Water, the five or six hundred inhabitants, the brig Illinois of 25 May 1835, the Green Tree Tavern, the fire engine, the Russell & Mather purchase, the canal commissioners and the water-works are all McIlvaine's, written seventy-six years after the scene, and several are quotations at a further remove. A run reaching for 'Hubbard on 1835' is reaching for McIlvaine."
+        },
+        {
+          "work": "Editorial notes by Henry E. Hamilton, signed H. E. H., inserted in square brackets in the narrative — including the note at page 178 that the hog-driving of 1829-30 'was the beginning of the packing industry in Chicago' — and the publishers' preface and closing note",
+          "date": "1888 (the notes); 1911 (the preface and the closing note, the latter signed C. M. M.)",
+          "tier": 4,
+          "note": "Compiler's judgements, sixty years after the events, printed inside the narrative's own type. bk_hub_101 and bk_hub_104 are read from this layer and say so."
+        }
+      ],
+      "what_it_supplies": [
+        "Fort Dearborn's occupation chronology, dated to the day, from its establishment in 1804 to its final abandonment on 29 December 1836 — which puts the scene year inside a continuous garrison running from 1 October 1832",
+        "a full description of the second fort as a man who lived beside it in 1818 remembered it: fourteen-foot oak pickets, a block house at the south-west corner and a bastion at the north-west, whitewashed stockade and buildings, the officers' quarters outside the pickets with a piazza at second-storey level, the soldiers' quarters, the sutler's store in the north-east corner, two gates, two ten-foot guardhouses, a two-storey commissary storehouse and a brick magazine",
+        "the fort's surroundings: a four-acre garden, a military barn, a field running half a mile south, the ONE road, a fence line closed from river to river, the well by the south gate, and wash-houses on the sandy beach east of the pickets",
+        "the Factor House — two storeys, squared logs, a split-picket fence, Jouett to about 1810 and then John Dean — and the American Fur Company's round-log storehouse built by John Craft and occupied after his death by Jean Baptiste Beaubien",
+        "John Kinzie's house described from inside it: a long log cabin with a rude piazza, fronting the river directly opposite the fort, with a window that had a sight-line to the fort at night — the piazza confirmed again nine years later",
+        "a complete building count for the whole of the present Cook County in 1818: the fort's group, the Factor House, the Fur Company storehouse, Hardscrabble, Ouilmette's cabin and Kinzie's house, and nothing else",
+        "the river mouth's history — its natural outlet at the fort, its southward migration behind a sand spit driven by north-east winds, its position at The Pines a mile south as late as 1827, the soldiers' cut of spring 1828 and the sand's refilling of it",
+        "landscape: the prairie seen from Douglas Grove, the Blue Island grove and the Desplaines timber, wild onion and leek along the river, wild rice and head-high grass at Mud Lake, the old cultivated field on the River Guarie still legible as cornhills, and prairie fires dangerous enough to sink boats against",
+        "Hubbard's Trail, dated by the man who cut it (1822 to Danville, extended north to Chicago in 1824) and the State road from Vincennes to Chicago ordered in the winter of 1833-34 that adopted most of it",
+        "the settlement's size taken sideways: about forty men and women turned out to fight the fort fire in 1827, and a majority of the men at the fort that summer were Hubbard's own employees",
+        "for 1835, at one remove through McIlvaine: the brig Illinois lightered ashore on 25 May because the harbour could not take her, the passengers going on to the Green Tree Tavern, the Chicago American of 10 October 1835 on Hubbard's fire engine, and the March 1835 purchase of the eighty acres of Russell & Mather's addition for $5,000",
+        "one period document, and it is graded separately: Hubbard's letter to his sister headed 'Chicago, July 25, 1827', at data/sources/hubbard_letter_1827_07_25.json"
+      ],
+      "what_it_does_not_supply": [
+        "Hubbard's own eyewitness on 1835. HIS NARRATIVE ENDS IN NOVEMBER 1830 and the closing note says so in as many words; the book's 1835 is Caroline McIlvaine's, written in 1911",
+        "any plat position, lot, or measured coordinate. Every placement here is prose — 'west and a little south of the fort', 'about where Wells street now crosses the river' — and several are given in streets that did not exist when the thing described did",
+        "reliable dimensions. 'A square of about six hundred feet' for the Fort Dearborn stockade is a pace-estimate at sixty years' distance and is much larger than the fort this project reconstructs",
+        "a consistent account of the officers' quarters: page 36 puts them outside the pickets and built of hewn logs, page 167 puts the commanding officers' former quarters in a brick building just within the north stockade and the log quarters within the pickets on the west. The book contradicts itself and this project does not resolve it",
+        "the right year for the Pottawatomie payment and the fort fire: page 167 prints 1828 where the section heading, the surrounding narrative and Hubbard's own dated letter all say July 1827",
+        "the names of the officers commanding Fort Dearborn after 19 June 1833 — Hubbard says he could not find them in the War Department records, so the source names nobody in command during the scene year",
+        "a residence for anybody in 1835. Every person Hubbard names, he names for what they did between 1812 and 1830",
+        "page images. This reading is of the Internet Archive's OCR text of the scan, corroborated against the deposited PDF's own text layer; no claim here is scan_verified"
+      ]
+    },
+    {
+      "source_id": "isa_public_domain_land_tract_sales",
+      "citation": "Illinois State Archives, Illinois Public Domain Land Tract Sales Database (Springfield: Office of the Secretary of State).",
+      "url": "https://apps.ilsos.gov/isa/landSalesSearch.do",
+      "archived_url": "",
+      "tier": 1,
+      "tier_label": "period/eyewitness"
+    }
+  ],
+  "research_note": "Placed under T-0880, the first of three slices of T-0758, which opened on the finding that six things the Harrison plan NAMES had never been drawn. This is the best-evidenced of the six: it is the only one of them that a second witness, independent of the plate, puts in the same place — and Hubbard's locating clause names the garrison garden, which this dataset had already committed from the same plate five weeks earlier and did not move. WHAT WOULD IMPROVE IT: any dimension, any statement of how it was built, or the return of the 1830 original — what is readable here is Andreas's 1884 re-engraving, which is why nothing on this record is graded documented.",
+  "research_doc": "",
+  "review_required": false
+}

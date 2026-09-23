@@ -1,0 +1,116 @@
+{
+  "id": "fort_dearborn_flagstaff",
+  "name": "Fort Dearborn's flagstaff",
+  "aka": [
+    "the flagstaff at the fort"
+  ],
+  "archetype": "fort_structure",
+  "phases": [
+    {
+      "id": "staff_1833_37",
+      "documented_range": {
+        "from": "1833-12-31",
+        "to": "1837-12-31",
+        "confidence": "inferred",
+        "sources": [
+          "andreas_1884_v1"
+        ],
+        "note": "THIS RANGE IS ANDREAS'S DESCRIPTIVE WINDOW, NOT THE STAFF'S LIFE. His section 'Chicago from 1833 to 1837' opens at the close of 1833 with the town legally organized and describes what a visitor saw across those four years; the flagstaff sentence sits in that description. Nothing reached says when the staff was raised or when it came down, so the range is set to the window of the only text that puts it there and both ends are limits of the SOURCE rather than of the object. The scene date sits comfortably inside it. The obvious candidate for a real end - 29 December 1836, when the troops were permanently withdrawn under a printed order - is deliberately NOT used: it dates the garrison, not the spar, and the buildings stood into the 1850s."
+      },
+      "position": {
+        "utm_e": 448223.25,
+        "utm_n": 4637617.26,
+        "rotation_deg": 8.0,
+        "symbolic_location": "On the parade ground at the centre of Fort Dearborn, inside the stockade.",
+        "confidence": "reconstructed",
+        "note": "THE HEIGHT IS DOCUMENTED AND THE POSITION IS ENTIRELY OURS, and two positions that look like evidence were both refused. Andreas says only 'a flagstaff AT THE FORT'; no source reached says where in it. (1) The 1808 Whistler draught puts the FIRST fort's staff 'in the center of' the parade - that fort is excluded whole in data/exclusions.json, which closes 'none of it may be borrowed for the second fort's records', and it is NOT the warrant for this point. (2) `p4_0`, the retrospective ways plate, draws a staff which T-0197 measured at 0.495 of the drawn wall run - over the GATE, wedged between the two roofed lanterned works T-0095 read as first-fort signature. Staff and towers are one composition on that sheet, so raising the staff on it would raise the two blockhouses with it, and the image-accuracy pass refused exactly that. What is left is a free choice constrained by the model rather than by a source: the parade is the only open ground inside the stockade that a fifty-foot spar can stand on without standing on a range or a roof, and the centre of a rectangle is the only point on it that does not require a SECOND invention to say why it is there rather than a metre away. That this lands where Whistler's first-fort staff stood is a coincidence of two rectangles and MUST NOT be read as corroboration - if the first fort's placement were admissible here the record would say so and cite it. Set to the parade record's own centre, so the staff moves when the parade does. Rotation is the fort's 8 degrees and means nothing to a round spar; it is carried so the footprint square lies with the rest of the complex.",
+        "derivation": {
+          "method": "not_derivable",
+          "reason": "A position stacked on another inferred position: this point is the centre of fort_dearborn_parade, which is itself read off the 1830 Harrison plan at a derived scale and hung on the fort centre. Nothing in data/traces/street_control.json reaches the reservation, and no source gives the staff a position of its own to check this against."
+        }
+      },
+      "footprint": {
+        "polygon": [
+          [
+            0,
+            0
+          ],
+          [
+            0.5,
+            0
+          ],
+          [
+            0.5,
+            0.5
+          ],
+          [
+            0,
+            0.5
+          ]
+        ],
+        "confidence": "reconstructed",
+        "sources": [],
+        "note": "INVENTED, AND IT IS NOT THE SPAR. No source reached gives the staff a thickness, a step or a stay. This half-metre square is the ground the staff stands on - the archetype's smallest legal plan - and the mast the archetype builds inside it is 0.30 m at the butt tapering to 0.135 m at the truck, which is what a fifty-foot spar has to be to stand up. The whole profile is the archetype's; see docs/LIBERTIES.md."
+      },
+      "form": {
+        "kind": {
+          "value": "flagstaff",
+          "confidence": "attested",
+          "sources": [
+            "andreas_1884_v1"
+          ],
+          "note": "Andreas, 'Chicago from 1833 to 1837', vol. 1 p. 128, describing the town a visitor would have seen: 'It did not show a single steeple nor a chimney four feet above any roof. A flagstaff at the fort, some fifty feet high, flaunted, in pleasant weather and on holidays - a weather-beaten flag, as an emblem of civilization, patriotic pride, national domain, or anything else that might stir hearts of the denizens of the town.' The same paragraph sees it from the southern approach: 'a line of almost indefinable structures, and the flag over the fort, if perchance it was flying.' THIS IS THE SECOND FORT. It is not the 'Such was the old Fort previous to 1812' passage, it is not Whistler's 1808 index, and it is not a plate; it is Andreas's own narrative of the years the scene date sits in."
+        },
+        "wall_height_m": {
+          "value": 15.24,
+          "confidence": "attested",
+          "sources": [
+            "andreas_1884_v1"
+          ],
+          "note": "'some fifty feet high' - 50 ft is 15.24 m, recorded converted with the original figure stated, per data/datum.json's units rule. THE HEDGE IS THE SOURCE'S AND IS NOT SMOOTHED AWAY HERE: 'some fifty feet' is a round number in a retrospective description, so the metre figure is exact only in its conversion. It is the only dimension any source reached gives this object, and it is a dimension of the SECOND fort - which is more than the second fort's own stockade has (see docs/RESEARCH/fort_dearborn.md section 3)."
+        },
+        "roof_type": {
+          "value": "none",
+          "confidence": "reconstructed",
+          "note": "A spar has no roof. Carried because the archetype reads the attribute."
+        },
+        "construction": {
+          "value": "log",
+          "confidence": "reconstructed",
+          "note": "UNATTESTED. Andreas gives the staff a height and nothing else - no fabric, no colour, no step. 'log' is this archetype's nearest true word for a trimmed round spar and selects the same hewn-timber colour as the town's own logwork, which is the conservative reading: a garrison staff at a frontier post was a tree. A whitewashed staff would read very differently over the pickets and nothing supports one."
+        },
+        "paint": {
+          "value": "unpainted",
+          "confidence": "reconstructed",
+          "note": "UNATTESTED, and 'weather-beaten' in Andreas describes the FLAG, not the staff. Left bare rather than whitewashed because nothing says either."
+        }
+      }
+    }
+  ],
+  "function": {
+    "value": "garrison flagstaff",
+    "confidence": "attested",
+    "sources": [
+      "andreas_1884_v1"
+    ],
+    "note": "The staff the post flew the national flag from. Andreas is explicit about WHEN it flew - 'in pleasant weather and on holidays', and from the south 'if perchance it was flying' - which is why no flag is modelled: see research_note."
+  },
+  "research_note": "BUILT BECAUSE ANDREAS PUTS IT THERE IN THE RIGHT YEARS, AND IT CARRIES NO FLAG. T-0096 asked whether anything but a retrospective plate could say the second Fort Dearborn had a flagstaff. It can: Andreas vol. 1 p. 128, inside 'Chicago from 1833 to 1837', names it, dates it to the window the scene sits in and gives it a height. Quaife, Wau-Bun and Wentworth's 1881 address were each searched for the same word and none of them attests one at the 1816 post - Quaife's only flagstaff is Whistler's 1808 one 'in the center of' the first fort's parade - so Andreas is the whole of the positive evidence and the record leans on nothing else. THE FLAG IS DELIBERATELY NOT DRAWN. Andreas says the flag flew 'in pleasant weather and on holidays', and that a traveller coming up from the south saw it 'if perchance it was flying'. The scene date is Wednesday 1 July 1835, which is neither a holiday nor a weather this project models, so a flag on this spar would be a claim about one particular forenoon that the source itself declines to make - the same refusal as the fort's shut gates, which claim a garrison rather than an hour. What a visitor sees is therefore a bare staff, which is what the evidence supports. See docs/RESEARCH/fort_dearborn.md section 10.",
+  "review_required": false,
+  "land_owner": {
+    "value": "The ground was entered by John Baptist Baubian, 28 May 1835",
+    "confidence": "reconstructed",
+    "sources": [
+      "isa_public_domain_land_tract_sales"
+    ],
+    "note": "THE UNITED STATES RESERVATION. This is the same tract L108 already derives for `1835_no_build_ground.json` — from G1, Madison's line and the traced waterline — so the polygon is inherited rather than built again, and `check.sh` already re-derives it. The register's own row is the second, independent witness to the date L108 quotes from Andreas: Beaubien's pre-emption, 28 May 1835, five weeks before the scene date. The derived polygon is short of the documented 75.69 acres for the reasons L108 states, and is a floor rather than the reservation. WHETHER THE ENTRY HELD IS NOT READ HERE: it was disputed, and this row records the entry the register carries and nothing about its outcome. THE MARGIN IS ONLY 40 m, which is inside the working horizontal uncertainty of the georeference (about 20 m) doubled, so the grade drops a tier: the tract is right if the constructed line is, and nothing here proves the line to better than that. WHAT THIS ROW CLAIMS AND WHAT IT DOES NOT. It claims that the tract the Illinois State Archives' land-sale register describes contains this structure's committed position — the patent for this ground was ENTERED by this man on this date. It does not claim he still held the ground on 1 July 1835, that he lived here, or that he ever stood on it: a sale is a transaction, and the register's only column about residence names a county. THE SECTION LINES ARE CONSTRUCTED, NOT TRACED (L219): the grid is carried from the single PLSS corner at State & Madison, on the plat's own east-west bearing, in nominal one-mile squares.",
+    "tract": "the south-west fractional quarter of section 10",
+    "entries": [
+      "ls0057"
+    ],
+    "date_purchased": "1835-05-28",
+    "type_of_sale": "federal land sale (cash entry)",
+    "margin_m": 39.7,
+    "generated_by": "tools/resolve_land_tracts.py --build"
+  }
+}

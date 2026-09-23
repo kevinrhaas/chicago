@@ -1,0 +1,33 @@
+{
+  "id": "chicagology_prefire112",
+  "type": "website",
+  "citation": "\"Lake House.\" Chicagology. Transcribing a passage of A. T. Andreas, History of Chicago, Volume I, followed by two uncredited editorial paragraphs and later Chicago Tribune extracts of 1865 and 1870.",
+  "date": "accessed 2026-08-11",
+  "describes_date": "1835-1871",
+  "locator": "The paragraph under the heading \"Andreas' History of Chicago Volume I\" beginning \"Chicago did, however, have a really grand hotel as early as 1835\"; and the two uncredited paragraphs immediately following it, the first beginning \"The Lake House hotel on the north side of the river\".",
+  "url": "https://chicagology.com/prefire/prefire112/",
+  "archived_url": "https://web.archive.org/web/20260411170942/https://chicagology.com/prefire/prefire112/",
+  "tier": 4,
+  "rights_status": "check_required",
+  "asset_use": "cross_check",
+  "verified": true,
+  "note": "ON 1835-07-01 THIS IS A BUILDING SITE, AND THIS PAGE IS WHERE THE 1835 DATE COMES FROM - BUT NOT FROM ITS ANDREAS PARAGRAPH. Read the two paragraphs apart.\n\nANDREAS, verbatim: \"Chicago did, however, have a really grand hotel as early as 1835; this was the Lake House, located on the corners of Kinzie, Rush and Michigan streets, fronting on the latter. This hotel, which was built of brick, was three stories and a basement in height, was elegantly furnished throughout, and cost its owners nearly $100,000. The men whose enterprise led them into building a house which for those days was far in advance of the needs of the town, were Gurdon S. Hubbard, General David S. Hunter, John H. Kinzie, Dr. W. B. Egan and Major James B. Campbell. The hotel was completed and thrown open to the public in the autumn of 1836.\"\n\nTHE UNCREDITED PARAGRAPH, verbatim: \"The Lake House hotel on the north side of the river, near the bank opposite the fort, at Rush, Kinzie, and Michigan streets, facing the latter; ground was broken in 1835, and opened in the fall of 1836 across the Chicago River from Ft. Dearborn near where the Wrigley Building stands today.\" And: \"It was three stories high and built of brick, the hotel was elegantly furnished and construction cost was $90,000\".\n\nSO: \"ground was broken in 1835\" - the single fact that puts this structure in the 1835 scene at all - is in the UNCREDITED editorial paragraph and NOT in the Andreas paragraph above it. It must not be cited as Andreas. The same uncredited paragraph also drops the basement and gives $90,000 where Andreas gives nearly $100,000, so it is demonstrably not a faithful restatement of the text it sits under. data/exclusions.json already carries this building correctly, sourcing the 1835 groundbreaking to drloih_hotels and describing the scene-date state as \"a partial three-story brick shell on the north bank at Rush and Kinzie\"; this record is a second, independent-of-Andreas attestation of the groundbreaking year and nothing more.\n\nWHAT ANDREAS ACTUALLY LICENSES for the finished building: brick, three storeys and a basement, fronting Michigan Street at the corners of Kinzie, Rush and Michigan, opened autumn 1836. NOTHING on this page says how far the work had got by 1 July 1835 - no storey reached, no walls up, no foundation depth. Anything about the state of the shell on the scene date is inference and must be tagged as such. The page's own header says \"Architect: Unknown\" and \"Life Span: 1835-1871\", the latter counting from the groundbreaking rather than from occupancy.\n\nTIER 4 GRADES THIS WEB PAGE, NOT THE MATERIAL IT REPRINTS. A modern compilation quoting an older text is still a modern compilation: the transcription is unpaginated, uncredited editorial prose sits beside the quoted matter with no typographic break, and nothing here can be collated against a printed page. Where a claim taken from this page is load-bearing, re-read it in the underlying volume and cite that record instead.",
+  "access_notes": "Site carries no license statement. Treat as a transcription aid, not a rights source; nothing may be derived from it as an asset.",
+  "what_it_supplies": [
+    "built of brick",
+    "three stories and a basement in height (Andreas); three stories (uncredited paragraph)",
+    "on the corners of Kinzie, Rush and Michigan streets, fronting Michigan, on the north bank opposite the fort",
+    "ground broken in 1835 - from the page's uncredited paragraph only",
+    "completed and thrown open to the public in the autumn of 1836",
+    "built by Gurdon S. Hubbard, Gen. David S. Hunter, John H. Kinzie, Dr W. B. Egan and Maj. James B. Campbell",
+    "cost nearly $100,000 (Andreas) / $90,000 (uncredited paragraph)",
+    "the Lake House ferry, free, \"the safest and the pleasantest on the river\""
+  ],
+  "what_it_does_not_supply": [
+    "any dimension, plan or elevation",
+    "how far construction had advanced on 1835-07-01",
+    "the month of the groundbreaking",
+    "the architect - the page says \"Unknown\"",
+    "any support in Andreas for the 1835 groundbreaking, which is the uncredited paragraph's alone"
+  ]
+}

@@ -1,0 +1,529 @@
+{
+  "schema": 1,
+  "issue_id": "chicago_democrat_1834_10_15",
+  "extracted": "2026-08-28",
+  "extracted_by": "hand, T-0292 — the Democrat read, October 1834",
+  "note": "Vol. I No. 46. Page 3 column 2 is this issue's advertising column and is the cleanest advertising text in the month — the segmenter set it beside the letter list's left sub-column, so each line carries an advertisement and a cut surname. `lines_of_claim` names the advertisement's lines; the surname sliver is quoted with them and read as '[…]' where it falls inside a quote.",
+  "claims": [
+    {
+      "id": "c001",
+      "kind": "business",
+      "reading": "transcription_mediated",
+      "quote": "YOLEN YARN, for sale, by Abrahe\nJNO. 'L. WILBON & Co. | Akers,\n‘Oct. &. Dearborn ot.| Beilly,",
+      "normalized": "[W]OOLEN YARN, for sale, by JNO. L. WIL[S]ON & Co. Oct. [8]. Dearborn [s]t.",
+      "locator": {
+        "artifact_role": "primary",
+        "issue_page": 3,
+        "column": 2,
+        "lines": [
+          2000,
+          2002
+        ],
+        "lines_of_claim": [
+          2000,
+          2001,
+          2002
+        ],
+        "interleaved": true
+      },
+      "entities": [
+        {
+          "as_printed": "JNO. L. WILSON & Co.",
+          "normalized": "Jno. L. Wilson & Co.",
+          "role": "proprietor",
+          "occupations": [
+            "merchant"
+          ],
+          "associated_places": [
+            "Dearborn Street"
+          ]
+        }
+      ],
+      "notes": "A one-line placement — Dearborn street — under a firm the run prints as both 'JNO. L. WILSON & CO.' and 'J. L. WILSON & CO.'. The two spellings are the same house and are NOT merged here: identity.json is the only place a merge may be declared, and this pass makes no merge rule for it. The business is recorded on the street alone, with no offset, so its placement class is 'street_only'.",
+      "business": {
+        "name": "Jno. L. Wilson & Co.",
+        "proprietors": [
+          "Jno. L. Wilson & Co."
+        ],
+        "trade": "merchant",
+        "goods": [
+          "Woolen yarn"
+        ],
+        "street": "Dearborn Street",
+        "placement": {
+          "class": "street_only",
+          "street": "Dearborn Street"
+        }
+      },
+      "ad_copy_date": {
+        "verbatim": "‘Oct. &.",
+        "iso": "1834-10-08"
+      }
+    },
+    {
+      "id": "c002",
+      "kind": "business",
+      "reading": "transcription_mediated",
+      "quote": "Ge SPRING. Crovla\nTTORNEY AND COUNSELLOR AT LAW| C8098\nAnd Soliciter in Chancery.” Garnet\nPEHICE second door vcot from tho corner ee\nof Frankli s ‘ -) . Calvert\nChicago, Des. Vretsae eeMCEM | Cobb,",
+      "normalized": "G. SPRING. [A]TTORNEY AND COUNSELLOR AT LAW And Solicit[o]r in Chancery. [OF]FICE second door [w]e[s]t from the corner of Frankli[n street …] Chicago, De[c. …]",
+      "locator": {
+        "artifact_role": "primary",
+        "issue_page": 3,
+        "column": 2,
+        "lines": [
+          2045,
+          2050
+        ],
+        "lines_of_claim": [
+          2045,
+          2046,
+          2047,
+          2048,
+          2049,
+          2050
+        ],
+        "interleaved": true
+      },
+      "entities": [
+        {
+          "as_printed": "Ge SPRING.",
+          "normalized": "G. Spring",
+          "role": "proprietor",
+          "occupations": [
+            "attorney",
+            "counsellor at law",
+            "solicitor in chancery"
+          ],
+          "associated_places": [
+            "Franklin Street"
+          ]
+        }
+      ],
+      "notes": "A RELATIVE PLACEMENT MEASURED IN DOORS — 'second door west from the corner of Franklin' — and the cross street the corner is made with is cut away. The offset is recorded verbatim because that text IS the evidence; the anchor is the corner itself, not a building, and nothing is placed on the plat until the missing street is read from a better witness.",
+      "business": {
+        "name": "G. Spring",
+        "proprietors": [
+          "G. Spring"
+        ],
+        "trade": "attorney and counsellor at law, and solicitor in chancery",
+        "goods": [],
+        "street": "Franklin Street",
+        "placement": {
+          "class": "relative",
+          "anchor": "the corner of Franklin [street]",
+          "offset_text": "PEHICE second door vcot from tho corner ee\nof Frankli s ‘ -) .",
+          "offset_normalized": "[OF]FICE second door [w]e[s]t from the corner of Frankli[n street]",
+          "street": "Franklin Street"
+        }
+      }
+    },
+    {
+      "id": "c003",
+      "kind": "business",
+      "reading": "transcription_mediated",
+      "quote": "EDWARD W. CASEY, Cooper\nATTORNEY & COUNSELLOR AT LAW, |cut |\ndi chipaslor is Se AW, | Chip\nprec E adjoining that of the Clerk of the| Dowgis\npetolrenis Cortes os 23] Dougls",
+      "normalized": "EDWARD W. CASEY, ATTORNEY & COUNSELLOR AT LAW, [and Solicitor in Chancery.] [OFFIC]E adjoining that of the Clerk of the [… C]ourt[…]",
+      "locator": {
+        "artifact_role": "primary",
+        "issue_page": 3,
+        "column": 2,
+        "lines": [
+          2052,
+          2056
+        ],
+        "lines_of_claim": [
+          2052,
+          2053,
+          2054,
+          2055,
+          2056
+        ],
+        "interleaved": true
+      },
+      "entities": [
+        {
+          "as_printed": "EDWARD W. CASEY,",
+          "normalized": "Edward W. Casey",
+          "role": "proprietor",
+          "occupations": [
+            "attorney",
+            "counsellor at law"
+          ]
+        }
+      ],
+      "notes": "An office placed against a PUBLIC office rather than a street: 'adjoining that of the Clerk of the [county] Court'. The court's own building is not placed anywhere in this corpus yet, so this anchor points at something the reconstruction does not have — which is worth recording precisely because it is a lead rather than a location.",
+      "business": {
+        "name": "Edward W. Casey",
+        "proprietors": [
+          "Edward W. Casey"
+        ],
+        "trade": "attorney and counsellor at law",
+        "goods": [],
+        "street": null,
+        "placement": {
+          "class": "relative",
+          "anchor": "the office of the Clerk of the [county] Court",
+          "offset_text": "prec E adjoining that of the Clerk of the|",
+          "offset_normalized": "[OFFIC]E adjoining that of the Clerk of the [… C]ourt"
+        }
+      }
+    },
+    {
+      "id": "c004",
+      "kind": "notice",
+      "reading": "transcription_mediated",
+      "quote": "_ fown Maps, Davia\ngus received and for sale, Lithographic | Dusca\n‘Maps of the Town of Chieago, including | Driggs\n10 School Seetion, 'Kinzie's Addition,\" Wa- | Dinsim\nra-sia, Ac. handsomely exmeuted. Doty,\nKINZIE & FORSYTH. | Davids\nJune 18, 1834. Dally,\nThey ean also be found at the office of the| Dingly",
+      "normalized": "Town Maps. [J]u[st] received and for sale, Lithographic Maps of the Town of Chi[c]ago, including [the] School Se[c]tion, Kinzie's Addition, Wa[-ba]-si[a], &c. handsomely ex[ec]uted. KINZIE & FORSYTH. June 18, 1834. They can also be found at the office of the […]",
+      "locator": {
+        "artifact_role": "primary",
+        "issue_page": 3,
+        "column": 2,
+        "lines": [
+          2057,
+          2065
+        ],
+        "lines_of_claim": [
+          2057,
+          2058,
+          2059,
+          2060,
+          2061,
+          2062,
+          2063,
+          2064
+        ],
+        "interleaved": true
+      },
+      "entities": [
+        {
+          "as_printed": "KINZIE & FORSYTH.",
+          "normalized": "Kinzie & Forsyth",
+          "role": "publisher",
+          "occupations": [
+            "map publisher"
+          ]
+        }
+      ],
+      "notes": "WHAT THE TOWN THOUGHT IT WAS IN 1834, listed by a map publisher: the Town of Chicago, the School Section, Kinzie's Addition and Wa-ba-sia. Those four are the additions this reconstruction's plat has to account for, named together and in one place. 'Wa-ba-sia' is the paper's spelling and is kept; the run also prints 'Wa-ban-sia' and 'Wa-ban-sin', and nothing here decides between them.",
+      "ad_copy_date": {
+        "verbatim": "June 18, 1834.",
+        "iso": "1834-06-18"
+      }
+    },
+    {
+      "id": "c005",
+      "kind": "business",
+      "reading": "transcription_mediated",
+      "quote": "__ Ansurance by Fire. Dosar\nee enbscribers having been appointed | Dann,\nAgents for the Howard Fire Insurance Daniel:\nasnpany of the city of New-York, for Chi- Daten,\nfeo and the vicinity, will insure property a-| Dougl\nainst loexby Fire, on reasonable terms. Daniel\n‘duly 1, HUBBARD & CO, Pash",
+      "normalized": "[I]nsurance by Fire. [Th]e [s]ubscribers having been appointed Agents for the Howard Fire Insurance [Co]mpany of the city of New-York, for Chi[ca]go and the vicinity, will insure property a[g]ainst los[s] by Fire, on reasonable terms. [J]uly 1, HUBBARD & CO.",
+      "locator": {
+        "artifact_role": "primary",
+        "issue_page": 3,
+        "column": 2,
+        "lines": [
+          2066,
+          2072
+        ],
+        "lines_of_claim": [
+          2066,
+          2067,
+          2068,
+          2069,
+          2070,
+          2071,
+          2072
+        ],
+        "interleaved": true
+      },
+      "entities": [
+        {
+          "as_printed": "HUBBARD & CO,",
+          "normalized": "Hubbard & Co.",
+          "role": "proprietor",
+          "occupations": [
+            "merchant",
+            "fire insurance agent"
+          ]
+        }
+      ],
+      "notes": "FIRE INSURANCE IS AVAILABLE IN CHICAGO by July 1834, written through a New York company's local agents — and the town passed its fire ordinance eleven weeks later. The two are not connected by any claim here; they are recorded separately because together they say something about the year that neither says alone.",
+      "business": {
+        "name": "Hubbard & Co.",
+        "proprietors": [
+          "Hubbard & Co."
+        ],
+        "trade": "merchants, and agents for the Howard Fire Insurance Company of New York",
+        "goods": [],
+        "street": null,
+        "placement": {
+          "class": "none"
+        }
+      },
+      "ad_copy_date": {
+        "verbatim": "‘duly 1,",
+        "iso": "1834-07-01"
+      }
+    },
+    {
+      "id": "c006",
+      "kind": "building",
+      "reading": "transcription_mediated",
+      "quote": "For Sate. Evans\na. No. 7; igeblock No. 16, one lat cast of| Eno, J\nHaddock's Tavern, on Lake strect, in the Elston\nown of Chicago. ‘There is on said lot # large | Eastor\nweglling-House and fine well. For terms en-| Evans\nuire of G, SPRING. | Kikin,\nChicago, Sipt. 3, 1834. 40) Evans",
+      "normalized": "For Sa[l]e. [Lot] No. 7, [in] block No. 16, one lot east of Haddock's Tavern, on Lake str[ee]t, in the [t]own of Chicago. There is on said lot a large [d]wel[l]ing-House and fine well. For terms en[q]uire of G. SPRING. Chicago, S[e]pt. 3, 1834. 40",
+      "locator": {
+        "artifact_role": "primary",
+        "issue_page": 3,
+        "column": 2,
+        "lines": [
+          2073,
+          2079
+        ],
+        "lines_of_claim": [
+          2073,
+          2074,
+          2075,
+          2076,
+          2077,
+          2078,
+          2079
+        ],
+        "interleaved": true
+      },
+      "entities": [
+        {
+          "as_printed": "G. SPRING.",
+          "normalized": "G. Spring",
+          "role": "advertiser",
+          "associated_places": [
+            "Lake Street"
+          ]
+        },
+        {
+          "as_printed": "Haddock's Tavern",
+          "normalized": "Haddock",
+          "role": "anchor",
+          "occupations": [
+            "tavern keeper"
+          ],
+          "associated_places": [
+            "Lake Street"
+          ]
+        }
+      ],
+      "notes": "A LOT AND BLOCK NUMBER, WHICH ALMOST NOTHING IN THIS CORPUS CARRIES: lot 7, block 16, on Lake street, one lot east of Haddock's Tavern, with a large dwelling-house and a well standing on it. That is enough to place a building on the plat AND to place Haddock's Tavern one lot west of it — but placing either is a separate piece of work with the plat in front of it, and this claim only records what the paper says. The lot number is read as 7 from 'No. 7;' and the block as 16; both are single-witness and the transcription's digits in this column are otherwise sound.",
+      "ad_copy_date": {
+        "verbatim": "Chicago, Sipt. 3, 1834.",
+        "iso": "1834-09-03"
+      }
+    },
+    {
+      "id": "c007",
+      "kind": "business",
+      "reading": "transcription_mediated",
+      "quote": "Blacksmithing Evusiness. | Gore\nMATTHIAS MASON & CO. ‘iu\nt Bieta onthe above bosiness an all ite! pfare\nCO varions branches, ov Matieetsect, oppor! Hen\nite the Tremont House, whore they ute md 80) Phare\nkeep, ready mado, all kinds of Sdcts, Chains, | How\n|e &e. ‘Work done on the shortest notice, | [all\nand moat liberal termy (linn\n| Chicago, Nor. 26, 16% 1) hel",
+      "normalized": "Blacksmithing [B]usiness. MATTHIAS MASON & CO. CARR[IES] on the above bu[s]iness in all its various branches, on Mar[k]et street, oppo[s]ite the Tremont House, where they [keep] […] keep, ready made, all kinds of S[cythes], Chains, [&]c. Work done on the shortest notice, and mo[s]t liberal term[s]. Chicago, No[v]. 26, 183[3].",
+      "locator": {
+        "artifact_role": "primary",
+        "issue_page": 3,
+        "column": 2,
+        "lines": [
+          2098,
+          2106
+        ],
+        "lines_of_claim": [
+          2098,
+          2099,
+          2100,
+          2101,
+          2102,
+          2103,
+          2104,
+          2105,
+          2106
+        ],
+        "interleaved": true
+      },
+      "entities": [
+        {
+          "as_printed": "MATTHIAS MASON & CO.",
+          "normalized": "Matthias Mason & Co.",
+          "role": "proprietor",
+          "occupations": [
+            "blacksmith"
+          ],
+          "associated_places": [
+            "Market Street"
+          ]
+        }
+      ],
+      "notes": "A RELATIVE PLACEMENT ON MARKET STREET, opposite the Tremont House — and the Tremont is where the trustees met on 29 September and 13 October, so the anchor is a building this corpus already has three independent mentions of. The dateline reads 'Nor. 26, 16%' and is read as November 26, 1833: the Democrat's first issue is 1833-11-26, so a standing advertisement dated from it is the paper's oldest, and the run's own numbering agrees.",
+      "business": {
+        "name": "Matthias Mason & Co.",
+        "proprietors": [
+          "Matthias Mason & Co."
+        ],
+        "trade": "blacksmithing",
+        "goods": [
+          "Chains",
+          "Scythes"
+        ],
+        "street": "Market Street",
+        "placement": {
+          "class": "relative",
+          "anchor": "the Tremont House",
+          "offset_text": "CO varions branches, ov Matieetsect, oppor!",
+          "offset_normalized": "on Mar[k]et street, oppo[s]ite the Tremont House",
+          "street": "Market Street"
+        }
+      },
+      "ad_copy_date": {
+        "verbatim": "Chicago, Nor. 26, 16%",
+        "iso": "1833-11-26"
+      }
+    },
+    {
+      "id": "c008",
+      "kind": "business",
+      "reading": "transcription_mediated",
+      "quote": "\\ G@enOLeo BALBEL. \\iha\n| D. GRAVES, lis\nOULD inieria the citizens of Chicago, | Ha\nWw and the neighboring tottlements, hat iat\njhe has commenced the Baking Business, in thie} Ten\n| town, on South Water-street, a few doors north} J.\nof Messra. Newbury & Dole's store, where he| Hu\nwill always keep on hand, frosh Bred, Crackers, | Ia;\n| Chee, Ree. Ke. and is ready to supply. the eiti-| Ho\n, | zene of this town, as low as ean id afforded.— | }ia,\n: | Orders from a distance attended to immediately. | |fo:\n| March 25, 1834, a5 17) Ha",
+      "normalized": "[BREAD, CAKE AND] BI[S]C[U]IT [BAKER]. D. GRAVES, [W]OULD in[fo]r[m] the citizens of Chicago, and the neighboring [se]ttlements, that he has commenced the Baking Business, in this town, on South Water-street, a few doors north of Messrs. Newbury & Dole's store, where he will always keep on hand, fresh Bre[a]d, Crackers, [Cakes, &c. &c.] and is ready to supply the citi[z]ens of this town, as low as can [be] afforded. — Orders from a distance attended to immediately. March 25, 1834.",
+      "locator": {
+        "artifact_role": "primary",
+        "issue_page": 3,
+        "column": 2,
+        "lines": [
+          2108,
+          2119
+        ],
+        "lines_of_claim": [
+          2108,
+          2109,
+          2110,
+          2111,
+          2112,
+          2113,
+          2114,
+          2115,
+          2116,
+          2117,
+          2118,
+          2119
+        ],
+        "interleaved": true
+      },
+      "entities": [
+        {
+          "as_printed": "D. GRAVES,",
+          "normalized": "D. Graves",
+          "role": "proprietor",
+          "occupations": [
+            "baker"
+          ],
+          "associated_places": [
+            "South Water Street"
+          ]
+        },
+        {
+          "as_printed": "Newbury & Dole",
+          "normalized": "Newberry & Dole",
+          "role": "anchor",
+          "associated_places": [
+            "South Water Street"
+          ]
+        }
+      ],
+      "notes": "A BAKER ON SOUTH WATER STREET, placed by an offset from Newberry & Dole's store — the same anchor the to-let notice of 1834-07-02 used, which makes Newberry & Dole the most-used landmark on that street in this corpus. The heading line is set as garbage in both readings of this column ('G@enOLeo BALBEL.' here) and is supplied from the trade the body states; the supply is bracketed and the heading is not used as evidence for anything.",
+      "business": {
+        "name": "D. Graves",
+        "proprietors": [
+          "D. Graves"
+        ],
+        "trade": "baker",
+        "goods": [
+          "Bread",
+          "Cakes",
+          "Crackers"
+        ],
+        "street": "South Water Street",
+        "placement": {
+          "class": "relative",
+          "anchor": "Messrs. Newberry & Dole's store",
+          "offset_text": "| town, on South Water-street, a few doors north}",
+          "offset_normalized": "on South Water-street, a few doors north of Messrs. Newbury & Dole's store",
+          "street": "South Water Street"
+        }
+      },
+      "ad_copy_date": {
+        "verbatim": "| March 25, 1834,",
+        "iso": "1834-03-25"
+      }
+    },
+    {
+      "id": "c009",
+      "kind": "notice",
+      "reading": "transcription_mediated",
+      "quote": "° Tows Lots for Sale. i\nid ee subscribers have for sale x number of J\nhe valuable and eligibly situated Lots and | Jc\nBlocks in the Bhool Section, adjoining the town | J\nof Chicago, as Iaid off by.the Commissioners 0! qe\nthe Iinois and Michigan Canal. 4\nGH. KERCHEVAL, 4\nRICH'D. 1. HAMILTON. |3",
+      "normalized": "Tow[n] Lots for Sale. [Th]e subscribers have for sale a number of valuable and eligibly situated Lots and Blocks in the [Sc]hool Section, adjoining the town of Chicago, as laid off by the Commissioners o[f] the I[ll]inois and Michigan Canal. G[.] H. KERCHEVAL, RICH'D. [J]. HAMILTON. [J]une 4, 183[4].",
+      "locator": {
+        "artifact_role": "primary",
+        "issue_page": 3,
+        "column": 2,
+        "lines": [
+          2132,
+          2139
+        ],
+        "lines_of_claim": [
+          2132,
+          2133,
+          2134,
+          2135,
+          2136,
+          2137,
+          2138,
+          2139
+        ],
+        "interleaved": true
+      },
+      "entities": [
+        {
+          "as_printed": "GH. KERCHEVAL,",
+          "normalized": "G. H. Kercheval",
+          "role": "proprietor"
+        },
+        {
+          "as_printed": "RICH'D. 1. HAMILTON.",
+          "normalized": "Rich'd. J. Hamilton",
+          "role": "proprietor"
+        }
+      ],
+      "notes": "The School Section is being sold off in lots and blocks LAID OFF BY THE CANAL COMMISSIONERS, which is who platted the ground south and west of the original town. Both subscribers are minted: Kercheval and Hamilton appear elsewhere in the run as officials, so neither is letter-list-only evidence.",
+      "ad_copy_date": {
+        "verbatim": "1 tune 4, 184.",
+        "iso": "1834-06-04"
+      }
+    },
+    {
+      "id": "c010",
+      "kind": "notice",
+      "reading": "transcription_mediated",
+      "quote": "AINING in the Post Ofice at Chi-| Kiogmy>\ncago, #1. Get. 3, tag4, Kiger, Jan",
+      "normalized": "[REM]AINING in the Post Of[f]ice at Chi[-]cago, [Il]l. [Oc]t. 1, 18[3]4.",
+      "locator": {
+        "artifact_role": "primary",
+        "issue_page": 3,
+        "column": 3,
+        "lines": [
+          2144,
+          2145
+        ],
+        "lines_of_claim": [
+          2144,
+          2145
+        ],
+        "interleaved": true
+      },
+      "entities": [],
+      "notes": "THE SECOND REPRINT of the 1 October 1834 Chicago letter list, at page 3 columns 2-3 of this issue, and its names are NOT minted here either — they are minted once, from 1834-10-22. What this printing adds is negative evidence worth having: page 3 column 2 carries the list's LEFT sub-column as a sliver of surnames with the forenames cut ('Abell, S', 'Atwate', 'Beilly,', 'Bryant,'), which confirms that the surnames run A-L down that column and confirms that no October witness can give those entries a forename. That is why 1834-10-22's column 1 leaves 130 entries unminted rather than supplied."
+    }
+  ]
+}

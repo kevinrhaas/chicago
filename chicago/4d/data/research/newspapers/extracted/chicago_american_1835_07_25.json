@@ -1,0 +1,301 @@
+{
+  "schema": 1,
+  "issue_id": "chicago_american_1835_07_25",
+  "extracted": "2026-08-28",
+  "extracted_by": "hand, T-0261 — the Chicago American read, June to August 1835",
+  "note": "Volume I, Number 8, and the worst-segmented issue of the run: page 3's columns are interleaved two and three deep and much of the local column is unreadable. Three things survive that the corpus did not have — a foundry stock sold in front of a named MARKET, the tailor's street (Franklin), and a SECOND auction store, taken over from A. Garrett on South Water Street. Several New York advertisements run in this issue and are NOT extracted as Chicago businesses; the note on each says so.",
+  "claims": [
+    {
+      "id": "c001",
+      "kind": "business",
+      "reading": "transcription_mediated",
+      "quote": "DART & CO. oa A] on rials ees ei Castings. and wishing 12 didpore of thei aly, are indosod en ode them a ther by whol 4, Wi\nrant of the Falton Markys, opporit\ni fg Hlouse. ‘The canting warranted a\nile-Mimanufactared in O1 id d B.A low cast toa plongbe,\ntheliead cheap. Chicago, Joly 25, 1835,",
+      "normalized": "DART & CO. […] [have on hand a large assortment of] Castings, and wishing t[o] di[s]po[s]e of the[m …], are ind[u]ced [to] o[ff]er them […] by whol[esale or retail …] [in f]ront of the F[u]lton Mark[et], opposit[e …] [uncertain: fg] House. The ca[s]ting[s] warranted a[s good as any] manufact[u]red in O[h]i[o …] [Also,] a low cast [ir]o[n] plo[u]gh[s …] cheap. Chicago, J[u]ly 25, 1835.",
+      "locator": {
+        "artifact_role": "primary",
+        "issue_page": 3,
+        "column": 4,
+        "lines": [
+          248,
+          252
+        ],
+        "lines_of_claim": [
+          248,
+          249,
+          250,
+          251,
+          252
+        ],
+        "interleaved": true,
+        "spans": [
+          {
+            "line": 248,
+            "from": 0,
+            "to": 123
+          },
+          {
+            "line": 249,
+            "from": 0,
+            "to": 34
+          },
+          {
+            "line": 250,
+            "from": 0,
+            "to": 37
+          },
+          {
+            "line": 251,
+            "from": 0,
+            "to": 55
+          },
+          {
+            "line": 252,
+            "from": 0,
+            "to": 39
+          }
+        ]
+      },
+      "entities": [],
+      "ad_copy_date": {
+        "verbatim": "Chicago, Joly 25, 1835,",
+        "iso": "1835-07-25"
+      },
+      "business": {
+        "name": "Dart & Co., castings",
+        "proprietors": [],
+        "trade": "iron castings",
+        "goods": [
+          "Cast Iron Ploughs",
+          "Castings"
+        ],
+        "street": null,
+        "placement": {
+          "class": "relative",
+          "anchor": "the Fulton Market",
+          "offset_text": "rant of the Falton Markys, opporit",
+          "offset_normalized": "[in f]ront of the F[u]lton Mark[et], opposit[e …]",
+          "street": null
+        }
+      },
+      "notes": "A MARKET BUILDING NAMED IN A CHICAGO-DATED ADVERTISEMENT — 'in front of the Fulton Market, opposite [?] House' — which would be a substantial piece of town furniture this project holds no evidence for. AND IT MAY NOT BE IN CHICAGO, WHICH IS WHY THE CLAIM SAYS SO RATHER THAN THE PLACEMENT BEING TRUSTED. This issue runs several New York advertisements (Bacon & Challis of No. 3 West street; Robert Grac[ie] of Broad street), the Fulton Market is a famous New York institution, and the column interleaves the two towns' notices line by line. What is certain: the notice is dated 'Chicago, July 25, 1835', it offers castings warranted equal to Ohio manufacture, and it names a Fulton Market and a House opposite. What is NOT established is that the market is Chicago's, and nothing should be built on this until a page-image pass separates the columns. Recorded because a market building is exactly the kind of thing worth chasing down, not because it is settled."
+    },
+    {
+      "id": "c002",
+      "kind": "business",
+      "reading": "transcription_mediated",
+      "quote": "NEW FAsHIO! a\nry ‘Tailoring Establis IHE subscriber, late of tho dy, ere taken a Bhop ia ‘rroklia, beg leave siost revpec ler his services tb the citizens of irrounding cotntry, and bepet iby ' 4 peoropiates Of\nsal a basinesa and fa share of romare. Chcge’ a7 Jane ASS, compl at EDWARD",
+      "normalized": "NEW FASHIO[NABLE] Tailoring Establis[hment]. [T]HE subscriber, late of th[e Cit]y [of New York, has] taken a Shop i[n] [F]r[an]kli[n street], beg[s] leave [m]ost re[s]pec[tfully to tend]er his services t[o] the citizens of [Chicago and the s]urrounding co[u]ntry, and h[o]pe[s] [b]y [attention to] busine[ss] and [promptness of execution to merit] a share of [public pat]ron[age]. Ch[i]c[a]g[o], [2]7 Jun[e, 18]35. EDWARD […]",
+      "locator": {
+        "artifact_role": "primary",
+        "issue_page": 3,
+        "column": 4,
+        "lines": [
+          259,
+          261
+        ],
+        "lines_of_claim": [
+          259,
+          260,
+          261
+        ],
+        "interleaved": true,
+        "spans": [
+          {
+            "line": 259,
+            "from": 0,
+            "to": 13
+          },
+          {
+            "line": 260,
+            "from": 0,
+            "to": 196
+          },
+          {
+            "line": 261,
+            "from": 0,
+            "to": 74
+          }
+        ]
+      },
+      "entities": [],
+      "ad_copy_date": {
+        "verbatim": "Chcge’ a7 Jane ASS",
+        "iso": "1835-06-27"
+      },
+      "business": {
+        "name": "a new tailoring establishment, Chicago, June 1835",
+        "proprietors": [],
+        "trade": "tailoring",
+        "goods": [],
+        "street": null,
+        "placement": {
+          "class": "none",
+          "anchor": null,
+          "offset_text": "ere taken a Bhop ia ‘rroklia, beg leave siost revpec",
+          "offset_normalized": "[has] taken a Shop i[n] [F]r[an]kli[n street]",
+          "street": null
+        }
+      },
+      "notes": "THE TAILOR'S STREET, FIVE WEEKS AFTER HIS FIRST INSERTION. 1835-06-27 prints 'Shop in Frank eter street' and that claim REFUSED to complete it to Franklin, because the fragment between could not be accounted for and a shop placed on a guess is a shop in the wrong street. This printing reads 'taken a Bhop ia rroklia' — 'a Shop in Franklin' — with the intrusive fragment gone, and the street looked settled. IT WAS NOT, AND THIS FILE NO LONGER ASSERTS IT. Two later printings of the same advertisement read the street as LAKE — 1835-08-01 'Shop in Laks runlie' and 1835-08-15 'having taken a [shop in] lake - street', the second of them clean — so the corpus carries Franklin on one witness and Lake on two, and the business therefore records NO street until a page image settles it. The quote and the normalized reading here stand exactly as this printing sets them; what has been withdrawn is the inference drawn from them. Worth leaving visible: reading forward corrected this claim twice, first by supplying a street and then by taking it away. The proprietor is only 'EDWARD' in this printing and is named Edward Burton on 1835-08-15."
+    },
+    {
+      "id": "c003",
+      "kind": "business",
+      "reading": "transcription_mediated",
+      "quote": "Auetion Store, 1 10 1 2 1 0 860 28 41 78.020287 mia oy ene having taken the adh 1 10 1 3 1 78 885 48 15 15.340347 gated by A. Gatren) South Water s 1 10 1 4 1 56 903 11 7 14.425629 randy to receive goods on conalgarent 01 1 10 1 5 1 49 917 14 19 66.162491 ae at both the shove and D. Carvers od 1 10 1 6 1 0 921 28 30 60.246758 mont W, MONTGOMERY, Auction 1 10 1 7 1 0 948 29 11 0.000000 vanyf July 17, 1835,",
+      "normalized": "Auction Store. [The subscriber] having taken the [store lately occu]p[i]ed by A. Ga[rr]e[tt], South Water s[treet, is] ready to receive goods on cons[i]g[n]ment [and will sell] at both the [a]bove and D. Carver's o[l]d [stand]. W. MONTGOMERY, Auction[eer]. July 17, 1835.",
+      "locator": {
+        "artifact_role": "primary",
+        "issue_page": 3,
+        "column": 5,
+        "lines": [
+          278,
+          278
+        ],
+        "lines_of_claim": [
+          278
+        ],
+        "interleaved": true,
+        "spans": [
+          {
+            "line": 278,
+            "from": 172,
+            "to": 580
+          }
+        ]
+      },
+      "entities": [
+        {
+          "as_printed": "A. Gatren",
+          "normalized": "A. Garrett",
+          "role": "predecessor",
+          "occupations": [],
+          "associated_places": [
+            "South Water Street"
+          ]
+        }
+      ],
+      "ad_copy_date": {
+        "verbatim": "vanyf July 17, 1835,",
+        "iso": "1835-07-17"
+      },
+      "business": {
+        "name": "a new auction and commission room, South Water Street",
+        "proprietors": [],
+        "trade": "auction and commission of goods and town lots",
+        "goods": [],
+        "street": "South Water Street",
+        "placement": {
+          "class": "relative",
+          "anchor": "the store lately occupied by A. Garrett",
+          "offset_text": "gated by A. Gatren) South Water s",
+          "offset_normalized": "[occu]p[i]ed by A. Ga[rr]e[tt], South Water s[treet]",
+          "street": "South Water Street"
+        }
+      },
+      "notes": "A SECOND SOUTH WATER STREET STOREFRONT, AND A THIRD NAMED TENANT ON THAT FRONTAGE. Montgomery, who opened at David Carver's old stand west of J. Wright's at the start of July, has taken a SECOND store — A. Garrett's — and is selling out of both. So this run now documents four names on South Water Street within a few doors of each other (Wright, Carver, Garrett, Montgomery) plus Harmon Loomis & Co., Rockwell and Hogan's post office elsewhere on it, which makes South Water the best-evidenced frontage in the corpus by a wide margin. That the auctioneer needed a second room three weeks after opening the first is itself a statement about how fast goods and lots were moving in the land-sale summer. 'A. Gatren' is read as A. Garrett; the surname is bracketed as a reading, not a supply."
+    },
+    {
+      "id": "c004",
+      "kind": "business",
+      "reading": "transcription_mediated",
+      "quote": "ane ie met Po a STUARTS CELEBRA’ my Confectionary cent & ND 2 choior lot of Pei id HARMON LOO!\niengo, June 8, 135. ¢ «",
+      "normalized": "STUART'S CELEBRA[TED] Confectionary […] AND a choi[c]e lot of P[…] […] HARMON LOO[MIS & CO.] [Ch]icago, June 8, 183[5].",
+      "locator": {
+        "artifact_role": "primary",
+        "issue_page": 3,
+        "column": 4,
+        "lines": [
+          262,
+          263
+        ],
+        "lines_of_claim": [
+          262,
+          263
+        ],
+        "interleaved": true,
+        "spans": [
+          {
+            "line": 262,
+            "from": 0,
+            "to": 94
+          },
+          {
+            "line": 263,
+            "from": 0,
+            "to": 23
+          }
+        ]
+      },
+      "entities": [],
+      "ad_copy_date": {
+        "verbatim": "iengo, June 8, 135. ¢ «",
+        "iso": "1835-06-08"
+      },
+      "business": {
+        "name": "Harmon, Loomis & Co.",
+        "proprietors": [],
+        "trade": "wholesale and retail dry goods, groceries, hardware and crockery",
+        "goods": [
+          "Confectionary"
+        ],
+        "street": "South Water Street",
+        "placement": {
+          "class": "none",
+          "anchor": null,
+          "offset_text": null,
+          "offset_normalized": null,
+          "street": null
+        }
+      },
+      "notes": "STUART'S CELEBRATED CONFECTIONARY IS A LINE, NOT A SHOP — which corrects the shape, though not the substance, of what 1835-06-08 recorded. That claim read the heading 'STUAWTS CELEDRATEL Siateetionary' out of a blob and registered a confectionary and perfumery business under Stuart's name, noting it had no address. Here the same heading runs directly over HARMON, LOOMIS & CO.'s signature and the June 8 dateline: Stuart's is a branded product the South Water Street wholesalers stocked, of the same kind as Evans's Hygeian pills or Dr. Buchan's acoustic oil elsewhere in the run. The first issue's business entry is left standing in the gazetteer rather than deleted, because the column there genuinely reads as a trade card and a reader comparing the two should see both; this note is where the correction lives."
+    },
+    {
+      "id": "c005",
+      "kind": "notice",
+      "reading": "transcription_mediated",
+      "quote": "ndjm | Ifthe above.named pereon is in th requested to call'and leave his addn iy 25th, 1835.\nFE INFORMATION WAN STORE ie seweyeons ll gy aterent\nPeale ory Widow and Of ix orelyht yéare since, Michael Bea\nley] taba to the Wester Distr",
+      "normalized": "[…] If the above-named person is in th[is …] requested to call and leave his add[ress …] [Jul]y 25th, 1835. INFORMATION WAN[TED …] [of his] Widow and O[rphans? …] [s]ix or e[i]ght years since, Michael Bea[…]ley […] [came] to the Wester[n] Distr[ict …]",
+      "locator": {
+        "artifact_role": "primary",
+        "issue_page": 3,
+        "column": 4,
+        "lines": [
+          244,
+          247
+        ],
+        "lines_of_claim": [
+          244,
+          245,
+          246,
+          247
+        ],
+        "interleaved": true,
+        "spans": [
+          {
+            "line": 244,
+            "from": 0,
+            "to": 92
+          },
+          {
+            "line": 245,
+            "from": 0,
+            "to": 51
+          },
+          {
+            "line": 246,
+            "from": 0,
+            "to": 58
+          },
+          {
+            "line": 247,
+            "from": 0,
+            "to": 29
+          }
+        ]
+      },
+      "entities": [],
+      "notes": "AN 'INFORMATION WANTED' NOTICE — the class of advertisement that documents migration into the west by naming a man and the years since he left. Michael Bea[?]ley came to the Western District six or eight years before 1835 and somebody is looking for him or for his widow and orphans. THE SURNAME IS BROKEN ACROSS THE COLUMN BREAK ('Michael Bea' / 'ley]') and is NOT completed; no person is minted, because a name assembled across a segmenter's cut is the least reliable kind this corpus produces. The lines cited run across two advertisements' worth of interleave, which is why the quoted spans are out of reading order relative to the printed page and `lines` is given explicitly."
+    }
+  ]
+}

@@ -1,0 +1,156 @@
+{
+  "schema": 1,
+  "_doc": "T-0542. The date of Chicago's third town election, read out of the town's own newspaper instead of out of Andreas. Andreas dates it twice and the two do not agree — 'in July, 1835' in his town chapter, 'August 5, 1S35' in his police chapter — and the 1835 poll list prints no date of its own, so eighty-five men's presence at the 1835-07-01 scene date rested on an unresolved contradiction. The Chicago Democrat announced the election before it happened and reported it after, in consecutive issues, and that settles the day.",
+  "source_id": "chicago_democrat_1833_1835",
+  "reading_note": "Every quote is cut verbatim from the committed transcription its locator names, at the lines it names, and the OCR damage is kept. Ruling 2 of the source record binds: these are transcription-mediated readings and grade `documented` carrying that flag; a scan read of the same passages would outrank them. TWO OF THE THREE DECISIVE ISSUES ARE THE WEAK TIER OF THIS CORPUS — corpus.json marks 1835-07-15 a sole-witness `-2` OCR rebuild, 'the weakest tier of this corpus', and the 1835-07-08 announcement survives only in that issue's ALTERNATE rebuild because the primary deposit transcription is missing the page it stood on. What carries the finding is not either transcription's quality but that two issues a week apart, announcement and report, agree with each other, with the charter printed in the second, and with Andreas's town chapter.",
+  "claims": [
+    {
+      "id": "d001",
+      "kind": "civic",
+      "reading": "transcription_mediated",
+      "quote": "TOWN CHARTER.\nr readers were apprised some weeks since ed\nn act was passed at the late segsion of\negislature of this slate enlarging the pow- ca\nthe corporation of Chicago, and providing  \"\n“new election of ‘Trustees should take\n\nprised of the fact that thero was no capy  29\nnae charter of the town in possession of in\neraon here. We are advised that no copy po\nB yet been received. The clection has on\nromLpobed, or adjourned, some how or oth-\nym) Lime to time, for the purpose of procn-\n\n, copy of the law.\n",
+      "normalized": "10 June 1835. Under the heading TOWN CHARTER the Democrat reports that an act of the late session of the legislature enlarged the powers of the corporation of Chicago and provided that a new election of Trustees should take place; that no copy of the town's new charter was in any person's possession in Chicago and none had yet been received; and that the election had accordingly been 'postponed, or adjourned, some how or other, from time to time, for the purpose of procuring a copy of the law.' SO ON 10 JUNE 1835 THE THIRD TOWN ELECTION HAD NOT YET BEEN HELD. That is the first fixed point: no reading which puts the third election before mid-June 1835 can stand.",
+      "locator": {
+        "issue": "chicago_democrat_1835_06_10",
+        "issue_date": "1835-06-10",
+        "printed_page": 2,
+        "source_pdf_page": 22,
+        "column": 5,
+        "text_file": "chicago/reference/newspapers/Transcriptions/Chicago_Democrat_1833-11_to_1835-08/Chicago_Democrat_1835-06-10_Vol2_No8_Transcription.txt",
+        "lines": [
+          1642,
+          1657
+        ]
+      },
+      "describes_date": "1835-06-10",
+      "entities": [
+        "Town of Chicago"
+      ],
+      "town_finding": true,
+      "notes": "The charter itself, printed in full on 15 July (d005), sets the annual trustee election on the first Monday in June — 1 June 1835. This item is the town explaining why the day came and went. The right-hand edge of every line carries a few characters bled in from the adjacent column and they are kept rather than trimmed; the sentences are continuous and legible through them."
+    },
+    {
+      "id": "d002",
+      "kind": "civic",
+      "reading": "transcription_mediated",
+      "quote": "Minois Rounty Lond Register, in answer to nur ingdiries some weeks since, a9 to the ine tended political codrae of that paper. We nay notice the remarky of the editor further —at our lemure, | OF It atiould by berno in wind that the elec, r-|tion of Trustees under anew Charter. takes in| place Friday og thih week. We. lial publish | the law next geek. | i The new Sehooser, commanded by Capt, | Burnham, Janded at this place a few days -]atnee, 00M. #4 pie lumber, 100 M, shingles, 20 bble. flour, anid 60 bbls, bulk merchandize : ai | the largest cargo over duicharged at tIus port. —~ Communicated, |",
+      "normalized": "8 July 1835, in the editorial column: 'It should be borne in mind that the election of Trustees under a new Charter takes place Friday of this week. We shall publish the law next week.' The Democrat was a Wednesday paper — its own masthead the following week reads WEDNESDAY, JULY 15, 1835 — so 'Friday of this week' is FRIDAY 10 JULY 1835. This is the announcement, printed two days before the poll.",
+      "locator": {
+        "issue": "chicago_democrat_1835_07_08",
+        "issue_date": "1835-07-08",
+        "printed_page": 2,
+        "source_pdf_page": 6,
+        "column": 5,
+        "text_file": "chicago/4d/data/research/newspapers/text/chicago_democrat_1835_07_08__alt_transcription_2.txt",
+        "lines": [
+          194,
+          194
+        ],
+        "artifact_role": "alternate"
+      },
+      "describes_date": "1835-07-10",
+      "entities": [
+        "Town of Chicago"
+      ],
+      "town_finding": true,
+      "notes": "OCR: 'the elec-|tion of Trustees under anew Charter. takes in| place Friday og thih week.' The word carrying the whole finding is 'Friday', and it is undamaged. The promise to 'publish the law next week' is kept — the charter fills the front page of the 15 July issue (d005), which is independent corroboration that this sentence belongs to the week it claims. NOT IN THE PRIMARY DEPOSIT TRANSCRIPTION of this issue, which is marked PARTIAL and lacks the page: it survives only in the alternate rebuild, and that is stated rather than hidden."
+    },
+    {
+      "id": "d003",
+      "kind": "civic",
+      "reading": "transcription_mediated",
+      "quote": "Ching Charter Eliction.=Thia elnetion tork place on Friday lawt, ‘The Jollowsg, was the ‘result {\nPemocrate, Opposition,\nHiram Hoganin, 124 Gen, WV. Dole, 142 CMlewandor Loy) 203 Chin's) Me amnuel Jackson, 204 H.C. W Byram King, | del G. Kerely Waltor Kimbail, 142 0 Ri A, Binz, sit E.B. Withams, 123 EK, Uuboard, 73\nie",
+      "normalized": "15 July 1835: 'Chicago Charter Election.—This election took place on Friday last. The following was the result:' and then the poll, in two columns headed Democrats and Opposition. THE ELECTION REPORTED ON WEDNESDAY 15 JULY AS HAVING FALLEN ON 'FRIDAY LAST' IS THE ELECTION ANNOUNCED ON 8 JULY FOR 'FRIDAY OF THIS WEEK': FRIDAY 10 JULY 1835. Read through the OCR, the names polled are Hiram Hugunin 124, Alexander Loyd, Samuel Jackson, Byron King, Walter Kimball 142 and E. B. Williams 123 on the Democratic side, and Geo. W. Dole 142, R. A. Kinzie, E. K. Hubbard 73 and John Davis on the Opposition side. THOSE ARE ANDREAS'S EIGHT. The men he names as elected at the third election — Hugunin, W. Kimball, B. King, S. Jackson, E. B. Williams, F. C. Sherman, A. Loyd, George W. Dole — are the men on this ticket, Sherman included: the prose below the poll reads 'The votes for Messrs. Hugonin, S[herman] ... are a fair test of the democratic strength 123 and 4, and the votes for Messrs. Hubbard and Kinzie of the opposition 73.' The third town election was held on FRIDAY 10 JULY 1835, nine days after this reconstruction's scene date.",
+      "locator": {
+        "issue": "chicago_democrat_1835_07_15",
+        "issue_date": "1835-07-15",
+        "printed_page": 2,
+        "source_pdf_page": 10,
+        "column": 5,
+        "text_file": "chicago/4d/data/research/newspapers/text/chicago_democrat_1835_07_15.txt",
+        "lines": [
+          196,
+          199
+        ]
+      },
+      "describes_date": "1835-07-10",
+      "entities": [
+        "Hiram Hugunin",
+        "Alexander Loyd",
+        "Samuel Jackson",
+        "Byron King",
+        "Walter Kimball",
+        "E. B. Williams",
+        "George W. Dole",
+        "R. A. Kinzie",
+        "E. K. Hubbard",
+        "John Davis",
+        "Town of Chicago"
+      ],
+      "town_finding": true,
+      "notes": "The two ticket columns are interleaved by the OCR and the individual figures are NOT all recoverable: '124', '142', '123' and '73' are legible, the rest ('203', '204', 'sit', 'del') are not read and are not guessed at. Nothing in this project is regraded on a figure from this table. The names are recoverable because Andreas's independent list of the eight elected is the check on them, and the two agree. This issue is corpus.json's weakest tier — a sole-witness `-2` rebuild — which is why the announcement of 8 July, in a different issue, is carried as a separate claim rather than folded in here."
+    },
+    {
+      "id": "d004",
+      "kind": "civic",
+      "reading": "transcription_mediated",
+      "quote": "ve, | ten Treasory for The une of said town, erable im S\\ Passed the Sth day of August, 188%. | pany us “id _ BL HUGUNIN, Pra'h | uaracter",
+      "normalized": "The town's ordinance code, printed complete in the Democrat of 12 August 1835 and again on 26 August, closes: 'Passed the [5]th day of August, 183[5]. H. HUGUNIN, Pres't. Alex. N. Fullerton, Sec'y.' THE NEW BOARD SAT AND ACTED ON 5 AUGUST 1835, WITH HUGUNIN IN THE CHAIR — four weeks after it was elected. That is what Andreas's police chapter dates: his sentence is about the first mention of the election of a Constable, and 5 August 1835 is the day the board that would have chosen one passed its code. Whether he conflated the board's meeting with the popular poll, or was using 'the third election of town officers' in its other sense — the board electing the officers the charter gives it, which is a different act from the town electing trustees — the two Andreas passages stop contradicting each other on either reading, and neither moves the popular election off 10 July.",
+      "locator": {
+        "issue": "chicago_democrat_1835_08_26",
+        "issue_date": "1835-08-26",
+        "printed_page": 1,
+        "source_pdf_page": 13,
+        "column": 2,
+        "text_file": "chicago/4d/data/research/newspapers/text/chicago_democrat_1835_08_26.txt",
+        "lines": [
+          35,
+          35
+        ],
+        "also_printed": {
+          "issue": "chicago_democrat_1835_08_12",
+          "text_file": "chicago/4d/data/research/newspapers/text/chicago_democrat_1835_08_12.txt",
+          "lines": [
+            54,
+            54
+          ],
+          "printed_page": 1,
+          "column": 2
+        }
+      },
+      "describes_date": "1835-08-05",
+      "entities": [
+        "Hiram Hugunin",
+        "Alexander N. Fullerton",
+        "Town of Chicago"
+      ],
+      "town_finding": true,
+      "notes": "THE DAY OF THE MONTH IS OCR'd 'Sth' IN BOTH PRINTINGS and 'Sth' is as good a rendering of 8th as of 5th; what this claim rests on is that the board sat and passed its code in the first days of August 1835, not on the digit. The charter's Sec. 9 requires an ordinance to be published within ten days of passing, and the code appears in the paper of 12 August, which admits either. The reason 5 August is the likelier is that Andreas independently names 5 August 1835 for an act of the town officers — the convergence is the argument, and it is an INFERENCE, stated as one. The transcribed code as recovered names no Constable, so that half of Andreas's police-chapter sentence is uncorroborated here."
+    },
+    {
+      "id": "d005",
+      "kind": "civic",
+      "reading": "transcription_mediated",
+      "quote": "Src 4. Tie members comprising’ the Bear of Trosteen, shall be elected annual- oa the ft Monday in June, by the pér- bo reudug within ad Town, {qqualifieu!ty rat lor fepresentaures to the legrilature) n ware for coe year, tHey sali be at least meatrgie rear of age, emzeun of the Dated Ststes, and ab) # aad town, Mal pisess a tree bold estate withie the Sere! i Sto Vint the Boord of Trustees shal} wpe! the peessdent thou Cueievwn Iavly yf vm Wall be the Judges of thé yuldicatives, om aol recvtas of View on mernhets,| a amctty ttall constitute 3 Hear uses, bot a Sal! ng!",
+      "normalized": "The Democrat of 15 July 1835 keeps the promise of 8 July and prints the new charter — 'An act to change the corporate powers of the town of Chicago' — from the head of its front page. Its Sec. 4: 'The members comprising the Board of Trustees shall be elected annually on the [first] Monday in June, by the persons residing within said Town, [qualified to vote] for representatives to the legislature.' THE ANNUAL TOWN ELECTION WAS MOVED TO THE FIRST MONDAY IN JUNE by the act that also required a new election, which is why the 1835 poll fell in the summer and not in the second week of August where the 1833 and 1834 polls had been. The circumstantial argument from those two August dates for an August 1835 election is therefore not just weak but wrong-footed: the law they were held under had been superseded.",
+      "locator": {
+        "issue": "chicago_democrat_1835_07_15",
+        "issue_date": "1835-07-15",
+        "printed_page": 1,
+        "source_pdf_page": 9,
+        "column": 1,
+        "text_file": "chicago/4d/data/research/newspapers/text/chicago_democrat_1835_07_15.txt",
+        "lines": [
+          28,
+          28
+        ]
+      },
+      "describes_date": "1835-02/1835-07-15",
+      "entities": [
+        "Town of Chicago"
+      ],
+      "town_finding": true,
+      "notes": "Read against d001, this is the whole shape of the year: an act requiring a fresh election on the first Monday in June, no copy of the act to be had in Chicago, the election adjourned from time to time through June, held at last on Friday 10 July, and the law printed five days later. The section is quoted for the election clause only; the rest of the charter is a separate reading and is not made here."
+    }
+  ]
+}

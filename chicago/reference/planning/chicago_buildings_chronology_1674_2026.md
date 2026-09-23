@@ -1,0 +1,4202 @@
+# Chicago Buildings Chronology, 1674–2026
+
+**4,009 entries.** Loss notation is included where documented; otherwise status reflects the source inventory.
+
+## 1674
+- Jacques Marquette winter shelter / encampment — Chicago River area — lost 1675
+## 1780
+- Jean Baptiste Point du Sable estate — Bakehouse — North bank of Chicago River near present-day Pioneer Court
+- Jean Baptiste Point du Sable estate — Barn no. 1 — North bank of Chicago River near present-day Pioneer Court
+- Jean Baptiste Point du Sable estate — Barn no. 2 — North bank of Chicago River near present-day Pioneer Court
+- Jean Baptiste Point du Sable estate — Dairy — North bank of Chicago River near present-day Pioneer Court
+- Jean Baptiste Point du Sable estate — Horse-powered mill — North bank of Chicago River near present-day Pioneer Court
+- Jean Baptiste Point du Sable estate — Main dwelling / trading house — North bank of Chicago River near present-day Pioneer Court
+- Jean Baptiste Point du Sable estate — Poultry house — North bank of Chicago River near present-day Pioneer Court
+- Jean Baptiste Point du Sable estate — Smokehouse — North bank of Chicago River near present-day Pioneer Court
+- Jean Baptiste Point du Sable estate — Stable — North bank of Chicago River near present-day Pioneer Court
+- Jean Baptiste Point du Sable estate — Workshop — North bank of Chicago River near present-day Pioneer Court
+## 1803
+- Fort Dearborn — first fort — Chicago River at Lake Michigan — lost 1812
+- Site of Fort Dearborn — at the intersection of Michigan Av & Wacker Dr — lost 1812 / 1857
+## 1804
+- United States Factory / trading house at Fort Dearborn — Fort Dearborn vicinity
+## 1816
+- Fort Dearborn — second fort — Chicago River at Lake Michigan — lost 1857
+## 1829
+- Caldwell's Tavern — Wolf Point
+- Miller House tavern — Wolf Point
+## 1830
+- Mark Beaubien's Sauganash Tavern / Hotel — Lake Street near Market Street — lost 1851
+## 1831
+- Methodist log meetinghouse — Opposite Wolf Point
+- Site of the Sauganash Hotel/Wigwam — SE corner of Lake St & Wacker Dr — lost 1851
+## 1832
+- Chicago Harbor Lighthouse — first lighthouse — Fort Dearborn / river mouth — lost 1852
+- Chicago River fixed-span bridge — first bridge — Chicago River
+## 1833
+- First Cook County Jail — log blockhouse — Chicago
+- First St. Mary's Catholic Church — Lake Street west of State Street
+- Green Tree Tavern — Lake and Canal Streets — lost 1902
+- Miltimore's Folly — first public schoolhouse — State and Madison vicinity
+- Noble-Seymour-Crippen House — 5624 N Newark Av
+- Tremont House I — Lake and Dearborn Streets — lost 1839
+## 1834
+- First Presbyterian Church building — Chicago
+## 1835
+- First Cook County Courthouse — Clark and Randolph Streets — lost 1853
+## 1836
+- Clarke House Musuem — Chicago Women'S Park And Gardens Park
+- First Baptist Church building — Chicago
+- Henry B Clarke House — 1855 S Indiana Av
+- Lake House hotel — Rush and Kinzie Streets — lost 1871
+- Saloon Building — Lake and Clark Streets — lost 1871
+## 1837
+- First St. James Episcopal Church building — Chicago — lost 1857
+## 1838
+- Illinois-Indiana State Line Boundary Marker — Avenue G, near 103rd St
+- Site of the Origin of Illinois & Michigan Canal — S Fork of Chicago River at W Levee & W Fuller Sts
+## 1839
+- Joseph Blanchard Public Market — first public market — Chicago
+- Tremont House II — Lake and Dearborn Streets — lost 1849
+## 1843
+- St. Mary's Catholic Church — Wabash Avenue and Madison Street — lost 1871
+## 1844
+- Allan Robbins four-story brick store — South Water Street — lost 1871
+- Denker & Borges triangular brick building — Lake and South Water Streets — lost 1871
+- George Smith pressed-brick store and dwelling block — State Street — lost 1871
+- Peck–Robbins–High–Magie fireproof store block — South Water Street — lost 1871
+## 1845
+- Clark Street Methodist Episcopal Church — brick building — Clark Street — lost 1871
+- Dearborn School — Madison Street near Dearborn Street — lost 1871
+## 1846
+- St. Mary of the Lake University building — Chicago
+## 1847
+- Rice's Theatre I — Dearborn Street — lost 1850
+## 1848
+- Galena and Chicago Union Railroad — first Chicago depot — Kinzie and Canal Streets
+- Stiles Burton's City Hotel — State and Lake Streets — lost 1871
+## 1850
+- Chicago Gas Works — first gas-manufacturing plant — Chicago River vicinity — lost 1871
+- Rice's Theatre II — brick building — Dearborn Street — lost 1871
+- Tremont House III — Lake and Dearborn Streets — lost 1871
+- Tremont Music Hall — Chicago — lost 1871
+## 1851
+- Kehilath Anshe Ma’ariv synagogue — first synagogue building — Chicago
+## 1852
+- Chicago Harbor Lighthouse — second lighthouse — River mouth — lost 1871
+## 1853
+- Cook County Courthouse and Chicago City Hall — Public Square, Clark and Randolph Streets — lost 1871
+## 1854
+- Chicago Water Works pumping station — Chicago Avenue and Pine Street — lost 1871
+- John Wingert House — 6231 N Canfield Av
+## 1856
+- Chicago High School — first public high-school building — Monroe Street near Halsted Street
+- Jane Addams' Hull House and Dining Hall — 800 S Halsted St
+- John and Phebe Gray House — 4362 W. Grace St.
+## 1857
+- Adams House hotel — Michigan Avenue — lost 1871
+- Charles D. Iglehart House — 11118 S Artesian Av
+- First Presbyterian Church — marble building — Wabash Avenue — lost 1871
+- John Link iron-front block — Lake and LaSalle Streets — lost 1871
+- Larmon Block — Washington and Madison Streets — lost 1871
+- Light Guard Hall / Garrett Block — State and Randolph Streets — lost 1871
+- McVicker's Theatre I — Madison Street — lost 1871
+- Portland Block — Washington and Dearborn Streets — lost 1871
+- St. James Episcopal Church — 1857 building — Cass Street — lost 1871
+- Wabash Avenue Methodist Church — Wabash Avenue and Harrison Street — lost 1871
+## 1860
+- The Wigwam — Republican National Convention hall — Lake Street and Market Street — lost 1867
+## 1864
+- Rosehill Cemetery Entrance — 5800 N Ravenswood Av
+- Soldiers' Home — 739 E 35th St
+## 1865
+- Colonel Wood's Museum — Randolph Street — lost 1871
+- Crosby's Opera House — Washington Street near State Street — lost 1871
+- Union Stock Yard — original exchange and livestock complex — Exchange Avenue and Halsted Street — lost 1971
+## 1869
+- Abraham Groesbeck House — 1304 W Washington Blvd
+- Chicago Avenue Pumping Station — 821 N Michigan Ave — standing
+- Chicago Water Tower — 806 N Michigan Ave — standing
+- First Baptist Congregational Church — 60 N Ashland Av
+- Seth Warner House — 631 N Central Ave
+- St Ignatius College Prep Building — 1076 W Roosevelt Rd
+## 1870
+- Erie Street Row — 161 E. Erie St
+- John Raber House — 5760 S LaFayette Av
+- Wheeler-Kohn House — 2016-20 S Calumet Av
+## 1871
+- Charles Hitchcock House — 5704 W Ohio St
+- Palmer House I — State and Quincy Streets — lost 1871
+- Site of the Origin of the Chicago Fire of 1871 — Dekoven (1050s) & Jefferson (600w) St
+## 1872
+- 101 Grand — 101 W. Grand Ave.
+- Delaware Building — 36 W Randolph St
+- Field Elementary -CPS — 7019 N Ashland Ave
+- Holden Block — 1027 W. Madison St.
+- John and Clara Merchant House — 3854 N Kostner Av
+- Lake-Franklin Group — 227-35 W Lake St & 173-91 N Franklin St
+- Page Brothers Building — 177-191 N State St
+- State Lake LLC — 177 North State
+## 1873
+- Charles M. Netterstrom House — 833 W. Aldine Avenue
+- Congress Plaza Hotel — 520 S. Michigan Ave.
+- Inter-State Industrial Exposition Building — Lakefront at Adams Street — lost 1892
+- Palmer House II — State and Monroe Streets — lost 1923
+- Washington Block — 40 N Wells St
+## 1874
+- (Former) Engine Company 27 — 1244 N Wells St
+- Jackson-Thomas House — 7053 N Ridge Blvd
+- James Ward Public School — 2703 S Shields Av
+- Second Presbyterian Church — 1928-1936 S Michigan Av
+- Stephen Race House — 3945 N Tripp Av
+- Ward J — 2701 S Shields Ave
+## 1875
+- Harpo Studios — 110 N Carpenter
+- Haskell-Barker-Atwater Buildings — 18-28 S Wabash Av
+- McCormick Double House — 660 N Rush St
+- Union Stock Yard Gate — Exchange Av (4150S) at Peoria St (900W)
+## 1876
+- DuPont-Whitehouse House — 3558 S Artesian Av
+## 1879
+- 71215A State St — 101 N State St E
+- First Leiter Building — Wells and Monroe Streets — lost 1972
+## 1880
+- 20 North Michigan Avenue — 20 N. Michigan Ave
+- 2678 West Washington Boulevard — 2678 West Washington Boulevard
+- WAX TRAX! — 2449 North Lincoln Avenue
+## 1881
+- Avondale-Logandale — 3212 W George St
+- Chicago & North Western Wells Street Station — Wells and Kinzie Streets — lost 1911
+- Hazelton-Mikota House — 5453 N Forest Glen Av
+- Jewelers Building — 15-17 S Wabash Av
+- Miñoso — 3527 S Wallace St
+- Pullman Arcade Building — Pullman — lost 1926
+- Sheridan — 533 W 27th St
+- Stephen A. Douglas Memorial — 35th St and Cottage Grove Av
+## 1882
+- Hotel St. Benedict Flats — 40-52 E Chicago Av
+- James A. Sexton School — 160 W Wendell St
+- Montauk Building — 115 W Monroe St — lost 1902
+- Palliser's Cottage Home No. 35 — 2314 W 111th Pl
+## 1883
+- All Saints Church and Rectory — 4550 N Hermitage Av
+- Kaufmann Store and Flats — 2312-14 N Lincoln Av (S Half:1883;North Half:1887)
+- Samuel M. Nickerson House — 40 E Erie St
+- Sydney A. Kent House — 2944 S Michigan Av
+## 1884
+- Augustus Warner House — 1337 N. Dearborn Street
+- Claremont Cottage District — 1016 S Claremont Ave & 2342 W Grenshaw St
+- Saint Luke Church & Academy — 1500 W Belmont Ave
+- UIC College Prep — 1231 S Damen
+## 1885
+- 768 West Jackson, LLC — 768 W. Jackson Blvd.
+- Chicago Board of Trade Building — 1885 building — LaSalle and Jackson Streets — lost 1929
+- Clinton Street Lofts — 226 N Clinton Street
+- Cooper Dual Language Academy -CPS — 1624 W 19th St
+- Dearborn Street Station — 47 W Polk St
+- Fine Arts Building — 410 S Michigan Av
+- Henry Gerber House — 1710 N Crilly Court
+- Home Insurance Building — Adams and LaSalle Streets — lost 1931
+- John Lathrop Motley Public school — 729-759 N.Ada St. 1337-1347 W. Chicago Ave
+- Rookery Building — 209 S LaSalle St
+- Wood-Maxey-Boyd House — 2801 S Prarie Av
+## 1886
+- Auditorium Building — 430 S Michigan Av
+- Blackwell-Israel Samuel A.M.E. Zion Church Building — 3956 S. Langley Ave.
+- Carl Sandburg House — 4646 N Hermitage Av
+- EuroFurniture — 2145 W Grand Ave
+- F. R. Schock House — 5804 W Midway Park
+- Greater Union Baptist Church — 1956 W. Warren Boulevard
+- John J. Glessner House — 1800 S Prairie Av
+- Lake Street Lofts LLC — 900 910 912 W Lake St & 212 N Peoria St
+- Mathilde Eliel House — 4122 S Ellis Av
+- Ransom R Cable House — 25 E Erie St
+- Schoenhofen Brewery — 18th St & Canalport (500W)
+- Site of Haymarket Tragedy — Desplaines St (650W), betw Randolph & Lake
+- The Rookery Building — 209 S. Lasalle
+- Veseman Building — 444 N LaSalle St
+## 1887
+- (Former) Engine Company 42 Firehouse — 228 W Illinois St
+- Abraham Lincoln Monument ("Standing Lincoln") — Lincoln Park at Dearborn Parkway
+- Dexter Building — 630 S Wabash Ave — lost 1936
+- LaSalle Street Cable Car Powerhouse — 500 N LaSalle St
+- Marshall Field Wholesale Store — Adams Street between Quincy and Franklin — lost 1930
+- Schlecht House — 5804 W Race Av
+- Yondorf Block and Hall — 758 W North Av
+## 1888
+- Harriet F. Rees House — 2110 S. Prairie Ave.
+- Lowell Elementary -CPS — 3320 W Hirsch St
+- Marie Schock House — 5749 W Race Av
+- McPherson — 4728 N Wolcott Ave
+## 1889
+- (Former) James Mulligan Public School Building — 1855-1863 North Sheffield Avenue
+- 935 W. Chestnut — 935 W. Chestnut
+- 954 W Washington Blvd — 954 W Washington Blvd
+- Charles N. Loucks House — 3926 N Keeler
+- Germania Club Building — 108 W. Germania Place / 1538-1542 N. Clark St.
+- Ida B. Wells-Barnett House — 3624 S Dr Martin Luther King Jr Dr
+- Monadnock Block — 53 W Jackson Blvd
+- Otis Elementary -CPS — 525 N Armour St
+- Richard Nickel Studio — 1810 W Cortland St
+- Ryerson -CPS — 646 N Lawndale Ave
+- Spry Community Elementary -CPS — 2400 S Marshall Blvd
+- Tacoma Building — LaSalle and Madison Streets — lost 1929
+- Whistle Stop Inn — 4200 W Irving Park Rd
+## 1890
+- (IL046) - Map Factory Lofts (5235 N. Ravenswood) — 5235 N. Ravenswood
+- 2130-2140 W Fulton — 2130 2140 W Fulton St
+- 223 West Erie — 223 West Erie Street
+- Domestic Violence Courthouse — 555 W. Harrison St.
+- Getty Tomb — Graceland Cemetery, 4011 N Clark St
+- Graham Elementary -CPS — 4436 S Union Ave
+- Grand Central Station — Harrison and Wells Streets — lost 1971
+- Greater Tabernacle Cathedral (Former Holy Rosary Catholic Church) — 11300-12 S. Dr. Martin Luther King Jr. Drive
+- Green Street Lofts — 400 S Green Street
+- Gwendolyn Brooks House — 7428 S. Evans Ave
+- Haymarket Center — 932 W Washington Blvd
+- Lorado Taft's Midway Studios — 6016 S Ingleside Dr
+- Metropolitan Apostolic Community Church Building — 4100 S Dr Martin Luther King Jr Dr
+- Pilgrim Baptist Church — 3301 S Indiana Av
+- Rand McNally Building — Adams and LaSalle Streets — lost 1911
+- Reliance Building — 32 N State St
+## 1891
+- A&M 542 South Dearborn, LLC — 542 S Dearborn
+- Crilly Court Condominium Association — 1717 N. Crilly Ct.
+- De Diego Community Academy -CPS — 1313 N Claremont Ave
+- Dr. Wallace C. Abbott House — 4605 N Hermitage Ave
+- Epworth Church — 5253 North Kenmore Avenue
+- Esmond — 1865 W Montvale Ave
+- Holden — 1104 W 31st St
+- James Charnley House — 1365 N Astor st
+- Leiter II Building — 403 S State St
+- Ludington Building — 1104 S Wabash Av
+- Main Building at Illinois Institute of Technology — 3320 S Federal St
+- Manhattan Building — 431 S Dearborn St
+- Martin Schnitzius Cottage — 1925North Fremont
+- McGill House — 4938 S Drexel Blvd
+- Muddy Waters House — 4339 South Lake Park Avenue
+- Museum of Science and Industry — 57th St and Lake Shore Dr
+## 1892
+- (Former) Chicago Historical Society Building — 632 N Dearborn St
+- (Former) Schlitz Brewery-Tied House — 1393-1399 W. Lake St
+- 525 S. Dearborn St. — 521-531 S. Dearborn St.
+- 537 S. Dearborn St. — 537 S. Dearborn St.
+- Beeson House and Coach House — 5810 W Midway Park
+- Bryan Lathrop House — 120 E Bellevue Pl
+- Chiarts HS — 2714 W Augusta Blvd
+- Cosmopolitan Lofts Condominium Association — 1133 1137 S Wabash Ave
+- Drake Fountain — 92nd St @ South Chicago & Exchange Ave
+- Garfield Boulevard "L" Station and Overpass — 319 E Garfield Blvd
+- Garrick Theatre / Schiller Building — 64 W Randolph St — lost 1961
+- Great Northern Hotel — Dearborn and Jackson Streets — lost 1961
+- Griffiths-Burroughs House — 3806 S. Michigan Avenue
+- John Nuveen House — 3916 N. Tripp Ave
+- Marshall Field and Company Building — 111 N State St
+- Masonic Temple Building — State and Randolph Streets — lost 1939
+- Mitchell — 2233 W Ohio St
+- Quinn Chapel — 2401 S Wabash Av
+- South Side Community Art Center — 3831 S Michigan Av
+- Thalia Hall — 1215-25 W 18th St
+- The Art Institute of Chicago — 111 South Michigan Ave
+- Truevine Missionary Baptist Church Building — 6720 S Stewart Av
+- Yale Apartments — 6565 S Yale Av
+## 1893
+- 130 S Jefferson — 130 S Jefferson
+- 210-220 N Green St. — 210 N Green Street
+- Ariel / U of C NKO — 1119 E 46th St
+- Blaine — 1420 W Grace St
+- Brentano — 2723 N Fairfield Ave
+- Brewster Apartments — 2800 N Pine Grove Av
+- Burroughs — 3542 S Washtenaw Ave
+- Central YMCA Headquarters — 19 S LaSalle ST
+- Chicago Harbor Lighthouse — S End of the North Breakwater,N side of Harbor Ent
+- Courthouse Place — 54 W Hubbard St
+- Foster Hall — 1130 East 59th Street
+- Galileo — 820 S Carpenter St
+- Griffin Museum of Science and Industry — 5700 South Lake Shore Drive
+- Illinois Central Central Station — 12th Street and Park Row — lost 1974
+- Moos Elementary -CPS — 1711 N California Ave
+- Nettelhorst — 3252 N Broadway St
+- New York Life Building — 37-43 S LaSalle St
+- NLCP - Christiana HS — 1615 S Christiana Ave
+- Ray — 5631 S Kimbark Ave
+- Richard Wright House — 4831 S Vincennes Av
+- Robert Morris Center — 401 S State St
+- Rosenwald Hall and Walker Museum — 1115-25 East 58th Street
+- Thorp J / Learn-South Chicago — 8914 S Buffalo Ave
+- World’s Columbian Exposition — Administration Building — Jackson Park — lost 1894
+- World’s Columbian Exposition — Agriculture Building — Jackson Park — lost 1894
+- World’s Columbian Exposition — Casino — Jackson Park — lost 1894
+- World’s Columbian Exposition — Cold Storage Building — Jackson Park — lost 1893
+- World’s Columbian Exposition — Electricity Building — Jackson Park — lost 1894
+- World’s Columbian Exposition — Fine Arts Palace — 5700 S DuSable Lake Shore Dr — standing
+- World’s Columbian Exposition — Fisheries Building — Jackson Park — lost 1894
+- World’s Columbian Exposition — Forestry Building — Jackson Park — lost 1894
+- World’s Columbian Exposition — Ho-o-den / Phoenix Pavilion — Jackson Park — lost 1946
+- World’s Columbian Exposition — Horticultural Building — Jackson Park — lost 1894
+- World’s Columbian Exposition — Machinery Hall — Jackson Park — lost 1894
+- World’s Columbian Exposition — Manufactures and Liberal Arts Building — Jackson Park — lost 1894
+- World’s Columbian Exposition — Mines and Mining Building — Jackson Park — lost 1894
+- World’s Columbian Exposition — Music Hall — Jackson Park — lost 1894
+- World’s Columbian Exposition — Peristyle — Jackson Park — lost 1894
+- World’s Columbian Exposition — Transportation Building — Jackson Park — lost 1894
+- World’s Columbian Exposition — U.S. Government Building — Jackson Park — lost 1894
+- World’s Columbian Exposition — Woman’s Building — Jackson Park — lost 1894
+## 1894
+- (Former) Engine Company 35, Truck 28 — 1625 N Damen Av
+- 1643 N Milwaukee Avenue — 1643 N Milwaukee Avenue
+- Audubon — 3500 N Hoyne Ave
+- August Dewes House — 509 W Wrightwood Av
+- Bass Elementary -CPS — 6554 S May St
+- Chase — 2021 N Point St
+- Chicago Stock Exchange Building — 30 N LaSalle St — lost 1972
+- Elizabeth Peabody Public School — 1438-1454 W. Augusta Blvd
+- Kent Chemical Laboratory — 1020-24 East 58th Street
+- Lasalle II — 1148 N Honore St
+- Lincoln — 615 W Kemper Pl
+- Old Colony Building — 407 S Dearborn St
+- Robert W. Roloson Houses — 3213-19 S Calumet Av
+- Ryerson Laboratory — 1100-14 East 58th Street
+- Seward — 4600 S Hermitage Ave
+- Stem — 1522 W Fillmore St
+- Tree Studios, Annexes and Courtyard — 601-23 N State St/4-10 E Ohio St/3-7 E Ontario St
+- West Pullman School — 11941 S Parnell Ave
+## 1895
+- 629 Cermak/2215 Ford — 629 W Cermak Rd
+- Alcott HS — 2957 N Hoyne Ave
+- Bradwell — 7736 S Burnham Ave
+- Chicago — 1 West Washington St
+- Chicago Varnish Company Building — 33 W Kinzie St
+- Emmett Till and Mamie Till- Mobley House — 6427 South St. Lawrence Avenue
+- Evergreen Academy Middle School — 3537 S Paulina St
+- Fulton Elementary -CPS — 5300 S Hermitage Ave
+- Goethe — 2236 N Rockwell St
+- Humboldt Park Receptory Building and Stable — 3015 W Divison St
+- Marquette Building — 140 S Dearborn St
+- Pope Building Condominium Association — 633 S Plymouth Ct
+- Quincy Elevated Station — 220 S Wells Street
+- St. Peter's Church and Parish House — 615-623 West Belmont Ave
+- Talcott — 1840 W Ohio St
+- Till, Emmett Louis Math & Science -CPS — 6543 S Champlain Ave
+- Von Linne — 3221 N Sacramento Ave
+- Waller Apartments — 2840-58 W Walnut St
+## 1896
+- 1130 S Wabash Ave — 1130 S Wabash Ave
+- Burley — 1630 W Barry Ave
+- Burr — 1621 W Wabansia Ave
+- Charles W Earle Elementary -CPS — 6121 S Hermitage Ave
+- Fisher Building — 343 S Dearborn St
+- Francis J. Dewes House — 503 W Wrightwood Av
+- Funston — 2010 N Central Park Ave
+- Hotel Blake — 500 S Dearborn Street
+- Howe — 720 N Lorel Ave
+- Illinois Institute of Technology — 3300 South Federal Street
+- Nixon — 2121 N Keeler Ave
+- Theurer-Wrigley House — 2466 N Lakeview Av
+- Vorwaerts Turner Hall — 2431 W Roosevelt Rd
+## 1897
+- 209 W. Jackson — 209 W. Jackson
+- Cameron — 1234 N Monticello Ave
+- Chicago Public Library/Cultural Center — 78 E Washington St
+- Culver — 1025 East 57th Street
+- Gallistel — 10347 S Ewing Ave
+- Isidore H. Heller House — 5132 S Woodlawn Av
+- Kozminski Elementary Academy -CPS — 936 E 54th St
+- Newberry Library — 60 W. Walton
+- Saint Anthony Hospital - Main Hospital — 2875 West 19th Street
+## 1898
+- (Former) Schlitz BreweryTied-House@1944 N.Oakley — 1944 N. Oakley Ave.
+- (Former) Schlitz BreweryTied-House@958W.69th St. — 958 W. 69th St.
+- (IL578) - Six N. Michigan (6 N. Michigan) — 6 N. Michigan
+- 1301 1311 W Fletcher St — 1301 1311 W Fletcher St
+- 156 N. Jefferson — 156 N. Jefferson
+- 550 W. Surf — 550 W. Surf
+- Carson Pirie Scott & Company Building — 1 S State St
+- Chicago Orphan Asylum Building — 5120 S Dr Martin Luther King, Jr. Dr
+- Claretian Missionaries Service — 205 W. Monroe
+- Ebenezer Missionary Baptist Church Building — 4501 S. Vincennes Ave
+- Hamline — 4747 S Bishop St
+- Illinois Central Swing Bridge — San & Ship Canal, S of 35th St & E of Pulaski Rd
+- Lake View HS — 4015 N Ashland Ave
+- Manchester Building Lofts Condominium Association — 2033 2045 W Charleston St
+## 1899
+- (Former) Engine Company 86 — 2414 W Cuyler Av
+- (Former) Schlitz BreweryTied-House@3456SWestern — 3456 S. Western Ave.
+- Assumption School — 319 W Erie St
+- Belding — 4257 N Tripp Ave
+- Chicago Coliseum — 1513 S Wabash Ave — lost 1982
+- Gage Group — 18,24, and 30 S Michigan Av
+- Hay Community Academy, John -CPS — 1016 N Laramie
+- Hazel Winthrop — 852-854 W. Sunnyside
+- Illinois Central Swing Bridge — San & Ship Canal, N of Stevenson Exp & E of Kedzie
+- Lincoln Park HS — 2001 N Orchard St
+- Monumental Baptist Church of Chicago — 729 E. Oakwood Boulevard
+- Olympia Lofts Condominium Association — 831-43 W. Adams St.
+- Pilsen — 1420 W 17th St
+- Plymouth Building — 417 South Dearborn Street
+- Safer Foundation — 3210 W Arthington St
+- StMaryAngels_School — 1850 N Hermitage Ave
+- The Gage Commericial Condominium Building — 18-28 S. Michigan Avenue
+## 1900
+- (Former) Schlitz Brewery-Tied House@1801W.Division — 1801 W. Division St.
+- 2101 S Wabash Ave — 2101 S Wabash Ave
+- 2150 S Canalport Avenue — 2150 S Canalport Avenue
+- 520 W Huron — 520 W. Huron Street
+- 5452 S Ellis — 5452-5466 S. Ellis Ave
+- 833 857 W Fulton Market — 833 857 W Fulton Market
+- A&M 303 West Erie, LLC — 303 West Erie
+- Darwin — 3116 W Belden Ave
+- Dewey — 5415 S Union Ave
+- Dickens Place Condominium Association — 2100 N Racine Ave
+- Fulton House Condominium Association — 345 N. Canal St.
+- LZ Products — 2121 W 21st Street
+- Palmer SOuare — 2128 N Kedzie
+- Park No. 527 Park — Maintenance
+- St. Peter's Church — 110 W Madison St
+- Stephen Foster House and Stable — 12147 S Harvard Av
+- Stock Yard Inn — Union Stock Yard — lost 1977
+- Sunshine Enterprise, LLC - Series II (218 S Wabash) — 218 South Wabash
+- The Shops on Wabash, LLC — 17-23 N. Wabash
+## 1901
+- 3318 N Lake Shore Dr — 3318 N Lake Shore Dr
+- 600 Fulton Owner, LLC — 600 West Fulton
+- Armour — 950 W 33rd Pl
+- Belding Earl-CPS — 4209 W Irving Park Rd
+- Bush Temple of Music — 100 W Chicago Av
+- Chicago, Milwaukee & St Paul Rwy Bridge No. Z-2 — N Branch Chgo River, Cherry St, S of North Ave
+- Fernwood — 10041 S Union Ave
+- Jessie and William Adams House — 9326 S Pleasant Av
+- King-Nash House — 3234 W Washington Blvd
+- Libby Elementary -CPS — 5300 S Loomis Blvd
+- Machinery Hall at Illinois Institute of Technology — 100 W 33rd St
+- Metropolitan Missionary Baptist Church — 2151 W Washington Blvd
+- Monastery of the Holy Cross Buildings — 3101-3111 S. Aberdeen Street
+- Northwestern University Settlement House — 1400 W Augusta Blvd
+- Pate-Comiskey House — 5131 S Michigan Av
+- Pennsylvania Railroad "Eight Track" Bridge — San & Ship Canal, S of 31st & W of Western Av
+- Polaris Charter Academy — 620 N. Sawyer
+- Pritzker College Prep — 4131 W Cortland St
+- Sawyer — 5248 S Sawyer Ave
+- The Bush Temple — 800-10 N Clark St
+- Universal Building — 700 N Sacramento Blvd
+## 1902
+- 1000 W Washington Blvd — 1000 W Washington Blvd
+- Albert F. Madlener House — 4 W Burton Pl
+- Bank Note Place, LLC — 120 E Cullerton
+- Bookstore — 970 East 58th Street
+- Coonley — 4046 N Leavitt St
+- Cortland Street Drawbridge — 1440 W Cortland St
+- Daniel O.Hill House/SerbianAmericanMuseumSt.Sava — 448 W. Barry Avenue
+- Epic Academy Charter High School — 8255 S. Houston
+- Jungman — 1746 S Miller St
+- Original Providence Baptist Church — 515 N Pine Avenue
+- Perkins-Nordine House — 6106 N. Kenmore Ave.
+- Shields Main-CPS — 4250 S Rockwell St
+- Snell-Hitchcock — 5709 Ellis Avenue
+## 1903
+- (Former) Schlitz BreweryTied-House@2159 W.Belmont — 2159 W. Belmont Ave.
+- (Former) Schlitz BreweryTied-House@3159NSouthport — 3159 N. Southport Ave.
+- 1916-34 W. Winona / 5103-5115 N. Winchester — 1916-34 W. Winona / 5103-5115 N. Winchester
+- 444 North Wells Street — 444 North Wells Street
+- 540 W. Briar — 540 W. Briar
+- 641 W Lake — 641 W Lake Street
+- A&M 445 West Erie, LLC — 445 West Erie
+- Alice B. Sharp Building — 37 S. Wabash Avenue
+- Bauer Building — 224-230 W Huron St
+- Bouchet — 7355 S Jeffery Blvd
+- Edward Everett Elementary School — 3419 S Bell Avenue
+- Hamilton — 1650 W Cornelia Ave
+- Holy Trinity Orthodox Cathedral and Rectory — 1121 N Leavitt St
+- John Jacob Walser House — 42 N Central Av
+- LaSalle Street Station — 1903 headhouse — LaSalle and Van Buren Streets — lost 1981
+- Melissia Ann Elam House — 4726 S Dr Martin Luther King Jr Dr
+- Mentor Building — 39 S State St
+- Mitchell Tower — 1131 East 57th Street
+- Revere — 1010 E 72nd St
+- StAlphonsus_School — 1439 W. Wellington
+- Stowe — 3444 W Wabansia Ave
+- The Imperial of Lincoln Park — 1366 W Fullerton Ave
+## 1904
+- (Former) Schlitz Brewery-Tied House — 5120 N. Broadway
+- 1033 W Van Buren — 1033 W Van Buren
+- 224 South Michigan Avenue — 224 South Michigan Avenue
+- 2255 S Michigan Ave — 2255 S Michigan Ave
+- 29 East Madison LLC — 29 E. Madison
+- 559 W. Surf — 559 W. Surf
+- 660 676 W Irving Park Rd — 660 676 W Irving Park Rd
+- 900 910 W Vanburen St — 900 910 W Vanburen St
+- Bartlett Commons — 5640 S. University Ave
+- Blackstone Library — 4904 S. Lake Park Ave
+- C5504Wab (22251) — 5504 S Wabash Ave
+- Canaan Baptist Church of Christ Building — 6657-59 S Harvard Av
+- Chapin and Gore Building — 63 E Adams
+- Henry — 4250 N Saint Louis Ave
+- Heyworth Building — 29 E Madison st
+- Lightner Building — 1006 S. Michigan Avenue
+- Oakley Lofts Condominium Association — 2300 2308 W Diversey Ave
+- One North Dearborn — 1-17 N. Dearborn Street
+- St Bernard Hospital — 326 West 64th St
+- Wendell Phillips High School — 244 E Pershing Rd
+- Whitney — 2815 S Komensky Ave
+- Wholesale Furniture Exposition Building — 1323 S. Michigan Ave
+## 1905
+- (Former) Engine Company 104, Truck 3 — 1401 S Michigan Av
+- 222 West Hubbard Street — 222 West Hubbard Street
+- 401 465 E Illinois St — 401 465 E Illinois St
+- 440 North Wells Street — 440 North Wells Street
+- 5460 S Woodlawn Ave — 5460 S Woodlawn Ave
+- 770 N. Halsted St. — 770 N. Halsted St.
+- Altgeld Elementary-CPS — 1340 W 71st St
+- Beaubien — 5025 N Laramie Ave
+- Cassidy Tire — 344 N Canal St
+- Chicago and North Western Railway Office Building — 226 W. Jackson Blvd
+- Chicago Building — 7 W Madison St
+- Chicago Bulls College Prep — 2040 W Adams
+- Chicago Federal Building — Dearborn, Adams, Clark and Jackson block — lost 1965
+- City Hall-County Building — 121 N LaSalle St / 118 N Clark St
+- Davis N — 3014 W 39th Pl
+- Episcopal Church of the Advent and Parish House — 2900 W. Logan Boulevard
+- Fiske Elementary -CPS — 6145 S Ingleside Ave
+- Hamilton Park — 513 W 72nd St
+- Harvard — 7525 S Harvard Ave
+- Knight Buildling — 549 W Randolph St
+- May Elementary Community Academy -CPS — 512 S Lavergne Ave
+- McCormick — 2712 S Sawyer Ave
+- Monroe — 3651 W Schubert Ave
+- Poe — 10538 S Langley Ave
+- Rector Building — 79 W. Monroe Street
+- River Bank Lofts Condominium Association — 550 N. Kingsbury St.
+- Sears, Roebuck and Company Administration Building — 3333 W Arthington St
+## 1906
+- (Former) Schlitz Brewery Stable Building — 11314 S. Front Ave.
+- (Former) Schlitz Brewery Tied-House@11400S.Front — 11400 S. Front Ave.
+- 116 S. Michigan Ave. — 116 S. Michigan Ave.
+- 1411 State Parkway Condominium Association — 1411 N State Parkway
+- 420 N Wabash Ave — 420 N. Wabash Ave.
+- 4600 N. Winchester — 4600 N. Winchester Ave.
+- 600 West Jackson Boulevard — 600 West Jackson Boulevard
+- Chicago and Alton Railway Bridge — S Fork of S Branch, N of Archer & E of Ashland
+- Cook County Building — 118 N. Clark St.
+- Eberhart — 3400 W 65th Pl
+- Graeme Stewart Public School Building — 4505-4545 North Kenmore Ave
+- Hampton Inn Majestic — 22 W Monroe St
+- Hayt — 1518 W Granville Ave
+- Hedges — 4747 S Winchester Ave
+- Henry V. Peters House — 4731 N Knox Ave
+- Hyde Park Union Church — 5600-5610 South Woodlawn Avenue
+- Irving Park Middle -CPS — 3815 N Kedvale Ave
+- Joseph Downey House and Coach House — 6205 N. Sheridan Road
+- Majestic Building and Theater — 22 W Monore St
+- South Shore Cultural Center — 7059 South Shore Dr
+- The Greenwood Condominium — 4720-26 S. Greenwood Ave.
+- Trumbull Elementary, Lyman -CPS — 5200 N Ashland Ave
+- Virtual Academy HS / ES — 1326 W 14th Pl
+- Yusuf North — 2753 W North Ave
+## 1907
+- (Former) Schlitz Brewery-Tied House — 9401 S Ewing Ave
+- 225 W. Ohio — 225 W. Ohio
+- 42nd Presinct / Town Hall Police Station — 3600 N. Halsted St
+- 4525 N Kenmore Avenue — 4525 N Kenmore Avenue
+- 901 W Jackson — 901 W Jackson
+- American School of Correspondence — 850 E 58th St
+- Budlong — 2701 W Foster Ave
+- Chicago & Northwestern Railway Bridge — N Branch Chgo River, S of Kinzie & E of Canal St
+- Commercial National Bank Building — 123 to 153 S. Clark, 60 to 80 W. Adams
+- Fulton-Loomis-Carroll Condominium Association — 1400 W. Fulton St.
+- Humboldt Park Boathouse Pavilion — 1301 N Humboldt Blvd
+- John Rath House — 2703 W Logan Blvd
+- Langford Elementary -CPS — 6010 S Throop St
+- Lloyd — 2103 N Lamon Ave
+- Montgomery Ward & Co. Catalog House — 618 W Chicago Av
+- Oglesby — 7646 S Green St
+- Oliver Building — 159 N Dearborn St
+- Penn ES / Kipp Ascend — 1616 S Avers Ave
+- Pullman — 11311 S Forrestville Ave
+- Richards Career Academy HS -CPS — 5009 S Laflin St
+- Rosenwald Court Apartments — 4600-4658 S.Michigan Ave,4601-4659 S.Wabash Ave
+- The National — 125 S. Clark Street
+- The Western — 1912, 1914, & 1920 N Milwaukee Ave
+- University Club of Chicago — 76 E Monroe St
+- West Side YMCA/YWCA Complex — 1513-1539 W.Monroe& 101-109 S.Ashland
+## 1908
+- 2229 South Halsted — 2229 South Halsted Street
+- 411 S Wells — 411 S Wells Street
+- 436-446 W. Diversey Pkwy. — 430 W. Diversey
+- 564 W Randolph St — 564 W Randolph St
+- 600 West Chicago & 900 N Kingsbury — 600 West Chicago Avenue
+- A&M Fulton West, LLC — 300 N Elizabeth
+- Advocate Illinois Masonic Medical Center — 836 W. Wellington Avenue
+- Blue Moon Lofts — 215 N. Aberdeen St.
+- Burnside Scholastic Academy -CPS — 648 E 91st Pl
+- Carriage House (gc09) — 1545 S State St
+- Domain Condominium — 900 N Kingsbury
+- Essanay Studios — 1333-35 W Argle St
+- Garfield Park Conservatory — 300 N Central Park Ave
+- Gauler Twin House — 5917 N Magnolia Av
+- Gauler Twin House — 5921 N Magnolia Av
+- Jahn — 3149 N Wolcott Ave
+- LEARN Charter School Herro Family Campus — 3021 W Carroll Ave
+- MacLean Center — 112 S. Michigan Ave.
+- Prairie District Lofts Condominium Association — 1727 S Indiana Ave
+- Printers Row Lofts — 732 S. Financial Place
+- S. Pond Refectory/Men's & Ladies Comfort Station — 2019 N Stockton Dr
+- The Bronzeville Vincennes LLC — 4724 S Vincennes
+- The Woodlawn Condominium Association — 5042-5056 S. Woodlawn Ave.
+## 1909
+- (Former) Lyman Trumbull Public School Building — 5200-24 N. Ashland Avenue/1600-1612 W. Foster
+- 1547 CSR-Chicago Wells, LLC — 725 S. Wells
+- 3301 W Arthington St — 3301 W Arthington St
+- Albert G. Wheeler House — 970 West Sheridan Road
+- Brooks Building LLC — 223 Jackson Blvd.
+- Chicago & North Western Railway Powerhouse — 211 N Clinton St
+- Cityview Lofts — 1259 N Wood Street
+- Edwin Colvin House — 5940 N Sheridan Rd
+- Farragut Career Academy HS -CPS — 2345 S Christiana Ave
+- Frederick C. Robie House — 5757 S Woodlawn Av
+- Lorraine Hansberry House — 6140 S. Rhodes Avenue
+- Samuel H. Gunder House and Coach House — 6219 N. Sheridan Rd
+- Steger Building — 28 E. Jackson Blvd
+## 1910
+- (Former) Calumet National Bank Bldg — 9117 S Commercial Av
+- (IL408) - Westgate Condominium Association (812 West Van Buren St) — 812 West Van Buren St
+- 100 South State Street — 100 South State Street
+- 1111 N. Clark St. — 1111 N. Clark St
+- 118 S Clinton — 118 S Clinton Street
+- 122 Property LLC — 122 S. Michigan Ave.
+- 1550 S Indiana — 1550 S Indiana
+- 15th Street Loft Condominium Association — 1507 S State St
+- 2236 2296 N Lincoln Park West Ave — 2236 2296 N Lincoln Park West Ave
+- 2301-2305 S Michigan — 2301-2305 South Michigan Avenue
+- 314 West Superior Street — 314 West Superior Street
+- 332 Property LLC — 332 South Michigan Ave.
+- 343 W Erie St — 343 W Erie Street
+- 372 West Ontario Street — 372 West Ontario Street
+- 4039-43 N Ravenswood LLC — 4043 N Ravenswood
+- 41-51 N Central Ave — 41-51 N Central Ave
+- 5 N. Wabash — 5 N. Wabash
+- 50 E 26Th St — 50 E 26Th St
+- 5100 Hyde Park Association — 5100 Hyde Park Boulevard
+- 5427 N. Broadway (nb003) — 5427 N Broadway St
+- 730 North Franklin — 730 N Franklin St
+- Betty Shabazz Intl Charter / Barbra A Sizemore -CPS — 6936 S Hermitage Ave
+- Blackstone Hotel — 636 S Michigan Ave
+- Brooks Building — 233 W Jackson Blvd
+- Carl Schurz High School — 3601 N Milwaukee Av
+- Cleveland — 3121 W Byron St
+- Comiskey Park — 324 W 35th St — lost 1991
+- DePaul Center — 1 East Jackson Blvd.
+- Lake Shore Land Association, Inc. — 1130 N. Lake Shore Drive
+- Marsh — 9822 S Exchange Ave
+- Nobel — 4127 W Hirsch St
+- One North State — 1 N State St
+- Prairie Avenue Lofts — 221 East Cullerton Street
+- Rice Building — 815 W Van Buren
+- River West Lofts — 925 W Huron
+- The Warehouse — 206 S. Jefferson St
+- Washington Park Fieldhouse — 5531 S Martin Luther King Dr
+- Westgate Center — 331 S Peoria Street
+## 1911
+- (Former) Mid-City Trust & Savings Bank Buildings — 2 S. Halsted Street
+- (IL558) - Michigan Avenue Lofts (910 S. Michigan Ave.) — 910 S. Michigan Ave.
+- Armstrong G — 2110 W Greenleaf Ave
+- Chess Records Office and Studio — 2120 S Michigan Av
+- Chicago & North Western Terminal — 500 W Madison St — lost 1984
+- City Hall — 121 N. La Salle St.
+- Consumers Building — 220 South State Street
+- Corkery Elementary -CPS — 2510 S Kildare Ave
+- Eighth Church of Christ, Scientist — 4359 S Michigan Av
+- Gary — 3740 W 31st St
+- Gray — 3730 N Laramie Ave
+- Harris Trust & Savings Bank — 111 West Monroe Street
+- Haugan — 4540 N Hamlin Ave
+- Hyde Park Academy HS -CPS — 6220 S Stony Island Ave
+- Mozart — 2200 N Hamlin Ave
+- Municipal Tuberculosis Sanitarium Complex — 5801 N. Pullaski Road
+- Sherman House IV — Randolph and Clark Streets — lost 1973
+- The Renaissance Collaborative — 3757 S Wabash Ave
+- The Washington at Woodlawn Park — 6154 South Rhodes Avenue
+- Transportation Building Condominium Association — 600 S Dearborn St
+- Waters — 4540 N Campbell Ave
+- William Rainey Harper High School — 6520 S Wood St
+## 1912
+- (IL0609) - 540 North Lake Shore Drive Condominium (540 N Lake Shore Dr ) — 540 N Lake Shore Dr
+- (IL279) - 212 W Washington Condo — 212 W Washington St
+- 1550 State Parkway Condominium Association — 1550 N State Pkwy
+- 4240 N Clarendon Ave — 4240 N Clarendon Ave
+- 57 63 W Grand Ave — 57-63 W. Grand Ave.
+- 850 West Jackson — 850 West Jackson
+- 900-10 W Winona — 900-10 W Winona St
+- 999 Lake Shore Drive — 999 N. Lake Shore Drive
+- American Book Company Building — 320 E. Cermak Rd & 2132 S. Calumet Ave
+- Arlo Chicago — 168 N Michigan Ave , Arlo Chicago
+- Burke Elementary -CPS — 5356 S King Dr
+- Cardenas ES - South — 2524 S Central Park Avenue
+- Chicago Teachers Union Foundation — 1901 W. Carroll
+- Cook County Hospital Administration Building — 1835 West Harrison Street
+- Digital Lakeside — 350 E Cermak
+- Digital Printer's Row — 600 S Federal St
+- Fourth Presbyterian Church of Chicago — 126 E Chestnut St
+- Franklin Building Condominium Association — 720 S Dearborn St
+- Hammond — 2819 W 21st Pl
+- Harper Library — 1116 East 59th Street Chicago, Il 60637
+- Il0054Zz - Clark Federal Bldg — 536 S Clark Street
+- Lake Shore & Michigan Southern Rwy Bridges (pair) — Calumet River, N of 98th St & E of Chicago Skyway
+- Lion House - Lincoln Park Zoo — 2132 N Stockton Dr
+- Madison 123 Assoc LLC — 123 W Madison St
+- Mallers Building LLC — 5 S. Wabash Ave.
+- Medinah Temple — 600 N Wabash Av
+- Metropolis — 8 West Monroe Street
+- Monroe Building — 104 S Michigan Avenue
+- Morgan Park United Methodist Church — 11030 S Longwood Dr
+- Mt Sinai Hospital — 1501 S California Ave
+- Mt. Pisgah Missionary Baptist Church Complex — 4600-4628 S. Dr. Martin Luther King Jr. Drive
+- Polish Roman Catholic Union of America — 984 N Milwaukee Ave
+- Pulaski Park Fieldhouse — 1419 W Blackhawk St
+- R.R. Donnelley & Sons Co. Calumet Plant — 350 E Cermak Rd
+- Reid Murdoch Center — 315-331 N. Lasalle
+- Ryder — 8716 S Wallace St
+- Sacred Heart Home Inc — 1550 S Albany Ave
+- The Boyce Building — 500-510 N. Dearborn St.
+- The Loftrium — 819 S Wabash Ave
+- The Marlborough — 400 W. Deming Place And 2600-2608 Lakeview
+- The Thompson Building — 350 N. Clark St.
+- Tree Studios — 601-623 N. State St.
+- Uptown Preservation Apartments — 4431 N. Clifton
+## 1913
+- (Former) Swedish American State Bank Bldg — 5400 N Clark St
+- 1104 S Wabash — 1104 S Wabash
+- 199 East Lake Shore Drive — 199 East Lake Shore Drive
+- 5514 Blackstone Ave — 5514 S. Blackstone Ave
+- 731 S Plymouth — 731 S Plymouth
+- Carter Elementary -CPS — 5740 S Michigan Ave
+- Flat Iron Building — 1579 N. Milwaukee Avenue
+- Inter-American — 851 W Waveland Ave
+- Ludlow Typograph Company Building — 2028-2062 N. Clybourn Avenue
+- North Park Village Apartments — 5801 N. Pulaski Rd., Bldg. H
+- Palmer House Office Center - Thor Equities — 27 E Monroe St
+- Park Manor — 7037 S Rhodes Ave
+- Peerless Building — 200 210 S Halsted St
+- Saucedo / Telpochcalli — 2850 W 24th Blvd
+- Senn HS — 5900 N Glenwood Ave
+- Tubman — 2851 N Seminary Ave
+- Union Station — 210 S Canal St
+- Vassar Swiss Underwear Company Bldg — 2543 - 2545 W Diversey Av
+## 1914
+- (Former) St. Adalbert Church Building — 1638 W 17th St
+- 1308 N Elston Avenue — 1308 N Elston
+- 17 N. State LLC — 17 N. State Street
+- 25 E Washington — 25 East Washington Street
+- 325 North Wells — 325 North Wells
+- 363 Erie IL Partners LLC — 363 W. Erie St.
+- 5514 S. Cornell Condominium Association Inc — 5514-5524 S Cornell Ave
+- Biograph Theater — 2433-43 N Lincoln Av
+- Brooks HS — 250 E 111th St
+- Burnham Center — 111 West Washington
+- Chicago & Illinois Western Railway Bridge — Collateral Channel Water Lot D,33rd,E of Kedzie
+- Continental And Commercial National Bank Building — 208 South LaSalle St
+- GX Property Owner LLC — 2545 W Diversey Ave
+- La Plaza Hubbard 1812, LLC — 1812-1840 Hubbard Street
+- Michigan 30 LLC — 30 N. Michigan Ave
+- Morgan Park HS — 1744 W Pryor Ave
+- Navy Pier, Inc. — 600 E Grand Ave
+- Pennsylania Railroad Bridge — S Branch Chgo River, 19th St, SE of Lumber St
+- Randolph Wells — 205 W Randolph
+- Reid, Murdoch and Company Building — 320 N Clark St
+- Reilly — 3650 W School St
+- Sound-Bar — 226 W Ontario St
+- Swift — 5900 N Winthrop Ave
+- The Garland Building Office Condominium — 111 North Wabash
+- Three Arts Club — 1300 N Dearborn St
+- Wrigley Field — 1060 W Addison St
+## 1915
+- 1300 Dearborn — 1300 1310 N Dearborn St
+- 1900 W. Farwell, LLC — 1900 1910 W. Farwell Ave.
+- 3740-3750 N. Pine Grove, LLC — 3740 N. Pine Grove Ave.
+- 5527-5541 N. Kenmore, LLC — 5527 5539 N. Kenmore Ave.
+- 714 -726 W. Waveland, LLC — 714 N. Waveland Ave.
+- 7200Ssdr — 7200-10 South Shore Drive
+- 820 W. Jackson LLC — 820 W. Jackson
+- Allan Miller House — 7121 S Paxton Av
+- Burnham Park Plaza Condo — 40 E. 9th St.
+- Century Building — 202 South State St
+- Chicago Metropolitan Housing Development Corporation — 5152-5178 S. King Dr.
+- Chicago Military Academy-Bronzeville -CPS — 3533 S Giles Ave
+- Clarendon Comm. Ctr. Park — Fieldhouse A3
+- Clock Tower Lofts Condominium Association — 2300 W Wabansia Ave
+- Courtyard on the Boulevard Condominium Association — 5101-5113 S. Ingleside Ave.
+- Emil Bach House — 7415 N Sheridan Road
+- Engine Company 78 — 1052 W Waveland Av
+- Fiske — 6020 S Langley Ave
+- Heartbreak Loftominium Association — 17 N. Loomis St.
+- Ironwood Court Apartments — 6015 S. Indiana
+- Maple Court Apartments — 1120-1126 E. 47th Street
+- Morrison Hotel — Clark and Madison Streets — lost 1965
+- Moser Building Condominium Association — 621 S. Plymouth Ct.
+- Oppenheimer-Goldblatt Bros. Department Store Bldg — 4700 S Ashland Av
+- Paper Place Lofts — 801 South Wells Street
+- Peirce — 1423 W Bryn Mawr Ave
+- Peterson Lofts Condominium Association — 523 S. Plymouth Ct.
+- Portage Park — 5330 W Berteau Ave
+- Ravenswood — 4332 N Paulina St
+- Roanoke Building and Tower — 11 S LaSalle St
+- Rosenwald Hall — 1101-11 East 58th Street
+- Sabin — 2216 W Hirsch St
+- The Highland Apartments, LLC — 7455-7469 N. Greenview Ave.
+- The Sexton Condominium Association — 360 W Illinois St
+- Tower Lofts Condo — 1601 West School Street
+- UIC School of Law — 304 S State St
+- Village Theatre — 1546-1550 N Clark St
+- Vranas and Assoc. C/O Realty and Mortgage Co. — 346 N Justine St
+## 1916
+- (IL695) - The Pierre Condominium (2100 N. Lincoln Park West) — 2100 N. Lincoln Park West
+- 1725 West North Avenue Condominium — 1725 W North Ave
+- 240 N Ashland Avenue — 240 N Ashland Avenue
+- 401-417 East Oakwood Boulevard — 401-417 East Oakwood Boulevard
+- Adolf Schmidt House — 6331- 33 N. Sheridan Road
+- Bell — 3730 N Oakley Ave
+- Breckinridge House — 1442 E. 59th Street
+- Broadway Armory — 5917 N Broadway Ave
+- Broadway Armory Park — Fieldhouse A1
+- CDM Center — 243 S. Wabash
+- Herzl -CPS — 3711 W Douglas Blvd
+- Hibbard — 3244 W Ainslie St
+- Ida Noyes Hall — 1212 East 59th Street
+- Kenna Apartments — 2214 E 69th St
+- Magnolia Gardens, LLC — 4845 4859 N Magnolia Ave
+- Navy Pier (Headhouse and East End Building) — Grand Av and Streeter Dr at Lake Michigan
+- Norwood Park — 5900 N Nina Ave
+- Shedd Park Fieldhouse — 3600 W 23rd St
+- StSabina_School — 7819 S Throop St
+## 1917
+- 190 N. State Street — 190 N. State Street
+- 230 East Ohio — 230 East Ohio Street
+- 2333 2341 N Commonwealth Ave — 2333 2341 N Commonwealth Ave
+- 601 South LaSalle — 601 South Lasalle Street
+- American System-Built Houses — 10410 S Hoyne Av
+- American System-Built Houses — 10541 S Hoyne Av
+- Apollo's 2000 — 2875 W. Cermak Road
+- Avalon Park Elementary -CPS — 8045 S Kenwood Ave
+- C3600Fra (22112) — 3600 W Franklin Blvd
+- Carson — 5516 S Maplewood Ave
+- Chopin — 2450 W Rice St
+- Clay — 13231 S Burley Ave
+- Glenwood Apartments — 6701 N Glenwood Ave
+- Humboldt Park Health — 1044 N. Francisco Ave
+- Lurie Children's Faculty Office Building — 155 E. Superior Street
+- Parish_OuigleyCenter — 835 N Rush Street
+- Parkside — 6938 S East End Ave
+- Perkins, Fellows & Hamilton Office and Studio — 814 N Michigan Av
+- Robert Lindblom Technical High Schoool building — 6130 S. Wolcott Ave
+- Schatz Building — 610 N Fairbanks Ct
+- St. Paul Christian Methodist Episcopal (C.M.E.) Church — 4644 S. Dearborn Street
+- Washington Elementary, Harold -CPS — 9130 S University Ave
+## 1918
+- 111 N Canal — 111 N. Canal St.
+- 4401-09 N. Malden St. — 4401-09 N. Malden St.
+- 601 West Polk — 601 W Polk St
+- 6334 N Sheridan Condominium Association — 6334 N Sheridan Rd
+- 860 West Evergreen — 860 West Evergreen
+- Aztec Condominium — 305 W Fullerton Pkwy
+- Capitol Hill Lofts — 625 W Jackson
+- Del Prado — 5301-5317 S. Hyde Park Boulevard
+- Hampton House Condominiums — 1715-1733 E. 53dr St.
+- IRI Global Headquarters — 150 N Clinton St
+- Jackson Shore Coop Apartments Corp — 5490 S. Shore Drive
+- Kelvyn Park HS — 4343 W Wrightwood Ave
+- Prosser HS — 2148 N Long Ave
+- Statue of the Republic — Jackson Park at Hayes & Richards Drs
+- Sutherland — 4659 S. Drexel
+- Swedish Hospital Campus — 5145 North California
+- The Legacy HB at Clarendon Park — 4520 N. Clarendon Ave.
+- The Scott Condominium Association — 60-70 E. Scott St.
+- Thorp O — 6024 W Warwick Ave
+- Union SOuare Condominium Assoc. — 333 West Hubbard Street
+## 1919
+- (IL389) - 220 East Walton Condo (220 E. Walton Place) — 220 E. Walton Place
+- 1263 Pratt, LLC — 1263 W. Pratt Blvd.
+- 180 North Wabash LLC — 180 N Wabash
+- 63rd Street Bathing Pavilion — South Lake Shore Dr and 63rd St
+- Bateman — 4220 N Richmond St
+- Brighton Park — 3825 S Washtenaw Ave
+- Ch1 — 427 S. Lasalle`
+- East Wrigleyview Village — 737-47 Cornelia
+- Falconer — 3020 N Lamon Ave
+- Grenada — 525 W Arlington Pl
+- Piccolo — 1040 N Keeler Ave
+- Portage Park Theatre Building — 4240-60 N. Milwaukee Ave
+- Sterling Condominium, The — 4101-21 N Sheridan
+## 1920
+- (Former) Cosmopolitan State Bank Building — 801 N Clark St
+- (IL564) - Acorn Lofts — 1017 W. Washington Blvd.
+- 1154 W Lunt — 7001-7013 N Sheridan
+- 133 N Jefferson — 133 N Jefferson
+- 154-60 N Lasalle — 160 N. Lasalle St.
+- 1712-1720 W Albion Ave — 1712-1720 W Albion Ave
+- 209 E Lake Shore Drive — 209 East Lake Shore Drive
+- 212 West Superior Street — 212 West Superior Street
+- 216 West Jackson LLC — 216 W Jackson Blvd
+- 220 E Garfield Blvd — 220 E Garfield Blvd
+- 232 E Walton Corporation — 232 E Walton
+- 2516 2526 N Kedzie Blvd — 2516 2526 N Kedzie Blvd
+- 2601 2607 N Milwaukee Ave — 2601 2607 N Milwaukee Ave
+- 2700-2714 N Spaulding Ave — 2700-14 N Spaulding, 3300-3312 W. Schubert
+- 2731-2739 N Milwaukee Ave — 2731-2739 N Milwaukee Ave
+- 3158 3184 N Clark St — 3158 3184 N Clark St
+- 325 West Huron Street — 325 West Huron Street
+- 3314 Lake Shore Condominium Association — 3314 N Lake Shore Dr
+- 3335 W Diversey Ave AKA 2769-2789 N Milwaukee Ave — 3335 W Diversey Ave
+- 4537 S Drexel Blvd — 4537 S Drexel Blvd
+- 5034 S Woodlawn Ave — 5034-5040 S Woodlawn Ave
+- 5736-52 South Stony Island LLC — 5736-52 S Stony Island Ave
+- 626 West Jackson — 626 West Jackson Boulevard
+- 6801 6813 N Sheridan Rd — 6801 6813 N Sheridan Rd
+- 725 W Sheridan Condominium Association, Inc. — 721 729 W Sheridan Rd
+- 808-12 Junior Terrace LLC — 808-812 W. Junior Ter.
+- Academy of General Dentistry — 560 - 566 W. Lake
+- Addison Towers — 510-534 Addison
+- Amhurst Lofts — 2600 N Southport Ave
+- Belmont-Cragin Northwest — 5252 W Palmer St
+- Cairo Supper Club Building — 4015-4017 North Sheridan Road
+- Casa Bonita Condominium Association — 7340-7352 N. Ridge Blvd.
+- Chicago Academy HS / ES — 3400 N Austin Ave
+- CICS Ralph Ellison — 1817 W. 80th St.
+- Delmar Apartments — 5042 N. Winthrop
+- Diversey SOuare Phase 1 - TOTAL — 3300 W Diversey Ave
+- Edgewater Flats Condominium — 1215-25 W Granville
+- Farwell Florence LLC — 2232 W Farwell Ave
+- Flats on LaSalle Condominium Association — 1140 N LaSalle St
+- Fountainview Apartments — 1333-39 S Independence Blvd
+- Franklin Blvd Partners, LLC — 3515 W Franklin Blvd
+- Fred C. Beeson House #4 — 5830 W. Midway Park
+- Hampden Court Apartments — 2740 2750 N Hampden Ct
+- Harper Place Condominium Association — 5309-5343 S Harper Place
+- Hyde Park Courtway — 4816-4828 S. Dorchester
+- Ingleside investment group — 8101-25 S Ingleside
+- Intercultural Montessori Language School — 114 South Racine Avenue
+- Lakeside Terrace — 7645 N Sheridan Rd
+- Landmark Lofts Condominium Association — 1516 South Wabash Avenue
+- Michigan Avenue Bridge and Wacker Dr Esplanade — S Side of Chicago River, bet Michigan and Wabash
+- Michigan Building Corporation — 229 E Lake Shore Drive
+- Midwest Apartments — 6 N Hamlin
+- Mildred Court Condominium Association — 2701 N Mildred Ave
+- Parkside Terrace Apartments — 143 N Parkside Avenue
+- Parkview Residences — 5920 N Ridge
+- Plaisance Apartments — 6104 S. Woodlawn Ave
+- Pullman Wheelworks — 901 East 104th Street
+- Raffaello Condominium Association — 201 E Delaware St
+- Ravinia Lofts Condominium Association — 2024 S Wabash Ave
+- Sangamon Lofts Condominium Association — 411 S. Sangamon St.
+- Sheridan Plaza — 4607 N. Sheridan Rd.
+- Sheridan Shore Courts Condominium Association — 7021-7035 N. Sheridan Rd.
+- Shorewind Towers — 7000 7008 S South Shore Dr
+- Somerset Place Apartments — 5009 N Sheridan Rd
+- St Paul House(2018) — 3800 N California Avenue
+- St Pauls United Church of Christ — 2335 N Orchard St
+- Terra Cotta Commons Condominium — 1760 W Wrightwood
+- The Altgeld Commons Lofts Condominium Association — 2512 N. Bosworth Ave.
+- The Drake, IL-SV — 140 East Walton Place
+- The Flamingo — 5500 S. Shore Drive
+- The Mayfair — 1660 E. 55th St
+- The Womens Treatment Center — 140 N Ashland Ave
+- The Wyndham — 5230-5244 N. Sheridan
+- Trevi SOuare Condominium Association — 1439 S Michigan
+- US Bank -- Englewood — 815 W 63rd St
+- Vaughn HS — 4355 N Linder Ave
+- Wadsworth - CPS — 6420 S University Ave
+- Windy City South LLC — 2036 S Michigan Ave
+## 1921
+- 1100 N Lasalle Dr — 1100 N Lasalle Dr
+- 2071 N Southport Avenue — 2071 N Southport Avenue
+- 322 South Green — 322 South Green
+- 3400 N Lake Shore Dr — 3400 N Lake Shore Dr
+- 4001 S Ellis Ave — 4001 S Ellis Ave
+- 530 W. Diversey — 530 W. Diversey Pkwy
+- 747 N Lasalle Dr — 747 N Lasalle Dr
+- 811 E. 46th — 811 E. 46th St
+- Chicago Theater — 175 N State St
+- Goldblatt Bros. Department Store — 1613-1635 W Chicago av
+- Mutual Insurance Building — 4750 N Sheridan Rd
+- Northpoint — 7717 North Paulina
+- Old Chicago Main Post Office Building — 433 West Van Buren St.
+- Reebie Storage Warehouse — 2325-33 N Clark St
+- Shore Crest Apartments — 420 W. Wrightwood Ave.
+- The Field Museum — 1400 South Lake Shore Drive
+- Tivoli Theatre — 632 S Dearborn St — lost 1963
+- Wrigley Building — 400-410 North Michigan Avenue
+## 1922
+- (Former) South Side Trust & Savings Bank Bldg — 4659 S Cottage Grove Av
+- 605 N Michigan Ave — 605 N Michigan Ave
+- Allerton Hotel — 701 N Michigan Av
+- Association House of Chicago — 1116 N Kedzie Ave
+- Calumet Park Fieldhouse — 9801 S Avenue G
+- Ellis Street Apartments — 4721-4729 S Ellis Street
+- Harris and Selwyn Theaters — 180-90 N Dearborn st
+- HeadOuarters — 547 W. Jackson Blvd.
+- Immaculata High School & Convent Buildings — 640 W Irving Park Rd & 4030 N Marine Dr
+- Krause Music Store — 4611 N Lincoln Av
+- Lewis Elementary, Leslie -CPS — 1431 N Leamington Ave
+- London Guarantee Building — 360 N Michigan Av
+- MAM 7301 Sheridan, LLC — 7301 N. Sheridan Rd.
+- Pine Grove Property LLC — 2828 N Pine Grove Ave
+- Promontory Point — Jean-Baptiste_DuSableLSD_54th_56th Sts
+- Randolph Place Residences Condominium Association — 165 N Canal Street
+- Roberts Temple Church of God in Christ Building — 4021 S State St
+- Sheridan Pratt LLC — 1200 W. Pratt Blvd. / 6800 N. Sheridan Rd.
+- Southside Portfolio Master LLC — 7200 S Bennett Ave
+- The Broadmoor Apartments — 7600 N. Bosworth Ave.
+- The Damen Jarvis — 7320-30 N Damen Ave
+- The RacOuet Club of Chicago — 1365 N. Dearborn Parkway
+- Tilden HS -CPS — 4747 S Union Ave
+- Tribune Tower — 435 N Michigan Av
+- Washington Franklin, LLC — 309 W. Washington St
+## 1923
+- (Former) Fullerton State Bank Bldg — 1425 W Fullerton Av
+- (Former) Marshfield Trust & Savings Bank Bldg — 3321 N Lincoln Av
+- (IL148) - 2450 N Lakeview Avenue Trust (2450 N Lakeview Avenue) — 2450 N Lakeview Avenue
+- 1101 E Hyde Park — 1101 E Hyde Park Boulevard
+- 1255 N. State Parkway Condominium Association — 1255 N State Parkway
+- 1366 North Dearborn Condominium Association — 1366 N Dearborn
+- 180 N Wacker Dr — 180 N Wacker Dr
+- 30 E. Adams — 30 E Adams
+- 451 W Melrose, LLC — 447-55 W Melrose St
+- 5000 Marine Drive Corporation — 5000 N. Marine Dr.
+- 6244-46 S King Drive — 6244-56 S. King Drive
+- 701190 - 1000 West Fulton Market - OPI — 1000 West Fulton
+- 7100 S South Shore Dr — 7100 S South Shore Dr
+- Ainslie Park Condominium Association — 840-846 W. Ainslie St.
+- Beth Anne Extended Living — 1143-53 N Lavergne
+- Doolittle Elementary / Chi Arts -CPS — 521 E 35th St
+- Edwards — 4815 S Karlov Ave
+- Elston Industrial lofts, Llc — 1737-1747 N Elston/ 1430-1454 W Willow
+- Friendly Towers — 920 W. Wilson
+- Gregory Elementary -CPS — 3707 W Polk
+- Henderson Elementary, CPS — 5640 S Wolcott
+- Interwest Chicago Hotel LLC dba Claridge House — 1244 N Dearborn Parkway
+- Paramount Lofts Condominium Association — 1645 W Ogden
+- Park No. 512 Park — Maintenance
+- Reside by Irving Park — 725 West Irving Park Road
+- Romanian Village — 5154 N Clark St
+- Salvation Army - Divisional HeadOuarters (DHO) — 5040 N. Pulaski Road
+- Sheridan Lakeside Condo Association — 6259 N. Sheridan
+- St. Gelasius Church Building — 6401-09 S Woodlawn Av
+- The Belden (tb28) — 2300 N Lincoln Park W
+- The Carolan Apartments — 5480 S Cornell Ave
+- Thomas P. Levan Center — 2322 N. Kenmore
+- Times SOuare Apartments — 869 Buena
+- U.S. Railroad Retirement — 844 N. Rush Street
+- Windermere House — 1642 E 56th Street
+- Woodlawn Partners — 6446 6458 S Kenwood Ave
+## 1924
+- (Former) Anshe Sholom Synagogue Building — 754 S. Independence Blvd
+- (Former) Kimbell Trust & Savings Bank Bldg — 3600 W Fullerton Av
+- (Former) Marquette Park State Bank Building — 6314 S Western Av
+- (Former) Pioneer Trust & Savings Bank Building — 4000 W. North Ave.
+- (Former) Sheridan Trust and Savings Bank Building — 4753 N Broadway
+- (Former) Stock Yards National Bank Building — 4150 S Halsted St
+- (IL219) - 333 S Des Plaines (333 S. Des Plaines) — 333 S. Des Plaines
+- - — 301 N Austin Blvd
+- 1029-51 W North Shore LLC — 1029-51 W. North Shore Ave.
+- 1120 N Lake Shore Drive — 1120 N. Lake Shore Drive
+- 1430 Lake Shore Drive Building Corporation — 1430 N. Lake Shore Dr.
+- 231 South LaSalle — 231 S. Lasalle Street
+- 3520 Lake Shore Drive Condominium Association — 3520 N. Lake Shore Drive
+- 3616-18 North Pine Grove Avenue — 3616-18 N. Pine Grove Ave.
+- 4635 W Leland Avenue AKA 4626 N Knox Avenue — 4635 West Leland Avenue
+- 5123-5135 S. University Ave. — 5123-5135 S. University Ave.
+- 517-25 W. Brompton Ave. — 517-25 W. Brompton Ave.
+- 530 W Arlington Pl — 530 W Arlington Pl
+- 5948 5958 N Broadway — 5948 5958 N Broadway
+- Beachwalk Apartments — 420 W. Fullerton
+- Brompton — 534-552 West Brompton
+- Catalyst - Circle Rock — 5608 W. Washington Blvd
+- Chicago Temple Building — 77 W. Washington
+- Disney II HS — 3900 N Lawndale Ave
+- East View Park Condominium — 5423 5453 S Eastview Park
+- Elks National Memorial Headquarters Building — 2750 N Lakeview Ave
+- Field Building — 135 S LaSalle St
+- Florsheim Shoe Company Building — 3963 W Belmont Av
+- Forty East Delaware Place Condominium Association — 40 E Delaware
+- Gunsaulus — 4420 S Sacramento Ave
+- K.A.M. Isaiah Israel Temple — 1100 E Hyde Park Blvd
+- LaSalle Towers Condominium Association — 1211 1217 N Lasalle Dr
+- Lindemann & Hoverson Co. Showrm & Warehse — 2620 W Washington Blvd
+- Lunt Court Condominium Association — 1217-1227 W. Lunt Ave.
+- Lyndale Place — 2575 W Lyndale
+- Mayfair — 189 E Lake Shore Dr
+- Metropolitan Tower Condo Association — 310 S Michigan Ave
+- Mount Carmel High School — 6410-28 South Dante Avenue
+- Murphy — 3539 W Grace St
+- New Genesis Assembly of God Baptist Church — 1400 N. Laramie Avenue
+- Old Republic Building — 307 N Michigan Av
+- Pershing — 3200 S Calumet Ave
+- Pioneer Arcade — 1535-1545 North Pulaski Road
+- Reside on Surf — 425 West Surf Street
+- Santa Clara Hall-ID# 161053 — 1000-08 W Loyola Ave
+- Soldier Field — 1410 South Museum Campus Drive
+- St. Demetrios Greek Orthodox Church — 2727 W Winona St
+- Stockton Specialty, Joseph -CPS — 4420 N Beacon St
+- The Barry Condominium, Inc. — 3100 N. Sheridan Rd.
+- The Belmont by Reside — 3170 North Sheridan Road
+- The Oliver on LaSalle - lv048 — 1140 N La Salle St
+- The Seneca — 200 E Chestnut Street
+## 1925
+- 1200 Condominium Association — 1200 North Lake Shore Drive
+- 1606 1624 W Granville Ave / 6200 6248 N Clark St / 1605 1623 Thome Ave — 1606 1624 W Granville Ave
+- 219 E Lake Shore Dr — 219 E Lake Shore Dr
+- 2756-64 N. Pine Grove Ave. — 2756-64 N. Pine Grove Ave.
+- 2758-2768 N Milwaukee Ave — 2758-2768 N Milwaukee Ave
+- 2970 North Sheridan — 2970 North Sheridan
+- 312 328 N May St — 312 328 N May St
+- 33 E Congress — 33 E Congress
+- 35 East Wacker Building — 35 E Wacker Dr
+- 3600 3608 N Pine Grove Ave — 3600 3608 N Pine Grove Ave
+- 425 Roscoe — 425-27 West Roscoe Street
+- 4611 S Ellis Ave — 4611 S Ellis Ave
+- 505 W Belmont Ave — 505 W Belmont Ave
+- 5222 S Drexel — 5222 S Drexel Avenue
+- 529 West Wellington — 529 - 41 West Wellington Avenue
+- 6151 N Winthrop — 6151 N Winthrop Ave
+- 6161-6165 N. Winthrop, L.L.C. — 6165 N. Winthrop Avenue
+- 618 S. Michigan — 618 S. Michigan
+- 642 W. Addison Apartments — 630-644 W. Addison St.
+- 7121 7125 N Paulina — 7121 7125 N Paulina
+- 813-31 West Waveland — 813-831 West Waveland
+- 850 858 N Lakeshore Dr — 850 858 N Lakeshore Dr
+- 850 West Adams Lofts Condominium Association — 850 W. Adams St.
+- 8792 — 303 E Chicago Ave
+- 8795 — 340 E Superior St
+- BAI Century, LLC — 2828 N. Clark St.
+- Center Home For Hispanic Elderly — 1401 N. California Ave
+- Chicago Medical Society — 515 N Dearborn
+- Congress Theater — 2117-39 N Milwaukee Av / 2117-39 N Rockwell St
+- Cook Elementary -CPS — 8150 S Bishop St
+- Cp2, LLC — 225 W Hubbard St
+- Diversey Square Associates II — 3212 West Diversey Ave
+- Elm II LLC — 18 E Elm St
+- Farnsworth — 5414 N Linder Ave
+- Fenger Achievement Academy -CPS — 11220 S Wallace St
+- Greenglen Park Property, LLC — 1373 West Greenleaf Ave
+- Haley — 11411 S Eggleston Ave
+- Harrison Street Lofts Condominium Association — 80 W. Harrison St.
+- Home Bank & Trust Company — 1200-08 N Ashland Av / 1600-12 W Division St
+- Jeffery Towers — 7020 S Jeffery Blvd
+- Latin School of Chicago Lower School — 1529 N Dearborn Pkwy
+- Lunt Avenue Condominium & Health Club — 1327-1337 W. Lunt Ave.
+- Malden Property LLC — 4501-4519 N Malden St
+- Maynard At Elaine Place - Clk — 3426 N Elaine Place
+- OKeeffe — 6940 S Merrill Ave
+- Palmer ES — 5051 N Kenneth Ave
+- Palmer House Hotel — 17 E Monroe St
+- Parkways, The (IL) — 6718 S. East End
+- Peoples Gas-South Chicago Neighborhood Store — 8935 S Commercial Av
+- Peterson — 5510 N Christiana Ave
+- Plumbers Local 130 UA — 1340 W Washington Boulevard
+- Reside at 849 — 849 West Buena Avenue
+- Reside on Clarendon — 4157 North Clarendon Avenue
+- Riviera Motor Sales Company Building — 5948-60 N. Broadway
+- Rockefeller Memorial Chapel — 1156-80 E 59th St
+- Ruggles — 7831 S Prairie Ave
+- Scholars Corner Apartments — 5100-5110 S. Cornell
+- Shoreland Hotel — 5454 South Shore Drive
+- South Chicago Senior Housing — 3039 E 91st Street
+- Sovereign- ID#174155 — 1040 W Granville Ave
+- Standard Club of Chicago — 320 S Plymouth Ct
+- The Moody Memorial Church — 1609 1641 N Lasalle Dr
+- The Versailles — 5254 S. Dorchester
+- Twelve Nine Astor Building Corporation — 1209-17 North Astor St
+- Uptown Theater — 4816 N Broadway
+- Woodlawn Terrace — 4724-4730 S. Woodlawn Avenue
+## 1926
+- (IL353) - 7321 S. Shore Co-Operative Apts. Inc (7321 S. Shore Dr. Apt., ) — 7321 S. Shore Dr. Apt.
+- (IL509) - Parkshore Cooperative (1755-1765 E. 55th St.) — 1755-1765 E. 55th St.
+- (IL622) - 233 E Walton Place Building (233 E. Walton Place) — 233 E. Walton Place
+- - — 7425 S South Shore Dr
+- 1123 - The Allegro Royal Sonesta - 171 W Randolph - SVC — 171 W Randolph St
+- 134 N. LaSalle LLC — 134 N. Lasalle Street
+- 200 North Kenneth Apartments — 4432 4444 W West End Ave
+- 210 East Pearson Condominium Association — 210 E. Pearson St.
+- 2140 N LINCOLN PARK West — 2140 N LINCOLN PARK West
+- 24 W. Randolph — 24 W. Randolph
+- 2912 Condominium Association — 2912-2914 N. Commonwealth Ave.
+- 300 W Adams — 300 W Adams
+- 3300 Lake Shore Drive Condominium Association — 3300 N Lake Shore Drive
+- 3750 N Lake Shore Drive — 3750 N Lake Shore Drive
+- 420 W Melrose St — 420 W Melrose St
+- 422 West Melrose — 422 - 424 West Melrose Street
+- 4336-44 S Drexel Blvd — 4336-44 S Drexel Blvd
+- 534 West Stratford — 532 - 536 West Stratford Place
+- 5841 S. Maryland Ave MC0985 — 5841 S. Maryland Ave MC0985
+- 680 North Lake Shore Drive — 680 North Lake Shore Drive
+- 6850 S Crandon Ave — 6850 S Crandon Ave
+- 917 W Eastwood — 917 W. Eastwood Ave
+- Abbott — 947 E 58th St
+- Astor Banks Condominium Association — 1325 N Astor St
+- Blackstone Court LLC — 5724-5734 S. Blackstone Ave.
+- Bond — 7050 S May St
+- Bond Chapel — 1025 East 58th Street
+- Bridge — 3800 N New England Ave
+- Broadview Hall — 5540 S Hyde Park Blvd
+- Cambria Hotel — 32 W Randolph St
+- Clinton — 6110 N Fairfield Ave
+- Commonwealth — 2322 N. Commonwealth
+- Cook County Department of Corrections Campus — 2700 S. California Ave.
+- Country Club Apartments — 6930 6950 S South Shore Dr
+- Diversey III LLC — 424 W Diversey Pkwy
+- Dream Town — 4032 W Madison St
+- Drexel Grand — 5220 S Drexel Avenue
+- Edgewater Presbyterian Church — 1020 W Bryn Mawr Ave
+- Franklin — 225 W Evergreen Ave
+- Gage Park — 2411 W 55th St
+- Gompers Fine Arts Option Elementary - CPS — 12302 S State St
+- Granada Theatre — 6427 N Sheridan Rd — lost 1990
+- HighSchool_LeoHS — 7901 S Sangamon St
+- Hirsch Metropolitan HS -CPS — 7740 S Ingleside Ave
+- Hitch — 5625 N Mcvicker Ave
+- Hyde Park Bank — 1515 - 1531 E 53rd St
+- Ivy at Carlson — 1401 E Hyde Park
+- John B. Murphy Memorial — 50 E. Erie St.
+- Kingdom Baptist Church — 301 N. Central
+- Lyon — 2941 N Mcvicker Ave
+- Mann Elementary -CPS — 8050 S Chappel Ave
+- MarOuette — 6550 S Richmond St
+- Morrill — 6011 S Rockwell St
+- Nightingale — 5250 S Rockwell St
+- On Leong Merchants Association — 2216 S Wentworth Av
+- Peck ES — 3826 W 58th St
+- Peoples Gas-Irving Park Neighborhood Store — 4829 W Irving Park Rd
+- Perspectives Middle Academy -CPS — 8131 S May St
+- Saint Vincent Center — 721 N Lasalle Street
+- Scammon — 4201 W Henderson St
+- Shoop Acad Of Math/Science/Tech -CPS — 1460 W 112th St
+- Silver Coast Citadel Condominium Association — 7201-09 S Yates Blvd.
+- Stone Temple Baptist Church Building — 3620-3624 W. Douglas Blvd/ 1337-1349 S. Millard
+- Sullivan HS — 6631 N Bosworth Ave
+- Sunnycourt Condominiums — 906-934 W Sunnyside
+- Sutherland — 10015 S Leavitt St
+- The Edison (ds067) — 5200 N Sheridan Rd
+- The Morse Wolcott — 6942-60 N Wolcott
+- Union League Club Of Chicago — 65 W. Jackson
+- Union Lofts Condominium Association — 3500 South Sauganash
+- Waveland Gardens — 626-630 West Waveland
+- Winthrop Terrace Apartments — 5734 N Winthrop Ave
+- Young Elementary -CPS — 1434 N Parkside Ave
+## 1927
+- (IL676) - 2130 N. Lincoln Park West (2130 N. Lincoln Park West) — 2130 N. Lincoln Park West
+- 100 North La Salle Street — 100 North La Salle Street
+- 1316 1326 N State Pkwy — 1316 1326 N State Pkwy
+- 1448 North Lake Shore Drive Building Corporation — 1448 North Lake Shore Drive
+- 211 West Wacker Drive — 211 West Wacker Drive
+- 2430 Lake View Avenue Building Corporation — 2430 N Lakeview Ave
+- 2738 N. Pine Grove — 2738 N. Pine Grove Ave.
+- 300 West Adams Street Office Building — 300 W Adams St
+- 3000 W Marquette LP — 3000 W Marquette Rd
+- 318 W Adams Level Office LLC — 318 W Adams
+- 3447-3457 W Foster Avenue — 3447-3457 W Foster Avenue
+- 3500 N Lake Shore — 3500 N Lake Shore Drive
+- 3800 Lake Shore Drive Condo Association — 3800 N Lake Shore Drive
+- 415 Condominium Association — 415-421 W. Aldine Ave.
+- 4423 N Sheridan — 4423 N. Sheridan Rd
+- 72 E 11th St — 72 E 11th St
+- 7914 7932 S Wabash Ave — 7914 7932 S Wabash Ave
+- ACME Hotel Company — 15 E Ohio St
+- Albert Merritt Billings — 950 East 59th St
+- Arlington Place — 546-550 West Arlington Place
+- Bankers Building — 105 W. Adams St
+- Barry — 2828 N Kilbourn Ave
+- Beth Anne Residences — 4952 W. Thomas
+- Bryn Mawr Apartment Hotel — 5550 N Kenmore Av
+- Byrne Hall — 2219 N Kenmore Ave
+- C(IL292) - Oakdale Towers — 431 W. Oakdale
+- Carlson — 949 E 58th St
+- Chicago Residential Inc — 2440 North Lakeview Avenue
+- Christopher — 5042 S Artesian Ave
+- City Centre Condominium Association — 208 W. Washington Street
+- Civic Opera Building — 20 N Wacker Dr
+- Clarence Buckingham Memorial Fountain and Garden — Grant Park at Congress Drive
+- Commonwealth Apartments LLC — 2751-2765 N. Pine Grove Ave.
+- Coronado Apartments LLC — 1061 W. Rosemont Ave.
+- Cranston Condo — 6929-39 S. Crandon
+- DANK Haus German American Cultural Center — 4740 N Western Ave
+- Ebinger — 7350 W Pratt Ave
+- Edgewater Beach Apartment Corporation — 5555 N. Sheridan Road
+- Engine Company 61 — 5349 S Wabash Av
+- Farwell Building — 664 N Michigan Ave
+- Freehand Hotel Chicago — 19 East Ohio
+- Haberdasher SOuare Lofts — 728 W Jackson Blvd
+- Hilton Chicago (CHICH) — 720 S. Michigan Avenue
+- Inn of Chicago — 162 E Ohio St
+- Jackson Storage and Van Company Warehouse — 3609-3611 W. Cermak Road
+- Jewish People's Institute — 3500 W Douglas Blvd
+- La Follette Park — 1333 N Laramie Ave
+- Laramie State Bank Building — 5200 W Chicago Av
+- Lewis Towers-ID# 174182 — 820 N Michigan Ave
+- Locke J — 2828 N Oak Park Ave
+- Lovett — 6333 W Bloomingdale Ave
+- Marshall Metro HS -CPS — 3250 W Adams St
+- Michigan - 180 Property LLC — 180 N Michigan
+- Millennium Knickerbocker — 163 E Walton Pl
+- Mosaic — 6710 N Washtenaw Ave
+- Museum Walk Apartments — 5541 S. Everett
+- New Regal Theater — 1641 E 79th st
+- Otoole Elementary -CPS — 6550 S Seeley Ave
+- OurLadyofVictory_School — 4432 N. Laramie Ave
+- Palmolive Building — 919 N Michigan Av
+- Park Castle Condominium Association — 2416-2458 W. Greenleaf Ave
+- Pasteur — 5825 S Kostner Ave
+- Pittsfield Building — 55 E Washington st
+- Powhatan Apartments — 4950 S Chicago Beach Dr
+- Prussing — 4650 N Menard Ave
+- Roosevelt HS — 3436 W Wilson Ave
+- Seeley Building — 4424 4432 N Seeley Ave
+- Seventy East — 70 E. Lake Street
+- Spencer Elementary Academy -CPS — 214 N Lavergne Ave
+- StJuliana_School — 7400 W Touhy Ave
+- The Deco (nl005) — 1400 N Lake Shore Dr.
+- The Jeffery Cyril Building — 7144-48 S Jeffery Blvd
+- The Patricians — 401 411 W Fullerton Pkwy
+- The Renaissance — 901 W. Argyle Ave.
+- The Talbott Hotel — 20 E. Delaware Pl
+- Twain — 5134 S Lotus Ave
+- University Station CA — 1550 S Blue Island Ave
+- Vanguard Lofts Condominium Association — 1250 W. Van Buren St.
+## 1928
+- (Former) Belmont-Sheffield Trust & Savings Bldg — 3150 N Sheffield Av
+- (Former) Hyde Park-Kenwood Nat'l Bank Bldg — 1515-1535 E 53rd St
+- (IL659) - Willow SOuare (Campus) (1728 N. Damen, 212 W St Paul) — 1728 N. Damen
+- 1010 Lake Shore Drive — 1010 N Lake Shore Drive
+- 105 W Madison — 105 W Madison Street
+- 1420 North Lake Shore Drive — 1420 North Lake Shore Drive
+- 1500 Lakeshore Drive Building Corp. — 1500 Lakeshore Drive
+- 1623 Belmont Ashland Assoc LP — 1617-1633 W Belmont Ave
+- 175 W. Jackson — 175 W. Jackson
+- 3240 North Lake Shore Drive — 3240 North Lake Shore Drive
+- 3260 North Lake Shore — 3260 North Lake Shore Drive
+- 333 North Michigan Building — 333 N Michigan Av
+- 3838 North Broadway, LLC — 3838 N. Broadway St.
+- 3941 N. Pine Grove Ave. — 3941 N. Pine Grove
+- 399 Corporation — 399 W. Fullerton Pkwy
+- 40 E. Oak — 40 E Oak Street
+- 442 444 W Wellington Ave — 442 444 W Wellington Ave
+- 4541 N. Sheridan — 4541 N Sheridan
+- 5000 East End Condominium Association — 5000 East End Ave.
+- 56th & Kimbark Condo Association — 5543-59 S Kimbark Ave
+- 6101 North Clark — 6101 North Clark Street
+- 65 E Wacker Place — 65 E Wacker Place
+- 6700 Crandon Condominium Association — 6700 S Crandon Ave
+- 6901 Oglesby Avenue Apartment Building Corporation — 6901-6915 S. Oglesby Ave.
+- 6901 Oglesby Cooperative Apartment Building — 6901 S Oglesby Av
+- 7239 North Sheridan LLC — 7219 N Sheridan Rd
+- 900 North Franklin — 900 N Franklin St
+- Ambassador Hotel — 1301 N State Parkway
+- Ascension SMEMC St Elizabeth Campus — 1431 North Claremont Ave
+- Barclay Condominium Home Owners' Association, Inc — 4940 S. East End Ave.
+- Barton — 7650 S Wolcott Ave
+- Belle Shore Apartment Hotel — 1062 W Bryn Mawr Av
+- Bennett — 10115 S Prairie Ave
+- Canterbury Court Apartments — 1220 N State Parkway
+- Chicago Motor Club Building — 69 E. Wacker Place
+- Clayton Residential Home Inc — 2026 North Clark Street
+- Cloisters — 5801 S Dorchester Avenue
+- Coastland Apartments, Inc. — 2666 E. 73rd St.
+- Delaware II LLC — 25 E Delaware Pl
+- Douglas Park — 1401 S Sacramento Dr
+- Drake Tower Apartments — 179 E Lakeshore Dr
+- East Park Tower — 5242 S Hyde Park
+- Eddystone Condominium Homes, Inc. — 421 W. Melrose St.
+- Engine Company 129, Truck 50 — 8120 S Ashland Ave
+- Engine Company 45, Truck 15 — 4600 S Cottage Grove Av
+- Engine Company 5, Truck 2 — 324 S DesPlaines Av
+- Engine Company 59, Truck 47 — 5714 N Ridge Av
+- Farcroft Park, LLC — 1337 West Fargo
+- Foreman HS — 3235 N Leclaire Ave
+- Fullerton Parkway Towers — 415 W Fullerton Pkwy
+- Garfield Park Fieldhouse — 100 N. Central Park Ave
+- Hampton Inn Chicago Downtown/N Loop/Michigan Ave — 68 East Wacker Place
+- Harold Washington Apartments — 4946 N Sheridan Rd
+- Humboldt Park — 1440 N Sacramento Dr
+- Kelly HS — 4136 S California Ave
+- Lakeview YMCA — 3321-3333 N.Marshfield
+- Lewis & O'Malley — 25 E. Jackson Blvd.
+- Manley Career Academy HS -CPS — 2935 W Polk St
+- Mars Candy Factory — 2001-2199 North Oak Park Avenue
+- Mather Tower — 75 E Wacker Dr
+- McGraw-Hill Building — 520 N Michigan Av
+- McKay — 6901 S Fairfield Ave
+- Monarcas — 5815 S Homan Ave
+- North Chicago Hospital Building — 2551 N Clark Street
+- Old Dearborn Bank Building — 203 N Wabash Av
+- Onahan — 6634 W Raven St
+- Park Edgewater Condominium Association — 6101 N. Sheridan Road
+- Park Gables Apartment Homes, INC — 2438-2484 W Estes Ave
+- Raby HS -CPS — 3545 W Fulton St
+- Reinberg — 3425 N Major Ave
+- Rudolph — 1628 W Washington Blvd
+- Silver Cloud Condominiums — 5346 S. Cornell Ave
+- Stone — 6239 N Leavitt St
+- Surf III LLC — 426 W Surf St
+- The Narragansett Condominium Inc — 1640 E 50th St.
+- Uptown Regency — 5050 N. Sheridan Rd.
+- Virgin Hotels Chicago — 203 209 N Wabash Ave
+- Woman's Athletic Club — 626 N Michigan av
+- Wrightwood II LLC — 443 W Wrightwood Ave
+## 1929
+- (IL732) - Film Exchange Lofts (1307 S Wabash Ave, Chicago) — 1307 S Wabash Ave, Chicago
+- 10 W Elm — 10 W Elm Street
+- 1001 W Belmont Ave — 1001 W Belmont Ave
+- 1055 W Granville — 1055 W. Granville Ave
+- 120 South LaSalle Street Building — 120 South Lasalle Street
+- 1242 Lake Shore Drive — 1242 N. Lake Shore Drive
+- 1260 Dearborn — 1260 N Dearborn
+- 1540 N. Lake Shore Drive — 1540 N. Lake Shore Drive
+- 205 W Wacker — 205 W Wacker Dr
+- 222 E. Chestnut Condominium Association — 222 E. Chestnut St.
+- 227 239 E Delaware Pl — 227 239 E Delaware Pl
+- 33 North LaSalle Street — 33 North Lasalle Street
+- 4101-4113 N Kedzie Ave: 4113 North Kedzie Avenue — 4113 North Kedzie Avenue
+- 440 W Barry LLC — 440 W Barry Ave
+- 500 514 S Laramie Ave — 500 514 S Laramie Ave
+- 7130 Cyril Court Apartments — 7130 S. Cyril Ct.
+- 7150 Cyril Court Apartments — 7150 S. Cyril Court
+- 741 E 79Th St — 741 E 79Th St
+- 8 S. Michigan LLC — 8 S. Michigan Ave
+- Burbank — 2035 N Mobile Ave
+- C5501Was (25112) — 5501 W Washington Blvd
+- Carbide and Carbon Building — 230 N Michigan Av
+- Cedar Street Corporation — 70 E Cedar Street
+- Chicago Stadium — 1800 W Madison St — lost 1995
+- Commonwealth Towers Condominium Association — 2920 N. Commonwealth Ave.
+- Cornell Rentals, LLC — 5424 S. Cornell
+- Dearborn I LLC — 1036 N Dearborn St
+- Dearborn North — 1117 N Dearborn
+- Dearborn Plaza — 1030 N Dearborn St
+- Dixon — 8306 S Saint Lawrence Ave
+- Engine Company 65, Truck 52 — 3000 W. 42nd St
+- Engine Company 84, Truck 51 — 6204 S Green St
+- Fifteen Thirty North State Parkway Building Corporation — 1530 N State Parkway
+- Grand Briar CA — 433 W. Briar Place
+- Hubbard HS — 6200 S Hamlin Ave
+- Indian Boundary Park Fieldhouse — 2500 W Lunt Av
+- InterContinental — 505 N. Michigan Ave.
+- John G Shedd AOuarium — 1200 South Lake Shore Drive
+- Jones Laboratory — 5747 S. Ellis Ave.
+- Kenwin Venture LLLP — 5220-5224 N Kenmore
+- Kenwin Venture LLLP — 5439-5443 N Kenmore
+- Kinzie State Condo Association — 360 N State
+- Marquette (Jacques) Park — Maintenance
+- Marshall Field Garden Apartment Homes — 1448 N Sedgwick St
+- One North LaSalle Building — 1 N LaSalle St
+- One River Place Condominium Association — 758 N. Larrabee
+- Palmolive Building Condominium Association — 913 921 N Michigan Ave.
+- Parkway Apartments — 712 720 W Diversey Pkwy
+- Providence St. Mel School — 119 S Central Park Blvd
+- Ramova Theater — 3508-3520 S. Halsted Street
+- Sauganash — 6040 N Kilpatrick Ave
+- Sheridan Park — 4536 North Magnolia
+- Sheridan Surf LLC — 2850 N Sheridan Rd
+- Steuben Club Building — 188 W Randolph St
+- Sunny Gym — 5823 South Kenwood Avenue
+- Trustees System Service Building — 201 N Wells St
+- Two North Riverside Plaza — 2 North Riverside Plaza
+- Vista Homes Building Corporation — 5830-44 S. Stony Island Ave.
+- Washington Courts Apts. — 5424 West Washington
+- West Town State Bank Building — 2400 W Madison St
+- Womans Athletic Club Chicago — 626 Michigan Ave
+## 1930
+- (Former) Chicago City Bank & Trust Co. — 815-815 W 63rd St
+- (IL278) - 2000 N. Lincoln Park West — 2000 N. Lincoln Park West; 2052 N. Lincoln Park West
+- 1100 N. Dearborn — 1100 N. Dearborn St.
+- 1209 W Sherwin Ave — 1209 W Sherwin Ave
+- 121 West Wacker Drive AKA 221 N La Salle Street — 121 West Wacker Drive
+- 125 E 21St St — 125 E 21St St
+- 14 West Elm Apartments — 14 W Elm St
+- 20 N State — 20 North State Street
+- 200 N Central — 200 N Central Ave
+- 4124-4132 N Kedvale Avenue — 4124-4132 N Kedvale Avenue
+- 4300 Marine Drive Condominium Association — 4300 N. Marine Dr.
+- 434 W Roscoe — 434 W Roscoe St
+- 444 West St. James LLC — 444 W St James Pl
+- 4701 4705 N Beacon St — 4701 4705 N Beacon St
+- 5000 South Cornell — 5000 South Cornell Ave
+- 6900 S Crandon — 6900 S Crandon
+- 73 East Elm Street Condominium Association — 73 E Elm St
+- 833 West Jackson — 833 West Jackson
+- 916 S Wabash — 916 S Wabash
+- Adler Planetarium — 1300 S. Lake Shore Dr.
+- Amundsen HS — 5110 N Damen Ave
+- Anchor House — 1230 W. 76th St
+- Austin Polytechical HS -CPS — 231 N Pine Ave
+- Binny's (1132 S Jefferson St) — 1132 S Jefferson St
+- Blackwood — 5200-5208 S. Blackstone Avenue
+- Bobs Roberts — 920 E. 59th St.
+- C7131Yat (22222) — 7131 S Yates Blvd
+- Chicago and Midwest Regional Joint Board — 333 S. Ashland Ave
+- Chicago Board of Trade Building — 141 W Jackson Blvd
+- Cli — 5841 S Maryland Ave
+- Clissold — 2350 W 110th Pl
+- Columbus on the Park Condominium — 811 S Lytle
+- Cop_Madw5957 — 5957-73 W Madison St
+- Cudahy Library-ID#254164 — 6515 N Kenmore Ave
+- Frances Larry Apartments — 824-32 E 53rd St
+- Gunnison Street Lofts Condo Assoc — 4840 N Broadway St
+- Hawthorne — 3319 N Clifton Ave
+- Haymarket Lofts — 120 N Green St
+- John R. Cortelyou Commons — 2324 N. Chalmers St.
+- Kenwood United Church of Christ — 4600-4608 South Greenwood Avenue
+- Kilmer — 6700 N Greenview Ave
+- Lavergne Court Apts. — 4938 W. Ouincy Street
+- Lawson Partners — 30 W Chicago
+- Morton Salt Company Warehouse Complex — 1305-1399 North Elston Ave;1201299 W Blackhawk St
+- Mundelein College Skyscraper Building — 1020 W Sheridan Rd
+- Parker Elementary -CPS — 6800 S Stewart Ave
+- Pratt Blvd Place Condo Assoc — 1645-63 W Pratt Condo Assoc
+- Sayre — 1850 N Newland Ave
+- Schubert — 2727 N Long Ave
+- Sunshine Enterprise, LLC Series V (228 S Wabash) — 228 South Wabash
+- The Bostonian — 4278 N Hazel St
+- theMART, Chicago — 222 Merchandise Mart Plaza
+- Union Park Hotel — 1519 West Warren Blvd
+- USEF GC Century Tower LLC — 182 W Lake St
+- Von Steuben HS — 5039 N Kimball Ave
+- Westminster Condominium Association — 36-50 N. Menard Avenue
+- White Castle # 16 — 43 E Cermak Rd
+## 1931
+- (IL1045) - 1260 Astor Building Corporation — 1260 N Astor St
+- 1338 West Argyle Street (wr80) — 1338-1354 W Argyle St
+- 213 West Institute Place — 213 West Institute Place
+- 3000 North Sheridan — 3000 North Sheridan
+- 431 Roscoe — 429-31 W. Roscoe
+- 540 Surf Building — 540 West Surf Street
+- Burton-Judson Courts — 1005 East 60th Street
+- Delaware III LLC — 211 E Delaware Pl
+- Du Sable High School — 4934 S. Wabash Ave.
+- George Cleveland Hall Branch Library — 4801 S. Michigan Avenue
+- Hicks — 970 E.59th St.
+- Lakeside Tower, LLC — 910 W Lawrence Ave
+- Pentecostal Church of Holiness — 4208 W. 15th Street
+- Travelodge by Wyndham Downtown Chicago — 61 67 E Harrison St
+- Volta — 4950 N Avers Ave
+## 1932
+- 1033 W Loyola (wy73) — 1033 W Loyola Ave
+- 1040 West Randolph — 1040 West Randolph Street
+- 513-519 W. Briar Pl. — 515 W. Briar
+- 5631-35 N Kenmore — 5631-35 N. Kenmore
+- Chicago Historical Society — 1601 N Clark St
+- Greater Bethlehem Healing Temple Apostolic — 12 S Oakley Blvd
+- Henry Crown Field House — 5550 South University Ave.
+- International House — 1414 E. 59th Street
+- Jackson Park Hospital — 7531 S Stony Island Ave
+- Jackson Tower Condominium Association Inc — 5555 S Everett Ave
+- Mark Twain Hotel — 111 W Division St
+- Park View Apartments — 1936 N Clark St
+- Smyser — 4310 N Melvina Ave
+## 1933
+- 2339 N. Geneva — 2339 N. Geneva Terrace
+- Buena Terrace — 4242 N. Sheridan Rd.
+- Reside at Belmont Harbor — 426 West Belmont Avenue
+- Skiritai Bittersweet LLC — 732 W. Bitterwsweet Pl
+- Surf II LLC — 420 W Surf St
+- Wrightwood III LLC — 451 W Wrightwood Ave
+## 1934
+- 1246 Pratt LLC — 1246 W. Pratt Blvd.
+- Imdc Laporte, LLC — 4039 4051 Laporte Ave
+- Lane Tech HS — 2501 W Addison St
+- Madison Park Apartments — 1380 E. Hyde Park Blvd
+- Mann Park — 2949 E 131st St
+- Steinmetz HS — 3030 N Mobile Ave
+## 1935
+- 1020 W Lawrence — 1020 W Lawrence Ave
+- 224 North Desplaines — 224 N Desplaines St
+- Byrne — 5329 S Oak Park Ave
+- Central Plaza Residential Home — 321 North Central Avenue
+- City-Towne Condominium Association — 517-523 N. Halsted St.
+- Dever — 3436 N Osceola Ave
+- Jeffery Building Inc. — 1949 - 1959 E. 71st Street
+- Le Cordon Bleu College of Culinary Arts — 361 W Chestnut St
+- Wells Community Academy HS -CPS — 936 N Ashland Ave
+## 1936
+- Alfred Caldwell Lily Pool — North end of Lincoln Park Zoo at Fullerton Parkway
+- Canty — 3740 N Panama Ave
+- Fisher Studio Houses — 1209 N State Pkwy
+- Garvy — 5225 N Oak Park Ave
+- Heald Square Monument — Wacker Dr at Wabash Av
+- Holy Name Cathedral Parish — 735 N State St
+- Lincoln Lofts Condominium Association — 3151 N Lincoln Ave
+- Mount Greenwood — 10841 S Homan Ave
+- Old Chicago Coast Guard Station — 250 North Breakwater Access
+- Rosenwald Courts — 4648 South Michigan Avenue
+- Spiegel Administration Building — 1038 W. 35th Street
+- Third Unitarian Church Building — 301 N Mayfield Av
+- Yesteryear Condo Association — 4211 4221 N Paulina St
+## 1937
+- 1201 W. Washington — 1201 W. Washington Blvd.
+- 444 N Wabash Ave — 444 N Wabash Ave
+- Alcott ES — 2625 N Orchard St
+- Chappell — 2135 W Foster Ave
+- Gillespie — 9301 S State St
+- Goudy — 5120 N Winthrop Ave
+- Jamieson — 5650 N Mozart St
+- Keck-Gottschalk-Keck Apartments — 5551 S University Av
+- Lathrop 1A — 2000 W Diversey Avenue
+- Newberry — 700 W Willow St
+- Polish National Alliance Building — 1514-1520 W Division
+- Rogers — 7345 N Washtenaw Ave
+- Sherman Elementary, William T -CPS — 1000 W 52nd St
+- St. Edmund's Episcopal Church — 6105 S Michigan Ave
+## 1938
+- 1380 — 4730 W Irving Park Rd
+- 217 N. Jefferson — 217 N. Jefferson
+- Chapin Hall — 1313 East 60th Street
+- Charles Turzak House — 7059 N Olcott Av
+- Loretto Hospital — 645 South Central Ave
+- Madonna Della Strada Chapel — 6453 N. Kenmore Avenue
+- Trumbull Park Homes — 2437 E 106th St
+## 1939
+- 5040-60 Marine Drive Condominium Association — 5040-5060 N Marine Drive
+- 8602 — 710 Lake Shore Dr
+- Edgebrook — 6525 N Hiawatha Ave
+- First Church of Deliverance — 4315 S Wabash Av
+- Gage Park HS -CPS — 5600 S Rockwell St
+- Madison Elementary -CPS — 7401 S Dorchester
+- St. Mary of Providence — 4200 N. Austin Ave
+- Taft HS — 6530 W Bryn Mawr Ave
+- Torrey-Gray Doane 840 N. LaSalle — 820 N. Lasalle
+## 1940
+- (IL659) - Willow SOuare (Bldg. 4) (2012 W. St. Paul,) — 2012 W. St. Paul
+- 1548 1558 W Juneway Ter — 1548 1558 W Juneway Ter
+- 20 E Cedar Condominium — 20 E Cedar St
+- 2617 2625 W Gunnison St — 2617 2625 W Gunnison St
+- 4900 Drexel Cooperative — 4900 South Drexel
+- 5620-5626 N. Kenmore Ave — 5620-5626 N. Kenmore Ave.
+- Adlake Limited Partnership — 320 W. Ohio
+- Dr. Philip Weintraub House — 3252 W. Victoria St
+- Goldblatts Building — 1609 W. Chicago
+- McKinley Park Lofts Condominium Association — 2323 W Pershing Rd
+- Northwest Armory — 1551 North Kedzie
+- School Of Leadership HS -CPS — 7529 S Constance Ave
+## 1941
+- Workshop 4200 — 4200 W Diversey
+## 1942
+- 1340 S Damen Avenue — 1340 S Damen Avenue
+- 4141 W George — 4141 W George St.
+- Holland Apartments — 240 W 107th Pl
+- Site of the 1st...Nuclear Chain Reaction — East Side of S Ellis Ave between 56th & 57th St
+## 1943
+- Bridgeport Homes — 844 W 32nd St
+- Cabrini Rowhomes — 900 N Hudson
+- Lawndale Gardens — 2530 S. Washtenaw Ave
+- Life Sciences Research Building — 35 W 34th Street
+- Materials & Metals Building — 3350 S Federal Street
+- O'Hare Building 804 (Aviation Administration Building) — Chicago O'hare International Airport
+- Oriole Park — 5424 N Oketo Ave
+## 1944
+- Incubator Building — 55 W 34th Street
+- Wildwood — 6950 N Hiawatha Ave
+## 1945
+- Altgeld Gardens — 925 E. 130th Street
+- Aspira — 3119 N Pulaski Rd
+- ASPIRA Early College High School — 3986 W Barry Ave
+- Burnham — 9928 S Crandon Ave
+- Daniel C. Beard Elementary School — 6445 W Strong St
+- Fairmont Care Center — 5061 N Pulaski Rd
+- WMS Gaming 3401 California — 3401 N California Ave
+- WMS-2727 Roscoe — 2727 W Roscoe St
+## 1946
+- 400 South Jefferson - OPI — 400 South Jefferson Street
+- Camras — 3000 N Mango Ave
+- Hollywood House — 5700 N Sheridan Rd
+- Perlstein Hall — 10 W 33rd Street
+- Promontory Apartments — 5530-5532 South Shore Drive
+## 1947
+- 1422 1424 W 47Th St — 1422 1424 W 47Th St
+- CICS - Larry Hawkins High School — 801 E 133rd Pl
+- Granville Apartments, LLC — 6230 N Kenmore Ave
+- Renaissance Place at Hyde Park Condominium Association North — 5200 S Ellis
+- The Millworks Condo Association — 2011 W. Belmont Ave.
+- Wentworth Gardens — 3770 S. Wentworth Ave
+- Wishnick Hall — 3255 S Dearborn Street
+## 1948
+- (IL047) - 4900 Marine Drive Condo (4900 N Marine Drive) — 4900 N Marine Drive
+- 5550 5556 S Dorchester Ave — 5550 5556 S Dorchester Ave
+- Addams — 10810 S Ave H
+- Balmoral Plaza Condominium — 2606-2610 W Balmoral Ave
+- Bethany Methodist Communities — 5025 N Paulina St
+- Edison Park — 6220 N Olcott Ave
+- Gunsaulus Hall — 3140 S Michigan Avenue
+- Myron Bachman House — 1244 W Carmen Av
+- Sinai Schwab Rehabilitation Hospital — 1401 S California Ave
+- The Park Terrace — 2451 W Howard St
+## 1949
+- (IL1039) - 1335 Astor Cooperative (1335 N. Astor St.) — 1335 N. Astor St.
+- (IL1049) - Metropolitan Place Condo (130 S Canal St ) — 130 S Canal St
+- (IL644) - 860 Lake Shore Drive Trust (860-880 Lake Shore Drive) — 860-880 Lake Shore Drive
+- (IL731) - Promontory Corp (5530 South Shore Drive) — 5530 South Shore Drive
+- 1350 N Astor Street — 1350 N Astor Street
+- 860-880 Lake Shore Drive — 860-880 N Lake Shore Dr
+- Accelerator Building — 5604-20 South Ellis Avenue
+- Air Force Academy (Abbott Elementary ) -CPS — 3630 S Wells St
+- Belmont and Central; A&G Fresh Market — 5630 W Belmont Ave
+- Chicago Vocational Career Academy -CPS — 2106 E 87th St
+- Levi Hall — 5801 S. Ellis Avenue
+- Lunt Lake Cooperative Apartments — 1122-40 W Lunt Ave
+- Park No. 527 Park — Maintenance
+- Pulaski — 2230 W Mclean Ave
+- Reside on Wellington — 510 West Wellington Avenue
+## 1950
+- 2545 Fitch Condominiums Association — 2545 W. Fitch Ave.
+- 311 W Superior Street — 311 W Superior Street
+- 344-358 W. Oakdale Ave. — 350 W. Oakdale Ave.
+- 351 W Hubbard Street — 351 W Hubbard Street
+- 400 W Erie Street — 400 W Erie Street
+- 4101 S Calumet Avenue — 4101 S Calumet Avenue
+- 430 W Erie Street — 430 W Erie Street
+- 6200-42 N Hoyne — 6200-42 N. Hoyne
+- 750 N Orleans Street — 750 N Orleans Street
+- 7500 S South Shore Dr — 7500 S South Shore Dr
+- 820 N Orleans Street — 820 N Orleans Street
+- AlgonOuin #1 — 1605 E. 50th Street
+- AlgonOuin #2 — 1606 E. 50th Street
+- AlgonOuin #3 — 1616 E. 50th Street
+- AlgonOuin #4 — 1607 E. 50th Street
+- AlgonOuin #5 — 1617 E. 50th Street
+- AlgonOuin #6 — 1606 E. Hyde Park Boulevard
+- Archer Courts Apartments — 2220-2242 S Princeton Avenue
+- Bernard Horwich JCC — 3003 Touhy Ave
+- Cicero Annex — 8101-8159 S. Cicero Ave
+- Cityfront Place - 400 N McClurg Ct — 400 N Mcclurg Ct
+- Crown Hall — 3360 S State St
+- Dearborn Homes — 2960 S. Federal Street
+- Goldblatt Hospital — 5840 S Ellis Ave
+- HighSchool_StFrancisdeSalesHS — 10155 S. Ewing Ave.
+- Jetro Restaurant Depot — 1030 W Division St
+- Levy House — 1221 W Sherwin Avenue
+- Loyola Park — 1230 W Greenleaf Ave
+- Misericordia Home — 6300 N. Ridge Ave.
+- MissionofOurLadyoftheAngels_School — 3814 W Iowa Street
+- New Life Community Church Midway — 5101 S Keeler Ave
+- Parish_StMaryStaroftheSea — 6449 S. Kilbourn Ave.
+- School_HolyAngelsSchoolAnnex — 750 E. 40th St.
+- Sherwin Sheridan LLC — 7347-65 Sheridan Rd
+- Sixty Thirty Condominium Association — 6030 N Sheridan Rd
+- St. Paul Lofts Condominium Association — 2333 W. Saint Paul Ave.
+- StClement_School — 2524 N. Orchard St.
+- StHedwig_School — 2226 N Hoyne Ave
+- StStan_School — 1255 N Noble St
+- StThomastheApostle_School — 5467 S. Kimbark Ave.
+- The Regal — 651 S. Wells
+- The Townhouse Apartments — 7022 S South Shore Drive
+- Williams Multiplex Elementary -CPS — 2710 S Dearborn St
+## 1951
+- (IL527) - The Darien (3100 N. Lake Shore Drive) — 3100 N. Lake Shore Drive
+- 1350-60 N Lsd — 1350 N Lake Shore Dr.
+- 29 N Wacker Dr — 29 North Wacker Dr
+- 4180 Polo Tower CA — 4180 N. Marine Drive
+- 5101 N Sheridan - CLK — 5101 N Sheridan
+- 6119 6125 N Winchester — 6119-6125 N Winchester Ave
+- Argyle Place Apartments — 850 W. Argyle St.
+- Chippewa Apartments — 5050 S East End Ave
+- Jesse Sherwood Elementary School — 245 W 57th St
+- Twin Towers Apartments LLC — 1645-49 E 50th Street
+- Winchester Hood Garden Homes Trust R-704 — 1940-60 W Hood Ave
+## 1952
+- 1090 - Sears — 1601 N Harlem Ave
+- 2909 North Sheridan Condominium Homes — 2909 N Sheridan Rd
+- 3410 Lakeshore Drive Condominium Association — 3410 N. Lake Shore Dr
+- 533 E 33Rd Pl — 533 E 33Rd Pl
+- 555 E 33Rd Pl — 555 E 33Rd Pl
+- Catalyst-Maria — 6727 S. California Avenue
+- CICS Longwood — 1309 W. 95th St.
+- Hearst Elementary -CPS — 4640 S Lamon Ave
+- North Shore Baptist Church — 5244 N Lakewood Ave
+- Parkway Gardens — 6415 S. Calumet Ave
+- The Van der Rohe — 2933 N Sheridan Rd
+- Weiss Memorial Hospital — 4646 N Marine Dr
+## 1953
+- 320 322 W Oakdale Ave — 320 322 W Oakdale Ave
+- Ascension Resurrection Medical Center Campus. — 7435 West Talcott Avenue
+- Ashburn — 8300 S St Louis Ave
+- Bethany Retirement Community — 4950 N Ashland Ave
+- Carmen Hall — 60 E 32nd Street
+- Gilman Smith — 5835 S Drexel Ave
+- Hale — 6140 S Melvina Ave
+- Hurley — 3849 W 69th Pl
+- Lake Parc Place — 3939-3983 S. Lake Park Ave
+- McLean — 5824 S Ellis Ave
+- Shoreline Park Condominium Association — 4950 N. Marine Drive
+- Stevenson ES — 8010 S Kostner Ave
+## 1954
+- 1155 E 60th Street — 1155 East 60th St
+- 2970 Lake Shore Condo Association — 2970 N Lake Shore Drive
+- Dawes — 3810 W 81st Pl
+- De La Salle Institute — 3434 S Michigan Ave
+- Frank O Lowden Homes — 200 W. 95th Street
+- Lake Meadows Building 3 — 3240 S. Cottage Grove Ave
+- Lake Meadows Building 4 — 3440 S. Cottage Grove
+- Lake Meadows Building 5 — 3323 S. King Drive
+- Miracle House — 2001 N. Nordica Avenue
+- Murray — 5335 S Kenwood Ave
+## 1955
+- 200 S. Michigan Ave — 200 S. Michigan Ave
+- 2019 - 4624 S Ellis — 4624 S. Ellis
+- 207 — 4640 S. Halsted Street
+- 247 East Chestnut Condominium Association — 247 East Chestnut
+- 3430-40 N Lake Shore — 3440 N. Lake Shore Drive
+- 350 W Belden — 350 W Belden Ave
+- 8793 — 310 E Superior St
+- 900/910 Lake Shore Drive — 900 North Lake Shore Dr.
+- Chicago Lighthouse for the Blind — 1850 W. Roosevelt Rd
+- Community First Medical Center — 5645 W Addison St
+- Deneen — 7240 S Wabash Ave
+- Dunbar Vocational Acad HS -CPS — 3000 S King Dr
+- Golden Mile Hotels — 2 W Erie Street - 660 N State Street
+- Lawn Terrace Apartments — 2601 W 63rd St
+- Lincoln Village 1 — 6101-6133 North Lincoln
+- Lincoln Village 2 — 6135-6199 North Lincoln
+- Little Village Plaza — 3045 - 3101 W. 26th St.
+- MWRDGC Main Office Building — 100 E Erie St
+- Neil Elementary, Jane A -CPS — 8555 S Michigan Ave
+- St. Xavier University — 3700 W. 103rd St.
+- Tech South — 3450 S State Street
+- The Chatelaine — 215 E. Chestnut Street
+- The Salvation Army Adult Rehabilitation Center — 2258 N. Clybourn Avenue
+- The Shore Manor — 5858 N Sheridan Rd.
+## 1956
+- 227 East Walton Place Apartment Building — 227 East Walton Place
+- 2930 Sheridan Tower Condominium Association — 2930 N. Sheridan Rd.
+- Beach Point Tower Condominium Association — 5801 N Sheridan Rd
+- Bradley Business Center II — 2500 West Bradley Place
+- CICS Basil — 1816 W. Garfield Blvd.
+- Lake Meadows 6 — 500 E 33rd St
+- Lake Meadows 7 — 400 E 33rd St
+- Lake Meadows Building 8 — 401 E 32nd Street
+- Lake Meadows Building 9 — 501 E. 32nd Street
+- Lee — 6448 S Tripp Ave
+- Much-Musikantow Co. — 8001-07 S. Cottage Grove
+- Sor Juana — 4034 W 56th St
+## 1957
+- 1150 Condominium Association — 1150 N. Lake Shore Dr
+- 253 East Delaware Condominium Association — 253 E Delaware Place
+- 3950 N Lake Shore Drive CA — 3950 N. Lake Shore Drive
+- 4200 Marine Drive Condominium Association — 4200 N Marine Dr
+- 4600-4650 W. Diversey — 4600 4650 W Diversey Ave
+- 55 W. Chestnut Apartments — 55 W. Chestnut St.
+- 5630 N Sheridan — 5630 N. Sheridan Ave
+- 850 Dewitt Place Condominiums — 850 N Dewitt Place
+- Brown Elementary, William H -CPS — 54 N Hermitage Ave
+- Carnegie — 1414 E 61st Pl
+- Chicago Agriculture HS — 3857 W 111th St
+- Chicago Sun-Times Building — 401 N Wabash Ave — lost 2004
+- CICS Wrightwood — 8130 S. California Ave.
+- Commonwealth Plaza Condominium Association — 330 West Diversey Parkway
+- Hall Plaza West — 4628 - 4650 W Diversey Ave
+- Harlan Comm Academy -CPS — 9652 S Michigan Ave
+- Howard & Western Shopping Center — 7510-7578 North Western Avenue
+- Inland Steel Building — 30 W Monore St
+- Joplin — 7931 S Honore St
+- Ogden HS — 1250 W Erie St
+- Siegel Hall — 3301 S State Street
+- Washington HS — 3535 E 114th St
+## 1958
+- (IL504) - 33E. Condo Association (33 E. Cedar St.) — 33 E. Cedar St.
+- 2018 2040 W Farwell Ave — 2018 2040 W Farwell Ave
+- 250 South Wacker Drive — 250 S Wacker Dr
+- 30 East Elm Condominium Association — 30 E Elm St
+- 3130 N. Lake Shore Apartments — 3130 N. Lake Shore Drive
+- 4880 Marine Drive Condominium — 4880 N Marine Dr
+- 5148 N Kedzie Ave — 5148 N Kedzie Ave
+- 601 Condominium Association — 601 E 32nd Street
+- Avalon Park
+- Carroll-Rose-CPS — 2929 W 83rd St
+- Harlem-Foster Shopping Center — 7240 West Foster Avenue
+- Lake Terrace Condominium Association — 7337 S. South Shore
+- Nicholson — 6006 S Peoria St
+- StBedetheVenerable_School — 4440 W. 83rd St.
+- StMonica_School — 5115 N. Mont Clare Ave.
+- Wicker Park Apartments — 1414 N Damen Ave
+## 1959
+- (IL0606) - 3180 N LSD (3180 N. Lake Shore Drive) — 3180 N. Lake Shore Drive
+- 1445 N State Parkway — 1445 N State Parkway
+- 3900 Lake Shore Drive Condominium Association — 3900 N Lake Shore Drive
+- 550 W Jackson Boulevard — 550 W Jackson Boulevard
+- 9101 S Euclid Ave — 9101 S Euclid Ave
+- Academy at Drexel Court — 6140 S Drexel Ave
+- Beidler Elementary -CPS — 3151 W Walnut St
+- BVM Hall/SES-ID#175895 — 6364 N Sheridan Rd
+- Clarendon Shores — 4750 N. Clarendon Avenue
+- Columbus Manor Nursing Home — 5107 W. Jackson Blvd.
+- El Lago Condominium Association — 6157 N. Sheridan Rd
+- Hanson Park — 5411 W Fullerton Ave
+- Holmes Elementary -CPS — 955 W Garfield Blvd
+- Josephinum Academy — 1501 N Oakley Blvd
+- Mather HS — 5835 N Lincoln Ave
+- Mayer — 2250 N Clifton Ave
+- South Shore ES — 1404 E 70th St
+- Suder — 2022 W Washington Blvd
+- Welles (Gideon) Park — Fieldhouse A1
+- William J Bogan High School — 3939 W 79th St
+## 1960
+- (IIL733) - 3600 Condominium (3600 N. Lake Shore Drive) — 3600 N. Lake Shore Drive
+- (IL1041) - Marina Towers (300 N State St) — 300 N State St
+- (IL391) - Wellington Condominium (360 W Wellington) — 360 W Wellington
+- (IL579) - 1550 Condo Association (1550 N. Lake Shore Drive) — 1550 N. Lake Shore Drive
+- 4532 - 42 S. Drexel — 4532 - 42 S. Drexel Blvd.
+- 600 S Michigan — 600 S Michigan
+- 6118 Sheridan Road Condominium Homeowners Association — 6118 N Sheridan Rd
+- 623 S Wabash — 623 S Wabash
+- 624 S Michigan — 624 S Michigan
+- Advocate Trinity Hospital — 2320 E. 93rd. Street
+- American Library Association — 40-50 E. Huron
+- Ascension St Joseph Hospital - Chicago — 2900 N Lake Shore Drive
+- Attucks -CPS — 5055 S State St
+- Bronzeville Classical — 8 W Root St
+- C4901Dre (22116) — 4901 S Drexel Blvd
+- Catherine Courts Condominium Association of Chicago (5306 N Cumberland Ave) — 5306 N. Cumberland Ave.
+- Catherine Courts Condominium Association of Chicago (5306-5310 N. Chester Ave.) — 5306 - 5310 N. Chester Ave.
+- Catherine Courts Condominium Association of Chicago (5348-58 N. Cumberland Ave) — 5348-5358 N. Cumberland Ave
+- Catherine Courts Condominium Association of Chicago (8439-8503 W. Catherine Ave) — 8439-8503 W. Catherine Ave
+- Fifth Praire Shores, LLC — 2801 S King Drive
+- First Praire Shores, LLC — 2901 S King Drive
+- Fourth Prairie Shores, LLC — 2851 S King Drive
+- Granville Courts Condo Association — 2025 W Granville Ave
+- Harding Court — 4845-4859 N Harding
+- Indian Boundary Park
+- Mccormick Place Lakeside Center — Burnham (Daniel) Park
+- McCormick Place — original exposition hall — Lakefront at 23rd Street — lost 1967
+- Pueblo Commons Condominium Association — 8444 W Wilson Ave
+- Ridge Place Apartments — 7115-7129 N Ridge Blvd
+- Salem Baptist Church of Chicago — 10909 S Cottage Grove Ave
+- Second Prairie Shores, LLC — 2951 S King Dr
+- St. Rita of Cascia High School — 7740 South Western Avenue
+- Surfside Condominium — 5815 N Sheridan Rd
+- Third Prairie Shores, LLC — 3001 South King Dr
+- Touhy-Herbert (John, Victor) Park — Fieldhouse D1
+- WGN Studios — 2501 W Bradley Pl
+- Yusho/Commercial Bldg. — 5301-23 S. Kimbark Ave.
+## 1961
+- 11 East Adams LLC — 11 East Adams
+- 1333 N Kingsbury — 1333 N Kingsbury
+- 468 West Melrose Street — 468 W Melrose St
+- 555 Cornelia (251219) — 555 West Cornelia Ave.
+- Admin Offices @ Dodge-Garfield Park — 2651 W Washington Blvd
+- Beethoven Elementary -CPS — 25 W 47th St
+- CICS Loomis Primary — 9535 S. Loomis St.
+- Continental Center — 55 East Jackson Boulevard
+- Crown Community Academy -CPS — 2128 S St Louis Ave
+- DePaul College Prep — 3633 N California
+- Dett — 2101 W Monroe
+- Dett -CPS — 2306 W Maypole Ave
+- Durkin Park — 8445 S Kolin Ave
+- Emmanuel Baptist Church — 8301 S Damen Ave
+- Essex Inn — 800 S. Michigan Avenue
+- Hefferan Elementary -CPS — 4409 W Wilcox St
+- Lenart — 8101 S Lasalle St
+- Maudelle Brown Bousfield Apartments — 4949 S. Cottage Grove
+- Mayo Elementary -CPS — 245 E 37th St
+- Northeastern Illinois University — 5500 N. Saint Louis Avenue
+- Peck — 5821 S Drexel Ave
+- Pritzker — 2009 W Schiller St
+- R. J. Ouinn Academy (Fire) — 558 W. De Koven St.
+- Skinner North — 640 W Scott St
+- Smyth -CPS — 1051 W 13th Ave
+- Taylor (Robert Rochon) Park — Fieldhouse Joint
+- University Park CA — 1451 E. 55th Street
+## 1962
+- (IL397) - 1440 N Lake Shore Drive (1440 N. Lake Shore Drive) — 1440 N. Lake Shore Drive
+- (IL614) - Constellation Condominium Association (1555 N Dearborn Parkway) — 1555 N Dearborn Parkway
+- 111 West Jackson — 111 West Jackson Blvd
+- 1330 N. Dearborn Apartments — 1330 N. Dearborn St.
+- 1400 State Parkway Condominium Association — 1400 N State Pkwy
+- 1825 W Lawrence Ave — 1825 W Lawrence Ave
+- 21 East Chestnut Condominium Association — 21 East Chestnut Street
+- 2424 N Clark St — 2424 N Clark St
+- 3550 N Lake Shore Drive — 3550 N Lake Shore Dr.
+- 535 North Michigan — 535 North Michigan Avenue
+- 5401 S Hyde Park Condominium — 5401 S. Hyde Park Blvd.
+- 5757 N. Sheridan Condominium Association — 5757 N. Sheridan
+- 645 North Michigan — 645 North Michigan Avenue
+- Alcott and Bryant — 1455-1460 North Sandburg
+- Austin 1900 Building — 1900 n. Austin
+- Brandon Shores Condo Association — 6150 N Kenmore
+- Chatham Park Village — 737 E 83rd Place
+- Chicago Lakeshore Hospital — 4840 N Marine Dr
+- Dulles — 6311 S Calumet Ave
+- Ericson Scholastic Academy, Leif -CPS — 3600 W 5th Ave
+- Eugenie Lane Apartments — 235 W. Eugenie Street
+- Galvin Library — 35 W 33rd Street
+- Garfield (James) Park — Fieldhouse A1
+- Hales Franciscan — 4930 S Cottage Grove Ave
+- Healy — 3010 S Parnell Ave
+- Herman Hall — 3241 S Federal Street
+- Hollywood Towers Condo Association — 5701 North Sheridan Rd.
+- IBEW Local 134 — 2722 S. Martin Luther King Drive
+- Imperial Towers — 4250 N Marine Dr.
+- Joshua D Kershaw Elementary School — 6450 S Lowe Ave
+- Lakefront Place Condo — 6730 S South Shore Dr
+- Mertz Hall - CFSU-ID# 254162 — 1125 W Loyola Ave
+- One East Wacker — One East Wacker Drive
+- Realtor Building — 430 N. Michigan Ave
+- Resurrection College Prep High School — 7500 W Talcott
+- The Selfhelp Home, Inc. — 908 W. Argyle St
+- Webster -CPS — 4055 W Arthington St
+- William Jones Apartments — 1447 S. Ashland Ave
+## 1963
+- (IL1019) - 1300 Astor Tower (1300-1306 N. Astor St.) — 1300-1306 N. Astor St.
+- (IL610) - 2400 Lakeview Condo (2400 N. Lakeview) — 2400 N. Lakeview
+- 1300 Lake Shore Drive Condominium Association — 1300 N Lake Shore Dr
+- 1344 N. Dearborn Condo Association (nd112) — 1344 N Dearborn St
+- 6900 S. Shore Drive — 6900 S. Shore Drive
+- ACE Technical Charter High School — 5400 S State St
+- Armour — 950 E 59Th
+- Ashe — 8505 S Ingleside Ave
+- Brennemann — 4251 N Clarendon Ave
+- Bria of Forest Edge — 8001 S Western Ave
+- Carl Sandburg Village Condominium Association No. 1 — 1355 N. Sandburg Terrace
+- Cather -CPS — 2910 W Washington Blvd
+- Chalmers-CPS — 2745 W Roosevelt Rd
+- Dunning SOuare — 6408-6500 West Irving Park Road
+- Dvorak Math/Science/Tech Academy - CPS — 3615 W 16th St
+- Eliot House Condominium Association — 1255 N Sandburg Terrace
+- Fannie Emanuel — 3916 W. Washington
+- Granville Beach Condominium Association — 6171 North Sheridan Rd
+- Holy Cross Hospital — 2701 W 68th St
+- Jensen Scholastic Academy - CPS — 3024 W Harrison
+- Johnson College Prep — 6350 S Stewart St
+- Johnson Elementary -CPS — 1504 S Albany Ave
+- Keller Center — 1307 E. 60th Street
+- Lathrop Elementary, Julia C -CPS — 1440 S Christiana Ave
+- Marist High School — 4200 W. 115th Street
+- Northern Trust HeadOuarters — 50 S. Lasalle
+- Ritchie Tower Condominium — 1310 N. Ritchie Court
+- Royalton Condominium Association — 6800 N California Ave
+- Shedd (John G.) Park — Fieldhouse B2
+- Social Service Administration — 969 East 60th Street
+- Tanner Elementary -CPS — 7350 S Evans Ave
+- The 400 Condominium Association — 400 E. Randolph St.
+- The Newport CA — 4800 S. Chicago Beach Drive
+- The Westin Michigan Avenue — 909 North Michigan Avenue
+- U Of C - Donoghue — 707 E 37th St
+- Vivian Gordon Harsh Apartments — 4227 S. Oakenwald Ave
+- Wadsworth — 6650 S Ellis Ave
+## 1964
+- (IL0214) - 800 E 55th Building (800 E 55th St ) — 800 E 55th St
+- (IL1050) - The Carlyle Apartments Condo (1040 N Lake Shore Dr ) — 1040 N Lake Shore Dr
+- 10 South Riverside Plaza — 10 South Riverside Plaza
+- 1922 W Ogden Ave — 1922 W Ogden Ave
+- 222 E Pearson Condominium Association — 222 E Pearson
+- 2700 N. Hampden Court Condominium Association — 2700 N. Hampden Ct.
+- 2941 S Michigan — 3001 S Michigan Ave
+- 3110 Sheridan Condominiums — 3110 N Sheridan Rd
+- 4100 Marine Dr — 4100 N Marine Dr
+- 6920 S Crandon — 6920 S Crandon
+- Atrio Apartments (md104) — 1926 1960 W Harrison St
+- CICS Northtown — 3900 W. Peterson Ave.
+- Faraday Elementary, Michael -CPS — 3250 W Monroe St
+- Garfield Park Behavioral Hospital — 520 N. Ridgeway
+- Halsted Plaza — 801- 831 W. 119th St.
+- Hektoen Building — 627 S Wood St
+- IIT Research Tower — 10 W 35th Street
+- Integrys Group Division Street Facility — 1241 West Division Street
+- Irene McCoy Gaines Apartments — 3700 W. Congress Parkway
+- John Whistler Elementary -CPS — 11513 S Ada St
+- Judge Harry M. Fisher Apartments — 5821 N. Broadway Street
+- Long Life Apartments — 344 W 28th Pl
+- Oglesby Towers — 6700 S Oglesby Ave
+- One East Schiller Condominium Association — 1 E Schiller Street
+- Perspectives/IIT Math & Science Academy — 3663 S Wabash Ave
+- Stanton (Edwin) Park — Fieldhouse A3
+- Taylor Park — 41 W 47th St
+- Technology Business Center — 3440 S. Dearborn Street
+- Union Health Service — 1634 W Polk St
+- WTTW 11 - Main Campus — 5400 N. St. Louis
+- Yeshiva Ohr Boruch — 2828 W Pratt Blvd
+## 1965
+- (IL0545) - Shoreline Towers (6301 N. Sheridan Rd.) — 6301 N. Sheridan Rd.
+- 03477AS - Chicago, IL — 4734 Pueblo
+- 1000 Condominium Association — 1000 North Lake Shore Plaza
+- 1440 N Dayton Street — 1440 N Dayton Street
+- 211 E. Chicago Ave. — 211 E. Chicago Ave.
+- 401 N Michigan Avenue — 401 N Michigan Avenue
+- 500 W. Belmont Apartments — 500 W. Belmont Ave.
+- 5050 N Broadway — 5040-60 N Broadway
+- 717 N Michigan Avenue — 717 N Michigan Avenue
+- 8794 — 320 E Superior St
+- Best Western River North Hotel — 125 W. Ohio St.
+- C5870Lak (22233) — 5870 W Lake St
+- Crowne Plaza Chicago Metro — 733 W Madison St
+- Daley Center — 50 West Washington St
+- Elizabeth Davis Apartments — 440 N. Drake Ave
+- Evangeline Booth Lodge / Family and Community Services — 800 W Lawrence Ave
+- Fmc Management — 1016 w balmoral
+- George W Dunne Cook County Office Building — 69 W. Washington Street
+- Gresham Elementary -CPS — 8524 S Green St
+- Hattie Callner — 855 W. Aldine Ave
+- Higgins — 11710 S Morgan St
+- Hinton Elementary, William Augustus -CPS — 646 W 71st St
+- Kennedy HS - Kinzie — 6325 W 56th St
+- Lafayette Plaza Housing Cooperative — 50 W 71st St
+- Lidia Puchinska Apartments — 838 N. Noble Street
+- Michigan Beach Apartments — 7251 S. South Shore Drive
+- New Mildred LLC — 2900-2914 North Mildred Avenue
+- Patrick F Sullivan Apts — 1633 W Madison St
+- Plaza On Dewitt Condominium Association — 260 E Chestnut St.
+- Richard J. Daley Center — 50 W. Washington
+- Stewart Business Center — 400 W. 76th Street
+- Tech Central — 3424 S State Street
+- The Bryn — 5600 Sheridan
+- The Covington — 4600 N. Clarendon Ave.
+- The Duplex Tower — 6166 N. Sheridan Road
+- The Salvation Army — 506 N Desplaines St
+- Thomas F Flannery Apartments — 1531 N Clybourn Ave
+- Tiara Home Owners Association — 6145-6147 N. Sheridan Rd.
+- W Chicago Lakeshore — 644 North Lake Shore Drive
+- Winston Towers One — 6933 N Kedzie Ave
+- Woodson South -CPS — 4414 S Evans Ave
+- Wrightwood — 625 West Wrightwood
+## 1966
+- 120 South Riverside Plaza — 120 South Riverside Plaza
+- 201 East Chestnut Condominium Association — 201 E. Chestnut
+- 33 N. Dearborn — 33 N. Dearborn
+- 541 Oakdale Assoc LLC — 541 W Oakdale Ave
+- 6825 Sheridan Rd Building Partnership — 6825 N Sheridan Rd
+- 720 Gordon Terrace Condominium Association — 720 W Gordon Terrace
+- 7200 Ridge Condominium Association — 7200 7216 N Ridge Blvd
+- Aldine Building II LLC — 528-34 West Aldine
+- Ambassador House Condominium Association — 1325 N State Parkway
+- Delano Elementary, Edward C -CPS — 3937 W Wilcox St
+- Edelstone Center — 6030 South Ellis Avenue
+- Efa LLC — 452 Aldine Ave
+- Faulkner House Condominium Association — 70 W Burton Place
+- Harbor House Condominium Association — 3200 N. Lake Shore Drive
+- Hilliard Homes Limited Partnership (Senior) — 2111 S Clark
+- Hilliard Homes Phase I Limited Partnership (Family) — 2031 S Clark
+- Hilliard Homes Phase II Limited Partnership (Family) — 2030 S State St
+- Illinois Bell Building — 225 W. Randolph Street
+- Jackson (Mahalia) Park — Fieldhouse Joint
+- Margaret Day Blake Apartments — 2140 N Clark St
+- New Englewood Terrace Apartments — 6425 S Lowe
+- Pritzker Science Center — 3105 S Dearborn St
+- Prodigy Wood-CPS — 4511 S Evans Ave
+- Reside on Barry — 533 West Barry Avenue
+- Six Corners Plaza — 3970 - 3982 N Milwaukee Ave
+- Spring Grove Apartments — 4554 S Drexel Blvd
+- Stein Place — 5825 S. Dorchester
+- Thorndale Beach North Condominium Association — 5901 N Sheridan Rd
+- Winston Towers No. 2 Association — 6833 N Kedzie Ave
+## 1967
+- (IL415) - Horizon House (5733 N Sheridan Rd) — 5733 N Sheridan Rd
+- 1130 South Michigan — 1130 S Michigan Ave
+- 1340 N Dearborn Condominium Association — 1340 N Dearborn
+- 2626 Lakeview Condominium — 2626 North Lakeview
+- 336 Wellington Association — 336 W Wellington
+- 339 W. Barry Condominium Association — 337-339 W. Barry Ave.
+- 444-454 W. Melrose St. — 450 W. Melrose St.
+- 447-457 W. Wellington Ave. — 455 W. Wellington Ave.
+- 513 W Fullerton Pkwy — 513 W Fullerton Pkwy
+- 515-523 W. Barry Ave. — 515 W. Barry Ave.
+- 531 W. Deming — 531 W. Deming Pl.
+- 544 W. Melrose St. — 544 W. Melrose St.
+- 5455 Edgewater Plaza Condominium Association — 5455 N Sheridan Rd
+- 55 West Wacker Drive — 55 West Wacker Drive
+- 6830 N Sheridan Rd — 6830 N Sheridan
+- 73rd St Apts., LLC — 7345 S. South Shore Drive
+- 8501 West Higgins Rd Chicago IL — 8501 West Higgins Road
+- 860 N Dewitt Pl — 860 N Dewitt Pl
+- Alfreda Barnett Duster Apartments — 150 S. Campbell
+- Arthur J. Schmitt Academic Center — 2320 N. Kenmore
+- Chase Tower Chicago — 10 S Dearborn St
+- Chicago & Western Indiana Railroad Bridge — Calumet River, 126th St, W of Torrence Av
+- Dr. Mildred C. Harris Apartments — 6360 S Minerva Ave
+- Holiday Inn Downtown Chicago — 506 W Harrison St.
+- John T. Rettaliata Engineering Center — 10 W 32nd Street
+- Judge Frederick W. Slater Apartments — 740 E. 43rd Street
+- Judge Green Apartments — 4030 S. Lake Park Ave
+- Keating Hall — 3040 S Wabash Avenue
+- Lincoln Park Tower Condominium Association — 1960 N Lincoln Park West
+- Lutheran School of Theology at Chicago — 1100 E 55Th St
+- Major Robert H Lawrence Apartments — 655 W 65th Street
+- Morton Elementary Career Academy - CPS — 431 N Troy St
+- Reside on Morse — 1340 W Morse Ave
+- Sheridan Tower — 5650 N. Sheridan Rd.
+- Sheridan-Gunnison Apts. — 4827 North Sheridan Rd.
+- Sullivan Center-ID# 173858 — 6339 N Sheridan Rd
+- Thorndale Beach South Condominium Association — 5855 N. Sheridan
+- Tilton-CPS — 223 N Keeler Ave
+- TLC Touhy LLC — 1329 1337 W Touhy Ave
+- William Castleman Apartments — 4945 N Sheridan Rd
+- Wyler — 5837 S Maryland Ave
+## 1968
+- (IL505) - Lake Point Tower Condominium Association (505 N. Lake Shore Drive) — 505 N. Lake Shore Drive
+- 2336 N Commonwealth Condominium Association — 2336 N Commonwealth Ave
+- 3033 Sheridan Tower Condominium Association — 3033 N Sheridan Rd
+- 3161 N Cambridge Ave — 3161 N Cambridge Ave
+- 3470 N Lake Shore Dr — 3470 N Lake Shore Dr
+- 3525 W. Peterson Avenue — 3525 W Peterson Ave
+- 3920 N Lake Shore Dr — 3920 N Lake Shore Dr
+- 500 N Michigan — 500 N Michigan
+- 6160 N Cicero — 6160 N Cicero Ave
+- 6200 N Hiawatha Ave — 6200 N Hiawatha Ave
+- 7300 Venture, LLC — 7300 S. South Shore Drive
+- 7447 South Shore LLC — 7447 S. South Shore Drive
+- Ada S. Dennison-McKinley Apartments — 661 E. 69th Street
+- Bowen Environmental Studies HS -CPS — 2710 E 89th St
+- East Point Condominium Association — 940 W Glenlake Ave
+- Edith Spurlock Sampson Apts — 2720 N. Sheffield Ave
+- Fairfield Hall-ID#105533 — 6228-6240 N Winthrop Ave
+- Forty East Cedar Condominium — 40 E Cedar St
+- Fuller -CPS — 4214 S St Lawrence Ave
+- H/B Winchester, LLC — 4500 N Winchester Ave
+- Hawthorne House — 3450 N Lake Shore Drive
+- Hendricks C A, Thomas A -CPS — 4320 S Princeton
+- Hyde Park West Apartments — 5325 S. Cottage Grove Ave
+- Illinois College of Optometry — 3241 S Michigan Ave
+- Maria Diaz Martinez Apartments — 2111 N Halsted St
+- Mary Jane Richardson-Jones Apartments — 4930 S. Langley Ave
+- Mercy Chicago - Hospital — 2525 S Michigan Ave
+- Morning Star Baptist Church of Chicago — 3993 S. Dr. Martin Luther King, Jr. Drive
+- Mt Vernon Elementary -CPS — 10540 S Morgan St
+- One East Scott (237373) — 1 East Scott St.
+- Peter V. Byrne Hall — 2219 N. Kenmore
+- Pine Grove Apartments — 3639 N. Pine Grove
+- Quadrangle House — 6700 S Shore Dr
+- Streeterville Center — 233 E. Erie
+- Stuart Building — 10 W 31st Street
+- Sumner Math & Science Community Acad, Charles -CPS — 4320 W 5th Ave
+- Sunnyside Properties, LLC — 840 W Sunnyside
+- The Park Astor Condominium — 1515 N Astor
+- West Side Realty Corporation — 300 S. Ashland Ave.
+- Winston Tower 3 Condominium Association — 7061 N Kedzie
+- Winston Towers No. 4 Association — 7033 N. Kedzie Ave
+## 1969
+- (IL036) - Glenmoor Manor (1041-51 W. Glenlake) — 1041-51 W. Glenlake
+- 111 East Wacker Drive — 111 East Wacker Drive
+- 1212 Lake Shore Drive Condominium — 1212 N Lake Shore Drive
+- 1700 East 56th Street — 1700 E 56th St
+- 230 East Ontario Condominium Association — 230 E. Ontario St.
+- 2800 Lake Shore Drive Condo Association (102232) — 2800 North Lake Shore Drive
+- 311 West Monroe — 311 West Monroe
+- 421-31 Barry — 421-31 W Barry Ave.
+- 5100 Marine Drive Condominium Association — 5100 N Marine Dr
+- 525 Hawthorne Place Condominium Association — 525 W Hawthorne Place
+- 541 N Fairbanks — 541 N Fairbanks
+- 5536 N. Sheridan — 5536 N. Sheridan Rd.
+- 5918 N Kenmore Ave — 5918 N Kenmore Ave
+- 606 West Cornelia LLC — 606-620 W. Cornelia Ave.
+- 6214 N. Winthrop, LLC — 6214-6218 N. Winthrop Ave.
+- 625 N Michigan Avenue — 625 N Michigan Avenue
+- 640 N LaSalle — 640 N Lasalle Dr
+- Artista 55 — 5525 N Winthrop Ave, , Il
+- Astor House — 1340 N. Astor Street
+- Bethune Elementary -CPS — 3030 W Arthington St
+- CC Care (Community Care Center) — 4314 S. Wabash Ave.
+- Cornell Village Tower Condominium Association — 5201 South Cornell Ave
+- Evangelical Lutheran Church in America — 8765 W. Higgins Road
+- Ford City Condominium Association — 4300 W Ford City Dr
+- Hale Lofts — 14 N Peoria Street
+- Harris (Harriet) Park — Fieldhouse A1
+- Hemingway House Condominium Association — 1850 N. Clark Street
+- Henry Horner Annex — 1815 W. Monroe Street
+- Hinds Laboratory — 5734 South Ellis Avenue
+- Hunter Properties, Inc. (1055 W. Catalpa Ave.) — 1055 W. Catalpa Ave.
+- IBM Building — 330 North Wabash Av
+- International Tower — 8550 W Bryn Mawr Ave
+- Island Terrace — 6430 S Stony Island Ave
+- Johnson Publishing Company Building — 820 S. Michigan Ave
+- Kenwood HS — 5015 S Blackstone Ave
+- Lake Park Plaza Condominium Association — 3930 N. Pine Grove Ave.
+- Latin School of Chicago Upper School — 59 W North Blvd
+- Lowell House Condominium Association — 88 West Schiller
+- Malibu Condominium — 6007 N. Sheridan Rd.
+- Michigan Avenue Associates LLC — 2001 S Michigan
+- Noble SOuare Cooperative — 1165 N Milwaukee
+- O'Hare Plaza I — 8725- 8745 W Higgins Rd
+- O'Hare Plaza II — 8755 W Higgins Rd
+- Parkview Towers Apartments — 5110 S King Dr
+- Quality Inn Midway Airport — 7353 S Cicero Ave
+- Sheridan Lake — 6415 N. Sheridan Rd.
+- Sheridan Point Condominiums — 6325 N Sheridan Road
+- Stagg — 7424 S Morgan St
+- Thc Yt LLC — 2701 S Indiana Ave
+## 1970
+- (IL487) - The Gold Coast (71 E Division St ) — 71 E Division St
+- (IL584) - 1240 Lake Shore Drive (1240 N. Lake Shore Drive) — 1240 N. Lake Shore Drive
+- 10 South State — 10-20 South State Street
+- 100 Bellevue Place — 100 East Bellevue Place
+- 1010 W 35Th St — 1010 W 35th St
+- 1025 W Hollywood — 1025 W Hollywood
+- 111 E Chestnut Condominium Association — 111 E. Chestnut
+- 1110 N Lake Shore Dr (252094) — 1110 N Lake Shore Dr
+- 150 North Wacker Drive — 150 North Wacker Drive
+- 1540 N State Pkwy — 1540 N State Pkwy
+- 20 South Clark — 20 S Clark St
+- 202 — 2200 S. Western Avenue
+- 21 W Goethe — 21 W. Goethe Street
+- 328 S Jefferson — 328 S Jefferson
+- 329 W 18th St — 329 W 18th St
+- 3510 N. Pine Grove Ave. — 3510 N. Pine Grove Ave.
+- 424 West Oakdale Avenue — 424 W. Oakdale Ave.
+- 4302 4312 N Sheridan Rd — 4302 4312 N Sheridan Rd
+- 4631 — 4631-37 S. Lake Park
+- 4653 4661 S Lake Park Ave — 4653 4661 S Lake Park Ave
+- 4825 4835 N Central Ave — 4825 4835 N Central Ave
+- 4848 North Winthrop Avenue — 4848 North Winthrop Avenue
+- 525 Deming — 525 W. Deming Place
+- 536-552 W. Addison St. — 536 W. Addison St.
+- 650 W Lake — 650 W Lake
+- 660 W Wrightwood Ave — 660 W Wrightwood Ave
+- Armour SOuare Apartments — 3120-3250 S. Wentworth Ave
+- Baric Properties — 1533 W Jarvis Ave
+- Belmont Apartments — 510 West Belmont Avenue
+- Buena Shores — 833 W.Buena Avenue
+- California Park / McFetridge — 3843 N California Ave
+- Campion Hall-ID# 254165 — 6551 N Sheridan Rd
+- Caroline Hedger Apartment — 6400 N. Sherdian Rd
+- Cottage View Terrace Apartments — 4829 S. Cottage Grove
+- Drexel Towers 4825 — 4825 S. Drexel
+- Drexel Towers 4917 — 4917 S. Drexel
+- Dyett HS -CPS — 555 E 51st St
+- Everett McKinley Dirksen Elementary School — 8601 W Foster Avenue
+- Evergreen Tower I — 1333 N. Cleveland Ave
+- Evergreen Tower Ii — 1343 N. Cleveland Ave
+- Frazier International Magnet -CPS — 4027 W Grenshaw St
+- Gallery 37 — 66 E Randolph St
+- Hampden Green Condominium Association — 2728 N Hampden Court
+- HLT Chicago O'Hare Airport, IL-SV — O'hare International Airport
+- Hope College Preparatory High School — 5515 South Lowe Ave
+- Lake View Towers — 4550 N. Clarendon Ave.
+- Lawless Gardens — 3510 S Rhodes Ave
+- Manierre Elementary -CPS — 1420 N Hudson Ave
+- Mary Hartwell Catherwood Apartments — 3920-40 N Clark St
+- Minnie Riperton Apartments — 4250 S. Princeton Ave
+- Munroe Hall — 2312 N. Clifton
+- Newberry Plaza Condominium Association — 1030 N State Street
+- Newberry Plaza Townhouse Owners Association — 1000 N State St
+- Oakwood Court — 6547-69 N Harlem Avenue
+- Olympia Park — Fieldhouse A4
+- Park Harbor Condominium Association — 3620 N. Pine Grove Ave
+- Park Lincoln By Reside — 2470 North Clark Street
+- Reavis Specialty Elementary -CPS — 834 E 50th St
+- Renaissance Saint Luke — 1501 W Belmont Ave
+- Richard J. Daley College & Manufacturing Technology and Engineering Center — 7500 South Pulaski Ave
+- Sheridan Shores — 640 W. Sheridan Road
+- The John Hancock Center — 875 N Michigan Ave
+- Watergate East Condominium Association — 5471 S Hyde Park Blvd
+- Woodlawn Social Services Center — 950 East 61st Street
+- Yates -CPS — 1839 N Richmond St
+## 1971
+- 100 E Walton St — 100 E Walton St
+- 100/150 S. Wacker — 150 South Wacker
+- 200 West Jackson Boulevard Building — 200 West Jackson Blvd.
+- 2101 S. Michigan Apartments — 2101 South Michigan Avenue
+- 222 South Riverside — 222 South Riverside Plaza
+- 230 W Monroe — 230 W Monroe
+- 3710 N Pine Grove LLC — 3710 N Pine Grove Ave
+- 3812 S Michigan Ave — 3812 S Michigan Ave
+- 441 W. Oakdale Apartments — 441 W. Oakdale Ave.
+- 5445 Edgewater Plaza Condominium Association — 5445 N. Sheridan Rd.
+- 6725 - Trinity Hospital Physicians Office Building — 2301 2315 East 93rd Street
+- 7616 S South Shore Dr — 7616 S South Shore Dr
+- AG 300 South Wacker Owner LLC — 300 South Wacker Drive
+- AMA Plaza — 330 North Wabash
+- Arrive Streeterville — 333 E Ontario Street
+- Barry Building IV — 445 West Barry Avenue
+- Bellarmine Hall-ID#173888 — 6610-28 N Sheridan Rd
+- Carmen Marine Cooperative — 5030 N Marine Dr
+- Chicago State University Campus — 9501 South Martin Luther King Drive
+- Evelyn Lane Condominium Association — 5332 N Delphia
+- Garfield Center — 10 S. Kedzie Ave.
+- James Kilmer Condo Association — 1560 North Sandburg Terrace
+- King HS — 4445 S Drexel Blvd
+- Lake Grove Village Apartments — 3500-3544 South Lake Park Avenue & 3515-3555 South Cottage Grove Avenue
+- Lake Village East Apts — 4700 South Lake Park Ave
+- Mahalia Jackson Elementary -CPS — 917 W 88th St
+- Metropolitian Pier And Exposition Authority — 301 East Cermak Road
+- Noble Network of Charter Schools — 1409-1443 N. Ogden Ave.
+- North Park Tower Cooperative — 300 W. North Avenue
+- Old Malcolm X College — 1900 West Van Buren Street
+- Park Tower Condominium Association — 5415 N. Sheridan Rd.
+- Park West Condominium — 444 W Fullerton Pkwy
+- Regenstein Library — 1100 East 57th Street
+- Reside on Roscoe — 532 W Roscoe
+- Scio at Medical District Apartments — 901-903 S Ashland Ave
+- Sherwood (Jesse) Park — Fieldhouse A4
+- Southland Preservation — 6253 S Michigan Ave
+- The Stratford at South Commons Condominium Association — 2605 S Indiana Ave
+- Two East Oak Condominium Association (tw206) — Two East Oak Street
+- Vivian Carter Apartments — 6401 S. Yale Ave
+## 1972
+- (IL500) - 1516 N State Pkwy Condo (1516 N. State Pkwy.) — 1516 N. State Pkwy.
+- (IL616) - Astor Terrace (1450 N. Astor St) — 1450 N. Astor St
+- 1339 N Dearborn St — 1339 N Dearborn St
+- 1415 Lunt Condominium Association — 1415 W Lunt Ave
+- 150 160 E Huron — 150 160 E Huron
+- 1515 W. Morse LLC — 1515 W Morse Ave
+- 1530 Dearborn Parkway Association — 1530 N. Dearborn Pkwy.
+- 180 North LaSalle — 180 North Lasalle Street
+- 200 East Delaware — 200 E. Delaware Place
+- 2020 Lincoln Park West Condominium Association — 2020 N. Lincoln Park West
+- 233 North Michigan Avenue — 233 North Michigan Avenue
+- 2631 S Indiana Ave — 2631 S Indiana Ave
+- 2650 N Lakeview Avenue — 2650 N Lakeview Avenue
+- 2828 N Burling — 2828 N Burling Street
+- 30 North LaSalle — 30 N. LaSalle St.
+- 333 South Wabash — 333 S. Wabash
+- 345 Fullerton Parkway Condominium Association — 345 West Fullerton Parkway
+- 4048 S Lake Park Ave — 4048 S Lake Park Ave
+- 450 Briar Place Condominium Association — 450 W. Briar Pl.
+- 55 East Monroe Office — 55 East Monroe Street
+- Alden Lakeland Rehabilitation and Health Care Center — 820 W Lawrence Ave
+- Americana Towers Condominium — 1636 N. Wells
+- Aon Center — 200 E. Randolph Street
+- Astoria Place Living and Rehab — 6300 North California Ave.
+- Belle Plaine Apartments — 820 W. Belle Plaine
+- Caldwell Math & Science -CPS — 8540 S Cregier
+- Cardenas — 2345 S Millard Ave
+- Clark Academic Prep HS -CPS — 5101 W Harrison St
+- Clemente Community Academy HS -CPS — 1147 N Western Ave
+- Curtis Elementary -CPS — 32 E 115th St
+- Eastwood Garden Limited Partnership — 6531 S. Lowe
+- Englewood Health Center — 641 W. 63rd St.
+- Evangelical Covenant Church — 8303 W Higgins Rd
+- Hampden Tower Condominium Association — 2754 N. Hampden Ct.
+- K SOuare Apartments (ks073) — 1749 N Wells St
+- Lurie Children's Lincoln Park Outpatient Center - Deming — 467 W Deming Pl
+- Malibu East Condominium — 6033 N Sheridan Rd
+- Mason Elementary -CPS — 4217 W 18th St
+- Northwest Tower — 1170 W Erie
+- OneTwoPru — 130 East Randolph & 180 North Stetson
+- Parkside SOuare Condominium Association — 5501-5525 N. Chester Ave
+- Piotrowski (Lillian) Park — Fieldhouse A2
+- Regents Park — 5020-5050 S Lake Shore Drive
+- Smith (Wendell) Park — Fieldhouse D2
+- U.S. Bank -- Pullman Branch — 1000 E 111th St
+- Winston Towers V Condominium Association — 7141 N Kedzie
+## 1973
+- 1415 North Dearborn Condominium Association — 1415 N Dearborn St
+- 200 West Monroe — 200 W. Monroe
+- 2314 N Lincoln Park West — 2314 N Lincoln Park West
+- 280 Building — 280 S. Columbus Dr.
+- 3170AS - Chicago, IL — 5320 S Pulaski
+- 4343 Clarendon Condominium Association — 4343 N Clarendon Ave
+- 4747 S Dr Martin Luther King Jr Dr — 4747 S Dr Martin Luther King Jr Dr
+- 5411 N Winthrop-CLK — 5411 N Winthrop
+- 639 W Grace St — 639 W Grace St
+- 990 North Lake Shore Drive — 990 North Lake Shore Drive
+- Carver Millitary Academy -CPS — 13100 S Carver Dr
+- Coronado Condominium Association — 3900 N. Pine Grove
+- Cummings Life Science Center — 920 E 58th St
+- Curie HS — 4959 S Archer Ave
+- Dawson Technical Institute — 3901 South State Street
+- Disney — 4140 N Marine Dr
+- Douglass, Frederick Academy HS -CPS — 543 N Waller Ave
+- Foster Park Elementary -CPS — 8500 S Wood
+- Fountainbleau CAMBRIDGE Property — 2828 N. Cambridge
+- Garvey Elementary -CPS — 10309 S Morgan St
+- Gill Park Cooperative — 810 W. Grace
+- Greenwood Park Apartments — 1023 East 47th St
+- Hollywood Property — 1040 W Hollywood
+- Il0032Zz-Chicago Customhouse — 610 S Canal Street
+- Indian Trail Apartments — 221 E 121st Place
+- Indiana Terrace Apartments — 6000 S Indiana Ave
+- Juvenile Temporary Detention Center Campus — 1100 S. Hamilton Ave.
+- Lake Park Manor — 3601 3645 S Lakepark Ave
+- Lakeview East Cooperative — 707 W. Waveland Ave.
+- Lincoln Perry Apartments — 3245 S. Prairie Ave
+- Midpointe Apartments — 4050 West 115th Street
+- Oakdale Terrace — 525 W. Oakdale Ave.
+- Orr HS / Kipp-One — 730 N Pulaski Rd
+- Ritchie Court Condominium Association — 1313 N Ritchie Court
+- Robichaux Park — Robichaux (Joseph) Park
+- Smith — 744 E 103rd St
+- Waterford Condominium — 4170 N Marine Drive
+- Wave Lakeview — 420 West Belmont Avenue
+- Willis Tower (Rivion LLC) — 233 S Wacker Drive
+## 1974
+- (IL0515) - 3150 North Sheridan Road Condominium (3150 N Sheridan Rd ) — 3150 N Sheridan Rd
+- (IL298) - 1555 Astor Condo (1555 N. Astor Street) — 1555 N. Astor Street
+- (IL542) - The Warwick Condominium Association (1501 N State Parkway) — 1501 N State Parkway
+- 03181AS - Chicago, IL — 87 W 87th Street
+- 112th Street Building — 11203 S Ellis St
+- 125 South Wacker — 125 S Wacker Drive
+- 1301 E 47Th St — 1301 E 47th St
+- 3150 Ca — 3150 N Lake Shore Dr
+- 444 W Jackson — 444 W Jackson
+- 4600 N. Cumberland Condominium Association — 4600 N. Cumberland Ave.
+- 4640 N Sheridan Rd — 4640 N Sheridan Rd
+- 4801 W. Peterson Ave — 4801 W Peterson Ave
+- 5330 N Damen — 5330 N Damen Ave
+- 607 Wrightwood Condominium Association — 607 W. Wrightwood Ave.
+- 8890 — 345 E. Superior
+- Albany Terrace Apartments — 3030 W. 21st Place
+- Clark Manor — 7433 N. Clark Street
+- Clark-Netsch House — 1700 N. Hudson Ave
+- Corliss HS / Noble-Butler — 821 E 103rd St
+- Gill (Joseph) Park — Fieldhouse A1
+- Grace St. — 635 W. Grace St.
+- Harbor Point — 155 Harbor Drive
+- Harper SOuare Housing Co-Op — 4800 S. Lake Park Ave.
+- Harris Bank Building — 115 S LaSalle St
+- Hhcs Icrc — 3500 S Giles Street
+- Hyatt Regency Chicago — 151 East Wacker Drive
+- Jackson Park Terrace — 6040 S Harper Avenue
+- Kenmore Plaza Tenants Association — 5225 N Kenmore Ave
+- Le Claire Courts - Hearst Comm. Ctr. Park — Fieldhouse B1
+- Lincoln Park Villas CA — 1920 N. Clark Street
+- Mahalia Jackson Apt — 9141 - 9177 S South Chicago Ave
+- Mcguane (John) Park — Fieldhouse A1
+- Park No. 512 Park — Maintenance
+- Park No. 527 Park — Maintenance
+- Reside 707 — 707 West Sheridan Road
+- Sheridan Shores Nursing Rehabilitation — 5838 N. Sheridan Rd.
+- The Towers CA — 1221 N Dearborn St
+- Uplift Community HS -CPS — 900 W Wilson Ave
+- Warren Barr Gold Coast — 66 W. Oak Street
+## 1975
+- (IL192) -2500 Lakeview Association (2500 N. Lakeview) — 2500 N. Lakeview
+- 2144 N. Lincoln Park Condominium Association — 2144 N Lincoln Park West
+- 350 North Orleans (Rivion LLC) — 350 North Orleans Street
+- 3601 3613 S Wells St — 3601 3613 S Wells St
+- 4572 N Milwaukee Ave — 4572 N Milwaukee Ave
+- 65 E Scott St — 65 E Scott St
+- Ambassador Nursing & Rehabilitation Center — 4900 North Bernard St
+- Aunt Martha's Youth Service Center, Inc. — 5001-5013 S. Michigan Avenue
+- CDOT Central Office — 1501 W Pershing Rd
+- Devon Executive — 4001 W Devon Ave
+- Ella Flagg Young Apartments — 4645 N. Sherdian Road
+- Grand Blvd Plaza — 5401 S Wentworth Ave
+- Hawthorne Point — 1511-1525 W Cullom Ave
+- Il0000Fc-Chicago Federal Ctr — 219 S Dearborn
+- Innisbrook IV Condominium Association — 5355-71 N Delphia
+- Juarez HS — 1450 W Cermak Rd
+- Martin Luther King Community Center — 4314 S. Cottage Grove Ave.
+- Park View Towers Condominium Association — 2740 N Pine Grove Ave
+- Parkshore Estates Nursing & Rehabilitation Center — 6125 S Kenwood Ave
+- Police Training Academy — 1300 W. Jackson Blvd.
+- Powell Elementary Paideia Acad -CPS — 7530 S South Shore Dr
+- Prentice Women’s Hospital — 333 E Superior St — lost 2014
+- Providence Englewood Charter School — 6515 South Ashland Avenue
+- Renaissance Place at Hyde Park Condominium Association South — 1000 E 53rd
+- The Brownstone Condominium Association — 1440 N. State Parkway
+- Thornwood House Apartments (University Park) — 1 Thornwood Drive
+- Whitney Young -CPS — 211 S Laflin St
+- Woodbridge Nursing Pavilion, Ltd — 2242 N Kedzie Blvd
+- Woodson Regional Library — 9525 S. Halsted St.
+- Zelda Ormes Apartments — 116 W Elm St
+## 1976
+- 4310-22 N Clarendon — 4310 4322 N Clarendon Ave
+- 444 N. Michigan — 444 N. Michigan Avenue
+- Alden Wentworth Rehabilitation & Health Care Center — 201 W 69th Street
+- Ascension SMEMC St Mary Campus. — 2233 West Division St
+- Astor Villa Condominium Association — 1430 N Astor
+- Chalet Living and Rehab — 7350 N. Sheridan Rd.
+- Chinatown — 300 W 23rd St.
+- Collins Academy High School — 1313 S Sacramento Blvd
+- Continental Nursing & Rehabilitation Center — 5336 N. Western Avenue
+- Elm Street Plaza Venture LLLP — 1130 N. Dearborn
+- Flanner Hall-ID# 158842 — 1068 W Sheridan Rd
+- Hayes (Francis) Park — Fieldhouse B1
+- LaSalle Terrace Condominium Association — 1540 N. Lasalle St.
+- Lorraine Hansberry Apartments — 5670 W Lake St
+- Mireles Academy, Arnold -CPS — 9000 S Exchange Ave
+- Onni Atrium Apartments, LP — 303 W. Division St
+- River Plaza — 405 North Wabash
+- Sheil (Bernard) Comm. Ctr. Park — Fieldhouse A3
+- SV Care (Southview Manor, Inc.) — 3311 S. Michigan Ave.
+- Thorndale Manor Apartments — 1020 West Thorndale Ave
+- Truman College — 1145 West Wilson Ave
+- Water Tower Place — 835 N. Michigan Avenue
+## 1977
+- (IL461) - 777 Condominium (777 N Michigan Ave ) — 777 N Michigan Ave
+- 11414 S Halsted St — 11414 S Halsted St
+- 30 E. Division Condominium Association — 30 E. Division
+- Apostolic Church of God — 6320 S Dorchester Ave
+- California Gardens Rehabilitation Center — 2829 S California Blvd
+- Charles A Beckett Associates, LP — 400 E 41st St
+- Chase (Salmon) Park — Fieldhouse A3
+- Cook Brothers — 1710 - 1740 N Kostner Ave
+- Harry J. Schneider Apartments — 1750 W. Peterson Ave
+- Innisbrook V Condominium Association — 8509-25 W Catherine
+- Kennedy Plaza BK, L.L.C. — 3300 W Belmont Ave
+- Kmart — 7050 S Pulaski Rd
+- McCabe Hall — 900 W. Belden
+- NMH Olson Pavilion — 710 N Fairbanks Ct
+- Piper's Alley — 230 W. North Avenue
+- Robeson HS -CPS — 6821 S Normal
+- Sauganash Park
+- Sbri — 5812 S Ellis Ave
+- Sheridan Shores Condominium Association — 5740 N. Sheridan Rd.
+- Symphony of Bronzeville — 3400 3428 S Indiana Ave
+## 1978
+- 1169 S Plymouth Condominium Association — 1169 S Plymouth
+- 1296AS - Chicago, IL — 7342 Foster Ave
+- 1660 N LaSalle CA — 1660 N. Lasalle
+- 2007 N Sedgwick Condominium — 2007 N Sedgwick
+- 2800 North Orchard Condominium Association — 2800 N. Orchard St.
+- 3100 S King Condominium Association — 3100 S King Dr
+- 6300 Sheridan Building Condominium Association — 6300 North Sheridan
+- 8816 — 375 E Chicago Ave
+- Appleville Condominium — 501 W 24th Pl
+- Beasley — 5255 S State St
+- Crane Achievement Academy -CPS — 2245 W Jackson Blvd
+- Damen Court Apartments — 2040 W. Jackson Blvd.
+- Elevate Care Chicago North — 2451 West Touhy Avenue
+- Greeley — 832 W Sheridan Rd
+- Las Americas Apartments — 1611 S. Racine Ave
+- Plymouth Court — 1115 S. Plymouth Court
+- Presence Resurrection Retirement Community — 7262 W Peterson Ave
+- Printers Row Condominium Association — 711 S Dearborn
+- Sheridan (Philip Henry) Park — Fieldhouse A1
+- Two North LaSalle — 2 North Lasalle
+- West Point Plaza Venture LLLP — 300 S Damen
+## 1979
+- 171 West Oak Street — 171 West Oak Street
+- 303 E. Wacker — 303 E. Wacker
+- 50 East Bellevue Condo Association — 50 East Bellevue Place
+- 711 W Gordon Terrace — 711 W Gordon Terrace
+- 901 S Plymouth — 901 South Plymouth Court
+- Benchmark Sherway Tower LP — 4225 North Sheridan
+- Euclid Park — Fieldhouse D2
+- Good Shepherd Land & Housing Dev. Corp. — 6720 S Cornell Ave
+- Hedgerow Condominium Association — 5400 S. Hyde Park BLVD.
+- Hiawatha Park — Fieldhouse A3
+- MLL 1945 Wilson, LLC — 1945 W. Wilson Ave.
+- Normandy Park — Fieldhouse D2
+- Oakdale Park
+- Oakley SOuare (St. Stephen's Terrace) — 2333 W. Jackson Blvd
+- Pietrowski Park — Pietrowski (Sylvester) Park
+- State Tower CA — 1230 N State Street
+- The Oaks — 820 South Park Terrace
+- Urban Prep - Englewood HS — 6201 S Stewart Avenue
+## 1980
+- 101 North Wacker — 101 North Wacker Drive
+- 1100 N. Lake Shore Condominium Association — 1100 N Lakeshore Dr
+- 111 W Huron St — 111 W Huron St
+- 1165 Property Owner, LLC — 1165 N Clark Street
+- 1330 N LaSalle — 1330 N Lasalle Drive
+- 1410 North State Parkway Condominium Association — 1410 N State Parkway
+- 1733 1735 W Irving Park Rd — 1733 1735 W Irving Park Rd
+- 287 Chicago River North IL H2S — 110 W Huron St
+- 30 East Huron Condominium Association — 30 E Huron
+- 33 West Monroe — 33 W. Monroe Street
+- 4120 S Indiana Ave — 4120 S Indiana Ave
+- 5041 - North Bridge Block 119 and 120 — 43 E Ohio St
+- 55 West Monroe — 55 West Monroe
+- 6250 6258 S Park Shore East Ct — 6250 6258 S Park Shore East Ct
+- 640 644 N Wabash Ave — 640 644 N Wabash Ave
+- 700 Bittersweet Condominium Association — 700 W Bittersweet Pl
+- 899 South Plymouth Court Condominium Association — 899 S. Plymouth Court
+- 990 West Fullerton Building — 990 West Fullerton Ave
+- Benchmark Id #175817 — 1450 N Cicero Ave
+- Brompton — 701-15 West Brompton
+- Chicago DT River North IL ES — 600 N State St
+- Chicago IL HL — 1816 North Clark St
+- Chicago IL SCH — 162-164 E Ontario St
+- Clarendon Court Apartments — 4500 N Clarendon Ave
+- Columbus Plaza Venture LLC — 233 E Wacker Drive
+- East Bank Club — 500 North Kingsbury Street
+- Elizabeth Wood Apartments — 1845 N. Larrabee St
+- Elston Plaza — 5033 N Elston Ave
+- Gateway Centre 175603 Building A (Marshalls) — 1701-1741 W. Howard
+- Gateway Centre 176022 Building B or 2 (Jewel) — 7451-7521
+- Goodlow Elementary Magnet -CPS — 2040 W 62nd St
+- Heiwa Terrace — 920 W Lawrence Ave # 1
+- Highlands Tudor Manor — 7018 S. Cregier
+- Kanoon — 2233 S Kedzie Ave
+- Kedzie Plaza — 4756-4770 South Kedzie Avenue
+- Lawndale Terrace — 3158 W Roosevelt Rd
+- Maguire Hall-ID#254163 — 1-11 E Pearson Ave
+- Metcalfe Math And Science -CPS — 12339 S Normal Ave
+- Morningside Court — 1250 W. Morse Avenue
+- NMH Arkes Family Pavilion — 676 N St. Clair St
+- Owens -CPS — 11445 S State St
+- Pete's 118th — 3454 3620 E. 118th Street
+- Presidents Plaza 1 — 8600 West Bryn Mawr Ave
+- Randolph Elementary -CPS — 7316 S Hoyne Ave
+- Steeple Center — 4916-4938 S Kedzie Ave
+- Swartzberg House — 3101 W Touhy Ave
+- Symphony of Chicago West — 5130 W Jackson Blvd
+- Universal City — 9510 S. Constance Ave
+- Washington SOuare-North and Cicero Development LLC — 4821-4951 W. North Avenue
+- Whitechapel Apartments — 4900 N. Sheridan Rd
+## 1981
+- (IL0465) - 110 East Delaware Condominium (110 E Delaware Pl) — 110 E Delaware Pl
+- 20 North Clark Street - 2821 — 20 North Clark Street
+- 200 South Wacker Property LLC — 200 South Wacker Drive
+- 400 East Ohio Condominium Association — 400 E Ohio Street
+- 70 W Madison — 70 W. Madison St
+- Asbury Plaza Venture LLLP — 750 N. Dearborn
+- Bradley Business Center I — 2630 - 2650 West Bradley Place
+- Clark Street Investors L.L.C. — 3134 N. Clark St.
+- Congressman George W. Collins Apts — 1401 S Blue Island Avenue
+- Fullerton Court Apartments — 2303 N. Clybourn
+- Michigan Plaza — 205/225 N Michigan Ave
+- Midrise at Ike Sims Village — 3333 W Maypole Ave
+- Morningside North Apartments — 170 W Oak St
+- Ninos Heroes — 8344 S Commercial Ave
+- Olive-Harvey College - South Side Learning Center - Board of Trustees, Community — 10001 South Woodlawn Ave
+- Park Michigan — 1212 S. Michigan Ave.
+- Peterson Plaza Tower — 5969 North Ravenswood Ave
+- Provident Hospital — 500 E. 51st St.
+- Roscoe SOuare/ 90034 — 3330 N Western Ave
+- Scottsdale Park — Fieldhouse A3
+- Senate Apartments — 5801 N. Pulaski Rd., Bldg. G
+- Shriners Hospital for Children-Chicago — 2211 N. Oak Park Ave.
+- The Buckingham Condominium Association — 360 E Randolph Street
+- The Montrose (Pensacola) (ps49) — 4334 N Hazel St
+- Thorek Memorial Hospital — 850 W. Irving Park Rd
+- U.S. Cellular Plaza - 8410 _ Goby LLC — 8410 West Bryn Mawr Avenue
+- U.S. Cellular Plaza - 8430 _ Goby LLC — 8430 West Bryn Mawr Avenue
+## 1982
+- (IL371) - Grand Ohio Condo (211 E. Ohio St.) — 211 E. Ohio St.
+- 03441AS - Chicago, IL — 2940 North Ashland
+- 1143 S Plymouth Court — 1143 S Pllymouth Court
+- 200 West Madison (Brightly) — 200 West Madison Street
+- 333 West Wacker — 333 West Wacker Drive
+- 437 E 60Th St — 437 E 60Th St
+- 5050 S Kedzie Ave — 5050 S Kedzie Ave
+- Chestnut Place Apartments — 850 North State Street
+- Circle Park Apartments — 1111 S Ashland Ave
+- Halas Recreation Center- ID# 254386 — 6458 N Winthrop Ave
+- Institute of Forensic Medicine — 2121 W. Harrison St.
+- Lake Vista Apartments — 1430 S. Indiana Ave.
+- Lincoln Park Plaza — 600 W Diversey Pkwy
+- Millennium Park Plaza — 151-155 N Michigan Ave
+- One South Wacker — 1 S. Wacker
+- Rush University Medical Center — 1653 W Congress Pkwy
+- U.S. Cellular Plaza - 8420 _ Goby LLC — 8420 W Bryn Mawr Ave
+- Washington Park SRO — 5000 5016 S Indiana Ave
+## 1983
+- (IL0802) - The Private Residences at Ontario (10 E Ontario St) — 10 E Ontario St
+- 03470AS - Chicago, IL — 3570 North Elston
+- 10/30 South Wacker — 10 S Wacker Dr
+- 100 W. Chestnut St. — 100 W. Chestnut St.
+- 1418 North Lake Shore Drive Condominium Association — 1418 N Lake Shore Drive
+- 300 South Riverside Plaza — 300 South Riverside Plaza
+- 525 West Monroe — 525 West Monroe Street
+- 801 S Plymouth Court — 801 South Plymouth Court
+- 87th Street Center — 35 W 87th St
+- Alpha Tower Apartments — 936 E. 47th Street
+- Bernard Mitchell Hospital — 5815 S Maryland Ave
+- Bethel Terrace — 900 W 63rd Parkway
+- Bloomingdale Apartments — 1745 North Keystone
+- Chatham Park South Co-Op — 660 E 85th Street
+- Chicago Board Options Exchange — 400 S LaSalle St
+- Clybourn Lofts Condominium Association — 1872 N Clybourn Ave
+- Daniel Hudson Burnham Apartments — 1930 W. Loyola Ave
+- Harold Washington College — 30 East Lake Street
+- Lafayette Terrace Apartments benchmarking account — 6950 South Vincennes Avenue
+- Las Moradas Apartments — 1307 N California
+- MooGoong Terrace — 4848 N. Kedzie Ave
+- NMH 211 East Ontario — 211 East Ontario
+- One Magnificent Mile — 980 North Michigan Avenue
+- Presidents Plaza 2 — 8700 West Bryn Mawr Ave
+- Van Buren Park Apartments — 2045 W. Jackson Blvd
+## 1984
+- 1241AS - Chicago, IL — 1341 N Paulina
+- 1320 W Fullerton Avenue — 1320 W Fullerton Avenue
+- 150 North Michigan — 150 North Michigan Avenue
+- 26 North Halsted — 26 North Halsted
+- 425 South Financial — 425 South Financial Place (440 South Lasalle)
+- 460 E 41St St — 460 E 41St St
+- 60 E 36Th Pl — 60 E 36Th Pl
+- 7707 W Irving Park Road — 7707 W Irving Park Road
+- Academy SOuare Senior — 318 S Throop St
+- Belhaven Nursing & Rehabilitation Center — 11401 S. Oakley Ave
+- Crerar Library — 5730 South Ellis Avenue
+- Crown Center-ID#254166 — 1001-25 W Loyola Ave
+- King Syke LLC — 2545 S King Drive
+- Metropolitan Condominiums — 5320 N Sheridan Road
+- Olympia Centre — 737 N Michigan
+- Onni 200 LaSalle — 200 N Lasalle Ave
+- Paul G. Stewart Apartments Phase III — 401 E Bowen Ave
+- RML Specialty Hospital — 3534 W Van Buren
+- Van Buren Place — 1504 W. Van Buren
+- Walsh Park Apartments — 1734 N. Paulina Street
+## 1985
+- (IL272) - Delaware Place Private Res (33 West Delaware Place ) — 33 West Delaware Place
+- 190 South LaSalle — 190 South Lasalle
+- 200 West Adams St. — 200 West Adams St.
+- 203 North LaSalle — 203 N Lasalle Street
+- 5220 S. Pulaski Road — 5220 S Pulaski Rd
+- 7000-7010 S. Pulaski Road — 7000-7010 S. Pulaski Road
+- Advocate Beverly Center - 7767 — 9831 South Western Avenue
+- Atlas 2 E 8th St — 2 E 8th St
+- Axis Apartments & Lofts — 441 E Erie St
+- Campbell Terrace — 2061 N. Campbell
+- Foxboro Properties, LLC — 6201 S Emerald Dr
+- Gallery 1250 (ga021) — 1250 N La Salle St
+- Hermitage on Huron Condominium (235635) — 70 West Huron Street
+- Il2125Zz-Ouincy Court Bldg — 11 W Ouincy Court
+- Kersten Physics Teaching Center — 5720 South Ellis Avenue
+- Lake Shore Plaza — 445 E Ohio St
+- Moran (Terrance) Park — Fieldhouse D1
+- North Washington Park Manor — 550 E 50th Place
+- Northwest Home for the Aged — 6840 N Sacramento Ave
+- River North Park (rv57) — 320 West Illinois St.
+- Shop & Save Market - Archer — 5829 S. Archer Ave.
+- St. Michael's High School Condominiums — 1660 N. Hudson Ave
+- Sulzer Library — 4455 N. Lincoln Ave.
+- Thompson Center — 100 W Randolph St
+- Triangle Plaza — 8750-8770 West Bryn Mawr Ave
+## 1986
+- 10 South LaSalle Street — 10 South Lasalle Street
+- 1111 N. Dearborn Apartments — 1111 N. Dearborn
+- 122 160 W 79Th St — 122 160 W 79Th St
+- 123 N Wacker — 123 N Wacker
+- 142 East Ontario — 142 E Ontario
+- 222 North LaSalle — 222 North Lasalle Street
+- 2555 North Clark — 2555 North Clark
+- 2720 2730 N Greenview Ave — 2720 2730 N Greenview Ave
+- LaSalle Private Residences — 1212 N Lasalle
+- PCC - Chicago — 643 North Orleans Street
+- Presidential Towers (ps19;presto) — 555 West Madison St
+- River City — 800 S. Wells Street
+- Riverfront Plaza — 2647 N Elston Avenue
+- The Kent Apartments — 2625 N Clark St
+- University Hall — 2345 N. Clifton Ave.
+## 1987
+- 1259 - Sonesta ES Suites Chicago Downtown 201 East Walton Place - SVC — 201 East Walton Place
+- 225 West Washington — 225 West Washington
+- 303 West Madison — 303 West Madison
+- 321 N. Clark Property, LLC — 321 North Clark
+- Bricktown SOuare (Farmer's Best Bldg) — 6420 W Fullerton
+- Bricktown SOuare (Ross Bldg) — 6560 W Fullerton Ave
+- Cumberland Centre - Building 1 — 5440 N Cumberland Ave
+- Cumberland Centre - Building 2 — 5450 N Cumberland Ave
+- Fairmont Chicago, Millennium Park — 200 N Columbus Dr
+- Fernwood Park — Fieldhouse A3
+- Horwitz & Co. — 651 W Washington Blvd
+- Riverside SOuare & River's Edge/ 90033 — 3145 South Ashland
+- Rowan (William) Park — Fieldhouse A4
+- Shop & Save Market - Nagle — 6312 N Nagle Ave
+- South Loop -CPS — 1212 S Plymouth Ct
+- The New York Private Residences (242935) — 3660 N Lake Shore Dr
+- The Westin Chicago River North — 320 N Dearborn St.
+- Trinity Community Housing Corporation — 3939 S Calumet Ave
+## 1988
+- 00806-Brookdale Lake Shore Drive — 2960 North Lake Shore Drive
+- 1000 N. LaSalle Apartments — 1000 N. Lasalle St.
+- 1120 N. LaSalle Apartments — 1120 N. Lasalle
+- 401 East Ontario Condominiums — 401 East Ontario
+- 4521-23 North Malden Street — 4521-23 N. Malden St.
+- 6 West Hubbard — 6 West Hubbard
+- Addison Mall LLC — 2901-2949 W. Addison Avenue
+- Chicago Swissotel — 323 East Wacker Drive
+- Eugenie Terrace on the Park (gn037) — 1730 N Clark St
+- Harmony Nursing and Rehabilitation — 3919 W Foster Ave
+- Irving — 749 S Oakley Blvd
+- Midway SOuare — 5109 - 5151 S. Pulaski Road
+- NBC Tower — 455 North Cityfront Plaza Drive
+- Ridgemoor Estates 1 Condominium — 4106 N Narragansett Ave
+- Roger Brown Home and Studio — 1926 N Halsted Street
+- Roscoe Village — 1800 West Roscoe
+- Southside HS — 7342 S Hoyne Ave
+- Webster Place Shopping Center — 1435 - 1471 W Webster Ave
+- West 77 (we045) — 77 West Huron Street
+## 1989
+- 03224AS - Chicago, IL — 6430 W. Irving Park Rd
+- 1100 N Clark St — 1100 N Clark St
+- 200 N. Dearborn CA — 200 N. Dearborn Street
+- 225 W Wacker — 225 W Wacker Dr
+- 350 N. LaSalle — 350 N LaSalle St
+- 606 E Woodland Park Avenue — 606 E Woodland Park Avenue
+- 6456 6460 W Belle Plaine Ave — 6456 6460 W Belle Plaine Ave
+- 801 S Canal St — 801 S Canal St
+- 900 North Michigan — 900 North Michigan
+- AG One East Delaware Owner, LLC — 1 East Delaware
+- Casals — 3501 W Potomac Ave
+- Chicago & Kedzie Plaza — 800 N Kedzie Ave
+- Chicago World Language Academy — 1340 W Harrison St
+- Cobbler SOuare Lofts (cO34) — 1350 Wells St
+- F.H. Paschen, S.N. Nielsen & Associates, LLC — 8734 W. Catalpa
+- Hilton Chicago MM Suites — 198 East Delaware Place
+- Kingsbury Orleans LP — 350 W Hubbard Street
+- Lakeside SOuare Apartments — 920 W Lakeside Place
+- Leo Burnett Building — 35 W. Wacker Dr.
+- Manuel Perez Elementary -CPS — 1241 W 19th St
+- Noble Street Lofts Condominium — 515 N. Noble St.
+- North Harbor Tower (nr021) — 175 N Harbor Dr
+- Ridgemoor Estates Condominiums — 6433 W Belle Plaine Ave
+- Ruiz — 2410 S Leavitt St
+- Sanctuary Hall — 2358 N. Sheffield
+- Seton Hall — 2425 N. Sheffield
+- The Elm at Clark — 1122 N Clark St
+- The Franklin (227 West Monroe; 222 West Adams) — 227 West Monroe
+- The Woodlands of Bronzeville Condominium Association — 619 645 E Woodland Park
+- United Airlines Reservation Center — 11555 W Touhy Ave
+## 1990
+- (IL0614) - 1250 North Dearborn Street Condominium (1250 N Dearborn St ) — 1250 N Dearborn St
+- 012-012-Tremont Hotel — 100 E Chestnut
+- 08270 - Ford City 14 — 7601 South Cicero Avenue
+- 100 North Riverside Plaza — 100 N Riverside Plaza
+- 1309 N Wells — 1309 N Wells St
+- 1450 N. Larabee — 1450 N. Larabee
+- 181 West Madison — 181 W Madison Street
+- 2013-Chicago Downtown--Franklin/Madison — 1 South Franklin Street
+- 29SA6-CHIGS-Sheraton Grand Chicago — 301 E. North Water Street
+- 311 City Services — 2111 W. Lexington
+- 311 S. Wacker — 311 South Wacker
+- 420 East Ohio - CO (hs62) — 420 East Ohio
+- 5107 S. Blackstone Ave — 5107 S. Blackstone Ave
+- 5110 S Kenwood — 5110 S Kenwood
+- 515 North State — 515 N. State Street
+- 5316 S Dorchester — 5316 S Dorchester Ave
+- 8791 — 300 E Superior St
+- 9672e-CHISR-Renaissance Chicago Hotel — 1 West Wacker Drive
+- Admin Offices @ Colman — 4655 S Dearborn St
+- Alden Princeton Rehab & Health Care Center — 255 W 69th St
+- C/S Lathrop Limited Partnership — 2717 N Leavitt St
+- Chicago Bar Association — 321 S. Plymouth Ct.
+- Chicago Marriott Downtown Magnificent Mile — 540 North Michigan Avenue
+- Chicago South Loop Hotel — 11 W 26th St
+- Dugan-CPS — 4541 S Wood St
+- Hyde Park Tower — 5140 S Hyde Park Blvd
+- Jeffery Plaza — 2101 E 71st St & 7131 S Jeffrey Blvd
+- John T. Richardson Library — 2350 N. Kenmore
+- Little Village Arch — 3100 W. 26th Street
+- McAuliffe — 1841 N Springfield Ave
+- Miles Davis Elementary -CPS — 6740 S Paulina St
+- Nathanael Green -CPS — 3525 S. Honroe
+- Omni Hotel — 676 N Michigan Ave
+- Pete's Kedgie — 4700 S. Kedgie
+- Ridgemoor Estates V Condominium Association — 6430 W Belle Plaines
+- Tams Building -CPS — 501 - 505 W 35th St
+- The Denifer — 5400 N. Kenmore
+- TransUnion LLC — 555 W Adams St
+- Wicker Park Commons 130910 — 1279 N. Milwaukee Avenue
+- Yards Burlington — 4510 S Damen Ave
+- Yards Forman Mills — 4520 S Damen Ave
+## 1991
+- (IL1074) ParkShore Condominium (195 N. Harbor Drive) — 195 N. Harbor Drive
+- 100 E Huron CA — 100 E. Huron Street
+- 120 North LaSalle — 120 North Lasalle Street
+- 211 N Stetson Avenue — 211 N Stetson Avenue
+- 221 E Walton Condominium Association — 221 E Walton Pl
+- 2300 N Commonwealth — 2300 N Commonwealth Ave
+- 3176AS - Chicago, IL — 9400 S. Ashland Ave
+- 4161 S Drexel Blvd — 4161 S Drexel Blvd
+- 474 North Lake Shore Drive — 474 North Lake Shore Drive
+- 633 N St. Clair — 633 N St. Clair
+- 669 North Michigan — 663-735 N. Michigan Ave.
+- Ascension St Elizabeth Professional Office Building — 1431 N Western Ave
+- Ascension Stone Professional Office Building — 2800 - 2812 N Sheridan Rd
+- CityView Condominium Association (241892) — 440 North Mcclurg Court
+- Fordham Hall- ID# 103681 — 6455 N Sheridan Rd
+- Galter Life Center — 5157 N Francisco Ave
+- Gold Coast Galleria — 111 West Maple Street
+- Harold Washington Library — 400 S. State St.
+- Hyde Park Shopping Center — 1500-1554 E 55th St
+- Il0303Zz-Metcalfe Fed Bldg — 77 W Jackson
+- Merrimac Square Condominium II Association — 6526 W. Irving Park Rd.
+- Montgomery Place — 5550 S Shore Dr
+- One North Franklin (PNC Center) — 1 N. Franklin
+- Plaza 440 Private Residences — 440 N. Wabash
+- Prete Apartments — 5801 N. Pulaski Rd., Bldg. E
+- Simpson Living Learning Center-ID# 254167 — 6333 N Winthrop Ave
+- West Side Realty Corporation — 1645 W. Jackson Blvd.
+## 1992
+- 03442AS - Chicago, IL — 4042 W. Foster Ave
+- 1133 N. Dearborn Apartments — 1133 N. Dearborn
+- 161 North Clark — 161 North Clark
+- 311GE-CHIWB-Downtown — 30 East Hubbard At State Street
+- 500 West Monroe — 500 West Monroe
+- 750 N. Rush — 750 N. Rush
+- 77 West Wacker Drive — 77 W. Wacker Drive
+- 840 North Michigan Avenue AcOuisition LLC — 840 North Michigan Ave.
+- 850 Eastwood — 850 West Eastwood Avenue
+- Coles Model For Excellence -CPS — 8441 S Yates Blvd
+- Hayes Manor Senior Apartments — 1211 W Marquette Rd
+- Illinois Institute of Technology- DTC — 565 West Adams Street
+- Jefferson Courte Condominium Association — 4848 N Central Ave
+- Jenel Management Corp — 25 E Oak St
+- Linden House of Chicago — 2315 W. Lemoyne Ave.
+- The Pavilion — 5441 N. East River Road
+- The River West 2 Condominium Association — 939 W. Huron St.
+- Walsh, John A -CPS — 2031 S Peoria St
+- Westport Commons - Ultra Foods — 3250 W 87th St
+## 1993
+- (IL351) - 420 W. Grand Condo Association (420 W. Grand Ave.) — 420 W. Grand Ave.
+- 1155 West Armitage Condominium Association — 1155 W Armitage Ave
+- 2430 N Halsted — 2430 N Halsted Street
+- 3000 N Halsted Street — 3000 N Halsted Street
+- 3222 W Maypole Ave — 3222 W Maypole Ave
+- Bslc — 924 E 57th St
+- Chavez — 4747 S Marshfield Ave
+- Folio SOuare Condominium Association — 124 W. Polk St.
+- Gateway Chicago West — 3828 W Taylor St.
+- Gleacher Center — 450 North Cityfront Plaza
+- Jordan — 7414 N Wolcott Ave
+- Juvenile Courthouse — 2245 W. Ogden Ave.
+- Lozano — 1501 N Greenview Ave
+- Marshfield Lofts — 1740 N. Marshfield
+- Plaza Taino — 1111 N Francisco Av
+- Target, Bedford Park (0841) — 7100 S Cicero Ave
+- Wright College — 4300 North Narragansett
+## 1994
+- 1150 West Fullerton Building — 1150 W. Fullerton
+- 1414 North Wells Condominium Association — 1414 N. Wells St.
+- 1830 N Winchester Ave — 1830 N Winchester Ave
+- 411 W Ontario — 411 W. Ontario Street
+- 617-Downtown Chicago — 620 N Lasalle St
+- Alden Estate of Northmoor — 5831 N Northwest Hwy
+- Chicago Near North (0942) — 2656 N Elston Ave
+- Chicago Transit Authority - 120 N. Racine — 120 North Racine
+- Irving Park Condominium — 6530 W Irving Park Rd
+- Nathalie Salmon House — 7320 N Sheridan Rd
+- Newberry Park Apartments — 1355 South Blue Island
+- The Renaissance at Southshore / Symphony South Shore LLC — 2425 E 71st St
+- Trinity United Church of Christ — 400 W 95th St
+- United Center — 1901 W Madison St
+- Yusuf Indiana — 1911 S Indiana Ave
+## 1995
+- 1903 - Brickyard — 2555 Normandy Ave
+- 207-Senior Suites of Ravenswood Manor — 2800 West Montrose Avenue
+- American Asia — 4851-4887 N. Broadway
+- Catholic Charities Tolton Manor — 6345 S Stewart
+- Central Park Apartments — 4501-15 N. Central Park
+- East Park Redevelopment Limited Partnership — 3300 W Maypole Ave
+- Finkl Elementary -CPS — 2332 S Western Ave
+- Haines — 247 W 23rd Pl
+- Marillac Soical Center — 212 South Francisco Ave
+- Market SOuare Lofts Condominium Association — 161 W Harrison
+- Museum Of Contemporary Art — Lake Shore Park
+- Park Newberry — 55 W. Delaware Place
+- Paseo Boricua Gateway Flags — 2400-West Division ST & 2800 West Division St
+- Point at Clark — 3131 N Clark St
+- The Studios — 1801 South Wabash Avenue
+## 1996
+- 190 E Walton Pl — 190 E Walton Pl
+- 1912 - North Avenue — 1232 W North Ave
+- 227-Senior Suites-Belmont Cragin — 6045 West Grand Avenue
+- 229-Senior Suites-Austin — 335 N. Menard Avenue
+- 25650 - 600 North 9 — 600 N. Michigan Ave
+- 3611 W. Montrose Condominium Association — 3611 W. Montrose Ave.
+- 401 South Clinton — 401 S Clinton St
+- 410 E Bowen Ave — 410 E Bowen Ave
+- Arturo Velasquez Institute — 2800 South Western
+- Carroll @ Rosenwald Branch — 2601 W 80th Street
+- Catholic Charities Mathew Manor — 271 N Albany Ave
+- Clybourn — 2601 N. Clybourn Street
+- CornellSquareCondo Association — 4922-4942 S Cornell Ave
+- Daley — 5024 S Wolcott Ave
+- Dcam — 5758 S Maryland Ave
+- Glen Lake I Condominium Association — 6400 W Berteau
+- House of Blues Chicago — 329 N Dearborn St
+- Lara — 4619 S Wolcott Ave
+- Little Village ES — 2620 S Lawndale Ave
+- Madero — 3202 W 28th St
+- Maple Pointe Apartments — 150 W. Maple Street
+- Museum of Contemporary Art — 220 E. Chicago Avenue
+- Ortiz De Dominguez — 3000 S Lawndale Ave
+- Southpoint Nursing and Rehabilitation Center — 1010 W 95Th St
+- West Park — 1425 N Tripp Ave
+- Zapata — 2728 S Kostner Ave
+## 1997
+- (IL590) - Beacon Lofts (203 S. Sangamon) — 203 S. Sangamon
+- 1515 Michigan Avenue Condominium Association — 1515 -1525 S. Michigan Ave.
+- 1914 - Dan Ryan — 200-232 W 87th St
+- 2367 W Logan — 2367 West Logan Blvd
+- 3850 W Bryn Mawr Ave — 3850 W Bryn Mawr Ave
+- 3940 W Bryn Mawr Ave — 3940 W Bryn Mawr Ave
+- 3950 W Bryn Mawr Ave — 3950 W Bryn Mawr Ave
+- 616 Fulton Lofts Condominium Association — 616 W. Fulton St.
+- 730 Michigan Avenue — 730 North Michigan Avenue
+- ABLA/Brooks Homes — 1324 S. Loomis Street
+- Aperion Care International — 4815 S. Western Blvd.
+- Bicycle Station Lofts Condominium Association — 1632 S. Indiana Ave.
+- CASL Senior Housing — 2108 S. Princeton Avenue
+- CME Group Inc — 333 S LaSalle St
+- Conservancy at North Park Condo I — 3900 W Bryn Mawr Ave
+- Fullerton Plaza — 1737-1829 W. Fullerton Avenue
+- Gale Community Academy, Stephen F -CPS — 1631 W Jonquil Ter
+- Marine Leadership at Ames HS — 1920 N Hamlin Ave
+- Market Place at Six Corners 10361 — 4612 - 4730 W Irving Park Rd
+- Marketplace at Six Corners — 4660 & 4640 W. Irving Park
+- Mayfair Commons — 4444 W. Lawrence Ave.
+- Northgate Landing — 7625-39 North East Lake Terrace
+- Rainbow Pylons and the Legacy Walk — 3243-3711 North Halsted Street( Odd and Even)
+- Rowe Elementary / Lozano Bilingual — 1424 N Cleaver Street
+- Sandoval School — Senka (Edward "Duke") Park
+- Skyline Michigan Condominium Association — 1601 S Michigan Ave
+- Symphony Center — 220 South Michigan Avenue
+- Taylor, Douglas -CPS — 9912 S Avenue H
+- The MGI - MARS Global Services — 930 W Evergreen Ave, Chicago, IL 60642
+- The Whitney Condominium Association — 1301 N Dearborn
+## 1998
+- 18th Street Lofts — 1801 S Michigan Ave
+- 228-Senior Suites of South Shore — 2355 East 67th Street
+- 230-Senior Suites-Central Station — 1400 S. Indiana Street
+- 300 West Grand Condominium Association — 300-310 W. Grand Ave.
+- 33 W Huron St — 33 W Huron St
+- 35 N. State — 35 N. State
+- 400 W. Superior — 400-432 W. Superior Street
+- Altgeld Club Condominium — 1350 W Fullerton Ave
+- Ascension Living Resurrection Village - Life Center — 7370 West Talcott Avenue
+- Bright, Orville T -CPS — 10740 S Calhoun Ave
+- Broadway at Surf — 2828-2868 N. Broadway
+- Centennial Hall — 2345 N. Sheffield
+- Chicago City Day School — 541 W Hawthorne Pl
+- Elevate Care Villa of Wndsor — 2649 E 75th Street
+- Hotel Chicago — 333 N Dearborn Street
+- Hotel Monaco Chicago — 225 N. Wabash Avenue
+- Julian HS -CPS — 10330 S Elizabeth St
+- McGowan North — 2325 N Clifton Ave
+- Riverpoint Center - 16281101 — 1730 W Fullerton Ave
+- Smith Park Commons Condominium Association — 2455 W. Ohio St.
+- The Bristol Condominium Association — 57 East Delaware Place
+- Washington SOuare Condominium Association — 1301-1309 W Washington Blvd
+## 1999
+- (IL0466) - Erie Centre Condo (Campus) (375-435 W Erie) — 375-435 W Erie
+- 0092AS - Chicago, IL — 1655 E. 95th Street
+- 025110 - Stony Island Plaza — 1617 - 1754 E 95th St
+- 1000 Adams CA — 1000 W. Adams Street
+- 1111 W. Division St. — 1111 W. Division St.
+- 1122 N Dearborn — 1122 N Dearborn
+- 1430 S. Michigan Ave — 1430 S. Michigan Avenue
+- 162 North State Street — 162 N. State St.
+- 2040 Belmont LLC — 2040 Belmont Ave
+- 21 W. Chestnut Condominium Association — 21 W Chestnut St
+- 2940 W 87Th St — 2940 W 87Th St
+- 333 N Jefferson Condo Association — 333 N Jefferson Street
+- 400 West Ontario Condominium Association — 400 W Ontario St.
+- 420 432 W Ontario St — 420 432 W Ontario St
+- 550 W Fulton Condo Assoc. — 550 W Fulton
+- Archer Heights Health Care LLC — 4437 S. Cicero Ave.
+- DeVry University Campbell — 3300 N Campbell Ave
+- Hampton Inn & Suites Chicago - Downtown — 33 W Illinois
+- Kinzie Park Tower Condominium Association — 501 N. Clinton St.
+- Lavizzo — 138 W 109th St
+- Michigan Avenue Gardens — 1808 S Michigan
+- National Teachers — 55 W Cermak Rd
+- NMH Feinberg Pavilion and Galter Pavilion — 251 E Huron St
+- North Town Village I — 1311 N Halsted
+- Northside Prep HS — 5501 N Kedzie Ave
+- One Superior Place - CO (np52) — 1 W Superior St.
+- Onni Van Buren Chicago LLC — 550 West Van Buren Street
+- Orozco Elementary -CPS — 1940 W 18th St
+- Park Hyatt Chicago — 800 N Michigan Ave
+- Ray Meyer Fitness and Recreation Center — 2235 N. Sheffield
+- Ruth Shriman — 4040 N Sheridan Rd
+- Sandoval — 5534 S Saint Louis Ave
+- South River Park Condominium Association — 400 N. Clinton Street
+- The Goodman Theatre — 170 N Dearborn Ave
+- Verde Condo Association — 680 N Green Street
+## 2000
+- (IL0508) - Park Place Tower I Condominium (655 W Irving Park Rd ) — 655 W Irving Park Rd
+- (IL0677) - Goethe Astor Inc (1301 N. Astor St) — 1301 N. Astor St
+- (IL396) - 5400-5420 N Sheridan Rd Condo (5400-5420 N Sheridan Rd ) — 5400-5420 N Sheridan Rd
+- (IL554-H) - Kinzie Station, Hi-Rise (330 N Jefferson Court) — 330 N Jefferson Court
+- 00620-Chicago, IL — 700 N Michigan Avenue
+- 00821-Brookdale Lake View — 3121 North Sheridan
+- 04750 - New City 14 — 1515 N Clybourn Ave Ste C301
+- 10252-KBS Kingsbury SO. — 1550 N. Kingsbury St
+- 1063 - Royal Sonesta Chicago Riverfront 71 E Wacker Drive - SVC — 71 E Wacker Drive
+- 131 S Dearborn 3 — 131 S Dearborn
+- 1329 1341 W Estes Ave — 1329 1341 W Estes Ave
+- 1369 E Hyde Park Blvd — 1369 E Hyde Park Blvd
+- 1521 S Wabash Ave — 1521 S Wabash Ave
+- 1900 1912 W Pratt Blvd — 1900 1912 W Pratt Blvd
+- 20 W Kinzie St — 20 W Kinzie St
+- 2211 N Milwaukee (ll036) — 2211 N Milwaukee Ave
+- 231-Senior Suites-Garfield Ridge — 5839 S. Harlem Avenue
+- 236-Senior Suites of Rainbow Beach — 2804 E. 77th Place
+- 244 E Pearson LLC — 244 E Pearson St
+- 2606 N Elston Ave — 2606 N Elston Ave
+- 3224 3244 N Halsted St — 3224 3244 N Halsted St
+- 330 N Clinton Condo Assoc — 330 N Clinton St
+- 5114 N Christiana Ave. — 5114 N Christiana Ave.
+- 550 West Washington — 550 West Washington
+- 560 W Fulton Condo Assoc. — 560 W Fulton
+- 7350 S. Phillips, LLC — 7350 S. Phillips
+- 8915 S Loomis St — 8915 S Loomis St
+- 900 W Fullerton — 900 W Fullerton
+- Affinity on North Ave. — 551 W North Ave
+- AJ1034 - Chicago Marriott @ Medical District/UIC — 625 S. Ashland Avenue
+- Archer Building Lofts Condominium Association — 2310 S. Canal Street
+- Atelier (5556 N. Sheridan Rd.) — 5556 N. Sheridan Rd.
+- Belden-Racine Hall — 2311 N. Racine
+- Belmont Place — 4645 West Belmont Avenue
+- Benchmarking - HI Chicago Hostel — 24 East Congress Parkway
+- Brunson — 932 N Central Ave
+- Burnham Station Condo Assoc — 61 W 15th St
+- Catholic Charities Saint Alibe - (Faith Apartments) — 1244 East 93rd Street
+- CH10 - Chicago South — 11840 S Marshfield Ave
+- Chchil76_Ib00100009489/O10170/4533 W Roscoe St/Chicago/Il — 4533 W Roscoe St
+- Chcxilcw_Ib00100005568/Ob8292/2011 W Hastings St/Chicago/Il — 2011 W Hastings St
+- Chicago-Central — 4058 W Melrose St
+- Chicago-Lakeshore — 6130 North Sheridan Rd
+- Chicago-North — 2544 West Montrose Ave
+- Clifton-Fullerton Hall — 2350 N. Clifton Ave.
+- Clinton Complex Condominium Association — 500 S Clinton St
+- College of Education Building — 2247 N. Halstead Ave.
+- Congress Center — 525 W. Van Buren
+- Cumberland Crossing Condominium — 5555 North Cumberland
+- Daily News Condominium Association — 222 S Racine Ave
+- Fairbanks Lofts — 900 902 S Wabash Ave
+- Fletcher Lofts, LLC — 3141 N Sheffield Ave.
+- Francis W Parker School - Main Building — 330 W Webster Ave
+- Fulton Court Townhome Association — 640 W Fulton
+- Goodman Theatre — 56-60 W. Randolph St.
+- Greenwood Place — 1111-1135 E. 87th Street
+- Hampton — 3434 W 77th St
+- Headquarters Q12380 — 225 W Randolph
+- Heritage Woods of Chicago — 2800 West Fulton
+- IN0035-21C Museum Hotel Chicago — 55 E Ontario St
+- Kingston Place — 7435 S Kingston
+- Michigan Ave Suites LLC — 320 N Michigan Ave
+- New Sullivan — 8331 S Mackinaw Ave
+- Nordstrom #220 Michigan Avenue — 55 E Grand Ave
+- O11970/2401 W Grace St/Chicago/Il — 2401 W Grace St
+- Ogden ES Branch @ Jenner — 1119 N Cleveland Avenue
+- One East 14th Place — 5 E. 14th Place
+- Payton HS — 1034 N Wells St
+- Reside on Jackson — 1241 &Amp; 1245 W. Jackson
+- RiverView Condominium Association — 445 E North Water St
+- Signature Lofts — 1750 N Wolcott Avenue
+- SpringHill Suites O'Hare — 8101 W. Higgins
+- St. Sabina Elders Village — 1222 W. 79th Street
+- Sullivan Athletic Center — 2323 N. Sheffield Ave.
+- Tandem Lofts Condo Association — 1631 S. Michigan Ave.
+- The Gwen Hotel — 521 N Rush St
+- The Peninsula Chicago — 108 East Superior St.
+- Whitmore Apartments — 417-21 S Central
+## 2001
+- (IL0361) - Residences at Riverbend Condominium (333 N Canal St ) — 333 N Canal St
+- (IL252) - Huron Pointe Condo Assn ( 421 W. Huron St) — 421 W. Huron St
+- (IL554M) - Kinzie Station Condo, Mid (324 N. Jefferson Court) — 324 N. Jefferson Court
+- (IL611) - 700 W. Van Buren Condo (700 W. Van Buren) — 700 W. Van Buren
+- 1212 N. Wells CA — 1212 N Wells St
+- 15 25 S Throop St — 15 25 S Throop St
+- 1934 N. Washtenaw CA — 1934 N. Washtenaw Avenue
+- 2120 Lincoln Park West Condo Association — 2120 N Lincoln Park West
+- 232-Senior Suites of Washington Heights — 848 W. 103rd Street
+- 345 N LaSalle Drive — 345 N Lasalle Drive
+- 630 North State Parkway Condo — 630 North State
+- 849 W Ohio Street — 849 W Ohio Street
+- 950 W. Huron Condominium Association — 950 W. Huron St.
+- Admiral's Pointe Condominium Association — 645 N Kingsbury St
+- Auburn Commons — 1626 W 87th St
+- Barton Senior Residences of Chicago — 1245 South Wood Street
+- Buck City Lofts — 1740 N Maplewood Ave
+- Chestnut Tower (ch084) — 121 W Chestnut St
+- CHI1 - Chicago DC1 — 2800 S. Ashland Ave
+- Chicago-Downtown/Lakefront Embassy Suite — 511 North Columbus Drive
+- Columbia Explorers — 4520 S Kedzie Ave
+- Costco #00380 Lincoln Park — 2746 N. Clybourn Avenue
+- Dearborn Tower Condominium Association — 1530 S State St
+- ECD Streeterville Hotel LLC — 216 E. Ontario
+- Haven Towers — 7947 S. South Chicago Ave.
+- Humboldt Ridge Apartments — 1816 N St Louis Ave
+- Madison — 939-949 W Madison Street
+- Mcnair Academy Center, Ronald E -CPS — 4820 W Walton St
+- Museum Park Tower 1 Condominium Association — 1322 S. Prairie Ave
+- One East 15th Place Condominium — 1529 S State St
+- One North Wacker — One North Wacker Drive
+- Prairie House at Central Station — 1515 S. Prairie Ave
+- Press Office Building — 1427 E. 60th Street
+- St Vincent Depaul — 2145 North Halsted
+- Student Center — 2250 N. Sheffield
+- Superior West Private Residences — 101 W. Superior St.
+- The Farallon Condominium — 600 N Dearborn St.
+- The Metro — 1200 W. Monroe St.
+- The Promenade Condominium Association — 1201 W Adams
+## 2002
+- (IL0602) - Erie on the Park (510 W Erie) — 510 W Erie
+- 01330 - River East 21 — 322 E Illinois St
+- 03344AS - Chicago, IL — 1220 S Ashland Ave
+- 03721AS - Chicago, IL — 6107 S. Archer Ave.
+- 0901AS - Chicago, IL — 3400 N. Western Avenue
+- 1444 N Orleans St — 1444 N Orleans St
+- 1961 - Elston/Leavitt — 2570 N Elston Ave
+- 2 East Erie Condominium Association — 2 East Erie Street
+- 2001 Calumet — 2001 S. Calumet Ave.
+- 233-Senior Suites of Hegewisch — 13550 S. Avenue O
+- 251010 - PepsiCo Chicago Plaza — 555 W Monroe St
+- 26810_26811 939 North Avenue Collection,LLC — 939 W. North Avenue
+- 2700 N Halsted St — 2700 N Halsted St
+- 340 West Superior Condominium Association — 340 W. Superior
+- 65 E Goethe St — 65 E Goethe St
+- 830 N Michigan Ave — 830 N Michigan Ave
+- 888 South Michigan Condominium Association — 888 S. Michigan Ave.
+- 900 920 W Madison — 900 920 W Madison
+- 919 S California Ave. — 919 S California Avenue
+- Catholic Charities Ozanam Village — 251 N Albany Avenue
+- Cullerton Station Condominium Association — 1909-1935 S State St
+- Dearborn Elm Condominium Association — 1155 N Dearborn
+- North Center 4000 Condominium Association — 4015 4027 N Lincoln Ave
+- Old Town Midrise Condo — 343 W Old Town Court
+- Park Millennium Condominium Association — 222 N. Columbus Dr.
+- Park Place Chicago Condominium Association — 600 N. Kingsbury Street
+- Pickard Elementary, Josiah L -CPS — 2301 W 21st Pl
+- Sofitel Chicago Water Tower — 20 East Chestnut
+- Stroger Hospital Campus — 1901 W. Harrison St.
+- The Parc Orleans Condominium Association Inc — 1546 N. Orleans
+- The Residences of 41 E. 8th Street — 41 E. 8th Street
+- Venetian Condominium Association — 222-232 W. Division St.
+- Wells Street Tower Condominium Association — 701 South Wells Street
+## 2003
+- (IL0404) - 212 E. Condominium (212 E. Cullerton) — 212 E. Cullerton
+- (IL0679) The Fordham Condominium (25 E. Superior St) — 25 E. Superior St
+- 15th Place — 811 - 833 W 15th Pl
+- 191 North Wacker — 191 North Wacker Drive
+- 1974 - Armitage / Cicero — 1919 N Cicero Ave
+- 1976 - Lincoln Park — 2665 N Halsted St
+- 1980 - Kimball & Addison — 3500 N Kimball Ave
+- 33 West Ontario Street — 33 W Ontario St.
+- 400 North LaSalle Condominium Association — 400 N. Lasalle Drive
+- 530 North Lake Shore Drive — 530 North Lake Shore Drive
+- 60 W Erie Condo — 60 W Erie St Apt 1401
+- 63029-Sunrise of Lincoln Park — 2710 North Clark St
+- 70800789 -- 47th ~ Damen — 4620 S Damen Ave
+- 737 W Washington Blvd — 737 W Washington Blvd
+- 740 N. Milwaukee, LLC — 740 N. Milwaukee Ave.
+- 840 Lake Shore Condominium Association — 840 N. Lake Shore Dr.
+- 933 Van Buren Condominium Association — 933 W. Van Buren St.
+- American Red Cross Greater Chicago — 2200 W Harrison St
+- Atrium Condominium Association — 4101-4115 S. Michigan Ave
+- Chicago Mid North (1437) — 2939 W Addison St
+- City View Tower at Randolph Condominium Association — 720-726 W. Randolph St.
+- Contemporaine Condominium Association — 201 W Grand Ave/516 N. Wells
+- Courtyard Chicago Downtown Mag Mile — 165 E Ontario St
+- Cuffe Math/Science/Tech Academy -CPS — 8324 S Racine Ave
+- Gateway Apartments (Sneider Apartments) — 7450 N Rogers
+- Grand Plaza — 540 N. State St
+- Harris Theater for Music and Dance — 205 E Randolph Street
+- Kingsbury on the Park — 653 N. Kingsbury Street
+- Lakeview Pointe Condominium Association, Inc. — 7736-7772 N. Sheridan Rd.
+- Lincoln Park Commons Condominium Association — 2650-2700 N. Clark St.
+- McCormick Tribune Campus Center (MTCC) — 3201 S State Street
+- Museum Tower Residences (251218) — 1335 South Prairie Avenue
+- New Field — 1707 W Morse Ave
+- One One One Morgan — 111 S Morgan St
+- Park Alexandria Condominium Association — 125 South Jefferson Street
+- Pershing Apartments — 3845 S State St
+- Pete's Pulaski — 4343 S. Pulaski
+- Prairie District Homes Tower Residences Condominium Association — 1717 S. Prairie
+- Ratner Athletics Center — 5530 South Ellis Avenue
+- Ravenswood Court — 4510-4518 N. Ashland
+- Renaissance Ohare — 8500 West Bryn Mawr Ave
+- Simeon HS — 8147 S Vincennes Ave
+- South Sauganash Condo Assoc (6000-6038 N. Cicero Ave.) — 6000 N. Cicero Ave
+- The Caravel — 635 North Dearborn Street
+- The Montrevelle Condominium Association — 520 N. Halsted St.
+- The Pearson — 250 East Pearson St
+- The Royalle Condominium Association — 744 N. Clark St.
+- University Village Lofts — 1524 And 1525 S Sangamon Street
+- Vue20 Condo Association — 1845 S. Michigan Ave
+- Westhaven Park Tower — 100 N Hermitage Ave
+## 2004
+- (IL1071) - The Pinnacle Condo (21 E. Huron St) — 21 E. Huron St
+- (IL323)- Two River Place (720 N Larrabee) — 720 N Larrabee
+- (IL452) - 55 East Erie Condo (55 E Erie St ) — 55 E Erie St
+- (IL637) - Park 1500 Loft (1500 W Monroe) — 1500 W Monroe
+- 03349AS - Chicago, IL — 2520 N. Narragansett Ave
+- 1 S Leavitt Street — 1 S Leavitt Street
+- 111 South Wacker — 111 South Wacker
+- 1201 1213 W Leland Ave — 1201 1213 W Leland Ave
+- 1217 1227 W Wilson Ave — 1217 1227 W Wilson Ave
+- 1601 S State St — 1601 S State St
+- 1747 W. Roosevelt — 1747 W. Roosevelt
+- 180 North Jefferson Apartments — 180 North Jefferson Street
+- 234-Senior Suites of Jefferson Park — 5400 N. Northwest Highway
+- 235-Senior Suites of New City — 4845 S. Western Avenue
+- 540 West Madison — 540 W. Madison
+- 5924 N Lincoln — 5924 N Lincoln Ave
+- 6640 50 W Belden Ave — 6640 50 W Belden Ave
+- 824 West Superior Condominium Association — 824 W. Superior St.
+- 8598 - Lincoln & Mccormick — 6211 N Lincoln Ave
+- 8727 W. Bryn Mawr Condominium Association, Inc. — 8727 W Bryn Mawr Ave
+- 8747 W. Bryn Mawr Condominium Association, Inc. — 8747 W Bryn Mawr Ave
+- 8846 — 303 E Superior St
+- Abbott (Robert) Park — Fieldhouse C
+- Apex Condominium — 859 W Erie
+- Bryn Mawr Place 1 Condominium Association — 8711 W Bryn Mawr Ave
+- Buena Pointe Condominium — 4350 N Broadway
+- Chicago Brickyard (1924) — 6525 W Diversey Ave
+- Chicago South Loop (1889) — 1154 S Clark St
+- Chicago South Pulaski (1879) — 4433 S Pulaski Rd
+- Chicago Transit Authority - 567 W Lake Street — 567 W. Lake Street
+- Churchview SLF — 2626 W 63rd Street
+- Claremont Academy Elementary School — 6315 S Claremont Ave
+- Corboy Law Center-ID# 101971 — 25 E. Pearson St.
+- Depriest — 139 S Parkside Ave
+- Edge Lofts & Tower Condominium Association — 210 South Des Plaines Street
+- Fosco (Peter) Park — Fieldhouse Joint
+- Francisco — 4011 N Franicsco Ave
+- Grand on Grand Condominium Association — 200 W. Grand Ave.
+- Harper Center (Booth School) — 5807 South Woodlawn Ave.
+- Haugan Middle (Aspira Charter) — 3729 W Leland Ave
+- Lake Park Crescent - Midrise — 1061 E 41st Pl
+- Lakeside on the Park Condominium Association — 1250 S Indiana
+- Lancaster Condo Association — 201 N. Westshore Drive
+- Lofts At Museum Park Condominium Association — 1305 S. Michigan Ave.
+- Museum Park Lofts — 125 E 13th St
+- North-Grand HS — 4338 W Wabansia Ave
+- Ouinlan Life Sciences Education and Research Center-ID# 254168 — 1050 W Sheridan Rd
+- Parvenu Condominium Association — 1000 W. Leland Ave.
+- River Walk Townhomes — 2903-2923 N Claremont Ave
+- The Ambassador Condominium Homeowners Association — 1300 N State Parkway
+- University Center Chicago — 525 S. State Street
+- Wentworth Condos — 2734 South Wentworth Avenue
+## 2005
+- (IL0524) - Museum Pointe Condominium (233 E 13th St ) — 233 E 13th St
+- (IL631) - Jefferson Tower Condominium Association (200 N. Jefferson ) — 200 N. Jefferson
+- 1001 Madison Condominium Association — 1001 W Madison
+- 10725-Bucktown — 2140 N. Elston Ave
+- 1111 S. Wabash Condominium Association — 1111 S. Wabash
+- 1819 S Michigan Avenue Condominium Association — 1819 S Michigan Ave
+- 1986 - 47Th And Western — 4555 S Western Blvd
+- 226-Senior Suites-Gage Park — 3244 W. 59th Street
+- 250-Senior Suites of Auburn Gresham — 1050 W. 79th
+- 2510 W Irving Park Rd — 2510 W Irving Park Rd
+- 260-Senior Suites of Bridgeport — 2825 S. Halsted
+- 2600 N Hampden — 2600 N Hampden Court
+- 309-The Breakers at Edgewater Beach — 5333 North Sheridan Road
+- 4418 4424 N Clark St — 4418 4424 N Clark St
+- 600 618 S Wabash Ave — 600 618 S Wabash Ave
+- 630 N. Franklin Condominium Association — 630 N Franklin St
+- 71 South Wacker — 71 S. Wacker Drive
+- AC Hotel Chicago Downtown — 630 N Rush St
+- Burnham Mathematics And Science Academy -CPS — 1903 E 96th St
+- Calhoun North -CPS — 2801 W Adams
+- Cornell — 5401 S Cornell Ave
+- Ellington — 243 N Parkside Ave
+- Emmet Elementary -CPS — 5500 W Madison St
+- Fosco Park — 1312 S Racine Ave
+- Goldblatt Elementary, Nathan R -CPS — 4255 W Adams
+- Gordon Center for Integrative Science (GCIS) — 929 East 57th Street
+- Grand & Orleans — 330 W. Grand Avenue
+- Hayes (Francis) Park — Pool Building
+- Henson Elementary, Matthew A -CPS — 1326 S Avers Ave
+- Key Elementary -CPS — 509 N Parkside
+- King (Martin Luther, Jr.) Park — Fieldhouse A1
+- Kohn Elementary -CPS — 10414 S State St
+- Laura S Ward Elementary -CPS — 410 N Monticello Ave
+- Lincoln (Abraham) Park — Zoo Building
+- Little Village Multiplex — 3120 S Kostner Ave
+- Loftworks on Michigan — 1919 S Michigan
+- Madden Wells Ph 1B — 743 East 38th St
+- Maple Tower Condo Association — 1035 N Dearborn St
+- Martha Washington — 2324 West Irving Park Road
+- MDA City Apartments — 63 E Lake St
+- Montgomery on Superior Condominium Association — 500 W. Superior
+- Motley School Apartments — 739 N Ada St
+- N001845-Chicago Brickyard — 2630 N. Narragansett Ave.
+- National Museum Of Mexican Art — Harrison (Carter) Park
+- No. 10 Urban Court Lofts — 1040 W. Adams St.
+- Oakwood Shores 2D — 3744-54 S Ellis Ave
+- One South Dearborn — 1 South Dearborn
+- Palmer Kedzie Condominium Association — 3127-45 W Palmer
+- Rainbow Beach Park — Fieldhouse B1
+- Rainbow Beach Park — Fieldhouse Bh
+- Regis Hall-ID#254172 — 6340 N Winthrop Ave
+- Ross Elementary (Cockrell Cpc) -CPS — 6059 S Wabash Ave
+- Soldier Field — Burnham (Daniel) Park
+- South Park Plaza — 2600 S King Dr
+- SouthLoopBrn-CPS — 1915 S Federal St
+- State Place Condominium Association — 1101 S State St
+- Tarkington — 3330 W 71st St
+- Tarkington Scholastic Academy — Marquette (Jacques) Park
+- Teresa Roldan Apartment on Paseo Boricua — 1154 N Campbell Ave
+- The Bernardin — 747 N Wabash Ave
+- The Brickyard — 2532 - 2554 Narragansett
+- The Heritage at Millennium Park — 130 North Garland Court
+- The Residences at 950 West Monroe — 950 W Monroe St
+- The Shoreham at Lakeshore East (sh324) — 400 E South Water St
+- To be determined (Building being renovated in 2015-2016) — 221 E 49th St
+- Wentworth Commons — 11045 South Wentworth
+- Wrigley Global Innovation Center — 1132 W Blackhawk St
+- Yale -CPS — 7025 S Princeton Ave
+## 2006
+- (IL1068) - Prairie Pointe at Central Station Condo (1600 S Prairie Ave ) — 1600 S Prairie Ave
+- (IL247) - River Place on the Park Condo (700 N Larrabee) — 700 N Larrabee
+- (IL337) - Museum Park Place South (1841 S Calumet Ave) — 1841 S Calumet Ave
+- (IL624) - Sheridan Grande Condo (4848 N. Sheridan Rd.) — 4848 N. Sheridan Rd.
+- 1117-37 W Monroe — 1117-1137 W Monroe
+- 1237 Fullerton LLC dba Ion Lincoln Park — 1237 West Fullerton
+- 1251 S. Michigan Avenue — 1251 S. Michigan Avenue
+- 1251/1255 S. Michigan — 1251/1255 S. Michigan Avenue
+- 1401 W Roosevelt Rd — 1401 W Roosevelt Rd
+- 1610 1620 W Fullerton Ave — 1610 1620 W Fullerton Ave
+- 1620 S. Michigan Ave Condo Association — 1620 S. Michigan Ave
+- 2472 W Foster — 2472 W Foster
+- 30 W Oak St — 30 W Oak St
+- 3205 W. Carmen Ave. — 3205 W Carmen Ave.
+- 4144 N Sheridan — 4144 N Sheridan
+- 4700 N Marine Dr — 4700 N Marine Dr
+- 550 West Adams — 550 W. Adams
+- 70800552 -- Chicago — 7030 S Ashland Avenue
+- 909 W. Washington Condo — 909 W. Washington Blvd
+- A Safe Haven Foundation — 2750 W Roosevelt
+- Albany Park Multicultural Academy -CPS — 4929 N Sawyer Ave
+- Armitage Commons — 3720 W Armitage Ave
+- Armitage Francis — 2740 W Armitage Ave
+- Baumhart Hall-ID#160412 — 26 E Pearson
+- Burnham (Daniel) Park — Other
+- Catholic Charities: St. Leo Residence — 7750 S Emerald Ave
+- Catholic Theological Union - Academic and Conference Center — 5416 S. Cornell Ave.
+- Chicago Mckinley Park (2078) — 1940 W 33rd St
+- Chicago Peterson Ave (2079) — 2112 W Peterson Ave
+- Comer Children's Hospital — 5721 S Maryland Ave
+- Condos at Monroe Place — 1228 W Monroe Street
+- Continental Plaza — 1330 W 76th Street
+- FBI Chicago Field Office — 2111 W. Roosevelt Rd.
+- Fulton Place Condominium — 657 W. Fulton St.
+- G&A Senior Residence at Ravenswood — 1818 W Peterson #900
+- Gary Comer Youth Center — 7200 South Ingleside
+- Harrison (Carter) Park — Fieldhouse A2
+- Jackson (Andrew) Park — Fieldhouse Bh
+- Lakeside Lofts — 2025 S Indiana Ave
+- Lakeside Tower Condo Association — 1600 S Indiana Ave
+- Left Bank at K Station — 305 N. Canal St
+- Left Bank at K Station (lf69) (fb17) — 300 N Canal St
+- Letterman Chicago — 410 S Morgan St
+- Lincoln (Abraham) Park — Concession
+- Lincoln (Abraham) Park — Zoo Building
+- Lofts and Fairbanks at CityFront Plaza — 240 E. Illinois St.
+- MetraMarket of Chicago — 118 N. Canal Street
+- Metro North Condominium Association — 3946 N Ravenswood Ave
+- Old Town Village East — 1205-1255 N Orleans Court
+- Parc Chestnut Condominium Association — 849 N Franklin St
+- Pete's Cermak — 2526 W. Cermak
+- Professional Office Building — 840 W. Irving Park Rd
+- Red Shield Center — 945 W. 69th St.
+- Regatta Condominium Association — 420 E. Waterside Dr
+- River Park — Comfort Station
+- Roseland Centre 10450 S Michigan — 10450 S Michigan Ave
+- Sherman (John) Park — Pool Building
+- Smith Senior Living — 2320 W 113Th Pl
+- Superior at LaSalle — 150 W Superior St.
+- The 30 West Erie CA — 30 W. Erie Street
+- The Larrabee Condominium Association — 865 N Larrabee St.
+- The Streeter - Village Green — 345 E Ohio St
+- Tower Park Residences: 1235 South Prairie Avenue — 1235 South Prairie Avenue
+- Union Park Lofts Condominium Association — 1327 W. Washington Blvd.
+- Unity Park — Comfort Station
+- Waldorf Astoria Hotel — 11 E Walton St
+- Warren (Laurence) Park — Unidentified
+## 2007
+- (IL0444) - VB 1224 Lofts CA (1224 W. Van Buren) — 1224 W. Van Buren
+- (IL0669) - Chandler (450 E Waterside Dr.) — 450 E Waterside Dr.
+- (IL380) - Residences at The Vic — 3140 N Sheffield Ave
+- (IL635) - 600 N. Lake Shore Drive Condominium Association (600 N. Lake Shore Dr) — 600 N. Lake Shore Drive
+- 1464 S Michigan Condo Association — 1464 S. Michigan Avenue
+- 1720 South Michigan Condominium Association — 1720 S Michigan
+- 1950 - South Loop — 1300 S Clinton St
+- 2641 West Harrison — 2641 W. Harrison Street
+- 300 North LaSalle — 300 N Lasalle
+- 309-315 W 23rd Condo Assocication — 313 W 23rd Street
+- 3125 W Fullerton — 3125 W Fullerton Avenue
+- 340 on the Park — 340 East Randolph Street
+- 4434 4444 N Damen Ave — 4434 4444 N Damen Ave
+- 50 East Chestnut Condominium Association — 50 East Chestnut Street
+- 600 N Fairbanks Condo Association — 600 N Fairbanks Ct. #1302
+- 611 S. Wells Street Condo (The Vetro) — 611 S Wells St
+- 61480 - Galewood 14 — 5530 W Homer St
+- 740 Fulton Condominium Association — 740 W Fulton St
+- 828 W Grace — 828 W Grace
+- Acero School - Officer Donald J. MarOuez — 2916 W. 47th St.
+- Archer Place Condominium Association — 2272 S Archer Ave
+- Archer Senior — 2928 S Archer Avenue
+- Avenue East Condominiums — 160 East Illinois Street
+- British School — 814 W. Eastman
+- Catalpa Gardens Condominium Association — 1122 W. Catalpa Avenue
+- Center on Halsted — 3656 N Halsted
+- Chantico Lofts — 1061 W 16th Street
+- Chess Lofts Condominium — 320 E 21st St
+- Chicago Indoor Sports — 3900 S Ashland Ave
+- Grand Kingsbury LLC — 520 N. Kingsbury
+- Kennedy-King College — 6301 South Halsted
+- Klee Plaza at Six Corners Condominium — 4015 N. Milwaukee Ave.
+- Latin School of Chicago Middle Scool — 45 W North Blvd
+- Lincoln (Abraham) Park — Zoo Building
+- Madison 901 Condominium Association — 901 W Madison
+- N002301-Chicago (83Rd & Stewart) Il — 8411 South Holland Road
+- NMH Prentice Womens Hospital — 250 E Superior St
+- North Center Senior Housing, NFP (St. Vincent DePaul Residence) — 4040 N Oakley St
+- Opera Lofts Condominiums — 2545 S Dearborn
+- Pac Lofts-1735 N Paulina — 1735 N Paulina Street
+- Park Community Church — 1001 N Crosby St.
+- Park Place on the Blvd — 1118-1128 E. Hyde Park
+- Printers Corner Condominium Association — 170 W Polk Street
+- Renaissance Lofts — 1791 W Howard Street
+- River Village Pointe Condominium Association — 845 N. Kingsbury
+- Roosevelt SOuare - Parent — 1222 W Roosevelt So Rd
+- Rowe Clark Math and Science Academy — 3645 W. Chicago
+- Schiff Residence — 1244 N Clybourn
+- Silversmith Hotel & Suites - CSS — 10 South Wabash Avenue
+- Spertus Institute for Jewish Learning and Leadership — 610 S. Michigan Ave
+- The Bridgeport Condominiums — 3434 3464 S Halsted St
+- The Buckingham — 59 E Van Buren St
+- The Columbian Condominium Association — 1160 S Michigan Ave
+- The Mark Condominium Association — 4260 N Broadway St
+- The Residences at Hudson & Huron Condominium Association — 451 W. Huron St.
+- Vision on State Condominium Association — 1255 S State Street
+- Washtenaw on the Park — 4755 N Washtenaw Avenue
+## 2008
+- (IL0519) - R+D 659 Condominium (659 W Randolph St ) — 659 W Randolph St
+- (IL296) - 1400 Museum Park Condo (100 E 14th Street) — 100 E 14th Street
+- (IL367) - 5430 N. Sheridan Condo (5430 N. Sheridan Road) — 5430 N. Sheridan Road
+- (IL382) - 757 Orleans at Chicago (757 N Orleans St) — 757 N Orleans St
+- (IL411) - ParkView at River East Condos (505 N McClurg Ct) — 505 N Mcclurg Ct
+- (IL510) - Emerald Condo (123-125 S Green St.) — 123-125 S Green St.
+- (ILCH720) - Burnham Pointe [external] — 720 S. Clark Street
+- 00187AS - Chicago, IL — 11730 S. Marshfield Ave.
+- 03376AS - Chicago, IL — 370 N. Des Plaines
+- 1401 South State - CO ss028 — 1401 S State Street
+- 2 South Leavitt Condominium Association — 2 S. Leavitt St.
+- 22 West Washington — 22 West Washington Street
+- 238-Senior Suites of Kelvyn Park — 2715 N. Cicero
+- 24 S. Morgan — 24 South Morgan Street
+- 3711 S Vincennes Ave — 3711 S Vincennes Ave
+- 4001 N. Ravenswood LLC — 4001 N Ravenswood
+- 437 W Division St — 437 W Division St
+- 4651 N Greenview (ng55) — 4651 N Greenview Ave
+- 50 E 16th — 50 East 16th St
+- 550 St. Clair Condominium — 550 N St. Clair St
+- 5858 N Broadway — 5856 5860 N Broadway
+- Acero Schools - Veterans Memorial Campus — 4248 W. 47th St.
+- ACIA AG Auto LLC — 1530 N Dayton St
+- Amli 900 — 900 S Clark St
+- Astoria Tower — 8 E 9th Street
+- Atwater Apartments (gl31) (tz40) — 355 East Ohio Street
+- Burnham Pointe — 730 S Clark St
+- Chicago Benchmarking: Blackhawk and British School — 1460 N Halsted & 814 W Eastman
+- DT Chicago Magnificent Mile, IL-SV — 300 E Ohio Street
+- Dwight Lofts (dw26) — 642 S Clark St
+- Echelon Chicago — 353 N Desplaines
+- Goode HS — 7651 S Homan Ave
+- Hughes L — 240 W 104th St
+- Joffco SOuare — 555 W Roosevelt
+- Lake Meadows Shopping Center - (LA Fitness - Building 2) — 3455 S King Dr
+- Library Tower Condo Association — 520 S State Street
+- McGowan South — 1110 W. Belden
+- Michigan Avenue Tower Condominium Association — 1250 S. Michigan Ave.
+- Michigan Avenue Tower II Condominium Association — 1400 South Michigan Avenue
+- North & Talman Elderly Apartments — 1600 N Talman
+- One Museum Park East Condominium Association — 1211 S. Prairie Private
+- One Museum Park West Condominium Association — 1201 S Prairie Ave
+- One Place Condominium Association — 1 East 8th Street
+- One11 West Illinois — 111 W. Illinois St.
+- PowellStBrdg-CPS — 7765 S Coles Ave
+- Sankofa House — 4041 W Roosevelt Rd
+- Sherman Plaza — 163 W 87th St
+- Signature Residences Condominium Association — 207 East 31st Street
+- SoNo Condominium Association — 860 W. Blackhawk Street
+- SpringHill Suites - Residence Inn — 400-410 N. Dearborn St.
+- The Clare — 55 E Pearson St
+- The Granville Condominum Association — 1134 West Granville
+- The Residences at the Joffrey Tower Condo Association — 8 E Randolph
+- The Shelby (sh457) — 2300 S Michigan Ave
+- The Tides at Lakeshore East (td016) — 360 E South Water St
+- Trump — 401 N. Wabash
+## 2009
+- (IL593) - Harbor View Condo Assoc (1901 S. Calumet) — 1901 S. Calumet
+- 108 North State Street, LLC — 108 N State St
+- 110 W Superior St — 110 W Superior St
+- 15 E. Oak — 1-15 East Oak Street
+- 155 North Wacker — 155 N. Wacker
+- 201 N State St — 201 N State St
+- 235 W. Van Buren Condo Association — 235 W Van Buren
+- 237-Senior Suites of W. Humboldt Park — 3656 W. Huron Street
+- 353 North Clark — 353 North Clark Street
+- 3905 N Western — 3905-29 N. Western Ave.
+- 565 West Ouincy Condo Association — 565 West Ouincy
+- 6045 Kenwood Building — 6045 S Kenwood Ave
+- 70800570 -- Dan Ryan — 112 W 87st
+- AOua at Lakeshore East — 225 N Columbus Dr
+- Arrive Lex — 2138 South Indiana Avenue
+- Britton Budd — 501 W Surf St
+- Burley & 92nd Centre — 9230 S Burley Ave
+- Coliseum Park — 1440 S. Wabash Avenue
+- EnV Chicago (nv091) (nv092) — 161 W Kinzie Street
+- G & A Senior Residence at Eastgate Village — 300 E. 26th Street
+- Grant Campus -CPS — 145 S Campbell Ave
+- Greenview Place SLF — 1501 W. Melrose St.
+- Halsted Pershing — 815 W. Pershing Rd.
+- Hernandez — 3510 W 55th St
+- Kcbd — 900 E. 57th St
+- Luxe on Madison ~ lx015 — 1222 W Madison St
+- Midwest Orthopaedics at Rush — 1611 W Harrison St
+- Mondial River West — 910 W Huron St
+- Montclare Senior Residences of Avalon Park Phase I — 1200 E. 78th Street
+- N002304-Chicago (79Th & Cicero) Il — 7971 South Cicero
+- North & Kostner — 4501 W. North Avenue
+- Parkside Nine I — 545 W Division
+- Prieto — 2231 N Central Ave
+- Renee Granville-Grossman Residential Commons — 6031 South Ellis Avenue
+- Roosevelt Collection — 150 W Roosevelt Rd
+- Searle Chemistry Laboratory — 5715-35 S Ellis Ave
+- Skinner — 1260 W Adams St
+- Ten East Delaware — 10 E Delaware
+- The Legacy at Millennium Park — 60 East Monroe St
+- The Lofts at 1800 Condominium Association — 1800 W. Grace Street
+- The Morgan at Loyola Station (tg80) — 1209 W Arthur Ave
+- The Park Monroe Condominium Homes Association — 65 E. Monroe St.
+- The Resurrection Project - Casa Morelos — 2015 S Morgan St
+- The Silver Tower Chicago Condominium Association — 303 West Ohio Street
+- Victory Centre of Galewood — 2370 N Newcastle Ave
+- Vision Rentals — 1624 W. Division St
+- W Chicago - City Center — 172 W Adams St
+- Westinghouse HS — 3223 W Franklin Blvd
+## 2010
+- 210 N Wells St — 210 N Wells St
+- 215 West - Lpc — 215 W Washington St
+- 239-Senior Suites of MarOuette Village — 7430 S. Rockwell
+- 79th St. Limited Partnership dba Wrightwood Service Center — 2815 W. 79th St
+- Alta at K Station — 555 West Kinzie
+- Arrive South Loop — 1935 South Wabash Ave
+- Azuela — 4707 W Marouette Rd
+- Calmeca — 3456 W 38th St
+- Canal Crossing Condominiums — 2322 S Canal St
+- CH3 - Chicago 300 E Randolph — 300 East Randolph
+- City North 14 — 2600 N Western Ave
+- Elston & Logan Commercial Development — 2705-2749 N. Elston
+- Englewood — 901 West 63rd St
+- Flair Tower — 222 W. Erie Street
+- Hotel Palomar Chicago — 505 N State St
+- Kenmore — 5040 N Kenmore Ave
+- Lorca — 3231 N Springfield Ave
+- Mercedes Benz of Chicago — 1520 W North Ave
+- Parc Huron Apartments (pc15) — 469 West Huron Street
+- Powell — 7511 S South Shore Dr
+- Roosevelt Collection (rs314) — 1135 S Delano Ct E
+- Solorio HS — 5400 S St Louis Ave
+- Sullivan Station Apartments — 1060 E 41st St
+- Tailor Lofts: 315 South Peoria Street — 315 South Peoria Street
+- The Resurrection Project - Casa Maravilla — 2021 S Morgan St
+- TRC Senior Village I — 346 E 53rd St.
+- TRIO - Abacus — 660 W Wayman St
+- Two West Delaware (dt38) — 2 West Delaware Place
+- Union Row — 560-648 W 16th Street
+- Walmart Supercenter #5402 — 4650 W. North Avenue
+- West Ridge — 6700 N Whipple St
+- Wilson Yard — 1026-1032 W Montrose
+## 2011
+- 10426 S Michigan Ave — 10426 S Michigan Ave
+- 1333 West Belmont Avenue — 1333 West Belmont
+- 307 S Sangamon St — 307 S Sangamon St
+- Acero Schools - Idar - Soccer Academy — 5050 S. Homan Ave.
+- Arts & Letters Hall — 2315 N. Kenmore
+- Black Ensemble Theater — 4450 N Clark St
+- Chicago Theological Seminary — 1407 East 60th Street
+- Dr King Legacy Apartments — 3816 W. 16th St., Chicago, Il 60623
+- Enola Dew — 4623 W. Gladys Ave.
+- Instituto Health Sciences Career Academy — 2520 S Western Ave
+- K2 Apartments — 365 N. Halsted St.
+- Kimball Station — 4730 N Kimball Ave
+- Logan Arts Center — 915 E 60th St.
+- Norville Center - Gentile Center-ID#254171 — 6526 N Winthrop
+- Ogden ES — 24 W Walton St
+- Park Douglas Apartments — 1235 S Washtenaw
+- Parkside Nine II — 544 W Oak
+- Pomeroy — 5650 N Kenmore Ave
+- South Shore Intl HS — 1955 E 75th St
+- The Jackson at Woodlawn Park — 6230 South Cottage Grove Avenue
+- Village Market at Lakeshore East — 333 E. Benton Place
+- Wabash Building — 425 S. Wabash Ave
+## 2012
+- 1225 Old Town (12104) — 1225 N Wells St
+- 1313 Randolph Street Lofts — 1313 W Randolph St
+- Acero Schools - Roberto Clemente — 2050 Natchez Ave.
+- Ann & Robert H. Lurie Children's Hospital of Chicago — 225 E Chicago Ave
+- Ca 23 — 15 23 N Aberdeen St
+- Chicago West Loop (2781) — 1101 W Jackson Blvd
+- Costco #01107 South Loop — 1430 S. Ashland Ave
+- Cuneo Hall-ID# 254160 — 6430 N Kenmore Ave
+- Gateway to West Loop — 16-40 S. Halsted
+- Kingsbury Center — 1415-1435 N Kingsbury
+- Lawndale Christian Health and Fitness Center — 3748 W Ogden Avenue
+- Lincoln Park 2550 Condominium Association — 2550 N Lakeview Ave
+- Oakwood Shores Sr — 3750 S Cottage Grove
+- Park Boulevard IIA - 3622 S State — 3622 S State
+- Ray and Joan Kroc Corps Community Center — 1250 W. 119th St.
+- RMD -15094 Chicago (Lurie), IL — 211 East Grand
+- Shields Middle — 2611 W 48th St
+- Sono East - CO (ss78) — 840 West Blackhawk Street
+- The Ritz-Carlton Residences, Chicago, Magnificent — 118 E Erie St
+- Walmart Supercenter #5781 — 8331 S Stewart Ave
+- WMS-2718 Roscoe — 2718 W Roscoe St
+## 2013
+- 0202AS - Chicago, IL — 2550 N Clybourn Ave
+- 03538AS - Chicago, IL — 1763 W Howard St
+- 03546AS - Chicago, IL — 424 W Division St
+- 04500AS - Chicago, IL — 1340 S Canal St
+- 1600 Museum Park — 1629 S Prairie Ave
+- 1601 W Division LLC — 1611 W Division St
+- 1765 N Elston Ave — 1765 N. Elston
+- 242-Senior Suites Chicago Wright Campus — 4255 N Oak Pak Ave
+- 2609 West Belmont Avenue — 2609 West Belmont Avenue
+- 360 W Hubbard Joint Venture LLC — 360 W Hubbard Street
+- 3755 at Oakwood Shores (Oakwood Shores 2C) — 3753-3755 S. Cottage Grove
+- 500 Lake Shore Drive — 500 Lake Shore Drive
+- 53100507--Chicago — 5353 N. Elston
+- 53100512--Chicago — 1615 S Clark St
+- 53100516--Chicago — 2112 N Ashland Ave
+- 53100522--Chicago — 5201 Sheridan Rd
+- 53100527--Chicago — 2021 W Chicago Ave
+- 829 S Wabash Ave — 829 S Wabash Ave
+- Acero Schools - Soto - Soccer Academy High School — 5025 S. St. Louis
+- AMLI River North — 71 West Hubbard St
+- Back of the Yards HS — 2111 W 47th St
+- Ccd — 5700 S Maryland Ave
+- Clargran — 501-515 N. Clark St.
+- Coast at Lakeshore East — 345 E. Wacker Drive
+- Damen Student Center-ID#254161 — 6511 N Sheridan Rd
+- de Nobili Hall-ID#254169 — 6350 N Kenmore Ave
+- Earl Shapiro Hall — 5800 Stony Island Avenue
+- Gateway Center — 10808 - 10830 S Doty Ave W
+- Harper Court — 5235 S Harper Court
+- Hyatt Place Chicago / South — 5225 South Harper Ave.
+- Jones HS — 700 S State St
+- Madison Aberdeen — 20 22 N Aberdeen St
+- Mercy Circle — 3659 W 99Th St
+- Oakwood Shores 2B & 2D — 3859 S. Vincennes Avenue
+- Pete's Madison — 2333 W. Madison
+- S3-Sinai — 2653 W Ogden Ave
+- Saieh Hall for Economics — 5757 South University Avenue
+- San Francisco Hall-ID# 254170 — 6327 N Kenmore Ave
+- T2613 - Chicago Division — 1200 N Larrabee St
+- The 1355 West Washington Boulevard Condominium Association — 1355 W. Washington Blvd.
+- The Godfrey Hotel Chicago — 127 W Huron St
+- The Theatre School — 2350 N. Racine
+- Walmart Supercenter #5617 — 4626 W. Diversey Ave.
+- Walmart Supercenter #5965 — 10900 S. Doty Avenue
+## 2014
+- 1164 West Madison — 1164 W. Madison St.
+- 2019 - 4820 N Kedzie Ave — 4820 N Kedzie Ave
+- 265-Senior Suites of Chatham — 8300 S. Cottage Grove
+- 5141 N Christiana Ave. — 5141 N Christiana Ave.
+- 73 East Lake (sl75) — 73 E Lake St
+- Advocate Center, Chicago Bulls Training Facility — 15 S. Wood Street
+- AMLI Lofts Clark (ml76) — 850 South Clark Street
+- AMLI Lofts Polk (mf02) — 111 W. Polk St.
+- Aston -CO (pt64) — 200 E Illinois St.
+- Banneker Elementary -CPS — 6646 S Normal
+- Cornerstone Apartments — 747 East 47th St
+- Erie — 1405 N Washtenaw Ave
+- Evers Elementary, Medgar -CPS — 9811 S Lowe Ave
+- GEMS World Academy Chicago — 350 E South Water St
+- Halsted Flats — 3740 N. Halsted St.
+- Intrinsic School - Belmont Campus — 4540 W Belmont Avenue
+- Jarla, LLC — 1825 W. Webster Ave.
+- Lavin Family Pavilion (Outpatient Care Pavilion) — 259 East Erie
+- Leslie Shankman School Corporation Building — 6245 South Ingleside
+- Nash Elementary, Henry H -CPS — 4837 W Erie St
+- New City Supportive Living — 4707 S Marshfield Ave.
+- North & Pulaski — 3949 W North Ave
+- OneEleven (nl025, nl026) — 111 West Wacker Drive
+- Ravenswood Station — 1800 W Lawrence Ave
+- The Catalyst — 123 N Desplaines Street
+- The Maxwell BU#21157 — 1100 S Canal Street
+- The Scott Residences (dba) Wells & Scott Development Partners — 211 W Scott
+- Warren Project — 1609 W. Warren Blvd.
+- Webster Square Apartments — 558 W Webster Ave
+## 2015
+- 10568 - EWR Edgewater — 6009 N. Broadway
+- 122-134 S Aberdeen St — 122-134 S Aberdeen St
+- 1345 S. Wabash Condominium Association — 1345 S. Wabash Ave.
+- 1820 N Spaulding — 1820 N Spaulding
+- 245-Senior Suites Chicago Midway — 6800 Keating Avenue
+- 247-Senior Suites of Norwood Park — 5700 N. Harlem Ave
+- 2501 N Elston Avenue — 2501 N Elston Avenue
+- 306 W Erie — 306 W Erie St
+- 57F47-CHIRL-Residence Inn Chicago DTLoop — 11 S. La Salle St.
+- 619 S LaSalle — 619 S Lasalle St
+- Arc at Old Colony — 37 West Van Buren St.
+- Arkadia Tower (rk000) — 765 West Adams Street
+- Ashland Devon Chicago EOuities: 6748 North Ashland Avenue — 6748 North Ashland Avenue
+- ASPIRA Business and Finance High School — 2989 N Milwaukee Ave
+- Aviation Lofts — 1340 S Michigan Ave
+- CA Condos on Adams — 1116 S. Adams St.
+- Chicago 331 — 331 W Surf St
+- Circa 922 — 922 West Washington Blvd
+- City Hyde Park — 5105 S Harper Ave
+- Cortland River North (kw021) — 220 W Illinois St
+- Danny Cerero — 161 W 9th St
+- Eight O Five (gh04) — 805 N Lasalle Dr.
+- Fletcher Jones Chicago Service (Audi) — 1521 W North Ave
+- Freedom Center — 825 N. Christiana
+- G&A Senior Residence at Kedzie — 4054 N Kedzie
+- Gateway West Loop (ga142) — 11 S Green St
+- HYP-Loop-Chicago — 28 N. Franklin St.
+- JeffJack — 601 West Jackson
+- Kilpatrick Renaissance — 4655 West Berteau Ave.
+- Lycee Francais de Chicago — 1929 W Wilson Ave
+- Montclare Senior Residences of Avalon Park Phase II — 1210 E. 78th Street
+- North Water Apartments & Loews Chicago Hotel — 340 E North Water St
+- Park Boulevard IIB — 3720 S. Dearborn Street
+- Porta Coeli Residence — 2260 E. 99th Street
+- State and Chestnut — 845 North State Street
+- Strand Apartments — 6321 S Cottage Grove Ave
+- The Burnham at Woodlawn Park — 6134 S. Cottage Grove Avenue
+- Webster SOuare Condominiums — 540 W Webster
+- William Eckhardt Research Center (ERC) — 5640 S. Ellis Ave.
+- Wolf Point West — 343 W. Wolf Point Plaza
+- Xavier — 625 W. Division St.
+## 2016
+- 1000 S Clark (ks50) — 1000 S Clark St
+- 1247-1249 West Madison LLC — 1239-1259 W Madison St
+- 3030 North Broadway BU #21190 — 3030 North Broadway
+- 3284-Chicago, Il (Wicker Park) — 1360 North Ashland Ave
+- 4 East Elm — 4 East Elm Street
+- 53100539 -- Chicago — 3857 South Dr. Martin Luther King Jr. Drive
+- 710 W. Grand Apartments — 710 W. Grand
+- AbilityLab — 355 E. Erie Ave
+- Campus North Residential Commons — 5500 South University Ave
+- Cicero & George — 4800 W. George St.
+- Conrad Hotel/MWRD McMillan Pavilion — 101 E Erie
+- Exhibit on Superior — 165 W. Superior St.
+- Fletcher Jones Audi — 949 N Elston Ave
+- Hampton Inn Chicago North/Loyola Station — 1209 W Albion
+- Lakeview 3200 Apartments — 3218 N. Clark Street
+- LondonHouse Chicago — 85 E Upper Wacker Dr
+- Luxe on Chicago - CO (lx016) — 1838 W Chicago Ave
+- MarOuee at Block 37 — 25 West Randolph St.
+- MiCA — North Tower: 2733 W Belden Ave
+- Mila Chicago — 201 N Garland Ct
+- MLK Medical Properties, LLC — 2535 South King Drive
+- N. Jefferson Chicago West Loop Hotel — 118 N Jefferson St
+- New Malcolm X College — 1900 W Jackson Blvd
+- NEXT - CO (nx04) — 347 W Chestnut St
+- Parker at Fulton Market — 730 W Couch Pl
+- Parkside IIB — 459 W Division St
+- Pulaski Promenade — 4064-4200 South Pulaski Road
+- Richardson — 6018 S Karlov Ave
+- River Point — 444 W Lake St
+- Sadlowski — 3930 E 105th St
+- Schreiber Center- ID#254355 — 16 E Pearson St
+- St. Bernard Ambulatory Care Center — 6307 S. Stewart Ave
+- THC 1333 S. Wabash LLC — 1333 S Wabash Ave
+- The Buyer's Market Incorporated — 4545 W. Division St.
+- The Hensley — 707 N Wells
+- The Kimpton Gray Hotel — 39 S Lasalle St
+- The Resurrection Project - Casa Oueretaro — 2012 W 17th St
+- UCAN Therapeutic Youth Home — 3640 West Fillmore Street
+- Vue53 — 1330 E. 53rd Street
+- Wells Place Apartments (wl272) — 839 S Wells St
+- Wicker Park Connection — 1664 W Division
+## 2017
+- (IL491) - Renelle on the River (403 N Wabash Ave ) — 403 N Wabash Ave
+- 1001 S State (ss098) — 1001 S State Street
+- 10643 - LVW Lakeview — 3201 North Ashland Avenue
+- 150 North Riverside Plaza — 150 N. Riverside Plaza
+- 1550 N Wieland (Chicago) Manager LLC — 1550 N Wieland St
+- 1767 North Milwaukee Avenue — 1767 North Milwaukee Avenue
+- 221 W Hubbard — 221 W Hubbard St
+- 2950 North Sheridan — 2950 North Sheridan
+- 30 East (st522) — 30 E Balbo Ave
+- 311 W. Illinois — 311 W. Illinois Street
+- 33 S Ashland Ave — 33 S Ashland Ave
+- 400 West Huron Condominium Association — 400 W Huron St
+- 412 N Wells — 412 N Wells St.
+- 640 North Wells — 640 North Wells St.
+- 832 854 W Fulton Market — 832 854 W Fulton Market
+- Aurelién (au111) — 833 N Clark St.
+- Autumn Green at Midway Village — 6700 S. Keating
+- Autumn Green at Wright Campus — 4239 N. Oak Park Ave
+- Clybourn 1200 — 454 W Division St
+- Cubs Office Building — 1101 West Waveland Ave
+- Eleven40 (lv002) — 1140 S Wabash Ave
+- EMME Chicago - CO (mz16) — 165 N Desplaines St
+- Fifth Third Arena — 1801 W. Jackson Blvd.
+- Fulton West — 1330 W. Fulton Street
+- Gallery on Wells — 637 N. Wells Street
+- Illume Condominiums — 111 S. Peoria St.
+- Landmark West Loop — 1035 W Van Buren Street
+- Legacy Charter School — 3300 W Ogden Ave
+- Linea Apartments — 211 221 W Lake St
+- Linea Apartments (ln257) — 215 W Lake St
+- Linkt Apartments — 830 North Milwaukee
+- Mansueto High School — 2911 W 47th St
+- Midtown Athletic Club — 2020 W Fullerton
+- Midway Pointe Senior Residences — 5011 W 47Th St
+- Mode Logan SOuare (mo179) — 1950 N Campbell Ave
+- Moment — 545 N. Mcclurg Ct.
+- Montclare Senior Residences SLF of Lawndale LLC — 4339 W. 18th Place
+- Niche 905 — 905 N Orleans
+- Onni 311 N Morgan LLC dba The Emily Hotel — 311 N Morgan St
+- Onni Hudson LP — 750 N. Hudson Ave.
+- Optima Signature — 220 E Illinois St
+- Physics Research Center (PRC) — 933 East 56th Street
+- Sedgwick at Locust — 367 W. Locust St.
+- Spoke Chicago (ks59) — 728-738 North Morgan Street
+- The Elle (lz28) — 801 S. Financial Place
+- The Residences at Eight East Huron (gh23) — 8 E Huron St
+- The Sinclair (nl97) (sz63) — 1201 North Lasalle Street
+- Viceroy Chicago — 1118 N State Street
+- Wicker Park - 1241 N Milwaukee — 1241 North Milwaukee Avenue
+- Woodlawn Station — 6253 S Cottage Grove Avenue
+## 2018
+- 1323 W Morse — 1323 W Morse Ave
+- 1325 N Wells St — 1325 N Wells St
+- 1407 on Michigan (on042) — 1407 S Michigan Ave # 100
+- 151 North Franklin — 151 N. Franklin Street
+- 1515 W Webster, LLC — 1515 W Webster Avenue
+- 1636 W Adams St — 1636 W Adams St
+- 1955 North Richmond Street — 1955 North Richmond Street
+- 210 North Carpenter — 210 N. Carpenter St.
+- 4346 N Honore St — 4346 N Honore St
+- 465 N. Park (Brightly) — 465 N. Park Drive
+- 504 N. Green St. — 504 N Green St
+- 505 N. Green St. — 505 North Green Street
+- 625 W Adams St — 625 W Adams St
+- 811 W Fulton — 803 W Fulton Market
+- 826 W Montrose Ave — 826 W Montrose Ave
+- 9 West Walton Condominium Association — 9 W Walton
+- Aberdeen — 171 N. Aberdeen St
+- Addison & Clark (dd020) — 1025 W Addison St
+- Aloft Chicago Mag Mile — 243 E. Ontario Street
+- CA Washington — 27 N. Aberdeen Street
+- Choxy LLC — 530 N Lasalle Dr
+- Ed Kaplan Family Institute for Innovation and Tech Entrepreneurship — 3137 S Federal St
+- Eight Eleven Uptown (gh000) — 811 W Agatite Avenue
+- Elevate Lincoln Park _ CO (lv008) — 930 W Altgeld St
+- Hiltons at McCormick Place — 123 East Cermak, Suite 300
+- Holtschneider Performance Center — 2330 N. Halstead St.
+- Hotel Zachary — 3630 N. Clark St.
+- Kedzie Property — 4447 N Kedzie
+- Marlowe — 169 West Huron St
+- McCrory Senior Housing — 1659 W. Washington Boulevard
+- Milieu Apartments — 205 South Peoria Street
+- Monroe Aberdeen Place (mn147) — 1050 W Monroe St
+- Noca Blu — 2340 N California Ave
+- Old Post Office — 433 West Harrison Street
+- Old Town Park 1 — 1140 N Wells St
+- One Bennett Park — 451 E Grand Ave
+- Sentral Michigan Avenue (ss009) — 808 S Michigan Ave
+- Smashotels Chicago LLC — 228 E. Ontario St.
+- Solstice on the Park — 1616 E 56th St
+- Sophy Hotel — 1411 E 53rd Street
+- The Ardus — 676 N Lasalle Dr
+- The Cooper (th110, co020) — 720 South Wells Street
+- The Duncan — 1515 W. Monroe St.
+- The Hampdens — 2773 N Hampden Ct
+- The Mason (ms015) — 180 N. Ada Street
+- The Professional Building (Central Campus Health Center) — 1950 W. Polk St.
+- The Van Buren _CO (th202) — 808 W Van Buren St
+- Trailhead — 1744 N Western Ave
+- Viridian on Sheridan (vr033) — 734 W Sheridan Rd
+- Wicker Park Connection - 1640 W Division — 1640 W Division
+## 2019
+- (IL184) - 900 West Condo (900 W Washington Blvd) — 900 W Washington Blvd
+- 1135 W Sheridan Rd — 1135 W Sheridan Rd
+- 1555 N Ashland Ave — 1555 N Ashland Ave
+- 218 Irving Park — 3443 W. Addison St.
+- 318 N. Carpenter — 318 N. Carpenter
+- 325 S. Paulina St. (Teamsters Local 705) — 325 S. Paulina St.
+- 330 Wells Owner LLC — 330 S. Wells Street
+- 333 N. Green — 333 N. Green
+- 450 W Belmont (wb008) — 450 W Belmont
+- 508 West Diversey Parkway — 508 West Diversey Parkway
+- 5525 W Diversey Avenue — 5525 W Diversey Avenue
+- 61 E Banks — 61 E Banks
+- 727 W Madison St — 727 W Madison St
+- 754 S Wabash — 754 S Wabash
+- Arrive Michigan Avenue — 1326 South Michigan Avenue
+- Central States — 8647 West Higgins Road
+- Coeval - CO (cv013) — 51 E 14th St
+- Coeval 2 — 1419 S Wabash Ave
+- Dore — 7134 W 65th St
+- Englewood Stem HS — 6835 S Normal Blvd
+- Hyatt House Chicago West Loop Fulton Market — 105 North May St.
+- Independence Apartments — 4022 N Elston
+- La Casa Norte — 3527-3533 W North Ave
+- Lathrop - S101 — 2737 N Hoyne Avenue
+- Lincoln Common A1 — 2345 N Lincoln
+- Lincoln Common A2 — 2335 N Lincoln
+- Lincoln Common D — 2350 N Lincoln
+- Logan - (lg058) — 2522 N Milwaukee Ave
+- NEMA Chicago — 1200 South Indiana Ave
+- Northtown Apartments — 2410 W Pratt
+- Norweta Apartments - 2611 N Hermitage — 2611 North Hermitage Ave
+- Rickover Military HS — 5700 W Berteau Ave
+- Superior House — 366 W Superior St.
+- Taft HS - Freshmen Academy — 4071 N Oak Park Avenue
+- Taylor Street Library Apartments — 1346 W Taylor St
+- The Hoxton — 200 N Green St
+- Three Sixty West Condos — 360 W Erie St.
+- Twelve01West — 176 N. Racine
+- Union West Apartments — 939 W Washington Blvd
+- Upshore Chapter (up005) — 4555 N Sheridan Rd
+- Woodlawn - University of Chicago — 1156 E 61st Street
+## 2020
+- (IL388) - 1550 North Clark Condo (1550 N Clark St ) — 1550 N Clark St
+- 104 S Laflin St — 104 S Laflin St
+- 110 North Wacker Drive - Bank of America Tower — 110 N. Wacker Drive
+- 1201 N Clark — 1201 N Clark
+- 1214 W. Jackson Blvd — 1220 W. Jackson Blvd
+- 1375 Fulton — 1375 W Fulton
+- 1502 N Ainslie LLC — 4914 N Clark St
+- 167 N. Green — 167 N. Green St.
+- 1802 S State St — 1802 S State St
+- 2031-37 N Milwaukee LLC — 2025 N Milwaukee
+- 215 N Peoria St — 215 N Peoria St
+- 24 East Washington Street — 24 East Washington Street
+- 2550 S Wabash — 2550 S Wabash Ave
+- 335 Schiller LLC — 343 W Schiller St
+- 4400 Grove Apartments - North Bldg — 4424 Cottage Grove
+- 4400 Grove Apartments - South Bldg — 4434 Cottage Grove
+- 5252 — 5252 S Cornell Ave
+- 845 W Madison St — 845 W Madison St
+- 905 Fulton Market — 905 W Fulton Street
+- Alcove Condominium — 1648 W Division St
+- Alta Grand Central (lt027) — 221 W Harrison St
+- Anderson Point Apartments — 5700 North Ashland Ave
+- Aspire — 2111 S. Wabash
+- Broadway 6145 Master Associates LLC — 6149 N Broadway
+- Ch2 — 1432 S. Clinton St
+- David Rubenstein Forum — 1201 East 60th Street
+- Edens Collection — 4601-4715 W. Foster Avenue
+- Imprint -CO (mp041) — 717 S Clark St
+- Kleo — 5504 S. Michigan Ave.
+- Millennium on LaSalle (ml033) — 29 S La Salle St
+- Montclare Senior Residences of Calumet Heights — 9401 S Stony Island
+- North+Vine — 633 W North Ave
+- Sable At Navy Pier Curio Collection — 900 E Grand Ave
+- Steppenwolf Theatre Company Liz and Eric Lefkofsky Arts and Education Center — 1646 N. Halsted St.
+- The Hayden — 1109 W Washington Blvd
+- The Residences at the Eagle Building — 3817-45 N Broadway
+- Westerly - CO (ws320) — 740 N Aberdeen St
+- Wolf Point East — 313 W Wolf Point Plaza
+## 2021
+- (IL494) - Cirrus Condominium (211 N Harbor Dr ) — 211 N Harbor Dr
+- 1900 Lawrence (lw030) — 1900 W Lawrence Ave
+- 2755 N Milwaukee Avenue — 2755 N Milwaukee Avenue
+- 300 N Michigan — 300 N Michigan
+- 320 N Sangamon — 320 North Sangamon
+- 320 South Canal — 320 South Canal Street
+- Amli 808 — 808 N Wells St
+- Cascade — 455 East Waterside Drive
+- Chatham Call Center — 8560 S Cottage Grove Avenue
+- Hancock HS — 5437 W 64th Pl
+- Montclare Senior Residences of Englewood — 6332 S. Green Street
+- Old Town Park - Phase 3 — 228 W Hill Sr
+- Old Town Park 2 — 202 W Hill St
+- OneChicago — 23 W Chicago Ave
+- Onni Grand LP — 369 W. Grand Ave.
+- Parkside of Old Town Phase III Midrise — 532 W Hobbie 551 W Elm 531 W Elm
+- Wrigleyville Lofts — 949 W. Dakin Street
+## 2022
+- 1400 Wabash (wa129) — 1400 S Wabash Ave
+- 345 North Morgan — 345 N Morgan St
+- AM1980 (am028) — 1980 N Milwaukee Ave
+- Emmett Street — 2614 N Emmett Street
+- Evo Union Park (wr034) — 1454 W Randolph St
+- Optima Lakeview — 3460 N Broadway St
+- Southbridge 9 Master Owner LLC — 2344 S State St
+- ZoeLife 400 Aberdeen LLC — 400 N Aberdeen Street
+## 2023
+- 43 Green Phase I (gr635) — 4308 S Calument Ave
+- 839 W. 79th — 839 W. 79th Street
+- Motif on Belden — 2845 W Belden Avenue
+- RUMC - Rubschlager Building — 1520 W. Harrison Street
+## 2024
+- 1000M — 1000 S Michigan Ave — standing
+## 2025
+- Hyde Park Labs — 5207 S Harper Ave — standing
+- Straits Row — 633 S LaSalle St — standing
+## 2026
+- Obama Presidential Center — 6001 S Stony Island Ave — standing
+- Stead 220 — 220 N Ada St — standing
+## Year unknown
+- Site of the John & Mary Jones House — SW Corner of W 9th St & Plymouth Ct
+- St Charles Air Line Bridge — S B Chgo River, N of 16th St & E of Lumber St

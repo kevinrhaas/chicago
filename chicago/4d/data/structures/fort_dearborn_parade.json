@@ -1,0 +1,130 @@
+{
+  "id": "fort_dearborn_parade",
+  "name": "Fort Dearborn — the parade ground",
+  "aka": [
+    "the parade",
+    "C on the 1855 key"
+  ],
+  "archetype": "fort_structure",
+  "phases": [
+    {
+      "id": "parade_1816",
+      "documented_range": {
+        "from": "1816-07-01",
+        "to": "1856-08-31",
+        "confidence": "inferred",
+        "sources": [
+          "andreas_1884_v1",
+          "wentworth_1881_fort_dearborn"
+        ],
+        "note": "The open ground inside the ranges, for as long as there were ranges round it. Opens with the rebuilt fort and closes with the demolition of the fort's principal structures in the summer of 1856."
+      },
+      "position": {
+        "utm_e": 448210.43,
+        "utm_n": 4637602.55,
+        "rotation_deg": 8.0,
+        "symbolic_location": "The open court at the centre of Fort Dearborn, between the commandant's quarters and the officers' quarters on the north and west and the barracks on the east.",
+        "confidence": "inferred",
+        "sources": [
+          "harrison_1830_river_mouth",
+          "wentworth_1881_fort_dearborn"
+        ],
+        "note": "The rectangle the 1830 plan leaves between the four ranges, read at the scale derived on fort_dearborn_palisade and hung on the fort centre. Fergus's 1850 arrangement agrees with the plan on which side is which: 'The parade-ground was between the commandant's, officers', and sutler's quarters on the west, and the building where the artillery was housed, the soldier's barracks, and the storehouse on the east.' Rotation is the fort's.",
+        "derivation": {
+          "method": "not_derivable",
+          "reason": "This placement predates the derivation module. Its provenance and reasoning are recorded in position.note, but no machine-checkable derivation block has been authored for it yet."
+        }
+      },
+      "footprint": {
+        "polygon": [
+          [
+            0,
+            0
+          ],
+          [
+            21.8,
+            0
+          ],
+          [
+            21.8,
+            33.2
+          ],
+          [
+            0,
+            33.2
+          ]
+        ],
+        "confidence": "inferred",
+        "sources": [
+          "harrison_1830_river_mouth",
+          "wentworth_1881_fort_dearborn"
+        ],
+        "note": "TWO SOURCES ON ONE PAGE GIVE TWO DIFFERENT PARADE GROUNDS AND THIS PROJECT DOES NOT AVERAGE THEM. The key to the 1855 photograph: 'C is the parade-ground (80x200 ft.)'. Robert Fergus, of the same fort in 1850: 'about 80 feet wide, and extended from the river bank south, the full length of the enclosure - say 400 feet'. Eighty by two hundred and eighty by four hundred are not the same rectangle, and docs/research/04-structures-south.md records only the first, as documented. IT IS GRADED INFERRED HERE. What this polygon actually is: 21.8 x 33.2 m, about 71 x 109 ft, the court the 1830 plan leaves between the ranges. The WIDTH agrees with both later sources to about 11 percent, which is the check that the derived scale is reading the plate. The LENGTH agrees with neither, and the likeliest reading of that is that both later figures describe the compound AFTER the stockade came down, when the 'enclosure' was a board fence running from the river bank south - which is exactly what Fergus says his 400 ft is measured between. A third witness supports the split: Juliette Kinzie, inside the stockaded fort in 1831, says the parade-ground 'extended south of the pickets', so there was drill ground outside the south gate as well as court inside. That outside ground is NOT modelled - nothing gives its extent."
+      },
+      "form": {
+        "kind": {
+          "value": "parade",
+          "confidence": "attested",
+          "sources": [
+            "wentworth_1881_fort_dearborn",
+            "kinzie_waubun_1856"
+          ],
+          "note": "Named as the parade-ground by the 1855 key, by Fergus and by Kinzie."
+        },
+        "construction": {
+          "value": "earth",
+          "confidence": "inferred",
+          "note": "Not stated. Bare trodden earth: nothing in any source describes a surface, and no paved or gravelled parade is plausible at a frontier post in 1835 - the town's own streets were unpaved mud for another decade."
+        },
+        "roof_type": {
+          "value": "none",
+          "confidence": "attested",
+          "sources": [
+            "wentworth_1881_fort_dearborn"
+          ],
+          "note": "It is a piece of ground."
+        },
+        "sun_dial": {
+          "value": true,
+          "confidence": "inferred",
+          "sources": [
+            "wentworth_1881_fort_dearborn"
+          ],
+          "note": "ATTESTED FOR 1850 AND CARRIED BACK. Fergus: 'an 8-inch piece of square timber, imbedded in the earth, placed upright, about 2 feet high, upon the top of which was a brass plate on which had been a sun-dial'. Both dimensions built here are his. The date is the weakness - 'had been a sun-dial' is a man describing a relic in 1850, and nothing puts it on the parade in 1835 except that a post with a garrison has more use for a sun-dial than an abandoned one. WHERE IT STANDS IS OURS: Fergus puts his on a knoll near the southern end of a parade four hundred feet long, which is ground this record does not model, so the archetype stands it in the southern part of the court instead."
+        },
+        "paint": {
+          "value": "earth",
+          "confidence": "inferred",
+          "note": "The colour of trodden ground. No source describes it; the value exists so the material is not the archetype's default timber."
+        }
+      }
+    }
+  ],
+  "function": {
+    "value": "parade and drill ground",
+    "confidence": "attested",
+    "sources": [
+      "wentworth_1881_fort_dearborn",
+      "kinzie_waubun_1856"
+    ],
+    "note": "The court a garrison forms on. Modelled as ground worn bare and packed, standing six centimetres proud - which is the whole of the claim about its surface."
+  },
+  "research_note": "BUILT AS A STRUCTURE BECAUSE A FORT WITHOUT ONE IS A COURTYARD OF LOOSE BUILDINGS, and because the one interior dimension any source gives is the parade's. Its footprint note carries the disagreement this record exists to surface: two sources on the same page give parade grounds that differ by a factor of two, this project's own dossier recorded one of them as documented, and the reconciliation - that both later figures describe the post-stockade compound - is an argument rather than a finding. The sun-dial is Fergus's, at his dimensions, in our position.",
+  "review_required": false,
+  "land_owner": {
+    "value": "The ground was entered by John Baptist Baubian, 28 May 1835",
+    "confidence": "inferred",
+    "sources": [
+      "isa_public_domain_land_tract_sales"
+    ],
+    "note": "THE UNITED STATES RESERVATION. This is the same tract L108 already derives for `1835_no_build_ground.json` — from G1, Madison's line and the traced waterline — so the polygon is inherited rather than built again, and `check.sh` already re-derives it. The register's own row is the second, independent witness to the date L108 quotes from Andreas: Beaubien's pre-emption, 28 May 1835, five weeks before the scene date. The derived polygon is short of the documented 75.69 acres for the reasons L108 states, and is a floor rather than the reservation. WHETHER THE ENTRY HELD IS NOT READ HERE: it was disputed, and this row records the entry the register carries and nothing about its outcome. THE MARGIN IS 52 m: this footprint stands that far inside the tract's nearest boundary, which is more than twice the working horizontal uncertainty of anything traced off the 1834 sheets (about 20 m), so the assignment survives the error the construction carries. WHAT THIS ROW CLAIMS AND WHAT IT DOES NOT. It claims that the tract the Illinois State Archives' land-sale register describes contains this structure's committed position — the patent for this ground was ENTERED by this man on this date. It does not claim he still held the ground on 1 July 1835, that he lived here, or that he ever stood on it: a sale is a transaction, and the register's only column about residence names a county. THE SECTION LINES ARE CONSTRUCTED, NOT TRACED (L219): the grid is carried from the single PLSS corner at State & Madison, on the plat's own east-west bearing, in nominal one-mile squares.",
+    "tract": "the south-west fractional quarter of section 10",
+    "entries": [
+      "ls0057"
+    ],
+    "date_purchased": "1835-05-28",
+    "type_of_sale": "federal land sale (cash entry)",
+    "margin_m": 52.2,
+    "generated_by": "tools/resolve_land_tracts.py --build"
+  }
+}

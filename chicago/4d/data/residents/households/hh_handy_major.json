@@ -1,0 +1,120 @@
+{
+ "id": "hh_handy_major",
+ "name": "The Handy household",
+ "division": "south",
+ "head": "handy_major",
+ "arrival": {
+  "value": "1833",
+  "confidence": "inferred",
+  "sources": [
+   "andreas_1884_v1"
+  ],
+  "note": "NOT STATED. The roster gives him no year at all. 1833 is the year the roster describes - 'the denizens of the town in the fall of 1833' - and is therefore the latest year his presence is bounded by, not a date he arrived. Graded derived for that reason.",
+  "precision": "year"
+ },
+ "party_size_on_arrival": {
+  "value": null,
+  "confidence": "reconstructed",
+  "note": "Not attested in anything this project holds."
+ },
+ "origin": {
+  "value": null,
+  "confidence": "reconstructed",
+  "note": "Not attested in anything this project holds."
+ },
+ "reason_for_coming": {
+  "value": null,
+  "confidence": "reconstructed",
+  "note": "Not attested in anything this project holds."
+ },
+ "lives_at": {
+  "value": null,
+  "confidence": "reconstructed",
+  "note": "Not attested in anything this project holds."
+ },
+ "works_at": {
+  "value": null,
+  "confidence": "reconstructed",
+  "note": "NOT MODELLED. No premises for this man is named in any source reached and none is in data/structures/."
+ },
+ "present_on_scene_date": {
+  "value": "uncertain",
+  "confidence": "inferred",
+  "sources": [
+   "andreas_1884_v1"
+  ],
+  "note": "PRESENCE ON THE SCENE DATE IS AN ASSUMPTION OF CONTINUITY AND NOT A STATEMENT. Nothing reached follows this household past 1833. It is graded uncertain rather than present because the town's population roughly quadrupled between the roster and the scene date and a great many of the men on it were, in Andreas's own phrase, 'adventurers, comprising moneyed speculators and prospectors, as yet undecided whether to stay at Chicago or go on'."
+ },
+ "persons": [
+  {
+   "id": "handy_major",
+   "name": "Major Handy",
+   "relationship": "head",
+   "grade": "attested",
+   "sex": "male",
+   "occupation": {
+    "value": "mason",
+    "confidence": "attested",
+    "sources": [
+     "andreas_1884_v1"
+    ],
+    "note": "'Major Handy, bricklayer and mason' - no arrival year is given, which is unusual for this roster and is itself worth noting.",
+    "derived_from": "roles",
+    "roles_at_scene_date": [
+     "mason"
+    ]
+   },
+   "sources": [
+    "andreas_1884_v1"
+   ],
+   "note": "Andreas vol. 1, printed p. 132 (scan p. 281), 'an imperfect list of the denizens of the town in the fall of 1833, not before named'. It gives a name, a trade and usually an arrival year, and it is a retrospective of 1884: a YEAR off it is documented, a MONTH is not, and it says nothing whatever about 1835.",
+   "resident_research": {
+    "programme": "resident-research-2026",
+    "ticket": "T-0478",
+    "outcome": "no_corroboration_yet",
+    "reviewed_on": "",
+    "asserted_identity": false,
+    "evidence_for": "Cook County/early-Chicago history independently places Major Handy in the 1833 river-improvement work. The exact name and distinctive public-work role strengthen the resident identity without proving a July 1835 dwelling.",
+    "notes": "Cook County/early-Chicago history independently places Major Handy in the 1833 river-improvement work. The exact name and distinctive public-work role strengthen the resident identity without proving a July 1835 dwelling.",
+    "source_ids": [
+     "goodman_history_cook_county_early"
+    ]
+   },
+   "merge_ruling": [
+    {
+     "ticket": "T-0839",
+     "verdict": "undecided",
+     "rule": "R1",
+     "cluster": "handy",
+     "weighed_against": [
+      "handy_henry_s"
+     ],
+     "referred_to": "rule",
+     "for_merge": "The town documents one Handy, a mason, from Andreas; Henry S. Handy is in the Democrat and Fergus's 1843 death notices. A 'Major Handy' and a Henry S. Handy may well be the same man under a militia title.",
+     "against_merge": "'Major Handy' prints no forename at all. Surname-plus-a-title is the refusal data/research/newspapers/identity.json has ratified since the press pass, and this pass does not make an exception to it. Refused by rule."
+    }
+   ],
+   "roles": [
+    {
+     "role": "mason",
+     "kind": "trade",
+     "as_printed": null,
+     "from": "1673",
+     "to": "1857",
+     "precision": "source_span",
+     "dated_by": "source_describes_date",
+     "covers_scene_date": true,
+     "confidence": "attested",
+     "sources": [
+      "andreas_1884_v1"
+     ],
+     "claim": null,
+     "note": "THE BOUND IS THE SOURCE'S, NOT THE MAN'S. This role is carried by the card's 1835 occupation block and is dated by what the cited source or sources are ABOUT, which is why `precision` can be no better than the span they cover. The span reaches 1835, so this role stands in the scene-date view. The printing the trade was read off is not on the card and is fetched by T-1254."
+    }
+   ]
+  }
+ ],
+ "touches_removal": false,
+ "review_required": false,
+ "research_note": "A BRICKLAYER AND MASON IN A TOWN WITH ONE BRICKYARD, which is the pairing worth keeping: Tyler K. Blodgett's yard on the North Side is in this parcel and so is the man who would have laid what it made. 'MAJOR' IS PROBABLY A FORENAME AND POSSIBLY A RANK and this record does not decide; it appears without a comma in Andreas's list, where military titles are elsewhere given as 'Captain J. M. Baxley' and 'Lieutenant J. L. Thompson'."
+}

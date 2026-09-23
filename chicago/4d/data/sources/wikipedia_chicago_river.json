@@ -1,0 +1,29 @@
+{
+  "id": "wikipedia_chicago_river",
+  "type": "website",
+  "citation": "\"Chicago River.\" Wikipedia. Paraphrasing Lt. James Strode Swearingen's 1803 description of the river at Fort Dearborn, footnoted to its reprinting in Quaife 1913, and the 1833-37 harbour works after Holland and Andreas.",
+  "date": "accessed 2026-08-09",
+  "describes_date": "1803-1900",
+  "url": "https://en.wikipedia.org/wiki/Chicago_River",
+  "archived_url": "https://web.archive.org/web/20260101000000*/https://en.wikipedia.org/wiki/Chicago_River",
+  "tier": 4,
+  "rights_status": "no_known_restrictions",
+  "asset_use": "cross_check",
+  "verified": false,
+  "note": "A finding aid, not evidence. What matters here is the figure it carries from Swearingen 1803: the river at Fort Dearborn about 30 yards (90 ft) wide and upwards of 18 ft deep, with banks 8 ft high on the south side and 6 ft on the north. Also: the pre-reversal flow was sluggish and outward into the lake with a near-zero surface gradient, which is what licenses a flat water surface at the datum through the whole downtown reach. Both figures are measured at the FORT, roughly 1.2 miles downstream of the forks — do not carry them to the forks without saying so. Chase Swearingen to a primary printing before promoting anything derived from it to documented. READ IN FULL 2026-08-11 AND IT IS NOT THE CASE THE OTHER TWO WERE. docs/STATUS.md § 44 listed this page beside chicagology_prefire062 and prefire276 as looking like a modern host carrying an old document. It is not one: the Swearingen material is a single sentence of Wikipedia's own prose — 'described the river as being about 30 yd wide and upwards of 18 ft deep at the place where the fort was intended to be built; the riverbanks were 8 ft high on the south side and 6 ft on the north' — carrying a footnote, not a quotation. No word of the journal is printed here. THE FOOTNOTE IS THE THING WORTH HAVING and it is the primary printing this record has been asking for since it was written: 'Journal of Lieutenant James Strode Swearingen reproduced in Quaife 1913, pp. 373-377' — Milo Milton Quaife, Chicago and the Old Northwest, 1673-1835 (University of Chicago Press, 1913). Fetch those five pages and the figures stop resting on an encyclopedia. THE FLAT-WATER SENTENCE IS WEAKER STILL, and it is the one this dataset actually stands on. The claim that licenses a level water surface is Wikipedia's 'the Chicago River flowed sluggishly into Lake Michigan from Chicago's flat plain', in the Reversing-the-flow section, where the only footnote in reach is to a 1998 geological survey paper about the ice-age ridge. So the `documented` grade on the ground `water` claim in terrain_spec.json rests on unfootnoted encyclopedia prose and not on Swearingen at all — see docs/RESEARCH/evidence_tiers_round_two.md § 4. THE FOOTNOTE WAS CHASED 2026-08-11 AND THIS RECORD IS SUPERSEDED ON SWEARINGEN: `quaife_1913_swearingen` carries the journal itself, at tier 1, and any claim resting on the 1803 river should cite that record and not this one. Reading the page cost this record one of its two bank figures. Its '6 ft on the north' is NOT in Swearingen, who gives no north-bank height at all: he writes that the opposite bank 'is not so high, not being a difference, of more than two feet, by appearances' — a bounded difference, flagged as an estimate made by eye. Six is what you get by subtracting the maximum from eight, and this page prints it beside a sounding as though it were one. What the page drops is worth more than what it garbles: 'dead water, owing to its being stopped up at the mouth, by the washing of sand, from the lakes' — the pre-cut regime in the witness's own words — and 'The banks above are quite low', which is the ONLY sentence in the passage about the reach this project actually models. See docs/RESEARCH/swearingen_1803.md § 4.",
+  "carries_no_document": "Opened and read in full 2026-08-11 (https://en.wikipedia.org/w/index.php?title=Chicago_River&action=raw, HTTP 200). Looked for a transcription of Swearingen's 1803 journal and there is none: the page paraphrases him in one sentence of its own prose and footnotes the reprinting, which is a citation and not a reprinting. Every other passage this project draws on here is the same shape. So this record's rung is a judgement about an encyclopedia article — later scholarship, tier 4 — and the documents behind it have to be fetched on their own terms. Where it sends you: Quaife 1913, pp. 373-377 for Swearingen; Holland, Chicago in Maps (2005), pp. 102-109 and Andreas vol. 1, pp. 234-235 for the harbour works.",
+  "access_notes": "Encyclopedia-of-Chicago cross-references in the same dossier could not be retrieved: encyclopedia.chicagohistory.org returned HTTP 503 throughout the research session.",
+  "what_it_supplies": [
+    "a finding aid to the 1833-1837 harbour works chronology, after Holland and Andreas",
+    "the footnote that located the primary printing of Swearingen — its most valuable contribution to this project, now discharged into quaife_1913_swearingen"
+  ],
+  "what_it_does_not_supply": [
+    "channel width or depth at the forks",
+    "bank heights at the forks",
+    "any 1835 measurement",
+    "one word of Swearingen's journal — the page paraphrases and footnotes it; the reprinting it names (Quaife 1913, pp. 373-377) was opened 2026-08-11 and is quaife_1913_swearingen, which supersedes this record on every 1803 river figure",
+    "the north bank's height: its '6 ft' is arithmetic on a bounded visual estimate and appears nowhere in the journal",
+    "the two sentences that matter most to this project — the river standing dead behind a sand-stopped mouth, and the banks above being quite low — both of which the paraphrase drops",
+    "any sourced statement of the river's surface gradient: the sluggish-flow sentence the flat water surface rests on carries no footnote of its own"
+  ]
+}

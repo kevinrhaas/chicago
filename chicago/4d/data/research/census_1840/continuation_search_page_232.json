@@ -1,0 +1,565 @@
+{
+ "schema": 1,
+ "domain": "census_1840",
+ "what": "The search for the continuation (right) half of printed page 232, 33S7-9YYJ-W6 \u2014 carried out over EVERY right sheet in the deposit, image by image, with each one's TOTAL footing and the reason it is not the pair.",
+ "ticket": "T-0543",
+ "parent": "T-0528 and T-0495 asked which right sheet belongs to which left sheet. T-0642 answered it for images 1-25, T-0656 for images 26-50. This file answers the one page those two left open, and does it by exhausting the deposit rather than by exhausting a group.",
+ "read": "2026-09-05",
+ "reading": "scan_verified",
+ "why_this_file_exists": "T-0543 was written on the evidence available on 2026-09-03: printed 230 and printed 232 both had 31 ruled households whose family totals live on a facing leaf nobody had named, and the ticket recorded that neither pair was in image group 26-50. Printed 230 has since been settled \u2014 T-0656 attached it to 33S7-9YYJ-K2 on both keys with the sequence agreeing line for line, and pages/33S7-9YYJ-NY.json carries that pairing. Printed 232 was not settled, and the reason it was not is that the search had only ever been run inside one image group at a time. The deposit is ordered by sorted filename and not by the book, so a left sheet and its own continuation are in the same group only by accident; T-0642 said so and measured it. So this pass ran the search across all three groups at once.",
+ "the_question": {
+  "left_sheet": "33S7-9YYJ-W6, printed page 232, image 38 of 74",
+  "lines_ruled_with_an_entry": 31,
+  "free_population_by_the_marks": 193,
+  "free_population_by_the_sheets_own_footings": 195,
+  "what_a_pair_must_therefore_carry": "31 entries in its TOTAL column, and a printed TOTAL footing of 193 or 195."
+ },
+ "the_test": [
+  "This is T-0642's test, restated and not relaxed. A pair must match on BOTH keys: the left sheet's population (its enumerator's own printed footings summed across all 38 columns) against the right sheet's printed TOTAL footing, and the count of lines that ENUMERATE A HOUSEHOLD against the count of entries in the right sheet's TOTAL column.",
+  "The right key is the printed footing of the TOTAL column \u2014 the enumerator's own arithmetic over his own sheet \u2014 and NEVER a pass's line-by-line sum of that column.",
+  "The sequence screen is a third strand and corroborates or refuses; it never pairs on its own. A left sheet's per-line free-person counts and its continuation's TOTAL column are the same 31 numbers in the same order, so they can be compared position for position.",
+  "A footing is the enumerator's arithmetic and can be wrong, so a footing that misses by one or two is a candidate to be screened rather than a refusal. That is why every distance is stated below rather than only the verdict: the nearest unpaired footing in the whole deposit is 12 short of 193, and none of the 33 is within 5.",
+  "Nothing here is guessed, and no confidence is raised to make a pairing come out. Where a glyph is arguable the alternate is named and the refusal is required to hold on the alternate too."
+ ],
+ "the_deposit_counted_by_side": {
+  "distinct_images": 74,
+  "method": "Every leaf of images 51-74 was opened for the first time in this pass, as two contact sheets at 490 px a leaf, and read as LEFT (the SCHEDULE heading and the wide NAMES OF HEADS OF FAMILIES column) or RIGHT (the 'by the Marshal of the \u2026 District (or Territory) of Illinois' heading and no name column): 9 left and 15 right. Images 1-50 are not re-classified here; their sides are already declared, group by group, in left_sheet_population_key.json (11 continuations) and pairing_key_26_50.json (11 continuations), and those declarations are taken as read.",
+  "right_sheets_in_images_1_25": 11,
+  "right_sheets_in_images_26_50": 11,
+  "right_sheets_in_images_51_74": 15,
+  "right_sheets_total": 37,
+  "right_sheets_blank": 3,
+  "right_sheets_not_a_household_continuation": 1,
+  "household_continuation_sheets_searched": 33,
+  "note": "33 is the number T-0543 named without having counted it, and it is right: 37 right sheets less the three blank leaves (33S7-9YYJ-BH, 33S7-9YYN-3CNQ, 33SQ-GYYJ-7L) and less 33S7-9YYJ-V2, whose TOTAL column carries three-figure numbers and which T-0529 holds as not a household page. This pass does not state a left-sheet total for the deposit: images 1-50 hold a certificate page, a struck leaf and a blank one beside the schedule pages, and counting them is coverage.json's business, not this file's."
+ },
+ "right_sheets": [
+  {
+   "familysearch_id": "33S7-9YYJ-24",
+   "image": 1,
+   "group": "1-25",
+   "total_footing": 201,
+   "footing_state": "carried_from_T-0642",
+   "line_count": 31,
+   "state": "paired",
+   "paired_to_printed_page": 219,
+   "why_not_232": "already attached to printed 219 on both keys by T-0642, and 201 is 8 over 193 and 6 over 195."
+  },
+  {
+   "familysearch_id": "33S7-9YYJ-5D",
+   "image": 4,
+   "group": "1-25",
+   "total_footing": 125,
+   "footing_state": "carried_from_T-0642",
+   "line_count": 31,
+   "state": "unpaired",
+   "why_not_232": "the line count agrees, the population does not: 125 is 68 short of 193 and 70 short of 195."
+  },
+  {
+   "familysearch_id": "33S7-9YYJ-5S",
+   "image": 5,
+   "group": "1-25",
+   "total_footing": 189,
+   "footing_state": "carried_from_T-0642",
+   "line_count": 29,
+   "state": "unpaired",
+   "why_not_232": "the nearest footing in image group 1 and still 4 short of 193 and 6 short of 195, and the line count refuses it outright: 29 entries against 31 households."
+  },
+  {
+   "familysearch_id": "33S7-9YYJ-5V",
+   "image": 6,
+   "group": "1-25",
+   "total_footing": 155,
+   "footing_state": "read_this_pass",
+   "footing_note": "1-5-5, read off a magnified crop of the footing band at x 0.13-0.62, y 0.83-0.965. The two 5s are this hand's unambiguous form \u2014 a bowl under a horizontal top stroke. T-0642 left this footing unread and recorded it as owed by T-0641.",
+   "line_count": 30,
+   "state": "unpaired",
+   "why_not_232": "38 short of 193, and 30 entries against 31 households."
+  },
+  {
+   "familysearch_id": "33S7-9YYJ-6H",
+   "image": 7,
+   "group": "1-25",
+   "total_footing": 144,
+   "footing_state": "carried_from_T-0642",
+   "line_count": 31,
+   "state": "unpaired",
+   "why_not_232": "49 short of 193."
+  },
+  {
+   "familysearch_id": "33S7-9YYJ-6Q",
+   "image": 9,
+   "group": "1-25",
+   "total_footing": 198,
+   "footing_state": "carried_from_T-0642",
+   "line_count": 30,
+   "state": "unpaired",
+   "why_not_232": "the nearest footing above 193 anywhere in the deposit \u2014 5 over 193, 3 over 195 \u2014 and refused by the line count: 30 entries against 31 households."
+  },
+  {
+   "familysearch_id": "33S7-9YYJ-8D",
+   "image": 10,
+   "group": "1-25",
+   "total_footing": 106,
+   "footing_state": "carried_from_T-0642",
+   "line_count": 32,
+   "state": "unpaired",
+   "why_not_232": "87 short of 193, and 32 entries against 31 households."
+  },
+  {
+   "familysearch_id": "33S7-9YYJ-9WS",
+   "image": 20,
+   "group": "1-25",
+   "total_footing": 157,
+   "footing_state": "carried_from_T-0644",
+   "line_count": 32,
+   "state": "unpaired",
+   "why_not_232": "36 short of 193, and 32 entries against 31 households."
+  },
+  {
+   "familysearch_id": "33S7-9YYJ-B1",
+   "image": 21,
+   "group": "1-25",
+   "total_footing": 165,
+   "footing_state": "read_this_pass",
+   "footing_alternates": [
+    185
+   ],
+   "footing_note": "1-6-5. The middle glyph is a small closed loop with an ascender, which is this hand's 6; its 8 is a crossed figure-eight and is not what stands here. 185 is named because the loop is the arguable glyph at this size, and the refusal holds on 185 too \u2014 8 short of 193 and 10 short of 195. T-0642 left this footing unread.",
+   "line_count": 31,
+   "state": "unpaired",
+   "why_not_232": "the line count agrees and the population does not: 28 short of 193 on the read, 8 short on the alternate."
+  },
+  {
+   "familysearch_id": "33S7-9YYJ-B2",
+   "image": 22,
+   "group": "1-25",
+   "total_footing": 113,
+   "footing_state": "read_this_pass",
+   "footing_note": "1-1-3, the 3 a bowl carrying a heavy blob at the top, which is the form this hand uses for 3 throughout the sheet's body. T-0642 left this footing unread.",
+   "line_count": 31,
+   "state": "unpaired",
+   "why_not_232": "the line count agrees and the population does not: 80 short of 193."
+  },
+  {
+   "familysearch_id": "33S7-9YYJ-BF",
+   "image": 24,
+   "group": "1-25",
+   "total_footing": 133,
+   "footing_state": "carried_from_T-0642",
+   "line_count": 31,
+   "state": "unpaired",
+   "why_not_232": "the line count agrees and the population does not: 60 short of 193."
+  },
+  {
+   "familysearch_id": "33S7-9YYJ-FJ",
+   "image": 27,
+   "group": "26-50",
+   "total_footing": 135,
+   "footing_state": "carried_from_T-0656",
+   "footing_alternates": [
+    138,
+    185
+   ],
+   "line_count": 31,
+   "state": "unpaired_candidate_for_printed_207",
+   "why_not_232": "58 short of 193 on the read; on its highest alternate, 185, still 8 short of 193 and 10 short of 195. T-0656 carries it as a candidate for printed 207 on the line count and the sequence."
+  },
+  {
+   "familysearch_id": "33S7-9YYJ-K2",
+   "image": 29,
+   "group": "26-50",
+   "total_footing": 151,
+   "footing_state": "carried_from_T-0656",
+   "line_count": 31,
+   "state": "paired",
+   "paired_to_printed_page": 230,
+   "why_not_232": "this is printed 230's continuation \u2014 attached on both keys with the sequence agreeing position for position \u2014 which is the other half of T-0543 and is already committed in pages/33S7-9YYJ-NY.json."
+  },
+  {
+   "familysearch_id": "33S7-9YYJ-L3",
+   "image": 30,
+   "group": "26-50",
+   "total_footing": 115,
+   "footing_state": "carried_from_T-0656",
+   "line_count": null,
+   "state": "unpaired",
+   "why_not_232": "78 short of 193. The line count is unsettled between 29 and 31 and is left to T-0657; the population refuses the pairing whichever it is."
+  },
+  {
+   "familysearch_id": "33S7-9YYJ-V2",
+   "image": 35,
+   "group": "26-50",
+   "total_footing": null,
+   "footing_state": "held_by_T-0529",
+   "line_count": null,
+   "state": "not_a_household_continuation",
+   "why_not_232": "printed 237, and its TOTAL column carries three-figure numbers, which is not what a household page looks like. T-0529 asks what it is. It cannot carry 31 household totals."
+  },
+  {
+   "familysearch_id": "33S7-9YYJ-V4",
+   "image": 36,
+   "group": "26-50",
+   "total_footing": 100,
+   "footing_state": "carried_from_T-0656",
+   "line_count": 20,
+   "state": "unpaired",
+   "why_not_232": "93 short of 193, and 20 entries against 31 households \u2014 the entries stop three fifths of the way down the leaf."
+  },
+  {
+   "familysearch_id": "33S7-9YYJ-VJ",
+   "image": 37,
+   "group": "26-50",
+   "total_footing": 117,
+   "footing_state": "carried_from_T-0656",
+   "footing_alternates": [
+    107
+   ],
+   "line_count": 31,
+   "state": "unpaired",
+   "why_not_232": "the line count agrees and the population does not: 76 short of 193 on the read, 86 on the alternate."
+  },
+  {
+   "familysearch_id": "33S7-9YYN-3CF6",
+   "image": 41,
+   "group": "26-50",
+   "total_footing": 116,
+   "footing_state": "carried_from_T-0656",
+   "line_count": 27,
+   "state": "unpaired",
+   "why_not_232": "77 short of 193, and 27 entries against 31 households."
+  },
+  {
+   "familysearch_id": "33S7-9YYN-3CNQ",
+   "image": 42,
+   "group": "26-50",
+   "total_footing": null,
+   "footing_state": "blank_leaf",
+   "line_count": 0,
+   "state": "blank",
+   "why_not_232": "no entries and no footing. A blank continuation cannot carry 193 people."
+  },
+  {
+   "familysearch_id": "33SQ-GYYJ-5H",
+   "image": 43,
+   "group": "26-50",
+   "total_footing": 154,
+   "footing_state": "carried_from_T-0656",
+   "line_count": 28,
+   "state": "unpaired",
+   "why_not_232": "39 short of 193, and 28 entries against 31 households."
+  },
+  {
+   "familysearch_id": "33SQ-GYYJ-7L",
+   "image": 45,
+   "group": "26-50",
+   "total_footing": null,
+   "footing_state": "blank_leaf",
+   "line_count": 0,
+   "state": "blank",
+   "why_not_232": "no entries and no footing."
+  },
+  {
+   "familysearch_id": "33SQ-GYYJ-9CZ",
+   "image": 50,
+   "group": "26-50",
+   "total_footing": 181,
+   "footing_state": "carried_from_T-0656",
+   "line_count": 30,
+   "state": "paired",
+   "paired_to_printed_page": 209,
+   "why_not_232": "already attached to printed 209 by T-0656 on both keys; 12 short of 193 and 30 entries against 31 households."
+  },
+  {
+   "familysearch_id": "33SQ-GYYJ-9J5",
+   "image": 51,
+   "group": "51-74",
+   "total_footing": 179,
+   "footing_state": "read_this_pass",
+   "footing_note": "1-7-9. The middle glyph is a long forward slant with no bowl, which is this hand's 7 and not its 9 (a small closed loop with a descender, which is exactly what the third glyph is).",
+   "line_count": 31,
+   "line_count_state": "measured_this_pass",
+   "line_count_note": "tools/census_total_column.py 33SQ-GYYJ-9J5 --x0 0.322 --x1 0.372 --y0 0.175 --y1 0.92 measures 31 groups at grouping dy 35, 45 and 55 \u2014 stable across the tool's whole plausible band, which is the tool's own standard for a settled count.",
+   "state": "unpaired",
+   "why_not_232": "the ONLY unpaired sheet in the deposit that matches printed 232 on the line count, and it is refused on both of the other two strands: 14 short of 193 and 16 short of 195, and its TOTAL column read at magnification opens 5, 6, 25, 11, 8 against printed 232's 5, 7, 5, 9, 6 \u2014 agreeing at position 1 and nowhere else in the first five. See the_sequence_screen."
+  },
+  {
+   "familysearch_id": "33SQ-GYYJ-9SQ",
+   "image": 52,
+   "group": "51-74",
+   "total_footing": 175,
+   "footing_state": "read_this_pass",
+   "footing_note": "1-7-5, the 7 the same long slant as 9J5's and the 5 the bowl-under-a-top-stroke.",
+   "line_count": null,
+   "line_count_state": "window_not_settled",
+   "line_count_note": "tools/census_total_column.py on the window read off the footing crop counts 47/46/39/35/33 at dy 35/45/55/65/75 \u2014 unstable, which means the x window is catching a neighbouring column and the human judgement it asks for has not been made. Not measured here rather than measured badly.",
+   "state": "unpaired",
+   "why_not_232": "18 short of 193 and 20 short of 195."
+  },
+  {
+   "familysearch_id": "33SQ-GYYJ-9ZK",
+   "image": 53,
+   "group": "51-74",
+   "total_footing": 119,
+   "footing_state": "read_this_pass",
+   "footing_note": "1-1-9, the 9 a closed loop with a descender.",
+   "line_count": 28,
+   "line_count_state": "measured_this_pass",
+   "line_count_note": "28 groups at dy 35, 45 and 55 on --x0 0.322 --x1 0.372.",
+   "state": "unpaired",
+   "why_not_232": "74 short of 193, and 28 entries against 31 households."
+  },
+  {
+   "familysearch_id": "33SQ-GYYJ-BH",
+   "image": 54,
+   "group": "51-74",
+   "total_footing": null,
+   "footing_state": "blank_leaf",
+   "line_count": 0,
+   "state": "blank",
+   "why_not_232": "the leaf carries no entries and no footing; tools/census_total_column.py finds 3 components on the whole TOTAL column, which are the specks a blank leaf carries."
+  },
+  {
+   "familysearch_id": "33SQ-GYYJ-BS",
+   "image": 56,
+   "group": "51-74",
+   "total_footing": 131,
+   "footing_state": "read_this_pass",
+   "footing_note": "1-3-1, the 3 the top-heavy bowl.",
+   "line_count": null,
+   "line_count_state": "window_not_settled",
+   "state": "unpaired",
+   "why_not_232": "62 short of 193."
+  },
+  {
+   "familysearch_id": "33SQ-GYYJ-FS",
+   "image": 58,
+   "group": "51-74",
+   "total_footing": 152,
+   "footing_state": "read_this_pass",
+   "footing_note": "1-5-2, the 2 a cursive form open at the foot.",
+   "line_count": null,
+   "line_count_state": "window_not_settled",
+   "state": "unpaired",
+   "why_not_232": "41 short of 193."
+  },
+  {
+   "familysearch_id": "33SQ-GYYJ-J2",
+   "image": 59,
+   "group": "51-74",
+   "total_footing": 112,
+   "footing_state": "read_this_pass",
+   "footing_note": "1-1-2.",
+   "line_count": null,
+   "line_count_state": "window_not_settled",
+   "state": "unpaired",
+   "why_not_232": "81 short of 193."
+  },
+  {
+   "familysearch_id": "33SQ-GYYJ-K5",
+   "image": 60,
+   "group": "51-74",
+   "total_footing": 159,
+   "footing_state": "read_this_pass",
+   "footing_note": "1-5-9. The leaf is cut low by the scan and the footing stands on the cut line; the three glyphs are whole.",
+   "line_count": null,
+   "line_count_state": "window_not_settled",
+   "state": "unpaired",
+   "why_not_232": "34 short of 193."
+  },
+  {
+   "familysearch_id": "33SQ-GYYJ-LC",
+   "image": 61,
+   "group": "51-74",
+   "total_footing": 175,
+   "footing_state": "read_this_pass",
+   "footing_note": "1-7-5, faint but the three glyphs are separable at magnification.",
+   "line_count": null,
+   "line_count_state": "window_not_settled",
+   "state": "unpaired",
+   "why_not_232": "18 short of 193 and 20 short of 195."
+  },
+  {
+   "familysearch_id": "33SQ-GYYJ-LK",
+   "image": 62,
+   "group": "51-74",
+   "total_footing": 157,
+   "footing_state": "read_this_pass",
+   "footing_note": "1-5-7.",
+   "line_count": null,
+   "line_count_state": "window_not_settled",
+   "state": "unpaired",
+   "why_not_232": "36 short of 193."
+  },
+  {
+   "familysearch_id": "33SQ-GYYJ-NV",
+   "image": 64,
+   "group": "51-74",
+   "total_footing": 70,
+   "footing_state": "read_this_pass",
+   "footing_note": "two glyphs, 7-0, and the leaf is sparsely filled to match.",
+   "line_count": 21,
+   "line_count_state": "measured_this_pass",
+   "line_count_note": "21 groups at dy 35 and 45 on --x0 0.315 --x1 0.365.",
+   "state": "unpaired",
+   "why_not_232": "123 short of 193, and 21 entries against 31 households."
+  },
+  {
+   "familysearch_id": "33SQ-GYYJ-P1",
+   "image": 65,
+   "group": "51-74",
+   "total_footing": 162,
+   "footing_state": "read_this_pass",
+   "footing_note": "1-6-2.",
+   "line_count": 33,
+   "line_count_state": "measured_this_pass",
+   "line_count_note": "33 groups at dy 35, 45 and 55 on --x0 0.287 --x1 0.337.",
+   "state": "unpaired",
+   "why_not_232": "31 short of 193, and 33 entries against 31 households."
+  },
+  {
+   "familysearch_id": "33SQ-GYYJ-Z1",
+   "image": 71,
+   "group": "51-74",
+   "total_footing": 181,
+   "footing_state": "read_this_pass",
+   "footing_alternates": [
+    186
+   ],
+   "footing_note": "1-8-1. The third glyph is a heavy blob with a tail and is the arguable one; 186 is named for it, and the refusal holds on 186 too \u2014 7 short of 193 and 9 short of 195. This is the highest footing of any unpaired right sheet in images 51-74.",
+   "line_count": null,
+   "line_count_state": "window_not_settled",
+   "state": "unpaired",
+   "why_not_232": "12 short of 193 and 14 short of 195 on the read; 7 and 9 short on the alternate."
+  },
+  {
+   "familysearch_id": "33SQ-GYYN-385R",
+   "image": 73,
+   "group": "51-74",
+   "total_footing": 125,
+   "footing_state": "read_this_pass",
+   "footing_alternates": [
+    123
+   ],
+   "footing_note": "1-2-5; the third glyph is written across the cell's right rule and 123 is named for it.",
+   "line_count": 30,
+   "line_count_state": "measured_this_pass",
+   "line_count_note": "30 groups at dy 35 and 45 on --x0 0.320 --x1 0.370.",
+   "state": "unpaired",
+   "why_not_232": "68 short of 193, and 30 entries against 31 households."
+  },
+  {
+   "familysearch_id": "33SQ-GYYN-38YY",
+   "image": 74,
+   "group": "51-74",
+   "total_footing": 147,
+   "footing_state": "read_this_pass",
+   "footing_note": "1-4-7, with a second figure \u2014 53 in the next cell and 52 written below the footing rule \u2014 which this pass does not interpret.",
+   "line_count": null,
+   "line_count_state": "window_not_settled",
+   "state": "unpaired",
+   "why_not_232": "46 short of 193."
+  }
+ ],
+ "the_sequence_screen": {
+  "what": "The third strand, run on the one sheet that survived the line-count key: 33SQ-GYYJ-9J5, measured at 31 entries and unpaired.",
+  "how": "Its TOTAL column was cropped at x 0.330-0.400, y 0.170-0.925 of the leaf, cut into four segments and magnified. That is a strip read and NOT a committed reading \u2014 not one cell of it is written to any page file, exactly as T-0656 refused to commit its own strip reads.",
+  "printed_232_free_persons": [
+   5,
+   7,
+   5,
+   9,
+   6,
+   4,
+   10,
+   6,
+   4,
+   4,
+   13,
+   14,
+   16,
+   5,
+   2,
+   2,
+   4,
+   2,
+   2,
+   3,
+   3,
+   6,
+   8,
+   14,
+   12,
+   9,
+   6,
+   2,
+   1,
+   5,
+   4
+  ],
+  "9J5_total_column_opens": [
+   5,
+   6,
+   25,
+   11,
+   8
+  ],
+  "verdict": "refused. The two sequences agree at position 1 and disagree at 2, 3, 4 and 5, and printed 232's distinctive run of 13, 14, 16 at positions 11-13 has no counterpart on the leaf. A pairing cannot be carried by a line count alone."
+ },
+ "left_sheets_of_images_51_74": {
+  "why_this_is_here": "A by-product of counting the deposit by side, published because T-0496 \u2014 which reads image group 51-74 for names \u2014 should not have to open 24 leaves again to learn which nine hold names. It is a classification off contact sheets and nothing more: no printed page number is claimed and no name is read.",
+  "familysearch_ids": [
+   "33SQ-GYYJ-BP",
+   "33SQ-GYYJ-CK",
+   "33SQ-GYYJ-LV",
+   "33SQ-GYYJ-P5",
+   "33SQ-GYYJ-PW",
+   "33SQ-GYYJ-RJ",
+   "33SQ-GYYJ-RK",
+   "33SQ-GYYJ-RY",
+   "33SQ-GYYJ-ZQ"
+  ],
+  "one_of_them_is_worth_naming": "33SQ-GYYJ-PW is the densest leaf in the deposit and the only one seen in this pass that writes STREET NAMES down its left margin beside the households. Whatever it is, it is not a plain schedule page, and T-0496 should open it first."
+ },
+ "outcome": {
+  "right_sheets_searched": 37,
+  "household_continuations_among_them": 33,
+  "footings_read_this_pass": 17,
+  "footings_carried_from_earlier_tickets": 16,
+  "sheets_footing_193_or_195": 0,
+  "nearest_unpaired_footing_below": "33SQ-GYYJ-Z1 at 181, 12 short of 193",
+  "nearest_unpaired_footing_above": "33S7-9YYJ-6Q at 198, 5 over 193 and 3 over 195, refused by its 30-entry line count",
+  "what_the_result_means": "The continuation half of printed page 232 is NOT IN THIS DEPOSIT. The search is exhausted: every one of the 37 right sheets across all three image groups has been looked at, 33 of them are household continuations, and not one foots 193 or 195. The single sheet that matches printed 232 on the line count, 33SQ-GYYJ-9J5, is refused by the population key and again by the sequence screen. This is a statement about the deposit and not about the schedule: the 1840 book had a facing leaf for every page it enumerated, and this deposit of 74 images does not hold all of them \u2014 the same fact that leaves ten of image group 1's eleven continuations without a partner. So printed 232's family totals, industry columns, pensioners and schools cells are UNREADABLE from what this project holds, and pages/33S7-9YYJ-W6.json now says so on the page rather than leaving the hole silent.",
+  "what_would_change_it": "ANSWERED BY T-0736, 2026-09-06, and both routes this file named were tried. The leaf was outside the deposit and it was found.",
+  "blank_leaves_with_no_footing_to_read": 3,
+  "footings_held_by_another_ticket": 1
+ },
+ "the_two_routes_outside_this_deposit": {
+  "read": "2026-09-06",
+  "ticket": "T-0736",
+  "route_a_familysearch_collection_1786457": {
+   "tried": true,
+   "result": "CLOSED, and it is inaccessibility rather than absence \u2014 the same finding as 2026-09-03, now with the requests written down. Three URLs were fetched unauthenticated from this runner on 2026-09-06 and all three answered HTTP 403: the collection's own search page https://www.familysearch.org/search/collection/1786457, the image ark of printed 232's left sheet https://www.familysearch.org/ark:/61903/3:1:33S7-9YYJ-W6, and the collection's search service. Nothing about the collection's CONTENTS was learned and nothing may be inferred from the refusal.",
+   "what_it_would_take": "a logged-in session, which this runner does not have and must not fabricate."
+  },
+  "route_b_national_archives_microfilm_m704": {
+   "tried": true,
+   "result": "OPEN, and it yielded the leaf.",
+   "the_roll_number_this_file_said_nobody_had_looked_up": "M704 roll 57 \u2014 \u201cColes, Cook, Crawford Counties\u201d, Illinois.",
+   "how_it_was_established": [
+    "archives.gov's 1840 census page states the publication and its extent \u2014 \u201cDigital images of National Archives Microfilm Publication M704, Sixth Census of the United States, 1840 (580 rolls), can be seen on popular genealogy websites, including Ancestry.com, FamilySearch.org, and others\u201d \u2014 and NARA does not serve the images itself, so the publication is named there and the images are not.",
+    "The Internet Archive holds the Allen County Public Library Genealogy Center's scan of the Illinois rolls of M704, one item per roll, and each item's description carries the roll contents for the whole state. Roll 57 is \u201cColes, Cook, Crawford Counties\u201d; the item is populationsc18400057unit, 330 leaves, public and unauthenticated."
+   ],
+   "the_leaf": {
+    "printed_232_left_sheet": "leaf n166",
+    "its_continuation_right_sheet": "leaf n167",
+    "identified_by": "the 31 heads of families on n166, which are printed 232's own 31 in printed 232's own order \u2014 Nicholas W. Smith, Jos. D. Boone, Jacob Miller, Amy Brown, Wm J. C. Scovill, J. B. C. Russell, Geo. O'Bryan, Chas. Sweet, Elizabeth T. Estey, John Wm Mullen, James H. Cassady, Danl Shelby, John Davis and on to C. H. Holcomb and Emanuel M[?]. The stamped 232 agrees and the film's own left-then-right order agrees, but the names are what settles it.",
+    "both_of_t0642s_keys": "31 entries in n167's TOTAL column against printed 232's 31 ruled lines, and a printed TOTAL footing read as 195 \u2014 the figure printed 232's own footings give \u2014 with 198 named as the arguable alternate at this exposure.",
+    "the_sequence_screen": "n167's TOTAL column opens 5, 7, 5, 9, 6, 4, which is printed 232's own per-line free-person count. This is the screen that REFUSED 33SQ-GYYJ-9J5, whose column opens 5, 6, 25, 11, 8.",
+    "source_record": "data/sources/census_1840_chicago_nara_m704_roll57.json, with each leaf's URL and sha256."
+   }
+  },
+  "what_this_does_not_change": "Not one cell of the deposit's reading of printed 232, and not one cell of n167 either: this pass PAIRED the leaf and read nothing off it below the two keys and the opening of the TOTAL column. The 31 households' industry, pension and schools cells are still unread, and they have their own ticket.",
+  "what_the_deposit_turns_out_to_be": "A PARTIAL SELECTION OF FRAMES, exactly as this file's own outcome guessed: \u201cthe 1840 book had a facing leaf for every page it enumerated, and this deposit of 74 images does not hold all of them\u201d. Printed 232's continuation was on the film the whole time. The ten continuations of image group 1 that stand without a partner are the same shape of hole and the same roll is where they will be."
+ }
+}

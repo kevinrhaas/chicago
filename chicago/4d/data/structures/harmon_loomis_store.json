@@ -1,0 +1,134 @@
+{
+  "id": "harmon_loomis_store",
+  "name": "Harmon & Loomis's Store",
+  "aka": [
+    "Harmon's and Loomis's",
+    "C. & I. Harmon",
+    "the Clark and South Water store building"
+  ],
+  "archetype": "frame_storefront",
+  "phases": [
+    {
+      "id": "frame_1833",
+      "documented_range": {
+        "from": "1833-11-26",
+        "to": "1835-12-31",
+        "confidence": "inferred",
+        "sources": [
+          "chicago_democrat_1833_11_26",
+          "andreas_1884_v1"
+        ],
+        "note": "THE START IS THE FIRST DATE A SOURCE PUTS THE FIRM IN BUSINESS, WHICH IS NOT THE SAME AS PUTTING THE BUILDING IN EXISTENCE, and this range does not pretend otherwise. The Chicago Democrat of 26 November 1833 carries a display advertisement headed 'C. & I. HARMON', dated 18 November 1833, offering dry goods, crockery, hardware, wet and dry groceries and 'on commission, a large lot of Leather, Saddlery, &c.' — contemporary proof that a Harmon store was trading at Chicago three weeks before the town was a month into having a newspaper. Andreas independently lists 'Jim Kinzie's store, P. F. W. Peck's store, Harmon's and Loomis's' as all being on South Water Street by 1833. NEITHER STATEMENT DATES THE BUILDING. The corner attribution comes from a later Andreas passage describing the three-storey building at Clark and South Water that housed the Daily Chicago American on its third floor in 1839, and whether the 1835 building was that building, or its predecessor on the same lot, is unattested. THE END IS THE ORDINARY CONTINUITY CUT AT THE SCENE YEAR, not a demolition date."
+      },
+      "position": {
+        "utm_e": 447660.59,
+        "utm_n": 4637383.095,
+        "rotation_deg": 0.0,
+        "symbolic_location": "The corner of Clark Street and South Water Street (today North Clark Street at West Wacker Drive); the south-east corner, which is this record's reading and not a statement in any source.",
+        "confidence": "inferred",
+        "sources": [
+          "andreas_1884_v1",
+          "osm_streets_2026"
+        ],
+        "note": "PLACED 2026-08-11. THE JUNCTION IS ATTESTED AND THE CORNER IS THIS RECORD'S CHOICE, ARGUED HERE RATHER THAN ASSUMED. Andreas gives 'corner of Clark and South Water' and never a side. Two of the four corners fall away on the dossier's own evidence: the north side of South Water was the river frontage, wharves and landings (docs/research/04-structures-south.md § 12), so the building is south of the street. That leaves south-west and south-east. THE SOUTH-WEST IS SEPARATELY AND EXPLICITLY CLAIMED: Andreas puts the Chicago Democrat's building on the south-west corner of the same junction, and the Democrat's own first issue confirms the junction from a contemporary imprint. This record therefore takes the south-east, and the reasoning is that two attested premises on one crossing are better modelled as two buildings on two corners than as one building asserted twice — but that is a modelling choice, not evidence, AND THE HONEST ALTERNATIVE IS THAT THEY WERE ONE BUILDING. Andreas says Calhoun 'secured an office IN a building' at this junction, i.e. he rented; Harmon & Loomis owned a building at this junction; a newspaper renting an office in a merchant's corner store is the ordinary arrangement of the period. IF THAT IS RIGHT, THIS RECORD STANDS ABOUT 37 M EAST OF WHERE IT BELONGS AND DUPLICATES chicago_democrat_office. That is recorded here, in that record, and in both research docs rather than being resolved by preference. METHOD: the modern West Upper Wacker Drive / North Clark Street intersection centre was read from OpenStreetMap at EPSG:26916 E 447648.5, N 4637409.7 (two nodes averaged, spread 14.3 m, fetched 2026-08-11); the origin sits 12.2 m east and 12.2 m south of it less the depth, so the north face is on the South Water frontage and the west face on the Clark frontage of a south-east corner lot. WORKING UNCERTAINTY ABOUT 20 M from the georeference, plus the 37 m the corner question is worth. The traced 1834 south bank runs 79.6 m north of this north face at this easting, which is 60 m more than the same measurement at Dearborn — local paper stretch and Wacker Drive's uneven build-out over the old dock line, not wharf depth. Facade bearing 0, north onto South Water, inferred from the street rather than from any statement. RECONCILED WITH THE COMMITTED PLAT 2026-08-24 (T-0127), AND THE CLAIM DID NOT MOVE — ONLY THE LINE IT WAS DERIVED AGAINST. The method above set this footprint's north face on the South Water frontage, and it found that frontage by taking the MODERN West Wacker Drive centreline out of OpenStreetMap and stepping 12.2 m south of it. That is not this project's own South Water Street: the committed centreline in data/streets/1835.json, offset by half the committed 80 ft corridor, is what tools/generate_plat_lots.py builds every platted block edge from, and it is the line every derived layer in this scene reads. Measured against it, this record's north wall stood 5.30 m OUT PAST the blk_south_water_clark frontage line, in the platted roadway — far enough into it that tools/generate_frontage_works.py refused the plank sidewalk along this stretch of South Water in writing and named this building in the refusal. THE REPAIR IS THIS RECORD'S OWN METHOD RUN AGAINST THIS PROJECT'S OWN LINE: the footprint is translated 6.80 m along the face's inward normal — dE -0.110 m, dN -6.805 m in local ENU, so UTM E 447660.7 N 4637389.9 becomes E 447660.59 N 4637383.095 — which leaves its north wall 1.50 m back from the committed frontage line, the same margin tools/generate_block_infill.py gives every reconstructed unit standing on this face. NOTHING ALONG THE STREET MOVED: the along-face position, the block, the corner and the side are untouched, and so is the confidence grade — re-deriving a coordinate from better geometry is not new evidence. WHAT IS STILL WRONG AND IS LEFT WRITTEN DOWN: the facade bearing stays 0 while this face runs at 0.93, so the front wall is 1.50 m back at its worst corner and up to 1.70 m at the other. That skew is smaller than the walk's own daylight and it is not corrected here, because rotating a documented record is a second claim and this one is a repair. THE CROSS STREET IS REFUSED, IN WRITING, WITH THE NUMBER (T-0195, 2026-08-27). The repair above answered South Water Street and could not answer this one, because a corner has two streets and the move that reconciles the frontage is along the other street's normal. Measured against the committed plat with tools/measure_corridor_intrusion.py, this footprint still laps Clark's corridor by 0.21 m — the fourth-shallowest lap any building in this town makes, and the deepest of the three corner residuals the South Water repair left standing. WHY IT IS NOT REPAIRED, AND THE MEASUREMENT THAT DECIDES IT. tools/measure_corridor_intrusion.py --escape bisects the shortest translation that takes each lapping record clear of the corridor it laps and reads that direction against the record's OWN facade bearing: here it is 0.213 m on a bearing of 90.36 degrees, which is 0.36 degrees off square to this facade — a slide SIDEWAYS ACROSS ITS OWN FRONT, not in or out of it. South Water's committed axis runs at 90.93 degrees beside this footprint, so that escape is a move ALONG South Water Street to within 0.6 of a degree. It would therefore change where along the business street this building stands, and the corner is the one part of this placement a source argues. Moving ACROSS the front is a different operation and is the one T-0127 defended: the setback is re-derived against a better line and the claim does not move. Moving ALONG it moves the claim. WHERE THE 0.2 M ACTUALLY COMES FROM, because it is not a mystery and should not be left as one. The method above stepped 12.2 m from an OpenStreetMap junction centre in BOTH directions. The South Water half of that offset was re-derived against this project's own committed centreline; the Clark half never was. Measured against the committed Clark centreline this record's west face stands 11.979 m out, where the platted half-width is 12.192 m — so the residual is the 0.221 m by which OpenStreetMap's junction centre and this project's committed Clark centreline disagree at this corner, and nothing else. AND WHY THAT IS NOT WORTH SPENDING A SOURCE ON. It is about 1.1 per cent of this placement's own stated working uncertainty of about 20 m, on a georeference carrying 17.5 m RMS (data/datum.json). Clearing it leaves the record clear of every platted corridor — the escape trades nothing away — and that is exactly what makes the temptation worth naming: the number would go to zero and the placement would be no more true. The lap is banked in tools/corridor_intrusion_baseline.json under `refused`, where the gate holds it at this depth and fails if it grows, and it may not outlive itself: if this corner is ever re-derived, the refusal has to be withdrawn with it.",
+        "derivation": {
+          "method": "not_derivable",
+          "reason": "This placement predates the derivation module. Its provenance and reasoning are recorded in position.note, but no machine-checkable derivation block has been authored for it yet."
+        }
+      },
+      "footprint": {
+        "polygon": [
+          [
+            0,
+            0
+          ],
+          [
+            12.192,
+            0
+          ],
+          [
+            12.192,
+            7.62
+          ],
+          [
+            0,
+            7.62
+          ]
+        ],
+        "confidence": "reconstructed",
+        "note": "INVENTED — the parcel's borrowed rectangle, 12.192 x 7.62 m = 40 x 25 ft, taken from the Green Tree Tavern's attested frontage and room module because no source gives this building a dimension. The documented cap applies: South Water lots were 55 ft wide, so the frontage cannot have exceeded that. THE ONE FIGURE THAT MUST NOT BE USED IS THE ONE THE SOURCES DO OFFER. Andreas describes a THREE-STOREY building on this corner housing the Daily Chicago American on its third floor — in 1839, four years after the scene date, in a town whose first three-storey structure (the Saloon Building) is 1836 and is already in data/exclusions.json. Sizing or massing this 1835 record from the 1839 building would import the boom that had not happened yet."
+      },
+      "form": {
+        "stories": {
+          "value": 2,
+          "confidence": "inferred",
+          "sources": [
+            "andreas_1884_v1"
+          ],
+          "note": "NOT ATTESTED FOR 1835 AND DELIBERATELY NOT TAKEN FROM THE 1839 DESCRIPTION. Andreas has a three-storey Harmon & Loomis building on this corner in 1839; the town's first three-storey structure was the Saloon Building of 1836, so three storeys in 1835 would be an anachronism this project already guards against in data/exclusions.json. Two is the reading: it matches Peck's documented two-storey frame store one block west and the Temple Building's documented two-storey frame at Franklin, which are the only two south-side commercial buildings whose height this dataset actually knows. One storey is possible. THE HONEST SUMMARY IS THAT THE 1835 HEIGHT OF THIS BUILDING IS UNVERIFIED, which is what this project's own dossier says."
+        },
+        "construction": {
+          "value": "braced_frame",
+          "confidence": "inferred",
+          "sources": [
+            "andreas_1884_v1"
+          ],
+          "note": "Not stated. Frame rather than log because this is a merchant's building on the town's principal commercial corner, and because the dossier records the 1835 south-side stock as overwhelmingly frame and log with no brick of consequence before 1837. Braced rather than balloon frame for the reason the Sauganash record gives: the two are not distinguishable from any word in the sources."
+        },
+        "wall_height_m": {
+          "value": 5.5,
+          "confidence": "inferred",
+          "note": "No figure is attested. 5.5 m is about 18 ft, two 8 ft storeys plus floor structure and a sill course — the number this project uses for its other two-storey frame buildings. It inherits the storey count's uncertainty in full."
+        },
+        "roof_type": {
+          "value": "gable",
+          "confidence": "inferred",
+          "note": "Not attested. Gable is the near-universal roof form for frame buildings of this type, period and region. Typological derivation, not a measurement."
+        },
+        "roof_pitch_deg": {
+          "value": 33.0,
+          "confidence": "inferred",
+          "note": "No pitch is attested for this building. 33 degrees is the frame_storefront archetype's own figure for a store, and it is adopted here rather than the 38 this project uses for taverns because the archetype argues the case from the dataset's one attested store footprint: a store's frontage is long and its plan shallow, so a tavern's pitch puts more roof above the eave than there is wall below it and the building stops reading as a shop. Inferred from construction practice and from the type, not measured."
+        },
+        "chimneys": {
+          "value": 1,
+          "confidence": "inferred",
+          "note": "Not attested. One is the minimum for a store kept through Chicago winters. The COUNT is the inference; the stack's position, size and material are the archetype's, per docs/LIBERTIES.md L26."
+        },
+        "dock": {
+          "value": true,
+          "confidence": "reconstructed",
+          "geometry": "absent",
+          "sources": [],
+          "note": "RECONSTRUCTED, UNDER THE OWNER'S RULING OF 2026-08-18 — 'you can add more docks!', given with the general instruction to be liberal with reconstructed items and label them as such (T-0062; data/sources/assets/owner_brief_2026_08_18/README.md). NO SOURCE STATES A DOCK, WHARF OR LANDING AT THIS FRONTAGE — that absence is exactly why this value is reconstructed and not inferred, one tier below the two river warehouses whose dock is stated in the dossier. What bounds the invention: (1) THE TRADE — a general merchant's corner store whose 18 November 1833 advertisement lists dry goods, crockery, hardware, wet and dry groceries, and a large lot of leather taken on commission — the class and weight of freight that comes off a vessel, not out of a wagon. (2) THE REACH — this building stands on the South Water river frontage between the forks and the Dearborn drawbridge, the working bank the 2026-08-18 brief shows crowded with masts (image 3) and the reach every schooner cargo landed on; a street of merchants whose whole stock came in by water did not work it over two landings. (3) THE PRACTICE — wharfing-out along the south bank is the practice T-0041's research note records as the thing that would move this layer off reconstruction, and the docks it drew are this landing's pattern. The landing itself is the wharf layer's standard form (data/wharves/river_landings.json, tools/generate_river_wharves.py), every dimension invented within the bounds L132 states; geometry 'simplified' is the exact claim — a standard-form landing stands for a statement this record cannot make from evidence. Claimed at docs/LIBERTIES.md L145. The Temple Building on the same frontage gets NO landing from the same rule: worship and a school take nothing off a schooner. STATED AND NOT YET DRAWN: the traced 1834 bank lines end at local E 390 and this frontage lies east of them, so tools/generate_river_wharves.py refuses the landing with that reason on the record (clause 4b) rather than standing a deck on an extrapolated endpoint. T-0106 owns extending the trace; when it reaches this reach the landing draws itself with no further authoring."
+        },
+        "siding_exposure_m": {
+          "value": 0.127,
+          "confidence": "reconstructed",
+          "note": "INVENTED WITHIN A STOCK SET, NOT DERIVED. No source states the exposed face of any Chicago building's siding. The value is one of four period mill sidings — 4.5, 5, 5.5 or 6 in to the weather; this record wears 5 in — dealt by tools/deal_siding_stock.py: keyed to the phase's construction season, because buildings sided from the same season's shipments of St Joseph sawn lumber tend toward one stock, then advanced so no frame building within 60 m shares this one's. The separation is the surface variety T-0049 reconstructs, not a claim about 1835. docs/LIBERTIES.md L148 owns the invention."
+        }
+      },
+      "change_note": "The store building of Harmon and Loomis at the corner of Clark and South Water, trading through the mid-1830s: dry goods, crockery, hardware, wet and dry groceries, and leather and saddlery taken on commission. In 1839 a three-storey building on this corner carried the Daily Chicago American on its top floor; whether that was this building grown or a replacement is unattested, and the 1835 record deliberately takes none of its height."
+    }
+  ],
+  "function": {
+    "value": "store",
+    "confidence": "attested",
+    "sources": [
+      "chicago_democrat_1833_11_26",
+      "andreas_1884_v1"
+    ],
+    "note": "A general merchant's store. The contemporary advertisement of 18 November 1833 lists dry goods, crockery, hardware, wet and dry groceries, and 'on commission, a large lot of Leather, Saddlery, &c.' — the last of which makes the firm a commission house as well as a shop, which is what most of South Water Street was."
+  },
+  "occupants": {
+    "value": "C. & I. Harmon, merchants; the firm Andreas names as Harmon and Loomis",
+    "confidence": "inferred",
+    "sources": [
+      "chicago_democrat_1833_11_26",
+      "andreas_1884_v1"
+    ],
+    "note": "A DISCREPANCY BETWEEN THE TWO SOURCES, RECORDED RATHER THAN SMOOTHED. Andreas names the concern 'Harmon's and Loomis's'. The advertisement in the Chicago Democrat of 26 November 1833 is headed 'C. & I. HARMON' and names no Loomis. Those are compatible — a firm styled by the Harmon brothers in its own advertising and remembered fifty years later as Harmon and Loomis, or a partnership formed between 1833 and 1835 — but they are not the same statement and the record should not pretend they are. A SECOND POINT ABOUT THE SOURCE ITSELF: the transcription supplied with the scan reads 'C. & L. HARMON'; the scan reads 'C. & I. HARMON'. The scan is cited, not the transcription, and the same transcription's attribution of another advertisement in the issue is treated with the same caution in chicago_democrat_office."
+  },
+  "research_note": "A STORE THIS DATASET KNOWS THE TRADE OF AND NOT THE BUILDING. The contemporary advertisement of 18 November 1833 tells us what Harmon sold; Andreas tells us the firm was on South Water Street by 1833 and that a Harmon & Loomis building stood at the corner of Clark and South Water. Every visible property of the structure — its side of the crossing, its size, its height, its material, its roof — is inference or invention, and the two that matter most are argued in full on the position and on stories. THE HEIGHT TRAP IS THE ONE TO WATCH: the vivid description available for this corner is the three-storey building of 1839 with the Daily Chicago American on its top floor, and 1839 Chicago is a different town. Chicago's first three-storey building was the Saloon Building of 1836, which this project already excludes by date. The 1835 height is unverified and this record says so rather than borrowing. THE CORNER TRAP IS THE OTHER: if Harmon & Loomis's building is the same building the Chicago Democrat rented an office in, this record is a duplicate standing 37 m east of chicago_democrat_office. That possibility is set out on both records and in docs/RESEARCH/harmon_loomis_store.md, and it is the single most likely way this parcel is wrong.",
+  "review_required": false
+}

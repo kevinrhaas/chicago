@@ -1,0 +1,116 @@
+{
+ "id": "hh_squar_geo",
+ "name": "The Squar household — a name from the post office's letter lists",
+ "division": "unplaced",
+ "head": "squar_geo",
+ "source_pass": "letter_list",
+ "arrival": {
+  "value": "1834-04-01",
+  "confidence": "inferred",
+  "sources": [
+   "chicago_democrat_1833_1835"
+  ],
+  "note": "A BOUND FROM THE RETURN, NOT AN ARRIVAL. The office's list of letters uncalled-for is a RETURN — its statement of what was still unclaimed on ONE day — and the paper reprinted one return over as many consecutive issues as it took, so the bound is dated by the return of 1 April 1834 and not by the issue it was read in (T-0425). Somebody was writing to this name at Chicago by 1834-04-01 and at no stated time before it; nothing says when they came. The date lines the printings set, and how they were weighed, stand beside this rule in tools/mint_letter_list_residents.py.",
+  "precision": "not_later_than"
+ },
+ "party_size_on_arrival": {
+  "value": null,
+  "confidence": "reconstructed",
+  "note": "Not attested."
+ },
+ "origin": {
+  "value": null,
+  "confidence": "reconstructed",
+  "note": "Not attested."
+ },
+ "reason_for_coming": {
+  "value": null,
+  "confidence": "reconstructed",
+  "note": "Not attested."
+ },
+ "lives_at": {
+  "value": null,
+  "confidence": "reconstructed",
+  "note": "Not attested: a letter list gives a name and no address."
+ },
+ "works_at": {
+  "value": null,
+  "confidence": "reconstructed",
+  "note": "Not attested. No trade is recorded, so there is no premises to seek."
+ },
+ "present_on_scene_date": {
+  "value": "uncertain",
+  "confidence": "inferred",
+  "sources": [
+   "chicago_democrat_1833_1835"
+  ],
+  "note": "THE CORPUS STOPS BEFORE THE SCENE DATE. Nothing after 1834-04-01 follows this person to 1 July 1835 or says they left. `uncertain` rather than dropped — the distinction index.json draws for Jeremiah Porter, and a finding, not a gap."
+ },
+ "persons": [
+  {
+   "id": "squar_geo",
+   "name": "Geo. Squar",
+   "relationship": "head",
+   "grade": "inferred",
+   "ladder_rule": "G3",
+   "letter_list_only": true,
+   "letter_list_returns": [
+    "1834-04-01"
+   ],
+   "occupation": {
+    "value": "none_recorded",
+    "confidence": "reconstructed",
+    "note": "No source records an occupation for this person. A list of uncalled-for letters prints a name and no trade, and this pass will not read one in."
+   },
+   "sources": [
+    "chicago_democrat_1833_1835"
+   ],
+   "note": "PROJECTED RESIDENT. Documented in Chicago post-office evidence but not independently corroborated strongly enough for attested circa-1835 residence. KNOWN ONLY FROM THE POST OFFICE, IN ONE RETURN, AND THE NAME IS READ AT THE PAGE. The line this record stands on is one of three consecutive lines of the S run that two transcriptions of the same return read differently, so T-1138 read all three impressions the Democrat printed of it — 1 April, 8 April and 16 April 1834 — at the scan. All three set 'Geo. Squar'. The extraction of the 1 April issue read the line '3. Geo. Square t 3 first rate' — an auction advertisement in the next column bleeds through it — and the extraction of the 16 April impression read the same position 'Geo. Saver'. The card minted on the reading the page does not set is withdrawn rather than renamed in place: `hh_square_geo` is gone and this record stands under the name the type sets, dated by the return of 1834-04-01. data/research/newspapers/letter_list_1834_04_01_contested_lines.json carries the reading and the IIIF region each line was read at. WHAT THAT IS WORTH: a correspondent believed a person of this name reachable at Chicago on that date, and nothing further — not that they lived here, kept a trade here, or were here on 1 July 1835. It is the weakest evidence this project accepts for a resident, and a source placing them elsewhere retires the record. THE ARGUMENT EVERY RECORD OF THIS KIND SHARES is written once instead of once per file: the ruling of 2026-08-30 and what it cost the town (docs/LIBERTIES.md L214), the refusals and the transcription standard behind the reading (tools/mint_letter_list_residents.py). No figure is drawn (L1).",
+   "resident_research": {
+    "programme": "resident-research-2026",
+    "ticket": "T-0480",
+    "outcome": "candidate_identity",
+    "reviewed_on": "2026-09-02",
+    "asserted_identity": false,
+    "summary": "Geo. Square may be a transcription/duplicate relation to George Squire; Joliet is competing geography, so both resident IDs and the candidate relation are preserved.",
+    "source_ids": [
+     "chicago_democrat_1833_1835",
+     "resident_research_will_county_1878"
+    ],
+    "candidate_ids": [
+     "cand_george_squire_joliet_1835",
+     "squire_george"
+    ]
+   },
+   "resident_subtype": "projected_resident",
+   "merge_ruling": [
+    {
+     "ticket": "T-1138",
+     "verdict": "distinct",
+     "rule": "D6",
+     "cluster": "squar-squire",
+     "weighed_against": [
+      "squire_george"
+     ],
+     "for_merge": "“Geo.” is the ordinary abbreviation of “George”, Square and Squire differ by one letter, and the resident layer holds one card of each and no other bearer of either stem. Pass 06 of the resident-research programme reached the pair and wrote it down as a possible duplicate: “Geo. Square may be a transcription/duplicate relation to George Squire”.",
+     "against_merge": "THE LINE IS READ, AND IT MOVED THE CARD BEFORE IT COULD BE WEIGHED. T-1133 left this pair UNDECIDED under U1 because one of its two printed lines had two readings: the extraction of the Democrat of 1 April 1834 set it “3. Geo. Square t 3 first rate” and the extraction of the 16 April impression set the same position “Geo. Saver”, and a merge cannot be tested against a line nobody has settled. T-1138 read all THREE impressions the paper printed of that one return — 1 April, 8 April and 16 April, at the scan the deposit manifest names — and all three set the same five letters: “Geo. Squar”. `Saver` is not on the page; the second letter is a q with its descender. And `Square` is one letter too long: there is no final e on any impression, and on two of the three the line ends in clean paper where an e would have to stand. So the card the mint carried as `square_geo` is withdrawn and the same person stands as `squar_geo`, under the name the page sets. THAT ALONE WOULD ANSWER THE CLUSTER — Squar and Squire are not one letter apart, so the one-letter test that raised this pair no longer reaches it — but the refusal is not rested on the spelling alone, because the spelling is exactly what was in doubt. D6 is reached on the evidence's shape, which the reading did not change: neither card is an anchor, the town's whole knowledge of both is the post office's returns, `Squar` stands on the return of 1 April 1834 and `Squire` on the return of 31 March 1835, and NO single return sets both spellings — so C9's demonstration is absent and D5's counter-demonstration is absent with it. The roll is serial; it was never asked the question. The cards stay two, and that is NOT a claim that the town held two men of the name."
+    },
+    {
+     "ticket": "T-1133",
+     "verdict": "undecided",
+     "rule": "U1",
+     "cluster": "square-squire",
+     "weighed_against": [
+      "squire_george"
+     ],
+     "referred_to": "T-1138",
+     "for_merge": "“Geo.” is the ordinary abbreviation of “George”, Square and Squire differ by one letter, and the resident layer holds one card of each and no other bearer of either stem. Pass 06 of the resident-research programme reached the pair and wrote it down as a possible duplicate: “Geo. Square may be a transcription/duplicate relation to George Squire”.",
+     "against_merge": "THE QUESTION CANNOT BE ASKED YET, BECAUSE ONE OF THE TWO PRINTED LINES IS ITSELF CONTESTED — and this corpus contests it in its own committed words. `square_geo` is minted from the Democrat of 1 April 1834, whose line reads “3. Geo. Square t 3 first rate”: an S-run line with an advertisement's column bleeding through it. The extraction of the 16 April 1834 impression — which that file's own note calls “the best witness to the J-W half of the 1 April 1834 list that the corpus holds” — reads the SAME three consecutive lines as “Benjarnin Smith”, “Ira Saymoro” and “GEO. SAVER” where 1 April reads “Benjamin Reed”, “Ira Raymore” and “Geo. Square”, and records that “the alphabetical position is with this printing and against 1834-04-01's” while declining to rewrite a minted name on a second transcription of equal rank. So the town does not yet know whether it holds a Square at all. A merge cannot be tested against a line nobody has settled — R5's principle, moved from a garbled forename to a garbled surname — and a REFUSAL cannot honestly be entered either, because the refusal would rest on the same unread line. Neither D6 nor C9 is reached for: both ask what the returns print, and one of these two returns has two readings."
+    }
+   ]
+  }
+ ],
+ "touches_removal": false,
+ "review_required": false,
+ "research_note": "MINTED FROM THE LETTER LISTS (T-0378, T-0379). THE HOUSEHOLD IS A CONTAINER, NOT AN ARGUMENT: every other record here argues for a household, and this one argues for a PERSON. `data/residents/` cannot carry a person outside a household, so one was written around them and told to claim nothing — one member, no dwelling, no division, no trade, no family, no arrival beyond the paper's bound. tools/mint_letter_list_residents.py derives the set and prints every refusal, `--gate` proves no record here gained a roof, a trade or a second member, and docs/LIBERTIES.md L214 carries the change of scale."
+}

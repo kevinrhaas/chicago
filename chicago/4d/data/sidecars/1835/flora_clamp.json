@@ -1,0 +1,143 @@
+{
+  "scene": "1835",
+  "standard": "The forb lattice's ceiling as tools/forb_clamp_baseline.json declares it, carried unchanged so the plants section can state the share of each record the scene is able to draw rather than typing a table. Nothing here is recalculated: tools/measure_sward_draw.mjs --gate owns these numbers and tools/compile_scene.py --check holds this copy to them.",
+  "declared_by": "tools/forb_clamp_baseline.json",
+  "measured": "2026-08-28",
+  "stand": "desktop",
+  "cell_m": 3.4,
+  "per_cell": 4,
+  "slot_area_m2": 2.8899999999999997,
+  "ceiling_per_m2": 0.34602076124567477,
+  "clamped": [
+    {
+      "community": "z06_dense_forest",
+      "stratum": "forb",
+      "side": "dry",
+      "askedPerM2": 66.38093429248062,
+      "offeredPerM2": 0.34602076124567477,
+      "drawsFraction": 0.005212652773476717
+    },
+    {
+      "community": "z04_marsh",
+      "stratum": "forb",
+      "side": "dry",
+      "askedPerM2": 22,
+      "offeredPerM2": 0.34602076124567477,
+      "drawsFraction": 0.015728216420257943
+    },
+    {
+      "community": "z04_marsh",
+      "stratum": "forb",
+      "side": "wet",
+      "askedPerM2": 22,
+      "offeredPerM2": 0.34602076124567477,
+      "drawsFraction": 0.015728216420257943
+    },
+    {
+      "community": "z10_settled_town",
+      "stratum": "forb",
+      "side": "dry",
+      "askedPerM2": 11.865689343706702,
+      "offeredPerM2": 0.34602076124567477,
+      "drawsFraction": 0.029161454612765206
+    },
+    {
+      "community": "z05_riverbank_timber",
+      "stratum": "forb",
+      "side": "dry",
+      "askedPerM2": 3.8510080748133477,
+      "offeredPerM2": 0.34602076124567477,
+      "drawsFraction": 0.08985199576930149
+    },
+    {
+      "community": "z03_sedge_meadow",
+      "stratum": "forb",
+      "side": "dry",
+      "askedPerM2": 1.811966766664303,
+      "offeredPerM2": 0.34602076124567477,
+      "drawsFraction": 0.19096418742970295
+    },
+    {
+      "community": "z08_lakeshore",
+      "stratum": "forb",
+      "side": "dry",
+      "askedPerM2": 0.63,
+      "offeredPerM2": 0.34602076124567477,
+      "drawsFraction": 0.5492393035645631
+    },
+    {
+      "community": "z02_mesic_prairie",
+      "stratum": "forb",
+      "side": "dry",
+      "askedPerM2": 0.4080000000000001,
+      "offeredPerM2": 0.34602076124567477,
+      "drawsFraction": 0.84809010109234
+    },
+    {
+      "community": "z01_wet_prairie",
+      "stratum": "forb",
+      "side": "dry",
+      "askedPerM2": 0.40700000000000003,
+      "offeredPerM2": 0.34602076124567477,
+      "drawsFraction": 0.8501738605544834
+    },
+    {
+      "community": "z06_dense_forest",
+      "stratum": "shrub",
+      "side": "dry",
+      "askedPerM2": 0.40349479701484814,
+      "offeredPerM2": 0.34602076124567477,
+      "drawsFraction": 0.8575594129233384
+    }
+  ],
+  "fits": [
+    {
+      "community": "z09_sand_prairie",
+      "stratum": "forb",
+      "side": "dry",
+      "askedPerM2": 0.11399999999999999
+    },
+    {
+      "community": "z05_riverbank_timber",
+      "stratum": "shrub",
+      "side": "dry",
+      "askedPerM2": 0.07517390603305991
+    },
+    {
+      "community": "z07_bur_oak_savanna",
+      "stratum": "shrub",
+      "side": "dry",
+      "askedPerM2": 0.0440132188303513
+    },
+    {
+      "community": "z08_lakeshore",
+      "stratum": "shrub",
+      "side": "dry",
+      "askedPerM2": 0.01225
+    },
+    {
+      "community": "z09_sand_prairie",
+      "stratum": "shrub",
+      "side": "dry",
+      "askedPerM2": 0.006
+    },
+    {
+      "community": "z04_marsh",
+      "stratum": "shrub",
+      "side": "dry",
+      "askedPerM2": 0.004
+    },
+    {
+      "community": "z01_wet_prairie",
+      "stratum": "shrub",
+      "side": "dry",
+      "askedPerM2": 0.004
+    },
+    {
+      "community": "z10_settled_town",
+      "stratum": "shrub",
+      "side": "dry",
+      "askedPerM2": 0.0025
+    }
+  ]
+}

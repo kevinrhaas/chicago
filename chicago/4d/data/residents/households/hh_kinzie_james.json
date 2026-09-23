@@ -1,0 +1,185 @@
+{
+ "id": "hh_kinzie_james",
+ "name": "The James Kinzie household",
+ "division": "west",
+ "head": "kinzie_james",
+ "arrival": {
+  "value": "1831",
+  "confidence": "inferred",
+  "sources": [
+   "andreas_1884_v1"
+  ],
+  "note": "He is in the settlement by 1831, when he stands surety on the ferry bond. Nothing dates his coming.",
+  "precision": "year"
+ },
+ "party_size_on_arrival": {
+  "value": null,
+  "confidence": "reconstructed",
+  "note": "Not attested in anything this project holds."
+ },
+ "origin": {
+  "value": null,
+  "confidence": "reconstructed",
+  "note": "Not attested in anything this project holds."
+ },
+ "reason_for_coming": {
+  "value": null,
+  "confidence": "reconstructed",
+  "note": "Not attested in anything this project holds."
+ },
+ "lives_at": {
+  "value": "james_kinzie_house",
+  "confidence": "inferred",
+  "sources": [
+   "andreas_1884_v1",
+   "kinzie_waubun_1856"
+  ],
+  "note": "Andreas's residents list places 'James Kinzie and family' near Wentworth's tavern and this dataset's james_kinzie_house sits in that row, south of the tavern, on the strength of the same clause. Inferred rather than documented because the building record itself calls its evidence 'a single clause' and grades its own position inferred."
+ },
+ "works_at": {
+  "value": null,
+  "confidence": "reconstructed",
+  "note": "NOT ATTESTED AT THE SCENE DATE. He built the Green Tree and Chester Ingersoll kept it; he built a tavern on the west side of the South Branch and a Mr Crook kept it. This dataset holds james_kinzie_house as his residence and that is a lives_at, not a works_at."
+ },
+ "present_on_scene_date": {
+  "value": "present",
+  "confidence": "inferred",
+  "sources": [
+   "andreas_1884_v1"
+  ],
+  "note": "Continuous in the Chicago record across the period."
+ },
+ "kin": [
+  {
+   "person": "kinzie_james",
+   "relation": "half_brother",
+   "household": "hh_kinzie_john_h",
+   "value": "kinzie_john_h",
+   "confidence": "inferred",
+   "sources": [
+    "chicago_antiquities_american_fur_co"
+   ],
+   "note": "JAMES KINZIE IS THE HALF BROTHER OF JOHN HARRIS KINZIE, IN THE FORM THE SOURCE GIVES IT. Hurlbut's bracketed note under an American Fur Company outfit entry of 1821 reads '[The late James Kinzie, formerly of Chicago, and half brother of the late John H. Kinzie.]', filed as bk_afc_015 in data/research/books/claims/american_fur_company_hurlbut.json. HALF IS THE WHOLE POINT: the same father and different mothers, and it is the first thing a summary flattens. INFERRED RATHER THAN ATTESTED, AND THE GRADE IS WHAT AN 1881 EDITORIAL NOTE IS WORTH. This is not the town's contemporary paper but Hurlbut's own identification, printed sixty years after the consignment it annotates and after both men were dead, and this project reads it through Genealogy Trails' transcription rather than the original volume. It is a good source for the fact and it is still a recollection, so the relationship is reasoned from it rather than read off a record. A KINSHIP IS NOT A PLACEMENT. Nothing about either household's position, arrival, trade or membership rests on this row, and Hurlbut writing in 1881 about 1821 does not touch the scene date. What it does defend is the thing a shared surname keeps endangering: four household cards in this dataset are Kinzies — six until T-0839 folded two duplicate initials cards into their named men on 2026-09-05, which is the prior question T-0732 had to settle before it could rule on this family at all — data/research/books/crosswalk.json already has to refuse 'Mr. John Kinzie' the elder silversmith against John Harris Kinzie his son, and two men recorded as HALF brothers are two men, explicitly."
+  }
+ ],
+ "persons": [
+  {
+   "id": "kinzie_james",
+   "name": "James Kinzie",
+   "relationship": "head",
+   "grade": "attested",
+   "ladder_rule": "G1b",
+   "sex": "male",
+   "occupation": {
+    "value": "merchant",
+    "confidence": "attested",
+    "sources": [
+     "andreas_1884_v1"
+    ],
+    "note": "'James Kinzie and family ... resided near Wentworth's tavern' in the list Andreas prints of the settlement's residents; he is a candidate at the 1833 town election and takes five votes. He built the Green Tree Tavern in 1833 and leased it, and he was surety on Mark Beaubien's ferry bond of 6 June 1831.",
+    "derived_from": "roles",
+    "roles_at_scene_date": [
+     "merchant"
+    ]
+   },
+   "sources": [
+    "andreas_1884_v1",
+    "kinzie_waubun_1856",
+    "chicago_voter_lists_1833_1835_irad",
+    "chicago_antiquities_american_fur_co",
+    "isa_public_domain_land_tract_sales"
+   ],
+   "note": "A BUILDER OF TAVERNS RATHER THAN A KEEPER OF THEM, which is why his structure links are thin. Andreas has him building the Green Tree and leasing it to David Clock; Charles Butler in August 1833 lodged at a tavern on the west side of the South Branch 'erected by James Kinzie, but kept by a Mr. Crook (?)' - the question mark is Andreas's or Butler's, not this project's. HALF BROTHER TO JOHN H. KINZIE, AND AN UNCITED CLAIM ABOUT ROBERT A. KINZIE — T-0732 RULED ON BOTH. The John H. tie is carried by this card's `kin` row, graded and reciprocal, on Hurlbut's bracketed note of 1881 (bk_afc_015). The Robert A. tie was a sentence in this note and nothing else, citing nothing, and it is NOT PROMOTED: no source this project holds states a relationship between James Kinzie and Robert Allen Kinzie, and the two sources that touch it do not chain into one — Hurlbut says HALF brother without saying which parent is shared, and on the reading where it is the mother, James and Robert have no parent in common at all. The sentence stands here as an inherited, uncited claim, marked as one. The reasoning, and what would reopen it, is in data/research/residents/kinzie_kinship_ruling.json. THE TOWN'S OWN ROLLS, 1833-1835 — CORROBORATION, NOT A GRADE. The early Chicago voter and tax lists held by the Illinois Regional Archives Depository name this person 3 times: Poll list of the first election of the Board of Trustees of the Town of Chicago, 10 August 1833 — “Kinzie, James” (poll_1833_017, line 38); Tax list of the Town of Chicago, 1833 — “Kinzie, James” (tax_1833_061, line 113); Election returns — poll list of 1834, filed 11 August 1834 — “Kinzie, James” (poll_1834_066, line 235). These are the town's own contemporary paper rather than a recollection of it, and each appearance says that a man of that name stood on that roll in that year — no more. The reading is twice mediated (Schulz's transcription, then Genealogy Trails' republication) and this project has not seen the IRAD originals. Under the ratified ladder (T-0513) the 1835 poll with a second independent source is attested, the 1835 poll alone or a 1833/1834 list with another source is inferred, and a single appearance with nothing else is a projected resident. This pass WRITES THE EVIDENCE AND MOVES NO GRADE — T-0515 applies the ladder against every source at once. Identity by the crosswalk's own rule: one resident of the surname 'Kinzie' agrees with the entry's forenames; 4 bearer(s) of the surname were considered. (data/research/civic/voter_crosswalk.json). HALF BROTHER, NOT BROTHER, AND THE SOURCE IS AN EDITOR'S NOTE OF 1881. Hurlbut's bracketed note under the American Fur Company's 1821 consignment entry reads “[The late James Kinzie, formerly of Chicago, and half brother of the late John H. Kinzie.]” — the same father and different mothers, which is the form this dataset keeps, because flattening it to ‘brother’ is the move that lets the three Chicago Kinzies collapse into one another. The two men are kinzie_james in hh_kinzie_james and kinzie_john_h in hh_kinzie_john_h, and this project models them as separate households. Read as bk_afc_015 and cited to chicago_antiquities_american_fur_co. WHAT IT DOES NOT DO: it is an 1881 recollection about 1821, the ladder abstains on it (rung G5), and it moves no grade, no arrival, no placement and no household membership — both men are attested here on other evidence and stay so. THE LINK ITSELF IS THIS RECORD'S `kin` ROW, NOT THIS PROSE. T-0597 found that the residents schema had no field for a kinship BETWEEN two households; T-0704 then gave the layer one while this reading was in flight, and both records now carry the reciprocal half_brother row, graded inferred against this same source. What stands here is the READING that row rests on — the note as printed, the page it stands on and what an 1881 editorial note is worth — so the card cites its own evidence rather than asserting a link with nothing beside it. The Robert A. limb of this record's own earlier sentence — ‘He is a half-brother to John H. and Robert A. Kinzie’ — is older than this reading, Hurlbut does not carry it, and it is neither cited nor upgraded here. THE FEDERAL LAND TRACT SALES — A PURCHASE, AND NEVER A RESIDENCE. The Illinois State Archives' Public Domain Land Tract Sales register enters this person 14 times, as “KINZIE JAMES”, 1830-09-27 to 1830-09-29: 2 federal land entries — E2NW sec 09 T39N R14E; E2NWVO sec 09 T39N R14E and 12 lots in the platted town — lot 2 of block 22 in the town the register codes CHIOT (L2BL22CHIOT, as printed); lot 3 of block 22 in the town the register codes CHIOT (L3BL22CHIOT, as printed); lot 5 of block 2 in the town the register codes CHIOT (L5BL2CHIOT, as printed); lot 5 of block 22 in the town the register codes CHIOT (L5BL22CHIOT, as printed); lot 5 of block 44 in the town the register codes CHIOT (L5BL44CHIOT, as printed); lot 6 of block 2 in the town the register codes CHIOT (L6BL2CHIOT, as printed); lot 6 of block 22 in the town the register codes CHIOT (L6BL22CHIOT, as printed); lot 7 of block 2 in the town the register codes CHIOT (L7BL2CHIOT, as printed); lot 7 of block 22 in the town the register codes CHIOT (L7BL22CHIOT, as printed); lot 8 of block 2 in the town the register codes CHIOT (L8BL2CHIOT, as printed); lot 8 of block 22 in the town the register codes CHIOT (L8BL22CHIOT, as printed); lot 8 of block 44 in the town the register codes CHIOT (L8BL44CHIOT, as printed), 160.00 acres stated in all, for $698.00 (ls0052, ls0053, ls1296, ls1297, ls1298, ls1299, ls1300, ls1301, ls1302, ls1303, ls1304, ls1305, ls1306, ls1307). THE REGISTER'S OWN RESIDENCE COLUMN READS ILLINOIS, UNKNOWN on these rows: a county, a state or nothing, and never a town, which is why a purchase here places nobody. THE TOWN LOTS ARE THE PLAT ITSELF, AND THEY ARE NOT ACRES: Cook County's register describes them by lot and block in a platted town and gives them no section, no township and no acreage at all, so they add nothing to the acre figure above and $418.00 to the money. This project does not expand the register's town codes, so which addition a lot stands in is carried as the code and not as a name. It is still a purchase and it still places nobody. A purchase and nothing more. It dates and places a transaction; it proposes no residence, and under the ratified ladder it corroborates rather than mints. Identity by the crosswalk's own rule: KINZIE JAMES matches James Kinzie: the forename names James Kinzie of the 4 people of this surname, and the forename agrees in full. (data/research/land_sales/resident_crosswalk.json). This pass WRITES THE EVIDENCE AND MOVES NO GRADE. Under the ratified ladder (T-0513) a second independent source is what lifts a projected resident, and a land entry is a second source about a TRANSACTION rather than about who was living at Chicago on 1 July 1835 — a man may buy a quarter-section he never sees. T-0515 applies the ladder against every source at once; this pass hands it the evidence and not the verdict.",
+   "resident_research": {
+    "programme": "resident-research-2026",
+    "ticket": "T-0493",
+    "outcome": "no_corroboration_yet",
+    "reviewed_on": "",
+    "asserted_identity": false,
+    "evidence_for": "forenames agree initial for initial: entry 'James Kinzie' against resident 'James Kinzie'",
+    "source_ids": [
+     "chicago_voter_lists_1833_1835_irad"
+    ]
+   },
+   "book_evidence": [
+    {
+     "list": "hurlbut_chicago_antiquities_1881_pp28_36",
+     "as_read": "[The late James Kinzie, formerly of Chicago, and half brother of the late John H. Kinzie.]",
+     "locator": "pages 28-36, the bracketed note printed under the 1821 consignment entry (hurlbut_chicago_antiquities_28_36.txt, lines 161-162)",
+     "record_id": "bk_afc_015",
+     "describes_date": "1821 (the consignment the note explains); the note itself is Hurlbut writing in 1881, after both men were dead",
+     "source": "chicago_antiquities_american_fur_co",
+     "rule": "G5"
+    }
+   ],
+   "merge_ruling": [
+    {
+     "ticket": "T-0839",
+     "verdict": "distinct",
+     "rule": "D1",
+     "cluster": "kinzie-john",
+     "weighed_against": [
+      "kinzie_juliette"
+     ],
+     "for_merge": "The surname, and the letter J.",
+     "against_merge": "T-0839's own warning: John H. Kinzie and James Kinzie are brothers, not a duplicate. Juliette Augusta Magill Kinzie is John Harris's wife and already a member of his household record."
+    }
+   ],
+   "roles": [
+    {
+     "role": "merchant",
+     "kind": "trade",
+     "as_printed": null,
+     "from": "1673",
+     "to": "1857",
+     "precision": "source_span",
+     "dated_by": "source_describes_date",
+     "covers_scene_date": true,
+     "confidence": "attested",
+     "sources": [
+      "andreas_1884_v1"
+     ],
+     "claim": null,
+     "note": "THE BOUND IS THE SOURCE'S, NOT THE MAN'S. This role is carried by the card's 1835 occupation block and is dated by what the cited source or sources are ABOUT, which is why `precision` can be no better than the span they cover. The span reaches 1835, so this role stands in the scene-date view. The printing the trade was read off is not on the card and is fetched by T-1254."
+    }
+   ]
+  }
+ ],
+ "touches_removal": false,
+ "review_required": false,
+ "research_note": "A HOUSEHOLD WITH A FAMILY IN THE SOURCE AND NO PEOPLE IN THE RECORD. Andreas's list says 'James Kinzie and family' and this parcel writes one person, because naming a wife or counting children on the strength of the word 'family' is the exact move the grade vocabulary forbids. THE HONEST READING OF THIS RECORD is that it stands for at least three or four people and can defend only one. THE READING BEHIND THIS RECORD'S KIN ROW: Hurlbut's 1881 bracketed note makes this head the HALF brother of kinzie_john_h in hh_kinzie_john_h (bk_afc_015). The link is the reciprocal `kin` row T-0704 gave this layer; the note as printed, its locator and its rung are written onto the person as a cited book_evidence reading, so what the row rests on is visible on the card. Nothing about either household's position, arrival, trade or membership changes.",
+ "directories": {
+  "note": "LATER EVIDENCE, BESIDE THE 1835 CLAIMS AND NOT INSIDE THEM. A Chicago directory of 1839, 1843 or 1844 meets somebody of this name and this pass records what it prints. Under the ratified ladder a directory read after 1835 can corroborate that a person attested here was still in Chicago and can print a trade or a street the 1835 record never had; on its own it makes nobody a resident of 1835. Nothing on this person's 1835 record was regraded, moved, dated or given an occupation by this entry. WHAT THIS PASS RULED ONTO THIS HOUSEHOLD, named so the ruling can be found again: each volume below is followed by the printed entries it set against this person and the status the crosswalk ruled them at — a single entry carries what its own `could_carry` declares, and an ambiguous or contested match carries nothing and is shown so that the silence is legible. kinzie_james, Fergus's Chicago directory of 1839 — f1839_e0861 (a single entry).",
+  "sources": [
+   "fergus_chicago_directory_1839"
+  ],
+  "people": [
+   {
+    "person_id": "kinzie_james",
+    "address_later": {
+     "value": "North Canal street",
+     "confidence": "attested",
+     "describes_date": 1839,
+     "sources": [
+      "fergus_chicago_directory_1839"
+     ],
+     "note": "Fergus's Chicago directory of 1839 prints this address against this person, in the entry quoted on the card: 'Kinzie, James, real estate agent, North Canal street'. It is evidence about 1839, written here as 1839's and read back onto no 1835 claim. Under the ratified ladder a directory read after 1835 can corroborate that a person attested here was still in Chicago and can print a trade or a street the 1835 record never had; on its own it makes nobody a resident of 1835. Nothing on this person's 1835 record was regraded, moved, dated or given an occupation by this entry. The value is the volume's own line, split by its crosswalk on the entry's punctuation. These volumes set the trade first and its qualifiers after it on the same line, so the split may carry an employer, a market or a corner along with the trade. The printed entry is quoted beside the value for exactly that reason: the split is checkable against it, and neither is read into an 1835 claim."
+    },
+    "back_projection": {
+     "outcome": "placed",
+     "clause": "3 and 4",
+     "value": "Canal Street",
+     "confidence": "reconstructed",
+     "describes_date": 1839,
+     "read_back_years": 4,
+     "placement": "face",
+     "position_local_enu_m": null,
+     "sources": [
+      "fergus_chicago_directory_1839"
+     ],
+     "note": "A LATER ADDRESS, READ BACKWARDS 4 YEARS. The door is not an 1835 reading: Fergus's Chicago directory of 1839 printed it in 1839, and this pass carries it back to the scene date because the 1835 record attests a trade for this person and nothing in the corpus places it better. What is claimed is the street face and nothing narrower — no lot, no roof, no door count — and the grade is `reconstructed`, which is this dataset's word for a figure the reconstruction supplies rather than a source. Canal Street stands in 1835 under that name and in that place. The directory gives a street and nothing this pass can resolve narrower, so the placement is the FACE — the unit the owner's ruling of 2026-08-29 says a street name constrains — and no roof is dealt. The rule this stands on is docs/ADDRESS-BACK-PROJECTION.md and the liberty is L218; a reader who thinks 4 years is too far to carry a shop should read the grade as the disagreement being invited."
+    }
+   }
+  ]
+ }
+}

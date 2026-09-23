@@ -1,0 +1,25 @@
+id: newberry-genealogical
+title: The Genealogical Index of the Newberry Library, Chicago (Vols. 1-4)
+creator: Newberry Library
+description: >
+  Four volumes of the Genealogical Index of the Newberry Library, Chicago.
+  Used as a source in the Chicago 1830s research corpus.
+redistribution_status: public
+copyright_status: public-domain
+internet_archive:
+  item: chicago1835-newberry-genealogical-index
+  url: https://archive.org/details/chicago1835-newberry-genealogical-index
+files:
+  - name: FL2091539_CP-130151_01.pdf
+    bytes: 202857468
+    sha256: 698d346a830221aeb893bae0d72e1e0adf1e6acc64ce8f6638571105e558dd96
+  - name: FL2091536_CP-130151_02.pdf
+    bytes: 211699945
+    sha256: 5cb90c9b4070fff48c8d2564c8aec55a6074290e2e98efd90fb2da35aa8e1d1e
+  - name: FL1982465_CP-130151_03.pdf
+    bytes: 212602314
+    sha256: 72930ee4da0e3b3de46c5995a09ad384babb5b2860d21b8449d56d6549f36a1f
+  - name: 130151_04.pdf
+    bytes: 199557770
+    sha256: c1d8a6575fa3c0c3b2f9bf3831aa4e681af1c1cd17b69bcfeeb2c798c7309c81
+local_archive_path: projects/archive/data/chicago/reference/newberry-genealogical/

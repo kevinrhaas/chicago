@@ -1,0 +1,14 @@
+{
+  "id": "census_1840_chicago_name_crosswalk",
+  "type": "dataset",
+  "citation": "1840 U.S. Census, Chicago, Cook County, Illinois — committed head-of-household transcription/IPUMS serial crosswalk and household variables.",
+  "date": "1840",
+  "describes_date": "1840",
+  "locator": "chicago/reference/census1840/validation/H_1840_chicago_with_names_partial.csv",
+  "repository": "chicago/reference/census1840/validation/",
+  "tier": 1,
+  "rights_status": "public_domain",
+  "asset_use": "text_only",
+  "verified": true,
+  "note": "Name-reading and serial-mapping confidence are retained separately. Later evidence relative to the 1835-07-01 scene; no automatic back-projection."
+}

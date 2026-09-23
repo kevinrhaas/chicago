@@ -1,0 +1,126 @@
+{
+ "id": "hh_legg_gregory_e",
+ "name": "The Legg household — a name from the post office's letter lists",
+ "division": "unplaced",
+ "head": "legg_gregory_e",
+ "source_pass": "letter_list",
+ "arrival": {
+  "value": "1834-04-01",
+  "confidence": "inferred",
+  "sources": [
+   "chicago_democrat_1833_1835"
+  ],
+  "note": "A BOUND FROM THE RETURN, NOT AN ARRIVAL. The office's list of letters uncalled-for is a RETURN — its statement of what was still unclaimed on ONE day — and the paper reprinted one return over as many consecutive issues as it took, so the bound is dated by the return of 1 April 1834 and not by the issue it was read in (T-0425). The earliest issue this project reads the name in is 1834-04-16, 15 days later; that gap is an accident of which impression an extraction pass reached, and it is not evidence. Somebody was writing to this name at Chicago by 1834-04-01 and at no stated time before it; nothing says when they came. The date lines the printings set, and how they were weighed, stand beside this rule in tools/mint_letter_list_residents.py.",
+  "precision": "not_later_than"
+ },
+ "party_size_on_arrival": {
+  "value": null,
+  "confidence": "reconstructed",
+  "note": "Not attested."
+ },
+ "origin": {
+  "value": null,
+  "confidence": "reconstructed",
+  "note": "Not attested."
+ },
+ "reason_for_coming": {
+  "value": null,
+  "confidence": "reconstructed",
+  "note": "Not attested."
+ },
+ "lives_at": {
+  "value": null,
+  "confidence": "reconstructed",
+  "note": "Not attested: a letter list gives a name and no address."
+ },
+ "works_at": {
+  "value": null,
+  "confidence": "reconstructed",
+  "note": "Not attested. No trade is recorded, so there is no premises to seek."
+ },
+ "present_on_scene_date": {
+  "value": "uncertain",
+  "confidence": "inferred",
+  "sources": [
+   "chicago_democrat_1833_1835"
+  ],
+  "note": "THE CORPUS STOPS BEFORE THE SCENE DATE. Nothing after 1834-04-16 follows this person to 1 July 1835 or says they left. `uncertain` rather than dropped — the distinction index.json draws for Jeremiah Porter, and a finding, not a gap."
+ },
+ "persons": [
+  {
+   "id": "legg_gregory_e",
+   "name": "Gregory E. Legg",
+   "relationship": "head",
+   "grade": "attested",
+   "letter_list_only": true,
+   "letter_list_returns": [
+    "1834-04-16"
+   ],
+   "occupation": {
+    "value": "priest",
+    "confidence": "attested",
+    "sources": [
+     "fergus_chicago_directory_1839",
+     "st_cyr_register_ichr_v4"
+    ],
+    "note": "T-0510: independently corroborated resident research. The surname folds equal but no forename agrees initial for initial: 'Ann Legg' against 'Gregory E. Legg'. A surname-only agreement is always a refusal. NOT THE SCENE YEAR: this reading is dated 1838-05-31 and under the ladder ratified 2026-09-03 it may date and corroborate and may never mint or promote, whatever it reaches. Surname 'Legg' folds to the same string as the 1839 entry's, and the given name of both begins G.",
+    "derived_from": "roles",
+    "roles_at_scene_date": [
+     "priest"
+    ]
+   },
+   "sources": [
+    "chicago_democrat_1833_1835",
+    "fergus_chicago_directory_1839",
+    "st_cyr_register_ichr_v4"
+   ],
+   "note": "INDEPENDENTLY CORROBORATED RESIDENT. Originally documented in Chicago post-office evidence; independent resident research now corroborates the identity. KNOWN ONLY FROM THE POST OFFICE, IN ONE RETURN. The papers print 'Gregory E. Legg' in a single return of letters uncalled-for at the Chicago post office — the Democrat of 16 April 1834, column 17 — dated 1834-04-16. WHAT THAT IS WORTH: a correspondent believed a person of this name reachable at Chicago on that date, and nothing further — not that they lived here, kept a trade here, or were here on 1 July 1835. It is the weakest evidence this project accepts for a resident, and a source placing them elsewhere retires the record. THE ARGUMENT EVERY RECORD OF THIS KIND SHARES is written once instead of once per file: the ruling of 2026-08-30 and what it cost the town (docs/LIBERTIES.md L214), the refusals and the transcription standard behind the reading (tools/mint_letter_list_residents.py). No figure is drawn (L1).",
+   "resident_research": {
+    "programme": "resident-research-2026",
+    "ticket": "T-0510",
+    "outcome": "corroborated",
+    "reviewed_on": "2026-09-05",
+    "asserted_identity": true,
+    "evidence_for": "The surname folds equal but no forename agrees initial for initial: 'Ann Legg' against 'Gregory E. Legg'. A surname-only agreement is always a refusal. NOT THE SCENE YEAR: this reading is dated 1838-05-31 and under the ladder ratified 2026-09-03 it may date and corroborate and may never mint or promote, whatever it reaches. Surname 'Legg' folds to the same string as the 1839 entry's, and the given name of both begins G.",
+    "evidence_against": "LEGG ISAAC is refused against Gregory E. Legg: the surname agrees and the forename does not. LEGG RACHEL is refused against Gregory E. Legg: the surname agrees and the forename does not. The surname 'Legg' stands in the 1837 poll and no man under it carries the initial 'G' of 'Gregory E. Legg'. A surname-only agreement is a refusal.",
+    "summary": "Independently corroborated. Gregory E. Legg agrees, forename for forename or initial for initial, with a record outside the post-office lists in the St Cyr / St Mary registers, the Fergus 1839/1843 and Norris 1844 directories. The surname folds equal but no forename agrees initial for initial: 'Ann Legg' against 'Gregory E. Legg'. A surname-only agreement is always a refusal. NOT THE SCENE YEAR: this reading is dated 1838-05-31 and under the ladder ratified 2026-09-03 it may date and corroborate and may never mint or promote, whatever it reaches.",
+    "notes": "Research only. Later-volume readings are recorded here and NOT promoted: T-0513 consolidates and T-0514/T-0515 apply.",
+    "source_ids": [
+     "chicago_democrat_1833_1835",
+     "fergus_chicago_directory_1839",
+     "st_cyr_register_ichr_v4"
+    ],
+    "refusals": [
+     {
+      "regraded_on": "2026-09-04",
+      "rule": "G3",
+      "withheld": "the downgrade to inferred",
+      "reason": "This card rests on 2 thing(s) the consolidation did not read — fergus_chicago_directory_1839, st_cyr_register_ichr_v4. G3 fired on the seven domains the ladder reads and says nothing about the evidence outside them, so the grade stands. The same reasoning the ladder's own G5 gives for abstaining (T-0515)."
+     }
+    ]
+   },
+   "roles": [
+    {
+     "role": "priest",
+     "kind": "profession",
+     "as_printed": null,
+     "from": "1834",
+     "to": "1839",
+     "precision": "source_span",
+     "dated_by": "source_describes_date",
+     "covers_scene_date": true,
+     "confidence": "attested",
+     "sources": [
+      "fergus_chicago_directory_1839",
+      "st_cyr_register_ichr_v4"
+     ],
+     "claim": null,
+     "note": "THE BOUND IS THE SOURCE'S, NOT THE MAN'S. This role is carried by the card's 1835 occupation block and is dated by what the cited source or sources are ABOUT, which is why `precision` can be no better than the span they cover. The span reaches 1835, so this role stands in the scene-date view. The printing the trade was read off is not on the card and is fetched by T-1254."
+    }
+   ]
+  }
+ ],
+ "touches_removal": false,
+ "review_required": false,
+ "research_note": "MINTED FROM THE LETTER LISTS (T-0378, T-0379). THE HOUSEHOLD IS A CONTAINER, NOT AN ARGUMENT: every other record here argues for a household, and this one argues for a PERSON. `data/residents/` cannot carry a person outside a household, so one was written around them and told to claim nothing — one member, no dwelling, no division, no trade, no family, no arrival beyond the paper's bound. tools/mint_letter_list_residents.py derives the set and prints every refusal, `--gate` proves no record here gained a roof, a trade or a second member, and docs/LIBERTIES.md L214 carries the change of scale."
+}

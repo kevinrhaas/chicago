@@ -1,0 +1,37 @@
+{
+  "schema": 1,
+  "_doc": "Hand-authored. The second-reading search T-0503 required for St Mary's baptismal register, positive and negative alike. A negative is evidence; an unrecorded search is work the next sweep repeats.",
+  "generated_by": "hand — T-0503",
+  "ticket": "T-0503",
+  "searched_on": "2026-09-04",
+  "what_was_wanted": "A published transcription of Father St. Cyr's BAPTISMAL register of 1833-1835, to stand as a second reading beside the one made off the eleven page images. The marriage and death pages of the same book were printed in the Illinois Catholic Historical Review vol. 4 and are already read here as st_cyr_register_ichr_v4; the baptisms are the half that transcription does not carry.",
+  "probes": [
+    {
+      "source": "Internet Archive advanced search",
+      "query": "title:(\"Illinois Catholic Historical Review\")",
+      "url": "https://archive.org/advancedsearch.php",
+      "result": "107 items. Volumes 1, 3, 4, 5, 8, 10 and 11 of the Review are present as full-text items (illinoiscatholic01unse_0, 03unse_0, 03unse_2, 04unse_1, 05unse, 08illi, 08unse_1, 10unse, 11unse), alongside its successor Mid-America.",
+      "outcome": "positive — the volumes are reachable"
+    },
+    {
+      "source": "Illinois Catholic Historical Review, vol. 4 (July 1921 - April 1922)",
+      "query": "https://archive.org/download/illinoiscatholic04unse_1/illinoiscatholic04unse_1_djvu.txt, then a full-text scan for 'baptis'",
+      "result": "290,298 bytes of OCR fetched. Ten occurrences of the stem, and NOT ONE of them is a register entry. The volume discusses baptisms — it counts 53 of Father O'Meara's on 'six long sheets of discoloured paper found folded up in a volume of the parish records of St. Mary's Church', dated December 1839 to October 1840 — and it prints none of St. Cyr's.",
+      "outcome": "NEGATIVE, and it is the important one. The Review printed the marriage register and the death page and did not print the baptismal register. The reading made off the scans stands alone and has no second reading."
+    },
+    {
+      "source": "Illinois Catholic Historical Review, vols. 3 and 5",
+      "query": "full-text scan for 'baptismal register' and 'record of baptisms'",
+      "result": "Vol. 5: no occurrence. Vol. 3: one occurrence, and it is a baptismal register at Richmond, Wayne County, Indiana, in 1859 — not Chicago and not this book.",
+      "outcome": "negative"
+    },
+    {
+      "source": "Internet Archive full-text search API (ia-fts.archive.org)",
+      "query": "\"baptismal register\" \"St. Cyr\"",
+      "result": "The host does not resolve from this runner. It is not an absence of results — the query was never answered, and nothing may be read from it either way.",
+      "outcome": "inaccessible"
+    }
+  ],
+  "conclusion": "NO SECOND READING EXISTS TO CITE. The Illinois Catholic Historical Review printed St. Cyr's marriages and his deaths and left his baptisms in manuscript, so the eleven deposited images are, as far as this search reaches, the only published form of this register. That is why every row of the reading is graded scan_verified and why its uncertain letters are carried as [?] rather than resolved against a printed text: there is no printed text.",
+  "a_lead_not_spent": "Vol. 4 of the Review, at the page indexed 2032 of the fetched OCR, says of Father O'Meara's Chicago that he 'found the little church that Father St. Cyr had built standing near the southwest corner of what is now State and Lake Streets, upon ground controlled by the Canal Commissioners'. THAT IS A BUILDING FINDING and it is not filed as one here, because it belongs to st_cyr_register_ichr_v4 and not to the register scans, and because a town finding is spent by the ticket that reads its source. It is recorded here so it is not lost."
+}

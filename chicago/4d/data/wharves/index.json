@@ -1,0 +1,13 @@
+{
+  "_doc": "Manifest for the wharf layer — the river docks at the two forwarding warehouses whose own records state one. A static host cannot be globbed, which is why this file exists: the renderer fetches this manifest and then exactly the files it names, never a probe. A wharf is NOT a structure record and NOT baked geometry — it is a plank deck on timber cribs standing on ground and water this project has already drawn, so it is derived from the committed footprints, the traced 1834 bank and the committed heightfield and drawn by renderers/web/js/wharves.js from these numbers alone, the same argument that lets data/enclosures/ draw a fence from a perimeter, data/signage/ hang a board off a wall and data/yard/ stand a barrel on the footway. Records here are GENERATED: river_landings.json is written by tools/generate_river_wharves.py from the sidecars, the bank trace and the heightfield, and tools/check.sh re-derives it byte for byte, because \"which frontage gets a wharf\" is a rule and a rule has to be auditable. The evidence behind the layer is one sentence — \"Kinzie & Hunter and Dole & Newberry each had a warehouse with its dock along the river front\" (docs/research/03-structures-north.md section 3.10) — plus Andreas naming \"Newberry & Dole's wharf\" independently (scan p. 503); it attests THAT there was a dock at each and nothing whatever about its size, and docs/LIBERTIES.md L132 claims what is invented.",
+  "version": 1,
+  "scene": "1835",
+  "scene_date": "1835-07-01",
+  "coordinates": "Local East-North-Up metres from data/datum.json's origin — the same frame data/enclosures/, data/signage/, data/yard/ and the sidecars' placement.local_e / local_n use. The water surface is Z = 0 by construction.",
+  "wharves": [
+    {
+      "id": "river_landings",
+      "file": "river_landings.json"
+    }
+  ]
+}

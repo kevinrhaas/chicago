@@ -1,0 +1,20 @@
+{
+  "id": "swink_wilhelm_1994",
+  "type": "book",
+  "citation": "Swink, Floyd and Gerould Wilhelm. Plants of the Chicago Region, 4th edition. Indiana Academy of Science, Indianapolis, 1994. Extended by Wilhelm, Gerould and Laura Rericha, Flora of the Chicago Region: A Floristic and Ecological Synthesis, Indiana Academy of Science, 2017.",
+  "author": "Floyd Swink and Gerould Wilhelm",
+  "date": "1994",
+  "tier": 4,
+  "rights_status": "check_required",
+  "asset_use": "text_only",
+  "verified": false,
+  "access_notes": "A print flora, in copyright; no copy was retrieved in this session. Species assignments cited to it here come through the committed dossier docs/research/02-flora.md.",
+  "note": "The definitive regional flora, with community-fidelity (C) values. Its most important use in this project is EXCLUSION: it is the authority for keeping species that do not belong in the Chicago region out of the records.",
+  "what_it_supplies": [
+    "which species belong to which Chicago-region community",
+    "regional heights and blooming periods"
+  ],
+  "what_it_does_not_supply": [
+    "any record of what grew on the Chicago town site in 1835; a species on its regional list is inferred for this site, never documented, unless a period account names it"
+  ]
+}

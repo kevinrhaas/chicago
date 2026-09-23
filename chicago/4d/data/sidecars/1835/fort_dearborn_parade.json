@@ -1,0 +1,192 @@
+{
+  "id": "fort_dearborn_parade",
+  "phase": "parade_1816",
+  "name": "Fort Dearborn — the parade ground",
+  "aka": [
+    "the parade",
+    "C on the 1855 key"
+  ],
+  "archetype": "fort_structure",
+  "asset": "gltf/fort_dearborn_parade__parade_1816.glb",
+  "scene": "1835",
+  "target_date": "1835-07-01",
+  "documented_range": {
+    "from": "1816-07-01",
+    "to": "1856-08-31",
+    "confidence": "inferred",
+    "sources": [
+      "andreas_1884_v1",
+      "wentworth_1881_fort_dearborn"
+    ],
+    "note": "The open ground inside the ranges, for as long as there were ranges round it. Opens with the rebuilt fort and closes with the demolition of the fort's principal structures in the summer of 1856."
+  },
+  "change_note": "",
+  "placement": {
+    "local_e": 1137.73,
+    "local_n": 206.75,
+    "rotation_deg": 8.0,
+    "position_confidence": "inferred",
+    "position_sources": [
+      "harrison_1830_river_mouth",
+      "wentworth_1881_fort_dearborn"
+    ],
+    "position_note": "The rectangle the 1830 plan leaves between the four ranges, read at the scale derived on fort_dearborn_palisade and hung on the fort centre. Fergus's 1850 arrangement agrees with the plan on which side is which: 'The parade-ground was between the commandant's, officers', and sutler's quarters on the west, and the building where the artillery was housed, the soldier's barracks, and the storehouse on the east.' Rotation is the fort's.",
+    "symbolic_location": "The open court at the centre of Fort Dearborn, between the commandant's quarters and the officers' quarters on the north and west and the barracks on the east.",
+    "uncertainty_m": 20,
+    "placement_provisional": false,
+    "vertical_anchor": "terrain",
+    "walk_surface_m": null
+  },
+  "footprint": {
+    "polygon": [
+      [
+        0,
+        0
+      ],
+      [
+        21.8,
+        0
+      ],
+      [
+        21.8,
+        33.2
+      ],
+      [
+        0,
+        33.2
+      ]
+    ],
+    "confidence": "inferred",
+    "sources": [
+      "harrison_1830_river_mouth",
+      "wentworth_1881_fort_dearborn"
+    ],
+    "note": "TWO SOURCES ON ONE PAGE GIVE TWO DIFFERENT PARADE GROUNDS AND THIS PROJECT DOES NOT AVERAGE THEM. The key to the 1855 photograph: 'C is the parade-ground (80x200 ft.)'. Robert Fergus, of the same fort in 1850: 'about 80 feet wide, and extended from the river bank south, the full length of the enclosure - say 400 feet'. Eighty by two hundred and eighty by four hundred are not the same rectangle, and docs/research/04-structures-south.md records only the first, as documented. IT IS GRADED INFERRED HERE. What this polygon actually is: 21.8 x 33.2 m, about 71 x 109 ft, the court the 1830 plan leaves between the ranges. The WIDTH agrees with both later sources to about 11 percent, which is the check that the derived scale is reading the plate. The LENGTH agrees with neither, and the likeliest reading of that is that both later figures describe the compound AFTER the stockade came down, when the 'enclosure' was a board fence running from the river bank south - which is exactly what Fergus says his 400 ft is measured between. A third witness supports the split: Juliette Kinzie, inside the stockaded fort in 1831, says the parade-ground 'extended south of the pickets', so there was drill ground outside the south gate as well as court inside. That outside ground is NOT modelled - nothing gives its extent."
+  },
+  "attributes": {
+    "kind": {
+      "value": "parade",
+      "confidence": "attested",
+      "sources": [
+        "wentworth_1881_fort_dearborn",
+        "kinzie_waubun_1856"
+      ],
+      "note": "Named as the parade-ground by the 1855 key, by Fergus and by Kinzie."
+    },
+    "construction": {
+      "value": "earth",
+      "confidence": "inferred",
+      "note": "Not stated. Bare trodden earth: nothing in any source describes a surface, and no paved or gravelled parade is plausible at a frontier post in 1835 - the town's own streets were unpaved mud for another decade."
+    },
+    "roof_type": {
+      "value": "none",
+      "confidence": "attested",
+      "sources": [
+        "wentworth_1881_fort_dearborn"
+      ],
+      "note": "It is a piece of ground."
+    },
+    "sun_dial": {
+      "value": true,
+      "confidence": "inferred",
+      "sources": [
+        "wentworth_1881_fort_dearborn"
+      ],
+      "note": "ATTESTED FOR 1850 AND CARRIED BACK. Fergus: 'an 8-inch piece of square timber, imbedded in the earth, placed upright, about 2 feet high, upon the top of which was a brass plate on which had been a sun-dial'. Both dimensions built here are his. The date is the weakness - 'had been a sun-dial' is a man describing a relic in 1850, and nothing puts it on the parade in 1835 except that a post with a garrison has more use for a sun-dial than an abandoned one. WHERE IT STANDS IS OURS: Fergus puts his on a knoll near the southern end of a parade four hundred feet long, which is ground this record does not model, so the archetype stands it in the southern part of the court instead."
+    },
+    "paint": {
+      "value": "earth",
+      "confidence": "inferred",
+      "note": "The colour of trodden ground. No source describes it; the value exists so the material is not the archetype's default timber."
+    },
+    "function": {
+      "value": "parade and drill ground",
+      "confidence": "attested",
+      "sources": [
+        "wentworth_1881_fort_dearborn",
+        "kinzie_waubun_1856"
+      ],
+      "note": "The court a garrison forms on. Modelled as ground worn bare and packed, standing six centimetres proud - which is the whole of the claim about its surface."
+    },
+    "land_owner": {
+      "value": "The ground was entered by John Baptist Baubian, 28 May 1835",
+      "confidence": "inferred",
+      "sources": [
+        "isa_public_domain_land_tract_sales"
+      ],
+      "note": "THE UNITED STATES RESERVATION. This is the same tract L108 already derives for `1835_no_build_ground.json` — from G1, Madison's line and the traced waterline — so the polygon is inherited rather than built again, and `check.sh` already re-derives it. The register's own row is the second, independent witness to the date L108 quotes from Andreas: Beaubien's pre-emption, 28 May 1835, five weeks before the scene date. The derived polygon is short of the documented 75.69 acres for the reasons L108 states, and is a floor rather than the reservation. WHETHER THE ENTRY HELD IS NOT READ HERE: it was disputed, and this row records the entry the register carries and nothing about its outcome. THE MARGIN IS 52 m: this footprint stands that far inside the tract's nearest boundary, which is more than twice the working horizontal uncertainty of anything traced off the 1834 sheets (about 20 m), so the assignment survives the error the construction carries. WHAT THIS ROW CLAIMS AND WHAT IT DOES NOT. It claims that the tract the Illinois State Archives' land-sale register describes contains this structure's committed position — the patent for this ground was ENTERED by this man on this date. It does not claim he still held the ground on 1 July 1835, that he lived here, or that he ever stood on it: a sale is a transaction, and the register's only column about residence names a county. THE SECTION LINES ARE CONSTRUCTED, NOT TRACED (L219): the grid is carried from the single PLSS corner at State & Madison, on the plat's own east-west bearing, in nominal one-mile squares."
+    }
+  },
+  "residents": [],
+  "citations": [
+    {
+      "source_id": "andreas_1884_v1",
+      "citation": "Andreas, A. T. History of Chicago: From the Earliest Period to the Present Time. Vol. 1. Chicago: A. T. Andreas, 1884.",
+      "url": "https://archive.org/details/historyofchicago01andr",
+      "archived_url": "",
+      "tier": 3,
+      "tier_label": "compiled secondary (Andreas)"
+    },
+    {
+      "source_id": "harrison_1830_river_mouth",
+      "citation": "Harrison, F., Jr., Ass't U.S. Civil Engineer. \"Map of the Mouth of Chicago River, drawn for the Purpose of showing the proposed Harbor Improvements. With additions and changes suggested by the Memory of Early Settlers. The original received and approved by William Howard, U.S. Civil Engineer, February 24, 1830.\" Reproduced in Andreas, A. T., History of Chicago, vol. 1 (Chicago, 1884), p. 113.",
+      "url": "https://archive.org/details/historyofchicago01andr/page/n242/mode/1up",
+      "archived_url": "",
+      "tier": 2,
+      "tier_label": "near-primary recollection",
+      "what_it_supplies": [
+        "the fort's plan arrangement: a quadrangular picket enclosure, corner works, four ranges, two gates",
+        "which building stood on which side of the parade",
+        "the relative proportions of the enclosure and the buildings in it",
+        "the fort's rotation relative to true north",
+        "the named ground around the fort: garrison garden, cultivated field, barn, wash house, well, shop, cemetery, ferry"
+      ],
+      "what_it_does_not_supply": [
+        "any dimension in feet - there is no scale bar",
+        "elevations, heights, roof forms or materials",
+        "the state of the fort in 1835 - it is five years earlier",
+        "a separation between the 1830 survey and the settler-memory additions the plate admits to"
+      ]
+    },
+    {
+      "source_id": "isa_public_domain_land_tract_sales",
+      "citation": "Illinois State Archives, Illinois Public Domain Land Tract Sales Database (Springfield: Office of the Secretary of State).",
+      "url": "https://apps.ilsos.gov/isa/landSalesSearch.do",
+      "archived_url": "",
+      "tier": 1,
+      "tier_label": "period/eyewitness"
+    },
+    {
+      "source_id": "kinzie_waubun_1856",
+      "citation": "Kinzie, Juliette A. M. Wau-Bun: The 'Early Day' in the North-West. New York: Derby & Jackson, 1856.",
+      "url": "https://www.authorama.com/wau-bun-19.html",
+      "archived_url": "https://archive.org/details/waubunearlydayin00kinzbyu",
+      "tier": 2,
+      "tier_label": "near-primary recollection"
+    },
+    {
+      "source_id": "wentworth_1881_fort_dearborn",
+      "citation": "Wentworth, John. \"Fort Dearborn: An Address delivered at the unveiling of the memorial tablet to mark the site of the Fort, Saturday afternoon, May 21, 1881.\" Fergus' Historical Series No. 16. Chicago: Fergus Printing Company, 1881. With the key to Alexander Hesler's 1855 photograph and Robert Fergus's signed addendum to the 1850 von Schneidau daguerreotype.",
+      "url": "https://chicagology.com/prefire/prefire052/",
+      "archived_url": "http://web.archive.org/web/20260209092824/https://chicagology.com/prefire/prefire052/",
+      "tier": 2,
+      "tier_label": "near-primary recollection",
+      "what_it_supplies": [
+        "the commandant's quarters at about 25 x 50 ft, brick",
+        "the officers' quarters at about 30 x 60 ft, wood, at the north-west corner",
+        "a parade ground 80 ft wide",
+        "which buildings stood on which side of the parade",
+        "the commandants of the second fort by date",
+        "the date the pickets came down is NOT given - only that it was 'at an earlier date' than 1850"
+      ],
+      "what_it_does_not_supply": [
+        "the stockade's dimensions",
+        "anything about the fort in 1835 that is not inferred backwards from an 1850 or 1855 image",
+        "a reliable division between first-fort and second-fort description - the pamphlet reprints both and readers routinely mix them"
+      ]
+    }
+  ],
+  "research_note": "BUILT AS A STRUCTURE BECAUSE A FORT WITHOUT ONE IS A COURTYARD OF LOOSE BUILDINGS, and because the one interior dimension any source gives is the parade's. Its footprint note carries the disagreement this record exists to surface: two sources on the same page give parade grounds that differ by a factor of two, this project's own dossier recorded one of them as documented, and the reconciliation - that both later figures describe the post-stockade compound - is an argument rather than a finding. The sun-dial is Fergus's, at his dimensions, in our position.",
+  "research_doc": "docs/RESEARCH/fort_dearborn_parade.md",
+  "review_required": false
+}

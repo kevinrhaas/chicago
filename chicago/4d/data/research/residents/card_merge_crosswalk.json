@@ -1,0 +1,1180 @@
+{
+ "schema": "card-merge-crosswalk/1",
+ "_doc": "T-0839. The town cards ruled to be one person, as a LANDED ADJUDICATION the consolidation reads. consolidate_resident_evidence.py's declared_anchors() walks every *crosswalk*.json under data/research/ and moves each anchored appearance onto the identity that holds `person_id`, so the folded card's sources reach the survivor, the ladder regrades the joined identity, and mint_civic_residents.py refuses to re-mint a card whose identity now has a canonical person it does not own. DERIVED from the rulings and the redirect stubs — do not hand-edit.",
+ "generated_by": "tools/consolidate_town_cards.py --apply",
+ "ticket": "T-0839",
+ "merges": [
+  {
+   "outcome": "merged",
+   "person_id": "adams_william_h",
+   "folded_person_id": "adams_william",
+   "rule": "C3",
+   "cluster": "adams",
+   "record_ids": [
+    "person_william_adams"
+   ],
+   "domains": [
+    "newspapers"
+   ],
+   "sources": [
+    "chicago_democrat_1833_1835"
+   ],
+   "evidence": "T-0839: 'adams_william' and 'adams_william_h' are one person under rule C3; the ruling and its reasoning are in data/residents/card_merge_rulings.json under cluster 'adams'."
+  },
+  {
+   "outcome": "merged",
+   "person_id": "allen_lieut_james",
+   "folded_person_id": "allen_james",
+   "rule": "C0",
+   "cluster": "allen",
+   "record_ids": [
+    "fdn0006",
+    "person_j_allen",
+    "poll_1834_005",
+    "tax_1833_001"
+   ],
+   "domains": [
+    "civic",
+    "directories",
+    "newspapers",
+    "old_settlers"
+   ],
+   "sources": [
+    "chicago_democrat_1833_1835",
+    "chicago_voter_lists_1833_1835_irad",
+    "fergus_1843_old_settler_death_notices"
+   ],
+   "evidence": "T-0839: 'allen_james' and 'allen_lieut_james' are one person under rule C0; the ruling and its reasoning are in data/residents/card_merge_rulings.json under cluster 'allen'."
+  },
+  {
+   "outcome": "merged",
+   "person_id": "allen_lieut_james",
+   "folded_person_id": "allen_lieut",
+   "rule": "C0",
+   "cluster": "allen",
+   "record_ids": [
+    "person_lieut_allen"
+   ],
+   "domains": [
+    "newspapers"
+   ],
+   "sources": [
+    "chicago_democrat_1833_1835"
+   ],
+   "evidence": "T-0839: 'allen_lieut' and 'allen_lieut_james' are one person under rule C0; the ruling and its reasoning are in data/residents/card_merge_rulings.json under cluster 'allen'."
+  },
+  {
+   "outcome": "merged",
+   "person_id": "allen_lieut_james",
+   "folded_person_id": "allen_lieut_j",
+   "rule": "C0",
+   "cluster": "allen",
+   "record_ids": [
+    "person_lieut_j_allen"
+   ],
+   "domains": [
+    "newspapers"
+   ],
+   "sources": [
+    "chicago_american_1835"
+   ],
+   "evidence": "T-0839: 'allen_lieut_j' and 'allen_lieut_james' are one person under rule C0; the ruling and its reasoning are in data/residents/card_merge_rulings.json under cluster 'allen'."
+  },
+  {
+   "outcome": "merged",
+   "person_id": "bates_harriet_ellen",
+   "folded_person_id": "bates_harriet_e",
+   "rule": "C1",
+   "cluster": "bates-harriet",
+   "record_ids": [
+    "person_bates_harriet_e"
+   ],
+   "domains": [
+    "newspapers"
+   ],
+   "sources": [
+    "chicago_democrat_1833_1835"
+   ],
+   "evidence": "T-0839: 'bates_harriet_e' and 'bates_harriet_ellen' are one person under rule C1; the ruling and its reasoning are in data/residents/card_merge_rulings.json under cluster 'bates-harriet'."
+  },
+  {
+   "outcome": "merged",
+   "person_id": "beaubien_jean_baptiste",
+   "folded_person_id": "beaubien_j_b",
+   "rule": "C2",
+   "cluster": "beaubien",
+   "record_ids": [
+    "person_j_b_beaubien",
+    "person_j_b_t_beaubien"
+   ],
+   "domains": [
+    "newspapers"
+   ],
+   "sources": [
+    "chicago_democrat_1833_1835"
+   ],
+   "evidence": "T-0839: 'beaubien_j_b' and 'beaubien_jean_baptiste' are one person under rule C2; the ruling and its reasoning are in data/residents/card_merge_rulings.json under cluster 'beaubien'."
+  },
+  {
+   "outcome": "merged",
+   "person_id": "beaubien_jean_baptiste",
+   "folded_person_id": "beaubien_john_b",
+   "rule": "C2",
+   "cluster": "beaubien",
+   "record_ids": [
+    "person_beaubien_john_b"
+   ],
+   "domains": [
+    "newspapers"
+   ],
+   "sources": [
+    "chicago_democrat_1833_1835"
+   ],
+   "evidence": "T-0839: 'beaubien_john_b' and 'beaubien_jean_baptiste' are one person under rule C2; the ruling and its reasoning are in data/residents/card_merge_rulings.json under cluster 'beaubien'."
+  },
+  {
+   "outcome": "merged",
+   "person_id": "beaubien_madore",
+   "folded_person_id": "beaubien_medore_b",
+   "rule": "C11",
+   "cluster": "beaubien-madore",
+   "record_ids": [
+    "person_medore_b_beaubien"
+   ],
+   "domains": [
+    "newspapers"
+   ],
+   "sources": [
+    "chicago_democrat_1833_1835",
+    "chicago_tribune_1882_05_19_fourth_reception"
+   ],
+   "evidence": "T-1002: 'beaubien_medore_b' and 'beaubien_madore' are one person under rule C11; the ruling and its reasoning are in data/residents/card_merge_rulings.json under cluster 'beaubien-madore'."
+  },
+  {
+   "outcome": "merged",
+   "person_id": "beaubien_madore",
+   "folded_person_id": "beaubien_medard",
+   "rule": "C12",
+   "cluster": "beaubien-medard",
+   "record_ids": [
+    "poll_1833_005"
+   ],
+   "domains": [
+    "civic"
+   ],
+   "sources": [
+    "chicago_voter_lists_1833_1835_irad"
+   ],
+   "evidence": "T-1026: 'beaubien_medard' and 'beaubien_madore' are one person under rule C12; the ruling and its reasoning are in data/residents/card_merge_rulings.json under cluster 'beaubien-medard'."
+  },
+  {
+   "outcome": "merged",
+   "person_id": "blanchard_f_gantry",
+   "folded_person_id": "blanchard_gantry",
+   "rule": "C8",
+   "cluster": "blanchard",
+   "record_ids": [
+    "tax_1833_005"
+   ],
+   "domains": [
+    "civic"
+   ],
+   "sources": [
+    "chicago_voter_lists_1833_1835_irad"
+   ],
+   "evidence": "T-0993: 'blanchard_gantry' and 'blanchard_f_gantry' are one person under rule C8; the ruling and its reasoning are in data/residents/card_merge_rulings.json under cluster 'blanchard'."
+  },
+  {
+   "outcome": "merged",
+   "person_id": "brown_william_h",
+   "folded_person_id": "brown_w_h",
+   "rule": "C2",
+   "cluster": "brown-william-h",
+   "record_ids": [
+    "person_w_h_brown"
+   ],
+   "domains": [
+    "newspapers"
+   ],
+   "sources": [
+    "chicago_democrat_1833_1835"
+   ],
+   "evidence": "T-0839: 'brown_w_h' and 'brown_william_h' are one person under rule C2; the ruling and its reasoning are in data/residents/card_merge_rulings.json under cluster 'brown-william-h'."
+  },
+  {
+   "outcome": "merged",
+   "person_id": "clybourne_archibald",
+   "folded_person_id": "clybourn_archibald",
+   "rule": "C9",
+   "cluster": "clybourne",
+   "record_ids": [
+    "f1843_e0653",
+    "person_a_clybourn"
+   ],
+   "domains": [
+    "directories",
+    "newspapers",
+    "old_settlers"
+   ],
+   "sources": [
+    "chicago_democrat_1833_1835",
+    "fergus_chicago_directory_1843"
+   ],
+   "evidence": "T-1002: 'clybourn_archibald' and 'clybourne_archibald' are one person under rule C9; the ruling and its reasoning are in data/residents/card_merge_rulings.json under cluster 'clybourne'."
+  },
+  {
+   "outcome": "merged",
+   "person_id": "cobb_silas_b",
+   "folded_person_id": "cobb_s_b",
+   "rule": "C2",
+   "cluster": "cobb",
+   "record_ids": [
+    "person_s_b_cobb"
+   ],
+   "domains": [
+    "newspapers"
+   ],
+   "sources": [
+    "chicago_american_1835"
+   ],
+   "evidence": "T-0839: 'cobb_s_b' and 'cobb_silas_b' are one person under rule C2; the ruling and its reasoning are in data/residents/card_merge_rulings.json under cluster 'cobb'."
+  },
+  {
+   "outcome": "merged",
+   "person_id": "dole_george_w",
+   "folded_person_id": "dole_g_w",
+   "rule": "C2",
+   "cluster": "dole",
+   "record_ids": [
+    "person_g_w_dole"
+   ],
+   "domains": [
+    "newspapers"
+   ],
+   "sources": [
+    "chicago_democrat_1833_1835"
+   ],
+   "evidence": "T-0839: 'dole_g_w' and 'dole_george_w' are one person under rule C2; the ruling and its reasoning are in data/residents/card_merge_rulings.json under cluster 'dole'."
+  },
+  {
+   "outcome": "merged",
+   "person_id": "eldridge_john_w",
+   "folded_person_id": "eldredge_john_w",
+   "rule": "C9",
+   "cluster": "eldredge-eldridge",
+   "record_ids": [
+    "n1844_e0564",
+    "person_j_w_eldredge"
+   ],
+   "domains": [
+    "directories",
+    "newspapers",
+    "old_settlers"
+   ],
+   "sources": [
+    "chicago_democrat_1833_1835",
+    "norris_directory_1844"
+   ],
+   "evidence": "T-1134: 'eldredge_john_w' and 'eldridge_john_w' are one person under rule C9; the ruling and its reasoning are in data/residents/card_merge_rulings.json under cluster 'eldredge-eldridge'."
+  },
+  {
+   "outcome": "merged",
+   "person_id": "fraser_wm_h",
+   "folded_person_id": "frazer_wm_h",
+   "rule": "C9",
+   "cluster": "fraser-frazer",
+   "record_ids": [],
+   "domains": [],
+   "sources": [
+    "chicago_democrat_1833_1835"
+   ],
+   "evidence": "T-1133: 'frazer_wm_h' and 'fraser_wm_h' are one person under rule C9; the ruling and its reasoning are in data/residents/card_merge_rulings.json under cluster 'fraser-frazer'."
+  },
+  {
+   "outcome": "merged",
+   "person_id": "fullerton_alexander",
+   "folded_person_id": "fullerton_a_n",
+   "rule": "C0",
+   "cluster": "fullerton",
+   "record_ids": [
+    "person_a_n_fullerton"
+   ],
+   "domains": [
+    "newspapers"
+   ],
+   "sources": [
+    "chicago_american_1835"
+   ],
+   "evidence": "T-0839: 'fullerton_a_n' and 'fullerton_alexander' are one person under rule C0; the ruling and its reasoning are in data/residents/card_merge_rulings.json under cluster 'fullerton'."
+  },
+  {
+   "outcome": "merged",
+   "person_id": "fullerton_alexander",
+   "folded_person_id": "fullerton_alex_n",
+   "rule": "C0",
+   "cluster": "fullerton",
+   "record_ids": [
+    "person_fullerton_alex_n"
+   ],
+   "domains": [
+    "newspapers"
+   ],
+   "sources": [
+    "chicago_democrat_1833_1835"
+   ],
+   "evidence": "T-0839: 'fullerton_alex_n' and 'fullerton_alexander' are one person under rule C0; the ruling and its reasoning are in data/residents/card_merge_rulings.json under cluster 'fullerton'."
+  },
+  {
+   "outcome": "merged",
+   "person_id": "fullerton_alexander",
+   "folded_person_id": "fullerton_alexander_m",
+   "rule": "C0",
+   "cluster": "fullerton",
+   "record_ids": [
+    "poll_1834_042"
+   ],
+   "domains": [
+    "civic"
+   ],
+   "sources": [
+    "chicago_voter_lists_1833_1835_irad"
+   ],
+   "evidence": "T-0839: 'fullerton_alexander_m' and 'fullerton_alexander' are one person under rule C0; the ruling and its reasoning are in data/residents/card_merge_rulings.json under cluster 'fullerton'."
+  },
+  {
+   "outcome": "merged",
+   "person_id": "haddock_edward",
+   "folded_person_id": "haddock_e",
+   "rule": "C0",
+   "cluster": "haddock",
+   "record_ids": [
+    "person_e_haddock"
+   ],
+   "domains": [
+    "newspapers"
+   ],
+   "sources": [
+    "chicago_democrat_1833_1835"
+   ],
+   "evidence": "T-0839: 'haddock_e' and 'haddock_edward' are one person under rule C0; the ruling and its reasoning are in data/residents/card_merge_rulings.json under cluster 'haddock'."
+  },
+  {
+   "outcome": "merged",
+   "person_id": "haddock_edward",
+   "folded_person_id": "haddock_e_w",
+   "rule": "C0",
+   "cluster": "haddock",
+   "record_ids": [
+    "person_e_w_haddock"
+   ],
+   "domains": [
+    "newspapers"
+   ],
+   "sources": [
+    "chicago_democrat_1833_1835"
+   ],
+   "evidence": "T-0839: 'haddock_e_w' and 'haddock_edward' are one person under rule C0; the ruling and its reasoning are in data/residents/card_merge_rulings.json under cluster 'haddock'."
+  },
+  {
+   "outcome": "merged",
+   "person_id": "haddock_edward",
+   "folded_person_id": "haddock_edward_e",
+   "rule": "C0",
+   "cluster": "haddock",
+   "record_ids": [
+    "poll_1834_048"
+   ],
+   "domains": [
+    "civic"
+   ],
+   "sources": [
+    "chicago_voter_lists_1833_1835_irad"
+   ],
+   "evidence": "T-0839: 'haddock_edward_e' and 'haddock_edward' are one person under rule C0; the ruling and its reasoning are in data/residents/card_merge_rulings.json under cluster 'haddock'."
+  },
+  {
+   "outcome": "merged",
+   "person_id": "hamilton_richard_j",
+   "folded_person_id": "hamilton_r_j",
+   "rule": "C2",
+   "cluster": "hamilton",
+   "record_ids": [
+    "33S7-9YYJ-DD:12",
+    "person_col_r_j_hamilton",
+    "person_hon_r_j_hamilton",
+    "person_r_j_hamilton"
+   ],
+   "domains": [
+    "census_1840",
+    "newspapers"
+   ],
+   "sources": [
+    "census_1840_chicago_familysearch_images",
+    "chicago_democrat_1833_1835"
+   ],
+   "evidence": "T-0839: 'hamilton_r_j' and 'hamilton_richard_j' are one person under rule C2; the ruling and its reasoning are in data/residents/card_merge_rulings.json under cluster 'hamilton'."
+  },
+  {
+   "outcome": "merged",
+   "person_id": "harmon_charles_l",
+   "folded_person_id": "harmon_c_l",
+   "rule": "C2",
+   "cluster": "harmon-isaac",
+   "record_ids": [
+    "f1843_e0072",
+    "person_c_l_harmon"
+   ],
+   "domains": [
+    "directories",
+    "newspapers",
+    "old_settlers"
+   ],
+   "sources": [
+    "chicago_democrat_1833_1835",
+    "fergus_chicago_directory_1843"
+   ],
+   "evidence": "T-0997: 'harmon_c_l' and 'harmon_charles_l' are one person under rule C2; the ruling and its reasoning are in data/residents/card_merge_rulings.json under cluster 'harmon-isaac'."
+  },
+  {
+   "outcome": "merged",
+   "person_id": "harmon_isaac_d",
+   "folded_person_id": "harmon_isaac",
+   "rule": "C3",
+   "cluster": "harmon-isaac",
+   "record_ids": [
+    "blackhawk_1832_032",
+    "person_harmon_isaac",
+    "person_isaac_harmon"
+   ],
+   "domains": [
+    "civic",
+    "newspapers"
+   ],
+   "sources": [
+    "blackhawk_war_chicago_enrollments_isa",
+    "chicago_democrat_1833_1835"
+   ],
+   "evidence": "T-0839: 'harmon_isaac' and 'harmon_isaac_d' are one person under rule C3; the ruling and its reasoning are in data/residents/card_merge_rulings.json under cluster 'harmon-isaac'."
+  },
+  {
+   "outcome": "merged",
+   "person_id": "heacock_russel_e",
+   "folded_person_id": "heacock_russell_e",
+   "rule": "C10",
+   "cluster": "heacock",
+   "record_ids": [
+    "person_russell_e_heacock"
+   ],
+   "domains": [
+    "newspapers"
+   ],
+   "sources": [
+    "chicago_democrat_1833_1835"
+   ],
+   "evidence": "T-1002: 'heacock_russell_e' and 'heacock_russel_e' are one person under rule C10; the ruling and its reasoning are in data/residents/card_merge_rulings.json under cluster 'heacock'."
+  },
+  {
+   "outcome": "merged",
+   "person_id": "hogan_john_s_c",
+   "folded_person_id": "hogan_j_s_c",
+   "rule": "C2",
+   "cluster": "hogan",
+   "record_ids": [
+    "person_hogan_j_s_c",
+    "person_j_s_c_hogan"
+   ],
+   "domains": [
+    "newspapers"
+   ],
+   "sources": [
+    "chicago_american_1835",
+    "chicago_democrat_1833_1835"
+   ],
+   "evidence": "T-0839: 'hogan_j_s_c' and 'hogan_john_s_c' are one person under rule C2; the ruling and its reasoning are in data/residents/card_merge_rulings.json under cluster 'hogan'."
+  },
+  {
+   "outcome": "merged",
+   "person_id": "hubbard_gurdon",
+   "folded_person_id": "hubbard_g_s",
+   "rule": "C0",
+   "cluster": "hubbard",
+   "record_ids": [
+    "f1843_e0073",
+    "f1843_e0112",
+    "person_col_g_s_hubbard",
+    "person_g_s_hubbard"
+   ],
+   "domains": [
+    "directories",
+    "newspapers",
+    "old_settlers"
+   ],
+   "sources": [
+    "chicago_democrat_1833_1835",
+    "fergus_chicago_directory_1843"
+   ],
+   "evidence": "T-0839: 'hubbard_g_s' and 'hubbard_gurdon' are one person under rule C0; the ruling and its reasoning are in data/residents/card_merge_rulings.json under cluster 'hubbard'."
+  },
+  {
+   "outcome": "merged",
+   "person_id": "hubbard_gurdon",
+   "folded_person_id": "hubbard_g_t",
+   "rule": "C0",
+   "cluster": "hubbard",
+   "record_ids": [
+    "poll_1835_034"
+   ],
+   "domains": [
+    "civic"
+   ],
+   "sources": [
+    "chicago_voter_lists_1833_1835_irad"
+   ],
+   "evidence": "T-0839: 'hubbard_g_t' and 'hubbard_gurdon' are one person under rule C0; the ruling and its reasoning are in data/residents/card_merge_rulings.json under cluster 'hubbard'."
+  },
+  {
+   "outcome": "merged",
+   "person_id": "hubbard_gurdon",
+   "folded_person_id": "hubbard_gordon_s",
+   "rule": "C0",
+   "cluster": "hubbard",
+   "record_ids": [
+    "person_gordon_s_hubbard"
+   ],
+   "domains": [
+    "newspapers"
+   ],
+   "sources": [
+    "chicago_democrat_1833_1835"
+   ],
+   "evidence": "T-0839: 'hubbard_gordon_s' and 'hubbard_gurdon' are one person under rule C0; the ruling and its reasoning are in data/residents/card_merge_rulings.json under cluster 'hubbard'."
+  },
+  {
+   "outcome": "merged",
+   "person_id": "hubbard_gurdon",
+   "folded_person_id": "hubbard_gurdon_s",
+   "rule": "C0",
+   "cluster": "hubbard",
+   "record_ids": [
+    "33S7-9YYJ-W6:17",
+    "person_gurdon_s_hubbard",
+    "person_hubbard_gurdon_s"
+   ],
+   "domains": [
+    "census_1840",
+    "newspapers"
+   ],
+   "sources": [
+    "census_1840_chicago_familysearch_images",
+    "chicago_american_1835",
+    "chicago_democrat_1833_1835"
+   ],
+   "evidence": "T-0839: 'hubbard_gurdon_s' and 'hubbard_gurdon' are one person under rule C0; the ruling and its reasoning are in data/residents/card_merge_rulings.json under cluster 'hubbard'."
+  },
+  {
+   "outcome": "merged",
+   "person_id": "hubbard_henry_g",
+   "folded_person_id": "hubbard_g",
+   "rule": "C5",
+   "cluster": "hubbard",
+   "record_ids": [
+    "person_hubbard_henry_g"
+   ],
+   "domains": [
+    "newspapers"
+   ],
+   "sources": [
+    "chicago_democrat_1833_1835"
+   ],
+   "evidence": "T-0839: 'hubbard_g' and 'hubbard_henry_g' are one person under rule C5; the ruling and its reasoning are in data/residents/card_merge_rulings.json under cluster 'hubbard'."
+  },
+  {
+   "outcome": "merged",
+   "person_id": "hunt_charles_cotesworth_pinckney",
+   "folded_person_id": "hunt_c_s",
+   "rule": "C5",
+   "cluster": "hunt-c",
+   "record_ids": [
+    "person_hunt_c_harle_s"
+   ],
+   "domains": [
+    "newspapers"
+   ],
+   "sources": [
+    "chicago_democrat_1833_1835"
+   ],
+   "evidence": "T-0844: 'hunt_c_s' and 'hunt_charles_cotesworth_pinckney' are one person under rule C5; the ruling and its reasoning are in data/residents/card_merge_rulings.json under cluster 'hunt-c'."
+  },
+  {
+   "outcome": "merged",
+   "person_id": "kennicott_william_h",
+   "folded_person_id": "kennicott_w_l",
+   "rule": "C4",
+   "cluster": "kennicott",
+   "record_ids": [
+    "poll_1835_038"
+   ],
+   "domains": [
+    "civic"
+   ],
+   "sources": [
+    "chicago_voter_lists_1833_1835_irad"
+   ],
+   "evidence": "T-0844: 'kennicott_w_l' and 'kennicott_william_h' are one person under rule C4; the ruling and its reasoning are in data/residents/card_merge_rulings.json under cluster 'kennicott'."
+  },
+  {
+   "outcome": "merged",
+   "person_id": "kennicott_william_h",
+   "folded_person_id": "kennicott_w_h",
+   "rule": "C2",
+   "cluster": "kennicott",
+   "record_ids": [
+    "person_w_h_kennicott"
+   ],
+   "domains": [
+    "newspapers"
+   ],
+   "sources": [
+    "chicago_democrat_1833_1835"
+   ],
+   "evidence": "T-0997: 'kennicott_w_h' and 'kennicott_william_h' are one person under rule C2; the ruling and its reasoning are in data/residents/card_merge_rulings.json under cluster 'kennicott'."
+  },
+  {
+   "outcome": "merged",
+   "person_id": "kimberly_edmund_s",
+   "folded_person_id": "kimberly_e_s",
+   "rule": "C0",
+   "cluster": "kimberly",
+   "record_ids": [
+    "person_e_s_kimberly"
+   ],
+   "domains": [
+    "newspapers"
+   ],
+   "sources": [
+    "chicago_democrat_1833_1835"
+   ],
+   "evidence": "T-0839: 'kimberly_e_s' and 'kimberly_edmund_s' are one person under rule C0; the ruling and its reasoning are in data/residents/card_merge_rulings.json under cluster 'kimberly'."
+  },
+  {
+   "outcome": "merged",
+   "person_id": "kimberly_edmund_s",
+   "folded_person_id": "kimberly_ed_s",
+   "rule": "C0",
+   "cluster": "kimberly",
+   "record_ids": [
+    "poll_1833_016"
+   ],
+   "domains": [
+    "civic"
+   ],
+   "sources": [
+    "chicago_voter_lists_1833_1835_irad"
+   ],
+   "evidence": "T-0839: 'kimberly_ed_s' and 'kimberly_edmund_s' are one person under rule C0; the ruling and its reasoning are in data/residents/card_merge_rulings.json under cluster 'kimberly'."
+  },
+  {
+   "outcome": "merged",
+   "person_id": "kimberly_edmund_s",
+   "folded_person_id": "kimberly_edmund_l",
+   "rule": "C0",
+   "cluster": "kimberly",
+   "record_ids": [
+    "poll_1834_064",
+    "poll_1835_039"
+   ],
+   "domains": [
+    "civic"
+   ],
+   "sources": [
+    "chicago_voter_lists_1833_1835_irad"
+   ],
+   "evidence": "T-0839: 'kimberly_edmund_l' and 'kimberly_edmund_s' are one person under rule C0; the ruling and its reasoning are in data/residents/card_merge_rulings.json under cluster 'kimberly'."
+  },
+  {
+   "outcome": "merged",
+   "person_id": "kimberly_edmund_s",
+   "folded_person_id": "kimberley_ed",
+   "rule": "C9",
+   "cluster": "kimberley",
+   "record_ids": [
+    "33S7-9YYJ-99F:3",
+    "person_e_s_kimberley"
+   ],
+   "domains": [
+    "census_1840",
+    "newspapers"
+   ],
+   "sources": [
+    "census_1840_chicago_familysearch_images",
+    "chicago_democrat_1833_1835",
+    "isa_public_domain_land_tract_sales"
+   ],
+   "evidence": "T-1001: 'kimberley_ed' and 'kimberly_edmund_s' are one person under rule C9; the ruling and its reasoning are in data/residents/card_merge_rulings.json under cluster 'kimberley'."
+  },
+  {
+   "outcome": "merged",
+   "person_id": "kinzie_john_h",
+   "folded_person_id": "kinzie_j_h",
+   "rule": "C2",
+   "cluster": "kinzie-john",
+   "record_ids": [
+    "person_j_h_kinzie"
+   ],
+   "domains": [
+    "newspapers"
+   ],
+   "sources": [
+    "chicago_american_1835"
+   ],
+   "evidence": "T-0839: 'kinzie_j_h' and 'kinzie_john_h' are one person under rule C2; the ruling and its reasoning are in data/residents/card_merge_rulings.json under cluster 'kinzie-john'."
+  },
+  {
+   "outcome": "merged",
+   "person_id": "kinzie_john_h",
+   "folded_person_id": "kinzie_john_s",
+   "rule": "C3",
+   "cluster": "kinzie-john",
+   "record_ids": [
+    "person_john_s_kinzie"
+   ],
+   "domains": [
+    "newspapers"
+   ],
+   "sources": [
+    "chicago_democrat_1833_1835"
+   ],
+   "evidence": "T-0844: 'kinzie_john_s' and 'kinzie_john_h' are one person under rule C3; the ruling and its reasoning are in data/residents/card_merge_rulings.json under cluster 'kinzie-john'."
+  },
+  {
+   "outcome": "merged",
+   "person_id": "kinzie_robert_a",
+   "folded_person_id": "kinzie_r_a",
+   "rule": "C2",
+   "cluster": "kinzie-robert",
+   "record_ids": [
+    "person_r_a_kinzie"
+   ],
+   "domains": [
+    "newspapers"
+   ],
+   "sources": [
+    "chicago_democrat_1833_1835"
+   ],
+   "evidence": "T-0839: 'kinzie_r_a' and 'kinzie_robert_a' are one person under rule C2; the ruling and its reasoning are in data/residents/card_merge_rulings.json under cluster 'kinzie-robert'."
+  },
+  {
+   "outcome": "merged",
+   "person_id": "knight_clark",
+   "folded_person_id": "anight_clark",
+   "rule": "C13",
+   "cluster": "anight-knight",
+   "record_ids": [
+    "person_anight_clark"
+   ],
+   "domains": [
+    "newspapers"
+   ],
+   "sources": [
+    "chicago_democrat_1833_1835"
+   ],
+   "evidence": "T-1134: 'anight_clark' and 'knight_clark' are one person under rule C13; the ruling and its reasoning are in data/residents/card_merge_rulings.json under cluster 'anight-knight'."
+  },
+  {
+   "outcome": "merged",
+   "person_id": "norton_nelson_r",
+   "folded_person_id": "norton_n_r",
+   "rule": "C2",
+   "cluster": "norton",
+   "record_ids": [],
+   "domains": [],
+   "sources": [
+    "chicago_democrat_1833_1835"
+   ],
+   "evidence": "T-0839: 'norton_n_r' and 'norton_nelson_r' are one person under rule C2; the ruling and its reasoning are in data/residents/card_merge_rulings.json under cluster 'norton'."
+  },
+  {
+   "outcome": "merged",
+   "person_id": "owen_thomas_jv",
+   "folded_person_id": "owen_t_j_v",
+   "rule": "C0",
+   "cluster": "owen",
+   "record_ids": [
+    "person_col_t_j_v_owen",
+    "person_t_j_v_owen"
+   ],
+   "domains": [
+    "newspapers"
+   ],
+   "sources": [
+    "chicago_democrat_1833_1835"
+   ],
+   "evidence": "T-0839: 'owen_t_j_v' and 'owen_thomas_jv' are one person under rule C0; the ruling and its reasoning are in data/residents/card_merge_rulings.json under cluster 'owen'."
+  },
+  {
+   "outcome": "merged",
+   "person_id": "owen_thomas_jv",
+   "folded_person_id": "owen_th_j_v",
+   "rule": "C0",
+   "cluster": "owen",
+   "record_ids": [
+    "person_th_j_v_owen",
+    "poll_1834_084"
+   ],
+   "domains": [
+    "civic",
+    "newspapers"
+   ],
+   "sources": [
+    "chicago_democrat_1833_1835",
+    "chicago_voter_lists_1833_1835_irad"
+   ],
+   "evidence": "T-0839: 'owen_th_j_v' and 'owen_thomas_jv' are one person under rule C0; the ruling and its reasoning are in data/residents/card_merge_rulings.json under cluster 'owen'."
+  },
+  {
+   "outcome": "merged",
+   "person_id": "owen_thomas_jv",
+   "folded_person_id": "owen_thomas",
+   "rule": "C0",
+   "cluster": "owen",
+   "record_ids": [
+    "st_cyr_death_07_1"
+   ],
+   "domains": [
+    "church"
+   ],
+   "sources": [
+    "st_cyr_register_ichr_v4"
+   ],
+   "evidence": "T-0839: 'owen_thomas' and 'owen_thomas_jv' are one person under rule C0; the ruling and its reasoning are in data/residents/card_merge_rulings.json under cluster 'owen'."
+  },
+  {
+   "outcome": "merged",
+   "person_id": "owen_thomas_jv",
+   "folded_person_id": "owen_thomas_j_v",
+   "rule": "C0",
+   "cluster": "owen",
+   "record_ids": [
+    "fdn0503",
+    "person_thomas_j_v_owen"
+   ],
+   "domains": [
+    "directories",
+    "newspapers",
+    "old_settlers"
+   ],
+   "sources": [
+    "chicago_democrat_1833_1835",
+    "fergus_1843_old_settler_death_notices"
+   ],
+   "evidence": "T-0839: 'owen_thomas_j_v' and 'owen_thomas_jv' are one person under rule C0; the ruling and its reasoning are in data/residents/card_merge_rulings.json under cluster 'owen'."
+  },
+  {
+   "outcome": "merged",
+   "person_id": "pearsons_hiram",
+   "folded_person_id": "pearson_hiram",
+   "rule": "C9",
+   "cluster": "pearson-pearsons",
+   "record_ids": [
+    "poll_1833_022",
+    "tax_1833_082"
+   ],
+   "domains": [
+    "civic"
+   ],
+   "sources": [
+    "chicago_voter_lists_1833_1835_irad"
+   ],
+   "evidence": "T-1132: 'pearson_hiram' and 'pearsons_hiram' are one person under rule C9; the ruling and its reasoning are in data/residents/card_merge_rulings.json under cluster 'pearson-pearsons'."
+  },
+  {
+   "outcome": "merged",
+   "person_id": "peck_philip",
+   "folded_person_id": "peck_p_f",
+   "rule": "C4",
+   "cluster": "peck",
+   "record_ids": [
+    "person_p_f_peck"
+   ],
+   "domains": [
+    "newspapers"
+   ],
+   "sources": [
+    "chicago_democrat_1833_1835"
+   ],
+   "evidence": "T-0839: 'peck_p_f' and 'peck_philip' are one person under rule C4; the ruling and its reasoning are in data/residents/card_merge_rulings.json under cluster 'peck'."
+  },
+  {
+   "outcome": "merged",
+   "person_id": "peck_philip",
+   "folded_person_id": "peck_p_f_w",
+   "rule": "C4",
+   "cluster": "peck",
+   "record_ids": [
+    "33S7-9YYJ-DD:23",
+    "person_p_f_w_peck",
+    "person_peck_p_f_w"
+   ],
+   "domains": [
+    "census_1840",
+    "newspapers"
+   ],
+   "sources": [
+    "census_1840_chicago_familysearch_images",
+    "chicago_democrat_1833_1835"
+   ],
+   "evidence": "T-0839: 'peck_p_f_w' and 'peck_philip' are one person under rule C4; the ruling and its reasoning are in data/residents/card_merge_rulings.json under cluster 'peck'."
+  },
+  {
+   "outcome": "merged",
+   "person_id": "pruyne_peter",
+   "folded_person_id": "pryne_peter",
+   "rule": "C14",
+   "cluster": "pruyne-pryne",
+   "record_ids": [
+    "poll_1834_091",
+    "poll_1835_060",
+    "tax_1833_086"
+   ],
+   "domains": [
+    "civic"
+   ],
+   "sources": [
+    "chicago_voter_lists_1833_1835_irad"
+   ],
+   "evidence": "T-1135: 'pryne_peter' and 'pruyne_peter' are one person under rule C14; the ruling and its reasoning are in data/residents/card_merge_rulings.json under cluster 'pruyne-pryne'."
+  },
+  {
+   "outcome": "merged",
+   "person_id": "salisbury_stephen_m",
+   "folded_person_id": "salsbury_stephen_m",
+   "rule": "C9",
+   "cluster": "salsbury-salisbury",
+   "record_ids": [
+    "person_stephen_m_salsbury"
+   ],
+   "domains": [
+    "newspapers"
+   ],
+   "sources": [
+    "chicago_democrat_1833_1835"
+   ],
+   "evidence": "T-1134: 'salsbury_stephen_m' and 'salisbury_stephen_m' are one person under rule C9; the ruling and its reasoning are in data/residents/card_merge_rulings.json under cluster 'salsbury-salisbury'."
+  },
+  {
+   "outcome": "merged",
+   "person_id": "scarrett_isaac",
+   "folded_person_id": "scarritt_isaac",
+   "rule": "C9",
+   "cluster": "scarrett-scarritt",
+   "record_ids": [
+    "person_isaac_scarritt"
+   ],
+   "domains": [
+    "newspapers"
+   ],
+   "sources": [
+    "chicago_democrat_1833_1835"
+   ],
+   "evidence": "T-1134: 'scarritt_isaac' and 'scarrett_isaac' are one person under rule C9; the ruling and its reasoning are in data/residents/card_merge_rulings.json under cluster 'scarrett-scarritt'."
+  },
+  {
+   "outcome": "merged",
+   "person_id": "snow_george_w",
+   "folded_person_id": "snow_g_w",
+   "rule": "C2",
+   "cluster": "snow",
+   "record_ids": [
+    "person_g_w_snow"
+   ],
+   "domains": [
+    "newspapers"
+   ],
+   "sources": [
+    "chicago_democrat_1833_1835"
+   ],
+   "evidence": "T-0839: 'snow_g_w' and 'snow_george_w' are one person under rule C2; the ruling and its reasoning are in data/residents/card_merge_rulings.json under cluster 'snow'."
+  },
+  {
+   "outcome": "merged",
+   "person_id": "sproat_grenville",
+   "folded_person_id": "sproat_g_n",
+   "rule": "C4",
+   "cluster": "sproat",
+   "record_ids": [
+    "person_g_n_sproat"
+   ],
+   "domains": [
+    "newspapers"
+   ],
+   "sources": [
+    "chicago_democrat_1833_1835"
+   ],
+   "evidence": "T-0839: 'sproat_g_n' and 'sproat_grenville' are one person under rule C4; the ruling and its reasoning are in data/residents/card_merge_rulings.json under cluster 'sproat'."
+  },
+  {
+   "outcome": "merged",
+   "person_id": "sproat_grenville",
+   "folded_person_id": "sproat_g_t",
+   "rule": "C4",
+   "cluster": "sproat",
+   "record_ids": [
+    "person_g_t_sproat"
+   ],
+   "domains": [
+    "newspapers"
+   ],
+   "sources": [
+    "chicago_democrat_1833_1835"
+   ],
+   "evidence": "T-0839: 'sproat_g_t' and 'sproat_grenville' are one person under rule C4; the ruling and its reasoning are in data/residents/card_merge_rulings.json under cluster 'sproat'."
+  },
+  {
+   "outcome": "merged",
+   "person_id": "taylor_anson_h",
+   "folded_person_id": "taylor_anson_n",
+   "rule": "C4",
+   "cluster": "taylor-anson",
+   "record_ids": [
+    "tax_1833_101"
+   ],
+   "domains": [
+    "civic"
+   ],
+   "sources": [
+    "chicago_voter_lists_1833_1835_irad"
+   ],
+   "evidence": "T-0839: 'taylor_anson_n' and 'taylor_anson_h' are one person under rule C4; the ruling and its reasoning are in data/residents/card_merge_rulings.json under cluster 'taylor-anson'."
+  },
+  {
+   "outcome": "merged",
+   "person_id": "taylor_anson_h",
+   "folded_person_id": "taylor_anson_w",
+   "rule": "C4",
+   "cluster": "taylor-anson",
+   "record_ids": [
+    "blackhawk_1832_110",
+    "person_anson_w_taylor"
+   ],
+   "domains": [
+    "civic",
+    "newspapers"
+   ],
+   "sources": [
+    "blackhawk_war_chicago_enrollments_isa",
+    "chicago_democrat_1833_1835"
+   ],
+   "evidence": "T-0839: 'taylor_anson_w' and 'taylor_anson_h' are one person under rule C4; the ruling and its reasoning are in data/residents/card_merge_rulings.json under cluster 'taylor-anson'."
+  },
+  {
+   "outcome": "merged",
+   "person_id": "taylor_edmund_d",
+   "folded_person_id": "taylor_e_d",
+   "rule": "C2",
+   "cluster": "taylor-edmund",
+   "record_ids": [
+    "person_e_d_taylor"
+   ],
+   "domains": [
+    "newspapers"
+   ],
+   "sources": [
+    "chicago_democrat_1833_1835"
+   ],
+   "evidence": "T-0839: 'taylor_e_d' and 'taylor_edmund_d' are one person under rule C2; the ruling and its reasoning are in data/residents/card_merge_rulings.json under cluster 'taylor-edmund'."
+  },
+  {
+   "outcome": "merged",
+   "person_id": "temple_john_t",
+   "folded_person_id": "temple_j_t",
+   "rule": "C2",
+   "cluster": "temple",
+   "record_ids": [
+    "person_dr_j_t_temple",
+    "person_j_t_temple"
+   ],
+   "domains": [
+    "newspapers"
+   ],
+   "sources": [
+    "chicago_democrat_1833_1835"
+   ],
+   "evidence": "T-0839: 'temple_j_t' and 'temple_john_t' are one person under rule C2; the ruling and its reasoning are in data/residents/card_merge_rulings.json under cluster 'temple'."
+  },
+  {
+   "outcome": "merged",
+   "person_id": "temple_john_t",
+   "folded_person_id": "temple_t",
+   "rule": "C6",
+   "cluster": "temple",
+   "record_ids": [
+    "person_t_temple"
+   ],
+   "domains": [
+    "newspapers"
+   ],
+   "sources": [
+    "chicago_democrat_1833_1835"
+   ],
+   "evidence": "T-0844: 'temple_t' and 'temple_john_t' are one person under rule C6; the ruling and its reasoning are in data/residents/card_merge_rulings.json under cluster 'temple'."
+  },
+  {
+   "outcome": "merged",
+   "person_id": "vanderbogart_henry",
+   "folded_person_id": "vandenbogart_h",
+   "rule": "C7",
+   "cluster": "vanderbogart",
+   "record_ids": [
+    "person_h_van_den_bogart"
+   ],
+   "domains": [
+    "newspapers"
+   ],
+   "sources": [
+    "chicago_democrat_1833_1835"
+   ],
+   "evidence": "T-0842: 'vandenbogart_h' and 'vanderbogart_henry' are one person under rule C7; the ruling and its reasoning are in data/residents/card_merge_rulings.json under cluster 'vanderbogart'."
+  },
+  {
+   "outcome": "merged",
+   "person_id": "vanderbogart_henry",
+   "folded_person_id": "vanderbogart_h",
+   "rule": "C7",
+   "cluster": "vanderbogart",
+   "record_ids": [],
+   "domains": [],
+   "sources": [],
+   "evidence": "T-0842: 'vanderbogart_h' and 'vanderbogart_henry' are one person under rule C7; the ruling and its reasoning are in data/residents/card_merge_rulings.json under cluster 'vanderbogart'."
+  },
+  {
+   "outcome": "merged",
+   "person_id": "vandino_john",
+   "folded_person_id": "vandine_john",
+   "rule": "C9",
+   "cluster": "vandine-vandino",
+   "record_ids": [],
+   "domains": [],
+   "sources": [
+    "chicago_democrat_1833_1835"
+   ],
+   "evidence": "T-1133: 'vandine_john' and 'vandino_john' are one person under rule C9; the ruling and its reasoning are in data/residents/card_merge_rulings.json under cluster 'vandine-vandino'."
+  },
+  {
+   "outcome": "merged",
+   "person_id": "wright_john_s",
+   "folded_person_id": "wright_j_s",
+   "rule": "C2",
+   "cluster": "wright",
+   "record_ids": [
+    "person_j_s_wright"
+   ],
+   "domains": [
+    "newspapers"
+   ],
+   "sources": [
+    "chicago_democrat_1833_1835"
+   ],
+   "evidence": "T-0997: 'wright_j_s' and 'wright_john_s' are one person under rule C2; the ruling and its reasoning are in data/residents/card_merge_rulings.json under cluster 'wright'."
+  }
+ ]
+}

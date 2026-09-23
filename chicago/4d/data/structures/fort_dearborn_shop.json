@@ -1,0 +1,126 @@
+{
+  "id": "fort_dearborn_shop",
+  "name": "Fort Dearborn — the shop",
+  "aka": [
+    "the fort shop"
+  ],
+  "archetype": "outbuilding",
+  "phases": [
+    {
+      "id": "shop_1830",
+      "documented_range": {
+        "from": "1830-02-24",
+        "to": "1836-12-29",
+        "confidence": "inferred",
+        "sources": [
+          "harrison_1830_river_mouth"
+        ],
+        "note": "THE RANGE HAS ONE WITNESS, NOT TWO, AND THAT IS THE DIFFERENCE BETWEEN THIS RECORD AND THE OTHER TWO PLACED BESIDE IT. Only the plan names a Shop here; Hubbard walks the same ground on the same two pages and does not mention it. IT OPENS 24 FEBRUARY 1830, the date on the Harrison plan, because that is the earliest date any source this project holds fixes to this building; Hubbard's narrative of the fort's surroundings is of the late 1820s and carries it earlier without dating it. IT CLOSES 29 DECEMBER 1836, the evacuation, and that is a floor rather than a demolition: nothing attests when the fort's outer buildings came down, and a range that ran on to 1856 with the fort's principal structures would claim a survival for a workshop that nobody wrote down. WHAT CARRIES THE SCENE DATE OF 1 JULY 1835 is the middle of that range and not either end of it — the post was garrisoned continuously from June 1832 to 29 December 1836, so a service building the garrison's own engineer drew in 1830 is standing five years later unless something says it stopped, and nothing does. That is an argument, not an assumption, and it is the argument every Fort Dearborn record here rests on."
+      },
+      "position": {
+        "utm_e": 448285.27,
+        "utm_n": 4637513.22,
+        "rotation_deg": 310.0,
+        "symbolic_location": "South-east of Fort Dearborn, outside the pickets on the fort's outer ground between the stockade and the lake shore, south of the wash house.",
+        "confidence": "inferred",
+        "sources": [
+          "harrison_1830_river_mouth"
+        ],
+        "note": "ONE WITNESS, AND THE RECORD SAYS SO EVERYWHERE. The plan letters 'Shop' against a drawn building south-east of the stockade and that is the entire evidence for this building's existence, its position and its size. Hubbard, who names the barn, the well, the wash-houses, the Factor House, the road and Mrs Jouett's grave on the same two pages, does not mention a shop; his silence is not a denial, and it is not treated as one, but it is why nothing here reaches the two-witness standing the barn and the wash house have.\n\nREAD OFF THE 1830 HARRISON PLAN, BY THE SAME RULE AS THE ELEVEN RECORDS ALREADY TAKEN FROM IT. Internet Archive leaf n242 of historyofchicago01andr (Andreas vol. 1, p. 113), rotated 90 degrees anticlockwise so the sheet's own true-north arrow stands vertical, is 2715 x 2003 px. On that image the stockade's ink runs from x 1356 to x 1535 and from y 553 to y 730, so the enclosure's centre is pixel (1445, 644); the committed palisade record hangs that centre on local E +1152, N +221, which is UTM 448224.70 E, 4637616.80 N. Pixels convert at 1.10 ft/px (0.33528 m/px), the scale docs/RESEARCH/fort_dearborn.md section 3 derives from the commandant's quarters. THE ANCHOR AND THE SCALE ARE CHECKED, NOT ASSUMED, and the check is the garrison garden — the one thing on this plate that is both drawn and already committed. Its committed centre lands at pixel (1209, 1008) under this transform; the drawn diamond's centre measures (1207, 1002). Seven pixels, 2.3 m. A second check runs the other way: the committed blockhouse centre predicts pixel (1385, 698) and the drawn blockhouse square measures (1375, 710), 16 px or 5.4 m. WHAT THE TRANSFORM CANNOT DO is beat its own inputs. The enclosure measures 180 px across at this scale, which is 60 m against the committed palisade's 53 m — a 13 % spread, inside the +/-20 % the scale carries, and the reason is visible on the plate: 180 px is the OUTER edge of an engraved line four to six pixels thick. So carry +/-20 % on this offset from the fort centre and +/-20 m on the fort itself, exactly as every plate-derived record here does.\n\nTHE PIXEL. The drawn building is a tilted block whose corners measure (1629, 912), (1645, 932), (1624, 957) and (1608, 938), centre (1626.5, 934.8) — 181.5 px east and 290.8 px south of the fort centre, which is 60.9 m east and 97.5 m south of it.",
+        "derivation": {
+          "method": "not_derivable",
+          "reason": "The two machine-checkable methods this project holds are a platted corner and a traced waterline, and this is neither: it is a pixel offset on a re-engraved plate, hung on a fort centre that is itself an inference. The whole rule is written out in position.note and is reproducible by hand from the numbers there — the leaf, the pixel, the scale and the anchor — so declaring a derivation method that could not recompute it would be worse than declaring none. Every one of the eleven records already taken off this plate says the same thing."
+        }
+      },
+      "footprint": {
+        "polygon": [
+          [
+            0,
+            0
+          ],
+          [
+            9.7,
+            0
+          ],
+          [
+            9.7,
+            7.4
+          ],
+          [
+            0,
+            7.4
+          ]
+        ],
+        "confidence": "inferred",
+        "sources": [
+          "harrison_1830_river_mouth"
+        ],
+        "note": "NO SOURCE GIVES THIS BUILDING A DIMENSION. 9.7 x 7.4 m is about 32 x 24 ft, the ink centreline of the drawn block at the derived 1.10 ft/px, at the usual +/-20 %. It is the squarest of the three buildings placed here, which is what the plate draws; the long axis runs at bearing 40 degrees."
+      },
+      "form": {
+        "construction": {
+          "value": "log",
+          "confidence": "reconstructed",
+          "note": "Nothing states it. Log by the convention every other building on this post follows. Invented."
+        },
+        "roof_type": {
+          "value": "gable",
+          "confidence": "reconstructed",
+          "note": "Not attested; gable is the type and the archetype's default at this depth. Invented."
+        },
+        "roof_pitch_deg": {
+          "value": 34.0,
+          "confidence": "reconstructed",
+          "note": "No pitch is attested for any building at this fort; 34 degrees is the figure carried by every other Fort Dearborn record here. Invented."
+        },
+        "wall_height_m": {
+          "value": 3.0,
+          "confidence": "reconstructed",
+          "note": "No height attested. Just under ten feet, which is the archetype's own size-aware default for this footprint. Invented."
+        },
+        "door": {
+          "value": "man",
+          "confidence": "reconstructed",
+          "note": "Not attested, and it is the honest half of a guess: a shop takes work in through a door, but whether that work arrived in a man's arms or on a cart depends on the trade, and the trade is not stated. The smaller opening is the smaller claim. Invented."
+        },
+        "door_side": {
+          "value": "front",
+          "confidence": "reconstructed",
+          "note": "The wall facing back toward the fort, north-west. Invented."
+        },
+        "paint": {
+          "value": "unpainted",
+          "confidence": "reconstructed",
+          "note": "Not stated. The archetype's default and the treatment of every working building here. Invented."
+        }
+      },
+      "change_note": "One phase, and one witness. There is no history here to divide."
+    }
+  ],
+  "function": {
+    "value": "workshop",
+    "confidence": "attested",
+    "sources": [
+      "harrison_1830_river_mouth"
+    ],
+    "note": "THE WORD ON THE PLATE IS 'Shop' AND NOTHING ELSE IS CLAIMED. A post of this size kept a smith and usually a carpenter, and it would be easy to write either onto this record; neither is written, because the plate says shop and a trade would be this project inventing an occupant for a building it can barely size. What the record holds is a workshop on the fort's outer ground. Which shop is an open question and belongs to whoever finds a post return."
+  },
+  "research_note": "Placed under T-0880, the third and weakest-attested of the three buildings the Harrison plan draws and names on the fort's outer ground. It is carried at the same grade as its neighbours for POSITION, because the same transform and the same checks place it, and at reconstructed for every element of its fabric, because unlike the barn and the wash house it has no second witness to say anything at all about it. WHAT WOULD IMPROVE IT: a post return or a quartermaster's account naming the trade, which would also settle the door.",
+  "review_required": false,
+  "land_owner": {
+    "value": "The ground was entered by John Baptist Baubian, 28 May 1835",
+    "confidence": "reconstructed",
+    "sources": [
+      "isa_public_domain_land_tract_sales"
+    ],
+    "note": "THE UNITED STATES RESERVATION. This is the same tract L108 already derives for `1835_no_build_ground.json` — from G1, Madison's line and the traced waterline — so the polygon is inherited rather than built again, and `check.sh` already re-derives it. The register's own row is the second, independent witness to the date L108 quotes from Andreas: Beaubien's pre-emption, 28 May 1835, five weeks before the scene date. The derived polygon is short of the documented 75.69 acres for the reasons L108 states, and is a floor rather than the reservation. WHETHER THE ENTRY HELD IS NOT READ HERE: it was disputed, and this row records the entry the register carries and nothing about its outcome. THE MARGIN IS ONLY 39 m, which is inside the working horizontal uncertainty of the georeference (about 20 m) doubled, so the grade drops a tier: the tract is right if the constructed line is, and nothing here proves the line to better than that. WHAT THIS ROW CLAIMS AND WHAT IT DOES NOT. It claims that the tract the Illinois State Archives' land-sale register describes contains this structure's committed position — the patent for this ground was ENTERED by this man on this date. It does not claim he still held the ground on 1 July 1835, that he lived here, or that he ever stood on it: a sale is a transaction, and the register's only column about residence names a county. THE SECTION LINES ARE CONSTRUCTED, NOT TRACED (L219): the grid is carried from the single PLSS corner at State & Madison, on the plat's own east-west bearing, in nominal one-mile squares.",
+    "tract": "the south-west fractional quarter of section 10",
+    "entries": [
+      "ls0057"
+    ],
+    "date_purchased": "1835-05-28",
+    "type_of_sale": "federal land sale (cash entry)",
+    "margin_m": 39.1,
+    "generated_by": "tools/resolve_land_tracts.py --build"
+  }
+}

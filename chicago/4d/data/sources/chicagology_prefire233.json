@@ -1,0 +1,33 @@
+{
+  "id": "chicagology_prefire233",
+  "type": "website",
+  "citation": "\"Early Chicago Streets.\" Chicagology. Transcribing A. T. Andreas, History of Chicago, Volume I (1884), including its block quotation from \"Brass's History\".",
+  "date": "accessed 2026-08-11",
+  "describes_date": "1833-1868",
+  "locator": "Section headed \"History of Chicago, Volume I, A. T. Andreas, 1884\": paragraphs 1-2 for the 1833-36 street orders, and the indented block quotation from Brass's History beginning \"I said we had no pavements in 1848\".",
+  "url": "https://chicagology.com/prefire/prefire233/",
+  "archived_url": "https://web.archive.org/web/20260520165643/https://chicagology.com/prefire/prefire233/",
+  "tier": 4,
+  "rights_status": "check_required",
+  "asset_use": "cross_check",
+  "verified": true,
+  "note": "THE 1830s STREET ORDERS, verbatim: \"In August the town of Chicago was incorporated, and one of the orders of the Trustees was given to the first official orders of the Trustees was given to the Surveyor to 'pitch' South Water Street from the United States Reservation to Randolph Street, on or before April, 1834.\" (the doubled clause is the page's OCR damage, and it recurs identically on chicagology_southwaterstreet). Then: \"During July, 1834, the Surveyor was required to graduate South Water Street, so that 'water should flow from each cross street into the river.' South Water and Lake streets were the two principal thoroughfares of the village, and therefore were early turnpiked and graded. Plank sluices were also built across Clark Street, to carry the drainage to the South Branch, and that street was somewhat improved in 1836.\" And: \"By the winter of 1836 the leading thoroughfares were turnpiked.\" The statute-labour regime is here too: Benjamin Jones street commissioner, the law empowering him \"to call out anybody between the ages of twenty-one and sixty years, to work upon the streets and bridges for three days per annum\" within a mile of the town limits.\n\nTHE DATE TRAP, AND IT HAS ALREADY REACHED A DOSSIER. docs/research/01-terrain-hydrology.md line 78 cites this page for \"Streets 'impassable' for weeks each spring; empty wagons and drays mired on Lake and Water Streets\" without a date. On the page, that sentence is inside a block quotation from Brass's History which OPENS: \"I said we had no pavements in 1848. The streets were simply thrown up as country roads. In the spring for weeks, portions of them would be impassable. I have at different times seen empty wagons and drays stuck on Lake and Water streets on even block between Wabash Avenue and the river.\" That is 1848 Chicago - THIRTEEN YEARS after the scene date, a city of twenty thousand rather than a town of three, with Wabash Avenue built out. Everything else in the same quotation is later still: the joke signboards, the digging-down and planking of Lake Street, and \"the Common Council established a grade from two to six or eight feet above the natural level of the soil\", which the page immediately dates by adding that the planking of Lake Street \"was ordered by the Common Council January 22, 1849\". docs/research/01-terrain-hydrology.md line 47 does hedge that grade with \"eventually\"; line 78 does not hedge the mud. Neither sentence may drive an 1835 street surface.\n\nWHAT THIS PAGE DOES NOT CONTAIN AT ALL: the stage and the mail. The brief for this record described it as \"the stage and mail service, wagons and drays mired on Lake and Water Streets\". The word \"mail\" occurs on the page twice, both times in the comment form's \"Email\" field; \"stage\" does not occur. Its 1833 opening is about the State road to Vincennes and \"various minor roads\", not about coaching. Anything about the stage or the mail must come from elsewhere - see chicagology_first_post_office for the post office, and note that chicagology_prefire021 has the one stage sentence reached so far, about the stage being unable to reach the Tremont corner in spring.\n\nTHE FROG POND IS NOT A THIRD WITNESS. \"As late as July 9, 1836, the American calls attention to a pond of water on Lake Street, corner of La Salle, inhabited by frogs.\" is the same Andreas sentence already recorded at chicagology_prefire062 and reprinted again on chicagology_southwaterstreet. One sentence, three pages.\n\nTIER 4 GRADES THIS WEB PAGE, NOT THE MATERIAL IT REPRINTS. A modern compilation quoting an older text is still a modern compilation: the transcription is unpaginated, uncredited editorial prose sits beside the quoted matter with no typographic break, and nothing here can be collated against a printed page. Where a claim taken from this page is load-bearing, re-read it in the underlying volume and cite that record instead.",
+  "access_notes": "Site carries no license statement. Treat as a transcription aid, not a rights source; nothing may be derived from it as an asset.",
+  "what_it_supplies": [
+    "the August 1833 trustees' order to \"pitch\" South Water Street from the United States Reservation to Randolph Street by April 1834",
+    "the July 1834 order to graduate South Water Street so water flowed from each cross street into the river",
+    "South Water and Lake as the two principal thoroughfares, early turnpiked and graded",
+    "plank sluices built across Clark Street to carry drainage to the South Branch",
+    "Clark Street \"somewhat improved\" in 1836",
+    "the statute-labour regime: three days a year from every man aged 21-60 within a mile of the town limits; Benjamin Jones street commissioner",
+    "the leading thoroughfares turnpiked by the winter of 1836",
+    "standing water at Lake and La Salle on 9 July 1836"
+  ],
+  "what_it_does_not_supply": [
+    "any account of the stage or the mail service",
+    "the mired wagons and drays as an 1835 observation - that passage is explicitly 1848",
+    "the established street grade of two to six or eight feet as an 1830s fact - it follows the 1849 planking",
+    "any street width, crown profile or surface material for 1835",
+    "any independent witness to the Frog Pond, which it shares verbatim with two other pages"
+  ]
+}

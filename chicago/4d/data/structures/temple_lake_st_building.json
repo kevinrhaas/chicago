@@ -1,0 +1,178 @@
+{
+  "id": "temple_lake_st_building",
+  "name": "Dr Temple's Building, Lake Street",
+  "archetype": "frame_storefront",
+  "phases": [
+    {
+      "id": "documented_1835",
+      "documented_range": {
+        "from": "1835-01-01",
+        "to": "1835-12-31",
+        "confidence": "attested",
+        "sources": [
+          "andreas_1884_v1"
+        ],
+        "note": "DOCUMENTED THROUGH ITS TENANT. Andreas's account of the bar has John Dean Caton opening the town's first law office in Dr Temple's building on Lake Street in 1833 and sleeping in the attic of the same building. That is a building, a street, a use and an occupant. NOT THE TEMPLE BUILDING at Franklin and South Water, which is a different structure already in this dataset (temple_building) - the two must not be merged."
+      },
+      "position": {
+        "utm_e": 447368.347,
+        "utm_n": 4637259.618,
+        "rotation_deg": 0.0,
+        "symbolic_location": "South Division, local ENU E 299 N -131",
+        "confidence": "reconstructed",
+        "note": "THE STREET IS DOCUMENTED AND NOTHING ELSE IS. 'On Lake Street' is the whole of the evidence: no cross street, no side, no block. This record sits on the Lake Street south frontage band the reconstruction recipes use, west of the Clark Street crossing, in the first free frontage the placement rule found. The position is an invention within a documented street and is graded accordingly.",
+        "derivation": {
+          "method": "not_derivable",
+          "reason": "No source gives this building a lot. The placement is a frontage-band assignment tested for clearance and buildable ground, which is a production control and not a derivation from any line in the dataset."
+        }
+      },
+      "footprint": {
+        "polygon": [
+          [
+            0,
+            0
+          ],
+          [
+            6.706,
+            0
+          ],
+          [
+            6.706,
+            10.363
+          ],
+          [
+            0,
+            10.363
+          ]
+        ],
+        "confidence": "reconstructed",
+        "note": "PLACEHOLDER - NO DIMENSION IS ATTESTED. 22 x 34 ft is a two-storey frame building with a business room below and a habitable attic above, which is the minimum that answers a law office on the ground floor and a bed in the attic. Every number is invented."
+      },
+      "form": {
+        "stories": {
+          "value": 2,
+          "confidence": "reconstructed",
+          "sources": [
+            "andreas_1884_v1"
+          ],
+          "note": "Type-level choice within the C3 band in the reconstruction specification; it is not evidence for this building."
+        },
+        "wall_height_m": {
+          "value": 5.05,
+          "confidence": "reconstructed",
+          "sources": [
+            "andreas_1884_v1"
+          ],
+          "note": "Type-level choice within the C3 band in the reconstruction specification; it is not evidence for this building."
+        },
+        "roof_type": {
+          "value": "gable",
+          "confidence": "reconstructed",
+          "sources": [
+            "andreas_1884_v1"
+          ],
+          "note": "Type-level choice within the C3 band in the reconstruction specification; it is not evidence for this building."
+        },
+        "roof_pitch_deg": {
+          "value": 36.0,
+          "confidence": "reconstructed",
+          "sources": [
+            "andreas_1884_v1"
+          ],
+          "note": "Type-level choice within the C3 band in the reconstruction specification; it is not evidence for this building."
+        },
+        "gable_front": {
+          "value": false,
+          "confidence": "reconstructed",
+          "sources": [
+            "andreas_1884_v1"
+          ],
+          "note": "Type-level choice within the C3 band in the reconstruction specification; it is not evidence for this building."
+        },
+        "construction": {
+          "value": "braced_frame",
+          "confidence": "reconstructed",
+          "sources": [
+            "andreas_1884_v1"
+          ],
+          "note": "Type-level choice within the C3 band in the reconstruction specification; it is not evidence for this building."
+        },
+        "cladding": {
+          "value": "clapboard",
+          "confidence": "reconstructed",
+          "sources": [
+            "andreas_1884_v1"
+          ],
+          "note": "Type-level choice within the C3 band in the reconstruction specification; it is not evidence for this building."
+        },
+        "paint": {
+          "value": "unpainted",
+          "confidence": "reconstructed",
+          "sources": [
+            "andreas_1884_v1"
+          ],
+          "note": "Type-level choice within the C3 band in the reconstruction specification; it is not evidence for this building."
+        },
+        "loft": {
+          "value": true,
+          "confidence": "reconstructed",
+          "sources": [
+            "andreas_1884_v1"
+          ],
+          "note": "Type-level choice within the C3 band in the reconstruction specification; it is not evidence for this building."
+        },
+        "chimneys": {
+          "value": 1,
+          "confidence": "reconstructed",
+          "sources": [
+            "andreas_1884_v1"
+          ],
+          "note": "Type-level choice within the C3 band in the reconstruction specification; it is not evidence for this building."
+        },
+        "shopfront": {
+          "value": false,
+          "confidence": "reconstructed",
+          "sources": [
+            "andreas_1884_v1"
+          ],
+          "note": "Type-level choice within the C3 band in the reconstruction specification; it is not evidence for this building."
+        },
+        "goods_door": {
+          "value": true,
+          "confidence": "reconstructed",
+          "sources": [
+            "owner_chicago_1835_reconstruction_spec_2026"
+          ],
+          "note": "THE BUILDING IS ATTESTED; THIS ATTRIBUTE IS NOT. A source places this building and says what it was, but nothing records this particular dimension or detail, so the value is a typology from the reconstruction spec — what a building of this kind was ordinarily like. Reconstructed, therefore, and not because the building is in doubt: it is not. Only this number is. Type-level choice within the C3 band in the reconstruction specification; it is not evidence for this building."
+        },
+        "goods_door_side": {
+          "value": "end",
+          "confidence": "reconstructed",
+          "sources": [
+            "owner_chicago_1835_reconstruction_spec_2026"
+          ],
+          "note": "THE BUILDING IS ATTESTED; THIS ATTRIBUTE IS NOT. A source places this building and says what it was, but nothing records this particular dimension or detail, so the value is a typology from the reconstruction spec — what a building of this kind was ordinarily like. Reconstructed, therefore, and not because the building is in doubt: it is not. Only this number is. Type-level choice within the C3 band in the reconstruction specification; it is not evidence for this building."
+        }
+      },
+      "change_note": "The building as this dataset can state it on the scene date. Where the sources give a size, a plan or a fabric, the record carries it; where they do not, the note says so attribute by attribute."
+    }
+  ],
+  "function": {
+    "value": "office_and_lodging",
+    "confidence": "attested",
+    "sources": [
+      "andreas_1884_v1"
+    ],
+    "note": "CATON'S ATTIC IS THE POINT. It is the only account in this corpus of what an educated newcomer actually did for money and where he slept in the town's first summer, and it makes this building a lodging as well as an office - which is exactly the mixed use the reconstruction schedule's C-family roofs are for."
+  },
+  "occupants": {
+    "value": "John Dean Caton's law office and lodging; the building is Dr John T. Temple's",
+    "confidence": "attested",
+    "sources": [
+      "andreas_1884_v1"
+    ],
+    "note": "John Dean Caton's first law office, and Caton's own lodging in the attic (data/residents/households/hh_caton_john_dean.json). The building is Dr John T. Temple's."
+  },
+  "research_note": "CATON'S ATTIC IS THE POINT. It is the only account in this corpus of what an educated newcomer actually did for money and where he slept in the town's first summer, and it makes this building a lodging as well as an office - which is exactly the mixed use the reconstruction schedule's C-family roofs are for.",
+  "review_required": false
+}

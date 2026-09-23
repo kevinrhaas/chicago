@@ -1,0 +1,604 @@
+{
+ "id": "f01_wet_prairie",
+ "zone": 1,
+ "name": "West-side and south-side wet prairie beyond the plat",
+ "habitat": "wet_prairie",
+ "dossier": "docs/research/08-fauna.md \u00a7 ZONE 4",
+ "scene_date": "1835-07-01",
+ "reads_as": "unbroken tallgrass with a coyote somewhere in it, loud with cicadas by day and thick with fireflies at dusk, and almost silent of bird song",
+ "in_modelled_extent": true,
+ "extent_from": {
+  "flora_zone": "z01_wet_prairie"
+ },
+ "soundscape": {
+  "dawn_chorus": "reduced",
+  "hero": [
+   "megatibicen_dorsatus",
+   "canis_latrans",
+   "photinus_pyralis"
+  ],
+  "note": "The July prairie is an INSECT soundscape, not a bird one. The grassland birds that define this habitat in May \u2014 bobolink above all \u2014 are winding down by 1 July, and the sounds that carry are cicadas through the heat of the day, crickets and katydids building at dusk, and coyote howling that the sources place in broad daylight rather than at night."
+ },
+ "species": [
+  {
+   "id": "canis_latrans",
+   "binomial": "Canis latrans",
+   "common": "coyote \u2014 the period 'prairie wolf'",
+   "class": "mammal",
+   "activity": "cathemeral",
+   "active_periods": [
+    "dawn",
+    "day",
+    "dusk",
+    "night"
+   ],
+   "july": {
+    "status": {
+     "value": "year_round_resident",
+     "confidence": "attested",
+     "sources": [
+      "andreas_1884_v1"
+     ],
+     "note": "Andreas p. 291 has a tavern-keeper named Lincoln coursing 'a prairie wolf' on the prairie toward Bridgeport in the winter of 1835-36, and p. 433 a schoolgirl seeing prairie wolves and hearing them 'howl any time in the day'. Coyotes are resident year-round; nothing about July removes them."
+    },
+    "presence": {
+     "value": "visible_and_audible",
+     "confidence": "attested",
+     "sources": [
+      "andreas_1884_v1"
+     ],
+     "note": "Both Andreas passages are sight AND sound, and p. 433 is explicit that the howling came at any hour of the day rather than only at night."
+    },
+    "abundance": {
+     "value": "common",
+     "confidence": "inferred",
+     "note": "The two accounts describe animals seen often enough to be unremarkable, which is not a density. 'Common' here means a walker crossing the open prairie could expect to see one, not that several are in view at once."
+    },
+    "max_group": 3,
+    "vocalization": "call_only",
+    "behaviour": "One animal at middle distance, trotting a hunting line through the tall grass toward Bridgeport, stopping to pounce on a vole; a distant group howl in full daylight.",
+    "appearance": "Buff and grizzled, about 30-40 lb, narrow-muzzled, tail low \u2014 a coyote, not a timber wolf. Pups born in April-May are travelling with the adults by July.",
+    "trace": null
+   },
+   "confidence": "attested",
+   "sources": [
+    "andreas_1884_v1"
+   ],
+   "note": "SPECIES IDENTITY IS THE WHOLE OF THIS RECORD'S RISK. In 1830s Illinois usage 'prairie wolf' and 'brush wolf' mean the coyote; 'big', 'gray' or 'timber' wolf means Canis lupus. Where Andreas says only 'wolves' the animal is ambiguous and this project reads coyote. Also: the Lincoln of p. 291 is a Chicago tavern-keeper, NOT Abraham Lincoln. And the place-name Wolf Point is not evidence of the animal \u2014 Wau-Bun derives it from a resident called Moa-way, 'the Wolf'."
+  },
+  {
+   "id": "tympanuchus_cupido",
+   "binomial": "Tympanuchus cupido",
+   "common": "greater prairie-chicken",
+   "class": "bird",
+   "activity": "diurnal",
+   "active_periods": [
+    "dawn",
+    "day",
+    "dusk"
+   ],
+   "july": {
+    "status": {
+     "value": "breeding_resident",
+     "confidence": "inferred",
+     "note": "The dossier documents the species in the Chicago area from Marquette onward and as standard fare on settlers' tables; The dossier's citation for this has no record in data/sources/, so nothing here is graded documented on it. July is the brood-rearing month, so the birds are present and dispersed rather than gathered."
+    },
+    "presence": {
+     "value": "visible",
+     "confidence": "inferred",
+     "note": "Seen only if flushed. A hen with a half-grown brood creeps away through the grass and is invisible until it breaks."
+    },
+    "abundance": {
+     "value": "frequent",
+     "confidence": "inferred",
+     "note": "Estimated in the millions in Illinois at settlement, but a July prairie holds dispersed hens and broods, not the massed birds of the display season."
+    },
+    "max_group": 8,
+    "vocalization": "display_over",
+    "behaviour": "A hen leading a half-grown brood through the grass, then an explosive whirring flush if a walker comes too close.",
+    "appearance": "Barred brown grouse the colour of dead grass; the male's neck sacs and pinnae are out of season and not shown.",
+    "trace": null
+   },
+   "confidence": "inferred",
+   "note": "THE JULY TRAP. The famous booming on the leks is a March-May display; by 1 July the leks are silent and empty. A booming prairie-chicken is this dossier's equivalent of seed heads on July big bluestem."
+  },
+  {
+   "id": "sturnella_magna",
+   "binomial": "Sturnella magna",
+   "common": "eastern meadowlark",
+   "class": "bird",
+   "activity": "diurnal",
+   "active_periods": [
+    "dawn",
+    "day"
+   ],
+   "july": {
+    "status": {
+     "value": "breeding_resident",
+     "confidence": "inferred",
+     "note": "A grassland breeder of the regional wet-prairie assemblage; not named for this site in any source the project holds."
+    },
+    "presence": {
+     "value": "visible_and_audible",
+     "confidence": "inferred",
+     "note": "Sings from the tallest forb in view and is one of the few July prairie birds that shows itself."
+    },
+    "abundance": {
+     "value": "common",
+     "confidence": "inferred",
+     "note": "Regional abundance in unbroken tallgrass; not counted here."
+    },
+    "max_group": 2,
+    "vocalization": "song_reduced",
+    "behaviour": "A bird singing from the top of a tall forb, then dropping into the grass and vanishing.",
+    "appearance": "Brown-streaked above, hard yellow below with a black V; the yellow is the only strong colour on the July prairie's bird list.",
+    "trace": null
+   },
+   "confidence": "inferred",
+   "note": "Meadowlarks sing later into the summer than most grassland birds, but by 1 July the output is well down from the May peak; graded reduced rather than full."
+  },
+  {
+   "id": "dolichonyx_oryzivorus",
+   "binomial": "Dolichonyx oryzivorus",
+   "common": "bobolink",
+   "class": "bird",
+   "activity": "diurnal",
+   "active_periods": [
+    "dawn",
+    "day"
+   ],
+   "july": {
+    "status": {
+     "value": "breeding_resident",
+     "confidence": "inferred",
+     "note": "A tallgrass breeder in the regional assemblage; no Chicago 1830s record reached."
+    },
+    "presence": {
+     "value": "visible",
+     "confidence": "inferred",
+     "note": "Still present over the grass, but the bubbling display flight that makes the species conspicuous is collapsing by the start of July."
+    },
+    "abundance": {
+     "value": "frequent",
+     "confidence": "inferred",
+     "note": "Regional; no local count exists."
+    },
+    "max_group": 4,
+    "vocalization": "song_reduced",
+    "behaviour": "A black-and-cream male in low fluttering flight over the grass heads, mostly quiet.",
+    "appearance": "Male still in breeding dress \u2014 black below, cream nape, white scapulars \u2014 and beginning to look worn.",
+    "trace": null
+   },
+   "confidence": "inferred",
+   "note": "Bobolink song shuts down through July as the birds move to moult; on 1 July it is sporadic. Recording a bobolink in full song would date the scene to late May."
+  },
+  {
+   "id": "microtus_pennsylvanicus",
+   "binomial": "Microtus pennsylvanicus",
+   "common": "meadow vole",
+   "class": "mammal",
+   "activity": "cathemeral",
+   "active_periods": [
+    "dawn",
+    "day",
+    "dusk",
+    "night"
+   ],
+   "july": {
+    "status": {
+     "value": "year_round_resident",
+     "confidence": "inferred",
+     "note": "'Meadow/prairie mouse' is in the Chicago Academy of Sciences regional retrospective; The dossier's citation for this has no record in data/sources/, so nothing here is graded documented on it."
+    },
+    "presence": {
+     "value": "trace_only",
+     "confidence": "inferred",
+     "note": "Voles are the prey base the coyote and the hawks are working, and they are almost never seen: the sign is what a walker meets."
+    },
+    "abundance": {
+     "value": "abundant",
+     "confidence": "inferred",
+     "note": "The most numerous mammal on the prairie by a wide margin, and the least visible."
+    },
+    "max_group": 0,
+    "vocalization": "non_vocal",
+    "behaviour": "Nothing animate. The runways and clipped stems are ground detail.",
+    "appearance": "Not shown. The animal is under the thatch.",
+    "trace": "Grass runways worn through the thatch, with piles of clipped stem sections and burrow mouths at the tussock bases."
+   },
+   "confidence": "inferred",
+   "note": "A worked example of the presence mode this dataset exists to express: abundant, certainly there, and correctly rendered as nothing but sign."
+  },
+  {
+   "id": "megatibicen_dorsatus",
+   "binomial": "Megatibicen dorsatus",
+   "common": "prairie cicada",
+   "class": "insect",
+   "activity": "diurnal",
+   "active_periods": [
+    "day"
+   ],
+   "july": {
+    "status": {
+     "value": "breeding_resident",
+     "confidence": "inferred",
+     "note": "Adults emerge in mid-summer and sing July-August in original tallgrass prairie; the dossier's citations for this are the Illinois State Museum and the Illinois News Bureau, and The dossier's citation for this has no record in data/sources/, so nothing here is graded documented on it."
+    },
+    "presence": {
+     "value": "audible",
+     "confidence": "inferred",
+     "note": "Sings from high in the grass and is effectively never seen \u2014 the defining sound of a July tallgrass prairie and nothing to draw."
+    },
+    "abundance": {
+     "value": "common",
+     "confidence": "inferred",
+     "note": "Unknown. 'Common' is a reading of the habitat, not a count."
+    },
+    "max_group": 0,
+    "vocalization": "chorus",
+    "behaviour": "Sound only: a low, dry, buzzing song from the deep grass through the heat of the day, shifting position when approached.",
+    "appearance": "Not shown.",
+    "trace": null
+   },
+   "confidence": "inferred",
+   "note": "THE HONEST CAVEAT THE DOSSIER ASKS FOR: the tallgrass prairie was destroyed before its insect song was ever recorded, so what this sounded like is not recoverable. The species and its season are defensible; the timbre is not evidence."
+  },
+  {
+   "id": "neotibicen_spp",
+   "binomial": "Neotibicen spp.",
+   "common": "dog-day cicadas",
+   "class": "insect",
+   "activity": "diurnal",
+   "active_periods": [
+    "day",
+    "dusk"
+   ],
+   "july": {
+    "status": {
+     "value": "breeding_resident",
+     "confidence": "inferred",
+     "note": "Annual cicadas are on the wing July-September in Illinois; The dossier's citation for this has no record in data/sources/, so nothing here is graded documented on it."
+    },
+    "presence": {
+     "value": "audible",
+     "confidence": "inferred",
+     "note": "Heard from the scattered trees and tall growth, not seen."
+    },
+    "abundance": {
+     "value": "common",
+     "confidence": "inferred",
+     "note": "Habitat reading."
+    },
+    "max_group": 0,
+    "vocalization": "chorus",
+    "behaviour": "Sound only: the rising and falling whine of annual cicadas in the afternoon heat.",
+    "appearance": "Not shown.",
+    "trace": null
+   },
+   "confidence": "inferred",
+   "note": "Genus-level on purpose. Which Neotibicen were at Chicago in 1835 is not recoverable and naming one would be a false precision."
+  },
+  {
+   "id": "gryllus_spp",
+   "binomial": "Gryllus spp.",
+   "common": "field crickets",
+   "class": "insect",
+   "activity": "crepuscular",
+   "active_periods": [
+    "dusk",
+    "night"
+   ],
+   "july": {
+    "status": {
+     "value": "breeding_resident",
+     "confidence": "inferred",
+     "note": "Field and ground crickets build through July toward a late-summer peak."
+    },
+    "presence": {
+     "value": "audible",
+     "confidence": "inferred",
+     "note": "Ground-level chirping; nothing to draw."
+    },
+    "abundance": {
+     "value": "frequent",
+     "confidence": "inferred",
+     "note": "Deliberately not 'abundant'. The wall of cricket sound belongs to August and September; on 1 July the chorus is thin and building."
+    },
+    "max_group": 0,
+    "vocalization": "chorus",
+    "behaviour": "Sound only: a sparse, intermittent chirping at dusk that thickens as the light goes.",
+    "appearance": "Not shown.",
+    "trace": null
+   },
+   "confidence": "inferred",
+   "note": "A seasonal-intensity gate as real as the bird one: a full late-summer cricket wall on 1 July would date the scene by six weeks."
+  },
+  {
+   "id": "orchelimum_spp",
+   "binomial": "Orchelimum spp.",
+   "common": "meadow katydids",
+   "class": "insect",
+   "activity": "cathemeral",
+   "active_periods": [
+    "day",
+    "dusk",
+    "night"
+   ],
+   "july": {
+    "status": {
+     "value": "breeding_resident",
+     "confidence": "inferred",
+     "note": "Wet-prairie meadow katydids sing from July."
+    },
+    "presence": {
+     "value": "audible",
+     "confidence": "inferred",
+     "note": "Fine, high, continuous ticking from the sedges and grass."
+    },
+    "abundance": {
+     "value": "common",
+     "confidence": "inferred",
+     "note": "Habitat reading."
+    },
+    "max_group": 0,
+    "vocalization": "chorus",
+    "behaviour": "Sound only: a thin, high, near-continuous shimmer from the grass, loudest in the afternoon and again after dark.",
+    "appearance": "Not shown.",
+    "trace": null
+   },
+   "confidence": "inferred",
+   "note": "Genus-level; the dossier names the group, not a species."
+  },
+  {
+   "id": "photinus_pyralis",
+   "binomial": "Photinus pyralis",
+   "common": "common eastern firefly ('big dipper')",
+   "class": "insect",
+   "activity": "crepuscular",
+   "active_periods": [
+    "dusk"
+   ],
+   "july": {
+    "status": {
+     "value": "breeding_resident",
+     "confidence": "inferred",
+     "note": "Native and common in Illinois, and in Chicago most often seen on July evenings in damp fields and edges; the dossier's citations are Illinois DNR, the Firefly Atlas and a local natural-history blog, and The dossier's citation for this has no record in data/sources/, so nothing here is graded documented on it."
+    },
+    "presence": {
+     "value": "visible",
+     "confidence": "inferred",
+     "note": "The one wildlife element in this whole dossier that is both dense and defensible on 1 July, and it is visible only in the half hour after sunset."
+    },
+    "abundance": {
+     "value": "abundant",
+     "confidence": "inferred",
+     "note": "The pre-drainage wet prairie would have supported MORE than the modern city does, not fewer: the species needs moisture at every life stage."
+    },
+    "max_group": 0,
+    "vocalization": "non_vocal",
+    "behaviour": "Hundreds of individual flashes low over the damp grass at dusk, each a J-shaped upward sweep, about every five or six seconds, and nothing at all once full dark settles.",
+    "appearance": "A pale yellow-green flash; the beetle itself is not resolvable at any distance.",
+    "trace": null
+   },
+   "confidence": "inferred",
+   "note": "Highest-value, lowest-risk atmosphere in the dossier \u2014 and it is strictly a dusk phenomenon, not an all-night one."
+  },
+  {
+   "id": "danaus_plexippus",
+   "binomial": "Danaus plexippus",
+   "common": "monarch",
+   "class": "insect",
+   "activity": "diurnal",
+   "active_periods": [
+    "day"
+   ],
+   "july": {
+    "status": {
+     "value": "breeding_resident",
+     "confidence": "inferred",
+     "note": "Summer-generation monarchs are on the July prairie bloom; the autumn movement is a September and October event and is not this date."
+    },
+    "presence": {
+     "value": "visible",
+     "confidence": "inferred",
+     "note": "Nectaring and patrolling over the July forbs."
+    },
+    "abundance": {
+     "value": "frequent",
+     "confidence": "inferred",
+     "note": "Habitat reading; no count exists."
+    },
+    "max_group": 3,
+    "vocalization": "non_vocal",
+    "behaviour": "Individual butterflies drifting and nectaring over milkweed and the July bloom.",
+    "appearance": "Orange with black veins and a black margin; large and slow.",
+    "trace": null
+   },
+   "confidence": "inferred",
+   "note": "Present as summer breeders only. Massed monarchs are the autumn movement and would date the scene wrongly."
+  },
+  {
+   "id": "speyeria_idalia",
+   "binomial": "Speyeria idalia",
+   "common": "regal fritillary",
+   "class": "insect",
+   "activity": "diurnal",
+   "active_periods": [
+    "day"
+   ],
+   "july": {
+    "status": {
+     "value": "breeding_resident",
+     "confidence": "inferred",
+     "note": "A tallgrass specialist whose flight period covers early July; listed by the dossier among the July prairie butterflies."
+    },
+    "presence": {
+     "value": "visible",
+     "confidence": "inferred",
+     "note": "Low, fast, gliding flight over unbroken grass."
+    },
+    "abundance": {
+     "value": "uncommon",
+     "confidence": "inferred",
+     "note": "Uncommon in the render, not in 1835: the species was a prairie staple then and is nearly gone now, which is the opposite error to guard against."
+    },
+    "max_group": 2,
+    "vocalization": "non_vocal",
+    "behaviour": "A large fritillary in low gliding flight over the grass, settling on July bloom.",
+    "appearance": "Orange forewings, dark hindwings with a band of white spots \u2014 unmistakable and now almost unseeable in Illinois.",
+    "trace": null
+   },
+   "confidence": "inferred",
+   "note": "The species is a marker of unbroken tallgrass, which is exactly what this zone is."
+  },
+  {
+   "id": "equus_caballus_indigenous_herds",
+   "binomial": "Equus caballus",
+   "common": "horse herds at the town margin",
+   "class": "mammal",
+   "activity": "diurnal",
+   "active_periods": [
+    "dawn",
+    "day",
+    "dusk"
+   ],
+   "july": {
+    "status": {
+     "value": "excluded_by_scope",
+     "confidence": "attested",
+     "sources": [
+      "chicagology_lastwardance"
+     ],
+     "note": "Shirreff described the prairies around Chicago in 1833 as studded with tents and numerous herds of horses browsing in all directions. Those herds are inseparable from the people who kept them, and AGENTS.md plus liberty L1 put human depiction out of scope for v1 uniformly. The great assembly at Chicago is 18 August 1835 \u2014 six and a half weeks AFTER this scene date \u2014 so staging it here would be wrong twice over."
+    },
+    "presence": {
+     "value": "not_depicted",
+     "confidence": "attested",
+     "sources": [
+      "chicagology_lastwardance"
+     ],
+     "note": "Nothing is placed. This record exists so that the absence is a stated scope decision rather than a silent one."
+    },
+    "abundance": {
+     "value": "uncommon",
+     "confidence": "reconstructed",
+     "note": "No count of horses around Chicago in July 1835 was found. The 1833 description is of a different year and a different month."
+    },
+    "max_group": 0,
+    "vocalization": "silent",
+    "behaviour": "Nothing is placed, drawn or sounded.",
+    "appearance": "Not shown.",
+    "trace": null
+   },
+   "confidence": "reconstructed",
+   "note": "The Shirreff 1833 account the dossier cites has no source record in data/sources/; the August 1835 date is carried by chicagology_lastwardance, which is cited here ONLY for that date and for nothing about the people or the event."
+  },
+  {
+   "id": "bison_bison",
+   "binomial": "Bison bison",
+   "common": "American bison",
+   "class": "mammal",
+   "activity": "diurnal",
+   "active_periods": [
+    "day"
+   ],
+   "july": {
+    "status": {
+     "value": "absent_extirpated",
+     "confidence": "inferred",
+     "note": "None remained wild in Illinois by about 1830. The regional retrospective the dossier quotes does list 'American buffalo' among northern Illinois animals, but that is a pre-1830 memory and not an 1835 observation."
+    },
+    "presence": {
+     "value": "absent",
+     "confidence": "inferred",
+     "note": "None remained wild in Illinois by about 1830. The regional retrospective the dossier quotes does list 'American buffalo' among northern Illinois animals, but that is a pre-1830 memory and not an 1835 observation."
+    },
+    "abundance": {
+     "value": "absent",
+     "confidence": "inferred",
+     "note": "None remained wild in Illinois by about 1830. The regional retrospective the dossier quotes does list 'American buffalo' among northern Illinois animals, but that is a pre-1830 memory and not an 1835 observation."
+    },
+    "max_group": 0,
+    "vocalization": "silent",
+    "behaviour": "Nothing is placed, drawn or sounded for this species.",
+    "appearance": "Recorded so the absence is a finding rather than an oversight.",
+    "trace": null
+   },
+   "confidence": "inferred",
+   "note": "Recorded rather than dropped because a bison is the single most tempting wrong animal to put on an 1835 Illinois prairie."
+  },
+  {
+   "id": "cervus_canadensis",
+   "binomial": "Cervus canadensis",
+   "common": "elk / wapiti",
+   "class": "mammal",
+   "activity": "diurnal",
+   "active_periods": [
+    "day"
+   ],
+   "july": {
+    "status": {
+     "value": "absent_extirpated",
+     "confidence": "inferred",
+     "note": "Gone from Illinois by the early 1800s, decades before this scene."
+    },
+    "presence": {
+     "value": "absent",
+     "confidence": "inferred",
+     "note": "Gone from Illinois by the early 1800s, decades before this scene."
+    },
+    "abundance": {
+     "value": "absent",
+     "confidence": "inferred",
+     "note": "Gone from Illinois by the early 1800s, decades before this scene."
+    },
+    "max_group": 0,
+    "vocalization": "silent",
+    "behaviour": "Nothing is placed, drawn or sounded for this species.",
+    "appearance": "Recorded so the absence is a finding rather than an oversight.",
+    "trace": null
+   },
+   "confidence": "inferred",
+   "note": "Gone from Illinois by the early 1800s, decades before this scene."
+  },
+  {
+   "id": "magicicada_septendecim",
+   "binomial": "Magicicada septendecim",
+   "common": "periodical cicada (Brood XIII)",
+   "class": "insect",
+   "activity": "diurnal",
+   "active_periods": [
+    "day"
+   ],
+   "july": {
+    "status": {
+     "value": "absent_anachronism",
+     "confidence": "inferred",
+     "note": "Northern Illinois is 17-year Brood XIII. Stepping back from the documented 2024 emergence in 17s gives 1854, 1837 and 1820 \u2014 1835 is not a brood year. Brood XIII also emerges late May to June, not July, so it fails on two counts."
+    },
+    "presence": {
+     "value": "absent",
+     "confidence": "inferred",
+     "note": "Northern Illinois is 17-year Brood XIII. Stepping back from the documented 2024 emergence in 17s gives 1854, 1837 and 1820 \u2014 1835 is not a brood year. Brood XIII also emerges late May to June, not July, so it fails on two counts."
+    },
+    "abundance": {
+     "value": "absent",
+     "confidence": "inferred",
+     "note": "Northern Illinois is 17-year Brood XIII. Stepping back from the documented 2024 emergence in 17s gives 1854, 1837 and 1820 \u2014 1835 is not a brood year. Brood XIII also emerges late May to June, not July, so it fails on two counts."
+    },
+    "max_group": 0,
+    "vocalization": "silent",
+    "behaviour": "Nothing is placed, drawn or sounded for this species.",
+    "appearance": "Recorded so the absence is a finding rather than an oversight.",
+    "trace": null
+   },
+   "confidence": "inferred",
+   "note": "The arithmetic is the evidence and it is stated here in full so a reader can check it. The dossier's citation for the brood identity has no source record."
+  }
+ ],
+ "confidence": "attested",
+ "note": "The zone is the open prairie Andreas describes west and south of the town, and it is where the best-attested wild mammal in the whole dossier actually was: coyotes visible 'on the prairie toward Bridgeport' and audible from the town at any hour of the day.",
+ "sources": [
+  "andreas_1884_v1"
+ ]
+}

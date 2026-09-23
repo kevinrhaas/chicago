@@ -1,0 +1,121 @@
+{
+ "id": "hh_sweet_alanson",
+ "name": "The Sweet household",
+ "division": "south",
+ "head": "sweet_alanson",
+ "arrival": {
+  "value": "1832",
+  "confidence": "attested",
+  "sources": [
+   "andreas_1884_v1"
+  ],
+  "note": "'Alanson Sweet, 1832' - year precision, the roster's shortest entry.",
+  "precision": "year"
+ },
+ "party_size_on_arrival": {
+  "value": null,
+  "confidence": "reconstructed",
+  "note": "Not attested in anything this project holds."
+ },
+ "origin": {
+  "value": null,
+  "confidence": "reconstructed",
+  "note": "Not attested in anything this project holds."
+ },
+ "reason_for_coming": {
+  "value": null,
+  "confidence": "reconstructed",
+  "note": "Not attested in anything this project holds."
+ },
+ "lives_at": {
+  "value": null,
+  "confidence": "reconstructed",
+  "note": "Not attested in anything this project holds."
+ },
+ "works_at": {
+  "value": null,
+  "confidence": "reconstructed",
+  "note": "NOT MODELLED. No premises for this man is named in any source reached and none is in data/structures/."
+ },
+ "present_on_scene_date": {
+  "value": "uncertain",
+  "confidence": "inferred",
+  "sources": [
+   "andreas_1884_v1"
+  ],
+  "note": "PRESENCE ON THE SCENE DATE IS AN ASSUMPTION OF CONTINUITY AND NOT A STATEMENT. Nothing reached follows this household past 1833. It is graded uncertain rather than present because the town's population roughly quadrupled between the roster and the scene date and a great many of the men on it were, in Andreas's own phrase, 'adventurers, comprising moneyed speculators and prospectors, as yet undecided whether to stay at Chicago or go on'."
+ },
+ "persons": [
+  {
+   "id": "sweet_alanson",
+   "name": "Alanson Sweet",
+   "relationship": "head",
+   "grade": "attested",
+   "ladder_rule": "G1a",
+   "sex": "male",
+   "occupation": {
+    "value": "tavern_keeper",
+    "confidence": "attested",
+    "sources": [
+     "andreas_1884_v1"
+    ],
+    "note": "'Alanson Sweet, 1832' in the roster, with no trade. Andreas supplies it elsewhere: 'In 1833, the first Tremont House, situated then on the northwest corner of Lake and Dearborn streets, was built by Alanson Sweet. It was kept as a saloon and boarding-house by him and a man from Canada, named Darwin.'",
+    "derived_from": "roles",
+    "roles_at_scene_date": [
+     "tavern_keeper"
+    ]
+   },
+   "sources": [
+    "andreas_1884_v1",
+    "chicago_voter_lists_1833_1835_irad"
+   ],
+   "note": "Andreas vol. 1, printed p. 132 (scan p. 281), 'an imperfect list of the denizens of the town in the fall of 1833, not before named'. It gives a name, a trade and usually an arrival year, and it is a retrospective of 1884: a YEAR off it is documented, a MONTH is not, and it says nothing whatever about 1835.",
+   "resident_research": {
+    "programme": "resident-research-2026",
+    "ticket": "T-0493",
+    "outcome": "no_corroboration_yet",
+    "reviewed_on": "",
+    "asserted_identity": false,
+    "evidence_for": "forenames agree initial for initial: entry 'Alanson Sweet' against resident 'Alanson Sweet'",
+    "source_ids": [
+     "chicago_voter_lists_1833_1835_irad"
+    ]
+   },
+   "roles": [
+    {
+     "role": "tavern_keeper",
+     "kind": "trade",
+     "as_printed": null,
+     "from": "1673",
+     "to": "1857",
+     "precision": "source_span",
+     "dated_by": "source_describes_date",
+     "covers_scene_date": true,
+     "confidence": "attested",
+     "sources": [
+      "andreas_1884_v1"
+     ],
+     "claim": null,
+     "note": "THE BOUND IS THE SOURCE'S, NOT THE MAN'S. This role is carried by the card's 1835 occupation block and is dated by what the cited source or sources are ABOUT, which is why `precision` can be no better than the span they cover. The span reaches 1835, so this role stands in the scene-date view. The printing the trade was read off is not on the card and is fetched by T-1254."
+    }
+   ],
+   "merge_ruling": [
+    {
+     "ticket": "T-0839",
+     "verdict": "undecided",
+     "rule": "U1",
+     "cluster": "sweet",
+     "weighed_against": [
+      "sweet_a"
+     ],
+     "referred_to": "T-1281",
+     "for_merge": "Alanson Sweet is the only Sweet on a card whose full forename the initial A fits, and he is one of the better-evidenced men in the layer — the 1833 tax roll, the 1834 and 1835 poll lists and the Democrat. On the cards alone this is a one-rival initial, which is the shape T-0839 merges.",
+     "against_merge": "The card layer is not the whole corpus. The newspapers also print 'Alon[s]on Sweet', a second full forename the initial A fits just as well, and the identity ladder refuses 'A. Sweet' to BOTH of them under R3 for exactly that reason. Whether Alonson is a second man or a compositor's transposition of Alanson is a reading of the page and not a rule, so the answer decides this cluster and is not in hand. Filed as T-1281."
+    }
+   ]
+  }
+ ],
+ "touches_removal": false,
+ "review_required": false,
+ "research_note": "THE MAN WHO BUILT THE TREMONT AND SOLD IT. He put the house up in 1833, kept it as a saloon and boarding house with a Canadian named Darwin, and the Couch brothers then bought it - which is why Ira Couch and not Alanson Sweet is linked to tremont_house_1 in this parcel. What Sweet was doing on 1 July 1835 is not stated anywhere reached, and the occupation recorded here is the one he is documented in rather than the one he then had. HIS PARTNER DARWIN IS A DOCUMENTED RESIDENT WITH A SURNAME, A TRADE AND AN ORIGIN ('a man from Canada') and is not written as a household, because a boarding-house partner in 1833 whose given name is unknown and who is never mentioned again is exactly the kind of entry that would inflate the count without adding evidence. He is recorded in data/residents/index.json among the people researched and not written."
+}

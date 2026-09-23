@@ -1,0 +1,27 @@
+<!doctype html>
+<meta charset="utf-8">
+<title>Chicago Rebuilds, 1872–1879 — opening the explorer</title>
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<meta name="robots" content="noindex">
+<link rel="canonical" href="viewer/">
+<style>
+  body{margin:0;min-height:100vh;display:grid;place-items:center;background:#0d1117;color:#e6edf3;
+       font:16px/1.6 system-ui,-apple-system,Segoe UI,Roboto,sans-serif;text-align:center;padding:24px}
+  a{color:#58a6ff}
+</style>
+<div>
+  <p>Opening the <strong>Chicago Rebuilds, 1872–1879</strong> explorer…</p>
+  <p><a id="go" href="viewer/">Continue to the explorer</a></p>
+</div>
+<script>
+  // Resolve against this directory whether or not the URL carried a trailing
+  // slash — without the slash, a bare "viewer/" resolves one level too high.
+  (function () {
+    var p = location.pathname;
+    if (p.slice(-1) !== '/') p += '/';
+    var target = p + 'viewer/' + location.search + location.hash;
+    document.getElementById('go').setAttribute('href', target);
+    location.replace(target);
+  })();
+</script>
+<noscript><meta http-equiv="refresh" content="0; url=viewer/"></noscript>

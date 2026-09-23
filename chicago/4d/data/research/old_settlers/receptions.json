@@ -1,0 +1,496 @@
+{
+ "schema": 1,
+ "domain": "old_settlers",
+ "generated_by": "tools/old_settlers.py --build",
+ "what": "The Calumet Club of Chicago's annual receptions to the Old Settlers — the meetings the owner asked about — as a source SERIES: one row per reception, with its date, where it was held, where its roster is printed, and how many names that roster carries. A row is DECLARED whether or not this project has read its roster yet; 'roster_read' is the honest field, and an unread roster is a hole this file makes visible rather than a silence.",
+ "the_club": {
+  "name": "The Calumet Club of Chicago",
+  "organized": "1878",
+  "first_rooms": "the residence of the late Gen. Anson Stager, Michigan Avenue at Eighteenth Street",
+  "own_building": "Michigan Avenue, north-east corner of Twentieth Street; Burnham and Root; under construction in 1882 and occupied from 1884",
+  "criterion_for_a_guest": "residents of Chicago prior to the 1st day of January, 1840, who were then 21 years of age",
+  "sources": [
+   "chicagology_goldenage_063",
+   "chicago_tribune_1882_05_19_fourth_reception"
+  ],
+  "note": "The criterion is the reason this series cannot make an 1835 resident on its own: it reaches to the end of 1839."
+ },
+ "receptions": [
+  {
+   "id": "calumet_1879_first",
+   "ordinal": 1,
+   "date": "1879-05-27",
+   "date_as_printed": "Tuesday evening, May 27, 1879",
+   "venue": "the Calumet Club's rooms, Michigan Avenue at Eighteenth Street",
+   "venue_basis": "INFERRED, and the inference is the 1888 Chicago Clubs Illustrated: the club, organised in 1878, \"occupied for the first few years of its existence the residence of the late General Anson Stager, at the corner of Michigan Avenue and Eighteenth Street\". The proceedings of 1879 were not read for the address.",
+   "host": "The Calumet Club of Chicago",
+   "roster_printed_in": "Early Chicago: Reception to the Settlers of Chicago Prior to 1840, by the Calumet Club, of Chicago (Chicago, 1879) — the club's own printed proceedings, reprinted in the Fergus Historical Series",
+   "roster_names": 159,
+   "roster_names_basis": "READ off the printed register, pages 84-90, entry by entry. The proceedings' OWN count of the men who signed during the evening is 149 (\"of the settlers of Chicago prior to 1840, one hundred and forty-nine registered their names out of the large number invited\", printed page 72), and the printed register carries more than that. Both counts are kept; reconciliation_1879 sets them side by side.",
+   "roster_names_printed_count_of_signers": 149,
+   "roster_read": true,
+   "roster_read_how": "off the PAGE IMAGES of the Internet Archive copy earlychicagorece00calu (its own text PDF, rendered at 300 dpi and rotated upright — the plate is set sideways). The item's OCR text layer keeps the proceedings' prose and DESTROYS this plate, so nothing in the register comes from it. The transcription is committed at data/research/old_settlers/text/calumet_club_1879_registry.txt.",
+   "carries_year_of_arrival": true,
+   "reconciliation_1879": {
+    "what": "The proceedings tabulate the 149 who \"signed the registry during the evening\"; the plate on pages 84-90 prints the register itself, which carries MORE names than that. Both counts are the document's own and both are kept. Every table below is the plate's arithmetic set beside the names this project read out of it.",
+    "printed_count_of_signers": 149,
+    "printed_count_basis": "\"of the settlers of Chicago prior to 1840, one hundred and forty-nine registered their names out of the large number invited\" (printed page 72), and the YEARS OF ARRIVAL table's own \"Total ... 149\"",
+    "names_read_off_the_register": 159,
+    "excess_over_printed_count": 10,
+    "why_the_two_differ": "the proceedings say so on the same page: \"Many left without knowing that there was a registry being kept. A few called afterward and signed the registry, and all Chicago settlers, prior to 1840, are now requested to do so.\" The three tables count the evening's signers; the printed register is the fuller book. THIS IS NOT RESOLVED HERE — the plate does not say which entries were the later ones, and nothing in this project guesses. One corroboration that the register outruns the tables: Robert Fergus registered as born at Glasgow, Scotland, and the PLACES OF BIRTH table has no Scotland at all.",
+    "printed_tables_sum_to": {
+     "places_of_birth": 149,
+     "years_of_arrival": 149,
+     "ages": 149
+    },
+    "places_of_birth": {
+     "printed": {
+      "Connecticut": 16,
+      "England": 10,
+      "Ireland": 6,
+      "Kentucky": 1,
+      "Michigan": 1,
+      "Maine": 3,
+      "Massachusetts": 10,
+      "Maryland": 1,
+      "New York": 63,
+      "N. Hampshire": 5,
+      "New Jersey": 3,
+      "N. Carolina": 1,
+      "Pennsylvania": 6,
+      "Vermont": 21,
+      "Virginia": 2
+     },
+     "read": {
+      "Connecticut": 15,
+      "New York": 67,
+      "Massachusetts": 10,
+      "Maryland": 2,
+      "Pennsylvania": 8,
+      "Michigan": 1,
+      "Virginia": 2,
+      "Vermont": 18,
+      "Kentucky": 1,
+      "England": 10,
+      "N. Hampshire": 8,
+      "New Jersey": 5,
+      "Maine": 3,
+      "N. Carolina": 1,
+      "Ireland": 6
+     },
+     "differences": [
+      {
+       "label": "Vermont",
+       "printed": 21,
+       "read": 18,
+       "delta": -3
+      },
+      {
+       "label": "Maryland",
+       "printed": 1,
+       "read": 2,
+       "delta": 1
+      },
+      {
+       "label": "New York",
+       "printed": 63,
+       "read": 67,
+       "delta": 4
+      },
+      {
+       "label": "New Jersey",
+       "printed": 3,
+       "read": 5,
+       "delta": 2
+      },
+      {
+       "label": "Connecticut",
+       "printed": 16,
+       "read": 15,
+       "delta": -1
+      },
+      {
+       "label": "N. Hampshire",
+       "printed": 5,
+       "read": 8,
+       "delta": 3
+      },
+      {
+       "label": "Pennsylvania",
+       "printed": 6,
+       "read": 8,
+       "delta": 2
+      }
+     ],
+     "unassigned": [
+      {
+       "name_as_read": "Fergus, Robert",
+       "birthplace_as_read": "Glasgow, Scotland."
+      },
+      {
+       "name_as_read": "Wilcox, Sextus N.",
+       "birthplace_as_read": "Stockbridge."
+      }
+     ],
+     "mapping": "cell-to-label by the declared list in tools/old_settlers.py BIRTH_LABELS; an unmapped cell is reported, not forced"
+    },
+    "years_of_arrival": {
+     "printed": {
+      "1818": 1,
+      "1826": 3,
+      "1831": 4,
+      "1832": 5,
+      "1833": 16,
+      "1834": 15,
+      "1835": 22,
+      "1836": 40,
+      "1837": 20,
+      "1838": 11,
+      "1839": 12
+     },
+     "read": {
+      "1837": 20,
+      "1838": 11,
+      "1836": 44,
+      "1834": 16,
+      "1839": 14,
+      "1832": 6,
+      "1826": 3,
+      "1831": 4,
+      "1833": 18,
+      "1835": 22,
+      "1818": 1
+     },
+     "differences": [
+      {
+       "label": "1832",
+       "printed": 5,
+       "read": 6,
+       "delta": 1
+      },
+      {
+       "label": "1833",
+       "printed": 16,
+       "read": 18,
+       "delta": 2
+      },
+      {
+       "label": "1834",
+       "printed": 15,
+       "read": 16,
+       "delta": 1
+      },
+      {
+       "label": "1836",
+       "printed": 40,
+       "read": 44,
+       "delta": 4
+      },
+      {
+       "label": "1839",
+       "printed": 12,
+       "read": 14,
+       "delta": 2
+      }
+     ]
+    },
+    "ages": {
+     "printed": {
+      "50": 1,
+      "51": 2,
+      "52": 1,
+      "53": 3,
+      "54": 4,
+      "55": 3,
+      "56": 2,
+      "57": 6,
+      "58": 5,
+      "59": 7,
+      "60": 5,
+      "61": 3,
+      "62": 6,
+      "63": 8,
+      "64": 19,
+      "65": 10,
+      "66": 14,
+      "67": 7,
+      "68": 6,
+      "69": 6,
+      "70": 6,
+      "71": 1,
+      "72": 1,
+      "73": 2,
+      "74": 2,
+      "75": 4,
+      "76": 7,
+      "77": 3,
+      "78": 1,
+      "79": 1,
+      "80": 2,
+      "81": 0,
+      "82": 1
+     },
+     "read": {
+      "64": 21,
+      "70": 8,
+      "59": 6,
+      "68": 10,
+      "62": 6,
+      "71": 5,
+      "66": 14,
+      "76": 8,
+      "79": 2,
+      "61": 4,
+      "78": 1,
+      "63": 9,
+      "57": 1,
+      "51": 2,
+      "60": 4,
+      "65": 10,
+      "74": 2,
+      "67": 8,
+      "58": 5,
+      "69": 5,
+      "77": 3,
+      "52": 2,
+      "55": 2,
+      "56": 3,
+      "82": 1,
+      "54": 4,
+      "73": 2,
+      "80": 2,
+      "50": 1,
+      "75": 4,
+      "72": 1,
+      "53": 3
+     },
+     "differences": [
+      {
+       "label": "52",
+       "printed": 1,
+       "read": 2,
+       "delta": 1
+      },
+      {
+       "label": "55",
+       "printed": 3,
+       "read": 2,
+       "delta": -1
+      },
+      {
+       "label": "56",
+       "printed": 2,
+       "read": 3,
+       "delta": 1
+      },
+      {
+       "label": "57",
+       "printed": 6,
+       "read": 1,
+       "delta": -5
+      },
+      {
+       "label": "59",
+       "printed": 7,
+       "read": 6,
+       "delta": -1
+      },
+      {
+       "label": "60",
+       "printed": 5,
+       "read": 4,
+       "delta": -1
+      },
+      {
+       "label": "61",
+       "printed": 3,
+       "read": 4,
+       "delta": 1
+      },
+      {
+       "label": "63",
+       "printed": 8,
+       "read": 9,
+       "delta": 1
+      },
+      {
+       "label": "64",
+       "printed": 19,
+       "read": 21,
+       "delta": 2
+      },
+      {
+       "label": "67",
+       "printed": 7,
+       "read": 8,
+       "delta": 1
+      },
+      {
+       "label": "68",
+       "printed": 6,
+       "read": 10,
+       "delta": 4
+      },
+      {
+       "label": "69",
+       "printed": 6,
+       "read": 5,
+       "delta": -1
+      },
+      {
+       "label": "70",
+       "printed": 6,
+       "read": 8,
+       "delta": 2
+      },
+      {
+       "label": "71",
+       "printed": 1,
+       "read": 5,
+       "delta": 4
+      },
+      {
+       "label": "76",
+       "printed": 7,
+       "read": 8,
+       "delta": 1
+      },
+      {
+       "label": "79",
+       "printed": 1,
+       "read": 2,
+       "delta": 1
+      }
+     ]
+    }
+   },
+   "sources": [
+    "calumet_club_early_chicago_1879"
+   ],
+   "note": "THE ONE ROSTER IN THE SERIES THAT DATES ITS PEOPLE, and this pass read it: each man's own date of arrival, birthplace, age and 1879 post-office address. The three aggregate tables of printed page 72 were read off the same plate — including the YEARS OF ARRIVAL table, which this project had previously recorded as unreadable because the Internet Archive OCR mangles it. A year of arrival is still NOT an 1835 residence: it is a recollection registered in 1879, and every person row here says so."
+  },
+  {
+   "id": "calumet_1880_second",
+   "ordinal": 2,
+   "date": "1880",
+   "date_as_printed": null,
+   "venue": "the Calumet Club's rooms, Michigan Avenue at Eighteenth Street",
+   "venue_basis": "INFERRED from the 1888 Chicago Clubs Illustrated's statement that the club held the Stager residence at Michigan Avenue and Eighteenth Street for its first few years. No report of this reception has been read.",
+   "host": "The Calumet Club of Chicago",
+   "roster_printed_in": "Chicago Tribune, the morning after the reception — issue not yet located",
+   "roster_names": null,
+   "roster_names_basis": null,
+   "roster_read": false,
+   "carries_year_of_arrival": null,
+   "sources": [
+    "chicago_tribune_1882_05_19_fourth_reception"
+   ],
+   "note": "DECLARED, NOT READ. The existence and the ordinal are the arithmetic of the 1882 report: the reception of 18 May 1882 is the FOURTH annual and its report says \"As on the three previous occasions\", which places the second in 1880 and the third in 1881. Nothing here states its date or its roster."
+  },
+  {
+   "id": "calumet_1881_third",
+   "ordinal": 3,
+   "date": "1881",
+   "date_as_printed": null,
+   "venue": "the Calumet Club's rooms, Michigan Avenue at Eighteenth Street",
+   "venue_basis": "INFERRED from the 1888 Chicago Clubs Illustrated's statement that the club held the Stager residence at Michigan Avenue and Eighteenth Street for its first few years. No report of this reception has been read.",
+   "host": "The Calumet Club of Chicago",
+   "roster_printed_in": "Chicago Tribune, the morning after the reception — issue not yet located",
+   "roster_names": 160,
+   "roster_names_basis": "the 1882 report's own comparison: \"there were in the house the following-named guests—118 in number—while the number at the third reception was 160\"",
+   "roster_read": false,
+   "carries_year_of_arrival": null,
+   "sources": [
+    "chicago_tribune_1882_05_19_fourth_reception"
+   ],
+   "note": "DECLARED, NOT READ. The count is the 1882 report's, not a reading of the 1881 roster. The club's photograph gallery grew \"since May, 1881\", which dates the third reception to May."
+  },
+  {
+   "id": "calumet_1882_fourth",
+   "ordinal": 4,
+   "date": "1882-05-18",
+   "date_as_printed": "the 18th of May [1882], Thursday evening",
+   "venue": "the Calumet Club's club-room, Michigan Avenue at Eighteenth Street — the club's own building on Twentieth Street was still \"under process of construction\"",
+   "venue_basis": "the Tribune of 25 April 1882 says the reception is held in \"their club-room\" and that the club cannot invite more guests until \"their large building now under process of construction shall be completed\"; that the club-room was then the Stager residence at Michigan and Eighteenth is the 1888 Chicago Clubs Illustrated's, not the Tribune's.",
+   "host": "The Calumet Club of Chicago; Vice-President J. W. Doane welcomed the guests, the Hon. John Wentworth answered for the old settlers",
+   "roster_printed_in": "Chicago Tribune, 19 May 1882, under \"Names of Old Settlers Present, Residents and of Age Prior to 1840\"; the year's deaths in the Tribune of 25 April 1882",
+   "roster_names": 128,
+   "roster_names_basis": "read line by line off the roster as chicagology 063 reprints it; the report's own count of the guests in the house is 118",
+   "roster_read": true,
+   "carries_year_of_arrival": false,
+   "sources": [
+    "chicago_tribune_1882_05_19_fourth_reception",
+    "chicago_tribune_1882_04_25_old_settler_deaths",
+    "chicago_tribune_1882_05_17_eells_interview",
+    "chicagology_goldenage_063"
+   ],
+   "note": "THE ROSTER THIS PASS READ. It gives each guest's 1882 post-office address and NOT a year of arrival, which is why every person row here carries a null arrival year: the addresses are where these men lived in 1882, forty-seven years after the scene date, and are never read as 1835 residences."
+  }
+ ],
+ "declared_and_unresolved": [
+  {
+   "id": "os_q_registered_after_a_documented_death",
+   "question": "4 merge(s) put a man at a Calumet Club reception whose own resident record carries a death notice from BEFORE that reception. The identity rules cannot see this: they read names, and this project's resident records carry no death dates except where Fergus's 1843 old-settler death notices were spent onto a card.",
+   "cases": [
+    {
+     "row": "os1879r022",
+     "roll": "registry_1879_05_27",
+     "as_read": "Campbell, James",
+     "person_id": "campbell_james_b",
+     "rule": "OS1",
+     "record_death_notice": "Campbell, Maj. James B. — January 3, 1873",
+     "the_contradiction": "the roll of 1879 prints this man alive and the record it merges into carries a death notice of January 3, 1873",
+     "age_on_the_register": "70"
+    },
+    {
+     "row": "os1879r150",
+     "roll": "registry_1879_05_27",
+     "as_read": "Wolcott, Alexander",
+     "person_id": "wolcott_alexander",
+     "rule": "OS1",
+     "record_death_notice": "Wolcott, Dr. Alexander — Oct. 25, 1830",
+     "the_contradiction": "the roll of 1879 prints this man alive and the record it merges into carries a death notice of Oct. 25, 1830",
+     "age_on_the_register": "64"
+    },
+    {
+     "row": "os1882g018",
+     "roll": "guests_present_1882_05_18",
+     "as_read": "Campbell, James",
+     "person_id": "campbell_james_b",
+     "rule": "OS1",
+     "record_death_notice": "Campbell, Maj. James B. — January 3, 1873",
+     "the_contradiction": "the roll of 1882 prints this man alive and the record it merges into carries a death notice of January 3, 1873"
+    },
+    {
+     "row": "os1882g126",
+     "roll": "guests_present_1882_05_18",
+     "as_read": "Wolcott, Alexander",
+     "person_id": "wolcott_alexander",
+     "rule": "OS1",
+     "record_death_notice": "Wolcott, Dr. Alexander — Oct. 25, 1830",
+     "the_contradiction": "the roll of 1882 prints this man alive and the record it merges into carries a death notice of Oct. 25, 1830"
+    }
+   ],
+   "not_resolved_because": "the likeliest reading is that the CARD is two men and not that the register is wrong — 'Wolcott, Alexander' is the clearest case: the same card carries Fergus's death notice for Dr Alexander Wolcott, Indian agent, \"died Oct. 25, 1830, aged 40\" (born about 1790) AND the 1843 directory's \"Wolcott, Alex., surveyor ... [died Aug. 11, 1884, a. 69]\" (born about 1815), and the register's man gives his age as 64 in 1879, which is the SURVEYOR's birth year and not the agent's. Splitting a resident record is an identity ruling and belongs to the identity master, not to a source reader: no merge is withdrawn here and no record is split.",
+   "for": "T-0513 (consolidation), which holds the identity master. The citation this pass writes onto each of these cards states the contradiction in the note, so the card itself carries it."
+  },
+  {
+   "id": "os_q_1883_ordinal",
+   "question": "This project already cites an 1883 old-settlers reception as the SEVENTH annual (data/sources/chicago_old_settlers_hugunin_1883.json, \"Old Settlers of Chicago, Seventh Annual Reception proceedings, 1883\"), and a Tribune report of 18 May 1883 beside it (resident_research_tribune_mitchell_1883). But the Tribune of 25 April 1882 calls the reception of 18 May 1882 the FOURTH annual, which makes 1883 the fifth. One of the two ordinals is wrong, or they count different bodies.",
+   "not_resolved_because": "the evidence in hand is a transcription of the 1882 Tribune and a citation written from a different document. Neither existing source record is altered on that.",
+   "for": "whoever reads the 1883 proceedings (the Lane Family copy is already cited) — the title page will settle it."
+  },
+  {
+   "id": "os_q_death_count",
+   "question": "The reception report of 19 May 1882 says \"no less than thirty-five of the 414 who are known & Chicago's old settlers having gone to their rest during the year\", and Vice-President Doane repeats thirty-five from the floor. Wentworth's published list, printed on 25 April 1882 and read here, carries 40 names.",
+   "not_resolved_because": "the list is dated three weeks before the reception and covers deaths \"since the 1st of January, 1881\" — sixteen and a half months, not \"during the year\". The two counts are answering different questions, and the page does not say so.",
+   "for": "the consolidation pass (T-0513), which should carry both counts rather than pick one."
+  },
+  {
+   "id": "os_q_hail_hall",
+   "question": "\"William A. Hail\" in the death roll of 25 April 1882 and \"William A. Hall, who was employed at Fort Dearborn as a gunsmith\" in the report of 19 May 1882 are one man under two spellings, on the same web page.",
+   "not_resolved_because": "both spellings are carried as_read and no resident is merged on either. A Fort Dearborn gunsmith is a placeable trade and worth the original.",
+   "for": "the Fort Dearborn trades work and T-0513."
+  }
+ ]
+}

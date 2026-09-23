@@ -1,0 +1,181 @@
+{
+  "_doc": "A PLANTING RECORD in the shape T-0091 established and T-0074 generalised: woody stems whose position is STATED rather than dealt from the land. This one is GENERATED — tools/generate_fort_trees.py holds the rule, prints why every refused point was refused, and re-derives this file byte for byte in tools/check.sh.",
+  "id": "fort_dearborn_wood",
+  "name": "The relict stand outside Fort Dearborn's west wall",
+  "kind": "planting",
+  "scene": "1835",
+  "target_date": "1835-07-01",
+  "generated_by": "tools/generate_fort_trees.py",
+  "generated_from": [
+    "data/sidecars/1835/fort_dearborn_palisade.json",
+    "data/enclosures/fort_dearborn_apron.json",
+    "data/sidecars/1835/*.json",
+    "data/streets/1835.json",
+    "data/enclosures/*.json",
+    "data/boats/*.json",
+    "data/flora/zones/z10_settled_town.json",
+    "data/terrain/epochs/e1834_harbor_cut/heightfield.json",
+    "data/sources/assets/prefire_views_kevin_2026_08/p4_0.png"
+  ],
+  "belongs_to": [
+    "fort_dearborn_palisade"
+  ],
+  "in_enclosure": null,
+  "zone": "z10_settled_town",
+  "existence": {
+    "value": true,
+    "confidence": "reconstructed",
+    "sources": [],
+    "sources_note": "EMPTY, AND THAT IS THE FINDING — the same finding data/enclosures/fort_dearborn_apron.json records of the same plate. The two Fort Dearborn views reach this repository as owner-supplied reference images with a README and nothing stronger; no source record holds them (T-0055, T-0075). And see the existence note: the plate cannot date its own trees, so it could not have carried this claim even if it were held as a record.",
+    "note": "THE SIDE IS MEASURED; THE DATE IS NOT EVIDENCED; EVERY COORDINATE IS THIS PROJECT'S. p4_0 - the coloured Fort Dearborn view in data/sources/assets/prefire_views_kevin_2026_08/, the plate this project shoots the fort against - draws a substantial tree mass outside the walls, and p4_1 draws trees round the buildings on both banks. Measured with tools/measure_fort_trees_plate.py, that mass is 33334 connected pixels of canopy on the FRAME-RIGHT of the drawn stockade, against a largest frame-left patch of 924 px which is bank grass on the viewer's own side of the river. Frame-right is WEST: p4_0's stand is the north bank looking south, and the committed chicago_lighthouse_1832, 46.8 m west of the fort's centre, draws to the frame-right of the fort in the render from that same stand. T-0044's row 8 and ticket T-0098's own title both said east; both were read by eye. WHY THIS IS reconstructed AND NOT inferred, WHICH IS THE HARDER HALF. data/exclusions.json assigns this plate's flagstaff to Whistler's FIRST fort of 1803, and T-0095 measured its two roofed lanterned works at 0.435 and 0.521 of the wall - over the gate, not at the angles - and reads two such works as first-fort signature. A draughtsman working decades later off first-fort descriptions was drawing a SCENE, and there is no reason his trees are better dated than his blockhouses: the plate cannot date this stand. Nor does the dataset help it. docs/research/02-flora.md, on Andreas, ends the South Division's river timber belt EAST AT WELLS STREET, some 900 m west of this reservation, and renderers/web/js/trees.js enforces that limit - so a BELT here would contradict the dataset. A few relict boles on used ground east of a belt's end would not, and that is what z10_settled_town's black willow is recorded as: 'Left along the bank where the landing was cut.' The species is still the zone's; nothing new is claimed to have grown here."
+  },
+  "stems": [
+    {
+      "id": "fort_wood_00_04",
+      "species": "salix_nigra",
+      "at_local_enu_m": [
+        1116.03,
+        243.21
+      ],
+      "height_m": 11.2,
+      "confidence": "reconstructed",
+      "note": "DEALT BY RULE at grid 0:4 of the band west of the fort's west wall, beyond its own 12 m apron. 11.2 m is inside both the species' recorded 9-14 m band and the 9.3-11.4 m crown measured off p4_0."
+    },
+    {
+      "id": "fort_wood_01_00",
+      "species": "salix_nigra",
+      "at_local_enu_m": [
+        1097.18,
+        196.02
+      ],
+      "height_m": 10.1,
+      "confidence": "reconstructed",
+      "note": "DEALT BY RULE at grid 1:0 of the band west of the fort's west wall, beyond its own 12 m apron. 10.1 m is inside both the species' recorded 9-14 m band and the 9.3-11.4 m crown measured off p4_0."
+    },
+    {
+      "id": "fort_wood_01_01",
+      "species": "salix_nigra",
+      "at_local_enu_m": [
+        1098.61,
+        209.71
+      ],
+      "height_m": 10.1,
+      "confidence": "reconstructed",
+      "note": "DEALT BY RULE at grid 1:1 of the band west of the fort's west wall, beyond its own 12 m apron. 10.1 m is inside both the species' recorded 9-14 m band and the 9.3-11.4 m crown measured off p4_0."
+    },
+    {
+      "id": "fort_wood_01_02",
+      "species": "salix_nigra",
+      "at_local_enu_m": [
+        1100.62,
+        220.6
+      ],
+      "height_m": 10.9,
+      "confidence": "reconstructed",
+      "note": "DEALT BY RULE at grid 1:2 of the band west of the fort's west wall, beyond its own 12 m apron. 10.9 m is inside both the species' recorded 9-14 m band and the 9.3-11.4 m crown measured off p4_0."
+    },
+    {
+      "id": "fort_wood_01_03",
+      "species": "salix_nigra",
+      "at_local_enu_m": [
+        1103.2,
+        234.34
+      ],
+      "height_m": 9.8,
+      "confidence": "reconstructed",
+      "note": "DEALT BY RULE at grid 1:3 of the band west of the fort's west wall, beyond its own 12 m apron. 9.8 m is inside both the species' recorded 9-14 m band and the 9.3-11.4 m crown measured off p4_0."
+    },
+    {
+      "id": "fort_wood_02_00",
+      "species": "salix_nigra",
+      "at_local_enu_m": [
+        1084.89,
+        196.95
+      ],
+      "height_m": 10.5,
+      "confidence": "reconstructed",
+      "note": "DEALT BY RULE at grid 2:0 of the band west of the fort's west wall, beyond its own 12 m apron. 10.5 m is inside both the species' recorded 9-14 m band and the 9.3-11.4 m crown measured off p4_0."
+    },
+    {
+      "id": "fort_wood_02_01",
+      "species": "salix_nigra",
+      "at_local_enu_m": [
+        1087.61,
+        208.93
+      ],
+      "height_m": 9.8,
+      "confidence": "reconstructed",
+      "note": "DEALT BY RULE at grid 2:1 of the band west of the fort's west wall, beyond its own 12 m apron. 9.8 m is inside both the species' recorded 9-14 m band and the 9.3-11.4 m crown measured off p4_0."
+    },
+    {
+      "id": "fort_wood_02_02",
+      "species": "salix_nigra",
+      "at_local_enu_m": [
+        1088.91,
+        223.76
+      ],
+      "height_m": 10.9,
+      "confidence": "reconstructed",
+      "note": "DEALT BY RULE at grid 2:2 of the band west of the fort's west wall, beyond its own 12 m apron. 10.9 m is inside both the species' recorded 9-14 m band and the 9.3-11.4 m crown measured off p4_0."
+    },
+    {
+      "id": "fort_wood_02_03",
+      "species": "salix_nigra",
+      "at_local_enu_m": [
+        1090.31,
+        233.11
+      ],
+      "height_m": 11.2,
+      "confidence": "reconstructed",
+      "note": "DEALT BY RULE at grid 2:3 of the band west of the fort's west wall, beyond its own 12 m apron. 11.2 m is inside both the species' recorded 9-14 m band and the 9.3-11.4 m crown measured off p4_0."
+    },
+    {
+      "id": "fort_wood_03_00",
+      "species": "salix_nigra",
+      "at_local_enu_m": [
+        1072.55,
+        198.07
+      ],
+      "height_m": 10.4,
+      "confidence": "reconstructed",
+      "note": "DEALT BY RULE at grid 3:0 of the band west of the fort's west wall, beyond its own 12 m apron. 10.4 m is inside both the species' recorded 9-14 m band and the 9.3-11.4 m crown measured off p4_0."
+    },
+    {
+      "id": "fort_wood_03_01",
+      "species": "salix_nigra",
+      "at_local_enu_m": [
+        1074.19,
+        212.98
+      ],
+      "height_m": 10.8,
+      "confidence": "reconstructed",
+      "note": "DEALT BY RULE at grid 3:1 of the band west of the fort's west wall, beyond its own 12 m apron. 10.8 m is inside both the species' recorded 9-14 m band and the 9.3-11.4 m crown measured off p4_0."
+    },
+    {
+      "id": "fort_wood_03_02",
+      "species": "salix_nigra",
+      "at_local_enu_m": [
+        1074.43,
+        223.45
+      ],
+      "height_m": 11.3,
+      "confidence": "reconstructed",
+      "note": "DEALT BY RULE at grid 3:2 of the band west of the fort's west wall, beyond its own 12 m apron. 11.3 m is inside both the species' recorded 9-14 m band and the 9.3-11.4 m crown measured off p4_0."
+    }
+  ],
+  "refused": [
+    "0:0 at 1110.95, 194.35: on the fort's own trodden apron",
+    "0:1 at 1112.02, 205.67: on the fort's own trodden apron",
+    "0:2 at 1114.11, 217.58: on the fort's own trodden apron",
+    "0:3 at 1112.85, 230.38: inside a committed footprint or within its clearance",
+    "0:5 at 1119.11, 254.39: on the fort's own trodden apron",
+    "1:4 at 1104.33, 244.41: on a hull the boat layer draws up on this bank",
+    "1:5 at 1104.81, 259.42: in the river or below the planter's dry floor",
+    "2:4 at 1090.42, 247.99: in the river or below the planter's dry floor",
+    "2:5 at 1092.09, 260.83: in the river or below the planter's dry floor",
+    "3:3 at 1077.11, 236.58: in the river or below the planter's dry floor",
+    "3:4 at 1079.88, 250.05: in the river or below the planter's dry floor",
+    "3:5 at 1081.8, 262.0: in the river or below the planter's dry floor"
+  ],
+  "research_note": "12 RELICT BLACK WILLOWS ON THE BANK OUTSIDE THE FORT'S WEST WALL, EVERY ONE DEALT BY THE RULE IN tools/generate_fort_trees.py AND RE-DERIVED ON EVERY COMMIT. THE SIDE IS A CORRECTION, and it is the point of this record: T-0044's image-accuracy row 8 and ticket T-0098's own title both say the mass is EAST of the walls, both were read by eye, and the measurement says west. The reading is in tools/measure_fort_trees_plate.py and the write-up in docs/RESEARCH/fort_dearborn_image_accuracy.md. THE SPECIES IS THE MEASUREMENT'S, NOT A PREFERENCE: p4_0's crowns stand 127 px above the wall foot, which is 8.8 m on the fort's committed 53 m footprint and 10.9 m on its committed picket height, plus the 0.54 m the bank falls under the stand - a 9.3-11.4 m crown. Of z10_settled_town's three recorded trees only the relict black willow is banded low enough to carry it; populus_deltoides is banded 18-26 m, which cannot carry a 9.3-11.4 m crown — refused, and trees.js would refuse the stem too; ulmus_americana is banded 16-24 m, which cannot carry a 9.3-11.4 m crown — refused, and trees.js would refuse the stem too; populus_nigra_italica is banded 12-18 m, which cannot carry a 9.3-11.4 m crown — refused, and trees.js would refuse the stem too. Every stem's height is dealt inside 9.3-11.4 m, which is the overlap of the species' recorded band and the measured crown - so a stem is inside the band trees.js checks AND inside what the plate shows. THIS IS A STAND AND NOT THE PLATE'S MASS, DELIBERATELY, AND THE RECORD WILL NOT PRETEND OTHERWISE. p4_0 draws ONE CONNECTED CANOPY with no sky through it; the stems here stand 12.5 m apart against a recorded 6-10 m crown, so this canopy does not close. Two independent reasons, both recorded at the constants: the plate cannot date its own trees (its flagstaff is excluded as FIRST-fort and T-0095 reads its two tall works the same way), and Andreas ends the South Division timber belt east at Wells Street, 900 m west of this reservation - so a belt here would contradict the dataset; and the release smoke's `balanced` tier read 1,218,562 of 1,210,000 at its worst stand with the 40-stem version this record was first written as in the scene. Twelve stems cost 3,520 and still failed it, because a control run with this record unmounted read 1,209,926 of 1,210,000 - SEVENTY-FOUR triangles of headroom, a quarter of one tree. That is the ceiling's fact and not this record's, and it is answered at the ceiling: `balanced` was re-budgeted to 1,225,000. The cut here stands on the evidence downgrade alone and is kept. THE OUTLINE IS THE REFUSALS' AND NOT THIS FILE'S: 24 grid points were dealt and 12 refused, most of them for standing in the river's own bend north-west of the fort, which is what cuts the stand back to the falling ground between the wall and the water - the ground the plate draws its mass on. WHAT IS INVENTED: that any tree stood here in 1835 at all, how far west the stand reaches (the plate cannot bound it - the mass leaves the right edge of the picture), how far it wraps past the wall's ends, how far apart the stems stand, and every coordinate and height inside those bounds. Claimed in docs/LIBERTIES.md. WHAT IS DELIBERATELY NOT HERE: the two-storey frame house the plate draws inside this mass, which is a STRUCTURE record and not a flora one, and which no source this project holds identifies; and any claim about the ground under the stand, which the sward layer still draws as it drew it."
+}

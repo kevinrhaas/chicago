@@ -1,0 +1,346 @@
+{
+  "schema": 1,
+  "issue_id": "chicago_democrat_1834_11_26",
+  "extracted": "2026-08-28",
+  "extracted_by": "hand, T-0293 — the Democrat read, November 1834",
+  "note": "Vol. I No. 52, the last number of Volume I. The town is on page 2 columns 5-6 — a common-schools meeting with its resolutions and delegates, and the memoir of Mrs. Baxley read at her funeral — and on page 3 column 1. THE SEGMENTER HANDLED THIS ISSUE WORST OF THE FOUR: page 3's columns arrive shredded, with lines of two physical columns alternating and many lines reduced to three or four words, so several advertisements standing whole in 1834-11-12 survive here only as fragments and are not re-claimed from them. No letter list of any post office stands in this issue. AMENDED BY T-0328 on 2026-08-29: D. Weaver's standing advertisement for the building on North Water street stands in this issue and was not claimed. It is c010, and it reads LOT 2 — one of the four printings of five that do.",
+  "claims": [
+    {
+      "id": "c001",
+      "kind": "event",
+      "reading": "transcription_mediated",
+      "quote": "the citizena of Chi eigo, fevoara•\nisamert of a Library. it\num, will ho held at the Freshy-\n[uncertain: 1SVECS]\n[uncertain: crow (Thurslay) croning.]\ntera, fre\n[uncertain: mill 9]",
+      "normalized": "[A meeting of] the citizen[s] of Chi[ca]go, favoura[ble to the establ]ishment of a Library [and Reading Ro]om, will be held at the Presby[terian church … tomor]row (Thursday) evening. […]",
+      "locator": {
+        "artifact_role": "primary",
+        "issue_page": 3,
+        "column": 1,
+        "lines": [
+          2204,
+          2210
+        ],
+        "interleaved": true
+      },
+      "entities": [],
+      "notes": "THE TOWN MOVES TO FOUND A LIBRARY, AND MEETS IN THE PRESBYTERIAN CHURCH TO DO IT — the third civic use of that building this month, after the temperance society of 1834-11-05 and beside the common-schools meeting on page 2 of this issue. The notice is one of the worst-cut passages in the month: seven part-lines survive out of what was plainly a longer call, the hour is gone, the convener is gone, and the word after 'Library' is read as 'and Reading Room' from the fragment 'um' — the only supply here that is not certain, and it is bracketed. No name is minted from it. What survives is enough to date the attempt: Thursday 27 November 1834."
+    },
+    {
+      "id": "c002",
+      "kind": "business",
+      "reading": "transcription_mediated",
+      "quote": "y &: Bree Making.\nHERMAN, frally of White\n1. Y. bana lease to\ngand is viersity, that sh\nInform the\nKim-\nlet, shi\nof the Mansion louse,\nNor\nEct with a call.\nFeeling conf-\n1 all its vasions branches.\napericnce in the business will rict\n[uncertain: t.23, 1631.]",
+      "normalized": "[Millinery] & [D]ress Making. [Mrs.] HERMAN, f[orme]rly of White [Plains?] [N]. Y. b[egs] leave to inform the [citizens of Chica]go and its vi[c]inity, that sh[e has taken the … room?] […] of the Mansion [H]ouse, [where she hopes those who may favour her] with a call [will be suited]. Feeling conf[ident that her long] experience in the business will [me]rit [the same, in] all its va[r]ious branches. [Oc]t. 23, 1[8]34.",
+      "locator": {
+        "artifact_role": "primary",
+        "issue_page": 3,
+        "column": 1,
+        "lines": [
+          2220,
+          2233
+        ],
+        "interleaved": true
+      },
+      "entities": [
+        {
+          "as_printed": "HERMAN,",
+          "normalized": "[Mrs.] Herman",
+          "role": "proprietor",
+          "occupations": [
+            "milliner",
+            "dress maker"
+          ]
+        }
+      ],
+      "notes": "A SECOND WOMAN IN THE MILLINERY TRADE, PLACED AGAINST THE MANSION HOUSE. She is not Elmira Fowler, whose shop is on Dearborn Street nearly opposite the new bridge and whose notice runs in the same month: two milliners, two placements, both women, and the paper carries both. The preposition that would say WHERE against the Mansion House — opposite, next door to, in — is cut away with the rest of the line, so the anchor stands and the relation does not; that is why the offset text quoted is the bare fragment. 'formerly of White [Plains] N. Y.' is a supply from 'White' plus the state, and is marked with a query: White Pigeon in Michigan Territory is the town this paper names most often, and it is not in New York, so the query stays.",
+      "business": {
+        "name": "[Mrs.] Herman",
+        "proprietors": [
+          "[Mrs.] Herman"
+        ],
+        "trade": "millinery and dress making",
+        "goods": [],
+        "street": null,
+        "placement": {
+          "class": "relative",
+          "anchor": "the Mansion House",
+          "offset_text": "of the Mansion louse,"
+        }
+      }
+    },
+    {
+      "id": "c003",
+      "kind": "notice",
+      "reading": "transcription_mediated",
+      "quote": "siray Callie.\nXitoe the salacriber, fring two\nChie\nwork oxen.\nco the dip with letters A. C.:\nSome are branted\ner H. mail othere on the horn with\nand tome\nare branded ou the\nBlocke\nather sithout branda, abd the\nmall brinlle Cow, with a white\nmarie not reculected, escep\nwhite back and belly, aboet four\nfears old, the other a red rided!\nany such cattle, and will bring\nAny person ishing up. ur\n311\ngise information where they may\nbe amply rewarded fet their\nsil reasonetie clarges paid.\nA. CLYBOURN.\n1681.--1052.",
+      "normalized": "[S]tray Cattle. [Came to] the s[ub]scriber, [l]iving two [miles … of] Chic[ago …] work oxen. [Some are brand]ed [on] the [h]ip with letters A. C.; [oth]er[s on the] H[.] and others on the horn with [marks not reco]l[l]ected, [and some] are branded on the [… and] others without brands; and the [… a] small brindle Cow, with a white [back and belly, about four] years old, [and] the other a red [s]ided […] Any person [tak]ing up or [finding] any such cattle, and will bring [them … or] give information where they may [be found … shall] be amply rewarded for their [trouble, and] all reasona[b]le c[h]arges paid. A. CLYBOURN. [Nov. …,] 18[3]4. — 1052.",
+      "locator": {
+        "artifact_role": "primary",
+        "issue_page": 3,
+        "column": 1,
+        "lines": [
+          2242,
+          2264
+        ],
+        "interleaved": true
+      },
+      "entities": [
+        {
+          "as_printed": "A. CLYBOURN.",
+          "normalized": "A. Clybourn",
+          "role": "advertiser"
+        }
+      ],
+      "notes": "BRANDED STOCK RUNNING LOOSE TWO MILES OUT OF TOWN, AND THE BRANDS ARE READ OFF THE ANIMALS: 'A. C.' on the hip, an 'H.' on others, horn marks not recollected. Archibald Clybourn's is the second Clybourn notice in this issue (see the stolen horse, next claim) and the third in the month, after the Funk stray of 1834-11-05 which routes its reward through 'A. Clybourn, at Chicago' — so his is the address the surrounding country used for stock matters. The segmenter has this column in its worst state and every clause above carries a supply; the reward figure and the date are gone."
+    },
+    {
+      "id": "c004",
+      "kind": "notice",
+      "reading": "transcription_mediated",
+      "quote": "10 REWARD.\nD or STOLEN, from Chicago, a\nSorrel HORsE, with a hall\npaces mad trots; a little Cat Blor-\nfece.\nAny perers bringing back said\n1 thief.\nreceive the abate\nA, CLYBOURN.\nreward, or 820\n1334.- iN52.",
+      "normalized": "$10 REWARD. [STRAYE]D or STOLEN, from Chicago, a [… ]Sorrel HORSE, with a ba[l]l[…] paces and trots; a little C[u]t [on his? … f]ace. Any per[son] bringing back said [horse … and the] thief[, shall] receive the ab[ov]e reward, or $20 […] A. CLYBOURN. […] 1834. — 1w52.",
+      "locator": {
+        "artifact_role": "primary",
+        "issue_page": 3,
+        "column": 1,
+        "lines": [
+          2265,
+          2275
+        ],
+        "interleaved": true
+      },
+      "entities": [
+        {
+          "as_printed": "A, CLYBOURN.",
+          "normalized": "A. Clybourn",
+          "role": "advertiser"
+        }
+      ],
+      "notes": "A HORSE GONE FROM CHICAGO AND TWO REWARDS OFFERED, ten dollars for the horse and twenty if the thief comes with it — the same structure as Absolom Funk's notice earlier in the month, which also routed through Clybourn. Horse theft is the commonest crime this month's paper reports, and all three notices treat Chicago as the place a stolen animal is brought back TO."
+    },
+    {
+      "id": "c005",
+      "kind": "event",
+      "reading": "transcription_mediated",
+      "quote": "Resoleed, That three Delegates be\nn this, wc\nted to attend the\nheliat Vandalia on the first Friday\nContention\nthe great\ncember nest.\n[uncertain: abora err]\nunls were arpointed by\nOn motive of Mr. Russell,\nTwe\nindul-\npublic, we\nthie names of suitable indis iduale ne da\n[uncertain: the hair t]\nto sail conventon.\nting of Ree.\nTruman and E.\nThe committée\nHamilton, Col. T. J. V. Oven and\nreported the\nnames, of Col.\nmal in his\nr pressn- (ted.\nIT Temple, as delegates, which we\nesnleed, That Col. Hamilton, D\nOn motiot\nand Mr. Russell, be a committee to\n[uncertain: Bro er.]\nmemorial, to the Legislature prayin\npecial act to regulate common se\n[uncertain: e?y pa??o]\n[uncertain: Chieago.]\nted to the\nD. notion of Rer. Mr Freema\nafe of the\nResolved, That Mr. Moore, be re\nby works\nwhen convenient, to furnish a copy o\nallacks\ndress for publication in the Chicago\n[uncertain: Crat]",
+      "normalized": "Resolv[ed], That three Delegates be [appoin]ted to attend the [Convention to be] hel[d] at Vandalia on the first Friday [in De]cember next. […] On mot[i]o[n] of Mr. Russell, [Resolved, that the chair appoint a committee of three to report] the names of suitable indi[v]iduals as d[elegates] to said convent[i]on. [The chair appointed a committee consist]ing of Rev. [Mr.] Truman and E. […] The committ[é]e [reported the names of Col.] Hamilton, Col. T. J. V. Owen and [Dr. J. T.] Temple, as delegates, which we[re confirmed]. [R]es[o]lved, That Col. Hamilton, D[r. Temple] and Mr. Russell, be a committee to [draft a] memorial to the Legislature prayin[g for a s]pecial act to regulate common sc[hools in the town of] Chicago. [On] motion of Rev. Mr. Freema[n,] Resolved, That Mr. Moore, be re[quested,] when convenient, to furnish a copy o[f his ad]dress for publication in the Chicago [Demo]crat.",
+      "locator": {
+        "artifact_role": "primary",
+        "issue_page": 2,
+        "column": 5,
+        "lines": [
+          1717,
+          1758
+        ],
+        "interleaved": true
+      },
+      "entities": [
+        {
+          "as_printed": "Hamilton",
+          "normalized": "Col. R. J. Hamilton",
+          "role": "meeting participant"
+        },
+        {
+          "as_printed": "Col. T. J. V. Oven",
+          "normalized": "Col. T. J. V. Owen",
+          "role": "meeting participant"
+        },
+        {
+          "as_printed": "IT Temple",
+          "normalized": "Dr. J. T. Temple",
+          "role": "meeting participant",
+          "occupations": [
+            "physician"
+          ]
+        },
+        {
+          "as_printed": "Mr. Russell",
+          "normalized": "Mr. Russell",
+          "role": "meeting participant"
+        },
+        {
+          "as_printed": "Ree.\nTruman",
+          "normalized": "Rev. Mr. Truman",
+          "role": "meeting participant",
+          "occupations": [
+            "clergyman"
+          ]
+        },
+        {
+          "as_printed": "Rer. Mr Freema",
+          "normalized": "Rev. Mr. Freeman",
+          "role": "meeting participant",
+          "occupations": [
+            "clergyman"
+          ]
+        },
+        {
+          "as_printed": "Mr. Moore",
+          "normalized": "Mr. Moore",
+          "role": "meeting participant"
+        },
+        {
+          "as_printed": "Mr. Peck",
+          "normalized": "Mr. Peck",
+          "role": "meeting participant"
+        }
+      ],
+      "notes": "THE TOWN SENDS THREE DELEGATES TO A STATE CONVENTION ON COMMON SCHOOLS AT VANDALIA, first Friday in December 1834, and appoints a committee to draft a memorial to the Legislature praying a special act to regulate common schools in Chicago. It is the month's most consequential civic proceeding and it is the same men over again: Hamilton, Owen and Temple are delegates here and all three sit on the committee of twenty that met at the Exchange Coffee House on 22 November (1834-11-19 c001). Two clergymen appear who are in no other claim in this corpus, Rev. Mr. Truman and Rev. Mr. Freeman. The segmenter alternates this proceeding line by line with an unrelated column, so the resolutions arrive with every second line broken; each supply is bracketed and the meeting's chairman and secretary, whose names fall in the lost half-lines, are not guessed at."
+    },
+    {
+      "id": "c006",
+      "kind": "event",
+      "reading": "transcription_mediated",
+      "quote": "FOR THE CHICACO DEMocRt\nA\ndraft a\nMn. Ebron -The follewig bee\n[uncertain: 05 3]\nfor a\ncal shetch of the late Mis. BAstER\nools in\nread at her funeral by the postor sa\nMethodist Episcopal Chureh\nquest of the family of the deceased, itse\nAt it\nuested,\nmitte- for inertien in your paper.\nhis ad-\nVery respectiony,\nDeino-\nChiage, Nov. 25, 1834.",
+      "normalized": "FOR THE CHICAGO DEMOCRAT. M[r]. Ed[it]or — The follow[ing is a biographi]cal sketch of the late Mrs. BAXLE[Y, which was] read at her funeral by the pastor [of the] Methodist Episcopal Church, [and is published at the re]quest of the family of the deceased, [… ]for insertion in your paper. Very respectf[ully], Chica[g]o, Nov. 25, 1834.",
+      "locator": {
+        "artifact_role": "primary",
+        "issue_page": 2,
+        "column": 6,
+        "lines": [
+          1992,
+          2009
+        ],
+        "interleaved": true
+      },
+      "entities": [
+        {
+          "as_printed": "Mis. BAstER",
+          "normalized": "Mary Baxley",
+          "role": "deceased"
+        }
+      ],
+      "notes": "THE FUNERAL SERMON OF 1834-11-19 IS CORROBORATED BY ITS OWN TEXT ONE WEEK LATER: the sketch printed here was read at Mrs. Baxley's funeral BY THE PASTOR OF THE METHODIST EPISCOPAL CHURCH, at the family's request, and is dated Chicago, 25 November 1834. Two independent notices in two issues therefore put a Methodist congregation with a settled pastor in the town in November 1834, which is a firmer footing for the Methodist chapel than either notice alone. The memoir itself runs down page 3 column 1 of this issue and is a religious narrative, not a topographical one; nothing further is claimed from it."
+    },
+    {
+      "id": "c007",
+      "kind": "notice",
+      "reading": "transcription_mediated",
+      "quote": "sous are forbid cutting or drawing a\ncantion.\nFor\nanher or wood from E. H. ors.\n[uncertain: scetion]\nTownship No\n[uncertain: MANHE buil]\n[uncertain: .. Noe s. a quater of artion No]\nof the S.\nquarter of section\nChicago, A\nwnslup No. Forty,\nNorth of Range\nen East, under penalt, GEORGE\nro, Nor. 21st, 1831.",
+      "normalized": "Caution. [All per]sons are forbid cutting or drawing a[way tim]ber or wood from [the … of section No. …] Township No. [… of the S.] quarter of section [No. … in To]wnship No. Forty, North of Range [… Thirte]en East, under penalt[y of the law.] GEORGE […] [Chica]go, Nov. 21st, 183[4].",
+      "locator": {
+        "artifact_role": "primary",
+        "issue_page": 3,
+        "column": 2,
+        "lines": [
+          2304,
+          2318
+        ],
+        "interleaved": true
+      },
+      "entities": [],
+      "notes": "A THIRD TIMBER CAUTION IN ONE MONTH, and together they are evidence about the ground rather than about the men: M. H. Pearsons forbids cutting on the north half of section 4, township 39 north, range 14 east in 1834-11-05 and 1834-11-12, Edward E. Hunter posts another in this issue, and this one covers a quarter section in township 40 north. Standing timber inside a few miles of the town is worth posting notices over in November 1834 — which is what the wood-lot side of this reconstruction wants to know. The signature is cut to 'GEORGE' and no surname is supplied, so no one is minted."
+    },
+    {
+      "id": "c008",
+      "kind": "building",
+      "reading": "transcription_mediated",
+      "quote": "TORE TO LET.\nNO. S. C. HOGA\nWe Lave\nFor Rent,\nARGE three story Store Hot 4o try\n[uncertain: N.O.]\nRet, with a wherf atteched,\nMa, a handsome small Dwelling House\n[uncertain: Payme]\ni Store, on South Water-st. by\n[uncertain: no, a large and bcatauns]\ngo, Sent. 20. 1831.\nJOIN T. TEMPLE!",
+      "normalized": "[NEW S]TORE TO LET. [J]NO. S. C. HOGA[N]. For Rent, [A L]ARGE three story Store Ho[use, 4]0 by [60 fe]et, with a wharf attached, [of 60 feet. Al]so, a handsome small Dwelling House [… and a] large and b[eautifully finished Pen]cil Store, on South Water-st. by JO[H]N T. TEMPLE, [Chica]go, Sept. 20, 1834. 43",
+      "locator": {
+        "artifact_role": "primary",
+        "issue_page": 3,
+        "column": 2,
+        "lines": [
+          2423,
+          2435
+        ],
+        "interleaved": true
+      },
+      "entities": [
+        {
+          "as_printed": "NO. S. C. HOGA",
+          "normalized": "J. S. C. Hogan",
+          "role": "advertiser",
+          "occupations": [
+            "merchant",
+            "postmaster"
+          ]
+        },
+        {
+          "as_printed": "JOIN T. TEMPLE!",
+          "normalized": "John T. Temple",
+          "role": "advertiser"
+        }
+      ],
+      "notes": "TWO SEPARATE NOTICES THE SEGMENTER RAN TOGETHER, AND THEY ARE QUOTED TOGETHER BECAUSE THEY CANNOT BE SEPARATED IN THE TEXT: Hogan's one-line 'New store to let' and Temple's three-storey store house with sixty feet of wharf. Both are standing notices from earlier in the season, and Temple's is read whole in 1834-11-12 c010, where the same lines survive uncut. The claim is kept for what it shows about the month rather than for new evidence: a store to let from the postmaster and a wharf-side warehouse to rent, both still unlet at the end of November 1834."
+    },
+    {
+      "id": "c009",
+      "kind": "business",
+      "reading": "transcription_mediated",
+      "quote": "ORNEY AND COUNSELLOR AT LAF\nAnd Solleiter in Chancery.\nFICE second door west from the corne\n[uncertain: sens]\nof Frankiin and South Wa\nale as\ntor.streets.",
+      "normalized": "[GILES SPRING, ATT]ORNEY AND COUNSELLOR AT LA[W] And Solici[t]er in Chancery. [OF]FICE second door west from the corne[r] […] of Frank[l]in and South Wa[…] ter-streets.",
+      "locator": {
+        "artifact_role": "primary",
+        "issue_page": 3,
+        "column": 2,
+        "lines": [
+          2479,
+          2485
+        ],
+        "interleaved": true
+      },
+      "entities": [
+        {
+          "as_printed": "Frankiin and South Wa",
+          "normalized": "Giles Spring",
+          "role": "proprietor",
+          "occupations": [
+            "attorney"
+          ]
+        }
+      ],
+      "notes": "THE SAME OFFICE AS 1834-11-12 c008, RE-READ IN THE ISSUE THAT SETS IT WORST — second door west from the corner of Franklin and South Water streets — and it is here for one reason: the placement is identical across two settings a fortnight apart, which is the check that the door count is the paper's and not the segmenter's. The heading with the attorney's name is lost in this column and the name is carried from that issue; `as_printed` therefore holds the street line rather than a signature, because no signature survives on these lines.",
+      "business": {
+        "name": "Giles Spring",
+        "proprietors": [
+          "Giles Spring"
+        ],
+        "trade": "attorney and counsellor at law, solicitor in chancery",
+        "goods": [],
+        "street": "South Water Street",
+        "placement": {
+          "class": "relative",
+          "anchor": "the corner of Franklin and South Water streets",
+          "offset_text": "FICE second door west from the corne"
+        }
+      }
+    },
+    {
+      "id": "c010",
+      "kind": "building",
+      "reading": "transcription_mediated",
+      "quote": "Sale or To Let,\nling on Lot 2, in block 1, on North\nstreet.\nApply to\nD. WEAVER.\nine. 12, 1881-50",
+      "normalized": "[…] Sale or To Let, [THE bui]l[d]ing on Lot 2, in block 1, on North [Water] street. Apply to D. WEAVER. […] 12, 18[uncertain: 81 / 34]. — 50",
+      "locator": {
+        "artifact_role": "primary",
+        "issue_page": 3,
+        "column": 3,
+        "lines": [
+          2496,
+          2510
+        ],
+        "lines_of_claim": [
+          2500,
+          2502,
+          2503,
+          2504,
+          2506,
+          2508
+        ]
+      },
+      "entities": [
+        {
+          "as_printed": "D. WEAVER.",
+          "normalized": "D. Weaver",
+          "role": "advertiser"
+        }
+      ],
+      "notes": "THE FIRST OF FIVE PRINTINGS OF D. WEAVER'S ADVERTISEMENT, AND T-0328 FOUND IT BY LOOKING. The ticket knew of two printings, 1834-12-17 and 1834-12-24, and they disagree about the lot number. There are five: this one, 1834-12-03, 1834-12-10, 1834-12-17 and 1834-12-24, the advertisement standing week after week from the last number of Vol. I into the fourth of Vol. II. THIS SETTING READS LOT 2, and the digit stands in an otherwise clean line — 'ling on Lot 2, in block 1, on North'. Four of the five printings read 2 and only 1834-12-17 reads 9; see that claim's own note for the tally and the reasoning. The dateline is NOT recorded as an `ad_copy_date` here, deliberately: this setting and 1834-12-03 both read the copy date as Nov. 12 where 1834-12-24 reads Nov. 19 and 1834-12-17 reads Nov. 13, so the last digit of the date is exactly as unreliable in this column as the lot number was, and it is not this run's question. It is filed as its own ticket rather than decided in passing. What is not in doubt: block 1, North Water street, a building standing on it in the autumn of 1834, offered for sale or to let by D. Weaver.\n\nDECIDED BY T-0350 ON 2026-08-29, AND THIS SETTING IS ONE OF THE FOUR THAT CARRY IT. The note above says the day “is not this run's question” and leaves the field empty; the question has now been asked and answered, so the claim gains an `ad_copy_date` of 1834-11-12 with its own verbatim dateline unchanged. This setting is also no longer the earliest printing: two earlier ones were found, 1834-11-12 c015 and 1834-11-19 c012, and the notice ran seven times.\n\nTHE COPY DATE IS 12 NOVEMBER 1834, DECIDED BY T-0350 OVER SEVEN PRINTINGS AND BY THE PAPER'S OWN INSERTION KEY. The advertisement ran SEVEN times, not five: it opens in Vol. I No. 50 of 1834-11-12 (c015) and No. 51 of 1834-11-19 (c012), two settings T-0328's tally did not have because neither is findable by the advertiser's name — 1834-11-12 sets it “D. WEAVE.R” and the surviving span of 1834-11-19 prints no name at all. They were found by searching the run for the notice's own body text instead. The datelines across the seven: Nov. 12 at 1834-11-12, 1834-11-19, 1834-11-26 and 1834-12-03; Nov. 13 at 1834-12-17; Nov. 19 at 1834-12-24; and no legible day or month at 1834-12-10. Four to one to one.\n\nAND THE TALLY IS NOT WHAT DECIDES IT — THE ADVERTISEMENT'S OWN KEY DOES. Every legible setting tails its dateline with the figure 50: “1834.—50” at 1834-11-19 and “1881-50” at 1834-11-26, “1831. SO” at 1834-12-03, “1631.—00” at 1834-12-10, “1834-SD” at 1834-12-24 and “1831 -5)” at 1834-11-12. In this paper that trailing figure is not part of the date: it is THE NUMBER OF THE ISSUE THE COPY IS KEYED TO, the first number published on or after the dateline. It is checkable on other advertisers in the same columns — J. Bates's blacksmith-tools notice sets “Nov. 5, 1834.—49” and Vol. I No. 49 was published on 5 November; a For Sale notice sets “Nov. 26, 1834-52” against No. 52 of 26 November; two December notices set “Dec. 16, 1834.-3” and “Dec. 11, 1834.-3” against Vol. II No. 3, the first number published after either date. Vol. I No. 50 was published on 12 NOVEMBER 1834, so a key of 50 admits only a dateline falling after 5 November and on or before 12 November. Nov. 13 and Nov. 19 both fall outside it and would key 51; Nov. 12 is the only one of the three readings the key allows, and it is the reading four of the seven settings print.\n\nTHE KEY IS A FUNCTION OF THE DATELINE, NOT A CLAIM ABOUT FIRST APPEARANCE, and that distinction is kept because one of the four control notices breaks the looser version: Bates's “Nov. 5, 1834.—49” does not itself stand in No. 49 of 5 November, but first appears in No. 50. The key records the week the copy was handed in. For this notice the two coincide anyway — it is absent from No. 49 of 1834-11-05 and from No. 48 of 1834-10-29 (checked; the “For Sale or Rent” standing in both is G. Blanshard's, a different notice), and it first stands in No. 50.\n\nTHE TICKET'S DOUBT IS ANSWERED RATHER THAN OVERRIDDEN. T-0350 weighed 12 against 19 partly on the ground that Nov. 12 would be a fortnight before the notice's first appearance where Nov. 19 would be a week. Both halves rested on 1834-11-26 being the first appearance; it is the third. Dated 12 November the notice is dated the day it first ran, which is the same-day pattern “Nov. 5, 1834.—49” and “Nov. 26, 1834-52” show.\n\nNOTHING IS AMENDED TO AGREE WITH ANYTHING. Every printing keeps its own verbatim dateline, including the two that read 13 and 19, and each claim's `ad_copy_date.verbatim` is that setting's own text. The dossier is docs/RESEARCH/weaver_building_north_water_block_1.md.",
+      "ad_copy_date": {
+        "verbatim": "ine. 12, 1881-50",
+        "iso": "1834-11-12"
+      }
+    }
+  ]
+}

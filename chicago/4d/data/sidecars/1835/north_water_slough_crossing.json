@@ -1,0 +1,173 @@
+{
+  "id": "north_water_slough_crossing",
+  "phase": "crossing_1835",
+  "name": "The North Water Street Slough Crossing",
+  "aka": [
+    "the crossing of the north-side slough",
+    "the North Water Street plank crossing"
+  ],
+  "archetype": "bridge_timber",
+  "asset": "gltf/north_water_slough_crossing__crossing_1835.glb",
+  "scene": "1835",
+  "target_date": "1835-07-01",
+  "documented_range": {
+    "from": "1833-01-01",
+    "to": "1835-12-31",
+    "confidence": "reconstructed",
+    "sources": [
+      "wright_1834",
+      "chicagology_prefire273"
+    ],
+    "note": "NOTHING RECORDS THIS CROSSING, and it is the third of three on the same footing and the thinnest of them. Its eldest sibling is attested — where Water Street crossed the State Street slough 'a log bridge was needed until after 1840' (chicagology_prefire273, transcribed at docs/research/01-terrain-hydrology.md §2.2) — and the La Salle crossing was built on the owner's ruling that a drain reaching the river must be crossed rather than filled. This one has neither: no sentence names it and no ruling asked for it. WHAT IS REASONED, and it is reasoning and not a date: Wright 1834 draws the north-side slough running north out of the main stem ACROSS KINZIE STREET to Michigan Street, so the map that is this project's evidence for the watercourse also shows the town's own platted grid laid over it; North Water Street is the river-front street of that grid and it meets the same water two hundred metres south of where Kinzie does. A platted street that meets a stream either stops at it or gets across it, and the range therefore opens with its two siblings' at the start of 1833, when the town began building crossings at all — the North Branch log bridge is winter 1831-32, the South Branch raft bridge winter 1832-33 — and closes at the end of 1835 as this project's convention rather than as a claim that it went then. THE HONEST READING OF THE ALTERNATIVE: North Water Street may simply have stopped at the slough in 1835, with the North Division's traffic using Kinzie Street a block north. That would be a street ending at a stream, which is not what the record here says; it is what nothing says either way. This crossing is RECONSTRUCTED throughout — see T-0254 and docs/LIBERTIES.md."
+  },
+  "change_note": "One state. Nothing records this crossing at all, so nothing records it being rebuilt; the phase is a single reconstructed state standing on 1835-07-01 and is not a claim that it stood unchanged through the range.",
+  "placement": {
+    "local_e": 183.0,
+    "local_n": 156.0,
+    "rotation_deg": 0.0,
+    "position_confidence": "reconstructed",
+    "position_sources": [
+      "wright_1834",
+      "osm_streets_2026"
+    ],
+    "position_note": "DERIVED FROM THE COMMITTED GROUND, not authored, and the site is the one place on this watercourse where a town could put a log across it. THE CHANNEL: the attested north-side slough is carved into this terrain epoch as `north_side_slough` (terrain_spec.json watercourses, from hydrology.geojson, Wright 1834). Measured on the committed heightfield at 0.05 m along east-west transects, it is a funnel where it meets the main stem — 68.5 m of open water at N +120, 32.4 m at N +130, 16.2 m at N +140 — and a steady channel above it: 5.0 m at N +157.5, 5.7 m at N +165, 7.7 m at N +190. Between the two, at N +147.5 to +150, sits a sill 2.5 to 4.1 m wide and only 0.18 m deep. SO THE DECK GOES ABOVE THE SILL AND BELOW NOTHING: at N +157.5 the channel is 6.65 m of water below the epoch's 0.00 m surface, running E +185.60 to +192.25, 0.265 m at its deepest, and the ground climbs to +1.10 m at E +178 and E +200. The deck is laid E +183 .. +195, N +156 .. +159 — twelve metres of span across six and a half of water, landing on ground standing +0.63 m at its west end and +0.73 m at its east, with 2.60 m and 2.75 m of dry abutment seat. That is the proportion its two siblings hold: the Slough Log Bridge spans 8 m over 3.30 m of water on 2.35 m seats, the La Salle Slough Crossing 12 m over 5.55 m on 3.10 m and 3.35 m. WHY IT IS NOT ON THE OLD STREET LINE, which is the only placement decision here. North Water Street's line is itself derived from the committed north bank (tools/derive_north_water.py, T-0226) and stands half a platted street — 12.192 m — north of it. Where the bank swings north into the slough's funnel the street swings with it, so the corridor arrives at this reach at about N +158 and not at the N +130 a straight line down the river would give. A crossing on that straight line would have to span the funnel itself: 20 m of open water 1.54 m deep at N +137.5, and 68.5 m at N +120. That is a river bridge, and the town built two of those, both over branches of the Chicago River and both remembered by name. Nobody remembered one here. So the street goes round the head of the bay, as a bank road does, and crosses where the stream is six metres wide. WHAT IS INVENTED: that a crossing stood here at all, and the bearing. The deck is laid east-west at rotation 0, square across a channel that runs north-south through this reach (the traced centreline bears 010° between N +150 and N +165). WORKING UNCERTAINTY is the trace's own ±20 m, on top of the georeference's 20 m.",
+    "symbolic_location": "Where North Water Street crossed the unnamed slough on the north side of the main stem, above the funnel where that slough opens into the river and about two hundred metres south of Kinzie Street's own crossing of it.",
+    "uncertainty_m": 20,
+    "placement_provisional": false,
+    "vertical_anchor": "water",
+    "walk_surface_m": 0.68
+  },
+  "footprint": {
+    "polygon": [
+      [
+        0,
+        0
+      ],
+      [
+        12,
+        0
+      ],
+      [
+        12,
+        3
+      ],
+      [
+        0,
+        3
+      ]
+    ],
+    "confidence": "reconstructed",
+    "sources": [],
+    "note": "THE DECK, AND NOT ONE OF ITS NUMBERS IS A RECORD'S. Its u extent is the span, 12 m, and its v extent the width, 3 m. THE SPAN IS SIZED OFF THE STREAM, as both its siblings' are: 6.65 m of open water at this northing — 55 % of the span — with 2.60 m and 2.75 m of dry seat left at the two abutments. It is the La Salle crossing's span over a narrower channel, and it is not the Slough Log Bridge's 8 m because 8 m here would leave 0.7 m of seat at each end. THE WIDTH IS THE SMALLEST OF THE THREE AND THAT IS THE ARGUMENT FOR IT. Charles Cleaver's 'these bridges were ten feet wide' (3.05 m) is documented for the two BRANCH bridges and is only a yardstick here; 3.0 m is a hair under it, the same figure the Slough Log Bridge takes, and this crossing has less claim to width than either sibling. It carries North Water Street, whose own record calls its traffic `light` and gives it a 6.0 m track — against South Water Street's 10.5 m, which is what the La Salle crossing's 4.27 m deck answers to. A crossing wider than the road it carries needs is a claim, and nothing here supports one. THIS IS NOT A RIVER BRIDGE AND MUST NOT BE SIZED LIKE ONE: the two branch bridges span 72 m and 56 m; this is a street crossing of a six-metre backwater."
+  },
+  "attributes": {
+    "construction": {
+      "value": "log",
+      "confidence": "reconstructed",
+      "sources": [
+        "old_settlers_bridges_1883"
+      ],
+      "note": "NOT ATTESTED FOR THIS CROSSING. Log is what the source states for the State Street slough crossing ('a LOG bridge was needed until after 1840') and what the 1883 old-settlers statement describes on both branch bridges. Every crossing anybody in this town described was built of logs, and this one is reconstructed as the same. It is local practice, not evidence about this structure. ONLY ONE OF THE TWO SENTENCES IS CITED HERE. The State Street crossing's is chicagology_prefire273, whose rights_status is check_required: this project may quote such a source in text and may not derive an asset from it, and this attribute builds geometry. So the citation is the 1883 old-settlers statement, which is public domain and says the same thing about the two crossings it describes; the other sentence stands in this note as prose and carries no weight the mesh is built on."
+    },
+    "width_m": {
+      "value": 3.0,
+      "confidence": "reconstructed",
+      "note": "About a wagon wide, and reconstructed rather than inferred because there is no evidence about THIS crossing to reason from. See the footprint note for why it is the smallest of the three."
+    },
+    "clearance_m": {
+      "value": 0.35,
+      "confidence": "reconstructed",
+      "note": "INVENTED, AND READ OFF THE BANKS THIS DECK LANDS ON RATHER THAN BORROWED FROM A DOCUMENTED CROSSING. The branch bridges stood 'about six feet above the water, so that teams passed under them on the ice freely' (old_settlers_bridges_1883) — 1.83 m, and meaningless for a backwater nothing passed under. The Slough Log Bridge's record met the same problem and answered it with 0.5 m, read off the hydrology dossier's conjectural 1.5-3.0 ft thalweg. THIS RECORD ANSWERS IT WITH THE GROUND INSTEAD, because here the ground can be measured: the committed heightfield stands at +0.63 m where the west abutment lands and +0.73 m where the east one does, over a 0.00 m water surface. 0.35 m of clearance puts the walk surface at 0.68 m (0.35 + 0.25 stringer + 0.08 plank), within 0.05 m of both banks, so the deck lies level with the street at each end and needs no approach ramp — unlike its two siblings, which needed a cut and a fill respectively. A shallow slough crossed by a low deck laid level with its banks is the least this can be and still be a crossing. The number is invented; what bounds it is the two abutment heights. Admitted in docs/LIBERTIES.md."
+    },
+    "pier_count": {
+      "value": 0,
+      "confidence": "reconstructed",
+      "note": "Zero invents least, and the archetype accepts it explicitly — 'a short crossing lands abutment to abutment with nothing in the water'. Without a stated count it would fall back to a 4.5 m spacing and stand two supports in a six-metre stream. The branch bridges needed two bents each over 56 and 72 m; twelve metres of log stringer needs none."
+    },
+    "pier_kind": {
+      "value": "crib",
+      "confidence": "reconstructed",
+      "note": "Carried only because the archetype requires a kind; with pier_count 0 nothing is built from it. Crib is the value both siblings hold."
+    },
+    "deck_kind": {
+      "value": "puncheon",
+      "confidence": "reconstructed",
+      "note": "Not attested here. Puncheon — split logs laid flat side up — is what the 1883 old-settlers statement describes on both branch bridges, and a smaller, cruder, unremarked crossing on the town's lightest street is not going to have carried better."
+    },
+    "stringer_d_m": {
+      "value": 0.25,
+      "confidence": "reconstructed",
+      "note": "No figure is attested. 0.25 m is the Slough Log Bridge's, on the same reasoning — a stringer is sized to its span, and these two spans are 8 m and 12 m against the branch bridges' 56 and 72, which carry 0.30 m."
+    },
+    "plank_t_m": {
+      "value": 0.08,
+      "confidence": "reconstructed",
+      "note": "No figure is attested. 0.08 m of split-log floor, the Slough Log Bridge's figure, a little under the branch bridges' 0.09 m."
+    },
+    "function": {
+      "value": "street_crossing",
+      "confidence": "reconstructed",
+      "sources": [
+        "wright_1834"
+      ],
+      "note": "A street crossing over a backwater, and the least of the three. Its interest is that it is the only built thing on the North Division's river front that exists to answer the ground: the division's whole waterfront street is cut in two by a slough two hundred metres from the forks, and either the town got across it or the street stopped."
+    }
+  },
+  "residents": [],
+  "citations": [
+    {
+      "source_id": "chicagology_prefire273",
+      "citation": "\"Wolf's Point and the Town of Chicago.\" Chicagology. Transcribing the Chicago Magazine of 15 May 1857 — the account of the Wolf's Point settlement built on George Davis's 1832 drawing and on Gurdon S. Hubbard's own description of the place as he found it in 1818 — with A. T. Andreas and modern editorial matter around it.",
+      "url": "https://chicagology.com/prefire/prefire273/",
+      "archived_url": "https://web.archive.org/web/20260217122628/https://chicagology.com/prefire/prefire273/",
+      "tier": 2,
+      "tier_label": "near-primary recollection",
+      "transcribes": [
+        {
+          "work": "Chicago Magazine, 'Wolf's Point' — the account of the settlement at the forks, engraved from George Davis's 1832 drawing and incorporating Gurdon S. Hubbard's description of Chicago as he first saw it in 1818",
+          "date": "1857-05-15",
+          "tier": 2,
+          "note": "Carries the Miller House's log construction ('a log structure partly sided') and the Wolf Point Tavern's ('partly log and partly frame'), the fact of a frame element on each, and — through Hubbard — the marshy river-shore strip that grades the south division's marsh surface in terrain_spec.json. Twenty-five years after the fact, from a resident's drawing and a named witness speaking to the writer: rung 2."
+        }
+      ]
+    },
+    {
+      "source_id": "old_settlers_bridges_1883",
+      "citation": "Statement on the first bridges over the branches of the Chicago River, agreed at a meeting of old settlers held late in the fall of 1883 and signed J. D. Caton, John Bates, Charles Cleaver and John Noble; presented to the editors by John Bates and printed as a footnote in Andreas, History of Chicago, vol. 1 (Chicago: A. T. Andreas, 1884), pp. 631-632.",
+      "url": "https://archive.org/details/historyofchicago01andr",
+      "archived_url": "",
+      "tier": 2,
+      "tier_label": "near-primary recollection"
+    },
+    {
+      "source_id": "osm_streets_2026",
+      "citation": "OpenStreetMap contributors. Street centerline intersection nodes for downtown Chicago, retrieved via the Overpass API, 2026-08-09.",
+      "url": "https://www.openstreetmap.org/",
+      "archived_url": "https://overpass-api.de/",
+      "tier": 4,
+      "tier_label": "later scholarship"
+    },
+    {
+      "source_id": "wright_1834",
+      "citation": "Wright, J. S. Chicago, drawn by J. S. Wright according to survey. New York: P. A. Mesier's Lith., 1834.",
+      "url": "https://collections.leventhalmap.org/search/commonwealth:js9577436",
+      "archived_url": "",
+      "tier": 1,
+      "tier_label": "period/eyewitness",
+      "what_it_supplies": [
+        "street geometry",
+        "block and lot subdivision",
+        "shoreline",
+        "river channel and the 1834 cut",
+        "survey-date colouring"
+      ],
+      "what_it_does_not_supply": [
+        "building footprints",
+        "building locations"
+      ]
+    }
+  ],
+  "research_note": "THE THINNEST OF THIS DATASET'S THREE SLOUGH CROSSINGS, and it is worth saying which way the thinness runs. The State Street crossing is attested in a sentence. The La Salle crossing is unattested but was built on the owner's explicit ruling that a drain reaching the river must be crossed rather than dammed. This one rests on a platted street meeting a mapped watercourse and nothing else. WHAT IS ACTUALLY EVIDENCE: Wright 1834 draws the slough running north out of the main stem across Kinzie Street to Michigan Street (hydrology.geojson, confidence `attested`), and the 1830 Thompson plat lays North Water Street along the river's north side. Those two lines meet. Everything past that — that anyone bridged it, when, of what, how wide, how high — is reconstructed, and the record says so attribute by attribute. WHY IT WAS BUILT NOW: T-0226 re-derived North Water Street from the committed north bank after finding 477 m of its old line inside the water mask, and stopped the derived line on the slough's east shoulder because a road ribbon may not paint a ford. That left the North Division's river-front street ending in mid-air at E +240 with no roadway at all west of it. This crossing is what carries it over, and tools/derive_north_water.py reads the deck out of this record to place the street's own bend in the water above it — which is what makes the renderer drop the two panels the deck replaces instead of drawing planks over a stream. THE ONE THING A READER SHOULD DOUBT FIRST is whether North Water Street reached this far west in 1835 at all. Nothing places a building on the west side of the slough on the river front, and the North Division's own initial parcel puts its roofs north of N +105. If that street did not run, this crossing did not stand. Recorded in docs/LIBERTIES.md and measured on every commit by tools/measure_slough_crossing.py.",
+  "research_doc": "",
+  "review_required": false
+}

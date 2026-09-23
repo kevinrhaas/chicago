@@ -1,0 +1,113 @@
+{
+  "schema": 1,
+  "domain": "church",
+  "generated_by": "hand — a reading pass declares the range it read, and the gate checks it",
+  "note": "An UNDECLARED item is not read yet and is not a fault. A DECLARED item nothing reaches is a hole, and that is what this file is for.",
+  "declarations": [
+    {
+      "unit": "image",
+      "ticket": "T-0503",
+      "items": [
+        "S3HT-DHG9-SLR",
+        "S3HT-DHG9-SKB",
+        "S3HT-DHG9-SK8",
+        "S3HT-DHG9-S1B",
+        "S3HT-DHG9-SKM",
+        "S3HT-DHG9-9YM",
+        "S3HT-DHG9-SKW",
+        "S3HT-DHG9-S1C",
+        "S3HT-DHG9-ST3",
+        "S3HT-DHG9-SJ8",
+        "S3HT-DHG9-926"
+      ],
+      "counts": {
+        "images": 11,
+        "entries": 57,
+        "named_readings": 267
+      },
+      "what_was_read": "ALL ELEVEN deposited page images of St Mary's baptismal register (chicago/reference/catholic-baptisms-1833-1835/S3HT-DHG9-*.jpg), read off the scans entry by entry: the title page, pages 1 to 19 of the book, and one stray later leaf. That is the whole baptismal section of 1833-1835 and it is contiguous — 57 entries, 267 named readings, and the book's own pencil tallies (1833: 19, 1834: 24, 1835: 14) agree entry for entry with the reading. Entries 1 to 11 of 1834 are NOT Chicago: they were written at Bear Creek, the South Fork of the Sangamon and Springfield, in Sangamon County, on St. Cyr's journey back from St. Louis, and those rows carry at_chicago: false.",
+      "what_was_not_read": "One line: the sponsors of 1834 entry 4, which stood on the last ruled line at the foot of page 7 and falls outside the scan's frame. They are not illegible — they are not in the deposit. Two page-sides carry entries OUTSIDE the window and are declared rather than transcribed: one 1849 entry (no. 40) in Father O'Meara's hand at the foot of page 6, and a stray leaf of four entries numbered 130-133, dated 1837-1838 and faded almost past reading. Both are described in the records file's out_of_window block so a later run does not read them again as if unread."
+    },
+    {
+      "unit": "page",
+      "ticket": "T-0583",
+      "items": [
+        "second_presbyterian_1892_printed_154",
+        "second_presbyterian_1892_printed_155",
+        "second_presbyterian_1892_printed_156",
+        "second_presbyterian_1892_printed_157",
+        "second_presbyterian_1892_printed_158",
+        "second_presbyterian_1892_printed_159",
+        "second_presbyterian_1892_printed_160",
+        "second_presbyterian_1892_printed_161",
+        "second_presbyterian_1892_printed_162",
+        "second_presbyterian_1892_printed_163",
+        "second_presbyterian_1892_printed_164",
+        "second_presbyterian_1892_printed_165",
+        "second_presbyterian_1892_printed_166",
+        "second_presbyterian_1892_printed_167",
+        "second_presbyterian_1892_printed_168",
+        "second_presbyterian_1892_printed_169",
+        "second_presbyterian_1892_printed_170",
+        "second_presbyterian_1892_printed_171",
+        "second_presbyterian_1892_printed_172",
+        "second_presbyterian_1892_printed_173",
+        "second_presbyterian_1892_printed_174",
+        "second_presbyterian_1892_printed_175",
+        "second_presbyterian_1892_printed_176",
+        "second_presbyterian_1892_printed_177",
+        "second_presbyterian_1892_printed_178",
+        "second_presbyterian_1892_printed_179",
+        "second_presbyterian_1892_printed_180",
+        "second_presbyterian_1892_printed_181",
+        "second_presbyterian_1892_printed_182",
+        "second_presbyterian_1892_printed_183",
+        "second_presbyterian_1892_printed_184",
+        "second_presbyterian_1892_printed_185",
+        "second_presbyterian_1892_printed_186",
+        "second_presbyterian_1892_printed_187",
+        "second_presbyterian_1892_printed_188",
+        "second_presbyterian_1892_printed_189",
+        "second_presbyterian_1892_printed_190",
+        "second_presbyterian_1892_printed_191",
+        "second_presbyterian_1892_printed_192",
+        "second_presbyterian_1892_printed_193",
+        "second_presbyterian_1892_printed_194",
+        "second_presbyterian_1892_printed_195",
+        "second_presbyterian_1892_printed_196",
+        "second_presbyterian_1892_printed_197",
+        "second_presbyterian_1892_printed_198",
+        "second_presbyterian_1892_printed_199",
+        "second_presbyterian_1892_printed_200",
+        "second_presbyterian_1892_printed_201",
+        "second_presbyterian_1892_printed_202",
+        "second_presbyterian_1892_printed_203",
+        "second_presbyterian_1892_printed_204",
+        "second_presbyterian_1892_printed_205",
+        "second_presbyterian_1892_printed_206"
+      ],
+      "counts": {
+        "pages": 53,
+        "roll_lines": 2255,
+        "lines_whose_surname_this_project_holds": 938,
+        "distinct_surnames": 962
+      },
+      "what_was_read": "ALL FIFTY-THREE printed pages of A LIST OF MEMBERS OF THE CHURCH, 1842-1892 in the Second Presbyterian Church of Chicago's semi-centennial volume (Chicago: Knight, Leonard & Co., 1892), printed pages 154-206 — the three rolls it is set in: NAMES OF ABSENT MEMBERS (154-156, 113 lines), PRESENT MEMBERS (157-175, 804 lines) and NAMES OF MEMBERS DISMISSED, DECEASED OR ORDAINED TO THE MINISTRY (176-206, 1,338 lines). Every line of all three is read: name, how admitted, when admitted, and the remark where the roll carries one. The reading is made from the scan's word COORDINATES rather than its flat text, because the flat OCR shuffles a four-column table; tools/read_second_presbyterian.py --fetch commits the text and the row map and --check rebuilds the records offline out of both.",
+      "what_was_not_read": "Printed page 153, which carries the roll's heading and no line. The volume's narrative chapters (printed 1-152), its lists of pastors, elders, deacons, trustees and Sunday-school superintendents, the account of the semi-centennial itself (printed 207 onwards) and the Sunday-school rolls (printed 250 onwards) are outside this declaration and are not read. Twenty-six admission dates inside the read pages are DESTROYED in this scan and are committed null with their ink kept in as_printed; the two other digitisations of the same printing are named in search_log_second_presbyterian.json as the collation that would settle them, and it was not made."
+    },
+    {
+      "unit": "list",
+      "ticket": "T-0573",
+      "items": [
+        "st_cyr_marriages_1834_1839",
+        "st_cyr_deaths_1834_1837"
+      ],
+      "counts": {
+        "st_cyr_marriages_1834_1839": 513,
+        "st_cyr_deaths_1834_1837": 13
+      },
+      "what_was_read": "Both pages of genealogytrails.com/ill/cook printing Father St. Cyr's register out of the Illinois Catholic Historical Review vol. 4: the marriage register (128 entries, 513 named readings) and the death and burial page (11 entries, 13 named readings), in full, including the article's prose and every footnote.",
+      "what_was_not_read": "THE BAPTISMS. The same article tallies 282 baptisms by the same three priests and this page prints none of them. They are NOT undeclared any more: T-0503 read them off the register's own eleven page images and declared all eleven under its own ticket in this file. What this page did not carry, the scans did."
+    }
+  ]
+}

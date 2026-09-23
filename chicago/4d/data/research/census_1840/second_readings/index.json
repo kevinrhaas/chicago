@@ -1,0 +1,686 @@
+{
+  "schema": 1,
+  "purpose": "Preserve independent readings from superseded PRs. These are not fed to census, identity, population or scene derivations. The canonical page remains the reading under pages/.",
+  "readings": [
+    {
+      "pr": 1018,
+      "head_sha": "c8ec6e8282419725c6f7a19e18fb33fd6ac5e2f4",
+      "original_path": "data/research/census_1840/pages/33S7-9YYJ-6H.json",
+      "archive_path": "data/research/census_1840/second_readings/pr1018-33S7-9YYJ-6H.json",
+      "sha256": "b89ec6217205a69ab60387c83be917443d6c5df8e00d239dc4b301dfb36c0de6",
+      "canonical_path": "data/research/census_1840/pages/33S7-9YYJ-6H.json",
+      "status": "alternate reading retained; not an additional enumeration page",
+      "name_reading_differences": []
+    },
+    {
+      "pr": 1011,
+      "head_sha": "a7e486d084712b644fd01f162e6a0ee9632db898",
+      "original_path": "data/research/census_1840/pages/nara_m704_r57_n167.json",
+      "archive_path": "data/research/census_1840/second_readings/pr1011-nara_m704_r57_n167.json",
+      "sha256": "45d1599865fe51e470d860ebdd1bda1e7887020798597805b396771a55155183",
+      "canonical_path": "data/research/census_1840/pages/m704_r57_n167.json",
+      "status": "alternate reading retained; not an additional enumeration page",
+      "name_reading_differences": []
+    },
+    {
+      "pr": 1009,
+      "head_sha": "ca5467de8fc71cbf0f47c58077ac322dcec1d25a",
+      "original_path": "data/research/census_1840/pages/33SQ-GYYJ-RY.json",
+      "archive_path": "data/research/census_1840/second_readings/pr1009-33SQ-GYYJ-RY.json",
+      "sha256": "982790bc2f921fed0c04f93f5c880b1dd6f7ddec7fbe82aa0189bb5173d84321",
+      "canonical_path": "data/research/census_1840/pages/33SQ-GYYJ-RY.json",
+      "status": "alternate reading retained; not an additional enumeration page",
+      "name_reading_differences": [
+        {
+          "line": "1",
+          "alternate": {
+            "as_read": "[?] Sawyer",
+            "normalized": "P. Sawyer"
+          },
+          "canonical": {
+            "as_read": "[?] Sawyer",
+            "normalized": "[?] Sawyer"
+          }
+        },
+        {
+          "line": "10",
+          "alternate": {
+            "as_read": "Jno. Harvey.",
+            "normalized": "John Harvey"
+          },
+          "canonical": {
+            "as_read": "W[m]. [W]arner",
+            "normalized": "William Warner"
+          }
+        },
+        {
+          "line": "11",
+          "alternate": {
+            "as_read": "Geo. E. L[?]",
+            "normalized": "Geo. E. L[?]"
+          },
+          "canonical": {
+            "as_read": "Ja[s]. C. [?]",
+            "normalized": "Jas. C. [?]"
+          }
+        },
+        {
+          "line": "12",
+          "alternate": {
+            "as_read": "[?]. W. Sh[e]r[er]",
+            "normalized": "[?] W. Sherer"
+          },
+          "canonical": {
+            "as_read": "[?] H. Sherm[an]",
+            "normalized": "[?] H. Sherman"
+          }
+        },
+        {
+          "line": "13",
+          "alternate": {
+            "as_read": "W. F. Butler",
+            "normalized": "W. F. Butler"
+          },
+          "canonical": {
+            "as_read": "[?]. [K]. Bul[l]",
+            "normalized": "[?] K. Bull"
+          }
+        },
+        {
+          "line": "14",
+          "alternate": {
+            "as_read": "Jno. Davis",
+            "normalized": "John Davis"
+          },
+          "canonical": {
+            "as_read": "John Davis",
+            "normalized": "John Davis"
+          }
+        },
+        {
+          "line": "15",
+          "alternate": {
+            "as_read": "Isaac [S]ilverna[?]",
+            "normalized": "Isaac Silvernal"
+          },
+          "canonical": {
+            "as_read": "Isaac [?] W[il]mo[t]h",
+            "normalized": "Isaac [?] Wilmoth"
+          }
+        },
+        {
+          "line": "16",
+          "alternate": {
+            "as_read": "Mary Hill[a]rd",
+            "normalized": "Mary Hillard"
+          },
+          "canonical": {
+            "as_read": "Mary Willard",
+            "normalized": "Mary Willard"
+          }
+        },
+        {
+          "line": "17",
+          "alternate": {
+            "as_read": "Martin Sha[n]uel",
+            "normalized": "Martin Shanuel"
+          },
+          "canonical": {
+            "as_read": "Martin Stewart",
+            "normalized": "Martin Stewart"
+          }
+        },
+        {
+          "line": "18",
+          "alternate": {
+            "as_read": "[?]. [?]. K[o]elbach",
+            "normalized": "[?] Koelbach"
+          },
+          "canonical": {
+            "as_read": "F[r]. Ka[l]bfl[ei]sch",
+            "normalized": "[?] Kalbfleisch"
+          }
+        },
+        {
+          "line": "19",
+          "alternate": {
+            "as_read": "James N. Morrison",
+            "normalized": "James N. Morrison"
+          },
+          "canonical": {
+            "as_read": "Jam[e]s [?] Morrison",
+            "normalized": "James Morrison"
+          }
+        },
+        {
+          "line": "20",
+          "alternate": {
+            "as_read": "L. And[re]ws",
+            "normalized": "L. Andrews"
+          },
+          "canonical": {
+            "as_read": "L. Chr[is]t[ia]n[s]",
+            "normalized": "L. Christians"
+          }
+        },
+        {
+          "line": "21",
+          "alternate": {
+            "as_read": "Geo. E. Howe",
+            "normalized": "George E. Howe"
+          },
+          "canonical": {
+            "as_read": "Geo. C. Mo[r]e",
+            "normalized": "George C. More"
+          }
+        },
+        {
+          "line": "22",
+          "alternate": {
+            "as_read": "J. K. Wiggin[s]",
+            "normalized": "J. K. Wiggins"
+          },
+          "canonical": {
+            "as_read": "[J]. Kir[t]la[n]d",
+            "normalized": "J. Kirtland"
+          }
+        },
+        {
+          "line": "23",
+          "alternate": {
+            "as_read": "Jas. Clement[s]",
+            "normalized": "James Clements"
+          },
+          "canonical": {
+            "as_read": "Jas. Edmu[n]ds",
+            "normalized": "James Edmunds"
+          }
+        },
+        {
+          "line": "24",
+          "alternate": {
+            "as_read": "John K[a]nt",
+            "normalized": "John Kant"
+          },
+          "canonical": {
+            "as_read": "John P[e]irc[e]",
+            "normalized": "John Peirce"
+          }
+        },
+        {
+          "line": "25",
+          "alternate": {
+            "as_read": "A. Lawrence",
+            "normalized": "A. Lawrence"
+          },
+          "canonical": {
+            "as_read": "[P]. Lawrence",
+            "normalized": "P. Lawrence"
+          }
+        },
+        {
+          "line": "26",
+          "alternate": {
+            "as_read": "J. C. Wal[t]er",
+            "normalized": "J. C. Walter"
+          },
+          "canonical": {
+            "as_read": "[J]. [C]. Walker",
+            "normalized": "J. C. Walker"
+          }
+        },
+        {
+          "line": "27",
+          "alternate": {
+            "as_read": "[P]hil. Williams",
+            "normalized": "Phil. Williams"
+          },
+          "canonical": {
+            "as_read": "[W]m. Williams",
+            "normalized": "William Williams"
+          }
+        },
+        {
+          "line": "28",
+          "alternate": {
+            "as_read": "Wm. Holmes",
+            "normalized": "William Holmes"
+          },
+          "canonical": {
+            "as_read": "W. Nelson",
+            "normalized": "W. Nelson"
+          }
+        },
+        {
+          "line": "29",
+          "alternate": {
+            "as_read": "George Merrill",
+            "normalized": "George Merrill"
+          },
+          "canonical": {
+            "as_read": "Geo. Merrill",
+            "normalized": "George Merrill"
+          }
+        },
+        {
+          "line": "3",
+          "alternate": {
+            "as_read": "And[?]son S. Cox",
+            "normalized": "Anderson S. Cox"
+          },
+          "canonical": {
+            "as_read": "And[e]rson [L]. Co[x]",
+            "normalized": "Anderson L. Cox"
+          }
+        },
+        {
+          "line": "31",
+          "alternate": {
+            "as_read": "Jo[s]. Barton",
+            "normalized": "Jos. Barton"
+          },
+          "canonical": {
+            "as_read": "John Parkin",
+            "normalized": "John Parkin"
+          }
+        },
+        {
+          "line": "4",
+          "alternate": {
+            "as_read": "Robert Bade[?]",
+            "normalized": "Robert Bader"
+          },
+          "canonical": {
+            "as_read": "Robert Ba[d]y",
+            "normalized": "Robert Bady"
+          }
+        },
+        {
+          "line": "5",
+          "alternate": {
+            "as_read": "D. H. W[?]stendart",
+            "normalized": "D. H. Westendart"
+          },
+          "canonical": {
+            "as_read": "D. H. [?]anda[c]k",
+            "normalized": "D. H. [?]"
+          }
+        },
+        {
+          "line": "6",
+          "alternate": {
+            "as_read": "Marg[?]t Harra[e]d",
+            "normalized": "Margaret Harraed"
+          },
+          "canonical": {
+            "as_read": "Marg[u]erite M[e]rra[r]d",
+            "normalized": "Marguerite Merrard"
+          }
+        },
+        {
+          "line": "7",
+          "alternate": {
+            "as_read": "David Parmeter",
+            "normalized": "David Parmeter"
+          },
+          "canonical": {
+            "as_read": "David Bra[m]elin",
+            "normalized": "David Bramelin"
+          }
+        },
+        {
+          "line": "8",
+          "alternate": {
+            "as_read": "Rob[t]. H. Yates",
+            "normalized": "Robert H. Yates"
+          },
+          "canonical": {
+            "as_read": "Robt. Watts",
+            "normalized": "Robert Watts"
+          }
+        }
+      ]
+    },
+    {
+      "pr": 1009,
+      "head_sha": "ca5467de8fc71cbf0f47c58077ac322dcec1d25a",
+      "original_path": "data/research/census_1840/pages/33SQ-GYYJ-RK.json",
+      "archive_path": "data/research/census_1840/second_readings/pr1009-33SQ-GYYJ-RK.json",
+      "sha256": "fff1f1831c90b0db7245f170d19ab3444d2806bc17a5369fec1983cb8b2c2727",
+      "canonical_path": "data/research/census_1840/pages/33SQ-GYYJ-RK.json",
+      "status": "alternate reading retained; not an additional enumeration page",
+      "name_reading_differences": [
+        {
+          "line": "1",
+          "alternate": {
+            "as_read": "Casper Miller",
+            "normalized": "Casper Miller"
+          },
+          "canonical": {
+            "as_read": "Casper [M]uller",
+            "normalized": "Casper Muller"
+          }
+        },
+        {
+          "line": "10",
+          "alternate": {
+            "as_read": "Sam[l]. McClure",
+            "normalized": "Samuel McClure"
+          },
+          "canonical": {
+            "as_read": "[?] W[m]. C[l]on[e]",
+            "normalized": "[?] William Clone"
+          }
+        },
+        {
+          "line": "11",
+          "alternate": {
+            "as_read": "[?]. H. Drader",
+            "normalized": "[?] H. Drader"
+          },
+          "canonical": {
+            "as_read": "[A]. [N]. Dea[r]d[e]n",
+            "normalized": "A. N. Dearden"
+          }
+        },
+        {
+          "line": "12",
+          "alternate": {
+            "as_read": "E. [A]. Ru[c]ker",
+            "normalized": "E. A. Rucker"
+          },
+          "canonical": {
+            "as_read": "[E]. [K]. [?]",
+            "normalized": "[?]"
+          }
+        },
+        {
+          "line": "13",
+          "alternate": {
+            "as_read": "E. C. Ryan",
+            "normalized": "E. C. Ryan"
+          },
+          "canonical": {
+            "as_read": "[H]. [H]. Ryan",
+            "normalized": "H. H. Ryan"
+          }
+        },
+        {
+          "line": "14",
+          "alternate": {
+            "as_read": "Ludwig Abell",
+            "normalized": "Ludwig Abell"
+          },
+          "canonical": {
+            "as_read": "Chaunc[y] [S]hell",
+            "normalized": "Chauncy Shell"
+          }
+        },
+        {
+          "line": "15",
+          "alternate": {
+            "as_read": "[D]. B. Potts",
+            "normalized": "D. B. Potts"
+          },
+          "canonical": {
+            "as_read": "[Jos]. Pat[h]",
+            "normalized": "Jos. Path"
+          }
+        },
+        {
+          "line": "16",
+          "alternate": {
+            "as_read": "N. K. Bat[h]",
+            "normalized": "N. K. Bath"
+          },
+          "canonical": {
+            "as_read": "[?]. [B]. Ba[?]",
+            "normalized": "[?]"
+          }
+        },
+        {
+          "line": "17",
+          "alternate": {
+            "as_read": "Robert [B]olga[n]",
+            "normalized": "Robert Bolgan"
+          },
+          "canonical": {
+            "as_read": "Robert [F]ol[g]an",
+            "normalized": "Robert Folgan"
+          }
+        },
+        {
+          "line": "18",
+          "alternate": {
+            "as_read": "Wm. Ra[n]ki[n]",
+            "normalized": "William Rankin"
+          },
+          "canonical": {
+            "as_read": "[W]m. Ra[n]kin",
+            "normalized": "William Rankin"
+          }
+        },
+        {
+          "line": "19",
+          "alternate": {
+            "as_read": "J. D. Child[s]",
+            "normalized": "J. D. Childs"
+          },
+          "canonical": {
+            "as_read": "[?] A[b]e[l]e[s]",
+            "normalized": "[?] Abeles"
+          }
+        },
+        {
+          "line": "2",
+          "alternate": {
+            "as_read": "Mrs. Nancy S[k]iner",
+            "normalized": "Mrs. Nancy Skinner"
+          },
+          "canonical": {
+            "as_read": "W[m]. [?] Sh[e]n[e]r",
+            "normalized": "William [?] Shener"
+          }
+        },
+        {
+          "line": "20",
+          "alternate": {
+            "as_read": "S. R. Hod[g]son",
+            "normalized": "S. R. Hodgson"
+          },
+          "canonical": {
+            "as_read": "[W]. [H]o[d]son",
+            "normalized": "W. Hodson"
+          }
+        },
+        {
+          "line": "21",
+          "alternate": {
+            "as_read": "Chas. Parker",
+            "normalized": "Charles Parker"
+          },
+          "canonical": {
+            "as_read": "[H]. [Sp]a[rk]e[r]",
+            "normalized": "H. Sparker"
+          }
+        },
+        {
+          "line": "22",
+          "alternate": {
+            "as_read": "John G[r]in[k]",
+            "normalized": "John Grink"
+          },
+          "canonical": {
+            "as_read": "John H[e]in[i]ck",
+            "normalized": "John Heinick"
+          }
+        },
+        {
+          "line": "23",
+          "alternate": {
+            "as_read": "C. S. Wil[d]er",
+            "normalized": "C. S. Wilder"
+          },
+          "canonical": {
+            "as_read": "[Jos]. Whit[a]k[e]r",
+            "normalized": "Jos. Whitaker"
+          }
+        },
+        {
+          "line": "24",
+          "alternate": {
+            "as_read": "John G. Ragan",
+            "normalized": "John G. Ragan"
+          },
+          "canonical": {
+            "as_read": "John Rogan",
+            "normalized": "John Rogan"
+          }
+        },
+        {
+          "line": "25",
+          "alternate": {
+            "as_read": "A. S. Penne[y]",
+            "normalized": "A. S. Penney"
+          },
+          "canonical": {
+            "as_read": "A. [S]. Benne[t]",
+            "normalized": "A. S. Bennet"
+          }
+        },
+        {
+          "line": "26",
+          "alternate": {
+            "as_read": "Peter Page",
+            "normalized": "Peter Page"
+          },
+          "canonical": {
+            "as_read": "Th[os]. P[ag]e",
+            "normalized": "Thomas Page"
+          }
+        },
+        {
+          "line": "27",
+          "alternate": {
+            "as_read": "[?]ny M[o]lcor[k]",
+            "normalized": "[?]ny Molcork"
+          },
+          "canonical": {
+            "as_read": "[Ja]s. M[c]Lea[n]",
+            "normalized": "James McLean"
+          }
+        },
+        {
+          "line": "28",
+          "alternate": {
+            "as_read": "J. A. Ballantine",
+            "normalized": "J. A. Ballantine"
+          },
+          "canonical": {
+            "as_read": "[L]. [A]. [R]a[ll]s[t]one",
+            "normalized": "L. A. Rallstone"
+          }
+        },
+        {
+          "line": "29",
+          "alternate": {
+            "as_read": "N. H. Magie",
+            "normalized": "N. H. Magie"
+          },
+          "canonical": {
+            "as_read": "M. [H]. Magi[e]",
+            "normalized": "M. H. Magie"
+          }
+        },
+        {
+          "line": "3",
+          "alternate": {
+            "as_read": "W. B. [B]ischof",
+            "normalized": "W. B. Bischof"
+          },
+          "canonical": {
+            "as_read": "[D]. [B]. [F]ischo[f]",
+            "normalized": "D. B. Fischof"
+          }
+        },
+        {
+          "line": "30",
+          "alternate": {
+            "as_read": "F. C. Sherman",
+            "normalized": "F. C. Sherman"
+          },
+          "canonical": {
+            "as_read": "[F]. C. Sherman",
+            "normalized": "F. C. Sherman"
+          }
+        },
+        {
+          "line": "4",
+          "alternate": {
+            "as_read": "Eth[an] [?] Small",
+            "normalized": "Ethan [?] Small"
+          },
+          "canonical": {
+            "as_read": "E[ph]e[a]n [?] Sha[i]l[s]",
+            "normalized": "[?] Shails"
+          }
+        },
+        {
+          "line": "5",
+          "alternate": {
+            "as_read": "Chas. Raymond",
+            "normalized": "Charles Raymond"
+          },
+          "canonical": {
+            "as_read": "Ch[s]. Raymond",
+            "normalized": "Charles Raymond"
+          }
+        },
+        {
+          "line": "6",
+          "alternate": {
+            "as_read": "W. B. Cart[er]",
+            "normalized": "W. B. Carter"
+          },
+          "canonical": {
+            "as_read": "[N]. B. Ca[r]t[e]r",
+            "normalized": "N. B. Carter"
+          }
+        },
+        {
+          "line": "7",
+          "alternate": {
+            "as_read": "Nathan E. King",
+            "normalized": "Nathan E. King"
+          },
+          "canonical": {
+            "as_read": "Nath[a]n [E]. King",
+            "normalized": "Nathan E. King"
+          }
+        },
+        {
+          "line": "8",
+          "alternate": {
+            "as_read": "[Ch]adwell & H. Neal",
+            "normalized": "Chadwell & H. Neal"
+          },
+          "canonical": {
+            "as_read": "[Ch]ad[w]ell & H. Vail",
+            "normalized": "Chadwell & H. Vail"
+          }
+        },
+        {
+          "line": "9",
+          "alternate": {
+            "as_read": "J. M. Bag[ie]r",
+            "normalized": "J. M. Bagier"
+          },
+          "canonical": {
+            "as_read": "[S]. M. Wag[e]r",
+            "normalized": "S. M. Wager"
+          }
+        }
+      ]
+    }
+  ]
+}

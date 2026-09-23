@@ -1,0 +1,525 @@
+{
+  "id": "z09_sand_prairie",
+  "zone": 9,
+  "name": "Dry sand prairie on relict beach ridges",
+  "dossier": "docs/research/02-flora.md § ZONE 9",
+  "scene_date": "1835-07-01",
+  "palette": "july_lake_sand",
+  "reads_as": "a sparse patchy bunchgrass sward with bare sand showing through, lit by orange butterfly weed and nodding pink onion",
+  "plantable_in_scene": true,
+  "cover": {
+    "matrix_fraction": 0.6,
+    "bare_soil_fraction": 0.18,
+    "standing_water_fraction": 0.0
+  },
+  "woody_stratum": {
+    "establishes_m": [
+      1.22,
+      2.32
+    ],
+    "measured_from": "metres above the summer-1835 water surface, as data/terrain/epochs/*/meta.json emits it",
+    "applies_to_roles": [
+      "shrub_low",
+      "thicket",
+      "tree"
+    ],
+    "confidence": "inferred",
+    "sources": [
+      "andreas_1884_v1",
+      "chicagology_prefire274",
+      "cowles_1901",
+      "mnfi_open_dunes",
+      "wright_1834"
+    ],
+    "note": "WHAT SEPARATES THE SANDY HILLS FROM THE ACTIVE SAND, recorded here because it was prose in this zone's own extent note and a renderer cannot read prose (T-1056). Andreas excepts \"the sandy hills near the lake\" from the North Division timber, and the exception is to the HILLS: chicagology_prefire274 describes \"the white sand hills both to the north and south\" and, separately, the long low sandy barrier ridge that deflected the river — two landforms, not one. z09_sand_prairie's extent note puts the relict-ridge belt at +7.6 to +9.5 ft above the water, so 7.6 ft (2.32 m) is the recorded floor of the ground the sources call a hill. The bar across the mouth is the other end: data/terrain/epochs/e1834_harbor_cut/terrain_spec.json islands[0] argues its crest to +4 ft (1.22 m) from a feature Fort Dearborn work parties trenched with hand tools between 1816 and 1828 and a February 1834 storm breached outright. Cowles 1901 reads this shore landform by landform: woody growth belongs to the STABILISED dune, and the active strand carries none. Ground the lake still reworks does not hold a sand cherry, a red-osier or a black-oak grub, so the woody stratum establishes across the interval between the two recorded elevations and not below it. THE TWO ENDS ARE RECORDED; THE SHAPE BETWEEN THEM IS NOT — no source states a step or a ramp, and the smooth ramp the renderers apply over this band is this project's own choice, admitted at docs/LIBERTIES.md L233. This is a bound on the WOODY stratum alone: the matrix, ground and forb records are what the dossier gives for the beach and the foredune and they are unchanged. IN THIS ZONE THE BOUND SPLITS THE BELT. Measured on the committed e1834_harbor_cut heightfield at 5 m spacing, this zone wins 13,510 land samples: 8,243 stand at or above 2.32 m and keep the black-oak grubs whole, 3,498 stand on low ground west and south of the ridges, and 1,769 fall inside the traced sand bar, where this zone's box overlaps it west of E +1400. The grubs are recorded as fire-set-back oak on relict BEACH RIDGES, which is the same landform Andreas calls a hill; thinning them off the low ground is this record's own claim applied, not a new one."
+  },
+  "ground": {
+    "rgb": [
+      168,
+      158,
+      124
+    ],
+    "wet_rgb": [
+      132,
+      124,
+      100
+    ]
+  },
+  "extent": {
+    "kind": "everywhere",
+    "box": {
+      "e": [
+        840,
+        1400
+      ],
+      "n": [
+        -400,
+        400
+      ]
+    },
+    "priority": 40,
+    "confidence": "inferred",
+    "sources": [],
+    "note": "PRIORITY RAISED 11 -> 40, 2026-08-11. Same correction as z08 and for the same reason — the relict beach-ridge belt was losing to the mesic-prairie elevation band that runs across it. 40 sits just below the lakeshore at 45 so that where the two boxes meet at E +1400 the open beach wins over the older ridges, which is the seaward order. PLANTABLE SINCE 2026-08-11. This community was written and then withheld: the ground it describes did not exist in the model. ROADMAP S2e has since extended the heightfield east from a 640 m square to E -320..+1700, and this zone's extent now matches 14,577 samples of the committed terrain, so it is planted. Nothing about the species, the July phenology or the confidence has changed — the records were always ready and the ground was not. WHAT THE ORIGINAL NOTE SAID, kept because it was correct when it was written: PLANTABLE SINCE 2026-08-11, when ROADMAP S2e parcel (b) carried the heightfield east to E +1700. The relict beach-ridge belt runs from the State Street break-of-slope — the terrain spec builds that band between E +780 and +880, centred on the two State Street ground-control points at E +837.6 and +822.5 — east to the lakeshore sand ridges, and all of it is modelled ground now, standing at +7.6 to +9.5 ft above the water. The north-south bounds are the scene's own, not the belt's. NOT FIXED HERE, for the flora parcel: at priority 11 this zone loses everywhere to z02_mesic_prairie (priority 22), so the dry sand prairie is currently planted as mesic prairie — the opposite of the 10-25 per cent bare sand this record exists to state."
+  },
+  "species": [
+    {
+      "id": "schizachyrium_scoparium",
+      "binomial": "Schizachyrium scoparium",
+      "common": "little bluestem",
+      "role": "matrix",
+      "form": "grass_clump",
+      "abundance": {
+        "cover_fraction": [
+          0.35,
+          0.5
+        ]
+      },
+      "height_m": [
+        0.3,
+        0.5
+      ],
+      "width_m": [
+        0.2,
+        0.35
+      ],
+      "july": {
+        "phenology": "vegetative",
+        "foliage_rgb": [
+          112,
+          132,
+          104
+        ],
+        "inflorescence": null,
+        "appearance": "Blue-green bunches with bare sand showing between them — sparse and patchy, NOT a closed sward."
+      },
+      "confidence": "attested",
+      "sources": [
+        "fpdcc_ecosystems",
+        "swink_wilhelm_1994"
+      ]
+    },
+    {
+      "id": "andropogon_gerardii",
+      "binomial": "Andropogon gerardii",
+      "common": "big bluestem",
+      "role": "matrix",
+      "form": "grass_clump",
+      "abundance": {
+        "cover_fraction": [
+          0.1,
+          0.2
+        ]
+      },
+      "height_m": [
+        0.5,
+        0.9
+      ],
+      "width_m": [
+        0.25,
+        0.45
+      ],
+      "july": {
+        "phenology": "vegetative",
+        "foliage_rgb": [
+          98,
+          120,
+          90
+        ],
+        "inflorescence": null,
+        "appearance": "Dwarfed on sand, shorter than it grows on clay."
+      },
+      "confidence": "inferred",
+      "sources": [
+        "swink_wilhelm_1994"
+      ],
+      "note": "Dossier [I]: the dwarfing on sand is a regional observation, not a site record."
+    },
+    {
+      "id": "koeleria_macrantha",
+      "binomial": "Koeleria macrantha",
+      "common": "June grass",
+      "role": "matrix",
+      "form": "grass_fine",
+      "abundance": {
+        "cover_fraction": [
+          0.03,
+          0.08
+        ]
+      },
+      "height_m": [
+        0.2,
+        0.4
+      ],
+      "width_m": [
+        0.1,
+        0.2
+      ],
+      "width_provenance": {
+        "confidence": "inferred",
+        "sources": [
+          "swink_wilhelm_1994"
+        ],
+        "note": "WHAT ONE DRAWN PLANT COVERS ON THE GROUND, added for ROADMAP K49(c) so this record's cover_fraction can be read as a count of plants. Reasoned from this record's committed Schizachyrium scoparium clump, [0.20, 0.35] m. § ZONE 9 pairs June grass with sand dropseed at 5-15 % cover, 0.2-0.4 m, \"fine, pale\" — against little bluestem's 0.3-0.5 m on the same page. It is the finer and shorter plant, so its tuft is taken at about half that clump. No source states the width."
+      },
+      "july": {
+        "phenology": "vegetative",
+        "foliage_rgb": [
+          120,
+          140,
+          104
+        ],
+        "inflorescence": null,
+        "appearance": "Fine pale tufts between the bunchgrass."
+      },
+      "confidence": "inferred",
+      "sources": [
+        "swink_wilhelm_1994"
+      ],
+      "note": "Dossier [I], and reads 'fine, pale' as foliage. June grass heads in late spring; the record deliberately claims no seed head rather than guess at a straw one."
+    },
+    {
+      "id": "sporobolus_cryptandrus",
+      "binomial": "Sporobolus cryptandrus",
+      "common": "sand dropseed",
+      "role": "matrix",
+      "form": "grass_fine",
+      "abundance": {
+        "cover_fraction": [
+          0.02,
+          0.07
+        ]
+      },
+      "height_m": [
+        0.2,
+        0.4
+      ],
+      "width_m": [
+        0.15,
+        0.3
+      ],
+      "width_provenance": {
+        "confidence": "inferred",
+        "sources": [
+          "swink_wilhelm_1994"
+        ],
+        "note": "WHAT ONE DRAWN PLANT COVERS ON THE GROUND, added for ROADMAP K49(c) so this record's cover_fraction can be read as a count of plants. Reasoned from this record's committed Schizachyrium scoparium clump, [0.20, 0.35] m. Sand dropseed shares § ZONE 9's \"fine, pale\" row with Koeleria macrantha (5-15 % cover, 0.2-0.4 m) and is the looser and taller of the two, so it is banded between June grass and little bluestem. No source states the width."
+      },
+      "july": {
+        "phenology": "vegetative",
+        "foliage_rgb": [
+          116,
+          136,
+          96
+        ],
+        "inflorescence": null,
+        "appearance": "Fine wiry tufts; the panicle stays in the sheath."
+      },
+      "confidence": "inferred",
+      "sources": [
+        "swink_wilhelm_1994"
+      ],
+      "note": "Dossier [I]: regional sand-prairie grass."
+    },
+    {
+      "id": "asclepias_tuberosa",
+      "binomial": "Asclepias tuberosa",
+      "common": "butterfly weed",
+      "role": "forb",
+      "form": "forb_umbel",
+      "abundance": {
+        "density_per_ha": [
+          50,
+          200
+        ]
+      },
+      "height_m": [
+        0.3,
+        0.6
+      ],
+      "july": {
+        "phenology": "flowering",
+        "foliage_rgb": [
+          98,
+          116,
+          64
+        ],
+        "inflorescence": {
+          "shape": "umbel_flat",
+          "rgb": [
+            232,
+            120,
+            32
+          ],
+          "height_frac": 0.88,
+          "size_m": [
+            0.05,
+            0.09
+          ]
+        },
+        "appearance": "Brilliant orange flat umbels — the highest-value colour accent on the sand."
+      },
+      "confidence": "inferred",
+      "sources": [
+        "swink_wilhelm_1994"
+      ],
+      "note": "Dossier [I]: regional sand-prairie forb."
+    },
+    {
+      "id": "monarda_punctata",
+      "binomial": "Monarda punctata",
+      "common": "horsemint",
+      "role": "forb",
+      "form": "forb_pompom",
+      "abundance": {
+        "density_per_ha": [
+          100,
+          300
+        ]
+      },
+      "height_m": [
+        0.3,
+        0.6
+      ],
+      "july": {
+        "phenology": "flowering",
+        "foliage_rgb": [
+          122,
+          138,
+          104
+        ],
+        "inflorescence": {
+          "shape": "head_pompom",
+          "rgb": [
+            204,
+            160,
+            186
+          ],
+          "height_frac": 0.8,
+          "size_m": [
+            0.05,
+            0.08
+          ]
+        },
+        "appearance": "Tiered whorls of pink-purple bracts stacked up the stem."
+      },
+      "confidence": "reconstructed",
+      "note": "Dossier [C]: plausible on sand here, unattested."
+    },
+    {
+      "id": "tephrosia_virginiana",
+      "binomial": "Tephrosia virginiana",
+      "common": "goat's rue",
+      "role": "forb",
+      "form": "forb_spike",
+      "abundance": {
+        "density_per_ha": [
+          30,
+          120
+        ]
+      },
+      "height_m": [
+        0.2,
+        0.4
+      ],
+      "july": {
+        "phenology": "flowering",
+        "foliage_rgb": [
+          128,
+          142,
+          104
+        ],
+        "inflorescence": {
+          "shape": "raceme",
+          "rgb": [
+            226,
+            198,
+            186
+          ],
+          "height_frac": 0.88,
+          "size_m": [
+            0.04,
+            0.07
+          ]
+        },
+        "appearance": "Silky pinnate foliage with cream-and-pink pea flowers."
+      },
+      "confidence": "reconstructed",
+      "note": "Dossier [C]: plausible, unattested."
+    },
+    {
+      "id": "opuntia_humifusa",
+      "binomial": "Opuntia humifusa",
+      "common": "eastern prickly pear",
+      "role": "ground",
+      "form": "mat_prostrate",
+      "abundance": {
+        "density_per_ha": [
+          20,
+          80
+        ]
+      },
+      "height_m": [
+        0.1,
+        0.25
+      ],
+      "width_m": [
+        0.3,
+        0.8
+      ],
+      "july": {
+        "phenology": "flowering",
+        "foliage_rgb": [
+          104,
+          132,
+          74
+        ],
+        "inflorescence": {
+          "shape": "head_ray",
+          "rgb": [
+            236,
+            208,
+            72
+          ],
+          "height_frac": 0.9,
+          "size_m": [
+            0.05,
+            0.08
+          ]
+        },
+        "appearance": "Sprawling jointed pads with waxy yellow flowers."
+      },
+      "confidence": "reconstructed",
+      "note": "Dossier [C]: plausible, unattested."
+    },
+    {
+      "id": "lithospermum_canescens",
+      "binomial": "Lithospermum canescens",
+      "common": "hoary puccoon",
+      "role": "forb",
+      "form": "forb_umbel",
+      "abundance": {
+        "density_per_ha": [
+          30,
+          120
+        ]
+      },
+      "height_m": [
+        0.15,
+        0.35
+      ],
+      "july": {
+        "phenology": "past_bloom",
+        "foliage_rgb": [
+          136,
+          146,
+          112
+        ],
+        "inflorescence": {
+          "shape": "cluster_terminal",
+          "rgb": [
+            178,
+            168,
+            132
+          ],
+          "height_frac": 0.85,
+          "size_m": [
+            0.015,
+            0.03
+          ],
+          "fruit": true
+        },
+        "appearance": "Past bloom: hairy grey foliage with small nutlets, the orange gone."
+      },
+      "confidence": "reconstructed",
+      "note": "Dossier [C]: plausible, unattested."
+    },
+    {
+      "id": "allium_cernuum",
+      "binomial": "Allium cernuum",
+      "common": "nodding onion",
+      "role": "forb",
+      "form": "forb_basal_scape",
+      "abundance": {
+        "density_per_ha": [
+          100,
+          400
+        ]
+      },
+      "height_m": [
+        0.3,
+        0.5
+      ],
+      "july": {
+        "phenology": "flowering",
+        "foliage_rgb": [
+          110,
+          138,
+          78
+        ],
+        "inflorescence": {
+          "shape": "umbel_nodding",
+          "rgb": [
+            216,
+            158,
+            182
+          ],
+          "height_frac": 0.9,
+          "size_m": [
+            0.03,
+            0.05
+          ]
+        },
+        "appearance": "Nodding pink umbels on arching scapes — the Chicago onion that is actually visible in July."
+      },
+      "confidence": "inferred",
+      "sources": [
+        "swink_wilhelm_1994",
+        "drloih_chicago_name"
+      ],
+      "note": "Dossier [I]. Distinct from the ramp of the etymology: A. cernuum flowers July-August on the sandier ground and does have foliage now."
+    },
+    {
+      "id": "quercus_velutina_grubs",
+      "binomial": "Quercus velutina",
+      "common": "black oak grubs",
+      "role": "shrub_low",
+      "form": "shrub_low",
+      "abundance": {
+        "density_per_ha": [
+          20,
+          100
+        ]
+      },
+      "height_m": [
+        0.5,
+        2.0
+      ],
+      "width_m": [
+        0.8,
+        2.0
+      ],
+      "july": {
+        "phenology": "vegetative",
+        "foliage_rgb": [
+          82,
+          104,
+          50
+        ],
+        "inflorescence": null,
+        "appearance": "Fire-set-back multi-stemmed oak clumps scattered through the bunchgrass."
+      },
+      "confidence": "attested",
+      "sources": [
+        "fpdcc_ecosystems",
+        "bowles_mcbride_1994_barrens"
+      ]
+    }
+  ],
+  "confidence": "inferred",
+  "sources": [
+    "fpdcc_ecosystems"
+  ],
+  "note": "The one thing to keep if this is ever built: it is NOT a closed sward. Bare sand shows through at 10-25 per cent, which is what separates it from the wet prairie west of town.",
+  "review_required": false
+}

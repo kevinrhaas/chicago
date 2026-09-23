@@ -1,0 +1,243 @@
+{
+  "id": "philo_carpenter_log_shop",
+  "phase": "log_1832",
+  "name": "Beaubien's log cabin, beside the Sauganash",
+  "aka": [
+    "Chicago's first drug store",
+    "the log shop beside the Sauganash",
+    "Mark Beaubien's original cabin",
+    "Eliza Chappel's first school-room"
+  ],
+  "archetype": "log_dwelling",
+  "asset": "gltf/philo_carpenter_log_shop__log_1832.glb",
+  "scene": "1835",
+  "target_date": "1835-07-01",
+  "documented_range": {
+    "from": "1832-07-18",
+    "to": "1835-12-31",
+    "confidence": "inferred",
+    "sources": [
+      "andreas_1884_v1",
+      "chicagology_prefire273"
+    ],
+    "note": "THE END OF THIS RANGE IS THE WEAKEST CLAIM IN THIS RECORD AND IT IS WEAKER THAN HOGAN'S, WHICH IS SAYING SOMETHING. What is attested: Philo Carpenter reached Chicago on 18 July 1832 and opened the town's first drug store in a log building 16 x 20 ft on Lake Street near the river. The range opens on the day he arrived because no source gives the shop a build date and he cannot have opened it earlier. THE PROBLEM IS WHAT HE DID NEXT. In the summer of 1833 Carpenter bought a lot on South Water Street between LaSalle and Wells and 'erected a small store' — carpenter_south_water_store in this dataset — and no source reached says what became of the log shop when he moved his trade into it. So this building is placed in a scene set two years after its proprietor built himself a better one, on nothing but the ordinary continuity argument that a standing building stands until something says otherwise. THE COUNTER-ARGUMENT IS SPECIFIC AND STRONG. Lake Street beside the Sauganash was the most valuable frontage at the forks; a 16 x 20 ft log shop is the smallest building in this dataset; and its one attested occupant demonstrably left it. A CONTEMPORARY DOCUMENT NARROWS NOTHING HERE. The Chicago Democrat of 26 November 1833 carries Carpenter's own advertisement, dated 22 November 1833, offering drugs, medicines, oils, paints and dye-stuffs and also dry groceries, glass and nails — proof that he was trading at Chicago sixteen months after arriving and nineteen months before the scene date, but it gives no address, so it cannot say WHICH of his two buildings he was trading from, and it must not be read as evidence that the log shop survived. GRADE: this record's existence at the scene date is the single most likely thing in this parcel to be wrong. If evidence turns up that the log shop came down or was moved before July 1835 it belongs in data/exclusions.json and this record leaves the scene."
+  },
+  "change_note": "Mark Beaubien's own log cabin — the Eagle Exchange of 1829 — standing on at the Lake and Market corner after the frame Sauganash was built onto it in 1831, and let from then on. Philo Carpenter opened Chicago's first drug store in it in the late summer of 1832 and 'soon' moved out; Beaubien let it next to John S. Wright; from September 1833 it held Eliza Chappel's school, which moved into the First Presbyterian Church in 1834. On 1835-07-01 all three uses are over and no source reached says what the room was doing, or names anyone in it.",
+  "placement": {
+    "local_e": 111.32,
+    "local_n": -127.5,
+    "rotation_deg": 0.0,
+    "position_confidence": "inferred",
+    "position_sources": [
+      "andreas_1884_v1",
+      "chicagology_prefire273",
+      "drloih_beaubien",
+      "osm_streets_2026"
+    ],
+    "position_note": "PLACED 2026-08-11, AND UNIQUELY IN THIS PARCEL IT IS PLACED AGAINST ANOTHER BUILDING RATHER THAN AGAINST A STREET. The sources give a relation, not an address: a log building on Lake Street near the river, 'immediately adjacent to the Sauganash's public bar' (docs/research/03-structures-north.md section 1), and since 2026-09-04 also drloih_beaubien's 'his original log cabin, adjacent to his Sauganash Tavern'. So this position is derived from data/structures/sauganash_hotel.json's own placement and inherits every uncertainty in it. MOVED 2.08 M WEST ON 2026-09-04 (T-0626), and only because the wall it is set against moved: the Sauganash's frame_1831 footprint stopped being a 12 x 8 m placeholder and became a measured 9.92 x 8 m block, so its east face came in from E 447186.1 to E 447184.02 and this shop came with it. Nothing here is a new claim about where the shop stood; it is the same claim re-derived from a corrected wall. THE SAUGANASH'S PLACEMENT, RESTATED SO THIS RECORD CAN BE RE-DERIVED: the Sauganash stands at the south-east corner of Lake and Market, its frame_1831 footprint origin at EPSG:26916 E 447174.1, N 4637265.2, 9.92 m wide and 8 m deep with a facade bearing of 0, so its north face is on the Lake Street frontage at N 4637273.2 and its east face at E 447184.02. THIS SHOP IS SET HARD AGAINST THAT EAST FACE, its own west wall on E 447184.02 and its north face on the same Lake Street frontage, which is what 'immediately adjacent' means and is why the two footprints touch. WHICH SIDE THE BAR WAS ON IS NOT ATTESTED and the east side is chosen by elimination: the Sauganash's west face stands on the Market Street frontage, so there is no room for a building there at all. THAT ELIMINATION NOW CARRIES A SECOND BUILDING TOO. Until 2026-09-04 this note read that the retrospective depictions put the surviving 1829 log wing on the hotel's LEFT FRONT, 'which is the Market side', and the hotel's own record drew a log wing there. Both were wrong in the same way: the views are drawn from a station, not from a compass, and a log annex on the Market side would stand in Market Street exactly as a shop would. The annex at the left of every view IS THIS BUILDING — drloih_beaubien captions the engraving 'The log cabin on the left was Chicago's first drugstore' — so the hotel's log_wing attribute is retired and the hotel's second, TALL wing takes the same east end, standing back off the rear beside this cabin. WORKING UNCERTAINTY ABOUT 20 M, the georeference's residual (data/datum.json, 17.5 m RMS), carried in from the Sauganash rather than added to; the 2.08 m correction above is inside it many times over and changes nothing about what this record knows. Facade bearing 0, north onto Lake Street, and the 20 ft dimension is set along the street with the 16 ft as the depth — the same convention hogan_store's record argues for and, like it, an inference rather than evidence. Turning the shop through 90 degrees would make it a 16 ft frontage 20 ft deep, and nothing decides.",
+    "symbolic_location": "Lake Street near the river, on the south side, immediately east of and against the Sauganash Hotel — the source says immediately adjacent to the Sauganash's public bar.",
+    "uncertainty_m": 20,
+    "placement_provisional": false,
+    "vertical_anchor": "terrain",
+    "walk_surface_m": null
+  },
+  "footprint": {
+    "polygon": [
+      [
+        0,
+        0
+      ],
+      [
+        6.096,
+        0
+      ],
+      [
+        6.096,
+        4.877
+      ],
+      [
+        0,
+        4.877
+      ]
+    ],
+    "confidence": "attested",
+    "sources": [
+      "andreas_1884_v1"
+    ],
+    "note": "THE SECOND BUILDING FOOTPRINT IN THIS DATASET THAT IS EVIDENCE RATHER THAN A PLACEHOLDER, after Hogan's store. Andreas gives the size: a 16 x 20 ft log building. 16 x 20 ft is 4.877 x 6.096 m, recorded converted with the original figures stated, per data/datum.json's units rule. WHAT IS DOCUMENTED IS THE SIZE AND NOT THE PLAN: '16 x 20' is a rectangle in any reading and this polygon is that rectangle, but nothing attests a door, a counter, or that the building was exactly rectangular rather than a rectangle with a shed on the back. WHICH AXIS RUNS ALONG THE STREET IS NOT IN THE SOURCE either; it is decided by the facade bearing and argued in the position note, where it belongs. This is the smallest building in the dataset — 30 square metres, a single pen — and that is worth reading twice: Chicago's first drug store was a room."
+  },
+  "attributes": {
+    "construction": {
+      "value": "log",
+      "confidence": "attested",
+      "sources": [
+        "andreas_1884_v1"
+      ],
+      "note": "Andreas: a log building. No source describes the corner treatment, the chinking or whether any of it was sided; the archetype builds hewn log, which is the commonest construction at the forks in 1832 and what the source names."
+    },
+    "stories": {
+      "value": 1,
+      "confidence": "inferred",
+      "note": "Not stated. A 16 x 20 ft single-pen log building is single-storey by type, and a two-storey building on that plan would be a tower. Inference from the documented dimensions, which is as close to derivation from evidence as this dataset's storey counts get."
+    },
+    "wall_height_m": {
+      "value": 2.5,
+      "confidence": "inferred",
+      "note": "No figure is attested. 2.5 m is about 8 ft: one storey of hewn log wall at typical period course counts, plus a sill. The same reading and the same number this project gives Hogan's store and the Walker meeting house."
+    },
+    "roof_type": {
+      "value": "gable",
+      "confidence": "inferred",
+      "note": "Not attested. Gable is the near-universal roof form for log construction of this type, period and region. A shed roof leaning on the Sauganash's east wall is the one plausible alternative — 'immediately adjacent' could describe a lean-to — and it is recorded here rather than built, because nothing in the sources describes the junction between the two buildings."
+    },
+    "roof_pitch_deg": {
+      "value": 35.0,
+      "confidence": "inferred",
+      "note": "No pitch is attested. 35 degrees is this archetype's mid-range for a low single-storey log building roofed in riven shakes. Inferred from construction practice, not measured."
+    },
+    "chimneys": {
+      "value": 1,
+      "confidence": "inferred",
+      "note": "Not attested, and nothing describes a stack on this building. One is the minimum for a shop kept through Chicago winters, and a druggist compounding in an unheated room in January is not a thing. The COUNT is the inference; the stack's position, size and material are the archetype's, per docs/LIBERTIES.md L26."
+    },
+    "function": {
+      "value": "log cabin; Chicago's first drug store 1832, let 1832-33, Eliza Chappel's school 1833-34; use on the scene date unattested",
+      "confidence": "inferred",
+      "sources": [
+        "andreas_1884_v1",
+        "chicago_democrat_1833_11_26",
+        "drloih_beaubien",
+        "drloih_chappell"
+      ],
+      "note": "THREE DOCUMENTED FORMER USES AND NO CURRENT ONE, AND THE RECORD MUST NOT INVENT A FOURTH. Corrected 2026-09-04 (T-0626) on the owner's explicit instruction; before that this field read 'drug_store' and the record was titled Philo Carpenter's Log Drug Store, which named a trade that had left the building three years before the scene date. THE CHAIN, in order, from drloih_beaubien: 'In the late summer of 1832, he rented his original log cabin, adjacent to his Sauganash Tavern, to the newly arrived Philo Carpenter for use as - Chicago's 1st - drugstore. An ardent enemy of alcohol, Carpenter soon moved out. Mark next rented the space to John S. Wright, and in 1833, the cabin became a school under Eliza Chappel's direction.' drloih_chappell dates and ends the school independently: it opened in September 1833 in 'a small log house formerly used as a store', and 'in 1834, the school was moved into the First Presbyterian Church'. Andreas corroborates the first link from a different direction, giving Carpenter's drug store a size and a street — 16 x 20 ft of log on Lake Street near the river. SO ON 1 JULY 1835 IT IS NEITHER A DRUG STORE NOR A SCHOOL. Carpenter's own advertisement in the Chicago Democrat of 26 November 1833 proves the trade was still his that month but carries no address, and he had built his South Water Street store the previous summer, so it cannot put the trade in this room. A dwelling is the likeliest use in a town where housing was scarce, and that is a guess, so the value says 'unattested' instead of making it — the same construction data/structures/chappel_infant_school.json and data/structures/watkins_school_house.json already use. THE TAG FOLLOWS THE WEAKEST HALF: the uses are documented, their ENDING before the scene date is documented, and what is inferred is that the building stood empty or in some unrecorded use rather than gone."
+    },
+    "occupants": {
+      "value": "no occupant attested at the scene date; Philo Carpenter 1832, John S. Wright 1832-33, Eliza Chappel's school 1833-34",
+      "confidence": "inferred",
+      "sources": [
+        "andreas_1884_v1",
+        "drloih_beaubien",
+        "drloih_chappell"
+      ],
+      "note": "THE THREE TENANTS ARE NAMED AND THEIR TENANCIES ARE OVER, which is the whole point of this field and is why it is written with end dates rather than carried forward. Mark Beaubien owned the cabin and let it: Carpenter from the late summer of 1832 and 'soon' out, John S. Wright next, then Eliza Chappel's school from September 1833 until it moved into the First Presbyterian Church in 1834. NO SOURCE REACHED NAMES ANYONE IN THIS BUILDING IN 1835. The school's mistress is a person this dataset already holds: data/residents/households/hh_chappel_eliza_mir, where she appears under her married name — drloih_chappell dates the marriage to the Rev. Jeremiah Porter to 15 June 1835, sixteen days before the scene date, and by then she had left both this room and, shortly, the town. THE SITE OF HER FIRST SCHOOL IS AN OPEN CONFLICT AND IS NOT RESOLVED HERE. drloih_beaubien puts it in this cabin at Lake and Market. Andreas puts a log school-house west of State Street between South Water and Lake, which this dataset holds separately as data/structures/chappel_infant_school.json. drloih_chappell's own opening line says 'roughly at Lake and Clark', which is where the school MOVED in 1834. Three sitings from three readings of two unfootnoted pages and one compiled secondary, and nothing reached decides between them — so both records stand, both say so, and neither is promoted. What is NOT in doubt on any of the three is that the school had left wherever it started by 1834."
+    }
+  },
+  "residents": [],
+  "citations": [
+    {
+      "source_id": "andreas_1884_v1",
+      "citation": "Andreas, A. T. History of Chicago: From the Earliest Period to the Present Time. Vol. 1. Chicago: A. T. Andreas, 1884.",
+      "url": "https://archive.org/details/historyofchicago01andr",
+      "archived_url": "",
+      "tier": 3,
+      "tier_label": "compiled secondary (Andreas)"
+    },
+    {
+      "source_id": "chicago_democrat_1833_11_26",
+      "citation": "The Chicago Democrat. Vol. I, No. 1. Chicago, Ill.: John Calhoun, Tuesday, November 26, 1833.",
+      "url": "",
+      "archived_url": "",
+      "tier": 1,
+      "tier_label": "period/eyewitness",
+      "what_it_supplies": [
+        "that a named trade was being carried on in Chicago in November 1833",
+        "the Chicago Democrat's own address, self-reported: the corner of South Water and Clark streets",
+        "Philo Carpenter advertising drugs, medicines, oils, paints and dye-stuffs, dated Nov. 22, 1833 — with NO address, so it cannot disambiguate his two shops",
+        "C. & I. Harmon advertising dry goods, crockery, hardware and wet and dry groceries, dated Nov. 18, 1833 — with NO address, so it does NOT corroborate the Clark/South Water corner Andreas gives them",
+        "W. Kimball's 'New Store' at the corner of South Water and Clark — a SECOND, independently attested occupant of that junction in the same issue, signed",
+        "Peter Cohen, clothier and grocer, self-reported at the EAST END OF SOUTH WATER-STREET, and trading in Chicago before Nov 1833 ('old customers ... past favors')",
+        "Goss & Cobb, saddle and harness makers, self-reported on the corner of Lake and Canal streets",
+        "Matthias Mason & Co., blacksmiths, on 'Main-street, nearly opposite Graves' Tavern' — a street name this project does not otherwise hold",
+        "B. Jones, grocery and provision store, and separately a storage/forwarding/commission business — both ads give NO street",
+        "Newberry & Dole, forwarding and commission merchants — no address",
+        "John Wright, cut nails and general merchandise; and TWO BUILDINGS TO LET until 1 June 1834",
+        "Daniel Elston & [illegible], soap and candle manufactory, paying cash for tallow and house ashes",
+        "a tavern stand kept by Chester Ingersoll, 'lately occupied by Mr. Wm. W. WATTLES', dated 4 October 1833",
+        "the house of Chester Ingersoll used as the district polling place, 9 December 1833",
+        "THE VILLAGE ORDINANCES of 7 November 1833, complete — the richest single item in the paper",
+        "Ordinance 1: the corporate limits surveyed ALONG the northern United States' Pier 'to the termination thereof' — the pier as an existing, walkable structure with a definite landward end",
+        "Ordinance 5: 'either of the bridges in said town' and their 'plank or any piece of timber' — EXACTLY TWO bridges on 7 Nov 1833, of plank-and-timber construction",
+        "Ordinance 6: wooden buildings with wooden and lath-and-plaster partitions, heated by STOVES not fireplaces, pipes passing through roof or side wall and carried 18 inches above the roof, guarded by stone-ware pipe, brick, tin or sheet iron",
+        "Ordinance 9: timber, stone, brick, boxes and barrels stacked in the streets",
+        "Ordinances 3, 7 and 8: hogs at large, horses run through the streets, stallions",
+        "the schooner Austerlitz, Capt. Smith, from Buffalo, arrived about the 1[9]th inst. with a full cargo of merchandise for citizens of this village and cleared on the 21st IN BALLAST",
+        "a school established in the village by Mr. Sproat of Boston, already running on 26 Nov 1833",
+        "a public auction of United States property held AT FORT DEARBORN, 2 December 1833",
+        "the village population passing 'more than eight hundred souls' in late 1833"
+      ],
+      "what_it_does_not_supply": [
+        "any building's dimensions",
+        "any building's form, material, storey count or fenestration",
+        "the specific corner of any junction it names — the imprint says 'on the corner of', and which of the four is not in the sentence",
+        "evidence that any building named here still stood on 1835-07-01 — this issue is NINETEEN MONTHS before the scene date, in the town's fastest-changing period, and the population went from 800 to 3,265 in between",
+        "any building footprint or plan",
+        "any length or width for the piers",
+        "any corroboration of the estray pen — see the negative finding in the note"
+      ]
+    },
+    {
+      "source_id": "chicagology_prefire273",
+      "citation": "\"Wolf's Point and the Town of Chicago.\" Chicagology. Transcribing the Chicago Magazine of 15 May 1857 — the account of the Wolf's Point settlement built on George Davis's 1832 drawing and on Gurdon S. Hubbard's own description of the place as he found it in 1818 — with A. T. Andreas and modern editorial matter around it.",
+      "url": "https://chicagology.com/prefire/prefire273/",
+      "archived_url": "https://web.archive.org/web/20260217122628/https://chicagology.com/prefire/prefire273/",
+      "tier": 2,
+      "tier_label": "near-primary recollection",
+      "transcribes": [
+        {
+          "work": "Chicago Magazine, 'Wolf's Point' — the account of the settlement at the forks, engraved from George Davis's 1832 drawing and incorporating Gurdon S. Hubbard's description of Chicago as he first saw it in 1818",
+          "date": "1857-05-15",
+          "tier": 2,
+          "note": "Carries the Miller House's log construction ('a log structure partly sided') and the Wolf Point Tavern's ('partly log and partly frame'), the fact of a frame element on each, and — through Hubbard — the marshy river-shore strip that grades the south division's marsh surface in terrain_spec.json. Twenty-five years after the fact, from a resident's drawing and a named witness speaking to the writer: rung 2."
+        }
+      ]
+    },
+    {
+      "source_id": "drloih_beaubien",
+      "citation": "\"The History of Chicagoan Mark Beaubien, the Hospitality Guru began in 1830.\" Digital Research Library of Illinois History Journal.",
+      "url": "https://drloihjournal.blogspot.com/2018/06/the-history-of-chicagoan-mark-beaubien-hospitality-guru.html",
+      "archived_url": "",
+      "tier": 4,
+      "tier_label": "later scholarship",
+      "what_it_supplies": [
+        "THE TENANCY OF THE LOG CABIN BESIDE THE SAUGANASH, in one sentence and in order: \"In the late summer of 1832, he rented his original log cabin, adjacent to his 'Sauganash Tavern,' to the newly arrived Philo Carpenter for use as - Chicago's 1st - drugstore. An ardent enemy of alcohol, Carpenter soon moved out. Mark next rented the space to John S. Wright, and in 1833, the cabin became a school under Eliza Chappel's direction.\"",
+        "THE CAPTION THAT IDENTIFIES THE ANNEX: under the engraving this project measures, \"The Sauganash Hotel. The log cabin on the left was Chicago's first drugstore.\" That is what joins the log annex in the plate to the building data/structures/philo_carpenter_log_shop.json holds, which had been drawn as a separate building AND as an attached wing of the hotel until T-0626.",
+        "The hotel's move off the platted street to \"the southeast corner of Market Street (North Wacker Drive) and Lake Street\", with the lots — 3 and 4 in block 31, bought from the government in 1830."
+      ],
+      "what_it_does_not_supply": [
+        "No dimension and no plan, for either the cabin or the frame block.",
+        "No build date for the frame block beyond 1831, and nothing at all about the cabin after 1834 — so it says what the building had BEEN by the scene date and not what it was then.",
+        "No footnote for any of it."
+      ]
+    },
+    {
+      "source_id": "drloih_chappell",
+      "citation": "\"Eliza Emily Chappell, the First Chicago Teacher Paid by Public Funds in 1833.\" Digital Research Library of Illinois History Journal, 19 January 2018.",
+      "url": "https://drloihjournal.blogspot.com/2018/01/eliza-chappell-the-first-chicago-teacher-paid-by-public-funds-in-1833.html",
+      "archived_url": "",
+      "tier": 4,
+      "tier_label": "later scholarship",
+      "what_it_supplies": [
+        "THE SCHOOL'S FIRST ROOM AND THE DATE IT LEFT IT: \"Chappell arrived in Chicago in June 1833 with the prospects of opening a school by September. The school was established in a small log house formerly used as a store... In 1834, the school was moved into the First Presbyterian Church in Fort Dearborn, on the southwest corner of Lake and Clark Streets.\"",
+        "A LOG HOUSE FORMERLY USED AS A STORE is the phrase that joins to drloih_beaubien's cabin, let first to Philo Carpenter for a drug store and then, in 1833, to Chappel's school.",
+        "The school as it was kept: 25 students who furnished their own chairs, no desks, some paddling canoes across the river to it, and \"maps, a globe, scriptural texts and hymn books, and illustrations of geometry and astronomy\" for teaching tools.",
+        "The marriage: Chappel married the Rev. Jeremiah Porter on 15 June 1835, sixteen days before the scene date."
+      ],
+      "what_it_does_not_supply": [
+        "NO SITE THAT AGREES WITH ITSELF, and this is why the identification stays inferred. The page's own opening line says \"The Eliza Chappell School was roughly at Lake and Clark Streets are today\" — which is where the school MOVED in 1834, not the log house it started in.",
+        "No way past the three-way conflict it sits in: Andreas puts a log school-house west of State Street between South Water and Lake (data/structures/chappel_infant_school.json), drloih_beaubien puts the first room in Beaubien's cabin at Lake and Market, and this page carries the third reading.",
+        "No footnote, no dimension, and no description of the room itself."
+      ]
+    },
+    {
+      "source_id": "osm_streets_2026",
+      "citation": "OpenStreetMap contributors. Street centerline intersection nodes for downtown Chicago, retrieved via the Overpass API, 2026-08-09.",
+      "url": "https://www.openstreetmap.org/",
+      "archived_url": "https://overpass-api.de/",
+      "tier": 4,
+      "tier_label": "later scholarship"
+    }
+  ],
+  "research_note": "A RARE COMBINATION AND THE REASON THIS RECORD IS WORTH HAVING: THE FOOTPRINT IS EVIDENCE AND THE EXISTENCE IS NOT. Andreas gives the dimensions — 16 x 20 ft, log, Lake Street near the river — which makes this only the second footprint in the dataset that is not a placeholder, after Hogan's store. Everything about whether it was still there on 1835-07-01 is argued on documented_range and it is argued against: Carpenter built himself a store on South Water in the summer of 1833 and nothing follows the log shop after that. THE CONTEMPORARY ADVERTISEMENT DOES NOT RESCUE IT. The Chicago Democrat of 26 November 1833 carries Carpenter's own notice and it is genuine primary evidence that he was trading — but it carries no address, it is nineteen months before the scene date, and by then he already had two premises. THE CONTINUITY ARGUMENT GOT STRONGER ON 2026-09-04 AND THE TRADE ARGUMENT GOT WEAKER, and they are different arguments. Stronger: drloih_beaubien and drloih_chappell put two further tenants in this room after Carpenter — John S. Wright, then Eliza Chappel's school until 1834 — so the building is now attested standing and IN USE eight months later than any source previously reached, and the 'a standing building stands until something says otherwise' argument runs over a much shorter gap. Weaker: the drug store is no longer even a candidate for the scene date, and the record's name, function and occupants now say so (T-0626). THIS IS ALSO MARK BEAUBIEN'S ORIGINAL CABIN, which is the identification that changed the most here. drloih_beaubien captions the engraving this project measures — 'The Sauganash Hotel. The log cabin on the left was Chicago's first drugstore' — so the log annex in all three views IS this building, and until 2026-09-04 the Sauganash's own record drew a second one as an attached log wing in FRONT of its street face. That wing is retired and this record is the annex. The hotel's log_1829 phase is the same fabric earlier, and its footprint has been reconciled to the 16 x 20 ft carried here; the two records are not merged and sauganash_hotel.json states why. THE POSITION IS DERIVED FROM ANOTHER RECORD, which is a first here: the source gives a relation and not an address, so this shop is set hard against the Sauganash's east wall and inherits that building's placement and its uncertainty — including, on 2026-09-04, a 2.08 m move west when that wall was measured. The two footprints touch, deliberately. WHAT WOULD SETTLE ANY OF IT: the individual building rectangles on Hathaway 1834 or Wright 1834 at the Lake and Market corner, which would show whether one building or two stood on that frontage; the Chicago Democrat for 1834-35, where an address in one of Carpenter's later advertisements would place his trade; a footnote anywhere for the Beaubien or Chappel pages; or a source that decides between this cabin and the State Street log house as the site of Chappel's first school. See docs/RESEARCH/philo_carpenter_log_shop.md.",
+  "research_doc": "docs/RESEARCH/philo_carpenter_log_shop.md",
+  "review_required": false
+}

@@ -1,0 +1,508 @@
+{
+  "schema": 1,
+  "issue_id": "chicago_democrat_1833_12_17",
+  "extracted": "2026-08-28",
+  "extracted_by": "hand, T-0309 — the Democrat read, December 1833",
+  "note": "Vol. I No. 4. A quiet week whose value is in ADDRESSES: four advertisements new to the corpus each locate themselves against something already documented — Montgomery's boot and shoe shop next door to Philo Carpenter's store, G. Spring's office second door west from the corner of Franklin and South Water, J. D. Caton's one door east of Brewster, Hogan & Co., and Wentworth's tavern eighteen miles out on the Ottawa road. That is a chain of relative placements along one frontage, which is worth more to a reconstruction than four unplaced trades. The rest of the issue is the standing advertising already read at 1833-11-26 and 1833-12-03, the December town ordinances reprinted, and national and literary reprint on pages 1, 2 and 4; none of it is re-claimed. NO POST-OFFICE LETTER LIST: the sweep returns the page-1 agent list of out-of-county postmasters and two national paragraphs about the Post Master General, and no list. Zero printed, zero extracted.",
+  "claims": [
+    {
+      "id": "c001",
+      "kind": "person",
+      "reading": "transcription_mediated",
+      "quote": "“MARRIED, ae:\nIn this town, on the evening of the 12th inst.,\nby the Hon. R. J. Hamilton, Mr. CHESTER IN-\nGERSOLL, to Miss BETSY WEAVER.",
+      "normalized": "MARRIED, In this town, on the evening of the 12th inst., by the Hon. R. J. Hamilton, Mr. CHESTER INGERSOLL, to Miss BETSY WEAVER.",
+      "locator": {
+        "artifact_role": "primary",
+        "issue_page": 3,
+        "column": 4,
+        "lines": [
+          2566,
+          2569
+        ],
+        "lines_of_claim": [
+          2566,
+          2567,
+          2568,
+          2569
+        ],
+        "interleaved": true
+      },
+      "entities": [
+        {
+          "as_printed": "R. J. Hamilton",
+          "normalized": "Rich'd J. Hamilton",
+          "role": "the magistrate who performed the marriage",
+          "occupations": [
+            "justice of the peace",
+            "clerk of the county commissioners' court"
+          ],
+          "associated_places": [
+            "Chicago"
+          ]
+        },
+        {
+          "as_printed": "CHESTER IN- GERSOLL",
+          "normalized": "Chester Ingersoll",
+          "role": "bridegroom",
+          "occupations": [
+            "tavern keeper"
+          ],
+          "associated_places": [
+            "Chicago"
+          ]
+        },
+        {
+          "as_printed": "BETSY WEAVER",
+          "normalized": "Betsy Weaver",
+          "role": "bride",
+          "associated_places": [
+            "Chicago"
+          ]
+        }
+      ],
+      "notes": "THE TAVERN KEEPER MARRIES. Chester Ingersoll is the man who took 'that noted Tavern Stand in Chicago, lately occupied by Mr. Wm. Wattles' and renamed it the Traveller's Home (T-0308 c006), and he is also one of the two judges of the election notice in the same first number (T-0308 c004). This ties the household to the house: on 12 December 1833 the keeper of one of the town's inns married Betsy Weaver, by the same magistrate who married the Nobles and the Bickerdykes a fortnight before (1833-12-03 c007). Four Chicago weddings in three weeks, every one of them performed by R. J. Hamilton, is also a claim about how few officiants the town had."
+    },
+    {
+      "id": "c002",
+      "kind": "business",
+      "reading": "transcription_mediated",
+      "quote": "Temperance Almanac for {cr\n1834. i\njust received ve for sale whole: ee ;\njust received and for sale whole-\nsale and retail, by\nPHILO CARPENTER.\nDec. 16.",
+      "normalized": "Temperance Almanac for 1834[,] just received [and] for sale whole[sale] and retail, by PHILO CARPENTER. Dec. 16.",
+      "locator": {
+        "artifact_role": "primary",
+        "issue_page": 3,
+        "column": 4,
+        "lines": [
+          2571,
+          2579
+        ],
+        "lines_of_claim": [
+          2571,
+          2573,
+          2575,
+          2576,
+          2577,
+          2578,
+          2579
+        ],
+        "interleaved": true
+      },
+      "entities": [
+        {
+          "as_printed": "PHILO CARPENTER",
+          "normalized": "Philo Carpenter",
+          "role": "advertiser",
+          "occupations": [
+            "druggist"
+          ],
+          "associated_places": [
+            "Chicago"
+          ]
+        }
+      ],
+      "business": {
+        "name": "Philo Carpenter, drugs and medicines",
+        "proprietors": [
+          "Philo Carpenter"
+        ],
+        "trade": "druggist",
+        "goods": [
+          "temperance almanacs"
+        ],
+        "street": null,
+        "placement": {
+          "class": "none",
+          "anchor": null,
+          "offset_text": null,
+          "note": "Carpenter never advertises his own address in these papers; his STORE is placed only by the boot and shoe maker who takes the shop next door to it (c004)."
+        }
+      },
+      "ad_copy_date": {
+        "verbatim": "Dec. 16.",
+        "iso": "1833-12-16"
+      },
+      "notes": "THE TOWN'S DRUGGIST SELLS TEMPERANCE ALMANACS, AND THE TOWN HAS A TEMPERANCE SOCIETY. A week later the Chicago Temperance Society advertises a discourse at the Baptist Meeting House (1833-12-24 c001), and John Watkins signs as its secretary. Carpenter's stock of almanacs is the commercial end of the same movement and dates it: temperance is organised in Chicago by December 1833. As a claim about the fabric it adds only that Carpenter's shop is trading; his address stays unrecorded."
+    },
+    {
+      "id": "c003",
+      "kind": "business",
+      "reading": "transcription_mediated",
+      "quote": "Boot’'& Shoe Waking. ‘f d\nSUITE: iber having recently. commenced\nHaig sessile, fe door to. Py Ca\nhowe Store, willby kept on hand} gpg\na good assortinent of\n[uncertain: “i BOOTS, ||:]\ni ; of the country Gen enn :\noe Fine oly water prooh will be accom: paat\niodated with the bext materials and fashion.\nlaatyle, Most kinds of work kept constantly) fj\nL. W. MONTGOMERY.\nChicago, Dec. 15, 1833.",
+      "normalized": "Boot & Shoe Making. [The subscr]iber having recently commenced [the] […] [busi]ness, [next] door to P[hilo] Ca[rpenter's] […] [Store, will be] kept on hand a good assortment of BOOTS[…] […] of the country [ge]n[tlemen …] […] [F]ine [and] […] water proof will be accommodated with the be[s]t materials and fashion[able] style. Most kinds of work kept constantly[…] L. W. MONTGOMERY. Chicago, Dec. 15, 1833.",
+      "locator": {
+        "artifact_role": "primary",
+        "issue_page": 3,
+        "column": 4,
+        "lines": [
+          2581,
+          2598
+        ],
+        "lines_of_claim": [
+          2581,
+          2582,
+          2583,
+          2585,
+          2586,
+          2588,
+          2592,
+          2593,
+          2594,
+          2595,
+          2597,
+          2598
+        ],
+        "interleaved": true
+      },
+      "entities": [
+        {
+          "as_printed": "L. W. MONTGOMERY",
+          "normalized": "L. W. Montgomery",
+          "role": "boot and shoe maker",
+          "occupations": [
+            "boot and shoe maker"
+          ],
+          "associated_places": [
+            "Chicago"
+          ]
+        }
+      ],
+      "business": {
+        "name": "L. W. Montgomery",
+        "proprietors": [
+          "L. W. Montgomery"
+        ],
+        "trade": "boot and shoe making",
+        "goods": [
+          "boots",
+          "shoes"
+        ],
+        "street": null,
+        "placement": {
+          "class": "relative",
+          "anchor": "Philo Carpenter's store",
+          "offset_text": "Haig sessile, fe door to. Py Ca",
+          "offset_normalized": "next door to P[hilo] Ca[rpenter's] Store",
+          "note": "The offset text is badly broken; 'next door to' and the anchor's first syllables are read and the rest is bracketed. Read with the following line, which ends '…howe Store', the anchor is Carpenter's store."
+        }
+      },
+      "ad_copy_date": {
+        "verbatim": "Chicago, Dec. 15, 1833.",
+        "iso": "1833-12-15"
+      },
+      "notes": "A NEW SHOP OPENS NEXT DOOR TO THE DRUGGIST'S, ON 15 DECEMBER 1833. Montgomery is already in this corpus's gazetteer from a later reading; this is the advertisement that dates his start and gives his first address. THE ANCHOR IS READ, NOT PRINTED WHOLE: the transcription gives 'fe door to. Py Ca' broken across the column rule with 'howe Store' on the next line, and the reading 'next door to P[hilo] Ca[rpenter's] … Store' rests on the surviving letters plus the fact that Carpenter is the only 'P. Ca…' advertising in this paper. It is an inference and it is recorded as one; what is certain is that the shop is NEXT DOOR to something."
+    },
+    {
+      "id": "c004",
+      "kind": "business",
+      "reading": "transcription_mediated",
+      "quote": "ATTORNEY AND COUNSELLOR AT LAW\nAnd Soliciter tn Chancery, of\nFFICE second door west from\nOo of Franklin and South Warten\nteago, Dec. 17, 1333,",
+      "normalized": "ATTORNEY AND COUNSELLOR AT LAW And Solicit[o]r in Chancery. [O]FFICE second door west from [the corner] of Franklin and South Wa[ter-streets]. [Chi]cago, Dec. 17, 183[3].",
+      "locator": {
+        "artifact_role": "primary",
+        "issue_page": 3,
+        "column": 5,
+        "lines": [
+          2605,
+          2611
+        ],
+        "lines_of_claim": [
+          2605,
+          2606,
+          2608,
+          2609,
+          2611
+        ],
+        "interleaved": true
+      },
+      "entities": [],
+      "business": {
+        "name": "G. Spring, attorney and counsellor at law",
+        "proprietors": [
+          "G. Spring"
+        ],
+        "trade": "attorney and solicitor in chancery",
+        "goods": [],
+        "street": "South Water Street",
+        "placement": {
+          "class": "relative",
+          "anchor": "the corner of Franklin and South Water streets",
+          "offset_text": "FFICE second door west from",
+          "offset_normalized": "office second door west from the corner of Franklin and South Water streets",
+          "street": "South Water Street",
+          "note": "Counted in doors WEST from a named corner, which fixes a side of the street and an order along it but not a lot width."
+        }
+      },
+      "ad_copy_date": {
+        "verbatim": "teago, Dec. 17, 1333.",
+        "iso": "1833-12-17"
+      },
+      "notes": "THE FINEST-GRAINED PLACEMENT IN THE DECEMBER SET: SECOND DOOR WEST FROM A NAMED CORNER. Franklin and South Water is a real intersection the plat carries, and 'second door west' is a countable position along the frontage — the kind of address a reconstruction can actually use, because it fixes the side of the street and the order of the shopfronts on it. THE ADVERTISER'S NAME IS LOST at the head of the advertisement ('ae = NG.') and is supplied from the gazetteer's later reading of G. Spring at the same trade and the same form of address; the quote carries no name and this note says so. The Chicago Academy stands on the same corner (1833-12-03 c015), so Franklin and South Water carries two documented occupants in December 1833."
+    },
+    {
+      "id": "c005",
+      "kind": "business",
+      "reading": "transcription_mediated",
+      "quote": "PUBLIC HOUSE,\nH E. WENTWORTH,\n49 opened a TAVERN on Flag Creek. 18\n18 miles South of Chicago, an fs read ¥\nleading to Ottawa. His house will\nbe furtished with the best the coun\ntry affords, ind solicits travellers to\nAS give lim acall, Hoe int\non hand CORN and OATS, saagetands\n[uncertain: Dec. 17, 1833. 4|G]",
+      "normalized": "PUBLIC HOUSE, H. E. WENTWORTH, [h]as opened a TAVERN on Flag Creek, 18 miles South of Chicago, on [the road] leading to Ottawa. His house will be furnished with the best the country affords, [a]nd solicits travellers to give him a call. He [keeps] on hand CORN and OATS. Dec. 17, 1833.",
+      "locator": {
+        "artifact_role": "primary",
+        "issue_page": 3,
+        "column": 5,
+        "lines": [
+          2613,
+          2629
+        ],
+        "lines_of_claim": [
+          2613,
+          2614,
+          2616,
+          2618,
+          2622,
+          2623,
+          2624,
+          2626,
+          2627,
+          2629
+        ],
+        "interleaved": true
+      },
+      "entities": [
+        {
+          "as_printed": "H E. WENTWORTH,",
+          "normalized": "H. E. Wentworth",
+          "role": "tavern keeper",
+          "occupations": [
+            "tavern keeper"
+          ],
+          "associated_places": [
+            "Flag Creek"
+          ]
+        }
+      ],
+      "business": {
+        "name": "E. Wentworth's tavern on Flag Creek",
+        "proprietors": [
+          "H. E. Wentworth"
+        ],
+        "trade": "tavern",
+        "goods": [
+          "entertainment for travellers",
+          "corn",
+          "oats"
+        ],
+        "street": null,
+        "placement": {
+          "class": "relative",
+          "anchor": "the road from Chicago leading to Ottawa",
+          "offset_text": "opened a TAVERN on Flag Creek. 18",
+          "offset_normalized": "a tavern on Flag Creek, 18 miles south of Chicago, on the road leading to Ottawa",
+          "note": "Eighteen miles out of town: this places a building on a named road and a named creek, and nothing inside the corporation."
+        }
+      },
+      "ad_copy_date": {
+        "verbatim": "Dec. 17, 1833.",
+        "iso": "1833-12-17"
+      },
+      "notes": "THE ROAD TO OTTAWA HAS A STAGE HOUSE ON IT BY DECEMBER 1833, AND IT IS EIGHTEEN MILES OUT. That is a claim about the country the town sat in rather than about the town: Chicago's southwestern road was carrying enough travellers to keep an inn a day's wagon-haul away, stocked with corn and oats for their teams. The house is already in this corpus's gazetteer twice over from later readings; this advertisement is its OPENING, and 'has opened' dates it to the week of 17 December 1833."
+    },
+    {
+      "id": "c006",
+      "kind": "business",
+      "reading": "transcription_mediated",
+      "quote": "U. BD. CATON,\nATTORNEY §& COUNSELLOR AT LA w,\nAnd Solicitor in Chancery,\npe door cast of Brewster, Hogan & Co,\nay Syater sical, Chicago, Mineiw,",
+      "normalized": "[J]. D. CATON, ATTORNEY & COUNSELLOR AT LAW, And Solicitor in Chancery, [one] door east of Brewster, Hogan & Co, [South] Water [street], Chicago, [Ill]inois.",
+      "locator": {
+        "artifact_role": "primary",
+        "issue_page": 3,
+        "column": 5,
+        "lines": [
+          2673,
+          2678
+        ],
+        "lines_of_claim": [
+          2673,
+          2674,
+          2675,
+          2676,
+          2678
+        ],
+        "interleaved": true
+      },
+      "entities": [
+        {
+          "as_printed": "U. BD. CATON,",
+          "normalized": "J. D. Caton",
+          "role": "attorney",
+          "occupations": [
+            "attorney"
+          ],
+          "associated_places": [
+            "Chicago"
+          ]
+        }
+      ],
+      "business": {
+        "name": "J. D. Caton, attorney and counsellor at law",
+        "proprietors": [
+          "J. D. Caton"
+        ],
+        "trade": "attorney and solicitor in chancery",
+        "goods": [],
+        "street": "South Water Street",
+        "placement": {
+          "class": "relative",
+          "anchor": "Brewster, Hogan & Co.",
+          "offset_text": "pe door cast of Brewster, Hogan & Co,",
+          "offset_normalized": "one door east of Brewster, Hogan & Co.",
+          "street": "South Water Street",
+          "note": "One door east of a named firm, on South Water Street — which is also the only thing in this corpus that puts Brewster, Hogan & Co. on a street at all."
+        }
+      },
+      "notes": "THE ADDRESS THAT PLACES TWO BUSINESSES AT ONCE. Caton is the man ordinance 14 appointed attorney for the corporation of Chicago at the sitting of 4 December (1833-12-10 c007); two weeks later he advertises an office one door east of Brewster, Hogan & Co. on South Water Street. Brewster, Hogan & Co. take three advertisements in this month and give an address in none of them, so this card is what puts the largest new firm of December 1833 on the town's principal frontage. Read with G. Spring's 'second door west from the corner of Franklin and South Water' (c005), South Water Street in December 1833 carries at least five documented doorways: the Democrat's office and Kimball's store at the Clark corner, Peck's at the La Salle corner, Brewster Hogan's, and Caton's beside it."
+    },
+    {
+      "id": "c007",
+      "kind": "notice",
+      "reading": "transcription_mediated",
+      "quote": "Administrater’s Notice.\nHEREAS lottors of Administration on Pr\nths estate of Samuel Calhoun, deceas-\ned, have been granted to me, the undersigned\nby the Hon, Court of Probate for Cook county,\nHl. All persons having claims apeinat said cee\ntatu are hereby requested to file the snme with\nine, Orin the office of the Judge of Probate\nwithin nine months from the date hereof, and\null persons indebted to said estate, are request.\ned-to come forward and make immediate RY\nnent. J. B. BEAUBIES,\nPublic Adm’r. for Cookco. and ad:\nlate of Samurl Calhoun, deed,",
+      "normalized": "Administrator's Notice. [W]HEREAS letters of Administration on the estate of Samuel Calhoun, deceased, have been granted to me, the undersigned, by the Hon. Court of Probate for Cook county, Ill. All persons having claims against said es[t]ate are hereby requested to file the same with me, or in the office of the Judge of Probate within nine months from the date hereof, and all persons indebted to said estate, are requested to come forward and make immediate [pay]ment. J. B. BEAUBIE[N], Public Adm'r. for Cook co. and ad[ministrator of the estate] […] late of Samuel Calhoun, dec'd.",
+      "locator": {
+        "artifact_role": "primary",
+        "issue_page": 3,
+        "column": 5,
+        "lines": [
+          2632,
+          2650
+        ],
+        "lines_of_claim": [
+          2632,
+          2634,
+          2635,
+          2637,
+          2638,
+          2639,
+          2640,
+          2641,
+          2642,
+          2643,
+          2644,
+          2645,
+          2649,
+          2650
+        ],
+        "interleaved": true
+      },
+      "entities": [
+        {
+          "as_printed": "J. B. BEAUBIES,",
+          "normalized": "J. B. Beaubien",
+          "role": "public administrator for Cook county",
+          "occupations": [
+            "public administrator"
+          ],
+          "associated_places": [
+            "Chicago"
+          ]
+        },
+        {
+          "as_printed": "Samurl Calhoun",
+          "normalized": "Samuel Calhoun",
+          "role": "deceased, of Cook county"
+        }
+      ],
+      "notes": "A DEATH IN THE PRINTER'S FAMILY, AND THE COUNTY'S PROBATE MACHINERY WORKING. The Democrat's editor and proprietor is John Calhoun; Samuel Calhoun's estate is administered in the same month in the same paper, and the corpus does not establish the relation, so none is asserted. What the notice does document is that Cook county has a Court of Probate, a Judge of Probate with an office, and a standing PUBLIC administrator — J. B. Beaubien — nine months before the scene year. Institutions are as much a part of a town as its buildings and this corpus records very few of them."
+    },
+    {
+      "id": "c008",
+      "kind": "notice",
+      "reading": "transcription_mediated",
+      "quote": "[uncertain: William Taylor, living in Cook county, | Hid]\n[uncertain: Ula yellowish brindle OX, some light|]\n[uncertain: wm ceeecee COlouY in the face and| 4m]\n[uncertain: a ag) on the belly, right horn | Bar]\n\n[uncertain: a little topped, rightear | ee:]\n[uncertain: cropped, also the under| Gre]\nride of the left car crop-\nie wea ped and @ slit in the\nathe; supposed to be about six years old: ap-\nraised by Thorias Hoyt, M. D.dfarmon, and\nlenry Walton, to eighteen dollars, before Jeanc\nJarmon, a Justice of the Peace for aaid county\nnd state.\nAttest—RICH’D, 1. HAMILTON,\nClerk: Cam. C» Cook co. 1.",
+      "normalized": "[Taken up by] William Taylor, living in Cook county, [Ill., a] yellowish brindle OX, some light[er] colour in the face and [white] on the belly, right horn a little topped, right ear cropped, also the underside of the left ear cropped and a slit in the [same]; supposed to be about six years old: appraised by Thomas Hoyt, M. [D.] Harmon, and [H]enry Walton, to eighteen dollars, before Isaac [H]armon, a Justice of the Peace for said county and state. Attest—RICH'D I. HAMILTON, Clerk C[o]m. C[t.] Cook co. Il[l].",
+      "locator": {
+        "artifact_role": "primary",
+        "issue_page": 3,
+        "column": 5,
+        "lines": [
+          2653,
+          2671
+        ],
+        "lines_of_claim": [
+          2653,
+          2654,
+          2655,
+          2657,
+          2658,
+          2659,
+          2660,
+          2661,
+          2662,
+          2663,
+          2664,
+          2665,
+          2667,
+          2668,
+          2670,
+          2671
+        ],
+        "interleaved": true
+      },
+      "entities": [
+        {
+          "as_printed": "William Taylor",
+          "normalized": "William Taylor",
+          "role": "the taker-up of the estray",
+          "associated_places": [
+            "Cook county"
+          ]
+        },
+        {
+          "as_printed": "Thorias Hoyt",
+          "normalized": "Thomas Hoyt",
+          "role": "appraiser of the estray",
+          "associated_places": [
+            "Cook county"
+          ]
+        },
+        {
+          "as_printed": "M. D.dfarmon",
+          "normalized": "M. D. Harmon",
+          "role": "appraiser of the estray",
+          "associated_places": [
+            "Cook county"
+          ]
+        },
+        {
+          "as_printed": "lenry Walton",
+          "normalized": "Henry Walton",
+          "role": "appraiser of the estray",
+          "associated_places": [
+            "Cook county"
+          ]
+        },
+        {
+          "as_printed": "Jeanc Jarmon",
+          "normalized": "Isaac Harmon",
+          "role": "justice of the peace before whom the estray was appraised",
+          "occupations": [
+            "justice of the peace"
+          ],
+          "associated_places": [
+            "Cook county"
+          ]
+        },
+        {
+          "as_printed": "RICH’D, 1. HAMILTON",
+          "normalized": "Rich'd J. Hamilton",
+          "role": "clerk of the county commissioners' court",
+          "occupations": [
+            "clerk of the county commissioners' court"
+          ],
+          "associated_places": [
+            "Cook county"
+          ]
+        }
+      ],
+      "notes": "AN ESTRAY OX, DESCRIBED EAR BY EAR. The value of these notices is that nothing else in the record describes a working animal this closely: a yellowish brindle ox of about six years, lighter in the face, white-bellied, one horn topped, both ears cropped and slit — eighteen dollars. It also names five more men living in Cook county in December 1833 and puts Isaac Harmon on the bench as a justice of the peace; he is the same Isaac Harmon who attests the town ordinances as clerk of the Board of Trustees (1833-12-24 c010), so one man is both the corporation's clerk and a county magistrate."
+    }
+  ]
+}

@@ -1,0 +1,561 @@
+{
+  "schema": 1,
+  "issue_id": "chicago_democrat_1834_08_20",
+  "extracted": "2026-08-28",
+  "extracted_by": "hand, T-0290 — the Democrat read, August 1834",
+  "note": "Vol. I No. 38. THE HARBOR ANSWERS IN THE MARINE LIST: thirteen arrivals and ten clearances in eight days, against seven vessels in the whole first week of the month, one week after the paper reported a hundred hands on the North Pier. The advertising is the July and early-August standing matter, cut in DIFFERENT places by this week's segmenter — which is what makes the issue valuable: Solomon Juneau's lease carries its block number and both frontages here and nowhere else, G. Spring's law office carries the corner of Franklin and South Water, and J. Bates jr.'s auction store carries the whole of the street that runs from the drawbridge to the Oak Woods and Blue Island. Pages 1 and 2 are national reprint apart from the election returns; the town is on page 3.",
+  "claims": [
+    {
+      "kind": "shipping",
+      "normalized": "MARINE LIST. PORT OF CHICAGO. ARRIVED. [A]ug. 13. Sloop Westward Ho, Banks, [Mil]wa[u]kee / 13. Brig Jo[h]n Kinzie, Bristol, [Buffalo] / [Schr.] Phillips, Howe, St. [Joseph] / President, Sw[e]et, Buffa[lo] / Ma[ri]a Antoinette, Scovil[le] / Jesse Smith, — / Hubbard, Brown, B[uffalo] / Hiram, Bass[ett] / Winnebago, Greene, Os[wego] / Warren, —, Buffalo / [uncertain: Lucinda, Hugunin, St. J(oseph)] / Sloop / [2]0. Schr. Juliet, Shooks, Detroit. / Aug. 14. Brig John Kinzie, St. Joseph. CLEARED. 15. Sloop Dart, [do.] / 16. Schr. President, Buffalo. / Winnebago, Michigan [City] / Nancy Douseman, St. J[oseph] / Phill[ips] / Ma[r]ia Antoinet[t]e, S[t. Joseph] / [H]ubb[a]r[d], Buffal[o] / 18. Sloop Westward Ho, / 20. / 20. Schr. Hiram, Warren, Bu[f]falo.",
+      "locator": {
+        "artifact_role": "primary",
+        "issue_page": 3,
+        "column": 2,
+        "lines": [
+          2948,
+          3002
+        ],
+        "lines_of_claim": [
+          2948,
+          2949,
+          2953,
+          2954,
+          2955,
+          2957,
+          2959,
+          2961,
+          2962,
+          2964,
+          2966,
+          2967,
+          2969,
+          2970,
+          2971,
+          2974,
+          2975,
+          2976,
+          2978,
+          2979,
+          2980,
+          2981,
+          2983,
+          2984,
+          2985,
+          2987,
+          2989,
+          2991,
+          2992,
+          2994,
+          2995,
+          2998,
+          3000,
+          3001,
+          3002
+        ],
+        "interleaved": true
+      },
+      "entities": [
+        {
+          "as_printed": "13. Brig Jolm Kinzie, Bristol,",
+          "normalized": "Bristol",
+          "role": "master of the brig John Kinzie"
+        },
+        {
+          "as_printed": "President, Swcet,",
+          "normalized": "Sweet",
+          "role": "master of the President"
+        },
+        {
+          "as_printed": "Winnebago, Greene, Os",
+          "normalized": "Greene",
+          "role": "master of the Winnebago"
+        },
+        {
+          "as_printed": "Hiram, Bassery",
+          "normalized": "Bassett",
+          "role": "master of the schooner Hiram"
+        }
+      ],
+      "notes": "THE BUSIEST WEEK IN THE PORT THIS CORPUS HAS SEEN — thirteen arrivals and ten clearances in eight days, against seven vessels in the whole of the first week of the month (1834-08-06, claim c002 there). It is the harbor works reported in the previous issue (1834-08-13, claim c002 there) beginning to tell, and the trade it carries is Buffalo, Oswego, Detroit, Michigan City, Milwaukee and St. Joseph. A BRIG NAMED FOR A MAN IN THIS TOWN clears twice in the same list: the John Kinzie, Bristol master. THE COLUMN IS WOVEN with a political essay, so the vessel names arrive one to two lines and several destinations are cut; the entry at line 2972 reads '[uncertain: Houseman wandere]' — half a vessel name (the Nancy Douseman, which clears on line 2991) and half of the essay's word — and is LEFT OUT of the quote rather than assigned to either.",
+      "reading": "transcription_mediated",
+      "id": "c001",
+      "quote": "MARINE LIST.\nPORT OF CHICAGO.\nARRIVED.\ndug. 13. Sloop\nWestward Ho, Banks, S\n13. Brig Jolm Kinzie, Bristol,\n• Phillips, Howe, St.\nPresident, Swcet,\nBuffa\nMa'h Antoinette, Scovil\nJesse Smith\n-, G\n• Hubbard, Brown, Bi\nHiram, Bassery\nWinnebago, Greene, Os\nWarren\n-, Bullato.\n[uncertain: Lueinda,Hugumın, St. J]\nSloop\n10. Schr. Juliet, Shooks, Detroit.\nAug. 14. Brig John Kinzie, St. Joseph.\nCLEARED.\n15. Sloop Dart,\n16. Schr.\ndo.\nPresident, Buffalo.\nWinnebago, Michigan (\nNancy Douseman, St. J\nPhillin\nMarial Antoinete, S..\nBubberl, Buffal\n18. Sloop Westward Ho,\n20.\n20. Schr. Hiram,\nWarren, Bufalo."
+    },
+    {
+      "kind": "building",
+      "normalized": "To Lease, [… 100] FEET front, 150 Feet rear, of [Lot … in] Block 18[,] on South Wa[ter street. Also 50 feet front, 22 feet rear of] the above Lot, fronting on Clark-str[eet. …] For term[s], inquire at the Print[ing Office.] SOLOMON J[U]N[EAU]. Chicago, [J]uly 2, 183[4].",
+      "locator": {
+        "artifact_role": "primary",
+        "issue_page": 3,
+        "column": 4,
+        "lines": [
+          3193,
+          3200
+        ],
+        "lines_of_claim": [
+          3193,
+          3194,
+          3196,
+          3197,
+          3198,
+          3199,
+          3200
+        ],
+        "interleaved": true
+      },
+      "ad_copy_date": {
+        "verbatim": "Chicago, Guly 2, 1831.",
+        "iso": "1834-07-02"
+      },
+      "entities": [
+        {
+          "as_printed": "SOLOMON IN",
+          "normalized": "Solomon Juneau",
+          "role": "lessor",
+          "occupations": [
+            "merchant"
+          ],
+          "associated_places": [
+            "Chicago",
+            "Milwaukee"
+          ]
+        }
+      ],
+      "notes": "THE ONE PRINTING OF THIS ADVERTISEMENT THAT CARRIES ITS BLOCK NUMBER AND ITS SECOND FRONTAGE AT ONCE: Solomon Juneau's ground is in BLOCK 18, ON SOUTH WATER STREET, and the lot he is dividing FRONTS ON CLARK STREET as well — a corner parcel, 100 feet by 150, with a 50-foot piece off its Clark end. The claim of 1834-07-02 (c047 there) had the frontage and not the block; the printings of 08-06 (line 261) and 08-13 (line 2907) lose one or the other. THE SAME BLOCK IS OFFERED TO LEASE BY ANOTHER HAND in the same month — 'No. 2, in block 18, South Water-stre[et]' (1834-08-06, claim c013 there) — so two lots of block 18 are on the market at once in August 1834. ENQUIRY GOES TO THE PRINTING OFFICE, that is, to the Democrat itself at South Water and Clark (1834-08-27, claim c009 there), which is on the same block front.",
+      "reading": "transcription_mediated",
+      "id": "c002",
+      "quote": "To Lease,\nFEET front, 150 Feet rear, of\nBlock 18. on South wal\nthe above Lot, fronting on Clark-str\nFor termis, inquire at the Print\nSOLOMON IN\nChicago, Guly 2, 1831."
+    },
+    {
+      "kind": "business",
+      "normalized": "[G. SPRING,] ATTORNEY AND CO[U]NSELLOR [AT LAW,] And Solici[t]or in Chancery. [Office second door west from the corner] of Franklin and South Water st[reets. …] Ch[icag]o, D[ec]. 17, 1[8]33",
+      "locator": {
+        "artifact_role": "primary",
+        "issue_page": 3,
+        "column": 4,
+        "lines": [
+          3272,
+          3276
+        ],
+        "lines_of_claim": [
+          3272,
+          3273,
+          3274,
+          3275,
+          3276
+        ],
+        "interleaved": true
+      },
+      "ad_copy_date": {
+        "verbatim": "Churo, Do. 17. 1333",
+        "iso": "1833-12-17"
+      },
+      "entities": [
+        {
+          "as_printed": "ATTORNEY AND COLNSELLOR",
+          "normalized": "G. Spring",
+          "role": "advertiser",
+          "occupations": [
+            "attorney"
+          ],
+          "associated_places": [
+            "South Water Street",
+            "Chicago"
+          ]
+        }
+      ],
+      "business": {
+        "name": "G. Spring",
+        "proprietors": [
+          "G. Spring"
+        ],
+        "trade": "attorney and counsellor at law, solicitor in chancery",
+        "goods": [],
+        "street": "South Water Street",
+        "placement": {
+          "class": "relative",
+          "anchor": "the corner of Franklin and South Water streets",
+          "offset_text": "of Franklin and South Water.st\nserene bour west from l",
+          "offset_normalized": "[second door] west from [the corner] of Franklin and South Water st[reets]",
+          "street": "South Water Street"
+        }
+      },
+      "notes": "A LAW OFFICE PLACED BY A CORNER AND A COUNT OF DOORS, WHICH IS THE FINEST PLACEMENT GRAIN THIS PAPER OFFERS. Neither printing carries the whole of it: THIS one has 'of Franklin and South Water.st' and 'se[co]nd [d]oor west from', and the issue of 1834-08-13 (page 3 column 4, lines 2985-2989) has the advertiser's name, 'Go SPRING', and 'PricE eecond door West trom'. Together they read: G. Spring's office, second door west from Franklin and South Water. THE NAME IS NOT ON THIS CLAIM'S OWN LINES and is bracketed as a supply from that other printing; the same man is claimed in July as 'G. Spring' twice (1834-07-02 c053, 1834-07-09 c021). FRANKLIN AND SOUTH WATER is a corner this reconstruction carries, and a documented tenancy two doors along it is exactly the kind of thing the frontage layer is short of.",
+      "reading": "transcription_mediated",
+      "id": "c003",
+      "quote": "ATTORNEY AND COLNSELLOR\nAnd Soliciter in Chancery\nof Franklin and South Water.st\nserene bour west from l\nChuro, Do. 17. 1333"
+    },
+    {
+      "kind": "notice",
+      "normalized": "NOTIC[E.] Indian [Agency, Chicago, July 18.] TH[E] Chicago Treaty of the 26th [of Septem]ber last, having been ratifi[e]d, on[ly on certain] con[d]itions[,] and [it] i[s] not know[n that those conditions] will be assented to on the [part of the Indians … therefore he] […] [persons presuming to settle on the ceded lands will be] i[m]mediately removed therefrom. TH. J. V. OWEN, Ind[ian Agent]",
+      "locator": {
+        "artifact_role": "primary",
+        "issue_page": 3,
+        "column": 5,
+        "lines": [
+          3379,
+          3392
+        ],
+        "lines_of_claim": [
+          3379,
+          3380,
+          3381,
+          3383,
+          3384,
+          3385,
+          3386,
+          3387,
+          3391,
+          3392
+        ],
+        "interleaved": true
+      },
+      "entities": [
+        {
+          "as_printed": "TH. J. V. OWEN, Ind",
+          "normalized": "Th. J. V. Owen",
+          "role": "Indian Agent at Chicago",
+          "occupations": [
+            "indian agent"
+          ],
+          "associated_places": [
+            "Chicago"
+          ]
+        }
+      ],
+      "notes": "THE FULLER PRINTING OF THE AGENCY NOTICE CLAIMED AT 1834-08-13 c019, and it is the one that names the instrument: THE CHICAGO TREATY OF THE 26TH OF SEPTEMBER LAST — the treaty of 26 September 1833 — ratified with conditions that had not yet been assented to, with settlement on the ceded lands forbidden until they were. THE PROJECT'S STANDING CONSTRAINT GOVERNS ANY USE OF THIS (AGENTS.md): the final removal of the Potawatomi from Chicago falls in August 1835, inside the target year, and this reconstruction depicts no Native presence without consultation. What is claimed here is what the notice states and its date, nothing more. The Indian Agency itself is a documented institution of this town with a named agent, and the notice is signed at it.",
+      "reading": "transcription_mediated",
+      "id": "c004",
+      "quote": "NOTIC\nIndian\n1E Chicago Treaty of the 26th\nof Clark\nbits conditions, andsiti not know\nDer last, having been ratihedn\ncon litions will be assented to on the\n[uncertain: Liana- Choretore he snota]\niamediately removed therefrom.\nTH. J. V. OWEN, Ind"
+    },
+    {
+      "kind": "street",
+      "normalized": "Auction Store. [T]he Auction Store on the Str[eet leading] fro[m] [th]e [d]raw [br]i[dge] to the [Oak Woods] and Blue Island, is in readiness to rec[eive goods] to be [dis]po[se]d o[f a]t private sale [o]r [public auction] at any limited price. N. B. No Goods will be offered […] J. BATES [jr.] Chicago, July 15, 183[4]",
+      "locator": {
+        "artifact_role": "primary",
+        "issue_page": 3,
+        "column": 5,
+        "lines": [
+          3431,
+          3442
+        ],
+        "lines_of_claim": [
+          3431,
+          3432,
+          3433,
+          3434,
+          3435,
+          3437,
+          3438,
+          3439,
+          3440,
+          3441,
+          3442
+        ],
+        "interleaved": true
+      },
+      "ad_copy_date": {
+        "verbatim": "Chicago, July 15, 1831",
+        "iso": "1834-07-15"
+      },
+      "entities": [
+        {
+          "as_printed": "J. BATES",
+          "normalized": "J. Bates, jr.",
+          "role": "auctioneer",
+          "occupations": [
+            "auctioneer"
+          ],
+          "associated_places": [
+            "Chicago"
+          ]
+        }
+      ],
+      "business": {
+        "name": "J. Bates jr., Auction Store",
+        "proprietors": [
+          "J. Bates, jr."
+        ],
+        "trade": "auction and commission store",
+        "goods": [],
+        "street": null,
+        "placement": {
+          "class": "relative",
+          "anchor": "the street leading from the drawbridge to the Oak Woods and Blue Island",
+          "offset_text": "SHE Auetion Store on the\nAnction Store.\nStr\nand blue island, is in readiness to rec\ntrom we oraw mince to the",
+          "offset_normalized": "the Auction Store on the Str[eet leading] fro[m] [th]e [d]raw [br]i[dge] to the [Oak Woods] and Blue Island",
+          "street": null
+        }
+      },
+      "notes": "A STREET NAMED BY WHERE IT GOES RATHER THAN BY WHAT IT IS CALLED, which is how the roads out of this town were named before they were named: 'the street leading from the draw bridge to the Oak Woods and Blue Island'. That is the south road out of the settlement, running from the town's only drawbridge to the timber and the ridge beyond it, and it fixes the auction store on it. THIS IS THE THIRD PRINTING of the same placement in the corpus and the best: 1834-07-16 (c014) has 'the Street leading' and stops, and 1834-08-06 (page 3 column 5, lines 2963-2969) has 'eraw-bridae to tae osa nuc' and 'ud blue ia tha'. 'Oak Woods' is supplied from the militia notice of 1834-08-27 (claim c003 there), which names 'O[a]k Woods' as a settlement of the county in the same weeks. The placement is recorded as relative rather than street_only because the street has no name to record.",
+      "reading": "transcription_mediated",
+      "id": "c005",
+      "quote": "SHE Auetion Store on the\nAnction Store.\nStr\nand blue island, is in readiness to rec\ntrom we oraw mince to the\nto be misposco or al private sale qr F\nat any limited price.\nN. B. No Goods will be\nJ. BATES\noffered\nChicago, July 15, 1831"
+    },
+    {
+      "kind": "notice",
+      "normalized": "[… es]tate of David Laughton […] [Judge of Probate for Cook county …] produce proper evidence t[hereof …] Aug. 19, 1834. ISAAC HAR[uncertain: MON] Adm'r. with the Will [annexed]",
+      "locator": {
+        "artifact_role": "primary",
+        "issue_page": 3,
+        "column": 3,
+        "lines": [
+          3005,
+          3017
+        ],
+        "lines_of_claim": [
+          3005,
+          3008,
+          3012,
+          3015,
+          3016,
+          3017
+        ],
+        "interleaved": true
+      },
+      "ad_copy_date": {
+        "verbatim": "Aug. 19, 1834.",
+        "iso": "1834-08-19"
+      },
+      "entities": [
+        {
+          "as_printed": "tate of David Laughton",
+          "normalized": "David Laughton",
+          "role": "deceased",
+          "associated_places": [
+            "Cook County"
+          ]
+        },
+        {
+          "as_printed": "ISAAC HAR",
+          "normalized": "[uncertain: Isaac Harmon]",
+          "role": "administrator with the will annexed",
+          "associated_places": [
+            "Cook County"
+          ]
+        }
+      ],
+      "notes": "THE ESTATE OF DAVID LAUGHTON, in probate before the Judge of Probate of this county in August 1834. Laughton is the trader of the Des Plaines crossing, and a probate notice dated 19 August 1834 is a claim about WHEN he died that this project can cite. THE ADMINISTRATOR'S SURNAME IS CUT AFTER THREE LETTERS — 'ISAAC HAR' — and Harmon is a reading, marked uncertain and not minted as a certainty; the corpus carries a Harmon house (Harmon, Loomis & Co.) but the notice does not connect them and neither does this claim. The column is woven with an attachment suit, so only six of its thirteen lines carry the notice.",
+      "reading": "transcription_mediated",
+      "id": "c006",
+      "quote": "tate of David Laughton\nsh, Judge of Probate for\nproduce proper evidence te\nAug. 19, 1834.\nISAAC HAR\nAdm'r. with the Will"
+    },
+    {
+      "kind": "business",
+      "normalized": "J. S. C. HOGA[N] [O]FFERS at Wholesale and R[et]ail, [at his store] in South Water Street, [one door … of] the Post Office,",
+      "locator": {
+        "artifact_role": "primary",
+        "issue_page": 3,
+        "column": 5,
+        "lines": [
+          3334,
+          3338
+        ],
+        "lines_of_claim": [
+          3334,
+          3335,
+          3336,
+          3338
+        ],
+        "interleaved": true
+      },
+      "entities": [
+        {
+          "as_printed": "J. S. C. HOGAI",
+          "normalized": "John S. C. Hogan",
+          "role": "advertiser",
+          "occupations": [
+            "merchant",
+            "postmaster"
+          ],
+          "associated_places": [
+            "South Water Street",
+            "Chicago"
+          ]
+        }
+      ],
+      "business": {
+        "name": "J. S. C. Hogan",
+        "proprietors": [
+          "John S. C. Hogan"
+        ],
+        "trade": "wholesale and retail store",
+        "goods": [],
+        "street": "South Water Street",
+        "placement": {
+          "class": "relative",
+          "anchor": "the Post Office",
+          "offset_text": "in South Water Street,\nthe Post Office,",
+          "offset_normalized": "in South Water Street, [one door … of] the Post Office",
+          "street": "South Water Street"
+        }
+      },
+      "notes": "THE SECOND WITNESS FOR THE POSTMASTER'S STORE beside his own post office (1834-08-13, claim c017 there), and it loses the same word: the direction from the office. Two printings a week apart both cut at the same place, which is a property of the segmenter and not of the type — the advertisement is set in a narrow measure and the words after 'one' fall in the half of the column the cut takes. NO DIRECTION IS SUPPLIED. What both printings agree on is the street and the anchor, and that is what the placement records.",
+      "reading": "transcription_mediated",
+      "id": "c007",
+      "quote": "J. S. C. HOGAI\nFFERS at Wholesale and Rail,\nin South Water Street,\nthe Post Office,"
+    },
+    {
+      "kind": "price",
+      "normalized": "CHICAGO PRICES CURRENT, Reported for the Democ[r]at by P. [F]. Pe[ck]. CORRECTED WEE[K]LY. […] Salt, […] $ 9 3[?] a […] Wabash S. 60[c] […] [Bu]ckwheat [flour] […] St. Joseph 5 [0]0 […] Indian meal […] bush 50 […] [Corn] bush […] [Wheat] […] [Provisions] […] Hams green […] [White fish] […] White bea[ns] […] [Potatoes] […] Hides […] Candles, box [and] tallow […] [Groceries—] Tea, imperial […] young hyson […] [souchong] […] [Sugar, lump] […] brown Hav[ana] […] Whiskey, bb[l] […] Oil, [s]perm […] [Brown sheetings / Bleached shirtings / Calicoes, assorted] […] Iron, S[weedes] […] Steel […] Nails, wro't […] [do] German […] [Muskrat skins] […] [Raccoon] […] [Building Materials—] [Shingles] […] Lumber, poplar ass'd 1000 […] [Squa]re timber, leng[th] […] per[ch]",
+      "locator": {
+        "artifact_role": "primary",
+        "issue_page": 3,
+        "column": 6,
+        "lines": [
+          3524,
+          3606
+        ],
+        "lines_of_claim": [
+          3524,
+          3525,
+          3526,
+          3527,
+          3528,
+          3529,
+          3530,
+          3531,
+          3532,
+          3533,
+          3534,
+          3535,
+          3536,
+          3537,
+          3538,
+          3539,
+          3540,
+          3541,
+          3542,
+          3543,
+          3544,
+          3545,
+          3546,
+          3547,
+          3548,
+          3549,
+          3550,
+          3551,
+          3552,
+          3553,
+          3554,
+          3555,
+          3556,
+          3557,
+          3558,
+          3559,
+          3560,
+          3561,
+          3562,
+          3563,
+          3564,
+          3565,
+          3566,
+          3567,
+          3568,
+          3569,
+          3570,
+          3571,
+          3572,
+          3573,
+          3574,
+          3575,
+          3576,
+          3577,
+          3578,
+          3579,
+          3580,
+          3581,
+          3582,
+          3583,
+          3584,
+          3585,
+          3586,
+          3587,
+          3588,
+          3589,
+          3590,
+          3591,
+          3592,
+          3593,
+          3594,
+          3595,
+          3596,
+          3597,
+          3598,
+          3599,
+          3600,
+          3601,
+          3602,
+          3603,
+          3604,
+          3605,
+          3606
+        ],
+        "interleaved": true
+      },
+      "entities": [
+        {
+          "as_printed": "Reported for the Democrut by P. r. Pesi",
+          "normalized": "P. F. W. Peck",
+          "role": "reporter of prices",
+          "occupations": [
+            "merchant"
+          ],
+          "associated_places": [
+            "LaSalle Street",
+            "South Water Street"
+          ]
+        }
+      ],
+      "notes": "THE THIRD PRICES CURRENT OF THE MONTH, AND THE ONE WHOSE BUILDING MATERIALS SURVIVE: shingles, poplar lumber priced by the thousand, square timber priced by the length and by the thousand, and stone by the PERCH. That is the 1834 cost of putting up the buildings this project reconstructs, and the perch — a measure of stone masonry, not of timber — is the detail worth keeping. THE TABLE IS WOVEN with the St. Joseph lumber advertisements beside it, so about half the lines in the quoted range belong to Deacon & McCaleb and to the Taken Up notice; they are quoted verbatim as they stand and unshuffled only in the normalized reading, where every commodity the figures cannot be attached to is bracketed or elided. NOTHING IS CARRIED OVER FROM THE PREVIOUS WEEK'S TABLE. Where this printing loses a figure, the reading loses it too.",
+      "reading": "transcription_mediated",
+      "id": "c008",
+      "quote": "CHICAGO PRICES CURRENT\nReported for the Democrut by P. r. Pesi\nCORRECTED WERR:Y.\n[uncertain: on vorte]\nSalt,\n[uncertain: COur anoeA]\n$ 9 3e a\nWabash S. 60e\n[uncertain: Buekwheat four]\nSt. Joseph\n5 G0\nsa cau be\nIndien mea)\n[uncertain: reID u]\nbusb\n50 .\n[uncertain: Corl]\n[uncertain: bush]\ngond En\n[uncertain: Provieione-]\n[uncertain: Wheat]\n[uncertain: anu aleady]\n[uncertain: :E=]\n[uncertain: SCaLIOn 8t]\n[uncertain: Bne or]\n[uncertain: •US.a]\nelling with\n[uncertain: henen]\nHame green\n[uncertain: venian]\n[uncertain: ---]\n[uncertain: DUISE.]\n[uncertain: White fab o]\n[uncertain: TMAN.]\n[uncertain: Ler, 19]\nWhite beoe\n[uncertain: Potatoe]\nHideo,\nf Septem-\nCandies, box tellew\ns, will be\n[uncertain: Groceriee-]\nIea, imperia\nyoung hysen\n• Agent.\n[uncertain: Suga, lump]\n[uncertain: Souchong]\n[uncertain: i E. P.]\nbrown Hav.\n[uncertain: Dix Cr01d]\n[uncertain: 11 •]\n[uncertain: Beacon k]\nthe same.\n[uncertain: PISS9]\nWhiskey, bb\n[uncertain: sost'd]\nOil, aperm\nsettle the\n[uncertain: Done Bame Phoringe]\n[uncertain: Blesel Shirtinge]\n[uncertain: Calicoes, assorte]\nIron. Sei\nSteel\n[uncertain: pede sesorted]\n[uncertain: offered]\nwell oe.\nNaila, wro't\nđo\nGermen\n[uncertain: DV BRORO-]\n[uncertain: of Muskat shine]\n[uncertain: a wel C]\n[uncertain: Raccoon]\nALEB.\n[uncertain: Sut dingostaria.-]\n[uncertain: Shingles]\nLumber, poplar sea'd 1000\nordere at\ner be con\n[uncertain: Briare timber, lengib]\nICON.\n[uncertain: Der inHI]\nperch"
+    },
+    {
+      "id": "c009",
+      "kind": "business",
+      "reading": "transcription_mediated",
+      "quote": "house and land dg\nRD.\nOTS purchased and Sold, or by\n12\n[uncertain: Sou ago ur sale, in the t]\n[uncertain: 0 and]\n[uncertain: Latest hope tore i hire at 25e]\nHouses to Let.",
+      "normalized": "[H]ouse and [L]and [A]g[ent.] […] [L]OTS purchased and Sold, or by [commission.] 12 [Building Lots for sale, in the t][own and] […] […] Houses to Let.",
+      "locator": {
+        "artifact_role": "primary",
+        "issue_page": 3,
+        "column": 4,
+        "lines": [
+          3230,
+          3237
+        ],
+        "lines_of_claim": [
+          3230,
+          3231,
+          3232,
+          3233,
+          3234,
+          3235,
+          3236,
+          3237
+        ],
+        "interleaved": true
+      },
+      "business": {
+        "name": "W. G. Blanchard",
+        "proprietors": [
+          "W. G. Blanchard"
+        ],
+        "trade": "house and land agent",
+        "goods": [],
+        "street": null,
+        "placement": {
+          "class": "none",
+          "anchor": null,
+          "offset_text": null,
+          "offset_normalized": null,
+          "street": null
+        }
+      },
+      "notes": "ONE IMPRESSION OF THE STANDING LAKE STREET LAND-AGENCY CARD. The Democrat sets this advertisement, word for word the same, in every issue from 1834-05-14 to 1834-10-01 — twenty consecutive weeks, eighteen of which set the line ‘purchased and Sold, or by commi[s]sion’ recognisably (T-1051). The card is identified by its copy and not by its display line: the same trade (‘House and Land Agent’), the same offer of building lots in the town and the School Section, the same houses to let, and the same office on Lake street opposite Dr. Temple's. THE MOST SHREDDED IMPRESSION IN THE RUN. Only the trade line (3230), the purchase line (3232) and 'Houses to Let.' (3237) read clean; 3234, 3235 and 3236 are transcribed inside uncertainty marks and 3236 — '[uncertain: Latest hope tore i hire at 25e]' — is where the address stands and cannot be read, so this printing is recorded as silent about placement. Line 3231 reads 'RD.' and line 3233 reads '12'. 'RD.' is consistent with the tail of the display line and is NOT read as one: the column interleaves and a two-letter fragment cannot say which advertisement it fell out of. THE PROPRIETOR'S NAME IS NOT READ HERE and none is supplied into the quote: the record's ‘W. G. Blanchard’ stands on T-0408's reading of the two impressions whose columns are NOT Tesseract fallbacks (1834-07-16 line 5527, 1834-09-17 line 3292) and on identity.json's declared firm merge, not on this impression. "
+    }
+  ]
+}

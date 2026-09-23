@@ -1,0 +1,805 @@
+{
+  "_doc": "Read the Kinzie Block off Wright's 1834 survey, and search the corpus for its name.\n\n    tools/read_kinzie_block_name.py           print the reading\n    tools/read_kinzie_block_name.py --write   write data/traces/kinzie_block_name.json\n    tools/read_kinzie_block_name.py --check   re-derive the committed file WITHOUT the raster\n    tools/read_kinzie_block_name.py --check-sheet   re-open the raster and re-derive the peaks\n\nWHAT IS BEING READ. Wright letters two words \u2014 \"Kinzie\" over \"Block\" \u2014 inside one\nblock of Kinzie's Addition, between Michigan and Illinois Streets and between Cass\nand Rush. It is the only block in the Addition given a NAME, and apart from the\nPublic Square the only one on the whole sheet. Every other block in its tier\ncarries a numeral instead. That is the whole of the claim this file makes about\nthe sheet, and it is made three ways: the lettering is transcribed off a cited\ncrop; the numerals either side of it are transcribed off their own crops, which\nis what places the name in the slot that would be number 11; and the block's\nINTERIOR is measured, because the sheet says something about this block that no\ntranscription can \u2014 it is drawn with no lot divisions at all while both its\nneighbours are ruled into lots.\n\nWHY THE INTERIOR IS MEASURED AND NOT LOOKED AT. A lot division on this sheet is a\nshort vertical rule, and whether one is there is a fact about the raster anybody\ncan re-measure. `_profile` from tools/read_kinzie_addition_streets.py stacks the\nink of a band along the sheet's own shear and projects it onto one axis; `_rules`\ntakes the sharp narrow peaks. Run across the tier, the block boundaries and the\nlot rules come out at peak heights of 65 to 108 and the cursive strokes of the\nlettering come out at 15 to 33, which is a margin of two to one with nothing in\nbetween. The cut is stated below as RULE_PEAK_MIN and every peak the profile\nfound, above and below it, is written to the committed file so the next person\ncan disagree with the cut rather than with a summary of it.\n\nWHAT THIS FILE DOES NOT DO. It does not number the Addition's blocks \u2014 that is\nT-1061's, and this reading transcribes exactly two numerals, the ones that bracket\nthe name. It does not read the river tier or the water lots (T-1063). Blocks east\nof Pine Street are cut by the lake shore and are drawn on a different division;\nthe interior measurement here is stated for the three full-width blocks between\nWolcott and Pine and claims nothing about the shore-cut ones.\n\nTHE SEATING is the committed grid's, never this sheet's own fit. The block's\nfootprint is derived from the four streets that bound it in data/streets/1835.json\n\u2014 michigan_north, illinois_north, cass and rush, all four already seated by T-1060\n\u2014 so the ground this names is the ground the walker stands on. The sheet is read\nfor WHAT IS DRAWN THERE; where it is, the committed streets already say.\n",
+  "ticket": "T-1062 (piece 3 of T-0789)",
+  "raster": {
+    "working_copy": "chicago/pre_fire_v1/maps/images/1834-wright-map.jpg",
+    "width": 5050,
+    "height": 6628,
+    "dpi": 600,
+    "sha256": "dbb92c0188881d9b6cdf84801b9185a5715496a328125bde895a04058b173266",
+    "duplicate_in_repository": "chicago/pre_fire_v1/maps/images/1834-wright-map-lg.jpg is byte-identical to it",
+    "source_id": "wright_1834_nara_hup",
+    "note": "The working copy lives outside this app's subtree, in chicago/pre_fire_v1/, where the owner placed it. This file cites it by path and checksum; it does not copy it."
+  },
+  "registration": "data/traces/gcp/wright_1834_nara_hup_gcps.json \u2014 the same registration T-1060 read the Addition's street grid through.",
+  "method": "tools/read_kinzie_block_name.py. Lettering and numerals are TRANSCRIBED from the cited crops. The block interiors are MEASURED: ink stacked along the sheet's shear and projected onto the east-west axis, sharp narrow peaks taken as ruled lines, a peak below 50.0 taken as a stroke of the lettering rather than a rule. `--check` re-derives the counts, the footprint and the search from what is committed here; `--check-sheet` re-opens the raster and re-derives the peaks the counts are made of. check.sh runs the first, a PR runs both.",
+  "lettering": {
+    "transcription": "Kinzie Block",
+    "as_drawn": "Two lines of cursive inside one block outline, 'Kinzie' in the upper half and 'Block' in the lower, reading west to east. No apostrophe and no possessive 's' is drawn: the sheet letters Kinzie, not Kinzie's.",
+    "confidence": "documented",
+    "source_id": "wright_1834_nara_hup",
+    "crops": {
+      "kinzie": {
+        "box": [
+          3125,
+          1886,
+          3262,
+          1938
+        ],
+        "reads": "Kinzie"
+      },
+      "block": {
+        "box": [
+          3125,
+          1934,
+          3262,
+          1986
+        ],
+        "reads": "Block"
+      },
+      "context": {
+        "box": [
+          2955,
+          1875,
+          3475,
+          2000
+        ],
+        "reads": "the whole Michigan-Illinois tier, Wolcott to Pine"
+      }
+    }
+  },
+  "which_block": {
+    "claim": "The block Wright names is the one that would otherwise be numbered 11.",
+    "confidence": "inferred",
+    "note": "The numeral 11 is NOT on the sheet \u2014 the name stands where it would be. What is on the sheet is the tier's numbering either side of it: the block west of Cass Street is lettered 12 and the block east of Rush Street is lettered 10, both transcribed from the crops below, and both sitting astride their block's mid-line the way every numeral in the Addition does. A tier that runs 12, name, 10 leaves one slot, and it is 11. That is arithmetic on two read numerals, not a reading of a third, so it is inferred and not documented. The Addition's numbering as a whole is T-1061's to read.",
+    "crops": {
+      "numeral_west": {
+        "box": [
+          3010,
+          1908,
+          3070,
+          1950
+        ],
+        "reads": "12"
+      },
+      "numeral_east": {
+        "box": [
+          3325,
+          1928,
+          3385,
+          1970
+        ],
+        "reads": "10"
+      }
+    },
+    "corroborated_by": {
+      "available": true,
+      "file": "data/traces/kinzie_addition_block_numbering.json",
+      "ticket": "T-1061 (piece 2 of T-0789)",
+      "cells_naming_the_kinzie_block": 1,
+      "number": 11,
+      "bounded_by": "Cass Street to Rush Street",
+      "numeral_on_sheet": false,
+      "agrees_with_this_reading": true,
+      "note": "T-1061 read all fifty-one numerals the Addition carries and fitted the run they are written in. It reaches 11 for this cell from the run, having no numeral to read there; this reading reaches 11 from the two numerals either side of the name. Neither used the other. The field above re-reads T-1061's committed file every time the gate runs, so a future disagreement between the two fails rather than sits."
+    }
+  },
+  "interior": {
+    "claim": "The Kinzie Block is drawn with no lot divisions. Both its full-width neighbours in the same tier are ruled into lots.",
+    "confidence": "documented",
+    "lot_rules_found": {
+      "block_12": [
+        6,
+        6
+      ],
+      "kinzie_block": [
+        0,
+        0
+      ],
+      "block_10": [
+        5,
+        5
+      ]
+    },
+    "reading": "Six lot rules in block 12 and five in block 10, in each of the two half-blocks, at peak heights of 65 to 108. Between Cass Street's east rule and Rush Street's west rule, none \u2014 the only ink the profile finds inside the Kinzie Block is the lettering, at peak heights of 15 to 33. The block is bounded and halved like its neighbours and then left whole.",
+    "what_it_is_not": "This is a statement about what Wright DREW, not about how the ground was held. A block drawn without lots is not by itself evidence that it was never sold as lots, and nothing here reserves it or refuses it a subdivision \u2014 data/reconstruction/1835_reserved_ground.json is where such a claim would have to be argued, and this reading does not make it.",
+    "shore_cut_blocks": "Blocks east of Pine Street are cut by the lake shore and are drawn on a different division. The count above is stated for the three full-width blocks between Wolcott and Pine only.",
+    "scan": [
+      {
+        "band": "upper_half_block",
+        "y_px": [
+          1900,
+          1928
+        ],
+        "note": "between the Illinois rule and the mid-block line",
+        "x_px": [
+          2790,
+          3620
+        ],
+        "shear": -0.006,
+        "peaks": [
+          {
+            "px_x": 2941.2,
+            "peak": 93.4
+          },
+          {
+            "px_x": 2944.7,
+            "peak": 21.9
+          },
+          {
+            "px_x": 2970.6,
+            "peak": 78.3
+          },
+          {
+            "px_x": 2989.6,
+            "peak": 86.1
+          },
+          {
+            "px_x": 3009.0,
+            "peak": 81.3
+          },
+          {
+            "px_x": 3030.7,
+            "peak": 91.4
+          },
+          {
+            "px_x": 3033.0,
+            "peak": 21.4
+          },
+          {
+            "px_x": 3056.0,
+            "peak": 91.6
+          },
+          {
+            "px_x": 3058.0,
+            "peak": 15.1
+          },
+          {
+            "px_x": 3076.7,
+            "peak": 108.4
+          },
+          {
+            "px_x": 3079.0,
+            "peak": 26.0
+          },
+          {
+            "px_x": 3096.2,
+            "peak": 95.2
+          },
+          {
+            "px_x": 3130.5,
+            "peak": 97.8
+          },
+          {
+            "px_x": 3133.0,
+            "peak": 14.7
+          },
+          {
+            "px_x": 3257.3,
+            "peak": 18.7
+          },
+          {
+            "px_x": 3284.8,
+            "peak": 84.2
+          },
+          {
+            "px_x": 3287.0,
+            "peak": 18.0
+          },
+          {
+            "px_x": 3305.1,
+            "peak": 76.2
+          },
+          {
+            "px_x": 3327.4,
+            "peak": 69.3
+          },
+          {
+            "px_x": 3350.2,
+            "peak": 66.9
+          },
+          {
+            "px_x": 3371.6,
+            "peak": 83.3
+          },
+          {
+            "px_x": 3389.7,
+            "peak": 61.6
+          },
+          {
+            "px_x": 3408.6,
+            "peak": 111.7
+          },
+          {
+            "px_x": 3411.0,
+            "peak": 32.8
+          },
+          {
+            "px_x": 3481.7,
+            "peak": 121.7
+          },
+          {
+            "px_x": 3485.0,
+            "peak": 21.1
+          },
+          {
+            "px_x": 3568.0,
+            "peak": 80.5
+          },
+          {
+            "px_x": 3604.6,
+            "peak": 99.8
+          }
+        ],
+        "bounds_px": {
+          "wolcott_east": {
+            "px_x": 2941.2,
+            "peak": 93.4,
+            "below_cut": false
+          },
+          "cass_west": {
+            "px_x": 3096.2,
+            "peak": 95.2,
+            "below_cut": false
+          },
+          "cass_east": {
+            "px_x": 3130.5,
+            "peak": 97.8,
+            "below_cut": false
+          },
+          "rush_west": {
+            "px_x": 3257.3,
+            "peak": 18.7,
+            "below_cut": true
+          },
+          "rush_east": {
+            "px_x": 3284.8,
+            "peak": 84.2,
+            "below_cut": false
+          },
+          "pine_west": {
+            "px_x": 3408.6,
+            "peak": 111.7,
+            "below_cut": false
+          }
+        }
+      },
+      {
+        "band": "lower_half_block",
+        "y_px": [
+          1948,
+          1976
+        ],
+        "note": "between the mid-block line and the Michigan rule",
+        "x_px": [
+          2790,
+          3620
+        ],
+        "shear": -0.006,
+        "peaks": [
+          {
+            "px_x": 2941.7,
+            "peak": 99.0
+          },
+          {
+            "px_x": 2944.0,
+            "peak": 29.1
+          },
+          {
+            "px_x": 2971.0,
+            "peak": 65.7
+          },
+          {
+            "px_x": 2990.0,
+            "peak": 88.2
+          },
+          {
+            "px_x": 3009.6,
+            "peak": 76.3
+          },
+          {
+            "px_x": 3031.4,
+            "peak": 70.1
+          },
+          {
+            "px_x": 3056.4,
+            "peak": 90.1
+          },
+          {
+            "px_x": 3077.7,
+            "peak": 104.8
+          },
+          {
+            "px_x": 3080.0,
+            "peak": 17.3
+          },
+          {
+            "px_x": 3096.6,
+            "peak": 105.2
+          },
+          {
+            "px_x": 3099.0,
+            "peak": 20.8
+          },
+          {
+            "px_x": 3130.7,
+            "peak": 97.7
+          },
+          {
+            "px_x": 3133.0,
+            "peak": 21.7
+          },
+          {
+            "px_x": 3238.8,
+            "peak": 20.2
+          },
+          {
+            "px_x": 3254.0,
+            "peak": 101.8
+          },
+          {
+            "px_x": 3286.7,
+            "peak": 91.7
+          },
+          {
+            "px_x": 3289.0,
+            "peak": 15.4
+          },
+          {
+            "px_x": 3306.0,
+            "peak": 94.6
+          },
+          {
+            "px_x": 3327.6,
+            "peak": 100.6
+          },
+          {
+            "px_x": 3330.0,
+            "peak": 18.3
+          },
+          {
+            "px_x": 3351.1,
+            "peak": 107.5
+          },
+          {
+            "px_x": 3371.8,
+            "peak": 106.1
+          },
+          {
+            "px_x": 3374.0,
+            "peak": 29.0
+          },
+          {
+            "px_x": 3388.6,
+            "peak": 107.6
+          },
+          {
+            "px_x": 3391.0,
+            "peak": 26.3
+          },
+          {
+            "px_x": 3409.3,
+            "peak": 117.2
+          },
+          {
+            "px_x": 3412.0,
+            "peak": 33.6
+          },
+          {
+            "px_x": 3445.6,
+            "peak": 113.6
+          },
+          {
+            "px_x": 3567.3,
+            "peak": 70.2
+          },
+          {
+            "px_x": 3604.6,
+            "peak": 88.7
+          }
+        ],
+        "bounds_px": {
+          "wolcott_east": {
+            "px_x": 2941.7,
+            "peak": 99.0,
+            "below_cut": false
+          },
+          "cass_west": {
+            "px_x": 3096.6,
+            "peak": 105.2,
+            "below_cut": false
+          },
+          "cass_east": {
+            "px_x": 3130.7,
+            "peak": 97.7,
+            "below_cut": false
+          },
+          "rush_west": {
+            "px_x": 3254.0,
+            "peak": 101.8,
+            "below_cut": false
+          },
+          "rush_east": {
+            "px_x": 3286.7,
+            "peak": 91.7,
+            "below_cut": false
+          },
+          "pine_west": {
+            "px_x": 3409.3,
+            "peak": 117.2,
+            "below_cut": false
+          }
+        }
+      }
+    ],
+    "mid_line_px_y": [
+      {
+        "px_y": 1852.7,
+        "peak": 21.5
+      },
+      {
+        "px_y": 1858.0,
+        "peak": 46.6
+      },
+      {
+        "px_y": 1890.0,
+        "peak": 53.2
+      },
+      {
+        "px_y": 1923.0,
+        "peak": 16.2
+      },
+      {
+        "px_y": 1938.4,
+        "peak": 59.2
+      },
+      {
+        "px_y": 1969.0,
+        "peak": 17.6
+      },
+      {
+        "px_y": 2011.0,
+        "peak": 57.4
+      }
+    ]
+  },
+  "footprint": {
+    "bounded_by": {
+      "south": {
+        "id": "michigan_north",
+        "name_1835": "Michigan Street",
+        "path": [
+          [
+            450,
+            395
+          ],
+          [
+            1275.17,
+            388.22
+          ]
+        ],
+        "corridor_width_m": 24.384
+      },
+      "north": {
+        "id": "illinois_north",
+        "name_1835": "Illinois Street",
+        "path": [
+          [
+            829.55,
+            481.2
+          ],
+          [
+            1275.78,
+            477.54
+          ]
+        ],
+        "corridor_width_m": 22.17
+      },
+      "west": {
+        "id": "cass",
+        "name_1835": "Cass Street",
+        "path": [
+          [
+            940.5,
+            390.97
+          ],
+          [
+            944.78,
+            1016.2
+          ]
+        ],
+        "corridor_width_m": 22.17
+      },
+      "east": {
+        "id": "rush",
+        "name_1835": "Rush Street",
+        "path": [
+          [
+            1052.06,
+            390.05
+          ],
+          [
+            1056.34,
+            1015.28
+          ]
+        ],
+        "corridor_width_m": 22.17
+      }
+    },
+    "faces_local_enu_m": {
+      "south_n": 402.7,
+      "north_n": 468.74,
+      "west_e": 951.89,
+      "east_e": 1041.28
+    },
+    "width_m": 89.39,
+    "depth_m": 66.04,
+    "centre_local_enu_m": [
+      996.59,
+      435.72
+    ],
+    "_doc": "The ground the name belongs to, derived from the four committed streets that bound it \u2014 not from this sheet's own fit, which carries 16.2 m RMS. Each face is its street's centreline offset by half that street's corridor, taken at the middle of the face."
+  },
+  "phrase_in_the_corpus": {
+    "claim": "The phrase 'Kinzie Block' appears nowhere in this project's newspaper, directory and book corpus.",
+    "confidence": "documented",
+    "units_searched": 149,
+    "phrase_hits": [],
+    "sets": [
+      {
+        "set": "newspapers/text",
+        "glob": "newspapers/text/*.txt",
+        "units": 23
+      },
+      {
+        "set": "newspapers/extracted",
+        "glob": "newspapers/extracted/*.json",
+        "units": 86
+      },
+      {
+        "set": "directories",
+        "glob": "directories/**/*.json",
+        "units": 33
+      },
+      {
+        "set": "books/text",
+        "glob": "books/text/*.txt",
+        "units": 7
+      }
+    ],
+    "unit_ids": {
+      "newspapers/text": [
+        "newspapers/text/chicago_american_1835_06_08.txt",
+        "newspapers/text/chicago_american_1835_06_13.txt",
+        "newspapers/text/chicago_american_1835_06_20.txt",
+        "newspapers/text/chicago_american_1835_06_27.txt",
+        "newspapers/text/chicago_american_1835_07_04.txt",
+        "newspapers/text/chicago_american_1835_07_11.txt",
+        "newspapers/text/chicago_american_1835_07_18.txt",
+        "newspapers/text/chicago_american_1835_07_25.txt",
+        "newspapers/text/chicago_american_1835_08_01.txt",
+        "newspapers/text/chicago_american_1835_08_08.txt",
+        "newspapers/text/chicago_american_1835_08_15.txt",
+        "newspapers/text/chicago_american_1835_08_22.txt",
+        "newspapers/text/chicago_american_1835_08_29.txt",
+        "newspapers/text/chicago_democrat_1833_11_26__alt_verified.txt",
+        "newspapers/text/chicago_democrat_1835_07_01__alt_transcription_2.txt",
+        "newspapers/text/chicago_democrat_1835_07_08__alt_transcription_2.txt",
+        "newspapers/text/chicago_democrat_1835_07_15.txt",
+        "newspapers/text/chicago_democrat_1835_07_22.txt",
+        "newspapers/text/chicago_democrat_1835_07_29.txt",
+        "newspapers/text/chicago_democrat_1835_08_05.txt",
+        "newspapers/text/chicago_democrat_1835_08_12.txt",
+        "newspapers/text/chicago_democrat_1835_08_19.txt",
+        "newspapers/text/chicago_democrat_1835_08_26.txt"
+      ],
+      "newspapers/extracted": [
+        "newspapers/extracted/chicago_american_1835_06_08.json",
+        "newspapers/extracted/chicago_american_1835_06_13.json",
+        "newspapers/extracted/chicago_american_1835_06_20.json",
+        "newspapers/extracted/chicago_american_1835_06_27.json",
+        "newspapers/extracted/chicago_american_1835_07_04.json",
+        "newspapers/extracted/chicago_american_1835_07_11.json",
+        "newspapers/extracted/chicago_american_1835_07_18.json",
+        "newspapers/extracted/chicago_american_1835_07_25.json",
+        "newspapers/extracted/chicago_american_1835_08_01.json",
+        "newspapers/extracted/chicago_american_1835_08_08.json",
+        "newspapers/extracted/chicago_american_1835_08_15.json",
+        "newspapers/extracted/chicago_american_1835_08_22.json",
+        "newspapers/extracted/chicago_american_1835_08_29.json",
+        "newspapers/extracted/chicago_democrat_1833_11_26.json",
+        "newspapers/extracted/chicago_democrat_1833_12_03.json",
+        "newspapers/extracted/chicago_democrat_1833_12_10.json",
+        "newspapers/extracted/chicago_democrat_1833_12_17.json",
+        "newspapers/extracted/chicago_democrat_1833_12_24.json",
+        "newspapers/extracted/chicago_democrat_1833_12_31.json",
+        "newspapers/extracted/chicago_democrat_1834_01_07.json",
+        "newspapers/extracted/chicago_democrat_1834_01_14.json",
+        "newspapers/extracted/chicago_democrat_1834_01_21.json",
+        "newspapers/extracted/chicago_democrat_1834_01_28.json",
+        "newspapers/extracted/chicago_democrat_1834_02_04.json",
+        "newspapers/extracted/chicago_democrat_1834_02_11.json",
+        "newspapers/extracted/chicago_democrat_1834_02_18.json",
+        "newspapers/extracted/chicago_democrat_1834_02_25.json",
+        "newspapers/extracted/chicago_democrat_1834_03_04.json",
+        "newspapers/extracted/chicago_democrat_1834_03_18.json",
+        "newspapers/extracted/chicago_democrat_1834_03_25.json",
+        "newspapers/extracted/chicago_democrat_1834_04_01.json",
+        "newspapers/extracted/chicago_democrat_1834_04_08.json",
+        "newspapers/extracted/chicago_democrat_1834_04_16.json",
+        "newspapers/extracted/chicago_democrat_1834_04_23.json",
+        "newspapers/extracted/chicago_democrat_1834_04_30.json",
+        "newspapers/extracted/chicago_democrat_1834_05_07.json",
+        "newspapers/extracted/chicago_democrat_1834_05_14.json",
+        "newspapers/extracted/chicago_democrat_1834_05_21.json",
+        "newspapers/extracted/chicago_democrat_1834_05_28.json",
+        "newspapers/extracted/chicago_democrat_1834_06_04.json",
+        "newspapers/extracted/chicago_democrat_1834_06_11.json",
+        "newspapers/extracted/chicago_democrat_1834_06_18.json",
+        "newspapers/extracted/chicago_democrat_1834_06_25.json",
+        "newspapers/extracted/chicago_democrat_1834_07_02.json",
+        "newspapers/extracted/chicago_democrat_1834_07_09.json",
+        "newspapers/extracted/chicago_democrat_1834_07_16.json",
+        "newspapers/extracted/chicago_democrat_1834_07_23.json",
+        "newspapers/extracted/chicago_democrat_1834_07_30.json",
+        "newspapers/extracted/chicago_democrat_1834_08_06.json",
+        "newspapers/extracted/chicago_democrat_1834_08_13.json",
+        "newspapers/extracted/chicago_democrat_1834_08_20.json",
+        "newspapers/extracted/chicago_democrat_1834_08_27.json",
+        "newspapers/extracted/chicago_democrat_1834_09_03.json",
+        "newspapers/extracted/chicago_democrat_1834_09_10.json",
+        "newspapers/extracted/chicago_democrat_1834_09_17.json",
+        "newspapers/extracted/chicago_democrat_1834_09_24.json",
+        "newspapers/extracted/chicago_democrat_1834_10_01.json",
+        "newspapers/extracted/chicago_democrat_1834_10_08.json",
+        "newspapers/extracted/chicago_democrat_1834_10_15.json",
+        "newspapers/extracted/chicago_democrat_1834_10_22.json",
+        "newspapers/extracted/chicago_democrat_1834_10_29.json",
+        "newspapers/extracted/chicago_democrat_1834_11_05.json",
+        "newspapers/extracted/chicago_democrat_1834_11_12.json",
+        "newspapers/extracted/chicago_democrat_1834_11_19.json",
+        "newspapers/extracted/chicago_democrat_1834_11_26.json",
+        "newspapers/extracted/chicago_democrat_1834_12_03.json",
+        "newspapers/extracted/chicago_democrat_1834_12_10.json",
+        "newspapers/extracted/chicago_democrat_1834_12_17.json",
+        "newspapers/extracted/chicago_democrat_1834_12_24.json",
+        "newspapers/extracted/chicago_democrat_1835_01_21.json",
+        "newspapers/extracted/chicago_democrat_1835_03_25.json",
+        "newspapers/extracted/chicago_democrat_1835_05_20.json",
+        "newspapers/extracted/chicago_democrat_1835_05_27.json",
+        "newspapers/extracted/chicago_democrat_1835_06_04.json",
+        "newspapers/extracted/chicago_democrat_1835_06_10.json",
+        "newspapers/extracted/chicago_democrat_1835_06_17.json",
+        "newspapers/extracted/chicago_democrat_1835_06_24.json",
+        "newspapers/extracted/chicago_democrat_1835_07_01.json",
+        "newspapers/extracted/chicago_democrat_1835_07_08.json",
+        "newspapers/extracted/chicago_democrat_1835_07_15.json",
+        "newspapers/extracted/chicago_democrat_1835_07_22.json",
+        "newspapers/extracted/chicago_democrat_1835_07_29.json",
+        "newspapers/extracted/chicago_democrat_1835_08_05.json",
+        "newspapers/extracted/chicago_democrat_1835_08_12.json",
+        "newspapers/extracted/chicago_democrat_1835_08_19.json",
+        "newspapers/extracted/chicago_democrat_1835_08_26.json"
+      ],
+      "directories": [
+        "directories/address_back_projection.json",
+        "directories/claims/fergus_1839_city_register.json",
+        "directories/claims/fergus_1839_directory_entries.json",
+        "directories/claims/fergus_1839_election_1837.json",
+        "directories/claims/fergus_1839_ft_dearborn_lots.json",
+        "directories/claims/fergus_1839_population.json",
+        "directories/claims/fergus_1839_town_findings.json",
+        "directories/claims/fergus_1843_civic.json",
+        "directories/claims/fergus_1843_directory_entries.json",
+        "directories/claims/norris_1844_advertiser.json",
+        "directories/claims/norris_1844_directory_entries.json",
+        "directories/claims/norris_1844_town_findings.json",
+        "directories/coverage.json",
+        "directories/crosswalk.json",
+        "directories/fergus_1839_crosswalk_1835.json",
+        "directories/fergus_1839_election_crosswalk_1835.json",
+        "directories/fergus_1839_first_ward_scan.json",
+        "directories/fergus_1839_later_spend_1835.json",
+        "directories/fergus_1839_lot_sale_spend_1835.json",
+        "directories/fergus_1839_lots_corrections.json",
+        "directories/fergus_1839_lots_crosswalk_1835.json",
+        "directories/fergus_1839_lots_rowmap.json",
+        "directories/fergus_1839_register_crosswalk_1835.json",
+        "directories/fergus_1839_street_faces.json",
+        "directories/fergus_1843_crosswalk_1835.json",
+        "directories/norris_1844_advertiser_crosswalk_1835.json",
+        "directories/norris_1844_advertiser_index.json",
+        "directories/norris_1844_businesses_1835.json",
+        "directories/norris_1844_crosswalk_1835.json",
+        "directories/residence_back_projection.json",
+        "directories/second_readings/norris_1844_genealogytrails.json",
+        "directories/spend_crosswalk_1835.json",
+        "directories/spend_rulings.json"
+      ],
+      "books/text": [
+        "books/text/fergus_26_29.txt",
+        "books/text/hubbard_autobiography_1911.txt",
+        "books/text/hurlbut_chicago_antiquities_28_36.txt",
+        "books/text/ichr_v4_1921_22.txt",
+        "books/text/moses_kirkland_history_of_chicago_v1.txt",
+        "books/text/moses_kirkland_history_of_chicago_v2.txt",
+        "books/text/porter_hh_short_autobiography_1915.txt"
+      ]
+    },
+    "co_occurrences_examined": [
+      {
+        "unit": "newspapers/extracted/chicago_democrat_1834_03_25.json",
+        "text": "Kinzie and Michigan streets and eight block"
+      },
+      {
+        "unit": "newspapers/extracted/chicago_democrat_1834_04_16.json",
+        "text": "blocks of section 16 by number. Beside them, John H. Kinzie"
+      },
+      {
+        "unit": "newspapers/extracted/chicago_democrat_1834_04_16.json",
+        "text": "block \u2014]; blocks No. 67 and 124; also, wate[r lot No.] 11 in Kinzie"
+      },
+      {
+        "unit": "newspapers/extracted/chicago_democrat_1834_04_16.json",
+        "text": "block 71; lot 4 int\\nblocks No. 67 and 124; also, wate\\n11 in Kinzie"
+      },
+      {
+        "unit": "newspapers/extracted/chicago_democrat_1834_09_10.json",
+        "text": "Kinzie's Addition, on the north bank \u2014 offered with three lots in block"
+      },
+      {
+        "unit": "newspapers/extracted/chicago_democrat_1835_08_19.json",
+        "text": "block] 5, [on North Water] and Kinzie"
+      },
+      {
+        "unit": "newspapers/extracted/chicago_democrat_1835_08_19.json",
+        "text": "Block and lot numbers on Lake street, North Water street, Kinzie"
+      },
+      {
+        "unit": "directories/claims/fergus_1843_directory_entries.json",
+        "text": "block fronting on Rush, Michigan, and Kinzie"
+      },
+      {
+        "unit": "directories/claims/fergus_1843_directory_entries.json",
+        "text": "block fronting on Rush, Michigan, and Kinzie"
+      },
+      {
+        "unit": "directories/claims/fergus_1843_directory_entries.json",
+        "text": "block fronting on Rush, Michigan, and Kinzie"
+      },
+      {
+        "unit": "books/text/fergus_26_29.txt",
+        "text": "block front- ing on Rush, Micliigan.' ami Kinzie"
+      },
+      {
+        "unit": "books/text/moses_kirkland_history_of_chicago_v1.txt",
+        "text": "Kinzie streets, and block"
+      }
+    ],
+    "ruling": "Every one of the co-occurrences above was read and none is the phrase. They are Kinzie STREET beside a block number in a lot advertisement, Kinzie's ADDITION beside a water lot, and John H. Kinzie beside somebody else's block. The nearest thing the corpus has is Fergus's 1843 directory on a hotel 'occupying w. half of block fronting on Rush, Michigan, and Kinzie' \u2014 which is the Lake House, on the river tier one block south of this one, described by the streets it fronts and not by a name.",
+    "what_this_is_evidence_of": "That the name was Wright's label on a survey and not a term the town used in print, as far as this corpus goes. It is a search of 148 units, not of everything printed in Chicago: a page this project has not transcribed could overturn it, and finding one would be worth a ticket."
+  },
+  "stands_on_modelled_ground": {
+    "epoch": "e1834_harbor_cut",
+    "heightfield_box_local_enu_m": {
+      "e": [
+        -320.0,
+        1700.0
+      ],
+      "n": [
+        -3800.0,
+        1120.0
+      ]
+    },
+    "block_inside_the_box": true,
+    "block_south_face_n_m": 402.7,
+    "box_north_edge_n_m": 1120.0,
+    "beyond_the_north_edge_m": -717.3,
+    "claim": "No. The whole of the Kinzie Block lies north of the modelled ground's edge.",
+    "note": "The 1834 harbour-cut heightfield is boxed at n_max +400 m and the block's SOUTH face \u2014 its nearest edge \u2014 is at +402.72, so the block misses the modelled ground entirely, by 2.7 m at the near corner and by 70 m at the far one. Michigan Street, which forms that south face, is inside the box and dry: the heightfield reads +1.54 m above the summer-1835 water surface at the block's mid-face. That is why the viewpoint below stands on the street and looks north rather than standing on the block. Filed as its own ticket: this is the north counterpart of T-0219, which finishes the heightfield south."
+  },
+  "anchor": {
+    "scene_anchor_id": "kinzie_block",
+    "note": "data/scenes/1835.json puts a viewpoint on Michigan Street at the middle of the block's south face, looking north across it. NOT on the block: see stands_on_modelled_ground above."
+  }
+}

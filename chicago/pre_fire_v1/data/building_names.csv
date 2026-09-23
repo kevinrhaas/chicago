@@ -1,0 +1,597 @@
+building_name_id,building_id,name,name_type,sequence
+CHI-B1830-001-N00,CHI-B1830-001,First federal lighthouse tower attempt,canonical,0
+CHI-B1830-001-N01,CHI-B1830-001,1831 Chicago lighthouse tower,alternate,1
+CHI-B1830-002-N00,CHI-B1830-002,Chicago Lighthouse,canonical,0
+CHI-B1830-002-N01,CHI-B1830-002,Fort Dearborn Lighthouse,alternate,1
+CHI-B1830-002-N02,CHI-B1830-002,first completed Chicago lighthouse,alternate,2
+CHI-B1830-003-N00,CHI-B1830-003,P. F. W. Peck log store,canonical,0
+CHI-B1830-003-N01,CHI-B1830-003,Peck's store,alternate,1
+CHI-B1830-004-N00,CHI-B1830-004,Madore Beaubien log store and tailor shop,canonical,0
+CHI-B1830-004-N01,CHI-B1830-004,Beaubien two-room log house,alternate,1
+CHI-B1830-005-N00,CHI-B1830-005,Sauganash Hotel,canonical,0
+CHI-B1830-005-N01,CHI-B1830-005,Sauganash Tavern,alternate,1
+CHI-B1830-005-N02,CHI-B1830-005,Eagle Exchange Hotel,alternate,2
+CHI-B1830-006-N00,CHI-B1830-006,Mansion House,canonical,0
+CHI-B1830-006-N01,CHI-B1830-006,Dexter Graves tavern,alternate,1
+CHI-B1830-006-N02,CHI-B1830-006,later Dearborn House,alternate,2
+CHI-B1830-007-N00,CHI-B1830-007,South Branch log bridge,canonical,0
+CHI-B1830-007-N01,CHI-B1830-007,Taylor bridge,alternate,1
+CHI-B1830-008-N00,CHI-B1830-008,John Watkins public school building,canonical,0
+CHI-B1830-008-N01,CHI-B1830-008,Hamilton and Owen schoolhouse,alternate,1
+CHI-B1830-009-N00,CHI-B1830-009,Temple Building,canonical,0
+CHI-B1830-009-N01,CHI-B1830-009,Dr. Temple's building,alternate,1
+CHI-B1830-010-N00,CHI-B1830-010,First St. Mary's Catholic Church,canonical,0
+CHI-B1830-010-N01,CHI-B1830-010,St. Mary's Church,alternate,1
+CHI-B1830-011-N00,CHI-B1830-011,First Presbyterian Church,canonical,0
+CHI-B1830-011-N01,CHI-B1830-011,First Presbyterian meetinghouse,alternate,1
+CHI-B1830-012-N00,CHI-B1830-012,Green Tree Tavern,canonical,0
+CHI-B1830-012-N01,CHI-B1830-012,Green Tree Hotel,alternate,1
+CHI-B1830-013-N00,CHI-B1830-013,First Tremont House,canonical,0
+CHI-B1830-013-N01,CHI-B1830-013,Tremont Hotel I,alternate,1
+CHI-B1830-014-N00,CHI-B1830-014,First Cook County jail,canonical,0
+CHI-B1830-014-N01,CHI-B1830-014,Public Square log jail,alternate,1
+CHI-B1830-015-N00,CHI-B1830-015,John Bates house,canonical,0
+CHI-B1830-015-N01,CHI-B1830-015,Laframboise house,alternate,1
+CHI-B1830-016-N00,CHI-B1830-016,Miller and Hall tannery shed,canonical,0
+CHI-B1830-016-N01,CHI-B1830-016,John Miller tannery,alternate,1
+CHI-B1830-017-N00,CHI-B1830-017,First Chicago harbor south pier section,canonical,0
+CHI-B1830-017-N01,CHI-B1830-017,Federal harbor pier,alternate,1
+CHI-B1830-018-N00,CHI-B1830-018,Dearborn Street drawbridge,canonical,0
+CHI-B1830-018-N01,CHI-B1830-018,First Dearborn drawbridge,alternate,1
+CHI-B1830-019-N00,CHI-B1830-019,Exchange Coffee House,canonical,0
+CHI-B1830-019-N01,CHI-B1830-019,Beaubien's Exchange,alternate,1
+CHI-B1830-019-N02,CHI-B1830-019,Murphy's tavern,alternate,2
+CHI-B1830-020-N00,CHI-B1830-020,First Methodist Episcopal Church,canonical,0
+CHI-B1830-020-N01,CHI-B1830-020,First Methodist meetinghouse,alternate,1
+CHI-B1830-021-N00,CHI-B1830-021,Briggs and Humphrey wagon shop,canonical,0
+CHI-B1830-021-N01,CHI-B1830-021,Briggs & Humphrey carriage shop,alternate,1
+CHI-B1830-022-N00,CHI-B1830-022,New York House,canonical,0
+CHI-B1830-022-N01,CHI-B1830-022,New York Hotel,alternate,1
+CHI-B1830-023-N00,CHI-B1830-023,John S. Wright schoolhouse,canonical,0
+CHI-B1830-023-N01,CHI-B1830-023,First privately financed public school building,alternate,1
+CHI-B1830-024-N00,CHI-B1830-024,First Cook County Courthouse,canonical,0
+CHI-B1830-024-N01,CHI-B1830-024,Public Square courthouse,alternate,1
+CHI-B1830-025-N00,CHI-B1830-025,First fire engine house,canonical,0
+CHI-B1830-025-N01,CHI-B1830-025,Engine House No. 1 precursor,alternate,1
+CHI-B1830-026-N00,CHI-B1830-026,Chicago Furnace,canonical,0
+CHI-B1830-026-N01,CHI-B1830-026,First Chicago foundry,alternate,1
+CHI-B1830-027-N00,CHI-B1830-027,Western Hotel,canonical,0
+CHI-B1830-027-N01,CHI-B1830-027,Stow's Western Hotel,alternate,1
+CHI-B1830-028-N00,CHI-B1830-028,District No. 4 temporary public schoolhouse,canonical,0
+CHI-B1830-028-N01,CHI-B1830-028,City-owned temporary schoolhouse,alternate,1
+CHI-B1830-029-N00,CHI-B1830-029,Lake House,canonical,0
+CHI-B1830-029-N01,CHI-B1830-029,Lake House Hotel,alternate,1
+CHI-B1830-030-N00,CHI-B1830-030,Steele's Block,canonical,0
+CHI-B1830-030-N01,CHI-B1830-030,Steele Block,alternate,1
+CHI-B1830-031-N00,CHI-B1830-031,Harmon and Loomis Block,canonical,0
+CHI-B1830-031-N01,CHI-B1830-031,Harmon & Loomis stores,alternate,1
+CHI-B1830-032-N00,CHI-B1830-032,City Hotel,canonical,0
+CHI-B1830-032-N01,CHI-B1830-032,Later Sherman House,alternate,1
+CHI-B1830-033-N00,CHI-B1830-033,Lyman and Gage flour mill,canonical,0
+CHI-B1830-033-N01,CHI-B1830-033,South Branch steam flour mill,alternate,1
+CHI-B1830-034-N00,CHI-B1830-034,William B. Ogden House,canonical,0
+CHI-B1830-034-N01,CHI-B1830-034,Ogden residence,alternate,1
+CHI-B1830-035-N00,CHI-B1830-035,Henry B. Clarke House,canonical,0
+CHI-B1830-035-N01,CHI-B1830-035,Clarke-Ford House,alternate,1
+CHI-B1830-036-N00,CHI-B1830-036,St. James Episcopal Church,canonical,0
+CHI-B1830-036-N01,CHI-B1830-036,First St. James Church,alternate,1
+CHI-B1830-037-N00,CHI-B1830-037,St. James parsonage,canonical,0
+CHI-B1830-037-N01,CHI-B1830-037,First St. James rectory,alternate,1
+CHI-B1830-038-N00,CHI-B1830-038,Charles Morgan furniture factory,canonical,0
+CHI-B1830-038-N01,CHI-B1830-038,Morgan furniture manufactory,alternate,1
+CHI-B1830-039-N00,CHI-B1830-039,"Ira Miltimore sash, door, and blind factory",canonical,0
+CHI-B1830-039-N01,CHI-B1830-039,Miltimore factory,alternate,1
+CHI-B1830-040-N00,CHI-B1830-040,Illinois-Indiana State Line Boundary Marker,canonical,0
+CHI-B1830-040-N01,CHI-B1830-040,State Line Marker,alternate,1
+CHI-B1830-041-N00,CHI-B1830-041,Illinois and Michigan Canal south-channel origin,canonical,0
+CHI-B1830-041-N01,CHI-B1830-041,Canal origin site,alternate,1
+CHI-B1830-041-N02,CHI-B1830-041,south channel,alternate,2
+CHI-B1830-042-N00,CHI-B1830-042,William Norton residence,canonical,0
+CHI-B1830-042-N01,CHI-B1830-042,Norton brick house,alternate,1
+CHI-B1830-043-N00,CHI-B1830-043,Joseph Laframboise residence,canonical,0
+CHI-B1830-043-N01,CHI-B1830-043,Laframboise brick dwelling,alternate,1
+CHI-B1830-044-N00,CHI-B1830-044,Archibald Clybourn residence,canonical,0
+CHI-B1830-044-N01,CHI-B1830-044,Clybourne brick house,alternate,1
+CHI-B1830-045-N00,CHI-B1830-045,Peter Pruyn building,canonical,0
+CHI-B1830-045-N01,CHI-B1830-045,Pruyn brick building,alternate,1
+CHI-B1830-046-N00,CHI-B1830-046,Saloon Building,canonical,0
+CHI-B1830-046-N01,CHI-B1830-046,The Saloon,alternate,1
+CHI-B1830-047-N00,CHI-B1830-047,Charles Chapman residence,canonical,0
+CHI-B1830-047-N01,CHI-B1830-047,Chapman brick dwelling,alternate,1
+CHI-B1830-048-N00,CHI-B1830-048,P. F. W. Peck residence,canonical,0
+CHI-B1830-048-N01,CHI-B1830-048,Peck brick dwelling,alternate,1
+CHI-B1830-049-N00,CHI-B1830-049,Frontless Block,canonical,0
+CHI-B1830-049-N01,CHI-B1830-049,Three-building frontless block,alternate,1
+CHI-B1830-050-N00,CHI-B1830-050,North Water Street brick store pair,canonical,0
+CHI-B1830-050-N01,CHI-B1830-050,Two North Water stores,alternate,1
+CHI-B1830-051-N00,CHI-B1830-051,South Water and LaSalle three-story building,canonical,0
+CHI-B1830-051-N01,CHI-B1830-051,Unnamed South Water Street brick building,alternate,1
+CHI-B1830-052-N00,CHI-B1830-052,Bigelow's Building,canonical,0
+CHI-B1830-052-N01,CHI-B1830-052,Bigelow Building,alternate,1
+CHI-B1830-053-N00,CHI-B1830-053,Elihu Granger foundry and finishing shop,canonical,0
+CHI-B1830-053-N01,CHI-B1830-053,Granger foundry,alternate,1
+CHI-B1830-054-N00,CHI-B1830-054,Rankin Brothers brass foundry,canonical,0
+CHI-B1830-054-N01,CHI-B1830-054,Rankin brass works,alternate,1
+CHI-B1830-055-N00,CHI-B1830-055,Lake Street Greek Revival business block,canonical,0
+CHI-B1830-055-N01,CHI-B1830-055,1839 finest business block,alternate,1
+CHI-B1830-056-N00,CHI-B1830-056,Second Tremont House,canonical,0
+CHI-B1830-056-N01,CHI-B1830-056,Tremont Hotel II,alternate,1
+CHI-CHI1840-001-N00,CHI-CHI1840-001,Tremont House II,canonical,0
+CHI-CHI1840-001-N01,CHI-CHI1840-001,Second Tremont House,alternate,1
+CHI-CHI1840-002-N00,CHI-CHI1840-002,First Unitarian Church,canonical,0
+CHI-CHI1840-002-N01,CHI-CHI1840-002,Unitarian Church on Washington Street,alternate,1
+CHI-CHI1840-003-N00,CHI-CHI1840-003,Clark Street floating bridge,canonical,0
+CHI-CHI1840-003-N01,CHI-CHI1840-003,first Clark Street bridge,alternate,1
+CHI-CHI1840-004-N00,CHI-CHI1840-004,Gurdon S. Hubbard packing house,canonical,0
+CHI-CHI1840-004-N01,CHI-CHI1840-004,Hubbard packing house,alternate,1
+CHI-CHI1840-005-N00,CHI-CHI1840-005,James Carney brewery,canonical,0
+CHI-CHI1840-005-N01,CHI-CHI1840-005,Carney brewery,alternate,1
+CHI-CHI1840-006-N00,CHI-CHI1840-006,American Temperance House,canonical,0
+CHI-CHI1840-006-N01,CHI-CHI1840-006,Rossetter's Temperance House,alternate,1
+CHI-CHI1840-007-N00,CHI-CHI1840-007,Wells Street floating bridge,canonical,0
+CHI-CHI1840-007-N01,CHI-CHI1840-007,Wells Street float bridge,alternate,1
+CHI-CHI1840-008-N00,CHI-CHI1840-008,Chicago Hydraulic Company waterworks,canonical,0
+CHI-CHI1840-008-N01,CHI-CHI1840-008,first Chicago waterworks,alternate,1
+CHI-CHI1840-008-N02,CHI-CHI1840-008,Lake Street waterworks,alternate,2
+CHI-CHI1840-009-N00,CHI-CHI1840-009,Hydraulic Mills,canonical,0
+CHI-CHI1840-009-N01,CHI-CHI1840-009,Chicago Hydraulic Mills,alternate,1
+CHI-CHI1840-010-N00,CHI-CHI1840-010,German Settlement public school,canonical,0
+CHI-CHI1840-010-N01,CHI-CHI1840-010,Dutch Settlement school,alternate,1
+CHI-CHI1840-010-N02,CHI-CHI1840-010,School No. 5,alternate,2
+CHI-CHI1840-010-N03,CHI-CHI1840-010,Fourth District school,alternate,3
+CHI-CHI1840-011-N00,CHI-CHI1840-011,Saloon Building (1842 remodeling),canonical,0
+CHI-CHI1840-011-N01,CHI-CHI1840-011,Saloon Building,alternate,1
+CHI-CHI1840-011-N02,CHI-CHI1840-011,Scammon's Saloon Building,alternate,2
+CHI-CHI1840-012-N00,CHI-CHI1840-012,Nancy Chapman building used as City Hall,canonical,0
+CHI-CHI1840-012-N01,CHI-CHI1840-012,Widow Chapman's building,alternate,1
+CHI-CHI1840-013-N00,CHI-CHI1840-013,First North Side smallpox hospital,canonical,0
+CHI-CHI1840-013-N01,CHI-CHI1840-013,smallpox pesthouse,alternate,1
+CHI-CHI1840-014-N00,CHI-CHI1840-014,Tabernacle Baptist Church,canonical,0
+CHI-CHI1840-014-N01,CHI-CHI1840-014,Tabernacle Church,alternate,1
+CHI-CHI1840-015-N00,CHI-CHI1840-015,First German Evangelical Association Church,canonical,0
+CHI-CHI1840-015-N01,CHI-CHI1840-015,Evangelical Association church on Wabash,alternate,1
+CHI-CHI1840-016-N00,CHI-CHI1840-016,St. Mary's Catholic Cathedral,canonical,0
+CHI-CHI1840-016-N01,CHI-CHI1840-016,Church of St. Mary,alternate,1
+CHI-CHI1840-016-N02,CHI-CHI1840-016,first Catholic cathedral,alternate,2
+CHI-CHI1840-017-N00,CHI-CHI1840-017,Wadsworth-Dyer-Chapin packing house,canonical,0
+CHI-CHI1840-017-N01,CHI-CHI1840-017,Thomas Dyer and John P. Chapin packing house,alternate,1
+CHI-CHI1840-018-N00,CHI-CHI1840-018,Second Presbyterian Church first building,canonical,0
+CHI-CHI1840-018-N01,CHI-CHI1840-018,Second Presbyterian frame church,alternate,1
+CHI-CHI1840-019-N00,CHI-CHI1840-019,Peck-Robbins-High-Magie commercial block,canonical,0
+CHI-CHI1840-019-N01,CHI-CHI1840-019,South Water Street fireproof block,alternate,1
+CHI-CHI1840-020-N00,CHI-CHI1840-020,George Smith five-building block,canonical,0
+CHI-CHI1840-020-N01,CHI-CHI1840-020,George Smith's State Street block,alternate,1
+CHI-CHI1840-021-N00,CHI-CHI1840-021,Denker and Borges triangular building,canonical,0
+CHI-CHI1840-021-N01,CHI-CHI1840-021,Denker & Borges building,alternate,1
+CHI-CHI1840-022-N00,CHI-CHI1840-022,Allan Robbins brick store near Lake and South Water,canonical,0
+CHI-CHI1840-022-N01,CHI-CHI1840-022,Robbins store,alternate,1
+CHI-CHI1840-023-N00,CHI-CHI1840-023,Rush Medical College first building,canonical,0
+CHI-CHI1840-023-N01,CHI-CHI1840-023,Rush Medical College,alternate,1
+CHI-CHI1840-024-N00,CHI-CHI1840-024,First Baptist Church brick building,canonical,0
+CHI-CHI1840-024-N01,CHI-CHI1840-024,First Baptist Church at Washington and LaSalle,alternate,1
+CHI-CHI1840-025-N00,CHI-CHI1840-025,Trinity Episcopal Church first building,canonical,0
+CHI-CHI1840-025-N01,CHI-CHI1840-025,Trinity Church on Madison Street,alternate,1
+CHI-CHI1840-026-N00,CHI-CHI1840-026,First Universalist Church,canonical,0
+CHI-CHI1840-026-N01,CHI-CHI1840-026,Universalist church on Washington Street,alternate,1
+CHI-CHI1840-027-N00,CHI-CHI1840-027,Dearborn School,canonical,0
+CHI-CHI1840-027-N01,CHI-CHI1840-027,District No. 1 school,alternate,1
+CHI-CHI1840-027-N02,CHI-CHI1840-027,Miltimore's Folly,alternate,2
+CHI-CHI1840-028-N00,CHI-CHI1840-028,North Division School at Ohio and LaSalle,canonical,0
+CHI-CHI1840-028-N01,CHI-CHI1840-028,Ohio Street School,alternate,1
+CHI-CHI1840-029-N00,CHI-CHI1840-029,First Methodist Episcopal Church at Clark and Washington,canonical,0
+CHI-CHI1840-029-N01,CHI-CHI1840-029,Clark Street Methodist Episcopal Church,alternate,1
+CHI-CHI1840-030-N00,CHI-CHI1840-030,University of St. Mary of the Lake first campus building,canonical,0
+CHI-CHI1840-030-N01,CHI-CHI1840-030,St. Mary of the Lake College and Seminary,alternate,1
+CHI-CHI1840-031-N00,CHI-CHI1840-031,Second North Side smallpox hospital,canonical,0
+CHI-CHI1840-031-N01,CHI-CHI1840-031,replacement smallpox pesthouse,alternate,1
+CHI-CHI1840-032-N00,CHI-CHI1840-032,Canal Street Methodist Episcopal Church first building,canonical,0
+CHI-CHI1840-032-N01,CHI-CHI1840-032,Jefferson Street Methodist,alternate,1
+CHI-CHI1840-032-N02,CHI-CHI1840-032,Canal Street Methodist,alternate,2
+CHI-CHI1840-033-N00,CHI-CHI1840-033,First German Evangelical congregation church at LaSalle and Ohio,canonical,0
+CHI-CHI1840-033-N01,CHI-CHI1840-033,later First St. Paul's United Evangelical church,alternate,1
+CHI-CHI1840-034-N00,CHI-CHI1840-034,St. Patrick's Catholic Church first building,canonical,0
+CHI-CHI1840-034-N01,CHI-CHI1840-034,Old St. Patrick's first frame church,alternate,1
+CHI-CHI1840-035-N00,CHI-CHI1840-035,St. Peter's German Catholic Church first building,canonical,0
+CHI-CHI1840-035-N01,CHI-CHI1840-035,German Catholic Church of St. Peter,alternate,1
+CHI-CHI1840-036-N00,CHI-CHI1840-036,St. Peter's German Catholic rectory first building,canonical,0
+CHI-CHI1840-036-N01,CHI-CHI1840-036,St. Peter's parsonage,alternate,1
+CHI-CHI1840-037-N00,CHI-CHI1840-037,St. Peter's German Catholic schoolhouse first building,canonical,0
+CHI-CHI1840-037-N01,CHI-CHI1840-037,St. Peter's parish school,alternate,1
+CHI-CHI1840-038-N00,CHI-CHI1840-038,St. Joseph's German Catholic Church first building,canonical,0
+CHI-CHI1840-038-N01,CHI-CHI1840-038,St. Joseph German Catholic Church,alternate,1
+CHI-CHI1840-039-N00,CHI-CHI1840-039,Scammon School,canonical,0
+CHI-CHI1840-039-N01,CHI-CHI1840-039,District No. 3 school,alternate,1
+CHI-CHI1840-040-N00,CHI-CHI1840-040,Rice's first Chicago theater,canonical,0
+CHI-CHI1840-040-N01,CHI-CHI1840-040,Rice's Theatre,alternate,1
+CHI-CHI1840-041-N00,CHI-CHI1840-041,Dr. Edward Mead private insane asylum,canonical,0
+CHI-CHI1840-041-N01,CHI-CHI1840-041,Mead's asylum,alternate,1
+CHI-CHI1840-042-N00,CHI-CHI1840-042,Stiles Burton's City Hotel,canonical,0
+CHI-CHI1840-042-N01,CHI-CHI1840-042,City Hotel at State and Lake,alternate,1
+CHI-CHI1840-043-N00,CHI-CHI1840-043,State Street Market Building and City Hall,canonical,0
+CHI-CHI1840-043-N01,CHI-CHI1840-043,Market Hall,alternate,1
+CHI-CHI1840-043-N02,CHI-CHI1840-043,first municipally owned City Hall,alternate,2
+CHI-CHI1840-044-N00,CHI-CHI1840-044,Galena and Chicago Union Railroad first depot,canonical,0
+CHI-CHI1840-044-N01,CHI-CHI1840-044,Kinzie Street depot,alternate,1
+CHI-CHI1840-045-N00,CHI-CHI1840-045,Bull's Head cattle yards,canonical,0
+CHI-CHI1840-045-N01,CHI-CHI1840-045,Bull's Head stockyards,alternate,1
+CHI-CHI1840-046-N00,CHI-CHI1840-046,First Chicago steam grain elevator,canonical,0
+CHI-CHI1840-046-N01,CHI-CHI1840-046,Bristol or Steel elevator,alternate,1
+CHI-CHI1840-046-N02,CHI-CHI1840-046,attribution disputed,alternate,2
+CHI-CHI1840-047-N00,CHI-CHI1840-047,Scoville and Sons foundry,canonical,0
+CHI-CHI1840-047-N01,CHI-CHI1840-047,origin of Scoville Iron Works,alternate,1
+CHI-CHI1840-048-N00,CHI-CHI1840-048,Nugent and Owens brass foundry,canonical,0
+CHI-CHI1840-048-N01,CHI-CHI1840-048,Nugent & Owens works,alternate,1
+CHI-CHI1840-049-N00,CHI-CHI1840-049,McCormick reaper manufactory 1848 expansion,canonical,0
+CHI-CHI1840-049-N01,CHI-CHI1840-049,Cyrus McCormick works near harbor,alternate,1
+CHI-CHI1840-050-N00,CHI-CHI1840-050,First Norwegian Evangelical Lutheran Church building,canonical,0
+CHI-CHI1840-050-N01,CHI-CHI1840-050,Norwegian Lutheran church on Superior,alternate,1
+CHI-CHI1840-051-N00,CHI-CHI1840-051,Holy Name Catholic Church first building,canonical,0
+CHI-CHI1840-051-N01,CHI-CHI1840-051,Church of the Holy Name at Rush and Superior,alternate,1
+CHI-CHI1840-052-N00,CHI-CHI1840-052,St. Paul's German Evangelical Lutheran Church first building,canonical,0
+CHI-CHI1840-052-N01,CHI-CHI1840-052,St. Paul's Lutheran church on Indiana Street,alternate,1
+CHI-CHI1840-053-N00,CHI-CHI1840-053,Jones School first building,canonical,0
+CHI-CHI1840-053-N01,CHI-CHI1840-053,District No. 2 school on Block 113,alternate,1
+CHI-CHI1840-054-N00,CHI-CHI1840-054,Eighteenth Street temporary cholera hospital,canonical,0
+CHI-CHI1840-054-N01,CHI-CHI1840-054,1849 cholera hospital near river,alternate,1
+CHI-CHI1840-055-N00,CHI-CHI1840-055,Erie Street cholera hospital,canonical,0
+CHI-CHI1840-055-N01,CHI-CHI1840-055,Boone-plan cholera hospital,alternate,1
+CHI-CHI1840-056-N00,CHI-CHI1840-056,Kehilath Anshe Ma'arav first synagogue,canonical,0
+CHI-CHI1840-056-N01,CHI-CHI1840-056,K.A.M. synagogue,alternate,1
+CHI-CHI1840-056-N02,CHI-CHI1840-056,first Chicago synagogue,alternate,2
+CHI-CHI1840-057-N00,CHI-CHI1840-057,Second Presbyterian Church stone building,canonical,0
+CHI-CHI1840-057-N01,CHI-CHI1840-057,Second Presbyterian Church at Washington and Wabash,alternate,1
+CHI-CHI1840-058-N00,CHI-CHI1840-058,Charles Cleaver soap and candle factory at Madison and Canal,canonical,0
+CHI-CHI1840-058-N01,CHI-CHI1840-058,Cleaver factory relocation of 1842,alternate,1
+CHI-CHI1840-059-N00,CHI-CHI1840-059,Charles Cleaver soap and candle factory on North Branch,canonical,0
+CHI-CHI1840-059-N01,CHI-CHI1840-059,Cleaver factory relocation of 1849,alternate,1
+CHI-CHI1840-060-N00,CHI-CHI1840-060,City Hotel to Sherman House enlargement,canonical,0
+CHI-CHI1840-060-N01,CHI-CHI1840-060,Sherman House 1844 rebuilding,alternate,1
+CHI-CHI1850-001-N00,CHI-CHI1850-001,Chicago Gas Light and Coke Works,canonical,0
+CHI-CHI1850-001-N01,CHI-CHI1850-001,Chicago Gas Works,alternate,1
+CHI-CHI1850-002-N00,CHI-CHI1850-002,Tremont House (third),canonical,0
+CHI-CHI1850-002-N01,CHI-CHI1850-002,Tremont III,alternate,1
+CHI-CHI1850-002-N02,CHI-CHI1850-002,Couch's Folly,alternate,2
+CHI-CHI1850-003-N00,CHI-CHI1850-003,Matteson House,canonical,0
+CHI-CHI1850-003-N01,CHI-CHI1850-003,first Matteson House,alternate,1
+CHI-CHI1850-004-N00,CHI-CHI1850-004,United States Marine Hospital,canonical,0
+CHI-CHI1850-005-N00,CHI-CHI1850-005,Chicago Bridewell,canonical,0
+CHI-CHI1850-005-N01,CHI-CHI1850-005,Bridewell,alternate,1
+CHI-CHI1850-006-N00,CHI-CHI1850-006,Second Presbyterian Church,canonical,0
+CHI-CHI1850-006-N01,CHI-CHI1850-006,Second Church,alternate,1
+CHI-CHI1850-007-N00,CHI-CHI1850-007,State Street Methodist Episcopal Church building,canonical,0
+CHI-CHI1850-007-N01,CHI-CHI1850-007,portion of the former Second Presbyterian frame church,alternate,1
+CHI-CHI1850-008-N00,CHI-CHI1850-008,Michigan Southern Railroad depot,canonical,0
+CHI-CHI1850-009-N00,CHI-CHI1850-009,Michigan Central temporary depot,canonical,0
+CHI-CHI1850-010-N00,CHI-CHI1850-010,St. Michael's Church (first),canonical,0
+CHI-CHI1850-010-N01,CHI-CHI1850-010,first St. Michael Catholic Church,alternate,1
+CHI-CHI1850-011-N00,CHI-CHI1850-011,St. Louis Catholic Church,canonical,0
+CHI-CHI1850-011-N01,CHI-CHI1850-011,French Catholic Church,alternate,1
+CHI-CHI1850-012-N00,CHI-CHI1850-012,Welsh Calvinistic Methodist Church,canonical,0
+CHI-CHI1850-012-N01,CHI-CHI1850-012,Welsh Presbyterian Church,alternate,1
+CHI-CHI1850-013-N00,CHI-CHI1850-013,Chicago Courthouse and City Hall,canonical,0
+CHI-CHI1850-013-N01,CHI-CHI1850-013,Courthouse-City Hall,alternate,1
+CHI-CHI1850-014-N00,CHI-CHI1850-014,Briggs House,canonical,0
+CHI-CHI1850-015-N00,CHI-CHI1850-015,Young America Hotel,canonical,0
+CHI-CHI1850-015-N01,CHI-CHI1850-015,Revere House (name from 1857),alternate,1
+CHI-CHI1850-016-N00,CHI-CHI1850-016,Quinn Chapel A.M.E. Church,canonical,0
+CHI-CHI1850-016-N01,CHI-CHI1850-016,Quinn Chapel,alternate,1
+CHI-CHI1850-017-N00,CHI-CHI1850-017,New England Congregational Church,canonical,0
+CHI-CHI1850-018-N00,CHI-CHI1850-018,Owen Street Methodist Episcopal Church,canonical,0
+CHI-CHI1850-018-N01,CHI-CHI1850-018,Indiana Street Methodist Episcopal Church after 1860,alternate,1
+CHI-CHI1850-019-N00,CHI-CHI1850-019,Chicago Avenue Water Works,canonical,0
+CHI-CHI1850-019-N01,CHI-CHI1850-019,1850s Chicago Water Works,alternate,1
+CHI-CHI1850-020-N00,CHI-CHI1850-020,Holy Name Cathedral (first cathedral),canonical,0
+CHI-CHI1850-020-N01,CHI-CHI1850-020,Cathedral of the Holy Name,alternate,1
+CHI-CHI1850-021-N00,CHI-CHI1850-021,Clark Street pivot bridge (1854),canonical,0
+CHI-CHI1850-022-N00,CHI-CHI1850-022,Van Buren Street German Methodist Episcopal Church,canonical,0
+CHI-CHI1850-023-N00,CHI-CHI1850-023,John Wingert House,canonical,0
+CHI-CHI1850-023-N01,CHI-CHI1850-023,Wingert House,alternate,1
+CHI-CHI1850-024-N00,CHI-CHI1850-024,Twelfth Street bridge (1855 rebuild),canonical,0
+CHI-CHI1850-025-N00,CHI-CHI1850-025,Metropolitan Hall,canonical,0
+CHI-CHI1850-026-N00,CHI-CHI1850-026,Boardman House,canonical,0
+CHI-CHI1850-027-N00,CHI-CHI1850-027,Central High School,canonical,0
+CHI-CHI1850-027-N01,CHI-CHI1850-027,Chicago High School,alternate,1
+CHI-CHI1850-028-N00,CHI-CHI1850-028,Ogden School (first permanent building),canonical,0
+CHI-CHI1850-029-N00,CHI-CHI1850-029,Moseley School (first building),canonical,0
+CHI-CHI1850-030-N00,CHI-CHI1850-030,Michigan Southern and Rock Island joint depot,canonical,0
+CHI-CHI1850-031-N00,CHI-CHI1850-031,Illinois Central Great Central Depot,canonical,0
+CHI-CHI1850-031-N01,CHI-CHI1850-031,Illinois Central depot,alternate,1
+CHI-CHI1850-032-N00,CHI-CHI1850-032,Old St. Patrick's Church,canonical,0
+CHI-CHI1850-032-N01,CHI-CHI1850-032,St. Patrick's Roman Catholic Church,alternate,1
+CHI-CHI1850-033-N00,CHI-CHI1850-033,Charles J. Hull House,canonical,0
+CHI-CHI1850-033-N01,CHI-CHI1850-033,Hull residence,alternate,1
+CHI-CHI1850-034-N00,CHI-CHI1850-034,Cleveland House,canonical,0
+CHI-CHI1850-035-N00,CHI-CHI1850-035,Richmond House,canonical,0
+CHI-CHI1850-036-N00,CHI-CHI1850-036,Wells Street bridge (1856),canonical,0
+CHI-CHI1850-037-N00,CHI-CHI1850-037,Randolph Street bridge (1856),canonical,0
+CHI-CHI1850-038-N00,CHI-CHI1850-038,Rush Street iron bridge,canonical,0
+CHI-CHI1850-039-N00,CHI-CHI1850-039,Phebe and John Gray House,canonical,0
+CHI-CHI1850-039-N01,CHI-CHI1850-039,John Gray House,alternate,1
+CHI-CHI1850-040-N00,CHI-CHI1850-040,Adams House,canonical,0
+CHI-CHI1850-041-N00,CHI-CHI1850-041,Massasoit House,canonical,0
+CHI-CHI1850-042-N00,CHI-CHI1850-042,McVicker's Theatre,canonical,0
+CHI-CHI1850-042-N01,CHI-CHI1850-042,McVicker's Theater,alternate,1
+CHI-CHI1850-043-N00,CHI-CHI1850-043,St. James Episcopal Church (1857),canonical,0
+CHI-CHI1850-044-N00,CHI-CHI1850-044,Desplaines Street Methodist Episcopal Church,canonical,0
+CHI-CHI1850-045-N00,CHI-CHI1850-045,Foster School brick building,canonical,0
+CHI-CHI1850-046-N00,CHI-CHI1850-046,Charles D. Iglehart House,canonical,0
+CHI-CHI1850-046-N01,CHI-CHI1850-046,Iglehart House,alternate,1
+CHI-CHI1850-047-N00,CHI-CHI1850-047,Madison Street iron bridge,canonical,0
+CHI-CHI1850-048-N00,CHI-CHI1850-048,Polk Street drawbridge,canonical,0
+CHI-CHI1850-049-N00,CHI-CHI1850-049,Indiana Street floating bridge,canonical,0
+CHI-CHI1850-050-N00,CHI-CHI1850-050,Erie Street floating bridge,canonical,0
+CHI-CHI1850-051-N00,CHI-CHI1850-051,Wabash Avenue Methodist Episcopal Church,canonical,0
+CHI-CHI1850-052-N00,CHI-CHI1850-052,Newberry School,canonical,0
+CHI-CHI1850-053-N00,CHI-CHI1850-053,Clifton House,canonical,0
+CHI-CHI1850-054-N00,CHI-CHI1850-054,Clark Street bridge (1858 replacement),canonical,0
+CHI-CHI1850-055-N00,CHI-CHI1850-055,Couch family mausoleum,canonical,0
+CHI-CHI1850-055-N01,CHI-CHI1850-055,Couch Tomb,alternate,1
+CHI-CHI1850-056-N00,CHI-CHI1850-056,Old University of Chicago south wing,canonical,0
+CHI-CHI1850-056-N01,CHI-CHI1850-056,south wing of later Douglas Hall complex,alternate,1
+CHI-CHI1850-057-N00,CHI-CHI1850-057,Orient House,canonical,0
+CHI-CHI1850-058-N00,CHI-CHI1850-058,Wright's Hotel,canonical,0
+CHI-CHI1850-059-N00,CHI-CHI1850-059,Rice's Theater (second),canonical,0
+CHI-CHI1850-059-N01,CHI-CHI1850-059,Rice's New Theater,alternate,1
+CHI-CHI1850-059-N02,CHI-CHI1850-059,Chicago Theater,alternate,2
+CHI-CHI1850-060-N00,CHI-CHI1850-060,First German Theater,canonical,0
+CHI-CHI1850-061-N00,CHI-CHI1850-061,North's National Amphitheater,canonical,0
+CHI-CHI1850-061-N01,CHI-CHI1850-061,North's Amphitheater,alternate,1
+CHI-CHI1850-062-N00,CHI-CHI1850-062,German Theater at Wells and Indiana Streets,canonical,0
+CHI-CHI1850-063-N00,CHI-CHI1850-063,Hamilton House at Clark and North Water,canonical,0
+CHI-CHI1850-063-N01,CHI-CHI1850-063,Washington House (original 1840 building),alternate,1
+CHI-CHI1850-064-N00,CHI-CHI1850-064,First German Evangelical Lutheran Church at Polk and Edina,canonical,0
+CHI-CHI1850-065-N00,CHI-CHI1850-065,Second German Evangelical Lutheran Church,canonical,0
+CHI-CHI1850-066-N00,CHI-CHI1850-066,St. John's Episcopal Church (first building),canonical,0
+CHI-CHI1850-067-N00,CHI-CHI1850-067,First German Methodist Episcopal Church on Clybourn Avenue,canonical,0
+CHI-B1860-001-N00,CHI-B1860-001,Republican Wigwam,canonical,0
+CHI-B1860-001-N01,CHI-B1860-001,The Wigwam,alternate,1
+CHI-B1860-002-N00,CHI-B1860-002,Bryan Hall,canonical,0
+CHI-B1860-002-N01,CHI-B1860-002,Later Hooley's Opera House,alternate,1
+CHI-B1860-003-N00,CHI-B1860-003,Church of the Holy Family,canonical,0
+CHI-B1860-003-N01,CHI-B1860-003,Holy Family Church,alternate,1
+CHI-B1860-004-N00,CHI-B1860-004,Orrington Lunt & Brother grain elevator,canonical,0
+CHI-B1860-004-N01,CHI-B1860-004,Lunt elevator,alternate,1
+CHI-B1860-005-N00,CHI-B1860-005,Church of the Redeemer,canonical,0
+CHI-B1860-005-N01,CHI-B1860-005,Second Universalist Church,alternate,1
+CHI-B1860-006-N00,CHI-B1860-006,North Star Mission chapel,canonical,0
+CHI-B1860-006-N01,CHI-B1860-006,Bremer Avenue Mission chapel,alternate,1
+CHI-B1860-007-N00,CHI-B1860-007,Camp Douglas YMCA chapel,canonical,0
+CHI-B1860-007-N01,CHI-B1860-007,First Camp Douglas chapel,alternate,1
+CHI-B1860-008-N00,CHI-B1860-008,Camp Douglas barracks and prison complex,canonical,0
+CHI-B1860-008-N01,CHI-B1860-008,Camp Douglas,alternate,1
+CHI-B1860-009-N00,CHI-B1860-009,Haven School,canonical,0
+CHI-B1860-009-N01,CHI-B1860-009,Luther Haven School,alternate,1
+CHI-B1860-010-N00,CHI-B1860-010,Kinzie School branch,canonical,0
+CHI-B1860-010-N01,CHI-B1860-010,Kinzie branch building,alternate,1
+CHI-B1860-011-N00,CHI-B1860-011,Scammon School branch,canonical,0
+CHI-B1860-011-N01,CHI-B1860-011,Scammon four-room branch,alternate,1
+CHI-B1860-012-N00,CHI-B1860-012,St. Joseph's Catholic Church,canonical,0
+CHI-B1860-012-N01,CHI-B1860-012,St. Joseph Church,alternate,1
+CHI-B1860-013-N00,CHI-B1860-013,Indiana Avenue Baptist Church,canonical,0
+CHI-B1860-013-N01,CHI-B1860-013,Indiana-avenue Baptist,alternate,1
+CHI-B1860-014-N00,CHI-B1860-014,First Unitarian Church,canonical,0
+CHI-B1860-014-N01,CHI-B1860-014,Wabash Avenue Unitarian Church,alternate,1
+CHI-B1860-015-N00,CHI-B1860-015,Noble-Seymour-Crippen House 1863 addition,canonical,0
+CHI-B1860-015-N01,CHI-B1860-015,Thomas Seymour Italianate addition,alternate,1
+CHI-B1860-016-N00,CHI-B1860-016,Rosehill Cemetery Entrance,canonical,0
+CHI-B1860-016-N01,CHI-B1860-016,Rosehill Gatehouse,alternate,1
+CHI-B1860-017-N00,CHI-B1860-017,Soldiers' Rest,canonical,0
+CHI-B1860-017-N01,CHI-B1860-017,Chicago Soldiers' Rest,alternate,1
+CHI-B1860-018-N00,CHI-B1860-018,Chicago Soldiers' Home,canonical,0
+CHI-B1860-018-N01,CHI-B1860-018,Permanent Soldiers' Home,alternate,1
+CHI-B1860-019-N00,CHI-B1860-019,Holy Family boys' school,canonical,0
+CHI-B1860-019-N01,CHI-B1860-019,Holy Family parochial school,alternate,1
+CHI-B1860-020-N00,CHI-B1860-020,Grace Methodist Episcopal Church complex,canonical,0
+CHI-B1860-020-N01,CHI-B1860-020,Grace M.E. chapel and main church,alternate,1
+CHI-B1860-021-N00,CHI-B1860-021,Trinity Methodist Episcopal Church,canonical,0
+CHI-B1860-021-N01,CHI-B1860-021,Indiana Avenue Trinity M.E. Church,alternate,1
+CHI-B1860-022-N00,CHI-B1860-022,Chamber of Commerce Building,canonical,0
+CHI-B1860-022-N01,CHI-B1860-022,Chicago Board of Trade Chamber of Commerce,alternate,1
+CHI-B1860-023-N00,CHI-B1860-023,Union Stock Yard original complex,canonical,0
+CHI-B1860-023-N01,CHI-B1860-023,Union Stock Yards,alternate,1
+CHI-B1860-024-N00,CHI-B1860-024,Crosby's Opera House,canonical,0
+CHI-B1860-024-N01,CHI-B1860-024,Crosby Opera House and Art Building,alternate,1
+CHI-B1860-025-N00,CHI-B1860-025,Eighth Presbyterian Church,canonical,0
+CHI-B1860-025-N01,CHI-B1860-025,Washington and Robey Presbyterian Church,alternate,1
+CHI-B1860-026-N00,CHI-B1860-026,Park Avenue Methodist Episcopal Church,canonical,0
+CHI-B1860-026-N01,CHI-B1860-026,Park-avenue M.E. Church,alternate,1
+CHI-B1860-027-N00,CHI-B1860-027,New England Congregational Church,canonical,0
+CHI-B1860-027-N01,CHI-B1860-027,New England Church,alternate,1
+CHI-B1860-028-N00,CHI-B1860-028,Plymouth Congregational Church,canonical,0
+CHI-B1860-028-N01,CHI-B1860-028,Plymouth Church,alternate,1
+CHI-B1860-029-N00,CHI-B1860-029,Illinois River Elevator,canonical,0
+CHI-B1860-029-N01,CHI-B1860-029,Finley and Ballard elevator,alternate,1
+CHI-B1860-030-N00,CHI-B1860-030,Barnes House,canonical,0
+CHI-B1860-030-N01,CHI-B1860-030,Barnes Hotel,alternate,1
+CHI-B1860-031-N00,CHI-B1860-031,Wells School,canonical,0
+CHI-B1860-031-N01,CHI-B1860-031,William H. Wells School,alternate,1
+CHI-B1860-032-N00,CHI-B1860-032,Cottage Grove School,canonical,0
+CHI-B1860-032-N01,CHI-B1860-032,South Chicago/Cottage Grove School,alternate,1
+CHI-B1860-033-N00,CHI-B1860-033,Two-mile lake tunnel and intake crib,canonical,0
+CHI-B1860-033-N01,CHI-B1860-033,Chicago lake tunnel,alternate,1
+CHI-B1860-033-N02,CHI-B1860-033,Two-Mile Crib,alternate,2
+CHI-B1860-034-N00,CHI-B1860-034,First Farwell Hall,canonical,0
+CHI-B1860-034-N01,CHI-B1860-034,YMCA Farwell Hall I,alternate,1
+CHI-B1860-035-N00,CHI-B1860-035,Dore School,canonical,0
+CHI-B1860-035-N01,CHI-B1860-035,John C. Dore School,alternate,1
+CHI-B1860-036-N00,CHI-B1860-036,Walsh Street Primary School,canonical,0
+CHI-B1860-036-N01,CHI-B1860-036,Walsh School,alternate,1
+CHI-B1860-037-N00,CHI-B1860-037,Pearson Street Primary School,canonical,0
+CHI-B1860-037-N01,CHI-B1860-037,Pearson School,alternate,1
+CHI-B1860-038-N00,CHI-B1860-038,National Elevator,canonical,0
+CHI-B1860-038-N01,CHI-B1860-038,"Vincent, Nelson & Co. elevator",alternate,1
+CHI-B1860-039-N00,CHI-B1860-039,Jews' Hospital,canonical,0
+CHI-B1860-039-N01,CHI-B1860-039,Jewish Hospital,alternate,1
+CHI-B1860-040-N00,CHI-B1860-040,Chicago Avenue waterworks machine shop,canonical,0
+CHI-B1860-040-N01,CHI-B1860-040,Waterworks machine shop,alternate,1
+CHI-B1860-041-N00,CHI-B1860-041,Elm Street Primary School,canonical,0
+CHI-B1860-041-N01,CHI-B1860-041,Elm School,alternate,1
+CHI-B1860-042-N00,CHI-B1860-042,Holden School,canonical,0
+CHI-B1860-042-N01,CHI-B1860-042,Charles N. Holden School,alternate,1
+CHI-B1860-043-N00,CHI-B1860-043,Hayes School,canonical,0
+CHI-B1860-043-N01,CHI-B1860-043,Samuel S. Hayes School,alternate,1
+CHI-B1860-044-N00,CHI-B1860-044,Carpenter School,canonical,0
+CHI-B1860-044-N01,CHI-B1860-044,Philo Carpenter School,alternate,1
+CHI-B1860-045-N00,CHI-B1860-045,Wentworth Avenue Primary School,canonical,0
+CHI-B1860-045-N01,CHI-B1860-045,Wentworth Primary,alternate,1
+CHI-B1860-046-N00,CHI-B1860-046,Chicago Water Tower,canonical,0
+CHI-B1860-046-N01,CHI-B1860-046,Old Chicago Water Tower,alternate,1
+CHI-B1860-047-N00,CHI-B1860-047,Chicago Avenue Pumping Station,canonical,0
+CHI-B1860-047-N01,CHI-B1860-047,Old Chicago Pumping Station,alternate,1
+CHI-B1860-048-N00,CHI-B1860-048,New Franklin School,canonical,0
+CHI-B1860-048-N01,CHI-B1860-048,Franklin School of 1869,alternate,1
+CHI-B1860-049-N00,CHI-B1860-049,Second Farwell Hall,canonical,0
+CHI-B1860-049-N01,CHI-B1860-049,YMCA Farwell Hall II,alternate,1
+CHI-B1860-050-N00,CHI-B1860-050,Abraham Groesbeck House,canonical,0
+CHI-B1860-050-N01,CHI-B1860-050,Groesbeck House,alternate,1
+CHI-B1860-051-N00,CHI-B1860-051,Chicago Tribune Building of 1869,canonical,0
+CHI-B1860-051-N01,CHI-B1860-051,Pre-fire Tribune Building,alternate,1
+CHI-B1860-052-N00,CHI-B1860-052,Carpenter Chapel,canonical,0
+CHI-B1860-052-N01,CHI-B1860-052,Chicago Theological Seminary chapel,alternate,1
+CHI-B1860-053-N00,CHI-B1860-053,St. Ignatius College main building,canonical,0
+CHI-B1860-053-N01,CHI-B1860-053,St. Ignatius College Prep Building,alternate,1
+CHI-B1860-054-N00,CHI-B1860-054,Mercy Hospital central building and south wing,canonical,0
+CHI-B1860-054-N01,CHI-B1860-054,Mercy Hospital 1869 additions,alternate,1
+CHI-B1860-055-N00,CHI-B1860-055,New U.S. Marine Hospital,canonical,0
+CHI-B1860-055-N01,CHI-B1860-055,Lake View Marine Hospital,alternate,1
+CHI-B1860-056-N00,CHI-B1860-056,St. John's Catholic School,canonical,0
+CHI-B1860-056-N01,CHI-B1860-056,Second St. John's schoolhouse,alternate,1
+CHI-B1860-057-N00,CHI-B1860-057,South Congregational Church,canonical,0
+CHI-B1860-057-N01,CHI-B1860-057,Indiana Avenue South Congregational,alternate,1
+CHI-B1860-058-N00,CHI-B1860-058,First Congregational Church of 1870,canonical,0
+CHI-B1860-058-N01,CHI-B1860-058,Washington and Ann Street church,alternate,1
+CHI-B1860-059-N00,CHI-B1860-059,St. Michael's Catholic Church,canonical,0
+CHI-B1860-059-N01,CHI-B1860-059,St. Michael in Old Town,alternate,1
+CHI-B1860-060-N00,CHI-B1860-060,Chicago waterworks pump well and 1867 engine foundations,canonical,0
+CHI-B1860-060-N01,CHI-B1860-060,Chicago Avenue pump well,alternate,1
+CHI-CHI1870-001-N00,CHI-CHI1870-001,Michigan Avenue Hotel,canonical,0
+CHI-CHI1870-002-N00,CHI-CHI1870-002,Palmer House I,canonical,0
+CHI-CHI1870-002-N01,CHI-CHI1870-002,Palmer House,alternate,1
+CHI-CHI1870-002-N02,CHI-CHI1870-002,first Palmer House,alternate,2
+CHI-CHI1870-003-N00,CHI-CHI1870-003,Grand Pacific Hotel I,canonical,0
+CHI-CHI1870-003-N01,CHI-CHI1870-003,Pacific Hotel,alternate,1
+CHI-CHI1870-004-N00,CHI-CHI1870-004,Bigelow House,canonical,0
+CHI-CHI1870-004-N01,CHI-CHI1870-004,Bigelow Hotel,alternate,1
+CHI-CHI1870-005-N00,CHI-CHI1870-005,Palmer House II construction,canonical,0
+CHI-CHI1870-005-N01,CHI-CHI1870-005,new Palmer House foundations,alternate,1
+CHI-CHI1870-006-N00,CHI-CHI1870-006,Drake Block,canonical,0
+CHI-CHI1870-007-N00,CHI-CHI1870-007,Parmelee Omnibus and Stage Company stable,canonical,0
+CHI-CHI1870-007-N01,CHI-CHI1870-007,Parmelee stable,alternate,1
+CHI-CHI1870-007-N02,CHI-CHI1870-007,Parmelee barns,alternate,2
+CHI-CHI1870-008-N00,CHI-CHI1870-008,Lincoln School,canonical,0
+CHI-CHI1870-009-N00,CHI-CHI1870-009,Douglas School,canonical,0
+CHI-CHI1870-010-N00,CHI-CHI1870-010,LaSalle Street Tunnel,canonical,0
+CHI-CHI1870-011-N00,CHI-CHI1870-011,Halsted and Sixteenth streets viaduct,canonical,0
+CHI-CHI1870-012-N00,CHI-CHI1870-012,West Indiana Street viaduct,canonical,0
+CHI-CHI1870-013-N00,CHI-CHI1870-013,West Adams Street viaduct,canonical,0
+CHI-CHI1870-014-N00,CHI-CHI1870-014,Chicago City Hall and Cook County Court House enlargement,canonical,0
+CHI-CHI1870-014-N01,CHI-CHI1870-014,Court House,alternate,1
+CHI-CHI1870-014-N02,CHI-CHI1870-014,City Hall,alternate,2
+CHI-CHI1870-015-N00,CHI-CHI1870-015,Division Street water-main tunnel,canonical,0
+CHI-CHI1870-016-N00,CHI-CHI1870-016,Chicago Avenue water-main tunnel,canonical,0
+CHI-CHI1870-017-N00,CHI-CHI1870-017,Adams Street water-main tunnel,canonical,0
+CHI-CHI1870-018-N00,CHI-CHI1870-018,Archer Avenue water-main tunnel,canonical,0
+CHI-CHI1870-019-N00,CHI-CHI1870-019,Chicago outer-harbor breakwater 1870 segment,canonical,0
+CHI-CHI1870-020-N00,CHI-CHI1870-020,West Side Masonic Temple,canonical,0
+CHI-CHI1870-021-N00,CHI-CHI1870-021,Chicago Nursery and Half-Orphan Asylum permanent home,canonical,0
+CHI-CHI1870-021-N01,CHI-CHI1870-021,Nursery and Half-Orphan Asylum,alternate,1
+CHI-CHI1870-022-N00,CHI-CHI1870-022,North-Western Manufacturing Company four-story works addition,canonical,0
+CHI-CHI1870-022-N01,CHI-CHI1870-022,R. T. Crane works,alternate,1
+CHI-CHI1870-023-N00,CHI-CHI1870-023,Church of the Immaculate Conception 1871 alteration,canonical,0
+CHI-CHI1870-023-N01,CHI-CHI1870-023,Immaculate Conception Church steeple,alternate,1
+CHI-CHI1870-024-N00,CHI-CHI1870-024,Mariners' Chapel auditorium,canonical,0
+CHI-CHI1870-024-N01,CHI-CHI1870-024,Mariner's Church,alternate,1
+CHI-CHI1870-024-N02,CHI-CHI1870-024,Seamen's Bethel,alternate,2
+CHI-CHI1870-025-N00,CHI-CHI1870-025,First Congregational Church,canonical,0
+CHI-CHI1870-025-N01,CHI-CHI1870-025,West Washington Street Congregational Church,alternate,1
+CHI-CHI1870-026-N00,CHI-CHI1870-026,Union Park Congregational Church,canonical,0
+CHI-CHI1870-026-N01,CHI-CHI1870-026,First Baptist Congregational Church,alternate,1
+CHI-CHI1870-027-N00,CHI-CHI1870-027,University-place Baptist Church chapel,canonical,0
+CHI-CHI1870-028-N00,CHI-CHI1870-028,Michigan-avenue Baptist Church,canonical,0
+CHI-CHI1870-028-N01,CHI-CHI1870-028,Wabash-avenue Baptist Church new edifice,alternate,1
+CHI-CHI1870-029-N00,CHI-CHI1870-029,Indiana-avenue Methodist Episcopal Church new building,canonical,0
+CHI-CHI1870-030-N00,CHI-CHI1870-030,Oakland Methodist Episcopal Church,canonical,0
+CHI-CHI1870-030-N01,CHI-CHI1870-030,Langley-avenue Methodist Episcopal Church,alternate,1
+CHI-CHI1870-031-N00,CHI-CHI1870-031,St. Patrick's Church 1871 raising and basement,canonical,0
+CHI-CHI1870-031-N01,CHI-CHI1870-031,St. Patrick's Church alteration,alternate,1
+CHI-CHI1870-032-N00,CHI-CHI1870-032,Chicago Medical College,canonical,0
+CHI-CHI1870-032-N01,CHI-CHI1870-032,Northwestern University medical department,alternate,1
+CHI-CHI1870-033-N00,CHI-CHI1870-033,St. Ignatius College,canonical,0
+CHI-CHI1870-034-N00,CHI-CHI1870-034,Our Savior's Norwegian Evangelical Lutheran Church new building,canonical,0
+CHI-CHI1870-035-N00,CHI-CHI1870-035,Third Presbyterian Church chapel,canonical,0
+CHI-CHI1870-036-N00,CHI-CHI1870-036,Raber House,canonical,0
+CHI-CHI1870-037-N00,CHI-CHI1870-037,Wheeler-Kohn House,canonical,0
+CHI-CHI1870-038-N00,CHI-CHI1870-038,Hitchcock House,canonical,0
+CHI-CHI1870-039-N00,CHI-CHI1870-039,Hampton and Marion Story Rowhouse,canonical,0
+CHI-CHI1870-039-N01,CHI-CHI1870-039,Story House,alternate,1
+CHI-CHI1870-039-N02,CHI-CHI1870-039,one of the Story-Camp Rowhouses,alternate,2
+CHI-CHI1870-040-N00,CHI-CHI1870-040,Isaac and Flora Camp Rowhouse,canonical,0
+CHI-CHI1870-040-N01,CHI-CHI1870-040,Camp House,alternate,1
+CHI-CHI1870-040-N02,CHI-CHI1870-040,one of the Story-Camp Rowhouses,alternate,2
+CHI-CHI1870-041-N00,CHI-CHI1870-041,Swedish Club of Chicago building,canonical,0
+CHI-PRE1830-001-N00,CHI-PRE1830-001,Marquette-Jolliet winter shelter,canonical,0
+CHI-PRE1830-001-N01,CHI-PRE1830-001,Marquette winter cabin,alternate,1
+CHI-PRE1830-001-N02,CHI-PRE1830-001,1674-75 winter camp shelter,alternate,2
+CHI-PRE1830-002-N00,CHI-PRE1830-002,Jean Baptiste Point du Sable main house,canonical,0
+CHI-PRE1830-002-N01,CHI-PRE1830-002,du Sable house,alternate,1
+CHI-PRE1830-002-N02,CHI-PRE1830-002,Le Mai house,alternate,2
+CHI-PRE1830-002-N03,CHI-PRE1830-002,Kinzie house,alternate,3
+CHI-PRE1830-003-N00,CHI-PRE1830-003,Du Sable homestead barn 1,canonical,0
+CHI-PRE1830-004-N00,CHI-PRE1830-004,Du Sable homestead barn 2,canonical,0
+CHI-PRE1830-005-N00,CHI-PRE1830-005,Du Sable homestead horse mill,canonical,0
+CHI-PRE1830-006-N00,CHI-PRE1830-006,Du Sable homestead bakehouse,canonical,0
+CHI-PRE1830-007-N00,CHI-PRE1830-007,Du Sable homestead workshop,canonical,0
+CHI-PRE1830-008-N00,CHI-PRE1830-008,Du Sable homestead dairy,canonical,0
+CHI-PRE1830-009-N00,CHI-PRE1830-009,Du Sable homestead poultry house,canonical,0
+CHI-PRE1830-010-N00,CHI-PRE1830-010,Du Sable homestead smokehouse,canonical,0
+CHI-PRE1830-011-N00,CHI-PRE1830-011,Unidentified tenth Du Sable compound building,canonical,0
+CHI-PRE1830-012-N00,CHI-PRE1830-012,Antoine Ouilmette cabin,canonical,0
+CHI-PRE1830-013-N00,CHI-PRE1830-013,Guillaume Pettell cabin,canonical,0
+CHI-PRE1830-013-N01,CHI-PRE1830-013,Pettell trading hut,alternate,1
+CHI-PRE1830-014-N00,CHI-PRE1830-014,William Burnett trading house,canonical,0
+CHI-PRE1830-014-N01,CHI-PRE1830-014,Burnett cabin,alternate,1
+CHI-PRE1830-015-N00,CHI-PRE1830-015,Fort Dearborn I,canonical,0
+CHI-PRE1830-015-N01,CHI-PRE1830-015,first Fort Dearborn,alternate,1
+CHI-PRE1830-016-N00,CHI-PRE1830-016,United States Factory I,canonical,0
+CHI-PRE1830-016-N01,CHI-PRE1830-016,Fort Dearborn Indian factory,alternate,1
+CHI-PRE1830-016-N02,CHI-PRE1830-016,federal trading house,alternate,2
+CHI-PRE1830-017-N00,CHI-PRE1830-017,Lee house near Fort Dearborn,canonical,0
+CHI-PRE1830-017-N01,CHI-PRE1830-017,Jean Baptiste Beaubien house after sale,alternate,1
+CHI-PRE1830-018-N00,CHI-PRE1830-018,Lee farm cabin,canonical,0
+CHI-PRE1830-018-N01,CHI-PRE1830-018,Hardscrabble trading cabin,alternate,1
+CHI-PRE1830-018-N02,CHI-PRE1830-018,John Crafts trading house,alternate,2
+CHI-PRE1830-019-N00,CHI-PRE1830-019,Burns house,canonical,0
+CHI-PRE1830-019-N01,CHI-PRE1830-019,Jouett house after 1817,alternate,1
+CHI-PRE1830-020-N00,CHI-PRE1830-020,Fort Dearborn II,canonical,0
+CHI-PRE1830-020-N01,CHI-PRE1830-020,second Fort Dearborn,alternate,1
+CHI-PRE1830-021-N00,CHI-PRE1830-021,United States Factory II,canonical,0
+CHI-PRE1830-021-N01,CHI-PRE1830-021,rebuilt federal Indian factory,alternate,1
+CHI-PRE1830-022-N00,CHI-PRE1830-022,Dean house,canonical,0
+CHI-PRE1830-022-N01,CHI-PRE1830-022,army contractor Dean house,alternate,1
+CHI-PRE1830-022-N02,CHI-PRE1830-022,Beaubien house after 1817,alternate,2
+CHI-PRE1830-023-N00,CHI-PRE1830-023,American Fur Company trading house,canonical,0
+CHI-PRE1830-023-N01,CHI-PRE1830-023,Beaubien trading house,alternate,1
+CHI-PRE1830-024-N00,CHI-PRE1830-024,Wolcott government agency house,canonical,0
+CHI-PRE1830-024-N01,CHI-PRE1830-024,Indian agency house,alternate,1
+CHI-PRE1830-024-N02,CHI-PRE1830-024,Alexander Wolcott residence,alternate,2
+CHI-PRE1830-025-N00,CHI-PRE1830-025,Beaubien cabin,canonical,0
+CHI-PRE1830-026-N00,CHI-PRE1830-026,McKee-Porthier blacksmith shop,canonical,0
+CHI-PRE1830-027-N00,CHI-PRE1830-027,James Kinzie-David Hall store cabin,canonical,0
+CHI-PRE1830-028-N00,CHI-PRE1830-028,Laframboise-occupied Hardscrabble cabin group,canonical,0
+CHI-PRE1830-029-N00,CHI-PRE1830-029,Wallace Hardscrabble cabin,canonical,0
+CHI-PRE1830-030-N00,CHI-PRE1830-030,Bernadus H. Laughton Hardscrabble cabin,canonical,0
+CHI-PRE1830-030-N01,CHI-PRE1830-030,Lawton cabin,alternate,1
+CHI-PRE1830-031-N00,CHI-PRE1830-031,Chief Robinson-Galloway Hardscrabble cabin,canonical,0
+CHI-PRE1830-031-N01,CHI-PRE1830-031,Alexander Robinson cabin,alternate,1
+CHI-PRE1830-032-N00,CHI-PRE1830-032,Miller House,canonical,0
+CHI-PRE1830-032-N01,CHI-PRE1830-032,Miller's Tavern,alternate,1
+CHI-PRE1830-033-N00,CHI-PRE1830-033,Wolf Tavern,canonical,0
+CHI-PRE1830-033-N01,CHI-PRE1830-033,Caldwell-Kinzie house,alternate,1
+CHI-PRE1830-033-N02,CHI-PRE1830-033,Wentworth tavern,alternate,2
+CHI-PRE1830-034-N00,CHI-PRE1830-034,Beaubien shanty warehouse,canonical,0
+CHI-PRE1830-035-N00,CHI-PRE1830-035,Bridges house,canonical,0
+CHI-PRE1830-036-N00,CHI-PRE1830-036,Joseph Porthier residence,canonical,0
+CHI-PRE1830-037-N00,CHI-PRE1830-037,Clybourne North Branch cabin 1,canonical,0
+CHI-PRE1830-038-N00,CHI-PRE1830-038,Clybourne North Branch cabin 2,canonical,0
+CHI-PRE1830-039-N00,CHI-PRE1830-039,Unidentified Hardscrabble cabin,canonical,0
+CHI-PRE1830-040-N00,CHI-PRE1830-040,Billy Caldwell government frame house,canonical,0

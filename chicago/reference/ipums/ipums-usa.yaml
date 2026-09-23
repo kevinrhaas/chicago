@@ -1,0 +1,37 @@
+id: ipums-usa-1790-1840-household-extracts
+title: IPUMS USA 1790-1840 Household-Level Complete Count Data
+creator: IPUMS USA, University of Minnesota
+description: >
+  Full-count household-level census extracts, 1790-1840, plus a
+  Chicago-filtered subset (H_1840_chicago.csv) and a saved copy of the
+  IPUMS USA download portal page (H_1800s.pdf).
+redistribution_status: restricted-published
+copyright_status: license-restricted
+license_notice: >
+  IPUMS Conditions of Use (https://www.ipums.org/about/terms) prohibits
+  redistribution without permission and includes a liability clause.
+  Published here as a deliberate, informed decision despite that
+  restriction; see NOTICE.txt on the Internet Archive item for the full
+  citation and restriction text, and do not treat this listing as a
+  redistribution license for your own reuse.
+internet_archive:
+  item: chicago1835-ipums-usa-1790-1840-household-extracts
+  url: https://archive.org/details/chicago1835-ipums-usa-1790-1840-household-extracts
+files:
+  - name: H_1790.csv
+    bytes: 117905742
+  - name: H_1800.csv
+    bytes: 152546932
+  - name: H_1810.csv
+    bytes: 234796299
+  - name: H_1820.csv
+    bytes: 350733160
+  - name: H_1830.csv
+    bytes: 517541772
+  - name: H_1840.csv
+    bytes: 731820803
+  - name: H_1840_chicago.csv
+    bytes: 279062
+  - name: H_1800s.pdf
+    bytes: 1707719
+local_archive_path: projects/archive/data/chicago/reference/ipums/

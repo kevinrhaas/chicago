@@ -1,0 +1,175 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://chicago4d/schemas/source.schema.json",
+  "title": "4D Chicago Source",
+  "description": "One bibliographic source, one file. The filename stem is the source_id.",
+  "type": "object",
+  "required": [
+    "id",
+    "type",
+    "citation",
+    "tier",
+    "rights_status",
+    "verified"
+  ],
+  "additionalProperties": false,
+  "properties": {
+    "id": {
+      "type": "string",
+      "pattern": "^[a-z0-9_]+$"
+    },
+    "type": {
+      "type": "string",
+      "enum": [
+        "map",
+        "book",
+        "newspaper",
+        "manuscript",
+        "illustration",
+        "photograph",
+        "website",
+        "dataset",
+        "article",
+        "legal"
+      ]
+    },
+    "citation": {
+      "type": "string",
+      "minLength": 10
+    },
+    "author": {
+      "type": "string"
+    },
+    "date": {
+      "type": "string",
+      "description": "Publication or creation date as written on the source."
+    },
+    "describes_date": {
+      "type": "string",
+      "description": "The date the source DESCRIBES, when different from when it was made. Wau-Bun was published 1856 and describes 1831; that gap is the whole reason this field exists."
+    },
+    "repository": {
+      "type": "string"
+    },
+    "url": {
+      "type": "string"
+    },
+    "archived_url": {
+      "type": "string",
+      "description": "Required for type=website and for any online-only source. A citation that cannot be re-read is not a citation."
+    },
+    "locator": {
+      "type": "string",
+      "description": "Page, plate, scan page, or IIIF region. Cite the specific place, not the whole volume."
+    },
+    "tier": {
+      "type": "integer",
+      "minimum": 1,
+      "maximum": 6,
+      "description": "1 period/eyewitness · 2 near-primary recollection · 3 compiled secondary (Andreas) · 4 later scholarship · 5 modern retrospective illustration/reconstruction · 6 decorative/popular cartography. Tiers 5-6 inform inventory and cross-checks only; never sole evidence for documented, never traced for geometry."
+    },
+    "rights_status": {
+      "type": "string",
+      "enum": [
+        "public_domain",
+        "no_known_restrictions",
+        "check_required",
+        "cleared",
+        "restricted"
+      ],
+      "description": "check_required and restricted block asset derivation; textual citation stays allowed."
+    },
+    "rights_note": {
+      "type": "string"
+    },
+    "rights_checked": {
+      "type": "object",
+      "additionalProperties": false,
+      "description": "Fill when moving check_required to cleared or restricted.",
+      "properties": {
+        "date": {
+          "type": "string",
+          "format": "date"
+        },
+        "method": {
+          "type": "string"
+        },
+        "outcome": {
+          "type": "string"
+        }
+      }
+    },
+    "asset_use": {
+      "type": "string",
+      "enum": [
+        "geometry",
+        "inventory",
+        "cross_check",
+        "orientation",
+        "text_only"
+      ],
+      "default": "cross_check",
+      "description": "How far this source may be used. 'geometry' permits tracing; 'orientation' permits toponyms and rough placement only."
+    },
+    "verified": {
+      "type": "boolean",
+      "description": "True only when a human or agent has actually retrieved and read this source at its locator."
+    },
+    "access_notes": {
+      "type": "string",
+      "description": "Fetch problems worth recording, e.g. hosts that return 503/403 to automated retrieval."
+    },
+    "note": {
+      "type": "string"
+    },
+    "what_it_supplies": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      },
+      "description": "What this source can legitimately be used FOR. Fill it in when a source is commonly misused, so an agent reaching for it sees the limit before the citation."
+    },
+    "what_it_does_not_supply": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      },
+      "description": "What this source is often assumed to give but does NOT. Hathaway 1834 is the motivating case: it is widely described as showing individual buildings and it does not, a claim that reached this project's own brief before anyone opened the scan at full resolution."
+    },
+    "transcribes": {
+      "type": "array",
+      "minItems": 1,
+      "items": {
+        "type": "object",
+        "additionalProperties": false,
+        "required": ["work", "date", "tier"],
+        "properties": {
+          "work": {
+            "type": "string",
+            "description": "The document this page carries, named as it is printed on the page — publication, date and, where the page gives them, the witnesses speaking."
+          },
+          "date": {
+            "type": "string",
+            "description": "The document's own date, as written on the page. Not the date the page was fetched."
+          },
+          "tier": {
+            "type": "integer",
+            "minimum": 1,
+            "maximum": 6,
+            "description": "The rung THIS document sits on. The record's own tier is the best rung declared here — a modern site hosting an 1883 interview is worth what the interview is worth, and nothing about the hosting improves or spoils it."
+          },
+          "note": {
+            "type": "string",
+            "description": "Which of this project's claims the document carries, or why it is here at a rung it does not lift the page to."
+          }
+        }
+      },
+      "description": "What a modern page transcribes, when the record dates its own retrieval rather than a document. A tier is a judgement made once, and until this field existed the judgement lived in a sentence in `note` that no check could read: `chicagology_kinzie_bridge` said 'Tier 3 for the Andreas transcription; the surrounding apparatus is a finding aid' and nothing held the 3 to the Andreas. Required for such a record graded at tier 3 or better (`tools/validate.py` § check_transcription_declarations); optional and still checked above it."
+    },
+    "carries_no_document": {
+      "type": "string",
+      "minLength": 1,
+      "description": "The reading — not a flag — that established that this page was opened and reprints no document: what was looked for, what is actually printed there, and where the page sends you instead. The third state beside `transcribes` and silence, and it exists because the first two cannot tell a page that was read from a page nobody has opened. A record declaring this may not be graded at or above the testimony rung: there is no document on the page for the rung to be a judgement about. Mutually exclusive with `transcribes`, and only meaningful on a record that dates its own retrieval."
+    }
+  }
+}

@@ -1,0 +1,898 @@
+{
+  "schema": 1,
+  "_doc": "HAND-AUTHORED, and the only hand-authored file in this reading. T-0679: the numerals of Fergus 1839's printed pages 47-50 that archive.org's OCR destroyed, read off the page images themselves. tools/read_fergus_1839_lots.py --build applies it; every entry asserts the `was` ink the generated cell carries, so a re-map that moves a row makes its correction stop matching and --check fails rather than silently writing the wrong number onto the wrong lot.",
+  "applied_by": "tools/read_fergus_1839_lots.py --build",
+  "ticket": "T-0679; added_rows T-0778; bidder column T-0779; the braced bidder T-0910",
+  "read_off": {
+    "item": "fergusdirectoryo00ferg",
+    "images": "https://archive.org/download/fergusdirectoryo00ferg/page/leaf59.jpg and leaf60, leaf61, leaf62 — the same scan the OCR is of, at 2238 x 3640, which is the coordinate space the row map is written in",
+    "how": "every row of printed pages 47-50 was cropped from the page image on the row map's own y and the band's own x and read by eye. A cell is filled only where the ink is legible; where the page prints nothing the correction says so and the value stays null."
+  },
+  "grade_note": "A corrected row is regraded `scan_verified`, and since T-0779 that grade covers the WHOLE row — block, lot, amount, whether the lot was withheld, and the BIDDER. It used to cover the numeral columns only, because T-0679 deliberately left the bidder column alone and named the three names it could see were wrong without touching them. T-0779 read every bidder cell of all six half-pages off the same images: thirteen names the scan mangled are corrected here, three ditto marks it mapped no ink to are given the name their mark carries, and every other bidder cell on printed pages 47-49 agrees with the OCR as read. T-0910 adds the THIRD bidder repair, `bidder_brace`, and there is exactly one row of it: block 4's lot 40, which the printer's brace gathers with lot 39 under `C. Walker,` and $408 the pair. Every braced run on printed pages 47-49 was enumerated off the page images for that ticket and this is the only one that gathers a lot under a NAME — block 2's lots 8-10, block 4's lots 1-6 and block 5's lots 1-5 are all braced against `Reserved.`, where there is no bidder to lose. The check that the enumeration is complete is in the reading itself: three rows of 268 reach it with neither a bidder nor a withholding, and the other two (f1839_lot0005, f1839_lot0173) carry no lot number either — they are a speck of `1506` and the rule between block 9 and block 10, read at the image and printed against no lot.",
+  "what_the_image_could_not_settle": [
+    "The braced pairs and runs print ONE price against several lots — block 4's lots 1-6, block 5's lots 1-5, block 2's lots 8-10, and lots 39 and 40 of block 4 at $408 the pair. Those prices are not split across the lots they cover, and T-0910 did not split them when it gave lot 40 the BIDDER its brace carries: the name is on the page against that lot and the division of the amount is not.",
+    "Block 5's lot 5 was one of these until T-0778: the row map gathers no row for it, so there was no cell to correct. It is now an added row rather than a correction, and its price is still not settled — the brace prints one Reserved. over lots 1 to 5 and no amount at all."
+  ],
+  "added_rows_note": "A ROW THE OCR MAPPED NO INK TO AT ALL — not a destroyed numeral but no words on the line — cannot be corrected, because the row map has no row to correct and a layer that fills cells cannot mint one. T-0778 gives it a section of its own rather than teaching --map to gather ink that is not in the scan. An added row asserts three things and --build raises on any of them: the claim it follows still reads the block and lot it was written against, the row map still gathers NO row in the y band the added row occupies, and the ink that GOVERNS the row is quoted verbatim out of the committed page text. It takes the next free id rather than a positional one, so that adding a row in the middle of a page renumbers nothing and no f1839_lot id already cited on a town card moves off the ink it was written against.",
+  "added_rows": [
+    {
+      "leaf": 59,
+      "half": "R",
+      "y": 3275,
+      "after": {
+        "id": "f1839_lot0068",
+        "block": 5,
+        "lot": 4
+      },
+      "no_row_gathered_between": [
+        3245,
+        3330
+      ],
+      "read": {
+        "lot": 5,
+        "amount": null,
+        "withheld": "reserved"
+      },
+      "governing_ink": {
+        "line": 199,
+        "from": 6,
+        "to": 15
+      },
+      "why": "printed page 47's right half ends on block 5, whose lots 1 to 5 are braced together against a single Reserved. The OCR mapped words to the first four and none at all to the fifth, so the row map gathers four rows where the page prints five and lot 5 had no claim. The page image prints 5 as the last line of the column at y 3275, inside the same brace, with no bidder and no price — so the lot number is read off the image and the withholding is the brace's own Reserved., quoted from the committed text."
+    }
+  ],
+  "lots": {
+    "f1839_lot0001": {
+      "lot": {
+        "was": null,
+        "read": null,
+        "why": "block 1 is set as one braced Reserved. and carries no lot number of its own"
+      }
+    },
+    "f1839_lot0002": {
+      "lot": {
+        "was": "I",
+        "read": 1
+      }
+    },
+    "f1839_lot0004": {
+      "lot": {
+        "was": "n",
+        "read": 3
+      }
+    },
+    "f1839_lot0005": {
+      "lot": {
+        "was": "0",
+        "read": null,
+        "why": "no printed row stands here: the gathering caught a fragment between block 2's lots 3 and 4"
+      }
+    },
+    "f1839_lot0010": {
+      "withheld": {
+        "was": ")",
+        "read": "reserved",
+        "why": "lots 8, 9 and 10 are braced together against a single Reserved.; the OCR kept the brace only against lot 9"
+      },
+      "amount": {
+        "was": null,
+        "read": null,
+        "why": "a reserved lot has no price printed"
+      }
+    },
+    "f1839_lot0012": {
+      "withheld": {
+        "was": null,
+        "read": "reserved",
+        "why": "the same brace over lots 8, 9 and 10"
+      },
+      "amount": {
+        "was": null,
+        "read": null,
+        "why": "a reserved lot has no price printed"
+      }
+    },
+    "f1839_lot0015": {
+      "lot": {
+        "was": "j",
+        "read": 3
+      }
+    },
+    "f1839_lot0017": {
+      "bidder": {
+        "was": "T. Church and H. 0. Stone,",
+        "read": "T. Church and H. O. Stone",
+        "why": "the page prints the letter O in H. O. Stone; the OCR read the digit zero. The name is set over two lines and this is the folded cell, so the correction asserts the folded ink"
+      }
+    },
+    "f1839_lot0021": {
+      "lot": {
+        "was": "n",
+        "read": 1
+      },
+      "withheld": {
+        "was": null,
+        "read": "reserved",
+        "why": "block 4's lots 1 to 6 are braced together against a single Reserved.; the OCR kept the brace only against lot 3"
+      }
+    },
+    "f1839_lot0022": {
+      "withheld": {
+        "was": ";",
+        "read": "reserved",
+        "why": "the same brace over block 4's lots 1 to 6"
+      }
+    },
+    "f1839_lot0023": {
+      "lot": {
+        "was": "J",
+        "read": 3
+      }
+    },
+    "f1839_lot0024": {
+      "withheld": {
+        "was": null,
+        "read": "reserved",
+        "why": "the same brace over block 4's lots 1 to 6"
+      }
+    },
+    "f1839_lot0025": {
+      "withheld": {
+        "was": "J",
+        "read": "reserved",
+        "why": "the same brace over block 4's lots 1 to 6"
+      }
+    },
+    "f1839_lot0026": {
+      "withheld": {
+        "was": null,
+        "read": "reserved",
+        "why": "the same brace over block 4's lots 1 to 6"
+      }
+    },
+    "f1839_lot0034": {
+      "lot": {
+        "was": "H",
+        "read": 14
+      }
+    },
+    "f1839_lot0035": {
+      "amount": {
+        "was": "“JO",
+        "read": 233
+      }
+    },
+    "f1839_lot0038": {
+      "amount": {
+        "was": "jjj",
+        "read": 333
+      }
+    },
+    "f1839_lot0041": {
+      "amount": {
+        "was": "3°3",
+        "read": 303
+      }
+    },
+    "f1839_lot0044": {
+      "amount": {
+        "was": "35o",
+        "read": 350
+      }
+    },
+    "f1839_lot0047": {
+      "bidder": {
+        "was": "D. Brainarcl,",
+        "read": "D. Brainard"
+      }
+    },
+    "f1839_lot0052": {
+      "amount": {
+        "was": "43i",
+        "read": 431
+      },
+      "bidder": {
+        "was": "Dr . H. Humphrey,",
+        "read": "Dr. H. Humphrey",
+        "why": "the page sets Dr. close, with no space before the point"
+      }
+    },
+    "f1839_lot0053": {
+      "lot": {
+        "was": "'l \"> OJ",
+        "read": 33
+      }
+    },
+    "f1839_lot0058": {
+      "bidder": {
+        "was": "J- Burgess,",
+        "read": "J. Burgess"
+      }
+    },
+    "f1839_lot0059": {
+      "bidder": {
+        "was": "!c . Walker,",
+        "read": "C. Walker",
+        "why": "the exclamation is the printer's brace over lots 39 and 40, which the OCR gathered into the name"
+      }
+    },
+    "f1839_lot0060": {
+      "amount": {
+        "was": null,
+        "read": null,
+        "why": "lots 39 and 40 are braced to one bidder and one price, C. Walker 408; lot 40 has no price of its own"
+      },
+      "bidder_brace": {
+        "was": null,
+        "read": "C. Walker",
+        "why": "printed page 47's right half ends block 4 with a printer's brace over lots 39 and 40 against one name and one price, `C. Walker,` and 408. The OCR gathered the brace's upper leg into lot 39's name (`!c . Walker,`) and mapped NO ink to lot 40 at all, so lot 40 reached the reading with no bidder while a sold lot either side of it carries one. A brace is not a ditto mark and reads_as_ditto refuses it on purpose, so the name is given here, as the brace's own — the page prints no mark on this row and the claim says bidder_braced rather than bidder_ditto. The price is untouched and stays null: one amount is printed over the pair and this reading does not divide it."
+      }
+    },
+    "f1839_lot0065": {
+      "lot": {
+        "was": "n",
+        "read": 1
+      },
+      "withheld": {
+        "was": null,
+        "read": "reserved",
+        "why": "block 5's lots 1 to 5 are braced together against a single Reserved.; the OCR kept the brace only against lot 3"
+      }
+    },
+    "f1839_lot0066": {
+      "withheld": {
+        "was": ";",
+        "read": "reserved",
+        "why": "the same brace over block 5's lots 1 to 5"
+      }
+    },
+    "f1839_lot0068": {
+      "withheld": {
+        "was": "I",
+        "read": "reserved",
+        "why": "the same brace over block 5's lots 1 to 5"
+      }
+    },
+    "f1839_lot0073": {
+      "lot": {
+        "was": "IO",
+        "read": 10
+      }
+    },
+    "f1839_lot0075": {
+      "lot": {
+        "was": "i",
+        "read": 1
+      }
+    },
+    "f1839_lot0080": {
+      "amount": {
+        "was": null,
+        "read": null,
+        "why": "the row prints Forfeited. and no price"
+      }
+    },
+    "f1839_lot0082": {
+      "amount": {
+        "was": "45o",
+        "read": 450
+      }
+    },
+    "f1839_lot0088": {
+      "lot": {
+        "was": "S",
+        "read": 8
+      }
+    },
+    "f1839_lot0090": {
+      "lot": {
+        "was": "IO",
+        "read": 10
+      }
+    },
+    "f1839_lot0093": {
+      "lot": {
+        "was": null,
+        "read": 13
+      }
+    },
+    "f1839_lot0106": {
+      "amount": {
+        "was": "3i5",
+        "read": 315
+      }
+    },
+    "f1839_lot0108": {
+      "bidder": {
+        "was": "R. T. Plaines,",
+        "read": "R. T. Haines",
+        "why": "the H is read as Pl. This is the one that mattered: the crosswalk matches on surname, so a Plaines who is not in the town split R. T. Haines, who bought on five other rows of this same list, into two bidders"
+      }
+    },
+    "f1839_lot0110": {
+      "amount": {
+        "was": "35i",
+        "read": 351
+      }
+    },
+    "f1839_lot0111": {
+      "lot": {
+        "was": "3i",
+        "read": 31
+      }
+    },
+    "f1839_lot0115": {
+      "amount": {
+        "was": "5°7",
+        "read": 507
+      }
+    },
+    "f1839_lot0121": {
+      "amount": {
+        "was": "45i",
+        "read": 451
+      }
+    },
+    "f1839_lot0123": {
+      "amount": {
+        "was": "45i",
+        "read": 451
+      }
+    },
+    "f1839_lot0124": {
+      "bidder": {
+        "was": "O. II. Thompson,",
+        "read": "O. H. Thompson"
+      }
+    },
+    "f1839_lot0128": {
+      "amount": {
+        "was": "5io",
+        "read": 510
+      }
+    },
+    "f1839_lot0129": {
+      "lot": {
+        "was": "T Si I O",
+        "read": 18
+      }
+    },
+    "f1839_lot0130": {
+      "lot": {
+        "was": "I9",
+        "read": 19
+      }
+    },
+    "f1839_lot0132": {
+      "bidder": {
+        "was": "T. Wadsworth,",
+        "read": "J. Wadsworth",
+        "why": "the page prints J. Wadsworth, who takes eleven other lots on these pages; no T. Wadsworth is printed anywhere in the sale"
+      }
+    },
+    "f1839_lot0134": {
+      "lot": {
+        "was": null,
+        "read": 23
+      }
+    },
+    "f1839_lot0138": {
+      "amount": {
+        "was": "5io",
+        "read": 510
+      },
+      "bidder": {
+        "was": "J. J- Phelps,",
+        "read": "J. J. Phelps"
+      }
+    },
+    "f1839_lot0139": {
+      "bidder": {
+        "was": "Prancis Walker,",
+        "read": "Francis Walker"
+      }
+    },
+    "f1839_lot0140": {
+      "bidder": {
+        "was": "John PTnnerty,",
+        "read": "John Fennerty"
+      }
+    },
+    "f1839_lot0141": {
+      "lot": {
+        "was": "3°",
+        "read": 30
+      }
+    },
+    "f1839_lot0142": {
+      "lot": {
+        "was": "*",
+        "read": 1
+      }
+    },
+    "f1839_lot0151": {
+      "lot": {
+        "was": "IO",
+        "read": 10
+      },
+      "amount": {
+        "was": "53o",
+        "read": 530
+      }
+    },
+    "f1839_lot0156": {
+      "amount": {
+        "was": "56i",
+        "read": 561
+      }
+    },
+    "f1839_lot0166": {
+      "lot": {
+        "was": "J",
+        "read": 25
+      }
+    },
+    "f1839_lot0168": {
+      "lot": {
+        "was": "27 ^ J",
+        "read": 27
+      }
+    },
+    "f1839_lot0170": {
+      "lot": {
+        "was": "90 zy",
+        "read": 29
+      }
+    },
+    "f1839_lot0171": {
+      "lot": {
+        "was": "70",
+        "read": 30,
+        "why": "the one numeral this reading got WRONG rather than refused: the scan's 70 is a ruin of a printed 30, and block 9 runs 1 to 31"
+      }
+    },
+    "f1839_lot0172": {
+      "lot": {
+        "was": "TI",
+        "read": 31
+      }
+    },
+    "f1839_lot0173": {
+      "lot": {
+        "was": "j",
+        "read": null,
+        "why": "no printed row stands here: this is the blank line the printer leaves between block 9 and block 10"
+      }
+    },
+    "f1839_lot0174": {
+      "block": {
+        "was": "IO",
+        "read": 10
+      },
+      "lot": {
+        "was": "I",
+        "read": 1
+      }
+    },
+    "f1839_lot0176": {
+      "lot": {
+        "was": "3",
+        "read": 3
+      }
+    },
+    "f1839_lot0177": {
+      "lot": {
+        "was": "4",
+        "read": 4
+      }
+    },
+    "f1839_lot0178": {
+      "lot": {
+        "was": "<J\\Ui",
+        "read": 5
+      }
+    },
+    "f1839_lot0179": {
+      "lot": {
+        "was": null,
+        "read": 6
+      }
+    },
+    "f1839_lot0180": {
+      "lot": {
+        "was": "00^1",
+        "read": 7
+      }
+    },
+    "f1839_lot0181": {
+      "lot": {
+        "was": null,
+        "read": 8
+      }
+    },
+    "f1839_lot0182": {
+      "lot": {
+        "was": "'O",
+        "read": 9
+      }
+    },
+    "f1839_lot0183": {
+      "lot": {
+        "was": "O",
+        "read": 10
+      },
+      "amount": {
+        "was": "268^",
+        "read": 268.5,
+        "why": "268 1/2 — the price carries a printed half dollar"
+      }
+    },
+    "f1839_lot0184": {
+      "lot": {
+        "was": "^",
+        "read": 11
+      },
+      "amount": {
+        "was": "247^",
+        "read": 247.5,
+        "why": "247 1/2 — the price carries a printed half dollar"
+      }
+    },
+    "f1839_lot0185": {
+      "lot": {
+        "was": "In)",
+        "read": 12
+      },
+      "amount": {
+        "was": "15",
+        "read": 151,
+        "why": "the second numeral this reading got wrong rather than refused: the scan's 15 is a ruin of a printed 151"
+      }
+    },
+    "f1839_lot0186": {
+      "lot": {
+        "was": "Oo",
+        "read": 13
+      },
+      "amount": {
+        "was": "I51",
+        "read": 151
+      }
+    },
+    "f1839_lot0187": {
+      "lot": {
+        "was": "4-",
+        "read": 14
+      }
+    },
+    "f1839_lot0188": {
+      "lot": {
+        "was": "Qn^i",
+        "read": 15
+      }
+    },
+    "f1839_lot0189": {
+      "lot": {
+        "was": null,
+        "read": 16
+      }
+    },
+    "f1839_lot0190": {
+      "lot": {
+        "was": "00^1",
+        "read": 17
+      }
+    },
+    "f1839_lot0191": {
+      "lot": {
+        "was": null,
+        "read": 18
+      },
+      "bidder_ditto": {
+        "was": null,
+        "read": "J. Russell",
+        "why": "the page prints a ditto mark against this lot and the OCR mapped no ink to the cell at all, so the row reached the reading with no bidder while the lot above and the lot below both carry one"
+      }
+    },
+    "f1839_lot0192": {
+      "lot": {
+        "was": "0*0",
+        "read": 19
+      }
+    },
+    "f1839_lot0193": {
+      "lot": {
+        "was": null,
+        "read": 20
+      }
+    },
+    "f1839_lot0194": {
+      "lot": {
+        "was": "h«",
+        "read": 21
+      }
+    },
+    "f1839_lot0195": {
+      "lot": {
+        "was": "bO",
+        "read": 22
+      }
+    },
+    "f1839_lot0196": {
+      "lot": {
+        "was": "Oj",
+        "read": 23
+      }
+    },
+    "f1839_lot0197": {
+      "lot": {
+        "was": "4*",
+        "read": 24
+      },
+      "bidder_ditto": {
+        "was": null,
+        "read": "J. Y. Scammon",
+        "why": "the page prints a ditto mark against this lot and the OCR mapped no ink to the cell at all, so the row reached the reading with no bidder while the lot above and the lot below both carry one"
+      }
+    },
+    "f1839_lot0198": {
+      "lot": {
+        "was": "Q\\Ln",
+        "read": 25
+      }
+    },
+    "f1839_lot0199": {
+      "lot": {
+        "was": null,
+        "read": 26
+      }
+    },
+    "f1839_lot0200": {
+      "lot": {
+        "was": "^",
+        "read": 27
+      }
+    },
+    "f1839_lot0201": {
+      "lot": {
+        "was": "00",
+        "read": 28
+      }
+    },
+    "f1839_lot0202": {
+      "lot": {
+        "was": "VO",
+        "read": 29
+      }
+    },
+    "f1839_lot0203": {
+      "lot": {
+        "was": "O",
+        "read": 30
+      }
+    },
+    "f1839_lot0204": {
+      "lot": {
+        "was": "H",
+        "read": 31
+      }
+    },
+    "f1839_lot0205": {
+      "lot": {
+        "was": "to",
+        "read": 32
+      }
+    },
+    "f1839_lot0206": {
+      "lot": {
+        "was": "U",
+        "read": 33
+      }
+    },
+    "f1839_lot0207": {
+      "lot": {
+        "was": "4^",
+        "read": 34
+      }
+    },
+    "f1839_lot0208": {
+      "block": {
+        "was": null,
+        "read": 11,
+        "why": "the block heading printed page 49 sets inside the ruined lot column"
+      },
+      "lot": {
+        "was": "H",
+        "read": 1
+      }
+    },
+    "f1839_lot0209": {
+      "lot": {
+        "was": "K)",
+        "read": 2
+      }
+    },
+    "f1839_lot0210": {
+      "lot": {
+        "was": "Oj",
+        "read": 3
+      },
+      "amount": {
+        "was": "5i",
+        "read": 51
+      }
+    },
+    "f1839_lot0211": {
+      "lot": {
+        "was": "4^",
+        "read": 4
+      },
+      "bidder_ditto": {
+        "was": null,
+        "read": "A. D. Stewart",
+        "why": "the page prints a ditto mark against this lot and the OCR mapped no ink to the cell at all, so the row reached the reading with no bidder while the lot above and the lot below both carry one"
+      }
+    },
+    "f1839_lot0212": {
+      "lot": {
+        "was": "OnUt",
+        "read": 5
+      }
+    },
+    "f1839_lot0213": {
+      "lot": {
+        "was": null,
+        "read": 6
+      },
+      "amount": {
+        "was": "5i",
+        "read": 51
+      }
+    },
+    "f1839_lot0214": {
+      "lot": {
+        "was": "C/O^J",
+        "read": 7
+      },
+      "amount": {
+        "was": "5i",
+        "read": 51
+      }
+    },
+    "f1839_lot0215": {
+      "lot": {
+        "was": null,
+        "read": 8
+      }
+    },
+    "f1839_lot0216": {
+      "block": {
+        "was": null,
+        "read": 12,
+        "why": "the block heading printed page 49 sets inside the ruined lot column"
+      },
+      "lot": {
+        "was": "H«",
+        "read": 1
+      }
+    },
+    "f1839_lot0217": {
+      "lot": {
+        "was": "tsJ",
+        "read": 2
+      }
+    },
+    "f1839_lot0218": {
+      "lot": {
+        "was": "U>",
+        "read": 3
+      }
+    },
+    "f1839_lot0219": {
+      "lot": {
+        "was": "4*",
+        "read": 4
+      }
+    },
+    "f1839_lot0220": {
+      "lot": {
+        "was": "Of",
+        "read": 5
+      }
+    },
+    "f1839_lot0221": {
+      "lot": {
+        "was": "ON",
+        "read": 6
+      }
+    },
+    "f1839_lot0226": {
+      "bidder": {
+        "was": "J. Iv. Botsford,",
+        "read": "J. K. Botsford"
+      }
+    },
+    "f1839_lot0227": {
+      "amount": {
+        "was": "47°",
+        "read": 470
+      }
+    },
+    "f1839_lot0230": {
+      "block": {
+        "was": "1",
+        "read": null,
+        "why": "no block number is printed on this row; block 13's run carries on from lot 6 to lot 16 and the 1 the OCR read is a speck"
+      }
+    },
+    "f1839_lot0240": {
+      "lot": {
+        "was": "I",
+        "read": 1
+      }
+    },
+    "f1839_lot0258": {
+      "bidder": {
+        "was": "H. A. Blakeslv,",
+        "read": "H. A. Blakesly"
+      }
+    }
+  },
+  "population": [
+    {
+      "column_first_year": 1835,
+      "y": 760,
+      "year": {
+        "was": "1 S40",
+        "read": 1840
+      },
+      "figure": {
+        "was": "4,47!*",
+        "read": 4479,
+        "why": "the row the reading dropped entirely, because neither its year nor its figure would parse"
+      }
+    },
+    {
+      "column_first_year": 1849,
+      "y": 1032,
+      "figure": {
+        "was": null,
+        "read": 95000,
+        "why": "the OCR mapped no ink at all to this cell; the page prints 95,000"
+      }
+    },
+    {
+      "column_first_year": 1863,
+      "y": 491,
+      "figure": {
+        "was": ".",
+        "read": 160000
+      }
+    },
+    {
+      "column_first_year": 1863,
+      "y": 598,
+      "figure": {
+        "was": ". .",
+        "read": 178900
+      }
+    },
+    {
+      "column_first_year": 1863,
+      "y": 1141,
+      "figure": {
+        "was": ".",
+        "read": 500000
+      }
+    },
+    {
+      "column_first_year": 1863,
+      "y": 1194,
+      "figure": {
+        "was": ". .",
+        "read": 525000
+      }
+    }
+  ],
+  "bidder_note": "THE SWEEP, AND WHAT IT COVERS (T-0779). All 268 rows of printed pages 47-49 were cropped from the page images by half-page column and read by eye, so the thirteen `bidder` corrections below are not a list of the errors somebody happened to notice — they are the whole disagreement between the OCR and the page in that column. Five of them are new here: T-0679's note named `Prancis Walker`, `John PTnnerty` and `J. Iv. Botsford`, and the sweep also found `T. Wadsworth` for J. Wadsworth, `J. J- Phelps`, `Dr . H. Humphrey`, `H. A. Blakeslv` and the digit zero in `H. 0. Stone`. THE ONE THAT CHANGES WHO THIS LIST CORROBORATES is `R. T. Plaines` for R. T. Haines: crosswalk_fergus_1839_lots.py matches on surname, so the mangle split one bidder who takes six lots across these pages into a Haines and a Plaines nobody could match. A CORRECTED NAME BECOMES THE CARRY, so the ditto rows under it inherit the repair rather than the ruin — O. H. Thompson's lots 14 and 15 and J. K. Botsford's lot 4 are named off their marks, not corrected individually. WHAT IS NOT TOUCHED: the page's own spellings. It prints `P. Fitzgibbons` on block 4's lot 29 and `P. Fitzgibbon` on lots 35 and 37, and `Isaac F. Massy.` ends in a point rather than a comma; all three are the printer's and are carried as printed."
+}

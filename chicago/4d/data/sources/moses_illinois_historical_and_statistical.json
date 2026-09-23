@@ -1,0 +1,29 @@
+{
+  "id": "moses_illinois_historical_and_statistical",
+  "type": "book",
+  "citation": "John Moses, Illinois, Historical and Statistical: Comprising the Essential Facts of its Planting and Growth as a Province, County, Territory, and State. 2 vols. Chicago: Fergus Printing Co., 1889. A state history — the constitutions, the legislatures, the revenue, the internal-improvement scheme, the wars and the county formations — with biographical notice of the men who held state office.",
+  "author": "John Moses (1825-1898)",
+  "date": "1889 (the Internet Archive copies; the Newberry index cards print the work as 1888-92)",
+  "describes_date": "Illinois from the French period to the late 1880s; its 1835 material is state-level — population, revenue, the count of counties — not Chicago's streets or households",
+  "repository": "Internet Archive, from the Sauk Valley Community College and CARLI copies",
+  "url": "https://archive.org/details/illinoishistoric01inmose",
+  "archived_url": "https://archive.org/details/illinoishistoric01inmose",
+  "locator": "Volume 1 is Internet Archive item illinoishistoric01inmose, 626 images; its text layer is illinoishistoric01inmose_djvu.txt, 1,502,972 bytes, sha256 8fa7b493924c4a81121d55ac495a6a6f4bf4aaaa937026139edc275dbf851304. Volume 2 is item illinoishistoricv2mose, text layer illinoishistoricv2mose_djvu.txt, 2,396,536 bytes, sha256 2d5e4b7aea7b24c18ef669d6ad5efbd200e56861e614ecb09494c47d0d394f6e. Cite a page within the volume when a claim is drawn; nothing is drawn from it yet.",
+  "tier": 4,
+  "rights_status": "public_domain",
+  "rights_note": "Published 1889 and out of copyright in the United States.",
+  "asset_use": "text_only",
+  "verified": true,
+  "access_notes": "LOCATED AND OPENED 2026-09-05 for T-0582, which asked whether the four works the Newberry index's Chicago cards point at can be reached. Both volumes' text layers were downloaded in full and their sha256s recorded above. The text layer is ordinary Internet Archive OCR of printed type and reads cleanly, unlike the photostat volumes of newberry_genealogical_index. WHAT THE OPENING MEASURED, because the card count oversells it: volume 1 prints '1835' 17 times and volume 2 34 times, and every occurrence sampled is a state fact (population 269,974 in 1835; fifty-seven counties; a legislator who removed to McLean County) or a birth-and-career line in a biographical notice. 'Beaubien' appears 0 times in volume 1 and once in volume 2. This is the second-largest citation cluster on the Chicago and Cook County cards of the Newberry index — 418 cards over the four volumes, 169 of them Chicago or Cook — and the cards are filed on a SURNAME, so a Chicago card here points at a man the state history treats, not at the town in 1835.",
+  "what_it_supplies": [
+    "state-level context for 1835 Illinois: population, revenue, the count of counties, the internal-improvement scheme and the legislature that passed it",
+    "biographical notice of Illinois officeholders, which is what the Newberry index files its 418 cards on",
+    "a printed chronology against which a Chicago claim drawn from a county history can be cross-checked"
+  ],
+  "what_it_does_not_supply": [
+    "any Chicago address, household, trade or building",
+    "any evidence that a named family was in the town of Chicago in 1835 — the Newberry card names a surname the STATE history treats",
+    "any independent testimony: it is compiled from records and earlier histories, forty to fifty years after the fact"
+  ],
+  "note": "Written for T-0582 as a LOCATION, not a reading: the work is reachable and its locator is here, and the reading of it is its own ticket. Nothing in this project cites it yet."
+}

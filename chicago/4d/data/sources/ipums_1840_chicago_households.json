@@ -1,0 +1,53 @@
+{
+  "id": "ipums_1840_chicago_households",
+  "type": "dataset",
+  "citation": "IPUMS USA, University of Minnesota, www.ipums.org — full-count household-level extract of the Sixth Census of the United States, 1840, filtered to Chicago: 964 households as IPUMS household variables (thirteen male and thirteen female free-white age bands, the free-coloured and slave bands, the seven industry columns, and the constructed totals). Cited in the form the extract's own NOTICE prescribes; the current official citation is at https://www.ipums.org/about/citation.",
+  "author": "IPUMS USA, University of Minnesota",
+  "date": "1840",
+  "describes_date": "1840-06-01",
+  "repository": "IPUMS USA (https://usa.ipums.org), Complete Count Household-level Datasets — login required. The copy this project reads is committed at chicago/reference/census1840/validation/H_1840_chicago_with_names_partial.csv; the unmodified extract is published, under the restriction below, at the Internet Archive item chicago1835-ipums-usa-1790-1840-household-extracts.",
+  "url": "https://archive.org/details/chicago1835-ipums-usa-1790-1840-household-extracts",
+  "archived_url": "https://archive.org/download/chicago1835-ipums-usa-1790-1840-household-extracts/H_1840_chicago.csv",
+  "locator": "H_1840_chicago.csv — 964 rows, 134 columns, 279062 bytes, sha256 e37d9761b0d0cab183c0aef61e32477edbf7aabd2c190184c2120779ae56d240. Every figure derived from it is in data/research/census_1840/composition_1840.json, built by tools/census_1840_composition.py.",
+  "tier": 1,
+  "rights_status": "restricted",
+  "rights_note": "IPUMS Conditions of Use (https://www.ipums.org/about/terms) is a legally binding agreement between IPUMS and each registered user. It prohibits redistribution without permission, requires citation, and makes the user liable for damages including attorney's fees. The extract's own NOTICE, quoted in access_notes, says in terms: 'Do not further redistribute, mirror, or republish these files without your own permission from IPUMS.' NOTHING IN THIS REPOSITORY REDISTRIBUTES IT. What is committed is (a) COUNTS derived from it, which are this project's own arithmetic and not the data, and (b) the file's sha256 and byte length, so a reader with their own IPUMS extract can prove they hold the same bytes. Anyone reusing this must request their own extract at https://usa.ipums.org.",
+  "asset_use": "text_only",
+  "verified": true,
+  "access_notes": "VERIFIED 2026-09-04 for T-0507. The restricted original was fetched from the Internet Archive item (HTTP 200, 279062 bytes, matching the byte count chicago/reference/ipums/ipums-usa.yaml records), compared cell by cell against the committed copy at chicago/reference/census1840/validation/H_1840_chicago_with_names_partial.csv — 964 rows against 964 rows, all 134 IPUMS columns, ZERO differing cells — and then deleted from the runner. That comparison is why tools/census_1840_composition.py reads the committed copy: the gate re-derives every figure with no network and no restricted file, and the numbers are the extract's own. usa.ipums.org itself is login-walled from this runner and was NOT consulted; that is inaccessibility, never an absence of record. The redistribution notice quoted in rights_note was read from ipums_usa_NOTICE.txt in the same item (the path chicago/reference/ipums/README.md implies, /download/<item>/NOTICE.txt, returns 404 — the file is named ipums_usa_NOTICE.txt).",
+  "what_it_supplies": [
+    "964 Chicago households of 1840 with their full age-band composition — the only complete household-composition dataset this project holds for this town in any year near the scene",
+    "the household-size distribution the 1835 roof programme's occupancy can be tested against: mean 5.015, median 4, p90 9, and a long tail out to 35",
+    "the seven industry columns of the 1840 schedule, 870 persons across them, of whom 405 are in manufactures and trades — the closest thing to a trade table for this town that exists",
+    "the sex ratio of a frontier lake port: 120.9 males per 100 females, and 146.8 among those aged 20 and over",
+    "a per-household join to 254 of this project's own read census lines, through T-0504's age-band fingerprint crosswalk"
+  ],
+  "what_it_does_not_supply": [
+    "any person. Everybody in it but the head is a tally mark in an age band, and the extract as IPUMS ships it carries no name at all",
+    "any evidence about 1 July 1835. This is a count taken five years after the scene, of a city that had grown past the town; it may test the reconstruction's shape and may never populate it",
+    "the foreigners-not-naturalised and cannot-read-and-write columns. They are present and read 0 in all 964 rows, which is a column not coded into the extract rather than a count of none — see columns_the_extract_does_not_carry in the derived file",
+    "wards. Nothing in it divides Chicago into wards, so the by-unit breakdown in the derived file is by census page",
+    "a settled city population. Every row carries citypop 4470, the published figure, while the 964 households sum to 4834; the gap is recorded and not resolved"
+  ],
+  "note": "A COUNT IS NOT A PERSON, and this source is the one most likely to be misread as though it were. The owner's synthesis rule governs it: 1840 household members are never minted into 1835 solely from census counts. tools/census_1840_composition.py --self-test enforces exactly that, refusing the build if any head-of-household name or household serial reaches the derived file.",
+  "transcribes": [
+    {
+      "work": "The assistant marshal's manuscript population schedule for Chicago, Cook County, Illinois, Sixth Census of the United States",
+      "date": "1840",
+      "tier": 1,
+      "note": "THE DOCUMENT EVERY COUNT IN THIS DATASET RESTS ON. The 964 households, their twenty-six free-white age-band cells, the free-coloured bands and the seven industry columns are the enumerator's own tally marks; IPUMS coded them and did not make them. NOT SEEN BY THIS PROJECT in the original: the paper is at NARA."
+    },
+    {
+      "work": "NARA microfilm publication M704 — a photographic copy of that schedule",
+      "date": "1840",
+      "tier": 1,
+      "note": "The layer the images this project reads are filmed from; the page readings at data/research/census_1840/pages/ stand on a digitisation of it. NOT SEEN BY THIS PROJECT: the film itself was not handled."
+    },
+    {
+      "work": "IPUMS USA's coding of the 1840 household schedules into household-level variables",
+      "date": "1840",
+      "tier": 1,
+      "note": "THIS IS THE LAYER READ, and the mediation is editorial rather than photographic: a person at IPUMS decided which cell of the enumerator's grid is which variable. Everything in composition_1840.json — the size distribution, the age bands, the industry shares — is that coding, and T-0504's column_map is this project's own statement of the correspondence. The date is the schedule's, because the coding claims to carry no date of its own."
+    }
+  ]
+}

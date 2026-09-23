@@ -1,0 +1,112 @@
+{
+  "schema": "research-spend-rulings-v1",
+  "_doc": "DERIVED, T-1297, by tools/spend_name_on_a_roll_rulings.py from the records, claims and crosswalks beside it — run --check to re-derive it. The written ruling on the retrospective town findings of Norris's 1844 sketch and Fergus's 1839 register that describe a year at or before the scene date: every unit of this domain the research-spend ledger leaves unresolved. tools/research_spend_ledger.py reads this file beside the hand-authored data/research/spend_rulings.json, at the point where it would otherwise leave a unit open, so a ruling here can only close a unit nothing else has closed and can never overturn an assertion, a later_only or a refusal the readings themselves carry. NOTHING HERE EDITS A RESIDENT, MINTS A PERSON, MOVES A CONFIDENCE OR REOPENS AN IDENTITY A CROSSWALK RULED. A hand-off is not a spend: it names the open ticket whose field owns the finding, and that ticket closing turns this file red, which is the point.",
+  "ticket": "T-1297",
+  "generated_by": "tools/spend_name_on_a_roll_rulings.py",
+  "counts": {
+    "the_1839_register_is_later_evidence_about_an_earlier_year": 2,
+    "the_1844_sketch_is_later_evidence_about_an_earlier_year": 16
+  },
+  "rules": {
+    "the_1844_sketch_is_later_evidence_about_an_earlier_year": {
+      "disposition": "later_only",
+      "statement": "The claim is read out of the historical sketch prefixed to Norris's Chicago directory of 1844 — a retrospective, written nine years after the scene date, about a year at or before it. Under the evidence ladder ratified 2026-09-03 a source EARLIER than the scene date corroborates and dates and never promotes — a man at Chicago in 1830 or 1832 is not thereby at Chicago on 1 July 1835 — and a source LATER than it does not promote either. So the statement may corroborate and may date, and may not assert an 1835 fact on its own: its population figures are a later man's estimate, its chronology a later man's summary. It is written here rather than caught by the ledger's year rule because that rule reads the year the claim DESCRIBES, and this claim describes 1835 or earlier while standing in a book of 1844."
+    },
+    "the_1839_register_is_later_evidence_about_an_earlier_year": {
+      "disposition": "later_only",
+      "statement": "The claim is read out of Fergus's Chicago directory and city register of 1839, four years after the scene date, and states a fact about an earlier year — the organisation of the county, or the town's population in a past year as the register's own retrospective column gives it. Under the evidence ladder ratified 2026-09-03 a source EARLIER than the scene date corroborates and dates and never promotes — a man at Chicago in 1830 or 1832 is not thereby at Chicago on 1 July 1835 — and a source LATER than it does not promote either. So it may corroborate and may date, and may not assert an 1835 fact by itself. The ledger's year rule does not catch it because the year DESCRIBED is 1835 or earlier even though the book is later."
+    }
+  },
+  "rulings": [
+    {
+      "unit": "directories:data/research/directories/claims/fergus_1839_city_register.json#claims/f1839_r0054",
+      "rule": "the_1839_register_is_later_evidence_about_an_earlier_year",
+      "note": "Fergus's directory and city register of 1839. Claim f1839_r0054, a civic finding dated 1831: \"Cook County was organized in 1831\""
+    },
+    {
+      "unit": "directories:data/research/directories/claims/fergus_1839_population.json#claims/f1839_pop01",
+      "rule": "the_1839_register_is_later_evidence_about_an_earlier_year",
+      "note": "Fergus's directory of 1839, population column. Claim f1839_pop01, a civic finding dated 1835: \"{'year': '1 835', 'figure': '3,265'}\""
+    },
+    {
+      "unit": "directories:data/research/directories/claims/norris_1844_town_findings.json#claims/n1844_tf_008",
+      "rule": "the_1844_sketch_is_later_evidence_about_an_earlier_year",
+      "note": "Norris's directory of 1844, historical sketch. Claim n1844_tf_008, a household finding dated 1832: \"In 1832 and the beginning of 1833 Chicago had about 100 inhabitants and five or six log houses, exclusive of the fort and its appurtenances. (The printed '1932' is an OCR slip for 1832; the same statement is made again in the sketch's ow...\""
+    },
+    {
+      "unit": "directories:data/research/directories/claims/norris_1844_town_findings.json#claims/n1844_tf_011",
+      "rule": "the_1844_sketch_is_later_evidence_about_an_earlier_year",
+      "note": "Norris's directory of 1844, historical sketch. Claim n1844_tf_011, a household finding dated 1834: \"Norris's summary of the beginning: an isolated colony inhabited only by some five or six families clinging to a lone military post for protection, dependent for subsistence on the uncertain arrival of a chance vessel from Mackinaw, which...\""
+    },
+    {
+      "unit": "directories:data/research/directories/claims/norris_1844_town_findings.json#claims/n1844_tf_012",
+      "rule": "the_1844_sketch_is_later_evidence_about_an_earlier_year",
+      "note": "Norris's directory of 1844, historical sketch. Claim n1844_tf_012, a landscape finding dated 1673: \"Norris holds that the site was an Indian village from a very early period, citing the number and apparent antiquity of the trails centring here as reported by Major Long.\""
+    },
+    {
+      "unit": "directories:data/research/directories/claims/norris_1844_town_findings.json#claims/n1844_tf_013",
+      "rule": "the_1844_sketch_is_later_evidence_about_an_earlier_year",
+      "note": "Norris's directory of 1844, historical sketch. Claim n1844_tf_013, a event finding dated 1673: \"The French were the original discoverers and settlers of the West, their voyages to this region beginning in the latter part of the sixteenth century.\""
+    },
+    {
+      "unit": "directories:data/research/directories/claims/norris_1844_town_findings.json#claims/n1844_tf_014",
+      "rule": "the_1844_sketch_is_later_evidence_about_an_earlier_year",
+      "note": "Norris's directory of 1844, historical sketch. Claim n1844_tf_014, a event finding dated 1673: \"Marquette's expedition of 1673 discovered the Mississippi, and Norris takes the prevailing opinion to be that it passed through Chicago on its return to Canada, ascending the Illinois River and crossing to Michigan — probably the first v...\""
+    },
+    {
+      "unit": "directories:data/research/directories/claims/norris_1844_town_findings.json#claims/n1844_tf_015",
+      "rule": "the_1844_sketch_is_later_evidence_about_an_earlier_year",
+      "note": "Norris's directory of 1844, historical sketch. Claim n1844_tf_015, a event finding dated 1795-08-03: \"At the Treaty of Greenville, 3 August 1795, the United States obtained title to six miles square at the mouth of the Chicago River.\""
+    },
+    {
+      "unit": "directories:data/research/directories/claims/norris_1844_town_findings.json#claims/n1844_tf_018",
+      "rule": "the_1844_sketch_is_later_evidence_about_an_earlier_year",
+      "note": "Norris's directory of 1844, historical sketch. Claim n1844_tf_018, a event finding dated 1812-08-15: \"About nine on the morning of 15 August 1812 a party of 54 regulars, 12 militia and several families — about 70 persons in all — left the fort escorted by Captain Wells and about 30 Miami, along the lake beach, and was attacked about a mi...\""
+    },
+    {
+      "unit": "directories:data/research/directories/claims/norris_1844_town_findings.json#claims/n1844_tf_022",
+      "rule": "the_1844_sketch_is_later_evidence_about_an_earlier_year",
+      "note": "Norris's directory of 1844, historical sketch. Claim n1844_tf_022, a household finding dated 1835: \"As late as 1835 or 1836 the usual autumn prairie fires overran the third and fourth wards; there were only some five or six houses, mostly of logs, and a population of less than one hundred.\""
+    },
+    {
+      "unit": "directories:data/research/directories/claims/norris_1844_town_findings.json#claims/n1844_tf_026",
+      "rule": "the_1844_sketch_is_later_evidence_about_an_earlier_year",
+      "note": "Norris's directory of 1844, historical sketch. Claim n1844_tf_026, a shipping finding dated 1832: \"Commerce before 1832 was insignificant — none, Norris says, but the Fur Company's traffic. Vessels came so seldom that the arrival of a schooner was an event. He dates the commencement of the city to 1832.\""
+    },
+    {
+      "unit": "directories:data/research/directories/claims/norris_1844_town_findings.json#claims/n1844_tf_028",
+      "rule": "the_1844_sketch_is_later_evidence_about_an_earlier_year",
+      "note": "Norris's directory of 1844, historical sketch. Claim n1844_tf_028, a event finding dated 1833: \"In 1833 a great Indian payment was held near the site of the Lake House; in the latter part of that year work on the harbour was commenced; and during the same year the present light-house was erected, the old one having fallen down.\""
+    },
+    {
+      "unit": "directories:data/research/directories/claims/norris_1844_town_findings.json#claims/n1844_tf_029",
+      "rule": "the_1844_sketch_is_later_evidence_about_an_earlier_year",
+      "note": "Norris's directory of 1844, historical sketch. Claim n1844_tf_029, a household finding dated 1835: \"In 1835 the population was said to amount to 5,500, a computation Norris thinks included transitory persons, a great many of whom were here at the time; the actual population that year, he holds, could not have been much less than 3,000.\""
+    },
+    {
+      "unit": "directories:data/research/directories/claims/norris_1844_town_findings.json#claims/n1844_tf_033",
+      "rule": "the_1844_sketch_is_later_evidence_about_an_earlier_year",
+      "note": "Norris's directory of 1844, historical sketch. Claim n1844_tf_033, a civic finding dated 1834: \"The school section, lying contiguous to the city, was disposed of in 1834 and the proceeds applied to the support of common schools.\""
+    },
+    {
+      "unit": "directories:data/research/directories/claims/norris_1844_town_findings.json#claims/n1844_tf_034",
+      "rule": "the_1844_sketch_is_later_evidence_about_an_earlier_year",
+      "note": "Norris's directory of 1844, historical sketch. Claim n1844_tf_034, a notice finding dated 1834: \"John Calhoun commenced publication of the Chicago Democrat in 1834, and in the following year Thomas O. Davis established the Chicago American; both papers still existed in 1844.\""
+    },
+    {
+      "unit": "directories:data/research/directories/claims/norris_1844_town_findings.json#claims/n1844_tf_036",
+      "rule": "the_1844_sketch_is_later_evidence_about_an_earlier_year",
+      "note": "Norris's directory of 1844, historical sketch. Claim n1844_tf_036, a event finding dated 1835: \"Speculation raged with great violence during 1835-6 and part of 1837, and at that time gave colour and direction to most business transactions.\""
+    },
+    {
+      "unit": "directories:data/research/directories/claims/norris_1844_town_findings.json#claims/n1844_tf_054",
+      "rule": "the_1844_sketch_is_later_evidence_about_an_earlier_year",
+      "note": "Norris's directory of 1844, historical sketch. Claim n1844_tf_054, a civic finding dated 1834-12-02: \"The Chicago Lyceum was instituted 2 December 1834 and incorporated 27 February 1839.\""
+    },
+    {
+      "unit": "directories:data/research/directories/claims/norris_1844_town_findings.json#claims/n1844_tf_057",
+      "rule": "the_1844_sketch_is_later_evidence_about_an_earlier_year",
+      "note": "Norris's directory of 1844, historical sketch. Claim n1844_tf_057, a notice finding dated 1835: \"The eastern mail came weekly on horseback in 1832 under postmaster J. N. Bailey; by one-horse wagon weekly the next year under J. S. C. Hogan; by two-horse wagon in 1833; a four-horse stage line semi-weekly in 1834; TRI-WEEKLY IN 1835; a...\""
+    }
+  ]
+}

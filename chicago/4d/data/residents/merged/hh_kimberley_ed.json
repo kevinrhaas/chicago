@@ -1,0 +1,110 @@
+{
+ "id": "hh_kimberley_ed",
+ "merged_into": {
+  "person": "kimberly_edmund_s",
+  "household": "hh_pruyne_kimberly",
+  "person_merged": "kimberley_ed",
+  "rule": "C9",
+  "cluster": "kimberley",
+  "ticket": "T-1001",
+  "on": "2026-09-10",
+  "note": "THIS RECORD IS NOT DELETED AND NOTHING ON IT IS LOST. The card below is the record exactly as it stood when the merge landed; the person it names is now carried by the household above, and data/residents/index.json's `merged` table redirects the id. The reasoning is in data/residents/card_merge_rulings.json."
+ },
+ "superseded_record": {
+  "id": "hh_kimberley_ed",
+  "name": "The Kimberley household — a name the town's own records carry",
+  "division": "unplaced",
+  "head": "kimberley_ed",
+  "source_pass": "civic",
+  "arrival": {
+   "value": "1835-07-01",
+   "confidence": "inferred",
+   "sources": [
+    "census_1840_chicago_familysearch_images",
+    "chicago_democrat_1833_1835"
+   ],
+   "note": "A BOUND FROM THE RECORD, NOT AN ARRIVAL. newspaper_1833_1835 names this person at Chicago by 1 July 1835 and nothing says when they came. The bound is at or before the scene date, so the person was at Chicago by 1 July 1835 on this record's own evidence.",
+   "precision": "not_later_than"
+  },
+  "party_size_on_arrival": {
+   "value": null,
+   "confidence": "reconstructed",
+   "note": "Not attested."
+  },
+  "origin": {
+   "value": null,
+   "confidence": "reconstructed",
+   "note": "Not attested."
+  },
+  "reason_for_coming": {
+   "value": null,
+   "confidence": "reconstructed",
+   "note": "Not attested."
+  },
+  "lives_at": {
+   "value": null,
+   "confidence": "reconstructed",
+   "note": "Not attested: the lists that name this person give no address. The placement sweep assigns homes once the resident list is complete (T-0514, the owner's own sequencing) and this pass will not guess one."
+  },
+  "works_at": {
+   "value": null,
+   "confidence": "reconstructed",
+   "note": "Not attested. No trade is recorded here, so there is no premises to seek; T-0633 is where a later directory's address gets back-projected."
+  },
+  "present_on_scene_date": {
+   "value": "present",
+   "confidence": "inferred",
+   "sources": [
+    "census_1840_chicago_familysearch_images",
+    "chicago_democrat_1833_1835"
+   ],
+   "note": "THE RECORD BRACKETS THE DAY. This person is named at Chicago at or before 1 July 1835 and named again at or after it, so the sources reach across the scene date rather than stopping at one side of it. Inferred, not documented: no source says where they were on the day."
+  },
+  "persons": [
+   {
+    "id": "kimberley_ed",
+    "name": "Ed Kimberley",
+    "relationship": "head",
+    "grade": "attested",
+    "civic_mint": true,
+    "ladder_rule": "G1b",
+    "occupation": {
+     "value": "none_recorded",
+     "confidence": "reconstructed",
+     "note": "No source in this pass's evidence records an occupation for this person. A poll list, a tax list, a muster roll and a baptismal entry each print a name and no trade, and where a later directory prints one it is a trade of 1843 — T-0633 is the rule for back-projecting that, and this pass does not have it."
+    },
+    "sources": [
+     "census_1840_chicago_familysearch_images",
+     "chicago_democrat_1833_1835",
+     "isa_public_domain_land_tract_sales"
+    ],
+    "note": "A CONTEMPORARY CHICAGO PAPER OF 1833-1835 PRINTS THIS PERSON BY NAME IN THE TOWN. Read from census_1840, newspaper_1833_1835. THE GRADE IS THE OWNER'S RATIFIED LADDER OF 2026-09-03 (G1b), applied to every identity at once by tools/consolidate_resident_evidence.py and spent onto this card by tools/mint_civic_residents.py; the evidence blocks below carry the reading AS READ, its locator and the record it came from, so the page can be gone back to. WHAT IS RECONSTRUCTED: everything except the person and the sources — no dwelling, no trade, no origin, no family, no party. A BOUND FROM THE RECORD, NOT AN ARRIVAL. newspaper_1833_1835 names this person at Chicago by 1 July 1835 and nothing says when they came. The bound is at or before the scene date, so the person was at Chicago by 1 July 1835 on this record's own evidence. No figure is drawn (L1). THE FEDERAL LAND TRACT SALES — A PURCHASE, AND NEVER A RESIDENCE. The Illinois State Archives' Public Domain Land Tract Sales register enters this person 1 time, as “KIMBERLEY EDMUND S”, 1833-10-25: 1 parcel of the school section — lot 6 of block 119 of the school section (sec 16 T39N R14E), 0.00 acres stated in all, for $102.00 (ls0263). THE REGISTER'S OWN RESIDENCE COLUMN READS UNKNOWN on these rows: a county, a state or nothing, and never a town, which is why a purchase here places nobody. THE SCHOOL-SECTION ROWS ARE GROUND INSIDE THE TOWN, NOT FARMLAND: section 16 of T39N R14E was platted and sold off by lot and by block at the sale of 1833, which is why the register states 0000.00 acres against most of them. Ground inside the town is nearer to this reconstruction than a quarter-section is, and it is still a purchase: the register names a purchaser and never an occupant, and nothing here puts this person on that ground. A purchase and nothing more. It dates and places a transaction; it proposes no residence, and under the ratified ladder it corroborates rather than mints. Identity by the crosswalk's own rule: KIMBERLEY EDMUND S matches Ed Kimberley: the forename names Ed Kimberley of the 1 person of this surname, and the forename agrees in full. (data/research/land_sales/resident_crosswalk.json). This pass WRITES THE EVIDENCE AND MOVES NO GRADE. Under the ratified ladder (T-0513) a second independent source is what lifts a projected resident, and a land entry is a second source about a TRANSACTION rather than about who was living at Chicago on 1 July 1835 — a man may buy a quarter-section he never sees. T-0515 applies the ladder against every source at once; this pass hands it the evidence and not the verdict. THE 1840 FEDERAL CENSUS — A HEAD FIVE YEARS AFTER THE SCENE, AND NEVER AN 1835 FACT. The 1840 federal census of Chicago, read line by line off the left sheets in this repository, carries 1 head of this name — “Ed. Kimberley” (33S7-9YYJ-99F, printed page 234, line 3). This project has ruled the head a CANDIDATE and no more: the name agrees and is unique on both sides, but nothing independent of the name was found. A candidate is not an identity — nothing is asserted from it, no household of 1840 is carried back, and the ruling is recorded so that a reader can see it was made rather than missed. Under the rule that decided it (L7 candidate), by the crosswalk's own ladder (data/research/census_1840/resident_crosswalk.json). LATER EVIDENCE ONLY. The ratified grading ladder binds: an 1839 or 1840 appearance alone is never an 1835 resident, and 1840 household composition is never back-projected to the 1835-07-01 scene. This pass WRITES THE EVIDENCE AND MOVES NO GRADE. Under the ratified ladder (T-0513) a second independent source is what lifts a projected resident, and an 1840 head is a second source about CONTINUED RESIDENCE rather than about who was living at Chicago on 1 July 1835. T-0515 applies the ladder against every source at once; this pass hands it the evidence and not the verdict.",
+    "census_evidence": [
+     {
+      "list": "census_1840",
+      "as_read": "Ed. Kimberley",
+      "locator": "234:3",
+      "record_id": "33S7-9YYJ-99F:3",
+      "describes_date": "1840",
+      "source": "census_1840_chicago_familysearch_images",
+      "rule": "G1b"
+     }
+    ],
+    "press_evidence": [
+     {
+      "list": "newspaper_1833_1835",
+      "as_read": "E. S. Kimberley",
+      "locator": "chicago_democrat_1835_07_01#c011",
+      "record_id": "person_e_s_kimberley",
+      "describes_date": "1835-07-01",
+      "source": "chicago_democrat_1833_1835",
+      "rule": "G1b"
+     }
+    ]
+   }
+  ],
+  "touches_removal": false,
+  "review_required": false,
+  "research_note": "MINTED FROM THE CONSOLIDATED CIVIC, CHURCH, PRESS, BOOK AND CENSUS EVIDENCE (T-0513, T-0514). THE HOUSEHOLD IS A CONTAINER, NOT AN ARGUMENT: every other record here is written unattested in its own block, because the lists that name this person name a person and not a family. What is claimed is that the sources cited on the member below name them at Chicago, and the grade is the owner's ratified ladder applied by tools/consolidate_resident_evidence.py --build and spent by tools/mint_civic_residents.py, which prints every refusal. docs/LIBERTIES.md L215 carries the liberty and the tension with L213."
+ }
+}

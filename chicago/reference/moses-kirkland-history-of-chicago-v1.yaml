@@ -1,0 +1,31 @@
+id: moses-kirkland-history-of-chicago-v1
+title: "History of Chicago, Illinois, Vol. 1"
+creator: John Moses and Joseph Kirkland
+date: 1895
+publisher: Munsell (Chicago)
+description: >
+  Volume 1 of Moses and Kirkland's History of Chicago, Illinois
+  (Chicago: Munsell, 1895). Requested by ticket T-0581 - the largest
+  Chicago work the Newberry genealogical index (T-0562) points at that
+  this project did not already hold; 76 of 581 Chicago/Cook County
+  cards in that index cite this work. Uploaded by the project owner
+  directly (not derived from a prior archive.org item), so it has its
+  own chicago1835-* -style identifier rather than a pre-existing one.
+redistribution_status: public
+copyright_status: public-domain
+internet_archive:
+  item: historyofchicago01mose_202609
+  url: https://archive.org/details/historyofchicago01mose_202609
+  note: >
+    Volume 2 (historyofchicagov2mose per T-0581) has not been uploaded
+    here; T-0581 references a pre-existing external IA item for it.
+files:
+  - name: historyofchicago01mose.pdf
+    bytes: 72399450
+  - name: historyofchicago01andr.epub
+    bytes: 32817206
+    note: >
+      Filename suggests this may be an Andreas epub rather than a
+      Moses/Kirkland one - worth the owner double-checking this file's
+      actual contents.
+ticket: T-0581

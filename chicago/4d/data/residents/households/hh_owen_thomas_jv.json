@@ -1,0 +1,276 @@
+{
+ "id": "hh_owen_thomas_jv",
+ "name": "The Owen household",
+ "division": "south",
+ "head": "owen_thomas_jv",
+ "arrival": {
+  "value": "1831-04-01",
+  "confidence": "attested",
+  "sources": [
+   "andreas_1884_v1"
+  ],
+  "note": "Andreas: 'appointed Indian agent in the winter of 1830-31, but did not arrive in Chicago until the spring of 1831'. Spring is the source's word; 1 April is the first day this project reads it as, and the precision field says so - the DAY is not evidence.",
+  "precision": "season"
+ },
+ "party_size_on_arrival": {
+  "value": null,
+  "confidence": "reconstructed",
+  "note": "Not attested. Owen arrived to take up a federal office and the ordinary reading is that his family came with him or followed, but no source counts them, so no number is given."
+ },
+ "origin": {
+  "value": "Kentucky",
+  "confidence": "attested",
+  "sources": [
+   "andreas_1884_v1"
+  ],
+  "note": "Andreas gives Kentucky as his birthplace, scan p. 195. Where he travelled FROM in 1831 is not stated and is not the same question."
+ },
+ "reason_for_coming": {
+  "value": "Appointed to the United States Indian agency at Chicago",
+  "confidence": "attested",
+  "sources": [
+   "andreas_1884_v1"
+  ],
+  "note": "The clearest 'why' in the dataset: he did not choose Chicago, the War Department sent him. Gholson Kercheval, the sub-agent, ran the office until he got there."
+ },
+ "lives_at": {
+  "value": null,
+  "confidence": "reconstructed",
+  "note": "NOT ATTESTED. The agency establishment at the foot of State Street held the agency house (cobweb_castle) and the government blacksmith shop, but Andreas has Colonel Hamilton living in the agency house in the autumn of 1832, and nothing places Owen under any particular roof. Left null rather than guessed; a later parcel that fixes the agent's residence closes it."
+ },
+ "works_at": {
+  "value": "cobweb_castle",
+  "confidence": "inferred",
+  "sources": [
+   "andreas_1884_v1"
+  ],
+  "note": "The Indian agency house is where the Indian agent's business was done: Owen's staff - Kercheval and James Stuart as sub-agents, Billy Caldwell as interpreter, David McKee as blacksmith and Joseph Porthier as striker - are the agency establishment, and the blacksmith shop this dataset holds stands beside this building. INFERRED, NOT DOCUMENTED: no source says Owen kept his office in this house on any date, and the agency's own buildings had already been lent to other uses by 1832."
+ },
+ "present_on_scene_date": {
+  "value": "present",
+  "confidence": "attested",
+  "sources": [
+   "andreas_1884_v1"
+  ],
+  "note": "He died at Chicago on 15 October 1835, having been chosen the town's first president in 1833 and served through; nothing suggests an absence in the summer."
+ },
+ "persons": [
+  {
+   "id": "owen_thomas_jv",
+   "name": "Thomas Jefferson Vance Owen",
+   "relationship": "head",
+   "grade": "attested",
+   "ladder_rule": "G1b",
+   "sex": "male",
+   "birth_year": {
+    "value": 1801,
+    "confidence": "attested",
+    "sources": [
+     "andreas_1884_v1"
+    ],
+    "note": "Andreas gives the day: 5 April 1801."
+   },
+   "age_on_scene_date": {
+    "value": 34,
+    "confidence": "attested",
+    "sources": [
+     "andreas_1884_v1"
+    ],
+    "note": "34 on 1 July 1835, turning 35 the following April."
+   },
+   "occupation": {
+    "value": "indian_agent",
+    "confidence": "attested",
+    "sources": [
+     "andreas_1884_v1"
+    ],
+    "note": "Appointed United States Indian agent for Chicago in the winter of 1830-31 and still agent at his death; Andreas, scan p. 195. He was also the first president of the town's board of trustees, elected 10 August 1833 with 26 of 28 votes, and a commissioner for the United States at the Chicago treaty of 26 September 1833. The occupation recorded is the office he held, not the trustee presidency, which was unpaid and annual.",
+    "derived_from": "roles",
+    "roles_at_scene_date": [
+     "indian_agent"
+    ]
+   },
+   "sources": [
+    "andreas_1884_v1",
+    "chicago_democrat_1833_1835",
+    "chicago_voter_lists_1833_1835_irad",
+    "fergus_1843_old_settler_death_notices",
+    "isa_public_domain_land_tract_sales",
+    "st_cyr_register_ichr_v4"
+   ],
+   "note": "BORN IN KENTUCKY, 5 APRIL 1801, AND DIED AT CHICAGO ON 15 OCTOBER 1835 - fifteen weeks after the scene date, which is why this household is one of the few in the dataset whose presence on 1 July 1835 is settled at both ends. Andreas, scan p. 195: 'Colonel Owen was born in Kentucky, April 5, 1801. He was appointed Indian agent in the winter of 1830-31, but did not arrive in Chicago until the spring of 1831 ... When the Town of Chicago was incorporated in 1833, Colonel Owen was chosen President of its first board of trustees. He died at Chicago, October 15, 1835.' THE TOWN'S OWN ROLLS, 1833-1835 — CORROBORATION, NOT A GRADE. The early Chicago voter and tax lists held by the Illinois Regional Archives Depository name this person 1 time: Poll list of the first election of the Board of Trustees of the Town of Chicago, 10 August 1833 — “Owen, Col. T. J. V.” (poll_1833_021, line 42). These are the town's own contemporary paper rather than a recollection of it, and each appearance says that a man of that name stood on that roll in that year — no more. The reading is twice mediated (Schulz's transcription, then Genealogy Trails' republication) and this project has not seen the IRAD originals. Under the ratified ladder (T-0513) the 1835 poll with a second independent source is attested, the 1835 poll alone or a 1833/1834 list with another source is inferred, and a single appearance with nothing else is a projected resident. This pass WRITES THE EVIDENCE AND MOVES NO GRADE — T-0515 applies the ladder against every source at once. Identity by the crosswalk's own rule: one resident of the surname 'Owen' agrees with the entry's forenames; 1 bearer(s) of the surname were considered. (data/research/civic/voter_crosswalk.json). THE FEDERAL LAND TRACT SALES — A PURCHASE, AND NEVER A RESIDENCE. The Illinois State Archives' Public Domain Land Tract Sales register enters this person 4 times, as “OWEN THOMAS J V”, 1833-10-23 to 1833-10-24: 4 parcels of the school section — BL105 of the school section (sec 16 T39N R14E), as read; BL108 of the school section (sec 16 T39N R14E), as read; lot 1 of block 84 of the school section (sec 16 T39N R14E); lot 3 of block 23 of the school section (sec 16 T39N R14E), 8.72 acres stated in all, for $676.00 (ls0297, ls0298, ls0299, ls0300). THE REGISTER'S OWN RESIDENCE COLUMN READS UNKNOWN on these rows: a county, a state or nothing, and never a town, which is why a purchase here places nobody. THE SCHOOL-SECTION ROWS ARE GROUND INSIDE THE TOWN, NOT FARMLAND: section 16 of T39N R14E was platted and sold off by lot and by block at the sale of 1833, which is why the register states 0000.00 acres against most of them. Ground inside the town is nearer to this reconstruction than a quarter-section is, and it is still a purchase: the register names a purchaser and never an occupant, and nothing here puts this person on that ground. A purchase and nothing more. It dates and places a transaction; it proposes no residence, and under the ratified ladder it corroborates rather than mints. Identity by the crosswalk's own rule: OWEN THOMAS J V matches Thomas Jefferson Vance Owen: the forename names Thomas Jefferson Vance Owen of the 2 people of this surname, and the forename agrees in full. (data/research/land_sales/resident_crosswalk.json). This pass WRITES THE EVIDENCE AND MOVES NO GRADE. Under the ratified ladder (T-0513) a second independent source is what lifts a projected resident, and a land entry is a second source about a TRANSACTION rather than about who was living at Chicago on 1 July 1835 — a man may buy a quarter-section he never sees. T-0515 applies the ladder against every source at once; this pass hands it the evidence and not the verdict.",
+   "resident_research": {
+    "programme": "resident-research-2026",
+    "ticket": "T-0510",
+    "outcome": "corroborated",
+    "reviewed_on": "2026-09-05",
+    "asserted_identity": true,
+    "evidence_for": "Fergus' Obituary prints the Indian agent as 'Thomas J. Y. Owen', which this project reads as Thomas J. V. Owen — the OCR's Y for V is the commonest single-glyph failure in this whole text and the printed initials are J. V. everywhere else in the corpus. Thomas Jefferson Vance Owen is this project's resident record, and Thomas J. V. Owen is that name initial for initial: J for Jefferson, V for Vanc The death page reads \"Died at Chicago the 15th of October, 1835, Thomas Owen, agent of the Indians\". The project's resident record for Thomas Jefferson Vance Owen is graded attested, gives his occupation as the Indian agent, and already carries \"He died at Chicago on 15 October 1835\" out of Andreas. Surname folds equal; the register's Thomas Owen is a prefix of Thomas Jefferson Vance Owen initial  one resident of the surname 'Owen' agrees with the entry's forenames; 1 bearer(s) of the surname were considered.",
+    "evidence_against": "Refused. All 2 card(s) heading 'Owen/owen' name Illinois and neither Chicago nor Cook County, so the lead against Thomas Jefferson Vance Owen; Owen's household, unnamed stands on a surname with the locality actively absent - the one thing beyond the name that a card could have contributed. Refused twice over. No candidate reaches 'Owena' by an exact surname key - every one of them came through the OCR similarity window, so the heading is not certainly 'Owena' at all. And if it were, a heading against Thomas Jefferson Vance Owen; Owen's household, unnamed would still be a surname against a person, which is always a refusal here. Refused. All 2 card(s) heading 'Owen/owen' name Illinois and neither Chicago nor Cook County, so the lead against Thomas Jefferson Vance Owen; Owen's household, unnamed stands on a surname with the locality actively absent - the one thing beyond the name that a card could have contributed. Ruled on the card 'owen | Sae Index. E Edgar Co., Ill, (LoBu' against Thomas Jefferson Vance Owen; Owen's hou",
+    "summary": "Independently corroborated. Thomas Jefferson Vance Owen agrees, forename for forename or initial for initial, with a record outside the post-office lists in the held book corpus, the St Cyr / St Mary registers, the town's 1833 tax and 1834/1835 poll lists. Fergus' Obituary prints the Indian agent as 'Thomas J. Y. Owen', which this project reads as Thomas J. V. Owen — the OCR's Y for V is the commonest single-glyph failure in this whole text and the printed initials are J. V. everywhere else in the corpus. Thomas Jefferson Vance Owen is this project's resident record, and Thomas J. V. Owen is that name initial for initial: J for Jefferson, V for Vanc",
+    "notes": "FERGUS 26-29, AS PRINTED: \"Owen, Thomas J. V. (Indian agent), died Oct. 15, 1835, aged 34-1/2\". The volume's obituary list gives a death INSIDE the scene year, 15 October 1835, three and a half months after the scene date, and an age that puts birth about April 1801. Research only. Later-volume readings are recorded here and NOT promoted: T-0513 consolidates and T-0514/T-0515 apply.",
+    "source_ids": [
+     "chicago_democrat_1833_1835",
+     "chicago_voter_lists_1833_1835_irad",
+     "fergus_historical_series_26_29"
+    ],
+    "refusals": [
+     {
+      "regraded_on": "2026-09-04",
+      "rule": "G3",
+      "withheld": "the downgrade to inferred",
+      "reason": "This card rests on 4 thing(s) the consolidation did not read — andreas_1884_v1, chicago_democrat_1833_1835, fergus_1843_old_settler_death_notices, st_cyr_register_ichr_v4. G3 fired on the seven domains the ladder reads and says nothing about the evidence outside them, so the grade stands. The same reasoning the ladder's own G5 gives for abstaining (T-0515)."
+     }
+    ]
+   },
+   "civic_evidence": [
+    {
+     "list": "poll_1834",
+     "as_read": "Owen, Th. J. V.",
+     "locator": "poll_1834",
+     "record_id": "poll_1834_084",
+     "describes_date": "1834",
+     "source": "chicago_voter_lists_1833_1835_irad",
+     "rule": "G1b"
+    }
+   ],
+   "church_evidence": [
+    {
+     "list": "church_1833_1835",
+     "as_read": "Thomas Owen",
+     "locator": "decedent",
+     "record_id": "st_cyr_death_07_1",
+     "describes_date": "1835-10-15",
+     "source": "st_cyr_register_ichr_v4",
+     "rule": "G2c"
+    }
+   ],
+   "press_evidence": [
+    {
+     "list": "newspaper_1833_1835",
+     "as_read": "Thomas J. V. Owen",
+     "locator": "chicago_democrat_1833_12_24#c006",
+     "record_id": "person_thomas_j_v_owen",
+     "describes_date": "1833-12-24",
+     "source": "chicago_democrat_1833_1835",
+     "rule": "G1b"
+    },
+    {
+     "list": "newspaper_1833_1835",
+     "as_read": "T. J. V. Owen",
+     "locator": "chicago_democrat_1834_06_18#c004",
+     "record_id": "person_t_j_v_owen",
+     "describes_date": "1834-06-18",
+     "source": "chicago_democrat_1833_1835",
+     "rule": "G1b"
+    },
+    {
+     "list": "newspaper_1833_1835",
+     "as_read": "Th. J. V. Owen",
+     "locator": "chicago_democrat_1834_07_02#c056",
+     "record_id": "person_th_j_v_owen",
+     "describes_date": "1834-07-02",
+     "source": "chicago_democrat_1833_1835",
+     "rule": "G1b"
+    },
+    {
+     "list": "newspaper_1833_1835",
+     "as_read": "Col. T. J. V. Owen",
+     "locator": "chicago_democrat_1834_11_26#c005",
+     "record_id": "person_col_t_j_v_owen",
+     "describes_date": "1834-11-26",
+     "source": "chicago_democrat_1833_1835",
+     "rule": "G1b"
+    }
+   ],
+   "book_evidence": [
+    {
+     "list": "death_notice",
+     "as_read": "Owen, Thomas J. V. (Indian agent)",
+     "locator": "O",
+     "record_id": "fdn0503",
+     "describes_date": "Oct. 15, 1835",
+     "source": "fergus_1843_old_settler_death_notices",
+     "rule": "G1b"
+    }
+   ],
+   "merged_from": [
+    {
+     "ticket": "T-0839",
+     "rule": "C0",
+     "cluster": "owen",
+     "cards": [
+      "owen_t_j_v",
+      "owen_th_j_v",
+      "owen_thomas",
+      "owen_thomas_j_v"
+     ],
+     "note": "THE UNION OF THE CARDS THIS PERSON WAS SPLIT ACROSS. The sources and evidence blocks above include everything the folded cards cited; each folded record is kept whole under data/residents/merged/ and is redirected by index.json's `merged` table. The reasoning for the merge is in data/residents/card_merge_rulings.json."
+    }
+   ],
+   "roles": [
+    {
+     "role": "indian_agent",
+     "kind": "office",
+     "as_printed": null,
+     "from": "1673",
+     "to": "1857",
+     "precision": "source_span",
+     "dated_by": "source_describes_date",
+     "covers_scene_date": true,
+     "confidence": "attested",
+     "sources": [
+      "andreas_1884_v1"
+     ],
+     "claim": null,
+     "note": "THE BOUND IS THE SOURCE'S, NOT THE MAN'S. This role is carried by the card's 1835 occupation block and is dated by what the cited source or sources are ABOUT, which is why `precision` can be no better than the span they cover. The span reaches 1835, so this role stands in the scene-date view. The printing the trade was read off is not on the card and is fetched by T-1254."
+    }
+   ]
+  },
+  {
+   "id": "owen_household_unnamed",
+   "name": "Owen's household, unnamed",
+   "relationship": "household_member",
+   "grade": "inferred",
+   "occupation": {
+    "value": "none_recorded",
+    "confidence": "reconstructed",
+    "note": "No trade is recorded for anyone in this household but Owen himself."
+   },
+   "sources": [],
+   "note": "A PLACEHOLDER FOR PEOPLE WHO CERTAINLY EXISTED AND WHOM NO SOURCE REACHED NAMES. Owen was a married man with children - his family is referred to in the Chicago literature and his son-in-law's line is traced in later chapters - but nothing this project holds names his wife or counts his children, so no person record is written for them and the household size is left as an admission rather than a number. This entry exists so that a reader of the dataset sees the gap instead of a household of one. It carries no age, no sex and no name, and it must not be counted as a person for any purpose but that."
+  }
+ ],
+ "touches_removal": true,
+ "review_required": true,
+ "research_note": "THE TOWN'S FIRST PRESIDENT AND THE UNITED STATES' AGENT TO THE POTAWATOMI, IN THE LAST SUMMER OF HIS LIFE. Two things make this a good anchor record. The first is that the presence question is closed at both ends: an arrival in the spring of 1831 and a death at Chicago on 15 October 1835, both in Andreas. The second is that the household is the dataset's first demonstration of the honest failure mode - one named person and an unnamed remainder that the record refuses to invent. THE RECORD DELIBERATELY DOES NOT CARRY OWEN'S ROLE IN THE 1833 TREATY AS AN OCCUPATION. He signed as a commissioner for the United States at the treaty of 26 September 1833 that ceded the land this town stands on, and that is a fact about the removal rather than about a trade; it is recorded here in prose and the household is flagged for review because of it.",
+ "old_settler_deaths": {
+  "the_header_admission": "Names, places * , dates, and ages at death\nof some of Chicago's Old Settlers, prior to 1843, and other well - known citizens who arrived after 1843, together\nwith others prominently connected with Illinois history:",
+  "note": "LATER EVIDENCE OF A DEATH, BESIDE THE 1835 CLAIMS AND NOT INSIDE THEM. Fergus's 1843 directory (1896) prints an obituary list of old settlers, and one of its entries meets somebody of this name. THE HEADER OF THE LIST IS QUOTED ABOVE, and it is the limit the whole reading turns on. It does not mean the person was in Chicago in 1835, and it does not mean they arrived before 1843 — the list's own header, quoted above, says it also names citizens who arrived later and others merely 'prominently connected with Illinois history'. A match means one thing: a name in the 1835 layer and a name in this list agree on surname and first initial, and the list gives that name a death date and an age. The date and the interval are the payload. Whatever is carried is carried as evidence of a DEATH and of an interval the birth falls in, never as an 1835 fact and never as a grade. T-0513 consolidates and T-0514/T-0515 apply; this file changes no record. This pass WRITES THE EVIDENCE AND MOVES NO GRADE. A death notice printed in 1896 says a person of this name died on a day; under the ratified ladder (T-0513) that is later evidence about a DEATH, and it is never an 1835 residence. T-0515 applies the ladder against every source at once; this pass hands it the evidence and not the verdict.",
+  "sources": [
+   "fergus_1843_old_settler_death_notices"
+  ],
+  "people": [
+   {
+    "person_id": "owen_thomas_jv",
+    "matched_as": "Thomas Jefferson Vance Owen",
+    "matched_by": "Surname 'Owen' folds to the same string as the entry's, and the given name of both begins T.",
+    "matched_on_initial_only": false,
+    "resident_given_is_initial_only": false,
+    "entry_given_as_read": "Thomas J. V. (Indian agent)",
+    "entry_given_is_initial_only": false,
+    "the_agreement": "a surname and a forename spelled out on both sides",
+    "record_id": "fdn0503",
+    "trade_or_office": null,
+    "manner_of_death": "died",
+    "place_of_death": null,
+    "death_date": "1835-10-15",
+    "age_as_printed": "aged 34½",
+    "birth_year_earliest": 1801,
+    "birth_year_latest": 1801,
+    "birth_year_arithmetic": "The page prints the death as 'Oct. 15, 1835' and the age as 'aged 34½'. An age of 34 years and 6 months means at least that and less than 34 years and 7 months, so the birth falls between 1801-03-16 and 1801-04-15: the birth year is 1801. The subtraction is this project's; the page states no year of birth.",
+    "as_read": "Owen, Thomas J. V. (Indian agent), died Oct. 15, 1835, aged 34½"
+   }
+  ]
+ }
+}

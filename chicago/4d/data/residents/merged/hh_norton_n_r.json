@@ -1,0 +1,106 @@
+{
+ "id": "hh_norton_n_r",
+ "merged_into": {
+  "person": "norton_nelson_r",
+  "household": "hh_norton_nelson_r",
+  "person_merged": "norton_n_r",
+  "rule": "C2",
+  "cluster": "norton",
+  "ticket": "T-0839",
+  "on": "2026-09-05",
+  "note": "THIS RECORD IS NOT DELETED AND NOTHING ON IT IS LOST. The card below is the record exactly as it stood when the merge landed; the person it names is now carried by the household above, and data/residents/index.json's `merged` table redirects the id. The reasoning is in data/residents/card_merge_rulings.json."
+ },
+ "superseded_record": {
+  "id": "hh_norton_n_r",
+  "name": "The Norton household — a name from the post office's letter lists",
+  "division": "unplaced",
+  "head": "norton_n_r",
+  "source_pass": "letter_list",
+  "arrival": {
+   "value": "1835-07-01",
+   "confidence": "inferred",
+   "sources": [
+    "chicago_democrat_1833_1835"
+   ],
+   "note": "A BOUND FROM THE PAPER, NOT AN ARRIVAL. Somebody was writing to this name at Chicago by 1835-07-01 and at no stated time before it; nothing says when they came.",
+   "precision": "not_later_than"
+  },
+  "party_size_on_arrival": {
+   "value": null,
+   "confidence": "reconstructed",
+   "note": "Not attested."
+  },
+  "origin": {
+   "value": null,
+   "confidence": "reconstructed",
+   "note": "Not attested."
+  },
+  "reason_for_coming": {
+   "value": null,
+   "confidence": "reconstructed",
+   "note": "Not attested."
+  },
+  "lives_at": {
+   "value": null,
+   "confidence": "reconstructed",
+   "note": "Not attested: a letter list gives a name and no address."
+  },
+  "works_at": {
+   "value": null,
+   "confidence": "reconstructed",
+   "note": "Not attested. No trade is recorded, so there is no premises to seek."
+  },
+  "present_on_scene_date": {
+   "value": "present",
+   "confidence": "inferred",
+   "sources": [
+    "chicago_democrat_1833_1835"
+   ],
+   "note": "A letter was still waiting for this name at the Democrat of 1 July 1835, column 5, on or after the scene date, so the corpus puts somebody expecting them at Chicago at 1835-07-01."
+  },
+  "persons": [
+   {
+    "id": "norton_n_r",
+    "name": "N. R. Norton",
+    "relationship": "head",
+    "grade": "inferred",
+    "letter_list_only": true,
+    "letter_list_returns": [
+     "1835-07-01"
+    ],
+    "occupation": {
+     "value": "none_recorded",
+     "confidence": "reconstructed",
+     "note": "No source records an occupation for this person. A list of uncalled-for letters prints a name and no trade, and this pass will not read one in."
+    },
+    "sources": [
+     "chicago_democrat_1833_1835"
+    ],
+    "note": "PROJECTED RESIDENT. Documented in Chicago post-office evidence but not independently corroborated strongly enough for attested circa-1835 residence. KNOWN ONLY FROM THE POST OFFICE, IN ONE RETURN. The papers print 'Norton N. R.' in a single return of letters uncalled-for at the Chicago post office — the Democrat of 1 July 1835, column 5 — dated 1835-07-01. Nothing else in the corpus names this person: no trade, no street, no household, no arrival, so every other claim here is written unattested in its own block. WHAT THAT IS WORTH: a correspondent believed a person of this name reachable at Chicago on that date, and nothing further — not that they lived here, kept a trade here, or were here on 1 July 1835. It is the weakest evidence this project accepts for a resident, and a source placing them elsewhere retires the record. THE ARGUMENT EVERY RECORD OF THIS KIND SHARES is written once instead of once per file: the ruling of 2026-08-30 and what it cost the town (docs/LIBERTIES.md L214), the refusals and the transcription standard behind the reading (tools/mint_letter_list_residents.py). No figure is drawn (L1).",
+    "resident_research": {
+     "programme": "resident-research-2026",
+     "ticket": "T-0483",
+     "outcome": "no_corroboration_yet",
+     "reviewed_on": "2026-09-02",
+     "asserted_identity": false,
+     "summary": "No reliable record in the reviewed repository corpus and targeted exact/variant-name web sweep could be tied to this postal person with sufficient date/place discriminators. This is a documented no-corroboration result, not evidence that the person did not exist."
+    },
+    "resident_subtype": "projected_resident"
+   }
+  ],
+  "touches_removal": false,
+  "review_required": false,
+  "research_note": "MINTED FROM THE LETTER LISTS (T-0378, T-0379). THE HOUSEHOLD IS A CONTAINER, NOT AN ARGUMENT: every other record here argues for a household, and this one argues for a PERSON. `data/residents/` cannot carry a person outside a household, so one was written around them and told to claim nothing — one member, no dwelling, no division, no trade, no family, no arrival beyond the paper's bound. tools/mint_letter_list_residents.py derives the set and prints every refusal, `--gate` proves no record here gained a roof, a trade or a second member, and docs/LIBERTIES.md L214 carries the change of scale.",
+  "directories": {
+   "note": "LATER EVIDENCE, BESIDE THE 1835 CLAIMS AND NOT INSIDE THEM. A Chicago directory of 1839, 1843 or 1844 meets somebody of this name and this pass records what it prints. Under the ratified ladder a directory read after 1835 can corroborate that a person attested here was still in Chicago and can print a trade or a street the 1835 record never had; on its own it makes nobody a resident of 1835. Nothing on this person's 1835 record was regraded, moved, dated or given an occupation by this entry.",
+   "sources": [
+    "fergus_chicago_directory_1839"
+   ],
+   "people": [
+    {
+     "person_id": "norton_n_r"
+    }
+   ]
+  }
+ }
+}

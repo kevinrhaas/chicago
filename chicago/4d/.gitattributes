@@ -1,0 +1,49 @@
+# docs/LIBERTIES.md IS NOT MERGED WITH `union`, AND THE REASON IS MEASURED.
+#
+# The liberty ledger is the same shape of artifact as the changelog — a numbered
+# register every branch adds an entry to — and the root .gitattributes already
+# carries the changelog's version of this note. This is the ledger's, written
+# where the file it governs lives.
+#
+# T-0186 asked for "`.gitattributes` treatment so the merge itself stops being
+# silent", after two branches each took L177 on 2026-08-24, merged clean, and
+# committed a ledger with one number on two entries. The measurement below is
+# why the treatment is NO RULE, and why the weight sits on the gate instead.
+#
+# Measured 2026-08-27 on a scratch clone of the committed 8,787-line file, two
+# branches off one base, default merge driver:
+#
+#   both branches APPEND AT THE END OF THE FILE   ->  CONFLICT. Loud, and safe.
+#   one appends at EOF, one inserts mid-file      ->  CLEAN. Two `### L198`
+#                                                     headings, git says nothing.
+#
+# The first case is the operation `docs/LIBERTIES.md` mandates — "a new liberty
+# is appended at the END OF THIS FILE" — and it already stops you. That is not
+# an accident of this file; it is what a text merge does when two sides insert
+# after the same last line. The second case is the 2026-08-24 incident exactly,
+# and it was reachable then because `## Resolved` was still the LAST section, so
+# "append at the end of the file" and "append at the end of the register" were
+# two different places. T-0054 moved Resolved above the register, which is what
+# collapsed the everyday collision into the loud case.
+#
+# So `union` would not have saved that merge. It would have LOST the one the
+# default driver already catches: union keeps both insertions instead of raising
+# a conflict, which turns the mandated append from a conflict into a silently
+# duplicated number. That is the same trade the changelog made and paid for —
+# five silent corruptions in one day, 2026-08-15, each needing the hand repair
+# the conflict would have demanded up front. Reaching for union here would buy
+# the identical failure in a register whose entire job is to be trustworthy.
+#
+# What remains is the second case, which no merge driver can see: two additions
+# in different parts of a long file, neither touching the other's lines. That is
+# the gate's to catch, and since T-0186 it does — `tools/compile_liberties.py`
+# reports a number taken twice with both titles, and reports a heading that
+# looks like an entry and does not parse, which is the same silence one step
+# earlier. `tools/check.sh` fails on either. Both are asserted in the tool's own
+# self-test, on a specimen carrying the fault and on the committed document
+# beside it, so neither check can quietly stop working.
+#
+# A conflict is safe because it stops you. A clean merge of two appends to a
+# numbered ledger is not, and the check is what stands in for the conflict.
+#
+# No rules are set in this file on purpose. If you add one, measure it first.

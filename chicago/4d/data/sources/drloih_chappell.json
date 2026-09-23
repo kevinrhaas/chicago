@@ -1,0 +1,25 @@
+{
+  "id": "drloih_chappell",
+  "type": "website",
+  "citation": "\"Eliza Emily Chappell, the First Chicago Teacher Paid by Public Funds in 1833.\" Digital Research Library of Illinois History Journal, 19 January 2018.",
+  "date": "posted 2018-01-19; accessed 2026-09-04",
+  "describes_date": "1807-1888",
+  "url": "https://drloihjournal.blogspot.com/2018/01/eliza-chappell-the-first-chicago-teacher-paid-by-public-funds-in-1833.html",
+  "tier": 4,
+  "rights_status": "check_required",
+  "asset_use": "cross_check",
+  "verified": true,
+  "what_it_supplies": [
+    "THE SCHOOL'S FIRST ROOM AND THE DATE IT LEFT IT: \"Chappell arrived in Chicago in June 1833 with the prospects of opening a school by September. The school was established in a small log house formerly used as a store... In 1834, the school was moved into the First Presbyterian Church in Fort Dearborn, on the southwest corner of Lake and Clark Streets.\"",
+    "A LOG HOUSE FORMERLY USED AS A STORE is the phrase that joins to drloih_beaubien's cabin, let first to Philo Carpenter for a drug store and then, in 1833, to Chappel's school.",
+    "The school as it was kept: 25 students who furnished their own chairs, no desks, some paddling canoes across the river to it, and \"maps, a globe, scriptural texts and hymn books, and illustrations of geometry and astronomy\" for teaching tools.",
+    "The marriage: Chappel married the Rev. Jeremiah Porter on 15 June 1835, sixteen days before the scene date."
+  ],
+  "what_it_does_not_supply": [
+    "NO SITE THAT AGREES WITH ITSELF, and this is why the identification stays inferred. The page's own opening line says \"The Eliza Chappell School was roughly at Lake and Clark Streets are today\" — which is where the school MOVED in 1834, not the log house it started in.",
+    "No way past the three-way conflict it sits in: Andreas puts a log school-house west of State Street between South Water and Lake (data/structures/chappel_infant_school.json), drloih_beaubien puts the first room in Beaubien's cabin at Lake and Market, and this page carries the third reading.",
+    "No footnote, no dimension, and no description of the room itself."
+  ],
+  "note": "Same author and same caveat as drloih_hotels and drloih_beaubien: unfootnoted, and here internally inconsistent about where the school stood. Used for the SEQUENCE — a store room, then the church in 1834 — which its two ends corroborate independently, and never for the site, which data/structures/philo_carpenter_log_shop.json records as an open conflict rather than resolving.",
+  "access_notes": "No Wayback snapshot was sought or found on 2026-09-04, so archived_url is absent rather than fabricated. Unfootnoted blogspot source; treat as leads only."
+}

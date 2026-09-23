@@ -1,0 +1,46 @@
+{
+  "id": "st_cyr_register_ichr_v4",
+  "type": "article",
+  "citation": "The first Chicago Catholic church register — Father John Mary Irenaeus St. Cyr's marriage register and his death and burial page — as printed and annotated in the *Illinois Catholic Historical Review*, vol. 4 (July 1921 - April 1922), and republished in two pages by the Genealogy Trails Transcription Team. 128 dated marriages of 1834-1839, each naming groom, bride, witnesses and officiating priest, and 11 deaths and burials of June 1834 to March 1837.",
+  "author": "J. M. I. St. Cyr, Bernard Schaeffer and Timothy O'Meara (the register); an unnamed contributor to the Illinois Catholic Historical Review (the article and its footnotes); Genealogy Trails Transcription Team (the republication)",
+  "date": "1921-1922 (the Review); the Genealogy Trails pages are undated",
+  "describes_date": "1834-1839",
+  "repository": "The register itself was, when the article was written, in the keeping of the parish; the Review is vol. 4 of the Illinois Catholic Historical Society's quarterly. This project has seen neither — only the two web pages.",
+  "url": "https://genealogytrails.com/ill/cook/marriages_catholic.html",
+  "locator": "chicago/4d/data/research/church/text/st_cyr_marriages_1834_1839.txt and chicago/4d/data/research/church/text/st_cyr_deaths_1834_1837.txt, both cached 2026-09-03 and both byte-identical to the genealogytrails caches they were taken from (text/marriages_catholic.txt and text/church_catholicdeaths.txt). Every record's locator names its line in those files. The death page is at https://genealogytrails.com/ill/cook/church_catholicdeaths.html",
+  "tier": 1,
+  "rights_status": "public_domain",
+  "asset_use": "text_only",
+  "verified": true,
+  "transcribes": [
+    {
+      "work": "The first Chicago Catholic church record, kept by Father J. M. I. St. Cyr from 1833 and continued by Fathers Bernard Schaeffer and Timothy O'Meara to 1839",
+      "date": "1833-1839",
+      "tier": 1,
+      "note": "THE ORIGINAL, and nobody in this project has seen it. What is read here is a 1921-22 article that prints the marriage entries and the death entries and comments on them. The article itself says the death record 'is contained on a single page' of the book."
+    },
+    {
+      "work": "Illinois Catholic Historical Review, vol. 4 (July 1921 - April 1922)",
+      "date": "1921",
+      "tier": 2,
+      "note": "The layer actually read, at one further remove: the Genealogy Trails team transcribed these two pages out of the Review and this project read the transcription. Every record citing this source is graded transcription_mediated, twice over."
+    }
+  ],
+  "access_notes": "NOT RE-FETCHED FOR T-0573. The two pages were cached in text for T-0556 on 2026-09-03 and the cache is what a later run has to be able to trust; tools/read_genealogytrails.py --fetch is how it is refreshed if it ever must be. The reading is taken from the committed copies under data/research/church/text/, which the gate holds byte-identical to those caches.",
+  "what_it_supplies": [
+    "128 marriages at Chicago (125 of them) between 1834 and 1839, each dated, and each naming its witnesses BY NAME — 513 named readings of people standing at a named place on a named day",
+    "six marriages IN THE SCENE YEAR, which with their witnesses put twenty named people in Chicago on five days of 1835",
+    "eleven deaths and burials, four of them in 1835, including the death of Thomas Owen, agent of the Indians, at Chicago on 15 October 1835",
+    "the register's own arithmetic — 22 St. Cyr marriages, 18 Schaeffer, 87 O'Meara, 1 Plunkett — which verifies any reading of it without the book",
+    "the dates bounding each priest's time at Chicago, which is what makes an unsigned entry attributable",
+    "the Irish, French and German Catholic population of the town, which is the part the poll books and letter lists reach least well"
+  ],
+  "what_it_does_not_supply": [
+    "any address, lot, dwelling or workplace — the register places nobody anywhere in the town",
+    "any age, except for three infants and one nine-year-old on the death page",
+    "the baptisms. The article tallies 282 of them by these same priests and prints none; that register is T-0503's object and is not in this source",
+    "residence. A marriage at Chicago on a day of 1835 is presence on that day, and presence is not residence",
+    "reliable spelling. The article says so itself: a French and German priest writing Irish and English names, and an Irish priest writing French and German ones"
+  ],
+  "note": "THE PAGE IS TITLED 'First Chicago Marriage Records' AND IT IS NOT ALL CHICAGO. Footnote 5 places three of the first four entries — the three of May 1834 — at Bear Creek, Sangamon County, in the home of Hy Durbin, on St. Cyr's return journey from St. Louis, and the article's closing prose repeats it. A reader who takes the page as a Chicago roll plants three households in the wrong town. Those three entries carry the place and at_chicago: false on the rows themselves."
+}

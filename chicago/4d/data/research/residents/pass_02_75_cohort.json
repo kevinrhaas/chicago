@@ -1,0 +1,1228 @@
+{
+  "_doc": "T-0462's reproducible second 75-person research cohort; selection is not evidence about a person.",
+  "version": 1,
+  "ticket": "T-0462",
+  "scene_date": "1835-07-01",
+  "generated_by": "tools/select_resident_research_pass_2.py",
+  "population_frame": {
+    "eligible_real_named_people": 1362,
+    "previously_reviewed": 75,
+    "sample_size": 75,
+    "cumulative_reviewed": 150,
+    "strata": {
+      "established_profile": 25,
+      "letter_list_only_present": 25,
+      "letter_list_only_uncertain": 25
+    }
+  },
+  "people": [
+    {
+      "household_id": "hh_bates_john_jr",
+      "person_id": "bates_john_jr",
+      "name": "John Bates Jr.",
+      "starting_evidence": "established_profile",
+      "starting_grade": "attested",
+      "starting_presence": "present",
+      "starting_occupation": "auctioneer",
+      "letter_list_returns": [],
+      "sources": [
+        "andreas_1884_v1",
+        "calumet_club_early_chicago_1879",
+        "chicago_tribune_1882_05_19_fourth_reception",
+        "chicago_voter_lists_1833_1835_irad"
+      ],
+      "selection_reason": "Established named resident selected to deepen an existing household profile."
+    },
+    {
+      "household_id": "hh_beaubien_jean_baptiste",
+      "person_id": "beaubien_jean_baptiste",
+      "name": "Col. Jean Baptiste Beaubien",
+      "starting_evidence": "established_profile",
+      "starting_grade": "attested",
+      "starting_presence": "present",
+      "starting_occupation": "trader",
+      "letter_list_returns": [],
+      "sources": [
+        "andreas_1884_v1",
+        "chicago_democrat_1833_1835",
+        "chicago_voter_lists_1833_1835_irad"
+      ],
+      "selection_reason": "Established named resident selected to deepen an existing household profile."
+    },
+    {
+      "household_id": "hh_beaubien_jean_baptiste",
+      "person_id": "beaubien_josette",
+      "name": "Josette LaFramboise Beaubien",
+      "starting_evidence": "established_profile",
+      "starting_grade": "inferred",
+      "starting_presence": "present",
+      "starting_occupation": "none_recorded",
+      "letter_list_returns": [],
+      "sources": [
+        "andreas_1884_v1"
+      ],
+      "selection_reason": "Established named resident selected to deepen an existing household profile."
+    },
+    {
+      "household_id": "hh_beaubien_madore",
+      "person_id": "beaubien_madore",
+      "name": "Madore Benjamin Beaubien",
+      "starting_evidence": "established_profile",
+      "starting_grade": "attested",
+      "starting_presence": "present",
+      "starting_occupation": "merchant",
+      "letter_list_returns": [],
+      "sources": [
+        "andreas_1884_v1",
+        "chicago_voter_lists_1833_1835_irad"
+      ],
+      "selection_reason": "Established named resident selected to deepen an existing household profile."
+    },
+    {
+      "household_id": "hh_beaubien_mark",
+      "person_id": "beaubien_mark",
+      "name": "Mark Beaubien",
+      "starting_evidence": "established_profile",
+      "starting_grade": "attested",
+      "starting_presence": "present",
+      "starting_occupation": "tavern_keeper",
+      "letter_list_returns": [],
+      "sources": [
+        "andreas_1884_v1",
+        "calumet_club_early_chicago_1879",
+        "chicago_tribune_1882_04_25_old_settler_deaths",
+        "chicago_voter_lists_1833_1835_irad"
+      ],
+      "selection_reason": "Established named resident selected to deepen an existing household profile."
+    },
+    {
+      "household_id": "hh_caldwell_billy",
+      "person_id": "caldwell_billy",
+      "name": "Billy Caldwell (Sauganash)",
+      "starting_evidence": "established_profile",
+      "starting_grade": "attested",
+      "starting_presence": "present",
+      "starting_occupation": "interpreter",
+      "letter_list_returns": [],
+      "sources": [
+        "andreas_1884_v1"
+      ],
+      "selection_reason": "Established named resident selected to deepen an existing household profile."
+    },
+    {
+      "household_id": "hh_calhoun_john",
+      "person_id": "calhoun_john",
+      "name": "John Calhoun",
+      "starting_evidence": "established_profile",
+      "starting_grade": "attested",
+      "starting_presence": "present",
+      "starting_occupation": "editor",
+      "letter_list_returns": [],
+      "sources": [
+        "andreas_1884_v1",
+        "chicago_democrat_1833_11_26",
+        "chicago_voter_lists_1833_1835_irad",
+        "fergus_chicago_directory_1839"
+      ],
+      "selection_reason": "Established named resident selected to deepen an existing household profile."
+    },
+    {
+      "household_id": "hh_clybourne_archibald",
+      "person_id": "clybourne_archibald",
+      "name": "Archibald Clybourne",
+      "starting_evidence": "established_profile",
+      "starting_grade": "attested",
+      "starting_presence": "present",
+      "starting_occupation": "butcher",
+      "letter_list_returns": [],
+      "sources": [
+        "andreas_1884_v1",
+        "chicago_voter_lists_1833_1835_irad",
+        "isa_public_domain_land_tract_sales"
+      ],
+      "selection_reason": "Established named resident selected to deepen an existing household profile."
+    },
+    {
+      "household_id": "hh_couch_ira",
+      "person_id": "couch_ira",
+      "name": "Ira Couch",
+      "starting_evidence": "established_profile",
+      "starting_grade": "attested",
+      "starting_presence": "present",
+      "starting_occupation": "hotel_keeper",
+      "letter_list_returns": [],
+      "sources": [
+        "andreas_1884_v1",
+        "fergus_chicago_directory_1839"
+      ],
+      "selection_reason": "Established named resident selected to deepen an existing household profile."
+    },
+    {
+      "household_id": "hh_hamilton_richard_j",
+      "person_id": "hamilton_richard_j",
+      "name": "Richard Jones Hamilton",
+      "starting_evidence": "established_profile",
+      "starting_grade": "attested",
+      "starting_presence": "present",
+      "starting_occupation": "county_clerk",
+      "letter_list_returns": [],
+      "sources": [
+        "andreas_1884_v1",
+        "census_1840_chicago_familysearch_images",
+        "chicago_democrat_1833_1835",
+        "chicago_voter_lists_1833_1835_irad",
+        "norris_directory_1844"
+      ],
+      "selection_reason": "Established named resident selected to deepen an existing household profile."
+    },
+    {
+      "household_id": "hh_hogan_john_s_c",
+      "person_id": "hogan_john_s_c",
+      "name": "John S. C. Hogan",
+      "starting_evidence": "established_profile",
+      "starting_grade": "attested",
+      "starting_presence": "present",
+      "starting_occupation": "postmaster",
+      "letter_list_returns": [],
+      "sources": [
+        "andreas_1884_v1",
+        "chicago_american_1835",
+        "chicago_democrat_1833_1835",
+        "chicago_voter_lists_1833_1835_irad"
+      ],
+      "selection_reason": "Established named resident selected to deepen an existing household profile."
+    },
+    {
+      "household_id": "hh_kinzie_john_h",
+      "person_id": "kinzie_john_h",
+      "name": "John Harris Kinzie",
+      "starting_evidence": "established_profile",
+      "starting_grade": "attested",
+      "starting_presence": "present",
+      "starting_occupation": "forwarding_and_commission",
+      "letter_list_returns": [],
+      "sources": [
+        "andreas_1884_v1",
+        "chicago_american_1835",
+        "chicago_antiquities_american_fur_co",
+        "chicago_voter_lists_1833_1835_irad",
+        "kinzie_waubun_1856"
+      ],
+      "selection_reason": "Established named resident selected to deepen an existing household profile."
+    },
+    {
+      "household_id": "hh_kinzie_john_h",
+      "person_id": "kinzie_juliette",
+      "name": "Juliette Augusta Magill Kinzie",
+      "starting_evidence": "established_profile",
+      "starting_grade": "attested",
+      "starting_presence": "present",
+      "starting_occupation": "none_recorded",
+      "letter_list_returns": [],
+      "sources": [
+        "andreas_1884_v1",
+        "kinzie_waubun_1856"
+      ],
+      "selection_reason": "Established named resident selected to deepen an existing household profile."
+    },
+    {
+      "household_id": "hh_robinson_alexander",
+      "person_id": "robinson_alexander",
+      "name": "Alexander Robinson (Che-che-pin-qua)",
+      "starting_evidence": "established_profile",
+      "starting_grade": "attested",
+      "starting_presence": "present",
+      "starting_occupation": "trader",
+      "letter_list_returns": [],
+      "sources": [
+        "andreas_1884_v1",
+        "kinzie_waubun_1856"
+      ],
+      "selection_reason": "Established named resident selected to deepen an existing household profile."
+    },
+    {
+      "household_id": "hh_robinson_alexander",
+      "person_id": "robinson_catherine",
+      "name": "Catherine Chevalier Robinson",
+      "starting_evidence": "established_profile",
+      "starting_grade": "attested",
+      "starting_presence": "present",
+      "starting_occupation": "none_recorded",
+      "letter_list_returns": [],
+      "sources": [
+        "andreas_1884_v1"
+      ],
+      "selection_reason": "Established named resident selected to deepen an existing household profile."
+    },
+    {
+      "household_id": "hh_owen_thomas_jv",
+      "person_id": "owen_thomas_jv",
+      "name": "Thomas Jefferson Vance Owen",
+      "starting_evidence": "established_profile",
+      "starting_grade": "attested",
+      "starting_presence": "present",
+      "starting_occupation": "indian_agent",
+      "letter_list_returns": [],
+      "sources": [
+        "andreas_1884_v1",
+        "chicago_democrat_1833_1835",
+        "chicago_voter_lists_1833_1835_irad",
+        "fergus_1843_old_settler_death_notices",
+        "st_cyr_register_ichr_v4"
+      ],
+      "selection_reason": "Established named resident selected to deepen an existing household profile."
+    },
+    {
+      "household_id": "hh_pearsons_hiram",
+      "person_id": "pearsons_hiram",
+      "name": "Hiram Pearsons",
+      "starting_evidence": "established_profile",
+      "starting_grade": "attested",
+      "starting_presence": "present",
+      "starting_occupation": "speculator",
+      "letter_list_returns": [],
+      "sources": [
+        "andreas_1884_v1",
+        "chicago_voter_lists_1833_1835_irad",
+        "isa_public_domain_land_tract_sales"
+      ],
+      "selection_reason": "Established named resident selected to deepen an existing household profile."
+    },
+    {
+      "household_id": "hh_peck_philip",
+      "person_id": "peck_philip",
+      "name": "Philip F. W. Peck",
+      "starting_evidence": "established_profile",
+      "starting_grade": "attested",
+      "starting_presence": "present",
+      "starting_occupation": "merchant",
+      "letter_list_returns": [],
+      "sources": [
+        "andreas_1884_v1",
+        "census_1840_chicago_familysearch_images",
+        "chicago_democrat_1833_1835",
+        "chicago_voter_lists_1833_1835_irad",
+        "fergus_chicago_directory_1839",
+        "isa_public_domain_land_tract_sales",
+        "norris_directory_1844"
+      ],
+      "selection_reason": "Established named resident selected to deepen an existing household profile."
+    },
+    {
+      "household_id": "hh_porter_jeremiah",
+      "person_id": "porter_jeremiah",
+      "name": "Rev. Jeremiah Porter",
+      "starting_evidence": "established_profile",
+      "starting_grade": "attested",
+      "starting_presence": "uncertain",
+      "starting_occupation": "minister",
+      "letter_list_returns": [],
+      "sources": [
+        "andreas_1884_v1"
+      ],
+      "selection_reason": "Established named resident selected to deepen an existing household profile."
+    },
+    {
+      "household_id": "hh_porter_jeremiah",
+      "person_id": "porter_eliza_chappel",
+      "name": "Eliza Chappel Porter",
+      "starting_evidence": "established_profile",
+      "starting_grade": "attested",
+      "starting_presence": "uncertain",
+      "starting_occupation": "schoolteacher",
+      "letter_list_returns": [],
+      "sources": [
+        "andreas_1884_v1"
+      ],
+      "selection_reason": "Established named resident selected to deepen an existing household profile."
+    },
+    {
+      "household_id": "hh_snow_george_w",
+      "person_id": "snow_george_w",
+      "name": "George W. Snow",
+      "starting_evidence": "established_profile",
+      "starting_grade": "attested",
+      "starting_presence": "present",
+      "starting_occupation": "surveyor",
+      "letter_list_returns": [],
+      "sources": [
+        "andreas_1884_v1",
+        "chicago_democrat_1833_1835",
+        "chicago_voter_lists_1833_1835_irad",
+        "fergus_chicago_directory_1839",
+        "norris_directory_1844"
+      ],
+      "selection_reason": "Established named resident selected to deepen an existing household profile."
+    },
+    {
+      "household_id": "hh_spring_giles",
+      "person_id": "spring_giles",
+      "name": "Giles Spring",
+      "starting_evidence": "established_profile",
+      "starting_grade": "attested",
+      "starting_presence": "present",
+      "starting_occupation": "attorney",
+      "letter_list_returns": [],
+      "sources": [
+        "andreas_1884_v1",
+        "chicago_voter_lists_1833_1835_irad"
+      ],
+      "selection_reason": "Established named resident selected to deepen an existing household profile."
+    },
+    {
+      "household_id": "hh_taylor_augustine",
+      "person_id": "taylor_augustine",
+      "name": "Augustine Deodat Taylor",
+      "starting_evidence": "established_profile",
+      "starting_grade": "attested",
+      "starting_presence": "present",
+      "starting_occupation": "carpenter",
+      "letter_list_returns": [],
+      "sources": [
+        "andreas_1884_v1"
+      ],
+      "selection_reason": "Established named resident selected to deepen an existing household profile."
+    },
+    {
+      "household_id": "hh_temple_john_t",
+      "person_id": "temple_john_t",
+      "name": "Dr John Taylor Temple",
+      "starting_evidence": "established_profile",
+      "starting_grade": "attested",
+      "starting_presence": "present",
+      "starting_occupation": "physician",
+      "letter_list_returns": [],
+      "sources": [
+        "andreas_1884_v1",
+        "baptisthistoryhomepage",
+        "chicago_democrat_1833_1835",
+        "chicago_voter_lists_1833_1835_irad"
+      ],
+      "selection_reason": "Established named resident selected to deepen an existing household profile."
+    },
+    {
+      "household_id": "hh_wright_john",
+      "person_id": "wright_john",
+      "name": "John Wright",
+      "starting_evidence": "established_profile",
+      "starting_grade": "attested",
+      "starting_presence": "present",
+      "starting_occupation": "merchant",
+      "letter_list_returns": [],
+      "sources": [
+        "andreas_1884_v1",
+        "chicago_democrat_1833_11_26"
+      ],
+      "selection_reason": "Established named resident selected to deepen an existing household profile."
+    },
+    {
+      "household_id": "hh_bailly_joseph",
+      "person_id": "bailly_joseph",
+      "name": "Joseph Bailly",
+      "starting_evidence": "letter_list_only",
+      "starting_grade": "inferred",
+      "starting_presence": "present",
+      "starting_occupation": "none_recorded",
+      "letter_list_returns": [
+        "1835-07-01"
+      ],
+      "sources": [
+        "chicago_democrat_1833_1835",
+        "fergus_1843_old_settler_death_notices"
+      ],
+      "selection_reason": "Distinctive or variant-rich scene-date return name selected for identity and duplicate testing."
+    },
+    {
+      "household_id": "hh_chappel_eliza_mir",
+      "person_id": "chappel_eliza_mir",
+      "name": "Eliza Mir Chappel",
+      "starting_evidence": "letter_list_only",
+      "starting_grade": "inferred",
+      "starting_presence": "present",
+      "starting_occupation": "none_recorded",
+      "letter_list_returns": [
+        "1835-07-01"
+      ],
+      "sources": [
+        "chicago_democrat_1833_1835"
+      ],
+      "selection_reason": "Distinctive or variant-rich scene-date return name selected for identity and duplicate testing."
+    },
+    {
+      "household_id": "hh_dement_wm",
+      "person_id": "dement_wm",
+      "name": "Wm. Dement",
+      "starting_evidence": "letter_list_only",
+      "starting_grade": "inferred",
+      "starting_presence": "present",
+      "starting_occupation": "none_recorded",
+      "letter_list_returns": [
+        "1835-07-01"
+      ],
+      "sources": [
+        "chicago_democrat_1833_1835"
+      ],
+      "selection_reason": "Distinctive or variant-rich scene-date return name selected for identity and duplicate testing."
+    },
+    {
+      "household_id": "hh_curtenius_fredk",
+      "person_id": "curtenius_fredk",
+      "name": "Fred'k. Curtenius",
+      "starting_evidence": "letter_list_only",
+      "starting_grade": "inferred",
+      "starting_presence": "present",
+      "starting_occupation": "none_recorded",
+      "letter_list_returns": [
+        "1835-07-01"
+      ],
+      "sources": [
+        "chicago_democrat_1833_1835"
+      ],
+      "selection_reason": "Distinctive or variant-rich scene-date return name selected for identity and duplicate testing."
+    },
+    {
+      "household_id": "hh_avery_charles",
+      "person_id": "avery_charles",
+      "name": "Charles Avery",
+      "starting_evidence": "letter_list_only",
+      "starting_grade": "inferred",
+      "starting_presence": "present",
+      "starting_occupation": "none_recorded",
+      "letter_list_returns": [
+        "1835-07-01"
+      ],
+      "sources": [
+        "census_1840_chicago_familysearch_images",
+        "chicago_democrat_1833_1835"
+      ],
+      "selection_reason": "Distinctive or variant-rich scene-date return name selected for identity and duplicate testing."
+    },
+    {
+      "household_id": "hh_bemis_samuel_c",
+      "person_id": "bemis_samuel_c",
+      "name": "Samuel C Bemis",
+      "starting_evidence": "letter_list_only",
+      "starting_grade": "inferred",
+      "starting_presence": "present",
+      "starting_occupation": "none_recorded",
+      "letter_list_returns": [
+        "1835-07-01"
+      ],
+      "sources": [
+        "chicago_democrat_1833_1835"
+      ],
+      "selection_reason": "Distinctive or variant-rich scene-date return name selected for identity and duplicate testing."
+    },
+    {
+      "household_id": "hh_blood_amos",
+      "person_id": "blood_amos",
+      "name": "Amos Blood",
+      "starting_evidence": "letter_list_only",
+      "starting_grade": "inferred",
+      "starting_presence": "present",
+      "starting_occupation": "none_recorded",
+      "letter_list_returns": [
+        "1835-07-01"
+      ],
+      "sources": [
+        "chicago_democrat_1833_1835"
+      ],
+      "selection_reason": "Distinctive or variant-rich scene-date return name selected for identity and duplicate testing."
+    },
+    {
+      "household_id": "hh_boardman_elect",
+      "person_id": "boardman_elect",
+      "name": "Elect Boardman",
+      "starting_evidence": "letter_list_only",
+      "starting_grade": "inferred",
+      "starting_presence": "present",
+      "starting_occupation": "none_recorded",
+      "letter_list_returns": [
+        "1835-07-01"
+      ],
+      "sources": [
+        "chicago_democrat_1833_1835"
+      ],
+      "selection_reason": "Distinctive or variant-rich scene-date return name selected for identity and duplicate testing."
+    },
+    {
+      "household_id": "hh_bostwick_e_b",
+      "person_id": "bostwick_e_b",
+      "name": "E. B. Bostwick",
+      "starting_evidence": "letter_list_only",
+      "starting_grade": "inferred",
+      "starting_presence": "present",
+      "starting_occupation": "none_recorded",
+      "letter_list_returns": [
+        "1835-07-01"
+      ],
+      "sources": [
+        "chicago_democrat_1833_1835"
+      ],
+      "selection_reason": "Distinctive or variant-rich scene-date return name selected for identity and duplicate testing."
+    },
+    {
+      "household_id": "hh_bradstreet_j_p",
+      "person_id": "bradstreet_j_p",
+      "name": "J. P Bradstreet",
+      "starting_evidence": "letter_list_only",
+      "starting_grade": "inferred",
+      "starting_presence": "present",
+      "starting_occupation": "none_recorded",
+      "letter_list_returns": [
+        "1835-07-01"
+      ],
+      "sources": [
+        "chicago_democrat_1833_1835"
+      ],
+      "selection_reason": "Distinctive or variant-rich scene-date return name selected for identity and duplicate testing."
+    },
+    {
+      "household_id": "hh_brooks_gardner",
+      "person_id": "brooks_gardner",
+      "name": "Gardner Brooks",
+      "starting_evidence": "letter_list_only",
+      "starting_grade": "attested",
+      "starting_presence": "present",
+      "starting_occupation": "none_recorded",
+      "letter_list_returns": [
+        "1835-07-01"
+      ],
+      "sources": [
+        "chicago_democrat_1833_1835",
+        "chicago_voter_lists_1833_1835_irad"
+      ],
+      "selection_reason": "Distinctive or variant-rich scene-date return name selected for identity and duplicate testing."
+    },
+    {
+      "household_id": "hh_brush_matthias",
+      "person_id": "brush_matthias",
+      "name": "Matthias Brush",
+      "starting_evidence": "letter_list_only",
+      "starting_grade": "inferred",
+      "starting_presence": "present",
+      "starting_occupation": "none_recorded",
+      "letter_list_returns": [
+        "1835-07-01"
+      ],
+      "sources": [
+        "chicago_democrat_1833_1835"
+      ],
+      "selection_reason": "Distinctive or variant-rich scene-date return name selected for identity and duplicate testing."
+    },
+    {
+      "household_id": "hh_burdick_paul",
+      "person_id": "burdick_paul",
+      "name": "Paul Burdick",
+      "starting_evidence": "letter_list_only",
+      "starting_grade": "inferred",
+      "starting_presence": "present",
+      "starting_occupation": "none_recorded",
+      "letter_list_returns": [
+        "1835-07-01"
+      ],
+      "sources": [
+        "chicago_democrat_1833_1835"
+      ],
+      "selection_reason": "Distinctive or variant-rich scene-date return name selected for identity and duplicate testing."
+    },
+    {
+      "household_id": "hh_case_nehemiah",
+      "person_id": "case_nehemiah",
+      "name": "Nehemiah Case",
+      "starting_evidence": "letter_list_only",
+      "starting_grade": "inferred",
+      "starting_presence": "present",
+      "starting_occupation": "none_recorded",
+      "letter_list_returns": [
+        "1835-07-01"
+      ],
+      "sources": [
+        "chicago_democrat_1833_1835"
+      ],
+      "selection_reason": "Distinctive or variant-rich scene-date return name selected for identity and duplicate testing."
+    },
+    {
+      "household_id": "hh_chamberlain_l_c",
+      "person_id": "chamberlain_l_c",
+      "name": "L. C Chamberlain",
+      "starting_evidence": "letter_list_only",
+      "starting_grade": "inferred",
+      "starting_presence": "present",
+      "starting_occupation": "none_recorded",
+      "letter_list_returns": [
+        "1835-07-01"
+      ],
+      "sources": [
+        "chicago_democrat_1833_1835"
+      ],
+      "selection_reason": "Distinctive or variant-rich scene-date return name selected for identity and duplicate testing."
+    },
+    {
+      "household_id": "hh_cooley_edward_v",
+      "person_id": "cooley_edward_v",
+      "name": "Edward V Cooley",
+      "starting_evidence": "letter_list_only",
+      "starting_grade": "inferred",
+      "starting_presence": "present",
+      "starting_occupation": "none_recorded",
+      "letter_list_returns": [
+        "1835-07-01"
+      ],
+      "sources": [
+        "chicago_democrat_1833_1835"
+      ],
+      "selection_reason": "Distinctive or variant-rich scene-date return name selected for identity and duplicate testing."
+    },
+    {
+      "household_id": "hh_cook_rowland_i",
+      "person_id": "cook_rowland_i",
+      "name": "Rowland I!. Cook",
+      "starting_evidence": "letter_list_only",
+      "starting_grade": "inferred",
+      "starting_presence": "present",
+      "starting_occupation": "none_recorded",
+      "letter_list_returns": [
+        "1835-07-01"
+      ],
+      "sources": [
+        "chicago_democrat_1833_1835"
+      ],
+      "selection_reason": "Distinctive or variant-rich scene-date return name selected for identity and duplicate testing."
+    },
+    {
+      "household_id": "hh_covell_thomas_r",
+      "person_id": "covell_thomas_r",
+      "name": "Thomas R. Covell",
+      "starting_evidence": "letter_list_only",
+      "starting_grade": "inferred",
+      "starting_presence": "present",
+      "starting_occupation": "none_recorded",
+      "letter_list_returns": [
+        "1835-07-01"
+      ],
+      "sources": [
+        "chicago_democrat_1833_1835"
+      ],
+      "selection_reason": "Distinctive or variant-rich scene-date return name selected for identity and duplicate testing."
+    },
+    {
+      "household_id": "hh_curtis_liman",
+      "person_id": "curtis_liman",
+      "name": "Liman Curtis",
+      "starting_evidence": "letter_list_only",
+      "starting_grade": "inferred",
+      "starting_presence": "present",
+      "starting_occupation": "none_recorded",
+      "letter_list_returns": [
+        "1835-07-01"
+      ],
+      "sources": [
+        "chicago_democrat_1833_1835"
+      ],
+      "selection_reason": "Distinctive or variant-rich scene-date return name selected for identity and duplicate testing."
+    },
+    {
+      "household_id": "hh_davenport_dennis",
+      "person_id": "davenport_dennis",
+      "name": "Dennis Davenport",
+      "starting_evidence": "letter_list_only",
+      "starting_grade": "inferred",
+      "starting_presence": "present",
+      "starting_occupation": "none_recorded",
+      "letter_list_returns": [
+        "1835-07-01"
+      ],
+      "sources": [
+        "chicago_democrat_1833_1835"
+      ],
+      "selection_reason": "Distinctive or variant-rich scene-date return name selected for identity and duplicate testing."
+    },
+    {
+      "household_id": "hh_dow_albert_f",
+      "person_id": "dow_albert_f",
+      "name": "Albert F. Dow",
+      "starting_evidence": "letter_list_only",
+      "starting_grade": "inferred",
+      "starting_presence": "present",
+      "starting_occupation": "none_recorded",
+      "letter_list_returns": [
+        "1835-07-01"
+      ],
+      "sources": [
+        "chicago_democrat_1833_1835"
+      ],
+      "selection_reason": "Distinctive or variant-rich scene-date return name selected for identity and duplicate testing."
+    },
+    {
+      "household_id": "hh_fairchilds_ransom",
+      "person_id": "fairchilds_ransom",
+      "name": "Ransom Fairchilds",
+      "starting_evidence": "letter_list_only",
+      "starting_grade": "inferred",
+      "starting_presence": "present",
+      "starting_occupation": "none_recorded",
+      "letter_list_returns": [
+        "1835-07-01"
+      ],
+      "sources": [
+        "chicago_democrat_1833_1835"
+      ],
+      "selection_reason": "Distinctive or variant-rich scene-date return name selected for identity and duplicate testing."
+    },
+    {
+      "household_id": "hh_felch_alaneon",
+      "person_id": "felch_alaneon",
+      "name": "Alaneon Felch",
+      "starting_evidence": "letter_list_only",
+      "starting_grade": "inferred",
+      "starting_presence": "present",
+      "starting_occupation": "none_recorded",
+      "letter_list_returns": [
+        "1835-07-01"
+      ],
+      "sources": [
+        "chicago_democrat_1833_1835"
+      ],
+      "selection_reason": "Distinctive or variant-rich scene-date return name selected for identity and duplicate testing."
+    },
+    {
+      "household_id": "hh_ford_ebenezer",
+      "person_id": "ford_ebenezer",
+      "name": "Ebenezer Ford",
+      "starting_evidence": "letter_list_only",
+      "starting_grade": "inferred",
+      "starting_presence": "present",
+      "starting_occupation": "none_recorded",
+      "letter_list_returns": [
+        "1835-07-01"
+      ],
+      "sources": [
+        "chicago_democrat_1833_1835"
+      ],
+      "selection_reason": "Distinctive or variant-rich scene-date return name selected for identity and duplicate testing."
+    },
+    {
+      "household_id": "hh_galusha_ezra",
+      "person_id": "galusha_ezra",
+      "name": "Ezra Galusha",
+      "starting_evidence": "letter_list_only",
+      "starting_grade": "inferred",
+      "starting_presence": "present",
+      "starting_occupation": "none_recorded",
+      "letter_list_returns": [
+        "1835-07-01"
+      ],
+      "sources": [
+        "chicago_democrat_1833_1835"
+      ],
+      "selection_reason": "Distinctive or variant-rich scene-date return name selected for identity and duplicate testing."
+    },
+    {
+      "household_id": "hh_parcel_aaron",
+      "person_id": "parcel_aaron",
+      "name": "Aaron Parcel",
+      "starting_evidence": "letter_list_only",
+      "starting_grade": "inferred",
+      "starting_presence": "uncertain",
+      "starting_occupation": "none_recorded",
+      "letter_list_returns": [
+        "1835-05-20"
+      ],
+      "sources": [
+        "chicago_democrat_1833_1835"
+      ],
+      "selection_reason": "Distinctive or variant-rich earlier-return name selected for identity and duplicate testing."
+    },
+    {
+      "household_id": "hh_parcell_aron",
+      "person_id": "parcell_aron",
+      "name": "Aron Parcell",
+      "starting_evidence": "letter_list_only",
+      "starting_grade": "inferred",
+      "starting_presence": "uncertain",
+      "starting_occupation": "none_recorded",
+      "letter_list_returns": [
+        "1834-07-02"
+      ],
+      "sources": [
+        "chicago_democrat_1833_1835"
+      ],
+      "selection_reason": "Distinctive or variant-rich earlier-return name selected for identity and duplicate testing."
+    },
+    {
+      "household_id": "hh_murray_alonzo",
+      "person_id": "murray_alonzo",
+      "name": "Alonzo Murray",
+      "starting_evidence": "letter_list_only",
+      "starting_grade": "attested",
+      "starting_presence": "uncertain",
+      "starting_occupation": "none_recorded",
+      "letter_list_returns": [
+        "1834-07-02"
+      ],
+      "sources": [
+        "chicago_democrat_1833_1835"
+      ],
+      "selection_reason": "Distinctive or variant-rich earlier-return name selected for identity and duplicate testing."
+    },
+    {
+      "household_id": "hh_murry_alonzo",
+      "person_id": "murry_alonzo",
+      "name": "Alonzo Murry",
+      "starting_evidence": "letter_list_only",
+      "starting_grade": "inferred",
+      "starting_presence": "uncertain",
+      "starting_occupation": "none_recorded",
+      "letter_list_returns": [
+        "1835-05-20"
+      ],
+      "sources": [
+        "chicago_democrat_1833_1835"
+      ],
+      "selection_reason": "Distinctive or variant-rich earlier-return name selected for identity and duplicate testing."
+    },
+    {
+      "household_id": "hh_foster_caleb",
+      "person_id": "foster_caleb",
+      "name": "Caleb Foster",
+      "starting_evidence": "letter_list_only",
+      "starting_grade": "inferred",
+      "starting_presence": "uncertain",
+      "starting_occupation": "none_recorded",
+      "letter_list_returns": [
+        "1834-01-28",
+        "1835-05-20"
+      ],
+      "sources": [
+        "chicago_democrat_1833_1835"
+      ],
+      "selection_reason": "Distinctive or variant-rich earlier-return name selected for identity and duplicate testing."
+    },
+    {
+      "household_id": "hh_house_chester",
+      "person_id": "house_chester",
+      "name": "Chester House",
+      "starting_evidence": "letter_list_only",
+      "starting_grade": "inferred",
+      "starting_presence": "uncertain",
+      "starting_occupation": "none_recorded",
+      "letter_list_returns": [
+        "1834-04-01",
+        "1835-05-20"
+      ],
+      "sources": [
+        "chicago_democrat_1833_1835"
+      ],
+      "selection_reason": "Distinctive or variant-rich earlier-return name selected for identity and duplicate testing."
+    },
+    {
+      "household_id": "hh_tuller_elam",
+      "person_id": "tuller_elam",
+      "name": "Elam Tuller",
+      "starting_evidence": "letter_list_only",
+      "starting_grade": "inferred",
+      "starting_presence": "uncertain",
+      "starting_occupation": "none_recorded",
+      "letter_list_returns": [
+        "1834-01-28",
+        "1834-04-16"
+      ],
+      "sources": [
+        "chicago_democrat_1833_1835"
+      ],
+      "selection_reason": "Distinctive or variant-rich earlier-return name selected for identity and duplicate testing."
+    },
+    {
+      "household_id": "hh_ingersall_david",
+      "person_id": "ingersall_david",
+      "name": "David Ingersall",
+      "starting_evidence": "letter_list_only",
+      "starting_grade": "inferred",
+      "starting_presence": "uncertain",
+      "starting_occupation": "none_recorded",
+      "letter_list_returns": [
+        "1834-07-09"
+      ],
+      "sources": [
+        "chicago_democrat_1833_1835"
+      ],
+      "selection_reason": "Distinctive or variant-rich earlier-return name selected for identity and duplicate testing."
+    },
+    {
+      "household_id": "hh_filer_elihu_d",
+      "person_id": "filer_elihu_d",
+      "name": "Elihu D. Filer",
+      "starting_evidence": "letter_list_only",
+      "starting_grade": "inferred",
+      "starting_presence": "uncertain",
+      "starting_occupation": "none_recorded",
+      "letter_list_returns": [
+        "1834-07-09"
+      ],
+      "sources": [
+        "chicago_democrat_1833_1835"
+      ],
+      "selection_reason": "Distinctive or variant-rich earlier-return name selected for identity and duplicate testing."
+    },
+    {
+      "household_id": "hh_drake_charles_c",
+      "person_id": "drake_charles_c",
+      "name": "Charles C. Drake",
+      "starting_evidence": "letter_list_only",
+      "starting_grade": "inferred",
+      "starting_presence": "uncertain",
+      "starting_occupation": "none_recorded",
+      "letter_list_returns": [
+        "1834-07-09"
+      ],
+      "sources": [
+        "chicago_democrat_1833_1835"
+      ],
+      "selection_reason": "Distinctive or variant-rich earlier-return name selected for identity and duplicate testing."
+    },
+    {
+      "household_id": "hh_miner_amanda",
+      "person_id": "miner_amanda",
+      "name": "Amanda Miner",
+      "starting_evidence": "letter_list_only",
+      "starting_grade": "inferred",
+      "starting_presence": "uncertain",
+      "starting_occupation": "none_recorded",
+      "letter_list_returns": [
+        "1835-05-20"
+      ],
+      "sources": [
+        "chicago_democrat_1833_1835"
+      ],
+      "selection_reason": "Distinctive or variant-rich earlier-return name selected for identity and duplicate testing."
+    },
+    {
+      "household_id": "hh_wear_amy_c",
+      "person_id": "wear_amy_c",
+      "name": "Amy C. Wear",
+      "starting_evidence": "letter_list_only",
+      "starting_grade": "inferred",
+      "starting_presence": "uncertain",
+      "starting_occupation": "none_recorded",
+      "letter_list_returns": [
+        "1834-04-01"
+      ],
+      "sources": [
+        "chicago_democrat_1833_1835"
+      ],
+      "selection_reason": "Distinctive or variant-rich earlier-return name selected for identity and duplicate testing."
+    },
+    {
+      "household_id": "hh_vann_angeline",
+      "person_id": "vann_angeline",
+      "name": "Angeline Vann",
+      "starting_evidence": "letter_list_only",
+      "starting_grade": "inferred",
+      "starting_presence": "uncertain",
+      "starting_occupation": "none_recorded",
+      "letter_list_returns": [
+        "1835-05-20"
+      ],
+      "sources": [
+        "chicago_democrat_1833_1835"
+      ],
+      "selection_reason": "Distinctive or variant-rich earlier-return name selected for identity and duplicate testing."
+    },
+    {
+      "household_id": "hh_knox_archibald",
+      "person_id": "knox_archibald",
+      "name": "Archibald Knox",
+      "starting_evidence": "letter_list_only",
+      "starting_grade": "inferred",
+      "starting_presence": "uncertain",
+      "starting_occupation": "none_recorded",
+      "letter_list_returns": [
+        "1834-04-01"
+      ],
+      "sources": [
+        "chicago_democrat_1833_1835"
+      ],
+      "selection_reason": "Distinctive or variant-rich earlier-return name selected for identity and duplicate testing."
+    },
+    {
+      "household_id": "hh_brundage_asa",
+      "person_id": "brundage_asa",
+      "name": "Asa Brundage",
+      "starting_evidence": "letter_list_only",
+      "starting_grade": "inferred",
+      "starting_presence": "uncertain",
+      "starting_occupation": "none_recorded",
+      "letter_list_returns": [
+        "1834-07-09"
+      ],
+      "sources": [
+        "chicago_democrat_1833_1835"
+      ],
+      "selection_reason": "Distinctive or variant-rich earlier-return name selected for identity and duplicate testing."
+    },
+    {
+      "household_id": "hh_abbott_constant",
+      "person_id": "abbott_constant",
+      "name": "Constant Abbott",
+      "starting_evidence": "letter_list_only",
+      "starting_grade": "inferred",
+      "starting_presence": "uncertain",
+      "starting_occupation": "none_recorded",
+      "letter_list_returns": [
+        "1834-04-01"
+      ],
+      "sources": [
+        "chicago_democrat_1833_1835"
+      ],
+      "selection_reason": "Distinctive or variant-rich earlier-return name selected for identity and duplicate testing."
+    },
+    {
+      "household_id": "hh_dunn_dangerfield",
+      "person_id": "dunn_dangerfield",
+      "name": "Dangerfield Dunn",
+      "starting_evidence": "letter_list_only",
+      "starting_grade": "inferred",
+      "starting_presence": "uncertain",
+      "starting_occupation": "none_recorded",
+      "letter_list_returns": [
+        "1835-05-20"
+      ],
+      "sources": [
+        "chicago_democrat_1833_1835"
+      ],
+      "selection_reason": "Distinctive or variant-rich earlier-return name selected for identity and duplicate testing."
+    },
+    {
+      "household_id": "hh_frame_david_p",
+      "person_id": "frame_david_p",
+      "name": "David P. Frame",
+      "starting_evidence": "letter_list_only",
+      "starting_grade": "inferred",
+      "starting_presence": "uncertain",
+      "starting_occupation": "none_recorded",
+      "letter_list_returns": [
+        "1834-01-28"
+      ],
+      "sources": [
+        "chicago_democrat_1833_1835",
+        "isa_public_domain_land_tract_sales"
+      ],
+      "selection_reason": "Distinctive or variant-rich earlier-return name selected for identity and duplicate testing."
+    },
+    {
+      "household_id": "hh_griswold_eben",
+      "person_id": "griswold_eben",
+      "name": "Eben Griswold",
+      "starting_evidence": "letter_list_only",
+      "starting_grade": "inferred",
+      "starting_presence": "uncertain",
+      "starting_occupation": "none_recorded",
+      "letter_list_returns": [
+        "1834-01-28"
+      ],
+      "sources": [
+        "chicago_democrat_1833_1835"
+      ],
+      "selection_reason": "Distinctive or variant-rich earlier-return name selected for identity and duplicate testing."
+    },
+    {
+      "household_id": "hh_sen_elijah_wentworth",
+      "person_id": "sen_elijah_wentworth",
+      "name": "Elijah Wentworth sen.",
+      "starting_evidence": "letter_list_only",
+      "starting_grade": "inferred",
+      "starting_presence": "uncertain",
+      "starting_occupation": "none_recorded",
+      "letter_list_returns": [
+        "1834-07-02"
+      ],
+      "sources": [
+        "chicago_democrat_1833_1835"
+      ],
+      "selection_reason": "Distinctive or variant-rich earlier-return name selected for identity and duplicate testing."
+    },
+    {
+      "household_id": "hh_covalt_enos",
+      "person_id": "covalt_enos",
+      "name": "Enos Covalt",
+      "starting_evidence": "letter_list_only",
+      "starting_grade": "inferred",
+      "starting_presence": "uncertain",
+      "starting_occupation": "none_recorded",
+      "letter_list_returns": [
+        "1835-05-20"
+      ],
+      "sources": [
+        "chicago_democrat_1833_1835"
+      ],
+      "selection_reason": "Distinctive or variant-rich earlier-return name selected for identity and duplicate testing."
+    },
+    {
+      "household_id": "hh_page_frederick_w",
+      "person_id": "page_frederick_w",
+      "name": "Frederick W. Page",
+      "starting_evidence": "letter_list_only",
+      "starting_grade": "inferred",
+      "starting_presence": "uncertain",
+      "starting_occupation": "none_recorded",
+      "letter_list_returns": [
+        "1835-05-20"
+      ],
+      "sources": [
+        "chicago_democrat_1833_1835"
+      ],
+      "selection_reason": "Distinctive or variant-rich earlier-return name selected for identity and duplicate testing."
+    },
+    {
+      "household_id": "hh_makepiece_george_r",
+      "person_id": "makepiece_george_r",
+      "name": "George R. Makepiece",
+      "starting_evidence": "letter_list_only",
+      "starting_grade": "inferred",
+      "starting_presence": "uncertain",
+      "starting_occupation": "none_recorded",
+      "letter_list_returns": [
+        "1834-07-02"
+      ],
+      "sources": [
+        "chicago_democrat_1833_1835"
+      ],
+      "selection_reason": "Distinctive or variant-rich earlier-return name selected for identity and duplicate testing."
+    },
+    {
+      "household_id": "hh_legg_gregory_e",
+      "person_id": "legg_gregory_e",
+      "name": "Gregory E. Legg",
+      "starting_evidence": "letter_list_only",
+      "starting_grade": "attested",
+      "starting_presence": "uncertain",
+      "starting_occupation": "priest",
+      "letter_list_returns": [
+        "1834-04-16"
+      ],
+      "sources": [
+        "chicago_democrat_1833_1835",
+        "fergus_chicago_directory_1839",
+        "st_cyr_register_ichr_v4"
+      ],
+      "selection_reason": "Distinctive or variant-rich earlier-return name selected for identity and duplicate testing."
+    },
+    {
+      "household_id": "hh_hurlburt_hannah",
+      "person_id": "hurlburt_hannah",
+      "name": "Hannah Hurlburt",
+      "starting_evidence": "letter_list_only",
+      "starting_grade": "inferred",
+      "starting_presence": "uncertain",
+      "starting_occupation": "none_recorded",
+      "letter_list_returns": [
+        "1834-07-09"
+      ],
+      "sources": [
+        "chicago_democrat_1833_1835"
+      ],
+      "selection_reason": "Distinctive or variant-rich earlier-return name selected for identity and duplicate testing."
+    }
+  ]
+}

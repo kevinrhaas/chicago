@@ -1,0 +1,10 @@
+{
+ "schema": "scene_window_trade_audit/1",
+ "generated_by": "tools/audit_scene_window_trades.py",
+ "ticket": "T-0872",
+ "scene_date": "1835-07-01",
+ "_doc": "THE STANDING POPULATION T-0837's WRITE GATE CANNOT SEE. Each row is a person whose 1835 `occupation` carries a trade at a claiming grade while no source cited on that block has a `describes_date` covering 1835. Derived by `tools/audit_scene_window_trades.py`; do not hand-edit anything but the verdicts, which live in the generator beside the rule they adjudicate. A row leaving this file is a repair. A row arriving is a regression, and `--check` refuses it.",
+ "rule": "persons[].occupation.value at a grade in attested/documented/inferred requires at least one cited source whose describes_date spans 1835",
+ "count": 0,
+ "rows": []
+}

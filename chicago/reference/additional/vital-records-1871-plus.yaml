@@ -1,0 +1,29 @@
+id: chicago-vital-records-register
+title: Register of Chicago Vital Records - Birth, Marriage, and Death
+creator: Family History Library, The Church of Jesus Christ of Latter-day Saints
+date: 2002
+description: >
+  Reference register indexing Chicago birth, marriage, and death record
+  catalog entries, 1871 onward (pre-1871 records were destroyed in the
+  Chicago Fire of October 1871).
+redistribution_status: restricted-published
+copyright_status: copyrighted
+license_notice: >
+  Explicit copyright: "(c) 30 January 2002 by Intellectual Reserve, Inc.
+  All rights reserved... No part of this document may be reprinted,
+  posted online, or reproduced without the prior written permission of
+  the publisher." This is NOT public domain and NOT an open-data
+  license. Published here as a deliberate, informed decision (this is a
+  research repository, not a commercial product) despite that
+  restriction; see NOTICE.txt on the Internet Archive item for the full
+  verbatim copyright notice and contact information for permission
+  requests. Do not treat this listing as a redistribution license for
+  your own reuse.
+internet_archive:
+  item: chicago1835-chicago-vital-records-register
+  url: https://archive.org/details/chicago1835-chicago-vital-records-register
+files:
+  - name: FL71308_TN-1033927.pdf
+    bytes: 41107066
+    sha256: 557efe2e35d129746b9c9e42a01892529db8329e9baa7e5ba15d2961a3583fb7
+local_archive_path: projects/archive/data/chicago/reference/additional/vital-records-1871+/

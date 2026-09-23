@@ -1,0 +1,171 @@
+{
+  "id": "thomas_church_store",
+  "phase": "frame_1834",
+  "name": "Thomas Church's Store",
+  "aka": [
+    "the first store building on Lake Street"
+  ],
+  "archetype": "frame_storefront",
+  "asset": "gltf/thomas_church_store__frame_1834.glb",
+  "scene": "1835",
+  "target_date": "1835-07-01",
+  "documented_range": {
+    "from": "1834-01-01",
+    "to": "1835-12-31",
+    "confidence": "inferred",
+    "sources": [
+      "chicagology_prefire275"
+    ],
+    "note": "NO DATE IS ATTESTED AND THIS RANGE IS A WINDOW, NOT A FINDING. The source sentence is 'The first store building on Lake Street, a two-story frame structure, was built by Thomas Church', and it carries no year. THE PAGE INVITES A DATE IT DOES NOT GIVE: the sentences around it run 1833, then 1835, then 1837, so a reader picks up 1833 from position on the page rather than from the sentence, and this project's own source record for that page warns about exactly that. The dossier tags the date as unpinned and treats the building as circa 1833-35. The range is set to 1834-1835 as the middle of that window: Lake Street barely existed as a commercial street before 1833, and a range opened in 1833 would be widening to pass rather than narrowing to what is attested. IF THE BUILDING IS 1835 WORK IT MAY HAVE BEEN GOING UP OR NOT YET STANDING ON 1835-07-01, and this record would then be wrong to include it. That is the single most likely correction to it, and it is a correction that would move the record into data/exclusions.json rather than merely retag it. SOURCE CAVEAT THAT TRAVELS WITH EVERY DOCUMENTED TAG ON THIS RECORD: the claim sits in an uncredited modern editorial addendum at the foot of a chicagology map gallery, graded tier 4 by this project's own source record, which says in terms that the addendum is the weakest text in that set and must never outrank Andreas. It is cited because it is explicit and because it is the only place this building has been found, not because it is strong."
+  },
+  "change_note": "The first purpose-built store on Lake Street, a two-storey frame structure put up by Thomas Church — the building that marks Lake Street beginning to compete with South Water for the town's trade. The tilt does not finish until 1836-37, so on the scene date this is an early sign rather than a shift.",
+  "placement": {
+    "local_e": 521.4,
+    "local_n": -92.4,
+    "rotation_deg": 180.0,
+    "position_confidence": "reconstructed",
+    "position_sources": [],
+    "position_note": "CONJECTURAL, AND ONLY THE STREET IS EVIDENCE. The claim gives 'Lake Street' and no block, no corner and no side. The point recorded here is mid-block on the north side between LaSalle and Clark, chosen because that stretch is unclaimed by anything this dataset models — the buildings whose Lake Street positions ARE attested sit elsewhere on the street: the Tremont House at the north-west corner of Lake and Dearborn, the Mansion House on the north side just east of Dearborn, the Exchange Coffee House at the north-west corner of Lake and Wells, the First Presbyterian church at the south-west corner of Lake and Clark, St Mary's at Lake and State. None of those is modelled yet, so this record is placed to avoid them rather than to relate to them, WHICH IS A RENDERING DECISION AND NOT A FINDING. THE ALONG-STREET UNCERTAINTY IS THE WHOLE OF LAKE STREET inside the town, roughly 700 m, and the side of the street is a coin toss. METHOD, for the cross-street position only: the modern West Lake Street centreline was interpolated between the intersection centres at North LaSalle (EPSG:26916 E 447526.3, N 4637283.8) and North Clark (E 447649.7, N 4637283.4), read from OpenStreetMap 2026-08-11, and the north kerb taken 12.2 m north of it as half an 80 ft platted street, with the building's south face set on it. Working uncertainty about 20 m across the street from the georeference (data/datum.json, 17.5 m RMS), and the length of the street along it. Facade bearing 180, due south onto Lake Street, inferred from the street rather than from any statement — the same bearing and the same reasoning hogan_store carries on the same street.",
+    "symbolic_location": "North side of Lake Street between LaSalle Street and Clark Street (today West Lake Street) — the street is attested, the block is not.",
+    "uncertainty_m": 20,
+    "placement_provisional": false,
+    "vertical_anchor": "terrain",
+    "walk_surface_m": null
+  },
+  "footprint": {
+    "polygon": [
+      [
+        0,
+        0
+      ],
+      [
+        12.192,
+        0
+      ],
+      [
+        12.192,
+        7.62
+      ],
+      [
+        0,
+        7.62
+      ]
+    ],
+    "confidence": "reconstructed",
+    "sources": [],
+    "note": "INVENTED — the parcel's borrowed rectangle, 12.192 x 7.62 m = 40 x 25 ft, taken from the Green Tree Tavern's attested frontage and its room module. Nothing is attested about this building's size. The documented 55 ft lot width applies to South Water Street and is not evidence about Lake Street, so no cap is claimed here; 40 ft is used because it is the dataset's one defensible borrowed frontage and not because anything says this building was that wide."
+  },
+  "attributes": {
+    "stories": {
+      "value": 2,
+      "confidence": "attested",
+      "sources": [
+        "chicagology_prefire275"
+      ],
+      "note": "THE ONE DESCRIBED THING ABOUT THIS BUILDING, and it is explicit: 'a two-story frame structure'. It is the reason the record exists at all — a two-storey store was worth remarking on when Lake Street was still mostly cabins and mud, and the sentence is offered precisely as a first-of-its-kind. SOURCE CAVEAT THAT TRAVELS WITH EVERY DOCUMENTED TAG ON THIS RECORD: the claim sits in an uncredited modern editorial addendum at the foot of a chicagology map gallery, graded tier 4 by this project's own source record, which says in terms that the addendum is the weakest text in that set and must never outrank Andreas. It is cited because it is explicit and because it is the only place this building has been found, not because it is strong."
+    },
+    "construction": {
+      "value": "braced_frame",
+      "confidence": "inferred",
+      "sources": [
+        "chicagology_prefire275"
+      ],
+      "note": "FRAME IS DOCUMENTED AND THE FRAMING SYSTEM IS NOT, so the tag follows the weaker half. The source says 'a two-story frame structure' and no more. Braced rather than balloon frame follows the argument the Sauganash record makes: the sources never use a word that separates the two systems, and this building's date is unpinned across exactly the years when balloon framing was taking over in Chicago, so either is possible. If the date firms up at 1835 rather than 1833, balloon frame becomes the better reading."
+    },
+    "wall_height_m": {
+      "value": 5.5,
+      "confidence": "inferred",
+      "note": "No figure is attested. 5.5 m is about 18 ft: two 8 ft storeys plus floor structure and a low sill course, the number this project uses for its other two-storey frame buildings, the Sauganash and Peck's store."
+    },
+    "roof_type": {
+      "value": "gable",
+      "confidence": "inferred",
+      "note": "Not attested. Gable is the near-universal roof form for frame buildings of this type, period and region."
+    },
+    "roof_pitch_deg": {
+      "value": 33.0,
+      "confidence": "inferred",
+      "note": "No pitch is attested for this building. 33 degrees is the frame_storefront archetype's own figure for a store, and it is adopted here rather than the 38 this project uses for taverns because the archetype argues the case from the dataset's one attested store footprint: a store's frontage is long and its plan shallow, so a tavern's pitch puts more roof above the eave than there is wall below it and the building stops reading as a shop. Inferred from construction practice and from the type, not measured."
+    },
+    "chimneys": {
+      "value": 1,
+      "confidence": "inferred",
+      "note": "Not attested. One is the minimum for a store kept through Chicago winters. The COUNT is the inference; the stack's position, size and material are the archetype's, per docs/LIBERTIES.md L26."
+    },
+    "siding_exposure_m": {
+      "value": 0.127,
+      "confidence": "reconstructed",
+      "note": "INVENTED WITHIN A STOCK SET, NOT DERIVED. No source states the exposed face of any Chicago building's siding. The value is one of four period mill sidings — 4.5, 5, 5.5 or 6 in to the weather; this record wears 5 in — dealt by tools/deal_siding_stock.py: keyed to the phase's construction season, because buildings sided from the same season's shipments of St Joseph sawn lumber tend toward one stock, then advanced so no frame building within 60 m shares this one's. The separation is the surface variety T-0049 reconstructs, not a claim about 1835. docs/LIBERTIES.md L148 owns the invention."
+    },
+    "function": {
+      "value": "store",
+      "confidence": "attested",
+      "sources": [
+        "chicagology_prefire275"
+      ],
+      "note": "The source calls it a store building, and calls it the first on Lake Street. SOURCE CAVEAT THAT TRAVELS WITH EVERY DOCUMENTED TAG ON THIS RECORD: the claim sits in an uncredited modern editorial addendum at the foot of a chicagology map gallery, graded tier 4 by this project's own source record, which says in terms that the addendum is the weakest text in that set and must never outrank Andreas. It is cited because it is explicit and because it is the only place this building has been found, not because it is strong."
+    },
+    "occupants": {
+      "value": "Thomas Church",
+      "confidence": "inferred",
+      "sources": [
+        "chicagology_prefire275"
+      ],
+      "note": "Named as the BUILDER, which is what the source says and all it says: 'was built by Thomas Church'. Whether he kept the store himself, and whether he or anyone was in it on 1835-07-01, is not stated. Tagged inferred for that reason rather than for a citation problem."
+    }
+  },
+  "residents": [
+    {
+      "household": "hh_church_thomas",
+      "name": "The Church household",
+      "division": "south",
+      "relation": "worked here",
+      "why": "The building he built. Whether he traded in it is the reconstruction; data/structures/thomas_church_store.json makes the same move and grades it inferred.",
+      "sources": [
+        "chicagology_prefire275"
+      ],
+      "basis": "",
+      "persons": [
+        {
+          "name": "Thomas Church",
+          "relationship": "head",
+          "grade": "inferred",
+          "occupation": "merchant",
+          "note": "THE THINNEST DOCUMENTED PERSON IN THE PARCEL AND THE RECORD SAYS SO. The whole of the evidence is one sentence in an uncredited editorial addendum at the foot of a chicagology page, which this project already grades as the weakest text in its own source set. A Thomas Church appears in Andreas's city rosters as an alderman in 1845, ten years past the scene date, which corroborates a man of that name in Chicago and dates nothing here."
+        }
+      ],
+      "research_note": "A HOUSEHOLD WRITTEN ALMOST ENTIRELY TO KEEP A BUILDING FROM BEING ANONYMOUS, and graded so that a reader can see it. Every field but the name is derived or conjectural. It is kept because an empty building on Lake Street tells a visitor less than a named man with three warnings attached."
+    }
+  ],
+  "citations": [
+    {
+      "source_id": "chicagology_prefire275",
+      "citation": "\"Early Street Maps of Chicago.\" Chicagology. A gallery of reproduced early Chicago maps - Thompson 1830, the Kinzie manuscript map hand-dated 1833, Wright 1834, Wabonsia 1835, Andreas's 1830 landownership map, Wolf's Point 1853 and both states of the Conley/Stelzer map - with an uncredited editorial ADDENDUM on the town's first streets and roads.",
+      "url": "https://chicagology.com/prefire/prefire275/",
+      "archived_url": "https://web.archive.org/web/20260517032650/https://chicagology.com/prefire/prefire275/",
+      "tier": 4,
+      "tier_label": "later scholarship",
+      "what_it_supplies": [
+        "the existence of a first store building on Lake Street, a two-story frame structure, built by Thomas Church",
+        "the first Tremont House at the north-west corner of Dearborn and Lake, 1833",
+        "Lake Street as the main street of the town from 1833",
+        "the first Court House \"followed in 1835\"",
+        "South Water Street as the town's first street, \"a muddy, narrow trail running east and west along the south bank\"",
+        "the Milwaukee Trace / Northwest Plank Road and the Barry Point Trail and Nine-mile Swamp route out of town",
+        "a finding aid to the early Chicago map literature",
+        "Thompson 1830 street width 80 ft and alley width 18 ft, uncited"
+      ],
+      "what_it_does_not_supply": [
+        "a date for Thomas Church's store",
+        "a block, lot or corner for it",
+        "any dimension for it",
+        "usable reproductions of the maps it gathers - re-source from the holding institution",
+        "reliable bibliographic data for the Conley/Stelzer map",
+        "any citation whatever for its addendum"
+      ]
+    }
+  ],
+  "research_note": "THE FIRST STORE BUILDING ON LAKE STREET, AND THE WHOLE OF THE EVIDENCE IS ONE SENTENCE. 'The first store building on Lake Street, a two-story frame structure, was built by Thomas Church' — from an uncredited editorial addendum at the foot of chicagology's early-street-maps page, which this project holds as a tier-4 source record that grades the addendum as the weakest text in its own set. That sentence gives a FORM and a STREET and nothing else: no year, no block, no lot, no corner, no dimension. AN EARLIER DRAFT OF THIS RECORD CITED NOTHING AT ALL, because data/sources/chicagology_prefire275.json did not exist when it was written and citing an id that does not resolve is the one thing AGENTS.md forbids outright. The source record landed during this parcel's work and the record now cites it; stories and function moved from inferred to documented on the strength of it, and construction did not, because 'frame' does not name a framing system. WHAT IS STILL INVENTED: the position, outright — the street is all the source gives, and the block, the side and the point along it are chosen to avoid the Lake Street buildings this dataset knows the corners of and has not yet modelled, which is a rendering decision and not a finding — and the footprint, outright. THE DATE IS THE RISK THAT COULD REMOVE THE RECORD ALTOGETHER: if the store is 1835 work it may not have stood on 1835-07-01. WHAT WOULD UPGRADE IT: Andreas at page-image level for any mention of Thomas Church, which would outrank the addendum on this project's own grading; or a Chicago Democrat advertisement giving Church's address. See docs/RESEARCH/thomas_church_store.md.",
+  "research_doc": "docs/RESEARCH/thomas_church_store.md",
+  "review_required": false
+}

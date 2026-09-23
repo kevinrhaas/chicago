@@ -1,0 +1,122 @@
+{
+  "schema": 1,
+  "_doc": "GENERATED. The index of this domain's parsed entries. The entries themselves live one file per volume under records/, where tools/research_domains.py --check reads and gates them; a second copy here would drift from the gated one within a run.",
+  "generated_by": "tools/read_newberry_index.py --parse",
+  "volumes_parsed": [
+    1,
+    2,
+    3,
+    4
+  ],
+  "volumes_unread": [],
+  "volumes": {
+    "1": {
+      "file": "records/entries_vol_01.json",
+      "covers": "A - C (as printed on the cards)",
+      "counts": {
+        "cards": 2384,
+        "records": 2397,
+        "slivers": 3,
+        "bled_in_bodies": 10,
+        "by_locality": {
+          "chicago": 404,
+          "cook_county": 158,
+          "illinois_named": 235,
+          "illinois_abbreviated": 1960
+        },
+        "distinct_surname_keys": 1582,
+        "leads": 413,
+        "leads_by_layer": {
+          "census_1840": 148,
+          "residents": 186,
+          "structures": 17,
+          "voters": 62
+        },
+        "chicago_or_cook_cards": 562,
+        "cards_matching_no_known_work": 1316,
+        "chicago_or_cook_cards_matching_no_known_work": 142
+      }
+    },
+    "2": {
+      "file": "records/entries_vol_02.json",
+      "covers": "C - H (as printed on the cards)",
+      "counts": {
+        "cards": 1868,
+        "records": 1871,
+        "slivers": 1,
+        "bled_in_bodies": 2,
+        "by_locality": {
+          "chicago": 285,
+          "cook_county": 206,
+          "illinois_named": 153,
+          "illinois_abbreviated": 1556
+        },
+        "distinct_surname_keys": 1244,
+        "leads": 254,
+        "leads_by_layer": {
+          "census_1840": 81,
+          "residents": 128,
+          "structures": 8,
+          "voters": 37
+        },
+        "chicago_or_cook_cards": 491,
+        "cards_matching_no_known_work": 1005,
+        "chicago_or_cook_cards_matching_no_known_work": 98
+      }
+    },
+    "3": {
+      "file": "records/entries_vol_03.json",
+      "covers": "H - P (as printed on the cards)",
+      "counts": {
+        "cards": 1973,
+        "records": 1980,
+        "slivers": 4,
+        "bled_in_bodies": 3,
+        "by_locality": {
+          "chicago": 307,
+          "cook_county": 195,
+          "illinois_named": 185,
+          "illinois_abbreviated": 1656
+        },
+        "distinct_surname_keys": 1387,
+        "leads": 247,
+        "leads_by_layer": {
+          "census_1840": 87,
+          "residents": 110,
+          "structures": 8,
+          "voters": 42
+        },
+        "chicago_or_cook_cards": 502,
+        "cards_matching_no_known_work": 1102,
+        "chicago_or_cook_cards_matching_no_known_work": 77
+      }
+    },
+    "4": {
+      "file": "records/entries_vol_04.json",
+      "covers": "P - Z (as printed on the cards)",
+      "counts": {
+        "cards": 410,
+        "records": 410,
+        "slivers": 0,
+        "bled_in_bodies": 0,
+        "by_locality": {
+          "chicago": 120,
+          "cook_county": 87,
+          "illinois_named": 22,
+          "illinois_abbreviated": 226
+        },
+        "distinct_surname_keys": 342,
+        "leads": 107,
+        "leads_by_layer": {
+          "census_1840": 42,
+          "residents": 48,
+          "structures": 3,
+          "voters": 14
+        },
+        "chicago_or_cook_cards": 207,
+        "cards_matching_no_known_work": 152,
+        "chicago_or_cook_cards_matching_no_known_work": 46
+      }
+    }
+  }
+}

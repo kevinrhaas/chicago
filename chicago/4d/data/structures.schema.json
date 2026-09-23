@@ -1,0 +1,917 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://chicago4d/schemas/structure.schema.json",
+  "title": "4D Chicago Structure",
+  "description": "One structure record, one file. A structure is an identity that persists across time; its physical form over time is carried by phases. Semantic rules (confidence requires sources/notes, scene date coverage, phase overlap) are enforced by tools/validate.py.",
+  "type": "object",
+  "required": [
+    "id",
+    "name",
+    "archetype",
+    "phases"
+  ],
+  "additionalProperties": false,
+  "properties": {
+    "id": {
+      "type": "string",
+      "pattern": "^[a-z0-9_]+$",
+      "description": "Stable slug. Never reused, never renamed. Matches the filename and the glTF node prefix."
+    },
+    "name": {
+      "type": "string"
+    },
+    "aka": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      }
+    },
+    "archetype": {
+      "type": "string",
+      "enum": [
+        "frame_tavern",
+        "frame_storefront",
+        "frame_dwelling",
+        "log_dwelling",
+        "institutional",
+        "fort_structure",
+        "outbuilding",
+        "plank_walk",
+        "bridge_timber",
+        "pier_crib",
+        "palisade",
+        "authored"
+      ],
+      "description": "Generator module that builds this structure. 'authored' means a hand-built hero asset, exempt from regeneration but not from provenance."
+    },
+    "phases": {
+      "type": "array",
+      "minItems": 1,
+      "items": {
+        "$ref": "#/$defs/phase"
+      },
+      "description": "Dated states of this structure. For a scene date, exactly one phase must cover it."
+    },
+    "function": {
+      "$ref": "#/$defs/attested"
+    },
+    "occupants": {
+      "$ref": "#/$defs/attested"
+    },
+    "reconstruction": {
+      "type": "object",
+      "additionalProperties": false,
+      "description": "Machine-readable disclosure for production-specification infill: which family band the massing was drawn from, and under which programme. Named/documented structures do not carry this block. Two statuses, and the difference is whether anybody is claimed to be in the building: `inferred_anonymous` is a count-unit of the 665-roof programme, placed by aggregate mix and carrying no occupant; `inferred_household` is a roof the inferred-household layer raised BECAUSE an argued household needed somewhere to be, and it carries an occupants block naming that household. The anonymous slots additionally carry their place in the parcel that dealt them (sequence, inventory_class). A roof of `programme_phase: phase2_inferred_households` has NO SLOT — the inferred-household layer authored its 31 roofs one at a time against the occupation census rather than dealing them out of a parcel — so the slot fields are required of the anonymous status EXCEPT under that phase. That exception is what T-0516 needed: the owner retired the reconstructed resident population on 2026-09-02 and ruled the roofs kept as anonymous stock, so those 31 became anonymous without ever acquiring a parcel slot, and minting them a sequence to satisfy a required field would have invented a place in a deal that never dealt them.",
+      "required": [
+        "status",
+        "family",
+        "district",
+        "programme_phase",
+        "source_id"
+      ],
+      "allOf": [
+        {
+          "if": {
+            "allOf": [
+              {
+                "required": [
+                  "status"
+                ],
+                "properties": {
+                  "status": {
+                    "const": "inferred_anonymous"
+                  }
+                }
+              },
+              {
+                "not": {
+                  "required": [
+                    "programme_phase"
+                  ],
+                  "properties": {
+                    "programme_phase": {
+                      "const": "phase2_inferred_households"
+                    }
+                  }
+                }
+              }
+            ]
+          },
+          "then": {
+            "required": [
+              "inventory_class",
+              "sequence"
+            ]
+          }
+        },
+        {
+          "if": {
+            "required": [
+              "status"
+            ],
+            "properties": {
+              "status": {
+                "const": "inferred_household"
+              }
+            }
+          },
+          "then": {
+            "required": [
+              "occupation"
+            ]
+          }
+        }
+      ],
+      "properties": {
+        "status": {
+          "enum": [
+            "inferred_anonymous",
+            "inferred_household"
+          ]
+        },
+        "occupation": {
+          "type": "string",
+          "pattern": "^[a-z_]+$",
+          "description": "The trade the household this roof was raised for practises, as the occupation census names it. Required of `inferred_household`, and RETAINED on the 31 roofs T-0516 moved to `inferred_anonymous`, because the trade a roof was raised for is what the later placement sweep the owner asked for on 2026-09-03 has to work from. It is the census's own string — this field claims a count and a trade, never a person, and after the retirement of 2026-09-02 it claims neither: it records what the retired programme raised the roof for."
+        },
+        "family": {
+          "type": "string",
+          "pattern": "^(D[1-7]|H[1-3]|C[1-4]|T[1-3]|W[1-5]|F[1-4]|I[1-3]|M1|A[1-5])$"
+        },
+        "district": {
+          "enum": [
+            "south",
+            "west",
+            "north",
+            "fort"
+          ]
+        },
+        "inventory_class": {
+          "enum": [
+            "principal_functional",
+            "ancillary"
+          ]
+        },
+        "programme_phase": {
+          "type": "string",
+          "pattern": "^[a-z0-9_]+$"
+        },
+        "source_id": {
+          "type": "string"
+        },
+        "sequence": {
+          "type": "integer",
+          "minimum": 1
+        },
+        "yard_group": {
+          "type": "string",
+          "pattern": "^[a-z0-9_]+$"
+        },
+        "frontage": {
+          "type": "object",
+          "additionalProperties": false,
+          "required": [
+            "block",
+            "face",
+            "setback_m",
+            "why"
+          ],
+          "description": "This roof stands on a block FACE rather than at a northing the parcel recipe typed: it is one unit of a party-line street row. The line, its bearing and the corner the run packs back from are read from the committed block boundary in data/traces/vectors/thompson_lots.json, so the record discloses which face it fronts rather than restating the coordinate the placement already carries. `abuts` names the building whose wall this one shares a party line with — null for the unit that anchors on the block corner — and a named neighbour is what exempts the pair from the three-metre separation rule that otherwise applies across this dataset (T-0077). A run may also stand a stated distance clear of a documented building instead of sharing its wall (T-0078): several South Water stores were placed from typed coordinates before the plat module existed and stand proud of the platted line, so a row on that line breaks around them and `abuts` is null for the unit that does.",
+          "properties": {
+            "block": {
+              "type": "string",
+              "pattern": "^blk_[a-z0-9_]+$"
+            },
+            "face": {
+              "enum": [
+                "north",
+                "south",
+                "east",
+                "west"
+              ]
+            },
+            "setback_m": {
+              "type": "number",
+              "minimum": 0
+            },
+            "abuts": {
+              "type": [
+                "string",
+                "null"
+              ]
+            },
+            "why": {
+              "type": "string",
+              "minLength": 40
+            },
+            "lots": {
+              "type": "array",
+              "items": {
+                "type": "integer",
+                "minimum": 0
+              },
+              "description": "The generated lots of this face whose roofs the run carries, where the parcel that built it counts by lot. Indices into a derivation, never lot numbers."
+            }
+          }
+        },
+        "block_id": {
+          "type": "string",
+          "pattern": "^blk_[a-z0-9_]+$",
+          "description": "The platted block of the K7 grid this roof stands in. A GENERATED block, not a numbered one: the block face is derived from committed street control, and the side lot lines and the alley inside it are conjectural."
+        },
+        "lot_index": {
+          "type": "integer",
+          "minimum": 0,
+          "description": "Position in that block's generated lot list. It is an index into a derivation, NOT a lot number — this project has never read Thompson's numbering off a sheet, and writing one here would be inventing a citation."
+        },
+        "stands_on": {
+          "enum": [
+            "street",
+            "alley",
+            "frontage"
+          ],
+          "description": "Which edge of its lot the building was placed off, and therefore which way it faces. `frontage` is the third answer and it is not a lot at all (T-0078): the roof stands ON the block face, shoulder to shoulder with the rest of its run, and carries no `lot_index` — the lots such a run was dealt are counted on the block's frontage entry in the parcel recipe, because which conjectural side line falls under which unit of a party-line row is not a claim anybody can make."
+        },
+        "fronts": {
+          "type": "string",
+          "pattern": "^[a-z0-9_]+$",
+          "description": "The street the lot fronts. A yard building off the alley still records its lot's frontage, because the yard belongs to that lot."
+        },
+        "finish_key": {
+          "enum": [
+            "fresh_timber",
+            "weathered_timber",
+            "whitewash",
+            "ochre",
+            "red_oxide",
+            "mixed_patch"
+          ]
+        },
+        "roof_condition": {
+          "enum": [
+            "fresh",
+            "darkened",
+            "patched",
+            "weathered"
+          ]
+        },
+        "age_state": {
+          "enum": [
+            "new",
+            "recent",
+            "established",
+            "older_frontier"
+          ]
+        }
+      }
+    },
+    "lot_claim": {
+      "type": "object",
+      "additionalProperties": false,
+      "description": "What this record asserts about the platted lot it physically stands on. Present only where the answer is NOTHING, which is why the block exists: a record placed by an ordinal off a corner ('one door from Dearborn street') names a position along a street face and no lot at all, so it must be able to say so in a field rather than in prose. The owner's ruling of 2026-08-30 (T-0384, docs/CORNER-ORDINAL.md) is the authority; tools/plat_occupancy.py reads this block and treats such a record as transparent to the plat's lot entitlements, and tools/measure_corner_ordinals.py is the gate. A record with no lot_claim block is unchanged in every way: this asserts a NEGATIVE and there was never a positive lot field to assert.",
+      "required": [
+        "claims_lot",
+        "lot",
+        "placement_rule",
+        "note"
+      ],
+      "properties": {
+        "claims_lot": {
+          "const": false,
+          "description": "Always false. The block exists to declare that no lot is claimed; a record that DOES stand on a lot it claims says so by standing there and carries no block."
+        },
+        "lot": {
+          "type": "null",
+          "description": "Always null, and named so the gate can refuse a lot field that has grown a value — the same shape the street-face adoptions carry."
+        },
+        "placement_rule": {
+          "enum": [
+            "corner_ordinal"
+          ],
+          "description": "The reading that placed the record and owes this declaration. One value today; a later rule that also places without a lot adds its own rather than reusing this one."
+        },
+        "note": {
+          "type": "string",
+          "description": "Why no lot is claimed, in the record's own words, and what the declaration does and does not relax."
+        }
+      }
+    },
+    "lot_address": {
+      "type": "object",
+      "additionalProperties": false,
+      "description": "What a record asserts about the platted lot it stands on when a SOURCE names that lot. The positive counterpart of `lot_claim`, and the rarer one: a newspaper that prints 'lot 7, in block 16' is speaking the plat's own language, which is the strongest placement statement this corpus makes. The address is AUTHORED in data/research/newspapers/lot_addresses.json and every step from a printed number to a committed roof is DERIVED by tools/lot_addresses.py, which is also the gate; docs/LOT-ADDRESS.md is the policy and L216 the liberty. A block here never promotes the record: the lot lines it lands on are the plat module's and are conjectural, so the seating is graded at the bottom tier and the phase's own confidences are untouched.",
+      "required": [
+        "claims_lot",
+        "block_number",
+        "lot_number",
+        "block_id",
+        "address_text",
+        "title",
+        "confidence",
+        "sources",
+        "cites",
+        "note"
+      ],
+      "properties": {
+        "claims_lot": {
+          "const": true,
+          "description": "Always true. The block exists to declare that a source names this lot; a record with nothing to declare carries no block at all, and a record placed WITHOUT a lot says so in `lot_claim` instead."
+        },
+        "block_number": {
+          "type": "integer",
+          "description": "The block number as printed. Resolved to a block_id through data/traces/thompson_block_numbering.json, which grades the resolution `inferred`."
+        },
+        "lot_number": {
+          "type": "integer",
+          "description": "The lot number as printed. Resolved to a polygon through the lot numbering committed with the block numbers, which is graded `conjectural`."
+        },
+        "block_id": {
+          "type": "string",
+          "description": "The committed block the number resolves to. Cross-read against the numbering rather than trusted, so the two cannot drift."
+        },
+        "address_text": {
+          "type": "string",
+          "minLength": 1,
+          "description": "The address as printed, normalized."
+        },
+        "title": {
+          "type": "string",
+          "minLength": 1,
+          "description": "What a visitor sees the building called instead of a production identity. Names the ADDRESS, never the advertiser: a man who takes enquiries about terms is not the householder."
+        },
+        "confidence": {
+          "const": "reconstructed",
+          "description": "Always the bottom tier. The words are read, but the lot lines they land on are drawn from no sheet, and a chain is as strong as its weakest link."
+        },
+        "sources": {
+          "type": "array",
+          "minItems": 1,
+          "items": {
+            "type": "string"
+          },
+          "description": "The source records the cited claims come out of."
+        },
+        "cites": {
+          "type": "array",
+          "minItems": 1,
+          "items": {
+            "type": "string"
+          },
+          "description": "The claim ids of the legible printings of this address, `<issue_id>#<claim>`."
+        },
+        "note": {
+          "type": "string",
+          "minLength": 1,
+          "description": "What the address gains this record and what it explicitly does not, in the record’s own words."
+        }
+      }
+    },
+    "land_owner": {
+      "type": "object",
+      "additionalProperties": false,
+      "description": "Who entered the patent for the ground this structure stands on, joined from the Illinois State Archives land-sale register (T-0609). GENERATED — tools/resolve_land_tracts.py --build writes every one of these and --check re-derives them, so a hand-edit is a gate failure. The block claims the tract the register describes contains this record's committed position and NOTHING MORE: not that the purchaser still held the ground on the scene date, not that he lived here, not that the entry held. The section lines it rests on are constructed from the single PLSS corner at State & Madison, not traced (L219).",
+      "required": [
+        "value",
+        "confidence",
+        "sources",
+        "note",
+        "tract",
+        "entries",
+        "date_purchased",
+        "type_of_sale",
+        "margin_m",
+        "generated_by"
+      ],
+      "properties": {
+        "value": {
+          "type": "string",
+          "minLength": 1,
+          "description": "The sentence the walkthrough's card shows — who entered the ground, and when."
+        },
+        "confidence": {
+          "enum": [
+            "inferred",
+            "reconstructed"
+          ],
+          "description": "Never `attested`: the tract description is read off the register, but the line it lands on is constructed. `inferred` when the footprint stands more than 40 m inside the tract, `reconstructed` when it stands nearer a tract boundary than twice the georeference's working uncertainty."
+        },
+        "sources": {
+          "type": "array",
+          "minItems": 1,
+          "items": {
+            "type": "string"
+          }
+        },
+        "note": {
+          "type": "string",
+          "minLength": 1,
+          "description": "The reasoning: which tract, how it was put on the ground, the margin, and the three things the row does not claim."
+        },
+        "tract": {
+          "type": "string",
+          "minLength": 1,
+          "description": "The tract as the resolver names it, e.g. `E2NE of section 09, T39N R14E`."
+        },
+        "entries": {
+          "type": "array",
+          "minItems": 1,
+          "items": {
+            "type": "string"
+          },
+          "description": "The land_sales record ids this ground resolves through. More than one when the register prints the same entry twice."
+        },
+        "date_purchased": {
+          "type": "string",
+          "minLength": 1
+        },
+        "type_of_sale": {
+          "type": "string",
+          "minLength": 1
+        },
+        "margin_m": {
+          "type": "number",
+          "description": "How far inside the tract's nearest boundary the footprint stands. The grade follows from it."
+        },
+        "generated_by": {
+          "const": "tools/resolve_land_tracts.py --build"
+        }
+      }
+    },
+    "xref": {
+      "type": "object",
+      "additionalProperties": false,
+      "description": "Links to sibling datasets so records can be reconciled later without renaming ids.",
+      "properties": {
+        "pre_fire_v1_building_id": {
+          "type": "string"
+        },
+        "conley_key_no": {
+          "type": "integer"
+        },
+        "chicago_landmark_id": {
+          "type": "string"
+        }
+      }
+    },
+    "research_note": {
+      "type": "string",
+      "description": "Free text. Source conflicts go here and in docs/RESEARCH/<id>.md."
+    },
+    "review_required": {
+      "type": "boolean",
+      "default": false,
+      "description": "Blocks release of any scene including this record. Set for anything touching Indigenous history or human depiction pending external review."
+    },
+    "resident_assignment": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "status",
+        "confidence",
+        "note"
+      ],
+      "properties": {
+        "status": {
+          "enum": [
+            "unassigned",
+            "assigned"
+          ]
+        },
+        "confidence": {
+          "enum": [
+            "attested",
+            "inferred",
+            "reconstructed"
+          ]
+        },
+        "note": {
+          "type": "string",
+          "minLength": 1
+        }
+      },
+      "description": "Resident-placement state after the evidence-only population synthesis. Unassigned stock remains geometry without an invented occupant."
+    }
+  },
+  "$defs": {
+    "confidence": {
+      "type": "string",
+      "enum": [
+        "attested",
+        "inferred",
+        "reconstructed"
+      ]
+    },
+    "attested": {
+      "type": "object",
+      "description": "A single attribute carrying its own evidence. documented requires sources; inferred requires note.",
+      "required": [
+        "value",
+        "confidence"
+      ],
+      "additionalProperties": false,
+      "properties": {
+        "value": {},
+        "confidence": {
+          "$ref": "#/$defs/confidence"
+        },
+        "sources": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          },
+          "description": "source_id values that must resolve in data/sources/"
+        },
+        "note": {
+          "type": "string",
+          "description": "Required for inferred. State the reasoning, and record original historical units here."
+        },
+        "geometry": {
+          "enum": [
+            "absent",
+            "simplified",
+            "record_only"
+          ],
+          "description": "What the generated mesh does with this value, for attributes the archetype does not read. 'absent': the thing is attested and nothing of it is built. 'simplified': something stands in its place but this value does not drive it. 'record_only': not a build instruction at all — a rejected reading or a negative finding. Required by tools/validate.py on every attribute outside its archetype's CONSUMED set; 'absent' and 'simplified' must be claimed by a liberty in docs/LIBERTIES.md. Its absence asserts nothing on its own: an attribute the archetype does read is built from the value by construction."
+        }
+      }
+    },
+    "derivation": {
+      "type": "object",
+      "required": [
+        "method"
+      ],
+      "additionalProperties": false,
+      "description": "How this coordinate was arrived at, in a form tools/validate.py can recompute from data/traces/street_control.json (a platted corner, a traced waterline) or from data/streets/1835.json (a frontage off a committed centreline). Every phase with coordinates carries one; a placement that no line in the dataset can check declares 'not_derivable' with a reason rather than going undeclared.",
+      "properties": {
+        "method": {
+          "enum": [
+            "platted_corner",
+            "traced_waterline",
+            "street_frontage",
+            "not_derivable"
+          ]
+        },
+        "control": {
+          "type": "string",
+          "description": "Key in data/traces/street_control.json's `control` map."
+        },
+        "constraints": {
+          "type": "array",
+          "minItems": 1,
+          "items": {
+            "type": "object",
+            "required": [
+              "face",
+              "street",
+              "kerb"
+            ],
+            "additionalProperties": false,
+            "properties": {
+              "face": {
+                "enum": [
+                  "north",
+                  "south",
+                  "east",
+                  "west"
+                ]
+              },
+              "street": {
+                "type": "string"
+              },
+              "kerb": {
+                "enum": [
+                  "north",
+                  "south",
+                  "east",
+                  "west"
+                ]
+              },
+              "offset_m": {
+                "type": "number",
+                "description": "Further from the street centre, positive outward from the named kerb."
+              },
+              "note": {
+                "type": "string"
+              }
+            }
+          }
+        },
+        "centreline": {
+          "type": "object",
+          "required": [
+            "axis"
+          ],
+          "additionalProperties": false,
+          "properties": {
+            "axis": {
+              "enum": [
+                "e",
+                "n"
+              ]
+            },
+            "control_variance_m": {
+              "type": "number"
+            }
+          }
+        },
+        "ends": {
+          "type": "object",
+          "required": [
+            "epoch",
+            "faces"
+          ],
+          "additionalProperties": false,
+          "properties": {
+            "epoch": {
+              "type": "string"
+            },
+            "faces": {
+              "type": "array",
+              "items": {
+                "enum": [
+                  "north",
+                  "south",
+                  "east",
+                  "west"
+                ]
+              }
+            }
+          }
+        },
+        "frontage": {
+          "type": "object",
+          "required": [
+            "street",
+            "face",
+            "setback_m"
+          ],
+          "additionalProperties": false,
+          "description": "A frontage off a committed street centreline, for a street that is not square to the grid and so has no kerb to step to. tools/validate.py re-derives the perpendicular distance from the named wall's midpoint to the nearest point on the street's committed path, and refuses a street that lies behind that wall rather than in front of it.",
+          "properties": {
+            "street": {
+              "type": "string",
+              "description": "Street id in data/streets/1835.json."
+            },
+            "face": {
+              "enum": [
+                "front",
+                "back",
+                "left",
+                "right"
+              ],
+              "description": "Which of the building's own four walls stands on the frontage. Named in the footprint's frame per docs/GLB-CONTRACT.md — polygon `u` runs right along the front and `v` back from it, so `front` is the max-`v` wall, the one the facade bearing points out of. Not a compass direction: on a street running 41 degrees east of north these walls have no compass face."
+            },
+            "setback_m": {
+              "type": "number",
+              "minimum": 0,
+              "description": "Perpendicular distance from that wall to the street's committed centreline. Half the platted module puts the wall on the corridor line."
+            },
+            "note": {
+              "type": "string"
+            }
+          }
+        },
+        "reason": {
+          "type": "string"
+        },
+        "note": {
+          "type": "string"
+        }
+      }
+    },
+    "date_range": {
+      "type": "object",
+      "required": [
+        "from",
+        "to"
+      ],
+      "additionalProperties": false,
+      "properties": {
+        "from": {
+          "type": "string",
+          "format": "date"
+        },
+        "to": {
+          "type": "string",
+          "format": "date"
+        },
+        "confidence": {
+          "$ref": "#/$defs/confidence"
+        },
+        "sources": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          }
+        },
+        "note": {
+          "type": "string"
+        }
+      }
+    },
+    "phase": {
+      "type": "object",
+      "required": [
+        "id",
+        "documented_range",
+        "position",
+        "footprint",
+        "form"
+      ],
+      "additionalProperties": false,
+      "properties": {
+        "id": {
+          "type": "string",
+          "pattern": "^[a-z0-9_]+$",
+          "description": "Slug unique within the structure, e.g. log_1829, frame_1831."
+        },
+        "documented_range": {
+          "$ref": "#/$defs/date_range"
+        },
+        "position": {
+          "type": "object",
+          "required": [
+            "confidence"
+          ],
+          "additionalProperties": false,
+          "description": "Phases carry their own position, so relocated buildings are native to the model. utm_e/utm_n stay null until the datum is verified; symbolic_location carries the human description meanwhile.",
+          "properties": {
+            "utm_e": {
+              "type": [
+                "number",
+                "null"
+              ]
+            },
+            "utm_n": {
+              "type": [
+                "number",
+                "null"
+              ]
+            },
+            "rotation_deg": {
+              "type": "number",
+              "description": "Facade bearing, degrees clockwise from grid north."
+            },
+            "symbolic_location": {
+              "type": "string",
+              "description": "e.g. 'SE corner Lake St and Market St'. Required while coordinates are null."
+            },
+            "confidence": {
+              "$ref": "#/$defs/confidence"
+            },
+            "sources": {
+              "type": "array",
+              "items": {
+                "type": "string"
+              }
+            },
+            "note": {
+              "type": "string"
+            },
+            "derivation": {
+              "$ref": "#/$defs/derivation"
+            }
+          }
+        },
+        "footprint": {
+          "type": "object",
+          "required": [
+            "polygon",
+            "confidence"
+          ],
+          "additionalProperties": false,
+          "properties": {
+            "polygon": {
+              "type": "array",
+              "minItems": 3,
+              "items": {
+                "type": "array",
+                "minItems": 2,
+                "maxItems": 2,
+                "items": {
+                  "type": "number"
+                }
+              },
+              "description": "Local ENU metres relative to the phase position. Counter-clockwise."
+            },
+            "confidence": {
+              "$ref": "#/$defs/confidence"
+            },
+            "sources": {
+              "type": "array",
+              "items": {
+                "type": "string"
+              }
+            },
+            "note": {
+              "type": "string"
+            }
+          }
+        },
+        "form": {
+          "type": "object",
+          "description": "Generator parameters. Every entry is an attested value.",
+          "additionalProperties": {
+            "$ref": "#/$defs/attested"
+          },
+          "properties": {
+            "stories": {
+              "$ref": "#/$defs/attested"
+            },
+            "wall_height_m": {
+              "$ref": "#/$defs/attested"
+            },
+            "roof_type": {
+              "$ref": "#/$defs/attested"
+            },
+            "roof_pitch_deg": {
+              "$ref": "#/$defs/attested"
+            },
+            "gable_orientation": {
+              "$ref": "#/$defs/attested"
+            },
+            "construction": {
+              "$ref": "#/$defs/attested"
+            },
+            "cladding": {
+              "$ref": "#/$defs/attested"
+            },
+            "paint": {
+              "$ref": "#/$defs/attested"
+            },
+            "gallery": {
+              "$ref": "#/$defs/attested"
+            },
+            "chimneys": {
+              "$ref": "#/$defs/attested"
+            },
+            "fenestration": {
+              "$ref": "#/$defs/attested"
+            },
+            "shutters": {
+              "$ref": "#/$defs/attested"
+            },
+            "sign": {
+              "$ref": "#/$defs/attested"
+            },
+            "frame_addition": {
+              "$ref": "#/$defs/attested"
+            }
+          }
+        },
+        "ground_contact": {
+          "type": "object",
+          "description": "Present ONLY when this structure does not reach the ground it stands over. tools/validate.py measures the archetype's declared contact outline against the committed heightfield and requires this declaration once the gap exceeds the walker's 0.35 m step-up rule; it rejects one on a structure that lands, so the claim is checked in both directions. Owes docs/LIBERTIES.md a `Covers: <id>.<phase>.ground_contact` token.",
+          "additionalProperties": false,
+          "required": [
+            "state",
+            "note"
+          ],
+          "properties": {
+            "state": {
+              "enum": [
+                "approach_not_modelled",
+                "outside_modelled_ground"
+              ],
+              "description": "approach_not_modelled: the ground exists under the structure and the structure does not reach it. outside_modelled_ground: there is no ground under it at all, because the terrain epoch has not been extended that far — the question whether it lands has no answer, and tools/heightfield.py clamps at the box edge, so nothing else in the pipeline can see it."
+            },
+            "note": {
+              "type": "string",
+              "minLength": 1,
+              "description": "The reasoning, as an inferred value carries one: what is missing, why it was not built, and what would settle it."
+            }
+          }
+        },
+        "change_note": {
+          "type": "string",
+          "description": "What changed at the start of this phase, and on what evidence."
+        },
+        "drawn_by": {
+          "type": "object",
+          "description": "Present ONLY when this phase's geometry is drawn by a layer other than a baked GLB — today that means data/enclosures/ and renderers/web/js/enclosures.js, for a thing that is a BOUNDARY rather than a building. A phase carrying this block builds no mesh: tools/validate.py resolves no archetype parameters for it, no manifest entry or GLB may exist for it, tools/compile_scene.py writes `asset: null` into its sidecar, and the walker takes no obstruction from its footprint. The record stays the evidence record — position, footprint, dating, function and citations — and the named record carries only the geometry. First used by the estray pen, whose roof existed solely because the outbuilding archetype cannot build a roofless structure (docs/LIBERTIES.md L60).",
+          "additionalProperties": false,
+          "required": [
+            "layer",
+            "record",
+            "note"
+          ],
+          "properties": {
+            "layer": {
+              "enum": [
+                "enclosures"
+              ]
+            },
+            "record": {
+              "type": "string",
+              "description": "Repository-relative path of the record that carries the geometry. Checked to exist, and to name this structure back."
+            },
+            "note": {
+              "type": "string",
+              "description": "Why the geometry left this record, and what was retired rather than re-graded when it did."
+            }
+          }
+        }
+      }
+    }
+  }
+}

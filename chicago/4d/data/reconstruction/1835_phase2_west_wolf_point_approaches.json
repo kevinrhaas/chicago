@@ -1,0 +1,181 @@
+{
+  "id": "phase2_west_wolf_point_approaches",
+  "status": "research_recipe_not_instantiated",
+  "target_date": "1835-07-01",
+  "district": "west",
+  "description": "An initial anonymous 55-roof West Division parcel. It fills the platted approaches west of Wolf Point without duplicating the named taverns, houses, meeting house, bridge, stores, yards, or workshops already represented by structure records.",
+  "controlling_inventory": "data/reconstruction/1835_building_inventory.json",
+  "research_memo": "docs/RESEARCH/west_division_infill_1835.md",
+  "source_ids": [
+    "owner_chicago_1835_reconstruction_spec_2026",
+    "wright_1834",
+    "hathaway_1834",
+    "chicagology_prefire273",
+    "andreas_1884_v1"
+  ],
+  "confidence": {
+    "district_total_and_type_mix": "moderate",
+    "platted_street_and_lot_geometry": "documented",
+    "occupied_density_gradient": "low_to_moderate",
+    "each_anonymous_roof_location": "conjectural",
+    "each_anonymous_roof_dimension": "interpretive_within_family_band"
+  },
+  "roof_totals": {
+    "all": 55,
+    "principal_functional": 44,
+    "ancillary": 11,
+    "share_of_west_target": 0.4074,
+    "west_target": 135
+  },
+  "inventory_group_totals": {
+    "ordinary_dwellings": 34,
+    "larger_boarding_houses": 2,
+    "stores_mixed_use": 2,
+    "inns_taverns": 0,
+    "workshops": 5,
+    "warehouses_freight": 1,
+    "institutional_public": 0,
+    "barns_stables": 7,
+    "small_outbuildings": 4
+  },
+  "family_totals": {
+    "D1": 9,
+    "D2": 5,
+    "D3": 7,
+    "D4": 6,
+    "D5": 4,
+    "D6": 2,
+    "D7": 1,
+    "H1": 1,
+    "H2": 1,
+    "C1": 1,
+    "C2": 1,
+    "W1": 1,
+    "W2": 1,
+    "W3": 1,
+    "W4": 1,
+    "W5": 1,
+    "F1": 1,
+    "A1": 5,
+    "A2": 2,
+    "A3": 2,
+    "A4": 1,
+    "A5": 1
+  },
+  "reservation_policy": {
+    "named_roofs": "No T-family or I-family anonymous roof is allocated in this first parcel. The three West Division inn/tavern slots and the single institutional/public slot are reserved for reconciliation against named existing records before any anonymous substitution.",
+    "existing_records": "A placement that overlaps a documented or better-attested existing record is deleted or moved; it is never added on top of that record and never increases the 135-roof West target.",
+    "unbuilt_plat": "Street and lot lines may continue through open prairie. The recipe intentionally leaves continuous empty blocks west and south of its clusters."
+  },
+  "coordinate_contract": {
+    "crs": "local ENU metres from data/datum.json",
+    "anchor": "center_local_enu_m is the horizontal centre of the inferred footprint before rotation",
+    "rotation": "clockwise degrees from local north for the primary facade; values within three degrees of the plat axes are deliberate low-grade irregularity",
+    "precision_warning": "Decimal coordinates are machine-readable layout controls, not historical precision. Every instance position is conjectural and the 1834 map georeference itself carries about 20 m working uncertainty."
+  },
+  "terrain_and_hydrology_gate": {
+    "current_terrain_box_local_enu_m": {"e": [-320.0, 1700.0], "n": [-400.0, 400.0]},
+    "required_west_box_local_enu_m": {"e": [-700.0, 1700.0], "n": [-400.0, 400.0]},
+    "instantiation_block": "Do not emit structure records or meshes for any placement with centre E < -300 m until the heightfield, collision surface, vegetation sampler, minimap, and water mask share the extended box.",
+    "rules": [
+      "Reject every footprint intersecting the authoritative 1834 river mask; do not infer dry ground from a positive decorative plane.",
+      "Keep principal roofs at least 8 m from the traced waterline unless a named source explicitly documents a landing or waterside building; this 8 m is a modelling safety band, not a historical measurement.",
+      "Keep anonymous ancillary roofs at least 5 m from the waterline and attach them to a principal yard group.",
+      "Do not place a roof in the two conjectural west-prairie swales until their alignments are reviewed after the west terrain extension; move the roof rather than flattening the swale.",
+      "Sample building grade, collision height, and vegetation root height from the same extended terrain surface."
+    ]
+  },
+  "clusters": [
+    {
+      "id": "w1_canal_lake_mixed",
+      "density_zone": "B",
+      "roofs": 13,
+      "description": "Mixed lots west and northwest of Canal and Lake, set back from the named Green Tree/Wolf Point sequence. Small shops and two work roofs face the approach; domestic and yard roofs remain discontinuous."
+    },
+    {
+      "id": "w2_canal_randolph_teamster",
+      "density_zone": "B",
+      "roofs": 12,
+      "description": "Loose mixed lots south and west of the Western Hotel teamster yard. The recipe preserves a broad open circulation band around the documented hotel and does not invent another inn."
+    },
+    {
+      "id": "w3_jefferson_lake_residential",
+      "density_zone": "C",
+      "roofs": 12,
+      "description": "One principal roof every one to three lots with only one small ancillary roof, showing the transition from the Wolf Point approaches to loose west-side residence."
+    },
+    {
+      "id": "w4_clinton_work_fringe",
+      "density_zone": "C",
+      "roofs": 10,
+      "description": "Sparse dwellings and the parcel's single anonymous freight shed on the westward wagon approach; open work ground is more important than a continuous frontage."
+    },
+    {
+      "id": "w5_desplaines_open_edge",
+      "density_zone": "D_edge",
+      "roofs": 8,
+      "description": "The outer edge: six small dwellings and two ancillary roofs separated by large gaps, terminating in visibly unbuilt wet prairie rather than filling the legal plat."
+    }
+  ],
+  "placements": [
+    {"id":"west_rec_001","cluster":"w1_canal_lake_mixed","family":"D1","inventory_class":"principal_functional","center_local_enu_m":[-214,-42],"footprint_ft":[18,22],"rotation_deg":1,"density_zone":"B"},
+    {"id":"west_rec_002","cluster":"w1_canal_lake_mixed","family":"D3","inventory_class":"principal_functional","center_local_enu_m":[-242,-48],"footprint_ft":[16,22],"rotation_deg":0,"density_zone":"B"},
+    {"id":"west_rec_003","cluster":"w1_canal_lake_mixed","family":"D4","inventory_class":"principal_functional","center_local_enu_m":[-274,-46],"footprint_ft":[20,28],"rotation_deg":-1,"density_zone":"B"},
+    {"id":"west_rec_004","cluster":"w1_canal_lake_mixed","family":"D5","inventory_class":"principal_functional","center_local_enu_m":[-308,-52],"footprint_ft":[20,30],"rotation_deg":2,"density_zone":"B"},
+    {"id":"west_rec_005","cluster":"w1_canal_lake_mixed","family":"D6","inventory_class":"principal_functional","center_local_enu_m":[-223,24],"footprint_ft":[22,30],"rotation_deg":91,"density_zone":"B"},
+    {"id":"west_rec_006","cluster":"w1_canal_lake_mixed","family":"H1","inventory_class":"principal_functional","center_local_enu_m":[-268,24],"footprint_ft":[26,34],"rotation_deg":89,"density_zone":"B"},
+    {"id":"west_rec_007","cluster":"w1_canal_lake_mixed","family":"C1","inventory_class":"principal_functional","center_local_enu_m":[-208,-122],"footprint_ft":[16,26],"rotation_deg":0,"density_zone":"B"},
+    {"id":"west_rec_008","cluster":"w1_canal_lake_mixed","family":"W1","inventory_class":"principal_functional","center_local_enu_m":[-246,-128],"footprint_ft":[20,28],"rotation_deg":1,"density_zone":"B"},
+    {"id":"west_rec_009","cluster":"w1_canal_lake_mixed","family":"W2","inventory_class":"principal_functional","center_local_enu_m":[-292,-130],"footprint_ft":[20,32],"rotation_deg":-2,"density_zone":"B"},
+    {"id":"west_rec_010","cluster":"w1_canal_lake_mixed","family":"A1","inventory_class":"ancillary","center_local_enu_m":[-218,-84],"footprint_ft":[16,24],"rotation_deg":2,"density_zone":"B","yard_group":"west_rec_001"},
+    {"id":"west_rec_011","cluster":"w1_canal_lake_mixed","family":"A3","inventory_class":"ancillary","center_local_enu_m":[-250,-86],"footprint_ft":[5,6],"rotation_deg":-3,"density_zone":"B","yard_group":"west_rec_002"},
+    {"id":"west_rec_012","cluster":"w1_canal_lake_mixed","family":"A4","inventory_class":"ancillary","center_local_enu_m":[-280,-88],"footprint_ft":[8,12],"rotation_deg":1,"density_zone":"B","yard_group":"west_rec_003"},
+    {"id":"west_rec_013","cluster":"w1_canal_lake_mixed","family":"A5","inventory_class":"ancillary","center_local_enu_m":[-314,-90],"footprint_ft":[8,10],"rotation_deg":-1,"density_zone":"B","yard_group":"west_rec_004"},
+
+    {"id":"west_rec_014","cluster":"w2_canal_randolph_teamster","family":"D1","inventory_class":"principal_functional","center_local_enu_m":[-214,-204],"footprint_ft":[18,24],"rotation_deg":0,"density_zone":"B"},
+    {"id":"west_rec_015","cluster":"w2_canal_randolph_teamster","family":"D2","inventory_class":"principal_functional","center_local_enu_m":[-246,-206],"footprint_ft":[14,20],"rotation_deg":2,"density_zone":"B"},
+    {"id":"west_rec_016","cluster":"w2_canal_randolph_teamster","family":"D3","inventory_class":"principal_functional","center_local_enu_m":[-278,-202],"footprint_ft":[18,22],"rotation_deg":-1,"density_zone":"B"},
+    {"id":"west_rec_017","cluster":"w2_canal_randolph_teamster","family":"D4","inventory_class":"principal_functional","center_local_enu_m":[-310,-208],"footprint_ft":[20,26],"rotation_deg":1,"density_zone":"B"},
+    {"id":"west_rec_018","cluster":"w2_canal_randolph_teamster","family":"D5","inventory_class":"principal_functional","center_local_enu_m":[-215,-276],"footprint_ft":[22,32],"rotation_deg":90,"density_zone":"B"},
+    {"id":"west_rec_019","cluster":"w2_canal_randolph_teamster","family":"D7","inventory_class":"principal_functional","center_local_enu_m":[-260,-278],"footprint_ft":[22,30],"rotation_deg":89,"density_zone":"B"},
+    {"id":"west_rec_020","cluster":"w2_canal_randolph_teamster","family":"C2","inventory_class":"principal_functional","center_local_enu_m":[-306,-280],"footprint_ft":[20,36],"rotation_deg":91,"density_zone":"B"},
+    {"id":"west_rec_021","cluster":"w2_canal_randolph_teamster","family":"W3","inventory_class":"principal_functional","center_local_enu_m":[-230,-338],"footprint_ft":[22,34],"rotation_deg":-1,"density_zone":"B"},
+    {"id":"west_rec_022","cluster":"w2_canal_randolph_teamster","family":"W4","inventory_class":"principal_functional","center_local_enu_m":[-284,-340],"footprint_ft":[18,26],"rotation_deg":2,"density_zone":"B"},
+    {"id":"west_rec_023","cluster":"w2_canal_randolph_teamster","family":"A1","inventory_class":"ancillary","center_local_enu_m":[-226,-242],"footprint_ft":[18,28],"rotation_deg":1,"density_zone":"B","yard_group":"west_rec_014"},
+    {"id":"west_rec_024","cluster":"w2_canal_randolph_teamster","family":"A2","inventory_class":"ancillary","center_local_enu_m":[-272,-242],"footprint_ft":[22,36],"rotation_deg":-2,"density_zone":"B","yard_group":"west_rec_016"},
+    {"id":"west_rec_025","cluster":"w2_canal_randolph_teamster","family":"A3","inventory_class":"ancillary","center_local_enu_m":[-316,-242],"footprint_ft":[5,7],"rotation_deg":3,"density_zone":"B","yard_group":"west_rec_017"},
+
+    {"id":"west_rec_026","cluster":"w3_jefferson_lake_residential","family":"D1","inventory_class":"principal_functional","center_local_enu_m":[-350,-48],"footprint_ft":[18,22],"rotation_deg":0,"density_zone":"C"},
+    {"id":"west_rec_027","cluster":"w3_jefferson_lake_residential","family":"D1","inventory_class":"principal_functional","center_local_enu_m":[-396,-54],"footprint_ft":[20,24],"rotation_deg":-2,"density_zone":"C"},
+    {"id":"west_rec_028","cluster":"w3_jefferson_lake_residential","family":"D2","inventory_class":"principal_functional","center_local_enu_m":[-438,-46],"footprint_ft":[14,22],"rotation_deg":2,"density_zone":"C"},
+    {"id":"west_rec_029","cluster":"w3_jefferson_lake_residential","family":"D3","inventory_class":"principal_functional","center_local_enu_m":[-356,-118],"footprint_ft":[18,24],"rotation_deg":91,"density_zone":"C"},
+    {"id":"west_rec_030","cluster":"w3_jefferson_lake_residential","family":"D3","inventory_class":"principal_functional","center_local_enu_m":[-410,-126],"footprint_ft":[16,22],"rotation_deg":88,"density_zone":"C"},
+    {"id":"west_rec_031","cluster":"w3_jefferson_lake_residential","family":"D4","inventory_class":"principal_functional","center_local_enu_m":[-450,-116],"footprint_ft":[20,28],"rotation_deg":90,"density_zone":"C"},
+    {"id":"west_rec_032","cluster":"w3_jefferson_lake_residential","family":"D4","inventory_class":"principal_functional","center_local_enu_m":[-354,-192],"footprint_ft":[22,28],"rotation_deg":-1,"density_zone":"C"},
+    {"id":"west_rec_033","cluster":"w3_jefferson_lake_residential","family":"D5","inventory_class":"principal_functional","center_local_enu_m":[-408,-198],"footprint_ft":[20,32],"rotation_deg":2,"density_zone":"C"},
+    {"id":"west_rec_034","cluster":"w3_jefferson_lake_residential","family":"D6","inventory_class":"principal_functional","center_local_enu_m":[-456,-190],"footprint_ft":[22,32],"rotation_deg":-2,"density_zone":"C"},
+    {"id":"west_rec_035","cluster":"w3_jefferson_lake_residential","family":"H2","inventory_class":"principal_functional","center_local_enu_m":[-368,-266],"footprint_ft":[28,38],"rotation_deg":1,"density_zone":"C"},
+    {"id":"west_rec_036","cluster":"w3_jefferson_lake_residential","family":"W5","inventory_class":"principal_functional","center_local_enu_m":[-438,-268],"footprint_ft":[28,48],"rotation_deg":-1,"density_zone":"C"},
+    {"id":"west_rec_037","cluster":"w3_jefferson_lake_residential","family":"A1","inventory_class":"ancillary","center_local_enu_m":[-390,-232],"footprint_ft":[16,26],"rotation_deg":2,"density_zone":"C","yard_group":"west_rec_033"},
+
+    {"id":"west_rec_038","cluster":"w4_clinton_work_fringe","family":"D1","inventory_class":"principal_functional","center_local_enu_m":[-486,42],"footprint_ft":[18,24],"rotation_deg":1,"density_zone":"C"},
+    {"id":"west_rec_039","cluster":"w4_clinton_work_fringe","family":"D1","inventory_class":"principal_functional","center_local_enu_m":[-538,48],"footprint_ft":[16,22],"rotation_deg":-2,"density_zone":"C"},
+    {"id":"west_rec_040","cluster":"w4_clinton_work_fringe","family":"D1","inventory_class":"principal_functional","center_local_enu_m":[-500,-36],"footprint_ft":[20,24],"rotation_deg":2,"density_zone":"C"},
+    {"id":"west_rec_041","cluster":"w4_clinton_work_fringe","family":"D2","inventory_class":"principal_functional","center_local_enu_m":[-550,-42],"footprint_ft":[16,22],"rotation_deg":-1,"density_zone":"C"},
+    {"id":"west_rec_042","cluster":"w4_clinton_work_fringe","family":"D3","inventory_class":"principal_functional","center_local_enu_m":[-486,-126],"footprint_ft":[18,22],"rotation_deg":89,"density_zone":"C"},
+    {"id":"west_rec_043","cluster":"w4_clinton_work_fringe","family":"D3","inventory_class":"principal_functional","center_local_enu_m":[-548,-134],"footprint_ft":[16,24],"rotation_deg":92,"density_zone":"C"},
+    {"id":"west_rec_044","cluster":"w4_clinton_work_fringe","family":"D4","inventory_class":"principal_functional","center_local_enu_m":[-494,-214],"footprint_ft":[20,30],"rotation_deg":0,"density_zone":"C"},
+    {"id":"west_rec_045","cluster":"w4_clinton_work_fringe","family":"D5","inventory_class":"principal_functional","center_local_enu_m":[-552,-220],"footprint_ft":[22,32],"rotation_deg":-2,"density_zone":"C"},
+    {"id":"west_rec_046","cluster":"w4_clinton_work_fringe","family":"F1","inventory_class":"principal_functional","center_local_enu_m":[-514,-304],"footprint_ft":[24,44],"rotation_deg":1,"density_zone":"C"},
+    {"id":"west_rec_047","cluster":"w4_clinton_work_fringe","family":"A1","inventory_class":"ancillary","center_local_enu_m":[-560,-302],"footprint_ft":[18,28],"rotation_deg":-1,"density_zone":"C","yard_group":"west_rec_046"},
+
+    {"id":"west_rec_048","cluster":"w5_desplaines_open_edge","family":"D1","inventory_class":"principal_functional","center_local_enu_m":[-588,74],"footprint_ft":[18,22],"rotation_deg":2,"density_zone":"D_edge"},
+    {"id":"west_rec_049","cluster":"w5_desplaines_open_edge","family":"D1","inventory_class":"principal_functional","center_local_enu_m":[-644,62],"footprint_ft":[16,24],"rotation_deg":-3,"density_zone":"D_edge"},
+    {"id":"west_rec_050","cluster":"w5_desplaines_open_edge","family":"D2","inventory_class":"principal_functional","center_local_enu_m":[-604,-58],"footprint_ft":[14,20],"rotation_deg":1,"density_zone":"D_edge"},
+    {"id":"west_rec_051","cluster":"w5_desplaines_open_edge","family":"D2","inventory_class":"principal_functional","center_local_enu_m":[-652,-152],"footprint_ft":[16,22],"rotation_deg":-2,"density_zone":"D_edge"},
+    {"id":"west_rec_052","cluster":"w5_desplaines_open_edge","family":"D3","inventory_class":"principal_functional","center_local_enu_m":[-596,-236],"footprint_ft":[18,24],"rotation_deg":3,"density_zone":"D_edge"},
+    {"id":"west_rec_053","cluster":"w5_desplaines_open_edge","family":"D4","inventory_class":"principal_functional","center_local_enu_m":[-654,-302],"footprint_ft":[20,28],"rotation_deg":-1,"density_zone":"D_edge"},
+    {"id":"west_rec_054","cluster":"w5_desplaines_open_edge","family":"A1","inventory_class":"ancillary","center_local_enu_m":[-618,-272],"footprint_ft":[16,24],"rotation_deg":2,"density_zone":"D_edge","yard_group":"west_rec_052"},
+    {"id":"west_rec_055","cluster":"w5_desplaines_open_edge","family":"A2","inventory_class":"ancillary","center_local_enu_m":[-668,-340],"footprint_ft":[22,36],"rotation_deg":-2,"density_zone":"D_edge","yard_group":"west_rec_053"}
+  ]
+}

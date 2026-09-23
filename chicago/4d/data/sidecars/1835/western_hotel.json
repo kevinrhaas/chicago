@@ -1,0 +1,233 @@
+{
+  "id": "western_hotel",
+  "phase": "frame_1834",
+  "name": "Western Hotel",
+  "aka": [
+    "Stow's hotel"
+  ],
+  "archetype": "frame_tavern",
+  "asset": "gltf/western_hotel__frame_1834.glb",
+  "scene": "1835",
+  "target_date": "1835-07-01",
+  "documented_range": {
+    "from": "1834-01-01",
+    "to": "1840-12-31",
+    "confidence": "inferred",
+    "sources": [
+      "chicagology_prefire278",
+      "drloih_hotels"
+    ],
+    "note": "THE BUILD DATE IS DISPUTED, 1834 AGAINST 1835, AND THE DISPUTE IS RESOLVED HERE RATHER THAN LEFT OPEN — but the reasoning matters, because the two dates mean different things for this scene. chicagology reports W. H. Stow, who 'came to Chicago about 1833', saying of his own hotel that 'it was built in 1834'. The hotel chronology says it 'opened in 1835'. 1834 is adopted because it is the BUILDER'S OWN STATEMENT about his own building, recorded with the same detail that gives the 40 ft front, the 60 ft wing and the yard, against an undated one-line entry in a chronology that also mis-sizes the building. THE PHASE MECHANISM WAS CONSIDERED AND DELIBERATELY NOT USED. If the 1835 date were right, the hotel might have been unfinished or brand new on 1835-07-01, and a construction phase would be the honest way to show that. But a construction phase would have to invent a start month, a duration and a state of completeness, none of which any source gives, and it would silently adopt the weaker date to do it. One completed phase on the better-attested date, with the alternative recorded here and in the dossier, claims less. If the 1835 date is ever confirmed, split this phase then. The end of the range is set at the end of 1840, past the last account reached that describes the house in operation; it is not a demolition date and no source reached gives one."
+  },
+  "change_note": "Built 1834 by W. H. Stow at the south-east corner of Randolph and Canal — a 40 ft front with a 60 ft wing in an L, a large stable and a yard the wagon trains drove into. Complete and in operation on the scene date under the adopted 1834 date.",
+  "placement": {
+    "local_e": -143.05,
+    "local_n": -281.67,
+    "rotation_deg": 0.0,
+    "position_confidence": "inferred",
+    "position_sources": [
+      "chicagology_prefire278",
+      "drloih_hotels",
+      "osm_streets_2026"
+    ],
+    "position_note": "PLACED 2026-08-09. The corner is documented and agreed by both sources — chicagology gives 'southeast corner of Randolph and Canal streets' and the hotel chronology gives 'the S.E. corner of Canal and Randolph streets' — but the COORDINATE is derived, so the tag follows the weaker half. MOVED 4.44 m ON 2026-08-10, and the move is the correction the control file owed. Method, the same as the Sauganash's: the modern intersection centre is read from OpenStreetMap and the footprint offset half an 80 ft platted street east and south of it, so that the building's west face sits on the Canal frontage and its north face on the Randolph frontage of a south-east corner lot; the offset south is taken from the footprint's north face, which is 18.29 m above its origin. WHAT CHANGED IS THE INTERSECTION CENTRE, not the method and not the corner. The 2026-08-09 reading (E 446919.6, N 4637148.5) was taken without recording which nodes it averaged, and re-deriving the junction on 2026-08-10 showed why that mattered: Randolph and Canal is a single crossing of the two street centrelines at E 446917.46, N 4637144.61, and the older number is reproduced only by averaging the roadway crossing together with three BIKEWAY crossings, which sit a few metres off the centrelines they follow. The road-only reading is adopted (data/traces/street_control.json § node_rule), so the origin is now 446917.46 + 12.192 east and 4637144.61 - 12.192 - 18.29 north. The building moves 2.14 m west and 3.89 m south. That is an order of magnitude inside the georeference's own ±20 m and changes nothing about the corner, the lot or the frontages; what it changes is that the coordinate can now be re-fetched from the source it cites, which it could not be before. Working uncertainty about 20 m, which is the georeference's, not an additional guess. Facade bearing 0, due north onto Randolph. WHICH STREET THE 40 FT FRONT FACED IS NOT ATTESTED: chicagology says only 'The front was about forty feet and the wing sixty feet. It was in an L.' Randolph is adopted because it was the through street from the west and this was the house 'for all the farmers town from the west', for farmers and teamsters. If the front was on Canal instead, the same L is rotated to bearing 270 and the wing runs east rather than south — an alternative that costs nothing to test once the lot geometry is read off Wright 1834.",
+    "symbolic_location": "South-east corner of Randolph Street and Canal Street, west side, one block south of the Green Tree; a 40 ft front with a 60 ft wing in an L, stables and a wagon yard behind, with entrances to the yard from both streets.",
+    "uncertainty_m": 20,
+    "placement_provisional": false,
+    "vertical_anchor": "terrain",
+    "walk_surface_m": null
+  },
+  "footprint": {
+    "polygon": [
+      [
+        0,
+        0
+      ],
+      [
+        7.0,
+        0
+      ],
+      [
+        7.0,
+        11.29
+      ],
+      [
+        12.19,
+        11.29
+      ],
+      [
+        12.19,
+        18.29
+      ],
+      [
+        0,
+        18.29
+      ]
+    ],
+    "confidence": "inferred",
+    "sources": [
+      "chicagology_prefire278"
+    ],
+    "note": "THE ENVELOPE IS ATTESTED AND THE PLAN IS NOT. Original units: 'The front was about forty feet and the wing sixty feet. It was in an L.' 40 ft = 12.19 m and 60 ft = 18.29 m, which is the polygon's bounding box exactly. What the source does not give is the arms' WIDTH, so the 7.0 m depth of the front range and of the wing is invented — chosen as about 23 ft, enough for a room and a passage, which is the shallowest width that makes an L rather than a solid block. Areas follow from that and are not attested: about 164 m2 on the ground, 1,770 sq ft. The word 'about' in 'about forty feet' is the source's own. DISPUTED: the hotel chronology calls the Western 'a small structure', which contradicts a 40 by 60 ft two-storey L outright. chicagology's figures are preferred because they come with the builder's account and with the yard and stable description; the chronology gives no dimensions at all, so 'small' is an impression, not a measurement. The stables and yard are attested and are NOT in this polygon."
+  },
+  "attributes": {
+    "stories": {
+      "value": 2,
+      "confidence": "attested",
+      "sources": [
+        "chicagology_prefire278"
+      ],
+      "note": "Described as a two-storey frame hotel."
+    },
+    "construction": {
+      "value": "balloon_frame",
+      "confidence": "inferred",
+      "sources": [
+        "chicagology_prefire278"
+      ],
+      "note": "Frame is attested; the framing METHOD is not. Balloon framing was developed in Chicago in 1832-33 and had become the dominant local method by the time this building went up, which makes it the better reading for 1834 — the opposite conclusion from the Sauganash of 1831, where the same reasoning argues for a braced frame. The distinction changes stud rhythm behind the sheathing and is not visible at this level of detail; it is recorded so the dataset's two frame taverns do not silently carry the same value for different reasons."
+    },
+    "cladding": {
+      "value": "clapboard",
+      "confidence": "inferred",
+      "note": "Not directly attested. Clapboard is the standard cladding for a frame building of this type and period.",
+      "geometry": "simplified"
+    },
+    "paint": {
+      "value": "unpainted",
+      "confidence": "inferred",
+      "note": "No source describes a finish. Unpainted weathered clapboard is the default for a working teamsters' house on the west side; by 1834-35 painted siding was becoming less remarkable in Chicago than it had been in 1831, so this is a weaker inference here than for the Wolf Point log buildings. Not attested either way."
+    },
+    "wall_height_m": {
+      "value": 5.5,
+      "confidence": "inferred",
+      "note": "No figure is attested for this building. 5.5 m is about 18 ft: two 8 ft storeys plus floor structure and a low sill course. What is inferred is that the wall height falls in this range, not that it is exactly 5.5 m. Compare the Green Tree, where an attested 7 1/2 ft ceiling gives a firmer 5.0 m."
+    },
+    "roof_type": {
+      "value": "gable",
+      "confidence": "inferred",
+      "note": "Not attested for this building. Gable is the near-universal roof form for frame buildings of this type, period and region. An L in plan implies two intersecting gables, which the archetype does not yet build."
+    },
+    "roof_pitch_deg": {
+      "value": 38.0,
+      "confidence": "inferred",
+      "note": "No pitch is attested. 38 degrees is mid-range for period gable framing. Inferred from construction practice, not measured."
+    },
+    "fenestration": {
+      "value": "regular_bays",
+      "confidence": "inferred",
+      "note": "No source describes the elevation. A regularly fenestrated front is the standard disposition for a two-storey hotel of this size, and that it was regularly fenestrated is safe; the bay COUNT and SPACING are inference.",
+      "geometry": "simplified"
+    },
+    "gallery": {
+      "value": false,
+      "confidence": "reconstructed",
+      "note": "No evidence either way, and no depiction of this building is held by the project. False is the default, not a finding. Worth flagging as genuinely open: a wagon house with entrances to the yard from both streets is exactly the building type that often carried a porch over the front door, and nothing here rules one out."
+    },
+    "stables": {
+      "value": true,
+      "confidence": "attested",
+      "sources": [
+        "chicagology_prefire278"
+      ],
+      "note": "'the large stable and the yard into which the trains were driven. There were entrances to the yard from both streets.' THE STABLE AND THE ENCLOSED WAGON YARD ARE THE POINT OF THIS BUILDING — it is the west-side teamsters' house and the yard is most of what a visitor would have seen from Randolph. Neither is dimensioned and neither is modelled by the frame_tavern archetype, so the yard, the stable range and the two gateways are an attested absence in the geometry. Recorded in docs/LIBERTIES.md.",
+      "geometry": "absent"
+    },
+    "chimneys": {
+      "value": 2,
+      "confidence": "inferred",
+      "note": "Not attested. A two-storey hotel of this size needed several fireplaces; two stacks is the normal minimum for an L of these proportions. The number is inference."
+    },
+    "siding_exposure_m": {
+      "value": 0.14,
+      "confidence": "reconstructed",
+      "note": "INVENTED WITHIN A STOCK SET, NOT DERIVED. No source states the exposed face of any Chicago building's siding. The value is one of four period mill sidings — 4.5, 5, 5.5 or 6 in to the weather; this record wears 5.5 in — dealt by tools/deal_siding_stock.py: keyed to the phase's construction season, because buildings sided from the same season's shipments of St Joseph sawn lumber tend toward one stock, then advanced so no frame building within 60 m shares this one's. The separation is the surface variety T-0049 reconstructs, not a claim about 1835. docs/LIBERTIES.md L148 owns the invention."
+    },
+    "function": {
+      "value": "tavern_inn",
+      "confidence": "attested",
+      "sources": [
+        "chicagology_prefire278"
+      ],
+      "note": "'the stopping place for all the farmers town from the west', accommodating 'farmers and teamsters, who constituted the traveling public' — the west-side wagon-trade house, distinct in clientele from the Green Tree a block north and from the Sauganash across the river. chicagology also calls it one of the best hotels in the town."
+    },
+    "occupants": {
+      "value": "W. H. Stow, builder and proprietor",
+      "confidence": "attested",
+      "sources": [
+        "chicagology_prefire278",
+        "drloih_hotels"
+      ],
+      "note": "Both sources have Stow building and operating the house; the hotel chronology says outright that it was 'built and operated by W.H. Stow'. He came to Chicago about 1833, so he is present at the scene date on either build date."
+    }
+  },
+  "residents": [
+    {
+      "household": "hh_stow_william_h",
+      "name": "The Stow household",
+      "division": "south",
+      "relation": "lived and worked here",
+      "why": "A landlord lived in his house; not stated.",
+      "sources": [
+        "andreas_1884_v1",
+        "drloih_hotels"
+      ],
+      "basis": "",
+      "persons": [
+        {
+          "name": "William H. Stow",
+          "relationship": "head",
+          "grade": "attested",
+          "occupation": "hotel_keeper",
+          "note": "Both sources have him building and operating the house, and he came to Chicago about 1833, so he is present at the scene date on either build date this project holds for the Western. Andreas's later city rosters carry a William H. Stow as an alderman in 1839, which corroborates the man's continuing residence and says nothing about 1835. OLD SETTLERS, 1882 — A DATE OF DEATH, AND NOTHING ABOUT 1835. John Wentworth's roll of old settlers who had died since 1 January 1881, kept for the Calumet Club and printed in the Chicago Tribune of 25 April 1882, carries “William H. stow, Aug. 18, 1881.”. That corroborates a Chicago residence before 1840 and fixes the END of this life, which this record did not carry; it is not an arrival and it places nobody in the town on 1 July 1835. Under the ratified ladder (T-0513) a later recollection corroborates, enriches and dates and cannot lift a rung by itself, so this record's GRADE IS UNCHANGED by it: T-0513 consolidates the identity and T-0515 regrades. Identity by rule OS1 — surname and spelled-out forename agree, one bearer (data/research/old_settlers/crosswalk.json). FERGUS 1839'S LATER LISTS — 1837 AND 1839 EVIDENCE, NEVER AN 1835 FACT. Fergus' Chicago Directory for 1839 names this person 1 time in its two later lists: the city register of 1839 — “William 1 1. Stow” as alderman (f1839_r0015, printed page 38). What a match may carry, and it depends on WHICH TABLE it landed in. A match on printed page 38, or on any row of the mayors' table, is 1839-or-later evidence: it says the man held that office in that year and was therefore in Chicago in that year, it is written with the row's own describes_date and never as an 1835 fact, and the person's grade does not move on it alone — a later appearance is corroboration of CONTINUED RESIDENCE, not of July 1835. A match on the sheriffs' rows of 1831, 1832, 1834 or 1836 is different in kind: the office is contemporary with the town, the 1834 row's term covers the scene date outright, and such a match carries reaches_scene. Even there the SOURCE is a retrospect — a table running to 1874, set in 1876 out of Old Settlers' recollections per the compiler's warning on printed page 3 — so it may be cited as a contemporary office and may not be graded `documented` without a second, nearer record. The ward on printed page 38 is a ward of the CITY of 1839 and places no house in the town of 1835. Identity by the crosswalk's own rule: Surname 'Stow' folds to the same string as the register entry's, and the given name of both begins W. (data/research/directories/fergus_1839_election_crosswalk_1835.json and fergus_1839_register_crosswalk_1835.json). This pass WRITES THE EVIDENCE AND MOVES NO GRADE. Under the ratified ladder (T-0513) a second independent source is what lifts a projected resident, and a poll twenty-two months after the scene date — or a register four years after it — is a second source about CONTINUED RESIDENCE rather than about July 1835. T-0515 applies the ladder against every source at once; this pass hands it the evidence and not the verdict. THE 1840 FEDERAL CENSUS — A HEAD FIVE YEARS AFTER THE SCENE, AND NEVER AN 1835 FACT. The 1840 federal census of Chicago, read line by line off the left sheets in this repository, carries 1 head of this name — “Wm. H. Stow” (33S7-9YYJ-9HY, printed page 225, line 20). This project has ruled the head a MATCH for this person: the full name agrees, it is unique on both sides, and a discriminator independent of the name — directory persistence — separately places the same person in Chicago after the 1840 book was taken. Under the rule that decided it (L6 matched), by the crosswalk's own ladder (data/research/census_1840/resident_crosswalk.json). LATER EVIDENCE ONLY. The ratified grading ladder binds: an 1839 or 1840 appearance alone is never an 1835 resident, and 1840 household composition is never back-projected to the 1835-07-01 scene. This pass WRITES THE EVIDENCE AND MOVES NO GRADE. Under the ratified ladder (T-0513) a second independent source is what lifts a projected resident, and an 1840 head is a second source about CONTINUED RESIDENCE rather than about who was living at Chicago on 1 July 1835. T-0515 applies the ladder against every source at once; this pass hands it the evidence and not the verdict."
+        }
+      ],
+      "research_note": "A BUILDER-LANDLORD, WHICH IS A COMMON EARLY-CHICAGO PATTERN AND ONE THE OCCUPATION FIELD CANNOT SHOW. Stow put the Western Hotel up and then ran it, and this dataset also holds western_hotel_stable under his name. The occupation vocabulary makes a single choice, so the building half of his life is in this note. NOTHING HERE ABOUT HIS FAMILY: a hotel of forty feet frontage with a wagon yard behind it was not run by one man alone, and every other person in it - servants, hostlers, cooks, his own household - is unattested and belongs to the inferred phase."
+    }
+  ],
+  "citations": [
+    {
+      "source_id": "andreas_1884_v1",
+      "citation": "Andreas, A. T. History of Chicago: From the Earliest Period to the Present Time. Vol. 1. Chicago: A. T. Andreas, 1884.",
+      "url": "https://archive.org/details/historyofchicago01andr",
+      "archived_url": "",
+      "tier": 3,
+      "tier_label": "compiled secondary (Andreas)"
+    },
+    {
+      "source_id": "chicagology_prefire278",
+      "citation": "\"Town of Chicago.\" Chicagology. Transcribing the Inter Ocean of 22 July 1883 — 'Old Chicago: The Town in 1833', which carries both the town's incorporation record and 'The Old Western Hotel', an interview feature with named old settlers who used the house.",
+      "url": "https://chicagology.com/prefire/prefire278/",
+      "archived_url": "https://web.archive.org/web/20260308051207/https://chicagology.com/prefire/prefire278/",
+      "tier": 2,
+      "tier_label": "near-primary recollection",
+      "transcribes": [
+        {
+          "work": "Inter Ocean, 'Old Chicago: The Town in 1833' — the section headed 'The Old Western Hotel: First Frame House on the West Side', with the reporter's description of the surviving fragment and interviews with old settlers and with the builder's son",
+          "date": "1883-07-22",
+          "tier": 2,
+          "note": "Carries all four Western Hotel claims in this dataset — the farmers' and teamsters' house, W. H. Stow as builder and proprietor, the original two storeys, and the large stable and wagon yard with entrances from both streets — and it carries the dispute over the build date that keeps the dated range at `inferred`. Men recalling a house they used: rung 2."
+        }
+      ]
+    },
+    {
+      "source_id": "drloih_hotels",
+      "citation": "\"A Chronology of Early Chicago Area Hotels.\" Digital Research Library of Illinois History Journal.",
+      "url": "https://drloihjournal.blogspot.com/2022/07/chronology-of-early-chicago-area-hotels.html",
+      "archived_url": "",
+      "tier": 4,
+      "tier_label": "later scholarship"
+    },
+    {
+      "source_id": "osm_streets_2026",
+      "citation": "OpenStreetMap contributors. Street centerline intersection nodes for downtown Chicago, retrieved via the Overpass API, 2026-08-09.",
+      "url": "https://www.openstreetmap.org/",
+      "archived_url": "https://overpass-api.de/",
+      "tier": 4,
+      "tier_label": "later scholarship"
+    }
+  ],
+  "research_note": "The teamsters' house on the west side, and the one record in this parcel where a disputed date could have changed what stands in the scene. chicagology dates it 1834 on W. H. Stow's own word and gives the description everything else here rests on — a 40 ft front and a 60 ft wing in an L, a large stable, a yard the wagon trains drove into with entrances from both streets, and a clientele of farmers and teamsters coming in from the west. The hotel chronology dates it 1835 and calls it 'a small structure', contradicting the size as well as the date. BOTH DISPUTES ARE DECIDED THE SAME WAY AND FOR THE SAME REASON: the builder's own account, with corroborating detail, beats an undated line in a chronology that is unfootnoted and demonstrably inconsistent elsewhere. THE PHASE MECHANISM WAS CONSIDERED FOR THE 1835 READING AND REJECTED — modelling a construction site would require inventing a start month, a build duration and a degree of completeness, which is more invention than the honest alternative of one completed phase with the dispute written down. The largest unmodelled thing about this building is not its date but its yard: the stable and the enclosed wagon court are attested, are most of the site, and are not built by the frame_tavern archetype. See docs/RESEARCH/western_hotel.md and docs/LIBERTIES.md.",
+  "research_doc": "docs/RESEARCH/western_hotel.md",
+  "review_required": false
+}

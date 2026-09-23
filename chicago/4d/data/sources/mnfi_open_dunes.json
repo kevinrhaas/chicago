@@ -1,0 +1,15 @@
+{
+  "id": "mnfi_open_dunes",
+  "type": "website",
+  "citation": "Michigan Natural Features Inventory. Open Dunes (natural community abstract). Michigan State University Extension.",
+  "author": "Michigan Natural Features Inventory",
+  "date": "accessed 2026-08-10",
+  "url": "https://mnfi.anr.msu.edu/communities/description/10699",
+  "locator": "the Open Dunes community abstract, characteristic species list",
+  "tier": 4,
+  "rights_status": "check_required",
+  "asset_use": "text_only",
+  "verified": false,
+  "access_notes": "Three retrieval attempts on 2026-08-10 returned an empty body, so the abstract was NOT read in this session. The Great Lakes open-dune species list cited to it here comes through the committed dossier docs/research/02-flora.md. No Wayback snapshot could be confirmed: the archive.org availability API returned HTTP 429 to this environment on 2026-08-10, so no archived_url is recorded rather than one being guessed at.",
+  "note": "The community abstract for Great Lakes open dunes, which is the closest modern classification to the 'white sand hills' of the 1835 Chicago lakefront. A Michigan classification applied to an Illinois shore of the same lake: appropriate for composition, and one more reason the lakeshore zone is recorded rather than rendered."
+}

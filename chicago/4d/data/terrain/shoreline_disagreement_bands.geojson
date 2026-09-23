@@ -1,0 +1,82 @@
+{
+  "type": "FeatureCollection",
+  "name": "dated shoreline disagreement bands",
+  "crs": {
+    "type": "name",
+    "properties": {
+      "name": "urn:ogc:def:crs:EPSG::26916"
+    }
+  },
+  "_doc": "Bands preserve the full spread between independently fitted shoreline readings. They are comparisons, not adopted shorelines and not terrain-generator inputs. tools/check_shoreline_states.py re-derives this polygon from the committed overlap table in lake_shore_below_twelfth.geojson and refuses a midpoint, a preferred line or a hand-edited spread.",
+  "features": [
+    {
+      "type": "Feature",
+      "id": "wright_1834_rees_1849_overlap",
+      "properties": {
+        "kind": "shoreline_source_disagreement_band",
+        "resolution": "unresolved",
+        "adopted_line": null,
+        "state_id": "shore_1835_harbor_cut",
+        "boundary_readings": [
+          {
+            "observed_date": "1834-01-01",
+            "source_id": "wright_1834",
+            "path": "epochs/e1834_harbor_cut/shoreline.geojson",
+            "feature_id": "south_shore_harbor_reach"
+          },
+          {
+            "observed_date": "1849-01-01",
+            "source_id": "rees_rucker_1849",
+            "path": "epochs/e1834_harbor_cut/lake_shore_below_twelfth.geojson",
+            "feature_id": "lake_shore_below_twelfth"
+          }
+        ],
+        "stations_local_n_m": [
+          -1300.0,
+          -1400.0,
+          -1500.0,
+          -1600.0,
+          -1700.0,
+          -1800.0,
+          -1900.0,
+          -2000.0
+        ],
+        "spread_m": {
+          "min": 50.0,
+          "max": 134.4,
+          "mean": 92.6
+        },
+        "confidence": "inferred",
+        "sources": [
+          "wright_1834",
+          "rees_rucker_1849"
+        ],
+        "note": "The 1849 reading lies west of the 1834 reading at all eight stations. The spread narrows from 134.4 m at N -1300 to 50.0 m at N -2000. It combines real post-pier erosion with each sheet's stated georeferencing uncertainty, so the honest object is the whole band. It must not be collapsed to a midpoint or relabelled as one exact 1835 shore."
+      },
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [
+          [
+            [448434.4, 4636095.8],
+            [448421.9, 4635995.8],
+            [448410.6, 4635895.8],
+            [448401.9, 4635795.8],
+            [448396.4, 4635695.8],
+            [448390.0, 4635595.8],
+            [448387.7, 4635495.8],
+            [448389.9, 4635395.8],
+            [448339.9, 4635395.8],
+            [448326.2, 4635495.8],
+            [448311.3, 4635595.8],
+            [448310.0, 4635695.8],
+            [448303.8, 4635795.8],
+            [448301.2, 4635895.8],
+            [448299.7, 4635995.8],
+            [448300.0, 4636095.8],
+            [448434.4, 4636095.8]
+          ]
+        ]
+      }
+    }
+  ]
+}

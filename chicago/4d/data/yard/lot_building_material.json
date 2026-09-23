@@ -1,0 +1,366 @@
+{
+  "_doc": "Building material stacked on the lots that were going up — the timber, stone and brick half of Ordinance 9, which T-0040 drew the boxes-and-barrels half of and refused the rest of in writing. The evidence is the same tier-1 ordinance (data/sources/chicago_democrat_1833_11_26.json) and it gives a TREATMENT and no location whatever, so 'which lot' is answered by a rule and tools/check.sh re-derives this file byte for byte. The rule's load-bearing clause is that the RECORD has to state the construction state itself: exactly one structure standing on the scene date does, and it states it attested. A pile of brick is NOT a structure record and NOT baked geometry — it is a small object standing on ground this project has already drawn, derived from a committed footprint and drawn by renderers/web/js/yard.js from these numbers alone, the same argument that lets data/enclosures/ draw a fence from a perimeter. docs/LIBERTIES.md L173 claims what is invented.",
+  "id": "lot_building_material",
+  "name": "Building material on the lots that were going up",
+  "kind": "lot_building_material",
+  "scene": "1835",
+  "target_date": "1835-07-01",
+  "coordinates": "Local East-North-Up metres from data/datum.json's origin, the same frame data/enclosures/ and data/signage/ and the sidecars' placement.local_e / placement.local_n use.",
+  "counts": {
+    "lots": 1,
+    "piles": 9,
+    "piles_by_kind": {
+      "brick": 4,
+      "timber": 3,
+      "stone": 2
+    },
+    "refused": 14
+  },
+  "census": {
+    "standing": 383,
+    "anonymous_refused": 284,
+    "named_examined": 99,
+    "named_with_1835_start_refused": 14,
+    "state_not_stated_refused": 98,
+    "qualified": 1
+  },
+  "existence": {
+    "value": "building material stood on the lots that were building in this town",
+    "confidence": "reconstructed",
+    "sources": [
+      "chicago_democrat_1833_11_26"
+    ],
+    "note": "THE TREATMENT IS ATTESTED AND THE PILE IS NOT. Ordinance 9 of 7 November 1833 legislates about timber, stone and brick stacked in the streets of this village, twenty months before the scene date and by the people who had to walk round them, and a corporation does not legislate against a thing nobody does. What no source states is that any material stood on THIS lot on THIS day, in this quantity, in these positions. So the layer's existence is reconstructed, the whole of it carries `reconstructed` at the vertex, and a visitor who hides reconstructed gets a bare building site back — which is the truthful behaviour and the same one the goods keep."
+  },
+  "ordinance": {
+    "source_id": "chicago_democrat_1833_11_26",
+    "value": "timber, stone, brick, boxes and barrels stacked in the streets, regulated by the village corporation",
+    "confidence": "attested",
+    "note": "Ordinance 9, 7 November 1833, printed complete in the Chicago Democrat of 26 November 1833. T-0040 drew the boxes and the barrels off this same clause and left the three building materials, saying in its own record that they are a different claim. This is that claim, and the difference is the whole of the rule below: a merchant's stock belongs to a trade, and building material belongs to a building that is going up."
+  },
+  "form": {
+    "brick_stack_m": {
+      "value": [
+        2.2,
+        1.1,
+        1.05
+      ],
+      "confidence": "reconstructed",
+      "note": "INVENTED. A stack 2.20 x 1.10 m on the ground and 1.05 m high — about 7 ft 3 by 3 ft 7 and 3 ft 5 — which is a barrow's round trip wide and as high as brick is comfortably stacked by hand. Nothing states how much brick stood on this lot or how it was piled. NO INDIVIDUAL BRICK IS DRAWN and no course is drawn either: generators/common/materials.py records that no source in this repository gives a brick or a course dimension, so the rate is unresolvable, and a course rhythm here would be a modern brick module wearing an 1835 date. The stack is drawn as stacked block in two stepped tiers, which reads as stacked brick without claiming a dimension."
+    },
+    "brick_tier_m": {
+      "value": [
+        0.18,
+        0.62
+      ],
+      "confidence": "reconstructed",
+      "note": "INVENTED — the step, and it is drawing rather than claim. The upper tier is set back 0.18 m on the lower and takes the top 38 per cent of the height. A single box reads as a crate; the step is what makes it read as material stacked by somebody."
+    },
+    "timber_stick_m": {
+      "value": [
+        3.66,
+        0.2,
+        0.2
+      ],
+      "confidence": "reconstructed",
+      "note": "INVENTED. A squared building stick 3.66 m by 0.20 m square — 12 ft by 8 in, recorded converted. Nothing attests a scantling, a length or a saw in Chicago on this date. What bounds it is what the timber is FOR: a floor joist and a scaffold standard in a building 15 m deep, and 12 ft is the shortest stick that spans a room of it."
+    },
+    "timber_pile": {
+      "value": [
+        5,
+        [
+          5,
+          4
+        ],
+        2
+      ],
+      "confidence": "reconstructed",
+      "note": "INVENTED, and it is how a pile is drawn rather than a claim about any pile. Five sticks side by side to a course, four or five courses high by the pile's own index, and the top course short by two — which is what a pile being worked off looks like and what stops two piles on one lot being the same object twice. All courses lie the same way: a stickered pile crosses its courses, and a crossing course at this pile's width would be a stick 1.0 m long, which is not the stick this record carries."
+    },
+    "stone_block_m": {
+      "value": [
+        0.7,
+        0.45,
+        0.35
+      ],
+      "confidence": "reconstructed",
+      "note": "INVENTED. A rough block 0.70 x 0.45 x 0.35 m — a two-man lift, which is what footing stone handled without a crane has to be. Nothing states a stone, a quarry or a course for this basement. The heap is nine of them in two tiers at their own angles, because rubble delivered to a site is tipped and not laid, and the angles are the renderer's the way a barrel's stave count is."
+    },
+    "stone_heap": {
+      "value": [
+        9,
+        2
+      ],
+      "confidence": "reconstructed",
+      "note": "INVENTED — nine blocks in two tiers. Drawing rather than claim, kept on the record with the block's size so the renderer reaches for no number of its own, the same division the goods' bench_plank_m makes."
+    },
+    "working_strip_m": {
+      "value": [
+        1.6,
+        1.0
+      ],
+      "confidence": "reconstructed",
+      "note": "INVENTED. The strip material stands in begins 1.60 m off the wall plane and stops 1.00 m short of each end of a face. Nothing states either. What bounds the first is the work: a bricklayer needs a gangway between his stack and his wall, and 1.60 m is a barrow and a man. What bounds the second is that a pile lapping the corner of the building would stand in the next face's strip."
+    },
+    "colours": {
+      "value": null,
+      "confidence": "reconstructed",
+      "geometry": "renderer",
+      "note": "THE BRICK IS NOT A NEW COLOUR AND THE STONE IS. Brick is this town's ONE brick — generators/common/materials.py's BRICK, inferred, off the Petford watercolour's brick chimneys, and the same brick every framed house in the scene carries on its stack; the material on this lot being that brick is the cheapest honest answer, because it is the fabric the record already attests. Stone has no row on the material sheet at all (substrate `stone` carries no colour), so its tone is reconstructed and BOUNDED by two values this project already ships: it is paler and greyer than the yard layer's own timber, or the heap stops reading as stone beside the sticks next to it, and it is darker than the chinking clay, which is the same mineral sitting sheltered under an eave. Timber is the yard layer's own timber tone unchanged — a sawn building stick and a packing case are the same new wood, and inventing a second one would be a claim about a saw."
+    }
+  },
+  "rule": {
+    "note": "A NAMED record (not inf_/recon_), whose own `attributes.function.value` ENDS `_under_construction` and is attested or inferred, standing on the scene date, placed with a committed footprint, and every pile clear of every committed footprint including its own. Which materials is dealt from what the record says the building is built OF, not from the ordinance's list in order. Where is arithmetic on the lot's own faces — one material to a face beginning at the face the record fronts and going round it, as many piles as the face's run holds at the material's pitch, capped. Read the clauses and their reasons in tools/generate_lot_building_material.py.",
+    "construction_suffix": "_under_construction",
+    "face_order": [
+      "brick",
+      "timber",
+      "stone"
+    ],
+    "caps": {
+      "brick": 4,
+      "timber": 3,
+      "stone": 2
+    },
+    "date_test_refused_note": "THE CLAUSE THIS RULE DOES NOT HAVE IS A DATE TEST, and refusing to write one is the finding. `documented_range.from` inside 1835 is the nearest thing to a start date this dataset carries and it is not one: for the named records it is a FIRST ATTESTATION — a newspaper's first issue on 8 June 1835, a directory line, a deed — and for the 256 anonymous infill records it is a PROGRAMME date, which docs/LIBERTIES.md L126 states in as many words. Fourteen named records carry an 1835 opening and every one of them is refused by name in `refused` below with that reason. A date test would have dealt stacks of brick to a boarding house that had been standing a year, and to two hundred and fifty invented lots.",
+    "street_refused_note": "AND IT DOES NOT PUT ANYTHING IN THE STREET, which is what the ordinance actually legislated against. The one qualifying lot's own position note carries a working uncertainty of about 20 m and says which side of Rush Street it stands on is not documented at all; the traced centreline of Michigan Street in data/streets/1835.json runs some 30 m north of where this record's own georeference puts the frontage. Two numbers that disagree by more than the object is wide cannot place a stack of brick in a roadway, so the material stands on the LOT — which is where the ticket asked for it — and the street half of Ordinance 9 stays undrawn and said so."
+  },
+  "lots": [
+    {
+      "structure_id": "lake_house_construction",
+      "name": "Lake House (under construction)",
+      "function": "hotel_under_construction",
+      "function_confidence": "attested",
+      "function_sources": [
+        "andreas_1884_v1",
+        "chicagology_prefire112"
+      ],
+      "construction": "brick",
+      "construction_confidence": "attested",
+      "why_building": "the record states the construction state itself: its function on the scene date is a building site, and its roof_type is `none` for the same reason. It is the only structure in this scene that does.",
+      "confidence": "reconstructed",
+      "facade_bearing_deg": 0.0,
+      "wall_clear_m": 1.6,
+      "ground_quad_local_enu_m": [
+        [
+          1061.21,
+          341.21
+        ],
+        [
+          1085.21,
+          341.21
+        ],
+        [
+          1085.21,
+          356.21
+        ],
+        [
+          1061.21,
+          356.21
+        ]
+      ],
+      "items": [
+        {
+          "kind": "brick",
+          "at_local_enu_m": [
+            1068.41,
+            358.36
+          ],
+          "bearing_deg": 0.0,
+          "face": "front",
+          "why_material": "the record's `construction` is brick and `attested` — Andreas: 'this hotel, which was built of brick, was three stories and a basement in height'",
+          "tiers": 2
+        },
+        {
+          "kind": "brick",
+          "at_local_enu_m": [
+            1071.61,
+            358.36
+          ],
+          "bearing_deg": 0.0,
+          "face": "front",
+          "why_material": "the record's `construction` is brick and `attested` — Andreas: 'this hotel, which was built of brick, was three stories and a basement in height'",
+          "tiers": 2
+        },
+        {
+          "kind": "brick",
+          "at_local_enu_m": [
+            1074.81,
+            358.36
+          ],
+          "bearing_deg": 0.0,
+          "face": "front",
+          "why_material": "the record's `construction` is brick and `attested` — Andreas: 'this hotel, which was built of brick, was three stories and a basement in height'",
+          "tiers": 2
+        },
+        {
+          "kind": "brick",
+          "at_local_enu_m": [
+            1078.01,
+            358.36
+          ],
+          "bearing_deg": 0.0,
+          "face": "front",
+          "why_material": "the record's `construction` is brick and `attested` — Andreas: 'this hotel, which was built of brick, was three stories and a basement in height'",
+          "tiers": 2
+        },
+        {
+          "kind": "timber",
+          "at_local_enu_m": [
+            1087.31,
+            353.51
+          ],
+          "bearing_deg": 90.0,
+          "face": "right",
+          "why_material": "a three-storey building of the period is floored, joisted and roofed in timber and is laid from timber scaffolding; Martineau sat in the unfinished building on 'planks laid on trestles'",
+          "courses": 5
+        },
+        {
+          "kind": "timber",
+          "at_local_enu_m": [
+            1087.31,
+            348.71
+          ],
+          "bearing_deg": 90.0,
+          "face": "right",
+          "why_material": "a three-storey building of the period is floored, joisted and roofed in timber and is laid from timber scaffolding; Martineau sat in the unfinished building on 'planks laid on trestles'",
+          "courses": 4
+        },
+        {
+          "kind": "timber",
+          "at_local_enu_m": [
+            1087.31,
+            343.91
+          ],
+          "bearing_deg": 90.0,
+          "face": "right",
+          "why_material": "a three-storey building of the period is floored, joisted and roofed in timber and is laid from timber scaffolding; Martineau sat in the unfinished building on 'planks laid on trestles'",
+          "courses": 5
+        },
+        {
+          "kind": "stone",
+          "at_local_enu_m": [
+            1074.51,
+            339.05
+          ],
+          "bearing_deg": 180.0,
+          "face": "rear",
+          "why_material": "Andreas gives the building a basement in the same sentence that gives it its brick, and a basement is masonry footing before it is anything else",
+          "blocks": 9
+        },
+        {
+          "kind": "stone",
+          "at_local_enu_m": [
+            1071.91,
+            339.05
+          ],
+          "bearing_deg": 180.0,
+          "face": "rear",
+          "why_material": "Andreas gives the building a basement in the same sentence that gives it its brick, and a basement is masonry footing before it is anything else",
+          "blocks": 9
+        }
+      ]
+    }
+  ],
+  "refused": [
+    {
+      "structure_id": "brown_boarding_house",
+      "name": "Rufus Brown's Boarding House",
+      "function": "boarding_house",
+      "documented_range_from": "1835-01-01",
+      "why": "its documented range opens inside 1835, which is the nearest thing to a start date this dataset carries and is NOT one: it is the date the record is first attested — a first issue, a directory line, a deed — and the record nowhere says the building was going up on the scene date. Clause 2 asks the record to SAY it, and this one does not."
+    },
+    {
+      "structure_id": "chicago_american_office",
+      "name": "The Chicago American Office",
+      "function": "printing_office",
+      "documented_range_from": "1835-06-08",
+      "why": "its documented range opens inside 1835, which is the nearest thing to a start date this dataset carries and is NOT one: it is the date the record is first attested — a first issue, a directory line, a deed — and the record nowhere says the building was going up on the scene date. Clause 2 asks the record to SAY it, and this one does not."
+    },
+    {
+      "structure_id": "frederick_thomas_shop",
+      "name": "Frederick Thomas's Shop",
+      "function": "drug_store",
+      "documented_range_from": "1835-06-08",
+      "why": "its documented range opens inside 1835, which is the nearest thing to a start date this dataset carries and is NOT one: it is the date the record is first attested — a first issue, a directory line, a deed — and the record nowhere says the building was going up on the scene date. Clause 2 asks the record to SAY it, and this one does not."
+    },
+    {
+      "structure_id": "harmon_log_cabin",
+      "name": "Dr Elijah Harmon's Cabin",
+      "function": "dwelling",
+      "documented_range_from": "1835-01-01",
+      "why": "its documented range opens inside 1835, which is the nearest thing to a start date this dataset carries and is NOT one: it is the date the record is first attested — a first issue, a directory line, a deed — and the record nowhere says the building was going up on the scene date. Clause 2 asks the record to SAY it, and this one does not."
+    },
+    {
+      "structure_id": "heacock_house_monroe",
+      "name": "Russel E. Heacock's House, Monroe Street",
+      "function": "dwelling",
+      "documented_range_from": "1835-01-01",
+      "why": "its documented range opens inside 1835, which is the nearest thing to a start date this dataset carries and is NOT one: it is the date the record is first attested — a first issue, a directory line, a deed — and the record nowhere says the building was going up on the scene date. Clause 2 asks the record to SAY it, and this one does not."
+    },
+    {
+      "structure_id": "john_holbrook_store",
+      "name": "John Holbrook's Clothing Store",
+      "function": "store",
+      "documented_range_from": "1835-06-10",
+      "why": "its documented range opens inside 1835, which is the nearest thing to a start date this dataset carries and is NOT one: it is the date the record is first attested — a first issue, a directory line, a deed — and the record nowhere says the building was going up on the scene date. Clause 2 asks the record to SAY it, and this one does not."
+    },
+    {
+      "structure_id": "mason_blacksmith_shop",
+      "name": "Matthias Mason & Co.'s Blacksmith Shop",
+      "function": "blacksmith_shop",
+      "documented_range_from": "1835-01-01",
+      "why": "its documented range opens inside 1835, which is the nearest thing to a start date this dataset carries and is NOT one: it is the date the record is first attested — a first issue, a directory line, a deed — and the record nowhere says the building was going up on the scene date. Clause 2 asks the record to SAY it, and this one does not."
+    },
+    {
+      "structure_id": "north_pier",
+      "name": "North Pier",
+      "function": "harbour_works",
+      "documented_range_from": "1835-06-01",
+      "why": "its documented range opens inside 1835, which is the nearest thing to a start date this dataset carries and is NOT one: it is the date the record is first attested — a first issue, a directory line, a deed — and the record nowhere says the building was going up on the scene date. Clause 2 asks the record to SAY it, and this one does not."
+    },
+    {
+      "structure_id": "physicians_office",
+      "name": "Reconstructed physicians office (physician)",
+      "function": "physicians_office",
+      "documented_range_from": "1835-01-01",
+      "why": "its documented range opens inside 1835, which is the nearest thing to a start date this dataset carries and is NOT one: it is the date the record is first attested — a first issue, a directory line, a deed — and the record nowhere says the building was going up on the scene date. Clause 2 asks the record to SAY it, and this one does not."
+    },
+    {
+      "structure_id": "south_pier",
+      "name": "South Pier",
+      "function": "harbour_works",
+      "documented_range_from": "1835-06-01",
+      "why": "its documented range opens inside 1835, which is the nearest thing to a start date this dataset carries and is NOT one: it is the date the record is first attested — a first issue, a directory line, a deed — and the record nowhere says the building was going up on the scene date. Clause 2 asks the record to SAY it, and this one does not."
+    },
+    {
+      "structure_id": "steamboat_hotel",
+      "name": "Steamboat Hotel",
+      "function": "hotel",
+      "documented_range_from": "1835-01-01",
+      "why": "its documented range opens inside 1835, which is the nearest thing to a start date this dataset carries and is NOT one: it is the date the record is first attested — a first issue, a directory line, a deed — and the record nowhere says the building was going up on the scene date. Clause 2 asks the record to SAY it, and this one does not."
+    },
+    {
+      "structure_id": "temple_lake_st_building",
+      "name": "Dr Temple's Building, Lake Street",
+      "function": "office_and_lodging",
+      "documented_range_from": "1835-01-01",
+      "why": "its documented range opens inside 1835, which is the nearest thing to a start date this dataset carries and is NOT one: it is the date the record is first attested — a first issue, a directory line, a deed — and the record nowhere says the building was going up on the scene date. Clause 2 asks the record to SAY it, and this one does not."
+    },
+    {
+      "structure_id": "wright_building_to_let_a",
+      "name": "John Wright's Building to Let (a)",
+      "function": "dwelling_to_let",
+      "documented_range_from": "1835-01-01",
+      "why": "its documented range opens inside 1835, which is the nearest thing to a start date this dataset carries and is NOT one: it is the date the record is first attested — a first issue, a directory line, a deed — and the record nowhere says the building was going up on the scene date. Clause 2 asks the record to SAY it, and this one does not."
+    },
+    {
+      "structure_id": "wright_building_to_let_b",
+      "name": "John Wright's Building to Let (b)",
+      "function": "dwelling_to_let",
+      "documented_range_from": "1835-01-01",
+      "why": "its documented range opens inside 1835, which is the nearest thing to a start date this dataset carries and is NOT one: it is the date the record is first attested — a first issue, a directory line, a deed — and the record nowhere says the building was going up on the scene date. Clause 2 asks the record to SAY it, and this one does not."
+    }
+  ],
+  "research_note": "WHAT WOULD MOVE ANY OF THIS. A second building site: any record that states a construction state on 1835-07-01 gets material by the same rule the day it is written, and the queue's own block programme is the likeliest source of one. A groundbreaking date for the Lake House: the 1835 groundbreaking is carried only by two unfootnoted compilations, and the record says so at length — a dated newspaper notice, a subscription list or a builder's account would move the whole structure off inferred. A brick dimension: any Chicago brick of the 1830s measured or stated would let a stack be drawn in courses instead of as block. A quarry: nothing reached says where footing stone for a north-side cellar came from, and the answer would give the heap a colour it currently has to bound."
+}

@@ -1,0 +1,891 @@
+{
+  "schema": 1,
+  "issue_id": "chicago_democrat_1834_09_17",
+  "extracted": "2026-08-28",
+  "extracted_by": "hand, T-0291 — the Democrat read, September 1834",
+  "note": "Vol. I No. 42. The town is on page 3, and page 3 column 3 is the Tesseract fallback carrying the week's new matter — the two deaths, J. L. Wilson & Co.'s opening, the Carli auction, the Green Bay mail proposals — as one printed column with a second printed column set beside it on the same lines, which is why every claim from it uses `locator.spans`. The paper's own colophon is on page 4 column 6.",
+  "claims": [
+    {
+      "id": "c001",
+      "kind": "person",
+      "reading": "transcription_mediated",
+      "quote": "town, on the 11th inst, of billions fe-\ninflamation in the bowel, Mr. James\ney, aged 22 years anda few months,\na merchant of the city of New-York.\nsung man was returning from Galena,\naken sick about three weeks ogo. He!\ntelligent young man, and sprung from\nble und wealthy family from Schuyl-\ny, Pa, May his soul rest in peace.—",
+      "normalized": "[Died, in this] town, on the 11th inst, of bil[i]o[u]s fe[ver and] inflam[m]ation in the bowel, Mr. James [uncertain: —]ey, aged 22 years and a few months, a merchant of the city of New-York. [This yo]ung man was returning from Galena, [and was t]aken sick about three weeks ago. He [was an in]telligent young man, and sprung from [a respecta]ble [a]nd wealthy family from Schuyl[kill count]y, Pa. May his soul rest in peace.—",
+      "locator": {
+        "artifact_role": "primary",
+        "issue_page": 3,
+        "column": 3,
+        "lines": [
+          2750,
+          2759
+        ],
+        "lines_of_claim": [
+          2751,
+          2752,
+          2753,
+          2754,
+          2755,
+          2756,
+          2757,
+          2758,
+          2759
+        ],
+        "spans": [
+          {
+            "line": 2751,
+            "from": 0,
+            "to": 39
+          },
+          {
+            "line": 2752,
+            "from": 0,
+            "to": 35
+          },
+          {
+            "line": 2753,
+            "from": 0,
+            "to": 34
+          },
+          {
+            "line": 2754,
+            "from": 0,
+            "to": 35
+          },
+          {
+            "line": 2755,
+            "from": 0,
+            "to": 35
+          },
+          {
+            "line": 2756,
+            "from": 0,
+            "to": 36
+          },
+          {
+            "line": 2757,
+            "from": 0,
+            "to": 36
+          },
+          {
+            "line": 2758,
+            "from": 0,
+            "to": 35
+          },
+          {
+            "line": 2759,
+            "from": 0,
+            "to": 35
+          }
+        ]
+      },
+      "entities": [
+        {
+          "as_printed": "Mr. James",
+          "normalized": "James, Mr. [surname illegible]",
+          "role": "decedent",
+          "occupations": [
+            "merchant"
+          ]
+        }
+      ],
+      "notes": "A DEATH IN THE TOWN ON 11 SEPTEMBER 1834 — bilious fever and inflammation of the bowel, a 22-year-old New York merchant on his way back from Galena. THE SURNAME IS CUT: line 2752 ends 'Mr. James' and line 2753 opens 'ey,', so the printed name was 'James [—]ey' and the middle of it went with the column edge. The person is minted with the illegibility IN the name rather than left out, because a death in the town in the scene year's neighbourhood is worth a card even when the card cannot be completed, and a later witness may finish it. 'billions' → 'bil[i]o[u]s' and 'ogo' → 'ago' are recognition-class."
+    },
+    {
+      "id": "c002",
+      "kind": "person",
+      "reading": "transcription_mediated",
+      "quote": "town on the 7th ult), Dropay in his\nles Rollins, only son of Mr. John\nJr., aged 2 years and 10 months.\norfing sun went down at noon.”",
+      "normalized": "[Died, in this] town on the 7th [inst.], [of] Drop[s]y in his [head, Char]les Rollins, only son of Mr. John [Rollins,] Jr., aged 2 years and 10 months. [“The m]orning sun went down at noon.”",
+      "locator": {
+        "artifact_role": "primary",
+        "issue_page": 3,
+        "column": 3,
+        "lines": [
+          2760,
+          2764
+        ],
+        "lines_of_claim": [
+          2761,
+          2762,
+          2763,
+          2764
+        ],
+        "spans": [
+          {
+            "line": 2761,
+            "from": 0,
+            "to": 35
+          },
+          {
+            "line": 2762,
+            "from": 0,
+            "to": 33
+          },
+          {
+            "line": 2763,
+            "from": 0,
+            "to": 32
+          },
+          {
+            "line": 2764,
+            "from": 0,
+            "to": 30
+          }
+        ]
+      },
+      "entities": [
+        {
+          "as_printed": "les Rollins",
+          "normalized": "Rollins, Charles",
+          "role": "decedent"
+        },
+        {
+          "as_printed": "Mr. John",
+          "normalized": "Rollins, John, Jr.",
+          "role": "parent"
+        }
+      ],
+      "notes": "A two-year-old's death, and the father's surname is supplied from the child's: the notice prints 'only son of Mr. John' and the column edge takes the rest, and a son named Rollins whose father is 'Mr. John — Jr.' gives 'John Rollins, Jr.' The given name Charles is likewise the tail of 'les' at line 2762 with the head cut. 'ult)' is read '[inst.]' with the bracket flagged: a death 'in this town on the 7th' reported on the 17th is more probably the current month, but the paper prints ult. and the quote keeps it."
+    },
+    {
+      "id": "c003",
+      "kind": "business",
+      "reading": "transcription_mediated",
+      "quote": "WY GiBODS.\n|, L. WILSON & CO.\niow pening an extensive stock of\nGaods, Groceries Hardware Crockery,\ncoes, wloths, sattinetts, cipcassians, eel\nnectings, ‘Tickings, Kc. Ready male\nfen, Sugar, pepper, spice. liquors, Ae,\nspades, brass kettles, butts, screws,\night iron hinges, Ko,\nNAILS, and Widow Glace.\nt, next door to the “ci boot shoo knd\nre. Chicagy, Sept. Inst, 42",
+      "normalized": "[NE]W G[OO]DS. [J]. L. WILSON & CO. [are n]ow [o]pening an extensive stock of [Dry] Goods, Groceries, Hardware, Crockery, [cali]coes, [c]loths, sattinetts, ci[r]cassians, [flannels, sh]e[e]tings, Tickings, &c. Ready ma[d]e [clothing …] [cof]fee, Sugar, pepper, spice, liquors, &c., [shovels,] spades, brass kettles, butts, screws, [wro]ught iron hinges, &c., [TROY] NAILS, and W[in]dow Glas[s]. [Dearborn s]t., next door to the “ci[ty] boot[,] sho[e] [a]nd [leather sto]re. Chicag[o], Sept. [17th], [1834]. 42",
+      "locator": {
+        "artifact_role": "primary",
+        "issue_page": 3,
+        "column": 3,
+        "lines": [
+          2766,
+          2779
+        ],
+        "lines_of_claim": [
+          2767,
+          2768,
+          2769,
+          2770,
+          2771,
+          2772,
+          2774,
+          2775,
+          2776,
+          2777,
+          2778,
+          2779
+        ],
+        "spans": [
+          {
+            "line": 2767,
+            "from": 0,
+            "to": 10
+          },
+          {
+            "line": 2768,
+            "from": 0,
+            "to": 18
+          },
+          {
+            "line": 2769,
+            "from": 0,
+            "to": 32
+          },
+          {
+            "line": 2770,
+            "from": 0,
+            "to": 35
+          },
+          {
+            "line": 2771,
+            "from": 0,
+            "to": 42
+          },
+          {
+            "line": 2772,
+            "from": 0,
+            "to": 35
+          },
+          {
+            "line": 2774,
+            "from": 0,
+            "to": 39
+          },
+          {
+            "line": 2775,
+            "from": 0,
+            "to": 37
+          },
+          {
+            "line": 2776,
+            "from": 0,
+            "to": 21
+          },
+          {
+            "line": 2777,
+            "from": 0,
+            "to": 23
+          },
+          {
+            "line": 2778,
+            "from": 0,
+            "to": 37
+          },
+          {
+            "line": 2779,
+            "from": 0,
+            "to": 27
+          }
+        ]
+      },
+      "entities": [
+        {
+          "as_printed": "L. WILSON & CO.",
+          "normalized": "Wilson, J. L. & Co.",
+          "role": "proprietor",
+          "occupations": [
+            "merchant"
+          ],
+          "associated_places": [
+            "Dearborn Street"
+          ]
+        }
+      ],
+      "ad_copy_date": {
+        "verbatim": "re. Chicagy, Sept. Inst, 42",
+        "iso": "1834-09-17"
+      },
+      "business": {
+        "name": "J. L. Wilson & Co.",
+        "proprietors": [
+          "J. L. Wilson & Co."
+        ],
+        "trade": "dry goods, groceries, hardware and crockery",
+        "goods": [
+          "Dry Goods",
+          "Groceries",
+          "Hardware",
+          "Crockery",
+          "Calicoes",
+          "Cloths",
+          "Sattinetts",
+          "Circassians",
+          "Flannels",
+          "Sheetings",
+          "Tickings",
+          "Ready made clothing",
+          "Coffee",
+          "Sugar",
+          "Pepper",
+          "Spice",
+          "Liquors",
+          "Shovels",
+          "Spades",
+          "Brass Kettles",
+          "Butts",
+          "Screws",
+          "Wrought iron hinges",
+          "Troy Nails",
+          "Window Glass"
+        ],
+        "street": "Dearborn Street",
+        "placement": {
+          "class": "relative",
+          "anchor": "the city boot, shoe and leather store",
+          "offset_text": "t, next door to the “ci boot shoo knd\nre. Chicagy, Sept. Inst, 42",
+          "offset_normalized": "Dearborn street, next door to the “city boot, shoe and leather store”",
+          "street": "Dearborn Street"
+        }
+      },
+      "notes": "A SECOND NEW HOUSE OPENING IN SEPTEMBER 1834, and this one on DEARBORN STREET — the month's only Dearborn-street storefront besides Botsford's corner. The street name is cut to 't,' here and is printed whole in the same advertisement at 1834-09-24 page 3 column 3 lines 2967-2969, 'Dearborn st. next door to the “cit' / 'ROY NAILS, and Windo' / 'leather store.', which also supplies TROY for the nails. The anchor — a boot, shoe and leather store the paper calls the 'city' one — is not otherwise placed in the corpus, so this offset chains to a shop the model cannot yet put down; that is recorded rather than resolved."
+    },
+    {
+      "id": "c004",
+      "kind": "notice",
+      "reading": "transcription_mediated",
+      "quote": "Wanted\nRNEYMAN Watch-inaker, one who\name well recommended and is a first\nman, will find constant employ and\n‘ages by applying to\nJ.-H. MULFORD.\nSept. 17, lett.",
+      "normalized": "Wanted. [A JOU]RNEYMAN Watch-ma[k]er, one who [c]a[n c]ome well recommended and is a first [rate work]man, will find constant employ and [first rate w]ages by applying to J. H. MULFORD. Sept. 17, 18[34].",
+      "locator": {
+        "artifact_role": "primary",
+        "issue_page": 3,
+        "column": 3,
+        "lines": [
+          2780,
+          2786
+        ],
+        "lines_of_claim": [
+          2780,
+          2781,
+          2782,
+          2783,
+          2784,
+          2785,
+          2786
+        ],
+        "spans": [
+          {
+            "line": 2780,
+            "from": 0,
+            "to": 6
+          },
+          {
+            "line": 2781,
+            "from": 0,
+            "to": 29
+          },
+          {
+            "line": 2782,
+            "from": 0,
+            "to": 35
+          },
+          {
+            "line": 2783,
+            "from": 0,
+            "to": 34
+          },
+          {
+            "line": 2784,
+            "from": 0,
+            "to": 20
+          },
+          {
+            "line": 2785,
+            "from": 0,
+            "to": 14
+          },
+          {
+            "line": 2786,
+            "from": 0,
+            "to": 15
+          }
+        ]
+      },
+      "entities": [
+        {
+          "as_printed": "J.-H. MULFORD.",
+          "normalized": "Mulford, J. H.",
+          "role": "advertiser",
+          "occupations": [
+            "watchmaker",
+            "jeweller"
+          ]
+        }
+      ],
+      "ad_copy_date": {
+        "verbatim": "Sept. 17, lett.",
+        "iso": "1834-09-17"
+      },
+      "notes": "A trade the town could not fill locally: Mulford runs the same want through 1834-09-10 (page 3 column 3 line 2729) and 1834-09-24 (page 3 column 3 line 2971) without it being taken up. 'lett.' is the segmenter's ruin of the year and the date is fixed by the insertion's own 'Sept. 17' and by its first appearance."
+    },
+    {
+      "id": "c005",
+      "kind": "notice",
+      "reading": "transcription_mediated",
+      "quote": "TED immodeate'y two or three Intian Cc Ritts\nelry Manufacturers, to how Twill} site the Tren\nd, not better wages thanean be got} ho , ready 1\néin te countr free dee OW\nE J. UW, MULPORD. band moet libe\n1834, fi | Chicagen N",
+      "normalized": "[WAN]TED imm[e]d[i]ate[l]y two or three Indian [Jew]elry Manufacturers, to [w]ho[m I will] [give as goo]d, [i]f not better wages than can be got [anywher]e in t[h]e countr[y]. [J]. H. MULFORD. [Sept. 17,] 1834.",
+      "locator": {
+        "artifact_role": "primary",
+        "issue_page": 3,
+        "column": 3,
+        "lines": [
+          2800,
+          2806
+        ],
+        "lines_of_claim": [
+          2801,
+          2802,
+          2803,
+          2804,
+          2805,
+          2806
+        ]
+      },
+      "entities": [
+        {
+          "as_printed": "E J. UW, MULPORD.",
+          "normalized": "Mulford, J. H.",
+          "role": "advertiser",
+          "occupations": [
+            "watchmaker",
+            "jeweller"
+          ]
+        }
+      ],
+      "notes": "INDIAN JEWELLERY MADE IN CHICAGO, and two or three hands wanted for it in September 1834 — silver trade ornaments for the Potawatomi annuity trade, a fortnight before the payment D. Carver's dun waits on (1834-09-10 c010). The reading of the trade is supported by the fuller witness at 1834-09-24 page 3 column 3 lines 2993-2996, 'FANTED immedeately two or three Indian / ive as good, if not better wages than can be go / lewelry Manufacturers / in any place in the country: . MU. FORD.', which also gives 'in any place in the country'. The right-hand strip is not cut off these lines because the neighbouring column's text does not reach them."
+    },
+    {
+      "id": "c006",
+      "kind": "building",
+      "reading": "transcription_mediated",
+      "quote": "Peblic Auction.\nwi, i sould on the\nen 5th Oct.\non ered ofone year,\n= he atore ocenpicd by\nER Pi. Carli, Exq. as a\ncabs faney store, on tre\nNOfSGS:C; Hogat'a lot. Togethert\npatents ata fiberal credit; buildiag\non bo exa:nined at any time provious\nSept 17,1 34. MATT",
+      "normalized": "P[u]blic Auction. [Will be sold on the] […] [Oct]ober 15th [next, on] a [c]red[it] of one year, [t]he [s]tore oc[cu]pied by [Mr. P.] S. Carli, Esq. as a [dry goods and] fanc[y] store, on [Mr. J.] S. C. Hoga[n]'s lot. Together [with the] patents at a [li]beral credit; buildi[n]g [and stock] can be exa[m]ined at any time previous [to the sale]. Sept 17, 1[8]34. MATT[HEW B. BATES, Jr., Auctioneer.]",
+      "locator": {
+        "artifact_role": "primary",
+        "issue_page": 3,
+        "column": 3,
+        "lines": [
+          2787,
+          2799
+        ],
+        "lines_of_claim": [
+          2788,
+          2790,
+          2791,
+          2792,
+          2793,
+          2794,
+          2795,
+          2796,
+          2797,
+          2798,
+          2799
+        ],
+        "spans": [
+          {
+            "line": 2788,
+            "from": 0,
+            "to": 15
+          },
+          {
+            "line": 2790,
+            "from": 0,
+            "to": 18
+          },
+          {
+            "line": 2791,
+            "from": 0,
+            "to": 11
+          },
+          {
+            "line": 2792,
+            "from": 0,
+            "to": 19
+          },
+          {
+            "line": 2793,
+            "from": 0,
+            "to": 22
+          },
+          {
+            "line": 2794,
+            "from": 0,
+            "to": 23
+          },
+          {
+            "line": 2795,
+            "from": 0,
+            "to": 24
+          },
+          {
+            "line": 2796,
+            "from": 0,
+            "to": 32
+          },
+          {
+            "line": 2797,
+            "from": 0,
+            "to": 36
+          },
+          {
+            "line": 2798,
+            "from": 0,
+            "to": 36
+          },
+          {
+            "line": 2799,
+            "from": 0,
+            "to": 18
+          }
+        ]
+      },
+      "entities": [
+        {
+          "as_printed": "Pi. Carli, Exq.",
+          "normalized": "Carli, P. S.",
+          "role": "occupant",
+          "occupations": [
+            "tavern keeper",
+            "fancy store keeper"
+          ]
+        },
+        {
+          "as_printed": "SGS:C; Hogat'a",
+          "normalized": "Hogan, J. S. C.",
+          "role": "landowner",
+          "associated_places": [
+            "South Water Street"
+          ]
+        }
+      ],
+      "ad_copy_date": {
+        "verbatim": "Sept 17,1 34. MATT",
+        "iso": "1834-09-17"
+      },
+      "notes": "A BUILDING ON A NAMED MAN'S LOT — the most placeable building claim of the month after Rider's. A store, occupied by P. S. Carli as a fancy store, STANDING ON S. C. HOGAN'S LOT, sold at auction on 15 October 1834 with the building examinable beforehand. Hogan's own store is South Water Street one door below the post office (1834-09-03 c023), so his lot is a South Water frontage and Carli's store stood on it. Carli is the Eagle Tavern keeper of 1834-09-10 c014, so the month shows the same man's second trade being sold up a week later. The auctioneer's name is cut here and printed '[uncertain: Chicage, Sept. 17,1 B. BATES, Jr. Au't.]' at 1834-09-24 page 3 column 3 line 2992, which gives the initial and the trade but not the given name; 'MATTHEW' is bracketed as a supply from the head of that name here and should be checked against a scan before it is used."
+    },
+    {
+      "id": "c007",
+      "kind": "infrastructure",
+      "reading": "transcription_mediated",
+      "quote": "PROPOSALS,\nrrving the mail of the United Statea\nChicuga, ML to Green Bay, Mo it,\nua wook, on horseback, fr throw\nLit Jannary, 1925, will be received\nartmént until the Lat Gay of Decem,\neigsive, to be derided on tho day\noporals must he seated, directed to\n¢ Department,” and endorsed “Pros\ne route from Chicago to Greon Bay,”'\nvill be careful to rake this endoree-\nW. T’. BARRY,\nPost Master General,\n¢ Department,\nst Ud LALE. ¢ 1OwA2",
+      "normalized": "PROPOSALS[, for ca]rrying the mail of the United States [from] Chicago, Ill. to Green Bay, M[ich.] T[erritory], [once] a we[e]k, on horseback, f[o]r [three years, from the first of] Jan[u]ary, 1[8]35, will be received [at this Dep]artm[e]nt until the [l]a[s]t [d]ay of Decem[ber next, in]c[lu]sive, to be de[ci]ded on th[e] day [following. …] [Pr]oposals must be sea[l]ed, directed to [“the Post Offic]e Department,” and endorsed “Pro[posals for th]e route from Chicago to Gree[n] Bay,” [and bidders] will be careful to [m]ake this endorse[ment]. W. T. BARRY, Post Master General[, Post Offic]e Department, [Augu]st [3r]d 1[8]34.",
+      "locator": {
+        "artifact_role": "primary",
+        "issue_page": 3,
+        "column": 3,
+        "lines": [
+          2807,
+          2822
+        ],
+        "lines_of_claim": [
+          2807,
+          2808,
+          2809,
+          2810,
+          2811,
+          2812,
+          2813,
+          2815,
+          2816,
+          2817,
+          2818,
+          2819,
+          2820,
+          2821,
+          2822
+        ],
+        "spans": [
+          {
+            "line": 2807,
+            "from": 0,
+            "to": 10
+          },
+          {
+            "line": 2808,
+            "from": 0,
+            "to": 36
+          },
+          {
+            "line": 2809,
+            "from": 0,
+            "to": 32
+          },
+          {
+            "line": 2810,
+            "from": 0,
+            "to": 31
+          },
+          {
+            "line": 2811,
+            "from": 0,
+            "to": 35
+          },
+          {
+            "line": 2812,
+            "from": 0,
+            "to": 35
+          },
+          {
+            "line": 2813,
+            "from": 0,
+            "to": 33
+          },
+          {
+            "line": 2815,
+            "from": 0,
+            "to": 35
+          },
+          {
+            "line": 2816,
+            "from": 0,
+            "to": 33
+          },
+          {
+            "line": 2817,
+            "from": 0,
+            "to": 36
+          },
+          {
+            "line": 2818,
+            "from": 0,
+            "to": 37
+          },
+          {
+            "line": 2819,
+            "from": 0,
+            "to": 13
+          },
+          {
+            "line": 2820,
+            "from": 0,
+            "to": 20
+          },
+          {
+            "line": 2821,
+            "from": 0,
+            "to": 13
+          },
+          {
+            "line": 2822,
+            "from": 0,
+            "to": 19
+          }
+        ]
+      },
+      "entities": [
+        {
+          "as_printed": "W. T’. BARRY",
+          "normalized": "Barry, W. T.",
+          "role": "official",
+          "occupations": [
+            "postmaster general"
+          ]
+        }
+      ],
+      "notes": "THE CHICAGO-TO-GREEN-BAY MAIL, ONCE A WEEK AND ON HORSEBACK, put out to contract for the three years from 1 January 1835 — the state of the town's northern communications six months before the scene date, and a route the reconstruction can date. Extracted as `infrastructure` for that reason. The dateline at line 2822 is the segmenter's worst line in the claim and the day is bracketed; '10w42' at its end is the insertion count and puts the first appearance roughly ten issues back."
+    },
+    {
+      "id": "c008",
+      "kind": "building",
+      "reading": "transcription_mediated",
+      "quote": "Kor Sale.\nTAO story Building eviti-\nble fora Store and Dwelling,\nniiwited in South Watrer-street\nnearly opposite the draw -bridge ;\nbeat. stands tr businges in the town,\nlarsetiquire of B.A. RIDER,\n* Diet Office.\n«Vert door to the Past Offier.\nSept. 10, 1634, 41",
+      "normalized": "[F]or Sale. [A TW]O story Building [su]it[a]ble for a Store and Dwelling, [s]i[t]uated in South Wat[e]r-street, nearly opposite the draw-bridge; [one of the] best stands [fo]r busin[e]ss in the town. [For particu]lars enquire of [E]. A. RIDER, [next] door to the P[o]st Offi[c]e. Sept. 10, 18[34]. 41",
+      "locator": {
+        "artifact_role": "primary",
+        "issue_page": 3,
+        "column": 3,
+        "lines": [
+          2845,
+          2854
+        ],
+        "lines_of_claim": [
+          2845,
+          2846,
+          2847,
+          2848,
+          2849,
+          2850,
+          2851,
+          2852,
+          2853,
+          2854
+        ],
+        "spans": [
+          {
+            "line": 2845,
+            "from": 0,
+            "to": 9
+          },
+          {
+            "line": 2846,
+            "from": 0,
+            "to": 25
+          },
+          {
+            "line": 2847,
+            "from": 0,
+            "to": 28
+          },
+          {
+            "line": 2848,
+            "from": 0,
+            "to": 31
+          },
+          {
+            "line": 2849,
+            "from": 0,
+            "to": 34
+          },
+          {
+            "line": 2850,
+            "from": 0,
+            "to": 37
+          },
+          {
+            "line": 2851,
+            "from": 0,
+            "to": 27
+          },
+          {
+            "line": 2852,
+            "from": 0,
+            "to": 14
+          },
+          {
+            "line": 2853,
+            "from": 0,
+            "to": 30
+          },
+          {
+            "line": 2854,
+            "from": 0,
+            "to": 18
+          }
+        ]
+      },
+      "entities": [
+        {
+          "as_printed": "B.A. RIDER",
+          "normalized": "Rider, E. A.",
+          "role": "advertiser",
+          "occupations": [
+            "merchant"
+          ],
+          "associated_places": [
+            "South Water Street"
+          ]
+        }
+      ],
+      "ad_copy_date": {
+        "verbatim": "Sept. 10, 1634, 41",
+        "iso": "1834-09-10"
+      },
+      "notes": "THE SAME NOTICE AS 1834-09-10 c006, HERE UNBROKEN, and it is what licenses every bracketed supply made there. It also adds what the Vision column dropped: THE ADVERTISER'S OWN ADDRESS, 'next door to the Post Office'. So E. A. Rider is placed on South Water Street next door to the post office — one door the other side of Hogan, whose store is one door below it (1834-09-03 c023) — and the building he is selling is nearly opposite the draw-bridge. Line 2852's '* Diet Office.' is the segmenter's duplicate of line 2853 and is quoted as it stands. No business record: Rider is selling a building, and what trade he keeps is not stated."
+    },
+    {
+      "id": "c009",
+      "kind": "building",
+      "reading": "transcription_mediated",
+      "quote": "DOTTIE CO. havetaken the Store at\nmy Peter Cohen, which they have\nif splendid sevortment of\nFoods Store\nDra Goods, Groceries,\nCrochert, Le.\ner with a good on\nof which they offer a cheap for cashe as\nhirage, April 99. 161.",
+      "normalized": "[uncertain: …]DOTTIE [&] CO. have taken the Store [formerl]y [occupied b]y Peter Cohen, which they have [filled with a large and splend]id [as]sortment of [Dry] Goods, Groceries, Crocker[y], [&c.] […] [togeth]er with a good [assortment of] CLOTHING. Also, […] [all] of which they offer a[s] cheap for cash as [any other store in the place]. [C]hi[c]ago, April [2]9, 18[34].",
+      "locator": {
+        "artifact_role": "primary",
+        "issue_page": 1,
+        "column": 1,
+        "lines": [
+          61,
+          71
+        ],
+        "lines_of_claim": [
+          61,
+          62,
+          63,
+          64,
+          65,
+          66,
+          67,
+          70,
+          71
+        ],
+        "interleaved": true
+      },
+      "entities": [
+        {
+          "as_printed": "Peter Cohen",
+          "normalized": "Cohen, Peter",
+          "role": "former_occupant",
+          "associated_places": [
+            "South Water Street"
+          ]
+        }
+      ],
+      "ad_copy_date": {
+        "verbatim": "hirage, April 99. 161.",
+        "iso": "1834-04-29"
+      },
+      "notes": "The second witness to the store Peter Cohen gave up — see 1834-09-03 c001, where the same advertisement carries 'the cast end of South W[ater street]' that this one drops. This witness carries what that one lacks: the words 'have taken the Store' and 'by Peter Cohen', and the copy date, 29 April 1834. THE INCOMING FIRM'S NAME IS CUT IN BOTH — 'DOTTE CO.' there, 'DOTTIE CO.' here — so no business record is made from either and what is documented is the building and its succession. Peter Cohen is the T-0257 fixture's South Water Street man at the 1835 scene date; this is a store he had left by April 1834, so the two are not necessarily the same premises and neither claim says they are."
+    },
+    {
+      "id": "c010",
+      "kind": "business",
+      "reading": "transcription_mediated",
+      "quote": "Is published every Wenloday, in the tlages\ncorner of Seath Weter and Clerk week\nChicago, Cock co. Ill. in the belat\n1. The Chicago Democrat is printed oo som\nTERNS.\nDOLLARKand FITs corts, payable in ADVANCE\nperial shoet, and afforded to subeeribers at th",
+      "normalized": "[THE CHICAGO DEMOCRAT] Is published every We[dnes]day, in the [vil]age [of] Chicago, Co[o]k co. Ill., in the b[uilding at the] corner of S[ou]th W[a]ter and Cl[ar]k [str]e[ets]. TERMS. I. The Chicago Democrat is printed o[n a sup]er[ro]ial sh[e]et, and afforded to sub[s]cribers at th[ree] DOLLAR[S] and F[IF]T[Y] c[en]ts, payable in ADVANCE.",
+      "locator": {
+        "artifact_role": "primary",
+        "issue_page": 4,
+        "column": 6,
+        "lines": [
+          4379,
+          4387
+        ],
+        "lines_of_claim": [
+          4379,
+          4381,
+          4382,
+          4383,
+          4384,
+          4386,
+          4387
+        ],
+        "interleaved": true
+      },
+      "entities": [
+        {
+          "as_printed": "BY J. CALHOI",
+          "normalized": "Calhoun, John",
+          "role": "proprietor",
+          "occupations": [
+            "printer",
+            "newspaper publisher"
+          ],
+          "associated_places": [
+            "South Water Street"
+          ]
+        }
+      ],
+      "business": {
+        "name": "Chicago Democrat",
+        "proprietors": [
+          "John Calhoun"
+        ],
+        "trade": "newspaper printing office",
+        "goods": [
+          "Newspaper"
+        ],
+        "street": "South Water Street",
+        "placement": {
+          "class": "corner",
+          "anchor": "the corner of South Water and Clark streets",
+          "offset_text": "corner of Seath Weter and Clerk week",
+          "offset_normalized": "in the building at the corner of South Water and Clark streets",
+          "street": "South Water Street"
+        }
+      },
+      "notes": "THE PAPER'S OWN OFFICE, AND IT IS A CORNER: the Chicago Democrat was printed in the building at the corner of South Water and Clark streets. That is a documented storefront on the plat's busiest frontage and the corpus has been quoting the paper for a year without recording where it stood. The colophon is set in the same column as an attachment notice and the segmenter alternates them, which is why the reading reorders the village and the building; every line quoted is the colophon's. The publisher's name is from the paper's own masthead line, page 1 column 1 line 14, 'BY J. CALHOI[UN]'. Two other issues carry the same colophon — 1834-09-03 page 4 column 6 lines 4749-4756 and 1834-09-24 page 4 column 6 lines 4522-4526 — and the 09-03 reading says 'every Tuesday', which is wrong for a Wednesday paper and is why this witness is the one quoted."
+    },
+    {
+      "id": "c011",
+      "kind": "business",
+      "reading": "transcription_mediated",
+      "quote": "[uncertain: BLALYCHARD,]\nnd Land igent.\nased and Sold, or by commie-\nLots for sale, in the town and\nir. Temple's.\nLet\nEnquire at the Ofice on",
+      "normalized": "[uncertain: BLALYCHARD,] [House a]nd Land [A]gent. [LOTS purch]ased and Sold, or by commi[s]-[sion. 12 Building] Lots for sale, in the town and [School section. … Houses to] Let. Enquire at the Ofice on [Lake st. opposite D]r. Temple's.",
+      "locator": {
+        "artifact_role": "primary",
+        "issue_page": 3,
+        "column": 6,
+        "lines": [
+          3292,
+          3298
+        ],
+        "lines_of_claim": [
+          3292,
+          3293,
+          3294,
+          3295,
+          3296,
+          3297,
+          3298
+        ],
+        "interleaved": false
+      },
+      "business": {
+        "name": "W. G. Blanchard",
+        "proprietors": [
+          "W. G. Blanchard"
+        ],
+        "trade": "house and land agent",
+        "goods": [],
+        "street": null,
+        "placement": {
+          "class": "relative",
+          "anchor": "Dr. Temple's",
+          "offset_text": "ir. Temple's.",
+          "offset_normalized": "[… opposite D]r. Temple's.",
+          "street": null
+        }
+      },
+      "notes": "ONE IMPRESSION OF THE STANDING LAKE STREET LAND-AGENCY CARD. The Democrat sets this advertisement, word for word the same, in every issue from 1834-05-14 to 1834-10-01 — twenty consecutive weeks, eighteen of which set the line ‘purchased and Sold, or by commi[s]sion’ recognisably (T-1051). The card is identified by its copy and not by its display line: the same trade (‘House and Land Agent’), the same offer of building lots in the town and the School Section, the same houses to let, and the same office on Lake street opposite Dr. Temple's. THIS IS THE SECOND OF THE TWO IMPRESSIONS WHOSE COLUMN IS NOT A TESSERACT FALLBACK and the other half of T-0408's repair of the surname: line 3292 sets '[uncertain: BLALYCHARD,]', with the transcription's own uncertainty mark, and it is quoted with the mark and not cleaned. No forename stands in it at all. THE PROPRIETOR'S NAME IS NOT READ HERE and none is supplied into the quote: the record's ‘W. G. Blanchard’ stands on T-0408's reading of the two impressions whose columns are NOT Tesseract fallbacks (1834-07-16 line 5527, 1834-09-17 line 3292) and on identity.json's declared firm merge, not on this impression. THE COLUMN IS CUT DOWN ITS LEFT MARGIN — every line loses its opening words — and the lines are set out of order, the address (3296) standing above 'Let' (3297) and 'Enquire at the Ofice on' (3298). The street is therefore NOT set here: 'ir. Temple's.' carries the anchor and the margin took 'Lake st. opposite' with it, so the street is left null."
+    }
+  ]
+}

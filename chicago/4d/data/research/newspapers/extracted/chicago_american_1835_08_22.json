@@ -1,0 +1,472 @@
+{
+  "schema": 1,
+  "issue_id": "chicago_american_1835_08_22",
+  "extracted": "2026-08-28",
+  "extracted_by": "hand, T-0261 — the Chicago American read, June to August 1835",
+  "note": "Volume I, Number 12, and the richest issue in the run for this project. Five lumber cargoes in six days name the rivers they came from; a land notice describes ground seven miles out as 'the oak woods … one third timbered, the balance prairie'; SARAH D. HOWE takes a room in Dr. Austin's house opposite Dr. Temple's — the run's only woman proprietor and its only doubly-anchored placement; the Reading Room's books are lodged somewhere while it waits for a building; and the Circuit Court's October term at Chicago is advertised with its clerk named.",
+  "claims": [
+    {
+      "id": "c001",
+      "kind": "business",
+      "reading": "transcription_mediated",
+      "quote": "‘To the Ladies. ARAH D. HOWE would snform the Lad of Chicago, that ahe han taken n room a street in the house eceapied by Dr. Aus\nopposite Dr, Teniple’s where she inunds\nes, Clonk, and Habit Makin hose peraotie wishing to have thelr wark d henley and haber oes vell yo call.\n, B, Wanted —lour or five young Ladies riticon to the above bitrips\nhicago, Augnnt 18, 1835,",
+      "normalized": "To the Ladies. [S]ARAH D. HOWE would inform the Lad[ies] of Chicago that [s]he ha[s] taken a room [in …] street, in the house [o]c[c]upied by Dr. Aus[tin], opposite Dr. Temple's, where she in[te]nds [to carry on Dress]es, Cloak and Habit Makin[g]. [T]hose per[s]ons wishing to have their work d[one neatly and … will do] well [t]o call. [N.]B. Wanted — [f]our or five young Ladies [as app]r[ent]ices to the above b[usi]n[es]s. [C]hicago, Augu[s]t 18, 1835.",
+      "locator": {
+        "artifact_role": "primary",
+        "issue_page": 3,
+        "column": 3,
+        "lines": [
+          369,
+          374
+        ],
+        "lines_of_claim": [
+          369,
+          370,
+          372,
+          373,
+          374
+        ],
+        "interleaved": true,
+        "spans": [
+          {
+            "line": 369,
+            "from": 0,
+            "to": 129
+          },
+          {
+            "line": 370,
+            "from": 0,
+            "to": 39
+          },
+          {
+            "line": 372,
+            "from": 0,
+            "to": 104
+          },
+          {
+            "line": 373,
+            "from": 0,
+            "to": 67
+          },
+          {
+            "line": 374,
+            "from": 0,
+            "to": 24
+          }
+        ]
+      },
+      "entities": [
+        {
+          "as_printed": "ARAH D. HOWE",
+          "normalized": "Sarah D. Howe",
+          "role": "proprietor",
+          "occupations": [
+            "dressmaker"
+          ],
+          "associated_places": []
+        },
+        {
+          "as_printed": "Dr, Teniple’s",
+          "normalized": "Dr. Temple",
+          "role": "mentioned",
+          "occupations": [
+            "physician"
+          ],
+          "associated_places": []
+        }
+      ],
+      "ad_copy_date": {
+        "verbatim": "hicago, Augnnt 18, 1835,",
+        "iso": "1835-08-18"
+      },
+      "business": {
+        "name": "Sarah D. Howe, dress, cloak and habit making",
+        "proprietors": [
+          "Sarah D. Howe"
+        ],
+        "trade": "dress, cloak and habit making",
+        "goods": [],
+        "street": null,
+        "placement": {
+          "class": "relative",
+          "anchor": "the house occupied by Dr. Austin, opposite Dr. Temple's",
+          "offset_text": "taken n room a street in the house eceapied by Dr. Aus",
+          "offset_normalized": "taken a room [in …] street, in the house [o]c[c]upied by Dr. Aus[tin], opposite Dr. Temple's",
+          "street": null
+        }
+      },
+      "notes": "THE ONLY WOMAN PROPRIETOR IN THE RUN, AND THE ONLY PLACEMENT WITH TWO ANCHORS. Sarah D. Howe takes a room in the house occupied by Dr. Austin — the botanic physician 1835-08-08 places ON LAKE STREET, NEAR THE POST OFFICE — and describes it as OPPOSITE Dr. Temple's. Three documented tenancies now triangulate on one spot: a doctor's house with a dressmaker's room in it, a second doctor's premises across the street, and the post office nearby. That is a piece of streetscape this project could actually build. THE STREET WORD IN HER OWN SENTENCE IS CUT ('taken a room a street'), so no street is recorded on the business; Lake Street comes from Austin's card and belongs there, not here. SHE IS ALSO HIRING: four or five young ladies wanted as apprentices, which documents a small workshop and not a one-woman room.",
+      "announces_opening": {
+        "verbatim": "[s]he ha[s] taken a room [in …] street, in the house [o]c[c]upied by Dr. Aus[tin]",
+        "dating": "effected",
+        "iso": "1835-08-18",
+        "note": "The American's printing of Sarah Howe's notice, over the same 18 August 1835 dateline as the Democrat's."
+      }
+    },
+    {
+      "id": "c002",
+      "kind": "shipping",
+      "reading": "transcription_mediated",
+      "quote": "Harihe Journal,\nARRIVED. 16, Sehr Desroit, Chills, from Oswe N,\nFi with sully ¢. Bair Nasey Doosmar,'Shooks, lw\nBehr Juliet, Jolin Bhooks, frota St. sepia, wk luinber..”\n18, Sloop’ Westward Ho, Bankey fr Milwakee. Schr Bridget, Ludlow, trem Kalas 300, with Jumber, Sehr Mafengo, Dingley, from Buf with merchandize,\n19, Sehr Hiram, Rathbara, from Chipr ‘ges, with lutaber.\n2, a Queen Churlove, Cotton, fr\nBehr. ‘Beye, —s from Rui, ‘Behr Swan, Gilbert, frors Green with pomenstars.\nBelir Jesse Biaith, Brooks, from }\nnonimia River, with lumber.\n21, Steamboat Munroe, Whilaker, fr Buffalo, via Greca Bay, sith fre and passengers.\nCLEARED.\n15, Sehr Indiana,for Buffalo, ‘Belur Philips, for Michigea City.\n17, Sehr Nancy Dgusman, for Mackin:\n19, Schr Loraine, for Milwak Behe Detroit, Cer Oaseogo,",
+      "normalized": "Marine Journal. ARRIVED. [August] 16. Sch[r] De[t]roit, Chil[d]s, from Oswe[go,] N[.Y.] with sal[t]. Sch[r] Na[n]cy Do[u]sma[n], Shooks, [from …]. Schr Juliet, John [S]hooks, fro[m] St. [Jo]s[e]p[h], w[it]h lumber. [August] 18. Sloop Westward Ho, Bank[s], fr[om] Milwake[e]; Schr Bridget, Ludlow, [f]r[o]m Kala[mazoo], with lumber; Schr Ma[r]engo, Dingley, from Buf[falo] with merchandize. [August] 19. Sch[r] Hiram, Rathb[u]r[n], from Chip[pewa? ri]ver, with lu[m]ber. [August 20]. [Schr] Queen Char[l]o[tt]e, Cotton, fr[om …]; Schr [?], from [Buffalo?]; Sch[r] Swan, Gilbert, fro[m] Green [Bay] with pa[ss]en[ger]s; Sch[r] Jesse S[m]ith, Brooks, from [Me]nomi[n]e[e] River, with lumber. [August] 21. Steamboat Munroe, Whi[t]aker, fr[om] Buffalo via Gre[e]n Bay with fre[ight] and passengers. CLEARED. [August] 15. Sch[r] Indiana for Buffalo; Sch[r] Philips for Michig[a]n City. [August] 17. Sch[r] Nancy D[o]usman for Mackina[c]. [August] 19. Schr Loraine for Milwak[ee]; Sch[r] Detroit, [fo]r O[sw]e[g]o.",
+      "locator": {
+        "artifact_role": "primary",
+        "issue_page": 3,
+        "column": 2,
+        "lines": [
+          339,
+          355
+        ],
+        "lines_of_claim": [
+          339,
+          340,
+          341,
+          342,
+          343,
+          344,
+          345,
+          347,
+          348,
+          349,
+          350,
+          351,
+          352,
+          354,
+          355
+        ],
+        "interleaved": true,
+        "spans": [
+          {
+            "line": 339,
+            "from": 0,
+            "to": 15
+          },
+          {
+            "line": 340,
+            "from": 0,
+            "to": 47
+          },
+          {
+            "line": 341,
+            "from": 0,
+            "to": 47
+          },
+          {
+            "line": 342,
+            "from": 0,
+            "to": 57
+          },
+          {
+            "line": 343,
+            "from": 0,
+            "to": 144
+          },
+          {
+            "line": 344,
+            "from": 0,
+            "to": 56
+          },
+          {
+            "line": 345,
+            "from": 0,
+            "to": 31
+          },
+          {
+            "line": 347,
+            "from": 0,
+            "to": 75
+          },
+          {
+            "line": 348,
+            "from": 0,
+            "to": 34
+          },
+          {
+            "line": 349,
+            "from": 0,
+            "to": 27
+          },
+          {
+            "line": 350,
+            "from": 0,
+            "to": 83
+          },
+          {
+            "line": 351,
+            "from": 0,
+            "to": 8
+          },
+          {
+            "line": 352,
+            "from": 0,
+            "to": 64
+          },
+          {
+            "line": 354,
+            "from": 0,
+            "to": 35
+          },
+          {
+            "line": 355,
+            "from": 0,
+            "to": 55
+          }
+        ]
+      },
+      "entities": [],
+      "notes": "FIVE LUMBER CARGOES IN SIX DAYS, AND THEY NAME THEIR RIVERS. The Juliet from St. Joseph, the Bridget from KALAMAZOO, the Hiram from the CHIPPEWA and the Jesse Smith from the MENOMINEE — the Michigan and Wisconsin sawmill rivers, delivering into Chicago at roughly one cargo a day in the last week of August 1835. This project builds a town of sawn lumber and has reasoned about its supply from general history; here is the supply, named river by river and counted. Salt comes in from Oswego on Lake Ontario, merchandize from Buffalo, passengers from Green Bay, and a steamer from Buffalo via Green Bay. Two new hulls this week — the schooner Queen Charlotte and the steamboat Munroe. The arrival dates in this printing carry no month and are read as August from the issue's own date; that reading is bracketed throughout."
+    },
+    {
+      "id": "c003",
+      "kind": "street",
+      "reading": "transcription_mediated",
+      "quote": "For Sule. UE 8, E. Quarter of suction No. Md, ship 33 Nurth, § Enst of the & fan, aboot tso.thirés timber land, ap m from the Minis river, and near the ¢ ted canal. Also she worth fraction of Fer sevtion No. 220 she ompe townahi jem onthe MMincin rivers stil a heer Ulinote ond Mchiyan eaual, For fort mpation inquire uf Joos W, Ba Wx, Sarine, Chieage, Augiat 10.1838,\n, containing 160 acres, iated. nthe oak woude, about 7 miles cogo—l-3 tinbercd, the balanee han\nat ARM rarer, Avetion jeago, August 15, 1435",
+      "normalized": "For Sale. [Th]e S. E. Quarter of s[e]ction No. [uncertain: Md], [town]ship 33 N[o]rth, [range] 8 East of the [3rd Meridi]an, about t[w]o-third[s] timber land, ap[art fro]m the [Ill]in[o]is river and near the c[ontempla]ted canal. Also the [n]orth fraction of […] section No. 2[2]0 [in] the [sa]me township […] on the [Ill]in[o]is river, still [near t]he [Ill]ino[i]s and M[i]ch[i]g[a]n [c]anal. For f[ur]t[her infor]mation inquire of Jo[h]n W. Ba[…], W[m]. Sa[b]ine. Chi[c]ag[o], Augu[s]t 10, 183[5]. […] containing 160 acres, [sit]uated [i]n the OAK WOODS, about 7 miles [from Chi]cago — 1-3 timbered, the balance [prairie]. […] Auction[eer]. [Ch]icago, August 15, 183[5].",
+      "locator": {
+        "artifact_role": "primary",
+        "issue_page": 3,
+        "column": 4,
+        "lines": [
+          391,
+          397
+        ],
+        "lines_of_claim": [
+          391,
+          396,
+          397
+        ],
+        "interleaved": true,
+        "spans": [
+          {
+            "line": 391,
+            "from": 0,
+            "to": 368
+          },
+          {
+            "line": 396,
+            "from": 0,
+            "to": 95
+          },
+          {
+            "line": 397,
+            "from": 0,
+            "to": 44
+          }
+        ]
+      },
+      "entities": [],
+      "ad_copy_date": {
+        "verbatim": "Chieage, Augiat 10.1838,",
+        "iso": "1835-08-10"
+      },
+      "notes": "LAND COVER SEVEN MILES OUT OF CHICAGO, STATED AS A FRACTION: 160 acres 'in the oak woods, about 7 miles from Chicago — one third timbered, the balance [prairie]'. That is the single most useful sentence in the run for this project's timber and treeline work, which has had to argue the woodland/prairie boundary from maps and inference: here is a seller, with every reason to describe his own ground accurately, saying that a named distance out the oak woods are a THIRD timbered and the rest open. A second notice describes county land as 'about two-thirds timber land' near the contemplated Illinois and Michigan canal. WHAT IS NOT CLAIMED: neither parcel is placed by direction from town, and the word after 'the balance' is cut — 'prairie' is the supply the phrase demands and it is bracketed. The section number in the first is destroyed. Recorded as `street` rather than `building` because it describes ground, not structures."
+    },
+    {
+      "id": "c004",
+      "kind": "business",
+      "reading": "transcription_mediated",
+      "quote": "other Towns outdone ia this Suu Kankakee Lote at ILL be sold nt A. Garret “THIS DAY, at 10 O*C: ots in the new town of Kankukes judction of the lilinols, Kankak n rivera, ubout SU miles from Chicagt al and made known atasle, Also, two Fanaa, A. Garant, Anctionest - B, Bersone withing to dlapove of lan ‘3g0 or other wownlote, are informed tn! Opportunity now preacnis iteclf, us an ag atari nick werk for New York city and emi sutea generally, expresely up tho ab nese, und has prepared some 15 of 29 10",
+      "normalized": "[AUCTION! … ] other Towns outdone in this. […] Kankakee Lot[s] at [auction]. [W]ILL be sold at A. Garret[t's] THIS DAY at 10 O'C[LOCK, l]ots in the new town of Kankuke[e, at the] j[un]ction of the Illinois, Kankak[ee and Des Plaines] rivers, about [5]0 miles from Chicag[o. Terms will be] made known at [s]a[l]e. Also, two Fa[rm]s. A. Garr[ett], Auctionee[r]. [N.]B. Person[s] wishing to di[s]po[s]e of lan[d in Chica]go or other town lot[s] are informed t[hat an] opportunity now pre[s]en[t]s it[s]elf, [a]s an ag[ent] [st]art[s] ne[x]t week for New York city and [the eastern] state[s] generally, expre[ss]ly [for] th[e] ab[ove busi]ness, and has prepared some 15 o[r] 2[0] […]",
+      "locator": {
+        "artifact_role": "primary",
+        "issue_page": 3,
+        "column": 3,
+        "lines": [
+          367,
+          367
+        ],
+        "lines_of_claim": [
+          367
+        ],
+        "interleaved": true,
+        "spans": [
+          {
+            "line": 367,
+            "from": 0,
+            "to": 504
+          }
+        ]
+      },
+      "entities": [],
+      "business": {
+        "name": "A. Garrett, auctioneer",
+        "proprietors": [
+          "A. Garrett"
+        ],
+        "trade": "auction of town lots and land",
+        "goods": [],
+        "street": "Dearborn Street",
+        "placement": {
+          "class": "none",
+          "anchor": null,
+          "offset_text": null,
+          "offset_normalized": null,
+          "street": null
+        }
+      },
+      "notes": "THE LAND BOOM WORKING THROUGH A CHICAGO AUCTION ROOM, and outward. A. Garrett — whose South Water Street store Montgomery took over in July and who signs from No. 1 Dearborn street on 1835-08-15 — is selling lots in a town of KANKAKEE that does not exist yet, fifty miles off at a river junction, AND advertising that his agent leaves next week for New York and the eastern states with fifteen or twenty plats to sell Chicago lots there. That is the machinery of the 1835 speculation described by one of its operators, and it is the context every land notice in this run sits in. Two auction rooms and two auctioneers are now documented on adjoining streets within six weeks."
+    },
+    {
+      "id": "c005",
+      "kind": "notice",
+      "reading": "transcription_mediated",
+      "quote": "Reading Reo angers of te Ul ing Ro won ae notified, that dhe Reading To ros fu ibe nreaeul, depopited af Hocars where tity ean be wren hale imea by any wiember af the Asvociat fhe Directors.\nHees Moone, Sec'y 32, 1H,",
+      "normalized": "Reading Roo[m]. [The subscri]bers of the [Read]ing Ro[om] a[r]e notified that the Reading [Room's books are] fo[r] the [p]re[s]e[n]t deposited a[t …] [H]o[u]se, where t[h]ey can be [s]e[e]n [at all] [t]imes by any [m]ember of the As[so]ciat[ion or of] the Directors. [H]e[nry] Moore, Sec'y. [August 2]2, 18[35].",
+      "locator": {
+        "artifact_role": "primary",
+        "issue_page": 3,
+        "column": 2,
+        "lines": [
+          331,
+          332
+        ],
+        "lines_of_claim": [
+          331,
+          332
+        ],
+        "interleaved": true,
+        "spans": [
+          {
+            "line": 331,
+            "from": 0,
+            "to": 190
+          },
+          {
+            "line": 332,
+            "from": 0,
+            "to": 25
+          }
+        ]
+      },
+      "entities": [
+        {
+          "as_printed": "Hees Moone",
+          "normalized": "Henry Moore",
+          "role": "signatory",
+          "occupations": [],
+          "associated_places": []
+        }
+      ],
+      "notes": "THE READING ROOM STILL HAS NO ROOM, seven weeks after its directors met at the Tremont House to plan a building on the Public Square. Its books are 'for the present deposited at [?] House' — a hotel or private house whose name is cut — where members may see them. So the sequence this run documents is complete and negative: an association exists, it has books, it has directors and a secretary, and through the whole summer of 1835 it has nowhere of its own. Anything the reconstruction puts on the Public Square for a reading room at the scene date is wrong."
+    },
+    {
+      "id": "c006",
+      "kind": "notice",
+      "reading": "transcription_mediated",
+      "quote": "fer, Lins Bleu ih tke tifice Gait Coan for tho county Hea yon fora divotee, cede Fit of the fact that you aro nol tai tet ent be Uegl\ntet you in foyer of he said compl table othe neat ictin of ue anid coum den st Chieazo on tho first Munday of that dhe objvet ub tue ani! Lill led a ¥ the eid complainant fe aia ad mi the bonds of marfimony by hirm the # r Leniet,.cantracted with yoo the sald sit, for the causes therein wot. forth\nofthe next term of mid court and anews, ortho same will be taken ax canfessed jeentered Up accordingly. par Ricmazo I. Hawterox, Gls\nficago, August 12, 1835. re",
+      "normalized": "[The complainant] ha[s] file[d] i[n] the [o]ffice [of the Clerk of the Cir]c[u]it Cou[rt] for th[e] county […] [against] yo[u] for a divo[r]ce, [ac]com[pan]i[ed by an affida]v[i]t of the fact that you are no[t a residen]t [of this s]tat[e … a subpoena has been issued agains]t you in favo[u]r of [t]he said compl[ainant, re]t[urn]able [at] the ne[x]t [t]e[r]m of […] [t]he said cou[rt, to be hol]den [a]t Chica[g]o on the first M[o]nday of [October next] … the object o[f] the […] [b]ill fi[l]ed [b]y the [s]aid complainant [is to obtain a divorce from] the bonds of matrimony b[y] him […] contracted with yo[u] the said […] for the causes therein [s]e[t] forth. [You are therefore required to appear on the first day] of the next term of [sa]id court and an[s]we[r], or the same will be taken a[s] confessed [and a decree] entered up accordingly. Ric[h]a[r]d [J.] Ha[mil]to[n], Cl[er]k. [Ch]icago, August 12, 1835.",
+      "locator": {
+        "artifact_role": "primary",
+        "issue_page": 3,
+        "column": 4,
+        "lines": [
+          381,
+          385
+        ],
+        "lines_of_claim": [
+          381,
+          382,
+          384,
+          385
+        ],
+        "interleaved": true,
+        "spans": [
+          {
+            "line": 381,
+            "from": 0,
+            "to": 133
+          },
+          {
+            "line": 382,
+            "from": 0,
+            "to": 298
+          },
+          {
+            "line": 384,
+            "from": 0,
+            "to": 132
+          },
+          {
+            "line": 385,
+            "from": 0,
+            "to": 27
+          }
+        ]
+      },
+      "entities": [
+        {
+          "as_printed": "Ricmazo I. Hawterox",
+          "normalized": "Richard J. Hamilton",
+          "role": "signatory",
+          "occupations": [
+            "clerk of the circuit court"
+          ],
+          "associated_places": []
+        }
+      ],
+      "ad_copy_date": {
+        "verbatim": "ficago, August 12, 1835. re",
+        "iso": "1835-08-12"
+      },
+      "notes": "THE COURT SITS AT CHICAGO, and its calendar is published: the Cook County Circuit Court's next term opens on the first Monday of October 1835, with Richard J. Hamilton as clerk. This issue carries TWO divorce bills in chancery in identical form, both requiring absent defendants to appear. The parties' names are cut or garbled in both and NO private person is minted from them — naming someone as a divorce respondent on single-pass OCR of a damaged legal notice is the one place in this corpus where a wrong reading would do real harm to a real family's record. What is recorded is the institution: a county court sitting in this town on a stated date, and its clerk."
+    },
+    {
+      "id": "c007",
+      "kind": "business",
+      "reading": "transcription_mediated",
+      "quote": "PIN G.,\nwith ploasirre we infernal our frien five just roceived a large ad vur stock of printing uimterials, 4 w prepared to execute all orde repatch, ant ina style whieh ¢o ‘surpassed in any part of Stutes, We hnye a large supp srand Ilauk Cunls, off a euperi which the public are inyited e. Weeds, Ronds, Murigagey, 1 7 Blanks wall be kept.on hung, att short uotice, und at extreme\ncus. Unters from the Country. will me gmnpl wttentions",
+      "normalized": "[PRINTIN]G. [It is] with pleas[u]re we in[fo]r[m] our frien[ds we ha]ve just received a large ad[dition to o]ur stock of printing m[a]terials, [and are no]w prepared to execute all orde[rs with d]espatch, and in a style which c[annot be] surpassed in any part of [the United] St[a]tes. We h[a]ve a large supp[ly of Fine] and [B]lank Card[s] of a superi[or quality] which the public are inyited [to examin]e. [D]eeds, Bonds, M[o]r[t]gage[s and other] Blanks will be kept on h[a]n[d, printed] at short notice and at extreme[ly low prices …] [Or]d[e]rs from the Country will me[et pro]mp[t] attention.",
+      "locator": {
+        "artifact_role": "primary",
+        "issue_page": 3,
+        "column": 2,
+        "lines": [
+          327,
+          330
+        ],
+        "lines_of_claim": [
+          327,
+          328,
+          330
+        ],
+        "interleaved": true,
+        "spans": [
+          {
+            "line": 327,
+            "from": 0,
+            "to": 7
+          },
+          {
+            "line": 328,
+            "from": 0,
+            "to": 375
+          },
+          {
+            "line": 330,
+            "from": 0,
+            "to": 54
+          }
+        ]
+      },
+      "entities": [],
+      "business": {
+        "name": "the Chicago American, newspaper and job printing office",
+        "proprietors": [],
+        "trade": "newspaper publishing and job printing",
+        "goods": [
+          "Blank Cards",
+          "Printed Blanks"
+        ],
+        "street": "Water Street",
+        "placement": {
+          "class": "none",
+          "anchor": null,
+          "offset_text": null,
+          "offset_normalized": null,
+          "street": null
+        }
+      },
+      "notes": "THE AMERICAN'S OWN SHOP, ADVERTISING ITSELF — which is what the ticket asks for and the closest the run comes to an imprint that a locator can reach. Eleven weeks after its first issue the paper has just taken delivery of a large addition to its stock of printing materials and is selling job work: cards, deeds, bonds, mortgages and blanks, kept on hand and printed at short notice, with orders taken from the country. Read with 1835-06-08's editorial note that the paper could not publish earlier because its materials had only just arrived, this is a printing office equipping itself across the summer. The street on the business is Water Street, from Frederick Thomas's card of 1835-06-20 placing his store 'two doors from the American office' a little west of the bridge in Water street; the placement itself is left `none` because that address is somebody else's sentence, not the paper's."
+    }
+  ]
+}

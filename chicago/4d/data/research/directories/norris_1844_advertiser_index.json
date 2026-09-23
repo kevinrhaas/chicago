@@ -1,0 +1,2427 @@
+{
+ "schema": 1,
+ "_doc": "HAND-AUTHORED. The reading of the Advertising Directory of Norris's General Directory of Chicago for 1844 (T-0568): where each advertising card begins and ends in the committed page text, and what it says. tools/read_norris_1844_advertiser.py turns it into claims, slicing every quote out of the text so a quote can never drift from the page.",
+ "source_id": "norris_directory_1844",
+ "section": "advertising_directory",
+ "what": "The Advertising Directory, printed pages 79-116 (scan leaves 89-126), plus J. W. Norris's own General Intelligence Agency card set at the foot of printed page 65 (leaf 75), which T-0566 declared belonged to this reading.",
+ "reading": "transcription_mediated",
+ "counts": {
+  "cards": 158
+ },
+ "cards": [
+  {
+   "leaf": 89,
+   "lines": [
+    4,
+    7
+   ],
+   "firm": null,
+   "proprietors": [
+    "A. O. Beaumont",
+    "Mark Skinner"
+   ],
+   "trade": "attorneys and solicitors in chancery",
+   "address": "Chicago, Ill.",
+   "dated_statement": null,
+   "notes": "The OCR lost this card's heading line: the section title and the firm name are woven together above it, and what survives is the trade line, the town and the two proprietors' names. The firm is left null rather than guessed; 'MARK SKr>.VEK' is read as Mark Skinner."
+  },
+  {
+   "leaf": 89,
+   "lines": [
+    8,
+    11
+   ],
+   "firm": "Henry Brown",
+   "proprietors": [
+    "Henry Brown"
+   ],
+   "trade": "attorney and counselor at law",
+   "address": "office corner of Lake and Dearborn streets, over the General Stage Office",
+   "dated_statement": null,
+   "notes": null
+  },
+  {
+   "leaf": 89,
+   "lines": [
+    12,
+    16
+   ],
+   "firm": "J. Butterfield, Jr.",
+   "proprietors": [
+    "J. Butterfield, Jr."
+   ],
+   "trade": "attorney and counselor at law, and land agent",
+   "address": "east side of Clark street, first door from South Water",
+   "dated_statement": null,
+   "notes": null
+  },
+  {
+   "leaf": 89,
+   "lines": [
+    17,
+    19
+   ],
+   "firm": "Hugh T. Dickey",
+   "proprietors": [
+    "Hugh T. Dickey"
+   ],
+   "trade": "attorney and counselor at law",
+   "address": "103 1/2 Lake street",
+   "dated_statement": null,
+   "notes": "'103i LAKE STREET' is read as 103 1/2, the printer's half-number the scan flattens to an i throughout this volume."
+  },
+  {
+   "leaf": 90,
+   "lines": [
+    2,
+    6
+   ],
+   "firm": "Henry W. Clarke",
+   "proprietors": [
+    "Henry W. Clarke"
+   ],
+   "trade": "attorney, counselor at law, solicitor in chancery, conveyancer and general land agent",
+   "address": "office Clark street, opposite City Saloon",
+   "dated_statement": null,
+   "notes": null
+  },
+  {
+   "leaf": 90,
+   "lines": [
+    7,
+    9
+   ],
+   "firm": "James Curtiss",
+   "proprietors": [
+    "James Curtiss"
+   ],
+   "trade": "attorney and counselor at law",
+   "address": "office 136 Lake street",
+   "dated_statement": null,
+   "notes": null
+  },
+  {
+   "leaf": 90,
+   "lines": [
+    10,
+    14
+   ],
+   "firm": "Freer & De Wolf",
+   "proprietors": [
+    "L. C. Paine Freer",
+    "C. De Wolf"
+   ],
+   "trade": "attorneys and counselors",
+   "address": "office on Clark street, opposite the City Hotel",
+   "dated_statement": null,
+   "notes": null
+  },
+  {
+   "leaf": 90,
+   "lines": [
+    15,
+    17
+   ],
+   "firm": "Hamilton & Chamberlaine",
+   "proprietors": [
+    "Hamilton",
+    "Chamberlaine"
+   ],
+   "trade": "law office",
+   "address": "Clark street, opposite the Post Office",
+   "dated_statement": null,
+   "notes": "Line 18 of this leaf, 'Office and House opposite the City Hotel.', sits between this card and the next and belongs to neither on the page as the scan sets it. It is left out of both quotes rather than attached to a card it may not belong to."
+  },
+  {
+   "leaf": 90,
+   "lines": [
+    19,
+    24
+   ],
+   "firm": "Manierre & Meeker",
+   "proprietors": [
+    "George Manierre",
+    "George W. Meeker"
+   ],
+   "trade": "attorneys and counselors at law, and solicitors in chancery",
+   "address": "118 Lake street",
+   "dated_statement": null,
+   "notes": null
+  },
+  {
+   "leaf": 91,
+   "lines": [
+    2,
+    4
+   ],
+   "firm": "A. Huntington",
+   "proprietors": [
+    "A. Huntington"
+   ],
+   "trade": "attorney and counselor at law",
+   "address": "98 Lake street",
+   "dated_statement": null,
+   "notes": null
+  },
+  {
+   "leaf": 91,
+   "lines": [
+    5,
+    7
+   ],
+   "firm": "B. S. Morris",
+   "proprietors": [
+    "B. S. Morris"
+   ],
+   "trade": "attorney and counselor at law",
+   "address": "office Clark street, opposite City Hotel",
+   "dated_statement": null,
+   "notes": null
+  },
+  {
+   "leaf": 91,
+   "lines": [
+    8,
+    10
+   ],
+   "firm": "Scammon & Judd",
+   "proprietors": [
+    "Scammon",
+    "Judd"
+   ],
+   "trade": "attorneys and counselors at law",
+   "address": "office 123 Lake street, City Saloon",
+   "dated_statement": null,
+   "notes": null
+  },
+  {
+   "leaf": 91,
+   "lines": [
+    11,
+    15
+   ],
+   "firm": "Smith & Ballingall",
+   "proprietors": [
+    "Theo's W. Smith",
+    "P. Ballingall"
+   ],
+   "trade": "counselors at law",
+   "address": "Harmon & Loomis' Building, Clark street",
+   "dated_statement": null,
+   "notes": "Printed 'SMITH & BALUNGALL' and 'P. BALLINOALL' — the same name twice, scanned two ways."
+  },
+  {
+   "leaf": 91,
+   "lines": [
+    16,
+    18
+   ],
+   "firm": "Spring & Goodrich",
+   "proprietors": [
+    "Spring",
+    "Goodrich"
+   ],
+   "trade": "attorneys and counselors at law",
+   "address": "124 Lake street",
+   "dated_statement": null,
+   "notes": null
+  },
+  {
+   "leaf": 91,
+   "lines": [
+    19,
+    21
+   ],
+   "firm": "J. W. Norris",
+   "proprietors": [
+    "J. W. Norris"
+   ],
+   "trade": "law office",
+   "address": "Clark street, opposite City Saloon",
+   "dated_statement": null,
+   "notes": "The directory's own compiler, advertising among his subscribers."
+  },
+  {
+   "leaf": 91,
+   "lines": [
+    22,
+    24
+   ],
+   "firm": "P. Phelps",
+   "proprietors": [
+    "P. Phelps"
+   ],
+   "trade": "law and chancery office",
+   "address": "Dearborn street",
+   "dated_statement": null,
+   "notes": "Printed 'P. PI I EL PS'."
+  },
+  {
+   "leaf": 92,
+   "lines": [
+    3,
+    6
+   ],
+   "firm": "Parker & Dodge",
+   "proprietors": [
+    "Parker",
+    "Dodge"
+   ],
+   "trade": "auctioneers and commission merchants",
+   "address": "Clark street",
+   "dated_statement": null,
+   "notes": null
+  },
+  {
+   "leaf": 92,
+   "lines": [
+    7,
+    9
+   ],
+   "firm": "John Bates, Jr.",
+   "proprietors": [
+    "John Bates, Jr."
+   ],
+   "trade": "auction and commission merchant",
+   "address": "174 Lake street",
+   "dated_statement": null,
+   "notes": null
+  },
+  {
+   "leaf": 92,
+   "lines": [
+    10,
+    12
+   ],
+   "firm": "George W. Gridley",
+   "proprietors": [
+    "George W. Gridley"
+   ],
+   "trade": "auction and commission merchant",
+   "address": "No. 85 Lake street",
+   "dated_statement": null,
+   "notes": null
+  },
+  {
+   "leaf": 92,
+   "lines": [
+    14,
+    16
+   ],
+   "firm": "J. Coe Clark",
+   "proprietors": [
+    "J. Coe Clark"
+   ],
+   "trade": "exchange broker",
+   "address": "Clark street, 2 doors north of Lake, east side",
+   "dated_statement": null,
+   "notes": null
+  },
+  {
+   "leaf": 92,
+   "lines": [
+    17,
+    21
+   ],
+   "firm": null,
+   "proprietors": [],
+   "trade": "banking — deposit accounts, interest on special deposits, drafts and collections on New York, Buffalo, Cincinnati, St. Louis, Detroit, Great Britain and Ireland, advances on produce",
+   "address": "127 Lake street",
+   "dated_statement": null,
+   "notes": "A banking card whose heading the OCR lost: the name line is gone and the card opens at its address. The firm is left null rather than guessed."
+  },
+  {
+   "leaf": 92,
+   "lines": [
+    22,
+    25
+   ],
+   "firm": "George Smith & Co.",
+   "proprietors": [
+    "George Smith"
+   ],
+   "trade": "bankers and insurance brokers",
+   "address": "Bank Building, La Salle street",
+   "dated_statement": null,
+   "notes": null
+  },
+  {
+   "leaf": 93,
+   "lines": [
+    2,
+    8
+   ],
+   "firm": "Richard K. Swift",
+   "proprietors": [
+    "Richard K. Swift"
+   ],
+   "trade": "money lent on bonds and mortgages and other securities",
+   "address": "office in the Tremont Buildings, 2d story, over Clarke's Drug Store, No. 102 Lake street",
+   "dated_statement": null,
+   "notes": null
+  },
+  {
+   "leaf": 93,
+   "lines": [
+    9,
+    13
+   ],
+   "firm": "W. H. Adams & Co.",
+   "proprietors": [
+    "W. H. Adams"
+   ],
+   "trade": "manufacturers and wholesale and retail dealers in boots, shoes, leather and findings",
+   "address": "138 Lake street",
+   "dated_statement": null,
+   "notes": null
+  },
+  {
+   "leaf": 93,
+   "lines": [
+    14,
+    16
+   ],
+   "firm": "S. B. Collins & Co.",
+   "proprietors": [
+    "S. B. Collins"
+   ],
+   "trade": "boot, shoe and leather dealers",
+   "address": "No. 140 Lake street",
+   "dated_statement": null,
+   "notes": null
+  },
+  {
+   "leaf": 93,
+   "lines": [
+    17,
+    24
+   ],
+   "firm": "Johonnott, Wells & Co.",
+   "proprietors": [
+    "E. S. Johonnott",
+    "A. Wells",
+    "A. S. Sherman"
+   ],
+   "trade": "general dealers in leather, hides, findings and oil; cash paid for hides",
+   "address": "No. 159 Lake street, new buildings",
+   "dated_statement": null,
+   "notes": null
+  },
+  {
+   "leaf": 94,
+   "lines": [
+    2,
+    6
+   ],
+   "firm": "J. B. Mitchell",
+   "proprietors": [
+    "J. B. Mitchell"
+   ],
+   "trade": "custom boot and shoe maker",
+   "address": "east side Clark street, between Lake and Water streets",
+   "dated_statement": null,
+   "notes": null
+  },
+  {
+   "leaf": 94,
+   "lines": [
+    7,
+    11
+   ],
+   "firm": "C. & J. Sauter",
+   "proprietors": [
+    "C. Sauter",
+    "J. Sauter"
+   ],
+   "trade": "manufacturers and general dealers in boots and shoes; cash paid for hides",
+   "address": "No. 212 Lake street",
+   "dated_statement": null,
+   "notes": null
+  },
+  {
+   "leaf": 94,
+   "lines": [
+    12,
+    19
+   ],
+   "firm": "Solomon Taylor",
+   "proprietors": [
+    "Solomon Taylor"
+   ],
+   "trade": "boot and shoe manufacturer",
+   "address": "No. 152 1/2 Lake street",
+   "dated_statement": null,
+   "notes": null
+  },
+  {
+   "leaf": 94,
+   "lines": [
+    20,
+    31
+   ],
+   "firm": "Joseph E. Ware",
+   "proprietors": [
+    "Joseph E. Ware"
+   ],
+   "trade": "fashionable boot and shoe manufactory",
+   "address": "Clark street, opposite Saloon",
+   "dated_statement": null,
+   "notes": "'Having been liberally patronized by the citizens of Chicago and vicinity, still continues' — the card claims a going trade before 1844 and names no year for it."
+  },
+  {
+   "leaf": 95,
+   "lines": [
+    3,
+    7
+   ],
+   "firm": "New Ball Alley & Saloon",
+   "proprietors": [
+    "H. Hatch",
+    "W. Shur"
+   ],
+   "trade": "ball alley and saloon; choice liquors and fresh oysters",
+   "address": null,
+   "dated_statement": null,
+   "notes": null
+  },
+  {
+   "leaf": 95,
+   "lines": [
+    8,
+    10
+   ],
+   "firm": "Billiard Saloon",
+   "proprietors": [],
+   "trade": "billiard saloon",
+   "address": "west side of Clark street, over J. Johnson's barber's shop",
+   "dated_statement": null,
+   "notes": "No proprietor is named on the card."
+  },
+  {
+   "leaf": 95,
+   "lines": [
+    11,
+    14
+   ],
+   "firm": "New Billiard Saloon",
+   "proprietors": [
+    "Jno. F. Lessey",
+    "Saml. Winegar"
+   ],
+   "trade": "billiard saloon",
+   "address": "corner of Dearborn and South Water street",
+   "dated_statement": null,
+   "notes": null
+  },
+  {
+   "leaf": 95,
+   "lines": [
+    16,
+    24
+   ],
+   "firm": "Chicago Bookbindery",
+   "proprietors": [
+    "J. A. Hoisington"
+   ],
+   "trade": "bookbinding in all its branches",
+   "address": "Saloon Building, corner of Lake and Clark streets",
+   "dated_statement": null,
+   "notes": "'(LATE BOWMAN & ROSS)' and 'Having taken the above Establishment' — the house is older than its proprietor's tenure and was Bowman & Ross before him. No year is printed."
+  },
+  {
+   "leaf": 96,
+   "lines": [
+    3,
+    8
+   ],
+   "firm": "Manahan & Jacobus",
+   "proprietors": [
+    "Manahan",
+    "Jacobus"
+   ],
+   "trade": "manufacturers of cabinet furniture, chairs, sofas and bedsteads",
+   "address": "No. 10 Clark street",
+   "dated_statement": null,
+   "notes": null
+  },
+  {
+   "leaf": 96,
+   "lines": [
+    9,
+    13
+   ],
+   "firm": "D. A. & E. M. Jones",
+   "proprietors": [
+    "D. A. Jones",
+    "E. M. Jones"
+   ],
+   "trade": "cabinet and chair manufacturers",
+   "address": "Dearborn street, three doors north of Tremont Buildings",
+   "dated_statement": null,
+   "notes": null
+  },
+  {
+   "leaf": 96,
+   "lines": [
+    14,
+    18
+   ],
+   "firm": "C. Morgan",
+   "proprietors": [
+    "C. Morgan"
+   ],
+   "trade": "manufacturer of all kinds of cabinet ware and chairs",
+   "address": "199 Lake street",
+   "dated_statement": null,
+   "notes": null
+  },
+  {
+   "leaf": 96,
+   "lines": [
+    19,
+    23
+   ],
+   "firm": "John B. Weir",
+   "proprietors": [
+    "John B. Weir"
+   ],
+   "trade": "manufacturer and dealer in furniture of all kinds",
+   "address": "No. 188 Lake street",
+   "dated_statement": null,
+   "notes": null
+  },
+  {
+   "leaf": 97,
+   "lines": [
+    3,
+    5
+   ],
+   "firm": "L. M. Boyce",
+   "proprietors": [
+    "L. M. Boyce"
+   ],
+   "trade": "wholesale and retail druggist",
+   "address": "119 Lake street",
+   "dated_statement": null,
+   "notes": null
+  },
+  {
+   "leaf": 97,
+   "lines": [
+    6,
+    10
+   ],
+   "firm": "Clarke & Co.",
+   "proprietors": [
+    "Clarke"
+   ],
+   "trade": "drugs and medicines; manufacturers of lard oil and candles",
+   "address": "102 Lake street",
+   "dated_statement": null,
+   "notes": null
+  },
+  {
+   "leaf": 97,
+   "lines": [
+    11,
+    16
+   ],
+   "firm": "S. Sawyer",
+   "proprietors": [
+    "S. Sawyer"
+   ],
+   "trade": "wholesale and retail dealer in drugs, paints, oils, dyestuffs, glass, medicines, chemicals, perfumery and groceries",
+   "address": "124 Lake street, two doors from Clark street",
+   "dated_statement": null,
+   "notes": null
+  },
+  {
+   "leaf": 97,
+   "lines": [
+    17,
+    24
+   ],
+   "firm": "H. O. Stone",
+   "proprietors": [
+    "H. O. Stone"
+   ],
+   "trade": "wholesale and retail dealer in dry goods, groceries and hardware; storage and forwarding; cash paid for wheat, flour, corn and oats",
+   "address": "No. 114 Lake street; storage and forwarding on South Water street",
+   "dated_statement": null,
+   "notes": null
+  },
+  {
+   "leaf": 98,
+   "lines": [
+    2,
+    8
+   ],
+   "firm": "A. G. Burley & Co.",
+   "proprietors": [
+    "A. G. Burley"
+   ],
+   "trade": "importers and wholesale and retail dealers in china, glass, earthen and stone ware and looking glasses",
+   "address": "105 Lake street",
+   "dated_statement": null,
+   "notes": null
+  },
+  {
+   "leaf": 98,
+   "lines": [
+    9,
+    12
+   ],
+   "firm": "Ballentine & Sherman",
+   "proprietors": [
+    "Ballentine",
+    "Sherman"
+   ],
+   "trade": "wholesale and retail dealers; cash paid for wheat and other country produce",
+   "address": "No. 122 Lake street",
+   "dated_statement": null,
+   "notes": "The OCR lost the line naming the goods dealt in; only 'Wholesale and Retail Dealers in' survives."
+  },
+  {
+   "leaf": 98,
+   "lines": [
+    13,
+    18
+   ],
+   "firm": "James E. Bishop",
+   "proprietors": [
+    "James E. Bishop"
+   ],
+   "trade": "general dealer in dry goods, groceries and hardware; country produce taken in exchange, cash paid for wheat and pork",
+   "address": "No. 131 Lake street",
+   "dated_statement": null,
+   "notes": null
+  },
+  {
+   "leaf": 98,
+   "lines": [
+    19,
+    24
+   ],
+   "firm": "Loyd, Blakesley & Co.",
+   "proprietors": [
+    "A. Loyd",
+    "H. A. Blakesley",
+    "Henry Norton"
+   ],
+   "trade": "wholesale and retail dealers in groceries, nails, glass, shoes and leather; cash paid for wheat",
+   "address": "101 Lake street",
+   "dated_statement": null,
+   "notes": null
+  },
+  {
+   "leaf": 99,
+   "lines": [
+    2,
+    6
+   ],
+   "firm": "Bracken & Tuller",
+   "proprietors": [
+    "Bracken",
+    "Tuller"
+   ],
+   "trade": "wholesale and retail dealers in dry goods, groceries, hardware, leather, boots, shoes and powder",
+   "address": "161 Lake street",
+   "dated_statement": null,
+   "notes": null
+  },
+  {
+   "leaf": 99,
+   "lines": [
+    7,
+    10
+   ],
+   "firm": "Comstock & Ackley",
+   "proprietors": [
+    "Comstock",
+    "Ackley"
+   ],
+   "trade": "wholesale and retail dealers in dry goods, groceries and provisions",
+   "address": "82 Lake street",
+   "dated_statement": null,
+   "notes": null
+  },
+  {
+   "leaf": 99,
+   "lines": [
+    11,
+    16
+   ],
+   "firm": "Dyer & Chapin",
+   "proprietors": [
+    "Thomas Dyer",
+    "J. P. Chapin"
+   ],
+   "trade": "wholesale and retail dealers in staple and fancy dry goods, groceries, nails and glass",
+   "address": "No. 103 Lake street",
+   "dated_statement": null,
+   "notes": "Line 17 of this leaf is the fragment ' paid', the tail of a cash-paid-for-wheat line the scan otherwise lost. It is left out of the quote."
+  },
+  {
+   "leaf": 99,
+   "lines": [
+    18,
+    24
+   ],
+   "firm": "John Fennerty",
+   "proprietors": [
+    "John Fennerty"
+   ],
+   "trade": "wholesale and retail dealer in dry goods, groceries, ready made clothing, nails, glass, indigo, madder, alum and cotton yarn",
+   "address": "100 Lake street",
+   "dated_statement": null,
+   "notes": null
+  },
+  {
+   "leaf": 99,
+   "lines": [
+    25,
+    30
+   ],
+   "firm": "H. Norton & Co.",
+   "proprietors": [
+    "H. Norton",
+    "J. C. Walter"
+   ],
+   "trade": "wholesale and retail dealers in groceries, liquors, paints, oils, nails, glass, crockery and staple dry goods",
+   "address": "South Water street",
+   "dated_statement": null,
+   "notes": null
+  },
+  {
+   "leaf": 100,
+   "lines": [
+    2,
+    8
+   ],
+   "firm": "C. N. Holden & Co.",
+   "proprietors": [
+    "C. N. Holden"
+   ],
+   "trade": "wholesale and retail dealers in dry goods, groceries, nails, glass, boots, shoes, hats, caps, shovels, spades, forks, ropes, pails and cords",
+   "address": "corner Clark and South Water streets, near the Bridge",
+   "dated_statement": null,
+   "notes": null
+  },
+  {
+   "leaf": 100,
+   "lines": [
+    9,
+    16
+   ],
+   "firm": "J. B. Irvin & Co.",
+   "proprietors": [
+    "J. B. Irvin"
+   ],
+   "trade": "wholesale and retail dealers in dry goods, groceries, hardware, crockery, boots and shoes; cash paid for country produce",
+   "address": "Dearborn street, 2nd door from Lake street",
+   "dated_statement": null,
+   "notes": null
+  },
+  {
+   "leaf": 100,
+   "lines": [
+    17,
+    22
+   ],
+   "firm": "B. Jones & Co.",
+   "proprietors": [
+    "B. Jones"
+   ],
+   "trade": "general dealers in dry goods, groceries, lumber and produce; cash paid for wheat",
+   "address": "South Water street, between Clark and Dearborn streets",
+   "dated_statement": null,
+   "notes": null
+  },
+  {
+   "leaf": 100,
+   "lines": [
+    23,
+    28
+   ],
+   "firm": "Theron Norton",
+   "proprietors": [
+    "Theron Norton"
+   ],
+   "trade": "wholesale and retail dealer in staple and fancy dry goods, wet and dry groceries, hardware, crockery, ready made clothing, hats, salt, nails and glass",
+   "address": "117 Lake street",
+   "dated_statement": null,
+   "notes": null
+  },
+  {
+   "leaf": 100,
+   "lines": [
+    29,
+    33
+   ],
+   "firm": "B. F. Sherman",
+   "proprietors": [
+    "B. F. Sherman"
+   ],
+   "trade": "general dealer in staple and fancy dry goods, groceries, boots, shoes and leather",
+   "address": "126 Lake street, corner of Clark",
+   "dated_statement": null,
+   "notes": null
+  },
+  {
+   "leaf": 101,
+   "lines": [
+    2,
+    7
+   ],
+   "firm": "John L. Gray",
+   "proprietors": [
+    "John L. Gray"
+   ],
+   "trade": "dealer in dry goods and groceries",
+   "address": "corner of Clark and North Water streets, at the Bridge",
+   "dated_statement": null,
+   "notes": null
+  },
+  {
+   "leaf": 101,
+   "lines": [
+    8,
+    13
+   ],
+   "firm": "James Hervey",
+   "proprietors": [
+    "James Hervey"
+   ],
+   "trade": "dealer in dry goods, groceries and produce",
+   "address": "South Water street",
+   "dated_statement": null,
+   "notes": null
+  },
+  {
+   "leaf": 101,
+   "lines": [
+    14,
+    20
+   ],
+   "firm": "N. Sherman, Jr.",
+   "proprietors": [
+    "N. Sherman, Jr."
+   ],
+   "trade": "wholesale and retail dealer in dry goods, groceries, nails, glass and sash",
+   "address": "No. 158 Lake street, corner of Lake and La Salle streets",
+   "dated_statement": null,
+   "notes": null
+  },
+  {
+   "leaf": 101,
+   "lines": [
+    21,
+    27
+   ],
+   "firm": "H. & E. Smith",
+   "proprietors": [
+    "H. Smith",
+    "E. Smith"
+   ],
+   "trade": "wholesale and retail dealers in merchant tailors' goods, clothing, dry goods, groceries and hardware; clothing made to order",
+   "address": "No. 146 Lake street",
+   "dated_statement": null,
+   "notes": null
+  },
+  {
+   "leaf": 102,
+   "lines": [
+    2,
+    7
+   ],
+   "firm": "Stevens & Carpenter",
+   "proprietors": [
+    "Henry Stevens",
+    "Jas. H. Carpenter"
+   ],
+   "trade": "wholesale and retail dealers in staple dry goods, groceries, hardware, boots, shoes and crockery",
+   "address": "166 Lake street",
+   "dated_statement": null,
+   "notes": null
+  },
+  {
+   "leaf": 102,
+   "lines": [
+    8,
+    15
+   ],
+   "firm": "N. & F. Tuttle",
+   "proprietors": [
+    "N. Tuttle",
+    "F. Tuttle"
+   ],
+   "trade": "wholesale and retail dealers in dry goods, groceries, nails, glass, boots and leather; cash paid for wheat",
+   "address": "68 Lake street, a few doors east of Tremont House",
+   "dated_statement": null,
+   "notes": null
+  },
+  {
+   "leaf": 102,
+   "lines": [
+    16,
+    21
+   ],
+   "firm": "S. B. Walker",
+   "proprietors": [
+    "S. B. Walker"
+   ],
+   "trade": "general dealer in dry goods, groceries, glass, crockery, hardware, cutlery, boots and shoes",
+   "address": "148 Lake street",
+   "dated_statement": null,
+   "notes": null
+  },
+  {
+   "leaf": 102,
+   "lines": [
+    22,
+    28
+   ],
+   "firm": "C. Walker & Co.",
+   "proprietors": [
+    "C. Walker"
+   ],
+   "trade": "wholesale and retail dealers in leather, boots, shoes, findings, dry goods, groceries, hardware, nails, oils, paints and glass; cash paid for wheat and hides",
+   "address": "South Water street",
+   "dated_statement": null,
+   "notes": null
+  },
+  {
+   "leaf": 103,
+   "lines": [
+    2,
+    7
+   ],
+   "firm": "Cheap Cash Store — C. G. Wicker & Co.",
+   "proprietors": [
+    "C. G. Wicker"
+   ],
+   "trade": "wholesale and retail dealers in dry goods, groceries, leather, glass, nails and produce",
+   "address": "No. 94 Lake street",
+   "dated_statement": null,
+   "notes": "The card sets the shop's sign name, CHEAP CASH STORE, above the firm's."
+  },
+  {
+   "leaf": 103,
+   "lines": [
+    8,
+    12
+   ],
+   "firm": "E. S. & J. Wadsworth",
+   "proprietors": [
+    "E. S. Wadsworth",
+    "J. Wadsworth"
+   ],
+   "trade": "dealers in dry goods and groceries at wholesale and retail",
+   "address": "113 Lake street",
+   "dated_statement": null,
+   "notes": null
+  },
+  {
+   "leaf": 103,
+   "lines": [
+    13,
+    17
+   ],
+   "firm": "M. & M. A. Wurts",
+   "proprietors": [
+    "M. Wurts",
+    "M. A. Wurts"
+   ],
+   "trade": "wholesale and retail dealers in dry goods, groceries, boots, shoes and leather",
+   "address": "No. 99 Lake street",
+   "dated_statement": null,
+   "notes": null
+  },
+  {
+   "leaf": 103,
+   "lines": [
+    19,
+    31
+   ],
+   "firm": "Horace Butler",
+   "proprietors": [
+    "Horace Butler"
+   ],
+   "trade": "general agent in the forwarding and commission business; purchase of wheat and other produce; dealer in staple dry goods, groceries, hardware, flour, salt, pork, glass, fish, shingles and plaster",
+   "address": "Chicago, Illinois",
+   "dated_statement": null,
+   "notes": null
+  },
+  {
+   "leaf": 104,
+   "lines": [
+    2,
+    6
+   ],
+   "firm": "Bristol & Porter",
+   "proprietors": [
+    "Bristol",
+    "Porter"
+   ],
+   "trade": "storage, forwarding and commission merchants",
+   "address": "Chicago, Illinois",
+   "dated_statement": null,
+   "notes": null
+  },
+  {
+   "leaf": 104,
+   "lines": [
+    7,
+    20
+   ],
+   "firm": "John P. Chapin & Co.",
+   "proprietors": [
+    "John P. Chapin"
+   ],
+   "trade": "forwarding and commission merchants",
+   "address": "Chicago, Illinois",
+   "dated_statement": null,
+   "notes": "The card's REFERENCES name correspondent houses in Chicago, Michigan City, Buffalo and New York — evidence of the trade's reach, not of Chicago businesses."
+  },
+  {
+   "leaf": 104,
+   "lines": [
+    21,
+    26
+   ],
+   "firm": "C. L. Harmon",
+   "proprietors": [
+    "C. L. Harmon"
+   ],
+   "trade": "commission merchant and wholesale grocer",
+   "address": "corner South Water and Clark streets",
+   "dated_statement": null,
+   "notes": null
+  },
+  {
+   "leaf": 104,
+   "lines": [
+    27,
+    32
+   ],
+   "firm": "G. S. Hubbard",
+   "proprietors": [
+    "G. S. Hubbard"
+   ],
+   "trade": "forwarding merchant and dealer in produce and provisions",
+   "address": "South Water street, between Clark and La Salle streets",
+   "dated_statement": null,
+   "notes": null
+  },
+  {
+   "leaf": 105,
+   "lines": [
+    2,
+    5
+   ],
+   "firm": "Humphreys & Winslow",
+   "proprietors": [
+    "Humphreys",
+    "Winslow"
+   ],
+   "trade": "forwarding commission merchants and produce dealers",
+   "address": "Chicago, Illinois",
+   "dated_statement": null,
+   "notes": null
+  },
+  {
+   "leaf": 105,
+   "lines": [
+    6,
+    17
+   ],
+   "firm": "Orrington Lunt",
+   "proprietors": [
+    "Orrington Lunt"
+   ],
+   "trade": "forwarding and commission merchant; produce purchased and sold on commission",
+   "address": "Chicago, Illinois",
+   "dated_statement": null,
+   "notes": null
+  },
+  {
+   "leaf": 105,
+   "lines": [
+    18,
+    22
+   ],
+   "firm": "James D. Merritt",
+   "proprietors": [
+    "James D. Merritt"
+   ],
+   "trade": "forwarder, commission merchant and dealer in produce and staple goods",
+   "address": "Chicago, Illinois",
+   "dated_statement": null,
+   "notes": null
+  },
+  {
+   "leaf": 105,
+   "lines": [
+    23,
+    31
+   ],
+   "firm": "Horace Norton & Co.",
+   "proprietors": [
+    "Horace Norton",
+    "J. C. Walter",
+    "Edw. K. Rogers"
+   ],
+   "trade": "storage, forwarding and commission merchants; dealers in produce, iron and coal",
+   "address": "Chicago, Illinois",
+   "dated_statement": null,
+   "notes": null
+  },
+  {
+   "leaf": 106,
+   "lines": [
+    2,
+    25
+   ],
+   "firm": "Newberry & Dole",
+   "proprietors": [
+    "Newberry",
+    "Dole"
+   ],
+   "trade": "storage, forwarding and commission merchants; agents for the Merchant's Transportation Company and for the Troy and Ohio and Detroit lines",
+   "address": "foot of Clark street, at the Bridge",
+   "dated_statement": null,
+   "notes": "The card lists the lines' proprietors and agents at New York, Boston, Albany, Buffalo and Detroit. O. Newberry is named as the Detroit agent of the Merchant's Transportation Company."
+  },
+  {
+   "leaf": 106,
+   "lines": [
+    26,
+    43
+   ],
+   "firm": "Theron Pardee",
+   "proprietors": [
+    "Theron Pardee"
+   ],
+   "trade": "commission merchant and forwarder; agent for the New York, Oswego and Chicago Line of steam propellers and for the New York, Utica and Oswego Line",
+   "address": "North Water street",
+   "dated_statement": null,
+   "notes": null
+  },
+  {
+   "leaf": 107,
+   "lines": [
+    2,
+    5
+   ],
+   "firm": "Whiting, Magill, & Co.",
+   "proprietors": [
+    "Whiting",
+    "Magill"
+   ],
+   "trade": "storage, forwarding and commission",
+   "address": "North Water street",
+   "dated_statement": null,
+   "notes": null
+  },
+  {
+   "leaf": 107,
+   "lines": [
+    6,
+    11
+   ],
+   "firm": "Charles Cleaver",
+   "proprietors": [
+    "Charles Cleaver"
+   ],
+   "trade": "dealer in groceries; lard oil, soap and candle factory",
+   "address": "177 Lake street; factory on Canal street between Madison and Monroe streets",
+   "dated_statement": null,
+   "notes": null
+  },
+  {
+   "leaf": 107,
+   "lines": [
+    12,
+    20
+   ],
+   "firm": "Hamilton & White",
+   "proprietors": [
+    "Hamilton",
+    "White"
+   ],
+   "trade": "dealers in groceries, provisions and produce, lard oil, stearine candles, dried fruit, sash, nails, glass, powder, shot, lead, wooden ware and clothing",
+   "address": "No. 139 Lake street, first door west of Lake Street House",
+   "dated_statement": null,
+   "notes": null
+  },
+  {
+   "leaf": 107,
+   "lines": [
+    21,
+    26
+   ],
+   "firm": "C. McDonnell",
+   "proprietors": [
+    "C. McDonnell"
+   ],
+   "trade": "grocery store and boarding house, with stabling in the rear",
+   "address": "corner of Market and Randolph streets, between the South Branch Bridge and the Sauganash Hotel",
+   "dated_statement": null,
+   "notes": null
+  },
+  {
+   "leaf": 108,
+   "lines": [
+    2,
+    4
+   ],
+   "firm": "H. Newhall",
+   "proprietors": [
+    "H. Newhall"
+   ],
+   "trade": "wholesale and retail dealer",
+   "address": "No. 123 Lake street",
+   "dated_statement": null,
+   "notes": "The OCR lost the line naming the goods dealt in."
+  },
+  {
+   "leaf": 108,
+   "lines": [
+    5,
+    8
+   ],
+   "firm": "Ward Rathbone",
+   "proprietors": [
+    "Ward Rathbone"
+   ],
+   "trade": "wholesale and retail dealer in fruit, groceries, dry goods and choice liquors",
+   "address": "No. 141 Lake street",
+   "dated_statement": null,
+   "notes": null
+  },
+  {
+   "leaf": 108,
+   "lines": [
+    9,
+    12
+   ],
+   "firm": "Philo C. Sheldon",
+   "proprietors": [
+    "Philo C. Sheldon"
+   ],
+   "trade": "groceries, provisions and liquors",
+   "address": "254, corner of Lake and Water streets, opposite the Sauganash",
+   "dated_statement": null,
+   "notes": null
+  },
+  {
+   "leaf": 108,
+   "lines": [
+    13,
+    16
+   ],
+   "firm": "Oliver C. Henson",
+   "proprietors": [
+    "Oliver C. Henson"
+   ],
+   "trade": "barber and fashionable hairdresser; perfumery for sale",
+   "address": "183 Lake street",
+   "dated_statement": null,
+   "notes": null
+  },
+  {
+   "leaf": 108,
+   "lines": [
+    17,
+    24
+   ],
+   "firm": "A. J. Miller",
+   "proprietors": [
+    "A. J. Miller"
+   ],
+   "trade": "barber and fashionable hair dresser; French pomatum and cigars",
+   "address": "Market street, near the Sauganash",
+   "dated_statement": null,
+   "notes": null
+  },
+  {
+   "leaf": 109,
+   "lines": [
+    2,
+    11
+   ],
+   "firm": "Botsford & Beeks",
+   "proprietors": [
+    "J. K. Botsford",
+    "C. Beers"
+   ],
+   "trade": "wholesale and retail dealers in stoves, iron, tin plate, sheet iron and copper, hollow ware, hardware, cutlery, nails, spikes, sash, glass and tools",
+   "address": "109 Lake street",
+   "dated_statement": null,
+   "notes": "The heading reads BOTSFORD & BEEKS and the proprietors' line reads C. BEERS — the same name twice, scanned two ways."
+  },
+  {
+   "leaf": 109,
+   "lines": [
+    12,
+    17
+   ],
+   "firm": "L. W. Clark",
+   "proprietors": [
+    "L. W. Clark"
+   ],
+   "trade": "wholesale and retail dealer in hardware, saddlery, cutlery, iron, steel, nails, spikes, glass, stoves, tin, sheet iron and copper ware",
+   "address": "128 Lake street, corner of Clark street",
+   "dated_statement": null,
+   "notes": null
+  },
+  {
+   "leaf": 109,
+   "lines": [
+    18,
+    22
+   ],
+   "firm": "J. B. Doggett",
+   "proprietors": [
+    "J. B. Doggett"
+   ],
+   "trade": "agent for the Brownsville Juniata Iron Works",
+   "address": "warehouse, corner of Lake and State streets",
+   "dated_statement": null,
+   "notes": null
+  },
+  {
+   "leaf": 109,
+   "lines": [
+    23,
+    30
+   ],
+   "firm": "Gurnee & Matteson",
+   "proprietors": [
+    "Gurnee",
+    "Matteson"
+   ],
+   "trade": "wholesale and retail dealers in hardware, saddlery, cutlery, iron, steel, nails, spikes, glass, stoves, tin, sheet iron, copper ware, leather and shoe findings; cash paid for hides",
+   "address": "Lake street",
+   "dated_statement": null,
+   "notes": "The street number is lost in the scan: 'Iir, LAKE'STREET'."
+  },
+  {
+   "leaf": 110,
+   "lines": [
+    2,
+    6
+   ],
+   "firm": "David Hatch",
+   "proprietors": [
+    "David Hatch"
+   ],
+   "trade": "dealer in hardware",
+   "address": "98 Lake street, store with Sylvester Marsh",
+   "dated_statement": null,
+   "notes": null
+  },
+  {
+   "leaf": 110,
+   "lines": [
+    7,
+    19
+   ],
+   "firm": "Ryerson & Blaikie — Pittsburg Iron Store",
+   "proprietors": [
+    "Ryerson",
+    "Blaikie"
+   ],
+   "trade": "iron store (Hecla Works): bar, tire, hoop, band, saddle tree, horse shoe, boiler and sheet iron, steel, springs, axles, nails, brads, spikes, white lead and glass",
+   "address": "No. 90 Lake street, opposite the Tremont House",
+   "dated_statement": "1844",
+   "notes": "The card is dated in its own last line: 'CHICAGO, ILL. 1844.'"
+  },
+  {
+   "leaf": 110,
+   "lines": [
+    20,
+    30
+   ],
+   "firm": "The Chicago Steam Iron Works",
+   "proprietors": [
+    "H. M. Stow"
+   ],
+   "trade": "iron and brass casting",
+   "address": "corner of Randolph and Canal streets, opposite the Western Hotel; orders taken at the Furnace Store on Clark street, between Lake and Water streets",
+   "dated_statement": null,
+   "notes": "'his new Establishment' — the works are new in 1844 by the card's own words, which is a founding statement without a year."
+  },
+  {
+   "leaf": 110,
+   "lines": [
+    31,
+    36
+   ],
+   "firm": "Charles Buhl",
+   "proprietors": [
+    "Charles Buhl"
+   ],
+   "trade": "manufacturer of hats and caps and dealer in furs, buffalo robes, hatters' stock and trimmings",
+   "address": "189 Lake street",
+   "dated_statement": null,
+   "notes": null
+  },
+  {
+   "leaf": 111,
+   "lines": [
+    2,
+    6
+   ],
+   "firm": "A. Getzler",
+   "proprietors": [
+    "A. Getzler"
+   ],
+   "trade": "cap and umbrella manufacturer and general dealer in hats, caps and furs",
+   "address": "No. 151 Lake street",
+   "dated_statement": null,
+   "notes": null
+  },
+  {
+   "leaf": 111,
+   "lines": [
+    9,
+    23
+   ],
+   "firm": "City Hotel",
+   "proprietors": [
+    "J. Russell"
+   ],
+   "trade": "hotel",
+   "address": "corner of Clark and Randolph streets",
+   "dated_statement": null,
+   "notes": "The card places the house 'within a few rods of the Northern, Southern, Eastern & Western Stage Offices, the Post Office, and Reading Room' — a 1844 statement about where the town's business stood."
+  },
+  {
+   "leaf": 111,
+   "lines": [
+    24,
+    27
+   ],
+   "firm": "Illinois Exchange",
+   "proprietors": [
+    "John Bates, Jr."
+   ],
+   "trade": "hotel",
+   "address": "corner Lake and Wells streets",
+   "dated_statement": null,
+   "notes": null
+  },
+  {
+   "leaf": 112,
+   "lines": [
+    3,
+    9
+   ],
+   "firm": "American Temperance House",
+   "proprietors": [
+    "C. W. Cook"
+   ],
+   "trade": "temperance house",
+   "address": "corner of Lake and Wabash streets, near the Steamboat Landing",
+   "dated_statement": null,
+   "notes": null
+  },
+  {
+   "leaf": 112,
+   "lines": [
+    10,
+    19
+   ],
+   "firm": "Farmers' Exchange",
+   "proprietors": [
+    "P. A. Barker"
+   ],
+   "trade": "hotel with stabling and yards",
+   "address": "corner of Lake and Wabash streets, opposite the American Temperance House",
+   "dated_statement": null,
+   "notes": "'has been removed to the corner of Lake and Wabash streets' — the house moved before 1844, and the Lake Street House card opposite says what it moved out of."
+  },
+  {
+   "leaf": 112,
+   "lines": [
+    20,
+    31
+   ],
+   "firm": "Lake Street House",
+   "proprietors": [
+    "Dennis S. Cady"
+   ],
+   "trade": "hotel",
+   "address": "135-7 Lake street",
+   "dated_statement": null,
+   "notes": "'(Late Farmers' Exchange.)' — the house is the Farmers' Exchange's old stand, taken over and repaired. The two cards together date a move that neither gives a year for."
+  },
+  {
+   "leaf": 113,
+   "lines": [
+    2,
+    5
+   ],
+   "firm": "Mansion House",
+   "proprietors": [
+    "Skinner",
+    "Smith"
+   ],
+   "trade": "hotel",
+   "address": "84 and 86 Lake street",
+   "dated_statement": null,
+   "notes": null
+  },
+  {
+   "leaf": 113,
+   "lines": [
+    6,
+    11
+   ],
+   "firm": "Sauganash Hotel",
+   "proprietors": [
+    "L. M. Osterhoudt"
+   ],
+   "trade": "hotel",
+   "address": "corner of Lake and Market streets",
+   "dated_statement": "January 1844",
+   "notes": "The card is dated 'Jauunry, 1844' — Osterhoudt's tenure, not the house's founding. The Sauganash itself stands in this project's scene of 1835."
+  },
+  {
+   "leaf": 113,
+   "lines": [
+    12,
+    29
+   ],
+   "firm": "United States Hotel",
+   "proprietors": [
+    "John Murphy"
+   ],
+   "trade": "hotel",
+   "address": "Chicago",
+   "dated_statement": "1 January 1844",
+   "notes": "'he has returned to his old & popular stand' — the keeper had held the house before and is dating his return, not a founding. Printed 'Chicago, Jan. 1st, 1344'."
+  },
+  {
+   "leaf": 113,
+   "lines": [
+    30,
+    34
+   ],
+   "firm": "Chicago Temperance House",
+   "proprietors": [
+    "D. L. Roberts"
+   ],
+   "trade": "temperance house",
+   "address": "La Salle street, nearly opposite the Bank Building",
+   "dated_statement": null,
+   "notes": null
+  },
+  {
+   "leaf": 114,
+   "lines": [
+    2,
+    12
+   ],
+   "firm": "Washington Hall",
+   "proprietors": [
+    "John Anderson"
+   ],
+   "trade": "temperance house",
+   "address": "North Water street, near the Clark street Bridge",
+   "dated_statement": null,
+   "notes": "'This well known Hotel has recently undergone extensive additions and improvements' — the house is older than 1844 and the card gives no year."
+  },
+  {
+   "leaf": 114,
+   "lines": [
+    13,
+    24
+   ],
+   "firm": "The Washington Coffee House",
+   "proprietors": [
+    "Thomas",
+    "Wheelock"
+   ],
+   "trade": "coffee house; hot meals at all hours and fresh oysters",
+   "address": "Lake street, third door east of the Tremont House",
+   "dated_statement": null,
+   "notes": "'This entirely new and splendid House has been fitted up by the Proprietors' — new in 1844 by the card's own words."
+  },
+  {
+   "leaf": 114,
+   "lines": [
+    26,
+    30
+   ],
+   "firm": "Aetna Insurance Co. of Hartford, Conn. — Chicago agency",
+   "proprietors": [
+    "G. S. Hubbard"
+   ],
+   "trade": "fire insurance agency",
+   "address": "Chicago",
+   "dated_statement": null,
+   "notes": null
+  },
+  {
+   "leaf": 114,
+   "lines": [
+    31,
+    34
+   ],
+   "firm": "George Smith & Co.",
+   "proprietors": [
+    "George Smith"
+   ],
+   "trade": "insurance brokers",
+   "address": "Bank Building, La Salle street",
+   "dated_statement": null,
+   "notes": "The same house as the bankers' card on printed page 82, advertising again under Insurance."
+  },
+  {
+   "leaf": 115,
+   "lines": [
+    2,
+    21
+   ],
+   "firm": "Agency of the National Insurance Company of the City of New York",
+   "proprietors": [
+    "A. Garrett"
+   ],
+   "trade": "fire and marine insurance agency",
+   "address": "city of Chicago",
+   "dated_statement": "December 1843",
+   "notes": "The agency is dated by the card: 'December, 1843' and 'have established an Agency in the city of Chicago'. The directors and officers named are the New York company's, not Chicago men."
+  },
+  {
+   "leaf": 115,
+   "lines": [
+    22,
+    43
+   ],
+   "firm": "Garrett & Seaman",
+   "proprietors": [
+    "A. Garrett",
+    "Seaman"
+   ],
+   "trade": "general agency and commission store; also marble mantles, tombs, monuments, head-stones and table tops",
+   "address": "four story brick building on South Water street, 2d door from Clark street",
+   "dated_statement": "partnership to commence 1 May 1844; card dated December 1843",
+   "notes": "The clearest founding statement in the whole advertiser: a partnership announced before it exists, with the day it begins. Seaman is stated to be a resident of New York."
+  },
+  {
+   "leaf": 116,
+   "lines": [
+    2,
+    46
+   ],
+   "firm": "Agency of the Atlantic Mutual Insurance Company of the City of New York",
+   "proprietors": [
+    "A. Garrett"
+   ],
+   "trade": "marine and inland insurance agency",
+   "address": "city of Chicago",
+   "dated_statement": "December 1843",
+   "notes": "Cash capital $100,000 with notes subscribed on the mutual plan for $350,000, $450,000 in all. The trustees named are the New York company's."
+  },
+  {
+   "leaf": 116,
+   "lines": [
+    47,
+    49
+   ],
+   "firm": "Hartford Fire Insurance Co. — Chicago agency",
+   "proprietors": [
+    "E. S. Wadsworth",
+    "J. Wadsworth"
+   ],
+   "trade": "fire insurance agency",
+   "address": "No. 113 Lake street",
+   "dated_statement": null,
+   "notes": null
+  },
+  {
+   "leaf": 117,
+   "lines": [
+    3,
+    11
+   ],
+   "firm": "S. J. Sherwood",
+   "proprietors": [
+    "S. J. Sherwood"
+   ],
+   "trade": "general dealer in gold and silver watches, clocks and jewelry; watches and clocks repaired",
+   "address": "144 Lake street",
+   "dated_statement": null,
+   "notes": null
+  },
+  {
+   "leaf": 117,
+   "lines": [
+    12,
+    15
+   ],
+   "firm": "V. Faller",
+   "proprietors": [
+    "V. Faller"
+   ],
+   "trade": "clock and watchmaker",
+   "address": "Dearborn street, near the Tremont House",
+   "dated_statement": null,
+   "notes": null
+  },
+  {
+   "leaf": 117,
+   "lines": [
+    16,
+    22
+   ],
+   "firm": "North-Western Land Agency",
+   "proprietors": [
+    "William B. Ogden",
+    "William E. Jones"
+   ],
+   "trade": "general land agents for the north-western states and territories",
+   "address": "office on Kinzie street, east of Dearborn",
+   "dated_statement": null,
+   "notes": null
+  },
+  {
+   "leaf": 117,
+   "lines": [
+    23,
+    29
+   ],
+   "firm": "J. B. F. Russell",
+   "proprietors": [
+    "J. B. F. Russell"
+   ],
+   "trade": "general land agency: payment of taxes, purchase and sale of lands and lots",
+   "address": "Chicago",
+   "dated_statement": null,
+   "notes": "'Has established an office' — a founding statement without a year."
+  },
+  {
+   "leaf": 118,
+   "lines": [
+    5,
+    10
+   ],
+   "firm": "D. & A. L. Jacobus",
+   "proprietors": [
+    "D. Jacobus",
+    "A. L. Jacobus"
+   ],
+   "trade": "wholesale and retail dealers in looking glasses, clocks, Britannia ware and cutlery; pictures and picture frames",
+   "address": "No. 10 Clark street",
+   "dated_statement": null,
+   "notes": null
+  },
+  {
+   "leaf": 118,
+   "lines": [
+    11,
+    21
+   ],
+   "firm": "R. Lyons",
+   "proprietors": [
+    "R. Lyons"
+   ],
+   "trade": "wholesale and retail dealer in gilt and mahogany framed looking glasses, looking glass plates, clocks and engravings; manufacturer of portrait and picture frames; gilding",
+   "address": "No. 83 Lake street, opposite the Mansion House",
+   "dated_statement": null,
+   "notes": null
+  },
+  {
+   "leaf": 119,
+   "lines": [
+    3,
+    7
+   ],
+   "firm": "Tarleton Jones",
+   "proprietors": [
+    "Tarleton Jones"
+   ],
+   "trade": "dealer in Green Bay lumber",
+   "address": "foot of Clark street, at the Bridge",
+   "dated_statement": null,
+   "notes": null
+  },
+  {
+   "leaf": 119,
+   "lines": [
+    8,
+    13
+   ],
+   "firm": "J. M. Underwood",
+   "proprietors": [
+    "J. M. Underwood"
+   ],
+   "trade": "lumber dealer: lumber, shingles, doors and sash",
+   "address": "corner of Lake and West Water streets, a few rods north of the U. S. Hotel",
+   "dated_statement": null,
+   "notes": null
+  },
+  {
+   "leaf": 119,
+   "lines": [
+    14,
+    17
+   ],
+   "firm": "Clybourn & Hovey",
+   "proprietors": [
+    "Clybourn",
+    "Hovey"
+   ],
+   "trade": "butchers",
+   "address": "Clark street, State street and Western markets",
+   "dated_statement": null,
+   "notes": null
+  },
+  {
+   "leaf": 119,
+   "lines": [
+    18,
+    21
+   ],
+   "firm": "A. Funk",
+   "proprietors": [
+    "A. Funk"
+   ],
+   "trade": "butcher",
+   "address": "Fulton and Boston markets, on Dearborn and Randolph streets",
+   "dated_statement": null,
+   "notes": null
+  },
+  {
+   "leaf": 119,
+   "lines": [
+    22,
+    29
+   ],
+   "firm": "Robert Reynolds",
+   "proprietors": [
+    "Robert Reynolds"
+   ],
+   "trade": "butcher and packer",
+   "address": "packing house on the South Branch; office at his residence on Dearborn street",
+   "dated_statement": null,
+   "notes": "Printed 'ERT REYNOLDS' — the scan lost the first three letters of the given name, and the trade line is illegible ornament."
+  },
+  {
+   "leaf": 120,
+   "lines": [
+    3,
+    7
+   ],
+   "firm": "John I. Dow & Co.",
+   "proprietors": [
+    "John I. Dow"
+   ],
+   "trade": "ornamental, sign, house and ship painters and glaziers",
+   "address": "Clark street, three doors south of Lake",
+   "dated_statement": null,
+   "notes": null
+  },
+  {
+   "leaf": 120,
+   "lines": [
+    8,
+    15
+   ],
+   "firm": "Alexander White",
+   "proprietors": [
+    "Alexander White"
+   ],
+   "trade": "paint store; dealer in paints, oils, varnishes, brushes, glass and sash; house, sign, ship, coach and ornamental painting",
+   "address": "No. 165 Lake street",
+   "dated_statement": null,
+   "notes": null
+  },
+  {
+   "leaf": 120,
+   "lines": [
+    16,
+    19
+   ],
+   "firm": "Linseed Oil — S. W. Peck and L. M. Boyce",
+   "proprietors": [
+    "S. W. Peck",
+    "L. M. Boyce"
+   ],
+   "trade": "linseed oil mill; oil exchanged or cash paid for flax seed",
+   "address": "oil mill on Madison street",
+   "dated_statement": null,
+   "notes": null
+  },
+  {
+   "leaf": 120,
+   "lines": [
+    20,
+    23
+   ],
+   "firm": "R. E. W. Adams",
+   "proprietors": [
+    "R. E. W. Adams"
+   ],
+   "trade": "homoeopathic physician",
+   "address": "office corner of Clark and Lake streets; residence Clark street, opposite the Public Square",
+   "dated_statement": null,
+   "notes": null
+  },
+  {
+   "leaf": 120,
+   "lines": [
+    24,
+    27
+   ],
+   "firm": "V. A. Boyer",
+   "proprietors": [
+    "V. A. Boyer"
+   ],
+   "trade": "physician and surgeon; justice of the peace",
+   "address": "office Clark street, nearly opposite the City Hotel",
+   "dated_statement": null,
+   "notes": null
+  },
+  {
+   "leaf": 121,
+   "lines": [
+    2,
+    7
+   ],
+   "firm": "Doctor Blaney",
+   "proprietors": [
+    "Blaney"
+   ],
+   "trade": "professor of chemistry and materia medica in Rush Medical College; chemical analysis",
+   "address": "office on Clark street, near South Water street",
+   "dated_statement": null,
+   "notes": null
+  },
+  {
+   "leaf": 121,
+   "lines": [
+    8,
+    11
+   ],
+   "firm": "Daniel Brainard, M. D.",
+   "proprietors": [
+    "Daniel Brainard"
+   ],
+   "trade": "professor of anatomy and surgery in Rush Medical College",
+   "address": "office on Clark street, opposite the Post Office",
+   "dated_statement": null,
+   "notes": null
+  },
+  {
+   "leaf": 121,
+   "lines": [
+    12,
+    24
+   ],
+   "firm": "Doctor H. H. Brayton",
+   "proprietors": [
+    "H. H. Brayton"
+   ],
+   "trade": "physician; fresh vaccine virus",
+   "address": "office and residence on the east side of Clark street, first door south of the Methodist Church",
+   "dated_statement": null,
+   "notes": "'Having established his residence permanently at Chicago' and 'TWENTY FIVE years Study and Practice' — the practice is old, the Chicago residence is new, and neither carries a year."
+  },
+  {
+   "leaf": 121,
+   "lines": [
+    25,
+    27
+   ],
+   "firm": "Doctor J. Brinkerhoff",
+   "proprietors": [
+    "J. Brinkerhoff"
+   ],
+   "trade": "physician; drug store",
+   "address": "office Clark street, opposite Public Square; drug store 143 Lake street",
+   "dated_statement": null,
+   "notes": null
+  },
+  {
+   "leaf": 121,
+   "lines": [
+    28,
+    30
+   ],
+   "firm": "Doctor Egan",
+   "proprietors": [
+    "Egan"
+   ],
+   "trade": "physician, consulted in private cases only",
+   "address": "his residence or office",
+   "dated_statement": null,
+   "notes": null
+  },
+  {
+   "leaf": 121,
+   "lines": [
+    31,
+    33
+   ],
+   "firm": "Doctor John W. Eldridge",
+   "proprietors": [
+    "John W. Eldridge"
+   ],
+   "trade": "physician",
+   "address": "office and residence on Randolph street, first door west of City Hotel",
+   "dated_statement": null,
+   "notes": null
+  },
+  {
+   "leaf": 122,
+   "lines": [
+    2,
+    5
+   ],
+   "firm": "Dr. Benjamin F. Hale",
+   "proprietors": [
+    "Benjamin F. Hale"
+   ],
+   "trade": "physician",
+   "address": "office No. 185 Lake street; residence east side of Wells street, one door south of Lake street",
+   "dated_statement": null,
+   "notes": null
+  },
+  {
+   "leaf": 122,
+   "lines": [
+    6,
+    10
+   ],
+   "firm": "M. L. Knapp, M. D.",
+   "proprietors": [
+    "M. L. Knapp"
+   ],
+   "trade": "professor of obstetrics in Rush Medical College",
+   "address": "consulted at the Mansion House, No. 82 Lake street",
+   "dated_statement": null,
+   "notes": null
+  },
+  {
+   "leaf": 122,
+   "lines": [
+    11,
+    15
+   ],
+   "firm": "Doctor D. S. Smith",
+   "proprietors": [
+    "D. S. Smith"
+   ],
+   "trade": "physician",
+   "address": "office on Clark street, 2 doors south of Lake, over J. B. F. Russell's Land Agency Office; residence La Salle street, opposite the First Baptist Church",
+   "dated_statement": null,
+   "notes": null
+  },
+  {
+   "leaf": 122,
+   "lines": [
+    16,
+    20
+   ],
+   "firm": "Silas B. Cobb",
+   "proprietors": [
+    "Silas B. Cobb"
+   ],
+   "trade": "general dealer in saddles, harnesses, trunks, valises, collars, whips and carpet bags",
+   "address": "No. 171 Lake street",
+   "dated_statement": null,
+   "notes": null
+  },
+  {
+   "leaf": 122,
+   "lines": [
+    21,
+    28
+   ],
+   "firm": "D. Horton",
+   "proprietors": [
+    "D. Horton"
+   ],
+   "trade": "saddle and harness manufacturer and city carriage trimmer",
+   "address": "Dearborn street, two doors north of Tremont House",
+   "dated_statement": null,
+   "notes": null
+  },
+  {
+   "leaf": 123,
+   "lines": [
+    2,
+    7
+   ],
+   "firm": "C. E. Peck",
+   "proprietors": [
+    "C. E. Peck"
+   ],
+   "trade": "dealer in saddles, harness, trunks, valises, carpet bags, bridles, martingales and whips",
+   "address": "164 Lake street",
+   "dated_statement": null,
+   "notes": null
+  },
+  {
+   "leaf": 123,
+   "lines": [
+    8,
+    14
+   ],
+   "firm": "James S. Paine",
+   "proprietors": [
+    "James S. Paine"
+   ],
+   "trade": "saddle, harness, trunk, valise and carpet bag manufacturer",
+   "address": "Dearborn street, between Lake and South Water",
+   "dated_statement": null,
+   "notes": null
+  },
+  {
+   "leaf": 123,
+   "lines": [
+    16,
+    21
+   ],
+   "firm": "S. Benedik",
+   "proprietors": [
+    "S. Benedik"
+   ],
+   "trade": "merchant tailor; dry goods and clothing",
+   "address": "197 Lake street",
+   "dated_statement": null,
+   "notes": null
+  },
+  {
+   "leaf": 123,
+   "lines": [
+    22,
+    24
+   ],
+   "firm": "Andrew J. Cox & Co.",
+   "proprietors": [
+    "Andrew J. Cox"
+   ],
+   "trade": "tailors",
+   "address": "Clark street, between Lake and South Water",
+   "dated_statement": null,
+   "notes": null
+  },
+  {
+   "leaf": 123,
+   "lines": [
+    25,
+    30
+   ],
+   "firm": "Hettinger & Peterman",
+   "proprietors": [
+    "Hettinger",
+    "Peterman"
+   ],
+   "trade": "tailors and drapers; ready made clothing, cutting and repairing",
+   "address": "South Water street",
+   "dated_statement": null,
+   "notes": null
+  },
+  {
+   "leaf": 124,
+   "lines": [
+    2,
+    4
+   ],
+   "firm": "J. H. Hodgson",
+   "proprietors": [
+    "J. H. Hodgson"
+   ],
+   "trade": "draper and tailor",
+   "address": "Clark street, opposite City Hotel",
+   "dated_statement": null,
+   "notes": null
+  },
+  {
+   "leaf": 124,
+   "lines": [
+    5,
+    9
+   ],
+   "firm": "H. H. Husted",
+   "proprietors": [
+    "H. H. Husted"
+   ],
+   "trade": "draper and tailor; ready made clothing",
+   "address": "No. 97 1/2 Lake street",
+   "dated_statement": null,
+   "notes": null
+  },
+  {
+   "leaf": 124,
+   "lines": [
+    10,
+    12
+   ],
+   "firm": "W. Lock & Co.",
+   "proprietors": [
+    "W. Lock"
+   ],
+   "trade": "draper and tailor",
+   "address": "125 Lake street, corner of Lake and Clark streets",
+   "dated_statement": null,
+   "notes": "The card gives the address and the town only; the trade is the section it stands in, Tailors and Drapers."
+  },
+  {
+   "leaf": 124,
+   "lines": [
+    13,
+    16
+   ],
+   "firm": "P. Newburgh",
+   "proprietors": [
+    "P. Newburgh"
+   ],
+   "trade": "draper and tailor",
+   "address": "153 Lake street",
+   "dated_statement": null,
+   "notes": null
+  },
+  {
+   "leaf": 124,
+   "lines": [
+    17,
+    29
+   ],
+   "firm": "Chas. Taylor",
+   "proprietors": [
+    "Chas. Taylor"
+   ],
+   "trade": "fashionable tailor",
+   "address": "Clark street, between Lake street and the Post Office",
+   "dated_statement": null,
+   "notes": "'solicit a continuance of the liberal patronage hitherto extended to him' — a trade already established in 1844, with no year given."
+  },
+  {
+   "leaf": 125,
+   "lines": [
+    4,
+    10
+   ],
+   "firm": "Norton & Tuckerman",
+   "proprietors": [
+    "Norton",
+    "Tuckerman"
+   ],
+   "trade": "wholesale and retail dealers in dry goods, groceries, hardware, lumber and salt; storage and commission",
+   "address": "134 Lake street; warehouse and lumber yard on North Water street, north end of Clark street Bridge",
+   "dated_statement": null,
+   "notes": null
+  },
+  {
+   "leaf": 125,
+   "lines": [
+    11,
+    28
+   ],
+   "firm": "Dr. Tew",
+   "proprietors": [
+    "Tew"
+   ],
+   "trade": "phrenological and magnetic examiner",
+   "address": "at his residence, 2nd house north of the Episcopal Church",
+   "dated_statement": null,
+   "notes": "'Having been engaged, for the last five years, in teaching Mental Philosophy' — five years' practice reckoned back from 1844, and the card does not say where those years were spent."
+  },
+  {
+   "leaf": 126,
+   "lines": [
+    2,
+    7
+   ],
+   "firm": "George F. Foster",
+   "proprietors": [
+    "George F. Foster"
+   ],
+   "trade": "sail maker and general dealer in ship chandlery, groceries, paints, oils, nails, bags and bagging, ropes, tar, pitch, oakum and sail cloth",
+   "address": "South Water street",
+   "dated_statement": null,
+   "notes": null
+  },
+  {
+   "leaf": 126,
+   "lines": [
+    8,
+    16
+   ],
+   "firm": "Wm. Wheeler & Co.",
+   "proprietors": [
+    "Wm. Wheeler"
+   ],
+   "trade": "dealers in stoves, hardware, cutlery, tin, sheet iron and copper ware; agents for the Hazard Company's powder; cash paid for furs, deer skins, bees wax, ginseng, lead and timothy seed",
+   "address": "145 Lake street",
+   "dated_statement": null,
+   "notes": null
+  },
+  {
+   "leaf": 126,
+   "lines": [
+    17,
+    20
+   ],
+   "firm": "D. A. Barrows & Co.",
+   "proprietors": [
+    "D. A. Barrows"
+   ],
+   "trade": "manufacturers of and wholesale and retail dealers in confectionary, syrups, cakes and ice creams",
+   "address": "No. 147 Lake street",
+   "dated_statement": null,
+   "notes": null
+  },
+  {
+   "leaf": 126,
+   "lines": [
+    21,
+    30
+   ],
+   "firm": "Perkins & Fenton",
+   "proprietors": [
+    "Perkins",
+    "Fenton"
+   ],
+   "trade": "carriage and wagon making, blacksmithing, and house, sign and carriage painting",
+   "address": "shops on Randolph street, opposite the Public Square",
+   "dated_statement": "1 January 1844",
+   "notes": null
+  },
+  {
+   "leaf": 126,
+   "lines": [
+    31,
+    35
+   ],
+   "firm": "John Burgess",
+   "proprietors": [
+    "John Burgess"
+   ],
+   "trade": "carriage and wagon maker",
+   "address": "Randolph street",
+   "dated_statement": null,
+   "notes": null
+  },
+  {
+   "leaf": 75,
+   "lines": [
+    15,
+    29
+   ],
+   "firm": "General Intelligence Agency Office",
+   "proprietors": [
+    "J. W. Norris"
+   ],
+   "trade": "intelligence and employment agency; situations procured, places supplied, property let and tenants obtained; a corrected register of the inhabitants of the city kept with the General Directory",
+   "address": "Clark street, opposite the Saloon, over Russell's Land Office",
+   "dated_statement": null,
+   "notes": "Norris's own card, set inside the foot of printed page 65 and named in T-0566's coverage as belonging here. Its 'CORRECTED REGISTER OF THE INHABITANTS of the City, in connection with the General Directory at all times accessible to the public' says how the directory itself was kept up."
+  }
+ ]
+}

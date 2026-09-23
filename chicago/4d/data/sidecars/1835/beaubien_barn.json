@@ -1,0 +1,149 @@
+{
+  "id": "beaubien_barn",
+  "phase": "converted_1817",
+  "name": "Col. Jean Baptiste Beaubien's Barn",
+  "aka": [
+    "the old cabin used for a barn",
+    "the Beaubien homestead barn"
+  ],
+  "archetype": "outbuilding",
+  "asset": "gltf/beaubien_barn__converted_1817.glb",
+  "scene": "1835",
+  "target_date": "1835-07-01",
+  "documented_range": {
+    "from": "1817-01-01",
+    "to": "1835-12-31",
+    "confidence": "inferred",
+    "sources": [
+      "andreas_1884_v1"
+    ],
+    "note": "THE CONVERSION IS DATED BY THE MOVE THAT CAUSED IT AND NOT BY ITSELF. Andreas, scan p. 183: 'In 1817, Mr. Beaubien purchased this house, which was a low, gloomy building of five rooms, for $1,000 ... After this purchase he lived in the Dean house for several years, his son Alexander being born there. He used the old cabin after this for a barn.' So the building is older than 1817 as a dwelling and becomes a barn 'after' Beaubien moved out of it into the Dean house in 1817; no month is given and the range opens at the start of that year, exactly as its parent record data/structures/jb_beaubien_homestead.json does. THE SURVIVAL TO THE SCENE DATE IS BETTER ATTESTED THAN FOR MOST OUTBUILDINGS IN THIS DATASET, and the evidence is on the far side of the scene: Andreas, scan p. 339, describing the 1839 public sale of the Fort Dearborn reservation lots, has James H. Collins bidding '$1,049 for the next five lots, 10, 9, 8, 7, and 6, where Beaubien's house, OUT-BUILDINGS, and garden were'. That is a documented statement that Beaubien still had out-buildings standing on his homestead ground four years after 1835-07-01. It does not say the barn was one of them, and it is not used to extend this range; the range closes at the end of the scene year, as a housekeeping bound and not a demolition date, on the same reasoning the homestead record gives. THE 19-YEAR SPAN WILL RAISE THIS PROJECT'S WIDE-RANGE WARNING and is left standing rather than trimmed to silence it: the building is genuinely old, the warning is correct that nothing documents its middle years, and the parent record carries the identical span for the identical reason."
+  },
+  "change_note": "The cabin Jean Baptiste Beaubien lived in before 1817, left standing and used as a barn after he bought the Dean house at the mouth of the river and moved into it. On the scene date it is one of the out-buildings of the homestead group on the Fort Dearborn reservation, and its owner's pre-emption claim to the whole 75.69-acre reservation is five weeks old.",
+  "placement": {
+    "local_e": 1127.1,
+    "local_n": 158.5,
+    "rotation_deg": 0.0,
+    "position_confidence": "reconstructed",
+    "position_sources": [],
+    "position_note": "CARRIED WITH ITS PARENT 2026-09-06 UNDER T-0718: the homestead moved about 47 m north-east from the south-west corner of South Water and Michigan to the north-east, and this record's method is literally 'the homestead's easting, 16.3 m south of its origin', so it moves with it or the method stops being true. The offset, the direction and the bearing are unchanged; only the parent point is. T-0718's argument is in jb_beaubien_homestead's position.note and is not repeated here.\n\nPLACED BY EYE INSIDE A GROUP, WHICH IS THE HONEST DESCRIPTION OF IT. NOTHING LOCATES THIS BUILDING. Andreas says only that it was 'the old cabin' Beaubien had lived in before he bought the Dean house, and the sentence immediately before it puts an earlier cabin 'on the south side of the river, not far from Beaubien's place' — a locator that names a river bank and nothing finer. METHOD: this coordinate shares the homestead record's easting and stands 16.3 m south of its origin, so the barn's north face is about 11 m behind the house's south wall, in the position a farmyard building takes behind a dwelling. THE DIRECTION AND THE DISTANCE ARE BOTH INVENTED; south was chosen because the homestead record faces its building north toward the river, so the yard is behind it.\n\nTHE CONTRADICTION THIS RECORD USED TO INHERIT IS RESOLVED, AND IT RESOLVED THIS RECORD'S WAY. The 1839 sale passage (scan p. 339) puts 'Beaubien's house, out-buildings, and garden' together on Lots 6 to 10 of Block 5, on the EAST side of Michigan Avenue between South Water Street and the reserved lots, and this note used to observe that those lots sit on the opposite side of the avenue from the corner the parent had adopted off scan p. 185. T-0718 read both pages directly: p. 339 is John Wentworth's 1881 address reprinted and is expressly about finding this house, and p. 185's own second clause names the same 1839 sale — so the east side wins and the parent moved to it. The 45 m 'contested corner' term is therefore GONE from the uncertainty below rather than merely inherited.\n\nTHE CAVEAT THAT DOES TRAVEL WITH THE PARENT, UNCHANGED: neither street existed on the reservation in 1835 — it was unplatted and no street crossed it — so both books are locating an old building by a grid that arrived with the 1839 plat. WORKING UNCERTAINTY: about 20 m from the georeference, plus an unquantified allowance for placing an undescribed building beside a building located by a retrospective address, plus the parent's own unmeasured northward offset (Wentworth's lots 6-10 lie north of the corner lot, so the group's true position is at the corner or north of it). Facade bearing 0, north toward the house, inherited from the parent record and attested nowhere.",
+    "symbolic_location": "On the Fort Dearborn reservation, in the Beaubien homestead group at what Andreas calls the corner of South Water Street and Michigan Avenue — modelled about 11 m behind (south of) the factory building, which is where this dataset puts the principal house.",
+    "uncertainty_m": 20,
+    "placement_provisional": false,
+    "vertical_anchor": "terrain",
+    "walk_surface_m": null
+  },
+  "footprint": {
+    "polygon": [
+      [
+        0,
+        0
+      ],
+      [
+        6.1,
+        0
+      ],
+      [
+        6.1,
+        4.88
+      ],
+      [
+        0,
+        4.88
+      ]
+    ],
+    "confidence": "reconstructed",
+    "sources": [],
+    "note": "INVENTED, AND INVENTED AS A CABIN RATHER THAN AS A BARN, which is the one thing about this footprint that is not free. Andreas gives no dimension. 6.1 x 4.88 m is 20 x 16 ft — a single-pen log cabin, the smallest unit of dwelling this settlement built — because what the source describes is a house that stopped being a house: Beaubien did not build a barn, he moved out and left one. Drawing this as a barn-sized building would assert a rebuilding nobody records. 20 ft is borrowed from Hogan's store, the one log footprint in this dataset with a documented dimension, and 16 ft is the shallower of the two common single-pen depths. Every number is invented and this polygon cites no sources."
+  },
+  "attributes": {
+    "construction": {
+      "value": "log",
+      "confidence": "inferred",
+      "sources": [
+        "andreas_1884_v1"
+      ],
+      "note": "THE NEAREST THING TO AN ATTESTED FABRIC ANY OUTBUILDING IN THIS DATASET HAS, AND IT IS STILL AN INFERENCE. Andreas calls the building 'the old cabin', not 'the old log cabin', so the word 'log' is not on the page. What is on the page is that every building described at Chicago before 1820 was of logs: Andreas's own account of the 1816 rebuilding finds 'a few dilapidated log huts, covered with bark' on the ground, David McKee's recollection of the houses he found and built on the north bank in 1823 is 'All these houses were of logs', and this project's dossier records no brick of consequence on the south side before 1837 and no sawn-lumber supply at Chicago until the mills of 1832-33. A cabin standing at Chicago before 1817 is a log cabin. Recorded inferred rather than documented because the distinction between what a source says and what a source makes certain is the one this project is built on."
+    },
+    "wall_height_m": {
+      "value": 2.5,
+      "confidence": "inferred",
+      "note": "No figure is attested. 2.5 m is about 8 ft: one storey of hewn log wall at typical period course counts, plus a sill — the same reading and the same number this project gives Hogan's store, the Walker meeting house and this building's own parent record. NOTE THE CONSEQUENCE, WHICH IS A FEATURE OF THE CONVERSION AND NOT AN ERROR: a 2.3 m stable door cut into a 2.5 m cabin wall leaves only 0.2 m of header. That tightness is what converting a dwelling into a barn actually looks like — the wall was built for a person and the opening was cut for a horse — and it is why this record states the wall height rather than letting the archetype's size-aware default (2.71 m) quietly buy the door more room than the building had."
+    },
+    "roof_type": {
+      "value": "gable",
+      "confidence": "inferred",
+      "note": "Not attested. Gable rather than the archetype's shallow-building default of shed, and the reason is again the conversion: this was a cabin before it was a barn, and a cabin at Chicago in this period carried a gable roof over a loft. A shed roof here would draw a purpose-built outbuilding, which is the one thing the source rules out."
+    },
+    "roof_pitch_deg": {
+      "value": 35.0,
+      "confidence": "inferred",
+      "note": "No pitch is attested. 35 degrees is this project's mid-range for a low single-storey log building roofed in riven shakes, and is the figure carried by the parent record and by every other log structure in this dataset; the outbuilding archetype's own default for a gable is the shallower 32, which is a secondary building's pitch and not a dwelling's. Inferred from construction practice and from the building's first life, not measured."
+    },
+    "door": {
+      "value": "stable",
+      "confidence": "inferred",
+      "sources": [
+        "andreas_1884_v1"
+      ],
+      "note": "'Barn' is the attested use and it is the whole of the argument. A barn is a building a beast, a cart or a crop goes into, and the archetype's 'stable' door is the opening wide enough to lead a horse or an ox through in hand (1.35 m clear). A man's door would assert that the building was used for storage only, which the word barn does not support; a wagon door would assert a cart bay, which nothing supports and which a 20 ft cabin front could barely hold. What is inferred is that the opening was widened at all — a cabin's own doorway was a person's."
+    },
+    "door_side": {
+      "value": "front",
+      "confidence": "reconstructed",
+      "note": "NOT ATTESTED. Placed on the north elevation, facing the house, because that is the side this record's invented placement makes into the yard. If the barn stood the other way about, or the group was arranged along Michigan Avenue rather than about a yard, the door belongs elsewhere. Recorded conjectural rather than allowed to arrive as the archetype's default."
+    },
+    "paint": {
+      "value": "unpainted",
+      "confidence": "inferred",
+      "note": "No source describes a finish. Unpainted weathered log is the default for a converted cabin doing farm work on the reservation, and it is what this project reads for every other log building of the period at Chicago. Not attested either way."
+    },
+    "function": {
+      "value": "barn",
+      "confidence": "attested",
+      "sources": [
+        "andreas_1884_v1"
+      ],
+      "note": "'He used the old cabin after this for a barn' (scan p. 183). The use is documented in five words and nothing else about the building is recorded anywhere reached. WHAT A BARN HELD HERE IS NOT STATED — hay, a team, a cow, a cart, or all of them — and this record does not choose. Note that the project's dossier at docs/research/04-structures-south.md cites this passage to scan p. 185; the sentence is on scan p. 183, and the citation is corrected here rather than repeated."
+    },
+    "occupants": {
+      "value": "Col. Jean Baptiste Beaubien's household",
+      "confidence": "inferred",
+      "sources": [
+        "andreas_1884_v1"
+      ],
+      "note": "Beaubien is documented as the man who used the cabin as a barn and as the resident of the homestead group from 1817 to about 1840. A barn has no occupants in the sense this field usually carries; the value records whose farm building it was."
+    },
+    "land_owner": {
+      "value": "The ground was entered by John Baptist Baubian, 28 May 1835",
+      "confidence": "inferred",
+      "sources": [
+        "isa_public_domain_land_tract_sales"
+      ],
+      "note": "THE UNITED STATES RESERVATION. This is the same tract L108 already derives for `1835_no_build_ground.json` — from G1, Madison's line and the traced waterline — so the polygon is inherited rather than built again, and `check.sh` already re-derives it. The register's own row is the second, independent witness to the date L108 quotes from Andreas: Beaubien's pre-emption, 28 May 1835, five weeks before the scene date. The derived polygon is short of the documented 75.69 acres for the reasons L108 states, and is a floor rather than the reservation. WHETHER THE ENTRY HELD IS NOT READ HERE: it was disputed, and this row records the entry the register carries and nothing about its outcome. THE MARGIN IS 95 m: this footprint stands that far inside the tract's nearest boundary, which is more than twice the working horizontal uncertainty of anything traced off the 1834 sheets (about 20 m), so the assignment survives the error the construction carries. WHAT THIS ROW CLAIMS AND WHAT IT DOES NOT. It claims that the tract the Illinois State Archives' land-sale register describes contains this structure's committed position — the patent for this ground was ENTERED by this man on this date. It does not claim he still held the ground on 1 July 1835, that he lived here, or that he ever stood on it: a sale is a transaction, and the register's only column about residence names a county. THE SECTION LINES ARE CONSTRUCTED, NOT TRACED (L219): the grid is carried from the single PLSS corner at State & Madison, on the plat's own east-west bearing, in nominal one-mile squares."
+    }
+  },
+  "residents": [],
+  "citations": [
+    {
+      "source_id": "andreas_1884_v1",
+      "citation": "Andreas, A. T. History of Chicago: From the Earliest Period to the Present Time. Vol. 1. Chicago: A. T. Andreas, 1884.",
+      "url": "https://archive.org/details/historyofchicago01andr",
+      "archived_url": "",
+      "tier": 3,
+      "tier_label": "compiled secondary (Andreas)"
+    },
+    {
+      "source_id": "isa_public_domain_land_tract_sales",
+      "citation": "Illinois State Archives, Illinois Public Domain Land Tract Sales Database (Springfield: Office of the Secretary of State).",
+      "url": "https://apps.ilsos.gov/isa/landSalesSearch.do",
+      "archived_url": "",
+      "tier": 1,
+      "tier_label": "period/eyewitness"
+    }
+  ],
+  "research_note": "THE ONE OUTBUILDING IN THIS DATASET WHOSE FABRIC IS EFFECTIVELY ATTESTED, AND IT IS ATTESTED BY ACCIDENT. Nobody described this building; Andreas describes a man moving house, and the sentence that records the move records what happened to the building he left. Because the building was a cabin before it was a barn, and because every cabin at Chicago before 1820 is reported to have been of logs, 'log' is a far stronger reading here than for any other secondary building in the town — which is why this record uses the LOG branch of the outbuilding archetype and why its footprint is drawn at cabin scale rather than barn scale. THREE THINGS TRAVEL WITH IT. FIRST, THE GROUP: Andreas records four elements of the Beaubien homestead — the American Fur Company factory building bought in 1817 (data/structures/jb_beaubien_homestead.json), a new residence, a small trading post, and this converted cabin. Two of the four are now modelled and two are not, for the reason the parent record gives: nothing dimensions, describes or places them. SECOND, THE HOUSE HE MOVED INTO IS ALSO UNMODELLED and is a separate finding: Andreas has an army contractor named Dean building a house 'on the lake shore, at the mouth of the Chicago River, near where is now the foot of Randolph Street' in 1815, which Beaubien bought in 1817 and lived in 'for several years' — a five-room building with a documented builder, a documented date, a documented price and a locatable position, sitting unbuilt in this scene. THIRD, THE POSITION IS THE WEAK JOINT: this record is placed against a record that is itself placed against a corner Andreas contradicts himself about, by a street that did not exist. WHAT WOULD UPGRADE IT: the 1839 land-sale plat of Block 5 with the lot numbers Andreas quotes, which would fix the whole homestead group to lots rather than to a remembered corner; failing that, the Wright 1834 sheet read at reservation scale. REVIEW IS FLAGGED for the reason the Jean Baptiste Beaubien homestead and Madore Beaubien’s house both give: AGENTS.md holds that Native presence and representation require consultation rather than inference, the final removal of the Potawatomi from Chicago falls weeks after this scene, and the Beaubien family's history runs directly into both that and the reservation claim. This record states built fabric only and leaves interpretation to a review this project has not yet sought.",
+  "research_doc": "",
+  "review_required": true,
+  "review_reason": "REVIEW IS FLAGGED for the reason the Jean Baptiste Beaubien homestead and Madore Beaubien’s house both give: AGENTS.md holds that Native presence and representation require consultation rather than inference, the final removal of the Potawatomi from Chicago falls weeks after this scene, and the Beaubien family's history runs directly into both that and the reservation claim."
+}

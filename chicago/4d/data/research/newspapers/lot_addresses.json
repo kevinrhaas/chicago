@@ -1,0 +1,62 @@
+{
+  "schema": 1,
+  "_doc": "AUTHORED, and deliberately small. It carries the newspaper corpus's LOT-AND-BLOCK addresses — a printed statement of the form 'lot N, in block M' — and nothing else. There is one today. Nothing here authors geometry or names a structure: the block number resolves through data/traces/thompson_block_numbering.json, the lot number through the numbering scheme committed there, and WHICH committed roof stands at the resolved address is derived by tools/lot_addresses.py from the lot polygon in data/traces/vectors/thompson_lots.json. The policy is docs/LOT-ADDRESS.md and the liberty is L216.",
+  "policy": "docs/LOT-ADDRESS.md",
+  "liberty": "L216",
+  "plat": "thompson_plat_1830",
+  "scene_date": "1835-07-01",
+  "why_this_file_exists": "T-0358 committed the Thompson plat's block numbering so that the corpus's one lot-and-block address could resolve to ground. It resolved to a POLYGON and stopped there: the roof standing on that polygon went on carding as an anonymous count-unit, so the most precisely placed building in the whole corpus was, to a visitor walking Lake Street, a vacant one-room frame cottage. This file is the address; tools/lot_addresses.py is what spends it.",
+  "addresses": [
+    {
+      "id": "lot_address_block_16_lot_7",
+      "block_number": 16,
+      "lot_number": 7,
+      "block_id": "blk_south_water_dearborn",
+      "street_id": "lake",
+      "street_name": "Lake Street",
+      "address_text": "LOT No. 7, in block No. 16, one lot east of Haddock's Tavern, on Lake street, in the town of Chicago",
+      "title": "The dwelling-house on lot 7, block 16",
+      "stood_on_the_lot": [
+        {
+          "what": "a large dwelling-house",
+          "drawn": true,
+          "note": "The notice says 'There is on said lot a large Dwelling-House'. Four of the six printings carry the words unbroken. WHAT IS DRAWN AT THIS ADDRESS IS STILL NOT THIS HOUSE, and it now answers the word: the roof standing on the lot is the 665-roof programme's own count-unit, and T-0593 re-dealt it out of the D3 one-room cottage band into H1, 'Larger one-and-a-half-story house', at 8.03 x 9.96 m and one and a half storeys. H1 is the lowest rung the family crosswalk itself calls larger and calls a house, which is the whole of what this notice's adjective supports; the south district's remainder paid for the slot and the displaced D3 went back into it, so no total moved. Until 2026-09-04 the fabric was a 5.36 x 6.38 m one-room cottage and this note said the mismatch was stated rather than repaired. The ADDRESS is still what this record gains: existence, position, footprint and every form value stay conjectural and the grade does not move. docs/LOT-ADDRESS.md § 'When the notice describes the building' is the rule and L222 is the ruling."
+        },
+        {
+          "what": "a fine well",
+          "drawn": false,
+          "note": "NOT DRAWN, and T-0592 has now settled why. The notice's second structure is a well and it is documented as plainly as the house; what was missing was a rule to place it by, and the reason recorded here used to be an absence — 'the town has no well' — which described the model rather than the town. THE READING IS docs/RESEARCH/wells.md AND ITS ANSWER IS NOT A WELL. Chicago in July 1835 took its drinking water from the lake by cart: the Board of Trustees paid $95.50 on 10 November 1834 for the digging of ONE public well, in Kinzie's Addition, and after that the town was served by two-wheeled carts carrying a hogshead, filled by pail at the foot of Randolph Street and run off at a customer's door through a short leathern hose at five to ten cents the barrel (town_findings_andreas_v1#c012, #c013); the Chicago Hydraulic Company was not chartered until 18 January 1836 and its works were not finished until 1842 (#c014). No ordinance of this town requires, sites or pays for a well — the fire ordinances of 1833, September and October 1834 and the code of 5 August 1835 legislate wardens, bystanders and a bucket line and never the water in the buckets. So there is no density to deal a well class from, and inventing one would misdescribe the town more badly than leaving it with none. THE WELL STAYS DOCUMENTED AND ABSENT, on that argument rather than on an absence. It is one of only three wells this project can name in a town of 3,265 people, and the fact that G. Spring advertised it in all six printings, beside the size of his house, is the argument that a well was a thing worth mentioning rather than a thing every lot had."
+        }
+      ],
+      "advertiser": {
+        "as_printed": "G. SPRING",
+        "normalized": "G. Spring",
+        "role": "advertiser",
+        "is_the_occupant": false,
+        "is_the_owner": false,
+        "note": "The notice ends 'For terms enquire of G. SPRING' and says NOTHING ELSE about him. He is the man to apply to, which is not a statement that he owned the lot, and is certainly not a statement that he lived in the house — the same G. Spring is the attorney whose office the papers put second door west of the corner of Franklin and South Water. So this house is not named for him, and the register's business_g_spring is not moved here. T-0412 is the same trap read from the other side: a building offered FOR SALE must not mint a placement on its vendor."
+      },
+      "first_issue": "1834-06-18",
+      "last_issue": "1834-11-19",
+      "printings": 6,
+      "cites": [
+        "chicago_democrat_1834_06_18#c006",
+        "chicago_democrat_1834_09_03#c005",
+        "chicago_democrat_1834_10_15#c006",
+        "chicago_democrat_1834_11_19#c010"
+      ],
+      "printings_not_cited": [
+        {
+          "claim": "chicago_democrat_1834_07_02#c053",
+          "why": "The transcription interleaves two columns and the column edge removed the tavern's name — the reading itself records that the letters before \"k'n Tavern\" are gone and that the house is 'a large [?]ase'. The lot and the block survive in it, so it corroborates; it is not cited as a legible printing of the address."
+        },
+        {
+          "claim": "chicago_democrat_1834_07_09#c024",
+          "why": "The same notice with the neighbouring tavern printed 'Maddock's' and the street 'Lako' — an optical corruption of a name this project holds under another reading. It corroborates the lot, the block and the well; it is not cited as a legible printing."
+        }
+      ],
+      "confidence": "reconstructed",
+      "confidence_note": "THE ADDRESS IS READ; WHERE THE ADDRESS LANDS IS THE BOTTOM TIER, and the chain is short enough to state in one breath. The words 'lot 7, block 16' are a direct reading of four printings. The block number is `inferred` — three blocks counted east of the one numeral the Wright sheet shows (data/traces/thompson_block_numbering.json). The lot number is `conjectural` twice over: four lots to a block face is a reading of one block, the lot lines it numbers are the plat module's and are drawn from no sheet, and the counter-clockwise scheme itself was read off block 18. A chain is as strong as its weakest link, so which committed roof stands at this address is graded at the bottom tier — the same grade the roof already carried, and it does not rise because a documented address was put on it."
+    }
+  ]
+}

@@ -1,0 +1,406 @@
+/* drawer.css — the right-hand drawer of the 4D Chicago interface.
+
+   One frame for every section (Go to, Travel, People, Evidence, Settings,
+   Controls, What's new): a vertical icon rail on its left edge, a head row with
+   the section's name, and a scroll column. It sits flush against the right of
+   the screen the way the fleet's apps carry their rail, and on a phone it is a
+   sheet rising from the bottom, because a thumb reaches the bottom.
+
+   `hidden` on #panel stays the state of record — the harness reads it — but a
+   hidden drawer keeps its grid and slides off-screen rather than switching
+   display, so it can slide back. Tokens come from walk.css :root and its
+   [data-theme="light"] block; the two "step" surfaces below are mixed from
+   --ink so that a hover reads as a surface step in either theme rather than a
+   white veil that vanishes on a light panel.
+
+   Owned by the shell feature. Section interiors belong to goto.css, travel.css,
+   people.css, evidence.css and card.css. */
+
+:root {
+  --step: color-mix(in srgb, var(--ink) 6%, transparent);
+  --step-2: color-mix(in srgb, var(--ink) 11%, transparent);
+  --wash: color-mix(in srgb, var(--accent) 16%, transparent);
+  --ease-panel: cubic-bezier(.2, .8, .3, 1);
+  --ease-layout: cubic-bezier(.4, 0, .2, 1);
+}
+
+/* ------------------------------------------------------------ the frame --- */
+
+.hud-panel {
+  pointer-events: auto;
+  position: fixed;
+  top: calc(58px + var(--safe-t));
+  right: 0;
+  bottom: 0;
+  width: min(440px, 100vw);
+  display: grid;
+  grid-template:
+    "nav head" auto
+    "nav scroll" 1fr
+    / 66px 1fr;
+  background: var(--panel-solid);
+  color: var(--ink);
+  border-left: 1px solid var(--edge);
+  border-top: 1px solid var(--edge);
+  border-top-left-radius: var(--r);
+  box-shadow: var(--shadow);
+  font-size: 12.5px;
+  overflow: hidden;
+  transform: none;
+  visibility: visible;
+  transition: transform .24s var(--ease-panel), visibility 0s linear 0s;
+}
+/* Hidden = slid away, still laid out. The visibility flip waits for the slide
+   so the drawer does not blink out before it has left. */
+.hud-panel[hidden] {
+  display: grid;
+  transform: translateX(102%);
+  visibility: hidden;
+  pointer-events: none;
+  transition: transform .24s var(--ease-panel), visibility 0s linear .24s;
+}
+
+/* ------------------------------------------------------------- the rail --- */
+/* A column of sections, icon over a small label. The rail is a step darker than
+   the drawer so the content column reads as the page and the rail as its edge. */
+
+.panel-tabs {
+  grid-area: nav;
+  display: flex;
+  flex-direction: column;
+  align-items: stretch;
+  gap: 2px;
+  padding: 8px 5px 12px;
+  border-right: 1px solid var(--edge);
+  background: linear-gradient(180deg, rgb(0 0 0 / 10%), rgb(0 0 0 / 22%));
+  overflow: hidden;
+}
+[data-theme="light"] .panel-tabs {
+  background: linear-gradient(180deg, rgb(29 26 20 / 3%), rgb(29 26 20 / 7%));
+}
+
+.panel-tab {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 4px;
+  width: 100%;
+  min-height: 56px;
+  padding: 8px 0 7px;
+  border: 0;
+  border-radius: 10px;
+  background: transparent;
+  color: var(--ink-dim);
+  font: inherit;
+  font-size: 10px;
+  font-weight: 600;
+  line-height: 1.1;
+  letter-spacing: .005em;
+  cursor: pointer;
+  -webkit-tap-highlight-color: transparent;
+  transition: background .12s, color .12s;
+}
+.panel-tab svg { width: 22px; height: 22px; flex: none; display: block; }
+/* The label may break at its space — "What's new" is two words and a wide
+   system font can want more than the rail's width for them on one line. It
+   never breaks inside a word and never gets an ellipsis. */
+.panel-tab .tab-label { display: block; max-width: 100%; text-align: center; white-space: normal; overflow-wrap: normal; }
+.panel-tab:hover { color: var(--ink); background: var(--step); }
+.panel-tab:focus-visible { outline: 2px solid var(--accent); outline-offset: -2px; }
+/* Active: the accent wash and a gradient bar on the rail's outer edge, the
+   fleet's rail idiom. */
+.panel-tab.is-on { color: var(--ink); background: var(--wash); }
+.panel-tab.is-on::before {
+  content: '';
+  position: absolute;
+  left: -5px;
+  top: 10px; bottom: 10px;
+  width: 3px;
+  border-radius: 3px;
+  background: linear-gradient(var(--accent), var(--inf));
+}
+/* Unread marker on the What's new item: a dot at the icon's shoulder, not a
+   suffix on the label, now that the label sits under the icon. */
+.tab-dot {
+  position: absolute;
+  top: 8px;
+  left: calc(50% + 8px);
+  width: 7px; height: 7px;
+  border-radius: 50%;
+  background: var(--accent);
+  box-shadow: 0 0 0 2px var(--panel-solid);
+}
+.tab-dot[hidden] { display: none; }
+
+/* ------------------------------------------------------------- the head --- */
+
+.panel-head {
+  grid-area: head;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  min-height: 54px;
+  padding: 10px 12px 10px 18px;
+  border-bottom: 1px solid var(--edge);
+}
+.panel-title {
+  flex: 1;
+  min-width: 0;
+  margin: 0;
+  font-size: 14px;
+  font-weight: 620;
+  letter-spacing: -.005em;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+.panel-back, .panel-close {
+  flex: none;
+  display: grid;
+  place-items: center;
+  width: 30px; height: 30px;
+  padding: 0;
+  border: 0;
+  border-radius: 8px;
+  background: transparent;
+  color: var(--ink-dim);
+  font: inherit;
+  cursor: pointer;
+  transition: background .12s, color .12s;
+}
+.panel-back { margin-left: -8px; }
+.panel-back svg, .panel-close svg { width: 18px; height: 18px; display: block; }
+.panel-back:hover, .panel-close:hover { color: var(--ink); background: var(--step); }
+.panel-back:focus-visible, .panel-close:focus-visible { outline: 2px solid var(--accent); outline-offset: -2px; }
+.panel-back[hidden] { display: none; }
+
+/* ----------------------------------------------------------- the scroll --- */
+
+.panel-scroll {
+  grid-area: scroll;
+  min-height: 0;
+  overflow-y: auto;
+  overflow-x: hidden;
+  overscroll-behavior: contain;
+  -webkit-overflow-scrolling: touch;
+  scrollbar-width: thin;
+  scrollbar-color: var(--step-2) transparent;
+  padding-bottom: var(--safe-b);
+}
+.panel-body { padding: 14px 18px 24px; }
+.panel-body[hidden] { display: none; }
+
+/* -------------------------------------------------------- one right slot --- */
+/* The drawer and the building card share the right-hand edge, so when the
+   drawer opens the card is TUCKED off-screen — not closed. Its `hidden`
+   attribute is untouched (the card must not be collateral) and it slides back
+   when the drawer shuts. `#popup` is a later sibling of `#hud` in the body. */
+
+.popup {
+  transform: none;
+  transition: transform .24s var(--ease-panel), visibility 0s linear 0s;
+}
+#hud.panel-open ~ #popup {
+  transform: translateX(110%);
+  visibility: hidden;
+  pointer-events: none;
+  transition: transform .24s var(--ease-panel), visibility 0s linear .24s;
+}
+/* The card is a bottom sheet at this width (walk.css), so it tucks downward. */
+@media (max-width: 620px) {
+  #hud.panel-open ~ #popup { transform: translateY(110%); }
+}
+
+/* ---------------------------------------------------- segmented controls --- */
+/* One choice among a few, all visible: how Go to takes you, your own pace. The
+   chosen segment is a full accent fill with dark text, like a pressed rise
+   button, so which one is on reads from across the room. */
+
+.seg {
+  display: inline-flex;
+  flex-wrap: wrap;
+  max-width: 100%;
+  border: 1px solid var(--edge);
+  border-radius: 10px;
+  background: var(--step);
+  overflow: hidden;
+}
+.seg-btn {
+  flex: 1 1 auto;
+  min-height: 34px;
+  padding: 7px 12px;
+  border: 0;
+  border-right: 1px solid var(--edge);
+  background: transparent;
+  color: var(--ink-dim);
+  font: inherit;
+  font-size: 12.5px;
+  font-weight: 600;
+  white-space: nowrap;
+  cursor: pointer;
+  transition: background .12s, color .12s;
+}
+.seg-btn:last-child { border-right: 0; }
+.seg-btn:hover { color: var(--ink); background: var(--step); }
+.seg-btn:focus-visible { outline: 2px solid var(--accent); outline-offset: -2px; }
+.seg-btn.is-on, .seg-btn[aria-checked="true"],
+.seg-btn.is-on:hover, .seg-btn[aria-checked="true"]:hover {
+  background: var(--accent);
+  color: #17140c;
+}
+
+/* --------------------------------------------------------- travel banner --- */
+/* The ride in progress, above the hint: where to, how far, and Stop. */
+
+.hud-bottom { flex-direction: column; align-items: center; gap: 8px; }
+.travel-banner {
+  pointer-events: auto;
+  display: flex;
+  gap: 10px;
+  align-items: center;
+  max-width: 100%;
+  padding: 6px 6px 6px 14px;
+  background: var(--panel-solid);
+  border: 1px solid var(--edge);
+  border-radius: 999px;
+  box-shadow: var(--shadow);
+  font-size: 12.5px;
+  line-height: 1.3;
+}
+.travel-banner[hidden] { display: none; }
+.tb-verb { color: var(--ink-dim); white-space: nowrap; }
+.travel-banner strong {
+  min-width: 0;
+  font-weight: 620;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+.tb-dist { color: var(--accent); font-variant-numeric: tabular-nums; white-space: nowrap; }
+.tb-dist:empty { display: none; }
+.tb-stop {
+  flex: none;
+  min-height: 30px;
+  padding: 5px 13px;
+  border: 0;
+  border-radius: 999px;
+  background: var(--accent);
+  color: #17140c;
+  font: inherit;
+  font-size: 12px;
+  font-weight: 700;
+  cursor: pointer;
+  transition: filter .12s;
+}
+.tb-stop:hover { filter: brightness(1.08); }
+
+/* ---------------------------------------------------------- top-bar chips --- */
+/* Single-colour stroke glyphs in the pace chip: the same 16 px stroke family
+   as the rail, so the top bar and the drawer read as one instrument. */
+
+.pace-glyph { display: inline-grid; place-items: center; width: 16px; height: 16px; }
+.pace-glyph svg { width: 16px; height: 16px; display: block; }
+.chip.icon svg { width: 17px; height: 17px; display: block; }
+.chip[aria-pressed="true"] .pace-glyph, .chip[aria-pressed="true"] svg { color: inherit; }
+
+/* -------------------------------------------------------------- settings --- */
+/* The long list, grouped. The value is the first thing on every row and the
+   reasoning behind a default folds away under "Why this default". */
+
+.settings-group { margin: 0 0 6px; }
+.settings-group + .settings-group { margin-top: 18px; padding-top: 14px; border-top: 1px solid var(--edge); }
+.settings-group > h4 {
+  margin: 0 0 10px;
+  font-size: 10.5px;
+  font-weight: 700;
+  letter-spacing: .15em;
+  text-transform: uppercase;
+  color: var(--accent);
+}
+.settings-group .field:last-child { margin-bottom: 0; }
+.settings-group .field.row { min-height: 34px; }
+.field.row .setting-button { min-height: 32px; }
+.settings-group .field.row + .field.row { margin-top: -4px; }
+
+details.why { margin: -6px 0 14px; }
+details.why > summary {
+  display: inline-flex;
+  align-items: center;
+  gap: 5px;
+  list-style: none;
+  padding: 2px 0;
+  color: var(--ink-dim);
+  font-size: 11.5px;
+  cursor: pointer;
+}
+details.why > summary::-webkit-details-marker { display: none; }
+details.why > summary::before {
+  content: '';
+  width: 6px; height: 6px;
+  border-right: 1.5px solid currentColor;
+  border-bottom: 1.5px solid currentColor;
+  transform: rotate(-45deg) translate(-1px, 0);
+  transition: transform .12s;
+}
+details.why[open] > summary::before { transform: rotate(45deg) translate(0, -2px); }
+details.why > summary:hover { color: var(--ink); }
+details.why > .legend-note { margin: 6px 0 0; line-height: 1.55; }
+
+/* Controls: the key list reads a touch calmer with a little more air. */
+.keys { gap: 8px 14px; }
+
+/* ----------------------------------------------------------------- phone --- */
+/* A sheet from the bottom: head, then the rail as a row, then the scroll.
+   The seven items share the row equally; the active bar becomes an underline. */
+
+@media (max-width: 560px) {
+  .hud-panel {
+    top: auto;
+    left: 0; right: 0; bottom: 0;
+    width: 100%;
+    height: min(62vh, calc(var(--vh) - 120px));
+    grid-template:
+      "head" auto
+      "nav" auto
+      "scroll" 1fr
+      / 1fr;
+    padding-bottom: var(--safe-b);
+    border-left: 0;
+    border-radius: var(--r) var(--r) 0 0;
+  }
+  .hud-panel[hidden] { transform: translateY(102%); }
+
+  .panel-head { min-height: 50px; padding: 8px 10px 8px 16px; border-bottom: 0; }
+  .panel-tabs {
+    flex-direction: row;
+    align-items: stretch;
+    gap: 0;
+    padding: 0 6px;
+    border-right: 0;
+    border-bottom: 1px solid var(--edge);
+    background: none;
+  }
+  .panel-tab {
+    flex: 1 1 0;
+    min-width: 0;
+    min-height: 52px;
+    padding: 7px 1px 8px;
+    gap: 3px;
+    /* Icons line up along the top whatever a label does below them. */
+    justify-content: flex-start;
+    border-radius: 8px 8px 0 0;
+    font-size: 9.5px;
+  }
+  .panel-tab.is-on::before {
+    left: 6px; right: 6px;
+    top: auto; bottom: 0;
+    width: auto; height: 3px;
+    border-radius: 3px 3px 0 0;
+    background: linear-gradient(90deg, var(--accent), var(--inf));
+  }
+  .tab-dot { top: 5px; }
+  .panel-body { padding: 12px 14px 22px; }
+  .travel-banner { font-size: 12px; }
+}

@@ -1,0 +1,1115 @@
+{
+ "schema": 2,
+ "schema_note": "schema 2 adds the cells: the column vocabulary, the per-column check against the printed totals, and per record `cells` (committed) beside `cells_first_pass` (read, unreconciled). Schema 1 records carried `cells: null` and no check.",
+ "familysearch_id": "33S7-9YYJ-9WF",
+ "image": "chicago/reference/census1840/33S7-9YYJ-9WF.jpg",
+ "printed_page": 215,
+ "sheet_side": "left",
+ "division": "S. W. Sherman (as written in the printed heading)",
+ "state": "Illinois",
+ "county": "Cook",
+ "reading": "scan_verified",
+ "read_pass": "names and cells (T-0531)",
+ "lines_ruled": 31,
+ "lines_ruled_with_an_entry": 31,
+ "lines_ruled_and_blank": 0,
+ "line_count_note": "31 ruled lines, all 31 carrying a name, which restates the coverage inventory's figure of 31 exactly rather than correcting it. The last entry is line 31 (Wm. M. Rude) and the table closes below it with the heavy foot rule and the enumerator's footing figures.",
+ "name_confidence": {
+  "high": 0,
+  "medium": 13,
+  "low": 18
+ },
+ "columns": [
+  {
+   "column": 1,
+   "group": "free white males",
+   "band": "Under 5"
+  },
+  {
+   "column": 2,
+   "group": "free white males",
+   "band": "5 under 10"
+  },
+  {
+   "column": 3,
+   "group": "free white males",
+   "band": "10 under 15"
+  },
+  {
+   "column": 4,
+   "group": "free white males",
+   "band": "15 under 20"
+  },
+  {
+   "column": 5,
+   "group": "free white males",
+   "band": "20 under 30"
+  },
+  {
+   "column": 6,
+   "group": "free white males",
+   "band": "30 under 40"
+  },
+  {
+   "column": 7,
+   "group": "free white males",
+   "band": "40 under 50"
+  },
+  {
+   "column": 8,
+   "group": "free white males",
+   "band": "50 under 60"
+  },
+  {
+   "column": 9,
+   "group": "free white males",
+   "band": "60 under 70"
+  },
+  {
+   "column": 10,
+   "group": "free white males",
+   "band": "70 under 80"
+  },
+  {
+   "column": 11,
+   "group": "free white males",
+   "band": "80 under 90"
+  },
+  {
+   "column": 12,
+   "group": "free white males",
+   "band": "90 under 100"
+  },
+  {
+   "column": 13,
+   "group": "free white males",
+   "band": "100 and upwards"
+  },
+  {
+   "column": 14,
+   "group": "free white females",
+   "band": "Under 5"
+  },
+  {
+   "column": 15,
+   "group": "free white females",
+   "band": "5 under 10"
+  },
+  {
+   "column": 16,
+   "group": "free white females",
+   "band": "10 under 15"
+  },
+  {
+   "column": 17,
+   "group": "free white females",
+   "band": "15 under 20"
+  },
+  {
+   "column": 18,
+   "group": "free white females",
+   "band": "20 under 30"
+  },
+  {
+   "column": 19,
+   "group": "free white females",
+   "band": "30 under 40"
+  },
+  {
+   "column": 20,
+   "group": "free white females",
+   "band": "40 under 50"
+  },
+  {
+   "column": 21,
+   "group": "free white females",
+   "band": "50 under 60"
+  },
+  {
+   "column": 22,
+   "group": "free white females",
+   "band": "60 under 70"
+  },
+  {
+   "column": 23,
+   "group": "free white females",
+   "band": "70 under 80"
+  },
+  {
+   "column": 24,
+   "group": "free white females",
+   "band": "80 under 90"
+  },
+  {
+   "column": 25,
+   "group": "free white females",
+   "band": "90 under 100"
+  },
+  {
+   "column": 26,
+   "group": "free white females",
+   "band": "100 and upwards"
+  },
+  {
+   "column": 27,
+   "group": "free colored males",
+   "band": "Under 10"
+  },
+  {
+   "column": 28,
+   "group": "free colored males",
+   "band": "10 under 24"
+  },
+  {
+   "column": 29,
+   "group": "free colored males",
+   "band": "24 under 36"
+  },
+  {
+   "column": 30,
+   "group": "free colored males",
+   "band": "36 under 55"
+  },
+  {
+   "column": 31,
+   "group": "free colored males",
+   "band": "55 under 100"
+  },
+  {
+   "column": 32,
+   "group": "free colored males",
+   "band": "100 and upwards"
+  },
+  {
+   "column": 33,
+   "group": "free colored females",
+   "band": "Under 10"
+  },
+  {
+   "column": 34,
+   "group": "free colored females",
+   "band": "10 under 24"
+  },
+  {
+   "column": 35,
+   "group": "free colored females",
+   "band": "24 under 36"
+  },
+  {
+   "column": 36,
+   "group": "free colored females",
+   "band": "36 under 55"
+  },
+  {
+   "column": 37,
+   "group": "free colored females",
+   "band": "55 under 100"
+  },
+  {
+   "column": 38,
+   "group": "free colored females",
+   "band": "100 and upwards"
+  }
+ ],
+ "grid_note": "HOW THE CELLS WERE LOCATED. The 39 vertical rules were detected on the PRINTED HEADING band of this sheet as thin-line maxima of a high-passed darkness profile and then fitted as a single pitch, x = 569.7 + 79.34 n. THE FIRST FIT WAS WRONG AND THE HEADING CAUGHT IT: a template anchored on the strongest 39 detections started one whole column too far right, which put 'Under 5' outside the table and every mark one age band too old. Rendered over the printed heading it was plainly off, and the corrected template reads column 1 'Under 5' under MALES, column 13 '100 and upwards', column 14 'Under 5' under FEMALES and column 26 '100 and upwards'. That check is not optional on this book. The template was then correlated against each row band's own darkness profile to carry the leaning rules, and the 31 writing lines fitted as y = 650 + 75.33 n for the mark band off the names-column ink. Columns 6, 19 and 20 were read a second time as montages of their own 31 cells. This hand writes long horizontal flourishes off the ends of the names, and several of them cross the rule into columns 1 and 2; the footings (column 1 blank, column 2 = 1) are what separate those tails from tallies, and they are recorded as tails, not marks. No cell value here is an OCR output.",
+ "cells_state": "partial",
+ "cells_note": "Thirty-seven of the thirty-eight columns balance against the figures the enumerator footed on this sheet, including the twenty-two that are blank down the page and blank in the footing and are treated as balanced at zero. ONE DOES NOT: free white females 30 under 40 (column 19) reads 17 against a printed 19, and the column was montaged and re-read and did not move. It is left standing rather than forced: `cells` omits column 19 and `cells_first_pass` carries the whole reading. It is NOT reconciled data and nothing downstream may treat it as such. THE SHAPE OF THIS SHEET IS ITS OWN FINDING: 31 households of which the great majority are a single man in one age band - column 6 and column 7 between them carry 49 of the 116 free white persons on the page - and only three households (lines 25, 27 and 29) carry more than four people. The FREE COLORED block is filled on exactly one line, line 29 (John Johnson): two males 10 under 24, one male 24 under 36, one male 36 under 55 and two females 24 under 36, all four columns footed and balanced. Line 5 carries a seventh free coloured person, one male 36 under 55.",
+ "cells_columns_committed": 37,
+ "cells_column_check": [
+  {
+   "column": 1,
+   "band": "free white males Under 5",
+   "read_sum": 0,
+   "printed_total": 0,
+   "printed_total_reading": "blank, treated as zero",
+   "balanced": true,
+   "residual": 0,
+   "committed": true
+  },
+  {
+   "column": 2,
+   "band": "free white males 5 under 10",
+   "read_sum": 1,
+   "printed_total": 1,
+   "printed_total_reading": "high",
+   "balanced": true,
+   "residual": 0,
+   "committed": true
+  },
+  {
+   "column": 3,
+   "band": "free white males 10 under 15",
+   "read_sum": 2,
+   "printed_total": 2,
+   "printed_total_reading": "high",
+   "balanced": true,
+   "residual": 0,
+   "committed": true
+  },
+  {
+   "column": 4,
+   "band": "free white males 15 under 20",
+   "read_sum": 2,
+   "printed_total": 2,
+   "printed_total_reading": "high",
+   "balanced": true,
+   "residual": 0,
+   "committed": true
+  },
+  {
+   "column": 5,
+   "band": "free white males 20 under 30",
+   "read_sum": 6,
+   "printed_total": 6,
+   "printed_total_reading": "high",
+   "balanced": true,
+   "residual": 0,
+   "committed": true
+  },
+  {
+   "column": 6,
+   "band": "free white males 30 under 40",
+   "read_sum": 34,
+   "printed_total": 34,
+   "printed_total_reading": "medium",
+   "balanced": true,
+   "residual": 0,
+   "committed": true
+  },
+  {
+   "column": 7,
+   "band": "free white males 40 under 50",
+   "read_sum": 16,
+   "printed_total": 16,
+   "printed_total_reading": "medium",
+   "balanced": true,
+   "residual": 0,
+   "committed": true
+  },
+  {
+   "column": 8,
+   "band": "free white males 50 under 60",
+   "read_sum": 0,
+   "printed_total": 0,
+   "printed_total_reading": "blank, treated as zero",
+   "balanced": true,
+   "residual": 0,
+   "committed": true
+  },
+  {
+   "column": 9,
+   "band": "free white males 60 under 70",
+   "read_sum": 0,
+   "printed_total": 0,
+   "printed_total_reading": "blank, treated as zero",
+   "balanced": true,
+   "residual": 0,
+   "committed": true
+  },
+  {
+   "column": 10,
+   "band": "free white males 70 under 80",
+   "read_sum": 0,
+   "printed_total": 0,
+   "printed_total_reading": "blank, treated as zero",
+   "balanced": true,
+   "residual": 0,
+   "committed": true
+  },
+  {
+   "column": 11,
+   "band": "free white males 80 under 90",
+   "read_sum": 0,
+   "printed_total": 0,
+   "printed_total_reading": "blank, treated as zero",
+   "balanced": true,
+   "residual": 0,
+   "committed": true
+  },
+  {
+   "column": 12,
+   "band": "free white males 90 under 100",
+   "read_sum": 0,
+   "printed_total": 0,
+   "printed_total_reading": "blank, treated as zero",
+   "balanced": true,
+   "residual": 0,
+   "committed": true
+  },
+  {
+   "column": 13,
+   "band": "free white males 100 and upwards",
+   "read_sum": 0,
+   "printed_total": 0,
+   "printed_total_reading": "blank, treated as zero",
+   "balanced": true,
+   "residual": 0,
+   "committed": true
+  },
+  {
+   "column": 14,
+   "band": "free white females Under 5",
+   "read_sum": 0,
+   "printed_total": 0,
+   "printed_total_reading": "blank, treated as zero",
+   "balanced": true,
+   "residual": 0,
+   "committed": true
+  },
+  {
+   "column": 15,
+   "band": "free white females 5 under 10",
+   "read_sum": 2,
+   "printed_total": 2,
+   "printed_total_reading": "high",
+   "balanced": true,
+   "residual": 0,
+   "committed": true
+  },
+  {
+   "column": 16,
+   "band": "free white females 10 under 15",
+   "read_sum": 2,
+   "printed_total": 2,
+   "printed_total_reading": "high",
+   "balanced": true,
+   "residual": 0,
+   "committed": true
+  },
+  {
+   "column": 17,
+   "band": "free white females 15 under 20",
+   "read_sum": 1,
+   "printed_total": 1,
+   "printed_total_reading": "high",
+   "balanced": true,
+   "residual": 0,
+   "committed": true
+  },
+  {
+   "column": 18,
+   "band": "free white females 20 under 30",
+   "read_sum": 7,
+   "printed_total": 7,
+   "printed_total_reading": "medium",
+   "balanced": true,
+   "residual": 0,
+   "committed": true
+  },
+  {
+   "column": 19,
+   "band": "free white females 30 under 40",
+   "read_sum": 17,
+   "printed_total": 19,
+   "printed_total_reading": "medium",
+   "balanced": false,
+   "residual": -2,
+   "committed": false
+  },
+  {
+   "column": 20,
+   "band": "free white females 40 under 50",
+   "read_sum": 4,
+   "printed_total": 4,
+   "printed_total_reading": "high",
+   "balanced": true,
+   "residual": 0,
+   "committed": true
+  },
+  {
+   "column": 21,
+   "band": "free white females 50 under 60",
+   "read_sum": 0,
+   "printed_total": 0,
+   "printed_total_reading": "blank, treated as zero",
+   "balanced": true,
+   "residual": 0,
+   "committed": true
+  },
+  {
+   "column": 22,
+   "band": "free white females 60 under 70",
+   "read_sum": 0,
+   "printed_total": 0,
+   "printed_total_reading": "blank, treated as zero",
+   "balanced": true,
+   "residual": 0,
+   "committed": true
+  },
+  {
+   "column": 23,
+   "band": "free white females 70 under 80",
+   "read_sum": 0,
+   "printed_total": 0,
+   "printed_total_reading": "blank, treated as zero",
+   "balanced": true,
+   "residual": 0,
+   "committed": true
+  },
+  {
+   "column": 24,
+   "band": "free white females 80 under 90",
+   "read_sum": 0,
+   "printed_total": 0,
+   "printed_total_reading": "blank, treated as zero",
+   "balanced": true,
+   "residual": 0,
+   "committed": true
+  },
+  {
+   "column": 25,
+   "band": "free white females 90 under 100",
+   "read_sum": 0,
+   "printed_total": 0,
+   "printed_total_reading": "blank, treated as zero",
+   "balanced": true,
+   "residual": 0,
+   "committed": true
+  },
+  {
+   "column": 26,
+   "band": "free white females 100 and upwards",
+   "read_sum": 0,
+   "printed_total": 0,
+   "printed_total_reading": "blank, treated as zero",
+   "balanced": true,
+   "residual": 0,
+   "committed": true
+  },
+  {
+   "column": 27,
+   "band": "free colored males Under 10",
+   "read_sum": 0,
+   "printed_total": 0,
+   "printed_total_reading": "blank, treated as zero",
+   "balanced": true,
+   "residual": 0,
+   "committed": true
+  },
+  {
+   "column": 28,
+   "band": "free colored males 10 under 24",
+   "read_sum": 2,
+   "printed_total": 2,
+   "printed_total_reading": "high",
+   "balanced": true,
+   "residual": 0,
+   "committed": true
+  },
+  {
+   "column": 29,
+   "band": "free colored males 24 under 36",
+   "read_sum": 1,
+   "printed_total": 1,
+   "printed_total_reading": "high",
+   "balanced": true,
+   "residual": 0,
+   "committed": true
+  },
+  {
+   "column": 30,
+   "band": "free colored males 36 under 55",
+   "read_sum": 2,
+   "printed_total": 2,
+   "printed_total_reading": "high",
+   "balanced": true,
+   "residual": 0,
+   "committed": true
+  },
+  {
+   "column": 31,
+   "band": "free colored males 55 under 100",
+   "read_sum": 0,
+   "printed_total": 0,
+   "printed_total_reading": "blank, treated as zero",
+   "balanced": true,
+   "residual": 0,
+   "committed": true
+  },
+  {
+   "column": 32,
+   "band": "free colored males 100 and upwards",
+   "read_sum": 0,
+   "printed_total": 0,
+   "printed_total_reading": "blank, treated as zero",
+   "balanced": true,
+   "residual": 0,
+   "committed": true
+  },
+  {
+   "column": 33,
+   "band": "free colored females Under 10",
+   "read_sum": 0,
+   "printed_total": 0,
+   "printed_total_reading": "blank, treated as zero",
+   "balanced": true,
+   "residual": 0,
+   "committed": true
+  },
+  {
+   "column": 34,
+   "band": "free colored females 10 under 24",
+   "read_sum": 0,
+   "printed_total": 0,
+   "printed_total_reading": "blank, treated as zero",
+   "balanced": true,
+   "residual": 0,
+   "committed": true
+  },
+  {
+   "column": 35,
+   "band": "free colored females 24 under 36",
+   "read_sum": 2,
+   "printed_total": 2,
+   "printed_total_reading": "high",
+   "balanced": true,
+   "residual": 0,
+   "committed": true
+  },
+  {
+   "column": 36,
+   "band": "free colored females 36 under 55",
+   "read_sum": 0,
+   "printed_total": 0,
+   "printed_total_reading": "blank, treated as zero",
+   "balanced": true,
+   "residual": 0,
+   "committed": true
+  },
+  {
+   "column": 37,
+   "band": "free colored females 55 under 100",
+   "read_sum": 0,
+   "printed_total": 0,
+   "printed_total_reading": "blank, treated as zero",
+   "balanced": true,
+   "residual": 0,
+   "committed": true
+  },
+  {
+   "column": 38,
+   "band": "free colored females 100 and upwards",
+   "read_sum": 0,
+   "printed_total": 0,
+   "printed_total_reading": "blank, treated as zero",
+   "balanced": true,
+   "residual": 0,
+   "committed": true
+  }
+ ],
+ "records": [
+  {
+   "line": 1,
+   "as_read": "John C. Dade",
+   "normalized": "John C. Dade",
+   "name_confidence": "medium",
+   "note": "Dade / Dady",
+   "reading": "scan_verified",
+   "cells": {
+    "6": 2,
+    "7": 1
+   },
+   "cells_first_pass": {
+    "6": 2,
+    "7": 1,
+    "19": 1
+   }
+  },
+  {
+   "line": 2,
+   "as_read": "[?]. Mark Smith",
+   "normalized": "[?]. Mark Smith",
+   "name_confidence": "low",
+   "note": "the first token is a single capital with a flourish",
+   "reading": "scan_verified",
+   "cells": {
+    "6": 1
+   },
+   "cells_first_pass": {
+    "6": 1
+   }
+  },
+  {
+   "line": 3,
+   "as_read": "W. J. H. Eldridge",
+   "normalized": "W. J. H. Eldridge",
+   "name_confidence": "low",
+   "note": "three initials before the surname; the first may be Wm",
+   "reading": "scan_verified",
+   "cells": {
+    "7": 1
+   },
+   "cells_first_pass": {
+    "7": 1
+   }
+  },
+  {
+   "line": 4,
+   "as_read": "Calvin DeWolf",
+   "normalized": "Calvin DeWolf",
+   "name_confidence": "medium",
+   "note": "Calvin DeWolf, of the town",
+   "reading": "scan_verified",
+   "cells": {
+    "6": 1
+   },
+   "cells_first_pass": {
+    "6": 1
+   }
+  },
+  {
+   "line": 5,
+   "as_read": "Geo. Seyman[?]",
+   "normalized": "Geo. Seyman[?]",
+   "name_confidence": "low",
+   "note": "Seymann / Seymour",
+   "reading": "scan_verified",
+   "cells": {
+    "4": 1,
+    "5": 1,
+    "6": 2,
+    "7": 1,
+    "15": 1,
+    "17": 1,
+    "18": 1,
+    "20": 1,
+    "30": 1
+   },
+   "cells_first_pass": {
+    "4": 1,
+    "5": 1,
+    "6": 2,
+    "7": 1,
+    "15": 1,
+    "17": 1,
+    "18": 1,
+    "19": 1,
+    "20": 1,
+    "30": 1
+   }
+  },
+  {
+   "line": 6,
+   "as_read": "[?]. G. Seaman",
+   "normalized": "[?]. G. Seaman",
+   "name_confidence": "low",
+   "note": "first initial J or L; Seaman / Seamon",
+   "reading": "scan_verified",
+   "cells": {
+    "4": 1,
+    "6": 1
+   },
+   "cells_first_pass": {
+    "4": 1,
+    "6": 1
+   }
+  },
+  {
+   "line": 7,
+   "as_read": "R. R. Bristol",
+   "normalized": "R. R. Bristol",
+   "name_confidence": "low",
+   "note": "first initial R or W",
+   "reading": "scan_verified",
+   "cells": {
+    "7": 1
+   },
+   "cells_first_pass": {
+    "7": 1,
+    "19": 1
+   }
+  },
+  {
+   "line": 8,
+   "as_read": "W. S[?]imson",
+   "normalized": "W. S[?]imson",
+   "name_confidence": "low",
+   "note": "Stimson / Schney; only the opening S is read with confidence",
+   "reading": "scan_verified",
+   "cells": {
+    "2": 1,
+    "6": 1,
+    "7": 1,
+    "18": 1
+   },
+   "cells_first_pass": {
+    "2": 1,
+    "6": 1,
+    "7": 1,
+    "18": 1,
+    "19": 1
+   }
+  },
+  {
+   "line": 9,
+   "as_read": "Alexander Ste[?]art",
+   "normalized": "Alexander Stewart",
+   "name_confidence": "medium",
+   "note": "Stewart / Sterrat",
+   "reading": "scan_verified",
+   "cells": {
+    "6": 1
+   },
+   "cells_first_pass": {
+    "6": 1
+   }
+  },
+  {
+   "line": 10,
+   "as_read": "Victor Lafor[?]",
+   "normalized": "Victor Lafort",
+   "name_confidence": "low",
+   "note": "Lafort / Lafond / Lefort",
+   "reading": "scan_verified",
+   "cells": {
+    "7": 1,
+    "20": 1
+   },
+   "cells_first_pass": {
+    "7": 1,
+    "20": 1
+   }
+  },
+  {
+   "line": 11,
+   "as_read": "[?]. R. G[?]ace",
+   "normalized": "[?]. R. Grace",
+   "name_confidence": "low",
+   "note": "Grace / Grass",
+   "reading": "scan_verified",
+   "cells": {
+    "6": 3
+   },
+   "cells_first_pass": {
+    "6": 3
+   }
+  },
+  {
+   "line": 12,
+   "as_read": "Cha[?]. Hunt",
+   "normalized": "Cha[?]. Hunt",
+   "name_confidence": "low",
+   "note": null,
+   "reading": "scan_verified",
+   "cells": {
+    "7": 1,
+    "18": 1
+   },
+   "cells_first_pass": {
+    "7": 1,
+    "18": 1,
+    "19": 1
+   }
+  },
+  {
+   "line": 13,
+   "as_read": "Geo. Hackle[?]fald",
+   "normalized": "Geo. Hackle[?]fald",
+   "name_confidence": "low",
+   "note": "Hackleyfald / Hackelfeld / Heckleyfald",
+   "reading": "scan_verified",
+   "cells": {
+    "3": 1,
+    "7": 1,
+    "18": 1
+   },
+   "cells_first_pass": {
+    "3": 1,
+    "7": 1,
+    "18": 1,
+    "19": 1
+   }
+  },
+  {
+   "line": 14,
+   "as_read": "Hugh Ross",
+   "normalized": "Hugh Ross",
+   "name_confidence": "medium",
+   "note": null,
+   "reading": "scan_verified",
+   "cells": {
+    "6": 1
+   },
+   "cells_first_pass": {
+    "6": 1
+   }
+  },
+  {
+   "line": 15,
+   "as_read": "[?]lena Blackman",
+   "normalized": "[?]lena Blackman",
+   "name_confidence": "low",
+   "note": "given name unread past the second letter; Blackman / Blackmar",
+   "reading": "scan_verified",
+   "cells": {
+    "6": 1
+   },
+   "cells_first_pass": {
+    "6": 1
+   }
+  },
+  {
+   "line": 16,
+   "as_read": "W. W. Denne[?]on",
+   "normalized": "W. W. Dennison",
+   "name_confidence": "low",
+   "note": "Denneson / Dennison",
+   "reading": "scan_verified",
+   "cells": {
+    "6": 1
+   },
+   "cells_first_pass": {
+    "6": 1
+   }
+  },
+  {
+   "line": 17,
+   "as_read": "W. A. Adams",
+   "normalized": "W. A. Adams",
+   "name_confidence": "medium",
+   "note": null,
+   "reading": "scan_verified",
+   "cells": {
+    "5": 1,
+    "6": 1
+   },
+   "cells_first_pass": {
+    "5": 1,
+    "6": 1
+   }
+  },
+  {
+   "line": 18,
+   "as_read": "S. B. Collins",
+   "normalized": "S. B. Collins",
+   "name_confidence": "medium",
+   "note": null,
+   "reading": "scan_verified",
+   "cells": {
+    "6": 1,
+    "7": 1
+   },
+   "cells_first_pass": {
+    "6": 1,
+    "7": 1
+   }
+  },
+  {
+   "line": 19,
+   "as_read": "J. D. Clark",
+   "normalized": "J. D. Clark",
+   "name_confidence": "medium",
+   "note": null,
+   "reading": "scan_verified",
+   "cells": {
+    "3": 1,
+    "7": 1
+   },
+   "cells_first_pass": {
+    "3": 1,
+    "7": 1,
+    "19": 2
+   }
+  },
+  {
+   "line": 20,
+   "as_read": "J. J. Sherwood",
+   "normalized": "J. J. Sherwood",
+   "name_confidence": "medium",
+   "note": null,
+   "reading": "scan_verified",
+   "cells": {
+    "5": 1,
+    "6": 1
+   },
+   "cells_first_pass": {
+    "5": 1,
+    "6": 1
+   }
+  },
+  {
+   "line": 21,
+   "as_read": "J. Brooks",
+   "normalized": "J. Brooks",
+   "name_confidence": "medium",
+   "note": null,
+   "reading": "scan_verified",
+   "cells": {
+    "6": 1
+   },
+   "cells_first_pass": {
+    "6": 1
+   }
+  },
+  {
+   "line": 22,
+   "as_read": "Cha[?]. W. Munger",
+   "normalized": "Cha[?]. W. Munger",
+   "name_confidence": "low",
+   "note": null,
+   "reading": "scan_verified",
+   "cells": {
+    "6": 1
+   },
+   "cells_first_pass": {
+    "6": 1
+   }
+  },
+  {
+   "line": 23,
+   "as_read": "[?]. A. Ba[?]er",
+   "normalized": "[?]. A. Baker",
+   "name_confidence": "low",
+   "note": "Bager / Baker; the first token is two letters and a stop",
+   "reading": "scan_verified",
+   "cells": {
+    "6": 1
+   },
+   "cells_first_pass": {
+    "6": 1
+   }
+  },
+  {
+   "line": 24,
+   "as_read": "Wm. [?]osack",
+   "normalized": "Wm. [?]osack",
+   "name_confidence": "low",
+   "note": "Vosack / Rosack",
+   "reading": "scan_verified",
+   "cells": {
+    "6": 1,
+    "15": 1
+   },
+   "cells_first_pass": {
+    "6": 1,
+    "15": 1,
+    "19": 1
+   }
+  },
+  {
+   "line": 25,
+   "as_read": "D. S. Dewey",
+   "normalized": "D. S. Dewey",
+   "name_confidence": "medium",
+   "note": null,
+   "reading": "scan_verified",
+   "cells": {
+    "5": 1,
+    "6": 2,
+    "16": 2,
+    "18": 1
+   },
+   "cells_first_pass": {
+    "5": 1,
+    "6": 2,
+    "16": 2,
+    "18": 1,
+    "19": 2
+   }
+  },
+  {
+   "line": 26,
+   "as_read": "Mrs. Rathbone",
+   "normalized": "Mrs. Rathbone",
+   "name_confidence": "medium",
+   "note": "a woman's household, entered as Mrs.",
+   "reading": "scan_verified",
+   "cells": {
+    "5": 1,
+    "7": 1,
+    "18": 1,
+    "20": 1
+   },
+   "cells_first_pass": {
+    "5": 1,
+    "7": 1,
+    "18": 1,
+    "19": 1,
+    "20": 1
+   }
+  },
+  {
+   "line": 27,
+   "as_read": "[?]. S. Cad[?]e",
+   "normalized": "[?]. S. Cadle",
+   "name_confidence": "low",
+   "note": "Cadle / Cadyl / Culp; the largest household on the sheet",
+   "reading": "scan_verified",
+   "cells": {
+    "5": 1,
+    "6": 9,
+    "7": 2
+   },
+   "cells_first_pass": {
+    "5": 1,
+    "6": 9,
+    "7": 2,
+    "19": 4
+   }
+  },
+  {
+   "line": 28,
+   "as_read": "James Carney",
+   "normalized": "James Carney",
+   "name_confidence": "medium",
+   "note": null,
+   "reading": "scan_verified",
+   "cells": {
+    "7": 3,
+    "18": 1,
+    "20": 1
+   },
+   "cells_first_pass": {
+    "7": 3,
+    "18": 1,
+    "20": 1
+   }
+  },
+  {
+   "line": 29,
+   "as_read": "John Johnson",
+   "normalized": "John Johnson",
+   "name_confidence": "medium",
+   "note": "the only household on this sheet with free coloured persons in it",
+   "reading": "scan_verified",
+   "cells": {
+    "28": 2,
+    "29": 1,
+    "30": 1,
+    "35": 2
+   },
+   "cells_first_pass": {
+    "28": 2,
+    "29": 1,
+    "30": 1,
+    "35": 2
+   }
+  },
+  {
+   "line": 30,
+   "as_read": "J. S. Booth[?]",
+   "normalized": "J. S. Booth[?]",
+   "name_confidence": "low",
+   "note": "Booth / Boothle / Booghle",
+   "reading": "scan_verified",
+   "cells": {
+    "6": 1
+   },
+   "cells_first_pass": {
+    "6": 1
+   }
+  },
+  {
+   "line": 31,
+   "as_read": "Wm. M. Rude",
+   "normalized": "Wm. M. Rude",
+   "name_confidence": "low",
+   "note": "Rude / Ruda",
+   "reading": "scan_verified",
+   "cells": {},
+   "cells_first_pass": {
+    "19": 1
+   }
+  }
+ ]
+}

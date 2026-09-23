@@ -1,0 +1,373 @@
+{
+  "schema": 1,
+  "_doc": "THE 1840 RESIDUE (T-1290). Every reading of the 1840 federal census this project could not close, in one place, with the page it is on, the readings that compete for it, and why it was not settled. It is the authored half of the report: the PROSE and the classification are here, the FIGURES are not. Every figure in the published table is resolved out of the committed page files at render time by tools/report_census_1840_residue.py, so a page re-read moves the report or turns the gate red. Do not type a figure into this file.",
+  "ticket": "T-1290",
+  "stop_condition": "the residue table exists and the 1840 census is closed for the purposes of the 1835 reconstruction. Good, not great, on purpose (owner, 2026-09-17).",
+  "folded_tickets": [
+    "T-0761",
+    "T-0926",
+    "T-0934",
+    "T-0942",
+    "T-0944",
+    "T-0957",
+    "T-0971",
+    "T-0984"
+  ],
+  "no_new_tickets_rule": "This is T-1290 acceptance 4, and it is what keeps a closed programme closed: a row below is a stated gap, not a backlog item. A row that later blocks real reconstruction work is reopened by the ticket it blocks, and by nothing else.",
+  "classes": [
+    {
+      "id": "footings",
+      "title": "A footing that does not close",
+      "what": "the enumerator's own printed total disagrees with the column of figures above it, and no reading available on the held exposure reconciles them.",
+      "effect_on_1835": "None. A column that closes at one figure rather than another moves no 1835 card: the 1840 census is five years after the scene, and the carry rule under which any of it reaches a person — LATER EVIDENCE ONLY, never back-projected to 1835-07-01 — makes a household's size in 1840 a bracket on a household other sources already placed, never a figure the scene reads.",
+      "rows": [
+        {
+          "id": "5h-total",
+          "leaf": "33SQ-GYYJ-5H",
+          "page_file": "33SQ-GYYJ-5H.json",
+          "what": "the TOTAL column against its own footing",
+          "figures": {
+            "footed": {
+              "path": "total_column_as_read.footed"
+            },
+            "sum": {
+              "path": "total_column_as_read.sum_of_the_figures_that_read"
+            },
+            "read": {
+              "path": "total_column_as_read.lines_read"
+            },
+            "unread": {
+              "path": "total_column_as_read.lines_written_and_unread"
+            },
+            "lines": {
+              "path": "line_index.lines"
+            },
+            "inferred": {
+              "count_where": "total_column_as_read.lines",
+              "field": "confidence",
+              "equals": "inferred"
+            },
+            "residual": {
+              "difference": [
+                "total_column_as_read.footed",
+                "total_column_as_read.sum_of_the_figures_that_read"
+              ]
+            }
+          },
+          "readings": "the enumerator foots **{footed}**; the {read} figures that read sum to **{sum}**, over {lines} ruled lines with {unread} written and unread. The residue is {residual}.",
+          "why_not_settled": "the line at the foot of the column is written and does not read at any threshold this exposure tolerates, and the deposit holds one exposure of the leaf. T-0926 proposed distributing the residue one to each of the figures recorded `inferred`, on the symmetry that there were as many of them as there were units of residue — and refused it as suggestive rather than evidence. **The tree no longer even offers the symmetry**: {inferred} figures now read `inferred` against a residue of {residual}. The column stays open and nothing is distributed.",
+          "tickets": [
+            "T-0926"
+          ]
+        },
+        {
+          "id": "l3-total",
+          "leaf": "33S7-9YYJ-L3",
+          "page_file": "33S7-9YYJ-L3.json",
+          "what": "the TOTAL column, the printed footing and the line count, all at once",
+          "figures": {
+            "footing": {
+              "path": "footer_as_read.total"
+            },
+            "confidence": {
+              "path": "footer_as_read.total_confidence"
+            },
+            "enumerated": {
+              "path": "closure.lines_enumerated"
+            },
+            "committed": {
+              "path": "closure.lines_committed"
+            },
+            "sum": {
+              "path": "closure.committed_sum"
+            },
+            "unread": {
+              "path": "closure.lines_unread"
+            },
+            "residual": {
+              "difference": [
+                "footer_as_read.total",
+                "closure.committed_sum"
+              ]
+            }
+          },
+          "readings": "in force on `dev`: **{enumerated}** lines ruled with an entry, a printed footing of **{footing}** at `{confidence}`, {committed} lines committed summing to {sum}, {unread} unread, residual {residual}. Against it, the reading parked on PR #1015: 28 lines, a footing of **113** at `inferred`, 19 lines summing to 111 over a residual of 2. The 113 rests on the footing's last glyph being the character the COMMERCE column's own footing carries, which that column's four entries fix at 3; the {footing} rests on `pairing_key_26_50.json`, which read the same cell at 10x and is `documented`.",
+          "why_not_settled": "the two passes disagree on how many lines the leaf rules, which is prior to the footing, and the leaf carries no alphabet — no line on it writes a figure this project has committed from any other source, so nothing calibrates its forms. What would settle it is a leaf of the same hand with committed line values, and none has been named. Neither reading closes the column and neither was adjusted to.",
+          "tickets": [
+            "T-0957",
+            "T-0941",
+            "T-0925"
+          ]
+        },
+        {
+          "id": "n167-total",
+          "leaf": "NARA M704 roll 57, leaf n167 (printed 232's continuation)",
+          "page_file": "m704_r57_n167.json",
+          "what": "three figures for one page's free population, no two of them equal",
+          "figures": {
+            "footing": {
+              "path": "closure.total_column_printed_footing"
+            },
+            "sum": {
+              "path": "closure.total_column_sum"
+            },
+            "residual": {
+              "path": "closure.total_column_residual"
+            },
+            "lines": {
+              "path": "lines_ruled_with_an_entry"
+            },
+            "unread": {
+              "path": "closure.lines_unread"
+            }
+          },
+          "readings": "the continuation's {lines} lines read line by line sum to **{sum}** with {unread} unread; printed 232's free population by its own marks is **193**; by its own printed footings, 195; and this leaf's printed TOTAL footing is **{footing}**, settled on the glyph by T-0912 and not on the arithmetic. The residual is {residual}.",
+          "why_not_settled": "it is not a reading question. T-0642's pairing test matches a left sheet's population against the right sheet's printed TOTAL footing, and that key is now {residual} out. T-0543 refused thirty-three candidate sheets on the same key and named 5 as the threshold it had not reached. So the question is what tolerance the test carries — an owner's ruling about a test, not a glyph anyone can re-read. The pairing itself is not in doubt: it rests on a line-count key and a sequence screen that agrees at all {lines} positions.",
+          "tickets": [
+            "T-0944"
+          ]
+        },
+        {
+          "id": "n167-manufactures",
+          "leaf": "NARA M704 roll 57, leaf n167",
+          "page_file": "m704_r57_n167.json",
+          "what": "the `manufactures_and_trades` column, and the single glyph two passes read two ways",
+          "figures": {
+            "line13": {
+              "path": "records[12].industry.manufactures_and_trades"
+            },
+            "line13_line": {
+              "path": "records[12].line"
+            },
+            "foot": {
+              "path": "footer_as_read.manufactures_and_trades"
+            }
+          },
+          "readings": "line {line13_line} carries **{line13}** on `dev`, which is PR #1012's reading, and the column's seven entries sum to 10 against a printed footing of **{foot}**. PR #1011 read the same cell as **6**, which closes the column exactly. The two PRs agreed on every other cell of the leaf.",
+          "why_not_settled": "the cell was never re-read at the image against both claims with the glyph described; what landed is one pass's reading. The closure cannot be the argument, because the closure is what is in question. The column was swept twice at 4.5x for an eighth entry and carries none, and the shortfall cannot be moved onto the 3 at line 7 without breaking a column that does close. The leaf's two residuals of 5 — this column and the TOTAL column — therefore still stand as a coincidence nothing is inferred from. **What the fold did settle**: one page file at one path, and blank cells written `null` rather than `0`, which is the convention the other census pages use.",
+          "tickets": [
+            "T-0945",
+            "T-0944"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "gutter",
+      "title": "A figure the exposure lost",
+      "what": "the ink that would decide the reading is in the binding gutter or off the edge of the one exposure the project holds.",
+      "effect_on_1835": "None. Both rows are footings of the SCHOOLS block, which counts scholars and illiterates in 1840 and seats, dates or names nobody in 1835.",
+      "rows": [
+        {
+          "id": "6h-scholars",
+          "leaf": "33S7-9YYJ-6H",
+          "page_file": "33S7-9YYJ-6H.json",
+          "what": "the `No. of Scholars` footing of the SCHOOLS block",
+          "figures": {
+            "value": {
+              "path": "lower_blocks_T0629.schools_footing.no_of_scholars_primary",
+              "null_as": "unread"
+            },
+            "sibling": {
+              "path": "lower_blocks_T0629.schools_footing.primary_and_common_schools"
+            }
+          },
+          "readings": "the cell is committed **{value}** — written, carrying three components, and not read. The reading that cannot be ruled out is a nought whose right limb falls on the printed rule where the leaf curls into the binding; the bowl test returns 0 px enclosed against the body figure's 25. The block's other footed column reads {sibling} and closes.",
+          "why_not_settled": "the evidence that would decide it is the part of the leaf the exposure lost, and whether a second exposure of that edge exists — on the FamilySearch film, on NARA M704 roll 57, or in any state or county printing — was never answered. The comparator that would settle it by hand is refused for the reason in the row below.",
+          "tickets": [
+            "T-0934",
+            "T-0754"
+          ]
+        },
+        {
+          "id": "8d-hand",
+          "leaf": "33S7-9YYJ-8D",
+          "page_file": "33S7-9YYJ-8D.json",
+          "what": "whose hand the leaf is in, and therefore whether its footing may serve as a comparator",
+          "figures": {
+            "footing": {
+              "path": "footer_as_read.total"
+            },
+            "lines": {
+              "path": "lines_ruled_with_an_entry"
+            }
+          },
+          "readings": "the printed heading leaves the district blank and names no enumerator; the words that appear across it are show-through from the other side of the leaf. The leaf foots **{footing}** over {lines} lines, and that footing carries the only nought at the foot of any leaf in the deposit.",
+          "why_not_settled": "S. W. Sherman wrote no footing nought on either leaf whose heading names him, so the only way to know what his looks like is a leaf established as his — and 8D's hand is unestablished, on evidence, not on adjacency in the film. `division` stays `null` and the comparator stays inadmissible. The precedent is T-0652, which already refused to generalise a 6H finding to this leaf without a reading of this leaf.",
+          "tickets": [
+            "T-0935",
+            "T-0934"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "two-stroke",
+      "title": "A two-stroke figure the leaf fixes nowhere else",
+      "what": "a repeated form that is either two ones or a single joined figure, on leaves that write no calibrated instance of it.",
+      "effect_on_1835": "None. Both rows are age-and-sex tallies within a household of 1840. They change a household's shape five years after the scene, which the carry rule already forbids reaching an 1835 card.",
+      "rows": [
+        {
+          "id": "ck-columns",
+          "leaf": "33SQ-GYYJ-CK (printed 240)",
+          "page_file": "33SQ-GYYJ-CK.json",
+          "what": "`m_20_30` and `m_30_40`, the two of eighteen footed columns that do not close",
+          "figures": {
+            "lines": {
+              "path": "lines_ruled_with_an_entry"
+            },
+            "m2030_read": {
+              "find": "column_reconciliation",
+              "key": "column",
+              "equals": "m_20_30",
+              "field": "read"
+            },
+            "m2030_unread": {
+              "find": "column_reconciliation",
+              "key": "column",
+              "equals": "m_20_30",
+              "field": "cells_unread"
+            },
+            "m3040_read": {
+              "find": "column_reconciliation",
+              "key": "column",
+              "equals": "m_30_40",
+              "field": "read"
+            },
+            "m3040_printed": {
+              "find": "column_reconciliation",
+              "key": "column",
+              "equals": "m_30_40",
+              "field": "printed_total"
+            },
+            "m3040_unread": {
+              "find": "column_reconciliation",
+              "key": "column",
+              "equals": "m_30_40",
+              "field": "cells_unread"
+            }
+          },
+          "readings": "over {lines} lines, `m_20_30` reads a floor of **{m2030_read}** with {m2030_unread} cells unread and a printed footing that admits **31 or 41** alike; `m_30_40` reads a floor of **{m3040_read}** with {m3040_unread} cell unread against a printed **{m3040_printed}**. If the repeated form is **11**, `m_20_30` closes at 41 and `m_30_40` cannot. If it is **1**, `m_30_40` closes at {m3040_printed} and `m_20_30` cannot — and 31 closes on no single value at all, since 23 is not divisible by three.",
+          "why_not_settled": "no value satisfies both columns, so one of the two printed footings is wrong and the leaf does not say which. The female footing row fixes this hand's alphabet for eight figures but not for the joined-versus-separate distinction the fork turns on; the leaf that does separate them, 33SQ-GYYJ-BP, is a different hand. A reading that closes one column by leaving the other open already exists and is not an answer.",
+          "tickets": [
+            "T-0971"
+          ]
+        },
+        {
+          "id": "l3-matched-pair",
+          "leaf": "33S7-9YYJ-L3",
+          "page_file": "33S7-9YYJ-L3.json",
+          "what": "line 1 of the TOTAL column, and the five further matched pairs the same glyph decides",
+          "figures": {
+            "line1": {
+              "path": "records[0].total"
+            },
+            "line1_conf": {
+              "path": "records[0].total_confidence"
+            },
+            "components": {
+              "path": "records[0].total_components"
+            }
+          },
+          "readings": "committed **{line1}** at `{line1_conf}` — {components} components, a matched pair whose strokes touch under a morphological close. PR #1013 read the same ink as one glyph by the separation test and left it **unread**; PR #1015 read two separate slants with clear paper between them and called it **11**.",
+          "why_not_settled": "the same form decides five more of the column's six matched pairs, so it carries the difference between the 71 the committed reading sums over 21 lines and PR #1015's 111 over 19 — and the leaf has no calibrated instance of it. The measurement that would settle it is on another leaf of the same hand with committed values, and no such leaf has been named.",
+          "tickets": [
+            "T-0941",
+            "T-0957"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "unswept",
+      "title": "Ink no pass has committed",
+      "what": "a block or a leaf that carries writing and has no reading in the tree at all.",
+      "effect_on_1835": "None that is known, and this is the one class where that sentence is a judgement rather than a derivation: unread ink cannot be shown to say nothing. What bounds it is that these are 1840 leaves, that the 1835 layer cites none of them, and that nothing in the 1840 schedule seats a person, dates an arrival or names a trade in 1835 even when it is read.",
+      "rows": [
+        {
+          "id": "l3-schools",
+          "leaf": "33S7-9YYJ-L3",
+          "page_file": "33S7-9YYJ-L3.json",
+          "what": "the SCHOOLS block, which carries ink",
+          "figures": {
+            "key": {
+              "absent": "schools_block_as_read"
+            }
+          },
+          "readings": "the reading that landed took the TOTAL column and the footer row and swept nothing to their right. `schools_block_as_read` is **{key}** from the page file. The reading parked on PR #1015 named a figure on line 1 and a footing and was never landed.",
+          "why_not_settled": "nothing here was contested — the block was simply never read, and the one pass that read it is on a branch that did not land. Reading it is a leaf-by-leaf expedition of the kind this ticket exists to stop, and the block counts scholars and illiterates in 1840.",
+          "tickets": [
+            "T-0942",
+            "T-0943"
+          ]
+        },
+        {
+          "id": "unread-leaves",
+          "leaf": "images 51-74 of the deposit",
+          "page_file": null,
+          "what": "eight filled continuation leaves with no page file, and one blank",
+          "figures": {
+            "missing": {
+              "pages_absent": [
+                "33SQ-GYYJ-J2",
+                "33SQ-GYYJ-K5",
+                "33SQ-GYYJ-LC",
+                "33SQ-GYYJ-LK",
+                "33SQ-GYYJ-NV",
+                "33SQ-GYYJ-P1",
+                "33SQ-GYYJ-Z1",
+                "33SQ-GYYN-38YY"
+              ]
+            },
+            "blank": {
+              "pages_absent": [
+                "33SQ-GYYJ-BH"
+              ]
+            }
+          },
+          "readings": "all **{missing}** of the filled continuations named by T-0984 — J2, K5, LC, LK, NV, P1, Z1 and 33SQ-GYYN-38YY — still have no file in `pages/`, and **{blank}** further leaf is likewise unrecorded: 33SQ-GYYJ-BH, declared blank, whose body and footings were never committed as swept-and-empty.",
+          "why_not_settled": "one leaf per run at the standard already set, and the standard is expensive: a continuation leaf is a day's reading in tool calls. T-0982 was split once for size and the remainder is eight leaves. They are continuation (right-hand) sheets — industry, schools and age tallies — and carry no names.",
+          "tickets": [
+            "T-0984",
+            "T-0982"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "tooling",
+      "title": "A leaf the tool cannot read",
+      "what": "the instrument, not the ink: `read_census_continuation.py` locates printed rules from one darkness profile over the whole body, and on a leaf whose rules lean that profile smears them out.",
+      "effect_on_1835": "None directly — it costs reading time, not truth. It is the reason the unread leaves above are priced one per run, and it is the one row here a later reconstruction ticket might actually want fixed.",
+      "rows": [
+        {
+          "id": "leaning-rules",
+          "leaf": "33S7-9YYN-3CF6 and 33S7-9YYJ-V4",
+          "page_file": "33S7-9YYN-3CF6.json",
+          "what": "the banded rule profile the tool does not have",
+          "figures": {
+            "lines_3cf6": {
+              "path": "lines_ruled_with_an_entry"
+            },
+            "lines_v4": {
+              "page_file": "33S7-9YYJ-V4.json",
+              "path": "lines_ruled_with_an_entry"
+            }
+          },
+          "readings": "the tool refuses 3CF6 outright — *no industry run bracketed by TOTAL and PENSIONERS* — at every `--cover` from 0.40 to 0.60, and cannot fit a row grid to V4 at all, whose nine rules lean **41 px** against column widths of 64 to 84. Both leaves were read by hand instead, {lines_3cf6} lines and {lines_v4} lines, and both page files carry the banded measurement done by hand as a fixture.",
+          "why_not_settled": "the fix is known — profile in bands, fit each rule as a chain across them, interpolate the grid in y — and was never built. A second thing it would buy is also unbuilt: separating a printed rule from a crease, which a single profile cannot, and which on V4 makes a footed 100 look as though its last nought crossed into the mining cell.",
+          "tickets": [
+            "T-0761",
+            "T-0658"
+          ]
+        }
+      ]
+    }
+  ],
+  "caveats": [
+    {
+      "page": "33S7-9YYJ-PC",
+      "text": "Row 2's footing is the page-population key that holds 33S7-9YYJ-L3's refusal to pair with 33S7-9YYJ-PC, and PC is among the leaves the 1835 spend cites. The adjacency is real and it is narrow: what the 1835 layer takes off PC is a head's name and line, which no pairing key touches, and a pairing that moved would change which continuation sheet PC's tallies belong to rather than who stood on it. It is named here so that a later ticket blocked by the pairing knows where to look."
+    }
+  ]
+}

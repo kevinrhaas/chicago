@@ -1,0 +1,108 @@
+{
+ "id": "hh_orsemus_morrison",
+ "name": "The Orsemus household — a name from the post office's letter lists",
+ "division": "unplaced",
+ "head": "orsemus_morrison",
+ "source_pass": "letter_list",
+ "arrival": {
+  "value": "1833",
+  "confidence": "attested",
+  "sources": [
+   "resident_research_cook_morrison_album"
+  ],
+  "precision": "year",
+  "note": "YEAR PRECISION ONLY. T-0482 states arrival/move to Chicago in 1833; no month or day is asserted."
+ },
+ "party_size_on_arrival": {
+  "value": null,
+  "confidence": "reconstructed",
+  "note": "Not attested."
+ },
+ "origin": {
+  "value": null,
+  "confidence": "reconstructed",
+  "note": "Not attested."
+ },
+ "reason_for_coming": {
+  "value": null,
+  "confidence": "reconstructed",
+  "note": "Not attested."
+ },
+ "lives_at": {
+  "value": null,
+  "confidence": "reconstructed",
+  "note": "Not attested: a letter list gives a name and no address."
+ },
+ "works_at": {
+  "value": null,
+  "confidence": "reconstructed",
+  "note": "Not attested. No trade is recorded, so there is no premises to seek."
+ },
+ "present_on_scene_date": {
+  "value": "present",
+  "confidence": "inferred",
+  "sources": [
+   "chicago_democrat_1833_1835"
+  ],
+  "note": "A letter was still waiting for this name at the Democrat of 1 July 1835, column 5, on or after the scene date, so the corpus puts somebody expecting them at Chicago at 1835-07-01."
+ },
+ "persons": [
+  {
+   "id": "orsemus_morrison",
+   "name": "Morrison Orsemus",
+   "relationship": "head",
+   "grade": "attested",
+   "letter_list_only": true,
+   "letter_list_returns": [
+    "1835-07-01"
+   ],
+   "occupation": {
+    "value": "none_recorded",
+    "confidence": "reconstructed",
+    "note": "No source records an occupation for this person. A list of uncalled-for letters prints a name and no trade, and this pass will not read one in."
+   },
+   "sources": [
+    "chicago_democrat_1833_1835",
+    "resident_research_cook_morrison_album"
+   ],
+   "note": "INDEPENDENTLY CORROBORATED RESIDENT. Originally documented in Chicago post-office evidence; independent resident research now corroborates the identity. KNOWN ONLY FROM THE POST OFFICE, IN ONE RETURN. The papers print 'Morrison Orsemus' in a single return of letters uncalled-for at the Chicago post office — the Democrat of 1 July 1835, column 5 — dated 1835-07-01. WHAT THAT IS WORTH: a correspondent believed a person of this name reachable at Chicago on that date, and nothing further — not that they lived here, kept a trade here, or were here on 1 July 1835. It is the weakest evidence this project accepts for a resident, and a source placing them elsewhere retires the record. THE ARGUMENT EVERY RECORD OF THIS KIND SHARES is written once instead of once per file: the ruling of 2026-08-30 and what it cost the town (docs/LIBERTIES.md L214), the refusals and the transcription standard behind the reading (tools/mint_letter_list_residents.py). No figure is drawn (L1).",
+   "resident_research": {
+    "programme": "resident-research-2026",
+    "ticket": "T-0482",
+    "outcome": "corroborated",
+    "reviewed_on": "2026-09-02",
+    "asserted_identity": true,
+    "summary": "Orsemus Morrison came to Chicago in 1833, acquired school-section property, and worked as a mechanic/builder.",
+    "source_ids": [
+     "resident_research_cook_morrison_album"
+    ],
+    "refusals": [
+     {
+      "regraded_on": "2026-09-04",
+      "rule": "G3",
+      "withheld": "the downgrade to inferred",
+      "reason": "This card rests on 1 thing(s) the consolidation did not read — resident_research_cook_morrison_album. G3 fired on the seven domains the ladder reads and says nothing about the evidence outside them, so the grade stands. The same reasoning the ladder's own G5 gives for abstaining (T-0515)."
+     }
+    ]
+   },
+   "profile_facts": [
+    {
+     "field": "name_as_printed",
+     "value": "Orsemus Morrison",
+     "confidence": "inferred",
+     "sources": [
+      "resident_research_cook_morrison_album"
+     ],
+     "describes_date": "1833-01-01",
+     "place_class": "not_a_place",
+     "record_id": "resident_research:T-0482#02",
+     "as_read": "Orsemus Morrison",
+     "note": "The record displays 'Morrison Orsemus' — the same two words the other way round. The album prints Orsemus as the forename. The printing is carried; whether the CARD should lead with it is the question T-1217 owns, and this row is not allowed to answer it."
+    }
+   ]
+  }
+ ],
+ "touches_removal": false,
+ "review_required": false,
+ "research_note": "MINTED FROM THE LETTER LISTS (T-0378, T-0379). THE HOUSEHOLD IS A CONTAINER, NOT AN ARGUMENT: every other record here argues for a household, and this one argues for a PERSON. `data/residents/` cannot carry a person outside a household, so one was written around them and told to claim nothing — one member, no dwelling, no division, no trade, no family, no arrival beyond the paper's bound. tools/mint_letter_list_residents.py derives the set and prints every refusal, `--gate` proves no record here gained a roof, a trade or a second member, and docs/LIBERTIES.md L214 carries the change of scale."
+}

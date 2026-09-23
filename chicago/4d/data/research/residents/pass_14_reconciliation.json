@@ -1,0 +1,657 @@
+{
+  "_doc": "T-0816. Cohort 14 was read twice by two runs that could not see each other, and the two ledgers disagreed on 36 of the 76 people. This file rules every one of the 36, person by person, with the discriminator that decided it, and pass_14_findings.json — the ledger of record — now carries the ruled outcome and the same discriminator on each person's row. Nothing here mints, promotes or regrades a resident: the rulings are research outcomes, and T-0513/T-0514/T-0515 remain the passes entitled to spend them.",
+  "ticket": "T-0816",
+  "reviewed_on": "2026-09-06",
+  "status": "complete",
+  "ledgers": {
+    "of_record": {
+      "file": "data/research/residents/pass_14_findings.json",
+      "ticket": "T-0509",
+      "landed_by": "PR #831 / #901",
+      "reviewed_on": "2026-09-05"
+    },
+    "rival": {
+      "branch": "steward/t-0509-cohort-14-rerun",
+      "commit": "203acc7366539c5cd76c678703e54ebcb3ba5ebe",
+      "ticket": "T-0509",
+      "reviewed_on": "2026-09-05",
+      "state": "never landed; read here and salvaged, not merged"
+    }
+  },
+  "the_ladder": {
+    "_doc": "The two passes were not applying two rules so much as two halves of one. The record's rule named the CONTEMPORARY sources by name and treated any partial agreement as a candidate; the rival's rule got the two axes right in words — strength of the name agreement, and the date of the source — and then applied `corroborated` to initial-only agreements in volumes printed fifty years later. The ladder below is the rival's two axes with the record's strictness, and it is what every ruling in this file is decided by.",
+    "axis_1_strength": "FULL — every name element the resident carries is present in the entry and none conflicts; an initial the source expands counts as FULL only where the residents layer holds exactly one bearer of the surname. PARTIAL — initial-for-initial only, or an expansion two or more men answer to. SURNAME-ONLY — a refusal, always, and this repository's crosswalks already say so in as many words.",
+    "axis_2_date": "CONTEMPORARY — written at or before the scene year of 1835 and independent of the post-office return. LATER — printed after 1835, however good the entry.",
+    "R2_corroborated": "FULL agreement in a CONTEMPORARY source.",
+    "R1_corroborated_enrichment": "FULL agreement in a LATER volume: it enriches the biography and adds no 1835 attestation.",
+    "R3_candidate_identity": "A NAMED external entry or person in PARTIAL agreement, or in full agreement with no date, place, occupation or kinship discriminator bridging it to the 1835 person. Retained unasserted.",
+    "R4_no_corroboration": "No named external entry at all beyond the post-office return — an index that only counts cards under a surname, a conflicting element, or refusals only. A documented negative search, not evidence of absence."
+  },
+  "counts": {
+    "compared": 76,
+    "agreed": 40,
+    "disagreed": 36,
+    "upheld_ledger_of_record": 22,
+    "upheld_rival": 12,
+    "upheld_neither": 2,
+    "outcome_counts_before": {
+      "candidate_identity": 32,
+      "corroborated": 8,
+      "corroborated_enrichment": 14,
+      "no_corroboration": 22
+    },
+    "outcome_counts_after": {
+      "candidate_identity": 27,
+      "corroborated": 9,
+      "corroborated_enrichment": 11,
+      "no_corroboration": 29
+    },
+    "rival_outcome_counts": {
+      "candidate_identity": 8,
+      "corroborated": 18,
+      "corroborated_enrichment": 11,
+      "no_corroboration": 39
+    }
+  },
+  "what_was_checked": {
+    "second_presbyterian_chicago_1892": "The rival's five `corroborated` rows on this roll were read against the committed crosswalk. It opens in June 1842 and its own text says it mints or regrades NOTHING; the matched lines behind those five are Fowler, Ellen (1879), Abbott, Charles S. (1859), Moore, Mrs. Harriet M. (1891) and Sherman, Howard (1852), and Erastus Clark is filed AMBIGUOUS rather than matched.",
+    "isa_public_domain_land_tract_sales": "The two land-sale rows were read for their dates in data/research/land_sales/entries.json: ls0829 FRAME DAVID P is 1835-06-13, contemporary; ls0047 ELSTON DANIEL is 1836-06-18, later. One date made one corroboration and unmade another.",
+    "fergus_historical_series_26_29": "The rival's directed reading, salvaged below. Its own quotations refuse two of the record's enrichments: two Crockers and two J. Curtisses answer to the same initial."
+  },
+  "rulings": [
+    {
+      "person_id": "abbott_constant",
+      "ledger_of_record": "candidate_identity",
+      "rival": "corroborated",
+      "ruled": "candidate_identity",
+      "upheld": "ledger_of_record",
+      "discriminator": "The Second Presbyterian roll opens in June 1842 and its own committed crosswalk (data/research/church/second_presbyterian_crosswalk.json) states that it mints or regrades NOTHING — a match on it is “a lead for a later pass”. It cannot corroborate a July 1835 resident. The line is “Abbott, Charles S. | Letter. | April 27, 1859”, an initial agreement twenty-four years later. Ledger of record upheld."
+    },
+    {
+      "person_id": "albee_clark_b",
+      "ledger_of_record": "candidate_identity",
+      "rival": "corroborated_enrichment",
+      "ruled": "candidate_identity",
+      "upheld": "ledger_of_record",
+      "discriminator": "An initial-for-initial agreement in a volume printed after 1835 is an unasserted candidate: the repository carries it with asserted:false, and the enrichment tier would assert what no pass asserted. Source: Fergus 1839, held as cand_clark_b_albee_grand_haven. Ledger of record upheld."
+    },
+    {
+      "person_id": "bennett_h_c",
+      "ledger_of_record": "candidate_identity",
+      "rival": "corroborated_enrichment",
+      "ruled": "candidate_identity",
+      "upheld": "ledger_of_record",
+      "discriminator": "An initial-for-initial agreement in a volume printed after 1835 is an unasserted candidate: the repository carries it with asserted:false, and the enrichment tier would assert what no pass asserted. Source: Fergus 1839/1843, held as cand_henry_bennett_fergus_1839. Ledger of record upheld."
+    },
+    {
+      "person_id": "brookins_david",
+      "ledger_of_record": "candidate_identity",
+      "rival": "no_corroboration",
+      "ruled": "candidate_identity",
+      "upheld": "ledger_of_record",
+      "discriminator": "A specific external person is named in a specific record, and no date, place, occupation or kinship discriminator bridges him to the 1835 letter — which is this ledger's own definition of candidate_identity, not of an attestation and not of nothing. Named in a Du Page County history: David Brookins sold carriages in Chicago before the family moved west (cand_david_brookins_dupage). Ledger of record upheld."
+    },
+    {
+      "person_id": "burdick_paul",
+      "ledger_of_record": "candidate_identity",
+      "rival": "no_corroboration",
+      "ruled": "candidate_identity",
+      "upheld": "ledger_of_record",
+      "discriminator": "A specific external person is named in a specific record, and no date, place, occupation or kinship discriminator bridges him to the 1835 letter — which is this ledger's own definition of candidate_identity, not of an attestation and not of nothing. Named in a Milwaukee history: Paul Burdick occupied a frame house raised there in March 1835 — exact name and date. Ledger of record upheld."
+    },
+    {
+      "person_id": "butterfield_ben",
+      "ledger_of_record": "candidate_identity",
+      "rival": "no_corroboration",
+      "ruled": "candidate_identity",
+      "upheld": "ledger_of_record",
+      "discriminator": "A specific external person is named in a specific record, and no date, place, occupation or kinship discriminator bridges him to the 1835 letter — which is this ledger's own definition of candidate_identity, not of an attestation and not of nothing. Named in a historical marker placing Ben Butterfield at Lockport and on the Danville-to-Chicago route from 1830-31. Ledger of record upheld."
+    },
+    {
+      "person_id": "case_nehemiah",
+      "ledger_of_record": "candidate_identity",
+      "rival": "no_corroboration",
+      "ruled": "no_corroboration",
+      "upheld": "rival",
+      "discriminator": "The ledger of record's own prose calls the Buffalo directory entry “a rejected match rather than a Chicago identity” — wrong geography, no migration bridge. A rejected match is a refusal, and a refusal is not a candidate. RIVAL UPHELD."
+    },
+    {
+      "person_id": "chadwick_joseph",
+      "ledger_of_record": "candidate_identity",
+      "rival": "corroborated_enrichment",
+      "ruled": "candidate_identity",
+      "upheld": "ledger_of_record",
+      "discriminator": "An initial-for-initial agreement in a volume printed after 1835 is an unasserted candidate: the repository carries it with asserted:false, and the enrichment tier would assert what no pass asserted. Source: the 1837 election return read through Fergus 1839, held as cand_joseph_m_chadwick_texas. Ledger of record upheld."
+    },
+    {
+      "person_id": "chambers_john",
+      "ledger_of_record": "candidate_identity",
+      "rival": "no_corroboration",
+      "ruled": "no_corroboration",
+      "upheld": "rival",
+      "discriminator": "Newberry card(s) standing under the surname with nothing to separate the bearers is a surname-only agreement, which every crosswalk in this repository files as a refusal. No external person is named, so there is no candidate to hold either. One card, and the ledger of record itself calls the agreement a surname-only refusal. RIVAL UPHELD."
+    },
+    {
+      "person_id": "chappel_eliza_mir",
+      "ledger_of_record": "candidate_identity",
+      "rival": "no_corroboration",
+      "ruled": "candidate_identity",
+      "upheld": "ledger_of_record",
+      "discriminator": "A specific external person is named in a specific record, and no date, place, occupation or kinship discriminator bridges him to the 1835 letter — which is this ledger's own definition of candidate_identity, not of an attestation and not of nothing. Named in the Chicago History Museum and Rochester marriage records for Eliza Chappel Porter — a near-certain duplicate held open until the scan is inspected (T-0716). Ledger of record upheld."
+    },
+    {
+      "person_id": "chase_peter",
+      "ledger_of_record": "candidate_identity",
+      "rival": "no_corroboration",
+      "ruled": "no_corroboration",
+      "upheld": "rival",
+      "discriminator": "Newberry card(s) standing under the surname with nothing to separate the bearers is a surname-only agreement, which every crosswalk in this repository files as a refusal. No external person is named, so there is no candidate to hold either. One card; the 1882 death notices refuse on surname alone. RIVAL UPHELD."
+    },
+    {
+      "person_id": "clark_erastus",
+      "ledger_of_record": "candidate_identity",
+      "rival": "corroborated",
+      "ruled": "candidate_identity",
+      "upheld": "ledger_of_record",
+      "discriminator": "The Second Presbyterian roll opens in June 1842 and its own committed crosswalk (data/research/church/second_presbyterian_crosswalk.json) states that it mints or regrades NOTHING — a match on it is “a lead for a later pass”. It cannot corroborate a July 1835 resident. The crosswalk files Erastus Clark as AMBIGUOUS, not matched (two Mrs Clarks, 1869 and later), and Norris 1844 gives only “E. Clark” — the candidate cand_e_clark_norris_1844 the ledger of record already holds unasserted. Ledger of record upheld."
+    },
+    {
+      "person_id": "collins_j_h",
+      "ledger_of_record": "corroborated_enrichment",
+      "rival": "corroborated",
+      "ruled": "corroborated_enrichment",
+      "upheld": "ledger_of_record",
+      "discriminator": "The rival's own evidence line is a refusal — “the surname folds equal but no forename agrees initial for initial: 'George C. Collins' against 'J. H. Collins'” — and it is dated 1838-05-31, which its own ladder says may not attest the scene year. Ledger of record upheld."
+    },
+    {
+      "person_id": "comstock_h_h",
+      "ledger_of_record": "candidate_identity",
+      "rival": "no_corroboration",
+      "ruled": "candidate_identity",
+      "upheld": "ledger_of_record",
+      "discriminator": "A specific external person is named in a specific record, and no date, place, occupation or kinship discriminator bridges him to the 1835 letter — which is this ledger's own definition of candidate_identity, not of an attestation and not of nothing. Named in Kalamazoo County pioneer history, H. H. Comstock about 1834. Ledger of record upheld."
+    },
+    {
+      "person_id": "covell_thomas_r",
+      "ledger_of_record": "candidate_identity",
+      "rival": "no_corroboration",
+      "ruled": "candidate_identity",
+      "upheld": "ledger_of_record",
+      "discriminator": "A specific external person is named in a specific record, and no date, place, occupation or kinship discriminator bridges him to the 1835 letter — which is this ledger's own definition of candidate_identity, not of an attestation and not of nothing. Named in a county history: Thomas R. Covell moved to Salt Creek, Cook County, about 1833 — exact middle initial. Ledger of record upheld."
+    },
+    {
+      "person_id": "crocker_h",
+      "ledger_of_record": "corroborated_enrichment",
+      "rival": "candidate_identity",
+      "ruled": "candidate_identity",
+      "upheld": "rival",
+      "discriminator": "Fergus 26-29 prints TWO Crockers and neither settles “H. Crocker”: the obituary list has “Crocker. Hans, lawyer, died, Milwaukee, Wis., Mar. 17, 1889, a. 73” (born about 1816 — nineteen at the scene date, and in Milwaukee after), and the 1843 directory has “Crocker, Josiah Dunton, whitewasher, res 171 Clark”. An initial that two men answer to is a candidate, not an enrichment. RIVAL UPHELD."
+    },
+    {
+      "person_id": "curtenius_fredk",
+      "ledger_of_record": "candidate_identity",
+      "rival": "no_corroboration",
+      "ruled": "no_corroboration",
+      "upheld": "rival",
+      "discriminator": "The middle initial CONFLICTS (Frederick William Curtenius against Fredk. Curtenius of the letter list) and no Chicago bridge was found. A conflicting element is a refusal. RIVAL UPHELD."
+    },
+    {
+      "person_id": "curtiss_j",
+      "ledger_of_record": "corroborated_enrichment",
+      "rival": "candidate_identity",
+      "ruled": "candidate_identity",
+      "upheld": "rival",
+      "discriminator": "Fergus 26-29 prints TWO men who answer to “J. Curtiss”: “Curtiss, James, State's attorney, 136 Lake, res W. Randolph, bet May and Ann [9th mayor, died, Joliet, Ill., November 2, 1859, aged 56” and “Curtiss. J. W., gunsmith, res cor North Water and Wolcott”. The 1835 record carries the initial alone and nothing chooses between them. RIVAL UPHELD."
+    },
+    {
+      "person_id": "dunn_dangerfield",
+      "ledger_of_record": "candidate_identity",
+      "rival": "no_corroboration",
+      "ruled": "no_corroboration",
+      "upheld": "rival",
+      "discriminator": "Newberry card(s) standing under the surname with nothing to separate the bearers is a surname-only agreement, which every crosswalk in this repository files as a refusal. No external person is named, so there is no candidate to hold either. One card; Fergus 1843, Norris 1844 and the index all refuse on surname alone. RIVAL UPHELD."
+    },
+    {
+      "person_id": "egan_emeline",
+      "ledger_of_record": "no_corroboration",
+      "rival": "corroborated",
+      "ruled": "no_corroboration",
+      "upheld": "ledger_of_record",
+      "discriminator": "The rival's own evidence line refuses the match — surname-only, “'James Egan' against 'Dr William Bradshaw Egan', 'Emeline Egan'” — and is dated 1837-10-17. A refusal cannot carry a corroborated. Ledger of record upheld."
+    },
+    {
+      "person_id": "elston_daniel",
+      "ledger_of_record": "corroborated_enrichment",
+      "rival": "corroborated",
+      "ruled": "corroborated_enrichment",
+      "upheld": "ledger_of_record",
+      "discriminator": "Land-sale row ls0047, ELSTON DANIEL, entered 1836-06-18 — eleven months AFTER the scene. A full-forename agreement in a later record enriches the biography and adds no 1835 attestation. Ledger of record upheld, now on a date rather than a category."
+    },
+    {
+      "person_id": "filer_elihu_d",
+      "ledger_of_record": "candidate_identity",
+      "rival": "no_corroboration",
+      "ruled": "candidate_identity",
+      "upheld": "ledger_of_record",
+      "discriminator": "A specific external person is named in a specific record, and no date, place, occupation or kinship discriminator bridges him to the 1835 letter — which is this ledger's own definition of candidate_identity, not of an attestation and not of nothing. Named in Racine histories naming the exact-name Elihu D. Filer, early settler and carpenter. Ledger of record upheld."
+    },
+    {
+      "person_id": "fowler_elmira",
+      "ledger_of_record": "candidate_identity",
+      "rival": "corroborated",
+      "ruled": "candidate_identity",
+      "upheld": "ledger_of_record",
+      "discriminator": "The Second Presbyterian roll opens in June 1842 and its own committed crosswalk (data/research/church/second_presbyterian_crosswalk.json) states that it mints or regrades NOTHING — a match on it is “a lead for a later pass”. It cannot corroborate a July 1835 resident. The line is “Fowler, Ellen | Profession. | October 31, 1879” — a different forename admitted forty-four years after the scene. Ledger of record upheld."
+    },
+    {
+      "person_id": "frame_david_p",
+      "ledger_of_record": "no_corroboration",
+      "rival": "corroborated",
+      "ruled": "corroborated",
+      "upheld": "rival",
+      "discriminator": "Land-sale row ls0829, FRAME DAVID P, entered 1835-06-13 — contemporary with the scene, independent of the post-office return, and the residents layer holds exactly one Frame whose forename agrees in full. The ledger of record never read the land sales for this person (evidence_seen: newspaper_register alone). RIVAL UPHELD."
+    },
+    {
+      "person_id": "greene_john",
+      "ledger_of_record": "candidate_identity",
+      "rival": "no_corroboration",
+      "ruled": "no_corroboration",
+      "upheld": "rival",
+      "discriminator": "Newberry card(s) standing under the surname with nothing to separate the bearers is a surname-only agreement, which every crosswalk in this repository files as a refusal. No external person is named, so there is no candidate to hold either. Two cards under Greene with nothing to separate the bearers. RIVAL UPHELD."
+    },
+    {
+      "person_id": "griswold_eben",
+      "ledger_of_record": "candidate_identity",
+      "rival": "no_corroboration",
+      "ruled": "candidate_identity",
+      "upheld": "ledger_of_record",
+      "discriminator": "A specific external person is named in a specific record, and no date, place, occupation or kinship discriminator bridges him to the 1835 letter — which is this ledger's own definition of candidate_identity, not of an attestation and not of nothing. Named in a Berrien County history naming an Eben Griswold as constable. Ledger of record upheld."
+    },
+    {
+      "person_id": "house_chester",
+      "ledger_of_record": "candidate_identity",
+      "rival": "no_corroboration",
+      "ruled": "candidate_identity",
+      "upheld": "ledger_of_record",
+      "discriminator": "A specific external person is named in a specific record, and no date, place, occupation or kinship discriminator bridges him to the 1835 letter — which is this ledger's own definition of candidate_identity, not of an attestation and not of nothing. Named in an 1835 letter and local histories placing the distinctive-name Chester House at House’s Grove from 1833. Ledger of record upheld."
+    },
+    {
+      "person_id": "ingersall_david",
+      "ledger_of_record": "candidate_identity",
+      "rival": "no_corroboration",
+      "ruled": "no_corroboration",
+      "upheld": "rival",
+      "discriminator": "Newberry card(s) standing under the surname with nothing to separate the bearers is a surname-only agreement, which every crosswalk in this repository files as a refusal. No external person is named, so there is no candidate to hold either. One card, exact-surname rule, no bearer separated. RIVAL UPHELD."
+    },
+    {
+      "person_id": "king_byram",
+      "ledger_of_record": "candidate_identity",
+      "rival": "corroborated_enrichment",
+      "ruled": "candidate_identity",
+      "upheld": "ledger_of_record",
+      "discriminator": "An initial-for-initial agreement in a volume printed after 1835 is an unasserted candidate: the repository carries it with asserted:false, and the enrichment tier would assert what no pass asserted. Source: Fergus 1839, held as cand_byram_king_fergus_1839. Ledger of record upheld."
+    },
+    {
+      "person_id": "marshall_j_a",
+      "ledger_of_record": "corroborated_enrichment",
+      "rival": "corroborated",
+      "ruled": "corroborated_enrichment",
+      "upheld": "ledger_of_record",
+      "discriminator": "The rival's corroborated rests on the 1892 roll and on post-1835 directories; The Second Presbyterian roll opens in June 1842 and its own committed crosswalk (data/research/church/second_presbyterian_crosswalk.json) states that it mints or regrades NOTHING — a match on it is “a lead for a later pass”. It cannot corroborate a July 1835 resident. Ledger of record upheld."
+    },
+    {
+      "person_id": "moore_henry",
+      "ledger_of_record": "corroborated_enrichment",
+      "rival": "corroborated",
+      "ruled": "corroborated_enrichment",
+      "upheld": "ledger_of_record",
+      "discriminator": "The Second Presbyterian roll opens in June 1842 and its own committed crosswalk (data/research/church/second_presbyterian_crosswalk.json) states that it mints or regrades NOTHING — a match on it is “a lead for a later pass”. It cannot corroborate a July 1835 resident. The line is “Moore, Mrs. Harriet M. | Letter. | December 30, 1891”, a married woman's entry fifty-six years later. The enrichment stands on Fergus 1839/1843 and the 1882 old-settler death notice, not on the roll. Ledger of record upheld."
+    },
+    {
+      "person_id": "paige_b_r",
+      "ledger_of_record": "candidate_identity",
+      "rival": "no_corroboration",
+      "ruled": "no_corroboration",
+      "upheld": "rival",
+      "discriminator": "Newberry card(s) standing under the surname with nothing to separate the bearers is a surname-only agreement, which every crosswalk in this repository files as a refusal. No external person is named, so there is no candidate to hold either. One card, exact-surname rule, no bearer separated. RIVAL UPHELD."
+    },
+    {
+      "person_id": "parkes_curtis",
+      "ledger_of_record": "candidate_identity",
+      "rival": "no_corroboration",
+      "ruled": "candidate_identity",
+      "upheld": "ledger_of_record",
+      "discriminator": "A specific external person is named in a specific record, and no date, place, occupation or kinship discriminator bridges him to the 1835 letter — which is this ledger's own definition of candidate_identity, not of an attestation and not of nothing. Named in a Porter County history naming Curtis Parkes in its February 1836 organisation vote. Ledger of record upheld."
+    },
+    {
+      "person_id": "romer_carl",
+      "ledger_of_record": "candidate_identity",
+      "rival": "no_corroboration",
+      "ruled": "no_corroboration",
+      "upheld": "rival",
+      "discriminator": "Newberry card(s) standing under the surname with nothing to separate the bearers is a surname-only agreement, which every crosswalk in this repository files as a refusal. No external person is named, so there is no candidate to hold either. One card, and the ledger of record itself calls the agreement a surname-only refusal. RIVAL UPHELD."
+    },
+    {
+      "person_id": "sherman_h",
+      "ledger_of_record": "no_corroboration",
+      "rival": "corroborated",
+      "ruled": "candidate_identity",
+      "upheld": "neither",
+      "discriminator": "The Second Presbyterian roll opens in June 1842 and its own committed crosswalk (data/research/church/second_presbyterian_crosswalk.json) states that it mints or regrades NOTHING — a match on it is “a lead for a later pass”. It cannot corroborate a July 1835 resident. But the roll DOES carry a matched line — “Sherman, Howard | Letter. | December 29, 1852” — so this is a named lead rather than nothing. NEITHER ledger: the record's no_corroboration understates it and the rival's corroborated overstates it."
+    },
+    {
+      "person_id": "tuller_elam",
+      "ledger_of_record": "corroborated_enrichment",
+      "rival": "no_corroboration",
+      "ruled": "candidate_identity",
+      "upheld": "neither",
+      "discriminator": "The Whiteside County notice names a same-name man with no Chicago bridge, and it expands no forename the resident does not already carry — R3, not the R1 expansion the ledger of record recorded, and not the silence the rival recorded. NEITHER ledger."
+    }
+  ],
+  "salvage_fergus_26_29": {
+    "_doc": "Ask 2 of T-0816: the rival branch also carried a directed reading of Fergus's Historical Series 26-29 — the 1843 directory, its advertising pages, its fire-department and civic rolls, and Wentworth's obituary lists — against all 76 cohort names, which the directory claim ledgers do not cover. It is quotation, not opinion, and it would have been lost when the branch is pruned. Every row the reading touched is preserved verbatim here, with the outcome the rival drew from it; the outcome is the rival's, not this project's, and where the two disagree the ruling above governs.",
+    "people": 26,
+    "source_branch": "steward/t-0509-cohort-14-rerun",
+    "source_commit": "203acc7366539c5cd76c678703e54ebcb3ba5ebe",
+    "readings": {
+      "king_byram": {
+        "outcome_claimed_by_rival": "corroborated_enrichment",
+        "summary": "Corroborated in a volume printed after the scene date. Byram King agrees with an entry in the Fergus 1839/1843 and Norris 1844 directories. The reading enriches the biography and adds no 1835 attestation.",
+        "evidence_for": "Surname 'King' folds to the same string as the 1839 entry's, and the given name of both begins B.",
+        "sources": [
+          "chicago_democrat_1833_1835",
+          "fergus_chicago_directory_1839",
+          "fergus_historical_series_26_29"
+        ]
+      },
+      "bostwick_e_b": {
+        "outcome_claimed_by_rival": "no_corroboration",
+        "summary": "No reliable record outside the Chicago post-office lists could be tied to E. B. Bostwick with a date, place, occupation or kinship discriminator. The repository's own crosswalks record the refusal: The surname 'Bostwick' is in Norris 1844 and no entry under it carries the initial 'E' of 'E. B. Bostwick'. A surname-only agreement is a refusal. This is a documented no-corroboration result, not evidence that the person did not exist.",
+        "evidence_for": null,
+        "sources": [
+          "chicago_democrat_1833_1835",
+          "fergus_historical_series_26_29"
+        ]
+      },
+      "thrall_e_l": {
+        "outcome_claimed_by_rival": "corroborated_enrichment",
+        "summary": "Corroborated in a volume printed after the scene date. E. L. Thrall agrees with an entry in the Fergus 1839/1843 and Norris 1844 directories. The reading enriches the biography and adds no 1835 attestation.",
+        "evidence_for": "Surname 'Thrall' folds to the same string as the 1844 entry's, and the given name of both begins E. Surname 'Thrall' folds to the same string as the 1843 entry's, and the given name of both begins E. Surname 'Thrall' folds to the same string as the 1837 entry's, and the given name of both begins E.",
+        "sources": [
+          "chicago_democrat_1833_1835",
+          "fergus_chicago_directory_1839",
+          "fergus_chicago_directory_1843",
+          "fergus_historical_series_26_29",
+          "norris_directory_1844"
+        ]
+      },
+      "bailey_bennet": {
+        "outcome_claimed_by_rival": "corroborated_enrichment",
+        "summary": "Corroborated in a volume printed after the scene date. Bennet Bailey agrees with an entry in the Fergus 1839/1843 and Norris 1844 directories, the old-settler rolls and Fergus's death notices. The reading enriches the biography and adds no 1835 attestation.",
+        "evidence_for": "Surname 'Bailey' folds to the same string as the 1844 entry's, and the given name of both begins B. Surname 'Bailey' folds to the same string as the 1839 entry's, and the given name of both begins B. Surname 'Bailey' folds to the same string as the 1843 entry's, and the given name of both begins B.",
+        "sources": [
+          "calumet_club_early_chicago_1879",
+          "chicago_democrat_1833_1835",
+          "chicago_tribune_1882_04_25_old_settler_deaths",
+          "fergus_chicago_directory_1839",
+          "fergus_chicago_directory_1843",
+          "fergus_historical_series_26_29",
+          "norris_directory_1844"
+        ]
+      },
+      "clarke_h_b": {
+        "outcome_claimed_by_rival": "corroborated_enrichment",
+        "summary": "Corroborated in a volume printed after the scene date. H. B. Clarke agrees with an entry in the Fergus 1839/1843 and Norris 1844 directories, the old-settler rolls and Fergus's death notices. The reading enriches the biography and adds no 1835 attestation.",
+        "evidence_for": "Surname 'Clarke' folds to the same string as the entry's, and the given name of both begins H. Surname 'Clarke' folds to the same string as the 1844 entry's, and the given name of both begins H. Surname 'Clarke' folds to the same string as the card's, and the given name of both begins H.",
+        "sources": [
+          "chicago_democrat_1833_1835",
+          "fergus_1843_old_settler_death_notices",
+          "fergus_chicago_directory_1839",
+          "fergus_chicago_directory_1843",
+          "fergus_historical_series_26_29",
+          "norris_directory_1844"
+        ]
+      },
+      "bennett_h_c": {
+        "outcome_claimed_by_rival": "corroborated_enrichment",
+        "summary": "Corroborated in a volume printed after the scene date. H. C. Bennett agrees with an entry in the Fergus 1839/1843 and Norris 1844 directories. The reading enriches the biography and adds no 1835 attestation.",
+        "evidence_for": "Surname 'Bennett' folds to the same string as the 1839 entry's, and the given name of both begins H. Surname 'Bennett' folds to the same string as the 1843 entry's, and the given name of both begins H.",
+        "sources": [
+          "chicago_democrat_1833_1835",
+          "fergus_chicago_directory_1839",
+          "fergus_chicago_directory_1843",
+          "fergus_historical_series_26_29"
+        ]
+      },
+      "crocker_h": {
+        "outcome_claimed_by_rival": "candidate_identity",
+        "summary": "The volume prints two Crockers and neither settles 'H. Crocker'. Its obituary list has 'Crocker. Hans, lawyer, died, Milwaukee, Wis., Mar. 17, 1889, a. 73', whose initial agrees but whose age puts birth about 1816 — nineteen at the scene date, and in Milwaukee thereafter; the 1843 directory has 'Crocker, Josiah Dunton, whitewasher, res 171 Clark [died December 28, 1888, aged 82', whose initial does not agree at all. The lead is retained unasserted.",
+        "evidence_for": "Surname 'Crocker' folds to the same string as the entry's, and the given name of both begins H. Surname 'Crocker' folds to the same string as the 1839 entry's, and the given name of both begins H.",
+        "sources": [
+          "chicago_democrat_1833_1835",
+          "fergus_1843_old_settler_death_notices",
+          "fergus_chicago_directory_1839",
+          "fergus_historical_series_26_29"
+        ]
+      },
+      "sherman_h": {
+        "outcome_claimed_by_rival": "corroborated",
+        "summary": "Independently corroborated. Mrs. H. Sherman agrees, forename for forename or initial for initial, with a record outside the post-office lists in the St Cyr / St Mary registers. Surname 'Sherman' folds to the same string as the roll line's, and the given name of both begins H.",
+        "evidence_for": "Surname 'Sherman' folds to the same string as the roll line's, and the given name of both begins H.",
+        "sources": [
+          "chicago_democrat_1833_1835",
+          "fergus_historical_series_26_29",
+          "second_presbyterian_chicago_1892"
+        ]
+      },
+      "moore_henry": {
+        "outcome_claimed_by_rival": "corroborated",
+        "summary": "Independently corroborated. Henry Moore agrees, forename for forename or initial for initial, with a record outside the post-office lists in the St Cyr / St Mary registers, the Fergus 1839/1843 and Norris 1844 directories, the old-settler rolls and Fergus's death notices. Surname 'Moore' folds to the same string as the entry's, and the given name of both begins H.",
+        "evidence_for": "Surname 'Moore' folds to the same string as the entry's, and the given name of both begins H. Surname 'Moore' folds to the same string as the roll line's, and the given name of both begins H. Surname 'Moore' folds to the same string as the 1839 entry's, and the given name of both begins H.",
+        "sources": [
+          "chicago_democrat_1833_1835",
+          "fergus_1843_old_settler_death_notices",
+          "fergus_chicago_directory_1839",
+          "fergus_historical_series_26_29",
+          "second_presbyterian_chicago_1892"
+        ]
+      },
+      "chapman_chas_h": {
+        "outcome_claimed_by_rival": "corroborated_enrichment",
+        "summary": "Corroborated in a volume printed after the scene date. Chas. H. Chapman agrees with an entry in the Fergus 1839/1843 and Norris 1844 directories. The reading enriches the biography and adds no 1835 attestation.",
+        "evidence_for": "Surname 'Chapman' folds to the same string as the 1844 entry's, and the given name of both begins C. Surname 'Chapman' folds to the same string as the 1839 entry's, and the given name of both begins C. Surname 'Chapman' folds to the same string as the 1843 entry's, and the given name of both begins C.",
+        "sources": [
+          "chicago_democrat_1833_1835",
+          "fergus_chicago_directory_1839",
+          "fergus_chicago_directory_1843",
+          "fergus_historical_series_26_29",
+          "norris_directory_1844"
+        ]
+      },
+      "house_chester": {
+        "outcome_claimed_by_rival": "no_corroboration",
+        "summary": "No reliable record outside the Chicago post-office lists could be tied to Chester House with a date, place, occupation or kinship discriminator. No later volume, civic list, land-sale, census or church register reached prints the name at all. This is a documented no-corroboration result, not evidence that the person did not exist.",
+        "evidence_for": null,
+        "sources": [
+          "chicago_democrat_1833_1835",
+          "fergus_historical_series_26_29"
+        ]
+      },
+      "curtiss_j": {
+        "outcome_claimed_by_rival": "candidate_identity",
+        "summary": "Fergus's reprint of the 1843 Chicago Directory prints TWO men who answer to 'J. Curtiss': 'Curtiss, James, State’s attorney, 136 Lake, res W. Randolph, bet May and Ann [9th mayor, died, Joliet, Ill., November 2, 1859, aged 56' and 'Curtiss. J. W., gunsmith, res cor North Water and Wolcott'. The 1835 record carries the initial alone, and nothing in it — no trade, no street, no kin — chooses between an attorney and a gunsmith. Both readings are recorded and neither is asserted.",
+        "evidence_for": "Surname 'Curtiss' folds to the same string as the register entry's, and the given name of both begins J. Surname 'Curtiss' folds to the same string as the 1844 entry's, and the given name of both begins J. Surname 'Curtiss' folds to the same string as the 1839 entry's, and the given name of both begins J.",
+        "sources": [
+          "chicago_democrat_1833_1835",
+          "fergus_chicago_directory_1839",
+          "fergus_chicago_directory_1843",
+          "fergus_historical_series_26_29",
+          "norris_directory_1844"
+        ]
+      },
+      "collins_j_h": {
+        "outcome_claimed_by_rival": "corroborated",
+        "summary": "Independently corroborated. J. H. Collins agrees, forename for forename or initial for initial, with a record outside the post-office lists in the St Cyr / St Mary registers, the Fergus 1839/1843 and Norris 1844 directories. The surname folds equal but no forename agrees initial for initial: 'George C. Collins' against 'J. H. Collins'. A surname-only agreement is always a refusal. NOT THE SCENE YEAR: this reading is dated 1838-05-31 and under the ladder ratified 2026-09-03 it may date and corroborate and may never mint or promote, whatever it reaches.",
+        "evidence_for": "The surname folds equal but no forename agrees initial for initial: 'George C. Collins' against 'J. H. Collins'. A surname-only agreement is always a refusal. NOT THE SCENE YEAR: this reading is dated 1838-05-31 and under the ladder ratified 2026-09-03 it may date and corroborate and may never mint or promote, whatever it reaches. Surname 'Collins' folds to the same string as the 1844 entry's, and the given name of both begins J. Surname 'Collins' folds to the same string as the bidder's, and the given name of both begins J.",
+        "sources": [
+          "chicago_democrat_1833_1835",
+          "fergus_chicago_directory_1839",
+          "fergus_chicago_directory_1843",
+          "fergus_historical_series_26_29",
+          "norris_directory_1844",
+          "st_cyr_register_ichr_v4"
+        ]
+      },
+      "stewart_r": {
+        "outcome_claimed_by_rival": "corroborated_enrichment",
+        "summary": "Corroborated in a volume printed after the scene date. R. Stewart agrees with an entry in the Fergus 1839/1843 and Norris 1844 directories. The reading enriches the biography and adds no 1835 attestation.",
+        "evidence_for": "Surname 'Stewart' folds to the same string as the 1839 entry's, and the given name of both begins R. Surname 'Stewart' folds to the same string as the 1837 entry's, and the given name of both begins R.",
+        "sources": [
+          "chicago_democrat_1833_1835",
+          "fergus_chicago_directory_1839",
+          "fergus_historical_series_26_29"
+        ]
+      },
+      "lewis_samuel": {
+        "outcome_claimed_by_rival": "candidate_identity",
+        "summary": "A plausible external identity for Samuel Lewis was found and is retained unasserted: no date, place, occupation or kinship discriminator bridges it to the 1835 person.",
+        "evidence_for": null,
+        "sources": [
+          "chicago_democrat_1833_1835",
+          "fergus_historical_series_26_29"
+        ]
+      },
+      "dole_george_w": {
+        "outcome_claimed_by_rival": "corroborated",
+        "summary": "Independently corroborated. George Washington Dole agrees, forename for forename or initial for initial, with a record outside the post-office lists in the St Cyr / St Mary registers, the town's 1833 tax and 1834/1835 poll lists, the Fergus 1839/1843 and Norris 1844 directories. Surname 'Dole' folds to the same string as the roll line's, and the given name of both begins G.",
+        "evidence_for": "Surname 'Dole' folds to the same string as the roll line's, and the given name of both begins G. one resident of the surname 'Dole' agrees with the entry's forenames; 1 bearer(s) of the surname were considered. Surname 'Dole' folds to the same string as the 1837 entry's, and the given name of both begins G.",
+        "sources": [
+          "chicago_democrat_1833_1835",
+          "chicago_voter_lists_1833_1835_irad",
+          "fergus_chicago_directory_1839",
+          "fergus_historical_series_26_29",
+          "second_presbyterian_chicago_1892"
+        ]
+      },
+      "egan_william_b": {
+        "outcome_claimed_by_rival": "corroborated",
+        "summary": "Independently corroborated. Dr William Bradshaw Egan agrees, forename for forename or initial for initial, with a record outside the post-office lists in the St Cyr / St Mary registers, the town's 1833 tax and 1834/1835 poll lists, the Fergus 1839/1843 and Norris 1844 directories. The register writes \"Doctor Egan\" and the residents layer writes \"Dr William Bradshaw Egan\". THIS MERGE IS MADE ON A TITLE, NOT A FORENAME, and it is made only because the title is itself an attribute that agrees: three independent agreements stand behind it — the surname Egan; the medical title, which matches the resident record's occupation of physician and Andreas' count of him among the eight ",
+        "evidence_for": "The register writes \"Doctor Egan\" and the residents layer writes \"Dr William Bradshaw Egan\". THIS MERGE IS MADE ON A TITLE, NOT A FORENAME, and it is made only because the title is itself an attribute that agrees: three independent agreements stand behind it — the surname Egan; the medical title, which matches the resident record's occupation of physician and Andreas' count of him among the eight  one resident of the surname 'Egan' agrees with the entry's forenames; 2 bearer(s) of the surname were considered. Surname 'Egan' folds to the same string as the 1844 entry's, and the given name of both begins W.",
+        "sources": [
+          "chicago_democrat_1833_1835",
+          "chicago_voter_lists_1833_1835_irad",
+          "fergus_chicago_directory_1839",
+          "fergus_chicago_directory_1843",
+          "fergus_historical_series_26_29",
+          "norris_directory_1844",
+          "st_marys_baptismal_register_1833_1835"
+        ]
+      },
+      "elston_daniel": {
+        "outcome_claimed_by_rival": "corroborated",
+        "summary": "Independently corroborated. Daniel Elston agrees, forename for forename or initial for initial, with a record outside the post-office lists in the Fergus 1839/1843 and Norris 1844 directories, the Illinois public-domain land tract sales. ELSTON DANIEL matches Daniel Elston: the residents layer holds exactly one person of the surname and the forename agrees in full.",
+        "evidence_for": "ELSTON DANIEL matches Daniel Elston: the residents layer holds exactly one person of the surname and the forename agrees in full. Surname 'Elston' folds to the same string as the register entry's, and the given name of both begins D. Surname 'Elston' folds to the same string as the 1844 entry's, and the given name of both begins D.",
+        "sources": [
+          "chicago_democrat_1833_1835",
+          "fergus_chicago_directory_1839",
+          "fergus_chicago_directory_1843",
+          "fergus_historical_series_26_29",
+          "isa_public_domain_land_tract_sales",
+          "norris_directory_1844"
+        ]
+      },
+      "clark_erastus": {
+        "outcome_claimed_by_rival": "corroborated",
+        "summary": "Independently corroborated. Erastus Clark agrees, forename for forename or initial for initial, with a record outside the post-office lists in the St Cyr / St Mary registers, the Fergus 1839/1843 and Norris 1844 directories. Surname 'Clark' folds to the same string as the roll line's, and the given name of both begins E.",
+        "evidence_for": "Surname 'Clark' folds to the same string as the roll line's, and the given name of both begins E. Surname 'Clark' folds to the same string as the 1844 entry's, and the given name of both begins E.",
+        "sources": [
+          "chicago_democrat_1833_1835",
+          "fergus_historical_series_26_29",
+          "norris_directory_1844",
+          "second_presbyterian_chicago_1892"
+        ]
+      },
+      "gale_stephen_f": {
+        "outcome_claimed_by_rival": "corroborated",
+        "summary": "Independently corroborated. Stephen F. Gale agrees, forename for forename or initial for initial, with a record outside the post-office lists in the town's 1833 tax and 1834/1835 poll lists, the Fergus 1839/1843 and Norris 1844 directories, the old-settler rolls and Fergus's death notices. one resident of the surname 'Gale' agrees with the entry's forenames; 1 bearer(s) of the surname were considered.",
+        "evidence_for": "one resident of the surname 'Gale' agrees with the entry's forenames; 1 bearer(s) of the surname were considered. Surname 'Gale' folds to the same string as the 1844 entry's, and the given name of both begins S. Surname 'Gale' folds to the same string as the 1839 entry's, and the given name of both begins S.",
+        "sources": [
+          "calumet_club_early_chicago_1879",
+          "chicago_democrat_1833_1835",
+          "chicago_voter_lists_1833_1835_irad",
+          "fergus_chicago_directory_1839",
+          "fergus_chicago_directory_1843",
+          "fergus_historical_series_26_29",
+          "norris_directory_1844"
+        ]
+      },
+      "comstock_h_h": {
+        "outcome_claimed_by_rival": "no_corroboration",
+        "summary": "No reliable record outside the Chicago post-office lists could be tied to H. H. Comstock with a date, place, occupation or kinship discriminator. The repository's own crosswalks record the refusal: Refused twice over. No candidate reaches 'Comatock' by an exact surname key - every one of them came through the OCR similarity window, so the heading is not certainly 'Comatock' at all. And if it were, a heading against H. H. Comstock would still be a surname against a person, which is always a refusal here. This is a documented no-corroboration result, not evidence that the person did not exist.",
+        "evidence_for": null,
+        "sources": [
+          "chicago_democrat_1833_1835",
+          "fergus_historical_series_26_29"
+        ]
+      },
+      "goss_o": {
+        "outcome_claimed_by_rival": "no_corroboration",
+        "summary": "No reliable record outside the Chicago post-office lists could be tied to O. Goss with a date, place, occupation or kinship discriminator. The repository's own crosswalks record the refusal: The surname 'Goss' is in Norris 1844 and no entry under it carries the initial 'O' of 'O. Goss'. A surname-only agreement is a refusal. This is a documented no-corroboration result, not evidence that the person did not exist.",
+        "evidence_for": null,
+        "sources": [
+          "chicago_democrat_1833_1835",
+          "fergus_historical_series_26_29"
+        ]
+      },
+      "cook_rowland_i": {
+        "outcome_claimed_by_rival": "candidate_identity",
+        "summary": "A plausible external identity for Rowland I!. Cook was found and is retained unasserted: no date, place, occupation or kinship discriminator bridges it to the 1835 person.",
+        "evidence_for": null,
+        "sources": [
+          "chicago_democrat_1833_1835",
+          "fergus_historical_series_26_29"
+        ]
+      },
+      "sen_elijah_wentworth": {
+        "outcome_claimed_by_rival": "corroborated_enrichment",
+        "summary": "Corroborated in a volume printed after the scene date. Elijah Wentworth sen. agrees with an entry in a later volume. The reading enriches the biography and adds no 1835 attestation.",
+        "evidence_for": null,
+        "sources": [
+          "chicago_democrat_1833_1835",
+          "fergus_historical_series_26_29"
+        ]
+      },
+      "hamilton_richard_j": {
+        "outcome_claimed_by_rival": "corroborated",
+        "summary": "Independently corroborated. Richard Jones Hamilton agrees, forename for forename or initial for initial, with a record outside the post-office lists in the town's 1833 tax and 1834/1835 poll lists, the Fergus 1839/1843 and Norris 1844 directories. one resident of the surname 'Hamilton' agrees with the entry's forenames; 1 bearer(s) of the surname were considered.",
+        "evidence_for": "one resident of the surname 'Hamilton' agrees with the entry's forenames; 1 bearer(s) of the surname were considered. Surname 'Hamilton' folds to the same string as the 1844 entry's, and the given name of both begins R. Surname 'Hamilton' folds to the same string as the 1843 entry's, and the given name of both begins R.",
+        "sources": [
+          "chicago_democrat_1833_1835",
+          "chicago_voter_lists_1833_1835_irad",
+          "fergus_chicago_directory_1839",
+          "fergus_chicago_directory_1843",
+          "fergus_historical_series_26_29",
+          "norris_directory_1844"
+        ]
+      },
+      "harmon_charles_l": {
+        "outcome_claimed_by_rival": "corroborated",
+        "summary": "Independently corroborated. Charles Loomis Harmon agrees, forename for forename or initial for initial, with a record outside the post-office lists in the town's 1833 tax and 1834/1835 poll lists, the Fergus 1839/1843 and Norris 1844 directories. one resident of the surname 'Harmon' agrees with the entry's forenames; 3 bearer(s) of the surname were considered.",
+        "evidence_for": "one resident of the surname 'Harmon' agrees with the entry's forenames; 3 bearer(s) of the surname were considered. Surname 'Harmon' folds to the same string as the card's, and the given name of both begins C. Surname 'Harmon' folds to the same string as the 1837 entry's, and the given name of both begins C.",
+        "sources": [
+          "chicago_democrat_1833_1835",
+          "chicago_voter_lists_1833_1835_irad",
+          "fergus_chicago_directory_1839",
+          "fergus_chicago_directory_1843",
+          "fergus_historical_series_26_29",
+          "norris_directory_1844"
+        ]
+      }
+    }
+  },
+  "what_stops_this_recurring": {
+    "_doc": "Ask 3. Two runs read the same 76 people because nothing they could both see said the cohort was taken. `tools/ticket.mjs inflight` is that signal and it has a COLD WINDOW: a branch is only reported as in flight if it was pushed within the last three hours, so a run that claims, pushes, and then reads for four hours becomes invisible to the very next run at the exact moment it is most expensive to duplicate. The rerun filed this defect itself, and the filing died with the branch.",
+    "filed_as": "T-0852",
+    "in_the_meantime": "A ticket's own state is the durable half of the lock and it does not go cold: `claim` refuses a ticket another branch is on, and `list --workable` keeps a `claimed` ticket in its place. Read both before starting, not one."
+  }
+}

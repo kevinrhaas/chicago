@@ -1,0 +1,35 @@
+{
+  "schema": 1,
+  "ticket": "T-1245",
+  "read_on": "2026-09-17",
+  "instrument": "tools/measure_detail_ceilings.mjs against the published mirror, using the gate's five downtown stands and renderer.info counts",
+  "cause": "The 7,340 x 10,240 m ground was divided into only 5 x 8 tiles. T-1238's 1,883 m haze reach could reject only a whole tile, so kilometre-wide boundary tiles retained detailed southern geometry.",
+  "rejected_grid_only_candidates": [
+    {"grid": "5x8", "viewport": "desktop", "tier": "light", "lake_at_canal_triangles": 1325941},
+    {"grid": "12x12", "viewport": "desktop", "tier": "light", "lake_at_canal_triangles": 1101724},
+    {"grid": "16x24", "viewport": "desktop", "tier": "light", "lake_at_canal_triangles": 1015019},
+    {"grid": "32x48", "viewport": "desktop", "tier": "light", "lake_at_canal_triangles": 957505}
+  ],
+  "chosen": {
+    "tile_target_m": 240,
+    "grid_on_committed_mesh": "31x43",
+    "detail_reach_m": 600,
+    "base_sample_step": 6,
+    "base_cell_m": 15,
+    "navigation_cell_m": 2.5,
+    "note": "The continuous base and the detailed tiles are render geometry only. Walking, collision, flora and anchored records continue to sample the original 2.5 m heightfield."
+  },
+  "ceilings": {"full": 1460000, "balanced": 1280000, "light": 825000, "draw_calls": 215},
+  "results": {
+    "desktop_1280x800": {
+      "full": {"worst_triangles": 1350533, "worst_calls": 174, "stand": "the_forks"},
+      "balanced": {"worst_triangles": 1199700, "worst_calls": 164, "stand": "the_forks"},
+      "light": {"worst_triangles": 733659, "worst_calls": 96, "stand": "from_above"}
+    },
+    "mobile_390x780": {
+      "full": {"worst_triangles": 1218492, "worst_calls": 158, "stand": "lake_at_canal"},
+      "balanced": {"worst_triangles": 1040981, "worst_calls": 143, "stand": "lake_at_canal"},
+      "light": {"worst_triangles": 658612, "worst_calls": 86, "stand": "from_above"}
+    }
+  }
+}

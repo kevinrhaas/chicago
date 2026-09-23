@@ -1,0 +1,442 @@
+{
+ "schema": 1,
+ "state": "Illinois",
+ "county": "Cook",
+ "division": "S. W. Sherman (as written in the printed heading)",
+ "reading": "scan_verified",
+ "read_pass": "names (T-0496); the printed footing row (T-0972)",
+ "cells_state": "not_read",
+ "cells_not_read_why": "This pass read the NAMES only. The 26 free-white and 12 free-coloured age-band columns of this leaf are unread and are left to the ticket that reads them, on the grid method T-0532 and T-0552 used. Nothing here may be taken as a zero: an unread column is unread.",
+ "familysearch_id": "33SQ-GYYJ-ZQ",
+ "image": "chicago/reference/census1840/33SQ-GYYJ-ZQ.jpg",
+ "printed_page": 235,
+ "sheet_side": "left",
+ "lines_ruled_with_an_entry": 24,
+ "lines_are": "Twenty-four ruled lines carry an entry; the remainder of the leaf down to the footing rule is empty, and was looked at rather than assumed. The last written line is followed by seven blank ruled lines before the double rule.",
+ "records": [
+  {
+   "line": 1,
+   "as_read": "J[?]s. S. Wheele[?]",
+   "normalized": "[?] S. Wheeler",
+   "name_confidence": "low",
+   "note": "the given abbreviation and the surname's terminal are unread",
+   "reading": "scan_verified"
+  },
+  {
+   "line": 2,
+   "as_read": "Andrew Anderson",
+   "normalized": "Andrew Anderson",
+   "name_confidence": "medium",
+   "reading": "scan_verified"
+  },
+  {
+   "line": 3,
+   "as_read": "L. Oberhard",
+   "normalized": "L. Oberhard",
+   "name_confidence": "low",
+   "note": "the initial is L or J; the surname's terminal is d or dt",
+   "reading": "scan_verified"
+  },
+  {
+   "line": 4,
+   "as_read": "Chs. Mac Kee[?]",
+   "normalized": "Charles MacKeen",
+   "name_confidence": "low",
+   "note": "the surname is written as two words and its terminal is unread",
+   "reading": "scan_verified"
+  },
+  {
+   "line": 5,
+   "as_read": "Will[?] Wilhelmson",
+   "normalized": "William Wilhelmson",
+   "name_confidence": "medium",
+   "reading": "scan_verified"
+  },
+  {
+   "line": 6,
+   "as_read": "Nicholas Newdorf",
+   "normalized": "Nicholas Neudorf",
+   "name_confidence": "medium",
+   "note": "the surname is written Newdorf; Neudorf is the modern spelling",
+   "reading": "scan_verified"
+  },
+  {
+   "line": 7,
+   "as_read": "[H]ar[d] Larson",
+   "normalized": "[?] Larson",
+   "name_confidence": "low",
+   "note": "the given name is unread at two positions; the surname is legible",
+   "reading": "scan_verified"
+  },
+  {
+   "line": 8,
+   "as_read": "Henry Kneis[t]",
+   "normalized": "Henry Kneist",
+   "name_confidence": "low",
+   "note": "the surname's terminal is unread",
+   "reading": "scan_verified"
+  },
+  {
+   "line": 9,
+   "as_read": "Wm. Luebke",
+   "normalized": "William Luebke",
+   "name_confidence": "medium",
+   "reading": "scan_verified"
+  },
+  {
+   "line": 10,
+   "as_read": "Gerhard Finke",
+   "normalized": "Gerhard Finke",
+   "name_confidence": "medium",
+   "reading": "scan_verified"
+  },
+  {
+   "line": 11,
+   "as_read": "Ge[p]hard Shenkle",
+   "normalized": "Gerhard Shenkle",
+   "name_confidence": "low",
+   "note": "the given name's third letter is p or r; the surname's terminal may be -el",
+   "reading": "scan_verified"
+  },
+  {
+   "line": 12,
+   "as_read": "[Jo]seph L. Willemin",
+   "normalized": "Joseph L. Willemin",
+   "name_confidence": "medium",
+   "reading": "scan_verified"
+  },
+  {
+   "line": 13,
+   "as_read": "Michael D[?]v[?]rse[?]",
+   "normalized": "Michael Diversey",
+   "name_confidence": "medium",
+   "note": "the surname's middle is crossed by the flourish of the line above; Diversey is the reading the surviving letters carry, and the brewer's partner William Lill reads eight lines below at line 19",
+   "reading": "scan_verified"
+  },
+  {
+   "line": 14,
+   "as_read": "Henry Grosken",
+   "normalized": "Henry Grosken",
+   "name_confidence": "low",
+   "note": "the surname's middle is a k or ck cluster; Gucken also fits",
+   "reading": "scan_verified"
+  },
+  {
+   "line": 15,
+   "as_read": "[M]anoris Langer",
+   "normalized": "[?] Langer",
+   "name_confidence": "low",
+   "note": "the given name is unread at its head",
+   "reading": "scan_verified"
+  },
+  {
+   "line": 16,
+   "as_read": "Jam[e]s Vassard",
+   "normalized": "James Vassard",
+   "name_confidence": "low",
+   "note": "the surname's initial is a looped V or N",
+   "reading": "scan_verified"
+  },
+  {
+   "line": 17,
+   "as_read": "Mathias Miller",
+   "normalized": "Mathias Miller",
+   "name_confidence": "medium",
+   "reading": "scan_verified"
+  },
+  {
+   "line": 18,
+   "as_read": "Andrew Sho[m]er",
+   "normalized": "Andrew Shomer",
+   "name_confidence": "low",
+   "note": "one position of the surname is unread",
+   "reading": "scan_verified"
+  },
+  {
+   "line": 19,
+   "as_read": "[?]m. [?]ill[?]",
+   "normalized": "William Lill",
+   "name_confidence": "low",
+   "note": "the surname's initial is a tall looped letter read as S or L; Lill is the reading preferred because Michael Diversey stands at line 13 of this same leaf and the two were partners in the Chicago brewery. Sills is kept as the alternate",
+   "reading": "scan_verified"
+  },
+  {
+   "line": 20,
+   "as_read": "John Mc[H]ale",
+   "normalized": "John McHale",
+   "name_confidence": "medium",
+   "reading": "scan_verified"
+  },
+  {
+   "line": 21,
+   "as_read": "[H]ugh Morric[e]",
+   "normalized": "Hugh Morrice",
+   "name_confidence": "low",
+   "note": "the given name's head and the surname's terminal are unread",
+   "reading": "scan_verified"
+  },
+  {
+   "line": 22,
+   "as_read": "R[ob]t. Smith",
+   "normalized": "Robert Smith",
+   "name_confidence": "low",
+   "note": "the given abbreviation is unread at two positions; the surname is legible",
+   "reading": "scan_verified"
+  },
+  {
+   "line": 23,
+   "as_read": "J. Griswold",
+   "normalized": "J. Griswold",
+   "name_confidence": "low",
+   "note": "the surname's middle is a w or v",
+   "reading": "scan_verified"
+  },
+  {
+   "line": 24,
+   "as_read": "Henry Hall",
+   "normalized": "Henry Hall",
+   "name_confidence": "medium",
+   "reading": "scan_verified"
+  }
+ ],
+ "footings_read": {
+  "ticket": "T-0972",
+  "what": "the 38 printed age-band footings of this leaf, read at 5x and 10x off the crop y 2960-3060 against the leaf's own vertical rules. The CELLS of this leaf are still unread - cells_state above is unchanged - and a footing is not a cell: it is the enumerator's own arithmetic over a column, and it is what a continuation sheet's TOTAL footing has to be compared against.",
+  "why": "33SQ-GYYN-385R, a continuation sheet of the same image group, carries 24 lines with an entry and this is the only left sheet in the deposit that does. coverage.json called that 'a pairing hint and not a pairing'. Settling it needs this leaf's population key, and the footing row is where the key is written.",
+  "column_geometry": {
+   "how": "vertical rules measured over the body band; the 38 columns run on a pitch of 79.3 px from the names rule at x 605 to x 3620, and the printed headings were read to name the blocks.",
+   "free_white_males_px": [
+    605,
+    1636
+   ],
+   "free_white_females_px": [
+    1636,
+    2668
+   ],
+   "free_coloured_males_px": [
+    2668,
+    3144
+   ],
+   "free_coloured_females_px": [
+    3144,
+    3620
+   ]
+  },
+  "free_white_males": [
+   {
+    "band": "under 5",
+    "value": 14,
+    "confidence": "medium",
+    "as_read": "a slant, then two strokes with a light crossbar - 1 and this leaf's 4. Read as 14. 111 is the only other reading of the three strokes and it is impossible on a page of 24 households."
+   },
+   {
+    "band": "5 under 10",
+    "value": 9,
+    "confidence": "medium",
+    "as_read": "a loop with a descending tail below the footing rule."
+   },
+   {
+    "band": "10 under 15",
+    "value": 7,
+    "confidence": "medium",
+    "as_read": "a top blob over a descender."
+   },
+   {
+    "band": "15 under 20",
+    "value": 4,
+    "confidence": "high",
+    "as_read": "two strokes joined by a heavy crossbar."
+   },
+   {
+    "band": "20 under 30",
+    "value": 4,
+    "confidence": "low",
+    "as_read": "two strokes, the crossbar faint. Read as 4 on the form the under-5 footing fixes; 11 is the reading this pass could not exclude and it is why the confidence is low."
+   },
+   {
+    "band": "30 under 40",
+    "value": 4,
+    "confidence": "low",
+    "as_read": "the same two-stroke form, the pair wider than the 20-under-30 cell's. Same alternative, same reason."
+   },
+   {
+    "band": "40 under 50",
+    "value": null,
+    "confidence": "unread",
+    "as_read": "a bold horizontal base stroke at the foot of the cell with a faint diagonal rising from it to the right. The base alone is this hand's 2 without its top loop; the pair together is not a form the leaf uses elsewhere. Recorded UNREAD - not zero, not guessed."
+   },
+   {
+    "band": "50 under 60",
+    "value": 6,
+    "confidence": "medium",
+    "as_read": "a closed oval with a stroke rising from it to the upper right - the 6 form."
+   },
+   {
+    "band": "60 under 70",
+    "value": null,
+    "confidence": "blank",
+    "as_read": "no ink."
+   },
+   {
+    "band": "70 under 80",
+    "value": 1,
+    "confidence": "medium",
+    "as_read": "a single slant."
+   },
+   {
+    "band": "80 under 90",
+    "value": null,
+    "confidence": "blank",
+    "as_read": "no ink."
+   },
+   {
+    "band": "90 under 100",
+    "value": null,
+    "confidence": "blank",
+    "as_read": "no ink."
+   },
+   {
+    "band": "100 and upwards",
+    "value": null,
+    "confidence": "unread",
+    "as_read": "a crossed, heavily inked mark about 63 px wide standing wholly left of the females' first rule, at x 1569-1632. No figure this column could carry is possible on a 24-household page. It is recorded as an unread mark rather than read as a number or dismissed."
+   }
+  ],
+  "free_white_females": [
+   {
+    "band": "under 5",
+    "value": 13,
+    "confidence": "medium"
+   },
+   {
+    "band": "5 under 10",
+    "value": 5,
+    "confidence": "medium"
+   },
+   {
+    "band": "10 under 15",
+    "value": 5,
+    "confidence": "medium"
+   },
+   {
+    "band": "15 under 20",
+    "value": 2,
+    "confidence": "medium"
+   },
+   {
+    "band": "20 under 30",
+    "value": 12,
+    "confidence": "medium"
+   },
+   {
+    "band": "30 under 40",
+    "value": 10,
+    "confidence": "low"
+   },
+   {
+    "band": "40 under 50",
+    "value": 6,
+    "confidence": "medium"
+   },
+   {
+    "band": "50 under 60",
+    "value": 2,
+    "confidence": "medium"
+   },
+   {
+    "band": "60 under 70",
+    "value": 1,
+    "confidence": "medium"
+   },
+   {
+    "band": "70 under 80",
+    "value": null,
+    "confidence": "blank"
+   },
+   {
+    "band": "80 under 90",
+    "value": null,
+    "confidence": "blank"
+   },
+   {
+    "band": "90 under 100",
+    "value": null,
+    "confidence": "blank"
+   },
+   {
+    "band": "100 and upwards",
+    "value": null,
+    "confidence": "blank"
+   }
+  ],
+  "free_coloured_males": [
+   {
+    "band": "under 10",
+    "value": null,
+    "confidence": "blank"
+   },
+   {
+    "band": "10 under 24",
+    "value": null,
+    "confidence": "blank"
+   },
+   {
+    "band": "24 under 36",
+    "value": null,
+    "confidence": "blank"
+   },
+   {
+    "band": "36 under 55",
+    "value": 1,
+    "confidence": "medium",
+    "as_read": "a single slant at x 2920-2960, the only mark in either free coloured block."
+   },
+   {
+    "band": "55 under 100",
+    "value": null,
+    "confidence": "blank"
+   },
+   {
+    "band": "100 and upwards",
+    "value": null,
+    "confidence": "blank"
+   }
+  ],
+  "free_coloured_females": [
+   {
+    "band": "under 10",
+    "value": null,
+    "confidence": "blank"
+   },
+   {
+    "band": "10 under 24",
+    "value": null,
+    "confidence": "blank"
+   },
+   {
+    "band": "24 under 36",
+    "value": null,
+    "confidence": "blank"
+   },
+   {
+    "band": "36 under 55",
+    "value": null,
+    "confidence": "blank"
+   },
+   {
+    "band": "55 under 100",
+    "value": null,
+    "confidence": "blank"
+   },
+   {
+    "band": "100 and upwards",
+    "value": null,
+    "confidence": "blank"
+   }
+  ],
+  "page_population_key_committed": 106,
+  "page_population_key_state": "a FLOOR, not a key. Two of the 38 cells are unread and nothing here fills them in.",
+  "what_it_settles": "the pairing of 33SQ-GYYN-385R to this leaf is REFUSED. That continuation foots 123 and this leaf's footing row commits 106; the two unread cells would have to carry 17 between them, against a largest-figure-on-the-row of 14. The line counts match at 24 and the populations do not, and T-0642's rule is that a pair must match on both.",
+  "what_it_does_not_do": "it reads no cell of this leaf, mints nothing, and does not touch the 24 names T-0496 read."
+ }
+}

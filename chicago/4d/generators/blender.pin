@@ -1,0 +1,18 @@
+# Pinned Blender for the content build. tools/bake.sh verifies the hash before use.
+#
+# Pinned to an exact binary rather than a version range because bpy is a stateful
+# tool whose defaults and operators shift between releases; version pinning is what
+# buys back determinism. The bpy pip wheel is a documented fallback, but the binary
+# is preferred: the wheel hard-couples Blender's minor version to a specific CPython,
+# which makes agent sandboxes fragile.
+#
+# Verified working 2026-08-09: headless geometry, custom float attributes, smart UV
+# project, Cycles CPU AO bake, GLB export — all green in ~0.8 s for a test mesh.
+
+BLENDER_VERSION=4.5.3
+BLENDER_URL=https://download.blender.org/release/Blender4.5/blender-4.5.3-linux-x64.tar.xz
+BLENDER_SHA256=975c58fcb244273838534bba771e64ad87739216b0f9b39a888531a49a72d845
+BLENDER_DIR=blender-4.5.3-linux-x64
+
+# Fallback, if the binary cannot run in a given environment:
+#   pip install bpy==4.5.*        # requires Python 3.11

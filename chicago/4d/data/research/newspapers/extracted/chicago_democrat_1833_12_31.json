@@ -1,0 +1,143 @@
+{
+  "schema": 1,
+  "issue_id": "chicago_democrat_1833_12_31",
+  "extracted": "2026-08-28",
+  "extracted_by": "hand, T-0309 — the Democrat read, December 1833",
+  "note": "Vol. I No. 6, the last Democrat of 1833 and the first in the PROSE dialect — `Newspaper Page n — Source PDF Page m` and `Column k` headings instead of the dash-column rules of Nos. 2-5. The transcription is also the worst of the month: its columns are woven together inside single lines of up to a thousand characters, so both claims here use `locator.spans` to name the character ranges the quote is built from rather than whole lines. What is new in the issue is one advertisement and it is a substantial one — David Carver announcing a LUMBER YARD and a STORE HOUSE for the opening of navigation in 1834, with an agent at the mouth of the St. Joseph — plus a wanted notice for journeymen cabinet makers, which is the only evidence in the December set of a cabinet shop in the town at all. The rest is the standing advertising of Nos. 2-5 and the 4 December ordinances printed a fourth time, none of it re-claimed. NO POST-OFFICE LETTER LIST: the sweep returns the page-1 agent list, crushed into one line by this transcription, and two national Post Office paragraphs. Zero printed, zero extracted, which closes the month at zero.",
+  "claims": [
+    {
+      "id": "c001",
+      "kind": "business",
+      "reading": "transcription_mediated",
+      "quote": "‘Vo the Public. as HE subscriber would inform his old cus\ntomers, and the public, that ho is now tn 3 | king measures to ostablish a lumber yard in thi 1-| town, where he indetermnined to aupply all arti .g | cles in the Iuinber lino, at the opening of navi S| gation, as cheap as can be procured in this place @ | He would also inform thove living at a distance | Who wish to sell lumber at this suarket, that he will thankfully all articlox of the kind to sell upon Commission, upon which, in all ca. ses, it requested, make an ailanico in Cash. n |, He has also furnishod himself with « Store. | Houso, where he will receive,’ either to. sell | on commission, or to store, all articles in the 1} Provision and Grocery linc. He will state to his friends in Michigan, that he has made Cal vin Brit his Agent, at the mouth of t St. Joseph's, throngh whom he will receive all articles directed to hitm, and sho ve aleo author, - | ized to make contracts for him. Every article in his line thankfally received and proinptly_at- , | tended to, DAVID CARVER, Chicago, Dec, 81, 1833. 6",
+      "normalized": "To the Public. THE subscriber would inform his old cus[to]mers, and the public, that he is now ta[king] measures to establish a lumber yard in thi[s] town, where he i[s] determined to supply all articles in the lumber line, at the opening of navigation, as cheap as can be procured in this place. He would also inform those living at a distance who wish to sell lumber at this market, that he will thankfully [receive] all articles of the kind to sell upon Commission, upon which, in all cases, [if] requested, [he will] make an advance in Cash. He has also furnished himself with a Store House, where he will receive, either to sell on commission, or to store, all articles in the Provision and Grocery line. He will state to his friends in Michigan, that he has made Calvin Brit[ain] his Agent, at the mouth of t[he] St. Joseph's, through whom he will receive all articles directed to him, and who is also authorized to make contracts for him. Every article in his line thankfully received and promptly attended to. DAVID CARVER, Chicago, Dec. [3]1, 1833.",
+      "locator": {
+        "artifact_role": "primary",
+        "issue_page": 3,
+        "column": 3,
+        "lines": [
+          601,
+          603
+        ],
+        "lines_of_claim": [
+          601,
+          603
+        ],
+        "interleaved": true,
+        "spans": [
+          {
+            "line": 601,
+            "from": 96,
+            "to": 153
+          },
+          {
+            "line": 603,
+            "from": 0,
+            "to": 1022
+          }
+        ]
+      },
+      "entities": [
+        {
+          "as_printed": "DAVID CARVER",
+          "normalized": "David Carver",
+          "role": "advertiser",
+          "occupations": [
+            "lumber merchant",
+            "commission merchant"
+          ],
+          "associated_places": [
+            "Chicago"
+          ]
+        },
+        {
+          "as_printed": "Cal vin Brit",
+          "normalized": "Calvin Britain",
+          "role": "Carver's agent at the mouth of the St. Joseph",
+          "occupations": [
+            "forwarding and commission merchant"
+          ],
+          "associated_places": [
+            "St. Joseph"
+          ]
+        }
+      ],
+      "business": {
+        "name": "the lumber yard and warehouse announced for the opening of navigation, 1834",
+        "proprietors": [
+          "David Carver"
+        ],
+        "trade": "lumber yard and store house, on sale and commission",
+        "goods": [
+          "lumber",
+          "provisions",
+          "groceries",
+          "storage"
+        ],
+        "street": null,
+        "placement": {
+          "class": "none",
+          "anchor": null,
+          "offset_text": null,
+          "note": "'In this town' is the whole of the address. The yard has no street, no corner and no anchor in this advertisement or in any other printing of it, so nothing here puts it on the ground."
+        }
+      },
+      "ad_copy_date": {
+        "verbatim": "Chicago, Dec, 81, 1833.",
+        "iso": "1833-12-31"
+      },
+      "notes": "A LUMBER YARD ANNOUNCED FOR THE SPRING, AND THE SUPPLY CHAIN BEHIND IT. This is the most substantial new advertisement of the month and it describes an intention rather than a standing business: Carver is 'now taking measures to establish a lumber yard in this town' for 'THE OPENING OF NAVIGATION' — that is, he is building the trade for the spring of 1834, when the lake reopens. Three things follow for the town's fabric. He has ALREADY furnished himself with a STORE HOUSE, which is a standing building in Chicago at the end of 1833 taking provisions and groceries on storage and commission. He has an agent at the mouth of the St. Joseph — Calvin Britain, whose own partnership dissolved there three weeks earlier (1833-12-24 c008) — so the boards are coming across the lake, which is exactly what the news column of 3 December said the Chicago Packet was carrying (1833-12-03 c003). And he invites country sellers to consign lumber 'at this market', which makes Chicago a lumber market and not only a lumber buyer. THE QUOTE IS BUILT FROM CHARACTER RANGES, not whole lines: this transcription weaves four advertisements and the segmenter's own telemetry into single lines, and naming the lines would quote the neighbours."
+    },
+    {
+      "id": "c002",
+      "kind": "notice",
+      "reading": "transcription_mediated",
+      "quote": "WANTED, Tr. or THREE Journeymen Cabinet Mc\nhers, to whiom good wages will bo paid by : ¥ J. W. REED. 8] Chicago, Dec. 11, 1833.",
+      "normalized": "WANTED, T[WO] or THREE Journeymen Cabinet M[a]k[ers], to whom good wages will be paid by J. W. REED. Chicago, Dec. 11, 1833.",
+      "locator": {
+        "artifact_role": "primary",
+        "issue_page": 3,
+        "column": 3,
+        "lines": [
+          599,
+          601
+        ],
+        "lines_of_claim": [
+          599,
+          601
+        ],
+        "interleaved": true,
+        "spans": [
+          {
+            "line": 599,
+            "from": 11,
+            "to": 53
+          },
+          {
+            "line": 601,
+            "from": 0,
+            "to": 84
+          }
+        ]
+      },
+      "entities": [
+        {
+          "as_printed": "J. W. REED.",
+          "normalized": "J. W. Reed",
+          "role": "the advertiser wanting journeymen cabinet makers",
+          "occupations": [
+            "cabinet maker"
+          ],
+          "associated_places": [
+            "Chicago"
+          ]
+        }
+      ],
+      "ad_copy_date": {
+        "verbatim": "Chicago, Dec. 11, 1833.",
+        "iso": "1833-12-11"
+      },
+      "notes": "A CABINET SHOP WITH ROOM FOR THREE MORE HANDS. The December papers advertise two blacksmiths, a saddler, a boot and shoe maker, a soap and candle manufactory and a butcher; this is the one notice that shows a FURNITURE trade in Chicago in 1833, and it shows it hiring. Two or three journeymen wanted at good wages is a shop already working beyond one man, in a town where the auction of a household's goods a fortnight earlier (1833-12-10 c009) is the only other sight of domestic furniture. No address is given and none is inferred. The quote is built from two character ranges because the wanted notice and Carver's card share a transcription line."
+    }
+  ]
+}

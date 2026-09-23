@@ -1,0 +1,25 @@
+{
+ "schema": 1,
+ "familysearch_id": "33S7-9YYJ-95F",
+ "image": "chicago/reference/census1840/33S7-9YYJ-95F.jpg",
+ "printed_page": 206,
+ "sheet_side": "left",
+ "division": "S. W. Sherman (named in the manuscript certificate on this sheet)",
+ "state": "Illinois",
+ "county": "Cook",
+ "reading": "scan_verified",
+ "read_pass": "page kind and the manuscript certificate; there are no household lines to read",
+ "cells_state": "not_applicable",
+ "cells_note": "no ruled line on this sheet carries an entry. The sheet is a printed left sheet that was used as the RECAPITULATION and CERTIFICATE page: a manuscript note is written across the ruled area and the column cells are empty.",
+ "lines_ruled_with_an_entry": 0,
+ "page_kind": "certificate_and_recapitulation",
+ "manuscript_note": {
+  "as_read": "The above returns of Enumeration made by Assistant Marshal S. W. Sherman appointed to take th[at] of Cook County State of Illinois I have examined and Certify to be Correct \u2014  Mary Prittyman.  Made one recapitulation.  Two Recapitulations at the end of the Book population 3850.  by James Robinson  4470 \u2014 City of Chicago  8320",
+  "reading": "scan_verified",
+  "unread_positions": "the certifier's given name reads Mary or Mars; the surname reads Prittyman or Pettyman. `th[at]` is an abbreviation expanded in brackets. A struck-through figure beside the signature is unread.",
+  "layout": "the certificate is written across the upper ruled area; the recapitulation figures are written lower and to the left, with 4470 and 8320 underlined as an addition.",
+  "arithmetic_check": "3850 + 4470 = 8320. The sheet's own addition is internally consistent, which is a reason to trust the three figures as written rather than as read individually.",
+  "top_margin_annotations": "the words 'Recapitulate' and the figures '30 / 24 / 34' are written in the top margin in a different hand."
+ },
+ "records": []
+}

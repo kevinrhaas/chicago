@@ -1,0 +1,148 @@
+{
+  "id": "1835",
+  "title": "Chicago, summer 1835",
+  "target_date": "1835-07-01",
+  "terrain_epoch": "e1834_harbor_cut",
+  "lighting": {
+    "local_time": "12:30",
+    "note": "Early afternoon, 1 July 1835. Sun azimuth and elevation are computed from this time and the datum lat/lon and drive both sky and the single directional light. Chosen so the south elevation is genuinely lit \u2014 at this latitude in July the sun is high, so vertical surfaces take light at a grazing angle and a mid-morning sun leaves a south wall too dark to read its documented white paint."
+  },
+  "spawn": {
+    "local_e": 107.0,
+    "local_n": -103.0,
+    "yaw_deg": 180.0
+  },
+  "anchors": [
+    {
+      "id": "sauganash",
+      "label": "The Sauganash, from Lake Street",
+      "local_e": 107.0,
+      "local_n": -103.0,
+      "yaw_deg": 180.0
+    },
+    {
+      "id": "sauganash_wing",
+      "label": "The log wing, from the north-west",
+      "local_e": 88.0,
+      "local_n": -110.0,
+      "yaw_deg": 150.0
+    },
+    {
+      "id": "lake_market",
+      "label": "Lake and Market, the corner itself",
+      "local_e": 89.2,
+      "local_n": -110.4,
+      "yaw_deg": 135.0
+    },
+    {
+      "id": "first_post_office",
+      "label": "Hogan's store, where the mail came",
+      "local_e": 113.0,
+      "local_n": -108.0,
+      "yaw_deg": 0.0
+    },
+    {
+      "id": "forks",
+      "label": "The forks, from Wolf Point",
+      "local_e": -100.0,
+      "local_n": -28.0,
+      "yaw_deg": 75.0
+    },
+    {
+      "id": "north_branch_bridge_deck",
+      "label": "On the North Branch bridge, mid-span",
+      "local_e": -81.59,
+      "local_n": 262.02,
+      "yaw_deg": 90.0
+    },
+    {
+      "id": "green_tree",
+      "label": "Green Tree Tavern, Lake and Canal",
+      "local_e": -159.7,
+      "local_n": -108.4,
+      "yaw_deg": 90.0
+    },
+    {
+      "id": "south_water",
+      "label": "South Water Street, from the Wells Street corner",
+      "local_e": 329.8,
+      "local_n": 7.0,
+      "yaw_deg": 90.0
+    },
+    {
+      "id": "newberry_dole_wharf",
+      "label": "Newberry & Dole's wharf, from the warehouse door",
+      "local_e": 204.5,
+      "local_n": 9.8,
+      "yaw_deg": 339.4,
+      "pitch_deg": -6.0
+    },
+    {
+      "id": "from_above",
+      "label": "From above \u2014 the whole town",
+      "local_e": 60.0,
+      "local_n": -330.0,
+      "yaw_deg": 0.0,
+      "altitude_m": 175.0,
+      "pitch_deg": -30.0
+    },
+    {
+      "id": "kinzie_block",
+      "label": "The Kinzie Block, from Michigan Street",
+      "local_e": 994.86,
+      "local_n": 390.5,
+      "yaw_deg": 0
+    },
+    {
+      "id": "fort_dearborn",
+      "label": "Fort Dearborn, from the south-west",
+      "local_e": 1100,
+      "local_n": 175,
+      "yaw_deg": 45
+    },
+    {
+      "id": "lake_shore_south",
+      "label": "The lake shore, three-quarters of a mile south of the fort",
+      "local_e": 1340,
+      "local_n": -1000,
+      "yaw_deg": 180
+    },
+    {
+      "id": "sixteenth_prairie",
+      "label": "Sixteenth at Prairie \u2014 conjectural ground",
+      "local_e": 1396.51,
+      "local_n": -2949.59,
+      "yaw_deg": 90
+    },
+    {
+      "id": "battle_reach_1812",
+      "label": "The shore between Sixteenth and Eighteenth \u2014 the 1812 ground, not yet located",
+      "local_e": 1460,
+      "local_n": -3050,
+      "yaw_deg": 0
+    },
+    {
+      "id": "eighteenth_prairie",
+      "label": "Eighteenth at Prairie \u2014 conjectural ground",
+      "local_e": 1401.86,
+      "local_n": -3206.93,
+      "yaw_deg": 0
+    },
+    {
+      "id": "cermak_prairie",
+      "label": "Cermak at Prairie \u2014 the model's south wall",
+      "local_e": 1407.06,
+      "local_n": -3764.87,
+      "yaw_deg": 0
+    }
+  ],
+  "layers": [
+    "terrain",
+    "water",
+    "structures",
+    "flora",
+    "fauna"
+  ],
+  "released": false,
+  "note": "The first scene. Population roughly 3,265 in the late-1835 count; the town is twenty months old and has grown roughly tenfold in two years. Wabansia and Kinzie's Addition are platted (the Wooley correction was approved 17 June 1835, two weeks before this date) but almost entirely unbuilt. Anchor coordinates are provisional until the datum is verified \u2014 they are placeholders in the same local frame, not survey positions. Spawn and the near anchors are now derived from the Sauganash's real placement at Lake and Market \u2014 about 100 m east and 130 m south of the forks confluence \u2014 rather than from the datum origin, which is in the middle of the river. Both anchors that once pointed at a surveyed corner because their records had not landed have now resolved onto it: Green Tree stands at Lake and Canal looking east at the tavern, and South Water stands in the street at Wells. The South Water anchor was moved there on 2026-08-15 from (260, -95), which was 101 m south of the centreline of the street it is named for and framed a field. Its easting is the Wells corner the South Water records are themselves offset from (OpenStreetMap E 447402.5, N 4637411.6, the West Upper Wacker Drive / North Wells junction, quoted in those records' position notes); its northing is the committed South Water centreline at that easting (data/streets/1835.json), which sits about 9 m south of the modern junction centre because the 1835 line is shifted into the dry half of the platted riverfront corridor. A camera is not a placement, and this one claims nothing about a building. The forks anchor moved from (-20, -30) to (-100, -28) once the river channel was traced: the placeholder stood in the middle of the South Branch. It is now on the west bank at Wolf Point, which is what the name meant, looking east across the confluence and down the main stem. The wharf anchor (2026-08-18, T-0041) stands on the bank 3.6 m out of Newberry & Dole's river wall, looking down the waterward normal of the dock the wharf layer draws there \u2014 the ground at that point is 0.38 m above the water plane, so it is a stand on the bank and not on the deck, which is not a walk surface. THE SOUTHERN ANCHORS (T-0467, 2026-09-17), and every one of them is a CAMERA and not a placement. T-0464 carried the modelled box south to Twenty-Second Street (n_min -3800) and nothing was reachable down there: the southernmost viewpoint this scene offered was the aerial at n -330, so 3.4 km of modelled ground had no way in except by walking off the edge of the town. Six anchors were added. `fort_dearborn` stands outside the stockade to the south-west at (1100, 175), looking north-east across it \u2014 the palisade record places the fort square between e 1122 and 1182 and n 191 and 251, so the camera is 22 m clear of its south-west angle and inside no footprint. `lake_shore_south` stands at (1340, -1000) on the sand-ridge belt three-quarters of a mile below the fort, looking south down the shore; the pre-fill lake margin at that row runs about 47 m east of it, which is why the easting is not simply carried down from the fort \u2014 the traced shore crosses 390 m of easting between Twelfth Street and the box floor, so a fixed easting that is dry at one row is in the lake at another. `sixteenth_prairie` (1396.51, -2949.59), `eighteenth_prairie` (1401.86, -3206.93) and `cermak_prairie` (1407.06, -3764.87) are the three junctions the ticket named, resolved from OpenStreetMap under the same node rule the street control uses and recorded with their node ids in data/traces/south_anchor_control.json. `battle_reach_1812` (1460, -3050) stands on the shore between the first two, looking north back up the beach toward the fort. IT DOES NOT LOCATE THE BATTLE, and its label says so: the 15 August 1812 action is placed by the literature somewhere along this reach, the confidence zone is T-0470's to map, and an anchor that named a spot would be this scene inventing the very thing that ticket exists to adjudicate. WHAT THE LABELS MAY SAY. An anchor name describes what the SELECTED YEAR contains, so two of these carry `conjectural ground` and one carries `the model's south wall`: below Twelfth Street nothing in this corpus states the land at all \u2014 the terrain spec's `evidence_limit` writes every vertex down there conjectural \u2014 and a viewpoint that said otherwise would be a claim the ground cannot carry. The modern street names are LOCATORS and are marked as such by being modern; they assert no 1835 street, and the structure layer is offset from none of them. Anchors live in the scene file, one per year, so a later epoch gets its own list rather than inheriting these \u2014 which is the mechanism that keeps an 1880s mansion out of an 1812 label. tools/measure_anchors.mjs holds all seventeen against the heightfield every anchor is meant to stand on, and tools/check.sh runs it."
+}

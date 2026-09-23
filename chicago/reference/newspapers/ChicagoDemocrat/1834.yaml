@@ -1,0 +1,28 @@
+id: newspaper-chicago-democrat-1834
+title: Chicago Democrat, 1834
+description: >
+  Scanned issues of the Chicago Democrat newspaper. Typed transcriptions
+  for this run are committed separately under
+  chicago/reference/newspapers/transcriptions/.
+redistribution_status: public
+copyright_status: public-domain
+internet_archive:
+  item: chicago1835-newspaper-chicago-democrat-1834
+  url: https://archive.org/details/chicago1835-newspaper-chicago-democrat-1834
+files:
+  - name: Jan1834-Mar1834.pdf
+    bytes: 145974051
+    sha256: 9fdfe5762de29a2581dcffb0a2b2140a15eb04b1811747aa37d78bbda92022d3
+  - name: Apr1834-May1834.pdf
+    bytes: 196218040
+    sha256: 77a84f1e3f5242a4b272cae857d55a8918696d4e52f6c2c837ec4145ce1606c3
+  - name: Jun1834-Jul1834.pdf
+    bytes: 171415477
+    sha256: e11fa2022a03d12df041cad0d8807ea6f4aae1cfd1d37626e399db91d34032f0
+  - name: Aug1834-Sep1834.pdf
+    bytes: 179862583
+    sha256: 48ef34988b3cbc417da4eecdd6af477d81a1c121174b8b40cbd3fec6df846d0e
+  - name: Oct1834-Dec1834.pdf
+    bytes: 291775743
+    sha256: 6fc6bcbb1e211d526a841c5a4a964d10b1d4693e1b7321527b1a02b1041a5f66
+local_archive_path: projects/archive/data/chicago/reference/newspapers/ChicagoDemocrat/1834/

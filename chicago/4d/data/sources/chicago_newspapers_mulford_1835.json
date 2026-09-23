@@ -1,0 +1,14 @@
+{
+  "id": "chicago_newspapers_mulford_1835",
+  "type": "newspaper",
+  "citation": "Chicago Democrat, July 15 and August 26, 1835, project newspaper corpus; watch/jewelry notices print J. H. Mulford.",
+  "date": "1835-07-15/1835-08-26",
+  "describes_date": "1835",
+  "locator": "data/research/newspapers/text/chicago_democrat_1835_07_15.txt and chicago_democrat_1835_08_26.txt",
+  "url": "https://github.com/kevinrhaas/custom/tree/dev/chicago/4d/data/research/newspapers/text",
+  "tier": 2,
+  "rights_status": "check_required",
+  "asset_use": "text_only",
+  "verified": true,
+  "note": "Near-contemporary project transcription. It creates a material E.H./J.H. Mulford identity conflict with the retrospective Andreas-derived household; do not silently merge the men."
+}

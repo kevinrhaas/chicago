@@ -1,0 +1,13 @@
+{
+  "_doc": "Manifest for the boat layer — the era-correct watercraft on the river (T-0063). A static host cannot be globbed, which is why this file exists: the renderer fetches this manifest and then exactly the files it names, never a probe. A boat is NOT a structure record and NOT baked geometry — a hull is a lofted timber shell riding on the water plane this project already draws at Z = 0, so it is drawn at load by renderers/web/js/boats.js from these numbers and the committed heightfield alone, the same argument that lets data/wharves/ stand a deck on cribs and data/yard/ stand a barrel on the footway. Records here are AUTHORED, not generated: no rule can derive where a moored schooner lay on a given July morning, so each boat's position is an invention stated per boat in its own note, bounded by the reaches the engravings crowd with hulls, and claimed at docs/LIBERTIES.md L146. The layer refuses rather than adjusts: a boat authored onto water too shallow for its own draft, onto dry ground it claims to float on, or inside the drawbridge's navigation clearance is not drawn, with the reason on the record.",
+  "version": 1,
+  "scene": "1835",
+  "scene_date": "1835-07-01",
+  "coordinates": "Local East-North-Up metres from data/datum.json's origin — the same frame data/wharves/, data/enclosures/, data/signage/ and data/yard/ use. The water surface is Z = 0 by construction.",
+  "boats": [
+    {
+      "id": "era_boats",
+      "file": "era_boats.json"
+    }
+  ]
+}

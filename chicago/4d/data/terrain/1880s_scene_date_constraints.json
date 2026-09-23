@@ -1,0 +1,63 @@
+{
+  "_doc": "The readings that fix the representative date of the 1880s scene, and the arithmetic that turns them into one date. Written by T-1249 (piece 1 of T-0473). A date is a claim like any other here: it is derived from committed readings, it is re-derived by tools/check_1880s_scene_date.py on every commit, and it may not be hand-edited into agreement. Nothing in this file places a building, draws ground or moves a shoreline.",
+  "ticket": "T-1249",
+  "parent_ticket": "T-0473",
+
+  "window": {
+    "from": "1880-01-01",
+    "to": "1889-12-31",
+    "set_by": "T-0473",
+    "why": "The parent ticket asks, in its own words, for 'a specific representative scene date in the 1880s after checking landmark construction dates'. The decade is the owner's ask and is not itself a research finding, so it is recorded as a window imposed on the derivation rather than as a reading."
+  },
+
+  "readings": [
+    {
+      "id": "glessner_house_completion",
+      "subject": "John J. Glessner House, 1800 South Prairie Avenue",
+      "source_id": "habs_glessner_house_il_1015",
+      "kind": "lower_bound",
+      "not_before": "1888-01-01",
+      "confidence": "documented",
+      "quoted": [
+        "Designed and built between May 1885 and December 1887",
+        "Building/structure dates:    1886- 1887 Initial Construction"
+      ],
+      "reasoning": "The record carries two dating statements and they differ at the START of the work — May 1885 against 1886 — but not at its END: both finish in 1887, and the fuller one names December. The bound taken is the one BOTH statements support, and only that: the house was not complete before the end of 1887, so a scene that wants it standing cannot be dated earlier than 1 January 1888. The disagreement over the start date is left in the record rather than averaged away; it bounds nothing this ticket needs.",
+      "why_it_binds": "T-0475 will build 'the Prairie Avenue landmark mansion core', and the Glessner House is the only building on the avenue this project can currently date from a committed source. A representative date that predates it would ask that ticket to build the avenue's best-documented house out of a scene in which it did not yet exist."
+    },
+    {
+      "id": "kimball_house_undated",
+      "subject": "W. W. Kimball House, 1801 South Prairie Avenue",
+      "source_id": "habs_kimball_house_il_1077",
+      "kind": "no_constraint",
+      "confidence": "documented",
+      "quoted": [
+        "One of the few remaining residences along Chicago's earliest Gold Coast area, it was designed by Solon S. Beman for the founder of the Kimball Piano Company."
+      ],
+      "reasoning": "Opened in order to date the house directly opposite the Glessner, because the date usually given for it falls outside the window and would have been the reading that decided this ticket. The record dates it nowhere: no `Building/structure dates` note, no year in the significance statement. It therefore constrains nothing, and it is committed in that state so that the absence is a recorded finding rather than a retrieval the next run repeats.",
+      "why_it_binds": null
+    }
+  ],
+
+  "derivation": {
+    "steps": [
+      "take the latest `not_before` over every reading of kind `lower_bound` — 1888-01-01",
+      "carry it forward to the first 1 July falling on or after that day — 1888-07-01",
+      "require the result to fall inside the window 1880-01-01..1889-12-31"
+    ],
+    "day_of_year": "07-01",
+    "why_day_of_year": "The 1835 scene stands at 1 July, and the two scenes are meant to be comparable: the same reach of ground, the same season, the same hour of light, fifty-three years apart. Midsummer is also the only part of the year for which this project has built any flora, fauna or lighting behaviour at all. THE DAY IS A CONVENTION AND NOT A READING — no source says anything about 1 July 1888 — and it is written down here as a convention so that a later run does not mistake it for evidence. See docs/LIBERTIES.md."
+  },
+
+  "adopted": {
+    "date": "1888-07-01",
+    "confidence": "inferred",
+    "epoch_id": "e1871_postfire",
+    "shoreline_state_id": "shore_1880s_ic_edge",
+    "supersedes": {
+      "date": "1885-07-01",
+      "where": "tools/check_shoreline_states.py ADDRESS_DATES['1880s']",
+      "why": "T-1152 needed SOME date in the decade to prove that the 1880s address resolved through its own epoch to its own shoreline state, and it wrote one in. Nothing documented it and nothing was meant to: it was scaffolding for a different assertion. It is three and a half years too early for the avenue this scene exists to show — the Glessner House was not built on 1 July 1885 — so this ticket replaces it rather than leaving a plausible-looking number in a gate where a later run would read it as settled."
+    }
+  }
+}

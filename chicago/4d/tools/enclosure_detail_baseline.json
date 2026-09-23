@@ -1,0 +1,32 @@
+{
+  "viewports": {
+    "desktop 1280x800": {
+      "ownedFull": 171480,
+      "ownedBalanced": 104916,
+      "ownedLight": 104916,
+      "ownedSavingLight": 0.3882,
+      "drawnSavingLight": {
+        "lake_at_canal": 0.9024,
+        "the_forks": 0.8954,
+        "lake_and_market": 0.8264,
+        "from_above": 0.8845,
+        "sauganash_26": 0.824
+      },
+      "source": "published mirror"
+    },
+    "mobile 390x780": {
+      "ownedFull": 171480,
+      "ownedBalanced": 104916,
+      "ownedLight": 104916,
+      "ownedSavingLight": 0.3882,
+      "drawnSavingLight": {
+        "lake_at_canal": 0.9074,
+        "the_forks": 0.9193,
+        "lake_and_market": 0.8299,
+        "from_above": 0.8845,
+        "sauganash_26": 0.824
+      },
+      "source": "published mirror"
+    }
+  }
+}

@@ -1,0 +1,140 @@
+{
+ "id": "hh_caldwell_billy",
+ "name": "The Caldwell household",
+ "division": "north",
+ "head": "caldwell_billy",
+ "arrival": {
+  "value": "1820",
+  "confidence": "inferred",
+  "sources": [
+   "andreas_1884_v1"
+  ],
+  "note": "'At what time Caldwell took up his residence near Fort Dearborn is not definitely known, but probably about the year 1820.' The word 'probably' is the source's and the grade carries it.",
+  "precision": "year"
+ },
+ "party_size_on_arrival": {
+  "value": null,
+  "confidence": "reconstructed",
+  "note": "Not attested in anything this project holds."
+ },
+ "origin": {
+  "value": "Detroit; his father an Irish officer in the British army, his mother Potawatomi",
+  "confidence": "attested",
+  "sources": [
+   "andreas_1884_v1"
+  ],
+  "note": "Andreas states both parents, the birthplace and the Jesuit schooling."
+ },
+ "reason_for_coming": {
+  "value": null,
+  "confidence": "reconstructed",
+  "note": "Left null for the same reason as the Robinson household: 'why they came' is a question shaped for emigrants, and filling it here would import a frame the sources do not support."
+ },
+ "lives_at": {
+  "value": null,
+  "confidence": "reconstructed",
+  "note": "TWO CANDIDATE LOCATIONS AND NO WAY TO CHOOSE, so the field is null. (1) Andreas: 'There was also a house built for him by the Department for Indian Affairs on the North Side near where is now the corner of State Street and Chicago Avenue' - and elsewhere calls it probably the first frame building in Chicago after Robert Kinzie's store, erected in 1828. That house is not in data/structures/ and is well north of the modelled blocks. (2) A list of the settlement's residents Andreas prints puts 'small log buildings occupied by the blacksmith, Mr. McKee, and Billy Caldwell, an Indian chief, who was also interpreter for the agency' in the vicinity of Cobweb Castle at the foot of State Street. Those are two different houses in two different places and neither is dated to 1835. Linking him to robinson_caldwell_cabins would be worse than either: that record's evidence is Wau-Bun's sentence about ROBINSON, and Caldwell's name reached its filename by a different route."
+ },
+ "works_at": {
+  "value": "cobweb_castle",
+  "confidence": "inferred",
+  "sources": [
+   "andreas_1884_v1"
+  ],
+  "note": "The agency's interpreter worked where the agency's business was done, and the government blacksmith shop this dataset holds stands beside the agency house. Inferred: no source puts this man in this building."
+ },
+ "present_on_scene_date": {
+  "value": "present",
+  "confidence": "inferred",
+  "sources": [
+   "andreas_1884_v1"
+  ],
+  "note": "PRESENT ON 1 JULY 1835 UNDER EITHER OF THE TWO DATINGS THIS PROJECT HOLDS, which is the one thing about his last Chicago years that is not in dispute. Andreas has him leading the assembly and the march to the Missouri in 1836; chicagology_lastwardance puts the last war dance at Chicago on 18 August 1835. Both are after the scene date. Derived rather than documented because it is an inference from two departure dates, not a statement that he was here in July."
+ },
+ "persons": [
+  {
+   "id": "caldwell_billy",
+   "name": "Billy Caldwell (Sauganash)",
+   "relationship": "head",
+   "grade": "attested",
+   "sex": "male",
+   "birth_year": {
+    "value": 1780,
+    "confidence": "inferred",
+    "sources": [
+     "andreas_1884_v1"
+    ],
+    "note": "'Born about the year 1780' - the source's own approximation. Andreas elsewhere gives his death as 28 September 1841 'at the age of sixty-two', which would put the birth at 1778-79; the two figures do not agree and neither is adopted over the other."
+   },
+   "age_on_scene_date": {
+    "value": 55,
+    "confidence": "inferred",
+    "sources": [
+     "andreas_1884_v1"
+    ],
+    "note": "About 55 on 1 July 1835, on a birth year the source itself qualifies with 'about' and which its own death notice contradicts by a year or two."
+   },
+   "occupation": {
+    "value": "interpreter",
+    "confidence": "attested",
+    "sources": [
+     "andreas_1884_v1"
+    ],
+    "note": "Interpreter to the United States Indian agency at Chicago under Col. T. J. V. Owen: Andreas's account of the agency names the establishment - Gholson Kercheval and James Stuart as sub-agents, 'Billy Caldwell (Sauganash) as interpreter; David McKee as blacksmith, and Joseph Porthier as striker'. He had been appointed a justice of the peace for Peoria County in 1826 and appears on the poll lists of 1826 and 1830, usually officiating as one of the clerks of the election.",
+    "derived_from": "roles",
+    "roles_at_scene_date": [
+     "interpreter"
+    ]
+   },
+   "sources": [
+    "andreas_1884_v1"
+   ],
+   "note": "THE MAN THE SAUGANASH HOTEL IS NAMED AFTER, which is how this dataset first met him: 'It was suggested to Mark that he should name his house after some great man. He could think of no greater personage than Billy Caldwell and so his tavern became celebrated as the \"Sauganash.\"' Andreas: son of a Colonel Caldwell, an Irish officer in the British army at Detroit, and a Potawatomi mother; born about 1780; educated at the Jesuit schools of Detroit and fluent in French and English besides several Indian languages; secretary to Tecumseh from about 1807 until Tecumseh's death and present at the Thames on 5 October 1813; a captain in the British Indian Department as late as 1816. By the treaty of Prairie du Chien of 1829 he was granted two and a half sections on the Chicago River, about six miles up the North Branch, and by the treaties of 1832 and 1833 annuities aggregating $1,000; he sold the land early. When John Watkins started his school in 1832 Caldwell offered to pay the tuition and buy books and clothes for any Indian children who would attend.",
+   "resident_research": {
+    "programme": "resident-research-2026",
+    "ticket": "T-0508",
+    "outcome": "corroborated",
+    "reviewed_on": "2026-09-05",
+    "asserted_identity": true,
+    "evidence_for": "Independent of the post office in the sources cited.",
+    "notes": "Candidate facts remain unasserted until a source bridges the candidate to the historical record by more than name similarity.",
+    "source_ids": [
+     "census_1830_peoria_county_chicago_precinct",
+     "fergus_historical_series_26_29",
+     "hubbard_autobiography_1911",
+     "andreas_1884_v1"
+    ],
+    "refusals": [
+     {
+      "regraded_on": "2026-09-04",
+      "rule": "G2b",
+      "withheld": "the downgrade to inferred",
+      "reason": "This card rests on 1 thing(s) the consolidation did not read — andreas_1884_v1. G2b fired on the seven domains the ladder reads and says nothing about the evidence outside them, so the grade stands. The same reasoning the ladder's own G5 gives for abstaining (T-0515)."
+     }
+    ],
+    "summary": "Independently corroborated; confirmed, not moved."
+   },
+   "roles": [
+    {
+     "role": "interpreter",
+     "kind": "profession",
+     "as_printed": null,
+     "from": "1673",
+     "to": "1857",
+     "precision": "source_span",
+     "dated_by": "source_describes_date",
+     "covers_scene_date": true,
+     "confidence": "attested",
+     "sources": [
+      "andreas_1884_v1"
+     ],
+     "claim": null,
+     "note": "THE BOUND IS THE SOURCE'S, NOT THE MAN'S. This role is carried by the card's 1835 occupation block and is dated by what the cited source or sources are ABOUT, which is why `precision` can be no better than the span they cover. The span reaches 1835, so this role stands in the scene-date view. The printing the trade was read off is not on the card and is fetched by T-1254."
+    }
+   ]
+  }
+ ],
+ "touches_removal": true,
+ "review_required": true,
+ "research_note": "THE INTERPRETER OF THE AGENCY, THE NAMESAKE OF THE TOWN'S BEST-KNOWN TAVERN, AND A MAN WHO LEFT WITH HIS PEOPLE. STANDING CONSTRAINT. AGENTS.md: the final removal of the Potawatomi from Chicago occurred in August 1835, inside this project's first target year and six weeks AFTER the scene date; Native presence, representation and depiction are not research gaps to be filled by inference, and v1 ships no human figures at all. This record is a dataset entry that states what named sources say about a named person and adds nothing. It carries review_required so that no scene containing it can be marked released before the consultation the project has committed to. ANDREAS AND THIS PROJECT'S OTHER SOURCE DISAGREE BY A YEAR ABOUT THE REMOVAL ITSELF and the disagreement is recorded here rather than resolved: Andreas, 'In 1836, under the leadership of Captain Russell the Government Agent, and Billy Caldwell, the Indians to the number of nearly twenty-five hundred assembled for the last time at Chicago, to receive their payments and then take up their line of march for their new home on the Missouri, at Council Bluffs'; chicagology_lastwardance, transcribing a 1910 Tribune account, dates the last great war dance to 18 August 1835. AGENTS.md takes the 1835 dating as the project's standing constraint. Under either, 1 July 1835 is before it, and this household is in the scene. He died at Council Bluffs on 28 September 1841. BOTH FLAGS WERE FALSE UNTIL 2026-08-16 AND THE PARAGRAPH ABOVE SAID OTHERWISE. The sentence 'It carries review_required so that no scene containing it can be marked released' has been in this record since it was written, and `review_required` was never once set: the claim blocked nothing and read to every later agent as though it did. Nothing else about the record moved, and nothing was researched to justify the change — `touches_removal` is set from this record's own committed text, which quotes Andreas putting this man at the head of the march to the Missouri. ROADMAP K34 found it by reading the prose against the field, and tools/measure_review_constraint.py asserts the two agree from here on."
+}

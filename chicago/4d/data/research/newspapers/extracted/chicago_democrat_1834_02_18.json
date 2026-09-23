@@ -1,0 +1,513 @@
+{
+  "schema": 1,
+  "issue_id": "chicago_democrat_1834_02_18",
+  "extracted": "2026-08-28",
+  "extracted_by": "hand, T-0311 — the Democrat read, February 1834",
+  "note": "Vol. I No. 13. Two buildings enter the town in this issue and both are dated to the week: a LIVERY STABLE opened at the Point, and a SMOKE HOUSE fitted up by D. Elston & Co. on 15 February. The county's records move house as well — the Clerk of the Circuit and County Courts is removed to the building one door west of Col. Owen's — and W. Kimball's store is set at the corner of South Water and Clark for the first time in the month.",
+  "claims": [
+    {
+      "id": "c001",
+      "kind": "building",
+      "reading": "transcription_mediated",
+      "quote": "HE citizens of Chicago are heroby i\ned, thata LIVERY STABLE is opened\nat the Point, and that prepara-\nrations are being male to ac-\ncommodate the public, Sad-\ndle horses, single horse Carria-\nces will bo kept on band. All\nof which can be had day or pga (for Cash on-\n\\y,) st reasonable charges. Al’ property to be\ned sound aa when taken from the stable,\n7 the person hiring will be held responsible. —\nHorses kept by the day or week,\nTHOS. EPERSON & One",
+      "normalized": "[T]HE citizens of Chicago are hereby inform[]ed, that a LIVERY STABLE is opened at the Point, and that prepara[]rations are being ma[d]e to accommodate the public. Saddle horses, single horse Carria[g]es will be kept on hand. All of which can be had day or [ni]g[ht] (for Cash on[l]y,) at reasonable charges. Al[l] property to be [return]ed sound as when taken from the stable, [o]r the person hiring will be held responsible. Horses kept by the day or week. THOS. E[M]ERSON & Co.",
+      "locator": {
+        "artifact_role": "primary",
+        "issue_page": 3,
+        "column": 3,
+        "lines": [
+          2349,
+          2361
+        ],
+        "lines_of_claim": [
+          2349,
+          2350,
+          2351,
+          2352,
+          2353,
+          2354,
+          2355,
+          2356,
+          2357,
+          2358,
+          2359,
+          2360,
+          2361
+        ],
+        "interleaved": true
+      },
+      "business": {
+        "name": "Thos. Emerson & Co.",
+        "trade": "livery stable",
+        "goods": [
+          "saddle horses",
+          "single horse carriages",
+          "horses kept by the day or week"
+        ],
+        "address_text": "at the Point",
+        "placement": {
+          "class": "relative",
+          "anchor": "the Point (Wolf Point, the forks of the Chicago river)",
+          "offset_text": "at the Point"
+        }
+      },
+      "entities": [
+        {
+          "as_printed": "THOS. EPERSON & One",
+          "normalized": "Thos. E[m]erson & Co.",
+          "role": "keepers of the livery stable at the Point"
+        }
+      ],
+      "notes": "A LIVERY STABLE OPENS AT THE POINT, and it is a building this reconstruction does not have. A livery is not a shed: it stalls saddle horses and houses single-horse carriages, it is worked day AND night, and it keeps horses by the day or the week — so it needs stalls, a carriage floor, a yard and a man sleeping on the premises. THE PLACEMENT IS THE PAPER'S OWN WORD AND NOTHING MORE. 'At the Point' is how this town names the forks, and the corpus already carries Wolf Point landings and frontages there; the placement is recorded `relative` on that anchor because the phrase is a location the paper expects readers to walk to, but WHICH point frontage — the west bank, the north bank, or the tongue between them — is not stated and is not inferred. The keeper's surname prints 'EPERSON' with the M dropped and is read E[m]erson; it is not identified with any Emerson elsewhere in the corpus. Running again unchanged in 1834-02-25, so the stable is open for at least a fortnight."
+    },
+    {
+      "id": "c002",
+      "kind": "building",
+      "reading": "transcription_mediated",
+      "quote": "QUANTITY of highly flavoured Hams, | F\nFletches of Bacon, Mess and Prime Pork,\nfo be sold by D, Elston &      who acquaint} —\nthe public they have fitted up,a Smoke Howse,\nfor the smoking of Hams, Bacon, &c. Ke., and\nare prepared to commence the drying thereof.    é\nChicago, Feb. 15, 1834.                  13/¢@",
+      "normalized": "[A] QUANTITY of highly flavoured Hams, [F]letches of Bacon, Mess and Prime Pork, to be sold by D. Elston & [Co.] who acquaint the public they have fitted up a Smoke House, for the smoking of Hams, Bacon, &c. &c., and are prepared to commence the drying thereof. Chicago, Feb. 15, 1834.",
+      "locator": {
+        "artifact_role": "primary",
+        "issue_page": 3,
+        "column": 3,
+        "lines": [
+          2362,
+          2369
+        ],
+        "lines_of_claim": [
+          2363,
+          2364,
+          2365,
+          2366,
+          2367,
+          2368,
+          2369
+        ],
+        "interleaved": true
+      },
+      "business": {
+        "name": "D. Elston & Co.",
+        "trade": "provision curers and soap and candle makers",
+        "goods": [
+          "hams",
+          "flitches of bacon",
+          "mess pork",
+          "prime pork",
+          "smoking and drying"
+        ],
+        "address_text": "",
+        "placement": {
+          "class": "none"
+        }
+      },
+      "ad_copy_date": {
+        "verbatim": "Chicago, Feb. 15, 1834.",
+        "iso": "1834-02-15"
+      },
+      "entities": [],
+      "notes": "A SMOKE HOUSE, FITTED UP AND DATED — 15 February 1834. This is a small industrial structure with a form the model can actually draw: a smoke house is close-boarded, low, chimneyless or nearly so, and stands clear of what it could set alight, which is why it is a separate building rather than a room. The same firm runs the Chicago Soap and Candle Manufactory on the other side of this issue (c010), so Elston is assembling a small works — tallow, ashes, soap, candles, and now cured meat — and the smoke house belongs with it. 'Fitted up' is the paper's phrase and is read as an existing structure adapted rather than a new frame raised; the distinction is left as the print makes it. NO SITE IS GIVEN. Elston's works are known to have stood on the North Branch but this notice does not say so, so the placement is `none` and the structure is unplaced."
+    },
+    {
+      "id": "c003",
+      "kind": "business",
+      "reading": "transcription_mediated",
+      "quote": "20 uo   Seperfas Flour.\nGO qt. boxes Cigars. For sale b\nJ. K. BOTSFORD,\nFab. 17.         next door to Graves’",
+      "normalized": "[… ]20 [barrels] Superf[ine] Flour[,] [… ]60 qt. boxes Cigars. For sale b[y] J. K. BOTSFORD, Feb. 17, next door to Graves' [Tavern].",
+      "locator": {
+        "artifact_role": "primary",
+        "issue_page": 3,
+        "column": 3,
+        "lines": [
+          2340,
+          2343
+        ],
+        "lines_of_claim": [
+          2340,
+          2341,
+          2342,
+          2343
+        ],
+        "interleaved": true
+      },
+      "business": {
+        "name": "J. K. Botsford",
+        "trade": "grocer and tinner",
+        "goods": [
+          "superfine flour",
+          "cigars"
+        ],
+        "address_text": "next door to Graves' Tavern",
+        "placement": {
+          "class": "relative",
+          "anchor": "Graves' Tavern",
+          "offset_text": "next door to Graves’"
+        }
+      },
+      "ad_copy_date": {
+        "verbatim": "Fab. 17.",
+        "iso": "1834-02-17"
+      },
+      "entities": [
+        {
+          "as_printed": "J. K. BOTSFORD",
+          "normalized": "J. K. Botsford",
+          "role": "grocer and tinner",
+          "occupations": [
+            "grocer",
+            "tinner"
+          ]
+        }
+      ],
+      "notes": "BOTSFORD PLACED OFF GRAVES' TAVERN — 'next door', which is the tightest relative placement in the month. Graves' Tavern is a fixed name in this town and Matthias Mason & Co.'s blacksmith shop is placed off it too (c011 here, and 1834-02-25 c006 which puts the shop 'on Main-street, nearly opposite' it), so the tavern is becoming a survey point with three storefronts hung on it. READ THIS CLAIM TOGETHER WITH 1834-02-25 c001, WHERE THE SAME MAN ADVERTISES FROM THE 'Corner of Dearborn and Lake-sts.' — one tradesman giving two different addresses a week apart is either a move or two premises, and this pass does NOT decide which. The temptation is to conclude that Graves' Tavern stands at Dearborn and Lake, and it is refused: 'next door' and 'corner of' are both Botsford's own frontage, and nothing here says they are the same frontage. Both are recorded and the question goes to the queue."
+    },
+    {
+      "id": "c004",
+      "kind": "business",
+      "reading": "transcription_mediated",
+      "quote": "Fer Sale,\n10 BARRELS WHITE FISH.\nBO do. Old Whiskey.\nGO do, Best Okio Flour, by +\n7.                    A. KINZIE.",
+      "normalized": "For Sale, 10 BARRELS WHITE FISH, [5]0 do. Old Whiskey, [6]0 do. Best Ohio Flour, by [R]. A. KINZIE.",
+      "locator": {
+        "artifact_role": "primary",
+        "issue_page": 3,
+        "column": 3,
+        "lines": [
+          2344,
+          2348
+        ],
+        "lines_of_claim": [
+          2344,
+          2345,
+          2346,
+          2347,
+          2348
+        ],
+        "interleaved": true
+      },
+      "business": {
+        "name": "R. A. Kinzie",
+        "trade": "merchant",
+        "goods": [
+          "white fish",
+          "old whiskey",
+          "Ohio flour"
+        ],
+        "address_text": "",
+        "placement": {
+          "class": "none"
+        }
+      },
+      "entities": [
+        {
+          "as_printed": "A. KINZIE",
+          "normalized": "R. A. Kinzie",
+          "role": "merchant",
+          "occupations": [
+            "merchant"
+          ]
+        }
+      ],
+      "notes": "R. A. Kinzie trading in the month, which closes a survival window rather than opening a placement. His store is a landmark elsewhere in this issue — an unrelated advertisement is placed 'of Mr. R. A. Kinzie's Store' — but THIS notice carries no address and none is read into it. Ten barrels of whitefish, fifty of old whiskey and sixty of Ohio flour in February is a wholesale quantity held over the winter, which says the store has cellar or warehouse room and is not living off the season's arrivals."
+    },
+    {
+      "id": "c005",
+      "kind": "infrastructure",
+      "reading": "transcription_mediated",
+      "quote": "7. From Peoria by way of Burcan Grove and |,\nDixon's Ferry to Galena, twice a week, 160 |\"\nmules, througl in 3 days, fare B10 00,\n9. Fron Ottawa by way of Holderman’s Grove,\nWalker's Grove and Laughton's to Chicago,\nounce a week, 60 miles, through in § 1-2 days,\nfare $5 UU.                                 ‘\nRemarkg.—The conncetion at Teste Haute | ;\nwith the Cincinnati route, 1s made so as to pre-\nvent delay to persons going West or N. West.\nWith the Detroit Mail, connection is made at\nChicag@ s0 that the mail leaves  for St. Louis\ntho next morning after arriving at Chicago, and\narrivos at St. Louis in siz days from Chicago,\nINTERS, MILLS & CO,\nP. 8. The Route from Chicago to Dixon's fer-\nry and Galena, in four Horse Post Coaches,\nleaves Chicago avery  Thersdey  thus making |»\na perfect connection with the Detroit mail.       (\nJ. D. WINTERS & CO.\nJanuary, 1534.",
+      "normalized": "7. From Peoria by way of Bur[e]au Grove and Dixon's Ferry to Galena, twice a week, 160 m[i]les, throug[h] in 3 days, fare $10 00. … 9. Fro[m] Ottawa by way of Holderman's Grove, Walker's Grove and Laughton's to Chicago, [o]nce a week, 60 miles, through in [2] 1-2 days, fare $5 [00]. Remark[s]. — The conn[e]ction at Te[rre] Haute with the Cincinnati route is made so as to prevent delay to persons going West or N. West. With the Detroit Mail, connection is made at Chicag[o] so that the mail leaves for St. Louis the next morning after arriving at Chicago, and arriv[e]s at St. Louis in si[x] days from Chicago, travelling by [night and by] d[ay]. [W]INTERS, MILLS & CO. P. S. The Route from Chicago to Dixon's ferry and Galena, in four Horse Post Coaches, leaves Chicago every Th[u]rs[da]y, thus making a perfect connection with the Detroit mail. J. D. WINTERS & CO. January, 183[4].",
+      "locator": {
+        "artifact_role": "primary",
+        "issue_page": 3,
+        "column": 3,
+        "lines": [
+          2394,
+          2419
+        ],
+        "lines_of_claim": [
+          2394,
+          2395,
+          2396,
+          2401,
+          2402,
+          2403,
+          2404,
+          2405,
+          2406,
+          2407,
+          2408,
+          2409,
+          2410,
+          2411,
+          2413,
+          2414,
+          2415,
+          2416,
+          2417,
+          2418,
+          2419
+        ],
+        "interleaved": true
+      },
+      "entities": [],
+      "notes": "CHICAGO AS THE END OF A STAGE NETWORK, quoted only where the network touches the town. Two of the nine advertised Illinois lines reach it: Ottawa to Chicago by Holderman's Grove, Walker's Grove and Laughton's, once a week, sixty miles, two and a half days; and a four-horse post coach for Dixon's Ferry and Galena leaving Chicago EVERY THURSDAY. Thursday is the same day the Eastern, Western and Northern mails depart in the postmaster's own timetable (1834-02-11 c002), and the advertisement says why — the Galena coach is timed to make 'a perfect connection with the Detroit mail'. So the town's Thursday morning is its departure morning, on the road and in the post office both, and a reconstruction that wants to know when the streets were busy now has a documented answer. The other seven routes are downstate and are not quoted; the ellipsis is the segmenter's column, not a selection made to flatter the claim."
+    },
+    {
+      "id": "c006",
+      "kind": "building",
+      "reading": "transcription_mediated",
+      "quote": ":   REMOVAL.\nHE office of the Clerk of the Circuit and\ncounty Courts fur Cook county, i» remov-\n» the building one door West of the house\nCol. Owen,",
+      "normalized": "REMOVAL. [T]HE office of the Clerk of the Circuit and [C]ounty Courts f[o]r Cook county, i[s] remov[ed to] the building one door West of the house [of] Col. Owen.",
+      "locator": {
+        "artifact_role": "primary",
+        "issue_page": 3,
+        "column": 6,
+        "lines": [
+          2760,
+          2764
+        ],
+        "lines_of_claim": [
+          2760,
+          2761,
+          2762,
+          2763,
+          2764
+        ],
+        "interleaved": true
+      },
+      "entities": [
+        {
+          "as_printed": "Col. Owen",
+          "normalized": "Col. Owen",
+          "role": "his house is the landmark the county clerk's office is placed off"
+        }
+      ],
+      "notes": "THE COUNTY'S RECORDS MOVE INTO A NAMED BUILDING, placed off a named house: 'the building one door West of the house of Col. Owen.' Two things follow that the model can use. Col. Owen's HOUSE is a landmark a county officer expects the public to find him by, which puts a dwelling — not a store — among the town's survey points. And the clerk's office is a BUILDING and not a room in the courthouse, one door west of that house, so Cook county's records in February 1834 sit in ordinary town fabric. THE DIRECTION IS TAKEN FROM THIS IMPRESSION AND NOT FROM THE NEXT. The same notice runs at 1834-02-25 (c007 there) where the segmenter renders the same words as 'Rast eat ait', which could be read East; this setting prints 'one door West' cleanly and is the better witness. The discrepancy is recorded rather than smoothed, because west and east of one house are two different lots."
+    },
+    {
+      "id": "c007",
+      "kind": "business",
+      "reading": "transcription_mediated",
+      "quote": "just Opened and tor Sale,\nT the New Store on the corner of South\nWater and Clark-stroets, C jicago, Ill.\nete and aplendid assortment of Fancy and Sta-\nDRY Goods, -\nCrockery # Glass Weare,  oe\nHARDWARE aad-CUTFLERY,«,\nCotton Batting, Yarn and Wicking,\niheeting and Shirting, Blankets, &c. &c.\nof which will ms wea the howeat prices tor\nsk or Country Produce,   W. KIMBALL.\nChicago, Now. 1833.                      1",
+      "normalized": "Just Opened and for Sale, [A]T the New Store on the corner of South Water and Clark-str[e]ets, C[h]icago, Ill., [a compl]ete and [s]plendid assortment of Fancy and Sta[ple] DRY GOODS, Crockery & Glass Ware, HARDWARE a[n]d CUT[]LERY, [M]en's and Boys Fur and Cloth CAPS, Cotton Batting, Yarn and Wicking, [S]heeting and Shirting, Blankets, &c. &c., [all] of which will [be sold at] the [low]est prices for [Ca]sh or Country Produce. W. KIMBALL. Chicago, Nov. 1833.",
+      "locator": {
+        "artifact_role": "primary",
+        "issue_page": 3,
+        "column": 6,
+        "lines": [
+          2781,
+          2793
+        ],
+        "lines_of_claim": [
+          2781,
+          2782,
+          2783,
+          2784,
+          2785,
+          2786,
+          2787,
+          2789,
+          2790,
+          2791,
+          2792,
+          2793
+        ],
+        "interleaved": true
+      },
+      "business": {
+        "name": "W. Kimball",
+        "trade": "dry goods and hardware storekeeper",
+        "goods": [
+          "fancy and staple dry goods",
+          "crockery and glass ware",
+          "hardware and cutlery",
+          "men's and boys' fur and cloth caps",
+          "cotton batting, yarn and wicking",
+          "sheeting and shirting",
+          "blankets"
+        ],
+        "address_text": "the New Store on the corner of South Water and Clark-streets, Chicago, Ill.",
+        "placement": {
+          "class": "corner",
+          "anchor": "South Water Street and Clark Street"
+        }
+      },
+      "ad_copy_date": {
+        "verbatim": "Chicago, Now. 1833.",
+        "iso": "1833-11-01"
+      },
+      "entities": [
+        {
+          "as_printed": "W. KIMBALL",
+          "normalized": "W. Kimball",
+          "role": "storekeeper",
+          "occupations": [
+            "storekeeper"
+          ]
+        }
+      ],
+      "notes": "A CORNER PLACEMENT, WHICH IS THE CLASS THAT CAN ACTUALLY PUT A STOREFRONT ON THE GROUND: 'the New Store on the corner of South Water and Clark-streets'. Both streets are platted and the corner is one of four quadrants, so this fixes Kimball to a block face and leaves only the quadrant open — which is as far as the paper goes and as far as this claim goes. The store is called NEW over a November 1833 dateline, so it was built or occupied within about three months of that date, which is a construction window for a South Water Street corner. Kimball is the same storekeeper whose advertisement cut the January letter list to pieces at 1834-01-14 (T-0310 c004); the two readings corroborate each other on the man and the trade. The stock is quoted in full because a dry-goods inventory of that spread implies shelving, counter and window, and the corpus is being read for what buildings contained as well as where they stood."
+    },
+    {
+      "id": "c008",
+      "kind": "business",
+      "reading": "transcription_mediated",
+      "quote": "P. F. PECK,\nRSSR OF LASALLE AND SOUTM WATRR-OTRERTS,\nAs now on hand, many of the staple ar-\nticles requisite to the exigencies of usp\nid consumption ; end intends in fature to keep\ngeneral and full  supply.   A share of public\ntronage is respectfully solicited.\nHis stock compriecs,\nDry Goods, Mardtrare,\nGroceries, Crockery,\nSOOTS & SHOES, HATS,\nand a variety of miscellaneous articles,\nTo the citizens of Chicago, ard th\nuntry, he tenders his acknowledgements for\nChicago, Dee, 3, 1633.         .          £",
+      "normalized": "P. F. PECK, [CORNE]R OF LASALLE AND SOUT[H] WAT[E]R-[ST]RE[E]TS, [H]as now on hand, many of the staple articles requisite to the exigencies of us[e] [an]d consumption; a[n]d intends in fut[u]re to keep [a] general and full supply. A share of public [pa]tronage is respectfully solicited. His stock compri[s]es, Dry Goods, Ha[rdwa]re, Groceries, Crockery, [B]OOTS & SHOES, HATS, and a variety of miscellaneous articles. To the citizens of Chicago, a[n]d th[e c]o[u]ntry, he tenders his acknowledgements for [pa]st favors. Chicago, De[c]. 3, 183[3].",
+      "locator": {
+        "artifact_role": "primary",
+        "issue_page": 3,
+        "column": 6,
+        "lines": [
+          2743,
+          2759
+        ],
+        "lines_of_claim": [
+          2743,
+          2744,
+          2745,
+          2746,
+          2747,
+          2748,
+          2749,
+          2750,
+          2751,
+          2752,
+          2753,
+          2754,
+          2755,
+          2756,
+          2759
+        ],
+        "interleaved": true
+      },
+      "business": {
+        "name": "P. F. Peck",
+        "trade": "storekeeper",
+        "goods": [
+          "dry goods",
+          "hardware",
+          "groceries",
+          "crockery",
+          "boots and shoes",
+          "hats"
+        ],
+        "address_text": "CORNER OF LASALLE AND SOUTH WATER-STREETS",
+        "placement": {
+          "class": "corner",
+          "anchor": "LaSalle Street and South Water Street"
+        }
+      },
+      "ad_copy_date": {
+        "verbatim": "Chicago, Dee, 3, 1633.         .          £",
+        "iso": "1833-12-03"
+      },
+      "entities": [
+        {
+          "as_printed": "P. F. PECK",
+          "normalized": "P. F. Peck",
+          "role": "storekeeper",
+          "occupations": [
+            "storekeeper",
+            "merchant"
+          ]
+        }
+      ],
+      "notes": "THE SECOND CORNER STOREFRONT ON SOUTH WATER STREET IN ONE COLUMN — Peck at LaSalle, Kimball at Clark (c008) — which together give the street two fixed ends and a documented character: general stores at its intersections, carrying dry goods, hardware, groceries, crockery, boots, shoes and hats out of the same room. Peck is the man who reports the town's weekly price current for this paper (1834-02-04 c014), and the two claims explain each other: the storekeeper who quotes the market is the one standing on the corner watching it. The address is set in the advertisement's small-capital display line, which the segmenter mangles at both ends; the reading is secured by the identical line at 1834-02-25 ('CORSER OF LASALLE AND SOUTH WATER-sTREETS'), where the street names survive intact."
+    },
+    {
+      "id": "c009",
+      "kind": "business",
+      "reading": "transcription_mediated",
+      "quote": "Chicago Sonp and Candic\nMANUFACTORY.\nMessrs. DANIEL ELSTON & CO,\nEG to inform the public, that they have\ncomuienced the Manufacture of Soap and\nundies; and hope by Venpperved and attention\n‘their business,as well as keeping constantly on\nnd an asvortment of all descriptions of\nid Soft SOAP, Wix and other Candles, to en-\nre the public support.       e          rE\nN. B. Cush pale for Tullow, in any Lene\n40 for good House Ashes.                          (t",
+      "normalized": "Chicago So[a]p and Candl[e] MANUFACTORY. Messrs. DANIEL ELSTON & CO. [B]EG to inform the public, that they have com[m]enced the Manufacture of Soap and [C]andles; and hope by [attention to] and attention [to] their business, as well as keeping constantly on [ha]nd an assortment of all descriptions of [Hard] and Soft SOAP, W[a]x and other Candles, to en[su]re the public support. N. B. Ca[s]h paid for T[a]llow, in any [quantity], [an]d [als]o for good House Ashes.",
+      "locator": {
+        "artifact_role": "primary",
+        "issue_page": 3,
+        "column": 6,
+        "lines": [
+          2794,
+          2806
+        ],
+        "lines_of_claim": [
+          2795,
+          2796,
+          2797,
+          2798,
+          2799,
+          2800,
+          2801,
+          2802,
+          2803,
+          2804,
+          2805,
+          2806
+        ],
+        "interleaved": true
+      },
+      "business": {
+        "name": "Daniel Elston & Co.",
+        "trade": "soap and candle manufacturers",
+        "goods": [
+          "hard soap",
+          "soft soap",
+          "wax candles",
+          "other candles"
+        ],
+        "address_text": "",
+        "placement": {
+          "class": "none"
+        }
+      },
+      "entities": [
+        {
+          "as_printed": "DANIEL ELSTON & CO,",
+          "normalized": "Daniel Elston & Co.",
+          "role": "soap and candle manufacturers"
+        }
+      ],
+      "notes": "THE MANUFACTORY BEHIND THE SMOKE HOUSE. Read with c002 of this issue, Elston's works are one concern with two products and one raw material stream: cash for TALLOW in any quantity and for good HOUSE ASHES — tallow and lye being soap, tallow being candles, and the hogs that render the tallow being the same hogs whose hams go into the smoke house he fitted up on 15 February. That is a documented small industry in a town this project has mostly drawn as stores and dwellings, and it implies a yard, a kettle, ash storage and a smell. The firm signs 'Daniel Elston & Co.' here and 'D. Elston & Co.' in the provision notice; they are recorded as printed and are not merged, which is the identity policy and not an opinion about whether they are the same house."
+    },
+    {
+      "id": "c010",
+      "kind": "business",
+      "reading": "transcription_mediated",
+      "quote": "Blacksmithing Business.\nMATTHIAS MASON & CO.\nARRIES on the above business\nte    ves’ ‘Tavern, where they in!     c\nep, ready ade, all kinds of Shurz, Chains,\nc. de.     ‘ork done on the phortest notice,\nid most liberal terms,\nChicago, Now. 8, U",
+      "normalized": "Blacksmithing Business. MATTHIAS MASON & CO. [C]ARRIES on the above business [in all its varieties … at Gra]ves' Tavern, where they in[tend to] [ke]ep ready [m]ade, all kinds of Sh[oe]s, Chains, [&]c. &c. [W]ork done on the [s]hortest notice, [an]d most liberal terms. Chicago, Nov. [2]6, [1833].",
+      "locator": {
+        "artifact_role": "primary",
+        "issue_page": 3,
+        "column": 6,
+        "lines": [
+          2822,
+          2829
+        ],
+        "lines_of_claim": [
+          2822,
+          2823,
+          2824,
+          2825,
+          2826,
+          2827,
+          2828,
+          2829
+        ],
+        "interleaved": true
+      },
+      "business": {
+        "name": "Matthias Mason & Co.",
+        "trade": "blacksmiths",
+        "goods": [
+          "horse shoes",
+          "chains"
+        ],
+        "address_text": "[at Gra]ves' Tavern",
+        "placement": {
+          "class": "relative",
+          "anchor": "Graves' Tavern",
+          "offset_text": "ves’ ‘Tavern, where they in!     c"
+        }
+      },
+      "entities": [],
+      "notes": "THE SECOND BLACKSMITH IN THE TOWN AND THE SECOND STOREFRONT HUNG ON GRAVES' TAVERN. This impression loses the preposition — the line reads 've[s]' Tavern' with the offset cut away — and the issue of 1834-02-25 supplies it as 'back on Main-street, nearly [op]posite Graves' Ta[vern]' (c006 there), which is a fuller placement than 'at' and is where the anchor should be taken from. THE SURNAME IS MASON, AND THE '[N]' THIS READING ONCE SUPPLIED IS WITHDRAWN (T-0407). This claim stood with `normalized` reading 'MATTHIAS [N]ASON & CO.' and a business name of 'Matthias Nason & Co.', on a note that said the firm 'is printed NASON here'. It is not: line 2823 of this transcription sets the heading MATTHIAS MASON & CO. whole, on its own line, with no uncertainty marker on it \u2014 the interleaved lines of this claim begin two lines below it, at 2825. So there was no unread letter for a bracket to stand in, and the supply contradicted the impression it claimed to read. THE TALLY, by the README's own three greps: nineteen impressions of this standing notice carry the surname's first letter and every one of them is an M \u2014 fifteen set MASON whole (1833-12-03, 1833-12-17, 1833-12-24, 1834-02-11, this issue, 1834-03-04, 1834-03-18, 1834-03-25, 1834-06-04, 1834-07-16, 1834-09-24, 1834-10-15, 1834-11-19, 1834-12-03, 1834-12-17), two wreck the S and keep the M (MAJON at 1834-04-08, MADON at 1834-11-26), and two break off at 'MATTHIAS MA' (1834-12-10, 1834-12-24). Not one reads an N. The post office prints the man independently of his own advertisement: 'Mason, Matthias' in the letter lists of 1835-05-20 and 1835-05-27. NOTHING IS AMENDED TO AGREE HERE \u2014 the quote is untouched and always read MASON, and what is withdrawn is a reader's supply, not a printing. Together with Pierce & Abbott opposite the Chicago Hotel (1834-02-04 c012), the town supports two forges in February 1834. The Main-street placement the fuller witness gives is not new to the corpus either: T-0310 read this same advertisement at 1834-01-07 (c008 there) as 'on Main-[s]treet, n[early] [o]pposite Grave[s]' Tavern', so February corroborates January rather than adding a street."
+    }
+  ]
+}

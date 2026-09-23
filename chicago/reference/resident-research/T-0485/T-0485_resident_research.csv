@@ -1,0 +1,76 @@
+person_id,transcribed_name,outcome,confidence,candidate_identity,source_ids
+cole_parker_m,Parker M. Cole,no_corroboration_yet,low,,chicago_democrat_1833_1835
+parsons_edward,Edward Parsons,candidate_identity,medium-low,cand_edward_parsons_1839_chicago,rr_fergus_directory_1839
+malone_patrick,Patrick Malone,no_corroboration_yet,low,,chicago_democrat_1833_1835
+martin_patrick,Patrick Martin,no_corroboration_yet,low,,chicago_democrat_1833_1835
+kingston_paul,Paul Kingston,corroborated_enrichment,high,,rr_andreas_chicago_1884_pass11;rr_racine_old_settlers_1871
+pennington_sack_f,Sack F. Pennington,no_corroboration_yet,low,,chicago_democrat_1833_1835
+huguenin_peter_d,Peter D. Huguenin,no_corroboration_yet,low,,chicago_democrat_1833_1835
+schander_peter,Peter Schander,no_corroboration_yet,low,,chicago_democrat_1833_1835
+mills_philo_c,Philo C. Mills,no_corroboration_yet,low,,chicago_democrat_1833_1835
+how_phineas,Phineas How,candidate_identity,medium,cand_phineas_howe_marengo,rr_kane_hampshire_phineas_howe
+downer_pierce,Pierce Downer,candidate_identity,high,cand_pierce_downer_dupage,rr_dghs_pierce_downer
+poke_edward,Edward Poke,no_corroboration_yet,low,,chicago_democrat_1833_1835
+fuller_porter,Porter Fuller,no_corroboration_yet,low,,chicago_democrat_1833_1835
+powers_t_w,T. W. Powers,no_corroboration_yet,low,,chicago_democrat_1833_1835
+carley_quartus_j,Quartus J. Carley,no_corroboration_yet,low,,chicago_democrat_1833_1835
+bristol_r_c,R. C. Bristol,candidate_identity,medium,cand_robert_c_bristol_1839,rr_fergus_directory_1839
+stowell_ralph,Ralph Stowell,no_corroboration_yet,low,,chicago_democrat_1833_1835
+beech_reuben,Reuben Beech,no_corroboration_yet,low,,chicago_democrat_1833_1835
+bench_reuben,Reuben Bench,no_corroboration_yet,low,,chicago_democrat_1833_1835
+conant_reuben,Reuben Conant,no_corroboration_yet,low,,chicago_democrat_1833_1835
+farnsworth_reuben,Reuben Farnsworth,no_corroboration_yet,low,,chicago_democrat_1833_1835
+allan_richard_b,Richard B. Allan,no_corroboration_yet,low,,chicago_democrat_1833_1835
+sammons_richard,Richard Sammons,no_corroboration_yet,low,,chicago_democrat_1833_1835
+bush_riley,Riley Bush,no_corroboration_yet,low,,chicago_democrat_1833_1835
+baines_robert,Robert Baines,no_corroboration_yet,low,,chicago_democrat_1833_1835
+starr_ruel,Ruel Starr,candidate_identity,high,cand_ruel_starr_porter,rr_porter_ruel_starr_1876
+stimson_s_c,S. C. Stimson,no_corroboration_yet,low,,chicago_democrat_1833_1835
+sherwood_s,S. Sherwood,no_corroboration_yet,low,,chicago_democrat_1833_1835
+salle_john_h,John H. Salle,no_corroboration_yet,low,,chicago_democrat_1833_1835
+rutherford_salmon,Salmon Rutherford,candidate_identity,high,cand_salmon_rutherford_aux_sable,rr_grundy_salmon_rutherford
+holcomb_samuel_b,Samuel B. Holcomb,no_corroboration_yet,low,,chicago_democrat_1833_1835
+brookes_samuel,Samuel Brookes,candidate_identity,medium,cand_samuel_brookes_1839,rr_fergus_directory_1839
+devoe_samuel,Samuel Devoe,no_corroboration_yet,low,,chicago_democrat_1833_1835
+haviland_samuel,Samuel Haviland,no_corroboration_yet,low,,chicago_democrat_1833_1835
+kendall_samuel,Samuel Kendall,no_corroboration_yet,low,,chicago_democrat_1833_1835
+olingar_samuel,Samuel Olingar,no_corroboration_yet,low,,chicago_democrat_1833_1835
+lathrop_samuel_s,Samuel S. Lathrop,corroborated_enrichment,high,,rr_baptist_chicago_lathrop
+shaw_samuel,Samuel Shaw,no_corroboration_yet,low,,chicago_democrat_1833_1835
+shively_samuel,Samuel Shively,no_corroboration_yet,low,,chicago_democrat_1833_1835
+stout_samuel,Samuel Stout,no_corroboration_yet,low,,chicago_democrat_1833_1835
+toby_samuel,Samuel Toby,no_corroboration_yet,low,,chicago_democrat_1833_1835
+sanderlin_petey,Petey Sanderlin,no_corroboration_yet,low,,chicago_democrat_1833_1835
+childs_sarah,Sarah Childs,no_corroboration_yet,low,,chicago_democrat_1833_1835
+evans_sciota,Sciota Evans,corroborated_enrichment,high,,rr_cook_democratic_republicans_1834
+godfrey_t,T. Godfrey,no_corroboration_yet,low,,chicago_democrat_1833_1835
+johnston_t,T. Johnston,no_corroboration_yet,low,,chicago_democrat_1833_1835
+morrison_t_m,T. M. Morrison,no_corroboration_yet,low,,chicago_democrat_1833_1835
+webb_tho_c,Tho. C. Webb,no_corroboration_yet,low,,chicago_democrat_1833_1835
+andrus_thomas,Thomas Andrus,corroborated_enrichment,high,,rr_dupage_andrus_1882
+conger_thomas,Thomas Conger,candidate_identity,low,cand_thomas_conger_michigan_rejected,rr_berrien_1871_directory
+dustin_thomas,Thomas Dustin,no_corroboration_yet,low,,chicago_democrat_1833_1835
+moreland_thomas_u,Thomas U. Moreland,no_corroboration_yet,low,,chicago_democrat_1833_1835
+vatzah_thomas_van,Thomas Van Vatzah,no_corroboration_yet,low,,chicago_democrat_1833_1835
+fitzgerald_thos,Thos. Fitzgerald,candidate_identity,low,cand_thomas_fitzgerald_michigan_rejected,rr_berrien_1871_directory
+wame_john,John Wame,no_corroboration_yet,low,,chicago_democrat_1833_1835
+allger_william,William Allger,no_corroboration_yet,low,,chicago_democrat_1833_1835
+crisey_william,William Crisey,no_corroboration_yet,low,,chicago_democrat_1833_1835
+elliot_william,William Elliot,no_corroboration_yet,low,,chicago_democrat_1833_1835
+beach_william_h,William H. Beach,no_corroboration_yet,low,,chicago_democrat_1833_1835
+hunter_william,William Hunter,no_corroboration_yet,low,,chicago_democrat_1833_1835
+luce_william,William Luce,candidate_identity,high,cand_william_luce_racine,rr_racine_old_settlers_1871
+power_william,William Power,no_corroboration_yet,low,,chicago_democrat_1833_1835
+dorby_william_r,William R. Dorby,no_corroboration_yet,low,,chicago_democrat_1833_1835
+teal_william,William Teal,no_corroboration_yet,low,,chicago_democrat_1833_1835
+williams_charles_c,Charles C. Williams,no_corroboration_yet,low,,chicago_democrat_1833_1835
+mcclinton_wilson,Wilson McClinton,no_corroboration_yet,low,,chicago_democrat_1833_1835
+winship_charles,Charles Winship,no_corroboration_yet,low,,chicago_democrat_1833_1835
+winters_moses,Moses Winters,no_corroboration_yet,low,,chicago_democrat_1833_1835
+merrill_winthrop,Winthrop Merrill,candidate_identity,high,winthrop_merrill,rr_nw_chicago_merrill
+m_ewen_wm_b,Wm. B. M'Ewen,no_corroboration_yet,low,,chicago_democrat_1833_1835
+fraser_wm_h,Wm. H. Fraser,candidate_identity,medium,frazer_wm_h,chicago_democrat_1833_1835
+frazer_wm_h,Wm. H. Frazer,candidate_identity,medium,fraser_wm_h,chicago_democrat_1833_1835
+goddard_wm_h,Wm. H. Goddard,no_corroboration_yet,low,,chicago_democrat_1833_1835
+kimbal_wm,Wm. Kimbal,no_corroboration_yet,low,,chicago_democrat_1833_1835
+osborn_wm,Wm. Osborn,candidate_identity,medium,cand_william_osborn_thorn_creek,rr_will_county_osborn

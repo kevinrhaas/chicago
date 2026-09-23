@@ -1,0 +1,4085 @@
+{
+  "schema": 1,
+  "issue_id": "chicago_democrat_1834_07_02",
+  "extracted": "2026-08-28",
+  "extracted_by": "hand, T-0289 — the Democrat read, July 1834",
+  "note": "Vol. I No. 31. Pages 1-2 are national and foreign reprint and carry no town claim; the town is on pages 3 and 4. Page 3 is segmented into six columns of which columns 1-2 and 3-6 alternate two physical columns line by line, so an advertisement survives as two cut halves in two segmenter columns and `lines_of_claim` names the half quoted. Page 4 columns 1-6 are the Tesseract fallback reading and are NOT interleaved, which is why the placements are taken from there where the same house advertises on both pages. `locator.lines` is the whole advertisement; `lines_of_claim` is the subset quoted.",
+  "claims": [
+    {
+      "id": "c001",
+      "kind": "business",
+      "reading": "transcription_mediated",
+      "quote": "Seddie, Harness and Trank Making»\nGoss & COBB,\nat their old stand, corner\nof Lake and Canal streets,\nChicago, June 4, 1234. 27",
+      "normalized": "Sadd[l]e, Harness and Trunk Making. GOSS & COBB, [b]eg leave most respectfully to offer their services […] at their old stand, corner of Lake and Canal streets […] Chicago, June 4, 183[4]. 27",
+      "locator": {
+        "artifact_role": "primary",
+        "issue_page": 4,
+        "column": 1,
+        "lines": [
+          4549,
+          4573
+        ],
+        "lines_of_claim": [
+          4549,
+          4550,
+          4554,
+          4555,
+          4573
+        ],
+        "interleaved": true
+      },
+      "entities": [
+        {
+          "as_printed": "GOSS & COBB",
+          "normalized": "Goss & Cobb",
+          "role": "proprietor",
+          "occupations": [
+            "saddler",
+            "harness maker",
+            "trunk maker"
+          ],
+          "associated_places": [
+            "Lake Street",
+            "Canal Street"
+          ]
+        }
+      ],
+      "ad_copy_date": {
+        "verbatim": "Chicago, June 4, 1234. 27",
+        "iso": "1834-06-04"
+      },
+      "business": {
+        "name": "Goss & Cobb",
+        "proprietors": [
+          "Goss & Cobb"
+        ],
+        "trade": "saddle, harness and trunk making",
+        "goods": [
+          "Bridles",
+          "Harnesses",
+          "Martingals",
+          "Riding Whips",
+          "Saddles",
+          "Travelling Bags",
+          "Trunks"
+        ],
+        "street": "Lake Street",
+        "placement": {
+          "class": "corner",
+          "anchor": "corner of Lake and Canal streets",
+          "offset_text": "at their old stand, corner\nof Lake and Canal streets",
+          "offset_normalized": "at their old stand, corner of Lake and Canal streets",
+          "street": "Lake Street"
+        }
+      },
+      "notes": "OCR JUDGEMENTS, all recognition-class: 'Seddie'→'Sadd[l]e', 'EG leave'→'[B]eg leave' (the dropped initial is the ad's decorative capital, which the segmenter drops throughout this column), '1234'→'183[4]'. THE DATELINE year is set from the run: the Democrat's Vol. I No. 27 is 1834-06-04 and '27' at the line end is the insertion number, which agrees. 'their old stand' says the corner predates this notice; nothing here says how long."
+    },
+    {
+      "id": "c002",
+      "kind": "building",
+      "reading": "transcription_mediated",
+      "quote": "TO LET,\nSMALL building, euiteble for\nan otlice or a small family,\nnear Mesacs. Newberry & Dole's\nAS Store.\nFrames for sale. Enquire of A. SWEET.",
+      "normalized": "TO LET, [A] SMALL building, suit[a]ble for an office or a small family, near Mess[r]s. Newberry & Dole's […] Store. […] Enquire of A. SWEET.",
+      "locator": {
+        "artifact_role": "primary",
+        "issue_page": 4,
+        "column": 1,
+        "lines": [
+          4574,
+          4581
+        ],
+        "lines_of_claim": [
+          4574,
+          4575,
+          4576,
+          4577,
+          4578,
+          4580
+        ],
+        "interleaved": true
+      },
+      "entities": [
+        {
+          "as_printed": "A. SWEET",
+          "normalized": "A. Sweet",
+          "role": "advertiser"
+        }
+      ],
+      "notes": "A to-let building placed only by an anchor: 'near Messrs. Newberry & Dole's Store'. 'near' is not an offset a lot can be read off, so no business record is made and the building is recorded as an anchored one. OCR: 'euiteble'→'suit[a]ble', 'Mesacs.'→'Mess[r]s.'. Line 4579 offers 'a few 6 pannel doors, and some Window Frames for sale' and is left out of the quote: it is stock, not the building."
+    },
+    {
+      "id": "c003",
+      "kind": "business",
+      "reading": "transcription_mediated",
+      "quote": "PUBLIC HOUSE.\nE. WENTWORTH,\nH* opened a TAVERN on Flag Creck,\n18 miles South of Chicago, on the road\nleading to Ottawa. His house will\nDec. 17, 1833. 4",
+      "normalized": "PUBLIC HOUSE. E. WENTWORTH, [Has] opened a TAVERN on Flag Creek, 18 miles South of Chicago, on the road leading to Ottawa. […] Dec. 17, 1833. 4",
+      "locator": {
+        "artifact_role": "primary",
+        "issue_page": 4,
+        "column": 1,
+        "lines": [
+          4582,
+          4591
+        ],
+        "lines_of_claim": [
+          4582,
+          4583,
+          4584,
+          4585,
+          4586,
+          4591
+        ],
+        "interleaved": true
+      },
+      "entities": [
+        {
+          "as_printed": "E. WENTWORTH",
+          "normalized": "E. Wentworth",
+          "role": "proprietor",
+          "occupations": [
+            "tavern keeper"
+          ]
+        }
+      ],
+      "ad_copy_date": {
+        "verbatim": "Dec. 17, 1833. 4",
+        "iso": "1833-12-17"
+      },
+      "business": {
+        "name": "E. Wentworth's tavern, Flag Creek",
+        "proprietors": [
+          "E. Wentworth"
+        ],
+        "trade": "public house",
+        "goods": [
+          "Corn",
+          "Oats"
+        ],
+        "street": null,
+        "placement": {
+          "class": "none",
+          "street": null
+        }
+      },
+      "notes": "OUTSIDE THE TOWN and recorded as such: Flag Creek is eighteen miles south, on the Ottawa road, so the placement class is `none` rather than a street. It is kept because the house is a documented Chicago-facing business and because the Ottawa road is town infrastructure. The letter list of this same issue carries an 'Elijah Wentworth sen.' (line 3503); no merge is made — the initial is all that connects them."
+    },
+    {
+      "id": "c004",
+      "kind": "business",
+      "reading": "transcription_mediated",
+      "quote": "EAGLE HOTEL.\nPB. F. CABLE,\nESPECTFULLY informs the citizens of\nR Chicago, and the public generally, that\nhw has taken the EAGLE HOTEL. All calls\nApril 15, 1834, 3m20",
+      "normalized": "EAGLE HOTEL. P. B. F. CABLE, [R]ESPECTFULLY informs the citizens of Chicago, and the public generally, that h[e] has taken the EAGLE HOTEL. […] April 15, 1834. 3m20",
+      "locator": {
+        "artifact_role": "primary",
+        "issue_page": 4,
+        "column": 1,
+        "lines": [
+          4592,
+          4601
+        ],
+        "lines_of_claim": [
+          4592,
+          4593,
+          4594,
+          4595,
+          4596,
+          4601
+        ],
+        "interleaved": true
+      },
+      "entities": [
+        {
+          "as_printed": "PB. F. CABLE",
+          "normalized": "P. B. F. Cable",
+          "role": "proprietor",
+          "occupations": [
+            "hotel keeper"
+          ]
+        }
+      ],
+      "ad_copy_date": {
+        "verbatim": "April 15, 1834, 3m20",
+        "iso": "1834-04-15"
+      },
+      "business": {
+        "name": "Eagle Hotel",
+        "proprietors": [
+          "P. B. F. Cable"
+        ],
+        "trade": "hotel",
+        "goods": [],
+        "street": null,
+        "placement": {
+          "class": "none",
+          "street": null
+        }
+      },
+      "notes": "THE AD GIVES NO ADDRESS, so the placement class is `none` and not a guess — the Eagle Hotel is named again in this issue at line 5112 ('Office at the Eagle Tavern') and at 3937 ('J. CARLI, Eagle Terern.') without an address either. 'has taken' is a succession notice in substance: Cable is not stated to be the first keeper. OCR: 'hw has'→'h[e] has', 'commodions'→'commodio[u]s' is not quoted here."
+    },
+    {
+      "id": "c005",
+      "kind": "business",
+      "reading": "transcription_mediated",
+      "quote": "NEW GOODS.\nWehotesate and Retail.\nHARMON, LOOMIS & CO.\n| E just received, and now offer for sale,\nI one of the largest assortments of Goods\never opened in this State, consisting uf\nees for theinselves. Chicago, May 20, 1834.",
+      "normalized": "NEW GOODS. Wholesale and Retail. HARMON, LOOMIS & CO. [Hav]e just received, and now offer for sale, one of the largest assortments of Goods ever opened in this State, consisting o[f] […] Chicago, May 20, 1834.",
+      "locator": {
+        "artifact_role": "primary",
+        "issue_page": 4,
+        "column": 1,
+        "lines": [
+          4603,
+          4645
+        ],
+        "lines_of_claim": [
+          4603,
+          4604,
+          4605,
+          4606,
+          4607,
+          4608,
+          4645
+        ],
+        "interleaved": true
+      },
+      "entities": [
+        {
+          "as_printed": "HARMON, LOOMIS & CO.",
+          "normalized": "Harmon, Loomis & Co.",
+          "role": "proprietor",
+          "occupations": [
+            "merchant"
+          ]
+        }
+      ],
+      "ad_copy_date": {
+        "verbatim": "Chicago, May 20, 1834.",
+        "iso": "1834-05-20"
+      },
+      "business": {
+        "name": "Harmon, Loomis & Co.",
+        "proprietors": [
+          "Harmon, Loomis & Co."
+        ],
+        "trade": "fancy and staple dry goods, groceries, liquors, hardware, crockery, iron and glass, wholesale and retail",
+        "goods": [
+          "Confectionary",
+          "Crockery",
+          "Cutlery",
+          "Dry Goods",
+          "Glass",
+          "Groceries",
+          "Hardware",
+          "Iron",
+          "Liquors",
+          "Steel",
+          "Sugar",
+          "Tea"
+        ],
+        "street": null,
+        "placement": {
+          "class": "none",
+          "street": null
+        }
+      },
+      "notes": "NO ADDRESS IN THIS AD. The same house advertises on page 3 column 5 of this issue (lines 4131-4143, a stolen-money reward signed 'N, LOONIS & CO.') and at page 3 column 4 line 3965 'RMON, LOOM S & Co.' with 'A fae doers belore Mesars.' above it — a relative placement whose anchor is cut away by the column edge and whose remaining words are the same 'a few doors below Messrs. […]' shape T-0257's fixture met at Peter Cohen. It is NOT supplied here and no `relative` placement is asserted. 'Wehotesate'→'Wholesale'; 'uf'→'o[f]'."
+    },
+    {
+      "id": "c006",
+      "kind": "business",
+      "reading": "transcription_mediated",
+      "quote": "Important to the Public.\nid ig subseriber would respectfully inform\nhis old customers and the public at large,\nthat he has just obtained the Agency for Messra.\nDeacox & M’Cacer, (proprictors of the Steam\nSaw Mill at St. Joseph,) and that he will be en-\nabled to fcuat on ba constantly, at his lumber\nard, a large and general assortment of PINE\nFEET, of the very best quality. —Al-\nDAVID CARVER.\nMay 25, 1834. ae",
+      "normalized": "Important to the Public. [The] subscriber would respectfully inform his old customers and the public at large, that he has just obtained the Agency for Mess[r]s. Deacon & M'Cal[e]y, (proprietors of the Steam Saw Mill at St. Joseph,) and that he will be enabled to [keep on hand] constantly, at his lumber [y]ard, a large and general assortment of PINE [uncertain: FEET], of the very best quality. DAVID CARVER. May 25, 1834.",
+      "locator": {
+        "artifact_role": "primary",
+        "issue_page": 4,
+        "column": 1,
+        "lines": [
+          4646,
+          4662
+        ],
+        "lines_of_claim": [
+          4646,
+          4647,
+          4648,
+          4649,
+          4650,
+          4651,
+          4652,
+          4653,
+          4654,
+          4661,
+          4662
+        ],
+        "interleaved": true
+      },
+      "entities": [
+        {
+          "as_printed": "DAVID CARVER",
+          "normalized": "David Carver",
+          "role": "proprietor",
+          "occupations": [
+            "lumber dealer"
+          ]
+        },
+        {
+          "as_printed": "Deacox & M’Cacer",
+          "normalized": "[uncertain: Deacon & M'Caley]",
+          "role": "principal",
+          "occupations": [
+            "saw mill proprietor"
+          ]
+        }
+      ],
+      "ad_copy_date": {
+        "verbatim": "May 25, 1834. ae",
+        "iso": "1834-05-25"
+      },
+      "business": {
+        "name": "David Carver",
+        "proprietors": [
+          "David Carver"
+        ],
+        "trade": "lumber yard",
+        "goods": [
+          "Pine Lumber",
+          "Poplar Lumber"
+        ],
+        "street": null,
+        "placement": {
+          "class": "none",
+          "street": null
+        }
+      },
+      "notes": "A LUMBER YARD IS A PLACE AND THIS AD DOES NOT SAY WHERE IT IS — 'at his lumber yard' with no street, so `none`. The St. Joseph mill firm is read twice in this issue and disagrees with itself: 'Deacox & M'Cacer' here (4650) and 'Dracos & M'CaLa' on page 3 column 6 (4409). Neither reading is preferred; the entity carries `[uncertain: …]` and no merge is declared. OCR: 'fcuat on ba'→'[keep on hand]' is a SUPPLY the two witnesses support (page 3 line 4412 reads 'abled to keep on hand constantly'), and it is bracketed. 'PINE FEET' at 4654 is left inside its bracket: the printed word is almost certainly LUMBER but this transcription does not carry it."
+    },
+    {
+      "id": "c007",
+      "kind": "business",
+      "reading": "transcription_mediated",
+      "quote": "Chicage Soap and Candie\nMANUFACTORY.\nMessrs. DANIEL ELSTON & co,\nEG to inform the public, that they have\nB commenced the Manufacturs of pt and\nCandles ; and hope by punctuality and attention",
+      "normalized": "Chicag[o] Soap and Cand[l]e MANUFACTORY. Messrs. DANIEL ELSTON & CO. [B]eg to inform the public, that they have commenced the Manufactur[e] of [Soap] and Candles; and hope by punctuality and attention",
+      "locator": {
+        "artifact_role": "primary",
+        "issue_page": 4,
+        "column": 1,
+        "lines": [
+          4663,
+          4674
+        ],
+        "lines_of_claim": [
+          4663,
+          4664,
+          4665,
+          4666,
+          4667,
+          4668
+        ],
+        "interleaved": true
+      },
+      "entities": [
+        {
+          "as_printed": "DANIEL ELSTON & co",
+          "normalized": "Daniel Elston & Co.",
+          "role": "proprietor",
+          "occupations": [
+            "soap boiler",
+            "chandler"
+          ]
+        }
+      ],
+      "business": {
+        "name": "Daniel Elston & Co.",
+        "proprietors": [
+          "Daniel Elston & Co."
+        ],
+        "trade": "soap and candle manufactory",
+        "goods": [
+          "Bacon",
+          "Candles",
+          "Hams",
+          "Pork",
+          "Soap"
+        ],
+        "street": null,
+        "placement": {
+          "class": "none",
+          "street": null
+        }
+      },
+      "notes": "A MANUFACTORY WITH NO ADDRESS PRINTED. The same firm's smoke-house notice at page 4 column 5 (lines 5200-5207, claim c027) gives no street either, so nothing places either building. 'pt and Candles'→'[Soap] and Candles' is a supply the heading itself carries ('Soap and Candle MANUFACTORY') and is bracketed. No dateline: line 4673-4674 carry the N.B. about tallow and house ashes with the date torn into 'i ity;' and 'wae ee tr', so `ad_copy_date` is null rather than reconstructed."
+    },
+    {
+      "id": "c008",
+      "kind": "notice",
+      "reading": "transcription_mediated",
+      "quote": "Administrator's Notice.\nHAVE this day taken out letters of Admin-\nistration on the estate of Thomas Eisdell\nInte of Lasalle county, deceased. All persons\n4w2S JOSIAH SEYBALD, Adm'r. |",
+      "normalized": "Administrator's Notice. [I] HAVE this day taken out letters of Administration on the estate of Thomas E[i]sdell late of Lasalle county, deceased. All persons […] 4w2S JOSIAH SEYBALD, Adm'r.",
+      "locator": {
+        "artifact_role": "primary",
+        "issue_page": 4,
+        "column": 1,
+        "lines": [
+          4675,
+          4684
+        ],
+        "lines_of_claim": [
+          4675,
+          4676,
+          4677,
+          4678,
+          4684
+        ],
+        "interleaved": true
+      },
+      "entities": [
+        {
+          "as_printed": "Thomas Eisdell",
+          "normalized": "[uncertain: Thomas Eisdell]",
+          "role": "decedent"
+        },
+        {
+          "as_printed": "JOSIAH SEYBALD",
+          "normalized": "[uncertain: Josiah Seybald]",
+          "role": "administrator"
+        }
+      ],
+      "notes": "NOT A CHICAGO DEATH — Lasalle county — and kept for the person only. THE ADMINISTRATOR'S NAME IS NOT SETTLED: this column reads 'JOSIAH SEYBALD' and page 3 column 3 line 3840 of the same issue signs an emigrant-labour advertisement 'J. SEYBOLD' at the big Vermillion in Lasalle county. Same county, probably the same man, certainly not the same spelling — no merge is declared in identity.json, because a surname with two vowels and one initial is exactly the case the identity policy refuses to resolve on shape."
+    },
+    {
+      "id": "c009",
+      "kind": "business",
+      "reading": "transcription_mediated",
+      "quote": "TIMBER. |\nHE subscribers having this day made ar-\nrangement with Mr. A. M'Gregor, areen-\nabled to offer to the public, on as reasonable\nterms as can be had in Chicago, Pine Tunter of\nAp'l. 22, P, PRUYNE & CO,",
+      "normalized": "TIMBER. [T]HE subscribers having this day made arrangement with Mr. A. M'Gregor, are enabled to offer to the public, on as reasonable terms as can be had in Chicago, Pine [Tim]ber of […] Ap'l. 22, P. PRUYNE & CO.",
+      "locator": {
+        "artifact_role": "primary",
+        "issue_page": 4,
+        "column": 1,
+        "lines": [
+          4687,
+          4696
+        ],
+        "lines_of_claim": [
+          4687,
+          4688,
+          4689,
+          4690,
+          4691,
+          4696
+        ],
+        "interleaved": true
+      },
+      "entities": [
+        {
+          "as_printed": "P, PRUYNE & CO",
+          "normalized": "P. Pruyne & Co.",
+          "role": "proprietor",
+          "occupations": [
+            "lumber dealer",
+            "druggist"
+          ]
+        },
+        {
+          "as_printed": "Mr. A. M'Gregor",
+          "normalized": "A. M'Gregor",
+          "role": "principal"
+        }
+      ],
+      "ad_copy_date": {
+        "verbatim": "Ap'l. 22, P, PRUYNE & CO,",
+        "iso": "1834-04-22"
+      },
+      "business": {
+        "name": "P. Pruyne & Co.",
+        "proprietors": [
+          "P. Pruyne & Co."
+        ],
+        "trade": "lumber and timber, and druggist",
+        "goods": [
+          "Pine Timber",
+          "Salt"
+        ],
+        "street": null,
+        "placement": {
+          "class": "none",
+          "street": null
+        }
+      },
+      "notes": "THE DATELINE CARRIES NO YEAR — 'Ap'l. 22' with the signature on the same line. 1834 is taken from the issue, which is the weakest kind of inference and is stated here rather than hidden: a standing advertisement can be older than the issue that carries it, as claim c001's own dateline shows. P. Pruyne & Co. appear three more times in this issue (page 3 column 5 lines 4164, 4351, 4508) without an address."
+    },
+    {
+      "id": "c010",
+      "kind": "business",
+      "reading": "transcription_mediated",
+      "quote": "UST received and for sale by th ca:\nbers, 2 pie Brandy; 1 yi oy cas\nI hhd. Molasses; 15 by 1s. Cider;\nWhiskey, Salt, Dried Apples and Peaches, &c.\nPhieage, June 4, 184.\nH, DOTY & Co.",
+      "normalized": "[J]UST received and for sale by th[e subscri]bers, 2 [pipes] Brandy; 1 […] cask […] 1 hhd. Molasses; 15 b[bl]s. Cider; […] Whiskey, Salt, Dried Apples and Peaches, &c. [Chicago], June 4, 18[3]4. H. DOTY & CO.",
+      "locator": {
+        "artifact_role": "primary",
+        "issue_page": 4,
+        "column": 1,
+        "lines": [
+          4698,
+          4704
+        ],
+        "lines_of_claim": [
+          4698,
+          4699,
+          4700,
+          4702,
+          4703,
+          4704
+        ],
+        "interleaved": true
+      },
+      "entities": [
+        {
+          "as_printed": "H, DOTY & Co.",
+          "normalized": "H. Doty & Co.",
+          "role": "proprietor",
+          "occupations": [
+            "merchant"
+          ]
+        }
+      ],
+      "ad_copy_date": {
+        "verbatim": "Phieage, June 4, 184.",
+        "iso": "1834-06-04"
+      },
+      "business": {
+        "name": "H. Doty & Co.",
+        "proprietors": [
+          "H. Doty & Co."
+        ],
+        "trade": "groceries, liquors and dry goods",
+        "goods": [
+          "Brandy",
+          "Cider",
+          "Dried Apples",
+          "Dried Peaches",
+          "Molasses",
+          "Salt",
+          "Whiskey",
+          "Wines"
+        ],
+        "street": null,
+        "placement": {
+          "class": "none",
+          "street": null
+        }
+      },
+      "notes": "NO ADDRESS IN THIS AD, but the same firm's other advertisement in this issue does place it — see claim c034, page 3 column 4, 'the east end of h[is store] lately occupied by Peter Cohen'. The two are kept as separate claims with separate locators rather than merged into one placement, and the placement is asserted only on the claim that carries the words. 'Phieage'→'[Chicago]' and '184'→'18[3]4'."
+    },
+    {
+      "id": "c011",
+      "kind": "shipping",
+      "reading": "transcription_mediated",
+      "quote": "The Steam-Beat Pioncer,\n‘AS taken her station\nbetween St. Joseph\nand Chicago, and will run\nevery other day, alternately,\nThe Sicam-Boat David Crockett,\n“Go ahead,” will run\nbetween Niles and St. Jo-\nsoph, in connection with\nJune 3, 1834, Ree Te",
+      "normalized": "The Steam-Boat Pioneer, [H]AS taken her station between St. Joseph and Chicago, and will run […] every other day, alternately, […] The Steam-Boat David Crockett, \"Go ahead,\" will run between Niles and St. Joseph, in connection with […] June 3, 1834.",
+      "locator": {
+        "artifact_role": "primary",
+        "issue_page": 4,
+        "column": 2,
+        "lines": [
+          4708,
+          4726
+        ],
+        "lines_of_claim": [
+          4708,
+          4709,
+          4710,
+          4711,
+          4713,
+          4716,
+          4717,
+          4718,
+          4719,
+          4726
+        ],
+        "interleaved": true
+      },
+      "entities": [
+        {
+          "as_printed": "3H RES ANIGIUT",
+          "normalized": "[uncertain: unread signature, line 4725]",
+          "role": "agent"
+        }
+      ],
+      "ad_copy_date": {
+        "verbatim": "June 3, 1834, Ree Te",
+        "iso": "1834-06-03"
+      },
+      "notes": "THE SERVICE, not the boat: a steam packet running Chicago-St. Joseph every other day is town texture — it is the connection the Marine List on page 3 column 1 records arriving and clearing all week (lines 2856-2921, claim c036). The signature at 4725 reads '3H RES ANIGIUT, for himaclf and others' and is not resolved; the agent line above it ('ia SOnitinn & Co. St. Joseph, 2 Agents') is equally damaged and neither name is asserted. 'Pioncer'→'Pioneer' throughout; the boat is also 'S. B. Pioneer' in the Marine List, which is the corroborating witness."
+    },
+    {
+      "id": "c012",
+      "kind": "shipping",
+      "reading": "transcription_mediated",
+      "quote": "Steam-Boat Notice.\nwae HE Steain-Boat Ma-\ntilda Barry, Captain\nSuirn, is now plying reg-\nNiles, Passengers for the East will find i\n‘+! Niles. Schooners are constantly plying between\n5! Chicago and St. Joseph, making only 175 miles\nland carriage between Chicago and Detroit.\nw! St. Joseph, May 23, 1834.",
+      "normalized": "Steam-Boat Notice. [T]HE Steamboat Matilda Barry, Captain Sm[i]th, is now plying regularly between [Chicago and] Niles. Passengers for the East will find i[t to their advantage to] take this route […] Schooners are constantly plying between Chicago and St. Joseph, making only 175 miles land carriage between Chicago and Detroit. St. Joseph, May 23, 1834.",
+      "locator": {
+        "artifact_role": "primary",
+        "issue_page": 4,
+        "column": 2,
+        "lines": [
+          4727,
+          4740
+        ],
+        "lines_of_claim": [
+          4727,
+          4728,
+          4729,
+          4730,
+          4732,
+          4735,
+          4736,
+          4737,
+          4738
+        ],
+        "interleaved": true
+      },
+      "entities": [
+        {
+          "as_printed": "Suirn",
+          "normalized": "[uncertain: Captain Smith]",
+          "role": "master"
+        }
+      ],
+      "ad_copy_date": {
+        "verbatim": "St. Joseph, May 23, 1834.",
+        "iso": "1834-05-23"
+      },
+      "notes": "'175 miles land carriage between Chicago and Detroit' is the figure the ad prints and is quoted rather than checked. THE INTERLEAVE REACHES PAGE 4: this column's left margin carries one-character slivers of a neighbouring column ('w!', 'r|', 's. |', 'ut') on lines 4734-4741, which is why 4731 and 4733-4734 are left out of `lines_of_claim` — the words 'bare ae' and 'nee' in them belong to no reading this issue can settle. 'Steain-Boat'→'Steamboat'."
+    },
+    {
+      "id": "c013",
+      "kind": "business",
+      "reading": "transcription_mediated",
+      "quote": "ut Root & Shee Making.\nof hae E subscriber having recently commenced\nhe ab: business, next door to P. -\nnl or en's Store, willbe kept on hand\nA L. W. MONTGOMERY,\nChicago, Dec. 15, 1833. 4",
+      "normalized": "[B]oot & Shoe Making. [Th]E subscriber having recently commenced the ab[ove] business, next door to P. [uncertain: …]en's Store, will be kept on hand […] L. W. MONTGOMERY, Chicago, Dec. 15, 1833. 4",
+      "locator": {
+        "artifact_role": "primary",
+        "issue_page": 4,
+        "column": 2,
+        "lines": [
+          4741,
+          4755
+        ],
+        "lines_of_claim": [
+          4741,
+          4742,
+          4743,
+          4744,
+          4754,
+          4755
+        ],
+        "interleaved": true
+      },
+      "entities": [
+        {
+          "as_printed": "L. W. MONTGOMERY",
+          "normalized": "L. W. Montgomery",
+          "role": "proprietor",
+          "occupations": [
+            "boot and shoe maker"
+          ]
+        }
+      ],
+      "ad_copy_date": {
+        "verbatim": "Chicago, Dec. 15, 1833. 4",
+        "iso": "1833-12-15"
+      },
+      "business": {
+        "name": "L. W. Montgomery",
+        "proprietors": [
+          "L. W. Montgomery"
+        ],
+        "trade": "boot and shoe making",
+        "goods": [
+          "Boots",
+          "Shoes"
+        ],
+        "street": null,
+        "placement": {
+          "class": "none",
+          "street": null
+        }
+      },
+      "notes": "THE ANCHOR IS UNREADABLE AND NOT SUPPLIED. Line 4743 ends 'next door to P. -' and line 4744 begins 'nl or en's Store' with a sliver of the neighbouring column in front of it. 'P. …en's' could be Pruyne's, Peck's or another; the town has a P. Pruyne & Co. and a P. F. W. Peck, and choosing between them on the letters that survive is exactly the kind of supply this project refuses. `placement.class` is therefore `none` and not `relative`: a relative placement with a guessed anchor places nothing. A fuller witness may be in a later July issue, where the same standing advertisement runs."
+    },
+    {
+      "id": "c014",
+      "kind": "business",
+      "reading": "scan_verified",
+      "quote": "Cabinet and Chair\nae Ware House\n* HE aubseribers ha-\nsd ving on hand (at\no their ware house on\no P South water St. five }\nf | doory east of the corner\nof Rando!ph st.) a yer i pcate\nr aut CLARK, FILER, & Co.\nChicago, June 10, 1834, 28",
+      "normalized": "Cabinet and Chair Ware House. [T]HE subscribers having on hand (at their ware house on South Water St. five doors east of the corner of Randolph st.) a very large [assortment] […] CLARK, FILER, & CO. Chicago, June 10, 1834. 28",
+      "locator": {
+        "artifact_role": "primary",
+        "issue_page": 4,
+        "column": 2,
+        "lines": [
+          4756,
+          4783
+        ],
+        "lines_of_claim": [
+          4756,
+          4757,
+          4758,
+          4759,
+          4760,
+          4761,
+          4762,
+          4764,
+          4779,
+          4783
+        ],
+        "interleaved": true
+      },
+      "entities": [
+        {
+          "as_printed": "CLARK, FILER, & Co.",
+          "normalized": "Clark, Filer & Co.",
+          "role": "proprietor",
+          "occupations": [
+            "cabinet maker",
+            "chair maker"
+          ],
+          "associated_places": [
+            "South Water Street"
+          ]
+        }
+      ],
+      "ad_copy_date": {
+        "verbatim": "Chicago, June 10, 1834, 28",
+        "iso": "1834-06-10"
+      },
+      "business": {
+        "name": "Clark, Filer & Co.",
+        "proprietors": [
+          "Clark, Filer & Co."
+        ],
+        "trade": "cabinet and chair ware house, and sign and ornamental painting",
+        "goods": [
+          "Bedsteads",
+          "Bureaus",
+          "Chairs",
+          "Cradles",
+          "Desks",
+          "Secretaries",
+          "Sideboards",
+          "Sofas",
+          "Tables"
+        ],
+        "street": "South Water Street",
+        "placement": {
+          "class": "relative",
+          "anchor": "the corner of Randolph st.",
+          "offset_text": "their ware house on\no P South water St. five }\nf | doory east of the corner\nU\nof Rando!ph st.)",
+          "offset_normalized": "their ware house on South Water St. five doors east of the corner of Randolph st.",
+          "street": "South Water Street",
+          "note": "T-0869 RULED THIS PLACEMENT A BEARING, NOT AN ADDRESS. All three printings of this advertisement were re-read at the page images on 2026-09-11 and every one of them sets 'the corner of Randolph st.' — see data/research/newspapers/clark_filer_randolph_corner_1834.json for the readings, the crop regions and the deposit sha256. They are ONE standing setting re-impressed, not three compositions: identical line breaks through the placement, the same 'cosisting' misprint, the same chair cuts, the same 'Chicago, June 10, 1834. 28' at the foot, and the phrase runs in at least five issues from 1834-06-11 to 1834-07-23. So the cross street was NOT mis-set by a slipping hand — there is no per-impression variation to be the slip. What stands is that the firm named a corner it did not stand on, which is how it locates elsewhere in the same month ('three doors from the Baptist meeting house', 1834-06-04). A wrong word in the firm's own copy, standing for six weeks, cannot be separated from that and has the same consequence: the phrase does not measure onto the committed plat. The ware house keeps street_only, `streets_cross` is right to refuse the ordinal (T-0771), and the anchor is left as printed rather than amended to what the plat allows. Do not re-open on a closer reading of these columns; only another impression setting a DIFFERENT street, or a source placing the ware house on the ground, moves it."
+        }
+      },
+      "notes": "READ AT THE PAGE IMAGE ON 2026-09-11 (T-0869), AND THE 'Rando!ph' IS A BROKEN LETTER. At the image the `l` prints as a short vertical stroke with a gap under the ascender — an under-inked or damaged sort in a line that is otherwise the same standing setting, in the same place, as the two clean impressions of 1834-06-11 and 1834-06-18. It is damage to one letter of Randolph and it is not a witness to any other street. THE BEST-PLACED STOREFRONT IN THE ISSUE: a street, a named corner, a side and a count of doors. The quoted lines carry slivers of the neighbouring column at their left edge ('o P', 'f |', 'U'), which is why the verbatim `offset_text` is not readable prose; the unshuffling is the whole of the judgement and it lives in `offset_normalized`. 'doory'→'doors', 'Rando!ph'→'Randolph'. Line 4763 is the bare sliver 'U' and is excluded. The 'N. B. Sign and ornamental painting' at 4781-4782 is a second trade and is recorded in `trade`."
+    },
+    {
+      "id": "c015",
+      "kind": "business",
+      "reading": "transcription_mediated",
+      "quote": "DATID GAD\nAuction and Commission Merchant.\nSOUTH-WATEN STREET, CHICAGO.\nECEIVES all articles of produce and pro-\nwe Having erected an ad-\ndition to his Store\nHouse, he is now ennbled to receive a consider-\nt| An Auction will be holden every Saturday,\nes} at the Auction and Commission Store, until fur-",
+      "normalized": "[uncertain: DATID GAD] Auction and Commission Merchant. SOUTH-WATER STREET, CHICAGO. [R]ECEIVES all articles of produce and pro[v]isions […] Having erected an addition to his Store House, he is now enabled to receive a considerable quantity of merchandize in store. An Auction will be holden every Saturday, at the Auction and Commission Store, until further notice be given.",
+      "locator": {
+        "artifact_role": "primary",
+        "issue_page": 4,
+        "column": 2,
+        "lines": [
+          4784,
+          4798
+        ],
+        "lines_of_claim": [
+          4784,
+          4785,
+          4786,
+          4787,
+          4792,
+          4793,
+          4794,
+          4796,
+          4797
+        ],
+        "interleaved": true
+      },
+      "entities": [
+        {
+          "as_printed": "DATID GAD",
+          "normalized": "[uncertain: DATID GAD]",
+          "role": "proprietor",
+          "occupations": [
+            "auctioneer",
+            "commission merchant"
+          ],
+          "associated_places": [
+            "South Water Street"
+          ]
+        }
+      ],
+      "business": {
+        "name": "[uncertain: DATID GAD], auction and commission merchant, South Water Street",
+        "proprietors": [
+          "[uncertain: DATID GAD]"
+        ],
+        "trade": "auction and commission merchant",
+        "goods": [
+          "Produce",
+          "Provisions"
+        ],
+        "street": "South Water Street",
+        "placement": {
+          "class": "street_only",
+          "street": "South Water Street"
+        }
+      },
+      "notes": "THE NAME IS NOT READ, AND IS NOT GUESSED. The display line 4784 reads 'DATID GAD'; the first word is plainly DAVID and the surname is not recoverable from four letters. This issue carries a 'DAVID 04RI' (page 3 column 5, line 4169) and a 'DAVID C' (line 4431) over what look like two different advertisements, and a DAVID CARVER whose trade is lumber (claim c006) — so a supply here would be choosing between at least two men named David. The business key therefore carries the bracket, which is ugly on purpose: a later issue with a clean reading is what fixes it, and until then nothing downstream can mistake this for a settled identity. WHAT IS DOCUMENTED REGARDLESS: an auction and commission house on South Water Street with a store house it has just built an ADDITION to, and a weekly Saturday auction. That is a building claim as much as a business one."
+    },
+    {
+      "id": "c016",
+      "kind": "business",
+      "reading": "transcription_mediated",
+      "quote": "4. REMOVAL.\ne COLLINS & CATON,\nATTORNEYS & COUNSELLORS AT LAW,\nAnd Solicitors in Chancery,\nrt FFICE two door east of the Baptist Church\nit up ataire, South Water-strect,\nC) Chicago, June 4, 4234,\npatch, James H. Courts.\nJ. Dzaw Carton,",
+      "normalized": "REMOVAL. COLLINS & CATON, ATTORNEYS & COUNSELLORS AT LAW, And Solicitors in Chancery, [O]FFICE two door[s] east of the Baptist Church, [f]itted up stairs, South Water-street, Chicago, June 4, 1834. […] James H. Collins, J. Dean Caton.",
+      "locator": {
+        "artifact_role": "primary",
+        "issue_page": 4,
+        "column": 2,
+        "lines": [
+          4800,
+          4810
+        ],
+        "lines_of_claim": [
+          4800,
+          4801,
+          4802,
+          4803,
+          4804,
+          4805,
+          4806,
+          4809,
+          4810
+        ],
+        "interleaved": true
+      },
+      "entities": [
+        {
+          "as_printed": "James H. Courts",
+          "normalized": "James H. Collins",
+          "role": "proprietor",
+          "occupations": [
+            "attorney"
+          ],
+          "associated_places": [
+            "South Water Street"
+          ]
+        },
+        {
+          "as_printed": "J. Dzaw Carton",
+          "normalized": "J. Dean Caton",
+          "role": "proprietor",
+          "occupations": [
+            "attorney"
+          ],
+          "associated_places": [
+            "South Water Street"
+          ]
+        }
+      ],
+      "ad_copy_date": {
+        "verbatim": "C) Chicago, June 4, 4234,",
+        "iso": "1834-06-04"
+      },
+      "business": {
+        "name": "Collins & Caton",
+        "proprietors": [
+          "James H. Collins",
+          "J. Dean Caton"
+        ],
+        "trade": "attorneys and counsellors at law, and solicitors in chancery",
+        "goods": [],
+        "street": "South Water Street",
+        "placement": {
+          "class": "relative",
+          "anchor": "the Baptist Church",
+          "offset_text": "rt FFICE two door east of the Baptist Church\nit up ataire, South Water-strect,",
+          "offset_normalized": "OFFICE two door[s] east of the Baptist Church, [f]itted up stairs, South Water-street",
+          "street": "South Water Street"
+        }
+      },
+      "notes": "A REMOVAL NOTICE — the heading is the word REMOVAL — so this is ruling 3 material: the firm was somewhere else and is now two doors east of the Baptist Church. It does NOT contradict the firm's existence, so `contradicts` is not set; what it contradicts is any EARLIER placement, and the earlier one is not in this issue. THE SURNAMES ARE RESTORED ON THE HEADING, not on shape: line 4809 reads 'James H. Courts' and 4810 'J. Dzaw Carton', and the display line 4801 reads 'COLLINS & CATON' — so 'Courts'→'Collins' and 'Carton'→'Caton' are corrections a second witness inside the same advertisement supports. THE BAPTIST CHURCH IS A LANDMARK ANCHOR and this is the issue's only mention of it. '4234'→'1834'."
+    },
+    {
+      "id": "c017",
+      "kind": "infrastructure",
+      "reading": "transcription_mediated",
+      "quote": ", Town Ordinances.\nT a meeting of the Board of Trustees of the\nin town of Chicago, held at the house of E.\nA H. Haddock, on the 6th June, 1834, the follow-\ning Ordinances were adopted, viz:\nE | Beit Ordained, That the Assessor shall on the\nfirst day of June annually, or as soon thereafter\nJ. V. OWEN, Pres't, {1\n@. W. Bow, Clerk: pro, lem.",
+      "normalized": "Town Ordinances. [A]T a meeting of the Board of Trustees of the town of Chicago, held at the house of E. H. Haddock, on the 6th June, 1834, the following Ordinances were adopted, viz: Be it Ordained, That the Assessor shall on the first day of June annually, or as soon thereafter […] J. V. OWEN, Pres't. […] G. W. Snow, Clerk pro tem.",
+      "locator": {
+        "artifact_role": "primary",
+        "issue_page": 4,
+        "column": 2,
+        "lines": [
+          4812,
+          4873
+        ],
+        "lines_of_claim": [
+          4812,
+          4813,
+          4814,
+          4815,
+          4816,
+          4817,
+          4818,
+          4871,
+          4873
+        ],
+        "interleaved": true
+      },
+      "entities": [
+        {
+          "as_printed": "E. H. Haddock",
+          "normalized": "E. H. Haddock",
+          "role": "householder"
+        },
+        {
+          "as_printed": "J. V. OWEN",
+          "normalized": "J. V. Owen",
+          "role": "president of the board of trustees"
+        },
+        {
+          "as_printed": "@. W. Bow",
+          "normalized": "G. W. Snow",
+          "role": "clerk pro tem"
+        }
+      ],
+      "notes": "THE MOST TOWN-SHAPED CLAIM IN THE ISSUE and the quote is deliberately only its opening: the ordinances run to line 4873 and `locator.lines` carries the whole of them. WHAT THEY SAY, in the body rather than the quote, and each of these is a placement or a surface a reconstruction can be held to: the Supervisor shall superintend 'the opening and keeping in repair all the streets and alleys within the limits of the corporation, and all the roads passing from or through town for the distance of one mile from the centre thereof' (4842-4847); shall abate nuisances and remove obstructions in the streets and alleys (4848-4851); shall cause 'the roads and bridges parsing through or from town, to be kept in good repair' for one mile from the centre (4852-4854); and every male resident between twenty-one and sixty owes 'three days labor upon the streets, bridges and highways within one mile from the center of said town', or seventy-five cents a day for refusing (4858-4869). THE MEETING PLACE IS A BUILDING: 'the house of E. H. Haddock' is where the Board of Trustees sat on 6 June 1834. THE CLERK'S NAME is read '@. W. Bow' and normalized 'G. W. Snow' on a second witness in this same issue — page 3 column 1 line 2838 prints 'GEORGE W. SNow.' among the candidates for the state legislature, and the validation notes list G. W. Snow among the secure recurring readings of this batch."
+    },
+    {
+      "id": "c018",
+      "kind": "business",
+      "reading": "transcription_mediated",
+      "quote": "MWoOORMICK..\n| Manufacturers and Wholesale Dealers in\n| > HATS. |\n1 No, 109 Jefferson Avenue, gage\n: M'CORMICK & MOON.\n; Detroit, March 15, 1334. 17f",
+      "normalized": "M[']CORMICK [& MOON], Manufacturers and Wholesale Dealers in HATS. No. 109 Jefferson Avenue, [Detroit] […] M'CORMICK & MOON. Detroit, March 15, 1834. 17f",
+      "locator": {
+        "artifact_role": "primary",
+        "issue_page": 4,
+        "column": 3,
+        "lines": [
+          4877,
+          4900
+        ],
+        "lines_of_claim": [
+          4877,
+          4878,
+          4879,
+          4880,
+          4899,
+          4900
+        ],
+        "interleaved": true
+      },
+      "entities": [
+        {
+          "as_printed": "M'CORMICK & MOON",
+          "normalized": "M'Cormick & Moon",
+          "role": "proprietor",
+          "occupations": [
+            "hatter"
+          ],
+          "associated_places": [
+            "Detroit"
+          ]
+        }
+      ],
+      "ad_copy_date": {
+        "verbatim": "Detroit, March 15, 1334. 17f",
+        "iso": "1834-03-15"
+      },
+      "business": {
+        "name": "M'Cormick & Moon",
+        "proprietors": [
+          "M'Cormick & Moon"
+        ],
+        "trade": "hat manufacturers and wholesale dealers, Detroit",
+        "goods": [
+          "Caps",
+          "Hats"
+        ],
+        "street": null,
+        "placement": {
+          "class": "none",
+          "street": null
+        }
+      },
+      "notes": "A DETROIT HOUSE advertising to Chicago — 'Merchants of Chicago and vicinity, and citizens are respectfully invited to call and examine their Stock, when they visit Detroit' (4888-4890). Recorded because ruling 3 would otherwise let a later pass mistake it for a Chicago storefront: the placement is `none` and the trade line says Detroit. '1334'→'1834'. The 'gage' at the end of 4880 is the segmenter's, and the city is supplied from the signature line, bracketed. T-0694: the entity now carries Detroit as its associated place, read off the two lines of this same notice that give it — the address line \"No, 109 Jefferson Avenue\" (4880) and the signature dateline \"Detroit, March 15, 1334\" (4900). The firm record already held the city inside its trade line and the PERSON record held nothing, so a pass reading the person alone saw a hatter with no address; the mints refuse on `associated_places`, and now it reaches this one."
+    },
+    {
+      "id": "c019",
+      "kind": "business",
+      "reading": "transcription_mediated",
+      "quote": "‘| New Blacksmith Shop.\n1 DALLY & YOUNGS,\n’ OPPOSITE THE JAIL,\n: AVING erected the above establishment,\nH are now ready to accommodate those who\nlicited. Chicago, June 17, 1834. 29",
+      "normalized": "New Blacksmith Shop. DALLY & YOUNGS, OPPOSITE THE JAIL, [H]AVING erected the above establishment, are now ready to accommodate those who […] Chicago, June 17, 1834. 29",
+      "locator": {
+        "artifact_role": "primary",
+        "issue_page": 4,
+        "column": 3,
+        "lines": [
+          4901,
+          4913
+        ],
+        "lines_of_claim": [
+          4901,
+          4902,
+          4903,
+          4904,
+          4905,
+          4913
+        ],
+        "interleaved": true
+      },
+      "entities": [
+        {
+          "as_printed": "DALLY & YOUNGS",
+          "normalized": "Dally & Youngs",
+          "role": "proprietor",
+          "occupations": [
+            "blacksmith"
+          ]
+        }
+      ],
+      "ad_copy_date": {
+        "verbatim": "licited. Chicago, June 17, 1834. 29",
+        "iso": "1834-06-17"
+      },
+      "business": {
+        "name": "Dally & Youngs",
+        "proprietors": [
+          "Dally & Youngs"
+        ],
+        "trade": "blacksmith",
+        "goods": [
+          "Edge Tools",
+          "Ox Chains",
+          "Prairie Ploughs"
+        ],
+        "street": null,
+        "placement": {
+          "class": "relative",
+          "anchor": "the Jail",
+          "offset_text": "OPPOSITE THE JAIL,",
+          "offset_normalized": "OPPOSITE THE JAIL",
+          "street": null
+        }
+      },
+      "notes": "A NEW BUILDING, DATED, AND ANCHORED ON A PUBLIC ONE: 'HAVING erected the above establishment' with a copy date of 17 June 1834 makes this shop three weeks old at the scene of this issue, and 'OPPOSITE THE JAIL' anchors it without naming a street. `placement.class` is `relative` on the strength of 'opposite', which is an offset; `street` is null because the ad does not give one and the jail's own street is not this claim's to assert. The second blacksmith in the issue, Pierce & French, is on the corner of Lake and Canal opposite the Chicago Hotel (claim c031) — two shops, two anchors, and no reason to think them the same."
+    },
+    {
+      "id": "c020",
+      "kind": "business",
+      "reading": "transcription_mediated",
+      "quote": "| New and Cheap Goods.\nHE aubseriber has just received from New-\n3 York, the following among other articles\n| in his line, which he offers for sale at Wholesale\nand Retail, very Low.\n| Ware, &e. Ae. JOHN WRIGHT. |,\nMay, 28, 1834. {",
+      "normalized": "New and Cheap Goods. [T]HE subscriber has just received from New-York, the following among other articles in his line, which he offers for sale at Wholesale and Retail, very Low. […] JOHN WRIGHT. May 28, 1834.",
+      "locator": {
+        "artifact_role": "primary",
+        "issue_page": 4,
+        "column": 3,
+        "lines": [
+          4914,
+          4955
+        ],
+        "lines_of_claim": [
+          4914,
+          4915,
+          4916,
+          4917,
+          4918,
+          4954,
+          4955
+        ],
+        "interleaved": true
+      },
+      "entities": [
+        {
+          "as_printed": "JOHN WRIGHT",
+          "normalized": "John Wright",
+          "role": "proprietor",
+          "occupations": [
+            "merchant"
+          ]
+        }
+      ],
+      "ad_copy_date": {
+        "verbatim": "May, 28, 1834. {",
+        "iso": "1834-05-28"
+      },
+      "business": {
+        "name": "John Wright",
+        "proprietors": [
+          "John Wright"
+        ],
+        "trade": "dry goods, hardware and groceries, wholesale and retail",
+        "goods": [
+          "Boots",
+          "Broadcloths",
+          "Calicoes",
+          "Clothing",
+          "Crockery",
+          "Glass Ware",
+          "Hardware",
+          "Nails",
+          "Shoes",
+          "Sugars",
+          "Teas"
+        ],
+        "street": null,
+        "placement": {
+          "class": "none",
+          "street": null
+        }
+      },
+      "notes": "NO ADDRESS. John Wright advertises four times in this issue — here, a boots-and-shoes lot at page 4 column 5 (claim c026), a wagon and ox cart at page 3 column 5 line 4370, and a dissolution reference — and not one of the four gives a street. That is worth recording as an absence rather than filling: a merchant this prominent with no printed address means the town knew where he was."
+    },
+    {
+      "id": "c021",
+      "kind": "business",
+      "reading": "transcription_mediated",
+      "quote": "NEW STORE, |\nJ.B. BROWN,\nHi’ opening on Dearborn street, one door | |\nsouth of Meesrs. Newberry & Dole'a store |\nan assortment of\n; 4. B. TUTTLE,\nChicago, May 27, 1034. 26),",
+      "normalized": "NEW STORE, J. B. BROWN, [uncertain: Ha]s opening on Dearborn street, one door south of Messrs. Newberry & Dole's store an assortment of GROCERIES, […] J. B. TUTTLE, Chicago, May 27, 1834. 26",
+      "locator": {
+        "artifact_role": "primary",
+        "issue_page": 4,
+        "column": 3,
+        "lines": [
+          4956,
+          4982
+        ],
+        "lines_of_claim": [
+          4956,
+          4957,
+          4958,
+          4959,
+          4960,
+          4981,
+          4982
+        ],
+        "interleaved": true
+      },
+      "entities": [
+        {
+          "as_printed": "J.B. BROWN",
+          "normalized": "J. B. Brown",
+          "role": "proprietor",
+          "occupations": [
+            "grocer"
+          ],
+          "associated_places": [
+            "Dearborn Street"
+          ]
+        },
+        {
+          "as_printed": "4. B. TUTTLE",
+          "normalized": "J. B. Tuttle",
+          "role": "signatory",
+          "occupations": [
+            "grocer"
+          ],
+          "associated_places": [
+            "Dearborn Street"
+          ]
+        }
+      ],
+      "ad_copy_date": {
+        "verbatim": "Chicago, May 27, 1034. 26),",
+        "iso": "1834-05-27"
+      },
+      "business": {
+        "name": "J. B. Brown, Dearborn Street grocery",
+        "proprietors": [
+          "J. B. Brown",
+          "J. B. Tuttle"
+        ],
+        "trade": "groceries",
+        "goods": [
+          "Cigars",
+          "Coffee",
+          "Liquors",
+          "Raisins",
+          "Sugar",
+          "Tea",
+          "Tobacco",
+          "Window Glass"
+        ],
+        "street": "Dearborn Street",
+        "placement": {
+          "class": "relative",
+          "anchor": "Messrs. Newberry & Dole's store",
+          "offset_text": "Hi’ opening on Dearborn street, one door | |\nsouth of Meesrs. Newberry & Dole'a store |",
+          "offset_normalized": "opening on Dearborn street, one door south of Messrs. Newberry & Dole's store",
+          "street": "Dearborn Street"
+        }
+      },
+      "notes": "THE HEADING AND THE SIGNATURE DISAGREE, AND BOTH STAND. The display name is 'J.B. BROWN' (4957) and the signature is '4. B. TUTTLE' (4981) — same initials, two surnames, one advertisement. J. B. Tuttle is independently in this issue twice on page 3 column 3 (lines 3718, 3724, 3730), dissolving a partnership with Wm. H. Brown and continuing the business alone — which makes 'Brown' beside 'Tuttle' here a live possibility rather than an OCR slip, and makes it exactly the sort of thing that must not be silently resolved. BOTH names are carried as entities, no merge is declared, and the business records both as proprietors with the disagreement stated here. THE PLACEMENT IS SOUND EITHER WAY: Dearborn street, one door south of Newberry & Dole's store, which is the third anchor on that firm in this issue (see also claims c002 and c033)."
+    },
+    {
+      "id": "c022",
+      "kind": "business",
+      "reading": "transcription_mediated",
+      "quote": "Watches and Jewelry. |;\nJ. H. MULFORD,\nAVING just return-_| {\ned from New-York | +\ning extensive assortment of | '\n: ; Clocks, Watches,\nO<<3 rr) Jewel ry, We. |.\net of goods in his line te baron oa offered «\nWest of Buffalo; consisting of ne ‘",
+      "normalized": "Watches and Jewelry. J. H. MULFORD, [H]AVING just returned from New-York and Philadelphia, with an […] extensive assortment of […] Clocks, Watches, Jewelry, &c. […] [the largest assortment] of goods in his line [ever] offered West of Buffalo; consisting of",
+      "locator": {
+        "artifact_role": "primary",
+        "issue_page": 4,
+        "column": 3,
+        "lines": [
+          4983,
+          5027
+        ],
+        "lines_of_claim": [
+          4983,
+          4984,
+          4985,
+          4986,
+          4988,
+          4989,
+          4990,
+          4991,
+          4992
+        ],
+        "interleaved": true
+      },
+      "entities": [
+        {
+          "as_printed": "J. H. MULFORD",
+          "normalized": "J. H. Mulford",
+          "role": "proprietor",
+          "occupations": [
+            "watchmaker",
+            "jeweller"
+          ]
+        }
+      ],
+      "business": {
+        "name": "J. H. Mulford",
+        "proprietors": [
+          "J. H. Mulford"
+        ],
+        "trade": "watches, clocks, jewelry, silver ware and fancy articles",
+        "goods": [
+          "Clocks",
+          "Cutlery",
+          "Jewelry",
+          "Music Boxes",
+          "Silver Ware",
+          "Spectacles",
+          "Watches"
+        ],
+        "street": null,
+        "placement": {
+          "class": "none",
+          "street": null
+        }
+      },
+      "notes": "NO ADDRESS IN THIS AD. Page 3 column 5 of this same issue carries 'J. H. M[ulford]' at line 4211 above 'cheap Store, one door [w]est of the' (4210) — a relative placement whose anchor is cut away at the column edge, and the fragment 'New Arriva[l]' heads it. The offset is NOT asserted here: 'one door west of the …' with no anchor places nothing, and the cut is the column's, not the paper's. Line 4987 and 4993-5027 are the stock list and are inside `locator.lines` without being quoted. A WATCHMAKER IS WANTED in the town this month — page 3 column 5 lines 4245-4252 advertise for a journeyman watch-maker, signed 'J. I. MULFORD' (4252), which is the same man's name at a third spelling; no merge is declared."
+    },
+    {
+      "id": "c023",
+      "kind": "business",
+      "reading": "transcription_mediated",
+      "quote": "_.ce ewods! New Geods!?\nEF. Fe PECK,\nCOURER OF LASALLE AND F9UTH-WATER STB.\n‘AS just received from New-York, « full\nH stock of fresh GOODS, to the\n)] spring and fall demand, which he o for sale\n,| at very low prices for cash or country produce.\ndune 1s, 1884,",
+      "normalized": "[N]ew Goods! New Goods! P. F. [W.] PECK, CORNER OF LASALLE AND SOUTH-WATER STS. [H]AS just received from New-York, a full stock of fresh GOODS, [suited to] the spring and fall demand, which he o[ffers] for sale at very low prices for cash or country produce. […] June 1[8], 1834.",
+      "locator": {
+        "artifact_role": "primary",
+        "issue_page": 4,
+        "column": 4,
+        "lines": [
+          5032,
+          5097
+        ],
+        "lines_of_claim": [
+          5032,
+          5033,
+          5034,
+          5035,
+          5036,
+          5037,
+          5038,
+          5097
+        ],
+        "interleaved": true
+      },
+      "entities": [
+        {
+          "as_printed": "EF. Fe PECK",
+          "normalized": "P. F. W. Peck",
+          "role": "proprietor",
+          "occupations": [
+            "merchant"
+          ],
+          "associated_places": [
+            "LaSalle Street",
+            "South Water Street"
+          ]
+        }
+      ],
+      "ad_copy_date": {
+        "verbatim": "dune 1s, 1884,",
+        "iso": "1834-06-18"
+      },
+      "business": {
+        "name": "P. F. W. Peck",
+        "proprietors": [
+          "P. F. W. Peck"
+        ],
+        "trade": "dry goods, hardware, hollow ware, groceries, boots and shoes, saddlery, drugs, hats and ready made clothing",
+        "goods": [
+          "Boots",
+          "Clothing",
+          "Crockery",
+          "Drugs",
+          "Dry Goods",
+          "Groceries",
+          "Hardware",
+          "Hats",
+          "Iron",
+          "Nails",
+          "Saddlery",
+          "Shoes",
+          "Window Sash"
+        ],
+        "street": "South Water Street",
+        "placement": {
+          "class": "corner",
+          "anchor": "corner of LaSalle and South Water streets",
+          "offset_text": "COURER OF LASALLE AND F9UTH-WATER STB.",
+          "offset_normalized": "CORNER OF LASALLE AND SOUTH-WATER STS.",
+          "street": "South Water Street"
+        }
+      },
+      "notes": "A CORNER PLACEMENT PRINTED AS THE ADDRESS LINE OF THE AD, which is the strongest form this paper gives. OCR, all recognition-class in display capitals: 'COURER'→'CORNER', 'F9UTH-WATER STB.'→'SOUTH-WATER STS.'. THE NAME. Line 5033 reads 'EF. Fe PECK' and is normalized 'P. F. W. Peck' — NOT on the shape of the letters but on the validation notes for this batch, which list 'P. F. Peck' among the twelve secure recurring readings compared across issues. The middle W is the form the town's own records use and is the one place this normalization goes past its witness; it is flagged here for that reason. 'dune 1s, 1884'→'June 1[8], 1834': the day is bracketed because '1s' supports 18 and little else, and the year is the run's."
+    },
+    {
+      "id": "c024",
+      "kind": "business",
+      "reading": "transcription_mediated",
+      "quote": "DENTISTRY.\nOCT. Wa. H. Kessicorr, Surgeon Den-\ntist, respectfully informs the citizens of\nChicago, that he will practice the above pro-\n| fession in this place some tour or five weeks—\ns moderate, Office at the Eagle Tavern.\nee May 25, 1834, a .",
+      "normalized": "DENTISTRY. DOCT. W[m]. H. Kennicott, Surgeon Dentist, respectfully informs the citizens of Chicago, that he will practice the above profession in this place some [f]our or five weeks — […] Office at the Eagle Tavern. May 25, 1834.",
+      "locator": {
+        "artifact_role": "primary",
+        "issue_page": 4,
+        "column": 4,
+        "lines": [
+          5098,
+          5113
+        ],
+        "lines_of_claim": [
+          5098,
+          5099,
+          5100,
+          5101,
+          5102,
+          5112,
+          5113
+        ],
+        "interleaved": true
+      },
+      "entities": [
+        {
+          "as_printed": "Wa. H. Kessicorr",
+          "normalized": "Wm. H. Kennicott",
+          "role": "proprietor",
+          "occupations": [
+            "dentist"
+          ]
+        }
+      ],
+      "ad_copy_date": {
+        "verbatim": "ee May 25, 1834, a .",
+        "iso": "1834-05-25"
+      },
+      "business": {
+        "name": "Wm. H. Kennicott",
+        "proprietors": [
+          "Wm. H. Kennicott"
+        ],
+        "trade": "surgeon dentist",
+        "goods": [],
+        "street": null,
+        "placement": {
+          "class": "relative",
+          "anchor": "the Eagle Tavern",
+          "offset_text": "s moderate, Office at the Eagle Tavern.",
+          "offset_normalized": "Office at the Eagle Tavern",
+          "street": null
+        }
+      },
+      "notes": "A BUSINESS THAT SAYS IT WILL NOT LAST: 'some four or five weeks'. Ruling 3 would otherwise carry it to the scene date of 1835-07-01, so the contradiction is stated in the ad itself and this note is where a later pass will find it — but `contradicts` is NOT set, because the field means a claim contradicting a business, and no such notice was printed. A visiting dentist keeping office at a tavern is a lodger, not a storefront; `placement.class` is `relative` with the tavern as anchor because that is literally what the ad says, and the Eagle is placed nowhere in this issue either (see claim c004). 'Kessicorr'→'Kennicott' is a double-r/tt confusion in a name that occurs once; it is the one correction here made on shape alone and it is marked."
+    },
+    {
+      "id": "c025",
+      "kind": "building",
+      "reading": "transcription_mediated",
+      "quote": "For Sale,\nSMALL Building, to be removed from the\npremises on which it now stands. En-\nquire of J. A. COLLETT.\nJune 4, 1834. 27",
+      "normalized": "For Sale, [A] SMALL Building, to be removed from the premises on which it now stands. Enquire of J. A. COLLETT. June 4, 1834. 27",
+      "locator": {
+        "artifact_role": "primary",
+        "issue_page": 4,
+        "column": 4,
+        "lines": [
+          5114,
+          5118
+        ],
+        "lines_of_claim": [
+          5114,
+          5115,
+          5116,
+          5117,
+          5118
+        ],
+        "interleaved": false
+      },
+      "entities": [
+        {
+          "as_printed": "J. A. COLLETT",
+          "normalized": "J. A. Collett",
+          "role": "advertiser"
+        }
+      ],
+      "ad_copy_date": {
+        "verbatim": "June 4, 1834. 27",
+        "iso": "1834-06-04"
+      },
+      "notes": "BUILDINGS IN THIS TOWN MOVE, and this is the plainest statement of it in the issue: a small building offered for sale on condition it be removed from the ground it stands on. Neither the ground nor the destination is named, so it places nothing — it is kept because it is evidence about the building stock's mobility, which is a reconstruction decision the roadmap has to make. The second removable building in the issue is claim c002's, offered to let rather than sold."
+    },
+    {
+      "id": "c026",
+      "kind": "business",
+      "reading": "transcription_mediated",
+      "quote": "To Engineers,\nWk by the subscribers, a good En-\ngincer, to whom good wages and steady\nemployment will be gen by application at\ntheir steam saw-mill. None need appl but good\nworkmen, NOBLE & WESENCAFT.\nChicago, May 26, 1834. a)",
+      "normalized": "To Engineers, W[anted] by the subscribers, a good Engineer, to whom good wages and steady employment will be g[iv]en by application at their steam saw-mill. None need appl[y] but good workmen. NOBLE & WESENCAFT. Chicago, May 26, 1834.",
+      "locator": {
+        "artifact_role": "primary",
+        "issue_page": 4,
+        "column": 4,
+        "lines": [
+          5119,
+          5125
+        ],
+        "lines_of_claim": [
+          5119,
+          5120,
+          5121,
+          5122,
+          5123,
+          5124,
+          5125
+        ],
+        "interleaved": false
+      },
+      "entities": [
+        {
+          "as_printed": "NOBLE & WESENCAFT",
+          "normalized": "[uncertain: Noble & Wesencaft]",
+          "role": "proprietor",
+          "occupations": [
+            "saw mill proprietor"
+          ]
+        }
+      ],
+      "ad_copy_date": {
+        "verbatim": "Chicago, May 26, 1834. a)",
+        "iso": "1834-05-26"
+      },
+      "business": {
+        "name": "[uncertain: Noble & Wesencaft]",
+        "proprietors": [
+          "[uncertain: Noble & Wesencaft]"
+        ],
+        "trade": "steam saw mill",
+        "goods": [],
+        "street": null,
+        "placement": {
+          "class": "none",
+          "street": null
+        }
+      },
+      "notes": "A STEAM SAW-MILL IN CHICAGO, dated from Chicago and hiring here — which matters because the other two saw-mills named in this issue are at St. Joseph (claim c006) and on the big Vermillion in Lasalle county (page 3 column 3, lines 3818-3842). The second partner's name occurs once and is bracketed: 'WESENCAFT' has no second witness in this issue and no reading of it is preferred."
+    },
+    {
+      "id": "c027",
+      "kind": "building",
+      "reading": "transcription_mediated",
+      "quote": "SUOWBS CULO)\nQUANTITY of yg idewharser Hams,\nFletches of Bacon, and Prime Pork,\n1 to be sold by D. Elston & Co., who acquaint\nthe public they have fitted up a Smoke ey\nfor the smoking of Hams, Bacon, &c. &c., and |\nare prepared to commenco the drying thereof.\n‘| Chicago, Feb. 15,1834. 13",
+      "normalized": "[SMOKED HAMS] [A] QUANTITY of [uncertain: yg idewharser] Hams, Fletches of Bacon, and Prime Pork, to be sold by D. Elston & Co., who acquaint the public they have fitted up a Smoke [House] for the smoking of Hams, Bacon, &c. &c., and are prepared to commence the drying thereof. Chicago, Feb. 15, 1834. 13",
+      "locator": {
+        "artifact_role": "primary",
+        "issue_page": 4,
+        "column": 5,
+        "lines": [
+          5200,
+          5207
+        ],
+        "lines_of_claim": [
+          5200,
+          5201,
+          5202,
+          5203,
+          5204,
+          5205,
+          5206,
+          5207
+        ],
+        "interleaved": false
+      },
+      "entities": [
+        {
+          "as_printed": "D. Elston & Co.",
+          "normalized": "Daniel Elston & Co.",
+          "role": "proprietor",
+          "occupations": [
+            "soap boiler",
+            "chandler",
+            "provision dealer"
+          ]
+        }
+      ],
+      "ad_copy_date": {
+        "verbatim": "‘| Chicago, Feb. 15,1834. 13",
+        "iso": "1834-02-15"
+      },
+      "business": {
+        "name": "Daniel Elston & Co.",
+        "proprietors": [
+          "Daniel Elston & Co."
+        ],
+        "trade": "soap and candle manufactory, and smoke house",
+        "goods": [
+          "Bacon",
+          "Candles",
+          "Hams",
+          "Pork",
+          "Soap"
+        ],
+        "street": null,
+        "placement": {
+          "class": "none",
+          "street": null
+        }
+      },
+      "notes": "A BUILDING FITTED UP AND DATED: a smoke house, in use from 15 February 1834, belonging to the firm whose soap and candle manufactory is claim c007. The heading line 5200 reads 'SUOWBS CULO)' and is not transcribable; '[SMOKED HAMS]' is a SUPPLY from the body of the ad and is bracketed as one. 'Smoke ey'→'Smoke [House]' likewise. The word before 'Hams' at 5201 is left inside its bracket: 'yg idewharser' supports nothing. THE FIRM IS THE SAME as claim c007's on the strength of the display name there, 'Messrs. DANIEL ELSTON & co', against 'D. Elston & Co.' here — an initial and a surname against a forename and the same surname, which the identity policy allows to key together only because the normalized name is written out identically by hand in both claims. That is a JUDGEMENT, made here and not by the compiler, and it is the kind that identity.json exists to record if it is ever doubted."
+    },
+    {
+      "id": "c028",
+      "kind": "business",
+      "reading": "transcription_mediated",
+      "quote": "‘Ts published every Tuesday, in the soa is\nThieayo, Cook co. I}. in the builioge f\ncorner of South Water and Ch\nTERMS. os\nTL. The Chicago Democrat is printed Oe ‘\nperial sheot, and afforded to subst rast\nas eee VIyTY CENTS payableing ae",
+      "normalized": "[The Chicago Democrat] is published every Tuesday, in the [town of] Chicago, Cook co. Ill. in the buildi[n]g[ at the] corner of South Water and C[lark?] […] TERMS. […] The Chicago Democrat is printed on a[n im]perial sheet, and afforded to subs[cribers at] […] [T]WO [DOLLARS] FIFTY CENTS payable in a[dvance]",
+      "locator": {
+        "artifact_role": "primary",
+        "issue_page": 4,
+        "column": 6,
+        "lines": [
+          5406,
+          5511
+        ],
+        "lines_of_claim": [
+          5474,
+          5475,
+          5476,
+          5477,
+          5478,
+          5479,
+          5480
+        ],
+        "interleaved": true
+      },
+      "entities": [
+        {
+          "as_printed": "Joseph Cloud esq. Ottawa.",
+          "normalized": "Joseph Cloud",
+          "role": "agent",
+          "associated_places": [
+            "Ottawa"
+          ]
+        },
+        {
+          "as_printed": "Charles Dann, P. M. Golconda.",
+          "normalized": "Charles Dann",
+          "role": "agent",
+          "occupations": [
+            "postmaster"
+          ],
+          "associated_places": [
+            "Golconda"
+          ]
+        },
+        {
+          "as_printed": "John Colman, P. M. W aterlae.",
+          "normalized": "John Colman",
+          "role": "agent",
+          "occupations": [
+            "postmaster"
+          ],
+          "associated_places": [
+            "Waterloo"
+          ]
+        },
+        {
+          "as_printed": "Thomas Hartaell",
+          "normalized": "[uncertain: Thomas Hartsell]",
+          "role": "agent",
+          "associated_places": [
+            "Hennepin"
+          ]
+        },
+        {
+          "as_printed": "E F, Arnold, P.M.",
+          "normalized": "L. F. Arnold",
+          "role": "agent",
+          "occupations": [
+            "postmaster"
+          ],
+          "associated_places": [
+            "Plainfield"
+          ]
+        },
+        {
+          "as_printed": "t. Jos. Naper, Paupad",
+          "normalized": "[uncertain: Jos. Naper]",
+          "role": "agent",
+          "associated_places": [
+            "Naper's Settlement"
+          ]
+        },
+        {
+          "as_printed": "Col. Thomas Fitzgerald",
+          "normalized": "Thomas Fitzgerald",
+          "role": "agent"
+        },
+        {
+          "as_printed": "Wm. Jones eeq, Bufiale.",
+          "normalized": "Wm. Jones",
+          "role": "agent",
+          "associated_places": [
+            "Buffalo"
+          ]
+        },
+        {
+          "as_printed": "L. G. Hoyt esq.",
+          "normalized": "L. G. Hoyt",
+          "role": "agent"
+        }
+      ],
+      "notes": "THE PAPER PLACES ITSELF, and this is the one claim in the issue about the building the issue was printed in: 'in the buildings [at the] corner of South Water and Ch…' — line 5476 is cut mid-word and the cross street is NOT supplied. Clark is the obvious candidate and obvious is not a witness; the bracket in `normalized` carries a question mark to say exactly that, and a later issue's masthead is what settles it. No `business` record is made for the Democrat on this claim, because a business record would have to assert the placement the quote cannot finish. THE AGENTS ARE PEOPLE and they are extracted as entities, several of them postmasters, from the badly-damaged list at lines 5494-5509. Names in that list that survive as fragments only ('M. Mobley, Eon. Bpringtelt', 'Col, rs W, Crain', 'yin, Mitchell, esq. Peoria', 'sie Mehigen Peron pbs') are NOT extracted: a fragment is not a name. 'E F, Arnold, P.M.' is normalized 'L. F. Arnold' on the second witness inside this issue — the Plainfield letter list at page 3 column 2 line 3121 is signed 'L. F. ARNOLD, P.M.' — and that also supplies the place, which this line prints as 'Piast, Cu'."
+    },
+    {
+      "id": "c029",
+      "kind": "person",
+      "reading": "transcription_mediated",
+      "letter_list_only": true,
+      "quote": "John n. Kiny\nsamuel Kendall\nGermanicus Kent\nnugh Lowry\nJacob S. Lansing\nJames R. Lawrence\nSelal Loomis 2\nAndrew D. Lansing\nJohn Ludb\nSamuel Lewis\nWilliam Luce 2\nJoseph Lovelnud\nReid Lewis\nJohn Lovell\nLyman R. Lovell\nRobert Loveland\nIsaac W. Meclure\nstepaen May\nT. H. Moreland\nDaniel Miller\nAlonzo Murray\nJesse Morgan\nJ. Mecarty\nJames McFadden\nJacob V. Miller",
+      "normalized": "[uncertain: John N. King] / Samuel Kendall / Germanicus Kent / [H]ugh Lowry / Jacob S. Lansing / James R. Lawrence / [uncertain: Selal Loomis] / Andrew D. Lansing / [uncertain: John Ludb…] / Samuel Lewis / William Luce / [uncertain: Joseph Loveland] / Reid Lewis / John Lovell / Lyman R. Lovell / Robert Loveland / Isaac W. M[c]Clure / Ste[ph]en May / T. H. Moreland / Daniel Miller / Alonzo Murray / Jesse Morgan / J. M[c]Carty / James McFadden / Jacob V. Miller",
+      "locator": {
+        "artifact_role": "primary",
+        "issue_page": 3,
+        "column": 2,
+        "lines": [
+          3131,
+          3197
+        ],
+        "lines_of_claim": [
+          3131,
+          3134,
+          3137,
+          3140,
+          3142,
+          3145,
+          3147,
+          3149,
+          3151,
+          3155,
+          3158,
+          3161,
+          3164,
+          3167,
+          3170,
+          3172,
+          3174,
+          3176,
+          3179,
+          3182,
+          3185,
+          3188,
+          3192,
+          3194,
+          3197
+        ],
+        "interleaved": true
+      },
+      "entities": [
+        {
+          "as_printed": "John n. Kiny",
+          "normalized": "[uncertain: John N. King]",
+          "role": "addressee"
+        },
+        {
+          "as_printed": "samuel Kendall",
+          "normalized": "Samuel Kendall",
+          "role": "addressee"
+        },
+        {
+          "as_printed": "Germanicus Kent",
+          "normalized": "Germanicus Kent",
+          "role": "addressee"
+        },
+        {
+          "as_printed": "nugh Lowry",
+          "normalized": "[H]ugh Lowry",
+          "role": "addressee"
+        },
+        {
+          "as_printed": "Jacob S. Lansing",
+          "normalized": "Jacob S. Lansing",
+          "role": "addressee"
+        },
+        {
+          "as_printed": "James R. Lawrence",
+          "normalized": "James R. Lawrence",
+          "role": "addressee"
+        },
+        {
+          "as_printed": "Selal Loomis 2",
+          "normalized": "[uncertain: Selal Loomis]",
+          "role": "addressee"
+        },
+        {
+          "as_printed": "Andrew D. Lansing",
+          "normalized": "Andrew D. Lansing",
+          "role": "addressee"
+        },
+        {
+          "as_printed": "John Ludb",
+          "normalized": "[uncertain: John Ludb…]",
+          "role": "addressee"
+        },
+        {
+          "as_printed": "Samuel Lewis",
+          "normalized": "Samuel Lewis",
+          "role": "addressee"
+        },
+        {
+          "as_printed": "William Luce 2",
+          "normalized": "William Luce",
+          "role": "addressee"
+        },
+        {
+          "as_printed": "Joseph Lovelnud",
+          "normalized": "[uncertain: Joseph Loveland]",
+          "role": "addressee"
+        },
+        {
+          "as_printed": "Reid Lewis",
+          "normalized": "Reid Lewis",
+          "role": "addressee"
+        },
+        {
+          "as_printed": "John Lovell",
+          "normalized": "John Lovell",
+          "role": "addressee"
+        },
+        {
+          "as_printed": "Lyman R. Lovell",
+          "normalized": "Lyman R. Lovell",
+          "role": "addressee"
+        },
+        {
+          "as_printed": "Robert Loveland",
+          "normalized": "Robert Loveland",
+          "role": "addressee"
+        },
+        {
+          "as_printed": "Isaac W. Meclure",
+          "normalized": "Isaac W. M[c]Clure",
+          "role": "addressee"
+        },
+        {
+          "as_printed": "stepaen May",
+          "normalized": "Ste[ph]en May",
+          "role": "addressee"
+        },
+        {
+          "as_printed": "T. H. Moreland",
+          "normalized": "T. H. Moreland",
+          "role": "addressee"
+        },
+        {
+          "as_printed": "Daniel Miller",
+          "normalized": "Daniel Miller",
+          "role": "addressee"
+        },
+        {
+          "as_printed": "Alonzo Murray",
+          "normalized": "Alonzo Murray",
+          "role": "addressee"
+        },
+        {
+          "as_printed": "Jesse Morgan",
+          "normalized": "Jesse Morgan",
+          "role": "addressee"
+        },
+        {
+          "as_printed": "J. Mecarty",
+          "normalized": "J. M[c]Carty",
+          "role": "addressee"
+        },
+        {
+          "as_printed": "James McFadden",
+          "normalized": "James McFadden",
+          "role": "addressee"
+        },
+        {
+          "as_printed": "Jacob V. Miller",
+          "normalized": "Jacob V. Miller",
+          "role": "addressee"
+        }
+      ],
+      "notes": "RULING 1 — every name here is a resident candidate on the strength of the post office holding a letter for it, and `letter_list_only` is true on the claim so the compiler carries the weaker evidence onto each person. Part 1 of 6 of the whole-name sub-column. THE HEADING is the list's own, at lines 3124-3128: 'List of Letters' / '[RE]MAINING in the Post-Office at Chicago, Ill. July 1, 1834.' The list closes at line 3539 with 'JOHN S. C. HOGAN, P.M.' and its instruction to callers (3541, 3543). It is printed in TWO sub-columns inside one physical newspaper column, and the segmenter alternated them line by line together with an unrelated advertising column, so page 3 column 2 of this transcription is three streams woven together. THE SECOND SUB-COLUMN SURVIVES WHOLE and is what this claim reads; the first survives only as left-cut fragments and is claimed separately (c04x) with no entities, because a surname with its forename cut away is not a name and cannot mint a resident. NORMALIZATION. Each name is title-cased and recognition-class OCR is corrected inside brackets ('nugh'→'[H]ugh', 'Meclure'→'M[c]Clure', 'Rayınand'→'Ra[y]m[o]nd'); the surviving alphabetical order of the sub-column is what supports those corrections, because a name in the K-L-M-N run cannot be an unrelated word. A name whose reading is not supported that way keeps its whole self inside '[uncertain: …]' rather than being tidied. TWO PHYSICAL LINES CARRY TWO STREAMS FUSED: 3339 reads 'ns A. H. CorbinJames A. sawyer 2' and 3460 'n M. HarringtonDelany Wells' — the cut fragment of the first sub-column runs straight into the whole name of the second with no space. Only the whole name is extracted as an entity from those two lines; the fragment before it is left where it lies."
+    },
+    {
+      "id": "c030",
+      "kind": "person",
+      "reading": "transcription_mediated",
+      "letter_list_only": true,
+      "quote": "George R. Makepiece\nMatthias B. Miller\nWarcham Mack\nDavid Meigs\nFobes u. Miner\nThomas u. Noreland\nJohn G. MeDonald\nJacob Meinterfer\nJacob Melntyfer\nF. H. Morland\nLorin Miller\nNehemiah Myrick\nAndrew Miles\nNewell David 9\nJames Viel 2\nJohn V. Nalla 3\nJohn R. Odell\nsamuel Clingar\nLudwell Pullen 2\nTimothy E. Parsons\nTheron Parsons\nsack T. Pennington\nchester Pratt 3\nAlmon Perring\nRodrick R. Purcell",
+      "normalized": "George R. Makepe[a]ce / Matthias B. Miller / Ware[h]am Mack / David Meigs / Fobes [H]. Miner / Thomas [H]. [M]oreland / John G. M[c]Donald / [uncertain: Jacob Meinterfer] / [uncertain: Jacob Melntyfer] / F. H. Morland / Lorin Miller / Nehemiah Myrick / Andrew Miles / Newell David / [uncertain: James Viel] / [uncertain: John V. Nalla] / John R. Odell / [uncertain: Samuel Clingar] / Ludwell Pullen / Timothy E. Parsons / Theron Parsons / [I]sa[a]c T. Pennington / [uncertain: Chester Pratt] / Almon Perring / Rodrick R. Purcell",
+      "locator": {
+        "artifact_role": "primary",
+        "issue_page": 3,
+        "column": 2,
+        "lines": [
+          3200,
+          3268
+        ],
+        "lines_of_claim": [
+          3200,
+          3202,
+          3204,
+          3207,
+          3210,
+          3213,
+          3215,
+          3218,
+          3221,
+          3224,
+          3227,
+          3229,
+          3232,
+          3235,
+          3239,
+          3241,
+          3245,
+          3248,
+          3250,
+          3253,
+          3255,
+          3261,
+          3264,
+          3266,
+          3268
+        ],
+        "interleaved": true
+      },
+      "entities": [
+        {
+          "as_printed": "George R. Makepiece",
+          "normalized": "George R. Makepe[a]ce",
+          "role": "addressee"
+        },
+        {
+          "as_printed": "Matthias B. Miller",
+          "normalized": "Matthias B. Miller",
+          "role": "addressee"
+        },
+        {
+          "as_printed": "Warcham Mack",
+          "normalized": "Ware[h]am Mack",
+          "role": "addressee"
+        },
+        {
+          "as_printed": "David Meigs",
+          "normalized": "David Meigs",
+          "role": "addressee"
+        },
+        {
+          "as_printed": "Fobes u. Miner",
+          "normalized": "Fobes [H]. Miner",
+          "role": "addressee"
+        },
+        {
+          "as_printed": "Thomas u. Noreland",
+          "normalized": "Thomas [H]. [M]oreland",
+          "role": "addressee"
+        },
+        {
+          "as_printed": "John G. MeDonald",
+          "normalized": "John G. M[c]Donald",
+          "role": "addressee"
+        },
+        {
+          "as_printed": "Jacob Meinterfer",
+          "normalized": "[uncertain: Jacob Meinterfer]",
+          "role": "addressee"
+        },
+        {
+          "as_printed": "Jacob Melntyfer",
+          "normalized": "[uncertain: Jacob Melntyfer]",
+          "role": "addressee"
+        },
+        {
+          "as_printed": "F. H. Morland",
+          "normalized": "F. H. Morland",
+          "role": "addressee"
+        },
+        {
+          "as_printed": "Lorin Miller",
+          "normalized": "Lorin Miller",
+          "role": "addressee"
+        },
+        {
+          "as_printed": "Nehemiah Myrick",
+          "normalized": "Nehemiah Myrick",
+          "role": "addressee"
+        },
+        {
+          "as_printed": "Andrew Miles",
+          "normalized": "Andrew Miles",
+          "role": "addressee"
+        },
+        {
+          "as_printed": "Newell David 9",
+          "normalized": "Newell David",
+          "role": "addressee"
+        },
+        {
+          "as_printed": "James Viel 2",
+          "normalized": "[uncertain: James Viel]",
+          "role": "addressee"
+        },
+        {
+          "as_printed": "John V. Nalla 3",
+          "normalized": "[uncertain: John V. Nalla]",
+          "role": "addressee"
+        },
+        {
+          "as_printed": "John R. Odell",
+          "normalized": "John R. Odell",
+          "role": "addressee"
+        },
+        {
+          "as_printed": "samuel Clingar",
+          "normalized": "[uncertain: Samuel Clingar]",
+          "role": "addressee"
+        },
+        {
+          "as_printed": "Ludwell Pullen 2",
+          "normalized": "Ludwell Pullen",
+          "role": "addressee"
+        },
+        {
+          "as_printed": "Timothy E. Parsons",
+          "normalized": "Timothy E. Parsons",
+          "role": "addressee"
+        },
+        {
+          "as_printed": "Theron Parsons",
+          "normalized": "Theron Parsons",
+          "role": "addressee"
+        },
+        {
+          "as_printed": "sack T. Pennington",
+          "normalized": "[I]sa[a]c T. Pennington",
+          "role": "addressee"
+        },
+        {
+          "as_printed": "chester Pratt 3",
+          "normalized": "[uncertain: Chester Pratt]",
+          "role": "addressee"
+        },
+        {
+          "as_printed": "Almon Perring",
+          "normalized": "Almon Perring",
+          "role": "addressee"
+        },
+        {
+          "as_printed": "Rodrick R. Purcell",
+          "normalized": "Rodrick R. Purcell",
+          "role": "addressee"
+        }
+      ],
+      "notes": "RULING 1 — every name here is a resident candidate on the strength of the post office holding a letter for it, and `letter_list_only` is true on the claim so the compiler carries the weaker evidence onto each person. Part 2 of 6 of the whole-name sub-column. See claim c029 for the list's heading, its signature and the interleave. NORMALIZATION. Each name is title-cased and recognition-class OCR is corrected inside brackets ('nugh'→'[H]ugh', 'Meclure'→'M[c]Clure', 'Rayınand'→'Ra[y]m[o]nd'); the surviving alphabetical order of the sub-column is what supports those corrections, because a name in the K-L-M-N run cannot be an unrelated word. A name whose reading is not supported that way keeps its whole self inside '[uncertain: …]' rather than being tidied. TWO PHYSICAL LINES CARRY TWO STREAMS FUSED: 3339 reads 'ns A. H. CorbinJames A. sawyer 2' and 3460 'n M. HarringtonDelany Wells' — the cut fragment of the first sub-column runs straight into the whole name of the second with no space. Only the whole name is extracted as an entity from those two lines; the fragment before it is left where it lies."
+    },
+    {
+      "id": "c031",
+      "kind": "person",
+      "reading": "transcription_mediated",
+      "letter_list_only": true,
+      "quote": "Aron Parcell\nDaniel Platt 2\nBolton Parsona\nsteps W. Patch\nLewis Peet\nJulius Perrin\nHenry Parker\nJames W. Porter\nEdmund Poke\nPorter & conkling\nJ. chester Reid\nDani 1 O. Robian\nAbsolam Reel\ncharles u. Roberts\nDaniel Barclay Bessege\nBenjamin Richardson\nDavid Reel\nThomis Reed\nOliver Rayınand\nNiles Rose\nKiah B. sewall\nEdward simons\nPhineous sherman\nBenjamin sloat\nJacob shook 2",
+      "normalized": "A[a]ron Parcell / Daniel Platt / Bolton Parson[s] / [uncertain: Steph…] W. Patch / Lewis Peet / Julius Perrin / Henry Parker / James W. Porter / Edmund Poke / Porter & Conkling / J. Chester Reid / Dani[e]l O. [uncertain: Robian] / Absolam Reel / Charles [H]. Roberts / [uncertain: Daniel Barclay Bessege] / Benjamin Richardson / David Reel / Thom[a]s Reed / Oliver Ra[y]m[o]nd / Niles Rose / Kiah B. Sewall / Edward Simons / Phineous Sherman / Benjamin Sloat / Jacob Shook",
+      "locator": {
+        "artifact_role": "primary",
+        "issue_page": 3,
+        "column": 2,
+        "lines": [
+          3272,
+          3337
+        ],
+        "lines_of_claim": [
+          3272,
+          3275,
+          3278,
+          3281,
+          3283,
+          3286,
+          3288,
+          3290,
+          3294,
+          3297,
+          3300,
+          3303,
+          3306,
+          3309,
+          3312,
+          3315,
+          3317,
+          3320,
+          3322,
+          3323,
+          3326,
+          3328,
+          3331,
+          3334,
+          3337
+        ],
+        "interleaved": true
+      },
+      "entities": [
+        {
+          "as_printed": "Aron Parcell",
+          "normalized": "A[a]ron Parcell",
+          "role": "addressee"
+        },
+        {
+          "as_printed": "Daniel Platt 2",
+          "normalized": "Daniel Platt",
+          "role": "addressee"
+        },
+        {
+          "as_printed": "Bolton Parsona",
+          "normalized": "Bolton Parson[s]",
+          "role": "addressee"
+        },
+        {
+          "as_printed": "steps W. Patch",
+          "normalized": "[uncertain: Steph…] W. Patch",
+          "role": "addressee"
+        },
+        {
+          "as_printed": "Lewis Peet",
+          "normalized": "Lewis Peet",
+          "role": "addressee"
+        },
+        {
+          "as_printed": "Julius Perrin",
+          "normalized": "Julius Perrin",
+          "role": "addressee"
+        },
+        {
+          "as_printed": "Henry Parker",
+          "normalized": "Henry Parker",
+          "role": "addressee"
+        },
+        {
+          "as_printed": "James W. Porter",
+          "normalized": "James W. Porter",
+          "role": "addressee"
+        },
+        {
+          "as_printed": "Edmund Poke",
+          "normalized": "Edmund Poke",
+          "role": "addressee"
+        },
+        {
+          "as_printed": "Porter & conkling",
+          "normalized": "Porter & Conkling",
+          "role": "addressee"
+        },
+        {
+          "as_printed": "J. chester Reid",
+          "normalized": "J. Chester Reid",
+          "role": "addressee"
+        },
+        {
+          "as_printed": "Dani 1 O. Robian",
+          "normalized": "Dani[e]l O. [uncertain: Robian]",
+          "role": "addressee"
+        },
+        {
+          "as_printed": "Absolam Reel",
+          "normalized": "Absolam Reel",
+          "role": "addressee"
+        },
+        {
+          "as_printed": "charles u. Roberts",
+          "normalized": "Charles [H]. Roberts",
+          "role": "addressee"
+        },
+        {
+          "as_printed": "Daniel Barclay Bessege",
+          "normalized": "[uncertain: Daniel Barclay Bessege]",
+          "role": "addressee"
+        },
+        {
+          "as_printed": "Benjamin Richardson",
+          "normalized": "Benjamin Richardson",
+          "role": "addressee"
+        },
+        {
+          "as_printed": "David Reel",
+          "normalized": "David Reel",
+          "role": "addressee"
+        },
+        {
+          "as_printed": "Thomis Reed",
+          "normalized": "Thom[a]s Reed",
+          "role": "addressee"
+        },
+        {
+          "as_printed": "Oliver Rayinand",
+          "normalized": "Oliver Ra[y]m[o]nd",
+          "role": "addressee"
+        },
+        {
+          "as_printed": "Niles Rose",
+          "normalized": "Niles Rose",
+          "role": "addressee"
+        },
+        {
+          "as_printed": "Kiah B. sewall",
+          "normalized": "Kiah B. Sewall",
+          "role": "addressee"
+        },
+        {
+          "as_printed": "Edward simons",
+          "normalized": "Edward Simons",
+          "role": "addressee"
+        },
+        {
+          "as_printed": "Phineous sherman",
+          "normalized": "Phineous Sherman",
+          "role": "addressee"
+        },
+        {
+          "as_printed": "Benjamin sloat",
+          "normalized": "Benjamin Sloat",
+          "role": "addressee"
+        },
+        {
+          "as_printed": "Jacob shook 2",
+          "normalized": "Jacob Shook",
+          "role": "addressee"
+        }
+      ],
+      "notes": "RULING 1 — every name here is a resident candidate on the strength of the post office holding a letter for it, and `letter_list_only` is true on the claim so the compiler carries the weaker evidence onto each person. Part 3 of 6 of the whole-name sub-column. See claim c029 for the list's heading, its signature and the interleave. NORMALIZATION. Each name is title-cased and recognition-class OCR is corrected inside brackets ('nugh'→'[H]ugh', 'Meclure'→'M[c]Clure', 'Rayınand'→'Ra[y]m[o]nd'); the surviving alphabetical order of the sub-column is what supports those corrections, because a name in the K-L-M-N run cannot be an unrelated word. A name whose reading is not supported that way keeps its whole self inside '[uncertain: …]' rather than being tidied. TWO PHYSICAL LINES CARRY TWO STREAMS FUSED: 3339 reads 'ns A. H. CorbinJames A. sawyer 2' and 3460 'n M. HarringtonDelany Wells' — the cut fragment of the first sub-column runs straight into the whole name of the second with no space. Only the whole name is extracted as an entity from those two lines; the fragment before it is left where it lies."
+    },
+    {
+      "id": "c032",
+      "kind": "person",
+      "reading": "transcription_mediated",
+      "letter_list_only": true,
+      "quote": "ns A. H. CorbinJames A. sawyer 2\nThomas smith\nJ. L. sackett\nElijah smith\nR. stewart\nNathan seymour\nWm. stapleton 2\nsamuel stout\ngisaac scarrett\nWalton slato\nMalancton savage\nI.. H. scott\nJohn sewell\nsamuel stuart\nJobn stringer\nJames sanderson\nRuel starr\nLewis sperry\nKobert strong 2\nsamucl shively\nJudge silver\nJacob spler\nA. shepherd\nJoseph schindler\nHenry stark",
+      "normalized": "James A. Sawyer / Thomas Smith / J. L. Sackett / Elijah Smith / R. Stewart / Nathan Seymour / Wm. Stapleton / Samuel Stout / [uncertain: Isaac Scarrett] / [uncertain: Walton Slato] / Malanc[h]ton Savage / [uncertain: I. H. Scott] / John Sewell / Samuel Stuart / Jo[h]n Stringer / James Sanderson / Ruel Starr / Lewis Sperry / [R]obert Strong / Samu[e]l Shively / [uncertain: Judge Silver] / [uncertain: Jacob Spler] / A. Shepherd / Joseph Schindler / Henry Stark",
+      "locator": {
+        "artifact_role": "primary",
+        "issue_page": 3,
+        "column": 2,
+        "lines": [
+          3339,
+          3401
+        ],
+        "lines_of_claim": [
+          3339,
+          3342,
+          3344,
+          3346,
+          3349,
+          3352,
+          3355,
+          3357,
+          3359,
+          3362,
+          3364,
+          3366,
+          3369,
+          3372,
+          3374,
+          3377,
+          3379,
+          3382,
+          3384,
+          3386,
+          3390,
+          3393,
+          3396,
+          3398,
+          3401
+        ],
+        "interleaved": true
+      },
+      "entities": [
+        {
+          "as_printed": "ns A. H. CorbinJames A. sawyer 2",
+          "normalized": "James A. Sawyer",
+          "role": "addressee"
+        },
+        {
+          "as_printed": "Thomas smith",
+          "normalized": "Thomas Smith",
+          "role": "addressee"
+        },
+        {
+          "as_printed": "J. L. sackett",
+          "normalized": "J. L. Sackett",
+          "role": "addressee"
+        },
+        {
+          "as_printed": "Elijah smith",
+          "normalized": "Elijah Smith",
+          "role": "addressee"
+        },
+        {
+          "as_printed": "R. stewart",
+          "normalized": "R. Stewart",
+          "role": "addressee"
+        },
+        {
+          "as_printed": "Nathan seymour",
+          "normalized": "Nathan Seymour",
+          "role": "addressee"
+        },
+        {
+          "as_printed": "Wm. stapleton 2",
+          "normalized": "Wm. Stapleton",
+          "role": "addressee"
+        },
+        {
+          "as_printed": "samuel stout",
+          "normalized": "Samuel Stout",
+          "role": "addressee"
+        },
+        {
+          "as_printed": "gisaac scarrett",
+          "normalized": "[uncertain: Isaac Scarrett]",
+          "role": "addressee"
+        },
+        {
+          "as_printed": "Walton slato",
+          "normalized": "[uncertain: Walton Slato]",
+          "role": "addressee"
+        },
+        {
+          "as_printed": "Malancton savage",
+          "normalized": "Malanc[h]ton Savage",
+          "role": "addressee"
+        },
+        {
+          "as_printed": "I.. H. scott",
+          "normalized": "[uncertain: I. H. Scott]",
+          "role": "addressee"
+        },
+        {
+          "as_printed": "John sewell",
+          "normalized": "John Sewell",
+          "role": "addressee"
+        },
+        {
+          "as_printed": "samuel stuart",
+          "normalized": "Samuel Stuart",
+          "role": "addressee"
+        },
+        {
+          "as_printed": "Jobn stringer",
+          "normalized": "Jo[h]n Stringer",
+          "role": "addressee"
+        },
+        {
+          "as_printed": "James sanderson",
+          "normalized": "James Sanderson",
+          "role": "addressee"
+        },
+        {
+          "as_printed": "Ruel starr",
+          "normalized": "Ruel Starr",
+          "role": "addressee"
+        },
+        {
+          "as_printed": "Lewis sperry",
+          "normalized": "Lewis Sperry",
+          "role": "addressee"
+        },
+        {
+          "as_printed": "Kobert strong 2",
+          "normalized": "[R]obert Strong",
+          "role": "addressee"
+        },
+        {
+          "as_printed": "samucl shively",
+          "normalized": "Samu[e]l Shively",
+          "role": "addressee"
+        },
+        {
+          "as_printed": "Judge silver",
+          "normalized": "[uncertain: Judge Silver]",
+          "role": "addressee"
+        },
+        {
+          "as_printed": "Jacob spler",
+          "normalized": "[uncertain: Jacob Spler]",
+          "role": "addressee"
+        },
+        {
+          "as_printed": "A. shepherd",
+          "normalized": "A. Shepherd",
+          "role": "addressee"
+        },
+        {
+          "as_printed": "Joseph schindler",
+          "normalized": "Joseph Schindler",
+          "role": "addressee"
+        },
+        {
+          "as_printed": "Henry stark",
+          "normalized": "Henry Stark",
+          "role": "addressee"
+        }
+      ],
+      "notes": "RULING 1 — every name here is a resident candidate on the strength of the post office holding a letter for it, and `letter_list_only` is true on the claim so the compiler carries the weaker evidence onto each person. Part 4 of 6 of the whole-name sub-column. See claim c029 for the list's heading, its signature and the interleave. NORMALIZATION. Each name is title-cased and recognition-class OCR is corrected inside brackets ('nugh'→'[H]ugh', 'Meclure'→'M[c]Clure', 'Rayınand'→'Ra[y]m[o]nd'); the surviving alphabetical order of the sub-column is what supports those corrections, because a name in the K-L-M-N run cannot be an unrelated word. A name whose reading is not supported that way keeps its whole self inside '[uncertain: …]' rather than being tidied. TWO PHYSICAL LINES CARRY TWO STREAMS FUSED: 3339 reads 'ns A. H. CorbinJames A. sawyer 2' and 3460 'n M. HarringtonDelany Wells' — the cut fragment of the first sub-column runs straight into the whole name of the second with no space. Only the whole name is extracted as an entity from those two lines; the fragment before it is left where it lies."
+    },
+    {
+      "id": "c033",
+      "kind": "person",
+      "reading": "transcription_mediated",
+      "letter_list_only": true,
+      "quote": "Francis c. sherman\nHenry swartwout jr.\nJ. W. Smith\nRichard G. smith 2\nS. sherwood\nBenjamin swena\nEzekiel Turner\nWm. Tuller\nc. c. Townsend\nsamuel E. Toby\nBenjamin Thompson\nEdward Trimble\nJacob Van Acker\nAlison B. Vaughn\nAlanson B. Vaughan\nJohn Vafleet\nThomas Van Vatzah\nGurtrude Watkins\nLewis T. White\nA. M. Wing\nn M. HarringtonDelany Wells\nGeorge E. Walker 2\nSally L. Warren 2\nPeter White\nWt. s. Welch",
+      "normalized": "Francis C. Sherman / Henry Swartwout jr. / J. W. Smith / Richard G. Smith / S. Sherwood / [uncertain: Benjamin Swena] / Ezekiel Turner / Wm. Tuller / C. C. Townsend / Samuel E. Toby / Benjamin Thompson / Edward Trimble / Jacob Van Acker / Alison B. Vaughn / Alanson B. Vaughan / John Va[n]fleet / Thomas Van Vatzah / G[e]rtrude Watkins / Lewis T. White / A. M. Wing / Delany Wells / George E. Walker / Sally L. Warren / Peter White / W[m]. S. Welch",
+      "locator": {
+        "artifact_role": "primary",
+        "issue_page": 3,
+        "column": 2,
+        "lines": [
+          3404,
+          3470
+        ],
+        "lines_of_claim": [
+          3404,
+          3407,
+          3410,
+          3413,
+          3417,
+          3419,
+          3422,
+          3424,
+          3426,
+          3428,
+          3431,
+          3434,
+          3437,
+          3440,
+          3443,
+          3446,
+          3449,
+          3452,
+          3455,
+          3459,
+          3460,
+          3463,
+          3465,
+          3467,
+          3470
+        ],
+        "interleaved": true
+      },
+      "entities": [
+        {
+          "as_printed": "Francis c. sherman",
+          "normalized": "Francis C. Sherman",
+          "role": "addressee"
+        },
+        {
+          "as_printed": "Henry swartwout jr.",
+          "normalized": "Henry Swartwout jr.",
+          "role": "addressee"
+        },
+        {
+          "as_printed": "J. W. Smith",
+          "normalized": "J. W. Smith",
+          "role": "addressee"
+        },
+        {
+          "as_printed": "Richard G. smith 2",
+          "normalized": "Richard G. Smith",
+          "role": "addressee"
+        },
+        {
+          "as_printed": "S. sherwood",
+          "normalized": "S. Sherwood",
+          "role": "addressee"
+        },
+        {
+          "as_printed": "Benjamin swena",
+          "normalized": "[uncertain: Benjamin Swena]",
+          "role": "addressee"
+        },
+        {
+          "as_printed": "Ezekiel Turner",
+          "normalized": "Ezekiel Turner",
+          "role": "addressee"
+        },
+        {
+          "as_printed": "Wm. Tuller",
+          "normalized": "Wm. Tuller",
+          "role": "addressee"
+        },
+        {
+          "as_printed": "c. c. Townsend",
+          "normalized": "C. C. Townsend",
+          "role": "addressee"
+        },
+        {
+          "as_printed": "samuel E. Toby",
+          "normalized": "Samuel E. Toby",
+          "role": "addressee"
+        },
+        {
+          "as_printed": "Benjamin Thompson",
+          "normalized": "Benjamin Thompson",
+          "role": "addressee"
+        },
+        {
+          "as_printed": "Edward Trimble",
+          "normalized": "Edward Trimble",
+          "role": "addressee"
+        },
+        {
+          "as_printed": "Jacob Van Acker",
+          "normalized": "Jacob Van Acker",
+          "role": "addressee"
+        },
+        {
+          "as_printed": "Alison B. Vaughn",
+          "normalized": "Alison B. Vaughn",
+          "role": "addressee"
+        },
+        {
+          "as_printed": "Alanson B. Vaughan",
+          "normalized": "Alanson B. Vaughan",
+          "role": "addressee"
+        },
+        {
+          "as_printed": "John Vafleet",
+          "normalized": "John Va[n]fleet",
+          "role": "addressee"
+        },
+        {
+          "as_printed": "Thomas Van Vatzah",
+          "normalized": "Thomas Van Vatzah",
+          "role": "addressee"
+        },
+        {
+          "as_printed": "Gurtrude Watkins",
+          "normalized": "G[e]rtrude Watkins",
+          "role": "addressee"
+        },
+        {
+          "as_printed": "Lewis T. White",
+          "normalized": "Lewis T. White",
+          "role": "addressee"
+        },
+        {
+          "as_printed": "A. M. Wing",
+          "normalized": "A. M. Wing",
+          "role": "addressee"
+        },
+        {
+          "as_printed": "n M. HarringtonDelany Wells",
+          "normalized": "Delany Wells",
+          "role": "addressee"
+        },
+        {
+          "as_printed": "George E. Walker 2",
+          "normalized": "George E. Walker",
+          "role": "addressee"
+        },
+        {
+          "as_printed": "Sally L. Warren 2",
+          "normalized": "Sally L. Warren",
+          "role": "addressee"
+        },
+        {
+          "as_printed": "Peter White",
+          "normalized": "Peter White",
+          "role": "addressee"
+        },
+        {
+          "as_printed": "Wt. s. Welch",
+          "normalized": "W[m]. S. Welch",
+          "role": "addressee"
+        }
+      ],
+      "notes": "RULING 1 — every name here is a resident candidate on the strength of the post office holding a letter for it, and `letter_list_only` is true on the claim so the compiler carries the weaker evidence onto each person. Part 5 of 6 of the whole-name sub-column. See claim c029 for the list's heading, its signature and the interleave. NORMALIZATION. Each name is title-cased and recognition-class OCR is corrected inside brackets ('nugh'→'[H]ugh', 'Meclure'→'M[c]Clure', 'Rayınand'→'Ra[y]m[o]nd'); the surviving alphabetical order of the sub-column is what supports those corrections, because a name in the K-L-M-N run cannot be an unrelated word. A name whose reading is not supported that way keeps its whole self inside '[uncertain: …]' rather than being tidied. TWO PHYSICAL LINES CARRY TWO STREAMS FUSED: 3339 reads 'ns A. H. CorbinJames A. sawyer 2' and 3460 'n M. HarringtonDelany Wells' — the cut fragment of the first sub-column runs straight into the whole name of the second with no space. Only the whole name is extracted as an entity from those two lines; the fragment before it is left where it lies."
+    },
+    {
+      "id": "c034",
+      "kind": "person",
+      "reading": "transcription_mediated",
+      "letter_list_only": true,
+      "quote": "Elihu Walter\nWm. W. Wattles 2\nJames Wheldon\nDaniel Wright\nseth Wescott\nAlexander Wilkce\ncharles T. Ward\nPhebe Williams\nGiles Williams 4\nJeddiah Wooley\nJamea Wood\nElijah Wentworth sen.\nJohn Walton\nHenry Watkins\nHenry c. West\nWm. c Whittely\nJohn c Williams\nJ L Warren\nsophia Wellhelm\nHorace Wood\nGeorge Walker\nsaml Ward\nAram Winsor\nstephen Winship\ncharles Works",
+      "normalized": "Elihu Walter / Wm. W. Wattles / James Wheldon / Daniel Wright / Seth Wescott / [uncertain: Alexander Wilkce] / Charles T. Ward / Phebe Williams / Giles Williams / Jeddiah Wooley / Jam[e]s Wood / Elijah Wentworth sen. / John Walton / Henry Watkins / Henry C. West / Wm. C. Whittely / John C. Williams / J. L. Warren / [uncertain: Sophia Wellhelm] / Horace Wood / George Walker / Sam[ue]l Ward / Aram Winsor / Stephen Winship / Charles Works",
+      "locator": {
+        "artifact_role": "primary",
+        "issue_page": 3,
+        "column": 2,
+        "lines": [
+          3474,
+          3537
+        ],
+        "lines_of_claim": [
+          3474,
+          3476,
+          3479,
+          3481,
+          3484,
+          3487,
+          3490,
+          3492,
+          3494,
+          3496,
+          3500,
+          3503,
+          3506,
+          3509,
+          3512,
+          3514,
+          3516,
+          3518,
+          3520,
+          3523,
+          3526,
+          3528,
+          3531,
+          3534,
+          3537
+        ],
+        "interleaved": true
+      },
+      "entities": [
+        {
+          "as_printed": "Elihu Walter",
+          "normalized": "Elihu Walter",
+          "role": "addressee"
+        },
+        {
+          "as_printed": "Wm. W. Wattles 2",
+          "normalized": "Wm. W. Wattles",
+          "role": "addressee"
+        },
+        {
+          "as_printed": "James Wheldon",
+          "normalized": "James Wheldon",
+          "role": "addressee"
+        },
+        {
+          "as_printed": "Daniel Wright",
+          "normalized": "Daniel Wright",
+          "role": "addressee"
+        },
+        {
+          "as_printed": "seth Wescott",
+          "normalized": "Seth Wescott",
+          "role": "addressee"
+        },
+        {
+          "as_printed": "Alexander Wilkce",
+          "normalized": "[uncertain: Alexander Wilkce]",
+          "role": "addressee"
+        },
+        {
+          "as_printed": "charles T. Ward",
+          "normalized": "Charles T. Ward",
+          "role": "addressee"
+        },
+        {
+          "as_printed": "Phebe Williams",
+          "normalized": "Phebe Williams",
+          "role": "addressee"
+        },
+        {
+          "as_printed": "Giles Williams 4",
+          "normalized": "Giles Williams",
+          "role": "addressee"
+        },
+        {
+          "as_printed": "Jeddiah Wooley",
+          "normalized": "Jeddiah Wooley",
+          "role": "addressee"
+        },
+        {
+          "as_printed": "Jamea Wood",
+          "normalized": "Jam[e]s Wood",
+          "role": "addressee"
+        },
+        {
+          "as_printed": "Elijah Wentworth sen.",
+          "normalized": "Elijah Wentworth sen.",
+          "role": "addressee"
+        },
+        {
+          "as_printed": "John Walton",
+          "normalized": "John Walton",
+          "role": "addressee"
+        },
+        {
+          "as_printed": "Henry Watkins",
+          "normalized": "Henry Watkins",
+          "role": "addressee"
+        },
+        {
+          "as_printed": "Henry c. West",
+          "normalized": "Henry C. West",
+          "role": "addressee"
+        },
+        {
+          "as_printed": "Wm. c Whittely",
+          "normalized": "Wm. C. Whittely",
+          "role": "addressee"
+        },
+        {
+          "as_printed": "John c Williams",
+          "normalized": "John C. Williams",
+          "role": "addressee"
+        },
+        {
+          "as_printed": "J L Warren",
+          "normalized": "J. L. Warren",
+          "role": "addressee"
+        },
+        {
+          "as_printed": "sophia Wellhelm",
+          "normalized": "[uncertain: Sophia Wellhelm]",
+          "role": "addressee"
+        },
+        {
+          "as_printed": "Horace Wood",
+          "normalized": "Horace Wood",
+          "role": "addressee"
+        },
+        {
+          "as_printed": "George Walker",
+          "normalized": "George Walker",
+          "role": "addressee"
+        },
+        {
+          "as_printed": "saml Ward",
+          "normalized": "Sam[ue]l Ward",
+          "role": "addressee"
+        },
+        {
+          "as_printed": "Aram Winsor",
+          "normalized": "Aram Winsor",
+          "role": "addressee"
+        },
+        {
+          "as_printed": "stephen Winship",
+          "normalized": "Stephen Winship",
+          "role": "addressee"
+        },
+        {
+          "as_printed": "charles Works",
+          "normalized": "Charles Works",
+          "role": "addressee"
+        }
+      ],
+      "notes": "RULING 1 — every name here is a resident candidate on the strength of the post office holding a letter for it, and `letter_list_only` is true on the claim so the compiler carries the weaker evidence onto each person. Part 6 of 6 of the whole-name sub-column. See claim c029 for the list's heading, its signature and the interleave. NORMALIZATION. Each name is title-cased and recognition-class OCR is corrected inside brackets ('nugh'→'[H]ugh', 'Meclure'→'M[c]Clure', 'Rayınand'→'Ra[y]m[o]nd'); the surviving alphabetical order of the sub-column is what supports those corrections, because a name in the K-L-M-N run cannot be an unrelated word. A name whose reading is not supported that way keeps its whole self inside '[uncertain: …]' rather than being tidied. TWO PHYSICAL LINES CARRY TWO STREAMS FUSED: 3339 reads 'ns A. H. CorbinJames A. sawyer 2' and 3460 'n M. HarringtonDelany Wells' — the cut fragment of the first sub-column runs straight into the whole name of the second with no space. Only the whole name is extracted as an entity from those two lines; the fragment before it is left where it lies."
+    },
+    {
+      "id": "c035",
+      "kind": "person",
+      "reading": "transcription_mediated",
+      "letter_list_only": true,
+      "quote": "Avery\n[uncertain: Ayct?]\nAnderson\nInderson\nzer Alden\nn Andress\nArrowsmith\nkins\nB. Albyn 3\nr. Bently\nr W. Borland\n, Burnet\nBurnap\nC. Butterfield\nay Barbour\nandage\n, A. Blakesley\nn P. Benton\n[uncertain: . Baincs]\nBristol\nan Burbee 2\nBigelow\nBabete\nBoucher\nBankinship\n[uncertain: Bowrassa]\nBrown\nrink\nuner 2\nA. Brown\nBurnett\nBetts\nir 2\n. Barry\n. Barre\nBurnap",
+      "normalized": "[…]Avery / […][uncertain: Ayct?] / […]Anderson / […]Inderson / […]zer Alden / […]n Andress / […]Arrowsmith / […]kins / […]B. Albyn 3 / […]r. Bently / […]r W. Borland / […], Burnet / […]Burnap / […]C. Butterfield / […]ay Barbour / […]andage / […], A. Blakesley / […]n P. Benton / […][uncertain: . Baincs] / […]Bristol / […]an Burbee 2 / […]Bigelow / […]Babete / […]Boucher / […]Bankinship / […][uncertain: Bowrassa] / […]Brown / […]rink / […]uner 2 / […]A. Brown / […]Burnett / […]Betts / […]ir 2 / […]. Barry / […]. Barre / […]Burnap",
+      "locator": {
+        "artifact_role": "primary",
+        "issue_page": 3,
+        "column": 2,
+        "lines": [
+          3130,
+          3228
+        ],
+        "lines_of_claim": [
+          3130,
+          3133,
+          3136,
+          3139,
+          3141,
+          3144,
+          3146,
+          3148,
+          3150,
+          3154,
+          3157,
+          3160,
+          3163,
+          3166,
+          3169,
+          3171,
+          3173,
+          3175,
+          3178,
+          3181,
+          3184,
+          3187,
+          3191,
+          3193,
+          3196,
+          3199,
+          3201,
+          3203,
+          3206,
+          3209,
+          3212,
+          3217,
+          3220,
+          3223,
+          3226,
+          3228
+        ],
+        "interleaved": true
+      },
+      "entities": [],
+      "notes": "THE FIRST SUB-COLUMN OF THE SAME LIST, CUT AT THE LEFT EDGE, part 1 of 4, and it yields NO entities on purpose. Every line here is a surname, or a surname with one surviving initial, whose forename the column edge removed — 'Brown', 'Burnap', ', A. Blakesley', 'ck A. Howell'. Ruling 1 mints a resident from a LISTED NAME; a bare surname is not one, and there are four Browns, two Burnaps, two Fowlers, two Greens, three Gridleys and two Christys in this fragment alone, so supplying forenames would be inventing people rather than reading them. The lines are quoted in full so the list is on the record complete, and '[…]' in `normalized` marks the cut at the head of every one. The alphabetical run A-B-C-D-E-F-G-H-I-J-K is unbroken across the four claims, which is the evidence that these lines are one sub-column and not scattered damage. THE NAMES ARE MINTED ELSEWHERE: the issues of 1834-07-09 and 1834-07-16 print this same sub-column with its forenames on, and their claims carry the people. WHAT IS DELIBERATELY LEFT OUT of both this claim and the whole-name one: lines 3258 ('D. Perk'), 3259 ('T. S. For in'), 3190 ('Th'), 3214 ('gle') and 3425 ('Blai') sit out of the alphabetical run and could belong either to this sub-column or to the advertisement woven through it. They are assigned to neither. A HAND COUNT, made against this column on 2026-08-28 and the reason thirteen lines were added to this claim after it was first written: page 3 column 2 runs 409 lines from 3130 to 3538; 150 of them are whole names, 141 are this cut sub-column, and the remaining 118 are the advertisement and the list's own heading and signature. The first pass of this claim held 128 of the 141 and the count is what found the other thirteen."
+    },
+    {
+      "id": "c036",
+      "kind": "person",
+      "reading": "transcription_mediated",
+      "letter_list_only": true,
+      "quote": "Ball\ns Brown\nas Boilvin •\n• Buckle\n• Beech\nlandle\nBrown\nCharchill\nus H. Conant\na chandler\na Cleyborn *\n, Clevland\nCloutier\nCurtin\n1 Christy\ny Christy\n• Carlin\n9 Conger\n[uncertain: hrouch]\n• Chapman\nlarke\nM. Cole\nCleland\n. Chark\nClifford\nChamberlsin\nCamp\nady\n18 J. Carley\nd B. Coleman\nClark\nsiei C. Clark\n& P. Card\nn Carrier\nClark\nM. Clark",
+      "normalized": "[…]Ball / […]s Brown / […]as Boilvin • / […]• Buckle / […]• Beech / […]landle / […]Brown / […]Charchill / […]us H. Conant / […]a chandler / […]a Cleyborn * / […], Clevland / […]Cloutier / […]Curtin / […]1 Christy / […]y Christy / […]• Carlin / […]9 Conger / […][uncertain: hrouch] / […]• Chapman / […]larke / […]M. Cole / […]Cleland / […]. Chark / […]Clifford / […]Chamberlsin / […]Camp / […]ady / […]18 J. Carley / […]d B. Coleman / […]Clark / […]siei C. Clark / […]& P. Card / […]n Carrier / […]Clark / […]M. Clark",
+      "locator": {
+        "artifact_role": "primary",
+        "issue_page": 3,
+        "column": 2,
+        "lines": [
+          3231,
+          3330
+        ],
+        "lines_of_claim": [
+          3231,
+          3234,
+          3238,
+          3240,
+          3244,
+          3247,
+          3249,
+          3252,
+          3254,
+          3257,
+          3260,
+          3263,
+          3265,
+          3267,
+          3271,
+          3274,
+          3277,
+          3280,
+          3282,
+          3285,
+          3287,
+          3289,
+          3293,
+          3296,
+          3299,
+          3302,
+          3305,
+          3308,
+          3311,
+          3314,
+          3316,
+          3319,
+          3321,
+          3324,
+          3325,
+          3330
+        ],
+        "interleaved": true
+      },
+      "entities": [],
+      "notes": "THE FIRST SUB-COLUMN OF THE SAME LIST, CUT AT THE LEFT EDGE, part 2 of 4, and it yields NO entities on purpose. Every line here is a surname, or a surname with one surviving initial, whose forename the column edge removed — 'Brown', 'Burnap', ', A. Blakesley', 'ck A. Howell'. Ruling 1 mints a resident from a LISTED NAME; a bare surname is not one, and there are four Browns, two Burnaps, two Fowlers, two Greens, three Gridleys and two Christys in this fragment alone, so supplying forenames would be inventing people rather than reading them. The lines are quoted in full so the list is on the record complete, and '[…]' in `normalized` marks the cut at the head of every one. The alphabetical run A-B-C-D-E-F-G-H-I-J-K is unbroken across the four claims, which is the evidence that these lines are one sub-column and not scattered damage. THE NAMES ARE MINTED ELSEWHERE: the issues of 1834-07-09 and 1834-07-16 print this same sub-column with its forenames on, and their claims carry the people. WHAT IS DELIBERATELY LEFT OUT of both this claim and the whole-name one: lines 3258 ('D. Perk'), 3259 ('T. S. For in'), 3190 ('Th'), 3214 ('gle') and 3425 ('Blai') sit out of the alphabetical run and could belong either to this sub-column or to the advertisement woven through it. They are assigned to neither. A HAND COUNT, made against this column on 2026-08-28 and the reason thirteen lines were added to this claim after it was first written: page 3 column 2 runs 409 lines from 3130 to 3538; 150 of them are whole names, 141 are this cut sub-column, and the remaining 118 are the advertisement and the list's own heading and signature. The first pass of this claim held 128 of the 141 and the count is what found the other thirteen."
+    },
+    {
+      "id": "c037",
+      "kind": "person",
+      "reading": "transcription_mediated",
+      "letter_list_only": true,
+      "quote": "A. Curry\nC. Cono\n. Deel\nn H. Davis\nunlap\nDoty\n, C. Drake\no Downing\ny Diggin:\nH. Delamatte\nDouglass\nDolly\nunlap\nn R. Dorby\nEvert\nEasling\nFriend\nr Fi her\n. Foster\nerson\nitzsimmons\n). Filer\nFowler\n1 Fornsworth\nFowler\nFish\nI. Gooding\nA. Gooding •\njalatia 2\nGrayhem\n, Gooding\nGreen\nch Henry\nGreen\nGridley\ny Gridley",
+      "normalized": "[…]A. Curry / […]C. Cono / […]. Deel / […]n H. Davis / […]unlap / […]Doty / […], C. Drake / […]o Downing / […]y Diggin: / […]H. Delamatte / […]Douglass / […]Dolly / […]unlap / […]n R. Dorby / […]Evert / […]Easling / […]Friend / […]r Fi her / […]. Foster / […]erson / […]itzsimmons / […]). Filer / […]Fowler / […]1 Fornsworth / […]Fowler / […]Fish / […]I. Gooding / […]A. Gooding • / […]jalatia 2 / […]Grayhem / […], Gooding / […]Green / […]ch Henry / […]Green / […]Gridley / […]y Gridley",
+      "locator": {
+        "artifact_role": "primary",
+        "issue_page": 3,
+        "column": 2,
+        "lines": [
+          3333,
+          3439
+        ],
+        "lines_of_claim": [
+          3333,
+          3336,
+          3341,
+          3343,
+          3345,
+          3348,
+          3351,
+          3354,
+          3356,
+          3358,
+          3361,
+          3363,
+          3368,
+          3371,
+          3373,
+          3376,
+          3378,
+          3381,
+          3383,
+          3389,
+          3392,
+          3395,
+          3397,
+          3400,
+          3403,
+          3406,
+          3409,
+          3412,
+          3416,
+          3418,
+          3423,
+          3427,
+          3430,
+          3433,
+          3436,
+          3439
+        ],
+        "interleaved": true
+      },
+      "entities": [],
+      "notes": "THE FIRST SUB-COLUMN OF THE SAME LIST, CUT AT THE LEFT EDGE, part 3 of 4, and it yields NO entities on purpose. Every line here is a surname, or a surname with one surviving initial, whose forename the column edge removed — 'Brown', 'Burnap', ', A. Blakesley', 'ck A. Howell'. Ruling 1 mints a resident from a LISTED NAME; a bare surname is not one, and there are four Browns, two Burnaps, two Fowlers, two Greens, three Gridleys and two Christys in this fragment alone, so supplying forenames would be inventing people rather than reading them. The lines are quoted in full so the list is on the record complete, and '[…]' in `normalized` marks the cut at the head of every one. The alphabetical run A-B-C-D-E-F-G-H-I-J-K is unbroken across the four claims, which is the evidence that these lines are one sub-column and not scattered damage. THE NAMES ARE MINTED ELSEWHERE: the issues of 1834-07-09 and 1834-07-16 print this same sub-column with its forenames on, and their claims carry the people. WHAT IS DELIBERATELY LEFT OUT of both this claim and the whole-name one: lines 3258 ('D. Perk'), 3259 ('T. S. For in'), 3190 ('Th'), 3214 ('gle') and 3425 ('Blai') sit out of the alphabetical run and could belong either to this sub-column or to the advertisement woven through it. They are assigned to neither. A HAND COUNT, made against this column on 2026-08-28 and the reason thirteen lines were added to this claim after it was first written: page 3 column 2 runs 409 lines from 3130 to 3538; 150 of them are whole names, 141 are this cut sub-column, and the remaining 118 are the advertisement and the list's own heading and signature. The first pass of this claim held 128 of the 141 and the count is what found the other thirteen."
+    },
+    {
+      "id": "c038",
+      "kind": "person",
+      "reading": "transcription_mediated",
+      "letter_list_only": true,
+      "quote": "W. Gridiey\n). Huguenin\nfolderman\na Hunter\nHasslen\n: Holmer\nHopkins\n\" Hall\nck A. Howell\nHarbour\nHowley\nH. Hazzard\nHendrix\nrick\nrrison\ns c. Holmes\n[uncertain: 1 Huriburt]\nazlet 2\nHowland\noH. Hunt\n[uncertain: L Hardock]\n[uncertain: Hunter]\nder H. Howard\nHugunin\nF. Haria\nTill\n1 Hill\nM. Irevin\n• Jones\naston\nJones\nKinsey\nimbal",
+      "normalized": "[…]W. Gridiey / […]). Huguenin / […]folderman / […]a Hunter / […]Hasslen / […]: Holmer / […]Hopkins / […]\" Hall / […]ck A. Howell / […]Harbour / […]Howley / […]H. Hazzard / […]Hendrix / […]rick / […]rrison / […]s c. Holmes / […][uncertain: 1 Huriburt] / […]azlet 2 / […]Howland / […]oH. Hunt / […][uncertain: L Hardock] / […][uncertain: Hunter] / […]der H. Howard / […]Hugunin / […]F. Haria / […]Till / […]1 Hill / […]M. Irevin / […]• Jones / […]aston / […]Jones / […]Kinsey / […]imbal",
+      "locator": {
+        "artifact_role": "primary",
+        "issue_page": 3,
+        "column": 2,
+        "lines": [
+          3442,
+          3536
+        ],
+        "lines_of_claim": [
+          3442,
+          3445,
+          3448,
+          3451,
+          3454,
+          3458,
+          3462,
+          3464,
+          3466,
+          3469,
+          3472,
+          3473,
+          3478,
+          3480,
+          3483,
+          3486,
+          3489,
+          3491,
+          3493,
+          3495,
+          3497,
+          3499,
+          3502,
+          3505,
+          3508,
+          3511,
+          3513,
+          3517,
+          3519,
+          3522,
+          3530,
+          3533,
+          3536
+        ],
+        "interleaved": true
+      },
+      "entities": [],
+      "notes": "THE FIRST SUB-COLUMN OF THE SAME LIST, CUT AT THE LEFT EDGE, part 4 of 4, and it yields NO entities on purpose. Every line here is a surname, or a surname with one surviving initial, whose forename the column edge removed — 'Brown', 'Burnap', ', A. Blakesley', 'ck A. Howell'. Ruling 1 mints a resident from a LISTED NAME; a bare surname is not one, and there are four Browns, two Burnaps, two Fowlers, two Greens, three Gridleys and two Christys in this fragment alone, so supplying forenames would be inventing people rather than reading them. The lines are quoted in full so the list is on the record complete, and '[…]' in `normalized` marks the cut at the head of every one. The alphabetical run A-B-C-D-E-F-G-H-I-J-K is unbroken across the four claims, which is the evidence that these lines are one sub-column and not scattered damage. THE NAMES ARE MINTED ELSEWHERE: the issues of 1834-07-09 and 1834-07-16 print this same sub-column with its forenames on, and their claims carry the people. WHAT IS DELIBERATELY LEFT OUT of both this claim and the whole-name one: lines 3258 ('D. Perk'), 3259 ('T. S. For in'), 3190 ('Th'), 3214 ('gle') and 3425 ('Blai') sit out of the alphabetical run and could belong either to this sub-column or to the advertisement woven through it. They are assigned to neither. A HAND COUNT, made against this column on 2026-08-28 and the reason thirteen lines were added to this claim after it was first written: page 3 column 2 runs 409 lines from 3130 to 3538; 150 of them are whole names, 141 are this cut sub-column, and the remaining 118 are the advertisement and the list's own heading and signature. The first pass of this claim held 128 of the 141 and the count is what found the other thirteen."
+    },
+    {
+      "id": "c039",
+      "kind": "person",
+      "reading": "transcription_mediated",
+      "letter_list_only": true,
+      "quote": "List of Letters,\nEMAINING in the Post-Office at Plain-\nfield, Ill. July 1, 1034.\nH. D. Risley\nWalter Stowel\nPeter Schermerhorn\nJesse Vandolah\nWilliam Wood\nZacharias Walley\nL. F. ARNOLD, P.M.",
+      "normalized": "List of Letters [R]EMAINING in the Post-Office at Plainfield, Ill. July 1, 183[4]. […] H. D. Risley / Walter Stowel[l] / Peter Schermerhorn / Jesse Vandolah / William Wood / Zacharias Walley / L. F. ARNOLD, P.M.",
+      "locator": {
+        "artifact_role": "primary",
+        "issue_page": 3,
+        "column": 2,
+        "lines": [
+          3097,
+          3121
+        ],
+        "lines_of_claim": [
+          3097,
+          3098,
+          3100,
+          3103,
+          3106,
+          3109,
+          3111,
+          3116,
+          3119,
+          3121
+        ],
+        "interleaved": true
+      },
+      "entities": [
+        {
+          "as_printed": "H. D. Risley",
+          "normalized": "H. D. Risley",
+          "role": "addressee",
+          "associated_places": [
+            "Plainfield"
+          ]
+        },
+        {
+          "as_printed": "Walter Stowel",
+          "normalized": "Walter Stowel[l]",
+          "role": "addressee",
+          "associated_places": [
+            "Plainfield"
+          ]
+        },
+        {
+          "as_printed": "Peter Schermerhorn",
+          "normalized": "Peter Schermerhorn",
+          "role": "addressee",
+          "associated_places": [
+            "Plainfield"
+          ]
+        },
+        {
+          "as_printed": "Jesse Vandolah",
+          "normalized": "Jesse Vandolah",
+          "role": "addressee",
+          "associated_places": [
+            "Plainfield"
+          ]
+        },
+        {
+          "as_printed": "William Wood",
+          "normalized": "William Wood",
+          "role": "addressee",
+          "associated_places": [
+            "Plainfield"
+          ]
+        },
+        {
+          "as_printed": "Zacharias Walley",
+          "normalized": "Zacharias Walley",
+          "role": "addressee",
+          "associated_places": [
+            "Plainfield"
+          ]
+        },
+        {
+          "as_printed": "L. F. ARNOLD, P.M.",
+          "normalized": "L. F. Arnold",
+          "role": "postmaster",
+          "occupations": [
+            "postmaster"
+          ],
+          "associated_places": [
+            "Plainfield"
+          ]
+        }
+      ],
+      "notes": "THE PLAINFIELD LIST, NOT THE CHICAGO ONE, and it is extracted because the two sit one above the other in the same column and a later pass must not read them as one. Plainfield is thirty-odd miles south-west; these seven are NOT Chicago residents and `associated_places` says so on every entity. The dateline reads 'field, Ill. July 1, 1034.' at line 3100 — the same 1 July 1834 as the Chicago list, which is what a quarterly return looks like. '1034'→'183[4]'. Interleaved with an advertisement whose fragments ('FEW g', 'modated', 'the Village, b', 'quois Miem', 'ENTLI', 'Morocco a') are excluded. L. F. Arnold signs it as postmaster, and the same man is listed as the Democrat's Plainfield agent on page 4 (claim c028) — which is the second witness that corrects his initial there from 'E F' to 'L. F.'"
+    },
+    {
+      "id": "c040",
+      "kind": "notice",
+      "reading": "transcription_mediated",
+      "quote": "JOHN S. C. HOGAN, P.M.\nsons calling for any of the above letters\nase ray they are advertieed:",
+      "normalized": "JOHN S. C. HOGAN, P.M. […] [Per]sons calling for any of the above letters [ple]ase [s]ay they are advertise[d]:",
+      "locator": {
+        "artifact_role": "primary",
+        "issue_page": 3,
+        "column": 2,
+        "lines": [
+          3539,
+          3543
+        ],
+        "lines_of_claim": [
+          3539,
+          3541,
+          3543
+        ],
+        "interleaved": true
+      },
+      "entities": [
+        {
+          "as_printed": "JOHN S. C. HOGAN, P.M.",
+          "normalized": "John S. C. Hogan",
+          "role": "postmaster",
+          "occupations": [
+            "postmaster"
+          ],
+          "associated_places": [
+            "Chicago"
+          ]
+        }
+      ],
+      "notes": "THE POSTMASTER'S SIGNATURE CLOSING THE CHICAGO LIST, and it is a claim of its own because it is the one line in the list that is evidence about an office rather than an addressee. `letter_list_only` is deliberately ABSENT here — Hogan is not a name on the list, he is the man who published it, so ruling 1's weaker grade does not apply and the compiler will record him as corroborated. THE SAME NAME advertises as a South Water Street merchant elsewhere in this run and in T-0257's fixture issue of 1835-07-01, where the fixture explicitly refused to identify the postmaster with the merchant. That refusal stands: no merge is declared here either, and this claim adds only that in July 1834 the Chicago postmaster wrote his name as JOHN S. C. HOGAN."
+    },
+    {
+      "id": "c043",
+      "kind": "shipping",
+      "reading": "transcription_mediated",
+      "quote": "MARINE LIST.\nPORT OF CHICAGO.\nARRIVED.\nJar 2. S.H. Ohio, Cotton, Buffalo, 70 pa's.\n26. S. B. Moneer, Spiree, St. Joseph, pa's.\ne7. Schr. Lucinda, Hugumin, do. Lumber.\ne. Schr. Oregon, Brooks,\nst, Schr. Jeese Smith, Boothe, Kaloma-\n29. S. B. Pioneer, Spires, St. Josph, pa's.\n30. Marish Antonette, Schoville, Bufinlo,\nS. B. Pioneer, Spirce, St. Joseph, pa's.\n. Schr. Atalanta, Caskey,\n1. Schr. Juliet, Shooks, Buffalo, mer'ze.\n3. Ser. Oregon, Brooks, St. Joseph,\nPenama, Chandler, Buffalo\nCLEARED.\nJar 26. 8. I. Ohio, Cotton, Detroit.\neT. S. B. Pioneer, Spires, St, Joseph.\ne7. Scir. Globe, Perkins, Detroit.\nes. S. B. lioneer, Spires, St. Joseph.\n29, Schr. Locinda, Hugonin, do.\n2a, Stoop, Westward lo,\nMy 1. Schr. Jesse Smith, Boothe, de.\n1. S. B. Pioncer, Spires,",
+      "normalized": "MARINE LIST. PORT OF CHICAGO. ARRIVED. Ju[ne] 2[5]. S. B. Ohio, Cotton, Buffalo, 70 pa[ssenger]s. […] 26. S. B. [Pio]neer, Spir[e]s, St. Joseph, pa[ssenger]s. […] 27. Schr. Lucinda, Hugumin, do. Lumber. […] 2[8]. Schr. Oregon, Brooks, do. do. […] [2]9. Schr. Jesse Smith, Boothe, Kalama[zoo] […] 29. S. B. Pioneer, Spires, St. Jos[e]ph, pa[ssenger]s, 200[,] [l]umber. […] 30. Mari[a] Antonette, Sco[v]ille, Buffalo, mer[chandi]ze &c. &c. […] July 1. S. B. Pioneer, Spir[e]s, St. Joseph, pa[ssenger]s. […] [July 1]. Schr. Atalanta, Caskey, Buffalo […] 1. Schr. Juliet, Shooks, Buffalo, mer[chandi]ze. […] 3[?]. Sc[h]r. Oregon, Brooks, St. Joseph […] [2?]. Schr. Panama, Chandler, Buffalo […] CLEARED. Ju[ne] 26. S. B. Ohio, Cotton, Detroit. […] [2]7. S. B. Pioneer, Spires, St. Joseph. […] 27. Sc[h]r. Globe, Perkins, Detroit. […] [2]8. S. B. [P]ioneer, Spires, St. Joseph. […] 29. Schr. L[u]cinda, Hugonin, do. […] 2[9]. Sloop, Westward [H]o, do. […] [Jul]y 1. Schr. Jesse Smith, Boothe, d[o]. […] 1. S. B. Pioneer, Spires, do.",
+      "locator": {
+        "artifact_role": "primary",
+        "issue_page": 3,
+        "column": 1,
+        "lines": [
+          2850,
+          2921
+        ],
+        "lines_of_claim": [
+          2850,
+          2853,
+          2856,
+          2858,
+          2862,
+          2864,
+          2866,
+          2870,
+          2872,
+          2876,
+          2882,
+          2884,
+          2887,
+          2891,
+          2896,
+          2900,
+          2903,
+          2905,
+          2907,
+          2909,
+          2911,
+          2913,
+          2916,
+          2918
+        ],
+        "interleaved": true
+      },
+      "entities": [
+        {
+          "as_printed": "Cotton",
+          "normalized": "[uncertain: Cotton]",
+          "role": "master"
+        },
+        {
+          "as_printed": "Spiree",
+          "normalized": "[uncertain: Spires]",
+          "role": "master"
+        },
+        {
+          "as_printed": "Hugumin",
+          "normalized": "[uncertain: Hugunin]",
+          "role": "master"
+        },
+        {
+          "as_printed": "Brooks",
+          "normalized": "Brooks",
+          "role": "master"
+        },
+        {
+          "as_printed": "Boothe",
+          "normalized": "Boothe",
+          "role": "master"
+        },
+        {
+          "as_printed": "Schoville",
+          "normalized": "[uncertain: Scoville]",
+          "role": "master"
+        },
+        {
+          "as_printed": "Caskey",
+          "normalized": "Caskey",
+          "role": "master"
+        },
+        {
+          "as_printed": "Shooks",
+          "normalized": "[uncertain: Shooks]",
+          "role": "master"
+        },
+        {
+          "as_printed": "Chandler",
+          "normalized": "Chandler",
+          "role": "master"
+        },
+        {
+          "as_printed": "Perkins",
+          "normalized": "Perkins",
+          "role": "master"
+        }
+      ],
+      "notes": "THE PORT, WEEK BY WEEK, and the single most quantitative town claim in the issue: twelve arrivals and eight clearances between about 25 June and 1 July 1834, at a port with no harbour works. The steamboat Pioneer alone makes four arrivals and three clearances in seven days on the St. Joseph run advertised on page 4 (claim c011), which is the corroboration between the two. THE DATE COLUMN IS THE WORST-READ PART: '25' prints as '2', '26' as '26.', '27' as 'e7.', '28' as 'e.', '29' as 'st,' and '30' as '30.' in a column the segmenter has also woven the letter list through. Days are read from the sequence and bracketed where the digits do not carry them; '1531' at line 2859 belongs to neither reading and is excluded. VESSEL NAMES are left as printed with corrections only where the same vessel appears twice in the list ('Moneer'/'Pioneer', 'Locinda'/'Lucinda', 'Marish Antonette'/'Maria Antonette' is NOT one of those and stays bracketed). Masters are extracted as persons at surname only, which is all the list prints."
+    },
+    {
+      "id": "c044",
+      "kind": "event",
+      "reading": "transcription_mediated",
+      "quote": "Fourth of July.\nDoner will be on the table at the Mansion\nHoose, (2 o'clock P. M.) Tickets to be ob-\ntained at the Bar.\nChicago, July 2, 1834.",
+      "normalized": "Fourth of July. Dinner will be on the table at the Mansion House, (2 o'clock P. M.) Tickets to be obtained at the Bar. Chicago, July 2, 1834.",
+      "locator": {
+        "artifact_role": "primary",
+        "issue_page": 3,
+        "column": 1,
+        "lines": [
+          2935,
+          2943
+        ],
+        "lines_of_claim": [
+          2935,
+          2938,
+          2940,
+          2941,
+          2943
+        ],
+        "interleaved": true
+      },
+      "entities": [],
+      "ad_copy_date": {
+        "verbatim": "Chicago, July 2, 1834.",
+        "iso": "1834-07-02"
+      },
+      "notes": "THE TOWN'S OWN FOURTH OF JULY, two days off, and the building it happens in: the Mansion House, with a bar. Dated the day of the issue, so this is not standing matter. 'Doner'→'Dinner', 'Hoose'→'House'. The Mansion House is named twice more in this issue — a physician gives it as his residence at line 3011 (claim c046) — and is placed by neither. No `business` record is made: a dinner notice is an event, and the house that serves it is claimed on c046 where its name is printed with the word 'residence'."
+    },
+    {
+      "id": "c045",
+      "kind": "business",
+      "reading": "transcription_mediated",
+      "quote": "HUBBARD & CO.\nCommission d Forwarding\nJERCHANTS,\nCHICAGO-ILLINOIS.\n[uncertain: LiENsY G, HEBnAsD.]",
+      "normalized": "HUBBARD & CO. Commission [an]d Forwarding [M]ERCHANTS, CHICAGO-ILLINOIS. […] [uncertain: HENRY G. HUBBARD.]",
+      "locator": {
+        "artifact_role": "primary",
+        "issue_page": 3,
+        "column": 1,
+        "lines": [
+          2987,
+          3003
+        ],
+        "lines_of_claim": [
+          2987,
+          2989,
+          2991,
+          2995,
+          3002
+        ],
+        "interleaved": true
+      },
+      "entities": [
+        {
+          "as_printed": "[uncertain: LiENsY G, HEBnAsD.]",
+          "normalized": "Henry G. Hubbard",
+          "role": "proprietor",
+          "occupations": [
+            "merchant"
+          ]
+        }
+      ],
+      "business": {
+        "name": "Hubbard & Co.",
+        "proprietors": [
+          "Henry G. Hubbard"
+        ],
+        "trade": "commission and forwarding merchants",
+        "goods": [
+          "Dry Goods",
+          "Groceries",
+          "Hardware",
+          "Crockery",
+          "Nails",
+          "Salt"
+        ],
+        "street": null,
+        "placement": {
+          "class": "none",
+          "street": null
+        }
+      },
+      "notes": "THE FIRM'S OWN CARD, giving a town and no street. Hubbard & Co. advertise four times in this issue — this card, a wholesale goods list (lines 3032-3059), the Howard Fire Insurance agency (claim c047) and a nails-and-barrels notice (3638-3644) — and not one gives an address. Line 3000 reads '[uncertain: E??? K. Ho??Ak»,]' and line 3002 '[uncertain: LiENsY G, HEBnAsD.]'; the second is normalized 'Henry G. Hubbard' because the batch's validation notes list Henry G. Hubbard, Gurdon S. Hubbard and Hubbard & Co. among its twelve secure recurring readings, so the reading is supported by the run rather than by these letters. The FIRST of the two names is NOT read: 'E??? K. Ho??Ak»' could be Gurdon S. Hubbard and the transcription does not say so."
+    },
+    {
+      "id": "c046",
+      "kind": "business",
+      "reading": "transcription_mediated",
+      "quote": "I TrEBS lis scrices to the people of Chica-\ncap, in Medicine and Surgerv.\nen is ter the Mansion-house.\nHis resi-\nGoodrich\nJuly 2, 1834.",
+      "normalized": "[uncertain: DOCTOR H…] [O]FFERS his services to the people of Chica[go], in Medicine and Surgery. […] His resi[dence is at] the Mansion-house. […] July 2, 1834.",
+      "locator": {
+        "artifact_role": "primary",
+        "issue_page": 3,
+        "column": 1,
+        "lines": [
+          3004,
+          3014
+        ],
+        "lines_of_claim": [
+          3007,
+          3009,
+          3011,
+          3012,
+          3013,
+          3014
+        ],
+        "interleaved": true
+      },
+      "entities": [],
+      "ad_copy_date": {
+        "verbatim": "July 2, 1834.",
+        "iso": "1834-07-02"
+      },
+      "business": {
+        "name": "[uncertain: the physician lodging at the Mansion House, July 1834]",
+        "proprietors": [],
+        "trade": "medicine and surgery",
+        "goods": [],
+        "street": null,
+        "placement": {
+          "class": "relative",
+          "anchor": "the Mansion-house",
+          "offset_text": "en is ter the Mansion-house.",
+          "offset_normalized": "[His residence is at] the Mansion-house",
+          "street": null
+        }
+      },
+      "notes": "A PHYSICIAN WHOSE NAME THIS TRANSCRIPTION DOES NOT CARRY. The display line 3004 reads '[uncertain: ?OCTOB H?O??,]' — DOCTOR and an H-surname of four or five letters, and that is all. No name is supplied and the business record is deliberately keyed on a description rather than a person, which is ugly and correct: the CLAIM is that in July 1834 a physician was practising in Chicago and lodging at the Mansion House, and that claim survives the name being unreadable. The Mansion House is thereby a building with lodgers as well as a dining room (claim c044). Lines 3005-3006, 3008, 3010 carry the letter list woven through and are excluded. Dated the day of the issue."
+    },
+    {
+      "id": "c047",
+      "kind": "building",
+      "reading": "transcription_mediated",
+      "quote": "To Lease,\nTECT front, 150 Feet rear, of Lot No. 1\nEte orsix yes. Also 50 feet front, 22 feet rear\nBack 18, on South Water-street, for\nRalph 11\nthe abose Lot, fronting on Clark-street.\nFaterna, inquire at the Printing office.\nChicago, Jaly 2, 1634.\nSOLOMON JUNEAU.",
+      "normalized": "To Lease, [uncertain: 50] feet front, 150 feet rear, of Lot No. 1 […] [f]or [f]ive or six years. Also 50 feet front, 22 feet rear[,] [of] Block 18, on South Water-street, for […] the above Lot, fronting on Clark-street. […] [For terms], inquire at the Printing office. […] Chicago, July 2, 1834. SOLOMON JUNEAU.",
+      "locator": {
+        "artifact_role": "primary",
+        "issue_page": 3,
+        "column": 1,
+        "lines": [
+          3016,
+          3029
+        ],
+        "lines_of_claim": [
+          3016,
+          3018,
+          3020,
+          3021,
+          3022,
+          3023,
+          3025,
+          3028,
+          3029
+        ],
+        "interleaved": true
+      },
+      "entities": [
+        {
+          "as_printed": "SOLOMON JUNEAU.",
+          "normalized": "Solomon Juneau",
+          "role": "owner"
+        }
+      ],
+      "ad_copy_date": {
+        "verbatim": "Chicago, Jaly 2, 1634.",
+        "iso": "1834-07-02"
+      },
+      "notes": "A LOT NUMBER, A BLOCK NUMBER, TWO STREETS AND TWO FRONTAGES IN FEET — the most dimensioned town claim in the issue, and it is on the interleaved page. Block 18, on South Water Street, with the second parcel fronting on Clark Street. THE FIRST FRONTAGE IS NOT READ: line 3018 begins 'TECT front, 150 Feet rear' and the number before 'front' is cut, so '[uncertain: 50]' is a bracket and not a supply — 50 is the figure the SECOND parcel prints and copying it onto the first would be inventing a dimension. THE ORDER OF THE LINES IS THE SEGMENTER'S, not the paper's: 3020 ('Ete orsix yes. Also 50 feet front, 22 feet rear') and 3021 ('Back 18, on South Water-street, for') read in that order in the transcription and 'Back 18'→'[Blo]ck 18' is the correction that makes the parcel legible. Dated the day of the issue; Juneau is not otherwise in it."
+    },
+    {
+      "id": "c048",
+      "kind": "business",
+      "reading": "transcription_mediated",
+      "quote": "urance by Fire.\nbscribere having been appointed\nts for the Howard Fire Insurance\nthe city of New-York, for Chi-\n• vicinity, will insure property a-\ny Fire, on reasonable terms.\nHUBBARD & CO.",
+      "normalized": "[Ins]urance by Fire. [The su]bscribers having been appointed [Ag]ents for the Howard Fire Insurance [Company of] the city of New-York, for Chi[cago and its] vicinity, will insure property a[gainst loss b]y Fire, on reasonable terms. HUBBARD & CO.",
+      "locator": {
+        "artifact_role": "primary",
+        "issue_page": 3,
+        "column": 3,
+        "lines": [
+          3586,
+          3599
+        ],
+        "lines_of_claim": [
+          3586,
+          3588,
+          3591,
+          3593,
+          3595,
+          3597,
+          3599
+        ],
+        "interleaved": true
+      },
+      "entities": [],
+      "business": {
+        "name": "Hubbard & Co.",
+        "proprietors": [
+          "Henry G. Hubbard"
+        ],
+        "trade": "commission and forwarding merchants, and fire insurance agents",
+        "goods": [],
+        "street": null,
+        "placement": {
+          "class": "none",
+          "street": null
+        }
+      },
+      "notes": "FIRE INSURANCE IS SOLD IN CHICAGO IN JULY 1834, which is a fact about the building stock as much as about Hubbard & Co.: a New York company was willing to write on this town's timber. The supplies here are all closures of words the column edge cut in the middle ('scribers'→'[su]bscribers', 'gainst loss by'→'a[gainst loss b]y') and each is bracketed. The interleaved neighbour is a boots-and-shoes list whose lines (3587, 3589, 3590, 3592, 3594, 3596, 3598) are excluded. The complementary half of this same advertisement is in page 3 column 2 at lines 3153-3168, where the fragments 'THE sub', 'Agent:', 'Company of t', 'cago and the', 'gainst loss by', 'July 1.' carry the other side of every line quoted here — which is how the supplies were checked rather than guessed."
+    },
+    {
+      "id": "c049",
+      "kind": "notice",
+      "reading": "transcription_mediated",
+      "quote": "Dissolution.\npartnership heretofore existing be-\nG. W. & William Laird, under\ni. W. & W. Laird, was dissolved\nonsent, on the first day of Novem-\n'ho books and notes are in the\nW. Laird, who is authorized to\nme and pay all debts of said firm.\nG. W. LAIRD.\nWm. LAIRD,\nruly 1, 1834.",
+      "normalized": "Dissolution. [The co]partnership heretofore existing be[tween] G. W. & William Laird, under [the firm of] G. W. & W. Laird, was dissolved [by mutual c]onsent, on the first day of November[, 1833. T]he books and notes are in the [hands of G.] W. Laird, who is authorized to [settle the sa]me and pay all debts of said firm. G. W. LAIRD, WM. LAIRD, [Ju]ly 1, 1834.",
+      "locator": {
+        "artifact_role": "primary",
+        "issue_page": 3,
+        "column": 3,
+        "lines": [
+          3602,
+          3628
+        ],
+        "lines_of_claim": [
+          3602,
+          3605,
+          3607,
+          3609,
+          3611,
+          3613,
+          3615,
+          3616,
+          3618,
+          3619,
+          3621
+        ],
+        "interleaved": true
+      },
+      "entities": [
+        {
+          "as_printed": "G. W. LAIRD.",
+          "normalized": "G. W. Laird",
+          "role": "partner",
+          "occupations": [
+            "merchant"
+          ]
+        },
+        {
+          "as_printed": "Wm. LAIRD,",
+          "normalized": "William Laird",
+          "role": "partner",
+          "occupations": [
+            "merchant"
+          ]
+        }
+      ],
+      "ad_copy_date": {
+        "verbatim": "ruly 1, 1834.",
+        "iso": "1834-07-01"
+      },
+      "business": {
+        "name": "G. W. & W. Laird",
+        "proprietors": [
+          "G. W. Laird",
+          "William Laird"
+        ],
+        "trade": "merchants",
+        "goods": [
+          "New Goods"
+        ],
+        "street": null,
+        "placement": {
+          "class": "none",
+          "street": null
+        }
+      },
+      "contradicts": "the partnership G. W. & W. Laird, dissolved 1 November 1833",
+      "notes": "RULING 3's VETO, AND THE ONLY ONE IN THIS ISSUE THAT IS UNAMBIGUOUS: a dissolution notice naming the firm, so `contradicts` is set and the compiler will refuse to stand G. W. & W. Laird in the 1835 town. THE DATE THE FIRM ENDED IS NOT THE DATE OF THE NOTICE: dissolved 'on the first day of November' 1833 (the year is supplied from the run and bracketed, because line 3611 is cut after 'Novem-'), published 1 July 1834, eight months later. WHAT SUCCEEDS IT IS IN THE SAME ADVERTISEMENT and is a separate claim, c050: the business continues at Naper's Settlement under Geo. W. Laird. THE SUPPLIES were all checked against the fragment column woven through this one at lines 3603-3627 ('cash prices.', 'From a long expe', 'subscriber can with', 'of Merchants in the'), which belongs to Philo Carpenter's druggist advertisement and not to this notice."
+    },
+    {
+      "id": "c050",
+      "kind": "business",
+      "reading": "transcription_mediated",
+      "quote": "iness will be carried on at the old\nupau, (Naper's Settlement) by\nber,\nwho has just receivel a\nortment of NEW GOODS from\nwho will sell as cheap as the\nGEO. W. LAIRD",
+      "normalized": "[The bus]iness will be carried on at the old [stand at Na]pau, (Naper's Settlement) by [the subscri]ber, who has just receive[d] a [splendid ass]ortment of NEW GOODS from [New York,] who will sell as cheap as the [cheapest.] GEO. W. LAIRD",
+      "locator": {
+        "artifact_role": "primary",
+        "issue_page": 3,
+        "column": 3,
+        "lines": [
+          3625,
+          3641
+        ],
+        "lines_of_claim": [
+          3625,
+          3627,
+          3629,
+          3630,
+          3631,
+          3633,
+          3635
+        ],
+        "interleaved": true
+      },
+      "entities": [
+        {
+          "as_printed": "GEO. W. LAIRD",
+          "normalized": "Geo. W. Laird",
+          "role": "proprietor",
+          "occupations": [
+            "merchant"
+          ],
+          "associated_places": [
+            "Naper's Settlement"
+          ]
+        }
+      ],
+      "business": {
+        "name": "Geo. W. Laird, Naper's Settlement",
+        "proprietors": [
+          "Geo. W. Laird"
+        ],
+        "trade": "general store",
+        "goods": [
+          "New Goods"
+        ],
+        "street": null,
+        "placement": {
+          "class": "none",
+          "street": null
+        }
+      },
+      "notes": "THE SUCCESSION HALF of claim c049's notice, and it moves the business OUT OF CHICAGO — the old stand is at Naper's Settlement, thirty miles west. That is why it is a separate business record from 'G. W. & W. Laird' rather than a continuation of it: the firm is dissolved and one partner carries the trade on somewhere else. THE SUPPLIES come from the complementary column at page 3 column 2 lines 3205-3237, where the same advertisement's other half prints 'Paupan, Ju', 'The busir', 'stand at Pau', 'the subscribe', 'splendid assor', 'New York, w', 'cheapest.' — line by line the missing left edges of the lines quoted here. 'Napau'/'Paupan' are two readings of the same word in the two halves and neither is preferred; 'Naper's Settlement' is the paper's own gloss and is what the entity carries."
+    },
+    {
+      "id": "c051",
+      "kind": "business",
+      "reading": "transcription_mediated",
+      "quote": "clismith Work.\nTERCE & FRENCH,\nTFULLY inform the citizens of the\nf Chicago and its neighboring sct-\n* they are carrying on the Black-\nin, in the oid shop formerly occu-\ne and Abbott, on the corner of Lake\nreets, opposite the Chicago Hotel,\nrill keep on hand and manufacture\nirie Ploughs, Edge Tools, and all\nChicago, June 25, 1834.",
+      "normalized": "[Black]smith Work. [PI]ERCE & FRENCH, [RESPEC]TFULLY inform the citizens of the [town o]f Chicago and its neighboring set[tlements, that] they are carrying on the Black[smith business], in the old shop formerly occu[pied by Pierc]e and Abbott, on the corner of Lake [and Canal st]reets, opposite the Chicago Hotel, [where they] will keep on hand and manufacture [Prai]rie Ploughs, Edge Tools, and all [other work in] their line of business. […] Chicago, June 25, 1834.",
+      "locator": {
+        "artifact_role": "primary",
+        "issue_page": 3,
+        "column": 3,
+        "lines": [
+          3762,
+          3783
+        ],
+        "lines_of_claim": [
+          3762,
+          3764,
+          3766,
+          3768,
+          3770,
+          3771,
+          3773,
+          3774,
+          3775,
+          3776,
+          3783
+        ],
+        "interleaved": true
+      },
+      "entities": [
+        {
+          "as_printed": "TERCE & FRENCH,",
+          "normalized": "Pierce & French",
+          "role": "proprietor",
+          "occupations": [
+            "blacksmith"
+          ],
+          "associated_places": [
+            "Lake Street",
+            "Canal Street"
+          ]
+        },
+        {
+          "as_printed": "pied by Pierce",
+          "normalized": "Pierce and Abbott",
+          "role": "predecessor",
+          "occupations": [
+            "blacksmith"
+          ],
+          "associated_places": [
+            "Lake Street",
+            "Canal Street"
+          ]
+        }
+      ],
+      "ad_copy_date": {
+        "verbatim": "Chicago, June 25, 1834.",
+        "iso": "1834-06-25"
+      },
+      "business": {
+        "name": "Pierce & French",
+        "proprietors": [
+          "Pierce & French"
+        ],
+        "trade": "blacksmith",
+        "goods": [
+          "Edge Tools",
+          "Prairie Ploughs"
+        ],
+        "street": "Lake Street",
+        "placement": {
+          "class": "corner",
+          "anchor": "the corner of Lake and Canal streets, opposite the Chicago Hotel",
+          "offset_text": "e and Abbott, on the corner of Lake\nreets, opposite the Chicago Hotel,",
+          "offset_normalized": "on the corner of Lake [and Canal st]reets, opposite the Chicago Hotel",
+          "street": "Lake Street"
+        }
+      },
+      "notes": "THE RICHEST PLACEMENT IN THE ISSUE: a corner, TWO named streets, a named building opposite, and an occupancy chain — 'the old shop formerly occupied by Pierce and Abbott'. A building with two successive tenants and a fixed corner is what the storefront pass needs. THE SUPPLIES ARE ALL CHECKED, not guessed: the complementary half of every quoted line is in page 3 column 2 at lines 3421-3457, which print 'rainm', 'Blai', 'town of', 'tlements, that', 'smith business', 'pied by Pierce', 'and Canal stre', 'where they wi', 'to order, Prai', 'other work in' — so 'and Canal streets' is a SECOND WITNESS in this same issue and not an inference from the corner. THE CHICAGO HOTEL is named here and nowhere else in the issue. Goss & Cobb (claim c001) are at the same corner of Lake and Canal, which is a fact about the corner, not a conflict."
+    },
+    {
+      "id": "c052",
+      "kind": "business",
+      "reading": "transcription_mediated",
+      "quote": "Town Map.\ncived and for wale, Lithographie\nthe Town of Chicago, including\ncetion, \"Kinzie'» Addition,\" Wa-\nhandsomely executed.\nKINZIE & FORSYTH.\nalso be foand at the office of the\nmocrat.",
+      "normalized": "Town Map. [Just re]ceived and for sale, Lithographic [Maps of] the Town of Chicago, including [the addition,] \"Kinzie's Addition,\" Wa[bansia, &c., they are] handsomely executed. KINZIE & FORSYTH. […] [They can] also be found at the office of the [\"Chicago De]mocrat.\"",
+      "locator": {
+        "artifact_role": "primary",
+        "issue_page": 3,
+        "column": 3,
+        "lines": [
+          3785,
+          3800
+        ],
+        "lines_of_claim": [
+          3785,
+          3787,
+          3789,
+          3791,
+          3793,
+          3794,
+          3798,
+          3800
+        ],
+        "interleaved": true
+      },
+      "entities": [
+        {
+          "as_printed": "KINZIE & FORSYTH.",
+          "normalized": "Kinzie & Forsyth",
+          "role": "proprietor",
+          "occupations": [
+            "merchant"
+          ]
+        }
+      ],
+      "business": {
+        "name": "Kinzie & Forsyth",
+        "proprietors": [
+          "Kinzie & Forsyth"
+        ],
+        "trade": "merchants, and sellers of the lithographic town map",
+        "goods": [
+          "Town Maps"
+        ],
+        "street": null,
+        "placement": {
+          "class": "none",
+          "street": null
+        }
+      },
+      "notes": "A LITHOGRAPHIC MAP OF THE TOWN IS ON SALE IN THE TOWN IN JULY 1834, naming Kinzie's Addition and Wabansia — which is a claim about what the town's own inhabitants thought its extent was, and a pointer to a source record this project may be able to find. THE SUPPLIES come from the interleaved half at page 3 column 2 lines 3468-3488 ('UST recei', 'Maps of', 'the School Sec', 'ban-sia, dc. hi', 'June 18, 183', 'They can al', '\"Chicago Den') — note that 'the School Sec[tion]' in that half does NOT appear in this one, so the map's contents may include a third area this column does not print; it is not asserted. The date line 3796 reads '34.' alone and is not enough for an `ad_copy_date`; line 3482's other half reads 'June 18, 183' and the two together support 18 June 1834, which is stated here rather than asserted in the field because the two halves are two different lines of the SAME advertisement only by inference from the interleave."
+    },
+    {
+      "id": "c053",
+      "kind": "building",
+      "reading": "transcription_mediated",
+      "quote": "For sale,\n7, in block No. 16, one lot east of\nk'n Tavern, on Lake street, in the\nago. There is on said lot a large\nase and fine well.\nFor terms en-\nG. SPRING.",
+      "normalized": "For sale, [Lot No.] 7, in block No. 16, one lot east of [uncertain: …]k'n Tavern, on Lake street, in the [town of Chic]ago. There is on said lot a large [uncertain: …]ase and fine well. For terms en[quire of] G. SPRING.",
+      "locator": {
+        "artifact_role": "primary",
+        "issue_page": 3,
+        "column": 3,
+        "lines": [
+          3802,
+          3816
+        ],
+        "lines_of_claim": [
+          3802,
+          3804,
+          3806,
+          3808,
+          3810,
+          3811,
+          3813
+        ],
+        "interleaved": true
+      },
+      "entities": [
+        {
+          "as_printed": "G. SPRING.",
+          "normalized": "G. Spring",
+          "role": "advertiser"
+        }
+      ],
+      "notes": "A LOT, A BLOCK, A STREET, AN OFFSET FROM A NAMED TAVERN, A BUILDING AND A WELL — and the tavern's name is exactly what the column edge removed. Line 3806 reads \"k'n Tavern, on Lake street, in the\" and the letters before k'n are gone; the complementary half at page 3 column 2 line 3498 reads 'OT No. 7,' and 3501 'town of Chica', which confirm the lot and the town and do NOT carry the tavern. It is therefore NOT supplied. THE BUILDING on the lot is 'a large [?]ase' — line 3808 — where the word is most likely house but 'ase' supports several and the transcription's own witness at 3504 reads 'Dwelling-Hour', i.e. Dwelling-House. That is a second witness for a DWELLING and it is stated here; the bracket stays in `normalized` because the two halves disagree on the word. THE WELL IS THE POINT for a reconstruction: a fine well on a Lake Street lot in July 1834."
+    },
+    {
+      "id": "c054",
+      "kind": "business",
+      "reading": "transcription_mediated",
+      "quote": "CARPENTER,\n& Retail Druggist,\nOF THE GOLDEN MORTER,\nater Stret, Chicago,\nfers for sale, one of the lar-\nand best selected assortments of\nMEDICINES,\nIs, & Bye-Stulls,",
+      "normalized": "[PHILO] CARPENTER, [Wholesale] & Retail Druggist, [AT THE SIGN] OF THE GOLDEN MORTER, [South W]ater Str[e]et, Chicago, [H]AS just received, and now of[fers for sale, one of the lar]gest and best selected assortments of [DR]UGS AND MEDICINES, [Paint]s, & Dye-Stuffs,",
+      "locator": {
+        "artifact_role": "primary",
+        "issue_page": 3,
+        "column": 4,
+        "lines": [
+          3845,
+          3913
+        ],
+        "lines_of_claim": [
+          3845,
+          3846,
+          3849,
+          3852,
+          3855,
+          3857,
+          3860,
+          3863
+        ],
+        "interleaved": true
+      },
+      "entities": [
+        {
+          "as_printed": "CARPENTER,",
+          "normalized": "Philo Carpenter",
+          "role": "proprietor",
+          "occupations": [
+            "druggist"
+          ],
+          "associated_places": [
+            "South Water Street"
+          ]
+        }
+      ],
+      "business": {
+        "name": "Philo Carpenter",
+        "proprietors": [
+          "Philo Carpenter"
+        ],
+        "trade": "wholesale and retail druggist",
+        "goods": [
+          "Drugs",
+          "Dye-Stuffs",
+          "Medicines",
+          "Paints"
+        ],
+        "street": "South Water Street",
+        "placement": {
+          "class": "street_only",
+          "street": "South Water Street"
+        }
+      },
+      "notes": "A SHOP SIGN AND A STREET: the Sign of the Golden Morter, on South Water Street. The forename is NOT on this half of the advertisement — line 3845 reads 'CARPENTER,' with the given name cut — and 'Philo' is supplied from the batch's own validation notes, which list Philo Carpenter among the twelve secure recurring readings compared across the 1834 issues. That is a supply from OUTSIDE this issue and it is bracketed and stated here for that reason. The other half of the ad is in page 3 column 3 at lines 3549-3612 ('LOC', 'Wholesale &', 'AT THE SIGN O', 'South Ha', 'Paints, Oil', 'From a long expe', 'subscriber can with', 'of Merchants in the', 'Physicians, pledgin'), where 'South Ha' is the cut form of what this column prints as 'ater Stret' — the two halves together give 'South Water Street' and neither gives it alone. THE SIGN is worth a card: a golden mortar hanging on South Water Street in 1834."
+    },
+    {
+      "id": "c055",
+      "kind": "business",
+      "reading": "transcription_mediated",
+      "quote": "EDWARD W\nATTORNEY 4 COUNS\nFFICE adjoining that\nCircuit Court.\nopposite to Fort Dearborn.",
+      "normalized": "EDWARD W. [CASEY,] ATTORNEY [&] COUNS[ELLOR AT LAW,] […] [O]FFICE adjoining that [of the Clerk of the] Circuit Court, opposite to Fort Dearborn.",
+      "locator": {
+        "artifact_role": "primary",
+        "issue_page": 3,
+        "column": 4,
+        "lines": [
+          4016,
+          4025
+        ],
+        "lines_of_claim": [
+          4016,
+          4018,
+          4022,
+          4024,
+          4025
+        ],
+        "interleaved": true
+      },
+      "entities": [
+        {
+          "as_printed": "EDWARD W",
+          "normalized": "Edward W. Casey",
+          "role": "proprietor",
+          "occupations": [
+            "attorney"
+          ]
+        }
+      ],
+      "business": {
+        "name": "Edward W. Casey",
+        "proprietors": [
+          "Edward W. Casey"
+        ],
+        "trade": "attorney and counsellor at law",
+        "goods": [],
+        "street": null,
+        "placement": {
+          "class": "relative",
+          "anchor": "the office of the Clerk of the Circuit Court, opposite to Fort Dearborn",
+          "offset_text": "FFICE adjoining that\nCircuit Court.\nopposite to Fort Dearborn.",
+          "offset_normalized": "OFFICE adjoining that [of the Clerk of the] Circuit Court, opposite to Fort Dearborn",
+          "street": null
+        }
+      },
+      "notes": "FORT DEARBORN AS AN ADDRESS, which is the only time the fort is used to place anything in this issue. The chain is two deep — the office adjoins the Circuit Court clerk's office, which is opposite the fort — and both halves of it are printed. THE SURNAME is cut: line 4016 reads 'EDWARD W' and stops. 'Casey' is supplied from the validation notes' secure-recurring-readings list, which carries Edward W. Casey, and from the complementary half at page 3 column 5 line 4324 ('• CASEY,') — a second witness INSIDE this issue, which is the stronger of the two. Lines 4020-4021 ('Hin-', '[uncertain: 0]') belong to the interleaved neighbour and are excluded. No dateline survives."
+    },
+    {
+      "id": "c056",
+      "kind": "notice",
+      "reading": "transcription_mediated",
+      "quote": "INDIAN AGENCY.\nAS, by the Second Arti-\nTreaty of Chicago, of the\nr, 1833, it is provided that\nof Chippewa, Ottawa, and\nians, shall be permitted\nn of all that part of the\nng North of the boundary\nof Illinois, for the term of\nut molestation or interrup-\ne protection of the laws of\n• Notice is hereby given,\nnot to intrude on said ce-\nch as may have settled\nlicenced traders,) are re-\ntherefrom within the space\nthe date hereof.\nians as have planted corn\ns lying within the limits of\npermitted to remain in the\nbed possession of the fields\nve harvested their crops.\nregarding this notice, are\n› authorised to resort to co-\no enforce il; but it is ex-\nTH. J. V. OWEN,\nIndian Agent.",
+      "normalized": "INDIAN AGENCY. [WHERE]AS, by the Second Arti[cle of the] Treaty of Chicago, of the [26th of Septembe]r, 1833, it is provided that [the United Nations] of Chippewa, Ottawa, and [Pottawatamie Ind]ians, shall be permitted [to retain possessio]n of all that part of the [country ceded, lyi]ng North of the boundary [line of the State] of Illinois, for the term of [three years, witho]ut molestation or interrup[tion, and under th]e protection of the laws of [the United States. Therefore Public] Notice is hereby given, [To all persons,] not to intrude on said ce[ded lands, and su]ch as may have settled [thereon, (except li]cenced traders,) are re[quired to remove t]herefrom within the space [of thirty days from] the date hereof. [Such of the Ind]ians as have planted corn [on the ceded land]s lying within the limits of [the state, will be] permitted to remain in the [quiet and undistur]bed possession of the fields [until they shall ha]ve harvested their crops. [All persons dis]regarding this notice, are [informed that I] [am] authorised to resort to co[ercive measures t]o enforce it; but it is ex[pected, that respec]t for the laws and obedi[ence to the Gover]nment, will render such a [course unnecessary.] TH. J. V. OWEN, Indian Agent.",
+      "locator": {
+        "artifact_role": "primary",
+        "issue_page": 3,
+        "column": 4,
+        "lines": [
+          4060,
+          4127
+        ],
+        "lines_of_claim": [
+          4060,
+          4063,
+          4065,
+          4067,
+          4069,
+          4073,
+          4075,
+          4077,
+          4079,
+          4082,
+          4084,
+          4088,
+          4090,
+          4093,
+          4096,
+          4098,
+          4101,
+          4102,
+          4104,
+          4107,
+          4108,
+          4112,
+          4113,
+          4115,
+          4117,
+          4124,
+          4127
+        ],
+        "interleaved": true
+      },
+      "entities": [
+        {
+          "as_printed": "TH. J. V. OWEN,",
+          "normalized": "Th. J. V. Owen",
+          "role": "indian agent",
+          "occupations": [
+            "indian agent"
+          ]
+        }
+      ],
+      "notes": "THE TREATY OF CHICAGO IS BEING ENFORCED FROM CHICAGO, and the notice is the issue's single largest piece of town-shaped text. Every supply here is checked against the OTHER half of the same advertisement, which the segmenter put in page 3 column 6 at lines 4520-4545 and page 3 column 5's neighbour column at 4224-4232 — the halves print 'the 26th of September,', 'the United Nations', 'Pottawatame Indi', 'to retain possession', 'country ceded, lyin', 'line of the State of', 'three years, withou', 'tion, and under the', 'the United States.', 'Therefore Public', 'To all persons, n', 'ded lands, and sue', 'thereon, (except li', 'quired to remove t', 'of thirty days from', 'Such of the India', 'on the ceded lands', 'the state, will be pe', 'quiet and undisturb', 'until they shall has', 'All persons disre', 'informed that I sen', 'ersive measures to', 'pected, that respect', 'ence to the Govern', 'course upnecessary'. So the reconstruction is a JOIN OF TWO PRINTED WITNESSES line by line and not prose completion — which is why this claim's `normalized` supplies as much as it does. THE ONE PLACE THE JOIN FAILS is line 4115's other half, which reads 'informed that I sen' where this half reads '› authorised to resort to co' — the word between 'I' and 'authorised' is in neither, so '[am]' is bracketed as a supply of a single auxiliary. J. V. Owen also signs the town ordinances on page 4 as President of the Board of Trustees (claim c017); Indian Agent and town trustee are the same man on the evidence of the initials and the town, and NO merge is declared, because the two signatures differ ('J. V. OWEN' and 'TH. J. V. OWEN') and the identity policy does not resolve that on shape."
+    },
+    {
+      "id": "c057",
+      "kind": "building",
+      "reading": "transcription_mediated",
+      "quote": "N\nEW\nH. the east end of h\nDOTY & CO. hav\nlately occupied by Peter Coh\nceiving a large and splendid\nfitted up as a Dry Guods St\nDry Goods, 4\nsertment of CLOTHIN\nBOOTS\nAll of which they offer i\nany other Store in the place.\nChicago, April 29, 1634",
+      "normalized": "N[EW] [GOODS.] […] [uncertain: NEW GOODS] H[. DOTY & CO. have taken] the east end of h[is store] […] lately occupied by Peter Cohen, […] [re]ceiving a large and splendid [assortment, and have] fitted [it] up as a Dry Goods St[ore] […] Dry Goods, [Groceries,] [uncertain: Crockery] […] of every description, together [with a large as]sortment of CLOTHING [and] BOOTS & [SHOES] […] All of which they offer [as cheap as] any other Store in the place. Chicago, April 29, 1834.",
+      "locator": {
+        "artifact_role": "primary",
+        "issue_page": 3,
+        "column": 4,
+        "lines": [
+          4099,
+          4128
+        ],
+        "lines_of_claim": [
+          4099,
+          4100,
+          4105,
+          4106,
+          4109,
+          4110,
+          4111,
+          4114,
+          4120,
+          4122,
+          4125,
+          4126,
+          4128
+        ],
+        "interleaved": true
+      },
+      "entities": [
+        {
+          "as_printed": "DOTY & CO.",
+          "normalized": "H. Doty & Co.",
+          "role": "proprietor",
+          "occupations": [
+            "merchant"
+          ]
+        },
+        {
+          "as_printed": "Peter Coh",
+          "normalized": "Peter Cohen",
+          "role": "previous occupant",
+          "occupations": [
+            "merchant"
+          ]
+        }
+      ],
+      "ad_copy_date": {
+        "verbatim": "Chicago, April 29, 1634",
+        "iso": "1834-04-29"
+      },
+      "business": {
+        "name": "H. Doty & Co.",
+        "proprietors": [
+          "H. Doty & Co."
+        ],
+        "trade": "dry goods, groceries, crockery, clothing, boots and shoes",
+        "goods": [
+          "Boots",
+          "Clothing",
+          "Crockery",
+          "Dry Goods",
+          "Groceries",
+          "Shoes"
+        ],
+        "street": null,
+        "placement": {
+          "class": "relative",
+          "anchor": "the store lately occupied by Peter Cohen",
+          "offset_text": "H. the east end of h\nlately occupied by Peter Coh",
+          "offset_normalized": "the east end of h[is store] […] lately occupied by Peter Cohen",
+          "street": null
+        }
+      },
+      "notes": "AN OCCUPANCY CHAIN NAMING PETER COHEN — the same Peter Cohen whose South Water Street advertisement is T-0257's worked fixture in the issue of 1835-07-01, a year later. The building is not placed by street here, so no street is asserted; what IS documented is that in April 1834 H. Doty & Co. took the east end of a store lately occupied by Cohen and fitted it up for dry goods, and that a year later Cohen was advertising on South Water Street. Whether these are the same premises is exactly the question the storefront pass has to answer, and this claim is the evidence for it, not the answer. THE INTERLEAVE HERE IS THREE-WAY and badly cut: lines 4103 and 4116 are '[uncertain: NEW GQ]' and '[uncertain: Crdstery]' and are kept inside their brackets. The other half of the ad is at page 3 column 6, lines 4399-4432, which print 'TORE.', '00D8.', 've taken the Store at', 'Bouth Water-street,', 'Store, and are now re-', 'id assortment of' — AND THAT HALF SAYS 'South Water-street'. It is a different advertisement, not this one: it is signed 'DAVID C' at 4431 and dated May 25, so the street it carries is NOT carried across. This is the trap the ticket warns about — a second address for a known name — and it is refused here."
+    },
+    {
+      "id": "c058",
+      "kind": "business",
+      "reading": "transcription_mediated",
+      "quote": "Tin, Sheet Iron an\n(SELLOR AT LAIR,\nTl wiscriber would respe\nCORNER OF DEARBORS AND LA!\nhis friends and the public i\nhe has commenced the above bus\nhe will keep in assortment const\nJ. K. B\nApril 22, 1831.",
+      "normalized": "Tin, Sheet Iron an[d Copper Ware] […] [COUN]SELLOR AT LAW, [T]h[e s]ubscriber would respe[ctfully inform] […] CORNER OF DEARBORN AND LAK[E-STREETS] […] his friends and the public i[n general, that] he has commenced the above bus[iness, and that] he will keep in assortment const[antly on hand.] […] J. K. B[OTSFORD.] April 22, 183[4].",
+      "locator": {
+        "artifact_role": "primary",
+        "issue_page": 3,
+        "column": 5,
+        "lines": [
+          4323,
+          4340
+        ],
+        "lines_of_claim": [
+          4323,
+          4326,
+          4327,
+          4328,
+          4331,
+          4332,
+          4334,
+          4338,
+          4340
+        ],
+        "interleaved": true
+      },
+      "entities": [
+        {
+          "as_printed": "J. K. B",
+          "normalized": "J. K. Botsford",
+          "role": "proprietor",
+          "occupations": [
+            "tinsmith"
+          ],
+          "associated_places": [
+            "Dearborn Street",
+            "Lake Street"
+          ]
+        }
+      ],
+      "ad_copy_date": {
+        "verbatim": "April 22, 1831.",
+        "iso": "1834-04-22"
+      },
+      "business": {
+        "name": "J. K. Botsford",
+        "proprietors": [
+          "J. K. Botsford"
+        ],
+        "trade": "tin, sheet iron and copper ware",
+        "goods": [
+          "Copper Ware",
+          "Sheet Iron",
+          "Tin Ware",
+          "Window Sash"
+        ],
+        "street": "Dearborn Street",
+        "placement": {
+          "class": "corner",
+          "anchor": "CORNER OF DEARBORN AND LAKE-STREETS",
+          "offset_text": "CORNER OF DEARBORS AND LA!",
+          "offset_normalized": "CORNER OF DEARBORN AND LAKE-STREETS",
+          "street": "Dearborn Street"
+        }
+      },
+      "notes": "A CORNER ADDRESS LINE, AND THE SEGMENTER HAS PUT AN ATTORNEY'S SHINGLE THROUGH THE MIDDLE OF IT. Line 4326 reads '(SELLOR AT LAIR,' and belongs to Edward W. Casey's card (claim c055), not to this ad; it is INSIDE the quoted range because the range is the range the segmenter produced, and it is excluded from `lines_of_claim`… except that it is not — it is quoted here deliberately, at line 4326, so that the interleave is visible in the record rather than tidied away, and this note is where a reader is told which line belongs to whom. THE NAME is completed from the other half at page 3 column 6 line 4506 ('BOTSFORD.') and 4498 ('J. K. B.'), a second witness in the same issue. 'LA!'→'LAKE-STREETS' is completed from the same half's line 4500, 'ANE-STREETS'. '1831'→'183[4]': April 1831 is four years before this paper existed."
+    },
+    {
+      "id": "c059",
+      "kind": "business",
+      "reading": "transcription_mediated",
+      "quote": "Carriage & Sleigh\nin beribera respectfully\nizens of Chicago\nthey have commenced the abor\nits rarious brancies, en South\nwhere all orders in thoir line wil\nexecuted on the shortest notice.\nJ. I. MULFORD.\nMay 27, 1834.",
+      "normalized": "Carriage & Sleigh [Making. The su]bscribers respectfully [inform the cit]izens of Chicago and its [vicinity, that] they have commenced the abov[e business in] its various branches, on South [Water street,] where all orders in their line wil[l be punctually] executed on the shortest notice. […] J. I. MULFORD. […] May 27, 1834.",
+      "locator": {
+        "artifact_role": "primary",
+        "issue_page": 3,
+        "column": 5,
+        "lines": [
+          4238,
+          4256
+        ],
+        "lines_of_claim": [
+          4238,
+          4239,
+          4240,
+          4243,
+          4244,
+          4246,
+          4249,
+          4252,
+          4255
+        ],
+        "interleaved": true
+      },
+      "entities": [
+        {
+          "as_printed": "J. I. MULFORD.",
+          "normalized": "[uncertain: J. I. Mulford]",
+          "role": "proprietor",
+          "occupations": [
+            "carriage maker"
+          ],
+          "associated_places": [
+            "South Water Street"
+          ]
+        }
+      ],
+      "ad_copy_date": {
+        "verbatim": "May 27, 1834.",
+        "iso": "1834-05-27"
+      },
+      "business": {
+        "name": "[uncertain: J. I. Mulford], carriage and sleigh maker",
+        "proprietors": [
+          "[uncertain: J. I. Mulford]"
+        ],
+        "trade": "carriage and sleigh making, and repairing",
+        "goods": [
+          "Carriages",
+          "Sleighs"
+        ],
+        "street": "South Water Street",
+        "placement": {
+          "class": "street_only",
+          "street": "South Water Street"
+        }
+      },
+      "notes": "A NEW TRADE ON SOUTH WATER STREET, dated 27 May 1834 — 'they have commenced' — so the shop is five weeks old at this issue. THE NAME IS A PROBLEM AND IT IS LEFT AS ONE: 'J. I. MULFORD' here against 'J. H. MULFORD' the watchmaker on page 4 (claim c022) and 'J. H. M' at line 4211. One initial apart, two trades apart, and the identity policy refuses to merge a same-surname pair on a differing initial with or without a rule — so the carriage maker is a separate person and a separate business, and the bracket says the reading itself is not settled. A later issue with a clean signature is what resolves it. THE OTHER HALF of this ad is at page 3 column 6 lines 4468-4475 ('• Making.', 'ly inform the cit', 'in vicinity, that', 've business in all', 'h Water street,', 'ill be punctually', '* most reasonable', 'TEMPHREY.') — and that half is signed TEMPHREY, i.e. HUMPHREY, NOT Mulford. TWO SIGNATURES ON ONE ADVERTISEMENT, in two halves of one column. Neither is preferred; the business is keyed on the bracketed Mulford reading because that is the half quoted, and this note is the whole of the evidence for anyone who later decides it is Humphrey's shop."
+    },
+    {
+      "id": "c060",
+      "kind": "building",
+      "reading": "transcription_mediated",
+      "quote": "• Sale.\nBlouse and Land.\nOTS purchased and Sold, or\n122 Building Lots for sale, in t\nDearborn and Lake-sts.\nSchool section.\n2 Houses to Let. Enquire at\nLake st. opposite Th. Temples.",
+      "normalized": "[For] Sale. House and Land. […] [L]OTS purchased and Sold, [and] 122 Building Lots for sale, in the [uncertain: …] [in the] School section. […] [Corner of] Dearborn and Lake-sts. 2 Houses to Let. Enquire at [uncertain: …] Lake st. opposite Th. Temple's.",
+      "locator": {
+        "artifact_role": "primary",
+        "issue_page": 3,
+        "column": 5,
+        "lines": [
+          4386,
+          4398
+        ],
+        "lines_of_claim": [
+          4386,
+          4387,
+          4390,
+          4392,
+          4395,
+          4396,
+          4397,
+          4398
+        ],
+        "interleaved": true
+      },
+      "entities": [
+        {
+          "as_printed": "Th. Temples",
+          "normalized": "[uncertain: Th. Temple]",
+          "role": "anchor"
+        }
+      ],
+      "notes": "122 BUILDING LOTS FOR SALE IN THE SCHOOL SECTION, and two houses to let, enquired for on Lake Street opposite a named man's premises. The number is the reason this claim exists: it is a count of the town's unbuilt lots in one tract in July 1834, printed. THE LINES ARE FOUR ADVERTISEMENTS' WORTH OF FRAGMENTS and the join is not certain — 4390 ('OTS purchased and Sold, or'), 4392 ('122 Building Lots for sale, in t'), 4396 ('School section.'), 4397 ('2 Houses to Let. Enquire at') and 4398 ('Lake st. opposite Th. Temples.') read as one notice, but 4395 ('Dearborn and Lake-sts.') sits between them and belongs to J. K. Botsford's corner (claim c058), whose ad runs through this part of the column. It is quoted because excluding it would hide the interleave. NO BUSINESS RECORD is made: nobody signs this. 'Th. Temple' is bracketed — the transcription prints 'Th. Temples' and whether the final s is a possessive or part of the name is not settled here; Dr. Temple is named at line 3655 of this issue in an unrelated advertisement, which is a second occurrence and not a second witness."
+    }
+  ]
+}

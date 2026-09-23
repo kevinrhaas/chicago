@@ -1,0 +1,140 @@
+{
+  "id": "slough_log_bridge",
+  "phase": "log_1833",
+  "name": "The Slough Log Bridge, Water Street",
+  "aka": [
+    "the log bridge over the slough",
+    "the Water Street slough crossing"
+  ],
+  "archetype": "bridge_timber",
+  "asset": "gltf/slough_log_bridge__log_1833.glb",
+  "scene": "1835",
+  "target_date": "1835-07-01",
+  "documented_range": {
+    "from": "1833-01-01",
+    "to": "1835-12-31",
+    "confidence": "inferred",
+    "sources": [
+      "chicagology_prefire273"
+    ],
+    "note": "THE END OF THIS CROSSING'S LIFE IS BETTER ATTESTED THAN ITS BEGINNING, WHICH IS UNUSUAL AND WORTH SAYING. The source, transcribed at docs/research/01-terrain-hydrology.md section 2.2, describes the slough draining the Public Square pond and the Wells Street marsh, passing over the site of the Tremont House and entering the river at the end of State Street, and adds that WHERE WATER STREET CROSSED IT A LOG BRIDGE WAS NEEDED UNTIL AFTER 1840. So the crossing stood well past the scene date and the only question is when it went in. Nothing dates that. The range opens at the start of 1833 because that is the year South Water Street was ordered pitched and graded from the United States Reservation to Randolph Street (docs/research/04-structures-south.md, from the town trustees' order of August 1833) — a street being made passable across a stream is a street acquiring a bridge — and because 1833 is when the town began building crossings at all: the North Branch log bridge is winter 1831-32 and the South Branch raft bridge winter 1832-33. THAT IS REASONING, NOT A DATE. The bridge may be older and may be younger by a year; it was certainly standing on 1835-07-01, which is the only claim the scene needs. The range closes at the end of 1835 as this project's convention, NOT because the crossing went then — the source explicitly runs it past 1840."
+  },
+  "change_note": "One state, because the source describes one: a log bridge, needed where Water Street crossed the slough, until after 1840. Nothing records it being rebuilt, widened or replaced inside the phase, which is a limitation of the evidence and not a claim that it stood untouched for seven years over wet ground.",
+  "placement": {
+    "local_e": 805.3,
+    "local_n": 12.7,
+    "rotation_deg": 0.0,
+    "position_confidence": "inferred",
+    "position_sources": [
+      "chicagology_prefire273",
+      "osm_streets_2026"
+    ],
+    "position_note": "PLACED 2026-08-11 FROM TWO INTERSECTING STATEMENTS, WHICH IS BETTER THAN MOST POSITIONS IN THIS DATASET GET. The source fixes the slough's MOUTH — it 'entered the river at the end of State Street' — and fixes the crossing by naming the street that needed the bridge, Water Street. Water Street ran along the south bank; the mouth is at the foot of State. The crossing is therefore where those two lines meet, within a few tens of metres. METHOD: State Street's line comes from this project's own ground control, the State and Madison and Wolcott and Kinzie nodes at EPSG:26916 E 447910 and 447900 (data/traces/gcp/wright_1834_gcps.json), so State runs at about local E +825 to +838. The south bank of the main stem at that longitude is traced for this terrain epoch at about local N +23 to +29 (data/terrain/epochs/e1834_harbor_cut/shoreline.geojson). The deck is set at local E +805 to +813 and local N +13 to +16 — in the street, about 12 m back from the water, and about 20 m west of State Street's west kerb, because the slough met the river at the foot of the street and its course came in from the west, so the last crossing before the mouth lies a little upstream of it. WHAT IS INVENTED: those twenty metres, and the bearing. The deck is laid east-west, at bearing 0, on the assumption that the slough ran roughly north into the river at its mouth and the street ran east-west across it; the source describes the slough's course as 'winding', so a skew of twenty or thirty degrees is entirely possible and would rotate the deck. WORKING UNCERTAINTY about 30 m along the street and 20 m across it, on top of the georeference's 20 m. THE SLOUGH IS UNDER THE DECK NOW, AND IT WAS NOT WHEN THIS POSITION WAS WRITTEN. The terrain epoch carried no South Division drain at all until T-0005 carved dossier zone 14 into it and T-0118 ran its last reach square beneath this deck; both landed after this note was authored and neither was aimed at this record. Measured on the committed heightfield by tools/measure_slough_crossing.py: along the deck's own span the ground falls below the 1835 water surface for 3.30 m of 8.00 m, deepest 0.53 m under it, leaving 2.35 m of dry seat at each end for the abutments, and the channel runs unbroken from beneath the planks to the river. THE ONE THING THE CARVE DID NOT SETTLE IS THE BEARING this note admits inventing, because the watercourse was straightened to meet the deck rather than the deck turned to meet the watercourse — see state_slough_mouth's own note in terrain_spec.json for which of the two fixed points moved and why.",
+    "symbolic_location": "Where South Water Street crossed the slough, a little west of the slough's mouth at the foot of State (Wolcott) Street, on the south bank of the main stem. On modelled ground since the heightfield was extended east on 2026-08-11.",
+    "uncertainty_m": 20,
+    "placement_provisional": false,
+    "vertical_anchor": "water",
+    "walk_surface_m": 0.83
+  },
+  "footprint": {
+    "polygon": [
+      [
+        0,
+        0
+      ],
+      [
+        8,
+        0
+      ],
+      [
+        8,
+        3
+      ],
+      [
+        0,
+        3
+      ]
+    ],
+    "confidence": "reconstructed",
+    "sources": [],
+    "note": "PLACEHOLDER — NO DIMENSION OF THIS CROSSING IS ATTESTED. The polygon is the DECK: its u extent is the span, 8 m, and its v extent the width, 3 m. THE SPAN IS SIZED OFF THE STREAM, NOT OFF THE BRIDGE: docs/research/01-terrain-hydrology.md's hydrology inventory gives the slough a width of 15 to 40 ft (zone 14) and tags the width and depth conjectural while calling the route documented, so 8 m of deck is a crossing of the narrow end of that range with a little bank at each side. THAT GUESS CAN BE CHECKED NOW, AND IT HOLDS. The stream was carved into this terrain epoch long after this polygon was drawn (T-0005, then T-0118): under the deck the cut is 6.0 m across the top and holds 3.30 m of standing water, so the 8 m span lands about a metre outside the carve and 2.35 m clear of the water at each end. THE SPAN WAS NOT RESIZED TO FIT — it was measured against a stream it predates, and a figure that turns out to be workable is still a figure nobody recorded. Every number here is invented and the polygon cites no sources. THIS IS NOT A RIVER BRIDGE AND MUST NOT BE SIZED LIKE ONE: the two branch bridges in this dataset span 72 m and 56 m and carried the documented ten-foot width and six-foot clearance of the town's main crossings; this is a street culvert in all but name, and the record deliberately does not borrow their measurements — see the width and clearance notes."
+  },
+  "attributes": {
+    "construction": {
+      "value": "log",
+      "confidence": "attested",
+      "sources": [
+        "chicagology_prefire273"
+      ],
+      "note": "'a LOG BRIDGE was needed until after 1840'. The material is the one thing the source states about the structure, and it is the reason this record uses the bridge_timber archetype at all."
+    },
+    "width_m": {
+      "value": 3.0,
+      "confidence": "inferred",
+      "note": "NOT ATTESTED FOR THIS CROSSING, AND DELIBERATELY NOT THE BRANCH BRIDGES' DOCUMENTED FIGURE. Charles Cleaver's 'these bridges were ten feet wide' (3.05 m) is evidence about the North and South Branch crossings and this project treats it as documented THERE; here it is only a yardstick. 3.0 m is a hair under it: what is inferred is that a bridge carrying a graded public street had to be about a wagon wide, and that nobody built a street crossing wider than the town's main river bridges. The number should be read as 'about a wagon's width', not as a measurement."
+    },
+    "clearance_m": {
+      "value": 0.5,
+      "confidence": "reconstructed",
+      "note": "INVENTED OUTRIGHT, and the attribute where this record most needs to hold its nerve against a documented number. The two branch bridges stood 'about six feet above the water, so that teams passed under them on the ice freely' (the 1883 old-settlers statement) — 1.83 m, and utterly wrong for a slough. Nothing passed under this bridge. The hydrology dossier puts the slough's thalweg 1.5 to 3.0 ft below the adjacent plain, so a deck laid at street level sits roughly half a metre over the water: 0.5 m is that reading and it is a reading of a conjectural depth, not of a measurement. Admitted in docs/LIBERTIES.md."
+    },
+    "pier_count": {
+      "value": 0,
+      "confidence": "inferred",
+      "note": "NOBODY DESCRIBED THE MIDDLE OF THIS BRIDGE AND ZERO IS THE ANSWER THAT INVENTS LEAST. The archetype accepts 0 explicitly — 'a short crossing lands abutment to abutment with nothing in the water' — and without a stated count it would fall back to a spacing of 4.5 m and put a support in the middle of an 8 m span. An 8 m run of log stringers needs no intermediate bent; the branch bridges needed two each over 56 and 72 m. So the count is inference from the span, and it keeps a pier out of a stream nobody says had one."
+    },
+    "deck_kind": {
+      "value": "puncheon",
+      "confidence": "inferred",
+      "note": "Not attested for this crossing. Puncheon — split logs laid flat side up — is what the 1883 old-settlers statement describes on both branch bridges ('on those stringers puncheons or split logs were laid for a floor'), and a smaller, cruder, unremarked street crossing of the same decade is not going to have carried better. Inference from local practice, not from this bridge."
+    },
+    "stringer_d_m": {
+      "value": 0.25,
+      "confidence": "inferred",
+      "note": "No figure is attested. 0.25 m is a lighter log than the 0.30 m this project gives the branch bridges, on the reasoning that a stringer is sized to its span and this one is a seventh of theirs. Inference about carpentry, not a measurement."
+    },
+    "plank_t_m": {
+      "value": 0.08,
+      "confidence": "inferred",
+      "note": "No figure is attested. 0.08 m of split-log floor, a little thinner than the branch bridges' 0.09 m, on the same reasoning as the stringers."
+    },
+    "function": {
+      "value": "street_crossing",
+      "confidence": "attested",
+      "sources": [
+        "chicagology_prefire273"
+      ],
+      "note": "A street crossing over a stream, not a river bridge and not a piece of engineering anybody was proud of. Its interest is what it says about the ground: the South Division's principal natural drain ran through the middle of the town, across its busiest street, and the town's answer for at least seven years was some logs. It belongs in the scene for the same reason the mud does."
+    }
+  },
+  "residents": [],
+  "citations": [
+    {
+      "source_id": "chicagology_prefire273",
+      "citation": "\"Wolf's Point and the Town of Chicago.\" Chicagology. Transcribing the Chicago Magazine of 15 May 1857 — the account of the Wolf's Point settlement built on George Davis's 1832 drawing and on Gurdon S. Hubbard's own description of the place as he found it in 1818 — with A. T. Andreas and modern editorial matter around it.",
+      "url": "https://chicagology.com/prefire/prefire273/",
+      "archived_url": "https://web.archive.org/web/20260217122628/https://chicagology.com/prefire/prefire273/",
+      "tier": 2,
+      "tier_label": "near-primary recollection",
+      "transcribes": [
+        {
+          "work": "Chicago Magazine, 'Wolf's Point' — the account of the settlement at the forks, engraved from George Davis's 1832 drawing and incorporating Gurdon S. Hubbard's description of Chicago as he first saw it in 1818",
+          "date": "1857-05-15",
+          "tier": 2,
+          "note": "Carries the Miller House's log construction ('a log structure partly sided') and the Wolf Point Tavern's ('partly log and partly frame'), the fact of a frame element on each, and — through Hubbard — the marshy river-shore strip that grades the south division's marsh surface in terrain_spec.json. Twenty-five years after the fact, from a resident's drawing and a named witness speaking to the writer: rung 2."
+        }
+      ]
+    },
+    {
+      "source_id": "osm_streets_2026",
+      "citation": "OpenStreetMap contributors. Street centerline intersection nodes for downtown Chicago, retrieved via the Overpass API, 2026-08-09.",
+      "url": "https://www.openstreetmap.org/",
+      "archived_url": "https://overpass-api.de/",
+      "tier": 4,
+      "tier_label": "later scholarship"
+    }
+  ],
+  "research_note": "THE SMALLEST STRUCTURE IN THIS PARCEL AND ONE OF THE MOST INFORMATIVE, because it is the only built thing in the dataset that exists to answer the terrain. Chicago's South Division drained through a slough that ran from the Public Square pond, past the Tremont House site at Lake and Dearborn, to the river at the foot of State Street; where it crossed Water Street the town had to bridge it, and the bridge was still needed after 1840. TWO WARNINGS TRAVEL WITH THIS RECORD. First, do not size it from the branch bridges: their ten-foot width and six-foot clearance are documented for THEM, and a record that borrowed those numbers would be dressing a culvert as a river crossing — this one takes only the width as a yardstick and refuses the clearance outright, which is why clearance_m is the record's one flatly conjectural dimension. Second, it was placed at its attested crossing rather than being pulled inside the modelled terrain, and for months that meant a visitor saw a bridge over nothing, because the terrain epoch held no South Division drain to cross. THAT IS OVER. The heightfield reached east, T-0005 carved dossier zone 14, and T-0118 ran the drain's last reach straight under this deck: the crossing now spans 3.30 m of standing water in its 8 m span, 0.53 m deep, with the deck's underside half a metre above it and the channel running unbroken from the planks to the river. It was fixed the way this record said it should be — by building the terrain, not by moving the bridge. tools/measure_slough_crossing.py takes that reading on every commit, so the deck and the stream cannot quietly drift apart again. See docs/research/01-terrain-hydrology.md sections 2.2 and its hydrology inventory zone 14, which carries the slough's route as documented and its width and depth as conjectural.",
+  "research_doc": "",
+  "review_required": false
+}

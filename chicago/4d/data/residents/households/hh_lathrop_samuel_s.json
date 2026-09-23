@@ -1,0 +1,147 @@
+{
+ "id": "hh_lathrop_samuel_s",
+ "name": "The Lathrop household — a name from the post office's letter lists",
+ "division": "unplaced",
+ "head": "lathrop_samuel_s",
+ "source_pass": "letter_list",
+ "arrival": {
+  "value": "1835-03-31",
+  "confidence": "inferred",
+  "sources": [
+   "chicago_democrat_1833_1835"
+  ],
+  "note": "A BOUND FROM THE RETURN, NOT AN ARRIVAL. The office's list of letters uncalled-for is a RETURN — its statement of what was still unclaimed on ONE day — and the paper reprinted one return over as many consecutive issues as it took, so the bound is dated by the return of March 1835 and not by the issue it was read in (T-0425). The earliest issue this project reads the name in is 1835-05-20, 50 days later; that gap is an accident of which impression an extraction pass reached, and it is not evidence. Somebody was writing to this name at Chicago by 1835-03-31 and at no stated time before it; nothing says when they came. The date lines the printings set, and how they were weighed, stand beside this rule in tools/mint_letter_list_residents.py.",
+  "precision": "not_later_than"
+ },
+ "party_size_on_arrival": {
+  "value": null,
+  "confidence": "reconstructed",
+  "note": "Not attested."
+ },
+ "origin": {
+  "value": null,
+  "confidence": "reconstructed",
+  "note": "Not attested."
+ },
+ "reason_for_coming": {
+  "value": null,
+  "confidence": "reconstructed",
+  "note": "Not attested."
+ },
+ "lives_at": {
+  "value": null,
+  "confidence": "reconstructed",
+  "note": "Not attested: a letter list gives a name and no address."
+ },
+ "works_at": {
+  "value": null,
+  "confidence": "reconstructed",
+  "note": "Not attested. No trade is recorded, so there is no premises to seek."
+ },
+ "present_on_scene_date": {
+  "value": "uncertain",
+  "confidence": "inferred",
+  "sources": [
+   "chicago_democrat_1833_1835"
+  ],
+  "note": "THE CORPUS STOPS BEFORE THE SCENE DATE. Nothing after 1835-05-20 follows this person to 1 July 1835 or says they left. `uncertain` rather than dropped — the distinction index.json draws for Jeremiah Porter, and a finding, not a gap."
+ },
+ "persons": [
+  {
+   "id": "lathrop_samuel_s",
+   "name": "Samuel S. Lathrop",
+   "relationship": "head",
+   "grade": "attested",
+   "letter_list_only": true,
+   "letter_list_returns": [
+    "1835-05-20"
+   ],
+   "occupation": {
+    "value": "minister",
+    "confidence": "attested",
+    "sources": [
+     "rr_baptist_chicago_lathrop"
+    ],
+    "note": "T-0485: independently corroborated resident research. Andreas' history of Chicago's First Baptist Church names Samuel S. Lathrop as one of the church's early members after its October 1833 organization and records him building the fence around Rev. A. B. Freeman's Chicago grave. This independently corroborates the exact named Chicago resident before the 1835 postal seed.",
+    "derived_from": "roles",
+    "roles_at_scene_date": [
+     "minister"
+    ]
+   },
+   "sources": [
+    "chicago_democrat_1833_1835",
+    "rr_baptist_chicago_lathrop",
+    "chicago_tribune_1882_05_19_fourth_reception"
+   ],
+   "note": "INDEPENDENTLY CORROBORATED RESIDENT. Originally documented in Chicago post-office evidence; independent resident research now corroborates the identity. KNOWN ONLY FROM THE POST OFFICE, IN ONE RETURN. The papers print 'Lathrop, Samuel 8.' in a single return of letters uncalled-for at the Chicago post office — the Democrat of 20 May 1835, column 13 — dated 1835-05-20. WHAT THAT IS WORTH: a correspondent believed a person of this name reachable at Chicago on that date, and nothing further — not that they lived here, kept a trade here, or were here on 1 July 1835. It is the weakest evidence this project accepts for a resident, and a source placing them elsewhere retires the record. THE ARGUMENT EVERY RECORD OF THIS KIND SHARES is written once instead of once per file: the ruling of 2026-08-30 and what it cost the town (docs/LIBERTIES.md L214), the refusals and the transcription standard behind the reading (tools/mint_letter_list_residents.py). No figure is drawn (L1). OLD SETTLERS, 1882 — CORROBORATION, NOT A NEW FACT ABOUT 1835. The Calumet Club's fourth annual reception to the settlers of Chicago prior to 1840, held 18 May 1882, printed this man among the guests present as “Lathrop, Samuel, Bristol, III.” (Chicago Tribune, 19 May 1882). The club's criterion was residence in Chicago before 1 January 1840 and majority by then: the roster therefore corroborates a pre-1840 Chicago residence and says he was alive in 1882. It gives NO year of arrival, and the address it prints is where he lived in 1882, forty-seven years after the scene date — it is not an 1835 residence and is not read as one. Under the ratified ladder (T-0513) a later recollection corroborates, enriches and dates and cannot lift a rung by itself, so this record's GRADE IS UNCHANGED by it: T-0513 consolidates the identity and T-0515 regrades. Identity by rule OS1 — surname and spelled-out forename agree, one bearer (data/research/old_settlers/crosswalk.json).",
+   "resident_research": {
+    "programme": "resident-research-2026",
+    "ticket": "T-0485",
+    "outcome": "corroborated_enrichment",
+    "reviewed_on": "2026-09-02",
+    "asserted_identity": true,
+    "summary": "Andreas' history of Chicago's First Baptist Church names Samuel S. Lathrop as one of the church's early members after its October 1833 organization and records him building the fence around Rev. A. B. Freeman's Chicago grave. This independently corroborates the exact named Chicago resident before the 1835 postal seed.",
+    "source_ids": [
+     "rr_baptist_chicago_lathrop"
+    ],
+    "refusals": [
+     {
+      "regraded_on": "2026-09-04",
+      "rule": "G3",
+      "withheld": "the downgrade to inferred",
+      "reason": "This card rests on 2 thing(s) the consolidation did not read — chicago_tribune_1882_05_19_fourth_reception, rr_baptist_chicago_lathrop. G3 fired on the seven domains the ladder reads and says nothing about the evidence outside them, so the grade stands. The same reasoning the ladder's own G5 gives for abstaining (T-0515)."
+     }
+    ]
+   },
+   "profile_facts": [
+    {
+     "field": "life_event",
+     "value": "An early member of Chicago's First Baptist Church after its organisation of October 1833",
+     "confidence": "inferred",
+     "sources": [
+      "rr_baptist_chicago_lathrop"
+     ],
+     "describes_date": "1833-10-01",
+     "place_class": "chicago",
+     "record_id": "resident_research:T-0485#01",
+     "as_read": "names Samuel S. Lathrop as one of the church's early members after its October 1833 organization",
+     "note": "A dated Chicago appearance nearly two years before the postal seed the record is minted from."
+    },
+    {
+     "field": "life_event",
+     "value": "Built the fence around Rev. A. B. Freeman's Chicago grave",
+     "confidence": "inferred",
+     "sources": [
+      "rr_baptist_chicago_lathrop"
+     ],
+     "describes_date": "1835-01-01",
+     "place_class": "chicago",
+     "record_id": "resident_research:T-0485#02",
+     "as_read": "records him building the fence around Rev. A. B. Freeman's Chicago grave",
+     "note": "An undated act in the source, bounded to the church's early years. Carried at year precision with the source's own vagueness intact."
+    }
+   ],
+   "roles": [
+    {
+     "role": "minister",
+     "kind": "profession",
+     "as_printed": null,
+     "from": "1833",
+     "to": "1835",
+     "precision": "source_span",
+     "dated_by": "source_describes_date",
+     "covers_scene_date": true,
+     "confidence": "attested",
+     "sources": [
+      "rr_baptist_chicago_lathrop"
+     ],
+     "claim": null,
+     "note": "THE BOUND IS THE SOURCE'S, NOT THE MAN'S. This role is carried by the card's 1835 occupation block and is dated by what the cited source or sources are ABOUT, which is why `precision` can be no better than the span they cover. The span reaches 1835, so this role stands in the scene-date view. The printing the trade was read off is not on the card and is fetched by T-1254."
+    }
+   ]
+  }
+ ],
+ "touches_removal": false,
+ "review_required": false,
+ "research_note": "MINTED FROM THE LETTER LISTS (T-0378, T-0379). THE HOUSEHOLD IS A CONTAINER, NOT AN ARGUMENT: every other record here argues for a household, and this one argues for a PERSON. `data/residents/` cannot carry a person outside a household, so one was written around them and told to claim nothing — one member, no dwelling, no division, no trade, no family, no arrival beyond the paper's bound. tools/mint_letter_list_residents.py derives the set and prints every refusal, `--gate` proves no record here gained a roof, a trade or a second member, and docs/LIBERTIES.md L214 carries the change of scale."
+}

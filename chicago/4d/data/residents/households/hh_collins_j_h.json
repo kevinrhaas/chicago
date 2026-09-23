@@ -1,0 +1,187 @@
+{
+ "id": "hh_collins_j_h",
+ "name": "The Collins household — a documented attorney, unplaced in the town",
+ "division": "unplaced",
+ "head": "collins_j_h",
+ "source_pass": "documented",
+ "arrival": {
+  "value": "1834-01-28",
+  "confidence": "inferred",
+  "sources": [
+   "chicago_democrat_1833_1835"
+  ],
+  "note": "A BOUND FROM THE PAPER, NOT AN ARRIVAL. The corpus first prints this person at the Democrat of 5 August 1835, column 18, so they are in the town's paper by 1834-01-28 and at no stated time before it; nothing reached says when they came. Last printed 1835-08-05.",
+  "precision": "not_later_than"
+ },
+ "party_size_on_arrival": {
+  "value": null,
+  "confidence": "reconstructed",
+  "note": "Not attested."
+ },
+ "origin": {
+  "value": null,
+  "confidence": "reconstructed",
+  "note": "Not attested."
+ },
+ "reason_for_coming": {
+  "value": null,
+  "confidence": "reconstructed",
+  "note": "Not attested."
+ },
+ "lives_at": {
+  "value": null,
+  "confidence": "reconstructed",
+  "note": "Not attested. NOTHING IS BEING WITHHELD HERE: no source reached says where this person lived, and 52 households in this dataset were already in that position before this one was written."
+ },
+ "works_at": {
+  "value": null,
+  "confidence": "reconstructed",
+  "note": "Not attested as a structure this project models. The trade is documented; the premises are not one of the committed records."
+ },
+ "present_on_scene_date": {
+  "value": "present",
+  "confidence": "inferred",
+  "sources": [
+   "chicago_democrat_1833_1835"
+  ],
+  "note": "Printed on or after the scene date — last at the Democrat of 20 May 1835, column 14 — so the corpus itself puts this person in the town's paper at 1835-08-05."
+ },
+ "persons": [
+  {
+   "id": "collins_j_h",
+   "name": "J. H. Collins",
+   "relationship": "head",
+   "grade": "attested",
+   "ladder_rule": "G1b",
+   "occupation": {
+    "value": "attorney",
+    "confidence": "attested",
+    "sources": [
+     "chicago_democrat_1833_1835"
+    ],
+    "note": "THE TRADE IS THE PAPER'S. The corpus reads it as attorney, counsellor, solicitor, counsellor at law, at the Democrat of 5 August 1835, column 18; the Democrat of 28 January 1834, column 7; the Democrat of 4 February 1834, column 9; the Democrat of 11 February 1834, column 5; the Democrat of 4 March 1834, column 9; the Democrat of 19 November 1834, column 1, and 4 further mention(s). The residents vocabulary's nearest period-correct word for it is `attorney`, and where the corpus prints more than one trade they are all named here rather than reduced to the one the vocabulary could take.",
+    "derived_from": "roles",
+    "roles_at_scene_date": [
+     "attorney"
+    ]
+   },
+   "sources": [
+    "chicago_democrat_1833_1835",
+    "fergus_chicago_directory_1839"
+   ],
+   "note": "A DOCUMENTED PERSON, AND NOTHING ELSE IS CLAIMED. The papers name 'H. COLLINS' and 'J. H. COLLINS' and 'J. H. Collins' and 'J: He COLLINS.' and 'JAMES 1. COLLINS' and 'JAMES H. COLLINS,' and 'James H. Corzine' and 'James H. Courts' and 'Jauzs H. Cortiss' and give the trade; they do not say where this household lived, who else was in it, or when it came. So the record around this person carries nothing but the person: no dwelling, no division, no family, each written as unattested in its own block rather than filled in from the shape of the rest of the town. Cited at the Democrat of 5 August 1835, column 18; the Democrat of 28 January 1834, column 7; the Democrat of 4 February 1834, column 9; the Democrat of 11 February 1834, column 5; the Democrat of 4 March 1834, column 9; the Democrat of 19 November 1834, column 1, and 4 further mention(s). The corpus associates the name with Dearborn Street, South Water Street, Chicago; that is where the paper does business with this person and not a statement about where they slept, and the storefront tickets are the ones that may stand a shop there. THE TOWN NEVER INVENTED A ROOF FOR THIS TRADE. The occupation census raised reconstructed households for the trades a town of 3,265 people needed and could not document; `attorney` was not one of them, which is why this person could only ever be ADDED and never seated on an existing record — data/research/newspapers/register_1835.json calls it `new_resident` for exactly that reason. No figure is drawn (docs/LIBERTIES.md L1). READ THROUGH A TRANSCRIPTION, not a scan: the owner's ruling of 2026-08-28 grades a transcription-mediated reading as documented, and the source record for the run states that standard and its limits. A scan read that confirms or corrects the name upgrades this entry. FERGUS 1839'S LATER LISTS — 1837 AND 1839 EVIDENCE, NEVER AN 1835 FACT. Fergus' Chicago Directory for 1839 names this person 1 time in its two later lists: the poll of Chicago's first city election, 2 May 1837 — “James H. Collins.” (f1839_v0074, printed page 41, ward 1, voting for William B. Ogden). What a match may carry, and it is short: that the man was in Chicago on 2 May 1837 and in that ward. It is written as 1837 evidence with describes_date 1837-05-02, never as an 1835 fact, and the person's grade does not move on this alone. Under the ratified ladder a second contemporary source is what lifts projected_resident, and a poll twenty-two months after the scene date is a second source about CONTINUED RESIDENCE, not about July 1835. The ward is a location in the CITY of 1837, whose six wards are drawn on printed page 46; it is not a location in the town of 1835 and does not place a house. Identity by the crosswalk's own rule: Surname 'Collins' folds to the same string as the 1837 entry's, and the given name of both begins J. (data/research/directories/fergus_1839_election_crosswalk_1835.json and fergus_1839_register_crosswalk_1835.json). This pass WRITES THE EVIDENCE AND MOVES NO GRADE. Under the ratified ladder (T-0513) a second independent source is what lifts a projected resident, and a poll twenty-two months after the scene date — or a register four years after it — is a second source about CONTINUED RESIDENCE rather than about July 1835. T-0515 applies the ladder against every source at once; this pass hands it the evidence and not the verdict. FERGUS 1839'S FORT DEARBORN ADDITION LOT SALE — JUNE 1839 EVIDENCE, NEVER AN 1835 FACT. This person bid at the sale of the Fort Dearborn Addition, 10-24 June 1839, printed in Fergus' Chicago Directory for 1839 at pages 47-49. The bidder is printed as “J. H. Collins”. 7 lot rows, $1,755 in all: block 5 lot 6 at $211 (f1839_lot0069, printed page 48); block 5 lot 7 at $211 (f1839_lot0070, printed page 48); block 5 lot 8 at $210 (f1839_lot0071, printed page 48); block 5 lot 9 at $209 (f1839_lot0072, printed page 48); block 5 lot 10 at $208 (f1839_lot0073, printed page 48); block 10 lot 7 at $353 (f1839_lot0180, printed page 49); block 10 lot 8 at $353 (f1839_lot0181, printed page 49). The sale table's own shorthand, recorded and not flattened: 5 of those rows print the bidder as a ditto mark under the name above rather than the name itself; 7 carry the block number forward from the last row that printed one. What a match may carry, and it is short: that the man was in Chicago between the 10th and the 24th of June 1839 and bid at the Fort Dearborn Addition sale. It is written as 1839 evidence with describes_date 1839-06, never as an 1835 fact, and the person's grade does not move on this alone. Under the ratified ladder a second contemporary source is what lifts projected_resident, and a land sale four years after the scene date is a second source about CONTINUED RESIDENCE, not about July 1835. THE LOT IS NOT A LOCATION FOR 1835: the Fort Dearborn Addition is the Beaubien, or Reservation, lands, which in July 1835 were the garrison's ground and were not platted into lots at all. It places no house, no shop and no household in the town this project builds. No trade, no address in the town of 1835, no household and no house. The block and lot are the only location on the page, they are ground platted in 1839 out of the garrison's reservation, and they place nobody in the town of 1835. Identity by the crosswalk's own rule: Surname 'Collins' folds to the same string as the bidder's, and the given name of both begins J. (data/research/directories/fergus_1839_lots_crosswalk_1835.json). This pass WRITES THE EVIDENCE AND MOVES NO GRADE. Under the ratified ladder (T-0513) a second independent source is what lifts a projected resident, and a lot sale four years after the scene date is a second source about CONTINUED RESIDENCE rather than about July 1835. T-0515 applies the ladder against every source at once; this pass hands it the evidence and not the verdict.",
+   "resident_research": {
+    "programme": "resident-research-2026",
+    "ticket": "T-0509",
+    "outcome": "corroborated_enrichment",
+    "reviewed_on": "2026-09-05",
+    "asserted_identity": true,
+    "evidence_for": "The Papers of Abraham Lincoln identifies the attorney as James H. Collins, says he moved to Illinois in 1833, and records his 1834 Chicago practice with former student John D. Caton. The partner and occupation jointly resolve the initials more strongly than name alone.",
+    "notes": "No candidate fact is asserted unless a source bridges the candidate to the 1835 Chicago record by more than name similarity.",
+    "source_ids": [
+     "chicago_democrat_1833_1835",
+     "fergus_chicago_directory_1839"
+    ],
+    "summary": "The 1837 election return prints 'James H. Collins.', expanding both initials. The papers carry him as an attorney across three separate runs from 28 January 1834 to 5 August 1835. The Fergus 1839 surname entry is contested between several residents and is NOT carried; the 1837 return is what makes this."
+   },
+   "profile_facts": [
+    {
+     "field": "life_event",
+     "value": "Moved to Illinois in 1833 and practised at Chicago in 1834 with his former student John D. Caton",
+     "confidence": "inferred",
+     "sources": [
+      "fergus_chicago_directory_1839"
+     ],
+     "describes_date": "1834-01-01",
+     "place_class": "chicago",
+     "record_id": "resident_research:T-0509#02",
+     "as_read": "says he moved to Illinois in 1833, and records his 1834 Chicago practice with former student John D. Caton",
+     "note": "Dated before the scene, and it names a second person this layer carries. The partnership is a working tie and not a household."
+    }
+   ],
+   "roles": [
+    {
+     "role": "attorney",
+     "kind": "profession",
+     "as_printed": null,
+     "from": "1833-11",
+     "to": "1835-08",
+     "precision": "source_span",
+     "dated_by": "source_describes_date",
+     "covers_scene_date": true,
+     "confidence": "attested",
+     "sources": [
+      "chicago_democrat_1833_1835"
+     ],
+     "claim": null,
+     "note": "THE BOUND IS THE SOURCE'S, NOT THE MAN'S. This role is carried by the card's 1835 occupation block and is dated by what the cited source or sources are ABOUT, which is why `precision` can be no better than the span they cover. The span reaches 1835, so this role stands in the scene-date view. The printing the trade was read off is not on the card and is fetched by T-1254."
+    }
+   ],
+   "merge_ruling": [
+    {
+     "ticket": "T-1291",
+     "verdict": "distinct",
+     "rule": "D7",
+     "cluster": "collins-rollins",
+     "weighed_against": [
+      "rollins_john"
+     ],
+     "for_merge": "C against R at the head of a surname is a one-letter distance the exact test cannot see, and the initial J agrees with John.",
+     "against_merge": "THE COLLINS CARD IS A NAMED MAN WITH A TRADE AND THE ROLLINS CARD IS A DIFFERENT ENTRY IN THE SAME PAPER. J. H. Collins is James H. Collins, attorney: Fergus 1843 gives 'Collins, James H., attorney (Butterfield & C), res 15 Lake', Norris 1844 the same man at Lake near Wabash, the Democrat prints him from 28 January 1834 to 5 August 1835, and T-0509 corroborated the identity through the Papers of Abraham Lincoln. 'Rollins, John, Jr.' is the Democrat of 17 September 1834 (#c002) — a different issue, a junior, and no trade. The town holds rollins_charles beside rollins_john, so Rollins is a populated surname here; Collins is set 204 times in the corpus and Rollins five. Nothing folds a documented attorney onto another man's son on one letter. D7."
+    }
+   ]
+  }
+ ],
+ "touches_removal": false,
+ "review_required": false,
+ "research_note": "MINTED FROM THE NEWSPAPER REGISTER (T-0376), AND THE HOUSEHOLD IS A CONTAINER RATHER THAN AN ARGUMENT. Every other record in this dataset argues for a household — a family the sources count, or a trade the town demonstrably needed. This one argues for a PERSON: the Democrat and the American name J. H. Collins as a attorney at Chicago 10 time(s), and this reconstruction did not hold them. `data/residents/` has no way to carry a person except inside a household, so one was written around them and told to claim nothing: one member, no dwelling, no division, no origin, no arrival beyond the bound the paper sets. Reading a family, a house or a quarter of town into this record would be reading something the papers do not say. tools/mint_documented_residents.py derives the whole minted set and prints every candidate it refused, with the reason.",
+ "directories": {
+  "note": "LATER EVIDENCE, BESIDE THE 1835 CLAIMS AND NOT INSIDE THEM. A Chicago directory of 1839, 1843 or 1844 meets somebody of this name and this pass records what it prints. Under the ratified ladder a directory read after 1835 can corroborate that a person attested here was still in Chicago and can print a trade or a street the 1835 record never had; on its own it makes nobody a resident of 1835. Nothing on this person's 1835 record was regraded, moved, dated or given an occupation by this entry. WHAT THIS PASS RULED ONTO THIS HOUSEHOLD, named so the ruling can be found again: each volume below is followed by the printed entries it set against this person and the status the crosswalk ruled them at — a single entry carries what its own `could_carry` declares, and an ambiguous or contested match carries nothing and is shown so that the silence is legible. collins_j_h, Fergus's Chicago directory of 1839 — f1839_e0309, f1839_e0311 (ambiguous, so nothing crossed); collins_j_h, Fergus's Chicago directory of 1843 — f1843_e0673 (a single entry); collins_j_h, Norris's Chicago directory of 1844 — n1844_e0387 (a single entry).",
+  "sources": [
+   "fergus_chicago_directory_1839",
+   "fergus_chicago_directory_1843",
+   "norris_directory_1844"
+  ],
+  "people": [
+   {
+    "person_id": "collins_j_h",
+    "address_later": {
+     "value": "res 15 Lake",
+     "confidence": "attested",
+     "describes_date": 1843,
+     "sources": [
+      "fergus_chicago_directory_1843"
+     ],
+     "note": "Fergus's Chicago directory of 1843 prints this address against this person, in the entry quoted on the card: 'Collins, James H., attorney (Butterfield & C), res 15 Lake [died, Ottawa, Ill., July 14, 1854, aged 56]'. It is evidence about 1843, written here as 1843's and read back onto no 1835 claim. Under the ratified ladder a directory read after 1835 can corroborate that a person attested here was still in Chicago and can print a trade or a street the 1835 record never had; on its own it makes nobody a resident of 1835. Nothing on this person's 1835 record was regraded, moved, dated or given an occupation by this entry. The value is the volume's own line, split by its crosswalk on the entry's punctuation. These volumes set the trade first and its qualifiers after it on the same line, so the split may carry an employer, a market or a corner along with the trade. The printed entry is quoted beside the value for exactly that reason: the split is checkable against it, and neither is read into an 1835 claim."
+    },
+    "back_projection": {
+     "outcome": "refused",
+     "clause": "2",
+     "value": null,
+     "describes_date": 1843,
+     "read_back_years": 8,
+     "placement": null,
+     "position_local_enu_m": null,
+     "sources": [
+      "fergus_chicago_directory_1843"
+     ],
+     "note": "REFUSED, AND THE REFUSAL IS THE RECORD. Fergus's Chicago directory of 1843 prints an address against this name in 1843 and this pass will not carry it back to 1835. The directory prints this as a RESIDENCE — its own `res`, `bds`, `house` or Norris's `h` — and this pass positions businesses. Reading a home address as a shop door would be the pass answering a question nobody asked it. The residence half is T-0669. A refusal is written here rather than dropped so that a later run can see the address was read and ruled on, not missed (docs/ADDRESS-BACK-PROJECTION.md, clause 2)."
+    },
+    "residence_back_projection": {
+     "outcome": "placed",
+     "clause": "R4 and R5",
+     "kind": "resides",
+     "value": "Lake Street",
+     "confidence": "reconstructed",
+     "describes_date": 1843,
+     "read_back_years": 8,
+     "placement": "face",
+     "sources": [
+      "fergus_chicago_directory_1843"
+     ],
+     "note": "A LATER HOME ADDRESS, READ BACKWARDS 8 YEARS. The street is not an 1835 reading: Fergus's Chicago directory of 1843 printed where this person lived in 1843, and this pass carries it back to the scene date because nothing in the 1835 corpus says where the house stood. What is claimed is the street FACE and nothing narrower — no lot, no roof, no door count, and no corner even where the volume prints one — and the grade is `reconstructed`, this dataset's word for a figure the reconstruction supplies rather than a source. Lake Street stands in 1835 under that name and in that place, and the entry prints it as this person's home. So the placement is the FACE and nothing narrower, and no roof is dealt. A home is carried back on a weaker argument than a shop is: a shopfront is capital sunk into one street's trade and a lodging is a month's rent, which is why this policy claims less than docs/ADDRESS-BACK-PROJECTION.md does from the same volume. The rule is docs/RESIDENCE-BACK-PROJECTION.md and the liberty is L223; a reader who thinks 8 years is too far to carry a house should read the grade as the disagreement being invited."
+    }
+   }
+  ]
+ }
+}

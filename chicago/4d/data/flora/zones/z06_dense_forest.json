@@ -1,0 +1,587 @@
+{
+ "id": "z06_dense_forest",
+ "zone": 6,
+ "name": "The dense timber north-east of the forks",
+ "dossier": "docs/research/02-flora.md § ZONE 6",
+ "scene_date": "1835-07-01",
+ "palette": "july_wet_woods",
+ "reads_as": "a mosaic, not a monoculture: a wet elm-ash-silver-maple core with willow thickets in the swales, oak stringers on the sand ridges, and a hazel shrub layer through all of it",
+ "plantable_in_scene": true,
+ "cover": {"matrix_fraction":0.35,"bare_soil_fraction":0.1,"standing_water_fraction":0.08,"litter_fraction":0.5},
+ "ground": {"rgb":[52,58,38],"wet_rgb":[40,44,32]},
+ "extent": {
+  "kind": "polygon",
+  "polygon": [
+   [-60,340],
+   [-52,300],
+   [-44,262],
+   [-32,220],
+   [-32,180],
+   [-30,120],
+   [-28,60],
+   [-20,36],
+   [-4,10],
+   [16,-6],
+   [48,8],
+   [80,26],
+   [112,42],
+   [138,58],
+   [152,86],
+   [172,108],
+   [230,118],
+   [340,126],
+   [340,340]
+  ],
+  "priority": 25,
+  "confidence": "inferred",
+  "sources": ["chicagology_prefire273"],
+  "note": "The polygon is the North Division inside the box: the land north of the main stem and east of the North Branch, traced off the waterline of the committed heightfield. Andreas documents the North Side as carrying 'a body of thrifty heavy growth of timber', excepting the sandy hills near the lake and the marshy places, which is why the whole division is timbered here. The 1821 surveyor's 'swampy timber thicket' note that gives the community its character is on the section 4-5 line about 2.5 km NORTH of this box, so the composition is carried down to this stand by inference, not by a survey of it."
+ },
+ "species": [
+  {
+   "id": "ulmus_americana",
+   "binomial": "Ulmus americana",
+   "common": "American elm",
+   "role": "tree",
+   "form": "tree_gallery",
+   "abundance": {"density_per_ha":[40,80]},
+   "height_m": [15,22],
+   "width_m": [10,16],
+   "july": {
+    "phenology": "vegetative",
+    "foliage_rgb": [72,100,52],
+    "inflorescence": null,
+    "appearance": "Canopy of the wet core; vase crown, medium bole."
+   },
+   "confidence": "attested",
+   "sources": ["mcbride_bowles_2007","chicagology_prefire273"]
+  },
+  {
+   "id": "fraxinus_pennsylvanica",
+   "binomial": "Fraxinus pennsylvanica",
+   "common": "green ash",
+   "role": "tree",
+   "form": "tree_gallery",
+   "abundance": {"density_per_ha":[20,40]},
+   "height_m": [14,20],
+   "width_m": [8,12],
+   "july": {
+    "phenology": "vegetative",
+    "foliage_rgb": [86,112,58],
+    "inflorescence": null,
+    "appearance": "Canopy; pinnate leaves, diamond-ridged bark."
+   },
+   "confidence": "attested",
+   "sources": ["mcbride_bowles_2007"]
+  },
+  {
+   "id": "fraxinus_nigra",
+   "binomial": "Fraxinus nigra",
+   "common": "black ash",
+   "role": "tree",
+   "form": "tree_columnar",
+   "abundance": {"density_per_ha":[10,20]},
+   "height_m": [14,20],
+   "width_m": [6,10],
+   "july": {
+    "phenology": "vegetative",
+    "foliage_rgb": [78,104,54],
+    "inflorescence": null,
+    "appearance": "Narrow crown on the wettest muck."
+   },
+   "confidence": "inferred",
+   "sources": ["mcbride_bowles_2007"],
+   "note": "The dossier gives the ash row as D/I: F. pennsylvanica is on the PLS list, F. nigra is the inferred wet-site member."
+  },
+  {
+   "id": "acer_saccharinum",
+   "binomial": "Acer saccharinum",
+   "common": "silver maple",
+   "role": "tree",
+   "form": "tree_gallery",
+   "abundance": {"density_per_ha":[20,40]},
+   "height_m": [18,25],
+   "width_m": [12,18],
+   "july": {
+    "phenology": "vegetative",
+    "foliage_rgb": [82,108,60],
+    "foliage_rgb_alt": [162,172,150],
+    "inflorescence": null,
+    "appearance": "Canopy; silver leaf undersides."
+   },
+   "confidence": "attested",
+   "sources": ["mcbride_bowles_2007"]
+  },
+  {
+   "id": "quercus_bicolor",
+   "binomial": "Quercus bicolor",
+   "common": "swamp white oak",
+   "role": "tree",
+   "form": "tree_open_crown",
+   "abundance": {"density_per_ha":[10,25]},
+   "height_m": [15,20],
+   "width_m": [10,16],
+   "july": {
+    "phenology": "vegetative",
+    "foliage_rgb": [80,104,54],
+    "foliage_rgb_alt": [150,158,128],
+    "inflorescence": null,
+    "appearance": "Broad crown on the better-drained flats."
+   },
+   "confidence": "inferred",
+   "sources": ["mcbride_bowles_2007"],
+   "note": "Dossier [I]: PLS list, not named on this stand."
+  },
+  {
+   "id": "salix_interior",
+   "binomial": "Salix interior",
+   "common": "sandbar willow",
+   "role": "thicket",
+   "form": "thicket_clonal",
+   "abundance": {"stems_per_m2":[1,4]},
+   "height_m": [2,5],
+   "july": {
+    "phenology": "vegetative",
+    "foliage_rgb": [132,150,116],
+    "inflorescence": null,
+    "appearance": "Clonal willow thickets filling the swales — sight-blocking below head height."
+   },
+   "confidence": "attested",
+   "sources": ["mcbride_bowles_2007"],
+   "note": "The willow thickets the survey recorded only in Cook County."
+  },
+  {
+   "id": "cornus_sericea",
+   "binomial": "Cornus sericea",
+   "common": "red-osier dogwood",
+   "role": "shrub_low",
+   "form": "shrub_low",
+   "abundance": {"cover_fraction":[0.1,0.25]},
+   "height_m": [1.5,3.0],
+   "width_m": [1.2,2.4],
+   "july": {
+    "phenology": "fruiting",
+    "foliage_rgb": [88,116,66],
+    "inflorescence": {"shape":"berry_cluster","rgb":[214,216,206],"height_frac":0.85,"size_m":[0.05,0.09],"fruit":true},
+    "appearance": "Dense red-stemmed shrub layer with whitening berries."
+   },
+   "confidence": "inferred",
+   "sources": ["swink_wilhelm_1994"],
+   "note": "Dossier I/C row: regional wet-woods shrub."
+  },
+  {
+   "id": "cephalanthus_occidentalis",
+   "binomial": "Cephalanthus occidentalis",
+   "common": "buttonbush",
+   "role": "shrub_low",
+   "form": "shrub_low",
+   "abundance": {"cover_fraction":[0.05,0.15]},
+   "height_m": [1.5,3.0],
+   "width_m": [1.2,2.4],
+   "july": {
+    "phenology": "flowering",
+    "foliage_rgb": [80,112,60],
+    "inflorescence": {"shape":"head_button","rgb":[236,232,214],"height_frac":0.8,"size_m":[0.03,0.045]},
+    "appearance": "Creamy pincushion spheres in the standing water."
+   },
+   "confidence": "inferred",
+   "sources": ["swink_wilhelm_1994"],
+   "note": "Dossier I/C row."
+  },
+  {
+   "id": "ilex_verticillata",
+   "binomial": "Ilex verticillata",
+   "common": "winterberry",
+   "role": "shrub_low",
+   "form": "shrub_low",
+   "abundance": {"cover_fraction":[0.03,0.1]},
+   "height_m": [1.5,3.0],
+   "width_m": [1.0,2.0],
+   "july": {
+    "phenology": "fruiting",
+    "foliage_rgb": [76,104,52],
+    "inflorescence": {"shape":"berry_cluster","rgb":[128,148,92],"height_frac":0.7,"size_m":[0.01,0.02],"fruit":true},
+    "appearance": "Green unripe berries tight to the twigs; it reddens only in autumn."
+   },
+   "confidence": "reconstructed",
+   "note": "The dossier marks this shrub row I/C and winterberry is the conjectural member: a plausible Cook County wet-woods shrub that no source places on this stand."
+  },
+  {
+   "id": "laportea_canadensis",
+   "binomial": "Laportea canadensis",
+   "common": "wood nettle",
+   "role": "ground",
+   "form": "forb_spike",
+   "abundance": {"cover_fraction":[0.3,0.6]},
+   "height_m": [0.5,1.0],
+   "width_m": [0.3,0.6],
+   "width_provenance": {
+    "confidence": "reconstructed",
+    "sources": ["swink_wilhelm_1994"],
+    "note": "WHAT ONE DRAWN PLANT COVERS ON THE GROUND, added for ROADMAP K49(c) so this record's cover_fraction can be read as a count of plants. RECONSTRUCTED. § ZONE 6 gives the wood nettle as a \"wood nettle mass on mucky ground\" holding 60-90 % of the forest floor at 0.3-1.0 m, and states no width. Bounded by that height band: a single stem's leaf spread is taken at roughly half to two-thirds its height. docs/LIBERTIES.md L119."
+   },
+   "july": {
+    "phenology": "flowering",
+    "foliage_rgb": [104,130,72],
+    "inflorescence": {"shape":"panicle_open","rgb":[204,210,180],"height_frac":0.85,"size_m":[0.06,0.14]},
+    "appearance": "A continuous mass of broad soft nettle leaves on the mucky floor, with thin greenish-white flower strings."
+   },
+   "confidence": "inferred",
+   "sources": ["swink_wilhelm_1994"],
+   "note": "Dossier [I]. This is what a July woodland floor looks like here: the spring ephemerals are gone by 1 July."
+  },
+  {
+   "id": "carex_spp",
+   "binomial": "Carex spp.",
+   "common": "woodland-floor sedges",
+   "role": "matrix",
+   "form": "sedge_tussock",
+   "abundance": {"cover_fraction":[0.2,0.4]},
+   "height_m": [0.3,0.6],
+   "width_m": [0.2,0.4],
+   "width_provenance": {
+    "confidence": "inferred",
+    "sources": ["swink_wilhelm_1994"],
+    "note": "WHAT ONE DRAWN PLANT COVERS ON THE GROUND, added for ROADMAP K49(c) so this record's cover_fraction can be read as a count of plants. The only graminoid footprint measured anywhere in this project's flora dossier is Carex stricta's, at docs/research/02-flora.md § ZONE 3: \"tussocks 0.3-0.5 m tall x 0.3 m wide, 0.5-1.0 m apart\", which this dataset commits as [0.28, 0.34]. The forest-floor sedge is an unresolved aggregate; it is given the measured tussock's band widened downward, as the shore aggregate in z05 is."
+   },
+   "july": {
+    "phenology": "past_bloom",
+    "foliage_rgb": [80,108,56],
+    "inflorescence": {"shape":"spike","rgb":[124,122,88],"height_frac":0.75,"size_m":[0.02,0.05],"fruit":true},
+    "appearance": "Loose green sedge floor between the shrubs, fruited."
+   },
+   "confidence": "inferred",
+   "sources": ["swink_wilhelm_1994"],
+   "note": "The dossier names only the genus for the wet-woods floor. No species is recorded because none is attested; the gap is left visible rather than filled."
+  },
+  {
+   "id": "tilia_americana",
+   "binomial": "Tilia americana",
+   "common": "American basswood",
+   "role": "tree",
+   "form": "tree_gallery",
+   "abundance": {"density_per_ha":[15,35]},
+   "height_m": [18,24],
+   "width_m": [10,16],
+   "july": {
+    "phenology": "flowering",
+    "foliage_rgb": [86,114,58],
+    "inflorescence": {"shape":"cluster_terminal","rgb":[222,214,152],"height_frac":0.6,"size_m":[0.06,0.12]},
+    "appearance": "Large heart-shaped leaves; pale flower clusters on their strap bracts, heavily bee-worked and just starting to set fruit."
+   },
+   "confidence": "inferred",
+   "sources": ["mcbride_bowles_2007"],
+   "note": "Dossier: D for the regional PLS list, I for this stand. Basswood is one of the fire-intolerant species the survey found concentrated east of watercourses, which is what this pocket is."
+  },
+  {
+   "id": "acer_saccharum",
+   "binomial": "Acer saccharum",
+   "common": "sugar maple",
+   "role": "tree",
+   "form": "tree_gallery",
+   "abundance": {"density_per_ha":[10,30]},
+   "height_m": [18,24],
+   "width_m": [10,15],
+   "july": {
+    "phenology": "vegetative",
+    "foliage_rgb": [66,96,48],
+    "inflorescence": null,
+    "appearance": "Dense dark canopy casting the deepest shade here."
+   },
+   "confidence": "inferred",
+   "sources": ["mcbride_bowles_2007"],
+   "note": "Dossier: D for the list, I on site. The 'sugartree' of the survey notes."
+  },
+  {
+   "id": "quercus_rubra",
+   "binomial": "Quercus rubra",
+   "common": "northern red oak",
+   "role": "tree",
+   "form": "tree_gallery",
+   "abundance": {"density_per_ha":[8,20]},
+   "height_m": [20,26],
+   "width_m": [12,18],
+   "july": {
+    "phenology": "vegetative",
+    "foliage_rgb": [78,104,52],
+    "inflorescence": null,
+    "appearance": "Tall straight canopy oak on the richest ground."
+   },
+   "confidence": "attested",
+   "sources": ["mcbride_bowles_2007"]
+  },
+  {
+   "id": "ostrya_virginiana",
+   "binomial": "Ostrya virginiana",
+   "common": "ironwood",
+   "role": "tree",
+   "form": "tree_columnar",
+   "abundance": {"density_per_ha":[15,40]},
+   "height_m": [6,10],
+   "width_m": [4,7],
+   "july": {
+    "phenology": "fruiting",
+    "foliage_rgb": [92,118,62],
+    "inflorescence": {"shape":"cluster_terminal","rgb":[214,212,180],"height_frac":0.7,"size_m":[0.04,0.07],"fruit":true},
+    "appearance": "Subcanopy: shreddy bark and pale hop-like fruit clusters."
+   },
+   "confidence": "attested",
+   "sources": ["mcbride_bowles_2007"]
+  },
+  {
+   "id": "allium_tricoccum",
+   "binomial": "Allium tricoccum",
+   "common": "ramp / wild leek",
+   "role": "forb",
+   "form": "scape_leafless",
+   "abundance": {"stems_per_m2":[20,60]},
+   "height_m": [0.2,0.4],
+   "july": {
+    "phenology": "leafless",
+    "foliage_rgb": null,
+    "inflorescence": {"shape":"umbel_domed","rgb":[236,236,228],"height_frac":0.95,"size_m":[0.03,0.05]},
+    "appearance": "LEAFLESS. Bare shaded ground with 20-40 cm scapes carrying white umbels or green three-lobed capsules. The leaves came up in April and withered before the flower stalk rose; green onion foliage in July is wrong."
+   },
+   "confidence": "inferred",
+   "sources": ["swenson_1991","drloih_chicago_name"],
+   "note": "The plant the city is named for. Documented as the etymology's referent (Joutel's 'ail sauvage' in the maple forests); its presence in THIS stand is inferred from the habitat, not attested. Dossier section 3 and its July phenology trap."
+  },
+  {
+   "id": "ageratina_altissima",
+   "binomial": "Ageratina altissima",
+   "common": "white snakeroot",
+   "role": "ground",
+   "form": "forb_umbel",
+   "abundance": {"cover_fraction":[0.05,0.15]},
+   "height_m": [0.4,0.9],
+   "width_m": [0.3,0.5],
+   "width_provenance": {
+    "confidence": "reconstructed",
+    "sources": ["swink_wilhelm_1994"],
+    "note": "WHAT ONE DRAWN PLANT COVERS ON THE GROUND, added for ROADMAP K49(c) so this record's cover_fraction can be read as a count of plants. RECONSTRUCTED. § ZONE 6b gives white snakeroot in the \"sparse, shaded\" ground layer at 0.2-0.6 m, budding in July, with no width. A branched shade forb of that height carries a leaf spread near its own height, so 0.30-0.50 m. docs/LIBERTIES.md L119."
+   },
+   "july": {
+    "phenology": "budding",
+    "foliage_rgb": [96,122,68],
+    "inflorescence": null,
+    "appearance": "Green buds only on the shaded floor; it whitens in late August."
+   },
+   "confidence": "inferred",
+   "sources": ["swink_wilhelm_1994"],
+   "note": "Dossier [I] and explicitly 'not yet in flower'."
+  },
+  {
+   "id": "osmorhiza_claytonii",
+   "binomial": "Osmorhiza claytonii",
+   "common": "hairy sweet cicely",
+   "role": "ground",
+   "form": "forb_umbel",
+   "abundance": {"cover_fraction":[0.03,0.1]},
+   "height_m": [0.3,0.6],
+   "width_m": [0.2,0.4],
+   "width_provenance": {
+    "confidence": "reconstructed",
+    "sources": ["swink_wilhelm_1994"],
+    "note": "WHAT ONE DRAWN PLANT COVERS ON THE GROUND, added for ROADMAP K49(c) so this record's cover_fraction can be read as a count of plants. RECONSTRUCTED. Shares § ZONE 6b's \"sparse, shaded\" ground-layer row with Ageratina altissima (0.2-0.6 m, no width) and is the smaller of the two, so it takes the lower half of that band. docs/LIBERTIES.md L119."
+   },
+   "july": {
+    "phenology": "past_bloom",
+    "foliage_rgb": [90,118,64],
+    "inflorescence": {"shape":"umbel_compound","rgb":[126,140,84],"height_frac":0.85,"size_m":[0.04,0.08],"fruit":true},
+    "appearance": "Ferny leaves with bristly green fruit clubs; flowering finished in May."
+   },
+   "confidence": "inferred",
+   "sources": ["swink_wilhelm_1994"],
+   "note": "Dossier [I]: named for the July woodland floor."
+  },
+  {
+   "id": "quercus_macrocarpa",
+   "binomial": "Quercus macrocarpa",
+   "common": "bur oak",
+   "role": "tree",
+   "form": "tree_open_crown",
+   "abundance": {"density_per_ha":[10,40]},
+   "height_m": [15,20],
+   "width_m": [12,20],
+   "july": {
+    "phenology": "vegetative",
+    "foliage_rgb": [80,106,52],
+    "inflorescence": null,
+    "appearance": "Thick corky fire-scarred bark, broad low crown, green fringed acorns."
+   },
+   "confidence": "attested",
+   "sources": ["mcbride_bowles_2007"]
+  },
+  {
+   "id": "quercus_alba",
+   "binomial": "Quercus alba",
+   "common": "white oak",
+   "role": "tree",
+   "form": "tree_open_crown",
+   "abundance": {"density_per_ha":[10,35]},
+   "height_m": [18,24],
+   "width_m": [12,20],
+   "july": {
+    "phenology": "vegetative",
+    "foliage_rgb": [90,114,62],
+    "inflorescence": null,
+    "appearance": "Pale flaky bark, rounded lobed leaves."
+   },
+   "confidence": "attested",
+   "sources": ["mcbride_bowles_2007"]
+  },
+  {
+   "id": "quercus_velutina",
+   "binomial": "Quercus velutina",
+   "common": "black oak",
+   "role": "tree",
+   "form": "tree_open_crown",
+   "abundance": {"density_per_ha":[5,20]},
+   "height_m": [14,20],
+   "width_m": [9,15],
+   "july": {
+    "phenology": "vegetative",
+    "foliage_rgb": [74,98,46],
+    "inflorescence": null,
+    "appearance": "Dark blocky bark on the driest sand of the ridges."
+   },
+   "confidence": "attested",
+   "sources": ["mcbride_bowles_2007"]
+  },
+  {
+   "id": "carya_ovata",
+   "binomial": "Carya ovata",
+   "common": "shagbark hickory",
+   "role": "tree",
+   "form": "tree_columnar",
+   "abundance": {"density_per_ha":[4,12]},
+   "height_m": [15,20],
+   "width_m": [7,11],
+   "july": {
+    "phenology": "vegetative",
+    "foliage_rgb": [86,110,54],
+    "inflorescence": null,
+    "appearance": "Shaggy plate bark peeling in long strips — high visual value at close range."
+   },
+   "confidence": "attested",
+   "sources": ["mcbride_bowles_2007"]
+  },
+  {
+   "id": "corylus_americana",
+   "binomial": "Corylus americana",
+   "common": "American hazel",
+   "role": "shrub_low",
+   "form": "shrub_low",
+   "abundance": {"cover_fraction":[0.2,0.5]},
+   "height_m": [1.5,3.0],
+   "width_m": [1.5,3.0],
+   "july": {
+    "phenology": "fruiting",
+    "foliage_rgb": [94,122,62],
+    "inflorescence": {"shape":"nut_husk","rgb":[162,178,108],"height_frac":0.7,"size_m":[0.03,0.05],"fruit":true},
+    "appearance": "The dominant shrub layer: broad rounded leaves and green husked nuts."
+   },
+   "confidence": "attested",
+   "sources": ["mcbride_bowles_2007","bowles_mcbride_1994_barrens"],
+   "note": "McBride and Bowles's headline finding: hazel was the most common shrub-layer plant in these woodlands at the time of the survey, and is uncommon now. Under-rendering hazel is the specific mistake this entry exists to prevent."
+  },
+  {
+   "id": "quercus_velutina_grubs",
+   "binomial": "Quercus velutina",
+   "common": "oak grubs (fire-sprouted black oak)",
+   "role": "shrub_low",
+   "form": "shrub_low",
+   "abundance": {"density_per_ha":[500,2000]},
+   "height_m": [0.5,2.0],
+   "width_m": [0.6,1.6],
+   "july": {
+    "phenology": "vegetative",
+    "foliage_rgb": [82,104,50],
+    "inflorescence": null,
+    "appearance": "Multi-stemmed low clonal oak sprouting from an old root system. These are grubs, not saplings: they do not grow into the canopy while fire keeps returning."
+   },
+   "confidence": "attested",
+   "sources": ["mcbride_bowles_2007","bowles_mcbride_1994_barrens"]
+  },
+  {
+   "id": "crataegus_spp",
+   "binomial": "Crataegus spp.",
+   "common": "hawthorn ('thorn')",
+   "role": "shrub_low",
+   "form": "shrub_low",
+   "abundance": {"cover_fraction":[0.02,0.06]},
+   "height_m": [1.5,4.0],
+   "width_m": [1.5,3.5],
+   "july": {
+    "phenology": "fruiting",
+    "foliage_rgb": [88,112,58],
+    "inflorescence": {"shape":"berry_cluster","rgb":[124,146,84],"height_frac":0.75,"size_m":[0.02,0.04],"fruit":true},
+    "appearance": "Thorny crown with hard green fruit."
+   },
+   "confidence": "inferred",
+   "sources": ["mcbride_bowles_2007"],
+   "note": "The survey notes record 'thorn' as an undergrowth term; the genus is documented, the species is not, so no species is named."
+  },
+  {
+   "id": "rhus_glabra",
+   "binomial": "Rhus glabra",
+   "common": "smooth sumac ('spewmake')",
+   "role": "shrub_low",
+   "form": "shrub_low",
+   "abundance": {"cover_fraction":[0.02,0.05]},
+   "height_m": [1.0,3.0],
+   "width_m": [1.0,2.5],
+   "july": {
+    "phenology": "fruiting",
+    "foliage_rgb": [96,120,60],
+    "inflorescence": {"shape":"panicle_dense","rgb":[140,158,88],"height_frac":0.85,"size_m":[0.1,0.18],"fruit":true},
+    "appearance": "Green upright fruit pyramids over pinnate leaves."
+   },
+   "confidence": "inferred",
+   "sources": ["mcbride_bowles_2007"],
+   "note": "'Spewmake' in the survey notes is read as sumac; the species is inferred."
+  },
+  {
+   "id": "prunus_americana",
+   "binomial": "Prunus americana",
+   "common": "American plum",
+   "role": "shrub_low",
+   "form": "shrub_low",
+   "abundance": {"cover_fraction":[0.01,0.04]},
+   "height_m": [1.5,4.0],
+   "width_m": [1.5,3.0],
+   "july": {
+    "phenology": "fruiting",
+    "foliage_rgb": [92,116,60],
+    "inflorescence": {"shape":"cherry","rgb":[140,156,92],"height_frac":0.7,"size_m":[0.02,0.03],"fruit":true},
+    "appearance": "Thicket-forming, with small hard green plums."
+   },
+   "confidence": "inferred",
+   "sources": ["mcbride_bowles_2007"],
+   "note": "Dossier: terms documented, species inferred."
+  },
+  {
+   "id": "rubus_spp",
+   "binomial": "Rubus spp.",
+   "common": "brambles ('briers')",
+   "role": "shrub_low",
+   "form": "shrub_low",
+   "abundance": {"cover_fraction":[0.02,0.06]},
+   "height_m": [0.6,1.8],
+   "width_m": [1.0,2.5],
+   "july": {
+    "phenology": "fruiting",
+    "foliage_rgb": [98,124,64],
+    "inflorescence": {"shape":"berry_cluster","rgb":[176,96,82],"height_frac":0.7,"size_m":[0.015,0.03],"fruit":true},
+    "appearance": "Arching prickly canes with reddening fruit."
+   },
+   "confidence": "inferred",
+   "sources": ["mcbride_bowles_2007"],
+   "note": "'Briers' is documented as an undergrowth term; the genus is the inference."
+  }
+ ],
+ "confidence": "attested",
+ "sources": ["chicagology_prefire273"],
+ "note": "Overall canopy 50-110 trees/ha with local pockets over 100/ha and more than 30 per cent of the area at savanna density; mean canopy tree about 30 cm dbh and 15-20 m. Medium timber, not monumental. Two gaps are left open rather than filled: the dossier names 'ferns' on the July floor without a species, and names only Carex spp. for the sedge floor, so no fern is recorded at all.",
+ "review_required": false
+}

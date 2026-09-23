@@ -1,0 +1,30 @@
+{
+  "id": "chicago_dpw_1891_streets",
+  "type": "book",
+  "citation": "Chicago Department of Public Works. Fifteenth Annual Report of the Department of Public Works to the Mayor and City Council of the City of Chicago, for the Fiscal Year Ending December 31, 1890. Chicago, 1891.",
+  "author": "Chicago Department of Public Works",
+  "date": "1891",
+  "describes_date": "1831-1890",
+  "repository": "Internet Archive; digitized from the University of Michigan copy",
+  "url": "https://archive.org/details/258unkngoog",
+  "archived_url": "https://archive.org/stream/258unkngoog/258unkngoog_djvu.txt",
+  "locator": "Appendix, printed pp. 438-440, 'Short History of Street Improvement in Chicago'",
+  "tier": 3,
+  "rights_status": "public_domain",
+  "asset_use": "text_only",
+  "verified": true,
+  "note": "An official municipal retrospective compiled fifty-six years after the scene, not a contemporary surface survey. It says there were no printed street-improvement reports before 1861 and presents notes from the city archives. The useful sequence is unusually specific: South Water was ordered 'pitched' from the United States Reservation to Randolph by April 1834 and ordered graded for drainage in July 1834; South Water and Lake were the two principal early turnpiked and graded streets; Canal, the western reach of Lake, and Randolph were not turnpiked until fall 1836; roadway planking began in 1844 and became general in 1849; limestone block, macadam, and cobblestone first appear in 1855-56. The printed year on Gurdon Hubbard's petition reads 1885, but the heading, content, tax request, and surrounding chronology place it in 1835. Because the petition is dated July 13 and this scene is July 1, its short La Salle improvement is NOT rendered as complete.",
+  "what_it_supplies": [
+    "the official chronology of early Chicago street grading and turnpiking",
+    "South Water Street's 1833-34 pitching and drainage-grading orders",
+    "South Water and Lake Streets as the two principal early improved thoroughfares",
+    "the later dates that rule out plank, limestone block, macadam, and cobblestone surfaces on 1 July 1835",
+    "the fall 1836 date for turnpiking Canal Street, Lake Street west to Desplaines, and Randolph Street"
+  ],
+  "what_it_does_not_supply": [
+    "a measured carriageway width, crown, rut spacing, soil colour, or cut-and-fill profile",
+    "proof that Hubbard's La Salle Street work was complete by 1 July 1835",
+    "a license to render every platted street as improved or equally travelled",
+    "street centreline geometry"
+  ]
+}

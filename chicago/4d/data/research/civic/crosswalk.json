@@ -1,0 +1,616 @@
+{
+  "schema": 1,
+  "domain": "civic",
+  "source_ids": [
+    "chicago_voter_lists_1833_1835_irad",
+    "blackhawk_war_chicago_enrollments_isa"
+  ],
+  "source_note": "what every ruling in this file was adjudicated FROM (T-0598). Stated once at the top because this domain's rulings all rest on the same record; a ruling resting on something more specific states that on itself and wins.",
+  "note": "The ONLY place two differently-spelled names in this domain may become one person, in data/research/newspapers/identity.json's shape and under its rules: a merge needs a rule, the rule names BOTH spellings verbatim, and a surname-only merge is always a refusal. A refusal is declared as explicitly as a merge — the absence of one reads like a pair nobody has looked at yet.",
+  "passes": [
+    {
+      "ticket": "T-0572",
+      "what": "The 134 Black Hawk War veterans who enrolled at Chicago in 1832, every row set beside the four voter and tax lists of 1833-1835 by tools/read_blackhawk_war.py under the rule at the head of that file.",
+      "merges": 0,
+      "refusals": 8,
+      "why_no_merges": "Enrollment at Chicago in 1832 is presence in 1832 and is NOT residence in 1835, and the ratified ladder forbids an earlier list from minting an 1835 person on its own. So this pass proposes corroborations in blackhawk_war_crosswalk.json and asserts no identity at all: the mint (T-0514) is where a merge belongs, and it inherits these rows."
+    },
+    {
+      "ticket": "T-0493",
+      "what": "The four voter lists of 1833-1835, every entry crosswalked to the residents layer by tools/read_voter_lists.py under the matching rules at the head of that file.",
+      "merges": 0,
+      "refusals": 29,
+      "why_no_merges": "A merge here would be a claim that a poll entry and a resident record are the same man, and this ticket does not make that claim for anybody: where the rules agree the entry is reported as matched in voter_crosswalk.json, and where they do not it is reported as a refusal. The mint (T-0514) is where a merge belongs."
+    }
+  ],
+  "merges": [],
+  "refusals": [
+    {
+      "pass": "T-0572",
+      "a": "EZRA BOND",
+      "b": "H. Bond",
+      "rule": "The surname agrees and the forenames do not: 'EZRA BOND' against 'H. Bond'. A surname match is a clue, not an identity, and an 1832 enrollment would not make one in 1835 even if it were.",
+      "evidence": [
+        {
+          "source_id": "blackhawk_war_chicago_enrollments_isa",
+          "locator": "blackhawk_war_1832_chicago entry 003"
+        },
+        {
+          "source_id": "chicago_voter_lists_1833_1835_irad",
+          "locator": "poll_1835 line 293"
+        }
+      ]
+    },
+    {
+      "pass": "T-0572",
+      "a": "WILLIAM BOND",
+      "b": "H. Bond",
+      "rule": "The surname agrees and the forenames do not: 'WILLIAM BOND' against 'H. Bond'. A surname match is a clue, not an identity, and an 1832 enrollment would not make one in 1835 even if it were.",
+      "evidence": [
+        {
+          "source_id": "blackhawk_war_chicago_enrollments_isa",
+          "locator": "blackhawk_war_1832_chicago entry 005"
+        },
+        {
+          "source_id": "chicago_voter_lists_1833_1835_irad",
+          "locator": "poll_1835 line 293"
+        }
+      ]
+    },
+    {
+      "pass": "T-0572",
+      "a": "JESSE B BROWN",
+      "b": "Lemuel Brown",
+      "rule": "The surname agrees and the forenames do not: 'JESSE B BROWN' against 'Lemuel Brown'. A surname match is a clue, not an identity, and an 1832 enrollment would not make one in 1835 even if it were.",
+      "evidence": [
+        {
+          "source_id": "blackhawk_war_chicago_enrollments_isa",
+          "locator": "blackhawk_war_1832_chicago entry 008"
+        },
+        {
+          "source_id": "chicago_voter_lists_1833_1835_irad",
+          "locator": "tax_1833 line 62"
+        }
+      ]
+    },
+    {
+      "pass": "T-0572",
+      "a": "RUFUS BROWN",
+      "b": "Lemuel Brown",
+      "rule": "The surname agrees and the forenames do not: 'RUFUS BROWN' against 'Lemuel Brown'. A surname match is a clue, not an identity, and an 1832 enrollment would not make one in 1835 even if it were.",
+      "evidence": [
+        {
+          "source_id": "blackhawk_war_chicago_enrollments_isa",
+          "locator": "blackhawk_war_1832_chicago entry 009"
+        },
+        {
+          "source_id": "chicago_voter_lists_1833_1835_irad",
+          "locator": "tax_1833 line 62"
+        }
+      ]
+    },
+    {
+      "pass": "T-0572",
+      "a": "S T GAGE",
+      "b": "Eli Gage",
+      "rule": "The surname agrees and the forenames do not: 'S T GAGE' against 'Eli Gage'. A surname match is a clue, not an identity, and an 1832 enrollment would not make one in 1835 even if it were.",
+      "evidence": [
+        {
+          "source_id": "blackhawk_war_chicago_enrollments_isa",
+          "locator": "blackhawk_war_1832_chicago entry 028"
+        },
+        {
+          "source_id": "chicago_voter_lists_1833_1835_irad",
+          "locator": "poll_1834 line 212"
+        }
+      ]
+    },
+    {
+      "pass": "T-0572",
+      "a": "E D HARMON",
+      "b": "Isaac Harmon",
+      "rule": "The surname agrees and the forenames do not: 'E D HARMON' against 'Isaac Harmon'. A surname match is a clue, not an identity, and an 1832 enrollment would not make one in 1835 even if it were.",
+      "evidence": [
+        {
+          "source_id": "blackhawk_war_chicago_enrollments_isa",
+          "locator": "blackhawk_war_1832_chicago entry 031"
+        },
+        {
+          "source_id": "chicago_voter_lists_1833_1835_irad",
+          "locator": "tax_1833 line 95"
+        }
+      ]
+    },
+    {
+      "pass": "T-0572",
+      "a": "JEREMIAH SMITH",
+      "b": "Matthias Smith",
+      "rule": "The surname agrees and the forenames do not: 'JEREMIAH SMITH' against 'Matthias Smith'. A surname match is a clue, not an identity, and an 1832 enrollment would not make one in 1835 even if it were.",
+      "evidence": [
+        {
+          "source_id": "blackhawk_war_chicago_enrollments_isa",
+          "locator": "blackhawk_war_1832_chicago entry 104"
+        },
+        {
+          "source_id": "chicago_voter_lists_1833_1835_irad",
+          "locator": "poll_1833 line 45"
+        }
+      ]
+    },
+    {
+      "pass": "T-0572",
+      "a": "A W TAYLOR",
+      "b": "Charles Taylor",
+      "rule": "The surname agrees and the forenames do not: 'A W TAYLOR' against 'Charles Taylor'. A surname match is a clue, not an identity, and an 1832 enrollment would not make one in 1835 even if it were.",
+      "evidence": [
+        {
+          "source_id": "blackhawk_war_chicago_enrollments_isa",
+          "locator": "blackhawk_war_1832_chicago entry 110"
+        },
+        {
+          "source_id": "chicago_voter_lists_1833_1835_irad",
+          "locator": "poll_1833 line 47"
+        }
+      ]
+    },
+    {
+      "pass": "T-0493",
+      "a": "Medard Beaubien",
+      "b": "Alexandre Beaubien",
+      "rule": "The surname agrees and the forenames do not: 'Medard Beaubien' against 'Alexandre Beaubien'. A surname match is a clue, not an identity.",
+      "evidence": [
+        {
+          "source_id": "chicago_voter_lists_1833_1835_irad",
+          "locator": "poll_1833 line 26"
+        },
+        {
+          "resident": "beaubien_alexandre"
+        }
+      ]
+    },
+    {
+      "pass": "T-0493",
+      "a": "Ed. S. Kimberly",
+      "b": "Ira Kimberly",
+      "rule": "The surname agrees and the forenames do not: 'Ed. S. Kimberly' against 'Ira Kimberly'. A surname match is a clue, not an identity.",
+      "evidence": [
+        {
+          "source_id": "chicago_voter_lists_1833_1835_irad",
+          "locator": "poll_1833 line 37"
+        },
+        {
+          "resident": "kimberly_ira"
+        }
+      ]
+    },
+    {
+      "pass": "T-0493",
+      "a": "William Winson",
+      "b": "Wm. Winson",
+      "rule": "The surname agrees and the forenames do not: 'William Winson' against 'Wm. Winson'. A surname match is a clue, not an identity.",
+      "evidence": [
+        {
+          "source_id": "chicago_voter_lists_1833_1835_irad",
+          "locator": "poll_1833 line 50"
+        },
+        {
+          "resident": "winson_wm"
+        }
+      ]
+    },
+    {
+      "pass": "T-0493",
+      "a": "John Wright",
+      "b": "J Wright",
+      "rule": "Ambiguous: the entry 'John Wright' agrees equally with 'J Wright' and 'John Wright' and 'John S. Wright', and the printed row carries nothing that separates them.",
+      "evidence": [
+        {
+          "source_id": "chicago_voter_lists_1833_1835_irad",
+          "locator": "poll_1833 line 51"
+        },
+        {
+          "residents": [
+            "wright_j",
+            "wright_john",
+            "wright_john_s"
+          ]
+        }
+      ]
+    },
+    {
+      "pass": "T-0493",
+      "a": "Lt. James Allen",
+      "b": "Edward Richards Allen",
+      "rule": "The surname agrees and the forenames do not: 'Lt. James Allen' against 'Edward Richards Allen'. A surname match is a clue, not an identity.",
+      "evidence": [
+        {
+          "source_id": "chicago_voter_lists_1833_1835_irad",
+          "locator": "tax_1833 line 53"
+        },
+        {
+          "resident": "allen_edward_richards"
+        }
+      ]
+    },
+    {
+      "pass": "T-0493",
+      "a": "Gantry Blanchard",
+      "b": "F Gantry Blanchard",
+      "rule": "The surname agrees and the forenames do not: 'Gantry Blanchard' against 'F Gantry Blanchard'. A surname match is a clue, not an identity.",
+      "evidence": [
+        {
+          "source_id": "chicago_voter_lists_1833_1835_irad",
+          "locator": "tax_1833 line 57"
+        },
+        {
+          "resident": "blanchard_f_gantry"
+        }
+      ]
+    },
+    {
+      "pass": "T-0493",
+      "a": "Charles H. Chapman",
+      "b": "Chas. H. Chapman",
+      "rule": "The surname agrees and the forenames do not: 'Charles H. Chapman' against 'Chas. H. Chapman'. A surname match is a clue, not an identity.",
+      "evidence": [
+        {
+          "source_id": "chicago_voter_lists_1833_1835_irad",
+          "locator": "tax_1833 line 69"
+        },
+        {
+          "resident": "chapman_chas_h"
+        }
+      ]
+    },
+    {
+      "pass": "T-0493",
+      "a": "Church",
+      "b": "Thomas Church",
+      "rule": "A surname-only entry is always a refusal: 'Church' prints no forename, so nothing in it can separate 'Thomas Church' from the other bearers of the surname.",
+      "evidence": [
+        {
+          "source_id": "chicago_voter_lists_1833_1835_irad",
+          "locator": "tax_1833 line 70"
+        },
+        {
+          "resident": "church_thomas"
+        }
+      ]
+    },
+    {
+      "pass": "T-0493",
+      "a": "Oliver Newberry",
+      "b": "Walter Loomis Newberry",
+      "rule": "The surname agrees and the forenames do not: 'Oliver Newberry' against 'Walter Loomis Newberry'. A surname match is a clue, not an identity.",
+      "evidence": [
+        {
+          "source_id": "chicago_voter_lists_1833_1835_irad",
+          "locator": "tax_1833 line 131"
+        },
+        {
+          "resident": "newberry_walter_loomis"
+        }
+      ]
+    },
+    {
+      "pass": "T-0493",
+      "a": "Mark Noble",
+      "b": "John Noble",
+      "rule": "The surname agrees and the forenames do not: 'Mark Noble' against 'John Noble'. A surname match is a clue, not an identity.",
+      "evidence": [
+        {
+          "source_id": "chicago_voter_lists_1833_1835_irad",
+          "locator": "tax_1833 line 132"
+        },
+        {
+          "resident": "noble_john"
+        }
+      ]
+    },
+    {
+      "pass": "T-0493",
+      "a": "Norton",
+      "b": "Nelson R. Norton",
+      "rule": "A surname-only entry is always a refusal: 'Norton' prints no forename, so nothing in it can separate 'Nelson R. Norton' from the other bearers of the surname.",
+      "evidence": [
+        {
+          "source_id": "chicago_voter_lists_1833_1835_irad",
+          "locator": "tax_1833 line 133"
+        },
+        {
+          "resident": "norton_nelson_r"
+        }
+      ]
+    },
+    {
+      "pass": "T-0493",
+      "a": "Alexander Robinson",
+      "b": "Catherine Chevalier Robinson",
+      "rule": "The surname agrees and the forenames do not: 'Alexander Robinson' against 'Catherine Chevalier Robinson'. A surname match is a clue, not an identity.",
+      "evidence": [
+        {
+          "source_id": "chicago_voter_lists_1833_1835_irad",
+          "locator": "tax_1833 line 142"
+        },
+        {
+          "resident": "robinson_catherine"
+        }
+      ]
+    },
+    {
+      "pass": "T-0493",
+      "a": "Sherman",
+      "b": "Mrs. H. Sherman",
+      "rule": "A surname-only entry is always a refusal: 'Sherman' prints no forename, so nothing in it can separate 'Mrs. H. Sherman' from the other bearers of the surname.",
+      "evidence": [
+        {
+          "source_id": "chicago_voter_lists_1833_1835_irad",
+          "locator": "tax_1833 line 145"
+        },
+        {
+          "resident": "sherman_h"
+        }
+      ]
+    },
+    {
+      "pass": "T-0493",
+      "a": "Alanson Sweet",
+      "b": "A Sweet",
+      "rule": "Ambiguous: the entry 'Alanson Sweet' agrees equally with 'A Sweet' and 'Alanson Sweet', and the printed row carries nothing that separates them.",
+      "evidence": [
+        {
+          "source_id": "chicago_voter_lists_1833_1835_irad",
+          "locator": "tax_1833 line 151"
+        },
+        {
+          "residents": [
+            "sweet_a",
+            "sweet_alanson"
+          ]
+        }
+      ]
+    },
+    {
+      "pass": "T-0493",
+      "a": "Anson N. Taylor",
+      "b": "Anson H. Taylor",
+      "rule": "The surname agrees and the forenames do not: 'Anson N. Taylor' against 'Anson H. Taylor'. A surname match is a clue, not an identity.",
+      "evidence": [
+        {
+          "source_id": "chicago_voter_lists_1833_1835_irad",
+          "locator": "tax_1833 line 153"
+        },
+        {
+          "resident": "taylor_anson_h"
+        }
+      ]
+    },
+    {
+      "pass": "T-0493",
+      "a": "Washburn",
+      "b": "B F Washburn",
+      "rule": "A surname-only entry is always a refusal: 'Washburn' prints no forename, so nothing in it can separate 'B F Washburn' from the other bearers of the surname.",
+      "evidence": [
+        {
+          "source_id": "chicago_voter_lists_1833_1835_irad",
+          "locator": "tax_1833 line 156"
+        },
+        {
+          "resident": "washburn_b_f"
+        }
+      ]
+    },
+    {
+      "pass": "T-0493",
+      "a": "Weaver",
+      "b": "Betsy Weaver",
+      "rule": "A surname-only entry is always a refusal: 'Weaver' prints no forename, so nothing in it can separate 'Betsy Weaver' from the other bearers of the surname.",
+      "evidence": [
+        {
+          "source_id": "chicago_voter_lists_1833_1835_irad",
+          "locator": "tax_1833 line 157"
+        },
+        {
+          "resident": "weaver_betsy"
+        }
+      ]
+    },
+    {
+      "pass": "T-0493",
+      "a": "John Wright",
+      "b": "J Wright",
+      "rule": "Ambiguous: the entry 'John Wright' agrees equally with 'J Wright' and 'John Wright' and 'John S. Wright', and the printed row carries nothing that separates them.",
+      "evidence": [
+        {
+          "source_id": "chicago_voter_lists_1833_1835_irad",
+          "locator": "tax_1833 line 166"
+        },
+        {
+          "residents": [
+            "wright_j",
+            "wright_john",
+            "wright_john_s"
+          ]
+        }
+      ]
+    },
+    {
+      "pass": "T-0493",
+      "a": "Wm. H. Adams",
+      "b": "Elizabeth Adams",
+      "rule": "The surname agrees and the forenames do not: 'Wm. H. Adams' against 'Elizabeth Adams'. A surname match is a clue, not an identity.",
+      "evidence": [
+        {
+          "source_id": "chicago_voter_lists_1833_1835_irad",
+          "locator": "poll_1834 line 172"
+        },
+        {
+          "resident": "adams_elizabeth"
+        }
+      ]
+    },
+    {
+      "pass": "T-0493",
+      "a": "James Allen",
+      "b": "Edward Richards Allen",
+      "rule": "The surname agrees and the forenames do not: 'James Allen' against 'Edward Richards Allen'. A surname match is a clue, not an identity.",
+      "evidence": [
+        {
+          "source_id": "chicago_voter_lists_1833_1835_irad",
+          "locator": "poll_1834 line 174"
+        },
+        {
+          "resident": "allen_edward_richards"
+        }
+      ]
+    },
+    {
+      "pass": "T-0493",
+      "a": "J. W. Burton",
+      "b": "Edward Burton",
+      "rule": "The surname agrees and the forenames do not: 'J. W. Burton' against 'Edward Burton'. A surname match is a clue, not an identity.",
+      "evidence": [
+        {
+          "source_id": "chicago_voter_lists_1833_1835_irad",
+          "locator": "poll_1834 line 190"
+        },
+        {
+          "resident": "burton_edward"
+        }
+      ]
+    },
+    {
+      "pass": "T-0493",
+      "a": "J. Cook",
+      "b": "J. B. Cook",
+      "rule": "Ambiguous: the entry 'J. Cook' agrees equally with 'J. B. Cook' and 'John Cook' and 'Josiah P Cook', and the printed row carries nothing that separates them.",
+      "evidence": [
+        {
+          "source_id": "chicago_voter_lists_1833_1835_irad",
+          "locator": "poll_1834 line 197"
+        },
+        {
+          "residents": [
+            "cook_j_b",
+            "cook_john",
+            "cook_josiah_p"
+          ]
+        }
+      ]
+    },
+    {
+      "pass": "T-0493",
+      "a": "Alexander M. Fullerton",
+      "b": "Alexander N. Fullerton",
+      "rule": "The surname agrees and the forenames do not: 'Alexander M. Fullerton' against 'Alexander N. Fullerton'. A surname match is a clue, not an identity.",
+      "evidence": [
+        {
+          "source_id": "chicago_voter_lists_1833_1835_irad",
+          "locator": "poll_1834 line 211"
+        },
+        {
+          "resident": "fullerton_alexander"
+        }
+      ]
+    },
+    {
+      "pass": "T-0493",
+      "a": "Edward E. Haddock",
+      "b": "Edward H. Haddock",
+      "rule": "The surname agrees and the forenames do not: 'Edward E. Haddock' against 'Edward H. Haddock'. A surname match is a clue, not an identity.",
+      "evidence": [
+        {
+          "source_id": "chicago_voter_lists_1833_1835_irad",
+          "locator": "poll_1834 line 217"
+        },
+        {
+          "resident": "haddock_edward"
+        }
+      ]
+    },
+    {
+      "pass": "T-0493",
+      "a": "Th. J. V. Owen",
+      "b": "J V Owen",
+      "rule": "The surname agrees and the forenames do not: 'Th. J. V. Owen' against 'J V Owen'. A surname match is a clue, not an identity.",
+      "evidence": [
+        {
+          "source_id": "chicago_voter_lists_1833_1835_irad",
+          "locator": "poll_1834 line 253"
+        },
+        {
+          "resident": "owen_j_v"
+        }
+      ]
+    },
+    {
+      "pass": "T-0493",
+      "a": "Alexander Robinson",
+      "b": "Catherine Chevalier Robinson",
+      "rule": "The surname agrees and the forenames do not: 'Alexander Robinson' against 'Catherine Chevalier Robinson'. A surname match is a clue, not an identity.",
+      "evidence": [
+        {
+          "source_id": "chicago_voter_lists_1833_1835_irad",
+          "locator": "poll_1834 line 263"
+        },
+        {
+          "resident": "robinson_catherine"
+        }
+      ]
+    },
+    {
+      "pass": "T-0493",
+      "a": "Alanson Sweet",
+      "b": "A Sweet",
+      "rule": "Ambiguous: the entry 'Alanson Sweet' agrees equally with 'A Sweet' and 'Alanson Sweet', and the printed row carries nothing that separates them.",
+      "evidence": [
+        {
+          "source_id": "chicago_voter_lists_1833_1835_irad",
+          "locator": "poll_1834 line 274"
+        },
+        {
+          "residents": [
+            "sweet_a",
+            "sweet_alanson"
+          ]
+        }
+      ]
+    },
+    {
+      "pass": "T-0493",
+      "a": "William Smith",
+      "b": "William Smith",
+      "rule": "Ambiguous: the entry 'William Smith' agrees equally with 'William Smith' and 'William V Smith', and the printed row carries nothing that separates them.",
+      "evidence": [
+        {
+          "source_id": "chicago_voter_lists_1833_1835_irad",
+          "locator": "poll_1835 line 358"
+        },
+        {
+          "residents": [
+            "smith_william",
+            "smith_william_v"
+          ]
+        }
+      ]
+    },
+    {
+      "pass": "T-0493",
+      "a": "Alanson Sweet",
+      "b": "A Sweet",
+      "rule": "Ambiguous: the entry 'Alanson Sweet' agrees equally with 'A Sweet' and 'Alanson Sweet', and the printed row carries nothing that separates them.",
+      "evidence": [
+        {
+          "source_id": "chicago_voter_lists_1833_1835_irad",
+          "locator": "poll_1835 line 365"
+        },
+        {
+          "residents": [
+            "sweet_a",
+            "sweet_alanson"
+          ]
+        }
+      ]
+    }
+  ]
+}

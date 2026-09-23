@@ -1,0 +1,120 @@
+{
+  "schema": 1,
+  "domain": "civic",
+  "_doc": "T-0542's rulings, one per unit read, each naming the unit by id. The reading is claims/town_election_1835_democrat.json (d001-d005) and the two new entries of claims/town_findings_voter_lists.json (v003, v004). NOT ONE OF THESE RULINGS CROSSES TO A PERSON, and every one says so: T-0542 was given a dating question and forbidden to mint or regrade, and T-0514 and T-0515 own that step. A refusal to carry is an adjudication and is written as explicitly as a carry would be — the absence of one reads like a unit nobody has looked at.",
+  "source_ids": [
+    "chicago_democrat_1833_1835",
+    "chicago_voter_lists_1833_1835_irad"
+  ],
+  "source_note": "What every ruling in this file was adjudicated FROM is named on the ruling itself, because this file adjudicates from two sources: the Chicago Democrat for the newspaper units and the IRAD voter lists for the poll-list units. Both readings are transcription-mediated under ruling 2 of the Democrat's source record.",
+  "passes": [
+    {
+      "ticket": "T-0542",
+      "what": "Five items read out of the Chicago Democrat of 10 June, 8 July, 15 July and 26 August 1835, and two findings taken from the 1833 and 1835 poll lists, each ruled on below.",
+      "merges": 0,
+      "refusals": 7,
+      "why_no_merges": "Nothing here is an identity claim. The question was what DAY the third town election fell on and which poll the undated 1835 list is; a merge would be a claim that a name in a newspaper and a person in the town are the same man, and this ticket makes that claim for nobody."
+    }
+  ],
+  "merges": [],
+  "refusals": [
+    {
+      "pass": "T-0542",
+      "claim_id": "d001",
+      "a": "chicago_democrat_1835_06_10 TOWN CHARTER",
+      "b": "any town person",
+      "rule": "CARRIED AS A DATE, REFUSED AS A PERSON. The item fixes that the third town election had NOT been held by 10 June 1835 and had been adjourned from time to time for want of a copy of the new charter. It names no inhabitant, so there is nobody to carry it to.",
+      "outcome": "ruled: the third town election falls after 10 June 1835. No person touched.",
+      "evidence": [
+        {
+          "source_id": "chicago_democrat_1833_1835",
+          "locator": "data/research/civic/claims/town_election_1835_democrat.json d001"
+        }
+      ]
+    },
+    {
+      "pass": "T-0542",
+      "claim_id": "d002",
+      "a": "chicago_democrat_1835_07_08 election announcement",
+      "b": "any town person",
+      "rule": "CARRIED AS A DATE, REFUSED AS A PERSON. 'The election of Trustees under a new Charter takes place Friday of this week', in a Wednesday paper of 8 July 1835, fixes the poll at Friday 10 July 1835. It names no inhabitant.",
+      "outcome": "ruled: the third town election was announced for Friday 10 July 1835. No person touched.",
+      "evidence": [
+        {
+          "source_id": "chicago_democrat_1833_1835",
+          "locator": "data/research/civic/claims/town_election_1835_democrat.json d002"
+        }
+      ]
+    },
+    {
+      "pass": "T-0542",
+      "claim_id": "d003",
+      "a": "chicago_democrat_1835_07_15 Chicago Charter Election return",
+      "b": "any town person",
+      "rule": "REFUSED FOR EVERY MAN IT NAMES. The return names ten men who stood — Hugunin, Loyd, Jackson, King, Kimball, Williams, Dole, Kinzie, Hubbard, Davis — and it is the reason Andreas's eight are the same eight, which is what identifies the event. It is NOT carried to any resident record: standing at a poll nine days after the scene date is presence evidence, and presence evidence is minted by T-0514 and graded by T-0515 under the ratified ladder, not here. The figures beside the names are read only where legible (124, 142, 123, 73) and nothing is regraded on them.",
+      "outcome": "ruled: the third town election was held Friday 10 July 1835 and returned Andreas's eight. No person touched, no grade moved.",
+      "evidence": [
+        {
+          "source_id": "chicago_democrat_1833_1835",
+          "locator": "data/research/civic/claims/town_election_1835_democrat.json d003"
+        }
+      ]
+    },
+    {
+      "pass": "T-0542",
+      "claim_id": "d004",
+      "a": "chicago_democrat_1835_08_26 ordinance code, passed 5 August 1835",
+      "b": "any town person",
+      "rule": "CARRIED AGAINST ANDREAS, REFUSED AS A PERSON. The code closes 'Passed the [5]th day of August, 183[5]. H. HUGUNIN, Pres't', which puts the newly elected board sitting on 5 August 1835 — the date Andreas's police chapter gives for 'the third election of town officers'. That is what dissolves the contradiction. The day of the month is OCR'd 'Sth' and the identification with Andreas's 5 August is an INFERENCE, recorded as one. Hugunin's presidency is already carried by Andreas c006 and gains nothing here.",
+      "outcome": "ruled: 5 August 1835 is the new board's own sitting, not the popular poll. No person touched.",
+      "evidence": [
+        {
+          "source_id": "chicago_democrat_1833_1835",
+          "locator": "data/research/civic/claims/town_election_1835_democrat.json d004"
+        }
+      ]
+    },
+    {
+      "pass": "T-0542",
+      "claim_id": "d005",
+      "a": "chicago_democrat_1835_07_15 charter, Sec. 4",
+      "b": "any town person",
+      "rule": "CARRIED AS LAW, REFUSED AS A PERSON. The act moved the annual town election to the first Monday in June, which is why the 1835 poll is a summer poll and why the August dates of the 1833 and 1834 elections argue nothing about it. A statute names no inhabitant.",
+      "outcome": "ruled: the annual town election stood on the first Monday in June from 1835. No person touched.",
+      "evidence": [
+        {
+          "source_id": "chicago_democrat_1833_1835",
+          "locator": "data/research/civic/claims/town_election_1835_democrat.json d005"
+        }
+      ]
+    },
+    {
+      "pass": "T-0542",
+      "claim_id": "v003",
+      "a": "poll_1835, the 85-name list",
+      "b": "the town election of 10 July 1835",
+      "rule": "REFUSED. The 85 names are not the poll book of the 10 July 1835 election: single candidates polled 124 and 142 votes at it, which 85 men cannot cast, and six of the ten who stood are absent while the list runs unbroken from Adams to Wright, so no lost page explains them. Which poll it is stays OPEN — the county and state general election of Monday 3 August 1835 is the nearest candidate and is not asserted. No man on the list is minted, regraded or moved, and none is carried to that election.",
+      "outcome": "ruled: the 1835 poll list is not the town election's poll book; its date remains open. 85 men untouched.",
+      "evidence": [
+        {
+          "source_id": "chicago_voter_lists_1833_1835_irad",
+          "locator": "data/research/civic/claims/town_findings_voter_lists.json v003"
+        }
+      ]
+    },
+    {
+      "pass": "T-0542",
+      "claim_id": "v004",
+      "a": "poll_1833, thirty names",
+      "b": "Andreas's twenty-eight voters",
+      "rule": "REFUSED, AND THE SEARCH THAT FAILED IS THE EVIDENCE. No count of the 10 August 1833 voters exists outside Andreas in anything this project holds: the Chicago Democrat's first number is 26 November 1833 and its run to August 1835 carries no retrospective count of that poll, and the board's ordinances printed 31 December 1833 name no judges or clerks of it. The thirty enrolments and Andreas's 'It is believed ... twenty-eight' are left standing side by side, unrepaired. Nobody is added to the 1833 list and nobody is removed.",
+      "outcome": "ruled: the 28-vs-30 discrepancy is unresolved and recorded as a negative search. 30 names untouched.",
+      "evidence": [
+        {
+          "source_id": "chicago_voter_lists_1833_1835_irad",
+          "locator": "data/research/civic/claims/town_findings_voter_lists.json v004"
+        }
+      ]
+    }
+  ]
+}

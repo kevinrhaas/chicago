@@ -1,0 +1,291 @@
+{
+  "id": "chicago_democrat_office",
+  "phase": "frame_1833",
+  "name": "The Chicago Democrat Office",
+  "aka": [
+    "John Calhoun's printing office",
+    "the building on the corner of South Water and Clark",
+    "the New Store at South Water and Clark"
+  ],
+  "archetype": "frame_storefront",
+  "asset": "gltf/chicago_democrat_office__frame_1833.glb",
+  "scene": "1835",
+  "target_date": "1835-07-01",
+  "documented_range": {
+    "from": "1833-11-26",
+    "to": "1835-12-31",
+    "confidence": "inferred",
+    "sources": [
+      "chicago_democrat_1833_11_26",
+      "andreas_1884_v1"
+    ],
+    "note": "THE START IS THE FIRST DATE A CONTEMPORARY DOCUMENT PUTS THIS BUILDING IN EXISTENCE, AND IT IS THE BUILDING'S OWN TENANT SAYING SO. The Chicago Democrat's first issue, Tuesday 26 November 1833, carries an imprint that gives its own address: 'THE DEMOCRAT, Is published every Tuesday, in the village of Chicago, Cook co. Ill. in the building on the corner of South Water and Clark-streets.' A newspaper stating where it is printed on the day it is printed is as good as evidence at this date gets. The building is OLDER than that: Andreas says the office was secured in November 1833 in a building 'which was unfinished at the time', so it was under construction earlier in that year and the range's start is a floor, not a build date. THE END IS THE ORDINARY CONTINUITY CUT AT THE SCENE YEAR. The Democrat was published continuously through 1835 — Andreas quotes its columns for 1834 and 1835 repeatedly, including Hogan's mail notice of 19 September 1835 — but no source reached follows the BUILDING past its tenancy, and 1835-12-31 is a housekeeping bound rather than a demolition date."
+  },
+  "change_note": "The building at the corner of South Water and Clark in which John Calhoun set up the hand press that printed the Chicago Democrat, Chicago's first newspaper, from 26 November 1833. Andreas records it as unfinished when Calhoun took his office in it; the first issue's own imprint records the address. On 1835-07-01 the paper is twenty months old and is one of two on the street — the Chicago American, four weeks old, is three blocks east near the drawbridge.",
+  "placement": {
+    "local_e": 551.453,
+    "local_n": -12.509,
+    "rotation_deg": 0.0,
+    "position_confidence": "inferred",
+    "position_sources": [
+      "chicago_democrat_1833_11_26",
+      "andreas_1884_v1",
+      "osm_streets_2026"
+    ],
+    "position_note": "PLACED 2026-08-11. THE JUNCTION AND THE CORNER ARE NOT THE SAME CLAIM HERE AND THEY DO NOT REST ON THE SAME EVIDENCE, WHICH IS THE WHOLE POINT OF THIS NOTE. The JUNCTION is documented by the paper itself: the imprint of the first issue, 26 November 1833, reads 'in the building on the corner of South Water and Clark-streets'. That is a contemporary self-reported address, and it is the strongest positional evidence any structure record in this dataset carries. The CORNER — which of the four — is NOT in the imprint, which says only 'on the corner of'. It comes from Andreas, writing fifty years later: 'An office was secured in a building on the southwest corner of South Water and Clark streets, which was unfinished at the time.' This project grades Andreas tier 3, a pioneer recollection compiled half a century after the fact, and the corner therefore stays INFERRED while the junction would stand on its own. Two of the four corners can be set aside independently: the north side of South Water at Clark was the river frontage, wharves and landings (docs/research/04-structures-south.md § 12), so the choice is between the south-west and the south-east, and Andreas's south-west is the only statement either way. METHOD: the modern West Upper Wacker Drive / North Clark Street intersection centre was read from OpenStreetMap at EPSG:26916 E 447648.5, N 4637409.7 (two nodes averaged, spread 14.3 m, fetched 2026-08-11); the footprint origin sits 12.2 m west and 12.2 m south of it less the building's own width and depth, so the north face is on the South Water frontage and the east face on the Clark frontage of a south-west corner lot. South Water Street is today's Wacker Drive along the south bank, per this project's street-name key (docs/research/03-structures-north.md). WORKING UNCERTAINTY ABOUT 20 M from the georeference (data/datum.json, 17.5 m RMS), plus about 37 m if the corner is wrong — that is the distance from here to the south-east corner, where harmon_loomis_store is recorded. LOCAL WARP WORTH RECORDING: this project's traced 1834 south bank runs 77.5 m north of this record's north face at this easting, against 41.6 m at LaSalle and 18.7 m at Dearborn. A 60 m swing across four blocks is not a real riverbank shape; it is the georeference's local paper stretch plus Wacker Drive having been built out over the old dock line by different amounts along its length. Do not read the gap as wharf depth. Facade bearing 0, due north onto South Water, inferred from the street rather than from any statement. RECONCILED WITH THE COMMITTED PLAT 2026-08-24 (T-0127), AND THE CLAIM DID NOT MOVE — ONLY THE LINE IT WAS DERIVED AGAINST. The method above set this footprint's north face on the South Water frontage, and it found that frontage by taking the MODERN West Wacker Drive centreline out of OpenStreetMap and stepping 12.2 m south of it. That is not this project's own South Water Street: the committed centreline in data/streets/1835.json, offset by half the committed 80 ft corridor, is what tools/generate_plat_lots.py builds every platted block edge from, and it is the line every derived layer in this scene reads. Measured against it, this record's north wall stood 5.11 m OUT PAST the blk_south_water_lasalle frontage line, in the platted roadway — far enough into it that tools/generate_frontage_works.py refused the plank sidewalk along this stretch of South Water in writing and named this building in the refusal. THE REPAIR IS THIS RECORD'S OWN METHOD RUN AGAINST THIS PROJECT'S OWN LINE: the footprint is translated 6.61 m along the face's inward normal — dE +0.053 m, dN -6.609 m in local ENU, so UTM E 447624.1 N 4637389.9 becomes E 447624.153 N 4637383.291 — which leaves its north wall 1.50 m back from the committed frontage line, the same margin tools/generate_block_infill.py gives every reconstructed unit standing on this face. NOTHING ALONG THE STREET MOVED: the along-face position, the block, the corner and the side are untouched, and so is the confidence grade — re-deriving a coordinate from better geometry is not new evidence. WHAT IS STILL WRONG AND IS LEFT WRITTEN DOWN: the facade bearing stays 0 while this face runs at 359.538 (i.e. -0.462), so the front wall is 1.50 m back at its worst corner and up to 1.60 m at the other. That skew is smaller than the walk's own daylight and it is not corrected here, because rotating a documented record is a second claim and this one is a repair.",
+    "symbolic_location": "The corner of South Water Street and Clark Street (today West Wacker Drive at North Clark Street); the south-west corner on Andreas's reading, which is the reading this coordinate takes.",
+    "uncertainty_m": 20,
+    "placement_provisional": false,
+    "vertical_anchor": "terrain",
+    "walk_surface_m": null
+  },
+  "footprint": {
+    "polygon": [
+      [
+        0,
+        0
+      ],
+      [
+        12.192,
+        0
+      ],
+      [
+        12.192,
+        7.62
+      ],
+      [
+        0,
+        7.62
+      ]
+    ],
+    "confidence": "reconstructed",
+    "sources": [],
+    "note": "INVENTED, and the same borrowed rectangle this parcel uses on every South Water store whose size nobody recorded: 12.192 x 7.62 m is 40 x 25 ft, the frontage attested for the Green Tree Tavern and the Western Hotel's front, and the depth derived from the Green Tree's attested room module. Andreas gives this building no dimension; the 26 November 1833 issue gives none either. The one documented constraint is the street's: South Water lots were 55 ft wide (Andreas), so a single-lot building here cannot have fronted more than 55 ft, and 40 ft sits inside that. IT IS SIZED AS A WHOLE BUILDING, NOT AS AN OFFICE, and that is a decision the evidence supports rather than a default: Andreas says Calhoun 'secured an office IN a building', so the press occupied part of a larger structure, and the same first issue advertises 'the New Store on the corner of South Water and Clark-streets' — see this record's occupants block. A building holding a store and a printing office is not a shed."
+  },
+  "attributes": {
+    "stories": {
+      "value": 2,
+      "confidence": "inferred",
+      "sources": [
+        "andreas_1884_v1"
+      ],
+      "note": "NOT ATTESTED FOR THIS BUILDING BY ANY SOURCE REACHED, and the number is inference from use rather than from description. Calhoun secured an OFFICE in the building while a store traded from the same corner, so the building held at least two tenancies; a two-storey block is how that is normally arranged on a corner lot on this street, and Peck's store one block west is documented two-storey frame. A single storey is possible and would make the building a third smaller in elevation. DO NOT READ THE WOODCUT IN THE 26 NOVEMBER 1833 ISSUE AS EVIDENCE: the 'Two Buildings to Let' advertisement carries an engraving of a three-storey building with regular fenestration, and it is a printer's generic stock cut, not a picture of a Chicago building. Nothing in this record derives from it."
+    },
+    "construction": {
+      "value": "braced_frame",
+      "confidence": "inferred",
+      "sources": [
+        "andreas_1884_v1"
+      ],
+      "note": "Not stated by any source reached. Frame is the reading, not log: this was a new building going up on the town's principal commercial corner in 1833, unfinished in November of that year, and this project's own dossier records the 1835 building stock as overwhelmingly frame and log with no brick of consequence on the south side before 1837. Braced frame rather than balloon frame for the same reason the Sauganash record gives — balloon framing was developed in Chicago in 1832-33 and the two are not distinguishable from the word 'building'. Either reading is a frame building of the same massing."
+    },
+    "wall_height_m": {
+      "value": 5.5,
+      "confidence": "inferred",
+      "note": "No figure is attested. 5.5 m is about 18 ft: two 8 ft storeys plus floor structure and a low sill course, the number this project uses for its other two-storey frame buildings. It inherits the storey count's uncertainty — if the building was single-storey this is nearly twice too tall — and that is why the confidence view should be trusted over the silhouette here."
+    },
+    "roof_type": {
+      "value": "gable",
+      "confidence": "inferred",
+      "note": "Not attested. Gable is the near-universal roof form for frame buildings of this type, period and region. Typological derivation, not a measurement."
+    },
+    "roof_pitch_deg": {
+      "value": 33.0,
+      "confidence": "inferred",
+      "note": "No pitch is attested for this building. 33 degrees is the frame_storefront archetype's own figure for a store, and it is adopted here rather than the 38 this project uses for taverns because the archetype argues the case from the dataset's one attested store footprint: a store's frontage is long and its plan shallow, so a tavern's pitch puts more roof above the eave than there is wall below it and the building stops reading as a shop. Inferred from construction practice and from the type, not measured."
+    },
+    "chimneys": {
+      "value": 1,
+      "confidence": "inferred",
+      "note": "Not attested. One is the minimum for a building holding a store and a printing office through a Chicago winter — a press room needs heat as much as a shop does, because ink stiffens and paper has to be damped. The COUNT is the inference; the stack's position, size and material are the archetype's, per docs/LIBERTIES.md L26."
+    },
+    "siding_exposure_m": {
+      "value": 0.114,
+      "confidence": "reconstructed",
+      "note": "INVENTED WITHIN A STOCK SET, NOT DERIVED. No source states the exposed face of any Chicago building's siding. The value is one of four period mill sidings — 4.5, 5, 5.5 or 6 in to the weather; this record wears 4.5 in — dealt by tools/deal_siding_stock.py: keyed to the phase's construction season, because buildings sided from the same season's shipments of St Joseph sawn lumber tend toward one stock, then advanced so no frame building within 60 m shares this one's. The separation is the surface variety T-0049 reconstructs, not a claim about 1835. docs/LIBERTIES.md L148 owns the invention."
+    },
+    "function": {
+      "value": "store",
+      "confidence": "inferred",
+      "sources": [
+        "chicago_democrat_1833_11_26",
+        "chicago_democrat_1833_1835",
+        "andreas_1884_v1"
+      ],
+      "note": "WAS `printing_office_and_store` UNTIL T-1064, AND THE HALF THAT WENT IS THE PRINTING OFFICE. A `function` in this dataset is a SCENE-DATE attribute — it says what the building was for on 1835-07-01 — and every layer that furnishes the town off it reads it in the present tense: tools/generate_business_signboards.py deals a board from it, tools/generate_yard_goods.py stands the trade's goods in the yard from it, tools/generate_frontage_works.py reads it at the street edge, and the register prints it on the card. T-0403 established that the press was gone before the scene date: the Democrat's colophon gives this corner on 1833-11-26, 1834-01-07, 1834-08-27, 1834-09-17 and 1834-12-03, and then prints the office 'over Messrs. Jones & King['s] Hard[ware store]' in South Water street on 1835-05-20 (chicago_democrat_1835_05_20 c007) and again on 1835-08-05 (c026). A function that still read `printing_office_and_store` on 1835-07-01 was asserting a trade the paper itself had printed its way out of, and every layer above inherited the assertion. WHAT IS LEFT IS THE STORE HALF, AND IT IS LEFT RATHER THAN ADDED. The store is the same reading the occupants block has always argued — 'Just Opened and for sale AT the New Store on the corner of South Water and Clark-streets' in the paper's own first issue, and 'the store now occupied by W. Kimball' in the 1834-10-08 notice — and nothing reached says the store went. The earlier note's argument for the store half is unchanged and stands: Andreas says Calhoun secured an office IN a building, not that he took a building, so the building held a counter as well as a press, and it is the press that the corpus follows out of the door. NOTHING IS UPGRADED BY THE NARROWING. The confidence stays `inferred`, on the same evidence and the same reasoning it rested on before; a value that covers less of the building than it did is not a better-evidenced value. Nor is a KEEPER named by it: who kept this counter on 1835-07-01 is still open, with one candidate in it on a notice that OFFERS his store rather than reporting it kept — see occupants, and see the board this record does not carry. AND THE BUILDING IS NOT RENAMED. `name` and `aka` keep the Democrat, because a name is this project's label for a structure and not an assertion about who was inside it on a day. The rule, and the reason a name may outlive a tenancy where a signboard may not, is written once in docs/PROVENANCE.md § A label may outlive a tenancy; a sign may not."
+    },
+    "occupants": {
+      "value": "John Calhoun's Chicago Democrat printing office 1833-1834; and, on the reading argued here, W. Kimball's new dry-goods store",
+      "confidence": "inferred",
+      "sources": [
+        "chicago_democrat_1833_11_26",
+        "andreas_1884_v1"
+      ],
+      "note": "THE KIMBALL READING, STATED AS A READING AND NOT AS A FACT. The first issue of 26 November 1833 carries an advertisement beginning 'Just Opened and for sale AT the New Store on the corner of South Water and Clark-streets' — dry goods, crockery and glass ware, hardware, cutlery, caps, cotton batting, yarn, sheeting, blankets — which the transcription supplied with the scan attributes to W. Kimball. Three things line up and none of them is proof. The paper's own imprint places it 'in THE building on the corner of South Water and Clark-streets', definite and singular. Andreas says the building Calhoun took his office in was UNFINISHED in November 1833, and a store advertising itself as 'Just Opened' at 'the New Store' on that corner in that month is what an unfinished building looks like a few weeks later. And the two notices sit in the same four pages. THE ALTERNATIVE IS THAT THE JUNCTION HELD TWO OR MORE BUILDINGS and the store was in another of them, which is perfectly possible on a four-cornered crossing — see harmon_loomis_store, recorded at the south-east corner of this same junction. NO SEPARATE STRUCTURE RECORD WAS CREATED FOR KIMBALL'S STORE, deliberately: building one would assert a second building at a junction where the only contemporary document says 'the building', and would put an invented footprint on top of this one. Note also that the attribution of the advertisement to W. Kimball rests on the supplied transcription rather than on the scan, and that transcription is demonstrably imperfect elsewhere in the same issue (it reads 'C. & L. HARMON' where the scan reads 'C. & I. HARMON'). See docs/RESEARCH/chicago_democrat_office.md. THE DEMOCRAT'S CLAUSE IS NOW DATED 1833-1834, AND THAT IS A READING OF THE PAPER'S OWN COLOPHON RATHER THAN A CHANGE OF MIND ABOUT THIS BUILDING (T-0403). The imprint gives this corner on 1833-11-26, 1834-01-07, 1834-08-27, 1834-09-17 and 1834-12-03. Then chicago_democrat_1835_05_20 c007 reads the colophon of that issue 'over Messrs. Jones & King['s] Hard[ware store]' in South Water street, and chicago_democrat_1835_08_05 c026 prints the same. Between those two readings stands chicago_democrat_1834_10_08 c005, which offers 'the store now occupied by W. Kimball, and as the office of the Democrat' FOR SALE with possession in November — a landlord clearing the building. So the press left this corner between 1834-12-03 and 1835-05-20, seven weeks at the latest before the scene date, and an occupants line that put it here on 1835-07-01 was asserting a tenancy the paper itself had already printed its way out of. The range is written 1833-1834 because that is the stretch the corpus witnesses; the departure is bracketed, not dated. WHAT IS NOT DECIDED BY IT. W. KIMBALL'S CLAUSE IS LEFT UNDATED, deliberately: the same 1834-10-08 notice is the only word on his tenancy either, it offers the store rather than reporting it sold, and nothing reached says whether he stayed, so dating him out on the strength of a for-sale advertisement would be inventing a second departure to keep the first one company. AND THE BUILDING DOES NOT MOVE. It is documented at this corner by the 26 November 1833 imprint and is the only fixed thing here; a building does not move when its tenant does, no coordinate is touched, and nothing is re-baked. AND THE NAME, THE BOARD AND THE FUNCTION ARE NOW DECIDED (T-1064), each the way its own kind of object deserves. THE NAME STAYS: this record is still 'The Chicago Democrat Office' and still `aka` \"John Calhoun's printing office\", because a name is this project's label for a structure — the thing a reader searches on and the one fact that makes this building findable at all — and throwing it away to tidy a tenancy would lose more than it corrected. THE BOARD GOES: data/signage/town_business_signboards.json no longer paints CHICAGO DEMOCRAT / Printing Office / South Water & Clark Streets on this front, because a board is a visible assertion standing in the scene and a walker reads it in the present tense. NOTHING REPLACES IT, and that is the honest end of it: the only name the corpus offers for what traded here afterwards is W. Kimball's, out of a notice that OFFERS his store for sale, and lettering it on the wall would assert at the scene date the very tenancy the source declines to report. THE FUNCTION NARROWS to `store`, which is the same reasoning applied to the field that drives the layers — see the function block. The general rule is docs/PROVENANCE.md § A label may outlive a tenancy; a sign may not, and the sign rule's own clause 8 in tools/generate_business_signboards.py. What that repaint cost is recorded in the PR: removing one board re-deals the mountings of every board alphabetically after it (T-0405)."
+    }
+  },
+  "residents": [
+    {
+      "household": "hh_calhoun_john",
+      "name": "The Calhoun household",
+      "division": "south",
+      "relation": "worked here",
+      "why": "The paper's own imprint. This is the strongest work link in the parcel because it is contemporary, self-reported and printed.",
+      "sources": [
+        "chicago_democrat_1833_11_26"
+      ],
+      "basis": "",
+      "persons": [
+        {
+          "name": "John Calhoun",
+          "relationship": "head",
+          "grade": "attested",
+          "occupation": "editor",
+          "note": "THE ONLY MAN IN THIS PARCEL WHOSE ADDRESS IS SELF-REPORTED IN PRINT IN THE TOWN'S OWN WEEK. The Democrat was designated the official newspaper of the town in November 1833. Note precisely what the imprint settles: the JUNCTION, not the corner - 'on the corner of' leaves which of the four unsaid, and the pencilled 'S. W.' in the margin of the scan is a later reader's gloss that this project quarantines. THE TOWN'S OWN ROLLS, 1833-1835 — CORROBORATION, NOT A GRADE. The early Chicago voter and tax lists held by the Illinois Regional Archives Depository name this person 1 time: Poll list of 1835 — “Calhoun, J.” (poll_1835_012, line 297). These are the town's own contemporary paper rather than a recollection of it, and each appearance says that a man of that name stood on that roll in that year — no more. The reading is twice mediated (Schulz's transcription, then Genealogy Trails' republication) and this project has not seen the IRAD originals. Under the ratified ladder (T-0513) the 1835 poll with a second independent source is attested, the 1835 poll alone or a 1833/1834 list with another source is inferred, and a single appearance with nothing else is a projected resident. This pass WRITES THE EVIDENCE AND MOVES NO GRADE — T-0515 applies the ladder against every source at once. Identity by the crosswalk's own rule: one resident of the surname 'Calhoun' agrees with the entry's forenames; 1 bearer(s) of the surname were considered. (data/research/civic/voter_crosswalk.json). FERGUS 1839'S LATER LISTS — 1837 AND 1839 EVIDENCE, NEVER AN 1835 FACT. Fergus' Chicago Directory for 1839 names this person 1 time in its two later lists: the poll of Chicago's first city election, 2 May 1837 — “John Calhoun,” (f1839_v0009, printed page 41, ward 1, voting for William B. Ogden). What a match may carry, and it is short: that the man was in Chicago on 2 May 1837 and in that ward. It is written as 1837 evidence with describes_date 1837-05-02, never as an 1835 fact, and the person's grade does not move on this alone. Under the ratified ladder a second contemporary source is what lifts projected_resident, and a poll twenty-two months after the scene date is a second source about CONTINUED RESIDENCE, not about July 1835. The ward is a location in the CITY of 1837, whose six wards are drawn on printed page 46; it is not a location in the town of 1835 and does not place a house. Identity by the crosswalk's own rule: Surname 'Calhoun' folds to the same string as the 1837 entry's, and the given name of both begins J. (data/research/directories/fergus_1839_election_crosswalk_1835.json and fergus_1839_register_crosswalk_1835.json). This pass WRITES THE EVIDENCE AND MOVES NO GRADE. Under the ratified ladder (T-0513) a second independent source is what lifts a projected resident, and a poll twenty-two months after the scene date — or a register four years after it — is a second source about CONTINUED RESIDENCE rather than about July 1835. T-0515 applies the ladder against every source at once; this pass hands it the evidence and not the verdict. FERGUS 1839'S FORT DEARBORN ADDITION LOT SALE — JUNE 1839 EVIDENCE, NEVER AN 1835 FACT. This person bid at the sale of the Fort Dearborn Addition, 10-24 June 1839, printed in Fergus' Chicago Directory for 1839 at pages 47-49. The bidder is printed as “John Calhoun”. 1 lot row, $319 in all: block 14 lot 5 at $319 (f1839_lot0244, printed page 49). The sale table's own shorthand, recorded and not flattened: 1 carries the block number forward from the last row that printed one. What a match may carry, and it is short: that the man was in Chicago between the 10th and the 24th of June 1839 and bid at the Fort Dearborn Addition sale. It is written as 1839 evidence with describes_date 1839-06, never as an 1835 fact, and the person's grade does not move on this alone. Under the ratified ladder a second contemporary source is what lifts projected_resident, and a land sale four years after the scene date is a second source about CONTINUED RESIDENCE, not about July 1835. THE LOT IS NOT A LOCATION FOR 1835: the Fort Dearborn Addition is the Beaubien, or Reservation, lands, which in July 1835 were the garrison's ground and were not platted into lots at all. It places no house, no shop and no household in the town this project builds. No trade, no address in the town of 1835, no household and no house. The block and lot are the only location on the page, they are ground platted in 1839 out of the garrison's reservation, and they place nobody in the town of 1835. Identity by the crosswalk's own rule: Surname 'Calhoun' folds to the same string as the bidder's, and the given name of both begins J. (data/research/directories/fergus_1839_lots_crosswalk_1835.json). This pass WRITES THE EVIDENCE AND MOVES NO GRADE. Under the ratified ladder (T-0513) a second independent source is what lifts a projected resident, and a lot sale four years after the scene date is a second source about CONTINUED RESIDENCE rather than about July 1835. T-0515 applies the ladder against every source at once; this pass hands it the evidence and not the verdict. THE 1840 FEDERAL CENSUS — A HEAD FIVE YEARS AFTER THE SCENE, AND NEVER AN 1835 FACT. The 1840 federal census of Chicago, read line by line off the left sheets in this repository, carries 1 head of this name — “John Calhoun” (33SQ-GYYJ-93Y, printed page 209, line 16). This project has ruled the head a MATCH for this person: the full name agrees, it is unique on both sides, and a discriminator independent of the name — directory persistence — separately places the same person in Chicago after the 1840 book was taken. Under the rule that decided it (L6 matched), by the crosswalk's own ladder (data/research/census_1840/resident_crosswalk.json). LATER EVIDENCE ONLY. The ratified grading ladder binds: an 1839 or 1840 appearance alone is never an 1835 resident, and 1840 household composition is never back-projected to the 1835-07-01 scene. This pass WRITES THE EVIDENCE AND MOVES NO GRADE. Under the ratified ladder (T-0513) a second independent source is what lifts a projected resident, and an 1840 head is a second source about CONTINUED RESIDENCE rather than about who was living at Chicago on 1 July 1835. T-0515 applies the ladder against every source at once; this pass hands it the evidence and not the verdict."
+        }
+      ],
+      "research_note": "THE FIRST CONTEMPORARY DOCUMENTED RESIDENT IN THIS DATASET, in the sense that his residence is attested by a Chicago document printed in Chicago rather than by a memoir of 1884. THREE OTHER HOUSEHOLDS DEPEND ON THIS ONE and are written separately: the two printers in his employ (hh_democrat_printers), Ashbel Steele who plastered his printing office in November 1833 (hh_steele_ashbel), and the W. Kimball whose new store this project argues shared the same building (hh_kimball_walter)."
+    },
+    {
+      "household": "hh_democrat_printers",
+      "name": "The Democrat's printers",
+      "division": "south",
+      "relation": "worked here",
+      "why": "'In the employ of Mr. Calhoun', whose office's address the paper itself prints.",
+      "sources": [
+        "andreas_1884_v1"
+      ],
+      "basis": "",
+      "persons": [
+        {
+          "name": "Oscar Pratt",
+          "relationship": "head",
+          "grade": "inferred",
+          "occupation": "printer",
+          "note": "A REAL, NAMED MAN WITH A TRADE AND AN EMPLOYER, and nothing else. Andreas vol. 1, printed p. 132 (scan p. 281), 'an imperfect list of the denizens of the town in the fall of 1833, not before named' - a name, a trade and usually an arrival year, compiled fifty years after the fact."
+        },
+        {
+          "name": "Beckford",
+          "relationship": "partner",
+          "grade": "inferred",
+          "occupation": "printer",
+          "note": "SURNAME ONLY, NO FORENAME, NO SEX RECORDED. Andreas prints 'Oscar Pratt and Bcckford, printers' with the first letters damaged in the scan. The sex field is omitted rather than assumed: a compositor in 1833 was overwhelmingly likely to be a man, but 'overwhelmingly likely' is not what documented means and this record has no other information about the person at all."
+        }
+      ],
+      "research_note": "TWO WAGE-EARNERS, WHICH THIS DATASET OTHERWISE HAS ALMOST NONE OF, and a household that is a household only by convention. Andreas names them in one clause, as a pair, in an employment; nothing states where either lived or whether they lived together, and the grouping is a container for two people the source presents together, not a claim about a dwelling. lives_at is null for that reason and must stay null. WHY THEY ARE WORTH WRITING: the documented population of early Chicago as the sources give it is overwhelmingly proprietors - the men who owned the store, kept the tavern, edited the paper. The people who did the work are named perhaps a dozen times in the whole of Andreas's first volume, and these two are among them. The inferred phase's largest single task is the rest of them."
+    },
+    {
+      "household": "hh_kimball_walter",
+      "name": "The Kimball household",
+      "division": "south",
+      "relation": "worked here",
+      "why": "data/structures/chicago_democrat_office.json is recorded as a printing office AND a store on exactly this reading: the paper's imprint and Kimball's advertisement put both at the corner of South Water and Clark in the same issue. Inferred rather than documented because 'on the corner of' names a junction and not a building, and two businesses at one junction need not share one roof.",
+      "sources": [
+        "chicago_democrat_1833_11_26"
+      ],
+      "basis": "",
+      "persons": [
+        {
+          "name": "W. Kimball",
+          "relationship": "head",
+          "grade": "attested",
+          "occupation": "none_recorded",
+          "note": "A SECOND, INDEPENDENTLY ATTESTED OCCUPANT OF THE DEMOCRAT'S OWN JUNCTION in the same issue of the same paper - which is why this project reads the printing office and the new store as sharing a building. Andreas's 1835 town officers list has a 'W. Kimball' among the nine trustees elected at the third town election of July 1835, and if that is this man he holds office on or about the scene date. THE IDENTIFICATION IS NOT MADE HERE: the surname is common in this record, and this project already keeps a separate Kimball (Dr E. S. Kimberly's partner is Pruyne, but a druggist 'Kimball & Porter' occupied the same corner later, and Andreas spells both Kimball and Kimberly loosely). The Chicago Democrat of 26 November 1833 is the only contemporary Chicago document this project holds; an advertiser in it was paying to be found, which makes it strong evidence of existence and address in November 1833 and weak evidence of survival to 1 July 1835, nineteen months and about 2,400 people later. OLD SETTLERS, 1882 — CORROBORATION, NOT A NEW FACT ABOUT 1835. The Calumet Club's fourth annual reception to the settlers of Chicago prior to 1840, held 18 May 1882, printed this man among the guests present as “Kimball, Walter, 291 Oak street, Chicago.” (Chicago Tribune, 19 May 1882). The club's criterion was residence in Chicago before 1 January 1840 and majority by then: the roster therefore corroborates a pre-1840 Chicago residence and says he was alive in 1882. It gives NO year of arrival, and the address it prints is where he lived in 1882, forty-seven years after the scene date — it is not an 1835 residence and is not read as one. Under the ratified ladder (T-0513) a later recollection corroborates, enriches and dates and cannot lift a rung by itself, so this record's GRADE IS UNCHANGED by it: T-0513 consolidates the identity and T-0515 regrades. Identity by rule OS2A — one bearer of the surname, the forename initial agrees, and the resident's own record spells the roster's forename 'walter' — the discriminator the roster's initials do not supply (data/research/old_settlers/crosswalk.json). OLD SETTLERS, 1879 — A DATE THIS MAN GAVE FOR HIMSELF, AND STILL NOT A FACT ABOUT 1835. The Calumet Club's FIRST reception to the settlers of Chicago prior to 1840, 27 May 1879, printed its register in the proceedings (Early Chicago, Chicago, 1879, pages 84-90), and this man's entry reads “Kimball, Walter, | 1833, Sept. | Rome, N.Y. | 69 | Chicago.” — name, his own date of arrival, his birthplace, his age and his 1879 post-office address, in the register's five columns. The date of arrival is HIS RECOLLECTION, set down forty to sixty years after the event; the address is where he lived in 1879 and is never read as an 1835 residence. Under the ratified ladder (T-0513) a later recollection corroborates, enriches and dates and cannot lift a rung by itself, so this record's GRADE IS UNCHANGED by it: T-0513 consolidates the identity and T-0515 regrades. Identity by rule OS2A — one bearer of the surname, the forename initial agrees, and the resident's own record spells the roster's forename 'walter' — the discriminator the roster's initials do not supply (data/research/old_settlers/crosswalk.json). FERGUS 1839'S FORT DEARBORN ADDITION LOT SALE — JUNE 1839 EVIDENCE, NEVER AN 1835 FACT. This person bid at the sale of the Fort Dearborn Addition, 10-24 June 1839, printed in Fergus' Chicago Directory for 1839 at pages 47-49. The bidder is printed as “Walter Kimball”. 2 lot rows, $1,050 in all: block 7 lot 1 at $600 (f1839_lot0081, printed page 48); block 7 lot 2 at $450 (f1839_lot0082, printed page 48). The sale table's own shorthand, recorded and not flattened: 1 of those rows prints the bidder as a ditto mark under the name above rather than the name itself; 1 carries the block number forward from the last row that printed one. What a match may carry, and it is short: that the man was in Chicago between the 10th and the 24th of June 1839 and bid at the Fort Dearborn Addition sale. It is written as 1839 evidence with describes_date 1839-06, never as an 1835 fact, and the person's grade does not move on this alone. Under the ratified ladder a second contemporary source is what lifts projected_resident, and a land sale four years after the scene date is a second source about CONTINUED RESIDENCE, not about July 1835. THE LOT IS NOT A LOCATION FOR 1835: the Fort Dearborn Addition is the Beaubien, or Reservation, lands, which in July 1835 were the garrison's ground and were not platted into lots at all. It places no house, no shop and no household in the town this project builds. No trade, no address in the town of 1835, no household and no house. The block and lot are the only location on the page, they are ground platted in 1839 out of the garrison's reservation, and they place nobody in the town of 1835. Identity by the crosswalk's own rule: Surname 'Kimball' folds to the same string as the bidder's, and the given name of both begins W. (data/research/directories/fergus_1839_lots_crosswalk_1835.json). This pass WRITES THE EVIDENCE AND MOVES NO GRADE. Under the ratified ladder (T-0513) a second independent source is what lifts a projected resident, and a lot sale four years after the scene date is a second source about CONTINUED RESIDENCE rather than about July 1835. T-0515 applies the ladder against every source at once; this pass hands it the evidence and not the verdict. THE FEDERAL LAND TRACT SALES — A PURCHASE, AND NEVER A RESIDENCE. The Illinois State Archives' Public Domain Land Tract Sales register enters this person 1 time, as “KIMBALL WALTER”, 1833-10-25: 1 parcel of the school section — lot 2 of block 49 of the school section (sec 16 T39N R14E), 0.00 acres stated in all, for $88.00 (ls0262). THE REGISTER'S OWN RESIDENCE COLUMN READS UNKNOWN on these rows: a county, a state or nothing, and never a town, which is why a purchase here places nobody. THE SCHOOL-SECTION ROWS ARE GROUND INSIDE THE TOWN, NOT FARMLAND: section 16 of T39N R14E was platted and sold off by lot and by block at the sale of 1833, which is why the register states 0000.00 acres against most of them. Ground inside the town is nearer to this reconstruction than a quarter-section is, and it is still a purchase: the register names a purchaser and never an occupant, and nothing here puts this person on that ground. A purchase and nothing more. It dates and places a transaction; it proposes no residence, and under the ratified ladder it corroborates rather than mints. Identity by the crosswalk's own rule: KIMBALL WALTER matches W. Kimball: the forename names W. Kimball of the 1 person of this surname, and the forename agrees as an initial only. (data/research/land_sales/resident_crosswalk.json). This pass WRITES THE EVIDENCE AND MOVES NO GRADE. Under the ratified ladder (T-0513) a second independent source is what lifts a projected resident, and a land entry is a second source about a TRANSACTION rather than about who was living at Chicago on 1 July 1835 — a man may buy a quarter-section he never sees. T-0515 applies the ladder against every source at once; this pass hands it the evidence and not the verdict."
+        }
+      ],
+      "research_note": "THE ADVERTISEMENT THAT SHAPED A STRUCTURE RECORD, now written from the population side. This household exists mainly to make the reasoning behind chicago_democrat_office visible as a person rather than as a paragraph: two named businesses, one junction, one building in the model, one inference holding them together."
+    }
+  ],
+  "citations": [
+    {
+      "source_id": "andreas_1884_v1",
+      "citation": "Andreas, A. T. History of Chicago: From the Earliest Period to the Present Time. Vol. 1. Chicago: A. T. Andreas, 1884.",
+      "url": "https://archive.org/details/historyofchicago01andr",
+      "archived_url": "",
+      "tier": 3,
+      "tier_label": "compiled secondary (Andreas)"
+    },
+    {
+      "source_id": "chicago_democrat_1833_11_26",
+      "citation": "The Chicago Democrat. Vol. I, No. 1. Chicago, Ill.: John Calhoun, Tuesday, November 26, 1833.",
+      "url": "",
+      "archived_url": "",
+      "tier": 1,
+      "tier_label": "period/eyewitness",
+      "what_it_supplies": [
+        "that a named trade was being carried on in Chicago in November 1833",
+        "the Chicago Democrat's own address, self-reported: the corner of South Water and Clark streets",
+        "Philo Carpenter advertising drugs, medicines, oils, paints and dye-stuffs, dated Nov. 22, 1833 — with NO address, so it cannot disambiguate his two shops",
+        "C. & I. Harmon advertising dry goods, crockery, hardware and wet and dry groceries, dated Nov. 18, 1833 — with NO address, so it does NOT corroborate the Clark/South Water corner Andreas gives them",
+        "W. Kimball's 'New Store' at the corner of South Water and Clark — a SECOND, independently attested occupant of that junction in the same issue, signed",
+        "Peter Cohen, clothier and grocer, self-reported at the EAST END OF SOUTH WATER-STREET, and trading in Chicago before Nov 1833 ('old customers ... past favors')",
+        "Goss & Cobb, saddle and harness makers, self-reported on the corner of Lake and Canal streets",
+        "Matthias Mason & Co., blacksmiths, on 'Main-street, nearly opposite Graves' Tavern' — a street name this project does not otherwise hold",
+        "B. Jones, grocery and provision store, and separately a storage/forwarding/commission business — both ads give NO street",
+        "Newberry & Dole, forwarding and commission merchants — no address",
+        "John Wright, cut nails and general merchandise; and TWO BUILDINGS TO LET until 1 June 1834",
+        "Daniel Elston & [illegible], soap and candle manufactory, paying cash for tallow and house ashes",
+        "a tavern stand kept by Chester Ingersoll, 'lately occupied by Mr. Wm. W. WATTLES', dated 4 October 1833",
+        "the house of Chester Ingersoll used as the district polling place, 9 December 1833",
+        "THE VILLAGE ORDINANCES of 7 November 1833, complete — the richest single item in the paper",
+        "Ordinance 1: the corporate limits surveyed ALONG the northern United States' Pier 'to the termination thereof' — the pier as an existing, walkable structure with a definite landward end",
+        "Ordinance 5: 'either of the bridges in said town' and their 'plank or any piece of timber' — EXACTLY TWO bridges on 7 Nov 1833, of plank-and-timber construction",
+        "Ordinance 6: wooden buildings with wooden and lath-and-plaster partitions, heated by STOVES not fireplaces, pipes passing through roof or side wall and carried 18 inches above the roof, guarded by stone-ware pipe, brick, tin or sheet iron",
+        "Ordinance 9: timber, stone, brick, boxes and barrels stacked in the streets",
+        "Ordinances 3, 7 and 8: hogs at large, horses run through the streets, stallions",
+        "the schooner Austerlitz, Capt. Smith, from Buffalo, arrived about the 1[9]th inst. with a full cargo of merchandise for citizens of this village and cleared on the 21st IN BALLAST",
+        "a school established in the village by Mr. Sproat of Boston, already running on 26 Nov 1833",
+        "a public auction of United States property held AT FORT DEARBORN, 2 December 1833",
+        "the village population passing 'more than eight hundred souls' in late 1833"
+      ],
+      "what_it_does_not_supply": [
+        "any building's dimensions",
+        "any building's form, material, storey count or fenestration",
+        "the specific corner of any junction it names — the imprint says 'on the corner of', and which of the four is not in the sentence",
+        "evidence that any building named here still stood on 1835-07-01 — this issue is NINETEEN MONTHS before the scene date, in the town's fastest-changing period, and the population went from 800 to 3,265 in between",
+        "any building footprint or plan",
+        "any length or width for the piers",
+        "any corroboration of the estray pen — see the negative finding in the note"
+      ]
+    },
+    {
+      "source_id": "chicago_democrat_1833_1835",
+      "citation": "The Chicago Democrat. Vol. I, No. 1 (November 26, 1833) through Vol. II, No. 18 (August 26, 1835). Chicago, Ill.: John Calhoun, editor and publisher. Seventy-three issues, OCR-assisted research transcriptions from page scans.",
+      "url": "",
+      "archived_url": "",
+      "tier": 1,
+      "tier_label": "period/eyewitness",
+      "what_it_supplies": [
+        "that a named trade was being carried on in Chicago in a named week, and often where",
+        "self-reported addresses, which are the strongest address evidence this project has: the advertiser was paying, and his customers had to find him",
+        "dissolution, removal and replacement notices — the only thing that keeps a documented business out of the 1835 town under the owner's ruling 3",
+        "post-office letter lists, naming residents by the hundred (ruling 1: a listed name mints a resident candidate, flagged letter_list_only)",
+        "the village and later town ordinances, printed complete — the 7 November 1833 code is the richest single item in the run",
+        "arrivals and clearances, which date the piers and the harbour as working structures",
+        "public notices that fix a building as a polling place, an auction site or a meeting place on a given day",
+        "the paper's own imprint, self-reported: the corner of South Water and Clark streets",
+        "twenty-one months of continuous weekly attestation ending three weeks before the scene date, including the issue printed on 1835-07-01"
+      ],
+      "what_it_does_not_supply": [
+        "any building's form, material, storey count, fenestration or dimensions — an advertisement describes a trade, not a building",
+        "the specific corner of any junction it names: 'on the corner of' does not say which of the four",
+        "anything at all from an engraving — see trap 1; the cuts are the printer's stock",
+        "proof that a business named in 1833 or 1834 still stood on 1835-07-01; that is ruling 3's survival liberty, and it is a liberty",
+        "an argument from silence, unless corpus.json shows the issues either side of the silence are both in the deposit",
+        "a reading that outranks a scan read of the same passage — see ruling 2 and the C. & I. HARMON case",
+        "a citation without an issue page and column"
+      ]
+    },
+    {
+      "source_id": "osm_streets_2026",
+      "citation": "OpenStreetMap contributors. Street centerline intersection nodes for downtown Chicago, retrieved via the Overpass API, 2026-08-09.",
+      "url": "https://www.openstreetmap.org/",
+      "archived_url": "https://overpass-api.de/",
+      "tier": 4,
+      "tier_label": "later scholarship"
+    }
+  ],
+  "research_note": "THE FIRST RECORD IN THIS DATASET WHOSE ADDRESS COMES FROM A CONTEMPORARY DOCUMENT RATHER THAN FROM A RECOLLECTION. The Chicago Democrat of 26 November 1833 states in its own imprint that it is published 'in the building on the corner of South Water and Clark-streets', which makes the JUNCTION documented on tier-1 evidence. It does not say which corner; Andreas, fifty years later, says south-west, and that half stays inferred. Keeping those two apart in one position note is the reason this project exists, and it is done explicitly above. WHAT THE NEW SOURCE DID NOT DO IS ALSO WORTH RECORDING. It did not give the building a size, a height, a storey count, a material or a roof — everything visible about this structure except where it stands is still inference or invention. And it must not be allowed to give one: the 'Two Buildings to Let' advertisement in the same issue carries a woodcut of a three-storey building with regular fenestration, which is a printer's generic stock cut and not a picture of anything in Chicago. No attribute of this record derives from it, and the caution is filed here so the next reader does not have the idea afresh. THE KIMBALL QUESTION — whether the store advertising itself as newly opened at this corner in the same issue was in this building — is argued in the occupants block and in docs/RESEARCH/chicago_democrat_office.md, and it is the reason no separate kimball_store record exists. Calhoun's own dwelling is NOT modelled: no source reached attests a separate residence, and rooms over the printing office is a guess this record does not make. AND THE TENANCY IS NOW BOUNDED WHERE THE ADDRESS IS, WHICH IT WAS NOT BEFORE (T-0403). This record was written from the FIRST issue and carried its reading of the corner forward to the scene date unexamined. The paper's later colophons say otherwise — over Jones & King's hardware store in South Water street from 1835-05-20 — and the register reads them now: business_chicago_democrat_printing_office stands on South Water Street and no longer enriches this building. The occupants block argues the dates. What that left for somebody is now done (T-1064): the corner building has lost the business that gave it its name, and it KEEPS THE NAME, LOSES THE BOARD and narrows its function to `store` — a label may outlive a tenancy, a painted assertion standing in the street may not, and a field the scene is furnished from is the second kind of thing and not the first. Who kept the counter on 1835-07-01 is still an open question with one candidate in it, W. Kimball, on a notice that offers his store for sale; the wall is left blank rather than lettered with a guess.",
+  "research_doc": "docs/RESEARCH/chicago_democrat_office.md",
+  "review_required": false
+}

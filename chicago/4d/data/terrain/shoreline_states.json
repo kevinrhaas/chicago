@@ -1,0 +1,124 @@
+{
+  "_doc": "The address book for dated lake-shore states. Terrain epochs select a shoreline by id; they never silently reuse another epoch's line. STATUS is one of three words and they are not interchangeable: `planned` means geometry is null and the state cannot render until its owning ticket supplies a trace; `traced` means the state has its OWN sourced geometry but no ground has been generated from it yet; `active` means the epoch that addresses it is the one the scene renders. An observation from the wrong date may bound a state, but it may not become that state's adopted line. Where independent readings differ, the full spread is named - as a polygon band where neither reading dominates (1835), or as a run of bank with the tier-1 reading adopted and the tier-2 one recorded beside it (1812). Nothing is ever averaged.",
+  "states": [
+    {
+      "id": "shore_1812_pre_cut",
+      "label": "15 August 1812 - natural river mouth and pre-harbor shore",
+      "epoch_id": "e1830_natural",
+      "address_date": "1812-08-15",
+      "status": "traced",
+      "geometry": {
+        "derived_lines": [
+          {
+            "role": "north_bank_to_pier_root",
+            "path": "epochs/e1830_natural/shoreline.geojson",
+            "feature_id": "north_shore_pre_cut_1812",
+            "source_id": "wright_1834"
+          },
+          {
+            "role": "spit_attachment",
+            "path": "epochs/e1830_natural/shoreline.geojson",
+            "feature_id": "spit_attachment_gap_1812",
+            "source_id": "wright_1834"
+          },
+          {
+            "role": "baymouth_bar",
+            "path": "epochs/e1830_natural/shoreline.geojson",
+            "feature_id": "baymouth_bar_1812",
+            "source_id": "wright_1834"
+          },
+          {
+            "role": "channel_west_bank",
+            "path": "epochs/e1830_natural/shoreline.geojson",
+            "feature_id": "channel_west_bank_1812",
+            "source_id": "wright_1834"
+          },
+          {
+            "role": "lake_shore_south_of_outlet",
+            "path": "epochs/e1830_natural/shoreline.geojson",
+            "feature_id": "lake_shore_south_of_outlet_1812",
+            "source_id": "wright_1834"
+          }
+        ],
+        "reading_bands": [
+          {
+            "path": "epochs/e1830_natural/shoreline.geojson",
+            "feature_id": "mouth_outlet_reading_band_1812"
+          }
+        ],
+        "bounding_lines": [
+          {
+            "role": "eastward_bound_north_of_pier_root",
+            "observed_date": "1834-01-01",
+            "path": "epochs/e1834_harbor_cut/shoreline.geojson",
+            "feature_id": "north_shore_harbor_reach",
+            "source_id": "wright_1834",
+            "note": "Not this state's line. The 1834 epoch's own note says fresh sand is accreting north of the north pier, so Wright's lake shore there lies ON or EAST of where the 1812 shore ran. It bounds the 1812 shore from the east and is recorded here rather than copied into the 1812 file, which is what keeps the two states from aliasing."
+          }
+        ],
+        "derivation": {
+          "tool": "tools/derive_shore_1812.py",
+          "readings": "data/terrain/1812_mouth_readings.json",
+          "check": "tools/derive_shore_1812.py --check, run by tools/check_shoreline_states.py"
+        }
+      },
+      "sources": [
+        "quaife_1913_swearingen",
+        "wright_1834",
+        "chicagology_prefire274"
+      ],
+      "note": "Supplied by T-1242, the first piece of T-0468. There is no survey of the pre-cut mouth, so this state is DERIVED in the open rather than traced: Wright's 1834 reading of the same landform is the base planform, the drafted piers and the shore accreting behind them are dropped, the bar is declared continuous to the mainland with the isthmus itself left unmodelled, and the mouth is set at the half mile below the fort that Lt. Swearingen walked and wrote down in 1803. The compilation's 'near present Madison Street' is 94.9 m further south and is kept as the alternative, not averaged in. Wright's own 1834 bar tip falls 9.2 m south of the adopted station - an 1803 distance on foot and an 1834 survey agreeing to within ten metres. NO ELEVATION IS CLAIMED: the ground this planform implies is T-1243."
+    },
+    {
+      "id": "shore_1835_harbor_cut",
+      "label": "1 July 1835 \u2014 harbor cut and eroding south shore",
+      "epoch_id": "e1834_harbor_cut",
+      "address_date": "1835-07-01",
+      "status": "active",
+      "geometry": {
+        "dated_lines": [
+          {
+            "role": "primary_where_drawn",
+            "observed_date": "1834-01-01",
+            "path": "epochs/e1834_harbor_cut/shoreline.geojson",
+            "feature_id": "south_shore_harbor_reach",
+            "source_id": "wright_1834"
+          },
+          {
+            "role": "lower_bound_below_twelfth",
+            "observed_date": "1849-01-01",
+            "path": "epochs/e1834_harbor_cut/lake_shore_below_twelfth.geojson",
+            "feature_id": "lake_shore_below_twelfth",
+            "source_id": "rees_rucker_1849"
+          }
+        ],
+        "disagreement_bands": [
+          {
+            "path": "shoreline_disagreement_bands.geojson",
+            "feature_id": "wright_1834_rees_1849_overlap"
+          }
+        ]
+      },
+      "sources": [
+        "wright_1834",
+        "rees_rucker_1849"
+      ],
+      "note": "Wright's 1834 line is the scene's primary reading where it exists. Rees & Rucker's 1849 line is fourteen years late and is only a lower bound below Twelfth Street: the 1835 water's edge stood on it or east of it. The two fitted sheets overlap from local N -1300 to -2000 and differ at every 100 m station. Their full spread is the named band; no midpoint or smoothed compromise is adopted."
+    },
+    {
+      "id": "shore_1880s_ic_edge",
+      "label": "1880s \u2014 Illinois Central edge and post-fire fill",
+      "epoch_id": "e1871_postfire",
+      "address_range": {
+        "from": "1880-01-01",
+        "to": "1889-12-31"
+      },
+      "address_date": "1888-07-01",
+      "address_date_derivation": "1880s_scene_date_constraints.json",
+      "status": "planned",
+      "geometry": null,
+      "sources": [],
+      "note": "Reserved for T-0473. It is deliberately not an alias of either earlier state: the 1880s lake edge must represent the Illinois Central corridor and period fill rather than the natural or 1835 shore. THE DATE IS SETTLED AND THE LINE IS NOT (T-1249). address_date is now 1 July 1888, derived in 1880s_scene_date_constraints.json and re-derived by tools/check_1880s_scene_date.py; the decade-wide address_range is kept because it is the window the date was chosen inside, not because the state is vague about which day it addresses. geometry stays null and status stays planned: T-1250 owns the sourced trace, and a date is not permission to borrow a line."
+    }
+  ]
+}

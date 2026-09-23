@@ -1,0 +1,1924 @@
+{
+ "_doc": "T-0509 ledger, complete. Every one of the 76 manifest members carries a dated outcome derived from evidence already adjudicated in this repository — the four civic lists, the two Fergus directories and the 1837 election return, Norris 1844 and its cards, the old-settler death notices, the 1840 heads, the Newberry leads, and the prose sources the pilot, pass 2 and pass 3 read for these people without ever completing a ledger. The rule is stated in tools/complete_resident_research_pass_14.py and no outcome was weakened to reach it. Nothing here mints, promotes or regrades a resident: T-0513 consolidates and T-0514/T-0515 apply.",
+ "ticket": "T-0509",
+ "reviewed_on": "2026-09-05",
+ "status": "complete",
+ "default_outcome": "no_corroboration_yet",
+ "default_summary": "No reliable record in the reviewed repository newspaper/reference corpus, Chicago directories, digitized county/local histories, institutional records and targeted exact/variant-name sweep could be tied to this person with sufficient date/place/occupation/kinship discriminators. This is a documented no-corroboration result, not evidence that the person did not exist.",
+ "query_templates": [
+  "\"{name}\" Chicago 1835",
+  "\"{name}\" Illinois 1834 1835",
+  "\"{name}\" Chicago directory",
+  "\"{name}\" genealogy occupation migration",
+  "justified OCR/spelling variants where the printed form was visibly suspect"
+ ],
+ "search_scope": [
+  "repository Chicago Democrat and Chicago American transcriptions, newspaper identity ledger and resident/source records",
+  "the six source domains scaffolded by T-0492 under data/research/ — civic lists, 1830 and 1840 census, church registers, books, directories",
+  "Fergus Chicago directories and the existing resident-research source registry",
+  "Cook, Will, Kane, Lake and neighbouring-county local histories",
+  "government, library and archival institutional records"
+ ],
+ "outcome_counts": {
+  "candidate_identity": 27,
+  "corroborated": 9,
+  "corroborated_enrichment": 11,
+  "no_corroboration": 29
+ },
+ "completed_person_ids": [
+  "boles_george",
+  "parsalls_austin",
+  "king_byram",
+  "bostwick_e_b",
+  "paige_b_r",
+  "thrall_e_l",
+  "bradstreet_j_p",
+  "bailey_bennet",
+  "fowler_elmira",
+  "brookins_david",
+  "foster_caleb",
+  "clarke_h_b",
+  "brooks_gardner",
+  "romer_carl",
+  "bennett_h_c",
+  "brush_matthias",
+  "drake_charles_c",
+  "crocker_h",
+  "bullen_jeduthnn",
+  "bartlett_charles_h",
+  "sherman_h",
+  "bullock_stephen",
+  "richards_charles_t",
+  "moore_henry",
+  "burbee_jonathan",
+  "chapman_chas_h",
+  "marshall_j_a",
+  "burdick_paul",
+  "house_chester",
+  "curtiss_j",
+  "butterfield_ben",
+  "albee_clark_b",
+  "collins_j_h",
+  "byam_seth",
+  "abbott_constant",
+  "grant_james",
+  "case_nehemiah",
+  "parkes_curtis",
+  "stewart_r",
+  "chadwick_joseph",
+  "torry_d_v_s",
+  "lewis_samuel",
+  "chamberlain_l_c",
+  "dunn_dangerfield",
+  "sabine_wm",
+  "chambers_john",
+  "ingersall_david",
+  "dole_george_w",
+  "chanpagne_batist",
+  "frame_david_p",
+  "egan_emeline",
+  "chappel_eliza_mir",
+  "farren_dean",
+  "egan_william_b",
+  "chase_peter",
+  "griswold_eben",
+  "elston_daniel",
+  "clark_erastus",
+  "alden_ebenozer",
+  "fullerton_alexander",
+  "codding_sally",
+  "tuller_elam",
+  "gale_stephen_f",
+  "comstock_h_h",
+  "benn_eli",
+  "goss_o",
+  "cook_rowland_i",
+  "filer_elihu_d",
+  "greene_john",
+  "cooley_edward_v",
+  "sen_elijah_wentworth",
+  "hamilton_richard_j",
+  "covell_thomas_r",
+  "covalt_enos",
+  "harmon_charles_l",
+  "curtenius_fredk"
+ ],
+ "overrides": {
+  "boles_george": {
+   "outcome": "no_corroboration",
+   "ladder_note": "R4",
+   "summary": "Nothing reviewed in this pass corroborates George Boles from outside the record already held: the papers hold the name only on the post-office return(s) of 1835-07-01.",
+   "sources": [
+    "chicago_democrat_1833_1835"
+   ],
+   "candidates": [],
+   "evidence_seen": [
+    "newspaper_register"
+   ],
+   "refusals_seen": []
+  },
+  "parsalls_austin": {
+   "outcome": "no_corroboration",
+   "ladder_note": "R4",
+   "summary": "Nothing reviewed in this pass corroborates Austin Parsalls from outside the record already held: the papers hold the name only on the post-office return(s) of 1834-04-01.",
+   "sources": [
+    "chicago_democrat_1833_1835"
+   ],
+   "candidates": [],
+   "evidence_seen": [
+    "newspaper_register"
+   ],
+   "refusals_seen": []
+  },
+  "king_byram": {
+   "outcome": "candidate_identity",
+   "ladder_note": "R3",
+   "summary": "Every route to this man is contested in the same way. Fergus 1839 prints 'King, Byram, Jones, King & Co.' and the old-settler notice 'King, Byram, died', but three residents of 1835 meet each entry on the folding rule and at most one is the man printed. The 1840 head 'Byram King' at page 207 line 4 is an L7 candidate with no independent discriminator, and the page falls outside the 210-row serial recovery, so no bridge row can be keyed on it.",
+   "sources": [
+    "census_1840_chicago_familysearch_images",
+    "chicago_democrat_1833_1835",
+    "chicago_tribune_1882_04_25_old_settler_deaths",
+    "fergus_chicago_directory_1839"
+   ],
+   "candidates": [
+    {
+     "id": "cand_byram_king_fergus_1839",
+     "asserted": false
+    }
+   ],
+   "evidence_seen": [
+    "census_1840",
+    "census_1840_ruled",
+    "fergus_1839",
+    "fergus_1843",
+    "newberry_leads",
+    "newspaper_register",
+    "norris_1844",
+    "old_settler_deaths",
+    "spend_crosswalk"
+   ],
+   "refusals_seen": [
+    "census_1840_ruled",
+    "fergus_1843",
+    "norris_1844",
+    "spend_crosswalk"
+   ],
+   "reconciliation": {
+    "ticket": "T-0816",
+    "was": "candidate_identity",
+    "rival": "corroborated_enrichment",
+    "ruled": "candidate_identity",
+    "upheld": "ledger_of_record",
+    "discriminator": "An initial-for-initial agreement in a volume printed after 1835 is an unasserted candidate: the repository carries it with asserted:false, and the enrichment tier would assert what no pass asserted. Source: Fergus 1839, held as cand_byram_king_fergus_1839. Ledger of record upheld."
+   }
+  },
+  "bostwick_e_b": {
+   "outcome": "no_corroboration",
+   "ladder_note": "R4",
+   "summary": "Nothing reviewed in this pass corroborates E. B. Bostwick from outside the record already held: the fergus chicago directory 1843, norris directory 1844 agreement is a surname-only refusal; the papers hold the name only on the post-office return(s) of 1835-07-01.",
+   "sources": [
+    "chicago_democrat_1833_1835"
+   ],
+   "candidates": [],
+   "evidence_seen": [
+    "fergus_1843",
+    "newspaper_register",
+    "norris_1844"
+   ],
+   "refusals_seen": [
+    "fergus_1843",
+    "norris_1844"
+   ]
+  },
+  "paige_b_r": {
+   "outcome": "no_corroboration",
+   "ladder_note": "R4",
+   "summary": "B. R. Paige is held as a candidate and not asserted: 1 Newberry genealogical-index card(s) stand under this surname on an exact-surname rule with nothing to separate the bearers; the papers hold the name only on the post-office return(s) of 1835-05-20.",
+   "sources": [
+    "chicago_democrat_1833_1835",
+    "newberry_genealogical_index"
+   ],
+   "candidates": [],
+   "evidence_seen": [
+    "newberry_leads",
+    "newspaper_register"
+   ],
+   "refusals_seen": [],
+   "reconciliation": {
+    "ticket": "T-0816",
+    "was": "candidate_identity",
+    "rival": "no_corroboration",
+    "ruled": "no_corroboration",
+    "upheld": "rival",
+    "discriminator": "Newberry card(s) standing under the surname with nothing to separate the bearers is a surname-only agreement, which every crosswalk in this repository files as a refusal. No external person is named, so there is no candidate to hold either. One card, exact-surname rule, no bearer separated. RIVAL UPHELD."
+   }
+  },
+  "thrall_e_l": {
+   "outcome": "corroborated_enrichment",
+   "ladder_note": "R1",
+   "summary": "The 1837 election return prints 'Edward L. Thrall' — the forename expanding the E. and the middle initial agreeing — which carries that he was in Chicago and in ward 1 on 2 May 1837. It is a different record from the 1839 listing already on his card, though printed in the same volume. The papers give the trade: clothier, 4 June 1834.",
+   "sources": [
+    "chicago_democrat_1833_1835",
+    "fergus_chicago_directory_1839"
+   ],
+   "candidates": [],
+   "evidence_seen": [
+    "fergus_1839_election",
+    "fergus_1843",
+    "newberry_leads",
+    "newspaper_register",
+    "norris_1844",
+    "spend_crosswalk"
+   ],
+   "refusals_seen": [
+    "spend_crosswalk"
+   ]
+  },
+  "bradstreet_j_p": {
+   "outcome": "no_corroboration",
+   "ladder_note": "R4",
+   "summary": "Nothing reviewed in this pass corroborates J. P Bradstreet from outside the record already held: the papers hold the name only on the post-office return(s) of 1835-07-01.",
+   "sources": [
+    "chicago_democrat_1833_1835"
+   ],
+   "candidates": [],
+   "evidence_seen": [
+    "newspaper_register"
+   ],
+   "refusals_seen": []
+  },
+  "bailey_bennet": {
+   "outcome": "corroborated_enrichment",
+   "ladder_note": "R1",
+   "summary": "Fergus 1839 prints 'Bailey, Bennett, carpenter and builder' and the 1837 election return 'Bennett Bailey' — an uncommon forename spelt out twice, four and two years after the scene. Pass 3 saw only the 1843 Mechanics' Institute directorship and called it a candidate over a nine-year gap; the 1837 return closes most of that gap and the trade is a further discriminator. Carried as 1837 and 1839 evidence; the 1835 grade does not move.",
+   "sources": [
+    "chicago_democrat_1833_1835",
+    "fergus_chicago_directory_1839",
+    "norris_chicago_directory_1843"
+   ],
+   "candidates": [],
+   "evidence_seen": [
+    "address_backproj",
+    "fergus_1839",
+    "fergus_1839_election",
+    "fergus_1843",
+    "newberry_leads",
+    "newspaper_register",
+    "norris_1844",
+    "spend_crosswalk"
+   ],
+   "refusals_seen": [
+    "address_backproj",
+    "spend_crosswalk"
+   ]
+  },
+  "fowler_elmira": {
+   "outcome": "candidate_identity",
+   "ladder_note": "R3",
+   "summary": "Elmira Fowler is held as a candidate and not asserted: 3 Newberry genealogical-index card(s) stand under this surname on an exact-surname rule with nothing to separate the bearers; the papers carry the name 1834-11-05 as dressmaker.",
+   "sources": [
+    "chicago_democrat_1833_1835",
+    "newberry_genealogical_index"
+   ],
+   "candidates": [],
+   "evidence_seen": [
+    "newberry_leads",
+    "newspaper_register"
+   ],
+   "refusals_seen": [],
+   "reconciliation": {
+    "ticket": "T-0816",
+    "was": "candidate_identity",
+    "rival": "corroborated",
+    "ruled": "candidate_identity",
+    "upheld": "ledger_of_record",
+    "discriminator": "The Second Presbyterian roll opens in June 1842 and its own committed crosswalk (data/research/church/second_presbyterian_crosswalk.json) states that it mints or regrades NOTHING — a match on it is “a lead for a later pass”. It cannot corroborate a July 1835 resident. The line is “Fowler, Ellen | Profession. | October 31, 1879” — a different forename admitted forty-four years after the scene. Ledger of record upheld."
+   }
+  },
+  "brookins_david": {
+   "outcome": "candidate_identity",
+   "ladder_note": "R3",
+   "summary": "The Du Page County history reports that David Brookins sold carriages in Chicago before the family moved west. The source record was written for an earlier pass and says plainly that it does not tie him to the post-office return, so it supplies a candidate identity and nothing more.",
+   "sources": [
+    "chicago_democrat_1833_1835",
+    "dupage_history_david_brookins"
+   ],
+   "candidates": [
+    {
+     "id": "cand_david_brookins_dupage",
+     "asserted": false
+    }
+   ],
+   "evidence_seen": [
+    "newspaper_register"
+   ],
+   "refusals_seen": [],
+   "reconciliation": {
+    "ticket": "T-0816",
+    "was": "candidate_identity",
+    "rival": "no_corroboration",
+    "ruled": "candidate_identity",
+    "upheld": "ledger_of_record",
+    "discriminator": "A specific external person is named in a specific record, and no date, place, occupation or kinship discriminator bridges him to the 1835 letter — which is this ledger's own definition of candidate_identity, not of an attestation and not of nothing. Named in a Du Page County history: David Brookins sold carriages in Chicago before the family moved west (cand_david_brookins_dupage). Ledger of record upheld."
+   }
+  },
+  "foster_caleb": {
+   "outcome": "no_corroboration",
+   "ladder_note": "R4",
+   "summary": "Nothing reviewed in this pass corroborates Caleb Foster from outside the record already held: the chicago tribune 1882 04 25 old settler deaths, fergus chicago directory 1843, norris directory 1844 agreement is a surname-only refusal; the papers hold the name only on the post-office return(s) of 1834-01-28 to 1835-05-20, 1835-08-19.",
+   "sources": [
+    "chicago_democrat_1833_1835"
+   ],
+   "candidates": [],
+   "evidence_seen": [
+    "fergus_1843",
+    "newspaper_register",
+    "norris_1844",
+    "norris_adv",
+    "old_settler_deaths"
+   ],
+   "refusals_seen": [
+    "fergus_1843",
+    "norris_1844",
+    "norris_adv",
+    "old_settler_deaths"
+   ]
+  },
+  "clarke_h_b": {
+   "outcome": "corroborated_enrichment",
+   "ladder_note": "R1",
+   "summary": "The 1837 election return prints 'Henry B. Clarke', expanding both initials of H. B. Clarke, and the papers carry him as a hardware merchant between 27 May and 29 July 1835. REFUSED in the same pass: the old-settler notice 'Clarke, Dr. Henry, died, Walworth, Wis., before April 23, 1853, aged 60' agrees on surname and first initial only, gives a doctor rather than a merchant and a Wisconsin death; it is a different man and is not carried.",
+   "sources": [
+    "chicago_democrat_1833_1835",
+    "fergus_chicago_directory_1839"
+   ],
+   "candidates": [],
+   "evidence_seen": [
+    "address_backproj",
+    "fergus_1839",
+    "fergus_1839_election",
+    "fergus_1843",
+    "newberry_leads",
+    "newspaper_register",
+    "norris_1844",
+    "norris_adv",
+    "old_settler_deaths",
+    "spend_crosswalk"
+   ],
+   "refusals_seen": [
+    "address_backproj",
+    "fergus_1839",
+    "fergus_1843",
+    "norris_1844",
+    "spend_crosswalk"
+   ]
+  },
+  "brooks_gardner": {
+   "outcome": "corroborated",
+   "ladder_note": "R2",
+   "summary": "The 1834 poll list prints 'Brooks, Gardner' and one bearer of the surname was considered: an uncommon forename agreeing whole against a town list taken within the scene window. Pass 2 could only offer the Des Plaines settlers' history and called it a candidate; the voter read (T-0493) landed afterwards and settles the man in the town, not merely on the river.",
+   "sources": [
+    "chicago_democrat_1833_1835",
+    "chicago_voter_lists_1833_1835_irad",
+    "desplaines_gardner_brooks"
+   ],
+   "candidates": [],
+   "evidence_seen": [
+    "fergus_1843",
+    "newberry_leads",
+    "newspaper_register",
+    "norris_1844",
+    "voter_lists"
+   ],
+   "refusals_seen": [
+    "fergus_1843",
+    "norris_1844"
+   ]
+  },
+  "romer_carl": {
+   "outcome": "no_corroboration",
+   "ladder_note": "R4",
+   "summary": "Carl Romer is held as a candidate and not asserted: 1 Newberry genealogical-index card(s) stand under this surname on an exact-surname rule with nothing to separate the bearers; the newberry genealogical index agreement is a surname-only refusal; the papers hold the name only on the post-office return(s) of 1835-05-20.",
+   "sources": [
+    "chicago_democrat_1833_1835",
+    "newberry_genealogical_index"
+   ],
+   "candidates": [],
+   "evidence_seen": [
+    "newberry_leads",
+    "newspaper_register"
+   ],
+   "refusals_seen": [
+    "newberry_leads"
+   ],
+   "reconciliation": {
+    "ticket": "T-0816",
+    "was": "candidate_identity",
+    "rival": "no_corroboration",
+    "ruled": "no_corroboration",
+    "upheld": "rival",
+    "discriminator": "Newberry card(s) standing under the surname with nothing to separate the bearers is a surname-only agreement, which every crosswalk in this repository files as a refusal. No external person is named, so there is no candidate to hold either. One card, and the ledger of record itself calls the agreement a surname-only refusal. RIVAL UPHELD."
+   }
+  },
+  "bennett_h_c": {
+   "outcome": "candidate_identity",
+   "ladder_note": "R3",
+   "summary": "Fergus 1839 prints 'Bennett, Henry, speculator, bds Illinois Exchange'. The forename expands the H., but the record's C. is absent from the entry rather than confirmed by it, and the papers give this man as an attorney in December 1834 — a different trade. Held as a candidate.",
+   "sources": [
+    "chicago_democrat_1833_1835",
+    "fergus_chicago_directory_1839"
+   ],
+   "candidates": [
+    {
+     "id": "cand_henry_bennett_fergus_1839",
+     "asserted": false
+    }
+   ],
+   "evidence_seen": [
+    "address_backproj",
+    "fergus_1839",
+    "fergus_1843",
+    "newberry_leads",
+    "newspaper_register",
+    "norris_1844",
+    "spend_crosswalk"
+   ],
+   "refusals_seen": [
+    "address_backproj",
+    "norris_1844",
+    "spend_crosswalk"
+   ],
+   "reconciliation": {
+    "ticket": "T-0816",
+    "was": "candidate_identity",
+    "rival": "corroborated_enrichment",
+    "ruled": "candidate_identity",
+    "upheld": "ledger_of_record",
+    "discriminator": "An initial-for-initial agreement in a volume printed after 1835 is an unasserted candidate: the repository carries it with asserted:false, and the enrichment tier would assert what no pass asserted. Source: Fergus 1839/1843, held as cand_henry_bennett_fergus_1839. Ledger of record upheld."
+   }
+  },
+  "brush_matthias": {
+   "outcome": "no_corroboration",
+   "ladder_note": "R4",
+   "summary": "Nothing reviewed in this pass corroborates Matthias Brush from outside the record already held: the papers hold the name only on the post-office return(s) of 1835-07-01.",
+   "sources": [
+    "chicago_democrat_1833_1835"
+   ],
+   "candidates": [],
+   "evidence_seen": [
+    "newspaper_register"
+   ],
+   "refusals_seen": []
+  },
+  "drake_charles_c": {
+   "outcome": "no_corroboration",
+   "ladder_note": "R4",
+   "summary": "Nothing reviewed in this pass corroborates Charles C. Drake from outside the record already held: the chicago tribune 1882 04 25 old settler deaths, fergus chicago directory 1843, norris directory 1844 agreement is a surname-only refusal; the papers hold the name only on the post-office return(s) of 1834-07-09 to 1834-07-16.",
+   "sources": [
+    "chicago_democrat_1833_1835"
+   ],
+   "candidates": [],
+   "evidence_seen": [
+    "fergus_1843",
+    "newspaper_register",
+    "norris_1844",
+    "old_settler_deaths"
+   ],
+   "refusals_seen": [
+    "fergus_1843",
+    "norris_1844",
+    "old_settler_deaths"
+   ]
+  },
+  "crocker_h": {
+   "outcome": "candidate_identity",
+   "ladder_note": "R3",
+   "summary": "Two independent later records agree on the same expansion and the same trade: Fergus 1839, 'Crocker, Hans, attorney at law', and the old-settler notice 'Crocker, Hans, lawyer, died, Milwaukee, Wis., Mar. 17, 1889, a. 73'. The 1889 age puts his birth at 1815-16 — about twenty in the scene, which fits a man the 1835 papers show teaching school between January and July before the law.",
+   "sources": [
+    "chicago_democrat_1833_1835",
+    "chicago_tribune_1882_04_25_old_settler_deaths",
+    "fergus_chicago_directory_1839"
+   ],
+   "candidates": [],
+   "evidence_seen": [
+    "fergus_1839",
+    "fergus_1843",
+    "newberry_leads",
+    "newspaper_register",
+    "norris_1844",
+    "old_settler_deaths",
+    "spend_crosswalk"
+   ],
+   "refusals_seen": [
+    "fergus_1843",
+    "newberry_leads",
+    "norris_1844",
+    "spend_crosswalk"
+   ],
+   "reconciliation": {
+    "ticket": "T-0816",
+    "was": "corroborated_enrichment",
+    "rival": "candidate_identity",
+    "ruled": "candidate_identity",
+    "upheld": "rival",
+    "discriminator": "Fergus 26-29 prints TWO Crockers and neither settles “H. Crocker”: the obituary list has “Crocker. Hans, lawyer, died, Milwaukee, Wis., Mar. 17, 1889, a. 73” (born about 1816 — nineteen at the scene date, and in Milwaukee after), and the 1843 directory has “Crocker, Josiah Dunton, whitewasher, res 171 Clark”. An initial that two men answer to is a candidate, not an enrichment. RIVAL UPHELD."
+   }
+  },
+  "bullen_jeduthnn": {
+   "outcome": "no_corroboration",
+   "ladder_note": "R4",
+   "summary": "Nothing reviewed in this pass corroborates Jeduthnn Bullen from outside the record already held: the papers hold the name only on the post-office return(s) of 1835-05-20, 1835-07-01, 1835-08-19.",
+   "sources": [
+    "chicago_democrat_1833_1835"
+   ],
+   "candidates": [],
+   "evidence_seen": [
+    "newspaper_register"
+   ],
+   "refusals_seen": []
+  },
+  "bartlett_charles_h": {
+   "outcome": "candidate_identity",
+   "ladder_note": "R3",
+   "summary": "Chicago History Museum catalogs Charles H. Bartlett diaries beginning before his 1834 farming near Diamond Lake. Exact name, date and regional movement are strong; image-level diary review is still needed. [Read for pass 03 on 2026-09-01, which never completed a findings ledger; re-checked against the crosswalks and carried into T-0509 unchanged.]",
+   "sources": [
+    "chicago_democrat_1833_1835",
+    "chm_bartlett_diaries"
+   ],
+   "candidates": [],
+   "evidence_seen": [
+    "fergus_1843",
+    "newberry_leads",
+    "newspaper_register",
+    "norris_1844"
+   ],
+   "refusals_seen": [
+    "fergus_1843",
+    "newberry_leads",
+    "norris_1844"
+   ]
+  },
+  "sherman_h": {
+   "outcome": "candidate_identity",
+   "ladder_note": "R3",
+   "summary": "Nothing reviewed in this pass corroborates Mrs. H. Sherman from outside the record already held: the fergus chicago directory 1843, norris directory 1844 agreement is a surname-only refusal; the papers carry the name 1834-12-03 as dressmaker.",
+   "sources": [
+    "chicago_democrat_1833_1835"
+   ],
+   "candidates": [],
+   "evidence_seen": [
+    "fergus_1843",
+    "newspaper_register",
+    "norris_1844",
+    "norris_adv"
+   ],
+   "refusals_seen": [
+    "fergus_1843",
+    "norris_1844",
+    "norris_adv"
+   ],
+   "reconciliation": {
+    "ticket": "T-0816",
+    "was": "no_corroboration",
+    "rival": "corroborated",
+    "ruled": "candidate_identity",
+    "upheld": "neither",
+    "discriminator": "The Second Presbyterian roll opens in June 1842 and its own committed crosswalk (data/research/church/second_presbyterian_crosswalk.json) states that it mints or regrades NOTHING — a match on it is “a lead for a later pass”. It cannot corroborate a July 1835 resident. But the roll DOES carry a matched line — “Sherman, Howard | Letter. | December 29, 1852” — so this is a named lead rather than nothing. NEITHER ledger: the record's no_corroboration understates it and the rival's corroborated overstates it."
+   }
+  },
+  "bullock_stephen": {
+   "outcome": "no_corroboration",
+   "ladder_note": "R4",
+   "summary": "Nothing reviewed in this pass corroborates Stephen Bullock from outside the record already held: the papers hold the name only on the post-office return(s) of 1835-07-01.",
+   "sources": [
+    "chicago_democrat_1833_1835"
+   ],
+   "candidates": [],
+   "evidence_seen": [
+    "newspaper_register"
+   ],
+   "refusals_seen": []
+  },
+  "richards_charles_t": {
+   "outcome": "candidate_identity",
+   "ladder_note": "R3",
+   "summary": "Charles T. Richards is held as a candidate and not asserted: 2 Newberry genealogical-index card(s) stand under this surname on an exact-surname rule with nothing to separate the bearers; the fergus chicago directory 1843, norris directory 1844 agreement is a surname-only refusal; the papers hold the name only on the post-office return(s) of 1835-05-20.",
+   "sources": [
+    "chicago_democrat_1833_1835",
+    "newberry_genealogical_index"
+   ],
+   "candidates": [],
+   "evidence_seen": [
+    "fergus_1843",
+    "newberry_leads",
+    "newspaper_register",
+    "norris_1844"
+   ],
+   "refusals_seen": [
+    "fergus_1843",
+    "norris_1844"
+   ]
+  },
+  "moore_henry": {
+   "outcome": "corroborated_enrichment",
+   "ladder_note": "R1",
+   "summary": "Fergus 1839 prints 'Moore, Henry, attorney and counseller at law, 9 Clark st' and the old-settler notice 'Moore, Henry, died, Concord, Mass., after 1841'. Whole forename, whole surname, and the trade the 1835 papers already print for him between 4 June and 22 August. The 1839 door is 1839's, not 1835's.",
+   "sources": [
+    "chicago_democrat_1833_1835",
+    "chicago_tribune_1882_04_25_old_settler_deaths",
+    "fergus_chicago_directory_1839"
+   ],
+   "candidates": [],
+   "evidence_seen": [
+    "address_backproj",
+    "fergus_1839",
+    "fergus_1843",
+    "newberry_leads",
+    "newspaper_register",
+    "norris_1844",
+    "old_settler_deaths",
+    "spend_crosswalk"
+   ],
+   "refusals_seen": [
+    "fergus_1843",
+    "newberry_leads",
+    "norris_1844",
+    "spend_crosswalk"
+   ],
+   "reconciliation": {
+    "ticket": "T-0816",
+    "was": "corroborated_enrichment",
+    "rival": "corroborated",
+    "ruled": "corroborated_enrichment",
+    "upheld": "ledger_of_record",
+    "discriminator": "The Second Presbyterian roll opens in June 1842 and its own committed crosswalk (data/research/church/second_presbyterian_crosswalk.json) states that it mints or regrades NOTHING — a match on it is “a lead for a later pass”. It cannot corroborate a July 1835 resident. The line is “Moore, Mrs. Harriet M. | Letter. | December 30, 1891”, a married woman's entry fifty-six years later. The enrichment stands on Fergus 1839/1843 and the 1882 old-settler death notice, not on the roll. Ledger of record upheld."
+   }
+  },
+  "burbee_jonathan": {
+   "outcome": "no_corroboration",
+   "ladder_note": "R4",
+   "summary": "Nothing reviewed in this pass corroborates Jonathan Burbee from outside the record already held: the papers hold the name only on the post-office return(s) of 1834-07-09 to 1834-07-16, 1835-07-01.",
+   "sources": [
+    "chicago_democrat_1833_1835"
+   ],
+   "candidates": [],
+   "evidence_seen": [
+    "newspaper_register"
+   ],
+   "refusals_seen": []
+  },
+  "chapman_chas_h": {
+   "outcome": "corroborated_enrichment",
+   "ladder_note": "R1",
+   "summary": "The 1837 election return prints 'Chas. H. Chapman' — the transcribed 1835 form letter for letter — and Fergus 1839 prints 'Chapman, Charles II., real estate dealer, Randolph street', where 'II.' is the printer's H. The papers run him from 24 December 1833 to 20 June 1835 as a merchant, so the town has him before and after. A rare case in this stratum: a letter-list man who is nonetheless well held.",
+   "sources": [
+    "chicago_democrat_1833_1835",
+    "fergus_chicago_directory_1839"
+   ],
+   "candidates": [],
+   "evidence_seen": [
+    "address_backproj",
+    "fergus_1839",
+    "fergus_1839_election",
+    "fergus_1843",
+    "newberry_leads",
+    "newspaper_register",
+    "norris_1844",
+    "old_settler_deaths",
+    "spend_crosswalk"
+   ],
+   "refusals_seen": [
+    "address_backproj",
+    "old_settler_deaths",
+    "spend_crosswalk"
+   ]
+  },
+  "marshall_j_a": {
+   "outcome": "corroborated_enrichment",
+   "ladder_note": "R1",
+   "summary": "Fergus 1839 prints 'Marshall, James A., auctioneer, commission, etc., So. Water st', expanding J. A. exactly. REFUSED: the old-settler notice 'Marshall, James Monroe, real estate, died July 1, 1880, aged 45-9' gives a middle name that conflicts with the A., and an age that would make him an infant in 1835. Not the same man; not carried.",
+   "sources": [
+    "chicago_democrat_1833_1835",
+    "fergus_chicago_directory_1839"
+   ],
+   "candidates": [],
+   "evidence_seen": [
+    "address_backproj",
+    "fergus_1839",
+    "fergus_1843",
+    "newspaper_register",
+    "norris_1844",
+    "old_settler_deaths",
+    "spend_crosswalk"
+   ],
+   "refusals_seen": [
+    "spend_crosswalk"
+   ],
+   "reconciliation": {
+    "ticket": "T-0816",
+    "was": "corroborated_enrichment",
+    "rival": "corroborated",
+    "ruled": "corroborated_enrichment",
+    "upheld": "ledger_of_record",
+    "discriminator": "The rival's corroborated rests on the 1892 roll and on post-1835 directories; The Second Presbyterian roll opens in June 1842 and its own committed crosswalk (data/research/church/second_presbyterian_crosswalk.json) states that it mints or regrades NOTHING — a match on it is “a lead for a later pass”. It cannot corroborate a July 1835 resident. Ledger of record upheld."
+   }
+  },
+  "burdick_paul": {
+   "outcome": "candidate_identity",
+   "ladder_note": "R3",
+   "summary": "Milwaukee history says Paul Burdick occupied a frame house raised there in March 1835. Exact name and date make a regional candidate, while Milwaukee residence conflicts with physical Chicago presence. [Read for pass 02 on 2026-09-01, which never completed a findings ledger; re-checked against the crosswalks and carried into T-0509 unchanged.]",
+   "sources": [
+    "buck_pioneer_milwaukee",
+    "chicago_democrat_1833_1835"
+   ],
+   "candidates": [],
+   "evidence_seen": [
+    "fergus_1843",
+    "newspaper_register",
+    "norris_1844"
+   ],
+   "refusals_seen": [
+    "fergus_1843",
+    "norris_1844"
+   ],
+   "reconciliation": {
+    "ticket": "T-0816",
+    "was": "candidate_identity",
+    "rival": "no_corroboration",
+    "ruled": "candidate_identity",
+    "upheld": "ledger_of_record",
+    "discriminator": "A specific external person is named in a specific record, and no date, place, occupation or kinship discriminator bridges him to the 1835 letter — which is this ledger's own definition of candidate_identity, not of an attestation and not of nothing. Named in a Milwaukee history: Paul Burdick occupied a frame house raised there in March 1835 — exact name and date. Ledger of record upheld."
+   }
+  },
+  "house_chester": {
+   "outcome": "candidate_identity",
+   "ladder_note": "R3",
+   "summary": "A contemporary 1835 letter and local histories place distinctive-name Chester House at House's Grove from 1833. He is probably the recipient, but as a hinterland resident, not proof of Chicago residence; sources conflict on spouse name. [Read for pass 02 on 2026-09-01, which never completed a findings ledger; re-checked against the crosswalks and carried into T-0509 unchanged.]",
+   "sources": [
+    "chicago_democrat_1833_1835",
+    "talcott_chester_house_1835"
+   ],
+   "candidates": [],
+   "evidence_seen": [
+    "newspaper_register"
+   ],
+   "refusals_seen": [],
+   "reconciliation": {
+    "ticket": "T-0816",
+    "was": "candidate_identity",
+    "rival": "no_corroboration",
+    "ruled": "candidate_identity",
+    "upheld": "ledger_of_record",
+    "discriminator": "A specific external person is named in a specific record, and no date, place, occupation or kinship discriminator bridges him to the 1835 letter — which is this ledger's own definition of candidate_identity, not of an attestation and not of nothing. Named in an 1835 letter and local histories placing the distinctive-name Chester House at House’s Grove from 1833. Ledger of record upheld."
+   }
+  },
+  "curtiss_j": {
+   "outcome": "candidate_identity",
+   "ladder_note": "R3",
+   "summary": "Fergus 1839 prints 'Curtiss, James, attorney and counsellor at law, 17 Lake st' and the library's biography of the later mayor gives the same man's Chicago arrival and practice. The 1835 papers already carry him as an attorney between 20 May and 5 August, so the expansion of the bare J. is safe.",
+   "sources": [
+    "chicago_democrat_1833_1835",
+    "cpl_james_curtiss_biography",
+    "fergus_chicago_directory_1839"
+   ],
+   "candidates": [],
+   "evidence_seen": [
+    "address_backproj",
+    "fergus_1839",
+    "fergus_1843",
+    "newspaper_register",
+    "norris_1844",
+    "norris_adv",
+    "spend_crosswalk"
+   ],
+   "refusals_seen": [
+    "fergus_1843",
+    "norris_1844",
+    "spend_crosswalk"
+   ],
+   "reconciliation": {
+    "ticket": "T-0816",
+    "was": "corroborated_enrichment",
+    "rival": "candidate_identity",
+    "ruled": "candidate_identity",
+    "upheld": "rival",
+    "discriminator": "Fergus 26-29 prints TWO men who answer to “J. Curtiss”: “Curtiss, James, State's attorney, 136 Lake, res W. Randolph, bet May and Ann [9th mayor, died, Joliet, Ill., November 2, 1859, aged 56” and “Curtiss. J. W., gunsmith, res cor North Water and Wolcott”. The 1835 record carries the initial alone and nothing chooses between them. RIVAL UPHELD."
+   }
+  },
+  "butterfield_ben": {
+   "outcome": "candidate_identity",
+   "ladder_note": "R3",
+   "summary": "A historical marker places Ben Butterfield at Lockport and on a Danville-to-Chicago route from 1830-31. This is a strong regional candidate, but postal reachability does not establish town residence. [Read for pass 03 on 2026-09-01, which never completed a findings ledger; re-checked against the crosswalks and carried into T-0509 unchanged.]",
+   "sources": [
+    "chicago_democrat_1833_1835",
+    "hmdb_butterfield_trail"
+   ],
+   "candidates": [],
+   "evidence_seen": [
+    "fergus_1843",
+    "newspaper_register",
+    "norris_1844",
+    "norris_adv"
+   ],
+   "refusals_seen": [
+    "fergus_1843",
+    "norris_1844",
+    "norris_adv"
+   ],
+   "reconciliation": {
+    "ticket": "T-0816",
+    "was": "candidate_identity",
+    "rival": "no_corroboration",
+    "ruled": "candidate_identity",
+    "upheld": "ledger_of_record",
+    "discriminator": "A specific external person is named in a specific record, and no date, place, occupation or kinship discriminator bridges him to the 1835 letter — which is this ledger's own definition of candidate_identity, not of an attestation and not of nothing. Named in a historical marker placing Ben Butterfield at Lockport and on the Danville-to-Chicago route from 1830-31. Ledger of record upheld."
+   }
+  },
+  "albee_clark_b": {
+   "outcome": "candidate_identity",
+   "ladder_note": "R3",
+   "summary": "The Fergus 1839 crosswalk matched on surname plus the initial C., but the entry prints 'Albee, Cyrus P., butcher' — a forename and middle initial that both conflict with Clark B. Albee. The match is refused here. What remains is pass 3's Grand Haven reading, which puts an exact-name Clark B. Albee in Michigan commerce beside the Chicago-linked David Carver: suggestive, unbridged.",
+   "sources": [
+    "chicago_democrat_1833_1835",
+    "fergus_chicago_directory_1839",
+    "migenweb_clark_albee_grand_haven"
+   ],
+   "candidates": [
+    {
+     "id": "cand_clark_b_albee_grand_haven",
+     "asserted": false
+    }
+   ],
+   "evidence_seen": [
+    "fergus_1839",
+    "fergus_1843",
+    "newberry_leads",
+    "newspaper_register"
+   ],
+   "refusals_seen": [
+    "fergus_1839",
+    "fergus_1843",
+    "newberry_leads"
+   ],
+   "reconciliation": {
+    "ticket": "T-0816",
+    "was": "candidate_identity",
+    "rival": "corroborated_enrichment",
+    "ruled": "candidate_identity",
+    "upheld": "ledger_of_record",
+    "discriminator": "An initial-for-initial agreement in a volume printed after 1835 is an unasserted candidate: the repository carries it with asserted:false, and the enrichment tier would assert what no pass asserted. Source: Fergus 1839, held as cand_clark_b_albee_grand_haven. Ledger of record upheld."
+   }
+  },
+  "collins_j_h": {
+   "outcome": "corroborated_enrichment",
+   "ladder_note": "R1",
+   "summary": "The 1837 election return prints 'James H. Collins.', expanding both initials. The papers carry him as an attorney across three separate runs from 28 January 1834 to 5 August 1835. The Fergus 1839 surname entry is contested between several residents and is NOT carried; the 1837 return is what makes this.",
+   "sources": [
+    "chicago_democrat_1833_1835",
+    "fergus_chicago_directory_1839"
+   ],
+   "candidates": [],
+   "evidence_seen": [
+    "address_backproj",
+    "fergus_1839",
+    "fergus_1839_election",
+    "fergus_1843",
+    "newberry_leads",
+    "newspaper_register",
+    "norris_1844",
+    "norris_adv",
+    "old_settler_deaths",
+    "spend_crosswalk"
+   ],
+   "refusals_seen": [
+    "address_backproj",
+    "norris_adv",
+    "old_settler_deaths",
+    "spend_crosswalk"
+   ],
+   "reconciliation": {
+    "ticket": "T-0816",
+    "was": "corroborated_enrichment",
+    "rival": "corroborated",
+    "ruled": "corroborated_enrichment",
+    "upheld": "ledger_of_record",
+    "discriminator": "The rival's own evidence line is a refusal — “the surname folds equal but no forename agrees initial for initial: 'George C. Collins' against 'J. H. Collins'” — and it is dated 1838-05-31, which its own ladder says may not attest the scene year. Ledger of record upheld."
+   }
+  },
+  "byam_seth": {
+   "outcome": "no_corroboration",
+   "ladder_note": "R4",
+   "summary": "Nothing reviewed in this pass corroborates Seth Byam from outside the record already held: the papers hold the name only on the post-office return(s) of 1835-07-01.",
+   "sources": [
+    "chicago_democrat_1833_1835"
+   ],
+   "candidates": [],
+   "evidence_seen": [
+    "newspaper_register"
+   ],
+   "refusals_seen": []
+  },
+  "abbott_constant": {
+   "outcome": "candidate_identity",
+   "ladder_note": "R3",
+   "summary": "Dr. Constant Abbott is a strong regional candidate documented in DuPage and Ottawa by 1836, but no source supplies a dated Chicago migration or links him to this return. [Read for pass 02 on 2026-09-01, which never completed a findings ledger; re-checked against the crosswalks and carried into T-0509 unchanged.]",
+   "sources": [
+    "chicago_democrat_1833_1835",
+    "dupage_constant_abbott"
+   ],
+   "candidates": [],
+   "evidence_seen": [
+    "fergus_1843",
+    "newberry_leads",
+    "newspaper_register",
+    "norris_1844"
+   ],
+   "refusals_seen": [
+    "fergus_1843",
+    "norris_1844"
+   ],
+   "reconciliation": {
+    "ticket": "T-0816",
+    "was": "candidate_identity",
+    "rival": "corroborated",
+    "ruled": "candidate_identity",
+    "upheld": "ledger_of_record",
+    "discriminator": "The Second Presbyterian roll opens in June 1842 and its own committed crosswalk (data/research/church/second_presbyterian_crosswalk.json) states that it mints or regrades NOTHING — a match on it is “a lead for a later pass”. It cannot corroborate a July 1835 resident. The line is “Abbott, Charles S. | Letter. | April 27, 1859”, an initial agreement twenty-four years later. Ledger of record upheld."
+   }
+  },
+  "grant_james": {
+   "outcome": "corroborated",
+   "ladder_note": "R2",
+   "summary": "Matched on the 1835 poll list as 'Grant, J.', and the identification is held by trade across three decades: Fergus 1839 prints 'Grant, Jas., attorney, N. Water st near Rush, bds. Lake House' and the old-settler notice 'Grant, James, lawyer, died, Oakland, Cal., Mar. 14, 1891, aged 78'. The 1891 age puts his birth at 1812-13, which makes him about 22 in the scene.",
+   "sources": [
+    "chicago_democrat_1833_1835",
+    "chicago_tribune_1882_04_25_old_settler_deaths",
+    "chicago_voter_lists_1833_1835_irad",
+    "fergus_chicago_directory_1839"
+   ],
+   "candidates": [],
+   "evidence_seen": [
+    "fergus_1839",
+    "fergus_1839_election",
+    "newberry_leads",
+    "newspaper_register",
+    "old_settler_deaths",
+    "spend_crosswalk",
+    "voter_lists"
+   ],
+   "refusals_seen": [
+    "spend_crosswalk"
+   ]
+  },
+  "case_nehemiah": {
+   "outcome": "no_corroboration",
+   "ladder_note": "R4",
+   "summary": "A Buffalo directory supplies a competing Nehemiah Case, but wrong geography and no migration bridge make it a rejected match rather than a Chicago identity. [Read for pass 02 on 2026-09-01, which never completed a findings ledger; re-checked against the crosswalks and carried into T-0509 unchanged.]",
+   "sources": [
+    "buffalo_nehemiah_case",
+    "chicago_democrat_1833_1835"
+   ],
+   "candidates": [],
+   "evidence_seen": [
+    "fergus_1843",
+    "newberry_leads",
+    "newspaper_register",
+    "norris_1844"
+   ],
+   "refusals_seen": [
+    "fergus_1843",
+    "norris_1844"
+   ],
+   "reconciliation": {
+    "ticket": "T-0816",
+    "was": "candidate_identity",
+    "rival": "no_corroboration",
+    "ruled": "no_corroboration",
+    "upheld": "rival",
+    "discriminator": "The ledger of record's own prose calls the Buffalo directory entry “a rejected match rather than a Chicago identity” — wrong geography, no migration bridge. A rejected match is a refusal, and a refusal is not a candidate. RIVAL UPHELD."
+   }
+  },
+  "parkes_curtis": {
+   "outcome": "candidate_identity",
+   "ladder_note": "R3",
+   "summary": "Porter County history names Curtis Parkes in its February 1836 organization vote. Exact name and adjacent-region chronology are strong, but the Chicago letter may only reflect the nearest postal route. [Read for pass 03 on 2026-09-01, which never completed a findings ledger; re-checked against the crosswalks and carried into T-0509 unchanged.]",
+   "sources": [
+    "chicago_democrat_1833_1835",
+    "porter_curtis_parkes"
+   ],
+   "candidates": [],
+   "evidence_seen": [
+    "newberry_leads",
+    "newspaper_register"
+   ],
+   "refusals_seen": [],
+   "reconciliation": {
+    "ticket": "T-0816",
+    "was": "candidate_identity",
+    "rival": "no_corroboration",
+    "ruled": "candidate_identity",
+    "upheld": "ledger_of_record",
+    "discriminator": "A specific external person is named in a specific record, and no date, place, occupation or kinship discriminator bridges him to the 1835 letter — which is this ledger's own definition of candidate_identity, not of an attestation and not of nothing. Named in a Porter County history naming Curtis Parkes in its February 1836 organisation vote. Ledger of record upheld."
+   }
+  },
+  "stewart_r": {
+   "outcome": "corroborated_enrichment",
+   "ladder_note": "R1",
+   "summary": "Two records expand the bare R. the same way: Fergus 1839, 'Stewart, Royal, attorney at law, Lake street', and the 1837 election return, 'Royal Stewart'. The papers print an attorney of that surname from 2 July 1834 to 13 June 1835. An uncommon forename agreeing twice is the discriminator.",
+   "sources": [
+    "chicago_democrat_1833_1835",
+    "fergus_chicago_directory_1839"
+   ],
+   "candidates": [],
+   "evidence_seen": [
+    "address_backproj",
+    "fergus_1839",
+    "fergus_1839_election",
+    "fergus_1843",
+    "newspaper_register",
+    "norris_1844",
+    "old_settler_deaths",
+    "spend_crosswalk"
+   ],
+   "refusals_seen": [
+    "fergus_1843",
+    "norris_1844",
+    "old_settler_deaths",
+    "spend_crosswalk"
+   ]
+  },
+  "chadwick_joseph": {
+   "outcome": "candidate_identity",
+   "ladder_note": "R3",
+   "summary": "The 1837 election return prints 'J. W. Chadwick'; the resident is Joseph Chadwick with no middle initial recorded, so the W. is unsupported rather than agreeing, and the match is refused. Pass 3's candidate stands: Joseph M. Chadwick, a military engineer in Illinois before reaching Texas in December 1835, whose middle initial also fails to agree.",
+   "sources": [
+    "chicago_democrat_1833_1835",
+    "fergus_chicago_directory_1839",
+    "tsaha_joseph_chadwick"
+   ],
+   "candidates": [
+    {
+     "id": "cand_joseph_m_chadwick_texas",
+     "asserted": false
+    }
+   ],
+   "evidence_seen": [
+    "fergus_1839_election",
+    "newspaper_register",
+    "old_settler_deaths"
+   ],
+   "refusals_seen": [
+    "old_settler_deaths"
+   ],
+   "reconciliation": {
+    "ticket": "T-0816",
+    "was": "candidate_identity",
+    "rival": "corroborated_enrichment",
+    "ruled": "candidate_identity",
+    "upheld": "ledger_of_record",
+    "discriminator": "An initial-for-initial agreement in a volume printed after 1835 is an unasserted candidate: the repository carries it with asserted:false, and the enrichment tier would assert what no pass asserted. Source: the 1837 election return read through Fergus 1839, held as cand_joseph_m_chadwick_texas. Ledger of record upheld."
+   }
+  },
+  "torry_d_v_s": {
+   "outcome": "no_corroboration",
+   "ladder_note": "R4",
+   "summary": "Nothing reviewed in this pass corroborates D. V. S. Torry from outside the record already held: the papers hold the name only on the post-office return(s) of 1834-04-16.",
+   "sources": [
+    "chicago_democrat_1833_1835"
+   ],
+   "candidates": [],
+   "evidence_seen": [
+    "newspaper_register"
+   ],
+   "refusals_seen": []
+  },
+  "lewis_samuel": {
+   "outcome": "candidate_identity",
+   "ladder_note": "R3",
+   "summary": "Samuel Lewis is held as a candidate and not asserted: 1 Newberry genealogical-index card(s) stand under this surname on an exact-surname rule with nothing to separate the bearers; the census 1840 chicago familysearch images, chicago tribune 1882 04 25 old settler deaths agreement is a surname-only refusal; the papers carry the name 1834-07-02 to 1835-08-05, 1835-08-12 as schoolteacher.",
+   "sources": [
+    "chicago_democrat_1833_1835",
+    "newberry_genealogical_index"
+   ],
+   "candidates": [],
+   "evidence_seen": [
+    "census_1840_ruled",
+    "newberry_leads",
+    "newspaper_register",
+    "old_settler_deaths"
+   ],
+   "refusals_seen": [
+    "census_1840_ruled",
+    "old_settler_deaths"
+   ]
+  },
+  "chamberlain_l_c": {
+   "outcome": "candidate_identity",
+   "ladder_note": "R3",
+   "summary": "L. C Chamberlain is held as a candidate and not asserted: 5 Newberry genealogical-index card(s) stand under this surname on an exact-surname rule with nothing to separate the bearers; the newberry genealogical index agreement is a surname-only refusal; the papers hold the name only on the post-office return(s) of 1834-07-16, 1835-07-01.",
+   "sources": [
+    "chicago_democrat_1833_1835",
+    "newberry_genealogical_index"
+   ],
+   "candidates": [],
+   "evidence_seen": [
+    "newberry_leads",
+    "newspaper_register"
+   ],
+   "refusals_seen": [
+    "newberry_leads"
+   ]
+  },
+  "dunn_dangerfield": {
+   "outcome": "no_corroboration",
+   "ladder_note": "R4",
+   "summary": "Dangerfield Dunn is held as a candidate and not asserted: 1 Newberry genealogical-index card(s) stand under this surname on an exact-surname rule with nothing to separate the bearers; the fergus chicago directory 1843, newberry genealogical index, norris directory 1844 agreement is a surname-only refusal; the papers hold the name only on the post-office return(s) of 1835-05-20.",
+   "sources": [
+    "chicago_democrat_1833_1835",
+    "newberry_genealogical_index"
+   ],
+   "candidates": [],
+   "evidence_seen": [
+    "fergus_1843",
+    "newberry_leads",
+    "newspaper_register",
+    "norris_1844"
+   ],
+   "refusals_seen": [
+    "fergus_1843",
+    "newberry_leads",
+    "norris_1844"
+   ],
+   "reconciliation": {
+    "ticket": "T-0816",
+    "was": "candidate_identity",
+    "rival": "no_corroboration",
+    "ruled": "no_corroboration",
+    "upheld": "rival",
+    "discriminator": "Newberry card(s) standing under the surname with nothing to separate the bearers is a surname-only agreement, which every crosswalk in this repository files as a refusal. No external person is named, so there is no candidate to hold either. One card; Fergus 1843, Norris 1844 and the index all refuse on surname alone. RIVAL UPHELD."
+   }
+  },
+  "sabine_wm": {
+   "outcome": "corroborated_enrichment",
+   "ladder_note": "R1",
+   "summary": "Fergus 1839 prints 'Sabine, William A., boarding-house, 161 Lake street, up stairs' and the 1837 election return 'W. Sabine'. The forename expands Wm. and the trade is new to his record; the middle initial A. is 1839's and is carried as 1839's, not as an 1835 fact.",
+   "sources": [
+    "fergus_chicago_directory_1839"
+   ],
+   "candidates": [],
+   "evidence_seen": [
+    "address_backproj",
+    "fergus_1839",
+    "fergus_1839_election",
+    "newspaper_register",
+    "spend_crosswalk"
+   ],
+   "refusals_seen": [
+    "spend_crosswalk"
+   ]
+  },
+  "chambers_john": {
+   "outcome": "no_corroboration",
+   "ladder_note": "R4",
+   "summary": "John Chambers is held as a candidate and not asserted: 1 Newberry genealogical-index card(s) stand under this surname on an exact-surname rule with nothing to separate the bearers; the newberry genealogical index agreement is a surname-only refusal; the papers hold the name only on the post-office return(s) of 1835-07-01 to 1835-08-19.",
+   "sources": [
+    "chicago_democrat_1833_1835",
+    "newberry_genealogical_index"
+   ],
+   "candidates": [],
+   "evidence_seen": [
+    "newberry_leads",
+    "newspaper_register"
+   ],
+   "refusals_seen": [
+    "newberry_leads"
+   ],
+   "reconciliation": {
+    "ticket": "T-0816",
+    "was": "candidate_identity",
+    "rival": "no_corroboration",
+    "ruled": "no_corroboration",
+    "upheld": "rival",
+    "discriminator": "Newberry card(s) standing under the surname with nothing to separate the bearers is a surname-only agreement, which every crosswalk in this repository files as a refusal. No external person is named, so there is no candidate to hold either. One card, and the ledger of record itself calls the agreement a surname-only refusal. RIVAL UPHELD."
+   }
+  },
+  "ingersall_david": {
+   "outcome": "no_corroboration",
+   "ladder_note": "R4",
+   "summary": "David Ingersall is held as a candidate and not asserted: 1 Newberry genealogical-index card(s) stand under this surname on an exact-surname rule with nothing to separate the bearers; the papers hold the name only on the post-office return(s) of 1834-07-09 to 1834-07-16.",
+   "sources": [
+    "chicago_democrat_1833_1835",
+    "newberry_genealogical_index"
+   ],
+   "candidates": [],
+   "evidence_seen": [
+    "newberry_leads",
+    "newspaper_register"
+   ],
+   "refusals_seen": [],
+   "reconciliation": {
+    "ticket": "T-0816",
+    "was": "candidate_identity",
+    "rival": "no_corroboration",
+    "ruled": "no_corroboration",
+    "upheld": "rival",
+    "discriminator": "Newberry card(s) standing under the surname with nothing to separate the bearers is a surname-only agreement, which every crosswalk in this repository files as a refusal. No external person is named, so there is no candidate to hold either. One card, exact-surname rule, no bearer separated. RIVAL UPHELD."
+   }
+  },
+  "dole_george_w": {
+   "outcome": "corroborated",
+   "ladder_note": "R2",
+   "summary": "Three separate civic lists print 'Dole, George W.' — the 1833 poll, the 1833 tax list and the 1834 poll — and one bearer of the surname was considered on each. Three contemporary appearances in two record classes, none of them the post office.",
+   "sources": [
+    "chicago_democrat_1833_1835",
+    "chicago_voter_lists_1833_1835_irad",
+    "encyclopedia_chicago_biographical_index_d"
+   ],
+   "candidates": [],
+   "evidence_seen": [
+    "address_backproj",
+    "census_1840",
+    "fergus_1839",
+    "fergus_1839_election",
+    "fergus_1843",
+    "newberry_leads",
+    "newspaper_register",
+    "norris_1844",
+    "norris_adv",
+    "spend_crosswalk",
+    "voter_lists"
+   ],
+   "refusals_seen": [
+    "census_1840",
+    "newberry_leads",
+    "norris_adv",
+    "spend_crosswalk"
+   ]
+  },
+  "chanpagne_batist": {
+   "outcome": "no_corroboration",
+   "ladder_note": "R4",
+   "summary": "Nothing reviewed in this pass corroborates Batist Chanpagne from outside the record already held: the papers hold the name only on the post-office return(s) of 1835-07-01.",
+   "sources": [
+    "chicago_democrat_1833_1835"
+   ],
+   "candidates": [],
+   "evidence_seen": [
+    "newspaper_register"
+   ],
+   "refusals_seen": []
+  },
+  "frame_david_p": {
+   "outcome": "corroborated",
+   "ladder_note": "R2",
+   "summary": "Nothing reviewed in this pass corroborates David P. Frame from outside the record already held: the papers hold the name only on the post-office return(s) of 1834-01-28.",
+   "sources": [
+    "chicago_democrat_1833_1835",
+    "isa_public_domain_land_tract_sales"
+   ],
+   "candidates": [],
+   "evidence_seen": [
+    "newspaper_register"
+   ],
+   "refusals_seen": [],
+   "reconciliation": {
+    "ticket": "T-0816",
+    "was": "no_corroboration",
+    "rival": "corroborated",
+    "ruled": "corroborated",
+    "upheld": "rival",
+    "discriminator": "Land-sale row ls0829, FRAME DAVID P, entered 1835-06-13 — contemporary with the scene, independent of the post-office return, and the residents layer holds exactly one Frame whose forename agrees in full. The ledger of record never read the land sales for this person (evidence_seen: newspaper_register alone). RIVAL UPHELD."
+   }
+  },
+  "egan_emeline": {
+   "outcome": "no_corroboration",
+   "ladder_note": "R4",
+   "summary": "Nothing reviewed in this pass corroborates Emeline Egan from outside the record already held: the chicago tribune 1882 04 25 old settler deaths, fergus chicago directory 1843, norris directory 1844 agreement is a surname-only refusal.",
+   "sources": [
+    "andreas_1884_v1"
+   ],
+   "candidates": [],
+   "evidence_seen": [
+    "fergus_1843",
+    "norris_1844",
+    "norris_adv",
+    "old_settler_deaths"
+   ],
+   "refusals_seen": [
+    "fergus_1843",
+    "norris_1844",
+    "norris_adv",
+    "old_settler_deaths"
+   ],
+   "reconciliation": {
+    "ticket": "T-0816",
+    "was": "no_corroboration",
+    "rival": "corroborated",
+    "ruled": "no_corroboration",
+    "upheld": "ledger_of_record",
+    "discriminator": "The rival's own evidence line refuses the match — surname-only, “'James Egan' against 'Dr William Bradshaw Egan', 'Emeline Egan'” — and is dated 1837-10-17. A refusal cannot carry a corroborated. Ledger of record upheld."
+   }
+  },
+  "chappel_eliza_mir": {
+   "outcome": "candidate_identity",
+   "ladder_note": "R3",
+   "summary": "The entry is a near-certain duplicate of Eliza Chappel Porter: Mir likely misreads Miss, and the letter appeared 16 days after her marriage. It is not merged until the original scan is inspected. [Read for pass 02 on 2026-09-01, which never completed a findings ledger; re-checked against the crosswalks and carried into T-0509 unchanged.]",
+   "sources": [
+    "chicago_democrat_1833_1835",
+    "chm_eliza_chappel",
+    "rochester_porter_chappel_marriage"
+   ],
+   "candidates": [],
+   "evidence_seen": [
+    "fergus_1843",
+    "newberry_leads",
+    "newspaper_register",
+    "norris_1844"
+   ],
+   "refusals_seen": [
+    "fergus_1843",
+    "newberry_leads",
+    "norris_1844"
+   ],
+   "reconciliation": {
+    "ticket": "T-0816",
+    "was": "candidate_identity",
+    "rival": "no_corroboration",
+    "ruled": "candidate_identity",
+    "upheld": "ledger_of_record",
+    "discriminator": "A specific external person is named in a specific record, and no date, place, occupation or kinship discriminator bridges him to the 1835 letter — which is this ledger's own definition of candidate_identity, not of an attestation and not of nothing. Named in the Chicago History Museum and Rochester marriage records for Eliza Chappel Porter — a near-certain duplicate held open until the scan is inspected (T-0716). Ledger of record upheld."
+   }
+  },
+  "farren_dean": {
+   "outcome": "no_corroboration",
+   "ladder_note": "R4",
+   "summary": "Nothing reviewed in this pass corroborates Dean Farren from outside the record already held: the papers hold the name only on the post-office return(s) of 1834-01-28.",
+   "sources": [
+    "chicago_democrat_1833_1835"
+   ],
+   "candidates": [],
+   "evidence_seen": [
+    "newspaper_register"
+   ],
+   "refusals_seen": []
+  },
+  "egan_william_b": {
+   "outcome": "corroborated",
+   "ladder_note": "R2",
+   "summary": "The 1833 tax list and the 1834 poll both print the whole name 'Egan, William Bradshaw' — the middle name in full, which is as strong a discriminator as this corpus offers. Fergus 1839 then prints 'Egan, Dr. William B., real estate dealer, bds. City Hotel' and the 1837 election return 'William B. Egan'.",
+   "sources": [
+    "chicago_voter_lists_1833_1835_irad",
+    "chicagology_prefire112",
+    "fergus_chicago_directory_1839"
+   ],
+   "candidates": [],
+   "evidence_seen": [
+    "address_backproj",
+    "fergus_1839",
+    "fergus_1839_election",
+    "fergus_1843",
+    "norris_1844",
+    "norris_adv",
+    "old_settler_deaths",
+    "spend_crosswalk",
+    "voter_lists"
+   ],
+   "refusals_seen": [
+    "address_backproj",
+    "fergus_1843",
+    "norris_adv",
+    "old_settler_deaths",
+    "spend_crosswalk"
+   ]
+  },
+  "chase_peter": {
+   "outcome": "no_corroboration",
+   "ladder_note": "R4",
+   "summary": "Peter Chase is held as a candidate and not asserted: 1 Newberry genealogical-index card(s) stand under this surname on an exact-surname rule with nothing to separate the bearers; the chicago tribune 1882 04 25 old settler deaths agreement is a surname-only refusal; the papers hold the name only on the post-office return(s) of 1835-07-01.",
+   "sources": [
+    "chicago_democrat_1833_1835",
+    "newberry_genealogical_index"
+   ],
+   "candidates": [],
+   "evidence_seen": [
+    "newberry_leads",
+    "newspaper_register",
+    "old_settler_deaths"
+   ],
+   "refusals_seen": [
+    "old_settler_deaths"
+   ],
+   "reconciliation": {
+    "ticket": "T-0816",
+    "was": "candidate_identity",
+    "rival": "no_corroboration",
+    "ruled": "no_corroboration",
+    "upheld": "rival",
+    "discriminator": "Newberry card(s) standing under the surname with nothing to separate the bearers is a surname-only agreement, which every crosswalk in this repository files as a refusal. No external person is named, so there is no candidate to hold either. One card; the 1882 death notices refuse on surname alone. RIVAL UPHELD."
+   }
+  },
+  "griswold_eben": {
+   "outcome": "candidate_identity",
+   "ladder_note": "R3",
+   "summary": "A Berrien County history names an Eben Griswold as a constable, but multiple exact-name candidates and no dated Chicago bridge prevent identification. [Read for pass 02 on 2026-09-01, which never completed a findings ledger; re-checked against the crosswalks and carried into T-0509 unchanged.]",
+   "sources": [
+    "berrien_eben_griswold",
+    "chicago_democrat_1833_1835"
+   ],
+   "candidates": [],
+   "evidence_seen": [
+    "fergus_1843",
+    "newspaper_register",
+    "norris_1844"
+   ],
+   "refusals_seen": [
+    "fergus_1843",
+    "norris_1844"
+   ],
+   "reconciliation": {
+    "ticket": "T-0816",
+    "was": "candidate_identity",
+    "rival": "no_corroboration",
+    "ruled": "candidate_identity",
+    "upheld": "ledger_of_record",
+    "discriminator": "A specific external person is named in a specific record, and no date, place, occupation or kinship discriminator bridges him to the 1835 letter — which is this ledger's own definition of candidate_identity, not of an attestation and not of nothing. Named in a Berrien County history naming an Eben Griswold as constable. Ledger of record upheld."
+   }
+  },
+  "elston_daniel": {
+   "outcome": "corroborated_enrichment",
+   "ladder_note": "R1",
+   "summary": "The 1837 election return prints 'Daniel Elston' whole. The University of Illinois finding aid, read in pass 3 and never written to a ledger, identifies the English merchant who reached Chicago in 1833, made soap and candles and later ran a distillery and brewery — the same trade the paper prints for him in its first issue, 26 November 1833.",
+   "sources": [
+    "chicago_democrat_1833_11_26",
+    "fergus_chicago_directory_1839",
+    "uiuc_daniel_elston_papers"
+   ],
+   "candidates": [],
+   "evidence_seen": [
+    "address_backproj",
+    "fergus_1839",
+    "fergus_1839_election",
+    "fergus_1843",
+    "newspaper_register",
+    "norris_1844",
+    "spend_crosswalk"
+   ],
+   "refusals_seen": [
+    "fergus_1839",
+    "spend_crosswalk"
+   ],
+   "reconciliation": {
+    "ticket": "T-0816",
+    "was": "corroborated_enrichment",
+    "rival": "corroborated",
+    "ruled": "corroborated_enrichment",
+    "upheld": "ledger_of_record",
+    "discriminator": "Land-sale row ls0047, ELSTON DANIEL, entered 1836-06-18 — eleven months AFTER the scene. A full-forename agreement in a later record enriches the biography and adds no 1835 attestation. Ledger of record upheld, now on a date rather than a category."
+   }
+  },
+  "clark_erastus": {
+   "outcome": "candidate_identity",
+   "ladder_note": "R3",
+   "summary": "The Norris 1844 agreement is surname plus the initial E. against one of the commonest surnames in the book, and the entry prints no trade that could discriminate. Nine years and a bare initial are not an identification.",
+   "sources": [
+    "chicago_democrat_1833_1835",
+    "norris_directory_1844"
+   ],
+   "candidates": [
+    {
+     "id": "cand_e_clark_norris_1844",
+     "asserted": false
+    }
+   ],
+   "evidence_seen": [
+    "address_backproj",
+    "fergus_1843",
+    "newberry_leads",
+    "newspaper_register",
+    "norris_1844",
+    "norris_adv",
+    "old_settler_deaths",
+    "spend_crosswalk"
+   ],
+   "refusals_seen": [
+    "address_backproj",
+    "fergus_1843",
+    "norris_1844",
+    "norris_adv",
+    "old_settler_deaths",
+    "spend_crosswalk"
+   ],
+   "reconciliation": {
+    "ticket": "T-0816",
+    "was": "candidate_identity",
+    "rival": "corroborated",
+    "ruled": "candidate_identity",
+    "upheld": "ledger_of_record",
+    "discriminator": "The Second Presbyterian roll opens in June 1842 and its own committed crosswalk (data/research/church/second_presbyterian_crosswalk.json) states that it mints or regrades NOTHING — a match on it is “a lead for a later pass”. It cannot corroborate a July 1835 resident. The crosswalk files Erastus Clark as AMBIGUOUS, not matched (two Mrs Clarks, 1869 and later), and Norris 1844 gives only “E. Clark” — the candidate cand_e_clark_norris_1844 the ledger of record already holds unasserted. Ledger of record upheld."
+   }
+  },
+  "alden_ebenozer": {
+   "outcome": "no_corroboration",
+   "ladder_note": "R4",
+   "summary": "Nothing reviewed in this pass corroborates Ebenozer Alden from outside the record already held: the papers hold the name only on the post-office return(s) of 1834-04-01, 1834-07-09 to 1834-07-16.",
+   "sources": [
+    "chicago_democrat_1833_1835"
+   ],
+   "candidates": [],
+   "evidence_seen": [
+    "newspaper_register"
+   ],
+   "refusals_seen": []
+  },
+  "fullerton_alexander": {
+   "outcome": "corroborated",
+   "ladder_note": "R2",
+   "summary": "Matched on the 1833 tax list as 'Fullerton, Alexander', one bearer of the surname considered. The Cook County history read in pass 3 places him in the town's legal and municipal record including the 1835 town-clerk chronology; pass 3 graded that alone an enrichment, and the tax list lifts it.",
+   "sources": [
+    "chicago_democrat_1833_1835",
+    "chicago_voter_lists_1833_1835_irad",
+    "goodman_history_cook_county_early"
+   ],
+   "candidates": [],
+   "evidence_seen": [
+    "address_backproj",
+    "fergus_1839",
+    "fergus_1839_election",
+    "fergus_1843",
+    "newberry_leads",
+    "newspaper_register",
+    "norris_1844",
+    "spend_crosswalk",
+    "voter_lists"
+   ],
+   "refusals_seen": [
+    "newberry_leads",
+    "spend_crosswalk"
+   ]
+  },
+  "codding_sally": {
+   "outcome": "no_corroboration",
+   "ladder_note": "R4",
+   "summary": "Nothing reviewed in this pass corroborates Sally Mr Codding from outside the record already held: the papers hold the name only on the post-office return(s) of 1835-07-01.",
+   "sources": [
+    "chicago_democrat_1833_1835"
+   ],
+   "candidates": [],
+   "evidence_seen": [
+    "newspaper_register"
+   ],
+   "refusals_seen": []
+  },
+  "tuller_elam": {
+   "outcome": "candidate_identity",
+   "ladder_note": "R3",
+   "summary": "Carried forward from pass 2, which read the Whiteside County biography and never completed a ledger: it puts the Tuller family in Chicago in July 1833 and gives the Connecticut origin and the farmer, mechanic and steam-engine manufacturing background. Two letter returns support the chronology. The arrival is the biography's, and is carried as such.",
+   "sources": [
+    "chicago_democrat_1833_1835",
+    "whiteside_elam_tuller"
+   ],
+   "candidates": [],
+   "evidence_seen": [
+    "fergus_1843",
+    "newspaper_register",
+    "norris_1844",
+    "norris_adv"
+   ],
+   "refusals_seen": [
+    "fergus_1843",
+    "norris_1844",
+    "norris_adv"
+   ],
+   "reconciliation": {
+    "ticket": "T-0816",
+    "was": "corroborated_enrichment",
+    "rival": "no_corroboration",
+    "ruled": "candidate_identity",
+    "upheld": "neither",
+    "discriminator": "The Whiteside County notice names a same-name man with no Chicago bridge, and it expands no forename the resident does not already carry — R3, not the R1 expansion the ledger of record recorded, and not the silence the rival recorded. NEITHER ledger."
+   }
+  },
+  "gale_stephen_f": {
+   "outcome": "corroborated",
+   "ladder_note": "R2",
+   "summary": "The 1833 poll list prints 'Gale, Stephen F.' with the middle initial, and Fergus 1839 prints 'Gale, Stephen F., bookseller and stationer, 159 Lake st' — the same trade the 1839 statute imprint carries. A contemporary list and a continuous trade.",
+   "sources": [
+    "chicago_voter_lists_1833_1835_irad",
+    "fergus_chicago_directory_1839",
+    "goodman_history_cook_county_early",
+    "jsp_illinois_statutes_gale_imprint"
+   ],
+   "candidates": [],
+   "evidence_seen": [
+    "address_backproj",
+    "fergus_1839",
+    "fergus_1843",
+    "newberry_leads",
+    "norris_1844",
+    "old_settler_deaths",
+    "spend_crosswalk",
+    "voter_lists"
+   ],
+   "refusals_seen": [
+    "fergus_1843",
+    "old_settler_deaths",
+    "spend_crosswalk"
+   ]
+  },
+  "comstock_h_h": {
+   "outcome": "candidate_identity",
+   "ladder_note": "R3",
+   "summary": "H. H. Comstock appears in Kalamazoo County pioneer history around 1834. Exact initials and regional chronology are useful, but competing Michigan geography and no migration bridge bar a merge. [Read for pass 03 on 2026-09-01, which never completed a findings ledger; re-checked against the crosswalks and carried into T-0509 unchanged.]",
+   "sources": [
+    "chicago_democrat_1833_1835",
+    "michigan_hh_comstock_history"
+   ],
+   "candidates": [],
+   "evidence_seen": [
+    "fergus_1843",
+    "newberry_leads",
+    "newspaper_register",
+    "norris_1844",
+    "norris_adv"
+   ],
+   "refusals_seen": [
+    "fergus_1843",
+    "newberry_leads",
+    "norris_1844",
+    "norris_adv"
+   ],
+   "reconciliation": {
+    "ticket": "T-0816",
+    "was": "candidate_identity",
+    "rival": "no_corroboration",
+    "ruled": "candidate_identity",
+    "upheld": "ledger_of_record",
+    "discriminator": "A specific external person is named in a specific record, and no date, place, occupation or kinship discriminator bridges him to the 1835 letter — which is this ledger's own definition of candidate_identity, not of an attestation and not of nothing. Named in Kalamazoo County pioneer history, H. H. Comstock about 1834. Ledger of record upheld."
+   }
+  },
+  "benn_eli": {
+   "outcome": "no_corroboration",
+   "ladder_note": "R4",
+   "summary": "Nothing reviewed in this pass corroborates Eli Benn from outside the record already held: the papers hold the name only on the post-office return(s) of 1834-04-08.",
+   "sources": [
+    "chicago_democrat_1833_1835"
+   ],
+   "candidates": [],
+   "evidence_seen": [
+    "newspaper_register"
+   ],
+   "refusals_seen": []
+  },
+  "goss_o": {
+   "outcome": "no_corroboration",
+   "ladder_note": "R4",
+   "summary": "Nothing reviewed in this pass corroborates O. Goss from outside the record already held: the fergus chicago directory 1843, norris directory 1844 agreement is a surname-only refusal; the papers carry the name 1835-06-13.",
+   "sources": [
+    "andreas_1884_v1",
+    "chicago_american_1835",
+    "chicago_democrat_1833_11_26"
+   ],
+   "candidates": [],
+   "evidence_seen": [
+    "fergus_1843",
+    "newspaper_register",
+    "norris_1844"
+   ],
+   "refusals_seen": [
+    "fergus_1843",
+    "norris_1844"
+   ]
+  },
+  "cook_rowland_i": {
+   "outcome": "candidate_identity",
+   "ladder_note": "R3",
+   "summary": "Rowland I!. Cook is held as a candidate and not asserted: 2 Newberry genealogical-index card(s) stand under this surname on an exact-surname rule with nothing to separate the bearers; the chicago tribune 1882 04 25 old settler deaths, fergus chicago directory 1843, norris directory 1844 agreement is a surname-only refusal; the papers hold the name only on the post-office return(s) of 1834-04-16, 1835-07-01.",
+   "sources": [
+    "chicago_democrat_1833_1835",
+    "newberry_genealogical_index"
+   ],
+   "candidates": [],
+   "evidence_seen": [
+    "fergus_1843",
+    "newberry_leads",
+    "newspaper_register",
+    "norris_1844",
+    "norris_adv",
+    "old_settler_deaths"
+   ],
+   "refusals_seen": [
+    "fergus_1843",
+    "norris_1844",
+    "norris_adv",
+    "old_settler_deaths"
+   ]
+  },
+  "filer_elihu_d": {
+   "outcome": "candidate_identity",
+   "ladder_note": "R3",
+   "summary": "Racine histories identify exact-name Elihu D. Filer as an early settler and carpenter, but no record bridges the Chicago letter to the Racine man. Reprinted OCR variants are not separate people. [Read for pass 02 on 2026-09-01, which never completed a findings ledger; re-checked against the crosswalks and carried into T-0509 unchanged.]",
+   "sources": [
+    "chicago_democrat_1833_1835",
+    "whs_elihu_filer_house"
+   ],
+   "candidates": [],
+   "evidence_seen": [
+    "newspaper_register"
+   ],
+   "refusals_seen": [],
+   "reconciliation": {
+    "ticket": "T-0816",
+    "was": "candidate_identity",
+    "rival": "no_corroboration",
+    "ruled": "candidate_identity",
+    "upheld": "ledger_of_record",
+    "discriminator": "A specific external person is named in a specific record, and no date, place, occupation or kinship discriminator bridges him to the 1835 letter — which is this ledger's own definition of candidate_identity, not of an attestation and not of nothing. Named in Racine histories naming the exact-name Elihu D. Filer, early settler and carpenter. Ledger of record upheld."
+   }
+  },
+  "greene_john": {
+   "outcome": "no_corroboration",
+   "ladder_note": "R4",
+   "summary": "Major John Greene is held as a candidate and not asserted: 2 Newberry genealogical-index card(s) stand under this surname on an exact-surname rule with nothing to separate the bearers.",
+   "sources": [
+    "andreas_1884_v1",
+    "drloih_fort_dearborn",
+    "newberry_genealogical_index"
+   ],
+   "candidates": [],
+   "evidence_seen": [
+    "newberry_leads"
+   ],
+   "refusals_seen": [],
+   "reconciliation": {
+    "ticket": "T-0816",
+    "was": "candidate_identity",
+    "rival": "no_corroboration",
+    "ruled": "no_corroboration",
+    "upheld": "rival",
+    "discriminator": "Newberry card(s) standing under the surname with nothing to separate the bearers is a surname-only agreement, which every crosswalk in this repository files as a refusal. No external person is named, so there is no candidate to hold either. Two cards under Greene with nothing to separate the bearers. RIVAL UPHELD."
+   }
+  },
+  "cooley_edward_v": {
+   "outcome": "candidate_identity",
+   "ladder_note": "R3",
+   "summary": "Edward V Cooley is held as a candidate and not asserted: 3 Newberry genealogical-index card(s) stand under this surname on an exact-surname rule with nothing to separate the bearers; the fergus chicago directory 1843, norris directory 1844 agreement is a surname-only refusal; the papers hold the name only on the post-office return(s) of 1835-07-01.",
+   "sources": [
+    "chicago_democrat_1833_1835",
+    "newberry_genealogical_index"
+   ],
+   "candidates": [],
+   "evidence_seen": [
+    "fergus_1843",
+    "newberry_leads",
+    "newspaper_register",
+    "norris_1844"
+   ],
+   "refusals_seen": [
+    "fergus_1843",
+    "norris_1844"
+   ]
+  },
+  "sen_elijah_wentworth": {
+   "outcome": "corroborated_enrichment",
+   "ladder_note": "R1",
+   "summary": "Carried forward from pass 2. Local history and Wau-Bun identify Elijah Wentworth Sr. as the Wolf Point tavern keeper who later kept at Sand Ridge; the 'sen.' of the transcription, the occupation and the chronology resolve him against his son. What is NOT established is presence in the platted town on the scene date — Sand Ridge is not Wolf Point.",
+   "sources": [
+    "chicago_democrat_1833_1835",
+    "kinzie_waubun_1856",
+    "nwchicago_elijah_wentworth"
+   ],
+   "candidates": [],
+   "evidence_seen": [
+    "census_1840",
+    "newspaper_register"
+   ],
+   "refusals_seen": []
+  },
+  "hamilton_richard_j": {
+   "outcome": "corroborated",
+   "ladder_note": "R2",
+   "summary": "The 1833 poll ('Hamilton, R. J.'), the 1833 tax list and the 1834 poll (both 'Hamilton, Richard J.') all match, one bearer of the surname considered. The Cook County history read in pass 2 gives the offices — clerk and recorder from the county's organisation in 1831, later probate judge, treasurer and school commissioner — and pass 2 never wrote it into a ledger.",
+   "sources": [
+    "chicago_democrat_1833_1835",
+    "chicago_voter_lists_1833_1835_irad",
+    "goodman_history_cook_county_hamilton"
+   ],
+   "candidates": [],
+   "evidence_seen": [
+    "address_backproj",
+    "fergus_1839",
+    "fergus_1843",
+    "newberry_leads",
+    "newspaper_register",
+    "norris_1844",
+    "norris_adv",
+    "spend_crosswalk",
+    "voter_lists"
+   ],
+   "refusals_seen": [
+    "fergus_1839",
+    "fergus_1843",
+    "norris_1844",
+    "norris_adv",
+    "spend_crosswalk"
+   ]
+  },
+  "covell_thomas_r": {
+   "outcome": "candidate_identity",
+   "ladder_note": "R3",
+   "summary": "A county history says Thomas R. Covell moved to Salt Creek, Cook County, about 1833 after work as trader and mill builder. Exact middle initial and migration make a high-confidence candidate, not town residence. [Read for pass 02 on 2026-09-01, which never completed a findings ledger; re-checked against the crosswalks and carried into T-0509 unchanged.]",
+   "sources": [
+    "chicago_democrat_1833_1835",
+    "lasalle_thomas_covell"
+   ],
+   "candidates": [],
+   "evidence_seen": [
+    "newspaper_register"
+   ],
+   "refusals_seen": [],
+   "reconciliation": {
+    "ticket": "T-0816",
+    "was": "candidate_identity",
+    "rival": "no_corroboration",
+    "ruled": "candidate_identity",
+    "upheld": "ledger_of_record",
+    "discriminator": "A specific external person is named in a specific record, and no date, place, occupation or kinship discriminator bridges him to the 1835 letter — which is this ledger's own definition of candidate_identity, not of an attestation and not of nothing. Named in a county history: Thomas R. Covell moved to Salt Creek, Cook County, about 1833 — exact middle initial. Ledger of record upheld."
+   }
+  },
+  "covalt_enos": {
+   "outcome": "no_corroboration",
+   "ladder_note": "R4",
+   "summary": "Nothing reviewed in this pass corroborates Enos Covalt from outside the record already held: the papers hold the name only on the post-office return(s) of 1835-05-20.",
+   "sources": [
+    "chicago_democrat_1833_1835"
+   ],
+   "candidates": [],
+   "evidence_seen": [
+    "newspaper_register"
+   ],
+   "refusals_seen": []
+  },
+  "harmon_charles_l": {
+   "outcome": "corroborated",
+   "ladder_note": "R2",
+   "summary": "The 1834 poll prints 'Harmon, C. L.' and the 1837 election return prints 'Chas. L. Harmon': the same two initials against a surname whose three bearers the voter crosswalk weighed before matching. Contemporary and independent of the post office.",
+   "sources": [
+    "chicago_voter_lists_1833_1835_irad",
+    "fergus_chicago_directory_1839"
+   ],
+   "candidates": [],
+   "evidence_seen": [
+    "address_backproj",
+    "fergus_1839_election",
+    "fergus_1843",
+    "newberry_leads",
+    "newspaper_register",
+    "norris_1844",
+    "norris_adv",
+    "old_settler_deaths",
+    "spend_crosswalk",
+    "voter_lists"
+   ],
+   "refusals_seen": [
+    "old_settler_deaths",
+    "spend_crosswalk"
+   ]
+  },
+  "curtenius_fredk": {
+   "outcome": "no_corroboration",
+   "ladder_note": "R4",
+   "summary": "Frederick William Curtenius is a possible candidate who moved to Michigan and farmed at Grand Prairie in 1835. The middle initial conflicts and no Chicago bridge was found. [Read for pass 02 on 2026-09-01, which never completed a findings ledger; re-checked against the crosswalks and carried into T-0509 unchanged.]",
+   "sources": [
+    "chicago_democrat_1833_1835",
+    "michigan_frederick_curtenius"
+   ],
+   "candidates": [],
+   "evidence_seen": [
+    "newspaper_register"
+   ],
+   "refusals_seen": [],
+   "reconciliation": {
+    "ticket": "T-0816",
+    "was": "candidate_identity",
+    "rival": "no_corroboration",
+    "ruled": "no_corroboration",
+    "upheld": "rival",
+    "discriminator": "The middle initial CONFLICTS (Frederick William Curtenius against Fredk. Curtenius of the letter list) and no Chicago bridge was found. A conflicting element is a refusal. RIVAL UPHELD."
+   }
+  }
+ },
+ "outcome_rule": {
+  "R2_corroborated": "a matched entry on the 1833 tax list or the 1833/1834/1835 poll lists — contemporary with the scene and independent of the post office",
+  "R1_corroborated_enrichment": "an identification in a source not already on the person's record whose printed forename expands the resident's own with no conflicting element; carried as evidence of its own date",
+  "R3_candidate_identity": "surname plus one initial, a conflicting forename, an ambiguous/contested/lead ruling, or a same-name regional person with no dated Chicago bridge",
+  "R4_no_corroboration": "refusals only, or nothing beyond the 1835 post-office return — a documented no-corroboration result, not evidence that the person did not exist",
+  "newspapers": "a newspaper-register row is enrichment, not corroboration, when the paper is already the person's seed source"
+ },
+ "pending_person_ids": [],
+ "reconciled": {
+  "ticket": "T-0816",
+  "on": "2026-09-06",
+  "file": "data/research/residents/pass_14_reconciliation.json",
+  "_doc": "36 of the 76 outcomes disagreed with a second, unlanded reading of the same cohort on steward/t-0509-cohort-14-rerun. Every one is ruled in the file above and the ruled outcome is written here, with the discriminator on the person's own row under `reconciliation`. 22 rulings upheld this ledger, 12 the rival, 2 neither."
+ }
+}

@@ -1,0 +1,18 @@
+id: fergus-historical-series
+title: Fergus Historical Series
+creator: Robert Fergus
+description: >
+  Fergus Historical Series pamphlets. OCR page index and search text for
+  this source are committed alongside this file
+  (fergushistorical2629unse_hocr_pageindex.json,
+  fergushistorical2629unse_hocr_searchtext).
+redistribution_status: public
+copyright_status: public-domain
+internet_archive:
+  item: chicago1835-fergus-historical-series
+  url: https://archive.org/details/chicago1835-fergus-historical-series
+files:
+  - name: fergushistorical2629unse.pdf
+    bytes: 138449725
+    sha256: e2a05865275fb198fc6c48de3dc72fce1b16af3f8c4c8a1fdde116597145255a
+local_archive_path: projects/archive/data/chicago/reference/fergus/

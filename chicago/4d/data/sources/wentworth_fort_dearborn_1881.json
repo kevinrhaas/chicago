@@ -1,0 +1,30 @@
+{
+  "id": "wentworth_fort_dearborn_1881",
+  "type": "book",
+  "citation": "Wentworth, John. Early Chicago. Fort Dearborn: An Address Delivered at the Unveiling of the Memorial Tablet to Mark the Site of the Block-House, ... May 21st, 1881, under the Auspices of the Chicago Historical Society, to Which Have Been Added Notes and an Appendix. Fergus' Historical Series No. 16. Chicago: Fergus Printing Company, 1881.",
+  "author": "John Wentworth; notes and appendix by Robert Fergus",
+  "date": "1881",
+  "describes_date": "1803-1857",
+  "repository": "Internet Archive (Illinois Alma / IA copy)",
+  "url": "https://archive.org/details/earlychicagofort00wentiala",
+  "locator": "cite the printed page. pp. 31-35 the roll of officers at the post 1832-1836, with the dates each took and left command; p. 42 footnote, Matthew Burchard's report of 21 Nov 1840 naming the platted lots that hold 'Fort Dearborn within the pickets'; pp. 43-44 footnote, the fort enclosure as it stood in 1850; pp. 86-87, Gurdon S. Hubbard's letter of 20 July 1881 correcting the Wau-Bun view",
+  "tier": 2,
+  "rights_status": "public_domain",
+  "asset_use": "inventory",
+  "verified": true,
+  "note": "The address Andreas points at (vol. 1, 'Late Threads of Fort Dearborn History', pp. 162-163) and never quotes. Wentworth arrived in Chicago on 25 October 1836, six weeks before the troops left, so his OWN memory is not evidence for the scene date; the value is in what he compiled around it — War Department records, the post's officer roll with dates, the surgeon's prescription book, and signed letters from men who had lived inside the fort. Tier 2 is for that compilation. Two things inside it are stronger than their container and are cited as such: Hubbard's 1881 letter is an eyewitness correction of a published picture, and the Burchard extract is a quotation from a federal land agent's report.",
+  "what_it_supplies": [
+    "the command of the post through the scene date: Major John Greene from 18 Dec 1833 until 16 Sept 1835 (p. 35)",
+    "the end of the garrison: soldiers withdrawn 29 Dec 1836 under Macomb's order of 30 Nov 1836, Brevet-Major Plympton remaining in command of the post until June or July 1837 (p. 35)",
+    "the enclosure's ORIENTATION: 'nearly north and south, east and west' (Hubbard, p. 87)",
+    "the north stockade line's distance to the water in 1831: nowhere over 80 ft, and 50-60 ft opposite the north gate (Hubbard, p. 87)",
+    "the fort ground's height: 'not over eight feet above the River at its lowest stage', with the Kinzie house two or three feet higher (Hubbard, p. 87)",
+    "the north and south gates on one sight line, visible through the enclosure from the Kinzie house piazza (Hubbard, p. 87)",
+    "the platted lots covering the ground within the pickets, from Burchard's 1840 report (p. 42)"
+  ],
+  "what_it_does_not_supply": [
+    "a plan or any overall dimension of the 1816 stockade — no length, no width, no bastion size",
+    "the fort as it stood in 1835: the 'say 400 feet' enclosure of the pp. 43-44 footnote is the POST-ARMY compound of 1850, after the pickets had been removed and a whitewashed board fence put round it, and it is not the palisade line",
+    "any date for the removal of the pickets, which the same footnote reports only as 'at an earlier date'"
+  ]
+}

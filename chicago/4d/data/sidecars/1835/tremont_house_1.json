@@ -1,0 +1,219 @@
+{
+  "id": "tremont_house_1",
+  "phase": "frame_1833",
+  "name": "Tremont House (the first)",
+  "aka": [
+    "Tremont House",
+    "Tremont House I",
+    "the old Tremont House"
+  ],
+  "archetype": "frame_tavern",
+  "asset": "gltf/tremont_house_1__frame_1833.glb",
+  "scene": "1835",
+  "target_date": "1835-07-01",
+  "documented_range": {
+    "from": "1833-01-01",
+    "to": "1839-10-27",
+    "confidence": "attested",
+    "sources": [
+      "andreas_1884_v1",
+      "chicagology_prefire021"
+    ],
+    "note": "BOTH ENDS ARE ATTESTED, WHICH IS RARE HERE. Andreas, printed p. 635: 'In 1833, the first Tremont House, situated then on the northwest corner of Lake and Dearborn streets, was built by Alanson Sweet.' The end is dated to the day, twice in the same volume: 'was managing it at the time it burned, October 27, 1839' (p. 635) and, in the year-by-year narrative, 'October 27, the most disastrous fire occurred that had ever visited Chicago. It commenced on Lake Street, near Dearborn. The Tremont House and seventeen other buildings were burned.' chicagology_prefire021's 1874 Tribune letter agrees on the year - 'In the fall of 1839, the Tremont House was first consumed by fire.' THE FROM DATE IS A BOUND, NOT A DATE: no source gives a month in 1833, so 1833-01-01 is the earliest day the attested year permits. The scene date sits nearly two years inside the range under any reading of that month, so nothing in this record turns on it - unlike the Steamboat Hotel, where the same kind of bound is the whole risk."
+  },
+  "change_note": "The house as built in 1833 by Alanson Sweet and kept through the scene date by Ira Couch. No change of fabric is attested inside the phase - Andreas records changes of proprietor (Sweet and a man from Canada named Darwin, then the Couch brothers, then James Couch from 1836) and no alteration - so the whole 1833-1839 span is modelled as one state, which is a limitation of the evidence rather than a claim that nothing changed.",
+  "placement": {
+    "local_e": 687.82,
+    "local_n": -91.42,
+    "rotation_deg": 180.0,
+    "position_confidence": "inferred",
+    "position_sources": [
+      "andreas_1884_v1",
+      "chicagology_prefire021",
+      "osm_streets_2026"
+    ],
+    "position_note": "PLACED 2026-08-11. THE CORNER IS DOCUMENTED AND AGREED BY TWO INDEPENDENT PERIOD TEXTS; THE COORDINATE IS DERIVED, so the tag follows the weaker half. Andreas, p. 635: 'situated then on the northwest corner of Lake and Dearborn streets'. The Chicago Tribune letter of 2 February 1874, transcribed on chicagology_prefire021: 'In 1833 there was built upon the northwest corner of Lake and Dearborn streets an unpretending frame structure known as the Tremont House.' Chicago Illustrated of January 1866, on the same page, gives 'the north-west corner of Lake and Dearborn streets' a third time. DO NOT USE THAT PAGE'S HEADER, which says 'SE corner of Lake and Dearborn Streets' - data/sources/chicagology_prefire021.json records that the header describes the LATER Tremonts (the 1850 brick house by Van Osdel) and contradicts every body text on its own page. Andreas confirms the move: the house begun in December 1839 was built 'on the corner where the present Tremont stands', which is a different corner from the one that burned. METHOD, the project's standard one: Lake Street and Dearborn Street both survive on their 1830 plat lines, and the modern West Lake Street / North Dearborn Street intersection centre was read from OpenStreetMap at EPSG:26916 E 447772.72, N 4637283.04 (OSM node 27477597, fetched 2026-08-11 - the same node and the same figures data/structures/dole_warehouse_south.json used). The building's south face is set on the Lake Street frontage 12.2 m north of that centre and its east face on the Dearborn frontage 12.2 m west of it, 12.2 m being half of an 80 ft street as annotated on Hathaway 1834; the stored coordinate is the polygon origin AFTER the 180 degree facade bearing, which under the renderer's convention (renderers/web/js/walker.js) puts it at the building's north-east corner. Currey has the 1830 Thompson plat laying streets 'uniformly 66 feet wide', which would move each offset 2.1 m; that discrepancy is already recorded in docs/RESEARCH/hogan_store.md section 5. WORKING UNCERTAINTY ABOUT 20 M, which is the georeference's residual (data/datum.json: 17.5 m RMS on Wright 1834, 3.7 per cent paper stretch), not an additional guess. Facade bearing 180, due south onto Lake Street, which is an inference from the street and not a statement: no source says which way the house fronted, and the corner would equally admit a Dearborn Street front. THE GROUND UNDER IT IS NOW MODELLED: the e1834_harbor_cut heightfield was extended east and its box now runs local E -320..+1700 and N -400..+400 (data/terrain/epochs/e1834_harbor_cut/heightfield.json), so this footprint sits on real terrain and the validator measures its contact rather than clamping at a box edge. It lands within the walker's 0.35 m step-up rule, so the phase carries no ground_contact declaration. That is new as of this parcel: docs/LIBERTIES.md L40 - two thirds of the town standing on ground that had not been built - is already in that document's Resolved section, and this record is written on the far side of that resolution: no Lake Street building in this parcel needed a ground_contact declaration.",
+    "symbolic_location": "North-west corner of Lake Street and Dearborn Street (today West Lake Street at North Dearborn Street), fronting south onto Lake.",
+    "uncertainty_m": 20,
+    "placement_provisional": false,
+    "vertical_anchor": "terrain",
+    "walk_surface_m": null
+  },
+  "footprint": {
+    "polygon": [
+      [
+        0,
+        0
+      ],
+      [
+        15.24,
+        0
+      ],
+      [
+        15.24,
+        9.14
+      ],
+      [
+        0,
+        9.14
+      ]
+    ],
+    "confidence": "reconstructed",
+    "sources": [],
+    "note": "INVENTED. NO SOURCE REACHED GIVES THIS BUILDING ANY DIMENSION. 15.24 x 9.14 m is 50 x 30 ft, recorded converted with the original figures stated per data/datum.json's units rule. The size is chosen to sit between the two frame hotels this project can measure at all - the Green Tree's 40 x 25 ft, itself derived from a room module rather than measured, and the Western Hotel's attested 40 ft front with a 60 ft wing - because the Tremont was the principal house on the town's other main street and took stage passengers off the Lake and Dearborn crossing. Nothing about that reasoning is evidence. The rectangle is a rectangle because no source describes a plan, and the record carries no sources on this attribute because none supports it. TO RESOLVE: the 1839 fire losses printed in the Daily American, which Andreas quotes for the merchants burned out that night and which named insured sums building by building; or an 1830s Chicago American or Democrat advertisement of the house, which in the period habitually counted rooms."
+  },
+  "attributes": {
+    "construction": {
+      "value": "braced_frame",
+      "confidence": "inferred",
+      "sources": [
+        "andreas_1884_v1",
+        "chicagology_prefire021"
+      ],
+      "note": "FRAME IS DOCUMENTED THREE TIMES OVER; THE FRAMING SYSTEM IS NOT. Andreas, of the first Tremont and its 1840 successor together: 'Both of these structures were of wood and far different in style and cost of construction from the costly edifice which to-day ranks among Chicago's leading hotels.' The 1874 Tribune letter calls it 'an unpretending frame structure'; Chicago Illustrated of January 1866 calls it 'a wooden structure'. What none of them says is whether it was braced or balloon framed. Balloon framing was developed in Chicago in 1832-33, so an 1833 building could be either, and braced_frame is the conservative reading for the earlier date - the same value and the same reasoning as data/structures/green_tree_tavern.json, built the same year. The distinction changes stud rhythm behind the sheathing and is not visible at this level of detail."
+    },
+    "stories": {
+      "value": 2,
+      "confidence": "reconstructed",
+      "note": "THE THREE-STOREY TREMONT OF 1833 RESTS ON ONE UNCREDITED MODERN SENTENCE, AND THIS RECORD DOES NOT ADOPT IT. data/sources/chicagology_prefire021.json sets the problem out from the page itself: the only storey count anywhere on it is the editorial 'Building Summary' paragraph, 'The first Tremont House, a three-story wooden building at the northwest corner of Lake and Dearborn streets, was built in 1833.' NEITHER PERIOD TEXT ON THAT PAGE COUNTS STOREYS. The 1874 Tribune letter says 'an unpretending frame structure'; Chicago Illustrated (1866) says 'a wooden structure'. Andreas, who gives this building a builder, a corner, four proprietors, a construction material and a death date, gives it no height at all. So the three-storey reading is one modern compilation and whatever copied it, and docs/research/04-structures-south.md line 155 - which records the height as contested, says 'chicagology and Wikipedia say three-story wooden', and adopts three - is weighing one sentence twice. TWO IS ADOPTED AND IS STILL A GUESS. What can be said for it, and it is an argument rather than evidence: Chicago in 1833 held about 350 people, and Wau-Bun has the Sauganash's TWO storeys and white paint as 'the admiration of all the little circle at Wolf Point' two years earlier; the Chicago American's own 'Improvements in 1836' list, quoted by Andreas, counts 'about twenty large two to three-story wooden buildings' among that year's NEW work, which places the three-storey wooden building in Chicago as a phenomenon of 1836 and not of 1833; and this project already excludes the Saloon Building of 1836 on the understanding that it was the town's first three-storey structure (data/exclusions.json), which the three-storey reading here would contradict. THE LIVE ALTERNATIVE WOULD RAISE THE BUILDING ABOUT 2.6 M and is recorded here so nobody has to rediscover it. TO RESOLVE: the 1839 fire coverage in the Daily American, or any period advertisement of the house."
+    },
+    "wall_height_m": {
+      "value": 5.2,
+      "confidence": "reconstructed",
+      "note": "NOT ATTESTED. 5.2 m is about 17 ft - two storeys at period floor heights plus structure and a sill, the same figure this project uses for the Steamboat Hotel and the Miller house's two-storey range. It inherits the storey count above, which is itself a guess, and would be about 7.8 m if the three-storey reading is right. The one attested ceiling height in this dataset is the Green Tree's seven and a half feet, which its own source calls low for a hotel."
+    },
+    "roof_type": {
+      "value": "gable",
+      "confidence": "reconstructed",
+      "note": "NOT ATTESTED. Nothing describes a roof of any kind on this building. Gable is the ordinary roof for a frame block of this type and period, and it is what the archetype would default to in any case; it is stated rather than defaulted so the confidence view can show it as the invention it is."
+    },
+    "roof_pitch_deg": {
+      "value": 38.0,
+      "confidence": "inferred",
+      "note": "No pitch is attested. 38 degrees is this archetype's mid-range for period framing, inferred from construction practice rather than measured - the same value and the same reasoning as the other frame records here. It is an inference about how a roof of this kind was framed, sitting on a roof form the record has already tagged as a guess."
+    },
+    "paint": {
+      "value": "unpainted",
+      "confidence": "reconstructed",
+      "note": "NOT ATTESTED EITHER WAY, and this attribute is read by the archetype, so leaving it out would have painted the building white by default - which is a claim. Unpainted weathered clapboard is the cheaper reading and it is weakly supported by the one description anybody wrote down: Ira Couch 'found the house a mere shell, without any sidewalk around it, and poorly furnished, as none of the rooms were entirely carpeted' (chicagology_prefire021, Chicago Tribune, 2 February 1874). A man who itemised the missing carpets and the missing pillows did not mention paint. That is weak negative evidence at best, and the value is still a choice."
+    },
+    "gallery": {
+      "value": false,
+      "confidence": "reconstructed",
+      "note": "NOT ATTESTED EITHER WAY. False is what the archetype falls back to, not a finding, and the consequence is the one docs/LIBERTIES.md L19 records for the Green Tree and the Western: a plain front reads as the answer while a drawn shape at least announces itself as a choice. A stage house on the town's principal crossing is exactly the type that often carried a porch - and the 1874 letter's complaint that around this corner in early spring 'it was impossible to drive the stage, and the passengers had to walk some two blocks' says stages came here without saying what they drew up under."
+    },
+    "chimneys": {
+      "value": 2,
+      "confidence": "inferred",
+      "note": "Not attested. Two is the count a frame block of this frontage carries if it is heating public rooms and lodging rooms through a Chicago winter, and it is what this project's other frame hotels record. The COUNT is the inference; position, size and material are the archetype's - docs/LIBERTIES.md L26."
+    },
+    "sidewalk": {
+      "value": false,
+      "confidence": "attested",
+      "sources": [
+        "chicagology_prefire021"
+      ],
+      "note": "A DOCUMENTED ABSENCE, AND ONE OF THE FEW THINGS ANYBODY WROTE DOWN ABOUT THIS BUILDING. Ira Couch, who took the house in 1834, 'found the house a mere shell, WITHOUT ANY SIDEWALK AROUND IT, and poorly furnished' - Chicago Tribune, 2 February 1874, transcribed on chicagology_prefire021. The same letter, under 'The Muddy Days': 'Around this corner, in early spring-time, it was impossible to drive the stage, and the passengers had to walk some two blocks; on account if the marshy state of the ground, the horses could not navigate' (the 'if' for 'of' is the page's). This project builds no plank walks anywhere, so the value is recorded rather than built: it is a negative finding about the ground around the building and never was a build instruction. It belongs in the record because the scene's ground treatment at this corner should be mud, not boards, and because the phrase 'a mere shell' is the closest thing to a description of the fabric that survives.",
+      "geometry": "record_only"
+    },
+    "siding_exposure_m": {
+      "value": 0.114,
+      "confidence": "reconstructed",
+      "note": "INVENTED WITHIN A STOCK SET, NOT DERIVED. No source states the exposed face of any Chicago building's siding. The value is one of four period mill sidings — 4.5, 5, 5.5 or 6 in to the weather; this record wears 4.5 in — dealt by tools/deal_siding_stock.py: keyed to the phase's construction season, because buildings sided from the same season's shipments of St Joseph sawn lumber tend toward one stock, then advanced so no frame building within 60 m shares this one's. The separation is the surface variety T-0049 reconstructs, not a claim about 1835. docs/LIBERTIES.md L148 owns the invention."
+    },
+    "function": {
+      "value": "hotel",
+      "confidence": "attested",
+      "sources": [
+        "andreas_1884_v1",
+        "chicagology_prefire021"
+      ],
+      "note": "IT CHANGED TRADE ONCE BEFORE THE SCENE DATE AND THE SOURCES SAY SO. Andreas: 'It was kept as a saloon and boarding-house by him [Alanson Sweet] and a man from Canada, named Darwin. Then the Couch brothers purchased the property and Ira Couch opened it as a hotel.' Chicago Illustrated (1866), on chicagology_prefire021, calls it 'the first house making any pretensions to the character of a hotel'. Both readings are hotel-keeping in the broad sense and the change is one of style rather than of use; hotel is the value for the scene date because Couch had opened it as one by 1834. It was also a stage stop: the 1874 letter has stages driving to this corner and passengers walking two blocks when the mud beat the horses."
+    },
+    "occupants": {
+      "value": "Ira Couch, proprietor",
+      "confidence": "attested",
+      "sources": [
+        "andreas_1884_v1",
+        "chicagology_prefire021"
+      ],
+      "note": "Two sources put Couch here across the scene date and neither leaves a gap. chicagology_prefire021's 1874 letter: 'In 1833 there was built ... the Tremont House, and the following year Ira Couch became its proprietor' - i.e. 1834. Andreas: 'Ira Couch opened it as a hotel. He ran it until 1836, when his brother James took control.' So 1835-07-01 falls squarely inside Ira Couch's tenure. TWO CLAIMS IN CIRCULATION ARE NOT ADOPTED BECAUSE NOTHING THIS PROJECT HOLDS SUPPORTS THEM: docs/research/04-structures-south.md line 155 names Starr Foot as first proprietor and has the house 'sold to Mallory & Able 1835'. Neither name attaches to this building anywhere in Andreas vol. 1 - Starr Foot appears once, in an unrelated list, and no Mallory but a Hiram Mallory in another context - and neither is on the chicagology page. They are left out rather than repeated."
+    }
+  },
+  "residents": [
+    {
+      "household": "hh_couch_ira",
+      "name": "The Couch household",
+      "division": "south",
+      "relation": "lived and worked here",
+      "why": "A hotel proprietor of this period lived in his house. Not stated.",
+      "sources": [
+        "andreas_1884_v1",
+        "chicagology_prefire021"
+      ],
+      "basis": "",
+      "persons": [
+        {
+          "name": "Ira Couch",
+          "relationship": "head",
+          "grade": "attested",
+          "occupation": "hotel_keeper",
+          "note": "1 JULY 1835 FALLS SQUARELY INSIDE HIS TENURE, on two sources that do not disagree: chicagology's 1874 letter has him becoming proprietor in 1834, and Andreas has him running the house until 1836. FERGUS 1839'S LATER LISTS — 1837 AND 1839 EVIDENCE, NEVER AN 1835 FACT. Fergus' Chicago Directory for 1839 names this person 1 time in its two later lists: the poll of Chicago's first city election, 2 May 1837 — “Ira Couch,” (f1839_v0087, printed page 41, ward 1, voting for William B. Ogden). What a match may carry, and it is short: that the man was in Chicago on 2 May 1837 and in that ward. It is written as 1837 evidence with describes_date 1837-05-02, never as an 1835 fact, and the person's grade does not move on this alone. Under the ratified ladder a second contemporary source is what lifts projected_resident, and a poll twenty-two months after the scene date is a second source about CONTINUED RESIDENCE, not about July 1835. The ward is a location in the CITY of 1837, whose six wards are drawn on printed page 46; it is not a location in the town of 1835 and does not place a house. Identity by the crosswalk's own rule: Surname 'Couch' folds to the same string as the 1837 entry's, and the given name of both begins I. (data/research/directories/fergus_1839_election_crosswalk_1835.json and fergus_1839_register_crosswalk_1835.json). This pass WRITES THE EVIDENCE AND MOVES NO GRADE. Under the ratified ladder (T-0513) a second independent source is what lifts a projected resident, and a poll twenty-two months after the scene date — or a register four years after it — is a second source about CONTINUED RESIDENCE rather than about July 1835. T-0515 applies the ladder against every source at once; this pass hands it the evidence and not the verdict. THE 1840 FEDERAL CENSUS — A HEAD FIVE YEARS AFTER THE SCENE, AND NEVER AN 1835 FACT. The 1840 federal census of Chicago, read line by line off the left sheets in this repository, carries 1 head of this name — “Ira Couch” (33SQ-GYYJ-97P, printed page 211, line 3). This project has ruled the head a MATCH for this person: the full name agrees, it is unique on both sides, and a discriminator independent of the name — directory persistence — separately places the same person in Chicago after the 1840 book was taken. Under the rule that decided it (L6 matched), by the crosswalk's own ladder (data/research/census_1840/resident_crosswalk.json). LATER EVIDENCE ONLY. The ratified grading ladder binds: an 1839 or 1840 appearance alone is never an 1835 resident, and 1840 household composition is never back-projected to the 1835-07-01 scene. This pass WRITES THE EVIDENCE AND MOVES NO GRADE. Under the ratified ladder (T-0513) a second independent source is what lifts a projected resident, and an 1840 head is a second source about CONTINUED RESIDENCE rather than about who was living at Chicago on 1 July 1835. T-0515 applies the ladder against every source at once; this pass hands it the evidence and not the verdict. THE SECOND PRESBYTERIAN ROLL — A NAME ON A CHURCH LIST THAT OPENS IN 1842, AND NEVER AN 1835 FACT. The 1892 printed membership roll of the Second Presbyterian Church of Chicago, read line by line into this repository, carries 1 line whose surname and given initial agree with this person's — “Couch, Ira H. | Letter. | August 6, 1842. | Deceased.” (second_presb_0526, printed page 183), admitted 1842-08-06 by letter. Under the rule that decided it: Surname 'Couch' folds to the same string as the roll line's, and the given name of both begins I. WHAT THE MATCH MINTS OR REGRADES: “NOTHING. A line on a roll that opens in June 1842 cannot place a person in the town of July 1835, and this file makes no proposal that it does. What a match IS: the same surname and initial, in Chicago, within seven years — a lead for a later pass that is allowed to write people.” This pass WRITES THE EVIDENCE AND MOVES NO GRADE: under the ratified ladder (T-0513) the roll is handed to the card as a thing a reader may weigh, and the verdict stays with T-0515, which applies the ladder against every source at once."
+        },
+        {
+          "name": "James Couch",
+          "relationship": "brother",
+          "grade": "inferred",
+          "occupation": "hotel_keeper",
+          "note": "A REAL, NAMED MAN WHOSE PRESENCE ON THE SCENE DATE IS THE RECONSTRUCTED PART. Andreas names him twice - as one of 'the Couch brothers' who bought the property and as the brother who took control in 1836 - and quotes him directly on how crowded the house was in its early days ('every available space of floor room' occupied at night). That he was living at Chicago in July 1835 rather than joining later is this project's reading of a joint purchase, not a statement in the source. OLD SETTLERS, 1879 — A DATE THIS MAN GAVE FOR HIMSELF, AND STILL NOT A FACT ABOUT 1835. The Calumet Club's FIRST reception to the settlers of Chicago prior to 1840, 27 May 1879, printed its register in the proceedings (Early Chicago, Chicago, 1879, pages 84-90), and this man's entry reads “Couch, James, | 1836, | New York. | 79 | Chicago.” — name, his own date of arrival, his birthplace, his age and his 1879 post-office address, in the register's five columns. The date of arrival is HIS RECOLLECTION, set down forty to sixty years after the event; the address is where he lived in 1879 and is never read as an 1835 residence. Under the ratified ladder (T-0513) a later recollection corroborates, enriches and dates and cannot lift a rung by itself, so this record's GRADE IS UNCHANGED by it: T-0513 consolidates the identity and T-0515 regrades. Identity by rule OS1 — surname and spelled-out forename agree, one bearer (data/research/old_settlers/crosswalk.json)."
+        }
+      ],
+      "research_note": "THE TREMONT'S FIRST PROPRIETOR, AND A CLEAN EXAMPLE OF THE derived GRADE DOING WORK. Ira Couch is documented in the house across 1 July 1835 by two independent sources. His brother James is a real, named man, documented as a co-purchaser and later as the proprietor, whose residence at Chicago on the scene date is reconstructed from the joint purchase rather than stated. Two men, two grades, one household. THE BUILDING THIS HOUSEHOLD IS ATTACHED TO IS THE FIRST TREMONT at Lake and Dearborn, built in 1833 by Alanson Sweet - not the later houses of 1840 and 1850 that carry the same name."
+    }
+  ],
+  "citations": [
+    {
+      "source_id": "andreas_1884_v1",
+      "citation": "Andreas, A. T. History of Chicago: From the Earliest Period to the Present Time. Vol. 1. Chicago: A. T. Andreas, 1884.",
+      "url": "https://archive.org/details/historyofchicago01andr",
+      "archived_url": "",
+      "tier": 3,
+      "tier_label": "compiled secondary (Andreas)"
+    },
+    {
+      "source_id": "chicagology_prefire021",
+      "citation": "\"Tremont House.\" Chicagology. Compiling city-directory entries 1846-1870, an uncredited building summary, Chicago Illustrated (January 1866) by James W. Sheahan, and a reader's letter headed \"THE FOUR TREMONTS\", Chicago Tribune, 2 February 1874.",
+      "url": "https://chicagology.com/prefire/prefire021/",
+      "archived_url": "https://web.archive.org/web/20260411172619/https://chicagology.com/prefire/prefire021/",
+      "tier": 4,
+      "tier_label": "later scholarship",
+      "what_it_supplies": [
+        "built 1833 at the north-west corner of Lake and Dearborn streets",
+        "frame / wooden construction, twice attested in period texts on the page",
+        "\"a mere shell, without any sidewalk around it\", poorly furnished, rooms not entirely carpeted, beds often without a pillow",
+        "Ira Couch became proprietor the year after it was built, i.e. 1834",
+        "the corner impassable to the stage in early spring, passengers walking some two blocks",
+        "destroyed by fire in the fall of 1839",
+        "kept by the Couch brothers (Chicago Illustrated, 1866)"
+      ],
+      "what_it_does_not_supply": [
+        "an independent storey count - the only one on the page is an uncredited modern summary sentence",
+        "any dimension, plan or roof form",
+        "the builder's name (Alanson Sweet is not on this page)",
+        "the first proprietor Starr Foot, or the 1835 sale to Mallory & Able",
+        "anything reliable in its header metadata block, which describes the later Tremonts"
+      ]
+    },
+    {
+      "source_id": "osm_streets_2026",
+      "citation": "OpenStreetMap contributors. Street centerline intersection nodes for downtown Chicago, retrieved via the Overpass API, 2026-08-09.",
+      "url": "https://www.openstreetmap.org/",
+      "archived_url": "https://overpass-api.de/",
+      "tier": 4,
+      "tier_label": "later scholarship"
+    }
+  ],
+  "research_note": "THE GUARD ON THIS RECORD IS ITS STOREY COUNT, and it is a clean example of how a modern compilation manufactures a fact. chicagology_prefire021 prints, with no typographic break between them, an uncredited editorial summary, a passage of Chicago Illustrated (January 1866) and a reader's letter to the Chicago Tribune of 2 February 1874. The two period texts describe 'a wooden structure' and 'an unpretending frame structure' and count no storeys. The uncredited sentence says 'a three-story wooden building', and that sentence - one modern editor, no source - is where every three-storey Tremont of 1833 comes from, including Wikipedia's and including this project's own dossier, which cites 'chicagology and Wikipedia' as though they were two witnesses. Andreas, the fullest account, gives the building a builder, a corner, a material, four proprietors and a death date, and no height. The record therefore carries two storeys, tagged conjectural, with the three-storey reading argued against on the record rather than dropped. THE SAME PAGE'S HEADER IS WORSE AND MUST NOT BE READ: it gives 'SE corner of Lake and Dearborn Streets' and 'Architect: John M. Van Osdel', both of which belong to the LATER Tremonts, and it contradicts all three body texts on the corner. Andreas independently confirms the move, since the house begun in December 1839 stood 'on the corner where the present Tremont stands'. WHAT IS SOLIDLY ATTESTED, and it is not much: the north-west corner of Lake and Dearborn (three times), frame construction (three times), built 1833 by Alanson Sweet, Ira Couch proprietor from 1834, burned 27 October 1839 with seventeen other buildings, and Couch's own description of what he took over - 'a mere shell, without any sidewalk around it, and poorly furnished, as none of the rooms were entirely carpeted, little pieces in front of the bed being considered sufficient for anyone; and very many of the beds were minus one pleasant luxury, a pillow.' A USEFUL SCENE-LEVEL CHECK ON THIS PARCEL: the Chicago American of 15 August 1835, quoted by Andreas, counts the town's stock six weeks after the scene date - 'There are now upward of fifty business houses, four large forwarding-houses, EIGHT TAVERNS, two printing offices, two book-stores, one steam saw-mill, one brewery, one furnace (just going up), and twenty-five mechanics' shops of all kinds.' With this record, the Mansion House and the Exchange Coffee House added, the dataset holds exactly eight public houses for 1835 - Sauganash, Green Tree, Western, Wolf Point, Steamboat, Tremont, Mansion House, Exchange - which is a corroboration of the parcel as a whole rather than of any building in it. See docs/RESEARCH/tremont_house_1.md. THE PLAIN NAME IS CARRIED AS AN AKA (T-0406), because the printed corpus does not use the disambiguator this record is titled with. 'the Tremont House' is what the Chicago Democrat prints - it is the anchor of six advertisements in the gazetteer - and the register resolves an anchor against the committed town by WHOLE-SET equality of identity-bearing words, deliberately, so that 'the store' cannot land on the first store in the town. 'Tremont House (the first)' reduces to {tremont, house, first} and the printed anchor to {tremont, house}, so the two sets were not equal and the register reported that a building this project models, places at the north-west corner of Lake and Dearborn and draws named nothing the town holds. The '(the first)' in the NAME stays, and stays load-bearing: there was a second Tremont House, begun December 1839 on the corner where the later house stood, and nothing here is a statement that any successor stands in 1835 - the successor is not a committed record at all. The aka is the plain form only, and it still matches whole: 'the Tremont House' resolves here, 'Tremont' alone does not.",
+  "research_doc": "docs/RESEARCH/tremont_house_1.md",
+  "review_required": false
+}

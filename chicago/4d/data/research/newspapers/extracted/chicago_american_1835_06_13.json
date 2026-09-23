@@ -1,0 +1,1278 @@
+{
+  "schema": 1,
+  "issue_id": "chicago_american_1835_06_13",
+  "extracted": "2026-08-28",
+  "extracted_by": "hand, T-0261 — the Chicago American read, June to August 1835",
+  "note": "Volume I, Number 2, and the issue that reads the whole run's first one. Its advertising columns (page 3 columns 5-6, page 4 column 6) carry the SAME advertisements as 1835-06-08 in far better OCR, so five readings the first issue could only bracket are settled here on a second witness: the attorney is R. Stewart, the arms notice is signed J. Green, the painter's shop is on Randolph over Briggs & Humphrey's, the trunk manufactory is a SADDLE and harness one continued by S. B. Cobb, and the unnamed druggist is Frederick Thomas at the drawbridge. Page 2 column 1 carries the land-sale crowd and a population estimate.",
+  "claims": [
+    {
+      "id": "c001",
+      "kind": "notice",
+      "reading": "transcription_mediated",
+      "quote": "Tho actuul populwon of Chicago, we eanuol estinate with any degrer of ucenracy, but it it uow aupposed to lu between 2500 and 3000, Strangers, so the aipeant pf sume hundreds more, fil} our public horecs and strvuls, our whurtes are coveret! wilh gee, women and children, just Jund- Ge) frum. the vessels, and even seine lore: houses have Leen thrown open tu! receive the ungheltered emigrants, who fad bye remdincd under the open ay upon the wharves. Sore baild tents upon the: spot hey care danded from the bersts,",
+      "normalized": "The actual population of Chicago we cannot estimate with any degree of accuracy, but it is now supposed to [be] between 2500 and 3000. Strangers, to the a[mo]unt of some hundreds more, fill our public ho[us]es and str[ee]ts; our wharves are covered with [men], women and children just landed from the vessels, and even some store houses have been thrown open to receive the unsheltered emigrants, who [had else] remained under the open [sk]y upon the wharves. Some build tents upon the spot [t]hey [we]re landed from the b[oa]ts.",
+      "locator": {
+        "artifact_role": "primary",
+        "issue_page": 2,
+        "column": 1,
+        "lines": [
+          137,
+          137
+        ],
+        "lines_of_claim": [
+          137
+        ],
+        "interleaved": true,
+        "spans": [
+          {
+            "line": 137,
+            "from": 670,
+            "to": 1186
+          }
+        ]
+      },
+      "entities": [],
+      "notes": "THE TOWN AT THE SCENE DATE, IN THE PAPER'S OWN WORDS, three weeks before it. Two facts this project can use: a population 'supposed to be between 2500 and 3000' — the paper says outright that it is an estimate and not a count, and the confidence must travel with it — and the wharves in the fortnight before the June land sale carrying people, tents and opened store houses. That is a USE claim about the wharf layer, not a geometry one: it says what stood on the wharves, not where the wharves were. OCR is heavy through the passage ('populwon', 'ucenracy', 'coveret!', 'bersts') and every correction above is recognition-class; none of the numbers is touched."
+    },
+    {
+      "id": "c002",
+      "kind": "notice",
+      "reading": "transcription_mediated",
+      "quote": "Te aoa iah inigiaeed 6 eM ta Chieage, are requemed 10 meet\noot Rasen of Setarday the 19h instar\nack FM. for thn parpowe of lect\nrine, ubd for tranancting suck other t\nSOHN WATKING, ¢",
+      "normalized": "[…] in Chicago, are requested to meet [… on] Saturday the 19th instan[t at …] o'clock P.M. for the purpose of [e]lect[ing …] and for transacting such other [business as may come before them]. JOHN WATKINS, [C]l[erk?]",
+      "locator": {
+        "artifact_role": "primary",
+        "issue_page": 3,
+        "column": 5,
+        "lines": [
+          264,
+          264
+        ],
+        "lines_of_claim": [
+          264
+        ],
+        "interleaved": true,
+        "spans": [
+          {
+            "line": 264,
+            "from": 0,
+            "to": 58
+          },
+          {
+            "line": 264,
+            "from": 90,
+            "to": 126
+          },
+          {
+            "line": 264,
+            "from": 158,
+            "to": 189
+          },
+          {
+            "line": 264,
+            "from": 221,
+            "to": 259
+          },
+          {
+            "line": 264,
+            "from": 341,
+            "to": 356
+          }
+        ]
+      },
+      "entities": [
+        {
+          "as_printed": "SOHN WATKING",
+          "normalized": "John Watkins",
+          "role": "signatory",
+          "occupations": [],
+          "associated_places": []
+        }
+      ],
+      "notes": "A TOWN MEETING CALLED FOR SATURDAY 1835-06-19, twelve days before the scene date. What KIND of meeting is destroyed by the interleave — the words naming the body that is to meet and the office being filled are both in the shuffled region, so the claim records that a meeting was called and by whom and does not guess at its business. 'SOHN WATKING'→'John Watkins' is an S/J and G/S recognition-class reading. The word after the name reads '¢' and is not resolved; 'Clerk' is bracketed with a question mark in the normalized reading and is NOT recorded as an occupation."
+    },
+    {
+      "id": "c003",
+      "kind": "business",
+      "reading": "transcription_mediated",
+      "quote": "RK, STEW ART Attorney at J\nCHICAGO, ILLINC",
+      "normalized": "R. STEWART, Attorney at [Law]. CHICAGO, ILLIN[OIS]",
+      "locator": {
+        "artifact_role": "primary",
+        "issue_page": 3,
+        "column": 5,
+        "lines": [
+          273,
+          274
+        ],
+        "lines_of_claim": [
+          273,
+          274
+        ],
+        "interleaved": true,
+        "spans": [
+          {
+            "line": 273,
+            "from": 0,
+            "to": 26
+          },
+          {
+            "line": 274,
+            "from": 0,
+            "to": 15
+          }
+        ]
+      },
+      "entities": [
+        {
+          "as_printed": "RK, STEW ART",
+          "normalized": "R. Stewart",
+          "role": "proprietor",
+          "occupations": [
+            "attorney"
+          ],
+          "associated_places": []
+        }
+      ],
+      "business": {
+        "name": "R. Stewart, attorney",
+        "proprietors": [
+          "R. Stewart"
+        ],
+        "trade": "attorney at law",
+        "goods": [],
+        "street": null,
+        "placement": {
+          "class": "none",
+          "anchor": null,
+          "offset_text": null,
+          "offset_normalized": null,
+          "street": null
+        }
+      },
+      "notes": "THE READING THE FIRST ISSUE COULD NOT MAKE. 1835-06-08 page 3 column 5 line 382 carries this same card as 'R. STEWAN' / 'ate Attorney at' / 'CHICAGO, ULLID' inside a blob; here it is set clean and the name is R. Stewart. No address is printed in either issue, so the placement stays `none`."
+    },
+    {
+      "id": "c004",
+      "kind": "business",
+      "reading": "transcription_mediated",
+      "quote": "A, N. Fullerton & G.G\nATTORERYS AnD COURAELLORS 1\n‘Will auend with prompmess to a theie profession.\nReference to\n| Ferneworth, Eaq. Det JL, Uawley, Exq. Bafalo, N. Hon. R. B, Bates, Albany, N Mouara, Holbrook & Fearme, Chicago, June 8, 1835.",
+      "normalized": "A. N. Fullerton & G. G[oodrich?], ATTORNEYS AND COUNSELLORS [at Law]. Will attend with promptness to a[ll business in] their profession. Reference to [… ] F[a]r[n]sworth, Esq. Det[roit]; J. L. [H]awley, Esq. Buf[f]alo, N[.Y.]; Hon. R. B. Bates, Albany, N[.Y.]; M[ess]rs. Holbrook & Fear[n]e, [New York]. Chicago, June 8, 1835.",
+      "locator": {
+        "artifact_role": "primary",
+        "issue_page": 3,
+        "column": 5,
+        "lines": [
+          275,
+          278
+        ],
+        "lines_of_claim": [
+          275,
+          276,
+          277,
+          278
+        ],
+        "interleaved": true,
+        "spans": [
+          {
+            "line": 275,
+            "from": 0,
+            "to": 21
+          },
+          {
+            "line": 275,
+            "from": 22,
+            "to": 49
+          },
+          {
+            "line": 276,
+            "from": 0,
+            "to": 49
+          },
+          {
+            "line": 277,
+            "from": 0,
+            "to": 12
+          },
+          {
+            "line": 278,
+            "from": 0,
+            "to": 128
+          }
+        ]
+      },
+      "entities": [
+        {
+          "as_printed": "A, N. Fullerton",
+          "normalized": "A. N. Fullerton",
+          "role": "proprietor",
+          "occupations": [
+            "attorney"
+          ],
+          "associated_places": []
+        }
+      ],
+      "ad_copy_date": {
+        "verbatim": "Chicago, June 8, 1835.",
+        "iso": "1835-06-08"
+      },
+      "business": {
+        "name": "Fullerton & G., attorneys and counsellors",
+        "proprietors": [
+          "A. N. Fullerton"
+        ],
+        "trade": "attorneys and counsellors at law",
+        "goods": [],
+        "street": null,
+        "placement": {
+          "class": "none",
+          "anchor": null,
+          "offset_text": null,
+          "offset_normalized": null,
+          "street": null
+        }
+      },
+      "notes": "A LAW PARTNERSHIP ADVERTISING FROM 1835-06-08. THE SECOND PARTNER IS NOT IDENTIFIED: the line breaks after 'G.G' and the surname is gone, so only Fullerton is minted as a person and the firm is recorded under a name that shows the gap rather than closing it. 'G. G[oodrich?]' is left in the normalized reading with its question mark and is not carried into any field. The reference list is the same one the first issue's blob preserved (Detroit, Buffalo, Albany, Holbrook & Fearne), which is what identifies the two printings as one advertisement."
+    },
+    {
+      "id": "c005",
+      "kind": "business",
+      "reading": "transcription_mediated",
+      "quote": "WM. SABINE\nStorage, Forwardit\nCommission Mere NbeEM WATER ITREET,\ncuicaso,",
+      "normalized": "WM. SABINE, Storage, Forwardi[ng and] Commission Merc[hant]. N[ORT]H WATER [S]TREET, CHICAGO.",
+      "locator": {
+        "artifact_role": "primary",
+        "issue_page": 3,
+        "column": 5,
+        "lines": [
+          279,
+          282
+        ],
+        "lines_of_claim": [
+          279,
+          280,
+          281,
+          282
+        ],
+        "interleaved": true,
+        "spans": [
+          {
+            "line": 279,
+            "from": 0,
+            "to": 10
+          },
+          {
+            "line": 280,
+            "from": 0,
+            "to": 18
+          },
+          {
+            "line": 281,
+            "from": 0,
+            "to": 35
+          },
+          {
+            "line": 282,
+            "from": 0,
+            "to": 8
+          }
+        ]
+      },
+      "entities": [
+        {
+          "as_printed": "WM. SABINE",
+          "normalized": "Wm. Sabine",
+          "role": "proprietor",
+          "occupations": [
+            "forwarding and commission merchant"
+          ],
+          "associated_places": [
+            "North Water Street"
+          ]
+        }
+      ],
+      "business": {
+        "name": "Wm. Sabine, storage, forwarding and commission merchant",
+        "proprietors": [
+          "Wm. Sabine"
+        ],
+        "trade": "storage, forwarding and commission merchant",
+        "goods": [],
+        "street": "North Water Street",
+        "placement": {
+          "class": "street_only",
+          "anchor": null,
+          "offset_text": "Commission Mere NbeEM WATER ITREET,",
+          "offset_normalized": "Commission Merc[hant]. N[ORT]H WATER [S]TREET",
+          "street": "North Water Street"
+        }
+      },
+      "notes": "A FORWARDING HOUSE ON NORTH WATER STREET — the north bank's commercial front, which this project models and has almost no documented tenants for. The card gives the street and no number or anchor, so `street_only`. The first issue carries the same card inside line 382's blob as 'AWM, SABINI' over 'KORTM WATER sTuRET', which is where the reading of both is settled."
+    },
+    {
+      "id": "c006",
+      "kind": "business",
+      "reading": "transcription_mediated",
+      "quote": "5 JOHN DAVE:\n. PURAMEBOAT Ud\nNORTM WATER STREET,\nomeso",
+      "normalized": "JOHN DAVE[S?] […] [uncertain: PURAMEBOAT — a trade word this column does not resolve; 'steamboat' is the nearest reading and is not asserted] […] NORT[H] WATER STREET, [CHICAGO]",
+      "locator": {
+        "artifact_role": "primary",
+        "issue_page": 3,
+        "column": 5,
+        "lines": [
+          284,
+          287
+        ],
+        "lines_of_claim": [
+          284,
+          285,
+          286,
+          287
+        ],
+        "interleaved": true,
+        "spans": [
+          {
+            "line": 284,
+            "from": 0,
+            "to": 12
+          },
+          {
+            "line": 285,
+            "from": 0,
+            "to": 15
+          },
+          {
+            "line": 286,
+            "from": 0,
+            "to": 19
+          },
+          {
+            "line": 287,
+            "from": 0,
+            "to": 5
+          }
+        ]
+      },
+      "entities": [
+        {
+          "as_printed": "5 JOHN DAVE:",
+          "normalized": "John Dave",
+          "role": "proprietor",
+          "occupations": [],
+          "associated_places": [
+            "North Water Street"
+          ]
+        }
+      ],
+      "business": {
+        "name": "John Dave, North Water Street",
+        "proprietors": [
+          "John Dave"
+        ],
+        "trade": null,
+        "goods": [],
+        "street": "North Water Street",
+        "placement": {
+          "class": "street_only",
+          "anchor": null,
+          "offset_text": "NORTM WATER STREET,",
+          "offset_normalized": "NORT[H] WATER STREET",
+          "street": "North Water Street"
+        }
+      },
+      "notes": "A SECOND NORTH WATER STREET CARD, and almost nothing of it is legible. The surname is cut after 'DAVE' and is NOT completed — 'Davis' would be a guess, and the American's own publisher is T. O. Davis, which is exactly the kind of coincidence that turns a guess into a false identification. The trade word 'PURAMEBOAT' sits where 'STEAMBOAT' would and is left inside `[uncertain: …]` for the same reason: the claim that is worth making here is that a second business advertised a North Water Street address in June 1835, and that survives the uncertainty about who and what."
+    },
+    {
+      "id": "c007",
+      "kind": "event",
+      "reading": "transcription_mediated",
+      "quote": "[Great Sale of Chics 4 Eatate,\n2 MLL be epld at anction, 06\nthe 16h nut, OB dh La\n1. | Chicago, many of which are Maly\n¢ | Jotsbaviag i front of om from 15\nier, aad all nituyted in differant pas\nly increasing town j affording an x\n* | blo oppartanily for the investment Calalogane giving « eaficlent partion property, wi\n| fisivert on te day before the uation can be lind previous tw th",
+      "normalized": "Great Sale of Chic[ago Real] Estate. [WI]LL be sold at auction on […] the 16[t]h [i]n[s]t[ant …] Chicago, many of which are [va]l[uab]l[e] […] lots having a front of […] from 15 [feet …] and all situated in different pa[rt]s [of the rapid]ly increasing town, affording a[n unexceptiona]ble opportunity for the investment [of capital]. Catalogues giving a [su]f[fi]cient [description of the] property wi[ll be] […] d[el]ivered on the day before the [a]uction [and] can be h[a]d previous to th[e sale].",
+      "locator": {
+        "artifact_role": "primary",
+        "issue_page": 3,
+        "column": 5,
+        "lines": [
+          288,
+          296
+        ],
+        "lines_of_claim": [
+          288,
+          289,
+          290,
+          291,
+          292,
+          293,
+          294,
+          295,
+          296
+        ],
+        "interleaved": true,
+        "spans": [
+          {
+            "line": 288,
+            "from": 0,
+            "to": 30
+          },
+          {
+            "line": 289,
+            "from": 0,
+            "to": 28
+          },
+          {
+            "line": 290,
+            "from": 0,
+            "to": 21
+          },
+          {
+            "line": 291,
+            "from": 0,
+            "to": 36
+          },
+          {
+            "line": 292,
+            "from": 0,
+            "to": 36
+          },
+          {
+            "line": 293,
+            "from": 0,
+            "to": 38
+          },
+          {
+            "line": 294,
+            "from": 0,
+            "to": 35
+          },
+          {
+            "line": 295,
+            "from": 0,
+            "to": 89
+          },
+          {
+            "line": 296,
+            "from": 0,
+            "to": 65
+          }
+        ]
+      },
+      "entities": [],
+      "notes": "THE OTHER JUNE 1835 AUCTION, and it is not the one the first issue advertises: this one is for the 16th and W. L. Newberry's is for the fifteenth, so two sales of Chicago lots fall in the week before the scene date. The lot frontage survives only as 'from 15' with the unit and the upper bound cut away, so no dimension is recorded — a frontage figure this project could actually use is exactly the thing that must not be half-quoted. The advertisement's own signature is in the shuffled region and no vendor is named."
+    },
+    {
+      "id": "c008",
+      "kind": "business",
+      "reading": "transcription_mediated",
+      "quote": "P | THOMAS, Drege, ever, Jane 3b, 1885. Ez ITED, Hi sus sien # POTS, fom 8\npeti, h | newt rbmarauon, yey toriioge whe bere lr 1. | wnatyly Joet tooth’ entirelyac be prowions uh\nNabsduuttonfot oubers, with but Bulle bain, wil inuch penuaneney, and so namural an to eacape\nofthe guna. ig | Those whe have badly affected guia, will be m | eli wo callcarly, av w will require peywenl #i of | Bauwie jiroduee 4n entire cute. Ile office atthe New York House, wher he will remain until after the Land Bale, ~ Gi Ladies timed a their residence, if rv vf | quewted. Chieaga, June 14, 1835.",
+      "normalized": "[… those who have] entirely [l]ost teeth [may have] the [su]bstitution [o]f others, with but little [p]ain, with much permanency, and so natural as to escape [observation …] of the gums. Those who have badly affected gu[m]s will be [advised] to call early, as [it] will require [several visits?] to produce an entire cure. His office at the New York House, where he will remain until after the Land [S]ale. Ladies [attended] at their residence, if requested. Chicago, June 14, 1835.",
+      "locator": {
+        "artifact_role": "primary",
+        "issue_page": 3,
+        "column": 6,
+        "lines": [
+          304,
+          308
+        ],
+        "lines_of_claim": [
+          304,
+          306,
+          307,
+          308
+        ],
+        "interleaved": true,
+        "spans": [
+          {
+            "line": 304,
+            "from": 0,
+            "to": 74
+          },
+          {
+            "line": 306,
+            "from": 0,
+            "to": 101
+          },
+          {
+            "line": 307,
+            "from": 0,
+            "to": 93
+          },
+          {
+            "line": 308,
+            "from": 0,
+            "to": 309
+          }
+        ]
+      },
+      "entities": [],
+      "ad_copy_date": {
+        "verbatim": "Chieaga, June 14, 1835.",
+        "iso": "1835-06-14"
+      },
+      "business": {
+        "name": "a travelling dentist at the New York House",
+        "proprietors": [],
+        "trade": "dentistry",
+        "goods": [],
+        "street": null,
+        "placement": {
+          "class": "relative",
+          "anchor": "the New York House",
+          "offset_text": "Ile office atthe New York House, wher he will remain until after the Land Bale,",
+          "offset_normalized": "His office at the New York House, where he will remain until after the Land [S]ale",
+          "street": null
+        }
+      },
+      "notes": "A DENTIST WORKING OUT OF A HOTEL ROOM FOR THE LAND SALE, which is a use of the New York House worth recording whatever his name turns out to be. THE NAME IS NOT RECOVERED: the heading is shuffled with a neighbouring card ('P | THOMAS, Drege, ever, Jane 3b, 1885' interleaves the druggist Frederick Thomas's line into this one) and attributing 'THOMAS' to the dentist on that evidence would be a false identification of a man who is separately and clearly advertising as a druggist in this same issue. The placement is `relative` on the New York House, which the next claim puts in Lake Street. The dateline reads June 14 in an issue dated June 13; both are quoted as printed and neither is corrected, because a copy date one day after its issue is the sort of thing a compositor does and a reader cannot settle."
+    },
+    {
+      "id": "c009",
+      "kind": "business",
+      "reading": "transcription_mediated",
+      "quote": "“DR. J, BH. BARNARD,\nar tie New Yous Horse, Lane atneet,\nws A hires ERS his profersions) parvienase the vt habitanis of Chicugo, and Re\n90] topes by hie attention wd vasiy 9 pas FOR Re",
+      "normalized": "DR. J. B. BARNARD, a[t] t[h]e New Yor[k] Ho[u]se, La[k]e [s]t[r]eet, [off]ers his profession[a]l [services to the in]habitants of Chicago, and […] hopes by his attention [and …]",
+      "locator": {
+        "artifact_role": "primary",
+        "issue_page": 3,
+        "column": 6,
+        "lines": [
+          309,
+          312
+        ],
+        "lines_of_claim": [
+          309,
+          310,
+          311,
+          312
+        ],
+        "interleaved": true,
+        "spans": [
+          {
+            "line": 309,
+            "from": 0,
+            "to": 20
+          },
+          {
+            "line": 310,
+            "from": 0,
+            "to": 35
+          },
+          {
+            "line": 311,
+            "from": 0,
+            "to": 78
+          },
+          {
+            "line": 312,
+            "from": 0,
+            "to": 48
+          }
+        ]
+      },
+      "entities": [
+        {
+          "as_printed": "DR. J, BH. BARNARD",
+          "normalized": "J. B. Barnard",
+          "role": "proprietor",
+          "occupations": [
+            "physician"
+          ],
+          "associated_places": [
+            "Lake Street"
+          ]
+        }
+      ],
+      "business": {
+        "name": "Dr. J. B. Barnard",
+        "proprietors": [
+          "J. B. Barnard"
+        ],
+        "trade": "physician",
+        "goods": [],
+        "street": "Lake Street",
+        "placement": {
+          "class": "relative",
+          "anchor": "the New York House",
+          "offset_text": "ar tie New Yous Horse, Lane atneet,",
+          "offset_normalized": "a[t] t[h]e New Yor[k] Ho[u]se, La[k]e [s]t[r]eet",
+          "street": "Lake Street"
+        }
+      },
+      "notes": "THE NEW YORK HOUSE IS IN LAKE STREET, and this card is what says so — a documented anchor on a street this project already builds, and the second business in this issue to place itself against that hotel. 'Lane atneet' is 'Lake street': a single n/k recognition-class confusion, and the same line prints 'New Yous Horse' for 'New York House', so the whole phrase is one badly-recognised address rather than a different street. The doctor is recorded with occupation `physician` from the title 'DR.' and the offer of 'professional services'; nothing in the card names a specialty."
+    },
+    {
+      "id": "c010",
+      "kind": "business",
+      "reading": "transcription_mediated",
+      "quote": "A ectol iron,\n+10] Rurden's Patent Horses Bhoes, 3 setts Mill Jros lo) Mill and Cruse Cut Baws, Anvile Vices, Cro\nved | bays, Bay Lend, &e., de., the FHiLo ‘Chubesren we | Chagige, June 13:",
+      "normalized": "A [sel]ect[ed assortment of] iron, [Bu]rden's Patent Horse[ ]Shoes, 3 setts Mill [I]ro[n]s, Mill and Cro[s]s Cut [S]aws, Anvil[s], Vices, Cro[w]bars, [B]ar Lead, &c., &c. […] Chicago, June 13[, 1835].",
+      "locator": {
+        "artifact_role": "primary",
+        "issue_page": 3,
+        "column": 6,
+        "lines": [
+          313,
+          315
+        ],
+        "lines_of_claim": [
+          313,
+          314,
+          315
+        ],
+        "interleaved": true,
+        "spans": [
+          {
+            "line": 313,
+            "from": 0,
+            "to": 13
+          },
+          {
+            "line": 314,
+            "from": 0,
+            "to": 99
+          },
+          {
+            "line": 315,
+            "from": 0,
+            "to": 75
+          }
+        ]
+      },
+      "entities": [],
+      "ad_copy_date": {
+        "verbatim": "Chagige, June 13:",
+        "iso": "1835-06-13"
+      },
+      "business": {
+        "name": "an iron and hardware stock, Chicago, June 1835",
+        "proprietors": [],
+        "trade": "iron and hardware",
+        "goods": [
+          "Anvils",
+          "Bar Lead",
+          "Crowbars",
+          "Horse Shoes",
+          "Mill Irons",
+          "Saws",
+          "Vices"
+        ],
+        "street": null,
+        "placement": {
+          "class": "none",
+          "anchor": null,
+          "offset_text": null,
+          "offset_normalized": null,
+          "street": null
+        }
+      },
+      "notes": "A HARDWARE STOCK LIST WHOSE SELLER IS LOST IN THE INTERLEAVE. The goods are quotable and specific — Burden's patent horse shoes, mill irons, cross-cut saws — and the signature line is not, so the business is recorded under a name that says so. Worth keeping: it is evidence of what a Chicago hardware counter held three weeks before the scene date, which the material sheets and the wagon and smithy furniture can be checked against."
+    },
+    {
+      "id": "c011",
+      "kind": "business",
+      "reading": "transcription_mediated",
+      "quote": "f ish | Q LARGER and well fe ageorfoient thie Harness Leather, Morocco Shine —R. Wht | Setiuws Dlork, Blue, Purple aed Greens a wed | Under, Skisting, pee ‘and baunb Bina, 8\nry Laeather, ele JOr wale I\nral Phu CABPRNTYS vale Chicago, Jane Lath, 1835.",
+      "normalized": "A LARGE[ ]and well [selected] a[ss]or[t]ment [of] Harness Leather, Morocco Ski[n]s […] Black, Blue, Purple and Green; […] Binder[s], Skirting, [Kip?] and [L]am[b] S[k]in[s], […] Leather, &c. [f]or sale [by] […] CARPENT[ER?] […] Chicago, J[u]ne 1[3]th, 1835.",
+      "locator": {
+        "artifact_role": "primary",
+        "issue_page": 3,
+        "column": 6,
+        "lines": [
+          316,
+          318
+        ],
+        "lines_of_claim": [
+          316,
+          317,
+          318
+        ],
+        "interleaved": true,
+        "spans": [
+          {
+            "line": 316,
+            "from": 0,
+            "to": 173
+          },
+          {
+            "line": 317,
+            "from": 0,
+            "to": 27
+          },
+          {
+            "line": 318,
+            "from": 0,
+            "to": 48
+          }
+        ]
+      },
+      "entities": [],
+      "ad_copy_date": {
+        "verbatim": "Chicago, Jane Lath, 1835.",
+        "iso": "1835-06-13"
+      },
+      "business": {
+        "name": "a leather stock, Chicago, June 1835",
+        "proprietors": [],
+        "trade": "leather",
+        "goods": [
+          "Harness Leather",
+          "Lamb Skins",
+          "Morocco Skins",
+          "Skirting"
+        ],
+        "street": null,
+        "placement": {
+          "class": "none",
+          "anchor": null,
+          "offset_text": null,
+          "offset_normalized": null,
+          "street": null
+        }
+      },
+      "notes": "LEATHER IN COLOURS — black, blue, purple and green morocco — which is the kind of detail a fabric sheet can use and this project has almost none of. The seller's name reads 'CABPRNTYS' and is not resolved: 'Carpenter' is the obvious completion and the column also interleaves 'R. Wht' from a neighbouring card, so a name assembled from those two fragments would be manufactured. No entity is minted."
+    },
+    {
+      "id": "c012",
+      "kind": "business",
+      "reading": "transcription_mediated",
+      "quote": "or) Tate, Clothing ing; Boo\nould WHOLESALE & te Sc Bs\nand Tar tinerver sow sping i, 1 24 1 2 1 0 1211 9 9 20.088715 J. | sarionemt of thy above named ack Water wirert, one door from Dee Whrve he tgnde wo heep on hood args ut af the syrmied articles jand will bei recel nuhlitions to hiv assortment every Afteenior 6w days dirough the season, Tradere ark resp 1 tho | {ully requested wo call and examine for thewee! JOHN HOLBROOK,\nid ta] _ Chizago, June * 1845.",
+      "normalized": "[H]at[s], Clothing, Boo[ts and Shoes …] WHOLESALE & [RETAIL … the] subscriber [is] now [o]p[en]ing […] a[s]sort[m]ent of th[e] above named [… South] Water [st]reet, one door from De[arborn]. Where he [in]tend[s] to keep on hand a l[ar]g[e] [s]t[ock] of the [na]med articles, and will be recei[ving] [a]d[d]itions to his assortment every fifteen [or t]w[enty] days [th]rough the season. Traders are resp[ect]fully requested to call and examine for th[e]m[selv]e[s]. JOHN HOLBROOK […] Chicago, June [13], 183[5].",
+      "locator": {
+        "artifact_role": "primary",
+        "issue_page": 3,
+        "column": 6,
+        "lines": [
+          319,
+          323
+        ],
+        "lines_of_claim": [
+          319,
+          320,
+          321,
+          323
+        ],
+        "interleaved": true,
+        "spans": [
+          {
+            "line": 319,
+            "from": 0,
+            "to": 27
+          },
+          {
+            "line": 320,
+            "from": 0,
+            "to": 25
+          },
+          {
+            "line": 321,
+            "from": 0,
+            "to": 375
+          },
+          {
+            "line": 323,
+            "from": 0,
+            "to": 30
+          }
+        ]
+      },
+      "entities": [
+        {
+          "as_printed": "JOHN HOLBROOK",
+          "normalized": "John Holbrook",
+          "role": "proprietor",
+          "occupations": [
+            "merchant"
+          ],
+          "associated_places": [
+            "South Water Street"
+          ]
+        }
+      ],
+      "ad_copy_date": {
+        "verbatim": "_ Chizago, June * 1845.",
+        "iso": "1835-06-13"
+      },
+      "business": {
+        "name": "John Holbrook, hats, clothing, boots and shoes",
+        "proprietors": [
+          "John Holbrook"
+        ],
+        "trade": "hats, clothing, boots and shoes, wholesale and retail",
+        "goods": [
+          "Boots and Shoes",
+          "Clothing",
+          "Hats"
+        ],
+        "street": "South Water Street",
+        "placement": {
+          "class": "relative",
+          "anchor": "Dearborn Street",
+          "offset_text": "ack Water wirert, one door from Dee",
+          "offset_normalized": "[South] Water [st]reet, one door from De[arborn]",
+          "street": "South Water Street"
+        }
+      },
+      "notes": "THE BEST PLACEMENT IN THIS ISSUE: 'one door from Dearborn' on South Water Street is an offset a storefront can actually be stood on, against a corner the plat fixes. The street word is cut to 'ack Water' and is read as South Water because Dearborn crosses both Water streets and the same column places two other cards on South Water; that reasoning is stated rather than assumed, and a page-image pass should confirm it before anything is built. The quoted line carries the segmenter's own coordinate telemetry ('1 24 1 2 1 0 1211 9 9 20.088715') inside the advertisement's text, which is what the blob lines do and why it stands in the verbatim quote."
+    },
+    {
+      "id": "c013",
+      "kind": "infrastructure",
+      "reading": "transcription_mediated",
+      "quote": "8007 | pay HE public pane Spcliged, ha the\nmH manding officer at Fort Dearborn, at Ch\n2] jo. Wars, is authorized to call in, and recip eg | Ni United Stew Army and ‘Accouthemeate i | anda af eitigena of the country.\nAll persons having such Arms or Acco ‘uevita in their passension, by puschase ot 0 ‘ine, will do well to bring oF tend them i inthe eceauaty Teceipta, with ax Fite 4 Py 14 contrary course may mubject {ound poeeayed of thei to » prosoeutien, am\npenalty of the law. J..GREEN, Major Sih Infantry, Coma Pe\nMay 23, 1835",
+      "normalized": "[T]he public a[re] [hereby] [noti]fied [t]ha[t the com]manding officer at Fort Dearborn, at Ch[icag]o, [Ill]inois, is authorized to call in and rec[eive all] [U]nited Sta[t]es Ar[m]s and Accoutrements i[n the h]ands of citizens of the country. All persons having such Arms or Acco[u]tr[e]m[en]t[s] in their possession, by purchase or o[therw]ise, will do well to bring or [s]end them i[n and obta]in the necessary receipts, with a[s little delay as possible, as a] contrary course may subject [any person] found posse[ss]ed of the[m] to a prosecution [under the] penalty of the law. J. GREEN, Major [5]th Infantry, Com[m]a[nding]. May 23, 1835.",
+      "locator": {
+        "artifact_role": "primary",
+        "issue_page": 3,
+        "column": 6,
+        "lines": [
+          325,
+          330
+        ],
+        "lines_of_claim": [
+          325,
+          326,
+          327,
+          328,
+          329,
+          330
+        ],
+        "interleaved": true,
+        "spans": [
+          {
+            "line": 325,
+            "from": 0,
+            "to": 42
+          },
+          {
+            "line": 326,
+            "from": 0,
+            "to": 42
+          },
+          {
+            "line": 327,
+            "from": 0,
+            "to": 129
+          },
+          {
+            "line": 328,
+            "from": 0,
+            "to": 243
+          },
+          {
+            "line": 329,
+            "from": 0,
+            "to": 57
+          },
+          {
+            "line": 330,
+            "from": 0,
+            "to": 12
+          }
+        ]
+      },
+      "entities": [
+        {
+          "as_printed": "J..GREEN",
+          "normalized": "J. Green",
+          "role": "signatory",
+          "occupations": [
+            "army officer"
+          ],
+          "associated_places": [
+            "Fort Dearborn"
+          ]
+        }
+      ],
+      "ad_copy_date": {
+        "verbatim": "May 23, 1835",
+        "iso": "1835-05-23"
+      },
+      "notes": "THE SAME NOTICE THE FIRST ISSUE PRINTS, IN OCR GOOD ENOUGH TO NAME THE SIGNATORY: Major J. Green, 5th Infantry, commanding at Fort Dearborn. 1835-06-08 page 3 column 5 lines 385-386 carry it with the name destroyed, which is why that claim mints no person and this one does. The reading of the regiment as the 5th, bracketed in both, is the same here ('Sih' for '5th'). WHAT THIS DOCUMENTS FOR THE MODEL: the fort is garrisoned, commanded and administratively active in the weeks before the scene date, and it is the collection point for arms held across the county."
+    },
+    {
+      "id": "c014",
+      "kind": "business",
+      "reading": "transcription_mediated",
+      "quote": "PANTY TING, Plans of Chagos thar be fas coal\nihirassif in the abore business.ca Randolph & 2 | over Briggs & Humphrey's Cat he'll tunmact ll baainess fa ha laa Carriages, Sign, Ornamental and Fe\nch, ge, Gilding, ge. executed ia the ‘Grae 1",
+      "normalized": "PA[IN]TING. [… the inhabi]t[a]n[t]s of Ch[i]ca[g]o[ ]tha[t] he has […] himself in the above business [o]n Randolph [Street …] over Briggs & Humphrey's […] he'll transact all business in h[is] l[ine …] Carriages, Sign, Ornamental and F[igur]e […] Gilding, &c. executed in the [best manner].",
+      "locator": {
+        "artifact_role": "primary",
+        "issue_page": 3,
+        "column": 6,
+        "lines": [
+          331,
+          333
+        ],
+        "lines_of_claim": [
+          331,
+          332,
+          333
+        ],
+        "interleaved": true,
+        "spans": [
+          {
+            "line": 331,
+            "from": 0,
+            "to": 44
+          },
+          {
+            "line": 332,
+            "from": 0,
+            "to": 149
+          },
+          {
+            "line": 333,
+            "from": 0,
+            "to": 44
+          }
+        ]
+      },
+      "entities": [],
+      "business": {
+        "name": "Brown, painter",
+        "proprietors": [
+          "Brown"
+        ],
+        "trade": "carriage, sign, ornamental and figure painting, and gilding",
+        "goods": [],
+        "street": "Randolph Street",
+        "placement": {
+          "class": "relative",
+          "anchor": "Briggs & Humphrey's",
+          "offset_text": "ihirassif in the abore business.ca Randolph & 2 | over Briggs & Humphrey's Cat",
+          "offset_normalized": "himself in the above business [o]n Randolph [Street …] over Briggs & Humphrey's",
+          "street": "Randolph Street"
+        }
+      },
+      "notes": "THE PLACEMENT THE FIRST ISSUE ADVERTISED AND COULD NOT SAY: on Randolph Street, OVER Briggs & Humphrey's — an upper-floor tenancy, which is a documented first for this project's street frontages. The two printings are the same advertisement, word for word where both are legible ('transact all business in his line', 'Carriage, Sign, Ornamental and Figure painting, Gilding &c. executed in the best manner'), which is what carries the proprietor name Brown across from 1835-06-08 page 3 column 5. NO ENTITY IS MINTED HERE because this printing does not carry the name — the first issue's claim mints Brown and this one records the address, and the gazetteer joins them on the business."
+    },
+    {
+      "id": "c015",
+      "kind": "notice",
+      "reading": "transcription_mediated",
+      "quote": "NOTICE, =e ye co-parinership beretofore: seen the frm of Gons & Cobh la this day sulved by niuizal coneent.\nOLtteR Gos Chicago, Feb, 18, 1833. 8. B. one",
+      "normalized": "NOTICE. [Th]e co-partnership heretofore [existing under] the firm of Go[ss] & Cob[b] [is] this day [dis]solved by m[ut]ual consent. OL[IVE]R GOS[S]. S. B. [C]O[BB]. Chicago, Feb. 18, 183[5].",
+      "locator": {
+        "artifact_role": "primary",
+        "issue_page": 3,
+        "column": 6,
+        "lines": [
+          333,
+          334
+        ],
+        "lines_of_claim": [
+          333,
+          334
+        ],
+        "interleaved": true,
+        "spans": [
+          {
+            "line": 333,
+            "from": 45,
+            "to": 152
+          },
+          {
+            "line": 334,
+            "from": 0,
+            "to": 44
+          }
+        ]
+      },
+      "entities": [
+        {
+          "as_printed": "OLtteR Gos",
+          "normalized": "Oliver Goss",
+          "role": "signatory",
+          "occupations": [],
+          "associated_places": []
+        }
+      ],
+      "contradicts": true,
+      "ad_copy_date": {
+        "verbatim": "Chicago, Feb, 18, 1833.",
+        "iso": "1835-02-18"
+      },
+      "business": {
+        "name": "Goss & Cobb",
+        "proprietors": [
+          "Oliver Goss"
+        ],
+        "trade": null,
+        "goods": [],
+        "street": null,
+        "placement": {
+          "class": "none",
+          "anchor": null,
+          "offset_text": null,
+          "offset_normalized": null,
+          "street": null
+        }
+      },
+      "notes": "THE SAME DISSOLUTION THE FIRST ISSUE PRINTS, WITH ONE SIGNATURE NOW READABLE: Oliver Goss. The second still is not — '8. B. one' against the first issue's '8, B. Ce' — so S. B. Cobb is bracketed in the normalized reading and NOT minted as a person from this claim; the next claim, where the same initials sign a trading card of his own, is where that name is settled. THE YEAR. This printing dates the notice 'Feb, 18, 1833' and the first issue's dates it 'Feb, 18, 1835'; 1835 is taken, because a partnership dissolved in February 1833 would not still be advertising its dissolution in June 1835 beside the surviving partner's new card, and because the two printings differ in exactly one digit. Recorded here rather than silently."
+    },
+    {
+      "id": "c016",
+      "kind": "business",
+      "reading": "transcription_mediated",
+      "quote": "BAPDLE. HARNESS & 85 & TRUNK Macy 1 [Seb BLCOBs mil soinan the, shane If | M9 e at his shop, comer sf peels { | nrecis, where he intends keeping! « genera soriment of atticlen in the above of basi iy strict anention to leds ol te red | w lberal ehare of patronage, Chicugo, June Bb,",
+      "normalized": "[S]A[D]DLE, HARNESS & TRUNK M[anufa]c[tor]y. S[. ]B[. ]COB[B] [w]il[l] [c]o[nt]in[ue] the [above business] at his shop, corner [o]f [… ][st]re[et]s, where he intends keeping a genera[l as]sortment of articles in the above [line] of busi[ness. B]y strict a[t]tention to [business he hopes to me]r[it] a liberal share of patronage. Chicago, June [8].",
+      "locator": {
+        "artifact_role": "primary",
+        "issue_page": 3,
+        "column": 6,
+        "lines": [
+          335,
+          335
+        ],
+        "lines_of_claim": [
+          335
+        ],
+        "interleaved": true,
+        "spans": [
+          {
+            "line": 335,
+            "from": 0,
+            "to": 282
+          }
+        ]
+      },
+      "entities": [
+        {
+          "as_printed": "Seb BLCOBs",
+          "normalized": "S. B. Cobb",
+          "role": "proprietor",
+          "occupations": [
+            "saddler"
+          ],
+          "associated_places": []
+        }
+      ],
+      "ad_copy_date": {
+        "verbatim": "Chicugo, June Bb,",
+        "iso": "1835-06-08"
+      },
+      "business": {
+        "name": "S. B. Cobb, saddle, harness and trunk manufactory",
+        "proprietors": [
+          "S. B. Cobb"
+        ],
+        "trade": "saddle, harness and trunk manufactory",
+        "goods": [],
+        "street": "Lake Street",
+        "placement": {
+          "class": "corner",
+          "anchor": "the corner of Lake Street and an unread cross street",
+          "anchor_unread": true,
+          "offset_text": "M9 e at his shop, comer sf peels { | nrecis",
+          "offset_normalized": "at his shop, corner [o]f [… ][st]re[et]s",
+          "street": "Lake Street"
+        }
+      },
+      "notes": "THE FIRST ISSUE READ THIS HEADING WRONG AND THIS ISSUE FIXES IT. 1835-06-08 page 3 column 5 line 397 prints 'LB, HA & TRUNK M' and could be read as a hat manufactory; here the same card sets 'SAPDLE. HARNESS & ... & TRUNK Macy' and the trade is SADDLERY. The extraction file for that issue carries the correction. WHO IS CONTINUING WHAT: the surviving partner of Goss & Cobb, dissolved in February and advertised as dissolved in the column directly above, is carrying on alone — which is why 'S. B. COBB will continue the above business' is the same initials as the dissolution's second signature and settles it. THE CORNER'S SECOND STREET IS STILL UNREAD: this printing loses it entirely ('comer sf peels { | nrecis') where the first issue at least preserved 'Lake', so Lake Street is carried from that witness and the cross street stays unknown in both."
+    },
+    {
+      "id": "c017",
+      "kind": "business",
+      "reading": "transcription_mediated",
+      "quote": "Ferniture Wa: ROCKWELL conta » Cabiost Furniiure at « $F etreut formerly oceupie Som wheke He tate Hecpiag i 8 complube assoruneat of Cs\nAt at Wat. imag areionn nek thousand | modes, Wandrobea, Lockers, be baited | Picts Contre une Somiaea Tab wull vung, Crickets, and Foot Stool eee | areas iil Bedetcnle, whi arueies hie tan, will be ‘Bing sbiect, | Freech and New York tases ty foe the | A fuw thousand tect of sea 1 34 2 9 1 1 1177 22 14 86.050690 als, have, different! kinds, “wanted legen 1 34 2 10 1 76 1191 1 3 46.431473 | Coah will be paid on delivery,",
+      "normalized": "Furniture Wa[rehouse]. ROCKWELL [manufactures] Cabi[ne]t Furni[t]ure at […] street, formerly occupie[d by …] where he [in]t[ends] keeping a compl[et]e assor[tm]e[n]t of Ca[binet furniture …] Wardrobes, Lockers, […] Centre and Common Tab[les …] Crickets and Foot Stools […] Chairs and Bedsteads, which […] French and New York [fa]s[hion]s. A few thousand feet of sea[soned lumber] […] of different kinds, wanted […] Cash will be paid on delivery.",
+      "locator": {
+        "artifact_role": "primary",
+        "issue_page": 4,
+        "column": 6,
+        "lines": [
+          459,
+          460
+        ],
+        "lines_of_claim": [
+          459,
+          460
+        ],
+        "interleaved": true,
+        "spans": [
+          {
+            "line": 459,
+            "from": 0,
+            "to": 136
+          },
+          {
+            "line": 460,
+            "from": 0,
+            "to": 424
+          }
+        ]
+      },
+      "entities": [
+        {
+          "as_printed": "ROCKWELL",
+          "normalized": "Rockwell",
+          "role": "proprietor",
+          "occupations": [
+            "cabinet maker"
+          ],
+          "associated_places": []
+        }
+      ],
+      "business": {
+        "name": "Rockwell, cabinet furniture warehouse",
+        "proprietors": [
+          "Rockwell"
+        ],
+        "trade": "cabinet furniture",
+        "goods": [
+          "Bedsteads",
+          "Chairs",
+          "Foot Stools",
+          "Tables",
+          "Wardrobes"
+        ],
+        "street": null,
+        "placement": {
+          "class": "none",
+          "anchor": null,
+          "offset_text": null,
+          "offset_normalized": null,
+          "street": null
+        }
+      },
+      "notes": "THE CABINET MAKER THE FIRST ISSUE'S BLOB CARRIED UNNAMED is Rockwell, and this is the same advertisement — 'Wardrobes, Lockers', 'Crickets and Foot Stools', 'French and New York fashions', 'A few thousand feet of seasoned [lumber] wanted ... Cash will be paid on delivery' all run word for word across the two printings. TWO THINGS THIS DOCUMENTS. Interior furniture made in Chicago and not merely shipped in, with a named list; and a standing demand for seasoned lumber paid for in cash, which is a timber claim the project's own timber layers can be reasoned against. THE ADDRESS IS ADVERTISED AND UNREADABLE: 'at ... street, formerly occupied by ...' has both the street and the predecessor cut, so the placement is `none` and the predecessor chain is left unbuilt rather than guessed."
+    },
+    {
+      "id": "c018",
+      "kind": "business",
+      "reading": "transcription_mediated",
+      "quote": "4 P, roan PAINT 8' HEDERICK THOMAS, las ew York, tise taken a store a Ji Drawbridge, W BIC atveet, (rwe and | American olfice; whore he mtend hs | abe edn ral Beeuriment of amele.\nF about | Hoe,” ussciher wink Chemiagien | Dre Stuife | ant hopes, with, tie tate of Lies than iwelve yaers in the bus\ninbtioa of strict personal wits 18 ond | the patrodags of thp eattene of G at they | deen é",
+      "normalized": "[Drugs and] PAINTS. [F]REDERICK THOMAS, la[te of N]ew York, [has] taken a store a[t the] Drawbridge, W[ater?] [s]t[r]eet, [t]w[o …] and [the] American office; where he [in]tend[s keeping a] […] [gene]ral [ass]or[t]ment of a[rti]cle[s in his] line, [tog]ether wi[th] Chemi[cals, Perfumery and] D[y]e Stuff[s]; and hopes, with […] [more] th[a]n twelve years in the bus[iness … a determ]in[a]t[i]o[n] of strict personal [attention, to merit] the patro[n]ag[e] of th[e] [ci]t[iz]en[s] of C[hicago …]",
+      "locator": {
+        "artifact_role": "primary",
+        "issue_page": 4,
+        "column": 6,
+        "lines": [
+          465,
+          467
+        ],
+        "lines_of_claim": [
+          465,
+          466,
+          467
+        ],
+        "interleaved": true,
+        "spans": [
+          {
+            "line": 465,
+            "from": 0,
+            "to": 179
+          },
+          {
+            "line": 466,
+            "from": 0,
+            "to": 118
+          },
+          {
+            "line": 467,
+            "from": 0,
+            "to": 91
+          }
+        ]
+      },
+      "entities": [
+        {
+          "as_printed": "HEDERICK THOMAS",
+          "normalized": "Frederick Thomas",
+          "role": "proprietor",
+          "occupations": [
+            "druggist"
+          ],
+          "associated_places": []
+        }
+      ],
+      "business": {
+        "name": "Frederick Thomas, drugs and paints",
+        "proprietors": [
+          "Frederick Thomas"
+        ],
+        "trade": "drugs, paints, chemicals, perfumery and dye stuffs",
+        "goods": [
+          "Chemicals",
+          "Dye Stuffs",
+          "Paints",
+          "Perfumery"
+        ],
+        "street": null,
+        "placement": {
+          "class": "relative",
+          "anchor": "the drawbridge",
+          "offset_text": "tise taken a store a Ji Drawbridge, W BIC atveet, (rwe and | American olfice;",
+          "offset_normalized": "[has] taken a store a[t the] Drawbridge, W[ater?] [s]t[r]eet, [t]w[o … from the] American office",
+          "street": null
+        }
+      },
+      "notes": "THE DRUGGIST THE FIRST ISSUE COULD NOT NAME, and he places himself against the DRAWBRIDGE — the Dearborn Street bridge over the main river, which is structure this project builds and has almost no frontage evidence for. The two printings are the same advertisement: 'twelve years in the business', 'determination of strict personal attention', 'Chemicals, Perfumery and Dye Stuffs' run word for word across 1835-06-08 line 409 and this one. WHAT IS NOT ASSERTED. 'W BIC atveet' is left as 'W[ater?] [s]t[r]eet' with its question mark and NO street is recorded on the business, because a store 'at the drawbridge' could front either Water street and picking one would put a storefront on the wrong bank. The second half of the offset — 'two [doors from?] the American office' — gives a second anchor, the newspaper's own premises, and the word between is cut."
+    },
+    {
+      "id": "c019",
+      "kind": "business",
+      "reading": "transcription_mediated",
+      "quote": "1 1 1 176 1263 12 11 90.823265 & CLIFT have 1 42 1 2 1 142 1276 134 15 83.845024 supply of Books, Stat 1 42 1 3 1 77 1289 24 8 52.210846 ‘wow Beteenc Reador, for Beha 1 42 1 4 2 15 1301 7 8 65.693649 a cloye | ten Handel and Hay 1 42 1 5 1 1 1314 33 14 26.745979 his an. | Cheits, om espocal 1 42 1 6 1 14 1331 4 12 67.051743 J there. Gentlomen'a fine 42 2 1 1 2 1335 11 7 47.489895 ay |\nmentiot Shoes, ance, Ro& C, havis secured the\nsone Hygeian Stedeney fee\nnote, would respectfully causior rot NO | agawet parthausing the Medicis wile ra in | signature attuched: wx thy Pils, just con. | existed”",
+      "normalized": "[Russell] & CLIFT have [received an additional] supply of Books, Stat[ionary, &c. The n]ew [Ecl]e[cti]c Read[e]r, for [Sc]h[ools, and the Bos]ton Handel and Hay[dn collection …] Ch[a]i[r]s, [are] espec[i]al[ly deserving attention]. Gentlemen's fine [Hats, and an assort]ment [of] Shoes. R. & C. havi[ng] secured the [agency of Evans's] Hygeian [Me]d[ici]ne[s] […] would respectfully cau[t]io[n …] aga[in]st p[u]r[c]hasing the Medicin[e]s w[ithou]t [the] signature attached, as th[e] Pills [are extensively] c[ount]e[rf]e[i]t[ed].",
+      "locator": {
+        "artifact_role": "primary",
+        "issue_page": 4,
+        "column": 6,
+        "lines": [
+          460,
+          463
+        ],
+        "lines_of_claim": [
+          460,
+          461,
+          462,
+          463
+        ],
+        "interleaved": true,
+        "spans": [
+          {
+            "line": 460,
+            "from": 487,
+            "to": 874
+          },
+          {
+            "line": 461,
+            "from": 0,
+            "to": 45
+          },
+          {
+            "line": 462,
+            "from": 0,
+            "to": 25
+          },
+          {
+            "line": 463,
+            "from": 0,
+            "to": 139
+          }
+        ]
+      },
+      "entities": [],
+      "business": {
+        "name": "Russell & Clift, Chicago Book and Stationary Store",
+        "proprietors": [],
+        "trade": "books, stationery and patent medicines",
+        "goods": [
+          "Books",
+          "Hats",
+          "Shoes",
+          "Stationery"
+        ],
+        "street": null,
+        "placement": {
+          "class": "none",
+          "anchor": null,
+          "offset_text": null,
+          "offset_normalized": null,
+          "street": null
+        }
+      },
+      "notes": "THE SAME BOOKSELLER'S ADVERTISEMENT AS 1835-06-08, and the second printing adds hats and shoes to what a Chicago book store also sold. The heading 'Chicago Book and Stationary STORE' is legible in the first issue and lost here, so the business name is carried from that witness; the firm's own abbreviation 'R. & C.' appears in both. Still no address in either printing. The counterfeit warning is quoted because it is the sort of thing that dates a stock: Evans's Hygeian pills were being faked in the west in 1835 and the agent is saying so in his own advertisement."
+    }
+  ]
+}

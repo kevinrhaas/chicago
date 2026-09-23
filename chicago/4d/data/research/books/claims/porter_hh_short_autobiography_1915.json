@@ -1,0 +1,202 @@
+{
+ "schema": 1,
+ "domain": "books",
+ "source_id": "porter_hh_short_autobiography_1915",
+ "ticket": "T-0502",
+ "_doc": "H. H. PORTER'S SHORT AUTOBIOGRAPHY CARRIES NO DOCUMENT OF CHICAGO 1830-1836, AND THESE EIGHT CLAIMS ARE THE PAGES THAT ESTABLISH IT. All seventy leaves were swept; the earliest Chicago in the volume is September 1853, which is the author's own arrival. bk_porter_001, bk_porter_002 and bk_porter_003 are the ruling: father, mother and son are Maine people, and the son was born at Machias on 7 December 1835 — five months after the scene date and unborn on it. bk_porter_004 and bk_porter_005 date the arrival from the two ends of the book. bk_porter_006 and bk_porter_007 are the only two town findings the sweep yielded, and both are 1853 statements about a town of 1853; they are recorded so that a later run does not have to re-read seventy leaves to learn that this is all there is. bk_porter_008 states the volume's distance from everything. NOTHING IN data/residents/, data/structures/ OR data/assets/ WAS EDITED BY THIS PASS.",
+ "claims": [
+  {
+   "id": "bk_porter_001",
+   "kind": "person",
+   "reading": "transcription_mediated",
+   "quote": "Y FATHER, Rufus King Porter, was born in Bidde-\nford, Maine, in the year 1794. He was graduated\nfrom Bowdoin College about 1813, and afterwards studied law\nin Portland, Maine. When still a young man he went to\nMachias, Washington County, Maine, and began the practice\noflaw. “There he continued to reside and follow his profession until his death, in 1856, at the age of sixty-two years.",
+   "normalized": "Rufus King Porter, the author's father, was born at Biddeford, Maine, in 1794, graduated from Bowdoin about 1813, studied law at Portland, moved to Machias in Washington County, Maine, as a young man, and practised there until his death in 1856.",
+   "locator": {
+    "list": "porter_hh_short_autobiography_1915_leaves_1_70",
+    "text_file": "porter_hh_short_autobiography_1915.txt",
+    "leaf": 11,
+    "printed_page": 9,
+    "lines": [
+     19,
+     24
+    ]
+   },
+   "describes_date": "1794-1856",
+   "entities": [
+    "Rufus King Porter"
+   ],
+   "town_finding": false,
+   "notes": "THE FIRST OF THE TWO SENTENCES THAT DECIDE THIS BOOK'S RELEVANCE. The author's father is a Maine man for the whole of his adult life: Biddeford, Bowdoin, Portland, then Machias 'until his death, in 1856'. There is no Chicago in the paternal line, and therefore no family memory of the 1830s town for this book to carry. See bk_porter_003 for the second."
+  },
+  {
+   "id": "bk_porter_002",
+   "kind": "person",
+   "reading": "transcription_mediated",
+   "quote": "My mother's maiden name was Lucy Lee Hedge. She was born in the year 1798, at East Dennis, Massachusetts, and had been living for some years previous to her marriage in the family of her uncle, Silas Lee, at Wiscasset, Maine. She died in 1862, at Machias, at the age of sixty-four years, and there both she and my father are buried.",
+   "normalized": "The author's mother, Lucy Lee Hedge, was born in 1798 at East Dennis, Massachusetts, lived before her marriage with her uncle Silas Lee at Wiscasset, Maine, and died at Machias in 1862.",
+   "locator": {
+    "list": "porter_hh_short_autobiography_1915_leaves_1_70",
+    "text_file": "porter_hh_short_autobiography_1915.txt",
+    "leaf": 11,
+    "printed_page": 9,
+    "lines": [
+     27,
+     27
+    ]
+   },
+   "describes_date": "1798-1862",
+   "entities": [
+    "Lucy Lee Hedge",
+    "Silas Lee"
+   ],
+   "town_finding": false,
+   "notes": "The maternal line is New England too — East Dennis, Wiscasset, Machias — and it closes the other half of the relevance question. The parents married in 1829 (line 26) and neither of them is ever placed west of Maine."
+  },
+  {
+   "id": "bk_porter_003",
+   "kind": "person",
+   "reading": "transcription_mediated",
+   "quote": "I was born in Machias, оп the 7th day of December, 1835, and spent my boyhood years there, attending the public",
+   "normalized": "Henry Hobart Porter was born at Machias, Maine, on 7 December 1835, and spent his boyhood there.",
+   "locator": {
+    "list": "porter_hh_short_autobiography_1915_leaves_1_70",
+    "text_file": "porter_hh_short_autobiography_1915.txt",
+    "leaf": 11,
+    "printed_page": 9,
+    "lines": [
+     29,
+     29
+    ]
+   },
+   "describes_date": "1835-12-07",
+   "entities": [
+    "H. H. Porter"
+   ],
+   "town_finding": false,
+   "notes": "THE SENTENCE THAT RULES ON THE WHOLE VOLUME, and the one the crosswalk's refusal rests on. On the scene date of 1 July 1835 the author of this book was unborn, and he was born five months later 1,300 miles away. 'оп' is the OCR's Cyrillic o for 'on' and is kept because the quote is verbatim; the reading is in `normalized`."
+  },
+  {
+   "id": "bk_porter_004",
+   "kind": "event",
+   "reading": "transcription_mediated",
+   "quote": "From New York I traveled by steamboat to Albany, thence by the New York Central Railroad to Buffalo (there were no sleeping cars at that time), thence by steamboat to Detroit, and thence over the Michigan Central Railroad to Chicago. This railroad had been opened through at about that time and terminated in Chicago on the prairie near the lake shore at about Sixteenth Street. While on the way from Detroit to Chicago I remember seeing wild deer from the train window. This was in September, 1853.",
+   "normalized": "Porter reached Chicago in September 1853, travelling New York to Albany by steamboat, to Buffalo by the New York Central, to Detroit by steamboat and thence over the Michigan Central, which then terminated on the prairie near the lake shore at about Sixteenth Street.",
+   "locator": {
+    "list": "porter_hh_short_autobiography_1915_leaves_1_70",
+    "text_file": "porter_hh_short_autobiography_1915.txt",
+    "leaf": 13,
+    "printed_page": 11,
+    "spans": [
+     {
+      "line": 47,
+      "from": 0,
+      "to": 499
+     }
+    ]
+   },
+   "describes_date": "1853-09",
+   "entities": [
+    "H. H. Porter"
+   ],
+   "town_finding": false,
+   "notes": "The author's first sight of Chicago, dated by himself. It is eighteen years and two months after the scene date, and it is the earliest moment at which this book has an eyewitness in this town at all."
+  },
+  {
+   "id": "bk_porter_005",
+   "kind": "person",
+   "reading": "transcription_mediated",
+   "quote": "Chicago in 1853, from an old drawing in possession of the Chicago Historical Society. This was the year Mr. Porter became a resident of Chicago.",
+   "normalized": "The publisher's plate caption dates Porter's residence in Chicago from 1853.",
+   "locator": {
+    "list": "porter_hh_short_autobiography_1915_leaves_1_70",
+    "text_file": "porter_hh_short_autobiography_1915.txt",
+    "leaf": 54,
+    "printed_page": null,
+    "lines": [
+     236,
+     236
+    ]
+   },
+   "describes_date": "1853",
+   "entities": [
+    "H. H. Porter",
+    "Chicago Historical Society"
+   ],
+   "town_finding": false,
+   "notes": "The 1915 publishers say the same thing the narrative does, from the other end of the book: 1853 is the year of arrival. Two independent statements inside one volume, and no statement anywhere in it of an earlier connection."
+  },
+  {
+   "id": "bk_porter_006",
+   "kind": "building",
+   "reading": "transcription_mediated",
+   "quote": "Michigan Avenue had not been opened from Water Street to the river, and the old blockhouse of the fort was still in existence.",
+   "normalized": "In September 1853 the old blockhouse of Fort Dearborn was still standing, and Michigan Avenue had not yet been opened from Water Street through to the river.",
+   "locator": {
+    "list": "porter_hh_short_autobiography_1915_leaves_1_70",
+    "text_file": "porter_hh_short_autobiography_1915.txt",
+    "leaf": 14,
+    "printed_page": 12,
+    "spans": [
+     {
+      "line": 50,
+      "from": 758,
+      "to": 884
+     }
+    ]
+   },
+   "describes_date": "1853",
+   "entities": [
+    "Fort Dearborn"
+   ],
+   "town_finding": true,
+   "notes": "THE ONE THING IN THIS BOOK THAT TOUCHES THE SCENE, and it touches it from outside: a fort building that stands in 1835 is reported still standing in 1853, by a man who saw it. That is a terminus ante quem non for its removal and nothing more — it constrains no dimension, no position and no appearance, and this project's Fort Dearborn records are not edited by it. Recorded as a town finding because it is a fact about a structure the town holds; recorded with its 1853 date because that is what it is."
+  },
+  {
+   "id": "bk_porter_007",
+   "kind": "landscape",
+   "reading": "transcription_mediated",
+   "quote": "The level of the streets from the river south to Monroe Street was at that time from five to twelve feet lower than the present grade, the filling in of the streets and the elevation of the buildings along them having been begun some years before the Chicago fire.",
+   "normalized": "In 1853 the street level from the river south to Monroe Street stood five to twelve feet below the grade of 1904, the raising of the streets and buildings having begun some years before the fire of 1871.",
+   "locator": {
+    "list": "porter_hh_short_autobiography_1915_leaves_1_70",
+    "text_file": "porter_hh_short_autobiography_1915.txt",
+    "leaf": 15,
+    "printed_page": 13,
+    "spans": [
+     {
+      "line": 55,
+      "from": 0,
+      "to": 264
+     }
+    ]
+   },
+   "describes_date": "1853-1871",
+   "entities": [],
+   "town_finding": true,
+   "notes": "A SECOND-HAND WITNESS TO THE GRADE RAISING, dated 1853 and therefore eighteen years after the scene: it says the modern street surface between the river and Monroe stands five to twelve feet above the level Porter found. It is recorded because a reader of this project's terrain will want it and because it is the kind of statement that gets cited loosely; it is NOT used, and `data/datum.json` is derived from committed ground control and not from prose. What the town's surface was in 1835 this book does not say."
+  },
+  {
+   "id": "bk_porter_008",
+   "kind": "notice",
+   "reading": "transcription_mediated",
+   "quote": "Porter in the Summer of 1904 with the intention of having a brief history of his life and work for his family and grandchildren. It was not his idea that it should be printed.\nMr. Porter's life work was so interwoven with the development of Chicago and the near North- west, and this narrative gives such an interesting and clear idea of the conditions existing and of the marvelous growth of this country during his lifetime, that it has been decided to print the autobiography in a small edition for his close friends and associates.",
+   "normalized": "The publishers state that the autobiography was written by Porter in the summer of 1904 for his family, that he did not intend it to be printed, and that it was printed in a small edition because his life's work was interwoven with the development of Chicago.",
+   "locator": {
+    "list": "porter_hh_short_autobiography_1915_leaves_1_70",
+    "text_file": "porter_hh_short_autobiography_1915.txt",
+    "leaf": 9,
+    "printed_page": null,
+    "lines": [
+     11,
+     12
+    ]
+   },
+   "describes_date": "1904",
+   "entities": [
+    "H. H. Porter"
+   ],
+   "town_finding": false,
+   "notes": "The volume's own statement of its distance from anything: composed in 1904, printed in 1915, about a career that began in Chicago in 1853. Nothing in it is nearer the scene year than fifty-nine years of hindsight over a town the writer never saw."
+  }
+ ]
+}

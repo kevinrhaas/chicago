@@ -1,0 +1,1007 @@
+{
+  "schema": 1,
+  "issue_id": "chicago_democrat_1835_07_08",
+  "extracted": "2026-08-29",
+  "extracted_by": "hand, T-0296",
+  "note": "The Democrat of 1835-07-08, Vol. II No. 12, read through — the PARTIAL issue of the range: only three of its four pages are in the source PDF and the transcription ends '===== MISSING ISSUE PAGE 4 =====', so a quarter of the issue, and with it a quarter of its advertising, cannot be read at all and nothing here should be taken as the whole of what the number carried. Read from the RECONCILED deposit transcription (`artifact_role: primary`), which is one line per printed line and is far the best witness in this range; the `-2` rebuild committed under text/ is not used. THE SEGMENTER CUT EACH PRINTED COLUMN IN HALF and wove the halves line by line, so almost every claim here carries `interleaved: true` and a `lines_of_claim` subset naming the lines that belong to it. NO CHICAGO POST-OFFICE LETTER LIST STANDS IN THIS ISSUE, or anywhere in the four issues T-0296 reads: swept for every form the Democrat uses — 'list of letters', 'letters remaining', 'remaining in the post office', 'uncalled for', a signature ending 'P. M.' — for three hits, all of them out-of-county returns of 1 July 1835 (Hennepin, Plainfield, Du Page) recorded at c018-c020 and minted nowhere.",
+  "claims": [
+    {
+      "id": "c001",
+      "kind": "business",
+      "reading": "transcription_mediated",
+      "quote": "tion sni Commission House.\n1 NIE subseriber has\ntaken David Car-\nver'» Old Stand, Sonth\nWater-Street, for the\npurpose of transacting\nthe above business.-\ns inade\nupon Goons.—Immediately af-\nall Consignments will be settled— Cash\nW. MONTGOMERY.\no, July 6, 1835.",
+      "normalized": "[Auc]tion an[d] Commission House. THE subscriber has taken David Carver's Old Stand, South Water-Street, for the purpose of transacting the above business.— [Advance]s made upon Goods.—Immediately af[ter sales,] all Consignments will be settled— Cash [up.] W. MONTGOMERY. [Chicag]o, July 6, 1835.",
+      "locator": {
+        "artifact_role": "primary",
+        "issue_page": 3,
+        "column": 2,
+        "lines": [
+          2641,
+          2658
+        ],
+        "lines_of_claim": [
+          2641,
+          2642,
+          2643,
+          2644,
+          2646,
+          2648,
+          2650,
+          2652,
+          2653,
+          2654,
+          2656,
+          2658
+        ],
+        "interleaved": true
+      },
+      "entities": [
+        {
+          "as_printed": "W. MONTGOMERY",
+          "normalized": "W. Montgomery",
+          "role": "proprietor",
+          "occupations": [
+            "auctioneer",
+            "commission merchant"
+          ],
+          "associated_places": [
+            "South Water Street"
+          ]
+        },
+        {
+          "as_printed": "David Car-\nver'»",
+          "normalized": "David Carver",
+          "role": "former occupant",
+          "occupations": [
+            "merchant"
+          ],
+          "associated_places": [
+            "South Water Street"
+          ]
+        }
+      ],
+      "ad_copy_date": {
+        "verbatim": "o, July 6, 1835.",
+        "iso": "1835-07-06"
+      },
+      "business": {
+        "name": "W. Montgomery",
+        "proprietors": [
+          "W. Montgomery"
+        ],
+        "trade": "auction and commission house",
+        "goods": [],
+        "street": "South Water Street",
+        "placement": {
+          "class": "relative",
+          "anchor": "David Carver's Old Stand",
+          "offset_text": "taken David Car-\nver'» Old Stand, Sonth\nWater-Street",
+          "offset_normalized": "taken David Carver's Old Stand, South Water-Street",
+          "street": "South Water Street"
+        }
+      },
+      "announces_opening": {
+        "verbatim": "has taken David Carver's Old Stand, South Water-Street, for the purpose of transacting the above business",
+        "dating": "effected",
+        "iso": "1835-07-06",
+        "note": "'Has taken' over a dateline of 6 July 1835: the stand was taken on or before that day, never after it. The fuller printing of the same copy in this issue ('New Establishment', page 3 columns 5-6) says his first public sale falls on 'the 1st day of July', which is the scene date."
+      },
+      "notes": "INTERLEAVE. The segmenter cut each printed column in half and wove the halves line by line, so lines 2645, 2647, 2649, 2655 and 2657 inside this range carry the Howard Fire Insurance notice that stands beside it ('Company', 'cago and', 'gainst lo', 'TOT', 'Mic' — the same notice quoted whole at c005) and are excluded. Line 2651 ('July 1.') belongs to neither reading with any confidence and is left out rather than assigned. OCR JUDGEMENTS: '1 NIE'→'THE', 'subseriber'→'subscriber', 'Sonth'→'South', 'Goons'→'Goods', 's inade'→'[Advance]s made' (the same sentence reads 'Advances made upon Goods' in the 1835-07-29 printing, line 409). NEW OPENING. The copy announces a business taking a stand rather than standing at one — the fuller version of the same advertisement, printed in this issue at page 3 column 5-6 under the heading 'New Establishment', says 'His first public sale will take place on [Wednesday] next, the 1st day of July' — so `announces_opening` is true and the opening date is the scene date itself, 1 July 1835. The Auction Room's street is corroborated on 1835-07-22 (page 3 column 4): 'received at Montgomery's Auction Room, South Water Street. W. MONTGOMERY, Agent'."
+    },
+    {
+      "id": "c002",
+      "kind": "infrastructure",
+      "reading": "transcription_mediated",
+      "quote": "ago and Vincennes Rail Road.\nETING of the commissioners of the\nicago and Vincennes Rail Road, will be\nanville, Illinois, on Monday the 27th\nuly next, for the purpose of organizing\ng such other business as may come be-\nn.\nJno. H. Kinzie,\nham B. Archer,\nGea. W. Dole,\ndon S. Hubbard,\nPeter Pruyne,\no, July 21, 1635. -3w12.\nnters in Danville, Il. Terro Haute, and\no, la. are requested to publish this no-\ne, and forward their bills to this olice.",
+      "normalized": "[Chic]ago and Vincennes Rail Road. [A ME]ETING of the commissioners of the [Ch]icago and Vincennes Rail Road, will be [held at D]anville, Illinois, on Monday the 27th [day of J]uly next, for the purpose of organizing [and transactin]g such other business as may come be-[fore them.] Jno. H. Kinzie, [Willi]am B. Archer, Ge[o]. W. Dole, [Gur]don S. Hubbard, Peter Pruyne, [Chicag]o, July 21, 1635. -3w12. [Pri]nters in Danville, Il. Terr[e] Haute, and [Vincennes, In]d. are requested to publish this no-[tic]e, and forward their bills to this o[ff]ice.",
+      "locator": {
+        "artifact_role": "primary",
+        "issue_page": 3,
+        "column": 2,
+        "lines": [
+          2660,
+          2684
+        ],
+        "lines_of_claim": [
+          2660,
+          2662,
+          2664,
+          2666,
+          2668,
+          2670,
+          2671,
+          2672,
+          2673,
+          2674,
+          2676,
+          2677,
+          2678,
+          2680,
+          2682,
+          2684
+        ],
+        "interleaved": true
+      },
+      "entities": [
+        {
+          "as_printed": "Jno. H. Kinzie",
+          "normalized": "John H. Kinzie",
+          "role": "commissioner",
+          "occupations": [
+            "railroad commissioner"
+          ],
+          "associated_places": [
+            "Chicago"
+          ]
+        },
+        {
+          "as_printed": "ham B. Archer",
+          "normalized": "William B. Archer",
+          "role": "commissioner",
+          "occupations": [
+            "railroad commissioner"
+          ],
+          "associated_places": []
+        },
+        {
+          "as_printed": "Gea. W. Dole",
+          "normalized": "George W. Dole",
+          "role": "commissioner",
+          "occupations": [
+            "railroad commissioner",
+            "merchant"
+          ],
+          "associated_places": [
+            "Chicago"
+          ]
+        },
+        {
+          "as_printed": "don S. Hubbard",
+          "normalized": "Gurdon S. Hubbard",
+          "role": "commissioner",
+          "occupations": [
+            "railroad commissioner",
+            "merchant"
+          ],
+          "associated_places": [
+            "Chicago"
+          ]
+        },
+        {
+          "as_printed": "Peter Pruyne",
+          "normalized": "Peter Pruyne",
+          "role": "commissioner",
+          "occupations": [
+            "railroad commissioner",
+            "druggist"
+          ],
+          "associated_places": [
+            "Chicago"
+          ]
+        }
+      ],
+      "notes": "THE DATELINE CANNOT STAND AND IS NOT NORMALISED INTO ONE. 'o, July 21, 1635' names a day thirteen days AFTER the issue it is printed in, so no `ad_copy_date` is recorded here: the year is plainly 1835 by the run of the paper, but the month and day are not recoverable from this witness. The same notice in the 1835-07-15 printing (page 3 column 3, line 369) reads 'Chirayo, duty 24,1)', which does not settle it either. WHAT IS NOT SUPPLIED: the commissioners' forenames are cut at the crop edge — 'ham B. Archer' and 'don S. Hubbard' are supplied as William B. Archer and Gurdon S. Hubbard from the same list's fuller printing on 1835-07-15 line 368 ('Willan B. Archer, W. Dole, Gurdon S. Hubbari, Pruyne'), and both men are otherwise documented in the town. Interleaved lines 2661, 2663, 2665, 2667, 2669, 2675, 2679, 2681, 2683 carry the adjacent saddlery advertisement and are excluded."
+    },
+    {
+      "id": "c003",
+      "kind": "infrastructure",
+      "reading": "transcription_mediated",
+      "quote": "Notice.\nLand Office at Chicago, will be open-\nfor the entry of Lands at Private Sale\nay the 34 day of August next, at 9 o'\nM. JAMES WHITLOCK, Reg'r.\nE. D. TAYLOR, Re'r.\no. July 3, 1835.—4w12",
+      "normalized": "Notice. [THE] Land Office at Chicago, will be open-[ed] for the entry of Lands at Private Sale [on Mond]ay the 3[d] day of August next, at 9 o'[clock A.]M. JAMES WHITLOCK, Reg'r. E. D. TAYLOR, Re[c]'r. [Chicag]o. July 3, 1835.—4w12",
+      "locator": {
+        "artifact_role": "primary",
+        "issue_page": 3,
+        "column": 2,
+        "lines": [
+          2687,
+          2695
+        ],
+        "lines_of_claim": [
+          2687,
+          2689,
+          2690,
+          2692,
+          2693,
+          2694,
+          2695
+        ],
+        "interleaved": true
+      },
+      "entities": [
+        {
+          "as_printed": "JAMES WHITLOCK",
+          "normalized": "James Whitlock",
+          "role": "register of the land office",
+          "occupations": [
+            "register, United States Land Office"
+          ],
+          "associated_places": [
+            "Chicago"
+          ]
+        },
+        {
+          "as_printed": "E. D. TAYLOR",
+          "normalized": "E. D. Taylor",
+          "role": "receiver of the land office",
+          "occupations": [
+            "receiver, United States Land Office"
+          ],
+          "associated_places": [
+            "Chicago"
+          ]
+        }
+      ],
+      "ad_copy_date": {
+        "verbatim": "o. July 3, 1835.—4w12",
+        "iso": "1835-07-03"
+      },
+      "notes": "THE HOUR DISAGREES ACROSS THE THREE PRINTINGS OF THIS NOTICE and is left as printed here. This witness reads 'at 9 o'[clock]'; the 1835-07-15 printing (line 371) reads 'af 10° clo A.M.' and the 1835-07-29 printing (lines 416-417) reads 'a9 or | [clock AM.' — so two of the three witnesses read ten o'clock and this one reads nine. Nothing here settles which the type carried; the disagreement is recorded rather than resolved. Interleaved lines 2688, 2691 and 2696 carry the adjacent saddlery advertisement and are excluded."
+    },
+    {
+      "id": "c004",
+      "kind": "building",
+      "reading": "transcription_mediated",
+      "quote": "Notice.\nETING of the Electors of School Dis-\nt No. 2, will be held at the Baptist\nhouse, on Saturday evening July I1, at\n, for the purpose of fliling vacancies in\ntrustee, clerk and collector,\ned by their removal frem the district.\nHI. CROCKER, Clerk.\no, July 8, 1835.",
+      "normalized": "Notice. [A ME]ETING of the Electors of School Dis-[tric]t No. 2, will be held at the Baptist [meeting] house, on Saturday evening July 11, at [7 o'clock], for the purpose of filling vacancies in [the office] of one trustee, clerk and collector, [caus]ed by their removal from the district. H. CROCKER, Clerk. [Chicag]o, July 8, 1835.",
+      "locator": {
+        "artifact_role": "primary",
+        "issue_page": 3,
+        "column": 2,
+        "lines": [
+          2698,
+          2710
+        ],
+        "lines_of_claim": [
+          2698,
+          2700,
+          2701,
+          2703,
+          2704,
+          2706,
+          2708,
+          2709,
+          2710
+        ],
+        "interleaved": true
+      },
+      "entities": [
+        {
+          "as_printed": "HI. CROCKER",
+          "normalized": "H. Crocker",
+          "role": "clerk of school district no. 2",
+          "occupations": [
+            "school district clerk"
+          ],
+          "associated_places": [
+            "Chicago"
+          ]
+        }
+      ],
+      "ad_copy_date": {
+        "verbatim": "o, July 8, 1835.",
+        "iso": "1835-07-08"
+      },
+      "notes": "A BUILDING, NAMED AS A PLACE THE TOWN MEETS IN. The claim is kept as a `building` rather than a `notice` because what it carries for the model is that a Baptist meeting house stood in Chicago and was in use for a public meeting on the evening of Saturday 11 July 1835 — the notice's own business (filling a trustee, a clerk and a collector left vacant by removals) is secondary. NOT SUPPLIED: the hour is cut at the crop edge and is not guessed at; 'July I1' is read as July 11, which is the Saturday of that week. Interleaved lines 2699, 2702, 2705 and 2707 carry the adjacent column and are excluded."
+    },
+    {
+      "id": "c005",
+      "kind": "business",
+      "reading": "transcription_mediated",
+      "quote": "'ire Insurance.\nsubseriber having been appointed\nnt for the Howard Fire Insurance\nof the city of New-York, for Chi-\nhe vieinity, will insure property a-\nby Fire, on rensonable terms.\nE. IK. HUBBARD.",
+      "normalized": "[F]ire Insurance. [THE] subscriber having been appointed [Age]nt for the Howard Fire Insurance [Company] of the city of New-York, for Chi-[cago and t]he vicinity, will insure property a-[gainst loss] by Fire, on reasonable terms. E. K. HUBBARD.",
+      "locator": {
+        "artifact_role": "primary",
+        "issue_page": 3,
+        "column": 3,
+        "lines": [
+          2973,
+          2985
+        ],
+        "lines_of_claim": [
+          2973,
+          2975,
+          2977,
+          2979,
+          2981,
+          2983,
+          2985
+        ],
+        "interleaved": true
+      },
+      "entities": [
+        {
+          "as_printed": "E. IK. HUBBARD",
+          "normalized": "E. K. Hubbard",
+          "role": "agent",
+          "occupations": [
+            "insurance agent",
+            "merchant"
+          ],
+          "associated_places": [
+            "Chicago"
+          ]
+        }
+      ],
+      "business": {
+        "name": "Howard Fire Insurance Company — E. K. Hubbard, agent at Chicago",
+        "proprietors": [
+          "E. K. Hubbard"
+        ],
+        "trade": "fire insurance agency",
+        "goods": [],
+        "street": null,
+        "placement": {
+          "class": "none"
+        }
+      },
+      "notes": "NO ADDRESS IS GIVEN, so the placement class is `none` rather than a street guessed at from the man. The advertisement stands again in the 1835-07-29 issue (page 3 column 5, line 394) under the same heading and over the same name. The left half of this printed column is woven through the same lines and is excluded (2974, 2976, 2978, 2980, 2982, 2984)."
+    },
+    {
+      "id": "c006",
+      "kind": "infrastructure",
+      "reading": "transcription_mediated",
+      "quote": "CE.-The notes of the Bank of\ngan, and Farmers' and Mechanica'\nchigan, at Detroit; also the notes o\ny fund Banks of the State of New-\nBank of Cleavland, and the Banks\nati, will be received at the Land Of.\nago.\nE. D. TAYLOR, ReeT.",
+      "normalized": "[NOTI]CE.-The notes of the Bank of [Michi]gan, and Farmers' and Mechanic[s'] [Bank of Mi]chigan, at Detroit; also the notes o[f the safet]y fund Banks of the State of New-[York, the] Bank of Cleavland, and the Banks [of Cincinn]ati, will be received at the Land Of[fice at Chic]ago. E. D. TAYLOR, Re[c'r].",
+      "locator": {
+        "artifact_role": "primary",
+        "issue_page": 3,
+        "column": 3,
+        "lines": [
+          2988,
+          3001
+        ],
+        "lines_of_claim": [
+          2988,
+          2990,
+          2992,
+          2994,
+          2995,
+          2997,
+          3000,
+          3001
+        ],
+        "interleaved": true
+      },
+      "entities": [
+        {
+          "as_printed": "E. D. TAYLOR",
+          "normalized": "E. D. Taylor",
+          "role": "receiver of the land office",
+          "occupations": [
+            "receiver, United States Land Office"
+          ],
+          "associated_places": [
+            "Chicago"
+          ]
+        }
+      ],
+      "notes": "WHAT THE LAND OFFICE WOULD TAKE, three weeks before the August private sale — the notes of the Bank of Michigan and of the Farmers' and Mechanics' Bank of Michigan at Detroit, of the New York safety-fund banks, of the Bank of Cleveland and of the Cincinnati banks. Kept as `infrastructure` because it describes the working of a public office in the town rather than a business. Interleaved lines 2989, 2991, 2993, 2996, 2998, 2999 carry the adjacent dry-goods advertisement and are excluded."
+    },
+    {
+      "id": "c007",
+      "kind": "notice",
+      "reading": "transcription_mediated",
+      "quote": "(E.-All persona are cautioned a-\npurchasing a Note or due bill signed\nable to O. I. Thompson or order,\n6 12th or 13th of May last, an the\nen paid but not taken up.\nDAVID CARVER.\nJune 16, 1835.",
+      "normalized": "[NOTI]CE.-All persons are cautioned a-[gainst] purchasing a Note or due bill signed [by me, pay]able to O. I. Thompson or order, [bearing date the 1]2th or 13th of May last, as the [same has be]en paid but not taken up. DAVID CARVER. [Chicago,] June 16, 1835.",
+      "locator": {
+        "artifact_role": "primary",
+        "issue_page": 3,
+        "column": 3,
+        "lines": [
+          3027,
+          3037
+        ],
+        "lines_of_claim": [
+          3027,
+          3028,
+          3030,
+          3031,
+          3033,
+          3035,
+          3037
+        ],
+        "interleaved": true
+      },
+      "entities": [
+        {
+          "as_printed": "DAVID CARVER",
+          "normalized": "David Carver",
+          "role": "signer",
+          "occupations": [
+            "merchant"
+          ],
+          "associated_places": [
+            "Chicago"
+          ]
+        },
+        {
+          "as_printed": "O. I. Thompson",
+          "normalized": "O. I. Thompson",
+          "role": "payee",
+          "occupations": [],
+          "associated_places": []
+        }
+      ],
+      "ad_copy_date": {
+        "verbatim": "June 16, 1835.",
+        "iso": "1835-06-16"
+      },
+      "notes": "Interleaved lines 3029, 3032, 3034 and 3036 carry the adjacent dry-goods advertisement and are excluded. The notice stands again on 1835-07-15 (line 391-395) and 1835-07-29 (line 424) over the same name."
+    },
+    {
+      "id": "c008",
+      "kind": "business",
+      "reading": "transcription_mediated",
+      "quote": "and cheap Goods,\nTHIS OLD STAND.\nscriber is now opening & large and\nil assortment of\nGoods, Groceries,\nClothing and Mircellaneous Arti-\npectfully requests the public gen-\n• friends in particular, to call and\nstock of goods.\nPETER COLIEN.",
+      "normalized": "[New] and cheap Goods, [AT] HIS OLD STAND. [The sub]scriber is now opening a large and [genera]l assortment of [Dry] Goods, Groceries, [Boots, Shoes,] Clothing and Miscellaneous Arti-[cles. He res]pectfully requests the public gen-[erally and his] friends in particular, to call and [examine his] stock of goods. PETER COHEN.",
+      "locator": {
+        "artifact_role": "primary",
+        "issue_page": 3,
+        "column": 4,
+        "lines": [
+          3210,
+          3231
+        ],
+        "lines_of_claim": [
+          3210,
+          3212,
+          3214,
+          3216,
+          3219,
+          3221,
+          3224,
+          3226,
+          3229,
+          3231
+        ],
+        "interleaved": true
+      },
+      "entities": [
+        {
+          "as_printed": "PETER COLIEN",
+          "normalized": "Peter Cohen",
+          "role": "proprietor",
+          "occupations": [
+            "merchant"
+          ],
+          "associated_places": [
+            "South Water Street"
+          ]
+        }
+      ],
+      "business": {
+        "name": "Peter Cohen",
+        "proprietors": [
+          "Peter Cohen"
+        ],
+        "trade": "dry goods, groceries, clothing and miscellaneous articles",
+        "goods": [
+          "Clothing",
+          "Dry Goods",
+          "Groceries"
+        ],
+        "street": "South Water Street",
+        "placement": {
+          "class": "none"
+        }
+      },
+      "notes": "'AT HIS OLD STAND' AND NO STREET, so this advertisement's own placement class is `none`. The stand is placed by the standing advertisement in the scene-date issue (chicago_democrat_1835_07_01 c001), which puts Cohen's store on south water street below Messrs. Newberry and Dole's; that is where the gazetteer's placement for this business comes from, and this claim adds the trade and the fact that he was opening new stock in July 1835 rather than a second address. Interleaved lines carry the ship-chandlery advertisement ('PRIGGING', 'chords', 'sail needles') and are excluded."
+    },
+    {
+      "id": "c009",
+      "kind": "business",
+      "reading": "transcription_mediated",
+      "quote": "iware, Stoves, de.\ndersigned have formed a connection\nnerchantile business, under the firm\nng 4. ro.\nThey are receiving by\n, a large and general assortment of\nHard Ware,\n%, Nails, Iron, Steel, &e.\nSTOVES,\ncomplete assortment of\namiture, Iron H'ars and San Mill\nch they offer at WHOLEsALE or uK-\nWILLIAM JONES,\nBYRAM KING,\nH. B. CLARKE.",
+      "normalized": "[Hardw]are, Stoves, &c. [The un]dersigned have formed a connection [in the] mercantile business, under the firm [of Jones, Ki]ng & Co. They are receiving by [Brig Illinois], a large and general assortment of Hard Ware, [Cutlery]s, Nails, Iron, Steel, &c. [A large and] complete assortment of STOVES, [and Stove F]urniture, Iron W[a]re and Saw Mill [Gearing, whi]ch they offer at WHOLESALE or [RETAIL]. WILLIAM JONES, BYRAM KING, H. B. CLARKE.",
+      "locator": {
+        "artifact_role": "primary",
+        "issue_page": 3,
+        "column": 4,
+        "lines": [
+          3160,
+          3188
+        ],
+        "lines_of_claim": [
+          3160,
+          3163,
+          3165,
+          3167,
+          3168,
+          3171,
+          3172,
+          3176,
+          3177,
+          3178,
+          3181,
+          3183,
+          3184,
+          3185,
+          3188
+        ],
+        "interleaved": true
+      },
+      "entities": [
+        {
+          "as_printed": "WILLIAM JONES",
+          "normalized": "William Jones",
+          "role": "partner",
+          "occupations": [
+            "merchant",
+            "hardware merchant"
+          ],
+          "associated_places": [
+            "Chicago"
+          ]
+        },
+        {
+          "as_printed": "BYRAM KING",
+          "normalized": "Byram King",
+          "role": "partner",
+          "occupations": [
+            "merchant",
+            "hardware merchant"
+          ],
+          "associated_places": [
+            "Chicago"
+          ]
+        },
+        {
+          "as_printed": "H. B. CLARKE",
+          "normalized": "H. B. Clarke",
+          "role": "partner",
+          "occupations": [
+            "merchant",
+            "hardware merchant"
+          ],
+          "associated_places": [
+            "Chicago"
+          ]
+        }
+      ],
+      "business": {
+        "name": "Jones, King & Co.",
+        "proprietors": [
+          "William Jones",
+          "Byram King",
+          "H. B. Clarke"
+        ],
+        "trade": "hardware, cutlery, nails, iron, steel, stoves and saw mill gearing, wholesale and retail",
+        "goods": [
+          "Cutlery",
+          "Hardware",
+          "Iron",
+          "Nails",
+          "Saw mill gearing",
+          "Steel",
+          "Stove furniture",
+          "Stoves"
+        ],
+        "street": null,
+        "placement": {
+          "class": "none"
+        }
+      },
+      "announces_opening": {
+        "verbatim": "[The un]dersigned have formed a connection [in the] mercantile business, under the firm [of Jones, Ki]ng & Co.",
+        "dating": "undated",
+        "iso": null,
+        "note": "A firm announcing its own formation, and this printing carries no dateline. The 5 August printing of the same copy does, and it is dated 1 July 1835."
+      },
+      "notes": "A FIRM ANNOUNCING ITSELF, not a firm advertising from a stand: 'The undersigned have formed a connection in the mercantile business, under the firm of Jones, King & Co.' The copy carries no address at all, so the placement class is `none`, and `announces_opening` is true — under the parent's rule this house is NOT evidence of a storefront standing on 1 July 1835 unless the formation predates it. The same three names stand over the same advertisement on 1835-07-22 (line 348) and 1835-07-29 (line 396). Interleaved lines carry the adjacent goods column and are excluded."
+    },
+    {
+      "id": "c010",
+      "kind": "business",
+      "reading": "transcription_mediated",
+      "quote": "in & Medicines.\nply of Drugs and Medicines, han\nday received by P. Pruyne &\ny offer low to practitioners of\n• country merchants.",
+      "normalized": "[Drugs] & Medicines. [A supp]ly of Drugs and Medicines, ha[s this] day received by P. Pruyne & [Co., which the]y offer low to practitioners of [medicine and] country merchants.",
+      "locator": {
+        "artifact_role": "primary",
+        "issue_page": 3,
+        "column": 4,
+        "lines": [
+          3274,
+          3280
+        ],
+        "lines_of_claim": [
+          3274,
+          3276,
+          3277,
+          3279,
+          3280
+        ],
+        "interleaved": true
+      },
+      "entities": [
+        {
+          "as_printed": "P. Pruyne &",
+          "normalized": "Peter Pruyne",
+          "role": "proprietor",
+          "occupations": [
+            "druggist"
+          ],
+          "associated_places": [
+            "Chicago"
+          ]
+        }
+      ],
+      "business": {
+        "name": "P. Pruyne & Co.",
+        "proprietors": [
+          "Peter Pruyne"
+        ],
+        "trade": "druggists, wholesale and retail",
+        "goods": [
+          "Chemicals",
+          "Drugs",
+          "Medicines",
+          "Oils",
+          "Paints",
+          "Varnish"
+        ],
+        "street": null,
+        "placement": {
+          "class": "none"
+        }
+      },
+      "notes": "P. PRUYNE & CO. IS THE HEAVIEST ADVERTISER IN THIS ISSUE — the firm signs some two dozen separate insertions across page 3 columns 4 and 5 (scythes and cradles; paints, oils and varnish; patent medicines; French quinine, iodate of potash and muriate of morphine; mill saws and cast steel; cordage, oakum, pitch and tar; salt from the Salina Works; perfumery; patent hinge trusses; horse shoes and spikes; tonic mixture) and no insertion in the issue gives its address. ONE claim is made for the house rather than one per insertion, and the goods list is the union of what those insertions name; the placement class is `none` because not one of them places it. Interleaved lines 3275 and 3278 carry the adjacent column and are excluded."
+    },
+    {
+      "id": "c011",
+      "kind": "business",
+      "reading": "transcription_mediated",
+      "quote": "cine. Dye Woods\n\"EFFS &e.\nE wubscriber offers at Whole-\nile and Relail, au extensive\nent of genuine Drugs, Med-\nete. etc., ninong which are\nowing:\n1, and others, will find it\ncall before they purchase\nHILO CARPENTER",
+      "normalized": "[Drugs, Medi]cine. Dye Woods [and DYE STUFFS &c. TH]E subscriber offers at Whole-[sa]le and Retail, an extensive [assortm]ent of genuine Drugs, Med-[icine,] etc. etc., among which are [the foll]owing: […] [Druggists, merchants and physicians] and others, will find it [to their advantage to] call before they purchase [elsewhere.] [P]HILO CARPENTER",
+      "locator": {
+        "artifact_role": "primary",
+        "issue_page": 3,
+        "column": 6,
+        "lines": [
+          3737,
+          3785
+        ],
+        "lines_of_claim": [
+          3737,
+          3738,
+          3739,
+          3740,
+          3741,
+          3742,
+          3743,
+          3783,
+          3784,
+          3785
+        ],
+        "interleaved": true
+      },
+      "entities": [
+        {
+          "as_printed": "HILO CARPENTER",
+          "normalized": "Philo Carpenter",
+          "role": "proprietor",
+          "occupations": [
+            "druggist"
+          ],
+          "associated_places": [
+            "Chicago"
+          ]
+        }
+      ],
+      "business": {
+        "name": "Philo Carpenter",
+        "proprietors": [
+          "Philo Carpenter"
+        ],
+        "trade": "druggist — drugs, medicines, dye woods and dye stuffs, wholesale and retail",
+        "goods": [
+          "Drugs",
+          "Dye stuffs",
+          "Dye woods",
+          "Glass",
+          "Medicines",
+          "Paints",
+          "Perfumery",
+          "White lead"
+        ],
+        "street": null,
+        "placement": {
+          "class": "none"
+        }
+      },
+      "notes": "THE QUOTE SKIPS THE GOODS TABLE IT ANNOUNCES. Lines 3744-3782 are the two-column list of drugs and dye stuffs the advertisement heads (logwood, nicaragua, fustic, sugar of lead, madder, indigo, cochineal, gum copal, shaving soap, tooth brushes, perfumery and the rest); they are inside the cited range and are not quoted because they are a price-list rather than a claim about the town. Carpenter's other insertions in this issue — white lead ground in oil (line 3153-3155), Saranac and crown window glass on consignment (3258-3270), blasting powder and Roger's rifle powder (3432-3435) — are folded into the goods here rather than made into claims of their own. NO ADDRESS in any of them, so the placement class is `none`."
+    },
+    {
+      "id": "c012",
+      "kind": "business",
+      "reading": "transcription_mediated",
+      "quote": "• E. ,\nd Attorney at Law,\nCluca 2o, Ianois.\n• all business confided to his\nprofession. He will also do\nwho may employ him, in\nbeing a Justice of the peace\nse ar ressonabe, and more\nwill also open and keep at\nmil Agency Office, for the\net payment of taxes, de, for\nbusiness in that line; hay-\nit Chicago for the last eight\nquainted with almost every\nhe first 30 miles of the Tils-\nfor the distance of many\ngo, he thinks himself well\nration on that subjeet, and\nnon-residents, an any other\nto the subscriber, post paid,\nory, opposite the Exelanne\nr of Lake and Franklin-ste.\n1 . - 6",
+      "normalized": "[RUSSELL] E. [HEACOCK, Counsellor an]d Attorney at Law, [Chi]ca[g]o, I[llin]ois. [Will attend to] all business confided to his [care, in his] profession. He will also do [the business for all] who may employ him, in [land conveyancing,] being a Justice of the peace [his charges will be rea]so[n]a[bl]e, and more [conveniently. He] will also open and keep at [the same place, a La]nd Agency Office, for the [purchase of land, th]e payment of taxes, &c, for [all who may give him] business in that line; hav-[ing been a resident a]t Chicago for the last eight [years, and being ac]quainted with almost every [section of land for t]he first 30 miles of the Illi[nois canal line, and] for the distance of many [miles around Chica]go, he thinks himself well [qualified to give info]r[m]ation on that subject, and [to do the business for] non-residents, as any other [in the state. Letters addressed] to the subscriber, post paid, [will be attended to. Office in the 2d st]ory, opposite the Ex[cha]n[ge], [corne]r of Lake and Franklin-sts.",
+      "locator": {
+        "artifact_role": "primary",
+        "issue_page": 3,
+        "column": 6,
+        "lines": [
+          3714,
+          3736
+        ]
+      },
+      "business": {
+        "name": "Russell E. Heacock",
+        "proprietors": [
+          "Russell E. Heacock"
+        ],
+        "trade": "counsellor and attorney at law, justice of the peace, and land agency office",
+        "goods": [],
+        "street": "Lake Street",
+        "placement": {
+          "class": "corner",
+          "anchor": "the Exchange",
+          "offset_text": "ory, opposite the Exelanne\nr of Lake and Franklin-ste.",
+          "offset_normalized": "[Office in the 2d st]ory, opposite the Ex[cha]n[ge], [corne]r of Lake and Franklin-sts.",
+          "street": "Lake Street"
+        }
+      },
+      "notes": "THE NAME IS CUT AWAY HERE AND THE ADDRESS IS NOT — the reverse of the other witness, and the reason this claim carries no `entities`. The crop takes the left of every line in this half-column, so the heading survives only as '• E. ,' and no person may be minted from a quote that does not name one. The advertisement is identified as Russell E. Heacock's by the 1835-07-29 printing of the SAME standing advertisement (page 3 column 6, line 442), which carries the name whole — 'RUSSELL FE. HEACOCK, | Counsetior asd Attorney at Law' — over text that matches this one phrase for phrase down to 'having been a resident at Chicago for the last eight years' and 'the first 30 miles of the Illinois canal line'. That printing loses the address, which is why the placement is recorded here. THE PLACEMENT IS THE VALUABLE PART: an office on the second story, opposite the Exchange, at the corner of Lake and Franklin streets. `class: corner` with the Exchange as the anchor; the corner itself is the paper's own words and is not inferred."
+    },
+    {
+      "id": "c013",
+      "kind": "building",
+      "reading": "transcription_mediated",
+      "quote": "• Rent,\nand consenient Dwelling\nerected by Mr. Rezigue, on\nFor terms, Ac. apply to\nE. K. HUBBARD.",
+      "normalized": "[To] Rent, [A large] and convenient Dwelling [House, lately] erected by Mr. Rezigue, on […] For terms, &c. apply to E. K. HUBBARD.",
+      "locator": {
+        "artifact_role": "primary",
+        "issue_page": 3,
+        "column": 5,
+        "lines": [
+          3614,
+          3622
+        ],
+        "lines_of_claim": [
+          3614,
+          3616,
+          3619,
+          3620,
+          3622
+        ],
+        "interleaved": true
+      },
+      "entities": [
+        {
+          "as_printed": "E. K. HUBBARD",
+          "normalized": "E. K. Hubbard",
+          "role": "agent",
+          "occupations": [
+            "insurance agent",
+            "merchant"
+          ],
+          "associated_places": [
+            "Chicago"
+          ]
+        }
+      ],
+      "notes": "A DWELLING HOUSE, LATELY ERECTED, AND ITS STREET IS CUT AWAY. The line ends 'erected by Mr. Rezigue, on' and the crop takes what follows, so the street is NOT supplied — '[…]' marks the gap. NO PERSON IS MINTED FOR THE BUILDER: 'Rezigue' is a reading of one crop-edge line and no other witness in this range carries the name, so it is left in the quote and the normalized reading and is not made an entity. What the claim carries for the town is that a large dwelling house had lately been built in Chicago and stood empty and to let in July 1835, with E. K. Hubbard letting it. Interleaved lines 3615, 3617, 3618 and 3621 carry the adjacent crockery advertisement and are excluded."
+    },
+    {
+      "id": "c014",
+      "kind": "notice",
+      "reading": "transcription_mediated",
+      "quote": "10 Reward.\nbay HORSE, with short tail,\nah, with saddle on, runaway near\ns taken up by two travellers,\ned they have left him in the vi.\nSoardman's Mill. Any person\nthe said property to be sent to\ner's, will roeive the slove re-\nROBERT DIXON.",
+      "normalized": "[$]10 Reward. [A] bay HORSE, with short tail, [and a bl]a[ze], with saddle on, runaway near [this town and wa]s taken up by two travellers, [who it is suppos]ed they have left him in the vi[cinity of Mr.] Boardman's Mill. Any person [that will cause] the said property to be sent to [the subscrib]er's, will receive the above re-[ward.] ROBERT DIXON.",
+      "locator": {
+        "artifact_role": "primary",
+        "issue_page": 3,
+        "column": 4,
+        "lines": [
+          3342,
+          3359
+        ],
+        "lines_of_claim": [
+          3342,
+          3345,
+          3347,
+          3348,
+          3350,
+          3351,
+          3354,
+          3357,
+          3359
+        ],
+        "interleaved": true
+      },
+      "entities": [
+        {
+          "as_printed": "ROBERT DIXON",
+          "normalized": "Robert Dixon",
+          "role": "advertiser",
+          "occupations": [],
+          "associated_places": [
+            "Chicago"
+          ]
+        }
+      ],
+      "notes": "NAMES A LANDMARK OUTSIDE THE PLAT: 'Mr. Boardman's Mill', in whose vicinity a runaway horse was thought to have been left. The mill is not placed by this notice and nothing is inferred about where it stood. Interleaved lines carry the goods column woven through this one and are excluded."
+    },
+    {
+      "id": "c015",
+      "kind": "notice",
+      "reading": "transcription_mediated",
+      "quote": "strayed or Stolen,\nr about the 14th of June Inst a sorrel\nARE, about fifteen hands bigh, ofl\nwhite, a small white spot in her fore-\ncar on one of her hips, a small lump on\nf her sore legs, and shod on her fore\n'unning: these are all the marks recol-\nShe is a handsome animal, and mach\nWhoever will return her\nh Lafromboi, at Chicago, or give infor-\nwhere she can be obtained, shall be lib-\nJuly 8. 1835-12.\nwarded JOSEPH LAFROMBOIS.",
+      "normalized": "[S]trayed or Stolen, [On o]r about the 14th of June last a sorrel [M]ARE, about fifteen hands high, of[f hind foot] white, a small white spot in her fore-[head, a s]car on one of her hips, a small lump on [one o]f her fore legs, and shod on her fore [feet for r]unning: these are all the marks recol-[lected.] She is a handsome animal, and much [valued by the owner.] Whoever will return her [to Josep]h Lafromboi[s], at Chicago, or give infor-[mation] where she can be obtained, shall be lib-[erally re]warded JOSEPH LAFROMBOIS. July 8. 1835-12.",
+      "locator": {
+        "artifact_role": "primary",
+        "issue_page": 3,
+        "column": 2,
+        "lines": [
+          2743,
+          2764
+        ],
+        "lines_of_claim": [
+          2743,
+          2745,
+          2747,
+          2749,
+          2751,
+          2753,
+          2754,
+          2756,
+          2758,
+          2759,
+          2761,
+          2763,
+          2764
+        ],
+        "interleaved": true
+      },
+      "entities": [
+        {
+          "as_printed": "JOSEPH LAFROMBOIS",
+          "normalized": "Joseph Lafrombois",
+          "role": "advertiser",
+          "occupations": [],
+          "associated_places": [
+            "Chicago"
+          ]
+        }
+      ],
+      "ad_copy_date": {
+        "verbatim": "July 8. 1835-12.",
+        "iso": "1835-07-08"
+      },
+      "notes": "The same notice stands on 1835-07-15 (lines 355-358) and 1835-07-29 (lines 400-404) over the same name, spelled 'JOSEPH LAPROMBOL' and 'JOSEPH LAPROMBOIS' by the OCR in those rebuilds; this deposit printing is the best witness to the name and is where it is minted. Interleaved lines carry the adjacent column and are excluded."
+    },
+    {
+      "id": "c016",
+      "kind": "price",
+      "reading": "transcription_mediated",
+      "quote": "ICAGO PRICES CURRENT,\nCORRECTED WEEKLY.\nSuper fine\nbbl 8 00 a 10 00\nBuckwheat flour\n8 00\nIndian meal\nnone.\n1 00 a 1 50\nCorn\nbush none\nOats\n1 00 a 1\n50\nWheat\n63 a\n69",
+      "normalized": "[CH]ICAGO PRICES CURRENT, CORRECTED WEEKLY. […] [Flour,] Super fine [per] bbl 8 00 a 10 00 Buckwheat flour 8 00 Indian meal none. 1 00 a 1 50 Corn [per] bush none Oats 1 00 a 1 50 Wheat 63 a 69",
+      "locator": {
+        "artifact_role": "primary",
+        "issue_page": 3,
+        "column": 2,
+        "lines": [
+          2483,
+          2513
+        ],
+        "lines_of_claim": [
+          2483,
+          2486,
+          2492,
+          2493,
+          2495,
+          2496,
+          2499,
+          2500,
+          2501,
+          2504,
+          2505,
+          2507,
+          2508,
+          2509,
+          2511,
+          2512,
+          2513
+        ],
+        "interleaved": true
+      },
+      "notes": "THE TABLE IS CUT DOWN THE MIDDLE AND WOVEN WITH THE HENNEPIN LETTER LIST, so this quote is the breadstuffs head of it and no more: the commodity name and its figure often stand on separate lines with a name from the letter list between them, and beyond the grains the pairing cannot be made without guessing which figure belongs to which article. The rest of the table — provisions, dairy, building materials — is inside the cited range and is deliberately not quoted rather than reassembled by inference. WHAT IT SAYS: superfine flour 8 to 10 dollars the barrel, buckwheat flour 8 dollars, no Indian meal and no corn in the market at all, oats 1 dollar to 1 dollar 50, wheat 63 to 69 cents. The 1835-07-22 printing (page 3 column 3, lines 321-323) carries the same table more nearly whole."
+    },
+    {
+      "id": "c017",
+      "kind": "shipping",
+      "reading": "transcription_mediated",
+      "quote": "OF VESSELS\nAT CHICAGO, 1835.\nSip. Westward Ho, Banks, Mil'ke.\nSchr. Swan, Duncan, St. Joseph.\nPhillips, Howe, Michigan City\nBrig\nNeptune, Wilkeson, Buffalo.\nSchr. Llewellyn, Clark, St. Joseph.\nPhillips, Howe, Millwalkee.\nSwan, Duncan, St. Joseph.\nSt. Joseph, Burnham, o. river\nLlewellyn, Clark, St. Joseph.\nMarengo, Dingley, Detroit.",
+      "normalized": "[LIST] OF VESSELS [ARRIVED] AT CHICAGO, 1835. [… ] S[loo]p. Westward Ho, Banks, Mil[wau]ke[e]. Schr. Swan, Duncan, St. Joseph. [Schr.] Phillips, Howe, Michigan City Brig Neptune, Wilkeson, Buffalo. Schr. Llewellyn, Clark, St. Joseph. [Schr.] Phillips, Howe, Millwalkee. [Schr.] Swan, Duncan, St. Joseph. [Schr.] St. Joseph, Burnham, [St.] Joseph river [Schr.] Llewellyn, Clark, St. Joseph. [Schr.] Marengo, Dingley, Detroit.",
+      "locator": {
+        "artifact_role": "primary",
+        "issue_page": 3,
+        "column": 2,
+        "lines": [
+          2611,
+          2632
+        ],
+        "lines_of_claim": [
+          2611,
+          2613,
+          2617,
+          2618,
+          2619,
+          2620,
+          2621,
+          2622,
+          2624,
+          2626,
+          2628,
+          2630,
+          2632
+        ],
+        "interleaved": true
+      },
+      "notes": "ELEVEN ARRIVALS AT CHICAGO IN THE WEEK, and the dates against them are cut away by the crop, so no arrival is dated here. The masters and their ports are legible and are what the claim carries: Westward Ho (Banks) from Milwaukee, Swan (Duncan) twice from St. Joseph, Phillips (Howe) from Michigan City and again from Milwaukee, the brig Neptune (Wilkeson) from Buffalo, Llewellyn (Clark) twice from St. Joseph, St. Joseph (Burnham) from the river of that name, Marengo (Dingley) from Detroit. Interleaved lines carry the letter list woven through the same half-column and are excluded."
+    },
+    {
+      "id": "c018",
+      "kind": "person",
+      "reading": "transcription_mediated",
+      "quote": "List of Letters\nMAINING in the Post Office at Henne-\nS\nin, Putnam connty, Ill. July 1, 1845.\n25\n. Thomas\n2 Keer, William\nArchibold\nLeonard, Eli\n25 doz.\nBenj. W\nMiller, R. G.\n26\nan,\nJohn\n2\nr, F. D.\nMitchell, 1. A.\nenj.\nMisthany, J.D.\n12\n2\nMerritt, Stephen\nBey the\nR. E.\n, Nathan\nMallary, R. 11.\nJune 9.\nMoore, Eli\n2\n1, James,\nPrin\nManning, H. N.\nMiller, Renry\nWhite\nHugh\nMartin, Wm.\nRed\nSam'l\nM° Corman, Stephen\nSpanisl\nWm.\nNeil, Lytle\ndo.\n. W.\nNeil, Diana\nVenetin\nJ. D.\nNewel, John\nSpruce\nT.\nOdell, Caleb\nYellow\nPlaster, Michael\nRose Pi\nPeterson. Daniel\nGold an\nJohn\nRice\nPatton, Nathan\ndo.\n2 Patterson. Jonathan\nW. and J.\n. Alvin\nReeder, Green\n75 kegs\nRobertson, Jomes\nKansberger, D. S.\n30,\n, E.\nshepherd, Amanda\nct. E. P.\nSwan, Elialia\nSmalley. Mr.\n1 NIE.\natt, Jacob\nTerry, Peter\nRev. E. H.\nof Jones,\nin th\nTriplett, Edward\nIssac\nVm. A.\nVaughan, Tom. P.\nBrig Illino\nVaughn, T. P.\nLyman\nT. R.\nVerney, David\n2 Wright, Edward\nCuttl\nOliver\nWhitaker, John\nA large an\nWood, William\n. W.\nWarnock Hugh\nLev. E.\nWilson & Griffin\nand Store\nJoseph\nWeir, John\nGeering, W\nYoung, Jacob\nTAIL.\nTHOS. GALAHER, jr. P.M.",
+      "normalized": "List of Letters [RE]MAINING in the Post Office at Henne[p]in, Putnam county, Ill. July 1, 18[3]5. […] THOS. GALAHER, jr. P.M. — the whole block as printed, the list's two alphabetical halves and a goods advertisement woven together line by line, the left half's surnames cut away at the crop edge.",
+      "locator": {
+        "artifact_role": "primary",
+        "issue_page": 3,
+        "column": 3,
+        "lines": [
+          2776,
+          2881
+        ],
+        "interleaved": true
+      },
+      "entities": [],
+      "letter_list_only": true,
+      "post_office": "Hennepin, Putnam county, Illinois",
+      "notes": "RECORDED IN FULL AND NOT MINTED, and both halves of that are deliberate. NOT A CHICAGO LIST: Hennepin is in Putnam county, and under the owner's ruling 1 a letter-list name mints a RESIDENT CANDIDATE for the town whose post office printed the list — so no name here mints a Chicago resident. That follows the reading of October 1834 (T-0292), which recorded the Hennepin, Plainfield and Du Page lists and minted none of them. NOT LEGIBLE AT NAME LEVEL ON THE LEFT: the segmenter cut this printed column in half down the middle, so the list's left alphabetical column arrives with its surnames sheared off — line 2781 is '. Thomas' where the type reads 'Atwater, Thomas', 2783 is 'Archibold' for 'Allen, Archibold' — while the right column survives whole ('Keer, William', 'Leonard, Eli', 'Merritt, Stephen'). The 1835-07-15 rebuild carries both halves on one line (line 399: 'Atwater, Theinae 2 Kee, Walla na Allen, Archibold Leonard, Bi') but at that rebuild's own name-level quality, which the ticket rates the weakest tier in the corpus. So the block is quoted whole and nothing is minted out of it. HAND COUNT: 38 complete surname-and-forename entries survive in the right-hand alphabetical column of this printing (Keer to Young, plus the firm 'Wilson & Griffin'), against roughly the same number sheared in the left; the printed list is therefore of the order of eighty names, and the count is a floor, not the printed length. THE POSTMASTER: Thos. Galaher, jr., signs it — he is not minted either, for the same reason. The dateline prints '1845' for 1835, which the run of the paper refuses. Lines 2785, 2799, 2803, 2807, 2810, 2813, 2816, 2819, 2822, 2825, 2828, 2830, 2832, 2834, 2836, 2838, 2841, 2844, 2847, 2850, 2854, 2855, 2860, 2862, 2866, 2869, 2873, 2875, 2878 and 2880 inside this range are the paints-and-groceries advertisement woven through the list; they are inside the quote because the quote is the block as the transcription carries it, and the note is what separates them."
+    },
+    {
+      "id": "c019",
+      "kind": "person",
+      "reading": "transcription_mediated",
+      "quote": "List of Letters\nMaN 26,\nINING in the Post Office at Plain-\n, Ill. July 1, 1835.\nPat\nChauncey D. Joiner, Ransom\nGROS\nWesley\nHarriet\n3 Kingston, Paul\n1\ndo.\nKimball, Jonathan\ndo.\nnry 1.\nLewis,\nw.J.\ndo.\nLamb, Daniel\nBateman\n2\nMarks, Friend\nand British\nMann, Fliphalet H.\nlexander W. Peck: Newton L. F.\nJune 5, 1\nPerkins, Ephraim S.\nlarrison\nRidgeway. Joshua M.\nNew\nAnsel\nRicketson, Jothithan\nlenry H.\nSmith, Ralph\nsalom or\nSlayton, Udolpha\nBenjamin\nSchermerhorn, Barent J.\nDr\nShiveley, Samuel\nSarah G.\nscott, seth\nReady Mac\nStrong, Josish\ncles.\ni, Alfred\n2 Stone, Isaac\nerally, and\nrah Ann\nTittsworth, James\nexamine bi\nL..\nWightman, Josiah B.\nWarren, Hiram\nChicago,\nChester\nWilliams, John\nohn S.\nWatkins, Henry\nL. F. ARNOLD, P.M.",
+      "normalized": "List of Letters [RE]MAINING in the Post Office at Plain[field], Ill. July 1, 1835. […] L. F. ARNOLD, P.M. — the whole block as printed, the list's two alphabetical halves and an advertisement woven together, the left half's surnames cut away at the crop edge.",
+      "locator": {
+        "artifact_role": "primary",
+        "issue_page": 3,
+        "column": 3,
+        "lines": [
+          2882,
+          2941
+        ],
+        "interleaved": true
+      },
+      "entities": [],
+      "letter_list_only": true,
+      "post_office": "Plainfield, Illinois",
+      "notes": "RECORDED AND NOT MINTED, on the same two grounds as c018: Plainfield is not Chicago, so ruling 1 mints nothing here, and the left alphabetical column's surnames are sheared off by the crop ('Wesley', 'Harriet', 'nry 1.', 'w.J.' where the type carries whole names). HAND COUNT: 22 complete entries survive in the right-hand column, Joiner to Watkins, plus the postmaster L. F. Arnold; the printed list is about twice that. The list bears the same date as the Hennepin and Du Page ones printed beside it, 1 July 1835 — the quarter day on which every post office in the district made its return."
+    },
+    {
+      "id": "c020",
+      "kind": "person",
+      "reading": "transcription_mediated",
+      "quote": "List of Letters\n1 box c\nINING in the Post Office at Dupage\n1-2 ton 1\n3 bund\n1, 1335.\nAmer\nGeorge Spicer\n2\nEngl\n2 John Stevens\nGerm\nSamuel Shively\nNayk\nCarron\nDavid H. Sacket\nAndrew Thadhimer\nJune 30.\nDavid Wadhams\nPP\nEdward Wadhams\nLang\nJese Wabson\nSUPPI\n. Parsons\nRejor\nJ. HI. GIDDINGS, P.M.",
+      "normalized": "List of Letters [RE]MAINING in the Post Office at Dupage [Ill. July] 1, 1[8]35. […] J. H. GIDDINGS, P.M. — the whole block as printed, an advertisement woven through it, the left half's surnames cut away at the crop edge.",
+      "locator": {
+        "artifact_role": "primary",
+        "issue_page": 3,
+        "column": 3,
+        "lines": [
+          2944,
+          2970
+        ],
+        "interleaved": true
+      },
+      "entities": [],
+      "letter_list_only": true,
+      "post_office": "Du Page, Illinois",
+      "notes": "RECORDED AND NOT MINTED, on the same grounds as c018 and c019. HAND COUNT: 8 complete entries survive in the right-hand column — George Spicer, John Stevens, Samuel Shively, David H. Sacket, Andrew Thadhimer, David Wadhams, Edward Wadhams and Jese Wabson — plus the postmaster J. H. Giddings, against the left column's sheared remainder ('Carron', '. Parsons'). This is the shortest of the three lists printed together and the whole of it is of the order of twenty names. The dateline prints '1, 1335.' for 1 July 1835."
+    }
+  ]
+}

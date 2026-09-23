@@ -1,0 +1,34 @@
+{
+  "id": "chicagology_prefire274",
+  "type": "website",
+  "citation": "\"Fort Dearborn I.\" Chicagology, transcribing Chicago Magazine, March 1857, with a Whistler plan of 1808, a Kinzie-supplied view of the first fort, and a 1902 Lawrence C. Earle mural.",
+  "date": "accessed 2026-08-09",
+  "describes_date": "1803-1857",
+  "url": "https://chicagology.com/prefire/prefire274/",
+  "tier": 2,
+  "rights_status": "check_required",
+  "asset_use": "cross_check",
+  "verified": true,
+  "note": "Source for the fort standing on a 'flattened mound' formed by the curve of the river on three sides, 'as high as any other point', overlooking the lake and commanding the prairie south, the timber belt along the South Branch and the North Side, and 'the white sand hills both to the north and south'. Also the long low sandy barrier ridge dividing the deflected river from the lake, running south nearly half a mile. READ IN FULL 2026-08-11 AND REGRADED 4 -> 2, ON THE DOCUMENT AND NOT ON THE HOST. The page prints one attribution line above its body — 'Chicago Magazine, March, 1857' — which is the installment before the one chicagology_prefire276 carries and the same serial that took chicagology_prefire273 to rung 2. THE RUNG IS EARNED BY THE TOPOGRAPHY AND BY NOTHING ELSE ON THE PAGE, and that limit is the whole of this record's judgement. What this project cites is a description of ground the writer could still walk in 1857 and of a channel that had been filled inside his readers' memory — 'We see by the course of the river as it now appears', then the old channel 'flowing southerly, parallel with the lake shore, for nearly half a mile' behind its bar. That is recollection at twenty-odd years, rung 2. The page's declared SUBJECT, the fort of 1803-1812, is not: nobody writing in 1857 remembered 1804, the account is compiled, and no claim in this dataset rests on it. One inference is stated rather than hidden: the serial's method — written from what 'several of the oldest inhabitants, who are now permanent residents among us' told the writer — is printed in the May installment (chicagology_prefire276) and not in this one, so the March issue is graded on the same method by continuity of the serial, not on a statement of its own. AND IT DISAGREES WITH THIS PROJECT'S EPOCH BOUNDARY, which is recorded rather than smoothed: the page dates the cut through the bar to 'the Engineers of the government in 1838', where data/terrain/epochs.json opens e1834_harbor_cut on 1833-07-01 and has the February 1834 storm scour it, on Andreas. Andreas is followed — he is nearer the works and this project's pier chronology is built on him — and 1838 most likely dates the harbour's completion rather than the cut, but the magazine is not made to agree. Nothing here rests on either date; the epoch boundary was set before this page was read. See docs/RESEARCH/evidence_tiers_round_three.md § 4.",
+  "archived_url": "https://web.archive.org/web/20260308050246/https://chicagology.com/prefire/prefire274/",
+  "transcribes": [
+    {
+      "work": "Chicago Magazine, 'Fort Dearborn I' — the account of the first fort and of the site it stood on, printed under its own attribution line and illustrated with a view 'through the kindness of Mrs. J. H. Kinzie, who furnished the sketch'",
+      "date": "1857-03",
+      "tier": 2,
+      "note": "Carries the landform this project's e1830_natural and e1834_harbor_cut epochs cite: the flattened mound half-surrounded by the river, standing 'as high as any other point'; the white sand hills north and south; and the long low sandy barrier ridge that deflected the river south 'for nearly half a mile' before the cut. Recollection of ground within the writer's own and his informants' memory, twenty-odd years after: the same rung as the May installment, on the same serial's method. Its 1803-1812 narrative is compilation, is not recollection, and is cited by nothing here."
+    }
+  ],
+  "what_it_supplies": [
+    "the fort platform as a landform — a flattened mound, curved river on three sides, as high as any other point in the quadrant",
+    "the sandy barrier ridge between the deflected river and the lake, running south nearly half a mile",
+    "the white sand hills north and south of the river mouth",
+    "that the old southward channel's mouth was choked by sand bars, obstructing the smallest sail vessels"
+  ],
+  "what_it_does_not_supply": [
+    "the fort of 1835 — this installment stops at the 1812 massacre and the fort it describes is the FIRST fort, demolished that year",
+    "any dimension, plan or outline of either fort; the Whistler 1808 plan is reproduced as a picture and is not read here",
+    "a usable date for the harbour cut: it says 1838, against Andreas's works of 1833-34, and Andreas is followed",
+    "any elevation in feet — 'as high as any other point' is a comparison, not a measurement, and the modelled box's total relief is 4.30 ft"
+  ]
+}

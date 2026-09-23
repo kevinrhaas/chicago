@@ -1,0 +1,92 @@
+{
+ "schema": "chicago4d.kin_rulings.v1",
+ "_doc": "AUTHORED (T-0734). One ruling for every landable proposal in kin_survey.json — landed, refused or deferred, each with the reason. tools/survey_stated_kin.py --check refuses to pass while a landable proposal is unanswered, while a `landed` ruling has no reciprocal kin rows on the two records, or while a `refused` one has them anyway. The survey is derived and this file is not: a ruling is a person's reading of a source and no pass may rewrite it.",
+ "ticket": "T-0734",
+ "what_a_verdict_means": {
+  "landed": "The kin rows are written on both household records, reciprocally.",
+  "refused": "The source states the tie and this dataset will not write it, for the reason given. Not a doubt about the source.",
+  "deferred": "Neither yet: the reading is not finished. A deferred ruling still owes a reason and is still answered."
+ },
+ "rulings": {
+  "hh_baptist_john__son__leon_bourrassa": {
+   "ruling": "landed",
+   "why": "Landed. The burial entry of 2 July 1835 reads 'John Baptist, son of Leon Bourrassa, 28 days old', and both cards were minted from that entry's own rows. The child was alive on the scene date; the death falls one day after it."
+  },
+  "hh_beaubien_jean_baptiste__son__charles_henry": {
+   "ruling": "refused",
+   "why": "REFUSED, AND THE SOURCE IS NOT DOUBTED. Andreas names Jean Baptiste's sons by his first wife as 'Charles Henry and Madore'. Madore has a card and that tie is landed. Charles Henry does not: hh_beaubien_charles_h carries the INITIALS 'Charles H', and deciding that the initialled card is the man Andreas names in full is a CROSSWALK ruling on identity, not a kinship — the father's own record already says that of the two sons named, one has a household here. A pass that merged them to raise its own count would be asserting an identity nobody has ruled. Raise it as a crosswalk question or leave it. The reading is PR #947's, which reached the same refusal on the same evidence and was closed; it is kept here rather than lost with the branch."
+  },
+  "hh_beaubien_madore__son__jean_baptiste_beaubien": {
+   "ruling": "landed",
+   "why": "Landed at the grade the card already carried. Andreas states the parentage in a sentence the card has quoted since it was written, cited to andreas_1884_v1 and graded attested there; this only makes it queryable. The town holds one Jean Baptiste Beaubien."
+  },
+  "hh_beaubien_mark__brother__jean_baptiste": {
+   "ruling": "landed",
+   "why": "MARK BEAUBIEN AND JEAN BAPTISTE BEAUBIEN ARE BROTHERS, and Mark's own card has said so in passing since it was written: it reaches for \"Andreas's life of HIS BROTHER Jean Baptiste\" to date the family's move to Chicago. The tie was invisible to the survey for a mechanical reason and not an evidential one — the pattern read '<relation> of <Name>' and English does not put an 'of' after 'his brother'. THE IDENTIFICATION IS NOT A SURNAME MATCH: twelve Beaubien cards stand in this dataset, and this one resolves because the sentence elides only the surname, which is read back from the subject exactly as Andreas's 'brother of Samuel' is — and it then has to resolve to exactly one town person, which 'Jean Baptiste Beaubien' does. Graded inferred: the brotherhood is stated, the reading that ties it to this card is this project's. Found by PR #947, which read it and was closed."
+  },
+  "hh_miller_john__brother__samuel": {
+   "ruling": "landed",
+   "why": "Landed at inferred, and the grade is about the identification rather than the tie. Andreas prints 'John Miller, brother of Samuel, the landlord' — the relationship is documented — but names the brother without a surname, and what ties him to the town's one Samuel Miller is the surname the sentence carries and the same years in the same town. One agreement where a merge asks for two, so the row is written at the weakest link's grade."
+  },
+  "hh_wesencraft_charles__daughter__charlotte": {
+   "ruling": "landed",
+   "why": "Landed at attested, and the town gains a tie it has held the evidence for since the notice was read. The Chicago Democrat of 3 December 1833, column 7, prints the marriage of 'Mark Nobles, Esq. of this place, to Miss CHARLOTTE, only daughter of Mr. Charles Wesencraft, late of Buffalo'. Both ends stand on cards minted from that same reading — `wesencraft_charles` and `wesencraft_charlotte`, one surname, and the notice says the relationship in its own words. 'Only daughter' is the paper's, so no second daughter is implied by the row. FOUND BY T-1134, and found sideways: that ticket was weighing `wesencraft_charles` against `wessencraft_charles` and quoted the notice onto the card as the argument for a merge it then REFUSED, which is what put the sentence where this survey reads. The tie itself owes nothing to the merge question and stands whichever way that is later decided."
+  },
+  "hh_wessencraft_charles__daughter__mr_charles_wesencraft": {
+   "ruling": "refused",
+   "why": "Refused, and it is an artefact of a refusal rather than a reading of a source. T-1134 weighed `wesencraft_charles` against `wessencraft_charles` — one letter of surname, one forename — and REFUSED the merge under D6, because no title reached sets both spellings. The argument FOR the merge is kept verbatim on both cards, as that rule requires, and it quotes the Chicago Democrat of 3 December 1833: 'Mark Nobles, Esq. of this place, to Miss CHARLOTTE, only daughter of Mr. Charles Wesencraft, late of Buffalo'. This survey read that quotation off the DOUBLE-S card and proposed the tie there. It must not be written: the notice names Wesencraft and the town's ruling is that Wessencraft is a different card, so landing it would assert through a kin row exactly the identity the merge ruling declined to assert directly. The same notice's tie IS landed, on the card the notice names — `hh_wesencraft_charles__daughter__charlotte`. If a page is ever found setting both spellings for one man, the merge is the thing to reopen, and this row follows it."
+  },
+  "read_harmon_charles_l__son__harmon_elijah_d": {
+   "ruling": "landed",
+   "why": "LANDED. THE SENTENCE THAT MADE THE HOUSEHOLD, FINALLY WRITTEN AS A LINK. hh_harmon_brothers exists BECAUSE Andreas's life of Dr Elijah Dewey Harmon lists his five surviving children — 'Charles Loomis Harmon, Isaac Dewey Harmon, Harriet Harmon, Lucretia Harmon, and Welthyan Loomis Harmon' — and that list is what resolves the masthead 'C. & I. Harmon' in the town's first newspaper into the doctor's two eldest sons. The card says so in its first sentence, and the doctor's own record says the firm 'is a separate household here'. THE ONE THING NEITHER RECORD COULD BE ASKED WAS WHICH HOUSEHOLD THE OTHER WAS, which is precisely what a kin row is for. Graded inferred: the parentage is stated in the source, and the identification of the initials with these two cards is this project's reading — the same reading the household was built on, so refusing it here would leave the town asserting the conclusion and denying the premise. Found by PR #947, which read it and was closed; the reading is kept rather than lost with the branch."
+  },
+  "read_harmon_isaac_d__son__harmon_elijah_d": {
+   "ruling": "landed",
+   "why": "LANDED. THE SENTENCE THAT MADE THE HOUSEHOLD, FINALLY WRITTEN AS A LINK. hh_harmon_brothers exists BECAUSE Andreas's life of Dr Elijah Dewey Harmon lists his five surviving children — 'Charles Loomis Harmon, Isaac Dewey Harmon, Harriet Harmon, Lucretia Harmon, and Welthyan Loomis Harmon' — and that list is what resolves the masthead 'C. & I. Harmon' in the town's first newspaper into the doctor's two eldest sons. The card says so in its first sentence, and the doctor's own record says the firm 'is a separate household here'. THE ONE THING NEITHER RECORD COULD BE ASKED WAS WHICH HOUSEHOLD THE OTHER WAS, which is precisely what a kin row is for. Graded inferred: the parentage is stated in the source, and the identification of the initials with these two cards is this project's reading — the same reading the household was built on, so refusing it here would leave the town asserting the conclusion and denying the premise. Found by PR #947, which read it and was closed; the reading is kept rather than lost with the branch."
+  },
+  "read_taylor_augustine__brother__taylor_anson_h": {
+   "ruling": "landed",
+   "why": "LANDED, AND PR #948 PROPOSED DELETING THIS INSTEAD. That branch read hh_taylor_augustine's 'one of two Taylor brothers in this parcel' and ruled it a family invented out of a shared surname — 'No source says it'. A source does. data/research/residents/pass_02_findings.json carries this project's reading of the Chicago History Museum's encyclopedia entry, which distinguishes Augustine Deodat Taylor from 'brother Anson who hauled lumber', and data/sources/encyclopedia_chicago_church_architecture.json is a committed, verified source record. So the sentence was not an invention; it was a cited kinship nobody had written as a link. Deleting it would have lost a family the corpus actually states. GRADED INFERRED, not attested: what the corpus holds is this project's SUMMARY of the encyclopedia rather than a quoted page, which is the same restraint applied to the Beaubien brotherhood. The identification is not a surname match — five Taylor households stand in this parcel and the summary names Anson outright, so the tie reaches exactly one of them."
+  },
+  "st_cyr_death_05_2__parent_of__st_cyr_death_05_1": {
+   "ruling": "landed",
+   "why": "Landed as the father's half of the same burial entry. The same tie as hh_baptist_john__son__leon_bourrassa, read from the register rather than from the card's prose, and the two directions are the reciprocal pair the gate demands."
+  },
+  "st_cyr_marriage_001_1__husband_of__st_cyr_marriage_001_2": {
+   "ruling": "landed",
+   "why": "Landed. The register is the record of the act: entry, date, place, celebrant and both parties by name, and both cards were minted FROM the two rows this entry produced, so the people linked are the people named. Celebrated at or before the scene date of 1 July 1835, so they are husband and wife in the scene this dataset reconstructs."
+  },
+  "st_cyr_marriage_005_1__husband_of__st_cyr_marriage_005_2": {
+   "ruling": "landed",
+   "why": "Landed. The register is the record of the act: entry, date, place, celebrant and both parties by name, and both cards were minted FROM the two rows this entry produced, so the people linked are the people named. Celebrated at or before the scene date of 1 July 1835, so they are husband and wife in the scene this dataset reconstructs."
+  },
+  "st_cyr_marriage_007_1__husband_of__st_cyr_marriage_007_2": {
+   "ruling": "landed",
+   "why": "Landed. The register is the record of the act: entry, date, place, celebrant and both parties by name, and both cards were minted FROM the two rows this entry produced, so the people linked are the people named. Celebrated at or before the scene date of 1 July 1835, so they are husband and wife in the scene this dataset reconstructs."
+  },
+  "st_cyr_marriage_008_1__husband_of__st_cyr_marriage_008_2": {
+   "ruling": "refused",
+   "why": "Refused, and the source is not doubted. The register celebrates this marriage AFTER the scene date of 1 July 1835 — 29 August 1835 — so on the day this dataset reconstructs these two were not yet husband and wife. A kin row carries no date field, so writing it would state in the present tense a tie the source puts in the scene's future. Left alone deliberately: reverse it the day a kin row can carry a `describes_date`, and the reading is already committed in the register records either way."
+  },
+  "st_cyr_marriage_009_1__husband_of__st_cyr_marriage_009_2": {
+   "ruling": "refused",
+   "why": "Refused, and the source is not doubted. The register celebrates this marriage AFTER the scene date of 1 July 1835 — 1 October 1835 — so on the day this dataset reconstructs these two were not yet husband and wife. A kin row carries no date field, so writing it would state in the present tense a tie the source puts in the scene's future. Left alone deliberately: reverse it the day a kin row can carry a `describes_date`, and the reading is already committed in the register records either way."
+  },
+  "st_cyr_marriage_010_1__husband_of__st_cyr_marriage_010_2": {
+   "ruling": "refused",
+   "why": "Refused, and the source is not doubted. The register celebrates this marriage AFTER the scene date of 1 July 1835 — 27 October 1835 — so on the day this dataset reconstructs these two were not yet husband and wife. A kin row carries no date field, so writing it would state in the present tense a tie the source puts in the scene's future. Left alone deliberately: reverse it the day a kin row can carry a `describes_date`, and the reading is already committed in the register records either way."
+  }
+ },
+ "withdrawn_proposals": {
+  "_doc": "Rulings this file once carried for proposals the survey no longer makes. A ruling is a person's reading of a source and is not deleted in silence just because the question stopped being asked; kept here, unanswerable, so the reading survives the card that occasioned it.",
+  "st_cyr_marriages_002_003_004": {
+   "ruling_ids": [
+    "st_cyr_marriage_002_1__husband_of__st_cyr_marriage_002_2",
+    "st_cyr_marriage_003_1__husband_of__st_cyr_marriage_003_2",
+    "st_cyr_marriage_004_1__husband_of__st_cyr_marriage_004_2"
+   ],
+   "was": "landed",
+   "why": "WITHDRAWN BY T-1129, 2026-09-17, and not because the register is doubted. Footnote 5 of the page places the last three couples of May 1834 at Bear Creek, Sangamon County, in the home of Hy Durbin, and every row of the three entries carries `at_chicago: false`. The six people they name had been minted into the 1835 town on that reading alone and are withdrawn, so the survey proposes no kinship here: a kin row is written on two household records and there are no household records to write it on. THE MARRIAGES STAND AS READ — the entries are transcribed, dated, cited and unchanged in data/research/church/records/st_cyr_marriages_1834_1839.json. If a page ever puts one of these people at Chicago, the card returns, the survey proposes the tie again and it is ruled on afresh."
+  }
+ }
+}

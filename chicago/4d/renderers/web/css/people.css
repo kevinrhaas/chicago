@@ -1,0 +1,391 @@
+/* people.css — the People section of the 4D Chicago drawer.
+
+   A directory: a count line, a search box, rows of filter pills, a list of
+   44 px person rows in pages, and a person card that takes the section over
+   while it is open. The household browser (`#residents`, styled in walk.css)
+   sits under it as "Browse by household" and is untouched here.
+
+   Tokens from walk.css :root / [data-theme="light"]: --ink, --ink-dim, --edge,
+   --accent, --doc / --inf / --con (the three grades), --r. Surface steps
+   (--step, --step-2, --wash) and the two eases come from drawer.css. A pill is
+   a control (`aria-pressed`; ON = accent fill), a mark is a static label, and
+   the grade dot carries the grade's own colour and nothing else. */
+
+/* ------------------------------------------------------------- the head --- */
+
+.people-count {
+  margin: 0 0 12px;
+  color: var(--ink-dim);
+  font-size: 12.5px;
+  line-height: 1.45;
+  font-variant-numeric: tabular-nums;
+}
+.people-field { margin-bottom: 10px; }
+.people-field input[type="search"] {
+  width: 100%;
+  min-height: 40px;
+  padding: 8px 11px;
+  border: 1px solid var(--edge);
+  border-radius: 9px;
+  outline: none;
+  background: var(--step);
+  color: var(--ink);
+  font: inherit;
+  font-size: 13px;
+  -webkit-appearance: none;
+  appearance: none;
+}
+.people-field input[type="search"]:focus { border-color: var(--accent); }
+.people-field input[type="search"]::placeholder { color: var(--ink-dim); opacity: .8; }
+
+/* ---------------------------------------------------------------- pills --- */
+/* One line per question: the label leads, the pills scroll sideways behind a
+   fade rather than wrapping — seven wrapping rows pushed the list off an
+   800 px screen. The three short questions share one line (`.people-fgroup`),
+   and the pill a visitor chose is scrolled into view by people.js. */
+
+.people-filters { display: grid; gap: 5px; margin: 0 0 10px; }
+.people-filters[hidden] { display: none; }
+/* The fold control, for phones; a desktop drawer has room for the rows. */
+.people-toolbar { display: none; margin: 0 0 8px; }
+.people-filters-toggle.is-active { border-color: var(--accent); color: var(--accent); }
+.people-filters-toggle[aria-expanded="true"] { background: var(--step-2); border-color: transparent; color: var(--ink); }
+.people-frow { display: flex; align-items: center; gap: 6px; min-width: 0; }
+.people-flabel {
+  flex: none;
+  min-width: 58px;
+  color: var(--ink-dim);
+  font-size: 10px;
+  letter-spacing: .08em;
+  text-transform: uppercase;
+  white-space: nowrap;
+}
+.pills {
+  display: flex;
+  flex: 1 1 auto;
+  flex-wrap: nowrap;
+  align-items: center;
+  gap: 4px;
+  min-width: 0;
+  padding: 1px 18px 1px 1px;
+  overflow-x: auto;
+  scrollbar-width: none;
+  -webkit-overflow-scrolling: touch;
+  mask-image: linear-gradient(90deg, #000 calc(100% - 22px), transparent);
+  -webkit-mask-image: linear-gradient(90deg, #000 calc(100% - 22px), transparent);
+}
+.pills::-webkit-scrollbar { display: none; }
+/* Short questions, side by side; a toggle inside one has no label of its own. */
+.people-fgroup { display: flex; flex-wrap: wrap; align-items: center; gap: 5px 12px; }
+.people-fgroup .people-frow { flex: none; }
+.people-fgroup .pills { flex-wrap: wrap; overflow: visible; padding: 1px; mask-image: none; -webkit-mask-image: none; }
+.people-fgroup .people-flabel { min-width: 0; margin-right: 2px; }
+.pill {
+  display: inline-flex;
+  align-items: center;
+  gap: 4px;
+  min-height: 26px;
+  padding: 2px 9px;
+  border: 1px solid var(--edge);
+  border-radius: 999px;
+  background: transparent;
+  color: var(--ink-dim);
+  font: inherit;
+  font-size: 11px;
+  line-height: 1;
+  white-space: nowrap;
+  cursor: pointer;
+  -webkit-tap-highlight-color: transparent;
+  transition: background .12s, color .12s, border-color .12s;
+}
+.pill:hover { color: var(--ink); background: var(--step); }
+.pill:focus-visible { outline: 2px solid var(--accent); outline-offset: 1px; }
+.pill[aria-pressed="true"], .pill[aria-pressed="true"]:hover {
+  background: var(--accent);
+  border-color: var(--accent);
+  color: #17140c;
+}
+/* "All" pressed is the resting state of every row, so it is quiet — a surface
+   step, not the accent — and the accent means a visitor chose something. */
+.pill[data-value=""][aria-pressed="true"], .pill[data-value=""][aria-pressed="true"]:hover {
+  background: var(--step-2);
+  border-color: transparent;
+  color: var(--ink);
+}
+.pill:disabled { opacity: .38; cursor: default; }
+.pill:disabled:hover { background: transparent; color: var(--ink-dim); }
+.pill-n {
+  font-size: 10px;
+  font-variant-numeric: tabular-nums;
+  opacity: .75;
+}
+.pill[aria-pressed="true"] .pill-n { opacity: .85; }
+.people-more-select {
+  min-height: 26px;
+  max-width: 150px;
+  padding: 3px 8px;
+  border: 1px solid var(--edge);
+  border-radius: 999px;
+  background: var(--step);
+  color: var(--ink);
+  font: inherit;
+  font-size: 11.5px;
+}
+.people-clear {
+  justify-self: start;
+  margin: 0 0 0 64px;
+  padding: 6px 0;
+  border: 0;
+  background: none;
+  color: var(--accent);
+  font: inherit;
+  font-size: 11.5px;
+  cursor: pointer;
+  text-decoration: underline;
+  text-underline-offset: 2px;
+}
+.people-clear[hidden] { display: none; }
+.people-clear:focus-visible { outline: 2px solid var(--accent); outline-offset: 2px; border-radius: 4px; }
+
+.people-note {
+  margin: 0 0 6px;
+  color: var(--ink-dim);
+  font-size: 11.5px;
+  font-variant-numeric: tabular-nums;
+}
+
+/* ------------------------------------------------------------- the list --- */
+
+.people-results {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr);
+  border: 1px solid var(--edge);
+  border-radius: 9px;
+  overflow: hidden;
+}
+.person-row {
+  display: grid;
+  grid-template-columns: 14px minmax(0, 1fr) auto;
+  align-items: center;
+  gap: 10px;
+  min-height: 44px;
+  padding: 6px 12px 6px 11px;
+  border: 0;
+  border-bottom: 1px solid var(--edge);
+  background: transparent;
+  color: var(--ink);
+  font: inherit;
+  text-align: left;
+  cursor: pointer;
+  -webkit-tap-highlight-color: transparent;
+  transition: background .12s;
+}
+.person-row:last-child { border-bottom: 0; }
+.person-row:hover { background: var(--step); }
+.person-row:focus-visible { outline: 2px solid var(--accent); outline-offset: -2px; }
+.person-main { display: grid; gap: 1px; min-width: 0; }
+.person-name {
+  font-size: 13px;
+  font-weight: 600;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+.person-sub {
+  color: var(--ink-dim);
+  font-size: 11px;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+/* The grade, as a dot the size of a full stop. Attested and inferred are the
+   two grades this layer carries; reconstructed is drawn hatched, like the
+   legend's swatch, should a later pass mint one. */
+.grade-dot {
+  display: inline-block;
+  width: 7px; height: 7px;
+  border-radius: 50%;
+  flex: none;
+  justify-self: center;
+  vertical-align: middle;
+}
+.grade-attested { background: var(--doc); }
+.grade-inferred { background: var(--inf); }
+.grade-reconstructed { background: transparent; border: 1px solid var(--con); }
+
+/* A static mark saying which KIND of person a row is. The letter-list and
+   projected marks take the conjectural colour, the same way the household
+   browser draws its letter-list group, so the town's thinnest evidence reads as
+   thin without opening anything. */
+.person-mark {
+  flex: none;
+  padding: 1px 7px;
+  border: 1px solid var(--edge);
+  border-radius: 999px;
+  color: var(--ink-dim);
+  font-size: 10px;
+  white-space: nowrap;
+}
+.mark-letter_list, .mark-projected { border-color: color-mix(in srgb, var(--con) 60%, transparent); color: var(--con); }
+.mark-civic_mint { border-color: color-mix(in srgb, var(--accent) 55%, transparent); color: var(--accent); }
+
+.people-empty {
+  margin: 0;
+  padding: 18px 14px;
+  color: var(--ink-dim);
+  font-size: 12.5px;
+  line-height: 1.5;
+}
+.people-more {
+  display: block;
+  width: 100%;
+  min-height: 40px;
+  margin: 8px 0 0;
+  padding: 8px 12px;
+  border: 1px solid var(--edge);
+  border-radius: 9px;
+  background: var(--step);
+  color: var(--ink);
+  font: inherit;
+  font-size: 12.5px;
+  cursor: pointer;
+  transition: background .12s;
+}
+.people-more:hover { background: var(--step-2); }
+.people-more:focus-visible { outline: 2px solid var(--accent); outline-offset: 1px; }
+.people-more[hidden] { display: none; }
+
+/* --------------------------------------------------------- the person card --- */
+/* The card takes the section over: the list, the filters and the household
+   browser under them hide while it is open, and the head of the card is a back
+   control, because the drawer's own head does not yet know about this view. */
+
+.people-home[hidden], .people-card[hidden] { display: none; }
+.panel-body[data-panel="people"].people-card-open > :not(#people-directory) { display: none; }
+
+.people-card { animation: people-card-in .24s var(--ease-panel) both; }
+@keyframes people-card-in {
+  from { opacity: 0; transform: translateX(14px); }
+  to { opacity: 1; transform: none; }
+}
+.people-back {
+  display: inline-flex;
+  align-items: center;
+  gap: 2px;
+  min-height: 36px;
+  margin: -4px 0 6px -8px;
+  padding: 4px 10px 4px 4px;
+  border: 0;
+  border-radius: 8px;
+  background: transparent;
+  color: var(--accent);
+  font: inherit;
+  font-size: 12.5px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: background .12s;
+}
+.people-back svg { width: 22px; height: 22px; }
+/* When the drawer head carries the back arrow (main.js passed `onTitle`), the
+   card does not need a second one. */
+.panel-body[data-panel="people"].has-head-back .people-back { display: none; }
+.people-back:hover { background: var(--step); }
+.people-back:focus-visible { outline: 2px solid var(--accent); outline-offset: -2px; }
+.people-card-name {
+  margin: 0 0 6px;
+  font-size: 19px;
+  font-weight: 650;
+  letter-spacing: -.005em;
+  line-height: 1.2;
+}
+.people-card-meta {
+  margin: 0 0 12px;
+  color: var(--ink-dim);
+  font-size: 12px;
+  line-height: 1.6;
+}
+.people-card-meta .grade-dot { margin-right: 6px; }
+.people-card-meta .person-mark { vertical-align: 1px; }
+.people-card-hh b { color: var(--ink); font-weight: 600; }
+.people-card-actions { display: grid; gap: 6px; margin: 0 0 12px; }
+.people-go {
+  display: grid;
+  gap: 2px;
+  min-height: 48px;
+  padding: 8px 14px;
+  border: 1px solid color-mix(in srgb, var(--accent) 55%, transparent);
+  border-radius: 10px;
+  background: var(--wash);
+  color: var(--ink);
+  font: inherit;
+  text-align: left;
+  cursor: pointer;
+  transition: background .12s, border-color .12s;
+}
+.people-go:hover { background: color-mix(in srgb, var(--accent) 26%, transparent); border-color: var(--accent); }
+.people-go:focus-visible { outline: 2px solid var(--accent); outline-offset: 1px; }
+.people-go-verb { color: var(--accent); font-size: 10.5px; letter-spacing: .08em; text-transform: uppercase; }
+.people-go-title { font-size: 13.5px; font-weight: 600; }
+.people-noaddr {
+  margin: 0;
+  padding: 9px 12px;
+  border: 1px dashed var(--edge);
+  border-radius: 10px;
+  color: var(--ink-dim);
+  font-size: 12px;
+  line-height: 1.5;
+}
+.people-noaddr-why { color: var(--ink-dim); }
+.people-card-what { margin: 0 0 14px; color: var(--ink-dim); font-size: 11.5px; line-height: 1.5; }
+.people-card-h {
+  margin: 0 0 8px;
+  padding-top: 12px;
+  border-top: 1px solid var(--edge);
+  color: var(--accent);
+  font-size: 11px;
+  letter-spacing: .14em;
+  text-transform: uppercase;
+}
+.people-card-body[aria-busy="true"] { opacity: .7; }
+/* The household record inside the card, rendered by residents.js: it comes as
+   the `.res-fields` list plus `.res-people`, the same markup the household
+   browser puts inside a row, so it inherits walk.css's styling and only its
+   outer indent is undone here. */
+.people-card-body > .res-fields { padding-left: 0; padding-right: 0; }
+.people-card-body > .res-people { padding-left: 0; padding-right: 0; }
+.people-card-body .res-fields .sw, .people-card-body .res-person .sw {
+  display: inline-block; vertical-align: 0; margin: 0 4px 0 0;
+}
+
+/* --------------------------------------------------------------- phones --- */
+
+@media (max-width: 620px) {
+  .people-toolbar { display: flex; }
+  .people-flabel { min-width: 50px; font-size: 9.5px; }
+  .pill { min-height: 34px; padding: 4px 11px; font-size: 11.5px; }
+  /* The shared line of short questions scrolls like the others here: three
+     wrapping rows of 34 px pills cost a phone the first row of the list. */
+  .people-fgroup { flex-wrap: nowrap; overflow-x: auto; scrollbar-width: none; gap: 5px 10px; padding-right: 18px;
+    mask-image: linear-gradient(90deg, #000 calc(100% - 22px), transparent);
+    -webkit-mask-image: linear-gradient(90deg, #000 calc(100% - 22px), transparent); }
+  .people-fgroup::-webkit-scrollbar { display: none; }
+  .people-fgroup .pills { flex-wrap: nowrap; }
+  .people-more-select { min-height: 34px; }
+  .people-clear { margin-left: 0; }
+  .person-row { min-height: 48px; }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .people-card { animation: none; }
+  .pill, .person-row, .people-more, .people-go, .people-back { transition: none; }
+}
+
+/* ---------------------------------------------------------- light theme --- */
+/* The pressed pill's dark text is on an amber fill in both themes, and every
+   other colour is a token, so the only thing light mode needs is the fill of a
+   control that used a white veil in walk.css. */
+[data-theme="light"] .pill[aria-pressed="true"]:not([data-value=""]),
+[data-theme="light"] .pill[aria-pressed="true"]:not([data-value=""]):hover {
+  color: #fff;
+}

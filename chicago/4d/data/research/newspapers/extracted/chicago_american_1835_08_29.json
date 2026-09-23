@@ -1,0 +1,379 @@
+{
+  "schema": 1,
+  "issue_id": "chicago_american_1835_08_29",
+  "extracted": "2026-08-28",
+  "extracted_by": "hand, T-0261 — the Chicago American read, June to August 1835",
+  "note": "The last issue in the corpus's American run. Three claims close gaps the whole read has been carrying: the young ladies' school is CHARLES HUNT'S and it is a Mr.; eight thousand BRICKS and a mason are wanted at B. Beaubien's store, which is the first masonry evidence in the run; and a reward notice places a walk 'between F. Myer's grocery and the public works', naming the harbour works as an everyday landmark. Hubbard & Co. are selling named Bordeaux chateaux by the vintage.",
+  "claims": [
+    {
+      "id": "c001",
+      "kind": "building",
+      "reading": "transcription_mediated",
+      "quote": "B. Beanbien'a Store. 13\niy) 8000 rick aap Bweon to lay the",
+      "normalized": "[… at] B. Beaubien's Store. […] 8000 [B]rick[s and a] [Ma]s[o]n to lay the[m …]",
+      "locator": {
+        "artifact_role": "primary",
+        "issue_page": 3,
+        "column": 5,
+        "lines": [
+          356,
+          357
+        ],
+        "lines_of_claim": [
+          356,
+          357
+        ],
+        "interleaved": true,
+        "spans": [
+          {
+            "line": 356,
+            "from": 0,
+            "to": 23
+          },
+          {
+            "line": 357,
+            "from": 0,
+            "to": 34
+          }
+        ]
+      },
+      "entities": [
+        {
+          "as_printed": "B. Beanbien",
+          "normalized": "B. Beaubien",
+          "role": "mentioned",
+          "occupations": [],
+          "associated_places": []
+        }
+      ],
+      "notes": "EIGHT THOUSAND BRICKS AND A MASON TO LAY THEM, wanted at B. Beaubien's store at the end of August 1835 — and it is the ONLY masonry evidence in eleven weeks of this paper. Everything else the run documents about building is timber: oak scantling by the foot, seasoned lumber wanted for cash, five lumber cargoes in a week, hand-made window sash. So the shape of the evidence is itself the finding — a plank town with brick as the exception, and one advertisement for a specific quantity of it. WHAT THE BRICKS ARE FOR IS NOT SAID in what survives: the sentence breaks after 'to lay the[m]', so this claim does NOT say a brick building was going up, only that eight thousand bricks and a bricklayer were wanted. The Beaubien name is one this project already carries from other sources; here it is in the town's own paper, attached to a store."
+    },
+    {
+      "id": "c002",
+      "kind": "notice",
+      "reading": "transcription_mediated",
+      "quote": "YOUNG LADIES. [ARLES HUNT proposes to estab,\nLio ae ‘a perinatent Fourdation, for Young Ladies, should wuficlot ' eat be\nTerm are aS ees Monday, Avs,\ndey, ar tbe offise, of Hebry Moora,\nFor tho onlinary English branches, i\nrm of eleven weoks, Kor the higher ches, 87.00, For the Lito, Grek,\nAuguat 1,133, Sy. i",
+      "normalized": "[A SCHOOL FOR] YOUNG LADIES. [CH]ARLES HUNT proposes to estab[lish … a schoo]l […] on a perma[n]ent Fou[n]dation, for Young Ladies, should [s]u[ffi]ci[en]t [encouragem]e[n]t be [offered]. [The fall] Term [will comm]en[c]e Monday, Aug[ust 17 …] [previous to that] day, at the offi[c]e of He[n]ry Moor[e …] For the o[r]dinary English branches, [$6.00 per te]rm of eleven wee[k]s; [f]or the higher [bran]ches, $7.00; For the L[a]t[i]n, Gre[e]k [and French …] Augus[t] 1[5, 18]35.",
+      "locator": {
+        "artifact_role": "primary",
+        "issue_page": 3,
+        "column": 6,
+        "lines": [
+          371,
+          381
+        ],
+        "lines_of_claim": [
+          371,
+          372,
+          373,
+          376,
+          378,
+          379,
+          381
+        ],
+        "interleaved": true,
+        "spans": [
+          {
+            "line": 371,
+            "from": 0,
+            "to": 44
+          },
+          {
+            "line": 372,
+            "from": 0,
+            "to": 75
+          },
+          {
+            "line": 373,
+            "from": 0,
+            "to": 28
+          },
+          {
+            "line": 376,
+            "from": 0,
+            "to": 35
+          },
+          {
+            "line": 378,
+            "from": 0,
+            "to": 36
+          },
+          {
+            "line": 379,
+            "from": 0,
+            "to": 67
+          },
+          {
+            "line": 381,
+            "from": 0,
+            "to": 19
+          }
+        ]
+      },
+      "entities": [
+        {
+          "as_printed": "[ARLES HUNT",
+          "normalized": "Charles Hunt",
+          "role": "proprietor",
+          "occupations": [
+            "schoolteacher"
+          ],
+          "associated_places": []
+        }
+      ],
+      "ad_copy_date": {
+        "verbatim": "Auguat 1,133, Sy. i",
+        "iso": "1835-08-15"
+      },
+      "notes": "THE SCHOOLMASTER IS CHARLES HUNT, AND HE IS A MAN. 1835-08-15 prints the heading as 'Me RK {ABLES HUNT' and that claim refused to read the title or the forename, noting that the difference decided whether the proprietor of a girls' school was a woman. This printing sets '[CH]ARLES HUNT', so the forename is Charles and the earlier fragment 'Me RK' is the wreck of 'MR.' and the first letters of the name. Worth recording as a method note: the refusal was right and the answer came out of the corpus one issue later. The school is still only PROPOSED at the end of August — 'proposes to establish … should sufficient encouragement be offered' — so it does not stand at the scene date, and Henry Moore's office is still where the town's subscriptions are collected."
+    },
+    {
+      "id": "c003",
+      "kind": "street",
+      "reading": "transcription_mediated",
+      "quote": "m the Sih inat. between F. Myer's gre-\nwod the public works « amatl goid\nwith gold chain attached: seater:\nrill return the same to the\nthe above reward ‘nnd the inane of i\n.G. Banc, Sth-Aegeat, 1833. let FOUND.",
+      "normalized": "[Lost … o]n the [5]th inst. between F. Myer's gro[cery] a[n]d the public works, a small gold [watch] with gold chain attached. [Whoever] will return the same to the [subscriber shall receive] the above reward and the [th]an[k]s of [the owner]. [?] G. Ban[?]. 8th August, 183[5].",
+      "locator": {
+        "artifact_role": "primary",
+        "issue_page": 3,
+        "column": 6,
+        "lines": [
+          394,
+          399
+        ],
+        "lines_of_claim": [
+          394,
+          395,
+          396,
+          397,
+          398,
+          399
+        ],
+        "interleaved": true,
+        "spans": [
+          {
+            "line": 394,
+            "from": 0,
+            "to": 38
+          },
+          {
+            "line": 395,
+            "from": 0,
+            "to": 33
+          },
+          {
+            "line": 396,
+            "from": 0,
+            "to": 33
+          },
+          {
+            "line": 397,
+            "from": 0,
+            "to": 27
+          },
+          {
+            "line": 398,
+            "from": 0,
+            "to": 36
+          },
+          {
+            "line": 399,
+            "from": 0,
+            "to": 38
+          }
+        ]
+      },
+      "entities": [],
+      "ad_copy_date": {
+        "verbatim": ".G. Banc, Sth-Aegeat, 1833.",
+        "iso": "1835-08-08"
+      },
+      "notes": "A WALK ACROSS TOWN, DESCRIBED THE WAY PEOPLE ACTUALLY DESCRIBE ONE: 'between F. Myer's grocery and the public works'. Two things follow. F. MYER'S GROCERY is a storefront no advertisement in this run names — it is documented only because someone lost a watch walking past it, which is how the most ordinary buildings survive. And THE PUBLIC WORKS is used as a plain landmark with no explanation, which in Chicago in August 1835 means the harbour works at the river mouth: a construction site large enough that a reader is expected to know where it is and how far it is from a grocery. That is direct evidence that the harbour works were a visible, walkable feature of the town within eight weeks of the scene date. Recorded as `street` because what it documents is a route and two landmarks, not a tenancy. The finder's name is cut and no person is minted."
+    },
+    {
+      "id": "c004",
+      "kind": "business",
+      "reading": "transcription_mediated",
+      "quote": "od, and lor sale by Hubbard\nw eploudid ‘arsortmant of Claret and\nwines, among which ara tie Slowing\n2, SH, and 4th Vintages of TSB, ‘CLARET.\nMargaux, Chatean Langow, 1\nPichon,\nn Callom, { Chateau’ Beycheville, Keualley, verre, DAvx: winrr, cham, ney Baulerne. a choicest Lend. Sitver Can q i warranted genuine reach Bie brands oa\nAng. 29, 1835, is",
+      "normalized": "[Just receiv]ed and for sale by Hubbard [& Co., a ne]w splendid assortment of Claret and [other] wines, among which are t[h]e [fol]lowing: [1st,] 2[nd], [3r]d and 4th Vintages of 18[2]8. CLARET: [Chateau] Margaux, Chateau Lango[a], [Chateau] Pichon, [Chateau] Callom, Chateau Beycheville, [uncertain: Keualley, verre] […] [BORDEA]UX WHITE, [Cham]b[ertin?], […] Sauterne […] choicest [Ho]l[l]and […] Silver Can[?] […] warranted genuine [F]rench [uncertain: Bie] brands […] Aug. 29, 1835.",
+      "locator": {
+        "artifact_role": "primary",
+        "issue_page": 3,
+        "column": 6,
+        "lines": [
+          384,
+          391
+        ],
+        "lines_of_claim": [
+          384,
+          385,
+          386,
+          387,
+          388,
+          389,
+          390,
+          391
+        ],
+        "interleaved": true,
+        "spans": [
+          {
+            "line": 384,
+            "from": 0,
+            "to": 27
+          },
+          {
+            "line": 385,
+            "from": 0,
+            "to": 36
+          },
+          {
+            "line": 386,
+            "from": 0,
+            "to": 34
+          },
+          {
+            "line": 387,
+            "from": 0,
+            "to": 40
+          },
+          {
+            "line": 388,
+            "from": 0,
+            "to": 26
+          },
+          {
+            "line": 389,
+            "from": 0,
+            "to": 7
+          },
+          {
+            "line": 390,
+            "from": 0,
+            "to": 153
+          },
+          {
+            "line": 391,
+            "from": 0,
+            "to": 17
+          }
+        ]
+      },
+      "entities": [],
+      "ad_copy_date": {
+        "verbatim": "Ang. 29, 1835, is",
+        "iso": "1835-08-29"
+      },
+      "business": {
+        "name": "Hubbard & Co., forwarding and commission merchants",
+        "proprietors": [],
+        "trade": "forwarding and commission merchants",
+        "goods": [
+          "Claret",
+          "Sauterne",
+          "Wines"
+        ],
+        "street": null,
+        "placement": {
+          "class": "none",
+          "anchor": null,
+          "offset_text": null,
+          "offset_normalized": null,
+          "street": null
+        }
+      },
+      "notes": "CHATEAU MARGAUX IN CHICAGO, BY THE VINTAGE, IN AUGUST 1835 — first, second, third and fourth growths of the 1828 vintage, with Margaux, Langoa, Pichon and Beychevelle named, plus Bordeaux white and Sauterne. In a town the same paper puts at under three thousand people, six weeks after describing emigrants sleeping in tents on the wharves, one of its forwarding houses is selling classed-growth claret. That contrast is not decoration: it is what the boom summer of 1835 actually looked like, and a reconstruction that dresses the town uniformly rough would be wrong. The chateau names are single-pass OCR of French set in a damaged column; the four that are legible are given and the rest stay inside `[uncertain: …]`."
+    },
+    {
+      "id": "c005",
+      "kind": "notice",
+      "reading": "transcription_mediated",
+      "quote": "LL HEC arc nro Chden. ' Thus valuable rp tae peer si Sota aking to cousin ‘and cient i wary ate frequently inoposed vy ilserIitarter vomit to abvlale 0 which the public ary hereby exposed, OF mpdicie yeudor are allowed to be this anedicite. All, herofore, who i d ty sell it, nre doing wo without suthor. I Bests a0 Cur, Agents lor the Bite of lnc, 5.",
+      "normalized": "[…] Th[i]s valuable [preparation …] [the public] are frequently i[m]po[s]ed [upon by …] to ob[vi]a[te] […] which the public are hereby expo[s]ed. [No] m[e]dicine ve[n]dor[s] are allowed to [sell] this medicine. All, [t]herefore, who [preten]d t[o] sell it are doing [s]o without author[ity]. [Ru]ss[ell] a[nd] C[lift], Agents for the [S]t[a]te of Il[linois].",
+      "locator": {
+        "artifact_role": "primary",
+        "issue_page": 3,
+        "column": 6,
+        "lines": [
+          392,
+          392
+        ],
+        "lines_of_claim": [
+          392
+        ],
+        "interleaved": true,
+        "spans": [
+          {
+            "line": 392,
+            "from": 0,
+            "to": 351
+          }
+        ]
+      },
+      "entities": [],
+      "business": {
+        "name": "Russell & Clift, Chicago Book and Stationary Store",
+        "proprietors": [],
+        "trade": "books, stationery and patent medicines",
+        "goods": [
+          "Patent Medicines"
+        ],
+        "street": null,
+        "placement": {
+          "class": "none",
+          "anchor": null,
+          "offset_text": null,
+          "offset_normalized": null,
+          "street": null
+        }
+      },
+      "notes": "THE AGENCY RUSSELL & CLIFT ADVERTISED IN THE FIRST ISSUE, DEFENDED IN THE LAST. 1835-06-08 records them 'having secured the Agency of Evans's Hygeian Medicines' and cautioning against unsigned pills; eleven weeks later they are asserting it as an exclusive for the WHOLE STATE OF ILLINOIS and naming anyone else who sells it as unauthorised. A Chicago book store holding a state agency is a piece of commercial reach worth recording about a town this size, and it closes a thread the run opened on its first day."
+    },
+    {
+      "id": "c006",
+      "kind": "infrastructure",
+      "reading": "transcription_mediated",
+      "quote": "apen for the delive. A. May until 1.2 past arrivals at the time | koptopen one bons | w mpe\nya, case ol Mail ms hour and w half} no di:\nagen amust be paid when Ibe given, iny. ra far their frienida,\nAN, Postmaster, Sef",
+      "normalized": "[The Post Office will be] open for the delive[ry of letters from 6 o'clock] A.M. until [ha]l[f] past [… and in case of Mail] arrivals a[f]ter the time […] [it will be] kept open one h[our …] [On Sunda]y[s], [in] case o[f] Mail[s … one] hour and a half […] [Post]age [must] be paid when[… no credit will] be given. [… Persons calling for lette]rs for their friend[s …] [J. S. C. HOG]AN, Postmaster.",
+      "locator": {
+        "artifact_role": "primary",
+        "issue_page": 3,
+        "column": 5,
+        "lines": [
+          342,
+          346
+        ],
+        "lines_of_claim": [
+          342,
+          343,
+          344,
+          346
+        ],
+        "interleaved": true,
+        "spans": [
+          {
+            "line": 342,
+            "from": 0,
+            "to": 91
+          },
+          {
+            "line": 343,
+            "from": 0,
+            "to": 43
+          },
+          {
+            "line": 344,
+            "from": 0,
+            "to": 62
+          },
+          {
+            "line": 346,
+            "from": 0,
+            "to": 19
+          }
+        ]
+      },
+      "entities": [],
+      "notes": "THE POST OFFICE NOTICE FOR THE FIFTH AND LAST TIME, and this printing carries the CLOSING hour that every earlier one lost: open from six in the morning 'until [ha]l[f] past' — the hour after 'past' is itself cut, so the closing time is still not recovered and is NOT supplied. Between five damaged printings across eleven weeks the corpus now has the opening hour, the Sunday rule, the after-mail rule, the pre-payment rule, the written-order rule and the postmaster's full initials; only the closing hour has survived in none of them. Recorded so the next reader knows the gap is the transcription's and not an oversight."
+    }
+  ]
+}

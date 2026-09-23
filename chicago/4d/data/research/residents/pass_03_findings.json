@@ -1,0 +1,196 @@
+{
+  "_doc": "Authored T-0463 findings for the third 75-person pass. Omitted cohort members receive documented no-corroboration outcomes; candidates remain unasserted resident facts.",
+  "ticket": "T-0463",
+  "reviewed_on": "2026-09-01",
+  "default_summary": "No reliable record found in the reviewed contemporary, institutional, local-history and index searches could be tied to this person by more than the recorded name. This is a documented no-find, not evidence that the person did not exist.",
+  "query_templates": ["\"{name}\" Chicago 1835", "\"{name}\" Illinois 1834 1835", "\"{name}\" genealogy occupation migration"],
+  "overrides": {
+    "blodgett_tyler_k": {
+      "outcome": "corroborated_enrichment",
+      "summary": "A contemporary-recollection compilation independently identifies Tyler K. Blodgett's 1833 north-bank brickyard and brick house. It supports the exact name and trade but does not establish his 1 July 1835 roof.",
+      "sources": ["ingale_early_chicago_reminiscence"],
+      "candidates": []
+    },
+    "brown_rufus": {
+      "outcome": "corroborated_enrichment",
+      "summary": "The First Presbyterian history describes Rufus Brown's log boarding house as full during the church's earliest period. It corroborates the exact-name lodging role; it does not name Mrs Brown or resolve a street address.",
+      "sources": ["first_presbyterian_chicago_1833_1913"],
+      "candidates": []
+    },
+    "carver_david": {
+      "outcome": "corroborated_enrichment",
+      "summary": "Cook County history independently places David Carver on Chicago's 1833 voter roster. The exact name and civic chronology strengthen identity; later lumber claims remain dependent on retrospective accounts.",
+      "sources": ["goodman_history_cook_county_early"],
+      "candidates": []
+    },
+    "casey_edward_w": {
+      "outcome": "corroborated_enrichment",
+      "summary": "John Dean Caton's near-participant recollection says Edward W. Casey was the only other lawyer he remembered arriving in Chicago in 1833 and places him in the early circuit-court circle.",
+      "sources": ["caton_atlantic_chicago_1893"],
+      "candidates": []
+    },
+    "church_thomas": {
+      "outcome": "corroborated_enrichment",
+      "summary": "A published early-Chicago reminiscence says Thomas Church arrived in 1834 and describes his Lake Street building activity. It corroborates the uncommon name, migration year and merchant setting without proving scene-date occupancy.",
+      "sources": ["ingale_early_chicago_reminiscence"],
+      "candidates": []
+    },
+    "cobb_silas_b": {
+      "outcome": "corroborated_enrichment",
+      "summary": "Early reminiscence and the 1843 directory independently connect Silas B. Cobb with saddlery and harness work and later premises at 171 Lake Street. The later address extends the profile but is not back-projected to 1835.",
+      "sources": ["ingale_early_chicago_reminiscence", "norris_chicago_directory_1843"],
+      "candidates": []
+    },
+    "cohen_peter": {
+      "outcome": "corroborated_enrichment",
+      "summary": "Cook County history names Peter Cohen among the January 1836 Chicago Hydraulic Company incorporators. The exact name and immediate civic continuity strengthen identity but do not add a household relationship.",
+      "sources": ["goodman_history_cook_county_early"],
+      "candidates": []
+    },
+    "davis_t_o": {
+      "outcome": "corroborated_enrichment",
+      "summary": "Cook County history corroborates T. O. Davis's role in establishing Chicago's Whig newspaper in 1835. Initials, place, occupation and year resolve the identity; no full-name expansion was safely found.",
+      "sources": ["goodman_history_cook_county_early"],
+      "candidates": []
+    },
+    "elston_daniel": {
+      "outcome": "corroborated_enrichment",
+      "summary": "The University of Illinois finding aid identifies Daniel Elston as an English merchant arriving in Chicago in 1833 who manufactured soap and candles and later operated a distillery and brewery.",
+      "sources": ["uiuc_daniel_elston_papers"],
+      "candidates": []
+    },
+    "fullerton_alexander": {
+      "outcome": "corroborated_enrichment",
+      "summary": "Cook County history identifies Alexander N. Fullerton in Chicago's early legal and municipal record, including the 1835 town-clerk chronology. This supports the exact full name and profession without establishing his roof.",
+      "sources": ["goodman_history_cook_county_early"],
+      "candidates": []
+    },
+    "gale_stephen_f": {
+      "outcome": "corroborated_enrichment",
+      "summary": "Cook County history places Stephen F. Gale on Chicago's 1833 voter roster; a later statute bibliography identifies his Chicago printing imprint in 1839. Together they extend civic and publishing chronology without changing his 1835 trade.",
+      "sources": ["goodman_history_cook_county_early", "jsp_illinois_statutes_gale_imprint"],
+      "candidates": []
+    },
+    "harmon_elijah_d": {
+      "outcome": "corroborated_enrichment",
+      "summary": "Retrospective histories independently identify Dr Elijah D. Harmon as the early Fort Dearborn surgeon and a landholder south of town. The outlying property is retained rather than converted into downtown presence.",
+      "sources": ["goodman_history_cook_county_early"],
+      "candidates": []
+    },
+    "harmon_isaac_d": {
+      "outcome": "corroborated_enrichment",
+      "summary": "A published reminiscence places Isaac D. Harmon's dry-goods store at the southwest corner of Clark and South Water and identifies him as Elijah D. Harmon's son. The relationship is sourced, not surname-derived.",
+      "sources": ["ingale_early_chicago_reminiscence"],
+      "candidates": []
+    },
+    "heacock_russel_e": {
+      "outcome": "corroborated_enrichment",
+      "summary": "An edited Illinois act identifies Russel E. Heacock through a Chicago subdivision plat, and the 1843 directory distinguishes Russel Easton Heacock and his household. These records corroborate the exact person while leaving his 1835 roof unresolved.",
+      "sources": ["jsp_russel_heacock_plat", "norris_chicago_directory_1843"],
+      "candidates": []
+    },
+    "ingersoll_chester": {
+      "outcome": "corroborated_enrichment",
+      "summary": "Municipal preservation research dates Chester Ingersoll's Plainfield plat to 1834, while the Green Tree history names him as the Chicago house's 1834-37 landlord. The two places are retained as a mobility question rather than silently collapsed.",
+      "sources": ["plainfield_john_temple_report", "chicagology_prefire127"],
+      "candidates": []
+    },
+    "jones_benjamin": {
+      "outcome": "corroborated_enrichment",
+      "summary": "A Library of Congress engineering history identifies Benjamin Jones as a Chicago merchant and land speculator who bought at the Manitowoc River mouth in 1835 and settled there in 1836. This supplies a dated migration lead, not a 1 July address.",
+      "sources": ["loc_mantowoc_benjamin_jones"],
+      "candidates": []
+    },
+
+    "couch_james": {
+      "outcome": "candidate_identity",
+      "summary": "Later Tremont histories identify James Couch as Ira Couch's brother and hotel partner, but place the brothers' hotel operation after 1835. The exact-name candidate is strong while the current scene-date role needs documentary adjudication.",
+      "sources": ["chicagology_prefire127"],
+      "candidates": [{"name": "James Couch, later Tremont House proprietor", "assessment": "strong", "asserted": false, "basis": "Exact name, brother Ira and distinctive hotel career.", "conflicts": ["Reviewed histories place the Couch hotel operation after the 1 July 1835 scene date."], "sources": ["chicagology_prefire127"]}]
+    },
+    "alling_prudde": {
+      "outcome": "candidate_identity",
+      "summary": "Prudden Alling is a plausible normalization of the unusual printed Prudde Alling, but the indexed genealogy result supplies no Chicago chronology. The spelling remains unmerged pending an original scan or dated record.",
+      "sources": [],
+      "candidates": [{"name": "Prudden Alling", "assessment": "possible", "asserted": false, "basis": "Rare near-exact name and likely terminal-letter loss.", "conflicts": ["No Chicago, Illinois or scene-date discriminator was found."], "sources": []}]
+    },
+    "blair_william_g": {
+      "outcome": "candidate_identity",
+      "summary": "A county history lists William G. Blair among early Winnebago County settlers. Matching initials and region make a lead, but the common name and absent Chicago-letter bridge prevent identification.",
+      "sources": ["rockford_first_settlers_1835"],
+      "candidates": [{"name": "William G. Blair of Winnebago County", "assessment": "possible", "asserted": false, "basis": "Exact initials and northern-Illinois chronology.", "conflicts": ["No direct Chicago post-office link; common name."], "sources": ["rockford_first_settlers_1835"]}]
+    },
+    "bly_rouse": {
+      "outcome": "candidate_identity",
+      "summary": "Rouse Bly of Huron County, Ohio is an exact uncommon-name candidate. Ohio residence supplies competing geography, so the identity is retained as a rejected or transit lead rather than imported.",
+      "sources": ["ohio_firelands_rouse_bly"],
+      "candidates": [{"name": "Rouse Bly of New Haven Township, Ohio", "assessment": "possible", "asserted": false, "basis": "Exact uncommon name and adult period chronology.", "conflicts": ["Documented Ohio residence and no Chicago migration bridge."], "sources": ["ohio_firelands_rouse_bly"]}]
+    },
+    "butterfield_ben": {
+      "outcome": "candidate_identity",
+      "summary": "A historical marker places Ben Butterfield at Lockport and on a Danville-to-Chicago route from 1830-31. This is a strong regional candidate, but postal reachability does not establish town residence.",
+      "sources": ["hmdb_butterfield_trail"],
+      "candidates": [{"name": "Ben Butterfield of Lockport", "assessment": "strong", "asserted": false, "basis": "Exact familiar name, Cook/Will region and explicit Chicago route.", "conflicts": ["Lockport residence; no record links him to this letter."], "sources": ["hmdb_butterfield_trail"]}]
+    },
+    "chadwick_joseph": {
+      "outcome": "candidate_identity",
+      "summary": "Joseph M. Chadwick, a military engineer who lived in Illinois before reaching Texas in December 1835, is a possible candidate. The missing middle initial and absent Chicago bridge keep the identity unasserted.",
+      "sources": ["tsaha_joseph_chadwick"],
+      "candidates": [{"name": "Joseph M. Chadwick, later of Goliad", "assessment": "possible", "asserted": false, "basis": "Exact first and surname, Illinois residence and compatible chronology.", "conflicts": ["No Chicago location or letter linkage; candidate left for Texas by December 1835."], "sources": ["tsaha_joseph_chadwick"]}]
+    },
+    "comstock_h_h": {
+      "outcome": "candidate_identity",
+      "summary": "H. H. Comstock appears in Kalamazoo County pioneer history around 1834. Exact initials and regional chronology are useful, but competing Michigan geography and no migration bridge bar a merge.",
+      "sources": ["michigan_hh_comstock_history"],
+      "candidates": [{"name": "H. H. Comstock of Kalamazoo County", "assessment": "possible", "asserted": false, "basis": "Exact initials, uncommon surname and Great Lakes chronology.", "conflicts": ["Michigan rather than Chicago residence; no letter bridge."], "sources": ["michigan_hh_comstock_history"]}]
+    },
+    "reel_absolam": {
+      "outcome": "candidate_identity",
+      "summary": "A contemporary Indiana court notice names Absalom Reel in March 1834. The near-exact spelling is notable, but Indiana geography and no post-office bridge make this a competing candidate only.",
+      "sources": ["indiana_absalom_reel_1834"],
+      "candidates": [{"name": "Absalom Reel of Indiana", "assessment": "possible", "asserted": false, "basis": "Near-exact rare name in a contemporary regional record.", "conflicts": ["Indiana record and no Chicago link; Absolam/Absalom spelling differs."], "sources": ["indiana_absalom_reel_1834"]}]
+    },
+    "churchill_alfred": {
+      "outcome": "candidate_identity",
+      "summary": "Cook County history places an Alfred Churchill on Flag Creek and in an 1836 county political meeting. Exact name and Cook County geography are strong, but no source directly links him to the earlier letter.",
+      "sources": ["goodman_history_cook_county_early"],
+      "candidates": [{"name": "Alfred Churchill of Flag Creek", "assessment": "strong", "asserted": false, "basis": "Exact name, Cook County and near-date civic record.", "conflicts": ["Hinterland residence and no explicit letter linkage."], "sources": ["goodman_history_cook_county_early"]}]
+    },
+    "dunlap_alva": {
+      "outcome": "candidate_identity",
+      "summary": "Local history says Alva Dunlap first traveled to Illinois in 1834 and later settled near Peoria. Exact uncommon name and date make a strong traveler candidate, not evidence of Chicago residence.",
+      "sources": ["dunlap_alva_dunlap_history"],
+      "candidates": [{"name": "Alva Dunlap of Peoria County", "assessment": "strong", "asserted": false, "basis": "Exact uncommon name and 1834 Illinois travel.", "conflicts": ["Later Peoria-area settlement and no direct letter bridge."], "sources": ["dunlap_alva_dunlap_history"]}]
+    },
+    "miles_andrew": {
+      "outcome": "candidate_identity",
+      "summary": "Kane County history places an Andrew Miles or Mills on a Fox River claim in 1834. Exact or near-exact name and date are strong, while the spelling conflict and hinterland location remain unresolved.",
+      "sources": ["kane_geneva_andrew_miles"],
+      "candidates": [{"name": "Andrew Miles or Mills of Kane County", "assessment": "strong", "asserted": false, "basis": "Exact given name, near-exact surname and 1834 regional claim.", "conflicts": ["Miles/Mills source conflict; no direct link to the Chicago letter."], "sources": ["kane_geneva_andrew_miles"]}]
+    },
+    "bailey_bennet": {
+      "outcome": "candidate_identity",
+      "summary": "The 1843 Chicago directory names Bennet Bailey as a Mechanics' Institute director. Exact spelling and later Chicago civic activity make a strong candidate, but nine years and no intermediate bridge prevent a merge.",
+      "sources": ["norris_chicago_directory_1843"],
+      "candidates": [{"name": "Bennet Bailey of the Chicago Mechanics' Institute", "assessment": "strong", "asserted": false, "basis": "Exact name and later Chicago institutional role.", "conflicts": ["No record bridges the 1834 letter to the 1843 directory entry."], "sources": ["norris_chicago_directory_1843"]}]
+    },
+    "bartlett_charles_h": {
+      "outcome": "candidate_identity",
+      "summary": "Chicago History Museum catalogs Charles H. Bartlett diaries beginning before his 1834 farming near Diamond Lake. Exact name, date and regional movement are strong; image-level diary review is still needed.",
+      "sources": ["chm_bartlett_diaries"],
+      "candidates": [{"name": "Charles H. Bartlett of Diamond Lake", "assessment": "strong", "asserted": false, "basis": "Exact full name and 1834 Lake County chronology.", "conflicts": ["Regional farm rather than Chicago town; letter not identified in the finding aid."], "sources": ["chm_bartlett_diaries"]}]
+    },
+    "albee_clark_b": {
+      "outcome": "candidate_identity",
+      "summary": "Grand Haven history identifies exact-name Clark B. Albee in early commerce with Chicago-linked David Carver. The network is suggestive, but Michigan geography and no direct letter evidence keep the candidate unmerged.",
+      "sources": ["migenweb_clark_albee_grand_haven"],
+      "candidates": [{"name": "Clark B. Albee of Grand Haven", "assessment": "strong", "asserted": false, "basis": "Exact full name, Great Lakes trade and named Chicago associate.", "conflicts": ["Documented Michigan setting and no direct letter link."], "sources": ["migenweb_clark_albee_grand_haven"]}]
+    },
+    "parkes_curtis": {
+      "outcome": "candidate_identity",
+      "summary": "Porter County history names Curtis Parkes in its February 1836 organization vote. Exact name and adjacent-region chronology are strong, but the Chicago letter may only reflect the nearest postal route.",
+      "sources": ["porter_curtis_parkes"],
+      "candidates": [{"name": "Curtis Parkes of Porter County", "assessment": "strong", "asserted": false, "basis": "Exact uncommon name and dated adjacent-county civic record.", "conflicts": ["Porter County residence and no direct letter bridge."], "sources": ["porter_curtis_parkes"]}]
+    }
+  }
+}

@@ -1,0 +1,187 @@
+{
+ "id": "hh_heacock_russel_e",
+ "name": "The Heacock household",
+ "division": "south",
+ "head": "heacock_russel_e",
+ "arrival": {
+  "value": "1827",
+  "confidence": "attested",
+  "sources": [
+   "andreas_1884_v1"
+  ],
+  "note": "'Russel E. Heacock, who had come in 1827' - the earliest arrival of any Anglo-American household in this parcel, four years before the town's incorporation and six before the treaty.",
+  "precision": "year"
+ },
+ "party_size_on_arrival": {
+  "value": null,
+  "confidence": "reconstructed",
+  "note": "Not attested for 1827. What IS attested is the household's size later: a wife and five sons by the spring of 1835."
+ },
+ "origin": {
+  "value": null,
+  "confidence": "reconstructed",
+  "note": "Not attested in anything this project holds."
+ },
+ "reason_for_coming": {
+  "value": "Professional and business interests at the settlement",
+  "confidence": "attested",
+  "sources": [
+   "andreas_1884_v1"
+  ],
+  "note": "Andreas states the relation directly in explaining his vote: he lived beyond the proposed town's southern border 'although having his business and professional interests at the settlement'."
+ },
+ "lives_at": {
+  "value": "heacock_house_monroe",
+  "confidence": "attested",
+  "sources": [
+   "andreas_1884_v1"
+  ],
+  "note": "The house he built in the spring of 1835 and moved on rollers. Linked by the inferred-household programme's building parcel (docs/ROADMAP.md K1, phase two); the building record carries the evidence."
+ },
+ "works_at": {
+  "value": null,
+  "confidence": "reconstructed",
+  "note": "NOT MODELLED. He practised law, kept a tavern at Heacock's Point on the South Branch some five miles up, farmed there, and worked as a carpenter. None of the four has a record and the tavern is outside the modelled box."
+ },
+ "present_on_scene_date": {
+  "value": "present",
+  "confidence": "attested",
+  "sources": [
+   "andreas_1884_v1"
+  ],
+  "note": "Building a house in the town in the spring of 1835 and advertising as an attorney there on 5 August 1835."
+ },
+ "persons": [
+  {
+   "id": "heacock_russel_e",
+   "name": "Russel E. Heacock",
+   "relationship": "head",
+   "grade": "attested",
+   "ladder_rule": "G1b",
+   "sex": "male",
+   "occupation": {
+    "value": "attorney",
+    "confidence": "attested",
+    "sources": [
+     "andreas_1884_v1"
+    ],
+    "note": "'Russel E. Heacock, who had come in 1827' - the first of the six lawyers Andreas counts, and a justice of the peace for Cook County who administered the oaths at the incorporation meeting of 5 August 1833. Under date of 5 August 1835 - five weeks after the scene date - Andreas finds him 'advertised as attorney, which is perhaps an indication that he did not seek re-election as a Justice'. He was licensed to keep a tavern at Heacock's Point on the South Branch in April 1831 and cultivated land there, and Judge Goodrich records that 'Heacock in those first years, 1827 to 1835, made more money as a carpenter than as a lawyer or justice'.",
+    "derived_from": "roles",
+    "roles_at_scene_date": [
+     "attorney"
+    ]
+   },
+   "sources": [
+    "andreas_1884_v1",
+    "chicago_democrat_1833_1835",
+    "isa_public_domain_land_tract_sales"
+   ],
+   "note": "THE ONE VOTE AGAINST THE TOWN. He cast the single 'against incorporation' ballot on 5 August 1833 - Andreas prints the poll - 'he living at that time beyond the extreme southern border of the proposed town, although having his business and professional interests at the settlement. He moved into the town the following year.' Andreas calls it 'exceptional fidelity to conviction and independence of opinion'. He received one hundred dollars at the Indian treaty of 26 September 1833 and was among the original subscribers to the Chicago Democrat in November 1833. THE FEDERAL LAND TRACT SALES — A PURCHASE, AND NEVER A RESIDENCE. The Illinois State Archives' Public Domain Land Tract Sales register enters this person 13 times, as “HEACOCK RUSSEL E”, “HEACOCK RUSSELL E”, 1833-10-22 to 1835-06-26: 3 federal land entries — E2NW sec 32 T39N R14E; E2SE sec 34 T39N R13E; W2NE sec 32 T39N R14E and 8 parcels of the school section — BL129 of the school section (sec 16 T39N R14E), as read; BL20 of the school section (sec 16 T39N R14E), as read; BL30 of the school section (sec 16 T39N R14E), as read; BL61 of the school section (sec 16 T39N R14E), as read; BL9 of the school section (sec 16 T39N R14E), as read; lot 2 of block 23 of the school section (sec 16 T39N R14E); lot 7 of block 117 of the school section (sec 16 T39N R14E); lot 7 of block 25 of the school section (sec 16 T39N R14E), 417.29 acres stated in all, for $1145.00 (ls0230, ls0231, ls0232, ls0233, ls0234, ls0235, ls0236, ls0237, ls0475, ls0476, ls0477, ls0478, ls0869). THE REGISTER'S OWN RESIDENCE COLUMN READS COOK, UNKNOWN on these rows: a county, a state or nothing, and never a town, which is why a purchase here places nobody. THE SCHOOL-SECTION ROWS ARE GROUND INSIDE THE TOWN, NOT FARMLAND: section 16 of T39N R14E was platted and sold off by lot and by block at the sale of 1833, which is why the register states 0000.00 acres against most of them. Ground inside the town is nearer to this reconstruction than a quarter-section is, and it is still a purchase: the register names a purchaser and never an occupant, and nothing here puts this person on that ground. A purchase and nothing more. It dates and places a transaction; it proposes no residence, and under the ratified ladder it corroborates rather than mints. The register states this purchaser's residence as COOK, so the sale is contemporary evidence that a man of this name lived in Cook County on the date of sale. It is not evidence that he lived in the town. Identity by the crosswalk's own rule: HEACOCK RUSSEL E matches Russel E. Heacock: the forename names Russel E. Heacock of the 1 person of this surname, and the forename agrees in full. (data/research/land_sales/resident_crosswalk.json). This pass WRITES THE EVIDENCE AND MOVES NO GRADE. Under the ratified ladder (T-0513) a second independent source is what lifts a projected resident, and a land entry is a second source about a TRANSACTION rather than about who was living at Chicago on 1 July 1835 — a man may buy a quarter-section he never sees. T-0515 applies the ladder against every source at once; this pass hands it the evidence and not the verdict.",
+   "resident_research": {
+    "programme": "resident-research-2026",
+    "ticket": "T-0510",
+    "outcome": "corroborated",
+    "reviewed_on": "2026-09-05",
+    "asserted_identity": true,
+    "evidence_for": "The book prints 'Russell E. Heacock' as one of two American families occupying the old log officers' quarters inside the pickets of the ungarrisoned fort in July 1827. This project's resident record is Russel E. Heacock, graded attested, an attorney and justice of the peace who Andreas says 'had come in 1827'. The two spellings differ by one letter in the surname and agree in given name, middle in Surname and given name both agree between the 1830 reading 'Russel E Heacock' and the town person 'Russel E. Heacock' in household hh_heacock_russel_e. The 1830 line is carried as EARLIER EVIDENCE for that person and grades nothing on its own. Surname 'Heacock' folds to the same string as the 1844 entry's, and the given name of both begins R.",
+    "evidence_against": "'R. E. Heacock' at printed page 216 line 13 (33S7-9YYJ-DD) is NOT 'Russel E. Heacock': The head is written 'R. E. Heacock' — a surname and initials only — and 1 person(s) of 1835 carry the surname 'heacock'. A surname and a letter is not an identity. L4 initial_only Surname 'Heacock' folds to the same string as the 1839 entry's, and the given name of both begins R.",
+    "summary": "Independently corroborated. Russel E. Heacock agrees, forename for forename or initial for initial, with a record outside the post-office lists in the held book corpus, the 1830 census of the Chicago precinct, the Fergus 1839/1843 and Norris 1844 directories. The book prints 'Russell E. Heacock' as one of two American families occupying the old log officers' quarters inside the pickets of the ungarrisoned fort in July 1827. This project's resident record is Russel E. Heacock, graded attested, an attorney and justice of the peace who Andreas says 'had come in 1827'. The two spellings differ by one letter in the surname and agree in given name, middle in",
+    "notes": "FERGUS 26-29, AS PRINTED: \"Heacock, Russel Easton (Old Shallow-Cut, Chicago's first attorney at law), res 129 Adams [died, Summit, Ill., June 20, 1849, aged 70]\". The 1843 directory gives the middle name Easton, the trade the 1835 record carries, and a death date and age that put birth about 1779. Research only. Later-volume readings are recorded here and NOT promoted: T-0513 consolidates and T-0514/T-0515 apply.",
+    "source_ids": [
+     "census_1830_peoria_county_chicago_precinct",
+     "chicago_democrat_1833_1835",
+     "fergus_chicago_directory_1839",
+     "fergus_chicago_directory_1843",
+     "fergus_historical_series_26_29",
+     "norris_directory_1844"
+    ]
+   },
+   "press_evidence": [
+    {
+     "list": "newspaper_1833_1835",
+     "as_read": "Russell E. Heacock",
+     "locator": "chicago_democrat_1835_05_27#c007",
+     "record_id": "person_russell_e_heacock",
+     "describes_date": "1835-05-27",
+     "source": "chicago_democrat_1833_1835",
+     "rule": "G1b"
+    }
+   ],
+   "merged_from": [
+    {
+     "ticket": "T-1002",
+     "rule": "C10",
+     "cluster": "heacock",
+     "cards": [
+      "heacock_russell_e"
+     ],
+     "note": "THE UNION OF THE CARDS THIS PERSON WAS SPLIT ACROSS. The sources and evidence blocks above include everything the folded cards cited; each folded record is kept whole under data/residents/merged/ and is redirected by index.json's `merged` table. The reasoning for the merge is in data/residents/card_merge_rulings.json."
+    }
+   ],
+   "profile_facts": [
+    {
+     "field": "life_event",
+     "value": "One of two American families occupying the old log officers’ quarters inside the pickets of the ungarrisoned fort in July 1827",
+     "confidence": "inferred",
+     "sources": [
+      "census_1830_peoria_county_chicago_precinct"
+     ],
+     "describes_date": "1827-07-01",
+     "place_class": "chicago",
+     "record_id": "resident_research:T-0510#04",
+     "as_read": "one of two American families occupying the old log officers’ quarters inside the pickets of the ungarrisoned fort in July 1827",
+     "note": "A dated Chicago residence eight years before the scene, and the earliest thing the corpus holds about this man. It is contemporary in what it describes and it settles nothing about 1 July 1835, which is why it is a life event and not an arrival."
+    }
+   ],
+   "roles": [
+    {
+     "role": "attorney",
+     "kind": "profession",
+     "as_printed": null,
+     "from": "1673",
+     "to": "1857",
+     "precision": "source_span",
+     "dated_by": "source_describes_date",
+     "covers_scene_date": true,
+     "confidence": "attested",
+     "sources": [
+      "andreas_1884_v1"
+     ],
+     "claim": null,
+     "note": "THE BOUND IS THE SOURCE'S, NOT THE MAN'S. This role is carried by the card's 1835 occupation block and is dated by what the cited source or sources are ABOUT, which is why `precision` can be no better than the span they cover. The span reaches 1835, so this role stands in the scene-date view. The printing the trade was read off is not on the card and is fetched by T-1254."
+    }
+   ]
+  },
+  {
+   "id": "heacock_household_unnamed",
+   "name": "Heacock's wife and children, unnamed",
+   "relationship": "household_member",
+   "grade": "inferred",
+   "occupation": {
+    "value": "none_recorded",
+    "confidence": "reconstructed",
+    "note": "No source records an occupation for this person. This is the ABSENCE of a record rather than a claim that they did no work — the sources of 1835 name the occupations of household heads and almost never those of wives, children or the people counted with them."
+   },
+   "sources": [
+    "andreas_1884_v1"
+   ],
+   "note": "COUNTED INDIRECTLY AND NOT NAMED. Andreas: he removed in 1834 'that his children might be nearer school', into a house on the east bank of the South Branch a little south of Randolph Street; in the spring of 1835 he built a house on what he supposed was his lot and 'Here his fifth son and youngest child was born'; and in the cholera of 1849 'he fled with his family to a farm he owned at Summit, where he himself, his wife, and two sons were attacked, and died in quick succession'. So the household on 1 July 1835 contains a wife and at least five sons. THE SOURCE COUNTS THEM AND NAMES NONE, so they are one placeholder entry and not seven invented people. Do not count this entry as a person."
+  }
+ ],
+ "touches_removal": false,
+ "review_required": false,
+ "research_note": "THE OLDEST RESIDENCE, THE ONLY VOTE AGAINST THE TOWN, AND THE LARGEST DOCUMENTED HOUSEHOLD IN THE PARCEL - a wife and five sons, the youngest born in the spring of 1835. It is also the record that best shows why the population layer must precede the building layer: this household of seven had a house built in the season before the scene date, at a street address, which the model does not contain. THE PROJECT SHOULD NOT LOSE THE ROLLERS. A documented instance of a Chicago house being moved bodily one block in 1835 is evidence about construction, weight and the town's attitude to its own buildings, and it belongs in the K4 facades work as much as here.",
+ "directories": {
+  "note": "LATER EVIDENCE, BESIDE THE 1835 CLAIMS AND NOT INSIDE THEM. A Chicago directory of 1839, 1843 or 1844 meets somebody of this name and this pass records what it prints. Under the ratified ladder a directory read after 1835 can corroborate that a person attested here was still in Chicago and can print a trade or a street the 1835 record never had; on its own it makes nobody a resident of 1835. Nothing on this person's 1835 record was regraded, moved, dated or given an occupation by this entry. WHAT THIS PASS RULED ONTO THIS HOUSEHOLD, named so the ruling can be found again: each volume below is followed by the printed entries it set against this person and the status the crosswalk ruled them at — a single entry carries what its own `could_carry` declares, and an ambiguous or contested match carries nothing and is shown so that the silence is legible. heacock_russel_e, Fergus's Chicago directory of 1839 — f1839_e0668, f1839_e0669 (ambiguous, so nothing crossed); heacock_russel_e, Fergus's Chicago directory of 1843 — f1843_e1241, f1843_e1242, f1843_e1243 (ambiguous, so nothing crossed); heacock_russel_e, Norris's Chicago directory of 1844 — n1844_e0828, n1844_e0829, n1844_e0830 (ambiguous, so nothing crossed).",
+  "sources": [
+   "fergus_chicago_directory_1839",
+   "fergus_chicago_directory_1843",
+   "norris_directory_1844"
+  ],
+  "people": [
+   {
+    "person_id": "heacock_russel_e"
+   }
+  ]
+ }
+}

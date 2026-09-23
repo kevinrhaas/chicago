@@ -1,0 +1,32 @@
+{
+ "$schema_note": "DERIVED — regenerate with tools/town_census.py; tools/check.sh re-derives it. Do not hand-edit: both figures are functions of the committed roof programme and the committed residents layer, and the gate screen shows them.",
+ "id": "chicago_july_1835_town_census",
+ "target_date": "1835-07-01",
+ "derived_by": "tools/town_census.py",
+ "inputs": [
+  "data/reconstruction/1835_665_roof_programme.json",
+  "data/sidecars/1835/index.json",
+  "data/residents/index.json",
+  "data/residents/households/"
+ ],
+ "buildings": {
+  "standing": 371,
+  "target": 668,
+  "records_in_scene": 383,
+  "basis": "Physical roofs credited by the roof reconciliation, not structure records: a bridge, a pier, a palisade and a parade ground are records that are not buildings.",
+  "range_note": "one record — the Robinson/Caldwell cabins — is two or three cabins in its source; the ledger counts the low reading."
+ },
+ "people": {
+  "housed": 29,
+  "households_housed": 20,
+  "group_entries": 3,
+  "households_without_a_dwelling": 1238,
+  "town_total": 3265,
+  "town_total_dwellings": 398,
+  "town_total_source": "andreas_1884_v1",
+  "town_total_note": "The town census of November 1835 — four months after the scene date — counts 3,265 people in 398 dwellings (Andreas vol. 1, printed p. 180). Quoted as the town's recorded size, never as the scene's population on 1 July.",
+  "basis": "Person entries in households whose `lives_at` names a structure that resolves into the scene. A person counts when the building they live in stands, so this grows as the town builds out.",
+  "floor_note": "A FLOOR, not an estimate: some entries counted here stand for a group a source counts but does not name (see group_entries).",
+  "dangling_lives_at": []
+ }
+}

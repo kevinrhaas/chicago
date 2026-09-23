@@ -1,0 +1,58 @@
+{
+  "schema": 1,
+  "domain": "civic",
+  "generated_by": "hand — a reading pass declares the range it read, and the gate checks it",
+  "note": "An UNDECLARED item is not read yet and is not a fault. A DECLARED item nothing reaches is a hole, and that is what this file is for.",
+  "declarations": [
+    {
+      "ticket": "T-0493",
+      "unit": "list",
+      "items": [
+        "poll_1833",
+        "tax_1833",
+        "poll_1834",
+        "poll_1835"
+      ],
+      "read_on": "2026-09-03",
+      "source_id": "chicago_voter_lists_1833_1835_irad",
+      "what_was_read": "Every printed entry of all four lists in the Genealogy Trails publication of Ingrid Latimer Schulz's IRAD transcription — 345 entries, in order, each carrying the line of data/research/civic/text/voter_lists_1833_1835.txt it stands on.",
+      "what_was_not_read": [
+        "the IRAD originals themselves, which nobody in this project has seen",
+        "the Chicago Genealogist XXV/4 (Summer 1993) printing, which is the transcription's own publication and is not held here",
+        "anything the lists do not print: no age, no trade, no address, no lot"
+      ],
+      "counts": {
+        "poll_1833": 30,
+        "tax_1833": 115,
+        "poll_1834": 115,
+        "poll_1835": 85,
+        "total": 345
+      },
+      "note": "T-0493 stated 346 entries and 215 distinct surnames. The deposit prints 345 and 214, and so does the live Genealogy Trails page: the 1833 poll list is 30 entries, not 31, and the supplied PDF agrees. The lower figure is the measured one."
+    },
+    {
+      "ticket": "T-0572",
+      "unit": "list",
+      "items": [
+        "blackhawk_war_1832_chicago"
+      ],
+      "read_on": "2026-09-03",
+      "source_id": "blackhawk_war_chicago_enrollments_isa",
+      "what_was_read": "Every printed row of the Illinois State Archives index of Black Hawk War veterans who enrolled at Chicago, as republished by the Genealogy Trails Transcription Team — 134 rows, header excluded, in order, each with its five cells taken from the cached page and each carrying the line of data/research/civic/text/blackhawk_war_1832_chicago.txt it stands on.",
+      "what_was_not_read": [
+        "Ellen M. Whitney's volume itself, which nobody in this project has seen and which is where the dates of enrollment and the remarks on service are printed",
+        "the Illinois State Archives database in its own interface — the layer read is the Genealogy Trails republication of it",
+        "the rest of the site's Military Records section, which is 1861 and later",
+        "anything the index does not print: no date within 1832, no residence, no address, no age, no trade, no household"
+      ],
+      "counts": {
+        "blackhawk_war_1832_chicago": 134,
+        "with_surname_comma": 51,
+        "without_surname_comma": 83,
+        "company_g_kercheval": 40,
+        "company_indian": 94
+      },
+      "note": "The count is the acceptance: 134 rows, and tools/read_blackhawk_war.py --check fails if the reading holds any other number, if the 83 comma-less names stop being carried, or if this declaration and the reading disagree. 83 of 134 names carry no surname comma — the French and Potawatomi forms — and a reader who filters on the comma drops exactly the part of the town this reconstruction is least able to lose."
+    }
+  ]
+}

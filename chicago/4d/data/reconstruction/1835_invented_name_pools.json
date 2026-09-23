@@ -1,0 +1,44 @@
+{
+  "id": "1835_invented_name_pools",
+  "purpose": "Name pools for the RECONSTRUCTED residents, and the evidence that bounds them.",
+  "what_this_is": "The reconstructed layer of data/residents/ posits households the town demonstrably needed and could not otherwise account for. Until now each of those people carried a designation - 'A baker (inferred resident, unnamed)' - on the reasoning that an invented surname would make the record indistinguishable at a glance from the documented layer beside it. The owner asked for names instead, on the grounds that the record itself says loudly which layer it belongs to and a town of designations does not read like a town. This file is what keeps the invention bounded: the names are drawn from pools assembled out of the naming this project has ALREADY ATTESTED in this town, from cited sources, rather than from a general sense of what sounds old.",
+  "what_it_is_not": "Not evidence about any person. No source names any of these residents and none is claimed to. Every name assigned from these pools is graded `reconstructed` and carries a `name_basis` block saying so in those words. An invented name may never grade above the bottom tier - tools/validate.py enforces it.",
+  "method": "Pools are seeded from the 76 ATTESTED residents already in data/residents/, whose names and origins come from sources verified in data/sources/. Those people are the empirical naming stock of this town in this decade. Each pool then extends that stock with names of the same communities and birth cohorts, so an invented cooper is named the way the town's real coopers were named rather than the way a novel would name one.",
+  "communities": [
+    {
+      "id": "yankee",
+      "label": "New England and New York",
+      "evidence": "The dominant documented group in this dataset by a wide margin. Attested origins among the named residents include Vermont (three households), Washington County Vermont, Burlington, Connecticut by way of Detroit, Sackett's Harbor New York, Guilford Vermont, and 'New England'. Attested surnames of this stock in the town include Harmon, Taylor, Brown, Davis, Porter, Wright, Blodgett, Carpenter, Carver, Caton, Calhoun, Peck, Dole, Newberry and Bates.",
+      "sources": ["andreas_1884_v1", "owner_chicago_1835_reconstruction_spec_2026"],
+      "given_male": ["John", "Samuel", "William", "James", "Henry", "Charles", "Joseph", "Benjamin", "David", "George", "Nathaniel", "Ezra", "Asa", "Amos", "Levi", "Eli", "Reuben", "Hiram", "Chauncey", "Erastus", "Alanson", "Orrin", "Elisha", "Rufus", "Lemuel", "Silas", "Seth", "Abner", "Calvin", "Luther", "Harvey", "Warren", "Horace", "Jared", "Ira", "Otis", "Willard", "Alvah"],
+      "given_female": ["Mary", "Sarah", "Abigail", "Hannah", "Lucy", "Betsey", "Eliza", "Harriet", "Nancy", "Lydia", "Ruth", "Esther", "Emily", "Almira", "Polly", "Clarissa", "Maria", "Rhoda", "Amanda", "Anna", "Susan", "Martha", "Phebe", "Sophronia"],
+      "surnames": ["Bacon", "Bardwell", "Barnes", "Chapin", "Cobb", "Crandall", "Dickinson", "Eastman", "Fairbanks", "Fisk", "Gilbert", "Goodrich", "Hale", "Hastings", "Hubbard", "Ingalls", "Kellogg", "Leland", "Lyman", "Metcalf", "Nash", "Newell", "Nichols", "Parmelee", "Pratt", "Rice", "Sawyer", "Sheldon", "Stebbins", "Stiles", "Thayer", "Tuttle", "Wadsworth", "Whitcomb", "Wilcox", "Woodruff"]
+    },
+    {
+      "id": "irish",
+      "label": "Irish",
+      "evidence": "Present in the documented layer but thinly: one attested resident's origin is given as 'County Kerry, Ireland, by way of Lancashire, Dublin, Quebec, Montreal, New York, Virginia and Newark', and the attested surnames Egan and Casey belong to this stock. THE WEIGHTING TOWARD LABOURING TRADES IS ITSELF AN INFERENCE and is marked as such wherever it is applied: the Illinois and Michigan Canal contracts were not let until 1836, so the large Irish labouring population of the later 1830s is arriving around and after the scene date rather than established by it. What the pool claims is that Irish names belong in this town on 1 July 1835, which the documented layer supports; it does not claim any particular trade was Irish.",
+      "sources": ["andreas_1884_v1", "owner_chicago_1835_reconstruction_spec_2026"],
+      "given_male": ["Patrick", "Michael", "James", "John", "Thomas", "Cornelius", "Dennis", "Bryan", "Owen", "Edward", "Terence", "Daniel", "Hugh", "Martin"],
+      "given_female": ["Bridget", "Mary", "Catherine", "Margaret", "Honora", "Ellen", "Johanna", "Alice"],
+      "surnames": ["Brady", "Burke", "Carroll", "Cavanagh", "Connor", "Corrigan", "Dolan", "Donnelly", "Doyle", "Duffy", "Fitzgerald", "Flynn", "Gallagher", "Hayes", "Keegan", "Kelly", "Lynch", "Mahoney", "McCarthy", "McGuire", "Murphy", "Nolan", "Quinn", "Reilly", "Ryan", "Shea", "Sullivan", "Tobin", "Walsh"]
+    },
+    {
+      "id": "french_colonial",
+      "label": "French colonial and metis of the Detroit and Milwaukee country",
+      "evidence": "The oldest continuously present community in this dataset and among the best attested. Beaubien appears three times among the named residents; recorded origins include 'Detroit and the Milwaukee trade, of a French colonial family', 'a French-descended trading family of the Detroit and Milwaukee country', and 'Detroit; his father an Irish officer in the British army, his mother Potawatomi'. The river and lake carrying trade of this place was worked by this community, which is why the boatman weighting below cites evidence rather than asserting a guess.",
+      "sources": ["andreas_1884_v1", "owner_chicago_1835_reconstruction_spec_2026"],
+      "given_male": ["Antoine", "Baptiste", "Joseph", "Louis", "Francois", "Pierre", "Charles", "Alexis", "Michel", "Jean", "Toussaint", "Medard", "Hyacinthe"],
+      "given_female": ["Marie", "Josette", "Angelique", "Therese", "Catherine", "Archange", "Madeleine", "Victoire"],
+      "surnames": ["Bourassa", "Chevalier", "Cardinal", "Dufresne", "Gagnier", "Laframboise", "Lecuyer", "Marcotte", "Pelletier", "Pothier", "Robillard", "Trottier", "Vieau", "Bertrand"]
+    }
+  ],
+  "trade_weights": {
+    "_note": "Which pool a trade draws from. `evidenced` means a source in this dataset speaks to the association; `even` means it does not, and the name is drawn from the town's general documented stock rather than from a story about who did that work. Where a weighting is evidenced the note says what the evidence is; where it is not, the person's name_basis says the weighting is an inference too.",
+    "boatman": { "weights": { "french_colonial": 3, "yankee": 1 }, "basis": "evidenced", "why": "The carrying trade of the Chicago river and the lake shore was worked by the French colonial and metis community this dataset attests here, whose families - Beaubien among them - are documented in exactly this trade at Detroit, Milwaukee and Chicago." },
+    "labourer": { "weights": { "irish": 2, "yankee": 2 }, "basis": "even", "why": "An even draw on purpose. The Irish labouring population that later defines this trade in Chicago arrives with the canal contracts of 1836, AFTER the scene date, so weighting 1835 labourers Irish would be importing a later decade into this one." },
+    "domestic": { "weights": { "irish": 2, "yankee": 2 }, "basis": "even", "why": "Same reasoning as labourer: the association is real later and not yet established here." },
+    "laundress": { "weights": { "irish": 2, "yankee": 2 }, "basis": "even", "why": "Same reasoning as labourer." },
+    "_default": { "weights": { "yankee": 6, "irish": 1, "french_colonial": 1 }, "basis": "even", "why": "The proportions of the documented layer, which is overwhelmingly New England and New York with an older French colonial presence and a small Irish one. Applied to every trade for which no source speaks to who did the work." }
+  }
+}

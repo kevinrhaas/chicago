@@ -1,0 +1,364 @@
+{
+  "schema": 1,
+  "issue_id": "chicago_democrat_1833_12_24",
+  "extracted": "2026-08-28",
+  "extracted_by": "hand, T-0309 — the Democrat read, December 1833",
+  "note": "Vol. I No. 5, and the issue this month's most important document is CLAIMED from rather than first printed in. The town ordinances of 4 December 1833 are set here for the third time and this is the only printing in which sections 15 and 16 — the WHARFING LEASE, which reserves EIGHTY FEET FOR A STREET on every river-fronting lot, and the appraisal a lessee gets for his wharf when he gives the privilege up — survive whole and signed by the president and clerk. They are minted here and recorded as reprints at 1833-12-10, which is where they first appeared, on the one-printing-one-claim discipline T-0292 set for the letter lists. The issue also carries the town's two meeting-houses in one column — the Baptist Meeting House and the School House of District No. 1 — and a clean setting of Matthias Mason's blacksmith shop whose No. 1 and No. 4 printings both lost the address. NO POST-OFFICE LETTER LIST: the sweep returns the page-1 agent list and two national paragraphs. Zero printed, zero extracted.",
+  "claims": [
+    {
+      "id": "c001",
+      "kind": "event",
+      "reading": "transcription_mediated",
+      "quote": "The Members of the Chicago Temperar\nSociety, and the inhabitants generally, are\nquested to meet at the Baptis Meeting Hou\non Thursday evening next, at 6 o'clock,\nwhich time and place it is expected that the\nwill be a discourve delivered on the subject\nTemperance. By-order of the President.\nJ. WATKINS, Sec'y.\nDec. 21, 1633.",
+      "normalized": "The Members of the Chicago Temperan[ce] Society, and the inhabitants generally, are [re]quested to meet at the Bapti[st] Meeting Hou[se] on Thursday evening next, at 6 o'clock, [at] which time and place it is expected that the[re] will be a discour[s]e delivered on the subject [of] Temperance. By order of the President. J. WATKINS, Sec'y. Dec. 21, 18[3]3.",
+      "locator": {
+        "artifact_role": "primary",
+        "issue_page": 3,
+        "column": 3,
+        "lines": [
+          2443,
+          2451
+        ],
+        "lines_of_claim": [
+          2443,
+          2444,
+          2445,
+          2446,
+          2447,
+          2448,
+          2449,
+          2450,
+          2451
+        ],
+        "interleaved": true
+      },
+      "entities": [
+        {
+          "as_printed": "J. WATKINS",
+          "normalized": "John Watkins",
+          "role": "secretary of the Chicago Temperance Society",
+          "associated_places": [
+            "Chicago"
+          ]
+        }
+      ],
+      "notes": "A BAPTIST MEETING HOUSE STANDS IN CHICAGO IN DECEMBER 1833, AND IT IS THE TOWN'S PUBLIC HALL. This is the claim that matters here: not the temperance society, which is only well-attested elsewhere, but the BUILDING it meets in — a Baptist Meeting House, named as a place the 'inhabitants generally' are expected to find at six o'clock on a Thursday evening. Two weeks earlier the same paper auctioned a house on lot 7 block 8 'formerly occupied as a Meeting House' by the North Branch bridge (1833-12-10 c009), so the congregation this notice addresses has moved out of a dwelling and into a meeting house of its own inside the same month. The corpus does not say where the new one stood and none is inferred. John Watkins is separately in this corpus's gazetteer as a schoolmaster."
+    },
+    {
+      "id": "c002",
+      "kind": "building",
+      "reading": "transcription_mediated",
+      "quote": "The inhabitante of School District No. 1, a\nrequested to meet at the School House on t\n6th day of Jan. nest, at 6 o'clock P. M. to cle\nofficers and to transact other business connec\ned with the district, for the ensuing year.\nDee. 21, 1633",
+      "normalized": "The inhabitants of School District No. 1, a[re] requested to meet at the School House on t[he] 6th day of Jan. next, at 6 o'clock P. M. to ele[ct] officers and to transact other business connect[]ed with the district, for the ensuing year. De[c]. 21, 18[3]3.",
+      "locator": {
+        "artifact_role": "primary",
+        "issue_page": 3,
+        "column": 3,
+        "lines": [
+          2452,
+          2457
+        ],
+        "lines_of_claim": [
+          2452,
+          2453,
+          2454,
+          2455,
+          2456,
+          2457
+        ],
+        "interleaved": true
+      },
+      "entities": [],
+      "notes": "THE SCHOOL HOUSE IS A DEFINITE ARTICLE. 'The School House' of School District No. 1, with no further address, is a building every reader of this paper could find — which is what makes it a claim about the town's fabric and not only about its schooling. It is a SEPARATE building from the Chicago English and Classical Academy on the corner of Water and Franklin (1833-12-03 c015), which is a private academy with a preceptor and a fee table; this is the public district's house, and it is where the district's officers are elected. The notice is printed twice in December, on the 10th and again here, with the meeting moved from 'Wednesday evening next' to 6 January."
+    },
+    {
+      "id": "c003",
+      "kind": "business",
+      "reading": "transcription_mediated",
+      "quote": "Blacksmithing Business.\nMATTHIAS MASON & CO.\nCarries on the above business in all its various branches, on Main-street, nearly opposite Graves' Tavern, where they intend to keep ready made all kinds of Shoes, Chains, &c. &c.. Work done on the shortest notice and most liberal terms.\nChicago, Nov. 26, 1833.",
+      "normalized": "Blacksmithing Business. MATTHIAS MASON & CO. Carries on the above business in all its various branches, on Main-street, nearly opposite Graves' Tavern, where they intend to keep ready made all kinds of Shoes, Chains, &c. &c.. Work done on the shortest notice and most liberal terms. Chicago, Nov. 26, 1833.",
+      "locator": {
+        "artifact_role": "primary",
+        "issue_page": 1,
+        "column": 1,
+        "lines": [
+          129,
+          132
+        ],
+        "lines_of_claim": [
+          129,
+          130,
+          131,
+          132
+        ]
+      },
+      "entities": [
+        {
+          "as_printed": "MATTHIAS MASON & CO.",
+          "normalized": "Matthias Mason & Co.",
+          "role": "the advertising firm"
+        }
+      ],
+      "business": {
+        "name": "Matthias Mason & Co., blacksmiths",
+        "proprietors": [
+          "Matthias Mason"
+        ],
+        "trade": "blacksmith",
+        "goods": [
+          "horseshoes",
+          "chains",
+          "blacksmith work"
+        ],
+        "street": "Main Street",
+        "placement": {
+          "class": "relative",
+          "anchor": "Graves' Tavern",
+          "offset_text": "on Main-street, nearly opposite Graves' Tavern",
+          "offset_normalized": "on Main-street, nearly opposite Graves' Tavern",
+          "street": "Main Street",
+          "note": "A named street AND a named building opposite, which is the strongest form of relative placement this corpus carries."
+        }
+      },
+      "ad_copy_date": {
+        "verbatim": "Chicago, Nov. 26, 1833.",
+        "iso": "1833-11-26"
+      },
+      "notes": "THE ADDRESS THREE EARLIER PRINTINGS LOST. T-0308 c020 read this advertisement off No. 1 and could carry the trade and the partners but no location at all; No. 2's setting is worse; No. 4's gives 'on wain-street, near opposite Graves' Tavern' broken across two lines. This printing is one clean sentence and it says both things at once — the shop is ON MAIN-STREET and it is NEARLY OPPOSITE GRAVES' TAVERN. That matters twice over: it is the only occurrence of a street called Main in the December papers, and it fixes Graves' Tavern — the house where the Board of Trustees sat on 4 December (1833-12-10 c004) — to the same street. The claim is made on this witness because this witness is the one that says it."
+    },
+    {
+      "id": "c004",
+      "kind": "infrastructure",
+      "reading": "transcription_mediated",
+      "quote": "15. Be it further Ordained by the Board of\nTrustees of the town of Chicago, That each and\nvery owner or occupant ofany lot in said town,\nronting upon the Chicago River or its branch-\n*, where the street runs to said river, be per-\nnitted to occupy the vacant ground on said riv-\ner. leaving eighty feet for a street, for wharling\nprivileges only: And for the porpose of guaran-\nceing this right, each and every oseper or oc\nsupaat, desiring wuch privilege, shall upon pay-\nng fifteen dollars annuaily in, advance, to the\nTreasurer ofsaid Board, be entitled to a lease\nfor the term of live years from the first day of\nJanuary next, to be signed by the President and\nClerk of said board.",
+      "normalized": "15. Be it further Ordained by the Board of Trustees of the town of Chicago, That each and e[v]ery owner or occupant of any lot in said town, [f]ronting upon the Chicago River or its branch[es], where the street runs to said river, be per[m]itted to occupy the vacant ground on said river, leaving eighty feet for a street, for whar[f]ing privileges only: And for the p[u]rpose of guaran[t]e[e]ing this right, each and every o[wn]er or oc[c]upa[n]t, desiring [s]uch privilege, shall upon payi[n]g fifteen dollars annua[ll]y in advance, to the Treasurer of said Board, be entitled to a lease for the term of [f]ive years from the first day of January next, to be signed by the President and Clerk of said board.",
+      "locator": {
+        "artifact_role": "primary",
+        "issue_page": 4,
+        "column": 5,
+        "lines": [
+          3965,
+          3979
+        ],
+        "lines_of_claim": [
+          3965,
+          3966,
+          3967,
+          3968,
+          3969,
+          3970,
+          3971,
+          3972,
+          3973,
+          3974,
+          3975,
+          3976,
+          3977,
+          3978,
+          3979
+        ],
+        "interleaved": true
+      },
+      "entities": [],
+      "notes": "THE WHARFING ORDINANCE, AND THE EIGHTY FEET. This is the most consequential single document the December 1833 papers carry for anyone reconstructing the river frontage, and it says four separate things. (1) Where a platted STREET runs down to the Chicago River or its branches, the ground between the lot and the water is VACANT and the town controls it. (2) The owner or occupant of the fronting lot may occupy that ground — but only 'leaving eighty feet for a street', so a strip of that width is reserved at every such river end from 1 January 1834. (3) The privilege is FOR WHARFING ONLY, which is the town saying in December 1833 that it expects wharves to be built. (4) It costs fifteen dollars a year on a five-year lease signed by the president and clerk, which is the price of a wharf privilege in this town and a figure nothing else in the corpus gives. FIRST PRINTED 1833-12-10, where the column rule destroys the clauses that carry the eighty feet and the fifteen dollars; this is the third printing and the first legible one, so the ordinance is minted here and the earlier appearance is recorded rather than re-claimed. ALREADY READ ONCE, FROM A LATER REPRINT: T-0310 claimed section 15 off the 1834-01-07 printing (its c003), which is where this project first learned of the eighty feet. That printing is broken through the middle of the section. This is the third and clearest printing and it is the one that carries the lease term, the fifteen dollars, the annual payment in advance and the signing officers in one run of type, so it is the senior witness; the January claim stands as the reprint that found it."
+    },
+    {
+      "id": "c005",
+      "kind": "infrastructure",
+      "reading": "transcription_mediated",
+      "quote": "16. Be it further Ordained by the Hoard of\nTrustees of the town of Cheego, that t any per-\nson who may have leased trom the said Boar\nany lot or lots, and who may have ereeted up-\non sue lot or lots of ground, any whart, shall\nat the expiration of the lease, desire to relin-\nguish to said board his privilege, then the said\nboard shail pay to him such sum of pioney as\nshall be adjudged to hin, the sand leesee, on the\nappraisal of tree disinterested persons; one of\nwhom shall be chosen by the buard of Trustees,\nand one by the said leasee, and the thord by the\ntwo chosen as aforesaid.\nThe appraisers to ap-\nprise only the value of the work, and have no\nreference to the cost.— Dec. 4, 1833.",
+      "normalized": "16. Be it further Ordained by the [B]oard of Trustees of the town of Ch[ica]go, that [if] any person who may have leased from the said Boar[d] any lot or lots, and who may have erec[t]ed up[o]n su[ch] lot or lots of ground, any whar[f], shall at the expiration of the lease, desire to relin[q]uish to said board his privilege, then the said board sha[l]l pay to him such sum of [m]oney as shall be adjudged to hi[m], the sa[i]d le[ss]ee, on the appraisal of t[h]ree disinterested persons; one of whom shall be chosen by the b[o]ard of Trustees, and one by the said le[ss]ee, and the th[i]rd by the two chosen as aforesaid. The appraisers to ap[p]raise only the value of the work, and have no reference to the cost.— Dec. 4, 1833.",
+      "locator": {
+        "artifact_role": "primary",
+        "issue_page": 4,
+        "column": 5,
+        "lines": [
+          3980,
+          3995
+        ],
+        "lines_of_claim": [
+          3980,
+          3981,
+          3982,
+          3983,
+          3984,
+          3985,
+          3986,
+          3987,
+          3988,
+          3989,
+          3990,
+          3991,
+          3992,
+          3993,
+          3994,
+          3995
+        ],
+        "interleaved": true
+      },
+      "entities": [],
+      "notes": "WHAT A WHARF WAS WORTH WHEN THE LEASE RAN OUT. Section 16 is the other half of the wharfing bargain and it is evidence of a physical thing: the town expects lessees to have ERECTED WHARVES on the leased ground, and it undertakes to buy the structure back at a three-man appraisal if the lessee gives the privilege up. The last clause is the revealing one — the appraisers value THE WORK and not what it cost, which is a town protecting itself against a man who overbuilds. Together with section 15 this is the legal machinery under every wharf on the Chicago River from 1 January 1834, eighteen months before the scene date, and it is dated 4 December 1833 at the foot of the ordinance. NOT PREVIOUSLY READ AT ALL: T-0310's January reprint loses section 16 completely, so the appraisal clause — the town's undertaking to buy a lessee's wharf back — enters the corpus here."
+    },
+    {
+      "id": "c006",
+      "kind": "notice",
+      "reading": "transcription_mediated",
+      "quote": "Town Ordinances.\n. a meeting of the Board of Trustees of\nthe town of Chicago, hell at the house of\nDexter Graves, on the 4th day of Decem-\nber, 1833, the following Ordinances were\nadopted, to wit :\nTHOS. J. V. OWEN, Pres't.\nAttest, Isaac Harmon, Clerk.",
+      "normalized": "Town Ordinances. [At] a meeting of the Board of Trustees of the town of Chicago, hel[d] at the house of Dexter Graves, on the 4th day of December, 1833, the following Ordinances were adopted, to wit: […] THOS. J. V. OWEN, Pres't. Attest, Isaac Harmon, Clerk.",
+      "locator": {
+        "artifact_role": "primary",
+        "issue_page": 4,
+        "column": 5,
+        "lines": [
+          3937,
+          3997
+        ],
+        "lines_of_claim": [
+          3937,
+          3938,
+          3939,
+          3940,
+          3941,
+          3942,
+          3996,
+          3997
+        ],
+        "interleaved": true
+      },
+      "entities": [
+        {
+          "as_printed": "THOS. J. V. OWEN",
+          "normalized": "Thomas J. V. Owen",
+          "role": "president of the Board of Trustees of the town of Chicago",
+          "occupations": [
+            "Indian agent",
+            "president of the board of trustees"
+          ],
+          "associated_places": [
+            "Chicago"
+          ]
+        },
+        {
+          "as_printed": "Isaac Harmon",
+          "normalized": "Isaac Harmon",
+          "role": "clerk of the Board of Trustees",
+          "occupations": [
+            "clerk of the board of trustees",
+            "justice of the peace"
+          ],
+          "associated_places": [
+            "Chicago"
+          ]
+        }
+      ],
+      "notes": "THE SIGNATURES, WHICH THE FIRST PRINTING DID NOT CARRY. The 4 December ordinances are signed THOS. J. V. OWEN, President, and attested by Isaac Harmon, Clerk. That names the town's chief officer in December 1833 and identifies two men already in these December papers under other hats: Owen is the 'Col. Owen' whose HOUSE the county clerk's office moved next door to (1833-12-10 c010) and almost certainly the Indian Agent whose office was burgled on 30 November (1833-12-03 c002), and Harmon is the justice of the peace before whom William Taylor's estray ox was appraised (1833-12-17 c008). The heading and the signatures are cited together across the ordinance body, which is claimed section by section in c004 and c005 and at 1833-12-10. The 1834-01-07 reprint T-0310 read carries no signatures, so the two names enter the corpus here."
+    },
+    {
+      "id": "c007",
+      "kind": "notice",
+      "reading": "transcription_mediated",
+      "quote": "Take Notice.\nREQUEST that all persons to whom 1 ar\nindebted, will sond in their accounts imme\ndistely, as I leave for No-York on the first c\nPebruary. All persons indebted to me must pa\nup their accounts before that time, or 1 shall b\ncompelled to leave them in the hands of an ofte\nof the law.\nCHAS. H. CHAPMAN.\nDer. 21, 1833.",
+      "normalized": "Take Notice. [I] REQUEST that all persons to whom I a[m] indebted, will send in their accounts imme[di]ately, as I leave for N[ew]-York on the first [of] February. All persons indebted to me must pay up their accounts before that time, or I shall b[e] compelled to leave them in the hands of an offi[cer] of the law. CHAS. H. CHAPMAN. De[c]. 21, 1833.",
+      "locator": {
+        "artifact_role": "primary",
+        "issue_page": 3,
+        "column": 3,
+        "lines": [
+          2464,
+          2473
+        ],
+        "lines_of_claim": [
+          2464,
+          2465,
+          2466,
+          2467,
+          2468,
+          2469,
+          2470,
+          2471,
+          2472,
+          2473
+        ],
+        "interleaved": true
+      },
+      "entities": [
+        {
+          "as_printed": "CHAS. H. CHAPMAN",
+          "normalized": "C. H. Chapman",
+          "role": "advertiser leaving Chicago for New York",
+          "occupations": [
+            "merchant"
+          ],
+          "associated_places": [
+            "Chicago"
+          ]
+        }
+      ],
+      "ad_copy_date": {
+        "verbatim": "Der. 21, 1833.",
+        "iso": "1833-12-21"
+      },
+      "contradicts": true,
+      "notes": "A MERCHANT SETTLING UP AND LEAVING TOWN ON 1 FEBRUARY 1834. This is the only claim in the December set that CONTRADICTS a business under ruling 3: C. H. Chapman advertised a yoke of oxen for sale in No. 1 (T-0308 c008) and is in this corpus's gazetteer as a Chicago trader, and here he gives notice that he is winding up his accounts and going to New York. It is not a dissolution and it does not say the business closes, so it is recorded as a contradiction of his continued presence and not of the trade — the distinction matters, because ruling 3 builds a documented business at the scene date unless a claim vetoes it, and what this vetoes is the man being here, eighteen months earlier."
+    },
+    {
+      "id": "c008",
+      "kind": "notice",
+      "reading": "transcription_mediated",
+      "quote": "Dissolution.\nViE copartnershp heretofore existing be\ntween Calvin Britain and Andrew J. F\nPhelan: under the firm of Britain & Phelan, i\nthis day dissolved by matust consent. All per\nsons having demande against said firm, are ro\nquested to present them to Andrew J. F. Phe\nina for payitent, and all persons indebted to sai\nCALVIN BRITAIN,.\nANDREW J. F. PHELAN.\nSt. Joseph, Dec. 11, 1833.",
+      "normalized": "Dissolution. [TH]E copartnership heretofore existing be[t]ween Calvin Britain and Andrew J. F[.] Phelan, under the firm of Britain & Phelan, i[s] this day dissolved by mut[u]al consent. All per[s]ons having demand[s] against said firm, are r[e]quested to present them to Andrew J. F. Phe[lan] for pay[m]ent, and all persons indebted to sai[d] [late firm …] CALVIN BRITAIN, ANDREW J. F. PHELAN. St. Joseph, Dec. 11, 1833.",
+      "locator": {
+        "artifact_role": "primary",
+        "issue_page": 3,
+        "column": 3,
+        "lines": [
+          2474,
+          2488
+        ],
+        "lines_of_claim": [
+          2474,
+          2475,
+          2476,
+          2477,
+          2478,
+          2479,
+          2480,
+          2481,
+          2486,
+          2487,
+          2488
+        ],
+        "interleaved": true
+      },
+      "entities": [
+        {
+          "as_printed": "CALVIN BRITAIN,.",
+          "normalized": "Calvin Britain",
+          "role": "partner in the dissolved firm, of St. Joseph",
+          "occupations": [
+            "forwarding and commission merchant"
+          ],
+          "associated_places": [
+            "St. Joseph"
+          ]
+        },
+        {
+          "as_printed": "ANDREW J. F. PHELAN.",
+          "normalized": "Andrew J. F. Phelan",
+          "role": "partner in the dissolved firm, of St. Joseph",
+          "occupations": [
+            "forwarding and commission merchant"
+          ],
+          "associated_places": [
+            "St. Joseph"
+          ]
+        }
+      ],
+      "ad_copy_date": {
+        "verbatim": "St. Joseph, Dec. 11, 1833.",
+        "iso": "1833-12-11"
+      },
+      "notes": "THE OTHER END OF THE LAKE TRADE, AND IT IS BREAKING UP. Britain & Phelan of St. Joseph dissolve on 11 December 1833 and Calvin Britain announces in the same column that he will carry the storage, forwarding and commission business on there alone. Three weeks later David Carver tells his Michigan friends that he has made Calvin Britain his AGENT at the mouth of the St. Joseph, through whom goods for Chicago are to be directed (1833-12-31 c002) — so the dissolution and the agency are the same reorganisation seen from both shores. Nothing here stands in Chicago; the claim is kept because the Chicago lumber and provision trade of 1833 ran through this firm's wharf."
+    }
+  ]
+}

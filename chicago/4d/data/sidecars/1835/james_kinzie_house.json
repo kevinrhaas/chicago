@@ -1,0 +1,148 @@
+{
+  "id": "james_kinzie_house",
+  "phase": "dwelling_1830",
+  "name": "James Kinzie's Residence",
+  "aka": [
+    "James Kinzie's house, Wolf Point"
+  ],
+  "archetype": "log_dwelling",
+  "asset": "gltf/james_kinzie_house__dwelling_1830.glb",
+  "scene": "1835",
+  "target_date": "1835-07-01",
+  "documented_range": {
+    "from": "1830-01-01",
+    "to": "1835-12-31",
+    "confidence": "inferred",
+    "sources": [
+      "chicagology_prefire273"
+    ],
+    "note": "NO SOURCE REACHED DATES THIS BUILDING AT EITHER END, and the range is a coverage statement rather than a finding. What is attested is that the house stood in the west-bank row at Wolf Point in the years chicagology's account describes; the source record gives that account's describes_date as 1830-1835, so the range opens at the start of 1830 because that is the earliest year the description can be held to and NOT because anything says the house was built then. It may well be older: James Kinzie built the Wolf Point Tavern next door in 1828 (see data/structures/wolf_point_tavern.json, where the build date is itself disputed 1823 against 1828) and he was trading at the forks through the 1820s, so a residence of the middle 1820s is entirely possible. The range closes at the end of 1835 on this project's usual rule — the last date the record needs to claim — and not on any statement about the house coming down. Extend it in either direction when evidence appears; do not widen it to make something pass."
+  },
+  "change_note": "The house as the west-bank row carried it through the early 1830s. No documented change of fabric falls inside the phase, because no fabric is documented at all — this is one state because there is nothing to divide it into, not because the building is known to have stayed still.",
+  "placement": {
+    "local_e": -46.7,
+    "local_n": -79.8,
+    "rotation_deg": 90.0,
+    "position_confidence": "inferred",
+    "position_sources": [
+      "chicagology_prefire273",
+      "osm_streets_2026"
+    ],
+    "position_note": "PLACED 2026-08-11, AND IT IS A POSITION DERIVED FROM A NEIGHBOUR RATHER THAN FROM ANYTHING SURVEYED. What the source gives is an ORDER along the west bank and no distances: chicagology's Wolf Point narrative puts James Kinzie's residence south of Wentworth's tavern and Father Walker's log meeting house north of it, which is the same three-building sequence this project's wolf_point_tavern record already carries in its own symbolic_location. So this coordinate is anchored to that record: the tavern's south face sits at local N -57.1 and the north kerb of Lake Street at local N -97.1, leaving a 40 m stretch of west-bank frontage between the tavern and the crossing, and this house is set inside it with its south face at local N -87.8 — about 9 m clear of the street line and about 30 m south of the tavern, with room left between for robert_kinzie_store, which Andreas puts 'near Wentworth's tavern' (scan p. 235). ACROSS THE BANK: the east face is set about 13 m back from the modern west-bank line read from OpenStreetMap water polygons at the house's north face, widening to about 26 m at its south face because the bank swings east here as it runs down to the Lake Street crossing. That is the same setback band the tavern's record uses (11 to 19 m) and it is chosen for consistency with the row, not measured. UNCERTAINTY IS THE TAVERN'S PLUS THIS RECORD'S OWN: about 40 m along the bank (docs/LIBERTIES.md L7 — nothing fixes how far north of the bridge the tavern stood, and everything hung off it inherits that) and about 20 m across it from the georeference, compounded by the modern bank not being the 1835 bank on a reach that was wharfed and rebuilt. Facade bearing 90, due east onto the water, following the row: Wau-Bun's 1831 sequence reads 'Facing down the river from the west was, first a small tavern kept by Mr. Wentworth', and the tavern, the Robinson cabins and the meeting house are all given that bearing in this dataset. Anything from about 75 to 105 is equally defensible.",
+    "symbolic_location": "West bank of the river at Wolf Point, south of Wentworth's tavern (the Wolf Point Tavern) and north of the Lake Street crossing.",
+    "uncertainty_m": 20,
+    "placement_provisional": false,
+    "vertical_anchor": "terrain",
+    "walk_surface_m": null
+  },
+  "footprint": {
+    "polygon": [
+      [
+        0,
+        0
+      ],
+      [
+        8,
+        0
+      ],
+      [
+        8,
+        6.5
+      ],
+      [
+        0,
+        6.5
+      ]
+    ],
+    "confidence": "reconstructed",
+    "sources": [],
+    "note": "PLACEHOLDER — NOT ONE DIMENSION, PROPORTION OR PLAN FORM IS ATTESTED FOR THIS BUILDING. Unlike the Miller house, where the SHAPE carries evidence and only the size is invented, here neither does: the dossier's entry for this structure reads, in full, 'Location: south of Wentworth's tavern, west bank. Type/date/appearance: not attested in sources reached.' 8 x 6.5 m is about 26 x 21 ft, an ordinary one-and-a-half-pen log house of the type and period, and it is a shape chosen to sit in a river-front row rather than a shape anybody described. The 8 m runs north-south along the frontage and the 6.5 m is the depth. Sources are deliberately omitted from this attribute because none supports it. To resolve: Andreas vol. 1 at page-image level around the Wolf Point material (the index gives Wolf Point at pp. 111, 114, 174, 629-631), or the Braunhold-style retrospective view 'Wolf Point in 1830' that Andreas reproduces, which shows the west-bank row and has not been examined at plate level for this parcel."
+  },
+  "attributes": {
+    "construction": {
+      "value": "log",
+      "confidence": "inferred",
+      "sources": [
+        "chicagology_prefire273"
+      ],
+      "note": "NOT ATTESTED FOR THIS BUILDING and inferred from its neighbours, which is the weaker of the two kinds of inference this dataset makes. Every building chicagology describes in the west-bank row at Wolf Point in these years is log or log-and-frame — Wentworth's tavern 'partly log and partly frame', Father Walker's 'oblong log building', the Robinson cabins log — and the frame buildings the sources single out (the Sauganash's white two-storey block, the Green Tree, the Western) are singled out precisely because frame was the exception at the forks. The archetype choice follows the same inference and is therefore no stronger than it: if the residence turns out to have been frame, this record moves to frame_dwelling and the massing changes with it."
+    },
+    "function": {
+      "value": "residence",
+      "confidence": "attested",
+      "sources": [
+        "chicagology_prefire273"
+      ],
+      "note": "The source calls it James Kinzie's residence, and that is the whole of what it says about the building's use. Whether anyone was living in it on 1835-07-01 is a separate question this record does not answer: James Kinzie built the Green Tree Tavern at Lake and Canal in 1833 and was trading and building across the west side through these years, and no source reached puts him under this roof in the summer of 1835. The record deliberately carries no occupants block rather than guessing."
+    }
+  },
+  "residents": [
+    {
+      "household": "hh_kinzie_james",
+      "name": "The James Kinzie household",
+      "division": "west",
+      "relation": "lived here",
+      "why": "Andreas's residents list places 'James Kinzie and family' near Wentworth's tavern and this dataset's james_kinzie_house sits in that row, south of the tavern, on the strength of the same clause. Inferred rather than documented because the building record itself calls its evidence 'a single clause' and grades its own position inferred.",
+      "sources": [
+        "andreas_1884_v1",
+        "kinzie_waubun_1856"
+      ],
+      "basis": "",
+      "persons": [
+        {
+          "name": "James Kinzie",
+          "relationship": "head",
+          "grade": "attested",
+          "occupation": "merchant",
+          "note": "A BUILDER OF TAVERNS RATHER THAN A KEEPER OF THEM, which is why his structure links are thin. Andreas has him building the Green Tree and leasing it to David Clock; Charles Butler in August 1833 lodged at a tavern on the west side of the South Branch 'erected by James Kinzie, but kept by a Mr. Crook (?)' - the question mark is Andreas's or Butler's, not this project's. HALF BROTHER TO JOHN H. KINZIE, AND AN UNCITED CLAIM ABOUT ROBERT A. KINZIE — T-0732 RULED ON BOTH. The John H. tie is carried by this card's `kin` row, graded and reciprocal, on Hurlbut's bracketed note of 1881 (bk_afc_015). The Robert A. tie was a sentence in this note and nothing else, citing nothing, and it is NOT PROMOTED: no source this project holds states a relationship between James Kinzie and Robert Allen Kinzie, and the two sources that touch it do not chain into one — Hurlbut says HALF brother without saying which parent is shared, and on the reading where it is the mother, James and Robert have no parent in common at all. The sentence stands here as an inherited, uncited claim, marked as one. The reasoning, and what would reopen it, is in data/research/residents/kinzie_kinship_ruling.json. THE TOWN'S OWN ROLLS, 1833-1835 — CORROBORATION, NOT A GRADE. The early Chicago voter and tax lists held by the Illinois Regional Archives Depository name this person 3 times: Poll list of the first election of the Board of Trustees of the Town of Chicago, 10 August 1833 — “Kinzie, James” (poll_1833_017, line 38); Tax list of the Town of Chicago, 1833 — “Kinzie, James” (tax_1833_061, line 113); Election returns — poll list of 1834, filed 11 August 1834 — “Kinzie, James” (poll_1834_066, line 235). These are the town's own contemporary paper rather than a recollection of it, and each appearance says that a man of that name stood on that roll in that year — no more. The reading is twice mediated (Schulz's transcription, then Genealogy Trails' republication) and this project has not seen the IRAD originals. Under the ratified ladder (T-0513) the 1835 poll with a second independent source is attested, the 1835 poll alone or a 1833/1834 list with another source is inferred, and a single appearance with nothing else is a projected resident. This pass WRITES THE EVIDENCE AND MOVES NO GRADE — T-0515 applies the ladder against every source at once. Identity by the crosswalk's own rule: one resident of the surname 'Kinzie' agrees with the entry's forenames; 4 bearer(s) of the surname were considered. (data/research/civic/voter_crosswalk.json). HALF BROTHER, NOT BROTHER, AND THE SOURCE IS AN EDITOR'S NOTE OF 1881. Hurlbut's bracketed note under the American Fur Company's 1821 consignment entry reads “[The late James Kinzie, formerly of Chicago, and half brother of the late John H. Kinzie.]” — the same father and different mothers, which is the form this dataset keeps, because flattening it to ‘brother’ is the move that lets the three Chicago Kinzies collapse into one another. The two men are kinzie_james in hh_kinzie_james and kinzie_john_h in hh_kinzie_john_h, and this project models them as separate households. Read as bk_afc_015 and cited to chicago_antiquities_american_fur_co. WHAT IT DOES NOT DO: it is an 1881 recollection about 1821, the ladder abstains on it (rung G5), and it moves no grade, no arrival, no placement and no household membership — both men are attested here on other evidence and stay so. THE LINK ITSELF IS THIS RECORD'S `kin` ROW, NOT THIS PROSE. T-0597 found that the residents schema had no field for a kinship BETWEEN two households; T-0704 then gave the layer one while this reading was in flight, and both records now carry the reciprocal half_brother row, graded inferred against this same source. What stands here is the READING that row rests on — the note as printed, the page it stands on and what an 1881 editorial note is worth — so the card cites its own evidence rather than asserting a link with nothing beside it. The Robert A. limb of this record's own earlier sentence — ‘He is a half-brother to John H. and Robert A. Kinzie’ — is older than this reading, Hurlbut does not carry it, and it is neither cited nor upgraded here. THE FEDERAL LAND TRACT SALES — A PURCHASE, AND NEVER A RESIDENCE. The Illinois State Archives' Public Domain Land Tract Sales register enters this person 14 times, as “KINZIE JAMES”, 1830-09-27 to 1830-09-29: 2 federal land entries — E2NW sec 09 T39N R14E; E2NWVO sec 09 T39N R14E and 12 lots in the platted town — lot 2 of block 22 in the town the register codes CHIOT (L2BL22CHIOT, as printed); lot 3 of block 22 in the town the register codes CHIOT (L3BL22CHIOT, as printed); lot 5 of block 2 in the town the register codes CHIOT (L5BL2CHIOT, as printed); lot 5 of block 22 in the town the register codes CHIOT (L5BL22CHIOT, as printed); lot 5 of block 44 in the town the register codes CHIOT (L5BL44CHIOT, as printed); lot 6 of block 2 in the town the register codes CHIOT (L6BL2CHIOT, as printed); lot 6 of block 22 in the town the register codes CHIOT (L6BL22CHIOT, as printed); lot 7 of block 2 in the town the register codes CHIOT (L7BL2CHIOT, as printed); lot 7 of block 22 in the town the register codes CHIOT (L7BL22CHIOT, as printed); lot 8 of block 2 in the town the register codes CHIOT (L8BL2CHIOT, as printed); lot 8 of block 22 in the town the register codes CHIOT (L8BL22CHIOT, as printed); lot 8 of block 44 in the town the register codes CHIOT (L8BL44CHIOT, as printed), 160.00 acres stated in all, for $698.00 (ls0052, ls0053, ls1296, ls1297, ls1298, ls1299, ls1300, ls1301, ls1302, ls1303, ls1304, ls1305, ls1306, ls1307). THE REGISTER'S OWN RESIDENCE COLUMN READS ILLINOIS, UNKNOWN on these rows: a county, a state or nothing, and never a town, which is why a purchase here places nobody. THE TOWN LOTS ARE THE PLAT ITSELF, AND THEY ARE NOT ACRES: Cook County's register describes them by lot and block in a platted town and gives them no section, no township and no acreage at all, so they add nothing to the acre figure above and $418.00 to the money. This project does not expand the register's town codes, so which addition a lot stands in is carried as the code and not as a name. It is still a purchase and it still places nobody. A purchase and nothing more. It dates and places a transaction; it proposes no residence, and under the ratified ladder it corroborates rather than mints. Identity by the crosswalk's own rule: KINZIE JAMES matches James Kinzie: the forename names James Kinzie of the 4 people of this surname, and the forename agrees in full. (data/research/land_sales/resident_crosswalk.json). This pass WRITES THE EVIDENCE AND MOVES NO GRADE. Under the ratified ladder (T-0513) a second independent source is what lifts a projected resident, and a land entry is a second source about a TRANSACTION rather than about who was living at Chicago on 1 July 1835 — a man may buy a quarter-section he never sees. T-0515 applies the ladder against every source at once; this pass hands it the evidence and not the verdict."
+        }
+      ],
+      "research_note": "A HOUSEHOLD WITH A FAMILY IN THE SOURCE AND NO PEOPLE IN THE RECORD. Andreas's list says 'James Kinzie and family' and this parcel writes one person, because naming a wife or counting children on the strength of the word 'family' is the exact move the grade vocabulary forbids. THE HONEST READING OF THIS RECORD is that it stands for at least three or four people and can defend only one. THE READING BEHIND THIS RECORD'S KIN ROW: Hurlbut's 1881 bracketed note makes this head the HALF brother of kinzie_john_h in hh_kinzie_john_h (bk_afc_015). The link is the reciprocal `kin` row T-0704 gave this layer; the note as printed, its locator and its rung are written onto the person as a cited book_evidence reading, so what the row rests on is visible on the card. Nothing about either household's position, arrival, trade or membership changes."
+    }
+  ],
+  "citations": [
+    {
+      "source_id": "andreas_1884_v1",
+      "citation": "Andreas, A. T. History of Chicago: From the Earliest Period to the Present Time. Vol. 1. Chicago: A. T. Andreas, 1884.",
+      "url": "https://archive.org/details/historyofchicago01andr",
+      "archived_url": "",
+      "tier": 3,
+      "tier_label": "compiled secondary (Andreas)"
+    },
+    {
+      "source_id": "chicagology_prefire273",
+      "citation": "\"Wolf's Point and the Town of Chicago.\" Chicagology. Transcribing the Chicago Magazine of 15 May 1857 — the account of the Wolf's Point settlement built on George Davis's 1832 drawing and on Gurdon S. Hubbard's own description of the place as he found it in 1818 — with A. T. Andreas and modern editorial matter around it.",
+      "url": "https://chicagology.com/prefire/prefire273/",
+      "archived_url": "https://web.archive.org/web/20260217122628/https://chicagology.com/prefire/prefire273/",
+      "tier": 2,
+      "tier_label": "near-primary recollection",
+      "transcribes": [
+        {
+          "work": "Chicago Magazine, 'Wolf's Point' — the account of the settlement at the forks, engraved from George Davis's 1832 drawing and incorporating Gurdon S. Hubbard's description of Chicago as he first saw it in 1818",
+          "date": "1857-05-15",
+          "tier": 2,
+          "note": "Carries the Miller House's log construction ('a log structure partly sided') and the Wolf Point Tavern's ('partly log and partly frame'), the fact of a frame element on each, and — through Hubbard — the marshy river-shore strip that grades the south division's marsh surface in terrain_spec.json. Twenty-five years after the fact, from a resident's drawing and a named witness speaking to the writer: rung 2."
+        }
+      ]
+    },
+    {
+      "source_id": "kinzie_waubun_1856",
+      "citation": "Kinzie, Juliette A. M. Wau-Bun: The 'Early Day' in the North-West. New York: Derby & Jackson, 1856.",
+      "url": "https://www.authorama.com/wau-bun-19.html",
+      "archived_url": "https://archive.org/details/waubunearlydayin00kinzbyu",
+      "tier": 2,
+      "tier_label": "near-primary recollection"
+    },
+    {
+      "source_id": "osm_streets_2026",
+      "citation": "OpenStreetMap contributors. Street centerline intersection nodes for downtown Chicago, retrieved via the Overpass API, 2026-08-09.",
+      "url": "https://www.openstreetmap.org/",
+      "archived_url": "https://overpass-api.de/",
+      "tier": 4,
+      "tier_label": "later scholarship"
+    }
+  ],
+  "research_note": "ONE OF THE THINNEST RECORDS IN THE DATASET, AND DELIBERATELY BUILT ANYWAY. The evidence is a single clause — a residence of James Kinzie's standing south of Wentworth's tavern on the west bank — and everything else here is inference or invention, graded so a visitor can see which is which: existence documented, position inferred from a documented ORDER along a bank, construction inferred from the neighbours, footprint and all massing conjectural. The alternative was to leave a documented building out of the town because nobody measured it, which makes the gap invisible instead of legible. James Kinzie is the busiest builder at Wolf Point in this dataset — he built the Wolf Point Tavern (1828 or 1823, disputed), the Green Tree Tavern at Lake and Canal in 1833, and he sold Mark Beaubien the cabin that became the Sauganash — so a house of his standing in the row is exactly what the row should contain. WHAT WOULD UPGRADE THIS RECORD, in order of value: any measured or descriptive sentence in Andreas vol. 1 at page-image level; the Blanchard & Shober 1867 'Wolf's Point in 1833' chromolithograph or the Braunhold view Andreas reproduces, examined at plate level for the row's storey counts and massing; and the Conley & Stelzer 1933 numbered key, which may carry the building as a numbered item. See docs/research/03-structures-north.md section 2.3, where this structure is listed with an explicit [GAP] tag on type, date and appearance.",
+  "research_doc": "",
+  "review_required": false
+}

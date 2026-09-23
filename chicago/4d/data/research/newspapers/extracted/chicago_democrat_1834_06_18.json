@@ -1,0 +1,1010 @@
+{
+  "schema": 1,
+  "issue_id": "chicago_democrat_1834_06_18",
+  "extracted": "2026-08-29",
+  "extracted_by": "hand, T-0315 — the Democrat read, June 1834",
+  "note": "Vol. I No. 29, and THE RICHEST ISSUE IN THE MONTH for a reconstruction. Page 3 is NOT interleaved — each segmenter column reads straight down one printed column — which is why the placements the other three issues cut in half are quoted whole here and why this issue is the witness the June reading leans on. Page 4 is interleaved. Pages 1-2 are poetry and foreign news apart from the editorial half of page 2 columns 5-6, which carries the building count and the population estimate. NO POST-OFFICE LETTER LIST: all twenty-four columns were read, not searched.",
+  "claims": [
+    {
+      "id": "c001",
+      "kind": "event",
+      "reading": "transcription_mediated",
+      "quote": "Chicago —Our Town la building up rapidly.\nSince spring commenced, there has been built\nopwards of secenty-fire bnildings, and among this\nnumber we notice some substantial ones of three\nstories high, and the commencement of two or\nthree others for Stores of three stories. Emi-\ngration is still increasing, and has increased one\nhalf since last year, having already a settled pop-\nulation of at lenst 1500, and the country in fil-\nling up in like proportion. Rents are high, and\nlots rent on the principal street for $300 a foot\nfront. Our commercial business is by no means",
+      "normalized": "Chicago.—Our Town [is] building up rapidly. Since spring commenced, there has been built [u]pwards of se[v]enty-fi[v]e b[ui]ldings, and among this number we notice some substantial ones of three stories high, and the commencement of two or three others for Stores of three stories. Emigration is still increasing, and has increased one half since last year, having already a settled population of at le[a]st 1500, and the country i[s] filling up in like proportion. Rents are high, and lots rent on the principal street for $300 a foot front. Our commercial business is by no means contemptible.",
+      "locator": {
+        "artifact_role": "primary",
+        "issue_page": 2,
+        "column": 5,
+        "lines": [
+          2019,
+          2034
+        ],
+        "lines_of_claim": [
+          2019,
+          2021,
+          2022,
+          2024,
+          2025,
+          2027,
+          2029,
+          2030,
+          2031,
+          2032,
+          2033,
+          2034
+        ]
+      },
+      "notes": "THE SINGLE MOST USEFUL SENTENCE IN THE JUNE READING, and it is a count rather than an impression: upwards of SEVENTY-FIVE buildings put up in Chicago between the start of spring and 18 June 1834, some of them three storeys, with two or three more three-storey STORES begun. It is the paper's own editorial and not a correspondent's, and it is a year and a fortnight before the scene date, so it measures the town at the start of the boom this reconstruction stands at the end of. The settled population at 1500 and Lake Street ground at $300 a foot front are the same paragraph's. AGAINST T-0313's APRIL WITNESS: 'Seven or eight buildings have been raised in this town within the past week' (1834-04-16), which at that rate for the ten weeks of spring is the same order of magnitude and corroborates it. The interleaving here is column-internal editorial spill and the quote takes only the lines of the paragraph itself; lines 2020, 2023, 2026 and 2028 carry single stray letters from the column beside it and are left out."
+    },
+    {
+      "id": "c002",
+      "kind": "infrastructure",
+      "reading": "transcription_mediated",
+      "quote": "Zown Ordinances.\nT a meeting of the Board of Trustees of the\ntown of Chicago, held at the house of FE.\n, Haddock, on the 6th June, 1834, the follow- I\ny Ordinances were adopted, viz:\nBeit Ordained, That the Assessor shall on the\nst day of June annually, or as soon thereafter\nmay be. proceed to make out a list and valu-\njon of the taxable property within the limits\nthe corporation of said town, which list shall H",
+      "normalized": "Town Ordinances. [A]t a meeting of the Board of Trustees of the town of Chicago, held at the house of E. Haddock, on the 6th June, 1834, the follow[in]g Ordinances were adopted, viz: Be it Ordained, That the Assessor shall on the [fir]st day of June annually, or as soon thereafter [as] may be, proceed to make out a list and valu[at]ion of the taxable property within the limits [of] the corporation of said town.",
+      "locator": {
+        "artifact_role": "primary",
+        "issue_page": 3,
+        "column": 2,
+        "lines": [
+          2419,
+          2428
+        ],
+        "lines_of_claim": [
+          2419,
+          2420,
+          2421,
+          2422,
+          2423,
+          2424,
+          2425,
+          2426,
+          2427,
+          2428
+        ]
+      },
+      "entities": [
+        {
+          "as_printed": "FE.\n, Haddock",
+          "normalized": "E. Haddock",
+          "role": "subject",
+          "occupations": [
+            "tavern keeper"
+          ],
+          "associated_places": [
+            "Lake Street"
+          ]
+        }
+      ],
+      "notes": "THE TOWN GOVERNMENT MEETING IN A NAMED PRIVATE HOUSE, which is the fact a reconstruction can use before the ordinance's content: the Board of Trustees sat at the house of E. Haddock on 6 June 1834. The corpus already holds the December 1833 wharfing ordinance and the March 1834 South Water Street sidewalk order, both made 'at the house of Dexter Graves' — so the board has moved its meeting place between March and June 1834, and Haddock's is a tavern on Lake Street (claim c006 places a lot 'one lot east of Haddock's Tavern, on Lake street'). The assessment clause is quoted as the first of three; the two that bear on the streets are claims c003 and c004."
+    },
+    {
+      "id": "c003",
+      "kind": "infrastructure",
+      "reading": "transcription_mediated",
+      "quote": "Be it further Ordained, That the upervisor\nall superintend the opening and keepinginre-| |.\nif all the streets and alleys within the limits BH\nthe corporation, and all the roads passing | ‘To\nm or through town for the distance of one }\nle, from the centre thereof; he abiall also cause| 1\nbe removed or abated, alJ nujsances which c\n'y at any time be found within the limits of| _*\n? corporation, and algo cause all obstructions | °C\"!\nthe streets and alleys to be removed, and te\nnse the ronda and bridges passing through or | 7\nm town, to be kept in good rapale: for the dis-\nice of one mile from the center, and to do and",
+      "normalized": "Be it further Ordained, That the [S]upervisor shall superintend the opening and keeping in re[pair] [o]f all the streets and alleys within the limits [of] the corporation, and all the roads passing [fro]m or through town for the distance of one m[i]le from the centre thereof; he shall also cause [to] be removed or abated, all nuisances which m[a]y at any time be found within the limits of [th]e corporation, and also cause all obstructions [in] the streets and alleys to be removed, and [ca]use the roads and bridges passing through or [fro]m town, to be kept in good repair, for the dis[ta]nce of one mile from the center.",
+      "locator": {
+        "artifact_role": "primary",
+        "issue_page": 3,
+        "column": 2,
+        "lines": [
+          2449,
+          2461
+        ],
+        "lines_of_claim": [
+          2449,
+          2450,
+          2451,
+          2452,
+          2453,
+          2454,
+          2455,
+          2456,
+          2457,
+          2458,
+          2459,
+          2460,
+          2461
+        ]
+      },
+      "notes": "THE STREETS, ALLEYS, ROADS AND BRIDGES OF JUNE 1834 PUT UNDER ONE OFFICER, and the corporation's reach stated as a radius: one mile from the centre of town. That radius is the ordinance's own measure of where the town's authority stops, which is a usable edge for a reconstruction that has to decide how far out to build a maintained road. 'roads and bridges' in the plural at this date agrees with the corpus's two plank bridges from Vol. I No. 1."
+    },
+    {
+      "id": "c004",
+      "kind": "infrastructure",
+      "reading": "transcription_mediated",
+      "quote": "ie it further Ordained, That the street Super-\nendent or Supervisor, be, and is hereby or-\nred and authorized to require of cach andev-|  ¢\n‘ male resident of between the ages of twenty\neand sixty years, within the limits of the\nvn of Chicago, three days labor upon the\ncets, bridges an | hj ways within one mile 4\nm the center ¢f said town, and in case of such\nidents refusing to labor, it shall be the duty | Blo\nhand every such delinquent, seventy-five | the\nits per day for such failure to labor,\nT. 3. V. OWEN, Pres't.\nG. W. Syow, Clerk: pro. tem. ol Si",
+      "normalized": "Be it further Ordained, That the street Super[int]endent or Supervisor, be, and is hereby or[de]red and authorized to require of each and ev[ery] male resident of between the ages of twenty [on]e and sixty years, within the limits of the [to]wn of Chicago, three days labor upon the [str]eets, bridges and h[ig]hways within one mile [fro]m the center of said town, and in case of such [res]idents refusing to labor, [… it shall be the duty of the superintendent to charge and collect of] each and every such delinquent, seventy-five [ce]nts per day for such failure to labor. T. J. V. OWEN, Pres't. G. W. SNOW, Clerk pro. tem.",
+      "locator": {
+        "artifact_role": "primary",
+        "issue_page": 3,
+        "column": 2,
+        "lines": [
+          2465,
+          2478
+        ],
+        "lines_of_claim": [
+          2465,
+          2466,
+          2467,
+          2468,
+          2469,
+          2470,
+          2471,
+          2472,
+          2473,
+          2475,
+          2476,
+          2477,
+          2478
+        ]
+      },
+      "entities": [
+        {
+          "as_printed": "T. 3. V. OWEN",
+          "normalized": "T. J. V. Owen",
+          "role": "subject",
+          "occupations": [
+            "president of the board of trustees",
+            "indian agent"
+          ]
+        },
+        {
+          "as_printed": "G. W. Syow",
+          "normalized": "G. W. Snow",
+          "role": "subject",
+          "occupations": [
+            "clerk of the board of trustees"
+          ]
+        }
+      ],
+      "notes": "THE STREETS OF 1834 WERE BUILT BY CORVÉE, and this ordinance is the mechanism: every male resident between twenty-one and sixty owes three days' labour a year on the streets, bridges and highways within a mile of the centre, or seventy-five cents a day for each day refused. That is who made the road surface a visitor walks on, and how much of it there was budget for. Signed by T. J. V. Owen as president — the same man who signs the Indian Agency notice a week later (1834-06-25 claim c009) — and by G. W. Snow, clerk pro tem. Line 2474 falls inside the ordinance and is left out of the quote: the segmenter has spilled the neighbouring column's text across it ('[uncertain: the superintendent to charge and collect of| of ?]'), and the words it carries are supplied in the normalized reading in brackets."
+    },
+    {
+      "id": "c005",
+      "kind": "business",
+      "reading": "transcription_mediated",
+      "quote": "New Blacksmith Shop.\nDALLY & YOUNGS, ’\nOPPOSITE THE JAIL, :\n‘AVING erected the above establishment, |;\ntT are now renny to accommodate those who\nlicited. Chicago, June 17, 1834.",
+      "normalized": "New Blacksmith Shop. DALLY & YOUNGS, OPPOSITE THE JAIL, [h]aving erected the above establishment, are now rea[d]y to accommodate those who [may want work in their line of business …] Chicago, June 17, 1834.",
+      "locator": {
+        "artifact_role": "primary",
+        "issue_page": 3,
+        "column": 2,
+        "lines": [
+          2322,
+          2335
+        ],
+        "lines_of_claim": [
+          2322,
+          2323,
+          2324,
+          2325,
+          2326,
+          2335
+        ]
+      },
+      "entities": [
+        {
+          "as_printed": "DALLY & YOUNGS",
+          "normalized": "Dally & Youngs",
+          "role": "proprietor",
+          "occupations": [
+            "blacksmith"
+          ]
+        }
+      ],
+      "ad_copy_date": {
+        "verbatim": "licited. Chicago, June 17, 1834.",
+        "iso": "1834-06-17"
+      },
+      "business": {
+        "name": "Dally & Youngs",
+        "proprietors": [
+          "Dally & Youngs"
+        ],
+        "trade": "blacksmithing and edge tool making",
+        "goods": [
+          "Edge Tools",
+          "Ox Chains",
+          "Prairie Ploughs"
+        ],
+        "street": null,
+        "placement": {
+          "class": "relative",
+          "anchor": "the jail",
+          "offset_text": "OPPOSITE THE JAIL, :",
+          "offset_normalized": "OPPOSITE THE JAIL",
+          "street": null
+        }
+      },
+      "notes": "A BUILDING RAISED THE WEEK IT WAS ADVERTISED — 'having erected the above establishment', copy dated 17 June 1834, one day before this issue — and it is one of the seventy-five the editorial on page 2 counts (claim c001). THE ANCHOR IS THE COUNTY JAIL, which no advertisement in the month places and which the plat does; recorded as a relative placement with a null street because 'opposite' names a side and not a street."
+    },
+    {
+      "id": "c006",
+      "kind": "building",
+      "reading": "transcription_mediated",
+      "quote": "For Sale, 4\nOT No. 7, in block No. 16, one lot east of | §\nL Naddock's Tavern, on Lake street, in the\ntown of Chicago. There is on said lota large\nDwelling-House and fine well. For terms en- | -\nquire of G, SPRING.\nChicago, June 18, 1534. Jw29",
+      "normalized": "For Sale, LOT No. 7, in block No. 16, one lot east of [H]addock's Tavern, on Lake street, in the town of Chicago. There is on said lot a large Dwelling-House and fine well. For terms enquire of G. SPRING. Chicago, June 18, 18[3]4. 3w29",
+      "locator": {
+        "artifact_role": "primary",
+        "issue_page": 3,
+        "column": 2,
+        "lines": [
+          2345,
+          2351
+        ],
+        "lines_of_claim": [
+          2345,
+          2346,
+          2347,
+          2348,
+          2349,
+          2350,
+          2351
+        ]
+      },
+      "entities": [
+        {
+          "as_printed": "G, SPRING",
+          "normalized": "G. Spring",
+          "role": "advertiser",
+          "occupations": [
+            "attorney"
+          ],
+          "associated_places": [
+            "Lake Street",
+            "South Water Street"
+          ]
+        }
+      ],
+      "ad_copy_date": {
+        "verbatim": "Chicago, June 18, 1534. Jw29",
+        "iso": "1834-06-18"
+      },
+      "notes": "THE MOST PRECISELY PLACED BUILDING IN THE JUNE READING: a large dwelling house and a well, on lot 7 of block 16, one lot east of Haddock's Tavern on Lake Street. Block and lot number, street, neighbour and two structures — this is a claim a reconstruction can put on the ground without a liberty. IT ALSO PLACES HADDOCK'S TAVERN, which is where the Board of Trustees adopted the ordinances twelve days earlier (claim c002, 'the house of E. Haddock') and where the Fourth of July meeting is called a week later (1834-06-25 claim c002, 'H. Haddock's Mansion [House]'). The seller is the G. Spring whose law office stands second door west of the corner of Franklin and South Water (1834-06-11 claim c004)."
+    },
+    {
+      "id": "c007",
+      "kind": "business",
+      "reading": "transcription_mediated",
+      "quote": "New Goods! New Goods!! | +\nP. F. PECK, |\nCORNER OF LASALLE AND S@UTH-WATER ST.\nHs just received from New-York, a full\nstock of fresh GOODS, adapted to the\nspring and fall demand, which he offers for sale |\nut very low prices for cash or country produce. r",
+      "normalized": "New Goods! New Goods!! P. F. PECK, CORNER OF LASALLE AND SOUTH-WATER ST. Ha[s] just received from New-York, a full stock of fresh GOODS, adapted to the spring and fall demand, which he offers for sale at very low prices for cash or country produce.",
+      "locator": {
+        "artifact_role": "primary",
+        "issue_page": 3,
+        "column": 2,
+        "lines": [
+          2352,
+          2358
+        ],
+        "lines_of_claim": [
+          2352,
+          2353,
+          2354,
+          2355,
+          2356,
+          2357,
+          2358
+        ]
+      },
+      "entities": [
+        {
+          "as_printed": "P. F. PECK",
+          "normalized": "P. F. Peck",
+          "role": "proprietor",
+          "occupations": [
+            "merchant"
+          ],
+          "associated_places": [
+            "South Water Street",
+            "LaSalle Street"
+          ]
+        }
+      ],
+      "business": {
+        "name": "P. F. Peck",
+        "proprietors": [
+          "P. F. Peck"
+        ],
+        "trade": "dry goods, groceries, hardware, boots and shoes",
+        "goods": [
+          "Boots and Shoes",
+          "Drugs",
+          "Dry Goods",
+          "Groceries",
+          "Hardware",
+          "Hats and Caps",
+          "Iron and Steel",
+          "Nails",
+          "Ready Made Clothing",
+          "Saddlery"
+        ],
+        "street": "South Water Street",
+        "placement": {
+          "class": "corner",
+          "anchor": "corner of LaSalle and South-Water St.",
+          "offset_text": "CORNER OF LASALLE AND S@UTH-WATER ST.",
+          "offset_normalized": "CORNER OF LASALLE AND SOUTH-WATER STREET",
+          "street": "South Water Street"
+        }
+      },
+      "notes": "PECK AT LASALLE AND SOUTH WATER — the westernmost of the five South Water Street corners the June reading places, and the first address the corpus has for the man who reports the Democrat's weekly price current (claim c021 here and 1834-06-04 claim c016). His stock list is the longest in the month and runs from broad cloths to sole leather to white lead, which is a general store rather than a specialist's."
+    },
+    {
+      "id": "c008",
+      "kind": "notice",
+      "reading": "transcription_mediated",
+      "quote": ": Town Maps.\nUST received and for sale, Lithographic ]\nMaps of the Town of Chicago, including | ¢\nhe School Section, cues pope. Wa- tl\n-sia, &c. handsomely executed.\neater KINZIE & ForsyTH. |°\nJune 18, 1834.\nThey can also be found at the office of the\n“Chicago Democrat.”",
+      "normalized": "Town Maps. [J]UST received and for sale, Lithographic Maps of the Town of Chicago, including [t]he School Section, [Kinzie's Addition,] Wa[ban]sia, &c. handsomely executed. [… ] KINZIE & FORSYTH. June 18, 1834. They can also be found at the office of the \"Chicago Democrat.\"",
+      "locator": {
+        "artifact_role": "primary",
+        "issue_page": 3,
+        "column": 2,
+        "lines": [
+          2336,
+          2344
+        ],
+        "lines_of_claim": [
+          2336,
+          2337,
+          2338,
+          2339,
+          2340,
+          2341,
+          2342,
+          2343,
+          2344
+        ]
+      },
+      "entities": [
+        {
+          "as_printed": "KINZIE & ForsyTH",
+          "normalized": "Kinzie & Forsyth",
+          "role": "advertiser",
+          "occupations": [
+            "merchant"
+          ]
+        }
+      ],
+      "ad_copy_date": {
+        "verbatim": "June 18, 1834.",
+        "iso": "1834-06-18"
+      },
+      "notes": "A PRINTED MAP OF THIS TOWN IS ON SALE IN IT IN JUNE 1834, and the same page 2 editorial says John H. Kinzie 'procured while in New-York a few copies of Lithographic Maps of this Town ... beautifully executed, and contain the Town Plot, together with the School Section, Wabansin, and Kinzie's Addition'. The four named components are the four surveys a reconstruction of the 1835 town has to reconcile, named together by a contemporary as the thing a buyer would want on one sheet."
+    },
+    {
+      "id": "c009",
+      "kind": "business",
+      "reading": "scan_verified",
+      "quote": "Cabinet and Chair\nWare House\n* HE subscribers ha-\ni ving on hand (at\nga Se their ware house on\nSouth water St. five\n| doors cast of the corner\nof Randolph st.) a very\nCLARK, FILER, & Ca.\nN. B. Sign and ornamental painting neatly |\nkecuted. .\nChicago, June 10, 1834. 25",
+      "normalized": "Cabinet and Chair Ware House. [T]HE subscribers ha[v]ing on hand (at their ware house on South water St. five doors [e]ast of the corner of Randolph st.) a very [large assortment of cherry, curl and pin maple, black walnut and mahogany FURNITURE …] CLARK, FILER, & C[o]. N. B. Sign and ornamental painting neatly [e]xecuted. Chicago, June 10, 1834. 2[8]",
+      "locator": {
+        "artifact_role": "primary",
+        "issue_page": 3,
+        "column": 3,
+        "lines": [
+          2555,
+          2580
+        ],
+        "lines_of_claim": [
+          2555,
+          2556,
+          2557,
+          2558,
+          2559,
+          2560,
+          2561,
+          2562,
+          2577,
+          2578,
+          2579,
+          2580
+        ]
+      },
+      "entities": [
+        {
+          "as_printed": "CLARK, FILER, & Ca.",
+          "normalized": "Clark, Filer & Co.",
+          "role": "proprietor",
+          "occupations": [
+            "cabinet maker",
+            "chair maker",
+            "sign painter"
+          ],
+          "associated_places": [
+            "South Water Street",
+            "Randolph Street"
+          ]
+        }
+      ],
+      "ad_copy_date": {
+        "verbatim": "Chicago, June 10, 1834. 25",
+        "iso": "1834-06-10"
+      },
+      "business": {
+        "name": "Clark, Filer & Co.",
+        "proprietors": [
+          "Clark, Filer & Co."
+        ],
+        "trade": "cabinet and chair ware house",
+        "goods": [
+          "Bedsteads",
+          "Chairs",
+          "Cradles",
+          "Desks",
+          "Show Cases",
+          "Sideboards",
+          "Sofas",
+          "Tables"
+        ],
+        "street": "South Water Street",
+        "placement": {
+          "class": "relative",
+          "anchor": "the corner of Randolph st.",
+          "offset_text": "their ware house on\nSouth water St. five\n| doors cast of the corner\nof Randolph st.) a very",
+          "offset_normalized": "their ware house on South water St. five doors east of the corner of Randolph st.",
+          "street": "South Water Street",
+          "note": "T-0869 RULED THIS PLACEMENT A BEARING, NOT AN ADDRESS. All three printings of this advertisement were re-read at the page images on 2026-09-11 and every one of them sets 'the corner of Randolph st.' — see data/research/newspapers/clark_filer_randolph_corner_1834.json for the readings, the crop regions and the deposit sha256. They are ONE standing setting re-impressed, not three compositions: identical line breaks through the placement, the same 'cosisting' misprint, the same chair cuts, the same 'Chicago, June 10, 1834. 28' at the foot, and the phrase runs in at least five issues from 1834-06-11 to 1834-07-23. So the cross street was NOT mis-set by a slipping hand — there is no per-impression variation to be the slip. What stands is that the firm named a corner it did not stand on, which is how it locates elsewhere in the same month ('three doors from the Baptist meeting house', 1834-06-04). A wrong word in the firm's own copy, standing for six weeks, cannot be separated from that and has the same consequence: the phrase does not measure onto the committed plat. The ware house keeps street_only, `streets_cross` is right to refuse the ordinal (T-0771), and the anchor is left as printed rather than amended to what the plat allows. Do not re-open on a closer reading of these columns; only another impression setting a DIFFERENT street, or a source placing the ware house on the ground, moves it."
+        }
+      },
+      "notes": "READ AT THE PAGE IMAGE ON 2026-09-11 (T-0869). This issue's page 3, column 3 sets 'of Randolph st.)' cleanly, and its tail carries the firm's signature, the N.B. on sign and ornamental painting and the dateline 'Chicago, June 10, 1834.' — the impression the other two are read against. THE PLACEMENT WHOLE, AND UNBRACKETED — this issue's page 3 is not interleaved, so the two words the 1834-06-11 printing cuts ('doors east') are on the page here. Five doors east of Randolph on South Water Street is the tightest offset in the June reading after the Lake Street lot-and-block claim (c006). THE N.B. IS A SECOND TRADE: sign and ornamental painting done by the same firm — which is where a signboard on this street would have been made."
+    },
+    {
+      "id": "c010",
+      "kind": "business",
+      "reading": "transcription_mediated",
+      "quote": "WDATLD CAUTt\nAuction and Commission Merchant.\nSUUTIT- WATER éTREET, CHICAGO.\nECEIVES ail articles of produce and pro-\nvisiens, of which he will diepose of to the\nHaving erceted an ad-\ndition to his Store\nlouse, he is now enabled to receive a consider-\nAn Auction will be holden every Saturday,\n‘the Auction and Commission Store, until fur-\nier notice be given, June 4.",
+      "normalized": "[DAVID CARVER,] Auction and Commission Merchant. SOUTH-WATER STREET, CHICAGO. RECEIVES all articles of produce and pro[v]isions, of which he will dispose of to the [best advantage …] Having erected an addition to his Store House, he is now enabled to receive a consider[ab]le quantity of merchandize in store. An Auction will be holden every Saturday, [a]t the Auction and Commission Store, until fur[t]her notice be given. June 4.",
+      "locator": {
+        "artifact_role": "primary",
+        "issue_page": 3,
+        "column": 3,
+        "lines": [
+          2581,
+          2596
+        ],
+        "lines_of_claim": [
+          2581,
+          2582,
+          2583,
+          2584,
+          2585,
+          2590,
+          2591,
+          2592,
+          2594,
+          2595,
+          2596
+        ]
+      },
+      "entities": [
+        {
+          "as_printed": "WDATLD CAUTt",
+          "normalized": "David Carver",
+          "role": "proprietor",
+          "occupations": [
+            "auctioneer",
+            "commission merchant",
+            "lumber dealer"
+          ],
+          "associated_places": [
+            "South Water Street"
+          ]
+        }
+      ],
+      "ad_copy_date": {
+        "verbatim": "ier notice be given, June 4.",
+        "iso": "1834-06-04"
+      },
+      "business": {
+        "name": "David Carver",
+        "proprietors": [
+          "David Carver"
+        ],
+        "trade": "auction, commission and lumber",
+        "goods": [
+          "Pine Lumber",
+          "Poplar Lumber",
+          "Produce",
+          "Provisions"
+        ],
+        "street": "South Water Street",
+        "placement": {
+          "class": "street_only",
+          "anchor": null,
+          "offset_text": null,
+          "offset_normalized": null,
+          "street": "South Water Street"
+        }
+      },
+      "notes": "THE CLEAN READING of the claim 1834-06-11 c009 makes through the interleaving: an auction and commission STORE HOUSE on South Water Street, enlarged by an addition this season, holding a public auction every Saturday. The heading letters are mangled beyond recognition here ('WDATLD CAUTt') and the name is taken from the 1834-06-11 and 1834-06-04 printings of the same advertisement."
+    },
+    {
+      "id": "c011",
+      "kind": "business",
+      "reading": "transcription_mediated",
+      "quote": "The Stcam-Boat Pioneer,\n= I AS taken her station\nM between St. Joseph\nand Chicago, and will run\nduring the present season\nfrom cach place, every other day, alternately,\nwid and weather permitting.)\nThe Stenm-Bont David Crockett,\nnee “Go ahead,” will run\nbetween Niles and St. Jo-\ntepseph, in connection with\nmathe Pioneer.\n. Grirritiis & Co, St. Joseph,\n[uncertain: J... Kisziz, Chicago, ? Agents.]\nJ. F. WIGHT, for himself and others.",
+      "normalized": "The Steam-Boat Pioneer [h]as taken her station between St. Joseph and Chicago, and will run during the present season from each place, every other day, alternately, (wi[n]d and weather permitting.) —ALSO— The Ste[a]m-Boat David Crockett, \"Go ahead,\" will run between Niles and St. Jo[se]ph, in connection with the Pioneer. [For freight or passage apply to the master on board, or to] J. Griffiths & Co, St. Joseph, [and] J. [H.] Kinzie, Chicago, Agents. J. F. WIGHT, for himself and others. June 3, 1834.",
+      "locator": {
+        "artifact_role": "primary",
+        "issue_page": 3,
+        "column": 3,
+        "lines": [
+          2536,
+          2553
+        ],
+        "lines_of_claim": [
+          2536,
+          2537,
+          2538,
+          2539,
+          2540,
+          2541,
+          2542,
+          2544,
+          2545,
+          2546,
+          2547,
+          2548,
+          2551,
+          2552,
+          2553
+        ]
+      },
+      "entities": [
+        {
+          "as_printed": "J. Grirritiis & Co",
+          "normalized": "J. Griffiths & Co.",
+          "role": "advertiser",
+          "occupations": [
+            "steamboat agent"
+          ]
+        },
+        {
+          "as_printed": "J.F. WIGHT",
+          "normalized": "J. F. Wight",
+          "role": "advertiser",
+          "occupations": [
+            "steamboat owner"
+          ]
+        }
+      ],
+      "ad_copy_date": {
+        "verbatim": "June 3, 1834. PS |",
+        "iso": "1834-06-03"
+      },
+      "notes": "THE FERRY NOTICE READ CLEAN. The Chicago agent's name is still cut here — the line carries '[uncertain: J... Kisziz, Chicago, ? Agents.]' — and the 1834-06-11 printing sets it '3.4 Kiszre, Chicage', so the initials are supplied and the surname is not in doubt. The dateline 3 June is a day before the first Democrat of the month, which dates the schedule's start precisely."
+    },
+    {
+      "id": "c012",
+      "kind": "business",
+      "reading": "transcription_mediated",
+      "quote": "DENTISTRY.\n|) eae Wa. H. Keancorr, Surgeon Den-\ntist, resyectfully informs the Citizens of\nChicago, that he will practica the above pro-\nfession in this place some four or five weeks—\nges moderate. (fica at the Eugle Tuvern.\nMay 26, 1834. 26",
+      "normalized": "DENTISTRY. D[OC]T. W[m]. H. Ke[nn]icott, Surgeon Dentist, res[p]ectfully informs the Citizens of Chicago, that he will practic[e] the above profession in this place some four or five weeks— [… ] O[f]fice at the Eagle Tavern. May 2[5], 1834. 26",
+      "locator": {
+        "artifact_role": "primary",
+        "issue_page": 3,
+        "column": 6,
+        "lines": [
+          3015,
+          3030
+        ],
+        "lines_of_claim": [
+          3015,
+          3016,
+          3017,
+          3018,
+          3019,
+          3029,
+          3030
+        ]
+      },
+      "entities": [
+        {
+          "as_printed": "Wa. H. Keancorr",
+          "normalized": "Wm. H. Kennicott",
+          "role": "proprietor",
+          "occupations": [
+            "surgeon dentist"
+          ]
+        }
+      ],
+      "ad_copy_date": {
+        "verbatim": "May 26, 1834. 26",
+        "iso": "1834-05-25"
+      },
+      "business": {
+        "name": "Wm. H. Kennicott",
+        "proprietors": [
+          "Wm. H. Kennicott"
+        ],
+        "trade": "surgeon dentistry",
+        "goods": [],
+        "street": null,
+        "placement": {
+          "class": "relative",
+          "anchor": "the Eagle Tavern",
+          "offset_text": "ges moderate. (fica at the Eugle Tuvern.",
+          "offset_normalized": "Office at the Eagle Tavern",
+          "street": null
+        }
+      },
+      "notes": "THE ANCHOR THE 1834-06-04 PRINTING LEFT BARE. There the line reads 'Cfice at the Tavern' with no name (that issue's claim c006); here it reads 'Office at the Eagle Tavern', so the dentist's room is in the Eagle. NOTE THE TENANCY IS TEMPORARY BY ITS OWN WORDS — 'some four or five weeks' from 25 May — which is exactly the kind of business ruling 3 must not stand up in the 1835 town without saying so: it is a visiting practitioner in a tavern room, not a shopfront. The dateline reads 'May 26' here and 'May 25' on 1834-06-04; the earlier printing is taken as the copy date."
+    },
+    {
+      "id": "c013",
+      "kind": "business",
+      "reading": "transcription_mediated",
+      "quote": "CHAIRS..\nFEW setts of elegant fancy Chaira and\nRocking Chairs, Also, some Harnesses\nand Saddles. Enquire of\nP. J. CARLI, Lagle T.\n_ June 11, 1331. piece",
+      "normalized": "CHAIRS. [A] FEW setts of elegant fancy Chairs and Rocking Chairs. Also, some Harnesses and Saddles. Enquire of P. J. CARLI, [E]agle T[avern]. June 11, 183[4].",
+      "locator": {
+        "artifact_role": "primary",
+        "issue_page": 3,
+        "column": 3,
+        "lines": [
+          2513,
+          2518
+        ],
+        "lines_of_claim": [
+          2513,
+          2514,
+          2515,
+          2516,
+          2517,
+          2518
+        ]
+      },
+      "entities": [
+        {
+          "as_printed": "P. J. CARLI",
+          "normalized": "P. J. Carli",
+          "role": "proprietor",
+          "occupations": [
+            "tavern keeper"
+          ]
+        }
+      ],
+      "ad_copy_date": {
+        "verbatim": "_ June 11, 1331. piece",
+        "iso": "1834-06-11"
+      },
+      "business": {
+        "name": "Eagle Tavern",
+        "proprietors": [
+          "P. J. Carli"
+        ],
+        "trade": "tavern and hotel",
+        "goods": [],
+        "street": null,
+        "placement": {
+          "class": "none",
+          "anchor": null,
+          "offset_text": null,
+          "offset_normalized": null,
+          "street": null
+        }
+      },
+      "notes": "THE EAGLE'S KEEPER IS NAMED, which is what turns the dentist's anchor (claim c013) into a business with a proprietor: P. J. Carli, at the Eagle Tavern, and a separate notice on page 4 of this issue reads 'he has taken the EAGLE HOTEL' over the same initials. THE EAGLE IS PLACED NOWHERE in the whole month — no notice gives it a street — so the placement class is `none` and the tavern cannot be put on the ground from this reading. That is a gap a later pass or a page image should close, because three June claims hang off it."
+    },
+    {
+      "id": "c014",
+      "kind": "business",
+      "reading": "transcription_mediated",
+      "quote": "EAGLE R\nP. I. 94\nESPECTFULLY inf\nChicago, and the pr\nle bas taken the BAGel\nhouse is commodious and\nexpense will be spared to n\nall persons who may favor\nApril 15, 1634.",
+      "normalized": "EAGLE [HOTEL.] P. J. [CARLI] respectfully inf[orms the citizens of] Chicago, and the p[ublic generally, that all calls] in his line will be punctual[ly attended to. The] he has taken the EAG[LE HOTEL. The] house is commodious and [well furnished, and no] expense will be spared to m[ake it agreeable to] all persons who may favor [him with a call.] April 15, 18[3]4.",
+      "locator": {
+        "artifact_role": "primary",
+        "issue_page": 4,
+        "column": 1,
+        "lines": [
+          3197,
+          3206
+        ],
+        "lines_of_claim": [
+          3197,
+          3198,
+          3199,
+          3200,
+          3202,
+          3203,
+          3204,
+          3205,
+          3206
+        ],
+        "interleaved": true
+      },
+      "entities": [
+        {
+          "as_printed": "P. I. 94",
+          "normalized": "P. J. Carli",
+          "role": "proprietor",
+          "occupations": [
+            "tavern keeper"
+          ]
+        }
+      ],
+      "ad_copy_date": {
+        "verbatim": "April 15, 1634.",
+        "iso": "1834-04-15"
+      },
+      "notes": "'HE HAS TAKEN THE EAGLE HOTEL', dated 15 April 1834 — so Carli is a new keeper of an existing house, not its builder, and the Eagle predates April 1834. 'Commodious' is the only thing said about the building's size and it is a puff, not a measure. The notice is interleaved with the House and Land Agent's column and its right-hand half supplies the bracketed words; both halves are in this same column."
+    },
+    {
+      "id": "c015",
+      "kind": "building",
+      "reading": "transcription_mediated",
+      "quote": "WE or for male the 11\nBlouse for\nof Lasalle and Lake\nthe first day of next month.\nis 16 by 30 feet, and possess\nAp' L. 22.\nP. P",
+      "normalized": "W[e offer] for sale the [dwelling] House [on the corner] of Lasalle and Lake [streets. Possession can be had on] the first day of next month. [The house] is 16 by 30 feet, and possess[es …] Ap[ril] 22. [… ] P. P[RUYNE & CO.]",
+      "locator": {
+        "artifact_role": "primary",
+        "issue_page": 4,
+        "column": 1,
+        "lines": [
+          3124,
+          3130
+        ],
+        "lines_of_claim": [
+          3124,
+          3125,
+          3126,
+          3127,
+          3128,
+          3129,
+          3130
+        ],
+        "interleaved": true
+      },
+      "entities": [
+        {
+          "as_printed": "P. P",
+          "normalized": "P. Pruyne & Co.",
+          "role": "advertiser",
+          "occupations": [
+            "merchant"
+          ]
+        }
+      ],
+      "ad_copy_date": {
+        "verbatim": "Ap' L. 22.",
+        "iso": "1834-04-22"
+      },
+      "notes": "A HOUSE WITH A FOOTPRINT AND A CORNER — sixteen feet by thirty, on the corner of LaSalle and Lake, offered at $250 with possession on the first of next month. THAT IS A DIMENSIONED BUILDING ON A NAMED CORNER, which the June reading gets exactly twice (this and the Lake Street lot in claim c006), and 16 by 30 is the size of a small frame dwelling rather than a store. The interleaving cuts every line in half and the other half is in page 4 column 2 of this same issue (lines 3276-3287: 'House on the corner', 'streets.', 'The house', 'sion can be had on', 'Price only 9250.', 'PRUYNE & CO.'), which is where the bracketed supplies come from and where the price is legible."
+    },
+    {
+      "id": "c016",
+      "kind": "price",
+      "reading": "transcription_mediated",
+      "quote": ", CHICAGO PRICES CURRENT,\n4 Reported for the Demacrat by P. F. Peck.\n’ CORRACTED WEEKLY.\nBuilding Materiale— |\nLumber, poplar ass'd 1000 ft 20 00223 00)\nShingles do 300 a 3 50\nSquare timber, length f Sa 6 |\nBrick, per 1000 6 00 |\nStone, perch 150 !\nLime, bbl 1 25 |",
+      "normalized": "CHICAGO PRICES CURRENT, Reported for the D[e]mo[c]rat by P. F. Peck. CORRECTED WEEKLY. [… ] Building Materials— Lumber, poplar ass'd 1000 ft 20 00 a 23 00; Shingles do 3 00 a 3 50; Square timber, length f[t] 5 a 6; Brick, per 1000 6 00; Stone, perch 1 50; Lime, bbl 1 25",
+      "locator": {
+        "artifact_role": "primary",
+        "issue_page": 3,
+        "column": 5,
+        "lines": [
+          2805,
+          2877
+        ],
+        "lines_of_claim": [
+          2805,
+          2806,
+          2807,
+          2871,
+          2872,
+          2873,
+          2874,
+          2875,
+          2876,
+          2877
+        ]
+      },
+      "entities": [
+        {
+          "as_printed": "P. F. Peck",
+          "normalized": "P. F. Peck",
+          "role": "advertiser",
+          "occupations": [
+            "merchant"
+          ],
+          "associated_places": [
+            "South Water Street",
+            "LaSalle Street"
+          ]
+        }
+      ],
+      "notes": "THE BUILDING MATERIALS ROW WITH ITS OWN HEADING AND A BRICK PRICE. On 1834-06-04 the table ran the same commodities under no heading and left the brick line blank (that issue's claim c016); a fortnight later they are grouped as 'Building Materials—' and brick is quoted at six dollars the thousand. Poplar assorted lumber at $20-23 the thousand feet, shingles $3-3.50, square timber 5-6 cents the foot, stone $1.50 the perch, lime $1.25 the barrel — this is what the seventy-five buildings of claim c001 were bought with, in the month they went up."
+    },
+    {
+      "id": "c017",
+      "kind": "business",
+      "reading": "transcription_mediated",
+      "quote": "REMOVA\nCOLLINS & CATON,\nATTORNEYS & COUNSELLORS AT LAW,\nAnd Solicitors in Chancery,\nFFICE two door exst of the Baptist\nup staire, South Water-street, =\nChicago, June 4, 4834,\npatch, James H. Corzine.\n4. Dean Caton,",
+      "normalized": "REMOVA[L.] COLLINS & CATON, ATTORNEYS & COUNSELLORS AT LAW, And Solicitors in Chancery, O[F]FICE two door[s] e[a]st of the Baptist [Church,] up stairs, South Water-street. Chicago, June 4, [1]834. [… ] James H. Co[ll]ins. J. Dean Caton.",
+      "locator": {
+        "artifact_role": "primary",
+        "issue_page": 3,
+        "column": 6,
+        "lines": [
+          2965,
+          2975
+        ],
+        "lines_of_claim": [
+          2965,
+          2966,
+          2967,
+          2968,
+          2969,
+          2970,
+          2971,
+          2974,
+          2975
+        ]
+      },
+      "entities": [
+        {
+          "as_printed": "James H. Corzine",
+          "normalized": "James H. Collins",
+          "role": "proprietor",
+          "occupations": [
+            "attorney"
+          ],
+          "associated_places": [
+            "South Water Street"
+          ]
+        },
+        {
+          "as_printed": "4. Dean Caton",
+          "normalized": "J. Dean Caton",
+          "role": "proprietor",
+          "occupations": [
+            "attorney"
+          ],
+          "associated_places": [
+            "South Water Street"
+          ]
+        }
+      ],
+      "ad_copy_date": {
+        "verbatim": "Chicago, June 4, 4834,",
+        "iso": "1834-06-04"
+      },
+      "business": {
+        "name": "Collins & Caton",
+        "proprietors": [
+          "James H. Collins",
+          "J. Dean Caton"
+        ],
+        "trade": "attorneys and counsellors at law, solicitors in chancery",
+        "goods": [],
+        "street": "South Water Street",
+        "placement": {
+          "class": "relative",
+          "anchor": "the Baptist Church",
+          "offset_text": "FFICE two door exst of the Baptist\nup staire, South Water-street, =",
+          "offset_normalized": "Office two doors east of the Baptist [Church,] up stairs, South Water-street",
+          "street": "South Water Street"
+        }
+      },
+      "notes": "The word 'Church' is cut from the anchor line in this printing and is on the page in the 1834-06-04 one (that issue's claim c003, line 1663), so the two printings together give the anchor whole. Kept beside the June 4 claim because it carries the partners' surnames more legibly and because a standing advertisement's second printing is what shows it still stood."
+    },
+    {
+      "id": "c018",
+      "kind": "notice",
+      "reading": "transcription_mediated",
+      "quote": "For Sale, :\nOT’ No 3, in Block 120, in the School See-\nion, For te! ly to\nen 81 fabate Ty eROYNE & CO.",
+      "normalized": "For Sale, LOT No 3, in Block 120, in the School Se[ct]ion. For te[rms app]ly to [… ] P. PRUYNE & CO.",
+      "locator": {
+        "artifact_role": "primary",
+        "issue_page": 3,
+        "column": 6,
+        "lines": [
+          3084,
+          3087
+        ],
+        "lines_of_claim": [
+          3084,
+          3085,
+          3086,
+          3087
+        ]
+      },
+      "entities": [
+        {
+          "as_printed": "eROYNE & CO",
+          "normalized": "P. Pruyne & Co.",
+          "role": "advertiser",
+          "occupations": [
+            "merchant"
+          ]
+        }
+      ],
+      "notes": "BLOCK 120 OF THE SCHOOL SECTION being sold off a lot at a time in June 1834 — the same section Kercheval and Hamilton advertise 'a number of valuable and eligibly situated Lots and Blocks' in (1834-06-04 claim c015). A block number that high is worth recording on its own: the school section's survey ran to at least 120 blocks by this date."
+    },
+    {
+      "id": "c019",
+      "kind": "notice",
+      "reading": "transcription_mediated",
+      "quote": "Fresh Garden Seeds.\nUST received a good assortment of Flower\nAlso, C. b L\nis 3. B.C. HOGAN,\nApril 8, 1834.",
+      "normalized": "Fresh Garden Seeds. [J]UST received a good assortment of Flower [and Garden Seeds.] Also, C[LOVER SEED, by] J. S. C. HOGAN. April 8, 1834.",
+      "locator": {
+        "artifact_role": "primary",
+        "issue_page": 3,
+        "column": 6,
+        "lines": [
+          3049,
+          3053
+        ],
+        "lines_of_claim": [
+          3049,
+          3050,
+          3051,
+          3052,
+          3053
+        ]
+      },
+      "entities": [
+        {
+          "as_printed": "3. B. C. HOGAN",
+          "normalized": "John S. C. Hogan",
+          "role": "advertiser",
+          "occupations": [
+            "merchant",
+            "postmaster"
+          ],
+          "associated_places": [
+            "South Water Street"
+          ]
+        }
+      ],
+      "ad_copy_date": {
+        "verbatim": "April 8, 1834.",
+        "iso": "1834-04-08"
+      },
+      "notes": "GARDEN AND FLOWER SEED ON SALE IN CHICAGO IN THE SPRING OF 1834, which is a small fact with a visible consequence: somebody in this town was planting a flower garden. Sold by the postmaster, who is the John S. C. Hogan continuing the Brewster, Hogan & Co. stand (1834-06-11 claims c001 and c002). The bracketed words are supplied from the 1834-06-04 printing of the same notice (page 3 column 6, lines 2169-2174), which sets 'GARDEN' and 'CLOVER SEED' legibly."
+    },
+    {
+      "id": "c020",
+      "kind": "business",
+      "reading": "transcription_mediated",
+      "quote": "House and Land\nOTS purchased and Sold,\n/ sion,\n12 Building Lote for sale, in\nSchool pection.\n*3 Housee to Let.\nEnquire\nLake st. opposite Dr. Temple s.",
+      "normalized": "House and Land [Agent.] [L]OTS purchased and Sold, [or by commis-]sion. 12 Building Lot[s] for sale, in [the town and] School [s]ection. […] House[s] to Let. Enquire [at the Office on] Lake st. opposite Dr. Temple['s.]",
+      "locator": {
+        "artifact_role": "primary",
+        "issue_page": 4,
+        "column": 2,
+        "lines": [
+          3263,
+          3275
+        ],
+        "lines_of_claim": [
+          3263,
+          3265,
+          3267,
+          3268,
+          3270,
+          3272,
+          3273,
+          3275
+        ],
+        "interleaved": true
+      },
+      "business": {
+        "name": "W. G. Blanchard",
+        "proprietors": [
+          "W. G. Blanchard"
+        ],
+        "trade": "house and land agent",
+        "goods": [],
+        "street": "Lake Street",
+        "placement": {
+          "class": "relative",
+          "anchor": "Dr. Temple's",
+          "offset_text": "Lake st. opposite Dr. Temple s.",
+          "offset_normalized": "Lake st. opposite Dr. Temple['s.]",
+          "street": "Lake Street"
+        }
+      },
+      "notes": "ONE IMPRESSION OF THE STANDING LAKE STREET LAND-AGENCY CARD. The Democrat sets this advertisement, word for word the same, in every issue from 1834-05-14 to 1834-10-01 — twenty consecutive weeks, eighteen of which set the line ‘purchased and Sold, or by commi[s]sion’ recognisably (T-1051). The card is identified by its copy and not by its display line: the same trade (‘House and Land Agent’), the same offer of building lots in the town and the School Section, the same houses to let, and the same office on Lake street opposite Dr. Temple's. THE COLUMN IS INTERLEAVED and this card occupies alternate lines of it: 3264 ('or a small family,'), 3266 ('Newberry & Dole':'), 3269 (',, and some Window') and 3271 ('of A. SWEET.') belong to the advertisements woven through and are named in `lines` without being quoted. THE PROPRIETOR'S NAME IS NOT READ HERE and none is supplied into the quote: the record's ‘W. G. Blanchard’ stands on T-0408's reading of the two impressions whose columns are NOT Tesseract fallbacks (1834-07-16 line 5527, 1834-09-17 line 3292) and on identity.json's declared firm merge, not on this impression. Line 3261, '[uncertain: I Go BION]', stands where the display line would fall in that alternation, but the interleave makes the attribution a guess and it is deliberately left out of the claim rather than read as a fourth mangled setting of the name."
+    }
+  ]
+}

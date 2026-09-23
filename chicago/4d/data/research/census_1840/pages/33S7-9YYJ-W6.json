@@ -1,0 +1,2163 @@
+{
+ "schema": 1,
+ "familysearch_id": "33S7-9YYJ-W6",
+ "image": "chicago/reference/census1840/33S7-9YYJ-W6.jpg",
+ "printed_page": 232,
+ "sheet_side": "left",
+ "division": "S. W. Sherman (as written in the printed heading)",
+ "state": "Illinois",
+ "county": "Cook",
+ "reading": "scan_verified",
+ "read_pass": "names (T-0523); cells (T-0530)",
+ "cells_state": "read",
+ "lines_ruled_with_an_entry": 31,
+ "records": [
+  {
+   "line": 1,
+   "as_read": "M[?]h[?]l[?] W. Smith",
+   "normalized": "[?] W. Smith",
+   "name_confidence": "low",
+   "note": "given name unread; surname Smith clear",
+   "reading": "scan_verified",
+   "cells": {
+    "free_white_male": [
+     0,
+     0,
+     0,
+     0,
+     0,
+     0,
+     0,
+     1,
+     0,
+     0,
+     0,
+     0,
+     0
+    ],
+    "free_white_female": [
+     0,
+     0,
+     1,
+     1,
+     0,
+     0,
+     1,
+     0,
+     0,
+     0,
+     0,
+     0,
+     0
+    ],
+    "free_coloured_male": [
+     0,
+     1,
+     0,
+     0,
+     0,
+     0
+    ],
+    "free_coloured_female": [
+     0,
+     0,
+     0,
+     0,
+     0,
+     0
+    ],
+    "free_persons": 5
+   },
+   "cells_reading": "scan_verified"
+  },
+  {
+   "line": 2,
+   "as_read": "Jos[?] D. Boone",
+   "normalized": "Jos. D. Boone",
+   "name_confidence": "low",
+   "note": "surname reads Boone; Boon possible",
+   "reading": "scan_verified",
+   "cells": {
+    "free_white_male": [
+     1,
+     1,
+     0,
+     0,
+     0,
+     1,
+     0,
+     0,
+     0,
+     0,
+     0,
+     0,
+     0
+    ],
+    "free_white_female": [
+     1,
+     0,
+     1,
+     0,
+     2,
+     0,
+     0,
+     0,
+     0,
+     0,
+     0,
+     0,
+     0
+    ],
+    "free_coloured_male": [
+     0,
+     0,
+     0,
+     0,
+     0,
+     0
+    ],
+    "free_coloured_female": [
+     0,
+     0,
+     0,
+     0,
+     0,
+     0
+    ],
+    "free_persons": 7
+   },
+   "cells_reading": "scan_verified"
+  },
+  {
+   "line": 3,
+   "as_read": "Jaco[b] Miller",
+   "normalized": "Jacob Miller",
+   "name_confidence": "low",
+   "note": "given name could be Jacob or Lakot; surname Miller clear",
+   "reading": "scan_verified",
+   "cells": {
+    "free_white_male": [
+     1,
+     0,
+     0,
+     0,
+     1,
+     0,
+     0,
+     0,
+     0,
+     0,
+     0,
+     0,
+     0
+    ],
+    "free_white_female": [
+     2,
+     0,
+     0,
+     0,
+     1,
+     0,
+     0,
+     0,
+     0,
+     0,
+     0,
+     0,
+     0
+    ],
+    "free_coloured_male": [
+     0,
+     0,
+     0,
+     0,
+     0,
+     0
+    ],
+    "free_coloured_female": [
+     0,
+     0,
+     0,
+     0,
+     0,
+     0
+    ],
+    "free_persons": 5
+   },
+   "cells_reading": "scan_verified"
+  },
+  {
+   "line": 4,
+   "as_read": "[A/N]m[y] Brown",
+   "normalized": "Amy Brown",
+   "name_confidence": "low",
+   "note": "given name could be Amy, Any or Nancy",
+   "reading": "scan_verified",
+   "cells": {
+    "free_white_male": [
+     0,
+     0,
+     0,
+     0,
+     1,
+     0,
+     0,
+     1,
+     0,
+     0,
+     0,
+     0,
+     0
+    ],
+    "free_white_female": [
+     0,
+     0,
+     1,
+     2,
+     2,
+     0,
+     2,
+     0,
+     0,
+     0,
+     0,
+     0,
+     0
+    ],
+    "free_coloured_male": [
+     0,
+     0,
+     0,
+     0,
+     0,
+     0
+    ],
+    "free_coloured_female": [
+     0,
+     0,
+     0,
+     0,
+     0,
+     0
+    ],
+    "free_persons": 9
+   },
+   "cells_reading": "scan_verified"
+  },
+  {
+   "line": 5,
+   "as_read": "Wm. J. C. Scovill",
+   "normalized": "William J. C. Scovill",
+   "name_confidence": "low",
+   "note": "surname could be Scovill or Sewell",
+   "reading": "scan_verified",
+   "cells": {
+    "free_white_male": [
+     1,
+     0,
+     1,
+     0,
+     0,
+     1,
+     0,
+     0,
+     0,
+     0,
+     0,
+     0,
+     0
+    ],
+    "free_white_female": [
+     1,
+     1,
+     0,
+     0,
+     0,
+     1,
+     0,
+     0,
+     0,
+     0,
+     0,
+     0,
+     0
+    ],
+    "free_coloured_male": [
+     0,
+     0,
+     0,
+     0,
+     0,
+     0
+    ],
+    "free_coloured_female": [
+     0,
+     0,
+     0,
+     0,
+     0,
+     0
+    ],
+    "free_persons": 6
+   },
+   "cells_reading": "scan_verified"
+  },
+  {
+   "line": 6,
+   "as_read": "[S/J]. B. H. Russell",
+   "normalized": "[?] B. H. Russell",
+   "name_confidence": "low",
+   "note": "initials uncertain; surname Russell clear",
+   "reading": "scan_verified",
+   "cells": {
+    "free_white_male": [
+     0,
+     0,
+     0,
+     1,
+     0,
+     1,
+     0,
+     0,
+     0,
+     0,
+     0,
+     0,
+     0
+    ],
+    "free_white_female": [
+     0,
+     0,
+     0,
+     1,
+     0,
+     1,
+     0,
+     0,
+     0,
+     0,
+     0,
+     0,
+     0
+    ],
+    "free_coloured_male": [
+     0,
+     0,
+     0,
+     0,
+     0,
+     0
+    ],
+    "free_coloured_female": [
+     0,
+     0,
+     0,
+     0,
+     0,
+     0
+    ],
+    "free_persons": 4
+   },
+   "cells_reading": "scan_verified"
+  },
+  {
+   "line": 7,
+   "as_read": "Geo. O'Bryan",
+   "normalized": "George O'Bryan",
+   "name_confidence": "medium",
+   "note": "O'Bryan / O'Bryant",
+   "reading": "scan_verified",
+   "cells": {
+    "free_white_male": [
+     0,
+     0,
+     0,
+     0,
+     2,
+     4,
+     0,
+     0,
+     0,
+     0,
+     0,
+     0,
+     0
+    ],
+    "free_white_female": [
+     1,
+     0,
+     0,
+     0,
+     3,
+     0,
+     0,
+     0,
+     0,
+     0,
+     0,
+     0,
+     0
+    ],
+    "free_coloured_male": [
+     0,
+     0,
+     0,
+     0,
+     0,
+     0
+    ],
+    "free_coloured_female": [
+     0,
+     0,
+     0,
+     0,
+     0,
+     0
+    ],
+    "free_persons": 10
+   },
+   "cells_reading": "scan_verified"
+  },
+  {
+   "line": 8,
+   "as_read": "Cha[s]. Sweet",
+   "normalized": "Charles Sweet",
+   "name_confidence": "low",
+   "note": "given abbreviation uncertain",
+   "reading": "scan_verified",
+   "cells": {
+    "free_white_male": [
+     1,
+     1,
+     0,
+     0,
+     1,
+     0,
+     0,
+     0,
+     0,
+     0,
+     0,
+     0,
+     0
+    ],
+    "free_white_female": [
+     1,
+     0,
+     0,
+     1,
+     1,
+     0,
+     0,
+     0,
+     0,
+     0,
+     0,
+     0,
+     0
+    ],
+    "free_coloured_male": [
+     0,
+     0,
+     0,
+     0,
+     0,
+     0
+    ],
+    "free_coloured_female": [
+     0,
+     0,
+     0,
+     0,
+     0,
+     0
+    ],
+    "free_persons": 6
+   },
+   "cells_reading": "scan_verified"
+  },
+  {
+   "line": 9,
+   "as_read": "Eliza[?] [J/S]. Estey",
+   "normalized": "Elizabeth [?]. Estey",
+   "name_confidence": "low",
+   "note": "surname Estey / Estry",
+   "reading": "scan_verified",
+   "cells": {
+    "free_white_male": [
+     1,
+     0,
+     0,
+     0,
+     1,
+     0,
+     0,
+     0,
+     0,
+     0,
+     0,
+     0,
+     0
+    ],
+    "free_white_female": [
+     1,
+     0,
+     0,
+     0,
+     1,
+     0,
+     0,
+     0,
+     0,
+     0,
+     0,
+     0,
+     0
+    ],
+    "free_coloured_male": [
+     0,
+     0,
+     0,
+     0,
+     0,
+     0
+    ],
+    "free_coloured_female": [
+     0,
+     0,
+     0,
+     0,
+     0,
+     0
+    ],
+    "free_persons": 4
+   },
+   "cells_reading": "scan_verified"
+  },
+  {
+   "line": 10,
+   "as_read": "John Mullen",
+   "normalized": "John Mullen",
+   "name_confidence": "medium",
+   "note": "also on p230 line 16 as a different household",
+   "reading": "scan_verified",
+   "cells": {
+    "free_white_male": [
+     0,
+     0,
+     0,
+     0,
+     0,
+     3,
+     0,
+     0,
+     0,
+     0,
+     0,
+     0,
+     0
+    ],
+    "free_white_female": [
+     0,
+     0,
+     0,
+     0,
+     1,
+     0,
+     0,
+     0,
+     0,
+     0,
+     0,
+     0,
+     0
+    ],
+    "free_coloured_male": [
+     0,
+     0,
+     0,
+     0,
+     0,
+     0
+    ],
+    "free_coloured_female": [
+     0,
+     0,
+     0,
+     0,
+     0,
+     0
+    ],
+    "free_persons": 4
+   },
+   "cells_reading": "scan_verified"
+  },
+  {
+   "line": 11,
+   "as_read": "James H. Cassad[y]",
+   "normalized": "James H. Cassady",
+   "name_confidence": "medium",
+   "note": "Cassady / Casaday",
+   "reading": "scan_verified",
+   "cells": {
+    "free_white_male": [
+     0,
+     0,
+     0,
+     0,
+     4,
+     1,
+     1,
+     0,
+     0,
+     0,
+     0,
+     0,
+     0
+    ],
+    "free_white_female": [
+     0,
+     2,
+     1,
+     3,
+     0,
+     0,
+     1,
+     0,
+     0,
+     0,
+     0,
+     0,
+     0
+    ],
+    "free_coloured_male": [
+     0,
+     0,
+     0,
+     0,
+     0,
+     0
+    ],
+    "free_coloured_female": [
+     0,
+     0,
+     0,
+     0,
+     0,
+     0
+    ],
+    "free_persons": 13
+   },
+   "cells_reading": "scan_verified"
+  },
+  {
+   "line": 12,
+   "as_read": "Dan[l] J. Shelby",
+   "normalized": "Daniel J. Shelby",
+   "name_confidence": "medium",
+   "note": "",
+   "reading": "scan_verified",
+   "cells": {
+    "free_white_male": [
+     0,
+     0,
+     0,
+     0,
+     6,
+     5,
+     0,
+     0,
+     0,
+     0,
+     0,
+     0,
+     0
+    ],
+    "free_white_female": [
+     0,
+     0,
+     0,
+     1,
+     1,
+     0,
+     0,
+     1,
+     0,
+     0,
+     0,
+     0,
+     0
+    ],
+    "free_coloured_male": [
+     0,
+     0,
+     0,
+     0,
+     0,
+     0
+    ],
+    "free_coloured_female": [
+     0,
+     0,
+     0,
+     0,
+     0,
+     0
+    ],
+    "free_persons": 14
+   },
+   "cells_reading": "scan_verified"
+  },
+  {
+   "line": 13,
+   "as_read": "John Davis",
+   "normalized": "John Davis",
+   "name_confidence": "medium",
+   "note": "",
+   "reading": "scan_verified",
+   "cells": {
+    "free_white_male": [
+     0,
+     0,
+     1,
+     1,
+     4,
+     2,
+     1,
+     0,
+     0,
+     0,
+     0,
+     0,
+     0
+    ],
+    "free_white_female": [
+     0,
+     0,
+     0,
+     1,
+     5,
+     0,
+     1,
+     0,
+     0,
+     0,
+     0,
+     0,
+     0
+    ],
+    "free_coloured_male": [
+     0,
+     0,
+     0,
+     0,
+     0,
+     0
+    ],
+    "free_coloured_female": [
+     0,
+     0,
+     0,
+     0,
+     0,
+     0
+    ],
+    "free_persons": 16
+   },
+   "cells_reading": "scan_verified"
+  },
+  {
+   "line": 14,
+   "as_read": "Geo. Carpenter",
+   "normalized": "George Carpenter",
+   "name_confidence": "medium",
+   "note": "",
+   "reading": "scan_verified",
+   "cells": {
+    "free_white_male": [
+     0,
+     0,
+     1,
+     0,
+     0,
+     0,
+     1,
+     0,
+     0,
+     0,
+     0,
+     0,
+     0
+    ],
+    "free_white_female": [
+     1,
+     0,
+     0,
+     1,
+     0,
+     0,
+     1,
+     0,
+     0,
+     0,
+     0,
+     0,
+     0
+    ],
+    "free_coloured_male": [
+     0,
+     0,
+     0,
+     0,
+     0,
+     0
+    ],
+    "free_coloured_female": [
+     0,
+     0,
+     0,
+     0,
+     0,
+     0
+    ],
+    "free_persons": 5
+   },
+   "cells_reading": "scan_verified"
+  },
+  {
+   "line": 15,
+   "as_read": "Mich[l] McDaniel",
+   "normalized": "Michael McDaniel",
+   "name_confidence": "medium",
+   "note": "",
+   "reading": "scan_verified",
+   "cells": {
+    "free_white_male": [
+     0,
+     0,
+     0,
+     0,
+     1,
+     0,
+     0,
+     0,
+     0,
+     0,
+     0,
+     0,
+     0
+    ],
+    "free_white_female": [
+     0,
+     0,
+     0,
+     0,
+     1,
+     0,
+     0,
+     0,
+     0,
+     0,
+     0,
+     0,
+     0
+    ],
+    "free_coloured_male": [
+     0,
+     0,
+     0,
+     0,
+     0,
+     0
+    ],
+    "free_coloured_female": [
+     0,
+     0,
+     0,
+     0,
+     0,
+     0
+    ],
+    "free_persons": 2
+   },
+   "cells_reading": "scan_verified"
+  },
+  {
+   "line": 16,
+   "as_read": "E. D. S[?]dtham",
+   "normalized": "E. D. [?]",
+   "name_confidence": "low",
+   "note": "surname unread",
+   "reading": "scan_verified",
+   "cells": {
+    "free_white_male": [
+     0,
+     0,
+     0,
+     1,
+     1,
+     0,
+     0,
+     0,
+     0,
+     0,
+     0,
+     0,
+     0
+    ],
+    "free_white_female": [
+     0,
+     0,
+     0,
+     0,
+     0,
+     0,
+     0,
+     0,
+     0,
+     0,
+     0,
+     0,
+     0
+    ],
+    "free_coloured_male": [
+     0,
+     0,
+     0,
+     0,
+     0,
+     0
+    ],
+    "free_coloured_female": [
+     0,
+     0,
+     0,
+     0,
+     0,
+     0
+    ],
+    "free_persons": 2
+   },
+   "cells_reading": "scan_verified"
+  },
+  {
+   "line": 17,
+   "as_read": "Gurdon S. Hubbard",
+   "normalized": "Gurdon S. Hubbard",
+   "name_confidence": "medium",
+   "note": "the given name is distinctive and the surname reads H[u]bbard; if correct this is the Chicago merchant of that name",
+   "reading": "scan_verified",
+   "cells": {
+    "free_white_male": [
+     1,
+     0,
+     0,
+     0,
+     0,
+     1,
+     0,
+     0,
+     0,
+     0,
+     0,
+     0,
+     0
+    ],
+    "free_white_female": [
+     0,
+     0,
+     0,
+     1,
+     1,
+     0,
+     0,
+     0,
+     0,
+     0,
+     0,
+     0,
+     0
+    ],
+    "free_coloured_male": [
+     0,
+     0,
+     0,
+     0,
+     0,
+     0
+    ],
+    "free_coloured_female": [
+     0,
+     0,
+     0,
+     0,
+     0,
+     0
+    ],
+    "free_persons": 4
+   },
+   "cells_reading": "scan_verified"
+  },
+  {
+   "line": 18,
+   "as_read": "S. [?] McC[?]",
+   "normalized": "[?] McC[?]",
+   "name_confidence": "low",
+   "note": "surname begins Mc; remainder unread",
+   "reading": "scan_verified",
+   "cells": {
+    "free_white_male": [
+     0,
+     0,
+     0,
+     0,
+     0,
+     0,
+     0,
+     0,
+     1,
+     0,
+     0,
+     0,
+     0
+    ],
+    "free_white_female": [
+     0,
+     0,
+     0,
+     0,
+     0,
+     0,
+     0,
+     0,
+     1,
+     0,
+     0,
+     0,
+     0
+    ],
+    "free_coloured_male": [
+     0,
+     0,
+     0,
+     0,
+     0,
+     0
+    ],
+    "free_coloured_female": [
+     0,
+     0,
+     0,
+     0,
+     0,
+     0
+    ],
+    "free_persons": 2
+   },
+   "cells_reading": "scan_verified"
+  },
+  {
+   "line": 19,
+   "as_read": "Simon Doyle",
+   "normalized": "Simon Doyle",
+   "name_confidence": "low",
+   "note": "surname Doyle / Dayle",
+   "reading": "scan_verified",
+   "cells": {
+    "free_white_male": [
+     0,
+     0,
+     0,
+     0,
+     0,
+     1,
+     0,
+     0,
+     0,
+     0,
+     0,
+     0,
+     0
+    ],
+    "free_white_female": [
+     0,
+     0,
+     0,
+     0,
+     0,
+     1,
+     0,
+     0,
+     0,
+     0,
+     0,
+     0,
+     0
+    ],
+    "free_coloured_male": [
+     0,
+     0,
+     0,
+     0,
+     0,
+     0
+    ],
+    "free_coloured_female": [
+     0,
+     0,
+     0,
+     0,
+     0,
+     0
+    ],
+    "free_persons": 2
+   },
+   "cells_reading": "scan_verified"
+  },
+  {
+   "line": 20,
+   "as_read": "James S. Moore",
+   "normalized": "James S. Moore",
+   "name_confidence": "low",
+   "note": "given could be James or Jas.; surname Moore / Hore",
+   "reading": "scan_verified",
+   "cells": {
+    "free_white_male": [
+     0,
+     0,
+     0,
+     1,
+     2,
+     0,
+     0,
+     0,
+     0,
+     0,
+     0,
+     0,
+     0
+    ],
+    "free_white_female": [
+     0,
+     0,
+     0,
+     0,
+     0,
+     0,
+     0,
+     0,
+     0,
+     0,
+     0,
+     0,
+     0
+    ],
+    "free_coloured_male": [
+     0,
+     0,
+     0,
+     0,
+     0,
+     0
+    ],
+    "free_coloured_female": [
+     0,
+     0,
+     0,
+     0,
+     0,
+     0
+    ],
+    "free_persons": 3
+   },
+   "cells_reading": "scan_verified"
+  },
+  {
+   "line": 21,
+   "as_read": "Morgan Stocking",
+   "normalized": "Morgan Stocking",
+   "name_confidence": "medium",
+   "note": "",
+   "reading": "scan_verified",
+   "cells": {
+    "free_white_male": [
+     0,
+     1,
+     0,
+     0,
+     0,
+     1,
+     0,
+     0,
+     0,
+     0,
+     0,
+     0,
+     0
+    ],
+    "free_white_female": [
+     0,
+     0,
+     0,
+     0,
+     0,
+     1,
+     0,
+     0,
+     0,
+     0,
+     0,
+     0,
+     0
+    ],
+    "free_coloured_male": [
+     0,
+     0,
+     0,
+     0,
+     0,
+     0
+    ],
+    "free_coloured_female": [
+     0,
+     0,
+     0,
+     0,
+     0,
+     0
+    ],
+    "free_persons": 3
+   },
+   "cells_reading": "scan_verified"
+  },
+  {
+   "line": 22,
+   "as_read": "David R. Gregg",
+   "normalized": "David R. Gregg",
+   "name_confidence": "medium",
+   "note": "Gregg / Grigg",
+   "reading": "scan_verified",
+   "cells": {
+    "free_white_male": [
+     0,
+     1,
+     0,
+     0,
+     0,
+     1,
+     0,
+     0,
+     0,
+     0,
+     0,
+     0,
+     0
+    ],
+    "free_white_female": [
+     0,
+     0,
+     2,
+     0,
+     1,
+     1,
+     0,
+     0,
+     0,
+     0,
+     0,
+     0,
+     0
+    ],
+    "free_coloured_male": [
+     0,
+     0,
+     0,
+     0,
+     0,
+     0
+    ],
+    "free_coloured_female": [
+     0,
+     0,
+     0,
+     0,
+     0,
+     0
+    ],
+    "free_persons": 6
+   },
+   "cells_reading": "scan_verified"
+  },
+  {
+   "line": 23,
+   "as_read": "Dan[l] [H/K]. [?]",
+   "normalized": "Daniel [?]",
+   "name_confidence": "low",
+   "note": "surname reads Hagoon / Magoon, unresolved",
+   "reading": "scan_verified",
+   "cells": {
+    "free_white_male": [
+     0,
+     0,
+     1,
+     0,
+     1,
+     0,
+     1,
+     0,
+     0,
+     0,
+     0,
+     0,
+     0
+    ],
+    "free_white_female": [
+     0,
+     0,
+     1,
+     2,
+     1,
+     0,
+     1,
+     0,
+     0,
+     0,
+     0,
+     0,
+     0
+    ],
+    "free_coloured_male": [
+     0,
+     0,
+     0,
+     0,
+     0,
+     0
+    ],
+    "free_coloured_female": [
+     0,
+     0,
+     0,
+     0,
+     0,
+     0
+    ],
+    "free_persons": 8
+   },
+   "cells_reading": "scan_verified"
+  },
+  {
+   "line": 24,
+   "as_read": "Rob[t] S. Hamilton",
+   "normalized": "Robert S. Hamilton",
+   "name_confidence": "medium",
+   "note": "",
+   "reading": "scan_verified",
+   "cells": {
+    "free_white_male": [
+     1,
+     0,
+     1,
+     1,
+     0,
+     1,
+     1,
+     0,
+     0,
+     0,
+     0,
+     0,
+     0
+    ],
+    "free_white_female": [
+     2,
+     3,
+     0,
+     2,
+     2,
+     0,
+     0,
+     0,
+     0,
+     0,
+     0,
+     0,
+     0
+    ],
+    "free_coloured_male": [
+     0,
+     0,
+     0,
+     0,
+     0,
+     0
+    ],
+    "free_coloured_female": [
+     0,
+     0,
+     0,
+     0,
+     0,
+     0
+    ],
+    "free_persons": 14
+   },
+   "cells_reading": "scan_verified"
+  },
+  {
+   "line": 25,
+   "as_read": "John H. Kinzie",
+   "normalized": "John H. Kinzie",
+   "name_confidence": "medium",
+   "note": "surname reads Kinzie / Kinzer; if Kinzie this is the Chicago figure of that name",
+   "reading": "scan_verified",
+   "cells": {
+    "free_white_male": [
+     1,
+     0,
+     0,
+     1,
+     1,
+     1,
+     0,
+     0,
+     0,
+     0,
+     0,
+     0,
+     0
+    ],
+    "free_white_female": [
+     1,
+     1,
+     1,
+     0,
+     3,
+     1,
+     1,
+     0,
+     0,
+     0,
+     0,
+     0,
+     0
+    ],
+    "free_coloured_male": [
+     0,
+     0,
+     0,
+     0,
+     0,
+     0
+    ],
+    "free_coloured_female": [
+     0,
+     0,
+     0,
+     0,
+     0,
+     0
+    ],
+    "free_persons": 12
+   },
+   "cells_reading": "scan_verified"
+  },
+  {
+   "line": 26,
+   "as_read": "Isaac W. [Wathen/Watkin]",
+   "normalized": "Isaac W. [?]",
+   "name_confidence": "low",
+   "note": "surname unresolved",
+   "reading": "scan_verified",
+   "cells": {
+    "free_white_male": [
+     2,
+     0,
+     0,
+     1,
+     2,
+     0,
+     0,
+     0,
+     0,
+     0,
+     0,
+     0,
+     0
+    ],
+    "free_white_female": [
+     0,
+     0,
+     1,
+     1,
+     1,
+     1,
+     0,
+     0,
+     0,
+     0,
+     0,
+     0,
+     0
+    ],
+    "free_coloured_male": [
+     0,
+     0,
+     0,
+     0,
+     0,
+     0
+    ],
+    "free_coloured_female": [
+     0,
+     0,
+     0,
+     0,
+     0,
+     0
+    ],
+    "free_persons": 9
+   },
+   "cells_reading": "scan_verified"
+  },
+  {
+   "line": 27,
+   "as_read": "Edm[un]d Gill",
+   "normalized": "Edmund Gill",
+   "name_confidence": "medium",
+   "note": "Edmund / Edward",
+   "reading": "scan_verified",
+   "cells": {
+    "free_white_male": [
+     0,
+     0,
+     0,
+     0,
+     2,
+     1,
+     0,
+     0,
+     0,
+     0,
+     0,
+     0,
+     0
+    ],
+    "free_white_female": [
+     0,
+     1,
+     0,
+     0,
+     1,
+     0,
+     0,
+     0,
+     1,
+     0,
+     0,
+     0,
+     0
+    ],
+    "free_coloured_male": [
+     0,
+     0,
+     0,
+     0,
+     0,
+     0
+    ],
+    "free_coloured_female": [
+     0,
+     0,
+     0,
+     0,
+     0,
+     0
+    ],
+    "free_persons": 6
+   },
+   "cells_reading": "scan_verified"
+  },
+  {
+   "line": 28,
+   "as_read": "R. S. Stuart",
+   "normalized": "R. S. Stuart",
+   "name_confidence": "low",
+   "note": "first initial R or B",
+   "reading": "scan_verified",
+   "cells": {
+    "free_white_male": [
+     0,
+     0,
+     0,
+     1,
+     1,
+     0,
+     0,
+     0,
+     0,
+     0,
+     0,
+     0,
+     0
+    ],
+    "free_white_female": [
+     0,
+     0,
+     0,
+     0,
+     0,
+     0,
+     0,
+     0,
+     0,
+     0,
+     0,
+     0,
+     0
+    ],
+    "free_coloured_male": [
+     0,
+     0,
+     0,
+     0,
+     0,
+     0
+    ],
+    "free_coloured_female": [
+     0,
+     0,
+     0,
+     0,
+     0,
+     0
+    ],
+    "free_persons": 2
+   },
+   "cells_reading": "scan_verified"
+  },
+  {
+   "line": 29,
+   "as_read": "S. H. Swack[?]",
+   "normalized": "S. H. Swack[?]",
+   "name_confidence": "low",
+   "note": "surname truncated in the reading; Swackhammer possible",
+   "reading": "scan_verified",
+   "cells": {
+    "free_white_male": [
+     0,
+     0,
+     0,
+     0,
+     1,
+     0,
+     0,
+     0,
+     0,
+     0,
+     0,
+     0,
+     0
+    ],
+    "free_white_female": [
+     0,
+     0,
+     0,
+     0,
+     0,
+     0,
+     0,
+     0,
+     0,
+     0,
+     0,
+     0,
+     0
+    ],
+    "free_coloured_male": [
+     0,
+     0,
+     0,
+     0,
+     0,
+     0
+    ],
+    "free_coloured_female": [
+     0,
+     0,
+     0,
+     0,
+     0,
+     0
+    ],
+    "free_persons": 1
+   },
+   "cells_reading": "scan_verified"
+  },
+  {
+   "line": 30,
+   "as_read": "C. H. Holcomb",
+   "normalized": "C. H. Holcomb",
+   "name_confidence": "low",
+   "note": "",
+   "reading": "scan_verified",
+   "cells": {
+    "free_white_male": [
+     0,
+     0,
+     0,
+     0,
+     1,
+     0,
+     0,
+     0,
+     0,
+     0,
+     0,
+     0,
+     0
+    ],
+    "free_white_female": [
+     2,
+     0,
+     0,
+     1,
+     1,
+     0,
+     0,
+     0,
+     0,
+     0,
+     0,
+     0,
+     0
+    ],
+    "free_coloured_male": [
+     0,
+     0,
+     0,
+     0,
+     0,
+     0
+    ],
+    "free_coloured_female": [
+     0,
+     0,
+     0,
+     0,
+     0,
+     0
+    ],
+    "free_persons": 5
+   },
+   "cells_reading": "scan_verified"
+  },
+  {
+   "line": 31,
+   "as_read": "Emanuel M[o]nd[?]",
+   "normalized": "Emanuel M[?]",
+   "name_confidence": "low",
+   "note": "surname reads Mondee / Monroe, unresolved",
+   "reading": "scan_verified",
+   "cells": {
+    "free_white_male": [
+     0,
+     0,
+     0,
+     0,
+     0,
+     0,
+     0,
+     0,
+     0,
+     0,
+     0,
+     0,
+     0
+    ],
+    "free_white_female": [
+     0,
+     0,
+     0,
+     0,
+     0,
+     0,
+     0,
+     0,
+     0,
+     0,
+     0,
+     0,
+     0
+    ],
+    "free_coloured_male": [
+     1,
+     1,
+     1,
+     0,
+     0,
+     0
+    ],
+    "free_coloured_female": [
+     0,
+     0,
+     1,
+     0,
+     0,
+     0
+    ],
+    "free_persons": 4
+   },
+   "cells_reading": "scan_verified"
+  }
+ ],
+ "cells_read_by": "T-0530",
+ "cells_method": "Read off the deposited page image at full resolution, one column strip at a time, with the sheet's own ruling used to fix the column boundaries: the vertical rules were located by their darkness profile per line, which is what makes the reading safe on a sheet whose rules lean about 36 px across the page \u2014 a fixed grid taken from the middle of the sheet puts the top and bottom lines a quarter of a column out. Every column that carries a mark was then re-read a second time as a montage of its own 31 cells, which is the pass that caught four arithmetic slips in the first reading. No image, crop or render is committed; the deposit stays read-only.",
+ "cell_bands": {
+  "free_white_male": [
+   "under_5",
+   "5_to_9",
+   "10_to_14",
+   "15_to_19",
+   "20_to_29",
+   "30_to_39",
+   "40_to_49",
+   "50_to_59",
+   "60_to_69",
+   "70_to_79",
+   "80_to_89",
+   "90_to_99",
+   "100_and_upwards"
+  ],
+  "free_white_female": [
+   "under_5",
+   "5_to_9",
+   "10_to_14",
+   "15_to_19",
+   "20_to_29",
+   "30_to_39",
+   "40_to_49",
+   "50_to_59",
+   "60_to_69",
+   "70_to_79",
+   "80_to_89",
+   "90_to_99",
+   "100_and_upwards"
+  ],
+  "free_coloured_male": [
+   "under_10",
+   "10_to_23",
+   "24_to_35",
+   "36_to_54",
+   "55_to_99",
+   "100_and_upwards"
+  ],
+  "free_coloured_female": [
+   "under_10",
+   "10_to_23",
+   "24_to_35",
+   "36_to_54",
+   "55_to_99",
+   "100_and_upwards"
+  ]
+ },
+ "cells_are": "Per line, one integer per column of the printed schedule, in the sheet's own order. A blank cell on the sheet is a 0 here \u2014 the schedule's blank IS a zero, and every one of the 62 lines was looked at rather than skipped. `printed_on_the_sheet: null` in the column totals means the footing cell is blank, which the enumerator used for none.",
+ "column_totals": {
+  "free_white_male": {
+   "columns": [
+    {
+     "band": "under_5",
+     "read": 10,
+     "printed_on_the_sheet": 10,
+     "reconciles": true
+    },
+    {
+     "band": "5_to_9",
+     "read": 4,
+     "printed_on_the_sheet": 4,
+     "reconciles": true
+    },
+    {
+     "band": "10_to_14",
+     "read": 5,
+     "printed_on_the_sheet": 5,
+     "reconciles": true
+    },
+    {
+     "band": "15_to_19",
+     "read": 8,
+     "printed_on_the_sheet": 8,
+     "reconciles": true
+    },
+    {
+     "band": "20_to_29",
+     "read": 33,
+     "printed_on_the_sheet": 35,
+     "reconciles": false,
+     "note": "the column carries 33 marks (eighteen lines, of which lines 11, 12 and 13 are a written 4, 6 and 4) and the footing reads 35. No other column on this sheet absorbs the two, so the page's free white male total is 93 by the marks and 95 by the footings. The line 12 glyph is read 6; if it were an 8 the column would still be two short of 35."
+    },
+    {
+     "band": "30_to_39",
+     "read": 25,
+     "printed_on_the_sheet": 25,
+     "reconciles": true
+    },
+    {
+     "band": "40_to_49",
+     "read": 5,
+     "printed_on_the_sheet": 5,
+     "reconciles": true
+    },
+    {
+     "band": "50_to_59",
+     "read": 2,
+     "printed_on_the_sheet": 2,
+     "reconciles": true
+    },
+    {
+     "band": "60_to_69",
+     "read": 1,
+     "printed_on_the_sheet": 1,
+     "reconciles": true
+    },
+    {
+     "band": "70_to_79",
+     "read": 0,
+     "printed_on_the_sheet": null,
+     "reconciles": true
+    },
+    {
+     "band": "80_to_89",
+     "read": 0,
+     "printed_on_the_sheet": null,
+     "reconciles": true
+    },
+    {
+     "band": "90_to_99",
+     "read": 0,
+     "printed_on_the_sheet": null,
+     "reconciles": true
+    },
+    {
+     "band": "100_and_upwards",
+     "read": 0,
+     "printed_on_the_sheet": null,
+     "reconciles": true
+    }
+   ],
+   "all_columns_reconcile": false,
+   "read_total": 93,
+   "printed_total": 95
+  },
+  "free_white_female": {
+   "columns": [
+    {
+     "band": "under_5",
+     "read": 13,
+     "printed_on_the_sheet": 13,
+     "reconciles": true
+    },
+    {
+     "band": "5_to_9",
+     "read": 8,
+     "printed_on_the_sheet": 8,
+     "reconciles": true
+    },
+    {
+     "band": "10_to_14",
+     "read": 9,
+     "printed_on_the_sheet": 9,
+     "reconciles": true
+    },
+    {
+     "band": "15_to_19",
+     "read": 18,
+     "printed_on_the_sheet": 18,
+     "reconciles": true
+    },
+    {
+     "band": "20_to_29",
+     "read": 29,
+     "printed_on_the_sheet": 29,
+     "reconciles": true
+    },
+    {
+     "band": "30_to_39",
+     "read": 7,
+     "printed_on_the_sheet": 7,
+     "reconciles": true
+    },
+    {
+     "band": "40_to_49",
+     "read": 8,
+     "printed_on_the_sheet": 8,
+     "reconciles": true
+    },
+    {
+     "band": "50_to_59",
+     "read": 1,
+     "printed_on_the_sheet": 1,
+     "reconciles": true
+    },
+    {
+     "band": "60_to_69",
+     "read": 2,
+     "printed_on_the_sheet": 2,
+     "reconciles": true
+    },
+    {
+     "band": "70_to_79",
+     "read": 0,
+     "printed_on_the_sheet": null,
+     "reconciles": true
+    },
+    {
+     "band": "80_to_89",
+     "read": 0,
+     "printed_on_the_sheet": null,
+     "reconciles": true
+    },
+    {
+     "band": "90_to_99",
+     "read": 0,
+     "printed_on_the_sheet": null,
+     "reconciles": true
+    },
+    {
+     "band": "100_and_upwards",
+     "read": 0,
+     "printed_on_the_sheet": null,
+     "reconciles": true
+    }
+   ],
+   "all_columns_reconcile": true,
+   "read_total": 95,
+   "printed_total": 95
+  },
+  "free_coloured_male": {
+   "columns": [
+    {
+     "band": "under_10",
+     "read": 1,
+     "printed_on_the_sheet": 1,
+     "reconciles": true
+    },
+    {
+     "band": "10_to_23",
+     "read": 2,
+     "printed_on_the_sheet": 2,
+     "reconciles": true
+    },
+    {
+     "band": "24_to_35",
+     "read": 1,
+     "printed_on_the_sheet": 1,
+     "reconciles": true
+    },
+    {
+     "band": "36_to_54",
+     "read": 0,
+     "printed_on_the_sheet": null,
+     "reconciles": true
+    },
+    {
+     "band": "55_to_99",
+     "read": 0,
+     "printed_on_the_sheet": null,
+     "reconciles": true
+    },
+    {
+     "band": "100_and_upwards",
+     "read": 0,
+     "printed_on_the_sheet": null,
+     "reconciles": true
+    }
+   ],
+   "all_columns_reconcile": true,
+   "read_total": 4,
+   "printed_total": 4
+  },
+  "free_coloured_female": {
+   "columns": [
+    {
+     "band": "under_10",
+     "read": 0,
+     "printed_on_the_sheet": null,
+     "reconciles": true
+    },
+    {
+     "band": "10_to_23",
+     "read": 0,
+     "printed_on_the_sheet": null,
+     "reconciles": true
+    },
+    {
+     "band": "24_to_35",
+     "read": 1,
+     "printed_on_the_sheet": 1,
+     "reconciles": true
+    },
+    {
+     "band": "36_to_54",
+     "read": 0,
+     "printed_on_the_sheet": null,
+     "reconciles": true
+    },
+    {
+     "band": "55_to_99",
+     "read": 0,
+     "printed_on_the_sheet": null,
+     "reconciles": true
+    },
+    {
+     "band": "100_and_upwards",
+     "read": 0,
+     "printed_on_the_sheet": null,
+     "reconciles": true
+    }
+   ],
+   "all_columns_reconcile": true,
+   "read_total": 1,
+   "printed_total": 1
+  }
+ },
+ "column_totals_are": "The sheet foots its own columns, and that footing is the only check this reading has. It is stated per column, agreeing or not; a column that does not reconcile is named with both figures rather than smoothed, and no cell was changed to make a footing come out.",
+ "reconciliation_summary": "1 of 38 columns do not reconcile with the sheet's own footings: free_white_male 20_to_29: read 33, footing 35",
+ "free_population_read": 193,
+ "free_population_by_the_sheets_footings": 195,
+ "pairing": {
+  "paired_to_continuation_sheet": null,
+  "paired_to_continuation_leaf": "NARA M704 roll 57, leaf n167 (Internet Archive populationsc18400057unit), source census_1840_chicago_nara_m704_roll57",
+  "state": "paired_outside_this_deposit",
+  "paired_by": "T-0736",
+  "why": "T-0543 exhausted the search INSIDE this deposit and was right: none of the 33 household continuation sheets among the 74 images foots printed 232. T-0736 went outside it by the second route that ticket named. The 1840 population schedules survive on NARA microfilm publication M704, and roll 57 is the one whose description reads \u201cColes, Cook, Crawford Counties\u201d; the Allen County Public Library Genealogy Center's scan of that roll is public and unauthenticated on the Internet Archive. Leaf n166 of it IS printed page 232 \u2014 identified by its own 31 heads of families, which are this page's 31 in this page's order, and not by the stamp alone \u2014 and leaf n167 is the facing right sheet of the same opening. It pairs on BOTH of T-0642's keys and on the sequence screen besides.",
+  "page_population_key": 193,
+  "page_population_key_alternate": 195,
+  "line_count_key": 31,
+  "the_continuation_leafs_keys": {
+   "printed_total_footing_as_read": "195",
+   "printed_total_footing_alternate": "198",
+   "alternate_note": "the third glyph of the footing is open at this exposure and 198 is the arguable reading. The pairing does NOT rest on it: it is carried by the line count, by the sequence screen, and above all by the 31 names on the facing leaf. Where the glyph matters \u2014 to the enumerator's own arithmetic \u2014 it is left with its alternate named rather than chosen.",
+   "entries_in_the_total_column": 31,
+   "total_column_opens": [
+    5,
+    7,
+    5,
+    9,
+    6,
+    4
+   ],
+   "this_pages_free_persons_open": [
+    5,
+    7,
+    5,
+    9,
+    6,
+    4
+   ]
+  },
+  "the_screen_that_refused_the_rival": "T-0543 refused 33SQ-GYYJ-9J5 \u2014 the deposit's one 31-entry right sheet \u2014 on the population key and again because its TOTAL column opens 5, 6, 25, 11, 8 against this page's 5, 7, 5, 9, 6. n167's column opens on this page's own five figures, so the same screen that refused the rival names this leaf.",
+  "what_this_costs_the_page": "Nothing, once the leaf is read. The family TOTAL, the seven industry columns, the pensioners block, the deaf/dumb/blind/insane block and the schools and illiteracy columns of these 31 households are now READABLE \u2014 they stand on n167 \u2014 and they are still UNREAD. They stay recorded as absent from this project's holdings until the reading ticket lands them; nothing is to be filled into them from this sheet's own cells in the meantime.",
+  "not_one_cell_of_this_reading_was_changed_by_the_pairing": true
+ }
+}

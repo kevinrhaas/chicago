@@ -1,0 +1,31 @@
+{
+  "id": "trowbridge_sauganash_hotel",
+  "type": "illustration",
+  "citation": "W. E. S. Trowbridge. Drawing of the Sauganash Hotel, Mark Beaubien's tavern on Lake Street near Market Street — signed \"W. E. S. Trowbridge\" at the lower left. Reproduced on Chicagology, \"Lake Street\", captioned \"A drawing by W. E. S. Trowbridge of Mark Beaubien's Sauganash hotel on Lake st. near Market st. It was built in 1831. It burned down in 1851.\"",
+  "author": "W. E. S. Trowbridge",
+  "date": "undated on the plate; its companion drawing of the Green Tree Tavern on the same artist's hand is signed 1902",
+  "describes_date": "1831-1851",
+  "repository": "reproduced on chicagology.com; the original drawing's holding institution is not stated there",
+  "url": "https://chicagology.com/chicagostreets/lakestreet/",
+  "archived_url": "http://web.archive.org/web/20260611044628/https://chicagology.com/chicagostreets/lakestreet/",
+  "locator": "The drawing captioned \"A drawing by W. E. S. Trowbridge of Mark Beaubien's Sauganash hotel on Lake st. near Market st.\", in the run of text between the Green Tree tavern paragraph and the heading \"Planked Roads Introduced\"; image file sauganash2.jpg.",
+  "tier": 5,
+  "rights_status": "check_required",
+  "rights_note": "Same position as the artist's Green Tree drawing: almost certainly out of copyright in the United States on age, and reproduced on a site that publishes no rights terms. Cite in text; derive no asset from it until the original is located with its terms stated.",
+  "asset_use": "cross_check",
+  "verified": true,
+  "note": "IMAGE 10 OF THE OWNER'S BRIEF OF 2026-08-18, identified. The brief describes it as \"The Sauganash (Trowbridge drawing). Adds: louvred shutters on the sash, the tall board fence enclosing the rear yard, a saddled horse at the post (L1: reference only), the log wing's door direct to grade.\" The plate at this locator was retrieved and read on 2026-08-22 and carries all four: louvred shutters flanking every window of the clapboard block, a tall vertical-board fence running off to the right behind the building, a saddled horse standing at a post at the right-hand road edge, and the log wing's door opening straight onto the ground with no step or platform. It also carries the two posts at the road edge and the log wing under its own shingled roof that the brief's images 8 and 9 give.\n\nUNDATED, AND THAT IS RECORDED RATHER THAN GUESSED. The signature carries what appears to be a two-digit year after the name, as the Green Tree drawing's does, and it is not legible at the resolution published here. The companion is signed 1902 and the two are plainly one campaign, but this record does not assert a date the plate does not give: `date` says undated, and any use that turns on the year must resolve it first.\n\nIT IS NOT AN INDEPENDENT WITNESS OF THE 1831 BUILDING. docs/RESEARCH/sauganash_hotel.md § 4 already treats the Braunhold engraving in Andreas and the Kurz & Allison panel as one witness and a copy; this drawing is a third view in the same descent, and the caution there applies here in full. What it adds is DETAIL the other two do not draw — the shutters and the fence — at the cost of being the latest and least direct of them.\n\nWHAT THE PROJECT ALREADY TOOK FROM IT, by path: the Sauganash's louvred shutters (docs/LIBERTIES.md, the weakest of the three plate readings by the record's own note), the board fence at the rear yard, and the hitching posts at the road edge in data/frontage/sauganash_frontage.json.",
+  "what_it_supplies": [
+    "louvred shutters flanking the sash of the clapboard block",
+    "a tall vertical-board fence enclosing the ground behind and to the right of the building",
+    "hitching or corner posts standing at the road edge in front of the frontage",
+    "the log wing attached at the left, single-storey, under its own shingled roof, its door opening direct to grade",
+    "the clapboard block's two brick chimneys and its entrance without a veranda or gallery"
+  ],
+  "what_it_does_not_supply": [
+    "any coordinate, footprint outline or dimension",
+    "its own date — the plate as reproduced does not give a legible year",
+    "independent corroboration of the Braunhold engraving: it belongs to the same retrospective descent",
+    "the state of the building on 1 July 1835 as against any other year of its 1831-1851 life"
+  ]
+}

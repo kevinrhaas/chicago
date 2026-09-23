@@ -1,0 +1,454 @@
+{
+  "schema": 1,
+  "_doc": "HAND-AUTHORED for T-0497. The Dalton Data Bank's Illinois census index, 1840 block, read entry by entry off daltondatabank.net/Illinois.html on 2026-09-05. NAMES ONLY: the page itself is not committed (its rights are check_required; a name index of a public-domain census is fact, the page is theirs).",
+  "ticket": "T-0497",
+  "source_id": "dalton_1840_chicago_census_index",
+  "describes_date": "1840",
+  "read_on": "2026-09-05",
+  "the_ladder": "An 1840 index row is LATER EVIDENCE twice over — later than 1835, and mediated by somebody else's index rather than read off the sheet. Under the ratified ladder, 1839/1840 alone is never an 1835 residence. Nothing here mints, grades or regrades a resident; T-0513 consolidates and T-0514/T-0515 apply.",
+  "what_this_index_actually_is": "The ticket that asked for this reading described a 'free 1840 Chicago head-of-household index by ward' and called it 'the cheapest second reading of the 1840 heads the project can get'. That is WRONG, and the reading is what shows it: the Dalton Data Bank is a ONE-SURNAME genealogical databank. Its Illinois page indexes Dalton, Dolton and Daulton entries and nothing else — 'There are over 5000 surname entries in this file' — so its 1840 census block is 20 Illinois rows, of which 3 stand in a Chicago ward. It is not a city name list, it cannot be a second reading of the 964 IPUMS households, and it cannot cross-check the spelling of any 1840 head who was not called Dalton.",
+  "counts": {
+    "rows_1840_illinois": 20,
+    "rows_in_a_chicago_ward": 3,
+    "rows_cook_county_outside_a_chicago_ward": 4,
+    "rows_outside_cook_county": 13,
+    "surname_only_rows": 1,
+    "wards_named": [
+      "1",
+      "2"
+    ]
+  },
+  "wards": {
+    "as_the_index_gives_them": "Ward numbers only — '1st Ward', '1 Ward', '2 Ward' — written into the place string beside the county. No boundary, street or extent is stated anywhere on the page.",
+    "town_finding": "None. Ticket rule 5 asked for the ward boundaries this index implies; it implies none. What it does carry is that Chicago was divided into at least two numbered wards by the 1840 enumeration, which this project already holds from the 1837 charter and which is five years after the scene date either way."
+  },
+  "what_it_does_not_supply": [
+    "household composition — no age bands, no counts, no line",
+    "the printed page and line of the census sheet the row came from",
+    "any 1835 residence, and any bridge from 1840 back to 1835",
+    "any head of household not named Dalton, Dolton or Daulton"
+  ],
+  "access_log": [
+    {
+      "url": "https://daltondatabank.net/",
+      "fetched": "2026-09-05",
+      "http": 200,
+      "bytes": 41224,
+      "result": "the site's front page — read only to find the Illinois page and to establish that the databank is organised by the Dalton surname"
+    },
+    {
+      "url": "https://daltondatabank.net/Illinois.html",
+      "fetched": "2026-09-05",
+      "http": 200,
+      "bytes": 165061,
+      "result": "the index itself; its CENSUS INDEXES section (anchor #census) carries the 1820, 1830, 1840, 1850, 1860 and later blocks. The 1840 block is the 20 rows recorded here."
+    },
+    {
+      "url": "https://daltondatabank.net/Illinois_Page_2.html",
+      "fetched": "2026-09-05",
+      "http": 200,
+      "bytes": 204480,
+      "result": "the page's continuation, holding the Chicago city directories, the Illinois land sales, naturalizations and ancestral files. Read for Cook County rows; see negatives[] and dalton_index_land_sales_note."
+    }
+  ],
+  "negatives": [
+    {
+      "query": "the index's own 1830 census block, read whole (3 Illinois rows: Clabourn Dalton, Morgan Co.; Samuel Dalton, Madison Co.; Lucinda Dalton, Fayette Co.)",
+      "date": "2026-09-05",
+      "result": "NO Cook County or Chicago row. The databank places no Dalton at Chicago in 1830, which is a swept-and-empty result rather than an unexamined gap."
+    },
+    {
+      "query": "the index's own 1820 census block (1 Illinois row: Isham Dalton, Madison Co.)",
+      "date": "2026-09-05",
+      "result": "no Cook County or Chicago row."
+    },
+    {
+      "query": "a per-ward page, or any page of the site holding non-Dalton Chicago heads",
+      "date": "2026-09-05",
+      "result": "none exists. The site's only Illinois pages are Illinois.html and Illinois_Page_2.html (plus Newspapers/IllinoisNewspapers.htm); the ward is a value inside a row, not a page. The ticket's 'fetch every 1840 Chicago ward page' therefore has exactly two pages to fetch, and both were."
+    },
+    {
+      "query": "the Dalton surname across data/census/1840/household_heads.csv.gz — PR #670's 210 named heads",
+      "date": "2026-09-05",
+      "result": "0 hits. The three Chicago-ward Dalton households this index names are NOT on the seven printed pages (229–235) read so far, so they lie on unread images of the deposit — a specific thing for T-0496 and T-0657–T-0659 to watch for."
+    },
+    {
+      "query": "the Dalton surname across data/research/civic/records/ — the 1833–1835 poll and voter lists",
+      "date": "2026-09-05",
+      "result": "0 hits. No Dalton voted or was polled in the town this project reconstructs."
+    },
+    {
+      "query": "the Dalton surname across data/research/land_sales/records/ — the federal tract sales through 1836",
+      "date": "2026-09-05",
+      "result": "0 hits, against two Cook County purchases the databank's own land-sales section prints for a George Dalton on 25 and 27 June 1836. Neither register contradicts the other: the committed sweep covers seven townships around the town (T38N–T41N, R13E–R15E) and Cook County is far larger. Recorded, not resolved — see dalton_index_land_sales_note."
+    },
+    {
+      "query": "the Dalton surname across data/residents/",
+      "date": "2026-09-05",
+      "result": "1 household — hh_dalton_edward, the letter-list Edward Dalton, already carrying this index as an unasserted candidate (T-0479). No other Dalton is in the town."
+    }
+  ],
+  "dalton_index_land_sales_note": "Illinois_Page_2.html's ILLINOIS LAND SALES section, sourced to the Illinois Archives, prints under COOK COUNTY: 'George Dalton, price $1055, 6/25/1836; same date three other purchases at $687.50 and $343.75.' and 'George Dalton, price $875, 6/27/1836'. RESOLVED by T-0830, and it was not what this note supposed. All five are in the Archives' register (purchase nos 0363249, 0363250, 0379985, 0515062, 0515063), at exactly those prices, as canal sales of June 1836 — and the land_sales sweep does not hold them because the register gives them NO section: the tract is a lot and block in a platted town, and a by-section query can never return a row with no section. The supposition here — 'this is a purchase outside the seven townships, a lead and not a fault' — was wrong. A whole-county list walk (land_sales/coverage.json § completeness_probe) finds 619 such rows dated through 1836, 466 of them in 1836. Reading them is T-1028. Nothing about this touches the 1840 census reading, and George Dalton's residence reads UNKNOWN on all five rows: a purchase is a transaction, never a home.",
+  "records": [
+    {
+      "id": "dalton_index_1840_01",
+      "as_read": "Charles Dalton, Morgan Co.",
+      "normalized": "CHARLES DALTON",
+      "locator": {
+        "list": "dalton_data_bank_illinois_1840_census_index",
+        "entry": 1,
+        "section": "CENSUS INDEXES — 1840",
+        "url": "https://daltondatabank.net/Illinois.html#census"
+      },
+      "reading": "transcription_mediated",
+      "confidence": "documented",
+      "place_as_read": "Morgan Co.",
+      "county": "Morgan",
+      "ward": null,
+      "in_a_chicago_ward": false,
+      "notes": "An Illinois row outside Cook County. Read and recorded so that the Chicago rows are a SELECTION from a declared whole and not a search that stopped when it found something."
+    },
+    {
+      "id": "dalton_index_1840_02",
+      "as_read": "David Dalton, Knox Co.",
+      "normalized": "DAVID DALTON",
+      "locator": {
+        "list": "dalton_data_bank_illinois_1840_census_index",
+        "entry": 2,
+        "section": "CENSUS INDEXES — 1840",
+        "url": "https://daltondatabank.net/Illinois.html#census"
+      },
+      "reading": "transcription_mediated",
+      "confidence": "documented",
+      "place_as_read": "Knox Co.",
+      "county": "Knox",
+      "ward": null,
+      "in_a_chicago_ward": false,
+      "notes": "An Illinois row outside Cook County. Read and recorded so that the Chicago rows are a SELECTION from a declared whole and not a search that stopped when it found something."
+    },
+    {
+      "id": "dalton_index_1840_03",
+      "as_read": "Edward Dalton, Chicago 1st Ward",
+      "normalized": "EDWARD DALTON",
+      "locator": {
+        "list": "dalton_data_bank_illinois_1840_census_index",
+        "entry": 3,
+        "section": "CENSUS INDEXES — 1840",
+        "url": "https://daltondatabank.net/Illinois.html#census"
+      },
+      "reading": "transcription_mediated",
+      "confidence": "documented",
+      "place_as_read": "Chicago 1st Ward",
+      "county": "Cook",
+      "ward": "1",
+      "in_a_chicago_ward": true,
+      "notes": "The one row the repo already cited, and it cited only this one: data/residents/households/hh_dalton_edward.json carries it as an unasserted candidate for the 1835 letter-list Edward Dalton (T-0479). Entry 15 stands in the SAME ward and is a second First-Ward Dalton household this index carries; the ward is therefore not the discriminator that reading took it for. See dalton_index_crosswalk.json."
+    },
+    {
+      "id": "dalton_index_1840_04",
+      "as_read": "George Dalton, Cook County, Thornton Precinct",
+      "normalized": "GEORGE DALTON",
+      "locator": {
+        "list": "dalton_data_bank_illinois_1840_census_index",
+        "entry": 4,
+        "section": "CENSUS INDEXES — 1840",
+        "url": "https://daltondatabank.net/Illinois.html#census"
+      },
+      "reading": "transcription_mediated",
+      "confidence": "documented",
+      "place_as_read": "Cook County, Thornton Precinct",
+      "county": "Cook",
+      "ward": null,
+      "in_a_chicago_ward": false,
+      "notes": "Thornton Precinct is southern Cook County, some twenty miles from the town this project reconstructs; a Cook County row is not a Chicago row."
+    },
+    {
+      "id": "dalton_index_1840_05",
+      "as_read": "George Dalton, Pike Co.",
+      "normalized": "GEORGE DALTON",
+      "locator": {
+        "list": "dalton_data_bank_illinois_1840_census_index",
+        "entry": 5,
+        "section": "CENSUS INDEXES — 1840",
+        "url": "https://daltondatabank.net/Illinois.html#census"
+      },
+      "reading": "transcription_mediated",
+      "confidence": "documented",
+      "place_as_read": "Pike Co.",
+      "county": "Pike",
+      "ward": null,
+      "in_a_chicago_ward": false,
+      "notes": "An Illinois row outside Cook County. Read and recorded so that the Chicago rows are a SELECTION from a declared whole and not a search that stopped when it found something."
+    },
+    {
+      "id": "dalton_index_1840_06",
+      "as_read": "Gerard Dalton, Cook Co",
+      "normalized": "GERARD DALTON",
+      "locator": {
+        "list": "dalton_data_bank_illinois_1840_census_index",
+        "entry": 6,
+        "section": "CENSUS INDEXES — 1840",
+        "url": "https://daltondatabank.net/Illinois.html#census"
+      },
+      "reading": "transcription_mediated",
+      "confidence": "documented",
+      "place_as_read": "Cook Co",
+      "county": "Cook",
+      "ward": null,
+      "in_a_chicago_ward": false,
+      "notes": "Cook County with no place at all. The index gives nothing narrower."
+    },
+    {
+      "id": "dalton_index_1840_07",
+      "as_read": "Harry Dalton, Knox County",
+      "normalized": "HARRY DALTON",
+      "locator": {
+        "list": "dalton_data_bank_illinois_1840_census_index",
+        "entry": 7,
+        "section": "CENSUS INDEXES — 1840",
+        "url": "https://daltondatabank.net/Illinois.html#census"
+      },
+      "reading": "transcription_mediated",
+      "confidence": "documented",
+      "place_as_read": "Knox County",
+      "county": "Knox",
+      "ward": null,
+      "in_a_chicago_ward": false,
+      "notes": "An Illinois row outside Cook County. Read and recorded so that the Chicago rows are a SELECTION from a declared whole and not a search that stopped when it found something."
+    },
+    {
+      "id": "dalton_index_1840_08",
+      "as_read": "Isham Dalton, Morgan Co.",
+      "normalized": "ISHAM DALTON",
+      "locator": {
+        "list": "dalton_data_bank_illinois_1840_census_index",
+        "entry": 8,
+        "section": "CENSUS INDEXES — 1840",
+        "url": "https://daltondatabank.net/Illinois.html#census"
+      },
+      "reading": "transcription_mediated",
+      "confidence": "documented",
+      "place_as_read": "Morgan Co.",
+      "county": "Morgan",
+      "ward": null,
+      "in_a_chicago_ward": false,
+      "notes": "An Illinois row outside Cook County. Read and recorded so that the Chicago rows are a SELECTION from a declared whole and not a search that stopped when it found something."
+    },
+    {
+      "id": "dalton_index_1840_09",
+      "as_read": "James Dalton, Pike Co.",
+      "normalized": "JAMES DALTON",
+      "locator": {
+        "list": "dalton_data_bank_illinois_1840_census_index",
+        "entry": 9,
+        "section": "CENSUS INDEXES — 1840",
+        "url": "https://daltondatabank.net/Illinois.html#census"
+      },
+      "reading": "transcription_mediated",
+      "confidence": "documented",
+      "place_as_read": "Pike Co.",
+      "county": "Pike",
+      "ward": null,
+      "in_a_chicago_ward": false,
+      "notes": "An Illinois row outside Cook County. Read and recorded so that the Chicago rows are a SELECTION from a declared whole and not a search that stopped when it found something."
+    },
+    {
+      "id": "dalton_index_1840_10",
+      "as_read": "John Dalton, Adams Co., Quincy",
+      "normalized": "JOHN DALTON",
+      "locator": {
+        "list": "dalton_data_bank_illinois_1840_census_index",
+        "entry": 10,
+        "section": "CENSUS INDEXES — 1840",
+        "url": "https://daltondatabank.net/Illinois.html#census"
+      },
+      "reading": "transcription_mediated",
+      "confidence": "documented",
+      "place_as_read": "Adams Co., Quincy",
+      "county": "Adams",
+      "ward": null,
+      "in_a_chicago_ward": false,
+      "notes": "An Illinois row outside Cook County. Read and recorded so that the Chicago rows are a SELECTION from a declared whole and not a search that stopped when it found something."
+    },
+    {
+      "id": "dalton_index_1840_11",
+      "as_read": "John Dalton, Scott Co., Winchester",
+      "normalized": "JOHN DALTON",
+      "locator": {
+        "list": "dalton_data_bank_illinois_1840_census_index",
+        "entry": 11,
+        "section": "CENSUS INDEXES — 1840",
+        "url": "https://daltondatabank.net/Illinois.html#census"
+      },
+      "reading": "transcription_mediated",
+      "confidence": "documented",
+      "place_as_read": "Scott Co., Winchester",
+      "county": "Scott",
+      "ward": null,
+      "in_a_chicago_ward": false,
+      "notes": "An Illinois row outside Cook County. Read and recorded so that the Chicago rows are a SELECTION from a declared whole and not a search that stopped when it found something."
+    },
+    {
+      "id": "dalton_index_1840_12",
+      "as_read": "Little Dalton, Morgan Co.",
+      "normalized": "LITTLE DALTON",
+      "locator": {
+        "list": "dalton_data_bank_illinois_1840_census_index",
+        "entry": 12,
+        "section": "CENSUS INDEXES — 1840",
+        "url": "https://daltondatabank.net/Illinois.html#census"
+      },
+      "reading": "transcription_mediated",
+      "confidence": "documented",
+      "place_as_read": "Morgan Co.",
+      "county": "Morgan",
+      "ward": null,
+      "in_a_chicago_ward": false,
+      "notes": "An Illinois row outside Cook County. Read and recorded so that the Chicago rows are a SELECTION from a declared whole and not a search that stopped when it found something."
+    },
+    {
+      "id": "dalton_index_1840_13",
+      "as_read": "Mike Dalton, Cook Co.",
+      "normalized": "MIKE DALTON",
+      "locator": {
+        "list": "dalton_data_bank_illinois_1840_census_index",
+        "entry": 13,
+        "section": "CENSUS INDEXES — 1840",
+        "url": "https://daltondatabank.net/Illinois.html#census"
+      },
+      "reading": "transcription_mediated",
+      "confidence": "documented",
+      "place_as_read": "Cook Co.",
+      "county": "Cook",
+      "ward": null,
+      "in_a_chicago_ward": false,
+      "notes": "Cook County with no township, precinct or ward. Not merged with entry 14 ('Michael Dalton, 2 Ward, Chicago'); see dalton_index_crosswalk.json."
+    },
+    {
+      "id": "dalton_index_1840_14",
+      "as_read": "Michael Dalton, 2 Ward, Chicago",
+      "normalized": "MICHAEL DALTON",
+      "locator": {
+        "list": "dalton_data_bank_illinois_1840_census_index",
+        "entry": 14,
+        "section": "CENSUS INDEXES — 1840",
+        "url": "https://daltondatabank.net/Illinois.html#census"
+      },
+      "reading": "transcription_mediated",
+      "confidence": "documented",
+      "place_as_read": "2 Ward, Chicago",
+      "county": "Cook",
+      "ward": "2",
+      "in_a_chicago_ward": true,
+      "notes": "The index writes the ward before the town for this row and after the county for entry 15; both forms are kept verbatim. 'Mike Dalton, Cook Co.' at entry 13 is not merged with it — the index prints them as two entries and supplies nothing that separates or joins them."
+    },
+    {
+      "id": "dalton_index_1840_15",
+      "as_read": "Mr. Dalton, Cook Co., 1 Ward Chicago",
+      "normalized": "MR DALTON",
+      "locator": {
+        "list": "dalton_data_bank_illinois_1840_census_index",
+        "entry": 15,
+        "section": "CENSUS INDEXES — 1840",
+        "url": "https://daltondatabank.net/Illinois.html#census"
+      },
+      "reading": "transcription_mediated",
+      "confidence": "documented",
+      "place_as_read": "Cook Co., 1 Ward Chicago",
+      "county": "Cook",
+      "ward": "1",
+      "in_a_chicago_ward": true,
+      "notes": "SURNAME ONLY. The index prints a courtesy title and no given name, so this row can never become an identity here (research_domains.py refuses a surname-only merge outright). Its value is that it puts a SECOND Dalton household in Chicago's First Ward in 1840."
+    },
+    {
+      "id": "dalton_index_1840_16",
+      "as_read": "Patrick Dalton, Cook Co., Bridgeport",
+      "normalized": "PATRICK DALTON",
+      "locator": {
+        "list": "dalton_data_bank_illinois_1840_census_index",
+        "entry": 16,
+        "section": "CENSUS INDEXES — 1840",
+        "url": "https://daltondatabank.net/Illinois.html#census"
+      },
+      "reading": "transcription_mediated",
+      "confidence": "documented",
+      "place_as_read": "Cook Co., Bridgeport",
+      "county": "Cook",
+      "ward": null,
+      "in_a_chicago_ward": false,
+      "notes": "Bridgeport is the Illinois & Michigan Canal's Chicago terminus, outside the 1835 town plat. A Cook County row, not a Chicago ward row."
+    },
+    {
+      "id": "dalton_index_1840_17",
+      "as_read": "Reuben Dalton, Knox Co.",
+      "normalized": "REUBEN DALTON",
+      "locator": {
+        "list": "dalton_data_bank_illinois_1840_census_index",
+        "entry": 17,
+        "section": "CENSUS INDEXES — 1840",
+        "url": "https://daltondatabank.net/Illinois.html#census"
+      },
+      "reading": "transcription_mediated",
+      "confidence": "documented",
+      "place_as_read": "Knox Co.",
+      "county": "Knox",
+      "ward": null,
+      "in_a_chicago_ward": false,
+      "notes": "An Illinois row outside Cook County. Read and recorded so that the Chicago rows are a SELECTION from a declared whole and not a search that stopped when it found something."
+    },
+    {
+      "id": "dalton_index_1840_18",
+      "as_read": "Samuel Dalton, Morgan Co.",
+      "normalized": "SAMUEL DALTON",
+      "locator": {
+        "list": "dalton_data_bank_illinois_1840_census_index",
+        "entry": 18,
+        "section": "CENSUS INDEXES — 1840",
+        "url": "https://daltondatabank.net/Illinois.html#census"
+      },
+      "reading": "transcription_mediated",
+      "confidence": "documented",
+      "place_as_read": "Morgan Co.",
+      "county": "Morgan",
+      "ward": null,
+      "in_a_chicago_ward": false,
+      "notes": "An Illinois row outside Cook County. Read and recorded so that the Chicago rows are a SELECTION from a declared whole and not a search that stopped when it found something."
+    },
+    {
+      "id": "dalton_index_1840_19",
+      "as_read": "Sharon Dalton, Knox Co.",
+      "normalized": "SHARON DALTON",
+      "locator": {
+        "list": "dalton_data_bank_illinois_1840_census_index",
+        "entry": 19,
+        "section": "CENSUS INDEXES — 1840",
+        "url": "https://daltondatabank.net/Illinois.html#census"
+      },
+      "reading": "transcription_mediated",
+      "confidence": "documented",
+      "place_as_read": "Knox Co.",
+      "county": "Knox",
+      "ward": null,
+      "in_a_chicago_ward": false,
+      "notes": "An Illinois row outside Cook County. Read and recorded so that the Chicago rows are a SELECTION from a declared whole and not a search that stopped when it found something."
+    },
+    {
+      "id": "dalton_index_1840_20",
+      "as_read": "William Dalton, Jo Daviess Co.",
+      "normalized": "WILLIAM DALTON",
+      "locator": {
+        "list": "dalton_data_bank_illinois_1840_census_index",
+        "entry": 20,
+        "section": "CENSUS INDEXES — 1840",
+        "url": "https://daltondatabank.net/Illinois.html#census"
+      },
+      "reading": "transcription_mediated",
+      "confidence": "documented",
+      "place_as_read": "Jo Daviess Co.",
+      "county": "Jo Daviess",
+      "ward": null,
+      "in_a_chicago_ward": false,
+      "notes": "An Illinois row outside Cook County. Read and recorded so that the Chicago rows are a SELECTION from a declared whole and not a search that stopped when it found something."
+    }
+  ]
+}

@@ -1,0 +1,1943 @@
+{
+  "schema": "research-spend-rulings-v1",
+  "_doc": "DERIVED, T-1298, by tools/spend_remainder_rulings.py from the residents corpus beside it and the residents layer it names -- run --check to re-derive it. The written ruling on the remainder of T-1236: every unit the ledger's own derivation leaves unresolved and owns to T-1298. tools/research_spend_ledger.py reads this file beside the hand-authored spend_rulings.json, at the point where it would otherwise leave a unit open, so a ruling here can only close a unit nothing else has closed and can never overturn an assertion, a later_only or a refusal the readings themselves carry. NOTHING HERE EDITS A RESIDENT, MINTS A PERSON, MOVES A CONFIDENCE OR INVENTS A CITATION, and nothing here decides the blocked letter-list question of T-0660 -> T-0691. A hand-off is not a spend: it names the open ticket whose field owns the finding, and that ticket closing turns this file red, which is the point.",
+  "ticket": "T-1298",
+  "generated_by": "tools/spend_remainder_rulings.py",
+  "counts": {
+    "corroboration_confirms_and_moves_nothing": 47,
+    "the_enrichment_names_an_attribute_no_field_carries": 98,
+    "the_manifest_is_a_reservation_and_not_a_reading": 75,
+    "the_pass_named_a_candidate_and_did_not_assert_it": 162
+  },
+  "rules": {
+    "corroboration_confirms_and_moves_nothing": {
+      "disposition": "refused",
+      "statement": "The completed pass returned `corroborated`: an independent source agrees with what the card already says, and the finding's own words are that the person was confirmed, NOT MOVED. Under the evidence ladder ratified 2026-09-03 corroboration corroborates; it does not promote and it names no new structured field, so there is nothing here to write. The agreement is a closed decision and the sources stand in the finding where the pass put them."
+    },
+    "the_enrichment_names_an_attribute_no_field_carries": {
+      "disposition": "unresolved",
+      "ticket": "T-1160",
+      "statement": "The completed pass returned `corroborated_enrichment`: a real, sourced fact about a person this town holds -- a trade, an address, an origin, a kinship, a date -- that extends the card and that no exact source-bearing structured field on that card carries today. It is not refused, because it is true research; it is not written here, because writing one attribute at a time, out of one pass and without the other sources beside it, is how a layer acquires facts it cannot defend. T-1160 is the pass that profiles every attested and inferred person attribute by attribute and tier by tier, and this is one of the attributes it must read."
+    },
+    "the_manifest_is_a_reservation_and_not_a_reading": {
+      "disposition": "refused",
+      "statement": "The unit is a row of a research COHORT MANIFEST, and the manifest says so itself in its own preamble: it is a sampling frame that reserves a person for a pass and an identity lock that fixes which person was reserved. It carries the person_id, the starting grade and the letter-list returns the residents layer ALREADY holds, and it states no new fact about anybody. The pilot committed no findings ledger, so no reading is attached to this row to spend. What is refused here is the claim that the ROW carries an 1835 fact; nothing is refused about the person, whose card is untouched and whose evidence is exactly what it was."
+    },
+    "the_pass_named_a_candidate_and_did_not_assert_it": {
+      "disposition": "refused",
+      "statement": "The completed pass reviewed this reserved person and returned a CANDIDATE IDENTITY it explicitly did not assert -- the finding's own candidate rows carry `asserted: false` and name the conflict that stopped them. The research already refused the join; the ledger now carries that refusal instead of leaving the row open. Closing it by eye would be manufacturing the identity the pass declined to make, and this ruling does not touch the candidate, the card, or the grade either of them carries."
+    }
+  },
+  "rulings": [
+    {
+      "unit": "residents:data/research/residents/pass_02_75_cohort.json#people/abbott_constant",
+      "rule": "the_pass_named_a_candidate_and_did_not_assert_it",
+      "note": "The pass on abbott_constant returned: “Dr. Constant Abbott is a strong regional candidate documented in DuPage and Ottawa by 1836, but no source supplies a dated Chicago migration or links him to this return.” Candidate(s) as recorded: Dr. Constant Abbott (strong, asserted=False)."
+    },
+    {
+      "unit": "residents:data/research/residents/pass_02_75_cohort.json#people/bailly_joseph",
+      "rule": "the_pass_named_a_candidate_and_did_not_assert_it",
+      "note": "The pass on bailly_joseph returned: “Honoré Gratien Joseph Bailly de Messein is a strong regional candidate, but lived at his Porter County homestead and died there in December 1835. A Chicago letter may reflect transit, not residence.” Candidate(s) as recorded: Honoré Gratien Joseph Bailly de Messein (strong, asserted=False)."
+    },
+    {
+      "unit": "residents:data/research/residents/pass_02_75_cohort.json#people/bates_john_jr",
+      "rule": "the_enrichment_names_an_attribute_no_field_carries",
+      "note": "The pass on bates_john_jr returned: “The 1843 Chicago directory identifies John Bates Jr. as an auctioneer at 174 Lake Street, independently extending the exact-name and trade match beyond Andreas.” Sources as recorded: norris_chicago_directory_1843."
+    },
+    {
+      "unit": "residents:data/research/residents/pass_02_75_cohort.json#people/beaubien_josette",
+      "rule": "the_enrichment_names_an_attribute_no_field_carries",
+      "note": "The pass on beaubien_josette returned: “Citizen Potawatomi Nation identifies Josette LaFromboise as Francis LaFromboise's daughter and Jean Baptiste Beaubien's wife. The relationship is corroborated; her exact roof on 1 July 1835 remains inferred.” Sources as recorded: cpn_beaubien_family."
+    },
+    {
+      "unit": "residents:data/research/residents/pass_02_75_cohort.json#people/brooks_gardner",
+      "rule": "the_pass_named_a_candidate_and_did_not_assert_it",
+      "note": "The pass on brooks_gardner returned: “A Des Plaines history places Gardner Brooks among settlers along the river in 1833. Exact uncommon name, Cook County and chronology are useful, but no record links him to this letter.” Candidate(s) as recorded: Gardner Brooks of Des Plaines (strong, asserted=False)."
+    },
+    {
+      "unit": "residents:data/research/residents/pass_02_75_cohort.json#people/burdick_paul",
+      "rule": "the_pass_named_a_candidate_and_did_not_assert_it",
+      "note": "The pass on burdick_paul returned: “Milwaukee history says Paul Burdick occupied a frame house raised there in March 1835. Exact name and date make a regional candidate, while Milwaukee residence conflicts with physical Chicago presence.” Candidate(s) as recorded: Paul Burdick of Milwaukee (strong, asserted=False)."
+    },
+    {
+      "unit": "residents:data/research/residents/pass_02_75_cohort.json#people/caldwell_billy",
+      "rule": "the_enrichment_names_an_attribute_no_field_carries",
+      "note": "The pass on caldwell_billy returned: “Institutional histories corroborate Billy Caldwell's Chicago leadership and place the westward removal in 1835. This conflicts with Andreas/project language placing migration in 1836 and is retained as a dated conflict.” Sources as recorded: encyclopedia_chicago_potawatomis."
+    },
+    {
+      "unit": "residents:data/research/residents/pass_02_75_cohort.json#people/calhoun_john",
+      "rule": "the_enrichment_names_an_attribute_no_field_carries",
+      "note": "The pass on calhoun_john returned: “The Encyclopedia of Chicago independently identifies John Calhoun as founder of the Chicago Weekly Democrat in 1833 and operator of the city's earliest press.” Sources as recorded: encyclopedia_chicago_newspapers."
+    },
+    {
+      "unit": "residents:data/research/residents/pass_02_75_cohort.json#people/case_nehemiah",
+      "rule": "the_pass_named_a_candidate_and_did_not_assert_it",
+      "note": "The pass on case_nehemiah returned: “A Buffalo directory supplies a competing Nehemiah Case, but wrong geography and no migration bridge make it a rejected match rather than a Chicago identity.” Candidate(s) as recorded: Nehemiah Case of Buffalo (rejected, asserted=False)."
+    },
+    {
+      "unit": "residents:data/research/residents/pass_02_75_cohort.json#people/chappel_eliza_mir",
+      "rule": "the_pass_named_a_candidate_and_did_not_assert_it",
+      "note": "The pass on chappel_eliza_mir returned: “The entry is a near-certain duplicate of Eliza Chappel Porter: Mir likely misreads Miss, and the letter appeared 16 days after her marriage. It is not merged until the original scan is inspected.” Candidate(s) as recorded: Eliza Chappel Porter (strong, asserted=False)."
+    },
+    {
+      "unit": "residents:data/research/residents/pass_02_75_cohort.json#people/clybourne_archibald",
+      "rule": "the_enrichment_names_an_attribute_no_field_carries",
+      "note": "The pass on clybourne_archibald returned: “The Encyclopedia of Chicago places Clybourn's slaughterhouse at the city limits from 1827 and describes his 1830s door-to-door meat trade, corroborating occupation while preserving its outside-town location.” Sources as recorded: encyclopedia_chicago_food_processing."
+    },
+    {
+      "unit": "residents:data/research/residents/pass_02_75_cohort.json#people/couch_ira",
+      "rule": "the_enrichment_names_an_attribute_no_field_carries",
+      "note": "The pass on couch_ira returned: “Chicago History Museum and WTTW independently connect Ira Couch to the Tremont House. Later summaries differ on when management began, so Andreas's earlier 1834 evidence remains qualified rather than replaced.” Sources as recorded: chm_ira_couch_portrait, wttw_ira_couch."
+    },
+    {
+      "unit": "residents:data/research/residents/pass_02_75_cohort.json#people/covell_thomas_r",
+      "rule": "the_pass_named_a_candidate_and_did_not_assert_it",
+      "note": "The pass on covell_thomas_r returned: “A county history says Thomas R. Covell moved to Salt Creek, Cook County, about 1833 after work as trader and mill builder. Exact middle initial and migration make a high-confidence candidate, not town residence.” Candidate(s) as recorded: Thomas R. Covell of Salt Creek (strong, asserted=False)."
+    },
+    {
+      "unit": "residents:data/research/residents/pass_02_75_cohort.json#people/curtenius_fredk",
+      "rule": "the_pass_named_a_candidate_and_did_not_assert_it",
+      "note": "The pass on curtenius_fredk returned: “Frederick William Curtenius is a possible candidate who moved to Michigan and farmed at Grand Prairie in 1835. The middle initial conflicts and no Chicago bridge was found.” Candidate(s) as recorded: Frederick William Curtenius (possible, asserted=False)."
+    },
+    {
+      "unit": "residents:data/research/residents/pass_02_75_cohort.json#people/dow_albert_f",
+      "rule": "the_pass_named_a_candidate_and_did_not_assert_it",
+      "note": "The pass on dow_albert_f returned: “An exact-name Albert F. Dow later served as Ottawa canal toll collector and eventually Chicago collector. The regional trajectory is compatible but lacks a link to 1835.” Candidate(s) as recorded: Albert F. Dow of Ottawa (possible, asserted=False)."
+    },
+    {
+      "unit": "residents:data/research/residents/pass_02_75_cohort.json#people/fairchilds_ransom",
+      "rule": "the_pass_named_a_candidate_and_did_not_assert_it",
+      "note": "The pass on fairchilds_ransom returned: “Ransom Fairchild of Connecticut and Michigan is a possible regional candidate, but the printed plural may be possessive OCR and no Chicago bridge exists.” Candidate(s) as recorded: Ransom Fairchild of Michigan (possible, asserted=False)."
+    },
+    {
+      "unit": "residents:data/research/residents/pass_02_75_cohort.json#people/felch_alaneon",
+      "rule": "the_pass_named_a_candidate_and_did_not_assert_it",
+      "note": "The pass on felch_alaneon returned: “Wisconsin Historical Society catalogs Alson Felch, later a Racine farmer. Alaneon-to-Alson cannot be asserted without scan confirmation or a Chicago-linked record.” Candidate(s) as recorded: Alson Felch of Racine (possible, asserted=False)."
+    },
+    {
+      "unit": "residents:data/research/residents/pass_02_75_cohort.json#people/filer_elihu_d",
+      "rule": "the_pass_named_a_candidate_and_did_not_assert_it",
+      "note": "The pass on filer_elihu_d returned: “Racine histories identify exact-name Elihu D. Filer as an early settler and carpenter, but no record bridges the Chicago letter to the Racine man. Reprinted OCR variants are not separate people.” Candidate(s) as recorded: Elihu D. Filer of Racine (possible, asserted=False)."
+    },
+    {
+      "unit": "residents:data/research/residents/pass_02_75_cohort.json#people/ford_ebenezer",
+      "rule": "the_pass_named_a_candidate_and_did_not_assert_it",
+      "note": "The pass on ford_ebenezer returned: “A church history places Ebenezer Ford among Fort Dearborn garrison charter members in June 1833. This is a strong identity candidate; the resident record also omits his 20 May 1835 return before the 1 July return.” Candidate(s) as recorded: Ebenezer Ford of the Fort Dearborn garrison (strong, asserted=False)."
+    },
+    {
+      "unit": "residents:data/research/residents/pass_02_75_cohort.json#people/galusha_ezra",
+      "rule": "the_pass_named_a_candidate_and_did_not_assert_it",
+      "note": "The pass on galusha_ezra returned: “Warrenville Historical Society says Ezra Galusha brought his family to Warrenville in 1834. The two Chicago letters fit postal routing, not bodily presence in town.” Candidate(s) as recorded: Ezra Galusha of Warrenville (strong, asserted=False)."
+    },
+    {
+      "unit": "residents:data/research/residents/pass_02_75_cohort.json#people/griswold_eben",
+      "rule": "the_pass_named_a_candidate_and_did_not_assert_it",
+      "note": "The pass on griswold_eben returned: “A Berrien County history names an Eben Griswold as a constable, but multiple exact-name candidates and no dated Chicago bridge prevent identification.” Candidate(s) as recorded: Eben Griswold of Berrien County (possible, asserted=False)."
+    },
+    {
+      "unit": "residents:data/research/residents/pass_02_75_cohort.json#people/hamilton_richard_j",
+      "rule": "the_enrichment_names_an_attribute_no_field_carries",
+      "note": "The pass on hamilton_richard_j returned: “A digitized Cook County history identifies Richard Jones Hamilton as clerk and recorder from county organization in 1831 and later probate judge, treasurer and school commissioner.” Sources as recorded: goodman_history_cook_county_hamilton."
+    },
+    {
+      "unit": "residents:data/research/residents/pass_02_75_cohort.json#people/hogan_john_s_c",
+      "rule": "the_enrichment_names_an_attribute_no_field_carries",
+      "note": "The pass on hogan_john_s_c returned: “The edited 1835 Illinois incorporation act names John S. C. Hogan as a Chicago corporate trustee. The exact unusual initials, office, place and date independently resolve the identity.” Sources as recorded: pal_chicago_incorporation_1835."
+    },
+    {
+      "unit": "residents:data/research/residents/pass_02_75_cohort.json#people/house_chester",
+      "rule": "the_pass_named_a_candidate_and_did_not_assert_it",
+      "note": "The pass on house_chester returned: “A contemporary 1835 letter and local histories place distinctive-name Chester House at House's Grove from 1833. He is probably the recipient, but as a hinterland resident, not proof of Chicago residence; sources …” Candidate(s) as recorded: Chester House of House's Grove (strong, asserted=False)."
+    },
+    {
+      "unit": "residents:data/research/residents/pass_02_75_cohort.json#people/kinzie_juliette",
+      "rule": "the_enrichment_names_an_attribute_no_field_carries",
+      "note": "The pass on kinzie_juliette returned: “Wisconsin Historical Society identifies the Fort Winnebago agency house as John and Juliette Kinzie's 1830–33 residence and corroborates her authorship of Wau-Bun.” Sources as recorded: whs_kinzie_agency_house."
+    },
+    {
+      "unit": "residents:data/research/residents/pass_02_75_cohort.json#people/makepiece_george_r",
+      "rule": "the_pass_named_a_candidate_and_did_not_assert_it",
+      "note": "The pass on makepiece_george_r returned: “Will County history says George R. Makepeace explored future Joliet in June 1834, returned to New York, then returned with family. Exact initial and chronology are strong; spelling and letter linkage remain unproved.” Candidate(s) as recorded: George R. Makepeace of Joliet (strong, asserted=False)."
+    },
+    {
+      "unit": "residents:data/research/residents/pass_02_75_cohort.json#people/miner_amanda",
+      "rule": "the_pass_named_a_candidate_and_did_not_assert_it",
+      "note": "The pass on miner_amanda returned: “Kaneville history names Amos and Amanda Miner as first permanent settlers in 1836. Exact name, adjacent county and chronology support a candidate, but spouse and New York origin are not imported.” Candidate(s) as recorded: Amanda Miner of Kaneville (strong, asserted=False)."
+    },
+    {
+      "unit": "residents:data/research/residents/pass_02_75_cohort.json#people/murray_alonzo",
+      "rule": "the_pass_named_a_candidate_and_did_not_assert_it",
+      "note": "The pass on murray_alonzo returned: “Alonzo Murray and Alonzo Murry are strong duplicate candidates from one-letter variants in consecutive-year Chicago returns; no independent identity record resolves them.” Candidate(s) as recorded: Alonzo Murry letter-list record (strong, asserted=False)."
+    },
+    {
+      "unit": "residents:data/research/residents/pass_02_75_cohort.json#people/murry_alonzo",
+      "rule": "the_pass_named_a_candidate_and_did_not_assert_it",
+      "note": "The pass on murry_alonzo returned: “Alonzo Murry and Alonzo Murray are strong duplicate candidates but remain separate until a record or scan links the spellings.” Candidate(s) as recorded: Alonzo Murray letter-list record (strong, asserted=False)."
+    },
+    {
+      "unit": "residents:data/research/residents/pass_02_75_cohort.json#people/owen_thomas_jv",
+      "rule": "the_enrichment_names_an_attribute_no_field_carries",
+      "note": "The pass on owen_thomas_jv returned: “A primary Abraham Lincoln payment record attests Owen's Chicago house; institutional papers and a county biography identify wife Emeline Hotchkiss and four sons. The sources do not fix their address or occupancy on the …” Sources as recorded: pal_thomas_owen_house, chm_thomas_owen_papers."
+    },
+    {
+      "unit": "residents:data/research/residents/pass_02_75_cohort.json#people/parcel_aaron",
+      "rule": "the_pass_named_a_candidate_and_did_not_assert_it",
+      "note": "The pass on parcel_aaron returned: “Aaron Parcel and Aron Parcell are reciprocal duplicate candidates: one-letter spelling variants occur in returns ten months apart, but no external discriminator was found.” Candidate(s) as recorded: Aron Parcell letter-list record (possible, asserted=False)."
+    },
+    {
+      "unit": "residents:data/research/residents/pass_02_75_cohort.json#people/parcell_aron",
+      "rule": "the_pass_named_a_candidate_and_did_not_assert_it",
+      "note": "The pass on parcell_aron returned: “Aron Parcell and Aaron Parcel are reciprocal duplicate candidates. The spelling and shared post-office context are suggestive but insufficient to merge.” Candidate(s) as recorded: Aaron Parcel letter-list record (possible, asserted=False)."
+    },
+    {
+      "unit": "residents:data/research/residents/pass_02_75_cohort.json#people/pearsons_hiram",
+      "rule": "the_enrichment_names_an_attribute_no_field_carries",
+      "note": "The pass on pearsons_hiram returned: “A contemporary reminiscence describes Pearsons as a house painter who entered real estate. This corrects the household's unsupported treatment of speculator as attested: house painter is sourced; investor or speculator …” Sources as recorded: ingale_early_chicago_reminiscence."
+    },
+    {
+      "unit": "residents:data/research/residents/pass_02_75_cohort.json#people/peck_philip",
+      "rule": "the_enrichment_names_an_attribute_no_field_carries",
+      "note": "The pass on peck_philip returned: “Chicago History Museum's encyclopedia and period histories identify Philip F. W. Peck as a Providence-born merchant and real-estate developer arriving in July 1831. Spelling varies Phillip/Philip.” Sources as recorded: encyclopedia_chicago_biographical_p."
+    },
+    {
+      "unit": "residents:data/research/residents/pass_02_75_cohort.json#people/porter_eliza_chappel",
+      "rule": "the_enrichment_names_an_attribute_no_field_carries",
+      "note": "The pass on porter_eliza_chappel returned: “Chicago Historical Society and school records corroborate Eliza Chappel's publicly funded school work and 1835 marriage. The separate 'Eliza Mir Chappel' letter record is a merge candidate pending inspection of the …” Sources as recorded: chm_eliza_chappel, rochester_porter_chappel_marriage."
+    },
+    {
+      "unit": "residents:data/research/residents/pass_02_75_cohort.json#people/porter_jeremiah",
+      "rule": "the_enrichment_names_an_attribute_no_field_carries",
+      "note": "The pass on porter_jeremiah returned: “Presbyterian Historical Society corroborates Porter's 1833 Chicago mission and church organization; a Rochester notice records his 15 June 1835 marriage to Eliza Chappel. Their 1 July whereabouts remain uncertain.” Sources as recorded: presbyterian_history_jeremiah_porter, rochester_porter_chappel_marriage."
+    },
+    {
+      "unit": "residents:data/research/residents/pass_02_75_cohort.json#people/robinson_alexander",
+      "rule": "the_enrichment_names_an_attribute_no_field_carries",
+      "note": "The pass on robinson_alexander returned: “The 1833 treaty and Indigenous Chicago corroborate Alexander Robinson's treaty and trading roles and Des Plaines reserve. Current scholarship conflicts with the household's doubtful 1762 birth and by-1816 arrival; exact …” Sources as recorded: treaty_chicago_1833_statutes, indigenous_chicago_alexander_robinson."
+    },
+    {
+      "unit": "residents:data/research/residents/pass_02_75_cohort.json#people/robinson_catherine",
+      "rule": "the_enrichment_names_an_attribute_no_field_carries",
+      "note": "The pass on robinson_catherine returned: “Indigenous Chicago identifies Catherine Chevalier as Robinson's Potawatomi wife, married in 1826, and records her parents and grandfather. These relationships are used because sourced, not inferred from names.” Sources as recorded: indigenous_chicago_alexander_robinson."
+    },
+    {
+      "unit": "residents:data/research/residents/pass_02_75_cohort.json#people/sen_elijah_wentworth",
+      "rule": "the_enrichment_names_an_attribute_no_field_carries",
+      "note": "The pass on sen_elijah_wentworth returned: “Cited local history and Wau-Bun identify Elijah Wentworth Sr. as a Wolf Point tavern keeper who later operated at Sand Ridge. Exact senior designation, occupation and chronology resolve him, but downtown scene-date …” Sources as recorded: nwchicago_elijah_wentworth, kinzie_waubun_1856."
+    },
+    {
+      "unit": "residents:data/research/residents/pass_02_75_cohort.json#people/snow_george_w",
+      "rule": "the_enrichment_names_an_attribute_no_field_carries",
+      "note": "The pass on snow_george_w returned: “Chicago Historical Society records Snow's December 1833 election as assessor and surveyor. Its memorial attribution of balloon framing conflicts with the Encyclopedia of Chicago's description of that attribution as a …” Sources as recorded: chm_george_snow_assessor, encyclopedia_chicago_balloon_frame."
+    },
+    {
+      "unit": "residents:data/research/residents/pass_02_75_cohort.json#people/spring_giles",
+      "rule": "the_enrichment_names_an_attribute_no_field_carries",
+      "note": "The pass on spring_giles returned: “The Papers of Abraham Lincoln gives Spring's relocation to Chicago in June 1833, Franklin and South Water law office, 1836 partnership and marriage, improving the household's year-only arrival.” Sources as recorded: pal_giles_spring."
+    },
+    {
+      "unit": "residents:data/research/residents/pass_02_75_cohort.json#people/taylor_augustine",
+      "rule": "the_enrichment_names_an_attribute_no_field_carries",
+      "note": "The pass on taylor_augustine returned: “Chicago History Museum identifies Augustine Deodat Taylor as designer and builder of St. Mary's in 1833 using balloon-frame construction, while keeping him distinct from brother Anson who hauled lumber.” Sources as recorded: encyclopedia_chicago_church_architecture."
+    },
+    {
+      "unit": "residents:data/research/residents/pass_02_75_cohort.json#people/temple_john_t",
+      "rule": "the_enrichment_names_an_attribute_no_field_carries",
+      "note": "The pass on temple_john_t returned: “A municipal preservation study corroborates Temple's July 1833 arrival with wife and four children and his mail contract, but gives dwelling and office locations that conflict with the household. Addresses remain …” Sources as recorded: plainfield_john_temple_report."
+    },
+    {
+      "unit": "residents:data/research/residents/pass_02_75_cohort.json#people/tuller_elam",
+      "rule": "the_enrichment_names_an_attribute_no_field_carries",
+      "note": "The pass on tuller_elam returned: “A county biography says Elam Tuller's family reached Chicago in July 1833 and identifies his Connecticut origin and farmer, mechanic and steam-engine manufacturing background. Two letter returns support the chronology.” Sources as recorded: whiteside_elam_tuller."
+    },
+    {
+      "unit": "residents:data/research/residents/pass_02_75_cohort.json#people/vann_angeline",
+      "rule": "the_pass_named_a_candidate_and_did_not_assert_it",
+      "note": "The pass on vann_angeline returned: “A later Missouri genealogy names an Angeline Vann born in 1834. The chronology makes her an impossible adult Chicago resident and the match is explicitly rejected.” Candidate(s) as recorded: Angeline Vann of Missouri (rejected, asserted=False)."
+    },
+    {
+      "unit": "residents:data/research/residents/pass_02_75_cohort.json#people/wright_john",
+      "rule": "the_enrichment_names_an_attribute_no_field_carries",
+      "note": "The pass on wright_john returned: “Chicago Public Library distinguishes storekeeper John Wright from son John Stephen and dates their joint arrival with merchandise to 29 October 1832 and Prairie Store at Lake and Clark.” Sources as recorded: cpl_john_s_wright_papers."
+    },
+    {
+      "unit": "residents:data/research/residents/pass_03_75_cohort.json#people/albee_clark_b",
+      "rule": "the_pass_named_a_candidate_and_did_not_assert_it",
+      "note": "The pass on albee_clark_b returned: “Grand Haven history identifies exact-name Clark B. Albee in early commerce with Chicago-linked David Carver. The network is suggestive, but Michigan geography and no direct letter evidence keep the candidate unmerged.” Candidate(s) as recorded: Clark B. Albee of Grand Haven (strong, asserted=False)."
+    },
+    {
+      "unit": "residents:data/research/residents/pass_03_75_cohort.json#people/alling_prudde",
+      "rule": "the_pass_named_a_candidate_and_did_not_assert_it",
+      "note": "The pass on alling_prudde returned: “Prudden Alling is a plausible normalization of the unusual printed Prudde Alling, but the indexed genealogy result supplies no Chicago chronology. The spelling remains unmerged pending an original scan or dated record.” Candidate(s) as recorded: Prudden Alling (possible, asserted=False)."
+    },
+    {
+      "unit": "residents:data/research/residents/pass_03_75_cohort.json#people/bailey_bennet",
+      "rule": "the_pass_named_a_candidate_and_did_not_assert_it",
+      "note": "The pass on bailey_bennet returned: “The 1843 Chicago directory names Bennet Bailey as a Mechanics' Institute director. Exact spelling and later Chicago civic activity make a strong candidate, but nine years and no intermediate bridge prevent a merge.” Candidate(s) as recorded: Bennet Bailey of the Chicago Mechanics' Institute (strong, asserted=False)."
+    },
+    {
+      "unit": "residents:data/research/residents/pass_03_75_cohort.json#people/bartlett_charles_h",
+      "rule": "the_pass_named_a_candidate_and_did_not_assert_it",
+      "note": "The pass on bartlett_charles_h returned: “Chicago History Museum catalogs Charles H. Bartlett diaries beginning before his 1834 farming near Diamond Lake. Exact name, date and regional movement are strong; image-level diary review is still needed.” Candidate(s) as recorded: Charles H. Bartlett of Diamond Lake (strong, asserted=False)."
+    },
+    {
+      "unit": "residents:data/research/residents/pass_03_75_cohort.json#people/blair_william_g",
+      "rule": "the_pass_named_a_candidate_and_did_not_assert_it",
+      "note": "The pass on blair_william_g returned: “A county history lists William G. Blair among early Winnebago County settlers. Matching initials and region make a lead, but the common name and absent Chicago-letter bridge prevent identification.” Candidate(s) as recorded: William G. Blair of Winnebago County (possible, asserted=False)."
+    },
+    {
+      "unit": "residents:data/research/residents/pass_03_75_cohort.json#people/blodgett_tyler_k",
+      "rule": "the_enrichment_names_an_attribute_no_field_carries",
+      "note": "The pass on blodgett_tyler_k returned: “A contemporary-recollection compilation independently identifies Tyler K. Blodgett's 1833 north-bank brickyard and brick house. It supports the exact name and trade but does not establish his 1 July 1835 roof.” Sources as recorded: ingale_early_chicago_reminiscence."
+    },
+    {
+      "unit": "residents:data/research/residents/pass_03_75_cohort.json#people/bly_rouse",
+      "rule": "the_pass_named_a_candidate_and_did_not_assert_it",
+      "note": "The pass on bly_rouse returned: “Rouse Bly of Huron County, Ohio is an exact uncommon-name candidate. Ohio residence supplies competing geography, so the identity is retained as a rejected or transit lead rather than imported.” Candidate(s) as recorded: Rouse Bly of New Haven Township, Ohio (possible, asserted=False)."
+    },
+    {
+      "unit": "residents:data/research/residents/pass_03_75_cohort.json#people/brown_rufus",
+      "rule": "the_enrichment_names_an_attribute_no_field_carries",
+      "note": "The pass on brown_rufus returned: “The First Presbyterian history describes Rufus Brown's log boarding house as full during the church's earliest period. It corroborates the exact-name lodging role; it does not name Mrs Brown or resolve a street address.” Sources as recorded: first_presbyterian_chicago_1833_1913."
+    },
+    {
+      "unit": "residents:data/research/residents/pass_03_75_cohort.json#people/butterfield_ben",
+      "rule": "the_pass_named_a_candidate_and_did_not_assert_it",
+      "note": "The pass on butterfield_ben returned: “A historical marker places Ben Butterfield at Lockport and on a Danville-to-Chicago route from 1830-31. This is a strong regional candidate, but postal reachability does not establish town residence.” Candidate(s) as recorded: Ben Butterfield of Lockport (strong, asserted=False)."
+    },
+    {
+      "unit": "residents:data/research/residents/pass_03_75_cohort.json#people/carver_david",
+      "rule": "the_enrichment_names_an_attribute_no_field_carries",
+      "note": "The pass on carver_david returned: “Cook County history independently places David Carver on Chicago's 1833 voter roster. The exact name and civic chronology strengthen identity; later lumber claims remain dependent on retrospective accounts.” Sources as recorded: goodman_history_cook_county_early."
+    },
+    {
+      "unit": "residents:data/research/residents/pass_03_75_cohort.json#people/casey_edward_w",
+      "rule": "the_enrichment_names_an_attribute_no_field_carries",
+      "note": "The pass on casey_edward_w returned: “John Dean Caton's near-participant recollection says Edward W. Casey was the only other lawyer he remembered arriving in Chicago in 1833 and places him in the early circuit-court circle.” Sources as recorded: caton_atlantic_chicago_1893."
+    },
+    {
+      "unit": "residents:data/research/residents/pass_03_75_cohort.json#people/chadwick_joseph",
+      "rule": "the_pass_named_a_candidate_and_did_not_assert_it",
+      "note": "The pass on chadwick_joseph returned: “Joseph M. Chadwick, a military engineer who lived in Illinois before reaching Texas in December 1835, is a possible candidate. The missing middle initial and absent Chicago bridge keep the identity unasserted.” Candidate(s) as recorded: Joseph M. Chadwick, later of Goliad (possible, asserted=False)."
+    },
+    {
+      "unit": "residents:data/research/residents/pass_03_75_cohort.json#people/church_thomas",
+      "rule": "the_enrichment_names_an_attribute_no_field_carries",
+      "note": "The pass on church_thomas returned: “A published early-Chicago reminiscence says Thomas Church arrived in 1834 and describes his Lake Street building activity. It corroborates the uncommon name, migration year and merchant setting without proving …” Sources as recorded: ingale_early_chicago_reminiscence."
+    },
+    {
+      "unit": "residents:data/research/residents/pass_03_75_cohort.json#people/churchill_alfred",
+      "rule": "the_pass_named_a_candidate_and_did_not_assert_it",
+      "note": "The pass on churchill_alfred returned: “Cook County history places an Alfred Churchill on Flag Creek and in an 1836 county political meeting. Exact name and Cook County geography are strong, but no source directly links him to the earlier letter.” Candidate(s) as recorded: Alfred Churchill of Flag Creek (strong, asserted=False)."
+    },
+    {
+      "unit": "residents:data/research/residents/pass_03_75_cohort.json#people/cobb_silas_b",
+      "rule": "the_enrichment_names_an_attribute_no_field_carries",
+      "note": "The pass on cobb_silas_b returned: “Early reminiscence and the 1843 directory independently connect Silas B. Cobb with saddlery and harness work and later premises at 171 Lake Street. The later address extends the profile but is not back-projected to 1835.” Sources as recorded: ingale_early_chicago_reminiscence, norris_chicago_directory_1843."
+    },
+    {
+      "unit": "residents:data/research/residents/pass_03_75_cohort.json#people/cohen_peter",
+      "rule": "the_enrichment_names_an_attribute_no_field_carries",
+      "note": "The pass on cohen_peter returned: “Cook County history names Peter Cohen among the January 1836 Chicago Hydraulic Company incorporators. The exact name and immediate civic continuity strengthen identity but do not add a household relationship.” Sources as recorded: goodman_history_cook_county_early."
+    },
+    {
+      "unit": "residents:data/research/residents/pass_03_75_cohort.json#people/comstock_h_h",
+      "rule": "the_pass_named_a_candidate_and_did_not_assert_it",
+      "note": "The pass on comstock_h_h returned: “H. H. Comstock appears in Kalamazoo County pioneer history around 1834. Exact initials and regional chronology are useful, but competing Michigan geography and no migration bridge bar a merge.” Candidate(s) as recorded: H. H. Comstock of Kalamazoo County (possible, asserted=False)."
+    },
+    {
+      "unit": "residents:data/research/residents/pass_03_75_cohort.json#people/couch_james",
+      "rule": "the_pass_named_a_candidate_and_did_not_assert_it",
+      "note": "The pass on couch_james returned: “Later Tremont histories identify James Couch as Ira Couch's brother and hotel partner, but place the brothers' hotel operation after 1835. The exact-name candidate is strong while the current scene-date role needs …” Candidate(s) as recorded: James Couch, later Tremont House proprietor (strong, asserted=False)."
+    },
+    {
+      "unit": "residents:data/research/residents/pass_03_75_cohort.json#people/davis_t_o",
+      "rule": "the_enrichment_names_an_attribute_no_field_carries",
+      "note": "The pass on davis_t_o returned: “Cook County history corroborates T. O. Davis's role in establishing Chicago's Whig newspaper in 1835. Initials, place, occupation and year resolve the identity; no full-name expansion was safely found.” Sources as recorded: goodman_history_cook_county_early."
+    },
+    {
+      "unit": "residents:data/research/residents/pass_03_75_cohort.json#people/dunlap_alva",
+      "rule": "the_pass_named_a_candidate_and_did_not_assert_it",
+      "note": "The pass on dunlap_alva returned: “Local history says Alva Dunlap first traveled to Illinois in 1834 and later settled near Peoria. Exact uncommon name and date make a strong traveler candidate, not evidence of Chicago residence.” Candidate(s) as recorded: Alva Dunlap of Peoria County (strong, asserted=False)."
+    },
+    {
+      "unit": "residents:data/research/residents/pass_03_75_cohort.json#people/elston_daniel",
+      "rule": "the_enrichment_names_an_attribute_no_field_carries",
+      "note": "The pass on elston_daniel returned: “The University of Illinois finding aid identifies Daniel Elston as an English merchant arriving in Chicago in 1833 who manufactured soap and candles and later operated a distillery and brewery.” Sources as recorded: uiuc_daniel_elston_papers."
+    },
+    {
+      "unit": "residents:data/research/residents/pass_03_75_cohort.json#people/fullerton_alexander",
+      "rule": "the_enrichment_names_an_attribute_no_field_carries",
+      "note": "The pass on fullerton_alexander returned: “Cook County history identifies Alexander N. Fullerton in Chicago's early legal and municipal record, including the 1835 town-clerk chronology. This supports the exact full name and profession without establishing his …” Sources as recorded: goodman_history_cook_county_early."
+    },
+    {
+      "unit": "residents:data/research/residents/pass_03_75_cohort.json#people/gale_stephen_f",
+      "rule": "the_enrichment_names_an_attribute_no_field_carries",
+      "note": "The pass on gale_stephen_f returned: “Cook County history places Stephen F. Gale on Chicago's 1833 voter roster; a later statute bibliography identifies his Chicago printing imprint in 1839. Together they extend civic and publishing chronology without …” Sources as recorded: goodman_history_cook_county_early, jsp_illinois_statutes_gale_imprint."
+    },
+    {
+      "unit": "residents:data/research/residents/pass_03_75_cohort.json#people/heacock_russel_e",
+      "rule": "the_enrichment_names_an_attribute_no_field_carries",
+      "note": "The pass on heacock_russel_e returned: “An edited Illinois act identifies Russel E. Heacock through a Chicago subdivision plat, and the 1843 directory distinguishes Russel Easton Heacock and his household. These records corroborate the exact person while …” Sources as recorded: jsp_russel_heacock_plat, norris_chicago_directory_1843."
+    },
+    {
+      "unit": "residents:data/research/residents/pass_03_75_cohort.json#people/ingersoll_chester",
+      "rule": "the_enrichment_names_an_attribute_no_field_carries",
+      "note": "The pass on ingersoll_chester returned: “Municipal preservation research dates Chester Ingersoll's Plainfield plat to 1834, while the Green Tree history names him as the Chicago house's 1834-37 landlord. The two places are retained as a mobility question …” Sources as recorded: plainfield_john_temple_report, chicagology_prefire127."
+    },
+    {
+      "unit": "residents:data/research/residents/pass_03_75_cohort.json#people/jones_benjamin",
+      "rule": "the_enrichment_names_an_attribute_no_field_carries",
+      "note": "The pass on jones_benjamin returned: “A Library of Congress engineering history identifies Benjamin Jones as a Chicago merchant and land speculator who bought at the Manitowoc River mouth in 1835 and settled there in 1836. This supplies a dated migration …” Sources as recorded: loc_mantowoc_benjamin_jones."
+    },
+    {
+      "unit": "residents:data/research/residents/pass_03_75_cohort.json#people/miles_andrew",
+      "rule": "the_pass_named_a_candidate_and_did_not_assert_it",
+      "note": "The pass on miles_andrew returned: “Kane County history places an Andrew Miles or Mills on a Fox River claim in 1834. Exact or near-exact name and date are strong, while the spelling conflict and hinterland location remain unresolved.” Candidate(s) as recorded: Andrew Miles or Mills of Kane County (strong, asserted=False)."
+    },
+    {
+      "unit": "residents:data/research/residents/pass_03_75_cohort.json#people/parkes_curtis",
+      "rule": "the_pass_named_a_candidate_and_did_not_assert_it",
+      "note": "The pass on parkes_curtis returned: “Porter County history names Curtis Parkes in its February 1836 organization vote. Exact name and adjacent-region chronology are strong, but the Chicago letter may only reflect the nearest postal route.” Candidate(s) as recorded: Curtis Parkes of Porter County (strong, asserted=False)."
+    },
+    {
+      "unit": "residents:data/research/residents/pass_03_75_cohort.json#people/reel_absolam",
+      "rule": "the_pass_named_a_candidate_and_did_not_assert_it",
+      "note": "The pass on reel_absolam returned: “A contemporary Indiana court notice names Absalom Reel in March 1834. The near-exact spelling is notable, but Indiana geography and no post-office bridge make this a competing candidate only.” Candidate(s) as recorded: Absalom Reel of Indiana (possible, asserted=False)."
+    },
+    {
+      "unit": "residents:data/research/residents/pass_04_75_cohort.json#people/handy_major",
+      "rule": "the_enrichment_names_an_attribute_no_field_carries",
+      "note": "The pass on handy_major returned: “Cook County/early-Chicago history independently places Major Handy in the 1833 river-improvement work. The exact name and distinctive public-work role strengthen the resident identity without proving a July 1835 …” Sources as recorded: goodman_history_cook_county_early."
+    },
+    {
+      "unit": "residents:data/research/residents/pass_04_75_cohort.json#people/kimberly_edmund_s",
+      "rule": "the_enrichment_names_an_attribute_no_field_carries",
+      "note": "The pass on kimberly_edmund_s returned: “Chicago medical history expands Edmund Stoughton Kimberly with an exact birth date of April 7, 1803, medical education, 1829 marriage, 1832 move to Chicago, 1833 town-trustee service and 1834 cholera-hospital …” Sources as recorded: history_medicine_chicago_kimberly_maxwell."
+    },
+    {
+      "unit": "residents:data/research/residents/pass_04_75_cohort.json#people/kinzie_robert_a",
+      "rule": "the_enrichment_names_an_attribute_no_field_carries",
+      "note": "The pass on kinzie_robert_a returned: “Published Cook County biography states Robert A. Kinzie remained mostly in Chicago from 1825 to 1840, built a frame store in 1832 and became a member of Kinzie, Davis & Hyde in 1835. Exact name, family context, business …” Sources as recorded: goodman_history_cook_county_early."
+    },
+    {
+      "unit": "residents:data/research/residents/pass_04_75_cohort.json#people/mason_matthias",
+      "rule": "the_enrichment_names_an_attribute_no_field_carries",
+      "note": "The pass on mason_matthias returned: “Early Cook County history identifies Matthias/Mathias Mason opening a Chicago blacksmith shop in fall 1833. The uncommon name, trade, place and date independently support the profile; spelling variants are retained as …” Sources as recorded: goodman_history_cook_county_early."
+    },
+    {
+      "unit": "residents:data/research/residents/pass_04_75_cohort.json#people/maxwell_philip",
+      "rule": "the_enrichment_names_an_attribute_no_field_carries",
+      "note": "The pass on maxwell_philip returned: “Chicago medical history gives Philip Maxwell's full birth data and places him as Fort Dearborn's last surgeon from 1833 through the fort's final 1836 abandonment. This strongly corroborates his scene-period Chicago role.” Sources as recorded: history_medicine_chicago_kimberly_maxwell."
+    },
+    {
+      "unit": "residents:data/research/residents/pass_04_75_cohort.json#people/mckee_david",
+      "rule": "the_enrichment_names_an_attribute_no_field_carries",
+      "note": "The pass on mckee_david returned: “Early Chicago histories independently identify David McKee as the government/agency blacksmith near the foot of State Street. The occupation and institutional role are distinctive enough to corroborate the resident …” Sources as recorded: goodman_history_cook_county_early."
+    },
+    {
+      "unit": "residents:data/research/residents/pass_04_75_cohort.json#people/meeker_joseph",
+      "rule": "the_enrichment_names_an_attribute_no_field_carries",
+      "note": "The pass on meeker_joseph returned: “The First Presbyterian history says Joseph Meeker came to Chicago early in 1833, joined the church September 8, 1833, served as Sunday-school librarian March 16, 1835, and built the congregation's first meeting house. …” Sources as recorded: first_presbyterian_chicago_1833_1913."
+    },
+    {
+      "unit": "residents:data/research/residents/pass_04_75_cohort.json#people/mulford_e_h",
+      "rule": "the_pass_named_a_candidate_and_did_not_assert_it",
+      "note": "The pass on mulford_e_h returned: “The current E. H. Mulford watchmaker record conflicts with stronger same-period evidence: the project's July/August 1835 Chicago Democrat corpus prints J. H. Mulford in watches and jewelry, while later directories …” Candidate(s) as recorded: James H. Mulford, Chicago jeweler/watch dealer (strong, asserted=False)."
+    },
+    {
+      "unit": "residents:data/research/residents/pass_04_75_cohort.json#people/murphy_john",
+      "rule": "the_enrichment_names_an_attribute_no_field_carries",
+      "note": "The pass on murphy_john returned: “Cook County history reports John and Harriet Murphy taking charge of Mark Beaubien's new Exchange Coffee House in August 1834 and remaining until 1836. The named spouse, hotel and bounded chronology strongly corroborate …” Sources as recorded: goodman_history_cook_county_early."
+    },
+    {
+      "unit": "residents:data/research/residents/pass_04_75_cohort.json#people/norton_nelson_r",
+      "rule": "the_enrichment_names_an_attribute_no_field_carries",
+      "note": "The pass on norton_nelson_r returned: “Early Chicago history preserves Nelson R. Norton's own chronology: arrival November 16, 1833, construction of the Dearborn Street drawbridge beginning March 1834 and completion around June. Exact name plus the …” Sources as recorded: goodman_history_cook_county_early."
+    },
+    {
+      "unit": "residents:data/research/residents/pass_04_75_cohort.json#people/paine_seth",
+      "rule": "the_enrichment_names_an_attribute_no_field_carries",
+      "note": "The pass on paine_seth returned: “Andreas's Seth Paine biography gives an exact uncommon name and a direct 1834 migration from Montpelier, Vermont to Chicago. In combination with the 1835 postal entry, this is sufficient to treat the postal name as …” Sources as recorded: andreas_seth_paine_1834."
+    },
+    {
+      "unit": "residents:data/research/residents/pass_04_75_cohort.json#people/pierce_asahel",
+      "rule": "the_enrichment_names_an_attribute_no_field_carries",
+      "note": "The pass on pierce_asahel returned: “Early Chicago history identifies Asahel Pierce as an October 1833 arrival and blacksmith/agricultural-implement maker. The uncommon name and distinctive trade provide independent corroboration, but no unsupported July …” Sources as recorded: goodman_history_cook_county_early."
+    },
+    {
+      "unit": "residents:data/research/residents/pass_04_75_cohort.json#people/porthier_joseph",
+      "rule": "the_enrichment_names_an_attribute_no_field_carries",
+      "note": "The pass on porthier_joseph returned: “Pioneer History of Milwaukee supplies a materially tighter migration chronology than the existing record: Joseph Porthier left Chicago with Horace Chase on February 27, 1835, briefly returned to Chicago for means, then …” Sources as recorded: buck_pioneer_milwaukee_porthier_1835."
+    },
+    {
+      "unit": "residents:data/research/residents/pass_04_75_cohort.json#people/pruyne_peter",
+      "rule": "the_enrichment_names_an_attribute_no_field_carries",
+      "note": "The pass on pruyne_peter returned: “Medical/pharmaceutical histories independently identify Peter Pruyne and Edmund Stoughton Kimberly as operators of Chicago's second drug store from early 1833. The business partnership strengthens Pruyne's profile but …” Sources as recorded: history_medicine_chicago_kimberly_maxwell."
+    },
+    {
+      "unit": "residents:data/research/residents/pass_04_75_cohort.json#people/sproat_grenville",
+      "rule": "the_enrichment_names_an_attribute_no_field_carries",
+      "note": "The pass on sproat_grenville returned: “Early education histories identify Granville T. Sproat opening an English and Classical School in Chicago in fall 1833 and Sarah L. Warren assisting him in March 1834. The source's Granville spelling is retained as a …” Sources as recorded: goodman_history_cook_county_early."
+    },
+    {
+      "unit": "residents:data/research/residents/pass_04_75_cohort.json#people/st_cyr_john_mary",
+      "rule": "the_enrichment_names_an_attribute_no_field_carries",
+      "note": "The pass on st_cyr_john_mary returned: “Catholic institutional history independently places John Mary Irenaeus St. Cyr's appointment to Chicago in 1833, first Mass and first church construction, with recall in 1837. The bounded ministry strongly corroborates …” Sources as recorded: catholic_chicago_st_cyr_1833."
+    },
+    {
+      "unit": "residents:data/research/residents/pass_04_75_cohort.json#people/steele_ashbel",
+      "rule": "the_enrichment_names_an_attribute_no_field_carries",
+      "note": "The pass on steele_ashbel returned: “Cook County histories place Ashbel Steele in the early Chicago/Cook County civic record and identify him as county coroner in the 1835 period. This supports continued local presence while stopping short of assigning an …” Sources as recorded: goodman_history_cook_county_early."
+    },
+    {
+      "unit": "residents:data/research/residents/pass_04_75_cohort.json#people/sweet_alanson",
+      "rule": "the_enrichment_names_an_attribute_no_field_carries",
+      "note": "The pass on sweet_alanson returned: “Milwaukee histories identify Alanson Sweet as an early Chicago stone mason who moved to Milwaukee in 1835. The migration is real and important, but the reviewed passage does not supply a sufficiently safe departure day …” Sources as recorded: buck_pioneer_milwaukee_alanson_sweet."
+    },
+    {
+      "unit": "residents:data/research/residents/pass_04_75_cohort.json#people/thomas_frederick",
+      "rule": "the_enrichment_names_an_attribute_no_field_carries",
+      "note": "The pass on thomas_frederick returned: “The Encyclopedia of Chicago independently identifies Frederick Thomas as Chicago's first barber-surgeon and a retail druggist in the 1830s, corroborating the unusual combined occupation. The project newspaper corpus …” Sources as recorded: encyclopedia_chicago_frederick_thomas."
+    },
+    {
+      "unit": "residents:data/research/residents/pass_04_75_cohort.json#people/titcomb_timothy",
+      "rule": "the_pass_named_a_candidate_and_did_not_assert_it",
+      "note": "The pass on titcomb_timothy returned: “Wheeling history places Timothy Titcomb on Section 13 among 1834 settlers. The exact uncommon name and Cook County chronology make a strong candidate for the postal entry, but the source places him in Wheeling and …” Candidate(s) as recorded: Timothy Titcomb of Wheeling Township (strong, asserted=False)."
+    },
+    {
+      "unit": "residents:data/research/residents/pass_04_75_cohort.json#people/walters_william",
+      "rule": "the_enrichment_names_an_attribute_no_field_carries",
+      "note": "The pass on walters_william returned: “Andreas-derived Wolf Point history gives William Walters as proprietor of the Wolf Point Tavern from 1833 through 1836. That strongly supports scene-period continuity, but because it is a retrospective year range rather …” Sources as recorded: chicagology_wolf_point_walters."
+    },
+    {
+      "unit": "residents:data/research/residents/pass_04_75_cohort.json#people/ward_hanibal",
+      "rule": "the_pass_named_a_candidate_and_did_not_assert_it",
+      "note": "The pass on ward_hanibal returned: “Will County history places Hannibal Ward among a western-New-York colony making claims in the DuPage River valley in 1833. The exact uncommon name and regional chronology are useful, but the outlying residence prevents …” Candidate(s) as recorded: Hannibal Ward of the DuPage River valley (strong, asserted=False)."
+    },
+    {
+      "unit": "residents:data/research/residents/pass_04_75_cohort.json#people/watkins_john",
+      "rule": "the_enrichment_names_an_attribute_no_field_carries",
+      "note": "The pass on watkins_john returned: “Cook County education history specifically says John Watkins taught a successful school in Chicago in 1835; another early account says he was again on the North Side that year. This independently corroborates occupation …” Sources as recorded: goodman_history_cook_county_early."
+    },
+    {
+      "unit": "residents:data/research/residents/pass_04_75_cohort.json#people/white_edson",
+      "rule": "the_pass_named_a_candidate_and_did_not_assert_it",
+      "note": "The pass on white_edson returned: “Will County history lists Edson White among Joliet's 1835 arrivals. Exact uncommon name and same-year regional presence make a plausible postal candidate, but Joliet is competing geography and the record does not …” Candidate(s) as recorded: Edson White of Joliet (strong, asserted=False)."
+    },
+    {
+      "unit": "residents:data/research/residents/pass_05_75_cohort.json#people/dalton_edward",
+      "rule": "the_pass_named_a_candidate_and_did_not_assert_it",
+      "note": "The pass on dalton_edward returned: “An 1840 census index places an Edward Dalton in Chicago's First Ward. Same exact name and later Chicago geography make this a useful continuity candidate, but the five-year gap and lack of an occupation, address or …” Candidate(s) as recorded: Edward Dalton, Chicago First Ward in 1840 census index (moderate, asserted=False)."
+    },
+    {
+      "unit": "residents:data/research/residents/pass_05_75_cohort.json#people/dimmick_e",
+      "rule": "the_pass_named_a_candidate_and_did_not_assert_it",
+      "note": "The pass on dimmick_e returned: “The 1839 Chicago directory lists Edward Dimmick, painter, of Wayman & Dimmick. The surname and E. initial match a later Chicago resident, but several Dimmick men occur in regional records and the 1835 postal entry does …” Candidate(s) as recorded: Edward Dimmick, Chicago painter in 1839 (strong, asserted=False)."
+    },
+    {
+      "unit": "residents:data/research/residents/pass_05_75_cohort.json#people/garton_elijah",
+      "rule": "the_pass_named_a_candidate_and_did_not_assert_it",
+      "note": "The pass on garton_elijah returned: “Kane County history places Elijah Garton, his wife and six children at Round Grove/St. Charles on 8 May 1834. Exact name and target-period northern-Illinois presence justify retaining the record, but the documented Fox …” Candidate(s) as recorded: Elijah Garton of Round Grove / St. Charles (strong, asserted=False)."
+    },
+    {
+      "unit": "residents:data/research/residents/pass_05_75_cohort.json#people/gifford_hezekiah",
+      "rule": "the_pass_named_a_candidate_and_did_not_assert_it",
+      "note": "The pass on gifford_hezekiah returned: “The City of Elgin states that Hezekiah Gifford first arrived in 1834 and returned with James Gifford in April 1835 to settle permanently at Elgin. The exact uncommon name and target-period proximity make a strong …” Candidate(s) as recorded: Hezekiah Gifford, co-founder of Elgin (strong, asserted=False)."
+    },
+    {
+      "unit": "residents:data/research/residents/pass_05_75_cohort.json#people/gould_a_b",
+      "rule": "the_pass_named_a_candidate_and_did_not_assert_it",
+      "note": "The pass on gould_a_b returned: “The 1843 Chicago directory lists Ambrose B. Gould, sailor, resident on Indiana between Pine and St. Clair. Matching initials and surname plus later Chicago residence make a useful candidate, but the eight-year gap and …” Candidate(s) as recorded: Ambrose B. Gould, Chicago sailor in 1843 (moderate, asserted=False)."
+    },
+    {
+      "unit": "residents:data/research/residents/pass_05_75_cohort.json#people/hateh_betsey",
+      "rule": "the_pass_named_a_candidate_and_did_not_assert_it",
+      "note": "The pass on hateh_betsey returned: “La Salle County history records Betsey Hatch of Connecticut marrying Bradish Cummings in 1836. 'Hateh' is a plausible OCR/transcription error for Hatch and the person is in northern Illinois immediately after the target …” Candidate(s) as recorded: Betsey Hatch of La Salle County (moderate, asserted=False)."
+    },
+    {
+      "unit": "residents:data/research/residents/pass_05_75_cohort.json#people/holliday_william",
+      "rule": "the_pass_named_a_candidate_and_did_not_assert_it",
+      "note": "The pass on holliday_william returned: “Greene County history places a William Holliday, a Kentucky-born physician, in White Hall by 1834. The exact name and Illinois chronology warrant retaining the record as a candidate, but White Hall is strong competing …” Candidate(s) as recorded: Dr. William Holliday of White Hall, Illinois (weak, asserted=False)."
+    },
+    {
+      "unit": "residents:data/research/residents/pass_05_75_cohort.json#people/hugunin_leonard_c",
+      "rule": "the_enrichment_names_an_attribute_no_field_carries",
+      "note": "The pass on hugunin_leonard_c returned: “The Old Settlers of Chicago proceedings record Leonard C. Hugunin as arriving 17 August 1833, and the 1839 Chicago directory lists Leonard C. Hugunin as a speculator. The rare full name, dated Chicago arrival and later …” Sources as recorded: chicago_old_settlers_hugunin_1883, fergus_chicago_directory_1839."
+    },
+    {
+      "unit": "residents:data/research/residents/pass_05_75_cohort.json#people/jaines_gooding",
+      "rule": "the_pass_named_a_candidate_and_did_not_assert_it",
+      "note": "The pass on jaines_gooding returned: “Will County histories identify Deacon James Gooding, who settled Gooding's Grove in 1832 when the area was still Cook County. The printed 'Jaines' form is plausibly an OCR/transcription variant of James and the …” Candidate(s) as recorded: James Gooding of Gooding's Grove (moderate, asserted=False)."
+    },
+    {
+      "unit": "residents:data/research/residents/pass_05_75_cohort.json#people/kercheval_gholson",
+      "rule": "the_enrichment_names_an_attribute_no_field_carries",
+      "note": "The pass on kercheval_gholson returned: “The 1833 treaty transcription names Gholson Kercheval of Chicago in a federal payment clause, while the contemporary town record identifies him among Chicago's early civic actors. This corroborates the exact person, …” Sources as recorded: okstate_treaty_chicago_1833, chicagology_prefire278."
+    },
+    {
+      "unit": "residents:data/research/residents/pass_05_75_cohort.json#people/kimball_walter",
+      "rule": "the_enrichment_names_an_attribute_no_field_carries",
+      "note": "The pass on kimball_walter returned: “The project's 26 November 1833 Chicago Democrat source records W. Kimball's New Store at the South Water/Clark junction. The unusual initial-plus-surname form matches the resident record and strengthens the merchant …” Sources as recorded: chicago_democrat_1833_11_26."
+    },
+    {
+      "unit": "residents:data/research/residents/pass_05_75_cohort.json#people/lampman_henry_s",
+      "rule": "the_enrichment_names_an_attribute_no_field_carries",
+      "note": "The pass on lampman_henry_s returned: “A historical compilation states that Tyler K. Blodgett's spring 1833 north-side brickyard engaged Henry S. Lampman, then of Ann Arbor, as a workman; it calls him Chicago's first brickmaker. This adds a trade and …” Sources as recorded: chicagology_chicago_brick."
+    },
+    {
+      "unit": "residents:data/research/residents/pass_05_75_cohort.json#people/murphy_harriet",
+      "rule": "the_pass_named_a_candidate_and_did_not_assert_it",
+      "note": "The pass on murphy_harriet returned: “An 1883 early-Chicago hotel feature records Mrs. Murphy as a knowledgeable witness to the Green Tree, and later history places Harriet and John Murphy managing the United States Hotel by 1836. The exact female name and …” Candidate(s) as recorded: Harriet Murphy, later United States Hotel manager (strong, asserted=False)."
+    },
+    {
+      "unit": "residents:data/research/residents/pass_05_75_cohort.json#people/newton_daniel",
+      "rule": "the_pass_named_a_candidate_and_did_not_assert_it",
+      "note": "The pass on newton_daniel returned: “La Salle County history identifies Daniel Newton as arriving from Ohio in 1835 and becoming an Ottawa hardware merchant and Methodist preacher. Exact name, same-year northern-Illinois migration and distinctive later …” Candidate(s) as recorded: Daniel Newton of Ottawa (strong, asserted=False)."
+    },
+    {
+      "unit": "residents:data/research/residents/pass_05_75_cohort.json#people/platt_daniel",
+      "rule": "the_pass_named_a_candidate_and_did_not_assert_it",
+      "note": "The pass on platt_daniel returned: “Kendall County history identifies Daniel Platt as an early Lisbon Township settler in the 1833–1834 period. Exact name and northern-Illinois chronology are useful, but the documented residence is outside Chicago and no …” Candidate(s) as recorded: Daniel Platt of Lisbon Township / Plattville (moderate, asserted=False)."
+    },
+    {
+      "unit": "residents:data/research/residents/pass_05_75_cohort.json#people/poor_edward",
+      "rule": "the_pass_named_a_candidate_and_did_not_assert_it",
+      "note": "The pass on poor_edward returned: “Will County history identifies Edward Poor as an early Homer Township settler who had come from Indiana in spring 1831 and served in the Black Hawk War. Exact name and Cook/Will regional chronology make him a useful …” Candidate(s) as recorded: Edward Poor of Homer/New Lenox Township (moderate, asserted=False)."
+    },
+    {
+      "unit": "residents:data/research/residents/pass_05_75_cohort.json#people/trimble_edward",
+      "rule": "the_pass_named_a_candidate_and_did_not_assert_it",
+      "note": "The pass on trimble_edward returned: “Kane County history records Edward Trimble with a claim near the Fox River/Geneva settlement by the 1834–1835 period and notes his marriage to a daughter of Payne. Exact name and regional chronology are useful, but the …” Candidate(s) as recorded: Edward Trimble of early Geneva Township (moderate, asserted=False)."
+    },
+    {
+      "unit": "residents:data/research/residents/pass_05_75_cohort.json#people/wright_john_s",
+      "rule": "the_enrichment_names_an_attribute_no_field_carries",
+      "note": "The pass on wright_john_s returned: “The Chicago Public Library finding aid identifies John S. Wright's Chicago land purchases and original-town lots; Augustine W. Wright's 1885 In Memoriam further anchors the exact Chicago figure and his early chronology. …” Sources as recorded: cpl_john_s_wright_papers, wright_in_memoriam_1885."
+    },
+    {
+      "unit": "residents:data/research/residents/pass_06_75_cohort.json#people/andrews_davi",
+      "rule": "the_enrichment_names_an_attribute_no_field_carries",
+      "note": "The pass on andrews_davi returned: “Retrospective Cook County biography identifies David Andrews in Cook County from 1834 and supports exact-name continuity; the evidence does not establish a specific 1 July 1835 roof.” Sources as recorded: chicago_democrat_1833_1835, resident_research_cook_county_andrews_1884."
+    },
+    {
+      "unit": "residents:data/research/residents/pass_06_75_cohort.json#people/baldwin_eimer",
+      "rule": "the_pass_named_a_candidate_and_did_not_assert_it",
+      "note": "The pass on baldwin_eimer returned: “Elmer Baldwin of La Salle County is a plausible spelling candidate for the postal Eimer Baldwin, but competing geography prevents assertion.” Candidate(s) as recorded: none carried on the finding."
+    },
+    {
+      "unit": "residents:data/research/residents/pass_06_75_cohort.json#people/bandle_will_nm",
+      "rule": "the_pass_named_a_candidate_and_did_not_assert_it",
+      "note": "The pass on bandle_will_nm returned: “William Bandle of Orland Township is a strong regional exact/similar-name candidate, but Orland geography and later directory continuity do not prove the Chicago postal identity.” Candidate(s) as recorded: none carried on the finding."
+    },
+    {
+      "unit": "residents:data/research/residents/pass_06_75_cohort.json#people/biakie_a_or_h_p",
+      "rule": "the_pass_named_a_candidate_and_did_not_assert_it",
+      "note": "The pass on biakie_a_or_h_p returned: “Later Chicago Andrew Blaikie directory entries are a useful spelling candidate for A. or H. P Biakie, but initials and chronology are insufficient for automatic renaming.” Candidate(s) as recorded: none carried on the finding."
+    },
+    {
+      "unit": "residents:data/research/residents/pass_06_75_cohort.json#people/blakesley_harvey_a",
+      "rule": "the_enrichment_names_an_attribute_no_field_carries",
+      "note": "The pass on blakesley_harvey_a returned: “Exact-name Harvey A. Blakesley appears in later Chicago directories, supporting Chicago continuity while not backfilling a 1834 occupation or specific roof.” Sources as recorded: chicago_democrat_1833_1835, resident_research_fergus_directory_1839, resident_research_fergus_directory_1843."
+    },
+    {
+      "unit": "residents:data/research/residents/pass_06_75_cohort.json#people/gridley_harriet",
+      "rule": "the_pass_named_a_candidate_and_did_not_assert_it",
+      "note": "The pass on gridley_harriet returned: “A Harriet Gridley regional family record is a plausible exact-name lead, but Ottawa/La Salle geography prevents promoting identity or kinship.” Candidate(s) as recorded: none carried on the finding."
+    },
+    {
+      "unit": "residents:data/research/residents/pass_06_75_cohort.json#people/hanford_comstock",
+      "rule": "the_pass_named_a_candidate_and_did_not_assert_it",
+      "note": "The pass on hanford_comstock returned: “Comstock Hanford of the Will County/Lockport 1835 steel-plow account is a strong regional candidate; the source does not bridge him safely to the Chicago postal entry.” Candidate(s) as recorded: none carried on the finding."
+    },
+    {
+      "unit": "residents:data/research/residents/pass_06_75_cohort.json#people/misner_henry_s",
+      "rule": "the_pass_named_a_candidate_and_did_not_assert_it",
+      "note": "The pass on misner_henry_s returned: “A dated 1834 Kendall-area record supplies a strong Henry S. Misner regional candidate, but competing geography prevents a Chicago identity assertion.” Candidate(s) as recorded: none carried on the finding."
+    },
+    {
+      "unit": "residents:data/research/residents/pass_06_75_cohort.json#people/mitchell_henry",
+      "rule": "the_enrichment_names_an_attribute_no_field_carries",
+      "note": "The pass on mitchell_henry returned: “An 1883 old-settlers report independently places Henry Mitchell in Chicago wagon-factory work in 1834, strongly corroborating the named Chicago person without establishing a May 1835 address.” Sources as recorded: chicago_democrat_1833_1835, resident_research_tribune_mitchell_1883."
+    },
+    {
+      "unit": "residents:data/research/residents/pass_06_75_cohort.json#people/rowley_herman_a",
+      "rule": "the_pass_named_a_candidate_and_did_not_assert_it",
+      "note": "The pass on rowley_herman_a returned: “A later Rowley family genealogy is a possible match, but its 1837 Illinois migration chronology conflicts with the 1835 postal entry and it omits the middle initial; retain unasserted.” Candidate(s) as recorded: none carried on the finding."
+    },
+    {
+      "unit": "residents:data/research/residents/pass_06_75_cohort.json#people/square_geo",
+      "rule": "the_pass_named_a_candidate_and_did_not_assert_it",
+      "note": "The pass on square_geo returned: “Geo. Square may be a transcription/duplicate relation to George Squire; Joliet is competing geography, so both resident IDs and the candidate relation are preserved.” Candidate(s) as recorded: none carried on the finding."
+    },
+    {
+      "unit": "residents:data/research/residents/pass_06_75_cohort.json#people/squire_george",
+      "rule": "the_pass_named_a_candidate_and_did_not_assert_it",
+      "note": "The pass on squire_george returned: “George Squire is a plausible Joliet regional candidate and possible relation/duplicate to the Geo. Square postal reading; no merge is asserted.” Candidate(s) as recorded: none carried on the finding."
+    },
+    {
+      "unit": "residents:data/research/residents/pass_06_75_cohort.json#people/walker_george_e",
+      "rule": "the_pass_named_a_candidate_and_did_not_assert_it",
+      "note": "The pass on walker_george_e returned: “A primary 1835 Illinois legislative/land record identifies George E. Walker near Utica; the exact name is strong but competing geography prevents a Chicago identity assertion.” Candidate(s) as recorded: none carried on the finding."
+    },
+    {
+      "unit": "residents:data/research/residents/pass_07_75_cohort.json#people/herrick_ira",
+      "rule": "the_pass_named_a_candidate_and_did_not_assert_it",
+      "note": "The pass on herrick_ira returned: “DuPage Forest Preserve history places Ira Herrick settling the Herrick Lake/Wheaton area about 1833. DuPage homestead geography competes with the 1834 Chicago letter-list reading; a later Chicago directory entry is too …” Candidate(s) as recorded:  (, asserted=False)."
+    },
+    {
+      "unit": "residents:data/research/residents/pass_07_75_cohort.json#people/horr_raiph_c",
+      "rule": "the_pass_named_a_candidate_and_did_not_assert_it",
+      "note": "The pass on horr_raiph_c returned: “Aurora Township history places Ralph C. Horr at McCarty's Mill by the close of 1834 and elected justice of the peace in 1835; 'Raiph' is a plausible transcription variant. Aurora/Kane geography directly competes with …” Candidate(s) as recorded:  (, asserted=False)."
+    },
+    {
+      "unit": "residents:data/research/residents/pass_07_75_cohort.json#people/howard_joshua",
+      "rule": "the_pass_named_a_candidate_and_did_not_assert_it",
+      "note": "The pass on howard_joshua returned: “A contemporary-era military Joshua Howard is independently documented in the Midwest. Dearborn/Detroit history places that Joshua Howard at the Detroit Arsenal and returning to Dearborn in 1835, so it is unsafe to merge …” Candidate(s) as recorded:  (, asserted=False)."
+    },
+    {
+      "unit": "residents:data/research/residents/pass_07_75_cohort.json#people/jackson_samuel",
+      "rule": "the_enrichment_names_an_attribute_no_field_carries",
+      "note": "The pass on jackson_samuel returned: “Cook County history states Samuel Jackson arrived from Buffalo June 27, 1833 and served as foreman of Chicago harbor construction for some time. This independently corroborates the exact named Chicago person and …” Sources as recorded: chicago_democrat_1833_1835, resident_research_cook_harbor_jackson."
+    },
+    {
+      "unit": "residents:data/research/residents/pass_07_75_cohort.json#people/minard_ira",
+      "rule": "the_pass_named_a_candidate_and_did_not_assert_it",
+      "note": "The pass on minard_ira returned: “City of St. Charles history identifies Ira Minard as a founder in 1834; historical accounts place him arriving through Chicago in 1833. Strong 1834 St. Charles geography conflicts with treating the May 1835 Chicago …” Candidate(s) as recorded:  (, asserted=False)."
+    },
+    {
+      "unit": "residents:data/research/residents/pass_07_75_cohort.json#people/paddock_jane",
+      "rule": "the_pass_named_a_candidate_and_did_not_assert_it",
+      "note": "The pass on paddock_jane returned: “Cook County history says Samuel Mahaffay, a Palos settler of 1834, married Jane Paddock in 1835. Palos geography and absence of a direct Chicago bridge prevent asserting that this is the May 1835 postal person.” Candidate(s) as recorded:  (, asserted=False)."
+    },
+    {
+      "unit": "residents:data/research/residents/pass_07_75_cohort.json#people/ritchey_james",
+      "rule": "the_pass_named_a_candidate_and_did_not_assert_it",
+      "note": "The pass on ritchey_james returned: “Will County history places James Ritchey settling Homer Township in 1831 and sheltering at Fort Dearborn during the 1832 conflict. The same history says he returned to and resided in Will County, so Chicago contact in …” Candidate(s) as recorded:  (, asserted=False)."
+    },
+    {
+      "unit": "residents:data/research/residents/pass_07_75_cohort.json#people/scarritt_isaac",
+      "rule": "the_pass_named_a_candidate_and_did_not_assert_it",
+      "note": "The pass on scarritt_isaac returned: “Methodist histories independently place Rev. Isaac Scarritt preaching in early Chicago and at/around Fort Dearborn; DuPage history places him among 1831 settlers. The evidence establishes Chicago contact and regional …” Candidate(s) as recorded:  (, asserted=False)."
+    },
+    {
+      "unit": "residents:data/research/residents/pass_07_75_cohort.json#people/wooley_jeddiah",
+      "rule": "the_pass_named_a_candidate_and_did_not_assert_it",
+      "note": "The pass on wooley_jeddiah returned: “La Salle land-sale records list Jeddiah Wooley repeatedly June 16-17, 1835; a U.S. Supreme Court record preserves an August 8, 1835 Chicago land-office receipt in his name. Land purchases and use of the Chicago land …” Candidate(s) as recorded:  (, asserted=False)."
+    },
+    {
+      "unit": "residents:data/research/residents/pass_08_75_cohort.json#people/elias_maynar",
+      "rule": "the_pass_named_a_candidate_and_did_not_assert_it",
+      "note": "The pass on elias_maynar returned: “Possible duplicate/transcription relationship with existing resident ID maynard_elias; Elias Maynard is also named among 1834 Bloomingdale-area settlers.” Candidate(s) as recorded: none carried on the finding."
+    },
+    {
+      "unit": "residents:data/research/residents/pass_08_75_cohort.json#people/hobson_jesse",
+      "rule": "the_enrichment_names_an_attribute_no_field_carries",
+      "note": "The pass on hobson_jesse returned: “Jesse Hobson was living in Cook County in 1835 and married Catherine Daugherty at Naperville on April 6, 1835.” Sources as recorded: resident_research_hobson_pioneer, resident_research_hobson_woodruff."
+    },
+    {
+      "unit": "residents:data/research/residents/pass_08_75_cohort.json#people/lucas_robert",
+      "rule": "the_pass_named_a_candidate_and_did_not_assert_it",
+      "note": "The pass on lucas_robert returned: “Possible identity: Robert Lucas, an early Palos settler, reportedly settled there about 1834.” Candidate(s) as recorded: none carried on the finding."
+    },
+    {
+      "unit": "residents:data/research/residents/pass_08_75_cohort.json#people/morgan_jesse",
+      "rule": "the_pass_named_a_candidate_and_did_not_assert_it",
+      "note": "The pass on morgan_jesse returned: “Competing identity: Jesse Morgan, Porter County, Indiana settler from 1833 whose house became a Chicago–Detroit stage station.” Candidate(s) as recorded: none carried on the finding."
+    },
+    {
+      "unit": "residents:data/research/residents/pass_08_75_cohort.json#people/orsemus_morrison",
+      "rule": "the_enrichment_names_an_attribute_no_field_carries",
+      "note": "The pass on orsemus_morrison returned: “Orsemus Morrison came to Chicago in 1833, acquired school-section property, and worked as a mechanic/builder.” Sources as recorded: resident_research_cook_morrison_album."
+    },
+    {
+      "unit": "residents:data/research/residents/pass_08_75_cohort.json#people/russel_john",
+      "rule": "the_pass_named_a_candidate_and_did_not_assert_it",
+      "note": "The pass on russel_john returned: “Possible identity: John Russel, associated with a farm near the Palos/Lemont area in 1834.” Candidate(s) as recorded: none carried on the finding."
+    },
+    {
+      "unit": "residents:data/research/residents/pass_08_75_cohort.json#people/silas_meacham",
+      "rule": "the_pass_named_a_candidate_and_did_not_assert_it",
+      "note": "The pass on silas_meacham returned: “Possible identity: Silas Meacham, early settler at Meacham's Grove; later served as Chicago lighthouse keeper.” Candidate(s) as recorded: none carried on the finding."
+    },
+    {
+      "unit": "residents:data/research/residents/pass_09_75_cohort.json#people/bennet_lyman",
+      "rule": "the_pass_named_a_candidate_and_did_not_assert_it",
+      "note": "The pass on bennet_lyman returned: “Stephenson County history places a Lyman Bennett near Yellow Creek in late 1835/early 1836. The near-exact surname and Illinois migration timing are suggestive but occur after the April/May 1835 Chicago letter-list …” Candidate(s) as recorded: none carried on the finding."
+    },
+    {
+      "unit": "residents:data/research/residents/pass_09_75_cohort.json#people/blake_levi",
+      "rule": "the_pass_named_a_candidate_and_did_not_assert_it",
+      "note": "The pass on blake_levi returned: “An 1871 Racine County old-settlers record says Levi Blake and three sons reached Chicago on 10 February 1835 and continued north the next day toward Racine County. The exact name and year are strong, but the May 20 …” Candidate(s) as recorded: none carried on the finding."
+    },
+    {
+      "unit": "residents:data/research/residents/pass_09_75_cohort.json#people/burnap_joseph",
+      "rule": "the_pass_named_a_candidate_and_did_not_assert_it",
+      "note": "The pass on burnap_joseph returned: “A Joseph Burnap made multiple federal land entries in Jersey County, Illinois in 1834-35. The date is useful, but the geography and absence of a Chicago discriminator make this a candidate only.” Candidate(s) as recorded: none carried on the finding."
+    },
+    {
+      "unit": "residents:data/research/residents/pass_09_75_cohort.json#people/chandler_joseph",
+      "rule": "the_enrichment_names_an_attribute_no_field_carries",
+      "note": "The pass on chandler_joseph returned: “Andreas names Joseph Chandler and Morgan L. Shapley as having executive charge of Chicago harbor work that began 1 July 1833, and separately says Chandler arrived from Buffalo on 27 June 1833 with Samuel Jackson and …” Sources as recorded: resident_research_chandler_cook_history."
+    },
+    {
+      "unit": "residents:data/research/residents/pass_09_75_cohort.json#people/erastus_patterson",
+      "rule": "the_pass_named_a_candidate_and_did_not_assert_it",
+      "note": "The pass on erastus_patterson returned: “Winnetka Historical Society records Erastus Patterson and family arriving via Chicago and settling in present-day Winnetka in August 1836. This is a strong regional namesake but conflicts with the July 1835 letter-list …” Candidate(s) as recorded: none carried on the finding."
+    },
+    {
+      "unit": "residents:data/research/residents/pass_09_75_cohort.json#people/gorton_levi",
+      "rule": "the_pass_named_a_candidate_and_did_not_assert_it",
+      "note": "The pass on gorton_levi returned: “A later Kendall County Record reminiscence identifies Levi C. Gorton as a pioneer who located the Aurora water-power for the McCarty brothers in 1833. The name and northern Illinois chronology are useful, but the middle …” Candidate(s) as recorded: none carried on the finding."
+    },
+    {
+      "unit": "residents:data/research/residents/pass_09_75_cohort.json#people/hathaway_joshua",
+      "rule": "the_enrichment_names_an_attribute_no_field_carries",
+      "note": "The pass on hathaway_joshua returned: “Joshua Hathaway Jr. is the named creator of the 1834 Chicago cadastral map already registered as a tier-1 project source. This independently anchors the letter-list name to professional work in Chicago in the same year.” Sources as recorded: hathaway_1834."
+    },
+    {
+      "unit": "residents:data/research/residents/pass_09_75_cohort.json#people/jeremial_porter",
+      "rule": "the_pass_named_a_candidate_and_did_not_assert_it",
+      "note": "The pass on jeremial_porter returned: “The repository already contains an attested canonical Rev. Jeremiah Porter household with Chicago service from 1833 and detailed 1835 travel chronology. 'Porter Jeremial' is therefore a strong OCR/duplicate candidate, …” Candidate(s) as recorded: none carried on the finding."
+    },
+    {
+      "unit": "residents:data/research/residents/pass_09_75_cohort.json#people/kinder_john",
+      "rule": "the_pass_named_a_candidate_and_did_not_assert_it",
+      "note": "The pass on kinder_john returned: “Macoupin County history records a John Kinder among 1831 land entrants. The exact name and Illinois date make a search lead, but the distant geography and common name prevent identity resolution.” Candidate(s) as recorded: none carried on the finding."
+    },
+    {
+      "unit": "residents:data/research/residents/pass_09_75_cohort.json#people/luke_pike",
+      "rule": "the_pass_named_a_candidate_and_did_not_assert_it",
+      "note": "The pass on luke_pike returned: “Kane County history lists Luke Pike among Campton Township arrivals/claimants in 1835. The exact name and regional date make a useful lead, but no Chicago discriminator links him to the July 1 postal entry.” Candidate(s) as recorded: none carried on the finding."
+    },
+    {
+      "unit": "residents:data/research/residents/pass_09_75_cohort.json#people/myers_frederick",
+      "rule": "the_enrichment_names_an_attribute_no_field_carries",
+      "note": "The pass on myers_frederick returned: “A 1928 Glen Ellyn local history identifies Frederick Myers as a War of 1812 veteran who served as quartermaster's clerk at Fort Dearborn in 1831-33, later traded in furs and owned substantial Chicago land. The unusually …” Sources as recorded: resident_research_myers_glen_ellyn."
+    },
+    {
+      "unit": "residents:data/research/residents/pass_09_75_cohort.json#people/pugsley_john_k",
+      "rule": "the_enrichment_names_an_attribute_no_field_carries",
+      "note": "The pass on pugsley_john_k returned: “An 1880 Van Buren County history says John K. Pugsley left near Utica, New York in June 1835, traveled to Chicago, prospected there, then returned to Paw Paw Township and entered land. The full middle-initial name, …” Sources as recorded: resident_research_pugsley_barrien_vanburen."
+    },
+    {
+      "unit": "residents:data/research/residents/pass_09_75_cohort.json#people/schindler_joseph",
+      "rule": "the_pass_named_a_candidate_and_did_not_assert_it",
+      "note": "The pass on schindler_joseph returned: “The index to Chicago's first Catholic church records (1833-44) contains Joseph entries under close variants including Schendler/Scheinegar/Shenagre. These are plausible OCR/orthographic leads but require page-level …” Candidate(s) as recorded: none carried on the finding."
+    },
+    {
+      "unit": "residents:data/research/residents/pass_09_75_cohort.json#people/silver_judge",
+      "rule": "the_pass_named_a_candidate_and_did_not_assert_it",
+      "note": "The pass on silver_judge returned: “Cass County history identifies Abiel Silver, born 1797, as 'better known as Judge Silver' and a merchant at Edwardsburg, Michigan. The exact title-surname form is distinctive and geographically plausible for Chicago …” Candidate(s) as recorded: none carried on the finding."
+    },
+    {
+      "unit": "residents:data/research/residents/pass_10_75_cohort.json#people/barrows_mary",
+      "rule": "the_enrichment_names_an_attribute_no_field_carries",
+      "note": "The pass on barrows_mary returned: “Later early-Chicago education histories independently name Mary Barrows as Miss Chappel's associate/assistant and as a participant in the LaSalle Street boarding house for scholars. Combined with the exact postal-list …” Sources as recorded: chicago_democrat_1833_1835, early_illinois_barrows_school."
+    },
+    {
+      "unit": "residents:data/research/residents/pass_10_75_cohort.json#people/boilvin_nicholas",
+      "rule": "the_enrichment_names_an_attribute_no_field_carries",
+      "note": "The pass on boilvin_nicholas returned: “The exact uncommon name Nicholas Boilvin appears in multiple 1834 Chicago post-office returns and independently in the 1833 Treaty of Chicago payment schedule. The paired contemporary-era evidence safely corroborates …” Sources as recorded: chicago_democrat_1833_1835, fcp_treaty_chicago_1833_payments."
+    },
+    {
+      "unit": "residents:data/research/residents/pass_10_75_cohort.json#people/bomgarten_moritz",
+      "rule": "the_pass_named_a_candidate_and_did_not_assert_it",
+      "note": "The pass on bomgarten_moritz returned: “A Cook County genealogy index points to Moritz Baumgarten, stating that he came to Chicago with his family in 1836. The uncommon Bomgarten/Baumgarten spelling pair and later Chicago connection are compelling as a lead, …” Candidate(s) as recorded:  (, asserted=False)."
+    },
+    {
+      "unit": "residents:data/research/residents/pass_10_75_cohort.json#people/christy_nathan",
+      "rule": "the_enrichment_names_an_attribute_no_field_carries",
+      "note": "The pass on christy_nathan returned: “The 1834 Chicago letter-list evidence places Nathan Christy beside the uncommon Rumsey Christy, and the 1843 Chicago directory independently lists both Nathan Christy and Rumsey Christy. That paired-name continuity is a …” Sources as recorded: chicago_democrat_1833_1835, fergus_chicago_directory_1843."
+    },
+    {
+      "unit": "residents:data/research/residents/pass_10_75_cohort.json#people/cleland_martin",
+      "rule": "the_enrichment_names_an_attribute_no_field_carries",
+      "note": "The pass on cleland_martin returned: “An 1886 family genealogy gives an unusually specific migration chronology: Martin Cleland traveled from Chautauqua, New York, to Chicago on a prospecting tour in 1834 and selected a future home near Niles, Michigan; the …” Sources as recorded: chicago_democrat_1833_1835, marsh_genealogy_martin_cleland_1886."
+    },
+    {
+      "unit": "residents:data/research/residents/pass_10_75_cohort.json#people/elisha_rayond",
+      "rule": "the_pass_named_a_candidate_and_did_not_assert_it",
+      "note": "The pass on elisha_rayond returned: “Racine County old-settler records identify Elisha Raymond Sr. traveling by vessel to Chicago and then Racine before settling the town of Raymond on September 22, 1835. 'Rayond Elisha' is a plausible transcription/order …” Candidate(s) as recorded:  (, asserted=False)."
+    },
+    {
+      "unit": "residents:data/research/residents/pass_10_75_cohort.json#people/hawley_oscar_l",
+      "rule": "the_pass_named_a_candidate_and_did_not_assert_it",
+      "note": "The pass on hawley_oscar_l returned: “An Illinois Digital Archives 1842 Will County property roll indexes Oscar L. Hawley. The exact rare full name makes a useful later regional continuity lead, but the seven-to-eight-year gap and Will County geography …” Candidate(s) as recorded:  (, asserted=False)."
+    },
+    {
+      "unit": "residents:data/research/residents/pass_10_75_cohort.json#people/hon_reynolds_john",
+      "rule": "the_pass_named_a_candidate_and_did_not_assert_it",
+      "note": "The pass on hon_reynolds_john returned: “The honorific-bearing 'Reynolds John Hon.' could be former Illinois governor and sitting U.S. Representative John Reynolds. Government biography confirms his 1834-1837 congressional service, but his political/home …” Candidate(s) as recorded:  (, asserted=False)."
+    },
+    {
+      "unit": "residents:data/research/residents/pass_10_75_cohort.json#people/hutchins_nathan",
+      "rule": "the_pass_named_a_candidate_and_did_not_assert_it",
+      "note": "The pass on hutchins_nathan returned: “Will County history places Nathan Hutchins under the bluff west of the Des Plaines in the early settlement period, with his father dying there in 1835 and the family moving toward Rockford in 1836. Exact name and …” Candidate(s) as recorded:  (, asserted=False)."
+    },
+    {
+      "unit": "residents:data/research/residents/pass_10_75_cohort.json#people/mclintock_thomas",
+      "rule": "the_pass_named_a_candidate_and_did_not_assert_it",
+      "note": "The pass on mclintock_thomas returned: “Cook County biography places Thomas McClintock Sr. and his son Thomas Franklin McClintock in Bachelor's Grove from fall 1833. This is strong family-level Cook County chronology, but two Thomas McClintocks are …” Candidate(s) as recorded:  (, asserted=False)."
+    },
+    {
+      "unit": "residents:data/research/residents/pass_10_75_cohort.json#people/moody_robert",
+      "rule": "the_pass_named_a_candidate_and_did_not_assert_it",
+      "note": "The pass on moody_robert returned: “Kane County history lists Robert Moody among the first St. Charles-area settlers arriving in 1834. Exact name and target-period northeastern Illinois chronology make a useful regional candidate, but Fox River residence …” Candidate(s) as recorded:  (, asserted=False)."
+    },
+    {
+      "unit": "residents:data/research/residents/pass_10_75_cohort.json#people/selden_saml_l",
+      "rule": "the_pass_named_a_candidate_and_did_not_assert_it",
+      "note": "The pass on selden_saml_l returned: “Samuel L. Selden is independently documented by Rochester institutional records as living in Rochester and serving as first judge of Monroe County court from 1831 through 1837. The initials/name fit the postal entry but …” Candidate(s) as recorded:  (, asserted=False)."
+    },
+    {
+      "unit": "residents:data/research/residents/pass_10_75_cohort.json#people/titur_starr",
+      "rule": "the_pass_named_a_candidate_and_did_not_assert_it",
+      "note": "The pass on titur_starr returned: “Lake County institutional history identifies Starr Titus as the county's first coroner, elected in 1839. 'Starr TituR' is a plausible OCR/transcription form of the rare Starr Titus name, but the evidence is four years …” Candidate(s) as recorded:  (, asserted=False)."
+    },
+    {
+      "unit": "residents:data/research/residents/pass_10_75_cohort.json#people/vasseur_noel",
+      "rule": "the_enrichment_names_an_attribute_no_field_carries",
+      "note": "The pass on vasseur_noel returned: “The exact uncommon name Noel Vasseur appears in the 1835 Chicago postal list and independently in the 1833 Treaty of Chicago payment schedule. This corroborates the identity and fur-trade/treaty-era regional context, …” Sources as recorded: chicago_democrat_1833_1835, fcp_treaty_chicago_1833_payments."
+    },
+    {
+      "unit": "residents:data/research/residents/pass_11_75_cohort.json#people/andrus_thomas",
+      "rule": "the_enrichment_names_an_attribute_no_field_carries",
+      "note": "The pass on andrus_thomas returned: “DuPage history gives a detailed chronology for Thomas Andrus: arrival in Chicago Dec. 1, 1833, carpenter/pile-driving work in 1834, return east in autumn 1834, and arrival back at Chicago in June 1835 before settling in …” Sources as recorded: rr_dupage_andrus_1882."
+    },
+    {
+      "unit": "residents:data/research/residents/pass_11_75_cohort.json#people/bristol_r_c",
+      "rule": "the_pass_named_a_candidate_and_did_not_assert_it",
+      "note": "The pass on bristol_r_c returned: “The 1839 Chicago directory lists Robert C. Bristol as a forwarding/commission merchant at State and South Water. Initials align with the 1834 R. C. Bristol seed, but the later date leaves identity unresolved.” Candidate(s) as recorded:  (, asserted=False)."
+    },
+    {
+      "unit": "residents:data/research/residents/pass_11_75_cohort.json#people/brookes_samuel",
+      "rule": "the_pass_named_a_candidate_and_did_not_assert_it",
+      "note": "The pass on brookes_samuel returned: “Fergus' 1839 Chicago directory lists Samuel Brookes, florist, on Adams Street near Dearborn. The exact spelling is useful later evidence but does not resolve the May 1835 postal identity.” Candidate(s) as recorded:  (, asserted=False)."
+    },
+    {
+      "unit": "residents:data/research/residents/pass_11_75_cohort.json#people/conger_thomas",
+      "rule": "the_pass_named_a_candidate_and_did_not_assert_it",
+      "note": "The pass on conger_thomas returned: “A Thomas Conger served as a Michigan village clerk in 1835 and president in 1836. This is a contemporaneous competing namesake, but there is no evidence connecting him to the Chicago postal entry.” Candidate(s) as recorded:  (, asserted=False)."
+    },
+    {
+      "unit": "residents:data/research/residents/pass_11_75_cohort.json#people/downer_pierce",
+      "rule": "the_pass_named_a_candidate_and_did_not_assert_it",
+      "note": "The pass on downer_pierce returned: “Pierce Downer is independently documented visiting Fort Dearborn/Chicago in 1832 and then founding Downers Grove. The exact rare name and regional chronology make this a strong identity candidate, but his established …” Candidate(s) as recorded:  (, asserted=False)."
+    },
+    {
+      "unit": "residents:data/research/residents/pass_11_75_cohort.json#people/evans_sciota",
+      "rule": "the_enrichment_names_an_attribute_no_field_carries",
+      "note": "The pass on evans_sciota returned: “A Cook County history quoting the Chicago Democrat's October 15, 1834 political list names Sciota Evans among leading Cook County Democratic-Republicans. Milwaukee records then show Sciota Evans as constable in …” Sources as recorded: rr_cook_democratic_republicans_1834."
+    },
+    {
+      "unit": "residents:data/research/residents/pass_11_75_cohort.json#people/fitzgerald_thos",
+      "rule": "the_pass_named_a_candidate_and_did_not_assert_it",
+      "note": "The pass on fitzgerald_thos returned: “A Thomas Fitzgerald served as president of a Berrien County, Michigan village in 1834. This contemporaneous namesake is retained only as a competing candidate; no link to the Chicago postal person is established.” Candidate(s) as recorded:  (, asserted=False)."
+    },
+    {
+      "unit": "residents:data/research/residents/pass_11_75_cohort.json#people/fraser_wm_h",
+      "rule": "the_pass_named_a_candidate_and_did_not_assert_it",
+      "note": "The pass on fraser_wm_h returned: “Wm. H. Fraser and Wm. H. Frazer are separate stable postal IDs in the same cohort only weeks apart in early 1834. The one-letter surname variation is a strong duplicate/transcription lead, but no external identity …” Candidate(s) as recorded:  (, asserted=False)."
+    },
+    {
+      "unit": "residents:data/research/residents/pass_11_75_cohort.json#people/frazer_wm_h",
+      "rule": "the_pass_named_a_candidate_and_did_not_assert_it",
+      "note": "The pass on frazer_wm_h returned: “Wm. H. Frazer and Wm. H. Fraser are separate stable postal IDs in the same cohort only weeks apart in early 1834. The one-letter surname variation is a strong duplicate/transcription lead, but no external identity …” Candidate(s) as recorded:  (, asserted=False)."
+    },
+    {
+      "unit": "residents:data/research/residents/pass_11_75_cohort.json#people/how_phineas",
+      "rule": "the_pass_named_a_candidate_and_did_not_assert_it",
+      "note": "The pass on how_phineas returned: “A Phineas Howe is recorded as coming from New York to Illinois in 1835 and settling near Marengo. The spelling is close, but the geography is outside Chicago and the exact arrival timing is not enough for a merge.” Candidate(s) as recorded:  (, asserted=False)."
+    },
+    {
+      "unit": "residents:data/research/residents/pass_11_75_cohort.json#people/kingston_paul",
+      "rule": "the_enrichment_names_an_attribute_no_field_carries",
+      "note": "The pass on kingston_paul returned: “Independent early-Chicago sources identify Paul Kingston as a Chicago landholder; a Racine old-settlers record says he came from Chicago on January 2, 1835. This strongly corroborates the rare named Chicago person, …” Sources as recorded: rr_andreas_chicago_1884_pass11, rr_racine_old_settlers_1871."
+    },
+    {
+      "unit": "residents:data/research/residents/pass_11_75_cohort.json#people/lathrop_samuel_s",
+      "rule": "the_enrichment_names_an_attribute_no_field_carries",
+      "note": "The pass on lathrop_samuel_s returned: “Andreas' history of Chicago's First Baptist Church names Samuel S. Lathrop as one of the church's early members after its October 1833 organization and records him building the fence around Rev. A. B. Freeman's Chicago …” Sources as recorded: rr_baptist_chicago_lathrop."
+    },
+    {
+      "unit": "residents:data/research/residents/pass_11_75_cohort.json#people/luce_william",
+      "rule": "the_pass_named_a_candidate_and_did_not_assert_it",
+      "note": "The pass on luce_william returned: “Racine County old-settlers history says William Luce was already in Captain Knapp's cabin at Racine when a party came from Chicago on January 2, 1835. The rare exact name and regional chronology are strong, but this …” Candidate(s) as recorded:  (, asserted=False)."
+    },
+    {
+      "unit": "residents:data/research/residents/pass_11_75_cohort.json#people/merrill_winthrop",
+      "rule": "the_pass_named_a_candidate_and_did_not_assert_it",
+      "note": "The pass on merrill_winthrop returned: “The repository already contains a separate winthrop_merrill postal person, making this likely a transposed-name duplicate requiring adjudication. Local history also places Winthrop Merrill with his family in the …” Candidate(s) as recorded:  (, asserted=False)."
+    },
+    {
+      "unit": "residents:data/research/residents/pass_11_75_cohort.json#people/osborn_wm",
+      "rule": "the_pass_named_a_candidate_and_did_not_assert_it",
+      "note": "The pass on osborn_wm returned: “Will County history places a William Osborn among Thorn Creek settlers in 1833-34. This is geographically plausible for a Chicago post-office contact, but the common name and Will County residence are insufficient for a …” Candidate(s) as recorded:  (, asserted=False)."
+    },
+    {
+      "unit": "residents:data/research/residents/pass_11_75_cohort.json#people/parsons_edward",
+      "rule": "the_pass_named_a_candidate_and_did_not_assert_it",
+      "note": "The pass on parsons_edward returned: “An Edward Parsons appears in the 1839 Chicago voter material embedded with Fergus-era directory material. Exact-name later Chicago evidence is useful but too late to prove the 1834 postal identity.” Candidate(s) as recorded:  (, asserted=False)."
+    },
+    {
+      "unit": "residents:data/research/residents/pass_11_75_cohort.json#people/rutherford_salmon",
+      "rule": "the_pass_named_a_candidate_and_did_not_assert_it",
+      "note": "The pass on rutherford_salmon returned: “Grundy County history identifies Salmon Rutherford as the first permanent Aux Sable settler in May 1833, later operating a tavern/stage stop. The rare exact name strongly matches a regional person but establishes …” Candidate(s) as recorded:  (, asserted=False)."
+    },
+    {
+      "unit": "residents:data/research/residents/pass_11_75_cohort.json#people/starr_ruel",
+      "rule": "the_pass_named_a_candidate_and_did_not_assert_it",
+      "note": "The pass on starr_ruel returned: “Porter County histories place Ruel Starr in Indiana by 1833/1834, where he remained and became a county official. This is a strong same-name competing identity and argues against silently treating the 1834 Chicago …” Candidate(s) as recorded:  (, asserted=False)."
+    },
+    {
+      "unit": "residents:data/research/residents/pass_12_11_cohort.json#people/cleaveland_wm_p",
+      "rule": "the_pass_named_a_candidate_and_did_not_assert_it",
+      "note": "The pass on cleaveland_wm_p returned: “A. T. Andreas's History of Chicago contains the uncommon exact name William P. Cleaveland in early-Chicago civic/person material. The name and place are useful discriminators, but the indexed excerpt lacks enough …” Candidate(s) as recorded:  (, asserted=False)."
+    },
+    {
+      "unit": "residents:data/research/residents/pass_12_11_cohort.json#people/teall_wm",
+      "rule": "the_pass_named_a_candidate_and_did_not_assert_it",
+      "note": "The pass on teall_wm returned: “Michigan City history records William Teall arriving in 1834, receiving a May 13 license to vend merchandise and appearing among Michigan Township residents. The exact name, target year and Great Lakes geography make a …” Candidate(s) as recorded:  (, asserted=False)."
+    },
+    {
+      "unit": "residents:data/research/residents/pass_12_11_cohort.json#people/woodworth_james_h",
+      "rule": "the_enrichment_names_an_attribute_no_field_carries",
+      "note": "The pass on woodworth_james_h returned: “The U.S. House historian independently states that James Hutchinson Woodworth moved to Chicago in 1833 and engaged in the dry-goods business. The exact full name and matching chronology strongly corroborate the postal …” Sources as recorded: chicago_democrat_1833_1835, ushouse_james_h_woodworth."
+    },
+    {
+      "unit": "residents:data/research/residents/pass_12_11_cohort.json#people/works_charles",
+      "rule": "the_pass_named_a_candidate_and_did_not_assert_it",
+      "note": "The pass on works_charles returned: “Rockford history records Charles Works joining the First Congregational Church there in May 1837, placing the uncommon exact name in northern Illinois soon after the October 1834 Chicago postal item. The later date and …” Candidate(s) as recorded:  (, asserted=False)."
+    },
+    {
+      "unit": "residents:data/research/residents/pass_12_11_cohort.json#people/young_gideon",
+      "rule": "the_pass_named_a_candidate_and_did_not_assert_it",
+      "note": "The pass on young_gideon returned: “Kane County/St. Charles local history states that Gideon Young lived at Naperville in January 1835. The exact name and immediate Chicago-hinterland chronology make a useful candidate for the October 1834 postal person, …” Candidate(s) as recorded:  (, asserted=False)."
+    },
+    {
+      "unit": "residents:data/research/residents/pass_13_76_cohort.json#people/adams_william_h",
+      "rule": "corroboration_confirms_and_moves_nothing",
+      "note": "The pass on adams_william_h returned: “Independently corroborated; confirmed, not moved.” Corroborating sources as recorded: chicago_tribune_1882_05_19_fourth_reception, chicago_voter_lists_1833_1835_irad, fergus_chicago_directory_1839, fergus_chicago_directory_1843."
+    },
+    {
+      "unit": "residents:data/research/residents/pass_13_76_cohort.json#people/akers_simon",
+      "rule": "the_pass_named_a_candidate_and_did_not_assert_it",
+      "note": "The pass on akers_simon returned: “A same-name lead, recorded and NOT asserted.” Candidate(s) as recorded:  (, asserted=False)."
+    },
+    {
+      "unit": "residents:data/research/residents/pass_13_76_cohort.json#people/allen_william",
+      "rule": "the_pass_named_a_candidate_and_did_not_assert_it",
+      "note": "The pass on allen_william returned: “A same-name lead, recorded and NOT asserted.” Candidate(s) as recorded:  (, asserted=False)."
+    },
+    {
+      "unit": "residents:data/research/residents/pass_13_76_cohort.json#people/avery_charles",
+      "rule": "the_pass_named_a_candidate_and_did_not_assert_it",
+      "note": "The pass on avery_charles returned: “A same-name lead, recorded and NOT asserted.” Candidate(s) as recorded:  (, asserted=False)."
+    },
+    {
+      "unit": "residents:data/research/residents/pass_13_76_cohort.json#people/bailly_joseph",
+      "rule": "the_pass_named_a_candidate_and_did_not_assert_it",
+      "note": "The pass on bailly_joseph returned: “A same-name lead, recorded and NOT asserted.” Candidate(s) as recorded:  (, asserted=False)."
+    },
+    {
+      "unit": "residents:data/research/residents/pass_13_76_cohort.json#people/bates_john_jr",
+      "rule": "corroboration_confirms_and_moves_nothing",
+      "note": "The pass on bates_john_jr returned: “Independently corroborated; confirmed, not moved.” Corroborating sources as recorded: old_settlers_bridges_1883, andreas_1884_v1, calumet_club_early_chicago_1879, chicago_tribune_1882_05_19_fourth_reception."
+    },
+    {
+      "unit": "residents:data/research/residents/pass_13_76_cohort.json#people/beaubien_josette",
+      "rule": "corroboration_confirms_and_moves_nothing",
+      "note": "The pass on beaubien_josette returned: “Independently corroborated; confirmed, not moved.” Corroborating sources as recorded: st_marys_baptismal_register_1833_1835, andreas_1884_v1, fergus_chicago_directory_1839, fergus_chicago_directory_1843."
+    },
+    {
+      "unit": "residents:data/research/residents/pass_13_76_cohort.json#people/beckford_printer",
+      "rule": "corroboration_confirms_and_moves_nothing",
+      "note": "The pass on beckford_printer returned: “Independently corroborated; confirmed, not moved.” Corroborating sources as recorded: chicago_antiquities_pratt, andreas_1884_v1."
+    },
+    {
+      "unit": "residents:data/research/residents/pass_13_76_cohort.json#people/bishop_j_e",
+      "rule": "the_pass_named_a_candidate_and_did_not_assert_it",
+      "note": "The pass on bishop_j_e returned: “A same-name lead, recorded and NOT asserted.” Candidate(s) as recorded:  (, asserted=False)."
+    },
+    {
+      "unit": "residents:data/research/residents/pass_13_76_cohort.json#people/blair_william_g",
+      "rule": "the_pass_named_a_candidate_and_did_not_assert_it",
+      "note": "The pass on blair_william_g returned: “A same-name lead, recorded and NOT asserted.” Candidate(s) as recorded:  (, asserted=False)."
+    },
+    {
+      "unit": "residents:data/research/residents/pass_13_76_cohort.json#people/blodgett_tyler_k",
+      "rule": "corroboration_confirms_and_moves_nothing",
+      "note": "The pass on blodgett_tyler_k returned: “Independently corroborated; confirmed, not moved.” Corroborating sources as recorded: chicagology_chicago_brick, andreas_1884_v1, chicago_voter_lists_1833_1835_irad, fergus_chicago_directory_1839."
+    },
+    {
+      "unit": "residents:data/research/residents/pass_13_76_cohort.json#people/bly_rouse",
+      "rule": "the_pass_named_a_candidate_and_did_not_assert_it",
+      "note": "The pass on bly_rouse returned: “A same-name lead, recorded and NOT asserted.” Candidate(s) as recorded:  (, asserted=False)."
+    },
+    {
+      "unit": "residents:data/research/residents/pass_13_76_cohort.json#people/brown_lemuel",
+      "rule": "corroboration_confirms_and_moves_nothing",
+      "note": "The pass on brown_lemuel returned: “Independently corroborated; confirmed, not moved.” Corroborating sources as recorded: census_1830_peoria_county_chicago_precinct, andreas_1884_v1, chicago_voter_lists_1833_1835_irad, fergus_chicago_directory_1839."
+    },
+    {
+      "unit": "residents:data/research/residents/pass_13_76_cohort.json#people/brown_mrs_rufus",
+      "rule": "corroboration_confirms_and_moves_nothing",
+      "note": "The pass on brown_mrs_rufus returned: “Independently corroborated; confirmed, not moved.” Corroborating sources as recorded: census_1830_peoria_county_chicago_precinct, andreas_1884_v1, fergus_chicago_directory_1839, fergus_chicago_directory_1843."
+    },
+    {
+      "unit": "residents:data/research/residents/pass_13_76_cohort.json#people/brown_rufus",
+      "rule": "corroboration_confirms_and_moves_nothing",
+      "note": "The pass on brown_rufus returned: “Independently corroborated; confirmed, not moved.” Corroborating sources as recorded: census_1830_peoria_county_chicago_precinct, andreas_1884_v1, fergus_chicago_directory_1839, fergus_chicago_directory_1843."
+    },
+    {
+      "unit": "residents:data/research/residents/pass_13_76_cohort.json#people/caldwell_billy",
+      "rule": "corroboration_confirms_and_moves_nothing",
+      "note": "The pass on caldwell_billy returned: “Independently corroborated; confirmed, not moved.” Corroborating sources as recorded: census_1830_peoria_county_chicago_precinct, fergus_historical_series_26_29, hubbard_autobiography_1911, andreas_1884_v1."
+    },
+    {
+      "unit": "residents:data/research/residents/pass_13_76_cohort.json#people/calhoun_john",
+      "rule": "corroboration_confirms_and_moves_nothing",
+      "note": "The pass on calhoun_john returned: “Independently corroborated; confirmed, not moved.” Corroborating sources as recorded: chicago_democrat_1833_11_26, fergus_historical_series_26_29, andreas_1884_v1, chicago_voter_lists_1833_1835_irad."
+    },
+    {
+      "unit": "residents:data/research/residents/pass_13_76_cohort.json#people/carpenter_philo",
+      "rule": "corroboration_confirms_and_moves_nothing",
+      "note": "The pass on carpenter_philo returned: “Independently corroborated; confirmed, not moved.” Corroborating sources as recorded: chicago_democrat_1833_11_26, drloih_beaubien, drloih_chappell, encyclopedia_chicago_medical_pharmaceutical."
+    },
+    {
+      "unit": "residents:data/research/residents/pass_13_76_cohort.json#people/carver_david",
+      "rule": "corroboration_confirms_and_moves_nothing",
+      "note": "The pass on carver_david returned: “Independently corroborated; confirmed, not moved.” Corroborating sources as recorded: migenweb_clark_albee_grand_haven, andreas_1884_v1, chicago_voter_lists_1833_1835_irad, fergus_chicago_directory_1839."
+    },
+    {
+      "unit": "residents:data/research/residents/pass_13_76_cohort.json#people/casey_edward_w",
+      "rule": "corroboration_confirms_and_moves_nothing",
+      "note": "The pass on casey_edward_w returned: “Independently corroborated; confirmed, not moved.” Corroborating sources as recorded: caton_atlantic_chicago_1893, andreas_1884_v1, chicago_voter_lists_1833_1835_irad, fergus_chicago_directory_1839."
+    },
+    {
+      "unit": "residents:data/research/residents/pass_13_76_cohort.json#people/caton_john_dean",
+      "rule": "corroboration_confirms_and_moves_nothing",
+      "note": "The pass on caton_john_dean returned: “Independently corroborated; confirmed, not moved.” Corroborating sources as recorded: caton_atlantic_chicago_1893, chicagology_lastwardance, illinois_courts_caton_biography, old_settlers_bridges_1883."
+    },
+    {
+      "unit": "residents:data/research/residents/pass_13_76_cohort.json#people/church_thomas",
+      "rule": "corroboration_confirms_and_moves_nothing",
+      "note": "The pass on church_thomas returned: “Independently corroborated; confirmed, not moved.” Corroborating sources as recorded: chicagology_prefire275, andreas_1884_v1, fergus_chicago_directory_1839, fergus_chicago_directory_1843."
+    },
+    {
+      "unit": "residents:data/research/residents/pass_13_76_cohort.json#people/clybourne_archibald",
+      "rule": "corroboration_confirms_and_moves_nothing",
+      "note": "The pass on clybourne_archibald returned: “Independently corroborated; confirmed, not moved.” Corroborating sources as recorded: census_1830_peoria_county_chicago_precinct, andreas_1884_v1, chicago_voter_lists_1833_1835_irad."
+    },
+    {
+      "unit": "residents:data/research/residents/pass_13_76_cohort.json#people/cobb_silas_b",
+      "rule": "corroboration_confirms_and_moves_nothing",
+      "note": "The pass on cobb_silas_b returned: “Independently corroborated; confirmed, not moved.” Corroborating sources as recorded: chicagology_prefire127, andreas_1884_v1, calumet_club_early_chicago_1879, chicago_democrat_1833_11_26."
+    },
+    {
+      "unit": "residents:data/research/residents/pass_13_76_cohort.json#people/cohen_peter",
+      "rule": "corroboration_confirms_and_moves_nothing",
+      "note": "The pass on cohen_peter returned: “Independently corroborated; confirmed, not moved.” Corroborating sources as recorded: chicago_democrat_1833_11_26, chicago_voter_lists_1833_1835_irad, fergus_chicago_directory_1839, fergus_chicago_directory_1843."
+    },
+    {
+      "unit": "residents:data/research/residents/pass_13_76_cohort.json#people/couch_ira",
+      "rule": "corroboration_confirms_and_moves_nothing",
+      "note": "The pass on couch_ira returned: “Independently corroborated; confirmed, not moved.” Corroborating sources as recorded: chicagology_prefire021, chm_ira_couch_portrait, wttw_ira_couch, andreas_1884_v1."
+    },
+    {
+      "unit": "residents:data/research/residents/pass_13_76_cohort.json#people/couch_james",
+      "rule": "corroboration_confirms_and_moves_nothing",
+      "note": "The pass on couch_james returned: “Independently corroborated; confirmed, not moved.” Corroborating sources as recorded: andreas_1884_v1, calumet_club_early_chicago_1879, chicagology_prefire021, fergus_chicago_directory_1839."
+    },
+    {
+      "unit": "residents:data/research/residents/pass_13_76_cohort.json#people/davis_john",
+      "rule": "corroboration_confirms_and_moves_nothing",
+      "note": "The pass on davis_john returned: “Independently corroborated; confirmed, not moved.” Corroborating sources as recorded: andreas_1884_v1, chicago_voter_lists_1833_1835_irad, drloih_hotels, fergus_chicago_directory_1839."
+    },
+    {
+      "unit": "residents:data/research/residents/pass_13_76_cohort.json#people/davis_t_o",
+      "rule": "corroboration_confirms_and_moves_nothing",
+      "note": "The pass on davis_t_o returned: “Independently corroborated; confirmed, not moved.” Corroborating sources as recorded: andreas_1884_v1, fergus_chicago_directory_1839."
+    },
+    {
+      "unit": "residents:data/research/residents/pass_13_76_cohort.json#people/dunlap_alva",
+      "rule": "the_pass_named_a_candidate_and_did_not_assert_it",
+      "note": "The pass on dunlap_alva returned: “A same-name lead, recorded and NOT asserted.” Candidate(s) as recorded:  (, asserted=False)."
+    },
+    {
+      "unit": "residents:data/research/residents/pass_13_76_cohort.json#people/garrett_a",
+      "rule": "corroboration_confirms_and_moves_nothing",
+      "note": "The pass on garrett_a returned: “Independently corroborated; confirmed, not moved.” Corroborating sources as recorded: cpl_augustus_garrett_biography, fergus_chicago_directory_1839, fergus_chicago_directory_1843, norris_directory_1844."
+    },
+    {
+      "unit": "residents:data/research/residents/pass_13_76_cohort.json#people/miles_andrew",
+      "rule": "the_pass_named_a_candidate_and_did_not_assert_it",
+      "note": "The pass on miles_andrew returned: “A same-name lead, recorded and NOT asserted.” Candidate(s) as recorded:  (, asserted=False)."
+    },
+    {
+      "unit": "residents:data/research/residents/pass_13_76_cohort.json#people/miner_amanda",
+      "rule": "the_pass_named_a_candidate_and_did_not_assert_it",
+      "note": "The pass on miner_amanda returned: “A same-name lead, recorded and NOT asserted.” Candidate(s) as recorded:  (, asserted=False)."
+    },
+    {
+      "unit": "residents:data/research/residents/pass_13_76_cohort.json#people/murray_alonzo",
+      "rule": "the_pass_named_a_candidate_and_did_not_assert_it",
+      "note": "The pass on murray_alonzo returned: “A same-name lead, recorded and NOT asserted.” Candidate(s) as recorded:  (, asserted=False)."
+    },
+    {
+      "unit": "residents:data/research/residents/pass_13_76_cohort.json#people/murry_alonzo",
+      "rule": "the_pass_named_a_candidate_and_did_not_assert_it",
+      "note": "The pass on murry_alonzo returned: “A same-name lead, recorded and NOT asserted.” Candidate(s) as recorded:  (, asserted=False)."
+    },
+    {
+      "unit": "residents:data/research/residents/pass_13_76_cohort.json#people/parcel_aaron",
+      "rule": "the_pass_named_a_candidate_and_did_not_assert_it",
+      "note": "The pass on parcel_aaron returned: “A same-name lead, recorded and NOT asserted.” Candidate(s) as recorded:  (, asserted=False)."
+    },
+    {
+      "unit": "residents:data/research/residents/pass_13_76_cohort.json#people/parcell_aron",
+      "rule": "the_pass_named_a_candidate_and_did_not_assert_it",
+      "note": "The pass on parcell_aron returned: “A same-name lead, recorded and NOT asserted.” Candidate(s) as recorded:  (, asserted=False)."
+    },
+    {
+      "unit": "residents:data/research/residents/pass_13_76_cohort.json#people/vaughan_alanson_b",
+      "rule": "the_pass_named_a_candidate_and_did_not_assert_it",
+      "note": "The pass on vaughan_alanson_b returned: “A same-name lead, recorded and NOT asserted.” Candidate(s) as recorded:  (, asserted=False)."
+    },
+    {
+      "unit": "residents:data/research/residents/pass_13_76_cohort.json#people/vaughn_alison_b",
+      "rule": "the_pass_named_a_candidate_and_did_not_assert_it",
+      "note": "The pass on vaughn_alison_b returned: “A same-name lead, recorded and NOT asserted.” Candidate(s) as recorded:  (, asserted=False)."
+    },
+    {
+      "unit": "residents:data/research/residents/pass_14_76_cohort.json#people/abbott_constant",
+      "rule": "the_pass_named_a_candidate_and_did_not_assert_it",
+      "note": "The pass on abbott_constant returned: “Dr. Constant Abbott is a strong regional candidate documented in DuPage and Ottawa by 1836, but no source supplies a dated Chicago migration or links him to this return. [Read for pass 02 on 2026-09-01, which never …” Candidate(s) as recorded: none carried on the finding."
+    },
+    {
+      "unit": "residents:data/research/residents/pass_14_76_cohort.json#people/albee_clark_b",
+      "rule": "the_pass_named_a_candidate_and_did_not_assert_it",
+      "note": "The pass on albee_clark_b returned: “The Fergus 1839 crosswalk matched on surname plus the initial C., but the entry prints 'Albee, Cyrus P., butcher' — a forename and middle initial that both conflict with Clark B. Albee. The match is refused here. What …” Candidate(s) as recorded:  (, asserted=False)."
+    },
+    {
+      "unit": "residents:data/research/residents/pass_14_76_cohort.json#people/bailey_bennet",
+      "rule": "the_enrichment_names_an_attribute_no_field_carries",
+      "note": "The pass on bailey_bennet returned: “Fergus 1839 prints 'Bailey, Bennett, carpenter and builder' and the 1837 election return 'Bennett Bailey' — an uncommon forename spelt out twice, four and two years after the scene. Pass 3 saw only the 1843 Mechanics' …” Sources as recorded: chicago_democrat_1833_1835, fergus_chicago_directory_1839, norris_chicago_directory_1843."
+    },
+    {
+      "unit": "residents:data/research/residents/pass_14_76_cohort.json#people/bartlett_charles_h",
+      "rule": "the_pass_named_a_candidate_and_did_not_assert_it",
+      "note": "The pass on bartlett_charles_h returned: “Chicago History Museum catalogs Charles H. Bartlett diaries beginning before his 1834 farming near Diamond Lake. Exact name, date and regional movement are strong; image-level diary review is still needed. [Read for …” Candidate(s) as recorded: none carried on the finding."
+    },
+    {
+      "unit": "residents:data/research/residents/pass_14_76_cohort.json#people/bennett_h_c",
+      "rule": "the_pass_named_a_candidate_and_did_not_assert_it",
+      "note": "The pass on bennett_h_c returned: “Fergus 1839 prints 'Bennett, Henry, speculator, bds Illinois Exchange'. The forename expands the H., but the record's C. is absent from the entry rather than confirmed by it, and the papers give this man as an attorney …” Candidate(s) as recorded:  (, asserted=False)."
+    },
+    {
+      "unit": "residents:data/research/residents/pass_14_76_cohort.json#people/brookins_david",
+      "rule": "the_pass_named_a_candidate_and_did_not_assert_it",
+      "note": "The pass on brookins_david returned: “The Du Page County history reports that David Brookins sold carriages in Chicago before the family moved west. The source record was written for an earlier pass and says plainly that it does not tie him to the …” Candidate(s) as recorded:  (, asserted=False)."
+    },
+    {
+      "unit": "residents:data/research/residents/pass_14_76_cohort.json#people/brooks_gardner",
+      "rule": "corroboration_confirms_and_moves_nothing",
+      "note": "The pass on brooks_gardner returned: “The 1834 poll list prints 'Brooks, Gardner' and one bearer of the surname was considered: an uncommon forename agreeing whole against a town list taken within the scene window. Pass 2 could only offer the Des Plaines …” Corroborating sources as recorded: chicago_democrat_1833_1835, chicago_voter_lists_1833_1835_irad, desplaines_gardner_brooks."
+    },
+    {
+      "unit": "residents:data/research/residents/pass_14_76_cohort.json#people/burdick_paul",
+      "rule": "the_pass_named_a_candidate_and_did_not_assert_it",
+      "note": "The pass on burdick_paul returned: “Milwaukee history says Paul Burdick occupied a frame house raised there in March 1835. Exact name and date make a regional candidate, while Milwaukee residence conflicts with physical Chicago presence. [Read for pass 02 …” Candidate(s) as recorded: none carried on the finding."
+    },
+    {
+      "unit": "residents:data/research/residents/pass_14_76_cohort.json#people/butterfield_ben",
+      "rule": "the_pass_named_a_candidate_and_did_not_assert_it",
+      "note": "The pass on butterfield_ben returned: “A historical marker places Ben Butterfield at Lockport and on a Danville-to-Chicago route from 1830-31. This is a strong regional candidate, but postal reachability does not establish town residence. [Read for pass 03 …” Candidate(s) as recorded: none carried on the finding."
+    },
+    {
+      "unit": "residents:data/research/residents/pass_14_76_cohort.json#people/chadwick_joseph",
+      "rule": "the_pass_named_a_candidate_and_did_not_assert_it",
+      "note": "The pass on chadwick_joseph returned: “The 1837 election return prints 'J. W. Chadwick'; the resident is Joseph Chadwick with no middle initial recorded, so the W. is unsupported rather than agreeing, and the match is refused. Pass 3's candidate stands: …” Candidate(s) as recorded:  (, asserted=False)."
+    },
+    {
+      "unit": "residents:data/research/residents/pass_14_76_cohort.json#people/chamberlain_l_c",
+      "rule": "the_pass_named_a_candidate_and_did_not_assert_it",
+      "note": "The pass on chamberlain_l_c returned: “L. C Chamberlain is held as a candidate and not asserted: 5 Newberry genealogical-index card(s) stand under this surname on an exact-surname rule with nothing to separate the bearers; the newberry genealogical index …” Candidate(s) as recorded: none carried on the finding."
+    },
+    {
+      "unit": "residents:data/research/residents/pass_14_76_cohort.json#people/chapman_chas_h",
+      "rule": "the_enrichment_names_an_attribute_no_field_carries",
+      "note": "The pass on chapman_chas_h returned: “The 1837 election return prints 'Chas. H. Chapman' — the transcribed 1835 form letter for letter — and Fergus 1839 prints 'Chapman, Charles II., real estate dealer, Randolph street', where 'II.' is the printer's H. The …” Sources as recorded: chicago_democrat_1833_1835, fergus_chicago_directory_1839."
+    },
+    {
+      "unit": "residents:data/research/residents/pass_14_76_cohort.json#people/chappel_eliza_mir",
+      "rule": "the_pass_named_a_candidate_and_did_not_assert_it",
+      "note": "The pass on chappel_eliza_mir returned: “The entry is a near-certain duplicate of Eliza Chappel Porter: Mir likely misreads Miss, and the letter appeared 16 days after her marriage. It is not merged until the original scan is inspected. [Read for pass 02 on …” Candidate(s) as recorded: none carried on the finding."
+    },
+    {
+      "unit": "residents:data/research/residents/pass_14_76_cohort.json#people/clark_erastus",
+      "rule": "the_pass_named_a_candidate_and_did_not_assert_it",
+      "note": "The pass on clark_erastus returned: “The Norris 1844 agreement is surname plus the initial E. against one of the commonest surnames in the book, and the entry prints no trade that could discriminate. Nine years and a bare initial are not an identification.” Candidate(s) as recorded:  (, asserted=False)."
+    },
+    {
+      "unit": "residents:data/research/residents/pass_14_76_cohort.json#people/clarke_h_b",
+      "rule": "the_enrichment_names_an_attribute_no_field_carries",
+      "note": "The pass on clarke_h_b returned: “The 1837 election return prints 'Henry B. Clarke', expanding both initials of H. B. Clarke, and the papers carry him as a hardware merchant between 27 May and 29 July 1835. REFUSED in the same pass: the old-settler …” Sources as recorded: chicago_democrat_1833_1835, fergus_chicago_directory_1839."
+    },
+    {
+      "unit": "residents:data/research/residents/pass_14_76_cohort.json#people/collins_j_h",
+      "rule": "the_enrichment_names_an_attribute_no_field_carries",
+      "note": "The pass on collins_j_h returned: “The 1837 election return prints 'James H. Collins.', expanding both initials. The papers carry him as an attorney across three separate runs from 28 January 1834 to 5 August 1835. The Fergus 1839 surname entry is …” Sources as recorded: chicago_democrat_1833_1835, fergus_chicago_directory_1839."
+    },
+    {
+      "unit": "residents:data/research/residents/pass_14_76_cohort.json#people/comstock_h_h",
+      "rule": "the_pass_named_a_candidate_and_did_not_assert_it",
+      "note": "The pass on comstock_h_h returned: “H. H. Comstock appears in Kalamazoo County pioneer history around 1834. Exact initials and regional chronology are useful, but competing Michigan geography and no migration bridge bar a merge. [Read for pass 03 on …” Candidate(s) as recorded: none carried on the finding."
+    },
+    {
+      "unit": "residents:data/research/residents/pass_14_76_cohort.json#people/cook_rowland_i",
+      "rule": "the_pass_named_a_candidate_and_did_not_assert_it",
+      "note": "The pass on cook_rowland_i returned: “Rowland I!. Cook is held as a candidate and not asserted: 2 Newberry genealogical-index card(s) stand under this surname on an exact-surname rule with nothing to separate the bearers; the chicago tribune 1882 04 25 old …” Candidate(s) as recorded: none carried on the finding."
+    },
+    {
+      "unit": "residents:data/research/residents/pass_14_76_cohort.json#people/cooley_edward_v",
+      "rule": "the_pass_named_a_candidate_and_did_not_assert_it",
+      "note": "The pass on cooley_edward_v returned: “Edward V Cooley is held as a candidate and not asserted: 3 Newberry genealogical-index card(s) stand under this surname on an exact-surname rule with nothing to separate the bearers; the fergus chicago directory 1843, …” Candidate(s) as recorded: none carried on the finding."
+    },
+    {
+      "unit": "residents:data/research/residents/pass_14_76_cohort.json#people/covell_thomas_r",
+      "rule": "the_pass_named_a_candidate_and_did_not_assert_it",
+      "note": "The pass on covell_thomas_r returned: “A county history says Thomas R. Covell moved to Salt Creek, Cook County, about 1833 after work as trader and mill builder. Exact middle initial and migration make a high-confidence candidate, not town residence. [Read …” Candidate(s) as recorded: none carried on the finding."
+    },
+    {
+      "unit": "residents:data/research/residents/pass_14_76_cohort.json#people/crocker_h",
+      "rule": "the_pass_named_a_candidate_and_did_not_assert_it",
+      "note": "The pass on crocker_h returned: “Two independent later records agree on the same expansion and the same trade: Fergus 1839, 'Crocker, Hans, attorney at law', and the old-settler notice 'Crocker, Hans, lawyer, died, Milwaukee, Wis., Mar. 17, 1889, a. …” Candidate(s) as recorded: none carried on the finding."
+    },
+    {
+      "unit": "residents:data/research/residents/pass_14_76_cohort.json#people/curtiss_j",
+      "rule": "the_pass_named_a_candidate_and_did_not_assert_it",
+      "note": "The pass on curtiss_j returned: “Fergus 1839 prints 'Curtiss, James, attorney and counsellor at law, 17 Lake st' and the library's biography of the later mayor gives the same man's Chicago arrival and practice. The 1835 papers already carry him as an …” Candidate(s) as recorded: none carried on the finding."
+    },
+    {
+      "unit": "residents:data/research/residents/pass_14_76_cohort.json#people/dole_george_w",
+      "rule": "corroboration_confirms_and_moves_nothing",
+      "note": "The pass on dole_george_w returned: “Three separate civic lists print 'Dole, George W.' — the 1833 poll, the 1833 tax list and the 1834 poll — and one bearer of the surname was considered on each. Three contemporary appearances in two record classes, none …” Corroborating sources as recorded: chicago_democrat_1833_1835, chicago_voter_lists_1833_1835_irad, encyclopedia_chicago_biographical_index_d."
+    },
+    {
+      "unit": "residents:data/research/residents/pass_14_76_cohort.json#people/egan_william_b",
+      "rule": "corroboration_confirms_and_moves_nothing",
+      "note": "The pass on egan_william_b returned: “The 1833 tax list and the 1834 poll both print the whole name 'Egan, William Bradshaw' — the middle name in full, which is as strong a discriminator as this corpus offers. Fergus 1839 then prints 'Egan, Dr. William B., …” Corroborating sources as recorded: chicago_voter_lists_1833_1835_irad, chicagology_prefire112, fergus_chicago_directory_1839."
+    },
+    {
+      "unit": "residents:data/research/residents/pass_14_76_cohort.json#people/elston_daniel",
+      "rule": "the_enrichment_names_an_attribute_no_field_carries",
+      "note": "The pass on elston_daniel returned: “The 1837 election return prints 'Daniel Elston' whole. The University of Illinois finding aid, read in pass 3 and never written to a ledger, identifies the English merchant who reached Chicago in 1833, made soap and …” Sources as recorded: chicago_democrat_1833_11_26, fergus_chicago_directory_1839, uiuc_daniel_elston_papers."
+    },
+    {
+      "unit": "residents:data/research/residents/pass_14_76_cohort.json#people/filer_elihu_d",
+      "rule": "the_pass_named_a_candidate_and_did_not_assert_it",
+      "note": "The pass on filer_elihu_d returned: “Racine histories identify exact-name Elihu D. Filer as an early settler and carpenter, but no record bridges the Chicago letter to the Racine man. Reprinted OCR variants are not separate people. [Read for pass 02 on …” Candidate(s) as recorded: none carried on the finding."
+    },
+    {
+      "unit": "residents:data/research/residents/pass_14_76_cohort.json#people/fowler_elmira",
+      "rule": "the_pass_named_a_candidate_and_did_not_assert_it",
+      "note": "The pass on fowler_elmira returned: “Elmira Fowler is held as a candidate and not asserted: 3 Newberry genealogical-index card(s) stand under this surname on an exact-surname rule with nothing to separate the bearers; the papers carry the name 1834-11-05 …” Candidate(s) as recorded: none carried on the finding."
+    },
+    {
+      "unit": "residents:data/research/residents/pass_14_76_cohort.json#people/frame_david_p",
+      "rule": "corroboration_confirms_and_moves_nothing",
+      "note": "The pass on frame_david_p returned: “Nothing reviewed in this pass corroborates David P. Frame from outside the record already held: the papers hold the name only on the post-office return(s) of 1834-01-28.” Corroborating sources as recorded: chicago_democrat_1833_1835, isa_public_domain_land_tract_sales."
+    },
+    {
+      "unit": "residents:data/research/residents/pass_14_76_cohort.json#people/fullerton_alexander",
+      "rule": "corroboration_confirms_and_moves_nothing",
+      "note": "The pass on fullerton_alexander returned: “Matched on the 1833 tax list as 'Fullerton, Alexander', one bearer of the surname considered. The Cook County history read in pass 3 places him in the town's legal and municipal record including the 1835 town-clerk …” Corroborating sources as recorded: chicago_democrat_1833_1835, chicago_voter_lists_1833_1835_irad, goodman_history_cook_county_early."
+    },
+    {
+      "unit": "residents:data/research/residents/pass_14_76_cohort.json#people/gale_stephen_f",
+      "rule": "corroboration_confirms_and_moves_nothing",
+      "note": "The pass on gale_stephen_f returned: “The 1833 poll list prints 'Gale, Stephen F.' with the middle initial, and Fergus 1839 prints 'Gale, Stephen F., bookseller and stationer, 159 Lake st' — the same trade the 1839 statute imprint carries. A contemporary …” Corroborating sources as recorded: chicago_voter_lists_1833_1835_irad, fergus_chicago_directory_1839, goodman_history_cook_county_early, jsp_illinois_statutes_gale_imprint."
+    },
+    {
+      "unit": "residents:data/research/residents/pass_14_76_cohort.json#people/grant_james",
+      "rule": "corroboration_confirms_and_moves_nothing",
+      "note": "The pass on grant_james returned: “Matched on the 1835 poll list as 'Grant, J.', and the identification is held by trade across three decades: Fergus 1839 prints 'Grant, Jas., attorney, N. Water st near Rush, bds. Lake House' and the old-settler notice …” Corroborating sources as recorded: chicago_democrat_1833_1835, chicago_tribune_1882_04_25_old_settler_deaths, chicago_voter_lists_1833_1835_irad, fergus_chicago_directory_1839."
+    },
+    {
+      "unit": "residents:data/research/residents/pass_14_76_cohort.json#people/griswold_eben",
+      "rule": "the_pass_named_a_candidate_and_did_not_assert_it",
+      "note": "The pass on griswold_eben returned: “A Berrien County history names an Eben Griswold as a constable, but multiple exact-name candidates and no dated Chicago bridge prevent identification. [Read for pass 02 on 2026-09-01, which never completed a findings …” Candidate(s) as recorded: none carried on the finding."
+    },
+    {
+      "unit": "residents:data/research/residents/pass_14_76_cohort.json#people/hamilton_richard_j",
+      "rule": "corroboration_confirms_and_moves_nothing",
+      "note": "The pass on hamilton_richard_j returned: “The 1833 poll ('Hamilton, R. J.'), the 1833 tax list and the 1834 poll (both 'Hamilton, Richard J.') all match, one bearer of the surname considered. The Cook County history read in pass 2 gives the offices — clerk and …” Corroborating sources as recorded: chicago_democrat_1833_1835, chicago_voter_lists_1833_1835_irad, goodman_history_cook_county_hamilton."
+    },
+    {
+      "unit": "residents:data/research/residents/pass_14_76_cohort.json#people/house_chester",
+      "rule": "the_pass_named_a_candidate_and_did_not_assert_it",
+      "note": "The pass on house_chester returned: “A contemporary 1835 letter and local histories place distinctive-name Chester House at House's Grove from 1833. He is probably the recipient, but as a hinterland resident, not proof of Chicago residence; sources …” Candidate(s) as recorded: none carried on the finding."
+    },
+    {
+      "unit": "residents:data/research/residents/pass_14_76_cohort.json#people/king_byram",
+      "rule": "the_pass_named_a_candidate_and_did_not_assert_it",
+      "note": "The pass on king_byram returned: “Every route to this man is contested in the same way. Fergus 1839 prints 'King, Byram, Jones, King & Co.' and the old-settler notice 'King, Byram, died', but three residents of 1835 meet each entry on the folding rule …” Candidate(s) as recorded:  (, asserted=False)."
+    },
+    {
+      "unit": "residents:data/research/residents/pass_14_76_cohort.json#people/lewis_samuel",
+      "rule": "the_pass_named_a_candidate_and_did_not_assert_it",
+      "note": "The pass on lewis_samuel returned: “Samuel Lewis is held as a candidate and not asserted: 1 Newberry genealogical-index card(s) stand under this surname on an exact-surname rule with nothing to separate the bearers; the census 1840 chicago familysearch …” Candidate(s) as recorded: none carried on the finding."
+    },
+    {
+      "unit": "residents:data/research/residents/pass_14_76_cohort.json#people/marshall_j_a",
+      "rule": "the_enrichment_names_an_attribute_no_field_carries",
+      "note": "The pass on marshall_j_a returned: “Fergus 1839 prints 'Marshall, James A., auctioneer, commission, etc., So. Water st', expanding J. A. exactly. REFUSED: the old-settler notice 'Marshall, James Monroe, real estate, died July 1, 1880, aged 45-9' gives a …” Sources as recorded: chicago_democrat_1833_1835, fergus_chicago_directory_1839."
+    },
+    {
+      "unit": "residents:data/research/residents/pass_14_76_cohort.json#people/moore_henry",
+      "rule": "the_enrichment_names_an_attribute_no_field_carries",
+      "note": "The pass on moore_henry returned: “Fergus 1839 prints 'Moore, Henry, attorney and counseller at law, 9 Clark st' and the old-settler notice 'Moore, Henry, died, Concord, Mass., after 1841'. Whole forename, whole surname, and the trade the 1835 papers …” Sources as recorded: chicago_democrat_1833_1835, chicago_tribune_1882_04_25_old_settler_deaths, fergus_chicago_directory_1839."
+    },
+    {
+      "unit": "residents:data/research/residents/pass_14_76_cohort.json#people/parkes_curtis",
+      "rule": "the_pass_named_a_candidate_and_did_not_assert_it",
+      "note": "The pass on parkes_curtis returned: “Porter County history names Curtis Parkes in its February 1836 organization vote. Exact name and adjacent-region chronology are strong, but the Chicago letter may only reflect the nearest postal route. [Read for pass 03 …” Candidate(s) as recorded: none carried on the finding."
+    },
+    {
+      "unit": "residents:data/research/residents/pass_14_76_cohort.json#people/richards_charles_t",
+      "rule": "the_pass_named_a_candidate_and_did_not_assert_it",
+      "note": "The pass on richards_charles_t returned: “Charles T. Richards is held as a candidate and not asserted: 2 Newberry genealogical-index card(s) stand under this surname on an exact-surname rule with nothing to separate the bearers; the fergus chicago directory …” Candidate(s) as recorded: none carried on the finding."
+    },
+    {
+      "unit": "residents:data/research/residents/pass_14_76_cohort.json#people/sabine_wm",
+      "rule": "the_enrichment_names_an_attribute_no_field_carries",
+      "note": "The pass on sabine_wm returned: “Fergus 1839 prints 'Sabine, William A., boarding-house, 161 Lake street, up stairs' and the 1837 election return 'W. Sabine'. The forename expands Wm. and the trade is new to his record; the middle initial A. is 1839's …” Sources as recorded: fergus_chicago_directory_1839."
+    },
+    {
+      "unit": "residents:data/research/residents/pass_14_76_cohort.json#people/sen_elijah_wentworth",
+      "rule": "the_enrichment_names_an_attribute_no_field_carries",
+      "note": "The pass on sen_elijah_wentworth returned: “Carried forward from pass 2. Local history and Wau-Bun identify Elijah Wentworth Sr. as the Wolf Point tavern keeper who later kept at Sand Ridge; the 'sen.' of the transcription, the occupation and the chronology …” Sources as recorded: chicago_democrat_1833_1835, kinzie_waubun_1856, nwchicago_elijah_wentworth."
+    },
+    {
+      "unit": "residents:data/research/residents/pass_14_76_cohort.json#people/sherman_h",
+      "rule": "the_pass_named_a_candidate_and_did_not_assert_it",
+      "note": "The pass on sherman_h returned: “Nothing reviewed in this pass corroborates Mrs. H. Sherman from outside the record already held: the fergus chicago directory 1843, norris directory 1844 agreement is a surname-only refusal; the papers carry the name …” Candidate(s) as recorded: none carried on the finding."
+    },
+    {
+      "unit": "residents:data/research/residents/pass_14_76_cohort.json#people/stewart_r",
+      "rule": "the_enrichment_names_an_attribute_no_field_carries",
+      "note": "The pass on stewart_r returned: “Two records expand the bare R. the same way: Fergus 1839, 'Stewart, Royal, attorney at law, Lake street', and the 1837 election return, 'Royal Stewart'. The papers print an attorney of that surname from 2 July 1834 to …” Sources as recorded: chicago_democrat_1833_1835, fergus_chicago_directory_1839."
+    },
+    {
+      "unit": "residents:data/research/residents/pass_14_76_cohort.json#people/thrall_e_l",
+      "rule": "the_enrichment_names_an_attribute_no_field_carries",
+      "note": "The pass on thrall_e_l returned: “The 1837 election return prints 'Edward L. Thrall' — the forename expanding the E. and the middle initial agreeing — which carries that he was in Chicago and in ward 1 on 2 May 1837. It is a different record from the …” Sources as recorded: chicago_democrat_1833_1835, fergus_chicago_directory_1839."
+    },
+    {
+      "unit": "residents:data/research/residents/pass_14_76_cohort.json#people/tuller_elam",
+      "rule": "the_pass_named_a_candidate_and_did_not_assert_it",
+      "note": "The pass on tuller_elam returned: “Carried forward from pass 2, which read the Whiteside County biography and never completed a ledger: it puts the Tuller family in Chicago in July 1833 and gives the Connecticut origin and the farmer, mechanic and …” Candidate(s) as recorded: none carried on the finding."
+    },
+    {
+      "unit": "residents:data/research/residents/pass_15_76_cohort.json#people/boyer_j_k",
+      "rule": "corroboration_confirms_and_moves_nothing",
+      "note": "The pass on boyer_j_k returned: “Independently corroborated. J. K. Boyer agrees, forename for forename or initial for initial, with a record outside the post-office lists in the town's 1833 tax and 1834/1835 poll lists, the Fergus 1839/1843 and Norris …” Corroborating sources as recorded: chicago_democrat_1833_1835, chicago_voter_lists_1833_1835_irad, fergus_chicago_directory_1839, fergus_chicago_directory_1843."
+    },
+    {
+      "unit": "residents:data/research/residents/pass_15_76_cohort.json#people/doolittle_ehjah",
+      "rule": "the_enrichment_names_an_attribute_no_field_carries",
+      "note": "The pass on doolittle_ehjah returned: “Corroborated in a volume printed after the scene date. Ehjah Doolittle agrees with an entry in the old-settler rolls and Fergus's death notices. The reading enriches the biography and adds no 1835 attestation.” Sources as recorded: chicago_democrat_1833_1835, fergus_1843_old_settler_death_notices."
+    },
+    {
+      "unit": "residents:data/research/residents/pass_15_76_cohort.json#people/dow_albert_f",
+      "rule": "the_pass_named_a_candidate_and_did_not_assert_it",
+      "note": "The pass on dow_albert_f returned: “A plausible external identity for Albert F. Dow was found and is retained unasserted: no date, place, occupation or kinship discriminator bridges it to the 1835 person.” Candidate(s) as recorded: none carried on the finding."
+    },
+    {
+      "unit": "residents:data/research/residents/pass_15_76_cohort.json#people/ford_ebenezer",
+      "rule": "the_pass_named_a_candidate_and_did_not_assert_it",
+      "note": "The pass on ford_ebenezer returned: “A plausible external identity for Ebenezer Ford was found and is retained unasserted: no date, place, occupation or kinship discriminator bridges it to the 1835 person.” Candidate(s) as recorded: none carried on the finding."
+    },
+    {
+      "unit": "residents:data/research/residents/pass_15_76_cohort.json#people/heacock_russel_e",
+      "rule": "corroboration_confirms_and_moves_nothing",
+      "note": "The pass on heacock_russel_e returned: “Independently corroborated. Russel E. Heacock agrees, forename for forename or initial for initial, with a record outside the post-office lists in the held book corpus, the 1830 census of the Chicago precinct, the …” Corroborating sources as recorded: census_1830_peoria_county_chicago_precinct, chicago_democrat_1833_1835, fergus_chicago_directory_1839, fergus_chicago_directory_1843, fergus_historical_series_26_29, norris_directory_1844."
+    },
+    {
+      "unit": "residents:data/research/residents/pass_15_76_cohort.json#people/hogan_john_s_c",
+      "rule": "corroboration_confirms_and_moves_nothing",
+      "note": "The pass on hogan_john_s_c returned: “Independently corroborated. John S. C. Hogan agrees, forename for forename or initial for initial, with a record outside the post-office lists in the held book corpus, the town's 1833 tax and 1834/1835 poll lists, the …” Corroborating sources as recorded: chicago_democrat_1833_1835, chicago_voter_lists_1833_1835_irad, fergus_chicago_directory_1839, fergus_historical_series_26_29."
+    },
+    {
+      "unit": "residents:data/research/residents/pass_15_76_cohort.json#people/hoit_thomas",
+      "rule": "the_pass_named_a_candidate_and_did_not_assert_it",
+      "note": "The pass on hoit_thomas returned: “Fergus's reprint of the 1843 Chicago Directory prints 'Hoit, Thomas, carpenter, bds Mrs. E. Holt [died 1881, aged 60]' — the exact name of this project's Thomas Hoit, in the same town, eight years after the scene. THE …” Candidate(s) as recorded: none carried on the finding."
+    },
+    {
+      "unit": "residents:data/research/residents/pass_15_76_cohort.json#people/hubbard_gurdon",
+      "rule": "corroboration_confirms_and_moves_nothing",
+      "note": "The pass on hubbard_gurdon returned: “Independently corroborated. Gurdon Saltonstall Hubbard agrees, forename for forename or initial for initial, with a record outside the post-office lists in the held book corpus, the 1840 census heads, the town's 1833 …” Corroborating sources as recorded: census_1840_chicago_name_crosswalk, chicago_democrat_1833_1835, chicago_voter_lists_1833_1835_irad, fergus_chicago_directory_1843, fergus_historical_series_26_29, norris_directory_1844."
+    },
+    {
+      "unit": "residents:data/research/residents/pass_15_76_cohort.json#people/ingersoll_chester",
+      "rule": "corroboration_confirms_and_moves_nothing",
+      "note": "The pass on ingersoll_chester returned: “Independently corroborated. Chester Ingersoll agrees, forename for forename or initial for initial, with a record outside the post-office lists in the Illinois public-domain land tract sales. INGERSOLL CHESTER matches …” Corroborating sources as recorded: chicago_democrat_1833_1835, isa_public_domain_land_tract_sales."
+    },
+    {
+      "unit": "residents:data/research/residents/pass_15_76_cohort.json#people/jones_benjamin",
+      "rule": "corroboration_confirms_and_moves_nothing",
+      "note": "The pass on jones_benjamin returned: “Independently corroborated. Benjamin Jones agrees, forename for forename or initial for initial, with a record outside the post-office lists in the town's 1833 tax and 1834/1835 poll lists, the Fergus 1839/1843 and …” Corroborating sources as recorded: chicago_democrat_1833_1835, chicago_tribune_1882_04_25_old_settler_deaths, chicago_voter_lists_1833_1835_irad, fergus_chicago_directory_1839, fergus_historical_series_26_29, norris_directory_1844."
+    },
+    {
+      "unit": "residents:data/research/residents/pass_15_76_cohort.json#people/kinzie_juliette",
+      "rule": "the_enrichment_names_an_attribute_no_field_carries",
+      "note": "The pass on kinzie_juliette returned: “Corroborated in a volume printed after the scene date. Juliette Augusta Magill Kinzie agrees with an entry in the Fergus 1839/1843 and Norris 1844 directories, the old-settler rolls and Fergus's death notices. The …” Sources as recorded: chicago_democrat_1833_1835, fergus_1843_old_settler_death_notices, fergus_chicago_directory_1839."
+    },
+    {
+      "unit": "residents:data/research/residents/pass_15_76_cohort.json#people/legg_gregory_e",
+      "rule": "corroboration_confirms_and_moves_nothing",
+      "note": "The pass on legg_gregory_e returned: “Independently corroborated. Gregory E. Legg agrees, forename for forename or initial for initial, with a record outside the post-office lists in the St Cyr / St Mary registers, the Fergus 1839/1843 and Norris 1844 …” Corroborating sources as recorded: chicago_democrat_1833_1835, fergus_chicago_directory_1839, st_cyr_register_ichr_v4."
+    },
+    {
+      "unit": "residents:data/research/residents/pass_15_76_cohort.json#people/morris_b_s",
+      "rule": "corroboration_confirms_and_moves_nothing",
+      "note": "The pass on morris_b_s returned: “Independently corroborated. B. S. Morris agrees, forename for forename or initial for initial, with a record outside the post-office lists in the St Cyr / St Mary registers, the Fergus 1839/1843 and Norris 1844 …” Corroborating sources as recorded: chicago_democrat_1833_1835, fergus_chicago_directory_1839, fergus_chicago_directory_1843, fergus_historical_series_26_29, norris_directory_1844, st_cyr_register_ichr_v4."
+    },
+    {
+      "unit": "residents:data/research/residents/pass_15_76_cohort.json#people/owen_thomas_jv",
+      "rule": "corroboration_confirms_and_moves_nothing",
+      "note": "The pass on owen_thomas_jv returned: “Independently corroborated. Thomas Jefferson Vance Owen agrees, forename for forename or initial for initial, with a record outside the post-office lists in the held book corpus, the St Cyr / St Mary registers, the …” Corroborating sources as recorded: chicago_democrat_1833_1835, chicago_voter_lists_1833_1835_irad, fergus_historical_series_26_29."
+    },
+    {
+      "unit": "residents:data/research/residents/pass_15_76_cohort.json#people/pearsons_hiram",
+      "rule": "corroboration_confirms_and_moves_nothing",
+      "note": "The pass on pearsons_hiram returned: “Independently corroborated. Hiram Pearsons agrees, forename for forename or initial for initial, with a record outside the post-office lists in the town's 1833 tax and 1834/1835 poll lists, the Fergus 1839/1843 and …” Corroborating sources as recorded: chicago_democrat_1833_1835, chicago_voter_lists_1833_1835_irad, fergus_chicago_directory_1839, fergus_chicago_directory_1843, fergus_historical_series_26_29, isa_public_domain_land_tract_sales, …."
+    },
+    {
+      "unit": "residents:data/research/residents/pass_15_76_cohort.json#people/peck_philip",
+      "rule": "corroboration_confirms_and_moves_nothing",
+      "note": "The pass on peck_philip returned: “Independently corroborated. Philip F. W. Peck agrees, forename for forename or initial for initial, with a record outside the post-office lists in the town's 1833 tax and 1834/1835 poll lists, the Fergus 1839/1843 and …” Corroborating sources as recorded: chicago_democrat_1833_1835, chicago_voter_lists_1833_1835_irad, fergus_chicago_directory_1839, fergus_historical_series_26_29."
+    },
+    {
+      "unit": "residents:data/research/residents/pass_15_76_cohort.json#people/porter_eliza_chappel",
+      "rule": "the_pass_named_a_candidate_and_did_not_assert_it",
+      "note": "The pass on porter_eliza_chappel returned: “A plausible external identity for Eliza Chappel Porter was found and is retained unasserted: no date, place, occupation or kinship discriminator bridges it to the 1835 person.” Candidate(s) as recorded: none carried on the finding."
+    },
+    {
+      "unit": "residents:data/research/residents/pass_15_76_cohort.json#people/porter_jeremiah",
+      "rule": "the_enrichment_names_an_attribute_no_field_carries",
+      "note": "The pass on porter_jeremiah returned: “Corroborated in a volume printed after the scene date. Rev. Jeremiah Porter agrees with an entry in the old-settler rolls and Fergus's death notices. The reading enriches the biography and adds no 1835 attestation.” Sources as recorded: chicago_democrat_1833_1835, fergus_1843_old_settler_death_notices."
+    },
+    {
+      "unit": "residents:data/research/residents/pass_15_76_cohort.json#people/robinson_alexander",
+      "rule": "corroboration_confirms_and_moves_nothing",
+      "note": "The pass on robinson_alexander returned: “Independently corroborated. Alexander Robinson (Che-che-pin-qua) agrees, forename for forename or initial for initial, with a record outside the post-office lists in the 1830 census of the Chicago precinct. Surname and …” Corroborating sources as recorded: census_1830_peoria_county_chicago_precinct, chicago_democrat_1833_1835, fergus_historical_series_26_29."
+    },
+    {
+      "unit": "residents:data/research/residents/pass_15_76_cohort.json#people/snow_george_w",
+      "rule": "corroboration_confirms_and_moves_nothing",
+      "note": "The pass on snow_george_w returned: “Independently corroborated. George W. Snow agrees, forename for forename or initial for initial, with a record outside the post-office lists in the town's 1833 tax and 1834/1835 poll lists, the Fergus 1839/1843 and …” Corroborating sources as recorded: chicago_democrat_1833_1835, chicago_voter_lists_1833_1835_irad, fergus_chicago_directory_1839, fergus_historical_series_26_29."
+    },
+    {
+      "unit": "residents:data/research/residents/pass_15_76_cohort.json#people/spring_giles",
+      "rule": "corroboration_confirms_and_moves_nothing",
+      "note": "The pass on spring_giles returned: “Independently corroborated. Giles Spring agrees, forename for forename or initial for initial, with a record outside the post-office lists in the town's 1833 tax and 1834/1835 poll lists, the Fergus 1839/1843 and Norris …” Corroborating sources as recorded: chicago_democrat_1833_1835, chicago_voter_lists_1833_1835_irad, fergus_chicago_directory_1839, fergus_chicago_directory_1843, fergus_historical_series_26_29, norris_directory_1844."
+    },
+    {
+      "unit": "residents:data/research/residents/pass_15_76_cohort.json#people/taylor_augustine",
+      "rule": "corroboration_confirms_and_moves_nothing",
+      "note": "The pass on taylor_augustine returned: “Independently corroborated. Augustine Deodat Taylor agrees, forename for forename or initial for initial, with a record outside the post-office lists in the St Cyr / St Mary registers, the Fergus 1839/1843 and Norris …” Corroborating sources as recorded: chicago_democrat_1833_1835, fergus_chicago_directory_1839, fergus_chicago_directory_1843, st_cyr_register_ichr_v4."
+    },
+    {
+      "unit": "residents:data/research/residents/pass_15_76_cohort.json#people/temple_john_t",
+      "rule": "corroboration_confirms_and_moves_nothing",
+      "note": "The pass on temple_john_t returned: “Independently corroborated. Dr John Taylor Temple agrees, forename for forename or initial for initial, with a record outside the post-office lists in the town's 1833 tax and 1834/1835 poll lists. one resident of the …” Corroborating sources as recorded: chicago_democrat_1833_1835, chicago_voter_lists_1833_1835_irad."
+    },
+    {
+      "unit": "residents:data/research/residents/pass_15_76_cohort.json#people/vanderbogart_h",
+      "rule": "the_enrichment_names_an_attribute_no_field_carries",
+      "note": "The pass on vanderbogart_h returned: “Corroborated in a volume printed after the scene date. H. Vanderbogart agrees with an entry in the old-settler rolls and Fergus's death notices. The reading enriches the biography and adds no 1835 attestation.” Sources as recorded: chicago_democrat_1833_1835, fergus_1843_old_settler_death_notices."
+    },
+    {
+      "unit": "residents:data/research/residents/pass_15_76_cohort.json#people/wright_john",
+      "rule": "the_enrichment_names_an_attribute_no_field_carries",
+      "note": "The pass on wright_john returned: “Corroborated in a volume printed after the scene date. John Wright agrees with an entry in the Fergus 1839/1843 and Norris 1844 directories, the old-settler rolls and Fergus's death notices. The reading enriches the …” Sources as recorded: chicago_democrat_1833_1835, fergus_1843_old_settler_death_notices, fergus_chicago_directory_1839."
+    },
+    {
+      "unit": "residents:data/research/residents/pilot_75_cohort.json#people/albyn_lucius_b",
+      "rule": "the_manifest_is_a_reservation_and_not_a_reading",
+      "note": "albyn_lucius_b is a row of the pilot manifest, whose own preamble reads: “T-0442's reproducible 75-person research cohort. This is a sampling manifest, not new evidence about any person.” No findings ledger was ever committed for the pilot, so this reservation has no reading attached to it to spend."
+    },
+    {
+      "unit": "residents:data/research/residents/pilot_75_cohort.json#people/anstin_al",
+      "rule": "the_manifest_is_a_reservation_and_not_a_reading",
+      "note": "anstin_al is a row of the pilot manifest, whose own preamble reads: “T-0442's reproducible 75-person research cohort. This is a sampling manifest, not new evidence about any person.” No findings ledger was ever committed for the pilot, so this reservation has no reading attached to it to spend."
+    },
+    {
+      "unit": "residents:data/research/residents/pilot_75_cohort.json#people/beddlecome_ash",
+      "rule": "the_manifest_is_a_reservation_and_not_a_reading",
+      "note": "beddlecome_ash is a row of the pilot manifest, whose own preamble reads: “T-0442's reproducible 75-person research cohort. This is a sampling manifest, not new evidence about any person.” No findings ledger was ever committed for the pilot, so this reservation has no reading attached to it to spend."
+    },
+    {
+      "unit": "residents:data/research/residents/pilot_75_cohort.json#people/beger_tobias",
+      "rule": "the_manifest_is_a_reservation_and_not_a_reading",
+      "note": "beger_tobias is a row of the pilot manifest, whose own preamble reads: “T-0442's reproducible 75-person research cohort. This is a sampling manifest, not new evidence about any person.” No findings ledger was ever committed for the pilot, so this reservation has no reading attached to it to spend."
+    },
+    {
+      "unit": "residents:data/research/residents/pilot_75_cohort.json#people/benn_eli",
+      "rule": "the_manifest_is_a_reservation_and_not_a_reading",
+      "note": "benn_eli is a row of the pilot manifest, whose own preamble reads: “T-0442's reproducible 75-person research cohort. This is a sampling manifest, not new evidence about any person.” No findings ledger was ever committed for the pilot, so this reservation has no reading attached to it to spend."
+    },
+    {
+      "unit": "residents:data/research/residents/pilot_75_cohort.json#people/bennett_h_c",
+      "rule": "the_manifest_is_a_reservation_and_not_a_reading",
+      "note": "bennett_h_c is a row of the pilot manifest, whose own preamble reads: “T-0442's reproducible 75-person research cohort. This is a sampling manifest, not new evidence about any person.” No findings ledger was ever committed for the pilot, so this reservation has no reading attached to it to spend."
+    },
+    {
+      "unit": "residents:data/research/residents/pilot_75_cohort.json#people/benubien_charl",
+      "rule": "the_manifest_is_a_reservation_and_not_a_reading",
+      "note": "benubien_charl is a row of the pilot manifest, whose own preamble reads: “T-0442's reproducible 75-person research cohort. This is a sampling manifest, not new evidence about any person.” No findings ledger was ever committed for the pilot, so this reservation has no reading attached to it to spend."
+    },
+    {
+      "unit": "residents:data/research/residents/pilot_75_cohort.json#people/bloget_josiah_i",
+      "rule": "the_manifest_is_a_reservation_and_not_a_reading",
+      "note": "bloget_josiah_i is a row of the pilot manifest, whose own preamble reads: “T-0442's reproducible 75-person research cohort. This is a sampling manifest, not new evidence about any person.” No findings ledger was ever committed for the pilot, so this reservation has no reading attached to it to spend."
+    },
+    {
+      "unit": "residents:data/research/residents/pilot_75_cohort.json#people/boles_george",
+      "rule": "the_manifest_is_a_reservation_and_not_a_reading",
+      "note": "boles_george is a row of the pilot manifest, whose own preamble reads: “T-0442's reproducible 75-person research cohort. This is a sampling manifest, not new evidence about any person.” No findings ledger was ever committed for the pilot, so this reservation has no reading attached to it to spend."
+    },
+    {
+      "unit": "residents:data/research/residents/pilot_75_cohort.json#people/boyer_j_k",
+      "rule": "the_manifest_is_a_reservation_and_not_a_reading",
+      "note": "boyer_j_k is a row of the pilot manifest, whose own preamble reads: “T-0442's reproducible 75-person research cohort. This is a sampling manifest, not new evidence about any person.” No findings ledger was ever committed for the pilot, so this reservation has no reading attached to it to spend."
+    },
+    {
+      "unit": "residents:data/research/residents/pilot_75_cohort.json#people/brookins_david",
+      "rule": "the_manifest_is_a_reservation_and_not_a_reading",
+      "note": "brookins_david is a row of the pilot manifest, whose own preamble reads: “T-0442's reproducible 75-person research cohort. This is a sampling manifest, not new evidence about any person.” No findings ledger was ever committed for the pilot, so this reservation has no reading attached to it to spend."
+    },
+    {
+      "unit": "residents:data/research/residents/pilot_75_cohort.json#people/byam_seth",
+      "rule": "the_manifest_is_a_reservation_and_not_a_reading",
+      "note": "byam_seth is a row of the pilot manifest, whose own preamble reads: “T-0442's reproducible 75-person research cohort. This is a sampling manifest, not new evidence about any person.” No findings ledger was ever committed for the pilot, so this reservation has no reading attached to it to spend."
+    },
+    {
+      "unit": "residents:data/research/residents/pilot_75_cohort.json#people/carpenter_philo",
+      "rule": "the_manifest_is_a_reservation_and_not_a_reading",
+      "note": "carpenter_philo is a row of the pilot manifest, whose own preamble reads: “T-0442's reproducible 75-person research cohort. This is a sampling manifest, not new evidence about any person.” No findings ledger was ever committed for the pilot, so this reservation has no reading attached to it to spend."
+    },
+    {
+      "unit": "residents:data/research/residents/pilot_75_cohort.json#people/caton_john_dean",
+      "rule": "the_manifest_is_a_reservation_and_not_a_reading",
+      "note": "caton_john_dean is a row of the pilot manifest, whose own preamble reads: “T-0442's reproducible 75-person research cohort. This is a sampling manifest, not new evidence about any person.” No findings ledger was ever committed for the pilot, so this reservation has no reading attached to it to spend."
+    },
+    {
+      "unit": "residents:data/research/residents/pilot_75_cohort.json#people/chauncy_orange",
+      "rule": "the_manifest_is_a_reservation_and_not_a_reading",
+      "note": "chauncy_orange is a row of the pilot manifest, whose own preamble reads: “T-0442's reproducible 75-person research cohort. This is a sampling manifest, not new evidence about any person.” No findings ledger was ever committed for the pilot, so this reservation has no reading attached to it to spend."
+    },
+    {
+      "unit": "residents:data/research/residents/pilot_75_cohort.json#people/clarke_h_b",
+      "rule": "the_manifest_is_a_reservation_and_not_a_reading",
+      "note": "clarke_h_b is a row of the pilot manifest, whose own preamble reads: “T-0442's reproducible 75-person research cohort. This is a sampling manifest, not new evidence about any person.” No findings ledger was ever committed for the pilot, so this reservation has no reading attached to it to spend."
+    },
+    {
+      "unit": "residents:data/research/residents/pilot_75_cohort.json#people/codding_sally",
+      "rule": "the_manifest_is_a_reservation_and_not_a_reading",
+      "note": "codding_sally is a row of the pilot manifest, whose own preamble reads: “T-0442's reproducible 75-person research cohort. This is a sampling manifest, not new evidence about any person.” No findings ledger was ever committed for the pilot, so this reservation has no reading attached to it to spend."
+    },
+    {
+      "unit": "residents:data/research/residents/pilot_75_cohort.json#people/collins_j_h",
+      "rule": "the_manifest_is_a_reservation_and_not_a_reading",
+      "note": "collins_j_h is a row of the pilot manifest, whose own preamble reads: “T-0442's reproducible 75-person research cohort. This is a sampling manifest, not new evidence about any person.” No findings ledger was ever committed for the pilot, so this reservation has no reading attached to it to spend."
+    },
+    {
+      "unit": "residents:data/research/residents/pilot_75_cohort.json#people/conter_willard",
+      "rule": "the_manifest_is_a_reservation_and_not_a_reading",
+      "note": "conter_willard is a row of the pilot manifest, whose own preamble reads: “T-0442's reproducible 75-person research cohort. This is a sampling manifest, not new evidence about any person.” No findings ledger was ever committed for the pilot, so this reservation has no reading attached to it to spend."
+    },
+    {
+      "unit": "residents:data/research/residents/pilot_75_cohort.json#people/crocker_h",
+      "rule": "the_manifest_is_a_reservation_and_not_a_reading",
+      "note": "crocker_h is a row of the pilot manifest, whose own preamble reads: “T-0442's reproducible 75-person research cohort. This is a sampling manifest, not new evidence about any person.” No findings ledger was ever committed for the pilot, so this reservation has no reading attached to it to spend."
+    },
+    {
+      "unit": "residents:data/research/residents/pilot_75_cohort.json#people/curtiss_j",
+      "rule": "the_manifest_is_a_reservation_and_not_a_reading",
+      "note": "curtiss_j is a row of the pilot manifest, whose own preamble reads: “T-0442's reproducible 75-person research cohort. This is a sampling manifest, not new evidence about any person.” No findings ledger was ever committed for the pilot, so this reservation has no reading attached to it to spend."
+    },
+    {
+      "unit": "residents:data/research/residents/pilot_75_cohort.json#people/cutler_morris",
+      "rule": "the_manifest_is_a_reservation_and_not_a_reading",
+      "note": "cutler_morris is a row of the pilot manifest, whose own preamble reads: “T-0442's reproducible 75-person research cohort. This is a sampling manifest, not new evidence about any person.” No findings ledger was ever committed for the pilot, so this reservation has no reading attached to it to spend."
+    },
+    {
+      "unit": "residents:data/research/residents/pilot_75_cohort.json#people/demans_j_t",
+      "rule": "the_manifest_is_a_reservation_and_not_a_reading",
+      "note": "demans_j_t is a row of the pilot manifest, whose own preamble reads: “T-0442's reproducible 75-person research cohort. This is a sampling manifest, not new evidence about any person.” No findings ledger was ever committed for the pilot, so this reservation has no reading attached to it to spend."
+    },
+    {
+      "unit": "residents:data/research/residents/pilot_75_cohort.json#people/dole_george_w",
+      "rule": "the_manifest_is_a_reservation_and_not_a_reading",
+      "note": "dole_george_w is a row of the pilot manifest, whose own preamble reads: “T-0442's reproducible 75-person research cohort. This is a sampling manifest, not new evidence about any person.” No findings ledger was ever committed for the pilot, so this reservation has no reading attached to it to spend."
+    },
+    {
+      "unit": "residents:data/research/residents/pilot_75_cohort.json#people/doolittle_ehjah",
+      "rule": "the_manifest_is_a_reservation_and_not_a_reading",
+      "note": "doolittle_ehjah is a row of the pilot manifest, whose own preamble reads: “T-0442's reproducible 75-person research cohort. This is a sampling manifest, not new evidence about any person.” No findings ledger was ever committed for the pilot, so this reservation has no reading attached to it to spend."
+    },
+    {
+      "unit": "residents:data/research/residents/pilot_75_cohort.json#people/eager_hiram",
+      "rule": "the_manifest_is_a_reservation_and_not_a_reading",
+      "note": "eager_hiram is a row of the pilot manifest, whose own preamble reads: “T-0442's reproducible 75-person research cohort. This is a sampling manifest, not new evidence about any person.” No findings ledger was ever committed for the pilot, so this reservation has no reading attached to it to spend."
+    },
+    {
+      "unit": "residents:data/research/residents/pilot_75_cohort.json#people/egan_william_b",
+      "rule": "the_manifest_is_a_reservation_and_not_a_reading",
+      "note": "egan_william_b is a row of the pilot manifest, whose own preamble reads: “T-0442's reproducible 75-person research cohort. This is a sampling manifest, not new evidence about any person.” No findings ledger was ever committed for the pilot, so this reservation has no reading attached to it to spend."
+    },
+    {
+      "unit": "residents:data/research/residents/pilot_75_cohort.json#people/farren_dean",
+      "rule": "the_manifest_is_a_reservation_and_not_a_reading",
+      "note": "farren_dean is a row of the pilot manifest, whose own preamble reads: “T-0442's reproducible 75-person research cohort. This is a sampling manifest, not new evidence about any person.” No findings ledger was ever committed for the pilot, so this reservation has no reading attached to it to spend."
+    },
+    {
+      "unit": "residents:data/research/residents/pilot_75_cohort.json#people/fell_j_w",
+      "rule": "the_manifest_is_a_reservation_and_not_a_reading",
+      "note": "fell_j_w is a row of the pilot manifest, whose own preamble reads: “T-0442's reproducible 75-person research cohort. This is a sampling manifest, not new evidence about any person.” No findings ledger was ever committed for the pilot, so this reservation has no reading attached to it to spend."
+    },
+    {
+      "unit": "residents:data/research/residents/pilot_75_cohort.json#people/folliott_jonathan",
+      "rule": "the_manifest_is_a_reservation_and_not_a_reading",
+      "note": "folliott_jonathan is a row of the pilot manifest, whose own preamble reads: “T-0442's reproducible 75-person research cohort. This is a sampling manifest, not new evidence about any person.” No findings ledger was ever committed for the pilot, so this reservation has no reading attached to it to spend."
+    },
+    {
+      "unit": "residents:data/research/residents/pilot_75_cohort.json#people/force_john",
+      "rule": "the_manifest_is_a_reservation_and_not_a_reading",
+      "note": "force_john is a row of the pilot manifest, whose own preamble reads: “T-0442's reproducible 75-person research cohort. This is a sampling manifest, not new evidence about any person.” No findings ledger was ever committed for the pilot, so this reservation has no reading attached to it to spend."
+    },
+    {
+      "unit": "residents:data/research/residents/pilot_75_cohort.json#people/fowler_elmira",
+      "rule": "the_manifest_is_a_reservation_and_not_a_reading",
+      "note": "fowler_elmira is a row of the pilot manifest, whose own preamble reads: “T-0442's reproducible 75-person research cohort. This is a sampling manifest, not new evidence about any person.” No findings ledger was ever committed for the pilot, so this reservation has no reading attached to it to spend."
+    },
+    {
+      "unit": "residents:data/research/residents/pilot_75_cohort.json#people/garrett_a",
+      "rule": "the_manifest_is_a_reservation_and_not_a_reading",
+      "note": "garrett_a is a row of the pilot manifest, whose own preamble reads: “T-0442's reproducible 75-person research cohort. This is a sampling manifest, not new evidence about any person.” No findings ledger was ever committed for the pilot, so this reservation has no reading attached to it to spend."
+    },
+    {
+      "unit": "residents:data/research/residents/pilot_75_cohort.json#people/gooding_caroline",
+      "rule": "the_manifest_is_a_reservation_and_not_a_reading",
+      "note": "gooding_caroline is a row of the pilot manifest, whose own preamble reads: “T-0442's reproducible 75-person research cohort. This is a sampling manifest, not new evidence about any person.” No findings ledger was ever committed for the pilot, so this reservation has no reading attached to it to spend."
+    },
+    {
+      "unit": "residents:data/research/residents/pilot_75_cohort.json#people/grant_james",
+      "rule": "the_manifest_is_a_reservation_and_not_a_reading",
+      "note": "grant_james is a row of the pilot manifest, whose own preamble reads: “T-0442's reproducible 75-person research cohort. This is a sampling manifest, not new evidence about any person.” No findings ledger was ever committed for the pilot, so this reservation has no reading attached to it to spend."
+    },
+    {
+      "unit": "residents:data/research/residents/pilot_75_cohort.json#people/hail_aifred",
+      "rule": "the_manifest_is_a_reservation_and_not_a_reading",
+      "note": "hail_aifred is a row of the pilot manifest, whose own preamble reads: “T-0442's reproducible 75-person research cohort. This is a sampling manifest, not new evidence about any person.” No findings ledger was ever committed for the pilot, so this reservation has no reading attached to it to spend."
+    },
+    {
+      "unit": "residents:data/research/residents/pilot_75_cohort.json#people/harriet_paddock",
+      "rule": "the_manifest_is_a_reservation_and_not_a_reading",
+      "note": "harriet_paddock is a row of the pilot manifest, whose own preamble reads: “T-0442's reproducible 75-person research cohort. This is a sampling manifest, not new evidence about any person.” No findings ledger was ever committed for the pilot, so this reservation has no reading attached to it to spend."
+    },
+    {
+      "unit": "residents:data/research/residents/pilot_75_cohort.json#people/helen_soren",
+      "rule": "the_manifest_is_a_reservation_and_not_a_reading",
+      "note": "helen_soren is a row of the pilot manifest, whose own preamble reads: “T-0442's reproducible 75-person research cohort. This is a sampling manifest, not new evidence about any person.” No findings ledger was ever committed for the pilot, so this reservation has no reading attached to it to spend."
+    },
+    {
+      "unit": "residents:data/research/residents/pilot_75_cohort.json#people/hoit_thomas",
+      "rule": "the_manifest_is_a_reservation_and_not_a_reading",
+      "note": "hoit_thomas is a row of the pilot manifest, whose own preamble reads: “T-0442's reproducible 75-person research cohort. This is a sampling manifest, not new evidence about any person.” No findings ledger was ever committed for the pilot, so this reservation has no reading attached to it to spend."
+    },
+    {
+      "unit": "residents:data/research/residents/pilot_75_cohort.json#people/holder_jesse",
+      "rule": "the_manifest_is_a_reservation_and_not_a_reading",
+      "note": "holder_jesse is a row of the pilot manifest, whose own preamble reads: “T-0442's reproducible 75-person research cohort. This is a sampling manifest, not new evidence about any person.” No findings ledger was ever committed for the pilot, so this reservation has no reading attached to it to spend."
+    },
+    {
+      "unit": "residents:data/research/residents/pilot_75_cohort.json#people/howley_pierce",
+      "rule": "the_manifest_is_a_reservation_and_not_a_reading",
+      "note": "howley_pierce is a row of the pilot manifest, whose own preamble reads: “T-0442's reproducible 75-person research cohort. This is a sampling manifest, not new evidence about any person.” No findings ledger was ever committed for the pilot, so this reservation has no reading attached to it to spend."
+    },
+    {
+      "unit": "residents:data/research/residents/pilot_75_cohort.json#people/hubbard_gurdon",
+      "rule": "the_manifest_is_a_reservation_and_not_a_reading",
+      "note": "hubbard_gurdon is a row of the pilot manifest, whose own preamble reads: “T-0442's reproducible 75-person research cohort. This is a sampling manifest, not new evidence about any person.” No findings ledger was ever committed for the pilot, so this reservation has no reading attached to it to spend."
+    },
+    {
+      "unit": "residents:data/research/residents/pilot_75_cohort.json#people/king_byram",
+      "rule": "the_manifest_is_a_reservation_and_not_a_reading",
+      "note": "king_byram is a row of the pilot manifest, whose own preamble reads: “T-0442's reproducible 75-person research cohort. This is a sampling manifest, not new evidence about any person.” No findings ledger was ever committed for the pilot, so this reservation has no reading attached to it to spend."
+    },
+    {
+      "unit": "residents:data/research/residents/pilot_75_cohort.json#people/kinsey_joshua",
+      "rule": "the_manifest_is_a_reservation_and_not_a_reading",
+      "note": "kinsey_joshua is a row of the pilot manifest, whose own preamble reads: “T-0442's reproducible 75-person research cohort. This is a sampling manifest, not new evidence about any person.” No findings ledger was ever committed for the pilot, so this reservation has no reading attached to it to spend."
+    },
+    {
+      "unit": "residents:data/research/residents/pilot_75_cohort.json#people/langer_jacob",
+      "rule": "the_manifest_is_a_reservation_and_not_a_reading",
+      "note": "langer_jacob is a row of the pilot manifest, whose own preamble reads: “T-0442's reproducible 75-person research cohort. This is a sampling manifest, not new evidence about any person.” No findings ledger was ever committed for the pilot, so this reservation has no reading attached to it to spend."
+    },
+    {
+      "unit": "residents:data/research/residents/pilot_75_cohort.json#people/lewis_samuel",
+      "rule": "the_manifest_is_a_reservation_and_not_a_reading",
+      "note": "lewis_samuel is a row of the pilot manifest, whose own preamble reads: “T-0442's reproducible 75-person research cohort. This is a sampling manifest, not new evidence about any person.” No findings ledger was ever committed for the pilot, so this reservation has no reading attached to it to spend."
+    },
+    {
+      "unit": "residents:data/research/residents/pilot_75_cohort.json#people/lorenzo_maccoy",
+      "rule": "the_manifest_is_a_reservation_and_not_a_reading",
+      "note": "lorenzo_maccoy is a row of the pilot manifest, whose own preamble reads: “T-0442's reproducible 75-person research cohort. This is a sampling manifest, not new evidence about any person.” No findings ledger was ever committed for the pilot, so this reservation has no reading attached to it to spend."
+    },
+    {
+      "unit": "residents:data/research/residents/pilot_75_cohort.json#people/loring_wm",
+      "rule": "the_manifest_is_a_reservation_and_not_a_reading",
+      "note": "loring_wm is a row of the pilot manifest, whose own preamble reads: “T-0442's reproducible 75-person research cohort. This is a sampling manifest, not new evidence about any person.” No findings ledger was ever committed for the pilot, so this reservation has no reading attached to it to spend."
+    },
+    {
+      "unit": "residents:data/research/residents/pilot_75_cohort.json#people/marshall_j_a",
+      "rule": "the_manifest_is_a_reservation_and_not_a_reading",
+      "note": "marshall_j_a is a row of the pilot manifest, whose own preamble reads: “T-0442's reproducible 75-person research cohort. This is a sampling manifest, not new evidence about any person.” No findings ledger was ever committed for the pilot, so this reservation has no reading attached to it to spend."
+    },
+    {
+      "unit": "residents:data/research/residents/pilot_75_cohort.json#people/mary_nelson",
+      "rule": "the_manifest_is_a_reservation_and_not_a_reading",
+      "note": "mary_nelson is a row of the pilot manifest, whose own preamble reads: “T-0442's reproducible 75-person research cohort. This is a sampling manifest, not new evidence about any person.” No findings ledger was ever committed for the pilot, so this reservation has no reading attached to it to spend."
+    },
+    {
+      "unit": "residents:data/research/residents/pilot_75_cohort.json#people/mcfadden_james",
+      "rule": "the_manifest_is_a_reservation_and_not_a_reading",
+      "note": "mcfadden_james is a row of the pilot manifest, whose own preamble reads: “T-0442's reproducible 75-person research cohort. This is a sampling manifest, not new evidence about any person.” No findings ledger was ever committed for the pilot, so this reservation has no reading attached to it to spend."
+    },
+    {
+      "unit": "residents:data/research/residents/pilot_75_cohort.json#people/moore_henry",
+      "rule": "the_manifest_is_a_reservation_and_not_a_reading",
+      "note": "moore_henry is a row of the pilot manifest, whose own preamble reads: “T-0442's reproducible 75-person research cohort. This is a sampling manifest, not new evidence about any person.” No findings ledger was ever committed for the pilot, so this reservation has no reading attached to it to spend."
+    },
+    {
+      "unit": "residents:data/research/residents/pilot_75_cohort.json#people/morris_b_s",
+      "rule": "the_manifest_is_a_reservation_and_not_a_reading",
+      "note": "morris_b_s is a row of the pilot manifest, whose own preamble reads: “T-0442's reproducible 75-person research cohort. This is a sampling manifest, not new evidence about any person.” No findings ledger was ever committed for the pilot, so this reservation has no reading attached to it to spend."
+    },
+    {
+      "unit": "residents:data/research/residents/pilot_75_cohort.json#people/musgrave_john",
+      "rule": "the_manifest_is_a_reservation_and_not_a_reading",
+      "note": "musgrave_john is a row of the pilot manifest, whose own preamble reads: “T-0442's reproducible 75-person research cohort. This is a sampling manifest, not new evidence about any person.” No findings ledger was ever committed for the pilot, so this reservation has no reading attached to it to spend."
+    },
+    {
+      "unit": "residents:data/research/residents/pilot_75_cohort.json#people/mvaughton_angus",
+      "rule": "the_manifest_is_a_reservation_and_not_a_reading",
+      "note": "mvaughton_angus is a row of the pilot manifest, whose own preamble reads: “T-0442's reproducible 75-person research cohort. This is a sampling manifest, not new evidence about any person.” No findings ledger was ever committed for the pilot, so this reservation has no reading attached to it to spend."
+    },
+    {
+      "unit": "residents:data/research/residents/pilot_75_cohort.json#people/oakley_benjamin_w",
+      "rule": "the_manifest_is_a_reservation_and_not_a_reading",
+      "note": "oakley_benjamin_w is a row of the pilot manifest, whose own preamble reads: “T-0442's reproducible 75-person research cohort. This is a sampling manifest, not new evidence about any person.” No findings ledger was ever committed for the pilot, so this reservation has no reading attached to it to spend."
+    },
+    {
+      "unit": "residents:data/research/residents/pilot_75_cohort.json#people/ostrander_catherine",
+      "rule": "the_manifest_is_a_reservation_and_not_a_reading",
+      "note": "ostrander_catherine is a row of the pilot manifest, whose own preamble reads: “T-0442's reproducible 75-person research cohort. This is a sampling manifest, not new evidence about any person.” No findings ledger was ever committed for the pilot, so this reservation has no reading attached to it to spend."
+    },
+    {
+      "unit": "residents:data/research/residents/pilot_75_cohort.json#people/preston_stephen_ii",
+      "rule": "the_manifest_is_a_reservation_and_not_a_reading",
+      "note": "preston_stephen_ii is a row of the pilot manifest, whose own preamble reads: “T-0442's reproducible 75-person research cohort. This is a sampling manifest, not new evidence about any person.” No findings ledger was ever committed for the pilot, so this reservation has no reading attached to it to spend."
+    },
+    {
+      "unit": "residents:data/research/residents/pilot_75_cohort.json#people/renwick_theophilus",
+      "rule": "the_manifest_is_a_reservation_and_not_a_reading",
+      "note": "renwick_theophilus is a row of the pilot manifest, whose own preamble reads: “T-0442's reproducible 75-person research cohort. This is a sampling manifest, not new evidence about any person.” No findings ledger was ever committed for the pilot, so this reservation has no reading attached to it to spend."
+    },
+    {
+      "unit": "residents:data/research/residents/pilot_75_cohort.json#people/sabine_wm",
+      "rule": "the_manifest_is_a_reservation_and_not_a_reading",
+      "note": "sabine_wm is a row of the pilot manifest, whose own preamble reads: “T-0442's reproducible 75-person research cohort. This is a sampling manifest, not new evidence about any person.” No findings ledger was ever committed for the pilot, so this reservation has no reading attached to it to spend."
+    },
+    {
+      "unit": "residents:data/research/residents/pilot_75_cohort.json#people/saunders_william_s",
+      "rule": "the_manifest_is_a_reservation_and_not_a_reading",
+      "note": "saunders_william_s is a row of the pilot manifest, whose own preamble reads: “T-0442's reproducible 75-person research cohort. This is a sampling manifest, not new evidence about any person.” No findings ledger was ever committed for the pilot, so this reservation has no reading attached to it to spend."
+    },
+    {
+      "unit": "residents:data/research/residents/pilot_75_cohort.json#people/sherman_h",
+      "rule": "the_manifest_is_a_reservation_and_not_a_reading",
+      "note": "sherman_h is a row of the pilot manifest, whose own preamble reads: “T-0442's reproducible 75-person research cohort. This is a sampling manifest, not new evidence about any person.” No findings ledger was ever committed for the pilot, so this reservation has no reading attached to it to spend."
+    },
+    {
+      "unit": "residents:data/research/residents/pilot_75_cohort.json#people/spalding_franklin",
+      "rule": "the_manifest_is_a_reservation_and_not_a_reading",
+      "note": "spalding_franklin is a row of the pilot manifest, whose own preamble reads: “T-0442's reproducible 75-person research cohort. This is a sampling manifest, not new evidence about any person.” No findings ledger was ever committed for the pilot, so this reservation has no reading attached to it to spend."
+    },
+    {
+      "unit": "residents:data/research/residents/pilot_75_cohort.json#people/starkweather_robt",
+      "rule": "the_manifest_is_a_reservation_and_not_a_reading",
+      "note": "starkweather_robt is a row of the pilot manifest, whose own preamble reads: “T-0442's reproducible 75-person research cohort. This is a sampling manifest, not new evidence about any person.” No findings ledger was ever committed for the pilot, so this reservation has no reading attached to it to spend."
+    },
+    {
+      "unit": "residents:data/research/residents/pilot_75_cohort.json#people/stephens_s",
+      "rule": "the_manifest_is_a_reservation_and_not_a_reading",
+      "note": "stephens_s is a row of the pilot manifest, whose own preamble reads: “T-0442's reproducible 75-person research cohort. This is a sampling manifest, not new evidence about any person.” No findings ledger was ever committed for the pilot, so this reservation has no reading attached to it to spend."
+    },
+    {
+      "unit": "residents:data/research/residents/pilot_75_cohort.json#people/stewart_r",
+      "rule": "the_manifest_is_a_reservation_and_not_a_reading",
+      "note": "stewart_r is a row of the pilot manifest, whose own preamble reads: “T-0442's reproducible 75-person research cohort. This is a sampling manifest, not new evidence about any person.” No findings ledger was ever committed for the pilot, so this reservation has no reading attached to it to spend."
+    },
+    {
+      "unit": "residents:data/research/residents/pilot_75_cohort.json#people/stuart_samuel",
+      "rule": "the_manifest_is_a_reservation_and_not_a_reading",
+      "note": "stuart_samuel is a row of the pilot manifest, whose own preamble reads: “T-0442's reproducible 75-person research cohort. This is a sampling manifest, not new evidence about any person.” No findings ledger was ever committed for the pilot, so this reservation has no reading attached to it to spend."
+    },
+    {
+      "unit": "residents:data/research/residents/pilot_75_cohort.json#people/sunny_miches",
+      "rule": "the_manifest_is_a_reservation_and_not_a_reading",
+      "note": "sunny_miches is a row of the pilot manifest, whose own preamble reads: “T-0442's reproducible 75-person research cohort. This is a sampling manifest, not new evidence about any person.” No findings ledger was ever committed for the pilot, so this reservation has no reading attached to it to spend."
+    },
+    {
+      "unit": "residents:data/research/residents/pilot_75_cohort.json#people/thrall_e_l",
+      "rule": "the_manifest_is_a_reservation_and_not_a_reading",
+      "note": "thrall_e_l is a row of the pilot manifest, whose own preamble reads: “T-0442's reproducible 75-person research cohort. This is a sampling manifest, not new evidence about any person.” No findings ledger was ever committed for the pilot, so this reservation has no reading attached to it to spend."
+    },
+    {
+      "unit": "residents:data/research/residents/pilot_75_cohort.json#people/torry_d_v_s",
+      "rule": "the_manifest_is_a_reservation_and_not_a_reading",
+      "note": "torry_d_v_s is a row of the pilot manifest, whose own preamble reads: “T-0442's reproducible 75-person research cohort. This is a sampling manifest, not new evidence about any person.” No findings ledger was ever committed for the pilot, so this reservation has no reading attached to it to spend."
+    },
+    {
+      "unit": "residents:data/research/residents/pilot_75_cohort.json#people/vanderbogart_h",
+      "rule": "the_manifest_is_a_reservation_and_not_a_reading",
+      "note": "vanderbogart_h is a row of the pilot manifest, whose own preamble reads: “T-0442's reproducible 75-person research cohort. This is a sampling manifest, not new evidence about any person.” No findings ledger was ever committed for the pilot, so this reservation has no reading attached to it to spend."
+    },
+    {
+      "unit": "residents:data/research/residents/pilot_75_cohort.json#people/vaughan_alanson_b",
+      "rule": "the_manifest_is_a_reservation_and_not_a_reading",
+      "note": "vaughan_alanson_b is a row of the pilot manifest, whose own preamble reads: “T-0442's reproducible 75-person research cohort. This is a sampling manifest, not new evidence about any person.” No findings ledger was ever committed for the pilot, so this reservation has no reading attached to it to spend."
+    },
+    {
+      "unit": "residents:data/research/residents/pilot_75_cohort.json#people/vyekoff_henry_s",
+      "rule": "the_manifest_is_a_reservation_and_not_a_reading",
+      "note": "vyekoff_henry_s is a row of the pilot manifest, whose own preamble reads: “T-0442's reproducible 75-person research cohort. This is a sampling manifest, not new evidence about any person.” No findings ledger was ever committed for the pilot, so this reservation has no reading attached to it to spend."
+    },
+    {
+      "unit": "residents:data/research/residents/pilot_75_cohort.json#people/westover_roy_k",
+      "rule": "the_manifest_is_a_reservation_and_not_a_reading",
+      "note": "westover_roy_k is a row of the pilot manifest, whose own preamble reads: “T-0442's reproducible 75-person research cohort. This is a sampling manifest, not new evidence about any person.” No findings ledger was ever committed for the pilot, so this reservation has no reading attached to it to spend."
+    },
+    {
+      "unit": "residents:data/research/residents/pilot_75_cohort.json#people/win_payne",
+      "rule": "the_manifest_is_a_reservation_and_not_a_reading",
+      "note": "win_payne is a row of the pilot manifest, whose own preamble reads: “T-0442's reproducible 75-person research cohort. This is a sampling manifest, not new evidence about any person.” No findings ledger was ever committed for the pilot, so this reservation has no reading attached to it to spend."
+    }
+  ]
+}

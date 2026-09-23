@@ -1,0 +1,23 @@
+{
+ "id": "habs_kimball_house_il_1077",
+ "type": "article",
+ "citation": "Historic American Buildings Survey. W. W. Kimball House, 1801 South Prairie Avenue, Chicago, Cook County, IL. HABS IL-1077 (HABS ILL,16-CHIG,75-). Documentation compiled after 1933; historians Wesley Shank and Leland Roth. Washington, D.C.: Library of Congress, Prints and Photographs Division.",
+ "author": "Historic American Buildings Survey; Wesley Shank and Leland Roth, historians",
+ "date": "compiled after 1933",
+ "repository": "Library of Congress, Prints and Photographs Division (HABS/HAER/HALS collection)",
+ "url": "https://www.loc.gov/item/il0136/",
+ "locator": "HABS IL-1077, survey record item il0136, read from https://www.loc.gov/item/il0136/?fo=json on 2026-09-17. 3 photographs, 6 data pages; the data pages themselves were NOT read.",
+ "tier": 4,
+ "rights_status": "no_known_restrictions",
+ "rights_note": "LOC rights advisory: \"No known restrictions on images made by the U.S. Government; images copied from other sources may be restricted.\"",
+ "asset_use": "text_only",
+ "verified": true,
+ "what_it_supplies": [
+  "that the Kimball House at 1801 South Prairie Avenue was designed by Solon S. Beman for the founder of the Kimball Piano Company, and that it is one of the few residences of the avenue still standing when the survey was made"
+ ],
+ "what_it_does_not_supply": [
+  "A CONSTRUCTION DATE. This record was opened specifically to date the house and it carries no `Building/structure dates` note and no date in its significance statement.",
+  "any position, footprint or dimension; nothing is traced from it"
+ ],
+ "note": "THIS RECORD IS COMMITTED BECAUSE OF WHAT IT DOES NOT SAY. The Kimball House is the one Prairie Avenue landmark whose commonly repeated construction dates (1890-1892) would fall OUTSIDE the 1880s window T-0473 asks a scene date to sit in, so it is the reading that would have decided the ticket if it existed. It does not exist in this record: HABS IL-1077 dates the house nowhere. The 1890-1892 figure is therefore NOT asserted anywhere in this project, and data/terrain/1880s_scene_date_constraints.json carries this source as a reading that supplies no constraint, so that the next run does not repeat the retrieval and reach for a number off the open web instead. A ticket wanting the Kimball House in an 1880s scene has to date it from a source that states a date."
+}

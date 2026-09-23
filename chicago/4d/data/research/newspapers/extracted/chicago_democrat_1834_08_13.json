@@ -1,0 +1,1249 @@
+{
+  "schema": 1,
+  "issue_id": "chicago_democrat_1834_08_13",
+  "extracted": "2026-08-28",
+  "extracted_by": "hand, T-0290 — the Democrat read, August 1834",
+  "note": "Vol. I No. 37, AND THE RICHEST ISSUE IN THE AUGUST RUN. The town news is NOT on page 3 this week: page 2 columns 5 and 6 carry the local editorial matter, and it holds the month's three biggest claims — the five men elected trustees of the town, the North Pier being pushed across the sand-bar by about a hundred hands under Lieut. Allen, and the town's own count of itself at 'over two thousand five hundred' people. Page 3 column 3 is the Tesseract fallback and is the CLEANEST text in the whole corpus so far, which is why the Marsh & Simons dissolution, the mechanic's lien on Lot 3 Block 111, Beaubien's administrator notice, the Briggs & Humphrey carriage shop on Randolph street and Botsford's factory at Lake and Dearborn are all readable almost without supply. Page 2 columns 5 and 6 are woven line by line as two sub-columns of one printed column, so each claim there names only its own lines and its bracketed supplies are read off the tails in the other column, line by line, with the lines named in the notes.",
+  "claims": [
+    {
+      "kind": "event",
+      "normalized": "M[e]ssrs. John H. Kinzie, G[ordon S. Hub]bard, J. K. Boyer, Ebenezer G[oodrich and J.] S. C. Hogan, were elected T[rustees of this] Town, for the term of one year[, at an election] held on Monday last.",
+      "locator": {
+        "artifact_role": "primary",
+        "issue_page": 2,
+        "column": 5,
+        "lines": [
+          2178,
+          2185
+        ],
+        "lines_of_claim": [
+          2178,
+          2180,
+          2182,
+          2184,
+          2185
+        ],
+        "interleaved": true
+      },
+      "entities": [
+        {
+          "as_printed": "Meers. John H. Kinzie, G",
+          "normalized": "John H. Kinzie",
+          "role": "town trustee",
+          "occupations": [
+            "merchant"
+          ],
+          "associated_places": [
+            "Chicago"
+          ]
+        },
+        {
+          "as_printed": "bard, J. K. Boyer, Ebenezer G",
+          "normalized": "Gordon S. Hubbard",
+          "role": "town trustee",
+          "occupations": [
+            "merchant"
+          ],
+          "associated_places": [
+            "Chicago"
+          ]
+        },
+        {
+          "as_printed": "J. K. Boyer",
+          "normalized": "J. K. Boyer",
+          "role": "town trustee",
+          "associated_places": [
+            "Chicago"
+          ]
+        },
+        {
+          "as_printed": "Ebenezer G",
+          "normalized": "Ebenezer Goodrich",
+          "role": "town trustee",
+          "associated_places": [
+            "Chicago"
+          ]
+        },
+        {
+          "as_printed": "S. C. Hogan, were elected T",
+          "normalized": "John S. C. Hogan",
+          "role": "town trustee",
+          "occupations": [
+            "postmaster",
+            "merchant"
+          ],
+          "associated_places": [
+            "South Water Street",
+            "Chicago"
+          ]
+        }
+      ],
+      "notes": "THE FIVE MEN WHO GOVERNED THIS TOWN IN THE YEAR BEFORE THE SCENE DATE, named in one sentence: John H. Kinzie, Gordon S. Hubbard, J. K. Boyer, Ebenezer Goodrich and John S. C. Hogan, elected trustees for one year on Monday 11 August 1834. Four of the five already stand in this reconstruction as merchants or as the postmaster; this is the claim that says they were also the board that passed the ordinances printed on page 4 of the same run — the South Water Street graduation (1834-07-30, claim c001 there) and the revenue ordinance are the acts of this body. THE PARAGRAPH IS CUT DOWN ITS RIGHT EDGE and its tails are in the NEXT segmenter column: 'rdon S. Hub-' (line 2400), 'oodrich and J.' (2402), 'ustees of thie' (2404) and 'at an election' (2406). Every bracketed supply above is read off those four lines and nothing else. THE FORENAME 'Gordon' AND THE SURNAME 'Goodrich' ARE SUPPLIED THAT WAY and are therefore readings, not certainties — but both men are documented in this town by other sources, and no other Hub- or G- name in the corpus fits the letters that survive.",
+      "reading": "transcription_mediated",
+      "id": "c001",
+      "quote": "Meers. John H. Kinzie, G\nbard, J. K. Boyer, Ebenezer G\nS. C. Hogan, were elected T\nTown, for the term of one year\nheld on Monday last."
+    },
+    {
+      "kind": "infrastructure",
+      "normalized": "Chicago Harbor — Th[e work is now in ra]pid progress, and never ha[s it before present]ed so b[us]y and active a s[cene as at the pres]ent [time. About one hundred] hands are em[ployed] upon th[is] work, an[d many] more are still wan[ted]. The North Pier is [gradually extending in]to the Lake, and [s]o soon a[s it shall be exten]ded across the sand-bar, [lying opposite the] mouth of the river, so th[at the channel shall] be protected from the No[rth East winds, we] may soon expect to find it [of sufficient depth] to admit ve[ss]els of the la[rger class into the] […] Under it[s] present v[ery active and effi]cient superintendent, Lieu[t. J. Allen, much] […] may be expected this seaso[n]",
+      "locator": {
+        "artifact_role": "primary",
+        "issue_page": 2,
+        "column": 5,
+        "lines": [
+          2061,
+          2092
+        ],
+        "lines_of_claim": [
+          2061,
+          2063,
+          2065,
+          2070,
+          2072,
+          2076,
+          2078,
+          2079,
+          2081,
+          2083,
+          2084,
+          2086,
+          2088,
+          2090,
+          2092
+        ],
+        "interleaved": true
+      },
+      "entities": [
+        {
+          "as_printed": "cient superintendent, Lieu",
+          "normalized": "Lieut. James Allen",
+          "role": "superintendent of the harbor works",
+          "occupations": [
+            "army officer",
+            "engineer"
+          ],
+          "associated_places": [
+            "Chicago"
+          ]
+        }
+      ],
+      "notes": "THE MOST CONSEQUENTIAL CLAIM IN THE AUGUST RUN, AND IT IS ABOUT THE GROUND ITSELF: in August 1834 the North Pier is being pushed out into the lake, across the sand-bar that lay opposite the river's mouth, by about a hundred hands under an army lieutenant — and MORE HANDS ARE STILL WANTED. What the town expected from it is stated in the same sentence: a channel protected from the north-east winds, of sufficient depth to admit vessels of the larger class INTO THE RIVER. The schooner Illinois had cut the bar in July 1834 and this is the work that kept it open. THE PARAGRAPH IS WOVEN LINE BY LINE with a recipe for glue and a note about a damaged steamboat, so `lines_of_claim` names only the fifteen lines that carry the harbor and five ambiguous single-word lines in the range ('Com-', 'ted.', 'Titer.', 'omplete.') are LEFT OUT rather than assigned by guess. EVERY BRACKETED SUPPLY IS READ OFF THE RIGHT-HAND TAILS IN SEGMENTER COLUMN 6 of the same page — 'work is now in ra-' (2273), 's it before present-' (2275), 'eue as at the pres-' (2277), 'fred bands are em-' (2279), 'I more are still wan-' (2281), 'it shall be exten.' (2283), 'pully extending in-' (2284), 'ying opposite the' (2287), 'the channel shall' (2289), 'th Enst winds, we' (2290), 'of sufficient depth' (2293), 'ger class into the' (2295), 'ery active and effi-' (2297), 'J. ALtes, much' (2299) — and the two halves agree line for line, which is what makes the reading a reconstruction rather than a guess. THE SUPERINTENDENT'S NAME reaches us as 'J. ALtes' in that tail; Lieut. James Allen of the U. S. Army commanded the Chicago harbor works in 1834, and the initial and the letter-shapes support it. The same officer is claimed on 1834-07-09 (claim c015 there) as '[uncertain: Lt. Allen]'; this is the second witness.",
+      "reading": "transcription_mediated",
+      "id": "c002",
+      "quote": "Chicago Harbor -Th\npid progress, and never ha\ned so brey and active a so\nployed apon thin work, an\nAbout ane his\nThe North Pier is r\nto the Lake, and ao soon a\nded across the sand-bar, 1\nmouth of the river, so the\nbe protected from the No\nmay soon expect to find it\nto admit veesels of the la\nUnder ite present v\ncient superintendent, Lieu\nmay be expected this seaso"
+    },
+    {
+      "kind": "event",
+      "normalized": "Mails. — The apathy pre[vailing on this sub]ject among our citizens, in a [town of] a population of over two t[housand five hun]dred, dependent upon the [mail carried to this] town; with the business tr[ansacted, equal to] [s]ome places where a semi-d[aily mail is requir]ed; with a garrison of troop[s]; with important public works in progress; [w]ith an Indian A[gency], through whom the [Government are] now negotiating the ratific[ation of a treaty] […] with all the[s]e, that the peo[ple …] Gover[n]ment, should feel suc[h indifference on] the subject of a more freque[nt] […] communication between th[e East and the] West, is truly a matter of [astonishment.] Were the want[s] of the citize[ns …] [pre]sented to the P. M. General […] and [im]pression made upon th[em] […] confident that this state of thi[ngs …]",
+      "locator": {
+        "artifact_role": "primary",
+        "issue_page": 2,
+        "column": 5,
+        "lines": [
+          2096,
+          2134
+        ],
+        "lines_of_claim": [
+          2096,
+          2098,
+          2101,
+          2102,
+          2105,
+          2107,
+          2109,
+          2112,
+          2115,
+          2116,
+          2118,
+          2120,
+          2122,
+          2124,
+          2125,
+          2127,
+          2129,
+          2132,
+          2134
+        ],
+        "interleaved": true
+      },
+      "entities": [],
+      "notes": "THE TOWN COUNTS ITSELF, IN PASSING, WHILE COMPLAINING ABOUT THE POST. 'A population of over two thousand five hundred' is the Democrat's own figure for Chicago in August 1834 — eleven months before the scene date, for which this project carries about 3,265 (docs/LIBERTIES.md L1) — and it is stated as an argument for a more frequent mail rather than as a census, which is worth knowing about it. THE SAME SENTENCE INVENTORIES THE TOWN as its editor saw it: a garrison of troops, important public works in progress (the harbor, claim c002), and an Indian Agency through which the Government was then negotiating the ratification of a treaty (claim c019). THE FIGURE IS SPLIT ACROSS TWO SEGMENTER COLUMNS: 'a population of over two t' ends line 2101 here and 'housand five hun-' is line 2309 in column 6, with 'dred, dependent upon the' resuming at line 2102. The join is what makes the number readable at all, and it is bracketed as a supply. THE OTHER TAILS used above are at 2315, 2318, 2320, 2322, 2325, 2327, 2329, 2337, 2339 and 2342 in column 6.",
+      "reading": "transcription_mediated",
+      "id": "c003",
+      "quote": "Mails. —The apathy pre\njeet among our citizens, in a\na population of over two t\ndred, dependent upon the\ntown; with the business tr\nHome places where a semi-d\ned; with a garrison of troop\npublic works in progress;\ngency, through whom the\nnow negotiating the ratific\nwith all theee, that the peo\nGorerument, should feel suc\nthe subject of a more freque\ncommunication between th\nWest, is truly a matter of\nWere the wante of the citize\nsented to the P. M. General\nand expression made upon th\nconfident that this state of thi"
+    },
+    {
+      "kind": "event",
+      "normalized": "Cholera. — Accounts from [the] South, are that the Cholera had in a great m[e]asure subsid[ed …] from the East, state that the [disease …] made its appearance in a nu[mber of the East]ern towns, and was r[a]ging t[o a great extent] at Quebec. Report also stat[es …] is a fact, that it had made it[s appearance at] Detroit, and that three cases […] Thus far this dreadful s[c]ourge [has not made] its app[e]arance in this town. [Reports are fre]quently circulated that our to[wn is unhealthy] &c. &c. We have resided h[ere for the last] ten months and during that [time not more] than twelve d[ea]th[s] have [occurred. Of this] number two or three were chil[dren, one died] of old age, and another of consu[mption, the re]mainder of different diseases, [common to all] countries. For health we wo[uld challenge a] parallel with a population of t[wo thousand]",
+      "locator": {
+        "artifact_role": "primary",
+        "issue_page": 2,
+        "column": 5,
+        "lines": [
+          2136,
+          2176
+        ],
+        "lines_of_claim": [
+          2136,
+          2138,
+          2141,
+          2143,
+          2145,
+          2147,
+          2149,
+          2150,
+          2152,
+          2153,
+          2155,
+          2157,
+          2159,
+          2161,
+          2163,
+          2165,
+          2167,
+          2168,
+          2171,
+          2173,
+          2174,
+          2176
+        ],
+        "interleaved": true
+      },
+      "entities": [],
+      "notes": "A MORTALITY FIGURE FOR THIS TOWN, PRINTED BY A MAN DEFENDING IT: twelve deaths in ten months, two or three of them children, one of old age and one of consumption, in a place of over two thousand people — offered against the reports 'frequently circulated that our town is unhealthy'. It is the editor's arithmetic and not a bill of mortality, and the claim records it as such. THE CHOLERA IS THE REASON THE SUBJECT IS LIVE: the 1832 epidemic had come to Fort Dearborn with Scott's troops, and this notice is tracking it back up the lakes — subsiding in the South, appearing in the eastern towns, raging at Quebec, and reported at Detroit with three cases. It had not reached Chicago in August 1834. TWO LINES OF THE QUOTE CARRY BOTH COLUMNS AT ONCE ('of the Des old age, and another of consu' at 2168, 'half mainder of different diseases,' at 2171) because the segmenter merged the two sub-columns on those rows; they are quoted verbatim, with the foreign words left standing, and unshuffled only in the normalized reading.",
+      "reading": "transcription_mediated",
+      "id": "c004",
+      "quote": "Cholera.—Accounts from\nSouth, are that the Cholera\nhad in a great mensure subsid\nfrom the East, state that the t\nmade its appearance in a nutr\nern towns, and was roging t\nat Quebec.\nReport also stat\nis a fact, that it had made it\nDetroit, and that three cases\nThus far this dreadful seourge\nits appenrance in this town.\nquently circulated that our to\n&c. Bic. We have resided h\nten months and during that\nthan twelve desthe have\nnumber two or three were chil\nof the Des old age, and another of consu\nhalf mainder of different diseases,\ncountries.\nFor health we wol\nparallel with a population of t"
+    },
+    {
+      "kind": "event",
+      "normalized": "The following is the […] the different Precincts o[f this county] […] Jos[e]ph Duncan, […] [and] William Kinne[y] / R. K. M'Laughlin, […] James Evan[s] / For Lieut. [Governor: Alexander] M. Jenk[ins] / William B. Archer, / [For] Representat[ive to Congress:] William L. May, / Benj[a]min Mills, / For Senator to the [General Assembly:] James W. Stephens[on] / *Augustus Langwo[rthy] / For [Representative to the General Assembly:] Edmund S. Kimberl[y] / John Hamlin / Nehemiah King, / [For Sheriff:] Silas W. Sher[m]an / James W. Reed / Russel E. Heacock, / George W. Snow / John Shrigley / [uncertain: K.] Brownson, / For County Co[mmissioners:] [E]dward E. Hunter, / Isaac Scarret / James Kinzie / Stephen M. [Sa]lsbury",
+      "locator": {
+        "artifact_role": "primary",
+        "issue_page": 2,
+        "column": 5,
+        "lines": [
+          1966,
+          2037
+        ],
+        "lines_of_claim": [
+          1966,
+          1968,
+          1971,
+          1974,
+          1975,
+          1979,
+          1980,
+          1981,
+          1983,
+          1985,
+          1987,
+          1988,
+          1990,
+          1993,
+          1994,
+          1996,
+          1998,
+          1999,
+          2000,
+          2001,
+          2004,
+          2006,
+          2010,
+          2011,
+          2015,
+          2016,
+          2019,
+          2022,
+          2025,
+          2030,
+          2033,
+          2034,
+          2037
+        ],
+        "interleaved": true
+      },
+      "entities": [
+        {
+          "as_printed": "Silas W. Sherinan",
+          "normalized": "Silas W. Sherman",
+          "role": "candidate for Sheriff",
+          "associated_places": [
+            "Cook County"
+          ]
+        },
+        {
+          "as_printed": "James W. Reed",
+          "normalized": "James W. Reed",
+          "role": "candidate for Sheriff",
+          "associated_places": [
+            "Cook County"
+          ]
+        },
+        {
+          "as_printed": "Russel E. Heacock,",
+          "normalized": "Russel E. Heacock",
+          "role": "candidate for Sheriff",
+          "occupations": [
+            "attorney"
+          ],
+          "associated_places": [
+            "Chicago"
+          ]
+        },
+        {
+          "as_printed": "George W. Snow",
+          "normalized": "George W. Snow",
+          "role": "candidate for Sheriff",
+          "occupations": [
+            "builder"
+          ],
+          "associated_places": [
+            "Chicago"
+          ]
+        },
+        {
+          "as_printed": "John Shrigley",
+          "normalized": "John Shrigley",
+          "role": "candidate for Sheriff",
+          "associated_places": [
+            "Cook County"
+          ]
+        },
+        {
+          "as_printed": "Isaac Scarret",
+          "normalized": "Isaac Scarrett",
+          "role": "candidate for County Commissioner",
+          "associated_places": [
+            "Cook County"
+          ]
+        },
+        {
+          "as_printed": "dward E. Hunter,",
+          "normalized": "Edward E. Hunter",
+          "role": "candidate for County Commissioner",
+          "associated_places": [
+            "Cook County"
+          ]
+        },
+        {
+          "as_printed": "James Kinzie",
+          "normalized": "James Kinzie",
+          "role": "candidate for County Commissioner",
+          "occupations": [
+            "merchant",
+            "tavern keeper"
+          ],
+          "associated_places": [
+            "Chicago"
+          ]
+        },
+        {
+          "as_printed": "Stephen M. Balsbury",
+          "normalized": "Stephen M. Salsbury",
+          "role": "candidate for County Commissioner",
+          "associated_places": [
+            "Cook County"
+          ]
+        },
+        {
+          "as_printed": "Edmund S. Kimberl",
+          "normalized": "Edmund S. Kimberly",
+          "role": "candidate for Representative to the General Assembly",
+          "occupations": [
+            "physician"
+          ],
+          "associated_places": [
+            "Chicago"
+          ]
+        },
+        {
+          "as_printed": "James W. Stephens",
+          "normalized": "James W. Stephenson",
+          "role": "candidate for State Senator",
+          "associated_places": [
+            "Cook County"
+          ]
+        },
+        {
+          "as_printed": "Nehemiah King,",
+          "normalized": "Nehemiah King",
+          "role": "candidate for Representative to the General Assembly",
+          "associated_places": [
+            "Cook County"
+          ]
+        }
+      ],
+      "notes": "THE WHOLE SLATE, PRINTED WHOLE — which is what makes the cut printing of 1834-08-06 (claim c001 there) readable, and every forename bracketed in that claim is read off these lines. FOR THIS RECONSTRUCTION THE SHERIFF'S COLUMN IS THE INTERESTING ONE: Russel E. Heacock, this town's first resident lawyer, and George W. Snow, the surveyor and lumber dealer to whom the balloon frame is usually credited, both stood for county sheriff in 1834 — two men whose buildings and trades this project already carries, in a list of six candidates for one office. THE COLUMN IS WOVEN with a comic essay about hot weather, so the slate arrives one name per two lines and the office headings survive as 'For Lieut.', 'For', 'Senator to the', 'For County Co'. Names are minted here ONLY where the line carries the name whole; 'M. Jenk', 'William L.' and '[uncertain: K.] Brownson' are read in the normalized text and left out of the entity list.",
+      "reading": "transcription_mediated",
+      "id": "c005",
+      "quote": "The following is the\nthe different Precincts o\nJosoph Duncan,\nWilliam Kinne\nR. K. M' Laughlin,\nJames Evan-\nFor Lieut.\nM. Jenk\nWilliam B. Archer,\n• Representat\nWilliam L.\nMay,\nBenjemin Mills,\nFor\nSenator to the\nJames W. Stephens\n*Augustus Langwo\nFor\nEdmund S. Kimberl\nRepresentative to\nJohn Hamlin\nNehemiah King,\nSilas W. Sherinan\nJames W. Reed\nRussel E. Heacock,\nGeorge W. Snow\nJohn Shrigley\nBrownson,\nFor County Co\ndward E. Hunter,\nIsaac Scarret\nJames Kinzie\nStephen M. Balsbury"
+    },
+    {
+      "kind": "shipping",
+      "normalized": "[M]ARINE LIST. PORT OF CHICAGO. ARRIVED. Aug. 6. Schr. Commodore, Culver, Buffalo. / Schr. Lucinda, Hugunin, St. Joseph. / [1]4. [S]loop [D]art, Barna[rd], [Mil]waukee / New York, — lower Lakes / CLEARED. […] 11.",
+      "locator": {
+        "artifact_role": "primary",
+        "issue_page": 3,
+        "column": 2,
+        "lines": [
+          2692,
+          2700
+        ],
+        "lines_of_claim": [
+          2692,
+          2693,
+          2694,
+          2695,
+          2696,
+          2697,
+          2698,
+          2699,
+          2700
+        ],
+        "interleaved": true
+      },
+      "entities": [
+        {
+          "as_printed": "Aug. 6. Schr. Commodore, Culver, Buffalo.",
+          "normalized": "Culver",
+          "role": "master of the schooner Commodore"
+        },
+        {
+          "as_printed": "Schr. Lucinda, Hugunin, St. Joseph.",
+          "normalized": "Hugunin",
+          "role": "master of the schooner Lucinda"
+        }
+      ],
+      "notes": "A SHORT WEEK IN THE HARBOR, AND THE CLEANEST MARINE LIST OF THE MONTH — the segmenter kept the arrivals in reading order, which it does nowhere else in August. The list breaks off mid-column: 'CLEARED.' is printed and its entries are lost with the column's foot. The Lucinda and the Dart are in this port in three of the month's four issues, which is what the packet trade looked like from the pier that was being built at the same moment (claim c002).",
+      "reading": "transcription_mediated",
+      "id": "c006",
+      "quote": "ARINE LIST.\nPORT OF CHICAGO.\nARRIVED.\nAug. 6. Schr. Commodore, Culver, Buffalo.\nSchr. Lucinda, Hugunin, St. Joseph.\n1a. bloop part, barnare, alwaikee\nNew York, — lower Lakes\nCLEARED.\n11."
+    },
+    {
+      "kind": "event",
+      "normalized": "Sale of Town Lots. WIL[L] be sold a[t] Haddock's Man[s]ion-House, in Chica[go, on the] [1]5th inst. from 2 to […] [a] number of which lay on the south Branch of th[e Ch]icago rive[r], [between] Jackson and Pearsons-streets […] [1-4 cash, 1-4 sixty] days, 1-2 in 12 months with int[erest at] 10 pr. ct. […] Also. Blocks in School Section Nos. 123, 13[?], 125, 136, 126, 127 and 91; [a]l[s]o, lot 4 and 5, in block 141. […] [Terms] made [uncertain: kuown] at the [uncertain: Sae.] SALE POSIT[IVE.] BATES, jr. AUC[TIONEE]R. Aug. 13, 1834.",
+      "locator": {
+        "artifact_role": "primary",
+        "issue_page": 3,
+        "column": 2,
+        "lines": [
+          2701,
+          2722
+        ],
+        "lines_of_claim": [
+          2701,
+          2702,
+          2703,
+          2704,
+          2705,
+          2706,
+          2707,
+          2708,
+          2709,
+          2710,
+          2711,
+          2712,
+          2713,
+          2714,
+          2715,
+          2716,
+          2717,
+          2718,
+          2719,
+          2720,
+          2721,
+          2722
+        ],
+        "interleaved": true
+      },
+      "ad_copy_date": {
+        "verbatim": "Aug. 13, 1834.",
+        "iso": "1834-08-13"
+      },
+      "entities": [
+        {
+          "as_printed": "SALE POSITY BATES, jr. AuCr",
+          "normalized": "J. Bates, jr.",
+          "role": "auctioneer",
+          "occupations": [
+            "auctioneer"
+          ],
+          "associated_places": [
+            "Chicago"
+          ]
+        }
+      ],
+      "notes": "A LAND SALE THAT NAMES FOUR THINGS THIS PROJECT CAN STAND ON: the venue (Haddock's Mansion-House, the town's principal tavern and its polling place), the ground (lots on the SOUTH BRANCH of the Chicago river, between Jackson and Pearsons streets), the school-section blocks by number (123, 125, 126, 127, 91 and one cut number), and two numbered lots in block 141. THE TERMS ARE PRINTED TOO — a quarter down, a quarter at sixty days, half at twelve months with ten per cent — which is the credit a Chicago lot was bought on in 1834. 'PEARSONS STREET' is not a street name this town kept; it is read here exactly as printed and left unresolved. THE SALE IS POSITIVE, that is, without reserve, and the auctioneer is J. Bates jr., whose auction store on the street to the drawbridge is claimed three times in this corpus.",
+      "reading": "transcription_mediated",
+      "id": "c007",
+      "quote": "Sale of Town\nLots.\nWILl. be\nHaddock's Mar\nsold a\nsion-House, in Chica\n5hih inat. trom 25t0\nnumber of which lay on the south Branch of th\nJackson and Fearsons-streets\ndays. 1-2 in 12 months with int. 10 pr. ct.\n-ricago riser\n1-4 sixty\n125, 136, 126\nAlso. Blocks in School Section Nos. 123, 13\n5, in block 141.\n, 127 and 91; siso, lot 4 and\nmade\n[uncertain: kuown]\nat the\n[uncertain: Sae.]\nSALE POSITY BATES, jr. AuCr\nAug. 13, 1834."
+    },
+    {
+      "kind": "notice",
+      "contradicts": true,
+      "normalized": "[Dissolution. The] co-partnership heretofore existing [be]tween the undersigned, under th[e] firn [of] Marsh & Simons, is this day dissolved by m[utua]l consent. All demands against and for [the] firm, will be settled by E. Simons, who is d[uly] authorized to settle the same. SILVESTER MARSH / EDWARD SIMONS. Chicago, Aug. 6, 1834.",
+      "locator": {
+        "artifact_role": "primary",
+        "issue_page": 3,
+        "column": 3,
+        "lines": [
+          2727,
+          2735
+        ],
+        "lines_of_claim": [
+          2727,
+          2728,
+          2729,
+          2730,
+          2731,
+          2732,
+          2733,
+          2734,
+          2735
+        ],
+        "interleaved": true
+      },
+      "ad_copy_date": {
+        "verbatim": "Chicago, Aug. 6, 1834. 3",
+        "iso": "1834-08-06"
+      },
+      "entities": [
+        {
+          "as_printed": "SILVESTER MARSH",
+          "normalized": "Silvester Marsh",
+          "role": "partner",
+          "occupations": [
+            "provision dealer"
+          ],
+          "associated_places": [
+            "Chicago"
+          ]
+        },
+        {
+          "as_printed": "EDWARD SIMONS.",
+          "normalized": "Edward Simons",
+          "role": "partner",
+          "occupations": [
+            "provision dealer"
+          ],
+          "associated_places": [
+            "Chicago"
+          ]
+        }
+      ],
+      "business": {
+        "name": "Marsh & Simons",
+        "proprietors": [
+          "Silvester Marsh",
+          "Edward Simons"
+        ],
+        "trade": "provision dealers at the Boston Market",
+        "goods": [],
+        "street": null,
+        "placement": {
+          "class": "none",
+          "anchor": null,
+          "offset_text": null,
+          "street": null
+        }
+      },
+      "notes": "RULING 3'S VETO, IN THE FORM THE RULING NAMES: a dissolution notice, signed by both partners, dated in this town. Marsh & Simons is dissolved on 6 August 1834 and therefore does NOT stand in the 1835 town — `contradicts` is set on this claim so the compiler computes it rather than an author asserting it. WHAT SURVIVES THE FIRM IS THE PLACE: Edward Simons goes on supplying the town at the Boston Market (claim c009), which is how a business that ends leaves a building behind. SILVESTER MARSH is the same man who later built the Mount Washington Cog Railway and made a fortune in Chicago packing; this is him at the very beginning, dissolving a market stall partnership. The column is the Tesseract fallback and is the cleanest text in the issue, so this claim needs almost no supply.",
+      "reading": "transcription_mediated",
+      "id": "c008",
+      "quote": "m. 4 ae ¢o-partnership heretofore existing\ntween the undersigned, under tho firn\nMarsh & Simons, is this day dissolved by m\nd,|al consent. All demands against and for:\nes| firm, will be settled by E. Simons, who is d\nhe | SUthorized to settle the same.\n7 SILVESTER MARSH\n: EDWARD SIMONS.\ner} Chicago, Aug. 6, 1834. 3"
+    },
+    {
+      "kind": "business",
+      "normalized": "[E.] Simo[n]s, Will continue to [s]upply the citizens of t[his] town, as usual, at the Boston Market.",
+      "locator": {
+        "artifact_role": "primary",
+        "issue_page": 3,
+        "column": 3,
+        "lines": [
+          2736,
+          2739
+        ],
+        "lines_of_claim": [
+          2736,
+          2737,
+          2738,
+          2739
+        ],
+        "interleaved": true
+      },
+      "entities": [
+        {
+          "as_printed": "? i Sumoirs,",
+          "normalized": "Edward Simons",
+          "role": "proprietor",
+          "occupations": [
+            "provision dealer"
+          ],
+          "associated_places": [
+            "Chicago"
+          ]
+        }
+      ],
+      "business": {
+        "name": "The Boston Market",
+        "proprietors": [
+          "Edward Simons"
+        ],
+        "trade": "market, provisions",
+        "goods": [],
+        "street": null,
+        "placement": {
+          "class": "none",
+          "anchor": null,
+          "offset_text": null,
+          "street": null
+        }
+      },
+      "notes": "A NAMED MARKET IN CHICAGO IN 1834 — 'the Boston Market' — and it is named as a place the citizens of this town are supplied AT, which is the grammar of a building rather than of a trade. This corpus has not carried it before. NO STREET IS GIVEN in this notice or in its repetitions on 1834-08-20 (line 3035) and 1834-08-27 (line 2929), so the placement is recorded as 'none': the town had one public market house on State Street by the 1840s, and reading this back onto that would be a placement invented from a later map. What is claimed is the name, the trade and the proprietor.",
+      "reading": "transcription_mediated",
+      "id": "c009",
+      "quote": "i TF\nt- ? i Sumoirs,\nof| Will continue to ropply the citizens of t\n4 town, as usual, at the Boston Market."
+    },
+    {
+      "kind": "business",
+      "normalized": "Just Received — On Com[m]issio[n] 100 BARRELS Superfine FLOU[R] which will be sold very low for ca[sh] at his Wa[reh]ouse, opposite to F[o]r[t] D[earbor]n by J. [H]. KINZIE. Aug. [1]2. 1834,",
+      "locator": {
+        "artifact_role": "primary",
+        "issue_page": 3,
+        "column": 3,
+        "lines": [
+          2741,
+          2746
+        ],
+        "lines_of_claim": [
+          2741,
+          2742,
+          2743,
+          2744,
+          2745,
+          2746
+        ],
+        "interleaved": true
+      },
+      "ad_copy_date": {
+        "verbatim": "Aug. 32. 1834,",
+        "iso": "1834-08-12"
+      },
+      "entities": [
+        {
+          "as_printed": "by J. WT. KINZIE.",
+          "normalized": "John H. Kinzie",
+          "role": "advertiser",
+          "occupations": [
+            "merchant"
+          ],
+          "associated_places": [
+            "Chicago"
+          ]
+        }
+      ],
+      "business": {
+        "name": "John H. Kinzie",
+        "proprietors": [
+          "John H. Kinzie"
+        ],
+        "trade": "wholesale and retail store",
+        "goods": [
+          "flour"
+        ],
+        "street": null,
+        "placement": {
+          "class": "relative",
+          "anchor": "Fort Dearborn",
+          "offset_text": "at his Wane [ovse, opposite to Fr. Drannor",
+          "offset_normalized": "at his Wa[reh]ouse, opposite to F[o]r[t] D[earbor]n",
+          "street": null
+        }
+      },
+      "notes": "THE PLACEMENT THE WHOLE MONTH TURNS ON, PRINTED CLEANLY ONCE: Kinzie's warehouse stands OPPOSITE FORT DEARBORN. His standing New Goods advertisement carries the same parenthesis in every issue of August and loses the preposition to the column edge each time (1834-08-06 claim c006, and again on 08-20 and 08-27); this notice, in the clean Tesseract column, is the witness that settles it. A HUNDRED BARRELS OF SUPERFINE FLOUR ON COMMISSION is also a claim about the warehouse: it is a store of goods for other men's account, not a shop.",
+      "reading": "transcription_mediated",
+      "id": "c010",
+      "quote": "-| Just Received—On Comnissio\n3 100 BARRELS Superfine FLOUI\ni which will be sold very low for ca\nat his Wane [ovse, opposite to Fr. Drannor\nby J. WT. KINZIE.\nBY} Aug. 32. 1834,"
+    },
+    {
+      "kind": "business",
+      "normalized": "Wanted, A FIRST rate Sawyer, to whom good wag[es] will be given, by application at the Stea[m] Saw Mill. NOBLE & WESENCRAFT. Chicago, Aug. 13, 18[3]4.",
+      "locator": {
+        "artifact_role": "primary",
+        "issue_page": 3,
+        "column": 3,
+        "lines": [
+          2748,
+          2752
+        ],
+        "lines_of_claim": [
+          2748,
+          2749,
+          2750,
+          2751,
+          2752
+        ],
+        "interleaved": true
+      },
+      "ad_copy_date": {
+        "verbatim": "Chicago, Aug. 13, 1534.",
+        "iso": "1834-08-13"
+      },
+      "entities": [],
+      "business": {
+        "name": "Noble & Wesencraft",
+        "proprietors": [],
+        "trade": "steam saw mill",
+        "goods": [
+          "sawn lumber"
+        ],
+        "street": null,
+        "placement": {
+          "class": "none",
+          "anchor": null,
+          "offset_text": null,
+          "street": null
+        }
+      },
+      "notes": "THE STEAM SAW MILL IS WORKING AND SHORT OF A SAWYER. The same house advertises for an engineer through the whole month ('To Engineers … their steam saw-mill', 1834-08-13 line 3072), so in August 1834 the mill wanted both the man who ran the engine and the man who ran the saw. THIS MATTERS TO THE FABRIC OF THE TOWN: sawn lumber cut in Chicago rather than shipped from St. Joseph is what the balloon frame is built out of, and the prices current in the same issue prices poplar lumber and square timber by the thousand. No address is given in any printing of either advertisement.",
+      "reading": "transcription_mediated",
+      "id": "c011",
+      "quote": "0 Wanted,\n¢ A FIRST rate Sawyer, to whom good wag\n. will be given, by application at the Stea\n| | Saw Mill. NOBLE & WESENCRAFT.\nChicago, Aug. 13, 1534."
+    },
+    {
+      "kind": "building",
+      "normalized": "NOTICE, To all to whom it may Concer[n]. T[ake] notice, that [I] have commenced a su[it] in the circuit court of Cook county, u[n]der the provisions of the Lien Law of this State for the recovery of Mechanic's claims, &c. &[c.] [a]g[ain]st the houses situated on Lot No. 3, i[n] Block No. 111, now owned by Charles H. Cha[p]man. WM. PAYNE. Chicago, Aug. 13, 1834.",
+      "locator": {
+        "artifact_role": "primary",
+        "issue_page": 3,
+        "column": 3,
+        "lines": [
+          2754,
+          2763
+        ],
+        "lines_of_claim": [
+          2754,
+          2755,
+          2756,
+          2757,
+          2758,
+          2759,
+          2760,
+          2761,
+          2762,
+          2763
+        ],
+        "interleaved": true
+      },
+      "ad_copy_date": {
+        "verbatim": "‘| Chicago, Aug. 13, 1834. Swi",
+        "iso": "1834-08-13"
+      },
+      "entities": [
+        {
+          "as_printed": "WM. PAYNE.",
+          "normalized": "Wm. Payne",
+          "role": "lien claimant",
+          "occupations": [
+            "mechanic"
+          ],
+          "associated_places": [
+            "Chicago"
+          ]
+        },
+        {
+          "as_printed": "man. WM. PAYNE.",
+          "normalized": "Charles H. Chapman",
+          "role": "owner of the houses",
+          "associated_places": [
+            "Chicago"
+          ]
+        }
+      ],
+      "notes": "HOUSES — PLURAL — ON ONE NUMBERED LOT, AND A MECHANIC SUING FOR HIS WAGES ON THEM. 'The houses situated on Lot No. 3, in Block No. 111, now owned by Charles H. Chapman' is the most precise building claim in the August run: a lot number, a block number, an owner by name, and the fact that MORE THAN ONE house stood on the one lot in August 1834. THE OWNER IS THE SAME C. H. CHAPMAN who advertises a dwelling and a store to let through July and August (1834-07-23 claim c003, and 1834-08-13 line 3082), which is consistent with a man building to rent. A MECHANIC'S LIEN IS ALSO EVIDENCE OF CONSTRUCTION: somebody had lately worked on those houses and had not been paid.",
+      "reading": "transcription_mediated",
+      "id": "c012",
+      "quote": "NOTICE,\n|| To all to whomit may Concer\nx Ts notice, that [have commenced a su\nin the circuit court of Cook county, ur\n\"| der the provisions of the Lien Law of this State\nfor the recovery of Mechanic's claims, &ec. &\nGrist the houses situated on Lot No. 3, i\n| Block No. 111, now owned by Charles HL. Chay\n‘| man. WM. PAYNE.\n‘| Chicago, Aug. 13, 1834. Swi"
+    },
+    {
+      "kind": "notice",
+      "normalized": "Administrator's Notice. W[il]l be sold at Public Auction, on Thursday the 11th day of September next, a[t] the house of the subscriber, all the personal es[t]ate of Pitman Fisher, late of Cook county, de[c]eased; consisting of Horses, Clothing, &c[.] Sale to commence at 10 A. M. J. B[.] BEAUBIEN, Pub. Adm'r. of Cook co. and Adm'r of estate of P[itman] Fisher, dec'd.",
+      "locator": {
+        "artifact_role": "primary",
+        "issue_page": 3,
+        "column": 3,
+        "lines": [
+          2764,
+          2773
+        ],
+        "lines_of_claim": [
+          2764,
+          2765,
+          2766,
+          2767,
+          2768,
+          2769,
+          2770,
+          2771,
+          2772,
+          2773
+        ],
+        "interleaved": true
+      },
+      "entities": [
+        {
+          "as_printed": "J. BT. BEAUBIEN,",
+          "normalized": "J. B. Beaubien",
+          "role": "public administrator of Cook county",
+          "occupations": [
+            "public administrator",
+            "merchant"
+          ],
+          "associated_places": [
+            "Chicago"
+          ]
+        },
+        {
+          "as_printed": "tate of Pitman Fisher, late of Cook county, de",
+          "normalized": "Pitman Fisher",
+          "role": "deceased",
+          "associated_places": [
+            "Cook County"
+          ]
+        }
+      ],
+      "notes": "AN ESTATE SOLD OUT OF A HOUSE, AND THE HOUSE IS THE ADMINISTRATOR'S OWN — 'at the house of the subscriber', J. B. Beaubien, Public Administrator of Cook county. Jean Baptiste Beaubien's house stood near Fort Dearborn and is one of the buildings this reconstruction carries; this notice puts a public auction in it on 11 September 1834, at ten in the morning. THE ESTATE IS HORSES AND CLOTHING, which is what a man of small property left in this county in 1834.",
+      "reading": "transcription_mediated",
+      "id": "c013",
+      "quote": "| Administrator's Notice.\nWw be sold at Public Auction, on Thurs\nday the 11th day of September next, 4\n‘| the house of the subscriber, all the personal es\ntate of Pitman Fisher, late of Cook county, de\nceased; consisting of Horses, Clothing, &c\nSale to commence at 10 A. M.\nJ. BT. BEAUBIEN,\nPub. Adin'r of Cook co. and Adm’r of estate of P\nFisher, doe'd. twit"
+    },
+    {
+      "kind": "building",
+      "normalized": "Carriage & Sleigh Making. [T]he subscribers respectfully inform the cit[iz]ens of Chicago and its vicinity, tha[t] they have erected a large and commodious buil[d]ing, for a shop, on [R]andolph street, and ar[e] prepared to execute all orders in the Carriage and Sleigh making business, on th[e] most rea[s]onable terms. REPAIRING done on short notice. BRIGGS & HUMPHREY. August 13, 1834.",
+      "locator": {
+        "artifact_role": "primary",
+        "issue_page": 3,
+        "column": 3,
+        "lines": [
+          2774,
+          2784
+        ],
+        "lines_of_claim": [
+          2774,
+          2775,
+          2776,
+          2777,
+          2778,
+          2779,
+          2780,
+          2781,
+          2782,
+          2783,
+          2784
+        ],
+        "interleaved": true
+      },
+      "ad_copy_date": {
+        "verbatim": "August 13, 1834.",
+        "iso": "1834-08-13"
+      },
+      "entities": [],
+      "business": {
+        "name": "Briggs & Humphrey",
+        "proprietors": [],
+        "trade": "carriage and sleigh making",
+        "goods": [
+          "carriages",
+          "sleighs"
+        ],
+        "street": "Randolph Street",
+        "placement": {
+          "class": "street_only",
+          "anchor": null,
+          "offset_text": "ding, fora shop, on Kandolph street, and arc",
+          "offset_normalized": "a large and commodious buil[d]ing, for a shop, on [R]andolph street",
+          "street": "Randolph Street"
+        }
+      },
+      "notes": "A BUILDING RAISED IN THIS TOWN IN AUGUST 1834, DESCRIBED BY THE MEN WHO RAISED IT: 'a large and commodious building, for a shop, on Randolph street'. This project's Randolph Street frontage is largely reconstruction; here is a documented shop on it, dated to the month, with its trade named. THE SAME PAIR advertised in July from a different footing — 'Carriage & Sleigh Making … they have commenced the above [business] in its various branches, on Sout[h Water street]' (1834-07-02, claim c059 region, and the fragment at 1834-08-06 line 3250-3254) — so the Randolph shop is a MOVE, and the notice announces the new building rather than the business. The placement is `street_only`: Randolph is named and no cross street is.",
+      "reading": "transcription_mediated",
+      "id": "c014",
+      "quote": "Carriage & Sleigh Making.\nif hte subscribers respectfully inform the cit.\nizens of Chicago and its vicinity, tha\nthey have erected a large and commodious buil:\nding, fora shop, on Kandolph street, and arc\nprepared to execute all orders in the Carriage\nand Sleigh making business, on tho most rea.\nsonable terms.\nUPREPAIRING done on short notice.\nBRIGGS & HUMPHREY.\nAugust 13, 1834."
+    },
+    {
+      "kind": "business",
+      "normalized": "[Wanted] at the Tin, Sheet Iron and Copper Factory, corner of Lake and D[e]arborn-streets, from one to two thousand pounds of Ginseng, (thoroughly dried;) 1000 to 2000 lbs. [Rac]coon [and] Deer Skins; Old Pewter, Copper and Brass; also, clean cotton an[d] linen Rags, in exchange f[o]r cheap Goods: for instance, Milk Pans by the doz. at 31 cents, &c. Also, on hand and for sale, Pork, W[h]iskey and Linseed [O]il, by the b[b]l, and […] quarter boxes Cigars. Mending and Jobbing at all [t]imes attended to without delay. Merc[h]ants and [D]ealers suppli[e]d on the best of [t]er[m]s, at the cas[h] and [b]arter Factory. J[.] K. BO[T]SFORD",
+      "locator": {
+        "artifact_role": "primary",
+        "issue_page": 3,
+        "column": 3,
+        "lines": [
+          2792,
+          2805
+        ],
+        "lines_of_claim": [
+          2792,
+          2793,
+          2794,
+          2795,
+          2796,
+          2797,
+          2798,
+          2799,
+          2800,
+          2801,
+          2802,
+          2803,
+          2804,
+          2805
+        ],
+        "interleaved": true
+      },
+      "entities": [],
+      "business": {
+        "name": "J. K. Botsford, Tin, Sheet Iron and Copper Factory",
+        "proprietors": [
+          "J. K. Botsford"
+        ],
+        "trade": "tin, sheet iron and copper factory",
+        "goods": [
+          "tinware",
+          "milk pans",
+          "pork",
+          "whiskey",
+          "linseed oil",
+          "cigars"
+        ],
+        "street": "Lake Street",
+        "placement": {
+          "class": "corner",
+          "anchor": "the corner of Lake and Dearborn streets",
+          "offset_text": "Copper Factory, corner of Lake and Duarborn-\nstreets, from one to two thousand pounds of",
+          "offset_normalized": "Tin, Sheet Iron and Copper Factory, corner of Lake and D[e]arborn-streets",
+          "street": "Lake Street"
+        }
+      },
+      "notes": "A NAMED CORNER, PRINTED IN THE CLEAN COLUMN: the tin, sheet iron and copper factory at the CORNER OF LAKE AND DEARBORN STREETS. That is a placement this reconstruction can put a building on, and the same corner is set again in the issue of 1834-08-27 at page 4 as 'CORNER OF DEARBOR[N] A[ND LAKE]' (line 4127), so it survives two printings. WHAT THE FACTORY TOOK IN PAYMENT is the other half of the claim and says as much about the town as the corner does: ginseng thoroughly dried, raccoon and deer skins, old pewter, copper and brass, and clean cotton and linen rags — a cash AND BARTER factory, in a town where cash was scarce. J. K. Botsford also advertises feathers, window sash, glass and whiskey two inches above (line 2785), from the same establishment.",
+      "reading": "transcription_mediated",
+      "id": "c015",
+      "quote": "A.B, Wanted at the Tin, Sheet Iron and\nCopper Factory, corner of Lake and Duarborn-\nstreets, from one to two thousand pounds of\nGinseng, (thoroughly dried;) 1000 to 2000 Ibs.\nRedcoat Deer Skins; Old Pewter, Copper and\nBrass; also, clean cotton ann linen Rags, in ex-\nchange fer cheap Goods: for instance, Milk\nPans by the doz. at 31 cents, Xe. Also, on\nhand and tor sale, Pork, Winskey and Linseed\nUil, by the bol, and du quarter boxes Cigars.\nMending and Jobting at ali Uraes attended to\nwithout delay. Mercianis and Ueulers supple!\ned on the best of ers, at the cas!) and Darter\nFactory. JK. BU PSFORD,"
+    },
+    {
+      "kind": "event",
+      "normalized": "TEMPERANCE MEETING. There will be a meeting of the Chicago [T]emperance Society, at the Presbyter[ia]n [C]hurch, on Thursday evening, 14th inst. a[t h]alf-past 7 o'clock, P. M. [By] order of the Presiden[t.] PHILO CARPENTER, Sec'y. Aug. 13, 18[3]4.",
+      "locator": {
+        "artifact_role": "primary",
+        "issue_page": 3,
+        "column": 2,
+        "lines": [
+          2669,
+          2677
+        ],
+        "lines_of_claim": [
+          2669,
+          2670,
+          2671,
+          2672,
+          2673,
+          2674,
+          2675,
+          2676,
+          2677
+        ],
+        "interleaved": true
+      },
+      "ad_copy_date": {
+        "verbatim": "Aug. 13, 1634.",
+        "iso": "1834-08-13"
+      },
+      "entities": [
+        {
+          "as_printed": "PHILO CARPENTER, Sec'y.",
+          "normalized": "Philo Carpenter",
+          "role": "secretary of the Chicago Temperance Society",
+          "occupations": [
+            "druggist"
+          ],
+          "associated_places": [
+            "South Water Street",
+            "Chicago"
+          ]
+        }
+      ],
+      "notes": "A NAMED BUILDING IN USE ON A NAMED EVENING: the Chicago Temperance Society meets in the PRESBYTERIAN CHURCH at half-past seven on Thursday 14 August 1834. This project carries the First Presbyterian Church as a structure and the Baptist church as another; a meeting notice is the strongest kind of evidence for what a church building was actually used for. PHILO CARPENTER, the druggist of South Water Street (1834-07-02, claim c054 there), signs as secretary — the same man who had helped found the church. The claim also dates the Society itself, which this corpus had not previously placed.",
+      "reading": "transcription_mediated",
+      "id": "c016",
+      "quote": "TEMPERANCE MEETING.\nThere will be a meeting of the Chicago\nlemperance\nSociety, at the Presbyterin\nalf-past 7 o'clock, P. M\nhurch, on Thursday evening, 14th inst. a\norder of the Presiden\nPHILO CARPENTER, Sec'y.\nAug. 13, 1634."
+    },
+    {
+      "kind": "business",
+      "normalized": "J. S. C. HOGAN, [O]FFERS a[t] Wholesale and Retail, at hi[s store] in South Water Street, one [door … of] the Post Office […] Dry Goods, Groceri[es,] Ha[r]dware, Crockery and Glass [Ware]",
+      "locator": {
+        "artifact_role": "primary",
+        "issue_page": 3,
+        "column": 5,
+        "lines": [
+          3043,
+          3053
+        ],
+        "lines_of_claim": [
+          3043,
+          3044,
+          3045,
+          3048,
+          3051,
+          3052
+        ],
+        "interleaved": true
+      },
+      "entities": [
+        {
+          "as_printed": "J. S. C. HOGAN,",
+          "normalized": "John S. C. Hogan",
+          "role": "advertiser",
+          "occupations": [
+            "merchant",
+            "postmaster"
+          ],
+          "associated_places": [
+            "South Water Street",
+            "Chicago"
+          ]
+        }
+      ],
+      "business": {
+        "name": "J. S. C. Hogan",
+        "proprietors": [
+          "John S. C. Hogan"
+        ],
+        "trade": "wholesale and retail store",
+        "goods": [
+          "dry goods",
+          "groceries",
+          "hardware",
+          "crockery",
+          "glassware"
+        ],
+        "street": "South Water Street",
+        "placement": {
+          "class": "relative",
+          "anchor": "the Post Office",
+          "offset_text": "in South Water Street, one\nthe Post Office",
+          "offset_normalized": "in South Water Street, one [door … of] the Post Office",
+          "street": "South Water Street"
+        }
+      },
+      "notes": "THE POSTMASTER'S STORE, PLACED AGAINST HIS OWN POST OFFICE. Hogan kept the Chicago post office and a store on South Water Street, and this advertisement places the store 'one [door]' from the office — the word between them is lost with the column edge, so WHICH SIDE IS NOT SUPPLIED: 'one door east' and 'one door west' are both readings this line cannot settle, and the bracket says so. The scene-date fixture of 1835-07-01 places Hogan on South Water Street too (claim c002 there), so this is the earlier witness for the same frontage. The lines between the quoted ones belong to the advertisement beside it and are excluded.",
+      "reading": "transcription_mediated",
+      "id": "c017",
+      "quote": "J. S. C. HOGAN,\nFFERS nt Wholesale and Retail, at hi\nin South Water Street, one\nthe Post Office\nDry Goods, Groceric\nHaniware, Crockery and Glass 1"
+    },
+    {
+      "kind": "building",
+      "normalized": "To Let, [A] BUILDING fronting the [river/street …] in a few da[y]s[,] 3 neat and convenie[nt rooms] suitable for a [S]tore or Dwelling […] Enquire of Whitehead & c[o]. July 30, 1834.",
+      "locator": {
+        "artifact_role": "primary",
+        "issue_page": 3,
+        "column": 5,
+        "lines": [
+          3036,
+          3041
+        ],
+        "lines_of_claim": [
+          3036,
+          3037,
+          3038,
+          3039,
+          3040,
+          3041
+        ],
+        "interleaved": true
+      },
+      "ad_copy_date": {
+        "verbatim": "July 30, 1834.",
+        "iso": "1834-07-30"
+      },
+      "entities": [],
+      "business": {
+        "name": "Whitehead & Co.",
+        "proprietors": [],
+        "trade": "letting agents",
+        "goods": [],
+        "street": null,
+        "placement": {
+          "class": "none",
+          "anchor": null,
+          "offset_text": null,
+          "street": null
+        }
+      },
+      "notes": "A BUILDING TO LET WITH ITS ROOMS COUNTED — three, neat and convenient, suitable for a store OR a dwelling, which is exactly the interchangeable frontage this reconstruction gives the commercial streets. WHAT IT FRONTS IS CUT AWAY: the line reads 'BUILDING fronting the' and stops, and nothing in this issue or the next completes it, so no street is supplied and the placement is 'none'. THE ADVERTISER'S NAME connects to this issue's marriage notice of 1834-08-06 (claim c004 there), where a Whitehead marries a woman 'of this town'; the notices do not say they are the same man and this claim does not either.",
+      "reading": "transcription_mediated",
+      "id": "c018",
+      "quote": "To Let,\nBUILDING fronting the\nin a few dave 3 neat and conveniel\nsuitable tor a blore or Dwelling\nEnquire of Whitehead & c\nJuly 30, 1834."
+    },
+    {
+      "kind": "notice",
+      "normalized": "NOTICE. Indian Ag[enc]y, Chi[c]ago, July 18. [The Chicago Treaty of the 26th of Septem]ber last, having been ratified, only on […] [certain] con[d]itions will be assented to on the part o[f the Indians] […] [and until it] is not known that t[hose conditions are assented to, persons] presuming to settle on the ceded [lands] wi[ll be] […] [im]mediately removed therefro[m]. TH. J. V. OWEN, Ind[ian] Age[nt]",
+      "locator": {
+        "artifact_role": "primary",
+        "issue_page": 3,
+        "column": 5,
+        "lines": [
+          3087,
+          3097
+        ],
+        "lines_of_claim": [
+          3087,
+          3088,
+          3089,
+          3090,
+          3091,
+          3092,
+          3093,
+          3094,
+          3095,
+          3096,
+          3097
+        ],
+        "interleaved": true
+      },
+      "entities": [
+        {
+          "as_printed": "rH. J. V. OWEN, Ind. Age",
+          "normalized": "Th. J. V. Owen",
+          "role": "Indian Agent at Chicago",
+          "occupations": [
+            "indian agent"
+          ],
+          "associated_places": [
+            "Chicago"
+          ]
+        }
+      ],
+      "notes": "THE 1833 TREATY OF CHICAGO, ITS RATIFICATION, AND A WARNING PRINTED IN THE TOWN'S OWN PAPER — dated at the Indian Agency in Chicago, 18 July 1834, and standing through August. It is read here for what it states and nothing more: the treaty of 26 September 1833 was ratified with conditions; until those conditions were assented to on the part of the Indians, persons presuming to settle on the ceded lands would be immediately removed. THE PROJECT'S STANDING CONSTRAINT APPLIES TO ANY USE MADE OF THIS (AGENTS.md): the final removal of the Potawatomi from Chicago falls in August 1835, inside the target year, and nothing in this reconstruction depicts Native presence without consultation. The claim is filed because the Indian Agency is a documented institution of this town with a named agent, and because the notice fixes what the agency was doing in the month it was printed. THE BETTER PRINTING IS 1834-08-20, page 3 column 5, lines 3379-3392, which carries 'THE Chicago Treaty of the 26th' and 'of Clark' whole; the supplies above are read off it and are bracketed.",
+      "reading": "transcription_mediated",
+      "id": "c019",
+      "quote": "-NOTICE:\nIndian Agary, Chiengo,\nJuly 18.\nber last, having been ratified, only on\n[uncertain: Eucaro resis of here or son]\ncon litions will be assented to on the part o\nconmuons, and anil is not known that t\npresumine to selle on the cecod tene wi\nwhat all ner\nmediately removed thereiro\nrH. J. V. OWEN, Ind. Age"
+    },
+    {
+      "kind": "building",
+      "normalized": "To Lease. [L]OT No. 5, in block 35, on corner of Cl[ark] […] [and] Randolph-str[eets …] [En]quire at this office. July 16, 183[4 … for] particulars",
+      "locator": {
+        "artifact_role": "primary",
+        "issue_page": 3,
+        "column": 4,
+        "lines": [
+          2941,
+          2946
+        ],
+        "lines_of_claim": [
+          2941,
+          2942,
+          2943,
+          2944,
+          2945,
+          2946
+        ],
+        "interleaved": true
+      },
+      "entities": [],
+      "notes": "THE CORNER THE 1834-08-06 PRINTING COULD NOT SETTLE. There, the same advertisement reads 'on corner of Ci' (claim c013 there) and the cross street is lost; here the woven half above it carries '[A] and Randolph-str' and the line below carries 'on corner of Cl', so the two together read CLARK AND RANDOLPH. Both halves are in this claim's own lines, which is why the reading is made here rather than there. LOT 5 IN BLOCK 35 ON THAT CORNER is offered to lease by whoever keeps 'this office' — the Democrat's own counting room, which advertised several lots this way in 1834.",
+      "reading": "transcription_mediated",
+      "id": "c020",
+      "quote": "To Lease.\nA and Randolph-str\nCT No. 5, in block 35,\non corner of Cl\nquire at this office.\nJuly 16, 185 particulars"
+    },
+    {
+      "kind": "building",
+      "normalized": "Lots for Sale. W[i]ll be sold on r[ea]sonable terms, the […] [South] Water Street, and Lot No. 3 block [4]1 […] No. 3 block 20 […] west [of the] bridge […] [The house is t]wo stories, and i[s] eligibly situated for busi[ness] […] Enquire at the office of Collins and Cato[n]. July 8, 183[4].",
+      "locator": {
+        "artifact_role": "primary",
+        "issue_page": 3,
+        "column": 4,
+        "lines": [
+          2930,
+          2940
+        ],
+        "lines_of_claim": [
+          2930,
+          2931,
+          2932,
+          2933,
+          2934,
+          2935,
+          2936,
+          2937,
+          2938,
+          2939,
+          2940
+        ],
+        "interleaved": true
+      },
+      "ad_copy_date": {
+        "verbatim": "July 8, 1831.",
+        "iso": "1834-07-08"
+      },
+      "entities": [],
+      "business": {
+        "name": "Collins & Caton",
+        "proprietors": [],
+        "trade": "attorneys and counsellors at law",
+        "goods": [],
+        "street": null,
+        "placement": {
+          "class": "none",
+          "anchor": null,
+          "offset_text": null,
+          "street": null
+        }
+      },
+      "notes": "THE FULLER PRINTING OF THE ADVERTISEMENT CLAIMED AT 1834-08-06 c012, and it adds the two things that one lost: the enquiry goes to THE OFFICE OF COLLINS AND CATON, and one of the properties is WEST OF THE BRIDGE. In 1834 that is the Dearborn Street drawbridge, the only one, and it is the same landmark the auction store is placed by all month (claim c005 of 1834-08-20). Collins & Caton are the attorneys placed by the Baptist Church on 1834-07-02 (claim c016 there); an attorney's office standing in as an estate agency is the ordinary arrangement in this town before there were agents.",
+      "reading": "transcription_mediated",
+      "id": "c021",
+      "quote": "Lots for Sale.\nW\n/th. be sold on resconabie terms, the\nWater Street, and Lot No. 3 block 11\n[uncertain: Sowing intr]\nNo. 3block 20\nwest bridge\nwo stories, and in eligibly situated for busir\n, first has\nEnquire at the office of Collins and Cator\nJuly 8, 1831."
+    },
+    {
+      "id": "c022",
+      "kind": "business",
+      "reading": "transcription_mediated",
+      "quote": "House and Land gent.\nLOTs parchased and sold, or by commi\n1:2 Building Lots for sale, in the town ar\nTake st mouse r. Tampingure at the office:\n1 Houses to Let\nschool section.",
+      "normalized": "House and Land [A]gent. LOT[S] p[u]rchased and sold, or by commi[ssion.] 1[2]2 Building Lots for sale, in the town a[nd] School section. […] Houses to Let […]",
+      "locator": {
+        "artifact_role": "primary",
+        "issue_page": 3,
+        "column": 4,
+        "lines": [
+          2954,
+          2959
+        ],
+        "lines_of_claim": [
+          2954,
+          2955,
+          2956,
+          2957,
+          2958,
+          2959
+        ],
+        "interleaved": false
+      },
+      "business": {
+        "name": "W. G. Blanchard",
+        "proprietors": [
+          "W. G. Blanchard"
+        ],
+        "trade": "house and land agent",
+        "goods": [],
+        "street": null,
+        "placement": {
+          "class": "none",
+          "anchor": null,
+          "offset_text": null,
+          "offset_normalized": null,
+          "street": null
+        }
+      },
+      "notes": "ONE IMPRESSION OF THE STANDING LAKE STREET LAND-AGENCY CARD. The Democrat sets this advertisement, word for word the same, in every issue from 1834-05-14 to 1834-10-01 — twenty consecutive weeks, eighteen of which set the line ‘purchased and Sold, or by commi[s]sion’ recognisably (T-1051). The card is identified by its copy and not by its display line: the same trade (‘House and Land Agent’), the same offer of building lots in the town and the School Section, the same houses to let, and the same office on Lake street opposite Dr. Temple's. The display line is lost — line 2953 closes P. Pruyne & Co.'s notice immediately above. THE PROPRIETOR'S NAME IS NOT READ HERE and none is supplied into the quote: the record's ‘W. G. Blanchard’ stands on T-0408's reading of the two impressions whose columns are NOT Tesseract fallbacks (1834-07-16 line 5527, 1834-09-17 line 3292) and on identity.json's declared firm merge, not on this impression. THE ADDRESS LINE IS PRESENT AND UNREADABLE: line 2957 sets 'Take st mouse r. Tampingure at the office:', which is the card's 'Lake st. opposite Dr. Temple's. Enquire at the Office on' collapsed into one line and mangled past the point where either the street or the anchor can be read off it. It is quoted where it stands and this printing is recorded as SILENT about placement — not given the address its neighbours print — which is the difference between reading a line and recognising a card. 2959 sets 'school section.' after 'Houses to Let', out of the card's order."
+    }
+  ]
+}

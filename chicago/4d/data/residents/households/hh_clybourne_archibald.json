@@ -1,0 +1,157 @@
+{
+ "id": "hh_clybourne_archibald",
+ "name": "The Clybourne household",
+ "division": "outside_town",
+ "head": "clybourne_archibald",
+ "arrival": {
+  "value": "1823",
+  "confidence": "attested",
+  "sources": [
+   "andreas_1884_v1"
+  ],
+  "note": "'Came in 1823' - the second-earliest Anglo-American arrival in the parcel after nobody, and twelve years before the scene date.",
+  "precision": "year"
+ },
+ "party_size_on_arrival": {
+  "value": null,
+  "confidence": "reconstructed",
+  "note": "Not attested in anything this project holds."
+ },
+ "origin": {
+  "value": null,
+  "confidence": "reconstructed",
+  "note": "Not attested in anything this project holds."
+ },
+ "reason_for_coming": {
+  "value": null,
+  "confidence": "reconstructed",
+  "note": "Not attested in anything this project holds."
+ },
+ "lives_at": {
+  "value": null,
+  "confidence": "reconstructed",
+  "note": "NOT LINKED ON PURPOSE. The Clybourne place is several miles up the North Branch, around the ground of the later North Chicago Rolling Mills, and data/structures/clybourn_cabins.json declares itself displaced from that position. Pointing a household at a building the dataset says is in the wrong place would launder a known error into a residence claim."
+ },
+ "works_at": {
+  "value": "clybourn_slaughterhouse",
+  "confidence": "attested",
+  "sources": [
+   "andreas_1884_v1"
+  ],
+  "note": "data/structures/clybourn_slaughterhouse.json carries him as its occupant. This dataset also holds newberry_dole_slaughterhouse_south_branch, which is a different firm's packing house."
+ },
+ "present_on_scene_date": {
+  "value": "present",
+  "confidence": "inferred",
+  "sources": [
+   "andreas_1884_v1"
+  ],
+  "note": "The family is continuous on the North Branch across the period."
+ },
+ "persons": [
+  {
+   "id": "clybourne_archibald",
+   "name": "Archibald Clybourne",
+   "relationship": "head",
+   "grade": "attested",
+   "ladder_rule": "G1b",
+   "sex": "male",
+   "occupation": {
+    "value": "butcher",
+    "confidence": "attested",
+    "sources": [
+     "andreas_1884_v1"
+    ],
+    "note": "'Archibald Clybourne, butcher, came in 1823, then living north of the town limits, and not a voter in the new village.' An earlier list Andreas prints has, under 'Butchers - Archibald Clybourne', the North Branch; he butchered for the garrison.",
+    "derived_from": "roles",
+    "roles_at_scene_date": [
+     "butcher"
+    ]
+   },
+   "sources": [
+    "andreas_1884_v1",
+    "chicago_democrat_1833_1835",
+    "chicago_voter_lists_1833_1835_irad",
+    "fergus_chicago_directory_1843",
+    "isa_public_domain_land_tract_sales"
+   ],
+   "note": "DOCUMENTED AND DELIBERATELY OUTSIDE THE TOWN, which is why this household's division is 'outside_town' and why it matters. Andreas's own roster explains the status in the same clause that gives the trade: he lived north of the limits and could not vote in the village. 'Julia K. Clark, half-brother of A. Clybourne, then living with him' is named in the next clause and is written into this household. The Clybourne family had been at Chicago since the 1820s and its assessment appears in the Peoria County taxpayer lists of 1825. THE TOWN'S OWN ROLLS, 1833-1835 — CORROBORATION, NOT A GRADE. The early Chicago voter and tax lists held by the Illinois Regional Archives Depository name this person 1 time: Tax list of the Town of Chicago, 1833 — “Clybourne, Archibald” (tax_1833_019, line 71). These are the town's own contemporary paper rather than a recollection of it, and each appearance says that a man of that name stood on that roll in that year — no more. The reading is twice mediated (Schulz's transcription, then Genealogy Trails' republication) and this project has not seen the IRAD originals. Under the ratified ladder (T-0513) the 1835 poll with a second independent source is attested, the 1835 poll alone or a 1833/1834 list with another source is inferred, and a single appearance with nothing else is a projected resident. This pass WRITES THE EVIDENCE AND MOVES NO GRADE — T-0515 applies the ladder against every source at once. Identity by the crosswalk's own rule: one resident of the surname 'Clybourne' agrees with the entry's forenames; 1 bearer(s) of the surname were considered. (data/research/civic/voter_crosswalk.json). THE FEDERAL LAND TRACT SALES — A PURCHASE, AND NEVER A RESIDENCE. The Illinois State Archives' Public Domain Land Tract Sales register enters this person 2 times, as “CLYBOURNE ARCHIBALD”, 1833-10-22 to 1833-10-24: 2 parcels of the school section — lot 3 of block 71 of the school section (sec 16 T39N R14E); lot 5 of block 50 of the school section (sec 16 T39N R14E), 0.00 acres stated in all, for $242.00 (ls0137, ls0138). THE REGISTER'S OWN RESIDENCE COLUMN READS UNKNOWN on these rows: a county, a state or nothing, and never a town, which is why a purchase here places nobody. THE SCHOOL-SECTION ROWS ARE GROUND INSIDE THE TOWN, NOT FARMLAND: section 16 of T39N R14E was platted and sold off by lot and by block at the sale of 1833, which is why the register states 0000.00 acres against most of them. Ground inside the town is nearer to this reconstruction than a quarter-section is, and it is still a purchase: the register names a purchaser and never an occupant, and nothing here puts this person on that ground. A purchase and nothing more. It dates and places a transaction; it proposes no residence, and under the ratified ladder it corroborates rather than mints. Identity by the crosswalk's own rule: CLYBOURNE ARCHIBALD matches Archibald Clybourne: the forename names Archibald Clybourne of the 1 person of this surname, and the forename agrees in full. (data/research/land_sales/resident_crosswalk.json). This pass WRITES THE EVIDENCE AND MOVES NO GRADE. Under the ratified ladder (T-0513) a second independent source is what lifts a projected resident, and a land entry is a second source about a TRANSACTION rather than about who was living at Chicago on 1 July 1835 — a man may buy a quarter-section he never sees. T-0515 applies the ladder against every source at once; this pass hands it the evidence and not the verdict.",
+   "resident_research": {
+    "programme": "resident-research-2026",
+    "ticket": "T-0508",
+    "outcome": "corroborated",
+    "reviewed_on": "2026-09-05",
+    "asserted_identity": true,
+    "evidence_for": "Independent of the post office in 1830 schedule, civic rolls, county histories and more.",
+    "source_ids": [
+     "census_1830_peoria_county_chicago_precinct",
+     "andreas_1884_v1",
+     "chicago_voter_lists_1833_1835_irad"
+    ],
+    "refusals": [
+     {
+      "regraded_on": "2026-09-04",
+      "rule": "G3",
+      "withheld": "the downgrade to inferred",
+      "reason": "This card rests on 2 thing(s) the consolidation did not read — andreas_1884_v1, isa_public_domain_land_tract_sales. G3 fired on the seven domains the ladder reads and says nothing about the evidence outside them, so the grade stands. The same reasoning the ladder's own G5 gives for abstaining (T-0515)."
+     }
+    ],
+    "summary": "Independently corroborated; confirmed, not moved."
+   },
+   "press_evidence": [
+    {
+     "list": "newspaper_1833_1835",
+     "as_read": "A. Clybourn",
+     "locator": "chicago_democrat_1833_12_10#c003",
+     "record_id": "person_a_clybourn",
+     "describes_date": "1833-12-10",
+     "source": "chicago_democrat_1833_1835",
+     "rule": "G1b"
+    }
+   ],
+   "book_evidence": [
+    {
+     "list": "directory_1843",
+     "as_read": "Clybourn, Archibald (C. & Hovey), res North Branch, city and county beef and pork inspector [612 Alston ave, died Aug. 2…",
+     "locator": "res North Branch, city and county beef and pork inspector",
+     "record_id": "f1843_e0653",
+     "describes_date": "1843",
+     "source": "fergus_chicago_directory_1843",
+     "rule": "G1b"
+    }
+   ],
+   "merged_from": [
+    {
+     "ticket": "T-1002",
+     "rule": "C9",
+     "cluster": "clybourne",
+     "cards": [
+      "clybourn_archibald"
+     ],
+     "note": "THE UNION OF THE CARDS THIS PERSON WAS SPLIT ACROSS. The sources and evidence blocks above include everything the folded cards cited; each folded record is kept whole under data/residents/merged/ and is redirected by index.json's `merged` table. The reasoning for the merge is in data/residents/card_merge_rulings.json."
+    }
+   ],
+   "roles": [
+    {
+     "role": "butcher",
+     "kind": "trade",
+     "as_printed": null,
+     "from": "1673",
+     "to": "1857",
+     "precision": "source_span",
+     "dated_by": "source_describes_date",
+     "covers_scene_date": true,
+     "confidence": "attested",
+     "sources": [
+      "andreas_1884_v1"
+     ],
+     "claim": null,
+     "note": "THE BOUND IS THE SOURCE'S, NOT THE MAN'S. This role is carried by the card's 1835 occupation block and is dated by what the cited source or sources are ABOUT, which is why `precision` can be no better than the span they cover. The span reaches 1835, so this role stands in the scene-date view. The printing the trade was read off is not on the card and is fetched by T-1254."
+    }
+   ]
+  }
+ ],
+ "touches_removal": false,
+ "review_required": false,
+ "research_note": "THE BUTCHER WHO LIVED OUTSIDE THE CORPORATION, and the household that forces the schema's division field to have a value for people the town did not count. Chicago's population figures - 350 in 1833, 3,265 in the town census of 1835 - are figures for a corporate area with a boundary that moved twice in eighteen months, and households like this one fall outside it while supplying it with meat. ANY LATER COUNT MUST DECIDE WHETHER TO INCLUDE THEM and this field is where that decision gets made. THE FAMILY'S BUILDINGS ARE A KNOWN PROBLEM IN THIS DATASET: data/structures/clybourn_cabins.json says outright that it is DISPLACED - the attested ground is several miles up the North Branch, outside the modelled box - so lives_at is left null here rather than pointing at a record that admits it is in the wrong place."
+}

@@ -1,0 +1,150 @@
+{
+  "id": "fort_dearborn_barracks",
+  "name": "Fort Dearborn — soldiers' barracks",
+  "aka": [
+    "the soldiers' quarters",
+    "the men's barracks"
+  ],
+  "archetype": "fort_structure",
+  "phases": [
+    {
+      "id": "log_1816",
+      "documented_range": {
+        "from": "1816-07-01",
+        "to": "1856-08-31",
+        "confidence": "inferred",
+        "sources": [
+          "andreas_1884_v1",
+          "wentworth_1881_fort_dearborn",
+          "harrison_1830_river_mouth"
+        ],
+        "note": "THE RANGE IS THE FORT'S, NOT THIS BUILDING'S. No source reached dates any individual building inside Fort Dearborn. It opens with the rebuild of 1816 (Andreas; Wentworth quoting the Adjutant-General, 'the post was reoccupied about June, 1816 ... Nothing is on file respecting the rebuilding of the Fort') and closes with the demolition of the fort's principal structures in the summer of 1856 (Andreas). What carries the scene date is the middle: this building is drawn standing on the 1830 plan and described standing in Hubbard's 1827 walk round the inside, and the post was garrisoned continuously from June 1832 to 29 December 1836."
+      },
+      "position": {
+        "utm_e": 448245.32,
+        "utm_n": 4637599.21,
+        "rotation_deg": 278.0,
+        "symbolic_location": "Inside the east wall of Fort Dearborn, fronting west onto the parade.",
+        "confidence": "inferred",
+        "sources": [
+          "harrison_1830_river_mouth",
+          "wright_1834",
+          "andreas_1884_v1"
+        ],
+        "note": "READ OFF THE 1830 HARRISON PLAN. Position in pixels on the plate Andreas reproduces at vol. 1 p. 113, scaled at 1.10 ft per pixel (the scale derivation is on fort_dearborn_palisade and in docs/RESEARCH/fort_dearborn.md section 3), rotated to the sheet's true-north arrow, and hung on the fort centre at local E +1152, N +221. Carry +/-20 percent on the offset from the fort centre and +/-20 m on the fort itself. The facade bearing is the fort's 8-degree rotation plus the side of the parade this building faces, because every range in this fort fronts the parade. Hubbard, 1827: 'a number of voyageurs with their families were living in the soldiers' quarters, on the east side of the inclosure'. Andreas: 'the soldiers' barracks on the east side'. The 1830 plan draws its longest range against the east wall, south of the sutler's, which is where Hubbard's sentence puts the barracks in relation to it.",
+        "derivation": {
+          "method": "not_derivable",
+          "reason": "This placement predates the derivation module. Its provenance and reasoning are recorded in position.note, but no machine-checkable derivation block has been authored for it yet."
+        }
+      },
+      "footprint": {
+        "polygon": [
+          [
+            0,
+            0
+          ],
+          [
+            27.55,
+            0
+          ],
+          [
+            27.55,
+            11.01
+          ],
+          [
+            0,
+            11.01
+          ]
+        ],
+        "confidence": "inferred",
+        "sources": [
+          "harrison_1830_river_mouth"
+        ],
+        "note": "NO SOURCE GIVES THIS BUILDING'S SIZE. 27.55 x 11.01 m (about 90 x 36 ft) is the east range as drawn on the 1830 plan, measured at the scale derived from the commandant's quarters and corrected for the fort's 8-degree rotation. It is the largest building in the complex, which is what a barracks for two companies of infantry should be, and that coherence is the only check available on it. Carry +/-20 percent, and read the depth with more suspicion than the length: the plate's line weight is a large fraction of a 36 ft dimension."
+      },
+      "form": {
+        "kind": {
+          "value": "barracks",
+          "confidence": "attested",
+          "sources": [
+            "andreas_1884_v1"
+          ],
+          "note": "Named by Hubbard in 1827 and by Andreas's summary of the rebuilt fort, both placing it on the east side."
+        },
+        "construction": {
+          "value": "log",
+          "confidence": "inferred",
+          "sources": [
+            "andreas_1884_v1"
+          ],
+          "note": "Not stated for the second fort's barracks. Hubbard calls the west officers' quarters of this fort log; the commandant's quarters is the one building two sources call brick, and the 1855 key calls the officers' quarters wood. A log barracks is the type at this post and at this date, and the inference is that everything here except the commandant's quarters and the magazine was timber."
+        },
+        "stories": {
+          "value": 2,
+          "confidence": "reconstructed",
+          "note": "Not attested for this fort. Whistler's 1808 index says the FIRST fort's barracks were 'two storeys high with shingled Roofs' (Quaife) and two companies do not fit on one floor of a 90 ft range with their stores. Both are arguments; neither is a statement about the 1816 fort."
+        },
+        "wall_height_m": {
+          "value": 5.0,
+          "confidence": "inferred",
+          "note": "No height is attested. 5.0 m is two storeys of log wall at period course counts, and it inherits the storey count's weakness."
+        },
+        "roof_type": {
+          "value": "gable",
+          "confidence": "inferred",
+          "note": "Not attested. Gable is the form for a long range of this period."
+        },
+        "roof_pitch_deg": {
+          "value": 34.0,
+          "confidence": "inferred",
+          "note": "No pitch is attested for any building in this fort. 34 degrees is the archetype's mid-range for a shingled or riven-shake roof of this period and span, and it is inferred from construction practice rather than measured."
+        },
+        "chimneys": {
+          "value": 3,
+          "confidence": "inferred",
+          "note": "Not attested. A 90 ft barracks divided into squad rooms carries a stack per group of rooms; three is the minimum that heats a range this long. The COUNT is the inference and everything else about the stacks is the archetype's."
+        },
+        "gallery": {
+          "value": false,
+          "confidence": "reconstructed",
+          "note": "Same reasoning as the officers' quarters: galleries fronting the parade are documented for the FIRST fort and for no building in this one, and a plain front is a claim the visitor sees."
+        }
+      }
+    }
+  ],
+  "function": {
+    "value": "enlisted men's barracks",
+    "confidence": "attested",
+    "sources": [
+      "andreas_1884_v1"
+    ],
+    "note": "Quarters for the enlisted men of the garrison. Its most-quoted occupancy is not military: in 1827, with the post empty, voyageur families were living in it, and in September of that year it burned - see the research note."
+  },
+  "research_note": "THE BUILDING THAT BURNED AND CAME BACK, which is why it is worth reading Hubbard's account to the end. On the night after the September 1827 Pottawatomie payment 'these quarters were struck by lightning and totally consumed, together with the store-house and a portion of the guard-house' (Andreas I, p. 264). The 1830 plan - three years later - draws a range on the east side and two small buildings flanking the south gate, so the barracks and the store-house were rebuilt or replaced between 1827 and 1830. That is an inference from a plan against a narrative and it is the only evidence this project has for the fabric standing in 1835 being newer than 1816. Nothing reached describes the rebuilding.",
+  "review_required": false,
+  "occupants": {
+    "value": "enlisted men of the 5th Infantry garrison",
+    "confidence": "inferred",
+    "sources": [
+      "andreas_1884_v1",
+      "drloih_fort_dearborn"
+    ],
+    "note": "Not attested for 1835. The post was garrisoned on the scene date and Andreas gives two companies of infantry in 1833; no strength figure for mid-1835 was reached, so no number is recorded."
+  },
+  "land_owner": {
+    "value": "The ground was entered by John Baptist Baubian, 28 May 1835",
+    "confidence": "inferred",
+    "sources": [
+      "isa_public_domain_land_tract_sales"
+    ],
+    "note": "THE UNITED STATES RESERVATION. This is the same tract L108 already derives for `1835_no_build_ground.json` — from G1, Madison's line and the traced waterline — so the polygon is inherited rather than built again, and `check.sh` already re-derives it. The register's own row is the second, independent witness to the date L108 quotes from Andreas: Beaubien's pre-emption, 28 May 1835, five weeks before the scene date. The derived polygon is short of the documented 75.69 acres for the reasons L108 states, and is a floor rather than the reservation. WHETHER THE ENTRY HELD IS NOT READ HERE: it was disputed, and this row records the entry the register carries and nothing about its outcome. THE MARGIN IS 58 m: this footprint stands that far inside the tract's nearest boundary, which is more than twice the working horizontal uncertainty of anything traced off the 1834 sheets (about 20 m), so the assignment survives the error the construction carries. WHAT THIS ROW CLAIMS AND WHAT IT DOES NOT. It claims that the tract the Illinois State Archives' land-sale register describes contains this structure's committed position — the patent for this ground was ENTERED by this man on this date. It does not claim he still held the ground on 1 July 1835, that he lived here, or that he ever stood on it: a sale is a transaction, and the register's only column about residence names a county. THE SECTION LINES ARE CONSTRUCTED, NOT TRACED (L219): the grid is carried from the single PLSS corner at State & Madison, on the plat's own east-west bearing, in nominal one-mile squares.",
+    "tract": "the south-west fractional quarter of section 10",
+    "entries": [
+      "ls0057"
+    ],
+    "date_purchased": "1835-05-28",
+    "type_of_sale": "federal land sale (cash entry)",
+    "margin_m": 58.4,
+    "generated_by": "tools/resolve_land_tracts.py --build"
+  }
+}

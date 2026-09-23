@@ -1,0 +1,62 @@
+{
+  "id": "hubbard_autobiography_1911",
+  "type": "book",
+  "citation": "Gurdon Saltonstall Hubbard, The Autobiography of Gurdon Saltonstall Hubbard, Pa-pa-ma-ta-be, \"The Swift Walker\", with an Introduction by Caroline M. McIlvaine, Librarian of the Chicago Historical Society (Chicago: R. R. Donnelley & Sons Company, The Lakeside Press, Christmas 1911) — The Lakeside Classics. Read in full for its Chicago material before 1836: the front matter, McIlvaine's Introduction (pages ix-xxvii), and Hubbard's own narrative at pages 27-41, 135-138, 141-144, 153-159, 165-174 and 178-182. Hubbard's letter of 25 July 1827, printed as a note at page 174, is a separate source record.",
+  "author": "Gurdon Saltonstall Hubbard (the narrative, written in the 1880s about 1818-1830); Caroline M. McIlvaine (the 1911 Introduction); Henry E. Hamilton (the 1888 memorial volume this text is reprinted from, and the bracketed editorial notes signed H. E. H.)",
+  "date": "1911 (this printing); 1888 (the Hamilton memorial volume it reprints); the manuscript Diary itself is undated on the page and was written in the 1880s",
+  "describes_date": "1818-1830 in Hubbard's own narrative, which stops abruptly in November 1830; 1830-1886 in McIlvaine's Introduction, which is where every statement this project takes about 1834, 1835 and 1836 comes from",
+  "repository": "Internet Archive, item autobiographyofg00hubb (226 leaves). The deposit also holds the scan at chicago/reference/swift-walker-autobiography/autobiographyofg00hubb.pdf. Nobody in this project has handled the physical book.",
+  "url": "https://archive.org/details/autobiographyofg00hubb",
+  "archived_url": "https://archive.org/download/autobiographyofg00hubb/autobiographyofg00hubb_djvu.txt",
+  "locator": "chicago/4d/data/research/books/text/hubbard_autobiography_1911.txt — byte-identical to the Internet Archive's own OCR output at the archived_url, fetched 2026-09-03 (sha256 of the committed file: 6c226cc700b47c1ee0d3ca6c7c8898d675e03c788634e0081cbcb1634ab6a4d7). Every claim's locator names its inclusive line range in that file, plus the scan LEAF and the PRINTED FOLIO from data/research/books/page_index/hubbard_autobiography_1911.json. THE DJVU TEXT CARRIES NO PAGE BREAKS AT ALL, so the leaf boundaries are transferred onto it from the deposited PDF's own text layer by tools/build_book_page_index.py, whose docstring is the argument for doing it that way; the deposit PDF's sha256 is 95571d98ba11eae0570d42e48eb4fb5fb7f68d7843d8f984f115f8dd64ca34df.",
+  "tier": 2,
+  "rights_status": "public_domain",
+  "asset_use": "text_only",
+  "verified": true,
+  "transcribes": [
+    {
+      "work": "Hubbard's own autobiographical narrative — his engagement with the American Fur Company at Montreal and Mackinaw, the voyage of September 1818, his first entry into Chicago on 1 October 1818, the fort and its neighbours as he first saw them, the Chicago portage and Mud Lake, Hubbard's Trail, the trading posts of the Illinois River, and the Winnebago Scare of 1827 — ending abruptly at November 1830",
+      "date": "Written in the 1880s; printed 1888 and again 1911. Describes 1818-1830.",
+      "tier": 2,
+      "note": "A participant's recollection at more than fifty years' distance, and the rung most of this reading sits on. It is a recollection and not a record: the Fort Dearborn measurements are paces remembered, the payment of page 167 is dated to the wrong year, and the commanders' list is Hubbard's own search of the War Department records, which he says failed for the years after June 1833. The Winnebago Scare section (pages 166-174) is footnoted as coming not from the Diary but 'from statements by Mr. Hubbard in Chicago Historical Series, No. 10', which is one remove further."
+    },
+    {
+      "work": "Caroline M. McIlvaine's Introduction, pages ix-xxvii — a 1911 review of the fifty-six years the Autobiography does not cover, compiled from letters, memoranda, contemporaries' reminiscences and printed history, and quoting E. O. Gale's Reminiscences of Early Chicago, The Chicago American of 10 October 1835, the Sunday Times of 24 October 1875 and Henry E. Hamilton's 1907 biographical sketch",
+      "date": "1911",
+      "tier": 4,
+      "note": "EVERY STATEMENT THIS PROJECT TAKES ABOUT 1834, 1835 OR 1836 COMES FROM HERE AND NOT FROM HUBBARD. The brick building at La Salle and South Water, the five or six hundred inhabitants, the brig Illinois of 25 May 1835, the Green Tree Tavern, the fire engine, the Russell & Mather purchase, the canal commissioners and the water-works are all McIlvaine's, written seventy-six years after the scene, and several are quotations at a further remove. A run reaching for 'Hubbard on 1835' is reaching for McIlvaine."
+    },
+    {
+      "work": "Editorial notes by Henry E. Hamilton, signed H. E. H., inserted in square brackets in the narrative — including the note at page 178 that the hog-driving of 1829-30 'was the beginning of the packing industry in Chicago' — and the publishers' preface and closing note",
+      "date": "1888 (the notes); 1911 (the preface and the closing note, the latter signed C. M. M.)",
+      "tier": 4,
+      "note": "Compiler's judgements, sixty years after the events, printed inside the narrative's own type. bk_hub_101 and bk_hub_104 are read from this layer and say so."
+    }
+  ],
+  "access_notes": "Fetched 2026-09-03 from archive.org. The identifier was confirmed first against the advancedsearch API (numFound 1, title and year 1911 as expected), then the djvu text was taken with curl -L. THE DJVU TEXT IS WHAT THE QUOTES ARE CHECKED AGAINST and it is committed verbatim. It was corroborated against a second, independent extraction — poppler's pdftotext -layout over the deposited PDF's own embedded text layer — which agrees with it to better than 0.9999 on whitespace-normalised comparison; the two differ only where poppler welds an italic word to its neighbour. Neither is a reading off the page image: this whole reading is transcription_mediated and every claim in it says so.",
+  "what_it_supplies": [
+    "Fort Dearborn's occupation chronology, dated to the day, from its establishment in 1804 to its final abandonment on 29 December 1836 — which puts the scene year inside a continuous garrison running from 1 October 1832",
+    "a full description of the second fort as a man who lived beside it in 1818 remembered it: fourteen-foot oak pickets, a block house at the south-west corner and a bastion at the north-west, whitewashed stockade and buildings, the officers' quarters outside the pickets with a piazza at second-storey level, the soldiers' quarters, the sutler's store in the north-east corner, two gates, two ten-foot guardhouses, a two-storey commissary storehouse and a brick magazine",
+    "the fort's surroundings: a four-acre garden, a military barn, a field running half a mile south, the ONE road, a fence line closed from river to river, the well by the south gate, and wash-houses on the sandy beach east of the pickets",
+    "the Factor House — two storeys, squared logs, a split-picket fence, Jouett to about 1810 and then John Dean — and the American Fur Company's round-log storehouse built by John Craft and occupied after his death by Jean Baptiste Beaubien",
+    "John Kinzie's house described from inside it: a long log cabin with a rude piazza, fronting the river directly opposite the fort, with a window that had a sight-line to the fort at night — the piazza confirmed again nine years later",
+    "a complete building count for the whole of the present Cook County in 1818: the fort's group, the Factor House, the Fur Company storehouse, Hardscrabble, Ouilmette's cabin and Kinzie's house, and nothing else",
+    "the river mouth's history — its natural outlet at the fort, its southward migration behind a sand spit driven by north-east winds, its position at The Pines a mile south as late as 1827, the soldiers' cut of spring 1828 and the sand's refilling of it",
+    "landscape: the prairie seen from Douglas Grove, the Blue Island grove and the Desplaines timber, wild onion and leek along the river, wild rice and head-high grass at Mud Lake, the old cultivated field on the River Guarie still legible as cornhills, and prairie fires dangerous enough to sink boats against",
+    "Hubbard's Trail, dated by the man who cut it (1822 to Danville, extended north to Chicago in 1824) and the State road from Vincennes to Chicago ordered in the winter of 1833-34 that adopted most of it",
+    "the settlement's size taken sideways: about forty men and women turned out to fight the fort fire in 1827, and a majority of the men at the fort that summer were Hubbard's own employees",
+    "for 1835, at one remove through McIlvaine: the brig Illinois lightered ashore on 25 May because the harbour could not take her, the passengers going on to the Green Tree Tavern, the Chicago American of 10 October 1835 on Hubbard's fire engine, and the March 1835 purchase of the eighty acres of Russell & Mather's addition for $5,000",
+    "one period document, and it is graded separately: Hubbard's letter to his sister headed 'Chicago, July 25, 1827', at data/sources/hubbard_letter_1827_07_25.json"
+  ],
+  "what_it_does_not_supply": [
+    "Hubbard's own eyewitness on 1835. HIS NARRATIVE ENDS IN NOVEMBER 1830 and the closing note says so in as many words; the book's 1835 is Caroline McIlvaine's, written in 1911",
+    "any plat position, lot, or measured coordinate. Every placement here is prose — 'west and a little south of the fort', 'about where Wells street now crosses the river' — and several are given in streets that did not exist when the thing described did",
+    "reliable dimensions. 'A square of about six hundred feet' for the Fort Dearborn stockade is a pace-estimate at sixty years' distance and is much larger than the fort this project reconstructs",
+    "a consistent account of the officers' quarters: page 36 puts them outside the pickets and built of hewn logs, page 167 puts the commanding officers' former quarters in a brick building just within the north stockade and the log quarters within the pickets on the west. The book contradicts itself and this project does not resolve it",
+    "the right year for the Pottawatomie payment and the fort fire: page 167 prints 1828 where the section heading, the surrounding narrative and Hubbard's own dated letter all say July 1827",
+    "the names of the officers commanding Fort Dearborn after 19 June 1833 — Hubbard says he could not find them in the War Department records, so the source names nobody in command during the scene year",
+    "a residence for anybody in 1835. Every person Hubbard names, he names for what they did between 1812 and 1830",
+    "page images. This reading is of the Internet Archive's OCR text of the scan, corroborated against the deposited PDF's own text layer; no claim here is scan_verified"
+  ],
+  "note": "THE BOOK IS TWO BOOKS AND THE WHOLE VALUE OF IT DEPENDS ON KEEPING THEM APART. Hubbard's narrative is a participant's recollection of 1818-1830 at rung 2 and it stops in November 1830. Caroline McIlvaine's Introduction is 1911 compilation at rung 4, and it is the only place in the volume where the town of 1834-1836 appears at all. One period document is printed between them — Hubbard's letter to his sister of 25 July 1827, at page 174 — and it reads at rung 1. IT IS NOT GRADED BY THIS RECORD. A source record cites a place and not a volume, exactly as chicago_antiquities_pratt.json and chicago_antiquities_american_fur_co.json are two records of one book: the letter has its own record at data/sources/hubbard_letter_1827_07_25.json and its own claim file, so that a rung-1 document cannot lend its rung to a 1911 compilation bound in the same covers. THIS RECORD'S TIER IS 2, which is the narrative's rung and the best this record carries. The material a run will actually reach for — the 1835 material — is rung 4 inside it, and every claim taken from the Introduction says so on its face. Anything read from the Introduction is McIlvaine and must be cited as McIlvaine. See data/research/books/coverage.json for exactly which pages were read, and data/research/books/crosswalk.json for every identity ruled on. Nothing in data/residents/, data/structures/ or data/assets/ was edited by this reading."
+}

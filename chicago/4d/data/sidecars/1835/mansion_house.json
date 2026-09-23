@@ -1,0 +1,243 @@
+{
+  "id": "mansion_house",
+  "phase": "log_frame_1833",
+  "name": "Mansion House",
+  "aka": [
+    "Graves' Tavern",
+    "Graves' boarding house",
+    "Dexter Graves' log tavern",
+    "Haddock's Tavern",
+    "Haddock's Mansion House"
+  ],
+  "archetype": "log_dwelling",
+  "asset": "gltf/mansion_house__log_frame_1833.glb",
+  "scene": "1835",
+  "target_date": "1835-07-01",
+  "documented_range": {
+    "from": "1833-01-01",
+    "to": "1850-12-31",
+    "confidence": "attested",
+    "sources": [
+      "andreas_1884_v1"
+    ],
+    "note": "THIS PHASE BEGINS AT A CHANGE OF FABRIC, NOT AT A BUILD DATE. Andreas, printed p. 635: 'The Mansion House was built in 1831 by Dexter Graves; it stood on Lake near Dearborn and almost opposite the old Tremont House. As originally built, the Mansion House was situated some little distance back from the street, but TWO YEARS LATER Mr. Graves erected a FRAME ADDITION IN THE FRONT, which came out to a line with the street.' 1831 plus two years is 1833, and 1833-01-01 is the first day that year permits rather than a date anybody gives - the YEAR of the change is attested, the month is not, so the from date is a bound inside a documented year. The 1831 log tavern standing set back from Lake Street is the previous state and is NOT modelled as a separate phase: see the change_note for why. THE END IS THE LAST ATTESTED EVENT IN THE BUILDING'S LIFE, not a demolition and not a guess - Andreas, on the succession of proprietors: 'In 1848 Jacob R. Bates took it. Two years later the greater part of the house was removed to the northwest corner of Lake Street and Michigan Avenue, and was fitted up as a hotel under the name of the Dearborn House.' BOTH ENDS ARE THEREFORE ATTESTED EVENTS IN THE BUILDING'S OWN LIFE - a dated change of fabric and a dated removal - which is why the range is tagged documented despite its width, the same reading data/structures/green_tree_tavern.json takes for a forty-seven-year span. A SEVENTEEN-YEAR PHASE IS STILL TOO LONG TO BE ONE FORM-STATE, and that is a known limitation rather than a claim that nothing changed: the house demonstrably grew once already, and nothing dates any alteration between the 1833 frame addition and the 1850 removal. Split it the moment anything does."
+  },
+  "change_note": "The house as it stood from 1833: Dexter Graves's log tavern of 1831, which had been set back from Lake Street, with the frame addition he built across its front that year and that 'came out to a line with the street'. THE 1831 SET-BACK LOG TAVERN IS NOT MODELLED AS A SEPARATE PHASE. It could be - the change is dated to within a year and the archetype can build the log core alone - but the setback distance is the whole difference between the two states and no source gives it, so an earlier phase would consist of one invented number pretending to be a position. It is recorded here instead. WHAT ALSO DOES NOT OPEN A PHASE: the changes of keeper. Graves sold to his son-in-law Edward Haddock about 1833, Haddock kept it until 1835, and Abram A. Markle took it in 1835 for two years. Those are changes of use, not of fabric.",
+  "placement": {
+    "local_e": 724.22,
+    "local_n": -91.56,
+    "rotation_deg": 180.0,
+    "position_confidence": "inferred",
+    "position_sources": [
+      "andreas_1884_v1",
+      "osm_streets_2026",
+      "chicago_democrat_1833_1835"
+    ],
+    "position_note": "PLACED 2026-08-11. THE STREET AND THE CROSS-STREET ARE DOCUMENTED, THE SIDE OF LAKE STREET IS AN INFERENCE FROM TWO STATEMENTS THAT AGREE, AND THE POSITION ALONG THE BLOCK IS THIS RECORD'S CHOICE. What is attested: Andreas p. 635, 'it stood on Lake near Dearborn and almost opposite the old Tremont House'; Andreas in his inventory of the town in the fall of 1833, 'the Mansion House, where are now numbers 84 and 86 Lake Street'; and Judge J. D. Caton, quoted by Andreas, recalling the May 1834 court term 'in the unfinished loft of the old Mansion House, JUST NORTH OF WHERE THE TREMONT NOW STANDS'. The Tremont standing when Caton spoke was the post-1850 brick house, which chicagology_prefire021's header places at the SOUTH-EAST corner of Lake and Dearborn; 'just north of' that is the NORTH-EAST corner of the crossing, i.e. the north side of Lake immediately east of Dearborn. That agrees with 'almost opposite the old Tremont House', since the first Tremont stood on the north-west corner and the two houses face each other across Dearborn Street rather than across Lake - 'almost opposite' is doing loose work in that sentence and is read here as the diagonal. METHOD: the modern West Lake Street / North Dearborn Street intersection centre was read from OpenStreetMap at EPSG:26916 E 447772.72, N 4637283.04 (OSM node 27477597, fetched 2026-08-11), the building's south face set on the Lake frontage 12.2 m north of it and its west face on the Dearborn frontage 12.2 m east of it, 12.2 m being half of an 80 ft street as annotated on Hathaway 1834. The stored coordinate is the polygon origin AFTER the 180 degree facade bearing, which under the renderer's convention (renderers/web/js/walker.js) puts it at the building's north-east corner. THE SOUTH FACE IS SET ON THE STREET LINE ON PURPOSE AND IT IS ATTESTED: the 1833 frame addition 'came out to a line with the street', which is a rare thing to be told about a Chicago building and is the one dimension-like statement this record has. WORKING UNCERTAINTY ABOUT 20 M from the georeference (data/datum.json, 17.5 m RMS), PLUS AT LEAST A LOT'S WIDTH ALONG LAKE STREET: 'near Dearborn' is not 'at the corner', so the house may have stood one or two lots further east - South Water lots were 55 ft and Lake's were probably similar, so read the along-street position as good to about plus or minus 20 m on top of the georeference. Facade bearing 180, due south onto Lake Street, which follows from the attested street line and not from any statement about the front. THE GROUND UNDER IT IS NOW MODELLED: the e1834_harbor_cut heightfield was extended east and its box now runs local E -320..+1700 and N -400..+400 (data/terrain/epochs/e1834_harbor_cut/heightfield.json), so this footprint sits on real terrain and the validator measures its contact rather than clamping at a box edge. It lands within the walker's 0.35 m step-up rule, so the phase carries no ground_contact declaration. That is new as of this parcel: docs/LIBERTIES.md L40 - two thirds of the town standing on ground that had not been built - is already in that document's Resolved section, and this record is written on the far side of that resolution: no Lake Street building in this parcel needed a ground_contact declaration. APPENDED 2026-08-29, T-0324 — A LOT AND BLOCK NUMBER FOR THIS HOUSE, WHICH THIS RECORD CANNOT YET USE, AND ONE READING THAT IT CAN. G. Spring's For-Sale notice ran in the Chicago Democrat six times between 1834-06-18 and 1834-11-19: 'LOT No. 7, in block No. 16, ONE LOT EAST OF HADDOCK'S TAVERN, on Lake street, in the town of Chicago. There is on said lot a large Dwelling-House and fine well' (1834-06-18 c006; also 1834-09-03 c005, 1834-10-15 c006, 1834-11-19 c010). Haddock's Tavern is this house - see the occupants note for the succession and the research note for the spelling. THE BLOCK NUMBER WAS UNUSABLE HERE WHEN THIS PARAGRAPH WAS WRITTEN, and it is usable now — see the T-0358 note at the end of this field. Nothing committed carried the Thompson plat's block NUMBERING: data/traces/vectors/thompson_lots.json keyed its nineteen blocks on their bounding streets and no record in data/sources/ numbered one, so the most precise placement statement the whole newspaper corpus makes about any building in this town resolved to nothing on the committed plat. WHAT IS USABLE IS THE NEIGHBOUR: the lot immediately EAST of the tavern carried a large DWELLING-HOUSE and a well, so it was not a shop. J. K. Botsford advertised in the same paper both 'next door to Graves' Tavern' and at the 'Corner of Dearborn and Lake-sts.', and T-0324 found the corpus supports reading those as ONE frontage; if they are one, Botsford stood on this house's WEST side - the Dearborn corner - and this house stood on the SECOND lot from Dearborn rather than on the corner lot. THAT AGREES WITH THIS RECORD AND DOES NOT MOVE IT. 'Near Dearborn' is not 'at the corner' - the along-street allowance stated above already says the house may stand one or two lots further east - and one lot is about 24 m, inside the plus-or-minus this note already carries. The stored coordinate is UNCHANGED: shifting a building inside its own declared uncertainty on the strength of an inference buys precision the evidence has not paid for. The argument is written out in docs/RESEARCH/botsford_graves_1834.md. APPENDED 2026-08-29, T-0358 — BLOCK 16 IS NOW ON THE COMMITTED PLAT, AND IT PUTS THIS HOUSE ONE LOT EAST OF WHERE IT STANDS. WITHOUT MOVING IT. The owner's crop of Wright's 1834 sheet carries two adjacent block numbers, 19 west of 18, in the tier fronting South Water Street; counting east at one block per step reaches 16 on the Dearborn-State block, whose Lake Street frontage is its south row, and the lot scheme the same crop shows runs 5 6 7 8 west to east along a south row. So Spring's lot 7 is the third lot east of Dearborn and Haddock's Tavern, one lot west of it, is the SECOND — which is where T-0324 had already put this house from Botsford, and which is exactly the reading recorded in the paragraph above. THE COUNT IS INFERRED AND SO IS THE PLACEMENT IT AGREES WITH; three statements agreeing is not a survey. The measurable consequence: this record's west face stands on the Dearborn frontage at local E +712.2, on lot 5, and lot 6 begins 24.2 m east of it at E +736.4. That gap is ONE LOT, and it is inside the along-street allowance this note already declares. THE STORED COORDINATE IS STILL UNCHANGED, for the reason given above and one more: moving a committed building on the strength of an inference authored in the same commit is precision the evidence has not paid for. What has changed is that the discrepancy is now a number. data/traces/thompson_block_numbering.json and docs/RESEARCH/thompson_block_numbering.md.",
+    "symbolic_location": "North side of Lake Street immediately east of Dearborn Street (today the north side of West Lake Street at North Dearborn), later Nos. 84 and 86 Lake Street; fronting south onto Lake, diagonally across the crossing from the first Tremont House.",
+    "uncertainty_m": 20,
+    "placement_provisional": false,
+    "vertical_anchor": "terrain",
+    "walk_surface_m": null
+  },
+  "footprint": {
+    "polygon": [
+      [
+        0,
+        0
+      ],
+      [
+        12.0,
+        0
+      ],
+      [
+        12.0,
+        9.0
+      ],
+      [
+        0,
+        9.0
+      ]
+    ],
+    "confidence": "reconstructed",
+    "sources": [],
+    "note": "INVENTED. NO SOURCE GIVES THIS BUILDING A DIMENSION. 12 x 9 m is about 39 x 30 ft; the whole rectangle is the log core plus the 1833 frame addition in front of it, because that is what a footprint polygon means to the log_dwelling archetype. TWO WEAK ARGUMENTS SHAPED IT AND NEITHER IS EVIDENCE: it took two street numbers, 84 and 86 Lake Street, when Lake Street was numbered, which suggests a frontage of about two lots rather than one; and it held a room big enough for the Circuit Court to sit in - in the unfinished loft - at the May 1834 term. The 9 m depth is the log core plus the 4 m the frame addition needed to reach the street from 'some little distance back'. All three numbers are chosen. TO RESOLVE: the Chicago Democrat and Chicago American advertisements of the house under Haddock or Markle, which in the period habitually counted rooms; or a Cook County deed on lots 84-86."
+  },
+  "attributes": {
+    "construction": {
+      "value": "log",
+      "confidence": "attested",
+      "sources": [
+        "andreas_1884_v1"
+      ],
+      "note": "Andreas, inventorying the town's four hotels in the fall of 1833: 'the Mansion House, where are now numbers 84 and 86 Lake Street. It was at that time AN UNPRETENTIOUS LOG TAVERN kept by Dexter Graves, and according to some authorities had no name, being on the site of the building which was afterwards known by the above-mentioned name.' The value records the log core, which is the primary construction; the 1833 frame addition is carried separately as frame_addition so the mixed fabric is not flattened away. NOTE THE TAIL OF THAT SENTENCE and what it does not settle: 'according to some authorities' the log tavern of 1833 was ON THE SITE of the later Mansion House rather than being it, which would make the building standing on 1835-07-01 either the log tavern with its frame front or a successor nobody dates. Andreas's own hotel chapter treats them as one building that grew, and this record follows it; the alternative reading is recorded here and in the research_note."
+    },
+    "stories": {
+      "value": 1,
+      "confidence": "inferred",
+      "note": "No source gives a storey count. One storey with a loft under the roof is the standard form for a log tavern of this date and region, and it is what the attested loft implies: Caton's court sat 'in the unfinished loft', which is a roof space and not a second storey. It is also the conservative reading - the sources that do describe height in this town single out the Sauganash's two storeys and Miller's two-storey frame range as remarkable, which they would not be if every tavern had two. Not attested either way."
+    },
+    "wall_height_m": {
+      "value": 2.6,
+      "confidence": "inferred",
+      "note": "No figure is attested. 2.6 m is about 8 1/2 ft: a single storey of hewn log wall at typical period course counts, plus a sill - the same figure and the same reasoning as data/structures/wolf_point_tavern.json. What is inferred is that the wall height falls in this range, not that it is exactly 2.6 m."
+    },
+    "loft": {
+      "value": true,
+      "confidence": "attested",
+      "sources": [
+        "andreas_1884_v1"
+      ],
+      "note": "ONE OF THE VERY FEW DOCUMENTED INTERIORS IN THIS DATASET, and it is documented because a court sat in it. Judge J. D. Caton, quoted by Andreas under 'First Chicago Divorce': that term in May, 1834, 'when we all first met together in the UNFINISHED LOFT of the old Mansion House, just north of where the Tremont now stands'. So on 1835-07-01 the building had a roof space, it was reached and used, and thirteen months earlier it was unfinished. The archetype builds a loft as a gable-end opening and nothing else, which is honest: a loft leaves no other external trace and inventing a dormer would be adding evidence. The interior itself is not modelled anywhere in this project - docs/LIBERTIES.md L56."
+    },
+    "roof_type": {
+      "value": "gable",
+      "confidence": "inferred",
+      "note": "Not attested for this building. Gable is the near-universal roof form for log construction of this type, period and region, and a loft that people sat in wants a ridge over it."
+    },
+    "roof_pitch_deg": {
+      "value": 40.0,
+      "confidence": "inferred",
+      "note": "No pitch is attested. 40 degrees is mid-range for a log building roofed in riven shakes or clapboards - steep enough to shed snow, shallow enough for the short rafters a log pen allows, and tall enough to give the attested loft headroom. Inferred from construction practice, not measured."
+    },
+    "frame_addition": {
+      "value": true,
+      "confidence": "attested",
+      "sources": [
+        "andreas_1884_v1"
+      ],
+      "note": "'As originally built, the Mansion House was situated some little distance back from the street, but two years later Mr. Graves erected A FRAME ADDITION IN THE FRONT, which came out to a line with the street' (Andreas, p. 635). This is the clearest statement of a building's growth anywhere in this parcel: a log tavern of 1831 standing back from Lake Street, and a frame block built onto its front in 1833 that reached the frontage. Its SIZE is unattested, which is why the two dimensions below state the invented numbers explicitly instead of leaving them to the archetype's defaults."
+    },
+    "frame_addition_side": {
+      "value": "front",
+      "confidence": "attested",
+      "sources": [
+        "andreas_1884_v1"
+      ],
+      "note": "'in the front, which came out to a line with the street'. The side is stated in the source in as many words, which is not true of the only other frame addition in this dataset - the Wolf Point Tavern's, whose side is conjectural (docs/LIBERTIES.md L24). The archetype's 'front' puts the frame block against the facade, which is the same relation Samuel Miller's two-storey frame range has to his log cabin 'fronting the river'."
+    },
+    "frame_addition_width_m": {
+      "value": 12.0,
+      "confidence": "reconstructed",
+      "note": "NOT ATTESTED. Set to the full 12 m frontage of the footprint, so the frame block spans the whole front of the log core and presents one continuous face to Lake Street. That is what 'came out to a line with the street' implies about the RESULT and not about the width, and a narrower block would leave a notch at one end that no source describes and that would read as a modelled fact about the plan. The value is a consequence of the massing rule, not a finding, and the footprint it is measured against is itself invented."
+    },
+    "frame_addition_depth_m": {
+      "value": 4.0,
+      "confidence": "reconstructed",
+      "note": "NOT ATTESTED, AND IT IS THE NUMBER THAT STANDS FOR 'SOME LITTLE DISTANCE BACK FROM THE STREET'. Andreas says the log tavern stood back and the frame addition reached the frontage; he does not say how far back, so the depth of the new block is the size of an unmeasured setback. 4 m is about 13 ft, which leaves 5 m of log core behind it inside the 9 m footprint - enough to still be a building, which the archetype checks. Anything from a two-metre porch-depth to a full second range is compatible with the sentence."
+    },
+    "frame_addition_stories": {
+      "value": 1,
+      "confidence": "reconstructed",
+      "note": "NOT ATTESTED. Andreas gives the addition a material, a side and a year and no height. One storey is chosen because the building it was added to is modelled at one storey with a loft, and a two-storey front on a one-storey log tavern would be the more remarkable thing and would probably have been said. That is an argument from silence, so the tag is conjectural rather than inferred."
+    },
+    "frame_paint": {
+      "value": "unpainted",
+      "confidence": "reconstructed",
+      "note": "NOT ATTESTED EITHER WAY, and the archetype reads it, so leaving it out would have chosen a finish silently. Unpainted weathered clapboard is the default reading for a frontier tavern's addition and it is weakly supported by the contrast Wau-Bun draws at Wolf Point in 1831, where a painted white building was 'the admiration of all the little circle' precisely because the buildings around it were not painted. Still a choice."
+    },
+    "chimneys": {
+      "value": 1,
+      "confidence": "inferred",
+      "note": "Not attested. One stack is the minimum a tavern with a public room and cooking needed through a Chicago winter, and it is what this project's other log taverns record. The COUNT is the inference; where it stands, how big it is and what it is made of are the archetype's - docs/LIBERTIES.md L26."
+    },
+    "function": {
+      "value": "tavern_inn",
+      "confidence": "attested",
+      "sources": [
+        "andreas_1884_v1",
+        "drloih_hotels"
+      ],
+      "note": "IN PUBLIC-HOUSE USE ACROSS THE WHOLE SCENE WINDOW AND ATTESTED CONTEMPORANEOUSLY. Andreas counts it among the town's four hotels in the fall of 1833 - 'an unpretentious log tavern kept by Dexter Graves' - and has Markle from 1835 'accommodated and entertained many of Chicago's early residents, and travelers coming this way to take an observation of the town lying in the mud'. THE CONTEMPORARY WITNESS IS THE STRONGEST EVIDENCE IN THIS RECORD and it is not from either source above: the Chicago Democrat of 26 November 1833 carries 'Blacksmithing Business. MATTHIAS MASON & CO. Carries on the above business in all its various branches, on Main-street, nearly opposite GRAVES' TAVERN' - a paying advertiser using the house as the landmark his customers would find him by, in the town's own newspaper, in its own week. That is recorded here rather than cited on the attribute because the claim it supports is the tavern's existence and standing in November 1833, not its form. THE PROJECT'S DOSSIER ALSO HAS IT 'advertised in 1835 as Cook's Coffee House' (docs/research/04-structures-south.md line 156, citing Andreas and drloih_hotels). THAT PHRASE IS NOT IN ANDREAS VOL. 1: a full-text search of the volume for 'Cook's Coffee House' returns nothing, and the Coffee House entries in its index are the Exchange, Lincoln's, the Eagle and the Lake Street. It may still be right and it may be drloih's alone; it is not asserted here."
+    },
+    "occupants": {
+      "value": "Edward Haddock or Abram A. Markle, keeper",
+      "confidence": "inferred",
+      "sources": [
+        "andreas_1884_v1",
+        "chicago_democrat_1833_1835"
+      ],
+      "note": "THE HANDOVER FALLS IN THE SCENE YEAR AND NO SOURCE GIVES A MONTH, so on 1835-07-01 the keeper is one of two men and this record declines to choose. Andreas, p. 635: Graves 'sold it to a Mr. Haddock, his son-in-law, who kept it UNTIL 1835 when it passed into the hands of Abram A. Markle, who, for two years thereafter accommodated and entertained many of Chicago's early residents'. A transfer somewhere inside 1835 is, on a flat prior, about as likely to be after 1 July as before it. A SECOND, LOOSER COMPLICATION: Andreas elsewhere quotes a stage-line advertisement of 6 August 1836 in which seats are taken at 'Markle's Exchange Coffee House' - so Markle is attached to two different houses in overlapping years, and either he ran both or one of the two datings is loose. Recorded rather than resolved. APPENDED 2026-08-29, T-0324 — THE PAPER BRACKETS THE HANDOVER ANDREAS DOES NOT DATE. It is the GRAVES-to-HADDOCK one, not the Haddock-to-Markle one this field turns on, so nothing below changes the answer for 1835-07-01; it is recorded here because this is the field that carries the succession. Andreas gives only 'about this time'. The Chicago Democrat gives: the Board of Trustees adopting ordinances 'at the house of Dexter Graves' on 1833-12-04 and on 1834-03-05; an employment notice of 1834-04-01 (c017) reading 'enquire of MR. GRAVES, AT HIS TAVERN'; the ordinances of 1834-06-06 adopted 'at the house of E. Haddock' (1834-06-18 c002, reset as 'E. H. Haddock' on 1834-07-02 c017); and a Fourth of July meeting called at 'H. HADDOCK'S MANSIO[N HOUSE]' on 1834-06-25 (c002). SO THE HOUSE IS GRAVES'S ON 1 APRIL 1834 AND HADDOCK'S BY 25 JUNE 1834, and probably before 6 June. Dexter Graves commences the Baking Business on South Water Street over a copy date of 1834-03-25 (1834-03-25 c003), which is the same spring. THE WEAK LINK, STATED: the trustees' venue is not by itself a tenancy - the same board met at Starr Foot's house, the Presbyterian church, the Tremont House and 'the Exchange' later in 1834, so it tracks convenience. The bracket rests on Graves's own advertisement and on the house being named as Haddock's; the venue agrees with it rather than proving it. WHO KEPT IT ON THE SCENE DATE IS STILL OPEN and this record still declines to choose."
+    }
+  },
+  "residents": [
+    {
+      "household": "hh_haddock_edward",
+      "name": "The Mansion House keeper's household",
+      "division": "south",
+      "relation": "lived and worked here",
+      "why": "A landlord lived in his house, and Andreas has him keeping this one until some point in 1835. Both halves are reconstructed.",
+      "sources": [
+        "andreas_1884_v1"
+      ],
+      "basis": "",
+      "persons": [
+        {
+          "name": "Edward H. Haddock",
+          "relationship": "head",
+          "grade": "attested",
+          "occupation": "tavern_keeper",
+          "note": "THE HANDOVER FALLS INSIDE THE SCENE YEAR AND NO SOURCE GIVES A MONTH. On a flat prior a transfer somewhere in 1835 is about as likely to be after 1 July as before it, so this household names Haddock, records Markle in this note, and declines to choose - exactly as data/structures/mansion_house.json does. He was Dexter Graves's son-in-law, which is the only family relation in this parcel that reaches across two households. OLD SETTLERS, 1882 — A DATE OF DEATH, AND NOTHING ABOUT 1835. John Wentworth's roll of old settlers who had died since 1 January 1881, kept for the Calumet Club and printed in the Chicago Tribune of 25 April 1882, carries “Edward H. Haddock, May 30, 1881.”. That corroborates a Chicago residence before 1840 and fixes the END of this life, which this record did not carry; it is not an arrival and it places nobody in the town on 1 July 1835. Under the ratified ladder (T-0513) a later recollection corroborates, enriches and dates and cannot lift a rung by itself, so this record's GRADE IS UNCHANGED by it: T-0513 consolidates the identity and T-0515 regrades. Identity by rule OS1 — surname and spelled-out forename agree, one bearer (data/research/old_settlers/crosswalk.json). THE TOWN'S OWN ROLLS, 1833-1835 — CORROBORATION, NOT A GRADE. The early Chicago voter and tax lists held by the Illinois Regional Archives Depository name this person 2 times: Tax list of the Town of Chicago, 1833 — “Haddock, E. H.” (tax_1833_041, line 93); Poll list of 1835 — “Haddock, E. H.” (poll_1835_028, line 315). These are the town's own contemporary paper rather than a recollection of it, and each appearance says that a man of that name stood on that roll in that year — no more. The reading is twice mediated (Schulz's transcription, then Genealogy Trails' republication) and this project has not seen the IRAD originals. Under the ratified ladder (T-0513) the 1835 poll with a second independent source is attested, the 1835 poll alone or a 1833/1834 list with another source is inferred, and a single appearance with nothing else is a projected resident. This pass WRITES THE EVIDENCE AND MOVES NO GRADE — T-0515 applies the ladder against every source at once. Identity by the crosswalk's own rule: one resident of the surname 'Haddock' agrees with the entry's forenames; 1 bearer(s) of the surname were considered. (data/research/civic/voter_crosswalk.json). FERGUS 1839'S LATER LISTS — 1837 AND 1839 EVIDENCE, NEVER AN 1835 FACT. Fergus' Chicago Directory for 1839 names this person 1 time in its two later lists: the poll of Chicago's first city election, 2 May 1837 — “Edw. II. Haddock,” (f1839_v0142, printed page 42, ward 1, voting for John H. Kinzie). What a match may carry, and it is short: that the man was in Chicago on 2 May 1837 and in that ward. It is written as 1837 evidence with describes_date 1837-05-02, never as an 1835 fact, and the person's grade does not move on this alone. Under the ratified ladder a second contemporary source is what lifts projected_resident, and a poll twenty-two months after the scene date is a second source about CONTINUED RESIDENCE, not about July 1835. The ward is a location in the CITY of 1837, whose six wards are drawn on printed page 46; it is not a location in the town of 1835 and does not place a house. Identity by the crosswalk's own rule: Surname 'Haddock' folds to the same string as the 1837 entry's, and the given name of both begins E. (data/research/directories/fergus_1839_election_crosswalk_1835.json and fergus_1839_register_crosswalk_1835.json). This pass WRITES THE EVIDENCE AND MOVES NO GRADE. Under the ratified ladder (T-0513) a second independent source is what lifts a projected resident, and a poll twenty-two months after the scene date — or a register four years after it — is a second source about CONTINUED RESIDENCE rather than about July 1835. T-0515 applies the ladder against every source at once; this pass hands it the evidence and not the verdict. FERGUS 1839'S FORT DEARBORN ADDITION LOT SALE — JUNE 1839 EVIDENCE, NEVER AN 1835 FACT. This person bid at the sale of the Fort Dearborn Addition, 10-24 June 1839, printed in Fergus' Chicago Directory for 1839 at pages 47-49. The bidder is printed as “E. H. Haddock”. 3 lot rows, $534 in all: block 9 lot 30 at $232 (f1839_lot0171, printed page 48); block 10 lot 12 at $151 (f1839_lot0185, printed page 49); block 10 lot 13 at $151 (f1839_lot0186, printed page 49). The sale table's own shorthand, recorded and not flattened: 1 of those rows prints the bidder as a ditto mark under the name above rather than the name itself; 3 carry the block number forward from the last row that printed one. What a match may carry, and it is short: that the man was in Chicago between the 10th and the 24th of June 1839 and bid at the Fort Dearborn Addition sale. It is written as 1839 evidence with describes_date 1839-06, never as an 1835 fact, and the person's grade does not move on this alone. Under the ratified ladder a second contemporary source is what lifts projected_resident, and a land sale four years after the scene date is a second source about CONTINUED RESIDENCE, not about July 1835. THE LOT IS NOT A LOCATION FOR 1835: the Fort Dearborn Addition is the Beaubien, or Reservation, lands, which in July 1835 were the garrison's ground and were not platted into lots at all. It places no house, no shop and no household in the town this project builds. No trade, no address in the town of 1835, no household and no house. The block and lot are the only location on the page, they are ground platted in 1839 out of the garrison's reservation, and they place nobody in the town of 1835. Identity by the crosswalk's own rule: Surname 'Haddock' folds to the same string as the bidder's, and the given name of both begins E. (data/research/directories/fergus_1839_lots_crosswalk_1835.json). This pass WRITES THE EVIDENCE AND MOVES NO GRADE. Under the ratified ladder (T-0513) a second independent source is what lifts a projected resident, and a lot sale four years after the scene date is a second source about CONTINUED RESIDENCE rather than about July 1835. T-0515 applies the ladder against every source at once; this pass hands it the evidence and not the verdict. THE FEDERAL LAND TRACT SALES — A PURCHASE, AND NEVER A RESIDENCE. The Illinois State Archives' Public Domain Land Tract Sales register enters this person 6 times, as “HADDOCK E H”, “HADDOCK EDWARD H”, 1833-10-22 to 1836-06-28: 1 federal land entry — E2NE sec 27 T38N R14E and 1 lot in the platted town — lot 8 of block 3 in the town the register codes CHI (L8BL3CHI, as printed) and 4 parcels of the school section — BL134 of the school section (sec 16 T39N R14E), as read; lot 1 of block 94 of the school section (sec 16 T39N R14E); lot 7 of block 120 of the school section (sec 16 T39N R14E); lot 8 of block 94 of the school section (sec 16 T39N R14E), 80.00 acres stated in all, for $1575.00 (ls0169, ls0170, ls0171, ls1199, ls0172, ls0669). THE REGISTER'S OWN RESIDENCE COLUMN READS UNKNOWN on these rows: a county, a state or nothing, and never a town, which is why a purchase here places nobody. THE SCHOOL-SECTION ROWS ARE GROUND INSIDE THE TOWN, NOT FARMLAND: section 16 of T39N R14E was platted and sold off by lot and by block at the sale of 1833, which is why the register states 0000.00 acres against most of them. Ground inside the town is nearer to this reconstruction than a quarter-section is, and it is still a purchase: the register names a purchaser and never an occupant, and nothing here puts this person on that ground. THE TOWN LOTS ARE THE PLAT ITSELF, AND THEY ARE NOT ACRES: Cook County's register describes them by lot and block in a platted town and gives them no section, no township and no acreage at all, so they add nothing to the acre figure above and $1025.00 to the money. This project does not expand the register's town codes, so which addition a lot stands in is carried as the code and not as a name. It is still a purchase and it still places nobody. A purchase and nothing more. It dates and places a transaction; it proposes no residence, and under the ratified ladder it corroborates rather than mints. Identity by the crosswalk's own rule: HADDOCK E H matches Edward H. Haddock: the forename names Edward H. Haddock of the 2 people of this surname, and the forename agrees as an initial only. (data/research/land_sales/resident_crosswalk.json). This pass WRITES THE EVIDENCE AND MOVES NO GRADE. Under the ratified ladder (T-0513) a second independent source is what lifts a projected resident, and a land entry is a second source about a TRANSACTION rather than about who was living at Chicago on 1 July 1835 — a man may buy a quarter-section he never sees. T-0515 applies the ladder against every source at once; this pass hands it the evidence and not the verdict."
+        }
+      ],
+      "research_note": "THE HOUSEHOLD THAT EXISTS TO CARRY AN UNRESOLVED HANDOVER RATHER THAN TO HIDE IT. The Mansion House had a keeper on 1 July 1835 and this project cannot say which of two named men it was. Writing no household would lose a documented tavern keeper; writing two would double-count a job only one man held; writing Markle would be a coin-flip stated as a fact. So one household is written, graded derived throughout, with presence recorded as uncertain and the alternative named in the notes. A LATER PARCEL SHOULD LOOK FOR THE MONTH - the Chicago American began publishing in June 1835 and a change of landlord is exactly the thing a new paper advertises."
+    }
+  ],
+  "citations": [
+    {
+      "source_id": "andreas_1884_v1",
+      "citation": "Andreas, A. T. History of Chicago: From the Earliest Period to the Present Time. Vol. 1. Chicago: A. T. Andreas, 1884.",
+      "url": "https://archive.org/details/historyofchicago01andr",
+      "archived_url": "",
+      "tier": 3,
+      "tier_label": "compiled secondary (Andreas)"
+    },
+    {
+      "source_id": "chicago_democrat_1833_1835",
+      "citation": "The Chicago Democrat. Vol. I, No. 1 (November 26, 1833) through Vol. II, No. 18 (August 26, 1835). Chicago, Ill.: John Calhoun, editor and publisher. Seventy-three issues, OCR-assisted research transcriptions from page scans.",
+      "url": "",
+      "archived_url": "",
+      "tier": 1,
+      "tier_label": "period/eyewitness",
+      "what_it_supplies": [
+        "that a named trade was being carried on in Chicago in a named week, and often where",
+        "self-reported addresses, which are the strongest address evidence this project has: the advertiser was paying, and his customers had to find him",
+        "dissolution, removal and replacement notices — the only thing that keeps a documented business out of the 1835 town under the owner's ruling 3",
+        "post-office letter lists, naming residents by the hundred (ruling 1: a listed name mints a resident candidate, flagged letter_list_only)",
+        "the village and later town ordinances, printed complete — the 7 November 1833 code is the richest single item in the run",
+        "arrivals and clearances, which date the piers and the harbour as working structures",
+        "public notices that fix a building as a polling place, an auction site or a meeting place on a given day",
+        "the paper's own imprint, self-reported: the corner of South Water and Clark streets",
+        "twenty-one months of continuous weekly attestation ending three weeks before the scene date, including the issue printed on 1835-07-01"
+      ],
+      "what_it_does_not_supply": [
+        "any building's form, material, storey count, fenestration or dimensions — an advertisement describes a trade, not a building",
+        "the specific corner of any junction it names: 'on the corner of' does not say which of the four",
+        "anything at all from an engraving — see trap 1; the cuts are the printer's stock",
+        "proof that a business named in 1833 or 1834 still stood on 1835-07-01; that is ruling 3's survival liberty, and it is a liberty",
+        "an argument from silence, unless corpus.json shows the issues either side of the silence are both in the deposit",
+        "a reading that outranks a scan read of the same passage — see ruling 2 and the C. & I. HARMON case",
+        "a citation without an issue page and column"
+      ]
+    },
+    {
+      "source_id": "drloih_hotels",
+      "citation": "\"A Chronology of Early Chicago Area Hotels.\" Digital Research Library of Illinois History Journal.",
+      "url": "https://drloihjournal.blogspot.com/2022/07/chronology-of-early-chicago-area-hotels.html",
+      "archived_url": "",
+      "tier": 4,
+      "tier_label": "later scholarship"
+    },
+    {
+      "source_id": "osm_streets_2026",
+      "citation": "OpenStreetMap contributors. Street centerline intersection nodes for downtown Chicago, retrieved via the Overpass API, 2026-08-09.",
+      "url": "https://www.openstreetmap.org/",
+      "archived_url": "https://overpass-api.de/",
+      "tier": 4,
+      "tier_label": "later scholarship"
+    }
+  ],
+  "research_note": "THE BUILDING THE PROJECT BRIEF ASKED TO BE TREATED AS ONE STRUCTURE, AND ANDREAS SETTLES THAT IN A SENTENCE. 'Dexter Graves - Mansion House, Lake nr. Dearborn, 1831. See section 6 - his boarding house = the Mansion House' is how docs/research/04-structures-south.md puts it; Andreas puts it as one continuous succession of keepers in one building on one site, from Graves's log tavern of 1831 through Haddock and Markle to its removal in 1850. There is no second structure. THE FABRIC IS BETTER ATTESTED THAN ANYTHING ELSE IN THIS PARCEL, and it is the reason this record is a log_dwelling with a frame front rather than a frame tavern: an unpretentious LOG tavern of 1831, standing back from Lake Street, with a FRAME ADDITION built across its front in 1833 that came out to the street line, and an UNFINISHED LOFT that the Circuit Court sat in in May 1834. Four facts about the building itself, from two independent passages of Andreas. Nothing else in this parcel has that. WHAT IS STILL INVENTED: every dimension, the storey counts of both elements, the roof, the finish and the chimney. THE ONE READING RECORDED AND NOT ADOPTED: Andreas's 'according to some authorities had no name, being on the site of the building which was afterwards known by the above-mentioned name' admits a version in which the 1833 log tavern was replaced by a later Mansion House rather than becoming it. His own hotel chapter contradicts that by carrying one building forward from 1831, and this record follows the hotel chapter; if the other reading is right, the building standing on 1835-07-01 is still Graves's log tavern and only its name is wrong here. A CONTEMPORARY PUZZLE WORTH LEAVING OPEN: the Chicago Democrat advertisement that names Graves' Tavern places the blacksmith 'on MAIN-STREET, nearly opposite' it. No street called Main is platted in the 1830 Thompson plat, appears on Wright 1834, or is named anywhere in Andreas vol. 1 for Chicago. The likeliest reading is that an advertiser new to the town called the principal thoroughfare by the name every other town used, and that the street meant is Lake or South Water; it is not resolved here and it is the only contemporary statement of this building's street. See docs/RESEARCH/mansion_house.md. APPENDED 2026-08-29, T-0324. GRAVES' TAVERN WAS NOT RENAMED THE TREMONT HOUSE, and the corpus now says why the anchor changed. Matthias Mason & Co.'s standing blacksmith advertisement - ONE dateline, 'Chicago, Nov. 26, 1833', unchanged in every setting - is anchored on Graves' Tavern from 1833-11-26 to 1834-06-11 and on the Tremont House from 1834-09-10 to 1834-12-10 (T-0345 holds the dated change; it brackets it 1834-07-16, but the committed extractions carry no Mason printing that week, so the bracket is 1834-06-11 to 1834-09-10). Neither the forge nor this house moved: THE LANDLORD'S NAME WENT STALE. The Democrat's last 'Graves' Tavern' is 1834-06-11 and its first use of 'Mansion-House' as this building's own name is 1834-09-03 c010, a militia election 'held at the Mansion-House in Chicago' - one week before Mason's advertisement first reads 'the Tremont House'. An advertiser whose landmark was named for a keeper who had left re-anchored on the largest name at the crossing, and both houses stood throughout, diagonally across Dearborn, which is what Andreas's 'almost opposite the old Tremont House' already says. THAT ALSO ANSWERS THE 'SOME AUTHORITIES' ASIDE ABOVE: the town's own newspaper calls this house the Mansion House by September 1834, ten months before the scene date. AND THE STREET WORD IN MASON'S ADVERTISEMENT IS UNSTABLE, which is a warning rather than a finding: four settings read 'Main-street' and the setting of 1834-10-15 (c007) reads 'on Mar[k]et street, opposite the Tremont House' - same copy, same dateline, two street names. Main Street is still NOT identified with any platted street here, and this makes the case for leaving it alone stronger than the paragraph above found it. THE TAVERN'S OWN SPELLING IS SETTLED: G. Spring's For-Sale notice reads 'Haddock's Tavern' in four legible settings (1834-06-18, 1834-09-03, 1834-10-15, 1834-11-19) and 'Maddock's Tavern' in exactly one (1834-07-09 c024), with a sixth cut to '[...]k'n Tavern' (1834-07-02 c053) - which is the condition the reading pass of 1834-07-30 set for deciding it. The newspaper gazetteer cannot record that merge, because it mints both tavern names as PERSONS and the person rule rightly refuses two entries with a matching surname and differing initials; T-0359 is that defect. See docs/RESEARCH/botsford_graves_1834.md.",
+  "research_doc": "docs/RESEARCH/mansion_house.md",
+  "review_required": false
+}

@@ -1,0 +1,185 @@
+{
+ "id": "hh_robinson_alexander",
+ "name": "The Robinson household at Wolf Point",
+ "division": "west",
+ "head": "robinson_alexander",
+ "arrival": {
+  "value": "1816",
+  "confidence": "inferred",
+  "sources": [
+   "andreas_1884_v1"
+  ],
+  "note": "NOT DATED AND BOUNDED FROM ABOVE. 'It is not known just when Robinson settled in Chicago, but he had been here, at least two seasons, and with Antoine Ouilmette had cultivated the field belonging to the fort, raising thereon corn, when Captain Bradley arrived to rebuild Fort Dearborn in 1816.' Two seasons before 1816 would put him here by 1814; 1816 is the year the source actually fixes and is the conservative reading. THE SOURCE'S OWN WORDS ARE 'IT IS NOT KNOWN' and the grade says so.",
+  "precision": "year"
+ },
+ "party_size_on_arrival": {
+  "value": null,
+  "confidence": "reconstructed",
+  "note": "Not attested in anything this project holds."
+ },
+ "origin": {
+  "value": "Mackinaw; his father a Scots trader, his mother an Ottawa woman",
+  "confidence": "attested",
+  "sources": [
+   "andreas_1884_v1"
+  ],
+  "note": "Andreas states both parents and the birthplace, and the route by way of the St Joseph in Michigan, where he traded and married before coming here."
+ },
+ "reason_for_coming": {
+  "value": null,
+  "confidence": "reconstructed",
+  "note": "NOT ATTESTED, and the question is differently shaped for this household than for the emigrant ones. Robinson was here before the town was; asking why he 'came' imports a frame that fits a New England merchant and not a man whose people the land belonged to. The field is left null on purpose rather than filled with a trader's motive."
+ },
+ "lives_at": {
+  "value": "robinson_caldwell_cabins",
+  "confidence": "attested",
+  "sources": [
+   "kinzie_waubun_1856"
+  ],
+  "note": "Wau-Bun, describing 1831: 'Near him [Wentworth's tavern] were two or three log cabins occupied by Robinson, the Pottowattamie chief, and some of his wife's connexions.' data/structures/robinson_caldwell_cabins.json exists on that single sentence and carries review_required: true for the same reason this household does. Andreas independently puts him at Wolf Point with a store or trading-house in the later part of his residence."
+ },
+ "works_at": {
+  "value": "robinson_caldwell_cabins",
+  "confidence": "inferred",
+  "sources": [
+   "andreas_1884_v1",
+   "kinzie_waubun_1856"
+  ],
+  "note": "A trading house at Wolf Point is where his trade was carried on, and the cabins are the only Wolf Point building this dataset attaches to him. Whether the store was one of the cabins or a separate building is not stated."
+ },
+ "present_on_scene_date": {
+  "value": "present",
+  "confidence": "inferred",
+  "sources": [
+   "andreas_1884_v1",
+   "kinzie_waubun_1856"
+  ],
+  "note": "PRESENT ON 1 JULY 1835 ON THE BEST READING AND THE SOURCES DO NOT SAY SO IN TERMS. Andreas: 'After the Indians were removed beyond the Mississippi, he settled with his family on his reservation on the Desplaines' - i.e. he leaves Chicago AFTER the removal, and the removal is later than the scene date under either dating this project holds. The value is derived and not documented because no source places this household at Wolf Point on any date in 1835."
+ },
+ "persons": [
+  {
+   "id": "robinson_alexander",
+   "name": "Alexander Robinson (Che-che-pin-qua)",
+   "relationship": "head",
+   "grade": "attested",
+   "ladder_rule": "G1c",
+   "sex": "male",
+   "birth_year": {
+    "value": 1762,
+    "confidence": "inferred",
+    "sources": [
+     "andreas_1884_v1"
+    ],
+    "note": "Andreas gives 1762 'according to popular belief, and his age as stated at the time of his death, although the years of his life are somewhat doubtful' - the source's own hedge, carried rather than smoothed."
+   },
+   "age_on_scene_date": {
+    "value": 72,
+    "confidence": "inferred",
+    "sources": [
+     "andreas_1884_v1"
+    ],
+    "note": "Follows from a birth year the source itself calls doubtful."
+   },
+   "occupation": {
+    "value": "trader",
+    "confidence": "attested",
+    "sources": [
+     "andreas_1884_v1",
+     "kinzie_waubun_1856"
+    ],
+    "note": "'During the latter part of his residence in Chicago, he lived at Wolf Point, where he had a store or trading-house' (Andreas). He was licensed to keep a tavern in Chicago on 8 June 1830, and the county clerk 'granted permits to sell goods to Alexander Robinson, John B. Beaubien, and Madore B. Beaubien' in 1831. He had earlier served as Indian interpreter under Dr Wolcott in 1825 and 1826 at $365 a year, and he is a chief of the united Potawatomi, Chippewa and Ottawa band - the office is not an occupation and is recorded in the person note.",
+    "derived_from": "roles",
+    "roles_at_scene_date": [
+     "trader"
+    ]
+   },
+   "sources": [
+    "andreas_1884_v1",
+    "kinzie_waubun_1856"
+   ],
+   "note": "A CHIEF, A LICENSED TRADER AND A RECORDED VOTER OF THE SETTLEMENT. Andreas: born at Mackinaw about 1762, his father a Scots trader who had been an officer in the British army and his mother an Ottawa woman; he sheltered the Kinzie family after the 1812 massacre and carried Captain and Mrs Heald three hundred miles by bark canoe to Mackinaw. His personal property was assessed at $200 by the Peoria County assessor in 1825 and he is recorded as a voter in 1825, 1826 and 1830. He married Catherine Chevalier, daughter of the chief Francois Chevalier, on 28 September 1826, John Kinzie officiating as justice of the peace, and became chief of her father's band at his death. By the treaty of Prairie du Chien of July 1829 he was granted two sections on the Des Plaines; by Camp Tippecanoe in 1832 a life annuity of $200; and by the Chicago treaty of September 1833 a further $300 a year for life.",
+   "resident_research": {
+    "programme": "resident-research-2026",
+    "ticket": "T-0510",
+    "outcome": "corroborated",
+    "reviewed_on": "2026-09-05",
+    "asserted_identity": true,
+    "evidence_for": "Surname and given name both agree between the 1830 reading 'Alexander Robinson' and the town person 'Alexander Robinson (Che-che-pin-qua)' in household hh_robinson_alexander. The 1830 line is carried as EARLIER EVIDENCE for that person and grades nothing on its own.",
+    "summary": "Independently corroborated. Alexander Robinson (Che-che-pin-qua) agrees, forename for forename or initial for initial, with a record outside the post-office lists in the 1830 census of the Chicago precinct. Surname and given name both agree between the 1830 reading 'Alexander Robinson' and the town person 'Alexander Robinson (Che-che-pin-qua)' in household hh_robinson_alexander. The 1830 line is carried as EARLIER EVIDENCE for that person and grades nothing on its own.",
+    "notes": "FERGUS 26-29, AS PRINTED: \"Robinson, Alex. (Indian chief), died, on his Reservation, April 22, 1872, aged 83\". The volume's obituary list gives a death date and age that put birth about 1789, and names the reservation. Research only. Later-volume readings are recorded here and NOT promoted: T-0513 consolidates and T-0514/T-0515 apply.",
+    "source_ids": [
+     "census_1830_peoria_county_chicago_precinct",
+     "chicago_democrat_1833_1835",
+     "fergus_historical_series_26_29"
+    ]
+   },
+   "roles": [
+    {
+     "role": "trader",
+     "kind": "trade",
+     "as_printed": null,
+     "from": "1673",
+     "to": "1857",
+     "precision": "source_span",
+     "dated_by": "source_describes_date",
+     "covers_scene_date": true,
+     "confidence": "attested",
+     "sources": [
+      "andreas_1884_v1",
+      "kinzie_waubun_1856"
+     ],
+     "claim": null,
+     "note": "THE BOUND IS THE SOURCE'S, NOT THE MAN'S. This role is carried by the card's 1835 occupation block and is dated by what the cited source or sources are ABOUT, which is why `precision` can be no better than the span they cover. The span reaches 1835, so this role stands in the scene-date view. The printing the trade was read off is not on the card and is fetched by T-1254."
+    }
+   ]
+  },
+  {
+   "id": "robinson_catherine",
+   "name": "Catherine Chevalier Robinson",
+   "relationship": "wife",
+   "grade": "attested",
+   "sex": "female",
+   "occupation": {
+    "value": "none_recorded",
+    "confidence": "reconstructed",
+    "note": "No source records an occupation for this person. This is the ABSENCE of a record rather than a claim that they did no work — the sources of 1835 name the occupations of household heads and almost never those of wives, children or the people counted with them."
+   },
+   "sources": [
+    "andreas_1884_v1"
+   ],
+   "note": "NAMED, WITH A MARRIAGE DATE, A FATHER AND A DEATH DATE - which makes her one of only four women in this parcel documented in her own right rather than as 'Mrs'. Andreas: married 28 September 1826 by John Kinzie, J.P.; daughter of Francois and Mary Ann Chevalier, her father chief of a united band of Potawatomi, Ottawa and Chippewa with his village at the Calumet; she died 7 August 1860 and is buried with her husband on the bank of the Des Plaines.",
+   "resident_research": {
+    "programme": "resident-research-2026",
+    "ticket": "T-0510",
+    "outcome": "no_corroboration",
+    "reviewed_on": "2026-09-05",
+    "asserted_identity": false,
+    "evidence_against": "The surname 'Robinson' is in Fergus's death notices and no entry under it carries the initial 'C' of 'Catherine Chevalier Robinson'. A surname-only agreement is a refusal, here as everywhere: the list prints eleven Smiths. 'James Robinson' at printed page 221 line 27 (33S7-9YYJ-2T) is NOT 'Catherine Chevalier Robinson': The surname 'robinson' is carried by 1 person(s) of 1835 (Catherine Chevalier Robinson) and none of their given names is 'james'. 'John Robinson' at printed page 207 line 20 (33SQ-GYYJ-93G) is NOT 'Catherine Chevalier Robinson': The surname 'robinson' is carried by 1 person(s) of 1835 (Catherine Chevalier Robinson) and none of their given names is 'john'. The 1840 census heads 'James Robinson' and 'John Robinson' are both refused against her in the repository on a given-name conflict; she is the only Robinson woman the 1835 layer holds.",
+    "summary": "No reliable record outside the Chicago post-office lists could be tied to Catherine Chevalier Robinson with a date, place, occupation or kinship discriminator. The repository's own crosswalks record the refusal: The surname 'Robinson' is in Fergus's death notices and no entry under it carries the initial 'C' of 'Catherine Chevalier Robinson'. A surname-only agreement is a refusal, here as everywhere: the list prints eleven Smiths. This is a documented no-corroboration result, not evidence that the person did not exist.",
+    "notes": "Research only. Later-volume readings are recorded here and NOT promoted: T-0513 consolidates and T-0514/T-0515 apply.",
+    "source_ids": [
+     "chicago_democrat_1833_1835"
+    ]
+   }
+  },
+  {
+   "id": "robinson_household_unnamed",
+   "name": "The rest of the Robinson household, unnamed",
+   "relationship": "household_member",
+   "grade": "inferred",
+   "occupation": {
+    "value": "none_recorded",
+    "confidence": "reconstructed",
+    "note": "No source records an occupation for this person. This is the ABSENCE of a record rather than a claim that they did no work — the sources of 1835 name the occupations of household heads and almost never those of wives, children or the people counted with them."
+   },
+   "sources": [
+    "andreas_1884_v1",
+    "kinzie_waubun_1856"
+   ],
+   "note": "AN ADMISSION, NOT A PERSON. Wau-Bun describes 'two or three log cabins occupied by Robinson, the Pottowattamie chief, and some of his wife's connexions' - so the household extended beyond the couple and the source neither names nor counts it. Andreas has him settling on the Des Plaines reservation 'with his family' after the removal, and two sons and a daughter-in-law buried beside him. Do not count this entry as a person."
+  }
+ ],
+ "touches_removal": true,
+ "review_required": true,
+ "research_note": "A DOCUMENTED HOUSEHOLD OF THREE NAMED OR COUNTED PEOPLE WHO WERE LIVING AT WOLF POINT WHEN THE TOWN GREW UP AROUND THEM. STANDING CONSTRAINT. AGENTS.md: the final removal of the Potawatomi from Chicago occurred in August 1835, inside this project's first target year and six weeks AFTER the scene date; Native presence, representation and depiction are not research gaps to be filled by inference, and v1 ships no human figures at all. This record is a dataset entry that states what named sources say about a named person and adds nothing. It carries review_required so that no scene containing it can be marked released before the consultation the project has committed to. TWO DATING PROBLEMS ARE RECORDED AND NOT RESOLVED. First, Andreas dates the last great assembly and the departure for the Missouri to 1836 under Captain Russell and Billy Caldwell, while this project's own source chicagology_lastwardance places the last war dance at Chicago on 18 August 1835; the two readings differ by a year and both are AFTER 1 July 1835, so the scene date is unaffected and the disagreement is recorded rather than averaged. Second, Wau-Bun describes 1831 and this scene is 1835; the structure record already says its four-year run is 'the longest unsupported run in this dataset' and that the years it crosses are the years of the removal. This household claims that the people were there, on the same evidence and with the same warning."
+}

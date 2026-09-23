@@ -1,0 +1,32 @@
+{
+  "id": "wright_1834_nara_hup",
+  "type": "map",
+  "citation": "Wright, J. S. Chicago, drawn by J. S. Wright according to survey, 1834. Manuscript survey, National Archives, Washington, D.C. Facsimile reproduction, Historic Urban Plans, Ithaca, New York.",
+  "author": "John Stephen Wright",
+  "date": "1834",
+  "describes_date": "1834",
+  "repository": "National Archives, Washington, D.C. (original); facsimile published by Historic Urban Plans, Ithaca, New York",
+  "locator": "working copy chicago/pre_fire_v1/maps/images/1834-wright-map.jpg, 5050 x 6628 px at 600 dpi, sha256 dbb92c0188881d9b6cdf84801b9185a5715496a328125bde895a04058b173266",
+  "tier": 1,
+  "rights_status": "no_known_restrictions",
+  "rights_note": "The 1834 manuscript is long out of copyright and is held by the National Archives. The sheet scanned here is the Historic Urban Plans facsimile of it; a faithful photographic reproduction of a two-dimensional public-domain work is not treated here as raising a new claim. The publisher's imprint is recorded rather than suppressed, and any assertion about the FACSIMILE as an object (rather than about the drawing it reproduces) is out of scope for this record.",
+  "asset_use": "geometry",
+  "verified": true,
+  "access_notes": "Supplied by the owner 2026-09-05. The repository holds two byte-identical copies of the same file (1834-wright-map.jpg and 1834-wright-map-lg.jpg, both sha256 dbb92c…3266); they are one scan, not two.",
+  "note": "SAME DRAWING, DIFFERENT SCAN, DIFFERENT PIXEL SPACE. This is not a new source about 1834 Chicago: it is a second raster of the drawing this project already traces as `wright_1834` (the BPL/Leventhal copy, commonwealth:js957744g, 4204 x 5166 px). Nothing may be cited from it by BPL pixel coordinates and nothing may be cited from the BPL scan by this one's — the two frames are registered to each other in data/traces/gcp/wright_1834_nara_hup_gcps.json and differ by 8.5 px RMS and by up to 19 px (13 m) locally. WHAT IT IS FOR: at 600 dpi it resolves ink the BPL scan does not, and the block numerals of the Original Town are legible on it where they are not on the BPL sheet (T-0788). WHAT IT COSTS: the sheet carries two losses of paper, boxed in the registration file, and the drawing was at one time torn from the upper right margin and mounted on cloth; anything read inside a lacuna box is read from cloth, not from Wright. The published caption's own words are transcribed in the registration file.",
+  "what_it_supplies": [
+    "block numerals of the Original Town, legible at 600 dpi",
+    "street geometry",
+    "block and lot subdivision",
+    "shoreline",
+    "river channel and the 1834 cut",
+    "survey-date colouring",
+    "the sheet's scale of feet"
+  ],
+  "what_it_does_not_supply": [
+    "building footprints",
+    "building locations",
+    "anything inside the two boxed lacunae",
+    "an independent survey — it is the same drawing as wright_1834 and is never a second witness to it"
+  ]
+}

@@ -1,0 +1,123 @@
+{
+ "id": "hh_vanderbogart_h",
+ "merged_into": {
+  "person": "vanderbogart_henry",
+  "household": "hh_vanderbogart_henry",
+  "person_merged": "vanderbogart_h",
+  "rule": "C7",
+  "cluster": "vanderbogart",
+  "ticket": "T-0842",
+  "on": "2026-09-10",
+  "note": "THIS RECORD IS NOT DELETED AND NOTHING ON IT IS LOST. The card below is the record exactly as it stood when the merge landed; the person it names is now carried by the household above, and data/residents/index.json's `merged` table redirects the id. The reasoning is in data/residents/card_merge_rulings.json."
+ },
+ "superseded_record": {
+  "id": "hh_vanderbogart_h",
+  "name": "The Vanderbogart household — a name from the post office's letter lists",
+  "division": "unplaced",
+  "head": "vanderbogart_h",
+  "source_pass": "letter_list",
+  "arrival": {
+   "value": "1835-05-20",
+   "confidence": "inferred",
+   "sources": [
+    "chicago_democrat_1833_1835"
+   ],
+   "note": "A BOUND FROM THE PAPER, NOT AN ARRIVAL. Somebody was writing to this name at Chicago by 1835-05-20 and at no stated time before it; nothing says when they came.",
+   "precision": "not_later_than"
+  },
+  "party_size_on_arrival": {
+   "value": null,
+   "confidence": "reconstructed",
+   "note": "Not attested."
+  },
+  "origin": {
+   "value": null,
+   "confidence": "reconstructed",
+   "note": "Not attested."
+  },
+  "reason_for_coming": {
+   "value": null,
+   "confidence": "reconstructed",
+   "note": "Not attested."
+  },
+  "lives_at": {
+   "value": null,
+   "confidence": "reconstructed",
+   "note": "Not attested: a letter list gives a name and no address."
+  },
+  "works_at": {
+   "value": null,
+   "confidence": "reconstructed",
+   "note": "Not attested. No trade is recorded, so there is no premises to seek."
+  },
+  "present_on_scene_date": {
+   "value": "uncertain",
+   "confidence": "inferred",
+   "sources": [
+    "chicago_democrat_1833_1835"
+   ],
+   "note": "THE CORPUS STOPS BEFORE THE SCENE DATE. Nothing after 1835-05-20 follows this person to 1 July 1835 or says they left. `uncertain` rather than dropped — the distinction index.json draws for Jeremiah Porter, and a finding, not a gap."
+  },
+  "persons": [
+   {
+    "id": "vanderbogart_h",
+    "name": "H. Vanderbogart",
+    "relationship": "head",
+    "grade": "attested",
+    "letter_list_only": true,
+    "letter_list_returns": [
+     "1835-05-20"
+    ],
+    "occupation": {
+     "value": "none_recorded",
+     "confidence": "reconstructed",
+     "note": "No source records an occupation for this person. A list of uncalled-for letters prints a name and no trade, and this pass will not read one in."
+    },
+    "sources": [
+     "chicago_democrat_1833_1835",
+     "fergus_1843_old_settler_death_notices"
+    ],
+    "note": "INDEPENDENTLY CORROBORATED RESIDENT. Originally documented in Chicago post-office evidence; independent resident research now corroborates the identity. KNOWN ONLY FROM THE POST OFFICE, IN ONE RETURN. The papers print 'Vanderbogart, H.' in a single return of letters uncalled-for at the Chicago post office — the Democrat of 20 May 1835, column 13 — dated 1835-05-20. WHAT THAT IS WORTH: a correspondent believed a person of this name reachable at Chicago on that date, and nothing further — not that they lived here, kept a trade here, or were here on 1 July 1835. It is the weakest evidence this project accepts for a resident, and a source placing them elsewhere retires the record. THE ARGUMENT EVERY RECORD OF THIS KIND SHARES is written once instead of once per file: the ruling of 2026-08-30 and what it cost the town (docs/LIBERTIES.md L214), the refusals and the transcription standard behind the reading (tools/mint_letter_list_residents.py). No figure is drawn (L1).",
+    "resident_research": {
+     "programme": "resident-research-2026",
+     "ticket": "T-0510",
+     "outcome": "corroborated_enrichment",
+     "reviewed_on": "2026-09-05",
+     "asserted_identity": true,
+     "evidence_for": "Surname 'Vanderbogart' folds to the same string as the entry's, and the given name of both begins H.",
+     "summary": "Corroborated in a volume printed after the scene date. H. Vanderbogart agrees with an entry in the old-settler rolls and Fergus's death notices. The reading enriches the biography and adds no 1835 attestation.",
+     "notes": "Research only. Later-volume readings are recorded here and NOT promoted: T-0513 consolidates and T-0514/T-0515 apply.",
+     "source_ids": [
+      "chicago_democrat_1833_1835",
+      "fergus_1843_old_settler_death_notices"
+     ],
+     "refusals": [
+      {
+       "regraded_on": "2026-09-04",
+       "rule": "G3",
+       "withheld": "the downgrade to inferred",
+       "reason": "This card rests on 1 thing(s) the consolidation did not read — fergus_1843_old_settler_death_notices. G3 fired on the seven domains the ladder reads and says nothing about the evidence outside them, so the grade stands. The same reasoning the ladder's own G5 gives for abstaining (T-0515)."
+      }
+     ]
+    },
+    "merge_ruling": [
+     {
+      "ticket": "T-0839",
+      "verdict": "undecided",
+      "rule": "U1",
+      "cluster": "vanderbogart",
+      "weighed_against": [
+       "vanderbogart_henry"
+      ],
+      "referred_to": "owner",
+      "for_merge": "",
+      "against_merge": ""
+     }
+    ]
+   }
+  ],
+  "touches_removal": false,
+  "review_required": false,
+  "research_note": "MINTED FROM THE LETTER LISTS (T-0378, T-0379). THE HOUSEHOLD IS A CONTAINER, NOT AN ARGUMENT: every other record here argues for a household, and this one argues for a PERSON. `data/residents/` cannot carry a person outside a household, so one was written around them and told to claim nothing — one member, no dwelling, no division, no trade, no family, no arrival beyond the paper's bound. tools/mint_letter_list_residents.py derives the set and prints every refusal, `--gate` proves no record here gained a roof, a trade or a second member, and docs/LIBERTIES.md L214 carries the change of scale."
+ }
+}

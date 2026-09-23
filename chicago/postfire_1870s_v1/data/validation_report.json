@@ -1,0 +1,19 @@
+{
+  "status": "passed",
+  "errors": [],
+  "counts": {
+    "buildings": 312,
+    "sources": 136,
+    "building_sources": 390,
+    "names": 646,
+    "events": 952,
+    "assertions": 2190,
+    "relationships": 165,
+    "cross_year_matches": 12,
+    "stock_estimates": 70,
+    "media": 11,
+    "maps": 9,
+    "map_images": 9,
+    "annual_city_model_rows": 8
+  }
+}

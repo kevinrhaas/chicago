@@ -1,0 +1,243 @@
+{
+  "schema": 1,
+  "domain": "books",
+  "generated_by": "hand — a reading pass declares the range it read, and the gate checks it",
+  "note": "An UNDECLARED item is not read yet and is not a fault. A DECLARED item nothing reaches is a hole, and that is what this file is for. THE UNIT IS `list` AND NOT `page`, ON PURPOSE, AND FOR TWO DIFFERENT REASONS. Hurlbut's chapter is delivered to this project as one Genealogy Trails transcription of pages 28-36 with no page breaks marked anywhere in it, so declaring nine pages would mean assigning each claim to a page nobody has seen. Hubbard's autobiography is the opposite case: its pages ARE known — data/research/books/page_index/hubbard_autobiography_1911.json carries all 226 leaf boundaries and 179 folios read off the page — but a reading pass declares the RANGE it swept, and a range is what the ticket asks for. Every Hubbard claim's locator names its printed page as well as its range, so the day a consolidation wants page-level coverage it can have it without a re-read. T-0499 adds four more `list` declarations, for the same reason again and one more: Fergus' Historical Series Nos. 26-29 is FOUR PAMPHLETS BOUND AS ONE, each restarting its own printed folio at 1, so a page number in this volume is not unique and a `page` unit would collide four ways. data/research/books/page_index/fergus_26_29.json carries all 858 leaf boundaries exactly - they come from the deposit's own hOCR page index rather than an alignment - and every Fergus claim's locator names its leaf and, where the head printed one, its folio. T-0500 adds five declarations for the SECOND half (leaves 430-858), and they are `list` items for a reason of their own: this volume's page boundaries ARE exact — page_index/fergus_26_29.json carries all 858 — but declaring 429 `page` items, 234 of them blank leaves, would bury the four ranges that mean something under four hundred that do not. Every claim's locator names its own scan LEAF beside its line range, so page-level coverage is available to a later pass without a re-read. ONE OF THE FIVE IS A SWEEP AND NOT A READING and says so in its own `what`: the 1843 alphabetical name directory was passed by machine against dated and known-name patterns and read closely only where it answered.",
+  "declarations": [
+    {
+      "unit": "list",
+      "items": [
+        "hurlbut_chicago_antiquities_1881_pp28_36"
+      ],
+      "ticket": "T-0575",
+      "what": "Henry H. Hurlbut, Chicago Antiquities (Chicago, 1881), pages 28-36 — the chapter on the American Fur Company and Chicago, read in full: Hurlbut's narrative, the long passage quoted from Gurdon S. Hubbard, the extracts from the Michilimackinac outfit book of 1821-22, and the closing catalogue of goods for the trade of the Chicago country.",
+      "read": "2026-09-03",
+      "text": "data/research/books/text/hurlbut_chicago_antiquities_28_36.txt (214 lines, byte-identical to data/research/genealogytrails/text/americanfurco.txt)",
+      "not_read": "Nothing in the chapter. What is NOT declared is the rest of the book: Chicago Antiquities is read here at pages 28-36 only, and data/sources/chicago_antiquities_pratt.json is a separate reading of a separate passage. The other books this domain exists for were undeclared here because they were unread when this declaration was written, which is not a fault and must not be reported as one; Fergus' Historical Series Nos. 26-29, Hubbard's autobiography and H. H. Porter's Short Autobiography have all since been declared by passes of their own."
+    },
+    {
+      "unit": "list",
+      "items": [
+        "hubbard_1911_front_matter_leaves_9_18"
+      ],
+      "ticket": "T-0501",
+      "what": "The unfoliated front matter of the 1911 Lakeside Classics printing — the half-title, the title page, the publishers' preface and the Contents (scan leaves 9 to 19). Read for what it says about where this text came from and who wrote the Introduction.",
+      "read": "2026-09-03",
+      "text": "data/research/books/text/hubbard_autobiography_1911.txt, lines 1-212",
+      "not_read": "Nothing in it. LEAF 19, THE CONTENTS, IS THE ONE LEAF OF 208 NON-BLANK LEAVES THE PAGE INDEX COULD NOT ALIGN — poppler reorders its columns badly enough that no probe of its opening words finds a match — so leaf 18's line range swallows it and the index says so with `runs_into: [19]`. No claim here cites those lines and none may: a claim on them would name the wrong leaf."
+    },
+    {
+      "unit": "list",
+      "items": [
+        "hubbard_1911_introduction_pp_ix_xxvii"
+      ],
+      "ticket": "T-0501",
+      "what": "Caroline M. McIlvaine's Introduction, printed pages ix to xxvii, read in full. This is the only part of the volume that describes Chicago after November 1830, and therefore the only part that describes the scene year at all: the brick building at La Salle and South Water, the population figure, the brig Illinois of 25 May 1835, the Green Tree Tavern, The Chicago American of 10 October 1835, the Russell & Mather purchase of March 1835, the canal, the water-works and the town trustees of 1834.",
+      "read": "2026-09-03",
+      "text": "data/research/books/text/hubbard_autobiography_1911.txt, lines 5-84 and 213-887",
+      "not_read": "Nothing in pages ix to xxvii. THE RANGE IS NOT CONTIGUOUS IN THE SCAN, and that is a finding and not a gap: pages xv and xvi were photographed at the FRONT of the Internet Archive item, as leaves 11 and 12, ahead of the title page. The text proves it — leaf 26 ends 'Quoting Mr. Gale's characteristic manner of narration:', leaf 11 opens the Gale quotation, leaf 12 ends 'his engine was soon put to' and leaf 27 opens 'use as \"Fire King Engine No. I,\"' — and the folios confirm it, five of them read off the page between leaves 28 and 35 and the Contents' own 'Introduction ix' below the displacement. tools/build_book_page_index.py carries the three folio runs this forces, and hard-fails if a folio read off a page ever contradicts them."
+    },
+    {
+      "unit": "list",
+      "items": [
+        "hubbard_1911_pp_27_41"
+      ],
+      "ticket": "T-0501",
+      "what": "Hubbard's own narrative, printed pages 27 to 41, read in full: the Mackinaw acquaintance with John H. Kinzie, the voyage of September 1818, the first sight of the prairie from Douglas Grove, the entry into Chicago on 1 October 1818, the Kinzie house, the whole description of Fort Dearborn and its enclosure, the Factor House, the American Fur Company storehouse, Hardscrabble and Ouilmette's cabin, the river mouth and the sand spit, the cut of 1828, and the start of the Mud Lake portage. THE DENSEST CHICAGO MATERIAL IN THE BOOK.",
+      "read": "2026-09-03",
+      "text": "data/research/books/text/hubbard_autobiography_1911.txt, lines 1956-2574",
+      "not_read": "Nothing in pages 27 to 41. Pages 1 to 26 are Hubbard's childhood at Montreal and his engagement at Mackinaw and are NOT declared: they name no Chicago and were swept for the name and not read line by line."
+    },
+    {
+      "unit": "list",
+      "items": [
+        "hubbard_1911_pp_135_138"
+      ],
+      "ticket": "T-0501",
+      "what": "Printed pages 135 to 138 — the return voyage down the lake and a fortnight at Chicago, where Hubbard was received by the Kinzies and by Dr Wolcott and met Pierre Chouteau, Jr.",
+      "read": "2026-09-03",
+      "text": "data/research/books/text/hubbard_autobiography_1911.txt, lines 6317-6481",
+      "not_read": "Nothing in pages 135 to 138. Pages 139 and 140 are NOT declared: they are the winter's trading against Bourbonais at Bureau Post and name no Chicago."
+    },
+    {
+      "unit": "list",
+      "items": [
+        "hubbard_1911_pp_141_144"
+      ],
+      "ticket": "T-0501",
+      "what": "Printed pages 141 to 144 — the chapter opening 'Pa-pa-ma-ta-be: from St Joseph to the Kankakee; Hubbard's Trail; under the ice', including the seventy-five-mile walk that earned the name and Pierre Le Claire's ninety-mile walk of 1812 to John Kinzie at Chicago.",
+      "read": "2026-09-03",
+      "text": "data/research/books/text/hubbard_autobiography_1911.txt, lines 6562-6729",
+      "not_read": "Nothing in pages 141 to 144. Pages 145 to 152 are NOT declared: they are the Mackinaw fur-packing season and the following winter, and name no Chicago."
+    },
+    {
+      "unit": "list",
+      "items": [
+        "hubbard_1911_pp_153_159"
+      ],
+      "ticket": "T-0501",
+      "what": "Printed pages 153 to 159 — '1824: placed in charge of the Illinois River trading posts', including the scuttling of the boats in the slough at Chicago against prairie fires, the opening of Hubbard's Trail and its adoption by the State road commissioners in the winter of 1833-34, and John Kinzie running out of goods at Chicago in the spring of 1825.",
+      "read": "2026-09-03",
+      "text": "data/research/books/text/hubbard_autobiography_1911.txt, lines 7049-7326",
+      "not_read": "Nothing in pages 153 to 159. Pages 160 to 164 are NOT declared: they open the Yellow Head quarrel at the Iroquois post and name no Chicago."
+    },
+    {
+      "unit": "list",
+      "items": [
+        "hubbard_1911_pp_165_174"
+      ],
+      "ticket": "T-0501",
+      "what": "Printed pages 165 to 174 — the end of the Yellow Head affair, Hubbard's purchase of the Fur Company's Illinois interests, and the whole of the 'Winnebago Scare': Fort Dearborn ungarrisoned in July 1827 with Wolcott, Russell E. Heacock's family and voyageur families living in its buildings; the payment; the lightning fire that destroyed the soldiers' quarters, the storehouse and part of a guardhouse; Governor Cass's arrival; Shaub-e-nee and Billy Caldwell at Big Foot's village; and Hubbard's ride to Danville for the militia. Closing with his own letter of 25 July 1827.",
+      "read": "2026-09-03",
+      "text": "data/research/books/text/hubbard_autobiography_1911.txt, lines 7528-7932",
+      "not_read": "Nothing in pages 165 to 174. THIS SECTION IS NOT THE DIARY and the book says so in a footnote read at bk_hub_089: it is compiled 'from statements by Mr. Hubbard in Chicago Historical Series, No. 10', which is one remove further than the rest of the narrative. Pages 175 to 177 are NOT declared: they continue the letter to his sister and the Ohio River journey, and name no Chicago."
+    },
+    {
+      "unit": "list",
+      "items": [
+        "hubbard_1911_pp_178_182"
+      ],
+      "ticket": "T-0501",
+      "what": "Printed pages 178 to 182, the end of the book — the hog droves to Chicago to sell to the settlers and the soldiers at Fort Dearborn, the winter of the big snow of 1830-31, and the closing editorial note that the narrative ends in November 1830 having covered one third of Hubbard's life.",
+      "read": "2026-09-03",
+      "text": "data/research/books/text/hubbard_autobiography_1911.txt, lines 8060-8253",
+      "not_read": "Nothing in pages 178 to 182. The book ends at page 182; leaves 221 to 226 are the back matter and the library's deacidification stamp."
+    },
+    {
+      "unit": "list",
+      "items": [
+        "fergus_26_29_front_matter_leaves_1_14"
+      ],
+      "ticket": "T-0499",
+      "note": "Leaves 1-14: the Allen County Public Library's plate, the Internet Archive's digitisation note, the volume's half-title naming the range 26-29, and the Fergus Printing Company advertisement leaves bound in front of Number 26. Swept for what the volume says about itself; it says almost nothing, and the contents table in README.md had to be read off the four title pages inside."
+    },
+    {
+      "unit": "list",
+      "items": [
+        "fergus_no26_harrison_discourse_leaves_15_206"
+      ],
+      "ticket": "T-0499",
+      "note": "Leaves 15-206: Fergus' Historical Series No. 26 entire - William Henry Harrison's Discourse on the Aborigines of the Ohio Valley, with the Fort Wayne Indian speeches of 1811 appended, and the advertisement leaves that close the number. SWEPT AND ALL BUT EMPTY, WHICH IS THE EVIDENCE. The discourse is about the mound-builders and the Iroquois and never reaches Chicago; four claims come out of 192 leaves and every one of them is from the appendix or its footnotes."
+    },
+    {
+      "unit": "list",
+      "items": [
+        "fergus_no27_beckwith_indians_leaves_207_398"
+      ],
+      "ticket": "T-0499",
+      "note": "Leaves 207-398: Fergus' Historical Series No. 27 entire - Hiram W. Beckwith's The Illinois and Indiana Indians (1884) - and the advertisement leaves that close it. THE PAYING HALF OF THIS HALF. Read closely at the Potawatomi chapters and the 1821 Chicago treaty, which is where the site itself is described; read for Chicago and not for the tribal history at large, so the Wabash, Miami and Kickapoo chapters were swept for place names and not mined."
+    },
+    {
+      "unit": "list",
+      "items": [
+        "fergus_no28_directory_1843_leaves_399_429"
+      ],
+      "ticket": "T-0499",
+      "note": "Leaves 399-429: the opening of Fergus' Historical Series No. 28, the Directory of the City of Chicago for 1843 - its title page, Robert Fergus's 1896 introductory, and the civic pages through the port statistics, stopping where the business directory begins at leaf 430. T-0500 takes the business directory onward."
+    },
+    {
+      "unit": "list",
+      "items": [
+        "fergus_28_business_directory_1843_leaves_430_457"
+      ],
+      "ticket": "T-0500",
+      "what": "Fergus' Historical Series No. 28, the Directory of the City of Chicago for 1843 — its BUSINESS DIRECTORY, printed pages 17 to 31, scan leaves 430 to 457, read in full. Trades by category with street addresses: attorneys, bankers, cabinet makers, forwarding and commission merchants, grocers, hotels and temperance houses, iron and hardware, insurance agencies, land agencies, livery stables and the rest. Read for what it says about the town's streets and houses, and for the firms whose names this project already holds from 1835.",
+      "read": "2026-09-03",
+      "text": "data/research/books/text/fergus_26_29.txt, lines 2490 to 2722 (leaf 457 is a blank verso and shares line 2722 with leaf 458)",
+      "not_read": "Nothing in the Business Directory. WHAT IT IS NOT: it is 1843. Every claim taken from it carries describes_date 1843 and NONE of its addresses is carried into the scene year. The odd-numbered leaves through this stretch carry no text but the scanner's own gutter noise and are declared with the range they sit in."
+    },
+    {
+      "unit": "list",
+      "items": [
+        "fergus_28_name_directory_1843_leaves_458_605"
+      ],
+      "ticket": "T-0500",
+      "what": "The same number's ALPHABETICAL NAME DIRECTORY, printed pages 31 to 104, scan leaves 458 to 605 — about eight thousand entries of name, trade, employer and address, with Robert Fergus's own later annotations inserted in square brackets. SWEPT AND NOT READ CONTINUOUSLY, and the method is stated because it is the honest description: every line of the range was passed by machine against two patterns — every four-digit year from 1820 to 1836, and every personal and firm name this project's own 1835 records hold — and the thirty-odd lines that answered were then read closely and are what the claims come from.",
+      "read": "2026-09-03",
+      "text": "data/research/books/text/fergus_26_29.txt, lines 2722 to 5123",
+      "not_read": "THE OTHER EIGHT THOUSAND ENTRIES, as entries. They were swept, not read: nobody here has looked at 'Ackley, Benjamin, sailor' and decided anything about him. That is a deliberate limit and not an oversight — the directory is 1843 and a 1843 entry is not evidence about 1835 — and it means an absence in this file is NO evidence that a name is absent from the directory. A pass that wants the 1843 directory entry by entry must read it entry by entry, and should say so; this declaration is the sweep and only the sweep."
+    },
+    {
+      "unit": "list",
+      "items": [
+        "fergus_28_obituary_leaves_606_644"
+      ],
+      "ticket": "T-0500",
+      "what": "The OBITUARY that closes Fergus No. 28, printed pages 105 to 124, scan leaves 606 to 644, read in full: names, places, dates and ages at death of Chicago's old settlers prior to 1843 and of others prominently connected with Illinois history. Read for every death falling between 1830 and 1836, which is where the only scene-year facts in the whole of Fergus No. 28 are.",
+      "read": "2026-09-03",
+      "text": "data/research/books/text/fergus_26_29.txt, lines 5123 to 5425",
+      "not_read": "Nothing in the Obituary. It says of itself that it lists 'SOME of' Chicago's old settlers, so absence from it means nothing whatever, and it is a list compiled in the 1890s about deaths going back seventy years. One man, Dr Henry Van der Bogart, is entered in it TWICE under two spellings with the same date."
+    },
+    {
+      "unit": "list",
+      "items": [
+        "fergus_publisher_advertisement_leaves_645_657_and_851_858"
+      ],
+      "ticket": "T-0500",
+      "what": "The Fergus Printing Company's own book lists and advertisement leaves bound between No. 28 and No. 29 (scan leaves 645 to 657, including the Joseph Duncan photogravure plate at leaf 654) and at the end of the volume (leaves 851 to 858). Read for one thing only: the Chicago titles they advertise, which are LEADS to sources this project does not hold.",
+      "read": "2026-09-03",
+      "text": "data/research/books/text/fergus_26_29.txt, lines 5426 to 5585 and 6895 to 6941",
+      "not_read": "Nothing that names Chicago. The prices, bindings and page counts of the non-Chicago titles — sermons, dramas, Reynolds' histories — were passed over and are not claimed. The OCR of these leaves is the worst in the volume, being set in display type across ornamental borders, and two of the three Chicago titles could only be read because their subjects are known."
+    },
+    {
+      "unit": "list",
+      "items": [
+        "fergus_29_duncan_sketch_leaves_658_850"
+      ],
+      "ticket": "T-0500",
+      "what": "FERGUS' HISTORICAL SERIES No. 29 — Julia Duncan Kirby's Biographical Sketch of Joseph Duncan, Fifth Governor of Illinois, read before the Historical Society of Jacksonville on 7 May 1885 and printed at Chicago in 1888 — read in full, scan leaves 658 to 850, printed pages 1 to 95 including the index. Read for the ILLINOIS-AND-MICHIGAN CANAL, which is the only thread in it that reaches the town this project reconstructs: Duncan's 1829 diary of getting the canal located, the legislature of 1834-35 that adjourned without acting on it, the special session of December 1835 that authorised the loan, and the 1837 message that priced what the canal lands had raised.",
+      "read": "2026-09-03",
+      "text": "data/research/books/text/fergus_26_29.txt, lines 5585 to 6894",
+      "not_read": "Nothing in No. 29. What it does not CONTAIN is the more useful statement: it names Chicago four times in ninety-five pages and places nothing there. The sketch is Jacksonville and Vandalia and Washington, and its 1835 is a house being finished in Morgan County. A run reaching into this number for the town of 1835 will come back with the canal and nothing else."
+    },
+    {
+      "unit": "list",
+      "items": [
+        "ichr_v4_1921_22_thompson_vincennes_pp256_259"
+      ],
+      "ticket": "T-0650",
+      "what": "Joseph J. Thompson, 'The Illinois Part of the Diocese of Vincennes', Illinois Catholic Historical Review vol. 4 (July 1921 - April 1922), printed pages 256-259, read in full: the succession of priests at Chicago from St. Cyr through Schaefer to O'Meara with its dates, the first Catholic church standing near the south-west corner of State and Lake on ground controlled by the Canal Commissioners, the canal auction that took the lot away at a $10,000 valuation, the removal to Michigan Avenue and Madison Street, the rectory on the same ground, and the enlargement, belfry and bell that all came AFTER the removal.",
+      "read": "2026-09-05",
+      "text": "data/research/books/text/ichr_v4_1921_22.txt - the whole volume's Internet Archive djvu OCR (6,181 lines), of which lines 1760-2138 are the four pages declared here. The running heads that fix those page boundaries are named in data/sources/ichr_v4_thompson_illinois_vincennes.json's locator.",
+      "not_read": "THE REST OF THE VOLUME, and it is committed rather than read. The 290 KB of OCR holds the whole of Illinois Catholic Historical Review vol. 4 - a papal conclave, the diocese of St. Louis, the Michigan and Indiana missions, Bardstown, and much else - because a quote is checked against a committed file and committing four pages out of the middle of an OCR run would mean cutting the file this project claims is byte-identical to the Internet Archive's. It is a LIST item and not four `page` items for the same reason Hurlbut's chapter is one: this article was read as one run of prose, and a page here is a running head rather than a unit of reading. Every claim's locator names its printed page anyway, so page-level coverage is available to a later pass without a re-read. ALSO NOT READ AND DELIBERATELY SO: the same volume's printing of St. Cyr's marriage and death register, which this project already holds through a Genealogy Trails transcription at data/sources/st_cyr_register_ichr_v4.json and in data/research/church/. Reading it again off this OCR would be a second reading of a source already read, and the two would then disagree wherever the OCR is worse than the transcription; T-0503's search log is where that question belongs."
+    },
+    {
+      "unit": "list",
+      "items": [
+        "porter_hh_short_autobiography_1915_leaves_1_70"
+      ],
+      "ticket": "T-0502",
+      "what": "H. H. Porter, A Short Autobiography (1915), ALL SEVENTY LEAVES — the covers and the reference-use notice (1-4), the title pages and the publishers' Introduction (5-10), Porter's narrative in full (11-45, printed folios 9 to 43), and the twenty-five leaves of plates, captions, colophon and endpapers (46-70). Swept end to end for Chicago before 1836 and read closely at every place it answered. THE SWEEP IS THE DELIVERABLE: the ticket asked whether the book carries 1835 Chicago at all, and the answer required the whole volume rather than a range of it.",
+      "read": "2026-09-05",
+      "text": "data/research/books/text/porter_hh_short_autobiography_1915.txt (279 lines, byte-identical to the Internet Archive's hOCR search text for item chicago1835-hh-porter-autobiography). Leaf boundaries for all seventy leaves are exact and committed at page_index/porter_hh_short_autobiography_1915.json, so page-level coverage is available to a later pass without a re-read; every claim's locator names its leaf and, where the running head prints one, its folio.",
+      "not_read": "Nothing. THE DECLARATION IS ONE `list` ITEM AND NOT SEVENTY `page` ITEMS, for the reason this file's note already gives twice over: a reading pass declares the RANGE it swept, and here the range is the volume. Declaring seventy pages would bury one finding under sixty-nine declarations of emptiness — and emptiness is what the sweep found. What it found instead is written down as eight claims and a carries-no-document ruling in data/sources/porter_hh_short_autobiography_1915.json."
+    },
+    {
+      "unit": "list",
+      "items": [
+        "moses_kirkland_v1_1832_1835_and_biographical"
+      ],
+      "ticket": "T-0581",
+      "what": "Moses and Kirkland, History of Chicago, Illinois, vol. 1 (1895), read at twenty passages on fourteen printed pages, for the town before 1836 and for the forty-nine lead surnames the Newberry index (T-0570) flagged against this work. The pages reached: 35 (the Kinzie-Clybourn genealogy quoted from Blanchard, and Benjamin Hall's tannery); 78-79 (the rule of the pre-1830 settler list, and the weather record's winter of 1834-5); 89-90 (the 1832 and 1833 arrivals, Carpenter's drug store, Dole's and Peck's first frame business buildings, the packing trade, Hogan's log storehouse and post office); 95 (the State census of 1835 with its trade counts); 98 (Hubbard with Russell & Mather); 207-208 (the Pioneer Hook and Ladder roll of 7 October 1835); 389 (Sylvester Marsh's market under the elm); 541-542 (the principal real estate dealers, Garrett's auction office, the Jones land purchases); 570-571 (Peck's two-storey frame store and Jeremiah Porter lodging in it); 573-574 (Carpenter's Sunday school and his arrival); 577 (Caton in the Temple Building, and his marriage in 1835); 584 (Fullerton and the twenty-eight voters of 10 August 1833).",
+      "read": "2026-09-05",
+      "text": "data/research/books/text/moses_kirkland_history_of_chicago_v1.txt - the whole of volume 1's Internet Archive djvu OCR, 137,410 lines, sha256 12c57267ab097590c1a8dceb15983edbdfb026b7755d047f0dca0210f77ba96c. Declared as ONE list item and not as fourteen page items, for the reason Hurlbut's chapter was: the passages are scattered across a 700-page volume and were reached by a surname search, not by reading the pages through, so declaring each page 'read' would claim more than was done. Each claim names its own printed page in its locator.",
+      "not_read": "EVERYTHING ELSE IN VOLUME 1, which is the honest proportion: about seven hundred printed pages, of which fourteen were reached. The volume was searched exhaustively for forty-nine surnames and read only where that search led, so a fact about 1835 Chicago sitting on an unsearched page under a name not on the lead list is not found by this pass and is not reported as absent. VOLUME 2 IS NOT READ AT ALL and is not in this project's hands; the Newberry cards do not say which volume they cite. The 'LIST OF ACTUAL SETTLERS AT CHICAGO, PRIOR TO 1830' at pages 78-79 was FOUND AND NOT TRANSCRIBED - about thirty rows with nativity, year and remarks columns - and is left to its own ticket rather than half-read here."
+    },
+    {
+      "unit": "list",
+      "items": [
+        "moses_kirkland_v1_actual_settlers_pre_1830"
+      ],
+      "ticket": "T-0961",
+      "what": "Moses and Kirkland, History of Chicago, Illinois, vol. 1 (1895), printed pages 78-79: the table headed LIST OF ACTUAL SETTLERS AT CHICAGO, PRIOR TO 1830, read ROW BY ROW — all thirty-six of them, with the nativity, year and remarks cells as separate fields and the printed line beside them. THIS IS A SECOND DECLARATION OVER PAGES T-0581 ALREADY DECLARED, and it is not a duplicate: T-0581's list `moses_kirkland_v1_1832_1835_and_biographical` reached page 78-79 for the PREAMBLE — the rule the table was built on, and the weather record below it — and said in the ticket that the table itself was left. A declaration is of a READING and not of a leaf, and two readings of one page are two declarations. The unit is `list` for this domain's usual reason and one more: the table straddles the 78/79 break mid-alphabet, so neither folio holds it."
+    },
+    {
+      "unit": "list",
+      "items": [
+        "moses_kirkland_v2_lead_surname_sweep"
+      ],
+      "ticket": "T-0826",
+      "what": "Moses and Kirkland, History of Chicago, Illinois, vol. 2 (1895) — THE VOLUME T-0581 COULD NOT READ, swept for the same forty-nine lead surnames the Newberry index (T-0570) flagged against the work and read closely at the twenty passages that sweep led to. The pages reached: one in Chapter I, 'The Press', before the first read folio (the Chicago Democrat's office removed over Jones & King's hardware store, and the 1835 suspension); 103 (the school section sold in October 1833 for $38,895); a page carried between read folios 76 and 90 (Granville T. Sproat's school in the First Baptist church on South Water near Franklin); 150-157 (Cook county's first term of court in the Mansion House loft, Caton's 1833 arrival and the spring 1834 trial, Richard J. Hamilton's house and the school in the old stable, and the Caton & Collins partnership); a page carried between 220 and 234 (the first and second drug stores); 294 and its neighbours (Rev. Allen B. Freeman's arrival of 16 August 1833, the catalogue of the fourteen Baptists present on 19 October 1833, and the burial ground near the north branch with Lathrop's picket fence); 348-349 (the eleven who organized the first Episcopal congregation in 1834, and Tippecanoe Hall at the southeast corner of Kinzie and State); 367 (the first Sunday school of 19 August 1832 in Mark Beaubien's doorless frame building); 374-375 (the garrison's carpenter shop set apart for worship, the first Presbyterian elders, and Father Walker's log cabin); 406-407 (William Jones and Byron King's 1834 hardware partnership and the Polk street foundry of December 1835); 441 (the Miller brothers' tannery of 1831 and Benjamin Hall's 1832 partnership in it); a page carried between 450 and 456 (Tyler K. Blodgett's brick yard of spring 1833); and a page carried between 624 and 636 (Dr. Temple's 1833 building and his 1834 stage line to Peoria). THE UNIT IS `list` AND NOT `page` FOR THIS DOMAIN'S USUAL REASON AND ONE MORE THAT IS THIS VOLUME'S OWN: 53 of its 319 verso running heads lost their numeral to the OCR, so eight of the twenty passages stand on a page that is CARRIED between two read folios rather than read off its own head, and declaring those as pages would assert a folio the scan does not carry. THE OTHER ~760 PAGES ARE NOT READ, and the sweep that decided which to read is committed row by row, negatives included, at data/research/books/moses_kirkland_v2_lead_surnames.json."
+    }
+  ]
+}

@@ -1,0 +1,31 @@
+{
+  "id": "andreas_1884_sauganash_hotel_plate",
+  "type": "illustration",
+  "citation": "\"THE SAUGANASH HOTEL.\" — wood engraving, in A. T. Andreas, History of Chicago, vol. 1 (Chicago: A. T. Andreas, 1884), p. 632, in the chapter \"Wolf Point and Early Hotels\". A copyright line reading \"A. T. Andreas, 188-\" is lettered inside the plate border at the lower left.",
+  "author": "unsigned on the plate; the brief attributes the engraving to Braunhold, and no signature is legible at the resolution the scan publishes",
+  "date": "1884",
+  "describes_date": "the Sauganash as it stood before 1834; the plate carries no date of its own",
+  "repository": "reproduced in Andreas 1884 vol. 1; scanned copy at archive.org",
+  "url": "https://archive.org/details/historyofchicago01andr/page/n1297/mode/1up",
+  "locator": "Printed page 632, scan leaf index n1297. The plate fills the upper two-thirds of the page; the caption is lettered under the block and the copyright line inside the border at lower left.",
+  "tier": 5,
+  "rights_status": "public_domain",
+  "rights_note": "Published 1884 in the United States, so the volume and its plates are out of copyright by age; the parent record `andreas_1884_v1` is already graded `public_domain` on the same ground. The Sauganash plate carries an in-plate copyright line naming A. T. Andreas — a claim made in 1884 and long expired, and it is recorded because it is on the plate, not because it bites. This is what going to the volume buys over an aggregator: the rights question is settled by the imprint instead of left open.",
+  "asset_use": "cross_check",
+  "verified": true,
+  "access_notes": "archive.org item `historyofchicago01andr`. The plate leaves were found from the volume's own LIST OF ILLUSTRATIONS (§ VIEWS), read at the page image, which gives the printed page of every plate in the volume. Two things about the scan, both measured on 2026-09-13 and neither of them obvious: the derivative served by `/download/historyofchicago01andr/page/n<leaf>_large.jpg` is MIRRORED — flip it horizontally before reading anything — and in this stretch of the volume the leaf index is 2 x the printed page + 33, verified at printed pages 629, 630, 631, 632, 634 and 636. That arithmetic is LOCAL: leaf 361 is not printed page 164, so re-derive the offset from a known plate rather than extrapolating across the volume. The `_page_numbers.json` derivative carries no page numbers at all for this item and `_scandata.xml`'s `<pageNumber>` disagrees with the BookReader leaf index; neither is usable here.",
+  "note": "IMAGE 9 OF THE OWNER'S BRIEF OF 2026-08-18, identified. The brief describes it as \"'The Sauganash Hotel' (Braunhold engraving, (c) A. T. Andreas 1884). Same building: log wing with its shed-roofed porch over the door, plank walks on both frontages, hitching posts, board fence at the right, the clapboard block's wide entrance surround.\"\n\nThe plate was retrieved and read at the page image on 2026-09-13. What is on it: the clapboard two-storey block with a chimney at each end of the ridge and an even rhythm of sash on both floors; a lower LOG wing running back at the left, its door direct to grade under a shed roof; a wide entrance surround at the centre of the front with figures standing in and around it; a plank walk along the front returning round the corner; and a copyright line inside the plate border at the lower left. That line reads `A. T. Andreas` clearly and its year reads `188` with the last digit not crisp at the published resolution — the volume's own imprint is 1884, and the record says both rather than nodding the brief's reading through.\n\nWHAT IS NOT CONFIRMED, AND IS THEREFORE NOT CLAIMED. Two of the brief's features cannot be read off this scan: the hitching posts and the board fence at the right are not resolvable in the derivative available here, and NO ENGRAVER'S SIGNATURE IS LEGIBLE. The brief's \"Braunhold\" is recorded as the brief's attribution and is not upgraded by this record. It would take the printed volume, or a scan at a resolution this item does not publish, to settle either.\n\nWHAT THIS CHANGES. `docs/RESEARCH/sauganash_hotel.md` already READ this image as an Andreas 1884 plate; what it lacked was the page. It now has one, and with it a rights status that is settled rather than open: an 1884 imprint is public domain, where the chicagology reproductions this project's other brief plates cite are all `check_required`.",
+  "what_it_supplies": [
+    "the Sauganash's two-storey clapboard block with a chimney at each end of the ridge",
+    "the log wing running back at the left, lower, with its door direct to grade under a shed roof",
+    "a wide entrance surround at the centre of the front elevation",
+    "a plank walk along the front, returning round the corner of the block",
+    "the even two-storey rhythm of sash across the clapboard front"
+  ],
+  "what_it_does_not_supply": [
+    "any coordinate, footprint outline or dimension",
+    "the hitching posts or the right-hand board fence the brief lists — not resolvable in this scan, and not claimed here",
+    "the engraver's name: no signature is legible, so the brief's Braunhold attribution stands unverified",
+    "a date for the scene, and a date for the plate only by way of the volume's 1884 imprint"
+  ]
+}

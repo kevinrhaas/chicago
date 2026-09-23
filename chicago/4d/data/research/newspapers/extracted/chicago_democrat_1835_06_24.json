@@ -1,0 +1,594 @@
+{
+ "schema": 1,
+ "issue_id": "chicago_democrat_1835_06_24",
+ "extracted": "2026-08-29",
+ "extracted_by": "hand, T-0326",
+ "note": "Vol. II No. 10, the last Democrat before the scene issue of 1 July, and the longest transcription in the range at 4,783 lines. Most of its length is the State Bank of Illinois charter and the commissioners' journal printed entire, which the editor apologises for.\n\nPAGE 3 IS THE WORST-SEGMENTED COLUMN SET IN THE WHOLE RANGE. Its six 'columns' are strict line-by-line interleaves of two real ones — the federal land-sale proclamation woven through the advertising, one line each alternately — so the prices current arrives as a ladder of bare figures with township numbers between them and several advertisements survive only as every other line of themselves. Every claim off page 3 here therefore uses `lines_of_claim` to name its own alternate lines, and the prices current is read only where the reading is certain: the shredding is stated rather than worked around.\n\nWHAT SURVIVES IS STILL WORTH IT: a THIRD named coffee house (the Eagle, Trowbridge's), a DENTIST on Lake Street, a new AUCTION AND COMMISSION house on South Water Street whose first sale falls on the scene date itself, a new boot and shoe manufactory on Lake Street, and flour at fifteen to sixteen dollars.",
+ "claims": [
+  {
+   "id": "c001",
+   "kind": "building",
+   "reading": "transcription_mediated",
+   "quote": "DEMOCRATIC MEETING.\nThe Democratic citizens of Chicago, a\nfriends of the nominations of the Baltim\nConvention, are requested to meet at the \"E\nGLE COFFEE HOUSE,\" (TRowBrIDor'®)\nMONDAY EVENING next, at Ec o'clc\nprecisely, to select delegates to attend the Cou\nty Convention, at Vials, on the 4th day of •\nly, and to transact such other businens as in\nproperiy come before them.\nBy Order of the Toten Committee.\nJane 24.",
+   "normalized": "DEMOCRATIC MEETING. The Democratic citizens of Chicago, a[nd] friends of the nominations of the Baltim[ore] Convention, are requested to meet at the \"E[A]GLE COFFEE HOUSE,\" (TROWBRIDGE'[S]) [on] MONDAY EVENING next, at [8] o'cl[ock] precisely, to select delegates to attend the Coun[t]y Convention, at [Vials?], on the 4th day of [Ju]ly, and to transact such other business as m[ay] proper[l]y come before them. By Order of the To[wn] Committee. J[u]ne 24.",
+   "locator": {
+    "artifact_role": "primary",
+    "issue_page": 2,
+    "column": 4,
+    "lines": [
+     1307,
+     1318
+    ],
+    "lines_of_claim": [
+     1307,
+     1308,
+     1309,
+     1310,
+     1311,
+     1312,
+     1313,
+     1314,
+     1315,
+     1316,
+     1317,
+     1318
+    ]
+   },
+   "entities": [
+    {
+     "as_printed": "TRowBrIDor'®",
+     "normalized": "Trowbridge",
+     "role": "keeper of the Eagle Coffee House",
+     "occupations": [
+      "innkeeper"
+     ],
+     "associated_places": [
+      "Chicago"
+     ]
+    }
+   ],
+   "notes": "A THIRD NAMED PUBLIC HOUSE, AND ITS KEEPER — the EAGLE COFFEE HOUSE, Trowbridge's — meeting the town's Democrats on Monday 29 June 1835, two days before the scene date. The parenthetical is how the town actually identified it: by the man who kept it.\n\nTHE MOVE IS THE INTERESTING PART. The same party met at the EXCHANGE Coffee House on 13 April and again for the town-election caucus on 6 June; by 24 June it is meeting at the Eagle. Nothing in these issues explains the change. Both houses are therefore in business at the scene date and the reconstruction needs both.\n\nWHERE IT STOOD, ALMOST. The Abell advertisement three columns away puts a law office 'in Dearborn street, [near/opposite …] of the \"Eagle Coffee House\"' — the preposition is destroyed by the interleave — which places the Eagle in or about DEARBORN STREET but will not say how. That is recorded on the Abell claim and no street is asserted here.\n\n'at Vials' is the county convention's place and will not resolve; it is left as printed."
+  },
+  {
+   "id": "c002",
+   "kind": "event",
+   "reading": "transcription_mediated",
+   "quote": "JOSEPH DUNCAN.\nThe gontleman whose same is placed abor\nand who is, for the time being, Governor\nthis young and flourishing State, passed thi\nour town a fow days since, on his way to Mic\nigan City. We have too long neglected to c",
+   "normalized": "JOSEPH DUNCAN. The g[e]ntleman whose [n]ame is placed abo[ve,] and who is, for the time being, Governor [of] this young and flourishing State, passed th[rough] our town a few days since, on his way to Mich[i]gan City. […]",
+   "locator": {
+    "artifact_role": "primary",
+    "issue_page": 2,
+    "column": 4,
+    "lines": [
+     1319,
+     1324
+    ],
+    "lines_of_claim": [
+     1319,
+     1320,
+     1321,
+     1322,
+     1323,
+     1324
+    ]
+   },
+   "entities": [
+    {
+     "as_printed": "JOSEPH DUNCAN",
+     "normalized": "Joseph Duncan",
+     "role": "Governor of Illinois, passing through Chicago in June 1835",
+     "occupations": [
+      "Governor of Illinois"
+     ]
+    }
+   ],
+   "notes": "THE GOVERNOR OF ILLINOIS PASSED THROUGH CHICAGO IN THE THIRD WEEK OF JUNE 1835, on his way to Michigan City, and the Democrat used the occasion for two columns of abuse. The editorial matter is state politics and is not extracted; the TRAVEL FACT is, because it is a dated movement of a named public figure through the modelled town days before the scene date.\n\nIt also says something about the road: the Governor's route to Michigan City ran through Chicago, which is the lake-shore road east and south, and it was being used by travellers of that rank in June 1835."
+  },
+  {
+   "id": "c003",
+   "kind": "event",
+   "reading": "transcription_mediated",
+   "quote": "CHOLERA.\nAs there are so many rumors flying about t\ncountry of the existence of the cholera in ra\nsections of the State, we have thought it mig\nbe proper to allude to the subject, and lay su\ninformation as we possese before our reade\nWe have a Springfeld paper of the 13th ins\nwhich describes the state of health in that pla\nand vicinity, as distressing to Physicians. T\nAlton Spectator of the 11th, which states th\nfor the last tee iceeks there has been about twe\nty deathe in that town of cholera-and that\nmajority of casee recover. At Galma, it h\nbeen rumored that thie disease prevailed to i\nalarming extent, but the Galenian of the 16\ninst. makes no mention of the existence of at\ndisense there. We have also heard of the exi\ntence of the cholere at Ottawa, bat have be\nunable to trace the information to any sutbe\ntic source. Our own Town, Chicago, is •\ncommonly healthy, and we assure our frien\nabroad, that if the cholera, or any other epider\nical or pestilentini disease makes its appearan\nbere, we will promptly publish all the fac\nwhich we may be able to obtain.",
+   "normalized": "CHOLERA. As there are so many rumors flying about th[e] country of the existence of the cholera in va[rious] sections of the State, we have thought it mig[ht] be proper to allude to the subject, and lay su[ch] information as we possess before our reade[rs.] We have a Springfield paper of the 13th ins[t.] which describes the state of health in that pla[ce] and vicinity, as distressing to Physicians. Th[e] Alton Spectator of the 11th, which states th[at] for the last t[hree] w[ee]ks there has been about twe[n]ty deaths in that town of cholera—and that [a] majority of cases recover. At Gal[e]na, it h[as] been rumored that this disease prevailed to a[n] alarming extent, but the Galenian of the 16[th] inst. makes no mention of the existence of a[ny] disease there. We have also heard of the exis[t]ence of the cholera at Ottawa, but have be[en] unable to trace the information to any auth[en]tic source. Our own Town, Chicago, is u[n]commonly healthy, and we assure our frien[ds] abroad, that if the cholera, or any other epidem[ic]al or pestilential disease makes its appearan[ce] here, we will promptly publish all the fac[ts] which we may be able to obtain.",
+   "locator": {
+    "artifact_role": "primary",
+    "issue_page": 2,
+    "column": 5,
+    "lines": [
+     1481,
+     1505
+    ],
+    "lines_of_claim": [
+     1481,
+     1482,
+     1483,
+     1484,
+     1485,
+     1486,
+     1487,
+     1488,
+     1489,
+     1490,
+     1491,
+     1492,
+     1493,
+     1494,
+     1495,
+     1496,
+     1497,
+     1498,
+     1499,
+     1500,
+     1501,
+     1502,
+     1503,
+     1504,
+     1505
+    ]
+   },
+   "notes": "CHICAGO IS WELL ON THE EVE OF THE SCENE DATE, AND THE STATE AROUND IT IS NOT. 'Our own Town, Chicago, is uncommonly healthy' — printed 24 June 1835, in a column reporting cholera at Springfield, about twenty deaths in three weeks at Alton, and rumours at Galena and Ottawa.\n\nWHY THIS IS THE CLAIM THAT SETTLES THE QUESTION. The 1835-05-20 and 1835-06-17 editorials describe streets and vacant lots so foul that the editor predicts pestilence, and it would be easy to model a sick town on the strength of them. This is the same editor, five weeks and one week later respectively, stating flatly that the town is UNCOMMONLY healthy while an epidemic runs elsewhere in Illinois — and staking his paper on publishing 'all the facts' if it changes. He is a hostile witness to his own sanitary campaign here, which is what makes the statement strong.\n\nSo the town on 1 July 1835: filthy, overcrowded, expensive, building fast, and not sick."
+  },
+  {
+   "id": "c004",
+   "kind": "event",
+   "reading": "transcription_mediated",
+   "quote": "Mr. Secrelary FIELD.\nWe gave this gentleman a gentle hint,\nweeks since that we were in want of the ac\nthe last Legislature, enlarging the powe\nthe corporation of this town. The act is\nyet received. It was ordered several mo\nsince by the corporation, and war also wri\nfor by several of our most respectable ciliz\n-\nWe believe there is but one sentiment in\ncommunity as it regards this secretaryship,\nthat is, that the incumbrance ought to be r\nved from the office by the most summary\nIf this cannot by any means be accomplis\nthe office should be abolished, for it is squar\ning the people's money to pays man for di\nwhich he does not perform. We hear fron\npapers that the secretary is about maki\nstump speech tour through Bangamon cou\nto sustain a deserter from the Democratic p:\nHe is probably too much ongaged in prepa\nspeeches for Shis occasion, to attend to the\nties of his clice.",
+   "normalized": "Mr. Secre[ta]ry FIELD. We gave this gentleman a gentle hint, [some] weeks since that we were in want of the ac[ts of] the last Legislature, enlarging the powe[rs of] the corporation of this town. The act is [not] yet received. It was ordered several mo[nths] since by the corporation, and wa[s] also writ[ten] for by several of our most respectable citiz[ens.] We believe there is but one sentiment in [this] community as it regards this secretaryship, [and] that is, that the incumbrance ought to be r[emo]ved from the office by the most summary [means.] If this cannot by any means be accomplish[ed,] the office should be abolished, for it is squa[nder]ing the people's money to pay a man for du[ties] which he does not perform. […]",
+   "locator": {
+    "artifact_role": "primary",
+    "issue_page": 2,
+    "column": 5,
+    "lines": [
+     1418,
+     1440
+    ],
+    "lines_of_claim": [
+     1418,
+     1419,
+     1420,
+     1421,
+     1422,
+     1423,
+     1424,
+     1425,
+     1426,
+     1427,
+     1428,
+     1429,
+     1430,
+     1431,
+     1432,
+     1433,
+     1434,
+     1435,
+     1436,
+     1437,
+     1438,
+     1439,
+     1440
+    ]
+   },
+   "entities": [
+    {
+     "as_printed": "Mr. Secrelary FIELD",
+     "normalized": "Secretary Field",
+     "role": "Secretary of State of Illinois, who had not sent the town its charter",
+     "occupations": [
+      "Secretary of State of Illinois"
+     ]
+    }
+   ],
+   "notes": "THE THIRD AND ANGRIEST PRINTING OF THE MISSING CHARTER, one week before the scene date, and the one that names the man: Secretary Field, and the paper wants his office abolished. It adds one fact the earlier two do not — the CORPORATION ITSELF ordered a copy 'several months since', and so did several private citizens, and neither request was answered.\n\nTHE SETTLED POSITION AT THE SCENE DATE, from the three printings together (1835-05-20, 1835-06-10, this): an act enlarging the powers of the corporation of Chicago was passed in February 1835; no copy had reached the town by 24 June; the election of new Trustees under it was repeatedly adjourned for want of the text; and the town was accordingly still governed on 1 July 1835 by the Trustees elected under its 1833 charter — the 'present Trustees' the town meeting of 16 June asked to clean the streets."
+  },
+  {
+   "id": "c005",
+   "kind": "price",
+   "reading": "transcription_mediated",
+   "quote": ") PRICES CURRENT,\nORRECTED WEEKLY.\n8 2 75 = 3 00\nbbl 15 00 a 16 00\n13 00\neat flour\nnone.\n1 00 • 1 50\nials-\n1000\nit 28\n00 a 20\n00\n3\n00\n3\n50\n5\nG\n5 00\n6\n:00\n6 00 %\n6 50\n75\n88\ncord 2 50",
+   "normalized": "[CHICAGO] PRICES CURRENT, [C]ORRECTED WEEKLY. [Salt, bbl] $2 75 [a] 3 00. [Flour and Meal — Super fine] bbl 15 00 a 16 00; [fine] 13 00; [Buckwh]eat flour none. [Indian meal bush] 1 00 a 1 50. […] [Building Mater]ials — [Lumber, ass'd] 1000 [f]t 28 00 a 2[9] 00; [Shingles do] 3 00 [a] 3 50; [Square timber, length ft] 5 a 6; [Brick, per 1000] 5 00 a 6 00; [Stone, cord] 6 00 a 6 50; [Lime, bbl] 75 a 88; [Wood,] cord 2 50.",
+   "locator": {
+    "artifact_role": "primary",
+    "issue_page": 3,
+    "column": 3,
+    "lines": [
+     2319,
+     2431
+    ],
+    "lines_of_claim": [
+     2319,
+     2322,
+     2324,
+     2328,
+     2330,
+     2332,
+     2333,
+     2335,
+     2406,
+     2408,
+     2409,
+     2410,
+     2411,
+     2413,
+     2414,
+     2415,
+     2416,
+     2418,
+     2419,
+     2421,
+     2422,
+     2423,
+     2425,
+     2426,
+     2428,
+     2429,
+     2431
+    ],
+    "interleaved": true
+   },
+   "notes": "FLOUR HAS TRIPLED IN A MONTH AND THE BUILDING MATERIALS HAVE NOT MOVED A CENT.\n\nSuperfine flour: $5.00-6.50 on 27 May, $10.00-12.00 on 4 and 10 June, $15.00-16.00 here, one week before the scene date. Fine flour is $13.00. Salt, Indian meal and buckwheat are unchanged from the first table. And every one of the seven building materials is IDENTICAL to its 27 May figure for the fourth consecutive week: lumber 28-29, shingles 3.00-3.50, square timber 5-6, brick 5-6, stone 6.00-6.50, lime .75-.88, wood 2.50.\n\nTHAT DIVERGENCE IS THE FINDING OF THE FOUR TABLES TOGETHER. A town whose bread price tripled in a month while its brick, lumber and lime prices did not twitch was not short of building supply — it was short of food, because people were arriving faster than provisions. The 4 June editorial says exactly that in words ('The increase of consumption has been so rapid in Chicago, that our stock of eatables is almost exhausted') and the 17 June one supplies the crowd. Three independent readings, one conclusion.\n\nTHIS TABLE IS READ PARTIALLY AND ON PURPOSE. Page 3 of this issue interleaves the prices current with the federal land-sale proclamation LINE BY LINE, so the table arrives as single figures separated by township numbers. Only the rows whose label and figures both survive in the alternation are read — the head, salt, the two flours, buckwheat, Indian meal, and the whole building-materials block, which happens to fall in a clean run. THE PROVISIONS AND GRAIN ROWS ARE NOT READ: their figures are present as bare numbers (lines 2342-2400) and assigning them to rows would be reconstruction from the previous weeks' table, not reading, and the whole point of quoting four tables is to see what moved. Where a row is not read it is simply absent from the normalized reading."
+  },
+  {
+   "id": "c006",
+   "kind": "business",
+   "reading": "transcription_mediated",
+   "quote": "• ABELL,\n+ COUNSELLOR AT LAR,\nAGO, ILLINOIS,\ngatrietly to his profession hopes\nstronage. Law Conveyaneing\ncanese and despatch.\naq Harmon. in Dearborn street,\nof the \"Eaglo Coffee House.\"",
+   "normalized": "[…] ABELL, [ATTORNEY &] COUNSELLOR AT LA[W,] [CHIC]AGO, ILLINOIS, [attending] strictly to his profession[, he] hopes [for a share of public pa]tronage. Law Conveyancing [done with ac]curacy and despatch. [… over the store of …] Harmon, in Dearborn street, [… opposite? / near?] of the \"Eagle Coffee House.\"",
+   "locator": {
+    "artifact_role": "primary",
+    "issue_page": 3,
+    "column": 3,
+    "lines": [
+     2443,
+     2458
+    ],
+    "lines_of_claim": [
+     2443,
+     2445,
+     2448,
+     2450,
+     2452,
+     2454,
+     2456,
+     2458
+    ],
+    "interleaved": true
+   },
+   "business": {
+    "name": "Abell",
+    "proprietors": [
+     "Abell"
+    ],
+    "trade": "attorney and counsellor at law, and law conveyancing",
+    "goods": [],
+    "street": "Dearborn Street",
+    "placement": {
+     "class": "relative",
+     "anchor": "the \"Eagle Coffee House\"",
+     "offset_text": "aq Harmon. in Dearborn street,\nof the \"Eaglo Coffee House.\"",
+     "offset_normalized": "[…] Harmon, in Dearborn street, […] of the \"Eagle Coffee House\"",
+     "street": "Dearborn Street"
+    }
+   },
+   "entities": [
+    {
+     "as_printed": "ABELL",
+     "normalized": "Abell",
+     "role": "proprietor",
+     "occupations": [
+      "attorney",
+      "counsellor at law",
+      "conveyancer"
+     ],
+     "associated_places": [
+      "Dearborn Street",
+      "Chicago"
+     ]
+    }
+   ],
+   "notes": "THE CLAIM THAT PUTS THE EAGLE COFFEE HOUSE IN DEARBORN STREET — and it does so through a hole. The advertisement survives only as every other line of itself, and the two lines that matter read 'aq Harmon. in Dearborn street,' and 'of the \"Eaglo Coffee House.\"' with an unrecoverable line between them. So the office is in Dearborn Street, it involves somebody named Harmon, and it stands in some stated relation to the Eagle Coffee House — and THE PREPOSITION IS GONE. 'opposite the', 'a few doors from the', 'nearly opposite the' and 'in the rear of the' all fit the surviving fragment and this pass will not choose between them.\n\nWHAT IS THEREFORE ASSERTED AND WHAT IS NOT. Asserted: Abell's office is in Dearborn Street; the Eagle Coffee House is named in the same address and is therefore in or about Dearborn Street. NOT asserted: which side, how far, or whether the Eagle is ON Dearborn at all rather than merely visible from the office. The placement class is `relative` because that is the shape of the statement, and the offset text is quoted with its gap showing.\n\n'Harmon' is very likely the Harmon of Harmon, Loomis & Co. — but that firm states its own store to be in SOUTH WATER street, and this line says Dearborn, so the identification would create the same conflict Magie & Wilkinson already carry. Not merged. The lawyer's forename is not printed in the surviving lines and is not supplied; a 'Goodrich & Abell' appears in the 31 March letter list and may be the same man, which is T-0304's kind of question."
+  },
+  {
+   "id": "c007",
+   "kind": "business",
+   "reading": "transcription_mediated",
+   "quote": "ENTISTRY.\n• THE , LAKE-STAE#T.\nM. H. KENNICOTT,\nDENTIST, who has practiced\n• profession in thie town for the\n• his thanka to the citizens of\nnity, for their liberal patronage,\ncontinue his unremitting atten-\ness in the line of his profession.\n\"pared to render all operations\nhe result as permanent and nat-\nkeeping in repair all work for\n1 additional charges.\nded either at the office, or s1\nCharges moderate.",
+   "normalized": "[D]ENTISTRY. [AT] THE [ ], LAKE-STREET. M. H. KENNICOTT, [a] DENTIST, who has practiced [his] profession in this town for the [past …, returns] his thanks to the citizens of [Chicago and vici]nity, for their liberal patronage, [and will] continue his unremitting atten[tion to all busin]ess in the line of his profession. [He is pre]pared to render all operations [… t]he result as permanent and nat[ural … and] keeping in repair all work for [no] additional charges[, atten]ded either at the office, or a[t …] Charges moderate.",
+   "locator": {
+    "artifact_role": "primary",
+    "issue_page": 3,
+    "column": 3,
+    "lines": [
+     2462,
+     2489
+    ],
+    "lines_of_claim": [
+     2462,
+     2464,
+     2467,
+     2468,
+     2470,
+     2472,
+     2474,
+     2476,
+     2478,
+     2480,
+     2482,
+     2484,
+     2485,
+     2487,
+     2489
+    ],
+    "interleaved": true
+   },
+   "business": {
+    "name": "M. H. Kennicott",
+    "proprietors": [
+     "M. H. Kennicott"
+    ],
+    "trade": "dentist",
+    "goods": [
+     "dentistry"
+    ],
+    "street": "Lake Street",
+    "placement": {
+     "class": "street_only",
+     "street": "Lake Street"
+    }
+   },
+   "entities": [
+    {
+     "as_printed": "M. H. KENNICOTT",
+     "normalized": "M. H. Kennicott",
+     "role": "proprietor",
+     "occupations": [
+      "dentist"
+     ],
+     "associated_places": [
+      "Lake Street",
+      "Chicago"
+     ]
+    }
+   ],
+   "notes": "A DENTIST ON LAKE STREET, ESTABLISHED — 'who has practiced his profession in this town for the past [period]' and thanking the citizens for 'their liberal patronage', which is a settled practice and not a new arrival. It is the second medical man this reading range places (Dr. J. H. Barnard at the New-York House, also Lake Street) and it makes Lake Street the town's professional row as much as its commercial one.\n\nTHE HOUSE HE PRACTISED IN IS LOST. The address line reads 'AT THE , LAKE-STAE#T' — the interleave has eaten the building's name between 'THE' and the street, and the definite article proves there was one. The New-York House is on Lake Street and had a physician in it; that is a suggestion and NOT a reading, and the placement is left at `street_only` rather than borrowed. The next reading of the 1835-07 issues, or the page images, would settle it in a line.\n\n'attended either at the office, or at [the residence]' is the surviving sense of line 2487: house calls. Charges moderate, repairs free."
+  },
+  {
+   "id": "c008",
+   "kind": "business",
+   "reading": "transcription_mediated",
+   "quote": "d Commiesion House.\ner having taken the Store of\nrer. South Water street, next\nright, for the purpose of trana.\nHis first public wate will take\nday next, the 1st day of July.\nof having merchandize, real\ndc., disposed of, upun the\nplease furnish the same at the\n. MONTGOMERY, Aué'.",
+   "normalized": "[Auction an]d Commission House. [The subscrib]er having taken the Store of [Mr. …], South Water street, next [door to Mr. Wat?]right, for the purpose of transa[cting a general] COMMISSION and Auc[tion business … ] His first public [s]ale will take [place on Wednes]day next, the 1st day of July. [Those desirous] of having merchandize, real [estate, &]c., disposed of, upon the [most favourable terms will] please furnish the same at the [store p]rior to the 1st. [L. W.?] MONTGOMERY, Auc[tioneer].",
+   "locator": {
+    "artifact_role": "primary",
+    "issue_page": 3,
+    "column": 3,
+    "lines": [
+     2540,
+     2559
+    ],
+    "lines_of_claim": [
+     2540,
+     2542,
+     2543,
+     2546,
+     2548,
+     2551,
+     2552,
+     2554,
+     2556,
+     2559
+    ],
+    "interleaved": true
+   },
+   "business": {
+    "name": "Montgomery, auction and commission house",
+    "proprietors": [
+     "Montgomery"
+    ],
+    "trade": "auction and commission house, selling merchandize and real estate",
+    "goods": [
+     "merchandize at auction",
+     "real estate at auction",
+     "goods on commission"
+    ],
+    "street": "South Water Street",
+    "placement": {
+     "class": "relative",
+     "anchor": "[the store taken of a person the interleave has destroyed], South Water street",
+     "offset_text": "er having taken the Store of\nrer. South Water street, next",
+     "offset_normalized": "having taken the Store of [—], South Water street, next [door to —]",
+     "street": "South Water Street"
+    }
+   },
+   "entities": [
+    {
+     "as_printed": ". MONTGOMERY, Aué'.",
+     "normalized": "Montgomery",
+     "role": "proprietor",
+     "occupations": [
+      "auctioneer",
+      "commission merchant"
+     ],
+     "associated_places": [
+      "South Water Street",
+      "Chicago"
+     ]
+    }
+   ],
+   "notes": "A NEW AUCTION AND COMMISSION HOUSE OPENS ON SOUTH WATER STREET AND ITS FIRST SALE IS ON THE SCENE DATE. 'His first public sale will take place on Wednesday next, the 1st day of July' — 1 July 1835 was a Wednesday, and this is the only event in the entire corpus advertised to happen ON the modelled day, at a named street, in a taken-over store. Goods were to be delivered to the store before the 1st, so on the morning of the scene date that building held a stock waiting to be sold and a crowd was expected in it.\n\nTHE STORE IS TAKEN OVER, NOT BUILT, and the two names that would identify it are both destroyed by the interleave: 'the Store of [—]' and 'next [door to —]right'. So this places an auction house on South Water Street and cannot say which frontage. It is a second auction room in the town, beside Bates' new one in Dearborn Street, and the two are not the same.\n\nWHICH MONTGOMERY? The signature survives as '. MONTGOMERY, Auc'r' — the initials are gone. L. W. Montgomery the bootmaker has been advertising 'next door to P. Cohen's Store' since December 1833 and Cohen is on South Water Street, so a bootmaker turning auctioneer on the same street is possible and so is a second Montgomery. NOT MERGED, and the business is minted under the bare surname rather than under a name this pass cannot read."
+  },
+  {
+   "id": "c009",
+   "kind": "business",
+   "reading": "transcription_mediated",
+   "quote": "& Leather Store.\nr would respectfully inform\nnta of Chicago, and the pab-\nke street, where he will man-\nadies' and gentlemen'• Boota\nsizen, warranted both in style\nto be equal to any in this nee-\nHe has also on hand for wale,\nrtment of leather, consisting\nt tanned Baltimore ina'd best;\nNew-York;\nse. Bridle, Band and Upper\nadelphia tan'd. best in market:\nand common Morocco;\ndo.\nining», Bindinge, etc.\n• purchase are requested to\nor themselves.\nIDES and SKINS.",
+   "normalized": "[Boot, Shoe] & Leather Store. [The subscribe]r would respectfully inform [the inhabita]nts of Chicago, and the pub[lic in general, that he has opened a store in La]ke street, where he will man[ufacture for sale l]adies' and gentlemen's Boots [and Shoes of all] sizes, warranted both in style [and workmanship] to be equal to any in this se[ction of country.] He has also on hand for sale, [a general asso]rtment of leather, consisting [of … ligh]t tanned Baltimore [and] best; [… ] New-York; [… ]se, Bridle, Band and Upper [… Phil]adelphia tan'd. best in market; [… best] and common Morocco; [… ]do.; [… L]inings, Bindings, etc. [Persons wishing to] purchase are requested to [call and examine] for themselves. [Cash paid for H]IDES and SKINS.",
+   "locator": {
+    "artifact_role": "primary",
+    "issue_page": 3,
+    "column": 4,
+    "lines": [
+     2596,
+     2635
+    ],
+    "lines_of_claim": [
+     2596,
+     2598,
+     2600,
+     2603,
+     2605,
+     2607,
+     2609,
+     2610,
+     2613,
+     2616,
+     2618,
+     2620,
+     2623,
+     2625,
+     2627,
+     2629,
+     2631,
+     2633,
+     2635
+    ],
+    "interleaved": true
+   },
+   "business": {
+    "name": "[boot, shoe and leather store, Lake street, proprietor not recovered]",
+    "proprietors": [],
+    "trade": "boot and shoe manufacturing and leather dealing",
+    "goods": [
+     "ladies' and gentlemen's boots and shoes",
+     "sole leather",
+     "Baltimore tanned leather",
+     "New-York leather",
+     "Philadelphia tanned leather",
+     "bridle, band and upper leather",
+     "morocco",
+     "linings",
+     "bindings",
+     "hides and skins"
+    ],
+    "street": "Lake Street",
+    "placement": {
+     "class": "street_only",
+     "street": "Lake Street"
+    }
+   },
+   "ad_copy_date": {
+    "verbatim": "1, 1635.-10.",
+    "iso": "1835-06-01"
+   },
+   "notes": "A SECOND BOOT, SHOE AND LEATHER STORE, ON LAKE STREET, AND IT MANUFACTURES. Wm. H. Taylor's is on DEARBORN street a few rods north of Newberry & Dole's; this one is on LAKE, and it is a workshop as well as a shop — 'where he will manufacture for sale ladies' and gentlemen's Boots and Shoes of all sizes'. With L. W. Montgomery's bootmaking next door to Cohen's on South Water Street, that is THREE boot and shoe premises on three different streets in the town at the scene date, two of them making as well as selling.\n\nTHE LEATHER LIST IS A SUPPLY MAP: Baltimore tanned, New-York, Philadelphia tanned 'best in market', bridle, band and upper, morocco best and common, linings and bindings. Four eastern tanning centres supplying one Chicago shop by lake in June 1835. And CASH PAID FOR HIDES AND SKINS at the same counter, which is the other direction of the same trade — the town's own hides going out as the eastern leather comes in.\n\nTHE PROPRIETOR'S NAME IS GONE. The signature falls on a line the interleave gave to the insurance advertisement running beside it, and no other printing of this notice exists in the eight issues read. An unnamed but placed and well-described manufactory is still worth a claim; naming him is a job for the 1835-07 issues."
+  },
+  {
+   "id": "c010",
+   "kind": "building",
+   "reading": "transcription_mediated",
+   "quote": "Y MOORE,\nCOUNSELLOR AT LAR,\nicitor in Chancers,\nhicago, Hineis,\n1. H. Kinzie'a new atore.)",
+   "normalized": "[HENR]Y MOORE, [ATTORNEY &] COUNSELLOR AT LA[W,] [and Sol]icitor in Chancer[y,] [C]hicago, Illi[no]is[. Office in] J. H. Kinzie's new store.)",
+   "locator": {
+    "artifact_role": "primary",
+    "issue_page": 3,
+    "column": 3,
+    "lines": [
+     2581,
+     2591
+    ],
+    "lines_of_claim": [
+     2581,
+     2583,
+     2587,
+     2588,
+     2591
+    ],
+    "interleaved": true
+   },
+   "business": {
+    "name": "Henry Moore",
+    "proprietors": [
+     "Henry Moore"
+    ],
+    "trade": "attorney and counsellor at law, and solicitor in chancery",
+    "goods": [],
+    "street": null,
+    "placement": {
+     "class": "relative",
+     "anchor": "J. H. Kinzie's new store",
+     "offset_text": "1. H. Kinzie'a new atore.)",
+     "offset_normalized": "[Office in] J. H. Kinzie's new store",
+     "street": null
+    }
+   },
+   "entities": [
+    {
+     "as_printed": "Y MOORE",
+     "normalized": "Henry Moore",
+     "role": "proprietor",
+     "occupations": [
+      "attorney",
+      "counsellor at law",
+      "solicitor in chancery"
+     ],
+     "associated_places": [
+      "Chicago"
+     ]
+    }
+   ],
+   "notes": "THE WORD CHANGES FROM 'BUILDING' TO 'STORE', AND THAT IS THE WHOLE VALUE OF THIS CLAIM. On 1835-06-04 and 1835-06-10 Henry Moore's office is 'in John H. Kinzie's new building'; here, three weeks later and one week before the scene date, it is 'in J. H. Kinzie's new store'. The same tenant in the same premises, described twice by the man who rents it, tells you the building's USE: it is a store with lettable office space, not an office block. That is a different massing and a different frontage from a chambers, and it is the kind of thing the reconstruction has to decide.\n\nSTILL NO STREET, in any of the three printings, so nothing is placed. And still NOT fused with the 20-by-45 store with three office rooms that John H. Kinzie was letting in Kinzie's Addition in October 1834 — see that claim's note; one is called finished in 1834 and the other new in 1835."
+  },
+  {
+   "id": "c011",
+   "kind": "person",
+   "reading": "transcription_mediated",
+   "quote": "-In this town on the 20th inst.\nB. Hubbard, of Doapage Settle-\nPacK. Eag. Merchant of this\nK. Wirus, of Philadelpbia.",
+   "normalized": "[MARRIED —] In this town on the 20th inst. […] B. Hubbard, of D[u]page Settle[ment … to Miss …] Peck, [dau. of …] Esq. Merchant of this [town … and …] K. Wi[lli]s, of Philadelphia.",
+   "locator": {
+    "artifact_role": "primary",
+    "issue_page": 3,
+    "column": 3,
+    "lines": [
+     2434,
+     2440
+    ],
+    "lines_of_claim": [
+     2434,
+     2436,
+     2438,
+     2440
+    ],
+    "interleaved": true
+   },
+   "entities": [
+    {
+     "as_printed": "B. Hubbard, of Doapage Settle-",
+     "normalized": "B. Hubbard",
+     "role": "named in a marriage notice",
+     "associated_places": [
+      "Dupage Settlement"
+     ]
+    },
+    {
+     "as_printed": "PacK. Eag. Merchant of this",
+     "normalized": "Peck",
+     "role": "named in a marriage notice as a merchant of this town",
+     "occupations": [
+      "merchant"
+     ],
+     "associated_places": [
+      "Chicago"
+     ]
+    },
+    {
+     "as_printed": "K. Wirus, of Philadelpbia",
+     "normalized": "K. Willis",
+     "role": "named in a marriage notice",
+     "associated_places": [
+      "Philadelphia"
+     ]
+    }
+   ],
+   "notes": "A MARRIAGE IN CHICAGO ON 20 JUNE 1835, ELEVEN DAYS BEFORE THE SCENE DATE, AND THE NOTICE IS HALF DESTROYED. The interleave has taken every other line, so what survives is the dateline, three names and the fact that one of them is 'Esq. Merchant of this town'. WHO MARRIED WHOM CANNOT BE READ — there appear to be two marriages in the paragraph rather than one (a Dupage Settlement Hubbard, a Peck of this town, and a Willis of Philadelphia), and pairing them would be invention.\n\nWHAT IS MINTED IS THE THREE NAMES AND NOTHING ELSE: no spouse, no relationship, no officiant. PECK, ESQ., MERCHANT OF THIS TOWN is the useful one — a Peck addressed the town meeting of 16 June and sat on its committee of seven, and this supplies his trade. The two readings are not merged on that alone, but the occupation is recorded where a later pass can use it."
+  }
+ ]
+}

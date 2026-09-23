@@ -1,0 +1,27 @@
+{
+ "id": "fergus_chicago_directory_1839",
+ "type": "book",
+ "citation": "Robert Fergus, Fergus' Directory of the City of Chicago, 1839 (Chicago: Fergus Printing Company, 1876) — Fergus' Historical Series No. 2; read from the Allen County Public Library Genealogy Center scan on the Internet Archive",
+ "date": "1876 (completing an 1839 list); scan read 2026-09-03",
+ "describes_date": "1839",
+ "locator": "the alphabetical directory, printed pages 5-36 (scan leaves 17-48), and the churches, hotels and public places, printed page 37 (leaf 49) — read by T-0506. Still unread: the introduction (printed 1-4), the appendices on printed pages 38-52 (leaves 50-64) — the city register, the mayors, the 1837 charter election and its list of voters for mayor, the Fort Dearborn Addition lot sales and the population table — and Fergus's historical sketch, leaves 65-80.",
+ "url": "https://archive.org/details/fergusdirectoryo00ferg",
+ "tier": 2,
+ "rights_status": "public_domain",
+ "asset_use": "text_only",
+ "verified": true,
+ "note": "SENIOR READING, and it supersedes for citation the web transcription this project cited until 2026-09-03 (ldsgenealogy.com; kept as resident_research_fergus_directory_1839 and rr_fergus_directory_1839, which are the same volume at second hand). WHAT THIS VOLUME IS: the 1839 'directory' was six blank pages at the back of the City's Laws and Ordinances, filled by Fergus from memory with the names of business men — 'no canvass was necessary, and the names were never written'. The book printed here is his 1876 completion of that list out of the recollections of the Old Settlers he thanks on printed page 4. So an entry is 1839 evidence RECALLED IN 1876, which is why this is graded tier 2 and not tier 1. The reading is transcription_mediated: archive.org's OCR of the printed page, not checked against the image by eye. Read entry by entry into data/research/directories/claims/fergus_1839_directory_entries.json and fergus_1839_town_findings.json (T-0506); crosswalked to the 1835 layer in fergus_1839_crosswalk_1835.json, where an 1839 listing alone is never an 1835 resident.",
+ "author": "Robert Fergus",
+ "repository": "Allen County Public Library Genealogy Center, via the Internet Archive",
+ "archived_url": "https://archive.org/details/fergusdirectoryo00ferg",
+ "what_it_supplies": [
+  "A name, a trade and a street for 1,655 entries in the city of 1839 — the closest address list to 1835 this project can reach.",
+  "A trade for 976 of them at a stated street, which compiles into 102 street faces (Lake 199, Clark 94, North Water 83, South Water 72).",
+  "On printed page 37: six churches with their ministers, fifteen hotels, the public offices around the Public Square, the land office, the lighthouse, the theatre, two named building rows, the Dutch Settlement, and the fire that took the Tremont House on 27 October 1839."
+ ],
+ "what_it_does_not_supply": [
+  "An 1835 residency. Four years late, and the ratified ladder never makes a resident from a later listing alone.",
+  "An address number that means anything, off Lake street. Fergus writes on printed page 3 that no street but Lake was numbered in 1839 and that 'the numbers now given are those of the present day' — 1876's. Only the street name crosses.",
+  "A count of its own entries. The volume states no number of names anywhere, so a reading of it cannot be closed against the book the way a census sheet closes against its printed totals."
+ ]
+}

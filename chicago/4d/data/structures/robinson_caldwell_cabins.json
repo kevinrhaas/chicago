@@ -1,0 +1,112 @@
+{
+  "id": "robinson_caldwell_cabins",
+  "name": "Log cabins at Wolf Point",
+  "aka": [
+    "Robinson's cabins",
+    "the cabins near Wentworth's tavern"
+  ],
+  "archetype": "log_dwelling",
+  "phases": [
+    {
+      "id": "log_1831",
+      "documented_range": {
+        "from": "1831-01-01",
+        "to": "1835-12-31",
+        "confidence": "inferred",
+        "sources": [
+          "kinzie_waubun_1856"
+        ],
+        "note": "ONE SOURCE, ONE YEAR, AND THE LONGEST UNSUPPORTED RUN IN THIS DATASET. Wau-Bun, describing 1831: 'Near him [Wentworth's tavern] were two or three log cabins occupied by Robinson, the Pottowattamie chief, and some of his wife's connexions.' That is the whole of the evidence, and it is a single sentence in a book written twenty-five years after the year it describes. Nothing reached follows these cabins to 1832 or to any year after. The range is closed at the end of 1835 on the ordinary continuity argument — a standing building stands until something says otherwise — and that argument is under more strain here than anywhere else in the dataset, because THE FOUR YEARS THIS RANGE CROSSES ARE THE YEARS OF THE REMOVAL. The 1833 Treaty of Chicago ceded the land; through 1835 the Potawatomi were assembled around the town awaiting removal west; Billy Caldwell, who Wau-Bun says resided at Wolf Point occasionally, led his people west in 1835; and Alexander Robinson held a reserve of his own on the Des Plaines from the 1829 treaty and lived out his life there. A house left by the people who built it is a house that comes down or is taken over, and no source records either happening to these. WHAT THIS RECORD CLAIMS IS THAT THE BUILDINGS STOOD, NOT THAT ANYONE WAS IN THEM. If evidence turns up that they were gone by July 1835 this record leaves the scene for data/exclusions.json, and that is a likelier outcome for this record than for any other in the parcel."
+      },
+      "position": {
+        "utm_e": 446980.7,
+        "utm_n": 4637371.8,
+        "rotation_deg": 90.0,
+        "symbolic_location": "West bank at Wolf Point, near Wentworth's tavern (the Wolf Point Tavern), in the river-front row between the tavern and the log meeting house to the north.",
+        "confidence": "reconstructed",
+        "note": "A POINT CHOSEN IN A ROW, NOT A DERIVATION, so it is tagged conjectural and cites no sources. What Wau-Bun gives is an ORDER along the west bank and no distances: 'Facing down the river from the west was, first a small tavern kept by Mr. Wentworth ... Near him were two or three log cabins occupied by Robinson ... A little remote from these residences was a small square log building, originally designed for a school-house.' So the cabins lie between this project's wolf_point_tavern (north face at local N -45) and its walker_meeting_house (south face at local N -10), and 'a little remote' says the meeting house stands clear of them. This coordinate splits that gap, about 20 m north of the tavern and 14 m south of the meeting house, and sets the cabin back from the water on the same frontage. THE UNCERTAINTY IS THE ROW'S, NOT A METRE FIGURE: both neighbours are themselves placed from bank geometry rather than from any surviving intersection — the Walker meeting house's own position is tagged conjectural and may be on the wrong bank entirely — so this record inherits two soft positions and adds a free choice between them. Treat it as good to about ±40 m along the bank and no better. Facade bearing 90, due east onto the river, follows Wau-Bun's 'facing down the river from the west' and the bearing this project gives the tavern and the meeting house in the same row.",
+        "derivation": {
+          "method": "not_derivable",
+          "reason": "This placement predates the derivation module. Its provenance and reasoning are recorded in position.note, but no machine-checkable derivation block has been authored for it yet."
+        }
+      },
+      "footprint": {
+        "polygon": [
+          [
+            0,
+            0
+          ],
+          [
+            6.5,
+            0
+          ],
+          [
+            6.5,
+            5
+          ],
+          [
+            0,
+            5
+          ]
+        ],
+        "confidence": "reconstructed",
+        "note": "PLACEHOLDER — NO DIMENSION IS ATTESTED. 6.5 x 5 m is about 21 x 16 ft, an ordinary single-pen log cabin of the type and period. Every number is invented. AND THE POLYGON IS ONE CABIN WHERE THE SOURCE COUNTS TWO OR THREE: see form.cabin_count, which records the number and declares that the model does not build it."
+      },
+      "form": {
+        "construction": {
+          "value": "log",
+          "confidence": "attested",
+          "sources": [
+            "kinzie_waubun_1856"
+          ],
+          "note": "'two or three log cabins' — Wau-Bun. The fabric is the one physical fact the source gives."
+        },
+        "cabin_count": {
+          "value": "two or three",
+          "confidence": "attested",
+          "sources": [
+            "kinzie_waubun_1856"
+          ],
+          "note": "Wau-Bun counts them loosely — 'two or three' — and the looseness is the evidence, so the value is kept as the source's words rather than resolved to a number. ONE CABIN IS BUILT. The archetype models a building, not a group, and choosing two or three would mean inventing the count the source declined to give, plus their spacing and their arrangement. So the model understates the place: a visitor sees one cabin where there were at least two, and the record says so here.",
+          "geometry": "simplified"
+        },
+        "stories": {
+          "value": 1,
+          "confidence": "inferred",
+          "note": "Not attested. A single-pen log cabin is single-storey by type, and everything else in this row is described as low."
+        },
+        "wall_height_m": {
+          "value": 2.4,
+          "confidence": "inferred",
+          "note": "No figure is attested. 2.4 m is about 8 ft, a single-pen log wall — the same reading this project gives the Sauganash's 1829 cabin."
+        },
+        "roof_type": {
+          "value": "gable",
+          "confidence": "inferred",
+          "note": "Not attested. Gable is the near-universal roof form for log construction of this type, period and region."
+        },
+        "roof_pitch_deg": {
+          "value": 35.0,
+          "confidence": "inferred",
+          "note": "No pitch is attested. 35 degrees is the archetype's mid-range for a low log cabin roofed in riven shakes. Inferred from construction practice, not measured."
+        },
+        "chimneys": {
+          "value": 1,
+          "confidence": "inferred",
+          "note": "Not attested. One is the normal number for a single-pen log cabin lived in through Chicago winters. The COUNT is the inference; position, size and material are the archetype's — docs/LIBERTIES.md L26."
+        }
+      },
+      "change_note": "The log cabins standing in the west-bank row at Wolf Point in 1831, between Wentworth's tavern and the log meeting house north of it. This record models the buildings only; it makes no claim about who was in them on the scene date."
+    }
+  ],
+  "function": {
+    "value": "dwelling",
+    "confidence": "attested",
+    "sources": [
+      "kinzie_waubun_1856"
+    ],
+    "note": "Wau-Bun calls them cabins 'occupied by' named people and later refers to the group as 'these residences'. They were homes."
+  },
+  "research_note": "THE HARDEST RECORD IN THIS PARCEL TO GET RIGHT, AND IT IS FLAGGED review_required: Wau-Bun attests these cabins in 1831 as the home of Alexander Robinson, the Potawatomi chief, and members of his wife’s family, and 1835 is the year of the final removal of the Potawatomi from Chicago. Wau-Bun's single sentence of 1831 attests two or three log cabins near Wentworth's tavern occupied by Alexander Robinson, the Potawatomi chief, and members of his wife's family, with Billy Caldwell residing there occasionally. FOUR THINGS ARE UNATTESTED AT THE SCENE DATE and each is recorded where it belongs rather than resolved: whether the cabins still stood in July 1835 (documented_range), how many there were and how they sat (form.cabin_count and the footprint), exactly where in the row they were (position), and who if anyone was in them — which is why this record carries no occupants block at all. THE TENSION THAT MATTERS is the last one crossed with the date: 1835 is the year of the final removal of the Potawatomi from Chicago, the most historically significant event of this project's first target year. AGENTS.md is explicit that Native presence is not a research gap to be filled by inference and that depiction requires consultation. So this record builds the BUILT ENVIRONMENT — a log cabin on a bank — and asserts nothing about people, and the review_required flag holds the scene short of release until someone qualified has looked at it. WHAT WOULD UPGRADE IT: any source that follows these cabins past 1831 — the 1833 treaty's schedules of improvements and claims, the agency's correspondence, or the Chicago Democrat. See docs/RESEARCH/robinson_caldwell_cabins.md.",
+  "review_required": true
+}

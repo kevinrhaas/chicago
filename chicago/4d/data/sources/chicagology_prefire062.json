@@ -1,0 +1,32 @@
+{
+  "id": "chicagology_prefire062",
+  "type": "website",
+  "citation": "\"South Water Street.\" Chicagology. Transcribing A. T. Andreas, History of Chicago, Volume I (1884), on the grading and paving of the streets — which quotes the Chicago American of 9 July 1836 for the Lake and La Salle frog pond.",
+  "date": "accessed 2026-08-09",
+  "describes_date": "1833-1869",
+  "url": "https://chicagology.com/prefire/prefire062/",
+  "tier": 3,
+  "rights_status": "check_required",
+  "asset_use": "cross_check",
+  "verified": true,
+  "note": "The Frog Pond: 'a pond of water on Lake Street, corner of La Salle, inhabited by frogs. It smells strong now, and in a few days will send out a horrible stench.' The best-dated July fauna and standing-water fact reached so far, one block from the Public Square. RE-READ 2026-08-11, AND THE CITATION WAS WRONG IN THE SAME WAY prefire273's AND prefire278's WERE. This record said the page quotes the Chicago American. The page's body is Andreas, printed under its own heading — 'History of Chicago, Volume I, A. T. Andreas, 1884' — and it is Andreas who quotes the American, mid-paragraph, in a chapter about street improvements. So the frog pond reaches this project through a rung-3 compilation quoting a newspaper, not through the newspaper, and the page's rung is Andreas's 3 rather than the American's 1. That distinction is the whole point of declaring the document: promoting this to rung 1 would let a value stand on a period newspaper this project has never opened. The date is confirmed and it is 1836, not the 1835 docs/STATUS.md § 44 wrote — 'As late as July 9, 1836, the American calls attention to...' — one year after the scene date and the same week of the year. A paragraph on the 1848 pavements quoted from 'Brass's History' (Bross, as the page prints it) and a run of Sanborn and photographic plates from 1862-1869 sit below it; no claim here rests on either, so they are apparatus and are not declared.",
+  "archived_url": "https://web.archive.org/web/20260517212215/https://chicagology.com/prefire/prefire062/",
+  "transcribes": [
+    {
+      "work": "A. T. Andreas, History of Chicago, Volume I — the passage on the grading, turnpiking and planking of the streets, quoting the Chicago American of 9 July 1836 on the pond at Lake and La Salle",
+      "date": "1884",
+      "tier": 3,
+      "note": "Carries the Frog Pond's existence, its corner and its July season — the standing-water and fauna fact S2 parcel (c) is queued to use for the pond at Lake and La Salle. Nothing rests on it yet. A compilation from pioneer testimony quoting a period newspaper: the rung is Andreas's, because Andreas is the document on this page and the American is not."
+    }
+  ],
+  "what_it_supplies": [
+    "the pond at Lake Street and La Salle, standing and stinking in July 1836",
+    "the sequence in which the streets were graded and turnpiked, 1833-1849",
+    "that South Water Street was ordered 'pitched' from the United States Reservation to Randolph before April 1834, and graduated in July 1834 so that water should flow from each cross street into the river"
+  ],
+  "what_it_does_not_supply": [
+    "the Chicago American itself — the quotation is Andreas's and the newspaper has not been opened",
+    "any dimension, depth or extent of the pond",
+    "anything about the street surface in 1835 beyond that it was graded earth: the planking on this page is 1849 and later"
+  ]
+}

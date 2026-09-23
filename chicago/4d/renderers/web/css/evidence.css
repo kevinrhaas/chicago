@@ -1,0 +1,231 @@
+/* evidence.css — the Evidence section of the 4D Chicago interface: the hub of
+   topic tiles, the topic views with their search and pills, and the folded
+   "About this list" prose. Owned by one feature; walk.css stays the base (it
+   still styles the `.lib` entries themselves and the legend list). Both themes
+   through the tokens in walk.css :root / [data-theme="light"]; every tint here
+   is mixed from --ink so it steps the surface in either direction. */
+
+/* ---- the hub: one tile per topic ---------------------------------------- */
+/* Two columns where two fit (a 390 px phone does, with the rail beside it), one
+   where they do not; a tile is a button the height of a thumb. */
+.ev-hub {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(136px, 1fr));
+  /* Every tile in a row is as tall as the tallest, and every row as tall as the
+     tallest row, so the odd seventh tile does not stand alone at its own height. */
+  grid-auto-rows: 1fr;
+  align-items: stretch;
+  gap: 8px;
+}
+.ev-hub[hidden] { display: none; }
+.ev-tile {
+  display: grid;
+  grid-template-rows: auto auto 1fr;
+  align-content: start;
+  gap: 6px;
+  min-height: 44px;
+  padding: 12px;
+  border: 1px solid var(--edge);
+  border-radius: 10px;
+  background: color-mix(in srgb, var(--ink) 3%, transparent);
+  color: var(--ink);
+  font: inherit;
+  text-align: left;
+  cursor: pointer;
+  transition: background .12s, border-color .12s;
+}
+.ev-tile:hover { background: color-mix(in srgb, var(--ink) 8%, transparent); }
+.ev-tile:focus-visible { outline: 2px solid var(--accent); outline-offset: 1px; }
+/* Icon left, count right, on one row; the title gets the whole tile width
+   beneath them, because a 160 px column shared with a chip wrapped
+   "What is still an open question" onto four lines. */
+.ev-tile-head { display: flex; align-items: center; justify-content: space-between; gap: 8px; }
+.ev-tile-head svg { color: var(--accent); }
+/* Two lines at most: the longest title ("What is still an open question") takes
+   two at 136 px, and a third would only come from a narrower column than the
+   grid allows. */
+.ev-tile-title {
+  font-size: 13px; font-weight: 600; line-height: 1.3; min-width: 0;
+  display: -webkit-box; -webkit-box-orient: vertical; -webkit-line-clamp: 2;
+  overflow: hidden;
+}
+.ev-count {
+  padding: 1px 7px;
+  border: 1px solid var(--edge);
+  border-radius: 999px;
+  color: var(--ink-dim);
+  font-size: 10.5px; font-weight: 600;
+  font-variant-numeric: tabular-nums;
+  line-height: 1.5;
+}
+.ev-count.is-busy { color: var(--ink-dim); opacity: .6; }
+.ev-gloss { color: var(--ink-dim); font-size: 11.5px; line-height: 1.4; }
+
+/* ---- a topic view -------------------------------------------------------- */
+.ev-topic[hidden] { display: none; }
+/* The drawer head carries the topic's title (with the back arrow), so the
+   topic's own heading would say it twice. It stays in the DOM for the
+   section's text and for anything that reads the heading before the module
+   has run; it is just not drawn. */
+.ev-topic > .ev-topic-title { display: none; }
+/* The module-filled one-liner leads the topic. */
+.ev-topic > .ev-lead { margin-top: 0; }
+.ev-topic > .ev-lead + .ev-about { margin-top: 8px; }
+
+.ev-tools { display: grid; gap: 8px; margin: 0 0 10px; }
+.ev-search-row { display: grid; grid-template-columns: minmax(0, 1fr) auto; align-items: center; gap: 8px; }
+.ev-search {
+  width: 100%;
+  min-height: 36px;
+  padding: 8px 10px;
+  border: 1px solid var(--edge);
+  border-radius: 8px;
+  outline: none;
+  background: color-mix(in srgb, var(--ink) 7%, transparent);
+  color: var(--ink);
+  font: inherit;
+}
+.ev-search:focus { border-color: var(--accent); }
+.ev-search::placeholder { color: var(--ink-dim); }
+.ev-status { color: var(--ink-dim); font-size: 11px; font-variant-numeric: tabular-nums; white-space: nowrap; }
+
+/* Pills are interactive — single-select, ON is the accent fill. */
+.ev-pills { display: flex; flex-wrap: wrap; gap: 6px; }
+.ev-pills[hidden] { display: none; }
+.ev-pill {
+  min-height: 28px;
+  padding: 3px 10px;
+  border: 1px solid var(--edge);
+  border-radius: 999px;
+  background: color-mix(in srgb, var(--ink) 4%, transparent);
+  color: var(--ink);
+  font: inherit; font-size: 11.5px;
+  cursor: pointer;
+  transition: background .12s, color .12s, border-color .12s;
+}
+.ev-pill small { color: var(--ink-dim); font-size: 10px; font-variant-numeric: tabular-nums; }
+.ev-pill:hover { background: color-mix(in srgb, var(--ink) 9%, transparent); }
+.ev-pill[aria-pressed="true"] { background: var(--accent); border-color: var(--accent); color: var(--panel-solid); }
+.ev-pill[aria-pressed="true"] small { color: inherit; opacity: .8; }
+.ev-pill:focus-visible { outline: 2px solid var(--accent); outline-offset: 1px; }
+
+.ev-empty { margin: 10px 0 0; color: var(--ink-dim); font-size: 11.5px; }
+.ev-empty[hidden] { display: none; }
+
+/* The long prose, folded. The entries come first; the account of the list is
+   one tap away rather than the thing a visitor has to scroll past. */
+.ev-about { margin: 10px 0 0; border: 1px solid var(--edge); border-radius: 9px; }
+.ev-about > summary {
+  display: flex; align-items: center; gap: 6px;
+  min-height: 36px;
+  padding: 7px 10px;
+  list-style: none;
+  cursor: pointer;
+  color: var(--ink-dim);
+  font-size: 11.5px;
+  border-radius: 8px;
+}
+.ev-about > summary::-webkit-details-marker { display: none; }
+.ev-about > summary::before {
+  content: '';
+  width: 6px; height: 6px;
+  border-right: 1.6px solid currentColor; border-bottom: 1.6px solid currentColor;
+  transform: rotate(-45deg);
+  margin: 0 4px 0 1px;
+  transition: transform .12s;
+}
+.ev-about[open] > summary::before { transform: rotate(45deg); }
+.ev-about > summary:hover { background: color-mix(in srgb, var(--ink) 5%, transparent); }
+.ev-about > .legend-note { margin: 0; padding: 0 10px 10px; }
+
+/* ---- T-0302: the entry body may be narrow -------------------------------- */
+/* `.lib-body` is a one-column grid on the default `auto` track, and an `auto`
+   track resolves toward MAX-CONTENT: a `<dd>` holding one long unbreakable run
+   widens the whole card and the panel then CLIPS the text at its right edge
+   rather than overflowing the document — which is why no scrollWidth check on
+   the document ever saw it. T-0281 fixed it for the plants alone; this says it
+   for every section that mounts in `.liberties`, and the same for a summary
+   row's title, so the scoped rule in walk.css is now redundant (retire it there
+   when that file is next touched). `overflow-wrap: anywhere` is the second half:
+   a token longer than the column (a file path, an identifier) breaks inside it
+   instead of forcing a wider box. */
+.liberties .lib-body,
+.lib-body { grid-template-columns: minmax(0, 1fr); }
+.lib-body dt, .lib-body dd { min-width: 0; overflow-wrap: anywhere; }
+.lib summary .lib-title { min-width: 0; overflow-wrap: anywhere; }
+/* …and the other half of the same fault, measured 2026-09-13 at 390x780 with a
+   90-character unbreakable run injected into every leaf of each of the seven
+   mounts: all seven still clipped, because the rule above names `dt`, `dd` and
+   the summary title and nothing else. What carried the overflow was ordinary
+   furniture — a citation `<li>` (704 px against a 362 px box), the scope span on
+   a liberty entry (847 px), a `<b>` inside a household's prose (668 px). Naming
+   them one at a time is the same mistake at a smaller scale, so the property is
+   set ONCE at the section root: `overflow-wrap` INHERITS, so every descendant of
+   a `.liberties` mount — present and future — can break a run that is longer
+   than its column instead of widening the card. `anywhere` rather than
+   `break-word` on purpose: only `anywhere` lets the break count toward the
+   MIN-CONTENT size, which is what a `minmax(0, 1fr)` track actually measures. */
+.liberties { overflow-wrap: anywhere; }
+/* The summary row is the other place a run can push past the panel, and it is a
+   different mechanism: `.lib summary` is a flex line whose furniture — the record
+   id, the scope pill, the covers pill, the confidence chip — is `flex: 0 0 auto`
+   with `white-space: nowrap`, so it can neither shrink nor break. Letting the
+   LINE wrap instead was tried first and rejected on the measurement: `flex-wrap:
+   wrap` pushes a whole pill onto a second line whenever the title's max-content
+   width plus the pill exceeds the row, which is most entries here — the
+   liberties' 234 summary rows grew from 15,304 px to 23,276 px of stacked height
+   for a fault a visitor never sees. So the furniture is made ABLE TO SHRINK
+   instead, which costs nothing until something actually overflows: flex-shrink
+   only engages on a line that does not fit, and every one of these rows fits.
+   T-0281's `.plant-zone > summary { flex-wrap: wrap }` stays where it is — there
+   the fourth chip really does run past 390 px at rest, and wrapping is the
+   honest answer to a row that is genuinely too full.
+   `white-space` is cleared structurally rather than class by class: naming
+   `.lib-scope`, `.lib-covers`, `.conf`, `.res-chip` and `.grade` one at a time is
+   the enumeration this ticket was opened against, and the next chip added would
+   not be on the list. A pill here is 10 px of a closed vocabulary; nothing inside
+   a `.liberties` mount has to be held on one line, and no `pre`/`pre-wrap` is set
+   anywhere in these stylesheets for the reset to undo.
+   A weaker `flex-shrink` on the pills was tried, to make the TITLE absorb the
+   shrink first: at .05 the households' chip row stopped shrinking at all and
+   the residents mount overflowed at rest, 441 px against its 362 px box — the
+   fault this ticket is about, introduced by the fix for it. So the factor is 1
+   on every child, and the one visible consequence is recorded rather than
+   tuned away: on the Indian Agency House entry the scope pill now takes two
+   lines and the title one, where before the title took two and the pill one.
+   The row is the same height; nothing else in the seven sections moved. */
+.liberties .lib summary > * { min-width: 0; flex-shrink: 1; }
+.liberties * { white-space: normal; }
+
+@media (prefers-reduced-motion: reduce) {
+  .ev-tile, .ev-pill, .ev-about > summary::before { transition: none; }
+}
+
+/* ---- T-1160: the population profile's tables ------------------------------ */
+/* An axis of the profile is a lead sentence, one or more tables and its notes.
+   The tables are the only thing in a `.liberties` mount that is genuinely
+   two-dimensional, and at 390 px a nine-column tier table cannot be made to fit
+   by wrapping alone — so the TABLE scrolls sideways inside its own box while the
+   card does not, which is the one place in this panel where a horizontal scroll
+   is the honest answer rather than a fault. `overflow-wrap` still inherits from
+   `.liberties`, so a long unbreakable run inside a cell breaks instead of
+   widening the row; only `.num` is held on one line, because a percentage split
+   across two lines is unreadable and is never long enough to need the break. */
+.pop-table { margin: 12px 0 0; }
+.pop-table > figcaption {
+  font-size: 12px; font-weight: 600; letter-spacing: .01em;
+  color: color-mix(in srgb, var(--ink) 72%, transparent); margin-bottom: 5px;
+}
+.pop-scroll { overflow-x: auto; border: 1px solid var(--edge); border-radius: 8px; }
+.pop-scroll table { border-collapse: collapse; width: 100%; font-size: 12px; }
+.pop-scroll th, .pop-scroll td {
+  padding: 5px 8px; text-align: left; vertical-align: top;
+  border-bottom: 1px solid color-mix(in srgb, var(--edge) 60%, transparent);
+}
+.pop-scroll th { font-weight: 600; background: color-mix(in srgb, var(--ink) 4%, transparent); }
+.pop-scroll tbody tr:last-child > * { border-bottom: 0; }
+.liberties .pop-scroll th.num, .liberties .pop-scroll td.num {
+  text-align: right; white-space: nowrap;
+}
+.pop-lead { margin: 0; }
+.pop-note { margin: 10px 0 0; font-style: italic; }

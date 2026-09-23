@@ -1,0 +1,409 @@
+{
+  "schema": 1,
+  "domain": "church",
+  "source_id": "st_cyr_register_ichr_v4",
+  "source_note": "what every ruling in this file was adjudicated FROM (T-0598). Stated once at the top because this domain's rulings all rest on the same record; a ruling resting on something more specific states that on itself and wins.",
+  "note": "The ONLY place two differently-spelled names in this domain may become one person, in data/research/newspapers/identity.json's shape and under its rules: a merge needs a rule, the rule names BOTH spellings verbatim, and a surname-only merge is always a refusal. A refusal is declared as explicitly as a merge — the absence of one reads like a pair nobody has looked at yet.",
+  "passes": [
+    {
+      "pass": "T-0503",
+      "what": "Every adult named in the eleven deposited page images of St Mary's baptismal register 1833-1835, read off the scans, against data/residents/.",
+      "readings_examined": 211,
+      "residents_examined": 849,
+      "merges": 8,
+      "refusals": 18,
+      "detail": "data/research/church/st_marys_baptisms_crosswalk.json",
+      "note": "THE READING GRADE IS scan_verified — off the page image, not out of a transcription — so these rulings outrank T-0573's, which came through the Illinois Catholic Historical Review by way of Genealogy Trails. 85 of the 111 distinct adults the register names in its Chicago entries reach no surname in the residents layer at all."
+    },
+    {
+      "pass": "T-0573",
+      "what": "The scene-year entries of Father St. Cyr's marriage and death pages against data/residents/.",
+      "readings_examined": 531,
+      "residents_examined": 1282,
+      "merges": 1,
+      "refusals": 8,
+      "detail": "data/research/church/st_cyr_crosswalk.json"
+    }
+  ],
+  "merges": [
+    {
+      "into": "Mark Beaubien",
+      "from": "Mark Beaubien",
+      "rule": "The register writes \"Mark Beaubien\" and the residents layer writes \"Mark Beaubien\": forename and surname agree exactly. Three further agreements, from sources that did not copy each other: he is at Chicago on 22 May 1833 and again in August 1833 in the register, and the resident record has him keeping the Sauganash and holding the incorporation election at his house on 10 August 1833; his wife is Monique Nadeau in the register and the resident record documents his marriage; and he SIGNS the register in his own hand in 1833 entry 13.",
+      "evidence": [
+        "st_marys_bapt_1833_01_2_father",
+        "st_marys_bapt_1833_13_4_godfather"
+      ],
+      "source_id": "st_marys_baptismal_register_1833_1835",
+      "pass": "T-0503"
+    },
+    {
+      "into": "Col. Jean Baptiste Beaubien",
+      "from": "Jean Baptiste Beaubien",
+      "rule": "The register writes \"Jean Baptiste Beaubien\" and the residents layer writes \"Col. Jean Baptiste Beaubien\": three forenames and a surname agree exactly and the layer's form adds only a rank. Two independent agreements beyond the name: the register makes him the husband of Josette Laframboise, and the resident record documents that marriage out of Andreas; and he SIGNS the register in his own hand, 'J. B. Beaubien', on 22 December 1834, which is a named man at a named place on a named day in his own writing.",
+      "evidence": [
+        "st_marys_bapt_1834_13_2_spouse",
+        "st_marys_bapt_1834_22_2_father"
+      ],
+      "source_id": "st_marys_baptismal_register_1833_1835",
+      "pass": "T-0503"
+    },
+    {
+      "into": "Josette LaFramboise Beaubien",
+      "from": "Josette Laframboise Beaubien",
+      "rule": "The register writes \"Josette Laframboise Beaubien\" and the residents layer writes \"Josette LaFramboise Beaubien\": the same three name-parts, differing only in the capital inside Laframboise. Two agreements beyond the name: the register calls her 'femme de Jean Baptiste Beaubien' and the resident record has her married to J. B. Beaubien; and the register's age of 38 in June 1834 is consistent with the 1812 marriage the resident record documents. THE AGE IS NOT WRITTEN INTO HER RECORD BY THIS PASS.",
+      "evidence": [
+        "st_marys_bapt_1834_13_1_subject",
+        "st_marys_bapt_1834_18_5_sponsor"
+      ],
+      "source_id": "st_marys_baptismal_register_1833_1835",
+      "pass": "T-0503"
+    },
+    {
+      "into": "Robert Allen Kinzie",
+      "from": "Robert Allen Kinzie",
+      "rule": "The register writes \"Robert Allen Kinzie\" — as 'Mr Robert Kinzie' in the body and 'Robt A. Kinzie' in his own signature — and the residents layer writes \"Robert Allen Kinzie\". The AUTOGRAPH is the merge: a signature is the strongest identification a manuscript can offer, and it agrees with a resident record that has him at Chicago as a merchant through 1834.",
+      "evidence": [
+        "st_marys_bapt_1834_22_4_godfather"
+      ],
+      "source_id": "st_marys_baptismal_register_1833_1835",
+      "pass": "T-0503"
+    },
+    {
+      "into": "Rev. John Mary Irenaeus St Cyr",
+      "from": "John Mary Irenaeus Saint Cyr",
+      "rule": "The register writes \"John Mary Irenaeus Saint Cyr\" — he writes out his own three forenames in full in 1834 entry 19 — and the residents layer writes \"Rev. John Mary Irenaeus St Cyr\", differing only in the style of the surname and the style of address. He is the officiant of every entry in this book and the resident record names him first priest of St Mary's from May 1833. This is the one identity in the domain that cannot be doubted.",
+      "evidence": [
+        "st_marys_bapt_1834_10_4_sponsor",
+        "st_marys_bapt_1834_19_4_godfather",
+        "st_marys_bapt_1835_09_5_godfather"
+      ],
+      "source_id": "st_marys_baptismal_register_1833_1835",
+      "pass": "T-0503"
+    },
+    {
+      "into": "Dr William Bradshaw Egan",
+      "from": "Doctor Egan",
+      "rule": "The register writes \"Doctor Egan\" and the residents layer writes \"Dr William Bradshaw Egan\". THIS MERGE IS MADE ON A TITLE, NOT A FORENAME, and it is made only because the title is itself an attribute that agrees: three independent agreements stand behind it — the surname Egan; the medical title, which matches the resident record's occupation of physician and Andreas' count of him among the eight physicians at the close of 1833; and the place and time, Chicago in July 1834, against a resident record that has him arriving in the fall of 1833 and on the South Division health committee in August 1834. A fourth agreement is the confession itself: he was born in County Kerry and the sponsor at a Catholic font is a Catholic. THE RESIDUAL RISK IS STATED: a second Doctor Egan at Chicago in 1834 would break this, and the layer's only other Egan, Emeline Egan, is separated by the title.",
+      "evidence": [
+        "st_marys_bapt_1834_18_4_sponsor"
+      ],
+      "source_id": "st_marys_baptismal_register_1833_1835",
+      "pass": "T-0503"
+    },
+    {
+      "into": "John Murphy",
+      "from": "John Murphy",
+      "rule": "The register writes \"John Murphy\" and the residents layer writes \"John Murphy\": forename and surname agree exactly, and the name is a common one, so the merge rests on what stands beside it. The register names him with a WIFE — 'John Murphy and Brigitte his wife' — at Chicago on 20 August 1835; the resident record is built on Andreas' 'Mr. and Mrs. Murphy took charge of this new hotel' and has the couple keeping the Exchange Coffee House from August 1834 until 1836. A married couple of that name, at Chicago, in that window, in two sources that did not copy each other, is three agreements. WHAT THIS PASS DOES NOT DO is write 'Brigitte' into Mrs Murphy's record; that is T-0515's to spend, and it is the forename of a woman the resident layer holds without one.",
+      "evidence": [
+        "st_marys_bapt_1835_07_4_sponsor"
+      ],
+      "source_id": "st_marys_baptismal_register_1833_1835",
+      "pass": "T-0503"
+    },
+    {
+      "into": "Joseph Chandler",
+      "from": "Joseph Chandler",
+      "rule": "The register writes \"Joseph Chandler\" and the residents layer writes \"Joseph Chandler\": forename and surname agree exactly. The resident is known from one return of uncalled-for letters at the Chicago post office in April 1834, printed 'Joveph Chandler'; the register puts a Joseph Chandler at a Chicago font on 9 November 1835 as godfather to the daughter of Catherine Chandler, which establishes a Chandler household in the town and is exactly the second source a letter-list name has always lacked. Two independent agreements — the name and the town — plus a household the letter list could not show. THE RESIDUAL RISK IS STATED: the name is not rare and no third attribute agrees.",
+      "evidence": [
+        "st_marys_bapt_1835_13_4_godfather"
+      ],
+      "source_id": "st_marys_baptismal_register_1833_1835",
+      "pass": "T-0503"
+    },
+    {
+      "into": "Thomas Jefferson Vance Owen",
+      "from": "Thomas Owen",
+      "rule": "The death page reads \"Died at Chicago the 15th of October, 1835, Thomas Owen, agent of the Indians\". The project's resident record for Thomas Jefferson Vance Owen is graded attested, gives his occupation as the Indian agent, and already carries \"He died at Chicago on 15 October 1835\" out of Andreas. Surname folds equal; the register's Thomas Owen is a prefix of Thomas Jefferson Vance Owen initial for initial; and TWO further attributes agree independently — the office (agent of the Indians / indian_agent) and the exact date of death (15 October 1835). Three agreements from two sources that did not copy each other is the bar this domain sets for a merge, and a common-name coincidence does not reach it: no second man was the Indian agent at Chicago dying on that day.",
+      "evidence": [
+        "data/research/church/records/st_cyr_deaths_1834_1837.json st_cyr_death_07_1",
+        "data/residents/households/hh_owen_thomas_jv.json — persons[0] (owen_thomas_jv, attested, occupation indian_agent)",
+        "data/residents/households/hh_owen_thomas_jv.json — present_on_scene_date, sourced andreas_1884_v1"
+      ],
+      "supersedes": "gt_001 in data/research/genealogytrails/claims/town_findings_genealogytrails.json, which filed the reading and explicitly declined the merge because no rule had been stated. This is the rule, and this is the adjudication it waited for.",
+      "does_not_follow": "NOTHING IN data/residents/ IS EDITED BY THIS. The register corroborates a death Andreas already gave; it adds no residence, no household member and no placement, and under the ladder ratified 2026-09-03 a corroboration is not a promotion.",
+      "pass": "T-0573"
+    }
+  ],
+  "refusals": [
+    {
+      "a": "Archange Beaubien",
+      "b": "Col. Jean Baptiste Beaubien",
+      "rule": "\"Archange Beaubien\" and \"Col. Jean Baptiste Beaubien\" share a surname and nothing else. The register calls her the niece of Mark Beaubien; the layer holds four Beaubiens and none of them is an Archange. A surname match inside a large family is the emptiest evidence there is.",
+      "evidence": [
+        "data/research/church/records/st_marys_baptisms_1833_1835.json",
+        "data/residents/households/"
+      ],
+      "source_id": "st_marys_baptismal_register_1833_1835",
+      "pass": "T-0503"
+    },
+    {
+      "a": "Monique Nadeau",
+      "b": "Josette LaFramboise Beaubien",
+      "rule": "\"Monique Nadeau\" is Mark Beaubien's wife in the register and \"Josette LaFramboise Beaubien\" is Jean Baptiste's in the layer. Two different women married to two different Beaubien brothers, and the register writes Monique under her married name — 'Monique Beaubien', 'Monique Nadeau Beaubien' — often enough that a careless pass would fold them. It is refused.",
+      "evidence": [
+        "data/research/church/records/st_marys_baptisms_1833_1835.json",
+        "data/residents/households/"
+      ],
+      "source_id": "st_marys_baptismal_register_1833_1835",
+      "pass": "T-0503"
+    },
+    {
+      "a": "Joseph Beaubien",
+      "b": "Madore Benjamin Beaubien",
+      "rule": "\"Joseph Beaubien\" stands as godfather in 1833 entry 18 and \"Madore Benjamin Beaubien\" is in the residents layer. The forenames disagree outright. No merge, on a surname that four resident records already share.",
+      "evidence": [
+        "data/research/church/records/st_marys_baptisms_1833_1835.json",
+        "data/residents/households/"
+      ],
+      "source_id": "st_marys_baptismal_register_1833_1835",
+      "pass": "T-0503"
+    },
+    {
+      "a": "Charles Beaubien",
+      "b": "Col. Jean Baptiste Beaubien",
+      "rule": "\"Charles Beaubien\" is a father in 1834 entry 21 and no \"Col. Jean Baptiste Beaubien\" forename reaches him. He is a fifth Beaubien the layer does not hold, and that is the finding, not a merge.",
+      "evidence": [
+        "data/research/church/records/st_marys_baptisms_1833_1835.json",
+        "data/residents/households/"
+      ],
+      "source_id": "st_marys_baptismal_register_1833_1835",
+      "pass": "T-0503"
+    },
+    {
+      "a": "Esther Bailly",
+      "b": "Joseph Bailly",
+      "rule": "\"Esther Bailly\" and \"Joseph Bailly\" share a surname and disagree on the forename and the sex. The Bailly family of the Calumet is large and this project holds one of them; a surname is a clue about the family and says nothing about the person.",
+      "evidence": [
+        "data/research/church/records/st_marys_baptisms_1833_1835.json",
+        "data/residents/households/"
+      ],
+      "source_id": "st_marys_baptismal_register_1833_1835",
+      "pass": "T-0503"
+    },
+    {
+      "a": "Elozina Bailly",
+      "b": "Joseph Bailly",
+      "rule": "\"Elozina Bailly\" and \"Joseph Bailly\" share a surname only, and \"Elozina\" is itself an uncertain reading. Refused twice over.",
+      "evidence": [
+        "data/research/church/records/st_marys_baptisms_1833_1835.json",
+        "data/residents/households/"
+      ],
+      "source_id": "st_marys_baptismal_register_1833_1835",
+      "pass": "T-0503"
+    },
+    {
+      "a": "Mathias Smith",
+      "b": "Elded Smith",
+      "rule": "\"Mathias Smith\" and \"Elded Smith\" share the commonest surname in the language and disagree on the forename. There is no evidence here at all.",
+      "evidence": [
+        "data/research/church/records/st_marys_baptisms_1833_1835.json",
+        "data/residents/households/"
+      ],
+      "source_id": "st_marys_baptismal_register_1833_1835",
+      "pass": "T-0503"
+    },
+    {
+      "a": "Mary Murphy",
+      "b": "Harriet Murphy",
+      "rule": "\"Mary Murphy\" sponsors 1835 entry 1 and \"Harriet Murphy\" is in the layer. The forenames disagree. That the layer's John Murphy IS the register's is no argument for folding a second Murphy into a third.",
+      "evidence": [
+        "data/research/church/records/st_marys_baptisms_1833_1835.json",
+        "data/residents/households/"
+      ],
+      "source_id": "st_marys_baptismal_register_1833_1835",
+      "pass": "T-0503"
+    },
+    {
+      "a": "Bridget Murphy",
+      "b": "Harriet Murphy",
+      "rule": "\"Bridget Murphy\" is named in the register only as 'Brigitte his wife' and \"Harriet Murphy\" is a distinct forename in the layer. The register's Mrs Murphy is the wife of the merged John Murphy, and the right home for her forename is HIS household record — a job for T-0515, not a merge to a different woman here.",
+      "evidence": [
+        "data/research/church/records/st_marys_baptisms_1833_1835.json",
+        "data/residents/households/"
+      ],
+      "source_id": "st_marys_baptismal_register_1833_1835",
+      "pass": "T-0503"
+    },
+    {
+      "a": "John Murray",
+      "b": "Alonzo Murray",
+      "rule": "\"John Murray\" and \"Alonzo Murray\" share a surname and disagree on the forename. Murray and Murphy are also close enough in this priest's hand to be worth saying: they are read as written and neither is folded into the other.",
+      "evidence": [
+        "data/research/church/records/st_marys_baptisms_1833_1835.json",
+        "data/residents/households/"
+      ],
+      "source_id": "st_marys_baptismal_register_1833_1835",
+      "pass": "T-0503"
+    },
+    {
+      "a": "Catherine Murray",
+      "b": "Alonzo Murray",
+      "rule": "\"Catherine Murray\" and \"Alonzo Murray\" share a surname only.",
+      "evidence": [
+        "data/research/church/records/st_marys_baptisms_1833_1835.json",
+        "data/residents/households/"
+      ],
+      "source_id": "st_marys_baptismal_register_1833_1835",
+      "pass": "T-0503"
+    },
+    {
+      "a": "Catherine Miller",
+      "b": "John Miller",
+      "rule": "\"Catherine Miller\" and \"John Miller\" share a surname only, and Miller is a common one in a town this German and this Irish.",
+      "evidence": [
+        "data/research/church/records/st_marys_baptisms_1833_1835.json",
+        "data/residents/households/"
+      ],
+      "source_id": "st_marys_baptismal_register_1833_1835",
+      "pass": "T-0503"
+    },
+    {
+      "a": "Catherine Chandler",
+      "b": "Joseph Chandler",
+      "rule": "\"Catherine Chandler\" is the mother of 1835 entry 13 and \"Joseph Chandler\" is the resident merged above. They plainly belong to one household — he stands as godfather to her child — but a household is not a person, and no source read here gives Catherine Chandler a place in the residents layer. She is a woman the register adds, not a woman it identifies.",
+      "evidence": [
+        "data/research/church/records/st_marys_baptisms_1833_1835.json",
+        "data/residents/households/"
+      ],
+      "source_id": "st_marys_baptismal_register_1833_1835",
+      "pass": "T-0503"
+    },
+    {
+      "a": "Bridget Forster",
+      "b": "Jane Forster",
+      "rule": "\"Bridget Forster\" sponsors the last entry of 1835 and \"Jane Forster\" is in the layer. The forenames disagree.",
+      "evidence": [
+        "data/research/church/records/st_marys_baptisms_1833_1835.json",
+        "data/residents/households/"
+      ],
+      "source_id": "st_marys_baptismal_register_1833_1835",
+      "pass": "T-0503"
+    },
+    {
+      "a": "Marie Louise Ouilmette",
+      "b": "Antoine Ouilmette",
+      "rule": "\"Marie Louise Ouilmette\" is read from the register's 'Wimette' and \"Antoine Ouilmette\" is the man the name calls to mind. He is not in the residents layer at all, and even if he were, the register gives her only a husband, John Welsh, and no father. A famous surname is the most dangerous kind of surname match and this one is refused explicitly so the next pass does not make it.",
+      "evidence": [
+        "data/research/church/records/st_marys_baptisms_1833_1835.json",
+        "data/residents/households/"
+      ],
+      "source_id": "st_marys_baptismal_register_1833_1835",
+      "pass": "T-0503"
+    },
+    {
+      "a": "Bourrasso",
+      "b": "Léon Bourassa",
+      "rule": "\"Bourrasso\" stands alone as a witness in 1835 entry 3 and \"Léon Bourassa\" is a father in the same book. A surname with no forename is always a refusal, and this book holds at least two Bourassas — Léon and his son Jean Baptiste — so the bare surname does not even narrow to one of them.",
+      "evidence": [
+        "data/research/church/records/st_marys_baptisms_1833_1835.json",
+        "data/residents/households/"
+      ],
+      "source_id": "st_marys_baptismal_register_1833_1835",
+      "pass": "T-0503"
+    },
+    {
+      "a": "L. Chevalier",
+      "b": "Josette Chevalier",
+      "rule": "\"L. Chevalier\" is an initial and a surname and \"Josette Chevalier\" is a sponsor elsewhere in the same book. An initial that does not match a forename is one step below a surname match, not one above it.",
+      "evidence": [
+        "data/research/church/records/st_marys_baptisms_1833_1835.json",
+        "data/residents/households/"
+      ],
+      "source_id": "st_marys_baptismal_register_1833_1835",
+      "pass": "T-0503"
+    },
+    {
+      "a": "Doctor Egan",
+      "b": "Emeline Egan",
+      "rule": "\"Doctor Egan\" is merged above to Dr William Bradshaw Egan and is here refused against \"Emeline Egan\", the layer's only other Egan. The refusal is written down because the merge above depends on it: the title separates them, and if it did not, neither identification could stand.",
+      "evidence": [
+        "data/research/church/records/st_marys_baptisms_1833_1835.json",
+        "data/residents/households/"
+      ],
+      "source_id": "st_marys_baptismal_register_1833_1835",
+      "pass": "T-0503"
+    },
+    {
+      "a": "John Murphy",
+      "b": "John Murphy",
+      "rule": "The register's John Murphy married Bridget Rogers at Chicago on 26 April 1835. The project holds an attested resident John Murphy, tavern-keeper, in charge of the house from August 1834 to 1836, whose household already carries a wife, Harriet Murphy. The two spellings are IDENTICAL and that is exactly why this is refused rather than merged: John Murphy is among the commonest names in a town taking a large Irish Catholic influx, the only agreement available is the name itself, and the merge would marry the town's tavern-keeper to a second woman in the middle of the scene year on no evidence at all. A name agreeing with itself is not a second attribute.",
+      "evidence": [
+        "data/research/church/records/st_cyr_marriages_1834_1839.json st_cyr_marriage_006_1",
+        "data/residents/households/hh_murphy_john.json — murphy_john (attested, tavern_keeper) and murphy_harriet (inferred)"
+      ],
+      "pass": "T-0573"
+    },
+    {
+      "a": "G. S. Lee",
+      "b": "George Lee",
+      "rule": "G. S. Lee witnessed the marriage of John Latzky and Potily Morris on 1 October 1835. George Lee is a letter-list name, graded inferred. The surnames fold equal and the first initials agree, so the mechanical rule reaches it — and it stops there: the S of G. S. Lee is unaccounted for, the resident is a projection off a list of letters waiting at the post office rather than an attestation, and a first initial is one attribute, not two.",
+      "evidence": [
+        "data/research/church/records/st_cyr_marriages_1834_1839.json st_cyr_marriage_009_3",
+        "data/residents/households/hh_lee_george.json — lee_george (inferred)"
+      ],
+      "pass": "T-0573"
+    },
+    {
+      "a": "Mark Bourassa",
+      "b": "Leon Bourrassa",
+      "rule": "THE TRAP T-0573 NAMED. Mark Bourassa married Josette Chevalier at Chicago in March 1835 on the marriage page; Leon Bourrassa buried a 28-day-old son on 2 July 1835 on the death page. They are not joined. The surnames do not even fold equal — bourassa against bourrassa, one r against two — and Mark and Leon are two different forenames rather than two spellings of one. That the two pages print the same family within four months is worth recording and is not evidence of one man; a French Chicago family of the 1830s had brothers.",
+      "evidence": [
+        "data/research/church/records/st_cyr_marriages_1834_1839.json st_cyr_marriage_005_1",
+        "data/research/church/records/st_cyr_deaths_1834_1837.json st_cyr_death_05_2"
+      ],
+      "pass": "T-0573"
+    },
+    {
+      "a": "Josette Chevalier",
+      "b": "Catherine Chevalier Robinson",
+      "rule": "Josette Chevalier is the bride of March 1835. Catherine Chevalier Robinson is an attested resident whose Chevalier is a middle name, her surname on the record being Robinson. The forenames disagree outright, and a shared family name that is not even in the same position in the two readings is the weakest link this domain recognises. Refused.",
+      "evidence": [
+        "data/research/church/records/st_cyr_marriages_1834_1839.json st_cyr_marriage_005_2",
+        "data/residents/households/hh_robinson_alexander.json — robinson_catherine (attested)"
+      ],
+      "pass": "T-0573"
+    },
+    {
+      "a": "Thomas Witkins",
+      "b": "John Watkins",
+      "rule": "Thomas Witkins witnessed the marriage of Patrick Carroll and Mary Hogan on 21 April 1835 — and the SAME PAGE's prose calls him Thomas Watkins, which is a reading this project should keep. The resident it would reach is John Watkins, the attested North Side schoolteacher. The forenames are different names. Refused, and the near-miss is recorded because the surnames are close enough that the mechanical rule never even offered the pair — witkins does not fold to watkins — and a later sweep would otherwise meet it fresh.",
+      "evidence": [
+        "data/research/church/records/st_cyr_marriages_1834_1839.json st_cyr_marriage_007_3",
+        "data/research/church/claims/st_cyr_register_prose.json st_cyr_c002",
+        "data/residents/households/hh_watkins_john.json — watkins_john (attested, schoolteacher)"
+      ],
+      "pass": "T-0573"
+    },
+    {
+      "a": "Mary Hogan",
+      "b": "John S. C. Hogan",
+      "rule": "Mary Hogan is the bride of 21 April 1835. John S. C. Hogan is an attested resident. The surname folds equal and nothing else does: a surname-only agreement is always a refusal here, and the register gives no relation between them to reason from.",
+      "evidence": [
+        "data/research/church/records/st_cyr_marriages_1834_1839.json st_cyr_marriage_007_2",
+        "data/residents/households/hh_hogan_john_s_c.json — hogan_john_s_c (attested)"
+      ],
+      "pass": "T-0573"
+    },
+    {
+      "a": "Mary Green",
+      "b": "Major John Greene",
+      "rule": "Mary Green married Michael Nolan on 29 August 1835. Major John Greene is an attested resident. The surnames do not fold equal — green against greene — and the forenames are a woman's and a man's. Recorded because the pair looks like a spelling variant at a glance and is not one.",
+      "evidence": [
+        "data/research/church/records/st_cyr_marriages_1834_1839.json st_cyr_marriage_008_2",
+        "data/residents/households/hh_greene_john.json — greene_john (attested)"
+      ],
+      "pass": "T-0573"
+    },
+    {
+      "a": "Julian Andrews",
+      "b": "Davi Andrews",
+      "rule": "Julian Andrews was eighteen days old when he was buried on 17 July 1835. Davi Andrews is a letter-list resident, graded attested on the list and an adult by the nature of that list. The surname folds equal, the forenames do not agree, and an infant cannot be an adult; the pair is refused as an identity. That the child may have been of that household is a different claim and this register does not make it — no parent is named in the entry.",
+      "evidence": [
+        "data/research/church/records/st_cyr_deaths_1834_1837.json st_cyr_death_06_1",
+        "data/residents/households/hh_andrews_davi.json — andrews_davi"
+      ],
+      "pass": "T-0573"
+    }
+  ]
+}

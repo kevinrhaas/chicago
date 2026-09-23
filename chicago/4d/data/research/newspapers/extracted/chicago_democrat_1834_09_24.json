@@ -1,0 +1,581 @@
+{
+  "schema": 1,
+  "issue_id": "chicago_democrat_1834_09_24",
+  "extracted": "2026-08-28",
+  "extracted_by": "hand, T-0291 — the Democrat read, September 1834",
+  "note": "Vol. I No. 43. The town is on page 3. Column 2 is the Tesseract fallback and carries the week's own matter — a marriage, a death, the marine list, Dr. Temple's store house and wharf, a dissolution and a caution — with a narrow strip of the neighbouring column's debris down its LEFT edge, which is quoted as it stands rather than cut, because it is letters and not text. Column 3 is the Vision reading of the standing advertisements and is interleaved.",
+  "claims": [
+    {
+      "id": "c001",
+      "kind": "person",
+      "reading": "transcription_mediated",
+      "quote": "tthe] MARRIED,\n[uncertain: eN? 1\"Tn this town, on the 20th inst. by J. Dea]\n“| Caton Esq. Mr. Avovstvs Boxix, to Miss Josers\nenpy Frascue.",
+      "normalized": "MARRIED, [I]n this town, on the 20th inst. by J. Dea[n] Caton Esq. Mr. A[u]g[u]st[u]s B[on]i[n], to Miss Jos[uncertain: ers/enpy] Fras[ch]e.",
+      "locator": {
+        "artifact_role": "primary",
+        "issue_page": 3,
+        "column": 2,
+        "lines": [
+          2815,
+          2819
+        ],
+        "lines_of_claim": [
+          2815,
+          2816,
+          2817,
+          2818
+        ]
+      },
+      "entities": [
+        {
+          "as_printed": "Mr. Avovstvs Boxix",
+          "normalized": "Bonin, Augustus",
+          "role": "groom"
+        },
+        {
+          "as_printed": "Miss Josers enpy Frascue",
+          "normalized": "Frasche, Miss [given name illegible]",
+          "role": "bride"
+        },
+        {
+          "as_printed": "J. Dea Caton Esq.",
+          "normalized": "Caton, J. Dean",
+          "role": "official",
+          "occupations": [
+            "justice of the peace"
+          ]
+        }
+      ],
+      "notes": "A MARRIAGE IN THE TOWN ON 20 SEPTEMBER 1834, solemnized by a justice of the peace rather than a minister. THE BRIDE'S GIVEN NAME IS NOT SUPPLIED: the segmenter has broken it across lines 2817 and 2818 as 'Josers' and 'enpy', which will not reduce to one reading, so the person is minted with the illegibility inside the name — the same treatment the unnamed merchant gets at 1834-09-17 c001. 'Avovstvs Boxix' is read 'Augustus Bonin': this batch sets U as V throughout its small capitals, and the surname's middle is a recognition-class n/x confusion. 'J. Dea' + 'Caton' is J. Dean Caton, who signs a Lasalle county estray notice as clerk in this same issue's neighbourhood and is the town's justice."
+    },
+    {
+      "id": "c002",
+      "kind": "person",
+      "reading": "transcription_mediated",
+      "quote": "luni- Blev,\nIn this town, on the 16th: inst. Mrs. Sara\n/ | Hait, wife of Mr. Thomas Hoit, formerly ¢\nStafford co. N. H. in the forty third your of he\nn_of}age. 5 A\nying | In the death of this Indy, society has sustain\nth ed a severe loss; but in her own immodiate cis\nthe | cio will the dispensation of Providence be mos\nness | severely felt. All who knew her will bear tes\nof | timony to the faithful discharge of her duties a\nly, ;2 ie, a mother and a friend. She has gon\nOR from ug leaving the “testimony of @ good con\nHET sciencé,” and to her friends she has left th\n28 consolation that she died in the full faith of th\nthe | religion she had so long professed and practiced\nhag|—Cem. (The Eastern papers are Tequevted t&\nhan | SPY the above. ‘",
+      "normalized": "[Died,] In this town, on the 16th inst. Mrs. Sara[h] Hoit, wife of Mr. Thomas Ho[i]t, formerly [of] Stafford co. N. H. in the forty third y[e]ar of her age. In the death of this l[a]dy, society has sustained a severe loss; but in her own immediate cir[cle] will the dispensation of Providence be most severely felt. All who knew her will bear testimony to the faithful discharge of her duties a[s a wif]e, a mother and a friend. She has gone from u[s] leaving the “testimony of a good conscience,” and to her friends she has left the consolation that she died in the full faith of the religion she had so long professed and practiced. —Com. (The Eastern papers are [r]equested t[o] [c]opy the above.)",
+      "locator": {
+        "artifact_role": "primary",
+        "issue_page": 3,
+        "column": 2,
+        "lines": [
+          2820,
+          2837
+        ],
+        "lines_of_claim": [
+          2820,
+          2821,
+          2822,
+          2823,
+          2824,
+          2825,
+          2826,
+          2827,
+          2828,
+          2829,
+          2830,
+          2831,
+          2832,
+          2833,
+          2834,
+          2835,
+          2836
+        ]
+      },
+      "entities": [
+        {
+          "as_printed": "Mrs. Sara Hait",
+          "normalized": "Hoit, Sarah",
+          "role": "decedent"
+        },
+        {
+          "as_printed": "Mr. Thomas Hoit",
+          "normalized": "Hoit, Thomas",
+          "role": "spouse"
+        }
+      ],
+      "notes": "THE MONTH'S FULLEST OBITUARY, and one of very few claims in the corpus that names a woman as its subject rather than as a relict: Sarah Hoit, of Stafford county New Hampshire, died in Chicago on 16 September 1834 in her forty-third year. It is extracted whole because the reconstruction's population is otherwise built almost entirely out of advertisers, who are almost entirely men. 'Sara / Hait' and 'Hoit' are the same name printed twice in three lines; the wife takes the husband's spelling and both are minted separately, as this project never coalesces two names without a rule. 'Cem.' → '—Com.' (communicated) is recognition-class."
+    },
+    {
+      "id": "c003",
+      "kind": "shipping",
+      "reading": "transcription_mediated",
+      "quote": "ON MARINE LIST, yi4,\n—| LPG port oF CIGAGO, 4p\nob ces ARRIVED.\n00 Sept, 15, Schr, Elizabeth, Ward, Lake St.\nClair, :\n— 20. * Phillip, Howe, St. Joseph.\n100 « ry °\n: CLEARED.\n0° | Sept. 18.\"Schr. Hyillips, Howe, St, Joseph.\nia 18. Brig [Mnois, Wagstaff, do.\n[uncertain: ? 19, Schr. Elizabeth, Ward, bound down,]",
+      "normalized": "MARINE LIST. PORT OF C[H]ICAGO. ARRIVED. Sept. 15, Schr. Elizabeth, Ward, Lake St. Clair; 20, [Schr.] Phillip[s], Howe, St. Joseph. CLEARED. Sept. 18, Schr. [Ph]illips, Howe, St. Joseph; 18, Brig [I]llinois, Wagstaff, do.; [uncertain: 19], Schr. Elizabeth, Ward, bound down.",
+      "locator": {
+        "artifact_role": "primary",
+        "issue_page": 3,
+        "column": 2,
+        "lines": [
+          2838,
+          2848
+        ],
+        "lines_of_claim": [
+          2838,
+          2839,
+          2840,
+          2841,
+          2842,
+          2843,
+          2844,
+          2845,
+          2846,
+          2847,
+          2848
+        ]
+      },
+      "notes": "The tightest marine list of the month — dates, vessels, masters and ports all legible, which the other three are not. Five movements in six days: the Elizabeth in from Lake St. Clair on the 15th and out bound down on the 19th, the Phillips in from and out for St. Joseph, the brig Illinois out for St. Joseph. 'CIGAGO' → 'C[H]ICAGO', 'Mnois' → '[I]llinois' and 'Hyillips' → '[Ph]illips' are recognition-class. The 'ON', 'yi4,', '4p', 'ob ces', '00', '—', '100' and '0°' at the line heads and tails are the neighbouring column's debris and are quoted as they stand."
+    },
+    {
+      "id": "c004",
+      "kind": "building",
+      "reading": "transcription_mediated",
+      "quote": "For Rent, .\nce A LARGE three story Store House, 40 by\n60 feet, with a wharf attachec, of 60 feet\n2 front. Also, a handsome small Dwelling House\n\"1 with two rooms. Also, » large and beautifully\n[uncertain: ?* | tinished Store, on South Water-st, by]\ned JOUN T. TEMPLE.\nhis} Chicago, Sept. 20, 1834, 43",
+      "normalized": "For Rent. A LARGE three story Store House, 40 by 60 feet, with a wharf attache[d], of 60 feet front. Also, a handsome small Dwelling House with two rooms. Also, a large and beautifully [f]inished Store, on South Water-st[reet], by JO[H]N T. TEMPLE. Chicago, Sept. 20, 1834. 43",
+      "locator": {
+        "artifact_role": "primary",
+        "issue_page": 3,
+        "column": 2,
+        "lines": [
+          2854,
+          2861
+        ],
+        "lines_of_claim": [
+          2854,
+          2855,
+          2856,
+          2857,
+          2858,
+          2859,
+          2860,
+          2861
+        ]
+      },
+      "entities": [
+        {
+          "as_printed": "JOUN T. TEMPLE",
+          "normalized": "Temple, John T.",
+          "role": "advertiser",
+          "occupations": [
+            "physician",
+            "landlord"
+          ],
+          "associated_places": [
+            "South Water Street"
+          ]
+        }
+      ],
+      "ad_copy_date": {
+        "verbatim": "his} Chicago, Sept. 20, 1834, 43",
+        "iso": "1834-09-20"
+      },
+      "notes": "THE MOST BUILDABLE CLAIM OF THE MONTH, and one of the few anywhere in the corpus that gives a building's DIMENSIONS: a three-storey store house forty by sixty feet with a wharf of sixty feet frontage attached, plus a two-room dwelling house and a large finished store, all on South Water Street, all to let by Dr. John T. Temple on 20 September 1834. Forty by sixty and three storeys is far above the town's ordinary frame, and the sixty-foot wharf front matches the river-lot frontage the plat gives South Water. NOTE WHAT IS NOT SAID: the notice does not say the three are one property or adjacent, only that one man lets all three, so no single footprint is asserted here — the dimensions belong to the store house and the wharf, and the dwelling and the store are separate offers. Dr. John T. Temple also advertises two new four-room dwelling houses on 1834-09-10 (c009 there), which makes him the month's largest documented landlord. He is NOT merged with Dr. P. Temple, who does the dentistry in that same notice."
+    },
+    {
+      "id": "c005",
+      "kind": "notice",
+      "reading": "transcription_mediated",
+      "quote": "he Dissolution. ;\nor LYBPVIE co-partnership heretofore ‘eaisting be-\ntween the subscribers, in this day dissoly-\nhe] eit by mutual consent. All accounts to be set-\nNed by L. Stevens, who is duly authorised to\nseltle the same. I, STEVENS,\nA, MURRAY,\nSrl Chicago, Sept, 22, 1834. T1w43",
+      "normalized": "Dissolution. [TH]E co-partnership heretofore existing between the subscribers, i[s] this day dissolv[ed] by mutual consent. All accounts to be settled by L. Stevens, who is duly authorised to settle the same. L. STEVENS, A. MURRAY. Chicago, Sept. 22, 1834. 1w43",
+      "locator": {
+        "artifact_role": "primary",
+        "issue_page": 3,
+        "column": 2,
+        "lines": [
+          2863,
+          2870
+        ],
+        "lines_of_claim": [
+          2863,
+          2864,
+          2865,
+          2866,
+          2867,
+          2868,
+          2869,
+          2870
+        ]
+      },
+      "entities": [
+        {
+          "as_printed": "I, STEVENS",
+          "normalized": "Stevens, L.",
+          "role": "proprietor"
+        },
+        {
+          "as_printed": "A, MURRAY",
+          "normalized": "Murray, A.",
+          "role": "proprietor"
+        }
+      ],
+      "ad_copy_date": {
+        "verbatim": "Srl Chicago, Sept, 22, 1834. T1w43",
+        "iso": "1834-09-22"
+      },
+      "notes": "RULING 3'S VETO, EXERCISED — a dissolution dated 22 September 1834. THE FIRM IS NOT NAMED: the notice gives only the partners' signatures, so there is no business record for the veto to attach to and no `contradicts` flag is set on anything. Stevens & Murray are not otherwise in the corpus, and this is recorded so that a later pass which finds their firm elsewhere can attach the veto then. That is the honest shape of it: the evidence of a closure exists and the thing it closes has not been identified. 'I, STEVENS' → 'L. STEVENS' from 'settled by L. Stevens' two lines above, which is the same signature spelled legibly."
+    },
+    {
+      "id": "c006",
+      "kind": "notice",
+      "reading": "transcription_mediated",
+      "quote": "”n z Caution.\nie owes Hie 4 te public are hereby fore-\nst} ea warned against trading\nte] Ae for & promisory Note, given to\n| see Thomas Byrain, by tie wubscri=\n\"Ther, bearing dite “September I'l, 1834,\"\" paya-\n(| ble in one year without interest, as he is deter-\nMe | ined not to pay said note untjl compelled—\nn.{ the consideration for which said note was given\nhas failed. JNO, H. KINZIE,\nSout. 23, 1634.",
+      "normalized": "Caution. [Th]e public are hereby fore[warn]ed against trading for a promiso[r]y Note, given to Thomas By[r]am, by t[h]e subscri[b]er, bearing d[a]te “September 1[7], 1834,” payable in one year without interest, as he is deter[m]ined not to pay said note unt[i]l compelled— the consideration for which said note was given has failed. JN[O]. H. KINZIE. Sep[t]. 23, 18[3]4.",
+      "locator": {
+        "artifact_role": "primary",
+        "issue_page": 3,
+        "column": 2,
+        "lines": [
+          2872,
+          2882
+        ],
+        "lines_of_claim": [
+          2872,
+          2873,
+          2874,
+          2875,
+          2876,
+          2877,
+          2878,
+          2879,
+          2880,
+          2881,
+          2882
+        ]
+      },
+      "entities": [
+        {
+          "as_printed": "Thomas Byrain",
+          "normalized": "Byram, Thomas",
+          "role": "payee"
+        },
+        {
+          "as_printed": "JNO, H. KINZIE",
+          "normalized": "Kinzie, John H.",
+          "role": "advertiser"
+        }
+      ],
+      "ad_copy_date": {
+        "verbatim": "Sout. 23, 1634.",
+        "iso": "1834-09-23"
+      },
+      "notes": "John H. Kinzie — the town board's president in this same month (1834-09-03 c008) and the warehouse keeper of c008 here — publicly repudiating his own note six days after giving it. Extracted as town texture: it dates a quarrel between two named men to the week, and Thomas Byram is a name new to the corpus. 'Byrain' → 'By[r]am' is recognition-class and the surname is spelled 'Byram' in the notice's own heading line. The note's date, 'September 1'l, 1834', is read 17 with the digit bracketed; 11 is equally possible from this witness alone."
+    },
+    {
+      "id": "c007",
+      "kind": "notice",
+      "reading": "transcription_mediated",
+      "quote": "Ws To Justices of the Peace.\nPure in neat form, and for sale at this\n/ office, Summons, Subparna, Warrant, Ex-\nceution and Venire, Sept. 23, 1834.",
+      "normalized": "To Justices of the Peace. P[rinted] in neat form, and for sale at this office, Summons, Subp[oe]na, Warrant, Execution and Venire. Sept. 23, 1834.",
+      "locator": {
+        "artifact_role": "primary",
+        "issue_page": 3,
+        "column": 2,
+        "lines": [
+          2849,
+          2852
+        ],
+        "lines_of_claim": [
+          2849,
+          2850,
+          2851,
+          2852
+        ]
+      },
+      "ad_copy_date": {
+        "verbatim": "ceution and Venire, Sept. 23, 1834.",
+        "iso": "1834-09-23"
+      },
+      "notes": "The Democrat's job-printing side, advertised in its own columns: blank writs sold over the counter at the printing office — which 1834-09-17 c010 puts at the corner of South Water and Clark. A small claim that gives that corner a second trade. 'Subparna' → 'Subp[oe]na' is recognition-class."
+    },
+    {
+      "id": "c008",
+      "kind": "business",
+      "reading": "transcription_mediated",
+      "quote": "101 BARRELS Superine FLOUR\nJust Received-On Commission,\nwhich will be sold very low for coa\nWane Huese, opposite to FT. DRARBORN,\n10g. 12. 1634.\nJ. H. KINZIE.",
+      "normalized": "Just Received—On Commission, 10[0] BARRELS Super[f]ine FLOUR […] which will be sold very low for c[ash, at his] Wa[re] H[o]use, opposite to F[o]RT D[E]ARBORN. [A]ug. 12. 18[34]. J. H. KINZIE.",
+      "locator": {
+        "artifact_role": "primary",
+        "issue_page": 3,
+        "column": 5,
+        "lines": [
+          3277,
+          3282
+        ],
+        "lines_of_claim": [
+          3277,
+          3278,
+          3279,
+          3280,
+          3281,
+          3282
+        ],
+        "interleaved": true
+      },
+      "entities": [
+        {
+          "as_printed": "J. H. KINZIE.",
+          "normalized": "Kinzie, John H.",
+          "role": "proprietor",
+          "occupations": [
+            "forwarding and commission merchant"
+          ]
+        }
+      ],
+      "ad_copy_date": {
+        "verbatim": "10g. 12. 1634.",
+        "iso": "1834-08-12"
+      },
+      "business": {
+        "name": "John H. Kinzie",
+        "proprietors": [
+          "John H. Kinzie"
+        ],
+        "trade": "forwarding and commission merchant",
+        "goods": [
+          "Flour",
+          "Salt",
+          "Dry Goods",
+          "Groceries",
+          "Crockery",
+          "Tinware",
+          "Hardware",
+          "Iron",
+          "Steel",
+          "Paints",
+          "Oils"
+        ],
+        "placement": {
+          "class": "relative",
+          "anchor": "Fort Dearborn",
+          "offset_text": "Wane Huese, opposite to FT. DRARBORN,",
+          "offset_normalized": "at his Ware House, opposite to Fort Dearborn"
+        }
+      },
+      "notes": "KINZIE'S WAREHOUSE PLACED AGAINST THE FORT — the clearest reading of this address in the month, which is why the claim is made from this issue and not from the three other insertions that carry it more damaged (1834-09-03 page 1 column 1 line 53 'Wise House, opposite to Fort', page 3 column 6 line 3458 'the wast end of ha WasE Hocee, opposite'; 1834-09-17 page 1 column 1 line 58 'CAne Horse, oppoete to Fort Dearbern'). The fort is the one fixed structure on the plat, so 'opposite Fort Dearborn' is an anchor the model resolves directly. NO STREET is recorded because the advertisement gives none: it places the warehouse against the fort and stops. Kinzie's own new-goods advertisement adds 'the east end of his Ware House' as the door, which is a detail of the same building."
+    },
+    {
+      "id": "c009",
+      "kind": "business",
+      "reading": "transcription_mediated",
+      "quote": "Tin, Sheet Iron and Storel\nThE beriber would respectfly inform\nCORNER OF DEARBORN ASD LAKE-STREETS\nhe has commenced the abore business ana tan\nhis triends and She public in genersi, that\nAnder from the couniry thank mile recei\nhe will keco an assortment constants on han\ned and punctually attended to.\nApril 22, 1834.\nJ. K. BOTSFORD.",
+      "normalized": "Tin, Sheet Iron and Stove [Manufactory.] TH[e su]b[sc]riber would respectf[ul]ly inform his [f]riends and [t]he public in gene[r]a[l], that he has commenced the ab[o]ve business [at the] CORNER OF DEARBORN A[N]D LAKE-STREETS, [and that] he will ke[e]p an assortment constant[ly] on han[d]. [Or]der[s] from the coun[t]ry thank[fu]l[ly] recei[v]ed and punctually attended to. April 22, 1834. J. K. BOTSFORD.",
+      "locator": {
+        "artifact_role": "primary",
+        "issue_page": 3,
+        "column": 3,
+        "lines": [
+          3056,
+          3066
+        ],
+        "lines_of_claim": [
+          3056,
+          3058,
+          3059,
+          3060,
+          3061,
+          3062,
+          3063,
+          3064,
+          3065,
+          3066
+        ],
+        "interleaved": true
+      },
+      "entities": [
+        {
+          "as_printed": "J. K. BOTSFORD.",
+          "normalized": "Botsford, J. K.",
+          "role": "proprietor",
+          "occupations": [
+            "tinsmith",
+            "sheet iron worker",
+            "stove manufacturer"
+          ],
+          "associated_places": [
+            "Dearborn Street",
+            "Lake Street"
+          ]
+        }
+      ],
+      "ad_copy_date": {
+        "verbatim": "April 22, 1834.",
+        "iso": "1834-04-22"
+      },
+      "business": {
+        "name": "J. K. Botsford",
+        "proprietors": [
+          "J. K. Botsford"
+        ],
+        "trade": "tin, sheet iron and stove manufactory",
+        "goods": [
+          "Tin Ware",
+          "Sheet Iron Ware",
+          "Stoves",
+          "Stove Pipe"
+        ],
+        "street": "Dearborn Street",
+        "placement": {
+          "class": "corner",
+          "anchor": "the corner of Dearborn and Lake streets",
+          "offset_text": "CORNER OF DEARBORN ASD LAKE-STREETS",
+          "offset_normalized": "at the corner of Dearborn and Lake-streets",
+          "street": "Dearborn Street"
+        }
+      },
+      "notes": "BOTSFORD GETS HIS CORNER. The 1834-09-10 witness (c015 there) carries this advertisement with its display head cut away and no address at all; here the head survives — CORNER OF DEARBORN AND LAKE-STREETS — so the placement is claimed from the issue that prints it. A tin and stove manufactory at Dearborn and Lake, standing since 22 April 1834, is a second documented corner trade for that crossing alongside J. L. Wilson & Co. a door down Dearborn (1834-09-17 c003). Line 3057's '[uncertain: \"?YP?OTOBI.]' is the display word between 'Stove' and the corner line and is inside the range but not quoted, because neither witness resolves it; 'Manufactory' is bracketed as a supply from the trade the body states."
+    },
+    {
+      "id": "c010",
+      "kind": "business",
+      "reading": "transcription_mediated",
+      "quote": "Fashionable Tailoring.\nSHE subseriber offers his services to the pal.\nfashions of the times,\nHubhard & Co.\nAll orders\nleft at the stor\ntended to\nTHOMAS 8. EELS\nwill be immediately at-\nChicago, Julm 23. 1004",
+      "normalized": "Fashionable Tailoring. [T]HE subs[c]riber offers his services to the p[u]b[lic in the latest] fashions of the times. […] Hub[b]ard & Co. […] All orders left at the stor[e of Messrs. Hubbard & Co., Newberry & Dole,] […] will be immediately at[tended to]. THOMAS S. EELS. Chicago, Ju[ly] 23. 1[83]4.",
+      "locator": {
+        "artifact_role": "primary",
+        "issue_page": 3,
+        "column": 3,
+        "lines": [
+          3067,
+          3078
+        ],
+        "lines_of_claim": [
+          3067,
+          3068,
+          3069,
+          3070,
+          3071,
+          3072,
+          3073,
+          3074,
+          3075,
+          3078
+        ],
+        "interleaved": true
+      },
+      "entities": [
+        {
+          "as_printed": "THOMAS 8. EELS",
+          "normalized": "Eels, Thomas S.",
+          "role": "proprietor",
+          "occupations": [
+            "tailor"
+          ]
+        }
+      ],
+      "ad_copy_date": {
+        "verbatim": "Chicago, Julm 23. 1004",
+        "iso": "1834-07-23"
+      },
+      "business": {
+        "name": "Thomas S. Eels",
+        "proprietors": [
+          "Thomas S. Eels"
+        ],
+        "trade": "tailor",
+        "placement": {
+          "class": "none"
+        }
+      },
+      "notes": "The witness that names the tailor the 1834-09-03 reading could only call 'THOMAS BABEL' (c019 there): THOMAS S. EELS, printed clean. It also states the arrangement that makes his placement `none` rather than relative — orders are LEFT AT ANOTHER HOUSE'S STORE, Hubbard & Co.'s and Newberry & Dole's, which places the orders and not the tailor. A tradesman with no shop of his own is worth recording as such: the town in 1834 had trades that ran out of other men's counters."
+    },
+    {
+      "id": "c011",
+      "kind": "event",
+      "reading": "transcription_mediated",
+      "quote": "A Ag Election 4\ny ILL be held at C. Inger: |\nSg Ww soll’s, in Plainfield, on the |\nal Ath day of October next for one |\n: Major to command oae Battalion\nMs in the newly organized Regiment\nof Cook county. The Battalion\nto consist of all tiat part of the\n4! county #outh of the south side ot |\n. the Oak Woods, and south of a|\nS line running from thence to Laugh |\nie ton’s, aud south and south west of\nin the Dupage river, including Wick. |\ni ory Creek, river Dupage and Na-\n| we \" per's Settlements,\ne By order of Col. Jvo. I. Bravntex.\nof] Sept. 23, 1BS4, ed",
+      "normalized": "A[n] Election [W]ILL be held at C. Inger[so]ll's, in Plainfield, on the [4]th day of October next for one Major to command o[n]e Battalion in the newly organized Regiment of Cook county. The Battalion to consist of all t[h]at part of the county [s]outh of the south side of the Oak Woods, and south of a line running from thence to Laugh[]ton's, and south and south west of the Dupage river, including [H]ick[]ory Creek, river Dupage and Na[]per's Settlements. By order of Col. J[n]o. [B.] Bea[ub]ien. Sept. 23, 18[3]4.",
+      "locator": {
+        "artifact_role": "primary",
+        "issue_page": 3,
+        "column": 2,
+        "lines": [
+          2884,
+          2900
+        ],
+        "lines_of_claim": [
+          2884,
+          2885,
+          2886,
+          2887,
+          2888,
+          2889,
+          2890,
+          2891,
+          2892,
+          2893,
+          2894,
+          2895,
+          2896,
+          2897,
+          2898,
+          2899,
+          2900
+        ]
+      },
+      "entities": [
+        {
+          "as_printed": "C. Inger: soll's",
+          "normalized": "Ingersoll, C.",
+          "role": "householder"
+        },
+        {
+          "as_printed": "Col. Jvo. I. Bravntex",
+          "normalized": "Beaubien, John B.",
+          "role": "official",
+          "occupations": [
+            "colonel of the Cook county regiment"
+          ]
+        }
+      ],
+      "ad_copy_date": {
+        "verbatim": "Sept. 23, 1BS4, ed",
+        "iso": "1834-09-23"
+      },
+      "notes": "The second half of the militia election the month began with: the northern battalion voted at the Mansion House in Chicago on the third Saturday of September (1834-09-03 c010), and the southern battalion votes at Ingersoll's in Plainfield on 4 October. Extracted for the BOUNDARY, which is the sharpest statement in the month of where Chicago's hinterland was reckoned to end: south of the Oak Woods, south of a line to Laughton's, south and south west of the Dupage. 'Bravntex' → 'Bea[ub]ien' is the same signature the 09-03 order carries as 'Besunirs'; two ruined readings of one known name, and the name is the town's."
+    },
+    {
+      "id": "c012",
+      "kind": "business",
+      "reading": "transcription_mediated",
+      "quote": "[uncertain: Nonse end Leel gent.]\nOT8 purchased and Bold, or by commie\n& sion,\n* Building Lota for eale, in the town and\n1 Housee to Let.\nBehoul section.\n• al. apposite Dr. Templés.\nEnguire at the Offce ne",
+      "normalized": "[…] [Ho]use [a]nd L[an]d [A]gent. [L]OT[S] purchased and [S]old, or by commi[s]-sion. [12] Building Lot[s] for [s]ale, in the town and […] Houses to Let. [S]choo[l] section. [Lake] [st.] [o]pposite Dr. Templ[e]'s. En[q]uire at the Off[i]ce o[n]",
+      "locator": {
+        "artifact_role": "primary",
+        "issue_page": 3,
+        "column": 6,
+        "lines": [
+          3407,
+          3414
+        ],
+        "lines_of_claim": [
+          3407,
+          3408,
+          3409,
+          3410,
+          3411,
+          3412,
+          3413,
+          3414
+        ],
+        "interleaved": false
+      },
+      "business": {
+        "name": "W. G. Blanchard",
+        "proprietors": [
+          "W. G. Blanchard"
+        ],
+        "trade": "house and land agent",
+        "goods": [],
+        "street": null,
+        "placement": {
+          "class": "relative",
+          "anchor": "Dr. Temple's",
+          "offset_text": "• al. apposite Dr. Templés.",
+          "offset_normalized": "[… st.] [o]pposite Dr. Templ[e]'s.",
+          "street": null
+        }
+      },
+      "notes": "ONE IMPRESSION OF THE STANDING LAKE STREET LAND-AGENCY CARD. The Democrat sets this advertisement, word for word the same, in every issue from 1834-05-14 to 1834-10-01 — twenty consecutive weeks, eighteen of which set the line ‘purchased and Sold, or by commi[s]sion’ recognisably (T-1051). The card is identified by its copy and not by its display line: the same trade (‘House and Land Agent’), the same offer of building lots in the town and the School Section, the same houses to let, and the same office on Lake street opposite Dr. Temple's. The display line is lost — 3406 closes J. K. Botsford's notice immediately above — and the trade line itself is inside the transcription's uncertainty mark, '[uncertain: Nonse end Leel gent.]'. THE PROPRIETOR'S NAME IS NOT READ HERE and none is supplied into the quote: the record's ‘W. G. Blanchard’ stands on T-0408's reading of the two impressions whose columns are NOT Tesseract fallbacks (1834-07-16 line 5527, 1834-09-17 line 3292) and on identity.json's declared firm merge, not on this impression. The street did not survive the left margin ('• al. apposite Dr. Templés.'), so the anchor is read and the street left null; the card's last lines are set out of order, the address (3413) above 'Enguire at the Offce ne' (3414)."
+    }
+  ]
+}

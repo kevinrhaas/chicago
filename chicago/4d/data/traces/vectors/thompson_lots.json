@@ -1,0 +1,5321 @@
+{
+ "_doc": "The platted block and lot grid, generated from the Thompson module and snapped to this project's committed street lines — never traced off the 1834 sheets, whose 3.7-4.5% anisotropic stretch would arrive as 4% of wobble in every block face. A block edge here is a street centreline from data/streets/1835.json offset by half the platted corridor; a lot line is the module divided into it. Written by tools/generate_plat_lots.py, which re-derives this file byte for byte offline on every commit (tools/check.sh). Block ids name the streets that bound a block, which is a description and not a claim. Thompson's own block NUMBERS are carried separately, in `plat_block_number`, read block by block off the georeferenced Wright 1834 scan — see `block_numbering` below and data/traces/thompson_block_numbering.json. A block left unnumbered here is one the sheet was not read on, and the authored file says which and why.",
+ "tool": "tools/generate_plat_lots.py",
+ "generated_from": [
+  "data/traces/street_control.json",
+  "data/streets/1835.json",
+  "data/sources/thompson_plat_1830.json"
+ ],
+ "sources": [
+  "thompson_plat_1830",
+  "hathaway_1834",
+  "wright_1834",
+  "osm_streets_2026"
+ ],
+ "module": {
+  "street_width_m": 24.384,
+  "street_width_ft": 80,
+  "street_confidence": "inferred",
+  "alley_width_m": 5.4864,
+  "alley_width_ft": 18.0,
+  "alley_confidence": "reconstructed",
+  "alley_note": "18 ft is the module the Thompson plat source record carries and the figure the 1834 traverses read (17.1-18.7 ft), so the WIDTH is as well attested as the street. Everything else about it is not: nothing in data/sources/ says which blocks were alleyed, or whether the alley ran with the long axis of a block or across it. The mid-block east-west alley generated here is the arrangement the lot rows on Wright's block 18 imply, and it is a conjecture in exactly the way its confidence says. The 16 ft dissent recorded in data/traces/street_control.json is not settled by the traverses: two feet is inside that method's error.",
+  "lot_frontage_m": 24.384,
+  "lot_frontage_ft": 80.0,
+  "lot_confidence": "reconstructed",
+  "lot_note": "Four lots to a block face, 80 ft each, is a reading of ONE block: the owner's crop of Wright's sheet at the Clark reach carries block 18's north row numbered 4 3 2 and its south row 5 6 7 (docs/RESEARCH/clark_reach_bulge_1834.md § 8), which is four lots across a block of about 320 ft. Applying it to the other blocks is inference from a single instance and it is graded as the conjecture it is. Lots carry a `plat_lot_number` ONLY inside a numbered block, under the scheme the same crop shows on block 18 — 1-4 east to west along the north row, 5-8 west to east along the south row — and that number is `conjectural` wherever it appears, because it is put on a line no sheet drew. Nothing else in this file is numbered: a numbering invented to look complete is exactly what this project does not do."
+ },
+ "survey_tract_layer": {
+  "why_this_section_exists": "T-1105. Until T-1101 built the survey-tract layer this generator chose ONE street width and ONE block module for the whole town because there was no layer to ask, and the choice was invisible: nothing on a block said which survey it stood in or which module it had been given. Both are now stamped on every block, so a block that takes the Original Town's module takes it on the record.",
+  "read": "data/reconstruction/1835_survey_tracts.json",
+  "rings_read": [
+   "us_military_reservation",
+   "canal_commissioners_1830",
+   "wabansia",
+   "kinzies_addition",
+   "school_section",
+   "fractional_section_15",
+   "canal_section_9_remainder"
+  ],
+  "rule": "a block takes the tract that covers the most of it, by clipped area, using the clipper in tools/sort_land_sales_onto_tracts.py",
+  "the_precedence_clause": "EXCEPT that a residual tract — one whose ring is defined as what another tract leaves over — yields any block a non-residual tract covers at least 50% of. canal_section_9_remainder is the layer's only residual. T-1104 states this clause for parcels; a second statement of it would be a second answer, so it is the same clause and the same clipper.",
+  "what_the_layer_answers_here": {
+   "blocks_sorted": 19,
+   "by_tract": {
+    "canal_commissioners_1830": 19
+   },
+   "finding": "THE LAYER DOES NOT DISCRIMINATE THIS GRID. All nineteen generated blocks fall in canal_commissioners_1830 and no other placed ring touches one, which the tract record itself already says — its geometry_note reports all 19 inside the rectangle. So the question T-1105 asks the layer, the layer cannot answer: no block here stands in Wabansia or Kinzie's Addition, and a per-tract module would change nothing about what is built. What DOES vary inside this one tract is the DIVISION, because the river runs through the Original Town and the plat gives its two sides different blocks.",
+   "the_grade_is_inherited": "canal_commissioners_1830 is `conjectural` — its four bounds are the standard account of the 1830 plat and no source record here states them. Any module chosen off that ring would be conjectural for that reason alone. None is: the module below is chosen off the street lines, and the tract is carried as a finding, not used as an input."
+  },
+  "the_west_division_module": {
+   "held": "data/traces/thompson_west_division_lots.json",
+   "confidence_of_the_figures": "documented",
+   "printed": "lots 75 3/5 ft on the front and 180 ft deep, two columns backing onto an 18 ft NORTH-SOUTH alley, the block square at 378 ft, the street module 458 ft",
+   "streets_it_governs": [
+    "canal",
+    "clinton",
+    "des_pleins",
+    "jefferson",
+    "west_water"
+   ],
+   "blocks_of_this_grid_inside_it": [
+    "blk_lake_clinton",
+    "blk_randolph_clinton"
+   ],
+   "refused_on_every_one_of_them": "and the refusal is arithmetic, not preference. Two lot columns alone need 360 ft; the committed faces west of the river are 315.2 ft, 326.1 ft. The arrangement does not fit before the alley is cut.",
+   "what_is_short_is_the_spacing_not_the_module": "Clinton to Canal is committed at 367.9 ft against the plat's 458 ft — 90.1 ft short, the same finding tools/measure_west_division_module.py reports and the owner reported on 2026-08-31. Seating the printed module means moving those centrelines, which is T-0445 and is deliberately not done here: this generator writes what the committed lines give and records what the sheet asks for beside it.",
+   "what_would_change_if_the_lines_moved": "the two West Division blocks would be subdivided the other way about — columns and a north-south alley instead of faces and an east-west one — so this is a refusal that will be worth revisiting the day T-0445 settles the spacing, and not before."
+  },
+  "omitted_blocks_carry_no_tract": "an omitted block has no ring to clip, by definition — it is omitted because the grid could not draw one — so it is sorted onto no tract rather than onto one guessed from its bounding streets"
+ },
+ "method": {
+  "block_edge": "a street centreline offset by half the platted corridor (12.192 m), the four offsets intersected",
+  "reach_m": 12.192,
+  "reach_note": "A block is emitted only where the committed centrelines of all four of its bounding streets reach it, allowing at most half a corridor of extension for a line drawn to a junction rather than through it. Everything refused is in `omitted` with the street that falls short, which is the same list of street control ROADMAP § S9 still records as owed.",
+  "max_pitch_m": 200.0,
+  "water_rule": "a block with a corner on water or beyond the modelled ground is omitted rather than drawn over the river",
+  "lot_subdivision": "the block's north and south faces divided in the same proportion, joined station to station, with a centred alley taken out of the middle"
+ },
+ "block_numbering": {
+  "authored_in": "data/traces/thompson_block_numbering.json",
+  "read": "Wright writes a numeral across the middle of every block of the Original Town. TWENTY-TWO of them fall on ground this project's street grid can address, and all twenty-two are read here: the South Water-Lake tier 21 20 19 18 17 16 west to east; the Lake-Randolph tier 28 29 west of the South Branch and 31 32 33 34 35 36 east of it; the Randolph-Washington tier 45 44 west of the branch, 43 42 41 40 east of it, then the block labelled 'Public Square' and no numeral, then 38 37. Lot numerals are printed inside several blocks; four of them are read in `lot_numbering` below.",
+  "source": "wright_1834",
+  "step": -1,
+  "direction": "THE RUN REVERSES TIER BY TIER, which is why it could never be counted from two numerals. Along South Water-Lake the number FALLS eastward (21 -> 16). Along Lake-Randolph it RISES eastward (31 -> 36). Along Randolph-Washington it FALLS again (43 -> 37). The refusal this file used to carry — that nothing said how the run passes from one tier to the next — was the right refusal: a boustrophedon is exactly what the sheet turns out to draw, and a run counted straight down the tiers would have numbered the Lake tier backwards.",
+  "lot_scheme": "counter-clockwise from the block's north-east corner: lot 1 at the east end of the north row, running WEST to lot 4 at its west end; lot 5 at the west end of the south row, running EAST to lot 8 at its east end.",
+  "lot_confidence": "conjectural",
+  "refused": [
+   "blocks 14 and 15, on the Carroll-Fulton band east of the North Branch",
+   "block 30",
+   "where each tier's run begins and ends",
+   "the confidence grade",
+   "a modern plat reprint"
+  ],
+  "note": "Each numeral is read on a crop cut to that block's own committed ground, so the reading is identified by the georeference rather than counted from a neighbour. `numeral_on_sheet` on each block says which numbers are read and which are not, and the authored file carries the reading, the crop regions and the refusals in full."
+ },
+ "confidence": "inferred",
+ "confidence_note": "The blocks are arithmetic on inferred inputs — street lines whose own geometry confidence is `inferred`, offset by a module width the street control also grades `inferred` — so `inferred` is the most this grid can carry. The lots and the alleys inside those blocks are `conjectural` and are recorded separately for that reason: a visitor is entitled to know that the block face is a defensible position and the line dividing it is not.",
+ "summary": {
+  "blocks": 19,
+  "omitted": 5,
+  "reserved": 1,
+  "numbered": 19,
+  "numbered_omitted": 2,
+  "lots": 144,
+  "numbered_lots": 144,
+  "block_frontage_ft": {
+   "min": 315.2,
+   "median": 323.4,
+   "max": 340.2
+  },
+  "lot_frontage_ft": {
+   "min": 77.7,
+   "max": 85.1
+  }
+ },
+ "blocks": [
+  {
+   "id": "blk_south_water_franklin",
+   "bounded_by": {
+    "north": "south_water",
+    "south": "lake",
+    "west": "franklin",
+    "east": "wells"
+   },
+   "boundary_local_enu_m": [
+    [
+     220.62,
+     -6.47
+    ],
+    [
+     221.7,
+     -6.18
+    ],
+    [
+     318.24,
+     -5.3
+    ],
+    [
+     317.68,
+     -100.07
+    ],
+    [
+     220.07,
+     -99.27
+    ]
+   ],
+   "area_m2": 9167.6,
+   "frontage_m": 97.63,
+   "frontage_ft": 320.3,
+   "depth_m": 93.9,
+   "lots_per_face": 4,
+   "alley_local_enu_m": [
+    [
+     220.37,
+     -50.13
+    ],
+    [
+     317.97,
+     -49.94
+    ],
+    [
+     317.94,
+     -55.43
+    ],
+    [
+     220.33,
+     -55.62
+    ]
+   ],
+   "lots": [
+    {
+     "tier": "north",
+     "frontage_m": 24.38,
+     "depth_m": 43.83,
+     "polygon": [
+      [
+       220.62,
+       -6.47
+      ],
+      [
+       245.0,
+       -5.97
+      ],
+      [
+       244.75,
+       -49.98
+      ],
+      [
+       220.37,
+       -50.13
+      ]
+     ],
+     "plat_lot_number": 4,
+     "plat_lot_confidence": "conjectural"
+    },
+    {
+     "tier": "south",
+     "frontage_m": 24.4,
+     "depth_m": 43.83,
+     "polygon": [
+      [
+       220.33,
+       -55.62
+      ],
+      [
+       244.72,
+       -55.46
+      ],
+      [
+       244.47,
+       -99.47
+      ],
+      [
+       220.07,
+       -99.27
+      ]
+     ],
+     "plat_lot_number": 5,
+     "plat_lot_confidence": "conjectural"
+    },
+    {
+     "tier": "north",
+     "frontage_m": 24.41,
+     "depth_m": 44.12,
+     "polygon": [
+      [
+       245.0,
+       -5.97
+      ],
+      [
+       269.41,
+       -5.74
+      ],
+      [
+       269.16,
+       -49.96
+      ],
+      [
+       244.75,
+       -49.98
+      ]
+     ],
+     "plat_lot_number": 3,
+     "plat_lot_confidence": "conjectural"
+    },
+    {
+     "tier": "south",
+     "frontage_m": 24.4,
+     "depth_m": 44.12,
+     "polygon": [
+      [
+       244.72,
+       -55.46
+      ],
+      [
+       269.13,
+       -55.45
+      ],
+      [
+       268.88,
+       -99.67
+      ],
+      [
+       244.47,
+       -99.47
+      ]
+     ],
+     "plat_lot_number": 6,
+     "plat_lot_confidence": "conjectural"
+    },
+    {
+     "tier": "north",
+     "frontage_m": 24.41,
+     "depth_m": 44.33,
+     "polygon": [
+      [
+       269.41,
+       -5.74
+      ],
+      [
+       293.82,
+       -5.52
+      ],
+      [
+       293.57,
+       -49.95
+      ],
+      [
+       269.16,
+       -49.96
+      ]
+     ],
+     "plat_lot_number": 2,
+     "plat_lot_confidence": "conjectural"
+    },
+    {
+     "tier": "south",
+     "frontage_m": 24.4,
+     "depth_m": 44.33,
+     "polygon": [
+      [
+       269.13,
+       -55.45
+      ],
+      [
+       293.53,
+       -55.44
+      ],
+      [
+       293.28,
+       -99.87
+      ],
+      [
+       268.88,
+       -99.67
+      ]
+     ],
+     "plat_lot_number": 7,
+     "plat_lot_confidence": "conjectural"
+    },
+    {
+     "tier": "north",
+     "frontage_m": 24.41,
+     "depth_m": 44.54,
+     "polygon": [
+      [
+       293.82,
+       -5.52
+      ],
+      [
+       318.24,
+       -5.3
+      ],
+      [
+       317.97,
+       -49.94
+      ],
+      [
+       293.57,
+       -49.95
+      ]
+     ],
+     "plat_lot_number": 1,
+     "plat_lot_confidence": "conjectural"
+    },
+    {
+     "tier": "south",
+     "frontage_m": 24.4,
+     "depth_m": 44.54,
+     "polygon": [
+      [
+       293.53,
+       -55.44
+      ],
+      [
+       317.94,
+       -55.43
+      ],
+      [
+       317.68,
+       -100.07
+      ],
+      [
+       293.28,
+       -99.87
+      ]
+     ],
+     "plat_lot_number": 8,
+     "plat_lot_confidence": "conjectural"
+    }
+   ],
+   "survey_tract": {
+    "tract": "canal_commissioners_1830",
+    "share": 1.0,
+    "geometry_confidence": "conjectural",
+    "on": [
+     "canal_commissioners_1830"
+    ],
+    "precedence_clause_fired": null
+   },
+   "module": {
+    "module": "south_division_thompson_1830",
+    "lot_frontage_ft": 80.0,
+    "alley_width_ft": 18.0,
+    "alley_runs": "east-west, mid-block",
+    "chosen_by": "the only module this generator can seat on the committed street lines",
+    "division": "south"
+   },
+   "plat_block_number": {
+    "number": 20,
+    "confidence": "inferred",
+    "numeral_on_sheet": true,
+    "sources": [
+     "wright_1834"
+    ],
+    "authored_in": "data/traces/thompson_block_numbering.json",
+    "note": "READ, where it used to be counted one block west of 19. The crop also carries this block's lot numerals: north row 4 3 2 1 west to east, south row 5 6 7 8 west to east. South Water-Lake tier; the run falls eastward here."
+   }
+  },
+  {
+   "id": "blk_south_water_wells",
+   "bounded_by": {
+    "north": "south_water",
+    "south": "lake",
+    "west": "wells",
+    "east": "lasalle"
+   },
+   "boundary_local_enu_m": [
+    [
+     342.62,
+     -5.09
+    ],
+    [
+     440.24,
+     -4.29
+    ],
+    [
+     439.67,
+     -101.06
+    ],
+    [
+     342.06,
+     -100.27
+    ]
+   ],
+   "area_m2": 9368.1,
+   "frontage_m": 97.61,
+   "frontage_ft": 320.3,
+   "depth_m": 95.97,
+   "lots_per_face": 4,
+   "alley_local_enu_m": [
+    [
+     342.36,
+     -49.93
+    ],
+    [
+     439.97,
+     -49.93
+    ],
+    [
+     439.93,
+     -55.42
+    ],
+    [
+     342.32,
+     -55.42
+    ]
+   ],
+   "lots": [
+    {
+     "tier": "north",
+     "frontage_m": 24.4,
+     "depth_m": 44.95,
+     "polygon": [
+      [
+       342.62,
+       -5.09
+      ],
+      [
+       367.02,
+       -4.89
+      ],
+      [
+       366.76,
+       -49.93
+      ],
+      [
+       342.36,
+       -49.93
+      ]
+     ],
+     "plat_lot_number": 4,
+     "plat_lot_confidence": "conjectural"
+    },
+    {
+     "tier": "south",
+     "frontage_m": 24.4,
+     "depth_m": 44.95,
+     "polygon": [
+      [
+       342.32,
+       -55.42
+      ],
+      [
+       366.73,
+       -55.42
+      ],
+      [
+       366.46,
+       -100.46
+      ],
+      [
+       342.06,
+       -100.27
+      ]
+     ],
+     "plat_lot_number": 5,
+     "plat_lot_confidence": "conjectural"
+    },
+    {
+     "tier": "north",
+     "frontage_m": 24.4,
+     "depth_m": 45.15,
+     "polygon": [
+      [
+       367.02,
+       -4.89
+      ],
+      [
+       391.43,
+       -4.69
+      ],
+      [
+       391.16,
+       -49.93
+      ],
+      [
+       366.76,
+       -49.93
+      ]
+     ],
+     "plat_lot_number": 3,
+     "plat_lot_confidence": "conjectural"
+    },
+    {
+     "tier": "south",
+     "frontage_m": 24.4,
+     "depth_m": 45.15,
+     "polygon": [
+      [
+       366.73,
+       -55.42
+      ],
+      [
+       391.13,
+       -55.42
+      ],
+      [
+       390.86,
+       -100.66
+      ],
+      [
+       366.46,
+       -100.46
+      ]
+     ],
+     "plat_lot_number": 6,
+     "plat_lot_confidence": "conjectural"
+    },
+    {
+     "tier": "north",
+     "frontage_m": 24.4,
+     "depth_m": 45.34,
+     "polygon": [
+      [
+       391.43,
+       -4.69
+      ],
+      [
+       415.83,
+       -4.49
+      ],
+      [
+       415.56,
+       -49.93
+      ],
+      [
+       391.16,
+       -49.93
+      ]
+     ],
+     "plat_lot_number": 2,
+     "plat_lot_confidence": "conjectural"
+    },
+    {
+     "tier": "south",
+     "frontage_m": 24.4,
+     "depth_m": 45.34,
+     "polygon": [
+      [
+       391.13,
+       -55.42
+      ],
+      [
+       415.53,
+       -55.42
+      ],
+      [
+       415.26,
+       -100.86
+      ],
+      [
+       390.86,
+       -100.66
+      ]
+     ],
+     "plat_lot_number": 7,
+     "plat_lot_confidence": "conjectural"
+    },
+    {
+     "tier": "north",
+     "frontage_m": 24.4,
+     "depth_m": 45.54,
+     "polygon": [
+      [
+       415.83,
+       -4.49
+      ],
+      [
+       440.24,
+       -4.29
+      ],
+      [
+       439.97,
+       -49.93
+      ],
+      [
+       415.56,
+       -49.93
+      ]
+     ],
+     "plat_lot_number": 1,
+     "plat_lot_confidence": "conjectural"
+    },
+    {
+     "tier": "south",
+     "frontage_m": 24.4,
+     "depth_m": 45.54,
+     "polygon": [
+      [
+       415.53,
+       -55.42
+      ],
+      [
+       439.93,
+       -55.42
+      ],
+      [
+       439.67,
+       -101.06
+      ],
+      [
+       415.26,
+       -100.86
+      ]
+     ],
+     "plat_lot_number": 8,
+     "plat_lot_confidence": "conjectural"
+    }
+   ],
+   "survey_tract": {
+    "tract": "canal_commissioners_1830",
+    "share": 1.0,
+    "geometry_confidence": "conjectural",
+    "on": [
+     "canal_commissioners_1830"
+    ],
+    "precedence_clause_fired": null
+   },
+   "module": {
+    "module": "south_division_thompson_1830",
+    "lot_frontage_ft": 80.0,
+    "alley_width_ft": 18.0,
+    "alley_runs": "east-west, mid-block",
+    "chosen_by": "the only module this generator can seat on the committed street lines",
+    "division": "south"
+   },
+   "plat_block_number": {
+    "number": 19,
+    "confidence": "inferred",
+    "numeral_on_sheet": true,
+    "sources": [
+     "wright_1834"
+    ],
+    "authored_in": "data/traces/thompson_block_numbering.json",
+    "note": "READ, and re-read: this is one of the two numerals the 2026-08-29 owner crop carried, and the block-cut crop puts it on the Wells-La Salle block without needing the watercourse to identify it. The platted 80 of the street west of it is in the frame. South Water-Lake tier; the run falls eastward here."
+   }
+  },
+  {
+   "id": "blk_south_water_lasalle",
+   "bounded_by": {
+    "north": "south_water",
+    "south": "lake",
+    "west": "lasalle",
+    "east": "clark"
+   },
+   "boundary_local_enu_m": [
+    [
+     464.62,
+     -4.09
+    ],
+    [
+     563.73,
+     -3.29
+    ],
+    [
+     563.1,
+     -102.07
+    ],
+    [
+     464.05,
+     -101.26
+    ]
+   ],
+   "area_m2": 9707.0,
+   "frontage_m": 99.08,
+   "frontage_ft": 325.1,
+   "depth_m": 97.97,
+   "lots_per_face": 4,
+   "alley_local_enu_m": [
+    [
+     464.35,
+     -49.93
+    ],
+    [
+     563.43,
+     -49.94
+    ],
+    [
+     563.4,
+     -55.42
+    ],
+    [
+     464.32,
+     -55.42
+    ]
+   ],
+   "lots": [
+    {
+     "tier": "north",
+     "frontage_m": 24.78,
+     "depth_m": 45.94,
+     "polygon": [
+      [
+       464.62,
+       -4.09
+      ],
+      [
+       489.4,
+       -3.89
+      ],
+      [
+       489.12,
+       -49.93
+      ],
+      [
+       464.35,
+       -49.93
+      ]
+     ],
+     "plat_lot_number": 4,
+     "plat_lot_confidence": "conjectural"
+    },
+    {
+     "tier": "south",
+     "frontage_m": 24.76,
+     "depth_m": 45.94,
+     "polygon": [
+      [
+       464.32,
+       -55.42
+      ],
+      [
+       489.09,
+       -55.42
+      ],
+      [
+       488.81,
+       -101.46
+      ],
+      [
+       464.05,
+       -101.26
+      ]
+     ],
+     "plat_lot_number": 5,
+     "plat_lot_confidence": "conjectural"
+    },
+    {
+     "tier": "north",
+     "frontage_m": 24.78,
+     "depth_m": 46.14,
+     "polygon": [
+      [
+       489.4,
+       -3.89
+      ],
+      [
+       514.18,
+       -3.69
+      ],
+      [
+       513.89,
+       -49.93
+      ],
+      [
+       489.12,
+       -49.93
+      ]
+     ],
+     "plat_lot_number": 3,
+     "plat_lot_confidence": "conjectural"
+    },
+    {
+     "tier": "south",
+     "frontage_m": 24.76,
+     "depth_m": 46.14,
+     "polygon": [
+      [
+       489.09,
+       -55.42
+      ],
+      [
+       513.86,
+       -55.42
+      ],
+      [
+       513.58,
+       -101.66
+      ],
+      [
+       488.81,
+       -101.46
+      ]
+     ],
+     "plat_lot_number": 6,
+     "plat_lot_confidence": "conjectural"
+    },
+    {
+     "tier": "north",
+     "frontage_m": 24.78,
+     "depth_m": 46.34,
+     "polygon": [
+      [
+       514.18,
+       -3.69
+      ],
+      [
+       538.95,
+       -3.49
+      ],
+      [
+       538.66,
+       -49.93
+      ],
+      [
+       513.89,
+       -49.93
+      ]
+     ],
+     "plat_lot_number": 2,
+     "plat_lot_confidence": "conjectural"
+    },
+    {
+     "tier": "south",
+     "frontage_m": 24.76,
+     "depth_m": 46.34,
+     "polygon": [
+      [
+       513.86,
+       -55.42
+      ],
+      [
+       538.63,
+       -55.42
+      ],
+      [
+       538.34,
+       -101.86
+      ],
+      [
+       513.58,
+       -101.66
+      ]
+     ],
+     "plat_lot_number": 7,
+     "plat_lot_confidence": "conjectural"
+    },
+    {
+     "tier": "north",
+     "frontage_m": 24.78,
+     "depth_m": 46.54,
+     "polygon": [
+      [
+       538.95,
+       -3.49
+      ],
+      [
+       563.73,
+       -3.29
+      ],
+      [
+       563.43,
+       -49.94
+      ],
+      [
+       538.66,
+       -49.93
+      ]
+     ],
+     "plat_lot_number": 1,
+     "plat_lot_confidence": "conjectural"
+    },
+    {
+     "tier": "south",
+     "frontage_m": 24.76,
+     "depth_m": 46.54,
+     "polygon": [
+      [
+       538.63,
+       -55.42
+      ],
+      [
+       563.4,
+       -55.42
+      ],
+      [
+       563.1,
+       -102.07
+      ],
+      [
+       538.34,
+       -101.86
+      ]
+     ],
+     "plat_lot_number": 8,
+     "plat_lot_confidence": "conjectural"
+    }
+   ],
+   "survey_tract": {
+    "tract": "canal_commissioners_1830",
+    "share": 1.0,
+    "geometry_confidence": "conjectural",
+    "on": [
+     "canal_commissioners_1830"
+    ],
+    "precedence_clause_fired": null
+   },
+   "module": {
+    "module": "south_division_thompson_1830",
+    "lot_frontage_ft": 80.0,
+    "alley_width_ft": 18.0,
+    "alley_runs": "east-west, mid-block",
+    "chosen_by": "the only module this generator can seat on the committed street lines",
+    "division": "south"
+   },
+   "plat_block_number": {
+    "number": 18,
+    "confidence": "inferred",
+    "numeral_on_sheet": true,
+    "sources": [
+     "wright_1834"
+    ],
+    "authored_in": "data/traces/thompson_block_numbering.json",
+    "note": "READ, and re-read — the second numeral of the owner crop. Lot numerals 4 3 2 1 / 5 6 7 8, now complete where the old crop cut the fourth of each row. This is the block the lot scheme was first read from. South Water-Lake tier; the run falls eastward here."
+   }
+  },
+  {
+   "id": "blk_south_water_clark",
+   "bounded_by": {
+    "north": "south_water",
+    "south": "lake",
+    "west": "clark",
+    "east": "dearborn"
+   },
+   "boundary_local_enu_m": [
+    [
+     588.11,
+     -3.39
+    ],
+    [
+     686.66,
+     -4.99
+    ],
+    [
+     686.05,
+     -103.07
+    ],
+    [
+     587.48,
+     -102.26
+    ]
+   ],
+   "area_m2": 9706.3,
+   "frontage_m": 98.57,
+   "frontage_ft": 323.4,
+   "depth_m": 98.47,
+   "lots_per_face": 4,
+   "alley_local_enu_m": [
+    [
+     587.82,
+     -50.08
+    ],
+    [
+     686.38,
+     -51.29
+    ],
+    [
+     686.34,
+     -56.77
+    ],
+    [
+     587.78,
+     -55.57
+    ]
+   ],
+   "lots": [
+    {
+     "tier": "north",
+     "frontage_m": 24.64,
+     "depth_m": 46.64,
+     "polygon": [
+      [
+       588.11,
+       -3.39
+      ],
+      [
+       612.75,
+       -3.79
+      ],
+      [
+       612.46,
+       -50.38
+      ],
+      [
+       587.82,
+       -50.08
+      ]
+     ],
+     "plat_lot_number": 4,
+     "plat_lot_confidence": "conjectural"
+    },
+    {
+     "tier": "south",
+     "frontage_m": 24.64,
+     "depth_m": 46.64,
+     "polygon": [
+      [
+       587.78,
+       -55.57
+      ],
+      [
+       612.42,
+       -55.87
+      ],
+      [
+       612.13,
+       -102.46
+      ],
+      [
+       587.48,
+       -102.26
+      ]
+     ],
+     "plat_lot_number": 5,
+     "plat_lot_confidence": "conjectural"
+    },
+    {
+     "tier": "north",
+     "frontage_m": 24.64,
+     "depth_m": 46.54,
+     "polygon": [
+      [
+       612.75,
+       -3.79
+      ],
+      [
+       637.39,
+       -4.19
+      ],
+      [
+       637.1,
+       -50.69
+      ],
+      [
+       612.46,
+       -50.38
+      ]
+     ],
+     "plat_lot_number": 3,
+     "plat_lot_confidence": "conjectural"
+    },
+    {
+     "tier": "south",
+     "frontage_m": 24.64,
+     "depth_m": 46.54,
+     "polygon": [
+      [
+       612.42,
+       -55.87
+      ],
+      [
+       637.06,
+       -56.17
+      ],
+      [
+       636.77,
+       -102.66
+      ],
+      [
+       612.13,
+       -102.46
+      ]
+     ],
+     "plat_lot_number": 6,
+     "plat_lot_confidence": "conjectural"
+    },
+    {
+     "tier": "north",
+     "frontage_m": 24.64,
+     "depth_m": 46.44,
+     "polygon": [
+      [
+       637.39,
+       -4.19
+      ],
+      [
+       662.03,
+       -4.59
+      ],
+      [
+       661.74,
+       -50.99
+      ],
+      [
+       637.1,
+       -50.69
+      ]
+     ],
+     "plat_lot_number": 2,
+     "plat_lot_confidence": "conjectural"
+    },
+    {
+     "tier": "south",
+     "frontage_m": 24.64,
+     "depth_m": 46.44,
+     "polygon": [
+      [
+       637.06,
+       -56.17
+      ],
+      [
+       661.7,
+       -56.47
+      ],
+      [
+       661.41,
+       -102.87
+      ],
+      [
+       636.77,
+       -102.66
+      ]
+     ],
+     "plat_lot_number": 7,
+     "plat_lot_confidence": "conjectural"
+    },
+    {
+     "tier": "north",
+     "frontage_m": 24.64,
+     "depth_m": 46.34,
+     "polygon": [
+      [
+       662.03,
+       -4.59
+      ],
+      [
+       686.66,
+       -4.99
+      ],
+      [
+       686.38,
+       -51.29
+      ],
+      [
+       661.74,
+       -50.99
+      ]
+     ],
+     "plat_lot_number": 1,
+     "plat_lot_confidence": "conjectural"
+    },
+    {
+     "tier": "south",
+     "frontage_m": 24.64,
+     "depth_m": 46.34,
+     "polygon": [
+      [
+       661.7,
+       -56.47
+      ],
+      [
+       686.34,
+       -56.77
+      ],
+      [
+       686.05,
+       -103.07
+      ],
+      [
+       661.41,
+       -102.87
+      ]
+     ],
+     "plat_lot_number": 8,
+     "plat_lot_confidence": "conjectural"
+    }
+   ],
+   "survey_tract": {
+    "tract": "canal_commissioners_1830",
+    "share": 1.0,
+    "geometry_confidence": "conjectural",
+    "on": [
+     "canal_commissioners_1830"
+    ],
+    "precedence_clause_fired": null
+   },
+   "module": {
+    "module": "south_division_thompson_1830",
+    "lot_frontage_ft": 80.0,
+    "alley_width_ft": 18.0,
+    "alley_runs": "east-west, mid-block",
+    "chosen_by": "the only module this generator can seat on the committed street lines",
+    "division": "south"
+   },
+   "plat_block_number": {
+    "number": 17,
+    "confidence": "inferred",
+    "numeral_on_sheet": true,
+    "sources": [
+     "wright_1834"
+    ],
+    "authored_in": "data/traces/thompson_block_numbering.json",
+    "note": "READ, where it used to be counted two blocks east of 19 — and where two memos once claimed the owner crop showed a 17 it did not contain. The sheet does carry 17 here; what was wrong was which crop it was on. South Water-Lake tier; the run falls eastward here."
+   }
+  },
+  {
+   "id": "blk_south_water_dearborn",
+   "bounded_by": {
+    "north": "south_water",
+    "south": "lake",
+    "west": "dearborn",
+    "east": "state"
+   },
+   "boundary_local_enu_m": [
+    [
+     711.05,
+     -5.54
+    ],
+    [
+     804.66,
+     -8.19
+    ],
+    [
+     814.72,
+     -8.47
+    ],
+    [
+     814.11,
+     -104.11
+    ],
+    [
+     710.44,
+     -103.26
+    ]
+   ],
+   "area_m2": 10024.7,
+   "frontage_m": 103.7,
+   "frontage_ft": 340.2,
+   "depth_m": 96.67,
+   "lots_per_face": 4,
+   "alley_local_enu_m": [
+    [
+     710.76,
+     -51.66
+    ],
+    [
+     814.43,
+     -53.55
+    ],
+    [
+     814.4,
+     -59.03
+    ],
+    [
+     710.72,
+     -57.14
+    ]
+   ],
+   "lots": [
+    {
+     "tier": "north",
+     "frontage_m": 25.93,
+     "depth_m": 45.99,
+     "polygon": [
+      [
+       711.05,
+       -5.54
+      ],
+      [
+       736.97,
+       -6.27
+      ],
+      [
+       736.68,
+       -52.13
+      ],
+      [
+       710.76,
+       -51.66
+      ]
+     ],
+     "plat_lot_number": 4,
+     "plat_lot_confidence": "conjectural"
+    },
+    {
+     "tier": "south",
+     "frontage_m": 25.92,
+     "depth_m": 45.99,
+     "polygon": [
+      [
+       710.72,
+       -57.14
+      ],
+      [
+       736.64,
+       -57.62
+      ],
+      [
+       736.36,
+       -103.48
+      ],
+      [
+       710.44,
+       -103.26
+      ]
+     ],
+     "plat_lot_number": 5,
+     "plat_lot_confidence": "conjectural"
+    },
+    {
+     "tier": "north",
+     "frontage_m": 25.93,
+     "depth_m": 45.73,
+     "polygon": [
+      [
+       736.97,
+       -6.27
+      ],
+      [
+       762.89,
+       -7.0
+      ],
+      [
+       762.6,
+       -52.6
+      ],
+      [
+       736.68,
+       -52.13
+      ]
+     ],
+     "plat_lot_number": 3,
+     "plat_lot_confidence": "conjectural"
+    },
+    {
+     "tier": "south",
+     "frontage_m": 25.92,
+     "depth_m": 45.73,
+     "polygon": [
+      [
+       736.64,
+       -57.62
+      ],
+      [
+       762.56,
+       -58.09
+      ],
+      [
+       762.27,
+       -103.69
+      ],
+      [
+       736.36,
+       -103.48
+      ]
+     ],
+     "plat_lot_number": 6,
+     "plat_lot_confidence": "conjectural"
+    },
+    {
+     "tier": "north",
+     "frontage_m": 25.93,
+     "depth_m": 45.47,
+     "polygon": [
+      [
+       762.89,
+       -7.0
+      ],
+      [
+       788.8,
+       -7.74
+      ],
+      [
+       788.52,
+       -53.07
+      ],
+      [
+       762.6,
+       -52.6
+      ]
+     ],
+     "plat_lot_number": 2,
+     "plat_lot_confidence": "conjectural"
+    },
+    {
+     "tier": "south",
+     "frontage_m": 25.92,
+     "depth_m": 45.47,
+     "polygon": [
+      [
+       762.56,
+       -58.09
+      ],
+      [
+       788.48,
+       -58.56
+      ],
+      [
+       788.19,
+       -103.9
+      ],
+      [
+       762.27,
+       -103.69
+      ]
+     ],
+     "plat_lot_number": 7,
+     "plat_lot_confidence": "conjectural"
+    },
+    {
+     "tier": "north",
+     "frontage_m": 25.93,
+     "depth_m": 45.21,
+     "polygon": [
+      [
+       788.8,
+       -7.74
+      ],
+      [
+       814.72,
+       -8.47
+      ],
+      [
+       814.43,
+       -53.55
+      ],
+      [
+       788.52,
+       -53.07
+      ]
+     ],
+     "plat_lot_number": 1,
+     "plat_lot_confidence": "conjectural"
+    },
+    {
+     "tier": "south",
+     "frontage_m": 25.92,
+     "depth_m": 45.21,
+     "polygon": [
+      [
+       788.48,
+       -58.56
+      ],
+      [
+       814.4,
+       -59.03
+      ],
+      [
+       814.11,
+       -104.11
+      ],
+      [
+       788.19,
+       -103.9
+      ]
+     ],
+     "plat_lot_number": 8,
+     "plat_lot_confidence": "conjectural"
+    }
+   ],
+   "survey_tract": {
+    "tract": "canal_commissioners_1830",
+    "share": 1.0,
+    "geometry_confidence": "conjectural",
+    "on": [
+     "canal_commissioners_1830"
+    ],
+    "precedence_clause_fired": null
+   },
+   "module": {
+    "module": "south_division_thompson_1830",
+    "lot_frontage_ft": 80.0,
+    "alley_width_ft": 18.0,
+    "alley_runs": "east-west, mid-block",
+    "chosen_by": "the only module this generator can seat on the committed street lines",
+    "division": "south"
+   },
+   "plat_block_number": {
+    "number": 16,
+    "confidence": "inferred",
+    "numeral_on_sheet": true,
+    "sources": [
+     "wright_1834",
+     "chicago_democrat_1833_1835",
+     "andreas_1884_v1"
+    ],
+    "authored_in": "data/traces/thompson_block_numbering.json",
+    "note": "READ — the block of G. Spring's 'LOT No. 7, in block No. 16 ... on Lake street'. The numeral is on the sheet, so the address no longer rests on arithmetic: it rests on a numeral, on the notice's own 'on Lake street' (this block's south frontage), and on the Botsford/Andreas placement of Haddock's Tavern one lot west of lot 7. The crop also carries the lot numerals 4 3 2 1 / 5 6 7 8, so lot 7 is the third lot east of Dearborn in the Lake Street row. South Water-Lake tier; the run falls eastward here."
+   }
+  },
+  {
+   "id": "blk_lake_clinton",
+   "bounded_by": {
+    "north": "lake",
+    "south": "randolph",
+    "west": "clinton",
+    "east": "canal"
+   },
+   "boundary_local_enu_m": [
+    [
+     -271.02,
+     -119.69
+    ],
+    [
+     -176.35,
+     -120.45
+    ],
+    [
+     -170.7,
+     -238.88
+    ],
+    [
+     -268.18,
+     -238.11
+    ]
+   ],
+   "area_m2": 11374.7,
+   "frontage_m": 96.08,
+   "frontage_ft": 315.2,
+   "depth_m": 118.39,
+   "lots_per_face": 4,
+   "alley_local_enu_m": [
+    [
+     -269.67,
+     -176.16
+    ],
+    [
+     -173.66,
+     -176.92
+    ],
+    [
+     -173.39,
+     -182.4
+    ],
+    [
+     -269.54,
+     -181.64
+    ]
+   ],
+   "lots": [
+    {
+     "tier": "north",
+     "frontage_m": 23.67,
+     "depth_m": 56.49,
+     "polygon": [
+      [
+       -271.02,
+       -119.69
+      ],
+      [
+       -247.35,
+       -119.88
+      ],
+      [
+       -245.66,
+       -176.35
+      ],
+      [
+       -269.67,
+       -176.16
+      ]
+     ],
+     "plat_lot_number": 4,
+     "plat_lot_confidence": "conjectural"
+    },
+    {
+     "tier": "south",
+     "frontage_m": 24.37,
+     "depth_m": 56.49,
+     "polygon": [
+      [
+       -269.54,
+       -181.64
+      ],
+      [
+       -245.5,
+       -181.83
+      ],
+      [
+       -243.81,
+       -238.3
+      ],
+      [
+       -268.18,
+       -238.11
+      ]
+     ],
+     "plat_lot_number": 5,
+     "plat_lot_confidence": "conjectural"
+    },
+    {
+     "tier": "north",
+     "frontage_m": 23.67,
+     "depth_m": 56.5,
+     "polygon": [
+      [
+       -247.35,
+       -119.88
+      ],
+      [
+       -223.69,
+       -120.07
+      ],
+      [
+       -221.66,
+       -176.54
+      ],
+      [
+       -245.66,
+       -176.35
+      ]
+     ],
+     "plat_lot_number": 3,
+     "plat_lot_confidence": "conjectural"
+    },
+    {
+     "tier": "south",
+     "frontage_m": 24.37,
+     "depth_m": 56.5,
+     "polygon": [
+      [
+       -245.5,
+       -181.83
+      ],
+      [
+       -221.47,
+       -182.02
+      ],
+      [
+       -219.44,
+       -238.49
+      ],
+      [
+       -243.81,
+       -238.3
+      ]
+     ],
+     "plat_lot_number": 6,
+     "plat_lot_confidence": "conjectural"
+    },
+    {
+     "tier": "north",
+     "frontage_m": 23.67,
+     "depth_m": 56.51,
+     "polygon": [
+      [
+       -223.69,
+       -120.07
+      ],
+      [
+       -200.02,
+       -120.26
+      ],
+      [
+       -197.66,
+       -176.73
+      ],
+      [
+       -221.66,
+       -176.54
+      ]
+     ],
+     "plat_lot_number": 2,
+     "plat_lot_confidence": "conjectural"
+    },
+    {
+     "tier": "south",
+     "frontage_m": 24.37,
+     "depth_m": 56.51,
+     "polygon": [
+      [
+       -221.47,
+       -182.02
+      ],
+      [
+       -197.43,
+       -182.21
+      ],
+      [
+       -195.07,
+       -238.69
+      ],
+      [
+       -219.44,
+       -238.49
+      ]
+     ],
+     "plat_lot_number": 7,
+     "plat_lot_confidence": "conjectural"
+    },
+    {
+     "tier": "north",
+     "frontage_m": 23.67,
+     "depth_m": 56.53,
+     "polygon": [
+      [
+       -200.02,
+       -120.26
+      ],
+      [
+       -176.35,
+       -120.45
+      ],
+      [
+       -173.66,
+       -176.92
+      ],
+      [
+       -197.66,
+       -176.73
+      ]
+     ],
+     "plat_lot_number": 1,
+     "plat_lot_confidence": "conjectural"
+    },
+    {
+     "tier": "south",
+     "frontage_m": 24.37,
+     "depth_m": 56.53,
+     "polygon": [
+      [
+       -197.43,
+       -182.21
+      ],
+      [
+       -173.39,
+       -182.4
+      ],
+      [
+       -170.7,
+       -238.88
+      ],
+      [
+       -195.07,
+       -238.69
+      ]
+     ],
+     "plat_lot_number": 8,
+     "plat_lot_confidence": "conjectural"
+    }
+   ],
+   "survey_tract": {
+    "tract": "canal_commissioners_1830",
+    "share": 1.0,
+    "geometry_confidence": "conjectural",
+    "on": [
+     "canal_commissioners_1830"
+    ],
+    "precedence_clause_fired": null
+   },
+   "module": {
+    "module": "south_division_thompson_1830",
+    "lot_frontage_ft": 80.0,
+    "alley_width_ft": 18.0,
+    "alley_runs": "east-west, mid-block",
+    "chosen_by": "the only module this generator can seat on the committed street lines",
+    "division": "west",
+    "west_division_module_refused": {
+     "module": "west_division_thompson_1830",
+     "authored_in": "data/traces/thompson_west_division_lots.json",
+     "confidence_of_the_figures": "documented",
+     "what_it_asks_for": "two columns of 180 ft lots backing onto an 18 ft north-south alley — 378 ft east to west — and 75 3/5 ft of frontage to a lot, 378 ft north to south",
+     "what_the_committed_lines_give": {
+      "east_west_face_ft": 315.2,
+      "north_south_depth_ft": 388.4
+     },
+     "the_arithmetic": "the two lot columns alone need 360 ft and this block's face is 315.2 ft, so the arrangement does not fit before the alley is cut; 378 ft is 62.8 ft more than the block has. North to south 388.4 ft divides into 5.14 lots of 75 3/5 ft, and a plat does not print a fifth of a lot.",
+     "why_the_lines_and_not_the_module": "the module is `documented` — figures printed on the sheet and numerals counted in a block — and it closes exactly at 378 ft each way. What does not close is this project's West Division street spacing: Clinton to Canal is committed at 367.9 ft against the plat's own 458 ft. Seating the printed module would mean moving those lines, which is T-0445's ticket and not this one's, and the same short spacing is what T-0444 reported.",
+     "so": "this block keeps the South Division subdivision it was already built on, and says here that it is not the module the West Division plat prints"
+    }
+   },
+   "plat_block_number": {
+    "number": 28,
+    "confidence": "inferred",
+    "numeral_on_sheet": true,
+    "sources": [
+     "wright_1834"
+    ],
+    "authored_in": "data/traces/thompson_block_numbering.json",
+    "note": "READ. West Division, west bank of the South Branch. The numeral straddles the alley between the block's two halves, which is where Wright writes it on every West Division block. Lake-Randolph tier; the run RISES eastward here, the reverse of the tier above."
+   }
+  },
+  {
+   "id": "blk_lake_market",
+   "bounded_by": {
+    "north": "lake",
+    "south": "randolph",
+    "west": "market",
+    "east": "franklin"
+   },
+   "boundary_local_enu_m": [
+    [
+     98.02,
+     -122.66
+    ],
+    [
+     195.55,
+     -123.46
+    ],
+    [
+     194.84,
+     -241.85
+    ],
+    [
+     97.32,
+     -241.06
+    ]
+   ],
+   "area_m2": 11547.4,
+   "frontage_m": 97.53,
+   "frontage_ft": 320.0,
+   "depth_m": 118.4,
+   "lots_per_face": 4,
+   "alley_local_enu_m": [
+    [
+     97.68,
+     -179.12
+    ],
+    [
+     195.21,
+     -179.91
+    ],
+    [
+     195.18,
+     -185.4
+    ],
+    [
+     97.65,
+     -184.6
+    ]
+   ],
+   "lots": [
+    {
+     "tier": "north",
+     "frontage_m": 24.38,
+     "depth_m": 56.45,
+     "polygon": [
+      [
+       98.02,
+       -122.66
+      ],
+      [
+       122.4,
+       -122.86
+      ],
+      [
+       122.07,
+       -179.32
+      ],
+      [
+       97.68,
+       -179.12
+      ]
+     ],
+     "plat_lot_number": 4,
+     "plat_lot_confidence": "conjectural"
+    },
+    {
+     "tier": "south",
+     "frontage_m": 24.38,
+     "depth_m": 56.45,
+     "polygon": [
+      [
+       97.65,
+       -184.6
+      ],
+      [
+       122.03,
+       -184.8
+      ],
+      [
+       121.7,
+       -241.26
+      ],
+      [
+       97.32,
+       -241.06
+      ]
+     ],
+     "plat_lot_number": 5,
+     "plat_lot_confidence": "conjectural"
+    },
+    {
+     "tier": "north",
+     "frontage_m": 24.38,
+     "depth_m": 56.46,
+     "polygon": [
+      [
+       122.4,
+       -122.86
+      ],
+      [
+       146.78,
+       -123.06
+      ],
+      [
+       146.45,
+       -179.52
+      ],
+      [
+       122.07,
+       -179.32
+      ]
+     ],
+     "plat_lot_number": 3,
+     "plat_lot_confidence": "conjectural"
+    },
+    {
+     "tier": "south",
+     "frontage_m": 24.38,
+     "depth_m": 56.46,
+     "polygon": [
+      [
+       122.03,
+       -184.8
+      ],
+      [
+       146.42,
+       -185.0
+      ],
+      [
+       146.08,
+       -241.46
+      ],
+      [
+       121.7,
+       -241.26
+      ]
+     ],
+     "plat_lot_number": 6,
+     "plat_lot_confidence": "conjectural"
+    },
+    {
+     "tier": "north",
+     "frontage_m": 24.38,
+     "depth_m": 56.46,
+     "polygon": [
+      [
+       146.78,
+       -123.06
+      ],
+      [
+       171.16,
+       -123.26
+      ],
+      [
+       170.83,
+       -179.71
+      ],
+      [
+       146.45,
+       -179.52
+      ]
+     ],
+     "plat_lot_number": 2,
+     "plat_lot_confidence": "conjectural"
+    },
+    {
+     "tier": "south",
+     "frontage_m": 24.38,
+     "depth_m": 56.46,
+     "polygon": [
+      [
+       146.42,
+       -185.0
+      ],
+      [
+       170.8,
+       -185.2
+      ],
+      [
+       170.46,
+       -241.66
+      ],
+      [
+       146.08,
+       -241.46
+      ]
+     ],
+     "plat_lot_number": 7,
+     "plat_lot_confidence": "conjectural"
+    },
+    {
+     "tier": "north",
+     "frontage_m": 24.38,
+     "depth_m": 56.46,
+     "polygon": [
+      [
+       171.16,
+       -123.26
+      ],
+      [
+       195.55,
+       -123.46
+      ],
+      [
+       195.21,
+       -179.91
+      ],
+      [
+       170.83,
+       -179.71
+      ]
+     ],
+     "plat_lot_number": 1,
+     "plat_lot_confidence": "conjectural"
+    },
+    {
+     "tier": "south",
+     "frontage_m": 24.38,
+     "depth_m": 56.46,
+     "polygon": [
+      [
+       170.8,
+       -185.2
+      ],
+      [
+       195.18,
+       -185.4
+      ],
+      [
+       194.84,
+       -241.85
+      ],
+      [
+       170.46,
+       -241.66
+      ]
+     ],
+     "plat_lot_number": 8,
+     "plat_lot_confidence": "conjectural"
+    }
+   ],
+   "survey_tract": {
+    "tract": "canal_commissioners_1830",
+    "share": 1.0,
+    "geometry_confidence": "conjectural",
+    "on": [
+     "canal_commissioners_1830"
+    ],
+    "precedence_clause_fired": null
+   },
+   "module": {
+    "module": "south_division_thompson_1830",
+    "lot_frontage_ft": 80.0,
+    "alley_width_ft": 18.0,
+    "alley_runs": "east-west, mid-block",
+    "chosen_by": "the only module this generator can seat on the committed street lines",
+    "division": "south"
+   },
+   "plat_block_number": {
+    "number": 31,
+    "confidence": "inferred",
+    "numeral_on_sheet": true,
+    "sources": [
+     "wright_1834"
+    ],
+    "authored_in": "data/traces/thompson_block_numbering.json",
+    "note": "READ. First block of the tier east of the branch; the Market Street label is in the frame. The tier's run RISES eastward from here. Lake-Randolph tier; the run RISES eastward here, the reverse of the tier above."
+   }
+  },
+  {
+   "id": "blk_lake_franklin",
+   "bounded_by": {
+    "north": "lake",
+    "south": "randolph",
+    "west": "franklin",
+    "east": "wells"
+   },
+   "boundary_local_enu_m": [
+    [
+     219.93,
+     -123.66
+    ],
+    [
+     317.53,
+     -124.45
+    ],
+    [
+     316.83,
+     -242.85
+    ],
+    [
+     219.23,
+     -242.05
+    ]
+   ],
+   "area_m2": 11556.7,
+   "frontage_m": 97.61,
+   "frontage_ft": 320.2,
+   "depth_m": 118.4,
+   "lots_per_face": 4,
+   "alley_local_enu_m": [
+    [
+     219.6,
+     -180.11
+    ],
+    [
+     317.2,
+     -180.91
+    ],
+    [
+     317.17,
+     -186.39
+    ],
+    [
+     219.56,
+     -185.6
+    ]
+   ],
+   "lots": [
+    {
+     "tier": "north",
+     "frontage_m": 24.4,
+     "depth_m": 56.46,
+     "polygon": [
+      [
+       219.93,
+       -123.66
+      ],
+      [
+       244.33,
+       -123.86
+      ],
+      [
+       244.0,
+       -180.31
+      ],
+      [
+       219.6,
+       -180.11
+      ]
+     ],
+     "plat_lot_number": 4,
+     "plat_lot_confidence": "conjectural"
+    },
+    {
+     "tier": "south",
+     "frontage_m": 24.4,
+     "depth_m": 56.46,
+     "polygon": [
+      [
+       219.56,
+       -185.6
+      ],
+      [
+       243.96,
+       -185.8
+      ],
+      [
+       243.63,
+       -242.25
+      ],
+      [
+       219.23,
+       -242.05
+      ]
+     ],
+     "plat_lot_number": 5,
+     "plat_lot_confidence": "conjectural"
+    },
+    {
+     "tier": "north",
+     "frontage_m": 24.4,
+     "depth_m": 56.46,
+     "polygon": [
+      [
+       244.33,
+       -123.86
+      ],
+      [
+       268.73,
+       -124.05
+      ],
+      [
+       268.4,
+       -180.51
+      ],
+      [
+       244.0,
+       -180.31
+      ]
+     ],
+     "plat_lot_number": 3,
+     "plat_lot_confidence": "conjectural"
+    },
+    {
+     "tier": "south",
+     "frontage_m": 24.4,
+     "depth_m": 56.46,
+     "polygon": [
+      [
+       243.96,
+       -185.8
+      ],
+      [
+       268.37,
+       -186.0
+      ],
+      [
+       268.03,
+       -242.45
+      ],
+      [
+       243.63,
+       -242.25
+      ]
+     ],
+     "plat_lot_number": 6,
+     "plat_lot_confidence": "conjectural"
+    },
+    {
+     "tier": "north",
+     "frontage_m": 24.4,
+     "depth_m": 56.46,
+     "polygon": [
+      [
+       268.73,
+       -124.05
+      ],
+      [
+       293.13,
+       -124.25
+      ],
+      [
+       292.8,
+       -180.71
+      ],
+      [
+       268.4,
+       -180.51
+      ]
+     ],
+     "plat_lot_number": 2,
+     "plat_lot_confidence": "conjectural"
+    },
+    {
+     "tier": "south",
+     "frontage_m": 24.4,
+     "depth_m": 56.46,
+     "polygon": [
+      [
+       268.37,
+       -186.0
+      ],
+      [
+       292.77,
+       -186.19
+      ],
+      [
+       292.43,
+       -242.65
+      ],
+      [
+       268.03,
+       -242.45
+      ]
+     ],
+     "plat_lot_number": 7,
+     "plat_lot_confidence": "conjectural"
+    },
+    {
+     "tier": "north",
+     "frontage_m": 24.4,
+     "depth_m": 56.46,
+     "polygon": [
+      [
+       293.13,
+       -124.25
+      ],
+      [
+       317.53,
+       -124.45
+      ],
+      [
+       317.2,
+       -180.91
+      ],
+      [
+       292.8,
+       -180.71
+      ]
+     ],
+     "plat_lot_number": 1,
+     "plat_lot_confidence": "conjectural"
+    },
+    {
+     "tier": "south",
+     "frontage_m": 24.4,
+     "depth_m": 56.46,
+     "polygon": [
+      [
+       292.77,
+       -186.19
+      ],
+      [
+       317.17,
+       -186.39
+      ],
+      [
+       316.83,
+       -242.85
+      ],
+      [
+       292.43,
+       -242.65
+      ]
+     ],
+     "plat_lot_number": 8,
+     "plat_lot_confidence": "conjectural"
+    }
+   ],
+   "survey_tract": {
+    "tract": "canal_commissioners_1830",
+    "share": 1.0,
+    "geometry_confidence": "conjectural",
+    "on": [
+     "canal_commissioners_1830"
+    ],
+    "precedence_clause_fired": null
+   },
+   "module": {
+    "module": "south_division_thompson_1830",
+    "lot_frontage_ft": 80.0,
+    "alley_width_ft": 18.0,
+    "alley_runs": "east-west, mid-block",
+    "chosen_by": "the only module this generator can seat on the committed street lines",
+    "division": "south"
+   },
+   "plat_block_number": {
+    "number": 32,
+    "confidence": "inferred",
+    "numeral_on_sheet": true,
+    "sources": [
+     "wright_1834"
+    ],
+    "authored_in": "data/traces/thompson_block_numbering.json",
+    "note": "READ. Lake-Randolph tier; the run RISES eastward here, the reverse of the tier above."
+   }
+  },
+  {
+   "id": "blk_lake_wells",
+   "bounded_by": {
+    "north": "lake",
+    "south": "randolph",
+    "west": "wells",
+    "east": "lasalle"
+   },
+   "boundary_local_enu_m": [
+    [
+     341.92,
+     -124.65
+    ],
+    [
+     439.52,
+     -125.44
+    ],
+    [
+     438.83,
+     -243.84
+    ],
+    [
+     341.22,
+     -243.05
+    ]
+   ],
+   "area_m2": 11557.3,
+   "frontage_m": 97.61,
+   "frontage_ft": 320.2,
+   "depth_m": 118.4,
+   "lots_per_face": 4,
+   "alley_local_enu_m": [
+    [
+     341.58,
+     -181.11
+    ],
+    [
+     439.19,
+     -181.9
+    ],
+    [
+     439.16,
+     -187.39
+    ],
+    [
+     341.55,
+     -186.59
+    ]
+   ],
+   "lots": [
+    {
+     "tier": "north",
+     "frontage_m": 24.4,
+     "depth_m": 56.46,
+     "polygon": [
+      [
+       341.92,
+       -124.65
+      ],
+      [
+       366.32,
+       -124.85
+      ],
+      [
+       365.98,
+       -181.3
+      ],
+      [
+       341.58,
+       -181.11
+      ]
+     ],
+     "plat_lot_number": 4,
+     "plat_lot_confidence": "conjectural"
+    },
+    {
+     "tier": "south",
+     "frontage_m": 24.4,
+     "depth_m": 56.46,
+     "polygon": [
+      [
+       341.55,
+       -186.59
+      ],
+      [
+       365.95,
+       -186.79
+      ],
+      [
+       365.62,
+       -243.25
+      ],
+      [
+       341.22,
+       -243.05
+      ]
+     ],
+     "plat_lot_number": 5,
+     "plat_lot_confidence": "conjectural"
+    },
+    {
+     "tier": "north",
+     "frontage_m": 24.4,
+     "depth_m": 56.46,
+     "polygon": [
+      [
+       366.32,
+       -124.85
+      ],
+      [
+       390.72,
+       -125.05
+      ],
+      [
+       390.39,
+       -181.5
+      ],
+      [
+       365.98,
+       -181.3
+      ]
+     ],
+     "plat_lot_number": 3,
+     "plat_lot_confidence": "conjectural"
+    },
+    {
+     "tier": "south",
+     "frontage_m": 24.4,
+     "depth_m": 56.46,
+     "polygon": [
+      [
+       365.95,
+       -186.79
+      ],
+      [
+       390.35,
+       -186.99
+      ],
+      [
+       390.02,
+       -243.45
+      ],
+      [
+       365.62,
+       -243.25
+      ]
+     ],
+     "plat_lot_number": 6,
+     "plat_lot_confidence": "conjectural"
+    },
+    {
+     "tier": "north",
+     "frontage_m": 24.4,
+     "depth_m": 56.46,
+     "polygon": [
+      [
+       390.72,
+       -125.05
+      ],
+      [
+       415.12,
+       -125.25
+      ],
+      [
+       414.79,
+       -181.7
+      ],
+      [
+       390.39,
+       -181.5
+      ]
+     ],
+     "plat_lot_number": 2,
+     "plat_lot_confidence": "conjectural"
+    },
+    {
+     "tier": "south",
+     "frontage_m": 24.4,
+     "depth_m": 56.46,
+     "polygon": [
+      [
+       390.35,
+       -186.99
+      ],
+      [
+       414.76,
+       -187.19
+      ],
+      [
+       414.42,
+       -243.65
+      ],
+      [
+       390.02,
+       -243.45
+      ]
+     ],
+     "plat_lot_number": 7,
+     "plat_lot_confidence": "conjectural"
+    },
+    {
+     "tier": "north",
+     "frontage_m": 24.4,
+     "depth_m": 56.46,
+     "polygon": [
+      [
+       415.12,
+       -125.25
+      ],
+      [
+       439.52,
+       -125.44
+      ],
+      [
+       439.19,
+       -181.9
+      ],
+      [
+       414.79,
+       -181.7
+      ]
+     ],
+     "plat_lot_number": 1,
+     "plat_lot_confidence": "conjectural"
+    },
+    {
+     "tier": "south",
+     "frontage_m": 24.4,
+     "depth_m": 56.46,
+     "polygon": [
+      [
+       414.76,
+       -187.19
+      ],
+      [
+       439.16,
+       -187.39
+      ],
+      [
+       438.83,
+       -243.84
+      ],
+      [
+       414.42,
+       -243.65
+      ]
+     ],
+     "plat_lot_number": 8,
+     "plat_lot_confidence": "conjectural"
+    }
+   ],
+   "survey_tract": {
+    "tract": "canal_commissioners_1830",
+    "share": 1.0,
+    "geometry_confidence": "conjectural",
+    "on": [
+     "canal_commissioners_1830"
+    ],
+    "precedence_clause_fired": null
+   },
+   "module": {
+    "module": "south_division_thompson_1830",
+    "lot_frontage_ft": 80.0,
+    "alley_width_ft": 18.0,
+    "alley_runs": "east-west, mid-block",
+    "chosen_by": "the only module this generator can seat on the committed street lines",
+    "division": "south"
+   },
+   "plat_block_number": {
+    "number": 33,
+    "confidence": "inferred",
+    "numeral_on_sheet": true,
+    "sources": [
+     "wright_1834"
+    ],
+    "authored_in": "data/traces/thompson_block_numbering.json",
+    "note": "READ. Lake-Randolph tier; the run RISES eastward here, the reverse of the tier above."
+   }
+  },
+  {
+   "id": "blk_lake_lasalle",
+   "bounded_by": {
+    "north": "lake",
+    "south": "randolph",
+    "west": "lasalle",
+    "east": "clark"
+   },
+   "boundary_local_enu_m": [
+    [
+     463.91,
+     -125.64
+    ],
+    [
+     562.95,
+     -126.45
+    ],
+    [
+     562.19,
+     -244.85
+    ],
+    [
+     463.21,
+     -244.04
+    ]
+   ],
+   "area_m2": 11723.9,
+   "frontage_m": 99.02,
+   "frontage_ft": 324.9,
+   "depth_m": 118.4,
+   "lots_per_face": 4,
+   "alley_local_enu_m": [
+    [
+     463.57,
+     -182.1
+    ],
+    [
+     562.59,
+     -182.91
+    ],
+    [
+     562.55,
+     -188.39
+    ],
+    [
+     463.54,
+     -187.59
+    ]
+   ],
+   "lots": [
+    {
+     "tier": "north",
+     "frontage_m": 24.76,
+     "depth_m": 56.46,
+     "polygon": [
+      [
+       463.91,
+       -125.64
+      ],
+      [
+       488.67,
+       -125.84
+      ],
+      [
+       488.33,
+       -182.3
+      ],
+      [
+       463.57,
+       -182.1
+      ]
+     ],
+     "plat_lot_number": 4,
+     "plat_lot_confidence": "conjectural"
+    },
+    {
+     "tier": "south",
+     "frontage_m": 24.75,
+     "depth_m": 56.46,
+     "polygon": [
+      [
+       463.54,
+       -187.59
+      ],
+      [
+       488.29,
+       -187.79
+      ],
+      [
+       487.96,
+       -244.25
+      ],
+      [
+       463.21,
+       -244.04
+      ]
+     ],
+     "plat_lot_number": 5,
+     "plat_lot_confidence": "conjectural"
+    },
+    {
+     "tier": "north",
+     "frontage_m": 24.76,
+     "depth_m": 56.46,
+     "polygon": [
+      [
+       488.67,
+       -125.84
+      ],
+      [
+       513.43,
+       -126.05
+      ],
+      [
+       513.08,
+       -182.5
+      ],
+      [
+       488.33,
+       -182.3
+      ]
+     ],
+     "plat_lot_number": 3,
+     "plat_lot_confidence": "conjectural"
+    },
+    {
+     "tier": "south",
+     "frontage_m": 24.75,
+     "depth_m": 56.46,
+     "polygon": [
+      [
+       488.29,
+       -187.79
+      ],
+      [
+       513.05,
+       -187.99
+      ],
+      [
+       512.7,
+       -244.45
+      ],
+      [
+       487.96,
+       -244.25
+      ]
+     ],
+     "plat_lot_number": 6,
+     "plat_lot_confidence": "conjectural"
+    },
+    {
+     "tier": "north",
+     "frontage_m": 24.76,
+     "depth_m": 56.46,
+     "polygon": [
+      [
+       513.43,
+       -126.05
+      ],
+      [
+       538.19,
+       -126.25
+      ],
+      [
+       537.83,
+       -182.71
+      ],
+      [
+       513.08,
+       -182.5
+      ]
+     ],
+     "plat_lot_number": 2,
+     "plat_lot_confidence": "conjectural"
+    },
+    {
+     "tier": "south",
+     "frontage_m": 24.75,
+     "depth_m": 56.46,
+     "polygon": [
+      [
+       513.05,
+       -187.99
+      ],
+      [
+       537.8,
+       -188.19
+      ],
+      [
+       537.45,
+       -244.65
+      ],
+      [
+       512.7,
+       -244.45
+      ]
+     ],
+     "plat_lot_number": 7,
+     "plat_lot_confidence": "conjectural"
+    },
+    {
+     "tier": "north",
+     "frontage_m": 24.76,
+     "depth_m": 56.46,
+     "polygon": [
+      [
+       538.19,
+       -126.25
+      ],
+      [
+       562.95,
+       -126.45
+      ],
+      [
+       562.59,
+       -182.91
+      ],
+      [
+       537.83,
+       -182.71
+      ]
+     ],
+     "plat_lot_number": 1,
+     "plat_lot_confidence": "conjectural"
+    },
+    {
+     "tier": "south",
+     "frontage_m": 24.75,
+     "depth_m": 56.46,
+     "polygon": [
+      [
+       537.8,
+       -188.19
+      ],
+      [
+       562.55,
+       -188.39
+      ],
+      [
+       562.19,
+       -244.85
+      ],
+      [
+       537.45,
+       -244.65
+      ]
+     ],
+     "plat_lot_number": 8,
+     "plat_lot_confidence": "conjectural"
+    }
+   ],
+   "survey_tract": {
+    "tract": "canal_commissioners_1830",
+    "share": 1.0,
+    "geometry_confidence": "conjectural",
+    "on": [
+     "canal_commissioners_1830"
+    ],
+    "precedence_clause_fired": null
+   },
+   "module": {
+    "module": "south_division_thompson_1830",
+    "lot_frontage_ft": 80.0,
+    "alley_width_ft": 18.0,
+    "alley_runs": "east-west, mid-block",
+    "chosen_by": "the only module this generator can seat on the committed street lines",
+    "division": "south"
+   },
+   "plat_block_number": {
+    "number": 34,
+    "confidence": "inferred",
+    "numeral_on_sheet": true,
+    "sources": [
+     "wright_1834"
+    ],
+    "authored_in": "data/traces/thompson_block_numbering.json",
+    "note": "READ. Lake-Randolph tier; the run RISES eastward here, the reverse of the tier above."
+   }
+  },
+  {
+   "id": "blk_lake_clark",
+   "bounded_by": {
+    "north": "lake",
+    "south": "randolph",
+    "west": "clark",
+    "east": "dearborn"
+   },
+   "boundary_local_enu_m": [
+    [
+     587.33,
+     -126.65
+    ],
+    [
+     685.9,
+     -127.45
+    ],
+    [
+     685.17,
+     -245.85
+    ],
+    [
+     586.58,
+     -245.05
+    ]
+   ],
+   "area_m2": 11673.0,
+   "frontage_m": 98.58,
+   "frontage_ft": 323.4,
+   "depth_m": 118.41,
+   "lots_per_face": 4,
+   "alley_local_enu_m": [
+    [
+     586.97,
+     -183.11
+    ],
+    [
+     685.55,
+     -183.91
+    ],
+    [
+     685.52,
+     -189.4
+    ],
+    [
+     586.94,
+     -188.59
+    ]
+   ],
+   "lots": [
+    {
+     "tier": "north",
+     "frontage_m": 24.64,
+     "depth_m": 56.46,
+     "polygon": [
+      [
+       587.33,
+       -126.65
+      ],
+      [
+       611.97,
+       -126.85
+      ],
+      [
+       611.62,
+       -183.31
+      ],
+      [
+       586.97,
+       -183.11
+      ]
+     ],
+     "plat_lot_number": 4,
+     "plat_lot_confidence": "conjectural"
+    },
+    {
+     "tier": "south",
+     "frontage_m": 24.65,
+     "depth_m": 56.46,
+     "polygon": [
+      [
+       586.94,
+       -188.59
+      ],
+      [
+       611.58,
+       -188.79
+      ],
+      [
+       611.22,
+       -245.25
+      ],
+      [
+       586.58,
+       -245.05
+      ]
+     ],
+     "plat_lot_number": 5,
+     "plat_lot_confidence": "conjectural"
+    },
+    {
+     "tier": "north",
+     "frontage_m": 24.64,
+     "depth_m": 56.46,
+     "polygon": [
+      [
+       611.97,
+       -126.85
+      ],
+      [
+       636.62,
+       -127.05
+      ],
+      [
+       636.26,
+       -183.51
+      ],
+      [
+       611.62,
+       -183.31
+      ]
+     ],
+     "plat_lot_number": 3,
+     "plat_lot_confidence": "conjectural"
+    },
+    {
+     "tier": "south",
+     "frontage_m": 24.65,
+     "depth_m": 56.46,
+     "polygon": [
+      [
+       611.58,
+       -188.79
+      ],
+      [
+       636.23,
+       -188.99
+      ],
+      [
+       635.87,
+       -245.45
+      ],
+      [
+       611.22,
+       -245.25
+      ]
+     ],
+     "plat_lot_number": 6,
+     "plat_lot_confidence": "conjectural"
+    },
+    {
+     "tier": "north",
+     "frontage_m": 24.64,
+     "depth_m": 56.46,
+     "polygon": [
+      [
+       636.62,
+       -127.05
+      ],
+      [
+       661.26,
+       -127.25
+      ],
+      [
+       660.91,
+       -183.71
+      ],
+      [
+       636.26,
+       -183.51
+      ]
+     ],
+     "plat_lot_number": 2,
+     "plat_lot_confidence": "conjectural"
+    },
+    {
+     "tier": "south",
+     "frontage_m": 24.65,
+     "depth_m": 56.46,
+     "polygon": [
+      [
+       636.23,
+       -188.99
+      ],
+      [
+       660.87,
+       -189.19
+      ],
+      [
+       660.52,
+       -245.65
+      ],
+      [
+       635.87,
+       -245.45
+      ]
+     ],
+     "plat_lot_number": 7,
+     "plat_lot_confidence": "conjectural"
+    },
+    {
+     "tier": "north",
+     "frontage_m": 24.64,
+     "depth_m": 56.46,
+     "polygon": [
+      [
+       661.26,
+       -127.25
+      ],
+      [
+       685.9,
+       -127.45
+      ],
+      [
+       685.55,
+       -183.91
+      ],
+      [
+       660.91,
+       -183.71
+      ]
+     ],
+     "plat_lot_number": 1,
+     "plat_lot_confidence": "conjectural"
+    },
+    {
+     "tier": "south",
+     "frontage_m": 24.65,
+     "depth_m": 56.46,
+     "polygon": [
+      [
+       660.87,
+       -189.19
+      ],
+      [
+       685.52,
+       -189.4
+      ],
+      [
+       685.17,
+       -245.85
+      ],
+      [
+       660.52,
+       -245.65
+      ]
+     ],
+     "plat_lot_number": 8,
+     "plat_lot_confidence": "conjectural"
+    }
+   ],
+   "survey_tract": {
+    "tract": "canal_commissioners_1830",
+    "share": 1.0,
+    "geometry_confidence": "conjectural",
+    "on": [
+     "canal_commissioners_1830"
+    ],
+    "precedence_clause_fired": null
+   },
+   "module": {
+    "module": "south_division_thompson_1830",
+    "lot_frontage_ft": 80.0,
+    "alley_width_ft": 18.0,
+    "alley_runs": "east-west, mid-block",
+    "chosen_by": "the only module this generator can seat on the committed street lines",
+    "division": "south"
+   },
+   "plat_block_number": {
+    "number": 35,
+    "confidence": "inferred",
+    "numeral_on_sheet": true,
+    "sources": [
+     "wright_1834"
+    ],
+    "authored_in": "data/traces/thompson_block_numbering.json",
+    "note": "READ. Lake-Randolph tier; the run RISES eastward here, the reverse of the tier above."
+   }
+  },
+  {
+   "id": "blk_lake_dearborn",
+   "bounded_by": {
+    "north": "lake",
+    "south": "randolph",
+    "west": "dearborn",
+    "east": "state"
+   },
+   "boundary_local_enu_m": [
+    [
+     710.29,
+     -127.65
+    ],
+    [
+     813.95,
+     -128.49
+    ],
+    [
+     813.19,
+     -246.9
+    ],
+    [
+     709.55,
+     -246.05
+    ]
+   ],
+   "area_m2": 12274.0,
+   "frontage_m": 103.66,
+   "frontage_ft": 340.1,
+   "depth_m": 118.41,
+   "lots_per_face": 4,
+   "alley_local_enu_m": [
+    [
+     709.94,
+     -184.11
+    ],
+    [
+     813.59,
+     -184.95
+    ],
+    [
+     813.55,
+     -190.44
+    ],
+    [
+     709.9,
+     -189.59
+    ]
+   ],
+   "lots": [
+    {
+     "tier": "north",
+     "frontage_m": 25.92,
+     "depth_m": 56.46,
+     "polygon": [
+      [
+       710.29,
+       -127.65
+      ],
+      [
+       736.2,
+       -127.86
+      ],
+      [
+       735.85,
+       -184.32
+      ],
+      [
+       709.94,
+       -184.11
+      ]
+     ],
+     "plat_lot_number": 4,
+     "plat_lot_confidence": "conjectural"
+    },
+    {
+     "tier": "south",
+     "frontage_m": 25.91,
+     "depth_m": 56.46,
+     "polygon": [
+      [
+       709.9,
+       -189.59
+      ],
+      [
+       735.81,
+       -189.81
+      ],
+      [
+       735.46,
+       -246.27
+      ],
+      [
+       709.55,
+       -246.05
+      ]
+     ],
+     "plat_lot_number": 5,
+     "plat_lot_confidence": "conjectural"
+    },
+    {
+     "tier": "north",
+     "frontage_m": 25.92,
+     "depth_m": 56.46,
+     "polygon": [
+      [
+       736.2,
+       -127.86
+      ],
+      [
+       762.12,
+       -128.07
+      ],
+      [
+       761.76,
+       -184.53
+      ],
+      [
+       735.85,
+       -184.32
+      ]
+     ],
+     "plat_lot_number": 3,
+     "plat_lot_confidence": "conjectural"
+    },
+    {
+     "tier": "south",
+     "frontage_m": 25.91,
+     "depth_m": 56.46,
+     "polygon": [
+      [
+       735.81,
+       -189.81
+      ],
+      [
+       761.73,
+       -190.02
+      ],
+      [
+       761.37,
+       -246.48
+      ],
+      [
+       735.46,
+       -246.27
+      ]
+     ],
+     "plat_lot_number": 6,
+     "plat_lot_confidence": "conjectural"
+    },
+    {
+     "tier": "north",
+     "frontage_m": 25.92,
+     "depth_m": 56.46,
+     "polygon": [
+      [
+       762.12,
+       -128.07
+      ],
+      [
+       788.04,
+       -128.28
+      ],
+      [
+       787.68,
+       -184.74
+      ],
+      [
+       761.76,
+       -184.53
+      ]
+     ],
+     "plat_lot_number": 2,
+     "plat_lot_confidence": "conjectural"
+    },
+    {
+     "tier": "south",
+     "frontage_m": 25.91,
+     "depth_m": 56.46,
+     "polygon": [
+      [
+       761.73,
+       -190.02
+      ],
+      [
+       787.64,
+       -190.23
+      ],
+      [
+       787.28,
+       -246.69
+      ],
+      [
+       761.37,
+       -246.48
+      ]
+     ],
+     "plat_lot_number": 7,
+     "plat_lot_confidence": "conjectural"
+    },
+    {
+     "tier": "north",
+     "frontage_m": 25.92,
+     "depth_m": 56.46,
+     "polygon": [
+      [
+       788.04,
+       -128.28
+      ],
+      [
+       813.95,
+       -128.49
+      ],
+      [
+       813.59,
+       -184.95
+      ],
+      [
+       787.68,
+       -184.74
+      ]
+     ],
+     "plat_lot_number": 1,
+     "plat_lot_confidence": "conjectural"
+    },
+    {
+     "tier": "south",
+     "frontage_m": 25.91,
+     "depth_m": 56.46,
+     "polygon": [
+      [
+       787.64,
+       -190.23
+      ],
+      [
+       813.55,
+       -190.44
+      ],
+      [
+       813.19,
+       -246.9
+      ],
+      [
+       787.28,
+       -246.69
+      ]
+     ],
+     "plat_lot_number": 8,
+     "plat_lot_confidence": "conjectural"
+    }
+   ],
+   "survey_tract": {
+    "tract": "canal_commissioners_1830",
+    "share": 1.0,
+    "geometry_confidence": "conjectural",
+    "on": [
+     "canal_commissioners_1830"
+    ],
+    "precedence_clause_fired": null
+   },
+   "module": {
+    "module": "south_division_thompson_1830",
+    "lot_frontage_ft": 80.0,
+    "alley_width_ft": 18.0,
+    "alley_runs": "east-west, mid-block",
+    "chosen_by": "the only module this generator can seat on the committed street lines",
+    "division": "south"
+   },
+   "plat_block_number": {
+    "number": 36,
+    "confidence": "inferred",
+    "numeral_on_sheet": true,
+    "sources": [
+     "wright_1834"
+    ],
+    "authored_in": "data/traces/thompson_block_numbering.json",
+    "note": "READ. Last block of the tier; State Street's wash is at the frame's east edge. Lake-Randolph tier; the run RISES eastward here, the reverse of the tier above."
+   }
+  },
+  {
+   "id": "blk_randolph_clinton",
+   "bounded_by": {
+    "north": "randolph",
+    "south": "washington",
+    "west": "clinton",
+    "east": "canal"
+   },
+   "boundary_local_enu_m": [
+    [
+     -267.6,
+     -262.5
+    ],
+    [
+     -169.53,
+     -263.27
+    ],
+    [
+     -164.23,
+     -374.27
+    ],
+    [
+     -264.94,
+     -373.45
+    ]
+   ],
+   "area_m2": 11026.4,
+   "frontage_m": 99.39,
+   "frontage_ft": 326.1,
+   "depth_m": 110.94,
+   "lots_per_face": 4,
+   "alley_local_enu_m": [
+    [
+     -266.34,
+     -315.24
+    ],
+    [
+     -167.01,
+     -316.03
+    ],
+    [
+     -166.75,
+     -321.51
+    ],
+    [
+     -266.2,
+     -320.72
+    ]
+   ],
+   "lots": [
+    {
+     "tier": "north",
+     "frontage_m": 24.52,
+     "depth_m": 52.76,
+     "polygon": [
+      [
+       -267.6,
+       -262.5
+      ],
+      [
+       -243.08,
+       -262.69
+      ],
+      [
+       -241.5,
+       -315.43
+      ],
+      [
+       -266.34,
+       -315.24
+      ]
+     ],
+     "plat_lot_number": 4,
+     "plat_lot_confidence": "conjectural"
+    },
+    {
+     "tier": "south",
+     "frontage_m": 25.18,
+     "depth_m": 52.76,
+     "polygon": [
+      [
+       -266.2,
+       -320.72
+      ],
+      [
+       -241.34,
+       -320.92
+      ],
+      [
+       -239.76,
+       -373.66
+      ],
+      [
+       -264.94,
+       -373.45
+      ]
+     ],
+     "plat_lot_number": 5,
+     "plat_lot_confidence": "conjectural"
+    },
+    {
+     "tier": "north",
+     "frontage_m": 24.52,
+     "depth_m": 52.77,
+     "polygon": [
+      [
+       -243.08,
+       -262.69
+      ],
+      [
+       -218.57,
+       -262.89
+      ],
+      [
+       -216.67,
+       -315.63
+      ],
+      [
+       -241.5,
+       -315.43
+      ]
+     ],
+     "plat_lot_number": 3,
+     "plat_lot_confidence": "conjectural"
+    },
+    {
+     "tier": "south",
+     "frontage_m": 25.18,
+     "depth_m": 52.77,
+     "polygon": [
+      [
+       -241.34,
+       -320.92
+      ],
+      [
+       -216.48,
+       -321.12
+      ],
+      [
+       -214.59,
+       -373.86
+      ],
+      [
+       -239.76,
+       -373.66
+      ]
+     ],
+     "plat_lot_number": 6,
+     "plat_lot_confidence": "conjectural"
+    },
+    {
+     "tier": "north",
+     "frontage_m": 24.52,
+     "depth_m": 52.79,
+     "polygon": [
+      [
+       -218.57,
+       -262.89
+      ],
+      [
+       -194.05,
+       -263.08
+      ],
+      [
+       -191.84,
+       -315.83
+      ],
+      [
+       -216.67,
+       -315.63
+      ]
+     ],
+     "plat_lot_number": 2,
+     "plat_lot_confidence": "conjectural"
+    },
+    {
+     "tier": "south",
+     "frontage_m": 25.18,
+     "depth_m": 52.79,
+     "polygon": [
+      [
+       -216.48,
+       -321.12
+      ],
+      [
+       -191.61,
+       -321.31
+      ],
+      [
+       -189.41,
+       -374.07
+      ],
+      [
+       -214.59,
+       -373.86
+      ]
+     ],
+     "plat_lot_number": 7,
+     "plat_lot_confidence": "conjectural"
+    },
+    {
+     "tier": "north",
+     "frontage_m": 24.52,
+     "depth_m": 52.81,
+     "polygon": [
+      [
+       -194.05,
+       -263.08
+      ],
+      [
+       -169.53,
+       -263.27
+      ],
+      [
+       -167.01,
+       -316.03
+      ],
+      [
+       -191.84,
+       -315.83
+      ]
+     ],
+     "plat_lot_number": 1,
+     "plat_lot_confidence": "conjectural"
+    },
+    {
+     "tier": "south",
+     "frontage_m": 25.18,
+     "depth_m": 52.81,
+     "polygon": [
+      [
+       -191.61,
+       -321.31
+      ],
+      [
+       -166.75,
+       -321.51
+      ],
+      [
+       -164.23,
+       -374.27
+      ],
+      [
+       -189.41,
+       -374.07
+      ]
+     ],
+     "plat_lot_number": 8,
+     "plat_lot_confidence": "conjectural"
+    }
+   ],
+   "survey_tract": {
+    "tract": "canal_commissioners_1830",
+    "share": 1.0,
+    "geometry_confidence": "conjectural",
+    "on": [
+     "canal_commissioners_1830"
+    ],
+    "precedence_clause_fired": null
+   },
+   "module": {
+    "module": "south_division_thompson_1830",
+    "lot_frontage_ft": 80.0,
+    "alley_width_ft": 18.0,
+    "alley_runs": "east-west, mid-block",
+    "chosen_by": "the only module this generator can seat on the committed street lines",
+    "division": "west",
+    "west_division_module_refused": {
+     "module": "west_division_thompson_1830",
+     "authored_in": "data/traces/thompson_west_division_lots.json",
+     "confidence_of_the_figures": "documented",
+     "what_it_asks_for": "two columns of 180 ft lots backing onto an 18 ft north-south alley — 378 ft east to west — and 75 3/5 ft of frontage to a lot, 378 ft north to south",
+     "what_the_committed_lines_give": {
+      "east_west_face_ft": 326.1,
+      "north_south_depth_ft": 364.0
+     },
+     "the_arithmetic": "the two lot columns alone need 360 ft and this block's face is 326.1 ft, so the arrangement does not fit before the alley is cut; 378 ft is 51.9 ft more than the block has. North to south 364.0 ft divides into 4.81 lots of 75 3/5 ft, and a plat does not print a fifth of a lot.",
+     "why_the_lines_and_not_the_module": "the module is `documented` — figures printed on the sheet and numerals counted in a block — and it closes exactly at 378 ft each way. What does not close is this project's West Division street spacing: Clinton to Canal is committed at 367.9 ft against the plat's own 458 ft. Seating the printed module would mean moving those lines, which is T-0445's ticket and not this one's, and the same short spacing is what T-0444 reported.",
+     "so": "this block keeps the South Division subdivision it was already built on, and says here that it is not the module the West Division plat prints"
+    }
+   },
+   "plat_block_number": {
+    "number": 45,
+    "confidence": "inferred",
+    "numeral_on_sheet": true,
+    "sources": [
+     "wright_1834"
+    ],
+    "authored_in": "data/traces/thompson_block_numbering.json",
+    "note": "READ. West Division, west bank. The Washington Street label is in the frame, and the block west of it carries lot numerals 1 4 5 8 9 — a TEN-lot block, which the module does not know about and which is recorded in `lot_numbering` rather than acted on. Randolph-Washington tier; the run falls eastward again."
+   }
+  },
+  {
+   "id": "blk_randolph_market",
+   "bounded_by": {
+    "north": "randolph",
+    "south": "washington",
+    "west": "market",
+    "east": "franklin"
+   },
+   "boundary_local_enu_m": [
+    [
+     97.17,
+     -265.44
+    ],
+    [
+     194.7,
+     -266.24
+    ],
+    [
+     194.04,
+     -377.18
+    ],
+    [
+     96.51,
+     -376.39
+    ]
+   ],
+   "area_m2": 10820.8,
+   "frontage_m": 97.53,
+   "frontage_ft": 320.0,
+   "depth_m": 110.95,
+   "lots_per_face": 4,
+   "alley_local_enu_m": [
+    [
+     96.86,
+     -318.17
+    ],
+    [
+     194.39,
+     -318.97
+    ],
+    [
+     194.36,
+     -324.45
+    ],
+    [
+     96.83,
+     -323.66
+    ]
+   ],
+   "lots": [
+    {
+     "tier": "north",
+     "frontage_m": 24.38,
+     "depth_m": 52.73,
+     "polygon": [
+      [
+       97.17,
+       -265.44
+      ],
+      [
+       121.55,
+       -265.64
+      ],
+      [
+       121.24,
+       -318.37
+      ],
+      [
+       96.86,
+       -318.17
+      ]
+     ],
+     "plat_lot_number": 4,
+     "plat_lot_confidence": "conjectural"
+    },
+    {
+     "tier": "south",
+     "frontage_m": 24.38,
+     "depth_m": 52.73,
+     "polygon": [
+      [
+       96.83,
+       -323.66
+      ],
+      [
+       121.21,
+       -323.86
+      ],
+      [
+       120.9,
+       -376.59
+      ],
+      [
+       96.51,
+       -376.39
+      ]
+     ],
+     "plat_lot_number": 5,
+     "plat_lot_confidence": "conjectural"
+    },
+    {
+     "tier": "north",
+     "frontage_m": 24.38,
+     "depth_m": 52.73,
+     "polygon": [
+      [
+       121.55,
+       -265.64
+      ],
+      [
+       145.94,
+       -265.84
+      ],
+      [
+       145.62,
+       -318.57
+      ],
+      [
+       121.24,
+       -318.37
+      ]
+     ],
+     "plat_lot_number": 3,
+     "plat_lot_confidence": "conjectural"
+    },
+    {
+     "tier": "south",
+     "frontage_m": 24.38,
+     "depth_m": 52.73,
+     "polygon": [
+      [
+       121.21,
+       -323.86
+      ],
+      [
+       145.59,
+       -324.05
+      ],
+      [
+       145.28,
+       -376.78
+      ],
+      [
+       120.9,
+       -376.59
+      ]
+     ],
+     "plat_lot_number": 6,
+     "plat_lot_confidence": "conjectural"
+    },
+    {
+     "tier": "north",
+     "frontage_m": 24.38,
+     "depth_m": 52.73,
+     "polygon": [
+      [
+       145.94,
+       -265.84
+      ],
+      [
+       170.32,
+       -266.04
+      ],
+      [
+       170.01,
+       -318.77
+      ],
+      [
+       145.62,
+       -318.57
+      ]
+     ],
+     "plat_lot_number": 2,
+     "plat_lot_confidence": "conjectural"
+    },
+    {
+     "tier": "south",
+     "frontage_m": 24.38,
+     "depth_m": 52.73,
+     "polygon": [
+      [
+       145.59,
+       -324.05
+      ],
+      [
+       169.97,
+       -324.25
+      ],
+      [
+       169.66,
+       -376.98
+      ],
+      [
+       145.28,
+       -376.78
+      ]
+     ],
+     "plat_lot_number": 7,
+     "plat_lot_confidence": "conjectural"
+    },
+    {
+     "tier": "north",
+     "frontage_m": 24.38,
+     "depth_m": 52.73,
+     "polygon": [
+      [
+       170.32,
+       -266.04
+      ],
+      [
+       194.7,
+       -266.24
+      ],
+      [
+       194.39,
+       -318.97
+      ],
+      [
+       170.01,
+       -318.77
+      ]
+     ],
+     "plat_lot_number": 1,
+     "plat_lot_confidence": "conjectural"
+    },
+    {
+     "tier": "south",
+     "frontage_m": 24.38,
+     "depth_m": 52.73,
+     "polygon": [
+      [
+       169.97,
+       -324.25
+      ],
+      [
+       194.36,
+       -324.45
+      ],
+      [
+       194.04,
+       -377.18
+      ],
+      [
+       169.66,
+       -376.98
+      ]
+     ],
+     "plat_lot_number": 8,
+     "plat_lot_confidence": "conjectural"
+    }
+   ],
+   "survey_tract": {
+    "tract": "canal_commissioners_1830",
+    "share": 1.0,
+    "geometry_confidence": "conjectural",
+    "on": [
+     "canal_commissioners_1830"
+    ],
+    "precedence_clause_fired": null
+   },
+   "module": {
+    "module": "south_division_thompson_1830",
+    "lot_frontage_ft": 80.0,
+    "alley_width_ft": 18.0,
+    "alley_runs": "east-west, mid-block",
+    "chosen_by": "the only module this generator can seat on the committed street lines",
+    "division": "south"
+   },
+   "plat_block_number": {
+    "number": 42,
+    "confidence": "inferred",
+    "numeral_on_sheet": true,
+    "sources": [
+     "wright_1834"
+    ],
+    "authored_in": "data/traces/thompson_block_numbering.json",
+    "note": "READ. First block of the tier east of the branch that the grid draws. Randolph-Washington tier; the run falls eastward again."
+   }
+  },
+  {
+   "id": "blk_randolph_franklin",
+   "bounded_by": {
+    "north": "randolph",
+    "south": "washington",
+    "west": "franklin",
+    "east": "wells"
+   },
+   "boundary_local_enu_m": [
+    [
+     219.08,
+     -266.44
+    ],
+    [
+     316.69,
+     -267.23
+    ],
+    [
+     316.04,
+     -378.17
+    ],
+    [
+     218.43,
+     -377.38
+    ]
+   ],
+   "area_m2": 10829.0,
+   "frontage_m": 97.61,
+   "frontage_ft": 320.2,
+   "depth_m": 110.94,
+   "lots_per_face": 4,
+   "alley_local_enu_m": [
+    [
+     218.77,
+     -319.16
+    ],
+    [
+     316.38,
+     -319.96
+    ],
+    [
+     316.35,
+     -325.44
+    ],
+    [
+     218.74,
+     -324.65
+    ]
+   ],
+   "lots": [
+    {
+     "tier": "north",
+     "frontage_m": 24.4,
+     "depth_m": 52.73,
+     "polygon": [
+      [
+       219.08,
+       -266.44
+      ],
+      [
+       243.49,
+       -266.64
+      ],
+      [
+       243.17,
+       -319.36
+      ],
+      [
+       218.77,
+       -319.16
+      ]
+     ],
+     "plat_lot_number": 4,
+     "plat_lot_confidence": "conjectural"
+    },
+    {
+     "tier": "south",
+     "frontage_m": 24.4,
+     "depth_m": 52.73,
+     "polygon": [
+      [
+       218.74,
+       -324.65
+      ],
+      [
+       243.14,
+       -324.85
+      ],
+      [
+       242.83,
+       -377.57
+      ],
+      [
+       218.43,
+       -377.38
+      ]
+     ],
+     "plat_lot_number": 5,
+     "plat_lot_confidence": "conjectural"
+    },
+    {
+     "tier": "north",
+     "frontage_m": 24.4,
+     "depth_m": 52.73,
+     "polygon": [
+      [
+       243.49,
+       -266.64
+      ],
+      [
+       267.89,
+       -266.83
+      ],
+      [
+       267.58,
+       -319.56
+      ],
+      [
+       243.17,
+       -319.36
+      ]
+     ],
+     "plat_lot_number": 3,
+     "plat_lot_confidence": "conjectural"
+    },
+    {
+     "tier": "south",
+     "frontage_m": 24.4,
+     "depth_m": 52.73,
+     "polygon": [
+      [
+       243.14,
+       -324.85
+      ],
+      [
+       267.54,
+       -325.05
+      ],
+      [
+       267.23,
+       -377.77
+      ],
+      [
+       242.83,
+       -377.57
+      ]
+     ],
+     "plat_lot_number": 6,
+     "plat_lot_confidence": "conjectural"
+    },
+    {
+     "tier": "north",
+     "frontage_m": 24.4,
+     "depth_m": 52.73,
+     "polygon": [
+      [
+       267.89,
+       -266.83
+      ],
+      [
+       292.29,
+       -267.03
+      ],
+      [
+       291.98,
+       -319.76
+      ],
+      [
+       267.58,
+       -319.56
+      ]
+     ],
+     "plat_lot_number": 2,
+     "plat_lot_confidence": "conjectural"
+    },
+    {
+     "tier": "south",
+     "frontage_m": 24.4,
+     "depth_m": 52.73,
+     "polygon": [
+      [
+       267.54,
+       -325.05
+      ],
+      [
+       291.95,
+       -325.25
+      ],
+      [
+       291.63,
+       -377.97
+      ],
+      [
+       267.23,
+       -377.77
+      ]
+     ],
+     "plat_lot_number": 7,
+     "plat_lot_confidence": "conjectural"
+    },
+    {
+     "tier": "north",
+     "frontage_m": 24.4,
+     "depth_m": 52.73,
+     "polygon": [
+      [
+       292.29,
+       -267.03
+      ],
+      [
+       316.69,
+       -267.23
+      ],
+      [
+       316.38,
+       -319.96
+      ],
+      [
+       291.98,
+       -319.76
+      ]
+     ],
+     "plat_lot_number": 1,
+     "plat_lot_confidence": "conjectural"
+    },
+    {
+     "tier": "south",
+     "frontage_m": 24.4,
+     "depth_m": 52.73,
+     "polygon": [
+      [
+       291.95,
+       -325.25
+      ],
+      [
+       316.35,
+       -325.44
+      ],
+      [
+       316.04,
+       -378.17
+      ],
+      [
+       291.63,
+       -377.97
+      ]
+     ],
+     "plat_lot_number": 8,
+     "plat_lot_confidence": "conjectural"
+    }
+   ],
+   "survey_tract": {
+    "tract": "canal_commissioners_1830",
+    "share": 1.0,
+    "geometry_confidence": "conjectural",
+    "on": [
+     "canal_commissioners_1830"
+    ],
+    "precedence_clause_fired": null
+   },
+   "module": {
+    "module": "south_division_thompson_1830",
+    "lot_frontage_ft": 80.0,
+    "alley_width_ft": 18.0,
+    "alley_runs": "east-west, mid-block",
+    "chosen_by": "the only module this generator can seat on the committed street lines",
+    "division": "south"
+   },
+   "plat_block_number": {
+    "number": 41,
+    "confidence": "inferred",
+    "numeral_on_sheet": true,
+    "sources": [
+     "wright_1834"
+    ],
+    "authored_in": "data/traces/thompson_block_numbering.json",
+    "note": "READ; the Franklin Street label is in the frame. Randolph-Washington tier; the run falls eastward again."
+   }
+  },
+  {
+   "id": "blk_randolph_wells",
+   "bounded_by": {
+    "north": "randolph",
+    "south": "washington",
+    "west": "wells",
+    "east": "lasalle"
+   },
+   "boundary_local_enu_m": [
+    [
+     341.07,
+     -267.43
+    ],
+    [
+     438.68,
+     -268.23
+    ],
+    [
+     438.03,
+     -379.16
+    ],
+    [
+     340.42,
+     -378.37
+    ]
+   ],
+   "area_m2": 10828.6,
+   "frontage_m": 97.61,
+   "frontage_ft": 320.3,
+   "depth_m": 110.93,
+   "lots_per_face": 4,
+   "alley_local_enu_m": [
+    [
+     340.76,
+     -320.16
+    ],
+    [
+     438.37,
+     -320.95
+    ],
+    [
+     438.34,
+     -326.44
+    ],
+    [
+     340.73,
+     -325.64
+    ]
+   ],
+   "lots": [
+    {
+     "tier": "north",
+     "frontage_m": 24.4,
+     "depth_m": 52.72,
+     "polygon": [
+      [
+       341.07,
+       -267.43
+      ],
+      [
+       365.48,
+       -267.63
+      ],
+      [
+       365.17,
+       -320.35
+      ],
+      [
+       340.76,
+       -320.16
+      ]
+     ],
+     "plat_lot_number": 4,
+     "plat_lot_confidence": "conjectural"
+    },
+    {
+     "tier": "south",
+     "frontage_m": 24.4,
+     "depth_m": 52.72,
+     "polygon": [
+      [
+       340.73,
+       -325.64
+      ],
+      [
+       365.13,
+       -325.84
+      ],
+      [
+       364.82,
+       -378.56
+      ],
+      [
+       340.42,
+       -378.37
+      ]
+     ],
+     "plat_lot_number": 5,
+     "plat_lot_confidence": "conjectural"
+    },
+    {
+     "tier": "north",
+     "frontage_m": 24.4,
+     "depth_m": 52.72,
+     "polygon": [
+      [
+       365.48,
+       -267.63
+      ],
+      [
+       389.88,
+       -267.83
+      ],
+      [
+       389.57,
+       -320.55
+      ],
+      [
+       365.17,
+       -320.35
+      ]
+     ],
+     "plat_lot_number": 3,
+     "plat_lot_confidence": "conjectural"
+    },
+    {
+     "tier": "south",
+     "frontage_m": 24.4,
+     "depth_m": 52.72,
+     "polygon": [
+      [
+       365.13,
+       -325.84
+      ],
+      [
+       389.54,
+       -326.04
+      ],
+      [
+       389.23,
+       -378.76
+      ],
+      [
+       364.82,
+       -378.56
+      ]
+     ],
+     "plat_lot_number": 6,
+     "plat_lot_confidence": "conjectural"
+    },
+    {
+     "tier": "north",
+     "frontage_m": 24.4,
+     "depth_m": 52.72,
+     "polygon": [
+      [
+       389.88,
+       -267.83
+      ],
+      [
+       414.28,
+       -268.03
+      ],
+      [
+       413.97,
+       -320.75
+      ],
+      [
+       389.57,
+       -320.55
+      ]
+     ],
+     "plat_lot_number": 2,
+     "plat_lot_confidence": "conjectural"
+    },
+    {
+     "tier": "south",
+     "frontage_m": 24.4,
+     "depth_m": 52.72,
+     "polygon": [
+      [
+       389.54,
+       -326.04
+      ],
+      [
+       413.94,
+       -326.24
+      ],
+      [
+       413.63,
+       -378.96
+      ],
+      [
+       389.23,
+       -378.76
+      ]
+     ],
+     "plat_lot_number": 7,
+     "plat_lot_confidence": "conjectural"
+    },
+    {
+     "tier": "north",
+     "frontage_m": 24.4,
+     "depth_m": 52.72,
+     "polygon": [
+      [
+       414.28,
+       -268.03
+      ],
+      [
+       438.68,
+       -268.23
+      ],
+      [
+       438.37,
+       -320.95
+      ],
+      [
+       413.97,
+       -320.75
+      ]
+     ],
+     "plat_lot_number": 1,
+     "plat_lot_confidence": "conjectural"
+    },
+    {
+     "tier": "south",
+     "frontage_m": 24.4,
+     "depth_m": 52.72,
+     "polygon": [
+      [
+       413.94,
+       -326.24
+      ],
+      [
+       438.34,
+       -326.44
+      ],
+      [
+       438.03,
+       -379.16
+      ],
+      [
+       413.63,
+       -378.96
+      ]
+     ],
+     "plat_lot_number": 8,
+     "plat_lot_confidence": "conjectural"
+    }
+   ],
+   "survey_tract": {
+    "tract": "canal_commissioners_1830",
+    "share": 1.0,
+    "geometry_confidence": "conjectural",
+    "on": [
+     "canal_commissioners_1830"
+    ],
+    "precedence_clause_fired": null
+   },
+   "module": {
+    "module": "south_division_thompson_1830",
+    "lot_frontage_ft": 80.0,
+    "alley_width_ft": 18.0,
+    "alley_runs": "east-west, mid-block",
+    "chosen_by": "the only module this generator can seat on the committed street lines",
+    "division": "south"
+   },
+   "plat_block_number": {
+    "number": 40,
+    "confidence": "inferred",
+    "numeral_on_sheet": true,
+    "sources": [
+     "wright_1834"
+    ],
+    "authored_in": "data/traces/thompson_block_numbering.json",
+    "note": "READ, with complete lot numerals 4 3 2 1 / 5 6 7 8 — the fourth block on which the counter-clockwise-from-north-east scheme is read, and the first outside the South Water tier. Randolph-Washington tier; the run falls eastward again."
+   }
+  },
+  {
+   "id": "blk_randolph_lasalle",
+   "bounded_by": {
+    "north": "randolph",
+    "south": "washington",
+    "west": "lasalle",
+    "east": "clark"
+   },
+   "boundary_local_enu_m": [
+    [
+     463.07,
+     -268.43
+    ],
+    [
+     562.04,
+     -269.23
+    ],
+    [
+     561.33,
+     -380.16
+    ],
+    [
+     462.41,
+     -379.36
+    ]
+   ],
+   "area_m2": 10976.4,
+   "frontage_m": 98.95,
+   "frontage_ft": 324.6,
+   "depth_m": 110.93,
+   "alley_local_enu_m": null,
+   "lots": [],
+   "survey_tract": {
+    "tract": "canal_commissioners_1830",
+    "share": 1.0,
+    "geometry_confidence": "conjectural",
+    "on": [
+     "canal_commissioners_1830"
+    ],
+    "precedence_clause_fired": null
+   },
+   "module": {
+    "module": "south_division_thompson_1830",
+    "lot_frontage_ft": 80.0,
+    "alley_width_ft": 18.0,
+    "alley_runs": "east-west, mid-block",
+    "chosen_by": "the only module this generator can seat on the committed street lines",
+    "division": "south"
+   },
+   "reserved": {
+    "reserved_for": "public",
+    "name": "The Public Square",
+    "confidence": "inferred",
+    "sources": [
+     "andreas_1884_v1",
+     "chicagology_prefire273"
+    ],
+    "authored_in": "data/reconstruction/1835_reserved_ground.json",
+    "note": "This block is not subdivided. See the reservation record for the evidence and for what may stand here."
+   },
+   "lots_per_face_withheld": 4,
+   "plat_block_number": {
+    "number": 39,
+    "confidence": "inferred",
+    "numeral_on_sheet": false,
+    "sources": [
+     "wright_1834"
+    ],
+    "authored_in": "data/traces/thompson_block_numbering.json",
+    "note": "NO NUMERAL. Wright washes this block pink, rules it into eight lots like its neighbours, and letters 'Public Square' across it instead of a number — the crop cited here shows exactly that and nothing else. 39 is therefore the ONE number in this file that is still counted, and it is counted across a single block from numerals read on both sides of it: 40 stands in the block immediately west and 38 in the block immediately east, in a tier whose run falls eastward by one. There is one number between them and the square is the block that takes it. That is a stronger position than the old tier counts had — the gap is one block wide and it is bracketed — but it is not a reading, and `numeral_on_sheet` says so. The block's identity is not in question: it is the block this project's own ground control labels 'NW corner of the Public Square block' and 'SE corner of the Public Square block', and the block data/reconstruction/1835_reserved_ground.json reserves.",
+    "lots_not_numbered": "the module divided this block into 0 lot(s), and the scheme read off block 18 numbers four to a face; a scheme stretched to fit is an invention"
+   }
+  },
+  {
+   "id": "blk_randolph_clark",
+   "bounded_by": {
+    "north": "randolph",
+    "south": "washington",
+    "west": "clark",
+    "east": "dearborn"
+   },
+   "boundary_local_enu_m": [
+    [
+     586.42,
+     -269.43
+    ],
+    [
+     685.01,
+     -270.24
+    ],
+    [
+     684.32,
+     -381.16
+    ],
+    [
+     585.72,
+     -380.36
+    ]
+   ],
+   "area_m2": 10937.4,
+   "frontage_m": 98.6,
+   "frontage_ft": 323.5,
+   "depth_m": 110.92,
+   "lots_per_face": 4,
+   "alley_local_enu_m": [
+    [
+     586.09,
+     -322.15
+    ],
+    [
+     684.69,
+     -322.95
+    ],
+    [
+     684.65,
+     -328.44
+    ],
+    [
+     586.05,
+     -327.64
+    ]
+   ],
+   "lots": [
+    {
+     "tier": "north",
+     "frontage_m": 24.65,
+     "depth_m": 52.72,
+     "polygon": [
+      [
+       586.42,
+       -269.43
+      ],
+      [
+       611.07,
+       -269.63
+      ],
+      [
+       610.74,
+       -322.35
+      ],
+      [
+       586.09,
+       -322.15
+      ]
+     ],
+     "plat_lot_number": 4,
+     "plat_lot_confidence": "conjectural"
+    },
+    {
+     "tier": "south",
+     "frontage_m": 24.65,
+     "depth_m": 52.72,
+     "polygon": [
+      [
+       586.05,
+       -327.64
+      ],
+      [
+       610.7,
+       -327.84
+      ],
+      [
+       610.37,
+       -380.56
+      ],
+      [
+       585.72,
+       -380.36
+      ]
+     ],
+     "plat_lot_number": 5,
+     "plat_lot_confidence": "conjectural"
+    },
+    {
+     "tier": "north",
+     "frontage_m": 24.65,
+     "depth_m": 52.72,
+     "polygon": [
+      [
+       611.07,
+       -269.63
+      ],
+      [
+       635.72,
+       -269.84
+      ],
+      [
+       635.39,
+       -322.55
+      ],
+      [
+       610.74,
+       -322.35
+      ]
+     ],
+     "plat_lot_number": 3,
+     "plat_lot_confidence": "conjectural"
+    },
+    {
+     "tier": "south",
+     "frontage_m": 24.65,
+     "depth_m": 52.72,
+     "polygon": [
+      [
+       610.7,
+       -327.84
+      ],
+      [
+       635.35,
+       -328.04
+      ],
+      [
+       635.02,
+       -380.76
+      ],
+      [
+       610.37,
+       -380.56
+      ]
+     ],
+     "plat_lot_number": 6,
+     "plat_lot_confidence": "conjectural"
+    },
+    {
+     "tier": "north",
+     "frontage_m": 24.65,
+     "depth_m": 52.72,
+     "polygon": [
+      [
+       635.72,
+       -269.84
+      ],
+      [
+       660.37,
+       -270.04
+      ],
+      [
+       660.04,
+       -322.75
+      ],
+      [
+       635.39,
+       -322.55
+      ]
+     ],
+     "plat_lot_number": 2,
+     "plat_lot_confidence": "conjectural"
+    },
+    {
+     "tier": "south",
+     "frontage_m": 24.65,
+     "depth_m": 52.72,
+     "polygon": [
+      [
+       635.35,
+       -328.04
+      ],
+      [
+       660.0,
+       -328.24
+      ],
+      [
+       659.67,
+       -380.96
+      ],
+      [
+       635.02,
+       -380.76
+      ]
+     ],
+     "plat_lot_number": 7,
+     "plat_lot_confidence": "conjectural"
+    },
+    {
+     "tier": "north",
+     "frontage_m": 24.65,
+     "depth_m": 52.72,
+     "polygon": [
+      [
+       660.37,
+       -270.04
+      ],
+      [
+       685.01,
+       -270.24
+      ],
+      [
+       684.69,
+       -322.95
+      ],
+      [
+       660.04,
+       -322.75
+      ]
+     ],
+     "plat_lot_number": 1,
+     "plat_lot_confidence": "conjectural"
+    },
+    {
+     "tier": "south",
+     "frontage_m": 24.65,
+     "depth_m": 52.72,
+     "polygon": [
+      [
+       660.0,
+       -328.24
+      ],
+      [
+       684.65,
+       -328.44
+      ],
+      [
+       684.32,
+       -381.16
+      ],
+      [
+       659.67,
+       -380.96
+      ]
+     ],
+     "plat_lot_number": 8,
+     "plat_lot_confidence": "conjectural"
+    }
+   ],
+   "survey_tract": {
+    "tract": "canal_commissioners_1830",
+    "share": 1.0,
+    "geometry_confidence": "conjectural",
+    "on": [
+     "canal_commissioners_1830"
+    ],
+    "precedence_clause_fired": null
+   },
+   "module": {
+    "module": "south_division_thompson_1830",
+    "lot_frontage_ft": 80.0,
+    "alley_width_ft": 18.0,
+    "alley_runs": "east-west, mid-block",
+    "chosen_by": "the only module this generator can seat on the committed street lines",
+    "division": "south"
+   },
+   "plat_block_number": {
+    "number": 38,
+    "confidence": "inferred",
+    "numeral_on_sheet": true,
+    "sources": [
+     "wright_1834"
+    ],
+    "authored_in": "data/traces/thompson_block_numbering.json",
+    "note": "READ. The block east of the Public Square; the square's pink wash is at the frame's west edge. This numeral and 40 are what bracket the square. Randolph-Washington tier; the run falls eastward again."
+   }
+  },
+  {
+   "id": "blk_randolph_dearborn",
+   "bounded_by": {
+    "north": "randolph",
+    "south": "washington",
+    "west": "dearborn",
+    "east": "state"
+   },
+   "boundary_local_enu_m": [
+    [
+     709.4,
+     -270.44
+    ],
+    [
+     813.04,
+     -271.28
+    ],
+    [
+     812.32,
+     -382.2
+    ],
+    [
+     708.71,
+     -381.36
+    ]
+   ],
+   "area_m2": 11494.3,
+   "frontage_m": 103.63,
+   "frontage_ft": 340.0,
+   "depth_m": 110.92,
+   "lots_per_face": 4,
+   "alley_local_enu_m": [
+    [
+     709.07,
+     -323.15
+    ],
+    [
+     812.7,
+     -324.0
+    ],
+    [
+     812.66,
+     -329.48
+    ],
+    [
+     709.04,
+     -328.64
+    ]
+   ],
+   "lots": [
+    {
+     "tier": "north",
+     "frontage_m": 25.91,
+     "depth_m": 52.72,
+     "polygon": [
+      [
+       709.4,
+       -270.44
+      ],
+      [
+       735.31,
+       -270.65
+      ],
+      [
+       734.98,
+       -323.36
+      ],
+      [
+       709.07,
+       -323.15
+      ]
+     ],
+     "plat_lot_number": 4,
+     "plat_lot_confidence": "conjectural"
+    },
+    {
+     "tier": "south",
+     "frontage_m": 25.9,
+     "depth_m": 52.72,
+     "polygon": [
+      [
+       709.04,
+       -328.64
+      ],
+      [
+       734.94,
+       -328.85
+      ],
+      [
+       734.61,
+       -381.57
+      ],
+      [
+       708.71,
+       -381.36
+      ]
+     ],
+     "plat_lot_number": 5,
+     "plat_lot_confidence": "conjectural"
+    },
+    {
+     "tier": "north",
+     "frontage_m": 25.91,
+     "depth_m": 52.72,
+     "polygon": [
+      [
+       735.31,
+       -270.65
+      ],
+      [
+       761.22,
+       -270.86
+      ],
+      [
+       760.88,
+       -323.57
+      ],
+      [
+       734.98,
+       -323.36
+      ]
+     ],
+     "plat_lot_number": 3,
+     "plat_lot_confidence": "conjectural"
+    },
+    {
+     "tier": "south",
+     "frontage_m": 25.9,
+     "depth_m": 52.72,
+     "polygon": [
+      [
+       734.94,
+       -328.85
+      ],
+      [
+       760.85,
+       -329.06
+      ],
+      [
+       760.52,
+       -381.78
+      ],
+      [
+       734.61,
+       -381.57
+      ]
+     ],
+     "plat_lot_number": 6,
+     "plat_lot_confidence": "conjectural"
+    },
+    {
+     "tier": "north",
+     "frontage_m": 25.91,
+     "depth_m": 52.72,
+     "polygon": [
+      [
+       761.22,
+       -270.86
+      ],
+      [
+       787.13,
+       -271.07
+      ],
+      [
+       786.79,
+       -323.79
+      ],
+      [
+       760.88,
+       -323.57
+      ]
+     ],
+     "plat_lot_number": 2,
+     "plat_lot_confidence": "conjectural"
+    },
+    {
+     "tier": "south",
+     "frontage_m": 25.9,
+     "depth_m": 52.72,
+     "polygon": [
+      [
+       760.85,
+       -329.06
+      ],
+      [
+       786.75,
+       -329.27
+      ],
+      [
+       786.42,
+       -381.99
+      ],
+      [
+       760.52,
+       -381.78
+      ]
+     ],
+     "plat_lot_number": 7,
+     "plat_lot_confidence": "conjectural"
+    },
+    {
+     "tier": "north",
+     "frontage_m": 25.91,
+     "depth_m": 52.71,
+     "polygon": [
+      [
+       787.13,
+       -271.07
+      ],
+      [
+       813.04,
+       -271.28
+      ],
+      [
+       812.7,
+       -324.0
+      ],
+      [
+       786.79,
+       -323.79
+      ]
+     ],
+     "plat_lot_number": 1,
+     "plat_lot_confidence": "conjectural"
+    },
+    {
+     "tier": "south",
+     "frontage_m": 25.9,
+     "depth_m": 52.71,
+     "polygon": [
+      [
+       786.75,
+       -329.27
+      ],
+      [
+       812.66,
+       -329.48
+      ],
+      [
+       812.32,
+       -382.2
+      ],
+      [
+       786.42,
+       -381.99
+      ]
+     ],
+     "plat_lot_number": 8,
+     "plat_lot_confidence": "conjectural"
+    }
+   ],
+   "survey_tract": {
+    "tract": "canal_commissioners_1830",
+    "share": 1.0,
+    "geometry_confidence": "conjectural",
+    "on": [
+     "canal_commissioners_1830"
+    ],
+    "precedence_clause_fired": null
+   },
+   "module": {
+    "module": "south_division_thompson_1830",
+    "lot_frontage_ft": 80.0,
+    "alley_width_ft": 18.0,
+    "alley_runs": "east-west, mid-block",
+    "chosen_by": "the only module this generator can seat on the committed street lines",
+    "division": "south"
+   },
+   "plat_block_number": {
+    "number": 37,
+    "confidence": "inferred",
+    "numeral_on_sheet": true,
+    "sources": [
+     "wright_1834"
+    ],
+    "authored_in": "data/traces/thompson_block_numbering.json",
+    "note": "READ. Last block of the tier; the Dearborn Street label is in the frame. Randolph-Washington tier; the run falls eastward again."
+   }
+  }
+ ],
+ "omitted": [
+  {
+   "id": "blk_south_water_clinton",
+   "bounded_by": {
+    "north": "south_water",
+    "south": "lake",
+    "west": "clinton",
+    "east": "canal"
+   },
+   "reason": "South Water Street's committed centreline stops 878 m short of this block"
+  },
+  {
+   "id": "blk_south_water_canal",
+   "bounded_by": {
+    "north": "south_water",
+    "south": "lake",
+    "west": "canal",
+    "east": "market"
+   },
+   "reason": "the streets are 255 m apart, past the 200 m the plat's module allows a block — what lies between them is the river, not a block"
+  },
+  {
+   "id": "blk_south_water_market",
+   "bounded_by": {
+    "north": "south_water",
+    "south": "lake",
+    "west": "market",
+    "east": "franklin"
+   },
+   "reason": "South Water Street's committed centreline stops 32 m short of this block",
+   "plat_block_number": {
+    "number": 21,
+    "confidence": "inferred",
+    "numeral_on_sheet": true,
+    "sources": [
+     "wright_1834"
+    ],
+    "authored_in": "data/traces/thompson_block_numbering.json",
+    "note": "READ. The triangular block the river's bend leaves between Franklin Street and the bank. The numeral's first digit is unmistakably 2; its second is crossed by the diagonal 'Water' of the South Water Street label, and reads as 1 against the tier's own run, which has 20 in the block immediately east. This block is OMITTED from the generated grid — South Water's committed centreline stops 24 m short of it (docs/RESEARCH/thompson_plat_grid.md section 6) — so the number is carried on the omission. South Water-Lake tier; the run falls eastward here."
+   }
+  },
+  {
+   "id": "blk_lake_canal",
+   "bounded_by": {
+    "north": "lake",
+    "south": "randolph",
+    "west": "canal",
+    "east": "market"
+   },
+   "reason": "the streets are 255 m apart, past the 200 m the plat's module allows a block — what lies between them is the river, not a block",
+   "plat_block_number": {
+    "number": 29,
+    "confidence": "inferred",
+    "numeral_on_sheet": true,
+    "sources": [
+     "wright_1834"
+    ],
+    "authored_in": "data/traces/thompson_block_numbering.json",
+    "note": "READ, with a caveat about the CELL rather than the number. This grid cell runs Canal Street to Market Street, 243 m, and what lies between them is block 29 on the west bank and then the river — Market Street runs along the east bank in this tier and no block stands between them (the crop at 1406,1957,152,212 is water and the South Branch label). So the cell is omitted from the grid, and the number on it is the number of the only platted ground in it. Lake-Randolph tier; the run RISES eastward here, the reverse of the tier above."
+   }
+  },
+  {
+   "id": "blk_randolph_canal",
+   "bounded_by": {
+    "north": "randolph",
+    "south": "washington",
+    "west": "canal",
+    "east": "market"
+   },
+   "reason": "the streets are 255 m apart, past the 200 m the plat's module allows a block — what lies between them is the river, not a block"
+  }
+ ]
+}

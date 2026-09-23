@@ -1,0 +1,99 @@
+{
+  "note": "T-0093/T-0187 — how much of the frame is written through the plant shader's 4x4 Bayer screen door in the verge (inside 9 m), per stand, on the PUBLISHED mirror. A RECORD OF THE RESIDUE, not the gate: the gate is `handoverShare == 0` in tools/measure_near_verge.mjs and nothing here changes it. What was banked was what T-0093 did NOT close — the mid and forb rings' own OUTER coverage ramps, which at `light` detail reached in to 5.4 m and 7.4 m and so landed inside the verge on a phone. T-0187 closed it, and not by converting those boundaries: it cut their band to the ring, under the rule that an outer band may not BEGIN inside the verge (`radius - step - fringe - 9.0`). Every mobile stand is 0.000 % now, and the partial instances that remain start at 9.97 m and 10.31 m. `ditheredShare` is the union of the drawn footprints of every partially-covered plant inside 9 m as a share of the frame; `exposedShare` is that less the footprints of the solid plants in front of them, so the pair is a ceiling and a floor on the same thing. Re-bank in the SAME commit as any change that legitimately moves them, and say which way. Re-measured 2026-08-27, Chromium/SwiftShader, mobile at deviceScaleFactor 1.5 (one measured pixel = one drawing-buffer pixel; see the tool's header for why not 2).",
+  "before": {
+    "note": "The same eight readings taken before T-0093, kept so the change is quotable from the file rather than only from the PR. `flora-near` carried 198 partially-covered instances at the open-prairie stand on a phone and 174 on the desktop; it carries none at any stand now.",
+    "mobile/south-water-at-wells": {
+      "ditheredShare": 0,
+      "exposedShare": 0
+    },
+    "mobile/south-water-verge": {
+      "ditheredShare": 0.20788,
+      "exposedShare": 0.05073
+    },
+    "mobile/wells-at-lake": {
+      "ditheredShare": 0.01729,
+      "exposedShare": 0.00937
+    },
+    "mobile/open-prairie": {
+      "ditheredShare": 0.53654,
+      "exposedShare": 0.06198
+    },
+    "desktop/south-water-at-wells": {
+      "ditheredShare": 0,
+      "exposedShare": 0
+    },
+    "desktop/south-water-verge": {
+      "ditheredShare": 0.11973,
+      "exposedShare": 0.00398
+    },
+    "desktop/wells-at-lake": {
+      "ditheredShare": 0.14843,
+      "exposedShare": 0.05178
+    },
+    "desktop/open-prairie": {
+      "ditheredShare": 0.45173,
+      "exposedShare": 0.00264
+    }
+  },
+  "stands": {
+    "mobile/south-water-at-wells": {
+      "ditheredShare": 0,
+      "exposedShare": 0,
+      "residue": "none — the walker stands in the middle of a 10.5 m travel track and no plant is placed inside the whole near ring"
+    },
+    "mobile/south-water-verge": {
+      "ditheredShare": 0,
+      "exposedShare": 0,
+      "residue": "none — the mid ring's outer ramp starts at 10.84 m here, outside the verge (T-0187)"
+    },
+    "mobile/wells-at-lake": {
+      "ditheredShare": 0,
+      "exposedShare": 0,
+      "residue": "none — the mid ring's outer ramp starts at 9.97 m here, outside the verge (T-0187)"
+    },
+    "mobile/open-prairie": {
+      "ditheredShare": 0,
+      "exposedShare": 0,
+      "residue": "none — the mid ring's outer ramp starts at 9.99 m and the forb ring's at 10.31 m (T-0187)"
+    },
+    "desktop/south-water-at-wells": {
+      "ditheredShare": 0,
+      "exposedShare": 0,
+      "residue": "none"
+    },
+    "desktop/south-water-verge": {
+      "ditheredShare": 0,
+      "exposedShare": 0,
+      "residue": "none — at `full` the mid and forb outer ramps stand at 18-27 m, outside the verge entirely"
+    },
+    "desktop/wells-at-lake": {
+      "ditheredShare": 0,
+      "exposedShare": 0,
+      "residue": "none"
+    },
+    "desktop/open-prairie": {
+      "ditheredShare": 0,
+      "exposedShare": 0,
+      "residue": "none"
+    }
+  },
+  "t_0093": {
+    "note": "The mobile readings T-0093 left behind, kept for the same reason: this is the residue it banked rather than closed, and what T-0187 measured itself against. The desktop stands were already 0.000 % after T-0093, because at `full` the outer ramps stand at 18-27 m.",
+    "mobile/south-water-at-wells": {
+      "ditheredShare": 0,
+      "exposedShare": 0
+    },
+    "mobile/south-water-verge": {
+      "ditheredShare": 0.02081,
+      "exposedShare": 0.00058
+    },
+    "mobile/wells-at-lake": {
+      "ditheredShare": 0.01729,
+      "exposedShare": 0.00937
+    },
+    "mobile/open-prairie": {
+      "ditheredShare": 0.15395,
+      "exposedShare": 0.00136
+    }
+  }
+}

@@ -1,0 +1,14 @@
+{
+  "id": "fpdcc_ecosystems",
+  "type": "website",
+  "citation": "Forest Preserves of Cook County. A Tour of Our Ecosystems.",
+  "author": "Forest Preserves of Cook County",
+  "date": "accessed 2026-08-10",
+  "url": "https://fpdcc.com/nature/a-tour-of-our-ecosystems/",
+  "tier": 4,
+  "rights_status": "check_required",
+  "asset_use": "text_only",
+  "verified": true,
+  "access_notes": "Retrieved and read on 2026-08-10: 'Sand savanna is often found on dry sandy ridges between wetlands. If dominated by black oaks, it may also be called black oak savanna'; sedge meadows are 'wet, open, sunny fields where sedges... dominate'. No Wayback snapshot could be confirmed: the archive.org availability API returned HTTP 429 to this environment on 2026-08-10, so no archived_url is recorded rather than one being guessed at.",
+  "note": "A land-manager's plain description of the surviving Cook County communities. Used only for the black-oak sand savanna of the relict beach ridges and as corroboration of the sedge-meadow structure; it is a modern interpretive page and carries no historical claim."
+}

@@ -1,0 +1,117 @@
+{
+  "id": "frederick_thomas_shop",
+  "name": "Frederick Thomas's Shop",
+  "aka": [
+    "two doors from the American office"
+  ],
+  "archetype": "frame_storefront",
+  "phases": [
+    {
+      "id": "frame_1835",
+      "documented_range": {
+        "from": "1835-06-08",
+        "to": "1835-12-31",
+        "confidence": "inferred",
+        "sources": [
+          "andreas_1884_v1"
+        ],
+        "note": "THE RANGE IS BORROWED FROM ANOTHER BUILDING BECAUSE THE ONLY DATE THIS ONE HAS IS ANOTHER BUILDING'S. Andreas records that Frederick Thomas advertised from 'two doors from the American office'; an address expressed relative to the Chicago American can only have been used after the American existed, and the American was established on 8 June 1835. So the range opens there, and that is a floor on the ADVERTISEMENT, not on the building, which is necessarily older and undated. THE END IS THE ORDINARY CONTINUITY CUT AT THE SCENE YEAR. This is the thinnest documented_range in the parcel: what it really records is that a man was trading at a describable spot on South Water Street in the summer of 1835."
+      },
+      "position": {
+        "utm_e": 447817.281,
+        "utm_n": 4637381.455,
+        "rotation_deg": 0.0,
+        "symbolic_location": "South side of South Water Street, two lots east of the Chicago American's office and east of Dearborn Street (today the south side of West Wacker Drive between North Dearborn and North State).",
+        "confidence": "reconstructed",
+        "note": "CONJECTURAL, AND THE TAG IS THE POINT: THIS POSITION IS AN OFFSET FROM A POSITION THAT IS ITSELF INFERRED. What Andreas gives is a relation and nothing else — Thomas advertised from 'two doors from the American office' — and the American office's own position is inferred from 'on Water Street, near the draw-bridge'. Stacking one on the other produces a point on the ground that no source can be said to support, whatever the arithmetic. THE ARITHMETIC, STATED SO IT CAN BE CORRECTED: Andreas states that South Water Street lots were 55 ft wide, so two doors along the street is about 110 ft = 33.5 m. This record sits 33.5 m east of chicago_american_office's footprint origin (E 447784.0), on the same frontage, at E 447817.5. THE DIRECTION IS THE ONE PIECE OF REAL REASONING HERE, and it is worth stating because it is not arbitrary: two lots WEST of the American office would cross Dearborn Street, since that record's west wall stands on the Dearborn frontage, and 'two doors' describes premises on one block face rather than across a crossing. East is therefore the only reading that keeps the phrase meaning what it means. THAT ARGUMENT INHERITS THE AMERICAN OFFICE'S OWN GUESS about which side of Dearborn it stood on; if the American was west of Dearborn, this record could be either side of it and the direction argument evaporates. WORKING UNCERTAINTY ABOUT 20 M from the georeference (data/datum.json, 17.5 m RMS), plus about 30 m carried in from the American office's 'near the draw-bridge', plus the direction. Facade bearing 0, north onto South Water, inferred from the street rather than from any statement. RECONCILED WITH THE COMMITTED PLAT 2026-08-27 (T-0199), AND THE CLAIM DID NOT MOVE — ONLY THE LINE IT WAS DERIVED AGAINST. The method above set this footprint's north face on the South Water frontage, and it found that frontage by taking the MODERN West Wacker Drive centreline out of OpenStreetMap and stepping 12.2 m south of it. That is not this project's own South Water Street: the committed centreline in data/streets/1835.json, offset by half the committed 80 ft corridor, is what tools/generate_plat_lots.py builds every platted block edge from, and it is the line every derived layer in this scene reads. Measured against it, this record's north wall stood 6.25 m OUT PAST the blk_south_water_dearborn frontage line, in the platted roadway — far enough into it that tools/generate_frontage_works.py refused the plank sidewalk along this stretch of South Water in writing and named this building in the refusal. THE REPAIR IS THIS RECORD'S OWN METHOD RUN AGAINST THIS PROJECT'S OWN LINE: the footprint is translated 7.75 m along the face's inward normal — dE -0.219 m, dN -7.745 m in local ENU, so UTM E 447817.5 N 4637389.2 becomes E 447817.281 N 4637381.455 — which leaves its north wall 1.50 m back from the committed frontage line, the same margin tools/generate_block_infill.py gives every reconstructed unit standing on this face, and the same repair the six reconciled under T-0198 carry. NOTHING ALONG THE STREET MOVED: the along-face position, the block, the corner and the side are untouched, and so is the confidence grade — re-deriving a coordinate from better geometry is not new evidence. WHY IT TOOK A SECOND RUN, AND WHOSE DECISION IT WAS. T-0198 measured this exact translation and REFUSED to apply it, for a reason that was real: reconciled onto the plat this building SEATS on lot 2 of blk_south_water_dearborn, and that lot is one the 665-roof schedule had already dealt to the anonymous South Water frontage run, which tools/generate_block_infill.py refused — one principal roof to a lot. Nothing overlapped; the worst overlap between any of the eleven South Water placements and any committed footprint in the town is zero. What refused this repair was a RULE about entitlement, not the ground. THE OWNER RULED ON 2026-08-27 that a platted business-front lot may carry a documented store at the street AND an anonymous dwelling behind it, on the reasoning that the geometry already permits it and the alternative pays eight roofs and two households for a rule the corrected data had itself called into question. The clause and its three tests are written into tools/plat_occupancy.py; no roof left the town and no household moved. WHAT IS STILL WRONG AND IS LEFT WRITTEN DOWN: the facade bearing stays 0 while this face runs at 1.622 (i.e. +1.622), so the front wall is 1.50 m back at its worst corner and up to 1.76 m at the other. That skew is smaller than the walk's own daylight and it is not corrected here, because rotating a documented record is a second claim and this one is a repair.",
+        "derivation": {
+          "method": "not_derivable",
+          "reason": "This placement predates the derivation module. Its provenance and reasoning are recorded in position.note, but no machine-checkable derivation block has been authored for it yet."
+        }
+      },
+      "footprint": {
+        "polygon": [
+          [
+            0,
+            0
+          ],
+          [
+            9.144,
+            0
+          ],
+          [
+            9.144,
+            6.096
+          ],
+          [
+            0,
+            6.096
+          ]
+        ],
+        "confidence": "reconstructed",
+        "note": "INVENTED. Nothing whatever is attested about this building. 9.144 x 6.096 m is 30 x 20 ft — deliberately the smallest of the parcel's South Water rectangles, because the only thing the source implies about the premises is that they were one of several 'doors' along a frontage, i.e. a single shop rather than a corner block. The 20 ft depth is Hogan's store's documented depth, the one period depth this dataset holds; the 30 ft frontage sits well inside the documented 55 ft South Water lot width. Both numbers are borrowed; neither is evidence about this building."
+      },
+      "form": {
+        "stories": {
+          "value": 1,
+          "confidence": "reconstructed",
+          "note": "Nothing is attested. One is recorded because it is the smaller claim for premises described only as a door along a street. Invention, tagged as such."
+        },
+        "construction": {
+          "value": "braced_frame",
+          "confidence": "inferred",
+          "sources": [
+            "andreas_1884_v1"
+          ],
+          "note": "Not stated. Frame rather than log because this is a shop on the town's business street in 1835 and this project's dossier records the 1835 stock as overwhelmingly frame and log with new commercial work in frame. Braced rather than balloon frame follows the Sauganash record's argument; by 1835 balloon framing is the likelier of the two and nothing decides."
+        },
+        "wall_height_m": {
+          "value": 3.0,
+          "confidence": "inferred",
+          "note": "No figure is attested. 3.0 m is about 10 ft, one commercial storey. It inherits the storey count's uncertainty, which is conjectural."
+        },
+        "roof_type": {
+          "value": "gable",
+          "confidence": "inferred",
+          "note": "Not attested. Gable is the near-universal roof form for frame buildings of this type, period and region."
+        },
+        "roof_pitch_deg": {
+          "value": 33.0,
+          "confidence": "inferred",
+          "note": "No pitch is attested for this building. 33 degrees is the frame_storefront archetype's own figure for a store, and it is adopted here rather than the 38 this project uses for taverns because the archetype argues the case from the dataset's one attested store footprint: a store's frontage is long and its plan shallow, so a tavern's pitch puts more roof above the eave than there is wall below it and the building stops reading as a shop. Inferred from construction practice and from the type, not measured."
+        },
+        "chimneys": {
+          "value": 1,
+          "confidence": "inferred",
+          "note": "Not attested. One is the minimum for premises kept through Chicago winters. The COUNT is the inference; the stack's position, size and material are the archetype's, per docs/LIBERTIES.md L26."
+        },
+        "siding_exposure_m": {
+          "value": 0.152,
+          "confidence": "reconstructed",
+          "note": "INVENTED WITHIN A STOCK SET, NOT DERIVED. No source states the exposed face of any Chicago building's siding. The value is one of four period mill sidings — 4.5, 5, 5.5 or 6 in to the weather; this record wears 6 in — dealt by tools/deal_siding_stock.py: keyed to the phase's construction season, because buildings sided from the same season's shipments of St Joseph sawn lumber tend toward one stock, then advanced so no frame building within 60 m shares this one's. The separation is the surface variety T-0049 reconstructs, not a claim about 1835. docs/LIBERTIES.md L148 owns the invention."
+        }
+      },
+      "change_note": "The premises Frederick Thomas advertised from in the summer of 1835, described in the only way this dataset has ever had to place a building: not by a corner, not by a block, but by counting doors from the newspaper office next along the street."
+    }
+  ],
+  "function": {
+    "value": "drug_store",
+    "confidence": "attested",
+    "sources": [
+      "chicago_american_1835",
+      "andreas_1884_v1"
+    ],
+    "note": "THE TRADE THIS RECORD ASKED FOR, AND THE PAPER IT NAMED AS THE THING THAT WOULD SETTLE IT. Until 2026-08-29 this attribute read 'shop', reconstructed, over the admission that \"the Chicago Democrat and Chicago American files for 1835 would settle it in one line, because the advertisement Andreas is quoting from is in one of them\". The American is now read and the line is his own: \"FREDERIC[K] THOMA[S], D[r]ug[gi]st and Apothec[ary], W[at]er Street. [R]ESPECTFULLY inform[s] the [citizens of] Chicago and vicinity that [fresh sup]plies in Dr[u]gs, Perfumery, Oils, Paint[s and Dye] Stuffs have been received by the scho[oner …]\" — The Chicago American, 1835-07-04, page 4 column 5, claim chicago_american_1835_07_04#c005, over the dateline 'Chicago, June [2]d, 18[35]', which is four weeks BEFORE the scene date. TWO EARLIER PRINTINGS CARRY THE SAME ADVERTISEMENT and are what make the identification checkable rather than asserted: 1835-06-08 page 3 column 6 (claim #c016) sets it without a legible name — \"a general assortment of articles in the ab[ove line, together with] Chemicals, Perfumery [and] Dye Stuffs; and hopes, with his experience [of] more than twelve years in the business\" — and 1835-06-13 page 4 column 6 (claim #c018) sets it again with the name: \"[F]REDERICK THOMAS, la[te of N]ew York, [has] taken a store a[t the] Drawbridge\". The three share their wording sentence for sentence. SO THE TRADE IS 'drug_store' AND NOT 'shop': a druggist and apothecary keeping drugs, paints, chemicals, perfumery and dye stuffs, restocking by lake schooner, over a counter open to the street — which is what qualifies this frontage under tools/generate_business_signboards.py's PUBLIC_TRADES rule, where 'shop' at the reconstructed grade was refused in writing. WHAT DID NOT MOVE. The building, its footprint, its storey count and its position are untouched and stay exactly as conjectural as they were: a documented trade is evidence about the BUSINESS and not about the premises, and this record's own research note is the place that distinction is argued. THE READING IS TRANSCRIPTION-MEDIATED AND SAYS SO. Under the owner's ruling of 2026-08-28 a claim read through this project's OCR-assisted transcriptions rather than off the page scan grades `attested` in this schema's vocabulary while carrying its own flag: reading = transcription_mediated, with the transcription's own uncertainty brackets preserved inside the quotation rather than tidied away. Where a scan is later read, the scan is the authority and this claim upgrades under it — the standard data/sources/chicago_democrat_1833_11_26.json set when a scan caught 'C. & I. HARMON' where the transcription had 'C. & L. Harmon'."
+  },
+  "occupants": {
+    "value": "Frederick Thomas, druggist and apothecary, late of New York",
+    "confidence": "attested",
+    "sources": [
+      "chicago_american_1835",
+      "andreas_1884_v1"
+    ],
+    "note": "He describes himself, in his own advertisement, in the words this value uses: \"FREDERIC[K] THOMA[S], D[r]ug[gi]st and Apothec[ary]\" (The Chicago American, 1835-07-04, page 4 column 5, claim chicago_american_1835_07_04#c005) and \"[F]REDERICK THOMAS, la[te of N]ew York\" with \"more than twelve years in the business\" (1835-06-13, page 4 column 6, claim chicago_american_1835_06_13#c018). He is a man advertising a business over his own name, which is the stronger of the two evidence classes the owner's first ruling of 2026-08-28 asks this project to keep distinguishable — not a letter-list name. NO PARTNER, CLERK OR HOUSEHOLD IS ATTESTED and none is supplied. THE READING IS TRANSCRIPTION-MEDIATED AND SAYS SO. Under the owner's ruling of 2026-08-28 a claim read through this project's OCR-assisted transcriptions rather than off the page scan grades `attested` in this schema's vocabulary while carrying its own flag: reading = transcription_mediated, with the transcription's own uncertainty brackets preserved inside the quotation rather than tidied away. Where a scan is later read, the scan is the authority and this claim upgrades under it — the standard data/sources/chicago_democrat_1833_11_26.json set when a scan caught 'C. & I. HARMON' where the transcription had 'C. & L. Harmon'."
+  },
+  "research_note": "THE MOST INVENTED BUILDING IN THIS PARCEL, RECORDED RATHER THAN OMITTED, AND THE RECORD SAYS SO ON EVERY ATTRIBUTE. What is documented is an advertiser and a relative address: Frederick Thomas advertised from 'two doors from the American office'. What is drawn is a whole shop, at a point derived by offsetting 110 ft along a street from a building whose own position is inferred from the phrase 'near the draw-bridge'. Position, footprint, storey count and function are all tagged conjectural for that reason, which is the confidence model doing exactly what it is for: the visitor sees a building, and the model tells them it is a guess with a name attached. WHY IT IS WORTH HAVING ANYWAY: 'two doors from' is evidence about the STREET even when it is weak evidence about the building. It says South Water Street east of Dearborn had a continuous enough row of premises in 1835 for a man to give his address by counting them, and an empty stretch of ground there would misrepresent that more badly than a graded guess does. THE UPGRADE THIS RECORD ASKED FOR HAS HAPPENED, AND ONLY THE HALF IT PREDICTED. It said: \"the Chicago Democrat or Chicago American for 1835, which carry the advertisement Andreas is quoting and would give the trade at minimum, and possibly a fuller address. A single number of either paper would move function from conjectural to documented.\" Six numbers of the American were read for T-0263, and they do exactly that and no more. THE TRADE IS SETTLED: Frederick Thomas, druggist and apothecary, drugs, paints, chemicals, perfumery and dye stuffs, restocking by lake schooner — see `function`. THE ADDRESS IS NOT, AND THE PAPER IS WHY. His own card of 1835-06-13 reads \"[has] taken a store a[t the] Drawbridge, W[ater?] [s]t[r]eet, [t]w[o …] and [the] American office\": the drawbridge and the American office are the SAME TWO ANCHORS this record's position was already derived from, so the paper CORROBORATES the derivation and adds nothing to it — 'two doors from the American office' is Andreas quoting this advertisement. Worse, the street is cut to 'W[ater?]', with the transcription's own question mark, and a store 'at the drawbridge' could front either bank; the extraction refuses to record a street for that reason and this record does not supply one. So the position stays conjectural at exactly the grade it had. WHAT WOULD STILL UPGRADE IT: the page images of the American for 8 and 13 June 1835, which would read the cut words — the street, and the number of doors. See docs/RESEARCH/frederick_thomas_shop.md.",
+  "review_required": false
+}

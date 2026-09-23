@@ -1,0 +1,185 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://chicago1835/schemas/structures.schema.json",
+  "title": "Chicago 1835 Structures",
+  "type": "object",
+  "required": ["target_date", "datum", "structures"],
+  "additionalProperties": false,
+
+  "properties": {
+    "target_date": {
+      "type": "string",
+      "format": "date",
+      "description": "The single date the reconstruction depicts. Enforced against every structure's documented_range."
+    },
+    "datum": {
+      "type": "object",
+      "required": ["crs", "origin_lat", "origin_lon", "verified"],
+      "additionalProperties": false,
+      "properties": {
+        "crs": { "type": "string", "description": "Geodetic working CRS, e.g. EPSG:26916" },
+        "origin_lat": { "type": "number", "minimum": 41.8, "maximum": 42.0 },
+        "origin_lon": { "type": "number", "minimum": -87.8, "maximum": -87.5 },
+        "verified": {
+          "type": "boolean",
+          "description": "Set true only after the origin has been checked against georeferenced Hathaway (1834) and Wright (1834). Generators refuse to run while false."
+        },
+        "note": { "type": "string" }
+      }
+    },
+    "structures": {
+      "type": "array",
+      "items": { "$ref": "#/$defs/structure" }
+    }
+  },
+
+  "$defs": {
+    "confidence": {
+      "type": "string",
+      "enum": ["documented", "inferred", "conjectural"]
+    },
+
+    "attested": {
+      "type": "object",
+      "description": "A single attribute carrying its own evidence. Semantic rules in tools/validate_structures.py: documented requires sources; inferred requires note.",
+      "required": ["value", "confidence"],
+      "additionalProperties": false,
+      "properties": {
+        "value": {},
+        "confidence": { "$ref": "#/$defs/confidence" },
+        "sources": {
+          "type": "array",
+          "items": { "type": "string" },
+          "description": "source_id values that must resolve in sources.json"
+        },
+        "note": {
+          "type": "string",
+          "description": "Required for inferred. State the reasoning, and record original historical units here."
+        }
+      }
+    },
+
+    "date_range": {
+      "type": "object",
+      "required": ["from", "to"],
+      "additionalProperties": false,
+      "properties": {
+        "from": { "type": "string", "format": "date" },
+        "to": { "type": "string", "format": "date" },
+        "confidence": { "$ref": "#/$defs/confidence" },
+        "sources": { "type": "array", "items": { "type": "string" } },
+        "note": { "type": "string" }
+      }
+    },
+
+    "structure": {
+      "type": "object",
+      "required": [
+        "id",
+        "name",
+        "archetype",
+        "documented_range",
+        "position",
+        "footprint",
+        "form"
+      ],
+      "additionalProperties": false,
+      "properties": {
+        "id": {
+          "type": "string",
+          "pattern": "^[a-z0-9_]+$",
+          "description": "Stable slug. Never reused, never renamed."
+        },
+        "name": { "type": "string" },
+        "aka": { "type": "array", "items": { "type": "string" } },
+
+        "archetype": {
+          "type": "string",
+          "enum": [
+            "frame_tavern",
+            "frame_storefront",
+            "log_dwelling",
+            "frame_dwelling",
+            "institutional",
+            "fort_structure",
+            "outbuilding"
+          ]
+        },
+
+        "documented_range": { "$ref": "#/$defs/date_range" },
+
+        "position": {
+          "type": "object",
+          "required": ["utm_e", "utm_n", "confidence"],
+          "additionalProperties": false,
+          "properties": {
+            "utm_e": { "type": "number" },
+            "utm_n": { "type": "number" },
+            "rotation_deg": {
+              "type": "number",
+              "description": "Facade bearing, degrees clockwise from grid north."
+            },
+            "confidence": { "$ref": "#/$defs/confidence" },
+            "sources": { "type": "array", "items": { "type": "string" } },
+            "note": { "type": "string" }
+          }
+        },
+
+        "footprint": {
+          "type": "object",
+          "required": ["polygon", "confidence"],
+          "additionalProperties": false,
+          "properties": {
+            "polygon": {
+              "type": "array",
+              "minItems": 3,
+              "items": {
+                "type": "array",
+                "minItems": 2,
+                "maxItems": 2,
+                "items": { "type": "number" }
+              },
+              "description": "Local ENU metres, relative to the structure position. Counter-clockwise."
+            },
+            "confidence": { "$ref": "#/$defs/confidence" },
+            "sources": { "type": "array", "items": { "type": "string" } },
+            "note": { "type": "string" }
+          }
+        },
+
+        "form": {
+          "type": "object",
+          "description": "Generator parameters. Every entry is an attested value.",
+          "additionalProperties": { "$ref": "#/$defs/attested" },
+          "properties": {
+            "stories": { "$ref": "#/$defs/attested" },
+            "wall_height_m": { "$ref": "#/$defs/attested" },
+            "roof_type": { "$ref": "#/$defs/attested" },
+            "roof_pitch_deg": { "$ref": "#/$defs/attested" },
+            "gable_orientation": { "$ref": "#/$defs/attested" },
+            "construction": { "$ref": "#/$defs/attested" },
+            "cladding": { "$ref": "#/$defs/attested" },
+            "paint": { "$ref": "#/$defs/attested" },
+            "gallery": { "$ref": "#/$defs/attested" },
+            "chimneys": { "$ref": "#/$defs/attested" },
+            "fenestration": { "$ref": "#/$defs/attested" }
+          }
+        },
+
+        "function": { "$ref": "#/$defs/attested" },
+        "occupants": { "$ref": "#/$defs/attested" },
+
+        "research_note": {
+          "type": "string",
+          "description": "Free text. Conflicts between sources go here and in docs/RESEARCH.md."
+        },
+
+        "review_required": {
+          "type": "boolean",
+          "default": false,
+          "description": "Blocks release. Set for anything touching Indigenous history or depiction pending external review."
+        }
+      }
+    }
+  }
+}

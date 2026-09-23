@@ -1,0 +1,23 @@
+{
+  "id": "census_1840_chicago_v4_household_heads",
+  "year": 1840,
+  "scene_relation": "later_evidence_only",
+  "records": 210,
+  "printed_pages": [229, 230, 231, 232, 233, 234, 235],
+  "source_workbook": "Chicago_1835_Best_Resident_Set_Research_v4.xlsx",
+  "source_sheet": "1840 Census Detail",
+  "record_file": "household_heads.csv.gz",
+  "identity_bridge_file": "../../research/residents/census_1840_identity_bridges.csv",
+  "policy": "Every row is retained as a dated 1840 named household-head record with household demographics. A row is attached to a canonical 1835 resident only through an explicitly adjudicated identity bridge; 1840 household members are never minted into 1835 solely from census counts.",
+  "counts": {
+    "records": 210,
+    "serial_present": 210,
+    "name_confidence": {"Low": 98, "Medium": 59, "High": 51, "High name / Medium-High identity": 1, "Low-Medium": 1},
+    "serial_confidence": {"Medium-High (continuation totals + page block)": 31, "Provisional-High (paired continuation + age/sex fingerprint)": 31, "High": 46, "High (sequence corroborated)": 8, "Medium (sequence-derived)": 1, "High provisional": 93},
+    "residence_recommendation": {"POSSIBLE": 112, "STRONGLY LIKELY": 1, "CORROBORATED / POSSIBLE 1835": 1, "CORROBORATED BACKCAST — STRONG CANDIDATE": 1, "1840 BACKCAST — IDENTITY UNRESOLVED": 1, "CONFIRMED/VERY STRONG": 1, "D — 1840 BACKCAST CANDIDATE": 76, "C — CORROBORATED BACKCAST": 16, "A — CONFIRMED 1835 VOTER": 1},
+    "core_disposition": {"HOLD / RESEARCH": 99, "YES - PROVISIONAL": 1, "EXTENDED CANDIDATE": 17, "YES — PROVISIONAL / EXTENDED": 1, "POSSIBLE / HOLD": 14, "YES": 1, "RESEARCH CANDIDATE": 76, "INCLUDE": 1},
+    "direct_1835_poll_hits": 2,
+    "any_1833_1835_list_hit": 4
+  },
+  "fields": ["page","row","serial","serial_candidate_block","serial_confidence","raw_scan_reading","preferred_name","alternate_candidates","name_confidence","correction_validation_basis","1833_poll","1833_tax","1834_poll","1835_poll","1835_residence_recommendation","1835_confidence","1835_basis","1839_directory_match","include_in_1835_core","research_priority","household_total","persons","children_lt_10","males","females","agriculture","commerce","manufactures_trades","inland_navigation","professions_engineering","foreigners_not_naturalized","illiterate_gt_21","source_image","source_kind","1840_collection_url","1839_directory_url"]
+}

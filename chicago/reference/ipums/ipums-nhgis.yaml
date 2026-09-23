@@ -1,0 +1,29 @@
+id: ipums-nhgis-1830-illinois-counties
+title: IPUMS NHGIS 1830 Illinois County Population and Boundaries
+creator: IPUMS NHGIS, University of Minnesota
+description: >
+  1830 Illinois county population data (NHGIS ds5) and the 1830 county
+  boundary shapefile (TIGER/Line 2008-derived).
+redistribution_status: restricted-published
+copyright_status: license-restricted
+license_notice: >
+  IPUMS NHGIS terms prohibit redistribution without permission and
+  include a liability clause for violations. Published here as a
+  deliberate, informed decision despite that restriction; see
+  NOTICE.txt on the Internet Archive item for the full citation
+  (IPUMS NHGIS Version 21.0) and restriction text verbatim from the
+  NHGIS codebook, and do not treat this listing as a redistribution
+  license for your own reuse.
+internet_archive:
+  item: chicago1835-ipums-nhgis-1830-illinois-counties
+  url: https://archive.org/details/chicago1835-ipums-nhgis-1830-illinois-counties
+files:
+  - name: nhgis0001_csv.zip
+    bytes: 2947
+  - name: nhgis0001_shape.zip
+    bytes: 76413921
+  - name: nhgis0001_ds5_1830_county.csv
+    bytes: 4013
+  - name: nhgis0001_ds5_1830_county_codebook.txt
+    bytes: 3747
+local_archive_path: projects/archive/data/chicago/reference/ipums/

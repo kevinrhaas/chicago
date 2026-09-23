@@ -1,0 +1,314 @@
+{
+  "id": "st_marys_church",
+  "phase": "frame_1833",
+  "name": "St. Mary's Catholic Church",
+  "aka": [
+    "the first St. Mary's",
+    "the Catholic church at Lake and State"
+  ],
+  "archetype": "frame_dwelling",
+  "asset": "gltf/st_marys_church__frame_1833.glb",
+  "scene": "1835",
+  "target_date": "1835-07-01",
+  "documented_range": {
+    "from": "1833-10-01",
+    "to": "1837-06-01",
+    "confidence": "inferred",
+    "sources": [
+      "chicagology_prefire216",
+      "andreas_1884_v1",
+      "ichr_v4_thompson_illinois_vincennes",
+      "norris_directory_1844"
+    ],
+    "note": "THE START IS AN OCCUPANCY DATE WITH A MONTH BUT NO DAY. The frame was raised in August 1833 - Deacon John Wright 'had, in August, assisted in raising the frame of the building' - and the church 'was not completed sufficiently for occupancy and dedication until in October' (chicagology_prefire216). 1833-10-01 is the first day of the attested month, a bound rather than a date. THE END MOVED FROM 1836-12-31 TO 1837-06-01 ON 2026-09-06 (T-0717), AND IT IS THE SAME KIND OF BOUND AS THE START. The building was later removed to Michigan Avenue and Madison Street, enlarged, and given the low open belfry that is the tower trap on this record. THREE READINGS OF THAT REMOVAL EXIST AND THE END NOW RESTS ON THE THIRD. (1) REFUSED: chicagology_prefire216's uncredited building summary dates the removal to 1836. It is refused because a source outside that page contradicts it - Joseph J. Thompson has Father Timothy O'Meara finding 'the little church that Father St. Cyr had built standing near the southwest corner of what is now State and Lake Streets' when he came, and dates his coming to 'the early or middle part of June, 1837' (ichr_v4_thompson_illinois_vincennes, printed pp. 258 and 256; claims bk_ichr4_001 and bk_ichr4_004). A building standing in June 1837 was not removed in 1836. (2) TRUE BUT NOT A BOUND: the same page's Andreas transcription attributes the removal to Father O'Meara, who succeeded St. Cyr, and St. Cyr did not leave until 1837. That puts the removal after St. Cyr's departure and gives it no date at all; it agrees with (3) and can bound nothing by itself. (3) ADOPTED: the church stood at Lake and State when O'Meara arrived, early or middle June 1837. 1837-06-01 IS THE FIRST DAY OF THAT WINDOW, NOT THE LAST, AND IT IS NOT THE REMOVAL - it is the earliest day on which the building is attested still standing, so it keeps the phase as short as the evidence allows, exactly as 1833-10-01 does at the other end. Until 2026-09-06 the same instinct produced 1836-12-31, and it was applied to a page that contradicted itself rather than to the evidence; a third source now agrees with the later of that page's two readings and dates it, so 'take the earlier because the sources disagree' no longer describes what is held. WHY THE AUCTION CANNOT SUPPLY A CEILING - ASKED, AND ANSWERED RATHER THAN LEFT OPEN. The removal was forced by the sale of the ground: the congregation stood 'upon ground controlled by the Canal Commissioners', meant to buy the lot at the canal lots' public auction, and lost it to a private party when the commissioners' valuation was announced at $10,000 (bk_ichr4_001, bk_ichr4_002). THAT AUCTION IS NOT DATED IN ANY SOURCE THIS PROJECT HOLDS. Thompson dates neither the sale nor the valuation. The only held record of a canal lot sale after this church was built is Norris's 1844 historical sketch, which reports 'another sale of Canal lots' in 1836 at YEAR precision, with no month and no day (norris_directory_1844, claim n1844_tf_030). That sale falls BEFORE the June 1837 sighting, so if the church's lot went at it the sale bounds nothing; and if the lot went at a later sale, this project holds no record of that sale at all. The removal therefore has a floor - mid-June 1837 - and no ceiling, and no phase end is picked off it, because a date picked that way would be a guess wearing a citation. THE GRADE DOES NOT MOVE, AND IT IS `inferred` ON BOTH BOUNDS. Thompson 1921 is a tier-4 retrospective and chicagology_prefire216 is another; a second retrospective agreeing with the later of the first one's two readings is CORROBORATION, NOT DOCUMENTATION, and nothing here rests on a record made at the time. EITHER READING PUTS THE CHURCH AT LAKE AND STATE ON THE SCENE DATE, and moving the end bound changes nothing about 1835-07-01 - it lengthens the attested standing from fourteen months past the scene date to twenty-three. NO GEOMETRY MOVES WITH IT: position, footprint, bearing and form are untouched by this change. DO NOT DATE THIS BUILDING FROM THE PAGE'S HEADER, which gives 'Life Span: 1835-1843' and contradicts the page's own body text."
+  },
+  "change_note": "The frame church raised in August 1833 and fit for occupancy and dedication in October: 25 x 35 ft, about $400, lumber shipped by scow from St Joseph and hauled to the site by Anson Taylor, Augustine D. Taylor architect and builder. Unplastered, unpainted, rough benches, no steeple and no tower. No change of fabric is attested inside the phase; the enlargement and the low open belfry belong to the later site at Michigan and Madison and are outside this phase in both time and place.",
+  "placement": {
+    "local_e": 807.193,
+    "local_n": -137.642,
+    "rotation_deg": 0.0,
+    "position_confidence": "inferred",
+    "position_sources": [
+      "chicagology_prefire216",
+      "andreas_1884_v1",
+      "osm_streets_2026"
+    ],
+    "position_note": "PLACED 2026-08-11. THE QUADRANT IS DOCUMENTED, THE CORNER LOT IS NOT, AND THE COORDINATE IS DERIVED. Both statements on the page agree and neither is a corner: the Andreas transcription has St. Cyr selecting 'a canal lot NEAR the southwest corner of Lake and State streets, near the military reservation', and the page's own building summary has the church 'on the south side of Lake Street, west of State Street'. Those describe the same quadrant, so this record does NOT carry a contested corner - an earlier brief for this parcel expected one and the page does not support it. What the hedge 'near' costs is the lot: the page attests the quadrant, not which lot in it, and Andreas fixes the spot only by an 1883 landmark, 'where now stands the printing establishment of Cameron, Amberg & Co.', which this project has not located. METHOD: the modern West Lake Street / North State Street intersection centre was read from OpenStreetMap at EPSG:26916 E 447902.80, N 4637282.51 (OSM node 258957342, fetched 2026-08-11), and the footprint origin set 12.2 m west and 12.2 m south of it less the building's own width and depth, so that the church's north face sits on the Lake frontage and its east face on the State frontage of a south-west corner lot. 12.2 m is half of an 80 ft street per Hathaway 1834. WORKING UNCERTAINTY ABOUT 20 M from the georeference (data/datum.json: 17.5 m RMS, 3.7 per cent paper stretch), plus an unbounded WESTWARD component from the word 'near': if the canal lot was one or two lots back from the corner the building belongs 15 to 35 m further west along Lake. The error is directional, like the Presbyterian church's, and this record states the direction rather than averaging it away. Facade bearing 0, due north onto Lake, INFERRED FROM THE STREET AND FROM THE FOOTPRINT rather than from any statement: nothing says which way the church faced. State Street was the town's eastern boundary on the south side until February 1835, and the reservation began on the far side of it, which is what 'near the military reservation' means and is why the lot is west of State rather than east. RECONCILED WITH THE COMMITTED PLAT 2026-08-27 (T-0196), AND THE CLAIM DID NOT MOVE — ONLY THE LINE IT WAS DERIVED AGAINST. The method above put this footprint's north face on the Lake Street frontage, and it found that frontage by taking a MODERN West Lake Street kerb out of OpenStreetMap and stepping 12.2 m off it. That is not this project's own Lake Street: the committed centreline in data/streets/1835.json, offset by half the committed 80 ft corridor, is what tools/generate_plat_lots.py builds every platted block edge from, and it is the line every derived layer in this scene reads. Measured against it, this record's north wall stood 3.03 m OUT PAST the blk_lake_dearborn frontage line, in the platted roadway — far enough into it that tools/generate_frontage_works.py's march refused two steps of Lake Street's plank sidewalk for it and named this building in the refusal. THE REPAIR IS THIS RECORD'S OWN METHOD RUN AGAINST THIS PROJECT'S OWN LINE: the footprint is translated 4.532 m along the face's inward normal — dE -0.037 m, dN -4.532 m in local ENU, so UTM E 447879.93 N 4637262.69 becomes E 447879.893 N 4637258.158 — which leaves its north wall 1.50 m back from the committed frontage line, the same margin tools/generate_block_infill.py gives every reconstructed unit standing on this face, and the same repair the eleven South Water records carry under T-0198 and T-0199. NOTHING ALONG THE STREET MOVED: the along-face position, the block, the corner and the side are untouched, and so is the confidence grade — re-deriving a coordinate from better geometry is not new evidence, and every uncertainty stated above still stands at its stated size. WHAT IT SEATS ON, MEASURED RATHER THAN ASSUMED: reconciled, this building stands on lot 6 of blk_lake_dearborn, which already carries the anonymous roofs recon_1835_south_a3_045 and recon_1835_south_d6_020. That lot was dealt from the pre-plat South Division parcel and not from a block recipe with a declared business front, so the owner's 2026-08-27 business-front clause (tools/plat_occupancy.py) does not reach it and is not invoked here. What is asked instead is the physical test: the nearest of those roofs stands 8.14 m from this footprint at its closest corner, clear of the 3.0 m the separation gate requires, and no committed footprint in the town overlaps this one by a square centimetre.",
+    "symbolic_location": "The south-west quadrant of Lake Street and State Street - south side of Lake, west of State - on a canal lot beside the military reservation; fronting north onto Lake.",
+    "uncertainty_m": 20,
+    "placement_provisional": false,
+    "vertical_anchor": "terrain",
+    "walk_surface_m": null
+  },
+  "footprint": {
+    "polygon": [
+      [
+        0,
+        0
+      ],
+      [
+        10.668,
+        0
+      ],
+      [
+        10.668,
+        7.62
+      ],
+      [
+        0,
+        7.62
+      ]
+    ],
+    "confidence": "inferred",
+    "sources": [
+      "chicagology_prefire216"
+    ],
+    "note": "BOTH DIMENSIONS ARE ATTESTED AND THE SHAPE IS NOT. Verbatim: 'they erected thereon a church building, twenty-five by thirty-five feet in size' (chicagology_prefire216, transcribing Andreas). 10.668 x 7.62 m is 35 x 25 ft, recorded converted with the original figures stated here per data/datum.json's units rule. WHAT IS INFERRED: that the plan was a plain rectangle - no vestibule, no chancel, nothing projecting, which is consistent with a $400 building that was not plastered and had a table for an altar, but is not stated; and WHICH DIMENSION IS THE FRONTAGE. The 35 ft is put on Lake Street here, and that is the weakest link in the record. A church of these proportions would ordinarily have turned its 25 ft gable end to the street with the 35 ft running back, which is the opposite of what is modelled. The frame_dwelling archetype builds an eaves-front range only - the ridge always runs parallel to the facade - so a 25 ft frontage would produce a tall narrow roof over a deep range rather than the gable-front church that arrangement actually describes. The orientation is therefore the archetype's, and it is claimed in docs/LIBERTIES.md rather than dressed up as a finding."
+  },
+  "attributes": {
+    "stories": {
+      "value": 1,
+      "confidence": "inferred",
+      "sources": [
+        "chicagology_prefire216"
+      ],
+      "note": "Not stated as a number. Everything the page describes is at one level - rough benches for pews, the simplest of tables for altar and pulpit, no plaster - and a 25 x 35 ft building costing about $400 is a single-storey box. Nothing implies a gallery, a stair or an upper room. Inference from the description."
+    },
+    "construction": {
+      "value": "balloon_frame",
+      "confidence": "inferred",
+      "sources": [
+        "chicagology_prefire216"
+      ],
+      "note": "THE MOST CONSEQUENTIAL INFERENCE IN THIS RECORD, AND THE PAGE DOES NOT USE THE WORD. What is documented is that 'Augustine D. Taylor was the architect and builder', that the lumber came by scow from St Joseph, Michigan at $12 per thousand, and that the frame was raised in August 1833. Taylor is the man to whom the invention of balloon framing is credited, and this building is the one most often named as the first balloon frame - docs/research/04-structures-south.md section 6 calls it 'an early balloon frame' and the frame_storefront and frame_dwelling archetype modules both cite it as the reason balloon framing is a first-class parameter in this project. Balloon frame is adopted on that identification. It is an identification, not a quotation, and if it is wrong the wall gets a heavier corner post and a wider stud module. The choice moves geometry here rather than sitting in the sidecar: studs at 16 in on centre set the rhythm the openings are laid out on, and a balloon frame shows no girt line."
+    },
+    "wall_height_m": {
+      "value": 3.2,
+      "confidence": "inferred",
+      "note": "No figure is attested. 3.2 m is about 10 1/2 ft to the plate - a little under the Presbyterian church's, because this building is smaller, cheaper by a third per square foot, and was described as rough. The one attested ceiling in this dataset is the Green Tree Tavern's 7 1/2 ft; a room of 875 sq ft holding a congregation needed more than that. What is inferred is that the height falls in this range, not that it is exactly 3.2 m."
+    },
+    "roof_type": {
+      "value": "gable",
+      "confidence": "inferred",
+      "note": "Not attested. Gable is the near-universal roof form for a frame building of this type, period and region. Typological derivation, not a measurement. Note that the absence of a steeple IS attested (see `tower`), so the roof is a plain one with nothing on it."
+    },
+    "roof_pitch_deg": {
+      "value": 38.0,
+      "confidence": "inferred",
+      "note": "No pitch is attested. 38 degrees is the mid-range this project uses for period gable framing across the dataset. Inferred from construction practice, not measured."
+    },
+    "plan": {
+      "value": "centre_passage",
+      "confidence": "reconstructed",
+      "note": "INVENTED, AND IT IS THE ARCHETYPE'S VOCABULARY RATHER THAN THE BUILDING'S - the same admission the Presbyterian record makes, for the same reason. `plan` names the room arrangement behind a HOUSE'S facade; this building had one room. centre_passage is chosen only because it is the value that produces a symmetrical front with a centred door. Nothing about the real door position is attested."
+    },
+    "bays": {
+      "value": 3,
+      "confidence": "reconstructed",
+      "note": "INVENTED. No source describes an opening on this building. Three - a centred door with one window either side - is the plainest front the archetype will build with a centred door, and plainness is the one thing the sources do support: not plastered, rough benches, a table for an altar, no steeple, unpainted outside. The archetype would derive four from the 35 ft frontage, and four is refused with a centred door. So the number follows from the grammar and from `plan`, not from evidence."
+    },
+    "paint": {
+      "value": "unpainted",
+      "confidence": "attested",
+      "sources": [
+        "chicagology_prefire216"
+      ],
+      "note": "DOCUMENTED, WHICH IS RARE HERE: 'The outside of the building was not painted and it had neither steeple nor tower.' This is the only exterior finish directly attested on any building in this parcel, and it is worth noting that it CORROBORATES the reading the Green Tree and the Presbyterian church records adopt by inference - unpainted weathered boarding was the norm and the Sauganash's white paint was the exception worth recording."
+    },
+    "chimneys": {
+      "value": 1,
+      "confidence": "inferred",
+      "note": "Not attested, and nothing on the page describes heating. One is the minimum for a room used through Chicago winters and is the number this project's other worship buildings carry on the same reasoning. THE RESIDUAL UNCERTAINTY IS THE KIND OF HEATING, NOT THE FACT OF IT: a box stove with a sheet-iron pipe is as likely as a masonry stack in a building this rough, and this archetype builds only the stack. The COUNT is the inference; the stack's position, size and material are the archetype's - docs/LIBERTIES.md L26."
+    },
+    "tower": {
+      "value": false,
+      "confidence": "attested",
+      "sources": [
+        "chicagology_prefire216"
+      ],
+      "geometry": "record_only",
+      "note": "THE DATE TRAP ON THIS BUILDING, AND THE REASON THIS ATTRIBUTE EXISTS AT ALL. Documented for 1835: 'it had neither steeple nor tower'. The trap is the sentence that follows it on the same page: 'Some time afterwards, it was surmounted by a low, open tower, in which a small bell was hung, being the first bell used in Chicago to call the pious together for religious worship.' 'Some time afterwards' is the whole of its dating. A tower and the first bell in Chicago are exactly the sort of detail that gets attached to a church because it makes the model better, and nothing licenses one before 1835-07-01. NO TOWER, NO BELFRY AND NO BELL IS BUILT ON THIS RECORD, and this negative finding is stated so that the omission reads as a decision rather than as an oversight."
+    },
+    "interior_plaster": {
+      "value": false,
+      "confidence": "attested",
+      "sources": [
+        "chicagology_prefire216"
+      ],
+      "geometry": "record_only",
+      "note": "A negative finding: 'The church itself was not plastered.' It separates this building from the Presbyterian church, whose walls were plastered, and it is the clearest single measure of how rough St Mary's was in 1835. No interior is modelled in this project in any case."
+    },
+    "seating": {
+      "value": "rough benches for pews and the simplest of tables for altar and pulpit",
+      "confidence": "attested",
+      "sources": [
+        "chicagology_prefire216"
+      ],
+      "geometry": "absent",
+      "note": "Documented and not built. This is the most vivid documented fact about the inside of the building. No interior is modelled, so nothing of it is shown."
+    },
+    "cost_usd": {
+      "value": 400,
+      "confidence": "attested",
+      "sources": [
+        "chicagology_prefire216"
+      ],
+      "geometry": "record_only",
+      "note": "Not a build instruction; a scale check. 'The total cost of the edifice was about $400' for 875 sq ft is $0.46 per square foot, against the Presbyterian church's $0.60. The two figures together are what the Temple Building's invented footprint is derived from."
+    },
+    "siding_exposure_m": {
+      "value": 0.127,
+      "confidence": "reconstructed",
+      "note": "INVENTED WITHIN A STOCK SET, NOT DERIVED. No source states the exposed face of any Chicago building's siding. The value is one of four period mill sidings — 4.5, 5, 5.5 or 6 in to the weather; this record wears 5 in — dealt by tools/deal_siding_stock.py: keyed to the phase's construction season, because buildings sided from the same season's shipments of St Joseph sawn lumber tend toward one stock, then advanced so no frame building within 60 m shares this one's. The separation is the surface variety T-0049 reconstructs, not a claim about 1835. docs/LIBERTIES.md L148 owns the invention."
+    },
+    "function": {
+      "value": "church",
+      "confidence": "attested",
+      "sources": [
+        "chicagology_prefire216",
+        "andreas_1884_v1"
+      ],
+      "note": "The first Catholic church building in Chicago, in use from October 1833. The first mass, on 5 May 1833, was said elsewhere - 'in a little log cabin, twelve feet square, belonging to Mark Beaubien' - which is a different building and is not modelled by this record."
+    },
+    "occupants": {
+      "value": "Rev. John Mary Irenaeus St. Cyr, pastor, and the Catholic congregation of Chicago",
+      "confidence": "inferred",
+      "sources": [
+        "chicagology_prefire216"
+      ],
+      "note": "St. Cyr selected the lot in 1833 and, per the same page's account of the removal, was succeeded by Father O'Meara only after 1837, so he is the pastor across the whole scene window. Tagged inferred rather than documented because the page states his arrival and his succession and does not state who was in charge on any particular day in 1835."
+    }
+  },
+  "residents": [
+    {
+      "household": "hh_st_cyr_john_mary",
+      "name": "The presbytery household at St Mary's",
+      "division": "south",
+      "relation": "lived and worked here",
+      "why": "The church at the south-west corner of Lake and State is his charge and this dataset holds no separate presbytery. A priest of a mission church of this period commonly lodged at or beside it; not stated.",
+      "sources": [
+        "andreas_1884_v1"
+      ],
+      "basis": "",
+      "persons": [
+        {
+          "name": "Rev. John Mary Irenaeus St Cyr",
+          "relationship": "head",
+          "grade": "attested",
+          "occupation": "priest",
+          "note": "BORN AT LYONS, FRANCE, 2 NOVEMBER 1803, AND EDUCATED THERE. Andreas: 'He left France in June, 1831, reached St. Louis August 1, of the same year, and was there made a subdeacon. He was ordained at St. Mary's the Barrens by Bishop Rosatti in 1832, and on April 6, 1833, was by the same Bishop ordained priest.' He was sent to Chicago because 'Catholics were increasing in numbers in Chicago, and were becoming desirous' of a priest - a petition answered, not a migration chosen. He was succeeded by Father O'Meara only after 1837, so he is the pastor across the whole scene window."
+        }
+      ],
+      "research_note": "THE ONLY CATHOLIC HOUSEHOLD IN THIS PARCEL AND ONE OF ITS BEST-DATED, which is a lopsided result worth stating: St Cyr's own movements are documented to the day while the congregation he came for - the Catholics who were 'increasing in numbers' and petitioned for him - is a body of people this dataset cannot name at all. THAT CONGREGATION IS THE LARGEST SINGLE POPULATION THE INFERRED PHASE HAS TO ACCOUNT FOR on the south side, and the church building is the evidence that it existed. A note for that phase: the lumber for the twenty-five by thirty-five foot church came by scow from St Joseph, Michigan, at $12 per thousand, and Anson Taylor hauled it from the schooner with his own team - three named trades in one sentence about one building."
+    },
+    {
+      "household": "hh_taylor_augustine",
+      "name": "The Augustine Taylor household",
+      "division": "south",
+      "relation": "worked here",
+      "why": "He built it, which is a builder's relation to a building rather than a workplace, and the church was finished long before the scene date. Linked one grade down because it is the only structure in this dataset his name is attached to; a carpenter in July 1835 was working on something else entirely and nothing says what.",
+      "sources": [
+        "andreas_1884_v1"
+      ],
+      "basis": "",
+      "persons": [
+        {
+          "name": "Augustine Deodat Taylor",
+          "relationship": "head",
+          "grade": "attested",
+          "occupation": "carpenter",
+          "note": "AN ARRIVAL WITH A MONTH, WHICH ONLY SIX HOUSEHOLDS IN THIS PARCEL HAVE. He is also the man whose name is attached in the Chicago literature to the first balloon-frame building - St Mary's - and this record makes no claim about that, because Andreas calls him the architect and says nothing about the framing method. HE IS IN THE DATASET BECAUSE THE 1835 TOWN CANNOT BE BUILT WITHOUT HIS TRADE. Andreas's roster is the only list this project holds that names artisans at all, and every name on it is a documented alternative to an inferred one. THE FEDERAL LAND TRACT SALES — A PURCHASE, AND NEVER A RESIDENCE. The Illinois State Archives' Public Domain Land Tract Sales register enters this person 2 times, as “TAYLOR A D”, 1836-06-23 to 1836-06-28: 2 lots in the platted town — lot 2 of block 42 in the town the register codes CHIOT (L2BL42CHIOT, as printed); lot 8 of block 6 in the town the register codes CHI (L8BL6CHI, as printed), 0.00 acres stated in all, for $5430.00 (ls1482, ls1483). THE REGISTER'S OWN RESIDENCE COLUMN READS UNKNOWN on these rows: a county, a state or nothing, and never a town, which is why a purchase here places nobody. THE TOWN LOTS ARE THE PLAT ITSELF, AND THEY ARE NOT ACRES: Cook County's register describes them by lot and block in a platted town and gives them no section, no township and no acreage at all, so they add nothing to the acre figure above and $5430.00 to the money. This project does not expand the register's town codes, so which addition a lot stands in is carried as the code and not as a name. It is still a purchase and it still places nobody. A purchase and nothing more. It dates and places a transaction; it proposes no residence, and under the ratified ladder it corroborates rather than mints. Identity by the crosswalk's own rule: TAYLOR A D matches Augustine Deodat Taylor: the forename names Augustine Deodat Taylor of the 7 people of this surname, and the forename agrees as an initial only. (data/research/land_sales/resident_crosswalk.json). This pass WRITES THE EVIDENCE AND MOVES NO GRADE. Under the ratified ladder (T-0513) a second independent source is what lifts a projected resident, and a land entry is a second source about a TRANSACTION rather than about who was living at Chicago on 1 July 1835 — a man may buy a quarter-section he never sees. T-0515 applies the ladder against every source at once; this pass hands it the evidence and not the verdict. FERGUS 1839'S LATER LISTS — 1837 AND 1839 EVIDENCE, NEVER AN 1835 FACT. Fergus' Chicago Directory for 1839 names this person 1 time in its two later lists: the poll of Chicago's first city election, 2 May 1837 — “Augustin D. Taylor,” (f1839_v0044, printed page 41, ward 1, voting for William B. Ogden). What a match may carry, and it is short: that the man was in Chicago on 2 May 1837 and in that ward. It is written as 1837 evidence with describes_date 1837-05-02, never as an 1835 fact, and the person's grade does not move on this alone. Under the ratified ladder a second contemporary source is what lifts projected_resident, and a poll twenty-two months after the scene date is a second source about CONTINUED RESIDENCE, not about July 1835. The ward is a location in the CITY of 1837, whose six wards are drawn on printed page 46; it is not a location in the town of 1835 and does not place a house. Identity by the crosswalk's own rule: Surname 'Taylor' folds to the same string as the 1837 entry's, and the given name of both begins A. (data/research/directories/fergus_1839_election_crosswalk_1835.json and fergus_1839_register_crosswalk_1835.json). This pass WRITES THE EVIDENCE AND MOVES NO GRADE. Under the ratified ladder (T-0513) a second independent source is what lifts a projected resident, and a poll twenty-two months after the scene date — or a register four years after it — is a second source about CONTINUED RESIDENCE rather than about July 1835. T-0515 applies the ladder against every source at once; this pass hands it the evidence and not the verdict. THE SECOND PRESBYTERIAN ROLL — A NAME ON A CHURCH LIST THAT OPENS IN 1842, AND NEVER AN 1835 FACT. The 1892 printed membership roll of the Second Presbyterian Church of Chicago, read line by line into this repository, carries 1 line whose surname and given initial agree with this person's — “Taylor, Miss Anna M. | Letter, | January 29, 1890.” (second_presb_0325, printed page 172), admitted 1890-01-29 by letter. Under the rule that decided it: Surname 'Taylor' folds to the same string as the roll line's, and the given name of both begins A. WHAT THE MATCH MINTS OR REGRADES: “NOTHING. A line on a roll that opens in June 1842 cannot place a person in the town of July 1835, and this file makes no proposal that it does. What a match IS: the same surname and initial, in Chicago, within seven years — a lead for a later pass that is allowed to write people.” THE SAME ROLL LINE IS MET BY OTHER TOWNSPEOPLE OF THIS NAME: second_presb_0325 is matched under this same rule to Anson H. Taylor (taylor_anson_h), so it is met by two townspeople of this name, and it says which of them it was about no more than it says it was about this one — the test that decided it is a surname and a given initial agreeing, which cannot tell them apart. This pass WRITES THE EVIDENCE AND MOVES NO GRADE: under the ratified ladder (T-0513) the roll is handed to the card as a thing a reader may weigh, and the verdict stays with T-0515, which applies the ladder against every source at once."
+        }
+      ],
+      "research_note": "A CARPENTER IN THE YEAR THE TOWN NEEDED CARPENTERS MOST, and one of two Taylor brothers in this parcel - Anson H. Taylor hauled the lumber for the same church with his own team and has his own household. THE OCCUPATION FIELD UNDERSTATES HIM: Andreas calls him a builder and an architect and this project's vocabulary records the trade he worked in. A dedicated 'builder' value exists in the vocabulary and is used for men described only that way; carpenter is chosen here because it is what he was."
+    }
+  ],
+  "citations": [
+    {
+      "source_id": "andreas_1884_v1",
+      "citation": "Andreas, A. T. History of Chicago: From the Earliest Period to the Present Time. Vol. 1. Chicago: A. T. Andreas, 1884.",
+      "url": "https://archive.org/details/historyofchicago01andr",
+      "archived_url": "",
+      "tier": 3,
+      "tier_label": "compiled secondary (Andreas)"
+    },
+    {
+      "source_id": "chicagology_prefire216",
+      "citation": "\"St. Mary's Church.\" Chicagology. Transcribing A. T. Andreas, History of Chicago (1884), with an uncredited building summary, the 1833 petition to the Bishop of St. Louis and city-directory entries 1859-1870.",
+      "url": "https://chicagology.com/prefire/prefire216/",
+      "archived_url": "https://web.archive.org/web/20260421023911/https://chicagology.com/prefire/prefire216/",
+      "tier": 4,
+      "tier_label": "later scholarship",
+      "what_it_supplies": [
+        "twenty-five by thirty-five feet in size",
+        "total cost about $400",
+        "frame raised in August 1833; not fit for occupancy and dedication until October 1833",
+        "not plastered inside; outside not painted",
+        "rough benches for pews, simplest of tables for altar and pulpit",
+        "neither steeple nor tower when built",
+        "a low, open tower with a small bell added \"some time afterwards\" - undated",
+        "Augustine D. Taylor architect and builder; Anson Taylor hauled the lumber",
+        "lumber brought by scow from St. Joseph, Michigan, at $12 per thousand",
+        "site a canal lot near the south-west corner of Lake and State streets, by the military reservation",
+        "first mass 5 May 1833 in Mark Beaubien's log cabin, twelve feet square"
+      ],
+      "what_it_does_not_supply": [
+        "the building's height, roof pitch, fenestration or which way it faced",
+        "a date for the low open tower, so nothing licenses one in 1835",
+        "the lot or its dimensions, beyond \"near the southwest corner\"",
+        "an agreed date or corner for the removal to Michigan and Madison",
+        "anything usable in its header \"Life Span\" field"
+      ]
+    },
+    {
+      "source_id": "ichr_v4_thompson_illinois_vincennes",
+      "citation": "Joseph J. Thompson, \"The Illinois Part of the Diocese of Vincennes\", Illinois Catholic Historical Review, vol. 4 (July 1921 - April 1922), pages 253-265. Read here at pages 256-259 only: the succession of priests at Chicago from St. Cyr through Schaefer to O'Meara, the location of the first Catholic church at what is now State and Lake Streets, the ground it stood on, and its later removal to Michigan Avenue and Madison Street.",
+      "url": "https://archive.org/details/illinoiscatholic04unse_1",
+      "archived_url": "https://archive.org/download/illinoiscatholic04unse_1/illinoiscatholic04unse_1_djvu.txt",
+      "tier": 4,
+      "tier_label": "later scholarship",
+      "transcribes": [
+        {
+          "work": "Gilbert J. Garraghan, The Catholic Church in Chicago, 1673-1871 (Chicago: Loyola University Press, 1921)",
+          "date": "1921",
+          "tier": 4,
+          "note": "THE ARTICLE IS MOSTLY A DIGEST OF GARRAGHAN AND SAYS SO IN ITS OWN FOOTNOTES - pages 71, 90, 97, 102, 103 and 106 are cited by number in the run read here. Thompson is therefore not an independent witness to Garraghan; where he adds detail Garraghan is not credited with, the footnote goes silent, and the sentence this project came for - the church at State and Lake, the Canal Commissioners' ground, the $10,000 valuation - carries NO footnote at all. This project does not hold Garraghan and cannot say which of those words are his."
+        }
+      ],
+      "what_it_supplies": [
+        "A SECOND INDEPENDENT PRINTING of where the first Catholic church stood: 'near the southwest corner of what is now State and Lake Streets'. The project already held the same quadrant and the same hedge word from chicagology_prefire216's Andreas transcription; this is a different author in a different book saying it again, and it names the location a second time nine lines later as 'the State-Lake location'.",
+        "WHOSE GROUND IT WAS: the church stood 'upon ground controlled by the Canal Commissioners', and had not been bought when O'Meara arrived. On the scene date the congregation occupied a canal lot it did not own.",
+        "The auction that ended it, with a figure the project did not have: the valuation was 'fixed at $10,000', the Catholics could not raise it, and 'the lot was purchased by a private party'.",
+        "A TERMINUS POST QUEM FOR THE REMOVAL, which is what this article is worth to a scene dated 1835-07-01: the church was still standing at State and Lake when O'Meara came, and the same article dates his arrival to 'the early or middle part of June, 1837'.",
+        "The destination of the removal - 'the northwest corner of Michigan Avenue and Madison Street' - bought from the government for $262.00 with a quitclaim deed from Jean Baptiste Beaubien.",
+        "The succession dates at Chicago: St. Cyr sent 1833 and 'remained until April 17, 1837'; Schaefer arrived in the fall of 1836 and died at Chicago 2 October 1837; O'Meara arrived early or mid June 1837; St. Palais arrived December 1839."
+      ],
+      "what_it_does_not_supply": [
+        "THE LOT. 'Near the southwest corner' is the same hedge the project already carries, and this article does not say which canal lot in that quadrant, nor how far back from the corner. It cannot narrow the westward error the structure record states.",
+        "Any dimension, material, plan, orientation or appearance of the church. The article calls it 'the little church' and nothing more; the belfry, the bell and the rear addition it does describe are all AFTER the removal and therefore after the scene.",
+        "THE DATE OF THE REMOVAL. The article names the canal auction as the cause and dates neither the auction nor the move.",
+        "Anything about 1835 in particular. The passage looks back from June 1837 at a building put up in 1833 and says nothing about the years between.",
+        "An independent voice. The run read here footnotes Garraghan on six of its pages and this project does not hold Garraghan."
+      ]
+    },
+    {
+      "source_id": "norris_directory_1844",
+      "citation": "J. W. Norris, General Directory and Business Advertiser of the City of Chicago, for the Year 1844: together with a Historical Sketch and Statistical Account, to the Present Time (Chicago: Ellis & Fergus, printers, 1844); read in the T. F. Bohan republication of 1903, University of Illinois copy",
+      "url": "https://archive.org/details/generaldirectory19norr",
+      "archived_url": "https://archive.org/details/generaldirectory19norr",
+      "tier": 1,
+      "tier_label": "period/eyewitness"
+    },
+    {
+      "source_id": "osm_streets_2026",
+      "citation": "OpenStreetMap contributors. Street centerline intersection nodes for downtown Chicago, retrieved via the Overpass API, 2026-08-09.",
+      "url": "https://www.openstreetmap.org/",
+      "archived_url": "https://overpass-api.de/",
+      "tier": 4,
+      "tier_label": "later scholarship"
+    }
+  ],
+  "research_note": "THE BEST-SPECIFIED SMALL BUILDING IN THE 1835 TOWN: two dimensions, a cost, a builder, a lumber price and shipping route, an exterior finish, an interior finish, a seating description and an explicit statement that it had no tower - all from one page (chicagology_prefire216), which transcribes Andreas. THREE THINGS TO CARRY FORWARD, IN ORDER OF HOW MUCH DAMAGE THEY COULD DO. (1) THE TOWER. See the `tower` attribute. The page attests a low open tower with the first bell in Chicago at 'some time afterwards' and gives no date, which is exactly how a building gets aged forward by a detail that arrives without one. No tower is built. (2) THE CORNER IS NOT CONTESTED, whatever an earlier reading of the dossier suggested. Both statements on the page put the church south of Lake and west of State; what they do not fix is the lot, because the wording is 'NEAR the southwest corner'. This record therefore carries a quadrant, an unbounded westward uncertainty, and no dispute. (3) THE PAGE IS TIER 4 AND THE MATERIAL IT REPRINTS IS OLDER THAN THAT. The transcription is unpaginated and uncredited editorial prose sits beside the quoted matter with no typographic break; its own header field gives a Life Span that contradicts its body. Every dimension in this record is load-bearing, so it should be collated against Andreas vol. 1 at page image level and re-cited to `andreas_1884_v1` when it is - the dossier points at scan pp. 281 and 601. THE ORIENTATION IS THE MODEL'S LARGEST DEPARTURE from what the building probably looked like: a 25 x 35 ft church almost certainly stood gable-end to Lake Street, and this archetype cannot build that. See the footprint note and docs/LIBERTIES.md. ARCHETYPE CHOICE, STATED BECAUSE IT IS ITSELF A LIBERTY. The schema offers an `institutional` archetype and there is no generator behind it, so a record using it would compile a sidecar pointing at a GLB that does not exist and the building would be invisible in the walkthrough. `frame_dwelling` is used instead because it is the only archetype in the project that builds a plain single-range frame box with a gable roof and nothing else: `frame_tavern` carries a public house's gallery and bar-room frontage, `frame_storefront` carries a shopfront, `outbuilding` carries a stable's door and refuses a storey count. WHAT THE SUBSTITUTION COSTS is the facade: frame_dwelling puts the door in the long eaves-front wall and sets the openings out on a house's bay module, where a meeting house of these years normally had its door in the gable end. This is recorded in docs/LIBERTIES.md and the affected attributes (`plan`, `bays`) are tagged conjectural.",
+  "research_doc": "",
+  "review_required": false
+}

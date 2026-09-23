@@ -1,0 +1,36 @@
+{
+  "id": "ipums_nhgis_1830_illinois_counties",
+  "type": "dataset",
+  "citation": "Jonathan Schroeder, David Van Riper, Steven Manson, Grace Cooper, Zachary Krause, Tracy Kugler, Tsu Zhu, and Steven Ruggles. IPUMS National Historical Geographic Information System: Version 21.0 [dataset]. Minneapolis, MN: IPUMS. 2026. http://doi.org/10.18128/D050.V21.0 — dataset ds5, '1830 Census: Population Data [US, States & Counties]', extent Illinois. The citation is verbatim from the codebook shipped with the extract, in the form the NHGIS terms require.",
+  "author": "IPUMS NHGIS, University of Minnesota",
+  "date": "2026",
+  "describes_date": "1830-06-01",
+  "repository": "IPUMS NHGIS (https://www.nhgis.org). The extract is published, under the restriction below, at the Internet Archive item chicago1835-ipums-nhgis-1830-illinois-counties.",
+  "url": "https://archive.org/details/chicago1835-ipums-nhgis-1830-illinois-counties",
+  "archived_url": "https://archive.org/download/chicago1835-ipums-nhgis-1830-illinois-counties/nhgis0001_ds5_1830_county.csv",
+  "locator": "nhgis0001_ds5_1830_county.csv — 49 Illinois county rows, column ABN001 'Total', 4013 bytes, sha256 0e17819c66c7685e53e0b7f9a0a0e54aeb2d78e8eea23da80202af67e501c7af. The single figure quoted from it is Putnam County, 1310.",
+  "tier": 1,
+  "rights_status": "restricted",
+  "rights_note": "NHGIS terms, verbatim from the codebook: 'REDISTRIBUTION: You will not redistribute the data without permission. You may publish a subset of the data to meet journal requirements for accessing data related to a particular publication.' The same terms make a violation a breach of a legally binding agreement carrying liability for damages and fees. NOTHING IN THIS REPOSITORY REDISTRIBUTES THE TABLE: one published county total is QUOTED, in the tool that uses it, with the file's hash beside it so a reader with their own extract can verify the quotation. Request your own at https://www.nhgis.org.",
+  "asset_use": "text_only",
+  "verified": true,
+  "access_notes": "VERIFIED 2026-09-04 for T-0507: fetched from the Internet Archive item (HTTP 200, 4013 bytes, matching chicago/reference/ipums/ipums-nhgis.yaml), read, quoted and deleted from the runner. Two checks were made on it before quoting. Its 49 Illinois county totals sum to 157,445, which is the published 1830 total for the state — so the table is the whole state and not a subset. And PEORIA HAS NO ROW, though Peoria County had existed since 1825: the district the Chicago settlement was enumerated in is headed, in the enumerator's hand, 'Peoria & Putnam Counties & Territory attached' (source census_1830_peoria_county_chicago_precinct), and NHGIS prints its total under Putnam. Whether NHGIS merged the two counties or the return itself was credited to Putnam is NOT settled here and must not be asserted from this record.",
+  "what_it_supplies": [
+    "the published 1830 population of the county the Chicago settlement was counted in — 1,310 for Putnam — which is the earliest aggregate this project can place beside the 1835 town census and the 1840 city",
+    "the 1830 Illinois state total, 157,445, as a check that the table is complete"
+  ],
+  "what_it_does_not_supply": [
+    "a population for Chicago. There was no Chicago to count in 1830 and the schedule never writes the word; this is a district of northern Illinois, most of it nowhere near the river",
+    "any name, household or age band. It is a county total and nothing else — the names on the same schedule are read from the manuscript at data/research/census_1830/",
+    "a growth rate. The 1830 district, the 1835 town and the 1840 city count three different things, and the arithmetic between them in composition_1840.json says so in its own note"
+  ],
+  "note": "Quoted, not carried. One number from this table is in the repository, in tools/census_1840_composition.py, where the reasoning that uses it can be read beside it.",
+  "transcribes": [
+    {
+      "work": "The published aggregate returns of the Fifth Census of the United States, 1830 — the county population totals for Illinois as printed for Congress",
+      "date": "1830",
+      "tier": 1,
+      "note": "THE DOCUMENT THE ONE QUOTED FIGURE RESTS ON: Putnam County, 1,310, and the state total of 157,445 that checks it. NHGIS ds5 is a machine-readable transcription of these printed totals and adds no count of its own. NOT SEEN BY THIS PROJECT in the printing: what was read is the NHGIS table."
+    }
+  ]
+}

@@ -1,0 +1,273 @@
+{
+  "id": "temple_building",
+  "phase": "frame_1833",
+  "name": "Temple Building",
+  "aka": [
+    "the First Baptist meeting house",
+    "Dr. Temple's building",
+    "Sproat's English and Classical School for Boys"
+  ],
+  "archetype": "frame_dwelling",
+  "asset": "gltf/temple_building__frame_1833.glb",
+  "scene": "1835",
+  "target_date": "1835-07-01",
+  "documented_range": {
+    "from": "1833-08-16",
+    "to": "1835-12-31",
+    "confidence": "inferred",
+    "sources": [
+      "baptisthistoryhomepage",
+      "andreas_1884_v1"
+    ],
+    "note": "THE START IS DATED BY AN ARRIVAL, WHICH IS BETTER THAN A YEAR. Dr John T. Temple reached Chicago 'about the 4th of July, 1833', started a subscription for a building and headed it with $100; 'in a few weeks the building was erected'; and then, exactly: 'When Rev. Allen B. Freeman, with his wife, arrived on the 16th of August, he found the church building ready for use' (baptisthistoryhomepage, transcribing Andreas I pp. 315-325 with print page markers). So the structure is standing and usable on 1833-08-16, which is the date taken here - a date somebody recorded about somebody else's journey, which is why it is firm. THE END IS A HOUSEKEEPING BOUND, NOT A DEMOLITION DATE. No source reached says how long the building stood or what became of it. 1835-12-31 is the ordinary continuity cut at the scene year that this dataset uses where a fate is unattested, the same convention peck_store, madore_beaubien_house and hogan_store carry. The range is tagged inferred because of that second half. WHAT IS NOT IN DOUBT is the scene date: the building was in shared denominational use until the Presbyterian church was dedicated on 4 January 1834, and Sproat's school occupied the upper storey from December 1833."
+  },
+  "change_note": "The two-storey frame building Dr John T. Temple's subscription put up near Franklin and South Water in the summer of 1833 - worship below, school above, about $900 - standing and ready for use by 16 August 1833. Used in turn by Methodists, Presbyterians and Baptists until the Presbyterian church was dedicated in January 1834, and by Grenville T. Sproat's English and Classical School for Boys in the upper storey from December 1833. No change of fabric is attested inside the phase.",
+  "placement": {
+    "local_e": 220.723,
+    "local_n": -15.309,
+    "rotation_deg": 0.0,
+    "position_confidence": "inferred",
+    "position_sources": [
+      "baptisthistoryhomepage",
+      "andreas_1884_v1",
+      "osm_streets_2026"
+    ],
+    "position_note": "PLACED 2026-08-11. THE SOURCE SAYS 'NEAR', NOT 'AT', AND THIS RECORD DOES NOT UPGRADE IT. Verbatim: 'In a few weeks the building was erected NEAR the corner of Franklin and South Water streets' (baptisthistoryhomepage). Andreas elsewhere calls it 'a small house of worship belonging to the First Baptist Church Society, on South Water Street, near Franklin'. This project's own dossier renders both as 'corner of Franklin and South Water' at docs/research/04-structures-south.md lines 130 and 220, which is a hardening the sources do not support: the page does not say 'at' and does not say which of the four corners. THE POSITION IS THEREFORE INFERRED, NOT DOCUMENTED, and two of the four quadrants are argued away rather than guessed away. The NORTH side of South Water is excluded because it was the river bank - wharves, landings and lumber piles the whole length of the street (docs/research/04-structures-south.md section 12) - and a subscription meeting house was not built on the dock line. Of the two south quadrants, EAST of Franklin is adopted because this project's own block-by-block reading puts the Temple Building in the Franklin-to-Wells block with the post office and Brewster, Hogan & Co., and because Andreas's phrase is 'on South Water Street, near Franklin' rather than 'at Franklin', which reads as a position along the street measured from the corner. If it stood west of Franklin instead, the building belongs about 25 to 60 m west of this coordinate. METHOD: the modern West Wacker Drive / North Franklin Street intersection centre was read from OpenStreetMap at EPSG:26916 E 447281.16, N 4637407.21 (2 nodes averaged, spread 15.3 m, fetched 2026-08-11), and the footprint origin set 12.2 m east of it and 12.2 m south of it less the building's own depth, so the north face sits on the South Water frontage and the west face on the Franklin frontage of a south-east corner lot. WORKING UNCERTAINTY ABOUT 20 M from the georeference, plus the quadrant risk above, plus the standing caveat that MODERN WACKER DRIVE IS NOT EXACTLY THE 1835 SOUTH WATER LINE - Wacker was built on South Water's right of way in 1924-26 and widened northward over the old dock line, which the peck_store record sets out at length. Facade bearing 0, due north onto South Water, inferred from the street; nothing says which way the building faced. RECONCILED WITH THE COMMITTED PLAT 2026-08-24 (T-0127), AND THE CLAIM DID NOT MOVE — ONLY THE LINE IT WAS DERIVED AGAINST. The method above set this footprint's north face on the South Water frontage, and it found that frontage by taking the MODERN West Wacker Drive centreline out of OpenStreetMap and stepping 12.2 m south of it. That is not this project's own South Water Street: the committed centreline in data/streets/1835.json, offset by half the committed 80 ft corridor, is what tools/generate_plat_lots.py builds every platted block edge from, and it is the line every derived layer in this scene reads. Measured against it, this record's north wall stood 5.40 m OUT PAST the blk_south_water_franklin frontage line, in the platted roadway — far enough into it that tools/generate_frontage_works.py refused the plank sidewalk along this stretch of South Water in writing and named this building in the refusal. THE REPAIR IS THIS RECORD'S OWN METHOD RUN AGAINST THIS PROJECT'S OWN LINE: the footprint is translated 6.90 m along the face's inward normal — dE +0.063 m, dN -6.899 m in local ENU, so UTM E 447293.36 N 4637387.39 becomes E 447293.423 N 4637380.491 — which leaves its north wall 1.50 m back from the committed frontage line, the same margin tools/generate_block_infill.py gives every reconstructed unit standing on this face. NOTHING ALONG THE STREET MOVED: the along-face position, the block, the corner and the side are untouched, and so is the confidence grade — re-deriving a coordinate from better geometry is not new evidence. WHAT IS STILL WRONG AND IS LEFT WRITTEN DOWN: the facade bearing stays 0 while this face runs at 359.478 (i.e. -0.522), so the front wall is 1.50 m back at its worst corner and up to 1.58 m at the other. That skew is smaller than the walk's own daylight and it is not corrected here, because rotating a documented record is a second claim and this one is a repair.",
+    "symbolic_location": "South side of South Water Street near Franklin Street (today the south side of West Wacker Drive near North Franklin Street), in the Franklin-to-Wells block; fronting north onto South Water.",
+    "uncertainty_m": 20,
+    "placement_provisional": false,
+    "vertical_anchor": "terrain",
+    "walk_surface_m": null
+  },
+  "footprint": {
+    "polygon": [
+      [
+        0,
+        0
+      ],
+      [
+        9.144,
+        0
+      ],
+      [
+        9.144,
+        7.62
+      ],
+      [
+        0,
+        7.62
+      ]
+    ],
+    "confidence": "reconstructed",
+    "sources": [],
+    "note": "INVENTED, AND THE ARITHMETIC BEHIND IT IS STATED SO IT CAN BE ARGUED WITH. No source reached gives this building a dimension. What IS documented is its cost, about $900, and its storey count, two - and this dataset now holds two contemporary buildings whose cost AND area are both attested: the First Presbyterian Church at $600 for 1,000 sq ft ($0.60/sq ft) and St Mary's at $400 for 875 sq ft ($0.46/sq ft). Two storeys at the midpoint of that range, about $0.55 per square foot, buys roughly 1,600 sq ft of floor, i.e. about 800 sq ft per storey. 30 x 25 ft is 750 sq ft, which at $0.55 gives $825 against the attested $900 - close, and on the conservative side. 9.144 x 7.62 m is 30 x 25 ft, recorded converted with the original figures stated. THIS IS STILL AN INVENTION AND IT IS TAGGED AS ONE. The cost-per-square-foot of a two-storey building is not the cost-per-square-foot of a single-storey one (a second floor is cheap relative to a roof and a foundation, which would make the real building BIGGER than this), and both reference figures rest on the citation problem set out in the Presbyterian record's research note. The 25 ft depth is additionally borrowed - it is the depth of both churches and of the rectangle four other records in this dataset use - so the shape is a claim about the type and not about this building."
+  },
+  "attributes": {
+    "stories": {
+      "value": 2,
+      "confidence": "attested",
+      "sources": [
+        "baptisthistoryhomepage"
+      ],
+      "note": "'It was a two-story frame structure, the upper story for school, the lower for religious purposes, and cost about nine hundred dollars.' One of the very few storey counts in this dataset that is stated outright in a transcribed period text rather than inferred from a description or asserted by a modern summary."
+    },
+    "construction": {
+      "value": "braced_frame",
+      "confidence": "inferred",
+      "sources": [
+        "baptisthistoryhomepage"
+      ],
+      "note": "The source says 'frame' and no more. Both systems were available at Chicago in the summer of 1833 and the alternative is live enough to state: the building went up 'in a few weeks', and speed of erection is precisely what balloon framing was for - Augustine D. Taylor was raising St Mary's frame in the same weeks, a few blocks east. Braced frame is adopted as the conservative reading for a building whose framer is unnamed, the same argument peck_store and the Presbyterian church record make. In this archetype the choice is not cosmetic: a braced frame shows a girt line at the upper floor, which on a two-storey building is the single most legible exterior difference between the two systems."
+    },
+    "wall_height_m": {
+      "value": 4.9,
+      "confidence": "inferred",
+      "note": "No figure is attested. 4.9 m is about 16 ft: two storeys built up from the Green Tree Tavern's attested 7 1/2 ft ceiling plus floor structure and a sill course, which is the reading and very nearly the number this project gives its other two-storey frame buildings. What is inferred is that the height falls in this range, not that it is exactly 4.9 m."
+    },
+    "roof_type": {
+      "value": "gable",
+      "confidence": "inferred",
+      "note": "Not attested. Gable is the near-universal roof form for a two-storey frame building of this period and region, and this archetype refuses a shed roof over a range this deep. Typological derivation."
+    },
+    "roof_pitch_deg": {
+      "value": 38.0,
+      "confidence": "inferred",
+      "note": "No pitch is attested. 38 degrees is the mid-range this project uses for period gable framing across the dataset. Inferred from construction practice, not measured."
+    },
+    "plan": {
+      "value": "centre_passage",
+      "confidence": "reconstructed",
+      "note": "INVENTED, and it is the archetype's vocabulary rather than the building's - the same admission the two church records make. A building with a worship room below and a school room above has no hall-and-parlour behind its front wall. centre_passage is chosen because it produces a symmetrical front with a centred door, which is what a plain public building looked like and what a stair to a separate upper storey implies. Nothing about the real door position, or about whether the school had its own outside stair, is attested."
+    },
+    "bays": {
+      "value": 3,
+      "confidence": "reconstructed",
+      "note": "INVENTED. No source describes an opening on this building. Three - a centred door with one window either side, repeated above - is the plainest symmetrical front the archetype will build, and the archetype would otherwise derive three from the 30 ft frontage anyway, so the number is at least not inflated. It is still a guess about a facade nobody described."
+    },
+    "paint": {
+      "value": "unpainted",
+      "confidence": "inferred",
+      "note": "Not attested. Unpainted weathered clapboard is the reading this project adopts for frame buildings whose finish is unrecorded, and it is positively supported nearby: the one 1833 Chicago church whose exterior finish IS attested, St Mary's, was expressly not painted, and the Sauganash's white paint was remarkable enough to be worth recording. Not attested either way."
+    },
+    "chimneys": {
+      "value": 1,
+      "confidence": "inferred",
+      "note": "Not attested. One is the minimum for a building holding a school through Chicago winters, which this one demonstrably did - Grenville T. Sproat opened his boys' school in the upper storey on 17 December 1833. THE RESIDUAL UNCERTAINTY IS THE KIND OF HEATING, NOT THE FACT OF IT: a box stove with a sheet-iron pipe is as likely as a masonry stack, and this archetype builds only the stack. The COUNT is the inference; the stack's position, size and material are the archetype's - docs/LIBERTIES.md L26."
+    },
+    "storey_uses": {
+      "value": "upper storey for school, lower storey for religious worship",
+      "confidence": "attested",
+      "sources": [
+        "baptisthistoryhomepage"
+      ],
+      "geometry": "record_only",
+      "note": "Documented and not a build instruction: no interior is modelled in this project, and the division leaves no external trace this archetype builds - not a separate outside stair, not a differently fenestrated upper storey. It is recorded because it is the whole point of the building and because it is what ties Sproat's school to this address."
+    },
+    "cost_usd": {
+      "value": 900,
+      "confidence": "attested",
+      "sources": [
+        "baptisthistoryhomepage"
+      ],
+      "geometry": "record_only",
+      "note": "'cost about nine hundred dollars'. Not a build instruction, but the ONLY quantitative fact this record has about the building's size, and the footprint above is derived from it against the two churches' attested cost-per-square-foot. If the footprint is ever corrected from a real dimension, this figure is what will have been wrong about the derivation, not the other way round."
+    },
+    "siding_exposure_m": {
+      "value": 0.14,
+      "confidence": "reconstructed",
+      "note": "INVENTED WITHIN A STOCK SET, NOT DERIVED. No source states the exposed face of any Chicago building's siding. The value is one of four period mill sidings — 4.5, 5, 5.5 or 6 in to the weather; this record wears 5.5 in — dealt by tools/deal_siding_stock.py: keyed to the phase's construction season, because buildings sided from the same season's shipments of St Joseph sawn lumber tend toward one stock, then advanced so no frame building within 60 m shares this one's. The separation is the surface variety T-0049 reconstructs, not a claim about 1835. docs/LIBERTIES.md L148 owns the invention."
+    },
+    "function": {
+      "value": "meeting_house_and_school",
+      "confidence": "attested",
+      "sources": [
+        "baptisthistoryhomepage",
+        "andreas_1884_v1"
+      ],
+      "note": "Both halves are documented in the same sentence - 'the upper story for school, the lower for religious purposes' - and both are corroborated from the other direction. Worship: 'With the exception of Rev. Jesse Walker's log house at the Point, this was the first house built for religious worship in Chicago', which also cross-checks this project's walker_meeting_house record. School: Andreas has Grenville T. Sproat opening his English and Classical School for Boys here on 17 December 1833 and it is operating in 1835 (docs/research/04-structures-south.md sections 5 and 9). Sproat is NOT on the Baptist transcription, which is why both sources are cited and neither is stretched."
+    },
+    "occupants": {
+      "value": "First Baptist Church Society; Grenville T. Sproat's English and Classical School for Boys in the upper storey",
+      "confidence": "attested",
+      "sources": [
+        "baptisthistoryhomepage",
+        "andreas_1884_v1"
+      ],
+      "note": "The First Baptist Church was organised on 19 October 1833 with nineteen members and Rev. Allen B. Freeman; Andreas calls this structure 'a small house of worship belonging to the First Baptist Church Society' by December 1833. Sproat's school is Andreas's. THE SHARED USE BY METHODISTS AND PRESBYTERIANS ENDED IN JANUARY 1834 and is not carried forward to the scene date: by 1835 the Presbyterians had their own building at Lake and Clark, which is a separate record here, and the Methodist meeting house is a north- or west-bank building (see walker_meeting_house and data/exclusions.json)."
+    }
+  },
+  "residents": [
+    {
+      "household": "hh_sproat_grenville",
+      "name": "The Sproat household",
+      "division": "south",
+      "relation": "worked here",
+      "why": "The upper storey. data/structures/temple_building.json already carries 'Grenville T. Sproat's English and Classical School for Boys in the upper storey'.",
+      "sources": [
+        "andreas_1884_v1"
+      ],
+      "basis": "",
+      "persons": [
+        {
+          "name": "Grenville Temple Sproat",
+          "relationship": "head",
+          "grade": "attested",
+          "occupation": "schoolteacher",
+          "note": "DOCUMENTED CONTEMPORANEOUSLY AND RETROSPECTIVELY, WITH AN ORIGIN IN THE CONTEMPORARY SOURCE - which makes this the only origin in the parcel that comes from a Chicago document rather than from a memoir. Andreas spells the forename both Granville and Grenville and the index carries 'Sproot, Grenville Temple'; his English and Classical School for Boys occupied the upper storey of the Temple Building. Two women are named as teachers in the same building at different times - 'Miss Chappel (Mrs. Jeremiah Porter), Miss Sarah Warren (Mrs. Abel E. Carpenter), and S. L. Carpenter' - and none of the three is written as a household here because none of them is placed in the town on any date near the scene date."
+        }
+      ],
+      "research_note": "THE SCHOOLMASTER OF THE TOWN'S FIRST PURPOSE-BUILT SCHOOLROOM, and a household whose presence at the scene date is genuinely open. THE PARCEL'S SCHOOLING GAP IS WORTH STATING: in a town of 3,265 people this dataset can name three teachers - Watkins, Sproat and Eliza Chappel - of whom one is documented at work in the scene year, one is uncertain and one had married and left. George Davis, teaching on Lake Street in the winter of 1834-35 and in the Presbyterian church later in 1835, is a fourth and is the most obviously missing household in this parcel."
+    },
+    {
+      "household": "hh_temple_john_t",
+      "name": "The Temple household",
+      "division": "south",
+      "relation": "worked here",
+      "why": "He built it, headed its subscription with $100, and rented it out to whatever societies could pay. That is a proprietor's relation to a building rather than a workplace, and his medical practice and his stage line were carried on elsewhere. Linked because it is the building this town knew him by; graded derived because 'works at' overstates it.",
+      "sources": [
+        "andreas_1884_v1",
+        "baptisthistoryhomepage"
+      ],
+      "basis": "",
+      "persons": [
+        {
+          "name": "Dr John Taylor Temple",
+          "relationship": "head",
+          "grade": "attested",
+          "occupation": "physician",
+          "note": "THE BEST-DOCUMENTED ARRIVAL IN THE WHOLE PARCEL, and the only one that gives a month, a party size, an origin AND a reason in a single sentence. Andreas, scan p. 281: 'Dr. John T. Temple, who had arrived early in July, 1833, with his family, consisting of a wife and four children. He was a pious and earnest Baptist Christian, and came to Chicago from Washington, D. C., armed with a contract to carry the mails from Chicago to Fort Howard, Green Bay.' He then headed the subscription for the Temple Building with $100. THE TOWN'S OWN ROLLS, 1833-1835 — CORROBORATION, NOT A GRADE. The early Chicago voter and tax lists held by the Illinois Regional Archives Depository name this person 3 times: Poll list of the first election of the Board of Trustees of the Town of Chicago, 10 August 1833 — “Temple, John T.” (poll_1833_027, line 48); Tax list of the Town of Chicago, 1833 — “Temple, John” (tax_1833_102, line 154); Election returns — poll list of 1834, filed 11 August 1834 — “Temple, John T.” (poll_1834_107, line 276). These are the town's own contemporary paper rather than a recollection of it, and each appearance says that a man of that name stood on that roll in that year — no more. The reading is twice mediated (Schulz's transcription, then Genealogy Trails' republication) and this project has not seen the IRAD originals. Under the ratified ladder (T-0513) the 1835 poll with a second independent source is attested, the 1835 poll alone or a 1833/1834 list with another source is inferred, and a single appearance with nothing else is a projected resident. This pass WRITES THE EVIDENCE AND MOVES NO GRADE — T-0515 applies the ladder against every source at once. Identity by the crosswalk's own rule: one resident of the surname 'Temple' agrees with the entry's forenames; 3 bearer(s) of the surname were considered. (data/research/civic/voter_crosswalk.json). THE FEDERAL LAND TRACT SALES — A PURCHASE, AND NEVER A RESIDENCE. The Illinois State Archives' Public Domain Land Tract Sales register enters this person 10 times, as “TEMPLE JOHN T”, “TEMPLE J T”, 1833-10-22 to 1836-06-21: 2 lots in the platted town — lot 4 of block 20 in the town the register codes CHIOT (L4BL20CHIOT, as printed); lot 6 of block 20 in the town the register codes CHIOT (L6BL20CHIOT, as printed) and 8 parcels of the school section — BL103 of the school section (sec 16 T39N R14E), as read; BL110 of the school section (sec 16 T39N R14E), as read; BL111 of the school section (sec 16 T39N R14E), as read; BL112 of the school section (sec 16 T39N R14E), as read; BL17 of the school section (sec 16 T39N R14E), as read; BL76 of the school section (sec 16 T39N R14E), as read; BL77 of the school section (sec 16 T39N R14E), as read; BL99 of the school section (sec 16 T39N R14E), as read, 30.31 acres stated in all, for $21107.00 (ls0353, ls0354, ls0355, ls0356, ls0357, ls0358, ls0359, ls0360, ls1505, ls1506). THE REGISTER'S OWN RESIDENCE COLUMN READS UNKNOWN on these rows: a county, a state or nothing, and never a town, which is why a purchase here places nobody. THE SCHOOL-SECTION ROWS ARE GROUND INSIDE THE TOWN, NOT FARMLAND: section 16 of T39N R14E was platted and sold off by lot and by block at the sale of 1833, which is why the register states 0000.00 acres against most of them. Ground inside the town is nearer to this reconstruction than a quarter-section is, and it is still a purchase: the register names a purchaser and never an occupant, and nothing here puts this person on that ground. THE TOWN LOTS ARE THE PLAT ITSELF, AND THEY ARE NOT ACRES: Cook County's register describes them by lot and block in a platted town and gives them no section, no township and no acreage at all, so they add nothing to the acre figure above and $20000.00 to the money. This project does not expand the register's town codes, so which addition a lot stands in is carried as the code and not as a name. It is still a purchase and it still places nobody. A purchase and nothing more. It dates and places a transaction; it proposes no residence, and under the ratified ladder it corroborates rather than mints. Identity by the crosswalk's own rule: TEMPLE JOHN T matches Dr John Taylor Temple: the forename names Dr John Taylor Temple of the 3 people of this surname, and the forename agrees in full. (data/research/land_sales/resident_crosswalk.json). This pass WRITES THE EVIDENCE AND MOVES NO GRADE. Under the ratified ladder (T-0513) a second independent source is what lifts a projected resident, and a land entry is a second source about a TRANSACTION rather than about who was living at Chicago on 1 July 1835 — a man may buy a quarter-section he never sees. T-0515 applies the ladder against every source at once; this pass hands it the evidence and not the verdict."
+        },
+        {
+          "name": "Mrs Temple",
+          "relationship": "wife",
+          "grade": "inferred",
+          "occupation": "none_recorded",
+          "note": "DOCUMENTED AS A PERSON AND UNNAMED IN THE SOURCE. Andreas counts her - 'his family, consisting of a wife and four children' - and never gives her name. She is written as a person because the source counts her; the record carries no forename because inventing one would be the exact failure this grade exists to prevent."
+        },
+        {
+          "name": "The four Temple children",
+          "relationship": "child",
+          "grade": "inferred",
+          "occupation": "none_recorded",
+          "note": "FOUR CHILDREN, COUNTED AND NOT NAMED. Andreas gives the number and nothing else - no names, no sexes, no ages. They are carried as one entry with a count in its name rather than as four invented individuals; the count is the evidence and the individuation is not. A later parcel with a church register or a school list would split this into four person records."
+        },
+        {
+          "name": "Dr Peter Temple",
+          "relationship": "brother",
+          "grade": "attested",
+          "occupation": "dentist",
+          "note": "DOCUMENTED IN THE TOWN, DERIVED INTO THIS HOUSEHOLD. His own advertisement of 7 July 1834 places him 'adjacent to the dwelling of Dr. J. T. Temple' - i.e. NEXT DOOR, not in the same house - so grouping him here is a reconstruction and the note has to say so. He is also documented at Chicago after the scene date: on the executive committee of the Chicago Bible Society on 23 August 1835 and a secretary of the canal meeting of 7 November 1835. The brotherhood is Andreas's word ('through the influence of his brother') in a later passage."
+        }
+      ],
+      "research_note": "THE MODEL HOUSEHOLD FOR THIS PROGRAMME, because one sentence of Andreas supplies four of the six things K1 asks for - month of arrival, party size, origin and reason - and because the household then demonstrates the two honest ways of handling people a source counts but does not name. A wife who is counted gets a person record with no forename; four children who are counted get ONE record whose name states the count. Neither is inflated into individuals and neither is dropped. FIVE PERSONS ARE WRITTEN AND SIX PEOPLE ARE CLAIMED - the discrepancy is the four-children entry and it is deliberate; any later code that counts persons must read the notes, not the array length."
+    }
+  ],
+  "citations": [
+    {
+      "source_id": "andreas_1884_v1",
+      "citation": "Andreas, A. T. History of Chicago: From the Earliest Period to the Present Time. Vol. 1. Chicago: A. T. Andreas, 1884.",
+      "url": "https://archive.org/details/historyofchicago01andr",
+      "archived_url": "",
+      "tier": 3,
+      "tier_label": "compiled secondary (Andreas)"
+    },
+    {
+      "source_id": "baptisthistoryhomepage",
+      "citation": "\"Early Chicago Baptist Churches and Ministers.\" Baptist History Homepage. A verbatim transcription of A. T. Andreas, History of Chicago, Volume 1 (1884), pp. 315-325, from the Google Books scan, scanned and formatted by Jim Duvall.",
+      "url": "https://baptisthistoryhomepage.com/illinois.chicg.bp.chs.mns.html",
+      "archived_url": "https://web.archive.org/web/20240526195448/http://baptisthistoryhomepage.com/illinois.chicg.bp.chs.mns.html",
+      "tier": 4,
+      "tier_label": "later scholarship",
+      "what_it_supplies": [
+        "two storeys, frame construction",
+        "upper storey for school, lower for religious purposes",
+        "cost about nine hundred dollars",
+        "erected NEAR the corner of Franklin and South Water streets",
+        "standing and ready for use by 16 August 1833",
+        "subscription started and headed with $100 by Dr John T. Temple, who reached Chicago about 4 July 1833",
+        "the name \"Temple Building\"",
+        "shared use by Methodists, Presbyterians and Baptists until the Presbyterian church was dedicated 4 January 1834",
+        "the First Baptist Church organised 19 October 1833 with nineteen members, fourteen founders named",
+        "that only Jesse Walker's log house at the Point was built for worship earlier"
+      ],
+      "what_it_does_not_supply": [
+        "which corner of Franklin and South Water",
+        "any dimension in feet",
+        "roof form, fenestration, finish or orientation",
+        "how long the building stood, or its fate",
+        "Grenville T. Sproat's school, which is not on this page"
+      ]
+    },
+    {
+      "source_id": "osm_streets_2026",
+      "citation": "OpenStreetMap contributors. Street centerline intersection nodes for downtown Chicago, retrieved via the Overpass API, 2026-08-09.",
+      "url": "https://www.openstreetmap.org/",
+      "archived_url": "https://overpass-api.de/",
+      "tier": 4,
+      "tier_label": "later scholarship"
+    }
+  ],
+  "research_note": "THE THIRD OF THE TOWN'S THREE WORSHIP BUILDINGS AND THE ONLY ONE THAT WAS ALSO A SCHOOL, which is why it belongs in this parcel twice over. WHAT IS DOCUMENTED IS UNUSUALLY GOOD FOR ITS TYPE - two storeys, frame, the use of each storey, a cost, and a standing-by date fixed by a third party's arrival - and comes through a transcription (baptisthistoryhomepage) that states its source exactly, 'Andreas, History of Chicago, Volume 1, 1884, pp. 315-325', and keeps the print page numbers inline. That checkability is why this record cites that page rather than paraphrasing it, and it is also why any load-bearing claim here is cheap to collate against the volume and should be. WHAT IS NOT DOCUMENTED IS EVERY DIMENSION, so the footprint is derived from the cost against the two churches - the arithmetic is written out in the footprint note precisely so a later source can knock it down in one line. THE PRECISION THE DOSSIER SOFTENED IN THE WRONG DIRECTION IS THE POSITION. The page says 'NEAR the corner of Franklin and South Water streets'; docs/research/04-structures-south.md renders that as 'corner of Franklin and South Water' at lines 130 and 220. This record does not follow it: the position is inferred, the quadrant is argued rather than asserted, and the direction of the likely error is stated. THE BAPTIST BUILDING CAMPAIGN GUARD STILL HOLDS: Andreas records 'a severe windstorm on November 4 demolished one of the walls of the First Baptist church, then being erected' with an unresolved year, and the congregation's own purpose-built church at Washington and LaSalle is 1844-45. Neither belongs in July 1835 and no Baptist construction site is modelled. ARCHETYPE CHOICE, STATED BECAUSE IT IS ITSELF A LIBERTY. The schema offers an `institutional` archetype and there is no generator behind it, so a record using it would compile a sidecar pointing at a GLB that does not exist and the building would be invisible in the walkthrough. `frame_dwelling` is used instead because it is the only archetype in the project that builds a plain single-range frame box with a gable roof and nothing else: `frame_tavern` carries a public house's gallery and bar-room frontage, `frame_storefront` carries a shopfront, `outbuilding` carries a stable's door and refuses a storey count. WHAT THE SUBSTITUTION COSTS is the facade: frame_dwelling puts the door in the long eaves-front wall and sets the openings out on a house's bay module, where a meeting house of these years normally had its door in the gable end. This is recorded in docs/LIBERTIES.md and the affected attributes (`plan`, `bays`) are tagged conjectural.",
+  "research_doc": "",
+  "review_required": false
+}

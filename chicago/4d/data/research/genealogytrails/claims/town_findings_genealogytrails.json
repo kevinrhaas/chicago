@@ -1,0 +1,106 @@
+{
+  "schema": 1,
+  "domain": "genealogytrails",
+  "_doc": "HAND-AUTHORED. What T-0556's assessment pass read IN PASSING and would otherwise have lost. The pass was chartered to grade a website, not to read it, and these five are the findings that turned up while grading and could not honestly be left in a cache file for a later run to maybe notice. Every quote is rebuilt from the committed text/ cache by tools/read_genealogytrails.py --check and fails on one changed character. None of these is payload: nothing here has been written into a resident, household or structure record, and the ladder ruled on 2026-09-03 governs any that ever is.",
+  "generated_by": "hand — T-0556",
+  "claims": [
+    {
+      "id": "gt_001",
+      "kind": "person",
+      "reading": "transcription_mediated",
+      "quote": "Died at Chicago the 15th of October, 1835, Thomas Owen, agent of the Indians. On the 17th performed the ceremonies of the church on the corpse. - St. Cyr",
+      "normalized": "Thomas Owen, agent of the Indians, died at Chicago 15 October 1835; buried with the ceremonies of the Catholic church on 17 October 1835 by Father St. Cyr.",
+      "locator": {
+        "text_file": "church_catholicdeaths.txt",
+        "line": 17,
+        "url": "https://genealogytrails.com/ill/cook/church_catholicdeaths.html",
+        "original": "Illinois Catholic Historical Review, vol. 4 (July 1921 - April 1922), printing the death page of Father St. Cyr's Chicago register"
+      },
+      "describes_date": "1835-10-15",
+      "entities": [
+        "Thomas Owen"
+      ],
+      "town_finding": true,
+      "notes": "A scene-year death of a named office-holder, and the office is one the reconstruction has a building for. 'Col. T. J. V. Owen' signs the 1833 poll list this project already holds (data/research/civic/records/voter_lists_1833_1835.json), and Thomas Jefferson Vance Owen was the Chicago Indian agent. THE IDENTITY IS NOT MERGED HERE: the register gives 'Thomas Owen' with no middle initials, one source is a poll list and the other a priest's death note, and the crosswalk rule for that merge has not been stated. Filed as the reading it is — an agent of the Indians died at Chicago on 15 October 1835 — and left for the identity layer to adjudicate under the ladder.",
+      "superseded_by": "SUPERSEDED BY T-0573. The reading is now a record — data/research/church/records/st_cyr_deaths_1834_1837.json st_cyr_death_07_1 — and the identity this claim explicitly declined to settle is settled: data/research/church/crosswalk.json merges 'Thomas Owen' into the attested resident 'Thomas Jefferson Vance Owen' on the office and the date of death agreeing as well as the name. This claim is kept, not deleted: it is the record of what was known when it was filed."
+    },
+    {
+      "id": "gt_002",
+      "kind": "household",
+      "reading": "transcription_mediated",
+      "quote": "On the 2nd of July 1835, I performed the ecclesiastical burial according to the rites of the Catholic Church on the corpse of John Baptist, son of Leon Bourrassa, 28 days old. - St. Cyr",
+      "normalized": "An infant, John Baptist, son of Leon Bourrassa, aged 28 days, was buried at Chicago on 2 July 1835 by Father St. Cyr; the child was therefore born about 4 June 1835.",
+      "locator": {
+        "text_file": "church_catholicdeaths.txt",
+        "line": 14,
+        "url": "https://genealogytrails.com/ill/cook/church_catholicdeaths.html",
+        "original": "Illinois Catholic Historical Review, vol. 4 (July 1921 - April 1922)"
+      },
+      "describes_date": "1835-07-02",
+      "entities": [
+        "Leon Bourrassa",
+        "John Baptist Bourrassa"
+      ],
+      "town_finding": false,
+      "notes": "A household in the scene year, dated to the day: a Bourrassa family with an infant born in early June 1835 and buried in early July. The same register's marriage page has 'Mar., 1835, Mark Bourassa, Josette Chevalier' — a DIFFERENT forename, and the two are deliberately not joined here. The age is the source's own; the birth date is arithmetic and is stated as an inference, not read.",
+      "superseded_by": "SUPERSEDED BY T-0573. The reading is now two records — data/research/church/records/st_cyr_deaths_1834_1837.json st_cyr_death_05_1 (the infant) and st_cyr_death_05_2 (Leon Bourrassa) — and the Bourassa/Bourrassa pair this claim deliberately left open is now an explicit REFUSAL in data/research/church/crosswalk.json rather than an absence. This claim is kept, not deleted: it is the record of what was known when it was filed."
+    },
+    {
+      "id": "gt_003",
+      "kind": "landscape",
+      "reading": "transcription_mediated",
+      "quote": "The removals were intended to include the bodies of those soldiers who had died of cholera in 1832 (during the Black Hawk War) which had been hastily buried near the corner of Lake Street and Wabash Avenue, but the bodies thus removed were not properly identified at the time and many bodies were entirely overlooked.",
+      "normalized": "Soldiers who died of cholera at Chicago in 1832, during the Black Hawk War, were hastily buried near the corner of Lake Street and Wabash Avenue; the 1865 removals to the outlying cemeteries missed many of them.",
+      "locator": {
+        "text_file": "cemeteryhistory.txt",
+        "line": 8,
+        "url": "https://genealogytrails.com/ill/cook/cemeteryhistory.html",
+        "original": "not named on the page; the surrounding paragraphs quote Andreas"
+      },
+      "describes_date": "1832",
+      "entities": [
+        "Lake Street",
+        "Wabash Avenue"
+      ],
+      "town_finding": true,
+      "notes": "A PLACE, three years before the scene, on ground the reconstruction models: hasty burials of the 1832 cholera dead near Lake and Wabash. Whether anything was visible there in 1835 is exactly what this claim does NOT say, and no marker may be placed on the strength of it. Recorded because the fact is hard to find and easy to lose, and because the 1847 City Cemetery — everything else on the page — is twelve years too late to matter here."
+    },
+    {
+      "id": "gt_004",
+      "kind": "appearance",
+      "reading": "transcription_mediated",
+      "quote": "Very few of our buildings are numbered, the necessity, however, of this can be avoided, if persons occupying buildings permanently, will put themselves to the trifling trouble and expense of putting their names on their doors.",
+      "normalized": "In 1844 very few Chicago buildings carried street numbers, and the directory's compiler asked occupiers to put their NAMES on their doors instead.",
+      "locator": {
+        "text_file": "1844directory.txt",
+        "line": 23,
+        "url": "https://genealogytrails.com/ill/cook/1844directory.html",
+        "original": "J. W. Norris, Norris' Chicago Directory (1844), compiler's Remarks"
+      },
+      "describes_date": "1844",
+      "entities": [],
+      "town_finding": true,
+      "notes": "LATER EVIDENCE — nine years after the scene, and the direction of the inference is the safe one: if very few buildings were numbered in 1844, when the city had a directory and six wards, then a town of 1835 that had neither is not going to be carrying street numbers either. It also says what WAS on the doors, or was wished onto them: names. Relevant to the signboard and door treatments; not sufficient on its own to change one, and no record is changed here."
+    },
+    {
+      "id": "gt_005",
+      "kind": "business",
+      "reading": "transcription_mediated",
+      "quote": "While Mackinaw had been for more than a century the storehouse and great trading post of the fur dealers, Chicago was the port and point of a very limited district of distribution.",
+      "normalized": "Hurlbut's judgement of the fur trade at Chicago: Mackinac was the great storehouse and Chicago only the port of a very limited distribution district.",
+      "locator": {
+        "text_file": "americanfurco.txt",
+        "line": 11,
+        "url": "https://genealogytrails.com/ill/americanfurco.html",
+        "original": "Henry H. Hurlbut, 'Chicago Antiquities' (Chicago, 1881), pages 28-36"
+      },
+      "describes_date": "1820s-1830s",
+      "entities": [
+        "American Fur Company"
+      ],
+      "town_finding": true,
+      "notes": "A judgement, not an observation, and written in 1881 about the decades before the scene — it is filed as a size argument, not as a fact about any building. It bears on how much fur-trade apparatus the town should show: Hurlbut says the answer is 'a port of a very limited district', which is smaller than the name 'American Fur Company' invites. The same page names Hubbard, Beaubien, Crafts and the Kinzies as the company's Chicago men; those are people this project already models, and the reading of them is a run of its own, not this one.",
+      "superseded_by": "SUPERSEDED BY T-0575. The sentence is now read in the domain that owns books: data/research/books/claims/american_fur_company_hurlbut.json bk_afc_003, from this project's own committed copy of the chapter at data/research/books/text/hurlbut_chicago_antiquities_28_36.txt, beside eighteen further claims out of the same nine pages. The reading is unchanged and the judgement is unchanged; what it gains is the rest of the chapter around it — above all Hubbard's own independent statement of the same thing at bk_afc_012, 'this place never had been preeminent as a trading-post, as this was not the Indian hunting-ground', which is the size argument said by the man who ran the trade rather than by the compiler. The four men this claim's own note deferred to a later run are read at bk_afc_004, bk_afc_008, bk_afc_009, bk_afc_010, bk_afc_011 and bk_afc_015, and their identities are adjudicated in data/research/books/crosswalk.json. This claim is kept, not deleted: it is the record of what was known when it was filed."
+    }
+  ]
+}

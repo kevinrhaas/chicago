@@ -1,0 +1,305 @@
+{
+ "id": "hh_hubbard_gurdon",
+ "name": "The Hubbard household",
+ "division": "south",
+ "head": "hubbard_gurdon",
+ "arrival": {
+  "value": "1818-10-31",
+  "confidence": "inferred",
+  "sources": [
+   "chicago_antiquities_american_fur_co"
+  ],
+  "note": "HURLBUT PRINTS THE SENTENCE, AND IT IS HURLBUT'S OWN AND NOT HUBBARD'S. Chicago Antiquities (1881) pages 28-36: \"Mr. Hubbard left Montreal, were his parents then lived, May 13, 1818, reaching Mackinaw, July 4 and first arrived at Chicago on the last day of October or first day of November of that year\" (bk_afc_004; data/research/books/text/hurlbut_chicago_antiquities_28_36.txt lines 31-34). THE VALUE IS THE EARLIER OF THE TWO DAYS THE SOURCE OFFERS AND THE PRECISION SAYS SO: the page gives 31 October OR 1 November and refuses to choose between them, so this record refuses too - `day` would pick one on the reader's behalf and `year` would throw away a reading that is exact to within a day. WHY THIS IS GRADED INFERRED AND NOT ATTESTED. The sentence stands OUTSIDE the quotation marks that open four lines later at 'Having entire charge of the management of the company in the West' - it is Henry H. Hurlbut compiling in 1881, sixty-three years after the day and forty-six after the scene, not Gurdon Hubbard remembering in his own voice. data/sources/chicago_antiquities_american_fur_co.json grades that layer rung 4 and says in terms that nothing taken from Hurlbut's own narrative may be used as if it were period evidence; the source record's tier of 1 is earned by the 1821-22 invoice book alone and is not a licence over the compiler's prose. So the day is cited rather than conjectured, and it is still one man's account of another man's boyhood at second hand. It REPLACES the conjecture this record used to carry - 'NOT ATTESTED IN ANYTHING WORKED FOR THIS PARCEL... carried as a conjecture citing nothing and flagged for a later parcel to fix or delete' - which named the commonplace of the Chicago literature and no sentence (T-0594, closing what T-0575's crosswalk deferred). Arriving in 1818 is not residing here in 1835: the residence claim is unchanged and rests where it always did, on the trusteeship and the town's own rolls.",
+  "precision": "either_of_two_days"
+ },
+ "party_size_on_arrival": {
+  "value": null,
+  "confidence": "reconstructed",
+  "note": "Not attested in anything this project holds."
+ },
+ "origin": {
+  "value": "Windsor, Vermont, by way of Montreal",
+  "confidence": "inferred",
+  "sources": [
+   "chicago_antiquities_american_fur_co",
+   "calumet_club_early_chicago_1879"
+  ],
+  "note": "THE FIELD IS A CHAIN, AND MONTREAL ALONE WOULD HAVE BEEN THE WRONG END OF IT. Hurlbut's Chicago Antiquities (1881) pages 28-36 gives both ends in one sentence: \"He was born in Windsor, Vt., in 1802 and parents were Elizur and Abigail (Sage) Hubbard\", and \"Mr. Hubbard left Montreal, were his parents then lived, May 13, 1818\" (bk_afc_004). Montreal is where his PARENTS were living in 1818 and the place he departed from as an indentured clerk of sixteen; it is a waypoint on the way here, not the place he came from, and this record declines to write it on its own. The compound form is this dataset's own idiom for the case and not an invention for this card: hh_maxwell_philip carries \"Sackett's Harbor, New York; born at Guilford, Vermont\", hh_dole_george_w \"Connecticut, by way of Detroit\", and hh_egan_william_b traces nine places in one value under a note that says in terms that \"'origin' for this population is often a chain\". WHAT THE SECOND SOURCE ADDS, AND WHAT IT DOES NOT. The Calumet Club's register of 27 May 1879 prints this man's own entry with a birthplace column - \"Hubbard, Gurdon S. | 1818, Oct. 1, | Windsor, Vt. | 76 | 243 White St., Chicago.\" (os1879r078, data/research/old_settlers/people.json, read off the page images of Early Chicago pages 84-90). So Windsor stands on two independent and differently mediated readings - a compiler's prose of 1881 and the man's own hand in 1879 - which is why it leads the value. It does not lift the grade: under the ratified ladder (T-0513) a later recollection corroborates and dates and cannot lift a rung by itself, and the Hurlbut sentence is the rung-4 compiler's layer that data/sources/chicago_antiquities_american_fur_co.json forbids reading as period evidence. Two recollections agreeing is still two recollections. WHAT IS NOT WRITTEN HERE. Hubbard did not arrive as a household at all - he came in 1818 as an American Fur Company clerk, seventeen years before the scene, and whatever household stands under his name in 1835 is not the one that left Montreal - so `party_size_on_arrival` and `reason_for_coming` are untouched and stay unattested. THE PARENTS THE SAME SENTENCE NAMES ARE WRITTEN HERE, IN THIS NOTE, AND THAT IS THE WHOLE OF WHERE THEY GO. Elizur and Abigail (Sage) Hubbard were living in Montreal in 1818, were never in this scene, and have no household and no person id in this dataset. T-0849 asked whether `kin[]` should grow a shape for a relative outside the town - a row with `household` null and the source's own string in its place - and ruled on 2026-09-10 that it should not: every rule `kin[]` enforces is a rule about the far end, so a row with no far end is a kin row with the checked part removed, and what is left is a graded name, which is a note. So they are a note, at the grade and on the citation this field already carries - inferred, on Hurlbut's rung-4 compiler prose - which is the same footing a kin row could have claimed and no more. This is the idiom the `birth_year` note below uses for the birthplace and hh_harmon_elijah_d and hh_porter_jeremiah use for theirs; docs/PROVENANCE.md states it as a general rule and tools/validate.py refuses the null-household row in the ruling's own words. (T-0753 wrote this field; T-0849 closed the clause it stopped at, closing what T-0594's acceptance held out.)"
+ },
+ "reason_for_coming": {
+  "value": null,
+  "confidence": "reconstructed",
+  "note": "Not attested in anything this project holds."
+ },
+ "lives_at": {
+  "value": null,
+  "confidence": "reconstructed",
+  "note": "Not attested in anything this project holds."
+ },
+ "works_at": {
+  "value": "old_bank_building",
+  "confidence": "inferred",
+  "sources": [
+   "andreas_1884_v1"
+  ],
+  "note": "He is documented packing in that building in the 1834 SEASON, which is the season before the scene date, and data/structures/old_bank_building.json grades its own occupancy inferred for exactly that reason. A packing house is a seasonal building and July is not the season."
+ },
+ "present_on_scene_date": {
+  "value": "present",
+  "confidence": "inferred",
+  "sources": [
+   "andreas_1884_v1"
+  ],
+  "note": "A trustee through 1834-35 and a Chicago resident for the rest of his long life."
+ },
+ "persons": [
+  {
+   "id": "hubbard_gurdon",
+   "name": "Gurdon Saltonstall Hubbard",
+   "relationship": "head",
+   "grade": "attested",
+   "ladder_rule": "G1a",
+   "sex": "male",
+   "birth_year": {
+    "value": 1802,
+    "confidence": "inferred",
+    "sources": [
+     "chicago_antiquities_american_fur_co",
+     "calumet_club_early_chicago_1879"
+    ],
+    "note": "BORN AT WINDSOR, VERMONT, IN 1802 - the birthplace in prose because this dataset has no field for one, which is the idiom every other dated card here uses (hh_harmon_elijah_d: \"20 August 1782 at Bennington, Vermont\"; hh_porter_jeremiah: \"5 November 1807 at Geneseo, New York\"). Two independent readings agree on the place and the year. Hurlbut's Chicago Antiquities (1881) pages 28-36: \"He was born in Windsor, Vt., in 1802\" (bk_afc_004). The Calumet Club's register of 27 May 1879 prints the man's own entry with the birthplace \"Windsor, Vt.\" and his age as \"76\" (os1879r078). THE AGE COLUMN NARROWS THE YEAR RATHER THAN CONTRADICTING IT: 76 on 27 May 1879 puts the birth between 28 May 1802 and 27 May 1803, and Hurlbut's 1802 cuts that to 28 May - 31 December 1802. So he was 32 on 1 July 1835, or 33 if he was born in the five weeks before 1 July 1802; neither source names a month or a day, and this record declines to pick an age on the reader's behalf for the same reason the arrival above refuses to choose between 31 October and 1 November. WHY INFERRED AND NOT ATTESTED. The Hurlbut sentence stands outside the quotation marks in which Hubbard speaks four lines later, so it is the compiler writing in 1881 in the third person - the rung-4 layer the source record grades and forbids reading as period evidence - and the register entry is a self-report of 1879 which the ratified ladder (T-0513) says may corroborate and date but may not lift a rung. This is the same footing T-0594 graded the arrival on, and the same grade."
+   },
+   "occupation": {
+    "value": "packer",
+    "confidence": "attested",
+    "sources": [
+     "andreas_1884_v1"
+    ],
+    "note": "A forwarding and packing merchant. data/structures/old_bank_building.json records that he packed there in the 1834 season; Andreas's chapter heading calls him 'Gurdon S. Hubbard, the oldest living resident of Chicago' and he supplied Andreas with the Ramsey Crooks correspondence on the early fur trade.",
+    "derived_from": "roles",
+    "roles_at_scene_date": [
+     "packer"
+    ]
+   },
+   "sources": [
+    "andreas_1884_v1",
+    "calumet_club_early_chicago_1879",
+    "census_1840_chicago_familysearch_images",
+    "chicago_american_1835",
+    "chicago_democrat_1833_1835",
+    "chicago_voter_lists_1833_1835_irad",
+    "fergus_chicago_directory_1843",
+    "isa_public_domain_land_tract_sales",
+    "norris_directory_1844"
+   ],
+   "note": "ELECTED A TRUSTEE OF THE TOWN AT THE SECOND ELECTION, 11 AUGUST 1834 - 'J. H. Kinzie, G. S. Hubbard, E. Goodrich, J. K. Boyer, and John S. C. Hogan were chosen Trustees' - so he is on the board through the municipal year that ends in the scene month. He is also the man whose 1881 correction of the Wau-Bun view of Fort Dearborn supplies four of the constraints this project's fort dossier rests on: that the enclosure ran 'nearly north and south, east and west', that the north picket line stood nowhere more than 80 ft from the water, that the ground at the fort was 'not over eight feet above the River at its lowest stage', and that the north and south gates were on one sight line. THE TOWN'S OWN ROLLS, 1833-1835 — CORROBORATION, NOT A GRADE. The early Chicago voter and tax lists held by the Illinois Regional Archives Depository name this person 2 times: Tax list of the Town of Chicago, 1833 — “Hubbard, Gurdon S.” (tax_1833_046, line 98); Election returns — poll list of 1834, filed 11 August 1834 — “Hubbard, G. S.” (poll_1834_055, line 224). These are the town's own contemporary paper rather than a recollection of it, and each appearance says that a man of that name stood on that roll in that year — no more. The reading is twice mediated (Schulz's transcription, then Genealogy Trails' republication) and this project has not seen the IRAD originals. Under the ratified ladder (T-0513) the 1835 poll with a second independent source is attested, the 1835 poll alone or a 1833/1834 list with another source is inferred, and a single appearance with nothing else is a projected resident. This pass WRITES THE EVIDENCE AND MOVES NO GRADE — T-0515 applies the ladder against every source at once. Identity by the crosswalk's own rule: one resident of the surname 'Hubbard' agrees with the entry's forenames; 1 bearer(s) of the surname were considered. (data/research/civic/voter_crosswalk.json). OLD SETTLERS, 1879 — A DATE THIS MAN GAVE FOR HIMSELF, AND STILL NOT A FACT ABOUT 1835. The Calumet Club's FIRST reception to the settlers of Chicago prior to 1840, 27 May 1879, printed its register in the proceedings (Early Chicago, Chicago, 1879, pages 84-90), and this man's entry reads “Hubbard, Gurdon S. | 1818, Oct. 1, | Windsor, Vt. | 76 | 243 White St., Chicago.” — name, his own date of arrival, his birthplace, his age and his 1879 post-office address, in the register's five columns. The date of arrival is HIS RECOLLECTION, set down forty to sixty years after the event; the address is where he lived in 1879 and is never read as an 1835 residence. Under the ratified ladder (T-0513) a later recollection corroborates, enriches and dates and cannot lift a rung by itself, so this record's GRADE IS UNCHANGED by it: T-0513 consolidates the identity and T-0515 regrades. Identity by rule OS1 — surname and spelled-out forename agree, one bearer (data/research/old_settlers/crosswalk.json). THE FEDERAL LAND TRACT SALES — A PURCHASE, AND NEVER A RESIDENCE. The Illinois State Archives' Public Domain Land Tract Sales register enters this person 5 times, as “HUBBARD GURDON S”, “HUBBARD GORDON S”, 1830-09-27 to 1833-10-22: 4 lots in the platted town — lot 1 of block 19 in the town the register codes CHIOT (L1BL19CHIOT, as printed); lot 2 of block 19 in the town the register codes CHIOT (L2BL19CHIOT, as printed); lot 7 of block 19 in the town the register codes CHIOT (L7BL19CHIOT, as printed); lot 8 of block 19 in the town the register codes CHIOT (L8BL19CHIOT, as printed) and 1 parcel of the school section — BL52 of the school section (sec 16 T39N R14E), as read, 2.90 acres stated in all, for $293.00 (ls0239, ls1236, ls1237, ls1238, ls1239). THE REGISTER'S OWN RESIDENCE COLUMN READS UNKNOWN on these rows: a county, a state or nothing, and never a town, which is why a purchase here places nobody. THE SCHOOL-SECTION ROWS ARE GROUND INSIDE THE TOWN, NOT FARMLAND: section 16 of T39N R14E was platted and sold off by lot and by block at the sale of 1833, which is why the register states 0000.00 acres against most of them. Ground inside the town is nearer to this reconstruction than a quarter-section is, and it is still a purchase: the register names a purchaser and never an occupant, and nothing here puts this person on that ground. THE TOWN LOTS ARE THE PLAT ITSELF, AND THEY ARE NOT ACRES: Cook County's register describes them by lot and block in a platted town and gives them no section, no township and no acreage at all, so they add nothing to the acre figure above and $133.00 to the money. This project does not expand the register's town codes, so which addition a lot stands in is carried as the code and not as a name. It is still a purchase and it still places nobody. A purchase and nothing more. It dates and places a transaction; it proposes no residence, and under the ratified ladder it corroborates rather than mints. Identity by the crosswalk's own rule: HUBBARD GURDON S matches Gurdon Saltonstall Hubbard: the forename names Gurdon Saltonstall Hubbard of the 5 people of this surname, and the forename agrees in full. (data/research/land_sales/resident_crosswalk.json). This pass WRITES THE EVIDENCE AND MOVES NO GRADE. Under the ratified ladder (T-0513) a second independent source is what lifts a projected resident, and a land entry is a second source about a TRANSACTION rather than about who was living at Chicago on 1 July 1835 — a man may buy a quarter-section he never sees. T-0515 applies the ladder against every source at once; this pass hands it the evidence and not the verdict. THE 1840 FEDERAL CENSUS — A HEAD FIVE YEARS AFTER THE SCENE, AND NEVER AN 1835 FACT. The 1840 federal census of Chicago, read line by line off the left sheets in this repository, carries 1 head of this name — “Gurdon S. Hubbard” (33S7-9YYJ-W6, printed page 232, line 17). This project has ruled the head a MATCH for this person: the full name agrees, it is unique on both sides, and a discriminator independent of the name — directory persistence — separately places the same person in Chicago after the 1840 book was taken. Under the rule that decided it (L6 matched), by the crosswalk's own ladder (data/research/census_1840/resident_crosswalk.json). LATER EVIDENCE ONLY. The ratified grading ladder binds: an 1839 or 1840 appearance alone is never an 1835 resident, and 1840 household composition is never back-projected to the 1835-07-01 scene. This pass WRITES THE EVIDENCE AND MOVES NO GRADE. Under the ratified ladder (T-0513) a second independent source is what lifts a projected resident, and an 1840 head is a second source about CONTINUED RESIDENCE rather than about who was living at Chicago on 1 July 1835. T-0515 applies the ladder against every source at once; this pass hands it the evidence and not the verdict.",
+   "resident_research": {
+    "programme": "resident-research-2026",
+    "ticket": "T-0510",
+    "outcome": "corroborated",
+    "reviewed_on": "2026-09-05",
+    "asserted_identity": true,
+    "evidence_for": "Hurlbut's chapter names 'Gurdon S. Hubbard, Esq. then a youth of sixteen', born Windsor, Vt., 1802, who first arrived at Chicago at the end of October 1818 and in 1828 bought the American Fur Company's entire interest in the trade of Illinois. This project's resident record is Gurdon Saltonstall Hubbard, graded attested. Three things agree and the surname is the least of them: the given name plus  Caroline M. McIlvaine's Introduction calls him 'Gurdon Hubbard' throughout — 'In 1834 Gurdon Hubbard went to Chicago to remain for the rest of his life' — while the title page of the same volume prints Gurdon Saltonstall Hubbard, and this project's resident record is Gurdon Saltonstall Hubbard, graded attested. The merge rests on the volume itself and not on a surname: one book, one man, two spell The 1843 Business Directory advertises 'G. S. Hubbard, forwarding merchant and dealer in produce and provisions' on South Water Street. Gurdon Saltonstall Hubbard is this project's resident record and G. S. Hubbard is that name initial for initial, in the same town, in the forwarding trade the resident record already carries. The merge is of the MAN and not of the address: the 1843 frontage is not",
+    "evidence_against": "The bare surname 'Hubbard' in the chapter's opening list is refused as an identity on its own: a surname-only merge is always a refusal, and this project holds the name Hubbard in more than one place. The man IS Gurdon Saltonstall Hubbard, and that is carried by the merge above on the full naming twenty-three lines later — 'Gurdon S. Hubbard, Esq.' — not by this list. The refusal exists so that a  The surname 'Hubbard' is in Fergus's death notices and no entry under it carries the initial 'G' of 'Gurdon Saltonstall Hubbard'. A surname-only agreement is a refusal, here as everywhere: the list prints eleven Smiths. Surname 'Hubbard' folds to the same string as the 1843 entry's, and the given name of both begins G.",
+    "summary": "Independently corroborated. Gurdon Saltonstall Hubbard agrees, forename for forename or initial for initial, with a record outside the post-office lists in the held book corpus, the 1840 census heads, the town's 1833 tax and 1834/1835 poll lists, the Fergus 1839/1843 and Norris 1844 directories. Hurlbut's chapter names 'Gurdon S. Hubbard, Esq. then a youth of sixteen', born Windsor, Vt., 1802, who first arrived at Chicago at the end of October 1818 and in 1828 bought the American Fur Company's entire interest in the trade of Illinois. This project's resident record is Gurdon Saltonstall Hubbard, graded attested. Three things agree and the surname is the least of them: the given name plus ",
+    "notes": "Research only. Later-volume readings are recorded here and NOT promoted: T-0513 consolidates and T-0514/T-0515 apply.",
+    "source_ids": [
+     "census_1840_chicago_name_crosswalk",
+     "chicago_democrat_1833_1835",
+     "chicago_voter_lists_1833_1835_irad",
+     "fergus_chicago_directory_1843",
+     "fergus_historical_series_26_29",
+     "norris_directory_1844"
+    ],
+    "refusals": [
+     {
+      "regraded_on": "2026-09-04",
+      "rule": "G2b",
+      "withheld": "the downgrade to inferred",
+      "reason": "This card rests on 5 thing(s) the consolidation did not read — andreas_1884_v1, calumet_club_early_chicago_1879, census_1840_chicago_familysearch_images, chicago_american_1835 and others. G2b fired on the seven domains the ladder reads and says nothing about the evidence outside them, so the grade stands. The same reasoning the ladder's own G5 gives for abstaining (T-0515)."
+     }
+    ]
+   },
+   "civic_evidence": [
+    {
+     "list": "poll_1835",
+     "as_read": "Hubbard, G. T.",
+     "locator": "poll_1835",
+     "record_id": "poll_1835_034",
+     "describes_date": "1835",
+     "source": "chicago_voter_lists_1833_1835_irad",
+     "rule": "G2a"
+    }
+   ],
+   "press_evidence": [
+    {
+     "list": "newspaper_1833_1835",
+     "as_read": "G. S. Hubbard",
+     "locator": "chicago_democrat_1834_04_01#c001",
+     "record_id": "person_g_s_hubbard",
+     "describes_date": "1834-04-01",
+     "source": "chicago_democrat_1833_1835",
+     "rule": "G1b"
+    },
+    {
+     "list": "newspaper_1833_1835",
+     "as_read": "Gordon S. Hubbard",
+     "locator": "chicago_democrat_1834_08_13#c001",
+     "record_id": "person_gordon_s_hubbard",
+     "describes_date": "1834-08-13",
+     "source": "chicago_democrat_1833_1835",
+     "rule": "G1b"
+    },
+    {
+     "list": "newspaper_1833_1835",
+     "as_read": "Col. G. S. Hubbard",
+     "locator": "chicago_democrat_1835_06_17#c002",
+     "record_id": "person_col_g_s_hubbard",
+     "describes_date": "1835-06-17",
+     "source": "chicago_democrat_1833_1835",
+     "rule": "G1b"
+    },
+    {
+     "list": "newspaper_1833_1835",
+     "as_read": "Gurdon S. Hubbard",
+     "locator": "chicago_american_1835_07_04#c010",
+     "record_id": "person_gurdon_s_hubbard",
+     "describes_date": "1835-07-01",
+     "source": "chicago_american_1835",
+     "rule": "G1b"
+    },
+    {
+     "list": "newspaper_1833_1835",
+     "as_read": "Hubbard, Gurdon S.",
+     "locator": "chicago_democrat_1835_08_05#c022",
+     "record_id": "person_hubbard_gurdon_s",
+     "describes_date": "1835-08-05",
+     "source": "chicago_democrat_1833_1835",
+     "rule": "G1b"
+    }
+   ],
+   "book_evidence": [
+    {
+     "list": "directory_1843",
+     "as_read": "G. S. HUBBARD, forwarding merchant and dealer in produce and provisions, South-Water Street, between Clark and LaSalle s…",
+     "locator": "business directory",
+     "record_id": "f1843_e0073",
+     "describes_date": "1843",
+     "source": "fergus_chicago_directory_1843",
+     "rule": "G1b"
+    },
+    {
+     "list": "directory_1843",
+     "as_read": "G. S. HUBBARD, agent, Aetna Insurance Company of Hartford, Conn.; this well-known company is now prepared to take risks…",
+     "locator": "business directory",
+     "record_id": "f1843_e0112",
+     "describes_date": "1843",
+     "source": "fergus_chicago_directory_1843",
+     "rule": "G1b"
+    },
+    {
+     "list": "directory_1844",
+     "as_read": "Hubbard, G. S. forwarding and commission merchant, S. Water near Clark, h Indiana, b Cass and Rush (See card)",
+     "locator": "h Indiana, b Cass and Rush (See card)",
+     "record_id": "n1844_e0915",
+     "describes_date": "1844",
+     "source": "norris_directory_1844",
+     "rule": "G1b"
+    }
+   ],
+   "census_evidence": [
+    {
+     "list": "census_1840",
+     "as_read": "Gurdon S. Hubbard",
+     "locator": "232:17",
+     "record_id": "33S7-9YYJ-W6:17",
+     "describes_date": "1840",
+     "source": "census_1840_chicago_familysearch_images",
+     "rule": "G1b"
+    }
+   ],
+   "merged_from": [
+    {
+     "ticket": "T-0839",
+     "rule": "C0",
+     "cluster": "hubbard",
+     "cards": [
+      "hubbard_g_s",
+      "hubbard_g_t",
+      "hubbard_gordon_s",
+      "hubbard_gurdon_s"
+     ],
+     "note": "THE UNION OF THE CARDS THIS PERSON WAS SPLIT ACROSS. The sources and evidence blocks above include everything the folded cards cited; each folded record is kept whole under data/residents/merged/ and is redirected by index.json's `merged` table. The reasoning for the merge is in data/residents/card_merge_rulings.json."
+    }
+   ],
+   "roles": [
+    {
+     "role": "packer",
+     "kind": "trade",
+     "as_printed": null,
+     "from": "1673",
+     "to": "1857",
+     "precision": "source_span",
+     "dated_by": "source_describes_date",
+     "covers_scene_date": true,
+     "confidence": "attested",
+     "sources": [
+      "andreas_1884_v1"
+     ],
+     "claim": null,
+     "note": "THE BOUND IS THE SOURCE'S, NOT THE MAN'S. This role is carried by the card's 1835 occupation block and is dated by what the cited source or sources are ABOUT, which is why `precision` can be no better than the span they cover. The span reaches 1835, so this role stands in the scene-date view. The printing the trade was read off is not on the card and is fetched by T-1254."
+    }
+   ]
+  }
+ ],
+ "touches_removal": false,
+ "review_required": false,
+ "research_note": "THE OLDEST LIVING RESIDENT, AND THE ONE HOUSEHOLD IN THE PARCEL WHOSE ARRIVAL DATE THIS PROJECT HAD TO REFUSE TO GUESS - UNTIL A SENTENCE TURNED UP. Everything about Hubbard's later Chicago life was documented here and the date he first came was a fact everyone knew and nothing in data/sources/ stated, so it was carried as a conjecture citing nothing and left visibly empty rather than quietly filled: it was the case AGENTS.md rule 1 exists for. Hurlbut's American Fur Company chapter, read for T-0575 and cited by this record since T-0594, closes it - Montreal 13 May 1818, Mackinaw 4 July, Chicago the last day of October or the first of November - and the asymmetry that was worth leaving visible is now a smaller and more interesting one. The sentence is the COMPILER'S, not the man's: it stands outside the quotation marks in which Hubbard speaks four lines later, so a date this project had no source for at all now has a source of 1881 at rung 4, and the record says both things on its face rather than letting the citation look like an attestation. WHAT T-0753 ADDED, AND THE ONE THING IT COULD NOT. The same sentence carries more than the date T-0594 spent, and the rest of it is now on the card: `origin` reads \"Windsor, Vermont, by way of Montreal\" rather than the \"Montreal\" a careless reading of the field would have written, and the person carries a `birth_year` of 1802 with the birthplace in its note, both at the inferred grade the rung-4 layer supports and both corroborated by the man's own Calumet Club register entry of 1879. THE PARENTS WERE THE PART THAT DID NOT FIT, AND T-0849 RULED WHERE THEY GO. Hurlbut names Elizur and Abigail (Sage) Hubbard, and this dataset held no structure for them: the only relationship structure it has is the household-level `kin[]` block ratified on 2026-09-05, whose rows are reciprocal between two households IN THIS DATASET, and Hubbard's parents were living in Montreal, were never in this scene, and have no household here. T-0849 set out two readings - leave parentage outside the town as evidence, or invent an external kin row with `household` null - and on 2026-09-10 chose the first, on the ground that both rules `kin[]` enforces are rules about the FAR END. The inverse must be legal; the mirror row must exist. A row with no far end is not a weaker kin row, it is one with the entire checked part removed, and a graded name with nothing checking it is a note. The second reading would also have made every genealogical name in the corpus eligible for a residents layer that reconstructs a town on one day. SO THEY ARE A NOTE, AND THEY ARE ON THE CARD: the `origin` note above names them at inferred, under this record's own Hurlbut citation, which is the idiom the `birth_year` note uses for the birthplace and hh_harmon_elijah_d and hh_porter_jeremiah use for theirs. docs/PROVENANCE.md carries the rule for the next fact that has no field, and tools/validate.py now refuses a null-household kin row in the ruling's own words rather than reporting a household that failed to resolve - a message that would send a later run off to mint a Montreal household, which is the wrong answer twice over. The evidence is unmoved, in bk_afc_004's `entities`.",
+ "directories": {
+  "note": "LATER EVIDENCE, BESIDE THE 1835 CLAIMS AND NOT INSIDE THEM. A Chicago directory of 1839, 1843 or 1844 meets somebody of this name and this pass records what it prints. Under the ratified ladder a directory read after 1835 can corroborate that a person attested here was still in Chicago and can print a trade or a street the 1835 record never had; on its own it makes nobody a resident of 1835. Nothing on this person's 1835 record was regraded, moved, dated or given an occupation by this entry. WHAT THIS PASS RULED ONTO THIS HOUSEHOLD, named so the ruling can be found again: each volume below is followed by the printed entries it set against this person and the status the crosswalk ruled them at — a single entry carries what its own `could_carry` declares, and an ambiguous or contested match carries nothing and is shown so that the silence is legible. hubbard_gurdon, Fergus's Chicago directory of 1843 — f1843_e1349 (a single entry); hubbard_gurdon, Norris's Chicago directory of 1844 — n1844_e0915 (a single entry); hubbard_gurdon, the advertising cards in Norris's directory of 1844 — n1844_ad0072, n1844_ad0108 (ambiguous, so nothing crossed).",
+  "sources": [
+   "fergus_chicago_directory_1843",
+   "norris_directory_1844"
+  ],
+  "people": [
+   {
+    "person_id": "hubbard_gurdon",
+    "address_later": {
+     "value": "near Clark, res 300 Indiana, near Rush",
+     "confidence": "attested",
+     "describes_date": 1843,
+     "sources": [
+      "fergus_chicago_directory_1843"
+     ],
+     "note": "Fergus's Chicago directory of 1843 prints this address against this person, in the entry quoted on the card: 'Hubbard, Gurdon Saltonstall, forwarding and commission, South Water, near Clark, res 300 Indiana, near Rush [died September 14, 1886, aged 84.]'. It is evidence about 1843, written here as 1843's and read back onto no 1835 claim. Under the ratified ladder a directory read after 1835 can corroborate that a person attested here was still in Chicago and can print a trade or a street the 1835 record never had; on its own it makes nobody a resident of 1835. Nothing on this person's 1835 record was regraded, moved, dated or given an occupation by this entry. The value is the volume's own line, split by its crosswalk on the entry's punctuation. These volumes set the trade first and its qualifiers after it on the same line, so the split may carry an employer, a market or a corner along with the trade. The printed entry is quoted beside the value for exactly that reason: the split is checkable against it, and neither is read into an 1835 claim."
+    },
+    "back_projection": {
+     "outcome": "already_better_placed",
+     "clause": "2",
+     "value": null,
+     "describes_date": 1843,
+     "read_back_years": 8,
+     "placement": null,
+     "position_local_enu_m": null,
+     "sources": [
+      "fergus_chicago_directory_1843"
+     ],
+     "note": "NOT READ BACK, BECAUSE SOMETHING BETTER ALREADY STANDS. Fergus's Chicago directory of 1843 prints an address against this name in 1843, and it is left where it is. An 1835 placement already stands: this household works at `old_bank_building`, and clause 2 says an attested 1835 placement always beats a door printed 8 years later. The later address stays on the record as 1843's evidence and moves nothing."
+    },
+    "residence_back_projection": {
+     "outcome": "refused",
+     "clause": "R4",
+     "kind": "resides",
+     "value": null,
+     "describes_date": 1843,
+     "read_back_years": 8,
+     "placement": null,
+     "sources": [
+      "fergus_chicago_directory_1843"
+     ],
+     "note": "REFUSED, AND THE REFUSAL IS THE RECORD. Fergus's Chicago directory of 1843 prints where this person lived in 1843 and this pass will not carry it back to 1835. Indiana Street is a north-side name the 1835 street layer does not carry. A refusal is written here rather than dropped so that a later run can see the address was read and ruled on, not missed (docs/RESIDENCE-BACK-PROJECTION.md, clause R4)."
+    }
+   }
+  ]
+ }
+}

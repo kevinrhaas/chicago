@@ -1,0 +1,95 @@
+{
+ "id": "north_bank_shed_dearborn_e1",
+ "name": "The first freight shed east of the Dearborn draw",
+ "archetype": "outbuilding",
+ "phases": [
+  {
+   "id": "shed_1835",
+   "documented_range": {
+    "from": "1834-08-01",
+    "to": "1835-12-31",
+    "confidence": "reconstructed",
+    "note": "NO SOURCE RECORD IN THIS REPOSITORY DATES THIS BUILDING, BECAUSE NO SOURCE RECORD NAMES IT. The range is the reconstruction's own bracket and it is graded as one. It OPENS on 1834-08-01, the date `dearborn_street_drawbridge` opens on: the reason to stand a freight shed on this particular reach of the north bank is that the crossing brought the town's traffic to it, and a shed here before the bridge would be a second invention on top of the first. It CLOSES at the end of 1835 because nothing follows the building and a range that ran on would be claiming survival nobody attested. What IS held is the treatment, not the date: image 3 of the owner's brief of 2026-08-18 (data/sources/assets/owner_brief_2026_08_18/README.md) is an engraving of this reach from farther out, and it draws low warehouses on the banks below the bridge. A tier-5 retrospective plate can attest that the banks below the draw carried working sheds; it cannot date one."
+   },
+   "position": {
+    "utm_e": 447785.35,
+    "utm_n": 4637520.611,
+    "rotation_deg": 181.042,
+    "symbolic_location": "On the north bank of the main stem first east of the bridge line of the Dearborn Street drawbridge, standing back from North Water Street with its wagon door to the river street.",
+    "confidence": "reconstructed",
+    "note": "INVENTED, AND PLACED BY A RULE RATHER THAN BY A PLATE. The plate that puts sheds on this bank is image 3 of the owner's brief of 2026-08-18 (data/sources/assets/owner_brief_2026_08_18/README.md), described there as: masts crowd the reach below the bridge, a light structure near the mouth, LOW WAREHOUSES ON THE BANKS. It is a TIER-5 PICTORIAL source — retrospective, drawn decades after 1835 — and this project's standing rule for one is that it may drive massing, form, materials and setting and may NEVER drive a coordinate. So the plate decides that a shed stands on this bank and nothing else about where.\n\nWHERE IS DERIVED, from two committed things and one stated offset, and it was RE-DERIVED on 2026-08-28 when the street underneath it moved. (1) North Water Street's travelled track, data/streets/1835.json, `track_width_m` 6.0: at local E 708.9 the drawn centreline stands at N 108.91, so its north edge is 3.00 m north of that. The front wall is set 2.00 m back from that edge — 5.00 m from the centreline, leaving the front wall 2.00 m clear of the drawn ribbon — and the building is squared to the street's own bearing at that station (1.04 degrees), so the row follows the river street rather than the grid. (2) The committed heightfield, data/terrain/epochs/e1834_harbor_cut: every corner of this footprint stands on modelled ground between 1.27 m and 1.29 m above the water surface, which is 0.01 m of relief across the whole rectangle — inside the 0.35 m the infill generators allow themselves, so the walls share one walker surface without a cut or a fill.\n\nWHY THE COORDINATE CHANGED, AND WHY THAT IS THE RULE HOLDING RATHER THAN BREAKING. T-0226 found North Water Street's committed line running 477.4 m of its 843.3 m inside the water mask and re-derived it from the committed north bank; nothing about this shed's rule changed, only the street the rule reads. Left where it was, this footprint stood 2.49 m from the corrected centreline and the roadway would have been drawn through it. The setback, the bearing rule, the relief clause and the plate's standing are all exactly as they were.\n\nWHY IT IS BACK FROM THE WATER AND NOT ON IT. The traced 1834 north bank at this station is N 96.50, so the front wall stands about 17.4 m from the waterline with the river street between. That is not a compromise of the plate: it is the same relation the ATTESTED South Water row has to the south bank in image 11 of the same brief — a working frontage facing the river across the river street, with the bank itself left open. The modelled bank at this reach rises from the water to the plateau in three to four metres, and a building put on that slope would fail the relief clause above rather than stand on the bank.\n\nWORKING UNCERTAINTY: total. Nothing states that a building stood at this station on 1835-07-01. What would replace this placement is a survey, a lot record or a contemporary view of the north bank below the draw. docs/LIBERTIES.md L164 owns the invention.",
+    "derivation": {
+     "method": "not_derivable",
+     "reason": "The two machine-checkable methods this project has are a platted corner and a traced waterline, and this placement is neither: it is an offset from the drawn track of North Water Street plus a relief test against the committed heightfield. Both inputs are committed and the rule is stated in full in position.note — front wall 2.00 m north of the track's north edge at the stated station, squared to the street's bearing there — so it is reproducible by hand, but no derivation method in the schema can recompute it, and declaring one that could not would be worse than declaring none."
+    }
+   },
+   "footprint": {
+    "polygon": [
+     [
+      0,
+      0
+     ],
+     [
+      7.315,
+      0
+     ],
+     [
+      7.315,
+      10.973
+     ],
+     [
+      0,
+      10.973
+     ]
+    ],
+    "confidence": "reconstructed",
+    "note": "INVENTED WITHIN THE PROGRAMME'S OWN BAND FOR THE FAMILY. 7.315 x 10.973 m is 24 x 36 ft, drawn inside family F1 (freight or storage shed), whose band in data/reconstruction/1835_building_inventory.json is 18 x 32 ft to 28 x 50 ft. The frontage is the short side and the depth runs back from the river street, which is what the crosswalk's F1 entry describes — a long building with wide doors — and what the plate's low sheds read as. No source gives this building a dimension because no source gives this building. The first building a walker coming off the north end of the bridge passes on the downstream side."
+   },
+   "form": {
+    "construction": {
+     "value": "plank",
+     "confidence": "reconstructed",
+     "note": "The crosswalk's F1 entry gives 'vertical-board frame' for a freight shed, which is the archetype's `plank`: sawn boards nailed up vertically with the gaps showing. Invented either way — nothing states how any building on this bank was built."
+    },
+    "wall_height_m": {
+     "value": 3.6,
+     "confidence": "reconstructed",
+     "note": "The crosswalk's F1 eave band is 10-13 ft (3.05-3.96 m) and this is 11.8 ft, inside it. A cart and a stacked load set the floor; the plate's word for these buildings is LOW and that sets the ceiling. Invented."
+    },
+    "roof_type": {
+     "value": "gable",
+     "confidence": "reconstructed",
+     "note": "F1's roof line in the crosswalk is 'gable or shed'. Gable, which is the near-universal roof of a frame building of this type and date. Invented."
+    },
+    "roof_pitch_deg": {
+     "value": 30.0,
+     "confidence": "reconstructed",
+     "note": "F1's pitch band is 5:12 to 9:12, which is 22.6 to 36.9 degrees; this is 30.0 degrees, inside it. No source gives a pitch for anything on this bank. Invented."
+    },
+    "door": {
+     "value": "wagon",
+     "confidence": "reconstructed",
+     "note": "A freight shed is a building goods go into and out of by cart, so the opening is the archetype's `wagon` door rather than a man door — which is also what the crosswalk's F1 entry means by 'wide doors; low openings'. Invented, like the building."
+    },
+    "door_side": {
+     "value": "front",
+     "confidence": "reconstructed",
+     "note": "The door faces the river street, which is the side the traffic and the bridge are on. The archetype's front faces north at rotation 0 and this record is rotated to face the street, so `front` here is the river side. Invented."
+    },
+    "paint": {
+     "value": "unpainted",
+     "confidence": "reconstructed",
+     "note": "Unpainted boards, which is the archetype's own default and the treatment image 3 and image 11 both show on working river buildings. Paint on a freight shed would be the larger claim. Invented."
+    }
+   },
+   "change_note": "One phase. This building is a reconstruction of a TYPE the plates put on this bank, not a record of a building anybody named, so it has no history to divide into phases and inventing one would be inventing twice."
+  }
+ ],
+ "function": {
+  "value": "freight_shed",
+  "confidence": "reconstructed",
+  "note": "The use comes from the plate and from the place. Image 3 of the owner's brief of 2026-08-18 draws low warehouses on the banks of the reach below the drawbridge, and this reach is where the river traffic and the town's only crossing of the main stem met in July 1835. The specific goods, the trade and the operator are not inferred and are not recorded: an occupant would be a person, and this record claims a building."
+ },
+ "research_note": "A RECONSTRUCTED BUILDING, BUILT UNDER THE OWNER'S STANDING RULING OF 2026-08-18 — 'you are totally fine to be liberal with adding reconstructed items when i ask for things, you can just label and mark them as such' — and ticket T-0133, the second half of T-0071. WHAT IS HELD: image 3 of the brief (data/sources/assets/owner_brief_2026_08_18/README.md), an engraving of the reach below the Dearborn drawbridge showing low warehouses on the banks; and image 11, the retrospective painting of South Water Street in 1834, which shows what a working river frontage in this town looked like. Both are tier-5 pictorial and neither is yet held as a source record — T-0075 owns that — so this record cites committed paths rather than a source_id, and `sources` is deliberately empty rather than filled with a citation that would not resolve. WHAT IS CONJECTURAL: the building, its station, its size, its construction, its roof, its opening and its date. All of it. The record is graded `reconstructed` on every line for that reason, and docs/LIBERTIES.md L164 claims the invention. WHAT WOULD UPGRADE IT: a lot record for the north bank below Dearborn, a forwarding merchant's advertisement giving an address on this reach, or a contemporary view of the north bank. THE SOUTH BANK IS ABSENT FOR A MEASURED REASON, not an oversight: the plate shows warehouses on both banks, and on the south bank the platted South Water Street corridor reaches to within about 1.7 m of the traced 1834 waterline at the Dearborn reach, so there is no ground there for a building that is not standing in the platted street. That measurement is its own ticket.",
+ "review_required": false
+}

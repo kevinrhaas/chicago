@@ -1,0 +1,292 @@
+{
+ "id": "z03_sedge_meadow",
+ "zone": 3,
+ "name": "Sedge meadow and slough",
+ "dossier": "docs/research/02-flora.md § ZONE 3",
+ "scene_date": "1835-07-01",
+ "palette": "july_sedge_meadow",
+ "reads_as": "a shallow ill-drained green trough: a dark tussock field with mud and standing water between the hummocks and flowering cordgrass on the shoulders",
+ "plantable_in_scene": true,
+ "cover": {"matrix_fraction":0.85,"bare_soil_fraction":0.05,"standing_water_fraction":0.1},
+ "ground": {"rgb":[58,64,42],"wet_rgb":[44,46,34]},
+ "extent": {
+  "kind": "elevation_band",
+  "elev_m": [0.18,0.66],
+  "priority": 55,
+  "confidence": "inferred",
+  "sources": [
+   "chicagology_prefire273",
+   "white_1978_inai"
+  ],
+  "include_polygons": [
+   [[463.07,-268.43],[562.04,-269.23],[561.33,-380.16],[462.41,-379.36]]
+  ],
+  "note": "Inside the modelled box this band is the marshy shore strip of the South Division, which the terrain spec builds at +1.25 ft from Andreas's 'strip of land along the river shore that was still more marshy, where land and water mingled, covered with tall grass, reeds and rushes', plus the toe of the west and north banks. It ALSO now reaches the Public-Square-to-State-Street slough itself: this note used to read 'NOT MODELLED HERE ... runs about 480 to 840 m EAST of this 640 m box and has no ground in this scene', and both halves of that expired — the box was extended east to E +1700, and T-0005 and T-0118 carved zone 14 as the state_slough_course and state_slough_mouth swales, whose bed sits at about +0.7 ft and therefore inside this band. The north-side slough of Wright 1834 is inside the box but is a 7 m watercourse whose margin falls inside the marsh buffer of z04. The West Division swales are 0.6 to 0.8 ft deep and stay above this band, so they read as wet prairie with sedge patches rather than as sedge meadow. WHAT THE BAND STILL CANNOT REACH IS THE HEAD OF THE SLOUGH, which is why this extent also carries the ring in include_polygons. THE PUBLIC SQUARE — Randolph to Washington, Clark to LaSalle — planted as this community by name and not by height. docs/research/02-flora.md heads ZONE 3 'SLOUGH & SEDGE MEADOW (Public Square -> Tremont House site -> river at State St; river-shore strip)' and its section 1.2 lists the slough 'running from the Public Square area (Randolph/Clark/LaSalle/Washington)' as 'the single most important vegetation feature INSIDE the grid'. The square is the head of zone 3 in the dossier that authors zone 3, and the elevation band above had never planted a stem on it — not because anything refused the block, but because the band cannot SEE it: dossier zone 15, the pond basin, is deferred and unmodelled (data/terrain/epochs/e1834_harbor_cut/terrain_spec.json not_modelled_in_this_box, and data/terrain/1835_intown_water_dating.json zone 15), so the terrain draws the square at the South Division plain's +2.9 ft, a full 2.2 ft above the top of this band. Lowering the band to reach one address would have moved this community everywhere else in the box. NOT ONE COORDINATE HERE IS AUTHORED: the ring is the committed platted block blk_randolph_lasalle out of data/traces/vectors/thompson_lots.json, vertex for vertex, and tools/measure_public_square.py fails if it drifts from it — so no boundary is fitted, in particular not fitted around the three county buildings that stand on the block. AND IT DRAWS NO WATER. This zone's cover.standing_water_fraction of 0.10 describes the community in its trough and is NOT claimed here: measured on the committed heightfield at 0.5 m, 0 of 43,885 samples over this block stand at or below the water surface, and the same tool holds that at absolute zero. What is planted is the July sward of a seasonally ponded prairie basin — the dossier's row 15 calls the pond SEASONAL with its water 0.5-2 ft deep IN SPRING, and this scene is 1 July — and what is not claimed is the water itself, whose date remains not_established. THE GRADE. inferred, like the band: the community and the place are the dossier's, and what is invented is that the wet ground stopped at the platted block line rather than somewhere near it, which docs/LIBERTIES.md L188 records."
+ },
+ "species": [
+  {
+   "id": "carex_stricta",
+   "binomial": "Carex stricta",
+   "common": "tussock sedge",
+   "role": "matrix",
+   "form": "sedge_tussock",
+   "abundance": {"stems_per_m2":[1.0,4.0]},
+   "abundance_provenance": {
+    "confidence": "inferred",
+    "sources": ["chicagology_prefire273", "white_1978_inai"],
+    "note": "A COUNT OF PLANTS, TAKEN FROM THE SPACING ITS OWN SOURCE STATES, for ROADMAP K49(c2). docs/research/02-flora.md \u00a7 ZONE 3 gives this stand as \"40-60% cover as tussocks 0.3-0.5 m tall x 0.3 m wide, 0.5-1.0 m apart\", and the two halves of that sentence are not the same measurement: tussocks 0.3 m wide at 0.5-1.0 m spacing cover 7-28% of the ground at the base, so the 40-60% is FOLIAGE cover on a plant that arches well past its own pedestal. The sward is dealt as a count of plants, and a spacing states a count directly: 1/s\u00b2 for s in [0.5, 1.0] m is [1, 4] plants per m\u00b2. That is better evidence than the same cover divided by the same width (6.62/m\u00b2), which reads a foliage area against a base footprint. The cover figure is not lost: how much ground this community's matrix holds is the zone's own cover.matrix_fraction, which is what decides how many slots are planted. Graded inferred rather than attested because the arithmetic assumes an even spacing in both directions; the source states the spacing, not the count."
+   },
+   "height_m": [0.6,0.9],
+   "width_m": [0.28,0.34],
+   "july": {
+    "phenology": "past_bloom",
+    "foliage_rgb": [72,102,52],
+    "inflorescence": {"shape":"spike","rgb":[124,122,88],"height_frac":0.72,"size_m":[0.03,0.06],"fruit":true},
+    "appearance": "The structural signature: dark-green hummock field, tussocks 0.3-0.5 m tall and 0.3 m wide standing 0.5-1.0 m apart with water and mud between them."
+   },
+   "confidence": "attested",
+   "sources": ["chicagology_prefire273","white_1978_inai"]
+  },
+  {
+   "id": "calamagrostis_canadensis",
+   "binomial": "Calamagrostis canadensis",
+   "common": "bluejoint",
+   "role": "matrix",
+   "form": "grass_fine",
+   "abundance": {"cover_fraction":[0.15,0.25]},
+   "height_m": [0.9,1.2],
+   "width_m": [0.2,0.4],
+   "width_provenance": {
+    "confidence": "inferred",
+    "sources": ["white_1978_inai"],
+    "note": "WHAT ONE DRAWN PLANT COVERS ON THE GROUND, added for ROADMAP K49(c) so this record's cover_fraction can be read as a count of plants. The only graminoid footprint measured anywhere in this project's flora dossier is Carex stricta's, at docs/research/02-flora.md § ZONE 3: \"tussocks 0.3-0.5 m tall x 0.3 m wide, 0.5-1.0 m apart\", which this dataset commits as [0.28, 0.34]. Bluejoint stands in the same list and is rhizomatous rather than tussock-forming, so its drawn cluster is taken at or under that hummock: 0.20-0.40 m."
+   },
+   "july": {
+    "phenology": "flowering",
+    "foliage_rgb": [104,122,74],
+    "inflorescence": {"shape":"panicle_open","rgb":[150,128,138],"height_frac":0.86,"size_m":[0.12,0.22]},
+    "appearance": "Purplish flowering haze above the tussock field."
+   },
+   "confidence": "attested",
+   "sources": ["white_1978_inai"]
+  },
+  {
+   "id": "sporobolus_michauxianus",
+   "binomial": "Sporobolus michauxianus",
+   "common": "prairie cordgrass",
+   "role": "matrix",
+   "form": "grass_arching",
+   "synonym": "Spartina pectinata",
+   "abundance": {"cover_fraction":[0.1,0.2]},
+   "height_m": [1.4,2.0],
+   "width_m": [0.5,0.9],
+   "july": {
+    "phenology": "flowering",
+    "foliage_rgb": [86,104,62],
+    "foliage_rgb_alt": [112,126,78],
+    "inflorescence": {"shape":"one_sided_spike","rgb":[198,194,152],"height_frac":0.92,"size_m":[0.15,0.3]},
+    "appearance": "Coarse and flowering, on the drier shoulders of the trough rather than in it."
+   },
+   "confidence": "attested",
+   "sources": ["chicagology_prefire273"]
+  },
+  {
+   "id": "carex_lacustris",
+   "binomial": "Carex lacustris",
+   "common": "lake sedge",
+   "role": "matrix",
+   "form": "sedge_tussock",
+   "abundance": {"cover_fraction":[0.05,0.08]},
+   "height_m": [0.7,1.0],
+   "width_m": [0.25,0.4],
+   "width_provenance": {
+    "confidence": "inferred",
+    "sources": ["swink_wilhelm_1994"],
+    "note": "WHAT ONE DRAWN PLANT COVERS ON THE GROUND, added for ROADMAP K49(c) so this record's cover_fraction can be read as a count of plants. The only graminoid footprint measured anywhere in this project's flora dossier is Carex stricta's, at docs/research/02-flora.md § ZONE 3: \"tussocks 0.3-0.5 m tall x 0.3 m wide, 0.5-1.0 m apart\", which this dataset commits as [0.28, 0.34]. § ZONE 3 gives C. lacustris and C. aquatilis as one row, 10-15 % cover at 0.7-1.0 m — taller and broader-bladed than the 0.6-0.9 m stricta beside them — so the clump is taken at stricta's width and a little above it."
+   },
+   "july": {
+    "phenology": "past_bloom",
+    "foliage_rgb": [92,118,62],
+    "inflorescence": {"shape":"spike","rgb":[128,128,92],"height_frac":0.8,"size_m":[0.04,0.08],"fruit":true},
+    "appearance": "Broad glaucous blades in loose colonies, spikes already shed."
+   },
+   "confidence": "inferred",
+   "sources": ["swink_wilhelm_1994"],
+   "note": "Dossier [I] and gives C. lacustris and C. aquatilis jointly at 10-15% cover; split evenly here, which is this record's division, not the dossier's."
+  },
+  {
+   "id": "carex_aquatilis",
+   "binomial": "Carex aquatilis",
+   "common": "water sedge",
+   "role": "matrix",
+   "form": "sedge_tussock",
+   "abundance": {"cover_fraction":[0.05,0.08]},
+   "height_m": [0.7,1.0],
+   "width_m": [0.25,0.4],
+   "width_provenance": {
+    "confidence": "inferred",
+    "sources": ["swink_wilhelm_1994"],
+    "note": "WHAT ONE DRAWN PLANT COVERS ON THE GROUND, added for ROADMAP K49(c) so this record's cover_fraction can be read as a count of plants. The only graminoid footprint measured anywhere in this project's flora dossier is Carex stricta's, at docs/research/02-flora.md § ZONE 3: \"tussocks 0.3-0.5 m tall x 0.3 m wide, 0.5-1.0 m apart\", which this dataset commits as [0.28, 0.34]. C. aquatilis shares that row with C. lacustris (10-15 % cover, 0.7-1.0 m) and takes the same reasoning and the same band."
+   },
+   "july": {
+    "phenology": "past_bloom",
+    "foliage_rgb": [86,116,68],
+    "inflorescence": {"shape":"spike","rgb":[126,126,94],"height_frac":0.8,"size_m":[0.04,0.08],"fruit":true},
+    "appearance": "Blue-green blades in wet hollows, fruiting spikes going over."
+   },
+   "confidence": "inferred",
+   "sources": ["swink_wilhelm_1994"],
+   "note": "See carex_lacustris: the 10-15% is a joint figure, split here."
+  },
+  {
+   "id": "scirpus_atrovirens",
+   "binomial": "Scirpus atrovirens",
+   "common": "dark-green bulrush",
+   "role": "emergent",
+   "form": "rush_culm",
+   "substrate": "saturated_soil",
+   "abundance": {"density_per_ha":[100,300]},
+   "height_m": [1.0,1.4],
+   "july": {
+    "phenology": "flowering",
+    "foliage_rgb": [70,104,54],
+    "inflorescence": {"shape":"cluster_terminal","rgb":[96,116,70],"height_frac":0.92,"size_m":[0.08,0.14]},
+    "appearance": "Leafy triangular stems carrying dark-green branched heads."
+   },
+   "confidence": "inferred",
+   "sources": ["swink_wilhelm_1994"],
+   "note": "Dossier [I]: regional sedge-meadow flora."
+  },
+  {
+   "id": "scirpus_cyperinus",
+   "binomial": "Scirpus cyperinus",
+   "common": "woolgrass",
+   "role": "emergent",
+   "form": "rush_culm",
+   "substrate": "saturated_soil",
+   "abundance": {"density_per_ha":[100,300]},
+   "height_m": [1.0,1.4],
+   "july": {
+    "phenology": "flowering",
+    "foliage_rgb": [82,110,58],
+    "inflorescence": {"shape":"panicle_open","rgb":[150,122,88],"height_frac":0.9,"size_m":[0.12,0.2]},
+    "appearance": "Drooping woolly-brown branched heads over coarse leafy culms."
+   },
+   "confidence": "inferred",
+   "sources": ["swink_wilhelm_1994"],
+   "note": "Dossier [I]: regional sedge-meadow flora."
+  },
+  {
+   "id": "iris_virginica_shrevei",
+   "binomial": "Iris virginica var. shrevei",
+   "common": "southern blue flag",
+   "role": "forb",
+   "form": "forb_basal_scape",
+   "abundance": {"density_per_ha":[50,200]},
+   "height_m": [0.6,0.9],
+   "july": {
+    "phenology": "past_bloom",
+    "foliage_rgb": [96,126,76],
+    "inflorescence": {"shape":"capsule_green","rgb":[136,148,88],"height_frac":0.7,"size_m":[0.05,0.09],"fruit":true},
+    "appearance": "PAST BLOOM: sword leaves and fat green three-ridged seed capsules, no blue flowers left."
+   },
+   "confidence": "inferred",
+   "sources": ["swink_wilhelm_1994"],
+   "note": "Dossier [I], and one of its named phenology traps: blue flag is a late-May to June flower and is in green fruit by 1 July."
+  },
+  {
+   "id": "persicaria_coccinea",
+   "binomial": "Persicaria coccinea",
+   "common": "scarlet smartweed",
+   "role": "forb",
+   "form": "forb_spike",
+   "abundance": {"cover_fraction":[0.02,0.06]},
+   "height_m": [0.5,1.0],
+   "width_m": [0.3,0.6],
+   "width_provenance": {
+    "confidence": "reconstructed",
+    "sources": ["white_1978_inai"],
+    "note": "WHAT ONE DRAWN PLANT COVERS ON THE GROUND, added for ROADMAP K49(c) so this record's cover_fraction can be read as a count of plants. RECONSTRUCTED. § ZONE 3 gives scarlet smartweed as \"patches\" at 0.5-1.0 m and states no width. Bounded by its own height band: a rhizomatous emergent forb of this height carries a leaf spread of roughly half to two-thirds its height, so one drawn plant is 0.30-0.60 m across. docs/LIBERTIES.md L119."
+   },
+   "july": {
+    "phenology": "flowering",
+    "foliage_rgb": [98,120,66],
+    "inflorescence": {"shape":"spike","rgb":[206,64,84],"height_frac":0.88,"size_m":[0.04,0.08]},
+    "appearance": "Bright pink-red erect spikes in patches on the wettest mud."
+   },
+   "confidence": "attested",
+   "sources": ["white_1978_inai"]
+  },
+  {
+   "id": "lycopus_americanus",
+   "binomial": "Lycopus americanus",
+   "common": "American water horehound",
+   "role": "forb",
+   "form": "forb_spike",
+   "abundance": {"cover_fraction":[0.02,0.05]},
+   "height_m": [0.4,0.8],
+   "width_m": [0.2,0.4],
+   "width_provenance": {
+    "confidence": "reconstructed",
+    "sources": ["swink_wilhelm_1994"],
+    "note": "WHAT ONE DRAWN PLANT COVERS ON THE GROUND, added for ROADMAP K49(c) so this record's cover_fraction can be read as a count of plants. RECONSTRUCTED. § ZONE 3 files water horehound under \"matrix filler\", 0.4-0.8 m, with no width. Bounded by that height band at roughly half of it. docs/LIBERTIES.md L119."
+   },
+   "july": {
+    "phenology": "flowering",
+    "foliage_rgb": [94,118,70],
+    "inflorescence": {"shape":"cluster_axillary","rgb":[226,228,218],"height_frac":0.6,"size_m":[0.015,0.03]},
+    "appearance": "Inconspicuous: tiny white axillary whorls on square stems."
+   },
+   "confidence": "inferred",
+   "sources": ["swink_wilhelm_1994"],
+   "note": "Dossier [I]: matrix filler on the regional list."
+  },
+  {
+   "id": "boehmeria_cylindrica",
+   "binomial": "Boehmeria cylindrica",
+   "common": "false nettle",
+   "role": "forb",
+   "form": "forb_spike",
+   "abundance": {"cover_fraction":[0.02,0.05]},
+   "height_m": [0.4,0.8],
+   "width_m": [0.2,0.4],
+   "width_provenance": {
+    "confidence": "reconstructed",
+    "sources": ["swink_wilhelm_1994"],
+    "note": "WHAT ONE DRAWN PLANT COVERS ON THE GROUND, added for ROADMAP K49(c) so this record's cover_fraction can be read as a count of plants. RECONSTRUCTED. Shares § ZONE 3's \"matrix filler\" row with Lycopus americanus (0.4-0.8 m, no width) and takes the same band. docs/LIBERTIES.md L119."
+   },
+   "july": {
+    "phenology": "flowering",
+    "foliage_rgb": [82,112,62],
+    "inflorescence": {"shape":"spike","rgb":[124,142,84],"height_frac":0.7,"size_m":[0.03,0.07]},
+    "appearance": "Inconspicuous green: opposite nettle-like leaves and slim green flower spikes."
+   },
+   "confidence": "inferred",
+   "sources": ["swink_wilhelm_1994"],
+   "note": "Dossier [I]: matrix filler on the regional list."
+  },
+  {
+   "id": "juncus_effusus",
+   "binomial": "Juncus effusus",
+   "common": "soft rush",
+   "role": "matrix",
+   "form": "rush_culm",
+   "abundance": {"cover_fraction":[0.02,0.05]},
+   "height_m": [0.5,0.8],
+   "width_m": [0.3,0.5],
+   "july": {
+    "phenology": "flowering",
+    "foliage_rgb": [88,122,70],
+    "inflorescence": {"shape":"cluster_terminal","rgb":[148,126,92],"height_frac":0.72,"size_m":[0.03,0.06]},
+    "appearance": "Dense tufts of round green culms with a small brown flower cluster part-way up."
+   },
+   "confidence": "inferred",
+   "sources": ["swink_wilhelm_1994"],
+   "note": "Dossier [I]: matrix filler."
+  }
+ ],
+ "confidence": "attested",
+ "sources": ["chicagology_prefire273","white_1978_inai"],
+ "note": "Carex stricta tussock structure is the signature to get right: 0.3-0.5 m hummocks 0.3 m wide standing 0.5-1.0 m apart with water between them, not a smooth lawn.",
+ "review_required": false
+}

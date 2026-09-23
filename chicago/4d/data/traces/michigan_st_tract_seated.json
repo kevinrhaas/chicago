@@ -1,0 +1,77 @@
+{
+  "_doc": "The Michigan St tract north of Kinzie Street, seated on the committed town grid.\n\n    tools/seat_michigan_st_tract.py --check\n\nDERIVED, NOT AUTHORED. Every number here is recomputed from data/traces/michigan_st_tract_grid.json and the committed lines of data/streets/1835.json by the tool above, and tools/check.sh re-derives it every run. A hand edit to this file fails the gate.",
+  "ticket": "T-1079 (piece 1 of T-1075: the seating)",
+  "reading": "data/traces/michigan_st_tract_grid.json",
+  "tool": "tools/seat_michigan_st_tract.py",
+  "datum": {
+    "east_west": "michigan_north",
+    "north_south": "market_north",
+    "why": "Wright's second `Michigan St` is not a second street of the same name — the premise T-0796 was filed on. The tract is platted on the town's own grid lines and only its PARCEL module is its own."
+  },
+  "ladder_m": {
+    "off_michigan_northward": {
+      "north_border": 78.2,
+      "alley_north_tier": 44.5,
+      "michigan_st": 0.0,
+      "alley_south_tier": -42.75,
+      "south_border": -76.1
+    },
+    "off_market_eastward": {
+      "west_border": -80.43,
+      "market_st": 0.0,
+      "east_border": 121.67
+    }
+  },
+  "corners_local_enu_m": {
+    "nw": [
+      9.14,
+      476.64
+    ],
+    "ne": [
+      211.23,
+      475.44
+    ],
+    "sw": [
+      7.87,
+      322.35
+    ],
+    "se": [
+      209.96,
+      321.15
+    ]
+  },
+  "blocks": {
+    "columns": 2,
+    "tiers": 2,
+    "count": 4,
+    "lots_per_block_row": {
+      "west_column": [
+        4
+      ],
+      "east_column": [
+        7,
+        7,
+        7,
+        7
+      ]
+    },
+    "note": "Two block columns either side of Market Street, two tiers either side of Michigan Street, each block ruled through by a mid-block alley. The lot LINES are read and committed in the reading; they are not seated here because a lot line is a division of a block and the block's own borders are what this file places."
+  },
+  "detached_reaches_m": {
+    "blank_ground_east_to_kinzies_addition": 239.4,
+    "blank_ground_south_to_the_north_division": 62.0,
+    "note": "Wright leaves both spans unsurveyed and unruled. Michigan Street and Market Street are each committed as two records for that reason."
+  },
+  "cost_of_seating_m": {
+    "tract_south_border_north_of_kinzie_seated": 62.01,
+    "tract_south_border_north_of_kinzie_on_the_sheets_fit": 15.04,
+    "disagreement": 46.97,
+    "kinzie_to_michigan_committed_m": 138.11,
+    "kinzie_to_michigan_on_the_sheets_fit_m": 91.89,
+    "note": "The seating is preferred and the disagreement is Wright's. Measured north of the committed Kinzie line in the one frame both answers are already in, the committed grid puts Michigan Street 138.11 m away and this sheet's fit puts it 91.89 m away. Thompson's plat draws exactly ONE tier of North Division blocks in that span, fronting Kinzie on the south and Michigan on the north, so the span has to hold a block plus an 80 ft street: 453 ft does and 301 ft does not. Hanging the ladder on `kinzie` instead would have kept the drawn frontage and committed a second Michigan Street 38 m south of the first, which is exactly what the reading's identification refuses."
+  },
+  "open": [
+    "T-1080 — the tract's NAME and who platted it: not settled. `Wolcott's Addition` is the one candidate the corpus raises and the corpus also refuses it on size. See docs/RESEARCH/michigan_st_tract.md.",
+    "T-1080 — the curved road that leaves the Kinzie/North Water corner and runs north through this tract is drawn on the sheet and still unread."
+  ]
+}

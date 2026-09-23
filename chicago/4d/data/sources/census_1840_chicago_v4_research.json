@@ -1,0 +1,14 @@
+{
+  "id": "census_1840_chicago_v4_research",
+  "type": "dataset",
+  "citation": "1840 U.S. Census, Chicago, Cook County, Illinois — recovered v4 resident/census adjudication linking census rows to IPUMS SERIALs and selected 1835 identities.",
+  "date": "1840",
+  "describes_date": "1840",
+  "locator": "chicago/4d/data/research/residents/census_1840_row_serial_scope.json",
+  "repository": "chicago/4d/data/research/residents/",
+  "tier": 1,
+  "rights_status": "public_domain",
+  "asset_use": "text_only",
+  "verified": true,
+  "note": "Recovered from Chicago_1835_Best_Resident_Set_Research_v4.xlsx. The workbook reviewed 210 named heads on printed pages 229–235 and carried 117 row-to-SERIAL assignments in the best-resident set. Only independently adjudicated identity bridges are attached to canonical 1835 residents; 1840 household composition remains later evidence and is not back-projected to 1835."
+}

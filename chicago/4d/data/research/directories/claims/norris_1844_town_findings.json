@@ -1,0 +1,1473 @@
+{
+ "schema": 1,
+ "domain": "directories",
+ "source_id": "norris_directory_1844",
+ "_doc": "HAND-AUTHORED for T-0567. The DATED TOWN FINDINGS of Norris's 1844 directory — the Description and Historical Sketch (scan leaves 15-30 = printed pages 5-20) and the Statistical Account (leaves 76-88 = printed 66-78), which are the two parts of the volume that are prose and tables rather than a list of names, and which T-0566 deliberately did not read. Every claim is `town_finding: true`: a statement ABOUT THE TOWN, not about a person's address. Every quote is lifted unedited out of the committed page text and is rebuilt character-for-character by tools/research_domains.py --check, which is this file's gate; the OCR damage is left in on purpose, and the repair is in `normalized`. THE FIELD THAT MATTERS IS `describes_date`: it is the year the STATEMENT describes and not 1844, so the handful of sentences in which Norris speaks about the scene year of this reconstruction are separable from the ninety per cent that are not. Nothing here has been written into a resident, household, business or structure record. Under the ratified ladder of 2026-09-03 a source printed nine years after the scene never on its own makes an 1835 fact; T-0569 is the ticket that spends this on the layers.",
+ "generated_by": "hand — T-0567",
+ "reading_note": "transcription_mediated throughout, for the same reason the 2,073 directory entries are: this is archive.org's OCR of the printed page and it has not been checked against the image by eye. Three OCR slips in this file change a DATE and are called out in the notes of the claims that carry them — '1932' for 1832 (leaf 16), '1617' for 1816 (leaf 21) and '1342' for 1842 (leaf 27). Each is repaired only in `normalized`; the quote keeps the damage so it can be found on the page again.",
+ "counts": {
+  "claims": 65,
+  "leaves": 29,
+  "by_describes_year": {
+   "1673": 3,
+   "1795": 1,
+   "1804": 1,
+   "1812": 3,
+   "1816": 1,
+   "1829": 1,
+   "1832": 6,
+   "1833": 1,
+   "1834": 4,
+   "1835": 4,
+   "1836": 5,
+   "1837": 5,
+   "1840": 1,
+   "1843": 8,
+   "1844": 21
+  },
+  "kinds": {
+   "appearance": 1,
+   "building": 13,
+   "civic": 15,
+   "event": 9,
+   "household": 8,
+   "infrastructure": 7,
+   "landscape": 3,
+   "notice": 4,
+   "shipping": 3,
+   "street": 2
+  }
+ },
+ "claims": [
+  {
+   "id": "n1844_tf_001",
+   "kind": "landscape",
+   "reading": "transcription_mediated",
+   "quote": "site of the City occupies a level prairie, on both sides of the majn\nstream, and the North and South Branches of Chicago River, and\ncovers an area of about three and a half miles in length. North arid\nSouth, and two and a half in breadth, East and West, about a mile\nand a half square of which is already regularly built upon, and the\nstreets opened and graded. The streets are regularly laid out, pa-",
+   "normalized": "Norris describes the city site as a level prairie on both sides of the main stream and the North and South Branches, about 3.5 miles north-south by 2.5 east-west, of which about a mile and a half square was regularly built upon and its streets opened and graded — the built extent of 1844, nine years after the scene.",
+   "locator": {
+    "text_file": "norris_1844_leaf_015.txt",
+    "lines": [
+     6,
+     11
+    ],
+    "page": "norris_1844_leaf_015",
+    "printed_page": 5,
+    "section": "description_and_historical_sketch"
+   },
+   "describes_date": "1844",
+   "entities": [],
+   "town_finding": true,
+   "notes": "The GRID and the built extent. For 1835 this is a ceiling, not a measurement: a mile and a half square built up in 1844 is more than 1835 had, and the sketch says so itself on leaf 21. Filed as the 1844 statement it is."
+  },
+  {
+   "id": "n1844_tf_002",
+   "kind": "street",
+   "reading": "transcription_mediated",
+   "quote": "streets opened and graded. The streets are regularly laid out, pa-\n  rallel and at right angles to the Lake, and are wide and spacious.",
+   "normalized": "The streets are laid out parallel and at right angles to the lake, and are wide and spacious.",
+   "locator": {
+    "text_file": "norris_1844_leaf_015.txt",
+    "lines": [
+     11,
+     12
+    ],
+    "page": "norris_1844_leaf_015",
+    "printed_page": 5,
+    "section": "description_and_historical_sketch"
+   },
+   "describes_date": "1844",
+   "entities": [],
+   "town_finding": true,
+   "notes": "Corroborates the orientation of the plat this reconstruction builds on — the 1830 canal-commissioners' grid squared to the lake, not to true north. It is an 1844 statement about a grid laid out in 1830 and unchanged, which is why it is worth having."
+  },
+  {
+   "id": "n1844_tf_003",
+   "kind": "building",
+   "reading": "transcription_mediated",
+   "quote": "There are several extensive blocks of brick buildings, principally\noccupied as business houses and public offices, three and a half and\nfour stories in height. The dwellings are principally of wood,\nmany of them, however, very fine specimens of correct architecture.",
+   "normalized": "By 1844 there were several extensive blocks of brick buildings three and a half to four storeys high, occupied mainly as business houses and public offices, while the dwellings were principally of wood.",
+   "locator": {
+    "text_file": "norris_1844_leaf_015.txt",
+    "lines": [
+     13,
+     16
+    ],
+    "page": "norris_1844_leaf_015",
+    "printed_page": 5,
+    "section": "description_and_historical_sketch"
+   },
+   "describes_date": "1844",
+   "entities": [],
+   "town_finding": true,
+   "notes": "NOT an 1835 fact and the contrast is the point: brick blocks three and four storeys high are the town of 1844. Leaf 22 dates the FIRST brick buildings to 1834. What carries back is the proportion — dwellings principally of wood — which the reconstruction already builds to."
+  },
+  {
+   "id": "n1844_tf_004",
+   "kind": "landscape",
+   "reading": "transcription_mediated",
+   "quote": "The portion of the City extending several miles along the shore of\nthe Lake, is sandy, and consequently at all seasons, dry. The por-\n  tion removed from the Lake partakes of the character of all level\nprairie, Itoing in the spring and fall wet and muddy. The site of the",
+   "normalized": "The lakeward strip of the city is sandy and dry at all seasons; the portion away from the lake is level prairie and is wet and muddy in spring and fall.",
+   "locator": {
+    "text_file": "norris_1844_leaf_015.txt",
+    "lines": [
+     17,
+     20
+    ],
+    "page": "norris_1844_leaf_015",
+    "printed_page": 5,
+    "section": "description_and_historical_sketch"
+   },
+   "describes_date": "1844",
+   "entities": [],
+   "town_finding": true,
+   "notes": "A ground-condition statement that does carry back, because it is about the soil and not about the buildings: the sand ridge along the shore against the wet prairie behind it. Relevant to the terrain and to how the streets read underfoot."
+  },
+  {
+   "id": "n1844_tf_005",
+   "kind": "infrastructure",
+   "reading": "transcription_mediated",
+   "quote": "  rounding country, a very interesting field of vision. Chicago River\nand its branches, which run through the heart of the City, and ad-\n  mit at nil seasons, vessels of every class, navigating the Lake, some\ndistance into the interior, afford peculiar facilities for a harbor, and",
+   "normalized": "Chicago River and its branches run through the heart of the city and admit vessels of every class navigating the lake some distance into the interior, which is what gives the place its harbour.",
+   "locator": {
+    "text_file": "norris_1844_leaf_015.txt",
+    "lines": [
+     22,
+     25
+    ],
+    "page": "norris_1844_leaf_015",
+    "printed_page": 5,
+    "section": "description_and_historical_sketch"
+   },
+   "describes_date": "1844",
+   "entities": [],
+   "town_finding": true,
+   "notes": "The river as the harbour. The pier works that made the entrance passable are dated on leaf 23 to late 1833; this is the 1844 statement of what the river itself does."
+  },
+  {
+   "id": "n1844_tf_006",
+   "kind": "civic",
+   "reading": "transcription_mediated",
+   "quote": "an incorporated City, the act of the legislature conferring its charter\nbeing granted and approved March 4th of that year. The City is\ndivided into six Wards. The first and second Wards, divided by",
+   "normalized": "Chicago became an incorporated city by an act of the legislature granted and approved 4 March 1837, and was divided into six wards.",
+   "locator": {
+    "text_file": "norris_1844_leaf_016.txt",
+    "lines": [
+     1,
+     3
+    ],
+    "page": "norris_1844_leaf_016",
+    "printed_page": 6,
+    "section": "description_and_historical_sketch"
+   },
+   "describes_date": "1837-03-04",
+   "entities": [
+    "City of Chicago"
+   ],
+   "town_finding": true,
+   "notes": "AFTER the scene. In 1835 Chicago was an incorporated TOWN, not a city, and had no six wards. Filed because the ward boundaries Norris then gives are the frame every later list in this volume — including the 1843 census on leaf 86 — is counted in, and a reader who takes those wards back to 1835 is making a mistake this claim names."
+  },
+  {
+   "id": "n1844_tf_007",
+   "kind": "civic",
+   "reading": "transcription_mediated",
+   "quote": "divided into six Wards. The first and second Wards, divided by\nClark Street, are bounded by the South Branch-, Chicago River, and\nthe Lake—the first Ward lying East, and the second West of Clark\nStreet. The third and fourth Wards, divided by Randolph Street,\nare situated on the West side of the North and South Branches—\nthe third South, and the fourth North of Randolph Street. The\nfifth and sfxth Wards, divided by Clark Street, are bounded by the\nNorth Branch, Chicago River, and the Lake—the fifth being West,\nand the sixth East of Clark Street. The government of the City is",
+   "normalized": "The six wards of 1844: first and second divided by Clark Street between the South Branch, the river and the lake (first east, second west); third and fourth divided by Randolph Street on the west side of the branches (third south, fourth north); fifth and sixth divided by Clark Street between the North Branch, the river and the lake (fifth west, sixth east).",
+   "locator": {
+    "text_file": "norris_1844_leaf_016.txt",
+    "lines": [
+     3,
+     11
+    ],
+    "page": "norris_1844_leaf_016",
+    "printed_page": 6,
+    "section": "description_and_historical_sketch"
+   },
+   "describes_date": "1844",
+   "entities": [],
+   "town_finding": true,
+   "notes": "The key to every ward-counted table in this volume, the 1843 census on leaf 86 above all. It is 1844 geography and must not be read back to 1835."
+  },
+  {
+   "id": "n1844_tf_008",
+   "kind": "household",
+   "reading": "transcription_mediated",
+   "quote": "1932, and the beginning of 1833, Chicago had about 100 inhabitants\nand five or six log houses, exclusive of the Fort and its appurte-",
+   "normalized": "In 1832 and the beginning of 1833 Chicago had about 100 inhabitants and five or six log houses, exclusive of the fort and its appurtenances. (The printed '1932' is an OCR slip for 1832; the same statement is made again in the sketch's own words on leaf 21.)",
+   "locator": {
+    "text_file": "norris_1844_leaf_016.txt",
+    "lines": [
+     18,
+     19
+    ],
+    "page": "norris_1844_leaf_016",
+    "printed_page": 6,
+    "section": "description_and_historical_sketch"
+   },
+   "describes_date": "1832",
+   "entities": [],
+   "town_finding": true,
+   "notes": "ONE OF THE TWO NUMBERS IN THIS BOOK THAT BEAR DIRECTLY ON THE RECONSTRUCTION'S PROBLEM — what the town was immediately before it grew. Norris repeats it on leaf 21 ('some five or six houses, built mostly of logs, and a population of less than one hundred') and names those houses one by one on leaf 22, which is the passage worth having. Written nine years later and not a census."
+  },
+  {
+   "id": "n1844_tf_009",
+   "kind": "household",
+   "reading": "transcription_mediated",
+   "quote": "  nances. In 1840, the population had increased to 4853. The pre-\n  sent population exceeds 7580, and may be said at this time to amount\nto 8000. The period of the greatest prosperity of Chicago, was",
+   "normalized": "The 1840 population was 4,853; the population when Norris wrote exceeded 7,580 and could be said to amount to 8,000.",
+   "locator": {
+    "text_file": "norris_1844_leaf_016.txt",
+    "lines": [
+     20,
+     22
+    ],
+    "page": "norris_1844_leaf_016",
+    "printed_page": 6,
+    "section": "description_and_historical_sketch"
+   },
+   "describes_date": "1843",
+   "entities": [],
+   "town_finding": true,
+   "notes": "The 7,580 is S. W. Norris's own census of 1 August 1843, tabulated on leaf 86. The 4,853 is the federal census of 1840, which is the deposit the census_1840 domain is reading. Neither is 1835; the 1835 figure Norris gives is on leaf 23."
+  },
+  {
+   "id": "n1844_tf_010",
+   "kind": "event",
+   "reading": "transcription_mediated",
+   "quote": "to 8000. The period of the greatest prosperity of Chicago, was\nfrom 1833 to 1837. The revulsions and reverses of '3G-7, greatly\n•retarded its growth. It continued, however, though more gradually,\nto increase in business and resources until 1840-1, from which tim«\nbusiness received a new impulse, and it is now enjoying a degree of\nprosperity equal to any former period of ks history.",
+   "normalized": "The period of Chicago's greatest prosperity was from 1833 to 1837; the reverses of 1836-7 retarded its growth, which continued more gradually until 1840-1, from which time business received a new impulse.",
+   "locator": {
+    "text_file": "norris_1844_leaf_016.txt",
+    "lines": [
+     22,
+     27
+    ],
+    "page": "norris_1844_leaf_016",
+    "printed_page": 6,
+    "section": "description_and_historical_sketch"
+   },
+   "describes_date": "1843",
+   "entities": [],
+   "town_finding": true,
+   "notes": "Puts the scene year of this reconstruction — 1835 — inside the boom, and dates the boom's ends. Norris's periodisation, not a measurement."
+  },
+  {
+   "id": "n1844_tf_011",
+   "kind": "household",
+   "reading": "transcription_mediated",
+   "quote": "\"We behold it, from a distant arid isolated colony, inhabited only by\nsome five or six families clineing to a lone and solitary military\npost for protection, and dependent for subsistence upon t-be uncer-\n  tain arrival of some chance vessel from Mackinaw, in the short sprrce",
+   "normalized": "Norris's summary of the beginning: an isolated colony inhabited only by some five or six families clinging to a lone military post for protection, dependent for subsistence on the uncertain arrival of a chance vessel from Mackinaw, which became a city in the space of eight or ten years.",
+   "locator": {
+    "text_file": "norris_1844_leaf_016.txt",
+    "lines": [
+     35,
+     38
+    ],
+    "page": "norris_1844_leaf_016",
+    "printed_page": 6,
+    "section": "description_and_historical_sketch"
+   },
+   "describes_date": "1834",
+   "entities": [],
+   "town_finding": true,
+   "notes": "Rhetoric, and filed as such — but it repeats the five-or-six-families figure a third time, and it dates the transformation to 'eight or ten years' before 1844, which brackets 1834-1836. `describes_date` is set to the earliest year the span can mean."
+  },
+  {
+   "id": "n1844_tf_012",
+   "kind": "landscape",
+   "reading": "transcription_mediated",
+   "quote": "The original proprietors and first inhabitants of the region, were, of\ncourse, the aborigines. The description of the first appearance of\nthe vicinity, by some of its earliest explorers, leads to the belief, that\nthey were here from a very early period; that this was, then, and\nfrom time immemorial had been, the site of an Indian village.",
+   "normalized": "Norris holds that the site was an Indian village from a very early period, citing the number and apparent antiquity of the trails centring here as reported by Major Long.",
+   "locator": {
+    "text_file": "norris_1844_leaf_017.txt",
+    "lines": [
+     11,
+     15
+    ],
+    "page": "norris_1844_leaf_017",
+    "printed_page": 7,
+    "section": "description_and_historical_sketch"
+   },
+   "describes_date": "1673",
+   "entities": [],
+   "town_finding": true,
+   "notes": "The TRAILS are the part that touches this reconstruction: the routes converging on the portage are older than the plat and some of them survive in the 1830s roads. Norris is reporting Long, not observing. `describes_date` is set to the earliest event the passage anchors, the first documented visit he goes on to date."
+  },
+  {
+   "id": "n1844_tf_013",
+   "kind": "event",
+   "reading": "transcription_mediated",
+   "quote": "  The French wore the original discoverers and settlers of the West.\nAs parly ns the latter part of the. sixteenth century, while (he Eng-\n  lish Colonies were yet clinging to the shores of tlie Atlantic, almost\ntwo hundred years ago, the,ir voyages and expeditions to this region\ncommenced. In a few years they discovered, and to some extent,\nsettled the uliole vnst region from Canada to the Gulf of Mexico,",
+   "normalized": "The French were the original discoverers and settlers of the West, their voyages to this region beginning in the latter part of the sixteenth century.",
+   "locator": {
+    "text_file": "norris_1844_leaf_017.txt",
+    "lines": [
+     39,
+     44
+    ],
+    "page": "norris_1844_leaf_017",
+    "printed_page": 7,
+    "section": "description_and_historical_sketch"
+   },
+   "describes_date": "1673",
+   "entities": [],
+   "town_finding": true,
+   "notes": "Background, and Norris's century is wrong — Marquette is 1673, which he dates correctly on leaf 18. Filed so that leaf 17 is reached and so the error is on the record rather than tidied out."
+  },
+  {
+   "id": "n1844_tf_014",
+   "kind": "event",
+   "reading": "transcription_mediated",
+   "quote": "reaping the fruits of all their toils and sufferings. The earliest of\nthese expeditions, as well as the most distinguished, were those of\nMarquette and La Salle. The former occurred in the year 1673,\nand resulted in the discovery of the Mississippi, the original object\nand design of the expedition. To this expedition, is probably to be\nascribed the honor of paying the first visit to Chicago, it being the\nprevailing opinion that it passed through here on its return to\nCanada, ascending the Illinois River and crossing to Michigan.",
+   "normalized": "Marquette's expedition of 1673 discovered the Mississippi, and Norris takes the prevailing opinion to be that it passed through Chicago on its return to Canada, ascending the Illinois River and crossing to Michigan — probably the first visit to the site.",
+   "locator": {
+    "text_file": "norris_1844_leaf_018.txt",
+    "lines": [
+     9,
+     16
+    ],
+    "page": "norris_1844_leaf_018",
+    "printed_page": 8,
+    "section": "description_and_historical_sketch"
+   },
+   "describes_date": "1673",
+   "entities": [
+    "Marquette",
+    "La Salle"
+   ],
+   "town_finding": true,
+   "notes": "Pre-history of the site, filed as a dated claim rather than a fact: Norris himself says 'it being the prevailing opinion', which is the grade of the statement."
+  },
+  {
+   "id": "n1844_tf_015",
+   "kind": "event",
+   "reading": "transcription_mediated",
+   "quote": "On the third day of August, 1795, at the treaty held by General\nWayne, with the Pottawatamies and other tribes at Greenville, the\ntitle to six miles square of territory, at the mouth of Chikajo River,\nas it is expressed in the treaty, was obtained' by the United States.",
+   "normalized": "At the Treaty of Greenville, 3 August 1795, the United States obtained title to six miles square at the mouth of the Chicago River.",
+   "locator": {
+    "text_file": "norris_1844_leaf_019.txt",
+    "lines": [
+     5,
+     8
+    ],
+    "page": "norris_1844_leaf_019",
+    "printed_page": 9,
+    "section": "description_and_historical_sketch"
+   },
+   "describes_date": "1795-08-03",
+   "entities": [
+    "General Wayne",
+    "Pottawatamies"
+   ],
+   "town_finding": true,
+   "notes": "The land title under the whole town. Dated and specific, and it is the cession the 1830 plat is eventually laid out inside."
+  },
+  {
+   "id": "n1844_tf_016",
+   "kind": "building",
+   "reading": "transcription_mediated",
+   "quote": "had made a settlement here, many years before. In 1804, Fort\nChicago was built on the site of the present Fort. About the same\ntime, the American Fur Company, having been organised shortly\nbefore, established a trading station, under the protection of the\nGarrison. The little colony thus planted here, some forty years ago,\nfor military and trading purposes, may- be regarded as the first at-",
+   "normalized": "Fort Chicago was built in 1804 on the site of the fort standing in 1844, and about the same time the American Fur Company established a trading station under the protection of the garrison — which Norris calls the first attempt at a permanent settlement.",
+   "locator": {
+    "text_file": "norris_1844_leaf_019.txt",
+    "lines": [
+     12,
+     17
+    ],
+    "page": "norris_1844_leaf_019",
+    "printed_page": 9,
+    "section": "description_and_historical_sketch"
+   },
+   "describes_date": "1804",
+   "entities": [
+    "American Fur Company"
+   ],
+   "town_finding": true,
+   "notes": "DATES THE FUR COMPANY POST, which is one of the buildings this reconstruction holds. Norris puts the 1804 fort on the same site as the later one; the fort standing in 1835 is the 1816 rebuild, dated on leaf 21."
+  },
+  {
+   "id": "n1844_tf_017",
+   "kind": "building",
+   "reading": "transcription_mediated",
+   "quote": "  what in detail, in this connection. Beside the Garrison, there were\nseveral families residing here at the time. Mr. John Kinzie, father\nof John H. Kin/.ie, Esq., present Register of the Land Office in this\nCity, occupied a house on the North side of the River, a little East\nof the present site of the Lake House. The evacuation took place",
+   "normalized": "In August 1812 several families besides the garrison lived here, and John Kinzie — father of John H. Kinzie, in 1844 Register of the Land Office — occupied a house on the north side of the river, a little east of the site of the Lake House.",
+   "locator": {
+    "text_file": "norris_1844_leaf_019.txt",
+    "lines": [
+     40,
+     44
+    ],
+    "page": "norris_1844_leaf_019",
+    "printed_page": 9,
+    "section": "description_and_historical_sketch"
+   },
+   "describes_date": "1812-08",
+   "entities": [
+    "John Kinzie",
+    "John H. Kinzie"
+   ],
+   "town_finding": true,
+   "notes": "LOCATES THE KINZIE HOUSE by a landmark still standing in 1844, and does it twice (leaf 22 repeats it). The Kinzie house is a structure this reconstruction has to place, and 'a little East of the present site of the Lake House' is the most usable locator in the sketch. It is a recollection of 1812 written in 1844, not a survey."
+  },
+  {
+   "id": "n1844_tf_018",
+   "kind": "event",
+   "reading": "transcription_mediated",
+   "quote": "  ted to the Indians. Under these circumstances, about nine o'clock,\non the morning of the 15th of August, the party, composed of 54\nregulars, 12 militia, and several families, amounting in nil to about\n70 persons, left the Fort, under the escort of Capt. Wells, and about\n30 Miami Indians. Their route lay along the beach of the LaK-e,\nbetween the water on the left, and a succession of sand hills on the\nright. They had proceeded about a mile and a half from the Fort,",
+   "normalized": "About nine on the morning of 15 August 1812 a party of 54 regulars, 12 militia and several families — about 70 persons in all — left the fort escorted by Captain Wells and about 30 Miami, along the lake beach, and was attacked about a mile and a half from the fort.",
+   "locator": {
+    "text_file": "norris_1844_leaf_020.txt",
+    "lines": [
+     14,
+     20
+    ],
+    "page": "norris_1844_leaf_020",
+    "printed_page": 10,
+    "section": "description_and_historical_sketch"
+   },
+   "describes_date": "1812-08-15",
+   "entities": [
+    "Capt. Heald",
+    "Capt. Wells"
+   ],
+   "town_finding": true,
+   "notes": "The evacuation and the battle. Outside the scene by 23 years, but it is the event that makes the fort standing in 1835 a REBUILD, and Norris's figures here are his own count from an eye-witness."
+  },
+  {
+   "id": "n1844_tf_019",
+   "kind": "street",
+   "reading": "transcription_mediated",
+   "quote": "to, and the arms delivered up. The survivors were marched back\nto the Indian encampment, near the Fort, about the spot where\nState Street now opens to'the River, and where the present Market",
+   "normalized": "The survivors were marched back to the Indian encampment near the fort, about the spot where State Street opened to the river and where the market stood in 1844.",
+   "locator": {
+    "text_file": "norris_1844_leaf_020.txt",
+    "lines": [
+     44,
+     46
+    ],
+    "page": "norris_1844_leaf_020",
+    "printed_page": 10,
+    "section": "description_and_historical_sketch"
+   },
+   "describes_date": "1812-08-15",
+   "entities": [],
+   "town_finding": true,
+   "notes": "An 1812 place fixed by an 1844 street. Useful only as a locator, and the street it names did not exist under that name in 1812."
+  },
+  {
+   "id": "n1844_tf_020",
+   "kind": "building",
+   "reading": "transcription_mediated",
+   "quote": "The Fort was rebuilt in 1617, when it took the name of Fort\nDearborn. It was occupied, except at short intervals, by a Gar-\n  rison, until 1837, when, the Indians having generally left the coun-\n  try, it was finally evacuated, and has never since been re-occupied\nas a military post. It remains in much the same condition as in",
+   "normalized": "The fort was rebuilt in 1816 — the printed '1617' is an OCR slip — took the name Fort Dearborn, and was occupied by a garrison, except at short intervals, until 1837, when it was finally evacuated and never re-occupied as a military post.",
+   "locator": {
+    "text_file": "norris_1844_leaf_021.txt",
+    "lines": [
+     21,
+     25
+    ],
+    "page": "norris_1844_leaf_021",
+    "printed_page": 11,
+    "section": "description_and_historical_sketch"
+   },
+   "describes_date": "1816",
+   "entities": [
+    "Fort Dearborn"
+   ],
+   "town_finding": true,
+   "notes": "THE FORT STANDING IN THE SCENE. 1835 falls inside the occupied span this sentence gives, so Norris corroborates a garrisoned Fort Dearborn at the scene date. The 1617 is unmistakably 1816 and the repair is in `normalized` only, per this domain's rule."
+  },
+  {
+   "id": "n1844_tf_021",
+   "kind": "building",
+   "reading": "transcription_mediated",
+   "quote": "as a military post. It remains in much the same condition as in\n'37, except the pnllisadcs, which were removed, the past spring, and\ntheir place supplied by a handsome fence. It has since been occu-",
+   "normalized": "In 1844 the fort remained in much the same condition as in 1837 except that the palisades had been removed the past spring and replaced by a fence.",
+   "locator": {
+    "text_file": "norris_1844_leaf_021.txt",
+    "lines": [
+     25,
+     27
+    ],
+    "page": "norris_1844_leaf_021",
+    "printed_page": 11,
+    "section": "description_and_historical_sketch"
+   },
+   "describes_date": "1844",
+   "entities": [
+    "Fort Dearborn"
+   ],
+   "town_finding": true,
+   "notes": "Dates the REMOVAL of the palisades to spring 1844 — which is to say the palisades were standing through the scene year and for nine years after it. A negative-evidence statement of real value to a reconstruction that has to decide whether to build them."
+  },
+  {
+   "id": "n1844_tf_022",
+   "kind": "household",
+   "reading": "transcription_mediated",
+   "quote": "  bandry, or pasturage. So late as '35 or '6, the fires usual on the\nprairies in the fall, overran the third and fourth wards. There were\nonly some five or six houses, built mostly of logs, and a population\nof less than one hundred.",
+   "normalized": "As late as 1835 or 1836 the usual autumn prairie fires overran the third and fourth wards; there were only some five or six houses, mostly of logs, and a population of less than one hundred.",
+   "locator": {
+    "text_file": "norris_1844_leaf_021.txt",
+    "lines": [
+     52,
+     55
+    ],
+    "page": "norris_1844_leaf_021",
+    "printed_page": 11,
+    "section": "description_and_historical_sketch"
+   },
+   "describes_date": "1835",
+   "entities": [],
+   "town_finding": true,
+   "notes": "READ THIS ONE CAREFULLY. The prairie-fire half is a SCENE-YEAR statement and is the only sentence in the sketch that describes the ground in 1835 or 1836: fire ran over what became the third and fourth wards, west of the branches. The house-count half is NOT about 1835 — the paragraph is describing 1832, Norris has already given the same figures for 1832 twice, and the town of 1835 had hundreds of buildings by every other source this project holds. The sentence is filed whole and unedited because that is the rule, and the split is stated here so no later pass reads five or six houses as an 1835 fact."
+  },
+  {
+   "id": "n1844_tf_023",
+   "kind": "building",
+   "reading": "transcription_mediated",
+   "quote": "  One of the^e houses, formerly the property of the Fur Company,\nwas, until a short time past, occupied by Col. Beaubien. About 80\nrods to the south of that, stood a house, once occupied by Colonel\nOwings, but since washed away by the Lake. A house, known as\n\"Cobweb Castle,\" on block No. 1, was formerly the abode of Dr.\nAlexander Wolcott.",
+   "normalized": "Of the houses standing in 1832: one, formerly the Fur Company's, was occupied until shortly before 1844 by Col. Beaubien; about 80 rods south of it stood a house once occupied by Colonel Owings, since washed away by the lake; and 'Cobweb Castle' on block No. 1 was formerly the abode of Dr. Alexander Wolcott.",
+   "locator": {
+    "text_file": "norris_1844_leaf_022.txt",
+    "lines": [
+     2,
+     7
+    ],
+    "page": "norris_1844_leaf_022",
+    "printed_page": 12,
+    "section": "description_and_historical_sketch"
+   },
+   "describes_date": "1832",
+   "entities": [
+    "Col. Beaubien",
+    "Colonel Owings",
+    "Dr. Alexander Wolcott"
+   ],
+   "town_finding": true,
+   "notes": "THE MOST USEFUL PASSAGE IN THE SKETCH FOR THIS PROJECT and the reason T-0567 is worth a run. Three named buildings with occupants and two with locations — the Fur Company house Beaubien took, Owings's house 80 rods (about 1,320 feet) south of it, and Wolcott's Cobweb Castle on block 1. All three are 1832 buildings; whether they still stood on 1 July 1835 is a separate question this claim does not answer. Owings's is recorded as lost to the lake by 1844."
+  },
+  {
+   "id": "n1844_tf_024",
+   "kind": "building",
+   "reading": "transcription_mediated",
+   "quote": "  The dwelling of Mr. John Kinzie stood East^f the Lake House.\nA log building at the corner of Dearborn and South Water Streets,\nand the once celebrated tavern of Mr. Mark Beaubien, on the site\nof the Sauganash. generally known as the Eagle, together with a\nbuilding on block 14, and a cabin, occupied by. Robinson, the In-\n  dian Chief at Wolf Point, constituted all the buildings, except the\nFort, to be found here in 1832. Sometime this year, however,",
+   "normalized": "Norris's inventory of what stood at Chicago in 1832, besides the fort: John Kinzie's dwelling east of the Lake House; a log building at the corner of Dearborn and South Water Streets; Mark Beaubien's tavern on the site of the Sauganash, known as the Eagle; a building on block 14; and a cabin at Wolf Point occupied by Robinson, the Indian chief.",
+   "locator": {
+    "text_file": "norris_1844_leaf_022.txt",
+    "lines": [
+     8,
+     14
+    ],
+    "page": "norris_1844_leaf_022",
+    "printed_page": 12,
+    "section": "description_and_historical_sketch"
+   },
+   "describes_date": "1832",
+   "entities": [
+    "John Kinzie",
+    "Mark Beaubien",
+    "Robinson",
+    "Robert A. Kinzie"
+   ],
+   "town_finding": true,
+   "notes": "A NAMED, LOCATED INVENTORY of the pre-boom town — five buildings, four of them with a street, block or landmark. Every one of them is a candidate identification for a structure this reconstruction places, and the corner of Dearborn and South Water and 'block 14' are locators the plat can take directly. 1832, not 1835: what this fixes is the floor the scene was built up from."
+  },
+  {
+   "id": "n1844_tf_025",
+   "kind": "building",
+   "reading": "transcription_mediated",
+   "quote": "Fort, to be found here in 1832. Sometime this year, however,\nKobert A. Kinzie built a store at Wolf Point, the first frame build-\n  ing in Chicago. la 1834, several brick buildings were erected.",
+   "normalized": "Robert A. Kinzie built a store at Wolf Point sometime in 1832 — the first frame building in Chicago — and in 1834 several brick buildings were erected.",
+   "locator": {
+    "text_file": "norris_1844_leaf_022.txt",
+    "lines": [
+     14,
+     16
+    ],
+    "page": "norris_1844_leaf_022",
+    "printed_page": 12,
+    "section": "description_and_historical_sketch"
+   },
+   "describes_date": "1832",
+   "entities": [
+    "Robert A. Kinzie"
+   ],
+   "town_finding": true,
+   "notes": "TWO DATED FIRSTS, both before the scene. The first frame building (1832, Wolf Point, R. A. Kinzie) and the first brick (1834, unnamed). Both bear on what materials the town of 1 July 1835 could plausibly show, and the brick date is the one that matters: brick was one year old in the scene."
+  },
+  {
+   "id": "n1844_tf_026",
+   "kind": "shipping",
+   "reading": "transcription_mediated",
+   "quote": "  The commerce of the place, up to this period, was equally insig-\n  nificant. In fact, there was none, unless the traffic of the Fur Com-\n  pany, can be dignified with that name. Vessels occasionally ven-\n  tured here, but so seldom, that the arrival of a schooner was an\nevent of no little moment, and created a sensation throughout the\ncotpraunity. The year 1832, may then be regarded as the period\nfrom which to date the commencement of the City. Many causes,",
+   "normalized": "Commerce before 1832 was insignificant — none, Norris says, but the Fur Company's traffic. Vessels came so seldom that the arrival of a schooner was an event. He dates the commencement of the city to 1832.",
+   "locator": {
+    "text_file": "norris_1844_leaf_022.txt",
+    "lines": [
+     17,
+     23
+    ],
+    "page": "norris_1844_leaf_022",
+    "printed_page": 12,
+    "section": "description_and_historical_sketch"
+   },
+   "describes_date": "1832",
+   "entities": [
+    "American Fur Company"
+   ],
+   "town_finding": true,
+   "notes": "The trade baseline the scene year grew out of, and the American Fur Company's standing in it. T-0575 reads Hurlbut on the same trade."
+  },
+  {
+   "id": "n1844_tf_027",
+   "kind": "infrastructure",
+   "reading": "transcription_mediated",
+   "quote": "The attention of Congress had been called to the importance and\nnecessity of a harbor, and an appropriation was confidently relied\nupon at the next session. Gen. Scott, who explored Hie country\nduring the Indian war, took a lively interest in this work, and ad-\n  dressed a letter in relation to it, which was subsequently laid be-",
+   "normalized": "Congress had been called to the necessity of a harbour and an appropriation was relied on; General Scott, who explored the country during the Indian war, took an interest and addressed a letter on it that was laid before Congress.",
+   "locator": {
+    "text_file": "norris_1844_leaf_022.txt",
+    "lines": [
+     34,
+     38
+    ],
+    "page": "norris_1844_leaf_022",
+    "printed_page": 12,
+    "section": "description_and_historical_sketch"
+   },
+   "describes_date": "1832",
+   "entities": [
+    "Gen. Scott"
+   ],
+   "town_finding": true,
+   "notes": "The harbour appropriation that produced the piers whose construction leaf 23 dates to late 1833 — the works standing, half-built, in the scene."
+  },
+  {
+   "id": "n1844_tf_028",
+   "kind": "event",
+   "reading": "transcription_mediated",
+   "quote": "  ment projected. The sale of Canal lots in 1830 hns been already\nmentioned. ' In 1833, a great Indian payment was held here, near\nthe present site of the Lake House. In the latter part of this year,\nthe work on the harbor was commenced—and during the same year,\nthe present Light-house was erected, the old one having fallen",
+   "normalized": "In 1833 a great Indian payment was held near the site of the Lake House; in the latter part of that year work on the harbour was commenced; and during the same year the present light-house was erected, the old one having fallen down.",
+   "locator": {
+    "text_file": "norris_1844_leaf_023.txt",
+    "lines": [
+     16,
+     20
+    ],
+    "page": "norris_1844_leaf_023",
+    "printed_page": 13,
+    "section": "description_and_historical_sketch"
+   },
+   "describes_date": "1833",
+   "entities": [],
+   "town_finding": true,
+   "notes": "THREE DATED WORKS, all 1833, all standing or under way in the scene: the harbour work, the light-house (a REPLACEMENT — the earlier one had fallen), and the payment ground near the later Lake House. The light-house is a structure this reconstruction has to decide about, and this dates the one that stood in 1835 to 1833."
+  },
+  {
+   "id": "n1844_tf_029",
+   "kind": "household",
+   "reading": "transcription_mediated",
+   "quote": "down. In 1835, the population of the place was said to amount to\n5,500, a computation which probably included transitory persons, a\ngreat many of whom were here at the time. The actual popula-\n  tion, however, that year, could not have been much less than 3000.",
+   "normalized": "In 1835 the population was said to amount to 5,500, a computation Norris thinks included transitory persons, a great many of whom were here at the time; the actual population that year, he holds, could not have been much less than 3,000.",
+   "locator": {
+    "text_file": "norris_1844_leaf_023.txt",
+    "lines": [
+     21,
+     24
+    ],
+    "page": "norris_1844_leaf_023",
+    "printed_page": 13,
+    "section": "description_and_historical_sketch"
+   },
+   "describes_date": "1835",
+   "entities": [],
+   "town_finding": true,
+   "notes": "THE SCENE-YEAR POPULATION, and the single most directly relevant sentence in the volume. Norris gives BOTH the contemporary claim (5,500, inflated by transients) and his own nine-years-later judgement (not much less than 3,000), and the gap between them is exactly the transient question this project's household reconstruction keeps meeting. It is a recollection, not a count: no census of Chicago was taken in 1835. Filed as a claim about 1835, never as the population."
+  },
+  {
+   "id": "n1844_tf_030",
+   "kind": "event",
+   "reading": "transcription_mediated",
+   "quote": "In 1836, another sale of Canal lots took place, which was attended\nwith much excitement, and occasioned a large collection of people\nfrom distant quarters. The prices were extravagantly high. In\n1836, a branch of the State Bank was located here. On the 4th of",
+   "normalized": "In 1836 a second sale of canal lots drew a large collection of people from distant quarters at extravagantly high prices, and a branch of the State Bank was located here.",
+   "locator": {
+    "text_file": "norris_1844_leaf_023.txt",
+    "lines": [
+     25,
+     28
+    ],
+    "page": "norris_1844_leaf_023",
+    "printed_page": 13,
+    "section": "description_and_historical_sketch"
+   },
+   "describes_date": "1836",
+   "entities": [],
+   "town_finding": true,
+   "notes": "The year AFTER the scene, and it is the year the scene's speculation crested. Bounds the 1835 town from above."
+  },
+  {
+   "id": "n1844_tf_031",
+   "kind": "civic",
+   "reading": "transcription_mediated",
+   "quote": "  tators. During the winter of'36-7, the act to incorporate the City,\npassed the State Legislature; and in April succeeding, the first elec-\n  tion under the Charter was held, which resulted in the choice of\nW. B. OODEN to the office of Mayor. The growth cf commerce,",
+   "normalized": "The act to incorporate the city passed during the winter of 1836-7, and at the first election under the charter, in April 1837, W. B. Ogden was chosen mayor.",
+   "locator": {
+    "text_file": "norris_1844_leaf_023.txt",
+    "lines": [
+     31,
+     34
+    ],
+    "page": "norris_1844_leaf_023",
+    "printed_page": 13,
+    "section": "description_and_historical_sketch"
+   },
+   "describes_date": "1837",
+   "entities": [
+    "W. B. Ogden"
+   ],
+   "town_finding": true,
+   "notes": "After the scene. Filed because Ogden is a name the 1835 layers already carry and this dates his mayoralty, which is not an 1835 office."
+  },
+  {
+   "id": "n1844_tf_032",
+   "kind": "civic",
+   "reading": "transcription_mediated",
+   "quote": "than the accumulation of this world's goods. Before or during\n1836, as many as six Churches had been organized, and suitable\nbuildings provided for their accommodation. ' These Churches,",
+   "normalized": "Before or during 1836 as many as six churches had been organised and suitable buildings provided for them.",
+   "locator": {
+    "text_file": "norris_1844_leaf_023.txt",
+    "lines": [
+     43,
+     45
+    ],
+    "page": "norris_1844_leaf_023",
+    "printed_page": 13,
+    "section": "description_and_historical_sketch"
+   },
+   "describes_date": "1836",
+   "entities": [],
+   "town_finding": true,
+   "notes": "A CEILING ON CHURCHES AT THE SCENE, and a useful one: six church buildings by the end of 1836 means fewer than six in mid-1835. The church domain (T-0503, St Mary's register) is reading the same ground from the registers."
+  },
+  {
+   "id": "n1844_tf_033",
+   "kind": "civic",
+   "reading": "transcription_mediated",
+   "quote": "Neither was the subject of education wholly neglected. The school\nsection, which fortunately lay contiguous to the City, and was pro-\nportionably valuable, was disposed of in 1834, and the avails applied\nto the support of Common Schools. Means for the diffusion of",
+   "normalized": "The school section, lying contiguous to the city, was disposed of in 1834 and the proceeds applied to the support of common schools.",
+   "locator": {
+    "text_file": "norris_1844_leaf_023.txt",
+    "lines": [
+     48,
+     51
+    ],
+    "page": "norris_1844_leaf_023",
+    "printed_page": 13,
+    "section": "description_and_historical_sketch"
+   },
+   "describes_date": "1834",
+   "entities": [],
+   "town_finding": true,
+   "notes": "Dates the school-section sale to 1834 — the year before the scene, and the transaction that put a large block of the near south side into private hands. Bears on who owned what in 1835."
+  },
+  {
+   "id": "n1844_tf_034",
+   "kind": "notice",
+   "reading": "transcription_mediated",
+   "quote": "  In 1834, John Calhoun commenced the publication of the Chi-\n  cago Democrat; and:in the following year, Thos. O. Davis esta-\n  blished the Chicago American, both of which papers still exist; the",
+   "normalized": "John Calhoun commenced publication of the Chicago Democrat in 1834, and in the following year Thomas O. Davis established the Chicago American; both papers still existed in 1844.",
+   "locator": {
+    "text_file": "norris_1844_leaf_023.txt",
+    "lines": [
+     53,
+     55
+    ],
+    "page": "norris_1844_leaf_023",
+    "printed_page": 13,
+    "section": "description_and_historical_sketch"
+   },
+   "describes_date": "1834",
+   "entities": [
+    "John Calhoun",
+    "Thos. O. Davis"
+   ],
+   "town_finding": true,
+   "notes": "DIRECTLY CORROBORATES THIS PROJECT'S OWN NEWSPAPER CORPUS. The Democrat (1834) and the American (1835) are the two papers whose 1835 issues this repository holds and reads; Norris independently dates the founding of both and names their founders."
+  },
+  {
+   "id": "n1844_tf_035",
+   "kind": "notice",
+   "reading": "transcription_mediated",
+   "quote": "latter under the name of the Chicago Express, being published\ndaily. These papers, together with the Prairie Farmer, Agricultu-\n  ral; the Western Citizen, Abolition; the North-Western\"Baptist,\nBaptist; and the Better Covenant, Universalist, which Intve since\nbeen started,'are ably conducted, and have an extensive circulation.",
+   "normalized": "By 1844 the American was published daily as the Chicago Express, and the Prairie Farmer (agricultural), the Western Citizen (abolition), the North-Western Baptist and the Better Covenant (Universalist) had since been started.",
+   "locator": {
+    "text_file": "norris_1844_leaf_024.txt",
+    "lines": [
+     2,
+     6
+    ],
+    "page": "norris_1844_leaf_024",
+    "printed_page": 14,
+    "section": "description_and_historical_sketch"
+   },
+   "describes_date": "1844",
+   "entities": [],
+   "town_finding": true,
+   "notes": "1844 press, none of it in the scene. Filed because it says which of the papers this project reads survived and under what name, which is what a later run tracing a citation needs."
+  },
+  {
+   "id": "n1844_tf_036",
+   "kind": "event",
+   "reading": "transcription_mediated",
+   "quote": "apparent even then. It raged with great violence during '35-6,\nand a portion of '37, at which time it gave color and direction to\nmost business transactions.",
+   "normalized": "Speculation raged with great violence during 1835-6 and part of 1837, and at that time gave colour and direction to most business transactions.",
+   "locator": {
+    "text_file": "norris_1844_leaf_024.txt",
+    "lines": [
+     14,
+     16
+    ],
+    "page": "norris_1844_leaf_024",
+    "printed_page": 14,
+    "section": "description_and_historical_sketch"
+   },
+   "describes_date": "1835",
+   "entities": [],
+   "town_finding": true,
+   "notes": "A SCENE-YEAR STATEMENT ABOUT WHAT THE TOWN WAS DOING. In the summer of 1835 the dominant business of Chicago was, on Norris's account, trading in land. It bears on what the shopfronts and offices of the reconstruction should be."
+  },
+  {
+   "id": "n1844_tf_037",
+   "kind": "event",
+   "reading": "transcription_mediated",
+   "quote": "themselves. But little was gained during '38-9; but in '40, things\nassumed a more favorable aspect, and since that time the increase\nof business and population has been most rapid. This will be",
+   "normalized": "Little was gained in 1838-9, but in 1840 things assumed a more favourable aspect, and since then the increase of business and population had been most rapid.",
+   "locator": {
+    "text_file": "norris_1844_leaf_025.txt",
+    "lines": [
+     34,
+     36
+    ],
+    "page": "norris_1844_leaf_025",
+    "printed_page": 15,
+    "section": "description_and_historical_sketch"
+   },
+   "describes_date": "1840",
+   "entities": [],
+   "town_finding": true,
+   "notes": "The recovery, after the scene. Filed to date the trough between the 1835 boom and the town of the directory."
+  },
+  {
+   "id": "n1844_tf_038",
+   "kind": "infrastructure",
+   "reading": "transcription_mediated",
+   "quote": "The principal difficulty encountered during the progress of the\nharbor has been occasioned by the deposition of sand and the for-\n  mation of bars at its mouth. The plans heretofore adopted to sur-\n  mount this difficulty have failed upon trial, and are now abandoned.\nTwo plans have been proposed the present season, which have at-\n  tracted considerable attention. One of these, suggested by Captain\nMcLellan, the present superintendent, recommends the construc-\n  tion of a pier north of the present ones, at a distance from them\ngreater than the length of the present bar, and is based upon the\nsupposition that the sand would form a bar around its head, and not\nreach the entrance of the harbor. The other plan, which has been",
+   "normalized": "The chief difficulty at the harbour was the deposition of sand and the formation of bars at its mouth; the plans adopted before 1844 had failed on trial and were abandoned, and Captain McLellan, the superintendent, proposed a pier north of the existing ones beyond the length of the bar.",
+   "locator": {
+    "text_file": "norris_1844_leaf_026.txt",
+    "lines": [
+     33,
+     43
+    ],
+    "page": "norris_1844_leaf_026",
+    "printed_page": 16,
+    "section": "description_and_historical_sketch"
+   },
+   "describes_date": "1844",
+   "entities": [
+    "Captain McLellan"
+   ],
+   "town_finding": true,
+   "notes": "THE SANDBAR IS THE PERMANENT FACT and it is the one thing about the harbour that certainly holds for 1835: the mouth silted, and every plan tried in the first decade failed. The reconstruction's river mouth has to show a bar."
+  },
+  {
+   "id": "n1844_tf_039",
+   "kind": "infrastructure",
+   "reading": "transcription_mediated",
+   "quote": "reach the entrance of the harbor. The other plan, which has been\nadopted, and is now being carried into effect, proposes the extension\nof the. north pier, in the form of a circle, a distance of 990 feet,\n•which will bring it into the line of the original direction of that pier.\nA good channel for vessels of every class will then exist from the\nhead of the south pier, around the bar, that pior being extended no\nfarther into the Lake. If this plan succeed, Chicago will be fur-\n  nished with a harbor, not inferior to any on the Lakes.",
+   "normalized": "The plan adopted in 1844 extended the north pier in a circle 990 feet, to bring it back into the line of its original direction, giving a channel around the bar from the head of the south pier.",
+   "locator": {
+    "text_file": "norris_1844_leaf_026.txt",
+    "lines": [
+     43,
+     50
+    ],
+    "page": "norris_1844_leaf_026",
+    "printed_page": 16,
+    "section": "description_and_historical_sketch"
+   },
+   "describes_date": "1844",
+   "entities": [],
+   "town_finding": true,
+   "notes": "1844 works, and the reason it is filed is the phrase 'the original direction of that pier': the north pier of 1835 ran straight, and this is the sentence that says so from the other end."
+  },
+  {
+   "id": "n1844_tf_040",
+   "kind": "infrastructure",
+   "reading": "transcription_mediated",
+   "quote": "  takings. The first survey of the canal was made in 1823. In 1825\na bill was passed to incorporate the Illinois and Michigan Canal\nCompany; but no stock being taken under the charter, it was re-\n  pealed at the next special session. In 1827, act of March 2, Con-\n  gress appropriated each alternate section of land within five miles\nof the prepared line. In 1829, a board of commissioners was orga-\n  nized, with power to determine upon the route, and to discharge\nother duties connected with the work. Chicago, Ottawa, and other\ntowns on the line were laid out by the board, and sales of lots",
+   "normalized": "The canal's first survey was made in 1823; an incorporating act of 1825 was repealed for want of stock; Congress appropriated alternate sections within five miles of the line by the act of 2 March 1827; and in 1829 a board of commissioners was organised with power to fix the route, which laid out Chicago, Ottawa and other towns on the line and sold lots.",
+   "locator": {
+    "text_file": "norris_1844_leaf_027.txt",
+    "lines": [
+     5,
+     13
+    ],
+    "page": "norris_1844_leaf_027",
+    "printed_page": 17,
+    "section": "description_and_historical_sketch"
+   },
+   "describes_date": "1829",
+   "entities": [],
+   "town_finding": true,
+   "notes": "THE PLAT'S OWN ORIGIN, dated. The town this reconstruction stands on was laid out by the canal commissioners under the 1829 board — Norris's independent statement of the fact the project's plat provenance rests on."
+  },
+  {
+   "id": "n1844_tf_041",
+   "kind": "infrastructure",
+   "reading": "transcription_mediated",
+   "quote": "effected. The work was commenced in the year 1836, and was sus-\n  pended in 1342. The law under which this work was contracted,",
+   "normalized": "Work on the Illinois and Michigan Canal was commenced in 1836 and suspended in 1842.",
+   "locator": {
+    "text_file": "norris_1844_leaf_027.txt",
+    "lines": [
+     14,
+     15
+    ],
+    "page": "norris_1844_leaf_027",
+    "printed_page": 17,
+    "section": "description_and_historical_sketch"
+   },
+   "describes_date": "1836",
+   "entities": [],
+   "town_finding": true,
+   "notes": "Bounds the canal works: in the summer of 1835 the canal was resolved on and surveyed but NOT begun. The reconstruction must not show canal construction in the scene. The printed '1342' is an OCR slip for 1842."
+  },
+  {
+   "id": "n1844_tf_042",
+   "kind": "civic",
+   "reading": "transcription_mediated",
+   "quote": "borrowing money to carry on its works of improvement. The ex-\n  isting liabilities of the city amount to $8977.55, viz. : bonds to\nStrachan <te Scott, $5000; bonds for Clark Street Bridge, §3000;\nbonds for barrier to the Lake, and interest, 8977.55. The increas-",
+   "normalized": "The city's liabilities in 1843 amounted to $8,977.55: bonds to Strachan & Scott $5,000, bonds for the Clark Street bridge $3,000, and bonds for the barrier to the lake with interest.",
+   "locator": {
+    "text_file": "norris_1844_leaf_028.txt",
+    "lines": [
+     9,
+     12
+    ],
+    "page": "norris_1844_leaf_028",
+    "printed_page": 18,
+    "section": "description_and_historical_sketch"
+   },
+   "describes_date": "1843",
+   "entities": [],
+   "town_finding": true,
+   "notes": "1843 finance, well after the scene. Filed because the CLARK STREET BRIDGE is a structure with a bond behind it, which dates a rebuilding, and because the 'barrier to the Lake' is the lakeshore protection the sketch mentions nowhere else."
+  },
+  {
+   "id": "n1844_tf_043",
+   "kind": "civic",
+   "reading": "transcription_mediated",
+   "quote": "  taches to education. We have also a medical college chartered by\nthe Legis4ature in 1837, and several schools sustained by private",
+   "normalized": "A medical college was chartered by the legislature in 1837, alongside several schools sustained by private munificence.",
+   "locator": {
+    "text_file": "norris_1844_leaf_028.txt",
+    "lines": [
+     37,
+     38
+    ],
+    "page": "norris_1844_leaf_028",
+    "printed_page": 18,
+    "section": "description_and_historical_sketch"
+   },
+   "describes_date": "1837",
+   "entities": [],
+   "town_finding": true,
+   "notes": "Rush Medical College, chartered two years after the scene — see leaf 84. Not in 1835."
+  },
+  {
+   "id": "n1844_tf_044",
+   "kind": "building",
+   "reading": "transcription_mediated",
+   "quote": "cago has made great progress. In early times our inns were mise-\n  rable in the extreme. Now we have eighteen hotels and houses of\npublic entertainment, some of them large and splendid establish-\n  ments, not inferior to any in the West. The great amount of",
+   "normalized": "In early times the inns were miserable in the extreme; by 1844 there were eighteen hotels and houses of public entertainment, some large and splendid.",
+   "locator": {
+    "text_file": "norris_1844_leaf_029.txt",
+    "lines": [
+     12,
+     15
+    ],
+    "page": "norris_1844_leaf_029",
+    "printed_page": 19,
+    "section": "description_and_historical_sketch"
+   },
+   "describes_date": "1844",
+   "entities": [],
+   "town_finding": true,
+   "notes": "The 1844 count of taverns, which is a ceiling for 1835 and nothing more — but 'in early times our inns were miserable in the extreme' is Norris on the taverns of the scene, and the Sauganash and the Eagle are named on leaf 22."
+  },
+  {
+   "id": "n1844_tf_045",
+   "kind": "infrastructure",
+   "reading": "transcription_mediated",
+   "quote": "  The Hydraulic Company, designed to supply the cily with pure\nwater from the Lake, was incorporated in 1836. and has already\nb«en the source of great utility to the city, both in supplying water\nfqr domestic purposes, and for the extinguishment of fires. The",
+   "normalized": "The Hydraulic Company, incorporated in 1836 to supply the city with lake water, had already been of great use both for domestic supply and for extinguishing fires.",
+   "locator": {
+    "text_file": "norris_1844_leaf_029.txt",
+    "lines": [
+     23,
+     26
+    ],
+    "page": "norris_1844_leaf_029",
+    "printed_page": 19,
+    "section": "description_and_historical_sketch"
+   },
+   "describes_date": "1836",
+   "entities": [],
+   "town_finding": true,
+   "notes": "DATES PIPED WATER TO 1836 — the year after the scene. In 1835 there was no water supply: the reconstruction's wells, pumps and water carts are what the town had."
+  },
+  {
+   "id": "n1844_tf_046",
+   "kind": "appearance",
+   "reading": "transcription_mediated",
+   "quote": "  The peace and good order of society is worthy of remark.—\nBrawls and affrays are extremely rare in our streets—and it may\njustly be said, that a more peaceable and quiet population can no\nwhere be found.",
+   "normalized": "The peace and good order of society is worthy of remark: brawls and affrays are extremely rare in the streets, and a more peaceable and quiet population can nowhere be found.",
+   "locator": {
+    "text_file": "norris_1844_leaf_030.txt",
+    "lines": [
+     12,
+     15
+    ],
+    "page": "norris_1844_leaf_030",
+    "printed_page": 20,
+    "section": "description_and_historical_sketch"
+   },
+   "describes_date": "1844",
+   "entities": [],
+   "town_finding": true,
+   "notes": "Boosterism, and filed as such — a directory's conclusion is an advertisement for the town. It reaches leaf 30 and it records the register in which Norris writes, which a reader of his numbers should know."
+  },
+  {
+   "id": "n1844_tf_047",
+   "kind": "civic",
+   "reading": "transcription_mediated",
+   "quote": "  AUGUSTUS GARRETT.\n  ALDERMEN.\n  First Ward.- Second Ward. Third Ward.\nCyrenus Beers, Jason McCord, Charles Taylor,\nHugh T. Dickey. Charles Sauter. A/,cl Peck.\n  Fourth Ward. Fifth Ward. Sixth Ward.\nJohn Murphy, Samuel Greer, George W. Dole,\n  .John Cruver. Joseph Marback.",
+   "normalized": "The Common Council of 1844: Augustus Garrett mayor, with aldermen Cyrenus Beers and Hugh T. Dickey (1st ward), Jason McCord and Charles Sauter (2nd), Charles Taylor and Azel Peck (3rd), John Murphy and John Cruver (4th), Samuel Greer (5th), George W. Dole and Joseph Marback (6th).",
+   "locator": {
+    "text_file": "norris_1844_leaf_076.txt",
+    "lines": [
+     4,
+     11
+    ],
+    "page": "norris_1844_leaf_076",
+    "printed_page": 66,
+    "section": "statistical_account"
+   },
+   "describes_date": "1844",
+   "entities": [
+    "Augustus Garrett"
+   ],
+   "town_finding": true,
+   "notes": "1844 officers, not 1835 ones, and the list is filed for one reason: GEORGE W. DOLE is on it, and Dole is a man this project already holds in the 1835 layers. A name in this list is a person who was in Chicago in 1844 and may be traceable back; that traceability is T-0569's work, not this ticket's."
+  },
+  {
+   "id": "n1844_tf_048",
+   "kind": "civic",
+   "reading": "transcription_mediated",
+   "quote": "  OFFICERS OF COOK COUNTY.\nSatnl. J. Lowe, Sheriff. Asa F. Brariiey, Surveyor.\nW. H. Davis, ) p. . QI «•' George Manierre, School Com.\nH. Rhines, \\ -Deputy a Parker M. Cole, Poor Master,\np^dward Murphy, Coroner. S. Otis, Poor House Keeper.\nWm. B. Egan, Recorder. A. W. Davisson, Physician.\nA. Getzler, Assessor & Treasur. A. Clybourn, Inspector.",
+   "normalized": "The Cook County officers of 1844, including Samuel J. Lowe sheriff, William B. Egan recorder, Asa F. Bradley surveyor, George Manierre school commissioner and A. Clybourn inspector.",
+   "locator": {
+    "text_file": "norris_1844_leaf_076.txt",
+    "lines": [
+     24,
+     30
+    ],
+    "page": "norris_1844_leaf_076",
+    "printed_page": 66,
+    "section": "statistical_account"
+   },
+   "describes_date": "1844",
+   "entities": [
+    "John H. Kinzie",
+    "A. Clybourn"
+   ],
+   "town_finding": true,
+   "notes": "Again 1844, and again the point is the names: CLYBOURN and EGAN are both in this project's 1835 material. Corroboration of continued residence at best, and nothing is merged here."
+  },
+  {
+   "id": "n1844_tf_049",
+   "kind": "civic",
+   "reading": "transcription_mediated",
+   "quote": "John H. Kinzie, Register Land Office.\nGeorge L. Ward, Receiver of Land Office.\nJohn Wenlworth, Member of Congress, 4th Con. Dist.\nWilliam Sluarf. Post Master.",
+   "normalized": "The United States officers at Chicago in 1844 included John H. Kinzie, Register of the Land Office; John Wentworth, member of Congress for the 4th district; and William Stuart, postmaster.",
+   "locator": {
+    "text_file": "norris_1844_leaf_077.txt",
+    "lines": [
+     41,
+     44
+    ],
+    "page": "norris_1844_leaf_077",
+    "printed_page": 67,
+    "section": "statistical_account"
+   },
+   "describes_date": "1844",
+   "entities": [
+    "John H. Kinzie",
+    "John Wentworth",
+    "William Stuart"
+   ],
+   "town_finding": true,
+   "notes": "JOHN H. KINZIE, whose father's 1812 house the sketch locates on leaves 19 and 22, is still in Chicago in 1844 and holding federal office. The single strongest continuity thread the sketch and the statistics share."
+  },
+  {
+   "id": "n1844_tf_050",
+   "kind": "building",
+   "reading": "transcription_mediated",
+   "quote": "  First Presbyterian Church, Clark street, between Washington and\nMadison streets.—Rev. Flavel Bascom, Past6r. Number of con-\n  gregation, 500. Number of communicants, 340.",
+   "normalized": "The First Presbyterian Church stood on Clark Street between Washington and Madison, Rev. Flavel Bascom pastor, with a congregation of 500 and 340 communicants.",
+   "locator": {
+    "text_file": "norris_1844_leaf_078.txt",
+    "lines": [
+     5,
+     7
+    ],
+    "page": "norris_1844_leaf_078",
+    "printed_page": 68,
+    "section": "statistical_account"
+   },
+   "describes_date": "1844",
+   "entities": [],
+   "town_finding": true,
+   "notes": "AN ADDRESSED CHURCH. The First Presbyterian was organised in 1833 and is one of the six the sketch counts by 1836 (leaf 23); this gives the 1844 site. Whether the 1835 building stood on the same lot is exactly what this claim does not say."
+  },
+  {
+   "id": "n1844_tf_051",
+   "kind": "building",
+   "reading": "transcription_mediated",
+   "quote": "  Catholic Church, corner Michigan Avenue and Madison street.\nRt. Rev. Win. Quarters, D. D., Rev. Maurice de St. Palais, and\nRev. Francis Joseph Fischer, Pastors. No. of congregation, 2000.",
+   "normalized": "The Catholic church stood at the corner of Michigan Avenue and Madison Street with a congregation of 2,000, under Rt Rev. William Quarter and Revs Maurice de St Palais and Francis Joseph Fischer.",
+   "locator": {
+    "text_file": "norris_1844_leaf_078.txt",
+    "lines": [
+     14,
+     16
+    ],
+    "page": "norris_1844_leaf_078",
+    "printed_page": 68,
+    "section": "statistical_account"
+   },
+   "describes_date": "1844",
+   "entities": [],
+   "town_finding": true,
+   "notes": "St Mary's, whose 1833-1835 register T-0503 is reading. The 1844 address is not the 1833 one: St Mary's first building was raised at Lake and State in 1833 and moved. Filed as the 1844 statement, and the register is the source that will place it in the scene."
+  },
+  {
+   "id": "n1844_tf_052",
+   "kind": "building",
+   "reading": "transcription_mediated",
+   "quote": "  St. James' Church, (Protestant Episcopal) Cass street, between\nMichigan a'nd Illinois streets. Church erected in 1837, at a cost\nof about 810,000.—Rev. William F. Walker, Rector. Number of\ncongregation. 300. Number of communicants, 90.",
+   "normalized": "St James' Church (Protestant Episcopal) on Cass Street between Michigan and Illinois was erected in 1837 at a cost of about $10,000.",
+   "locator": {
+    "text_file": "norris_1844_leaf_078.txt",
+    "lines": [
+     30,
+     33
+    ],
+    "page": "norris_1844_leaf_078",
+    "printed_page": 68,
+    "section": "statistical_account"
+   },
+   "describes_date": "1837",
+   "entities": [],
+   "town_finding": true,
+   "notes": "A DATED CHURCH BUILDING — 1837, two years after the scene. St James' parish predates its building, so this is the sentence that says the 1835 Episcopalians had no church of their own on that site."
+  },
+  {
+   "id": "n1844_tf_053",
+   "kind": "civic",
+   "reading": "transcription_mediated",
+   "quote": "WASHINGTON TEMPERANCE SOCIETY.\n  Number of Members, 1100.\n  L. C. Kercheval, President.\nT. W. Smith, 1st Vice President.—John Davis, 2d Vice President.\n  Luther Nichols, 3d Vice President.\n  H. L. Rucker, Recording Secretary.\n  John L. Smith, Assistant Secretary.\n  James Curtis, Corresponding Secretary.\n  James L. Howe, Treasurer:\nB. W. Raymond and Wm. Harmon, Managers.",
+   "normalized": "The Washington Temperance Society had 1,100 members in 1844, L. C. Kercheval president.",
+   "locator": {
+    "text_file": "norris_1844_leaf_079.txt",
+    "lines": [
+     12,
+     21
+    ],
+    "page": "norris_1844_leaf_079",
+    "printed_page": 69,
+    "section": "statistical_account"
+   },
+   "describes_date": "1844",
+   "entities": [
+    "L. C. Kercheval"
+   ],
+   "town_finding": true,
+   "notes": "1844 associations. Kercheval is another name the 1835 material carries. Filed to reach leaf 79 and to record the scale — 1,100 members out of about 8,000 people."
+  },
+  {
+   "id": "n1844_tf_054",
+   "kind": "civic",
+   "reading": "transcription_mediated",
+   "quote": "  CHICAGO LYCEUM.\nInstituted December 2d, 1834.—Incorporated Feb. 27th, 1839.",
+   "normalized": "The Chicago Lyceum was instituted 2 December 1834 and incorporated 27 February 1839.",
+   "locator": {
+    "text_file": "norris_1844_leaf_080.txt",
+    "lines": [
+     2,
+     3
+    ],
+    "page": "norris_1844_leaf_080",
+    "printed_page": 70,
+    "section": "statistical_account"
+   },
+   "describes_date": "1834-12-02",
+   "entities": [],
+   "town_finding": true,
+   "notes": "THE ONE INSTITUTION IN THE STATISTICS THAT EXISTED IN THE SCENE. Instituted 2 December 1834, seven months before 1 July 1835 — so a Chicago Lyceum was meeting in the town this reconstruction builds. Norris calls it 'the oldest literary society in the place' on leaf 28. It had no building of its own that this says."
+  },
+  {
+   "id": "n1844_tf_055",
+   "kind": "notice",
+   "reading": "transcription_mediated",
+   "quote": "  CHICAGO DEMOCRAT, Wednesday, 107 Lake street. John\nWfntworih, editor and proprietor.",
+   "normalized": "In 1844 the Chicago Democrat was published Wednesdays at 107 Lake Street, John Wentworth editor and proprietor.",
+   "locator": {
+    "text_file": "norris_1844_leaf_081.txt",
+    "lines": [
+     35,
+     36
+    ],
+    "page": "norris_1844_leaf_081",
+    "printed_page": 71,
+    "section": "statistical_account"
+   },
+   "describes_date": "1844",
+   "entities": [
+    "John Wentworth"
+   ],
+   "town_finding": true,
+   "notes": "The Democrat, whose 1835 issues this project reads, ADDRESSED — 107 Lake Street in 1844, under Wentworth rather than Calhoun who founded it in 1834 (leaf 23). An 1844 address, not the 1835 office."
+  },
+  {
+   "id": "n1844_tf_056",
+   "kind": "building",
+   "reading": "transcription_mediated",
+   "quote": "  POST OFFICE.\nCLARK STREET, WEST SIDE, BETWEEN LAKE AND RANDOLPH bTS-\n  W.M. STUART, POST-MASTER.",
+   "normalized": "The post office in 1844 stood on the west side of Clark Street between Lake and Randolph, William Stuart postmaster.",
+   "locator": {
+    "text_file": "norris_1844_leaf_082.txt",
+    "lines": [
+     2,
+     4
+    ],
+    "page": "norris_1844_leaf_082",
+    "printed_page": 72,
+    "section": "statistical_account"
+   },
+   "describes_date": "1844",
+   "entities": [
+    "William Stuart"
+   ],
+   "town_finding": true,
+   "notes": "The 1844 post office, ADDRESSED. Not the 1835 one — in 1835 the office was Hogan's store — but it is the anchor a later pass will measure the move against."
+  },
+  {
+   "id": "n1844_tf_057",
+   "kind": "notice",
+   "reading": "transcription_mediated",
+   "quote": "A weekly mail from the East, was received here on horseback in\n1832—J. N. Bailey being Post-master. The next year, it was re-\n  ceived in a one horse wagon, weekly—J. S. C. Hogan, Post-master.\nIn 1833, a two horse wagon was substituted. In 1834, a four horse\nstage line was established, semi-weekly—tri-weekly, in 1335. In\n1837, there was a daily Eastern mail—Sidney Abel, Post-master.",
+   "normalized": "The eastern mail came weekly on horseback in 1832 under postmaster J. N. Bailey; by one-horse wagon weekly the next year under J. S. C. Hogan; by two-horse wagon in 1833; a four-horse stage line semi-weekly in 1834; TRI-WEEKLY IN 1835; and daily from 1837 under Sidney Abel.",
+   "locator": {
+    "text_file": "norris_1844_leaf_082.txt",
+    "lines": [
+     5,
+     10
+    ],
+    "page": "norris_1844_leaf_082",
+    "printed_page": 72,
+    "section": "statistical_account"
+   },
+   "describes_date": "1835",
+   "entities": [
+    "J. N. Bailey",
+    "J. S. C. Hogan",
+    "Sidney Abel"
+   ],
+   "town_finding": true,
+   "notes": "THE BEST SINGLE FINDING IN THE STATISTICAL ACCOUNT FOR THE SCENE YEAR. It says exactly what arrived at Chicago in 1835 and how often: a four-horse stage, three times a week, carrying the eastern mail. That is a coach in the street, on a schedule, in the summer of 1835 — and it names the postmasters on either side of the scene. `describes_date` is 1835 because that is the year the sequence is filed for; the sentence covers 1832-1837."
+  },
+  {
+   "id": "n1844_tf_058",
+   "kind": "civic",
+   "reading": "transcription_mediated",
+   "quote": "CHICAGO FIRE COMPANIES.\n•A. S. Sherman, Chief Engineer.\nS. F. Gale, 1st Assistant.—A. Loyd, 2d Assistant.",
+   "normalized": "The city's fire establishment in 1844: a chief engineer, two assistants, two engine companies, a hose company, a hook and ladder company, a fire bucket company and a fire guard.",
+   "locator": {
+    "text_file": "norris_1844_leaf_083.txt",
+    "lines": [
+     2,
+     4
+    ],
+    "page": "norris_1844_leaf_083",
+    "printed_page": 73,
+    "section": "statistical_account"
+   },
+   "describes_date": "1844",
+   "entities": [],
+   "town_finding": true,
+   "notes": "1844, and the contrast is the finding: Chicago's first fire engine was bought in 1835, and this is the organisation nine years of growth produced. Nothing here belongs in the scene."
+  },
+  {
+   "id": "n1844_tf_059",
+   "kind": "civic",
+   "reading": "transcription_mediated",
+   "quote": "  RUSH MEDICAL COLLEGE.\n  Incorporated by the Legislature of Illinois, in 1837.",
+   "normalized": "Rush Medical College was incorporated by the legislature of Illinois in 1837, with W. B. Ogden president of its board of trustees; its first course of lectures commenced 4 December 1843.",
+   "locator": {
+    "text_file": "norris_1844_leaf_084.txt",
+    "lines": [
+     2,
+     3
+    ],
+    "page": "norris_1844_leaf_084",
+    "printed_page": 74,
+    "section": "statistical_account"
+   },
+   "describes_date": "1837",
+   "entities": [
+    "Wm. B. Ogden"
+   ],
+   "town_finding": true,
+   "notes": "CHARTERED 1837, TAUGHT FROM 1843. There was no medical college in the town of 1835 — the charter is two years late and the teaching eight. Names Ogden, John H. Kinzie and Walter L. Newberry among the trustees."
+  },
+  {
+   "id": "n1844_tf_060",
+   "kind": "civic",
+   "reading": "transcription_mediated",
+   "quote": "POPULATION OF THE CITY OF CHICAGO,\n  ACCORDING TO THE CENSUS\nTaken by S. W. NORRIS, August 1st, 184.3, under the authority of\nthe Common Council; together with a comparison of this with",
+   "normalized": "The population of the City of Chicago according to the census taken by S. W. Norris on 1 August 1843 under the authority of the Common Council, given with a comparison against the censuses of former periods.",
+   "locator": {
+    "text_file": "norris_1844_leaf_085.txt",
+    "lines": [
+     32,
+     35
+    ],
+    "page": "norris_1844_leaf_085",
+    "printed_page": 75,
+    "section": "statistical_account"
+   },
+   "describes_date": "1843-08-01",
+   "entities": [
+    "S. W. Norris"
+   ],
+   "town_finding": true,
+   "notes": "THE PROVENANCE OF THE 7,580. It is a municipal census of 1 August 1843, taken by S. W. Norris himself — not a federal count and not an estimate. Knowing whose number it is matters when it is set beside the federal 4,853 of 1840 that the census_1840 domain is reading."
+  },
+  {
+   "id": "n1844_tf_061",
+   "kind": "household",
+   "reading": "transcription_mediated",
+   "quote": "REMARKS.—The following census wns taken with creat care a.nd\naccuracy, all persons not permanently residing isi ihe City being,\nin every instance, excluded. The population of the place might\nhave been made much larger than it appears to be, by the result of\nthis census, undoubtedly 8,500, by including a class of transitory\npersons which it is customary to compute as a part of the popula-\ntion of cities ; but it was thought advisable to base the present census",
+   "normalized": "Norris's remark on his own method: the census was taken with great care, all persons not permanently residing in the city being in every instance excluded, and the population could have been made 8,500 by including the transitory persons it is customary to count.",
+   "locator": {
+    "text_file": "norris_1844_leaf_085.txt",
+    "lines": [
+     37,
+     43
+    ],
+    "page": "norris_1844_leaf_085",
+    "printed_page": 75,
+    "section": "statistical_account"
+   },
+   "describes_date": "1843",
+   "entities": [],
+   "town_finding": true,
+   "notes": "A METHODOLOGICAL STATEMENT THIS PROJECT SHOULD READ TWICE. Norris drew a line between permanent and transitory residents and put roughly 900 people on the far side of it — and it is the same line he says the 1835 figure of 5,500 fell on the wrong side of (leaf 23). It is the transient problem, named by a nineteenth-century enumerator, in the source itself."
+  },
+  {
+   "id": "n1844_tf_062",
+   "kind": "household",
+   "reading": "transcription_mediated",
+   "quote": "Number of Irish. 170 206\nGermans and Norwegians, 104 217\nNatives of other countries, 134 156",
+   "normalized": "The foreign-born counted at the census of 1 August 1843: Irish, Germans and Norwegians, and natives of other countries, each set against a pair of figures the OCR has stripped of its column headings.",
+   "locator": {
+    "text_file": "norris_1844_leaf_086.txt",
+    "lines": [
+     75,
+     77
+    ],
+    "page": "norris_1844_leaf_086",
+    "printed_page": 76,
+    "section": "statistical_account"
+   },
+   "describes_date": "1843",
+   "entities": [],
+   "town_finding": true,
+   "notes": "FILED WITH ITS REFUSAL WRITTEN OUT. Norris prints the 1843 census as a wide ruled table and archive.org's OCR has woven its columns into a single stream — every count on this page has lost the heading that says what it counts. The three nativity ROWS survive as rows and are quoted; THE NUMBERS BESIDE THEM CANNOT BE READ OFF THIS TEXT and are not asserted here. Two totals on the page are unambiguous and are: the whole number of families, 1,177, and the grand totals 4,853 (1840) and 7,580 (1843). Closing the rest needs the page IMAGE, and this claim is the declaration that it has not been closed."
+  },
+  {
+   "id": "n1844_tf_063",
+   "kind": "household",
+   "reading": "transcription_mediated",
+   "quote": "  Whole number of Families, 1177.",
+   "normalized": "The whole number of families in Chicago at the census of 1 August 1843 was 1,177.",
+   "locator": {
+    "text_file": "norris_1844_leaf_086.txt",
+    "lines": [
+     78,
+     78
+    ],
+    "page": "norris_1844_leaf_086",
+    "printed_page": 76,
+    "section": "statistical_account"
+   },
+   "describes_date": "1843",
+   "entities": [],
+   "town_finding": true,
+   "notes": "1,177 families to 7,580 people is 6.44 persons to a family in 1843. THE MEAN HOUSEHOLD SIZE IS THE NUMBER THIS PROJECT'S HOUSEHOLD RECONSTRUCTION HAS NO LOCAL FIGURE FOR — it is eight years late and from a bigger, more urban town, so it is an upper anchor and not a value to adopt. Filed for T-0507's calibration to argue with."
+  },
+  {
+   "id": "n1844_tf_064",
+   "kind": "shipping",
+   "reading": "transcription_mediated",
+   "quote": "EXPORTS.\n  IMPORTS.\n1836.\n1837.\n1838.\n1839.\n1840.\n1841.\n1842.\n$ 1,000.64\n11,065.00\n16,044.75\n33.843.00\n228,635.74\n348,362.24\n659,305.20\n1836.\n1837.\n1838.\n1839.\n1840.\n1841.\n1842.\n  8325,203.90\n  373,667.12\n  579,174.61\n  630,980.26\n  562,106.20\n  564,347.88\n  664,347.88",
+   "normalized": "Chicago's recorded trade by year from the revenue office. EXPORTS: $1,000.64 in 1836, $11,065.00 in 1837, $16,044.75 in 1838, $33,843.00 in 1839, $228,635.74 in 1840, $348,362.24 in 1841, $659,305.20 in 1842. IMPORTS: $325,203.90 in 1836, $373,667.12 in 1837, $579,174.61 in 1838, $630,980.26 in 1839, $562,106.20 in 1840, $564,347.88 in 1841, $664,347.88 in 1842. The OCR floated the IMPORTS heading to the second line of the quote and then set the two tables one after the other; the pairing of year to figure is read off that order and the leading 8 of $325,203.90 is the OCR of a dollar sign.",
+   "locator": {
+    "text_file": "norris_1844_leaf_087.txt",
+    "lines": [
+     17,
+     46
+    ],
+    "page": "norris_1844_leaf_087",
+    "printed_page": 77,
+    "section": "statistical_account"
+   },
+   "describes_date": "1836",
+   "entities": [],
+   "town_finding": true,
+   "notes": "THE TRADE SERIES STARTS IN 1836, ONE YEAR AFTER THE SCENE, AND STARTS AT A THOUSAND DOLLARS OF EXPORTS AGAINST $325,000 OF IMPORTS. That is the finding: in the year after 1835 Chicago exported a thousand dollars' worth of everything. The town of the scene was an IMPORTING town living off the lake trade and the land office, not a grain port — the grain port is the 1840s. Norris warns on the same page that the figures are below the true amount because vessels left unreported."
+  },
+  {
+   "id": "n1844_tf_065",
+   "kind": "shipping",
+   "reading": "transcription_mediated",
+   "quote": "Vessels arrived and cleared during the years 1842-3:\n  Arrived. Cleared. Total. Aggregate tonage.\n1842. 705 705 1410- 117,711\n1843. 756 691 1447 289,852\n  A number of vessels left port this year, without being reported.",
+   "normalized": "Vessels arrived and cleared: 705 and 705 in 1842, aggregate tonnage 117,711; 756 and 691 in 1843, aggregate 289,852. A number of vessels left port in 1843 without being reported.",
+   "locator": {
+    "text_file": "norris_1844_leaf_088.txt",
+    "lines": [
+     3,
+     7
+    ],
+    "page": "norris_1844_leaf_088",
+    "printed_page": 78,
+    "section": "statistical_account"
+   },
+   "describes_date": "1843",
+   "entities": [],
+   "town_finding": true,
+   "notes": "1842-3 shipping, and no earlier year is given. Filed because it reaches leaf 88 and because it fixes the scale the scene year must be read WELL below: leaf 22 says a schooner's arrival was still an event within living memory."
+  }
+ ]
+}

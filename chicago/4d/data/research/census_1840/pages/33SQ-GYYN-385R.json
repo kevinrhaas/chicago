@@ -1,0 +1,517 @@
+{
+ "schema": 1,
+ "familysearch_id": "33SQ-GYYN-385R",
+ "image": "chicago/reference/census1840/33SQ-GYYN-385R.jpg",
+ "printed_page": null,
+ "printed_page_note": "no printed page number is legible on this exposure - a continuation sheet carries its number in the corner the binding takes. The sheet is NOT placed: the pairing_test below refuses the deposit's only candidate on the population key and leaves the leaf unpaired.",
+ "sheet_side": "right",
+ "division": null,
+ "division_note": "the printed heading reads '... by the Marshal of the [___] District (or Territory) of' and the written-in name reads Illinois in a large hand across the top right. The district name proper is not read by this pass and is recorded unread rather than inferred from the sheets around it.",
+ "state": "Illinois",
+ "county": "Cook",
+ "reading": "scan_verified",
+ "ticket": "T-0972 (piece 1 of the split of T-0967); the ask is T-0746's and before it T-0496's",
+ "read_pass": "The leaf's own rules located first, in four y-bands rather than one profile, because this leaf's printed rules LEAN: the rule that stands at x 1426 in the top quarter of the body stands at x 1443 in the bottom quarter, and read_census_continuation.py's single whole-body profile refuses the sheet outright ('too few vertical rules to name the middle columns'). That is T-0761's finding met in the field. The TOTAL column's ink was then grouped inside the banded rules through census_total_column.py on an explicitly stated window, and the seven industry columns measured the same way and READ FIRST, because their printed footings are the only arithmetic on the leaf independent of the figure the pairing turns on.",
+ "lines_ruled_with_an_entry": 24,
+ "lines_note": "Twenty-five ink groups stand in the TOTAL column and twenty-four of them are figures. The twenty-fifth, at y 945 (box 1322,937-1328,953), is 6 px wide and 16 px tall against a 27-66 px width and a 29-81 px height for every figure on the leaf; it is recorded as ink that is not an entry, not as a line. The remaining 24 confirm coverage.json's inventory of 24 exactly.",
+ "line_index": {
+  "committed": "a uniform 24-line grid, first line at y 704.0 and pitch 76.26 px, fitted to the group centres of the TOTAL column.",
+  "residuals": "the largest residual is 29 px at line 16, whose group is 81 px tall and holds a third component; every other line falls within 19 px of its centre, against a 76 px pitch.",
+  "corroboration": "the five industry entries are independent of the TOTAL column's ink and every one of them falls on a line of this grid: agriculture at y 692 on line 1, manufactures at y 1538 on line 12 and y 2056 on line 19, learned professions at y 2216 on line 21 and y 2288 on line 22."
+ },
+ "form_note": "The right (continuation) sheet of the 1840 population schedule. On this leaf the twelve SLAVES columns, the PENSIONERS block, the ten DEAF AND DUMB, BLIND, AND INSANE columns and the seven SCHOOLS columns carry no ink and no figure at the foot, and this pass reads them as NOT WRITTEN rather than as zeros. TOTAL is written on every one of the 24 lines. Of the seven industry columns three are written - agriculture, manufactures and trades, and learned professions and engineers - and mining, commerce, navigation of the ocean and navigation of canals lakes and rivers are blank in the body and at the foot.",
+ "column_geometry": {
+  "how": "read_census_continuation.py refuses this leaf ('too few vertical rules to name the middle columns') because one darkness profile taken over the whole body smears rules that lean 17 px across it. The rules were therefore measured in four equal y-bands of the body and the second band's values are the ones quoted, with the lean stated beside them. Every window is in pixels of the committed image and is re-measurable.",
+  "horizontal_rules_px": [
+   629,
+   2989
+  ],
+  "horizontal_rules_note": "GIVEN. horizontal_rules() returns 640 and 2785 on this leaf - the lower of that pair closes above the enumerator's footer rule, which is where the footings this reading turns on are written. The band was read off the leaf at magnification and stated here.",
+  "vertical_rules_px_band_2": [
+   1159,
+   1239,
+   1431,
+   1501,
+   1564,
+   1630,
+   1712,
+   1793,
+   1873,
+   1939
+  ],
+  "vertical_rules_px_band_1": [
+   1155,
+   1235,
+   1426,
+   1496,
+   1560,
+   1625,
+   1707,
+   1788,
+   1868,
+   1935
+  ],
+  "vertical_rules_px_band_4": [
+   1169,
+   1247,
+   1443,
+   1511,
+   1575,
+   1640,
+   1722,
+   1801,
+   1882,
+   1945
+  ],
+  "lean": "the same rule stands 14 to 17 px further right at the foot of the body than at its head; the footer row sits about 5 px right of band 4 again.",
+  "total_cell_rules_px": [
+   1239,
+   1431
+  ],
+  "industry_rules_px": [
+   1431,
+   1501,
+   1564,
+   1630,
+   1712,
+   1793,
+   1873,
+   1939
+  ],
+  "industry_columns_named": [
+   "mining",
+   "agriculture",
+   "commerce",
+   "manufactures_and_trades",
+   "navigation_of_the_ocean",
+   "navigation_of_canals_lakes_and_rivers",
+   "learned_professions_and_engineers"
+  ],
+  "how_they_are_named": "the printed headings were read at 2x off the crop x 1200-2000, y 300-680 and matched to the rules one by one; the run of seven single-width columns is bracketed by the wide TOTAL cell on the left and the PENSIONERS block on the right, which is what makes the naming a reading rather than a guess at pitch."
+ },
+ "glyph_key": {
+  "what": "the forms this reading leans on, every one taken off this leaf. Three of them are held by arithmetic rather than by opinion.",
+  "1": "a plain slant, sometimes with a small entry serif (lines 9, 24; and the agriculture and manufactures entries).",
+  "2": "a top loop running down into a base sweep to the right (lines 4, 7, 10; and the learned-professions entry at line 22).",
+  "3": "a stroke descending from a top-right flag into a bowl that sweeps left along the bottom (lines 3, 6, 8, 12, 17, 20, 21). HELD BY ARITHMETIC: the learned professions and engineers column carries 1 at line 21 and 2 at line 22 and nothing else, and its printed footing is this form. 1 + 2 = 3.",
+  "4": "two strokes joined by a crossbar (line 11, and the manufactures entry at line 19). The crossbar is what separates it from the 11.",
+  "5": "a bottom bowl, an ascending stroke and a long horizontal cap drawn across the top (line 5). It is a different form from the 3 and the distinction is what settles the TOTAL footing: see footing_read below.",
+  "6": "a stroke rising to the right with a narrow closed loop at its foot (lines 1, 14; and the manufactures footing).",
+  "7": "a horizontal top bar with a long diagonal descending to the left (lines 18, 22; and the second glyph of line 23).",
+  "8": "two loops that cross - a figure eight (lines 2, 19).",
+  "11": "two parallel slants with NO crossbar (lines 13, 16). Read as 11 and not as 4 because the leaf's 4 carries a crossbar and these do not."
+ },
+ "footer_as_read": {
+  "total": 123,
+  "total_glyphs_as_read": "three glyphs, read at 6x on the crop x 1290-1440, y 2990-3070. A plain slant with an entry dot; then a top loop over a base sweep, the leaf's 2; then the 3 form - a stroke from a top-right flag into a bowl sweeping left. 1, 2, 3.",
+  "total_confidence": "documented",
+  "mining": null,
+  "agriculture": 1,
+  "commerce": null,
+  "manufactures_and_trades": 6,
+  "navigation_of_the_ocean": null,
+  "navigation_of_canals_lakes_and_rivers": null,
+  "learned_professions_and_engineers": 3,
+  "footer_note": "the footer row's four written cells were located against the rules extrapolated to y 3030, which stand about 5 px right of the fourth body band: 1448, 1516, 1580, 1645, 1727, 1806, 1887, 1950."
+ },
+ "footing_corrected": {
+  "the_correction": "coverage.json's inventory pass recorded this leaf as 'foots 125'. It foots 123. The third glyph is this leaf's 3 and not its 5.",
+  "why_it_is_a_3": "the leaf writes both forms and they are not alike. Its 5 is at line 5 of the TOTAL column: a bowl that opens to the RIGHT, an ascending stroke, and a long horizontal cap drawn separately across the top. Its 3 is at lines 3, 6, 8, 12, 17, 20 and 21: one stroke from a top-right flag into a bowl that sweeps LEFT along the bottom, with no separate cap. The footing's third glyph has no cap and its bowl sweeps left.",
+  "what_holds_it": "two independent closures, neither of which was adjusted to reach the other. The learned professions column carries 1 and 2 and foots in this same form, which fixes the form at 3. And the TOTAL column's own 24 lines, read before the footing was settled, sum to 123 exactly.",
+  "what_would_overturn_it": "a reading of the learned-professions column that finds a third entry. The column's ink was measured over its own window and holds three components; two are figures and the third, at y 967, is 5 px wide and 16 px tall - a speck by the same filter that refused the TOTAL column's y 945 mark."
+ },
+ "closure": {
+  "lines_committed": 24,
+  "lines_unread": 0,
+  "committed_sum": 123,
+  "printed_footing": 123,
+  "residual": 0,
+  "what_that_is": "the whole column, read line by line and closing on the enumerator's own footing with nothing left over. It is the second continuation sheet in the deposit to close on the nose, after 33S7-9YYJ-B2 (T-0654).",
+  "industry_closure": {
+   "agriculture": {
+    "entries": {
+     "1": 1
+    },
+    "sum": 1,
+    "printed_footing": 1,
+    "residual": 0
+   },
+   "learned_professions_and_engineers": {
+    "entries": {
+     "21": 1,
+     "22": 2
+    },
+    "sum": 3,
+    "printed_footing": 3,
+    "residual": 0
+   },
+   "manufactures_and_trades": {
+    "entries": {
+     "12": 1,
+     "19": 4
+    },
+    "sum": 5,
+    "printed_footing": 6,
+    "residual": 1,
+    "residual_note": "the one column on this leaf that does NOT close, and the residual is NOT spent. Three readings could carry it and this pass settles none of them: a third entry too faint for the ink mask to hold, a line-19 entry of 5 in a form this leaf uses nowhere else, or the enumerator's own arithmetic. 11 at line 19 is refused on the family total, which is 8. The residual stands where it is."
+   }
+  },
+  "internal_check": "every industry entry is less than or equal to its own line's family TOTAL, on all five: line 1 has 1 of 6 in agriculture, line 12 has 1 of 3 and line 19 has 4 of 8 in manufactures, line 21 has 1 of 3 and line 22 has 2 of 7 in learned professions. The check is independent of every footing and it passes."
+ },
+ "method": "read_census_continuation.py's ink mask, component filter and grouping rule, applied through census_total_column.py on an explicitly stated window per column, with the body band given because this leaf's automatic pair closes above the footer. The digits were read by a human off magnified crops of those component boxes. No digit is read by a tool.",
+ "pairing_test": {
+  "the_two_keys": "a continuation sheet carries no name and no printed page number, so two numbers can place it: the count of ruled lines carrying an entry, which must be the same on both halves of one opening, and the page population, which the right sheet gives as the printed footing of its TOTAL column and the left sheet as the sum of its 38 printed age-band footings. A pair must match on BOTH. This is T-0642's rule and it is not relaxed here.",
+  "right_keys": {
+   "line_count": 24,
+   "line_count_state": "measured_this_pass_on_the_leaf_s_own_grid",
+   "page_population": 123,
+   "page_population_state": "read_this_pass, and a correction of the inventory's 125"
+  },
+  "candidates_by_line_count": "ONE, in the whole deposit. Of the 37 left sheets coverage.json inventories, exactly one carries 24 lines with an entry: 33SQ-GYYJ-ZQ, printed page 235. coverage.json already called the equal counts 'a pairing hint and not a pairing' and asked that it be settled.",
+  "the_candidate": {
+   "familysearch_id": "33SQ-GYYJ-ZQ",
+   "printed_page": 235,
+   "lines_with_an_entry": 24,
+   "left_key_state": "read_this_pass_from_the_footing_row",
+   "left_key_committed": 106,
+   "left_key_cells_unread": 2,
+   "left_key_reading": "the 38 printed footings of printed 235, read at 5x and 10x off the crop y 2960-3060 against the leaf's own rules. Free white males: 14, 9, 7, 4, 4, 4, [unread], 6, -, 1, -, -, [an unread mark]. Free white females: 13, 5, 5, 2, 12, 10, 6, 2, 1, -, -, -, -. Free coloured males: -, -, -, 1, -, -. Free coloured females: none. The committed cells sum to 106.",
+   "unread_cells": [
+    {
+     "column": "free white males 40 under 50",
+     "why": "a bold base stroke with a faint diagonal rising from it. The base alone is the leaf's 2 without its top loop and the pair together is not a form this leaf uses elsewhere. Recorded unread."
+    },
+    {
+     "column": "free white males 100 and upwards",
+     "why": "a crossed, heavily inked mark 63 px wide standing wholly left of the females' first rule. No figure this column could carry is possible in a 24-household page, and the mark is not read as one. Recorded unread."
+    }
+   ]
+  },
+  "verdict": "unpaired",
+  "verdict_why": "REFUSED on the population key, which is the rule and not a preference. 385R foots 123. Printed 235's footing row commits 106 with two cells unread, and the two of them would have to carry 17 between them - more than the largest figure written anywhere on that row, which is 14. The line-count key matches and the population key does not, so this is a candidate and not a pairing.",
+  "a_second_observation": "held as an observation and not as proof. The two-strokes-with-no-crossbar form reads as 11 on this leaf - the only reading on which its TOTAL column closes on its own footing - and as 4 on printed 235, where the first male footing is a slant followed by that same pair and 111 is impossible on a 24-household page while 14 is not. The two sheets use one form for two different numbers. That is what two hands look like, and it is consistent with the refusal above rather than being an argument of its own.",
+  "what_would_settle_it": "printed 235's cells read line by line, which would give both a second population key from its own lines and a per-line sequence to screen against this leaf's TOTAL column. Until then 385R's partner is either one of the group's three unread left sheets - printed 214, 220 and 233, whose inventoried line counts are 30, 31 and 31 and so do not match - or a left sheet that is not in this deposit at all. The recapitulation leaf 33SQ-GYYJ-PW counts thirty pages for the city and the deposit holds 74 images, so a missing partner is a real possibility and not an excuse.",
+  "nothing_was_regraded": "no confidence was raised and no cell was moved to make a pairing come out. Printed 235's page file keeps its names exactly as T-0496 read them; what this pass adds to it is its footing row and nothing else."
+ },
+ "records": [
+  {
+   "line": 1,
+   "total_group_box": [
+    1333,
+    675,
+    1385,
+    732
+   ],
+   "total": 6,
+   "total_confidence": "high",
+   "total_glyphs_as_read": "a stroke rising to the right with a narrow closed loop at its foot - this leaf's 6, and the form its manufactures footing carries.",
+   "industry": {
+    "agriculture": {
+     "value": 1,
+     "confidence": "high"
+    }
+   }
+  },
+  {
+   "line": 2,
+   "total_group_box": [
+    1356,
+    751,
+    1408,
+    798
+   ],
+   "total": 8,
+   "total_confidence": "high",
+   "total_glyphs_as_read": "two loops that cross: a figure eight. The crossing is the whole of it, and it is what separates this form from the 6."
+  },
+  {
+   "line": 3,
+   "total_group_box": [
+    1344,
+    818,
+    1405,
+    873
+   ],
+   "total": 3,
+   "total_confidence": "high",
+   "total_glyphs_as_read": "a stroke descending from a top-right flag into a bowl that sweeps left along the bottom - this leaf's 3. It is the form of the learned-professions footing, which closes on 3, and the form of the TOTAL footing's third glyph."
+  },
+  {
+   "line": 4,
+   "total_group_box": [
+    1345,
+    901,
+    1397,
+    948
+   ],
+   "total": 2,
+   "total_confidence": "high",
+   "total_glyphs_as_read": "a top loop running down into a base sweep to the right - this leaf's 2."
+  },
+  {
+   "line": 5,
+   "total_group_box": [
+    1356,
+    979,
+    1422,
+    1026
+   ],
+   "total": 5,
+   "total_confidence": "high",
+   "total_glyphs_as_read": "a bottom bowl, an ascending stroke and a long horizontal cap drawn across the top. This is the leaf's 5 and it is NOT the 3 form: the cap is a separate horizontal stroke and the bowl opens to the right."
+  },
+  {
+   "line": 6,
+   "total_group_box": [
+    1354,
+    1060,
+    1400,
+    1101
+   ],
+   "total": 3,
+   "total_confidence": "high",
+   "total_glyphs_as_read": "the 3 form."
+  },
+  {
+   "line": 7,
+   "total_group_box": [
+    1359,
+    1142,
+    1396,
+    1179
+   ],
+   "total": 2,
+   "total_confidence": "high",
+   "total_glyphs_as_read": "the 2 form."
+  },
+  {
+   "line": 8,
+   "total_group_box": [
+    1362,
+    1224,
+    1389,
+    1253
+   ],
+   "total": 3,
+   "total_confidence": "medium",
+   "total_glyphs_as_read": "the 3 form, lighter than the others and read at 10x."
+  },
+  {
+   "line": 9,
+   "total_group_box": [
+    1359,
+    1293,
+    1405,
+    1356
+   ],
+   "total": 1,
+   "total_confidence": "high",
+   "total_glyphs_as_read": "a plain slant with a small entry serif - this leaf's 1."
+  },
+  {
+   "line": 10,
+   "total_group_box": [
+    1358,
+    1377,
+    1397,
+    1415
+   ],
+   "total": 2,
+   "total_confidence": "high",
+   "total_glyphs_as_read": "the 2 form."
+  },
+  {
+   "line": 11,
+   "total_group_box": [
+    1366,
+    1452,
+    1412,
+    1500
+   ],
+   "total": 4,
+   "total_confidence": "high",
+   "total_glyphs_as_read": "two strokes joined by a crossbar - this leaf's 4, and the only figure on the leaf that carries a crossbar."
+  },
+  {
+   "line": 12,
+   "total_group_box": [
+    1359,
+    1531,
+    1418,
+    1576
+   ],
+   "total": 3,
+   "total_confidence": "high",
+   "total_glyphs_as_read": "the 3 form.",
+   "industry": {
+    "manufactures_and_trades": {
+     "value": 1,
+     "confidence": "high"
+    }
+   }
+  },
+  {
+   "line": 13,
+   "total_group_box": [
+    1363,
+    1612,
+    1414,
+    1656
+   ],
+   "total": 11,
+   "total_confidence": "medium",
+   "total_glyphs_as_read": "two parallel slants with no crossbar between them: 11. The leaf's 4 (line 11) carries a crossbar and this does not."
+  },
+  {
+   "line": 14,
+   "total_group_box": [
+    1369,
+    1680,
+    1407,
+    1724
+   ],
+   "total": 6,
+   "total_confidence": "high",
+   "total_glyphs_as_read": "the 6 form."
+  },
+  {
+   "line": 15,
+   "total_group_box": [
+    1316,
+    1743,
+    1414,
+    1800
+   ],
+   "total": 4,
+   "total_confidence": "medium",
+   "total_glyphs_as_read": "the 4 form, with a lighter crossbar than line 11's. The component box also holds a thin stroke at x 1316 which is 25 px left of every other figure in this column and is read as ink that is not part of the figure."
+  },
+  {
+   "line": 16,
+   "total_group_box": [
+    1366,
+    1837,
+    1422,
+    1918
+   ],
+   "total": 11,
+   "total_confidence": "medium",
+   "total_glyphs_as_read": "two parallel slants with no crossbar: 11, on the same distinction as line 13. The group's box is 81 px tall against a 76 px pitch and holds a third component below the pair; that component sits on line 17's centre and is read there."
+  },
+  {
+   "line": 17,
+   "total_group_box": [
+    1361,
+    1916,
+    1393,
+    1952
+   ],
+   "total": 3,
+   "total_confidence": "medium",
+   "total_glyphs_as_read": "the 3 form."
+  },
+  {
+   "line": 18,
+   "total_group_box": [
+    1365,
+    1982,
+    1410,
+    2039
+   ],
+   "total": 7,
+   "total_confidence": "high",
+   "total_glyphs_as_read": "a horizontal top bar with a long diagonal descending to the left - this leaf's 7."
+  },
+  {
+   "line": 19,
+   "total_group_box": [
+    1376,
+    2061,
+    1415,
+    2104
+   ],
+   "total": 8,
+   "total_confidence": "high",
+   "total_glyphs_as_read": "the 8 form.",
+   "industry": {
+    "manufactures_and_trades": {
+     "value": 4,
+     "confidence": "medium",
+     "note": "two strokes with a light crossbar between them. The alternative reading is 11, which is the form lines 13 and 16 of the TOTAL column carry; it is REFUSED here because line 19's family TOTAL is 8 and a family cannot employ more persons than it holds. The crossbar is fainter than line 11's of the TOTAL column and this reading is recorded as medium, not high."
+    }
+   }
+  },
+  {
+   "line": 20,
+   "total_group_box": [
+    1359,
+    2136,
+    1409,
+    2178
+   ],
+   "total": 3,
+   "total_confidence": "high",
+   "total_glyphs_as_read": "the 3 form."
+  },
+  {
+   "line": 21,
+   "total_group_box": [
+    1371,
+    2206,
+    1422,
+    2247
+   ],
+   "total": 3,
+   "total_confidence": "high",
+   "total_glyphs_as_read": "the 3 form.",
+   "industry": {
+    "learned_professions_and_engineers": {
+     "value": 1,
+     "confidence": "high"
+    }
+   }
+  },
+  {
+   "line": 22,
+   "total_group_box": [
+    1363,
+    2295,
+    1417,
+    2352
+   ],
+   "total": 7,
+   "total_confidence": "high",
+   "total_glyphs_as_read": "the 7 form.",
+   "industry": {
+    "learned_professions_and_engineers": {
+     "value": 2,
+     "confidence": "high"
+    }
+   }
+  },
+  {
+   "line": 23,
+   "total_group_box": [
+    1356,
+    2368,
+    1402,
+    2431
+   ],
+   "total": 17,
+   "total_confidence": "medium",
+   "total_glyphs_as_read": "a plain slant and then the 7 form: 17. It is the largest figure in the column and the two strokes are separated by a clear gap."
+  },
+  {
+   "line": 24,
+   "total_group_box": [
+    1378,
+    2441,
+    1416,
+    2476
+   ],
+   "total": 1,
+   "total_confidence": "high",
+   "total_glyphs_as_read": "the 1 form, written heavier than line 9's."
+  }
+ ]
+}

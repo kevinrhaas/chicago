@@ -1,0 +1,30 @@
+{
+  "id": "second_presbyterian_chicago_1892",
+  "type": "book",
+  "citation": "The Second Presbyterian Church of Chicago, June 1st, 1842, to June 1st, 1892 (Chicago: Knight, Leonard & Co., 1892), John C. Grant, editor — the semi-centennial volume of the congregation, read from the Princeton Theological Seminary copy digitised by the Internet Archive as item secondpresbyterian00chic",
+  "author": "Second Presbyterian Church of Chicago; John C. Grant, editor",
+  "date": "1892; scan read 2026-09-05",
+  "describes_date": "1842-06-01/1892-06-01",
+  "repository": "Princeton Theological Seminary Library, via the Internet Archive",
+  "url": "https://archive.org/details/secondpresbyterian00chic",
+  "archived_url": "https://archive.org/details/secondpresbyterian00chic",
+  "locator": "A LIST OF MEMBERS OF THE CHURCH, 1842-1892 — printed page 153 carries its heading and no line; the roll itself runs printed pages 154-206, which are leaves 240-292 of the scan. It is set in three rolls: NAMES OF ABSENT MEMBERS, WHOSE RESIDENCE AND CHRISTIAN STANDING ARE UNKNOWN TO THE SESSION (154-156); PRESENT MEMBERS (157-175); and NAMES OF MEMBERS DISMISSED, DECEASED OR ORDAINED TO THE MINISTRY (176-206). Read into chicago/4d/data/research/church/text/second_presbyterian_roll_1892.txt, which is committed, with the row map beside it that puts the four columns back in printed order out of the scan's own word coordinates (https://archive.org/download/secondpresbyterian00chic/secondpresbyterian00chic_djvu.xml, sha256 884afe01a9a0eaeff189b8c8b3d919929ce576b031eb3058dfd057ad6f9f71ff, fetched 2026-09-05). The volume's narrative chapters, its lists of pastors, elders, deacons and trustees, and the Sunday-school rolls on printed pages 250 onwards are NOT read.",
+  "tier": 2,
+  "rights_status": "public_domain",
+  "asset_use": "text_only",
+  "verified": true,
+  "access_notes": "VERIFIED 2026-09-05 for T-0583 by locating the work behind a citation, not by looking for the work. Fifty-four Chicago cards of the Newberry Library's genealogical index cite `Chicago, Ill. Second Presb. Ch., 1842-92. (Grant)` with the page 192, and nothing in this project held it. The search is written down in chicago/4d/data/research/church/search_log_second_presbyterian.json. Three digitisations of the same 1892 volume stand on the Internet Archive; the Princeton copy was read because its OCR is the completest of the three, and the other two are named in the log so a later run can collate rather than re-search.",
+  "note": "WHY IT IS TIER 2 AND NOT TIER 1. The roll is the congregation's own register and its dates are a clerk's, which would ordinarily be tier 1 — but what is read here is a PRINTED roll set in 1892 out of fifty years of session records, not the session records themselves, and the volume nowhere says how it was compiled. So it is a printed derivative of a primary register and is graded as one. The reading is transcription_mediated throughout: archive.org's OCR of the printed page, put back into printed rows from the word coordinates and not checked against the page images by eye.",
+  "what_it_supplies": [
+    "2,255 lines of a Chicago church roll running from 1 June 1842 to 1892 — a name, how the member was admitted (profession or letter), the date, and for the closed roll a remark (dismissed, deceased, ordained).",
+    "962 distinct surnames, of which 938 lines carry a surname this project already holds from the town of 1835.",
+    "The founding cohort of 1 June 1842, which is where the overlap with the 1835 town is thickest: W. H. Brown, George W. Dole and Mrs A. N. Fullerton are all on the first day's roll.",
+    "A dated Chicago appearance for a surname, which is exactly the kind of second source the resident sweep files as a lead."
+  ],
+  "what_it_does_not_supply": [
+    "An 1835 residency, or any part of one. The earliest line on the roll is seven years after the scene date and the ratified ladder never makes an 1835 resident from a later appearance alone.",
+    "A woman's own name, much of the time. The roll sets a wife as `Mrs.` followed by her HUSBAND'S name — `Fullerton, Mrs. A. N.` — so a line that meets a man in the 1835 layer has met his name and not him, and the crosswalk flags every such line.",
+    "A death or a departure that can be dated. `Deceased` and `Dismissed` are the state of the roll at its closing on 1 June 1892, not events with dates of their own.",
+    "An address, a trade or a household. The roll carries none of the three."
+  ]
+}

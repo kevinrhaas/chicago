@@ -1,0 +1,592 @@
+{
+  "schema": 1,
+  "issue_id": "chicago_democrat_1834_12_10",
+  "extracted": "2026-08-29",
+  "extracted_by": "hand, T-0294 — the Democrat read, December 1834",
+  "note": "Vol. II No. 2. Every column of this issue but three is Vision-set, and page 3 is nevertheless the hardest reading of the month: its columns alternate two physical columns line by line for their whole length, so the town's own notices survive as half-lines woven through the legislature's proceedings and a column of reprinted miscellany. The issue's own contribution is a public one — the metes and bounds of School District Number One and the meeting called to act on them at the Mansion House on 16 December. NO POST-OFFICE LETTER LIST OF ANY OFFICE STANDS IN THIS ISSUE. AMENDED BY T-0330 on 2026-08-29: the interleaved advertisement pair in issue page 4 column 4 is resolved. “[oppo]site the Tremont Hous[e]” is Mason's (c007, placement now `relative`), the dry-goods column woven through him is P. F. W. Peck's standing “New Goods!!” and is recorded as c011, and one line T-0294 quoted as Mason's is moved to it. Neither reading needed the page images; the un-woven settings of the same two advertisements in the weeks before this issue carry both sentences whole. AMENDED BY T-0328 on 2026-08-29: D. Weaver's standing advertisement for the building on North Water street stands in this issue and was not claimed. It is c012, and it reads LOT 2 — one of the four printings of five that do. AMENDED BY T-0329 on 2026-08-29: the School District Number One notice (c001) is read a second time. THE SEGMENTER CAPTURED THE NOTICE'S PHYSICAL COLUMN TWICE — once in the page 3 column 1 block and once in the page 3 column 2 block — and the two captures take different portions of the same printed lines. T-0294 read only the column 2 capture. Ten further fragments stand in the column 1 capture at lines 2535, 2537, 2542, 2543, 2546, 2549, 2559, 2561, 2567 and 2570, and c001's `normalized` is completed from them under this corpus's standing rule that a bracketed supply may be read off the OTHER half of the same printed lines with the note naming the lines. c001's `quote` is unchanged. No page images were needed.",
+  "claims": [
+    {
+      "id": "c001",
+      "kind": "infrastructure",
+      "reading": "transcription_mediated",
+      "quote": "i of the citizens of School Dis\nwill be held et the\ntay the 16th day\nMansion\naca south along Willis\ncosrer of Block No. 101. in\ner. thenee south along ssid riv-\n• of saiti soetion 16,\not asid section to Lake Mich\nthence\nth aiong the Lake sitore 10\nho place of boginning,\nnorkn to the caicago river\nisorlaiced. constituted, known.\nibel, as Suhoul Distric Nimber",
+      "normalized": "[A MEETIN]G of the citizens of School Dis[trict] — [trict] No[. 1 …] — will be held at the Mansion [House, on Tues]day the 16th day [of December …] … said School Dis[trict …] Chicago, Dec[. …] O[r]dered by th[e …] [… bounds] and boundaries [… ] Section 16, t[o w]i[t]: [beginning at …] and[?] south along Willis[ … to the north west] co[r]ner of Block No. 101, in [… thence … to the Chicago riv]er, thence south along said riv[er … to the … line] of said section 16, [thence east along the south line] of said section to Lake Mich[igan], thence no[rth] [along] the Lake shore to [… the] Chicago [river], th[e]nce [… ] th[e]nce west to [… and] north to the Chicago river [… to] the place of beginning, [… which] is or shall be constituted, known, [and descr]ibed, as School Distric[t] N[u]mber [One].",
+      "locator": {
+        "artifact_role": "primary",
+        "issue_page": 3,
+        "column": 2,
+        "lines": [
+          2737,
+          2790
+        ],
+        "lines_of_claim": [
+          2737,
+          2738,
+          2741,
+          2743,
+          2759,
+          2762,
+          2764,
+          2767,
+          2768,
+          2769,
+          2771,
+          2780,
+          2781,
+          2782,
+          2784
+        ],
+        "interleaved": true
+      },
+      "entities": [],
+      "notes": "THE NOTICE IS CAPTURED TWICE AND T-0294 READ ONE CAPTURE. THE OTHER ADDS TEN FRAGMENTS, AND NO PAGE IMAGE WAS OPENED. Page 3's two segmenter blocks each weave two physical columns line by line, and the physical column carrying the town's notices falls in BOTH of them, each block taking a different portion of the same printed line. The stray-oxen notice below (c003) is what proves it: c003's quote reads \"The own.\" at line 2725 and \"to come, prove property, pay\" at 2727, and the column 1 block carries \"er is requestnd\" at 2523 and \"charges and tak.\" at 2525 — the two halves of the same two printed lines, in the same order, in the two blocks. So the column 1 block is read here as a SECOND CAPTURE of this notice, not as a second notice, and this claim stays one claim: minting a companion claim for the other half would put the same school district into the register twice.\n\nTHE TEN FRAGMENTS, verbatim, at page 3 column 1: 2535 \"A MEETIN\"; 2537 \"trict No\"; 2542 \"said School Dis\"; 2543 \"Chicago, Dec.\"; 2546 \"Ondered by th\"; 2549 \"[uncertain: and boundaries]\"; 2559 \"Section 16, tise:\"; 2561, characters 23-39 of a line shared with the Winnebago despatch, \"ligan, thance no\"; 2567 \"Chicago, thone\"; 2570 \"thonce west to!\". They are cited rather than quoted because a quote may not cross a page/column marker, and these stand in the column 1 block while this claim's range stands in column 2.\n\nWHAT THEY CHANGE. Four of T-0294's supplies become readings. \"[A meeting]\" is printed and is read: \"A MEETIN\" abuts the column 2 capture's \"i of the citizens of School Dis\", whose leading character is the headline's G. \"[trict Number One]\" was supplied and the paper does not say it there: it sets \"trict No\", the abbreviation, and \"Number\" is printed only in the last line of the order. \"[Mansion House …]\" was bracketed whole and Mansion is printed, at 2743. And the fourth is the one that matters to the boundary: \"to Lake Mich\" at 2768 continues as \"igan, thance no\" at 2561, so \"[igan,] thence [nor]th\" is no longer supplied — the call after Lake Michigan is READ to be north.\n\nSIX FRAGMENTS ARE NEW TEXT. \"said School Dis[trict]\" is the meeting notice's body referring back to the district; \"Chicago, Dec.\" is its dateline; \"O[r]dered by th[e]\" opens the order itself, which is a thing T-0294 could not see was there; \"[bounds] and boundaries\" and \"Section 16, t[o w]i[t]:\" introduce the description and put section 16 at its head; and \"Chicago, th[e]nce\" and \"th[e]nce west to\" are two further calls between the Lake shore and the place of beginning. Both captures set these in the same order, which is the check that they are one item and not two.\n\nSEVEN THINGS ARE STILL NOT READ, AND THEY ARE NAMED RATHER THAN COUNTED, because the acceptance for T-0329 asks for exactly that. (1) The point of beginning: the first call survives in neither capture, so the circuit has no start. (2) What Willis is — street, line, or a man's claim — the governing word before it is gone in both. (3) The call between Block No. 101 and the river. (4) The southern terminus on the river, where the description leaves it for the line of section 16. (5) The hour and the purpose of the meeting. (6) Who ordered it: the name under \"Ordered by the\". (7) The day in \"Chicago, Dec.\". Those seven need the page images; nothing else in this notice does any more.\n\nDOES THE CIRCUIT CLOSE ON THE MODELLED GROUND? NO, and it is worth being exact about why, because T-0329 filed itself believing the answer was yes. The district's own boundary runs on four things. Its north side is the Chicago river and its east side the Lake shore, and this reconstruction holds both. Its south side is the south line of section 16 carried east to the lake, and a section is a mile square, so that line stands a mile south of section 16's own north line, which is Madison Street — and Madison is itself 125.2 m south of the heightfield's south edge at State and 119.2 m south of it at Market (docs/STATUS.md). The whole of that side therefore lies a mile and a furlong beyond any ground this project has built, and T-0219, which would carry the field south, carries it only AS FAR AS Madison. Its west side names Willis and Block No. 101, and the model has no referent for either: data/streets/1835.json holds nineteen streets and none of them is Willis, and the platted blocks in data/reconstruction/1835_platted_block_parcels.json are keyed by their street corners — blk_lake_clark, blk_randolph_wells — so there is no block numbered 101 to stand at. The district CONTAINS the modelled town; two of its four sides are drawable and neither of those two is fully read. Nothing is drawn from this and no confidence is raised."
+    },
+    {
+      "id": "c002",
+      "kind": "business",
+      "reading": "transcription_mediated",
+      "quote": "H. C. BENNETT.\nAND COUNSELLOR AT LAI\nbliciter in Chancers.\nsi door north from the Tremont\nn Dearborn-street.",
+      "normalized": "H. C. BENNETT[,] [ATTORNEY] AND COUNSELLOR AT LA[W,] [and So]licitor in Chancer[y]. [Office fir]st door north from the Tremont [House, o]n Dearborn-street.",
+      "locator": {
+        "artifact_role": "primary",
+        "issue_page": 3,
+        "column": 2,
+        "lines": [
+          2886,
+          2893
+        ],
+        "lines_of_claim": [
+          2886,
+          2890,
+          2891,
+          2892,
+          2893
+        ],
+        "interleaved": true
+      },
+      "entities": [
+        {
+          "as_printed": "H. C. BENNETT.",
+          "normalized": "H. C. Bennett",
+          "role": "proprietor",
+          "occupations": [
+            "attorney and counsellor at law",
+            "solicitor in chancery"
+          ]
+        }
+      ],
+      "notes": "A SECOND DOCUMENTED FRONTAGE ON THE SAME FEW FEET OF DEARBORN STREET. Andrews & Eells are one door north of the Tremont House (1834-12-03 c016) and Bennett is FIRST door north of it on Dearborn — so the two are neighbours, or the same door, and the paper does not say which. Both are documented and neither is adjusted to accommodate the other. The 1834-12-24 printing of this same advertisement (page 3 column 4) sets the two halves in the other order — “[Tremont] House, on Dearborn street” — and carries the copy date, 3 December 1834, which is why the trade and the street are read with confidence even though this column is cut to a third of its width.",
+      "business": {
+        "name": "H. C. Bennett",
+        "proprietors": [
+          "H. C. Bennett"
+        ],
+        "trade": "attorney and counsellor at law, and solicitor in chancery",
+        "goods": [],
+        "street": "Dearborn street",
+        "placement": {
+          "class": "relative",
+          "anchor": "the Tremont House",
+          "offset_text": "si door north from the Tremont"
+        }
+      }
+    },
+    {
+      "id": "c003",
+      "kind": "notice",
+      "reading": "transcription_mediated",
+      "quote": "tray Oxer.\nay enclosure the 30th of Novem-\na brindle Ox, about five years\nappesr to be mates: bath\nabout 8 yeare old.\nne of then\nThe own.\nto come, prove property, pay\n[uncertain: FE WESTWORTH, Jr.]\n[uncertain: 5 mies south wes. Of Calcage]\nc. 9, 1831.",
+      "normalized": "[S]tray Oxen. [Came into] my enclosure the 30th of Novem[ber last, two … one] a brindle Ox, about five years [old … they] appear to be mates: both [… ] about 8 years old. [O]ne of them has [a … ] The own[er is requested] to come, prove property, pay [charges and take them away]. [E.] WENTWORTH, Jr., 5 miles south west of C[hi]cago. [De]c. 9, 183[4].",
+      "locator": {
+        "artifact_role": "primary",
+        "issue_page": 3,
+        "column": 2,
+        "lines": [
+          2713,
+          2732
+        ],
+        "lines_of_claim": [
+          2713,
+          2714,
+          2718,
+          2720,
+          2722,
+          2723,
+          2725,
+          2727,
+          2728,
+          2729,
+          2732
+        ],
+        "interleaved": true
+      },
+      "entities": [
+        {
+          "as_printed": "[uncertain: FE WESTWORTH, Jr.]",
+          "normalized": "E. Wentworth, Jr.",
+          "role": "advertiser"
+        }
+      ],
+      "notes": "STOCK IS STILL RUNNING LOOSE AND BEING PENNED FIVE MILES SOUTH-WEST OF THE TOWN AT THE END OF NOVEMBER. This is the second Wentworth in the same month's paper and they are not assumed to be one man: E. Wentworth keeps a public house eighteen miles south of Chicago on the Ottawa road (c005 below), and E. Wentworth, Jr. pens strays five miles south-west. Same surname, and the Jr. is printed, so the gazetteer keys them apart and no merge rule is written — the identity policy's refusal to join a surname across different initials is exactly the guard that should hold here.",
+      "ad_copy_date": {
+        "verbatim": "c. 9, 1831.",
+        "iso": "1834-12-09"
+      }
+    },
+    {
+      "id": "c004",
+      "kind": "business",
+      "reading": "transcription_mediated",
+      "quote": "Goods at\noffer for sale,\nWater-at, near the bridge,\nan extensive assortin\nlarge and general assort.\nDry Good\nHardware,\npotash\nKettle\nscription of Hollore Ware\nat a low price.",
+      "normalized": "[New] Goods at [ … the subscribers] offer for sale, [on South] Water-st., near the bridge, an extensive assortin[ent … a] large and general assort[ment of] Dry Good[s, … ] Hardware, [ … ] potash Kettle[s … and almost] every description of Hollow Ware […] at a low price.",
+      "locator": {
+        "artifact_role": "primary",
+        "issue_page": 3,
+        "column": 5,
+        "lines": [
+          3563,
+          3577
+        ],
+        "lines_of_claim": [
+          3563,
+          3564,
+          3565,
+          3566,
+          3567,
+          3568,
+          3569,
+          3572,
+          3573,
+          3575,
+          3577
+        ],
+        "interleaved": true
+      },
+      "entities": [],
+      "notes": "A STORE ON SOUTH WATER STREET NEAR THE BRIDGE, AND NOBODY IS MINTED FROM IT, BECAUSE THE NAME IS GONE. The advertiser's signature falls in the half of the physical column the segmenter cut away and no other printing in the month carries it; so this claim records a documented FRONTAGE — near the bridge, on Water street, carrying dry goods, hardware, potash kettles and hollow ware — and mints no business, exactly as the out-of-county letter lists are recorded and not minted. It is NOT assumed to be A. Garrett's store, which takes a store “in South-Water street, [near the] bridge” a week later (1834-12-17 c001) and could be this one or its neighbour; the two are kept apart until a witness joins them."
+    },
+    {
+      "id": "c005",
+      "kind": "business",
+      "reading": "transcription_mediated",
+      "quote": "the Cabinet\ni Ware\nri HE\na T ving\nbot their war\nato South ws\n“bre doors east\ni of Randoi\nIe} large assortment of ch\nthe black walnut and m:\nwit cosisting of Sofas; Sid\ni a N. B. Sign and orn\nbad . executed, ‘\na ~Ghicage, Sena i0, 18:",
+      "normalized": "Cabinet and [Chair] Ware [House.] [T]HE [subscribers ha]ving [on hand at] their war[e house on] South wa[ter street, three] doors east [of the corner] of Randol[ph street, a] large assortment of ch[airs …] black walnut and m[ahogany furniture,] consisting of Sofas; Sid[eboards … ] N. B. Sign and orn[amental painting neatly] executed. [Chi]ca[go], J[u]n[e] 10, 18[34].",
+      "locator": {
+        "artifact_role": "primary",
+        "issue_page": 4,
+        "column": 1,
+        "lines": [
+          3830,
+          3854
+        ],
+        "lines_of_claim": [
+          3830,
+          3831,
+          3832,
+          3833,
+          3834,
+          3835,
+          3836,
+          3837,
+          3838,
+          3839,
+          3840,
+          3852,
+          3853,
+          3854
+        ],
+        "interleaved": true
+      },
+      "entities": [],
+      "notes": "THE OFFSET THE GAZETTEER WAS MISSING. Clark, Filer & Co. already stand in the gazetteer anchored on “the corner of Randolph st.” with no distance; this printing carries the distance — some number of doors EAST of that corner, on South Water street — and 1834-12-17 page 4 column 1 sets the same clause as “doors east of th[e corner]”. The numeral itself is cut in every December printing: 1834-12-03 reads it as a stray “4”, this one as “bre”, which is three with its t gone. Three is therefore the reading and it is bracketed, because one OCR fragment is not a measurement. The firm's name is taken from the 1834-12-03 printing (page 4 column 1, “CLARK, F[ILER] & Co.”), which this column loses.",
+      "ad_copy_date": {
+        "verbatim": "~Ghicage, Sena i0, 18:",
+        "iso": "1834-06-10"
+      },
+      "business": {
+        "name": "Clark, Filer & Co.",
+        "proprietors": [
+          "Clark, Filer & Co."
+        ],
+        "trade": "cabinet and chair ware house, and sign and ornamental painting",
+        "goods": [
+          "chairs",
+          "sofas",
+          "sideboards",
+          "bureaus",
+          "tables",
+          "bedsteads",
+          "cradles",
+          "music stools"
+        ],
+        "street": "South Water street",
+        "placement": {
+          "class": "relative",
+          "anchor": "the corner of Randolph street",
+          "offset_text": "“bre doors east"
+        }
+      }
+    },
+    {
+      "id": "c006",
+      "kind": "business",
+      "reading": "transcription_mediated",
+      "quote": "oft PUBL\nalrig E. WE!\ninto ‘AS opened a T\n* Froi H 18 talles Sout!\n| ‘and; leading t\nthe} be farninl\noye - try afford\nBE give him:\nons on hand N and ¢",
+      "normalized": "PUBL[IC HOUSE.] E. WE[NTWORTH] [H]AS opened a T[AVERN] 18 [mi]les Sout[h of Chicago, on the road] leading t[o Ottawa. … His table will] be furnish[ed with the best the coun]try afford[s, and … those who] give him [a call … He keeps] on hand [COR]N and [OATS].",
+      "locator": {
+        "artifact_role": "primary",
+        "issue_page": 4,
+        "column": 1,
+        "lines": [
+          3796,
+          3805
+        ],
+        "lines_of_claim": [
+          3796,
+          3797,
+          3798,
+          3799,
+          3800,
+          3801,
+          3802,
+          3803,
+          3804
+        ],
+        "interleaved": true
+      },
+      "entities": [
+        {
+          "as_printed": "E. WE!",
+          "normalized": "E. Wentworth",
+          "role": "proprietor",
+          "occupations": [
+            "tavern keeper"
+          ]
+        }
+      ],
+      "notes": "EIGHTEEN MILES, AND THIS PRINTING IS WHERE THE NUMBER IS LEGIBLE. The gazetteer carries three separate Wentworth tavern entries from earlier reads — on Flag Creek, on the road to Ottawa, and one with no placement at all — and none of them states the distance. Here it sets as “18 talles Sout”, and 1834-12-17 page 4 column 1 as “1d reiles South of C”, both reading eighteen; 1834-12-03 loses the digits entirely. Eighteen miles south of Chicago on the Ottawa road puts the house well beyond the modelled town and outside the scene, which is exactly why it is worth recording: it fixes the road's stages, and the road is a thing the reconstruction has to point somewhere.",
+      "business": {
+        "name": "E. Wentworth",
+        "proprietors": [
+          "E. Wentworth"
+        ],
+        "trade": "tavern",
+        "goods": [
+          "entertainment",
+          "corn",
+          "oats"
+        ],
+        "street": null,
+        "placement": {
+          "class": "relative",
+          "anchor": "the road from Chicago leading to Ottawa",
+          "offset_text": "H 18 talles Sout"
+        }
+      }
+    },
+    {
+      "id": "c007",
+      "kind": "business",
+      "reading": "transcription_mediated",
+      "quote": "Blacksmithin\nMATTHIAS MA\nCARAIES on tha abo\nsite the Tremont Hous\nvarious",
+      "normalized": "Blacksmithin[g Business.] MATTHIAS MA[SON & CO.] CAR[R]IES on tha[t business in all its] various [branches, on Main-street, oppo]site the Tremont Hous[e, where they intend to keep, ready made, all kinds of Shoes, Chains, &c. &c. Work done on the shortest notice, and most liberal terms.]",
+      "locator": {
+        "artifact_role": "primary",
+        "issue_page": 4,
+        "column": 4,
+        "lines": [
+          4419,
+          4430
+        ],
+        "lines_of_claim": [
+          4419,
+          4420,
+          4422,
+          4426,
+          4427
+        ],
+        "interleaved": true
+      },
+      "entities": [
+        {
+          "as_printed": "MATTHIAS MA",
+          "normalized": "Matthias Mason",
+          "role": "proprietor",
+          "occupations": [
+            "blacksmith"
+          ]
+        }
+      ],
+      "notes": "T-0330: THE FRAGMENT IS MASON'S, AND IT IS SETTLED WITHOUT THE PAGE IMAGES. T-0294 read this column, found “[oppo]site the Tremont Hous[e]” four lines from Mason's headline, and refused to give it to him because the lines around it are a dry-goods list belonging to the other physical column woven into this one — a placement assigned across an interleave is what this schema's `interleaved` flag exists to stop. The refusal was right on the evidence T-0294 had. It is answered by evidence it did not consult: THE SAME STANDING ADVERTISEMENT IS SET IN AN UN-WOVEN COLUMN THREE TIMES IN THE THIRTEEN WEEKS BEFORE THIS ONE, and there the line reads whole. 1834-11-19, issue page 4 column 4, lines 3661-3669, is the fullest: “various branches, on Main-street, [oppos]ite the Tremont House, where they inte[nd to] [k]eep, ready made, all kinds of Shoes, Ch[ains]” — read and recorded at the time as that issue's c008. 1834-10-15 lines 2101-2103 and 1834-09-10 lines 2523-2525 set the same sentence the same way. Street, anchor and the clause that follows are one continuous run of Mason's own copy, so the December fragment is his and nothing is assigned across the interleave: the interleave is only what SPLIT it.\n\nTHE COPY WAS RE-SET DURING 1834 AND THAT IS WHY THE ANCHOR LOOKS NEW. From 1833-12-17 to 1834-07-16 the same advertisement, under the same 26 November 1833 copy date, reads “on Main-street, nearly opposite Graves' Tavern” — 1833-12-24 line 131 carries it unbroken in one line. From 1834-09-10 it reads “on Main-street, oppo[s]ite the Tremont House”. Same street, same shop, a changed landmark; the dateline was never re-set. Nothing here decides whether the shop moved or the neighbour's name did, and nothing is inferred from it.\n\nTHE OTHER ADVERTISEMENT IS IDENTIFIED AND IT IS PLACED — see c011. It is P. F. W. Peck's standing “New Goods!!”, and its own heading in THIS column gives its address, so it needed no part of Mason's. Its goods list never names the Tremont House in the one complete setting of it the corpus holds (1834-07-23, issue page 4 column 4, lines 4408-4475).\n\nTWO CORRECTIONS TO T-0294'S READING OF THIS CLAIM. Line 4429, “rieens, merino clotin”, was quoted as Mason's and is not: it is “[beave]rteens, merino cloths” from Peck's dry-goods list, matching 1834-07-23 line 4421 word for word, and it is moved to c011. And the copy date at line 4430 IS Mason's, not a shared line: 1834-11-19 prints “Chicago, Nov. 26, 1833” directly under his advertisement in an un-woven column, and Peck's own dateline is 18 June 1834. It is recorded here as `ad_copy_date`.\n\nThe quote below stands in the segmenter's line order, which is not the reading order: line 4426 is printed after 4427 in Mason's own copy and the weave inverted them.",
+      "business": {
+        "name": "Matthias Mason",
+        "proprietors": [
+          "Matthias Mason"
+        ],
+        "trade": "blacksmith",
+        "goods": [
+          "Shoes",
+          "Chains"
+        ],
+        "street": "Main Street",
+        "placement": {
+          "class": "relative",
+          "anchor": "the Tremont House",
+          "offset_text": "site the Tremont Hous\nvarious",
+          "offset_normalized": "on Main-street, opposite the Tremont House",
+          "street": "Main Street",
+          "note": "THE STREET NAME IS PRINTED AND IS NOT CORRECTED HERE. Chicago's plat carries no Main Street and this reconstruction holds none, so the placement rests on the ANCHOR — the Tremont House, which this model does hold — and not on the street word. 1834-11-19 c008 left the same two readings open and this claim leaves them open too: the paper using “Main street” loosely for the town's principal street, or a compositor's mis-set name. The verbatim offset text above is the December setting's own; the un-woven 1834-11-19 setting is what shows the two fragments to be one sentence."
+        }
+      },
+      "ad_copy_date": {
+        "verbatim": "Chacngo, Nor. 26, 1833.",
+        "iso": "1833-11-26"
+      }
+    },
+    {
+      "id": "c008",
+      "kind": "business",
+      "reading": "transcription_mediated",
+      "quote": "nable Tailoring.\naber begs leave to inform the cit-\nne best establiehments in the art\ntheir business ti\nANDREWS & EELLS.\nL. 22, 1834.\ndy Sade Clothing, on hund.\ncompetent journeymen wil mee\napplying as above.",
+      "normalized": "[Fashio]nable Tailoring. [The subscri]ber[s] beg[] leave to inform the cit[izens of Chicago … having had experience in] the best establishments in the art [… by a strict attention to] their business t[o merit a share of public patronage.] ANDREWS & EELLS. [Oc]t. 22, 1834. [Rea]dy Made Clothing, on hand. […] competent journeymen wil[l meet with employment by] applying as above.",
+      "locator": {
+        "artifact_role": "primary",
+        "issue_page": 3,
+        "column": 2,
+        "lines": [
+          2894,
+          2919
+        ],
+        "lines_of_claim": [
+          2894,
+          2895,
+          2903,
+          2910,
+          2911,
+          2913,
+          2915,
+          2917,
+          2918
+        ],
+        "interleaved": true
+      },
+      "entities": [
+        {
+          "as_printed": "ANDREWS & EELLS.",
+          "normalized": "Andrews & Eells",
+          "role": "proprietor",
+          "occupations": [
+            "tailor"
+          ]
+        }
+      ],
+      "notes": "THE SAME ADVERTISEMENT AS 1834-12-03 c016, AND IT CARRIES TWO CLAUSES THAT PRINTING LOSES: ready-made clothing kept on hand, and a standing want of competent journeymen. It is recorded as its own claim rather than folded into the other because the epic's unit is the PRINTING, and because the two clauses are the ones that say what the shop actually was — a bespoke tailor also selling off the peg, and hiring. Three tailoring houses want journeymen in this one month (see 1834-12-03 c005, S. Lincoln); no placement is added here, the Tremont House anchor being carried by the other claim.",
+      "ad_copy_date": {
+        "verbatim": "L. 22, 1834.",
+        "iso": "1834-10-22"
+      }
+    },
+    {
+      "id": "c009",
+      "kind": "business",
+      "reading": "transcription_mediated",
+      "quote": "aa] Boot & S\nto! FMVHE subscriber he\nmai > BL” the above busin.\nwh hen's!\nma a good\nwit muited to the call of (\ndee wishing Fine Boots, w\nyal modated with the beat\ntile ble atyle. Mout kind,\nee i on hand, or made i ¢\ntol _Shicane, Dee. 18,1",
+      "normalized": "Boot & S[hoe Making.] [T]HE subscriber h[aving recently commenced] the above busin[ess, next door to Co]hen's [Store, has on hand] a good [assortment of work] suited to the call of [the country … Those] wishing Fine Boots, w[ater proof, can be accom]modated with the best [material and in the most fashiona]ble style. Most kind[s of work kept constantly] on hand, or made to o[rder on short notice. L. W. MONTGOMERY.] [C]hica[g]o, De[c]. 15, 18[33].",
+      "locator": {
+        "artifact_role": "primary",
+        "issue_page": 4,
+        "column": 1,
+        "lines": [
+          3818,
+          3829
+        ],
+        "lines_of_claim": [
+          3818,
+          3819,
+          3820,
+          3821,
+          3822,
+          3824,
+          3825,
+          3826,
+          3827,
+          3828,
+          3829
+        ],
+        "interleaved": true
+      },
+      "entities": [],
+      "notes": "THE THIRD FRONTAGE IN THE ROW. T-0313 read this shop in April 1834 as an unattributed “boot and shoe shop next door to P. Cohen's store”; the December printings give the proprietor's name — L. W. MONTGOMERY, legible at 1834-12-03 page 4 column 1 — and the copy date, 15 December 1833, which makes it one of the oldest continuously advertised storefronts in the corpus. Cohen's own advertisement in this month places HIM next door below Newberry and Dole's store house on south water street (1834-12-03 c002), so the chain Newberry & Dole → Cohen → Montgomery is documented end to end, on one street, by two advertisements that do not mention each other. The street on this claim is inherited from Cohen's and is stated as such rather than read off this notice, which prints none.",
+      "ad_copy_date": {
+        "verbatim": "_Shicane, Dee. 18,1",
+        "iso": "1833-12-15"
+      },
+      "business": {
+        "name": "L. W. Montgomery",
+        "proprietors": [
+          "L. W. Montgomery"
+        ],
+        "trade": "boot and shoe making",
+        "goods": [
+          "boots",
+          "shoes"
+        ],
+        "street": "South Water street",
+        "placement": {
+          "class": "relative",
+          "anchor": "Cohen's Store",
+          "offset_text": "hen's!"
+        }
+      }
+    },
+    {
+      "id": "c010",
+      "kind": "business",
+      "reading": "transcription_mediated",
+      "quote": "Fs PRECASO\nrit D. GR\n‘a he hae commenced ihe\nm town, on South Water-s\n‘pee st veel Newbury fats\nwill always keep on\nit wn, as low\nOrders from a distance\n' March 25, 1804",
+      "normalized": "[CHICAGO BAKERY.] D. GR[AVES … ] he has commenced the [Baking business in this] town, on South Water-s[treet, a few doors … ] [of Me]ssrs. Newbury [& Dole's store. He] will always keep on [hand fresh Bread,] Cakes, &c. &c. [and is ready to supply the citizens of the to]wn, as low as [any … ] Orders from a distance [attended to.] March 25, 18[3]4.",
+      "locator": {
+        "artifact_role": "primary",
+        "issue_page": 4,
+        "column": 1,
+        "lines": [
+          3906,
+          3916
+        ],
+        "lines_of_claim": [
+          3906,
+          3907,
+          3909,
+          3910,
+          3911,
+          3912,
+          3914,
+          3915,
+          3916
+        ],
+        "interleaved": true
+      },
+      "entities": [
+        {
+          "as_printed": "D. GR",
+          "normalized": "D. Graves",
+          "role": "proprietor",
+          "occupations": [
+            "baker"
+          ]
+        }
+      ],
+      "notes": "A FOURTH BUSINESS HUNG OFF NEWBERRY & DOLE'S, WHICH MAKES THAT STORE HOUSE THE MOST USED ANCHOR IN THE CORPUS. Cohen is next door below it, Montgomery next door to Cohen, J. B. Brown's Dearborn-street grocery cites it, and the Chicago Bakery stands a few doors from it on South Water street. The gazetteer carries both a `chicago_bakery` and a `d_graves` keyed apart on the same trade and the same anchor, which is T-0304's firm-merge problem in miniature; this claim does not merge them, it records the printing. The relation word — whether the bakery is above or below the store — is cut away in all four December settings.",
+      "ad_copy_date": {
+        "verbatim": "' March 25, 1804",
+        "iso": "1834-03-25"
+      },
+      "business": {
+        "name": "D. Graves",
+        "proprietors": [
+          "D. Graves"
+        ],
+        "trade": "baker",
+        "goods": [
+          "bread",
+          "cakes"
+        ],
+        "street": "South Water street",
+        "placement": {
+          "class": "relative",
+          "anchor": "Messrs. Newbury & Dole's store",
+          "offset_text": "‘pee st veel Newbury fats"
+        }
+      }
+    },
+    {
+      "id": "c011",
+      "kind": "business",
+      "reading": "transcription_mediated",
+      "quote": "lew Geods!!\nD SOUTH-WATER\nODS.\nhich he offers for sale\ni or country\nstock,\nwhich\nind English\nSatti-\nuslina, ginghatns, cal-\nrieens, merino clotin",
+      "normalized": "[N]ew Goods!! [P. F. W. PECK, CORNER OF LASALLE AN]D SOUTH-WATER [STS. HAS just received from New-York, a full stock of fresh GOODS, adapted to the spring and fall demand,] [w]hich he offers for sale [at very low prices for cash] [o]r country [produce. The following is a brief summary of the many articles comprising his] stock, which [is too numerous to detail at length. Dry Go]ODS. [Super fine Broad Cloths, Cassimeres,] Satti-[netts, Baize, home made a]nd English [Flannels, fustians, corderoys, beave]rteens, merino clot[hs and circassians, French m]uslins, ginghams, cal-[icos …]",
+      "locator": {
+        "artifact_role": "primary",
+        "issue_page": 4,
+        "column": 4,
+        "lines": [
+          4402,
+          4429
+        ],
+        "lines_of_claim": [
+          4402,
+          4405,
+          4408,
+          4411,
+          4414,
+          4416,
+          4417,
+          4423,
+          4425,
+          4428,
+          4429
+        ],
+        "interleaved": true
+      },
+      "entities": [],
+      "notes": "THE OTHER HALF OF T-0330'S INTERLEAVE, NAMED. This is the advertisement whose dry-goods list is woven line by line through Mason's blacksmithing notice in issue page 4 column 4, and for which T-0330 asks that a placement be stated or recorded as absent. It is stated: the heading survives in THIS column at lines 4402 and 4405, “[N]ew Goods!!” over “[CORNER OF LASALLE AN]D SOUTH-WATER [STS.]”, so the advertiser gives his own corner and never needed the Tremont House.\n\nTHE PROPRIETOR'S NAME DOES NOT SURVIVE IN THIS SETTING and is not read off the heading, which carries only the address line. He is identified from the corpus's one complete setting of the same standing advertisement — 1834-07-23, issue page 4 column 4, lines 4408-4475: “New Goods! New Goods! P. F. W. PECK, CORNER OF LASALLE AND SOUTH-WATER STS.” — on a verbatim, IN-ORDER match of the surviving goods list to it: Sattinetts (4425 ↔ 4419), and English Flannels (4423 ↔ 4420), beaverteens then merino cloths (4429 ↔ 4421), muslins, ginghams, calicos (4428 ↔ 4422). The address line and the goods sequence agree, and no other advertiser in the corpus sets that list under that corner. Identification `inferred` on that match, not attested in this issue.\n\nNO ENTITY IS RECORDED FOR THIS CLAIM. The only name it could carry is one this printing does not print, and a person minted from another issue's setting would be a person this column never named. The business is recorded because the trade, the goods and the corner are all on this page; the man is not. Line 4429 was quoted as Mason's by T-0294 and belongs here. Its own dateline does not survive in this column either, so no `ad_copy_date` is recorded — the corpus holds 18 June 1834 for this advertisement from its other settings.",
+      "business": {
+        "name": "P. F. W. Peck",
+        "proprietors": [
+          "P. F. W. Peck"
+        ],
+        "trade": "dry goods, hardware, hollow ware, groceries, boots and shoes, saddlery, drugs, hats and ready made clothing",
+        "goods": [
+          "Dry Goods",
+          "English Flannels",
+          "Sattinetts",
+          "merino cloths",
+          "muslins",
+          "ginghams",
+          "calicos"
+        ],
+        "street": "South Water Street",
+        "placement": {
+          "class": "corner",
+          "anchor": "corner of LaSalle and South Water streets",
+          "offset_text": "D SOUTH-WATER",
+          "offset_normalized": "[CORNER OF LASALLE AN]D SOUTH-WATER [STS.]",
+          "street": "South Water Street",
+          "note": "The address line is cut to its tail in this setting and the head is supplied from the complete 1834-07-23 setting of the same advertisement. What THIS printing carries on its own is “SOUTH-WATER” under a “New Goods!!” headline; the LaSalle corner is the 07-23 reading, and both are named above rather than merged into one quotation."
+        }
+      }
+    },
+    {
+      "id": "c012",
+      "kind": "building",
+      "reading": "transcription_mediated",
+      "quote": "cie 2° To Let.\non Lot 2, in block 1, on North\n[uncertain: Wunns]\n[uncertain: Appiy to]\ne, 1631.—00\nD. WEAVER.",
+      "normalized": "[For Sale or] To Let, [THE building] on Lot 2, in block 1, on North […] [Apply to] D. WEAVER. […] — the dateline is set '[e], 1631.—00' and carries no legible day or month.",
+      "locator": {
+        "artifact_role": "primary",
+        "issue_page": 3,
+        "column": 3,
+        "lines": [
+          3139,
+          3144
+        ],
+        "lines_of_claim": [
+          3139,
+          3140,
+          3141,
+          3142,
+          3143,
+          3144
+        ]
+      },
+      "entities": [
+        {
+          "as_printed": "D. WEAVER.",
+          "normalized": "D. Weaver",
+          "role": "advertiser"
+        }
+      ],
+      "notes": "THE THIRD OF FIVE PRINTINGS OF D. WEAVER'S ADVERTISEMENT. The worst-set of the five everywhere except at the one place T-0328 asks about: the heading is 'cie 2° To Let.', two whole lines survive only as '[uncertain: Wunns]' and '[uncertain: Appiy to]', the dateline is 'e, 1631.—00' — and the lot line is 'on Lot 2, in block 1, on North', clean at the digit. That is worth stating plainly, because it is the shape of the evidence: this column's scan is bad at display type and at figures in a dateline, and good at body type in a running line. Four of the five printings read Lot 2; only 1834-12-17 reads Lot 9. No `ad_copy_date`: the dateline here carries no legible day or month at all.\n\nT-0350 DECIDED THE COPY DATE ON 2026-08-29 AND THIS CLAIM STILL CARRIES NONE, DELIBERATELY. The advertisement's copy date is 12 November 1834; the ticket asks that a claim without an `ad_copy_date` either gain one or say why it does not, and this is the why. `ad_copy_date.verbatim` is a field for THIS setting's own dateline, and this setting has no dateline to put in it: “e, 1631.—00” carries no day and no month at all. Copying another column's reading into this one would make the field say that this printing prints something it does not, which is the failure the field exists to prevent. What this setting DOES contribute to the reading is its key — “—00” is the same “—50” the six others carry, its last figure lost the same way its date was — and that is evidence about the notice, recorded here in the notes where an inference belongs, rather than in a field reserved for verbatim type.\n\nTHE COPY DATE IS 12 NOVEMBER 1834, DECIDED BY T-0350 OVER SEVEN PRINTINGS AND BY THE PAPER'S OWN INSERTION KEY. The advertisement ran SEVEN times, not five: it opens in Vol. I No. 50 of 1834-11-12 (c015) and No. 51 of 1834-11-19 (c012), two settings T-0328's tally did not have because neither is findable by the advertiser's name — 1834-11-12 sets it “D. WEAVE.R” and the surviving span of 1834-11-19 prints no name at all. They were found by searching the run for the notice's own body text instead. The datelines across the seven: Nov. 12 at 1834-11-12, 1834-11-19, 1834-11-26 and 1834-12-03; Nov. 13 at 1834-12-17; Nov. 19 at 1834-12-24; and no legible day or month at 1834-12-10. Four to one to one.\n\nAND THE TALLY IS NOT WHAT DECIDES IT — THE ADVERTISEMENT'S OWN KEY DOES. Every legible setting tails its dateline with the figure 50: “1834.—50” at 1834-11-19 and “1881-50” at 1834-11-26, “1831. SO” at 1834-12-03, “1631.—00” at 1834-12-10, “1834-SD” at 1834-12-24 and “1831 -5)” at 1834-11-12. In this paper that trailing figure is not part of the date: it is THE NUMBER OF THE ISSUE THE COPY IS KEYED TO, the first number published on or after the dateline. It is checkable on other advertisers in the same columns — J. Bates's blacksmith-tools notice sets “Nov. 5, 1834.—49” and Vol. I No. 49 was published on 5 November; a For Sale notice sets “Nov. 26, 1834-52” against No. 52 of 26 November; two December notices set “Dec. 16, 1834.-3” and “Dec. 11, 1834.-3” against Vol. II No. 3, the first number published after either date. Vol. I No. 50 was published on 12 NOVEMBER 1834, so a key of 50 admits only a dateline falling after 5 November and on or before 12 November. Nov. 13 and Nov. 19 both fall outside it and would key 51; Nov. 12 is the only one of the three readings the key allows, and it is the reading four of the seven settings print.\n\nTHE KEY IS A FUNCTION OF THE DATELINE, NOT A CLAIM ABOUT FIRST APPEARANCE, and that distinction is kept because one of the four control notices breaks the looser version: Bates's “Nov. 5, 1834.—49” does not itself stand in No. 49 of 5 November, but first appears in No. 50. The key records the week the copy was handed in. For this notice the two coincide anyway — it is absent from No. 49 of 1834-11-05 and from No. 48 of 1834-10-29 (checked; the “For Sale or Rent” standing in both is G. Blanshard's, a different notice), and it first stands in No. 50.\n\nTHE TICKET'S DOUBT IS ANSWERED RATHER THAN OVERRIDDEN. T-0350 weighed 12 against 19 partly on the ground that Nov. 12 would be a fortnight before the notice's first appearance where Nov. 19 would be a week. Both halves rested on 1834-11-26 being the first appearance; it is the third. Dated 12 November the notice is dated the day it first ran, which is the same-day pattern “Nov. 5, 1834.—49” and “Nov. 26, 1834-52” show.\n\nNOTHING IS AMENDED TO AGREE WITH ANYTHING. Every printing keeps its own verbatim dateline, including the two that read 13 and 19, and each claim's `ad_copy_date.verbatim` is that setting's own text. The dossier is docs/RESEARCH/weaver_building_north_water_block_1.md."
+    }
+  ]
+}

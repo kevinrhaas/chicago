@@ -1,0 +1,173 @@
+{
+  "id": "lasalle_lake_house",
+  "phase": "documented_1834",
+  "name": "The house at the corner of LaSalle and Lake",
+  "aka": [
+    "the 16 by 30 foot house, Lasalle and Lake"
+  ],
+  "archetype": "frame_dwelling",
+  "asset": "gltf/lasalle_lake_house__documented_1834.glb",
+  "scene": "1835",
+  "target_date": "1835-07-01",
+  "documented_range": {
+    "from": "1834-04-22",
+    "to": "1835-12-31",
+    "confidence": "attested",
+    "sources": [
+      "chicago_democrat_1833_1835"
+    ],
+    "note": "THE BUILDING IS ATTESTED AND ITS SIZE IS PRINTED. Chicago Democrat, 21 May 1834, page 3 column 6, claim c001: '[W]E offer for sale the House on [the corner] of Lasalle and Lake streets. [It] is 16 by 30 feet, and possession can [be had on] the first day of next month.' The copy is dated Ap'l. 22 and is signed P. PRUYNE. The same notice is still running on 18 June 1834 (chicago_democrat_1834_06_18 c014), where the interleaved second half gives the price, $250, and the word 'dwelling'. THE RANGE OPENS on the copy date, 22 April 1834, because that is the first day a source puts the house in existence — it was standing and untenanted then, and still advertised a month later. THE CLOSE IS THE ORDINARY CONTINUITY ARGUMENT and it is untested: nothing reached mentions the house again, and 1835-12-31 is the last date this record needs rather than a date anything attests. What is genuinely unknown is the sale: whether it sold on the first of June 1834, to whom, and who lived in it fourteen months later on the scene date."
+  },
+  "change_note": "The house the Chicago Democrat offered for sale on the corner of LaSalle and Lake — sixteen feet by thirty, $250, possession on the first of the month — standing on the one quarter of that crossing the town had left empty. The size is the paper's; the corner, the storeys and the finish are not.",
+  "placement": {
+    "local_e": 465.562,
+    "local_n": -99.772,
+    "rotation_deg": 0.463,
+    "position_confidence": "reconstructed",
+    "position_sources": [
+      "chicago_democrat_1833_1835"
+    ],
+    "position_note": "THE CROSSING IS ATTESTED AND THE QUARTER IS NOT. The notice gives 'the corner of Lasalle and Lake streets' and no side, exactly as Andreas gives no side for old_bank_building at the same crossing, so the corner is a one-in-four choice and the whole position is graded at that choice rather than at the crossing. THE QUARTER WAS CHOSEN ON GROUND, NOT ON EVIDENCE, AND THAT IS WHY IT IS RECONSTRUCTED. Each of the four quarters is the corner lot of a committed platted block: south-east is blk_lake_lasalle lot 0, which already carries old_bank_building and recon_1835_south_d4_009; south-west is blk_lake_wells lot 6, carrying inf_teamster_dwelling_south and two anonymous roofs; north-west is blk_south_water_wells lot 7, carrying recon_1835_blk_south_water_wells_d3_04. The north-east quarter — blk_south_water_lasalle lot 1, plat lot 5 of that block — is the only one of the four carrying no committed roof at all, and it is the single free lot the 665-roof programme records for its block. Standing the house there displaces nothing and re-deals no parcel; standing it on any other quarter would have moved a record that is already placed, on no better evidence than this one has. THAT IS A PRODUCTION REASON AND NOT A READING, so it buys no confidence: if a source ever names the side, this record moves and the move costs nothing. THE COORDINATE IS COMPUTED FROM THE COMMITTED PLAT, NOT TYPED. Lot 1 of blk_south_water_lasalle is bounded on the south by the Lake Street frontage line from local ENU (464.05, -101.26) to (488.81, -101.46) and on the west by the LaSalle frontage line running north from that same south-west corner. The house's own south-west corner is set 1.50 m inward from each — LOT_MARGIN_M, the margin tools/plat_occupancy.py keeps off every lot line and the same setback old_bank_building carries across the street — and the facade bearing 0.463 deg clockwise from grid north is the Lake frontage line's own bearing, so the front wall stands parallel to the street rather than to the UTM grid. Measured on the placed polygon: 1.500 m clear of the Lake line, 1.503 m clear of the LaSalle line, and the front range runs 9.144 m east along a 24.76 m frontage, leaving the rest of the lot open. WORKING UNCERTAINTY: about 20 m from the plat's own georeference, plus about 40 m for the choice of quarter — the four candidates are that far apart.",
+    "symbolic_location": "South Division, the north-east quarter of the Lake Street / LaSalle Street crossing — the Lake Street frontage of the block bounded by South Water, Clark, Lake and LaSalle, hard against the LaSalle corner",
+    "uncertainty_m": 20,
+    "placement_provisional": false,
+    "vertical_anchor": "terrain",
+    "walk_surface_m": null
+  },
+  "footprint": {
+    "polygon": [
+      [
+        0,
+        0
+      ],
+      [
+        9.144,
+        0
+      ],
+      [
+        9.144,
+        4.8768
+      ],
+      [
+        0,
+        4.8768
+      ]
+    ],
+    "confidence": "attested",
+    "sources": [
+      "chicago_democrat_1833_1835"
+    ],
+    "note": "16 BY 30 FEET, PRINTED. 9.144 x 4.8768 m is 30 x 16 ft exactly, and it is the whole reason this building is worth raising: it is a plan dimension from the paper rather than an archetype's deal, which is what every other house on these blocks stands on. WHICH DIMENSION RUNS ALONG LAKE IS NOT STATED, and this record does not pretend otherwise — the assumption is carried as form.gable_orientation, graded there, and the polygon draws it: 30 ft of front on Lake Street, 16 ft of depth running north into the lot. THE FOUR HUNDRED AND EIGHTY SQUARE FEET IS THE ATTESTED PART; the orientation is the assumption laid over it, and rotating the rectangle 90 degrees is a one-line change to this polygon if a source ever settles it."
+  },
+  "attributes": {
+    "gable_orientation": {
+      "value": "eaves_front_on_lake",
+      "confidence": "inferred",
+      "sources": [
+        "chicago_democrat_1833_1835"
+      ],
+      "note": "THE ASSUMPTION THE NOTICE DOES NOT MAKE, STATED RATHER THAN LEFT SILENT — required by this record's ticket and by the claim's own reading note, which says in terms that WHICH of the two dimensions runs along Lake is not printed. Two things argue the 30 ft face is the front. FIRST, THE PLAN: 16 ft is a single-pile depth — one room deep, the ordinary small-house section of the period — while a 16 ft front on a 30 ft depth is a double-pile plan, which is not what $250 bought in Chicago in 1834. The claim's own note reaches the same reading: 'the 30-foot dimension is almost certainly the frontage-or-depth of a single-pile plan'. SECOND, THE FORM: this project's frame_dwelling archetype builds an EAVES-FRONT house, ridge parallel to the facade, because that is the 1835 form here — the gable-front house is a Greek Revival habit that arrives with the Clarke House in 1836 — so the long dimension is the front by the same argument that shapes every other dwelling in the town. WHAT IS STILL A GUESS, AND IT IS A DIFFERENT ONE: that the front faces LAKE rather than LASALLE. Lake Street was the town's principal street and the notice names the house by a corner on it, but the printing does not say, and on the north-east quarter either street could carry the door. The fork is recorded here rather than resolved silently; turning the house to face LaSalle is a rotation of this record and nothing else.",
+      "geometry": "record_only"
+    },
+    "stories": {
+      "value": 1,
+      "confidence": "reconstructed",
+      "note": "Nothing is attested. One is recorded because it is the smaller claim and because the price argues for it: $250 in 1834 Chicago is a modest cottage, not a house with chambers over. A storey and a half would be as defensible on the size alone and is not chosen, on the rule that where two readings fit the evidence this dataset takes the one claiming less."
+    },
+    "wall_height_m": {
+      "value": 2.75,
+      "confidence": "reconstructed",
+      "note": "No figure is attested for this house. 2.75 m is the archetype's own single-storey figure, built up from the one attested ceiling height in this dataset — the Green Tree's 7 1/2 ft — plus floor structure. It inherits the storey count's uncertainty and is no better than that."
+    },
+    "roof_type": {
+      "value": "gable",
+      "confidence": "inferred",
+      "note": "Not attested. Gable is the near-universal roof form for a small frame dwelling of this period and region, and the archetype builds gable and shed only; a shed roof over a 4.88 m range on a house offered for sale is not the form."
+    },
+    "roof_pitch_deg": {
+      "value": 40.0,
+      "confidence": "reconstructed",
+      "note": "No pitch is attested. 40 degrees is the archetype's dwelling default, which is what a shallow single-pile range carries here; it is a type-level choice and not evidence about this house."
+    },
+    "construction": {
+      "value": "braced_frame",
+      "confidence": "inferred",
+      "sources": [
+        "chicago_democrat_1833_1835"
+      ],
+      "note": "Not stated in the notice, and inferred from date, place and vendor. The 1834-35 south-side stock this project's dossiers record is overwhelmingly frame and log with no brick dwelling of consequence before 1837, and the man advertising this house is P. Pruyne, the timber merchant whose own notice a fortnight earlier sizes the town's structural sticks (chicago_democrat_1834_05_07 c012). Braced rather than balloon frame follows the Sauganash record's argument. A log house would be a log_dwelling record and the archetype refuses to build one as frame, so this choice is made here rather than hidden."
+    },
+    "plan": {
+      "value": "hall_parlour",
+      "confidence": "reconstructed",
+      "note": "Nothing is attested about the interior. Hall-and-parlour is the archetype's default two-room plan and is what 480 square feet on one floor holds; the claim's reading note calls it 'a small two-room or three-room dwelling'. A type-level choice, not evidence."
+    },
+    "bays": {
+      "value": 3,
+      "confidence": "reconstructed",
+      "note": "Not attested. Three openings across a 30 ft front is the ordinary arrangement for a hall-and-parlour house; the count is the archetype's, not the paper's."
+    },
+    "chimneys": {
+      "value": 1,
+      "confidence": "reconstructed",
+      "note": "Not attested. One is the minimum for a Chicago dwelling used through a winter; the stack's position, size and material are the archetype's, per docs/LIBERTIES.md L26."
+    },
+    "paint": {
+      "value": "unpainted",
+      "confidence": "reconstructed",
+      "note": "Not attested. Unpainted is this town's default finish for frame stock of the period; a $250 cottage is not the record to invent paint on."
+    },
+    "siding_exposure_m": {
+      "value": 0.114,
+      "confidence": "reconstructed",
+      "note": "INVENTED WITHIN A STOCK SET, NOT DERIVED. No source states the exposed face of any Chicago building's siding. The value is one of four period mill sidings — 4.5, 5, 5.5 or 6 in to the weather; this record wears 4.5 in — dealt by tools/deal_siding_stock.py: keyed to the phase's construction season, because buildings sided from the same season's shipments of St Joseph sawn lumber tend toward one stock, then advanced so no frame building within 60 m shares this one's. The separation is the surface variety T-0049 reconstructs, not a claim about 1835. docs/LIBERTIES.md L148 owns the invention."
+    },
+    "function": {
+      "value": "dwelling",
+      "confidence": "attested",
+      "sources": [
+        "chicago_democrat_1833_1835"
+      ],
+      "note": "The notice calls it a House, and the June printing of the same copy calls it a dwelling House. That is the function attested and the only one; whether it was occupied on 1835-07-01 is a separate question this record answers nowhere."
+    },
+    "occupants": {
+      "value": "unknown — the house was untenanted and for sale in the spring of 1834, and no source names who bought or lived in it",
+      "confidence": "reconstructed",
+      "note": "DELIBERATELY EMPTY, AND NOT PRUYNE'S. P. Pruyne signs the notice as its VENDOR, so the address is the house he is selling and not the ground his own store stands on — that is T-0412's ruling, and it is recorded on business_p_pruyne_co.vendor_placements in data/research/newspapers/gazetteer.json. He is not carried here as occupant, resident or owner. The notice's own words are that possession could be had on the first of the month, i.e. that nobody was in it; who took possession, and who was in it fourteen months later on the scene date, is unattested, and this record leaves the house without a household rather than deal it one."
+    }
+  },
+  "residents": [],
+  "citations": [
+    {
+      "source_id": "chicago_democrat_1833_1835",
+      "citation": "The Chicago Democrat. Vol. I, No. 1 (November 26, 1833) through Vol. II, No. 18 (August 26, 1835). Chicago, Ill.: John Calhoun, editor and publisher. Seventy-three issues, OCR-assisted research transcriptions from page scans.",
+      "url": "",
+      "archived_url": "",
+      "tier": 1,
+      "tier_label": "period/eyewitness",
+      "what_it_supplies": [
+        "that a named trade was being carried on in Chicago in a named week, and often where",
+        "self-reported addresses, which are the strongest address evidence this project has: the advertiser was paying, and his customers had to find him",
+        "dissolution, removal and replacement notices — the only thing that keeps a documented business out of the 1835 town under the owner's ruling 3",
+        "post-office letter lists, naming residents by the hundred (ruling 1: a listed name mints a resident candidate, flagged letter_list_only)",
+        "the village and later town ordinances, printed complete — the 7 November 1833 code is the richest single item in the run",
+        "arrivals and clearances, which date the piers and the harbour as working structures",
+        "public notices that fix a building as a polling place, an auction site or a meeting place on a given day",
+        "the paper's own imprint, self-reported: the corner of South Water and Clark streets",
+        "twenty-one months of continuous weekly attestation ending three weeks before the scene date, including the issue printed on 1835-07-01"
+      ],
+      "what_it_does_not_supply": [
+        "any building's form, material, storey count, fenestration or dimensions — an advertisement describes a trade, not a building",
+        "the specific corner of any junction it names: 'on the corner of' does not say which of the four",
+        "anything at all from an engraving — see trap 1; the cuts are the printer's stock",
+        "proof that a business named in 1833 or 1834 still stood on 1835-07-01; that is ruling 3's survival liberty, and it is a liberty",
+        "an argument from silence, unless corpus.json shows the issues either side of the silence are both in the deposit",
+        "a reading that outranks a scan read of the same passage — see ruling 2 and the C. & I. HARMON case",
+        "a citation without an issue page and column"
+      ]
+    }
+  ],
+  "research_note": "A DOCUMENTED HOUSE WITH A PRINTED FOOTPRINT, WHICH IS RARE HERE: 16 by 30 feet at a named crossing, from a tier-1 contemporary advertisement, at a price. The West Division and Lake Street blocks around it deal their house sizes from archetypes; this one is measured. THE GRADES SPLIT SHARPLY AND ON PURPOSE — the footprint is attested, the function is attested, the crossing is attested, and the QUARTER of that crossing is reconstructed on a production argument (it is the only corner lot of the four with nothing standing on it) rather than on any reading. The orientation of the rectangle is a stated inference carried at form.gable_orientation, not a silence. WHAT WOULD UPGRADE IT: any printing naming the side of either street; the 1834-35 town lot records for blocks 16 and 17 of the Original Town; a deed or transfer following the June 1834 sale, which would also give the record an occupant. See T-0412 for the vendor rule that took this house off P. Pruyne & Co., and T-0783 for the ticket that built it.",
+  "research_doc": "",
+  "review_required": false
+}

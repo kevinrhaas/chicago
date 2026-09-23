@@ -1,0 +1,22 @@
+{
+  "id": "chicagology_prefire278",
+  "type": "website",
+  "citation": "\"Town of Chicago.\" Chicagology. Transcribing the Inter Ocean of 22 July 1883 — 'Old Chicago: The Town in 1833', which carries both the town's incorporation record and 'The Old Western Hotel', an interview feature with named old settlers who used the house.",
+  "date": "accessed 2026-08-10",
+  "describes_date": "1833-1837",
+  "url": "https://chicagology.com/prefire/prefire278/",
+  "tier": 2,
+  "transcribes": [
+    {
+      "work": "Inter Ocean, 'Old Chicago: The Town in 1833' — the section headed 'The Old Western Hotel: First Frame House on the West Side', with the reporter's description of the surviving fragment and interviews with old settlers and with the builder's son",
+      "date": "1883-07-22",
+      "tier": 2,
+      "note": "Carries all four Western Hotel claims in this dataset — the farmers' and teamsters' house, W. H. Stow as builder and proprietor, the original two storeys, and the large stable and wagon yard with entrances from both streets — and it carries the dispute over the build date that keeps the dated range at `inferred`. Men recalling a house they used: rung 2."
+    }
+  ],
+  "rights_status": "check_required",
+  "asset_use": "cross_check",
+  "verified": true,
+  "note": "Town limits fixed 6 November 1833 (Jackson south, Jefferson and Cook west, Ohio north — 'barely seven-eighths of a square mile'), extended 11 February 1835 east to the lake shore and out to Chicago Avenue and Twelfth Street. Also the first code of laws: pigs prohibited from wandering the streets, dead animals prohibited from the river, bridge timber theft penalised — each an ordinance that documents the behaviour it forbids. RE-READ 2026-08-10, AND THE RECORD DID NOT MENTION THE HALF THE DATASET ACTUALLY CITES. Every value resting on this source is about the WESTERN HOTEL, and this note described only the town code. The same 1883 Inter Ocean page runs 'The Old Western Hotel — First Frame House on the West Side' below the incorporation record: the reporter's description of what was left of the building in 1883, and interviews with old settlers and with W. H. Stow's son. From it come this dataset's function ('the stopping place for all the farmers town from the west', 'farmers and teamsters, who constituted the traveling public'), its occupants (Stow, builder and proprietor), its two storeys ('make it full two stories high, as it had originally been') and its stable ('the large stable and the yard into which the trains were driven. There were entrances to the yard from both streets'). That is recollection by men who used the house, so the record moves from tier 4 to tier 2 on the document rather than on the host. THE INCORPORATION HALF IS WEAKER THAN THE HOTEL HALF and is quoted on the page from Colbert's Chicago (1868), a compiled secondary account — rung 3, not 2. No value in this dataset rests on it, so it is not declared in `transcribes`; if one ever does, it does not inherit the interviews' rung. THE BUILD DATE IS THE PAGE'S OWN OPEN QUESTION, which is why western_hotel's dated range is held at `inferred`: 'When the Western Hotel was built is a disputed question, which may never be settled' — Stow said 1834, and an old settler on the same page puts it at 'about 1836 or 1837'. See the watch list in data/exclusions.json.",
+  "archived_url": "https://web.archive.org/web/20260308051207/https://chicagology.com/prefire/prefire278/"
+}

@@ -1,0 +1,21 @@
+{
+  "_doc": "Manifest for the yard layer — the goods a working town left standing on its own ground: barrels and cases on the footway at the taverns and the stores, and one wagon in the yard a source calls a wagon yard. A static host cannot be globbed, which is why this file exists: the renderer fetches this manifest and then exactly the files it names, never a probe. A barrel is NOT a structure record and NOT baked geometry — it is a small object standing on ground this project has already drawn, so it is derived from the committed footprints and placements and drawn by renderers/web/js/yard.js from these numbers alone, the same argument that lets data/enclosures/ draw a fence from a perimeter and data/signage/ hang a board off a wall. Records here are GENERATED: town_trade_goods.json is written by tools/generate_yard_goods.py from the sidecars and the wagon-yard enclosure, and lot_building_material.json by tools/generate_lot_building_material.py from the same sidecars, and tools/check.sh re-derives both byte for byte, because \"which frontage gets goods\" and \"which lot was building\" are rules and a rule has to be auditable. The evidence behind the layer is the village corporation's Ordinance 9 of 7 November 1833 — timber, stone, brick, boxes and barrels stacked in the streets (data/sources/chicago_democrat_1833_11_26.json) — which attests the treatment and no location whatever; docs/LIBERTIES.md L131 claims what is invented. T-0057 adds the second record: the timber, stone and brick half of the same Ordinance 9, standing on the one lot in this scene whose own record says the building was going up on the scene date; docs/LIBERTIES.md L173 claims what is invented there. T-0759 adds the THIRD record and it is AUTHORED, not generated: town_water_cart.json is the watering place at the foot of Randolph Street and the one water cart standing at it, placed at a point derived from the committed street line and the committed waterline rather than dealt by a rule, because no rule can derive where a waterman stood on a July morning. tools/check.sh re-derives the two generated records and does not re-derive this one, which is the same division data/boats/ and the hand-authored yards already carry; docs/LIBERTIES.md L226 claims what is invented there.",
+  "version": 3,
+  "scene": "1835",
+  "scene_date": "1835-07-01",
+  "coordinates": "Local East-North-Up metres from data/datum.json's origin — the same frame data/enclosures/ and data/signage/ and the sidecars' placement.local_e / local_n use.",
+  "yard": [
+    {
+      "id": "town_trade_goods",
+      "file": "town_trade_goods.json"
+    },
+    {
+      "id": "lot_building_material",
+      "file": "lot_building_material.json"
+    },
+    {
+      "id": "town_water_cart",
+      "file": "town_water_cart.json"
+    }
+  ]
+}

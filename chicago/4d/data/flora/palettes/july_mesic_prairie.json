@@ -1,0 +1,11 @@
+{
+ "id": "july_mesic_prairie",
+ "name": "Mesic prairie, mid-July",
+ "greens": [[58,74,42],[84,102,56],[110,128,72],[140,156,96]],
+ "dry_accent": [158,154,110],
+ "ground": {"rgb":[86,92,56],"wet_rgb":[70,72,46],"dry_rgb":[124,122,82]},
+ "wind": {"speed_mps":3.4,"gust":0.38,"sway_deg":9,"wave_m":7.5},
+ "lod": {"near_m":14,"mid_m":70,"far_m":280},
+ "budget": {"instances_near":12000,"instances_mid":40000},
+ "note": "Bluer and lighter than the wet prairie because little bluestem and dropseed carry it. Greens sampled from the July reference photographs used to judge this scene: James Woodworth Prairie Preserve, Glenview IL, 29 July 2021 (a Chicago-region tallgrass remnant) and a DuPage County tallgrass prairie, 24 July 2018. Those are modern remnants photographed in the right month at the right latitude, not evidence about 1835, which is why this record carries no source_id: colours here are render tuning and the evidence lives in the zone records."
+}

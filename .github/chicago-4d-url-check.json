@@ -1,0 +1,10 @@
+{
+  "$note": "T-0968 — the live-origin smoke deploy.yml runs after actions/deploy-pages succeeds. LOUD, NOT BLOCKING: a failed entry raises a ::error:: annotation and never fails the deploy — a hard gate on a deploy step once froze this site ~21 hours (chicago/4d/CLAUDE.md), and #1030/#1031 are the record of making a 4D step fatal in both directions. Every entry asserts a BODY signal, not only a status: a Pages 404 returns 404, but a stale or empty preview can return 200 with nothing in it. The signals below were read from the live site on 2026-09-16, not assumed. A new tenant is one line here; the code reads this list and nothing else. The origin is passed by deploy.yml from steps.deployment.outputs.page_url, so the CNAME never hardcodes in this repo. The checker proves it still fires via --self-test (a fixture origin with a URL known to 404), which tools/check.sh runs on every gate.",
+  "urls": [
+    { "path": "/", "must_contain": "<title>Custom — a workshop of made things" },
+    { "path": "/chicago/4d/", "must_contain": "Opening the <strong>4D Chicago</strong> walkthrough" },
+    { "path": "/chicago/4d/walk/", "must_contain": "id=\"gate-build\">build " },
+    { "path": "/chicago/4d/dev/", "must_contain": "id=\"__dev\"" },
+    { "path": "/chicago/4d/dev/walk/", "must_contain": "id=\"gate-build\">DEV PREVIEW · dev@" }
+  ]
+}

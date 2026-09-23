@@ -1,0 +1,6 @@
+{
+  "ticket": "T-0838",
+  "note": "The files the committed tree and a fresh run of this writer disagree on. The gate is a ratchet: a file that drifts and is not listed here fails, and a listed file that stops drifting fails too, so a spend has to shrink this list in its own commit. Regenerate with --write-baseline, never by hand. T-0837 spent the 155 files T-0838 baselined and the list is EMPTY, which is the state this ratchet exists to reach and not a disabled gate: at zero the first drift to appear fails, and --drift-self-test proves that direction explicitly rather than driving itself off this list.",
+  "count": 0,
+  "paths": []
+}

@@ -1,0 +1,5306 @@
+{
+  "$schema_note": "AUTHORED, and it authors no coordinate. Every ring below is re-derived by tools/build_survey_tracts.py from ground this project already committed; the gate rebuilds all of them and refuses any drift. Nothing here is traced off a colour.",
+  "id": "survey_tracts_1835",
+  "target_date": "1835-07-01",
+  "ticket": "T-1101 (piece 1 of T-1097, itself piece 2 of T-0792)",
+  "tool": "tools/build_survey_tracts.py",
+  "reads": [
+    "data/traces/wright_1834_legend_swatches.json",
+    "data/traces/gcp/wright_1834_nara_hup_gcps.json",
+    "data/streets/1835.json",
+    "data/traces/wabansia_seating.json",
+    "data/research/land_sales/entries.json"
+  ],
+  "why_this_file_exists": "Wright's legend is the only place on any sheet this project holds that says WHO SURVEYED WHAT GROUND AND WHEN. T-1096 measured its nine chips and found six separable colours, so the ground under a wash cannot be named from the wash. This file names it from geometry instead, and uses the washes only to check the naming and to adjudicate the two chips that name no tract.",
+  "grades": "`geometry_confidence` grades THE BOUNDARY and nothing else. `inferred` is a ring this project already committed and this file only carries. `reconstructed` is a ring built here out of committed parts — an envelope, a cut, a clip — which is a construction and says so. `conjectural` is a ring whose SHAPE is a construction but whose CHOICE of bounds rests on nothing this project holds: the Original Town's four named streets are the standard account and no source record here states them, and section 9's remainder inherits that because the notch cut out of it is that same west bound. No ring anywhere here is `documented`, because not one of the nine boundaries has been traced off a source that draws it.",
+  "the_colour_is_a_check_not_a_source": "A wash is 17 px of ink at 600 dpi, about 12 m of ground, and its class is one of six. Every boundary here is known to better than that from committed control, so reading one off a wash would be a loss of precision dressed as evidence. What the washes CAN do is agree or disagree, and where they disagree — Wabansia's absent class, chip 2's two corner bands — the record says so.",
+  "exclusions": {
+    "neat_line_px": {
+      "x0": 620,
+      "y0": 960,
+      "x1": 4400,
+      "y1": 5720
+    },
+    "legend_box_px": {
+      "x0": 2960,
+      "y0": 3740,
+      "x1": 3120,
+      "y1": 4185
+    },
+    "lacunae_px": [
+      {
+        "id": "L1",
+        "box": [
+          2040,
+          4382,
+          2152,
+          4635
+        ]
+      },
+      {
+        "id": "L2",
+        "box": [
+          2729,
+          3320,
+          2759,
+          3363
+        ]
+      }
+    ],
+    "water": "east of the committed lake shore, or in the river — Wright washed survey tracts, and a survey tract is land"
+  },
+  "section_grid": {
+    "control_point": "G1, State & Madison — the PLSS corner of sections 9/10/15/16",
+    "control_point_local_enu": [
+      837.63,
+      -525.27
+    ],
+    "bearing": -0.008115,
+    "liberty": "L219",
+    "note": "Carried, not traced. Inherited from tools/resolve_land_tracts.py."
+  },
+  "cuts": {
+    "section_9_cut": {
+      "east_gap_m": 11.93,
+      "south_gap_m": 6.12
+    },
+    "original_town_bounds_local_m": {
+      "west_e": -506.45,
+      "east_e": 825.75,
+      "south_n": -519.05,
+      "north_n": 258.97
+    }
+  },
+  "tracts": [
+    {
+      "chip": 1,
+      "id": "us_military_reservation",
+      "legend_text": "U. S. Military Reservation",
+      "legend_reading": "U.S. Military Reservation",
+      "survey_date_year": null,
+      "colour_class": [
+        1
+      ],
+      "colour_class_is_the_chip_alone": true,
+      "placed": true,
+      "polygon_local_enu_m": [
+        [
+          837.63,
+          -525.27
+        ],
+        [
+          842.05,
+          19.82
+        ],
+        [
+          850.55,
+          8.16
+        ],
+        [
+          854.03,
+          10.4
+        ],
+        [
+          856.06,
+          21.31
+        ],
+        [
+          862.98,
+          33.05
+        ],
+        [
+          870.61,
+          41.18
+        ],
+        [
+          910.32,
+          56.49
+        ],
+        [
+          938.17,
+          70.84
+        ],
+        [
+          959.02,
+          89.38
+        ],
+        [
+          979.8,
+          116.62
+        ],
+        [
+          986.64,
+          140.68
+        ],
+        [
+          1003.22,
+          171.46
+        ],
+        [
+          1024.71,
+          199.44
+        ],
+        [
+          1051.08,
+          227.52
+        ],
+        [
+          1072.66,
+          238.84
+        ],
+        [
+          1117.95,
+          256.44
+        ],
+        [
+          1175.16,
+          265.59
+        ],
+        [
+          1212.23,
+          256.21
+        ],
+        [
+          1223.47,
+          244.12
+        ],
+        [
+          1224.95,
+          230.39
+        ],
+        [
+          1244.83,
+          175.72
+        ],
+        [
+          1244.21,
+          162.67
+        ],
+        [
+          1248.56,
+          135.22
+        ],
+        [
+          1257.16,
+          98.44
+        ],
+        [
+          1257.43,
+          53.52
+        ],
+        [
+          1254.81,
+          24.48
+        ],
+        [
+          1250.7,
+          11.35
+        ],
+        [
+          1251.55,
+          -14.0
+        ],
+        [
+          1244.88,
+          -67.76
+        ],
+        [
+          1246.33,
+          -76.42
+        ],
+        [
+          1241.64,
+          -109.13
+        ],
+        [
+          1241.75,
+          -128.69
+        ],
+        [
+          1236.96,
+          -144.73
+        ],
+        [
+          1240.57,
+          -164.95
+        ],
+        [
+          1239.96,
+          -179.46
+        ],
+        [
+          1230.38,
+          -212.26
+        ],
+        [
+          1220.31,
+          -280.59
+        ],
+        [
+          1210.03,
+          -314.86
+        ],
+        [
+          1185.27,
+          -378.42
+        ],
+        [
+          1174.19,
+          -393.86
+        ],
+        [
+          1166.62,
+          -413.58
+        ],
+        [
+          1155.08,
+          -468.17
+        ],
+        [
+          1155.83,
+          -476.85
+        ],
+        [
+          1152.41,
+          -489.97
+        ],
+        [
+          1155.99,
+          -504.39
+        ],
+        [
+          1153.97,
+          -516.75
+        ],
+        [
+          1147.04,
+          -525.59
+        ],
+        [
+          1150.46,
+          -527.81
+        ]
+      ],
+      "area_m2": 265877.6,
+      "area_acres": 65.7,
+      "boundary_from": "tools/measure_no_build_ground.py reservation_ring() — the committed Fort Dearborn reservation: two constructed sides (Madison's line and the section line from G1) and the traced waterline for the third.",
+      "geometry_confidence": "inferred",
+      "geometry_note": "Inherited whole from the committed ring (L108, L182). This file neither re-derives it nor moves it.",
+      "bands_of_its_own_class_standing_on_it": 1,
+      "bands_of_any_class_standing_on_it": 4,
+      "owner_on_scene_date": {
+        "entries": [],
+        "count": 0,
+        "source_id": null,
+        "refusal": "RESERVED, not entered. The reservation is federal ground held by the War Department and the register carries no patent for it on the scene date. J. B. Beaubien's pre-emption over the south fraction of section 10 is entered 1835-05-28 and is recorded under that section, not here: it was litigated for years and the reservation is not treated as his."
+      },
+      "sources": [
+        "wright_1834_nara_hup"
+      ]
+    },
+    {
+      "chip": 2,
+      "id": "canal_commissioners_1830",
+      "legend_text": "Surveyed by Canal Com. in 1830",
+      "legend_reading": "Surveyed by Canal Com. in 1830",
+      "survey_date_year": 1830,
+      "colour_class": [
+        2
+      ],
+      "colour_class_is_the_chip_alone": true,
+      "placed": true,
+      "polygon_local_enu_m": [
+        [
+          -506.45,
+          -519.05
+        ],
+        [
+          825.75,
+          -519.05
+        ],
+        [
+          825.75,
+          258.97
+        ],
+        [
+          -506.45,
+          258.97
+        ]
+      ],
+      "area_m2": 1036473.8,
+      "area_acres": 256.12,
+      "boundary_from": "the four streets every account of the 1830 plat names as its bounds — Kinzie, State, Madison and Des Plaines — each taken from its committed line in data/streets/1835.json.",
+      "geometry_confidence": "conjectural",
+      "geometry_note": "CONJECTURAL, and for a reason worth stating: the four bounds above are the standard account of the 1830 plat, and NO source record this project holds states them. `thompson_plat_1830` carries the plat's figures — roughly 0.375 square miles, 80-ft streets, 18-ft alleys — and not its perimeter. So the streets are committed and the CHOICE of those four as the bounds is not, which is a conjecture however ordinary it sounds, and it is graded as one until a held source draws the line. What can be checked is checked: all 19 committed plat blocks fall inside the rectangle. It is also an ENVELOPE, bigger than the plat: the printed figure for the Original Town is three-eighths of a square mile; the four bounds give more, because the plat's actual west edge north of Randolph is not committed here and the rectangle carries ground the plat did not. The over-run is measured on this record rather than absorbed.",
+      "bands_of_its_own_class_standing_on_it": 0,
+      "bands_of_any_class_standing_on_it": 6,
+      "owner_on_scene_date": {
+        "entries": [
+          {
+            "purchaser": "James Kinzie",
+            "aliquot_as_read": "E2NW",
+            "acres": "80.00",
+            "date": "1830-09-28",
+            "type_of_sale": "CN"
+          },
+          {
+            "purchaser": "Thomas Hartsell",
+            "aliquot_as_read": "W2NE",
+            "acres": "80.00",
+            "date": "1830-09-29",
+            "type_of_sale": "CN"
+          },
+          {
+            "purchaser": "Thomas Hartzell",
+            "aliquot_as_read": "W2NEVO",
+            "acres": "80.00",
+            "date": "1830-09-29",
+            "type_of_sale": "CN"
+          },
+          {
+            "purchaser": "James Kinzie",
+            "aliquot_as_read": "E2NWVO",
+            "acres": "80.00",
+            "date": "1830-09-29",
+            "type_of_sale": "CN"
+          },
+          {
+            "purchaser": "Alexander Wolcott",
+            "aliquot_as_read": "E2NEVO",
+            "acres": "80.00",
+            "date": "1830-09-29",
+            "type_of_sale": "CN"
+          },
+          {
+            "purchaser": "Alexander Wolcott",
+            "aliquot_as_read": "E2NE",
+            "acres": "80.00",
+            "date": "1830-09-29",
+            "type_of_sale": "CN"
+          },
+          {
+            "purchaser": "Edmond Roberts",
+            "aliquot_as_read": "W2NW",
+            "acres": "40.00",
+            "date": "1830-10-05",
+            "type_of_sale": "CN"
+          }
+        ],
+        "count": 7,
+        "source_id": "isa_public_domain_land_tract_sales",
+        "note": "The canal commissioners' own 1830 sale in section 9 — the survey the chip names. These are the quarter and half-quarter entries, NOT the town lots of the plat, which the register does not carry for this town."
+      },
+      "sources": [
+        "thompson_plat_1830",
+        "wright_1834_nara_hup"
+      ]
+    },
+    {
+      "chip": 3,
+      "id": "wabansia",
+      "legend_text": "Wonbonsia Surveyed in 1831",
+      "legend_reading": "Wabansia, surveyed in 1831",
+      "survey_date_year": 1831,
+      "colour_class": [
+        3,
+        7
+      ],
+      "colour_class_is_the_chip_alone": false,
+      "placed": true,
+      "polygon_local_enu_m": [
+        [
+          -766.92,
+          279.1
+        ],
+        [
+          -767.04,
+          328.33
+        ],
+        [
+          -763.73,
+          449.33
+        ],
+        [
+          -766.91,
+          567.81
+        ],
+        [
+          -768.82,
+          689.47
+        ],
+        [
+          -770.37,
+          807.17
+        ],
+        [
+          -771.07,
+          924.66
+        ],
+        [
+          -768.66,
+          1036.28
+        ],
+        [
+          -768.75,
+          1074.65
+        ],
+        [
+          -515.02,
+          1077.56
+        ],
+        [
+          -514.93,
+          1039.19
+        ],
+        [
+          -514.38,
+          927.61
+        ],
+        [
+          -511.14,
+          810.14
+        ],
+        [
+          -393.84,
+          693.77
+        ],
+        [
+          -368.48,
+          655.11
+        ],
+        [
+          -303.71,
+          570.02
+        ],
+        [
+          -280.58,
+          529.17
+        ],
+        [
+          -258.94,
+          478.93
+        ],
+        [
+          -245.67,
+          445.9
+        ],
+        [
+          -223.96,
+          405.03
+        ],
+        [
+          -186.62,
+          351.36
+        ],
+        [
+          -164.5,
+          319.16
+        ],
+        [
+          -140.18,
+          296.36
+        ],
+        [
+          -130.25,
+          274.03
+        ]
+      ],
+      "area_m2": 315176.6,
+      "area_acres": 77.88,
+      "boundary_from": "data/traces/wabansia_seating.json, `tract_polygon_local_enu_m` — the outline T-1086 seated on the committed town grid.",
+      "geometry_confidence": "inferred",
+      "geometry_note": "Taken whole from the committed seating. NO band of Wabansia's own colour class stands on it; the colour evidence is absent, not weak, and T-1096 measured the reason.",
+      "bands_of_its_own_class_standing_on_it": 0,
+      "bands_of_any_class_standing_on_it": 6,
+      "owner_on_scene_date": {
+        "entries": [],
+        "count": 0,
+        "source_id": null,
+        "refusal": "REFUSED, and the refusal is narrow. The register keys an entry to a section and an aliquot; Wabansia is a PLAT, and no committed record in this project says which section it was laid out in. Its seated outline falls inside section 9's constructed square, but a polygon falling inside a square is not a citation, and picking the section 9 entries on that ground would be exactly the arithmetic-dressed-as-evidence this file refuses elsewhere. Sorting the register onto the tracts is T-1102's work."
+      },
+      "sources": [
+        "wright_1834_nara_hup"
+      ]
+    },
+    {
+      "chip": 4,
+      "id": "kinzies_addition",
+      "legend_text": "Kinzies Addⁿ. Surveyed „ 1833",
+      "legend_reading": "Kinzie's Addition, surveyed 1833",
+      "survey_date_year": 1833,
+      "colour_class": [
+        4,
+        6,
+        9
+      ],
+      "colour_class_is_the_chip_alone": false,
+      "placed": true,
+      "polygon_local_enu_m": [
+        [
+          830.15,
+          258.97
+        ],
+        [
+          1277.01,
+          258.97
+        ],
+        [
+          1277.01,
+          1029.71
+        ],
+        [
+          830.15,
+          1029.71
+        ]
+      ],
+      "area_m2": 344406.7,
+      "area_acres": 85.1,
+      "boundary_from": "the envelope of the Addition's own five north-south streets (Wolcott, Cass, Rush, Pine, Sand), Kinzie Street on the south and its northmost committed corridor on the north.",
+      "geometry_confidence": "reconstructed",
+      "geometry_note": "The streets are committed; the envelope round them is not a traced boundary. It is SHORT of the patent, and the shortfall is measured on this record: the envelope excludes the water lots between North Water Street and the river and the shore-cut blocks east of Sand Street, neither of them committed geometry (T-0799, T-0800).",
+      "bands_of_its_own_class_standing_on_it": 2,
+      "bands_of_any_class_standing_on_it": 2,
+      "owner_on_scene_date": {
+        "entries": [
+          {
+            "purchaser": "Robert A Kenzie",
+            "aliquot_as_read": "NFR",
+            "acres": "102.29",
+            "date": "1831-05-07",
+            "type_of_sale": "FD"
+          },
+          {
+            "purchaser": "Robert A Kinzie",
+            "aliquot_as_read": "NFRSC",
+            "acres": "102.29",
+            "date": "1831-05-07",
+            "type_of_sale": "FD"
+          }
+        ],
+        "count": 2,
+        "source_id": "isa_public_domain_land_tract_sales",
+        "note": "The north fraction of section 10, entered by Robert A. Kinzie on 1831-05-07. The register spells the surname two ways on one entry, and both rows are carried rather than silently merged."
+      },
+      "sources": [
+        "wright_1834_nara_hup",
+        "isa_public_domain_land_tract_sales"
+      ]
+    },
+    {
+      "chip": 5,
+      "id": "school_section",
+      "legend_text": "School Section „ 1833",
+      "legend_reading": "School Section, surveyed 1833",
+      "survey_date_year": 1833,
+      "colour_class": [
+        5
+      ],
+      "colour_class_is_the_chip_alone": true,
+      "placed": true,
+      "polygon_local_enu_m": [
+        [
+          -784.72,
+          -2121.5
+        ],
+        [
+          824.57,
+          -2134.56
+        ],
+        [
+          837.63,
+          -525.27
+        ],
+        [
+          -771.66,
+          -512.21
+        ]
+      ],
+      "area_m2": 2589988.1,
+      "area_acres": 640.0,
+      "boundary_from": "section 16, T39N R14E, from the PLSS grid carried from G1 (L219) — the school section by statute, one nominal mile square.",
+      "geometry_confidence": "inferred",
+      "geometry_note": "The strongest colour agreement on the sheet: 13 of chip 5's 15 bands stand inside this square and the other two straddle its south line. The square is not derived FROM the colour; the colour is what confirms it.",
+      "bands_of_its_own_class_standing_on_it": 13,
+      "bands_of_any_class_standing_on_it": 23,
+      "owner_on_scene_date": {
+        "entries": [
+          {
+            "purchaser": "Hamilton Barnes",
+            "aliquot_as_read": "LOT6BL48",
+            "acres": "0000.00",
+            "date": "1833-10-22",
+            "type_of_sale": "SC"
+          },
+          {
+            "purchaser": "Hamilton Barnes",
+            "aliquot_as_read": "LOT3BL48",
+            "acres": "0000.00",
+            "date": "1833-10-22",
+            "type_of_sale": "SC"
+          },
+          {
+            "purchaser": "John Bates Jr",
+            "aliquot_as_read": "LOT1BL24",
+            "acres": "0000.00",
+            "date": "1833-10-22",
+            "type_of_sale": "SC"
+          },
+          {
+            "purchaser": "John Bates Jr",
+            "aliquot_as_read": "LOT8BL24",
+            "acres": "0000.00",
+            "date": "1833-10-22",
+            "type_of_sale": "SC"
+          },
+          {
+            "purchaser": "John Bates Jr",
+            "aliquot_as_read": "LOT7BL24",
+            "acres": "0000.00",
+            "date": "1833-10-22",
+            "type_of_sale": "SC"
+          },
+          {
+            "purchaser": "John Bates Jr",
+            "aliquot_as_read": "LOT2BL24",
+            "acres": "0000.00",
+            "date": "1833-10-22",
+            "type_of_sale": "SC"
+          },
+          {
+            "purchaser": "F G Blanchard",
+            "aliquot_as_read": "LOT7BL26",
+            "acres": "0000.00",
+            "date": "1833-10-22",
+            "type_of_sale": "SC"
+          },
+          {
+            "purchaser": "F G Blanchard",
+            "aliquot_as_read": "BL4",
+            "acres": "3.69",
+            "date": "1833-10-22",
+            "type_of_sale": "SC"
+          },
+          {
+            "purchaser": "F G As Blanchard",
+            "aliquot_as_read": "LOT2BL26",
+            "acres": "0000.00",
+            "date": "1833-10-22",
+            "type_of_sale": "SC"
+          },
+          {
+            "purchaser": "Gurtrey Blanchard",
+            "aliquot_as_read": "LOT1BL2",
+            "acres": "0000.00",
+            "date": "1833-10-22",
+            "type_of_sale": "SC"
+          },
+          {
+            "purchaser": "Gurtrey Blanchard",
+            "aliquot_as_read": "LOT8BL141",
+            "acres": "0000.00",
+            "date": "1833-10-22",
+            "type_of_sale": "SC"
+          },
+          {
+            "purchaser": "Gurtrey Blanchard",
+            "aliquot_as_read": "BL3",
+            "acres": "0000.00",
+            "date": "1833-10-22",
+            "type_of_sale": "SC"
+          },
+          {
+            "purchaser": "Gurtrey Blanchard",
+            "aliquot_as_read": "LOT7BL82",
+            "acres": "0000.00",
+            "date": "1833-10-22",
+            "type_of_sale": "SC"
+          },
+          {
+            "purchaser": "Gurtrey Blanchard",
+            "aliquot_as_read": "LOT1BL141",
+            "acres": "0000.00",
+            "date": "1833-10-22",
+            "type_of_sale": "SC"
+          },
+          {
+            "purchaser": "Eli A Bond",
+            "aliquot_as_read": "LOT4BL26",
+            "acres": "0000.00",
+            "date": "1833-10-22",
+            "type_of_sale": "SC"
+          },
+          {
+            "purchaser": "Eli A Bond",
+            "aliquot_as_read": "LOT3BL26",
+            "acres": "0000.00",
+            "date": "1833-10-22",
+            "type_of_sale": "SC"
+          },
+          {
+            "purchaser": "Eli A Bond",
+            "aliquot_as_read": "LOT5BL26",
+            "acres": "0000.00",
+            "date": "1833-10-22",
+            "type_of_sale": "SC"
+          },
+          {
+            "purchaser": "Eli A Bond",
+            "aliquot_as_read": "LOT6BL26",
+            "acres": "0000.00",
+            "date": "1833-10-22",
+            "type_of_sale": "SC"
+          },
+          {
+            "purchaser": "Heman Bond",
+            "aliquot_as_read": "LOT6BL24",
+            "acres": "0000.00",
+            "date": "1833-10-22",
+            "type_of_sale": "SC"
+          },
+          {
+            "purchaser": "John K Boyer",
+            "aliquot_as_read": "LOT7BL48",
+            "acres": "0000.00",
+            "date": "1833-10-22",
+            "type_of_sale": "SC"
+          },
+          {
+            "purchaser": "John K Boyer",
+            "aliquot_as_read": "LOT4BL94",
+            "acres": "0000.00",
+            "date": "1833-10-22",
+            "type_of_sale": "SC"
+          },
+          {
+            "purchaser": "John K Boyer",
+            "aliquot_as_read": "LOT8BL48",
+            "acres": "0000.00",
+            "date": "1833-10-22",
+            "type_of_sale": "SC"
+          },
+          {
+            "purchaser": "Arthur Bronson",
+            "aliquot_as_read": "BL28",
+            "acres": "0000.00",
+            "date": "1833-10-22",
+            "type_of_sale": "SC"
+          },
+          {
+            "purchaser": "Arthur Broson",
+            "aliquot_as_read": "LOT7BL2",
+            "acres": "0000.00",
+            "date": "1833-10-22",
+            "type_of_sale": "SC"
+          },
+          {
+            "purchaser": "Arthur Broson",
+            "aliquot_as_read": "LOT8BL2",
+            "acres": "0000.00",
+            "date": "1833-10-22",
+            "type_of_sale": "SC"
+          },
+          {
+            "purchaser": "Philo Carpenter",
+            "aliquot_as_read": "BL27",
+            "acres": "2.26",
+            "date": "1833-10-22",
+            "type_of_sale": "SC"
+          },
+          {
+            "purchaser": "Morgan L Chapley",
+            "aliquot_as_read": "LOT4BL118",
+            "acres": "0000.00",
+            "date": "1833-10-22",
+            "type_of_sale": "SC"
+          },
+          {
+            "purchaser": "Charles H Chapman",
+            "aliquot_as_read": "LOT3BL141",
+            "acres": "0000.00",
+            "date": "1833-10-22",
+            "type_of_sale": "SC"
+          },
+          {
+            "purchaser": "Charles H Chapman",
+            "aliquot_as_read": "LOT8BL93",
+            "acres": "0000.00",
+            "date": "1833-10-22",
+            "type_of_sale": "SC"
+          },
+          {
+            "purchaser": "Archibald Clybourne",
+            "aliquot_as_read": "LOT5BL50",
+            "acres": "0000.00",
+            "date": "1833-10-22",
+            "type_of_sale": "SC"
+          },
+          {
+            "purchaser": "Parker M Cole",
+            "aliquot_as_read": "LOT1BL118",
+            "acres": "0000.00",
+            "date": "1833-10-22",
+            "type_of_sale": "SC"
+          },
+          {
+            "purchaser": "John Davis",
+            "aliquot_as_read": "LOT7BL141",
+            "acres": "0000.00",
+            "date": "1833-10-22",
+            "type_of_sale": "SC"
+          },
+          {
+            "purchaser": "John Davis",
+            "aliquot_as_read": "LOT2BL141",
+            "acres": "0000.00",
+            "date": "1833-10-22",
+            "type_of_sale": "SC"
+          },
+          {
+            "purchaser": "George W Dole",
+            "aliquot_as_read": "LOT3BL2",
+            "acres": "0000.00",
+            "date": "1833-10-22",
+            "type_of_sale": "SC"
+          },
+          {
+            "purchaser": "George W Dole",
+            "aliquot_as_read": "LOT6BL2",
+            "acres": "0000.00",
+            "date": "1833-10-22",
+            "type_of_sale": "SC"
+          },
+          {
+            "purchaser": "Francis Dolly",
+            "aliquot_as_read": "LOT3BL24",
+            "acres": "0000.00",
+            "date": "1833-10-22",
+            "type_of_sale": "SC"
+          },
+          {
+            "purchaser": "Jonathan Draper Jr",
+            "aliquot_as_read": "LOT2BL118",
+            "acres": "0000.00",
+            "date": "1833-10-22",
+            "type_of_sale": "SC"
+          },
+          {
+            "purchaser": "John Foot",
+            "aliquot_as_read": "LOT5BL117",
+            "acres": "0000.00",
+            "date": "1833-10-22",
+            "type_of_sale": "SC"
+          },
+          {
+            "purchaser": "John Foot",
+            "aliquot_as_read": "LOT6BL117",
+            "acres": "0000.00",
+            "date": "1833-10-22",
+            "type_of_sale": "SC"
+          },
+          {
+            "purchaser": "Stan Foot",
+            "aliquot_as_read": "LOT3BL117",
+            "acres": "0000.00",
+            "date": "1833-10-22",
+            "type_of_sale": "SC"
+          },
+          {
+            "purchaser": "Stan Foot",
+            "aliquot_as_read": "LOT4BL117",
+            "acres": "0000.00",
+            "date": "1833-10-22",
+            "type_of_sale": "SC"
+          },
+          {
+            "purchaser": "Albert Fowler",
+            "aliquot_as_read": "LOT2BL48",
+            "acres": "0000.00",
+            "date": "1833-10-22",
+            "type_of_sale": "SC"
+          },
+          {
+            "purchaser": "Albert Fowler",
+            "aliquot_as_read": "LOT4BL24",
+            "acres": "0000.00",
+            "date": "1833-10-22",
+            "type_of_sale": "SC"
+          },
+          {
+            "purchaser": "Chauncey Goodrich",
+            "aliquot_as_read": "LOT4BL48",
+            "acres": "0000.00",
+            "date": "1833-10-22",
+            "type_of_sale": "SC"
+          },
+          {
+            "purchaser": "Ebenezer Goodrich",
+            "aliquot_as_read": "LOT1BL93",
+            "acres": "0000.00",
+            "date": "1833-10-22",
+            "type_of_sale": "SC"
+          },
+          {
+            "purchaser": "E H Haddock",
+            "aliquot_as_read": "LOT1BL94",
+            "acres": "0000.00",
+            "date": "1833-10-22",
+            "type_of_sale": "SC"
+          },
+          {
+            "purchaser": "E H Haddock",
+            "aliquot_as_read": "LOT8BL94",
+            "acres": "0000.00",
+            "date": "1833-10-22",
+            "type_of_sale": "SC"
+          },
+          {
+            "purchaser": "Ebenezer Hale",
+            "aliquot_as_read": "LOT3BL79",
+            "acres": "0000.00",
+            "date": "1833-10-22",
+            "type_of_sale": "SC"
+          },
+          {
+            "purchaser": "Ebenezer Hale",
+            "aliquot_as_read": "LOT1BL48",
+            "acres": "0000.00",
+            "date": "1833-10-22",
+            "type_of_sale": "SC"
+          },
+          {
+            "purchaser": "Ebenezer Hale",
+            "aliquot_as_read": "LOT2BL72",
+            "acres": "0000.00",
+            "date": "1833-10-22",
+            "type_of_sale": "SC"
+          },
+          {
+            "purchaser": "Ebenezer Hale",
+            "aliquot_as_read": "LOT1BL79",
+            "acres": "0000.00",
+            "date": "1833-10-22",
+            "type_of_sale": "SC"
+          },
+          {
+            "purchaser": "Ebenezer Hale",
+            "aliquot_as_read": "LOT4BL79",
+            "acres": "0000.00",
+            "date": "1833-10-22",
+            "type_of_sale": "SC"
+          },
+          {
+            "purchaser": "Ebenezer Hale",
+            "aliquot_as_read": "LOT1BL80",
+            "acres": "0000.00",
+            "date": "1833-10-22",
+            "type_of_sale": "SC"
+          },
+          {
+            "purchaser": "Ebenezer Hale",
+            "aliquot_as_read": "LOT3BL80",
+            "acres": "0000.00",
+            "date": "1833-10-22",
+            "type_of_sale": "SC"
+          },
+          {
+            "purchaser": "Ebenezer Hale",
+            "aliquot_as_read": "LOT4BL50",
+            "acres": "0000.00",
+            "date": "1833-10-22",
+            "type_of_sale": "SC"
+          },
+          {
+            "purchaser": "Ebenezer Hale",
+            "aliquot_as_read": "LOT2BL79",
+            "acres": "0000.00",
+            "date": "1833-10-22",
+            "type_of_sale": "SC"
+          },
+          {
+            "purchaser": "Ebenezer Hale",
+            "aliquot_as_read": "LOT2BL80",
+            "acres": "0000.00",
+            "date": "1833-10-22",
+            "type_of_sale": "SC"
+          },
+          {
+            "purchaser": "Ebenezer Hale",
+            "aliquot_as_read": "LOT5BL48",
+            "acres": "0000.00",
+            "date": "1833-10-22",
+            "type_of_sale": "SC"
+          },
+          {
+            "purchaser": "Ebenezer Hale",
+            "aliquot_as_read": "LOT1BL26",
+            "acres": "0000.00",
+            "date": "1833-10-22",
+            "type_of_sale": "SC"
+          },
+          {
+            "purchaser": "John Hale",
+            "aliquot_as_read": "LOT1BL26",
+            "acres": "0000.00",
+            "date": "1833-10-22",
+            "type_of_sale": "SC"
+          },
+          {
+            "purchaser": "John Hale",
+            "aliquot_as_read": "LOT1BL79",
+            "acres": "0000.00",
+            "date": "1833-10-22",
+            "type_of_sale": "SC"
+          },
+          {
+            "purchaser": "John Hale",
+            "aliquot_as_read": "LOT1BL48",
+            "acres": "0000.00",
+            "date": "1833-10-22",
+            "type_of_sale": "SC"
+          },
+          {
+            "purchaser": "John Hale",
+            "aliquot_as_read": "LOT5BL48",
+            "acres": "0000.00",
+            "date": "1833-10-22",
+            "type_of_sale": "SC"
+          },
+          {
+            "purchaser": "John Hale",
+            "aliquot_as_read": "LOT3BL80",
+            "acres": "0000.00",
+            "date": "1833-10-22",
+            "type_of_sale": "SC"
+          },
+          {
+            "purchaser": "John Hale",
+            "aliquot_as_read": "LOT2BL79",
+            "acres": "0000.00",
+            "date": "1833-10-22",
+            "type_of_sale": "SC"
+          },
+          {
+            "purchaser": "John Hale",
+            "aliquot_as_read": "LOT4BL50",
+            "acres": "0000.00",
+            "date": "1833-10-22",
+            "type_of_sale": "SC"
+          },
+          {
+            "purchaser": "John Hale",
+            "aliquot_as_read": "LOT3BL79",
+            "acres": "0000.00",
+            "date": "1833-10-22",
+            "type_of_sale": "SC"
+          },
+          {
+            "purchaser": "John Hale",
+            "aliquot_as_read": "LOT2BL72",
+            "acres": "0000.00",
+            "date": "1833-10-22",
+            "type_of_sale": "SC"
+          },
+          {
+            "purchaser": "John Hale",
+            "aliquot_as_read": "LOT2BL80",
+            "acres": "0000.00",
+            "date": "1833-10-22",
+            "type_of_sale": "SC"
+          },
+          {
+            "purchaser": "John Hale",
+            "aliquot_as_read": "LOT1BL80",
+            "acres": "0000.00",
+            "date": "1833-10-22",
+            "type_of_sale": "SC"
+          },
+          {
+            "purchaser": "John Hale",
+            "aliquot_as_read": "LOT4BL79",
+            "acres": ".33",
+            "date": "1833-10-22",
+            "type_of_sale": "SC"
+          },
+          {
+            "purchaser": "Richard J Hamilton",
+            "aliquot_as_read": "LOT5BL2",
+            "acres": "0000.00",
+            "date": "1833-10-22",
+            "type_of_sale": "SC"
+          },
+          {
+            "purchaser": "Charles L Harmon",
+            "aliquot_as_read": "BL137",
+            "acres": "0000.00",
+            "date": "1833-10-22",
+            "type_of_sale": "SC"
+          },
+          {
+            "purchaser": "Isaac D Harmon",
+            "aliquot_as_read": "BL137",
+            "acres": "0000.00",
+            "date": "1833-10-22",
+            "type_of_sale": "SC"
+          },
+          {
+            "purchaser": "Russel E Heacock",
+            "aliquot_as_read": "BL20",
+            "acres": "3.69",
+            "date": "1833-10-22",
+            "type_of_sale": "SC"
+          },
+          {
+            "purchaser": "Russel E Heacock",
+            "aliquot_as_read": "BL61",
+            "acres": "4.20",
+            "date": "1833-10-22",
+            "type_of_sale": "SC"
+          },
+          {
+            "purchaser": "Russel E Heacock",
+            "aliquot_as_read": "LOT7BL117",
+            "acres": "0000.00",
+            "date": "1833-10-22",
+            "type_of_sale": "SC"
+          },
+          {
+            "purchaser": "Irad Hill",
+            "aliquot_as_read": "BL44",
+            "acres": "2.26",
+            "date": "1833-10-22",
+            "type_of_sale": "SC"
+          },
+          {
+            "purchaser": "Gurdon S Hubbard",
+            "aliquot_as_read": "BL52",
+            "acres": "2.90",
+            "date": "1833-10-22",
+            "type_of_sale": "SC"
+          },
+          {
+            "purchaser": "Hiram Huqueuin",
+            "aliquot_as_read": "LOT4BL93",
+            "acres": "0000.00",
+            "date": "1833-10-22",
+            "type_of_sale": "SC"
+          },
+          {
+            "purchaser": "Hiram Huqueuin",
+            "aliquot_as_read": "LOT3BL93",
+            "acres": "0000.00",
+            "date": "1833-10-22",
+            "type_of_sale": "SC"
+          },
+          {
+            "purchaser": "Samuel Jackson",
+            "aliquot_as_read": "LOT7BL118",
+            "acres": "0000.00",
+            "date": "1833-10-22",
+            "type_of_sale": "SC"
+          },
+          {
+            "purchaser": "Samuel Jackson",
+            "aliquot_as_read": "LOT8BL118",
+            "acres": "0000.00",
+            "date": "1833-10-22",
+            "type_of_sale": "SC"
+          },
+          {
+            "purchaser": "Benjamin Jones",
+            "aliquot_as_read": "LOT2BL117",
+            "acres": "0000.00",
+            "date": "1833-10-22",
+            "type_of_sale": "SC"
+          },
+          {
+            "purchaser": "Benjamin Jones",
+            "aliquot_as_read": "LOT4BL80",
+            "acres": "0000.00",
+            "date": "1833-10-22",
+            "type_of_sale": "SC"
+          },
+          {
+            "purchaser": "Benjamin Jones",
+            "aliquot_as_read": "BL121",
+            "acres": "0000.00",
+            "date": "1833-10-22",
+            "type_of_sale": "SC"
+          },
+          {
+            "purchaser": "Willard Jones",
+            "aliquot_as_read": "LOT5BL118",
+            "acres": "0000.00",
+            "date": "1833-10-22",
+            "type_of_sale": "SC"
+          },
+          {
+            "purchaser": "Abrm V Knickerbacker",
+            "aliquot_as_read": "LOT1BL72",
+            "acres": "0000.00",
+            "date": "1833-10-22",
+            "type_of_sale": "SC"
+          },
+          {
+            "purchaser": "W J Lewis",
+            "aliquot_as_read": "LOT3BL72",
+            "acres": "0000.00",
+            "date": "1833-10-22",
+            "type_of_sale": "SC"
+          },
+          {
+            "purchaser": "W J Lewis",
+            "aliquot_as_read": "LOT8BL26",
+            "acres": "0000.00",
+            "date": "1833-10-22",
+            "type_of_sale": "SC"
+          },
+          {
+            "purchaser": "W J Lewis",
+            "aliquot_as_read": "LOT4BL72",
+            "acres": "0000.00",
+            "date": "1833-10-22",
+            "type_of_sale": "SC"
+          },
+          {
+            "purchaser": "W J Lewis",
+            "aliquot_as_read": "LOT4BL2",
+            "acres": "0000.00",
+            "date": "1833-10-22",
+            "type_of_sale": "SC"
+          },
+          {
+            "purchaser": "Alexander Lloyd",
+            "aliquot_as_read": "LOT3BL118",
+            "acres": "0000.00",
+            "date": "1833-10-22",
+            "type_of_sale": "SC"
+          },
+          {
+            "purchaser": "Walter S Newberry",
+            "aliquot_as_read": "BL115",
+            "acres": "3.27",
+            "date": "1833-10-22",
+            "type_of_sale": "SC"
+          },
+          {
+            "purchaser": "John Noble",
+            "aliquot_as_read": "LOT5BL24",
+            "acres": "0000.00",
+            "date": "1833-10-22",
+            "type_of_sale": "SC"
+          },
+          {
+            "purchaser": "Hiram Pearsons",
+            "aliquot_as_read": "LOT2BL83",
+            "acres": "0000.00",
+            "date": "1833-10-22",
+            "type_of_sale": "SC"
+          },
+          {
+            "purchaser": "Hiram Pearsons",
+            "aliquot_as_read": "LOT1BL83",
+            "acres": "0000.00",
+            "date": "1833-10-22",
+            "type_of_sale": "SC"
+          },
+          {
+            "purchaser": "Hiram Pearsons",
+            "aliquot_as_read": "LOT3BL83",
+            "acres": "0000.00",
+            "date": "1833-10-22",
+            "type_of_sale": "SC"
+          },
+          {
+            "purchaser": "Hiram Pearsons",
+            "aliquot_as_read": "LOT6BL141",
+            "acres": "0000.00",
+            "date": "1833-10-22",
+            "type_of_sale": "SC"
+          },
+          {
+            "purchaser": "Hiram Pearsons",
+            "aliquot_as_read": "BL138",
+            "acres": "3.52",
+            "date": "1833-10-22",
+            "type_of_sale": "SC"
+          },
+          {
+            "purchaser": "Hiram Pearsons",
+            "aliquot_as_read": "BL91",
+            "acres": "2.90",
+            "date": "1833-10-22",
+            "type_of_sale": "SC"
+          },
+          {
+            "purchaser": "Hiram Pearsons",
+            "aliquot_as_read": "LOT4BL83",
+            "acres": "0000.00",
+            "date": "1833-10-22",
+            "type_of_sale": "SC"
+          },
+          {
+            "purchaser": "Hiram Pearsons",
+            "aliquot_as_read": "LOT5BL141",
+            "acres": "0000.00",
+            "date": "1833-10-22",
+            "type_of_sale": "SC"
+          },
+          {
+            "purchaser": "Hiram Pearsons",
+            "aliquot_as_read": "BL123",
+            "acres": "3.27",
+            "date": "1833-10-22",
+            "type_of_sale": "SC"
+          },
+          {
+            "purchaser": "Hiram Pearsons",
+            "aliquot_as_read": "LOT4BL141",
+            "acres": "0000.00",
+            "date": "1833-10-22",
+            "type_of_sale": "SC"
+          },
+          {
+            "purchaser": "Hiram Pearsons",
+            "aliquot_as_read": "BL135",
+            "acres": "3.52",
+            "date": "1833-10-22",
+            "type_of_sale": "SC"
+          },
+          {
+            "purchaser": "P Pruyne & Co.",
+            "aliquot_as_read": "BL97",
+            "acres": "3.27",
+            "date": "1833-10-22",
+            "type_of_sale": "SC"
+          },
+          {
+            "purchaser": "Joseph Skinner",
+            "aliquot_as_read": "LOT1BL117",
+            "acres": "0000.00",
+            "date": "1833-10-22",
+            "type_of_sale": "SC"
+          },
+          {
+            "purchaser": "Joseph Skinner",
+            "aliquot_as_read": "LOT8BL117",
+            "acres": "0000.00",
+            "date": "1833-10-22",
+            "type_of_sale": "SC"
+          },
+          {
+            "purchaser": "James Spence",
+            "aliquot_as_read": "LOT6BL94",
+            "acres": "0000.00",
+            "date": "1833-10-22",
+            "type_of_sale": "SC"
+          },
+          {
+            "purchaser": "James Spence",
+            "aliquot_as_read": "LOT3BL94",
+            "acres": "0000.00",
+            "date": "1833-10-22",
+            "type_of_sale": "SC"
+          },
+          {
+            "purchaser": "James Spence",
+            "aliquot_as_read": "LOT5BL94",
+            "acres": "0000.00",
+            "date": "1833-10-22",
+            "type_of_sale": "SC"
+          },
+          {
+            "purchaser": "Joseph Stanley",
+            "aliquot_as_read": "LOT4BL118",
+            "acres": "0000.00",
+            "date": "1833-10-22",
+            "type_of_sale": "SC"
+          },
+          {
+            "purchaser": "Ashbel Steele",
+            "aliquot_as_read": "LOT7BL26",
+            "acres": "0000.00",
+            "date": "1833-10-22",
+            "type_of_sale": "SC"
+          },
+          {
+            "purchaser": "Ashbel Steele",
+            "aliquot_as_read": "BL4",
+            "acres": "3.69",
+            "date": "1833-10-22",
+            "type_of_sale": "SC"
+          },
+          {
+            "purchaser": "Ashbel Steele",
+            "aliquot_as_read": "LOT2BL26",
+            "acres": "0000.00",
+            "date": "1833-10-22",
+            "type_of_sale": "SC"
+          },
+          {
+            "purchaser": "Clements Stose",
+            "aliquot_as_read": "LOT2BL93",
+            "acres": "0000.00",
+            "date": "1833-10-22",
+            "type_of_sale": "SC"
+          },
+          {
+            "purchaser": "Clements Stose",
+            "aliquot_as_read": "LOT7BL93",
+            "acres": "0000.00",
+            "date": "1833-10-22",
+            "type_of_sale": "SC"
+          },
+          {
+            "purchaser": "Alanson Sweet",
+            "aliquot_as_read": "LOT7BL94",
+            "acres": "0000.00",
+            "date": "1833-10-22",
+            "type_of_sale": "SC"
+          },
+          {
+            "purchaser": "Alanson Sweet",
+            "aliquot_as_read": "LOT3BL50",
+            "acres": "0000.00",
+            "date": "1833-10-22",
+            "type_of_sale": "SC"
+          },
+          {
+            "purchaser": "Alanson Sweet",
+            "aliquot_as_read": "LOT7BL50",
+            "acres": "0000.00",
+            "date": "1833-10-22",
+            "type_of_sale": "SC"
+          },
+          {
+            "purchaser": "Alanson Sweet",
+            "aliquot_as_read": "LOT2BL94",
+            "acres": "0000.00",
+            "date": "1833-10-22",
+            "type_of_sale": "SC"
+          },
+          {
+            "purchaser": "Alanson Sweet",
+            "aliquot_as_read": "LOT6BL50",
+            "acres": "0000.00",
+            "date": "1833-10-22",
+            "type_of_sale": "SC"
+          },
+          {
+            "purchaser": "John Swigley",
+            "aliquot_as_read": "LOT6BL118",
+            "acres": "0000.00",
+            "date": "1833-10-22",
+            "type_of_sale": "SC"
+          },
+          {
+            "purchaser": "Charles Taylor",
+            "aliquot_as_read": "BL68",
+            "acres": "4.19",
+            "date": "1833-10-22",
+            "type_of_sale": "SC"
+          },
+          {
+            "purchaser": "John T Temple",
+            "aliquot_as_read": "BL99",
+            "acres": "3.27",
+            "date": "1833-10-22",
+            "type_of_sale": "SC"
+          },
+          {
+            "purchaser": "William Worthingham",
+            "aliquot_as_read": "LOT2BL50",
+            "acres": "0000.00",
+            "date": "1833-10-22",
+            "type_of_sale": "SC"
+          },
+          {
+            "purchaser": "William Worthingham",
+            "aliquot_as_read": "LOT8BL50",
+            "acres": "0000.00",
+            "date": "1833-10-22",
+            "type_of_sale": "SC"
+          },
+          {
+            "purchaser": "John Wright",
+            "aliquot_as_read": "LOT5BL93",
+            "acres": "0000.00",
+            "date": "1833-10-22",
+            "type_of_sale": "SC"
+          },
+          {
+            "purchaser": "John Wright",
+            "aliquot_as_read": "LOT6BL93",
+            "acres": "0000.00",
+            "date": "1833-10-22",
+            "type_of_sale": "SC"
+          },
+          {
+            "purchaser": "John Wright",
+            "aliquot_as_read": "LOT1BL50",
+            "acres": "0000.00",
+            "date": "1833-10-22",
+            "type_of_sale": "SC"
+          },
+          {
+            "purchaser": "T G Wright",
+            "aliquot_as_read": "BL51",
+            "acres": "2.90",
+            "date": "1833-10-22",
+            "type_of_sale": "SC"
+          },
+          {
+            "purchaser": "Christia Barckenbile",
+            "aliquot_as_read": "LOT3BL4VOID",
+            "acres": "3.25",
+            "date": "1833-10-23",
+            "type_of_sale": "SC"
+          },
+          {
+            "purchaser": "Erastus Bowen",
+            "aliquot_as_read": "BL65",
+            "acres": "0000.00",
+            "date": "1833-10-23",
+            "type_of_sale": "SC"
+          },
+          {
+            "purchaser": "Arthur Bronson",
+            "aliquot_as_read": "BL14",
+            "acres": "0000.00",
+            "date": "1833-10-23",
+            "type_of_sale": "SC"
+          },
+          {
+            "purchaser": "Arthur Bronson",
+            "aliquot_as_read": "BL34",
+            "acres": "0000.00",
+            "date": "1833-10-23",
+            "type_of_sale": "SC"
+          },
+          {
+            "purchaser": "Arthur Bronson",
+            "aliquot_as_read": "BL40",
+            "acres": "0000.00",
+            "date": "1833-10-23",
+            "type_of_sale": "SC"
+          },
+          {
+            "purchaser": "Arthur Bronson",
+            "aliquot_as_read": "BL58",
+            "acres": "0000.00",
+            "date": "1833-10-23",
+            "type_of_sale": "SC"
+          },
+          {
+            "purchaser": "Arthur Bronson",
+            "aliquot_as_read": "BL74",
+            "acres": "0000.00",
+            "date": "1833-10-23",
+            "type_of_sale": "SC"
+          },
+          {
+            "purchaser": "Arthur Bronson",
+            "aliquot_as_read": "BL64",
+            "acres": "0000.00",
+            "date": "1833-10-23",
+            "type_of_sale": "SC"
+          },
+          {
+            "purchaser": "Arthur Bronson",
+            "aliquot_as_read": "BL16",
+            "acres": "0000.00",
+            "date": "1833-10-23",
+            "type_of_sale": "SC"
+          },
+          {
+            "purchaser": "Arthur Broson",
+            "aliquot_as_read": "BL62",
+            "acres": "0000.00",
+            "date": "1833-10-23",
+            "type_of_sale": "SC"
+          },
+          {
+            "purchaser": "Arthur Broson",
+            "aliquot_as_read": "BL54",
+            "acres": "0000.00",
+            "date": "1833-10-23",
+            "type_of_sale": "SC"
+          },
+          {
+            "purchaser": "Arthur Broson",
+            "aliquot_as_read": "BL38",
+            "acres": "0000.00",
+            "date": "1833-10-23",
+            "type_of_sale": "SC"
+          },
+          {
+            "purchaser": "Philo Carpenter",
+            "aliquot_as_read": "BL128",
+            "acres": "3.45",
+            "date": "1833-10-23",
+            "type_of_sale": "SC"
+          },
+          {
+            "purchaser": "Dole",
+            "aliquot_as_read": "BL106",
+            "acres": "2.49",
+            "date": "1833-10-23",
+            "type_of_sale": "SC"
+          },
+          {
+            "purchaser": "Chauncey Goodrich",
+            "aliquot_as_read": "BL132",
+            "acres": "3.52",
+            "date": "1833-10-23",
+            "type_of_sale": "SC"
+          },
+          {
+            "purchaser": "Chauncey Goodrich",
+            "aliquot_as_read": "BL130",
+            "acres": "4.03",
+            "date": "1833-10-23",
+            "type_of_sale": "SC"
+          },
+          {
+            "purchaser": "E H Haddock",
+            "aliquot_as_read": "BL134",
+            "acres": "0000.00",
+            "date": "1833-10-23",
+            "type_of_sale": "SC"
+          },
+          {
+            "purchaser": "Russel E Heacock",
+            "aliquot_as_read": "BL30",
+            "acres": "2.26",
+            "date": "1833-10-23",
+            "type_of_sale": "SC"
+          },
+          {
+            "purchaser": "Russel E Heacock",
+            "aliquot_as_read": "BL9",
+            "acres": "3.69",
+            "date": "1833-10-23",
+            "type_of_sale": "SC"
+          },
+          {
+            "purchaser": "S A Kimberly",
+            "aliquot_as_read": "BL42",
+            "acres": "0000.00",
+            "date": "1833-10-23",
+            "type_of_sale": "SC"
+          },
+          {
+            "purchaser": "Paul Kingston",
+            "aliquot_as_read": "BL36",
+            "acres": "3.79",
+            "date": "1833-10-23",
+            "type_of_sale": "SC"
+          },
+          {
+            "purchaser": "Paul Kingston",
+            "aliquot_as_read": "BL12",
+            "acres": "4.30",
+            "date": "1833-10-23",
+            "type_of_sale": "SC"
+          },
+          {
+            "purchaser": "Paul Kingston",
+            "aliquot_as_read": "BL78",
+            "acres": "3.69",
+            "date": "1833-10-23",
+            "type_of_sale": "SC"
+          },
+          {
+            "purchaser": "Abrm V Knickerbacker",
+            "aliquot_as_read": "BL101",
+            "acres": "3.45",
+            "date": "1833-10-23",
+            "type_of_sale": "SC"
+          },
+          {
+            "purchaser": "Ezekiel Morrison",
+            "aliquot_as_read": "BL10",
+            "acres": "0000.00",
+            "date": "1833-10-23",
+            "type_of_sale": "SC"
+          },
+          {
+            "purchaser": "Newberry",
+            "aliquot_as_read": "BL106",
+            "acres": "2.49",
+            "date": "1833-10-23",
+            "type_of_sale": "SC"
+          },
+          {
+            "purchaser": "Walter S Newberry",
+            "aliquot_as_read": "BL60",
+            "acres": "3.79",
+            "date": "1833-10-23",
+            "type_of_sale": "SC"
+          },
+          {
+            "purchaser": "Walter S Newberry",
+            "aliquot_as_read": "BL104",
+            "acres": "3.45",
+            "date": "1833-10-23",
+            "type_of_sale": "SC"
+          },
+          {
+            "purchaser": "Mark Noble Jr",
+            "aliquot_as_read": "BL113",
+            "acres": "3.27",
+            "date": "1833-10-23",
+            "type_of_sale": "SC"
+          },
+          {
+            "purchaser": "Mark Noble Jr",
+            "aliquot_as_read": "BL18",
+            "acres": "3.69",
+            "date": "1833-10-23",
+            "type_of_sale": "SC"
+          },
+          {
+            "purchaser": "Thomas J V Owen",
+            "aliquot_as_read": "BL108",
+            "acres": "3.45",
+            "date": "1833-10-23",
+            "type_of_sale": "SC"
+          },
+          {
+            "purchaser": "Hiram Pearsons",
+            "aliquot_as_read": "BL140",
+            "acres": "3.52",
+            "date": "1833-10-23",
+            "type_of_sale": "SC"
+          },
+          {
+            "purchaser": "Hiram Pearsons",
+            "aliquot_as_read": "BL139",
+            "acres": "3.52",
+            "date": "1833-10-23",
+            "type_of_sale": "SC"
+          },
+          {
+            "purchaser": "P F W Peck",
+            "aliquot_as_read": "BL6",
+            "acres": "0000.00",
+            "date": "1833-10-23",
+            "type_of_sale": "SC"
+          },
+          {
+            "purchaser": "Samuel Russell",
+            "aliquot_as_read": "BL86",
+            "acres": "3.31",
+            "date": "1833-10-23",
+            "type_of_sale": "SC"
+          },
+          {
+            "purchaser": "Alanson Sweet",
+            "aliquot_as_read": "BL66",
+            "acres": "8.19",
+            "date": "1833-10-23",
+            "type_of_sale": "SC"
+          },
+          {
+            "purchaser": "John T Temple",
+            "aliquot_as_read": "BL76",
+            "acres": "4.20",
+            "date": "1833-10-23",
+            "type_of_sale": "SC"
+          },
+          {
+            "purchaser": "John T Temple",
+            "aliquot_as_read": "BL111",
+            "acres": "3.45",
+            "date": "1833-10-23",
+            "type_of_sale": "SC"
+          },
+          {
+            "purchaser": "John T Temple",
+            "aliquot_as_read": "BL110",
+            "acres": "3.45",
+            "date": "1833-10-23",
+            "type_of_sale": "SC"
+          },
+          {
+            "purchaser": "John T Temple",
+            "aliquot_as_read": "BL17",
+            "acres": "3.69",
+            "date": "1833-10-23",
+            "type_of_sale": "SC"
+          },
+          {
+            "purchaser": "Giles As Williams",
+            "aliquot_as_read": "BL89",
+            "acres": "6.05",
+            "date": "1833-10-23",
+            "type_of_sale": "SC"
+          },
+          {
+            "purchaser": "Gordon S Williams",
+            "aliquot_as_read": "BL89",
+            "acres": "6.05",
+            "date": "1833-10-23",
+            "type_of_sale": "SC"
+          },
+          {
+            "purchaser": "Gurtrey Blanchard",
+            "aliquot_as_read": "BL21",
+            "acres": "0000.00",
+            "date": "1833-10-24",
+            "type_of_sale": "SC"
+          },
+          {
+            "purchaser": "Jabez K Botsford",
+            "aliquot_as_read": "BL102",
+            "acres": "3.45",
+            "date": "1833-10-24",
+            "type_of_sale": "SC"
+          },
+          {
+            "purchaser": "Jabez K Botsford",
+            "aliquot_as_read": "BL107",
+            "acres": "4.03",
+            "date": "1833-10-24",
+            "type_of_sale": "SC"
+          },
+          {
+            "purchaser": "Arthur Bronson",
+            "aliquot_as_read": "BL39",
+            "acres": "0000.00",
+            "date": "1833-10-24",
+            "type_of_sale": "SC"
+          },
+          {
+            "purchaser": "Arthur Bronson",
+            "aliquot_as_read": "BL15",
+            "acres": "0000.00",
+            "date": "1833-10-24",
+            "type_of_sale": "SC"
+          },
+          {
+            "purchaser": "Arthur Bronson",
+            "aliquot_as_read": "BL57",
+            "acres": "0000.00",
+            "date": "1833-10-24",
+            "type_of_sale": "SC"
+          },
+          {
+            "purchaser": "Arthur Bronson",
+            "aliquot_as_read": "BL33",
+            "acres": "0000.00",
+            "date": "1833-10-24",
+            "type_of_sale": "SC"
+          },
+          {
+            "purchaser": "Arthur Bronson",
+            "aliquot_as_read": "BL63",
+            "acres": "0000.00",
+            "date": "1833-10-24",
+            "type_of_sale": "SC"
+          },
+          {
+            "purchaser": "Arthur Broson",
+            "aliquot_as_read": "LOT7BL47",
+            "acres": "0000.00",
+            "date": "1833-10-24",
+            "type_of_sale": "SC"
+          },
+          {
+            "purchaser": "Arthur Broson",
+            "aliquot_as_read": "LOT8BL47",
+            "acres": "0000.00",
+            "date": "1833-10-24",
+            "type_of_sale": "SC"
+          },
+          {
+            "purchaser": "Arthur Broson",
+            "aliquot_as_read": "LOT4BL84",
+            "acres": "0000.00",
+            "date": "1833-10-24",
+            "type_of_sale": "SC"
+          },
+          {
+            "purchaser": "Arthur Broson",
+            "aliquot_as_read": "LOT3BL84",
+            "acres": "0000.00",
+            "date": "1833-10-24",
+            "type_of_sale": "SC"
+          },
+          {
+            "purchaser": "Arthur Broson",
+            "aliquot_as_read": "LOT2BL84",
+            "acres": "0000.00",
+            "date": "1833-10-24",
+            "type_of_sale": "SC"
+          },
+          {
+            "purchaser": "Arthur Broson",
+            "aliquot_as_read": "BL59",
+            "acres": "0000.00",
+            "date": "1833-10-24",
+            "type_of_sale": "SC"
+          },
+          {
+            "purchaser": "Arthur Broson",
+            "aliquot_as_read": "BL35",
+            "acres": "0000.00",
+            "date": "1833-10-24",
+            "type_of_sale": "SC"
+          },
+          {
+            "purchaser": "Edward W Casey",
+            "aliquot_as_read": "LOT5BL82",
+            "acres": "0000.00",
+            "date": "1833-10-24",
+            "type_of_sale": "SC"
+          },
+          {
+            "purchaser": "Edward W Casey",
+            "aliquot_as_read": "LOT6BL82",
+            "acres": "0000.00",
+            "date": "1833-10-24",
+            "type_of_sale": "SC"
+          },
+          {
+            "purchaser": "Joseph Chandler",
+            "aliquot_as_read": "BL11",
+            "acres": "3.69",
+            "date": "1833-10-24",
+            "type_of_sale": "SC"
+          },
+          {
+            "purchaser": "Archibald Clybourne",
+            "aliquot_as_read": "LOT3BL71",
+            "acres": "0000.00",
+            "date": "1833-10-24",
+            "type_of_sale": "SC"
+          },
+          {
+            "purchaser": "Thomas Cook",
+            "aliquot_as_read": "LOT2BL47",
+            "acres": "0000.00",
+            "date": "1833-10-24",
+            "type_of_sale": "SC"
+          },
+          {
+            "purchaser": "John Davis",
+            "aliquot_as_read": "LOT6BL23",
+            "acres": "0000.00",
+            "date": "1833-10-24",
+            "type_of_sale": "SC"
+          },
+          {
+            "purchaser": "John Davis",
+            "aliquot_as_read": "LOT5BL23",
+            "acres": "0000.00",
+            "date": "1833-10-24",
+            "type_of_sale": "SC"
+          },
+          {
+            "purchaser": "George W Dole",
+            "aliquot_as_read": "BL73",
+            "acres": "5.47",
+            "date": "1833-10-24",
+            "type_of_sale": "SC"
+          },
+          {
+            "purchaser": "George W Dole",
+            "aliquot_as_read": "BL75",
+            "acres": "3.60",
+            "date": "1833-10-24",
+            "type_of_sale": "SC"
+          },
+          {
+            "purchaser": "Alexander Fullerton",
+            "aliquot_as_read": "LOT3BL82",
+            "acres": "0000.00",
+            "date": "1833-10-24",
+            "type_of_sale": "SC"
+          },
+          {
+            "purchaser": "Chauncey Goodrich",
+            "aliquot_as_read": "BL131",
+            "acres": "4.11",
+            "date": "1833-10-24",
+            "type_of_sale": "SC"
+          },
+          {
+            "purchaser": "Ebenezer Hale",
+            "aliquot_as_read": "LOT8BL82",
+            "acres": "0000.00",
+            "date": "1833-10-24",
+            "type_of_sale": "SC"
+          },
+          {
+            "purchaser": "Ebenezer Hale",
+            "aliquot_as_read": "LOT1BL82",
+            "acres": "0000.00",
+            "date": "1833-10-24",
+            "type_of_sale": "SC"
+          },
+          {
+            "purchaser": "Ebenezer Hale",
+            "aliquot_as_read": "LOT1BL71",
+            "acres": "0000.00",
+            "date": "1833-10-24",
+            "type_of_sale": "SC"
+          },
+          {
+            "purchaser": "Ebenezer Hale",
+            "aliquot_as_read": "BL124",
+            "acres": "1.64",
+            "date": "1833-10-24",
+            "type_of_sale": "SC"
+          },
+          {
+            "purchaser": "Ebenezer Hale",
+            "aliquot_as_read": "LOT4BL71",
+            "acres": "0000.00",
+            "date": "1833-10-24",
+            "type_of_sale": "SC"
+          },
+          {
+            "purchaser": "Ebenezer Hale",
+            "aliquot_as_read": "BL67",
+            "acres": "3.02",
+            "date": "1833-10-24",
+            "type_of_sale": "SC"
+          },
+          {
+            "purchaser": "John Hale",
+            "aliquot_as_read": "LOT1BL82",
+            "acres": "0000.00",
+            "date": "1833-10-24",
+            "type_of_sale": "SC"
+          },
+          {
+            "purchaser": "John Hale",
+            "aliquot_as_read": "LOT1BL71",
+            "acres": "0000.00",
+            "date": "1833-10-24",
+            "type_of_sale": "SC"
+          },
+          {
+            "purchaser": "John Hale",
+            "aliquot_as_read": "LOT4BL71",
+            "acres": "0000.00",
+            "date": "1833-10-24",
+            "type_of_sale": "SC"
+          },
+          {
+            "purchaser": "John Hale",
+            "aliquot_as_read": "BL67",
+            "acres": "3.02",
+            "date": "1833-10-24",
+            "type_of_sale": "SC"
+          },
+          {
+            "purchaser": "John Hale",
+            "aliquot_as_read": "BL124",
+            "acres": "1.63",
+            "date": "1833-10-24",
+            "type_of_sale": "SC"
+          },
+          {
+            "purchaser": "John Hale",
+            "aliquot_as_read": "LOT8BL82",
+            "acres": "0000.00",
+            "date": "1833-10-24",
+            "type_of_sale": "SC"
+          },
+          {
+            "purchaser": "Isaac Harmon",
+            "aliquot_as_read": "LOT2BL71",
+            "acres": "0000.00",
+            "date": "1833-10-24",
+            "type_of_sale": "SC"
+          },
+          {
+            "purchaser": "Russel E Heacock",
+            "aliquot_as_read": "LOT2BL23",
+            "acres": "0000.00",
+            "date": "1833-10-24",
+            "type_of_sale": "SC"
+          },
+          {
+            "purchaser": "Russel E Heacock",
+            "aliquot_as_read": "BL129",
+            "acres": "3.45",
+            "date": "1833-10-24",
+            "type_of_sale": "SC"
+          },
+          {
+            "purchaser": "Chester Ingersoll",
+            "aliquot_as_read": "BL37",
+            "acres": "3.79",
+            "date": "1833-10-24",
+            "type_of_sale": "SC"
+          },
+          {
+            "purchaser": "Samuel Jackson",
+            "aliquot_as_read": "LOT1BL47",
+            "acres": "0000.00",
+            "date": "1833-10-24",
+            "type_of_sale": "SC"
+          },
+          {
+            "purchaser": "Stlouis T Jamieson",
+            "aliquot_as_read": "LOT7BL23",
+            "acres": "0000.00",
+            "date": "1833-10-24",
+            "type_of_sale": "SC"
+          },
+          {
+            "purchaser": "Stlouis T Jamieson",
+            "aliquot_as_read": "BL19",
+            "acres": "0000.00",
+            "date": "1833-10-24",
+            "type_of_sale": "SC"
+          },
+          {
+            "purchaser": "Stlouis T Jamieson",
+            "aliquot_as_read": "BL29",
+            "acres": "0000.00",
+            "date": "1833-10-24",
+            "type_of_sale": "SC"
+          },
+          {
+            "purchaser": "William S Johnston",
+            "aliquot_as_read": "BL53",
+            "acres": "2.90",
+            "date": "1833-10-24",
+            "type_of_sale": "SC"
+          },
+          {
+            "purchaser": "Benjamin Jones",
+            "aliquot_as_read": "LOT4BL23",
+            "acres": "0000.00",
+            "date": "1833-10-24",
+            "type_of_sale": "SC"
+          },
+          {
+            "purchaser": "William Jones",
+            "aliquot_as_read": "BL133",
+            "acres": "3.52",
+            "date": "1833-10-24",
+            "type_of_sale": "SC"
+          },
+          {
+            "purchaser": "J E Kimberly",
+            "aliquot_as_read": "BL43",
+            "acres": "0000.00",
+            "date": "1833-10-24",
+            "type_of_sale": "SC"
+          },
+          {
+            "purchaser": "Paul Kingston",
+            "aliquot_as_read": "BL13",
+            "acres": "4.30",
+            "date": "1833-10-24",
+            "type_of_sale": "SC"
+          },
+          {
+            "purchaser": "W J Lewis",
+            "aliquot_as_read": "BL56",
+            "acres": "0000.00",
+            "date": "1833-10-24",
+            "type_of_sale": "SC"
+          },
+          {
+            "purchaser": "Orsemus Morrison",
+            "aliquot_as_read": "BL7",
+            "acres": "0000.00",
+            "date": "1833-10-24",
+            "type_of_sale": "SC"
+          },
+          {
+            "purchaser": "Walter S Newberry",
+            "aliquot_as_read": "BL85",
+            "acres": "2.83",
+            "date": "1833-10-24",
+            "type_of_sale": "SC"
+          },
+          {
+            "purchaser": "Walter S Newberry",
+            "aliquot_as_read": "BL109",
+            "acres": "3.45",
+            "date": "1833-10-24",
+            "type_of_sale": "SC"
+          },
+          {
+            "purchaser": "Walter S Newberry",
+            "aliquot_as_read": "BL5",
+            "acres": "3.69",
+            "date": "1833-10-24",
+            "type_of_sale": "SC"
+          },
+          {
+            "purchaser": "Thomas J V Owen",
+            "aliquot_as_read": "LOT3BL23",
+            "acres": "0000.00",
+            "date": "1833-10-24",
+            "type_of_sale": "SC"
+          },
+          {
+            "purchaser": "Thomas J V Owen",
+            "aliquot_as_read": "BL105",
+            "acres": "5.27",
+            "date": "1833-10-24",
+            "type_of_sale": "SC"
+          },
+          {
+            "purchaser": "Thomas J V Owen",
+            "aliquot_as_read": "LOT1BL84",
+            "acres": "0000.00",
+            "date": "1833-10-24",
+            "type_of_sale": "SC"
+          },
+          {
+            "purchaser": "Hiram Pearsons",
+            "aliquot_as_read": "BL125",
+            "acres": "3.45",
+            "date": "1833-10-24",
+            "type_of_sale": "SC"
+          },
+          {
+            "purchaser": "Hiram Pearsons",
+            "aliquot_as_read": "BL92",
+            "acres": "2.90",
+            "date": "1833-10-24",
+            "type_of_sale": "SC"
+          },
+          {
+            "purchaser": "Hiram Pearsons",
+            "aliquot_as_read": "BL136",
+            "acres": "3.52",
+            "date": "1833-10-24",
+            "type_of_sale": "SC"
+          },
+          {
+            "purchaser": "Hiram Pearsons",
+            "aliquot_as_read": "BL127",
+            "acres": "3.45",
+            "date": "1833-10-24",
+            "type_of_sale": "SC"
+          },
+          {
+            "purchaser": "Hiram Pearsons",
+            "aliquot_as_read": "06126",
+            "acres": "3.45",
+            "date": "1833-10-24",
+            "type_of_sale": "SC"
+          },
+          {
+            "purchaser": "P F W Peck",
+            "aliquot_as_read": "BL116",
+            "acres": "0000.00",
+            "date": "1833-10-24",
+            "type_of_sale": "SC"
+          },
+          {
+            "purchaser": "Peter Pruyne",
+            "aliquot_as_read": "LOT1BL23",
+            "acres": "0000.00",
+            "date": "1833-10-24",
+            "type_of_sale": "SC"
+          },
+          {
+            "purchaser": "Peter Pruyne",
+            "aliquot_as_read": "LOT8BL23",
+            "acres": "0000.00",
+            "date": "1833-10-24",
+            "type_of_sale": "SC"
+          },
+          {
+            "purchaser": "Samuel Russell",
+            "aliquot_as_read": "BL90",
+            "acres": "8.01",
+            "date": "1833-10-24",
+            "type_of_sale": "SC"
+          },
+          {
+            "purchaser": "Samuel Russell",
+            "aliquot_as_read": "BL45",
+            "acres": "2.26",
+            "date": "1833-10-24",
+            "type_of_sale": "SC"
+          },
+          {
+            "purchaser": "Silas W Sherman",
+            "aliquot_as_read": "BL98",
+            "acres": "3.27",
+            "date": "1833-10-24",
+            "type_of_sale": "SC"
+          },
+          {
+            "purchaser": "George W Snow",
+            "aliquot_as_read": "BL55",
+            "acres": "3.25",
+            "date": "1833-10-24",
+            "type_of_sale": "SC"
+          },
+          {
+            "purchaser": "George W Snow",
+            "aliquot_as_read": "BL46",
+            "acres": "2.26",
+            "date": "1833-10-24",
+            "type_of_sale": "SC"
+          },
+          {
+            "purchaser": "John T Temple",
+            "aliquot_as_read": "BL112",
+            "acres": "3.45",
+            "date": "1833-10-24",
+            "type_of_sale": "SC"
+          },
+          {
+            "purchaser": "John T Temple",
+            "aliquot_as_read": "BL77",
+            "acres": "5.35",
+            "date": "1833-10-24",
+            "type_of_sale": "SC"
+          },
+          {
+            "purchaser": "John T Temple",
+            "aliquot_as_read": "BL103",
+            "acres": "3.45",
+            "date": "1833-10-24",
+            "type_of_sale": "SC"
+          },
+          {
+            "purchaser": "William H Vanderburg",
+            "aliquot_as_read": "BL22",
+            "acres": "3.69",
+            "date": "1833-10-24",
+            "type_of_sale": "SC"
+          },
+          {
+            "purchaser": "Charles Wessencraft",
+            "aliquot_as_read": "BL8",
+            "acres": "3.69",
+            "date": "1833-10-24",
+            "type_of_sale": "SC"
+          },
+          {
+            "purchaser": "Charles Wessencraft",
+            "aliquot_as_read": "LOT3BL47",
+            "acres": "0000.00",
+            "date": "1833-10-24",
+            "type_of_sale": "SC"
+          },
+          {
+            "purchaser": "Charles Wessencraft",
+            "aliquot_as_read": "LOT5BL47",
+            "acres": "0000.00",
+            "date": "1833-10-24",
+            "type_of_sale": "SC"
+          },
+          {
+            "purchaser": "Charles Wessencraft",
+            "aliquot_as_read": "LOT4BL47",
+            "acres": "0000.00",
+            "date": "1833-10-24",
+            "type_of_sale": "SC"
+          },
+          {
+            "purchaser": "Charles Wessencraft",
+            "aliquot_as_read": "LOT6BL47",
+            "acres": "0000.00",
+            "date": "1833-10-24",
+            "type_of_sale": "SC"
+          },
+          {
+            "purchaser": "Giles As Williams",
+            "aliquot_as_read": "BL31",
+            "acres": "3.25",
+            "date": "1833-10-24",
+            "type_of_sale": "SC"
+          },
+          {
+            "purchaser": "Giles As Williams",
+            "aliquot_as_read": "BL32",
+            "acres": "3.25",
+            "date": "1833-10-24",
+            "type_of_sale": "SC"
+          },
+          {
+            "purchaser": "Giles As Williams",
+            "aliquot_as_read": "BL100",
+            "acres": "3.27",
+            "date": "1833-10-24",
+            "type_of_sale": "SC"
+          },
+          {
+            "purchaser": "Gordon S Williams",
+            "aliquot_as_read": "BL100",
+            "acres": "3.27",
+            "date": "1833-10-24",
+            "type_of_sale": "SC"
+          },
+          {
+            "purchaser": "Gordon S Williams",
+            "aliquot_as_read": "BL32",
+            "acres": "3.25",
+            "date": "1833-10-24",
+            "type_of_sale": "SC"
+          },
+          {
+            "purchaser": "Gordon S Williams",
+            "aliquot_as_read": "BL31",
+            "acres": "3.25",
+            "date": "1833-10-24",
+            "type_of_sale": "SC"
+          },
+          {
+            "purchaser": "John Wright",
+            "aliquot_as_read": "BL122",
+            "acres": "0000.00",
+            "date": "1833-10-24",
+            "type_of_sale": "SC"
+          },
+          {
+            "purchaser": "John Wright",
+            "aliquot_as_read": "BL114",
+            "acres": "0000.00",
+            "date": "1833-10-24",
+            "type_of_sale": "SC"
+          },
+          {
+            "purchaser": "John Wright",
+            "aliquot_as_read": "LOT2BL82",
+            "acres": "0000.00",
+            "date": "1833-10-24",
+            "type_of_sale": "SC"
+          },
+          {
+            "purchaser": "T G Wright",
+            "aliquot_as_read": "LOT2BL70",
+            "acres": "0000.00",
+            "date": "1833-10-24",
+            "type_of_sale": "SC"
+          },
+          {
+            "purchaser": "T G Wright",
+            "aliquot_as_read": "LOT4BL70",
+            "acres": "0000.00",
+            "date": "1833-10-24",
+            "type_of_sale": "SC"
+          },
+          {
+            "purchaser": "T G Wright",
+            "aliquot_as_read": "LOT1BL70",
+            "acres": "0000.00",
+            "date": "1833-10-24",
+            "type_of_sale": "SC"
+          },
+          {
+            "purchaser": "T G Wright",
+            "aliquot_as_read": "LOT3BL70",
+            "acres": "0000.00",
+            "date": "1833-10-24",
+            "type_of_sale": "SC"
+          },
+          {
+            "purchaser": "T G Wright",
+            "aliquot_as_read": "BL69",
+            "acres": "3.71",
+            "date": "1833-10-24",
+            "type_of_sale": "SC"
+          },
+          {
+            "purchaser": "Mark Beaubien",
+            "aliquot_as_read": "LOT8BL81",
+            "acres": "0000.00",
+            "date": "1833-10-25",
+            "type_of_sale": "SC"
+          },
+          {
+            "purchaser": "Mark Beaubien",
+            "aliquot_as_read": "LOT7BL81",
+            "acres": "0000.00",
+            "date": "1833-10-25",
+            "type_of_sale": "SC"
+          },
+          {
+            "purchaser": "Garret Bias",
+            "aliquot_as_read": "LOT5BL25",
+            "acres": "0000.00",
+            "date": "1833-10-25",
+            "type_of_sale": "SC"
+          },
+          {
+            "purchaser": "Garrett Bias",
+            "aliquot_as_read": "LOT4BL25",
+            "acres": "0000.00",
+            "date": "1833-10-25",
+            "type_of_sale": "SC"
+          },
+          {
+            "purchaser": "John K Boyer",
+            "aliquot_as_read": "LOT4BL95",
+            "acres": "0000.00",
+            "date": "1833-10-25",
+            "type_of_sale": "SC"
+          },
+          {
+            "purchaser": "John K Boyer",
+            "aliquot_as_read": "LOT7BL49",
+            "acres": "0000.00",
+            "date": "1833-10-25",
+            "type_of_sale": "SC"
+          },
+          {
+            "purchaser": "John K Boyer",
+            "aliquot_as_read": "LOT6BL81",
+            "acres": "0000.00",
+            "date": "1833-10-25",
+            "type_of_sale": "SC"
+          },
+          {
+            "purchaser": "John K Boyer",
+            "aliquot_as_read": "LOT5BL95",
+            "acres": "0000.00",
+            "date": "1833-10-25",
+            "type_of_sale": "SC"
+          },
+          {
+            "purchaser": "John K Boyer",
+            "aliquot_as_read": "LOT5BL81",
+            "acres": "0000.00",
+            "date": "1833-10-25",
+            "type_of_sale": "SC"
+          },
+          {
+            "purchaser": "John K Boyer",
+            "aliquot_as_read": "LOT8BL49",
+            "acres": "0000.00",
+            "date": "1833-10-25",
+            "type_of_sale": "SC"
+          },
+          {
+            "purchaser": "Rufus Brown",
+            "aliquot_as_read": "LOT4BL81",
+            "acres": "0000.00",
+            "date": "1833-10-25",
+            "type_of_sale": "SC"
+          },
+          {
+            "purchaser": "Rufus Brown",
+            "aliquot_as_read": "LOT5BL120",
+            "acres": "0000.00",
+            "date": "1833-10-25",
+            "type_of_sale": "SC"
+          },
+          {
+            "purchaser": "Daniel J Campeau",
+            "aliquot_as_read": "LOT3BL25",
+            "acres": "0000.00",
+            "date": "1833-10-25",
+            "type_of_sale": "SC"
+          },
+          {
+            "purchaser": "David Carver",
+            "aliquot_as_read": "LOT2BL119",
+            "acres": "0000.00",
+            "date": "1833-10-25",
+            "type_of_sale": "SC"
+          },
+          {
+            "purchaser": "Charles H Chapman",
+            "aliquot_as_read": "LOT4BL96",
+            "acres": "0000.00",
+            "date": "1833-10-25",
+            "type_of_sale": "SC"
+          },
+          {
+            "purchaser": "Josiah P Cook",
+            "aliquot_as_read": "LOT7BL120",
+            "acres": "0000.00",
+            "date": "1833-10-25",
+            "type_of_sale": "SC"
+          },
+          {
+            "purchaser": "Albert Fowler",
+            "aliquot_as_read": "LOT2BL81",
+            "acres": "0000.00",
+            "date": "1833-10-25",
+            "type_of_sale": "SC"
+          },
+          {
+            "purchaser": "Alexander Fullerton",
+            "aliquot_as_read": "LOT5BL96",
+            "acres": "0000.00",
+            "date": "1833-10-25",
+            "type_of_sale": "SC"
+          },
+          {
+            "purchaser": "Alexander Fullerton",
+            "aliquot_as_read": "LOT4BL82",
+            "acres": "0000.00",
+            "date": "1833-10-25",
+            "type_of_sale": "SC"
+          },
+          {
+            "purchaser": "Josiah C Goodhue",
+            "aliquot_as_read": "LOT4BL119",
+            "acres": "0000.00",
+            "date": "1833-10-25",
+            "type_of_sale": "SC"
+          },
+          {
+            "purchaser": "Edward H Haddock",
+            "aliquot_as_read": "LOT7BL120",
+            "acres": "0000.00",
+            "date": "1833-10-25",
+            "type_of_sale": "SC"
+          },
+          {
+            "purchaser": "Ebenezer Hale",
+            "aliquot_as_read": "LOT3BL81",
+            "acres": "0000.00",
+            "date": "1833-10-25",
+            "type_of_sale": "SC"
+          },
+          {
+            "purchaser": "Ebenezer Hale",
+            "aliquot_as_read": "LOT8BL95",
+            "acres": "0000.00",
+            "date": "1833-10-25",
+            "type_of_sale": "SC"
+          },
+          {
+            "purchaser": "Ebenezer Hale",
+            "aliquot_as_read": "LOT1BL95",
+            "acres": "0000.00",
+            "date": "1833-10-25",
+            "type_of_sale": "SC"
+          },
+          {
+            "purchaser": "Ebenezer Hale",
+            "aliquot_as_read": "LOT7BL119",
+            "acres": "0000.00",
+            "date": "1833-10-25",
+            "type_of_sale": "SC"
+          },
+          {
+            "purchaser": "Ebenezer Hale",
+            "aliquot_as_read": "LOT7BL95",
+            "acres": "0000.00",
+            "date": "1833-10-25",
+            "type_of_sale": "SC"
+          },
+          {
+            "purchaser": "Ebenezer Hale",
+            "aliquot_as_read": "LOT1BL96",
+            "acres": "0000.00",
+            "date": "1833-10-25",
+            "type_of_sale": "SC"
+          },
+          {
+            "purchaser": "Ebenezer Hale",
+            "aliquot_as_read": "LOT2BL95",
+            "acres": "0000.00",
+            "date": "1833-10-25",
+            "type_of_sale": "SC"
+          },
+          {
+            "purchaser": "Ebenezer Hale",
+            "aliquot_as_read": "LOT1BL81",
+            "acres": "0000.00",
+            "date": "1833-10-25",
+            "type_of_sale": "SC"
+          },
+          {
+            "purchaser": "John Hale",
+            "aliquot_as_read": "LOT1BL96",
+            "acres": "0000.00",
+            "date": "1833-10-25",
+            "type_of_sale": "SC"
+          },
+          {
+            "purchaser": "John Hale",
+            "aliquot_as_read": "LOT7BL95",
+            "acres": "0000.00",
+            "date": "1833-10-25",
+            "type_of_sale": "SC"
+          },
+          {
+            "purchaser": "John Hale",
+            "aliquot_as_read": "LOT3BL81",
+            "acres": "0000.00",
+            "date": "1833-10-25",
+            "type_of_sale": "SC"
+          },
+          {
+            "purchaser": "John Hale",
+            "aliquot_as_read": "LOT1BL81",
+            "acres": "0000.00",
+            "date": "1833-10-25",
+            "type_of_sale": "SC"
+          },
+          {
+            "purchaser": "John Hale",
+            "aliquot_as_read": "LOT7BL119",
+            "acres": "0000.00",
+            "date": "1833-10-25",
+            "type_of_sale": "SC"
+          },
+          {
+            "purchaser": "John Hale",
+            "aliquot_as_read": "LOT8BL95",
+            "acres": "0000.00",
+            "date": "1833-10-25",
+            "type_of_sale": "SC"
+          },
+          {
+            "purchaser": "John Hale",
+            "aliquot_as_read": "LOT2BL95",
+            "acres": "0000.00",
+            "date": "1833-10-25",
+            "type_of_sale": "SC"
+          },
+          {
+            "purchaser": "John Hale",
+            "aliquot_as_read": "LOT1BL95",
+            "acres": "0000.00",
+            "date": "1833-10-25",
+            "type_of_sale": "SC"
+          },
+          {
+            "purchaser": "Richard J Hamilton",
+            "aliquot_as_read": "LOT6BL25",
+            "acres": "0000.00",
+            "date": "1833-10-25",
+            "type_of_sale": "SC"
+          },
+          {
+            "purchaser": "Russel E Heacock",
+            "aliquot_as_read": "LOT7BL25",
+            "acres": "0000.00",
+            "date": "1833-10-25",
+            "type_of_sale": "SC"
+          },
+          {
+            "purchaser": "Hiram Huqueuin",
+            "aliquot_as_read": "LOT2BL25",
+            "acres": "0000.00",
+            "date": "1833-10-25",
+            "type_of_sale": "SC"
+          },
+          {
+            "purchaser": "Hiram Huqueuin",
+            "aliquot_as_read": "LOT8BL25",
+            "acres": "0000.00",
+            "date": "1833-10-25",
+            "type_of_sale": "SC"
+          },
+          {
+            "purchaser": "Hiram Huqueuin",
+            "aliquot_as_read": "LOT1BL49",
+            "acres": "0000.00",
+            "date": "1833-10-25",
+            "type_of_sale": "SC"
+          },
+          {
+            "purchaser": "Hiram Huqueuin",
+            "aliquot_as_read": "LOT2BL96",
+            "acres": "0000.00",
+            "date": "1833-10-25",
+            "type_of_sale": "SC"
+          },
+          {
+            "purchaser": "Willard Jones",
+            "aliquot_as_read": "LOT6BL96",
+            "acres": "0000.00",
+            "date": "1833-10-25",
+            "type_of_sale": "SC"
+          },
+          {
+            "purchaser": "Willard Jones",
+            "aliquot_as_read": "LOT3BL96",
+            "acres": "0000.00",
+            "date": "1833-10-25",
+            "type_of_sale": "SC"
+          },
+          {
+            "purchaser": "Walter Kimball",
+            "aliquot_as_read": "LOT2BL49",
+            "acres": "0000.00",
+            "date": "1833-10-25",
+            "type_of_sale": "SC"
+          },
+          {
+            "purchaser": "Edmund S Kimberley",
+            "aliquot_as_read": "LOT6BL119",
+            "acres": "0000.00",
+            "date": "1833-10-25",
+            "type_of_sale": "SC"
+          },
+          {
+            "purchaser": "Ira Kimberley",
+            "aliquot_as_read": "LOT3BL120",
+            "acres": "0000.00",
+            "date": "1833-10-25",
+            "type_of_sale": "SC"
+          },
+          {
+            "purchaser": "Paul Kingston",
+            "aliquot_as_read": "LOT5BL119",
+            "acres": "0000.00",
+            "date": "1833-10-25",
+            "type_of_sale": "SC"
+          },
+          {
+            "purchaser": "Alexander Lloyd",
+            "aliquot_as_read": "LOT1BL25",
+            "acres": "0000.00",
+            "date": "1833-10-25",
+            "type_of_sale": "SC"
+          },
+          {
+            "purchaser": "Orsemus Morrison",
+            "aliquot_as_read": "LOT2BL2",
+            "acres": "0000.00",
+            "date": "1833-10-25",
+            "type_of_sale": "SC"
+          },
+          {
+            "purchaser": "Orsemus Morrison",
+            "aliquot_as_read": "LOT1BL119",
+            "acres": "0000.00",
+            "date": "1833-10-25",
+            "type_of_sale": "SC"
+          },
+          {
+            "purchaser": "James H Mulford",
+            "aliquot_as_read": "LOT8BL119",
+            "acres": "0000.00",
+            "date": "1833-10-25",
+            "type_of_sale": "SC"
+          },
+          {
+            "purchaser": "James H Mulford",
+            "aliquot_as_read": "LOT8BL96",
+            "acres": "0000.00",
+            "date": "1833-10-25",
+            "type_of_sale": "SC"
+          },
+          {
+            "purchaser": "P Pruyne",
+            "aliquot_as_read": "LOT3BL119",
+            "acres": "0000.00",
+            "date": "1833-10-25",
+            "type_of_sale": "SC"
+          },
+          {
+            "purchaser": "James W Reed",
+            "aliquot_as_read": "LOT8BL120",
+            "acres": "0000.00",
+            "date": "1833-10-25",
+            "type_of_sale": "SC"
+          },
+          {
+            "purchaser": "James W Reed",
+            "aliquot_as_read": "LOT5BL49",
+            "acres": "0000.00",
+            "date": "1833-10-25",
+            "type_of_sale": "SC"
+          },
+          {
+            "purchaser": "James W Reed",
+            "aliquot_as_read": "LOT1BL120",
+            "acres": "0000.00",
+            "date": "1833-10-25",
+            "type_of_sale": "SC"
+          },
+          {
+            "purchaser": "Henry Vanderbogert",
+            "aliquot_as_read": "LOT2BL120",
+            "acres": "0000.00",
+            "date": "1833-10-25",
+            "type_of_sale": "SC"
+          },
+          {
+            "purchaser": "John As Vanderbogert",
+            "aliquot_as_read": "LOT2BL120",
+            "acres": "0000.00",
+            "date": "1833-10-25",
+            "type_of_sale": "SC"
+          },
+          {
+            "purchaser": "Edmund Weed",
+            "aliquot_as_read": "LOT3BL49",
+            "acres": "0000.00",
+            "date": "1833-10-25",
+            "type_of_sale": "SC"
+          },
+          {
+            "purchaser": "Henry C West",
+            "aliquot_as_read": "LOT6BL49",
+            "acres": "0000.00",
+            "date": "1833-10-25",
+            "type_of_sale": "SC"
+          },
+          {
+            "purchaser": "Henry C West",
+            "aliquot_as_read": "LOT4BL49",
+            "acres": "0000.00",
+            "date": "1833-10-25",
+            "type_of_sale": "SC"
+          },
+          {
+            "purchaser": "William Worthingham",
+            "aliquot_as_read": "LOT6BL95",
+            "acres": "0000.00",
+            "date": "1833-10-25",
+            "type_of_sale": "SC"
+          },
+          {
+            "purchaser": "William Worthingham",
+            "aliquot_as_read": "LOT3BL95",
+            "acres": "0000.00",
+            "date": "1833-10-25",
+            "type_of_sale": "SC"
+          },
+          {
+            "purchaser": "William Worthingham",
+            "aliquot_as_read": "LOT6BL120",
+            "acres": "0000.00",
+            "date": "1833-10-25",
+            "type_of_sale": "SC"
+          },
+          {
+            "purchaser": "John Wright",
+            "aliquot_as_read": "LOT4BL120",
+            "acres": "0000.00",
+            "date": "1833-10-25",
+            "type_of_sale": "SC"
+          },
+          {
+            "purchaser": "John Wright",
+            "aliquot_as_read": "LOT7BL96",
+            "acres": "0000.00",
+            "date": "1833-10-25",
+            "type_of_sale": "SC"
+          }
+        ],
+        "count": 337,
+        "source_id": "isa_public_domain_land_tract_sales",
+        "note": "The school-section sale of 22-23 October 1833 — 337 rows, and the chip's own date. Only the count is carried here; the rows themselves belong to T-1102, which sorts every sale onto its tract."
+      },
+      "sources": [
+        "isa_public_domain_land_tract_sales",
+        "wright_1834_nara_hup"
+      ]
+    },
+    {
+      "chip": 6,
+      "id": "unnamed_1833_chip_6",
+      "legend_text": "Surveyed. ——— 1833",
+      "legend_reading": "Surveyed 1833 — no tract named",
+      "survey_date_year": 1833,
+      "colour_class": [
+        4,
+        6,
+        9
+      ],
+      "colour_class_is_the_chip_alone": false,
+      "placed": false,
+      "polygon_local_enu_m": null,
+      "why_not_placed": "The unnamed-ground bands of this class do not cluster: 6 groups at 250.0 m linkage, the largest holding 31% of the cells against the 60% this file requires. A survey tract is one connected piece of ground and a scatter is not one. AND THE SCATTER IS NOT RANDOM: 7 beyond the carried section grid — so what is missing here is ground, not evidence. Carrying the PLSS grid past the four sections it is held to (L219), or committing the lake shore north of where its trace ends, is what would let this chip be adjudicated at all.",
+      "positional_adjudication": {
+        "class_mates_named": [
+          "kinzies_addition",
+          "canal_section_9_remainder"
+        ],
+        "bands_total": 40,
+        "bands_excluded": 8,
+        "bands_on_a_class_mate": 9,
+        "bands_on_other_named_ground": 16,
+        "bands_on_unnamed_ground": 7,
+        "unnamed_spread_m": [
+          1857.3,
+          3425.6
+        ],
+        "unnamed_ground_is": {
+          "beyond_the_carried_section_grid": 7
+        },
+        "clusters_at_link_m": {
+          "link_m": 250.0,
+          "count": 6,
+          "largest_bands": 1,
+          "largest_cell_share": 0.305
+        },
+        "coherent": false,
+        "wash_extent_local_m": null
+      },
+      "wash_grade": null,
+      "geometry_confidence": null,
+      "owner_on_scene_date": {
+        "refusal": "no polygon, so no ground to own"
+      }
+    },
+    {
+      "chip": 7,
+      "id": "fractional_section_15",
+      "legend_text": "Fractional Section 15",
+      "legend_reading": "Fractional Section 15",
+      "survey_date_year": null,
+      "colour_class": [
+        3,
+        7
+      ],
+      "colour_class_is_the_chip_alone": false,
+      "placed": true,
+      "polygon_local_enu_m": [
+        [
+          824.57,
+          -2134.56
+        ],
+        [
+          1401.48,
+          -2139.24
+        ],
+        [
+          1407.99,
+          -2131.82
+        ],
+        [
+          1416.35,
+          -2128.02
+        ],
+        [
+          1458.91,
+          -2122.07
+        ],
+        [
+          1425.35,
+          -2115.52
+        ],
+        [
+          1446.99,
+          -2112.9
+        ],
+        [
+          1433.01,
+          -2111.74
+        ],
+        [
+          1345.71,
+          -2110.64
+        ],
+        [
+          1331.57,
+          -2081.95
+        ],
+        [
+          1330.77,
+          -2063.85
+        ],
+        [
+          1323.71,
+          -2050.95
+        ],
+        [
+          1323.61,
+          -2035.01
+        ],
+        [
+          1317.16,
+          -2006.16
+        ],
+        [
+          1318.13,
+          -1934.4
+        ],
+        [
+          1313.64,
+          -1884.49
+        ],
+        [
+          1314.91,
+          -1862.72
+        ],
+        [
+          1320.39,
+          -1845.22
+        ],
+        [
+          1316.78,
+          -1825.73
+        ],
+        [
+          1317.32,
+          -1799.63
+        ],
+        [
+          1323.99,
+          -1745.87
+        ],
+        [
+          1323.65,
+          -1689.35
+        ],
+        [
+          1329.83,
+          -1671.11
+        ],
+        [
+          1324.86,
+          -1656.72
+        ],
+        [
+          1324.76,
+          -1640.78
+        ],
+        [
+          1331.59,
+          -1614.55
+        ],
+        [
+          1328.73,
+          -1603.74
+        ],
+        [
+          1338.1,
+          -1534.7
+        ],
+        [
+          1337.87,
+          -1495.58
+        ],
+        [
+          1348.57,
+          -1416.37
+        ],
+        [
+          1350.38,
+          -1367.78
+        ],
+        [
+          1361.19,
+          -1306.68
+        ],
+        [
+          1365.09,
+          -1258.05
+        ],
+        [
+          1368.42,
+          -1231.9
+        ],
+        [
+          1380.14,
+          -1205.57
+        ],
+        [
+          1380.06,
+          -1192.52
+        ],
+        [
+          1383.48,
+          -1180.13
+        ],
+        [
+          1379.89,
+          -1163.54
+        ],
+        [
+          1388.69,
+          -1116.26
+        ],
+        [
+          1386.54,
+          -1106.88
+        ],
+        [
+          1387.06,
+          -1076.44
+        ],
+        [
+          1393.24,
+          -1059.64
+        ],
+        [
+          1393.11,
+          -1037.9
+        ],
+        [
+          1387.4,
+          -1017.01
+        ],
+        [
+          1385.8,
+          -982.26
+        ],
+        [
+          1376.35,
+          -920.86
+        ],
+        [
+          1378.24,
+          -886.03
+        ],
+        [
+          1387.03,
+          -836.58
+        ],
+        [
+          1386.81,
+          -800.35
+        ],
+        [
+          1396.29,
+          -750.15
+        ],
+        [
+          1395.28,
+          -697.27
+        ],
+        [
+          1389.54,
+          -671.3
+        ],
+        [
+          1379.64,
+          -651.94
+        ],
+        [
+          1366.32,
+          -642.07
+        ],
+        [
+          1286.67,
+          -636.47
+        ],
+        [
+          1306.21,
+          -634.62
+        ],
+        [
+          1268.5,
+          -633.95
+        ],
+        [
+          1246.81,
+          -627.15
+        ],
+        [
+          1225.79,
+          -615.99
+        ],
+        [
+          1208.25,
+          -601.86
+        ],
+        [
+          1179.43,
+          -571.29
+        ],
+        [
+          1172.98,
+          -542.44
+        ],
+        [
+          1150.46,
+          -527.81
+        ],
+        [
+          837.63,
+          -525.27
+        ]
+      ],
+      "area_m2": 827084.3,
+      "area_acres": 204.38,
+      "boundary_from": "section 15, T39N R14E, from the same grid, cut on the east by the committed lake shore — which is what makes it fractional.",
+      "geometry_confidence": "reconstructed",
+      "geometry_note": "Two constructed sides and a traced one. The shore is the 1835 committed trace, not the 1834 sheet's, so the fraction's area is a scene-date figure and not the surveyor's.",
+      "bands_of_its_own_class_standing_on_it": 3,
+      "bands_of_any_class_standing_on_it": 12,
+      "owner_on_scene_date": {
+        "entries": [],
+        "count": 0,
+        "source_id": "isa_public_domain_land_tract_sales",
+        "refusal": "The register's only section-15 entry is Mark Noble Jr's 11.61-acre addition of 1836-05-31, after the scene date. On 1835-07-01 the fraction is unentered public land, and that is a statement about the register and not about occupation."
+      },
+      "sources": [
+        "wright_1834_nara_hup"
+      ]
+    },
+    {
+      "chip": 8,
+      "id": "unnamed_1833_chip_8",
+      "legend_text": "Surveyed in 1833",
+      "legend_reading": "Surveyed in 1833 — no tract named",
+      "survey_date_year": 1833,
+      "colour_class": [
+        8
+      ],
+      "colour_class_is_the_chip_alone": true,
+      "placed": false,
+      "polygon_local_enu_m": null,
+      "why_not_placed": "The unnamed-ground bands of this class do not cluster: 2 groups at 250.0 m linkage, the largest holding 76% of the cells against the 60% this file requires. A survey tract is one connected piece of ground and a scatter is not one. AND THE SCATTER IS NOT RANDOM: 3 north of the committed shore — so what is missing here is ground, not evidence. Carrying the PLSS grid past the four sections it is held to (L219), or committing the lake shore north of where its trace ends, is what would let this chip be adjudicated at all.",
+      "positional_adjudication": {
+        "class_mates_named": [],
+        "bands_total": 54,
+        "bands_excluded": 23,
+        "bands_on_a_class_mate": 0,
+        "bands_on_other_named_ground": 28,
+        "bands_on_unnamed_ground": 3,
+        "unnamed_spread_m": [
+          412.7,
+          202.8
+        ],
+        "unnamed_ground_is": {
+          "north_of_the_committed_shore": 3
+        },
+        "clusters_at_link_m": {
+          "link_m": 250.0,
+          "count": 2,
+          "largest_bands": 2,
+          "largest_cell_share": 0.758
+        },
+        "coherent": false,
+        "wash_extent_local_m": null
+      },
+      "wash_grade": null,
+      "geometry_confidence": null,
+      "owner_on_scene_date": {
+        "refusal": "no polygon, so no ground to own"
+      }
+    },
+    {
+      "chip": 9,
+      "id": "canal_section_9_remainder",
+      "legend_text": "Part of Canal Sec. No 9",
+      "legend_reading": "Part of Canal Section No. 9",
+      "survey_date_year": null,
+      "colour_class": [
+        4,
+        6,
+        9
+      ],
+      "colour_class_is_the_chip_alone": false,
+      "placed": true,
+      "polygon_local_enu_m": [
+        [
+          -771.66,
+          -512.21
+        ],
+        [
+          -506.41,
+          -514.36
+        ],
+        [
+          -500.14,
+          258.92
+        ],
+        [
+          843.91,
+          248.01
+        ],
+        [
+          850.69,
+          1084.02
+        ],
+        [
+          -758.6,
+          1097.08
+        ]
+      ],
+      "area_m2": 1550600.9,
+      "area_acres": 383.16,
+      "boundary_from": "section 9 with the Original Town cut out of its south-east corner — the L the two chips must partition the section into if chip 2 is the 1830 plat and chip 9 is what was left.",
+      "geometry_confidence": "conjectural",
+      "geometry_note": "CONJECTURAL BY INHERITANCE. The section square is constructed (L219) and would be `reconstructed`, but the notch cut out of it is the Original Town's west bound, which is conjectural — so this ring can be no better than that one, and it is not graded better. The cut is only taken because the Original Town's east and south bounds stand within tolerance of section 9's own lines; the two gaps are printed on this record and the cut refuses itself if either opens past 25 m.",
+      "bands_of_its_own_class_standing_on_it": 7,
+      "bands_of_any_class_standing_on_it": 20,
+      "owner_on_scene_date": {
+        "entries": [],
+        "count": 0,
+        "source_id": null,
+        "refusal": "The same seven 1830 canal entries cover section 9 as a whole; which of them fall outside the Original Town is T-1102's question, because it needs every entry sorted onto a polygon."
+      },
+      "sources": [
+        "isa_public_domain_land_tract_sales",
+        "wright_1834_nara_hup"
+      ]
+    }
+  ],
+  "unnamed_chips": {
+    "6": {
+      "class": [
+        4,
+        6,
+        9
+      ],
+      "class_mates_named": [
+        "kinzies_addition",
+        "canal_section_9_remainder"
+      ],
+      "bands_total": 40,
+      "bands_excluded": 8,
+      "bands_on_a_class_mate": 9,
+      "bands_on_other_named_ground": 16,
+      "bands_on_unnamed_ground": 7,
+      "unnamed_spread_m": [
+        1857.3,
+        3425.6
+      ],
+      "clusters_at_link_m": {
+        "link_m": 250.0,
+        "count": 6,
+        "largest_bands": 1,
+        "largest_cell_share": 0.305
+      },
+      "unnamed_ground_is": {
+        "beyond_the_carried_section_grid": 7
+      },
+      "coherent": false,
+      "wash_extent_local_m": null,
+      "why_not_placed": "The unnamed-ground bands of this class do not cluster: 6 groups at 250.0 m linkage, the largest holding 31% of the cells against the 60% this file requires. A survey tract is one connected piece of ground and a scatter is not one. AND THE SCATTER IS NOT RANDOM: 7 beyond the carried section grid — so what is missing here is ground, not evidence. Carrying the PLSS grid past the four sections it is held to (L219), or committing the lake shore north of where its trace ends, is what would let this chip be adjudicated at all.",
+      "unnamed_bands": [
+        {
+          "cells": 264,
+          "centroid_px": [
+            2784.1,
+            993.8
+          ],
+          "local_m": [
+            707.5,
+            1085.5
+          ],
+          "excluded": null,
+          "on": null,
+          "unnamed_because": "beyond_the_carried_section_grid"
+        },
+        {
+          "cells": 152,
+          "centroid_px": [
+            773.2,
+            5440.9
+          ],
+          "local_m": [
+            -677.6,
+            -2177.3
+          ],
+          "excluded": null,
+          "on": null,
+          "unnamed_because": "beyond_the_carried_section_grid"
+        },
+        {
+          "cells": 150,
+          "centroid_px": [
+            2290.9,
+            967.3
+          ],
+          "local_m": [
+            359.5,
+            1091.0
+          ],
+          "excluded": null,
+          "on": null,
+          "unnamed_because": "beyond_the_carried_section_grid"
+        },
+        {
+          "cells": 125,
+          "centroid_px": [
+            3212.0,
+            973.1
+          ],
+          "local_m": [
+            1009.1,
+            1112.3
+          ],
+          "excluded": null,
+          "on": null,
+          "unnamed_because": "beyond_the_carried_section_grid"
+        },
+        {
+          "cells": 72,
+          "centroid_px": [
+            3453.7,
+            991.0
+          ],
+          "local_m": [
+            1179.7,
+            1106.0
+          ],
+          "excluded": null,
+          "on": null,
+          "unnamed_because": "beyond_the_carried_section_grid"
+        },
+        {
+          "cells": 55,
+          "centroid_px": [
+            2712.0,
+            5579.1
+          ],
+          "local_m": [
+            690.8,
+            -2223.4
+          ],
+          "excluded": null,
+          "on": null,
+          "unnamed_because": "beyond_the_carried_section_grid"
+        },
+        {
+          "cells": 47,
+          "centroid_px": [
+            1254.6,
+            5648.0
+          ],
+          "local_m": [
+            -336.5,
+            -2313.3
+          ],
+          "excluded": null,
+          "on": null,
+          "unnamed_because": "beyond_the_carried_section_grid"
+        }
+      ]
+    },
+    "8": {
+      "class": [
+        8
+      ],
+      "class_mates_named": [],
+      "bands_total": 54,
+      "bands_excluded": 23,
+      "bands_on_a_class_mate": 0,
+      "bands_on_other_named_ground": 28,
+      "bands_on_unnamed_ground": 3,
+      "unnamed_spread_m": [
+        412.7,
+        202.8
+      ],
+      "clusters_at_link_m": {
+        "link_m": 250.0,
+        "count": 2,
+        "largest_bands": 2,
+        "largest_cell_share": 0.758
+      },
+      "unnamed_ground_is": {
+        "north_of_the_committed_shore": 3
+      },
+      "coherent": false,
+      "wash_extent_local_m": null,
+      "why_not_placed": "The unnamed-ground bands of this class do not cluster: 2 groups at 250.0 m linkage, the largest holding 76% of the cells against the 60% this file requires. A survey tract is one connected piece of ground and a scatter is not one. AND THE SCATTER IS NOT RANDOM: 3 north of the committed shore — so what is missing here is ground, not evidence. Carrying the PLSS grid past the four sections it is held to (L219), or committing the lake shore north of where its trace ends, is what would let this chip be adjudicated at all.",
+      "unnamed_bands": [
+        {
+          "cells": 70,
+          "centroid_px": [
+            3696.8,
+            1828.9
+          ],
+          "local_m": [
+            1357.4,
+            508.4
+          ],
+          "excluded": null,
+          "on": null,
+          "unnamed_because": "north_of_the_committed_shore"
+        },
+        {
+          "cells": 68,
+          "centroid_px": [
+            3724.0,
+            2051.9
+          ],
+          "local_m": [
+            1378.3,
+            348.3
+          ],
+          "excluded": null,
+          "on": null,
+          "unnamed_because": "north_of_the_committed_shore"
+        },
+        {
+          "cells": 44,
+          "centroid_px": [
+            4278.7,
+            2132.4
+          ],
+          "local_m": [
+            1770.1,
+            305.6
+          ],
+          "excluded": null,
+          "on": null,
+          "unnamed_because": "north_of_the_committed_shore"
+        }
+      ]
+    }
+  },
+  "cross_checks": {
+    "committed_plat_blocks_inside_the_original_town": {
+      "claim": "If the four streets are the 1830 plat's bounds, every block this project has already generated from the Thompson module must fall inside them. This does not prove the bounds — a bigger rectangle would pass too — but a block outside would disprove them.",
+      "blocks": 19,
+      "outside": [],
+      "confidence": "inferred"
+    },
+    "lighthouse_inside_the_reservation": {
+      "claim": "Wright's `L. House` glyph, committed at data/traces/wright_1834_lighthouse_glyph.json, must stand INSIDE chip 1's polygon — the parent ticket names it as the control the blue swatch already has.",
+      "inside": true,
+      "distance_inside_m": 40.88,
+      "glyph_local_m": [
+        1055.59,
+        172.54
+      ],
+      "confidence": "inferred"
+    },
+    "original_town_against_its_printed_area": {
+      "claim": "The 1830 plat is printed as three-eighths of a square mile.",
+      "printed_km2": 0.9712,
+      "envelope_km2": 1.0365,
+      "over_run_ratio": 1.067,
+      "reading": "The envelope over-runs the plat, as an envelope of four outer bounds must. It is recorded, not corrected: correcting it would mean inventing the plat's west edge north of Randolph.",
+      "confidence": "inferred"
+    },
+    "kinzies_addition_against_its_patent": {
+      "claim": "Robert A. Kinzie entered the north fraction of section 10 at 102.29 acres on 1831-05-07.",
+      "patent_acres": 102.29,
+      "street_envelope_acres": 85.1,
+      "shortfall_acres": 17.19,
+      "reading": "The envelope is SHORT, and it should be: the patent covers the water lots and the shore-cut blocks the committed street lines do not reach.",
+      "confidence": "inferred"
+    }
+  },
+  "bands": {
+    "classes": [
+      "[1]",
+      "[2]",
+      "[3, 7]",
+      "[4, 6, 9]",
+      "[5]",
+      "[8]"
+    ],
+    "by_class": {
+      "[1]": [
+        {
+          "cells": 332,
+          "centroid_px": [
+            3228.9,
+            2292.3
+          ],
+          "local_m": [
+            1030.9,
+            161.3
+          ],
+          "excluded": null,
+          "on": "us_military_reservation"
+        }
+      ],
+      "[2]": [
+        {
+          "cells": 121,
+          "centroid_px": [
+            3135.3,
+            3229.6
+          ],
+          "local_m": [
+            971.9,
+            -517.3
+          ],
+          "excluded": null,
+          "on": "us_military_reservation"
+        },
+        {
+          "cells": 55,
+          "centroid_px": [
+            2954.8,
+            3286.7
+          ],
+          "local_m": [
+            845.0,
+            -563.4
+          ],
+          "excluded": null,
+          "on": "fractional_section_15"
+        }
+      ],
+      "[3, 7]": [
+        {
+          "cells": 271,
+          "centroid_px": [
+            3665.2,
+            4221.3
+          ],
+          "local_m": [
+            1353.0,
+            -1217.9
+          ],
+          "excluded": null,
+          "on": "fractional_section_15"
+        },
+        {
+          "cells": 58,
+          "centroid_px": [
+            2997.4,
+            3233.1
+          ],
+          "local_m": [
+            874.6,
+            -523.6
+          ],
+          "excluded": null,
+          "on": "us_military_reservation"
+        },
+        {
+          "cells": 49,
+          "centroid_px": [
+            2933.4,
+            4754.1
+          ],
+          "local_m": [
+            840.8,
+            -1622.4
+          ],
+          "excluded": null,
+          "on": "fractional_section_15"
+        },
+        {
+          "cells": 40,
+          "centroid_px": [
+            3709.0,
+            3920.8
+          ],
+          "local_m": [
+            1381.6,
+            -1000.0
+          ],
+          "excluded": null,
+          "on": "fractional_section_15"
+        }
+      ],
+      "[4, 6, 9]": [
+        {
+          "cells": 264,
+          "centroid_px": [
+            2784.1,
+            993.8
+          ],
+          "local_m": [
+            707.5,
+            1085.5
+          ],
+          "excluded": null,
+          "on": null,
+          "unnamed_because": "beyond_the_carried_section_grid"
+        },
+        {
+          "cells": 152,
+          "centroid_px": [
+            773.2,
+            5440.9
+          ],
+          "local_m": [
+            -677.6,
+            -2177.3
+          ],
+          "excluded": null,
+          "on": null,
+          "unnamed_because": "beyond_the_carried_section_grid"
+        },
+        {
+          "cells": 150,
+          "centroid_px": [
+            2290.9,
+            967.3
+          ],
+          "local_m": [
+            359.5,
+            1091.0
+          ],
+          "excluded": null,
+          "on": null,
+          "unnamed_because": "beyond_the_carried_section_grid"
+        },
+        {
+          "cells": 125,
+          "centroid_px": [
+            3212.0,
+            973.1
+          ],
+          "local_m": [
+            1009.1,
+            1112.3
+          ],
+          "excluded": null,
+          "on": null,
+          "unnamed_because": "beyond_the_carried_section_grid"
+        },
+        {
+          "cells": 125,
+          "centroid_px": [
+            2955.2,
+            4574.1
+          ],
+          "local_m": [
+            854.9,
+            -1491.9
+          ],
+          "excluded": null,
+          "on": "fractional_section_15"
+        },
+        {
+          "cells": 121,
+          "centroid_px": [
+            3584.0,
+            1218.2
+          ],
+          "local_m": [
+            1273.3,
+            945.7
+          ],
+          "excluded": null,
+          "on": "kinzies_addition"
+        },
+        {
+          "cells": 107,
+          "centroid_px": [
+            2908.6,
+            1811.7
+          ],
+          "local_m": [
+            801.4,
+            499.0
+          ],
+          "excluded": null,
+          "on": "canal_section_9_remainder"
+        },
+        {
+          "cells": 97,
+          "centroid_px": [
+            2481.1,
+            2452.8
+          ],
+          "local_m": [
+            504.7,
+            24.9
+          ],
+          "excluded": null,
+          "on": "canal_commissioners_1830"
+        },
+        {
+          "cells": 83,
+          "centroid_px": [
+            1067.0,
+            1364.2
+          ],
+          "local_m": [
+            -500.8,
+            771.0
+          ],
+          "excluded": null,
+          "on": "wabansia",
+          "also_inside": [
+            "canal_section_9_remainder"
+          ]
+        },
+        {
+          "cells": 83,
+          "centroid_px": [
+            3239.8,
+            2115.6
+          ],
+          "local_m": [
+            1037.3,
+            289.0
+          ],
+          "excluded": null,
+          "on": "kinzies_addition"
+        },
+        {
+          "cells": 82,
+          "centroid_px": [
+            1030.8,
+            625.2
+          ],
+          "local_m": [
+            -531.8,
+            1303.0
+          ],
+          "excluded": "off_map",
+          "on": null
+        },
+        {
+          "cells": 77,
+          "centroid_px": [
+            1790.1,
+            1989.8
+          ],
+          "local_m": [
+            13.9,
+            339.8
+          ],
+          "excluded": null,
+          "on": "canal_section_9_remainder"
+        },
+        {
+          "cells": 72,
+          "centroid_px": [
+            3453.7,
+            991.0
+          ],
+          "local_m": [
+            1179.7,
+            1106.0
+          ],
+          "excluded": null,
+          "on": null,
+          "unnamed_because": "beyond_the_carried_section_grid"
+        },
+        {
+          "cells": 70,
+          "centroid_px": [
+            1155.4,
+            1013.6
+          ],
+          "local_m": [
+            -441.0,
+            1026.3
+          ],
+          "excluded": null,
+          "on": "canal_section_9_remainder"
+        },
+        {
+          "cells": 70,
+          "centroid_px": [
+            1880.1,
+            4045.7
+          ],
+          "local_m": [
+            92.7,
+            -1140.5
+          ],
+          "excluded": null,
+          "on": "school_section"
+        },
+        {
+          "cells": 69,
+          "centroid_px": [
+            3658.8,
+            2419.1
+          ],
+          "local_m": [
+            1335.0,
+            81.7
+          ],
+          "excluded": "water",
+          "on": null
+        },
+        {
+          "cells": 67,
+          "centroid_px": [
+            1881.0,
+            2613.9
+          ],
+          "local_m": [
+            82.6,
+            -107.8
+          ],
+          "excluded": null,
+          "on": "canal_commissioners_1830"
+        },
+        {
+          "cells": 66,
+          "centroid_px": [
+            3696.5,
+            3088.7
+          ],
+          "local_m": [
+            1366.6,
+            -400.2
+          ],
+          "excluded": "water",
+          "on": null
+        },
+        {
+          "cells": 60,
+          "centroid_px": [
+            1762.4,
+            3211.9
+          ],
+          "local_m": [
+            3.5,
+            -542.4
+          ],
+          "excluded": null,
+          "on": "school_section"
+        },
+        {
+          "cells": 55,
+          "centroid_px": [
+            2712.0,
+            5579.1
+          ],
+          "local_m": [
+            690.8,
+            -2223.4
+          ],
+          "excluded": null,
+          "on": null,
+          "unnamed_because": "beyond_the_carried_section_grid"
+        },
+        {
+          "cells": 51,
+          "centroid_px": [
+            1808.0,
+            1865.9
+          ],
+          "local_m": [
+            25.6,
+            429.6
+          ],
+          "excluded": null,
+          "on": "canal_section_9_remainder"
+        },
+        {
+          "cells": 51,
+          "centroid_px": [
+            713.1,
+            1962.0
+          ],
+          "local_m": [
+            -745.9,
+            330.1
+          ],
+          "excluded": null,
+          "on": "wabansia",
+          "also_inside": [
+            "canal_section_9_remainder"
+          ]
+        },
+        {
+          "cells": 48,
+          "centroid_px": [
+            2906.5,
+            2001.3
+          ],
+          "local_m": [
+            801.3,
+            362.2
+          ],
+          "excluded": null,
+          "on": "canal_section_9_remainder"
+        },
+        {
+          "cells": 47,
+          "centroid_px": [
+            504.0,
+            2298.2
+          ],
+          "local_m": [
+            -890.9,
+            81.9
+          ],
+          "excluded": "off_map",
+          "on": null
+        },
+        {
+          "cells": 47,
+          "centroid_px": [
+            1254.6,
+            5648.0
+          ],
+          "local_m": [
+            -336.5,
+            -2313.3
+          ],
+          "excluded": null,
+          "on": null,
+          "unnamed_because": "beyond_the_carried_section_grid"
+        },
+        {
+          "cells": 46,
+          "centroid_px": [
+            955.3,
+            1519.3
+          ],
+          "local_m": [
+            -578.4,
+            656.1
+          ],
+          "excluded": null,
+          "on": "wabansia",
+          "also_inside": [
+            "canal_section_9_remainder"
+          ]
+        },
+        {
+          "cells": 45,
+          "centroid_px": [
+            715.7,
+            968.9
+          ],
+          "local_m": [
+            -751.4,
+            1046.4
+          ],
+          "excluded": null,
+          "on": "wabansia",
+          "also_inside": [
+            "canal_section_9_remainder"
+          ]
+        },
+        {
+          "cells": 45,
+          "centroid_px": [
+            3744.4,
+            2818.8
+          ],
+          "local_m": [
+            1398.4,
+            -204.2
+          ],
+          "excluded": "water",
+          "on": null
+        },
+        {
+          "cells": 45,
+          "centroid_px": [
+            1808.5,
+            2906.5
+          ],
+          "local_m": [
+            33.7,
+            -320.9
+          ],
+          "excluded": null,
+          "on": "canal_commissioners_1830"
+        },
+        {
+          "cells": 45,
+          "centroid_px": [
+            1702.2,
+            3237.2
+          ],
+          "local_m": [
+            -38.8,
+            -562.3
+          ],
+          "excluded": null,
+          "on": "school_section"
+        },
+        {
+          "cells": 45,
+          "centroid_px": [
+            3010.7,
+            3928.9
+          ],
+          "local_m": [
+            889.2,
+            -1025.1
+          ],
+          "excluded": "in_legend",
+          "on": null
+        },
+        {
+          "cells": 44,
+          "centroid_px": [
+            1719.5,
+            2059.6
+          ],
+          "local_m": [
+            -35.4,
+            287.5
+          ],
+          "excluded": null,
+          "on": "canal_section_9_remainder"
+        },
+        {
+          "cells": 44,
+          "centroid_px": [
+            1790.9,
+            3644.9
+          ],
+          "local_m": [
+            26.8,
+            -853.9
+          ],
+          "excluded": null,
+          "on": "school_section"
+        },
+        {
+          "cells": 42,
+          "centroid_px": [
+            699.2,
+            1337.5
+          ],
+          "local_m": [
+            -760.3,
+            780.1
+          ],
+          "excluded": null,
+          "on": "wabansia",
+          "also_inside": [
+            "canal_section_9_remainder"
+          ]
+        },
+        {
+          "cells": 42,
+          "centroid_px": [
+            1537.1,
+            1818.3
+          ],
+          "local_m": [
+            -165.8,
+            456.5
+          ],
+          "excluded": null,
+          "on": "canal_section_9_remainder"
+        },
+        {
+          "cells": 42,
+          "centroid_px": [
+            2144.4,
+            2422.3
+          ],
+          "local_m": [
+            267.0,
+            37.6
+          ],
+          "excluded": null,
+          "on": "canal_commissioners_1830"
+        },
+        {
+          "cells": 41,
+          "centroid_px": [
+            2265.6,
+            727.2
+          ],
+          "local_m": [
+            339.8,
+            1263.5
+          ],
+          "excluded": "off_map",
+          "on": null
+        },
+        {
+          "cells": 41,
+          "centroid_px": [
+            2664.0,
+            2464.0
+          ],
+          "local_m": [
+            633.8,
+            21.9
+          ],
+          "excluded": null,
+          "on": "canal_commissioners_1830"
+        },
+        {
+          "cells": 40,
+          "centroid_px": [
+            705.8,
+            1798.6
+          ],
+          "local_m": [
+            -752.3,
+            447.8
+          ],
+          "excluded": null,
+          "on": "wabansia",
+          "also_inside": [
+            "canal_section_9_remainder"
+          ]
+        },
+        {
+          "cells": 40,
+          "centroid_px": [
+            3014.8,
+            4145.2
+          ],
+          "local_m": [
+            893.7,
+            -1181.0
+          ],
+          "excluded": "in_legend",
+          "on": null
+        }
+      ],
+      "[5]": [
+        {
+          "cells": 1704,
+          "centroid_px": [
+            2860.4,
+            3849.6
+          ],
+          "local_m": [
+            782.6,
+            -972.0
+          ],
+          "excluded": null,
+          "on": "school_section"
+        },
+        {
+          "cells": 930,
+          "centroid_px": [
+            2416.8,
+            5430.9
+          ],
+          "local_m": [
+            481.5,
+            -2124.7
+          ],
+          "excluded": null,
+          "on": "school_section"
+        },
+        {
+          "cells": 818,
+          "centroid_px": [
+            669.6,
+            4932.4
+          ],
+          "local_m": [
+            -754.4,
+            -1813.4
+          ],
+          "excluded": null,
+          "on": "school_section"
+        },
+        {
+          "cells": 423,
+          "centroid_px": [
+            2108.0,
+            3228.9
+          ],
+          "local_m": [
+            247.4,
+            -545.1
+          ],
+          "excluded": null,
+          "on": "school_section"
+        },
+        {
+          "cells": 358,
+          "centroid_px": [
+            2180.2,
+            4554.4
+          ],
+          "local_m": [
+            308.1,
+            -1499.1
+          ],
+          "excluded": null,
+          "on": "school_section"
+        },
+        {
+          "cells": 102,
+          "centroid_px": [
+            681.4,
+            4198.5
+          ],
+          "local_m": [
+            -751.6,
+            -1283.8
+          ],
+          "excluded": null,
+          "on": "school_section"
+        },
+        {
+          "cells": 88,
+          "centroid_px": [
+            1778.8,
+            5413.9
+          ],
+          "local_m": [
+            31.5,
+            -2130.0
+          ],
+          "excluded": null,
+          "on": null,
+          "unnamed_because": "beyond_the_carried_section_grid"
+        },
+        {
+          "cells": 84,
+          "centroid_px": [
+            797.6,
+            3220.8
+          ],
+          "local_m": [
+            -676.9,
+            -575.4
+          ],
+          "excluded": null,
+          "on": "school_section"
+        },
+        {
+          "cells": 74,
+          "centroid_px": [
+            2058.9,
+            4436.9
+          ],
+          "local_m": [
+            221.7,
+            -1417.7
+          ],
+          "excluded": "lacuna",
+          "on": null
+        },
+        {
+          "cells": 70,
+          "centroid_px": [
+            1607.2,
+            3215.3
+          ],
+          "local_m": [
+            -106.0,
+            -549.1
+          ],
+          "excluded": null,
+          "on": "school_section"
+        },
+        {
+          "cells": 69,
+          "centroid_px": [
+            1429.4,
+            3205.1
+          ],
+          "local_m": [
+            -231.4,
+            -546.7
+          ],
+          "excluded": null,
+          "on": "school_section"
+        },
+        {
+          "cells": 67,
+          "centroid_px": [
+            704.0,
+            3331.2
+          ],
+          "local_m": [
+            -742.1,
+            -657.6
+          ],
+          "excluded": null,
+          "on": "school_section"
+        },
+        {
+          "cells": 65,
+          "centroid_px": [
+            2878.0,
+            5062.9
+          ],
+          "local_m": [
+            804.1,
+            -1846.6
+          ],
+          "excluded": null,
+          "on": "school_section"
+        },
+        {
+          "cells": 61,
+          "centroid_px": [
+            676.6,
+            4458.4
+          ],
+          "local_m": [
+            -753.0,
+            -1471.3
+          ],
+          "excluded": null,
+          "on": "school_section"
+        },
+        {
+          "cells": 44,
+          "centroid_px": [
+            2876.4,
+            5216.9
+          ],
+          "local_m": [
+            804.1,
+            -1957.7
+          ],
+          "excluded": null,
+          "on": "school_section"
+        }
+      ],
+      "[8]": [
+        {
+          "cells": 8184,
+          "centroid_px": [
+            4345.6,
+            5215.3
+          ],
+          "local_m": [
+            1840.3,
+            -1916.0
+          ],
+          "excluded": "water",
+          "on": null
+        },
+        {
+          "cells": 1097,
+          "centroid_px": [
+            3565.0,
+            4948.3
+          ],
+          "local_m": [
+            1287.8,
+            -1745.0
+          ],
+          "excluded": null,
+          "on": "fractional_section_15"
+        },
+        {
+          "cells": 401,
+          "centroid_px": [
+            2916.7,
+            5170.0
+          ],
+          "local_m": [
+            832.2,
+            -1922.7
+          ],
+          "excluded": null,
+          "on": "fractional_section_15"
+        },
+        {
+          "cells": 382,
+          "centroid_px": [
+            2041.7,
+            1922.5
+          ],
+          "local_m": [
+            190.9,
+            395.3
+          ],
+          "excluded": null,
+          "on": "canal_section_9_remainder"
+        },
+        {
+          "cells": 291,
+          "centroid_px": [
+            3656.7,
+            3497.5
+          ],
+          "local_m": [
+            1341.6,
+            -696.1
+          ],
+          "excluded": null,
+          "on": "fractional_section_15"
+        },
+        {
+          "cells": 288,
+          "centroid_px": [
+            4068.3,
+            4209.0
+          ],
+          "local_m": [
+            1637.2,
+            -1197.9
+          ],
+          "excluded": "water",
+          "on": null
+        },
+        {
+          "cells": 260,
+          "centroid_px": [
+            652.2,
+            5257.0
+          ],
+          "local_m": [
+            -764.3,
+            -2048.0
+          ],
+          "excluded": null,
+          "on": "school_section"
+        },
+        {
+          "cells": 227,
+          "centroid_px": [
+            1930.7,
+            774.1
+          ],
+          "local_m": [
+            104.0,
+            1220.4
+          ],
+          "excluded": "off_map",
+          "on": null
+        },
+        {
+          "cells": 223,
+          "centroid_px": [
+            2500.3,
+            2063.0
+          ],
+          "local_m": [
+            515.4,
+            306.5
+          ],
+          "excluded": null,
+          "on": "canal_section_9_remainder"
+        },
+        {
+          "cells": 206,
+          "centroid_px": [
+            2007.8,
+            996.1
+          ],
+          "local_m": [
+            160.0,
+            1062.5
+          ],
+          "excluded": null,
+          "on": "canal_section_9_remainder"
+        },
+        {
+          "cells": 170,
+          "centroid_px": [
+            1577.8,
+            1848.9
+          ],
+          "local_m": [
+            -136.9,
+            435.5
+          ],
+          "excluded": null,
+          "on": "canal_section_9_remainder"
+        },
+        {
+          "cells": 134,
+          "centroid_px": [
+            1307.9,
+            1407.0
+          ],
+          "local_m": [
+            -330.5,
+            746.8
+          ],
+          "excluded": null,
+          "on": "canal_section_9_remainder"
+        },
+        {
+          "cells": 131,
+          "centroid_px": [
+            1332.1,
+            984.3
+          ],
+          "local_m": [
+            -316.6,
+            1052.3
+          ],
+          "excluded": null,
+          "on": "canal_section_9_remainder"
+        },
+        {
+          "cells": 122,
+          "centroid_px": [
+            2880.4,
+            1563.9
+          ],
+          "local_m": [
+            779.7,
+            677.0
+          ],
+          "excluded": null,
+          "on": "canal_section_9_remainder"
+        },
+        {
+          "cells": 112,
+          "centroid_px": [
+            2953.4,
+            3441.6
+          ],
+          "local_m": [
+            845.1,
+            -675.2
+          ],
+          "excluded": null,
+          "on": "fractional_section_15"
+        },
+        {
+          "cells": 110,
+          "centroid_px": [
+            2884.9,
+            1400.0
+          ],
+          "local_m": [
+            781.6,
+            795.3
+          ],
+          "excluded": null,
+          "on": "canal_section_9_remainder"
+        },
+        {
+          "cells": 110,
+          "centroid_px": [
+            4278.8,
+            4390.9
+          ],
+          "local_m": [
+            1787.0,
+            -1323.3
+          ],
+          "excluded": "water",
+          "on": null
+        },
+        {
+          "cells": 92,
+          "centroid_px": [
+            1171.6,
+            1155.7
+          ],
+          "local_m": [
+            -428.6,
+            924.3
+          ],
+          "excluded": null,
+          "on": "canal_section_9_remainder"
+        },
+        {
+          "cells": 89,
+          "centroid_px": [
+            4496.9,
+            1911.8
+          ],
+          "local_m": [
+            1922.4,
+            470.7
+          ],
+          "excluded": "off_map",
+          "on": null
+        },
+        {
+          "cells": 89,
+          "centroid_px": [
+            2915.1,
+            4254.3
+          ],
+          "local_m": [
+            824.2,
+            -1262.4
+          ],
+          "excluded": null,
+          "on": "school_section"
+        },
+        {
+          "cells": 85,
+          "centroid_px": [
+            1648.1,
+            983.1
+          ],
+          "local_m": [
+            -93.8,
+            1061.9
+          ],
+          "excluded": null,
+          "on": "canal_section_9_remainder"
+        },
+        {
+          "cells": 81,
+          "centroid_px": [
+            4008.2,
+            3790.9
+          ],
+          "local_m": [
+            1591.7,
+            -898.0
+          ],
+          "excluded": "water",
+          "on": null
+        },
+        {
+          "cells": 78,
+          "centroid_px": [
+            3594.4,
+            4064.4
+          ],
+          "local_m": [
+            1301.9,
+            -1106.7
+          ],
+          "excluded": null,
+          "on": "fractional_section_15"
+        },
+        {
+          "cells": 77,
+          "centroid_px": [
+            4034.4,
+            4467.7
+          ],
+          "local_m": [
+            1615.2,
+            -1385.5
+          ],
+          "excluded": "water",
+          "on": null
+        },
+        {
+          "cells": 71,
+          "centroid_px": [
+            4490.9,
+            3709.0
+          ],
+          "local_m": [
+            1931.5,
+            -825.6
+          ],
+          "excluded": "off_map",
+          "on": null
+        },
+        {
+          "cells": 70,
+          "centroid_px": [
+            4435.9,
+            483.1
+          ],
+          "local_m": [
+            1868.7,
+            1499.4
+          ],
+          "excluded": "off_map",
+          "on": null
+        },
+        {
+          "cells": 70,
+          "centroid_px": [
+            3696.8,
+            1828.9
+          ],
+          "local_m": [
+            1357.4,
+            508.4
+          ],
+          "excluded": null,
+          "on": null,
+          "unnamed_because": "north_of_the_committed_shore"
+        },
+        {
+          "cells": 70,
+          "centroid_px": [
+            4103.3,
+            3561.0
+          ],
+          "local_m": [
+            1657.1,
+            -729.6
+          ],
+          "excluded": "water",
+          "on": null
+        },
+        {
+          "cells": 68,
+          "centroid_px": [
+            3724.0,
+            2051.9
+          ],
+          "local_m": [
+            1378.3,
+            348.3
+          ],
+          "excluded": null,
+          "on": null,
+          "unnamed_because": "north_of_the_committed_shore"
+        },
+        {
+          "cells": 68,
+          "centroid_px": [
+            2909.1,
+            4473.8
+          ],
+          "local_m": [
+            821.6,
+            -1420.8
+          ],
+          "excluded": null,
+          "on": "school_section"
+        },
+        {
+          "cells": 67,
+          "centroid_px": [
+            2775.6,
+            3248.2
+          ],
+          "local_m": [
+            718.4,
+            -540.7
+          ],
+          "excluded": null,
+          "on": "school_section"
+        },
+        {
+          "cells": 67,
+          "centroid_px": [
+            2941.4,
+            3779.0
+          ],
+          "local_m": [
+            839.2,
+            -918.9
+          ],
+          "excluded": null,
+          "on": "fractional_section_15"
+        },
+        {
+          "cells": 62,
+          "centroid_px": [
+            3971.9,
+            5133.4
+          ],
+          "local_m": [
+            1576.1,
+            -1867.3
+          ],
+          "excluded": "water",
+          "on": null
+        },
+        {
+          "cells": 59,
+          "centroid_px": [
+            3870.0,
+            4680.3
+          ],
+          "local_m": [
+            1500.8,
+            -1543.3
+          ],
+          "excluded": "water",
+          "on": null
+        },
+        {
+          "cells": 58,
+          "centroid_px": [
+            3423.2,
+            3301.9
+          ],
+          "local_m": [
+            1175.4,
+            -561.5
+          ],
+          "excluded": null,
+          "on": "fractional_section_15"
+        },
+        {
+          "cells": 58,
+          "centroid_px": [
+            2930.1,
+            3914.1
+          ],
+          "local_m": [
+            832.2,
+            -1016.6
+          ],
+          "excluded": null,
+          "on": "school_section"
+        },
+        {
+          "cells": 56,
+          "centroid_px": [
+            1430.9,
+            1552.3
+          ],
+          "local_m": [
+            -242.7,
+            645.4
+          ],
+          "excluded": null,
+          "on": "canal_section_9_remainder"
+        },
+        {
+          "cells": 56,
+          "centroid_px": [
+            4054.3,
+            4958.3
+          ],
+          "local_m": [
+            1632.9,
+            -1738.7
+          ],
+          "excluded": "water",
+          "on": null
+        },
+        {
+          "cells": 54,
+          "centroid_px": [
+            3705.9,
+            5221.6
+          ],
+          "local_m": [
+            1389.2,
+            -1938.2
+          ],
+          "excluded": "water",
+          "on": null
+        },
+        {
+          "cells": 48,
+          "centroid_px": [
+            3975.2,
+            4702.0
+          ],
+          "local_m": [
+            1575.2,
+            -1556.0
+          ],
+          "excluded": "water",
+          "on": null
+        },
+        {
+          "cells": 48,
+          "centroid_px": [
+            3929.8,
+            4758.7
+          ],
+          "local_m": [
+            1543.6,
+            -1598.2
+          ],
+          "excluded": "water",
+          "on": null
+        },
+        {
+          "cells": 47,
+          "centroid_px": [
+            2880.3,
+            2832.0
+          ],
+          "local_m": [
+            789.1,
+            -237.6
+          ],
+          "excluded": null,
+          "on": "canal_commissioners_1830"
+        },
+        {
+          "cells": 47,
+          "centroid_px": [
+            3928.2,
+            4580.4
+          ],
+          "local_m": [
+            1541.1,
+            -1469.7
+          ],
+          "excluded": "water",
+          "on": null
+        },
+        {
+          "cells": 46,
+          "centroid_px": [
+            3745.4,
+            4182.1
+          ],
+          "local_m": [
+            1409.3,
+            -1187.4
+          ],
+          "excluded": "water",
+          "on": null
+        },
+        {
+          "cells": 46,
+          "centroid_px": [
+            2813.7,
+            5443.0
+          ],
+          "local_m": [
+            761.6,
+            -2122.5
+          ],
+          "excluded": null,
+          "on": "school_section"
+        },
+        {
+          "cells": 44,
+          "centroid_px": [
+            2205.5,
+            997.8
+          ],
+          "local_m": [
+            299.4,
+            1066.7
+          ],
+          "excluded": null,
+          "on": "canal_section_9_remainder"
+        },
+        {
+          "cells": 44,
+          "centroid_px": [
+            4278.7,
+            2132.4
+          ],
+          "local_m": [
+            1770.1,
+            305.6
+          ],
+          "excluded": null,
+          "on": null,
+          "unnamed_because": "north_of_the_committed_shore"
+        },
+        {
+          "cells": 44,
+          "centroid_px": [
+            3311.1,
+            3236.2
+          ],
+          "local_m": [
+            1095.9,
+            -517.2
+          ],
+          "excluded": null,
+          "on": "us_military_reservation"
+        },
+        {
+          "cells": 43,
+          "centroid_px": [
+            2882.6,
+            1255.6
+          ],
+          "local_m": [
+            778.9,
+            899.4
+          ],
+          "excluded": null,
+          "on": "canal_section_9_remainder"
+        },
+        {
+          "cells": 43,
+          "centroid_px": [
+            3785.5,
+            4060.1
+          ],
+          "local_m": [
+            1436.6,
+            -1098.3
+          ],
+          "excluded": "water",
+          "on": null
+        },
+        {
+          "cells": 42,
+          "centroid_px": [
+            3999.2,
+            4133.3
+          ],
+          "local_m": [
+            1587.9,
+            -1145.2
+          ],
+          "excluded": "water",
+          "on": null
+        },
+        {
+          "cells": 42,
+          "centroid_px": [
+            4161.9,
+            4384.8
+          ],
+          "local_m": [
+            1704.5,
+            -1322.1
+          ],
+          "excluded": "water",
+          "on": null
+        },
+        {
+          "cells": 40,
+          "centroid_px": [
+            3918.0,
+            4443.0
+          ],
+          "local_m": [
+            1532.9,
+            -1370.8
+          ],
+          "excluded": "water",
+          "on": null
+        },
+        {
+          "cells": 40,
+          "centroid_px": [
+            3908.6,
+            5785.4
+          ],
+          "local_m": [
+            1536.3,
+            -2339.2
+          ],
+          "excluded": "off_map",
+          "on": null
+        }
+      ]
+    },
+    "extent": {
+      "[1]": [
+        {
+          "cells": 332,
+          "box_px": [
+            3000,
+            2152,
+            3472,
+            2488
+          ]
+        }
+      ],
+      "[2]": [
+        {
+          "cells": 121,
+          "box_px": [
+            3000,
+            3216,
+            3272,
+            3248
+          ]
+        }
+      ],
+      "[3, 7]": [
+        {
+          "cells": 271,
+          "box_px": [
+            3616,
+            4008,
+            3712,
+            4448
+          ]
+        }
+      ],
+      "[4, 6, 9]": [
+        {
+          "cells": 264,
+          "box_px": [
+            2560,
+            960,
+            2928,
+            1064
+          ]
+        }
+      ],
+      "[5]": [
+        {
+          "cells": 1704,
+          "box_px": [
+            2512,
+            3208,
+            2960,
+            4920
+          ]
+        }
+      ],
+      "[8]": [
+        {
+          "cells": 8184,
+          "box_px": [
+            3936,
+            4304,
+            4592,
+            5856
+          ]
+        }
+      ]
+    }
+  },
+  "summary": {
+    "chips": 9,
+    "placed": 7,
+    "refused": 2,
+    "bands_classified": 116,
+    "bands_excluded": 32,
+    "bands_on_a_named_tract": 73
+  }
+}

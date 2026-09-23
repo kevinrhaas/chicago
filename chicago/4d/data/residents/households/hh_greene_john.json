@@ -1,0 +1,140 @@
+{
+ "id": "hh_greene_john",
+ "name": "The commandant's household",
+ "division": "fort",
+ "head": "greene_john",
+ "arrival": {
+  "value": "1833-12-18",
+  "confidence": "attested",
+  "sources": [
+   "andreas_1884_v1",
+   "drloih_fort_dearborn"
+  ],
+  "note": "The day he took command. For an officer under orders that is the arrival.",
+  "precision": "day"
+ },
+ "party_size_on_arrival": {
+  "value": 1,
+  "confidence": "inferred",
+  "sources": [
+   "andreas_1884_v1"
+  ],
+  "note": "Nothing reached names a wife or children at the post. Inferred rather than asserted."
+ },
+ "origin": {
+  "value": null,
+  "confidence": "reconstructed",
+  "note": "Not attested."
+ },
+ "reason_for_coming": {
+  "value": "Ordered to command the post",
+  "confidence": "attested",
+  "sources": [
+   "andreas_1884_v1",
+   "drloih_fort_dearborn"
+  ]
+ },
+ "lives_at": {
+  "value": "fort_dearborn_commandants_quarters",
+  "confidence": "attested",
+  "sources": [
+   "andreas_1884_v1",
+   "drloih_fort_dearborn"
+  ],
+  "note": "The commanding officer's quarters are a building in this dataset and he was the commanding officer. This is the one lives_at link in the parcel that is true by definition of the building rather than by evidence about the man."
+ },
+ "works_at": {
+  "value": "fort_dearborn_palisade",
+  "confidence": "attested",
+  "sources": [
+   "andreas_1884_v1",
+   "drloih_fort_dearborn"
+  ],
+  "note": "The post itself. data/structures/fort_dearborn_palisade.json already carries 'United States 5th Infantry, Maj. John Greene commanding' as its occupants; this household is the other end of that link."
+ },
+ "present_on_scene_date": {
+  "value": "present",
+  "confidence": "attested",
+  "sources": [
+   "andreas_1884_v1",
+   "drloih_fort_dearborn"
+  ],
+  "note": "In command across the scene date."
+ },
+ "persons": [
+  {
+   "id": "greene_john",
+   "name": "Major John Greene",
+   "relationship": "head",
+   "grade": "attested",
+   "sex": "male",
+   "occupation": {
+    "value": "army_officer",
+    "confidence": "attested",
+    "sources": [
+     "andreas_1884_v1",
+     "drloih_fort_dearborn"
+    ],
+    "note": "Commanding officer of Fort Dearborn from 18 December 1833 until 16 September 1835, per this project's fort dossier (docs/RESEARCH/fort_dearborn.md), which settles that the post was an occupied United States Army post on the scene date.",
+    "derived_from": "roles",
+    "roles_at_scene_date": [
+     "army_officer"
+    ]
+   },
+   "sources": [
+    "andreas_1884_v1",
+    "drloih_fort_dearborn"
+   ],
+   "note": "THE MAN IN COMMAND ON THE SCENE DATE, on a tour that starts eighteen months before it and ends ten weeks after it. Three separately written accounts agree the fort was garrisoned through 1835, and the post surgeon's prescription book carries an entry dated 15 March 1835.",
+   "resident_research": {
+    "programme": "resident-research-2026",
+    "ticket": "T-0509",
+    "outcome": "no_corroboration",
+    "reviewed_on": "2026-09-05",
+    "asserted_identity": false,
+    "evidence_for": "No reliable record found in the reviewed contemporary, institutional, local-history and index searches could be tied to this person by more than the recorded name. This is a documented no-find, not evidence that the person did not exist.",
+    "notes": "Candidate facts remain unasserted until a source bridges the candidate to the historical record by more than name similarity.",
+    "summary": "Major John Greene is held as a candidate and not asserted: 2 Newberry genealogical-index card(s) stand under this surname on an exact-surname rule with nothing to separate the bearers.",
+    "source_ids": [
+     "andreas_1884_v1",
+     "drloih_fort_dearborn"
+    ]
+   },
+   "roles": [
+    {
+     "role": "army_officer",
+     "kind": "profession",
+     "as_printed": null,
+     "from": "1673",
+     "to": "1857",
+     "precision": "source_span",
+     "dated_by": "source_describes_date",
+     "covers_scene_date": true,
+     "confidence": "attested",
+     "sources": [
+      "andreas_1884_v1",
+      "drloih_fort_dearborn"
+     ],
+     "claim": null,
+     "note": "THE BOUND IS THE SOURCE'S, NOT THE MAN'S. This role is carried by the card's 1835 occupation block and is dated by what the cited source or sources are ABOUT, which is why `precision` can be no better than the span they cover. The span reaches 1835, so this role stands in the scene-date view. The printing the trade was read off is not on the card and is fetched by T-1254."
+    }
+   ],
+   "merge_ruling": [
+    {
+     "ticket": "T-1291",
+     "verdict": "distinct",
+     "rule": "D7",
+     "cluster": "green-greene",
+     "weighed_against": [
+      "green_j"
+     ],
+     "for_merge": "A terminal e and an initial that agrees with John, and the Greene card is the best anchored card the pool touches: Major John Greene, in command at Fort Dearborn on the scene date, with quarters and a post in the record.",
+     "against_merge": "THE ANCHOR IS ON THE WRONG SIDE OF THE FOLD, AND THAT IS X2's POINT. 'J. Green' is the 1835 poll list and the American of 13 June 1835 (#c013); Major John Greene is Andreas and the fort literature, with no letter-list or poll reading at all. The initial J attaches to 'John' only because the candidate test folded the surname first, so the forename inference is a fact about the rest of the town and not evidence about the reading — the direction T-0697 refused. GREEN IS POPULATED AND GREENE IS NOT: the town holds green_damel_m, green_j and green_mary, the reading index thirteen Green identities against one Greene, and no Green of the town is a John. No printing is caught setting both spellings for one man, and the fold would put a serving army major onto a town poll roll on the strength of one letter. D7."
+    }
+   ]
+  }
+ ],
+ "touches_removal": false,
+ "review_required": false,
+ "research_note": "THE FORT AS A HOUSEHOLD, WHICH IT WAS NOT - and the record says so rather than pretending. A garrison is not a family; it is a command with a strength, and this record names the one man the sources put at the head of it on 1 July 1835. THE ENLISTED MEN ARE DELIBERATELY NOT WRITTEN. data/structures/fort_dearborn_barracks.json records 'enlisted men of the 5th Infantry garrison' as its occupants and that is where they stay until a muster roll enters data/sources/. Inventing a company of privates would inflate the documented count with people no source names, which is precisely the error the grade vocabulary exists to make impossible."
+}

@@ -1,0 +1,182 @@
+{
+  "id": "miller_house",
+  "name": "Miller House",
+  "aka": [
+    "Samuel Miller's house",
+    "Miller's Tavern",
+    "Fork Tavern"
+  ],
+  "archetype": "log_dwelling",
+  "phases": [
+    {
+      "id": "log_frame_1827",
+      "documented_range": {
+        "from": "1827-01-01",
+        "to": "1835-12-31",
+        "confidence": "inferred",
+        "sources": [
+          "drloih_hotels",
+          "drloih_wolf_point",
+          "chicagology_prefire273"
+        ],
+        "note": "The phase begins when the log cabin acquired its two-storey front, which is the form this record models. THE DATE OF THAT ENLARGEMENT IS DISPUTED, and again by one publication against itself: the hotel chronology says 'In 1827, Samuel Miller and his brother John, with Archibald Clybourn holding a partnership interest, added a two-story house to the cabin, fronting the river', while the Wolf Point narrative says the brothers opened a store on the north bank in about 1829 and 'In 1830, they enlarged their store and began to operate it as a tavern'. 1827 is adopted because it is the statement that actually describes the FORM change being modelled — a two-storey house added to the cabin, fronting the river — where the 1830 statement describes a change of trade. The two may well be different events, an enlargement in 1827 and a conversion to innkeeping in 1830, in which case both are right. Either way the building had its 1835 form well before the scene date. THE END OF THE RANGE IS THE HONEST MINIMUM, NOT A FATE: no source reached says when the Miller house came down, so the range is closed at the end of 1835 — the last date this record needs to claim — rather than run on speculatively. Extend it when evidence appears; do not widen it to make something pass."
+      },
+      "position": {
+        "utm_e": 447086.7,
+        "utm_n": 4637456.8,
+        "rotation_deg": 180.0,
+        "symbolic_location": "North bank at the forks, on the point of land between the North Branch and the main stem, directly opposite Wolf Point.",
+        "confidence": "inferred",
+        "derivation": {
+          "method": "not_derivable",
+          "reason": "No street survives here to offset from. The streets platted across this ground in Kinzie's Addition were staked in 1833-35 and the point itself has been rebuilt, so the coordinate comes from the datum origin at the confluence and from modern bank geometry — neither of which this check can recompute, since the modern banks are not the 1835 banks and no line in the dataset stands for them. Recomputable the day the traced 1834 north bank is used to place it instead."
+        },
+        "sources": [
+          "chicagology_prefire273",
+          "kinzie_waubun_1856",
+          "drloih_wolf_point",
+          "osm_streets_2026"
+        ],
+        "note": "PLACED 2026-08-09. NO SURVIVING INTERSECTION LOCATES THIS BUILDING — the streets platted across this ground in Kinzie's Addition were staked in 1833-35 and the point itself has since been rebuilt — so the coordinate is derived from the datum origin at the forks confluence and from bank geometry. What is attested is unusually consistent for this dataset: chicagology, 'The Miller House stood on the point of land between the North Branch and the Main Channel'; Wau-Bun, 'on the north side of the river ... near the forks'; DRLOIH, a store 'on the north bank of the river at the forks'; and the Miller-Clybourn ferry ran across the North Branch between this house and the Wolf Point Tavern, which requires it to be on the point. A FOURTH SOURCE DISAGREES AND IS TREATED AS AN ERROR: the hotel chronology places Miller on the 'south branch of Chicago River, opposite Wolf Point'. Four independent statements against one, and the ferry route settles it. Method: modern water polygons from OpenStreetMap put the nose of the point at about 39 m north of the datum origin, with the main-stem north bank running east from there and the North Branch east bank running north-west. The footprint's south face is set 14 m north of the main-stem bank and its west face about 22 m east of the North Branch bank, which puts the building on the point and off both waters. Working uncertainty about 20 m from the georeference, plus an unquantified allowance for the modern banks not being the 1835 banks — this ground was filled and wharfed and is now built over, and unlike the west bank there is no street line here to check it against, so treat the along-bank position as the softer of the two axes. Facade bearing 180, due south onto the main stem, from 'a two-story house ... fronting the river'. On a point the river is on two sides: a bearing of about 215, fronting the confluence and Wolf Point across the water, is equally arguable and would rotate the building about 35 degrees."
+      },
+      "footprint": {
+        "polygon": [
+          [
+            0,
+            0
+          ],
+          [
+            6,
+            0
+          ],
+          [
+            6,
+            5
+          ],
+          [
+            9,
+            5
+          ],
+          [
+            9,
+            11
+          ],
+          [
+            0,
+            11
+          ]
+        ],
+        "confidence": "reconstructed",
+        "note": "PLACEHOLDER — NO DIMENSIONS ARE ATTESTED. The SHAPE carries evidence and the SIZE does not, and the two should not be confused. What is attested is the composition: a log cabin with a two-storey house added to it fronting the river, described from the south bank in 1833 as 'a two-story building and adjoining log cabin', and by chicagology as 'a log structure partly sided'. This L reflects that — a 9 x 6 m two-storey range along the river frontage with a 6 x 5 m log cabin set back behind it — but every number in it is invented, so the whole polygon is tagged conjectural and cites no sources. The bounding box is 9 x 11 m. To resolve: Andreas vol. 1, 'Wharfs, Piers and Early Hotels' pp. 626-631, at page-image level."
+      },
+      "form": {
+        "stories": {
+          "value": 1,
+          "confidence": "inferred",
+          "sources": [
+            "chicagology_prefire273",
+            "drloih_hotels"
+          ],
+          "note": "THIS VALUE IS THE LOG CORE'S, AND UNTIL 2026-08-10 IT CARRIED THE FRAME RANGE'S. It read 'value 2, documented', with a note saying in as many words that the two storeys described the river-fronting range rather than the whole building — but `log_dwelling` reads `stories` as the storey count of the log core, the range having its own `frame_addition_stories`, so the documented claim was being spent on the cabin and the range then took the archetype's default. The result was the composition inverted: a two-storey log cabin standing behind a shorter frame block, which is the opposite of every description of this building. The two-storey claim now sits on `frame_addition_stories`, where the archetype reads it and where the source's sentence actually points. ONE STOREY FOR THE CABIN IS INFERENCE, not attestation: no source gives the log part a height, and the reading rests on the 1833 view from the south bank — 'a two-story building and adjoining log cabin' — which only reads as a contrast if the cabin stood lower, together with the single-pen log house being the near-universal form at the forks. Recorded rather than assumed, because the number the archetype builds from should be the number a reader can argue with."
+        },
+        "construction": {
+          "value": "log",
+          "confidence": "attested",
+          "sources": [
+            "chicagology_prefire273",
+            "drloih_hotels"
+          ],
+          "note": "chicagology: 'It was a log structure partly sided, and was erected by Mr. Samuel Miller.' The value records the log core; the frame range in front is carried separately as frame_addition. 'Partly sided' and 'a two-story house added to the cabin' are the same building described from two angles and are not in conflict."
+        },
+        "frame_addition": {
+          "value": true,
+          "confidence": "attested",
+          "sources": [
+            "drloih_hotels",
+            "chicagology_prefire273"
+          ],
+          "note": "A two-storey house added to the log cabin, fronting the river. This is the element that faced the settlement across the water and the one a viewer standing at Wolf Point would have seen. THAT IT EXISTED IS DOCUMENTED AND ITS SIZE IS NOT, so the four attributes below state the side, the width, the depth and the storey count explicitly rather than leaving them to the archetype's defaults. Until 2026-08-10 they were left to the defaults, which is the failure docs/LIBERTIES.md L24 exists to stop one building over: a documented feature arriving at an invented size with nothing admitting it."
+        },
+        "frame_addition_side": {
+          "value": "front",
+          "confidence": "attested",
+          "sources": [
+            "drloih_hotels",
+            "chicagology_prefire273"
+          ],
+          "note": "'a two-story house added to the cabin, FRONTING THE RIVER', corroborated by the 1833 view from the south bank showing the two-storey building in front of the cabin rather than beside it. `front` is the archetype's term for the facade side, and this record's facade bearing is set due south onto the main stem for the same clause, so the range stands between the cabin and the water. This is the one dimension of the addition that is attested, and it is the one the Wolf Point Tavern's record had to invent — worth stating because the two records otherwise look alike. The caveat is the position note's, not this attribute's: if the building fronted the confluence at about 215 degrees instead, the whole building rotates and the range stays on its facade."
+        },
+        "frame_addition_stories": {
+          "value": 2,
+          "confidence": "attested",
+          "sources": [
+            "drloih_hotels"
+          ],
+          "note": "'added a TWO-STORY house to the cabin, fronting the river', with the 1833 view's 'a two-story building and adjoining log cabin' saying the same thing from the south bank. This is the storey count the sources actually give, and until 2026-08-10 it was recorded on `stories`, where the archetype spent it on the log core instead; see the note there."
+        },
+        "frame_addition_width_m": {
+          "value": 9.0,
+          "confidence": "reconstructed",
+          "note": "NOT ATTESTED. Read off this record's own footprint polygon — the river-fronting limb is 9 m across — rather than chosen afresh, so the mesh agrees with the plan the record already draws instead of taking the archetype's default half-width of 4.5 m, which would have put a narrow block in the middle of a frontage the polygon draws full-width. That is a smaller invention than a new number and it is still an invention, because the polygon itself is a PLACEHOLDER whose every dimension is invented. Admitted in docs/LIBERTIES.md L27."
+        },
+        "frame_addition_depth_m": {
+          "value": 6.0,
+          "confidence": "reconstructed",
+          "note": "NOT ATTESTED, and read off the footprint polygon on the same terms as the width: the river-fronting limb is 6 m deep of the bounding box's 11 m, leaving the 5 m the polygon gives the log cabin behind it. Inherits the polygon's invention. Admitted in docs/LIBERTIES.md L27."
+        },
+        "frame_addition_height_m": {
+          "value": 5.2,
+          "confidence": "inferred",
+          "note": "No figure is attested. 5.2 m is about 17 ft: two storeys at typical period floor heights plus structure and a sill. THIS IS THE HEIGHT THIS RECORD HAS CARRIED SINCE 2026-08-09, moved to the element it was written about — it sat on `wall_height_m`, which the archetype applies to the log core, and the note there said so and flagged the overstatement because the archetype could not then express two heights. It can, so the value moves rather than staying flagged. Stated explicitly instead of taking the archetype's 4.7 m default for two storeys, so that the reasoning already recorded for this building is what the mesh is built from."
+        },
+        "wall_height_m": {
+          "value": 2.6,
+          "confidence": "inferred",
+          "note": "THE LOG CABIN'S WALL, not the frame range's. No figure is attested for either. 2.6 m is a single-pen log wall at the forks — the same height this record has named for the cabin since 2026-08-09, when it stood in this note as the height the archetype could not yet express while the field itself carried the range's 5.2 m. The two heights are now separate attributes, so the overstatement this note used to flag is gone rather than described: docs/LIBERTIES.md L13, the entry that recorded it, moves to Resolved with this slice."
+        },
+        "roof_type": {
+          "value": "gable",
+          "confidence": "inferred",
+          "note": "Not attested for this building. Gable is the near-universal roof form for both elements of this type, period and region."
+        },
+        "roof_pitch_deg": {
+          "value": 38.0,
+          "confidence": "inferred",
+          "note": "No pitch is attested. 38 degrees is mid-range for period framing. Inferred from construction practice, not measured."
+        },
+        "cladding": {
+          "value": "clapboard",
+          "confidence": "inferred",
+          "sources": [
+            "chicagology_prefire273"
+          ],
+          "note": "'a log structure partly sided' — siding is attested on part of the building, and clapboard is the standard board siding for the type and period. Which part was sided, and whether the frame range was clad differently from the cabin, is not stated.",
+          "geometry": "simplified"
+        },
+        "paint": {
+          "value": "unpainted",
+          "confidence": "inferred",
+          "note": "No source describes a finish. Unpainted is the default reading and is positively supported by Wau-Bun's account of the Sauganash's white paint being the admiration of the little circle at Wolf Point in 1831 — the Miller house was directly across the water from it and is not singled out that way.",
+          "geometry": "simplified"
+        },
+        "chimneys": {
+          "value": 2,
+          "confidence": "inferred",
+          "note": "Not attested. A two-part building of this size — a former tavern with a log cabin behind — would normally carry a stack in each element. The number is inference."
+        }
+      },
+      "change_note": "The two-storey house added to the log cabin, fronting the river, giving the composite form the settlement knew: a two-storey frame face to the water with the older cabin behind. The conversion to a tavern in 1830, the reversion to store use after 1832 and the end of Miller's involvement in 1834 are changes of USE and do not open new phases."
+    }
+  ],
+  "function": {
+    "value": "store_residence",
+    "confidence": "inferred",
+    "sources": [
+      "kinzie_waubun_1856",
+      "drloih_hotels"
+    ],
+    "note": "NOT AN INN AT THE SCENE DATE, and that is the most important fact this record carries. Miller's tavern competed with the Wolf Point Tavern from 1830, but Wau-Bun, describing 1831, already calls the Miller house 'at this time vacant', Miller having removed to the place that was becoming Michigan City; DRLOIH has the business converted to a store run by P. F. W. Peck after 1832; and a third account has Miller retiring from the field in 1834. The three disagree in their chronology and agree in their direction. Modelled as present and in secondary store or residential use, not innkeeping. The specific claim that Peck was running it does not survive to the scene date either — this project's own exclusions record places Peck in 1835 at his two-storey frame store at South Water and LaSalle."
+  },
+  "research_note": "The north-bank half of the pair that made the forks a settlement: Miller's house faced the Wolf Point Tavern across the water, the two were joined by the Miller-Clybourn ferry licensed in 1829, and the first Peoria County tavern licence in the settlement went to Clybourn and Miller jointly. By July 1835 it is the quieter of the two — standing, in store or residential use, past its innkeeping days for at least three years. ITS OCCUPANCY AT THE SCENE DATE IS UNATTESTED and the record deliberately carries no occupants block rather than guessing: the named candidates all belong to earlier years, and this project's own date guards put P. F. W. Peck somewhere else in 1835. THE BANK IS RECORDED AS DISPUTED AND RESOLVED: four independent sources put the house on the north bank on the point between the North Branch and the main stem, one — the hotel chronology — puts it on the south branch, and the licensed ferry route across the North Branch between this house and the Wolf Point Tavern settles it against the outlier. The date of the two-storey addition is disputed, 1827 against 1830, and does not affect the scene. John Miller's separate log house of 1831, used as a tannery and called Chicago's first recorded factory, stood nearby in the same cluster and is not modelled by this record. See docs/RESEARCH/miller_house.md.",
+  "review_required": false
+}

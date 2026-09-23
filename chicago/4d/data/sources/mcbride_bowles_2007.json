@@ -1,0 +1,26 @@
+{
+  "id": "mcbride_bowles_2007",
+  "type": "article",
+  "citation": "McBride, Jeanette L. and Marlin L. Bowles. Searching the Public Land Survey for Illinois Natural History. The Morton Arboretum, December 2007.",
+  "author": "Jeanette L. McBride and Marlin L. Bowles",
+  "date": "2007-12",
+  "describes_date": "1821-1840 (the Public Land Survey of northeastern Illinois)",
+  "repository": "The Morton Arboretum / greenmapping.org",
+  "url": "https://www.greenmapping.org/orgs/2/report/general/",
+  "locator": "seven-county landscape-type and bearing-tree tables; T39N R14E section line 4-5 note",
+  "tier": 4,
+  "rights_status": "check_required",
+  "asset_use": "text_only",
+  "verified": false,
+  "access_notes": "greenmapping.org returned HTTP 403 Forbidden to automated retrieval on 2026-08-10 and the Wayback availability API returned 429, so this record is bibliographic only: it was NOT read at its locator in this session. Everything cited from it here is quoted at second hand through the committed dossier docs/research/02-flora.md, which transcribes the tables and the surveyor's note.",
+  "note": "The primary quantitative authority for presettlement vegetation structure in the Chicago region: landscape-type percentages, bearing-tree and line-tree species tables, Cottam and Curtis tree-density classes, undergrowth vocabulary, American hazel as the dominant shrub layer, the willow thickets unique to Cook County, and the 1821 J. Walls note 'First part of this mile a swampy timber thicket' on the section 4-5 line of T39N R14E.",
+  "what_it_supplies": [
+    "regional species proportions and tree densities per hectare",
+    "the structural argument that even ground called timber was mostly open",
+    "undergrowth composition, hazel in particular"
+  ],
+  "what_it_does_not_supply": [
+    "any vegetation record for the 640 m box at the forks itself - the nearest quoted survey line is about 2.5 km north",
+    "herbaceous species lists; the Public Land Survey recorded trees and land types, not forbs"
+  ]
+}

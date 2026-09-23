@@ -1,0 +1,142 @@
+{
+ "id": "hh_king_byram",
+ "name": "The King household — a documented hardware merchant, unplaced in the town",
+ "division": "unplaced",
+ "head": "king_byram",
+ "source_pass": "documented",
+ "arrival": {
+  "value": "1834-07-09",
+  "confidence": "inferred",
+  "sources": [
+   "chicago_democrat_1833_1835"
+  ],
+  "note": "A BOUND FROM THE PAPER, NOT AN ARRIVAL. The corpus first prints this person at the Democrat of 9 July 1834, column 20, so they are in the town's paper by 1834-07-09 and at no stated time before it; nothing reached says when they came. Last printed 1835-08-05.",
+  "precision": "not_later_than"
+ },
+ "party_size_on_arrival": {
+  "value": null,
+  "confidence": "reconstructed",
+  "note": "Not attested."
+ },
+ "origin": {
+  "value": null,
+  "confidence": "reconstructed",
+  "note": "Not attested."
+ },
+ "reason_for_coming": {
+  "value": null,
+  "confidence": "reconstructed",
+  "note": "Not attested."
+ },
+ "lives_at": {
+  "value": null,
+  "confidence": "reconstructed",
+  "note": "Not attested. NOTHING IS BEING WITHHELD HERE: no source reached says where this person lived, and 52 households in this dataset were already in that position before this one was written."
+ },
+ "works_at": {
+  "value": null,
+  "confidence": "reconstructed",
+  "note": "Not attested as a structure this project models. The trade is documented; the premises are not one of the committed records."
+ },
+ "present_on_scene_date": {
+  "value": "present",
+  "confidence": "inferred",
+  "sources": [
+   "chicago_democrat_1833_1835"
+  ],
+  "note": "Printed on or after the scene date — last at the Democrat of 5 August 1835, column 8 — so the corpus itself puts this person in the town's paper at 1835-08-05."
+ },
+ "persons": [
+  {
+   "id": "king_byram",
+   "name": "Byram King",
+   "relationship": "head",
+   "grade": "attested",
+   "ladder_rule": "G1b",
+   "occupation": {
+    "value": "hardware_merchant",
+    "confidence": "attested",
+    "sources": [
+     "chicago_democrat_1833_1835"
+    ],
+    "note": "THE TRADE IS THE PAPER'S. The corpus reads it as founder, hardware merchant, merchant, school district clerk, stove dealer, stove and hollow ware dealer, at the Democrat of 9 July 1834, column 20; the Democrat of 27 May 1835, column 5; the Democrat of 17 June 1835, column 2; the Democrat of 17 June 1835, column 6; the Democrat of 1 July 1835, column 12; the Democrat of 8 July 1835, column 9, and 4 further mention(s). The residents vocabulary's nearest period-correct word for it is `hardware_merchant`, and where the corpus prints more than one trade they are all named here rather than reduced to the one the vocabulary could take.",
+    "derived_from": "roles",
+    "roles_at_scene_date": [
+     "hardware_merchant"
+    ]
+   },
+   "sources": [
+    "census_1840_chicago_familysearch_images",
+    "chicago_democrat_1833_1835"
+   ],
+   "note": "A DOCUMENTED PERSON, AND NOTHING ELSE IS CLAIMED. The papers name 'B. King' and 'BYRA' and 'BYRAM KING' and 'BYRAM KING, Clerk' and 'BYRAM KING.' and 'BYRAM, KING' and 'BYRKAM KING,' and 'BYWAM KING' and give the trade; they do not say where this household lived, who else was in it, or when it came. So the record around this person carries nothing but the person: no dwelling, no division, no family, each written as unattested in its own block rather than filled in from the shape of the rest of the town. Cited at the Democrat of 9 July 1834, column 20; the Democrat of 27 May 1835, column 5; the Democrat of 17 June 1835, column 2; the Democrat of 17 June 1835, column 6; the Democrat of 1 July 1835, column 12; the Democrat of 8 July 1835, column 9, and 4 further mention(s). The corpus associates the name with Chicago, South Water Street; that is where the paper does business with this person and not a statement about where they slept, and the storefront tickets are the ones that may stand a shop there. THE TOWN NEVER INVENTED A ROOF FOR THIS TRADE. The occupation census raised reconstructed households for the trades a town of 3,265 people needed and could not document; `hardware_merchant` was not one of them, which is why this person could only ever be ADDED and never seated on an existing record — data/research/newspapers/register_1835.json calls it `new_resident` for exactly that reason. No figure is drawn (docs/LIBERTIES.md L1). READ THROUGH A TRANSCRIPTION, not a scan: the owner's ruling of 2026-08-28 grades a transcription-mediated reading as documented, and the source record for the run states that standard and its limits. A scan read that confirms or corrects the name upgrades this entry. THE 1840 FEDERAL CENSUS — A HEAD FIVE YEARS AFTER THE SCENE, AND NEVER AN 1835 FACT. The 1840 federal census of Chicago, read line by line off the left sheets in this repository, carries 1 head of this name — “Byram King” (33SQ-GYYJ-93G, printed page 207, line 4). This project has ruled the head a CANDIDATE and no more: the name agrees and is unique on both sides, but nothing independent of the name was found. A candidate is not an identity — nothing is asserted from it, no household of 1840 is carried back, and the ruling is recorded so that a reader can see it was made rather than missed. Under the rule that decided it (L7 candidate), by the crosswalk's own ladder (data/research/census_1840/resident_crosswalk.json). LATER EVIDENCE ONLY. The ratified grading ladder binds: an 1839 or 1840 appearance alone is never an 1835 resident, and 1840 household composition is never back-projected to the 1835-07-01 scene. This pass WRITES THE EVIDENCE AND MOVES NO GRADE. Under the ratified ladder (T-0513) a second independent source is what lifts a projected resident, and an 1840 head is a second source about CONTINUED RESIDENCE rather than about who was living at Chicago on 1 July 1835. T-0515 applies the ladder against every source at once; this pass hands it the evidence and not the verdict.",
+   "resident_research": {
+    "programme": "resident-research-2026",
+    "ticket": "T-0509",
+    "outcome": "candidate_identity",
+    "reviewed_on": "2026-09-05",
+    "asserted_identity": false,
+    "evidence_for": "No reliable record found in the reviewed web, institutional-history, digitized-book, newspaper-index and genealogy-finding-aid searches could be tied to this 1835 Chicago person without relying on the name alone.",
+    "notes": "No candidate fact is asserted unless a source bridges the candidate to the 1835 Chicago record by more than name similarity.",
+    "summary": "Every route to this man is contested in the same way. Fergus 1839 prints 'King, Byram, Jones, King & Co.' and the old-settler notice 'King, Byram, died', but three residents of 1835 meet each entry on the folding rule and at most one is the man printed. The 1840 head 'Byram King' at page 207 line 4 is an L7 candidate with no independent discriminator, and the page falls outside the 210-row serial recovery, so no bridge row can be keyed on it.",
+    "source_ids": [
+     "census_1840_chicago_familysearch_images",
+     "chicago_democrat_1833_1835",
+     "chicago_tribune_1882_04_25_old_settler_deaths",
+     "fergus_chicago_directory_1839"
+    ],
+    "candidates": [
+     {
+      "id": "cand_byram_king_fergus_1839",
+      "asserted": false
+     }
+    ]
+   },
+   "roles": [
+    {
+     "role": "hardware_merchant",
+     "kind": "trade",
+     "as_printed": null,
+     "from": "1833-11",
+     "to": "1835-08",
+     "precision": "source_span",
+     "dated_by": "source_describes_date",
+     "covers_scene_date": true,
+     "confidence": "attested",
+     "sources": [
+      "chicago_democrat_1833_1835"
+     ],
+     "claim": null,
+     "note": "THE BOUND IS THE SOURCE'S, NOT THE MAN'S. This role is carried by the card's 1835 occupation block and is dated by what the cited source or sources are ABOUT, which is why `precision` can be no better than the span they cover. The span reaches 1835, so this role stands in the scene-date view. The printing the trade was read off is not on the card and is fetched by T-1254."
+    }
+   ],
+   "merge_ruling": [
+    {
+     "ticket": "T-1291",
+     "verdict": "distinct",
+     "rule": "D8",
+     "cluster": "king-byram-hyram",
+     "weighed_against": [
+      "king_hyram"
+     ],
+     "for_merge": "One letter at the head of a forename on a surname that agrees letter for letter, and the Byram card is documented: Byram King, hardware merchant, in the Democrat of 9 July 1834 (#c020), 23 July 1834 as 'Byra[m]' and 3 September 1834 (#c022), in the 1840 census at 207:4 and in Fergus's old-settler notices. The paper is demonstrably unsteady about this very forename — T-1027's own table records the printings BYRA, BYRAM, BYRKAM and BYWAM.",
+     "against_merge": "BYRAM AND HYRAM ARE TWO GIVEN NAMES, NOT TWO SPELLINGS OF ONE. Hyram is Hiram, among the commonest forenames in the corpus; Byram is rare. The paper's instability about Byram runs to its last letters — BYRA, BYRKAM, BYWAM — and never to its first, which is the letter that would have to move. The printings do not touch: every Byram reading is the Democrat of 1834 or later records, and 'Hyram King' is a single reading in the American of 20 June 1835 (#c016). KING IS THE MOST POPULATED SURNAME IN THIS POOL — the town holds seven King cards, including a king_byron whose forename is a third variant nobody proposes folding — and no printing sets Byram and Hyram for one man. D8."
+    }
+   ]
+  }
+ ],
+ "touches_removal": false,
+ "review_required": false,
+ "research_note": "MINTED FROM THE NEWSPAPER REGISTER (T-0376), AND THE HOUSEHOLD IS A CONTAINER RATHER THAN AN ARGUMENT. Every other record in this dataset argues for a household — a family the sources count, or a trade the town demonstrably needed. This one argues for a PERSON: the Democrat and the American name Byram King as a hardware merchant at Chicago 10 time(s), and this reconstruction did not hold them. `data/residents/` has no way to carry a person except inside a household, so one was written around them and told to claim nothing: one member, no dwelling, no division, no origin, no arrival beyond the bound the paper sets. Reading a family, a house or a quarter of town into this record would be reading something the papers do not say. tools/mint_documented_residents.py derives the whole minted set and prints every candidate it refused, with the reason.",
+ "directories": {
+  "note": "LATER EVIDENCE, BESIDE THE 1835 CLAIMS AND NOT INSIDE THEM. A Chicago directory of 1839, 1843 or 1844 meets somebody of this name and this pass records what it prints. Under the ratified ladder a directory read after 1835 can corroborate that a person attested here was still in Chicago and can print a trade or a street the 1835 record never had; on its own it makes nobody a resident of 1835. Nothing on this person's 1835 record was regraded, moved, dated or given an occupation by this entry. WHAT THIS PASS RULED ONTO THIS HOUSEHOLD, named so the ruling can be found again: each volume below is followed by the printed entries it set against this person and the status the crosswalk ruled them at — a single entry carries what its own `could_carry` declares, and an ambiguous or contested match carries nothing and is shown so that the silence is legible. king_byram, Fergus's Chicago directory of 1839 — f1839_e0851 (a single entry).",
+  "sources": [
+   "fergus_chicago_directory_1839"
+  ],
+  "people": [
+   {
+    "person_id": "king_byram"
+   }
+  ]
+ }
+}

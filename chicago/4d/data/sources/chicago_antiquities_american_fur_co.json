@@ -1,0 +1,53 @@
+{
+  "id": "chicago_antiquities_american_fur_co",
+  "type": "book",
+  "citation": "Henry H. Hurlbut, Chicago Antiquities: Comprising original items and relations, letters, extracts, and notes pertaining to early Chicago (Chicago, 1881), pages 28-36 — the chapter on the American Fur Company and Chicago. It names Hubbard, Beaubien, Crafts and the Kinzies as the company's Chicago men, prints Gurdon S. Hubbard's own account of how the trade here was organised and how small it was, and closes with extracts from a surviving Michilimackinac outfit book of 1821-22 and a catalogue of the goods furnished for the trade of the Chicago country.",
+  "author": "Henry H. Hurlbut (the compilation and its bracketed notes); Gurdon S. Hubbard (the long quoted passage); Genealogy Trails History Group, transcribed by Candi Horton, 2006 (the transcription actually read)",
+  "date": "1881 (the book); the transcription is dated 2006 on its own page and was cached by this project on 2026-09-03",
+  "describes_date": "1810s-1830s, with the Chicago passages concentrated on 1818-1828 and one statement about 1834",
+  "repository": "Nobody in this project has seen the book. What was read is the Genealogy Trails transcription of pages 28-36.",
+  "url": "https://genealogytrails.com/ill/americanfurco.html",
+  "locator": "chicago/4d/data/research/books/text/hurlbut_chicago_antiquities_28_36.txt, byte-identical to the genealogytrails cache it was taken from (data/research/genealogytrails/text/americanfurco.txt, cached 2026-09-03). Every claim's locator names its lines in that file; the page within 28-36 is NOT named, because the transcription marks no page breaks and this project will not invent them.",
+  "tier": 1,
+  "rights_status": "public_domain",
+  "asset_use": "text_only",
+  "verified": true,
+  "transcribes": [
+    {
+      "work": "Gurdon S. Hubbard's account of the American Fur Company in the West, quoted at length and in quotation marks by Hurlbut — the organisation of the brigades, John Crafts at Hardscrabble, Beaubien's removal from Milwaukee, the Factory House, Crafts's death, John Kinzie the silversmith, and Hubbard's judgement that 'this place never had been preeminent as a trading-post'",
+      "date": "Undated within the chapter; Hubbard was alive and in Chicago when Hurlbut printed it in 1881, and he is describing 1818-1823 at sixty years' distance",
+      "tier": 2,
+      "note": "A near-primary recollection by the man who ran the Illinois trade, and the rung this record is graded on. It is a recollection and not a record: it dates Crafts's death 'in December, of I think the year 1823', and the 'I think' is the source's own."
+    },
+    {
+      "work": "An outward-invoice book of the American Fur Company's Michilimackinac agency, 1821 and 1822, then in private hands at Chicago — outfits by trader, destination and date, the agency dwelling's 1821 expenses, and a catalogue of goods for the Chicago country",
+      "date": "1821-1822",
+      "tier": 1,
+      "note": "A period business record, and Hurlbut prints extracts from it verbatim with the orthography kept. He also records that every other book of the company that lady saved went to the Chicago Historical Society and burned in 1871, so these extracts are what survives of them. This project has read the extracts only, at two removes."
+    },
+    {
+      "work": "Henry H. Hurlbut's own connecting narrative — Astor's rise, the Southwest Company, Astoria, Ramsey Crooks's career, and the judgement that Chicago was 'the port and point of a very limited district of distribution'",
+      "date": "1881",
+      "tier": 4,
+      "note": "Later compilation written forty-six years after the scene. Where Hurlbut is the one speaking, the claim says so, and his sizing judgement is filed as a judgement."
+    }
+  ],
+  "access_notes": "NOT RE-FETCHED FOR T-0575. The page was cached in text for T-0556 on 2026-09-03 and the cache is what a later run has to be able to trust; tools/read_genealogytrails.py --fetch is how it is refreshed if it ever must be.",
+  "what_it_supplies": [
+    "the size of the fur trade at Chicago, stated twice and by two different men — Hurlbut's 'a very limited district of distribution' and Hubbard's own 'this place never had been preeminent as a trading-post, as this was not the Indian hunting-ground'",
+    "a dated arrival for Gurdon S. Hubbard: Montreal 13 May 1818, Mackinaw 4 July, Chicago the last day of October or first day of November of that year",
+    "the sequence of the Chicago trade houses — Crafts at Hardscrabble to 1819, Beaubien's trading houses at the old river mouth about the foot of Harrison Street from 1819, the Factory House south of Fort Dearborn bought from the U.S. in 1822",
+    "John Kinzie the elder's trade, in his own son-in-law's circle's words: silversmith, making Indian trinkets, and not in the company's business until Crafts died",
+    "that Astor sold the company in 1834 and it was assigned in 1842 — so no Astor company stood behind the Chicago trade in the scene year",
+    "a catalogue of the goods actually furnished for the trade of the Chicago country, about 130 named articles",
+    "one dated vessel arrival: the Schooner Ann, Capt. Ransom, from Michilimackinac to Chicago, 13 September 1821"
+  ],
+  "what_it_does_not_supply": [
+    "anything about 1835. The latest Chicago event in the chapter is 1828 and the latest company event 1842; the scene year is not described at all",
+    "any building this project could trace. Crafts's house is 'about half a mile below Bridgeport' and Beaubien's trading houses are at a river mouth the 1834 harbour cut has already moved — both are placements in prose, not on a sheet",
+    "a residence for anybody in 1835. Every person named here is named for what they did in the 1810s and 1820s",
+    "page numbers. The transcription runs pages 28-36 together with no breaks marked",
+    "reliable orthography for the outfit book, and it says so: 'Pains have been taken to carefully follow the orthography' is a claim about fidelity to the manuscript, not about the manuscript being right — 'Jamie Kinzie', 'Milliwaki', 'Lower Wasbash' and 'Achoolcraft' are all on the page"
+  ],
+  "note": "TWO VOICES AND THREE DOCUMENTS, and the whole value of the chapter depends on keeping them apart. Hurlbut compiles in 1881 and judges; Gurdon S. Hubbard remembers, inside quotation marks, at sixty years' distance; and an outward-invoice book of the Michilimackinac agency, 1821-22, is a period business record printed verbatim with its orthography kept. THE RECORD'S TIER IS 1 AND IT IS EARNED BY THE INVOICE BOOK ALONE. That is the rule this project states for a page that carries more than one document — the rung is the best rung transcribed, derived and not typed — and it is a grade of the page, not a licence over its contents. Only four claims come off the invoice book (bk_afc_014, bk_afc_016, bk_afc_017 and the goods catalogue at bk_afc_018, with the agency expenses at bk_afc_019); the Chicago narrative is Hubbard's recollection at rung 2, and Hurlbut's connecting prose and his sizing judgement are rung 4. Every claim says on its face which layer it came from, and NOTHING TAKEN FROM HURLBUT'S OWN NARRATIVE MAY BE USED AS IF IT WERE PERIOD EVIDENCE because this record is graded 1. data/sources/chicago_antiquities_pratt.json is the same book at a different locator (the printing-press passage, read for T-0479) and the two are deliberately separate records: a source record cites a place, not a volume."
+}

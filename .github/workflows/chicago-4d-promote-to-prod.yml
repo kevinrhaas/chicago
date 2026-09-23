@@ -1,0 +1,273 @@
+name: Chicago 4D — promote dev to prod
+
+# Ship the integration branch to production (chicago/4d/docs/PIPELINE.md).
+#
+# DISPATCH-ONLY, NEVER SCHEDULED. This is the owner's switch and nothing else
+# throws it. Overnight runs land on `dev` and stay there until it is thrown,
+# which is the whole reason the tier exists: main is what the public walks
+# through, and nothing reaches it while nobody is looking.
+#
+# Order matters. Main is back-merged into dev FIRST, so a hotfix that went
+# straight to main during an emergency is folded into the integration branch
+# before dev is merged forward — otherwise the promotion would silently revert
+# it. Then dev merges into main with --no-ff, so the promotion is one reviewable
+# commit and `git revert -m 1` undoes exactly it.
+#
+# Fleet doctrine, kept: PROMOTION is gated, DEPLOY is not. deploy.yml has no
+# `needs: test` and never will — a hard test gate on deploy once froze a fleet
+# site for ~21 hours. The hotfix exception stands: a production emergency PRs
+# straight into main and the next promotion's back-merge collects it.
+on:
+  workflow_dispatch:
+    inputs:
+      dry_run:
+        description: Report what would be promoted, then stop
+        type: boolean
+        default: false
+
+permissions:
+  contents: write
+  actions: write
+  # The back-merge into dev is offered as a PR rather than pushed, because dev
+  # requires the `gate` check and a ruleset applies to direct pushes too.
+  pull-requests: write
+
+concurrency:
+  group: chicago-4d-promote
+  cancel-in-progress: false
+
+jobs:
+  promote:
+    runs-on: ubuntu-latest
+    # 30, not 15. A promotion that dies in checkout is not a safe no-op to shrug
+    # at: it leaves main un-promoted while the log says "in progress", and the
+    # owner has to notice. See the checkout note below for why 15 stopped being
+    # enough.
+    timeout-minutes: 30
+    steps:
+      # T-0232 — the checkout is a BOUNDED, RETRIED partial clone, not
+      # actions/checkout. The lottery it replaces is the measured record above
+      # and below this step: the same fetch could take 35 seconds or eighteen
+      # minutes, and a slow draw consumed the whole promotion while the run
+      # read "in progress" (runs #12 and #15). The mechanism — plain git under
+      # timeout(1), an attempt abandoned at a 4-minute bound, elapsed per
+      # attempt written to the run summary — lives in .github/chicago-4d-clone.sh
+      # next to its self-test, which proves a bad draw costs one bound and then
+      # a later attempt succeeds. blob:none is kept: this job needs the full
+      # commit history (rev-list, merge-base, two real merges) and not one
+      # historical blob beyond the checked-out tree.
+      #
+      # Measured, on 2026-08-24: the same fetch-depth-0 checkout of this repo
+      # took 37 s, 47 s, 54 s, 2m20s, 3m32s, 3m40s, 4m45s and 7m11s across the
+      # eight jobs of ONE bake run — and a ninth was still going at 30 minutes
+      # when it was cancelled. It is a lottery, and promotion run #12 drew the
+      # bad ticket and burned its 15-minute cap without reaching a single
+      # promotion step.
+      # THE SCRIPT BELOW IS THE CHECKOUT, SO IT CANNOT COME FROM THE CHECKOUT.
+      # T-0232 replaced actions/checkout with .github/chicago-4d-clone.sh, which
+      # does `git init .` in an empty workspace and fetches from there. But the
+      # script lives IN the repository, and nothing had put it on disk yet — so
+      # every run died on its first step with
+      #
+      #   .github/chicago-4d-clone.sh: No such file or directory   (exit 127)
+      #
+      # It has never worked: the script and the step that calls it arrived in the
+      # same commit (#1372). Measured 2026-09-18: the last 30 deploy runs on main
+      # had all failed, the first at 2026-09-17T15:22Z — the promotion that carried
+      # that commit to main — and the dev job is `skipped` by design and defers to
+      # main's, so NOTHING had published for eleven hours. The owner found it by
+      # looking at the app: no What's-New entries, while the changelog on dev was
+      # being written normally.
+      #
+      # So fetch the one file over the API first, with the token this job already
+      # holds. It lands in RUNNER_TEMP and NOT in the workspace, deliberately: the
+      # script's `git init .` + checkout would refuse to overwrite an untracked
+      # copy of a path that main also tracks.
+      - name: Fetch the clone script (it is the checkout, so it predates the checkout)
+        env:
+          GITHUB_TOKEN: ${{ github.token }}
+        run: |
+          curl -fsSL --retry 3 --retry-delay 2 \
+            -H "Authorization: Bearer $GITHUB_TOKEN" \
+            -H "Accept: application/vnd.github.raw" \
+            "https://api.github.com/repos/${{ github.repository }}/contents/.github/chicago-4d-clone.sh?ref=${{ github.sha }}" \
+            -o "$RUNNER_TEMP/chicago-4d-clone.sh"
+          chmod +x "$RUNNER_TEMP/chicago-4d-clone.sh"
+      - name: Checkout main (bounded, retried — T-0232)
+        env:
+          GITHUB_TOKEN: ${{ github.token }}
+        run: bash "$RUNNER_TEMP/chicago-4d-clone.sh" main dev
+
+      # No Python. This job runs git and one node script (check-changelog.mjs)
+      # and nothing else — `pip install jsonschema pyproj` was inherited from
+      # the workflows that run validate.py and cost ~20 s of every promotion to
+      # install libraries no step here imports.
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '22'
+
+      - name: What is on dev
+        id: survey
+        run: |
+          set -e
+          if ! git fetch origin dev 2>/dev/null; then
+            echo "::error::dev branch missing — dispatch chicago-4d-pipeline-setup.yml first."
+            exit 1
+          fi
+          COUNT="$(git rev-list --count main..origin/dev)"
+          echo "count=$COUNT" >> "$GITHUB_OUTPUT"
+          echo "$COUNT commit(s) on dev ahead of main:"
+          git log --oneline main..origin/dev | head -40
+          # Anything outside the 4D app's scope is a red flag on a promotion
+          # whose whole purpose is the 4D app. Reported, not blocked — the owner
+          # dispatched this and may have a reason.
+          OUT="$(git diff --name-only main..origin/dev -- . ':(exclude)chicago/4d' ':(exclude)site/chicago/4d' | head -20)"
+          if [ -n "$OUT" ]; then
+            echo "::warning::dev touches paths outside chicago/4d:"
+            printf '%s\n' "$OUT"
+          fi
+
+      # T-0159 — the guard is on the DESTRUCTIVE steps, not in a step of its own.
+      #
+      # This used to be a step that printed "nothing promoted" and called
+      # `exit 0`. A non-zero-argument `exit` in a `run:` block ends THAT STEP,
+      # not the job, so every step below it ran anyway: on 2026-08-23 a
+      # `dry_run: true` dispatch printed "dry_run — nothing promoted." and then
+      # promoted 27 commits to main, tagged release-v248 and dispatched the
+      # deploy. The log said one thing and the repository said another.
+      #
+      # A dry run is now expressed the only way that cannot lie: the steps that
+      # move production are skipped, visibly, in the run's own step list.
+      - name: Say what a dry run would have done
+        if: inputs.dry_run
+        run: |
+          echo "dry_run — the promotion steps below are SKIPPED."
+          echo "Check the step list: 'Back-merge…' and 'Publish…' must read as skipped."
+
+      - name: Merge dev into main, then open the back-merge as a PR
+        if: ${{ !inputs.dry_run && steps.survey.outputs.count != '0' }}
+        env:
+          # Step 5 opens the back-merge PR through `gh api` (REST). Without this
+          # the call is unauthenticated and the promotion ships without its
+          # back-merge, warning rather than failing — so the token is what keeps
+          # the warning from becoming the normal case.
+          GH_TOKEN: ${{ github.token }}
+        run: |
+          set -e
+          git config user.name  "polecat-ci"
+          git config user.email "ci@polecat.live"
+
+          # 1. main → dev, so a hotfix is never lost by the forward merge.
+          #
+          #    LOCAL ONLY — THIS NO LONGER PUSHES dev, AND THAT IS THE POINT.
+          #    `dev` carries a ruleset requiring the `gate` check, and a ruleset
+          #    applies to DIRECT PUSHES as well as to merges: GitHub's own
+          #    wording is that commits must be "merged or pushed directly … after
+          #    status checks have passed". The merge commit this line creates is
+          #    brand new and has no checks against it, so the push was rejected
+          #    and `set -e` killed the promotion here — before main was touched.
+          #
+          #    Bypassing was the obvious fix and is the wrong one. This job pushes
+          #    as github-actions[bot], which holds no repository ROLE, so a
+          #    "Repository admin" bypass does not cover it. And admin bypass would
+          #    exempt the STEWARD, which authenticates as kevinrhaas — the one
+          #    actor the gate exists to hold — letting it merge a red gate.
+          #
+          #    So the back-merge still happens, and still fails loudly when it
+          #    cannot: it is computed here, and offered to `dev` as a gated PR at
+          #    the end of this step instead of shoved past the gate.
+          git checkout -B dev origin/dev
+          if ! git merge --no-edit main -m "Back-merge main into dev before promotion"; then
+            echo "::error::main does not merge cleanly into dev. Resolve on a branch and re-dispatch."
+            exit 1
+          fi
+
+          # 2. The changelog contract is checked AFTER the merge, not only
+          #    before: `merge=union` runs during the merge, so both parents can
+          #    be green and the result broken. That is exactly how main once
+          #    shipped an unparseable changelog and killed the release feed.
+          (cd chicago/4d && node tools/check-changelog.mjs)
+
+          # 3. dev → main, one reviewable commit.
+          git checkout main
+          COUNT="$(git rev-list --count main..dev)"
+          if [ "$COUNT" = "0" ]; then
+            echo "Nothing to promote after the back-merge."
+            exit 0
+          fi
+          git merge --no-ff dev -m "Promote chicago/4d dev→prod: $COUNT commit(s)"
+          (cd chicago/4d && node tools/check-changelog.mjs)
+          git push origin main
+          echo "Promoted $COUNT commit(s) to main."
+
+          # 4. Tag the release. The pilot does this and this workflow did not,
+          #    which meant a promoted production had no name and no anchor: the
+          #    repo's tag list was empty, so "which build is live" could only be
+          #    answered with a commit sha, and there was nothing to `git diff`
+          #    the last release against or to roll back to by name.
+          #
+          #    The number is the CHANGELOG's top version, not a counter of our
+          #    own. That is already the number Manager, the launcher and the
+          #    walkthrough's What's-new tab all show, so a release called
+          #    release-v83 is the one a reader can actually find; a second,
+          #    independent sequence would be a number nobody could cross-check.
+          VER="$(cd chicago/4d && node -e "
+            const m = require('fs').readFileSync('renderers/web/js/changelog.js','utf8').match(/v:\s*(\d+)/);
+            process.stdout.write(m ? m[1] : '');
+          ")"
+          if [ -z "$VER" ]; then
+            # Not fatal: the promotion has already landed and is live. Losing the
+            # tag is a missing label, not a bad deploy, and failing here would
+            # report a successful ship as a failure.
+            echo "::warning::could not read a changelog version; promotion is live but untagged"
+          elif git rev-parse -q --verify "refs/tags/release-v$VER" >/dev/null \
+            || git ls-remote --exit-code --tags origin "refs/tags/release-v$VER" >/dev/null 2>&1; then
+            # A promotion that ships no new changelog entry reuses the number.
+            echo "::notice::release-v$VER already exists — promotion carried no new changelog entry"
+          else
+            git tag -a "release-v$VER" -m "chicago/4d release v$VER ($COUNT commit(s) promoted)"
+            git push origin "release-v$VER"
+            echo "Tagged release-v$VER"
+          fi
+
+          # 5. Offer the back-merge to dev as a PR, so it goes THROUGH the gate
+          #    rather than around it. Step 1 already computed it on the local
+          #    `dev`; this pushes that to a branch and opens the PR.
+          #
+          #    NOT FATAL, for the same reason the tag above is not: main is
+          #    already pushed and live by this line. Failing here would report a
+          #    shipped promotion as a failure. If the PR does not open, the next
+          #    promotion recomputes the same back-merge — this is self-healing,
+          #    and the warning says what to do meanwhile.
+          #
+          #    REST, not `gh pr create`: that is GraphQL, a separate hourly
+          #    bucket, and the one the fleet exhausts (steward run 1140 read
+          #    `graphql remaining 0 of 5000` while core sat at 4969).
+          if [ "$(git rev-list --count origin/dev..dev)" = "0" ]; then
+            echo "::notice::main was already in dev — no back-merge to open"
+          else
+            BR="promote/back-merge-main-${GITHUB_RUN_ID}"
+            if git push -q origin "dev:refs/heads/${BR}" \
+               && gh api -X POST "repos/${GITHUB_REPOSITORY}/pulls" \
+                    -f title="Back-merge main into dev after release-v${VER:-?}" \
+                    -f head="$BR" -f base=dev \
+                    -f body="Opened by \`chicago-4d-promote-to-prod\` run ${GITHUB_RUN_ID}.
+
+          Production has already been promoted and is live; this carries \`main\` back
+          into \`dev\` so the next forward merge does not lose the hotfix that prompted it.
+
+          It is a PR rather than a direct push because \`dev\` requires the \`gate\` check,
+          and this is the back-merge going through that gate instead of around it. Merge it
+          when the gate is green." --jq .number > /tmp/backmerge-pr.txt 2>/dev/null; then
+              echo "::notice::back-merge opened as PR #$(cat /tmp/backmerge-pr.txt) from ${BR}"
+            else
+              echo "::warning::promotion is LIVE, but the back-merge PR could not be opened."
+              echo "::warning::main is not yet in dev. Open it by hand from ${BR}, or re-dispatch — the next promotion recomputes it."
+            fi
+          fi
+
+      - name: Publish (GITHUB_TOKEN pushes don't trigger deploy — dispatch it)
+        if: ${{ !inputs.dry_run && steps.survey.outputs.count != '0' }}
+        env:
+          GH_TOKEN: ${{ github.token }}
+        run: gh workflow run deploy.yml --ref main

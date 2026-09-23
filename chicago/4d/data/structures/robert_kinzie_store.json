@@ -1,0 +1,92 @@
+{
+  "id": "robert_kinzie_store",
+  "name": "Robert A. Kinzie's Store",
+  "aka": [
+    "Robert Kinzie's storehouse",
+    "R. A. Kinzie, Indian trader"
+  ],
+  "archetype": "log_dwelling",
+  "phases": [
+    {
+      "id": "store_1830",
+      "documented_range": {
+        "from": "1830-01-01",
+        "to": "1835-12-31",
+        "confidence": "inferred",
+        "sources": [
+          "chicagology_prefire273",
+          "andreas_1884_v1"
+        ],
+        "note": "NEITHER END OF THIS RANGE IS ATTESTED. Two statements fix the middle of it. chicagology's Wolf Point narrative describes Robert A. Kinzie's storehouse dealing in groceries and Indian goods at Wolf Point, and the source record gives that account's describes_date as 1830-1835; Andreas's list of the town's traders (scan p. 235) gives 'Indian Traders — Robert A. Kinzie, near Wentworth's tavern', in a passage enumerating who was trading where, and Andreas separately records (scan p. 249) that Robert A. Kinzie was among those licensed to sell goods at that period. So the range opens at the start of 1830 as the earliest year the descriptions can be held to, NOT as a build date — the store is generally placed at Wolf Point from the later 1820s and this record does not adopt that because no source reached here states it. The range closes at the end of 1835 as the last date the record needs to claim. THE SURVIVAL TO 1835-07-01 IS THE WEAK JOINT: the Indian trade at Chicago was ending in exactly these years — the 1833 Treaty of Chicago ceded the land and the removal ran through the summer of 1835 — so a store whose business was 'groceries and Indian goods' had lost half its trade by the scene date. What that did to the BUILDING is not recorded either way, and this record claims only that the building stood."
+      },
+      "position": {
+        "utm_e": 447004.0,
+        "utm_n": 4637333.0,
+        "rotation_deg": 90.0,
+        "symbolic_location": "West bank of the river at Wolf Point, immediately south of Wentworth's tavern (the Wolf Point Tavern) and north of James Kinzie's residence.",
+        "confidence": "inferred",
+        "sources": [
+          "andreas_1884_v1",
+          "chicagology_prefire273",
+          "osm_streets_2026"
+        ],
+        "note": "PLACED 2026-08-11. THE ADJACENCY IS ATTESTED AND THE SIDE IS NOT. Andreas's trader list (scan p. 235) reads 'Indian Traders — Robert A. Kinzie, near Wentworth's tavern', which is a real locating statement and better than the dossier expected — docs/research/03-structures-north.md section 2.4 records the exact corner as unattested. 'Near' does not say which side, and BOTH SIDES OF THE TAVERN ARE ALREADY SPOKEN FOR IN THIS DATASET: the gap immediately north of the tavern carries robinson_caldwell_cabins, placed there from Wau-Bun's 'Near him were two or three log cabins occupied by Robinson', and the ground south of the tavern carries james_kinzie_house from chicagology's 'south of Wentworth's tavern'. So the store is set in the south gap, between the tavern and James Kinzie's residence, which keeps every attested adjacency intact — Robert Kinzie near the tavern, James Kinzie south of it, Robinson's cabins near it to the north, Walker's meeting house beyond them — and inserts nothing into a stated sequence. That is a choice among defensible arrangements, not a derivation, and it is the reason this position is inferred rather than documented. METHOD: the south face sits at local N -69.8, about 5.7 m south of the tavern's south face and about 10 m north of james_kinzie_house; the east face is set about 12 m back from the modern west-bank line read from OpenStreetMap water polygons at the north face, widening to about 19 m at the south face as the bank swings east, which is the same setback band the tavern's own record uses. UNCERTAINTY: about 40 m along the bank, inherited whole from the tavern (docs/LIBERTIES.md L7 — nothing fixes how far north of the Lake Street crossing the tavern stood), and about 20 m across it from the georeference, compounded by the modern bank not being the 1835 bank. Facade bearing 90, due east onto the water, following the row and Wau-Bun's 'Facing down the river from the west'; a storehouse trading goods off canoes has a positive reason to face the landing, but the bearing is the row's convention and not a finding.",
+        "derivation": {
+          "method": "not_derivable",
+          "reason": "This placement predates the derivation module. Its provenance and reasoning are recorded in position.note, but no machine-checkable derivation block has been authored for it yet."
+        }
+      },
+      "footprint": {
+        "polygon": [
+          [
+            0,
+            0
+          ],
+          [
+            7,
+            0
+          ],
+          [
+            7,
+            6
+          ],
+          [
+            0,
+            6
+          ]
+        ],
+        "confidence": "reconstructed",
+        "note": "PLACEHOLDER — NO DIMENSION, PROPORTION OR PLAN FORM IS ATTESTED. 7 x 6 m is about 23 x 20 ft, a single-pen storehouse of the type and period; the 7 m runs north-south along the river frontage and the 6 m is the depth. Every number is invented and the polygon cites no sources. What the sources give is a TRADE and not a building: 'a storehouse dealing in groceries and Indian goods' names the stock, not the fabric, and Andreas's line names the trader and his neighbour, not his premises. To resolve: Andreas vol. 1 at page-image level around the Wolf Point material, or either of the retrospective Wolf Point views examined at plate level for the row's massing."
+      },
+      "form": {
+        "construction": {
+          "value": "log",
+          "confidence": "inferred",
+          "sources": [
+            "chicagology_prefire273"
+          ],
+          "note": "NOT ATTESTED FOR THIS BUILDING and inferred from the row, on the same terms as james_kinzie_house: every building described in the west-bank row at Wolf Point in these years is log or log-and-frame, and the frame buildings in the sources are singled out as exceptional. The archetype choice follows the inference and is no stronger than it."
+        },
+        "dock": {
+          "value": true,
+          "confidence": "reconstructed",
+          "geometry": "simplified",
+          "sources": [],
+          "note": "RECONSTRUCTED, AND IT IS THE FIRST LANDING THIS PROJECT HAS PUT ON THE WEST BANK. NO SOURCE STATES A DOCK, WHARF OR LANDING ANYWHERE AT WOLF POINT — that absence is why this value is reconstructed and not inferred, one tier below the two river warehouses whose dock the dossier states (docs/research/03-structures-north.md §3.10) and level with the five South Water merchant landings the owner's ruling of 2026-08-18 authorised (T-0062, docs/LIBERTIES.md L145). What bounds the invention: (1) THE TRADE, AND HERE IT IS THIS RECORD'S OWN — chicagology's Wolf Point narrative gives a storehouse 'dealing in groceries and Indian goods' and Andreas's trader list (scan p. 235) gives 'Indian Traders — Robert A. Kinzie, near Wentworth's tavern'. Groceries and trade goods at the forks in the early 1830s came in and went out on the water; this record's own position note already reasons from it in as many words — 'a storehouse trading goods off canoes has a positive reason to face the landing' — and the facade was set due east onto the river on that reading before any wharf layer existed. A store that faces the water to work cargo is the trade this layer's rule asks for. (2) THE REACH — the west bank at the forks, the one shore of the three this layer had never considered: the North Division shore already carries Kinzie & Hunter's attested dock and the South Division shore carries four stated landings, while the west bank had no candidate at all, not because it was measured and refused but because T-0062's rule named South Water merchants and stopped there. (3) THE WATER IS MEASURED, NOT ASSUMED — the traced 1834 bank runs 11.2 m off this building's river wall, and a standard-form deck at that foot stands in about 1.06 m of water for the whole 13.0 m of its face on the committed heightfield, with its heel about 0.5 m clear on dry bank. The boat layer independently floats a schooner in this same reach abreast this store and a skiff off the bank below it (data/boats/era_boats.json, T-0140), so the reach is one this project's own bed already carries a hull in. The landing itself is the wharf layer's standard form, every dimension of it invented within the bounds L132 states; geometry 'simplified' is the exact claim — a standard-form deck stands for a statement this record cannot make from evidence. WHAT THE SAME RULE REFUSES ON THIS BANK, and it is four of the five buildings in the row: Wentworth's tavern, James Kinzie's residence, the Robinson and Caldwell cabins and Father Walker's log meeting house state no dock and get none — lodging, dwelling and worship take nothing off a canoe, which is the Temple Building's exclusion carried across the river. WHAT THIS DOES NOT CLAIM: that the trade was still running on 1835-07-01. The 1833 Treaty of Chicago ceded the land and the removal ran through the summer of 1835, so the 'Indian goods' half of this business was ending as the scene opens; the record models a standing store and a standing landing and makes no claim about what crossed either. What would replace the invention: the Chicago Democrat's advertising columns, the 1833-1836 harbour reports, or either retrospective Wolf Point view examined at plate level for works along the west bank."
+        }
+      },
+      "change_note": "The storehouse as the west-bank row carried it through the early 1830s. No change of fabric is documented inside the phase because no fabric is documented at all. The collapse of the Indian trade after the 1833 treaty is a change of BUSINESS, not of building, and does not open a phase."
+    }
+  ],
+  "function": {
+    "value": "store",
+    "confidence": "attested",
+    "sources": [
+      "chicagology_prefire273",
+      "andreas_1884_v1"
+    ],
+    "note": "A storehouse dealing in groceries and Indian goods (chicagology), its keeper listed by Andreas among the town's Indian traders (scan p. 235) and among those licensed to sell goods (scan p. 249). WHAT THE TRADE WAS ON 1835-07-01 IS NOT ATTESTED and there is a specific reason to doubt continuity: the 1833 Treaty of Chicago ceded the land and the removal was under way through the summer of 1835, so the 'Indian goods' half of this business was ending as the scene opens. The record models a standing store and makes no claim about what was on its shelves."
+  },
+  "research_note": "The second of the two Kinzie buildings this parcel adds to the west-bank row, and the better attested of them: Andreas gives it a neighbour where the dossier had only 'at Wolf Point'. THE ARRANGEMENT OF THE ROW IS NOW THE RECORD'S LARGEST UNCERTAINTY, not the building. Five structures in this dataset — james_kinzie_house, this store, wolf_point_tavern, robinson_caldwell_cabins and walker_meeting_house — sit on about 130 m of west-bank frontage on the strength of four ordering statements and no measured distances, and every one of them hangs off the tavern's own position, which is the weakest placement in the parcel. If the tavern moves, the whole row moves with it; if a source ever gives one of the five a distance or a lot, the row can be re-derived from that instead. NOTE ALSO THE IDENTIFICATION RISK: John H. Kinzie, James Kinzie and Robert A. Kinzie are three different men who all traded at Chicago in this decade, and this dataset carries premises for all three (jh_kinzie_forwarding_store on South Water Street, james_kinzie_house here, this store). Andreas's 'Robert A. Kinzie, near Wentworth's tavern' is the sentence that keeps them apart at Wolf Point; do not merge them. See docs/research/03-structures-north.md section 2.4. REVIEW IS FLAGGED ON THIS RECORD, and until now the flag was the only thing on it that said so — the field was set when the record was written and no sentence anywhere in it gave the reason, which is the gap T-0025 was opened to close (ROADMAP K34 finding 3, K35). THE REASON IS THIS RECORD'S OWN ATTESTED BUSINESS. What Andreas and chicagology attest here is not a shop that happened to stand near Native people: it is a storehouse dealing in 'groceries and Indian goods' whose keeper is listed among the town's Indian traders (scan p. 235) and among those licensed to sell goods (scan p. 249), and the aka this record carries for him is the source's own — 'R. A. Kinzie, Indian trader'. The trade that names the building is the trade the 1833 Treaty of Chicago ended, and the removal it ended in was under way through the summer this scene is set in, six weeks after the scene date. AGENTS.md holds that Native presence and representation are not a research gap to be filled by inference but a subject requiring consultation, and a building whose function field cannot be stated without naming that trade is inside that subject however little is known about its walls. The row it stands in reads the same way: robinson_caldwell_cabins, forty-odd metres along the same west-bank frontage, carries the flag for the same reason. SO THIS RECORD STATES A STOREHOUSE AND A LICENCE AND STOPS — it asserts nothing about who came to the counter, what passed across it, or what the trade meant to anyone on either side of it, and review_required holds the 1835 scene short of release until the consultation this project has committed to has happened. Nothing about the flag changes here and no confidence is touched: what is added is the argument that was always behind it.",
+  "review_required": true
+}

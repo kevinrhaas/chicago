@@ -1,0 +1,620 @@
+{
+ "id": "f10_settled_town",
+ "zone": 10,
+ "name": "The settled town, its yards and its grazed halo",
+ "habitat": "settled_town",
+ "dossier": "docs/research/08-fauna.md \u00a7 ZONE 7",
+ "scene_date": "1835-07-01",
+ "reads_as": "a mud-street boomtown whose most numerous animals are domestic \u2014 pigs rooting in the refuse, horses at the tavern rails, dooryard hens, rats after dark \u2014 with one coyote that the record insists came in by daylight",
+ "in_modelled_extent": true,
+ "extent_from": {
+  "flora_zone": "z10_settled_town"
+ },
+ "soundscape": {
+  "dawn_chorus": "none",
+  "hero": [
+   "sus_scrofa_domesticus",
+   "gallus_gallus_domesticus"
+  ],
+  "note": "There is no dawn chorus in the town. Its July soundscape is livestock, poultry, dogs and flies \u2014 and the one wild sound the sources actually record here is coyote howling in the middle of the day."
+ },
+ "species": [
+  {
+   "id": "sus_scrofa_domesticus",
+   "binomial": "Sus scrofa domesticus",
+   "common": "pigs at large",
+   "class": "mammal",
+   "activity": "cathemeral",
+   "active_periods": [
+    "dawn",
+    "day",
+    "dusk",
+    "night"
+   ],
+   "july": {
+    "status": {
+     "value": "feral_or_commensal",
+     "confidence": "attested",
+     "sources": [
+      "chicagology_prefire278",
+      "andreas_1884_v1"
+     ],
+     "note": "The town code of 7 November 1833 \u2014 Chicago's first code of laws \u2014 forbade residents to let pigs wander in the streets. An ordinance is evidence of the behaviour it forbids, and this one was a dead letter: the press was still calling loose hogs 'an unmitigated nuisance' years later and the CITY had to legislate afresh after 1837."
+    },
+    "presence": {
+     "value": "visible",
+     "confidence": "attested",
+     "sources": [
+      "chicagology_prefire278",
+      "andreas_1884_v1"
+     ],
+     "note": "Latrobe's 1833 inventory of Chicago names 'dealers in pigs, poultry, and potatoes' and men claiming compensation 'for pigs which the wolves had eaten'. Free-ranging pigs and wolves eating them is a single documented Chicago fact."
+    },
+    "abundance": {
+     "value": "common",
+     "confidence": "inferred",
+     "note": "No count of loose pigs exists. 'Common' reads the ordinance and the press complaints, not a census."
+    },
+    "max_group": 8,
+    "vocalization": "call_only",
+    "behaviour": "Pigs rooting in street mud and refuse, sows with litters lying in wet hollows, animals nosing at doorways and being driven off.",
+    "appearance": "Lean, long-legged, hairy razorback-type swine, not modern breed stock.",
+    "trace": null
+   },
+   "confidence": "attested",
+   "sources": [
+    "chicagology_prefire278",
+    "andreas_1884_v1"
+   ],
+   "note": "THE SIGNATURE STREET ANIMAL OF THIS SCENE. The Andreas 'April 21' hog ordinance is a CITY ordinance and Chicago was not a city until 1837, so it is post-1837 \u2014 most likely 1839 \u2014 and it must not be read as an 1835 prohibition. In July 1835 the pigs are in the streets."
+  },
+  {
+   "id": "equus_caballus",
+   "binomial": "Equus caballus",
+   "common": "horses \u2014 saddle, dray and team",
+   "class": "mammal",
+   "activity": "diurnal",
+   "active_periods": [
+    "dawn",
+    "day",
+    "dusk"
+   ],
+   "july": {
+    "status": {
+     "value": "domestic",
+     "confidence": "attested",
+     "sources": [
+      "andreas_1884_v1"
+     ],
+     "note": "Latrobe's 1833 Chicago inventory names horse-dealers and horse-stealers among the town's people, and Andreas p. 291 has private saddle horses kept at taverns and fast enough to run down a coyote. The 1833 town code separately banned racing horses in the principal streets and exhibiting a stallion publicly."
+    },
+    "presence": {
+     "value": "visible",
+     "confidence": "attested",
+     "sources": [
+      "andreas_1884_v1"
+     ],
+     "note": "Tied at tavern rails and worked in the streets."
+    },
+    "abundance": {
+     "value": "common",
+     "confidence": "inferred",
+     "note": "A town of about 3,265 people with lake commerce, a new harbour and a land boom necessarily runs draft teams; no 1835 Chicago teamster or stage census was found."
+    },
+    "max_group": 6,
+    "vocalization": "call_only",
+    "behaviour": "Saddle horses tied at tavern rails, dray and stage teams working the deep street mud, animals stamping and swishing constantly at deer flies and horse flies.",
+    "appearance": "Working stock, not carriage horses.",
+    "trace": null
+   },
+   "confidence": "attested",
+   "sources": [
+    "andreas_1884_v1",
+    "chicagology_prefire278"
+   ],
+   "note": "Horses in the town are as well attested as anything in this dataset. What is NOT attested is how many: no 1835 Chicago teamster or stage census was found, so the number on screen is ours."
+  },
+  {
+   "id": "bos_taurus",
+   "binomial": "Bos taurus",
+   "common": "cattle and working oxen",
+   "class": "mammal",
+   "activity": "diurnal",
+   "active_periods": [
+    "dawn",
+    "day",
+    "dusk"
+   ],
+   "july": {
+    "status": {
+     "value": "domestic",
+     "confidence": "attested",
+     "sources": [
+      "andreas_1884_v1"
+     ],
+     "note": "Archibald Clybourne was the government butcher and ran a log slaughter-house on the east side of the North Branch, packing about 250 head of cattle there in 1833, with George W. Dole packing a further 250 at the same place; Newberry & Dole ran a slaughter-house on the South Branch in 1834. Clybourne also held the federal contract to supply beef to Fort Dearborn."
+    },
+    "presence": {
+     "value": "visible",
+     "confidence": "inferred",
+     "note": "Held in a killing yard and worked in the streets. The DRIVES came from the south \u2014 Hubbard testified that cattle and hogs were bought in 'the Wabash country' and driven up \u2014 so stock approaches from the south and south-east and moves north to the slaughter-house, never down the North Branch."
+    },
+    "abundance": {
+     "value": "uncommon",
+     "confidence": "inferred",
+     "note": "SEASON IS THE POINT. Packing was a cold-weather business: December killing, barrels made during the winter. On 1 July 1835 there is NO packing season \u2014 what belongs here is fresh butchering for local consumption and for the garrison, a few beeves, hides on frames and flies."
+    },
+    "max_group": 12,
+    "vocalization": "call_only",
+    "behaviour": "A few beeves in a killing yard, slow yoke teams hauling in the streets, hides stretched on frames, animals stamping and tail-swishing at flies.",
+    "appearance": "Working oxen and small unimproved beef cattle.",
+    "trace": null
+   },
+   "confidence": "attested",
+   "sources": [
+    "andreas_1884_v1"
+   ],
+   "note": "Gurdon Hubbard packed 5,000 hogs in the old bank building at Lake and LaSalle in 1834 and for want of barrels had to stow them in bulk until barrels arrived from Cleveland the next spring at a dollar apiece \u2014 which puts a packing house and the stinking frog pond at the same intersection. That is 1834 and winter; it is not this scene."
+  },
+  {
+   "id": "gallus_gallus_domesticus",
+   "binomial": "Gallus gallus domesticus",
+   "common": "dooryard chickens",
+   "class": "bird",
+   "activity": "diurnal",
+   "active_periods": [
+    "dawn",
+    "day",
+    "dusk"
+   ],
+   "july": {
+    "status": {
+     "value": "domestic",
+     "confidence": "attested",
+     "sources": [
+      "andreas_1884_v1"
+     ],
+     "note": "Latrobe's 1833 Chicago inventory names 'dealers in pigs, poultry, and potatoes'."
+    },
+    "presence": {
+     "value": "visible_and_audible",
+     "confidence": "inferred",
+     "note": "Free-ranging dooryard poultry is the near-certain form; the source attests the trade in poultry, not the birds in a yard."
+    },
+    "abundance": {
+     "value": "common",
+     "confidence": "inferred",
+     "note": "Inference from the trade and from ordinary frontier practice."
+    },
+    "max_group": 12,
+    "vocalization": "call_only",
+    "behaviour": "Hens scratching and dust-bathing in dooryards and street verges, a cockerel crowing at intervals through the day, birds scattering from a passing dog.",
+    "appearance": "Small mixed unimproved farmyard fowl.",
+    "trace": null
+   },
+   "confidence": "attested",
+   "sources": [
+    "andreas_1884_v1"
+   ],
+   "note": "Latrobe's 1833 inventory attests DEALERS IN POULTRY, which is a trade and not a yard. Free-ranging dooryard hens follow from ordinary frontier practice and are the inference; the birds themselves are near-certain and unattested."
+  },
+  {
+   "id": "canis_familiaris",
+   "binomial": "Canis familiaris",
+   "common": "dogs",
+   "class": "mammal",
+   "activity": "cathemeral",
+   "active_periods": [
+    "dawn",
+    "day",
+    "dusk",
+    "night"
+   ],
+   "july": {
+    "status": {
+     "value": "doubtful",
+     "confidence": "reconstructed",
+     "note": "NO direct Chicago-1835 dog ordinance or description was found in any source the project can reach. A frontier town with pigs at large, a slaughter-house economy and an Indian trade is an unambiguous dog town, but that is reasoning about towns in general, not evidence about this one."
+    },
+    "presence": {
+     "value": "visible",
+     "confidence": "reconstructed",
+     "note": "Placed as an inference and labelled as one. If a visitor asks which parts we made up, this is one of them."
+    },
+    "abundance": {
+     "value": "frequent",
+     "confidence": "reconstructed",
+     "note": "No basis for any number."
+    },
+    "max_group": 4,
+    "vocalization": "call_only",
+    "behaviour": "Loose dogs in the streets and at the meat-houses, scavenging offal and being driven off, barking at night.",
+    "appearance": "Mixed working and camp dogs of no particular type.",
+    "trace": null
+   },
+   "confidence": "reconstructed",
+   "note": "Graded conjectural rather than inferred BECAUSE THE DOSSIER SAYS SO IN TERMS: 'place them, and label the claim as inference, not attestation'. The project's confidence model has a word for a reasonable belief with no evidence behind it, and it is this one."
+  },
+  {
+   "id": "rattus_norvegicus",
+   "binomial": "Rattus norvegicus",
+   "common": "rats",
+   "class": "mammal",
+   "activity": "nocturnal",
+   "active_periods": [
+    "dusk",
+    "night"
+   ],
+   "july": {
+    "status": {
+     "value": "feral_or_commensal",
+     "confidence": "attested",
+     "sources": [
+      "chicagology_prefire273"
+     ],
+     "note": "The Wolf Point tavern's nickname was 'Rat Castle', given 'in commemoration of a large class of regular boarders that infested its premises'. That is a documented Chicago rat population at a named building inside this scene."
+    },
+    "presence": {
+     "value": "visible",
+     "confidence": "inferred",
+     "note": "Seen at night, at refuse and along building sills; mostly present as sign."
+    },
+    "abundance": {
+     "value": "common",
+     "confidence": "inferred",
+     "note": "The nickname implies numbers and does not count them."
+    },
+    "max_group": 6,
+    "vocalization": "call_only",
+    "behaviour": "Rats running the building sills and refuse heaps after dark, and bolting under a threshold when disturbed.",
+    "appearance": "Not shown in daylight.",
+    "trace": "Gnawing, droppings and worn runs along building sills and refuse heaps."
+   },
+   "confidence": "attested",
+   "sources": [
+    "chicagology_prefire273"
+   ],
+   "note": "SPECIES IDENTITY IS AN INFERENCE. The source says 'rats' and nothing more. Rattus norvegicus had reached North America and displaced the black rat across most of the interior by this date, which is the reasoning for the binomial and not evidence for it."
+  },
+  {
+   "id": "colinus_virginianus",
+   "binomial": "Colinus virginianus",
+   "common": "northern bobwhite on the plank walk",
+   "class": "bird",
+   "activity": "diurnal",
+   "active_periods": [
+    "dawn",
+    "day",
+    "dusk"
+   ],
+   "july": {
+    "status": {
+     "value": "breeding_resident",
+     "confidence": "attested",
+     "sources": [
+      "andreas_1884_v1"
+     ],
+     "note": "In 1837 a visitor stepping out of a Chicago hotel onto a three-foot plank sidewalk 'saw to my astonishment a flock of quail on the plank'. Two years after this scene date, in the middle of town: bobwhite on a sidewalk is a documented Chicago street-level bird."
+    },
+    "presence": {
+     "value": "visible_and_audible",
+     "confidence": "inferred",
+     "note": "The record is 1837 and the town of 1835 was smaller and closer to the prairie, so the behaviour is at least as likely \u2014 but it is not attested for 1835."
+    },
+    "abundance": {
+     "value": "uncommon",
+     "confidence": "inferred",
+     "note": "A small covey, once, not a permanent feature of the street."
+    },
+    "max_group": 8,
+    "vocalization": "song_full",
+    "behaviour": "A small covey walking the plank boards outside a doorway and dropping off into the weeds when a door opens; the clear two-note whistle from the edge of the town.",
+    "appearance": "Small round cryptic quail.",
+    "trace": null
+   },
+   "confidence": "attested",
+   "sources": [
+    "andreas_1884_v1"
+   ],
+   "note": "Bobwhite whistling peaks in June and July, so full voice is the correct July state \u2014 see f02_mesic_prairie for the same species on its own ground."
+  },
+  {
+   "id": "canis_latrans",
+   "binomial": "Canis latrans",
+   "common": "coyote entering the town",
+   "class": "mammal",
+   "activity": "cathemeral",
+   "active_periods": [
+    "dawn",
+    "day",
+    "dusk",
+    "night"
+   ],
+   "july": {
+    "status": {
+     "value": "year_round_resident",
+     "confidence": "attested",
+     "sources": [
+      "andreas_1884_v1"
+     ],
+     "note": "Andreas p. 1293 has one entering Wentworth's meat-house IN THE DAY TIME and being killed there; p. 433 has a schoolgirl seeing prairie wolves on the way to and from school and hearing them 'howl any time in the day' with the buildings mostly on Water Street. Both are inside the town."
+    },
+    "presence": {
+     "value": "visible_and_audible",
+     "confidence": "attested",
+     "sources": [
+      "andreas_1884_v1"
+     ],
+     "note": "The single most render-relevant wildlife testimony for the town site: coyotes visible AND audible in daytime, within sight of Water Street."
+    },
+    "abundance": {
+     "value": "rare",
+     "confidence": "inferred",
+     "note": "One animal, rarely. The meat-house incident is recorded precisely because it was unusual enough to remember fifty years later."
+    },
+    "max_group": 1,
+    "vocalization": "call_only",
+    "behaviour": "One animal crossing a street at the edge of the built ground in daylight, nosing at a meat-house door, and moving off; distant daylight howling audible from the town.",
+    "appearance": "Buff and grizzled, narrow-muzzled, low-tailed.",
+    "trace": null
+   },
+   "confidence": "attested",
+   "sources": [
+    "andreas_1884_v1"
+   ],
+   "note": "This record is the reason the coyote's activity is graded cathemeral rather than crepuscular across the whole dataset: the documented Chicago behaviour is DAYTIME."
+  },
+  {
+   "id": "calliphoridae_spp",
+   "binomial": "Calliphoridae spp.",
+   "common": "blowflies and flesh flies",
+   "class": "insect",
+   "activity": "diurnal",
+   "active_periods": [
+    "day"
+   ],
+   "july": {
+    "status": {
+     "value": "breeding_resident",
+     "confidence": "inferred",
+     "note": "Follows from the slaughter yards, the offal and the refuse the 1833 code was written against."
+    },
+    "presence": {
+     "value": "visible",
+     "confidence": "inferred",
+     "note": "As a mass over waste, never as individuals."
+    },
+    "abundance": {
+     "value": "abundant",
+     "confidence": "inferred",
+     "note": "Maximal in July heat."
+    },
+    "max_group": 0,
+    "vocalization": "non_vocal",
+    "behaviour": "Shimmering clouds over offal, hides and refuse heaps, rising and resettling.",
+    "appearance": "Metallic blue and green in mass.",
+    "trace": null
+   },
+   "confidence": "inferred",
+   "sources": [
+    "chicagology_prefire278"
+   ],
+   "note": "Family-level. The carcasses are documented by the ordinance written against them; the flies are the inference, and no period source mentions them."
+  },
+  {
+   "id": "tabanidae_spp",
+   "binomial": "Tabanidae spp.",
+   "common": "deer flies and horse flies",
+   "class": "insect",
+   "activity": "diurnal",
+   "active_periods": [
+    "day"
+   ],
+   "july": {
+    "status": {
+     "value": "breeding_resident",
+     "confidence": "inferred",
+     "note": "Heavy in July daylight around livestock and horses; wet prairie and slough margins are the larval habitat and the town sits among them."
+    },
+    "presence": {
+     "value": "not_perceptible",
+     "confidence": "inferred",
+     "note": "The insects will not read at scale; the visible signal is the stock \u2014 animals stamping, swishing, head-tossing and bunching."
+    },
+    "abundance": {
+     "value": "abundant",
+     "confidence": "inferred",
+     "note": "Maximal in July."
+    },
+    "max_group": 0,
+    "vocalization": "non_vocal",
+    "behaviour": "Nothing is drawn. The behaviour belongs to the horses and cattle in this zone.",
+    "appearance": "Not shown.",
+    "trace": null
+   },
+   "confidence": "inferred",
+   "note": "Family-level and unattested at Chicago. Placed because the larval habitat is the wet prairie the town sits in and because the visible signal is livestock behaviour, not the insects."
+  },
+  {
+   "id": "culicidae_spp",
+   "binomial": "Culicidae spp.",
+   "common": "mosquitoes",
+   "class": "insect",
+   "activity": "crepuscular",
+   "active_periods": [
+    "dawn",
+    "dusk",
+    "night"
+   ],
+   "july": {
+    "status": {
+     "value": "breeding_resident",
+     "confidence": "inferred",
+     "note": "Chicago in 1834 was 'situated in the midst of sloughs and marshes and the sluggish Chicago River', in log buildings with no window screens, with the slough producing 'clouds of mosquitoes carrying the ague to nearby homesteads'. The page carrying that description returned HTTP 403 to the research agent and the wording came from a search index, so it is unverified and The dossier's citation for this has no record in data/sources/, so nothing here is graded documented on it."
+    },
+    "presence": {
+     "value": "not_perceptible",
+     "confidence": "inferred",
+     "note": "The visible signal is human \u2014 smudge fires, mosquito bars over beds, covered arms, hands at faces \u2014 and liberty L1 puts human depiction out of scope for v1. So the defining July experience of this town is rendered as nothing at all, and that gap is stated here rather than left for a visitor to notice."
+    },
+    "abundance": {
+     "value": "abundant",
+     "confidence": "inferred",
+     "note": "Maximal. Ague was endemic to this frontier."
+    },
+    "max_group": 0,
+    "vocalization": "non_vocal",
+    "behaviour": "Nothing is drawn.",
+    "appearance": "Not shown.",
+    "trace": null
+   },
+   "confidence": "inferred",
+   "note": "The only Chicago-specific mosquito testimony the dossier found sits on a page that returned HTTP 403, so the wording is unverified and it has no source record. Andreas is not and never will be a source for it: full-text searches for mosquito, mosquitoes and musquitoes all return zero hits."
+  },
+  {
+   "id": "photinus_pyralis",
+   "binomial": "Photinus pyralis",
+   "common": "common eastern firefly ('big dipper')",
+   "class": "insect",
+   "activity": "crepuscular",
+   "active_periods": [
+    "dusk"
+   ],
+   "july": {
+    "status": {
+     "value": "breeding_resident",
+     "confidence": "inferred",
+     "note": "In Chicago the species is most often seen on July evenings in fields, gardens and edges \u2014 which is exactly this zone's dooryards, garden plots and the pond margins inside the plat."
+    },
+    "presence": {
+     "value": "visible",
+     "confidence": "inferred",
+     "note": "Dusk only, over damp ground and unmown edges."
+    },
+    "abundance": {
+     "value": "common",
+     "confidence": "inferred",
+     "note": "Fewer than over the open wet prairie: the ground here is trodden, grazed and dry."
+    },
+    "max_group": 0,
+    "vocalization": "non_vocal",
+    "behaviour": "Flashing over dooryard weeds, garden plots and the edges of the in-town ponds in the half hour after sunset.",
+    "appearance": "Pale yellow-green J-shaped upsweep about every five or six seconds.",
+    "trace": null
+   },
+   "confidence": "inferred",
+   "note": "The species, the month and the city are all in modern natural-history sources; 1835 is the inference, and it runs the safe way \u2014 the pre-drainage landscape would have supported more fireflies than the modern one, not fewer."
+  },
+  {
+   "id": "passer_domesticus",
+   "binomial": "Passer domesticus",
+   "common": "house sparrow",
+   "class": "bird",
+   "activity": "diurnal",
+   "active_periods": [
+    "day"
+   ],
+   "july": {
+    "status": {
+     "value": "absent_anachronism",
+     "confidence": "inferred",
+     "note": "Introduced to North America in 1851. The one bird a viewer would most expect in a town street and the one that cannot be there."
+    },
+    "presence": {
+     "value": "absent",
+     "confidence": "inferred",
+     "note": "Introduced to North America in 1851. The one bird a viewer would most expect in a town street and the one that cannot be there."
+    },
+    "abundance": {
+     "value": "absent",
+     "confidence": "inferred",
+     "note": "Introduced to North America in 1851. The one bird a viewer would most expect in a town street and the one that cannot be there."
+    },
+    "max_group": 0,
+    "vocalization": "silent",
+    "behaviour": "Nothing is placed, drawn or sounded for this species.",
+    "appearance": "Recorded so the absence is a finding rather than an oversight.",
+    "trace": null
+   },
+   "confidence": "inferred",
+   "note": "Recorded in the town zone specifically, because this is where the reflex to add 'a few sparrows around the doorways' would strike."
+  },
+  {
+   "id": "sturnus_vulgaris",
+   "binomial": "Sturnus vulgaris",
+   "common": "European starling",
+   "class": "bird",
+   "activity": "diurnal",
+   "active_periods": [
+    "day"
+   ],
+   "july": {
+    "status": {
+     "value": "absent_anachronism",
+     "confidence": "inferred",
+     "note": "Introduced to North America in 1890."
+    },
+    "presence": {
+     "value": "absent",
+     "confidence": "inferred",
+     "note": "Introduced to North America in 1890."
+    },
+    "abundance": {
+     "value": "absent",
+     "confidence": "inferred",
+     "note": "Introduced to North America in 1890."
+    },
+    "max_group": 0,
+    "vocalization": "silent",
+    "behaviour": "Nothing is placed, drawn or sounded for this species.",
+    "appearance": "Recorded so the absence is a finding rather than an oversight.",
+    "trace": null
+   },
+   "confidence": "inferred",
+   "note": "Introduced to North America in 1890."
+  },
+  {
+   "id": "columba_livia",
+   "binomial": "Columba livia",
+   "common": "feral or dovecote rock pigeon",
+   "class": "bird",
+   "activity": "diurnal",
+   "active_periods": [
+    "dawn",
+    "day",
+    "dusk"
+   ],
+   "july": {
+    "status": {
+     "value": "doubtful",
+     "confidence": "inferred",
+     "note": "No Chicago 1830s record of dovecote or feral pigeons was found in any source the project can reach. Domestic pigeons had been kept in North America since the colonial period, so their absence from a boomtown of 3,265 people cannot be asserted the way a bison's can \u2014 but nothing attests them here either."
+    },
+    "presence": {
+     "value": "absent",
+     "confidence": "inferred",
+     "note": "Nothing is placed. The modern city pigeon is the default wrong bird for any street scene and would read as certainty about something nobody has evidence for. Recorded as doubt with nothing rendered, exactly as the ring-billed gull is."
+    },
+    "abundance": {
+     "value": "absent",
+     "confidence": "inferred",
+     "note": "If evidence of kept pigeons at Chicago in the 1830s ever turns up, this becomes a domestic record with a real number. Until then it has none."
+    },
+    "max_group": 0,
+    "vocalization": "silent",
+    "behaviour": "Nothing is placed, drawn or sounded.",
+    "appearance": "Not shown.",
+    "trace": null
+   },
+   "confidence": "inferred",
+   "note": "Graded doubtful rather than anachronistic, because the two are different findings and this project's rule is to record the disagreement instead of choosing quietly. The house sparrow and the starling above ARE anachronisms \u2014 1851 and 1890 \u2014 and this bird is not one; it is simply unevidenced."
+  }
+ ],
+ "confidence": "attested",
+ "note": "The best-evidenced zone in the dataset, and the least wild. Its anchors are the town code of 7 November 1833 (pigs in the streets, dead animals in the river), Latrobe's 1833 inventory of Chicago in Andreas (pigs, poultry, horse-dealers, pigs the wolves had eaten), the 'Rat Castle' nickname of the Wolf Point tavern, and the two Andreas passages putting coyotes inside the town in daylight. Everything human \u2014 the people, the smudge fires, the mosquito netting \u2014 is out of scope under liberty L1, so several of this zone's best-attested July facts are recorded here and rendered as nothing.",
+ "sources": [
+  "chicagology_prefire278",
+  "andreas_1884_v1",
+  "chicagology_prefire273"
+ ]
+}

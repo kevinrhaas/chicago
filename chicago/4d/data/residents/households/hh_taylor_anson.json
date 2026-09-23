@@ -1,0 +1,266 @@
+{
+ "id": "hh_taylor_anson",
+ "name": "The Anson Taylor household",
+ "division": "south",
+ "head": "taylor_anson_h",
+ "arrival": {
+  "value": "1832",
+  "confidence": "attested",
+  "sources": [
+   "andreas_1884_v1"
+  ],
+  "note": "Both brothers, same year, stated twice.",
+  "precision": "year"
+ },
+ "party_size_on_arrival": {
+  "value": 2,
+  "confidence": "inferred",
+  "sources": [
+   "andreas_1884_v1"
+  ],
+  "note": "Two brothers arriving in the same year and working together. Whether they travelled together is not stated."
+ },
+ "origin": {
+  "value": null,
+  "confidence": "reconstructed",
+  "note": "Not attested in anything this project holds."
+ },
+ "reason_for_coming": {
+  "value": null,
+  "confidence": "reconstructed",
+  "note": "Not attested in anything this project holds."
+ },
+ "lives_at": {
+  "value": null,
+  "confidence": "reconstructed",
+  "note": "Not attested in anything this project holds."
+ },
+ "works_at": {
+  "value": "south_branch_raft_bridge",
+  "confidence": "inferred",
+  "sources": [
+   "andreas_1884_v1"
+  ],
+  "note": "THIS IS A BUILT-BY LINK AND NOT A WORKPLACE, and the grade says so. Andreas credits the log bridge across the South Branch between Randolph and Lake to Anson H. Taylor and his brother in 1832; data/structures/south_branch_raft_bridge.json is this project's record of a crossing at that reach. Whether the raft bridge of 1835 is the same fabric as the log bridge of 1832 is a structures question this record does not settle."
+ },
+ "present_on_scene_date": {
+  "value": "present",
+  "confidence": "inferred",
+  "sources": [
+   "andreas_1884_v1"
+  ],
+  "note": "Continuous in the record through the 1830s; Andreas's later rosters carry a Charles Taylor and an A. W. Taylor at Chicago."
+ },
+ "persons": [
+  {
+   "id": "taylor_anson_h",
+   "name": "Anson H. Taylor",
+   "relationship": "head",
+   "grade": "attested",
+   "ladder_rule": "G1b",
+   "sex": "male",
+   "occupation": {
+    "value": "carpenter",
+    "confidence": "attested",
+    "sources": [
+     "andreas_1884_v1"
+    ],
+    "note": "'Anson H. and his brother, Charles Taylor, came in 1832.' John Bates, interviewed in 1883, remembered 'a sort of bridge built the year before by Anson Taylor across the South Branch near Randolph Street - a log-bridge, quite near the water, over which teams could pass'; Andreas dates that bridge to 1832 and credits it to Anson H. Taylor and his brother Charles. He hauled the lumber for St Mary's from the schooner to the site with his own team.",
+    "derived_from": "roles",
+    "roles_at_scene_date": [
+     "carpenter"
+    ]
+   },
+   "sources": [
+    "andreas_1884_v1",
+    "blackhawk_war_chicago_enrollments_isa",
+    "chicago_democrat_1833_1835",
+    "chicago_voter_lists_1833_1835_irad",
+    "isa_public_domain_land_tract_sales",
+    "second_presbyterian_chicago_1892"
+   ],
+   "note": "THE MAN WHO BUILT THE ONLY BRIDGE TEAMS COULD CROSS. Andreas: the log bridge across the South Branch between Randolph and Lake 'was, prior to 1834, the only bridge across the river or its branches over which teams could pass', and its total cost was $486.20, 'of which sum the Pottawatomie Indians contributed $200'. That last clause is a documented fact about who paid for the town's first serious piece of infrastructure and it is recorded here because it belongs to the population question as much as to the bridge. THE FEDERAL LAND TRACT SALES — A PURCHASE, AND NEVER A RESIDENCE. The Illinois State Archives' Public Domain Land Tract Sales register enters this person 1 time, as “TAYLOR ANSON H”, 1835-06-08: 1 federal land entry — SW sec 30 T40N R14E, 160.00 acres stated in all, for $200.00 (ls0552). THE REGISTER'S OWN RESIDENCE COLUMN READS UNKNOWN on these rows: a county, a state or nothing, and never a town, which is why a purchase here places nobody. A purchase and nothing more. It dates and places a transaction; it proposes no residence, and under the ratified ladder it corroborates rather than mints. Identity by the crosswalk's own rule: TAYLOR ANSON H matches Anson H. Taylor: the forename names Anson H. Taylor of the 7 people of this surname, and the forename agrees in full. (data/research/land_sales/resident_crosswalk.json). This pass WRITES THE EVIDENCE AND MOVES NO GRADE. Under the ratified ladder (T-0513) a second independent source is what lifts a projected resident, and a land entry is a second source about a TRANSACTION rather than about who was living at Chicago on 1 July 1835 — a man may buy a quarter-section he never sees. T-0515 applies the ladder against every source at once; this pass hands it the evidence and not the verdict. THE SECOND PRESBYTERIAN ROLL — A NAME ON A CHURCH LIST THAT OPENS IN 1842, AND NEVER AN 1835 FACT. The 1892 printed membership roll of the Second Presbyterian Church of Chicago, read line by line into this repository, carries 1 line whose surname and given initial agree with this person's — “Taylor, Miss Anna M. | Letter, | January 29, 1890.” (second_presb_0325, printed page 172), admitted 1890-01-29 by letter. Under the rule that decided it: Surname 'Taylor' folds to the same string as the roll line's, and the given name of both begins A. WHAT THE MATCH MINTS OR REGRADES: “NOTHING. A line on a roll that opens in June 1842 cannot place a person in the town of July 1835, and this file makes no proposal that it does. What a match IS: the same surname and initial, in Chicago, within seven years — a lead for a later pass that is allowed to write people.” THE SAME ROLL LINE IS MET BY OTHER TOWNSPEOPLE OF THIS NAME: second_presb_0325 is matched under this same rule to Augustine Deodat Taylor (taylor_augustine), so it is met by two townspeople of this name, and it says which of them it was about no more than it says it was about this one — the test that decided it is a surname and a given initial agreeing, which cannot tell them apart. This pass WRITES THE EVIDENCE AND MOVES NO GRADE: under the ratified ladder (T-0513) the roll is handed to the card as a thing a reader may weigh, and the verdict stays with T-0515, which applies the ladder against every source at once.",
+   "resident_research": {
+    "programme": "resident-research-2026",
+    "ticket": "T-0478",
+    "outcome": "no_corroboration_yet",
+    "reviewed_on": "",
+    "asserted_identity": false,
+    "evidence_for": "No reliable record found in the reviewed repository reference corpus, contemporary newspaper searches, institutional/local histories, directories and regional genealogy/index searches could be tied to this person by more than the recorded name. This is a documented no-find, not evidence that the person did not exist.",
+    "notes": "No reliable record found in the reviewed repository reference corpus, contemporary newspaper searches, institutional/local histories, directories and regional genealogy/index searches could be tied to this person by more than the recorded name. This is a documented no-find, not evidence that the person did not exist.",
+    "refusals": [
+     {
+      "regraded_on": "2026-09-04",
+      "rule": "G2e",
+      "withheld": "the downgrade to inferred",
+      "reason": "This card rests on 3 thing(s) the consolidation did not read — andreas_1884_v1, blackhawk_war_chicago_enrollments_isa, chicago_voter_lists_1833_1835_irad. G2e fired on the seven domains the ladder reads and says nothing about the evidence outside them, so the grade stands. The same reasoning the ladder's own G5 gives for abstaining (T-0515)."
+     }
+    ]
+   },
+   "civic_evidence": [
+    {
+     "list": "muster_1832",
+     "as_read": "TAYLOR, A W",
+     "locator": "muster",
+     "record_id": "blackhawk_1832_110",
+     "describes_date": "1832",
+     "source": "blackhawk_war_chicago_enrollments_isa",
+     "rule": "G1b"
+    },
+    {
+     "list": "tax_1833",
+     "as_read": "Taylor, Anson N.",
+     "locator": "tax_1833",
+     "record_id": "tax_1833_101",
+     "describes_date": "1833",
+     "source": "chicago_voter_lists_1833_1835_irad",
+     "rule": "G3"
+    }
+   ],
+   "press_evidence": [
+    {
+     "list": "newspaper_1833_1835",
+     "as_read": "Anson W. Taylor",
+     "locator": "chicago_democrat_1834_11_12#c004",
+     "record_id": "person_anson_w_taylor",
+     "describes_date": "1834-11-12",
+     "source": "chicago_democrat_1833_1835",
+     "rule": "G1b"
+    }
+   ],
+   "merged_from": [
+    {
+     "ticket": "T-0839",
+     "rule": "C4",
+     "cluster": "taylor-anson",
+     "cards": [
+      "taylor_anson_n",
+      "taylor_anson_w"
+     ],
+     "note": "THE UNION OF THE CARDS THIS PERSON WAS SPLIT ACROSS. The sources and evidence blocks above include everything the folded cards cited; each folded record is kept whole under data/residents/merged/ and is redirected by index.json's `merged` table. The reasoning for the merge is in data/residents/card_merge_rulings.json."
+    }
+   ],
+   "roles": [
+    {
+     "role": "carpenter",
+     "kind": "trade",
+     "as_printed": null,
+     "from": "1673",
+     "to": "1857",
+     "precision": "source_span",
+     "dated_by": "source_describes_date",
+     "covers_scene_date": true,
+     "confidence": "attested",
+     "sources": [
+      "andreas_1884_v1"
+     ],
+     "claim": null,
+     "note": "THE BOUND IS THE SOURCE'S, NOT THE MAN'S. This role is carried by the card's 1835 occupation block and is dated by what the cited source or sources are ABOUT, which is why `precision` can be no better than the span they cover. The span reaches 1835, so this role stands in the scene-date view. The printing the trade was read off is not on the card and is fetched by T-1254."
+    }
+   ]
+  },
+  {
+   "id": "taylor_charles",
+   "name": "Charles H. Taylor",
+   "relationship": "brother",
+   "grade": "attested",
+   "ladder_rule": "G1a",
+   "sex": "male",
+   "occupation": {
+    "value": "carpenter",
+    "confidence": "inferred",
+    "sources": [
+     "andreas_1884_v1"
+    ],
+    "note": "He is named as Anson's partner on the bridge and separately in the 1833 roster as 'Charles H. Taylor, came in 1832', with no trade. The trade is read across from the joint work.",
+    "derived_from": "roles",
+    "roles_at_scene_date": [
+     "carpenter"
+    ]
+   },
+   "sources": [
+    "andreas_1884_v1",
+    "census_1840_chicago_familysearch_images",
+    "chicago_voter_lists_1833_1835_irad",
+    "isa_public_domain_land_tract_sales",
+    "second_presbyterian_chicago_1892"
+   ],
+   "note": "ONE OF THE TWENTY-EIGHT ELECTORS OF 10 AUGUST 1833, listed by Andreas as 'Charles Taylor'. This project's wolf_point_tavern record has 'Charles and Mary Taylor' keeping that house from 1831 to 1833, which would make him a tavern keeper before he was anything else and gives him a named wife; the identification is not made here because the Taylor surname is carried by at least four distinct men in this parcel's sources and merging them on a forename would be exactly the error the Isaac Harmon case was avoided for. THE TOWN'S OWN ROLLS, 1833-1835 — CORROBORATION, NOT A GRADE. The early Chicago voter and tax lists held by the Illinois Regional Archives Depository name this person 3 times: Poll list of the first election of the Board of Trustees of the Town of Chicago, 10 August 1833 — “Taylor, Charles” (poll_1833_026, line 47); Election returns — poll list of 1834, filed 11 August 1834 — “Taylor, Charles” (poll_1834_106, line 275); Poll list of 1835 — “Taylor, Charles” (poll_1835_079, line 366). These are the town's own contemporary paper rather than a recollection of it, and each appearance says that a man of that name stood on that roll in that year — no more. The reading is twice mediated (Schulz's transcription, then Genealogy Trails' republication) and this project has not seen the IRAD originals. Under the ratified ladder (T-0513) the 1835 poll with a second independent source is attested, the 1835 poll alone or a 1833/1834 list with another source is inferred, and a single appearance with nothing else is a projected resident. This pass WRITES THE EVIDENCE AND MOVES NO GRADE — T-0515 applies the ladder against every source at once. Identity by the crosswalk's own rule: one resident of the surname 'Taylor' agrees with the entry's forenames; 3 bearer(s) of the surname were considered. (data/research/civic/voter_crosswalk.json). THE 1840 FEDERAL CENSUS — A HEAD FIVE YEARS AFTER THE SCENE, AND NEVER AN 1835 FACT. The 1840 federal census of Chicago, read line by line off the left sheets in this repository, carries 1 head of this name — “Chas Taylor” (33S7-9YYJ-JM, printed page 224, line 13). This project has ruled the head a MATCH for this person: the full name agrees, it is unique on both sides, and a discriminator independent of the name — directory persistence — separately places the same person in Chicago after the 1840 book was taken. Under the rule that decided it (L6 matched), by the crosswalk's own ladder (data/research/census_1840/resident_crosswalk.json). LATER EVIDENCE ONLY. The ratified grading ladder binds: an 1839 or 1840 appearance alone is never an 1835 resident, and 1840 household composition is never back-projected to the 1835-07-01 scene. This pass WRITES THE EVIDENCE AND MOVES NO GRADE. Under the ratified ladder (T-0513) a second independent source is what lifts a projected resident, and an 1840 head is a second source about CONTINUED RESIDENCE rather than about who was living at Chicago on 1 July 1835. T-0515 applies the ladder against every source at once; this pass hands it the evidence and not the verdict. THE SECOND PRESBYTERIAN ROLL — A NAME ON A CHURCH LIST THAT OPENS IN 1842, AND NEVER AN 1835 FACT. The 1892 printed membership roll of the Second Presbyterian Church of Chicago, read line by line into this repository, carries 1 line whose surname and given initial agree with this person's — “Taylor, Mrs. Charle's | Letter. | Januarys, 1843. | Dismissed.” (second_presb_0875, printed page 203), admitted 1843 by letter. Under the rule that decided it: Surname 'Taylor' folds to the same string as the roll line's, and the given name of both begins C. WHAT THE MATCH MINTS OR REGRADES: “NOTHING. A line on a roll that opens in June 1842 cannot place a person in the town of July 1835, and this file makes no proposal that it does. What a match IS: the same surname and initial, in Chicago, within seven years — a lead for a later pass that is allowed to write people.” THE LINE IS A MARRIED WOMAN'S ENTRY, and the crosswalk's own Mrs rule governs what it can have met: “a line flagged a_married_womans_entry that meets a MAN in the 1835 layer has met his name, not him: it corroborates that the name was a Chicago name in the 1840s and it does not put that man on this roll.” The match is filed rather than suppressed, because a suppressed match is invisible and a flagged one can be argued with. THE SAME ROLL LINE IS MET BY OTHER TOWNSPEOPLE OF THIS NAME: second_presb_0875 is matched under this same rule to Mrs. C. Taylor (taylor_c), so it is met by two townspeople of this name, and it says which of them it was about no more than it says it was about this one — the test that decided it is a surname and a given initial agreeing, which cannot tell them apart. This pass WRITES THE EVIDENCE AND MOVES NO GRADE: under the ratified ladder (T-0513) the roll is handed to the card as a thing a reader may weigh, and the verdict stays with T-0515, which applies the ladder against every source at once.",
+   "resident_research": {
+    "programme": "resident-research-2026",
+    "ticket": "T-0493",
+    "outcome": "no_corroboration",
+    "reviewed_on": "2026-09-02",
+    "asserted_identity": false,
+    "evidence_for": "forenames agree initial for initial: entry 'Charles Taylor' against resident 'Charles H. Taylor'",
+    "summary": "The exact-name and variant sweep surfaced several later Charles H. Taylor records but no dated Chicago/Cook County discriminator that safely separates this resident from namesakes. No marriage, occupation or household fact is promoted.",
+    "source_ids": [
+     "chicago_voter_lists_1833_1835_irad"
+    ]
+   },
+   "merge_ruling": [
+    {
+     "ticket": "T-0839",
+     "verdict": "distinct",
+     "rule": "D3",
+     "cluster": "taylor-mrs-c",
+     "weighed_against": [
+      "taylor_c"
+     ],
+     "for_merge": "Only the initial. Strip \"Mrs.\" and `C.` expands to exactly one full Taylor forename in this town — Charles — with no rival, which is C2's own test and would ordinarily land the merge. It is also true that this is exactly how the period prints a married woman — the honorific standing on her husband's forename, whoever he was — so the shape itself argues nothing either way. That is an argument for a KINSHIP, not for one card: R6 (#998) settled that a wife is not her husband.",
+     "against_merge": "A WOMAN AND A MAN, AND THE PAGE PRINTS THE HONORIFIC. The Chicago Democrat of 19 August 1835 (c007) invites the town to a sale \"at the hous[e] of Mrs. C. Taylor, Water-st.\" — she keeps a house and hosts the Juvenile Society in it. The rival card is Charles H. Taylor, Anson's brother on hh_taylor_anson: a carpenter on the 1833, 1834 and 1835 poll lists, in the federal land tract register and in the 1840 census, every one of them a man's record. Merging would assert that the notice named him, which no reading of \"Mrs.\" supports. THE PROOF HERE IS NOT BROWN'S PROOF, and the difference is why this ruling is written out rather than cited: R6 and D3 were built on ONE SOURCE PRINTING BOTH READINGS as separate entries, because `Mrs. Rufus B. Brown` and `Brown, Rufus B.` are identical once the honorific is stripped and nothing in the letters tells a Rufus from an Eliza. These two are not identical after the strip — `Taylor, C.` against `Taylor, Charles H.` — so the pair never needed that proof to be held apart; what joins them is the ordinary initial rule (C2 on the card side, M2 in the derivation) reaching across an honorific it cannot see. That is the shape T-0951 now carries."
+    }
+   ],
+   "roles": [
+    {
+     "role": "carpenter",
+     "kind": "trade",
+     "as_printed": null,
+     "from": "1673",
+     "to": "1857",
+     "precision": "source_span",
+     "dated_by": "source_describes_date",
+     "covers_scene_date": true,
+     "confidence": "inferred",
+     "sources": [
+      "andreas_1884_v1"
+     ],
+     "claim": null,
+     "note": "THE BOUND IS THE SOURCE'S, NOT THE MAN'S. This role is carried by the card's 1835 occupation block and is dated by what the cited source or sources are ABOUT, which is why `precision` can be no better than the span they cover. The span reaches 1835, so this role stands in the scene-date view. The printing the trade was read off is not on the card and is fetched by T-1254."
+    }
+   ]
+  }
+ ],
+ "touches_removal": false,
+ "review_required": false,
+ "research_note": "THE TOWN'S BRIDGE-BUILDERS, AND A CAUTION ABOUT SURNAMES. This parcel's sources carry at least four Taylors - Anson H., Charles H., Augustine D. (a separate household here) and the 'Charles and Mary Taylor' who kept the Wolf Point tavern - plus a Mary Taylor among the First Presbyterian Church's nine founding villagers and an A. W. Taylor on the 1832 militia roll. NO TWO OF THEM ARE MERGED HERE. Merging on a surname is how a documented population quietly becomes a fictional one.",
+ "kin": [
+  {
+   "person": "taylor_anson_h",
+   "relation": "brother",
+   "household": "hh_taylor_augustine",
+   "value": "taylor_augustine",
+   "confidence": "inferred",
+   "sources": [
+    "encyclopedia_chicago_church_architecture"
+   ],
+   "note": "AUGUSTINE DEODAT TAYLOR AND ANSON H. TAYLOR ARE BROTHERS. The Chicago History Museum's encyclopedia entry on church architecture distinguishes the builder of St Mary's from 'brother Anson who hauled lumber', and this parcel already carried that sentence in prose without ever writing it as a link. Graded inferred: the corpus holds this project's summary of the encyclopedia rather than a quoted page. Five Taylor households stand here; the source names Anson, so the tie reaches one. Ruled under T-0865; the sentence was rescued from a proposal to delete it as unsourced (PR #948)."
+  }
+ ],
+ "directories": {
+  "note": "LATER EVIDENCE, BESIDE THE 1835 CLAIMS AND NOT INSIDE THEM. A Chicago directory of 1839, 1843 or 1844 meets somebody of this name and this pass records what it prints. Under the ratified ladder a directory read after 1835 can corroborate that a person attested here was still in Chicago and can print a trade or a street the 1835 record never had; on its own it makes nobody a resident of 1835. Nothing on this person's 1835 record was regraded, moved, dated or given an occupation by this entry. WHAT THIS PASS RULED ONTO THIS HOUSEHOLD, named so the ruling can be found again: each volume below is followed by the printed entries it set against this person and the status the crosswalk ruled them at — a single entry carries what its own `could_carry` declares, and an ambiguous or contested match carries nothing and is shown so that the silence is legible. taylor_anson_h, Fergus's Chicago directory of 1839 — f1839_e1462 (a single entry); taylor_charles, Fergus's Chicago directory of 1839 — f1839_e1465 (a single entry); taylor_charles, Fergus's Chicago directory of 1843 — f1843_e2412 (a single entry); taylor_charles, Norris's Chicago directory of 1844 — n1844_e1748 (a single entry); taylor_charles, the advertising cards in Norris's directory of 1844 — n1844_ad0150 (a single entry).",
+  "sources": [
+   "fergus_chicago_directory_1839",
+   "fergus_chicago_directory_1843",
+   "norris_directory_1844"
+  ],
+  "people": [
+   {
+    "person_id": "taylor_anson_h"
+   },
+   {
+    "person_id": "taylor_charles"
+   }
+  ]
+ }
+}

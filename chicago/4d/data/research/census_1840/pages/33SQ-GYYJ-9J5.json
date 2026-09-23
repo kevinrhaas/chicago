@@ -1,0 +1,2127 @@
+{
+  "schema": 1,
+  "familysearch_id": "33SQ-GYYJ-9J5",
+  "source_id": "census_1840_chicago_familysearch_images",
+  "image": "chicago/reference/census1840/33SQ-GYYJ-9J5.jpg",
+  "image_sha256": "af29cdc22d6943460b10bae35f1362ab7641811e9e922e55b24e1c0bcb8880ec",
+  "printed_page": null,
+  "printed_page_note": "No legible printed page number on this continuation. The reversed show-through at upper left and the facing page exposed at right are not used as this sheet's locator.",
+  "sheet_side": "right",
+  "division": null,
+  "division_note": "Illinois is legible in the heading; the division name is not recovered. No ward is inferred from this sheet's filename or its location in the deposit.",
+  "state": "Illinois",
+  "county": "Cook",
+  "reading": "scan_verified",
+  "read_pass": "T-0974: visual reading of the whole scan, native-resolution block crops, a labelled crop for each of 31 totals, and enlarged headings, footings and uncertain cells. Local image derivatives were used for inspection only and are not committed.",
+  "ticket": "T-0974, first leaf split from T-0973",
+  "lines_ruled_with_an_entry": 31,
+  "column_geometry": {
+    "image_size": [
+      4184,
+      3208
+    ],
+    "body_y": [
+      590,
+      2950
+    ],
+    "footing_crop": [
+      1320,
+      2870,
+      2140,
+      3070
+    ],
+    "method": "Printed headings read against their own rules. read_census_continuation.py refuses this leaf with no industry run bracketed by TOTAL and PENSIONERS. Its vertical_rules function was applied in 300 px bands at cover 0.45 instead; only the boundaries confirmed by the headings are retained here. A profile candidate at 1539..1551 lies inside TOTAL and is not an industry boundary. This is the existing T-0761 limitation, not a change to the reading tool.",
+    "middle_rules_by_band": [
+      {
+        "y0": 650,
+        "y1": 950,
+        "rules": [
+          1405,
+          1600,
+          1667,
+          1730,
+          1796,
+          1878,
+          1958,
+          2037,
+          2104
+        ]
+      },
+      {
+        "y0": 1200,
+        "y1": 1500,
+        "rules": [
+          1401,
+          1596,
+          1664,
+          1728,
+          1792,
+          1874,
+          1954,
+          2036,
+          2101
+        ]
+      },
+      {
+        "y0": 1800,
+        "y1": 2100,
+        "rules": [
+          1397,
+          1593,
+          1660,
+          1724,
+          1790,
+          1871,
+          1951,
+          2033,
+          2098
+        ]
+      },
+      {
+        "y0": 2500,
+        "y1": 2800,
+        "rules": [
+          1390,
+          1589,
+          1656,
+          1720,
+          1785,
+          1866,
+          1946,
+          2027,
+          2094
+        ]
+      }
+    ],
+    "middle_columns": [
+      "total",
+      "mining",
+      "agriculture",
+      "commerce",
+      "manufactures_and_trades",
+      "navigation_ocean",
+      "navigation_canals_lakes_rivers",
+      "learned_professions_and_engineers"
+    ],
+    "heading_crop": [
+      1350,
+      350,
+      2120,
+      690
+    ]
+  },
+  "line_index": {
+    "centres_y_px": [
+      662,
+      727,
+      811,
+      888,
+      959,
+      1037,
+      1110,
+      1186,
+      1265,
+      1339,
+      1420,
+      1496,
+      1574,
+      1647,
+      1718,
+      1797,
+      1875,
+      1941,
+      2016,
+      2088,
+      2161,
+      2254,
+      2324,
+      2401,
+      2473,
+      2551,
+      2632,
+      2707,
+      2780,
+      2850,
+      2924
+    ],
+    "fit_first_y": 658.96,
+    "fit_pitch": 75.67,
+    "max_residual_px": 11.3,
+    "method": "Centres assigned to the 31 visible total entries in order, not to every connected component. The tool's fixed x window produces 34 groups at dy=55 (35 at 35/45, 32 at 65, 25 at 75): separated caps and bowl fragments are not extra households. Crop boxes record the visual assignment. The industry entries independently align with these row centres."
+  },
+  "blank_convention": "null with state blank means no written entry. null with alternatives or state unresolved_mark means inspected but unresolved. Blank cells are not asserted as enumerated zeros.",
+  "other_blocks": {
+    "slaves": {
+      "state": "blank",
+      "columns": 12,
+      "body_and_footing_inspected": true
+    },
+    "pensioners": {
+      "state": "blank",
+      "names_and_ages_inspected": true
+    },
+    "deaf_dumb_blind_insane": {
+      "state": "blank_except_unresolved_mark",
+      "exception": "white blind, line 30, recorded on that line; the other visible cells and the footings contain no legible entry."
+    },
+    "schools": {
+      "first_seven_columns": "blank: universities/colleges, students, academies/grammar schools, their scholars, primary/common schools, their scholars, scholars at public charge; body and footings inspected",
+      "illiteracy_column": "unread: the eighth, narrow column is compressed into the binding/facing-page boundary. Its visible sliver does not justify declaring the hidden area blank."
+    }
+  },
+  "footer_as_read": {
+    "total": 179,
+    "commerce": 6,
+    "manufactures_and_trades": 8,
+    "learned_professions_and_engineers": 2,
+    "unwritten_industry_columns": [
+      "mining",
+      "agriculture",
+      "navigation_ocean",
+      "navigation_canals_lakes_rivers"
+    ],
+    "note": "Four written footings, read from the enlarged footer. TOTAL is 1, 7, 9: the third figure has a head loop and a descending tail, unlike the baseline sweep of the professions 2. This confirms the inventory's 179."
+  },
+  "closure": {
+    "total": {
+      "printed": 179,
+      "read": null,
+      "read_known_cells_sum": 150,
+      "unresolved_lines": [
+        4,
+        8,
+        9,
+        13,
+        28,
+        29
+      ],
+      "conditional_min": 172,
+      "conditional_max": 204,
+      "reconciles": null,
+      "arithmetic_completions": [
+        {
+          "4": 4,
+          "8": 4,
+          "9": 3,
+          "13": 4,
+          "28": 11,
+          "29": 3
+        },
+        {
+          "4": 4,
+          "8": 4,
+          "9": 3,
+          "13": 11,
+          "28": 4,
+          "29": 3
+        },
+        {
+          "4": 4,
+          "8": 11,
+          "9": 3,
+          "13": 4,
+          "28": 4,
+          "29": 3
+        },
+        {
+          "4": 11,
+          "8": 4,
+          "9": 3,
+          "13": 4,
+          "28": 4,
+          "29": 3
+        }
+      ],
+      "note": "The bounds depend on the listed visual alternatives; they are not an independent population estimate. Four different assignments can reach 179. Arithmetic cannot decide which separated-stroke cell is 11 rather than 4, so none is silently filled."
+    },
+    "commerce": {
+      "read": 6,
+      "printed": 6,
+      "reconciles": true
+    },
+    "manufactures_and_trades": {
+      "read": 8,
+      "printed": 8,
+      "reconciles": true
+    },
+    "learned_professions_and_engineers": {
+      "read": 2,
+      "printed": 2,
+      "reconciles": true
+    }
+  },
+  "pairing_test": {
+    "rule": "T-0642/T-0656: require both household line count and printed population to agree; a sequence screen is additional evidence, never permission to rewrite the scan.",
+    "right_keys": {
+      "lines": 31,
+      "printed_population": 179
+    },
+    "candidates_by_line_count": [
+      {
+        "familysearch_id": "33S7-9YYJ-2T",
+        "printed_page": 221,
+        "lines_with_an_entry": 31,
+        "printed_population": 146,
+        "printed_population_alternate": null,
+        "key_source": "left_sheet_population_key.json",
+        "verdict": "population_disagrees"
+      },
+      {
+        "familysearch_id": "33S7-9YYJ-38",
+        "printed_page": 231,
+        "lines_with_an_entry": 31,
+        "printed_population": 160,
+        "printed_population_alternate": null,
+        "key_source": "left_sheet_population_key.json",
+        "verdict": "population_disagrees"
+      },
+      {
+        "familysearch_id": "33S7-9YYJ-99F",
+        "printed_page": 234,
+        "lines_with_an_entry": 31,
+        "printed_population": 182,
+        "printed_population_alternate": null,
+        "key_source": "left_sheet_population_key.json",
+        "verdict": "population_disagrees"
+      },
+      {
+        "familysearch_id": "33S7-9YYJ-9K3",
+        "printed_page": 219,
+        "lines_with_an_entry": 31,
+        "printed_population": 208,
+        "printed_population_alternate": 201,
+        "key_source": "left_sheet_population_key.json",
+        "verdict": "population_disagrees"
+      },
+      {
+        "familysearch_id": "33S7-9YYJ-9MX",
+        "printed_page": "unknown",
+        "lines_with_an_entry": 31,
+        "printed_population": 152,
+        "printed_population_alternate": null,
+        "key_source": "left_sheet_population_key.json",
+        "verdict": "population_disagrees"
+      },
+      {
+        "familysearch_id": "33S7-9YYJ-9WF",
+        "printed_page": 215,
+        "lines_with_an_entry": 31,
+        "printed_population": 103,
+        "printed_population_alternate": null,
+        "key_source": "left_sheet_population_key.json",
+        "verdict": "population_disagrees"
+      },
+      {
+        "familysearch_id": "33S7-9YYJ-DD",
+        "printed_page": 216,
+        "lines_with_an_entry": 31,
+        "printed_population": 175,
+        "printed_population_alternate": null,
+        "key_source": "pairing_key_26_50.json",
+        "verdict": "population_disagrees"
+      },
+      {
+        "familysearch_id": "33S7-9YYJ-NY",
+        "printed_page": 230,
+        "lines_with_an_entry": 31,
+        "printed_population": 151,
+        "printed_population_alternate": null,
+        "key_source": "pairing_key_26_50.json",
+        "verdict": "population_disagrees"
+      },
+      {
+        "familysearch_id": "33S7-9YYJ-RC",
+        "printed_page": 217,
+        "lines_with_an_entry": 31,
+        "printed_population": 160,
+        "printed_population_alternate": null,
+        "key_source": "pairing_key_26_50.json",
+        "verdict": "population_disagrees"
+      },
+      {
+        "familysearch_id": "33S7-9YYJ-W6",
+        "printed_page": 232,
+        "lines_with_an_entry": 31,
+        "printed_population": 195,
+        "printed_population_alternate": null,
+        "key_source": "pairing_key_26_50.json",
+        "verdict": "population_disagrees"
+      },
+      {
+        "familysearch_id": "33S7-9YYN-3CDH",
+        "printed_page": 239,
+        "lines_with_an_entry": 31,
+        "printed_population": null,
+        "printed_population_alternate": null,
+        "key_source": "pairing_key_26_50.json",
+        "verdict": "untested_population"
+      },
+      {
+        "familysearch_id": "33SQ-GYYJ-6V",
+        "printed_page": 227,
+        "lines_with_an_entry": 31,
+        "printed_population": null,
+        "printed_population_alternate": null,
+        "key_source": "pairing_key_26_50.json",
+        "verdict": "untested_population"
+      },
+      {
+        "familysearch_id": "33SQ-GYYJ-93Y",
+        "printed_page": 209,
+        "lines_with_an_entry": 31,
+        "printed_population": 181,
+        "printed_population_alternate": null,
+        "key_source": "pairing_key_26_50.json",
+        "verdict": "population_disagrees"
+      },
+      {
+        "familysearch_id": "33SQ-GYYJ-P5",
+        "printed_page": 220,
+        "lines_with_an_entry": 31,
+        "printed_population": null,
+        "printed_population_alternate": null,
+        "key_source": null,
+        "verdict": "untested_population"
+      },
+      {
+        "familysearch_id": "33SQ-GYYJ-RJ",
+        "printed_page": 233,
+        "lines_with_an_entry": 31,
+        "printed_population": null,
+        "printed_population_alternate": null,
+        "key_source": null,
+        "verdict": "untested_population"
+      },
+      {
+        "familysearch_id": "33SQ-GYYJ-RY",
+        "printed_page": 212,
+        "lines_with_an_entry": 31,
+        "printed_population": null,
+        "printed_population_alternate": null,
+        "key_source": null,
+        "verdict": "untested_population"
+      }
+    ],
+    "excluded_by_line_count": [
+      {
+        "familysearch_id": "33S7-9YYJ-6J",
+        "printed_page": 228,
+        "lines_with_an_entry": 17,
+        "reason": "different line count or non-household sheet"
+      },
+      {
+        "familysearch_id": "33S7-9YYJ-95F",
+        "printed_page": 206,
+        "lines_with_an_entry": 0,
+        "reason": "different line count or non-household sheet"
+      },
+      {
+        "familysearch_id": "33S7-9YYJ-98M",
+        "printed_page": 222,
+        "lines_with_an_entry": 30,
+        "reason": "different line count or non-household sheet"
+      },
+      {
+        "familysearch_id": "33S7-9YYJ-9HY",
+        "printed_page": 225,
+        "lines_with_an_entry": 23,
+        "reason": "different line count or non-household sheet"
+      },
+      {
+        "familysearch_id": "33S7-9YYJ-9M5",
+        "printed_page": 229,
+        "lines_with_an_entry": 30,
+        "reason": "different line count or non-household sheet"
+      },
+      {
+        "familysearch_id": "33S7-9YYJ-9RG",
+        "printed_page": 210,
+        "lines_with_an_entry": 30,
+        "reason": "different line count or non-household sheet"
+      },
+      {
+        "familysearch_id": "33S7-9YYJ-B3",
+        "printed_page": 226,
+        "lines_with_an_entry": 29,
+        "reason": "different line count or non-household sheet"
+      },
+      {
+        "familysearch_id": "33S7-9YYJ-C8",
+        "printed_page": 238,
+        "lines_with_an_entry": 0,
+        "reason": "different line count or non-household sheet"
+      },
+      {
+        "familysearch_id": "33S7-9YYJ-JM",
+        "printed_page": 224,
+        "lines_with_an_entry": 30,
+        "reason": "different line count or non-household sheet"
+      },
+      {
+        "familysearch_id": "33S7-9YYJ-PC",
+        "printed_page": 218,
+        "lines_with_an_entry": 30,
+        "reason": "different line count or non-household sheet"
+      },
+      {
+        "familysearch_id": "33S7-9YYJ-Q1",
+        "printed_page": 241,
+        "lines_with_an_entry": 21,
+        "reason": "different line count or non-household sheet"
+      },
+      {
+        "familysearch_id": "33S7-9YYJ-WD",
+        "printed_page": null,
+        "lines_with_an_entry": 0,
+        "reason": "different line count or non-household sheet"
+      },
+      {
+        "familysearch_id": "33SQ-GYYJ-93G",
+        "printed_page": 207,
+        "lines_with_an_entry": 30,
+        "reason": "different line count or non-household sheet"
+      },
+      {
+        "familysearch_id": "33SQ-GYYJ-97P",
+        "printed_page": 211,
+        "lines_with_an_entry": 30,
+        "reason": "different line count or non-household sheet"
+      },
+      {
+        "familysearch_id": "33SQ-GYYJ-992",
+        "printed_page": 208,
+        "lines_with_an_entry": 30,
+        "reason": "different line count or non-household sheet"
+      },
+      {
+        "familysearch_id": "33SQ-GYYJ-BP",
+        "printed_page": 214,
+        "lines_with_an_entry": 30,
+        "reason": "different line count or non-household sheet"
+      },
+      {
+        "familysearch_id": "33SQ-GYYJ-CK",
+        "printed_page": 240,
+        "lines_with_an_entry": 27,
+        "reason": "different line count or non-household sheet"
+      },
+      {
+        "familysearch_id": "33SQ-GYYJ-LV",
+        "printed_page": 223,
+        "lines_with_an_entry": 28,
+        "reason": "different line count or non-household sheet"
+      },
+      {
+        "familysearch_id": "33SQ-GYYJ-PW",
+        "printed_page": null,
+        "lines_with_an_entry": 30,
+        "reason": "different line count or non-household sheet"
+      },
+      {
+        "familysearch_id": "33SQ-GYYJ-RK",
+        "printed_page": 213,
+        "lines_with_an_entry": 30,
+        "reason": "different line count or non-household sheet"
+      },
+      {
+        "familysearch_id": "33SQ-GYYJ-ZQ",
+        "printed_page": 235,
+        "lines_with_an_entry": 24,
+        "reason": "different line count or non-household sheet"
+      }
+    ],
+    "verdict": "unpaired",
+    "reason": "No committed printed population key for a 31-entry left sheet equals 179. Candidates with unread population footings remain untested, not rejected. Printed 209 is close at 181 and printed 216 at 175; neither difference is absorbed. Printed 233, 227 and 239 still need their population keys. The left/right reading remains unlinked and names no household.",
+    "pr_670_crosscheck": "Not applicable without a verified pairing to a named left sheet. No #670 row is overwritten or selected by approximate totals."
+  },
+  "use_constraint": "Later 1840 evidence only. No resident minted, renamed, regraded or placed in 1835, and no industry count is assigned to an 1835 person.",
+  "records": [
+    {
+      "line": 1,
+      "reading": "scan_verified",
+      "total_crop_box": [
+        1480,
+        617,
+        1610,
+        712
+      ],
+      "total": 5,
+      "total_confidence": "medium",
+      "industry": {
+        "mining": {
+          "value": null,
+          "reading": "scan_verified",
+          "state": "blank"
+        },
+        "agriculture": {
+          "value": null,
+          "reading": "scan_verified",
+          "state": "blank"
+        },
+        "commerce": {
+          "value": null,
+          "reading": "scan_verified",
+          "state": "blank"
+        },
+        "manufactures_and_trades": {
+          "value": 1,
+          "reading": "scan_verified",
+          "state": "written"
+        },
+        "navigation_ocean": {
+          "value": null,
+          "reading": "scan_verified",
+          "state": "blank"
+        },
+        "navigation_canals_lakes_rivers": {
+          "value": null,
+          "reading": "scan_verified",
+          "state": "blank"
+        },
+        "learned_professions_and_engineers": {
+          "value": null,
+          "reading": "scan_verified",
+          "state": "blank"
+        }
+      },
+      "total_glyphs_as_read": "Read from the magnified line crop; the leaf's capped 5, two-lobed 3, and commerce/professions footings provide the local comparison forms."
+    },
+    {
+      "line": 2,
+      "reading": "scan_verified",
+      "total_crop_box": [
+        1480,
+        682,
+        1610,
+        777
+      ],
+      "total": 6,
+      "total_confidence": "medium",
+      "industry": {
+        "mining": {
+          "value": null,
+          "reading": "scan_verified",
+          "state": "blank"
+        },
+        "agriculture": {
+          "value": null,
+          "reading": "scan_verified",
+          "state": "blank"
+        },
+        "commerce": {
+          "value": 1,
+          "reading": "scan_verified",
+          "state": "written"
+        },
+        "manufactures_and_trades": {
+          "value": null,
+          "reading": "scan_verified",
+          "state": "blank"
+        },
+        "navigation_ocean": {
+          "value": null,
+          "reading": "scan_verified",
+          "state": "blank"
+        },
+        "navigation_canals_lakes_rivers": {
+          "value": null,
+          "reading": "scan_verified",
+          "state": "blank"
+        },
+        "learned_professions_and_engineers": {
+          "value": null,
+          "reading": "scan_verified",
+          "state": "blank"
+        }
+      },
+      "total_glyphs_as_read": "One rising stroke with a narrow loop at its foot: 6, also written in the commerce footing."
+    },
+    {
+      "line": 3,
+      "reading": "scan_verified",
+      "total_crop_box": [
+        1480,
+        766,
+        1610,
+        861
+      ],
+      "total": 25,
+      "total_confidence": "medium",
+      "industry": {
+        "mining": {
+          "value": null,
+          "reading": "scan_verified",
+          "state": "blank"
+        },
+        "agriculture": {
+          "value": null,
+          "reading": "scan_verified",
+          "state": "blank"
+        },
+        "commerce": {
+          "value": null,
+          "reading": "scan_verified",
+          "state": "blank"
+        },
+        "manufactures_and_trades": {
+          "value": null,
+          "reading": "scan_verified",
+          "state": "blank"
+        },
+        "navigation_ocean": {
+          "value": null,
+          "reading": "scan_verified",
+          "state": "blank"
+        },
+        "navigation_canals_lakes_rivers": {
+          "value": null,
+          "reading": "scan_verified",
+          "state": "blank"
+        },
+        "learned_professions_and_engineers": {
+          "value": null,
+          "reading": "scan_verified",
+          "state": "blank"
+        }
+      },
+      "total_glyphs_as_read": "Two separate digits, a looped 2 followed by the capped 5."
+    },
+    {
+      "line": 4,
+      "reading": "scan_verified",
+      "total_crop_box": [
+        1480,
+        843,
+        1610,
+        938
+      ],
+      "total": null,
+      "total_confidence": "low",
+      "industry": {
+        "mining": {
+          "value": null,
+          "reading": "scan_verified",
+          "state": "blank"
+        },
+        "agriculture": {
+          "value": null,
+          "reading": "scan_verified",
+          "state": "blank"
+        },
+        "commerce": {
+          "value": null,
+          "reading": "scan_verified",
+          "state": "blank"
+        },
+        "manufactures_and_trades": {
+          "value": null,
+          "reading": "scan_verified",
+          "state": "blank"
+        },
+        "navigation_ocean": {
+          "value": null,
+          "reading": "scan_verified",
+          "state": "blank"
+        },
+        "navigation_canals_lakes_rivers": {
+          "value": null,
+          "reading": "scan_verified",
+          "state": "blank"
+        },
+        "learned_professions_and_engineers": {
+          "value": null,
+          "reading": "scan_verified",
+          "state": "blank"
+        }
+      },
+      "total_alternatives": [
+        4,
+        11
+      ],
+      "total_glyphs_as_read": "Two oblique strokes, the second shorter or hooked. The leaf also writes a joined 4 on lines 17 and 19, but this separated form is not independently fixed here as 4 or 11. Neither value is selected from the grand total."
+    },
+    {
+      "line": 5,
+      "reading": "scan_verified",
+      "total_crop_box": [
+        1480,
+        914,
+        1610,
+        1009
+      ],
+      "total": 8,
+      "total_confidence": "medium",
+      "industry": {
+        "mining": {
+          "value": null,
+          "reading": "scan_verified",
+          "state": "blank"
+        },
+        "agriculture": {
+          "value": null,
+          "reading": "scan_verified",
+          "state": "blank"
+        },
+        "commerce": {
+          "value": 1,
+          "reading": "scan_verified",
+          "state": "written"
+        },
+        "manufactures_and_trades": {
+          "value": null,
+          "reading": "scan_verified",
+          "state": "blank"
+        },
+        "navigation_ocean": {
+          "value": null,
+          "reading": "scan_verified",
+          "state": "blank"
+        },
+        "navigation_canals_lakes_rivers": {
+          "value": null,
+          "reading": "scan_verified",
+          "state": "blank"
+        },
+        "learned_professions_and_engineers": {
+          "value": null,
+          "reading": "scan_verified",
+          "state": "blank"
+        }
+      },
+      "total_glyphs_as_read": "The long curved two-lobed form also written as 8 in the manufactures footing."
+    },
+    {
+      "line": 6,
+      "reading": "scan_verified",
+      "total_crop_box": [
+        1480,
+        992,
+        1610,
+        1087
+      ],
+      "total": 7,
+      "total_confidence": "medium",
+      "industry": {
+        "mining": {
+          "value": null,
+          "reading": "scan_verified",
+          "state": "blank"
+        },
+        "agriculture": {
+          "value": null,
+          "reading": "scan_verified",
+          "state": "blank"
+        },
+        "commerce": {
+          "value": null,
+          "reading": "scan_verified",
+          "state": "blank"
+        },
+        "manufactures_and_trades": {
+          "value": null,
+          "reading": "scan_verified",
+          "state": "blank"
+        },
+        "navigation_ocean": {
+          "value": null,
+          "reading": "scan_verified",
+          "state": "blank"
+        },
+        "navigation_canals_lakes_rivers": {
+          "value": null,
+          "reading": "scan_verified",
+          "state": "blank"
+        },
+        "learned_professions_and_engineers": {
+          "value": null,
+          "reading": "scan_verified",
+          "state": "blank"
+        }
+      },
+      "total_glyphs_as_read": "Faint upper hook and descending diagonal: 7. The nearby dark dot is separate from the numeral."
+    },
+    {
+      "line": 7,
+      "reading": "scan_verified",
+      "total_crop_box": [
+        1480,
+        1065,
+        1610,
+        1160
+      ],
+      "total": 14,
+      "total_confidence": "medium",
+      "industry": {
+        "mining": {
+          "value": null,
+          "reading": "scan_verified",
+          "state": "blank"
+        },
+        "agriculture": {
+          "value": null,
+          "reading": "scan_verified",
+          "state": "blank"
+        },
+        "commerce": {
+          "value": null,
+          "reading": "scan_verified",
+          "state": "blank"
+        },
+        "manufactures_and_trades": {
+          "value": null,
+          "reading": "scan_verified",
+          "state": "blank"
+        },
+        "navigation_ocean": {
+          "value": null,
+          "reading": "scan_verified",
+          "state": "blank"
+        },
+        "navigation_canals_lakes_rivers": {
+          "value": null,
+          "reading": "scan_verified",
+          "state": "blank"
+        },
+        "learned_professions_and_engineers": {
+          "value": 1,
+          "reading": "scan_verified",
+          "state": "written"
+        }
+      },
+      "total_glyphs_as_read": "A single 1 followed by a joined angular 4, whose lower stroke extends below its junction: 14."
+    },
+    {
+      "line": 8,
+      "reading": "scan_verified",
+      "total_crop_box": [
+        1480,
+        1141,
+        1610,
+        1236
+      ],
+      "total": null,
+      "total_confidence": "low",
+      "industry": {
+        "mining": {
+          "value": null,
+          "reading": "scan_verified",
+          "state": "blank"
+        },
+        "agriculture": {
+          "value": null,
+          "reading": "scan_verified",
+          "state": "blank"
+        },
+        "commerce": {
+          "value": null,
+          "reading": "scan_verified",
+          "state": "blank"
+        },
+        "manufactures_and_trades": {
+          "value": null,
+          "reading": "scan_verified",
+          "state": "blank"
+        },
+        "navigation_ocean": {
+          "value": null,
+          "reading": "scan_verified",
+          "state": "blank"
+        },
+        "navigation_canals_lakes_rivers": {
+          "value": null,
+          "reading": "scan_verified",
+          "state": "blank"
+        },
+        "learned_professions_and_engineers": {
+          "value": null,
+          "reading": "scan_verified",
+          "state": "blank"
+        }
+      },
+      "total_alternatives": [
+        4,
+        11
+      ],
+      "total_glyphs_as_read": "Two oblique strokes, the second shorter or hooked. The leaf also writes a joined 4 on lines 17 and 19, but this separated form is not independently fixed here as 4 or 11. Neither value is selected from the grand total."
+    },
+    {
+      "line": 9,
+      "reading": "scan_verified",
+      "total_crop_box": [
+        1480,
+        1220,
+        1610,
+        1315
+      ],
+      "total": null,
+      "total_confidence": "low",
+      "industry": {
+        "mining": {
+          "value": null,
+          "reading": "scan_verified",
+          "state": "blank"
+        },
+        "agriculture": {
+          "value": null,
+          "reading": "scan_verified",
+          "state": "blank"
+        },
+        "commerce": {
+          "value": null,
+          "reading": "scan_verified",
+          "state": "blank"
+        },
+        "manufactures_and_trades": {
+          "value": null,
+          "reading": "scan_verified",
+          "state": "blank"
+        },
+        "navigation_ocean": {
+          "value": null,
+          "reading": "scan_verified",
+          "state": "blank"
+        },
+        "navigation_canals_lakes_rivers": {
+          "value": null,
+          "reading": "scan_verified",
+          "state": "blank"
+        },
+        "learned_professions_and_engineers": {
+          "value": null,
+          "reading": "scan_verified",
+          "state": "blank"
+        }
+      },
+      "total_alternatives": [
+        3,
+        5
+      ],
+      "total_glyphs_as_read": "A curled bowl with a short cap at the upper right; the exposure does not securely separate this from the leaf's 3 and its shorter-capped 5. Both alternatives remain recorded."
+    },
+    {
+      "line": 10,
+      "reading": "scan_verified",
+      "total_crop_box": [
+        1480,
+        1294,
+        1610,
+        1389
+      ],
+      "total": 6,
+      "total_confidence": "medium",
+      "industry": {
+        "mining": {
+          "value": null,
+          "reading": "scan_verified",
+          "state": "blank"
+        },
+        "agriculture": {
+          "value": null,
+          "reading": "scan_verified",
+          "state": "blank"
+        },
+        "commerce": {
+          "value": 2,
+          "reading": "scan_verified",
+          "state": "written"
+        },
+        "manufactures_and_trades": {
+          "value": null,
+          "reading": "scan_verified",
+          "state": "blank"
+        },
+        "navigation_ocean": {
+          "value": null,
+          "reading": "scan_verified",
+          "state": "blank"
+        },
+        "navigation_canals_lakes_rivers": {
+          "value": null,
+          "reading": "scan_verified",
+          "state": "blank"
+        },
+        "learned_professions_and_engineers": {
+          "value": null,
+          "reading": "scan_verified",
+          "state": "blank"
+        }
+      },
+      "total_glyphs_as_read": "A rising stroke and narrow loop: 6."
+    },
+    {
+      "line": 11,
+      "reading": "scan_verified",
+      "total_crop_box": [
+        1480,
+        1375,
+        1610,
+        1470
+      ],
+      "total": 2,
+      "total_confidence": "medium",
+      "industry": {
+        "mining": {
+          "value": null,
+          "reading": "scan_verified",
+          "state": "blank"
+        },
+        "agriculture": {
+          "value": null,
+          "reading": "scan_verified",
+          "state": "blank"
+        },
+        "commerce": {
+          "value": null,
+          "reading": "scan_verified",
+          "state": "blank"
+        },
+        "manufactures_and_trades": {
+          "value": 1,
+          "reading": "scan_verified",
+          "state": "written"
+        },
+        "navigation_ocean": {
+          "value": null,
+          "reading": "scan_verified",
+          "state": "blank"
+        },
+        "navigation_canals_lakes_rivers": {
+          "value": null,
+          "reading": "scan_verified",
+          "state": "blank"
+        },
+        "learned_professions_and_engineers": {
+          "value": null,
+          "reading": "scan_verified",
+          "state": "blank"
+        }
+      },
+      "total_glyphs_as_read": "Read from the magnified line crop; the leaf's capped 5, two-lobed 3, and commerce/professions footings provide the local comparison forms."
+    },
+    {
+      "line": 12,
+      "reading": "scan_verified",
+      "total_crop_box": [
+        1480,
+        1451,
+        1610,
+        1546
+      ],
+      "total": 2,
+      "total_confidence": "medium",
+      "industry": {
+        "mining": {
+          "value": null,
+          "reading": "scan_verified",
+          "state": "blank"
+        },
+        "agriculture": {
+          "value": null,
+          "reading": "scan_verified",
+          "state": "blank"
+        },
+        "commerce": {
+          "value": null,
+          "reading": "scan_verified",
+          "state": "blank"
+        },
+        "manufactures_and_trades": {
+          "value": 1,
+          "reading": "scan_verified",
+          "state": "written"
+        },
+        "navigation_ocean": {
+          "value": null,
+          "reading": "scan_verified",
+          "state": "blank"
+        },
+        "navigation_canals_lakes_rivers": {
+          "value": null,
+          "reading": "scan_verified",
+          "state": "blank"
+        },
+        "learned_professions_and_engineers": {
+          "value": null,
+          "reading": "scan_verified",
+          "state": "blank"
+        }
+      },
+      "total_glyphs_as_read": "Read from the magnified line crop; the leaf's capped 5, two-lobed 3, and commerce/professions footings provide the local comparison forms."
+    },
+    {
+      "line": 13,
+      "reading": "scan_verified",
+      "total_crop_box": [
+        1480,
+        1529,
+        1610,
+        1624
+      ],
+      "total": null,
+      "total_confidence": "low",
+      "industry": {
+        "mining": {
+          "value": null,
+          "reading": "scan_verified",
+          "state": "blank"
+        },
+        "agriculture": {
+          "value": null,
+          "reading": "scan_verified",
+          "state": "blank"
+        },
+        "commerce": {
+          "value": null,
+          "reading": "scan_verified",
+          "state": "blank"
+        },
+        "manufactures_and_trades": {
+          "value": null,
+          "reading": "scan_verified",
+          "state": "blank"
+        },
+        "navigation_ocean": {
+          "value": null,
+          "reading": "scan_verified",
+          "state": "blank"
+        },
+        "navigation_canals_lakes_rivers": {
+          "value": null,
+          "reading": "scan_verified",
+          "state": "blank"
+        },
+        "learned_professions_and_engineers": {
+          "value": 1,
+          "reading": "scan_verified",
+          "state": "written"
+        }
+      },
+      "total_alternatives": [
+        4,
+        11
+      ],
+      "total_glyphs_as_read": "Two oblique strokes, the second shorter or hooked. The leaf also writes a joined 4 on lines 17 and 19, but this separated form is not independently fixed here as 4 or 11. Neither value is selected from the grand total."
+    },
+    {
+      "line": 14,
+      "reading": "scan_verified",
+      "total_crop_box": [
+        1480,
+        1602,
+        1610,
+        1697
+      ],
+      "total": 3,
+      "total_confidence": "medium",
+      "industry": {
+        "mining": {
+          "value": null,
+          "reading": "scan_verified",
+          "state": "blank"
+        },
+        "agriculture": {
+          "value": null,
+          "reading": "scan_verified",
+          "state": "blank"
+        },
+        "commerce": {
+          "value": null,
+          "reading": "scan_verified",
+          "state": "blank"
+        },
+        "manufactures_and_trades": {
+          "value": 1,
+          "reading": "scan_verified",
+          "state": "written"
+        },
+        "navigation_ocean": {
+          "value": null,
+          "reading": "scan_verified",
+          "state": "blank"
+        },
+        "navigation_canals_lakes_rivers": {
+          "value": null,
+          "reading": "scan_verified",
+          "state": "blank"
+        },
+        "learned_professions_and_engineers": {
+          "value": null,
+          "reading": "scan_verified",
+          "state": "blank"
+        }
+      },
+      "total_glyphs_as_read": "Read from the magnified line crop; the leaf's capped 5, two-lobed 3, and commerce/professions footings provide the local comparison forms."
+    },
+    {
+      "line": 15,
+      "reading": "scan_verified",
+      "total_crop_box": [
+        1480,
+        1673,
+        1610,
+        1768
+      ],
+      "total": 3,
+      "total_confidence": "medium",
+      "industry": {
+        "mining": {
+          "value": null,
+          "reading": "scan_verified",
+          "state": "blank"
+        },
+        "agriculture": {
+          "value": null,
+          "reading": "scan_verified",
+          "state": "blank"
+        },
+        "commerce": {
+          "value": null,
+          "reading": "scan_verified",
+          "state": "blank"
+        },
+        "manufactures_and_trades": {
+          "value": 1,
+          "reading": "scan_verified",
+          "state": "written"
+        },
+        "navigation_ocean": {
+          "value": null,
+          "reading": "scan_verified",
+          "state": "blank"
+        },
+        "navigation_canals_lakes_rivers": {
+          "value": null,
+          "reading": "scan_verified",
+          "state": "blank"
+        },
+        "learned_professions_and_engineers": {
+          "value": null,
+          "reading": "scan_verified",
+          "state": "blank"
+        }
+      },
+      "total_glyphs_as_read": "Read from the magnified line crop; the leaf's capped 5, two-lobed 3, and commerce/professions footings provide the local comparison forms."
+    },
+    {
+      "line": 16,
+      "reading": "scan_verified",
+      "total_crop_box": [
+        1480,
+        1752,
+        1610,
+        1847
+      ],
+      "total": 5,
+      "total_confidence": "medium",
+      "industry": {
+        "mining": {
+          "value": null,
+          "reading": "scan_verified",
+          "state": "blank"
+        },
+        "agriculture": {
+          "value": null,
+          "reading": "scan_verified",
+          "state": "blank"
+        },
+        "commerce": {
+          "value": null,
+          "reading": "scan_verified",
+          "state": "blank"
+        },
+        "manufactures_and_trades": {
+          "value": 1,
+          "reading": "scan_verified",
+          "state": "written"
+        },
+        "navigation_ocean": {
+          "value": null,
+          "reading": "scan_verified",
+          "state": "blank"
+        },
+        "navigation_canals_lakes_rivers": {
+          "value": null,
+          "reading": "scan_verified",
+          "state": "blank"
+        },
+        "learned_professions_and_engineers": {
+          "value": null,
+          "reading": "scan_verified",
+          "state": "blank"
+        }
+      },
+      "total_glyphs_as_read": "Read from the magnified line crop; the leaf's capped 5, two-lobed 3, and commerce/professions footings provide the local comparison forms."
+    },
+    {
+      "line": 17,
+      "reading": "scan_verified",
+      "total_crop_box": [
+        1480,
+        1830,
+        1610,
+        1925
+      ],
+      "total": 4,
+      "total_confidence": "medium",
+      "industry": {
+        "mining": {
+          "value": null,
+          "reading": "scan_verified",
+          "state": "blank"
+        },
+        "agriculture": {
+          "value": null,
+          "reading": "scan_verified",
+          "state": "blank"
+        },
+        "commerce": {
+          "value": null,
+          "reading": "scan_verified",
+          "state": "blank"
+        },
+        "manufactures_and_trades": {
+          "value": null,
+          "reading": "scan_verified",
+          "state": "blank"
+        },
+        "navigation_ocean": {
+          "value": null,
+          "reading": "scan_verified",
+          "state": "blank"
+        },
+        "navigation_canals_lakes_rivers": {
+          "value": null,
+          "reading": "scan_verified",
+          "state": "blank"
+        },
+        "learned_professions_and_engineers": {
+          "value": null,
+          "reading": "scan_verified",
+          "state": "blank"
+        }
+      },
+      "total_glyphs_as_read": "Joined angular 4, unlike the separated diagonals left unresolved elsewhere."
+    },
+    {
+      "line": 18,
+      "reading": "scan_verified",
+      "total_crop_box": [
+        1480,
+        1896,
+        1610,
+        1991
+      ],
+      "total": 6,
+      "total_confidence": "medium",
+      "industry": {
+        "mining": {
+          "value": null,
+          "reading": "scan_verified",
+          "state": "blank"
+        },
+        "agriculture": {
+          "value": null,
+          "reading": "scan_verified",
+          "state": "blank"
+        },
+        "commerce": {
+          "value": null,
+          "reading": "scan_verified",
+          "state": "blank"
+        },
+        "manufactures_and_trades": {
+          "value": 1,
+          "reading": "scan_verified",
+          "state": "written"
+        },
+        "navigation_ocean": {
+          "value": null,
+          "reading": "scan_verified",
+          "state": "blank"
+        },
+        "navigation_canals_lakes_rivers": {
+          "value": null,
+          "reading": "scan_verified",
+          "state": "blank"
+        },
+        "learned_professions_and_engineers": {
+          "value": null,
+          "reading": "scan_verified",
+          "state": "blank"
+        }
+      },
+      "total_glyphs_as_read": "Read from the magnified line crop; the leaf's capped 5, two-lobed 3, and commerce/professions footings provide the local comparison forms."
+    },
+    {
+      "line": 19,
+      "reading": "scan_verified",
+      "total_crop_box": [
+        1480,
+        1971,
+        1610,
+        2066
+      ],
+      "total": 4,
+      "total_confidence": "medium",
+      "industry": {
+        "mining": {
+          "value": null,
+          "reading": "scan_verified",
+          "state": "blank"
+        },
+        "agriculture": {
+          "value": null,
+          "reading": "scan_verified",
+          "state": "blank"
+        },
+        "commerce": {
+          "value": null,
+          "reading": "scan_verified",
+          "state": "blank"
+        },
+        "manufactures_and_trades": {
+          "value": null,
+          "reading": "scan_verified",
+          "state": "blank"
+        },
+        "navigation_ocean": {
+          "value": null,
+          "reading": "scan_verified",
+          "state": "blank"
+        },
+        "navigation_canals_lakes_rivers": {
+          "value": null,
+          "reading": "scan_verified",
+          "state": "blank"
+        },
+        "learned_professions_and_engineers": {
+          "value": null,
+          "reading": "scan_verified",
+          "state": "blank"
+        }
+      },
+      "total_glyphs_as_read": "Joined angular 4."
+    },
+    {
+      "line": 20,
+      "reading": "scan_verified",
+      "total_crop_box": [
+        1480,
+        2043,
+        1610,
+        2138
+      ],
+      "total": 7,
+      "total_confidence": "medium",
+      "industry": {
+        "mining": {
+          "value": null,
+          "reading": "scan_verified",
+          "state": "blank"
+        },
+        "agriculture": {
+          "value": null,
+          "reading": "scan_verified",
+          "state": "blank"
+        },
+        "commerce": {
+          "value": 1,
+          "reading": "scan_verified",
+          "state": "written"
+        },
+        "manufactures_and_trades": {
+          "value": null,
+          "reading": "scan_verified",
+          "state": "blank"
+        },
+        "navigation_ocean": {
+          "value": null,
+          "reading": "scan_verified",
+          "state": "blank"
+        },
+        "navigation_canals_lakes_rivers": {
+          "value": null,
+          "reading": "scan_verified",
+          "state": "blank"
+        },
+        "learned_professions_and_engineers": {
+          "value": null,
+          "reading": "scan_verified",
+          "state": "blank"
+        }
+      },
+      "total_glyphs_as_read": "Faint top hook and long diagonal: 7, compared with the clearer next line."
+    },
+    {
+      "line": 21,
+      "reading": "scan_verified",
+      "total_crop_box": [
+        1480,
+        2116,
+        1610,
+        2211
+      ],
+      "total": 7,
+      "total_confidence": "medium",
+      "industry": {
+        "mining": {
+          "value": null,
+          "reading": "scan_verified",
+          "state": "blank"
+        },
+        "agriculture": {
+          "value": null,
+          "reading": "scan_verified",
+          "state": "blank"
+        },
+        "commerce": {
+          "value": null,
+          "reading": "scan_verified",
+          "state": "blank"
+        },
+        "manufactures_and_trades": {
+          "value": null,
+          "reading": "scan_verified",
+          "state": "blank"
+        },
+        "navigation_ocean": {
+          "value": null,
+          "reading": "scan_verified",
+          "state": "blank"
+        },
+        "navigation_canals_lakes_rivers": {
+          "value": null,
+          "reading": "scan_verified",
+          "state": "blank"
+        },
+        "learned_professions_and_engineers": {
+          "value": null,
+          "reading": "scan_verified",
+          "state": "blank"
+        }
+      },
+      "total_glyphs_as_read": "Top hook and descending diagonal: 7."
+    },
+    {
+      "line": 22,
+      "reading": "scan_verified",
+      "total_crop_box": [
+        1480,
+        2209,
+        1610,
+        2304
+      ],
+      "total": 5,
+      "total_confidence": "medium",
+      "industry": {
+        "mining": {
+          "value": null,
+          "reading": "scan_verified",
+          "state": "blank"
+        },
+        "agriculture": {
+          "value": null,
+          "reading": "scan_verified",
+          "state": "blank"
+        },
+        "commerce": {
+          "value": 1,
+          "reading": "scan_verified",
+          "state": "written"
+        },
+        "manufactures_and_trades": {
+          "value": null,
+          "reading": "scan_verified",
+          "state": "blank"
+        },
+        "navigation_ocean": {
+          "value": null,
+          "reading": "scan_verified",
+          "state": "blank"
+        },
+        "navigation_canals_lakes_rivers": {
+          "value": null,
+          "reading": "scan_verified",
+          "state": "blank"
+        },
+        "learned_professions_and_engineers": {
+          "value": null,
+          "reading": "scan_verified",
+          "state": "blank"
+        }
+      },
+      "total_glyphs_as_read": "Read from the magnified line crop; the leaf's capped 5, two-lobed 3, and commerce/professions footings provide the local comparison forms."
+    },
+    {
+      "line": 23,
+      "reading": "scan_verified",
+      "total_crop_box": [
+        1480,
+        2279,
+        1610,
+        2374
+      ],
+      "total": 5,
+      "total_confidence": "medium",
+      "industry": {
+        "mining": {
+          "value": null,
+          "reading": "scan_verified",
+          "state": "blank"
+        },
+        "agriculture": {
+          "value": null,
+          "reading": "scan_verified",
+          "state": "blank"
+        },
+        "commerce": {
+          "value": null,
+          "reading": "scan_verified",
+          "state": "blank"
+        },
+        "manufactures_and_trades": {
+          "value": null,
+          "reading": "scan_verified",
+          "state": "blank"
+        },
+        "navigation_ocean": {
+          "value": null,
+          "reading": "scan_verified",
+          "state": "blank"
+        },
+        "navigation_canals_lakes_rivers": {
+          "value": null,
+          "reading": "scan_verified",
+          "state": "blank"
+        },
+        "learned_professions_and_engineers": {
+          "value": null,
+          "reading": "scan_verified",
+          "state": "blank"
+        }
+      },
+      "total_glyphs_as_read": "Read from the magnified line crop; the leaf's capped 5, two-lobed 3, and commerce/professions footings provide the local comparison forms."
+    },
+    {
+      "line": 24,
+      "reading": "scan_verified",
+      "total_crop_box": [
+        1480,
+        2356,
+        1610,
+        2451
+      ],
+      "total": 5,
+      "total_confidence": "medium",
+      "industry": {
+        "mining": {
+          "value": null,
+          "reading": "scan_verified",
+          "state": "blank"
+        },
+        "agriculture": {
+          "value": null,
+          "reading": "scan_verified",
+          "state": "blank"
+        },
+        "commerce": {
+          "value": null,
+          "reading": "scan_verified",
+          "state": "blank"
+        },
+        "manufactures_and_trades": {
+          "value": 1,
+          "reading": "scan_verified",
+          "state": "written"
+        },
+        "navigation_ocean": {
+          "value": null,
+          "reading": "scan_verified",
+          "state": "blank"
+        },
+        "navigation_canals_lakes_rivers": {
+          "value": null,
+          "reading": "scan_verified",
+          "state": "blank"
+        },
+        "learned_professions_and_engineers": {
+          "value": null,
+          "reading": "scan_verified",
+          "state": "blank"
+        }
+      },
+      "total_glyphs_as_read": "Read from the magnified line crop; the leaf's capped 5, two-lobed 3, and commerce/professions footings provide the local comparison forms."
+    },
+    {
+      "line": 25,
+      "reading": "scan_verified",
+      "total_crop_box": [
+        1480,
+        2428,
+        1610,
+        2523
+      ],
+      "total": 3,
+      "total_confidence": "medium",
+      "industry": {
+        "mining": {
+          "value": null,
+          "reading": "scan_verified",
+          "state": "blank"
+        },
+        "agriculture": {
+          "value": null,
+          "reading": "scan_verified",
+          "state": "blank"
+        },
+        "commerce": {
+          "value": null,
+          "reading": "scan_verified",
+          "state": "blank"
+        },
+        "manufactures_and_trades": {
+          "value": null,
+          "reading": "scan_verified",
+          "state": "blank"
+        },
+        "navigation_ocean": {
+          "value": null,
+          "reading": "scan_verified",
+          "state": "blank"
+        },
+        "navigation_canals_lakes_rivers": {
+          "value": null,
+          "reading": "scan_verified",
+          "state": "blank"
+        },
+        "learned_professions_and_engineers": {
+          "value": null,
+          "reading": "scan_verified",
+          "state": "blank"
+        }
+      },
+      "total_glyphs_as_read": "Read from the magnified line crop; the leaf's capped 5, two-lobed 3, and commerce/professions footings provide the local comparison forms."
+    },
+    {
+      "line": 26,
+      "reading": "scan_verified",
+      "total_crop_box": [
+        1480,
+        2506,
+        1610,
+        2601
+      ],
+      "total": 5,
+      "total_confidence": "medium",
+      "industry": {
+        "mining": {
+          "value": null,
+          "reading": "scan_verified",
+          "state": "blank"
+        },
+        "agriculture": {
+          "value": null,
+          "reading": "scan_verified",
+          "state": "blank"
+        },
+        "commerce": {
+          "value": null,
+          "reading": "scan_verified",
+          "state": "blank"
+        },
+        "manufactures_and_trades": {
+          "value": null,
+          "reading": "scan_verified",
+          "state": "blank"
+        },
+        "navigation_ocean": {
+          "value": null,
+          "reading": "scan_verified",
+          "state": "blank"
+        },
+        "navigation_canals_lakes_rivers": {
+          "value": null,
+          "reading": "scan_verified",
+          "state": "blank"
+        },
+        "learned_professions_and_engineers": {
+          "value": null,
+          "reading": "scan_verified",
+          "state": "blank"
+        }
+      },
+      "total_glyphs_as_read": "Read from the magnified line crop; the leaf's capped 5, two-lobed 3, and commerce/professions footings provide the local comparison forms."
+    },
+    {
+      "line": 27,
+      "reading": "scan_verified",
+      "total_crop_box": [
+        1480,
+        2587,
+        1610,
+        2682
+      ],
+      "total": 5,
+      "total_confidence": "medium",
+      "industry": {
+        "mining": {
+          "value": null,
+          "reading": "scan_verified",
+          "state": "blank"
+        },
+        "agriculture": {
+          "value": null,
+          "reading": "scan_verified",
+          "state": "blank"
+        },
+        "commerce": {
+          "value": null,
+          "reading": "scan_verified",
+          "state": "blank"
+        },
+        "manufactures_and_trades": {
+          "value": null,
+          "reading": "scan_verified",
+          "state": "blank"
+        },
+        "navigation_ocean": {
+          "value": null,
+          "reading": "scan_verified",
+          "state": "blank"
+        },
+        "navigation_canals_lakes_rivers": {
+          "value": null,
+          "reading": "scan_verified",
+          "state": "blank"
+        },
+        "learned_professions_and_engineers": {
+          "value": null,
+          "reading": "scan_verified",
+          "state": "blank"
+        }
+      },
+      "total_glyphs_as_read": "Read from the magnified line crop; the leaf's capped 5, two-lobed 3, and commerce/professions footings provide the local comparison forms."
+    },
+    {
+      "line": 28,
+      "reading": "scan_verified",
+      "total_crop_box": [
+        1480,
+        2662,
+        1610,
+        2757
+      ],
+      "total": null,
+      "total_confidence": "low",
+      "industry": {
+        "mining": {
+          "value": null,
+          "reading": "scan_verified",
+          "state": "blank"
+        },
+        "agriculture": {
+          "value": null,
+          "reading": "scan_verified",
+          "state": "blank"
+        },
+        "commerce": {
+          "value": null,
+          "reading": "scan_verified",
+          "state": "blank"
+        },
+        "manufactures_and_trades": {
+          "value": null,
+          "reading": "scan_verified",
+          "state": "blank"
+        },
+        "navigation_ocean": {
+          "value": null,
+          "reading": "scan_verified",
+          "state": "blank"
+        },
+        "navigation_canals_lakes_rivers": {
+          "value": null,
+          "reading": "scan_verified",
+          "state": "blank"
+        },
+        "learned_professions_and_engineers": {
+          "value": null,
+          "reading": "scan_verified",
+          "state": "blank"
+        }
+      },
+      "total_alternatives": [
+        4,
+        11
+      ],
+      "total_glyphs_as_read": "Two oblique strokes, the second shorter or hooked. The leaf also writes a joined 4 on lines 17 and 19, but this separated form is not independently fixed here as 4 or 11. Neither value is selected from the grand total."
+    },
+    {
+      "line": 29,
+      "reading": "scan_verified",
+      "total_crop_box": [
+        1480,
+        2735,
+        1610,
+        2830
+      ],
+      "total": null,
+      "total_confidence": "low",
+      "industry": {
+        "mining": {
+          "value": null,
+          "reading": "scan_verified",
+          "state": "blank"
+        },
+        "agriculture": {
+          "value": null,
+          "reading": "scan_verified",
+          "state": "blank"
+        },
+        "commerce": {
+          "value": null,
+          "reading": "scan_verified",
+          "state": "blank"
+        },
+        "manufactures_and_trades": {
+          "value": null,
+          "reading": "scan_verified",
+          "state": "blank"
+        },
+        "navigation_ocean": {
+          "value": null,
+          "reading": "scan_verified",
+          "state": "blank"
+        },
+        "navigation_canals_lakes_rivers": {
+          "value": null,
+          "reading": "scan_verified",
+          "state": "blank"
+        },
+        "learned_professions_and_engineers": {
+          "value": null,
+          "reading": "scan_verified",
+          "state": "blank"
+        }
+      },
+      "total_alternatives": [
+        3,
+        5
+      ],
+      "total_glyphs_as_read": "A curled bowl with a short cap at the upper right; the exposure does not securely separate this from the leaf's 3 and its shorter-capped 5. Both alternatives remain recorded."
+    },
+    {
+      "line": 30,
+      "reading": "scan_verified",
+      "total_crop_box": [
+        1480,
+        2805,
+        1610,
+        2900
+      ],
+      "total": 5,
+      "total_confidence": "medium",
+      "industry": {
+        "mining": {
+          "value": null,
+          "reading": "scan_verified",
+          "state": "blank"
+        },
+        "agriculture": {
+          "value": null,
+          "reading": "scan_verified",
+          "state": "blank"
+        },
+        "commerce": {
+          "value": null,
+          "reading": "scan_verified",
+          "state": "blank"
+        },
+        "manufactures_and_trades": {
+          "value": null,
+          "reading": "scan_verified",
+          "state": "blank"
+        },
+        "navigation_ocean": {
+          "value": null,
+          "reading": "scan_verified",
+          "state": "blank"
+        },
+        "navigation_canals_lakes_rivers": {
+          "value": null,
+          "reading": "scan_verified",
+          "state": "blank"
+        },
+        "learned_professions_and_engineers": {
+          "value": null,
+          "reading": "scan_verified",
+          "state": "blank"
+        }
+      },
+      "total_glyphs_as_read": "Lower bowl and cap at the top right: 5.",
+      "other_cells": {
+        "white_blind": {
+          "value": null,
+          "state": "unresolved_mark",
+          "crop_box": [
+            2799,
+            2832,
+            2807,
+            2860
+          ],
+          "note": "An isolated near-vertical 8 by 28 px ink stroke, viewed at 6x. It is shorter and more upright than the diagonal 1s in the industry columns. There is no written footing to corroborate it. Retained as an unresolved mark, neither an asserted person nor a blank cell."
+        }
+      }
+    },
+    {
+      "line": 31,
+      "reading": "scan_verified",
+      "total_crop_box": [
+        1480,
+        2879,
+        1610,
+        2974
+      ],
+      "total": 3,
+      "total_confidence": "medium",
+      "industry": {
+        "mining": {
+          "value": null,
+          "reading": "scan_verified",
+          "state": "blank"
+        },
+        "agriculture": {
+          "value": null,
+          "reading": "scan_verified",
+          "state": "blank"
+        },
+        "commerce": {
+          "value": null,
+          "reading": "scan_verified",
+          "state": "blank"
+        },
+        "manufactures_and_trades": {
+          "value": null,
+          "reading": "scan_verified",
+          "state": "blank"
+        },
+        "navigation_ocean": {
+          "value": null,
+          "reading": "scan_verified",
+          "state": "blank"
+        },
+        "navigation_canals_lakes_rivers": {
+          "value": null,
+          "reading": "scan_verified",
+          "state": "blank"
+        },
+        "learned_professions_and_engineers": {
+          "value": null,
+          "reading": "scan_verified",
+          "state": "blank"
+        }
+      },
+      "total_glyphs_as_read": "Read from the magnified line crop; the leaf's capped 5, two-lobed 3, and commerce/professions footings provide the local comparison forms."
+    }
+  ]
+}

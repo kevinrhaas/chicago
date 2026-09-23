@@ -1,0 +1,277 @@
+{
+ "schema": "letter-list-reading-suspicions-v1",
+ "_doc": "T-0638 FAULT C. Names the post office's letter lists print that look MISREAD rather than mis-ordered. This is a worklist for a pass working the page images, and it is not evidence of anything: `suspected_reading` is a SUSPICION, it is graded nothing, no source states it, no record carries it, and nothing downstream may read it as a name. `null` there means the project declines to guess at all. Rebuild with tools/register_letter_list_suspicions.py --build.",
+ "generated_by": "tools/register_letter_list_suspicions.py",
+ "ticket": "T-0638",
+ "counts": {
+  "rows": 16,
+  "households": 15,
+  "with_a_suspected_reading": 9,
+  "declining_to_guess": 7
+ },
+ "rows": [
+  {
+   "household": "hh_abbot_8_g",
+   "person": "abbot_8_g",
+   "held_as": "[?] G. Abbot",
+   "printed": "8.",
+   "printings": [
+    "Abbot, 8. G."
+   ],
+   "claims": [
+    "chicago_democrat_1835_07_01#c004"
+   ],
+   "status": "suspicion",
+   "grade": null,
+   "acted_on": false,
+   "suspected_reading": null,
+   "note": "A DIGIT standing where an initial goes — the type or the scan, not a name."
+  },
+  {
+   "household": "hh_bobinson_george_is",
+   "person": "bobinson_george_is",
+   "held_as": "George IS. Bobinson",
+   "printed": "Bobinson",
+   "printings": [
+    "Bobinson George IS."
+   ],
+   "claims": [
+    "chicago_democrat_1835_07_01#c005"
+   ],
+   "status": "suspicion",
+   "grade": null,
+   "acted_on": false,
+   "suspected_reading": "Robinson"
+  },
+  {
+   "household": "hh_bobinson_george_is",
+   "person": "bobinson_george_is",
+   "held_as": "George IS. Bobinson",
+   "printed": "IS.",
+   "printings": [
+    "Bobinson George IS."
+   ],
+   "claims": [
+    "chicago_democrat_1835_07_01#c005"
+   ],
+   "status": "suspicion",
+   "grade": null,
+   "acted_on": false,
+   "suspected_reading": null,
+   "note": "A two-character cluster standing where a middle initial goes."
+  },
+  {
+   "household": "hh_conkiin_robert_i",
+   "person": "conkiin_robert_i",
+   "held_as": "Robert I. Conkiin",
+   "printed": "Conkiin",
+   "printings": [
+    "Conkiin, Robert I."
+   ],
+   "claims": [
+    "chicago_democrat_1835_07_01#c004"
+   ],
+   "status": "suspicion",
+   "grade": null,
+   "acted_on": false,
+   "suspected_reading": "Conklin"
+  },
+  {
+   "household": "hh_gabbs_james_i1",
+   "person": "gabbs_james_i1",
+   "held_as": "James [?] Gabbs",
+   "printed": "I1.",
+   "printings": [
+    "Gabbs, James I1."
+   ],
+   "claims": [
+    "chicago_democrat_1835_07_01#c005"
+   ],
+   "status": "suspicion",
+   "grade": null,
+   "acted_on": false,
+   "suspected_reading": null,
+   "note": "A letter and a digit standing where a single initial goes."
+  },
+  {
+   "household": "hh_hhelps_theodore_e",
+   "person": "hhelps_theodore_e",
+   "held_as": "Theodore E. Hhelps",
+   "printed": "Hhelps",
+   "printings": [
+    "Hhelps Theodore E."
+   ],
+   "claims": [
+    "chicago_democrat_1835_07_01#c005"
+   ],
+   "status": "suspicion",
+   "grade": null,
+   "acted_on": false,
+   "suspected_reading": "Phelps"
+  },
+  {
+   "household": "hh_jones_es_high",
+   "person": "jones_es_high",
+   "held_as": "High Es Jones",
+   "printed": "Es,Jones, High",
+   "printings": [
+    "Es,Jones, High"
+   ],
+   "claims": [
+    "chicago_democrat_1835_07_01#c005"
+   ],
+   "status": "suspicion",
+   "grade": null,
+   "acted_on": false,
+   "suspected_reading": null,
+   "note": "READS AS A RUN-ON OF TWO ENTRIES — the tail of one name and the head of the next, set without the break between them. The household is held under the one surname the string does contain."
+  },
+  {
+   "household": "hh_mdolold_james",
+   "person": "mdolold_james",
+   "held_as": "James M'Dolold",
+   "printed": "M'Dolold",
+   "printings": [
+    "M'Dolold, James,"
+   ],
+   "claims": [
+    "chicago_democrat_1834_10_22#c001"
+   ],
+   "status": "suspicion",
+   "grade": null,
+   "acted_on": false,
+   "suspected_reading": "M'Donald"
+  },
+  {
+   "household": "hh_merrich_j_b",
+   "person": "merrich_j_b",
+   "held_as": "J. B. merrich",
+   "printed": "merrich",
+   "printings": [
+    "merrich J. B."
+   ],
+   "claims": [
+    "chicago_democrat_1835_07_01#c005"
+   ],
+   "status": "suspicion",
+   "grade": null,
+   "acted_on": false,
+   "suspected_reading": "Merrick"
+  },
+  {
+   "household": "hh_nelts_wm",
+   "person": "nelts_wm",
+   "held_as": "Wm. Nelts",
+   "printed": "Nelts",
+   "printings": [
+    "Nelts Wm."
+   ],
+   "claims": [
+    "chicago_democrat_1835_07_01#c005"
+   ],
+   "status": "suspicion",
+   "grade": null,
+   "acted_on": false,
+   "suspected_reading": "Welts"
+  },
+  {
+   "household": "hh_orinsbey_martin_t",
+   "person": "orinsbey_martin_t",
+   "held_as": "martin T. Orinsbey",
+   "printed": "Orinsbey",
+   "printings": [
+    "Orinsbey martin T."
+   ],
+   "claims": [
+    "chicago_democrat_1835_07_01#c005"
+   ],
+   "status": "suspicion",
+   "grade": null,
+   "acted_on": false,
+   "suspected_reading": "Ormsby"
+  },
+  {
+   "household": "hh_perry_a_8",
+   "person": "perry_a_8",
+   "held_as": "A. [?] Perry",
+   "printed": "8.",
+   "printings": [
+    "Perry A. 8."
+   ],
+   "claims": [
+    "chicago_democrat_1835_07_01#c005"
+   ],
+   "status": "suspicion",
+   "grade": null,
+   "acted_on": false,
+   "suspected_reading": null,
+   "note": "A DIGIT standing where an initial goes — the type or the scan, not a name."
+  },
+  {
+   "household": "hh_preston_stephen_ii",
+   "person": "preston_stephen_ii",
+   "held_as": "Stephen II. Preston",
+   "printed": "II.",
+   "printings": [
+    "Preston Stephen II."
+   ],
+   "claims": [
+    "chicago_democrat_1835_07_01#c005"
+   ],
+   "status": "suspicion",
+   "grade": null,
+   "acted_on": false,
+   "suspected_reading": null,
+   "note": "A two-character cluster standing where a middle initial goes."
+  },
+  {
+   "household": "hh_ranwin_o",
+   "person": "ranwin_o",
+   "held_as": "O. Ranwin",
+   "printed": "Ranwin",
+   "printings": [
+    "Ranwin O."
+   ],
+   "claims": [
+    "chicago_democrat_1835_07_01#c005"
+   ],
+   "status": "suspicion",
+   "grade": null,
+   "acted_on": false,
+   "suspected_reading": "Rankin"
+  },
+  {
+   "household": "hh_regera_john_v",
+   "person": "regera_john_v",
+   "held_as": "John V. Regera",
+   "printed": "Regera",
+   "printings": [
+    "Regera John V."
+   ],
+   "claims": [
+    "chicago_democrat_1835_07_01#c005"
+   ],
+   "status": "suspicion",
+   "grade": null,
+   "acted_on": false,
+   "suspected_reading": "Rogers"
+  },
+  {
+   "household": "hh_willinm_g",
+   "person": "willinm_g",
+   "held_as": "G. Willinm",
+   "printed": "Willinm",
+   "printings": [
+    "Willinm G."
+   ],
+   "claims": [
+    "chicago_democrat_1835_07_01#c006"
+   ],
+   "status": "suspicion",
+   "grade": null,
+   "acted_on": false,
+   "suspected_reading": null,
+   "note": "A FORENAME IN THE SURNAME SLOT, not a misspelling of one: the printing gives 'Willinm G.' and no other token, so the family name may never have been set."
+  }
+ ]
+}

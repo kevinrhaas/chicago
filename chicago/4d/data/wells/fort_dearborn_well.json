@@ -1,0 +1,111 @@
+{
+  "id": "fort_dearborn_well",
+  "name": "The fort's well",
+  "aka": [
+    "the well in the outer inclosure",
+    "the garrison well"
+  ],
+  "kind": "well",
+  "scene": "1835",
+  "target_date": "1835-07-01",
+  "structure_id": null,
+  "belongs_to": [
+    "fort_dearborn_palisade"
+  ],
+  "documented_range": {
+    "from": "1830-02-24",
+    "to": "1835-12-31",
+    "confidence": "inferred",
+    "sources": [
+      "harrison_1830_river_mouth",
+      "hubbard_autobiography_1911"
+    ],
+    "note": "THE OPEN IS THE PLATE'S OWN DATE AND NOT THE WELL'S. Harrison's map of the mouth of Chicago River was approved 24 February 1830 and letters the well as a thing already standing, so the well is at least that old; nothing reached says when it was sunk, and Hubbard, who names it from memory, is describing the garrison of the 1820s. The close is A HOUSEKEEPING BOUND, NOT A FILLING DATE, the same convention data/enclosures/estray_pen.json states for the pound: nothing says the well was filled, abandoned or lost, and a garrison well outlives the garrison - the fort's troops were withdrawn in 1836, the year after the scene date, and the water did not go with them. What is inferred here is CONTINUITY across the five years between the plate and 1 July 1835, which is the same inference every other record read off this sheet makes and is the reason the grade is `inferred` rather than `documented`."
+  },
+  "existence": {
+    "value": true,
+    "confidence": "documented",
+    "sources": [
+      "harrison_1830_river_mouth",
+      "hubbard_autobiography_1911"
+    ],
+    "note": "TWO INDEPENDENT WITNESSES, AND THEY AGREE ON THE PLACE. The 1830 Harrison plan draws a small ring on Fort Dearborn's outer ground and letters it `Well` beside it. Gurdon Hubbard, writing from memory and not from the plate, puts the fort's well 'in the outer inclosure and near the south gate'. The plate is a drawing made on the ground and the autobiography is a recollection, so they are not one source twice; what they agree on - that there was a well, and that it stood on the outer ground south of the stockade - is as well attested as anything at this fort. WHERE THEY DISAGREE IS RECORDED RATHER THAN SMOOTHED, and it is the distance: the ring is 52.6 m south of the southern extent of the stockade's ink, which is well outside the pickets and well inside the outer fence, with the plate's `Gate` lettered on that fence further south again. So the ring is nearer the stockade than Hubbard's 'near the south gate' would put it. The plate is preferred because it is a measurement and the sentence is a memory, exactly as data/structures/fort_dearborn_wash_house.json prefers the plate over Hubbard's beach."
+  },
+  "wells": [
+    {
+      "id": "fort_dearborn_well",
+      "name": "The fort's well",
+      "position_local_enu_m": [
+        1152.5,
+        139.53
+      ],
+      "position_confidence": "documented",
+      "position_sources": [
+        "harrison_1830_river_mouth",
+        "hubbard_autobiography_1911"
+      ],
+      "position_note": "MEASURED OFF THE PLATE BY T-0881 AND INHERITED HERE RATHER THAN RE-READ. On Internet Archive leaf n242 of `historyofchicago01andr`, rotated 90 degrees anticlockwise so the sheet's true-north arrow stands vertical (2715 x 2003 px), the ring's ink runs x 1440-1453, y 880-894, so its centre is pixel (1446.5, 887.0); the ink centroid agrees at (1446.1, 886.9). Under the transform EVERY Fort Dearborn record on this plate uses - enclosure centre at pixel (1445, 644) = UTM 448224.70 E, 4637616.80 N, 1.10 ft/px = 0.33528 m/px - that centre is 1.5 px east and 243.0 px south of the fort centre, which is 0.5 m east and 81.5 m south of it: UTM (EPSG:26916) 448225.20 E, 4637535.33 N. Against data/datum.json's origin (447072.7 E, 4637395.8 N) that is local east 1152.50, north 139.53, which is the pair this record carries and the only number the reading yields. The well therefore sits all but exactly DUE SOUTH of the enclosure's centre - half a metre east of its centre line, which at this ink weight is zero. UNCERTAINTY: about 20 per cent on the offset, and about 20 m on the fort itself (data/datum.json: 17.5 m RMS on Wright 1834), so the working uncertainty on this point is the fort's, not the ring's. The derivation is banked at docs/RESEARCH/wells.md section 5 so nobody re-reads the plate.",
+      "symbolic_location": "On Fort Dearborn's outer ground, due south of the stockade - outside the pickets, inside the outer fence.",
+      "uncertainty_m": 20,
+      "confidence": "reconstructed"
+    }
+  ],
+  "plate_symbol": {
+    "value": "point marker",
+    "confidence": "documented",
+    "sources": [
+      "harrison_1830_river_mouth"
+    ],
+    "note": "THE RING IS A SYMBOL AND CARRIES NO DIMENSION, and this block exists so that nobody takes one from it. Its outer diameter on the plate is about 14 px, which at this sheet's 0.33528 m/px is 4.7 m. NO WELL AT FORT DEARBORN WAS FOUR AND A HALF METRES ACROSS. The ring is the engraver's point marker - the same mark this draughtsman uses elsewhere on the sheet to say `a thing is here` - so it fixes a PLACE and says nothing whatever about a size, a plan shape or a construction. Every dimension in `form` below is therefore invented outright rather than scaled off the plate, and is graded `reconstructed` and claimed at docs/LIBERTIES.md L234."
+  },
+  "form": {
+    "curb_plan": {
+      "value": "round",
+      "confidence": "reconstructed",
+      "note": "INVENTED. Nothing states the plan of this curb, and the ring on the plate cannot supply one - a point marker is drawn round whatever it marks (see `plate_symbol` above). Round is chosen over the square timber crib that was equally common on this frontier for the narrow reason that it is the WEAKER claim of the two: a square crib states a construction - four squared logs lapped at the corners, a specific carpentry - where a round curb states only an opening with a rim about it. Neither reading is evidenced and the record does not pretend the choice was made on evidence."
+    },
+    "curb_outer_diameter_m": {
+      "value": 1.1,
+      "confidence": "reconstructed",
+      "note": "INVENTED, and bounded by the USE rather than by any source. A well is dug and a man has to get into the hole to dig it and to clean it, so the shaft is at least shoulder-width and in practice about three feet - 0.91 m, recorded converted per data/datum.json's units rule - and the curb stands outside it. 1.10 m outside diameter over a 0.90 m opening gives a 0.10 m rim, which is the least that will carry a bucket set down on it. NOT taken from the plate: the ring's 14 px would be 4.7 m, and that number is refused in `plate_symbol` above."
+    },
+    "curb_height_m": {
+      "value": 0.6,
+      "confidence": "reconstructed",
+      "note": "INVENTED. Nothing attests a height. The bound is again the use, and it is a narrow one: a curb exists to stop a man, a child or a beast walking into the shaft in the dark and to stop the surface wash running into the water, so it has to be past stepping over unawares and low enough to draw a full bucket over. 0.60 m is 2 ft, recorded converted, and is the middle of that range. It is deliberately LOWER than any fence in this dataset - the Western Hotel's yard fence is 1.37 m (L127) and the pound's is 1.83 m - because a curb is not a fence and must not read as one in the scene."
+    },
+    "curb_thickness_m": {
+      "value": 0.1,
+      "confidence": "reconstructed",
+      "note": "INVENTED, and it is the difference between the two diameters above rather than a third guess: 1.10 m outside over a 0.90 m opening is a 0.10 m wall. That is about four inches, which is a plank on edge or a light stone rim, and it is the thinnest rim that will stand 0.60 m proud and take a bucket's weight."
+    },
+    "curb_material": {
+      "value": "timber",
+      "confidence": "reconstructed",
+      "note": "INVENTED. No source reached says what this curb was made of. Timber is chosen because it is what this fort was built of throughout - every Fort Dearborn record in this project that carries a construction carries `log` or a sawn equivalent - and because stone had to be fetched to Chicago while timber did not. It is a guess about a stick nobody measured, in exactly the sense data/enclosures/estray_pen.json uses the phrase, and the confidence view is what tells a visitor so: every vertex of this curb is graded `reconstructed`, so hiding that tier removes the whole well and the ground goes honestly blank again."
+    },
+    "shaft_mouth_m": {
+      "value": 0.9,
+      "confidence": "reconstructed",
+      "note": "INVENTED, AND IT IS NOT A SIXTH GUESS - it is the two diameters above subtracted: 1.10 m outside less two 0.10 m walls is a 0.90 m opening, which is the three-foot shaft a man has to fit down to dig and to clean. It is stated as its own value because it is what the renderer draws the mouth at, and a number a renderer reads should be a number the record carries."
+    },
+    "shaft_draw_depth_m": {
+      "value": 0.25,
+      "confidence": "reconstructed",
+      "note": "A DRAWING DEVICE, AND NO CLAIM ABOUT WATER. The committed heightfield is a solid surface and nothing here cuts a hole in it, so without this the curb would be a ring of timber standing on unbroken prairie sward and would not read as a well at all. renderers/web/js/wells.js closes the mouth with a dark disc 0.25 m below the rim's ground line, which is far enough down to read as the top of a shaft in shadow and shallow enough to need no claim about how deep the well was or where its water stood. NOTHING IS ASSERTED ABOUT THE DEPTH OR THE WATER LEVEL: no source reached gives either, and this disc is a floor drawn for the eye, not a measurement."
+    }
+  },
+  "lifting_gear": {
+    "value": null,
+    "confidence": "unknown",
+    "sources": [],
+    "note": "NOT DRAWN, AND THE ABSENCE IS THE POINT. Water is got out of a well by a sweep, a windlass or a bucket on a rope, and those three look completely different from one another - a sweep is a twenty-foot counterweighted pole that dominates the ground around it, a windlass is a framed drum with a crank, a rope is nothing at all. No source reached says which of the three stood here, and the ring on the plate cannot say, so choosing one would be the largest invention on this record and the most visible thing in the scene. What stands is a curb and nothing more, which is the acceptance clause T-0887 was written with. THE RESIDUAL IS STATED RATHER THAN HIDDEN: a visitor sees a well head with no way to draw from it, and that is the honest shape of what is known."
+  },
+  "ground": {
+    "value": "not treated",
+    "confidence": "reconstructed",
+    "geometry": "absent",
+    "note": "NO GROUND TREATMENT. A working well has a trodden, slopped, muddy apron about it and this layer lays none: the fenced-ground layer (renderers/web/js/yards.js) treats the inside of a closed PERIMETER, and a well has no perimeter to be inside of. The apron's extent would be a second invention on top of the curb's four, and it would be the one dimension on this record that nothing whatever bounds. Recorded as a residual, not as a finding."
+  },
+  "research_note": "THE FORT'S WELL IS PLACED BY TWO WITNESSES AND ITS FABRIC IS ENTIRELY OURS, and those are two separate statements that this record keeps separate. What is documented: that there was a well, and that it stood at local east 1152.50, north 139.53 - due south of the stockade, outside the pickets and inside the outer fence. What is invented: the curb's plan, its diameter, its height, its thickness and its material, all five graded `reconstructed` and claimed together at docs/LIBERTIES.md L234. What is REFUSED: any dimension off the plate's ring (`plate_symbol`), any lifting gear (`lifting_gear`), any ground treatment (`ground`), and any second well anywhere in this town - T-0592 refused a well CLASS for Chicago because wells attach to houses everywhere and drawing one unplaced well is a claim about all the others, and that refusal stands in full. This layer draws a PLACE, not a class, and renderers/web/js/wells.js enforces it: a well whose position is not graded `documented` or `attested` is not drawn, and the refusal is recorded as a problem. WHAT WOULD UPGRADE THIS RECORD: a post return, quartermaster's estimate or engineer's report specifying the well - such a document carries a depth, a curb specification and often the lifting gear, which would settle four of this record's five inventions at once; the 1835 pre-emption case papers over the reservation; or any second plan of this ground drawn to a scale."
+}

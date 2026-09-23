@@ -1,0 +1,14 @@
+{
+  "id": "fergus_chicago_directory_1843",
+  "type": "book",
+  "citation": "Robert Fergus, Directory of the City of Chicago, Illinois, for 1843, Fergus Historical Series No. 28 (Chicago: Fergus Printing Company, 1896), compiled from the canvass made August-December 1843",
+  "date": "1843 canvass; printed 1896; transcription accessed and cached 2026-09-03",
+  "describes_date": "1843",
+  "locator": "the whole volume as republished: the business directory classified by trade, and the alphabetical directory A-Z",
+  "url": "https://genealogytrails.com/ill/cook/1843directory_1.html",
+  "tier": 4,
+  "rights_status": "public_domain",
+  "asset_use": "text_only",
+  "verified": true,
+  "note": "THIS PROJECT HAS NOT SEEN THE PRINTED DIRECTORY. What it has read is K. Torp's 2007 transcription of it on Genealogy Trails, cached in this repository on 2026-09-03 at data/research/genealogytrails/text/1843directory_1..4.txt and copied byte for byte to data/research/directories/text/fergus_1843_page_001..004.txt. Every reading made from it is therefore transcription_mediated; a reading made off a page image would be scan_verified and would outrank it. Fergus himself is a second remove: he compiled the 1896 volume out of J. W. Norris's 1843 canvass, which he calls in his own preface 'careless and indifferent', and he added the deaths and corrections known to him fifty-three years later. Exact entries can establish 1843 Chicago continuity and are read into data/research/directories/ under T-0571; under the ratified grading ladder they are never back-projected to the 1835 scene date without an independent bridge, and the crosswalk that names the candidates changes no resident record."
+}

@@ -1,0 +1,538 @@
+{
+  "schema": 1,
+  "issue_id": "chicago_american_1835_07_11",
+  "extracted": "2026-08-28",
+  "extracted_by": "hand, T-0261 — the Chicago American read, June to August 1835",
+  "note": "Volume I, Number 6, the first issue after the scene date. New to the corpus: the Chicago Reading Room raising a joint-stock company for premises, a lot sale quoting block numbers and Dearborn Street frontages in feet, J. Wright selling oak scantling, Wm. Sabine selling lumber waggons, and a stray horse eight miles up the North Branch. It also confirms three placements the run had half of: the auction room is at David Carver's old stand, Henry Moore's office is in J. H. Kinzie's new STORE, and the Tremont House is where the Reading Room's directors meet.",
+  "claims": [
+    {
+      "id": "c001",
+      "kind": "building",
+      "reading": "transcription_mediated",
+      "quote": "END! Chicago Rending Roont, habit Mt A moeting of the board of directors of the | hopes by |\neago Resding Ream, hold! at the Tremont | ane of P 12 1 1 0 677 18 30 43.079945 uae on Monday evening, July 6th, tor the pur. 1 12 1 2 2 16 702 13 11 89.590584 of consulting upoe meana for obiaining 1 12 1 3 1 0 719 29 14 54.814941 ding suitable for the Readicg Rovin, the fol. 1 12 1 4 1 0 737 21 22 81.405228 ing preamble and resolutions were adopted, W 13 0 321 770 31 11 -1 14 0 0 0 758 352 274 -1 15 1 1 1 0 758 49 33 10.520409 Vberese has been waggerted: that a joint | this 0 1 15 1 2 1 0 789 12 11 9.926750 k company might be formed in Chicago, thax | _°PICAs 1 15 1 3 1 0 806 17 11 43.548695 wd appropriate free $2,500 10 3.000 for 1 15 1 4 1 0 827 46 8 3.434464 Ftmenta Anitable for a Readi\n9. Hiway Meoue, Secretary, ee",
+      "normalized": "Chicago Reading Room. A meeting of the board of directors of the [Chi]cago Reading Room, held at the Tremont [Ho]use on Monday evening, July 6th, for the pur[pose] of consulting upo[n] mean[s] for ob[t]aining [a buil]ding suitable for the Read[in]g Ro[o]m, the fol[low]ing preamble and resolutions were adopted. [W]here[a]s [it] has been [su]gge[s]ted that a joint [stoc]k company might be formed in Chicago tha[t] w[oul]d appropriate f[rom] $2,500 [to] 3,000 for [apar]tment[s] [su]itable for a Readi[ng Room …] [Hen]ry Mo[or]e, Secretary.",
+      "locator": {
+        "artifact_role": "primary",
+        "issue_page": 3,
+        "column": 4,
+        "lines": [
+          363,
+          366
+        ],
+        "lines_of_claim": [
+          363,
+          364,
+          366
+        ],
+        "interleaved": true,
+        "spans": [
+          {
+            "line": 363,
+            "from": 0,
+            "to": 92
+          },
+          {
+            "line": 364,
+            "from": 0,
+            "to": 700
+          },
+          {
+            "line": 366,
+            "from": 0,
+            "to": 29
+          }
+        ]
+      },
+      "entities": [
+        {
+          "as_printed": "Hiway Meoue",
+          "normalized": "Henry Moore",
+          "role": "signatory",
+          "occupations": [],
+          "associated_places": []
+        }
+      ],
+      "notes": "A BUILDING THE TOWN WANTS AND DOES NOT HAVE, five days after the scene date — which makes it a negative claim of exactly the useful kind. The Chicago Reading Room exists as an institution with a BOARD OF DIRECTORS, and it is meeting to work out how to get premises, costed at $2,500 to $3,000 raised by joint stock. So on 1835-07-01 there is no reading-room building, and the directors meet in a hotel. IT ALSO CORROBORATES THE TREMONT HOUSE a second time and independently of Tuthill King's placement: a hotel with a room the town's directors sit in on a Monday evening. The secretary is Henry Moore, the attorney whose office this same issue puts in J. H. Kinzie's new store."
+    },
+    {
+      "id": "c002",
+      "kind": "street",
+      "reading": "transcription_mediated",
+      "quote": "cits avperen. Laer 11 and 19 in Block 16 AD, wd 12, IF wa ae put by the Cas} y Lae 4 ta Block 93 Pose ee BS “1 8 BB ai-diviston of lotw $ and Gin ing 0m Dearborn strest 45 feet, aiph street j-the other frost oa feet, and 90 foci deep. ‘The bin Block $4, Some of the\ndings opon thems,\n8G, entire, For further in, GS HUBBARD. | )",
+      "normalized": "[…] Lo[t]s 11 and 19 in Block 16 […] and 12, 1[7 …] put by the Ca[nal Commissioners?] […] Lo[t] 4 i[n] Block 9[3?] […] [su]b-division of lot[s] 5 and 6 in […] [front]ing on Dearborn str[e]et 45 feet, [and on … R]alph street; the other fro[n]t o[n …] feet, and 90 fee[t] deep. The […] in Block [8]4. Some of the [buil]dings [u]pon them. […] entire. For further in[formation apply to] G. S. HUBBARD.",
+      "locator": {
+        "artifact_role": "primary",
+        "issue_page": 3,
+        "column": 5,
+        "lines": [
+          391,
+          395
+        ],
+        "lines_of_claim": [
+          391,
+          392,
+          395
+        ],
+        "interleaved": true,
+        "spans": [
+          {
+            "line": 391,
+            "from": 0,
+            "to": 265
+          },
+          {
+            "line": 392,
+            "from": 0,
+            "to": 17
+          },
+          {
+            "line": 395,
+            "from": 0,
+            "to": 43
+          }
+        ]
+      },
+      "entities": [
+        {
+          "as_printed": "GS HUBBARD",
+          "normalized": "Gurdon S. Hubbard",
+          "role": "advertiser",
+          "occupations": [],
+          "associated_places": []
+        }
+      ],
+      "notes": "PLAT-GRAIN EVIDENCE, WHICH THIS CORPUS HAS ALMOST NONE OF: named lots in named blocks with FRONTAGES IN FEET — 45 feet on Dearborn Street and 90 feet deep, on a sub-division of lots 5 and 6. Those are dimensions this project's parcel work can be checked against directly. WHAT IS BROKEN AND WHY IT IS STILL RECORDED: the block numbers survive unevenly (16, 9[3], [8]4) and the column edge takes the second street name ('aiph street', where 'Ralph' is not a Chicago street and the fragment is more likely the tail of another word), so no single lot here can be resolved to a corner. The claim is the MEASUREMENTS and the fact that some of these lots already carry buildings — 'Some of the [buil]dings upon them' — which is a statement about the built density of the platted blocks in July 1835. Signed G. S. Hubbard, the same man the railroad commission names two issues earlier."
+    },
+    {
+      "id": "c003",
+      "kind": "business",
+      "reading": "transcription_mediated",
+      "quote": "en Darid Carver's old tar she parpors of ‘Advances made | 5 tely after aalem all ensign. —exah up.. 1695. W,Moxtroneny. [I le and Retail.",
+      "normalized": "[… i]n David Carver's old [s]ta[nd, for] the p[u]rpo[s]e of […] Advances made […] [immedia]tely after [s]ale[s] [on] all consign[ments] — cash up. 18[35]. W. Mo[nt]go[m]e[r]y. [Wholesa]le and Retail.",
+      "locator": {
+        "artifact_role": "primary",
+        "issue_page": 3,
+        "column": 5,
+        "lines": [
+          411,
+          411
+        ],
+        "lines_of_claim": [
+          411
+        ],
+        "interleaved": true,
+        "spans": [
+          {
+            "line": 411,
+            "from": 0,
+            "to": 137
+          }
+        ]
+      },
+      "entities": [],
+      "business": {
+        "name": "a new auction and commission room, South Water Street",
+        "proprietors": [],
+        "trade": "auction and commission",
+        "goods": [],
+        "street": "South Water Street",
+        "placement": {
+          "class": "relative",
+          "anchor": "David Carver's old stand",
+          "offset_text": "en Darid Carver's old tar she parpors of",
+          "offset_normalized": "in David Carver's old [s]tand",
+          "street": "South Water Street"
+        }
+      },
+      "notes": "THE AUCTIONEER'S PREDECESSOR IS NOW FULLY NAMED: David Carver. 1835-06-27 could read only 'the store of D[?]' and 1835-07-04 got 'D[?] Carver'; this printing gives the forename. So the auction room's placement is complete except for the number of doors: David Carver's old stand, some doors west of J. Wright's, on South Water Street. Two named neighbours on one frontage is the densest street evidence this run produces, and J. Wright is separately documented in this same column as a merchant selling leather, salt and oak scantling."
+    },
+    {
+      "id": "c004",
+      "kind": "business",
+      "reading": "transcription_mediated",
+      "quote": "S Sole Lewther; 50 do Uj author, just received: and\nule J, WRIGHT, SALT for sale by ot WRIGHT, FEET OAK SCANTLING ormaleby J. WRIGHT, Gf DS Ente tor wale ot ER Witlor AIR Sf Bowie, Brogana, ues, Cacks, Gc, dec, for sale Punto Caavreren. S CLOTHING, fer sale by PHILO CARPENTER. —",
+      "normalized": "[…] S[ides] Sole Leather; 50 do. U[pper] [Le]ather, just received and [for s]a[l]e [by] J. WRIGHT. SALT for sale by [J.] WRIGHT. […] FEET OAK SCANTLING [f]or [s]ale by J. WRIGHT. […] [Boots], Brogan[s], [Sho]es, [Sa]cks?, &c., &c., for sale [by] P[hi]lo Ca[rpe]nter. […] CLOTHING, for sale by PHILO CARPENTER.",
+      "locator": {
+        "artifact_role": "primary",
+        "issue_page": 3,
+        "column": 5,
+        "lines": [
+          420,
+          421
+        ],
+        "lines_of_claim": [
+          420,
+          421
+        ],
+        "interleaved": true,
+        "spans": [
+          {
+            "line": 420,
+            "from": 0,
+            "to": 51
+          },
+          {
+            "line": 421,
+            "from": 0,
+            "to": 227
+          }
+        ]
+      },
+      "entities": [
+        {
+          "as_printed": "J, WRIGHT",
+          "normalized": "J. Wright",
+          "role": "proprietor",
+          "occupations": [
+            "merchant"
+          ],
+          "associated_places": [
+            "South Water Street"
+          ]
+        }
+      ],
+      "business": {
+        "name": "J. Wright, merchant",
+        "proprietors": [
+          "J. Wright"
+        ],
+        "trade": "leather, salt and lumber",
+        "goods": [
+          "Oak Scantling",
+          "Salt",
+          "Sole Leather",
+          "Upper Leather"
+        ],
+        "street": "South Water Street",
+        "placement": {
+          "class": "none",
+          "anchor": null,
+          "offset_text": null,
+          "offset_normalized": null,
+          "street": null
+        }
+      },
+      "notes": "OAK SCANTLING FOR SALE IN CHICAGO, JULY 1835 — structural timber, sized and sold by the foot, which is the most directly usable building-material claim in the run. This project frames buildings and has been reasoning about member sizes from practice rather than from a Chicago advertisement; here is one. The quantity is cut before 'FEET' and is not supplied. J. WRIGHT is the same name the auction room places itself east of on South Water Street (1835-06-27, 07-04), and the street is recorded on his ENTITY on that reasoning while the business placement is left `none`, because an anchor someone else gives you is weaker evidence than an address you print yourself. Philo Carpenter's boots and clothing lines are quoted in the same spans: a druggist who also sells brogans and clothing, which is worth knowing before his trade is treated as narrow."
+    },
+    {
+      "id": "c005",
+      "kind": "business",
+      "reading": "transcription_mediated",
+      "quote": "EM. nue ’ or Old Monongahela Wikis. Md, for male\nWM, SNE\nna GGOSSs, % UMBER WAGGONS {irca sad One Horse Pleasure, WM. BABINE,",
+      "normalized": "[…] Old Monongahela W[h]is[key], […] for [s]ale […] WM. S[ABI]NE. […] [Also, dry] GOODS, [L]UMBER WAGGONS, [uncertain: irca sad — a second vehicle kind this column does not resolve] and One Horse Pleasure [carriages]. WM. SABINE.",
+      "locator": {
+        "artifact_role": "primary",
+        "issue_page": 3,
+        "column": 5,
+        "lines": [
+          424,
+          429
+        ],
+        "lines_of_claim": [
+          424,
+          426,
+          429
+        ],
+        "interleaved": true,
+        "spans": [
+          {
+            "line": 424,
+            "from": 0,
+            "to": 48
+          },
+          {
+            "line": 426,
+            "from": 0,
+            "to": 7
+          },
+          {
+            "line": 429,
+            "from": 0,
+            "to": 68
+          }
+        ]
+      },
+      "entities": [],
+      "business": {
+        "name": "Wm. Sabine, storage, forwarding and commission merchant",
+        "proprietors": [],
+        "trade": "storage, forwarding and commission merchant",
+        "goods": [
+          "Lumber Waggons",
+          "One Horse Pleasure Carriages",
+          "Whiskey"
+        ],
+        "street": null,
+        "placement": {
+          "class": "none",
+          "anchor": null,
+          "offset_text": null,
+          "offset_normalized": null,
+          "street": null
+        }
+      },
+      "notes": "VEHICLES, NAMED BY TYPE, FOR SALE ON A CHICAGO WHARF STREET: LUMBER WAGGONS and ONE HORSE PLEASURE carriages. This project puts wagons in its streets and has had to choose their kind from period practice; this is the town's own forwarding merchant advertising which kinds were actually to be had here in July 1835, and the distinction between a working lumber waggon and a one-horse pleasure carriage is exactly the one a street dressing has to make. The word between them is destroyed and is not guessed at. Old Monongahela whiskey in the same column is the same merchant's stock."
+    },
+    {
+      "id": "c006",
+      "kind": "business",
+      "reading": "transcription_mediated",
+      "quote": "sect Tas 10.000 do Shovidyia\n4,000 do Mi 7 - 450 bola, Lard—for ante by HUBBARD & C0.",
+      "normalized": "[…] 10,000 do. Shoulde[rs]; 4,000 do. M[ess pork?]; 450 b[b]l[s]. Lard — for [s]ale by HUBBARD & CO.",
+      "locator": {
+        "artifact_role": "primary",
+        "issue_page": 3,
+        "column": 5,
+        "lines": [
+          427,
+          428
+        ],
+        "lines_of_claim": [
+          427,
+          428
+        ],
+        "interleaved": true,
+        "spans": [
+          {
+            "line": 427,
+            "from": 0,
+            "to": 28
+          },
+          {
+            "line": 428,
+            "from": 0,
+            "to": 56
+          }
+        ]
+      },
+      "entities": [],
+      "business": {
+        "name": "Hubbard & Co., forwarding and commission merchants",
+        "proprietors": [],
+        "trade": "forwarding and commission merchants",
+        "goods": [
+          "Lard",
+          "Pork Shoulders"
+        ],
+        "street": null,
+        "placement": {
+          "class": "none",
+          "anchor": null,
+          "offset_text": null,
+          "offset_normalized": null,
+          "street": null
+        }
+      },
+      "notes": "PROVISIONS IN QUANTITY — ten thousand of one thing, four thousand of another and four hundred and fifty barrels of lard, in a town the same paper puts at under three thousand people. That is a WAREHOUSE-SCALE stock and it is what a forwarding house on the river was holding a fortnight after the scene date; the units on the first two figures are cut ('do.' referring back to a line the segmenter destroyed) and are NOT supplied, so only the barrels of lard carry their unit. Useful to this project as a statement about what the riverside storehouses were full of."
+    },
+    {
+      "id": "c007",
+      "kind": "event",
+      "reading": "transcription_mediated",
+      "quote": "uk cueor HORSE, shes ry ol, slateon Ts, mt rao any mark or'brand. To owt hue by nroviny property and paylig chars, ling on i ® ih JOUN XK. CLARK, Eight slew up the Nuh Branetis 9, 1835. | vexx Kesrsas, Oncctas ano Grunaae ji NEW WHOLESALE | ) ne and Liquor Stare, * Dearborn Aerraet esubsesiver has just received a choice lot Wines and Li ced prices 0, Jane 2: EASE FOR A TERM OF YEARS, RAL, buakwesa late is the town of Chicks id out lola nuitable fyedwelli gee >< few ctceliont Fara a tha covey, ficulars inquire ot the office of Hemay JH. Konhés new store: oj Juua 27th, 1695. 4",
+      "normalized": "[Taken up, a] HORSE, [… yea]r[s] ol[d …] [with]out any mark or brand. T[he] ow[ner may have] hi[m] by pro[v]ing property and payi[n]g char[ges, by cal]ling on […] JOHN K. CLARK, Eight [mi]le[s] up the N[ort]h Branc[h. July] 9, 1835. […] NEW WHOLESALE [Wi]ne and Liquor Store, Dearborn [St]re[e]t. [Th]e sub[s]c[ri]ber has just received a choice lot [of] Wines and Li[quors … at redu]ced prices. […] LEASE FOR A TERM OF YEARS. [SEVE]RAL bu[si]ness [lo]t[s] i[n] the town of Chic[ago] [an]d out lo[t]s [s]uitable f[or] dwelli[n]g[s], [and a] few [ex]cellent Far[ms i]n th[e] co[u]n[t]ry. [For par]ticulars inquire a[t] the office of He[nry Moore,] J. H. K[i]n[zi]e's new store. [Chicago,] Ju[n]e 27th, 18[3]5.",
+      "locator": {
+        "artifact_role": "primary",
+        "issue_page": 3,
+        "column": 6,
+        "lines": [
+          453,
+          453
+        ],
+        "lines_of_claim": [
+          453
+        ],
+        "interleaved": true,
+        "spans": [
+          {
+            "line": 453,
+            "from": 0,
+            "to": 581
+          }
+        ]
+      },
+      "entities": [
+        {
+          "as_printed": "JOUN XK. CLARK",
+          "normalized": "John K. Clark",
+          "role": "advertiser",
+          "occupations": [],
+          "associated_places": [
+            "the North Branch"
+          ]
+        }
+      ],
+      "ad_copy_date": {
+        "verbatim": "Juua 27th, 1695. 4",
+        "iso": "1835-06-27"
+      },
+      "notes": "A SETTLER PLACED OUTSIDE THE TOWN BY HIS OWN NOTICE: John K. Clark, EIGHT MILES UP THE NORTH BRANCH, advertising a stray horse in July 1835. This project's scene stops at the town and its immediate ground; a documented name and distance up the north branch is the kind of thing that tells it what the country beyond the edge of the model actually held, and estray notices are the only class of advertisement that routinely gives a rural address. TWO OTHER NOTICES ARE IN THE SAME SPAN and are quoted with it because the segmenter runs them together: Brackett's Dearborn Street wine store, and the lease notice which now finishes the sentence 1835-07-04 could only half-read — inquiries go to 'the office of He[nry Moore], J. H. Kinzie's new STORE', which is the word that was cut in Moore's own card ('J. H. Kinzie's New lon'). So Kinzie's new building is a store with a lawyer's office in it."
+    },
+    {
+      "id": "c008",
+      "kind": "business",
+      "reading": "transcription_mediated",
+      "quote": "F. WARNESS & TRUNK MABING. COBI will evnligue the abore business ‘isis vhop, corner of Yake wid the Balle ere he imonds hexying a general ase of urtictes in the abuse ling of bsiness, ont to husineas he hopes tojreesive",
+      "normalized": "[Saddle,] Harness & Trunk Ma[k]ing. [S. B.] COB[B] will c[o]n[t]i[n]ue the abo[v]e business [at h]is [s]hop, corner of [L]ake [an]d the [uncertain: Balle — a second street or place name this column does not resolve], [wh]ere he i[nt]ends [k]e[e]ping a general as[sortment] of a[r]ticles in the ab[ov]e li[n]e of b[u]siness, [and by strict attenti]on to business he hopes to receive [a liberal share of patronage].",
+      "locator": {
+        "artifact_role": "primary",
+        "issue_page": 3,
+        "column": 6,
+        "lines": [
+          449,
+          449
+        ],
+        "lines_of_claim": [
+          449
+        ],
+        "interleaved": true,
+        "spans": [
+          {
+            "line": 449,
+            "from": 0,
+            "to": 219
+          }
+        ]
+      },
+      "entities": [],
+      "business": {
+        "name": "S. B. Cobb, saddle, harness and trunk manufactory",
+        "proprietors": [],
+        "trade": "saddle, harness and trunk manufactory",
+        "goods": [],
+        "street": "Lake Street",
+        "placement": {
+          "class": "corner",
+          "anchor": "the corner of Lake Street and an unread cross street",
+          "anchor_unread": true,
+          "offset_text": "‘isis vhop, corner of Yake wid the Balle",
+          "offset_normalized": "his shop, corner of [L]ake [an]d the [uncertain: Balle]",
+          "street": "Lake Street"
+        }
+      },
+      "notes": "THE THIRD PRINTING OF COBB'S CORNER, AND THE CROSS STREET IS STILL NOT READ — but this one adds a word the earlier two lose. 1835-06-08 has 'corner of Lake anc Amor. streets' and 1835-06-13 loses the street names entirely; here it is 'corner of Lake and THE Balle'. The definite article matters: it says the second half of the corner is not a plain street name but something taking 'the', which is why none of the plat's cross streets has been substituted in any of the three claims. Lake Street is documented in two of three printings and is recorded; the rest stays inside `[uncertain: …]`."
+    },
+    {
+      "id": "c009",
+      "kind": "shipping",
+      "reading": "transcription_mediated",
+      "quote": "ff PORT OF CHICAGO. Chicago,\nzs Actenaoe Fhibee. Howe, from Milwakesis\n8 eka Be doy frm Je ay cere, Dencas from tome, sot Saher Lownie lark, from St, Jo. 200\ncLEaR Schooner Bt, hosts for Bufo, 4c Schoousr Ldewailing, Clark, for 8 Jo.\nBrg Neptane, Witkesson for\nSchoouar Wig, Lewis, ‘or nwa New",
+      "normalized": "PORT OF CHICAGO. [ARRIVED. Schooner] Ph[i]l[ip]s, Howe, from Milwake[e …]; [Schooner …] Day, fr[o]m […]; [Schooner Swan?], D[u]ncan, from […]; Sch[oon]er L[le]w[ell]i[ng], [C]lark, from St. Jo[seph]. CLEAR[ED]. Schooner St. Jos[eph], for Buf[fal]o, &c.; Schooner L[l]ewailing, Clark, for S[t.] Jo[seph]; Br[i]g Neptun[e], W[i]lke[s]son, for […]; Schoon[e]r W[h]ig, Lewis, [f]or […] New […]",
+      "locator": {
+        "artifact_role": "primary",
+        "issue_page": 3,
+        "column": 4,
+        "lines": [
+          377,
+          382
+        ],
+        "lines_of_claim": [
+          377,
+          378,
+          379,
+          380,
+          381,
+          382
+        ],
+        "interleaved": true,
+        "spans": [
+          {
+            "line": 377,
+            "from": 0,
+            "to": 28
+          },
+          {
+            "line": 378,
+            "from": 0,
+            "to": 41
+          },
+          {
+            "line": 379,
+            "from": 0,
+            "to": 86
+          },
+          {
+            "line": 380,
+            "from": 0,
+            "to": 75
+          },
+          {
+            "line": 381,
+            "from": 0,
+            "to": 26
+          },
+          {
+            "line": 382,
+            "from": 0,
+            "to": 32
+          }
+        ]
+      },
+      "entities": [],
+      "notes": "THE PORT COLUMN FOR THE WEEK AFTER THE SCENE DATE, and the pattern the run has been building holds: the same four or five hulls — Philips, Llewelling, Swan, Whig, St. Joseph, the brig Neptune — working a short circuit between Chicago, Milwaukee, St. Joseph and Buffalo. That is the traffic a reconstruction of the river mouth should be dressing for: not many ships, the SAME ships, several times a month. The dates are stripped out of this printing's arrivals list by the segmenter and are not reconstructed from the week's calendar."
+    },
+    {
+      "id": "c010",
+      "kind": "infrastructure",
+      "reading": "transcription_mediated",
+      "quote": "Bbsings she office, it will be kept open one hour r On Sundays, in case of Mull willbe keptopen.one hour and aul\nrs must be paid wheo\ne letters for their friends,\nmil poise, will please bring wrinen o= [° Puyaici\nioe toa accurately or 8. C, HOGAN, Pome, Bleeding\nhlcago, Jaly 8, 1635. hicago",
+      "normalized": "[… after] the office [hours], it will be kept open one hour […] On Sundays, in case of M[ai]l[s it] will be kept open one hour and a [h]a[lf …] [Lette]rs must be paid whe[n …] […] [tak]e letters for their friends […] [at the] mail [op]e[n]ing, will please bring writ[t]en o[rders …] […] to [be] accurately [entered … J.] S. C. HOGAN, Po[st]m[aster]. [C]hicago, July 8, 18[3]5.",
+      "locator": {
+        "artifact_role": "primary",
+        "issue_page": 3,
+        "column": 4,
+        "lines": [
+          369,
+          375
+        ],
+        "lines_of_claim": [
+          369,
+          370,
+          372,
+          373,
+          374,
+          375
+        ],
+        "interleaved": true,
+        "spans": [
+          {
+            "line": 369,
+            "from": 0,
+            "to": 112
+          },
+          {
+            "line": 370,
+            "from": 0,
+            "to": 20
+          },
+          {
+            "line": 372,
+            "from": 0,
+            "to": 28
+          },
+          {
+            "line": 373,
+            "from": 0,
+            "to": 49
+          },
+          {
+            "line": 374,
+            "from": 0,
+            "to": 49
+          },
+          {
+            "line": 375,
+            "from": 0,
+            "to": 28
+          }
+        ]
+      },
+      "entities": [],
+      "ad_copy_date": {
+        "verbatim": "hlcago, Jaly 8, 1635.",
+        "iso": "1835-07-08"
+      },
+      "notes": "THE POST OFFICE'S RULES, EXPANDED A WEEK AFTER THE FIRST NOTICE, and the new sentence is the human one: people are collecting letters FOR THEIR FRIENDS at the mail opening, and the postmaster now wants written orders so the delivery can be entered accurately. That is a crowd at a counter, which is how a reconstruction should picture the building. Sunday opening is here extended to an hour and a half against the previous notice's one hour. Signed by Hogan again; the initials are cut to 'S. C.' in this printing and the full form is carried by 1835-07-04's."
+    }
+  ]
+}

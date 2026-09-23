@@ -1,0 +1,29 @@
+{
+  "id": "la_salle_album_of_genealogy_cook_county",
+  "type": "book",
+  "citation": "Album of Genealogy and Biography, Cook County, Illinois, with Portraits. Chicago: La Salle Book Company, successor to Calumet Book & Engraving Co. Eleventh edition, revised and improved, 1899; thirteenth edition, revised and improved, 1900. A subscription biographical album of Cook County citizens living at the end of the nineteenth century, each sketch running the man's parentage, birth, arrival and business.",
+  "author": "La Salle Book Company (publisher; no author is named on the title page)",
+  "date": "1899 (eleventh edition) and 1900 (thirteenth edition)",
+  "describes_date": "Cook County citizens living in the 1890s, reaching back through a sketch's parentage to the first half of the century; its Chicago arrivals concentrate after 1850",
+  "repository": "Internet Archive, from the University of Illinois copies (Illinois Historical Survey)",
+  "url": "https://archive.org/details/albumofgenealogy1900chic",
+  "archived_url": "https://archive.org/details/albumofgenealogy1900chic",
+  "locator": "The thirteenth edition (1900) is Internet Archive item albumofgenealogy1900chic, 908 images; its text layer is albumofgenealogy1900chic_djvu.txt, 3,171,392 bytes, sha256 789845f05ba73a3ecd72974a631668363c7bc13a4ec6bb183708ebba8b79ce0a. The eleventh edition (1899) is item albumofgenealogy1899lasa, text layer albumofgenealogy1899lasa_djvu.txt, 3,136,800 bytes, sha256 5cb7d96d9f850c4a37c986232e24e460149683bd0f42fc2141587204d1079d66. The two share a preface word for word and differ in their sketches; a claim must name which edition it was read in.",
+  "tier": 4,
+  "rights_status": "public_domain",
+  "rights_note": "Published 1899 and 1900 and out of copyright in the United States.",
+  "asset_use": "text_only",
+  "verified": true,
+  "access_notes": "LOCATED AND OPENED 2026-09-05 for T-0582. Both editions' text layers were downloaded in full and their sha256s recorded above; the OCR is ordinary printed type and reads cleanly. TWO THINGS THE OPENING SETTLED, both against the ticket that asked for it. First, the DATES: T-0582's title says '1900, 1909', and the 179 Newberry cards matching this publisher print 1900 fifty-three times, 1877 twenty-four times, and 1909 exactly once — beside a 1903, an 1854, an 1880 and a 1977 that are as likely to be OCR of 1900 as anything else. There is no 1909 La Salle Cook County volume behind that single card that this search could find; what the cards point at is this Album, and its Chicago editions on the Archive are 1899 and 1900. Second, the YIELD: the 1900 edition prints '1835' fifty times and the 1899 edition fifty-five, and every sampled occurrence is a BIRTH year, in Oneida County New York or in Bavaria, not a Chicago fact. A regular-expression sweep for a pre-1840 Chicago arrival sentence returns 13 in the 1900 edition and 11 in the 1899 — the earliest 1832, and one man who 'arrived off Chicago in July of 1835'. Ninety-one Chicago or Cook cards stand on a book that reaches 1835 about a dozen times.",
+  "what_it_supplies": [
+    "parentage, birth date and arrival year for Cook County men living in the 1890s, which is what the Newberry index files its 179 cards on",
+    "about a dozen sentences per edition placing a named man in Chicago before 1840, each of which is a lead a later ticket can adjudicate",
+    "the fate and descendants of an 1835 household, where a grandson subscribed to the album"
+  ],
+  "what_it_does_not_supply": [
+    "any contemporary record of 1835: it is a subscription album compiled sixty-five years later from what the subject told the canvasser",
+    "any Chicago address, trade or building for 1835",
+    "a reason to think a Newberry card on this work concerns 1835 — the card heads a FAMILY, and this book is about that family's late-century members"
+  ],
+  "note": "Written for T-0582 as a LOCATION, not a reading. It is the lowest-yield of the four works located under that ticket and is recorded anyway, because an unreachable or thin work recorded as thin is a result and silence is not. Nothing in this project cites it yet."
+}

@@ -1,0 +1,22 @@
+{
+  "schema": "research-spend-rulings-v1",
+  "_doc": "DERIVED, T-1298, by tools/spend_remainder_rulings.py from the genealogytrails corpus beside it and the residents layer it names -- run --check to re-derive it. The written ruling on the remainder of T-1236: every unit the ledger's own derivation leaves unresolved and owns to T-1298. tools/research_spend_ledger.py reads this file beside the hand-authored spend_rulings.json, at the point where it would otherwise leave a unit open, so a ruling here can only close a unit nothing else has closed and can never overturn an assertion, a later_only or a refusal the readings themselves carry. NOTHING HERE EDITS A RESIDENT, MINTS A PERSON, MOVES A CONFIDENCE OR INVENTS A CITATION, and nothing here decides the blocked letter-list question of T-0660 -> T-0691. A hand-off is not a spend: it names the open ticket whose field owns the finding, and that ticket closing turns this file red, which is the point.",
+  "ticket": "T-1298",
+  "generated_by": "tools/spend_remainder_rulings.py",
+  "counts": {
+    "a_ground_reading_describes_the_site_not_a_record": 1
+  },
+  "rules": {
+    "a_ground_reading_describes_the_site_not_a_record": {
+      "disposition": "aggregate_only",
+      "statement": "The unit is a LANDSCAPE reading: it describes the site -- its timber, its prairie, its streams, its shore, the naming of a river -- and names no person, household, business or structure record for the person ledger to write. That is the answer, not a deferral: a ground reading is committed chronology for the terrain and shore work, which cites it where it bears, and the spend ledger's honest disposition for it is that it is good in AGGREGATE and attaches to no record. This ruling neither cites it for the ground tickets nor invents a terrain fact from it."
+    }
+  },
+  "rulings": [
+    {
+      "unit": "genealogytrails:data/research/genealogytrails/claims/town_findings_genealogytrails.json#claims/gt_003",
+      "rule": "a_ground_reading_describes_the_site_not_a_record",
+      "note": "town_findings_genealogytrails gt_003: a landscape reading dated 1832. It reads: “Soldiers who died of cholera at Chicago in 1832, during the Black Hawk War, were hastily buried near the corner of Lake Street and Wabash Avenue; the 1865 removals to the outlying cemeteries missed …”"
+    }
+  ]
+}

@@ -1,0 +1,149 @@
+{
+ "schema": 1,
+ "domain": "old_settlers",
+ "what": "What the Calumet Club's old-settlers documents say ABOUT the town, as opposed to the names they list. The names are records and live in people.json; a claim here is a statement the source makes about Chicago, with the verbatim reading it rests on. Every quote is rebuilt out of text/chicago_tribune_1882_calumet_old_settlers.txt by tools/old_settlers.py --check, which refuses one that differs by a character.",
+ "scene_relation": "later_evidence_only",
+ "the_gap_that_matters": "Eells describes 1832 and the receptions report 1879-1882. The scene date is 1 July 1835. Nothing in this file places, shapes or dates a structure; the townscape claims are corroboration and colour, and each says so.",
+ "claims": [
+  {
+   "id": "oldsettlers-club-criterion",
+   "kind": "civic",
+   "town_finding": false,
+   "source": "chicago_tribune_1882_04_25_old_settler_deaths",
+   "quote": "The Calumet Club will give its fourth annual reception to persons who were residents of Chicago prior to the 1st day of January, 1840, and were then 21 years of age, upon the 18th of May.",
+   "normalized": "The Calumet Club's fourth annual reception, 18 May 1882, was for people who had been residents of Chicago before 1 January 1840 and were 21 by then.",
+   "describes_date": "1882-05-18",
+   "says": "THE CRITERION, and the reason this whole source cannot mint an 1835 resident: it reaches to the end of 1839.",
+   "confidence": "documented",
+   "locator": "Chicago Tribune, 25 April 1882, opening paragraph"
+  },
+  {
+   "id": "oldsettlers-population-414",
+   "kind": "civic",
+   "town_finding": true,
+   "source": "chicago_tribune_1882_05_19_fourth_reception",
+   "quote": "Death has been busy gathering in the veterans who lived here prior to 1840, no less than thirty-five of the 414 who are known & Chicago’s old settlers having gone to their rest during the year.",
+   "normalized": "In May 1882 the Calumet Club knew of 414 living people who had lived in Chicago before 1840, and 35 of them had died in the past year.",
+   "describes_date": "1882-05-18",
+   "says": "A COUNT OF THE SURVIVORS, NOT OF THE TOWN. 414 is how many pre-1840 settlers the club could still find in 1882 — it is a floor under the 1840 population and nothing more, and it must never be read as a population figure for 1835.",
+   "confidence": "documented",
+   "locator": "Chicago Tribune, 19 May 1882, first paragraph of the report"
+  },
+  {
+   "id": "oldsettlers-1882-guest-count-disagrees",
+   "kind": "notice",
+   "town_finding": false,
+   "source": "chicago_tribune_1882_05_19_fourth_reception",
+   "quote": "At that hour there were in the house the following-named guests—118 in number—while the number at the third reception was 160:",
+   "normalized": "The report counts 118 guests in the house and 160 at the third reception; the list printed beneath it carries 128 entries.",
+   "describes_date": "1882-05-18",
+   "says": "THE SOURCE DISAGREES WITH ITSELF BY TEN NAMES. Both numbers are carried; the count is not corrected and the list is not trimmed to it.",
+   "confidence": "documented",
+   "locator": "Chicago Tribune, 19 May 1882, immediately above the roster"
+  },
+  {
+   "id": "oldsettlers-eells-north-side-1832",
+   "kind": "appearance",
+   "town_finding": true,
+   "source": "chicago_tribune_1882_05_17_eells_interview",
+   "quote": "As the steamer sailed up I had a good view of what is now known as the North Side. There were a few white wooden houses there, and one little brick and stone building. Beyond these was a vast stretch of timber and swamp lands. John Kinzie’s old white house, just over Clark street bridge, was quite noticeable.",
+   "normalized": "Arriving by water in 1832, Eells saw on the North Side a few white wooden houses and one small brick-and-stone building, with timber and swamp beyond, and Kinzie's old white house conspicuous just over the Clark street bridge.",
+   "describes_date": "1832",
+   "says": "A TOWNSCAPE FROM THREE YEARS BEFORE THE SCENE, recollected fifty years later. It agrees in outline with what this project already builds on the north bank, and it is not used to place or shape any structure.",
+   "confidence": "documented",
+   "locator": "Chicago Tribune, 17 May 1882, Eells interview"
+  },
+  {
+   "id": "oldsettlers-eells-south-bank-1832",
+   "kind": "building",
+   "town_finding": true,
+   "source": "chicago_tribune_1882_05_17_eells_interview",
+   "quote": "“There were no buildings along the river until you reached Dearborn street, and there was not a brick building it sight.”",
+   "normalized": "In 1832 there were no buildings along the river until Dearborn street, and no brick building in sight.",
+   "describes_date": "1832",
+   "says": "THE RIVER FRONT WAS EMPTY SHORT OF DEARBORN IN 1832 — three years before the scene, whose South Water Street row is largely of 1833-1835. A recollection, not a survey.",
+   "confidence": "documented",
+   "locator": "Chicago Tribune, 17 May 1882, Eells interview"
+  },
+  {
+   "id": "oldsettlers-mansion-house-blanket-1832",
+   "kind": "price",
+   "town_finding": true,
+   "source": "chicago_tribune_1882_05_17_eells_interview",
+   "quote": "“At the Mansion House. I paid 50 cents for a blanket, which gave me the privilege of sleeping on the floor, and there were forty of us bunking there.",
+   "normalized": "At the Mansion House in 1832 a blanket on the floor cost 50 cents, and forty men slept in the room.",
+   "describes_date": "1832",
+   "says": "WHAT LODGING COST AND HOW CROWDED IT WAS, in the town's tavern trade three years before the scene.",
+   "confidence": "documented",
+   "locator": "Chicago Tribune, 17 May 1882, Eells interview"
+  },
+  {
+   "id": "oldsettlers-eells-mark-beaubien",
+   "kind": "person",
+   "town_finding": false,
+   "source": "chicago_tribune_1882_05_17_eells_interview",
+   "quote": "“Of course I did. I have danced with him and to the music of his fiddle. I sold him a drove of bogs once for $1,000. One day he came to me and showed me a new brass knocker be had had put on the door. It bore his name, and he was very proud of it. I remember well his ‘Play fiddle like devil—keep hotel like h–l.'”",
+   "normalized": "Eells danced to Mark Beaubien's fiddle, sold him a drove of hogs for $1,000, saw the new brass door-knocker with his name on it, and quotes him: 'Play fiddle like devil—keep hotel like h–l.'",
+   "describes_date": "1832-1839",
+   "says": "CORROBORATION OF A DOCUMENTED RESIDENT this project already builds a tavern for — the fiddle, the hotel-keeping and the trade in stock, from a man who dealt with him. The brass door-knocker is a fitting, and it is not put on any door on this evidence alone.",
+   "confidence": "documented",
+   "locator": "Chicago Tribune, 17 May 1882, Eells interview",
+   "entities": [
+    "beaubien_mark"
+   ]
+  },
+  {
+   "id": "oldsettlers-eells-no-jail-vagrants-sold",
+   "kind": "civic",
+   "town_finding": true,
+   "source": "chicago_tribune_1882_05_17_eells_interview",
+   "quote": "“We had no jails here then,” he went on, “and the vagrants arrested were sold to the highest bidder, who made them work. One day I bid 10 cents on a vagrant, but he was knocked down to a big colored man named George White for 12½ cents.",
+   "normalized": "There was no jail; arrested vagrants were sold to the highest bidder to work, and Eells was outbid at 12½ cents by a man named George White.",
+   "describes_date": "1832-1839",
+   "says": "A TOWN WITHOUT A JAIL, disposing of vagrancy by auction. The source does not date it within the decade, and it is town practice rather than a placeable object.",
+   "confidence": "documented",
+   "locator": "Chicago Tribune, 17 May 1882, Eells interview"
+  },
+  {
+   "id": "oldsettlers-trades-of-the-dead-1882",
+   "kind": "person",
+   "town_finding": true,
+   "source": "chicago_tribune_1882_05_19_fourth_reception",
+   "quote": "Among them was Daniel Lyman, who built the first grist-mill; Lathrop Johnson, who carried the first mail between Milwaukee and Chicago, his horse making ninety-nine miles a day; William A. Hall, who was employed at Fort Dearborn as a gunsmith; Adam Schoch, a soldier of Napoleon in the Italian and Spanish wars; William A. Stow, a member of the first fire company and of the first Board of Aldermen, and who erected the first frame building west of the river; Seth T. Otis, the originator and founder of the Young Men’s Christian Association; and Levi D. Boone, who was Mayor in 1855.",
+   "normalized": "The report attaches trades and firsts to seven of the year's dead: Daniel Lyman built the first grist-mill; Lathrop Johnson carried the first mail between Milwaukee and Chicago; William A. Hall was a gunsmith employed at Fort Dearborn; Adam Schoch had been a soldier of Napoleon; William A. Stow was in the first fire company and the first Board of Aldermen and put up the first frame building west of the river; Seth T. Otis founded the YMCA; Levi D. Boone was mayor in 1855.",
+   "describes_date": "1830s-1855",
+   "says": "SEVEN TRADES AND FIRSTS, and the most useful of them for this scene is a Fort Dearborn GUNSMITH — a trade the fort's establishment does not otherwise name here. None is dated to 1835 by the source, and the same page spells this man 'Hail' in the death roll and 'Hall' here.",
+   "confidence": "documented",
+   "locator": "Chicago Tribune, 19 May 1882, first paragraph of the report"
+  },
+  {
+   "id": "oldsettlers-wentworth-asks-for-correction",
+   "kind": "notice",
+   "town_finding": false,
+   "source": "chicago_tribune_1882_04_25_old_settler_deaths",
+   "quote": "From John Wentworth’s list of old settlers who have died since the let of January, 1881, has been made the following copy. If any names have been omitted, or any dates are wrong, he should be at once notified:",
+   "normalized": "The death roll is John Wentworth's own list of old settlers dead since 1 January 1881, printed with a request that omissions and wrong dates be reported to him.",
+   "describes_date": "1881-01-01/1882-04-25",
+   "says": "WHO KEPT THE ROLL AND HOW IT WAS MAINTAINED — the club's record was corrected by its own members in public, which is what makes it near-primary and not a register.",
+   "confidence": "documented",
+   "locator": "Chicago Tribune, 25 April 1882, introducing the list"
+  }
+ ],
+ "negative_searches": [
+  {
+   "looked_for": "a year of arrival for any of the 128 guests present in 1882",
+   "where": "the whole roster and the surrounding report",
+   "found": "nothing — the roster gives each guest's 1882 post-office address instead. The years of arrival exist in the FIRST reception's proceedings of 1879, which are declared and unread in receptions.json."
+  },
+  {
+   "looked_for": "an 1835 street or lot for any guest",
+   "where": "the roster and the speeches",
+   "found": "nothing. Every address printed is of 1882."
+  },
+  {
+   "looked_for": "the women of the pre-1840 population",
+   "where": "the roster of guests present and the death roll",
+   "found": "not one woman on either list. The club invited settlers who were 21 by 1840 and the Tribune prints 168 men. The gallery paragraph names women — Mary Ann (Wolcott) Gilbert, Rebekah Heald — as PHOTOGRAPHS, not as guests. That is a property of the source, and it is why this source cannot be used to measure the town's population by sex."
+  }
+ ]
+}

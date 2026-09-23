@@ -1,0 +1,1079 @@
+{
+  "scene": "1835",
+  "target_date": "1835-07-01",
+  "standard": "Structures this project researched and deliberately left out of this scene, with the evidence that dates them. It is not a list of everything missing: most of the town is simply not built yet.",
+  "excluded": [
+    {
+      "id": "travellers_home",
+      "name": "The Traveller's Home (Chester Ingersoll's house)",
+      "reason": "NOT A SEPARATE BUILDING — it is the Wolf Point Tavern under a new landlord's sign. An identity guard, not a date guard.",
+      "detail": "The Chicago Democrat of 26 November 1833 carries, dated Oct. 4, 1833: 'TRAVELLER'S HOME. KEPT BY CHESTER INGERSOLL, Chicago--Illinois. The subscriber has taken that noted Tavern Stand in Chicago, lately occupied by Mr. Wm. W. Wattles...' Andreas names the same house three times: 'In 1833, the house again changed hands, William W. Wattles becoming its proprietor and landlord. In November, he sold out to Chester Ingersoll, who ran it an uncertain length of time, first as the \"Traveller's Home,\" and afterward as the Western Stage House. It went out of sight as a hotel in 1834' (p. 632, of the old Wolf Hotel); 'The old Wolf Point Tavern, formerly kept by Caldwell & Wentworth, then by Chester Ingersoll, who had re-christened it \"The Travelers' Home\"' — the fall-1833 inventory of the town's four hotels, which names the Green Tree SEPARATELY in the same sentence, ruling it out; and 'the Travelers' Home, a hotel kept by Chester Ingersoll, on Wolf Point, during June, 1834'. data/structures/wolf_point_tavern.json already carries 'Travelers' Home' in its aka list. TWO DOSSIER CLAIMS MOVE A YEAR: the renaming is 1833, not post-1834, and 'William Walters, landlord 1833-1836' is William W. WATTLES, who sold out in November 1833. See docs/RESEARCH/travellers_home.md.",
+      "earliest_scene": null,
+      "citations": [
+        {
+          "source_id": "andreas_1884_v1",
+          "citation": "Andreas, A. T. History of Chicago: From the Earliest Period to the Present Time. Vol. 1. Chicago: A. T. Andreas, 1884.",
+          "url": "https://archive.org/details/historyofchicago01andr",
+          "archived_url": "",
+          "tier": 3,
+          "tier_label": "compiled secondary (Andreas)"
+        },
+        {
+          "source_id": "chicago_democrat_1833_11_26",
+          "citation": "The Chicago Democrat. Vol. I, No. 1. Chicago, Ill.: John Calhoun, Tuesday, November 26, 1833.",
+          "url": "",
+          "archived_url": "",
+          "tier": 1,
+          "tier_label": "period/eyewitness",
+          "what_it_supplies": [
+            "that a named trade was being carried on in Chicago in November 1833",
+            "the Chicago Democrat's own address, self-reported: the corner of South Water and Clark streets",
+            "Philo Carpenter advertising drugs, medicines, oils, paints and dye-stuffs, dated Nov. 22, 1833 — with NO address, so it cannot disambiguate his two shops",
+            "C. & I. Harmon advertising dry goods, crockery, hardware and wet and dry groceries, dated Nov. 18, 1833 — with NO address, so it does NOT corroborate the Clark/South Water corner Andreas gives them",
+            "W. Kimball's 'New Store' at the corner of South Water and Clark — a SECOND, independently attested occupant of that junction in the same issue, signed",
+            "Peter Cohen, clothier and grocer, self-reported at the EAST END OF SOUTH WATER-STREET, and trading in Chicago before Nov 1833 ('old customers ... past favors')",
+            "Goss & Cobb, saddle and harness makers, self-reported on the corner of Lake and Canal streets",
+            "Matthias Mason & Co., blacksmiths, on 'Main-street, nearly opposite Graves' Tavern' — a street name this project does not otherwise hold",
+            "B. Jones, grocery and provision store, and separately a storage/forwarding/commission business — both ads give NO street",
+            "Newberry & Dole, forwarding and commission merchants — no address",
+            "John Wright, cut nails and general merchandise; and TWO BUILDINGS TO LET until 1 June 1834",
+            "Daniel Elston & [illegible], soap and candle manufactory, paying cash for tallow and house ashes",
+            "a tavern stand kept by Chester Ingersoll, 'lately occupied by Mr. Wm. W. WATTLES', dated 4 October 1833",
+            "the house of Chester Ingersoll used as the district polling place, 9 December 1833",
+            "THE VILLAGE ORDINANCES of 7 November 1833, complete — the richest single item in the paper",
+            "Ordinance 1: the corporate limits surveyed ALONG the northern United States' Pier 'to the termination thereof' — the pier as an existing, walkable structure with a definite landward end",
+            "Ordinance 5: 'either of the bridges in said town' and their 'plank or any piece of timber' — EXACTLY TWO bridges on 7 Nov 1833, of plank-and-timber construction",
+            "Ordinance 6: wooden buildings with wooden and lath-and-plaster partitions, heated by STOVES not fireplaces, pipes passing through roof or side wall and carried 18 inches above the roof, guarded by stone-ware pipe, brick, tin or sheet iron",
+            "Ordinance 9: timber, stone, brick, boxes and barrels stacked in the streets",
+            "Ordinances 3, 7 and 8: hogs at large, horses run through the streets, stallions",
+            "the schooner Austerlitz, Capt. Smith, from Buffalo, arrived about the 1[9]th inst. with a full cargo of merchandise for citizens of this village and cleared on the 21st IN BALLAST",
+            "a school established in the village by Mr. Sproat of Boston, already running on 26 Nov 1833",
+            "a public auction of United States property held AT FORT DEARBORN, 2 December 1833",
+            "the village population passing 'more than eight hundred souls' in late 1833"
+          ],
+          "what_it_does_not_supply": [
+            "any building's dimensions",
+            "any building's form, material, storey count or fenestration",
+            "the specific corner of any junction it names — the imprint says 'on the corner of', and which of the four is not in the sentence",
+            "evidence that any building named here still stood on 1835-07-01 — this issue is NINETEEN MONTHS before the scene date, in the town's fastest-changing period, and the population went from 800 to 3,265 in between",
+            "any building footprint or plan",
+            "any length or width for the piers",
+            "any corroboration of the estray pen — see the negative finding in the note"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "saloon_building",
+      "name": "Saloon Building",
+      "reason": "Built 1836 — after the 1835 scene date.",
+      "detail": "South-east corner Clark and Lake; three-story brick, erected 1836 by Capt. J. B. F. Russell and George W. Doan. Chicago's first three-story structure and the largest hall west of Buffalo; the city charter was received here in 1837 and it served as City Hall to 1842.",
+      "earliest_scene": "1837",
+      "citations": [
+        {
+          "source_id": "andreas_1884_v1",
+          "citation": "Andreas, A. T. History of Chicago: From the Earliest Period to the Present Time. Vol. 1. Chicago: A. T. Andreas, 1884.",
+          "url": "https://archive.org/details/historyofchicago01andr",
+          "archived_url": "",
+          "tier": 3,
+          "tier_label": "compiled secondary (Andreas)"
+        },
+        {
+          "source_id": "drloih_hotels",
+          "citation": "\"A Chronology of Early Chicago Area Hotels.\" Digital Research Library of Illinois History Journal.",
+          "url": "https://drloihjournal.blogspot.com/2022/07/chronology-of-early-chicago-area-hotels.html",
+          "archived_url": "",
+          "tier": 4,
+          "tier_label": "later scholarship"
+        }
+      ]
+    },
+    {
+      "id": "city_hotel_sherman",
+      "name": "City Hotel (later Sherman House)",
+      "reason": "Built 1836-37 — after the scene date.",
+      "detail": "North-west corner Clark and Randolph; large three-story brick, built by Francis C. Sherman.",
+      "earliest_scene": "1838",
+      "citations": [
+        {
+          "source_id": "andreas_1884_v1",
+          "citation": "Andreas, A. T. History of Chicago: From the Earliest Period to the Present Time. Vol. 1. Chicago: A. T. Andreas, 1884.",
+          "url": "https://archive.org/details/historyofchicago01andr",
+          "archived_url": "",
+          "tier": 3,
+          "tier_label": "compiled secondary (Andreas)"
+        }
+      ]
+    },
+    {
+      "id": "clarke_house",
+      "name": "Henry B. Clarke House (\"Widow Clarke House\")",
+      "reason": "Built 1836, and well outside the platted town in any case.",
+      "detail": "Greek Revival on 20 acres near what is now Michigan Ave and 16th St. Frequently and wrongly pulled into early-Chicago scenes because it survives today as the city's oldest house.",
+      "earliest_scene": "1837",
+      "citations": [
+        {
+          "source_id": "andreas_1884_v1",
+          "citation": "Andreas, A. T. History of Chicago: From the Earliest Period to the Present Time. Vol. 1. Chicago: A. T. Andreas, 1884.",
+          "url": "https://archive.org/details/historyofchicago01andr",
+          "archived_url": "",
+          "tier": 3,
+          "tier_label": "compiled secondary (Andreas)"
+        }
+      ]
+    },
+    {
+      "id": "peck_brick_house",
+      "name": "P. F. W. Peck brick house",
+      "reason": "Built 1837 — the first brick house erected in Chicago.",
+      "detail": "Peck in 1835 was living at his two-story frame store at the south-west corner of South Water and LaSalle. His LaSalle and Washington dwelling appears in an 1837 description. Model Peck at the store.",
+      "earliest_scene": "1838",
+      "citations": [
+        {
+          "source_id": "andreas_1884_v1",
+          "citation": "Andreas, A. T. History of Chicago: From the Earliest Period to the Present Time. Vol. 1. Chicago: A. T. Andreas, 1884.",
+          "url": "https://archive.org/details/historyofchicago01andr",
+          "archived_url": "",
+          "tier": 3,
+          "tier_label": "compiled secondary (Andreas)"
+        }
+      ]
+    },
+    {
+      "id": "market_house_lake_state",
+      "name": "Market House at Lake and State",
+      "reason": "Later than 1835.",
+      "detail": "",
+      "earliest_scene": "1837",
+      "citations": [
+        {
+          "source_id": "andreas_1884_v1",
+          "citation": "Andreas, A. T. History of Chicago: From the Earliest Period to the Present Time. Vol. 1. Chicago: A. T. Andreas, 1884.",
+          "url": "https://archive.org/details/historyofchicago01andr",
+          "archived_url": "",
+          "tier": 3,
+          "tier_label": "compiled secondary (Andreas)"
+        }
+      ]
+    },
+    {
+      "id": "first_fire_engine_house",
+      "name": "Engine house / Engine Company No. 1",
+      "reason": "The town's first fire engine was purchased 1 December 1835 for $894.38 — five months AFTER the scene date.",
+      "detail": "A tidy example of why the date gate matters: 1835 is the right year and still the wrong scene. AMENDED 2026-08-16 (ROADMAP T-I3), because this entry dated the ENGINE and the building is what a scene would show, and the building is later still. Andreas: 'Up to September, 1835, there was nothing like an organized Fire Department, or a fire engine in the town. Prior to that time buckets put out any fire that occurred, or it burned itself out' (Andreas I scan p. 299). The house came after the company: the committee appointed to find a site reported that the County Commissioners would give them 'leave to erect an engine house on the public square, on LaSalle Street, to occupy the same for and during the term of five years, without paying rent therefor', the clerk called for proposals for a house twelve by eighteen feet, the company had the limits widened to twenty-four by twelve, and 'On the 30th of December, 1835, Levi Blake contracted to build the engine house for $220' - and it was still not fairly completed when the chief engineer resigned on 17 February 1836 (scan p. 463). The town's own accounts book it in the year after: it 'had built an engine house costing $200' among the extraordinary liabilities of the year ending 1836. SO THE PUBLIC SQUARE HELD THREE COUNTY STRUCTURES BY 1837 AND EXACTLY ONE ON 1835-07-01 - Andreas's own summary of the new city says 'A court-house, a jail, and an engine-house adorned the present square', and on the scene date two of those three are unbuilt and the third, the log jail, is the only one this project may draw there.",
+      "earliest_scene": "1836",
+      "citations": [
+        {
+          "source_id": "andreas_1884_v1",
+          "citation": "Andreas, A. T. History of Chicago: From the Earliest Period to the Present Time. Vol. 1. Chicago: A. T. Andreas, 1884.",
+          "url": "https://archive.org/details/historyofchicago01andr",
+          "archived_url": "",
+          "tier": 3,
+          "tier_label": "compiled secondary (Andreas)"
+        }
+      ]
+    },
+    {
+      "id": "frink_walker_stage_office",
+      "name": "Frink & Walker stage office",
+      "reason": "By August 1836 stage seats were taken at Markle's Exchange Coffee House at Lake and Wells — Andreas dates that advertisement to the Chicago American of 6 August 1836, THIRTEEN MONTHS after the scene date. Where seats were taken in 1835 is unattested; this file and docs/research/04-structures-south.md both said '1835-36' and neither should have. The guard holds on its own ground: no separate stage-office BUILDING is attested before the 1840s.",
+      "detail": "",
+      "earliest_scene": "1840",
+      "citations": [
+        {
+          "source_id": "andreas_1884_v1",
+          "citation": "Andreas, A. T. History of Chicago: From the Earliest Period to the Present Time. Vol. 1. Chicago: A. T. Andreas, 1884.",
+          "url": "https://archive.org/details/historyofchicago01andr",
+          "archived_url": "",
+          "tier": 3,
+          "tier_label": "compiled secondary (Andreas)"
+        }
+      ]
+    },
+    {
+      "id": "hubbard_south_water_warehouse",
+      "name": "G. S. Hubbard's South Water Street packing house",
+      "reason": "Dates to 1840; his Kinzie Street packing house is 1837-38.",
+      "detail": "In 1834 Hubbard packed in the old bank building at Lake and LaSalle. Any 1835 Hubbard warehouse on South Water is unsupported — 'Hubbard's Folly' does not appear in Andreas at all.",
+      "earliest_scene": "1841",
+      "citations": [
+        {
+          "source_id": "andreas_1884_v1",
+          "citation": "Andreas, A. T. History of Chicago: From the Earliest Period to the Present Time. Vol. 1. Chicago: A. T. Andreas, 1884.",
+          "url": "https://archive.org/details/historyofchicago01andr",
+          "archived_url": "",
+          "tier": 3,
+          "tier_label": "compiled secondary (Andreas)"
+        }
+      ]
+    },
+    {
+      "id": "north_pier_lighthouse",
+      "name": "Pier-head light at the end of the North Pier",
+      "reason": "A later structure; the skeletal iron pier light dates to 1859.",
+      "detail": "The light standing in 1835 is the second tower, forty feet high, begun and completed by Samuel Jackson in 1832 and modelled as data/structures/chicago_lighthouse_1832.json. Do not put a light on the pier. AMENDED 2026-08-11: this entry previously called that tower 'the 1832 conical masonry tower' on Andreas's authority. Andreas's sentence gives the 1832 tower a height, a builder and a reflector and no shape and no material; 'The walls were three feet thick' and the fifty-foot height in the same paragraph belong to the FIRST tower, which fell unfinished on 30 October 1831. An exclusion should guard a boundary, not carry an attribution its sources do not support on the way past.",
+      "earliest_scene": "1860",
+      "citations": [
+        {
+          "source_id": "andreas_1884_v1",
+          "citation": "Andreas, A. T. History of Chicago: From the Earliest Period to the Present Time. Vol. 1. Chicago: A. T. Andreas, 1884.",
+          "url": "https://archive.org/details/historyofchicago01andr",
+          "archived_url": "",
+          "tier": 3,
+          "tier_label": "compiled secondary (Andreas)"
+        },
+        {
+          "source_id": "lighthousefriends_chicago",
+          "citation": "Anderson, Kraig. \"Chicago Harbor Lighthouse, Illinois.\" Lighthousefriends.com. Citing A. T. Andreas, History of Chicago (1884); the Annual Report of the Light-House Board, various years; and Donald J. Terras, \"Lighthouses of Chicago Harbor,\" The Keeper's Log, Summer 2011.",
+          "url": "https://www.lighthousefriends.com/light.asp?ID=234",
+          "archived_url": "https://web.archive.org/web/20260308064820/https://www.lighthousefriends.com/light.asp?ID=234",
+          "tier": 4,
+          "tier_label": "later scholarship",
+          "what_it_supplies": [
+            "the $5,000 appropriation of 3 March 1831",
+            "the first tower's collapse on 30 October 1831, unfinished, at fifty feet with three-foot walls",
+            "the contractor named as Samuel Jackson",
+            "the second tower completed the following year, forty feet high",
+            "four fourteen-inch reflectors in a bird-cage lantern room",
+            "Samuel Lasby as first keeper; the first light established on Lake Michigan",
+            "the quicksand-versus-workmanship dispute over the collapse"
+          ],
+          "what_it_does_not_supply": [
+            "any statement that the 1832 tower was conical",
+            "the 1832 tower's material",
+            "the 1832 tower's diameter, wall thickness, taper or plan",
+            "the tower's position relative to the fort or the river mouth",
+            "a month or day for the 1832 completion",
+            "the keeper's dwelling"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "kinzie_house",
+      "name": "John Kinzie House (the old Kinzie mansion)",
+      "reason": "GONE by the scene date — documented absence, not a date guard.",
+      "detail": "The du Sable/Kinzie house on the north bank opposite the fort was unoccupied and 'dilapidated beyond repair' from 1832 and reported gone by 1835. The commemorative plaque dates it 1784-1832. Note that the Conley/Stelzer 1933 map labels it 'Old Kinzie Mansion, built 1832', which contradicts every documentary source — a good illustration of why a tier-5 reconstruction is never sole evidence. The two large cottonwoods behind the house are separately attested and one survived into the 20th century, so the TREES belong in the 1835 scene even though the house does not.",
+      "earliest_scene": null,
+      "citations": [
+        {
+          "source_id": "chicagology_prefire273",
+          "citation": "\"Wolf's Point and the Town of Chicago.\" Chicagology. Transcribing the Chicago Magazine of 15 May 1857 — the account of the Wolf's Point settlement built on George Davis's 1832 drawing and on Gurdon S. Hubbard's own description of the place as he found it in 1818 — with A. T. Andreas and modern editorial matter around it.",
+          "url": "https://chicagology.com/prefire/prefire273/",
+          "archived_url": "https://web.archive.org/web/20260217122628/https://chicagology.com/prefire/prefire273/",
+          "tier": 2,
+          "tier_label": "near-primary recollection",
+          "transcribes": [
+            {
+              "work": "Chicago Magazine, 'Wolf's Point' — the account of the settlement at the forks, engraved from George Davis's 1832 drawing and incorporating Gurdon S. Hubbard's description of Chicago as he first saw it in 1818",
+              "date": "1857-05-15",
+              "tier": 2,
+              "note": "Carries the Miller House's log construction ('a log structure partly sided') and the Wolf Point Tavern's ('partly log and partly frame'), the fact of a frame element on each, and — through Hubbard — the marshy river-shore strip that grades the south division's marsh surface in terrain_spec.json. Twenty-five years after the fact, from a resident's drawing and a named witness speaking to the writer: rung 2."
+            }
+          ]
+        },
+        {
+          "source_id": "conley_stelzer_1933",
+          "citation": "Conley, Walter H. (copyright holder) and O. E. Stelzer (artist), with Caroline M. McIlvaine (historical adviser). A map of Chicago: incorporated as a town August 5, 1833. 1933.",
+          "url": "https://collections.leventhalmap.org/search/commonwealth:0r96fm830",
+          "archived_url": "",
+          "tier": 5,
+          "tier_label": "modern retrospective illustration/reconstruction"
+        }
+      ]
+    },
+    {
+      "id": "ouilmette_cabin",
+      "name": "Antoine Ouilmette's cabin",
+      "reason": "Almost certainly gone — Ouilmette left for Gross Pointe in the later 1820s and no source attests the cabin's survival past that decade.",
+      "detail": "It belonged to the Kinzie mansion group, which was derelict by 1832. Omit, or model as a ruin at most, and only with better evidence than currently exists.",
+      "earliest_scene": null,
+      "citations": [
+        {
+          "source_id": "chicagology_prefire273",
+          "citation": "\"Wolf's Point and the Town of Chicago.\" Chicagology. Transcribing the Chicago Magazine of 15 May 1857 — the account of the Wolf's Point settlement built on George Davis's 1832 drawing and on Gurdon S. Hubbard's own description of the place as he found it in 1818 — with A. T. Andreas and modern editorial matter around it.",
+          "url": "https://chicagology.com/prefire/prefire273/",
+          "archived_url": "https://web.archive.org/web/20260217122628/https://chicagology.com/prefire/prefire273/",
+          "tier": 2,
+          "tier_label": "near-primary recollection",
+          "transcribes": [
+            {
+              "work": "Chicago Magazine, 'Wolf's Point' — the account of the settlement at the forks, engraved from George Davis's 1832 drawing and incorporating Gurdon S. Hubbard's description of Chicago as he first saw it in 1818",
+              "date": "1857-05-15",
+              "tier": 2,
+              "note": "Carries the Miller House's log construction ('a log structure partly sided') and the Wolf Point Tavern's ('partly log and partly frame'), the fact of a frame element on each, and — through Hubbard — the marshy river-shore strip that grades the south division's marsh surface in terrain_spec.json. Twenty-five years after the fact, from a resident's drawing and a named witness speaking to the writer: rung 2."
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "methodist_meeting_house_south",
+      "name": "Methodist Episcopal church, south side",
+      "reason": "LOCATION guard rather than a date guard. The Methodist meeting house was NOT on the south side in 1835 — the congregation floated it across the river and rolled it on logs to Clark and Washington only in 1838. Which bank it was on BEFORE that move is disputed and this entry no longer asserts it: see data/structures/walker_meeting_house.json, where the west-bank and north-bank readings are set out and the position is tagged conjectural. The guard holds either way, because both candidate banks are north or west of the south division.",
+      "detail": "The 'M.E. Church' shown south of the river on the 1833 reconstructed map is best read as showing where Methodists met — the fort, and later the Temple Building — not a Methodist-owned building. The brick Clark Street church is 1844. Amended 2026-08-09: this entry previously stated the north bank as settled fact, which contradicted the structure record written against the same evidence. An exclusion should guard a boundary, not quietly decide an open question on the way past.",
+      "earliest_scene": "1839",
+      "citations": [
+        {
+          "source_id": "andreas_1884_v1",
+          "citation": "Andreas, A. T. History of Chicago: From the Earliest Period to the Present Time. Vol. 1. Chicago: A. T. Andreas, 1884.",
+          "url": "https://archive.org/details/historyofchicago01andr",
+          "archived_url": "",
+          "tier": 3,
+          "tier_label": "compiled secondary (Andreas)"
+        },
+        {
+          "source_id": "conley_stelzer_1933",
+          "citation": "Conley, Walter H. (copyright holder) and O. E. Stelzer (artist), with Caroline M. McIlvaine (historical adviser). A map of Chicago: incorporated as a town August 5, 1833. 1933.",
+          "url": "https://collections.leventhalmap.org/search/commonwealth:0r96fm830",
+          "archived_url": "",
+          "tier": 5,
+          "tier_label": "modern retrospective illustration/reconstruction"
+        }
+      ]
+    },
+    {
+      "id": "lake_house_finished",
+      "name": "Lake House hotel (completed)",
+      "reason": "Ground was broken in 1835 but it opened in the fall of 1836.",
+      "detail": "On the scene date this is a CONSTRUCTION SITE, not a building — a partial three-story brick shell on the north bank at Rush and Kinzie. It should be modelled in that state as a structure phase, not excluded outright; this entry exists to stop the finished hotel appearing.",
+      "earliest_scene": "1837",
+      "citations": [
+        {
+          "source_id": "drloih_hotels",
+          "citation": "\"A Chronology of Early Chicago Area Hotels.\" Digital Research Library of Illinois History Journal.",
+          "url": "https://drloihjournal.blogspot.com/2022/07/chronology-of-early-chicago-area-hotels.html",
+          "archived_url": "",
+          "tier": 4,
+          "tier_label": "later scholarship"
+        }
+      ]
+    },
+    {
+      "id": "fort_dearborn_first_1803",
+      "name": "The first Fort Dearborn (1803–1812)",
+      "reason": "Burned by the Pottawatomie on 16 August 1812, the day after the evacuation and the massacre. It is not a date guard so much as a SOURCE guard: most of what is published about 'Fort Dearborn's' plan describes this fort and gets applied to the one standing in 1835.",
+      "detail": "Captain John Whistler built it in 1803 and drew a measured plan of it in 1808 which survives in the War Department files and is printed with its index by Quaife. That fort had TWO BLOCKHOUSES at the south-east and north-west angles, a DOUBLE ROW OF PICKETS with the blockhouses commanding the space between them, a COVERED WAY or SALLY-PORT to the river, a FLAGSTAFF in the parade, barracks two storeys high with GALLERIES fronting the parade, and THREE PIECES OF LIGHT ARTILLERY. The second fort, rebuilt on the same ground in 1816, had ONE blockhouse at the south-west and bastions at the north-west and south-east, and John H. Kinzie says in terms that the two were 'differently constructed'. The passage that carries most of the first fort's description in the popular literature closes with the sentence 'Such was the old Fort previous to 1812'. Everything in this entry is excluded from 1835 and none of it may be borrowed for the second fort's records.",
+      "earliest_scene": null,
+      "citations": [
+        {
+          "source_id": "andreas_1884_v1",
+          "citation": "Andreas, A. T. History of Chicago: From the Earliest Period to the Present Time. Vol. 1. Chicago: A. T. Andreas, 1884.",
+          "url": "https://archive.org/details/historyofchicago01andr",
+          "archived_url": "",
+          "tier": 3,
+          "tier_label": "compiled secondary (Andreas)"
+        },
+        {
+          "source_id": "quaife_1913",
+          "citation": "Quaife, Milo Milton. Chicago and the Old Northwest, 1673-1835: A Study of the Evolution of the Northwestern Frontier, together with a History of Fort Dearborn. Chicago: University of Chicago Press, 1913.",
+          "url": "https://www.gutenberg.org/ebooks/69274",
+          "archived_url": "https://www.gutenberg.org/files/69274/69274-h/69274-h.htm",
+          "tier": 4,
+          "tier_label": "later scholarship",
+          "what_it_supplies": [
+            "the 1808 Whistler draught index for the FIRST fort, with its scale and its distances",
+            "Major Long's 1816 report on the second fort under construction",
+            "a scholarly negative: no dimension of the second fort's stockade"
+          ],
+          "what_it_does_not_supply": [
+            "any plan or dimension of the 1816 fort",
+            "anything about the fort after 1835"
+          ]
+        },
+        {
+          "source_id": "wentworth_1881_fort_dearborn",
+          "citation": "Wentworth, John. \"Fort Dearborn: An Address delivered at the unveiling of the memorial tablet to mark the site of the Fort, Saturday afternoon, May 21, 1881.\" Fergus' Historical Series No. 16. Chicago: Fergus Printing Company, 1881. With the key to Alexander Hesler's 1855 photograph and Robert Fergus's signed addendum to the 1850 von Schneidau daguerreotype.",
+          "url": "https://chicagology.com/prefire/prefire052/",
+          "archived_url": "http://web.archive.org/web/20260209092824/https://chicagology.com/prefire/prefire052/",
+          "tier": 2,
+          "tier_label": "near-primary recollection",
+          "what_it_supplies": [
+            "the commandant's quarters at about 25 x 50 ft, brick",
+            "the officers' quarters at about 30 x 60 ft, wood, at the north-west corner",
+            "a parade ground 80 ft wide",
+            "which buildings stood on which side of the parade",
+            "the commandants of the second fort by date",
+            "the date the pickets came down is NOT given - only that it was 'at an earlier date' than 1850"
+          ],
+          "what_it_does_not_supply": [
+            "the stockade's dimensions",
+            "anything about the fort in 1835 that is not inferred backwards from an 1850 or 1855 image",
+            "a reliable division between first-fort and second-fort description - the pamphlet reprints both and readers routinely mix them"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "fort_dearborn_sally_port",
+      "name": "Fort Dearborn's sally-port (subterranean passage to the river)",
+      "reason": "A FIRST-FORT feature, wrongly carried into this project's own dossier as attested for the 1816 fort.",
+      "detail": "'On the north side a subterranean passage, leading from the parade ground to the river, designed as a place of escape in an emergency, or for supplying the garrison with water in time of a siege' - Andreas, in his description of the fort built in 1803, and repeated in the Chicago Magazine of March 1857 in a passage that ends 'Such was the old Fort previous to 1812'. Whistler's own 1808 index lists it as 'N. 33 Covered Way to procure Water'. John H. Kinzie names it as one of the ways the first fort DIFFERED from the second. docs/research/04-structures-south.md section 1.2 tags it [DOC] 'attested for the 1816 fort's north side'; that reading is not supported by the page it cites, and no source reached attests a sally-port at the second fort. Not modelled.",
+      "earliest_scene": null,
+      "citations": [
+        {
+          "source_id": "andreas_1884_v1",
+          "citation": "Andreas, A. T. History of Chicago: From the Earliest Period to the Present Time. Vol. 1. Chicago: A. T. Andreas, 1884.",
+          "url": "https://archive.org/details/historyofchicago01andr",
+          "archived_url": "",
+          "tier": 3,
+          "tier_label": "compiled secondary (Andreas)"
+        },
+        {
+          "source_id": "quaife_1913",
+          "citation": "Quaife, Milo Milton. Chicago and the Old Northwest, 1673-1835: A Study of the Evolution of the Northwestern Frontier, together with a History of Fort Dearborn. Chicago: University of Chicago Press, 1913.",
+          "url": "https://www.gutenberg.org/ebooks/69274",
+          "archived_url": "https://www.gutenberg.org/files/69274/69274-h/69274-h.htm",
+          "tier": 4,
+          "tier_label": "later scholarship",
+          "what_it_supplies": [
+            "the 1808 Whistler draught index for the FIRST fort, with its scale and its distances",
+            "Major Long's 1816 report on the second fort under construction",
+            "a scholarly negative: no dimension of the second fort's stockade"
+          ],
+          "what_it_does_not_supply": [
+            "any plan or dimension of the 1816 fort",
+            "anything about the fort after 1835"
+          ]
+        },
+        {
+          "source_id": "wentworth_1881_fort_dearborn",
+          "citation": "Wentworth, John. \"Fort Dearborn: An Address delivered at the unveiling of the memorial tablet to mark the site of the Fort, Saturday afternoon, May 21, 1881.\" Fergus' Historical Series No. 16. Chicago: Fergus Printing Company, 1881. With the key to Alexander Hesler's 1855 photograph and Robert Fergus's signed addendum to the 1850 von Schneidau daguerreotype.",
+          "url": "https://chicagology.com/prefire/prefire052/",
+          "archived_url": "http://web.archive.org/web/20260209092824/https://chicagology.com/prefire/prefire052/",
+          "tier": 2,
+          "tier_label": "near-primary recollection",
+          "what_it_supplies": [
+            "the commandant's quarters at about 25 x 50 ft, brick",
+            "the officers' quarters at about 30 x 60 ft, wood, at the north-west corner",
+            "a parade ground 80 ft wide",
+            "which buildings stood on which side of the parade",
+            "the commandants of the second fort by date",
+            "the date the pickets came down is NOT given - only that it was 'at an earlier date' than 1850"
+          ],
+          "what_it_does_not_supply": [
+            "the stockade's dimensions",
+            "anything about the fort in 1835 that is not inferred backwards from an 1850 or 1855 image",
+            "a reliable division between first-fort and second-fort description - the pamphlet reprints both and readers routinely mix them"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "fort_dearborn_hospital",
+      "name": "A hospital building inside Fort Dearborn",
+      "reason": "NO SUCH BUILDING IS ATTESTED. The hospital in the sources is a USE of the fort during the 1832 cholera, not a structure in it.",
+      "detail": "The War Department return quoted in Wentworth's address reads 'Fort Dearborn having become a general hospital on July 11th [1832], no returns were received until its reoccupation' - the whole post was given over to sick troops off General Scott's steamers, and the officers and their families 'took shelter wherever they could'. That is an emergency use in July 1832 and by 1835 it has lapsed. docs/research/04-structures-south.md section 1.2 lists a 'hospital' among the fort's buildings tagged [DOC] from that page; there is no hospital building on it. The U.S. Marine Hospital that appears in the 1855 photograph caption is the vantage point of the photograph, built on the reservation after an appropriation of 1848, and is neither a fort building nor within twenty years of the scene date.",
+      "earliest_scene": null,
+      "citations": [
+        {
+          "source_id": "chicagology_prefire052",
+          "citation": "\"Fort Dearborn History.\" Chicagology. Reprinting the address delivered by Hon. John Wentworth at the Fort Dearborn Memorial Tablet ceremonies, 21 May 1881, as printed in the Chicago Tribune, 22 May 1881; with the caption to a woodcut of Alexander Hesler's 1855 photograph, an addendum on the fort in 1850 signed Robert Fergus, and an extract from Chicago Magazine, Vol. 1, No. 1, March 1857.",
+          "url": "https://chicagology.com/prefire/prefire052/",
+          "archived_url": "https://web.archive.org/web/20260209092824/https://chicagology.com/prefire/prefire052/",
+          "tier": 4,
+          "tier_label": "later scholarship",
+          "what_it_supplies": [
+            "NOTHING THAT wentworth_1881_fort_dearborn DOES NOT ALREADY SUPPLY, except the last three entries below - cite that record for the fort, not this one",
+            "commandant's quarters, brick, about 25 x 50 ft, at the north-west corner of the enclosure (1855 caption)",
+            "officers' quarters, wood, about 30 x 60 ft, at the north-west corner (1855 caption)",
+            "parade ground 80 x 200 ft (1855 caption) AND about 80 x 400 ft (Fergus, 1850) - a disagreement, not a figure",
+            "the sutler's building (key D) and the north gate (key E)",
+            "the 1850 arrangement: quarters west of the parade ground, artillery house, barracks and storehouse east",
+            "the sun-dial on an 8-inch square timber post about 2 ft high, near the parade ground's south end (1850)",
+            "the whitewashed rough-board fence about 6 ft high, pickets already removed (1850)",
+            "the kitchen garden in the south-west corner of the enclosure (1850)",
+            "the fort's use as a general hospital from 11 July during the 1832 cholera",
+            "Bvt. Maj. Joseph Plympton arriving 1 August 1836; the soldiers withdrawn 29 December 1836",
+            "J. B. Beaubien's purchase of the reservation, 28 May 1835, for $94.61",
+            "Beaubien's later residence at the north-east corner of South Water Street and Michigan Avenue, expressly after he left the John Dean house",
+            "the 1831 lighthouse authorised 3 March 1831, fallen in October 1831, soon rebuilt; Samuel C. Lasby first keeper"
+          ],
+          "what_it_does_not_supply": [
+            "a single consistent parade-ground dimension",
+            "any hospital BUILDING inside the fort",
+            "any description of the 1816 fort's walls, blockhouses, palisade or sally-port that is unambiguously about the 1816 fort",
+            "the fort as it stood in 1835 (its two extended physical descriptions are of the pre-1812 fort and of the fort in 1850)",
+            "any plan, footprint, orientation or measured survey",
+            "the height, roof form or fenestration of any fort building",
+            "any evidence independent of wentworth_1881_fort_dearborn - it is the same text at a different address"
+          ]
+        },
+        {
+          "source_id": "wentworth_1881_fort_dearborn",
+          "citation": "Wentworth, John. \"Fort Dearborn: An Address delivered at the unveiling of the memorial tablet to mark the site of the Fort, Saturday afternoon, May 21, 1881.\" Fergus' Historical Series No. 16. Chicago: Fergus Printing Company, 1881. With the key to Alexander Hesler's 1855 photograph and Robert Fergus's signed addendum to the 1850 von Schneidau daguerreotype.",
+          "url": "https://chicagology.com/prefire/prefire052/",
+          "archived_url": "http://web.archive.org/web/20260209092824/https://chicagology.com/prefire/prefire052/",
+          "tier": 2,
+          "tier_label": "near-primary recollection",
+          "what_it_supplies": [
+            "the commandant's quarters at about 25 x 50 ft, brick",
+            "the officers' quarters at about 30 x 60 ft, wood, at the north-west corner",
+            "a parade ground 80 ft wide",
+            "which buildings stood on which side of the parade",
+            "the commandants of the second fort by date",
+            "the date the pickets came down is NOT given - only that it was 'at an earlier date' than 1850"
+          ],
+          "what_it_does_not_supply": [
+            "the stockade's dimensions",
+            "anything about the fort in 1835 that is not inferred backwards from an 1850 or 1855 image",
+            "a reliable division between first-fort and second-fort description - the pamphlet reprints both and readers routinely mix them"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "fort_dearborn_board_fence_compound",
+      "name": "Fort Dearborn's whitewashed board fence, turnstile and 400-foot parade",
+      "reason": "The compound of the 1850s, after the pickets came down and the army left. A LATER-STATE guard rather than a date guard on a building.",
+      "detail": "Robert Fergus, describing the fort in 1850: 'The whole Fort enclosure was surrounded by a rough-board fence, white-washed, about 6 feet high; the pickets having been removed at an earlier date', with a turnstile entering from the centre of Michigan Avenue about 100 ft south of the sun-dial knoll, and a parade ground 'about 80 feet wide' running 'from the river bank south, the full length of the enclosure - say 400 feet'. NONE of that describes 1835: the pickets are attested standing by Juliette Kinzie in 1831 and drawn on the 1830 plan, the post was garrisoned until 29 December 1836, and the reservation was unplatted in 1835 so Michigan Avenue did not commence at that point. The fort is modelled stockaded. The sun-dial itself is carried back into the scene on the record data/structures/fort_dearborn_parade.json, which says so on the attribute; the fence, the turnstile and the 400 ft parade are not.",
+      "earliest_scene": "1845",
+      "citations": [
+        {
+          "source_id": "harrison_1830_river_mouth",
+          "citation": "Harrison, F., Jr., Ass't U.S. Civil Engineer. \"Map of the Mouth of Chicago River, drawn for the Purpose of showing the proposed Harbor Improvements. With additions and changes suggested by the Memory of Early Settlers. The original received and approved by William Howard, U.S. Civil Engineer, February 24, 1830.\" Reproduced in Andreas, A. T., History of Chicago, vol. 1 (Chicago, 1884), p. 113.",
+          "url": "https://archive.org/details/historyofchicago01andr/page/n242/mode/1up",
+          "archived_url": "",
+          "tier": 2,
+          "tier_label": "near-primary recollection",
+          "what_it_supplies": [
+            "the fort's plan arrangement: a quadrangular picket enclosure, corner works, four ranges, two gates",
+            "which building stood on which side of the parade",
+            "the relative proportions of the enclosure and the buildings in it",
+            "the fort's rotation relative to true north",
+            "the named ground around the fort: garrison garden, cultivated field, barn, wash house, well, shop, cemetery, ferry"
+          ],
+          "what_it_does_not_supply": [
+            "any dimension in feet - there is no scale bar",
+            "elevations, heights, roof forms or materials",
+            "the state of the fort in 1835 - it is five years earlier",
+            "a separation between the 1830 survey and the settler-memory additions the plate admits to"
+          ]
+        },
+        {
+          "source_id": "kinzie_waubun_1856",
+          "citation": "Kinzie, Juliette A. M. Wau-Bun: The 'Early Day' in the North-West. New York: Derby & Jackson, 1856.",
+          "url": "https://www.authorama.com/wau-bun-19.html",
+          "archived_url": "https://archive.org/details/waubunearlydayin00kinzbyu",
+          "tier": 2,
+          "tier_label": "near-primary recollection"
+        },
+        {
+          "source_id": "wentworth_1881_fort_dearborn",
+          "citation": "Wentworth, John. \"Fort Dearborn: An Address delivered at the unveiling of the memorial tablet to mark the site of the Fort, Saturday afternoon, May 21, 1881.\" Fergus' Historical Series No. 16. Chicago: Fergus Printing Company, 1881. With the key to Alexander Hesler's 1855 photograph and Robert Fergus's signed addendum to the 1850 von Schneidau daguerreotype.",
+          "url": "https://chicagology.com/prefire/prefire052/",
+          "archived_url": "http://web.archive.org/web/20260209092824/https://chicagology.com/prefire/prefire052/",
+          "tier": 2,
+          "tier_label": "near-primary recollection",
+          "what_it_supplies": [
+            "the commandant's quarters at about 25 x 50 ft, brick",
+            "the officers' quarters at about 30 x 60 ft, wood, at the north-west corner",
+            "a parade ground 80 ft wide",
+            "which buildings stood on which side of the parade",
+            "the commandants of the second fort by date",
+            "the date the pickets came down is NOT given - only that it was 'at an earlier date' than 1850"
+          ],
+          "what_it_does_not_supply": [
+            "the stockade's dimensions",
+            "anything about the fort in 1835 that is not inferred backwards from an 1850 or 1855 image",
+            "a reliable division between first-fort and second-fort description - the pamphlet reprints both and readers routinely mix them"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "fort_dearborn_artillery_pieces_1812",
+      "name": "The fort's three pieces of light artillery",
+      "reason": "Attested for the FIRST fort and for no other date. A guard on fort furniture, which the dossiers carry as though it were 1835-relevant.",
+      "detail": "'The Fort was furnished with three pieces of light-artillery' and 'A company of United-States troops, about fifty in number, many of whom were invalids, constituted the garrison' both stand in the Chicago Magazine passage that ends 'Such was the old Fort previous to 1812'. docs/research/08-fauna.md takes the fifty invalids from that page as 1835-relevant. Nothing reached says what ordnance stood at the second fort at any date; an artillery HOUSE is named once, in a description of the fort in 1850, and is modelled as data/structures/fort_dearborn_artillery_house.json with the guns left out. No gun is drawn anywhere in this scene.",
+      "earliest_scene": null,
+      "citations": [
+        {
+          "source_id": "chicagology_prefire052",
+          "citation": "\"Fort Dearborn History.\" Chicagology. Reprinting the address delivered by Hon. John Wentworth at the Fort Dearborn Memorial Tablet ceremonies, 21 May 1881, as printed in the Chicago Tribune, 22 May 1881; with the caption to a woodcut of Alexander Hesler's 1855 photograph, an addendum on the fort in 1850 signed Robert Fergus, and an extract from Chicago Magazine, Vol. 1, No. 1, March 1857.",
+          "url": "https://chicagology.com/prefire/prefire052/",
+          "archived_url": "https://web.archive.org/web/20260209092824/https://chicagology.com/prefire/prefire052/",
+          "tier": 4,
+          "tier_label": "later scholarship",
+          "what_it_supplies": [
+            "NOTHING THAT wentworth_1881_fort_dearborn DOES NOT ALREADY SUPPLY, except the last three entries below - cite that record for the fort, not this one",
+            "commandant's quarters, brick, about 25 x 50 ft, at the north-west corner of the enclosure (1855 caption)",
+            "officers' quarters, wood, about 30 x 60 ft, at the north-west corner (1855 caption)",
+            "parade ground 80 x 200 ft (1855 caption) AND about 80 x 400 ft (Fergus, 1850) - a disagreement, not a figure",
+            "the sutler's building (key D) and the north gate (key E)",
+            "the 1850 arrangement: quarters west of the parade ground, artillery house, barracks and storehouse east",
+            "the sun-dial on an 8-inch square timber post about 2 ft high, near the parade ground's south end (1850)",
+            "the whitewashed rough-board fence about 6 ft high, pickets already removed (1850)",
+            "the kitchen garden in the south-west corner of the enclosure (1850)",
+            "the fort's use as a general hospital from 11 July during the 1832 cholera",
+            "Bvt. Maj. Joseph Plympton arriving 1 August 1836; the soldiers withdrawn 29 December 1836",
+            "J. B. Beaubien's purchase of the reservation, 28 May 1835, for $94.61",
+            "Beaubien's later residence at the north-east corner of South Water Street and Michigan Avenue, expressly after he left the John Dean house",
+            "the 1831 lighthouse authorised 3 March 1831, fallen in October 1831, soon rebuilt; Samuel C. Lasby first keeper"
+          ],
+          "what_it_does_not_supply": [
+            "a single consistent parade-ground dimension",
+            "any hospital BUILDING inside the fort",
+            "any description of the 1816 fort's walls, blockhouses, palisade or sally-port that is unambiguously about the 1816 fort",
+            "the fort as it stood in 1835 (its two extended physical descriptions are of the pre-1812 fort and of the fort in 1850)",
+            "any plan, footprint, orientation or measured survey",
+            "the height, roof form or fenestration of any fort building",
+            "any evidence independent of wentworth_1881_fort_dearborn - it is the same text at a different address"
+          ]
+        },
+        {
+          "source_id": "wentworth_1881_fort_dearborn",
+          "citation": "Wentworth, John. \"Fort Dearborn: An Address delivered at the unveiling of the memorial tablet to mark the site of the Fort, Saturday afternoon, May 21, 1881.\" Fergus' Historical Series No. 16. Chicago: Fergus Printing Company, 1881. With the key to Alexander Hesler's 1855 photograph and Robert Fergus's signed addendum to the 1850 von Schneidau daguerreotype.",
+          "url": "https://chicagology.com/prefire/prefire052/",
+          "archived_url": "http://web.archive.org/web/20260209092824/https://chicagology.com/prefire/prefire052/",
+          "tier": 2,
+          "tier_label": "near-primary recollection",
+          "what_it_supplies": [
+            "the commandant's quarters at about 25 x 50 ft, brick",
+            "the officers' quarters at about 30 x 60 ft, wood, at the north-west corner",
+            "a parade ground 80 ft wide",
+            "which buildings stood on which side of the parade",
+            "the commandants of the second fort by date",
+            "the date the pickets came down is NOT given - only that it was 'at an earlier date' than 1850"
+          ],
+          "what_it_does_not_supply": [
+            "the stockade's dimensions",
+            "anything about the fort in 1835 that is not inferred backwards from an 1850 or 1855 image",
+            "a reliable division between first-fort and second-fort description - the pamphlet reprints both and readers routinely mix them"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "us_land_office_1835",
+      "name": "United States Land Office at Chicago",
+      "reason": "NOT A SEPARATE BUILDING — the office was open and working on the scene date and was carried on inside private premises. A kind guard, not a date guard, and the one an I3 slot is most likely to be spent on: the family's own crosswalk entry names 'adapted offices' as a thing it spans.",
+      "detail": "The office is the most conspicuous public FUNCTION in Chicago in the summer of 1835 and it never was a public building. Andreas's chronology puts its opening at 'May' 1835 — 'Opening of Government Land-Office at Chicago; great land craze' (Andreas I scan p. 1317) — and the Beaubien claim dates the working office to the week: Beaubien 'entered at the land office in Chicago, of which Edmund D. Taylor was Receiver, and James Whitlock Register, a pre-emption claim', his certificate 'was dated May 28, and recorded June 26' (scan p. 313 and the Beaubien Claim section). So it is open, staffed and transacting business four weeks before the scene date. What it is not is a roof: 'The location of the first United States Land Office in Chicago was on the east side of Lake Street, between Clark and Dearborn streets', and Andreas says in the same paragraph that 'the office of the Registers and Receivers were usually at their private offices' (scan p. 313). An address on the built-up side of Lake Street between two cross streets is a room in somebody's commercial building. Nothing reached says whose, so nothing here places the function on a committed record — the guard is only that a federal land office does not get a building of its own.",
+      "earliest_scene": null,
+      "citations": [
+        {
+          "source_id": "andreas_1884_v1",
+          "citation": "Andreas, A. T. History of Chicago: From the Earliest Period to the Present Time. Vol. 1. Chicago: A. T. Andreas, 1884.",
+          "url": "https://archive.org/details/historyofchicago01andr",
+          "archived_url": "",
+          "tier": 3,
+          "tier_label": "compiled secondary (Andreas)"
+        }
+      ]
+    },
+    {
+      "id": "custom_house_chicago",
+      "name": "Chicago custom house",
+      "reason": "Eleven years later — Chicago was not a port of entry until 1846, and before that the district was tributary to Detroit.",
+      "detail": "A lake port with a lighthouse, two piers and a harbour under improvement invites the assumption, and there is nothing to it. Andreas: the district 'was a tributary to the Detroit District, and the revenue was collected by Seth Johnson, formerly an officer of the garrison, with the office at 38 Clark street'; Chicago was made a port of entry by the act of 16 July 1846 and William B. Snowhook was appointed Collector on 10 August 1846, 'some time during his administration removing the custom-house to No. 3 Clark Street' (Andreas I scan p. 325). Even then it is a street address rather than a purpose-built house — the first federal building comes much later.",
+      "earliest_scene": "1847",
+      "citations": [
+        {
+          "source_id": "andreas_1884_v1",
+          "citation": "Andreas, A. T. History of Chicago: From the Earliest Period to the Present Time. Vol. 1. Chicago: A. T. Andreas, 1884.",
+          "url": "https://archive.org/details/historyofchicago01andr",
+          "archived_url": "",
+          "tier": 3,
+          "tier_label": "compiled secondary (Andreas)"
+        }
+      ]
+    },
+    {
+      "id": "chicago_town_hall",
+      "name": "Town hall or municipal building for the Town of Chicago",
+      "reason": "NOT A BUILDING — the town incorporated in August 1833 and never built itself a hall in the years this project models. The positive evidence runs the other way rather than being merely absent.",
+      "detail": "Two things Andreas records say it plainly, and neither is an argument from silence. The town had no ground of its own to build on: when its fire company wanted an engine house in December 1835 the committee had to report that the COUNTY Commissioners would give them 'leave to erect an engine house on the public square ... without paying rent therefor' (Andreas I scan p. 463) — the square is the county's, granted by the State in 1831 for the erection of public buildings, and the town is a tenant on it. And the town met and voted in taverns: 'The fourth and last election under the town system was held at the Tremont House June 6, 1836', and the first CITY election of May 1837 was polled at the Eagle Hotel, Lincoln's Coffee House, a private house, Cox's Chicago Hotel, the Canal Office and the Franklin House (scan pp. 369, 373). A corporation that holds its own elections in six other people's rooms four years after incorporating does not have a hall. The building that eventually served as City Hall is the Saloon Building of 1836, already excluded above, and it was private property.",
+      "earliest_scene": null,
+      "citations": [
+        {
+          "source_id": "andreas_1884_v1",
+          "citation": "Andreas, A. T. History of Chicago: From the Earliest Period to the Present Time. Vol. 1. Chicago: A. T. Andreas, 1884.",
+          "url": "https://archive.org/details/historyofchicago01andr",
+          "archived_url": "",
+          "tier": 3,
+          "tier_label": "compiled secondary (Andreas)"
+        }
+      ]
+    },
+    {
+      "id": "south_bank_warehouses_dearborn_reach",
+      "name": "The south-bank warehouses below the Dearborn draw",
+      "reason": "NO GROUND GUARD, NOT A DATE GUARD — the third kind of entry in this file. Image 3 of the owner's brief of 2026-08-18 draws low warehouses on BOTH banks of the reach below the Dearborn Street drawbridge. The north side stands (four freight sheds, T-0133). The south side is left out because the platted 80 ft corridor of South Water Street occupies that bank down to the water at this reach, and the strip of ground outside it is the river bank itself, too steep to build on. Nothing here doubts the plate. What is unsettled is whether an invented building may stand on the river margin of a platted street corridor, where this town's warehouses and landings in fact stood — a decision about what the dataset asserts, and one this project has not taken.",
+      "detail": "MEASURED, at every tolerance the refusal could turn on. tools/measure_south_bank_ground.py walks the south bank from the Dearborn crossing (local E 699.2, the bridge's own committed position) east to the United States Reservation's west line (E 842.0), and asks whether the SMALLEST footprint family F1 allows — 18 x 32 ft, the freight shed of the plate — can be put down at any bearing on ground that is dry in the committed heightfield, outside every platted corridor and off refused ground. Beside the platted street, which is the frontage the plate draws: ZERO positions at the 0.30 m walker step tolerance three infill generators hold themselves to, and zero at the 0.35 m the north bank sheds quote. The widest free strip there is 8.00 m and the three positions it accepts with no relief clause at all span 0.96–0.98 m of relief, more than three times that tolerance. THE ORIGINAL REFUSAL WAS RIGHT FOR THE WRONG REASON: T-0133's records say 'the corridor reaches to within about 1.7 m of the waterline', which was one spot reading at the reach's narrowest station. 124 of 143 stations do carry dry ground outside a corridor; what defeats a building is the slope, not the width. The 26.50 m strip at E 813.2 is east of South Water Street's own platted end and is the slough's east bank, not this frontage. Full finding: docs/RESEARCH/south_bank_dearborn_ground.md. The reading is ratcheted by tools/measure_south_bank_ground.py --gate, which fails if a fit ever appears — that would be this question re-opening, not a number to bank.",
+      "earliest_scene": null,
+      "citations": [
+        {
+          "source_id": "hathaway_1834",
+          "citation": "Hathaway, Joshua. Chicago with the School Section, Wabansia, and Kinzie's Addition. 1834.",
+          "url": "https://www.loc.gov/item/2008621683/",
+          "archived_url": "",
+          "tier": 1,
+          "tier_label": "period/eyewitness",
+          "what_it_supplies": [
+            "street geometry",
+            "block and lot subdivision",
+            "platted extent"
+          ],
+          "what_it_does_not_supply": [
+            "building footprints",
+            "building locations"
+          ]
+        },
+        {
+          "source_id": "wright_1834",
+          "citation": "Wright, J. S. Chicago, drawn by J. S. Wright according to survey. New York: P. A. Mesier's Lith., 1834.",
+          "url": "https://collections.leventhalmap.org/search/commonwealth:js9577436",
+          "archived_url": "",
+          "tier": 1,
+          "tier_label": "period/eyewitness",
+          "what_it_supplies": [
+            "street geometry",
+            "block and lot subdivision",
+            "shoreline",
+            "river channel and the 1834 cut",
+            "survey-date colouring"
+          ],
+          "what_it_does_not_supply": [
+            "building footprints",
+            "building locations"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "john_dean_house",
+      "name": "The John-Dean house at the foot of Randolph Street",
+      "reason": "NO SOURCE ATTESTS ITS SURVIVAL — last seen in 1818, thirteen years before the scene, and no demolition is recorded either. The same disposition as `ouilmette_cabin`, for the same reason.",
+      "detail": "Andreas scan p. 183: 'In 1815 ... an army contractor named Dean, built a house on the lake shore, at the mouth of the Chicago River, near where is now the foot of Randolph Street. In 1817, Mr. Beaubien purchased this house, which was a low, gloomy building of five rooms, for $1,000 ... he lived in the Dean house for several years'. A SECOND AND INDEPENDENT WITNESS WAS ALREADY IN THIS CORPUS, filed under `landscape` and never noticed: `bk_hub_064` has Gurdon Hubbard, describing Chicago as he found it in 1818, put 'another house of hewn logs ... twelve hundred or more feet from the road, and back of it flowed the Chicago River'. The identification is FORCED rather than suggested, and what forces it is Hubbard's own exhaustiveness — `bk_hub_066` closes his inventory with the buildings named 'comprised all the buildings within the present limits of Cook County', and every other building on that list is placed somewhere this one is not. It adds a material (hewn logs) this project had for no other reading of the house. EVERY SIGHTING FALLS IN 1815-1818: built 1815, bought 1817, Varnum boarding 1816-1822, Hubbard 1818. Beaubien is elsewhere by 1822 or 1823, and nothing follows the building past him. Wentworth's 1881 'what was before known as the John-Dean house' is a statement about a NAME made sixty-six years after the fact, not a sighting. THE SITE IS NO HELP EITHER WAY: the 1828 cut through the spit and the 1833-34 harbour piers rebuilt the mouth a quarter mile north of here and did not touch the ground at the foot of Randolph, so 'the shore changed' is not a demolition argument and is not used as one. The 1830 land-entry map cannot license a dwelling (its own source record says so) and therefore cannot refuse one; the Thompson plat stops well west of this ground, which is unplatted lakefront inside the Fort Dearborn Reservation. A SECOND REASON THAT WOULD HOLD EVEN IF SURVIVAL WERE GRANTED: nothing dimensions it. 'Five rooms' is a room count and not a dimension — no length, no depth, no storey height, no bearing — and 'near where is now the foot of Randolph Street', derived by T-0759's method against this project's own Randolph line and the traced 1834 shoreline, lands on the WATERLINE at local east 1224.1, north -262.43, so a house there would need an invented setback, bearing and size. Full reading, including the measured agreement between Hubbard's distances and this project's geometry, at docs/RESEARCH/john_dean_house.md. T-0895.",
+      "earliest_scene": null,
+      "citations": [
+        {
+          "source_id": "andreas_1884_v1",
+          "citation": "Andreas, A. T. History of Chicago: From the Earliest Period to the Present Time. Vol. 1. Chicago: A. T. Andreas, 1884.",
+          "url": "https://archive.org/details/historyofchicago01andr",
+          "archived_url": "",
+          "tier": 3,
+          "tier_label": "compiled secondary (Andreas)"
+        },
+        {
+          "source_id": "hubbard_autobiography_1911",
+          "citation": "Gurdon Saltonstall Hubbard, The Autobiography of Gurdon Saltonstall Hubbard, Pa-pa-ma-ta-be, \"The Swift Walker\", with an Introduction by Caroline M. McIlvaine, Librarian of the Chicago Historical Society (Chicago: R. R. Donnelley & Sons Company, The Lakeside Press, Christmas 1911) — The Lakeside Classics. Read in full for its Chicago material before 1836: the front matter, McIlvaine's Introduction (pages ix-xxvii), and Hubbard's own narrative at pages 27-41, 135-138, 141-144, 153-159, 165-174 and 178-182. Hubbard's letter of 25 July 1827, printed as a note at page 174, is a separate source record.",
+          "url": "https://archive.org/details/autobiographyofg00hubb",
+          "archived_url": "https://archive.org/download/autobiographyofg00hubb/autobiographyofg00hubb_djvu.txt",
+          "tier": 2,
+          "tier_label": "near-primary recollection",
+          "transcribes": [
+            {
+              "work": "Hubbard's own autobiographical narrative — his engagement with the American Fur Company at Montreal and Mackinaw, the voyage of September 1818, his first entry into Chicago on 1 October 1818, the fort and its neighbours as he first saw them, the Chicago portage and Mud Lake, Hubbard's Trail, the trading posts of the Illinois River, and the Winnebago Scare of 1827 — ending abruptly at November 1830",
+              "date": "Written in the 1880s; printed 1888 and again 1911. Describes 1818-1830.",
+              "tier": 2,
+              "note": "A participant's recollection at more than fifty years' distance, and the rung most of this reading sits on. It is a recollection and not a record: the Fort Dearborn measurements are paces remembered, the payment of page 167 is dated to the wrong year, and the commanders' list is Hubbard's own search of the War Department records, which he says failed for the years after June 1833. The Winnebago Scare section (pages 166-174) is footnoted as coming not from the Diary but 'from statements by Mr. Hubbard in Chicago Historical Series, No. 10', which is one remove further."
+            },
+            {
+              "work": "Caroline M. McIlvaine's Introduction, pages ix-xxvii — a 1911 review of the fifty-six years the Autobiography does not cover, compiled from letters, memoranda, contemporaries' reminiscences and printed history, and quoting E. O. Gale's Reminiscences of Early Chicago, The Chicago American of 10 October 1835, the Sunday Times of 24 October 1875 and Henry E. Hamilton's 1907 biographical sketch",
+              "date": "1911",
+              "tier": 4,
+              "note": "EVERY STATEMENT THIS PROJECT TAKES ABOUT 1834, 1835 OR 1836 COMES FROM HERE AND NOT FROM HUBBARD. The brick building at La Salle and South Water, the five or six hundred inhabitants, the brig Illinois of 25 May 1835, the Green Tree Tavern, the fire engine, the Russell & Mather purchase, the canal commissioners and the water-works are all McIlvaine's, written seventy-six years after the scene, and several are quotations at a further remove. A run reaching for 'Hubbard on 1835' is reaching for McIlvaine."
+            },
+            {
+              "work": "Editorial notes by Henry E. Hamilton, signed H. E. H., inserted in square brackets in the narrative — including the note at page 178 that the hog-driving of 1829-30 'was the beginning of the packing industry in Chicago' — and the publishers' preface and closing note",
+              "date": "1888 (the notes); 1911 (the preface and the closing note, the latter signed C. M. M.)",
+              "tier": 4,
+              "note": "Compiler's judgements, sixty years after the events, printed inside the narrative's own type. bk_hub_101 and bk_hub_104 are read from this layer and say so."
+            }
+          ],
+          "what_it_supplies": [
+            "Fort Dearborn's occupation chronology, dated to the day, from its establishment in 1804 to its final abandonment on 29 December 1836 — which puts the scene year inside a continuous garrison running from 1 October 1832",
+            "a full description of the second fort as a man who lived beside it in 1818 remembered it: fourteen-foot oak pickets, a block house at the south-west corner and a bastion at the north-west, whitewashed stockade and buildings, the officers' quarters outside the pickets with a piazza at second-storey level, the soldiers' quarters, the sutler's store in the north-east corner, two gates, two ten-foot guardhouses, a two-storey commissary storehouse and a brick magazine",
+            "the fort's surroundings: a four-acre garden, a military barn, a field running half a mile south, the ONE road, a fence line closed from river to river, the well by the south gate, and wash-houses on the sandy beach east of the pickets",
+            "the Factor House — two storeys, squared logs, a split-picket fence, Jouett to about 1810 and then John Dean — and the American Fur Company's round-log storehouse built by John Craft and occupied after his death by Jean Baptiste Beaubien",
+            "John Kinzie's house described from inside it: a long log cabin with a rude piazza, fronting the river directly opposite the fort, with a window that had a sight-line to the fort at night — the piazza confirmed again nine years later",
+            "a complete building count for the whole of the present Cook County in 1818: the fort's group, the Factor House, the Fur Company storehouse, Hardscrabble, Ouilmette's cabin and Kinzie's house, and nothing else",
+            "the river mouth's history — its natural outlet at the fort, its southward migration behind a sand spit driven by north-east winds, its position at The Pines a mile south as late as 1827, the soldiers' cut of spring 1828 and the sand's refilling of it",
+            "landscape: the prairie seen from Douglas Grove, the Blue Island grove and the Desplaines timber, wild onion and leek along the river, wild rice and head-high grass at Mud Lake, the old cultivated field on the River Guarie still legible as cornhills, and prairie fires dangerous enough to sink boats against",
+            "Hubbard's Trail, dated by the man who cut it (1822 to Danville, extended north to Chicago in 1824) and the State road from Vincennes to Chicago ordered in the winter of 1833-34 that adopted most of it",
+            "the settlement's size taken sideways: about forty men and women turned out to fight the fort fire in 1827, and a majority of the men at the fort that summer were Hubbard's own employees",
+            "for 1835, at one remove through McIlvaine: the brig Illinois lightered ashore on 25 May because the harbour could not take her, the passengers going on to the Green Tree Tavern, the Chicago American of 10 October 1835 on Hubbard's fire engine, and the March 1835 purchase of the eighty acres of Russell & Mather's addition for $5,000",
+            "one period document, and it is graded separately: Hubbard's letter to his sister headed 'Chicago, July 25, 1827', at data/sources/hubbard_letter_1827_07_25.json"
+          ],
+          "what_it_does_not_supply": [
+            "Hubbard's own eyewitness on 1835. HIS NARRATIVE ENDS IN NOVEMBER 1830 and the closing note says so in as many words; the book's 1835 is Caroline McIlvaine's, written in 1911",
+            "any plat position, lot, or measured coordinate. Every placement here is prose — 'west and a little south of the fort', 'about where Wells street now crosses the river' — and several are given in streets that did not exist when the thing described did",
+            "reliable dimensions. 'A square of about six hundred feet' for the Fort Dearborn stockade is a pace-estimate at sixty years' distance and is much larger than the fort this project reconstructs",
+            "a consistent account of the officers' quarters: page 36 puts them outside the pickets and built of hewn logs, page 167 puts the commanding officers' former quarters in a brick building just within the north stockade and the log quarters within the pickets on the west. The book contradicts itself and this project does not resolve it",
+            "the right year for the Pottawatomie payment and the fort fire: page 167 prints 1828 where the section heading, the surrounding narrative and Hubbard's own dated letter all say July 1827",
+            "the names of the officers commanding Fort Dearborn after 19 June 1833 — Hubbard says he could not find them in the War Department records, so the source names nobody in command during the scene year",
+            "a residence for anybody in 1835. Every person Hubbard names, he names for what they did between 1812 and 1830",
+            "page images. This reading is of the Internet Archive's OCR text of the scan, corroborated against the deposited PDF's own text layer; no claim here is scan_verified"
+          ]
+        },
+        {
+          "source_id": "wentworth_1881_fort_dearborn",
+          "citation": "Wentworth, John. \"Fort Dearborn: An Address delivered at the unveiling of the memorial tablet to mark the site of the Fort, Saturday afternoon, May 21, 1881.\" Fergus' Historical Series No. 16. Chicago: Fergus Printing Company, 1881. With the key to Alexander Hesler's 1855 photograph and Robert Fergus's signed addendum to the 1850 von Schneidau daguerreotype.",
+          "url": "https://chicagology.com/prefire/prefire052/",
+          "archived_url": "http://web.archive.org/web/20260209092824/https://chicagology.com/prefire/prefire052/",
+          "tier": 2,
+          "tier_label": "near-primary recollection",
+          "what_it_supplies": [
+            "the commandant's quarters at about 25 x 50 ft, brick",
+            "the officers' quarters at about 30 x 60 ft, wood, at the north-west corner",
+            "a parade ground 80 ft wide",
+            "which buildings stood on which side of the parade",
+            "the commandants of the second fort by date",
+            "the date the pickets came down is NOT given - only that it was 'at an earlier date' than 1850"
+          ],
+          "what_it_does_not_supply": [
+            "the stockade's dimensions",
+            "anything about the fort in 1835 that is not inferred backwards from an 1850 or 1855 image",
+            "a reliable division between first-fort and second-fort description - the pamphlet reprints both and readers routinely mix them"
+          ]
+        }
+      ]
+    }
+  ],
+  "uncertain_standard": "Structures whose status on this date is genuinely OPEN — neither built with confidence nor ruled out. They are the third category, and each one says whether it is standing in front of you or was never found on the ground.",
+  "uncertain": [
+    {
+      "id": "cobweb_castle",
+      "name": "The Indian Agency House (\"Cobweb Castle\")",
+      "question": "What became of it? Standing and in civilian occupation by 1833 under Col. R. J. Hamilton, and no source reached gives its fate after that.",
+      "consequence": "Wau-Bun describes the building itself in detail — hewed and squared logs, a centre, two wings and two rear tails — so this is a structure that could be modelled well and dated badly. Its survival to the scene date is the whole of the uncertainty.",
+      "standing": true,
+      "no_source_record": "",
+      "dossier": {
+        "file": "docs/research/03-structures-north.md",
+        "anchor": "The Indian Agency House"
+      },
+      "citations": [
+        {
+          "source_id": "kinzie_waubun_1856",
+          "citation": "Kinzie, Juliette A. M. Wau-Bun: The 'Early Day' in the North-West. New York: Derby & Jackson, 1856.",
+          "url": "https://www.authorama.com/wau-bun-19.html",
+          "archived_url": "https://archive.org/details/waubunearlydayin00kinzbyu",
+          "tier": 2,
+          "tier_label": "near-primary recollection"
+        }
+      ],
+      "carried_by": "log_1820.documented_range",
+      "carried_confidence": "inferred"
+    },
+    {
+      "id": "billy_caldwell_house",
+      "name": "Billy Caldwell's house at State and Chicago Avenue",
+      "question": "Did it exist, and if it did, what state was it in? The 1828 government-built frame house is reported unverified even as a story, and its condition and occupancy in July 1835 are unattested.",
+      "consequence": "The one entry on this list whose uncertainty is about existence rather than survival. It also sits inside the standing constraint on 1835 and Indigenous history in AGENTS.md: Caldwell led his people west in the removal of August 1835, weeks after the scene date, and nothing about that is to be improvised here.",
+      "standing": false,
+      "no_source_record": "The dossier says at least one source notes the story is unverified and does not say which, so there is no page to cite and no source record to point at. Recording that as an uncited entry is the honest reading; naming a source here would be inventing one to satisfy a field.",
+      "dossier": {
+        "file": "docs/research/03-structures-north.md",
+        "anchor": "Billy Caldwell (Sauganash) — residence(s)"
+      },
+      "citations": []
+    },
+    {
+      "id": "western_hotel",
+      "name": "Western Hotel",
+      "question": "Built 1834 by W. H. Stow per chicagology, 1835 per the hotel chronology. If the later date is right the house is brand new or still going up on the scene date.",
+      "consequence": "This is the one entry on the list that is STANDING in the scene, so the uncertainty is not about whether to build it but about what a visitor is being told. It reaches the card through the phase's own dated claim, which is `inferred` and argues the dispute out in its note.",
+      "standing": true,
+      "no_source_record": "",
+      "dossier": {
+        "file": "docs/RESEARCH/western_hotel.md",
+        "anchor": "Conflict: built 1834 or 1835?"
+      },
+      "citations": [
+        {
+          "source_id": "chicagology_prefire278",
+          "citation": "\"Town of Chicago.\" Chicagology. Transcribing the Inter Ocean of 22 July 1883 — 'Old Chicago: The Town in 1833', which carries both the town's incorporation record and 'The Old Western Hotel', an interview feature with named old settlers who used the house.",
+          "url": "https://chicagology.com/prefire/prefire278/",
+          "archived_url": "https://web.archive.org/web/20260308051207/https://chicagology.com/prefire/prefire278/",
+          "tier": 2,
+          "tier_label": "near-primary recollection",
+          "transcribes": [
+            {
+              "work": "Inter Ocean, 'Old Chicago: The Town in 1833' — the section headed 'The Old Western Hotel: First Frame House on the West Side', with the reporter's description of the surviving fragment and interviews with old settlers and with the builder's son",
+              "date": "1883-07-22",
+              "tier": 2,
+              "note": "Carries all four Western Hotel claims in this dataset — the farmers' and teamsters' house, W. H. Stow as builder and proprietor, the original two storeys, and the large stable and wagon yard with entrances from both streets — and it carries the dispute over the build date that keeps the dated range at `inferred`. Men recalling a house they used: rung 2."
+            }
+          ]
+        },
+        {
+          "source_id": "drloih_hotels",
+          "citation": "\"A Chronology of Early Chicago Area Hotels.\" Digital Research Library of Illinois History Journal.",
+          "url": "https://drloihjournal.blogspot.com/2022/07/chronology-of-early-chicago-area-hotels.html",
+          "archived_url": "",
+          "tier": 4,
+          "tier_label": "later scholarship"
+        }
+      ],
+      "carried_by": "frame_1834.documented_range",
+      "carried_confidence": "inferred"
+    },
+    {
+      "id": "new_york_house",
+      "name": "New York House",
+      "question": "Which side of Wells Street? Andreas gives the address as 'the north side of Lake Street, near Wells' and never names a corner or a lot, so the Lake frontage of either the block west of Wells or the block east of it satisfies the words. The record stands the house on the western block because that block's Wells-end lot on Lake is free, which is a fact about this dataset and not evidence about 1835.",
+      "consequence": "The house STANDS in the scene, so the uncertainty is not about whether to build it but about what a visitor is told when they open its card. It reaches the card through the placement's own confidence, which is `inferred`, and the position note argues the two-block ambiguity out rather than hiding it. A source naming the side of Wells, or a lot, moves the building one block east and costs nothing else on the record. The date question this entry was born as is now the weaker half: Andreas gives 1834 for the building and 'the following year' for the opening, and the Chicago American of 13 June 1835 carries two professional men advertising offices AT the house, seventeen days before the scene date.",
+      "standing": true,
+      "no_source_record": "",
+      "dossier": {
+        "file": "docs/RESEARCH/new_york_house.md",
+        "anchor": "Which side of Wells?"
+      },
+      "citations": [
+        {
+          "source_id": "andreas_1884_v1",
+          "citation": "Andreas, A. T. History of Chicago: From the Earliest Period to the Present Time. Vol. 1. Chicago: A. T. Andreas, 1884.",
+          "url": "https://archive.org/details/historyofchicago01andr",
+          "archived_url": "",
+          "tier": 3,
+          "tier_label": "compiled secondary (Andreas)"
+        },
+        {
+          "source_id": "chicago_american_1835",
+          "citation": "The Chicago American. Vol. I, No. 1 (June 8, 1835) through Vol. I, No. 12 (August 29, 1835). Chicago, Ill.: T. O. Davis. Thirteen issues, OCR-assisted research transcriptions from page scans.",
+          "url": "",
+          "archived_url": "",
+          "tier": 1,
+          "tier_label": "period/eyewitness",
+          "what_it_supplies": [
+            "a second, independent contemporary witness to the town in the twelve weeks around the scene date",
+            "advertisements and self-reported addresses from a different advertiser base than the Democrat's",
+            "attestation that needs no survival liberty: the whole run is within twelve weeks of 1835-07-01",
+            "corroboration or contradiction of a Democrat address, which is worth more than either paper alone",
+            "the paper's own correction of its first masthead date"
+          ],
+          "what_it_does_not_supply": [
+            "any building's form, material, storey count, fenestration or dimensions",
+            "a reliable reading of a dense body column — this run had no reconciled second pass",
+            "a word count or uncertainty-marker count: none was delivered, and corpus.json records null rather than zero",
+            "identification by volume and number: No. 12 is printed on two different issues",
+            "anything at all from an engraving — the cuts are the printer's stock",
+            "a citation without an issue page and column"
+          ]
+        },
+        {
+          "source_id": "drloih_hotels",
+          "citation": "\"A Chronology of Early Chicago Area Hotels.\" Digital Research Library of Illinois History Journal.",
+          "url": "https://drloihjournal.blogspot.com/2022/07/chronology-of-early-chicago-area-hotels.html",
+          "archived_url": "",
+          "tier": 4,
+          "tier_label": "later scholarship"
+        }
+      ],
+      "carried_by": "frame_1834.position",
+      "carried_confidence": "inferred"
+    },
+    {
+      "id": "goss_cobb_saddlery",
+      "name": "S. B. Cobb's saddle, harness and trunk manufactory",
+      "question": "Which cross street? The corner is read once and never again. The Chicago Democrat of 26 November 1833 puts Goss & Cobb's new shop \"on the corner of Lake and Canal streets\", and that reading is as strong as this corpus gets — it is one of the addresses `chicago_democrat_1833_11_26` was verified against the page images for. The Chicago American then sets S. B. Cobb's own card three times in the weeks either side of the scene date, and loses the cross street in every one of them: \"corner of Lake an[d] [Amor.] streets\" (1835-06-08), no street names at all (1835-06-13), \"corner of [L]ake [an]d the [Balle]\" (1835-07-11). So nothing printed within twenty months of 1 July 1835 says which corner of Lake Street this is, and the building stands on a corner derived from the 1833 advertisement.",
+      "consequence": "The shop STANDS in the scene, so the question is not whether to build it but what a visitor is told when they open its card. It reaches the card through the placement's own confidence, which is `inferred`, and the position note argues the identification of the 1833 shop with the 1835 one rather than hiding it. T-0383 settled the firm's SURVIVAL from those three American cards — four printed dates, the last ten days after the scene date — and could not settle the corner, which is the half of that record's own \"TO RESOLVE\" sentence still outstanding. One page image of either 1835 card closes it in a word: it either corroborates Canal, or it moves this building.",
+      "standing": true,
+      "no_source_record": "",
+      "dossier": {
+        "file": "docs/RESEARCH/american_self_contradictions.md",
+        "anchor": "Which cross street is S. B. Cobb's saddlery on"
+      },
+      "citations": [
+        {
+          "source_id": "chicago_american_1835",
+          "citation": "The Chicago American. Vol. I, No. 1 (June 8, 1835) through Vol. I, No. 12 (August 29, 1835). Chicago, Ill.: T. O. Davis. Thirteen issues, OCR-assisted research transcriptions from page scans.",
+          "url": "",
+          "archived_url": "",
+          "tier": 1,
+          "tier_label": "period/eyewitness",
+          "what_it_supplies": [
+            "a second, independent contemporary witness to the town in the twelve weeks around the scene date",
+            "advertisements and self-reported addresses from a different advertiser base than the Democrat's",
+            "attestation that needs no survival liberty: the whole run is within twelve weeks of 1835-07-01",
+            "corroboration or contradiction of a Democrat address, which is worth more than either paper alone",
+            "the paper's own correction of its first masthead date"
+          ],
+          "what_it_does_not_supply": [
+            "any building's form, material, storey count, fenestration or dimensions",
+            "a reliable reading of a dense body column — this run had no reconciled second pass",
+            "a word count or uncertainty-marker count: none was delivered, and corpus.json records null rather than zero",
+            "identification by volume and number: No. 12 is printed on two different issues",
+            "anything at all from an engraving — the cuts are the printer's stock",
+            "a citation without an issue page and column"
+          ]
+        },
+        {
+          "source_id": "chicago_democrat_1833_11_26",
+          "citation": "The Chicago Democrat. Vol. I, No. 1. Chicago, Ill.: John Calhoun, Tuesday, November 26, 1833.",
+          "url": "",
+          "archived_url": "",
+          "tier": 1,
+          "tier_label": "period/eyewitness",
+          "what_it_supplies": [
+            "that a named trade was being carried on in Chicago in November 1833",
+            "the Chicago Democrat's own address, self-reported: the corner of South Water and Clark streets",
+            "Philo Carpenter advertising drugs, medicines, oils, paints and dye-stuffs, dated Nov. 22, 1833 — with NO address, so it cannot disambiguate his two shops",
+            "C. & I. Harmon advertising dry goods, crockery, hardware and wet and dry groceries, dated Nov. 18, 1833 — with NO address, so it does NOT corroborate the Clark/South Water corner Andreas gives them",
+            "W. Kimball's 'New Store' at the corner of South Water and Clark — a SECOND, independently attested occupant of that junction in the same issue, signed",
+            "Peter Cohen, clothier and grocer, self-reported at the EAST END OF SOUTH WATER-STREET, and trading in Chicago before Nov 1833 ('old customers ... past favors')",
+            "Goss & Cobb, saddle and harness makers, self-reported on the corner of Lake and Canal streets",
+            "Matthias Mason & Co., blacksmiths, on 'Main-street, nearly opposite Graves' Tavern' — a street name this project does not otherwise hold",
+            "B. Jones, grocery and provision store, and separately a storage/forwarding/commission business — both ads give NO street",
+            "Newberry & Dole, forwarding and commission merchants — no address",
+            "John Wright, cut nails and general merchandise; and TWO BUILDINGS TO LET until 1 June 1834",
+            "Daniel Elston & [illegible], soap and candle manufactory, paying cash for tallow and house ashes",
+            "a tavern stand kept by Chester Ingersoll, 'lately occupied by Mr. Wm. W. WATTLES', dated 4 October 1833",
+            "the house of Chester Ingersoll used as the district polling place, 9 December 1833",
+            "THE VILLAGE ORDINANCES of 7 November 1833, complete — the richest single item in the paper",
+            "Ordinance 1: the corporate limits surveyed ALONG the northern United States' Pier 'to the termination thereof' — the pier as an existing, walkable structure with a definite landward end",
+            "Ordinance 5: 'either of the bridges in said town' and their 'plank or any piece of timber' — EXACTLY TWO bridges on 7 Nov 1833, of plank-and-timber construction",
+            "Ordinance 6: wooden buildings with wooden and lath-and-plaster partitions, heated by STOVES not fireplaces, pipes passing through roof or side wall and carried 18 inches above the roof, guarded by stone-ware pipe, brick, tin or sheet iron",
+            "Ordinance 9: timber, stone, brick, boxes and barrels stacked in the streets",
+            "Ordinances 3, 7 and 8: hogs at large, horses run through the streets, stallions",
+            "the schooner Austerlitz, Capt. Smith, from Buffalo, arrived about the 1[9]th inst. with a full cargo of merchandise for citizens of this village and cleared on the 21st IN BALLAST",
+            "a school established in the village by Mr. Sproat of Boston, already running on 26 Nov 1833",
+            "a public auction of United States property held AT FORT DEARBORN, 2 December 1833",
+            "the village population passing 'more than eight hundred souls' in late 1833"
+          ],
+          "what_it_does_not_supply": [
+            "any building's dimensions",
+            "any building's form, material, storey count or fenestration",
+            "the specific corner of any junction it names — the imprint says 'on the corner of', and which of the four is not in the sentence",
+            "evidence that any building named here still stood on 1835-07-01 — this issue is NINETEEN MONTHS before the scene date, in the town's fastest-changing period, and the population went from 800 to 3,265 in between",
+            "any building footprint or plan",
+            "any length or width for the piers",
+            "any corroboration of the estray pen — see the negative finding in the note"
+          ]
+        },
+        {
+          "source_id": "chicago_democrat_1833_1835",
+          "citation": "The Chicago Democrat. Vol. I, No. 1 (November 26, 1833) through Vol. II, No. 18 (August 26, 1835). Chicago, Ill.: John Calhoun, editor and publisher. Seventy-three issues, OCR-assisted research transcriptions from page scans.",
+          "url": "",
+          "archived_url": "",
+          "tier": 1,
+          "tier_label": "period/eyewitness",
+          "what_it_supplies": [
+            "that a named trade was being carried on in Chicago in a named week, and often where",
+            "self-reported addresses, which are the strongest address evidence this project has: the advertiser was paying, and his customers had to find him",
+            "dissolution, removal and replacement notices — the only thing that keeps a documented business out of the 1835 town under the owner's ruling 3",
+            "post-office letter lists, naming residents by the hundred (ruling 1: a listed name mints a resident candidate, flagged letter_list_only)",
+            "the village and later town ordinances, printed complete — the 7 November 1833 code is the richest single item in the run",
+            "arrivals and clearances, which date the piers and the harbour as working structures",
+            "public notices that fix a building as a polling place, an auction site or a meeting place on a given day",
+            "the paper's own imprint, self-reported: the corner of South Water and Clark streets",
+            "twenty-one months of continuous weekly attestation ending three weeks before the scene date, including the issue printed on 1835-07-01"
+          ],
+          "what_it_does_not_supply": [
+            "any building's form, material, storey count, fenestration or dimensions — an advertisement describes a trade, not a building",
+            "the specific corner of any junction it names: 'on the corner of' does not say which of the four",
+            "anything at all from an engraving — see trap 1; the cuts are the printer's stock",
+            "proof that a business named in 1833 or 1834 still stood on 1835-07-01; that is ruling 3's survival liberty, and it is a liberty",
+            "an argument from silence, unless corpus.json shows the issues either side of the silence are both in the deposit",
+            "a reading that outranks a scan read of the same passage — see ruling 2 and the C. & I. HARMON case",
+            "a citation without an issue page and column"
+          ]
+        }
+      ],
+      "carried_by": "shop_1833.position",
+      "carried_confidence": "inferred"
+    }
+  ]
+}

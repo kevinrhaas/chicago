@@ -1,0 +1,13 @@
+{
+  "_doc": "Manifest for the well layer — the well heads this project can place to a coordinate, drawn renderer-side (T-0887). A static host cannot be globbed, which is why this file exists: the renderer fetches this manifest and then exactly the files it names, never a probe. A well is NOT a structure record and NOT baked geometry: data/structures.schema.json offers twelve archetypes and none of them is a well, and the nearest — `outbuilding` — builds a walled and roofed shed, which is not a well head. A structure record with no buildable form does not validate, so before this layer existed the fort's well could not even be carried as an EVIDENCE record; its measurement sat in docs/RESEARCH/wells.md § 5 with nothing to attach it to. This layer is the same argument data/enclosures/ makes for a fence and data/boats/ makes for a hull: a curb is a ring of low timber standing on the committed heightfield, so renderers/web/js/wells.js builds it at load from these numbers alone and needs no bake, no archetype and no nightly. THE LAYER MINTS NO WELLS. T-0592 refused a well CLASS for the town — wells attach to houses everywhere, so drawing one unplaced well is a statement about all the others — and that refusal stands in full. What this layer draws is a PLACE: a well a source puts at a coordinate. renderers/web/js/wells.js enforces that mechanically and refuses to draw any well whose position is not graded `documented` or `attested`, with the reason recorded as a problem rather than drawn as a guess. THE CURB IS INVENTED, all of it — plan shape, diameter, height and material — and docs/LIBERTIES.md L234 claims it. Nothing else is drawn: no windlass, no sweep, no rope, no bucket and no roof, because no source says which of those stood here.",
+  "version": 1,
+  "scene": "1835",
+  "scene_date": "1835-07-01",
+  "coordinates": "Local East-North-Up metres from data/datum.json's origin — the same frame data/enclosures/, data/boats/, data/wharves/, data/signage/ and data/yard/ write their positions in.",
+  "wells": [
+    {
+      "id": "fort_dearborn_well",
+      "file": "fort_dearborn_well.json"
+    }
+  ]
+}

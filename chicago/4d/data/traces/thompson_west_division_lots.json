@@ -1,0 +1,930 @@
+{
+ "$schema_note": "AUTHORED, and it is a READING, not a derivation. It carries the WEST DIVISION's lot dimensions and block lot-counts as the Thompson plat PRINTS them, one entry per block, each citing the pixel region of the committed sheet it was read on. Nothing here authors geometry and nothing here is traced: the sheet is read for its figures, which is the rule data/sources/thompson_plat_1830.json has carried since it was written and the rule the owner restated on 2026-09-03. Moving a street line is T-0445's, not this file's.",
+ "id": "thompson_west_division_lots_1830",
+ "plat": "thompson_plat_1830",
+ "ticket": "T-0689",
+ "why_this_file_exists": "T-0444's acceptance point 1 asked for the West Division's lot dimensions and block lot-counts to be READ off the plat sheet and committed as data, explicitly NOT inferred from the South Division. PR #681 answered the rest of T-0444 and said in its own words that point 1 was still owed; T-0444 was then closed and T-0689 filed to keep the debt alive. This file pays it. docs/RESEARCH/west_division_module.md derived a 458 ft north-south street module from two figures it labelled inferences \u2014 a 180 ft lot depth recovered from this project's own street spacings, and 'two lots across by five down' carried in T-0443 as the owner's reading. Both are now read off the sheet, and the module they build closes against a second, independent set of printed figures.",
+ "rule_this_file_obeys": "READ, NEVER TRACE. Every number below is a figure the draughtsman wrote on the sheet, or a count of numerals he wrote. Not one is a pixel distance. The sheet is a Canal Commissioners' working copy whose paper carries the same anisotropic stretch that docs/RESEARCH/thompson_plat_grid.md section 1 refuses the 1834 sheets for, so a measured pixel here would be worth less than the inference it replaced.",
+ "sheet": {
+  "asset": "chicago/pre_fire_v1/maps/images/1830_thompson_plat.png",
+  "sha256": "c0a6403979e628268d6f0e89ab0a8cd0cddfbb255f13487722a886d5e401e701",
+  "pixels": [
+   2728,
+   1944
+  ],
+  "region_format": "x,y,w,h in the pixels above, origin top-left \u2014 the same grammar the IIIF regions of data/traces/thompson_block_numbering.json use, against a local file instead of an image server",
+  "read_on": "2026-09-13",
+  "method": "crops cut from the committed PNG with Pillow and enlarged 4x-26x; marginal figures additionally rotated 90 degrees, auto-contrasted and re-read at both rotations. No warp, no georeference, no pixel measurement.",
+  "caveat": "THE SHEET'S OWN N.B. SAYS THE MARGINAL FIGURES ARE AN ADDITION. Read at region 1560,20,1168,180: \"'A Map of the Town of Chicago' is recorded in Book A page 318 with no certificates or date \u2014 it is generally similar or identical with the plat hereon, but has the N. line of Kinzie Street correctly laid down and contains a few more dimensions which are noted in blue figures hereon.\" So the dimension figures in the margins and on the block faces are the Book A page 318 additions, not necessarily Thompson's own hand of 4 August 1830. They are still figures a surveyor wrote on this sheet, and they are what this file reads; the sentence is recorded so that nobody later has to discover it."
+ },
+ "legend": {
+  "region": "500,160,1600,140",
+  "read": "The Streets are all 80 feet wide and the alleys 18 feet wide \u2026 This Plat is laid down by a scale of 160 feet to an inch \u2026 by James Thompson August 4th 1830",
+  "street_width_ft": 80,
+  "alley_width_ft": 18,
+  "scale_ft_per_inch": 160,
+  "confidence": "documented",
+  "note": "Legible without enlargement. The 80 is corroborated block by block: the south face of the Washington-to-south-line tier prints 80 in each of Jefferson, Clinton and Canal Streets (regions 100,1838,520,44 and 600,1838,480,44), and the street north of the Carroll tier is labelled '80 ft' at region 100,320,600,280."
+ },
+ "the_west_division_block": {
+  "shape": "TWO COLUMNS OF LOTS, SIDE BY SIDE, with an alley between them running NORTH-SOUTH. Each lot is 180 ft deep east-west and fronts the north-south street on the outer side of its column; the columns back onto each other across the alley.",
+  "lot_depth_ft": 180,
+  "lot_depth_read_on": [
+   "29-north-face",
+   "44-west-column",
+   "48-south-face",
+   "49-south-face",
+   "50-south-face",
+   "51-west-column"
+  ],
+  "lot_frontage_ft": 75.6,
+  "lot_frontage_as_printed": "75 3/5",
+  "lot_frontage_read_on": [
+   "26-west-margin",
+   "47-west-margin"
+  ],
+  "alley_width_ft": 18,
+  "block_east_west_ft": 378,
+  "block_north_south_ft_five_row_tiers": 378,
+  "the_closure": "180 + 18 + 180 = 378, and 5 x 75 3/5 = 378 exactly. The two sums share no figure: the first is three printed dimensions off block faces and the legend, the second is a printed frontage off a margin, counted by the numerals in the block. They meet to the foot, so the five-row West Division block is SQUARE \u2014 378 ft each way \u2014 and each of the two readings checks the other.",
+  "north_south_street_module_ft": 458,
+  "north_south_street_module_note": "378 + 80 = 458 ft = 139.598 m, which is the figure docs/RESEARCH/west_division_module.md derived on 2026-09-03 from an inferred 180 ft depth and the owner's 'two across by five down'. Both inputs are now read; the module does not move by a foot.",
+  "confidence": "documented",
+  "confidence_note": "`documented` grades THE FIGURES AND THE COUNTS, which is all this file holds \u2014 a number printed on a tier-1 sheet and a numeral counted in a block. It does not grade any position: nothing here says where in the world a block is, and every derived centreline in west_division_module.md stays `inferred` because its anchor, the traced west bank, is inferred. Arithmetic does not upgrade its anchor."
+ },
+ "what_this_refutes": "THE WEST DIVISION LOT IS NOT AN 80 FT LOT. The South Division block is four lots to a face of about 320 ft, which is 80 ft of frontage, and that figure is the one an inference would have carried west. The sheet prints 75 3/5 \u2014 legible at region 126,1085,26,215 and again at 122,1340,28,240, five rows each, the same figure in every row of both. Four feet and a half per lot, ten lots to a block, over six tiers: carrying the South Division's frontage west would have mis-sized every West Division lot line the project ever draws.",
+ "tiers": [
+  {
+   "tier": "north town line - Carroll",
+   "region": "100,320,960,250",
+   "rows": 4,
+   "blocks": [
+    10,
+    9,
+    8
+   ],
+   "note": "TRUNCATED AT THE NORTH by the town line, and it shows in the numbering: these blocks print 7|8 in their NORTH row and then 2|1, 3|4, 6|5 below it, with no 10|9 row at all. Eight lots, not ten, and the run is not the run any other West Division tier uses. Recorded as drawn. This file does not explain it and does not tidy it."
+  },
+  {
+   "tier": "Carroll - Fulton",
+   "region": "100,530,960,280",
+   "rows": 5,
+   "blocks": [
+    11,
+    12,
+    13
+   ],
+   "note": "Five rows, ten lots, the standard run. Its south row is DEEPER than the four above it \u2014 block 11's margin prints 96 against that row where the four above read the two-digit seventies figure (region 118,555,34,250) \u2014 so this tier is not the 458 ft square the Lake, Randolph and Washington tiers are."
+  },
+  {
+   "tier": "Fulton - Lake",
+   "region": "100,810,960,265",
+   "rows": 4,
+   "blocks": [
+    25,
+    24,
+    23,
+    22
+   ],
+   "note": "FOUR ROWS, EIGHT LOTS \u2014 2|1, 3|4, 6|5, 7|8 and the block ends (region 100,990,900,85 cuts the south row of all four blocks and shows Lake Street directly under 7|8). This tier is shallower than the three below it, and it is the reading that most plainly refuses 'every West Division block is the same block'."
+  },
+  {
+   "tier": "Lake - Randolph",
+   "region": "100,1050,960,270",
+   "rows": 5,
+   "blocks": [
+    26,
+    27,
+    28,
+    29
+   ],
+   "note": "Five rows, ten lots, 75 3/5 in every row of block 26's margin. The square block."
+  },
+  {
+   "tier": "Randolph - Washington",
+   "region": "100,1320,960,280",
+   "rows": 5,
+   "blocks": [
+    47,
+    46,
+    45,
+    44
+   ],
+   "note": "Five rows, ten lots, 75 3/5 in every row of block 47's margin. The clearest of the two frontage readings, and the one that fixes the fraction as fifths."
+  },
+  {
+   "tier": "Washington - south town line",
+   "region": "100,1595,960,295",
+   "rows": 5,
+   "blocks": [
+    48,
+    49,
+    50,
+    51
+   ],
+   "note": "Five rows, ten lots. Its south face is the sheet's 'Due East and West Line' and carries the dimension row this file leans on hardest: 180 under every column, 80 in every street."
+  }
+ ],
+ "blocks": [
+  {
+   "plat_block_number": 10,
+   "tier": "north town line - Carroll",
+   "bounded_west_by": "des_pleins",
+   "bounded_east_by": "jefferson",
+   "lot_numerals_north_to_south": [
+    [
+     7,
+     8
+    ],
+    [
+     2,
+     1
+    ],
+    [
+     3,
+     4
+    ],
+    [
+     6,
+     5
+    ]
+   ],
+   "lot_count": 8,
+   "region": "100,340,600,230",
+   "lot_depth_ft": null,
+   "lot_frontage_ft": null,
+   "refused": "Both dimensions. The block's west margin carries a figure against three of its four rows (region 128,350,24,200) and every rendering of them \u2014 9x and 26x, both rotations, auto-contrasted \u2014 resolves to two dark glyphs and no more. The scan does not carry them. What IS read here is the count and the run."
+  },
+  {
+   "plat_block_number": 9,
+   "tier": "north town line - Carroll",
+   "bounded_west_by": "jefferson",
+   "bounded_east_by": "clinton",
+   "lot_numerals_north_to_south": [
+    [
+     7,
+     8
+    ],
+    [
+     2,
+     1
+    ],
+    [
+     3,
+     4
+    ],
+    [
+     6,
+     5
+    ]
+   ],
+   "lot_count": 8,
+   "region": "380,340,330,230",
+   "lot_depth_ft": null,
+   "lot_frontage_ft": null,
+   "refused": "Both dimensions; this block prints no marginal figures at all. It prints a bearing, S.87E, across its north row."
+  },
+  {
+   "plat_block_number": 8,
+   "tier": "north town line - Carroll",
+   "bounded_west_by": "clinton",
+   "bounded_east_by": "canal",
+   "lot_numerals_north_to_south": [
+    [
+     7,
+     8
+    ],
+    [
+     2,
+     1
+    ],
+    [
+     3,
+     4
+    ],
+    [
+     6,
+     5
+    ]
+   ],
+   "lot_count": 8,
+   "region": "700,340,360,230",
+   "lot_depth_ft": null,
+   "lot_frontage_ft": null,
+   "refused": "Both dimensions; no marginal figures. Its east side is the North Branch, not Canal Street continued \u2014 the fourth column of this tier does not exist."
+  },
+  {
+   "plat_block_number": 11,
+   "tier": "Carroll - Fulton",
+   "bounded_west_by": "des_pleins",
+   "bounded_east_by": "jefferson",
+   "lot_numerals_north_to_south": [
+    [
+     2,
+     1
+    ],
+    [
+     3,
+     4
+    ],
+    [
+     6,
+     5
+    ],
+    [
+     7,
+     8
+    ],
+    [
+     10,
+     9
+    ]
+   ],
+   "lot_count": 10,
+   "region": "100,530,330,280",
+   "lot_depth_ft": null,
+   "lot_frontage_ft": null,
+   "frontage_figures_read": [
+    "7?3/5",
+    "7?3/5",
+    "7?3/5",
+    "7?3/5",
+    "96"
+   ],
+   "frontage_region": "118,555,34,250",
+   "refused": "The second digit of the four northern frontage figures. They are unmistakably a two-digit number in the seventies followed by a fifths fraction, in the same hand and the same place as blocks 26 and 47's 75 3/5, and they are not 80; the digit itself does not survive this scan. The FIFTH figure, against the south row, is legible and reads 96.",
+   "note": "96 against the south row is the single most interesting figure in the West Division margins: it is a whole number where every other frontage on the sheet carries a fraction, and it makes this tier deeper than the square tiers by about twenty feet. Whatever it means, it is not the 458 ft module.",
+   "confidence": "documented",
+   "confidence_note": "`documented` grades WHAT IS LEGIBLE \u2014 that five figures stand against five rows, that the four northern ones are a two-digit seventies number with a fifths fraction, and that the fifth reads 96. The digit the scan withholds is in `refused`, not folded into the grade."
+  },
+  {
+   "plat_block_number": 12,
+   "tier": "Carroll - Fulton",
+   "bounded_west_by": "jefferson",
+   "bounded_east_by": "clinton",
+   "lot_numerals_north_to_south": [
+    [
+     2,
+     1
+    ],
+    [
+     3,
+     4
+    ],
+    [
+     6,
+     5
+    ],
+    [
+     7,
+     8
+    ],
+    [
+     10,
+     9
+    ]
+   ],
+   "lot_count": 10,
+   "region": "420,530,320,280",
+   "lot_depth_ft": null,
+   "lot_frontage_ft": null,
+   "refused": "Both dimensions; no marginal figures. Prints bearings S.87E against its row 7 and S.89E against its south face."
+  },
+  {
+   "plat_block_number": 13,
+   "tier": "Carroll - Fulton",
+   "bounded_west_by": "clinton",
+   "bounded_east_by": "canal",
+   "lot_numerals_north_to_south": [
+    [
+     2,
+     1
+    ],
+    [
+     3,
+     4
+    ],
+    [
+     6,
+     5
+    ],
+    [
+     7,
+     8
+    ],
+    [
+     10,
+     9
+    ]
+   ],
+   "lot_count": 10,
+   "region": "720,530,340,280",
+   "lot_depth_ft": null,
+   "lot_frontage_ft": null,
+   "refused": "Both dimensions; no marginal figures."
+  },
+  {
+   "plat_block_number": 25,
+   "tier": "Fulton - Lake",
+   "bounded_west_by": "des_pleins",
+   "bounded_east_by": "jefferson",
+   "lot_numerals_north_to_south": [
+    [
+     2,
+     1
+    ],
+    [
+     3,
+     4
+    ],
+    [
+     6,
+     5
+    ],
+    [
+     7,
+     8
+    ]
+   ],
+   "lot_count": 8,
+   "region": "100,810,330,265",
+   "lot_depth_ft": null,
+   "lot_frontage_ft": null,
+   "frontage_figures_read": [
+    "7?3/5",
+    "7?3/5",
+    "7?3/5",
+    "7?3/5"
+   ],
+   "frontage_region": "122,846,28,204",
+   "refused": "The second digit, as on block 11, and for the same reason. Four figures for four rows, which is itself the corroboration of this tier's four-row count.",
+   "confidence": "documented",
+   "confidence_note": "`documented` grades WHAT IS LEGIBLE \u2014 that five figures stand against five rows, that the four northern ones are a two-digit seventies number with a fifths fraction, and that the fifth reads 96. The digit the scan withholds is in `refused`, not folded into the grade."
+  },
+  {
+   "plat_block_number": 24,
+   "tier": "Fulton - Lake",
+   "bounded_west_by": "jefferson",
+   "bounded_east_by": "clinton",
+   "lot_numerals_north_to_south": [
+    [
+     2,
+     1
+    ],
+    [
+     3,
+     4
+    ],
+    [
+     6,
+     5
+    ],
+    [
+     7,
+     8
+    ]
+   ],
+   "lot_count": 8,
+   "region": "420,810,320,265",
+   "lot_depth_ft": null,
+   "lot_frontage_ft": null,
+   "refused": "Both dimensions; no marginal figures."
+  },
+  {
+   "plat_block_number": 23,
+   "tier": "Fulton - Lake",
+   "bounded_west_by": "clinton",
+   "bounded_east_by": "canal",
+   "lot_numerals_north_to_south": [
+    [
+     2,
+     1
+    ],
+    [
+     3,
+     4
+    ],
+    [
+     6,
+     5
+    ],
+    [
+     7,
+     8
+    ]
+   ],
+   "lot_count": 8,
+   "region": "720,810,330,265",
+   "lot_depth_ft": null,
+   "lot_frontage_ft": null,
+   "refused": "Both dimensions; no marginal figures."
+  },
+  {
+   "plat_block_number": 22,
+   "tier": "Fulton - Lake",
+   "bounded_west_by": "canal",
+   "bounded_east_by": "south branch of the Chicago River",
+   "lot_numerals_north_to_south": [
+    [
+     2
+    ],
+    [
+     3
+    ],
+    [
+     6
+    ],
+    [
+     7
+    ],
+    [
+     8
+    ]
+   ],
+   "lot_count": 5,
+   "region": "790,820,210,255",
+   "lot_depth_ft": null,
+   "lot_frontage_ft": null,
+   "irregular": true,
+   "figures_read": {
+    "lot_2_north_face_ft": 17,
+    "lot_3_north_face_ft": 70,
+    "lot_6_north_face_ft": 118,
+    "lot_8_south_face_ft": 141
+   },
+   "bearings_read": [
+    "North 3? West (the upper river line, the degree figure not resolvable)",
+    "North 51 West (the lower river line, legible)"
+   ],
+   "note": "THE RIVERFRONT BLOCK, AND IT IS NOT A BLOCK. The South Branch cuts it to a wedge: ONE column of four lots, 2 3 6 7 running north to south with each face narrower than the one below it, and lot 8 in a detached triangle south-east of them. Lots 1, 4, 5, 9 and 10 are not on the sheet. Its four printed figures widen 17, 70, 118 down the wedge and 141 across the triangle's south face \u2014 the river's diagonal, written as dimensions.",
+   "refused": "A lot depth and a lot frontage, because this block has neither: no two of its faces are the same length. What is read is the five numerals, the four face figures and the two bearings.",
+   "confidence": "documented",
+   "confidence_note": "`documented` grades the five numerals and the four face figures, all of which are legible. The upper bearing's degree figure is in `refused`."
+  },
+  {
+   "plat_block_number": 26,
+   "tier": "Lake - Randolph",
+   "bounded_west_by": "des_pleins",
+   "bounded_east_by": "jefferson",
+   "lot_numerals_north_to_south": [
+    [
+     2,
+     1
+    ],
+    [
+     3,
+     4
+    ],
+    [
+     6,
+     5
+    ],
+    [
+     7,
+     8
+    ],
+    [
+     10,
+     9
+    ]
+   ],
+   "lot_count": 10,
+   "region": "100,1050,330,270",
+   "lot_depth_ft": null,
+   "lot_frontage_ft": 75.6,
+   "frontage_figures_read": [
+    "75 3/5",
+    "75 3/5",
+    "75 3/5",
+    "75 3/5",
+    "75 3/5"
+   ],
+   "frontage_region": "126,1085,26,215",
+   "confidence": "documented",
+   "note": "Five rows, five figures, the same figure in each. Read at 10x with auto-contrast; the fraction reads as thirds-over-fifths ink but resolves to 3/5 against block 47, which is the clearer of the two, and against the arithmetic: 5 x 75.6 = 378 = 180 + 18 + 180.",
+   "refused": "A depth figure. This block prints its frontage in the margin and no dimension on any face; the 180 ft depth it shares comes from blocks 29, 44, 48, 49, 50 and 51, each of which prints it, and is not read here."
+  },
+  {
+   "plat_block_number": 27,
+   "tier": "Lake - Randolph",
+   "bounded_west_by": "jefferson",
+   "bounded_east_by": "clinton",
+   "lot_numerals_north_to_south": [
+    [
+     2,
+     1
+    ],
+    [
+     3,
+     4
+    ],
+    [
+     6,
+     5
+    ],
+    [
+     7,
+     8
+    ],
+    [
+     10,
+     9
+    ]
+   ],
+   "lot_count": 10,
+   "region": "420,1050,320,270",
+   "lot_depth_ft": null,
+   "lot_frontage_ft": null,
+   "refused": "Both dimensions; no marginal figures."
+  },
+  {
+   "plat_block_number": 28,
+   "tier": "Lake - Randolph",
+   "bounded_west_by": "clinton",
+   "bounded_east_by": "canal",
+   "lot_numerals_north_to_south": [
+    [
+     2,
+     1
+    ],
+    [
+     3,
+     4
+    ],
+    [
+     6,
+     5
+    ],
+    [
+     7,
+     8
+    ],
+    [
+     10,
+     9
+    ]
+   ],
+   "lot_count": 10,
+   "region": "720,1050,290,270",
+   "lot_depth_ft": null,
+   "lot_frontage_ft": null,
+   "refused": "Both dimensions; no marginal figures."
+  },
+  {
+   "plat_block_number": 29,
+   "tier": "Lake - Randolph",
+   "bounded_west_by": "canal",
+   "bounded_east_by": "west_water",
+   "lot_numerals_north_to_south": [
+    [
+     2,
+     1
+    ],
+    [
+     3,
+     4
+    ],
+    [
+     6,
+     5
+    ],
+    [
+     7,
+     8
+    ],
+    [
+     10,
+     9
+    ]
+   ],
+   "lot_count": 10,
+   "region": "690,1078,290,42",
+   "lot_depth_ft": 180,
+   "lot_frontage_ft": null,
+   "confidence": "documented",
+   "depth_figures_read": {
+    "west_column_ft": 180,
+    "east_column_ft": 180
+   },
+   "note": "THE RIVERFRONT BLOCK THAT IS STILL A WHOLE BLOCK. It prints 180 at the north face of BOTH columns, so at this tier the branch has not yet eaten into the Canal-to-West-Water block and West Water Street runs its full course. That matters two tiers south, where it has.",
+   "refused": "A frontage figure. Only the westernmost block of a tier carries marginal frontages, and this is the easternmost; its 75 3/5 is block 26's, one tier-mate away, and is not read on this block."
+  },
+  {
+   "plat_block_number": 47,
+   "tier": "Randolph - Washington",
+   "bounded_west_by": "des_pleins",
+   "bounded_east_by": "jefferson",
+   "lot_numerals_north_to_south": [
+    [
+     2,
+     1
+    ],
+    [
+     3,
+     4
+    ],
+    [
+     6,
+     5
+    ],
+    [
+     7,
+     8
+    ],
+    [
+     10,
+     9
+    ]
+   ],
+   "lot_count": 10,
+   "region": "100,1320,330,280",
+   "lot_depth_ft": null,
+   "lot_frontage_ft": 75.6,
+   "frontage_figures_read": [
+    "75 3/5",
+    "75 3/5",
+    "75 3/5",
+    "75 3/5",
+    "75 3/5"
+   ],
+   "frontage_region": "122,1340,28,240",
+   "confidence": "documented",
+   "note": "THE CLEAREST FRONTAGE READING ON THE SHEET. Five rows, five figures, all 75 3/5, the 7 and the 5 unambiguous and the fraction plainly a 3 over a 5. This is the block the frontage figure is taken from; block 26 confirms it.",
+   "refused": "A depth figure, for the same reason as block 26 \u2014 this is a margin block, and the sheet dimensions a tier's depth on its faces rather than in its margins."
+  },
+  {
+   "plat_block_number": 46,
+   "tier": "Randolph - Washington",
+   "bounded_west_by": "jefferson",
+   "bounded_east_by": "clinton",
+   "lot_numerals_north_to_south": [
+    [
+     2,
+     1
+    ],
+    [
+     3,
+     4
+    ],
+    [
+     6,
+     5
+    ],
+    [
+     7,
+     8
+    ],
+    [
+     10,
+     9
+    ]
+   ],
+   "lot_count": 10,
+   "region": "420,1320,320,280",
+   "lot_depth_ft": null,
+   "lot_frontage_ft": null,
+   "refused": "Both dimensions; no marginal figures. Carries the word 'Reserved' written diagonally across its lots 3 and 4.",
+   "note": "'Reserved' across the middle of the block, region 420,1320,320,280. Recorded as read; what it reserves it for the sheet does not say, and this file does not guess."
+  },
+  {
+   "plat_block_number": 45,
+   "tier": "Randolph - Washington",
+   "bounded_west_by": "clinton",
+   "bounded_east_by": "canal",
+   "lot_numerals_north_to_south": [
+    [
+     2,
+     1
+    ],
+    [
+     3,
+     4
+    ],
+    [
+     6,
+     5
+    ],
+    [
+     7,
+     8
+    ],
+    [
+     10,
+     9
+    ]
+   ],
+   "lot_count": 10,
+   "region": "720,1320,290,280",
+   "lot_depth_ft": null,
+   "lot_frontage_ft": null,
+   "refused": "Both dimensions; no marginal figures."
+  },
+  {
+   "plat_block_number": 44,
+   "tier": "Randolph - Washington",
+   "bounded_west_by": "canal",
+   "bounded_east_by": "west_water",
+   "lot_numerals_north_to_south": [
+    [
+     2,
+     1
+    ],
+    [
+     3,
+     4
+    ],
+    [
+     6,
+     5
+    ],
+    [
+     7,
+     8
+    ],
+    [
+     10,
+     9
+    ]
+   ],
+   "lot_count": 10,
+   "region": "820,1360,190,65",
+   "lot_depth_ft": null,
+   "lot_frontage_ft": null,
+   "confidence": "documented",
+   "depth_figures_read": {
+    "west_column_ft": 180,
+    "east_column_ft": 150
+   },
+   "note": "THE FIRST TIER WHERE THE RIVER TAKES SOMETHING. 180 at the north face of the west column and 150 at the north face of the east column: the branch has cut thirty feet off the depth of the lots fronting West Water Street. The block still carries all ten numerals \u2014 it is shortened, not subdivided differently. `lot_depth_ft` is left null because this block has two of them and the file will not average them into a number nobody wrote.",
+   "refused": "A frontage figure, for the same reason as block 29. Its two DIFFERENT depths, 180 and 150, are why `lot_depth_ft` is null here as well: the block has two and the file will not average them."
+  },
+  {
+   "plat_block_number": 48,
+   "tier": "Washington - south town line",
+   "bounded_west_by": "des_pleins",
+   "bounded_east_by": "jefferson",
+   "lot_numerals_north_to_south": [
+    [
+     2,
+     1
+    ],
+    [
+     3,
+     4
+    ],
+    [
+     6,
+     5
+    ],
+    [
+     7,
+     8
+    ],
+    [
+     10,
+     9
+    ]
+   ],
+   "lot_count": 10,
+   "region": "100,1595,330,295",
+   "lot_depth_ft": 180,
+   "lot_frontage_ft": null,
+   "confidence": "documented",
+   "depth_figures_read": {
+    "west_column_ft": 180,
+    "east_column_ft": 180
+   },
+   "depth_region": "100,1838,520,44",
+   "frontage_region": "122,1608,28,254",
+   "refused": "The frontage. Five marginal figures stand against the five rows and none of them resolves: two or three glyphs each, smaller and fainter than blocks 26 and 47's, tried at 7x, 9x and 26x, both rotations, auto-contrasted and nearest-neighbour. The scan does not carry them.",
+   "note": "The south face of this block and block 49 is the dimension row the whole file leans on: 180 under each of the four columns, 80 in Jefferson Street between them, and the sheet's 'Due East and West Line' written under it all."
+  },
+  {
+   "plat_block_number": 49,
+   "tier": "Washington - south town line",
+   "bounded_west_by": "jefferson",
+   "bounded_east_by": "clinton",
+   "lot_numerals_north_to_south": [
+    [
+     2,
+     1
+    ],
+    [
+     3,
+     4
+    ],
+    [
+     6,
+     5
+    ],
+    [
+     7,
+     8
+    ],
+    [
+     10,
+     9
+    ]
+   ],
+   "lot_count": 10,
+   "region": "420,1595,320,295",
+   "lot_depth_ft": 180,
+   "lot_frontage_ft": null,
+   "confidence": "documented",
+   "depth_figures_read": {
+    "west_column_ft": 180,
+    "east_column_ft": 180
+   },
+   "depth_region": "100,1838,520,44",
+   "refused": "A frontage figure. Its margin is interior to the tier and carries none; block 48's, one block west, is the tier's and does not resolve either."
+  },
+  {
+   "plat_block_number": 50,
+   "tier": "Washington - south town line",
+   "bounded_west_by": "clinton",
+   "bounded_east_by": "canal",
+   "lot_numerals_north_to_south": [
+    [
+     2,
+     1
+    ],
+    [
+     3,
+     4
+    ],
+    [
+     6,
+     5
+    ],
+    [
+     7,
+     8
+    ],
+    [
+     10,
+     9
+    ]
+   ],
+   "lot_count": 10,
+   "region": "720,1595,290,295",
+   "lot_depth_ft": 180,
+   "lot_frontage_ft": null,
+   "confidence": "documented",
+   "depth_figures_read": {
+    "west_column_ft": 180,
+    "east_column_ft": 180
+   },
+   "depth_region": "600,1838,480,44",
+   "refused": "A frontage figure, for the same reason as block 49."
+  },
+  {
+   "plat_block_number": 51,
+   "tier": "Washington - south town line",
+   "bounded_west_by": "canal",
+   "bounded_east_by": "west_water",
+   "lot_numerals_north_to_south": [
+    [
+     2,
+     1
+    ],
+    [
+     3,
+     4
+    ],
+    [
+     6,
+     5
+    ],
+    [
+     7,
+     8
+    ],
+    [
+     10,
+     9
+    ]
+   ],
+   "lot_count": 10,
+   "region": "880,1595,300,295",
+   "lot_depth_ft": null,
+   "lot_frontage_ft": null,
+   "confidence": "documented",
+   "depth_figures_read": {
+    "west_column_ft": 180,
+    "east_column_ft": 88
+   },
+   "depth_region": "600,1838,480,44",
+   "note": "THE RIVER HAS TAKEN MORE AGAIN. 180 under the west column and 88 under the east: at the south town line the lots fronting West Water Street are less than half the depth of a full lot. Read with 44's 150 and 29's 180, the three figures are the branch's diagonal written as three numbers, north to south, and they are printed rather than measured. The block prints a bearing North 8 East up its east side.",
+   "refused": "A frontage figure, and a single lot depth: this block prints 180 under its west column and 88 under its east, so it has two depths and `lot_depth_ft` stays null."
+  }
+ ],
+ "counts": {
+  "blocks_read": 22,
+  "lots_read": 203,
+  "blocks_with_a_depth_figure": 6,
+  "blocks_with_a_frontage_figure": 4,
+  "blocks_refusing_a_dimension": 22
+ },
+ "refusals_in_one_place": "FOURTEEN OF THE TWENTY-TWO BLOCKS PRINT NO DIMENSION AT ALL, and the sheet is not at fault for it: a draughtsman dimensions the first block of a tier and lets the rest of the tier inherit. Five more print a figure this scan cannot resolve to a digit \u2014 blocks 10, 11, 25 and 48's marginal frontages, and block 22's upper bearing. Every one of those is named on its own entry with the region it stands in, the enlargements tried and what shape the ink holds, so a better scan of the same sheet resolves them without anybody re-deriving where to look. A gap stated is worth more than a number carried across, which is T-0689's acceptance point 2 and the reason this section exists.",
+ "what_this_does_not_say": "NOTHING ABOUT POSITION. The West Division's whole open question is whether its grid sits one street west of where this project draws it, and this file does not answer it and cannot: a lot dimension is a length, and a length says nothing about where the length begins. What it does is put the module that the answer rests on onto printed figures instead of onto the South Division's spacing carried across, which is the swap that docs/RESEARCH/west_division_module.md excluded on the river's evidence alone. That exclusion is untouched and still rests on the bank. Moving a line remains T-0445's."
+}

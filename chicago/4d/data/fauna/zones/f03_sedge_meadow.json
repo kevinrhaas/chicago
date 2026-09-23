@@ -1,0 +1,347 @@
+{
+ "id": "f03_sedge_meadow",
+ "zone": 3,
+ "name": "Sedge meadow and the wet toe of the banks",
+ "habitat": "sedge_meadow",
+ "dossier": "docs/research/08-fauna.md \u00a7 2.3",
+ "scene_date": "1835-07-01",
+ "reads_as": "dense sedge that hides everything in it \u2014 rails calling from three feet away and never seen, voles under the thatch, and mosquitoes",
+ "in_modelled_extent": true,
+ "extent_from": {
+  "flora_zone": "z03_sedge_meadow"
+ },
+ "soundscape": {
+  "dawn_chorus": "reduced",
+  "hero": [
+   "porzana_carolina",
+   "agelaius_phoeniceus",
+   "orchelimum_spp"
+  ],
+  "note": "The defining fact of this zone is that its animals are AUDIBLE AND NOT VISIBLE. Rails, bitterns and voles are all present at densities a walker would never guess from what can be seen, which is the case liberty L2 was written for."
+ },
+ "species": [
+  {
+   "id": "agelaius_phoeniceus",
+   "binomial": "Agelaius phoeniceus",
+   "common": "red-winged blackbird",
+   "class": "bird",
+   "activity": "diurnal",
+   "active_periods": [
+    "dawn",
+    "day",
+    "dusk"
+   ],
+   "july": {
+    "status": {
+     "value": "breeding_resident",
+     "confidence": "inferred",
+     "note": "Named in the regional wet-prairie assemblage the dossier quotes from an Illinois DNR wetlands publication; The dossier's citation for this has no record in data/sources/, so nothing here is graded documented on it."
+    },
+    "presence": {
+     "value": "visible_and_audible",
+     "confidence": "inferred",
+     "note": "The most conspicuous bird in any Illinois marsh or sedge meadow."
+    },
+    "abundance": {
+     "value": "abundant",
+     "confidence": "inferred",
+     "note": "By July the territorial males are joined by fledged young and the birds start to gather \u2014 this is the one bird of the July list that is genuinely numerous."
+    },
+    "max_group": 30,
+    "vocalization": "song_reduced",
+    "behaviour": "Males on sedge tussocks and cattail stems, spreading red epaulets; birds mobbing a passing harrier or crow.",
+    "appearance": "Glossy black male with red-and-buff shoulder; streaky brown female low in the sedge.",
+    "trace": null
+   },
+   "confidence": "inferred",
+   "note": "Song is declining by 1 July as the second broods fledge \u2014 the konk-la-ree is still there but the wall of it belongs to May."
+  },
+  {
+   "id": "geothlypis_trichas",
+   "binomial": "Geothlypis trichas",
+   "common": "common yellowthroat",
+   "class": "bird",
+   "activity": "diurnal",
+   "active_periods": [
+    "dawn",
+    "day"
+   ],
+   "july": {
+    "status": {
+     "value": "breeding_resident",
+     "confidence": "inferred",
+     "note": "A wet-meadow and marsh-edge breeder in the dossier's oak-savanna and marsh-edge list; regional inference."
+    },
+    "presence": {
+     "value": "audible",
+     "confidence": "inferred",
+     "note": "Sings from cover and is rarely in the open."
+    },
+    "abundance": {
+     "value": "common",
+     "confidence": "inferred",
+     "note": "Habitat reading."
+    },
+    "max_group": 2,
+    "vocalization": "song_full",
+    "behaviour": "Sound only in most conditions: a rolling witchety-witchety-witchety from deep in the sedge, moving as the bird moves.",
+    "appearance": "Small olive warbler; the male's black mask is visible only at very close range.",
+    "trace": null
+   },
+   "confidence": "inferred",
+   "note": "One of the small set of warblers still in strong song on 1 July \u2014 yellowthroats are double-brooded and sing on through the month, so full song here is a July fact rather than a spring holdover."
+  },
+  {
+   "id": "porzana_carolina",
+   "binomial": "Porzana carolina",
+   "common": "sora",
+   "class": "bird",
+   "activity": "crepuscular",
+   "active_periods": [
+    "dawn",
+    "dusk",
+    "night"
+   ],
+   "july": {
+    "status": {
+     "value": "breeding_resident",
+     "confidence": "inferred",
+     "note": "Rails are named in the regional wet-prairie assemblage; The dossier's citation for this has no record in data/sources/, so nothing here is graded documented on it."
+    },
+    "presence": {
+     "value": "audible",
+     "confidence": "inferred",
+     "note": "A textbook 'present but never seen' bird: heard from ten feet away and invisible."
+    },
+    "abundance": {
+     "value": "frequent",
+     "confidence": "inferred",
+     "note": "Habitat reading; density in dense sedge is unknowable by eye."
+    },
+    "max_group": 0,
+    "vocalization": "call_only",
+    "behaviour": "Sound only: a descending whinny and a sharp rising ker-wee from inside the sedge, answered from a second point, with nothing visible at either.",
+    "appearance": "Not shown.",
+    "trace": null
+   },
+   "confidence": "inferred",
+   "note": "Nothing is drawn for this species anywhere in the dataset. It is present as sound only, which is the case liberty L2 exists to license."
+  },
+  {
+   "id": "rallus_limicola",
+   "binomial": "Rallus limicola",
+   "common": "Virginia rail",
+   "class": "bird",
+   "activity": "crepuscular",
+   "active_periods": [
+    "dawn",
+    "dusk",
+    "night"
+   ],
+   "july": {
+    "status": {
+     "value": "breeding_resident",
+     "confidence": "inferred",
+     "note": "As for sora; the same regional assemblage."
+    },
+    "presence": {
+     "value": "audible",
+     "confidence": "inferred",
+     "note": "Invisible in cover; identified only by voice."
+    },
+    "abundance": {
+     "value": "uncommon",
+     "confidence": "inferred",
+     "note": "Habitat reading."
+    },
+    "max_group": 0,
+    "vocalization": "call_only",
+    "behaviour": "Sound only: a hard descending grunt series and a metallic kid-ick from the wettest sedge.",
+    "appearance": "Not shown.",
+    "trace": null
+   },
+   "confidence": "inferred",
+   "note": "Rails are named only at the level of the regional wet-prairie assemblage, from a source with no record in data/sources/. Nothing puts this species at Chicago in 1835; the habitat does."
+  },
+  {
+   "id": "microtus_pennsylvanicus",
+   "binomial": "Microtus pennsylvanicus",
+   "common": "meadow vole",
+   "class": "mammal",
+   "activity": "cathemeral",
+   "active_periods": [
+    "dawn",
+    "day",
+    "dusk",
+    "night"
+   ],
+   "july": {
+    "status": {
+     "value": "year_round_resident",
+     "confidence": "inferred",
+     "note": "Regional retrospective; The dossier's citation for this has no record in data/sources/, so nothing here is graded documented on it."
+    },
+    "presence": {
+     "value": "trace_only",
+     "confidence": "inferred",
+     "note": "Sign only, as on the open prairie."
+    },
+    "abundance": {
+     "value": "abundant",
+     "confidence": "inferred",
+     "note": "Sedge meadow is prime vole ground."
+    },
+    "max_group": 0,
+    "vocalization": "non_vocal",
+    "behaviour": "Nothing animate; runways and clippings only.",
+    "appearance": "Not shown.",
+    "trace": "Runways through the sedge thatch and clipped stem piles at the tussock bases."
+   },
+   "confidence": "inferred",
+   "note": "'Meadow/prairie mouse' in the regional retrospective is as close as the record gets. The species reading and the density are both this project's."
+  },
+  {
+   "id": "thamnophis_sirtalis",
+   "binomial": "Thamnophis sirtalis",
+   "common": "common garter snake",
+   "class": "reptile",
+   "activity": "diurnal",
+   "active_periods": [
+    "dawn",
+    "day"
+   ],
+   "july": {
+    "status": {
+     "value": "year_round_resident",
+     "confidence": "inferred",
+     "note": "Garter snakes are in the regional herp list the dossier quotes; The dossier's citation for this has no record in data/sources/, so nothing here is graded documented on it. The dossier calls garter and water snakes the plausible town-edge species."
+    },
+    "presence": {
+     "value": "visible",
+     "confidence": "inferred",
+     "note": "Basking on a bare verge or crossing a trail in the morning."
+    },
+    "abundance": {
+     "value": "frequent",
+     "confidence": "inferred",
+     "note": "Habitat reading."
+    },
+    "max_group": 1,
+    "vocalization": "non_vocal",
+    "behaviour": "A single snake stretched on a warm bare verge in the morning, moving off into the sedge.",
+    "appearance": "Dark with three yellow stripes.",
+    "trace": null
+   },
+   "confidence": "inferred",
+   "note": "The regional herp list names garter snakes without a date or a place; the dossier calls garter and water snakes the plausible town-edge species and tags that inference, as this record does."
+  },
+  {
+   "id": "photinus_pyralis",
+   "binomial": "Photinus pyralis",
+   "common": "common eastern firefly ('big dipper')",
+   "class": "insect",
+   "activity": "crepuscular",
+   "active_periods": [
+    "dusk"
+   ],
+   "july": {
+    "status": {
+     "value": "breeding_resident",
+     "confidence": "inferred",
+     "note": "Damp meadow is the species' core habitat."
+    },
+    "presence": {
+     "value": "visible",
+     "confidence": "inferred",
+     "note": "The dusk display, and only at dusk."
+    },
+    "abundance": {
+     "value": "abundant",
+     "confidence": "inferred",
+     "note": "Wet ground and long grass together are the ideal case."
+    },
+    "max_group": 0,
+    "vocalization": "non_vocal",
+    "behaviour": "Dense flashing low over the sedge in the half hour after sunset; the J-shaped upsweep about every five or six seconds.",
+    "appearance": "Pale yellow-green flash.",
+    "trace": null
+   },
+   "confidence": "inferred",
+   "note": "The species, the month and the city are all in modern natural-history sources; 1835 is the inference, and it runs the safe way \u2014 the pre-drainage landscape would have supported more fireflies than the modern one, not fewer."
+  },
+  {
+   "id": "orchelimum_spp",
+   "binomial": "Orchelimum spp.",
+   "common": "meadow katydids",
+   "class": "insect",
+   "activity": "cathemeral",
+   "active_periods": [
+    "day",
+    "dusk",
+    "night"
+   ],
+   "july": {
+    "status": {
+     "value": "breeding_resident",
+     "confidence": "inferred",
+     "note": "Wet-meadow katydids sing from July."
+    },
+    "presence": {
+     "value": "audible",
+     "confidence": "inferred",
+     "note": "Continuous fine ticking; nothing to draw."
+    },
+    "abundance": {
+     "value": "abundant",
+     "confidence": "inferred",
+     "note": "Sedge meadow is where this group is densest."
+    },
+    "max_group": 0,
+    "vocalization": "chorus",
+    "behaviour": "Sound only: a fine, high, continuous shimmer over the whole meadow, day and night.",
+    "appearance": "Not shown.",
+    "trace": null
+   },
+   "confidence": "inferred",
+   "note": "Genus-level: the dossier names meadow katydids as a group and no species-level Chicago record exists for any date."
+  },
+  {
+   "id": "culicidae_spp",
+   "binomial": "Culicidae spp.",
+   "common": "mosquitoes",
+   "class": "insect",
+   "activity": "crepuscular",
+   "active_periods": [
+    "dawn",
+    "dusk",
+    "night"
+   ],
+   "july": {
+    "status": {
+     "value": "breeding_resident",
+     "confidence": "inferred",
+     "note": "The dossier's Chicago 1834 description \u2014 residents 'situated in the midst of sloughs and marshes and the sluggish Chicago River', in log buildings without screens, the slough producing 'clouds of mosquitoes carrying the ague' \u2014 comes from a page that returned HTTP 403 to the research agent, so the exact wording is unverified and The dossier's citation for this has no record in data/sources/, so nothing here is graded documented on it."
+    },
+    "presence": {
+     "value": "not_perceptible",
+     "confidence": "inferred",
+     "note": "Individual mosquitoes will not read at any render scale. They are recorded as present and maximal, and the correct rendering of them is the human response \u2014 smudge fires, netting, covered arms \u2014 which liberty L1 puts out of scope for v1. So this zone's single most intense July fact is deliberately shown as nothing."
+    },
+    "abundance": {
+     "value": "abundant",
+     "confidence": "inferred",
+     "note": "Maximal. Standing water, no drainage, no screens, and endemic ague."
+    },
+    "max_group": 0,
+    "vocalization": "non_vocal",
+    "behaviour": "Nothing is drawn. A smudge-fire smoke plume is the only defensible visible trace, and that belongs to the structures dataset, not to this one.",
+    "appearance": "Not shown.",
+    "trace": null
+   },
+   "confidence": "inferred",
+   "note": "Recorded because leaving the defining insect of a July Chicago wetland out of the dataset would misrepresent the place far more than rendering nothing for it does."
+  }
+ ],
+ "confidence": "inferred",
+ "note": "The species list is the regional wet-prairie assemblage the dossier quotes from an Illinois DNR wetlands publication, which has no source record in data/sources/. Nothing in this zone is attested at Chicago in 1835 and nothing in it is graded documented."
+}

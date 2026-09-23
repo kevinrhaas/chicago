@@ -1,0 +1,1706 @@
+{
+ "schema": 1,
+ "domain": "civic",
+ "ticket": "T-1135",
+ "generated_by": "tools/exhaust_tax_1833.py --build",
+ "the_ruling_is_not_here": "This file is the arithmetic. The ruling is hand-authored at data/residents/card_merge_rulings.json -> clusters -> pruyne-pryne, and reasoned out at docs/RESEARCH/pruyne_pryne_exhaustion.md.",
+ "the_pair": {
+  "survivor": "pruyne_peter",
+  "folded": "pryne_peter",
+  "bearers_of_the_stem_in_the_layer": [
+   {
+    "person": "pruyne_peter",
+    "name": "Peter Pruyne",
+    "household": "hh_pruyne_kimberly",
+    "folded": false
+   },
+   {
+    "person": "pryne_peter",
+    "name": "Peter Pryne",
+    "household": "hh_pryne_peter",
+    "folded": true
+   }
+  ]
+ },
+ "gate_a_the_ground": {
+  "the_question": "Does an independent non-name fact put Peter Pruyne on a roll of the owners of ground inside the Town of Chicago in 1833?",
+  "the_line": {
+   "ordinance": "chicago_democrat_1833_11_26#c024, the Trustees' first village ordinance, passed 7 November 1833 and printed nineteen days later",
+   "resolved_by": "tools/measure_corporation_limits.py",
+   "vertices": 40
+  },
+  "rows": [
+   {
+    "record_id": "ls0322",
+    "purchaser_as_read": "PRUYNE P AND CO",
+    "part": "BL97",
+    "date_purchased": "1833-10-22",
+    "block": 97,
+    "corners_tested": 4,
+    "corners_inside_the_limits": 4,
+    "inside_the_limits": true,
+    "adjudicated_to": null,
+    "adjudication": "not_ruled"
+   },
+   {
+    "record_id": "ls0323",
+    "purchaser_as_read": "PRUYNE PETER",
+    "part": "LOT1BL23",
+    "date_purchased": "1833-10-24",
+    "block": 23,
+    "corners_tested": 4,
+    "corners_inside_the_limits": 0,
+    "inside_the_limits": false,
+    "adjudicated_to": "pruyne_peter",
+    "adjudication": "upheld"
+   },
+   {
+    "record_id": "ls0324",
+    "purchaser_as_read": "PRUYNE PETER",
+    "part": "LOT8BL23",
+    "date_purchased": "1833-10-24",
+    "block": 23,
+    "corners_tested": 4,
+    "corners_inside_the_limits": 0,
+    "inside_the_limits": false,
+    "adjudicated_to": "pruyne_peter",
+    "adjudication": "upheld"
+   },
+   {
+    "record_id": "ls0321",
+    "purchaser_as_read": "PRUYNE P",
+    "part": "LOT3BL119",
+    "date_purchased": "1833-10-25",
+    "block": 119,
+    "corners_tested": 4,
+    "corners_inside_the_limits": 4,
+    "inside_the_limits": true,
+    "adjudicated_to": "pruyne_peter",
+    "adjudication": "upheld"
+   }
+  ],
+  "rows_1833": 4,
+  "rows_inside_the_limits": 2,
+  "rows_outside_the_limits": 2,
+  "rows_inside_and_adjudicated_to_the_survivor": 1,
+  "earliest_row_inside_the_limits": "1833-10-22",
+  "holds": true,
+  "what_it_does_not_say": "The roll prints no day within 1833, so nothing here dates the assessment. What it bounds is the other end: the Town of Chicago did not exist before 10 August 1833, and this corpus holds no statement of its bounds earlier than the ordinance of 7 November 1833 — after every row above. That bound is an inference and is graded as one."
+ },
+ "gate_b_the_exhaustion": {
+  "the_question": "Is any entry on this roll other than number 86 one that 'Peter Pruyne' could be a printing of?",
+  "roll_entries": 115,
+  "entries_printing_no_forename_at_all": 13,
+  "why_the_count_is_over_the_surname": "Thirteen entries print no forename, so a count over the bearers of 'Peter' cannot close. The varying half is the surname and the count is run over it.",
+  "distance_histogram": {
+   "1": 1,
+   "3": 1,
+   "4": 4,
+   "5": 37,
+   "6": 37,
+   "7": 18,
+   "8": 11,
+   "9": 4,
+   "10": 2
+  },
+  "entries_within_one_letter_of_pruyne": [
+   "tax_1833_086"
+  ],
+  "nearest_other_entry_in_letters": 3,
+  "entries_whose_forename_could_be_peter": [
+   "tax_1833_027",
+   "tax_1833_083",
+   "tax_1833_086"
+  ],
+  "entries_accounted_for_by_a_card_that_is_not_the_survivor": 106,
+  "entries_the_layer_holds_no_card_for": [
+   {
+    "record_id": "tax_1833_006",
+    "as_read": "Blinn",
+    "letters_from_pruyne": 5
+   },
+   {
+    "record_id": "tax_1833_007",
+    "as_read": "Bourison",
+    "letters_from_pruyne": 7
+   },
+   {
+    "record_id": "tax_1833_050",
+    "as_read": "Jameson, Lt.",
+    "letters_from_pruyne": 7
+   },
+   {
+    "record_id": "tax_1833_059",
+    "as_read": "Kingsbury, Lt.",
+    "letters_from_pruyne": 9
+   },
+   {
+    "record_id": "tax_1833_071",
+    "as_read": "Magill",
+    "letters_from_pruyne": 6
+   },
+   {
+    "record_id": "tax_1833_078",
+    "as_read": "Nale",
+    "letters_from_pruyne": 5
+   },
+   {
+    "record_id": "tax_1833_079",
+    "as_read": "Newberry, Oliver",
+    "letters_from_pruyne": 8
+   },
+   {
+    "record_id": "tax_1833_084",
+    "as_read": "Post",
+    "letters_from_pruyne": 5
+   },
+   {
+    "record_id": "tax_1833_108",
+    "as_read": "Whistler",
+    "letters_from_pruyne": 7
+   }
+  ],
+  "holds": true,
+  "roll": [
+   {
+    "record_id": "tax_1833_001",
+    "entry": 1,
+    "as_read": "Allen, Lt. James",
+    "surname": "allen",
+    "prints_a_forename": true,
+    "forename_could_be_peter": false,
+    "letters_from_pruyne": 5,
+    "accounted_for_by": [
+     "allen_lieut_james",
+     "allen_james",
+     "allen_lieut",
+     "allen_lieut_j"
+    ]
+   },
+   {
+    "record_id": "tax_1833_002",
+    "entry": 2,
+    "as_read": "Beaubien, John S.",
+    "surname": "beaubien",
+    "prints_a_forename": true,
+    "forename_could_be_peter": false,
+    "letters_from_pruyne": 6,
+    "accounted_for_by": [
+     "beaubien_john_s",
+     "beaubien_j_b",
+     "beaubien_john_b"
+    ]
+   },
+   {
+    "record_id": "tax_1833_003",
+    "entry": 3,
+    "as_read": "Beaubien, Mark",
+    "surname": "beaubien",
+    "prints_a_forename": true,
+    "forename_could_be_peter": false,
+    "letters_from_pruyne": 6,
+    "accounted_for_by": [
+     "beaubien_mark"
+    ]
+   },
+   {
+    "record_id": "tax_1833_004",
+    "entry": 4,
+    "as_read": "Bell, William A.",
+    "surname": "bell",
+    "prints_a_forename": true,
+    "forename_could_be_peter": false,
+    "letters_from_pruyne": 6,
+    "accounted_for_by": [
+     "bell_william_a"
+    ]
+   },
+   {
+    "record_id": "tax_1833_005",
+    "entry": 5,
+    "as_read": "Blanchard, Gantry",
+    "surname": "blanchard",
+    "prints_a_forename": true,
+    "forename_could_be_peter": false,
+    "letters_from_pruyne": 9,
+    "accounted_for_by": [
+     "blanchard_gantry"
+    ]
+   },
+   {
+    "record_id": "tax_1833_006",
+    "entry": 6,
+    "as_read": "Blinn",
+    "surname": "blinn",
+    "prints_a_forename": false,
+    "forename_could_be_peter": false,
+    "letters_from_pruyne": 5,
+    "accounted_for_by": []
+   },
+   {
+    "record_id": "tax_1833_007",
+    "entry": 7,
+    "as_read": "Bourison",
+    "surname": "bourison",
+    "prints_a_forename": false,
+    "forename_could_be_peter": false,
+    "letters_from_pruyne": 7,
+    "accounted_for_by": []
+   },
+   {
+    "record_id": "tax_1833_008",
+    "entry": 8,
+    "as_read": "Bowen, Erastus",
+    "surname": "bowen",
+    "prints_a_forename": true,
+    "forename_could_be_peter": false,
+    "letters_from_pruyne": 5,
+    "accounted_for_by": [
+     "bowen_erastus_selden"
+    ]
+   },
+   {
+    "record_id": "tax_1833_009",
+    "entry": 9,
+    "as_read": "Bronson, Arthur",
+    "surname": "bronson",
+    "prints_a_forename": true,
+    "forename_could_be_peter": false,
+    "letters_from_pruyne": 6,
+    "accounted_for_by": [
+     "bronson_arthur"
+    ]
+   },
+   {
+    "record_id": "tax_1833_010",
+    "entry": 10,
+    "as_read": "Brown, Lemuel",
+    "surname": "brown",
+    "prints_a_forename": true,
+    "forename_could_be_peter": false,
+    "letters_from_pruyne": 4,
+    "accounted_for_by": [
+     "brown_lemuel"
+    ]
+   },
+   {
+    "record_id": "tax_1833_011",
+    "entry": 11,
+    "as_read": "Burke, James",
+    "surname": "burke",
+    "prints_a_forename": true,
+    "forename_could_be_peter": false,
+    "letters_from_pruyne": 4,
+    "accounted_for_by": [
+     "burke_james"
+    ]
+   },
+   {
+    "record_id": "tax_1833_012",
+    "entry": 12,
+    "as_read": "Carpenter, Philo",
+    "surname": "carpenter",
+    "prints_a_forename": true,
+    "forename_could_be_peter": false,
+    "letters_from_pruyne": 6,
+    "accounted_for_by": [
+     "carpenter_philo"
+    ]
+   },
+   {
+    "record_id": "tax_1833_013",
+    "entry": 13,
+    "as_read": "Carver, David",
+    "surname": "carver",
+    "prints_a_forename": true,
+    "forename_could_be_peter": false,
+    "letters_from_pruyne": 6,
+    "accounted_for_by": [
+     "carver_david"
+    ]
+   },
+   {
+    "record_id": "tax_1833_014",
+    "entry": 14,
+    "as_read": "Casey, Edward W.",
+    "surname": "casey",
+    "prints_a_forename": true,
+    "forename_could_be_peter": false,
+    "letters_from_pruyne": 6,
+    "accounted_for_by": [
+     "casey_edward_w"
+    ]
+   },
+   {
+    "record_id": "tax_1833_015",
+    "entry": 15,
+    "as_read": "Caton, John Dean",
+    "surname": "caton",
+    "prints_a_forename": true,
+    "forename_could_be_peter": false,
+    "letters_from_pruyne": 5,
+    "accounted_for_by": [
+     "caton_john_dean"
+    ]
+   },
+   {
+    "record_id": "tax_1833_016",
+    "entry": 16,
+    "as_read": "Chapley, M. S.",
+    "surname": "chapley",
+    "prints_a_forename": true,
+    "forename_could_be_peter": false,
+    "letters_from_pruyne": 6,
+    "accounted_for_by": [
+     "chapley_m_s"
+    ]
+   },
+   {
+    "record_id": "tax_1833_017",
+    "entry": 17,
+    "as_read": "Chapman, Charles H.",
+    "surname": "chapman",
+    "prints_a_forename": true,
+    "forename_could_be_peter": false,
+    "letters_from_pruyne": 7,
+    "accounted_for_by": [
+     "chapman_chas_h"
+    ]
+   },
+   {
+    "record_id": "tax_1833_018",
+    "entry": 18,
+    "as_read": "Church",
+    "surname": "church",
+    "prints_a_forename": false,
+    "forename_could_be_peter": false,
+    "letters_from_pruyne": 5,
+    "accounted_for_by": [
+     "church_thomas"
+    ]
+   },
+   {
+    "record_id": "tax_1833_019",
+    "entry": 19,
+    "as_read": "Clybourne, Archibald",
+    "surname": "clybourne",
+    "prints_a_forename": true,
+    "forename_could_be_peter": false,
+    "letters_from_pruyne": 6,
+    "accounted_for_by": [
+     "clybourne_archibald"
+    ]
+   },
+   {
+    "record_id": "tax_1833_020",
+    "entry": 20,
+    "as_read": "Cole, Parker M.",
+    "surname": "cole",
+    "prints_a_forename": true,
+    "forename_could_be_peter": false,
+    "letters_from_pruyne": 5,
+    "accounted_for_by": [
+     "cole_parker_m"
+    ]
+   },
+   {
+    "record_id": "tax_1833_021",
+    "entry": 21,
+    "as_read": "Cook, J. P.",
+    "surname": "cook",
+    "prints_a_forename": true,
+    "forename_could_be_peter": false,
+    "letters_from_pruyne": 6,
+    "accounted_for_by": [
+     "cook_j_b",
+     "cook_john",
+     "cook_josiah_p"
+    ]
+   },
+   {
+    "record_id": "tax_1833_022",
+    "entry": 22,
+    "as_read": "Cook, Thomas",
+    "surname": "cook",
+    "prints_a_forename": true,
+    "forename_could_be_peter": false,
+    "letters_from_pruyne": 6,
+    "accounted_for_by": [
+     "cook_thomas"
+    ]
+   },
+   {
+    "record_id": "tax_1833_023",
+    "entry": 23,
+    "as_read": "David, John",
+    "surname": "david",
+    "prints_a_forename": true,
+    "forename_could_be_peter": false,
+    "letters_from_pruyne": 6,
+    "accounted_for_by": [
+     "david_john"
+    ]
+   },
+   {
+    "record_id": "tax_1833_024",
+    "entry": 24,
+    "as_read": "Davis, John",
+    "surname": "davis",
+    "prints_a_forename": true,
+    "forename_could_be_peter": false,
+    "letters_from_pruyne": 6,
+    "accounted_for_by": [
+     "davis_john"
+    ]
+   },
+   {
+    "record_id": "tax_1833_025",
+    "entry": 25,
+    "as_read": "Dole, George W.",
+    "surname": "dole",
+    "prints_a_forename": true,
+    "forename_could_be_peter": false,
+    "letters_from_pruyne": 5,
+    "accounted_for_by": [
+     "dole_george_w",
+     "dole_g_w"
+    ]
+   },
+   {
+    "record_id": "tax_1833_026",
+    "entry": 26,
+    "as_read": "Draper, Joseph",
+    "surname": "draper",
+    "prints_a_forename": true,
+    "forename_could_be_peter": false,
+    "letters_from_pruyne": 5,
+    "accounted_for_by": [
+     "draper_joseph"
+    ]
+   },
+   {
+    "record_id": "tax_1833_027",
+    "entry": 27,
+    "as_read": "Earlie, P. J.",
+    "surname": "earlie",
+    "prints_a_forename": true,
+    "forename_could_be_peter": true,
+    "letters_from_pruyne": 5,
+    "accounted_for_by": [
+     "earlie_p_j"
+    ]
+   },
+   {
+    "record_id": "tax_1833_028",
+    "entry": 28,
+    "as_read": "Egan, William Bradshaw",
+    "surname": "egan",
+    "prints_a_forename": true,
+    "forename_could_be_peter": false,
+    "letters_from_pruyne": 5,
+    "accounted_for_by": [
+     "egan_william_b"
+    ]
+   },
+   {
+    "record_id": "tax_1833_029",
+    "entry": 29,
+    "as_read": "Finley, Clement A.",
+    "surname": "finley",
+    "prints_a_forename": true,
+    "forename_could_be_peter": false,
+    "letters_from_pruyne": 6,
+    "accounted_for_by": [
+     "finley_clement_a"
+    ]
+   },
+   {
+    "record_id": "tax_1833_030",
+    "entry": 30,
+    "as_read": "Foot, John",
+    "surname": "foot",
+    "prints_a_forename": true,
+    "forename_could_be_peter": false,
+    "letters_from_pruyne": 6,
+    "accounted_for_by": [
+     "foot_john"
+    ]
+   },
+   {
+    "record_id": "tax_1833_031",
+    "entry": 31,
+    "as_read": "Foot, Starr",
+    "surname": "foot",
+    "prints_a_forename": true,
+    "forename_could_be_peter": false,
+    "letters_from_pruyne": 6,
+    "accounted_for_by": [
+     "foot_s"
+    ]
+   },
+   {
+    "record_id": "tax_1833_032",
+    "entry": 32,
+    "as_read": "Forsyth, William",
+    "surname": "forsyth",
+    "prints_a_forename": true,
+    "forename_could_be_peter": false,
+    "letters_from_pruyne": 5,
+    "accounted_for_by": [
+     "forsyth_william"
+    ]
+   },
+   {
+    "record_id": "tax_1833_033",
+    "entry": 33,
+    "as_read": "Foster, Amos",
+    "surname": "foster",
+    "prints_a_forename": true,
+    "forename_could_be_peter": false,
+    "letters_from_pruyne": 6,
+    "accounted_for_by": [
+     "foster_amos"
+    ]
+   },
+   {
+    "record_id": "tax_1833_034",
+    "entry": 34,
+    "as_read": "Foster, John N.",
+    "surname": "foster",
+    "prints_a_forename": true,
+    "forename_could_be_peter": false,
+    "letters_from_pruyne": 6,
+    "accounted_for_by": [
+     "foster_john_n"
+    ]
+   },
+   {
+    "record_id": "tax_1833_035",
+    "entry": 35,
+    "as_read": "Fullerton, Alexander",
+    "surname": "fullerton",
+    "prints_a_forename": true,
+    "forename_could_be_peter": false,
+    "letters_from_pruyne": 8,
+    "accounted_for_by": [
+     "fullerton_alexander",
+     "fullerton_a_n",
+     "fullerton_alex_n",
+     "fullerton_alexander_m"
+    ]
+   },
+   {
+    "record_id": "tax_1833_036",
+    "entry": 36,
+    "as_read": "Glaumbake, Frank",
+    "surname": "glaumbake",
+    "prints_a_forename": true,
+    "forename_could_be_peter": false,
+    "letters_from_pruyne": 7,
+    "accounted_for_by": [
+     "glaumbake_frank"
+    ]
+   },
+   {
+    "record_id": "tax_1833_037",
+    "entry": 37,
+    "as_read": "Goodhue, J. C.",
+    "surname": "goodhue",
+    "prints_a_forename": true,
+    "forename_could_be_peter": false,
+    "letters_from_pruyne": 6,
+    "accounted_for_by": [
+     "inf_physician_south_01"
+    ]
+   },
+   {
+    "record_id": "tax_1833_038",
+    "entry": 38,
+    "as_read": "Goodrich, C.",
+    "surname": "goodrich",
+    "prints_a_forename": true,
+    "forename_could_be_peter": false,
+    "letters_from_pruyne": 8,
+    "accounted_for_by": [
+     "goodrich_c"
+    ]
+   },
+   {
+    "record_id": "tax_1833_039",
+    "entry": 39,
+    "as_read": "Goodrich, John",
+    "surname": "goodrich",
+    "prints_a_forename": true,
+    "forename_could_be_peter": false,
+    "letters_from_pruyne": 8,
+    "accounted_for_by": [
+     "goodrich_john"
+    ]
+   },
+   {
+    "record_id": "tax_1833_040",
+    "entry": 40,
+    "as_read": "Guisin, Byran",
+    "surname": "guisin",
+    "prints_a_forename": true,
+    "forename_could_be_peter": false,
+    "letters_from_pruyne": 6,
+    "accounted_for_by": [
+     "guisin_byran"
+    ]
+   },
+   {
+    "record_id": "tax_1833_041",
+    "entry": 41,
+    "as_read": "Haddock, E. H.",
+    "surname": "haddock",
+    "prints_a_forename": true,
+    "forename_could_be_peter": false,
+    "letters_from_pruyne": 7,
+    "accounted_for_by": [
+     "haddock_edward",
+     "haddock_e",
+     "haddock_e_w",
+     "haddock_edward_e"
+    ]
+   },
+   {
+    "record_id": "tax_1833_042",
+    "entry": 42,
+    "as_read": "Hamilton, Richard J.",
+    "surname": "hamilton",
+    "prints_a_forename": true,
+    "forename_could_be_peter": false,
+    "letters_from_pruyne": 8,
+    "accounted_for_by": [
+     "hamilton_richard_j",
+     "hamilton_r_j"
+    ]
+   },
+   {
+    "record_id": "tax_1833_043",
+    "entry": 43,
+    "as_read": "Harmon, Isaac",
+    "surname": "harmon",
+    "prints_a_forename": true,
+    "forename_could_be_peter": false,
+    "letters_from_pruyne": 5,
+    "accounted_for_by": [
+     "harmon_isaac_d",
+     "harmon_isaac"
+    ]
+   },
+   {
+    "record_id": "tax_1833_044",
+    "entry": 44,
+    "as_read": "Hartzell, Thomas",
+    "surname": "hartzell",
+    "prints_a_forename": true,
+    "forename_could_be_peter": false,
+    "letters_from_pruyne": 7,
+    "accounted_for_by": [
+     "hartzell_thomas"
+    ]
+   },
+   {
+    "record_id": "tax_1833_045",
+    "entry": 45,
+    "as_read": "Hogan, John S. C.",
+    "surname": "hogan",
+    "prints_a_forename": true,
+    "forename_could_be_peter": false,
+    "letters_from_pruyne": 5,
+    "accounted_for_by": [
+     "hogan_john",
+     "hogan_john_s_c",
+     "hogan_j_s_c"
+    ]
+   },
+   {
+    "record_id": "tax_1833_046",
+    "entry": 46,
+    "as_read": "Hubbard, Gurdon S.",
+    "surname": "hubbard",
+    "prints_a_forename": true,
+    "forename_could_be_peter": false,
+    "letters_from_pruyne": 7,
+    "accounted_for_by": [
+     "hubbard_gurdon",
+     "hubbard_g",
+     "hubbard_g_s",
+     "hubbard_g_t",
+     "hubbard_gurdon_s"
+    ]
+   },
+   {
+    "record_id": "tax_1833_047",
+    "entry": 47,
+    "as_read": "Hunter, David",
+    "surname": "hunter",
+    "prints_a_forename": true,
+    "forename_could_be_peter": false,
+    "letters_from_pruyne": 5,
+    "accounted_for_by": [
+     "hunter_david"
+    ]
+   },
+   {
+    "record_id": "tax_1833_048",
+    "entry": 48,
+    "as_read": "Irwell, William",
+    "surname": "irwell",
+    "prints_a_forename": true,
+    "forename_could_be_peter": false,
+    "letters_from_pruyne": 5,
+    "accounted_for_by": [
+     "irwell_william"
+    ]
+   },
+   {
+    "record_id": "tax_1833_049",
+    "entry": 49,
+    "as_read": "Jackson, Samuel",
+    "surname": "jackson",
+    "prints_a_forename": true,
+    "forename_could_be_peter": false,
+    "letters_from_pruyne": 7,
+    "accounted_for_by": [
+     "jackson_samuel"
+    ]
+   },
+   {
+    "record_id": "tax_1833_050",
+    "entry": 50,
+    "as_read": "Jameson, Lt.",
+    "surname": "jameson",
+    "prints_a_forename": false,
+    "forename_could_be_peter": false,
+    "letters_from_pruyne": 7,
+    "accounted_for_by": []
+   },
+   {
+    "record_id": "tax_1833_051",
+    "entry": 51,
+    "as_read": "Johnson, Seth",
+    "surname": "johnson",
+    "prints_a_forename": true,
+    "forename_could_be_peter": false,
+    "letters_from_pruyne": 7,
+    "accounted_for_by": [
+     "johnson_seth"
+    ]
+   },
+   {
+    "record_id": "tax_1833_052",
+    "entry": 52,
+    "as_read": "Jones, D. E.",
+    "surname": "jones",
+    "prints_a_forename": true,
+    "forename_could_be_peter": false,
+    "letters_from_pruyne": 5,
+    "accounted_for_by": [
+     "jones_d_e"
+    ]
+   },
+   {
+    "record_id": "tax_1833_053",
+    "entry": 53,
+    "as_read": "Jones, Willard",
+    "surname": "jones",
+    "prints_a_forename": true,
+    "forename_could_be_peter": false,
+    "letters_from_pruyne": 5,
+    "accounted_for_by": [
+     "jones_willard"
+    ]
+   },
+   {
+    "record_id": "tax_1833_054",
+    "entry": 54,
+    "as_read": "Kercheval, Benjamin",
+    "surname": "kercheval",
+    "prints_a_forename": true,
+    "forename_could_be_peter": false,
+    "letters_from_pruyne": 8,
+    "accounted_for_by": [
+     "kercheval_benjamin"
+    ]
+   },
+   {
+    "record_id": "tax_1833_055",
+    "entry": 55,
+    "as_read": "Kercheval, Gholson",
+    "surname": "kercheval",
+    "prints_a_forename": true,
+    "forename_could_be_peter": false,
+    "letters_from_pruyne": 8,
+    "accounted_for_by": [
+     "kercheval_gholson"
+    ]
+   },
+   {
+    "record_id": "tax_1833_056",
+    "entry": 56,
+    "as_read": "Keyes, Edward",
+    "surname": "keyes",
+    "prints_a_forename": true,
+    "forename_could_be_peter": false,
+    "letters_from_pruyne": 5,
+    "accounted_for_by": [
+     "keyes_edward"
+    ]
+   },
+   {
+    "record_id": "tax_1833_057",
+    "entry": 57,
+    "as_read": "Kimberly, Edmund S.",
+    "surname": "kimberly",
+    "prints_a_forename": true,
+    "forename_could_be_peter": false,
+    "letters_from_pruyne": 8,
+    "accounted_for_by": [
+     "kimberly_edmund_s",
+     "kimberly_e_s",
+     "kimberly_edmund_l"
+    ]
+   },
+   {
+    "record_id": "tax_1833_058",
+    "entry": 58,
+    "as_read": "Kimberly, Ira",
+    "surname": "kimberly",
+    "prints_a_forename": true,
+    "forename_could_be_peter": false,
+    "letters_from_pruyne": 8,
+    "accounted_for_by": [
+     "kimberly_ira"
+    ]
+   },
+   {
+    "record_id": "tax_1833_059",
+    "entry": 59,
+    "as_read": "Kingsbury, Lt.",
+    "surname": "kingsbury",
+    "prints_a_forename": false,
+    "forename_could_be_peter": false,
+    "letters_from_pruyne": 9,
+    "accounted_for_by": []
+   },
+   {
+    "record_id": "tax_1833_060",
+    "entry": 60,
+    "as_read": "Kingstone, Paul",
+    "surname": "kingstone",
+    "prints_a_forename": true,
+    "forename_could_be_peter": false,
+    "letters_from_pruyne": 7,
+    "accounted_for_by": [
+     "kingstone_paul"
+    ]
+   },
+   {
+    "record_id": "tax_1833_061",
+    "entry": 61,
+    "as_read": "Kinzie, James",
+    "surname": "kinzie",
+    "prints_a_forename": true,
+    "forename_could_be_peter": false,
+    "letters_from_pruyne": 5,
+    "accounted_for_by": [
+     "kinzie_james",
+     "kinzie_j_h"
+    ]
+   },
+   {
+    "record_id": "tax_1833_062",
+    "entry": 62,
+    "as_read": "Kinzie, John",
+    "surname": "kinzie",
+    "prints_a_forename": true,
+    "forename_could_be_peter": false,
+    "letters_from_pruyne": 5,
+    "accounted_for_by": [
+     "kinzie_john_h",
+     "kinzie_j_h",
+     "kinzie_john_s"
+    ]
+   },
+   {
+    "record_id": "tax_1833_063",
+    "entry": 63,
+    "as_read": "Kinzie, Robert A.",
+    "surname": "kinzie",
+    "prints_a_forename": true,
+    "forename_could_be_peter": false,
+    "letters_from_pruyne": 5,
+    "accounted_for_by": [
+     "kinzie_robert_a",
+     "kinzie_r_a"
+    ]
+   },
+   {
+    "record_id": "tax_1833_064",
+    "entry": 64,
+    "as_read": "Kripes, Edward",
+    "surname": "kripes",
+    "prints_a_forename": true,
+    "forename_could_be_peter": false,
+    "letters_from_pruyne": 5,
+    "accounted_for_by": [
+     "kripes_edward"
+    ]
+   },
+   {
+    "record_id": "tax_1833_065",
+    "entry": 65,
+    "as_read": "Lee, William",
+    "surname": "lee",
+    "prints_a_forename": true,
+    "forename_could_be_peter": false,
+    "letters_from_pruyne": 5,
+    "accounted_for_by": [
+     "lee_william"
+    ]
+   },
+   {
+    "record_id": "tax_1833_066",
+    "entry": 66,
+    "as_read": "Le Framboise, Joseph",
+    "surname": "leframboise",
+    "prints_a_forename": true,
+    "forename_could_be_peter": false,
+    "letters_from_pruyne": 9,
+    "accounted_for_by": [
+     "leframboise_joseph"
+    ]
+   },
+   {
+    "record_id": "tax_1833_067",
+    "entry": 67,
+    "as_read": "Lewis, Thomas",
+    "surname": "lewis",
+    "prints_a_forename": true,
+    "forename_could_be_peter": false,
+    "letters_from_pruyne": 6,
+    "accounted_for_by": [
+     "lewis_thomas"
+    ]
+   },
+   {
+    "record_id": "tax_1833_068",
+    "entry": 68,
+    "as_read": "Lincoln, Solomon",
+    "surname": "lincoln",
+    "prints_a_forename": true,
+    "forename_could_be_peter": false,
+    "letters_from_pruyne": 7,
+    "accounted_for_by": [
+     "lincoln_solomon"
+    ]
+   },
+   {
+    "record_id": "tax_1833_069",
+    "entry": 69,
+    "as_read": "Liton, Robert W.",
+    "surname": "liton",
+    "prints_a_forename": true,
+    "forename_could_be_peter": false,
+    "letters_from_pruyne": 5,
+    "accounted_for_by": [
+     "liton_robert_w"
+    ]
+   },
+   {
+    "record_id": "tax_1833_070",
+    "entry": 70,
+    "as_read": "Mack, Stephen",
+    "surname": "mack",
+    "prints_a_forename": true,
+    "forename_could_be_peter": false,
+    "letters_from_pruyne": 6,
+    "accounted_for_by": [
+     "mack_stephen"
+    ]
+   },
+   {
+    "record_id": "tax_1833_071",
+    "entry": 71,
+    "as_read": "Magill",
+    "surname": "magill",
+    "prints_a_forename": false,
+    "forename_could_be_peter": false,
+    "letters_from_pruyne": 6,
+    "accounted_for_by": []
+   },
+   {
+    "record_id": "tax_1833_072",
+    "entry": 72,
+    "as_read": "Merill, Isaac",
+    "surname": "merill",
+    "prints_a_forename": true,
+    "forename_could_be_peter": false,
+    "letters_from_pruyne": 6,
+    "accounted_for_by": [
+     "merill_isaac"
+    ]
+   },
+   {
+    "record_id": "tax_1833_073",
+    "entry": 73,
+    "as_read": "Miller, George",
+    "surname": "miller",
+    "prints_a_forename": true,
+    "forename_could_be_peter": false,
+    "letters_from_pruyne": 6,
+    "accounted_for_by": [
+     "miller_george"
+    ]
+   },
+   {
+    "record_id": "tax_1833_074",
+    "entry": 74,
+    "as_read": "Miller, John",
+    "surname": "miller",
+    "prints_a_forename": true,
+    "forename_could_be_peter": false,
+    "letters_from_pruyne": 6,
+    "accounted_for_by": [
+     "miller_john"
+    ]
+   },
+   {
+    "record_id": "tax_1833_075",
+    "entry": 75,
+    "as_read": "Miller, Samuel",
+    "surname": "miller",
+    "prints_a_forename": true,
+    "forename_could_be_peter": false,
+    "letters_from_pruyne": 6,
+    "accounted_for_by": [
+     "miller_samuel"
+    ]
+   },
+   {
+    "record_id": "tax_1833_076",
+    "entry": 76,
+    "as_read": "Morrison, Orsemus",
+    "surname": "morrison",
+    "prints_a_forename": true,
+    "forename_could_be_peter": false,
+    "letters_from_pruyne": 7,
+    "accounted_for_by": [
+     "morrison_orsemus"
+    ]
+   },
+   {
+    "record_id": "tax_1833_077",
+    "entry": 77,
+    "as_read": "Mulford, James H.",
+    "surname": "mulford",
+    "prints_a_forename": true,
+    "forename_could_be_peter": false,
+    "letters_from_pruyne": 7,
+    "accounted_for_by": [
+     "mulford_james_h"
+    ]
+   },
+   {
+    "record_id": "tax_1833_078",
+    "entry": 78,
+    "as_read": "Nale",
+    "surname": "nale",
+    "prints_a_forename": false,
+    "forename_could_be_peter": false,
+    "letters_from_pruyne": 5,
+    "accounted_for_by": []
+   },
+   {
+    "record_id": "tax_1833_079",
+    "entry": 79,
+    "as_read": "Newberry, Oliver",
+    "surname": "newberry",
+    "prints_a_forename": true,
+    "forename_could_be_peter": false,
+    "letters_from_pruyne": 8,
+    "accounted_for_by": []
+   },
+   {
+    "record_id": "tax_1833_080",
+    "entry": 80,
+    "as_read": "Noble, Mark",
+    "surname": "noble",
+    "prints_a_forename": true,
+    "forename_could_be_peter": false,
+    "letters_from_pruyne": 5,
+    "accounted_for_by": [
+     "noble_mark"
+    ]
+   },
+   {
+    "record_id": "tax_1833_081",
+    "entry": 81,
+    "as_read": "Norton",
+    "surname": "norton",
+    "prints_a_forename": false,
+    "forename_could_be_peter": false,
+    "letters_from_pruyne": 5,
+    "accounted_for_by": [
+     "norton_nelson_r",
+     "norton_wm_h",
+     "norton_n_r"
+    ]
+   },
+   {
+    "record_id": "tax_1833_082",
+    "entry": 82,
+    "as_read": "Pearson, Hiram",
+    "surname": "pearson",
+    "prints_a_forename": true,
+    "forename_could_be_peter": false,
+    "letters_from_pruyne": 5,
+    "accounted_for_by": [
+     "pearson_hiram"
+    ]
+   },
+   {
+    "record_id": "tax_1833_083",
+    "entry": 83,
+    "as_read": "Peck, P. F. W.",
+    "surname": "peck",
+    "prints_a_forename": true,
+    "forename_could_be_peter": true,
+    "letters_from_pruyne": 5,
+    "accounted_for_by": [
+     "peck_philip",
+     "peck_p_f",
+     "peck_p_f_w"
+    ]
+   },
+   {
+    "record_id": "tax_1833_084",
+    "entry": 84,
+    "as_read": "Post",
+    "surname": "post",
+    "prints_a_forename": false,
+    "forename_could_be_peter": false,
+    "letters_from_pruyne": 5,
+    "accounted_for_by": []
+   },
+   {
+    "record_id": "tax_1833_085",
+    "entry": 85,
+    "as_read": "Price, Jeremiah",
+    "surname": "price",
+    "prints_a_forename": true,
+    "forename_could_be_peter": false,
+    "letters_from_pruyne": 3,
+    "accounted_for_by": [
+     "price_jeremiah"
+    ]
+   },
+   {
+    "record_id": "tax_1833_086",
+    "entry": 86,
+    "as_read": "Pryne, Peter",
+    "surname": "pryne",
+    "prints_a_forename": true,
+    "forename_could_be_peter": true,
+    "letters_from_pruyne": 1,
+    "accounted_for_by": [
+     "pryne_peter"
+    ]
+   },
+   {
+    "record_id": "tax_1833_087",
+    "entry": 87,
+    "as_read": "Rice, John",
+    "surname": "rice",
+    "prints_a_forename": true,
+    "forename_could_be_peter": false,
+    "letters_from_pruyne": 4,
+    "accounted_for_by": [
+     "rice_john"
+    ]
+   },
+   {
+    "record_id": "tax_1833_088",
+    "entry": 88,
+    "as_read": "Rinlec, R. A.",
+    "surname": "rinlec",
+    "prints_a_forename": true,
+    "forename_could_be_peter": false,
+    "letters_from_pruyne": 5,
+    "accounted_for_by": [
+     "rinlec_r_a"
+    ]
+   },
+   {
+    "record_id": "tax_1833_089",
+    "entry": 89,
+    "as_read": "Roberts, Edmund",
+    "surname": "roberts",
+    "prints_a_forename": true,
+    "forename_could_be_peter": false,
+    "letters_from_pruyne": 7,
+    "accounted_for_by": [
+     "roberts_edmund"
+    ]
+   },
+   {
+    "record_id": "tax_1833_090",
+    "entry": 90,
+    "as_read": "Robinson, Alexander",
+    "surname": "robinson",
+    "prints_a_forename": true,
+    "forename_could_be_peter": false,
+    "letters_from_pruyne": 7,
+    "accounted_for_by": [
+     "robinson_alexander"
+    ]
+   },
+   {
+    "record_id": "tax_1833_091",
+    "entry": 91,
+    "as_read": "Russell, Samuel",
+    "surname": "russell",
+    "prints_a_forename": true,
+    "forename_could_be_peter": false,
+    "letters_from_pruyne": 5,
+    "accounted_for_by": [
+     "russell_samuel"
+    ]
+   },
+   {
+    "record_id": "tax_1833_092",
+    "entry": 92,
+    "as_read": "Ryan, Thomas",
+    "surname": "ryan",
+    "prints_a_forename": true,
+    "forename_could_be_peter": false,
+    "letters_from_pruyne": 4,
+    "accounted_for_by": [
+     "ryan_thomas"
+    ]
+   },
+   {
+    "record_id": "tax_1833_093",
+    "entry": 93,
+    "as_read": "Sherman",
+    "surname": "sherman",
+    "prints_a_forename": false,
+    "forename_could_be_peter": false,
+    "letters_from_pruyne": 6,
+    "accounted_for_by": [
+     "sherman_h",
+     "sherman_rebecca",
+     "sherman_silas_w",
+     "sherman_william_george"
+    ]
+   },
+   {
+    "record_id": "tax_1833_094",
+    "entry": 94,
+    "as_read": "Shrigley, John",
+    "surname": "shrigley",
+    "prints_a_forename": true,
+    "forename_could_be_peter": false,
+    "letters_from_pruyne": 6,
+    "accounted_for_by": [
+     "inf_tavern_keeper_north_01"
+    ]
+   },
+   {
+    "record_id": "tax_1833_095",
+    "entry": 95,
+    "as_read": "Skinner, Joseph",
+    "surname": "skinner",
+    "prints_a_forename": true,
+    "forename_could_be_peter": false,
+    "letters_from_pruyne": 5,
+    "accounted_for_by": [
+     "skinner_joseph"
+    ]
+   },
+   {
+    "record_id": "tax_1833_096",
+    "entry": 96,
+    "as_read": "Snow, George W.",
+    "surname": "snow",
+    "prints_a_forename": true,
+    "forename_could_be_peter": false,
+    "letters_from_pruyne": 6,
+    "accounted_for_by": [
+     "snow_george_w",
+     "snow_g_w"
+    ]
+   },
+   {
+    "record_id": "tax_1833_097",
+    "entry": 97,
+    "as_read": "Stanley, J.",
+    "surname": "stanley",
+    "prints_a_forename": true,
+    "forename_could_be_peter": false,
+    "letters_from_pruyne": 6,
+    "accounted_for_by": [
+     "stanley_j"
+    ]
+   },
+   {
+    "record_id": "tax_1833_098",
+    "entry": 98,
+    "as_read": "Stoer, Clement",
+    "surname": "stoer",
+    "prints_a_forename": true,
+    "forename_could_be_peter": false,
+    "letters_from_pruyne": 6,
+    "accounted_for_by": [
+     "stoer_clement"
+    ]
+   },
+   {
+    "record_id": "tax_1833_099",
+    "entry": 99,
+    "as_read": "Sweet, Alanson",
+    "surname": "sweet",
+    "prints_a_forename": true,
+    "forename_could_be_peter": false,
+    "letters_from_pruyne": 6,
+    "accounted_for_by": [
+     "sweet_a",
+     "sweet_alanson"
+    ]
+   },
+   {
+    "record_id": "tax_1833_100",
+    "entry": 100,
+    "as_read": "Sweet, R. M.",
+    "surname": "sweet",
+    "prints_a_forename": true,
+    "forename_could_be_peter": false,
+    "letters_from_pruyne": 6,
+    "accounted_for_by": [
+     "sweet_richard_m"
+    ]
+   },
+   {
+    "record_id": "tax_1833_101",
+    "entry": 101,
+    "as_read": "Taylor, Anson N.",
+    "surname": "taylor",
+    "prints_a_forename": true,
+    "forename_could_be_peter": false,
+    "letters_from_pruyne": 6,
+    "accounted_for_by": [
+     "taylor_anson_h",
+     "taylor_anson_n",
+     "taylor_anson_w"
+    ]
+   },
+   {
+    "record_id": "tax_1833_102",
+    "entry": 102,
+    "as_read": "Temple, John",
+    "surname": "temple",
+    "prints_a_forename": true,
+    "forename_could_be_peter": false,
+    "letters_from_pruyne": 5,
+    "accounted_for_by": [
+     "temple_john_t",
+     "temple_mrs_john_t",
+     "temple_j_t"
+    ]
+   },
+   {
+    "record_id": "tax_1833_103",
+    "entry": 103,
+    "as_read": "Vanderbogert, Henry",
+    "surname": "vanderbogert",
+    "prints_a_forename": true,
+    "forename_could_be_peter": false,
+    "letters_from_pruyne": 10,
+    "accounted_for_by": [
+     "vanderbogert_henry"
+    ]
+   },
+   {
+    "record_id": "tax_1833_104",
+    "entry": 104,
+    "as_read": "Washburn",
+    "surname": "washburn",
+    "prints_a_forename": false,
+    "forename_could_be_peter": false,
+    "letters_from_pruyne": 7,
+    "accounted_for_by": [
+     "washburn_b_f"
+    ]
+   },
+   {
+    "record_id": "tax_1833_105",
+    "entry": 105,
+    "as_read": "Weaver",
+    "surname": "weaver",
+    "prints_a_forename": false,
+    "forename_could_be_peter": false,
+    "letters_from_pruyne": 6,
+    "accounted_for_by": [
+     "weaver_betsy",
+     "weaver_d"
+    ]
+   },
+   {
+    "record_id": "tax_1833_106",
+    "entry": 106,
+    "as_read": "Wellmaker, John",
+    "surname": "wellmaker",
+    "prints_a_forename": true,
+    "forename_could_be_peter": false,
+    "letters_from_pruyne": 8,
+    "accounted_for_by": [
+     "wellmaker_john"
+    ]
+   },
+   {
+    "record_id": "tax_1833_107",
+    "entry": 107,
+    "as_read": "Wessencraft, Charles",
+    "surname": "wessencraft",
+    "prints_a_forename": true,
+    "forename_could_be_peter": false,
+    "letters_from_pruyne": 10,
+    "accounted_for_by": [
+     "wessencraft_charles"
+    ]
+   },
+   {
+    "record_id": "tax_1833_108",
+    "entry": 108,
+    "as_read": "Whistler",
+    "surname": "whistler",
+    "prints_a_forename": false,
+    "forename_could_be_peter": false,
+    "letters_from_pruyne": 7,
+    "accounted_for_by": []
+   },
+   {
+    "record_id": "tax_1833_109",
+    "entry": 109,
+    "as_read": "Williams, John L.",
+    "surname": "williams",
+    "prints_a_forename": true,
+    "forename_could_be_peter": false,
+    "letters_from_pruyne": 8,
+    "accounted_for_by": [
+     "williams_john_l"
+    ]
+   },
+   {
+    "record_id": "tax_1833_110",
+    "entry": 110,
+    "as_read": "Wolcott, Alexander",
+    "surname": "wolcott",
+    "prints_a_forename": true,
+    "forename_could_be_peter": false,
+    "letters_from_pruyne": 7,
+    "accounted_for_by": [
+     "wolcott_alexander"
+    ]
+   },
+   {
+    "record_id": "tax_1833_111",
+    "entry": 111,
+    "as_read": "Woodworth, W.",
+    "surname": "woodworth",
+    "prints_a_forename": true,
+    "forename_could_be_peter": false,
+    "letters_from_pruyne": 9,
+    "accounted_for_by": [
+     "woodworth_w"
+    ]
+   },
+   {
+    "record_id": "tax_1833_112",
+    "entry": 112,
+    "as_read": "Wooley, Jedidiah Jr.",
+    "surname": "wooley",
+    "prints_a_forename": true,
+    "forename_could_be_peter": false,
+    "letters_from_pruyne": 6,
+    "accounted_for_by": [
+     "wooley_jedidiah"
+    ]
+   },
+   {
+    "record_id": "tax_1833_113",
+    "entry": 113,
+    "as_read": "Wright, Amasa",
+    "surname": "wright",
+    "prints_a_forename": true,
+    "forename_could_be_peter": false,
+    "letters_from_pruyne": 5,
+    "accounted_for_by": [
+     "wright_amasa"
+    ]
+   },
+   {
+    "record_id": "tax_1833_114",
+    "entry": 114,
+    "as_read": "Wright, John",
+    "surname": "wright",
+    "prints_a_forename": true,
+    "forename_could_be_peter": false,
+    "letters_from_pruyne": 5,
+    "accounted_for_by": [
+     "wright_j",
+     "wright_john",
+     "wright_john_s",
+     "wright_j_s"
+    ]
+   },
+   {
+    "record_id": "tax_1833_115",
+    "entry": 115,
+    "as_read": "Wright, T. G.",
+    "surname": "wright",
+    "prints_a_forename": true,
+    "forename_could_be_peter": false,
+    "letters_from_pruyne": 5,
+    "accounted_for_by": [
+     "wright_truman_g"
+    ]
+   }
+  ]
+ },
+ "gate_c_no_clerk_distinguishes_them": {
+  "the_question": "Does any one source print both spellings as separate entries? That is D5's discriminator and it would refuse the merge.",
+  "texts_carrying_the_stem": 20,
+  "texts_carrying_both_spellings": [],
+  "holds": true,
+  "texts": [
+   {
+    "text": "data/research/books/text/fergus_26_29.txt",
+    "spellings": {
+     "pruyne": 1
+    }
+   },
+   {
+    "text": "data/research/books/text/moses_kirkland_history_of_chicago_v1.txt",
+    "spellings": {
+     "pruyn": 3,
+     "pruyne": 5
+    }
+   },
+   {
+    "text": "data/research/books/text/moses_kirkland_history_of_chicago_v2.txt",
+    "spellings": {
+     "pruyn": 2,
+     "pruyne": 2
+    }
+   },
+   {
+    "text": "data/research/civic/text/voter_lists_1833_1835.txt",
+    "spellings": {
+     "pryne": 3
+    }
+   },
+   {
+    "text": "data/research/directories/text/fergus_1839_leaf_040.txt",
+    "spellings": {
+     "pruyne": 1
+    }
+   },
+   {
+    "text": "data/research/directories/text/fergus_1839_leaf_053.txt",
+    "spellings": {
+     "pruyne": 1
+    }
+   },
+   {
+    "text": "data/research/genealogytrails/text/earlysettlerobits.txt",
+    "spellings": {
+     "pruyne": 1
+    }
+   },
+   {
+    "text": "data/research/genealogytrails/text/polllist.txt",
+    "spellings": {
+     "pryne": 3
+    }
+   },
+   {
+    "text": "data/research/newberry_index/text/vol_03_locality_cards.txt",
+    "spellings": {
+     "pruyn": 1
+    }
+   },
+   {
+    "text": "data/research/newspapers/text/chicago_american_1835_07_18.txt",
+    "spellings": {
+     "prns": 1,
+     "pruyne": 1
+    }
+   },
+   {
+    "text": "data/research/newspapers/text/chicago_democrat_1835_07_01__alt_transcription_2.txt",
+    "spellings": {
+     "pruyne": 6
+    }
+   },
+   {
+    "text": "data/research/newspapers/text/chicago_democrat_1835_07_08__alt_transcription_2.txt",
+    "spellings": {
+     "pruyne": 12
+    }
+   },
+   {
+    "text": "data/research/newspapers/text/chicago_democrat_1835_07_15.txt",
+    "spellings": {
+     "pruyne": 2
+    }
+   },
+   {
+    "text": "data/research/newspapers/text/chicago_democrat_1835_07_22.txt",
+    "spellings": {
+     "pruyne": 7
+    }
+   },
+   {
+    "text": "data/research/newspapers/text/chicago_democrat_1835_07_29.txt",
+    "spellings": {
+     "pruyne": 2
+    }
+   },
+   {
+    "text": "data/research/newspapers/text/chicago_democrat_1835_08_05.txt",
+    "spellings": {
+     "pruyne": 6
+    }
+   },
+   {
+    "text": "data/research/newspapers/text/chicago_democrat_1835_08_12.txt",
+    "spellings": {
+     "pruyne": 7
+    }
+   },
+   {
+    "text": "data/research/newspapers/text/chicago_democrat_1835_08_19.txt",
+    "spellings": {
+     "pruyne": 10
+    }
+   },
+   {
+    "text": "data/research/newspapers/text/chicago_democrat_1835_08_26.txt",
+    "spellings": {
+     "pruyne": 5
+    }
+   },
+   {
+    "text": "data/research/old_settlers/text/fergus_1843_old_settler_death_notices.txt",
+    "spellings": {
+     "pruyne": 1
+    }
+   }
+  ]
+ },
+ "all_three_hold": true
+}

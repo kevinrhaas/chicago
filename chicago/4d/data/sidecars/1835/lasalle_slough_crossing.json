@@ -1,0 +1,161 @@
+{
+  "id": "lasalle_slough_crossing",
+  "phase": "crossing_1835",
+  "name": "The La Salle Slough Crossing, South Water Street",
+  "aka": [
+    "the plank crossing at the La Salle slough",
+    "the South Water Street crossing of the La Salle drain"
+  ],
+  "archetype": "bridge_timber",
+  "asset": "gltf/lasalle_slough_crossing__crossing_1835.glb",
+  "scene": "1835",
+  "target_date": "1835-07-01",
+  "documented_range": {
+    "from": "1833-01-01",
+    "to": "1835-12-31",
+    "confidence": "reconstructed",
+    "sources": [
+      "chicagology_prefire273",
+      "osm_streets_2026"
+    ],
+    "note": "NOTHING DATES THIS CROSSING BECAUSE NOTHING RECORDS IT, and that is the first thing to say about the record. Its sibling four hundred metres east is attested — where Water Street crossed the State Street slough 'a log bridge was needed until after 1840' (chicagology_prefire273, transcribed at docs/research/01-terrain-hydrology.md section 2.2) — and no comparable sentence exists for the La Salle drain. WHAT IS REASONED, and it is reasoning and not a date: the town trustees ordered South Water Street pitched and graded from the United States Reservation to Randolph Street in August 1833 (docs/research/04-structures-south.md), a graded public street has to get across whatever it meets, and the drain Wright draws entering the main stem just east of La Salle Street is one of the two things it met. So the range opens with its sibling's, at the start of 1833, and closes at the end of 1835 as this project's convention rather than as a claim that the crossing went then. THE PROJECT READ THIS GROUND THE OTHER WAY UNTIL 2026-08-21: the terrain record's own note ran the drain's head to the street line and no further, on the reading that 'the street crossed on fill or a culvert nothing describes'. The owner overruled that from the street, looking west at 277 degrees: the drain should be 'a continous water drain into the river and have plank crossings for both the road and the sidewalk'. This record is the crossing that ruling requires, and it is RECONSTRUCTED throughout — see T-0129 and docs/LIBERTIES.md."
+  },
+  "change_note": "One state. Nothing records this crossing at all, so nothing records it being rebuilt; the phase is a single reconstructed state standing on 1835-07-01 and is not a claim that it stood unchanged through the range.",
+  "placement": {
+    "local_e": 461.5,
+    "local_n": 3.0,
+    "rotation_deg": 0.0,
+    "position_confidence": "reconstructed",
+    "position_sources": [
+      "wright_1834",
+      "osm_streets_2026"
+    ],
+    "position_note": "DERIVED FROM TWO COMMITTED LINES AND THE COMMITTED GROUND BETWEEN THEM, not authored. The drain is `lasalle_slough_lower` in data/terrain/epochs/e1834_harbor_cut/terrain_spec.json, whose mouth is the south-shore re-entrant Wright 1834 draws at local E +462..+469; the street is `south_water` in data/streets/1835.json, whose committed centreline passes local N +8.11 at this longitude inside a 10.5 m travelled track (N +2.85..+13.35). The crossing is where those meet. WHY IT SITS IN THE TRACK'S SOUTHERN HALF, which is the one placement decision here and it was measured rather than chosen: the river's own traced re-entrant opens northward across this longitude, so on the committed heightfield the water under the corridor is 6.10 m wide at N +3 and 12.90 m wide at N +11. The travelled way a wagon could actually use is therefore the corridor's dry southern part, and a crossing laid on the platted centreline would have to span sixteen metres of a river mouth to reach it. The deck is set at local E +461.5..+473.5 and local N +3.0..+7.27 — twelve metres of span across six metres of water, landing on dry committed ground at every corner and holding 2.65 m of dry abutment seat at the thinnest. THE EAST OFFSET IS THE CHANNEL'S, not a preference: the drain's last reach was re-bent in the same ticket to clear the platted block's north-west corner (see terrain_spec.json and L150), and the deck follows the water it crosses. This is the same argument the Slough Log Bridge's record makes for its own twenty-metre offset from the foot of State Street — the last crossing before a mouth lies a little upstream of it — reached here from a measurement instead of an assumption. WHAT IS INVENTED: the whole of it. No source places a crossing here. The bearing is 0, the deck laid east-west square across the drain, on the same reading as its sibling: the drain runs north into the river at its mouth and the street runs east-west over it. WORKING UNCERTAINTY is the street's and the trace's, about 20 m, on top of the georeference's 20 m; but unlike its sibling this record's uncertainty is not about where a documented thing stood, it is about whether it stood at all.",
+    "symbolic_location": "Where South Water Street crossed the La Salle slough, in the southern half of the platted track, a little upstream of the drain's traced mouth on the south bank of the main stem.",
+    "uncertainty_m": 20,
+    "placement_provisional": false,
+    "vertical_anchor": "water",
+    "walk_surface_m": 0.84
+  },
+  "footprint": {
+    "polygon": [
+      [
+        0,
+        0
+      ],
+      [
+        12,
+        0
+      ],
+      [
+        12,
+        4.27
+      ],
+      [
+        0,
+        4.27
+      ]
+    ],
+    "confidence": "reconstructed",
+    "sources": [],
+    "note": "THE DECK, AND NOT ONE OF ITS NUMBERS IS A RECORD'S. Its u extent is the span, 12 m, and its v extent the width, 4.27 m. THE SPAN IS SIZED OFF THE STREAM, exactly as the Slough Log Bridge's 8 m is: on the committed heightfield the water along the deck's own centre line runs 5.55 m, 0.17 m deep, and 6.3 m under its south edge and 5.2 m under its north, 0.38 m deep at each — leaving 3.10 m and 3.35 m of dry seat at the two abutments. Twelve metres over five and a half of water is the same proportion its sibling holds — 8 m over 3.30, seat 2.35 — applied to a wider drain. THE WIDTH IS THE ONE FIGURE THAT EXCEEDS ITS SIBLING AND IT IS THE OWNER'S ASK, said plainly: Cleaver's ten feet (3.05 m) is documented for the BRANCH bridges and this project treats a street culvert as no wider, so the sibling takes 3.0 m. The owner asked for plank crossings 'for both the road and the sidewalk', and 4.27 m — fourteen feet — is the narrowest deck that carries a wagon way of eight feet with a six-foot plank footway beside it, which is the walk width this project lays everywhere else. The extra 1.22 m is the footway and nothing else. Recorded in docs/LIBERTIES.md."
+  },
+  "attributes": {
+    "construction": {
+      "value": "log",
+      "confidence": "reconstructed",
+      "sources": [],
+      "note": "NOT ATTESTED HERE, AND DELIBERATELY CITING NOTHING. The account this project relies on for the sibling crossing says a LOG bridge was needed where Water Street crossed the OTHER slough, and this record reasons from that as local practice in the same decade on the same street — but it does not carry the citation, because the sentence is evidence about a different crossing and a source is not a yardstick. (It is also a source whose rights are unresolved, which is a second reason not to build geometry on it here.) The reasoning is the reason this record uses the bridge_timber archetype at all; the grade is reconstructed and stays there."
+    },
+    "width_m": {
+      "value": 4.27,
+      "confidence": "reconstructed",
+      "note": "Fourteen feet, and INVENTED — see the footprint note for the arithmetic. Eight feet of wagon way and six feet of plank footway beside it, because the owner asked for a crossing for the road and one for the sidewalk and this is the narrowest deck that carries both. It is deliberately NOT read as evidence that this crossing was grander than the town's main bridges: it is one wagon and one footway wide, which is what the ask describes."
+    },
+    "clearance_m": {
+      "value": 0.5,
+      "confidence": "reconstructed",
+      "note": "INVENTED, and taken from the sibling rather than re-derived, because the two crossings answer the same hydrology: the dossier puts these sloughs' thalwegs 1.5 to 3.0 ft below the adjacent plain, so a deck laid at street level sits roughly half a metre over the water. Measured under this deck the water is 0.17 m deep on the deck's own centre line and 0.38 m at its edges, so half a metre of air is the same reading here as there. Nothing passed under it; the branch bridges' documented six feet is a winter road under a river crossing and has no business on a drain."
+    },
+    "pier_count": {
+      "value": 1,
+      "confidence": "reconstructed",
+      "note": "ONE BENT, AND THE COUNT IS THE SPAN'S. The sibling record argues zero for 8 m — an 8 m run of log stringer needs no intermediate bent — and the same carpentry cannot be claimed for 12 m. One bent at mid-span halves it into two 6 m runs, which is inside what the sibling's own reasoning allows. The archetype's fallback spacing of 4.5 m would put two supports in a six-metre stream; stating the count keeps the invention to one."
+    },
+    "pier_kind": {
+      "value": "bent",
+      "confidence": "reconstructed",
+      "note": "Not attested for this crossing. `bent` is the old settlers' own word for what stood in the deeper water on the branch bridges — 'four heavy logs, resting on the bottom' — and it is the only one of the archetype's three kinds that a town would put in half a metre of slough water. A crib is a sunk and filled box and a pile is driven; neither is worth the trouble here."
+    },
+    "deck_kind": {
+      "value": "puncheon",
+      "confidence": "reconstructed",
+      "note": "Not attested for this crossing, and DELIBERATELY NOT the owner's word. He asked for 'plank crossings', and the sawn plank in this reconstruction is the FOOTWAY that rides this deck (data/frontage/lasalle_crossing_frontage.json) — the surface a person walks on, which is what his sentence is about. The wagon deck under it takes the same puncheon — split logs laid flat side up — that the 1883 old-settlers statement describes on both branch bridges and that the sibling record infers for the same reason: a smaller, cruder, unremarked street crossing of the same decade did not have better."
+    },
+    "stringer_d_m": {
+      "value": 0.26,
+      "confidence": "reconstructed",
+      "note": "No figure is attested. 0.26 m sits between the sibling's 0.25 m and the branch bridges' 0.30 m, on the same reasoning both use: a stringer is sized to the run it carries, and with one bent this one carries 6 m against the sibling's 8 m and the branch bridges' 18 to 24 m between supports. Carpentry, not a measurement."
+    },
+    "plank_t_m": {
+      "value": 0.08,
+      "confidence": "reconstructed",
+      "note": "No figure is attested. 0.08 m of split-log floor, the sibling's figure, on the sibling's reasoning."
+    },
+    "function": {
+      "value": "street_crossing",
+      "confidence": "reconstructed",
+      "sources": [],
+      "note": "A street crossing over a stream, and the only reason it is in the dataset is that the ground under South Water Street is water. It is not a river bridge, nobody was proud of it, and — unlike its sibling — nobody wrote it down. It belongs in the scene because the drain does: a graded public street that meets a six-metre watercourse either crosses it or stops, and the trustees' 1833 order says South Water did not stop."
+    }
+  },
+  "residents": [],
+  "citations": [
+    {
+      "source_id": "chicagology_prefire273",
+      "citation": "\"Wolf's Point and the Town of Chicago.\" Chicagology. Transcribing the Chicago Magazine of 15 May 1857 — the account of the Wolf's Point settlement built on George Davis's 1832 drawing and on Gurdon S. Hubbard's own description of the place as he found it in 1818 — with A. T. Andreas and modern editorial matter around it.",
+      "url": "https://chicagology.com/prefire/prefire273/",
+      "archived_url": "https://web.archive.org/web/20260217122628/https://chicagology.com/prefire/prefire273/",
+      "tier": 2,
+      "tier_label": "near-primary recollection",
+      "transcribes": [
+        {
+          "work": "Chicago Magazine, 'Wolf's Point' — the account of the settlement at the forks, engraved from George Davis's 1832 drawing and incorporating Gurdon S. Hubbard's description of Chicago as he first saw it in 1818",
+          "date": "1857-05-15",
+          "tier": 2,
+          "note": "Carries the Miller House's log construction ('a log structure partly sided') and the Wolf Point Tavern's ('partly log and partly frame'), the fact of a frame element on each, and — through Hubbard — the marshy river-shore strip that grades the south division's marsh surface in terrain_spec.json. Twenty-five years after the fact, from a resident's drawing and a named witness speaking to the writer: rung 2."
+        }
+      ]
+    },
+    {
+      "source_id": "osm_streets_2026",
+      "citation": "OpenStreetMap contributors. Street centerline intersection nodes for downtown Chicago, retrieved via the Overpass API, 2026-08-09.",
+      "url": "https://www.openstreetmap.org/",
+      "archived_url": "https://overpass-api.de/",
+      "tier": 4,
+      "tier_label": "later scholarship"
+    },
+    {
+      "source_id": "wright_1834",
+      "citation": "Wright, J. S. Chicago, drawn by J. S. Wright according to survey. New York: P. A. Mesier's Lith., 1834.",
+      "url": "https://collections.leventhalmap.org/search/commonwealth:js9577436",
+      "archived_url": "",
+      "tier": 1,
+      "tier_label": "period/eyewitness",
+      "what_it_supplies": [
+        "street geometry",
+        "block and lot subdivision",
+        "shoreline",
+        "river channel and the 1834 cut",
+        "survey-date colouring"
+      ],
+      "what_it_does_not_supply": [
+        "building footprints",
+        "building locations"
+      ]
+    }
+  ],
+  "research_note": "THE FIRST STRUCTURE IN THIS DATASET COMMITTED BECAUSE OF A RULING RATHER THAN A SOURCE, and the record says so on its face. On 2026-08-21 the owner stood on South Water Street looking west at 277 degrees, at the La Salle drain, and reported: 'this slough has kind of a bulge of land and i would think that it would not have that and be a continous water drain into the river and have plank crossings for both the road and the sidewalk.' WHAT HE WAS LOOKING AT, measured before anything was changed: the drain's carved head stopped one grid cell south of the platted street corridor, so some ten metres of ground stood +0.37 m over datum between the drain and the river's traced re-entrant, and the watercourse read as two pools with a causeway between them. THE TICKET GUESSED THE FAULT WAS THE ROAD LAYER PAINTING OVER THE WATER; IT WAS NOT. renderers/web/js/streets.js already clips its ribbon at the waterline and drops any panel whose centreline is wet, and it was already doing so here — the band of bare dirt was the TERRAIN, the unbroken corridor the terrain record deliberately left. So the repair went where the ticket said it would not: into the ground. THE COST IN EVIDENCE, stated rather than buried: Wright's 1834 trace stops the drain at the street line, and carrying it fifteen metres further to the river is reconstruction. The fill-or-culvert reading it replaces was never refuted by a source — it was superseded by a ruling — and what the ruling requires in exchange is this crossing, which no source places here either. Both inventions are in docs/LIBERTIES.md, and tools/measure_slough_crossing.py takes the readings that would catch either of them drifting: the drain must run unbroken from its inland reach to the river, the deck must span open water, and its abutments must keep dry seats. See the sibling record slough_log_bridge, whose crossing IS attested and whose reasoning this one borrows throughout.",
+  "research_doc": "",
+  "review_required": false
+}

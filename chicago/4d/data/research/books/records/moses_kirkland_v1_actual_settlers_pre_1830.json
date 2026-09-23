@@ -1,0 +1,837 @@
+{
+  "schema": 1,
+  "domain": "books",
+  "source_id": "moses_kirkland_history_of_chicago_v1",
+  "_doc": "T-0961. Moses and Kirkland, History of Chicago, Illinois, vol. 1 (Chicago: Munsell, 1895), printed pages 78-79: the table headed LIST OF ACTUAL SETTLERS AT CHICAGO, PRIOR TO 1830, transcribed row by row. T-0581 found this table and recorded its EXISTENCE and the rule it was built on as claim bk_mose1_014, and deliberately did not transcribe it: a roster with a nativity and an arrival year per person is records-shaped, and reading it is its own demonstration. This is that demonstration.\n\nWHY IT IS `records` AND NOT `claims`. The books domain holds prose and this volume is prose everywhere else in it. These two pages are not: they are a printed table with four columns, and the unit is a ROW read as it stands, which is the shape research_domains.py fixes for a list. Every other reading in this domain sits under claims/ for the same reason in reverse.\n\nWHAT THE REMARKS COLUMN DOES AND DOES NOT LICENSE — the distinction this file turns on. The cells say `Paid taxes in 1825`, `voted in 1826`, `voted in 1830`. Those are CIVIC ACTS at dates, and every one of them falls between five and ten years before the scene. Paying a Peoria County tax in 1825 says a man was assessed in 1825; voting in 1830 says he was on that poll. NEITHER IS A RESIDENCE ON 1835-07-01, singly or together, and nothing in this file is graded as though it were. The table's own preamble is the cleanest statement of its limit: it names those `known to have had a residence at the settlement` BEFORE 1830, and it excludes Gurdon S. Hubbard by name because he `did not take up a permanent residence until 1832` — the compiler drawing the same line this project draws, sixty years earlier and in the other direction.\n\nTHE TABLE IS AN 1895 COMPILATION AND CREDITS ITS SOURCE THREE LINES ABOVE ITSELF: Hurlbut's Chicago Antiquities, pp. 37-8. Every row is transcription_mediated and none is scan_verified; the tier-3 grade of the source record is the ceiling here as everywhere else in this file's domain.\n\nTHE DITTO MARKS ARE RESOLVED AND SAID TO BE RESOLVED. Nine cells in this table are the printer's ditto, and each is recorded as what it repeats with `(ditto)` on the value and the row above named in the note. Two of those resolutions are worth distrusting and the notes say so. THE OCR IS REPAIRED IN `normalized` AND NOWHERE ELSE: `verbatim` is the scan's own line, byte for byte, and the gate rebuilds it out of the committed text at the locator.",
+  "generated_by": "hand — T-0961. The `verbatim` of every record was filled programmatically from the committed text at its own locator, as T-0581 filled this volume's quotes, so that no transcription step stands between the file and the gate. Everything else in each record is authored: the cell readings, the ditto resolutions, the OCR repairs and the notes.",
+  "records": [
+    {
+      "id": "bk_mose1_as_001",
+      "as_read": "Ament, Edward G",
+      "normalized": "Edward G. Ament",
+      "nativity": null,
+      "year": 1826,
+      "remarks": "Voted",
+      "verbatim": "Ament,  Edward  G 1826 Voted ",
+      "locator": {
+        "list": "moses_kirkland_v1_actual_settlers_pre_1830",
+        "page": 78,
+        "lines": [
+          10787,
+          10787
+        ],
+        "text_file": "moses_kirkland_history_of_chicago_v1.txt",
+        "url": "https://archive.org/download/historyofchicago01mose/historyofchicago01mose_djvu.txt",
+        "original": "Printed page 78, the table headed \"LIST OF ACTUAL SETTLERS AT CHICAGO, PRIOR TO 1830\" at line 10783, in the chapter \"Rudimentary — the Log Cabin Age\". The folio is READ off the running head and not counted, by the rule T-0581 fixed for this volume: page 79's head is the bare \"79\" at line 10819, above which this half of the table stands, and verso heads are even. The table's own column head — \"NAME. NATIVITY. YEAS. REMARKS.\" — is reprinted at line 10822 when it resumes on page 79."
+      },
+      "reading": "transcription_mediated",
+      "confidence": "documented",
+      "notes": "No nativity cell. The remarks column gives one civic act and no year for it; the table's own preamble says nearly all of these men voted in 1826, but this row does not say which election, so nothing narrower than 'voted' is read off it."
+    },
+    {
+      "id": "bk_mose1_as_002",
+      "as_read": "Anderson, Joseph",
+      "normalized": "Joseph Anderson",
+      "nativity": null,
+      "year": 1825,
+      "remarks": "Paid taxes in 1825 and voted in 1828",
+      "verbatim": "Anderson,  Joseph 1825 Paid  taxes  in  1825  and  voted  in  1828 ",
+      "locator": {
+        "list": "moses_kirkland_v1_actual_settlers_pre_1830",
+        "page": 78,
+        "lines": [
+          10789,
+          10789
+        ],
+        "text_file": "moses_kirkland_history_of_chicago_v1.txt",
+        "url": "https://archive.org/download/historyofchicago01mose/historyofchicago01mose_djvu.txt",
+        "original": "Printed page 78, the table headed \"LIST OF ACTUAL SETTLERS AT CHICAGO, PRIOR TO 1830\" at line 10783, in the chapter \"Rudimentary — the Log Cabin Age\". The folio is READ off the running head and not counted, by the rule T-0581 fixed for this volume: page 79's head is the bare \"79\" at line 10819, above which this half of the table stands, and verso heads are even. The table's own column head — \"NAME. NATIVITY. YEAS. REMARKS.\" — is reprinted at line 10822 when it resumes on page 79."
+      },
+      "reading": "transcription_mediated",
+      "confidence": "documented",
+      "notes": "No nativity cell. Two dated civic acts, 1825 and 1828, and neither is a residence on 1835-07-01."
+    },
+    {
+      "id": "bk_mose1_as_003",
+      "as_read": "Beanbien, Jean Baptist",
+      "normalized": "Jean Baptiste Beaubien",
+      "nativity": "Michigan",
+      "year": 1812,
+      "remarks": "Paid taxes in 1825, voted in 1826 and 1830",
+      "verbatim": "Beanbien,  Jean  Baptist Michigan 1812 Paid  taxes  in  1825,  voted  in  1826  and  1830 ",
+      "locator": {
+        "list": "moses_kirkland_v1_actual_settlers_pre_1830",
+        "page": 78,
+        "lines": [
+          10791,
+          10791
+        ],
+        "text_file": "moses_kirkland_history_of_chicago_v1.txt",
+        "url": "https://archive.org/download/historyofchicago01mose/historyofchicago01mose_djvu.txt",
+        "original": "Printed page 78, the table headed \"LIST OF ACTUAL SETTLERS AT CHICAGO, PRIOR TO 1830\" at line 10783, in the chapter \"Rudimentary — the Log Cabin Age\". The folio is READ off the running head and not counted, by the rule T-0581 fixed for this volume: page 79's head is the bare \"79\" at line 10819, above which this half of the table stands, and verso heads are even. The table's own column head — \"NAME. NATIVITY. YEAS. REMARKS.\" — is reprinted at line 10822 when it resumes on page 79."
+      },
+      "reading": "transcription_mediated",
+      "confidence": "documented",
+      "notes": "OCR: the scan prints `Beanbien`, u read as n, in a table whose next two rows print `Beaubien`. The `normalized` reading repairs the OCR. What the scan prints is in `verbatim`, unedited. The YEAR cell, 1812, is the discriminator the crosswalk merges on."
+    },
+    {
+      "id": "bk_mose1_as_004",
+      "as_read": "Beaubien, Mark",
+      "normalized": "Mark Beaubien",
+      "nativity": "Michigan (ditto)",
+      "year": 1826,
+      "remarks": "Voted in 1830, died April 11, 1881",
+      "verbatim": "Beaubien,  Mark \"         1826 Voted  in  1830,  died  April  11, 1881 ",
+      "locator": {
+        "list": "moses_kirkland_v1_actual_settlers_pre_1830",
+        "page": 78,
+        "lines": [
+          10793,
+          10793
+        ],
+        "text_file": "moses_kirkland_history_of_chicago_v1.txt",
+        "url": "https://archive.org/download/historyofchicago01mose/historyofchicago01mose_djvu.txt",
+        "original": "Printed page 78, the table headed \"LIST OF ACTUAL SETTLERS AT CHICAGO, PRIOR TO 1830\" at line 10783, in the chapter \"Rudimentary — the Log Cabin Age\". The folio is READ off the running head and not counted, by the rule T-0581 fixed for this volume: page 79's head is the bare \"79\" at line 10819, above which this half of the table stands, and verso heads are even. The table's own column head — \"NAME. NATIVITY. YEAS. REMARKS.\" — is reprinted at line 10822 when it resumes on page 79."
+      },
+      "reading": "transcription_mediated",
+      "confidence": "documented",
+      "notes": "The cell is the page's own ditto mark, and it repeats Michigan from the row above. Recorded as the ditto resolves and NOT as a nativity of its own: what the page asserts here is 'the same as the last', and the row above is where that is read. The death date is the crosswalk's discriminator."
+    },
+    {
+      "id": "bk_mose1_as_005",
+      "as_read": "Beaubien, Medore Benj",
+      "normalized": "Madore Benjamin Beaubien",
+      "nativity": "Chicago",
+      "year": null,
+      "remarks": "Voted in 1830",
+      "verbatim": "Beaubien,  Medore  Ben]  Chicago Voted  in  1830 ",
+      "locator": {
+        "list": "moses_kirkland_v1_actual_settlers_pre_1830",
+        "page": 78,
+        "lines": [
+          10795,
+          10795
+        ],
+        "text_file": "moses_kirkland_history_of_chicago_v1.txt",
+        "url": "https://archive.org/download/historyofchicago01mose/historyofchicago01mose_djvu.txt",
+        "original": "Printed page 78, the table headed \"LIST OF ACTUAL SETTLERS AT CHICAGO, PRIOR TO 1830\" at line 10783, in the chapter \"Rudimentary — the Log Cabin Age\". The folio is READ off the running head and not counted, by the rule T-0581 fixed for this volume: page 79's head is the bare \"79\" at line 10819, above which this half of the table stands, and verso heads are even. The table's own column head — \"NAME. NATIVITY. YEAS. REMARKS.\" — is reprinted at line 10822 when it resumes on page 79."
+      },
+      "reading": "transcription_mediated",
+      "confidence": "documented",
+      "notes": "OCR: the scan prints `Ben]`, a j read as a bracket. The `normalized` reading repairs the OCR. What the scan prints is in `verbatim`, unedited. NO YEAR CELL — and the absence is meaningful rather than lost, because the nativity cell reads Chicago: a man born at the settlement has no year of arrival to print."
+    },
+    {
+      "id": "bk_mose1_as_006",
+      "as_read": "Caldwell, Billy",
+      "normalized": "Billy Caldwell",
+      "nativity": "Michigan",
+      "year": 1820,
+      "remarks": "Paid taxes in 1825, voted in 1826",
+      "verbatim": "Caldwell,  Billy Michigan 1820 Paid  taxes  in  1825,  voted  in  1826 ",
+      "locator": {
+        "list": "moses_kirkland_v1_actual_settlers_pre_1830",
+        "page": 78,
+        "lines": [
+          10797,
+          10797
+        ],
+        "text_file": "moses_kirkland_history_of_chicago_v1.txt",
+        "url": "https://archive.org/download/historyofchicago01mose/historyofchicago01mose_djvu.txt",
+        "original": "Printed page 78, the table headed \"LIST OF ACTUAL SETTLERS AT CHICAGO, PRIOR TO 1830\" at line 10783, in the chapter \"Rudimentary — the Log Cabin Age\". The folio is READ off the running head and not counted, by the rule T-0581 fixed for this volume: page 79's head is the bare \"79\" at line 10819, above which this half of the table stands, and verso heads are even. The table's own column head — \"NAME. NATIVITY. YEAS. REMARKS.\" — is reprinted at line 10822 when it resumes on page 79."
+      },
+      "reading": "transcription_mediated",
+      "confidence": "documented",
+      "notes": "Billy is what every Chicago source calls him; it is not an abbreviation of William here and is not expanded to one."
+    },
+    {
+      "id": "bk_mose1_as_007",
+      "as_read": "Caldwell, Archibald",
+      "normalized": "Archibald Caldwell",
+      "nativity": "Va",
+      "year": 1827,
+      "remarks": "1st tavern 1829",
+      "verbatim": "Caldwell,  Archibald Va 1827 1st  tavern  1829 ",
+      "locator": {
+        "list": "moses_kirkland_v1_actual_settlers_pre_1830",
+        "page": 78,
+        "lines": [
+          10799,
+          10799
+        ],
+        "text_file": "moses_kirkland_history_of_chicago_v1.txt",
+        "url": "https://archive.org/download/historyofchicago01mose/historyofchicago01mose_djvu.txt",
+        "original": "Printed page 78, the table headed \"LIST OF ACTUAL SETTLERS AT CHICAGO, PRIOR TO 1830\" at line 10783, in the chapter \"Rudimentary — the Log Cabin Age\". The folio is READ off the running head and not counted, by the rule T-0581 fixed for this volume: page 79's head is the bare \"79\" at line 10819, above which this half of the table stands, and verso heads are even. The table's own column head — \"NAME. NATIVITY. YEAS. REMARKS.\" — is reprinted at line 10822 when it resumes on page 79."
+      },
+      "reading": "transcription_mediated",
+      "confidence": "documented",
+      "notes": "The remarks cell is the only trade statement in the whole table, and it is dated 1829 — two years before the town was incorporated and six before the scene date. It licenses nothing about a tavern standing on 1835-07-01."
+    },
+    {
+      "id": "bk_mose1_as_008",
+      "as_read": "Clark, John K",
+      "normalized": "John K. Clark",
+      "nativity": "illegible",
+      "year": 1817,
+      "remarks": "Paid taxes in 1825, voted in 1826",
+      "verbatim": "Clark.JohnK In-1 1817 Paid  taxes  in  1825,  voted  in  1^6 ",
+      "locator": {
+        "list": "moses_kirkland_v1_actual_settlers_pre_1830",
+        "page": 78,
+        "lines": [
+          10801,
+          10801
+        ],
+        "text_file": "moses_kirkland_history_of_chicago_v1.txt",
+        "url": "https://archive.org/download/historyofchicago01mose/historyofchicago01mose_djvu.txt",
+        "original": "Printed page 78, the table headed \"LIST OF ACTUAL SETTLERS AT CHICAGO, PRIOR TO 1830\" at line 10783, in the chapter \"Rudimentary — the Log Cabin Age\". The folio is READ off the running head and not counted, by the rule T-0581 fixed for this volume: page 79's head is the bare \"79\" at line 10819, above which this half of the table stands, and verso heads are even. The table's own column head — \"NAME. NATIVITY. YEAS. REMARKS.\" — is reprinted at line 10822 when it resumes on page 79."
+      },
+      "reading": "transcription_mediated",
+      "confidence": "inferred",
+      "notes": "OCR, twice. The name cell prints `Clark.JohnK` with the spaces closed up, and the remarks cell prints `voted in 1^6` where the caret is a lost 2. THE NATIVITY CELL IS NOT READ: the scan gives `In-1`, and Ind. and Ire. are both two-character neighbours of it. Recorded as illegible rather than guessed, which is why this row is graded inferred."
+    },
+    {
+      "id": "bk_mose1_as_009",
+      "as_read": "Clybourn, Archibald",
+      "normalized": "Archibald Clybourn",
+      "nativity": "Va",
+      "year": 1823,
+      "remarks": "Paid taxes in 1825, voted in 1826 (ditto)",
+      "verbatim": "Clybourn,  Archibald Va 1823 \" ",
+      "locator": {
+        "list": "moses_kirkland_v1_actual_settlers_pre_1830",
+        "page": 78,
+        "lines": [
+          10803,
+          10803
+        ],
+        "text_file": "moses_kirkland_history_of_chicago_v1.txt",
+        "url": "https://archive.org/download/historyofchicago01mose/historyofchicago01mose_djvu.txt",
+        "original": "Printed page 78, the table headed \"LIST OF ACTUAL SETTLERS AT CHICAGO, PRIOR TO 1830\" at line 10783, in the chapter \"Rudimentary — the Log Cabin Age\". The folio is READ off the running head and not counted, by the rule T-0581 fixed for this volume: page 79's head is the bare \"79\" at line 10819, above which this half of the table stands, and verso heads are even. The table's own column head — \"NAME. NATIVITY. YEAS. REMARKS.\" — is reprinted at line 10822 when it resumes on page 79."
+      },
+      "reading": "transcription_mediated",
+      "confidence": "documented",
+      "notes": "The remarks cell is a ditto of the row above. THE SURNAME IS PRINTED WITHOUT THE FINAL E here and Andreas prints Clybourne; the crosswalk rules on that, and this record keeps the page's spelling."
+    },
+    {
+      "id": "bk_mose1_as_010",
+      "as_read": "Clybourn, Henley",
+      "normalized": "Henley Clybourn",
+      "nativity": "Va (ditto)",
+      "year": 1844,
+      "remarks": "Paid taxes in 1825, voted in 1826 (ditto)",
+      "verbatim": "Clybourn,  Henley \"  1844  \"         \" ",
+      "locator": {
+        "list": "moses_kirkland_v1_actual_settlers_pre_1830",
+        "page": 78,
+        "lines": [
+          10805,
+          10805
+        ],
+        "text_file": "moses_kirkland_history_of_chicago_v1.txt",
+        "url": "https://archive.org/download/historyofchicago01mose/historyofchicago01mose_djvu.txt",
+        "original": "Printed page 78, the table headed \"LIST OF ACTUAL SETTLERS AT CHICAGO, PRIOR TO 1830\" at line 10783, in the chapter \"Rudimentary — the Log Cabin Age\". The folio is READ off the running head and not counted, by the rule T-0581 fixed for this volume: page 79's head is the bare \"79\" at line 10819, above which this half of the table stands, and verso heads are even. The table's own column head — \"NAME. NATIVITY. YEAS. REMARKS.\" — is reprinted at line 10822 when it resumes on page 79."
+      },
+      "reading": "transcription_mediated",
+      "confidence": "inferred",
+      "notes": "THE YEAR CELL IS IMPOSSIBLE AS PRINTED and is recorded impossible. A table of settlers PRIOR TO 1830 cannot carry an arrival of 1844; the surrounding Clybourn rows read 1823 and 1824, and 1824 is what a 2 misread as a 4 would give. It is NOT silently corrected — `year` carries what the page prints and this note carries the objection, because repairing a digit is a judgement and the crosswalk does not rest on it."
+    },
+    {
+      "id": "bk_mose1_as_011",
+      "as_read": "Clybourn, Jonas",
+      "normalized": "Jonas Clybourn",
+      "nativity": "Va (ditto)",
+      "year": 1824,
+      "remarks": "Paid taxes in 1825, voted in 1826 (ditto)",
+      "verbatim": "Clybourn,  Jonas \"  1824 \"         \" ",
+      "locator": {
+        "list": "moses_kirkland_v1_actual_settlers_pre_1830",
+        "page": 78,
+        "lines": [
+          10807,
+          10807
+        ],
+        "text_file": "moses_kirkland_history_of_chicago_v1.txt",
+        "url": "https://archive.org/download/historyofchicago01mose/historyofchicago01mose_djvu.txt",
+        "original": "Printed page 78, the table headed \"LIST OF ACTUAL SETTLERS AT CHICAGO, PRIOR TO 1830\" at line 10783, in the chapter \"Rudimentary — the Log Cabin Age\". The folio is READ off the running head and not counted, by the rule T-0581 fixed for this volume: page 79's head is the bare \"79\" at line 10819, above which this half of the table stands, and verso heads are even. The table's own column head — \"NAME. NATIVITY. YEAS. REMARKS.\" — is reprinted at line 10822 when it resumes on page 79."
+      },
+      "reading": "transcription_mediated",
+      "confidence": "documented",
+      "notes": "The cell is the page's own ditto mark, and it repeats Va from the row above. Recorded as the ditto resolves and NOT as a nativity of its own: what the page asserts here is 'the same as the last', and the row above is where that is read."
+    },
+    {
+      "id": "bk_mose1_as_012",
+      "as_read": "Crafts, John",
+      "normalized": "John Crafts",
+      "nativity": null,
+      "year": 1817,
+      "remarks": "Paid taxes in 1825, voted in 1826 (ditto)",
+      "verbatim": "Crafts.John 1817 •' ",
+      "locator": {
+        "list": "moses_kirkland_v1_actual_settlers_pre_1830",
+        "page": 78,
+        "lines": [
+          10809,
+          10809
+        ],
+        "text_file": "moses_kirkland_history_of_chicago_v1.txt",
+        "url": "https://archive.org/download/historyofchicago01mose/historyofchicago01mose_djvu.txt",
+        "original": "Printed page 78, the table headed \"LIST OF ACTUAL SETTLERS AT CHICAGO, PRIOR TO 1830\" at line 10783, in the chapter \"Rudimentary — the Log Cabin Age\". The folio is READ off the running head and not counted, by the rule T-0581 fixed for this volume: page 79's head is the bare \"79\" at line 10819, above which this half of the table stands, and verso heads are even. The table's own column head — \"NAME. NATIVITY. YEAS. REMARKS.\" — is reprinted at line 10822 when it resumes on page 79."
+      },
+      "reading": "transcription_mediated",
+      "confidence": "documented",
+      "notes": "OCR: the name cell prints `Crafts.John`, spaces closed up, and the remarks ditto mark survives as an apostrophe. The `normalized` reading repairs the OCR. What the scan prints is in `verbatim`, unedited."
+    },
+    {
+      "id": "bk_mose1_as_013",
+      "as_read": "Galloway, James",
+      "normalized": "James Galloway",
+      "nativity": "Ohio",
+      "year": 1824,
+      "remarks": "Voted in 1830",
+      "verbatim": "Galloway,  James  Ohio 1824 Voted  in  1830 ",
+      "locator": {
+        "list": "moses_kirkland_v1_actual_settlers_pre_1830",
+        "page": 78,
+        "lines": [
+          10811,
+          10811
+        ],
+        "text_file": "moses_kirkland_history_of_chicago_v1.txt",
+        "url": "https://archive.org/download/historyofchicago01mose/historyofchicago01mose_djvu.txt",
+        "original": "Printed page 78, the table headed \"LIST OF ACTUAL SETTLERS AT CHICAGO, PRIOR TO 1830\" at line 10783, in the chapter \"Rudimentary — the Log Cabin Age\". The folio is READ off the running head and not counted, by the rule T-0581 fixed for this volume: page 79's head is the bare \"79\" at line 10819, above which this half of the table stands, and verso heads are even. The table's own column head — \"NAME. NATIVITY. YEAS. REMARKS.\" — is reprinted at line 10822 when it resumes on page 79."
+      },
+      "reading": "transcription_mediated",
+      "confidence": "documented",
+      "notes": "No further attribute; the row is a name, a state, a year and one civic act."
+    },
+    {
+      "id": "bk_mose1_as_014",
+      "as_read": "Heacock, Russel E",
+      "normalized": "Russel E. Heacock",
+      "nativity": "Ohio (ditto)",
+      "year": 1827,
+      "remarks": "Voted in 1830, died at Summit, 1849",
+      "verbatim": "Heacock,  Russel  E \"    1827 Voted  in  1830,  died  at  Summit,  1849 ",
+      "locator": {
+        "list": "moses_kirkland_v1_actual_settlers_pre_1830",
+        "page": 78,
+        "lines": [
+          10813,
+          10813
+        ],
+        "text_file": "moses_kirkland_history_of_chicago_v1.txt",
+        "url": "https://archive.org/download/historyofchicago01mose/historyofchicago01mose_djvu.txt",
+        "original": "Printed page 78, the table headed \"LIST OF ACTUAL SETTLERS AT CHICAGO, PRIOR TO 1830\" at line 10783, in the chapter \"Rudimentary — the Log Cabin Age\". The folio is READ off the running head and not counted, by the rule T-0581 fixed for this volume: page 79's head is the bare \"79\" at line 10819, above which this half of the table stands, and verso heads are even. The table's own column head — \"NAME. NATIVITY. YEAS. REMARKS.\" — is reprinted at line 10822 when it resumes on page 79."
+      },
+      "reading": "transcription_mediated",
+      "confidence": "documented",
+      "notes": "The cell is the page's own ditto mark, and it repeats Ohio from the row above. Recorded as the ditto resolves and NOT as a nativity of its own: what the page asserts here is 'the same as the last', and the row above is where that is read. THE DITTO IS RECORDED AND NOT BELIEVED: Andreas's own account of this man does not make him an Ohioan, and a ditto mark is the easiest cell in a printed table to set one row out of place. What the crosswalk merges on is the YEAR, 1827, not this cell."
+    },
+    {
+      "id": "bk_mose1_as_015",
+      "as_read": "Jouett, Charles",
+      "normalized": "Charles Jouett",
+      "nativity": null,
+      "year": 1805,
+      "remarks": "First Indian Agent, left in 1811",
+      "verbatim": "Jouett,  Charles 1805 1st  Indian  Agt.,  left  in  1881 ",
+      "locator": {
+        "list": "moses_kirkland_v1_actual_settlers_pre_1830",
+        "page": 79,
+        "lines": [
+          10824,
+          10824
+        ],
+        "text_file": "moses_kirkland_history_of_chicago_v1.txt",
+        "url": "https://archive.org/download/historyofchicago01mose/historyofchicago01mose_djvu.txt",
+        "original": "Printed page 79, the second half of the same table, below the running head \"79\" at line 10819 and the reprinted column head \"NAME. NATIVITY. TEAK. REMARKS.\" at line 10822. Recto heads are odd, which is the parity check T-0581 fixed for this volume."
+      },
+      "reading": "transcription_mediated",
+      "confidence": "documented",
+      "notes": "OCR: the remarks cell prints `1st  Indian  Agt.,  left  in  1881`. 1881 is impossible in a table of settlers prior to 1830 and Jouett's agency ended in 1811; the digits are one transposition apart. The `normalized` reading repairs the OCR. What the scan prints is in `verbatim`, unedited. The office is an office of 1805-11 and is never a trade of 1835."
+    },
+    {
+      "id": "bk_mose1_as_016",
+      "as_read": "Kinzie, John",
+      "normalized": "John Kinzie",
+      "nativity": "Quebec",
+      "year": 1804,
+      "remarks": "Paid taxes in 1825, voted in 1826, died 1828",
+      "verbatim": "Kinzie,  John Quebec 1804 Paid  taxes  in  1825,  voted  in  1826,  died  1828 ",
+      "locator": {
+        "list": "moses_kirkland_v1_actual_settlers_pre_1830",
+        "page": 79,
+        "lines": [
+          10826,
+          10826
+        ],
+        "text_file": "moses_kirkland_history_of_chicago_v1.txt",
+        "url": "https://archive.org/download/historyofchicago01mose/historyofchicago01mose_djvu.txt",
+        "original": "Printed page 79, the second half of the same table, below the running head \"79\" at line 10819 and the reprinted column head \"NAME. NATIVITY. TEAK. REMARKS.\" at line 10822. Recto heads are odd, which is the parity check T-0581 fixed for this volume."
+      },
+      "reading": "transcription_mediated",
+      "confidence": "documented",
+      "notes": "THE ELDER JOHN KINZIE, and the remarks cell says so itself: died 1828. He belongs in no 1835 record at all, which is what the crosswalk refuses on."
+    },
+    {
+      "id": "bk_mose1_as_017",
+      "as_read": "Kinzie, John H",
+      "normalized": "John Harris Kinzie",
+      "nativity": "Canada",
+      "year": 1804,
+      "remarks": "Born July 7, 1803, died Jan. 21, 1865",
+      "verbatim": "Kinzie,JohnH Canada 1804 Born  July  7, 1803,  died  Jan.  21, 1865 ",
+      "locator": {
+        "list": "moses_kirkland_v1_actual_settlers_pre_1830",
+        "page": 79,
+        "lines": [
+          10828,
+          10828
+        ],
+        "text_file": "moses_kirkland_history_of_chicago_v1.txt",
+        "url": "https://archive.org/download/historyofchicago01mose/historyofchicago01mose_djvu.txt",
+        "original": "Printed page 79, the second half of the same table, below the running head \"79\" at line 10819 and the reprinted column head \"NAME. NATIVITY. TEAK. REMARKS.\" at line 10822. Recto heads are odd, which is the parity check T-0581 fixed for this volume."
+      },
+      "reading": "transcription_mediated",
+      "confidence": "documented",
+      "notes": "OCR: the name cell prints `Kinzie,JohnH`, spaces closed up. The `normalized` reading repairs the OCR. What the scan prints is in `verbatim`, unedited. The YEAR cell is 1804 for a man the same cell says was born in July 1803 — an arrival in arms, at ten months old, with his father's household."
+    },
+    {
+      "id": "bk_mose1_as_018",
+      "as_read": "Kinzie, James",
+      "normalized": "James Kinzie",
+      "nativity": "Detroit",
+      "year": 1824,
+      "remarks": "Voted in 1830, born April 21, 1793, died Jan. 3, 1868",
+      "verbatim": "Kinzie,  James Detroit 1824    Voted  in  1830,  born,  April  21, 1793,  died  Jan.  3,  1868 ",
+      "locator": {
+        "list": "moses_kirkland_v1_actual_settlers_pre_1830",
+        "page": 79,
+        "lines": [
+          10830,
+          10830
+        ],
+        "text_file": "moses_kirkland_history_of_chicago_v1.txt",
+        "url": "https://archive.org/download/historyofchicago01mose/historyofchicago01mose_djvu.txt",
+        "original": "Printed page 79, the second half of the same table, below the running head \"79\" at line 10819 and the reprinted column head \"NAME. NATIVITY. TEAK. REMARKS.\" at line 10822. Recto heads are odd, which is the parity check T-0581 fixed for this volume."
+      },
+      "reading": "transcription_mediated",
+      "confidence": "documented",
+      "notes": "The third Kinzie the table distinguishes by hand, and the separation is the table's own and not this project's."
+    },
+    {
+      "id": "bk_mose1_as_019",
+      "as_read": "Kelly, Henry",
+      "normalized": "Henry Kelly",
+      "nativity": null,
+      "year": 1828,
+      "remarks": "Laborer",
+      "verbatim": "Kelly,  Henry 1828 Laborer ",
+      "locator": {
+        "list": "moses_kirkland_v1_actual_settlers_pre_1830",
+        "page": 79,
+        "lines": [
+          10832,
+          10832
+        ],
+        "text_file": "moses_kirkland_history_of_chicago_v1.txt",
+        "url": "https://archive.org/download/historyofchicago01mose/historyofchicago01mose_djvu.txt",
+        "original": "Printed page 79, the second half of the same table, below the running head \"79\" at line 10819 and the reprinted column head \"NAME. NATIVITY. TEAK. REMARKS.\" at line 10822. Recto heads are odd, which is the parity check T-0581 fixed for this volume."
+      },
+      "reading": "transcription_mediated",
+      "confidence": "documented",
+      "notes": "The only OCCUPATION in the remarks column — every other cell there is a civic act or a date. It describes 1828 and is not read onto 1835."
+    },
+    {
+      "id": "bk_mose1_as_020",
+      "as_read": "Laframboise, Henry, Sr",
+      "normalized": "Henry Laframboise, Sr.",
+      "nativity": "Halfbreed",
+      "year": 1824,
+      "remarks": "Voted",
+      "verbatim": "Caframboise,  Henry,  Sr Haifbreed 1824 Voted ",
+      "locator": {
+        "list": "moses_kirkland_v1_actual_settlers_pre_1830",
+        "page": 79,
+        "lines": [
+          10834,
+          10834
+        ],
+        "text_file": "moses_kirkland_history_of_chicago_v1.txt",
+        "url": "https://archive.org/download/historyofchicago01mose/historyofchicago01mose_djvu.txt",
+        "original": "Printed page 79, the second half of the same table, below the running head \"79\" at line 10819 and the reprinted column head \"NAME. NATIVITY. TEAK. REMARKS.\" at line 10822. Recto heads are odd, which is the parity check T-0581 fixed for this volume."
+      },
+      "reading": "transcription_mediated",
+      "confidence": "documented",
+      "notes": "OCR, twice: the name cell prints `Caframboise`, an L read as a C, and the nativity cell prints `Haifbreed`. The `normalized` reading repairs the OCR. What the scan prints is in `verbatim`, unedited. THE NATIVITY CELL IS THE PRINTER'S WORD AND NOT THIS PROJECT'S. It is recorded verbatim because a source is recorded as it stands; it is a racial classification of 1895 standing where a birthplace belongs, and it says the compiler could not or would not give one."
+    },
+    {
+      "id": "bk_mose1_as_021",
+      "as_read": "Laframboise, Henry, Jr",
+      "normalized": "Henry Laframboise, Jr.",
+      "nativity": "Halfbreed (ditto)",
+      "year": null,
+      "remarks": null,
+      "verbatim": "Laf ramboise,  Henry,  Jr '•         ",
+      "locator": {
+        "list": "moses_kirkland_v1_actual_settlers_pre_1830",
+        "page": 79,
+        "lines": [
+          10836,
+          10836
+        ],
+        "text_file": "moses_kirkland_history_of_chicago_v1.txt",
+        "url": "https://archive.org/download/historyofchicago01mose/historyofchicago01mose_djvu.txt",
+        "original": "Printed page 79, the second half of the same table, below the running head \"79\" at line 10819 and the reprinted column head \"NAME. NATIVITY. TEAK. REMARKS.\" at line 10822. Recto heads are odd, which is the parity check T-0581 fixed for this volume."
+      },
+      "reading": "transcription_mediated",
+      "confidence": "documented",
+      "notes": "OCR: the name cell prints `Laf ramboise`, the surname broken across a bad space. The `normalized` reading repairs the OCR. What the scan prints is in `verbatim`, unedited. NO YEAR AND NO REMARKS: the row is a name and a ditto. Four Laframboise rows run together this way and only the first carries a year."
+    },
+    {
+      "id": "bk_mose1_as_022",
+      "as_read": "Laframboise Claude",
+      "normalized": "Claude Laframboise",
+      "nativity": "Halfbreed (ditto)",
+      "year": null,
+      "remarks": null,
+      "verbatim": "Laframboise  Claude \"          ",
+      "locator": {
+        "list": "moses_kirkland_v1_actual_settlers_pre_1830",
+        "page": 79,
+        "lines": [
+          10838,
+          10838
+        ],
+        "text_file": "moses_kirkland_history_of_chicago_v1.txt",
+        "url": "https://archive.org/download/historyofchicago01mose/historyofchicago01mose_djvu.txt",
+        "original": "Printed page 79, the second half of the same table, below the running head \"79\" at line 10819 and the reprinted column head \"NAME. NATIVITY. TEAK. REMARKS.\" at line 10822. Recto heads are odd, which is the parity check T-0581 fixed for this volume."
+      },
+      "reading": "transcription_mediated",
+      "confidence": "documented",
+      "notes": "The name cell prints no comma. The cell is the page's own ditto mark, and it repeats Halfbreed from the row above. Recorded as the ditto resolves and NOT as a nativity of its own: what the page asserts here is 'the same as the last', and the row above is where that is read."
+    },
+    {
+      "id": "bk_mose1_as_023",
+      "as_read": "Laframboise, Joseph",
+      "normalized": "Joseph Laframboise",
+      "nativity": "Halfbreed (ditto)",
+      "year": null,
+      "remarks": null,
+      "verbatim": "Laf  ramboise,  Joseph \"          ",
+      "locator": {
+        "list": "moses_kirkland_v1_actual_settlers_pre_1830",
+        "page": 79,
+        "lines": [
+          10840,
+          10840
+        ],
+        "text_file": "moses_kirkland_history_of_chicago_v1.txt",
+        "url": "https://archive.org/download/historyofchicago01mose/historyofchicago01mose_djvu.txt",
+        "original": "Printed page 79, the second half of the same table, below the running head \"79\" at line 10819 and the reprinted column head \"NAME. NATIVITY. TEAK. REMARKS.\" at line 10822. Recto heads are odd, which is the parity check T-0581 fixed for this volume."
+      },
+      "reading": "transcription_mediated",
+      "confidence": "documented",
+      "notes": "OCR: the name cell prints `Laf  ramboise`. The `normalized` reading repairs the OCR. What the scan prints is in `verbatim`, unedited."
+    },
+    {
+      "id": "bk_mose1_as_024",
+      "as_read": "Laughton, Barney H",
+      "normalized": "Barney H. Laughton",
+      "nativity": "New England",
+      "year": 1827,
+      "remarks": null,
+      "verbatim": "Laughton,  Barney  H    j New  England 1827 ",
+      "locator": {
+        "list": "moses_kirkland_v1_actual_settlers_pre_1830",
+        "page": 79,
+        "lines": [
+          10842,
+          10842
+        ],
+        "text_file": "moses_kirkland_history_of_chicago_v1.txt",
+        "url": "https://archive.org/download/historyofchicago01mose/historyofchicago01mose_djvu.txt",
+        "original": "Printed page 79, the second half of the same table, below the running head \"79\" at line 10819 and the reprinted column head \"NAME. NATIVITY. TEAK. REMARKS.\" at line 10822. Recto heads are odd, which is the parity check T-0581 fixed for this volume."
+      },
+      "reading": "transcription_mediated",
+      "confidence": "documented",
+      "notes": "OCR: a stray `j` stands between the name and nativity cells, which is the table's column rule read as a letter. The `normalized` reading repairs the OCR. What the scan prints is in `verbatim`, unedited. No remarks cell."
+    },
+    {
+      "id": "bk_mose1_as_025",
+      "as_read": "McKee, David",
+      "normalized": "David McKee",
+      "nativity": "Va",
+      "year": 1823,
+      "remarks": "Paid taxes in 1825, voted in 1826",
+      "verbatim": "McKee,  David Va 1823 Paid  taxes  in  1825,  voted  in  1826 ",
+      "locator": {
+        "list": "moses_kirkland_v1_actual_settlers_pre_1830",
+        "page": 79,
+        "lines": [
+          10844,
+          10844
+        ],
+        "text_file": "moses_kirkland_history_of_chicago_v1.txt",
+        "url": "https://archive.org/download/historyofchicago01mose/historyofchicago01mose_djvu.txt",
+        "original": "Printed page 79, the second half of the same table, below the running head \"79\" at line 10819 and the reprinted column head \"NAME. NATIVITY. TEAK. REMARKS.\" at line 10822. Recto heads are odd, which is the parity check T-0581 fixed for this volume."
+      },
+      "reading": "transcription_mediated",
+      "confidence": "documented",
+      "notes": "Nativity Va, which puts him with the Clybourns and William See among the Virginians of the settlement."
+    },
+    {
+      "id": "bk_mose1_as_026",
+      "as_read": "Miller, Samuel",
+      "normalized": "Samuel Miller",
+      "nativity": null,
+      "year": 1827,
+      "remarks": "Voted in 1830",
+      "verbatim": "Miller,  Samuel 1827 Votert  in  1830 ",
+      "locator": {
+        "list": "moses_kirkland_v1_actual_settlers_pre_1830",
+        "page": 79,
+        "lines": [
+          10846,
+          10846
+        ],
+        "text_file": "moses_kirkland_history_of_chicago_v1.txt",
+        "url": "https://archive.org/download/historyofchicago01mose/historyofchicago01mose_djvu.txt",
+        "original": "Printed page 79, the second half of the same table, below the running head \"79\" at line 10819 and the reprinted column head \"NAME. NATIVITY. TEAK. REMARKS.\" at line 10822. Recto heads are odd, which is the parity check T-0581 fixed for this volume."
+      },
+      "reading": "transcription_mediated",
+      "confidence": "documented",
+      "notes": "OCR: the remarks cell prints `Votert`. The `normalized` reading repairs the OCR. What the scan prints is in `verbatim`, unedited. No nativity cell, and the crosswalk refuses on exactly that: a common name with nothing beside it."
+    },
+    {
+      "id": "bk_mose1_as_027",
+      "as_read": "Ouilmette, Antoine",
+      "normalized": "Antoine Ouilmette",
+      "nativity": "Halfbreed",
+      "year": 1812,
+      "remarks": "Paid taxes in 1825, voted in 1826",
+      "verbatim": "Oulmette,  Antoine. ..  Haifbreed 1812    Paid  taxes  in  1825,  voted  in  1826 ",
+      "locator": {
+        "list": "moses_kirkland_v1_actual_settlers_pre_1830",
+        "page": 79,
+        "lines": [
+          10848,
+          10848
+        ],
+        "text_file": "moses_kirkland_history_of_chicago_v1.txt",
+        "url": "https://archive.org/download/historyofchicago01mose/historyofchicago01mose_djvu.txt",
+        "original": "Printed page 79, the second half of the same table, below the running head \"79\" at line 10819 and the reprinted column head \"NAME. NATIVITY. TEAK. REMARKS.\" at line 10822. Recto heads are odd, which is the parity check T-0581 fixed for this volume."
+      },
+      "reading": "transcription_mediated",
+      "confidence": "documented",
+      "notes": "OCR: the name cell prints `Oulmette,  Antoine. ..` with the i lost and leader dots run on. The `normalized` reading repairs the OCR. What the scan prints is in `verbatim`, unedited. On the nativity cell, see the Laframboise rows: it is the compiler's classification and not a birthplace."
+    },
+    {
+      "id": "bk_mose1_as_028",
+      "as_read": "Pothier, Joseph",
+      "normalized": "Joseph Pothier",
+      "nativity": "French",
+      "year": 1823,
+      "remarks": "Voted in 1826",
+      "verbatim": "Pothier,  Joseph French 1823 Voted  in  1826 ",
+      "locator": {
+        "list": "moses_kirkland_v1_actual_settlers_pre_1830",
+        "page": 79,
+        "lines": [
+          10850,
+          10850
+        ],
+        "text_file": "moses_kirkland_history_of_chicago_v1.txt",
+        "url": "https://archive.org/download/historyofchicago01mose/historyofchicago01mose_djvu.txt",
+        "original": "Printed page 79, the second half of the same table, below the running head \"79\" at line 10819 and the reprinted column head \"NAME. NATIVITY. TEAK. REMARKS.\" at line 10822. Recto heads are odd, which is the parity check T-0581 fixed for this volume."
+      },
+      "reading": "transcription_mediated",
+      "confidence": "documented",
+      "notes": "Andreas names a `Joseph Porthier` as striker to the government blacksmith at the Chicago agency — one letter apart, and this project holds no card for either. Named here so the next pass does not have to find it twice."
+    },
+    {
+      "id": "bk_mose1_as_029",
+      "as_read": "Robinson, Alex",
+      "normalized": "Alexander Robinson",
+      "nativity": "Indian Chief",
+      "year": 1814,
+      "remarks": "Paid taxes in 1825, voted in 1826 and 1830",
+      "verbatim": "Robinson,  Alex Indian  Chief 1814 Paid  taxes  in  1825,  voted  in  1826  and  1830 ",
+      "locator": {
+        "list": "moses_kirkland_v1_actual_settlers_pre_1830",
+        "page": 79,
+        "lines": [
+          10852,
+          10852
+        ],
+        "text_file": "moses_kirkland_history_of_chicago_v1.txt",
+        "url": "https://archive.org/download/historyofchicago01mose/historyofchicago01mose_djvu.txt",
+        "original": "Printed page 79, the second half of the same table, below the running head \"79\" at line 10819 and the reprinted column head \"NAME. NATIVITY. TEAK. REMARKS.\" at line 10822. Recto heads are odd, which is the parity check T-0581 fixed for this volume."
+      },
+      "reading": "transcription_mediated",
+      "confidence": "documented",
+      "notes": "THE NATIVITY CELL IS NOT A NATIVITY: `Indian Chief` is an office, printed where a birthplace belongs, as `Halfbreed` is printed on four other rows. It is recorded as it stands and read as what it is."
+    },
+    {
+      "id": "bk_mose1_as_030",
+      "as_read": "Scott, Stephen",
+      "normalized": "Stephen Scott",
+      "nativity": "Conn",
+      "year": 1828,
+      "remarks": "Voted in 1830, died in 1852",
+      "verbatim": "Scott,  Stephen Conn 1828 Voted  in  1830,  died  in  1852 ",
+      "locator": {
+        "list": "moses_kirkland_v1_actual_settlers_pre_1830",
+        "page": 79,
+        "lines": [
+          10854,
+          10854
+        ],
+        "text_file": "moses_kirkland_history_of_chicago_v1.txt",
+        "url": "https://archive.org/download/historyofchicago01mose/historyofchicago01mose_djvu.txt",
+        "original": "Printed page 79, the second half of the same table, below the running head \"79\" at line 10819 and the reprinted column head \"NAME. NATIVITY. TEAK. REMARKS.\" at line 10822. Recto heads are odd, which is the parity check T-0581 fixed for this volume."
+      },
+      "reading": "transcription_mediated",
+      "confidence": "documented",
+      "notes": "First of three Scotts, and the only one with a nativity cell of its own; the two below ditto it."
+    },
+    {
+      "id": "bk_mose1_as_031",
+      "as_read": "Scott, Williard",
+      "normalized": "Willard Scott",
+      "nativity": "Conn (ditto)",
+      "year": 1828,
+      "remarks": "Voted in 1826 and 1830",
+      "verbatim": "Scott,  Williard \"    1828 Voted  in  1S26  and  1830 ",
+      "locator": {
+        "list": "moses_kirkland_v1_actual_settlers_pre_1830",
+        "page": 79,
+        "lines": [
+          10856,
+          10856
+        ],
+        "text_file": "moses_kirkland_history_of_chicago_v1.txt",
+        "url": "https://archive.org/download/historyofchicago01mose/historyofchicago01mose_djvu.txt",
+        "original": "Printed page 79, the second half of the same table, below the running head \"79\" at line 10819 and the reprinted column head \"NAME. NATIVITY. TEAK. REMARKS.\" at line 10822. Recto heads are odd, which is the parity check T-0581 fixed for this volume."
+      },
+      "reading": "transcription_mediated",
+      "confidence": "documented",
+      "notes": "OCR, twice: `Williard` for Willard in the name cell and `1S26` for 1826 in the remarks. The `normalized` reading repairs the OCR. What the scan prints is in `verbatim`, unedited. THE ROW CONTRADICTS ITSELF AS PRINTED — a man who arrived in 1828 did not vote in 1826 — and the contradiction is recorded rather than resolved, because either digit could be the wrong one and this pass has no second document to say which."
+    },
+    {
+      "id": "bk_mose1_as_032",
+      "as_read": "Scott, Willis",
+      "normalized": "Willis Scott",
+      "nativity": "Conn (ditto)",
+      "year": 1826,
+      "remarks": null,
+      "verbatim": "Scott,  Willis \"    1826 ",
+      "locator": {
+        "list": "moses_kirkland_v1_actual_settlers_pre_1830",
+        "page": 79,
+        "lines": [
+          10858,
+          10858
+        ],
+        "text_file": "moses_kirkland_history_of_chicago_v1.txt",
+        "url": "https://archive.org/download/historyofchicago01mose/historyofchicago01mose_djvu.txt",
+        "original": "Printed page 79, the second half of the same table, below the running head \"79\" at line 10819 and the reprinted column head \"NAME. NATIVITY. TEAK. REMARKS.\" at line 10822. Recto heads are odd, which is the parity check T-0581 fixed for this volume."
+      },
+      "reading": "transcription_mediated",
+      "confidence": "documented",
+      "notes": "The cell is the page's own ditto mark, and it repeats Conn from the row above. Recorded as the ditto resolves and NOT as a nativity of its own: what the page asserts here is 'the same as the last', and the row above is where that is read. No remarks cell."
+    },
+    {
+      "id": "bk_mose1_as_033",
+      "as_read": "See, William",
+      "normalized": "William See",
+      "nativity": "Va",
+      "year": 1823,
+      "remarks": "Voted in 1826 and 1830",
+      "verbatim": "See,  William Va 1823 Voted  in  1826  and  1830 ",
+      "locator": {
+        "list": "moses_kirkland_v1_actual_settlers_pre_1830",
+        "page": 79,
+        "lines": [
+          10860,
+          10860
+        ],
+        "text_file": "moses_kirkland_history_of_chicago_v1.txt",
+        "url": "https://archive.org/download/historyofchicago01mose/historyofchicago01mose_djvu.txt",
+        "original": "Printed page 79, the second half of the same table, below the running head \"79\" at line 10819 and the reprinted column head \"NAME. NATIVITY. TEAK. REMARKS.\" at line 10822. Recto heads are odd, which is the parity check T-0581 fixed for this volume."
+      },
+      "reading": "transcription_mediated",
+      "confidence": "documented",
+      "notes": "A one-syllable surname the project holds no card for at all."
+    },
+    {
+      "id": "bk_mose1_as_034",
+      "as_read": "Wolcott, Alex",
+      "normalized": "Alexander Wolcott",
+      "nativity": "Pa",
+      "year": 1820,
+      "remarks": "Paid taxes in 1825, voted in 1826 and 1830",
+      "verbatim": "Wolcott,Alex Pa 1820 Paid  taxes  in  1825,  voted  in  1826  and  1830 ",
+      "locator": {
+        "list": "moses_kirkland_v1_actual_settlers_pre_1830",
+        "page": 79,
+        "lines": [
+          10862,
+          10862
+        ],
+        "text_file": "moses_kirkland_history_of_chicago_v1.txt",
+        "url": "https://archive.org/download/historyofchicago01mose/historyofchicago01mose_djvu.txt",
+        "original": "Printed page 79, the second half of the same table, below the running head \"79\" at line 10819 and the reprinted column head \"NAME. NATIVITY. TEAK. REMARKS.\" at line 10822. Recto heads are odd, which is the parity check T-0581 fixed for this volume."
+      },
+      "reading": "transcription_mediated",
+      "confidence": "documented",
+      "notes": "OCR: the name cell prints `Wolcott,Alex`, spaces closed up. The `normalized` reading repairs the OCR. What the scan prints is in `verbatim`, unedited. THIS IS DR ALEXANDER WOLCOTT THE INDIAN AGENT, who came to the agency in 1820 and died on 25 October 1830 — the whole reason the crosswalk refuses him onto the town's card of that name rather than merging him."
+    },
+    {
+      "id": "bk_mose1_as_035",
+      "as_read": "Walker, Rev. Jessa",
+      "normalized": "Rev. Jesse Walker",
+      "nativity": "Va",
+      "year": 1826,
+      "remarks": null,
+      "verbatim": "Walker,  Rev.  Jessa Va 1826 ",
+      "locator": {
+        "list": "moses_kirkland_v1_actual_settlers_pre_1830",
+        "page": 79,
+        "lines": [
+          10864,
+          10864
+        ],
+        "text_file": "moses_kirkland_history_of_chicago_v1.txt",
+        "url": "https://archive.org/download/historyofchicago01mose/historyofchicago01mose_djvu.txt",
+        "original": "Printed page 79, the second half of the same table, below the running head \"79\" at line 10819 and the reprinted column head \"NAME. NATIVITY. TEAK. REMARKS.\" at line 10822. Recto heads are odd, which is the parity check T-0581 fixed for this volume."
+      },
+      "reading": "transcription_mediated",
+      "confidence": "documented",
+      "notes": "OCR: the name cell prints `Jessa`. The `normalized` reading repairs the OCR. What the scan prints is in `verbatim`, unedited. The only TITLE in the name column, and it is a trade in all but name: Jesse Walker was the Methodist itinerant of the Illinois circuit. No remarks cell."
+    },
+    {
+      "id": "bk_mose1_as_036",
+      "as_read": "Welch, Michael",
+      "normalized": "Michael Welch",
+      "nativity": "Ire",
+      "year": 1829,
+      "remarks": null,
+      "verbatim": "Welch,  Michael *. Ire 1829 ",
+      "locator": {
+        "list": "moses_kirkland_v1_actual_settlers_pre_1830",
+        "page": 79,
+        "lines": [
+          10866,
+          10866
+        ],
+        "text_file": "moses_kirkland_history_of_chicago_v1.txt",
+        "url": "https://archive.org/download/historyofchicago01mose/historyofchicago01mose_djvu.txt",
+        "original": "Printed page 79, the second half of the same table, below the running head \"79\" at line 10819 and the reprinted column head \"NAME. NATIVITY. TEAK. REMARKS.\" at line 10822. Recto heads are odd, which is the parity check T-0581 fixed for this volume."
+      },
+      "reading": "transcription_mediated",
+      "confidence": "documented",
+      "notes": "OCR: a stray `*.` stands between the name and nativity cells, the column rule again. The `normalized` reading repairs the OCR. What the scan prints is in `verbatim`, unedited. `Ire` is Ireland, and it is the only cell on this row beyond the name — the crosswalk says what it would take to spend it."
+    }
+  ]
+}

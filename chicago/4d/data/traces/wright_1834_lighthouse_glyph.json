@@ -1,0 +1,60 @@
+{
+  "$schema_note": "AUTHORED, and it is a READING of a raster. It carries the one glyph Wright's 1834 sheet draws for the Chicago lighthouse — a ring with 'L. House' lettered round it — the resource pixel its centre was picked at, the crops it was picked in, and the local-ENU point that pixel lands on through this project's own fitted affine. It authors NO geometry: `data/structures/chicago_lighthouse_1832.json` carries the coordinate, and `tools/measure_wright_lighthouse.py` is the gate that keeps the two the same statement.",
+  "id": "wright_1834_lighthouse_glyph",
+  "ticket": "T-1065 (piece 2 of T-0800)",
+  "read_by": "hand, at 15x and 20x, off the BPL master scan",
+  "why_this_file_exists": "The tower's position had been adjacency turned into a coordinate — the record said so in as many words, and docs/LIBERTIES.md L44 owned it as an invention with an uncertainty nearer 60 m than the 20 m the rest of the fort complex carries. Wright drew the thing. A glyph on a sheet surveyed a year before the scene date is the first independent witness this placement has ever had, and it disagrees with the invented point by 75 m — more than three times the reading's own uncertainty. What the file preserves is the PIXEL, so the next reader can re-open the sheet at this spot and disagree with the pick rather than with the metres.",
+  "raster": {
+    "iiif_image": "https://iiif.digitalcommonwealth.org/iiif/2/commonwealth:js957744g",
+    "repository": "Norman B. Leventhal Map & Education Center, Boston Public Library",
+    "source_id": "wright_1834",
+    "width": 4204,
+    "height": 5166,
+    "note": "The same master scan and the same fitted affine (data/traces/gcp/wright_1834_gcps.json, read through tools/wright_px.py) that north_pier and south_pier were measured on. Not a second georeference."
+  },
+  "glyph": {
+    "label_on_sheet": "L. House",
+    "mark": "an inked ring, drawn open, with the label curved round it — the 'L.' below left, 'House' above right",
+    "pixel": [2941, 1604],
+    "pixel_note": "The centre of the ring's OUTER bound, picked twice and independently: at 15x in IIIF region 2913,1573,60,60 it read (2942.0, 1603.8), and at 20x in region 2925,1585,40,40 — a different origin, so the eye is not anchored to the same frame — it read (2940.5, 1603.9). The two agree to 1.5 px in x and 0.1 px in y; the committed pixel is their mean, rounded. Picking precision is about 2 resource pixels, or 1.4 m.",
+    "ring_outer_diameter_px": 28,
+    "ring_outer_diameter_m": 19.9,
+    "symbol_note": "THE RING IS A SYMBOL AND NOT A FOOTPRINT. Twenty metres of ground for a tower Andreas gives as forty feet high; no plan of the 1832 tower puts it anywhere near that across. So the ring locates the thing and does not measure it, and its own width is the honest floor under how precisely a draughtsman can be held to have placed it."
+  },
+  "derived": {
+    "local_e": 1055.59,
+    "local_n": 172.54,
+    "utm_e": 448128.29,
+    "utm_n": 4637568.34,
+    "epsg": 26916,
+    "note": "tools/wright_px.py to_local(2941, 1604), plus data/datum.json's origin. Recomputed by tools/measure_wright_lighthouse.py on every run of tools/check.sh."
+  },
+  "uncertainty_m": {
+    "picking": 1.4,
+    "symbol_placement": 10.0,
+    "georeference_local": 20.0,
+    "combined_quadrature": 22.4,
+    "note": "The georeference term is read off the fit rather than assumed: the whole-sheet RMS is 17.5 m, and the two controls nearest this glyph are G8 (Wolcott & Kinzie, 240 m away, residual 12.6 m) and G6 (Cass & Illinois, 320 m, 23.0 m). Twenty metres is the honest local figure. The symbol term is half the ring's drawn width."
+  },
+  "residual_to_prior_committed_point": {
+    "prior_local_e": 1105.2,
+    "prior_local_n": 229.2,
+    "delta_e_m": -49.61,
+    "delta_n_m": -56.66,
+    "distance_m": 75.31,
+    "bearing_deg": 221.2,
+    "sigma": 3.4,
+    "note": "The prior point was invented — a bearing and a distance picked off the sources' 'close, and north or west, and near the water', then nudged onto the bank top in August 2026 when the heightfield finally reached this far east and the first pick turned out to be standing in the channel. 75 m is 3.4 times the combined uncertainty above, so this is a disagreement and not noise."
+  },
+  "against_the_ground": {
+    "epoch": "e1834_harbor_cut",
+    "elevation_m": 2.48,
+    "note": "Dry ground, and inside the modelled field. The bank edge is about 50 m north of here (the surface falls through zero between N +220 and N +230 on this easting) and the river's western bend about 50 m west, so the glyph sits on the flat of the fort peninsula rather than on its lip. The August 2026 failure — a lighthouse in the water — does not recur at this point."
+  },
+  "what_it_agrees_and_disagrees_with": {
+    "andreas": "AGREES. 'Fort Dearborn and the light-house are placed at the angle thus formed' — the bend where the river turned south. Wright's ring is at the inside of that bend, 108 m from the fort's centre.",
+    "fergus_1850": "NEITHER. River Street between the block-house and the light-keeper's is about a keeper's dwelling that is not modelled and about a street of 1850.",
+    "wentworth": "DISAGREES, and the disagreement is recorded rather than resolved. Disposing of the reservation in 1839 Wentworth says the land left over 'upon which the old light-house was located' was lots near the Rush Street bridge, which is north of the river; Wright's ring is south of it. A surveyed sheet drawn a year before the scene is preferred to a recollection written five years after it about which lots a disposal covered, but nothing here shows Wentworth wrong, and if his lots are ever plotted this reading is the thing they test.",
+    "bearing_change": "The invented point stood 47.5 m west-north-west of the fort's centre (bearing 280 deg). Wright's stands 107.9 m west-south-west of it (bearing 243 deg). The quadrant moves, and that is the substance of the change: 'north-west of the fort' was ours, not a source's."
+  }
+}

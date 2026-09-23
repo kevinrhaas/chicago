@@ -1,0 +1,99 @@
+{
+ "id": "fort_dearborn_jouett_grave_pickets",
+ "name": "The picket fence round Mrs Charles Jouett's grave",
+ "aka": [
+  "the grave of Mrs Chas Jouett",
+  "the Factor's wife's grave"
+ ],
+ "kind": "grave_plot",
+ "scene": "1835",
+ "target_date": "1835-07-01",
+ "structure_id": "fort_dearborn_palisade",
+ "structure_id_note": "WHOSE GROUND THIS FENCE STANDS ON, answered the way data/enclosures/fort_dearborn_apron.json answers it: this plot is on the United States Reservation, the reservation is not platted into lots and has no owner record of its own, and the committed record this project holds for the fort is its palisade. It is NOT the garrison garden's — the plot stands outside the garden's south-east face, on the far side of it, and naming the garden here would hand a fence to a plot of vegetables.",
+ "documented_range": {
+  "from": "1830-02-24",
+  "to": "1836-12-29",
+  "confidence": "inferred",
+  "sources": [
+   "harrison_1830_river_mouth",
+   "hubbard_autobiography_1911"
+  ],
+  "note": "THE RANGE OPENS AT THE PLAN AND CLOSES AT THE EVACUATION, AND NEITHER END IS THE GRAVE'S OWN. Mrs Jouett was buried before either witness was written: her husband was United States factor at Chicago from 1804 to about 1810 and Indian agent from 1816, and nothing reached dates the burial. The open end is therefore the earliest date this project can SHOW the fenced plot standing — 24 February 1830, the date of the Harrison plan that letters it. The close is the same housekeeping bound the other five things off this plate carry: the garrison went at the final evacuation of 29 December 1836, and nothing records what became of the plot. Standing on 1 July 1835 is an inference from continuity — a fenced grave on the reservation, beside a garden the garrison was still keeping — and not a finding."
+ },
+ "existence": {
+  "value": true,
+  "confidence": "inferred",
+  "sources": [
+   "harrison_1830_river_mouth",
+   "hubbard_autobiography_1911"
+  ],
+  "note": "TWO WITNESSES, AND THEY WERE NOT WRITTEN TOGETHER. The 1830 Harrison plan letters 'Grave of Mrs Chas Jouett' on the ground beside the road, west of the U.S. Factor's House. Gurdon Hubbard, remembering the same ground before 1830, gives it a fabric and a side of the road in one sentence: 'by the west side of the road, adjoining the government garden, IN A PICKET-FENCE INCLOSURE, was the grave of his wife' (hubbard_autobiography_1911, claim bk_hub_063, Internet Archive leaf 76, printed p. 38). The plan says WHERE and Hubbard says WHAT, and this record is the two of them and nothing else. It is graded inferred and not documented for the reason every value off this plate is: the plate is Andreas's 1884 re-engraving and says on its own face that it carries 'additions and changes suggested by the Memory of Early Settlers'."
+ },
+ "runs": [
+  {
+   "id": "perimeter",
+   "path_local_enu_m": [
+    [1105.81, 63.89],
+    [1108.19, 65.8],
+    [1109.71, 63.89],
+    [1107.33, 61.99],
+    [1105.81, 63.89]
+   ],
+   "note": "READ OFF THE 1830 HARRISON PLAN BY THE SAME TRANSFORM AS THE THREE BUILDINGS OF T-0883, and the transform is stated once here because this is the only coordinate on the record. Internet Archive leaf n242 of historyofchicago01andr (Andreas vol. 1, p. 113), rotated 90 degrees anticlockwise so the sheet's own true-north arrow stands vertical, is 2715 x 2003 px; the stockade's centre is pixel (1445, 644) and the committed palisade hangs it on local E +1152, N +221; pixels convert at 1.10 ft/px (0.33528 m/px). THE SHEET GIVES THIS GRAVE A LABEL AND NO SYMBOL — there is no cross, no dot and no drawn box anywhere near it, which is exactly the difference between this and the Shop or the Well — so the label is the only locator and the label is written INSIDE the road band. The label's ink centres on pixel (1335, 1140), which is 38.8 px (13.0 m) south-east of the line the plan draws as the garden's south-east side, in a road band that measures 23.9 m across. So the position is derived in two steps, both of them stated rather than eyeballed: the label's centre is dropped perpendicular onto that line, landing at pixel (1310.8, 1109.7) = local E 1107.00, N 64.84, and the plot is set with its north-west face on that line, which is Hubbard's 'west side of the road, adjoining the government garden' in coordinates. The long axis follows the road at bearing 51.3 degrees, because a fenced plot in a roadside verge follows the verge and nothing states a grave's orientation here. CARRY +/-25 M ON THIS POSITION, the figure every plate-derived record in this dataset carries, and read the along-the-road coordinate as the softer of the two: the perpendicular one is pinned to a drawn line, the along-road one only to where a draughtsman chose to start writing."
+  }
+ ],
+ "openings": [],
+ "form": {
+  "fence_type": {
+   "value": "picket",
+   "confidence": "inferred",
+   "sources": [
+    "hubbard_autobiography_1911"
+   ],
+   "note": "THE ONE THING ABOUT THIS FENCE A SOURCE ACTUALLY SAYS. Hubbard's words are 'a picket-fence inclosure', and the same sentence of his describes the Factor House across the road as 'inclosed by a neat split-picket fence', so pickets are what he means by the word. It is graded inferred rather than documented because the memoir is a recollection printed in 1911 of ground he knew before 1830, which is the grade this project gives every value taken from it."
+  },
+  "height_m": {
+   "value": 1.07,
+   "confidence": "reconstructed",
+   "note": "INVENTED. 1.07 m is 3 ft 6 in, recorded converted. Nothing attests a height. The bound is the use, read against the two pale fences already on this layer: a garden pale is 4 ft because it turns poultry and a rooting hog off a bed of vegetables, and this fence turns nothing — it marks a plot and keeps stock from standing on it. Three feet six is the lowest figure that still reads as a fence rather than a kerb."
+  },
+  "rail_courses": {
+   "value": 2,
+   "confidence": "reconstructed",
+   "note": "INVENTED, and taken from data/enclosures/town_dooryard_pickets.json rather than chosen again: two stringers is what a pale fence of this height is built on, the pales carrying the closure and the rails only holding them in line. Nothing attests a count."
+  },
+  "post_spacing_m": {
+   "value": 1.52,
+   "confidence": "reconstructed",
+   "note": "INVENTED. 1.52 m is 5 ft, recorded converted, and it is shorter than the 8 ft bay every other fence on this layer carries for one reason: this plot's longest side is 10 ft, so an 8 ft bay would give it a post at each end and none between, and a fence built to be looked at across a road is not built that way. Two bays a side is the least that reads as a made fence. Nothing attests a bay."
+  },
+  "post_size_m": {
+   "value": 0.1,
+   "confidence": "reconstructed",
+   "note": "INVENTED. A 0.10 m post is a 4-inch stick, the same section the town's garden pickets carry and for the same reason — nothing leans on it. Inventing a second number would read as evidence."
+  },
+  "picket_width_m": {
+   "value": 0.089,
+   "confidence": "reconstructed",
+   "note": "INVENTED. 0.089 m is 3.5 in, the pale width this project already uses town-wide. Hubbard's word for the Factor House fence opposite is 'split-picket', so a riven pale is what the ground had; nothing gives a dimension."
+  },
+  "picket_gap_m": {
+   "value": 0.089,
+   "confidence": "reconstructed",
+   "note": "INVENTED, and equal to the pale width, which is what makes this read as pickets and not as boards: a pale's width of daylight beside a pale's width of wood. Nothing attests a rhythm."
+  },
+  "plot_size_m": {
+   "value": "3.05 x 2.44",
+   "confidence": "reconstructed",
+   "note": "INVENTED, AND IT IS THE LARGEST INVENTION ON THIS RECORD. 3.05 x 2.44 m is 10 x 8 ft, recorded converted. No source gives this plot an extent: the plan writes a label and draws no box, and Hubbard says 'inclosure' and stops. The bound is the burial — a grave is about 6 ft by 3 ft, and a fence set a little clear of it on all four sides is about 10 ft by 8 ft. It is one grave and not a plot for a family, because Hubbard's sentence and the plan's label both say ONE grave, and drawing a family plot would invent burials as well as a fence. Declared at docs/LIBERTIES.md L229."
+  }
+ },
+ "refused": {
+  "_doc": "WHAT THIS RECORD DOES NOT DRAW, and each with the reason, so a visitor who sees an empty fence knows the emptiness is deliberate.",
+  "the_grave_itself": "NOT DRAWN. No mound, no slab, no headboard, no marker of any kind. Nothing in either witness describes one, a marker's form is a matter of who paid for it, and this project does not model human remains or the ground over them on a guess. The fence is what was attested and the fence is what stands.",
+  "a_gate": "NOT DRAWN. The Sauganash's yard gets an invented gateway because a yard nobody can enter is not a yard; a fenced grave is not entered, it is visited, and a plot 10 ft long needs no opening to be what it is. Nothing states a gate, a stile or a fastening.",
+  "the_ground_inside": "NOT DRAWN. This record states no `ground` block, so the prairie sward the flora layer plants everywhere else runs through the plot. The three treatments this layer can lay are worn earth, trodden earth and a dooryard garden, and none of them is what the ground over a grave looked like; inventing a fourth to answer a question no source asks would be worse than leaving the sward.",
+  "a_second_burial": "NOT DRAWN. The Fort Cemetery is a different place on the same sheet — a named parcel a quarter of a mile south-south-east, between the road and the lake — and it is read and refused separately in data/traces/harrison_1830_fort_burial_ground.json. Nothing here suggests anyone else is buried at this plot."
+ },
+ "research_note": "T-0882, and the third piece of T-0758. The Harrison plan names six things on the fort's ground that this model had never drawn; T-0883 built three of them and this ticket took the Fort Cemetery, which turned out to be two questions and not one. The named PARCEL — 'Fort Cemetery', lettered on a strip of ground between the road and the lake, south-south-east of the fort — is drawn on the sheet as a parcel and nothing more: two boundary lines dying on the road and the shore, no fence, no gate, no marker, no extent of burials and no count of them. It is read whole, in pixels and in ground, in data/traces/harrison_1830_fort_burial_ground.json, and it is REFUSED as fabric there, because everything a builder would need is missing and the ticket's own question was what record type could say so. THIS record is the other half: the one burial on the fort's ground that two independent sources give a form to. IT ALSO CORRECTS THE TOWN. data/structures/fort_dearborn_garrison_garden.json has said since it was written that the plan draws 'Charles Jouett's grave' beyond the garden's south-east corner. The plate says 'Grave of Mrs Chas Jouett' — his wife; Hubbard, independently, says 'the grave of HIS WIFE'; and Charles Jouett himself died at Trigg County, Kentucky on 28 May 1834, aged 62, which the Fergus 1843 old-settler death notices print (data/research/old_settlers/death_notices.json, record fdn0347) and this project has held all along. He is not buried here. The note is corrected in the same commit and the geometry it describes is untouched."
+}

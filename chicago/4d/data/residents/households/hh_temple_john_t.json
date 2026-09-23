@@ -1,0 +1,415 @@
+{
+ "id": "hh_temple_john_t",
+ "name": "The Temple household",
+ "division": "south",
+ "head": "temple_john_t",
+ "arrival": {
+  "value": "1833-07-04",
+  "confidence": "attested",
+  "sources": [
+   "andreas_1884_v1",
+   "baptisthistoryhomepage"
+  ],
+  "note": "'Arrived early in July, 1833' (Andreas); the Baptist history transcription independently puts him at Chicago 'about 4 July 1833'. Recorded at not_later_than precision on the second source's date, because 'early in July' is a week and not a day.",
+  "precision": "not_later_than"
+ },
+ "party_size_on_arrival": {
+  "value": 6,
+  "confidence": "attested",
+  "sources": [
+   "andreas_1884_v1"
+  ],
+  "note": "Himself, a wife and four children - the source counts the party in terms. This is the only documented party size in the parcel."
+ },
+ "origin": {
+  "value": "Washington, D. C.",
+  "confidence": "attested",
+  "sources": [
+   "andreas_1884_v1"
+  ],
+  "note": "'Came to Chicago from Washington, D. C.' - a from, not a birthplace."
+ },
+ "reason_for_coming": {
+  "value": "A federal mail contract, Chicago to Fort Howard at Green Bay",
+  "confidence": "attested",
+  "sources": [
+   "andreas_1884_v1"
+  ],
+  "note": "'Armed with a contract to carry the mails from Chicago to Fort Howard, Green Bay. His contract gave him a surety of a living, so that his surplus energy could well be used in the services of the Lord.' A man who came for a contract and built the town's first purpose-built place of worship and schooling with the proceeds."
+ },
+ "lives_at": {
+  "value": null,
+  "confidence": "reconstructed",
+  "note": "NOT ATTESTED, AND ONE NEAR MISS WORTH RECORDING. Peter Temple's advertisement of July 1834 puts 'the dwelling of Dr. J. T. Temple' on Franklin Street near Lake. This dataset holds no structure at that address, and the Temple Building at Franklin and South Water is a different building on the same street - a meeting house and school, not a residence. Linking the two would be wrong by a block and by a use."
+ },
+ "works_at": {
+  "value": "temple_building",
+  "confidence": "inferred",
+  "sources": [
+   "andreas_1884_v1",
+   "baptisthistoryhomepage"
+  ],
+  "note": "He built it, headed its subscription with $100, and rented it out to whatever societies could pay. That is a proprietor's relation to a building rather than a workplace, and his medical practice and his stage line were carried on elsewhere. Linked because it is the building this town knew him by; graded derived because 'works at' overstates it."
+ },
+ "present_on_scene_date": {
+  "value": "present",
+  "confidence": "inferred",
+  "sources": [
+   "andreas_1884_v1"
+  ],
+  "note": "Continuously in the Chicago record 1833-1837 - stage line, Rush Medical College trustee in 1837, Board of Health in June 1835. Andreas's 'A Dr. Temple is stated by Colbert to have been appointed on the first permanent Board of Health in Chicago June 19, 1835' carries a footnote identifying him as John T. Temple, which is three weeks before the scene date."
+ },
+ "persons": [
+  {
+   "id": "temple_john_t",
+   "name": "Dr John Taylor Temple",
+   "relationship": "head",
+   "grade": "attested",
+   "ladder_rule": "G1b",
+   "sex": "male",
+   "occupation": {
+    "value": "physician",
+    "confidence": "attested",
+    "sources": [
+     "andreas_1884_v1"
+    ],
+    "note": "One of the eight physicians Andreas counts in the town at the close of 1833; he graduated at Middlebury College, Castleton, Vt., on 29 December 1830, and performed the first autopsy made in Chicago. Andreas adds that he 'is more intimately identified with these early days by reason of his stage line than of his medical practice' - he held the contract to carry the mail to Ottawa and made the first trip on 1 January 1834 with John Dean Caton as a passenger.",
+    "derived_from": "roles",
+    "roles_at_scene_date": [
+     "physician"
+    ]
+   },
+   "sources": [
+    "andreas_1884_v1",
+    "baptisthistoryhomepage",
+    "chicago_democrat_1833_1835",
+    "chicago_voter_lists_1833_1835_irad",
+    "isa_public_domain_land_tract_sales"
+   ],
+   "note": "THE BEST-DOCUMENTED ARRIVAL IN THE WHOLE PARCEL, and the only one that gives a month, a party size, an origin AND a reason in a single sentence. Andreas, scan p. 281: 'Dr. John T. Temple, who had arrived early in July, 1833, with his family, consisting of a wife and four children. He was a pious and earnest Baptist Christian, and came to Chicago from Washington, D. C., armed with a contract to carry the mails from Chicago to Fort Howard, Green Bay.' He then headed the subscription for the Temple Building with $100. THE TOWN'S OWN ROLLS, 1833-1835 — CORROBORATION, NOT A GRADE. The early Chicago voter and tax lists held by the Illinois Regional Archives Depository name this person 3 times: Poll list of the first election of the Board of Trustees of the Town of Chicago, 10 August 1833 — “Temple, John T.” (poll_1833_027, line 48); Tax list of the Town of Chicago, 1833 — “Temple, John” (tax_1833_102, line 154); Election returns — poll list of 1834, filed 11 August 1834 — “Temple, John T.” (poll_1834_107, line 276). These are the town's own contemporary paper rather than a recollection of it, and each appearance says that a man of that name stood on that roll in that year — no more. The reading is twice mediated (Schulz's transcription, then Genealogy Trails' republication) and this project has not seen the IRAD originals. Under the ratified ladder (T-0513) the 1835 poll with a second independent source is attested, the 1835 poll alone or a 1833/1834 list with another source is inferred, and a single appearance with nothing else is a projected resident. This pass WRITES THE EVIDENCE AND MOVES NO GRADE — T-0515 applies the ladder against every source at once. Identity by the crosswalk's own rule: one resident of the surname 'Temple' agrees with the entry's forenames; 3 bearer(s) of the surname were considered. (data/research/civic/voter_crosswalk.json). THE FEDERAL LAND TRACT SALES — A PURCHASE, AND NEVER A RESIDENCE. The Illinois State Archives' Public Domain Land Tract Sales register enters this person 10 times, as “TEMPLE JOHN T”, “TEMPLE J T”, 1833-10-22 to 1836-06-21: 2 lots in the platted town — lot 4 of block 20 in the town the register codes CHIOT (L4BL20CHIOT, as printed); lot 6 of block 20 in the town the register codes CHIOT (L6BL20CHIOT, as printed) and 8 parcels of the school section — BL103 of the school section (sec 16 T39N R14E), as read; BL110 of the school section (sec 16 T39N R14E), as read; BL111 of the school section (sec 16 T39N R14E), as read; BL112 of the school section (sec 16 T39N R14E), as read; BL17 of the school section (sec 16 T39N R14E), as read; BL76 of the school section (sec 16 T39N R14E), as read; BL77 of the school section (sec 16 T39N R14E), as read; BL99 of the school section (sec 16 T39N R14E), as read, 30.31 acres stated in all, for $21107.00 (ls0353, ls0354, ls0355, ls0356, ls0357, ls0358, ls0359, ls0360, ls1505, ls1506). THE REGISTER'S OWN RESIDENCE COLUMN READS UNKNOWN on these rows: a county, a state or nothing, and never a town, which is why a purchase here places nobody. THE SCHOOL-SECTION ROWS ARE GROUND INSIDE THE TOWN, NOT FARMLAND: section 16 of T39N R14E was platted and sold off by lot and by block at the sale of 1833, which is why the register states 0000.00 acres against most of them. Ground inside the town is nearer to this reconstruction than a quarter-section is, and it is still a purchase: the register names a purchaser and never an occupant, and nothing here puts this person on that ground. THE TOWN LOTS ARE THE PLAT ITSELF, AND THEY ARE NOT ACRES: Cook County's register describes them by lot and block in a platted town and gives them no section, no township and no acreage at all, so they add nothing to the acre figure above and $20000.00 to the money. This project does not expand the register's town codes, so which addition a lot stands in is carried as the code and not as a name. It is still a purchase and it still places nobody. A purchase and nothing more. It dates and places a transaction; it proposes no residence, and under the ratified ladder it corroborates rather than mints. Identity by the crosswalk's own rule: TEMPLE JOHN T matches Dr John Taylor Temple: the forename names Dr John Taylor Temple of the 3 people of this surname, and the forename agrees in full. (data/research/land_sales/resident_crosswalk.json). This pass WRITES THE EVIDENCE AND MOVES NO GRADE. Under the ratified ladder (T-0513) a second independent source is what lifts a projected resident, and a land entry is a second source about a TRANSACTION rather than about who was living at Chicago on 1 July 1835 — a man may buy a quarter-section he never sees. T-0515 applies the ladder against every source at once; this pass hands it the evidence and not the verdict.",
+   "resident_research": {
+    "programme": "resident-research-2026",
+    "ticket": "T-0510",
+    "outcome": "corroborated",
+    "reviewed_on": "2026-09-05",
+    "asserted_identity": true,
+    "evidence_for": "one resident of the surname 'Temple' agrees with the entry's forenames; 3 bearer(s) of the surname were considered.",
+    "evidence_against": "The surname 'Temple' is in Fergus's death notices and no entry under it carries the initial 'J' of 'Dr John Taylor Temple'. A surname-only agreement is a refusal, here as everywhere: the list prints eleven Smiths. Surname 'Temple' folds to the same string as the 1839 entry's, and the given name of both begins J. CONTESTED: 2 residents of 1835 meet this one 1839 entry on that rule, and at most one of them is the person printed. The match is not made. Surname 'Temple' folds to the same string as the 1843 entry's, and the given name of both begins J. CONTESTED: 2 residents of 1835 meet this one 1843 entry on that rule, and at most one of them is the person printed. The match is not made.",
+    "summary": "Independently corroborated. Dr John Taylor Temple agrees, forename for forename or initial for initial, with a record outside the post-office lists in the town's 1833 tax and 1834/1835 poll lists. one resident of the surname 'Temple' agrees with the entry's forenames; 3 bearer(s) of the surname were considered.",
+    "notes": "Research only. Later-volume readings are recorded here and NOT promoted: T-0513 consolidates and T-0514/T-0515 apply.",
+    "source_ids": [
+     "chicago_democrat_1833_1835",
+     "chicago_voter_lists_1833_1835_irad"
+    ],
+    "refusals": [
+     {
+      "regraded_on": "2026-09-04",
+      "rule": "G2b",
+      "withheld": "the downgrade to inferred",
+      "reason": "This card rests on 3 thing(s) the consolidation did not read — andreas_1884_v1, baptisthistoryhomepage, chicago_democrat_1833_1835. G2b fired on the seven domains the ladder reads and says nothing about the evidence outside them, so the grade stands. The same reasoning the ladder's own G5 gives for abstaining (T-0515)."
+     }
+    ]
+   },
+   "press_evidence": [
+    {
+     "list": "newspaper_1833_1835",
+     "as_read": "Dr. J. T. Temple",
+     "locator": "chicago_democrat_1833_12_03#c001",
+     "record_id": "person_dr_j_t_temple",
+     "describes_date": "1833-12-03",
+     "source": "chicago_democrat_1833_1835",
+     "rule": "G1b"
+    },
+    {
+     "list": "newspaper_1833_1835",
+     "as_read": "J. T. Temple",
+     "locator": "chicago_democrat_1834_03_04#c016",
+     "record_id": "person_j_t_temple",
+     "describes_date": "1834-03-04",
+     "source": "chicago_democrat_1833_1835",
+     "rule": "G1b"
+    },
+    {
+     "list": "newspaper_1833_1835",
+     "as_read": "T. Temple",
+     "locator": "chicago_democrat_1834_12_03#c022",
+     "record_id": "person_t_temple",
+     "describes_date": "1834-12-03",
+     "source": "chicago_democrat_1833_1835",
+     "rule": "G1b"
+    }
+   ],
+   "merged_from": [
+    {
+     "ticket": "T-0844",
+     "rule": "C6",
+     "cluster": "temple",
+     "cards": [
+      "temple_t"
+     ],
+     "note": "THE UNION OF THE CARDS THIS PERSON WAS SPLIT ACROSS. The sources and evidence blocks above include everything the folded cards cited; each folded record is kept whole under data/residents/merged/ and is redirected by index.json's `merged` table. The reasoning for the merge is in data/residents/card_merge_rulings.json."
+    }
+   ],
+   "merge_ruling": [
+    {
+     "ticket": "T-0839",
+     "verdict": "undecided",
+     "rule": "R2",
+     "cluster": "temple",
+     "weighed_against": [
+      "temple_t"
+     ],
+     "referred_to": "owner",
+     "for_merge": "'T. Temple' in the Democrat of 3 December 1834 is most probably Dr John Taylor Temple with the first initial dropped — the paper prints him as J. T. Temple the year before.",
+     "against_merge": "T matches neither Temple's forename initial: the town's two documented Temples are John and Peter. A card whose only forename token is a MIDDLE initial has no rule in this project that attaches it, and inventing one here would attach every stray middle initial in the corpus. His call."
+    }
+   ],
+   "roles": [
+    {
+     "role": "physician",
+     "kind": "profession",
+     "as_printed": null,
+     "from": "1673",
+     "to": "1857",
+     "precision": "source_span",
+     "dated_by": "source_describes_date",
+     "covers_scene_date": true,
+     "confidence": "attested",
+     "sources": [
+      "andreas_1884_v1"
+     ],
+     "claim": null,
+     "note": "THE BOUND IS THE SOURCE'S, NOT THE MAN'S. This role is carried by the card's 1835 occupation block and is dated by what the cited source or sources are ABOUT, which is why `precision` can be no better than the span they cover. The span reaches 1835, so this role stands in the scene-date view. The printing the trade was read off is not on the card and is fetched by T-1254."
+    }
+   ]
+  },
+  {
+   "id": "temple_mrs_john_t",
+   "name": "Mrs Temple",
+   "relationship": "wife",
+   "grade": "inferred",
+   "sex": "female",
+   "occupation": {
+    "value": "none_recorded",
+    "confidence": "reconstructed",
+    "note": "No trade is recorded for her. The absence is the ordinary one for a married woman in this literature and is not evidence that she did no work."
+   },
+   "sources": [
+    "andreas_1884_v1"
+   ],
+   "note": "DOCUMENTED AS A PERSON AND UNNAMED IN THE SOURCE. Andreas counts her - 'his family, consisting of a wife and four children' - and never gives her name. She is written as a person because the source counts her; the record carries no forename because inventing one would be the exact failure this grade exists to prevent.",
+   "resident_research": {
+    "programme": "resident-research-2026",
+    "ticket": "T-0510",
+    "outcome": "no_corroboration",
+    "reviewed_on": "2026-09-05",
+    "asserted_identity": false,
+    "evidence_against": "The surname 'Temple' is in Fergus's death notices and no entry under it carries the initial '-' of 'Mrs Temple'. A surname-only agreement is a refusal, here as everywhere: the list prints eleven Smiths. The surname 'Temple' is in Fergus 1843 and no entry under it carries the initial '-' of 'Mrs Temple'. A surname-only agreement is a refusal. 'Mrs Temple' carries no forename at all, so every later volume that prints the surname Temple is refused by the project's standing rule that a surname-only agreement is a refusal.",
+    "summary": "No reliable record outside the Chicago post-office lists could be tied to Mrs Temple with a date, place, occupation or kinship discriminator. The repository's own crosswalks record the refusal: The surname 'Temple' is in Fergus's death notices and no entry under it carries the initial '-' of 'Mrs Temple'. A surname-only agreement is a refusal, here as everywhere: the list prints eleven Smiths. This is a documented no-corroboration result, not evidence that the person did not exist.",
+    "notes": "Research only. Later-volume readings are recorded here and NOT promoted: T-0513 consolidates and T-0514/T-0515 apply.",
+    "source_ids": [
+     "chicago_democrat_1833_1835"
+    ]
+   },
+   "merge_ruling": [
+    {
+     "ticket": "T-0839",
+     "verdict": "distinct",
+     "rule": "D1",
+     "cluster": "temple",
+     "weighed_against": [
+      "temple_peter"
+     ],
+     "for_merge": "The surname, and the household.",
+     "against_merge": "Dr Peter Temple is John Taylor Temple's brother and Mrs Temple is his wife; both are already members of his household record and both are named separately by Andreas."
+    }
+   ]
+  },
+  {
+   "id": "temple_children_four",
+   "name": "The four Temple children",
+   "relationship": "child",
+   "grade": "inferred",
+   "occupation": {
+    "value": "none_recorded",
+    "confidence": "reconstructed",
+    "note": "No source records an occupation for this person. This is the ABSENCE of a record rather than a claim that they did no work — the sources of 1835 name the occupations of household heads and almost never those of wives, children or the people counted with them."
+   },
+   "sources": [
+    "andreas_1884_v1"
+   ],
+   "note": "FOUR CHILDREN, COUNTED AND NOT NAMED. Andreas gives the number and nothing else - no names, no sexes, no ages. They are carried as one entry with a count in its name rather than as four invented individuals; the count is the evidence and the individuation is not. A later parcel with a church register or a school list would split this into four person records.",
+   "resident_research": {
+    "programme": "resident-research-2026",
+    "ticket": "T-0510",
+    "outcome": "no_corroboration",
+    "reviewed_on": "2026-09-05",
+    "asserted_identity": false,
+    "evidence_against": "The four Temple children are a household inference from Dr John Taylor Temple's record and carry no forenames; no later volume prints a Temple child of this household.",
+    "summary": "No reliable record outside the Chicago post-office lists could be tied to The four Temple children with a date, place, occupation or kinship discriminator. No later volume, civic list, land-sale, census or church register reached prints the name at all. This is a documented no-corroboration result, not evidence that the person did not exist.",
+    "notes": "Research only. Later-volume readings are recorded here and NOT promoted: T-0513 consolidates and T-0514/T-0515 apply.",
+    "source_ids": [
+     "chicago_democrat_1833_1835"
+    ]
+   }
+  },
+  {
+   "id": "temple_peter",
+   "name": "Dr Peter Temple",
+   "relationship": "brother",
+   "grade": "attested",
+   "ladder_rule": "G1b",
+   "sex": "male",
+   "occupation": {
+    "value": "dentist",
+    "confidence": "attested",
+    "sources": [
+     "andreas_1884_v1"
+    ],
+    "note": "Andreas: 'Dr. Peter Temple was an early practitioner in Chicago, and advertised in the Democrat of July 7, 1834, that he was located at Franklin Street, near Lake, adjacent to the dwelling of Dr. J. T. Temple, and was there to practice dentistry. In August, 1834, he became associated with Dr. John T. Temple in the practice of medicine, Dr. Peter Temple attending to such cases as were exclusively dental.'",
+    "derived_from": "roles",
+    "roles_at_scene_date": [
+     "dentist"
+    ]
+   },
+   "sources": [
+    "andreas_1884_v1",
+    "chicago_democrat_1833_1835",
+    "fergus_1843_old_settler_death_notices"
+   ],
+   "note": "DOCUMENTED IN THE TOWN, DERIVED INTO THIS HOUSEHOLD. His own advertisement of 7 July 1834 places him 'adjacent to the dwelling of Dr. J. T. Temple' - i.e. NEXT DOOR, not in the same house - so grouping him here is a reconstruction and the note has to say so. He is also documented at Chicago after the scene date: on the executive committee of the Chicago Bible Society on 23 August 1835 and a secretary of the canal meeting of 7 November 1835. The brotherhood is Andreas's word ('through the influence of his brother') in a later passage.",
+   "resident_research": {
+    "programme": "resident-research-2026",
+    "ticket": "T-0479",
+    "outcome": "no_corroboration",
+    "reviewed_on": "2026-09-02",
+    "asserted_identity": false,
+    "evidence_for": "The exact-name and variant sweep found multiple unrelated Peter Temple genealogical records but no reliable Chicago/Cook County record tied to Dr Peter Temple in this household. The name remains unresolved rather than merged with a namesake.",
+    "summary": "The exact-name and variant sweep found multiple unrelated Peter Temple genealogical records but no reliable Chicago/Cook County record tied to Dr Peter Temple in this household. The name remains unresolved rather than merged with a namesake.",
+    "notes": "The exact-name and variant sweep found multiple unrelated Peter Temple genealogical records but no reliable Chicago/Cook County record tied to Dr Peter Temple in this household. The name remains unresolved rather than merged with a namesake."
+   },
+   "book_evidence": [
+    {
+     "list": "death_notice",
+     "as_read": "Temple, Dr. Peter",
+     "locator": "T",
+     "record_id": "fdn0661",
+     "describes_date": "March 18, 1889",
+     "source": "fergus_1843_old_settler_death_notices",
+     "rule": "G1b"
+    }
+   ],
+   "press_evidence": [
+    {
+     "list": "newspaper_1833_1835",
+     "as_read": "Temple, P.",
+     "locator": "chicago_democrat_1834_09_10#c009",
+     "record_id": "person_temple_p",
+     "describes_date": "1834-09-10",
+     "source": "chicago_democrat_1833_1835",
+     "rule": "G1b"
+    }
+   ],
+   "merge_ruling": [
+    {
+     "ticket": "T-0839",
+     "verdict": "distinct",
+     "rule": "D1",
+     "cluster": "temple",
+     "weighed_against": [
+      "temple_mrs_john_t"
+     ],
+     "for_merge": "The surname, and the household.",
+     "against_merge": "Dr Peter Temple is John Taylor Temple's brother and Mrs Temple is his wife; both are already members of his household record and both are named separately by Andreas."
+    }
+   ],
+   "roles": [
+    {
+     "role": "dentist",
+     "kind": "profession",
+     "as_printed": null,
+     "from": "1673",
+     "to": "1857",
+     "precision": "source_span",
+     "dated_by": "source_describes_date",
+     "covers_scene_date": true,
+     "confidence": "attested",
+     "sources": [
+      "andreas_1884_v1"
+     ],
+     "claim": null,
+     "note": "THE BOUND IS THE SOURCE'S, NOT THE MAN'S. This role is carried by the card's 1835 occupation block and is dated by what the cited source or sources are ABOUT, which is why `precision` can be no better than the span they cover. The span reaches 1835, so this role stands in the scene-date view. The printing the trade was read off is not on the card and is fetched by T-1254."
+    }
+   ]
+  }
+ ],
+ "touches_removal": false,
+ "review_required": false,
+ "research_note": "THE MODEL HOUSEHOLD FOR THIS PROGRAMME, because one sentence of Andreas supplies four of the six things K1 asks for - month of arrival, party size, origin and reason - and because the household then demonstrates the two honest ways of handling people a source counts but does not name. A wife who is counted gets a person record with no forename; four children who are counted get ONE record whose name states the count. Neither is inflated into individuals and neither is dropped. FIVE PERSONS ARE WRITTEN AND SIX PEOPLE ARE CLAIMED - the discrepancy is the four-children entry and it is deliberate; any later code that counts persons must read the notes, not the array length.",
+ "old_settler_deaths": {
+  "the_header_admission": "Names, places * , dates, and ages at death\nof some of Chicago's Old Settlers, prior to 1843, and other well - known citizens who arrived after 1843, together\nwith others prominently connected with Illinois history:",
+  "note": "LATER EVIDENCE OF A DEATH, BESIDE THE 1835 CLAIMS AND NOT INSIDE THEM. Fergus's 1843 directory (1896) prints an obituary list of old settlers, and one of its entries meets somebody of this name. THE HEADER OF THE LIST IS QUOTED ABOVE, and it is the limit the whole reading turns on. It does not mean the person was in Chicago in 1835, and it does not mean they arrived before 1843 — the list's own header, quoted above, says it also names citizens who arrived later and others merely 'prominently connected with Illinois history'. A match means one thing: a name in the 1835 layer and a name in this list agree on surname and first initial, and the list gives that name a death date and an age. The date and the interval are the payload. Whatever is carried is carried as evidence of a DEATH and of an interval the birth falls in, never as an 1835 fact and never as a grade. T-0513 consolidates and T-0514/T-0515 apply; this file changes no record. This pass WRITES THE EVIDENCE AND MOVES NO GRADE. A death notice printed in 1896 says a person of this name died on a day; under the ratified ladder (T-0513) that is later evidence about a DEATH, and it is never an 1835 residence. T-0515 applies the ladder against every source at once; this pass hands it the evidence and not the verdict.",
+  "sources": [
+   "fergus_1843_old_settler_death_notices"
+  ],
+  "people": [
+   {
+    "person_id": "temple_peter",
+    "matched_as": "Dr Peter Temple",
+    "matched_by": "Surname 'Temple' folds to the same string as the entry's, and the given name of both begins P.",
+    "matched_on_initial_only": false,
+    "resident_given_is_initial_only": false,
+    "entry_given_as_read": "Dr. Peter",
+    "entry_given_is_initial_only": false,
+    "the_agreement": "a surname and a forename spelled out on both sides",
+    "record_id": "fdn0661",
+    "trade_or_office": null,
+    "manner_of_death": "died",
+    "place_of_death": "Lexington, Mo.",
+    "death_date": "1889-03-18",
+    "age_as_printed": null,
+    "birth_year_earliest": null,
+    "birth_year_latest": null,
+    "birth_year_arithmetic": null,
+    "as_read": "Temple, Dr. Peter, died, Lexington, Mo., March 18, 1889"
+   }
+  ]
+ },
+ "directories": {
+  "note": "LATER EVIDENCE, BESIDE THE 1835 CLAIMS AND NOT INSIDE THEM. A Chicago directory of 1839, 1843 or 1844 meets somebody of this name and this pass records what it prints. Under the ratified ladder a directory read after 1835 can corroborate that a person attested here was still in Chicago and can print a trade or a street the 1835 record never had; on its own it makes nobody a resident of 1835. Nothing on this person's 1835 record was regraded, moved, dated or given an occupation by this entry. WHAT THIS PASS RULED ONTO THIS HOUSEHOLD, named so the ruling can be found again: each volume below is followed by the printed entries it set against this person and the status the crosswalk ruled them at — a single entry carries what its own `could_carry` declares, and an ambiguous or contested match carries nothing and is shown so that the silence is legible. temple_john_t, Fergus's Chicago directory of 1839 — f1839_e1481 (a single entry); temple_john_t, Fergus's Chicago directory of 1843 — f1843_e2424 (a single entry); temple_peter, Fergus's Chicago directory of 1839 — f1839_e1482 (a single entry).",
+  "sources": [
+   "fergus_chicago_directory_1839",
+   "fergus_chicago_directory_1843"
+  ],
+  "people": [
+   {
+    "person_id": "temple_john_t",
+    "address_later": {
+     "value": "218 Lake st",
+     "confidence": "attested",
+     "describes_date": 1839,
+     "sources": [
+      "fergus_chicago_directory_1839"
+     ],
+     "note": "Fergus's Chicago directory of 1839 prints this address against this person, in the entry quoted on the card: 'Temple, Dr. John T. , 218 Lake st'. It is evidence about 1839, written here as 1839's and read back onto no 1835 claim. Under the ratified ladder a directory read after 1835 can corroborate that a person attested here was still in Chicago and can print a trade or a street the 1835 record never had; on its own it makes nobody a resident of 1835. Nothing on this person's 1835 record was regraded, moved, dated or given an occupation by this entry. The value is the volume's own line, split by its crosswalk on the entry's punctuation. These volumes set the trade first and its qualifiers after it on the same line, so the split may carry an employer, a market or a corner along with the trade. The printed entry is quoted beside the value for exactly that reason: the split is checkable against it, and neither is read into an 1835 claim."
+    },
+    "back_projection": {
+     "outcome": "already_better_placed",
+     "clause": "2",
+     "value": null,
+     "describes_date": 1839,
+     "read_back_years": 4,
+     "placement": null,
+     "position_local_enu_m": null,
+     "sources": [
+      "fergus_chicago_directory_1839"
+     ],
+     "note": "NOT READ BACK, BECAUSE SOMETHING BETTER ALREADY STANDS. Fergus's Chicago directory of 1839 prints an address against this name in 1839, and it is left where it is. An 1835 placement already stands: this household works at `temple_building`, and clause 2 says an attested 1835 placement always beats a door printed 4 years later. The later address stays on the record as 1839's evidence and moves nothing."
+    }
+   },
+   {
+    "person_id": "temple_peter"
+   }
+  ]
+ }
+}

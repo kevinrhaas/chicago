@@ -1,0 +1,59 @@
+{
+  "_doc": "Carry Kinzie Street west, from the town's last committed point to Wabansia's own\nboundary rule.\n\n    tools/carry_kinzie_west.py            print what it would write\n    tools/carry_kinzie_west.py --write    write data/streets/1835.json and the trace\n    tools/carry_kinzie_west.py --check    the committed reach re-derives from the readings\n\nT-1085, found by T-1070. `kinzie` in `data/streets/1835.json` ends at local east -320,\nattested off the Thompson plat (T-0713), which draws the Original Town and stops at its\nwest boundary. J. S. Wright's 1834 survey draws the same street on west, the whole length\nof Wabansia: the corridor is read and committed at `data/traces/wabansia_streets.json`\n§ streets `kinzie`, with Wright's own `Kinzie` lettering inside it at NA px 1150-1450,\ny 2060-2110. So the reach exists on a sheet this project holds, and the committed line\nwas silent about it — while T-1070's seating had to EXTRAPOLATE that line 418 m west to\nhave something to hang Wabansia's ladder from, and said so in writing. Six streets stood\ncommitted north of a line that did not reach them.\n\nWHY IT IS ITS OWN RECORD AND NOT A LONGER `kinzie`. `data/streets/1835.json` § _doc:\n\"a bend added to the plat line moves platted lot lines the whole length of the street and\nre-scores the corridor-intrusion count\". This carries no bend — the reach is collinear\nwith the committed line by construction, and `--check` asserts it — so nothing moves. But\nthe two halves are NOT THE SAME CLAIM and a record carries one confidence, one surface and\none traffic:\n\n  * EAST of -320 the Thompson plat draws the street and the town wears it: geometry\n    `attested`, `worn_earth`, traffic `ordinary`.\n  * WEST of it Wright draws the street and nothing in this corpus wears it: geometry\n    `inferred`, `unworn_prairie`, traffic `none`.\n\nThe project already splits a street this way where the claim changes — `market` and\n`market_north`, `michigan_north` and `michigan_north_tract` — and this follows them.\n\nWHAT IS ATTESTED AND WHAT IS INFERRED, kept apart because the temptation is to trade one\nfor the other. Wright ATTESTS THAT the street runs here: he rules the corridor across the\nwhole tract and letters it. What this tool INFERS is WHERE it lies. Carried through the NA\nsheet's own affine, Wright's Kinzie corridor centre lands about 21 m south of the committed\nline at the tract's west end and about 9 m south at its east end, because the sheet's drawn\nbearing in this corner is about 1.6 deg off the one the committed grid takes from modern\ncontrol over a baseline four times longer, against a registration admitting 16.02 m RMS\nwith no control point within 900 m of this tract. Every one of those figures is\nMEASURED here and written into the record this tool generates, rather than quoted in\nprose: T-1070 measured 9.1 m and about 1.2 deg through the eight-point fit T-1091\nsuperseded, and when T-1092 re-seated this reach onto the eleven-point fit in force\nthe numbers moved and the prose would not have. So the same division of labour the\nseating used holds here: the SHEET says the street is there and how far west it goes, the\nCOMMITTED GRID says where the line runs and which way it lies. `geometry_confidence` is\n`inferred` for that reason and not because the reach is in doubt.\n\nTHE WEST END is Wabansia's own west boundary rule at tier 7 — the tier Kinzie Street\nbounds on the south — read by T-1074 at `data/traces/wabansia_block_numbering.json`\n§ west_margin, and it is the outer rule of that pair, which is the same bound\n`seat_wabansia_streets.py` gives the six streets north of here. The reading stops where\nthe tract stops and this line stops with it: Wright carries Kinzie further west still,\noff the tract and off T-1074's reading, and that ground is nobody's yet.\n\nTHE EAST END is `kinzie`'s own west end, to the centimetre, so the two records meet\nwithout a gap and without an overlap.\n",
+  "ticket": "T-1085",
+  "street": "kinzie_west",
+  "continues": "kinzie",
+  "committed_in": "data/streets/1835.json",
+  "method": {
+    "extent": "Wright's 1834 survey, which rules and letters this corridor across Wabansia; west end at the tract's own boundary rule (T-1074), east end at the committed line's own west end",
+    "bearing": "the committed kinzie line's, not the sheet's — T-1070's argument",
+    "bend": "none. The reach is collinear with the committed line by construction, so no platted lot line moves and no corridor is re-cut."
+  },
+  "evidence": {
+    "west_end": {
+      "from": "wabansia_block_numbering.json § west_margin t7 (T-1074), the outer rule of the pair",
+      "px": [
+        682.1,
+        2078.21
+      ],
+      "sheet_local_enu_m": [
+        -766.89,
+        245.45
+      ],
+      "committed_line_at_same_e_m": [
+        -766.89,
+        266.66
+      ],
+      "sheet_south_of_committed_m": -21.21
+    },
+    "east_end": {
+      "from": "1835.json § kinzie, its own west end",
+      "local_enu_m": [
+        -320,
+        263.1
+      ],
+      "sheet_south_of_committed_m": -8.86
+    },
+    "sheet_bearing_off_committed_deg": 1.58,
+    "reach_m": 446.9,
+    "bearing_from": "1835.json § kinzie, first point to last",
+    "collinear_with_committed_kinzie": true,
+    "sheet_registration_rms_m": 16.02,
+    "reading": "Wright's Kinzie corridor centre lands 21.21 m south of the committed line at the tract's west boundary rule and 8.86 m south of it at the committed line's own west end, so the drawn street runs 1.58 deg off the committed bearing over this reach, against a registration admitting 16.02 m RMS over the eleven control points in force since T-1091, none of them within 900 m of this tract. The two readings agree that this is one street; the sheet is asked for the extent and the committed grid for the line, which is T-1070's own division of labour."
+  },
+  "path_local_enu_m": [
+    [
+      -766.89,
+      266.66
+    ],
+    [
+      -320,
+      263.1
+    ]
+  ],
+  "what_this_does_not_carry": {
+    "further_west": "Wright draws Kinzie Street on west past Wabansia's boundary rule. T-1074's reading stops at the tract and so does this line; the ground beyond it is unread.",
+    "wear": "`kinzie`'s worn earth and ordinary traffic are a claim about the town's ground and are not carried west. See the record's own note.",
+    "modern_name": "no control on this reach; `name_2026` is null and the reason is in `name_note`."
+  }
+}

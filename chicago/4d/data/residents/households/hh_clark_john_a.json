@@ -1,0 +1,118 @@
+{
+ "id": "hh_clark_john_a",
+ "name": "The Clark household — a name the town's own records carry",
+ "division": "unplaced",
+ "head": "clark_john_a",
+ "source_pass": "civic",
+ "arrival": {
+  "value": "1834-02-11",
+  "confidence": "inferred",
+  "sources": [
+   "chicago_democrat_1833_1835"
+  ],
+  "note": "A BOUND FROM THE RECORD, NOT AN ARRIVAL. newspaper_1833_1835 names this person at Chicago by 11 February 1834 and nothing says when they came. The bound is at or before the scene date, so the person was at Chicago by 1 July 1835 on this record's own evidence.",
+  "precision": "not_later_than"
+ },
+ "party_size_on_arrival": {
+  "value": null,
+  "confidence": "reconstructed",
+  "note": "Not attested."
+ },
+ "origin": {
+  "value": null,
+  "confidence": "reconstructed",
+  "note": "Not attested."
+ },
+ "reason_for_coming": {
+  "value": null,
+  "confidence": "reconstructed",
+  "note": "Not attested."
+ },
+ "lives_at": {
+  "value": null,
+  "confidence": "reconstructed",
+  "note": "Not attested: the lists that name this person give no address. The placement sweep assigns homes once the resident list is complete (T-0514, the owner's own sequencing) and this pass will not guess one."
+ },
+ "works_at": {
+  "value": null,
+  "confidence": "reconstructed",
+  "note": "Not attested. No trade is recorded here, so there is no premises to seek; T-0633 is where a later directory's address gets back-projected."
+ },
+ "present_on_scene_date": {
+  "value": "uncertain",
+  "confidence": "inferred",
+  "sources": [
+   "chicago_democrat_1833_1835"
+  ],
+  "note": "THE RECORD DOES NOT REACH THE DAY. Every source that names this person falls on one side of 1 July 1835, and nothing follows them to it or says they left. `uncertain` rather than dropped — the distinction index.json draws for Jeremiah Porter, and a finding, not a gap."
+ },
+ "persons": [
+  {
+   "id": "clark_john_a",
+   "name": "John A Clark",
+   "relationship": "head",
+   "grade": "attested",
+   "civic_mint": true,
+   "ladder_rule": "G1b",
+   "occupation": {
+    "value": "none_recorded",
+    "confidence": "reconstructed",
+    "note": "No source in this pass's evidence records an occupation for this person. A poll list, a tax list, a muster roll and a baptismal entry each print a name and no trade, and where a later directory prints one it is a trade of 1843 — T-0633 is the rule for back-projecting that, and this pass does not have it."
+   },
+   "sources": [
+    "chicago_democrat_1833_1835"
+   ],
+   "note": "A CONTEMPORARY CHICAGO PAPER OF 1833-1835 PRINTS THIS PERSON BY NAME IN THE TOWN. Read from newspaper_1833_1835. THE GRADE IS THE OWNER'S RATIFIED LADDER OF 2026-09-03 (G1b), applied to every identity at once by tools/consolidate_resident_evidence.py and spent onto this card by tools/mint_civic_residents.py; the evidence blocks below carry the reading AS READ, its locator and the record it came from, so the page can be gone back to. WHAT IS RECONSTRUCTED: everything except the person and the sources — no dwelling, no trade, no origin, no family, no party. A BOUND FROM THE RECORD, NOT AN ARRIVAL. newspaper_1833_1835 names this person at Chicago by 11 February 1834 and nothing says when they came. The bound is at or before the scene date, so the person was at Chicago by 1 July 1835 on this record's own evidence. No figure is drawn (L1).",
+   "press_evidence": [
+    {
+     "list": "newspaper_1833_1835",
+     "as_read": "John A. Clark",
+     "locator": "chicago_democrat_1834_02_11#c001",
+     "record_id": "person_john_a_clark",
+     "describes_date": "1834-02-11",
+     "source": "chicago_democrat_1833_1835",
+     "rule": "G1b"
+    }
+   ],
+   "merge_ruling": [
+    {
+     "ticket": "T-1291",
+     "verdict": "distinct",
+     "rule": "R5",
+     "cluster": "chark-clark-john-a",
+     "weighed_against": [
+      "chark_john_a"
+     ],
+     "for_merge": "'Chark' is one letter from Clark, h for l, and the forename 'John A.' agrees letter for letter with John A. Clark, in the Democrat of 11 February 1834 (#c001) — the same middle initial A. The stem 'Chark' is set nowhere in the deposited corpus and the town holds no other bearer of it: on the face of it a card minted off a garble.",
+     "against_merge": "A GARBLED READING CANNOT BE TESTED, AND THERE ARE TWO CLARKS IT COULD BE. R5 is the standing refusal and T-0695 is the ticket that reads these cards at the image; T-1027 files `chark_john_a` under the garbles in its own words — 'a fold here would repair a wreck by guessing at it'. The guess is not even single-valued: the town holds clark_john_a and clark_john_k, and the `clark-john` cluster has already ruled those two DISTINCT under D1 on their contradicting middle initials, so a fold of 'John A. Chark' would have to choose which of two ruled-apart men to join. Clark is set 2,655 times in the corpus and the reading index holds 37 Clark identities. R5, and the reading belongs to T-0695."
+    },
+    {
+     "ticket": "T-0839",
+     "verdict": "distinct",
+     "rule": "D1",
+     "cluster": "clark-john",
+     "weighed_against": [
+      "clark_john_k"
+     ],
+     "for_merge": "The forename and the surname.",
+     "against_merge": "Both cards print an explicit middle initial and the two disagree — A against K — with no anchor on either side to say one of them is mis-set. Two men until something says otherwise, and the ruling is written onto both cards so the next pass does not re-ask."
+    }
+   ]
+  }
+ ],
+ "touches_removal": false,
+ "review_required": false,
+ "research_note": "MINTED FROM THE CONSOLIDATED CIVIC, CHURCH, PRESS, BOOK AND CENSUS EVIDENCE (T-0513, T-0514). THE HOUSEHOLD IS A CONTAINER, NOT AN ARGUMENT: every other record here is written unattested in its own block, because the lists that name this person name a person and not a family. What is claimed is that the sources cited on the member below name them at Chicago, and the grade is the owner's ratified ladder applied by tools/consolidate_resident_evidence.py --build and spent by tools/mint_civic_residents.py, which prints every refusal. docs/LIBERTIES.md L215 carries the liberty and the tension with L213.",
+ "directories": {
+  "note": "LATER EVIDENCE, BESIDE THE 1835 CLAIMS AND NOT INSIDE THEM. A Chicago directory of 1839, 1843 or 1844 meets somebody of this name and this pass records what it prints. Under the ratified ladder a directory read after 1835 can corroborate that a person attested here was still in Chicago and can print a trade or a street the 1835 record never had; on its own it makes nobody a resident of 1835. Nothing on this person's 1835 record was regraded, moved, dated or given an occupation by this entry. WHAT THIS PASS RULED ONTO THIS HOUSEHOLD, named so the ruling can be found again: each volume below is followed by the printed entries it set against this person and the status the crosswalk ruled them at — a single entry carries what its own `could_carry` declares, and an ambiguous or contested match carries nothing and is shown so that the silence is legible. clark_john_a, Fergus's Chicago directory of 1839 — f1839_e0286 (contested, so nothing crossed); clark_john_a, the advertising cards in Norris's directory of 1844 — n1844_ad0020 (contested, so nothing crossed).",
+  "sources": [
+   "fergus_chicago_directory_1839",
+   "norris_directory_1844"
+  ],
+  "people": [
+   {
+    "person_id": "clark_john_a"
+   }
+  ]
+ }
+}

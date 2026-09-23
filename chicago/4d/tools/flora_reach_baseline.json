@@ -1,0 +1,160 @@
+{
+  "_doc": "Where a read stops, by RECORD rather than by field. K42's read-set says a figure is read if any renderer source reads it; every reader here takes a cohort, so a read figure still reaches nothing on the records its reader never receives. `records` are the species records no reader receives at all, `figures` are the declared reads that reach only part of their carriers, and `heads` are the recorded July inflorescences that draw no flower. Routing only: a reached record is one its reader receives, not one a visitor is standing in front of. Held exact in both directions by tools/measure_flora_reach.py. Read ROADMAP K44 before adding a line.",
+  "records": {
+    "z05_riverbank_timber/parthenocissus_quinquefolia": {
+      "role": "thicket",
+      "form": "vine_drape",
+      "reason": "form-not-implemented"
+    },
+    "z05_riverbank_timber/vitis_riparia": {
+      "role": "thicket",
+      "form": "vine_drape",
+      "reason": "form-not-implemented"
+    }
+  },
+  "figures": {
+    "species[].abundance.cover_fraction": {
+      "carriers": 60,
+      "reached": 58,
+      "unreached": 2,
+      "readers": [
+        "flora.js"
+      ],
+      "state": "mesh"
+    },
+    "species[].abundance.stems_per_m2": {
+      "carriers": 22,
+      "reached": 19,
+      "unreached": 3,
+      "readers": [
+        "flora.js"
+      ],
+      "state": "mesh"
+    },
+    "species[].common": {
+      "carriers": 155,
+      "reached": 35,
+      "unreached": 120,
+      "readers": [
+        "trees.js"
+      ],
+      "state": "shown"
+    },
+    "species[].confidence": {
+      "carriers": 155,
+      "reached": 153,
+      "unreached": 2,
+      "readers": [
+        "flora.js",
+        "trees.js"
+      ],
+      "state": "mesh"
+    },
+    "species[].form": {
+      "carriers": 155,
+      "reached": 153,
+      "unreached": 2,
+      "readers": [
+        "flora.js",
+        "trees.js"
+      ],
+      "state": "mesh"
+    },
+    "species[].height_m": {
+      "carriers": 155,
+      "reached": 153,
+      "unreached": 2,
+      "readers": [
+        "flora.js",
+        "trees.js"
+      ],
+      "state": "mesh"
+    },
+    "species[].july.appearance": {
+      "carriers": 155,
+      "reached": 35,
+      "unreached": 120,
+      "readers": [
+        "trees.js"
+      ],
+      "state": "shown"
+    },
+    "species[].july.foliage_rgb": {
+      "carriers": 155,
+      "reached": 153,
+      "unreached": 2,
+      "readers": [
+        "flora.js",
+        "trees.js"
+      ],
+      "state": "mesh"
+    },
+    "species[].july.inflorescence.height_frac": {
+      "carriers": 97,
+      "reached": 96,
+      "unreached": 1,
+      "readers": [
+        "flora.js",
+        "trees.js"
+      ],
+      "state": "mesh"
+    },
+    "species[].july.inflorescence.rgb": {
+      "carriers": 97,
+      "reached": 96,
+      "unreached": 1,
+      "readers": [
+        "flora.js",
+        "trees.js"
+      ],
+      "state": "mesh"
+    },
+    "species[].july.inflorescence.shape": {
+      "carriers": 97,
+      "reached": 96,
+      "unreached": 1,
+      "readers": [
+        "flora.js",
+        "trees.js"
+      ],
+      "state": "mesh"
+    },
+    "species[].july.inflorescence.size_m": {
+      "carriers": 97,
+      "reached": 96,
+      "unreached": 1,
+      "readers": [
+        "flora.js",
+        "trees.js"
+      ],
+      "state": "mesh"
+    },
+    "species[].july.phenology": {
+      "carriers": 155,
+      "reached": 153,
+      "unreached": 2,
+      "readers": [
+        "flora.js",
+        "trees.js"
+      ],
+      "state": "mesh"
+    },
+    "species[].role": {
+      "carriers": 155,
+      "reached": 153,
+      "unreached": 2,
+      "readers": [
+        "flora.js",
+        "trees.js"
+      ],
+      "state": "mesh"
+    }
+  },
+  "heads": {
+    "z05_riverbank_timber/vitis_riparia": {
+      "shape": "berry_cluster",
+      "phenology": "fruiting",
+      "reason": "record-unrouted"
+    }
+  }
+}

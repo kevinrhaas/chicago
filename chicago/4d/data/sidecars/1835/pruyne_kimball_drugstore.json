@@ -1,0 +1,219 @@
+{
+  "id": "pruyne_kimball_drugstore",
+  "phase": "frame_1830s",
+  "name": "Pruyne & Kimball's Drug Store",
+  "aka": [
+    "the drug store on South Water Street"
+  ],
+  "archetype": "frame_storefront",
+  "asset": "gltf/pruyne_kimball_drugstore__frame_1830s.glb",
+  "scene": "1835",
+  "target_date": "1835-07-01",
+  "documented_range": {
+    "from": "1834-01-01",
+    "to": "1835-12-31",
+    "confidence": "inferred",
+    "sources": [
+      "andreas_1884_v1"
+    ],
+    "note": "NO DATE AT ALL IS ATTESTED FOR THIS BUSINESS OR ITS BUILDING, AND THE RANGE IS THEREFORE THE WEAKEST KIND THIS DATASET HOLDS. What Andreas gives is a partnership and a street: Kimball was 'a partner of Mr. Pruyne in a drug store on South Water Street', placed in the 1830s and no closer. The range is set to 1834-1835 because the town's commercial street barely existed before 1833 and because a range that opened in 1830 would be widened to pass rather than narrowed to what is attested — which is the failure this project's own gate warns about. The honest statement is that this record asserts the drug store was open on 1835-07-01 and cannot prove it. IF EVIDENCE DATES THE PARTNERSHIP AFTER JULY 1835 THIS RECORD BELONGS IN data/exclusions.json, and that is the most likely single correction to it."
+  },
+  "change_note": "The drug store of Pruyne and Kimball on South Water Street — the town's second or third druggist's, after Philo Carpenter's. Andreas records the partnership and the street and nothing else, so this record is a business placed on the right street rather than a building placed on a lot.",
+  "placement": {
+    "local_e": 627.186,
+    "local_n": -11.744,
+    "rotation_deg": 0.0,
+    "position_confidence": "reconstructed",
+    "position_sources": [],
+    "position_note": "CONJECTURAL, AND THE STREET IS THE ONLY PART OF IT THAT IS EVIDENCE. Andreas places the drug store 'on South Water Street' and nothing narrower; this project's own dossier records the block as unattested. The point recorded here is on the south side of the Clark-to-Dearborn block, roughly mid-face, and NOTHING WHATEVER SUPPORTS THAT CHOICE OF BLOCK — it is a lot on the right street, chosen because that block had an unbuilt stretch between harmon_loomis_store and madore_beaubien_house wide enough to take a building without overlapping either. Placing a record where there is room is a rendering decision, not a research finding, and it is written here so a visitor can recover it. THE STREET RUNS ABOUT 630 M from Market to State, so the along-street uncertainty is of that order: this building could be anywhere on it. THE SIDE OF THE STREET IS THE ONE REASONED PART: the north side of South Water was the river bank, wharves and landings (docs/research/04-structures-south.md § 12), so a store is on the south side. METHOD, for the cross-street position only: the modern West Upper Wacker Drive centreline was interpolated between the intersection centres at North Clark (EPSG:26916 E 447648.5, N 4637409.7) and North Dearborn (E 447771.8, N 4637409.0), read from OpenStreetMap 2026-08-11, and the south kerb taken 12.2 m south of it as half an 80 ft platted street. Working uncertainty about 20 m across the street from the georeference (data/datum.json, 17.5 m RMS) and effectively the whole street along it. Facade bearing 0, north onto South Water, inferred from the street rather than from any statement. RECONCILED WITH THE COMMITTED PLAT 2026-08-27 (T-0199), AND THE CLAIM DID NOT MOVE — ONLY THE LINE IT WAS DERIVED AGAINST. The method above set this footprint's north face on the South Water frontage, and it found that frontage by taking the MODERN West Wacker Drive centreline out of OpenStreetMap and stepping 12.2 m south of it. That is not this project's own South Water Street: the committed centreline in data/streets/1835.json, offset by half the committed 80 ft corridor, is what tools/generate_plat_lots.py builds every platted block edge from, and it is the line every derived layer in this scene reads. Measured against it, this record's north wall stood 5.55 m OUT PAST the blk_south_water_clark frontage line, in the platted roadway — far enough into it that tools/generate_frontage_works.py refused the plank sidewalk along this stretch of South Water in writing and named this building in the refusal. THE REPAIR IS THIS RECORD'S OWN METHOD RUN AGAINST THIS PROJECT'S OWN LINE: the footprint is translated 7.05 m along the face's inward normal — dE -0.114 m, dN -7.044 m in local ENU, so UTM E 447700.0 N 4637391.1 becomes E 447699.886 N 4637384.056 — which leaves its north wall 1.50 m back from the committed frontage line, the same margin tools/generate_block_infill.py gives every reconstructed unit standing on this face, and the same repair the six reconciled under T-0198 carry. NOTHING ALONG THE STREET MOVED: the along-face position, the block, the corner and the side are untouched, and so is the confidence grade — re-deriving a coordinate from better geometry is not new evidence. WHY IT TOOK A SECOND RUN, AND WHOSE DECISION IT WAS. T-0198 measured this exact translation and REFUSED to apply it, for a reason that was real: reconciled onto the plat this building SEATS on lot 2 of blk_south_water_clark, and that lot is one the 665-roof schedule had already dealt to the anonymous South Water frontage run, which tools/generate_block_infill.py refused — one principal roof to a lot. Nothing overlapped; the worst overlap between any of the eleven South Water placements and any committed footprint in the town is zero. What refused this repair was a RULE about entitlement, not the ground. THE OWNER RULED ON 2026-08-27 that a platted business-front lot may carry a documented store at the street AND an anonymous dwelling behind it, on the reasoning that the geometry already permits it and the alternative pays eight roofs and two households for a rule the corrected data had itself called into question. The clause and its three tests are written into tools/plat_occupancy.py; no roof left the town and no household moved. WHAT IS STILL WRONG AND IS LEFT WRITTEN DOWN: the facade bearing stays 0 while this face runs at 0.93 (i.e. +0.93), so the front wall is 1.50 m back at its worst corner and up to 1.62 m at the other. That skew is smaller than the walk's own daylight and it is not corrected here, because rotating a documented record is a second claim and this one is a repair.",
+    "symbolic_location": "South side of South Water Street between Clark Street and Dearborn Street (today the south side of West Wacker Drive) — the street is attested, the block is not.",
+    "uncertainty_m": 20,
+    "placement_provisional": false,
+    "vertical_anchor": "terrain",
+    "walk_surface_m": null
+  },
+  "footprint": {
+    "polygon": [
+      [
+        0,
+        0
+      ],
+      [
+        7.62,
+        0
+      ],
+      [
+        7.62,
+        6.096
+      ],
+      [
+        0,
+        6.096
+      ]
+    ],
+    "confidence": "reconstructed",
+    "sources": [],
+    "note": "INVENTED. Nothing is attested about this building. 7.62 x 6.096 m is 25 x 20 ft, the parcel's small-shop rectangle: 20 ft is the documented depth of Hogan's store and 25 ft is the depth derived from the Green Tree Tavern's room module, used here as a frontage. A druggist's shop is the smallest kind of store on the street, which is the only reason the small rectangle rather than the 40 x 25 ft one is used. The documented South Water lot width of 55 ft is a cap and this sits well inside it."
+  },
+  "attributes": {
+    "stories": {
+      "value": 1,
+      "confidence": "reconstructed",
+      "note": "Nothing is attested. One is recorded because it is the smaller claim. Invention, tagged as such."
+    },
+    "construction": {
+      "value": "braced_frame",
+      "confidence": "inferred",
+      "sources": [
+        "andreas_1884_v1"
+      ],
+      "note": "Not stated. Frame rather than log because this project's dossier records the mid-1830s South Water commercial stock as frame, with log surviving mainly in older buildings, and this partnership is not attested before 1833. Braced rather than balloon frame follows the Sauganash record's argument; nothing decides between them."
+    },
+    "wall_height_m": {
+      "value": 3.0,
+      "confidence": "inferred",
+      "note": "No figure is attested. 3.0 m is about 10 ft, one commercial storey. It inherits the storey count's uncertainty, which is conjectural."
+    },
+    "roof_type": {
+      "value": "gable",
+      "confidence": "inferred",
+      "note": "Not attested. Gable is the near-universal roof form for frame buildings of this type, period and region."
+    },
+    "roof_pitch_deg": {
+      "value": 33.0,
+      "confidence": "inferred",
+      "note": "No pitch is attested for this building. 33 degrees is the frame_storefront archetype's own figure for a store, and it is adopted here rather than the 38 this project uses for taverns because the archetype argues the case from the dataset's one attested store footprint: a store's frontage is long and its plan shallow, so a tavern's pitch puts more roof above the eave than there is wall below it and the building stops reading as a shop. Inferred from construction practice and from the type, not measured."
+    },
+    "chimneys": {
+      "value": 1,
+      "confidence": "inferred",
+      "note": "Not attested. One is the minimum for a shop kept through Chicago winters, and compounding needs heat. The COUNT is the inference; the stack's position, size and material are the archetype's, per docs/LIBERTIES.md L26."
+    },
+    "siding_exposure_m": {
+      "value": 0.14,
+      "confidence": "reconstructed",
+      "note": "INVENTED WITHIN A STOCK SET, NOT DERIVED. No source states the exposed face of any Chicago building's siding. The value is one of four period mill sidings — 4.5, 5, 5.5 or 6 in to the weather; this record wears 5.5 in — dealt by tools/deal_siding_stock.py: keyed to the phase's construction season, because buildings sided from the same season's shipments of St Joseph sawn lumber tend toward one stock, then advanced so no frame building within 60 m shares this one's. The separation is the surface variety T-0049 reconstructs, not a claim about 1835. docs/LIBERTIES.md L148 owns the invention."
+    },
+    "function": {
+      "value": "drug_store",
+      "confidence": "attested",
+      "sources": [
+        "andreas_1884_v1"
+      ],
+      "note": "Andreas names the trade explicitly: Kimball was 'a partner of Mr. Pruyne in a drug store on South Water Street'. The trade is the best-attested thing about this record, which is the opposite of the usual case in this parcel."
+    },
+    "occupants": {
+      "value": "Pruyne and Kimball, druggists",
+      "confidence": "attested",
+      "sources": [
+        "andreas_1884_v1",
+        "chicago_democrat_1833_1835",
+        "chicago_american_1835"
+      ],
+      "note": "The partnership is documented; that it was trading on 1835-07-01 specifically is the inference, since Andreas dates it only to the 1830s. A NAME COLLISION WORTH KEEPING SEPARATE: a W. Kimball is named in the transcription of the Chicago Democrat of 26 November 1833 as advertising dry goods, crockery, hardware, cutlery, caps and cloth from a new store at the corner of South Water and Clark. Dry goods and drugs are different trades and there is no evidence the two Kimballs are one man; that advertisement is discussed on chicago_democrat_office and is deliberately not attached here. THE INFERENCE THIS NOTE RESTED ON IS NOW A READING: P. PRUYNE & CO. IS TRADING SEVEN DAYS AFTER THE SCENE DATE. The firm advertises continuously across the corpus from 1833-12-03 to 1835-07-08 — \"Wholesale and Retail. STORE BETWEEN CLARK AND DEARBORN-STREETS. P. PRUYNE & CO. WOULD respectfully inform their friends and [the] public that they have just receive[d] a large addition to their former Stock, whic[h] [m]akes it one of the most extensi[v]e in Chicago, consisting of Groceries, Hardware, Crockery, Glassware, A LARGE ASSORTMENT OF DRUGS & MEDICINES, BOOTS AND SHOES, IRON AND STEEL, WINDOW GLASS\" (The Chicago Democrat, 1833-12-03, page 3 column 4, claim chicago_democrat_1833_12_03#c011, dateline 'Chicago, Dec. 3, 1833'), the same standing card reprinted through 1834, and the run reaching 1835-07-08. So 'trading on 1835-07-01 specifically' is no longer the inference it was: it is bracketed by printings either side of the date. WHAT THE PAPERS DO NOT SETTLE, AND IT IS THE INTERESTING HALF. The firm advertising is P. PRUYNE & CO. and never 'Pruyne & Kimball' — no printing reached names Kimball as the partner — so the PARTNERSHIP stays Andreas's and this record's `name` stays his word. And the address the firm gives is a BLOCK FACE and not a frontage: \"between Clark and Dearborn streets\" names the two cross streets and not the street it fronts, and Clark and Dearborn are one block apart on South Water, Lake, Water and Randolph alike. This record's South Water Street placement is Andreas's and is CONSISTENT with the advertisement without being confirmed by it; supplying South Water here from this line would be an invention the evidence does not carry, and the extraction refuses it for the same reason. THE W. KIMBALL COLLISION ABOVE IS UNAFFECTED and stays separate. THE READING IS TRANSCRIPTION-MEDIATED AND SAYS SO. Under the owner's ruling of 2026-08-28 a claim read through this project's OCR-assisted transcriptions rather than off the page scan grades `attested` in this schema's vocabulary while carrying its own flag: reading = transcription_mediated, with the transcription's own uncertainty brackets preserved inside the quotation rather than tidied away. Where a scan is later read, the scan is the authority and this claim upgrades under it — the standard data/sources/chicago_democrat_1833_11_26.json set when a scan caught 'C. & I. HARMON' where the transcription had 'C. & L. Harmon'."
+    }
+  },
+  "residents": [
+    {
+      "household": "hh_pruyne_kimberly",
+      "name": "The Pruyne and Kimberly partnership household",
+      "division": "south",
+      "relation": "worked here",
+      "why": "The partnership is documented; that it was trading on 1 July 1835 specifically is the inference, since the retrospective sources do not supply a transaction on that exact day.",
+      "sources": [
+        "andreas_1884_v1",
+        "history_medicine_chicago_kimberly_maxwell"
+      ],
+      "basis": "",
+      "persons": [
+        {
+          "name": "Peter Pruyne",
+          "relationship": "head",
+          "grade": "attested",
+          "occupation": "druggist",
+          "note": "Andreas adds a dated domestic fact in a footnote: on August 20, 1835 Peter Pruyne married Rebecca, only daughter of Silas W. Sherman. That is seven weeks after the scene date, so on July 1 Rebecca Sherman is not silently added to this business household. FERGUS 1839'S LATER LISTS — 1837 AND 1839 EVIDENCE, NEVER AN 1835 FACT. Fergus' Chicago Directory for 1839 names this person 1 time in its two later lists: the poll of Chicago's first city election, 2 May 1837 — “Peter Pruyne,” (f1839_v0036, printed page 41, ward 1, voting for William B. Ogden). What a match may carry, and it is short: that the man was in Chicago on 2 May 1837 and in that ward. It is written as 1837 evidence with describes_date 1837-05-02, never as an 1835 fact, and the person's grade does not move on this alone. Under the ratified ladder a second contemporary source is what lifts projected_resident, and a poll twenty-two months after the scene date is a second source about CONTINUED RESIDENCE, not about July 1835. The ward is a location in the CITY of 1837, whose six wards are drawn on printed page 46; it is not a location in the town of 1835 and does not place a house. Identity by the crosswalk's own rule: Surname 'Pruyne' folds to the same string as the 1837 entry's, and the given name of both begins P. (data/research/directories/fergus_1839_election_crosswalk_1835.json and fergus_1839_register_crosswalk_1835.json). This pass WRITES THE EVIDENCE AND MOVES NO GRADE. Under the ratified ladder (T-0513) a second independent source is what lifts a projected resident, and a poll twenty-two months after the scene date — or a register four years after it — is a second source about CONTINUED RESIDENCE rather than about July 1835. T-0515 applies the ladder against every source at once; this pass hands it the evidence and not the verdict. THE FEDERAL LAND TRACT SALES — A PURCHASE, AND NEVER A RESIDENCE. The Illinois State Archives' Public Domain Land Tract Sales register enters this person 7 times, as “PRUYNE P”, “PRUYNE PETER”, 1833-10-24 to 1836-06-24: 2 federal land entries — E2SW sec 30 T39N R13E; W2NW sec 30 T39N R13E and 2 lots in the platted town — lot 2 of block 58 in the town the register codes CHIOT (L2BL58CHIOT, as printed); lot 3 of block 17 in the town the register codes CHIOT (L3B17CHIOT, as printed) and 3 parcels of the school section — lot 1 of block 23 of the school section (sec 16 T39N R14E); lot 3 of block 119 of the school section (sec 16 T39N R14E); lot 8 of block 23 of the school section (sec 16 T39N R14E), 167.83 acres stated in all, for $17153.79 (ls0321, ls0323, ls0324, ls0858, ls0859, ls1436, ls1437). THE REGISTER'S OWN RESIDENCE COLUMN READS UNKNOWN on these rows: a county, a state or nothing, and never a town, which is why a purchase here places nobody. THE SCHOOL-SECTION ROWS ARE GROUND INSIDE THE TOWN, NOT FARMLAND: section 16 of T39N R14E was platted and sold off by lot and by block at the sale of 1833, which is why the register states 0000.00 acres against most of them. Ground inside the town is nearer to this reconstruction than a quarter-section is, and it is still a purchase: the register names a purchaser and never an occupant, and nothing here puts this person on that ground. THE TOWN LOTS ARE THE PLAT ITSELF, AND THEY ARE NOT ACRES: Cook County's register describes them by lot and block in a platted town and gives them no section, no township and no acreage at all, so they add nothing to the acre figure above and $16750.00 to the money. This project does not expand the register's town codes, so which addition a lot stands in is carried as the code and not as a name. It is still a purchase and it still places nobody. A purchase and nothing more. It dates and places a transaction; it proposes no residence, and under the ratified ladder it corroborates rather than mints. Identity by the crosswalk's own rule: PRUYNE P matches Peter Pruyne: the forename names Peter Pruyne of the 1 person of this surname, and the forename agrees as an initial only. (data/research/land_sales/resident_crosswalk.json). This pass WRITES THE EVIDENCE AND MOVES NO GRADE. Under the ratified ladder (T-0513) a second independent source is what lifts a projected resident, and a land entry is a second source about a TRANSACTION rather than about who was living at Chicago on 1 July 1835 — a man may buy a quarter-section he never sees. T-0515 applies the ladder against every source at once; this pass hands it the evidence and not the verdict."
+        },
+        {
+          "name": "Dr Edmund Stoughton Kimberly",
+          "relationship": "partner",
+          "grade": "attested",
+          "occupation": "physician",
+          "note": "T-0478 adds exact birth data and independent biography: born April 7, 1803 at Troy, New York; Union College graduate; medical training in New York; married Marie Theresa Ellis May 16, 1829; moved to Chicago in 1832. He was clerk of the August 5, 1833 incorporation meeting and one of the first town trustees. THE TOWN'S OWN ROLLS, 1833-1835 — CORROBORATION, NOT A GRADE. The early Chicago voter and tax lists held by the Illinois Regional Archives Depository name this person 2 times: Tax list of the Town of Chicago, 1833 — “Kimberly, Edmund S.” (tax_1833_057, line 109); Election returns — poll list of 1834, filed 11 August 1834 — “Kimberly, Dr. E. S.” (poll_1834_063, line 232). These are the town's own contemporary paper rather than a recollection of it, and each appearance says that a man of that name stood on that roll in that year — no more. The reading is twice mediated (Schulz's transcription, then Genealogy Trails' republication) and this project has not seen the IRAD originals. Under the ratified ladder (T-0513) the 1835 poll with a second independent source is attested, the 1835 poll alone or a 1833/1834 list with another source is inferred, and a single appearance with nothing else is a projected resident. This pass WRITES THE EVIDENCE AND MOVES NO GRADE — T-0515 applies the ladder against every source at once. Identity by the crosswalk's own rule: one resident of the surname 'Kimberly' agrees with the entry's forenames; 1 bearer(s) of the surname were considered. (data/research/civic/voter_crosswalk.json). THE FEDERAL LAND TRACT SALES — A PURCHASE, AND NEVER A RESIDENCE. The Illinois State Archives' Public Domain Land Tract Sales register enters this person 4 times, as “KIMBERLEY EDMUND S”, “KIMBERLY EDMUND S”, “KIMBERLY E S”, 1833-10-25 to 1836-09-05: 1 federal land entry — E2SE sec 32 T39N R14E and 2 lots in the platted town — lot 5 of block 1 in the town the register codes CHI (L5BL1CHI, as printed); lot 9 of block 48 in the town the register codes CHIOTV (L9BL48CHIOTV, as printed) and 1 parcel of the school section — lot 6 of block 119 of the school section (sec 16 T39N R14E), 80.00 acres stated in all, for $5042.00 (ls0263, ls0479, ls1281, ls1282). THE REGISTER'S OWN RESIDENCE COLUMN READS UNKNOWN on these rows: a county, a state or nothing, and never a town, which is why a purchase here places nobody. THE SCHOOL-SECTION ROWS ARE GROUND INSIDE THE TOWN, NOT FARMLAND: section 16 of T39N R14E was platted and sold off by lot and by block at the sale of 1833, which is why the register states 0000.00 acres against most of them. Ground inside the town is nearer to this reconstruction than a quarter-section is, and it is still a purchase: the register names a purchaser and never an occupant, and nothing here puts this person on that ground. THE TOWN LOTS ARE THE PLAT ITSELF, AND THEY ARE NOT ACRES: Cook County's register describes them by lot and block in a platted town and gives them no section, no township and no acreage at all, so they add nothing to the acre figure above and $4300.00 to the money. This project does not expand the register's town codes, so which addition a lot stands in is carried as the code and not as a name. It is still a purchase and it still places nobody. A purchase and nothing more. It dates and places a transaction; it proposes no residence, and under the ratified ladder it corroborates rather than mints. Identity by the crosswalk's own rule: KIMBERLEY EDMUND S matches Dr Edmund Stoughton Kimberly: the forename names Dr Edmund Stoughton Kimberly of the 1 person of this surname, and the forename agrees in full. The surname reaches him through a ruled card merge and not off his card: the town held kimberley_ed until data/residents/card_merge_rulings.json folded it onto this person, and the register's spelling is the one that card carried. (data/research/land_sales/resident_crosswalk.json). This pass WRITES THE EVIDENCE AND MOVES NO GRADE. Under the ratified ladder (T-0513) a second independent source is what lifts a projected resident, and a land entry is a second source about a TRANSACTION rather than about who was living at Chicago on 1 July 1835 — a man may buy a quarter-section he never sees. T-0515 applies the ladder against every source at once; this pass hands it the evidence and not the verdict. THE 1840 FEDERAL CENSUS — A HEAD FIVE YEARS AFTER THE SCENE, AND NEVER AN 1835 FACT. The 1840 federal census of Chicago, read line by line off the left sheets in this repository, carries 1 head of this name — “Ed. Kimberley” (33S7-9YYJ-99F, printed page 234, line 3). This project has ruled the head a CANDIDATE and no more: the name agrees and is unique on both sides, but nothing independent of the name was found. A candidate is not an identity — nothing is asserted from it, no household of 1840 is carried back, and the ruling is recorded so that a reader can see it was made rather than missed. Under the rule that decided it (L6b reached_through_a_card_merge_caps_at_candidate), by the crosswalk's own ladder (data/research/census_1840/resident_crosswalk.json). LATER EVIDENCE ONLY. The ratified grading ladder binds: an 1839 or 1840 appearance alone is never an 1835 resident, and 1840 household composition is never back-projected to the 1835-07-01 scene. This pass WRITES THE EVIDENCE AND MOVES NO GRADE. Under the ratified ladder (T-0513) a second independent source is what lifts a projected resident, and an 1840 head is a second source about CONTINUED RESIDENCE rather than about who was living at Chicago on 1 July 1835. T-0515 applies the ladder against every source at once; this pass hands it the evidence and not the verdict."
+        }
+      ],
+      "research_note": "A PARTNERSHIP RECORDED AS A HOUSEHOLD, WHICH IS A COMPROMISE AND IS FLAGGED AS ONE. Nothing says Pruyne and Kimberly shared a roof; what is documented is that they opened a shop together. They are grouped because the alternative - two single-person households, each pointing at the same building - would double the household count without adding a person, and because the schema's relationship vocabulary carries 'partner' precisely for this. ANY LATER USE THAT TREATS A HOUSEHOLD AS A DWELLING UNIT MUST READ THIS FIELD: lives_at is null here on purpose, and the household should not be given a dwelling by the inferred phase until the two men are separated. A NAME COLLISION KEPT SEPARATE: the W. Kimball who advertised dry goods at South Water and Clark in the Democrat of 26 November 1833 is a different trade and, on the evidence, a different man; he has his own household here."
+    }
+  ],
+  "citations": [
+    {
+      "source_id": "andreas_1884_v1",
+      "citation": "Andreas, A. T. History of Chicago: From the Earliest Period to the Present Time. Vol. 1. Chicago: A. T. Andreas, 1884.",
+      "url": "https://archive.org/details/historyofchicago01andr",
+      "archived_url": "",
+      "tier": 3,
+      "tier_label": "compiled secondary (Andreas)"
+    },
+    {
+      "source_id": "chicago_american_1835",
+      "citation": "The Chicago American. Vol. I, No. 1 (June 8, 1835) through Vol. I, No. 12 (August 29, 1835). Chicago, Ill.: T. O. Davis. Thirteen issues, OCR-assisted research transcriptions from page scans.",
+      "url": "",
+      "archived_url": "",
+      "tier": 1,
+      "tier_label": "period/eyewitness",
+      "what_it_supplies": [
+        "a second, independent contemporary witness to the town in the twelve weeks around the scene date",
+        "advertisements and self-reported addresses from a different advertiser base than the Democrat's",
+        "attestation that needs no survival liberty: the whole run is within twelve weeks of 1835-07-01",
+        "corroboration or contradiction of a Democrat address, which is worth more than either paper alone",
+        "the paper's own correction of its first masthead date"
+      ],
+      "what_it_does_not_supply": [
+        "any building's form, material, storey count, fenestration or dimensions",
+        "a reliable reading of a dense body column — this run had no reconciled second pass",
+        "a word count or uncertainty-marker count: none was delivered, and corpus.json records null rather than zero",
+        "identification by volume and number: No. 12 is printed on two different issues",
+        "anything at all from an engraving — the cuts are the printer's stock",
+        "a citation without an issue page and column"
+      ]
+    },
+    {
+      "source_id": "chicago_democrat_1833_1835",
+      "citation": "The Chicago Democrat. Vol. I, No. 1 (November 26, 1833) through Vol. II, No. 18 (August 26, 1835). Chicago, Ill.: John Calhoun, editor and publisher. Seventy-three issues, OCR-assisted research transcriptions from page scans.",
+      "url": "",
+      "archived_url": "",
+      "tier": 1,
+      "tier_label": "period/eyewitness",
+      "what_it_supplies": [
+        "that a named trade was being carried on in Chicago in a named week, and often where",
+        "self-reported addresses, which are the strongest address evidence this project has: the advertiser was paying, and his customers had to find him",
+        "dissolution, removal and replacement notices — the only thing that keeps a documented business out of the 1835 town under the owner's ruling 3",
+        "post-office letter lists, naming residents by the hundred (ruling 1: a listed name mints a resident candidate, flagged letter_list_only)",
+        "the village and later town ordinances, printed complete — the 7 November 1833 code is the richest single item in the run",
+        "arrivals and clearances, which date the piers and the harbour as working structures",
+        "public notices that fix a building as a polling place, an auction site or a meeting place on a given day",
+        "the paper's own imprint, self-reported: the corner of South Water and Clark streets",
+        "twenty-one months of continuous weekly attestation ending three weeks before the scene date, including the issue printed on 1835-07-01"
+      ],
+      "what_it_does_not_supply": [
+        "any building's form, material, storey count, fenestration or dimensions — an advertisement describes a trade, not a building",
+        "the specific corner of any junction it names: 'on the corner of' does not say which of the four",
+        "anything at all from an engraving — see trap 1; the cuts are the printer's stock",
+        "proof that a business named in 1833 or 1834 still stood on 1835-07-01; that is ruling 3's survival liberty, and it is a liberty",
+        "an argument from silence, unless corpus.json shows the issues either side of the silence are both in the deposit",
+        "a reading that outranks a scan read of the same passage — see ruling 2 and the C. & I. HARMON case",
+        "a citation without an issue page and column"
+      ]
+    },
+    {
+      "source_id": "history_medicine_chicago_kimberly_maxwell",
+      "citation": "History of Medicine and Surgery and Physicians and Surgeons of Chicago (Chicago: Biographical Publishing Corporation, 1922), biographies of Philip Maxwell and Edmund Stoughton Kimberly.",
+      "url": "https://upload.wikimedia.org/wikipedia/commons/a/aa/History_of_medicine_and_surgery_and_physicians_and_surgeons_of_Chicago_%28IA_historyofmedicin00biog%29.pdf",
+      "archived_url": "",
+      "tier": 4,
+      "tier_label": "later scholarship"
+    }
+  ],
+  "research_note": "A BUSINESS THIS DATASET KNOWS THE TRADE OF AND NOTHING ELSE. Andreas gives one clause — a drug store on South Water Street, Pruyne and Kimball — with no date, no block, no building and no description. The record is therefore graded as far down as this project's vocabulary goes: position conjectural, footprint conjectural, storeys conjectural, dates inferred from the street's own history rather than from any statement about this business. IT IS BUILT ANYWAY, and the reason is the project's current direction: a building held out of the model is invisible to a visitor, while a building in the model with every invented attribute marked as invented is legible and correctable. THE PLACEMENT IS THE PART TO CORRECT FIRST. It sits in the Clark-to-Dearborn block because that block had room, which is a rendering decision and not a finding; the along-street uncertainty is the whole 630 m of South Water Street. WHAT WOULD UPGRADE IT: any Chicago Democrat or Chicago American advertisement for Pruyne and Kimball, which would date the partnership and very likely give a block; or Andreas at page-image level around the drug-trade passages. A single dated advertisement would move three attributes at once. See docs/RESEARCH/pruyne_kimball_drugstore.md.",
+  "research_doc": "docs/RESEARCH/pruyne_kimball_drugstore.md",
+  "review_required": false
+}

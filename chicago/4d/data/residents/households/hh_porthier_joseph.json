@@ -1,0 +1,108 @@
+{
+ "id": "hh_porthier_joseph",
+ "name": "The Porthier household",
+ "division": "north",
+ "head": "porthier_joseph",
+ "arrival": {
+  "value": "1830",
+  "confidence": "reconstructed",
+  "note": "NOT ATTESTED. He is a member of the agency establishment under Owen, whose agency runs from 1831; the Porthier family is at Chicago earlier. 1830 is the earliest year this project can argue and it cites nothing.",
+  "precision": "year"
+ },
+ "party_size_on_arrival": {
+  "value": null,
+  "confidence": "reconstructed",
+  "note": "Not attested in anything this project holds."
+ },
+ "origin": {
+  "value": null,
+  "confidence": "reconstructed",
+  "note": "Not attested in anything this project holds."
+ },
+ "reason_for_coming": {
+  "value": null,
+  "confidence": "reconstructed",
+  "note": "Not attested in anything this project holds."
+ },
+ "lives_at": {
+  "value": null,
+  "confidence": "reconstructed",
+  "note": "Not attested in anything this project holds."
+ },
+ "works_at": {
+  "value": "blacksmith_shop_state_st",
+  "confidence": "attested",
+  "sources": [
+   "andreas_1884_v1"
+  ],
+  "note": "The same shop as McKee. Two named men at one anvil is the only documented workplace pairing in the parcel."
+ },
+ "present_on_scene_date": {
+  "value": "absent",
+  "confidence": "attested",
+  "sources": [
+   "andreas_1884_v1",
+   "buck_pioneer_milwaukee_porthier_1835"
+  ],
+  "note": "T-0478 resolves the earlier uncertainty. Pioneer History of Milwaukee dates Joseph Porthier leaving Chicago with Horace Chase on February 27, 1835; after a brief return to Chicago for means, Porthier left again March 21 and reached Milwaukee March 23. That dated migration is before the July 1 scene date."
+ },
+ "persons": [
+  {
+   "id": "porthier_joseph",
+   "name": "Joseph Porthier",
+   "relationship": "head",
+   "grade": "attested",
+   "sex": "male",
+   "occupation": {
+    "value": "blacksmith",
+    "confidence": "attested",
+    "sources": [
+     "andreas_1884_v1"
+    ],
+    "note": "Striker to the government blacksmith at the Indian agency - the man who swings the sledge for the smith. Andreas names him in the agency establishment under Owen: 'David McKee as blacksmith, and Joseph Porthier as striker'. The occupation vocabulary has no separate entry for a striker and blacksmith is the trade he was in.",
+    "derived_from": "roles",
+    "roles_at_scene_date": [
+     "blacksmith"
+    ]
+   },
+   "sources": [
+    "andreas_1884_v1",
+    "buck_pioneer_milwaukee_porthier_1835"
+   ],
+   "note": "A WAGE-EARNING ASSISTANT, WHICH THIS DATASET HAS ALMOST NONE OF, and a member of a family the 1833 treaty names: the schedule of payments in lieu of reservations carries 'Victoire Porthier and her children, $700'. Andreas's chapter on the early settlement treats the Mirandeau and Porthier families together as part of the French and mixed-descent community at Chicago. T-0478 adds a dated February-March 1835 migration to Milwaukee, resolving scene-date absence without inferring ancestry from the surname.",
+   "resident_research": {
+    "programme": "resident-research-2026",
+    "ticket": "T-0478",
+    "outcome": "no_corroboration_yet",
+    "reviewed_on": "",
+    "asserted_identity": false,
+    "evidence_for": "Pioneer History of Milwaukee supplies a materially tighter migration chronology than the existing record: Joseph Porthier left Chicago with Horace Chase on February 27, 1835, briefly returned to Chicago for means, then left again March 21 and reached Milwaukee March 23. This places his removal before the July 1 scene date.",
+    "notes": "Pioneer History of Milwaukee supplies a materially tighter migration chronology than the existing record: Joseph Porthier left Chicago with Horace Chase on February 27, 1835, briefly returned to Chicago for means, then left again March 21 and reached Milwaukee March 23. This places his removal before the July 1 scene date.",
+    "source_ids": [
+     "buck_pioneer_milwaukee_porthier_1835"
+    ]
+   },
+   "roles": [
+    {
+     "role": "blacksmith",
+     "kind": "trade",
+     "as_printed": null,
+     "from": "1673",
+     "to": "1857",
+     "precision": "source_span",
+     "dated_by": "source_describes_date",
+     "covers_scene_date": true,
+     "confidence": "attested",
+     "sources": [
+      "andreas_1884_v1"
+     ],
+     "claim": null,
+     "note": "THE BOUND IS THE SOURCE'S, NOT THE MAN'S. This role is carried by the card's 1835 occupation block and is dated by what the cited source or sources are ABOUT, which is why `precision` can be no better than the span they cover. The span reaches 1835, so this role stands in the scene-date view. The printing the trade was read off is not on the card and is fetched by T-1254."
+    }
+   ]
+  }
+ ],
+ "touches_removal": true,
+ "review_required": true,
+ "research_note": "THE ONLY DOCUMENTED STRIKER IN THE DATASET, and a reminder of how the documented population is skewed. Andreas names hundreds of proprietors and perhaps a dozen employees; this man is in the record only because the agency's payroll was a matter of federal accounting. T-0478 found a dated migration sequence: Porthier left Chicago February 27, 1835, briefly returned for means, left again March 21, and reached Milwaukee March 23. STANDING CONSTRAINT. AGENTS.md: the final removal of the Potawatomi from Chicago occurred in August 1835, inside this project's first target year and six weeks AFTER the scene date; Native presence, representation and depiction are not research gaps to be filled by inference, and v1 ships no human figures at all. This record states only what named sources say about a named person. It carries review_required so that no scene containing it can be marked released before the consultation the project has committed to."
+}

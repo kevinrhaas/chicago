@@ -1,0 +1,198 @@
+{
+ "schema": 1,
+ "_doc": "THE THREE CONTESTED LINES OF THE CHICAGO POST OFFICE'S 1 APRIL 1834 RETURN, READ AT THE PAGE IMAGES (T-1138). Three consecutive lines of the S run stood with two readings and no arbiter. The extraction of the Democrat of 1834-04-01 reads them `Benjamin Reed, the,` / `Ira Raymore apy'` / `3. Geo. Square t 3 first rate` -- an advertisement's column bleeding through all three -- and the extraction of the 1834-04-16 impression reads the SAME three positions `Benjarnin Smith`, `Ira Saymoro` and `Geo. Saver`. T-0321 recorded the disagreement and declined to act on it in the only honest terms available to it: `a minted name is not rewritten on a second transcription of equal rank -- that is what the page images are for`. This file is those page images, read. THE RULE IT APPLIES, and it is T-0321's own: a transcription is overturned by the PAGE, never by another transcription. Every impression the Democrat printed of this one return is read here rather than one of them, because the question is what the type set and three impressions of it either agree or they do not. They agree. `as_printed_at_image` is the type's own setting, verbatim and unamended -- `Geo. Squar` has no final `e` on any of the three and none is supplied. WHAT THIS FILE IS NOT. It is not a concordance of the 1 April 1834 return: 167 other lines of it are untouched here, and the readings this pass saw in passing while finding its three are listed under `seen_in_passing` as OBSERVATIONS, acted on by nothing, so that the ticket that reads the whole return starts from them instead of from nothing.",
+ "ticket": "T-1138",
+ "read_on": "2026-09-15",
+ "return": {
+  "office": "Chicago, Illinois",
+  "remaining_as_of": "1834-04-01",
+  "printed_heading": "REMAINING in the Post Office at Chicago, Ill. on the first day of April, 1834.",
+  "signed": "JOHN S. C. HOGAN, P. M.",
+  "sub_columns": 2,
+  "contested_lines_stand_in": "right sub-column"
+ },
+ "source": {
+  "reading": "scan_verified",
+  "source_id": "chicago_democrat_1833_1835",
+  "deposit_manifest": "chicago/reference/newspapers/ChicagoDemocrat/1834.yaml",
+  "internet_archive_item": "chicago1835-newspaper-chicago-democrat-1834",
+  "file": "Apr1834-May1834.pdf",
+  "file_sha256": "77a84f1e3f5242a4b272cae857d55a8918696d4e52f6c2c837ec4145ce1606c3",
+  "page_pixels": [
+   2736,
+   3777
+  ],
+  "how_the_pages_were_identified": "The PDF holds nine issues, four leaves each, and the masthead of every fourth leaf carries the date and the volume line: leaf 0000 reads CHICGO, ILL. TUESDAY APRIL, 1, 1834. VOL. I.--NO. 18., leaf 0004 reads APRIL, 8, 1834. VOL. I.--NO. 19. and leaf 0008 reads WEDNESDAY APRIL, 16, 1834. VOL. I.--NO. 20. So the three impressions of this return stand on leaves 0002, 0006 and 0011. A SECOND office's list of letters -- Hennepin's, signed THOS. GALAHER, Jr. P. M. -- stands on leaf 0010 and is not this one."
+ },
+ "impressions": [
+  {
+   "printing": 1,
+   "issue_id": "chicago_democrat_1834_04_01",
+   "date": "1834-04-01",
+   "volume": "I",
+   "number": "18",
+   "issue_page": 3,
+   "printed_column": 3,
+   "jp2_page": "Apr1834-May1834_jp2/Apr1834-May1834_0002.jp2",
+   "iiif_base": "https://iiif.archive.org/image/iiif/3/chicago1835-newspaper-chicago-democrat-1834%2fApr1834-May1834_jp2.zip%2fApr1834-May1834_jp2%2fApr1834-May1834_0002.jp2",
+   "regions_read": {
+    "list_head": [
+     "830,440,440,520"
+    ],
+    "the_run_above": [
+     "1020,1420,400,420"
+    ],
+    "the_three_lines": [
+     "1025,1878,200,60"
+    ],
+    "the_three_lines_with_the_advertisement_beside_them": [
+     "1020,1820,420,250"
+    ],
+    "line_59_enlarged": [
+     "1028,1888,120,26"
+    ]
+   },
+   "condition": "The impression the minted names were transcribed from, and the worst of the three. The Public Auction advertisement of the next column stands hard against these lines -- its own text runs `... day of April ... Reed, the following ... 3 first rate Cabinet ... 1 full set first rate ... 1 Lot Hard ware. 1 Lot Cherry Lumb...` -- which is where the transcription's `Reed`, its `the,`, its leading `3.` and its trailing `t 3 first rate` all come from. The type of the three lines is legible but heavily inked; the capital of line 59 is filled and cannot be told from a B on this impression alone."
+  },
+  {
+   "printing": 2,
+   "issue_id": "chicago_democrat_1834_04_08",
+   "date": "1834-04-08",
+   "volume": "I",
+   "number": "19",
+   "issue_page": 3,
+   "printed_column": 3,
+   "jp2_page": "Apr1834-May1834_jp2/Apr1834-May1834_0006.jp2",
+   "iiif_base": "https://iiif.archive.org/image/iiif/3/chicago1835-newspaper-chicago-democrat-1834%2fApr1834-May1834_jp2.zip%2fApr1834-May1834_jp2%2fApr1834-May1834_0006.jp2",
+   "regions_read": {
+    "the_run_above": [
+     "1030,1330,280,220"
+    ],
+    "the_three_lines": [
+     "1000,1650,300,100"
+    ],
+    "line_59_enlarged": [
+     "1000,1681,190,24"
+    ],
+    "line_60_enlarged": [
+     "1000,1700,190,24"
+    ]
+   },
+   "condition": "The cleanest of the three at these lines: no advertisement bleeds into them, the type is evenly inked, and the capital of line 59 carries the same double curve as the S of Smith, Squar, Skinner, Sherwood and Shaw in the lines around it, with none of the left-hand stem that the R of Robt. Strong two lines above and the B of Benjamin one line above both show. This impression is what settles line 59."
+  },
+  {
+   "printing": 3,
+   "issue_id": "chicago_democrat_1834_04_16",
+   "date": "1834-04-16",
+   "volume": "I",
+   "number": "20",
+   "issue_page": 4,
+   "printed_column": 3,
+   "jp2_page": "Apr1834-May1834_jp2/Apr1834-May1834_0011.jp2",
+   "iiif_base": "https://iiif.archive.org/image/iiif/3/chicago1835-newspaper-chicago-democrat-1834%2fApr1834-May1834_jp2.zip%2fApr1834-May1834_jp2%2fApr1834-May1834_0011.jp2",
+   "regions_read": {
+    "the_three_lines": [
+     "770,1880,280,90"
+    ],
+    "the_run_below": [
+     "770,1940,280,180"
+    ]
+   },
+   "condition": "The impression whose EXTRACTION T-0321 called the best witness the corpus holds, read here at the page instead. It is a fresh setting in a smaller type -- the list is reset, not standing -- and it agrees with both of the others at all three lines. That is what makes the `Geo. Saver` of its own transcription a misreading of this page and not a second state of the type."
+  }
+ ],
+ "lines": [
+  {
+   "entity": {
+    "issue_id": "chicago_democrat_1834_04_01",
+    "claim": "c002",
+    "index": 58
+   },
+   "as_transcribed_1834_04_01": "Benjamin Reed, the,",
+   "minted_as": "Benjamin Reed",
+   "as_transcribed_1834_04_16": "Benjarnin Smith",
+   "as_printed_at_image": "Benjamin Smith",
+   "at_each_impression": {
+    "1834-04-01": "Benjamin Smith",
+    "1834-04-08": "Benjamin Smith",
+    "1834-04-16": "Benjamin Smith"
+   },
+   "verdict": "settled",
+   "overturns": "1834-04-01",
+   "note": "`Reed` is the auctioneer's name out of the next column -- the advertisement reads `...  Reed, the following property` on the line that stands beside this one -- and the surname the post office set is Smith on all three impressions. The 16 April transcription was right and the 1 April transcription was wrong."
+  },
+  {
+   "entity": {
+    "issue_id": "chicago_democrat_1834_04_01",
+    "claim": "c002",
+    "index": 59
+   },
+   "as_transcribed_1834_04_01": "Ira Raymore apy’",
+   "minted_as": "Ira Raymore",
+   "as_transcribed_1834_04_16": "Ira Saymoro",
+   "as_printed_at_image": "Ira Saymore",
+   "at_each_impression": {
+    "1834-04-01": "Ira [S]aymore",
+    "1834-04-08": "Ira Saymore",
+    "1834-04-16": "Ira Saymore"
+   },
+   "verdict": "settled",
+   "overturns": "1834-04-01",
+   "note": "THE ONE LINE A SINGLE IMPRESSION COULD NOT SETTLE. On 1 April the capital is filled with ink and reads as a stem with a mass beside it -- B, R and a blotted S are all available to it, which is how one transcription reached R and another reached S. The 8 April and 16 April impressions set the same line cleanly and both set S, with no left-hand stem, and the terminal is `-more` on both and on 1 April. So `Saymoro` was right in its initial and wrong in its last letter, and `Raymore` was right in its last letter and wrong in its initial. Neither transcription set the name."
+  },
+  {
+   "entity": {
+    "issue_id": "chicago_democrat_1834_04_01",
+    "claim": "c002",
+    "index": 60
+   },
+   "as_transcribed_1834_04_01": "3. Geo. Square t 3 first rate",
+   "minted_as": "Geo. Square",
+   "as_transcribed_1834_04_16": "Geo. Saver",
+   "as_printed_at_image": "Geo. Squar",
+   "at_each_impression": {
+    "1834-04-01": "Geo. Squar",
+    "1834-04-08": "Geo. Squar",
+    "1834-04-16": "Geo. Squar"
+   },
+   "verdict": "settled",
+   "overturns": "both",
+   "note": "THE LINE THE WHOLE TICKET TURNS ON, and it goes against BOTH transcriptions, though not equally. `Saver` is not what stands on the page: the second letter is a q with its descender, the third a u, and the word is Squar on every one of the three impressions. `Square` is one letter too long: there is no final e on any impression, and on 8 April and 16 April the line ends in clean paper where an e would have to stand. So the printed name is `Geo. Squar` -- nearer the 1 April reading than the 16 April one, and identical to neither. No `e` is supplied: a name is not amended to the shape a merge test would find convenient, which is the whole reason this line was referred to the image rather than ruled on."
+  }
+ ],
+ "seen_in_passing": {
+  "_doc": "OBSERVATIONS, NOT RULINGS. Nothing here is applied by this pass and no card moves on it. They are the readings the eye could not avoid while locating three lines in the right sub-column, written down so the concordance of the whole return starts from them. Every one stands on the 8 April impression, which is the clean one, and is confirmed on at least one other.",
+  "lines_the_1834_04_01_extraction_carries_no_entity_for": [
+   {
+    "as_printed_at_image": "Mason B. Smith",
+    "stands_between": [
+     "Robt. Stephens 2",
+     "Mr. Smith"
+    ],
+    "note": "A whole line the 1 April extraction skips; the 16 April transcription's own raw text carries it."
+   },
+   {
+    "as_printed_at_image": "Robt. Strong",
+    "stands_between": [
+     "Douglass Sloan",
+     "Samuel Shaw"
+    ],
+    "note": "In the 1 April claim's raw text as `[uncertain: Robt. Strong Detroit, ?]` and carried by no entity."
+   }
+  ],
+  "entities_whose_reading_the_image_disagrees_with": [
+   {
+    "minted_as": "Peter Schander",
+    "as_printed_at_image": "Peter Schauder"
+   },
+   {
+    "minted_as": "[uncertain: Stephen M. Satsby]",
+    "as_printed_at_image": "Stephen M. Salsby"
+   },
+   {
+    "minted_as": "Orin N. Stevens",
+    "as_printed_at_image": "Orin R. Stevens"
+   }
+  ]
+ }
+}

@@ -1,0 +1,108 @@
+{
+ "id": "hh_pearson_hiram",
+ "merged_into": {
+  "person": "pearsons_hiram",
+  "household": "hh_pearsons_hiram",
+  "person_merged": "pearson_hiram",
+  "rule": "C9",
+  "cluster": "pearson-pearsons",
+  "ticket": "T-1132",
+  "on": "2026-09-15",
+  "note": "THIS RECORD IS NOT DELETED AND NOTHING ON IT IS LOST. The card below is the record exactly as it stood when the merge landed; the person it names is now carried by the household above, and data/residents/index.json's `merged` table redirects the id. The reasoning is in data/residents/card_merge_rulings.json."
+ },
+ "superseded_record": {
+  "id": "hh_pearson_hiram",
+  "name": "The Pearson household — a name the town's own records carry",
+  "division": "unplaced",
+  "head": "pearson_hiram",
+  "source_pass": "civic",
+  "arrival": {
+   "value": "1833-12-31",
+   "confidence": "inferred",
+   "sources": [
+    "chicago_voter_lists_1833_1835_irad"
+   ],
+   "note": "A BOUND FROM THE RECORD, NOT AN ARRIVAL. poll_1833 names this person at Chicago by 31 December 1833 and nothing says when they came. The bound is at or before the scene date, so the person was at Chicago by 1 July 1835 on this record's own evidence.",
+   "precision": "not_later_than"
+  },
+  "party_size_on_arrival": {
+   "value": null,
+   "confidence": "reconstructed",
+   "note": "Not attested."
+  },
+  "origin": {
+   "value": null,
+   "confidence": "reconstructed",
+   "note": "Not attested."
+  },
+  "reason_for_coming": {
+   "value": null,
+   "confidence": "reconstructed",
+   "note": "Not attested."
+  },
+  "lives_at": {
+   "value": null,
+   "confidence": "reconstructed",
+   "note": "Not attested: the lists that name this person give no address. The placement sweep assigns homes once the resident list is complete (T-0514, the owner's own sequencing) and this pass will not guess one."
+  },
+  "works_at": {
+   "value": null,
+   "confidence": "reconstructed",
+   "note": "Not attested. No trade is recorded here, so there is no premises to seek; T-0633 is where a later directory's address gets back-projected."
+  },
+  "present_on_scene_date": {
+   "value": "uncertain",
+   "confidence": "inferred",
+   "sources": [
+    "chicago_voter_lists_1833_1835_irad"
+   ],
+   "note": "THE RECORD DOES NOT REACH THE DAY. Every source that names this person falls on one side of 1 July 1835, and nothing follows them to it or says they left. `uncertain` rather than dropped — the distinction index.json draws for Jeremiah Porter, and a finding, not a gap. AND THE BRACKET THIS CARD ONCE HAD IS WITHDRAWN, NOT LOST: its at-or-before leg was tax_1833 alone. THE 1833 TAX LIST IS A PROPERTY ROLL, NOT A RESIDENCE CHECK (T-1117): it names the owner of ground inside the town, resident or not, and its own entry 110 is a man three years dead. It bounds the town's RECORD of this name and not the day this person reached Chicago, so it cannot say this person was here to be followed across the day. Withdrawn to `uncertain` and not to `absent` — no source places this person anywhere else on 1 July 1835 either, and a man who was taxed for ground in the town may perfectly well have been standing on it."
+  },
+  "persons": [
+   {
+    "id": "pearson_hiram",
+    "name": "Hiram Pearson",
+    "relationship": "head",
+    "grade": "inferred",
+    "civic_mint": true,
+    "ladder_rule": "G2b",
+    "occupation": {
+     "value": "none_recorded",
+     "confidence": "reconstructed",
+     "note": "No source in this pass's evidence records an occupation for this person. A poll list, a tax list, a muster roll and a baptismal entry each print a name and no trade, and where a later directory prints one it is a trade of 1843 — T-0633 is the rule for back-projecting that, and this pass does not have it."
+    },
+    "sources": [
+     "chicago_voter_lists_1833_1835_irad"
+    ],
+    "note": "AN 1833 OR 1834 LIST — POLL, TAX OR MUSTER — WITH ANOTHER SOURCE. Read from poll_1833, tax_1833. THE GRADE IS THE OWNER'S RATIFIED LADDER OF 2026-09-03 (G2b), applied to every identity at once by tools/consolidate_resident_evidence.py and spent onto this card by tools/mint_civic_residents.py; the evidence blocks below carry the reading AS READ, its locator and the record it came from, so the page can be gone back to. WHAT IS RECONSTRUCTED: everything except the person and the sources — no dwelling, no trade, no origin, no family, no party. A BOUND FROM THE RECORD, NOT AN ARRIVAL. poll_1833 names this person at Chicago by 31 December 1833 and nothing says when they came. The bound is at or before the scene date, so the person was at Chicago by 1 July 1835 on this record's own evidence. No figure is drawn (L1). THE TOWN'S OWN ROLLS, 1833-1835 — CORROBORATION, NOT A GRADE. The early Chicago voter and tax lists held by the Illinois Regional Archives Depository name this person 2 times: Poll list of the first election of the Board of Trustees of the Town of Chicago, 10 August 1833 — “Pearson, Hiram” (poll_1833_022, line 43); Tax list of the Town of Chicago, 1833 — “Pearson, Hiram” (tax_1833_082, line 134). These are the town's own contemporary paper rather than a recollection of it, and each appearance says that a man of that name stood on that roll in that year — no more. The reading is twice mediated (Schulz's transcription, then Genealogy Trails' republication) and this project has not seen the IRAD originals. Under the ratified ladder (T-0513) the 1835 poll with a second independent source is attested, the 1835 poll alone or a 1833/1834 list with another source is inferred, and a single appearance with nothing else is a projected resident. This pass WRITES THE EVIDENCE AND MOVES NO GRADE — T-0515 applies the ladder against every source at once. Identity by the crosswalk's own rule: one resident of the surname 'Pearson' agrees with the entry's forenames; 1 bearer(s) of the surname were considered. (data/research/civic/voter_crosswalk.json).",
+    "civic_evidence": [
+     {
+      "list": "poll_1833",
+      "as_read": "Pearson, Hiram",
+      "locator": "poll_1833",
+      "record_id": "poll_1833_022",
+      "describes_date": "1833",
+      "source": "chicago_voter_lists_1833_1835_irad",
+      "rule": "G2b"
+     },
+     {
+      "list": "tax_1833",
+      "as_read": "Pearson, Hiram",
+      "locator": "tax_1833",
+      "record_id": "tax_1833_082",
+      "describes_date": "1833",
+      "source": "chicago_voter_lists_1833_1835_irad",
+      "rule": "G2b"
+     }
+    ],
+    "resident_research": {
+     "regraded_on": "2026-09-04",
+     "rule": "G2b"
+    }
+   }
+  ],
+  "touches_removal": false,
+  "review_required": false,
+  "research_note": "MINTED FROM THE CONSOLIDATED CIVIC, CHURCH, PRESS, BOOK AND CENSUS EVIDENCE (T-0513, T-0514). THE HOUSEHOLD IS A CONTAINER, NOT AN ARGUMENT: every other record here is written unattested in its own block, because the lists that name this person name a person and not a family. What is claimed is that the sources cited on the member below name them at Chicago, and the grade is the owner's ratified ladder applied by tools/consolidate_resident_evidence.py --build and spent by tools/mint_civic_residents.py, which prints every refusal. docs/LIBERTIES.md L215 carries the liberty and the tension with L213."
+ }
+}

@@ -1,0 +1,164 @@
+{
+ "id": "hh_democrat_printers",
+ "name": "The Democrat's printers",
+ "division": "south",
+ "head": "pratt_oscar",
+ "arrival": {
+  "value": "1833",
+  "confidence": "inferred",
+  "sources": [
+   "andreas_1884_v1"
+  ],
+  "note": "They are in Calhoun's employ in the autumn of 1833, so they were in the town by then. Nothing dates their coming and nothing says they came with him.",
+  "precision": "year"
+ },
+ "party_size_on_arrival": {
+  "value": null,
+  "confidence": "reconstructed",
+  "note": "Not attested."
+ },
+ "origin": {
+  "value": null,
+  "confidence": "reconstructed",
+  "note": "Not attested."
+ },
+ "reason_for_coming": {
+  "value": "Employment at the town's first printing office",
+  "confidence": "inferred",
+  "sources": [
+   "andreas_1884_v1"
+  ],
+  "note": "They are named as employees of the man who founded the paper. The inference is that the work is why they were here."
+ },
+ "lives_at": {
+  "value": null,
+  "confidence": "reconstructed",
+  "note": "Not attested. Journeymen printers of this period often boarded and often slept in the office; neither is claimed here."
+ },
+ "works_at": {
+  "value": "chicago_democrat_office",
+  "confidence": "attested",
+  "sources": [
+   "andreas_1884_v1"
+  ],
+  "note": "'In the employ of Mr. Calhoun', whose office's address the paper itself prints."
+ },
+ "present_on_scene_date": {
+  "value": "uncertain",
+  "confidence": "inferred",
+  "sources": [
+   "andreas_1884_v1"
+  ],
+  "note": "They are documented in the office in the autumn of 1833 and nothing follows them to 1835. Journeyman printers were the most mobile trade in a frontier town. Recorded as uncertain rather than assumed forward."
+ },
+ "persons": [
+  {
+   "id": "pratt_oscar",
+   "name": "Oscar Pratt",
+   "relationship": "head",
+   "grade": "inferred",
+   "sex": "male",
+   "occupation": {
+    "value": "printer",
+    "confidence": "attested",
+    "sources": [
+     "andreas_1884_v1"
+    ],
+    "note": "Andreas's 1833 roster: 'Oscar Pratt and Beckford, printers, were in the employ of Mr. Calhoun at that time.'",
+    "derived_from": "roles",
+    "roles_at_scene_date": [
+     "printer"
+    ]
+   },
+   "sources": [
+    "andreas_1884_v1"
+   ],
+   "note": "A REAL, NAMED MAN WITH A TRADE AND AN EMPLOYER, and nothing else. Andreas vol. 1, printed p. 132 (scan p. 281), 'an imperfect list of the denizens of the town in the fall of 1833, not before named' - a name, a trade and usually an arrival year, compiled fifty years after the fact.",
+   "resident_research": {
+    "programme": "resident-research-2026",
+    "ticket": "T-0479",
+    "outcome": "no_corroboration",
+    "reviewed_on": "2026-09-02",
+    "asserted_identity": false,
+    "evidence_for": "The exact-name and variant sweep did not identify a reliable Chicago/Cook County record that can be tied to this printer by an address, date, occupation-specific linkage or relative. This documented no-find is not evidence that Oscar Pratt did not exist.",
+    "summary": "The exact-name and variant sweep did not identify a reliable Chicago/Cook County record that can be tied to this printer by an address, date, occupation-specific linkage or relative. This documented no-find is not evidence that Oscar Pratt did not exist.",
+    "notes": "The exact-name and variant sweep did not identify a reliable Chicago/Cook County record that can be tied to this printer by an address, date, occupation-specific linkage or relative. This documented no-find is not evidence that Oscar Pratt did not exist."
+   },
+   "roles": [
+    {
+     "role": "printer",
+     "kind": "trade",
+     "as_printed": null,
+     "from": "1673",
+     "to": "1857",
+     "precision": "source_span",
+     "dated_by": "source_describes_date",
+     "covers_scene_date": true,
+     "confidence": "attested",
+     "sources": [
+      "andreas_1884_v1"
+     ],
+     "claim": null,
+     "note": "THE BOUND IS THE SOURCE'S, NOT THE MAN'S. This role is carried by the card's 1835 occupation block and is dated by what the cited source or sources are ABOUT, which is why `precision` can be no better than the span they cover. The span reaches 1835, so this role stands in the scene-date view. The printing the trade was read off is not on the card and is fetched by T-1254."
+    }
+   ]
+  },
+  {
+   "id": "beckford_printer",
+   "name": "Beckford",
+   "relationship": "partner",
+   "grade": "inferred",
+   "occupation": {
+    "value": "printer",
+    "confidence": "attested",
+    "sources": [
+     "andreas_1884_v1"
+    ],
+    "note": "Named in the same clause as Pratt and in the same employment.",
+    "derived_from": "roles",
+    "roles_at_scene_date": [
+     "printer"
+    ]
+   },
+   "sources": [
+    "andreas_1884_v1"
+   ],
+   "note": "SURNAME ONLY, NO FORENAME, NO SEX RECORDED. Andreas prints 'Oscar Pratt and Bcckford, printers' with the first letters damaged in the scan. The sex field is omitted rather than assumed: a compositor in 1833 was overwhelmingly likely to be a man, but 'overwhelmingly likely' is not what documented means and this record has no other information about the person at all.",
+   "resident_research": {
+    "programme": "resident-research-2026",
+    "ticket": "T-0508",
+    "outcome": "corroborated",
+    "reviewed_on": "2026-09-05",
+    "asserted_identity": true,
+    "evidence_for": "Independent of the post office in the sources cited.",
+    "notes": "Candidate facts remain unasserted until a source bridges the candidate to the historical record by more than name similarity.",
+    "summary": "Independently corroborated; confirmed, not moved.",
+    "source_ids": [
+     "chicago_antiquities_pratt",
+     "andreas_1884_v1"
+    ]
+   },
+   "roles": [
+    {
+     "role": "printer",
+     "kind": "trade",
+     "as_printed": null,
+     "from": "1673",
+     "to": "1857",
+     "precision": "source_span",
+     "dated_by": "source_describes_date",
+     "covers_scene_date": true,
+     "confidence": "attested",
+     "sources": [
+      "andreas_1884_v1"
+     ],
+     "claim": null,
+     "note": "THE BOUND IS THE SOURCE'S, NOT THE MAN'S. This role is carried by the card's 1835 occupation block and is dated by what the cited source or sources are ABOUT, which is why `precision` can be no better than the span they cover. The span reaches 1835, so this role stands in the scene-date view. The printing the trade was read off is not on the card and is fetched by T-1254."
+    }
+   ]
+  }
+ ],
+ "touches_removal": false,
+ "review_required": false,
+ "research_note": "TWO WAGE-EARNERS, WHICH THIS DATASET OTHERWISE HAS ALMOST NONE OF, and a household that is a household only by convention. Andreas names them in one clause, as a pair, in an employment; nothing states where either lived or whether they lived together, and the grouping is a container for two people the source presents together, not a claim about a dwelling. lives_at is null for that reason and must stay null. WHY THEY ARE WORTH WRITING: the documented population of early Chicago as the sources give it is overwhelmingly proprietors - the men who owned the store, kept the tavern, edited the paper. The people who did the work are named perhaps a dozen times in the whole of Andreas's first volume, and these two are among them. The inferred phase's largest single task is the rest of them."
+}

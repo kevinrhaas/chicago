@@ -1,0 +1,139 @@
+name: Chicago 4D — merge ready
+
+# Merges every open PR into `dev` that GitHub itself reports as `clean`.
+# See .github/steward/merge-ready.sh for why nothing did this before: the lap
+# says auto-merge merges, the fleet janitor says the lap does, `custom` is not in
+# the janitor's roster, and the only thing that arms auto-merge is the bake
+# workflow — on bakes. Finished pull requests sat green and unmerged.
+#
+# NEEDS STEWARD_PAT for the same reason the lap does: a merge made with
+# GITHUB_TOKEN does not trigger the workflows that run on a push to `dev`, so the
+# next lap would never fire and every remaining PR would stay `dirty` (T-0857).
+
+on:
+  # PUSH, AND THE REASON IS THE DEFAULT BRANCH — this is not the trigger you
+  # would pick on merit, and it is the only one that WORKS from here.
+  #
+  # `schedule` and `workflow_run` fire ONLY from the repository's DEFAULT branch,
+  # which is `main`. This file lives on `dev` and reaches `main` only through
+  # promote-to-prod, so a scheduled trigger written here would never fire once —
+  # not late, not rarely: never. Checked 2026-09-14 rather than assumed:
+  #
+  #   * `main` carries 8 workflows and `chicago-4d-pr-lap.yml` is NOT among them,
+  #     yet the lap runs many times a day — because `push:` triggers DO fire from
+  #     the pushed branch's own copy of the workflow.
+  #   * every scheduled run of chicago-4d-bake.yml reports `head_branch: main`,
+  #     including today's 06:54Z — the schedule is main's copy, not dev's.
+  #
+  # So the lap's trigger shape is the one that works from a non-default branch,
+  # and this uses it. A merge into `dev` is also the moment the queue most needs
+  # looking at: the lap is about to re-push every other PR.
+  push:
+    branches: [dev]
+  workflow_dispatch:
+    inputs:
+      only:
+        description: 'Consider a single PR number (blank = every open PR)'
+        required: false
+        type: string
+      dry_run:
+        description: 'Report what would merge, merge nothing'
+        required: false
+        type: boolean
+        default: false
+
+permissions:
+  contents: read
+
+# One at a time, and never cancelled mid-merge. Two concurrent runs would both
+# read `clean` on the same PR and the loser would get a 409 — harmless, but the
+# log would read as a failure that is really a race.
+concurrency:
+  group: chicago-4d-merge-ready
+  cancel-in-progress: false
+
+jobs:
+  merge-ready:
+    runs-on: ubuntu-latest
+    # The window below can hold the runner; this bounds it with room to spare.
+    timeout-minutes: 35
+    steps:
+      - name: Check the secret before doing anything
+        env:
+          P: ${{ secrets.STEWARD_PAT }}
+        run: |
+          [ -n "$P" ] || {
+            echo "::error::STEWARD_PAT is missing. A merge made with GITHUB_TOKEN does"
+            echo "::error::not trigger the PR lap on the resulting push to dev, so every"
+            echo "::error::other open PR would be left dirty with nothing to clear it."
+            exit 1; }
+
+      - uses: actions/checkout@v4
+
+      # WHY THIS WATCHES RATHER THAN LOOKS ONCE. A push to `dev` starts the lap,
+      # the lap re-pushes every open PR, and each of those gates for 6-11 minutes.
+      # A single pass here would run while all of them read `blocked` and merge
+      # nothing — correct, and useless. So it re-asks until the queue settles.
+      #
+      # It stops as soon as there is nothing left that could still turn `clean`,
+      # so a quiet queue costs one pass and a few REST calls, not the window.
+      - name: Merge every PR GitHub calls clean, until the queue settles
+        env:
+          GH_TOKEN: ${{ secrets.STEWARD_PAT }}
+          MERGE_ONLY: ${{ inputs.only }}
+          MERGE_DRY_RUN: ${{ inputs.dry_run && '1' || '' }}
+        run: |
+          # `set +e` FIRST, AND IT IS NOT REDUNDANT WITH THE LINE BELOW. GitHub
+          # runs a `run:` block as `bash --noprofile --norc -eo pipefail {0}`, so
+          # `-e` is already on before this script's first line and `set -uo
+          # pipefail` does NOT turn it off. This loop reads statuses that are
+          # allowed to be non-zero — `grep -c` exits 1 when it counts nothing —
+          # and every one of them would otherwise kill the step.
+          #
+          # Runs 2 and 3 died exactly that way, and the shape is worth recording:
+          # both did their whole job correctly, printed
+          # `merged=0 waiting-on-checks=0 needs-a-lap=3`, and THEN exited 1,
+          # because nothing was `blocked` so `grep -c` found nothing. The step
+          # failed precisely when the queue had settled — the success case — and
+          # succeeded only while there was still work outstanding.
+          #
+          # Third time today this exact GitHub default has bitten: polecat-platform
+          # #165 aborted a janitor sweep on it, and the lap's `PRS=$(...)` case is
+          # its mirror image. Errors are handled explicitly below instead.
+          set +e
+          set -uo pipefail
+          END=$(( $(date +%s) + 25*60 ))
+          PASS=0
+          while :; do
+            PASS=$((PASS+1))
+            echo "── pass $PASS"
+            bash .github/steward/merge-ready.sh || exit 1
+
+            # A dispatch naming one PR has said what it wants looked at; do not
+            # sit on a runner waiting for it.
+            [ -n "${MERGE_ONLY:-}" ] && { echo "MERGE_ONLY given — one pass only"; break; }
+            [ -n "${MERGE_DRY_RUN:-}" ] && { echo "dry run — one pass only"; break; }
+
+            # `blocked` is the only state that can become `clean` without someone
+            # else acting: its checks are still running. `dirty` waits on the lap
+            # and `unknown` on GitHub's own computation, and neither is this
+            # workflow's to wait out.
+            WAITING=$(gh api --paginate \
+                        "repos/${GITHUB_REPOSITORY}/pulls?state=open&base=dev&per_page=100" \
+                        --jq '.[] | select(.draft==false)
+                                  | select([.labels[].name] | index("hold") | not)
+                                  | .number' 2>/dev/null \
+                      | while read -r n; do
+                          [ -n "$n" ] || continue
+                          gh api "repos/${GITHUB_REPOSITORY}/pulls/$n" --jq '.mergeable_state' 2>/dev/null
+                        done | grep -c '^blocked$' || true)
+            if [ "${WAITING:-0}" -eq 0 ]; then
+              echo "nothing left whose checks could still turn it clean — done"; break
+            fi
+            if [ "$(date +%s)" -ge "$END" ]; then
+              echo "::notice::window closed with $WAITING PR(s) still gating — the next push to dev picks them up"
+              break
+            fi
+            echo "   $WAITING still gating; looking again in 60s"
+            sleep 60
+          done

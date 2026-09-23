@@ -1,0 +1,1063 @@
+{
+ "schema": 1,
+ "_doc": "THE PRINTED LENGTH OF THE CHICAGO POST OFFICE'S 1 APRIL 1834 RETURN, COUNTED OFF THE PAGE IMAGE (T-1141, in T-0424's shape for the 1 January return). Every line of the list as it stands in its SECOND printing -- Chicago Democrat Vol. I No. 19 of 1834-04-08, page 3, printed column 3 -- read at the scan and set down in printed order, left sub-column first. T-1138 read three lines of this return at three impressions and could not avoid seeing what stood around them; this is the rest of the page. `as_printed` is this impression's own setting, verbatim and unamended -- `Josept Babeax`, `Hexekiah Duncklo`, `Jomes Mulford`, `Dadly Peck` stand as the type stands, and `Geo. Squar` carries no `e` because the type sets none. A `[?]` inside a name is a glyph the image does not carry legibly and `[x]` is a glyph read under doubt; a trailing digit is the count of letters waiting, which is how this list marks them. NOTHING HERE IS A RULING ON A CARD: this file is the READING, the concordance beside it is what each line reaches, and moving a card is a third decision that belongs to T-1153.",
+ "return": {
+  "office": "Chicago, Illinois",
+  "remaining_as_of": "1834-04-01",
+  "printed_heading": "REMAINING in the Post Office at Chicago, Ill. on the first day of April, 1834.",
+  "signed": "JOHN S. C. HOGAN, P. M.",
+  "footer": "*.*Persons calling for any of the above letters will please say they are advertised.",
+  "sub_columns": 2
+ },
+ "printing_read": {
+  "issue_id": "chicago_democrat_1834_04_08",
+  "publication": "chicago_democrat",
+  "volume": "I",
+  "number": "19",
+  "date": "1834-04-08",
+  "issue_page": 3,
+  "printed_column": 3,
+  "which_printing": "second of three (1834-04-01 No. 18, this one, and 1834-04-16 No. 20)",
+  "why_this_one": "T-1138 read all three impressions at these pages and recorded which is usable: the 1 April setting has the next column's Public Auction advertisement bleeding through the S run, and the 16 April setting is a fresh, narrower setting that loses the tail of most surnames -- its own extraction brackets them for that reason. The 8 April impression is the one whose column stands clear of both faults for its whole length, which is what a line-by-line count of the WHOLE return needs. It is also a different impression from the one claim c002 of 1834-04-01 was transcribed from, and that is stated rather than hidden: a line read here is this setting's line, and where the two settings could disagree the concordance carries both readings instead of choosing."
+ },
+ "image": {
+  "reading": "scan_verified",
+  "read_on": "2026-09-15",
+  "source_id": "chicago_democrat_1833_1835",
+  "deposit_manifest": "chicago/reference/newspapers/ChicagoDemocrat/1834.yaml",
+  "internet_archive_item": "chicago1835-newspaper-chicago-democrat-1834",
+  "file": "Apr1834-May1834.pdf",
+  "file_sha256": "77a84f1e3f5242a4b272cae857d55a8918696d4e52f6c2c837ec4145ce1606c3",
+  "jp2_page": "Apr1834-May1834_jp2/Apr1834-May1834_0006.jp2",
+  "page_pixels": [
+   2736,
+   3777
+  ],
+  "iiif_base": "https://iiif.archive.org/image/iiif/3/chicago1835-newspaper-chicago-democrat-1834%2fApr1834-May1834_jp2.zip%2fApr1834-May1834_jp2%2fApr1834-May1834_0006.jp2",
+  "regions_read": {
+   "_doc": "x,y,w,h in the page's own pixels, as the IIIF region parameter takes them.",
+   "the_column_entire": [
+    "900,250,380,2000"
+   ],
+   "both_sub_columns_in_bands": [
+    "780,320,460,310",
+    "780,600,460,310",
+    "780,880,460,310",
+    "780,1160,460,310",
+    "780,1440,460,310",
+    "780,1720,460,310",
+    "780,2000,460,310"
+   ],
+   "enlarged": [
+    "780,812,250,100",
+    "780,1060,250,80",
+    "780,1232,250,45",
+    "780,1468,250,110",
+    "780,1540,250,45",
+    "780,1625,250,100",
+    "780,1718,250,45",
+    "780,1950,250,45",
+    "780,2124,250,45",
+    "990,755,250,45",
+    "990,1026,250,45",
+    "990,1855,250,65",
+    "1140,2178,110,34"
+   ]
+  },
+  "how_the_page_was_identified": "T-1138's own identification, unchanged and re-used: the PDF holds nine issues of four leaves each and the masthead of every fourth leaf carries the date and the volume line, so leaf 0000 is 1 April No. 18, leaf 0004 is 8 April No. 19 and leaf 0008 is 16 April No. 20. This return therefore stands on leaves 0002, 0006 and 0011. A SECOND office's list -- Hennepin's, signed THOS. GALAHER, Jr. P. M. -- stands on leaf 0010 and is not this one."
+ },
+ "printed_length": {
+  "lines": 193,
+  "left_sub_column": 97,
+  "right_sub_column": 96,
+  "letters_waiting": 218,
+  "how_the_letters_were_counted": "One letter to a line, plus the trailing digit where the list prints one: fifteen lines carry a `2` and one carries a `3` in the left sub-column, four carry a `2` and two a `3` in the right. 193 + 17 + 8 = 218.",
+  "the_printed_total": {
+   "as_printed": "21[8]",
+   "stands": "at the foot of the right sub-column, right-aligned above the postmaster's signature",
+   "read": 218,
+   "why_the_last_digit_is_bracketed": "The figure stands hard against the column rule and its third digit is inked thin: read alone it is an 8 with a faint left side, and 6 and 5 are not excluded by the glyph. What settles it is that the roster's own tally of the 193 lines and their letter-count digits is 218 exactly, derived line by line and without reference to this figure. THAT IS A CHECK AND NOT A PROOF, and it is written this way round on purpose: the tally is the measurement, the printed figure agrees with it, and the digit is left bracketed because the type does not carry it cleanly. `--check` re-derives the tally and fails if it stops being 218."
+  },
+  "addressee_lines_that_are_firms": [],
+  "addressee_lines_naming_two_people": [],
+  "addressee_lines_naming_a_person_in_the_alternative": [
+   "Jas. or Robt. Crawford"
+  ],
+  "addressee_lines_that_are_a_title_and_a_surname": [
+   "Mr. Smith",
+   "Dr. Trimball",
+   "Rev. N. C. Clark",
+   "Mrs S. Stephens",
+   "Mrs. Wm. B. Egan",
+   "Mrs. Robt. Hountton"
+  ],
+  "why_no_firms": "The 1 January return prints two firms and one line naming two people; this return prints neither. Every one of its 193 lines is one addressee, so the printed length and the count of people named are the same number here -- which is the opposite of January's case and is stated so that the difference is not read as an oversight."
+ },
+ "lines": [
+  {
+   "n": 1,
+   "column": "left",
+   "as_printed": "Constant Abbott"
+  },
+  {
+   "n": 2,
+   "column": "left",
+   "as_printed": "Joy H. Avery"
+  },
+  {
+   "n": 3,
+   "column": "left",
+   "as_printed": "Robt. V. Allen"
+  },
+  {
+   "n": 4,
+   "column": "left",
+   "as_printed": "Joseph Adams"
+  },
+  {
+   "n": 5,
+   "column": "left",
+   "as_printed": "Ebenezer Alden"
+  },
+  {
+   "n": 6,
+   "column": "left",
+   "as_printed": "Stratten Adams"
+  },
+  {
+   "n": 7,
+   "column": "left",
+   "as_printed": "Clark B. Albe"
+  },
+  {
+   "n": 8,
+   "column": "left",
+   "as_printed": "Ebenezer Allen"
+  },
+  {
+   "n": 9,
+   "column": "left",
+   "as_printed": "Daniel L. Andrews"
+  },
+  {
+   "n": 10,
+   "column": "left",
+   "as_printed": "Samuel Anderson"
+  },
+  {
+   "n": 11,
+   "column": "left",
+   "as_printed": "Maria S. Arnold"
+  },
+  {
+   "n": 12,
+   "column": "left",
+   "as_printed": "Clark B. Albee"
+  },
+  {
+   "n": 13,
+   "column": "left",
+   "as_printed": "Josept Babeax"
+  },
+  {
+   "n": 14,
+   "column": "left",
+   "as_printed": "Thos. W. Bradley 2"
+  },
+  {
+   "n": 15,
+   "column": "left",
+   "as_printed": "Lewis Benton 2"
+  },
+  {
+   "n": 16,
+   "column": "left",
+   "as_printed": "Addison Benton"
+  },
+  {
+   "n": 17,
+   "column": "left",
+   "as_printed": "Zadoc Brown"
+  },
+  {
+   "n": 18,
+   "column": "left",
+   "as_printed": "Nicholas Boilvin"
+  },
+  {
+   "n": 19,
+   "column": "left",
+   "as_printed": "Geo. A. Burlingame"
+  },
+  {
+   "n": 20,
+   "column": "left",
+   "as_printed": "Nelson Brigham"
+  },
+  {
+   "n": 21,
+   "column": "left",
+   "as_printed": "Harry Boardman"
+  },
+  {
+   "n": 22,
+   "column": "left",
+   "as_printed": "Leon Bourassa"
+  },
+  {
+   "n": 23,
+   "column": "left",
+   "as_printed": "Lyman Bennett"
+  },
+  {
+   "n": 24,
+   "column": "left",
+   "as_printed": "Peter Bourhyte"
+  },
+  {
+   "n": 25,
+   "column": "left",
+   "as_printed": "John Baily"
+  },
+  {
+   "n": 26,
+   "column": "left",
+   "as_printed": "Harriet Bradford"
+  },
+  {
+   "n": 27,
+   "column": "left",
+   "as_printed": "Eli Bona"
+  },
+  {
+   "n": 28,
+   "column": "left",
+   "as_printed": "Stephen R. Briggs"
+  },
+  {
+   "n": 29,
+   "column": "left",
+   "as_printed": "Robert Cook"
+  },
+  {
+   "n": 30,
+   "column": "left",
+   "as_printed": "Enoch Chambers"
+  },
+  {
+   "n": 31,
+   "column": "left",
+   "as_printed": "Loventus A. F. Corbin"
+  },
+  {
+   "n": 32,
+   "column": "left",
+   "as_printed": "Orange Chauncy 2"
+  },
+  {
+   "n": 33,
+   "column": "left",
+   "as_printed": "Robert W. Chapman 2"
+  },
+  {
+   "n": 34,
+   "column": "left",
+   "as_printed": "Bolden Clark"
+  },
+  {
+   "n": 35,
+   "column": "left",
+   "as_printed": "Jas. or Robt. Crawford"
+  },
+  {
+   "n": 36,
+   "column": "left",
+   "as_printed": "Silas Cobb"
+  },
+  {
+   "n": 37,
+   "column": "left",
+   "as_printed": "Rev. N. C. Clark"
+  },
+  {
+   "n": 38,
+   "column": "left",
+   "as_printed": "Henry B. Clark 2"
+  },
+  {
+   "n": 39,
+   "column": "left",
+   "as_printed": "Joseph Chandler"
+  },
+  {
+   "n": 40,
+   "column": "left",
+   "as_printed": "Alonzo Castle"
+  },
+  {
+   "n": 41,
+   "column": "left",
+   "as_printed": "Robert G. Cook 2"
+  },
+  {
+   "n": 42,
+   "column": "left",
+   "as_printed": "Timothy B. Clark"
+  },
+  {
+   "n": 43,
+   "column": "left",
+   "as_printed": "Jesse Chittenden"
+  },
+  {
+   "n": 44,
+   "column": "left",
+   "as_printed": "Chas. H. Chapman"
+  },
+  {
+   "n": 45,
+   "column": "left",
+   "as_printed": "Leander Clark"
+  },
+  {
+   "n": 46,
+   "column": "left",
+   "as_printed": "John Cook"
+  },
+  {
+   "n": 47,
+   "column": "left",
+   "as_printed": "James S. Cook"
+  },
+  {
+   "n": 48,
+   "column": "left",
+   "as_printed": "P. Cook"
+  },
+  {
+   "n": 49,
+   "column": "left",
+   "as_printed": "Leander Collins"
+  },
+  {
+   "n": 50,
+   "column": "left",
+   "as_printed": "Clark Chattin"
+  },
+  {
+   "n": 51,
+   "column": "left",
+   "as_printed": "Pierre Coury"
+  },
+  {
+   "n": 52,
+   "column": "left",
+   "as_printed": "Lucretia Doane"
+  },
+  {
+   "n": 53,
+   "column": "left",
+   "as_printed": "Lewis Driggs 2"
+  },
+  {
+   "n": 54,
+   "column": "left",
+   "as_printed": "John Davis 2"
+  },
+  {
+   "n": 55,
+   "column": "left",
+   "as_printed": "William Domint"
+  },
+  {
+   "n": 56,
+   "column": "left",
+   "as_printed": "Elijah Dix"
+  },
+  {
+   "n": 57,
+   "column": "left",
+   "as_printed": "Thos. W. Donkin"
+  },
+  {
+   "n": 58,
+   "column": "left",
+   "as_printed": "Alexander Dickinson"
+  },
+  {
+   "n": 59,
+   "column": "left",
+   "as_printed": "Sidney Dyer"
+  },
+  {
+   "n": 60,
+   "column": "left",
+   "as_printed": "Tila[m] Dayton 2"
+  },
+  {
+   "n": 61,
+   "column": "left",
+   "as_printed": "Hexekiah Duncklo"
+  },
+  {
+   "n": 62,
+   "column": "left",
+   "as_printed": "Lewis D[?]ud"
+  },
+  {
+   "n": 63,
+   "column": "left",
+   "as_printed": "William Denny"
+  },
+  {
+   "n": 64,
+   "column": "left",
+   "as_printed": "Pierce Dowaer"
+  },
+  {
+   "n": 65,
+   "column": "left",
+   "as_printed": "W. L. D. Ewing"
+  },
+  {
+   "n": 66,
+   "column": "left",
+   "as_printed": "Mrs. Wm. B. Egan"
+  },
+  {
+   "n": 67,
+   "column": "left",
+   "as_printed": "Alby Fowler"
+  },
+  {
+   "n": 68,
+   "column": "left",
+   "as_printed": "Jeter Foster"
+  },
+  {
+   "n": 69,
+   "column": "left",
+   "as_printed": "Thos. Fitzgerald"
+  },
+  {
+   "n": 70,
+   "column": "left",
+   "as_printed": "H. B. Fowler"
+  },
+  {
+   "n": 71,
+   "column": "left",
+   "as_printed": "Albert Fowler 2"
+  },
+  {
+   "n": 72,
+   "column": "left",
+   "as_printed": "Alexander Fullerton 3"
+  },
+  {
+   "n": 73,
+   "column": "left",
+   "as_printed": "James S. Gansodus"
+  },
+  {
+   "n": 74,
+   "column": "left",
+   "as_printed": "Oronter Granter 2"
+  },
+  {
+   "n": 75,
+   "column": "left",
+   "as_printed": "James Gilbert"
+  },
+  {
+   "n": 76,
+   "column": "left",
+   "as_printed": "Harrison Granger"
+  },
+  {
+   "n": 77,
+   "column": "left",
+   "as_printed": "Wm. H. Granger"
+  },
+  {
+   "n": 78,
+   "column": "left",
+   "as_printed": "Levi Gorton"
+  },
+  {
+   "n": 79,
+   "column": "left",
+   "as_printed": "Chester House 2"
+  },
+  {
+   "n": 80,
+   "column": "left",
+   "as_printed": "John C. Hugunin 2"
+  },
+  {
+   "n": 81,
+   "column": "left",
+   "as_printed": "G. S. Hubbard 2"
+  },
+  {
+   "n": 82,
+   "column": "left",
+   "as_printed": "Joshua Hathaway jr. 2"
+  },
+  {
+   "n": 83,
+   "column": "left",
+   "as_printed": "Nathan Hopkins"
+  },
+  {
+   "n": 84,
+   "column": "left",
+   "as_printed": "Nathan Hutchins"
+  },
+  {
+   "n": 85,
+   "column": "left",
+   "as_printed": "Manen Hauks"
+  },
+  {
+   "n": 86,
+   "column": "left",
+   "as_printed": "Mrs. Robt. Hountton"
+  },
+  {
+   "n": 87,
+   "column": "left",
+   "as_printed": "Hiram Hovey"
+  },
+  {
+   "n": 88,
+   "column": "left",
+   "as_printed": "Rodney House"
+  },
+  {
+   "n": 89,
+   "column": "left",
+   "as_printed": "Oscar L. Hawley"
+  },
+  {
+   "n": 90,
+   "column": "left",
+   "as_printed": "Wm. H. Hamilton"
+  },
+  {
+   "n": 91,
+   "column": "left",
+   "as_printed": "Ira Herrick"
+  },
+  {
+   "n": 92,
+   "column": "left",
+   "as_printed": "Samuel Haviland"
+  },
+  {
+   "n": 93,
+   "column": "left",
+   "as_printed": "Comstock Hanford"
+  },
+  {
+   "n": 94,
+   "column": "left",
+   "as_printed": "Thomas Hartsell"
+  },
+  {
+   "n": 95,
+   "column": "left",
+   "as_printed": "Orin Jerome"
+  },
+  {
+   "n": 96,
+   "column": "left",
+   "as_printed": "Henry Jones"
+  },
+  {
+   "n": 97,
+   "column": "left",
+   "as_printed": "Samuel Jackson"
+  },
+  {
+   "n": 98,
+   "column": "right",
+   "as_printed": "Thomas Jacubus"
+  },
+  {
+   "n": 99,
+   "column": "right",
+   "as_printed": "Jno. M. Jones"
+  },
+  {
+   "n": 100,
+   "column": "right",
+   "as_printed": "Sanford Johnson"
+  },
+  {
+   "n": 101,
+   "column": "right",
+   "as_printed": "John Kilpatrick"
+  },
+  {
+   "n": 102,
+   "column": "right",
+   "as_printed": "Paul Kingston"
+  },
+  {
+   "n": 103,
+   "column": "right",
+   "as_printed": "Mons. Kimbert"
+  },
+  {
+   "n": 104,
+   "column": "right",
+   "as_printed": "Harlow Kimball"
+  },
+  {
+   "n": 105,
+   "column": "right",
+   "as_printed": "Archibald Knox"
+  },
+  {
+   "n": 106,
+   "column": "right",
+   "as_printed": "Ivin Lou"
+  },
+  {
+   "n": 107,
+   "column": "right",
+   "as_printed": "Jacob S. Lansing 3"
+  },
+  {
+   "n": 108,
+   "column": "right",
+   "as_printed": "Samuel Louis"
+  },
+  {
+   "n": 109,
+   "column": "right",
+   "as_printed": "Gregory E. Legg"
+  },
+  {
+   "n": 110,
+   "column": "right",
+   "as_printed": "Robert Loveland"
+  },
+  {
+   "n": 111,
+   "column": "right",
+   "as_printed": "B. H. Laughton"
+  },
+  {
+   "n": 112,
+   "column": "right",
+   "as_printed": "Read Lewis"
+  },
+  {
+   "n": 113,
+   "column": "right",
+   "as_printed": "Wilson McClinton 3"
+  },
+  {
+   "n": 114,
+   "column": "right",
+   "as_printed": "Thomas McClintock"
+  },
+  {
+   "n": 115,
+   "column": "right",
+   "as_printed": "Wm. J. Marlatt"
+  },
+  {
+   "n": 116,
+   "column": "right",
+   "as_printed": "Lucy B. McEwen"
+  },
+  {
+   "n": 117,
+   "column": "right",
+   "as_printed": "Leonard Morse"
+  },
+  {
+   "n": 118,
+   "column": "right",
+   "as_printed": "Isaac Merrill"
+  },
+  {
+   "n": 119,
+   "column": "right",
+   "as_printed": "Chas. Manning"
+  },
+  {
+   "n": 120,
+   "column": "right",
+   "as_printed": "Jomes Mulford"
+  },
+  {
+   "n": 121,
+   "column": "right",
+   "as_printed": "Philo C. Mills"
+  },
+  {
+   "n": 122,
+   "column": "right",
+   "as_printed": "James McKee"
+  },
+  {
+   "n": 123,
+   "column": "right",
+   "as_printed": "Henry S. Misner"
+  },
+  {
+   "n": 124,
+   "column": "right",
+   "as_printed": "Emily Morgan"
+  },
+  {
+   "n": 125,
+   "column": "right",
+   "as_printed": "Jacob Miller"
+  },
+  {
+   "n": 126,
+   "column": "right",
+   "as_printed": "Stephen Mack"
+  },
+  {
+   "n": 127,
+   "column": "right",
+   "as_printed": "Mary Meacham"
+  },
+  {
+   "n": 128,
+   "column": "right",
+   "as_printed": "Ralph Martin"
+  },
+  {
+   "n": 129,
+   "column": "right",
+   "as_printed": "James D. Myres"
+  },
+  {
+   "n": 130,
+   "column": "right",
+   "as_printed": "Nelson Murray"
+  },
+  {
+   "n": 131,
+   "column": "right",
+   "as_printed": "Michael Nowland"
+  },
+  {
+   "n": 132,
+   "column": "right",
+   "as_printed": "Francis B. Northrop"
+  },
+  {
+   "n": 133,
+   "column": "right",
+   "as_printed": "Rebecca Ostrander"
+  },
+  {
+   "n": 134,
+   "column": "right",
+   "as_printed": "Robt. Ogilley"
+  },
+  {
+   "n": 135,
+   "column": "right",
+   "as_printed": "P. F. W. Peck"
+  },
+  {
+   "n": 136,
+   "column": "right",
+   "as_printed": "William Power"
+  },
+  {
+   "n": 137,
+   "column": "right",
+   "as_printed": "Dadly Peck"
+  },
+  {
+   "n": 138,
+   "column": "right",
+   "as_printed": "Geo. N. Powell"
+  },
+  {
+   "n": 139,
+   "column": "right",
+   "as_printed": "Timothy E. Parsons"
+  },
+  {
+   "n": 140,
+   "column": "right",
+   "as_printed": "Wm. Prendergust"
+  },
+  {
+   "n": 141,
+   "column": "right",
+   "as_printed": "Mary Polk"
+  },
+  {
+   "n": 142,
+   "column": "right",
+   "as_printed": "Francis Perry"
+  },
+  {
+   "n": 143,
+   "column": "right",
+   "as_printed": "Eliza Pearce"
+  },
+  {
+   "n": 144,
+   "column": "right",
+   "as_printed": "Christopher Paine"
+  },
+  {
+   "n": 145,
+   "column": "right",
+   "as_printed": "Lauretta Plimpton"
+  },
+  {
+   "n": 146,
+   "column": "right",
+   "as_printed": "Austin Parsalls"
+  },
+  {
+   "n": 147,
+   "column": "right",
+   "as_printed": "Edward Poor"
+  },
+  {
+   "n": 148,
+   "column": "right",
+   "as_printed": "Geo. B. Richardson"
+  },
+  {
+   "n": 149,
+   "column": "right",
+   "as_printed": "Thos. H. Richy 2"
+  },
+  {
+   "n": 150,
+   "column": "right",
+   "as_printed": "Robt. Stephens 2"
+  },
+  {
+   "n": 151,
+   "column": "right",
+   "as_printed": "Mason B. Smith"
+  },
+  {
+   "n": 152,
+   "column": "right",
+   "as_printed": "Mr. Smith"
+  },
+  {
+   "n": 153,
+   "column": "right",
+   "as_printed": "Jeremiah Sherwood"
+  },
+  {
+   "n": 154,
+   "column": "right",
+   "as_printed": "Mrs S. Stephens"
+  },
+  {
+   "n": 155,
+   "column": "right",
+   "as_printed": "Wm. V. Smith"
+  },
+  {
+   "n": 156,
+   "column": "right",
+   "as_printed": "Eli Strattan"
+  },
+  {
+   "n": 157,
+   "column": "right",
+   "as_printed": "Douglass Sloan"
+  },
+  {
+   "n": 158,
+   "column": "right",
+   "as_printed": "Robt. Strong"
+  },
+  {
+   "n": 159,
+   "column": "right",
+   "as_printed": "Samuel Shaw"
+  },
+  {
+   "n": 160,
+   "column": "right",
+   "as_printed": "Cyrus Schillborn"
+  },
+  {
+   "n": 161,
+   "column": "right",
+   "as_printed": "Lyman Smith"
+  },
+  {
+   "n": 162,
+   "column": "right",
+   "as_printed": "Franklin Spalding"
+  },
+  {
+   "n": 163,
+   "column": "right",
+   "as_printed": "Philip Scott"
+  },
+  {
+   "n": 164,
+   "column": "right",
+   "as_printed": "Orin R. Stevens"
+  },
+  {
+   "n": 165,
+   "column": "right",
+   "as_printed": "Peter Schauder"
+  },
+  {
+   "n": 166,
+   "column": "right",
+   "as_printed": "Stephen M. Salsby"
+  },
+  {
+   "n": 167,
+   "column": "right",
+   "as_printed": "Benjamin Smith"
+  },
+  {
+   "n": 168,
+   "column": "right",
+   "as_printed": "Ira Saymore"
+  },
+  {
+   "n": 169,
+   "column": "right",
+   "as_printed": "Geo. Squar"
+  },
+  {
+   "n": 170,
+   "column": "right",
+   "as_printed": "Joseph Skinner"
+  },
+  {
+   "n": 171,
+   "column": "right",
+   "as_printed": "Wm. Teall"
+  },
+  {
+   "n": 172,
+   "column": "right",
+   "as_printed": "Harmon Turner"
+  },
+  {
+   "n": 173,
+   "column": "right",
+   "as_printed": "William Taylor"
+  },
+  {
+   "n": 174,
+   "column": "right",
+   "as_printed": "George Tryon"
+  },
+  {
+   "n": 175,
+   "column": "right",
+   "as_printed": "Dr. Trimball"
+  },
+  {
+   "n": 176,
+   "column": "right",
+   "as_printed": "D. V. S. Torry"
+  },
+  {
+   "n": 177,
+   "column": "right",
+   "as_printed": "Elam Teller"
+  },
+  {
+   "n": 178,
+   "column": "right",
+   "as_printed": "Alason B. Vaughan"
+  },
+  {
+   "n": 179,
+   "column": "right",
+   "as_printed": "Amy C. West 2"
+  },
+  {
+   "n": 180,
+   "column": "right",
+   "as_printed": "Andrew S. Wells 2"
+  },
+  {
+   "n": 181,
+   "column": "right",
+   "as_printed": "H. Walford"
+  },
+  {
+   "n": 182,
+   "column": "right",
+   "as_printed": "Gertrude Watkins"
+  },
+  {
+   "n": 183,
+   "column": "right",
+   "as_printed": "Materson Washbarn"
+  },
+  {
+   "n": 184,
+   "column": "right",
+   "as_printed": "Mansfield Wheeler"
+  },
+  {
+   "n": 185,
+   "column": "right",
+   "as_printed": "Geo. E. Walker"
+  },
+  {
+   "n": 186,
+   "column": "right",
+   "as_printed": "Jeddiah Woolley"
+  },
+  {
+   "n": 187,
+   "column": "right",
+   "as_printed": "Edmond Wright"
+  },
+  {
+   "n": 188,
+   "column": "right",
+   "as_printed": "Harriet Warren"
+  },
+  {
+   "n": 189,
+   "column": "right",
+   "as_printed": "Elihu Walter"
+  },
+  {
+   "n": 190,
+   "column": "right",
+   "as_printed": "G. H. Walker"
+  },
+  {
+   "n": 191,
+   "column": "right",
+   "as_printed": "Tho. C. Webb"
+  },
+  {
+   "n": 192,
+   "column": "right",
+   "as_printed": "Chauncey Woodruff"
+  },
+  {
+   "n": 193,
+   "column": "right",
+   "as_printed": "Philip Whittermore"
+  }
+ ]
+}

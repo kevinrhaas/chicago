@@ -1,0 +1,135 @@
+{
+  "id": "fort_dearborn_garrison_garden",
+  "name": "Fort Dearborn — the garrison garden",
+  "aka": [
+    "Garden for the Garrison",
+    "the company gardens"
+  ],
+  "archetype": "palisade",
+  "phases": [
+    {
+      "id": "fence_1816",
+      "documented_range": {
+        "from": "1816-07-01",
+        "to": "1836-12-29",
+        "confidence": "inferred",
+        "sources": [
+          "harrison_1830_river_mouth",
+          "kinzie_waubun_1856"
+        ],
+        "note": "A GARDEN'S RANGE IS ITS GARRISON'S. It is drawn and labelled on the 1830 plan and described full of fruit by someone who walked past it in 1831, so it is standing either side of the scene date. It is closed at the final evacuation of 29 December 1836 rather than at the demolition of the buildings, because a company garden is kept by companies and there were none after that date; nothing reached records what happened to the plot."
+      },
+      "position": {
+        "utm_e": 448091.8,
+        "utm_n": 4637502.36,
+        "rotation_deg": 53.0,
+        "symbolic_location": "On the reservation south-west of Fort Dearborn, between the fort and the bend of the river, west of the road.",
+        "confidence": "inferred",
+        "sources": [
+          "harrison_1830_river_mouth"
+        ],
+        "note": "READ OFF THE 1830 HARRISON PLAN, which draws it as a large diamond labelled 'Garden for the Garrison' with the Big Barn with Cupola on the river bank beyond its north-west corner and, beyond its south-east one, the grave of MRS Charles Jouett \u2014 the plate letters it 'Grave of Mrs Chas Jouett', Gurdon Hubbard independently calls it 'the grave of his wife' in 'a picket-fence inclosure' by the west side of the road, and Charles Jouett himself died at Trigg County, Kentucky on 28 May 1834 (data/research/old_settlers/death_notices.json, fdn0347) and is not buried here. This record said 'Charles Jouett's grave' from the day it was written until T-0882 read the label; the geometry described here is unchanged and only the name is corrected. Its four corners were read in pixels and converted at the same 1.10 ft/px scale as the fort itself; the plot is set square to nothing on the sheet, so the 53-degree rotation is the diamond's own and is measured rather than assumed. Carry +/-20 percent on the size and +/-25 m on the position.",
+        "derivation": {
+          "method": "not_derivable",
+          "reason": "This placement predates the derivation module. Its provenance and reasoning are recorded in position.note, but no machine-checkable derivation block has been authored for it yet."
+        }
+      },
+      "footprint": {
+        "polygon": [
+          [
+            0,
+            0
+          ],
+          [
+            77.0,
+            0
+          ],
+          [
+            77.0,
+            77.0
+          ],
+          [
+            0,
+            77.0
+          ]
+        ],
+        "confidence": "inferred",
+        "sources": [
+          "harrison_1830_river_mouth"
+        ],
+        "note": "About 77 m on a side - some 250 ft square, a little over an acre and a half - measured off the 1830 plan. That is the right order for the company gardens of a two-company post and it is the largest single enclosure this project has drawn. WHAT THE POLYGON SIMPLIFIES: the plan draws the plot as a diamond whose four sides are not quite equal; the record squares it, which moves the corners by several metres."
+      },
+      "form": {
+        "wall_kind": {
+          "value": "worm_fence",
+          "confidence": "inferred",
+          "sources": [
+            "harrison_1830_river_mouth"
+          ],
+          "note": "READ FROM A DRAWING CONVENTION, NOT FROM A CAPTION. The 1830 plate draws two sides of this plot as a continuous zigzag line and the other two as plain lines. A zigzag boundary on a period American survey is the standard convention for a worm - snake - rail fence, which is the fence a garrison with axes and no post-hole digger builds. The reading is inferred from the convention; the sheet does not say 'fence'."
+        },
+        "construction": {
+          "value": "split_rail",
+          "confidence": "inferred",
+          "note": "Not stated. A worm fence is stacked split rails by construction - it has no posts and nothing is set in the ground, which is why it is drawn as a zigzag."
+        },
+        "fence_height_m": {
+          "value": 1.3,
+          "confidence": "reconstructed",
+          "note": "Unattested. About four and a half feet, the ordinary height of a worm fence that has to keep stock out of a garden."
+        },
+        "rail_courses": {
+          "value": 3,
+          "confidence": "reconstructed",
+          "note": "Unattested. Three courses is the light end of the type; a stock fence would carry more."
+        },
+        "panel_length_m": {
+          "value": 3.0,
+          "confidence": "reconstructed",
+          "note": "Unattested. Ten feet, which is a split rail's length."
+        },
+        "panel_offset_m": {
+          "value": 0.9,
+          "confidence": "reconstructed",
+          "note": "Unattested. How far each panel steps off the line, which is what makes the zigzag; three feet is the ordinary lay."
+        },
+        "planting": {
+          "value": "currant bushes and young fruit trees",
+          "confidence": "attested",
+          "sources": [
+            "kinzie_waubun_1856"
+          ],
+          "geometry": "absent",
+          "note": "Juliette Kinzie, 1831: 'Beyond the parade-ground, which extended south of the pickets, were the company gardens, well filled with currant-bushes and young fruit-trees.' NOTHING OF THE PLANTING IS BUILT. The fence is modelled and the plot inside it is empty ground, because currant bushes and young fruit trees are flora and this project's flora layer is driven by data/flora/, which has no cultivated zone and no garden species. GUARD ON THE CITATION: the often-quoted 'The ground on the south side was enclosed and cultivated as a garden' is the FIRST fort - its passage ends 'Such was the old Fort previous to 1812' - and this record does not rest on it. Kinzie's sentence is about the fort she was living in, in 1831."
+        }
+      }
+    }
+  ],
+  "function": {
+    "value": "company gardens",
+    "confidence": "attested",
+    "sources": [
+      "harrison_1830_river_mouth",
+      "kinzie_waubun_1856"
+    ],
+    "note": "The garrison's vegetable and fruit ground. Labelled 'Garden for the Garrison' on the 1830 survey and described in fruit by Juliette Kinzie in 1831. A separate 'Cultivated Field belonging to The Fort' is drawn further west on the same plate and is NOT modelled - it is a field, not a structure, and it belongs to the terrain and flora layers."
+  },
+  "research_note": "THE CHEAPEST HONEST WAY TO MAKE THE RESERVATION READ AS OCCUPIED GROUND rather than as a fort in a void: a fenced acre and a half of garden with a barn beyond it is what the only plan of this place actually draws. Two guards are worth carrying. The planting is documented and unbuilt, and the record says so on the attribute rather than in prose. And the garden that appears in most accounts of 'the fort's south-side garden' is the pre-1812 fort's; this one rests on the 1830 plan and on Kinzie's 1831 sentence, which are both about the second fort.",
+  "review_required": false,
+  "land_owner": {
+    "value": "The ground was entered by John Baptist Baubian, 28 May 1835",
+    "confidence": "inferred",
+    "sources": [
+      "isa_public_domain_land_tract_sales"
+    ],
+    "note": "THE UNITED STATES RESERVATION. This is the same tract L108 already derives for `1835_no_build_ground.json` — from G1, Madison's line and the traced waterline — so the polygon is inherited rather than built again, and `check.sh` already re-derives it. The register's own row is the second, independent witness to the date L108 quotes from Andreas: Beaubien's pre-emption, 28 May 1835, five weeks before the scene date. The derived polygon is short of the documented 75.69 acres for the reasons L108 states, and is a floor rather than the reservation. WHETHER THE ENTRY HELD IS NOT READ HERE: it was disputed, and this row records the entry the register carries and nothing about its outcome. THE MARGIN IS 41 m: this footprint stands that far inside the tract's nearest boundary, which is more than twice the working horizontal uncertainty of anything traced off the 1834 sheets (about 20 m), so the assignment survives the error the construction carries. WHAT THIS ROW CLAIMS AND WHAT IT DOES NOT. It claims that the tract the Illinois State Archives' land-sale register describes contains this structure's committed position — the patent for this ground was ENTERED by this man on this date. It does not claim he still held the ground on 1 July 1835, that he lived here, or that he ever stood on it: a sale is a transaction, and the register's only column about residence names a county. THE SECTION LINES ARE CONSTRUCTED, NOT TRACED (L219): the grid is carried from the single PLSS corner at State & Madison, on the plat's own east-west bearing, in nominal one-mile squares.",
+    "tract": "the south-west fractional quarter of section 10",
+    "entries": [
+      "ls0057"
+    ],
+    "date_purchased": "1835-05-28",
+    "type_of_sale": "federal land sale (cash entry)",
+    "margin_m": 40.6,
+    "generated_by": "tools/resolve_land_tracts.py --build"
+  }
+}

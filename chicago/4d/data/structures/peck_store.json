@@ -1,0 +1,139 @@
+{
+  "id": "peck_store",
+  "name": "P. F. W. Peck's Store",
+  "aka": [
+    "Peck's store at South Water and LaSalle",
+    "the store Peck lived in"
+  ],
+  "archetype": "frame_storefront",
+  "phases": [
+    {
+      "id": "frame_1833",
+      "documented_range": {
+        "from": "1833-05-01",
+        "to": "1835-12-31",
+        "confidence": "inferred",
+        "sources": [
+          "andreas_1884_v1"
+        ],
+        "note": "THE START IS THE FIRST DATE A SOURCE PUTS THIS BUILDING IN EXISTENCE, NOT ITS BUILD DATE. Andreas has the Rev. Jeremiah Porter lodging in the store's unfinished loft in May 1833, so the building stood and was already a store then; this project's own dossier dates the store '1832-33' (docs/research/04-structures-south.md § 5) and no source reached fixes a month or a year for its erection. Peck himself arrived in July 1831 with goods in the schooner Telegraph and was a licensed merchant, so a store of his could be a year older than this range says. THE END IS THE ORDINARY CONTINUITY CUT AT THE SCENE YEAR AND IT IS STRONGER HERE THAN ON MOST RECORDS IN THIS DATASET: Andreas has Peck still advertising dry goods, hardware and groceries in 1834-35 and still LIVING at the store, and this project's own data/exclusions.json says so in the entry that keeps his 1837 brick house out of the scene. What is not attested is when the building came down; 1835-12-31 is a housekeeping bound, not a demolition date."
+      },
+      "position": {
+        "utm_e": 447500.849,
+        "utm_n": 4637382.291,
+        "rotation_deg": 0.0,
+        "symbolic_location": "South-west corner of South Water Street and LaSalle Street (today the south side of West Wacker Drive at North LaSalle Street), on the commercial core block between LaSalle and Clark.",
+        "confidence": "inferred",
+        "sources": [
+          "andreas_1884_v1",
+          "osm_streets_2026"
+        ],
+        "note": "PLACED 2026-08-11. THE CORNER IS DOCUMENTED AND THE COORDINATE IS DERIVED, so the tag follows the weaker half — the same reading the Sauganash and the Green Tree carry. Andreas puts Peck's store at the south-west corner of South Water and LaSalle. METHOD, the project's standard one: South Water Street is today's East and West Wacker Drive along the south bank of the main stem, the equivalence this project's own dossier states in its street-name key (docs/research/03-structures-north.md), and LaSalle Street is unchanged. The modern West Upper Wacker Drive / North LaSalle Street intersection centre was read from OpenStreetMap at EPSG:26916 E 447525.2, N 4637408.1 (three nodes averaged, spread 15.4 m, fetched 2026-08-11), and the footprint origin set 12.2 m west and 12.2 m south of it less the building's own width and depth, so that the store's north face sits on the South Water frontage and its east face on the LaSalle frontage of a south-west corner lot. WORKING UNCERTAINTY ABOUT 20 M, which is the georeference's residual (data/datum.json: 17.5 m RMS on Wright 1834, with 3.7 per cent paper stretch), not an additional guess. TWO SOURCES OF ERROR ON TOP OF THAT, BOTH RECORDED RATHER THAN AVERAGED AWAY. First, the 12.2 m offset is half of an 80 ft street, the width annotated on Hathaway 1834, while Currey states the 1830 Thompson plat laid streets out 'uniformly 66 feet wide'; the difference is 2.1 m per offset and is already recorded in docs/RESEARCH/hogan_store.md § 5. Second, and larger, MODERN WACKER DRIVE IS NOT EXACTLY THE 1835 SOUTH WATER STREET LINE: Wacker was built on South Water's right of way in 1924-26 and widened northward over the old dock line. As a check, this project's own traced 1834 south bank (data/terrain/epochs/e1834_harbor_cut/shoreline.geojson) runs 41.6 m north of this record's north face at this easting, which is about the right room for a street and a river frontage and puts the building on ground the trace shows as land. Facade bearing 0, due north onto South Water, INFERRED FROM THE STREET RATHER THAN FROM ANY STATEMENT: nothing says which way the store faced, and a corner store fronting LaSalle instead would rotate it 90 degrees. RECONCILED WITH THE COMMITTED PLAT 2026-08-24 (T-0127), AND THE CLAIM DID NOT MOVE — ONLY THE LINE IT WAS DERIVED AGAINST. The method above set this footprint's north face on the South Water frontage, and it found that frontage by taking the MODERN West Wacker Drive centreline out of OpenStreetMap and stepping 12.2 m south of it. That is not this project's own South Water Street: the committed centreline in data/streets/1835.json, offset by half the committed 80 ft corridor, is what tools/generate_plat_lots.py builds every platted block edge from, and it is the line every derived layer in this scene reads. Measured against it, this record's north wall stood 4.51 m OUT PAST the blk_south_water_wells frontage line, in the platted roadway — far enough into it that tools/generate_frontage_works.py refused the plank sidewalk along this stretch of South Water in writing and named this building in the refusal. THE REPAIR IS THIS RECORD'S OWN METHOD RUN AGAINST THIS PROJECT'S OWN LINE: the footprint is translated 6.01 m along the face's inward normal — dE +0.049 m, dN -6.009 m in local ENU, so UTM E 447500.8 N 4637388.3 becomes E 447500.849 N 4637382.291 — which leaves its north wall 1.50 m back from the committed frontage line, the same margin tools/generate_block_infill.py gives every reconstructed unit standing on this face. NOTHING ALONG THE STREET MOVED: the along-face position, the block, the corner and the side are untouched, and so is the confidence grade — re-deriving a coordinate from better geometry is not new evidence. WHAT IS STILL WRONG AND IS LEFT WRITTEN DOWN: the facade bearing stays 0 while this face runs at 359.53 (i.e. -0.47), so the front wall is 1.50 m back at its worst corner and up to 1.60 m at the other. That skew is smaller than the walk's own daylight and it is not corrected here, because rotating a documented record is a second claim and this one is a repair. THE CROSS STREET IS REFUSED, IN WRITING, WITH THE NUMBER (T-0195, 2026-08-27). The repair above answered South Water Street and could not answer this one, because a corner has two streets and the move that reconciles the frontage is along the other street's normal. Measured against the committed plat with tools/measure_corridor_intrusion.py, this footprint still laps LaSalle's corridor by 0.16 m — the shallowest lap any building in this town makes. WHY IT IS NOT REPAIRED, AND THE MEASUREMENT THAT DECIDES IT. tools/measure_corridor_intrusion.py --escape bisects the shortest translation that takes each lapping record clear of the corridor it laps and reads that direction against the record's OWN facade bearing: here it is 0.160 m on a bearing of 270.34 degrees, which is 0.34 degrees off square to this facade — a slide SIDEWAYS ACROSS ITS OWN FRONT, not in or out of it. South Water's committed axis runs at 89.53 degrees beside this footprint, so that escape is a move ALONG South Water Street to within 0.9 of a degree. It would therefore change where along the business street this building stands, and the corner is the one part of this placement a source argues. Moving ACROSS the front is a different operation and is the one T-0127 defended: the setback is re-derived against a better line and the claim does not move. Moving ALONG it moves the claim. WHERE THE 0.2 M ACTUALLY COMES FROM, because it is not a mystery and should not be left as one. The method above stepped 12.2 m from an OpenStreetMap junction centre in BOTH directions. The South Water half of that offset was re-derived against this project's own committed centreline; the LaSalle half never was. Measured against the committed LaSalle centreline this record's east face stands 12.032 m out, where the platted half-width is 12.192 m — so the residual is the 0.168 m by which OpenStreetMap's junction centre and this project's committed LaSalle centreline disagree at this corner, and nothing else. AND WHY THAT IS NOT WORTH SPENDING A SOURCE ON. It is about 0.8 per cent of this placement's own stated working uncertainty of about 20 m, on a georeference carrying 17.5 m RMS (data/datum.json). Clearing it leaves the record clear of every platted corridor — the escape trades nothing away — and that is exactly what makes the temptation worth naming: the number would go to zero and the placement would be no more true. The lap is banked in tools/corridor_intrusion_baseline.json under `refused`, where the gate holds it at this depth and fails if it grows, and it may not outlive itself: if this corner is ever re-derived, the refusal has to be withdrawn with it.",
+        "derivation": {
+          "method": "not_derivable",
+          "reason": "This placement predates the derivation module. Its provenance and reasoning are recorded in position.note, but no machine-checkable derivation block has been authored for it yet."
+        }
+      },
+      "footprint": {
+        "polygon": [
+          [
+            0,
+            0
+          ],
+          [
+            12.192,
+            0
+          ],
+          [
+            12.192,
+            7.62
+          ],
+          [
+            0,
+            7.62
+          ]
+        ],
+        "confidence": "reconstructed",
+        "note": "INVENTED. NO SOURCE REACHED GIVES THIS BUILDING A DIMENSION. What IS documented is a cap on one of them: Andreas states that South Water Street lots were 55 ft wide (docs/research/04-structures-south.md § 5), so a store on a single lot on this street cannot have had more than 55 ft of frontage, and this rectangle's 40 ft frontage sits comfortably inside that. The two numbers are borrowed rather than freshly invented, and that is deliberate: 40 ft is the frontage attested for the Green Tree Tavern and for the Western Hotel's front, and 25 ft is the depth derived from the Green Tree's attested room module — the only period figures for a commercial building this dataset actually holds. So the shape is a claim about the TYPE and not about this building. 12.192 x 7.62 m is 40 x 25 ft, recorded converted with the original figures stated, per data/datum.json's units rule. The same rectangle is used on four records in this parcel; that repetition is the honest form of the admission, not an accident."
+      },
+      "form": {
+        "stories": {
+          "value": 2,
+          "confidence": "attested",
+          "sources": [
+            "andreas_1884_v1"
+          ],
+          "note": "Andreas: a two-story frame store. The unfinished loft over those two storeys is stated separately as `loft` and is not counted here — the storey count is the finished, floored accommodation, which is what the archetype extrudes wall height from."
+        },
+        "loft": {
+          "value": true,
+          "confidence": "attested",
+          "sources": [
+            "andreas_1884_v1"
+          ],
+          "note": "THE SINGLE MOST VIVID DOCUMENTED FACT ABOUT THIS BUILDING. Andreas has an 'unfinished loft' over the two storeys, used as lodging: the Rev. Jeremiah Porter, arriving in May 1833 to found what became the First Presbyterian church, slept in it. WHAT IS DOCUMENTED IS THAT THE LOFT WAS THERE AND THAT IT WAS UNFINISHED IN MAY 1833. Whether it was still unfinished twenty-six months later on the scene date is NOT attested, and this record does not claim it — `framing_exposed` is deliberately not stated, because the archetype would then leave the loading gable open and show a visitor a building site two years after the one moment anybody described. The archetype builds a loft as one gable opening and nothing else, which is the honest external trace of a loft."
+        },
+        "construction": {
+          "value": "braced_frame",
+          "confidence": "inferred",
+          "sources": [
+            "andreas_1884_v1"
+          ],
+          "note": "Andreas says 'frame' and no more, and the word does not distinguish the two methods available. Balloon framing was developed in Chicago in 1832-33 and became the dominant local method within a few years; this building's date is not fixed and may precede that, so braced frame is the safer reading, exactly as the Sauganash record argues for 1831. The alternative is real and this note is where it is recorded rather than in a footnote: if the store went up in 1833 it could as easily have been balloon framed, and nothing reached decides it."
+        },
+        "wall_height_m": {
+          "value": 5.5,
+          "confidence": "inferred",
+          "note": "No figure is attested. 5.5 m is about 18 ft: two 8 ft storeys plus floor structure and a low sill course, the same reading and the same number this project gives the Sauganash, which is the other two-storey frame building it models. What is inferred is that the height falls in this range, not that it is exactly 5.5 m. It excludes the unfinished loft, which would add a knee wall of unknown height under the roof."
+        },
+        "roof_type": {
+          "value": "gable",
+          "confidence": "inferred",
+          "note": "Not attested. Gable is the near-universal roof form for frame buildings of this type, period and region, and a building with a habitable loft under the roof is gabled by type. Typological derivation, not a measurement."
+        },
+        "roof_pitch_deg": {
+          "value": 33.0,
+          "confidence": "inferred",
+          "note": "No pitch is attested for this building. 33 degrees is the frame_storefront archetype's own figure for a store, and it is adopted here rather than the 38 this project uses for taverns because the archetype argues the case from the dataset's one attested store footprint: a store's frontage is long and its plan shallow, so a tavern's pitch puts more roof above the eave than there is wall below it and the building stops reading as a shop. Inferred from construction practice and from the type, not measured."
+        },
+        "chimneys": {
+          "value": 1,
+          "confidence": "inferred",
+          "note": "Not attested, and nothing describes a stack on this building at all. One is the minimum for a store kept through Chicago winters with its owner living in it. The COUNT is the inference; where the stack stands, how big it is and what it is made of are the archetype's, which is the standing admission in docs/LIBERTIES.md L26."
+        },
+        "dock": {
+          "value": true,
+          "confidence": "reconstructed",
+          "geometry": "absent",
+          "sources": [],
+          "note": "RECONSTRUCTED, UNDER THE OWNER'S RULING OF 2026-08-18 — 'you can add more docks!', given with the general instruction to be liberal with reconstructed items and label them as such (T-0062; data/sources/assets/owner_brief_2026_08_18/README.md). NO SOURCE STATES A DOCK, WHARF OR LANDING AT THIS FRONTAGE — that absence is exactly why this value is reconstructed and not inferred, one tier below the two river warehouses whose dock is stated in the dossier. What bounds the invention: (1) THE TRADE — a licensed merchant's two-storey store at South Water and LaSalle stocking dry goods, hardware and groceries through 1834-35 — heavy stock that reached the town by water. (2) THE REACH — this building stands on the South Water river frontage between the forks and the Dearborn drawbridge, the working bank the 2026-08-18 brief shows crowded with masts (image 3) and the reach every schooner cargo landed on; a street of merchants whose whole stock came in by water did not work it over two landings. (3) THE PRACTICE — wharfing-out along the south bank is the practice T-0041's research note records as the thing that would move this layer off reconstruction, and the docks it drew are this landing's pattern. The landing itself is the wharf layer's standard form (data/wharves/river_landings.json, tools/generate_river_wharves.py), every dimension invented within the bounds L132 states; geometry 'simplified' is the exact claim — a standard-form landing stands for a statement this record cannot make from evidence. Claimed at docs/LIBERTIES.md L145. The Temple Building on the same frontage gets NO landing from the same rule: worship and a school take nothing off a schooner. STATED AND NOT YET DRAWN: the traced 1834 bank lines end at local E 390 and this frontage lies east of them, so tools/generate_river_wharves.py refuses the landing with that reason on the record (clause 4b) rather than standing a deck on an extrapolated endpoint. T-0106 owns extending the trace; when it reaches this reach the landing draws itself with no further authoring."
+        },
+        "siding_exposure_m": {
+          "value": 0.14,
+          "confidence": "reconstructed",
+          "note": "INVENTED WITHIN A STOCK SET, NOT DERIVED. No source states the exposed face of any Chicago building's siding. The value is one of four period mill sidings — 4.5, 5, 5.5 or 6 in to the weather; this record wears 5.5 in — dealt by tools/deal_siding_stock.py: keyed to the phase's construction season, because buildings sided from the same season's shipments of St Joseph sawn lumber tend toward one stock, then advanced so no frame building within 60 m shares this one's. The separation is the surface variety T-0049 reconstructs, not a claim about 1835. docs/LIBERTIES.md L148 owns the invention."
+        }
+      },
+      "change_note": "The two-storey frame store P. F. W. Peck kept at the south-west corner of South Water and LaSalle, and lived in: dry goods, hardware and groceries below, an unfinished loft above that served as lodging. It is the building this project models Peck at on 1835-07-01, because his two-storey dwelling at LaSalle and Washington belongs to an 1837 description and his brick house is 1837 — both already recorded in data/exclusions.json."
+    }
+  ],
+  "function": {
+    "value": "store_and_dwelling",
+    "confidence": "attested",
+    "sources": [
+      "andreas_1884_v1"
+    ],
+    "note": "Both halves are attested and they are attested separately. The store: Peck was a licensed merchant advertising dry goods, hardware and groceries through 1834-35. The dwelling: Andreas has Peck living at the store, and this project's exclusion of his 1837 brick house rests on exactly that reading. The loft over the two storeys was let for lodging at least once, to the Rev. Jeremiah Porter in May 1833."
+  },
+  "occupants": {
+    "value": "Philip F. W. Peck, merchant, and his household",
+    "confidence": "attested",
+    "sources": [
+      "andreas_1884_v1",
+      "chicago_democrat_1833_1835"
+    ],
+    "note": "Peck arrived at Chicago in July 1831 with a stock of goods in the schooner Telegraph and was among the town's first licensed merchants. He is attested keeping this store and living in it across 1833-35. No source reached names a clerk, a partner or a lodger at the scene date; the Porter lodging is May 1833 and is not carried forward as an 1835 occupancy. PECK'S OWN ADVERTISEMENTS ARE NOW READ, AND THEY ARE A CONTEMPORARY WITNESS WHERE THIS RECORD HAD ONLY A RECOLLECTION WRITTEN FIFTY YEARS LATER. He heads seven printings of the Chicago Democrat between 1833-12-03 and 1834-12-10 with his own name and his own corner: \"P. F. PECK, CORNER OF LA SALLE AND SOUTH WATER-STREETS, [has] now on hand, many of the staple ar[t]icles requisite to the exigenci[e]s of use and consumption … His stock comprises, Dry Goods, Hardware, [Groceries, Crockery,] BOOTS & SHOES, HATS\" (1833-12-03, page 3 column 4, claim chicago_democrat_1833_12_03#c010, dateline 'Chicago, De[c.] 3, 1833'), and again as \"P. F. [W.] PECK, CORNER OF LASALLE AND SOUTH-WATER STS. [H]AS just received from New-York, a full stock of fresh GOODS\" (1834-07-02, page 4 column 4, claim chicago_democrat_1834_07_02#c023). The initials run both ways across the file — 'P. F. PECK' and 'P. F. W. PECK' head the same standing card — and the gazetteer holds them as one man. WHAT THIS CHANGES AND WHAT IT DOES NOT. The trade and the corner were already attested here from Andreas and the grades do not move; what is new is that they are now attested TWICE, once by a contemporary who signed the line, and that the goods are itemised rather than summarised. Still nothing names a clerk, a partner or a lodger at the scene date, and none is supplied. THE READING IS TRANSCRIPTION-MEDIATED AND SAYS SO. Under the owner's ruling of 2026-08-28 a claim read through this project's OCR-assisted transcriptions rather than off the page scan grades `attested` in this schema's vocabulary while carrying its own flag: reading = transcription_mediated, with the transcription's own uncertainty brackets preserved inside the quotation rather than tidied away. Where a scan is later read, the scan is the authority and this claim upgrades under it — the standard data/sources/chicago_democrat_1833_11_26.json set when a scan caught 'C. & I. HARMON' where the transcription had 'C. & L. Harmon'."
+  },
+  "research_note": "THE ANCHOR OF THE SOUTH WATER STREET COMMERCIAL ROW, and the first store this dataset has ever held on the street that was the town's business street. Andreas gives three things plainly — a two-storey frame store, the south-west corner of South Water and LaSalle, and an unfinished loft over it used as lodging — and gives no dimension at all, which is why the footprint is invented inside the one documented constraint the street offers: 55 ft lots. THE LOFT IS THE PART OF THIS RECORD THAT IS DOCUMENTED AND NOT BUILT, and it is worth stating in full because a visitor cannot see it. Rev. Jeremiah Porter, arriving in May 1833 to found what became the First Presbyterian Church, lodged in the unfinished loft of this store; that is the kind of detail that makes a boom-town store legible, and the model shows a plain two-storey block with a roof over it and nothing of the loft. It is not stated as a form attribute because the frame_storefront archetype was being written in parallel with this record and no record should guess at a parameter vocabulary that does not exist yet — the moment that archetype lands with a loft parameter, this record should gain 'loft': {value: true, confidence: 'documented'} and lose this paragraph. See docs/RESEARCH/peck_store.md. DO NOT ADD PECK'S BRICK HOUSE TO THIS SCENE: it is 1837, it is the first brick house erected in Chicago, and it is already in data/exclusions.json.",
+  "review_required": false
+}

@@ -1,0 +1,1074 @@
+{
+  "schema": 1,
+  "_doc": "THE NEWSPAPERS' PLACE VOCABULARY, RESOLVED AGAINST THE COMMITTED TOWN (T-1048, of T-1047, of T-1040). Every DISTINCT `associated_places` string the newspapers gazetteer prints, resolved to `inside` the town, `outside` it, or `undecided` — and undecided is a real answer here, counted in `counts` and never folded into either neighbour.\n\nWHY PER STRING AND NOT PER PERSON. The printed string is what is being read. Two records that print the same words are the same reading and must not be resolved apart, so the ruling attaches to the words; `resolve_place_vocabulary.person_resolution()` is what carries a string's answer up to a man, and it is deliberately generous — one place inside the town makes the man inside it, whatever else his record holds.\n\nDERIVED FIRST, RULED ONLY WHERE DERIVATION CANNOT REACH. An entry carrying `derived` was resolved by `resolve_place_vocabulary.derive()` against the committed dataset alone — the bare town, `fronting_street.streets_named()`, a committed structure name or aka, or the town standing as the string's own comma qualifier — and is NOT hand-authored: `--check` re-derives every one of them and fails if the dataset has moved underneath it. An entry carrying `basis` is a RULING this project makes, under one of the boundaries below, with its reasoning in `note`. A derivation can only ever say `inside`: the committed dataset is the town, and it is silent about every place on earth it does not model, so 'Detroit' is not outside the town BECAUSE the dataset lacks it.\n\nNOTHING HERE REFUSES ANYBODY. T-1048 settles the vocabulary and changes no card. T-1049 is the ticket that spends it, and the reason this file exists first is that the naive test refuses `Fort Dearborn`, `Water Street`, `the Mansion House` and `the corner of Water and Franklin streets, Chicago` — all of them inside the town it is modelling.\n\nWHAT IT MOVES, and the whole of T-1048's argument. Of the 193 persons the naive test refuses, this resolution refuses 141. The other 52 are 27 it places INSIDE the town and 25 it will not decide — so a guard built on the naive test would have thrown about a fiftieth of the gazetteer's placed persons out of the town they lived in. All eight false positives T-1047's acceptance names resolve inside. `tools/resolve_place_vocabulary.py --report` restates every count in this file from the gazetteer and the committed town, and `counts` below is checked against it in the gate, so no number here can go stale without failing a commit.",
+  "ticket": "T-1048",
+  "generated_by": "hand-authored rulings (T-1048); `tools/resolve_place_vocabulary.py --write` recomputes the `derived` entries and `counts`, and `--check` holds the whole file to the gazetteer and to the committed town in the gate",
+  "not_a_reading": "an adjudication of readings this project already holds, not a fresh reading of a source. No entry here is evidence of anything; it says only what a place string this project has already read MEANS about the town.",
+  "counts_are": "measured, not asserted: `--check` recomputes every field of `counts` from the gazetteer and the rulings and fails the gate on any disagreement",
+  "boundaries": {
+    "B1": "DERIVED — the committed dataset resolves the string on its own (D1 bare town, D2 a committed 1835 street via `streets_named()`, D3 a committed structure name or aka, D4 the bare town standing as one of the string's comma segments). Carried as `derived`, never hand-authored, re-derived by `--check`.",
+    "B2": "OUTSIDE — a place beyond the platted town and the military reservation that does NOT contain them: another settlement, county, state, territory or nation, or a named natural feature lying outside. A reading that names only such places is not a Chicago appearance.",
+    "B3": "INSIDE, RULED — a place within the town the derivation cannot spell: the fort or one of its parts under a short name; a town institution, landmark or business premises the corpus names in prose; a street or corner named without the word 'street', or named ambiguously between two committed streets that are BOTH in the town.",
+    "B4": "UNDECIDED — the string does not decide the question, and this project will not guess it. Three kinds land here: a container that HOLDS the town (a county, a state, a nation, an army), which places a man neither in the town nor out of it; a place the scene does not commit and cannot locate ('Main Street'); and a survey adjacent to the town that this project commits none of (Kinzie's Addition, Wabansia — T-0789, T-0790).",
+    "B5": "A LIVE IDENTITY QUESTION DOES NOT MAKE A PLACE UNDECIDED. Which house 'Eagle Tavern' names is T-0391's question; that it stood in the town is not in doubt, and the location is ruled while the identity stays open. `tickets` names the ticket that owns the rest."
+  },
+  "places": [
+    {
+      "place": "A. Garrett's Auction Room",
+      "resolution": "inside",
+      "basis": "B3",
+      "what": "Augustus Garrett's auction room; he began selling in the town in 1835",
+      "note": "a Chicago auctioneer's own room, advertised in a Chicago paper. The project commits Bates's auction room and not Garrett's, which is a gap in the roofs and not a doubt about the town."
+    },
+    {
+      "place": "Albany",
+      "resolution": "outside",
+      "basis": "B2",
+      "what": "the New York state capital on the Hudson, the Erie Canal's eastern end",
+      "note": "outside the platted town and the reservation, and it does not contain them: a reading that names only this place is not a Chicago appearance"
+    },
+    {
+      "place": "Au Plaine river",
+      "resolution": "outside",
+      "basis": "B2",
+      "what": "the Aux Plaines, now the Des Plaines, running north and south about ten miles west of the town",
+      "note": "outside the platted town and the reservation, and it does not contain them: a reading that names only this place is not a Chicago appearance"
+    },
+    {
+      "place": "Ballston Spa",
+      "resolution": "outside",
+      "basis": "B2",
+      "what": "the Saratoga County spa village, New York",
+      "note": "outside the platted town and the reservation, and it does not contain them: a reading that names only this place is not a Chicago appearance"
+    },
+    {
+      "place": "Boston",
+      "resolution": "outside",
+      "basis": "B2",
+      "what": "the Massachusetts capital",
+      "note": "outside the platted town and the reservation, and it does not contain them: a reading that names only this place is not a Chicago appearance"
+    },
+    {
+      "place": "Boston, Mass.",
+      "resolution": "outside",
+      "basis": "B2",
+      "what": "the Massachusetts capital",
+      "note": "outside the platted town and the reservation, and it does not contain them: a reading that names only this place is not a Chicago appearance"
+    },
+    {
+      "place": "Brooklyn, N.Y.",
+      "resolution": "outside",
+      "basis": "B2",
+      "what": "the Kings County city across the East River from New York",
+      "note": "outside the platted town and the reservation, and it does not contain them: a reading that names only this place is not a Chicago appearance"
+    },
+    {
+      "place": "Buffalo",
+      "resolution": "outside",
+      "basis": "B2",
+      "what": "the Lake Erie port at the canal's western end, where most Chicago passages began",
+      "note": "outside the platted town and the reservation, and it does not contain them: a reading that names only this place is not a Chicago appearance"
+    },
+    {
+      "place": "Buffalo, N.Y.",
+      "resolution": "outside",
+      "basis": "B2",
+      "what": "the Lake Erie port at the Erie Canal's western end",
+      "note": "outside the platted town and the reservation, and it does not contain them: a reading that names only this place is not a Chicago appearance"
+    },
+    {
+      "place": "Canal Street",
+      "resolution": "inside",
+      "derived": {
+        "how": "street",
+        "matched": [
+          "canal"
+        ]
+      }
+    },
+    {
+      "place": "Castleton, Vt.",
+      "resolution": "outside",
+      "basis": "B2",
+      "what": "the Rutland County town, Vermont",
+      "note": "outside the platted town and the reservation, and it does not contain them: a reading that names only this place is not a Chicago appearance"
+    },
+    {
+      "place": "Chautauque County",
+      "resolution": "outside",
+      "basis": "B2",
+      "what": "the county at New York's south-western corner",
+      "note": "outside the platted town and the reservation, and it does not contain them: a reading that names only this place is not a Chicago appearance"
+    },
+    {
+      "place": "Chautauque County, N.Y.",
+      "resolution": "outside",
+      "basis": "B2",
+      "what": "the county at New York's south-western corner",
+      "note": "outside the platted town and the reservation, and it does not contain them: a reading that names only this place is not a Chicago appearance"
+    },
+    {
+      "place": "Chenango County",
+      "resolution": "outside",
+      "basis": "B2",
+      "what": "the central New York county",
+      "note": "outside the platted town and the reservation, and it does not contain them: a reading that names only this place is not a Chicago appearance"
+    },
+    {
+      "place": "Chicago",
+      "resolution": "inside",
+      "derived": {
+        "how": "bare_town",
+        "matched": []
+      }
+    },
+    {
+      "place": "Chicago River",
+      "resolution": "inside",
+      "basis": "B3",
+      "what": "the main stem, from the forks east to the lake",
+      "note": "the main stem runs wholly between the town's divisions and the reservation — it is the town's own water, which is why the plat is drawn around it. Note the asymmetry with 'the North Branch', which is ruled undecided: the branch leaves the town and the main stem cannot."
+    },
+    {
+      "place": "Chicago, Illinois",
+      "resolution": "inside",
+      "derived": {
+        "how": "town_qualifier",
+        "matched": []
+      }
+    },
+    {
+      "place": "Clark Street",
+      "resolution": "inside",
+      "derived": {
+        "how": "street",
+        "matched": [
+          "clark"
+        ]
+      }
+    },
+    {
+      "place": "Col. Hamilton's office",
+      "resolution": "inside",
+      "basis": "B3",
+      "what": "Richard J. Hamilton's office — Cook County clerk, recorder and probate judge",
+      "note": "the county's offices were kept in the town, and Hamilton held most of them at once. An office of the county named by its officer is in the county seat, which is this town."
+    },
+    {
+      "place": "Cook County",
+      "resolution": "undecided",
+      "basis": "B4",
+      "what": "the county the town sits in, organised 1831",
+      "note": "a container, not a location: Chicago IS in Cook County, so 'of Cook County' places a man neither in the town nor out of it. This is the ruling that matters most in this file by weight — the two spellings carry 24 readings between them — and reading it as `outside` would refuse residents of the town for naming the county it stands in."
+    },
+    {
+      "place": "Cook county",
+      "resolution": "undecided",
+      "basis": "B4",
+      "what": "the county the town sits in, as the notice spells it",
+      "note": "the same container as 'Cook County' and ruled with it; the spelling is the paper's, and a ruling attaches to the printed string, so both are resolved and neither is normalised away."
+    },
+    {
+      "place": "Courtland, Alabama",
+      "resolution": "outside",
+      "basis": "B2",
+      "what": "the Lawrence County town on the Tennessee River, Alabama",
+      "note": "outside the platted town and the reservation, and it does not contain them: a reading that names only this place is not a Chicago appearance"
+    },
+    {
+      "place": "Dearborn Street",
+      "resolution": "inside",
+      "derived": {
+        "how": "street",
+        "matched": [
+          "dearborn"
+        ]
+      }
+    },
+    {
+      "place": "Detroit",
+      "resolution": "outside",
+      "basis": "B2",
+      "what": "the Michigan Territory capital, the lake route's eastern terminus",
+      "note": "outside the platted town and the reservation, and it does not contain them: a reading that names only this place is not a Chicago appearance"
+    },
+    {
+      "place": "Du Page river",
+      "resolution": "outside",
+      "basis": "B2",
+      "what": "the DuPage River, west of the town in what became DuPage and Will counties",
+      "note": "outside the platted town and the reservation, and it does not contain them: a reading that names only this place is not a Chicago appearance"
+    },
+    {
+      "place": "Dupage Settlement",
+      "resolution": "outside",
+      "basis": "B2",
+      "what": "the farming settlements on the DuPage River, west of the town",
+      "note": "outside the platted town and the reservation, and it does not contain them: a reading that names only this place is not a Chicago appearance"
+    },
+    {
+      "place": "Dutchess County",
+      "resolution": "outside",
+      "basis": "B2",
+      "what": "the Hudson valley county, New York",
+      "note": "outside the platted town and the reservation, and it does not contain them: a reading that names only this place is not a Chicago appearance"
+    },
+    {
+      "place": "Eagle Precinct, Lasalle county",
+      "resolution": "outside",
+      "basis": "B2",
+      "what": "a precinct of LaSalle County, about 75 miles south-west",
+      "note": "outside the platted town and the reservation, and it does not contain them: a reading that names only this place is not a Chicago appearance"
+    },
+    {
+      "place": "Eagle Tavern",
+      "resolution": "inside",
+      "basis": "B5",
+      "what": "a public house of the town; which one is open",
+      "note": "the location is not in doubt and the identity is: the Sauganash carries 'Eagle Exchange Tavern' as an aka, and whether the papers' Eagle Tavern and Eagle Hotel are one house is T-0391's question. B5 — a live identity ticket does not make a place undecided.",
+      "tickets": [
+        "T-0391"
+      ]
+    },
+    {
+      "place": "Erie County, New York",
+      "resolution": "outside",
+      "basis": "B2",
+      "what": "the county holding Buffalo, western New York",
+      "note": "outside the platted town and the reservation, and it does not contain them: a reading that names only this place is not a Chicago appearance"
+    },
+    {
+      "place": "Erie, Pa.",
+      "resolution": "outside",
+      "basis": "B2",
+      "what": "the Lake Erie port in north-western Pennsylvania",
+      "note": "outside the platted town and the reservation, and it does not contain them: a reading that names only this place is not a Chicago appearance"
+    },
+    {
+      "place": "Flag Creek",
+      "resolution": "outside",
+      "basis": "B2",
+      "what": "the creek and its farms in what is now Lyons and Hinsdale, south-west in Cook County",
+      "note": "outside the platted town and the reservation, and it does not contain them: a reading that names only this place is not a Chicago appearance"
+    },
+    {
+      "place": "Fort Dearborn",
+      "resolution": "inside",
+      "basis": "B3",
+      "what": "the second fort of 1816, on the reservation at the river's mouth",
+      "note": "the fort is committed as twenty structures under the `fort_dearborn_` prefix, and its enclosure carries the whole-fort aka; the derivation misses the bare name only because no single record is called exactly 'Fort Dearborn'. 13 readings, the largest single miss in the naive test, and the fort is the most unambiguously in-town place in the scene.",
+      "structures": [
+        "fort_dearborn_palisade"
+      ]
+    },
+    {
+      "place": "Franklin Street",
+      "resolution": "inside",
+      "derived": {
+        "how": "street",
+        "matched": [
+          "franklin"
+        ]
+      }
+    },
+    {
+      "place": "Franklin and South Water streets",
+      "resolution": "inside",
+      "derived": {
+        "how": "street",
+        "matched": [
+          "franklin",
+          "south_water"
+        ]
+      }
+    },
+    {
+      "place": "Galena, Illinois",
+      "resolution": "outside",
+      "basis": "B2",
+      "what": "the lead-region town on the Fever River, in the state's north-west corner",
+      "note": "outside the platted town and the reservation, and it does not contain them: a reading that names only this place is not a Chicago appearance"
+    },
+    {
+      "place": "Genesee County",
+      "resolution": "outside",
+      "basis": "B2",
+      "what": "the western New York county",
+      "note": "outside the platted town and the reservation, and it does not contain them: a reading that names only this place is not a Chicago appearance"
+    },
+    {
+      "place": "Geneva, New York",
+      "resolution": "outside",
+      "basis": "B2",
+      "what": "the Ontario County town at the foot of Seneca Lake",
+      "note": "outside the platted town and the reservation, and it does not contain them: a reading that names only this place is not a Chicago appearance"
+    },
+    {
+      "place": "Golconda",
+      "resolution": "outside",
+      "basis": "B2",
+      "what": "the Pope County seat on the Ohio River, far southern Illinois",
+      "note": "outside the platted town and the reservation, and it does not contain them: a reading that names only this place is not a Chicago appearance"
+    },
+    {
+      "place": "Green Bay",
+      "resolution": "outside",
+      "basis": "B2",
+      "what": "the Wisconsin settlement and fort at the head of the bay, then Michigan Territory",
+      "note": "outside the platted town and the reservation, and it does not contain them: a reading that names only this place is not a Chicago appearance"
+    },
+    {
+      "place": "Hardscrabble",
+      "resolution": "outside",
+      "basis": "B2",
+      "what": "the settlement at the South Branch portage, later Bridgeport, about four miles up river from the forks",
+      "note": "outside the platted town and the reservation, and it does not contain them: a reading that names only this place is not a Chicago appearance"
+    },
+    {
+      "place": "Hennepin",
+      "resolution": "outside",
+      "basis": "B2",
+      "what": "the Putnam County seat on the Illinois River, laid out 1831, about 100 miles south-west of the town",
+      "note": "outside the platted town and the reservation, and it does not contain them: a reading that names only this place is not a Chicago appearance"
+    },
+    {
+      "place": "Huntington",
+      "resolution": "outside",
+      "basis": "B2",
+      "what": "the Suffolk County town on Long Island, New York",
+      "note": "outside the platted town and the reservation, and it does not contain them: a reading that names only this place is not a Chicago appearance"
+    },
+    {
+      "place": "J. H. Kinzie's new store",
+      "resolution": "inside",
+      "basis": "B3",
+      "what": "John H. Kinzie's store, the 'new' one distinguishing it from the older building",
+      "note": "committed; 'new' is what the derivation cannot absorb, and the adjective moves no building out of the town.",
+      "structures": [
+        "jh_kinzie_forwarding_store"
+      ]
+    },
+    {
+      "place": "Jefferson, Ohio",
+      "resolution": "outside",
+      "basis": "B2",
+      "what": "the Ashtabula County seat, north-eastern Ohio",
+      "note": "outside the platted town and the reservation, and it does not contain them: a reading that names only this place is not a Chicago appearance"
+    },
+    {
+      "place": "Juliet",
+      "resolution": "outside",
+      "basis": "B2",
+      "what": "the 1834-40 spelling of Joliet, on the Des Plaines about 35 miles south-west",
+      "note": "outside the platted town and the reservation, and it does not contain them: a reading that names only this place is not a Chicago appearance"
+    },
+    {
+      "place": "Kinzie's Addition",
+      "resolution": "undecided",
+      "basis": "B4",
+      "what": "the survey north of the river, subdivided 1833, immediately adjacent to the town",
+      "note": "part of the settlement and none of the committed town — and that second half is no longer true. This note used to read 'T-0789 is the open ticket to draw it, and until it lands there is nothing here to resolve against'; T-1060 committed the Addition's streets and T-0789 is closed. Ruled undecided rather than outside for the reason that has NOT expired: a man in Kinzie's Addition was in Chicago by every contemporary reading and refusing him would be the error this vocabulary exists to prevent. The ruling is the owner's to move, and it costs nothing to move — the two people who name this place, John H. Kinzie and Mr Rezigue, are both already `inside` on `Chicago`, so no person's bucket changes either way. T-1087 carries the question with the counts.",
+      "tickets": [
+        "T-1087"
+      ]
+    },
+    {
+      "place": "La Salle Street",
+      "resolution": "inside",
+      "derived": {
+        "how": "street",
+        "matched": [
+          "lasalle"
+        ]
+      }
+    },
+    {
+      "place": "LaSalle Street",
+      "resolution": "inside",
+      "derived": {
+        "how": "street",
+        "matched": [
+          "lasalle"
+        ]
+      }
+    },
+    {
+      "place": "Lake Street",
+      "resolution": "inside",
+      "derived": {
+        "how": "street",
+        "matched": [
+          "lake"
+        ]
+      }
+    },
+    {
+      "place": "Lasalle Street",
+      "resolution": "inside",
+      "derived": {
+        "how": "street",
+        "matched": [
+          "lasalle"
+        ]
+      }
+    },
+    {
+      "place": "Liverpool, England",
+      "resolution": "outside",
+      "basis": "B2",
+      "what": "the Mersey port, the usual British passage west",
+      "note": "outside the platted town and the reservation, and it does not contain them: a reading that names only this place is not a Chicago appearance"
+    },
+    {
+      "place": "Mackinac",
+      "resolution": "outside",
+      "basis": "B2",
+      "what": "the island, fort and fur depot in the straits, about 350 miles north",
+      "note": "outside the platted town and the reservation, and it does not contain them: a reading that names only this place is not a Chicago appearance"
+    },
+    {
+      "place": "Madison, New York",
+      "resolution": "outside",
+      "basis": "B2",
+      "what": "the Madison County town, central New York",
+      "note": "outside the platted town and the reservation, and it does not contain them: a reading that names only this place is not a Chicago appearance"
+    },
+    {
+      "place": "Main Street",
+      "resolution": "undecided",
+      "basis": "B4",
+      "what": "a street name this scene does not commit",
+      "note": "the platted town has no Main Street — data/streets/1835.json commits none, and `streets_named()` correctly resolves it to nothing. It is most likely the main street of another settlement the same notice names, but the string does not say which, so it cannot be placed either in the town or out of it."
+    },
+    {
+      "place": "Market Street",
+      "resolution": "inside",
+      "derived": {
+        "how": "street",
+        "matched": [
+          "market"
+        ]
+      }
+    },
+    {
+      "place": "Meadville, Pa.",
+      "resolution": "outside",
+      "basis": "B2",
+      "what": "the Crawford County seat, north-western Pennsylvania",
+      "note": "outside the platted town and the reservation, and it does not contain them: a reading that names only this place is not a Chicago appearance"
+    },
+    {
+      "place": "Michigan City",
+      "resolution": "outside",
+      "basis": "B2",
+      "what": "the Indiana port at the mouth of Trail Creek, about 55 miles east round the lake",
+      "note": "outside the platted town and the reservation, and it does not contain them: a reading that names only this place is not a Chicago appearance"
+    },
+    {
+      "place": "Milwaukee",
+      "resolution": "outside",
+      "basis": "B2",
+      "what": "the settlement about 85 miles north along the lake shore",
+      "note": "outside the platted town and the reservation, and it does not contain them: a reading that names only this place is not a Chicago appearance"
+    },
+    {
+      "place": "Monroe County",
+      "resolution": "outside",
+      "basis": "B2",
+      "what": "the New York county holding Rochester",
+      "note": "outside the platted town and the reservation, and it does not contain them: a reading that names only this place is not a Chicago appearance"
+    },
+    {
+      "place": "Monroe Street",
+      "resolution": "inside",
+      "derived": {
+        "how": "street",
+        "matched": [
+          "monroe"
+        ]
+      }
+    },
+    {
+      "place": "Mouth of the St. Joseph",
+      "resolution": "outside",
+      "basis": "B2",
+      "what": "the harbour at the St. Joseph River's mouth, Michigan",
+      "note": "outside the platted town and the reservation, and it does not contain them: a reading that names only this place is not a Chicago appearance"
+    },
+    {
+      "place": "Mr. Holbrook's store",
+      "resolution": "inside",
+      "basis": "B3",
+      "what": "John Holbrook's clothing store, South Water Street",
+      "note": "committed, and the courtesy title is the whole of the miss.",
+      "structures": [
+        "john_holbrook_store"
+      ]
+    },
+    {
+      "place": "Munroe County",
+      "resolution": "outside",
+      "basis": "B2",
+      "what": "Monroe County, New York, as the notice spells it",
+      "note": "outside the platted town and the reservation, and it does not contain them: a reading that names only this place is not a Chicago appearance"
+    },
+    {
+      "place": "Naper's Settlement",
+      "resolution": "outside",
+      "basis": "B2",
+      "what": "Naperville, on the DuPage about 28 miles west",
+      "note": "outside the platted town and the reservation, and it does not contain them: a reading that names only this place is not a Chicago appearance"
+    },
+    {
+      "place": "New Jersey",
+      "resolution": "outside",
+      "basis": "B2",
+      "what": "the state",
+      "note": "outside the platted town and the reservation, and it does not contain them: a reading that names only this place is not a Chicago appearance"
+    },
+    {
+      "place": "New York",
+      "resolution": "outside",
+      "basis": "B2",
+      "what": "the state, or the city at its mouth; the string does not say which, and neither is the town",
+      "note": "outside the platted town and the reservation, and it does not contain them: a reading that names only this place is not a Chicago appearance"
+    },
+    {
+      "place": "North Water Street",
+      "resolution": "inside",
+      "derived": {
+        "how": "street",
+        "matched": [
+          "north_water"
+        ]
+      }
+    },
+    {
+      "place": "Ontario County",
+      "resolution": "outside",
+      "basis": "B2",
+      "what": "the Finger Lakes county, New York",
+      "note": "outside the platted town and the reservation, and it does not contain them: a reading that names only this place is not a Chicago appearance"
+    },
+    {
+      "place": "Orange County",
+      "resolution": "outside",
+      "basis": "B2",
+      "what": "the lower Hudson valley county, New York",
+      "note": "outside the platted town and the reservation, and it does not contain them: a reading that names only this place is not a Chicago appearance"
+    },
+    {
+      "place": "Ottawa",
+      "resolution": "outside",
+      "basis": "B2",
+      "what": "the LaSalle County seat at the Fox and Illinois confluence, about 75 miles south-west",
+      "note": "outside the platted town and the reservation, and it does not contain them: a reading that names only this place is not a Chicago appearance"
+    },
+    {
+      "place": "P. Cohen's store",
+      "resolution": "inside",
+      "basis": "B3",
+      "what": "a store premises kept by P. Cohen in the town",
+      "note": "a Chicago store advertised in a Chicago paper; no roof is committed under the name, which is again a question for the placed mint and not for this file."
+    },
+    {
+      "place": "Peekskill",
+      "resolution": "outside",
+      "basis": "B2",
+      "what": "the Westchester County village on the Hudson, New York",
+      "note": "outside the platted town and the reservation, and it does not contain them: a reading that names only this place is not a Chicago appearance"
+    },
+    {
+      "place": "Pennsylvania",
+      "resolution": "outside",
+      "basis": "B2",
+      "what": "the state",
+      "note": "outside the platted town and the reservation, and it does not contain them: a reading that names only this place is not a Chicago appearance"
+    },
+    {
+      "place": "Phelps, Ontario",
+      "resolution": "outside",
+      "basis": "B2",
+      "what": "the town of Phelps, Ontario County, New York",
+      "note": "outside the platted town and the reservation, and it does not contain them: a reading that names only this place is not a Chicago appearance"
+    },
+    {
+      "place": "Phelps, Ontario County",
+      "resolution": "outside",
+      "basis": "B2",
+      "what": "the town of Phelps, Ontario County, New York",
+      "note": "outside the platted town and the reservation, and it does not contain them: a reading that names only this place is not a Chicago appearance"
+    },
+    {
+      "place": "Philadelphia",
+      "resolution": "outside",
+      "basis": "B2",
+      "what": "the Pennsylvania city on the Delaware",
+      "note": "outside the platted town and the reservation, and it does not contain them: a reading that names only this place is not a Chicago appearance"
+    },
+    {
+      "place": "Plainfield",
+      "resolution": "outside",
+      "basis": "B2",
+      "what": "the Will County settlement on the DuPage, about 35 miles south-west",
+      "note": "outside the platted town and the reservation, and it does not contain them: a reading that names only this place is not a Chicago appearance"
+    },
+    {
+      "place": "Plymouth, Mass.",
+      "resolution": "outside",
+      "basis": "B2",
+      "what": "the Plymouth County town on Massachusetts Bay",
+      "note": "outside the platted town and the reservation, and it does not contain them: a reading that names only this place is not a Chicago appearance"
+    },
+    {
+      "place": "Port Winnebago",
+      "resolution": "outside",
+      "basis": "B2",
+      "what": "Fort Winnebago and its landing at the Fox-Wisconsin portage",
+      "note": "outside the platted town and the reservation, and it does not contain them: a reading that names only this place is not a Chicago appearance"
+    },
+    {
+      "place": "Randolph Street",
+      "resolution": "inside",
+      "derived": {
+        "how": "street",
+        "matched": [
+          "randolph"
+        ]
+      }
+    },
+    {
+      "place": "Saratoga Springs",
+      "resolution": "outside",
+      "basis": "B2",
+      "what": "the Saratoga County spa town, New York",
+      "note": "outside the platted town and the reservation, and it does not contain them: a reading that names only this place is not a Chicago appearance"
+    },
+    {
+      "place": "South Water Street",
+      "resolution": "inside",
+      "derived": {
+        "how": "street",
+        "matched": [
+          "south_water"
+        ]
+      }
+    },
+    {
+      "place": "St. Joseph",
+      "resolution": "outside",
+      "basis": "B2",
+      "what": "the Michigan port and river on the lake's east shore, the usual steamboat call opposite Chicago",
+      "note": "outside the platted town and the reservation, and it does not contain them: a reading that names only this place is not a Chicago appearance"
+    },
+    {
+      "place": "St. Louis",
+      "resolution": "outside",
+      "basis": "B2",
+      "what": "the Mississippi river port, about 280 miles south-west",
+      "note": "outside the platted town and the reservation, and it does not contain them: a reading that names only this place is not a Chicago appearance"
+    },
+    {
+      "place": "Steuben County",
+      "resolution": "outside",
+      "basis": "B2",
+      "what": "the southern-tier New York county",
+      "note": "outside the platted town and the reservation, and it does not contain them: a reading that names only this place is not a Chicago appearance"
+    },
+    {
+      "place": "Syracuse",
+      "resolution": "outside",
+      "basis": "B2",
+      "what": "the Onondaga County canal town, New York",
+      "note": "outside the platted town and the reservation, and it does not contain them: a reading that names only this place is not a Chicago appearance"
+    },
+    {
+      "place": "United States",
+      "resolution": "undecided",
+      "basis": "B4",
+      "what": "the nation",
+      "note": "a container that holds the town. It distinguishes a citizen from an alien, or a federal office from a county one, and says nothing about the town."
+    },
+    {
+      "place": "United States Army",
+      "resolution": "undecided",
+      "basis": "B4",
+      "what": "the federal army, whose garrison held Fort Dearborn",
+      "note": "a container, and an ambiguous one: the army stood IN the town at the fort and also everywhere else it was posted. An officer 'of the United States Army' may be the garrison's or may be at Jefferson Barracks, and the string does not say."
+    },
+    {
+      "place": "Vandalia",
+      "resolution": "outside",
+      "basis": "B2",
+      "what": "the Illinois capital from 1819 to 1839, about 250 miles south",
+      "note": "outside the platted town and the reservation, and it does not contain them: a reading that names only this place is not a Chicago appearance"
+    },
+    {
+      "place": "Vermont",
+      "resolution": "outside",
+      "basis": "B2",
+      "what": "the New England state",
+      "note": "outside the platted town and the reservation, and it does not contain them: a reading that names only this place is not a Chicago appearance"
+    },
+    {
+      "place": "Vienna, Ontario County",
+      "resolution": "outside",
+      "basis": "B2",
+      "what": "the Ontario County settlement, New York, later renamed Phelps",
+      "note": "outside the platted town and the reservation, and it does not contain them: a reading that names only this place is not a Chicago appearance"
+    },
+    {
+      "place": "Wabansia",
+      "resolution": "undecided",
+      "basis": "B4",
+      "what": "the addition surveyed 1831 north of Kinzie Street, adjacent to the town",
+      "note": "the same case as Kinzie's Addition, and its stated reason has EXPIRED. This note used to read 'Undecided until the survey is drawn'; the survey is drawn — T-1070 seated Wabansia's seven streets and its block grid on the committed `kinzie` line, and T-1086 seated its river-front water lots and closed its tract outline, 78.63 acres of it, off the same datum. So the ground this vocabulary said it could not resolve against is committed, and the ruling is left standing anyway: `inside` or `outside` is a B-rule, the B-rules are the owner's, and moving a place off B4 changes what counts as a Chicago appearance. What the change would cost is now MEASURED rather than feared — ONE person in the whole register names Wabansia, `person_uncertain_doctor_kimberly` from the Democrat of 16 July 1834, and Wabansia is the only place the register has for him, so he is the entire re-scoring. T-1087 carries the question to the owner with the counts.",
+      "tickets": [
+        "T-1087"
+      ]
+    },
+    {
+      "place": "Water Street",
+      "resolution": "inside",
+      "basis": "B3",
+      "what": "the river-front street, committed twice — North Water and South Water",
+      "note": "BOTH are committed streets of this town, so the string is unambiguous about the town and ambiguous only about the bank. `streets_named()` refuses it deliberately, and that refusal is about FRONTAGE — which roof faces which line — not about whether a man was in Chicago. This file answers the second question and leaves the first refused.",
+      "streets": [
+        "north_water",
+        "south_water"
+      ]
+    },
+    {
+      "place": "Waterloo",
+      "resolution": "outside",
+      "basis": "B2",
+      "what": "the Seneca County village on the Cayuga-Seneca canal, New York",
+      "note": "outside the platted town and the reservation, and it does not contain them: a reading that names only this place is not a Chicago appearance"
+    },
+    {
+      "place": "Wayne County, Michigan Territory",
+      "resolution": "outside",
+      "basis": "B2",
+      "what": "the Michigan county holding Detroit",
+      "note": "outside the platted town and the reservation, and it does not contain them: a reading that names only this place is not a Chicago appearance"
+    },
+    {
+      "place": "Wells Street",
+      "resolution": "inside",
+      "derived": {
+        "how": "street",
+        "matched": [
+          "wells"
+        ]
+      }
+    },
+    {
+      "place": "Woodbridge",
+      "resolution": "outside",
+      "basis": "B2",
+      "what": "the Middlesex County township, New Jersey",
+      "note": "outside the platted town and the reservation, and it does not contain them: a reading that names only this place is not a Chicago appearance"
+    },
+    {
+      "place": "York, Livingston County",
+      "resolution": "outside",
+      "basis": "B2",
+      "what": "the town of York in Livingston County, New York",
+      "note": "outside the platted town and the reservation, and it does not contain them: a reading that names only this place is not a Chicago appearance"
+    },
+    {
+      "place": "a farm two miles from Chicago",
+      "resolution": "inside",
+      "basis": "B3",
+      "what": "a farm in the county, located by its distance from the town",
+      "note": "INSIDE, and the one ruling in this file that needs its reasoning read before it is believed. Two miles is beyond the plat, whose longest dimension is under a mile, so the FARM is not in the town. But this vocabulary is read to decide whether a reading is a Chicago appearance, and a man whose farm the paper locates by Chicago and by nothing else is a man of this town's own neighbourhood. T-1047's acceptance names this string among those a guard must not refuse, and that is the reading taken here."
+    },
+    {
+      "place": "his house in the Town of Chicago",
+      "resolution": "inside",
+      "basis": "B3",
+      "what": "a dwelling, located by the town in prose",
+      "note": "the string says the town in words. It fails D4 only because D4 wants a comma, and a rule narrow enough to refuse 'a farm two miles from Chicago' must also refuse this — which is why prose naming is ruled here rather than derived."
+    },
+    {
+      "place": "his store, opposite the Man Trap",
+      "resolution": "inside",
+      "basis": "B3",
+      "what": "a store premises across from the Man Trap",
+      "note": "the same corner read from the other side, and ruled with it.",
+      "structures": [
+        "robert_kinzie_store"
+      ]
+    },
+    {
+      "place": "mouth of the St. Joseph",
+      "resolution": "outside",
+      "basis": "B2",
+      "what": "the harbour at the St. Joseph River's mouth, Michigan",
+      "note": "outside the platted town and the reservation, and it does not contain them: a reading that names only this place is not a Chicago appearance"
+    },
+    {
+      "place": "opposite the Exchange",
+      "resolution": "inside",
+      "basis": "B3",
+      "what": "across from the Exchange Coffee House",
+      "note": "the Exchange is committed, on South Water Street; a place named as opposite it is in the town.",
+      "structures": [
+        "exchange_coffee_house"
+      ]
+    },
+    {
+      "place": "the Chicago Book Store",
+      "resolution": "inside",
+      "basis": "B3",
+      "what": "a book and stationery store in the town",
+      "note": "the trade name carries the town. The project commits no roof under this name — that is the placed mint's question, not this one — and a premises the paper advertises as Chicago's is in Chicago whether or not a roof has been drawn for it."
+    },
+    {
+      "place": "the Chicago post office",
+      "resolution": "inside",
+      "basis": "B3",
+      "what": "the town post office, kept from 1833",
+      "note": "a town institution. WHICH building held it in 1835 is not this file's question — the committed record carries the first office as an aka of Hogan's store and the office moved with its keeper — and the answer does not bear on whether the man was in the town.",
+      "structures": [
+        "hogan_store"
+      ]
+    },
+    {
+      "place": "the Door Prairie",
+      "resolution": "outside",
+      "basis": "B2",
+      "what": "Door Prairie in LaPorte County, Indiana, on the road east",
+      "note": "outside the platted town and the reservation, and it does not contain them: a reading that names only this place is not a Chicago appearance"
+    },
+    {
+      "place": "the Draw Bridge",
+      "resolution": "inside",
+      "basis": "B3",
+      "what": "the Dearborn Street drawbridge of 1834, the town's first",
+      "note": "committed, and carrying 'the draw-bridge' as an aka; the derivation misses it on the hyphen alone, which is exactly the kind of spelling this file exists to absorb rather than to smuggle into `norm_place()`.",
+      "structures": [
+        "dearborn_street_drawbridge"
+      ]
+    },
+    {
+      "place": "the Dupage",
+      "resolution": "outside",
+      "basis": "B2",
+      "what": "the DuPage River and its settlements, west of the town",
+      "note": "outside the platted town and the reservation, and it does not contain them: a reading that names only this place is not a Chicago appearance"
+    },
+    {
+      "place": "the East Branch of the Dupage",
+      "resolution": "outside",
+      "basis": "B2",
+      "what": "the DuPage's east branch, west of the town",
+      "note": "outside the platted town and the reservation, and it does not contain them: a reading that names only this place is not a Chicago appearance"
+    },
+    {
+      "place": "the Infant School House",
+      "resolution": "inside",
+      "basis": "B3",
+      "what": "Eliza Chappel's infant school, kept from 1833",
+      "note": "committed, with 'the infant school' among its akas; the derivation misses the string on 'House' alone.",
+      "structures": [
+        "chappel_infant_school"
+      ]
+    },
+    {
+      "place": "the Little Calumet",
+      "resolution": "outside",
+      "basis": "B2",
+      "what": "the Little Calumet River, south of the town near the Indiana line",
+      "note": "outside the platted town and the reservation, and it does not contain them: a reading that names only this place is not a Chicago appearance"
+    },
+    {
+      "place": "the Man Trap, opposite R. A. Kinzie's store",
+      "resolution": "inside",
+      "basis": "B3",
+      "what": "a grocery and drinking house on the river front",
+      "note": "located against R. A. Kinzie's store, which is committed, so the string places itself in the town twice over.",
+      "structures": [
+        "robert_kinzie_store"
+      ]
+    },
+    {
+      "place": "the Mansion House",
+      "resolution": "inside",
+      "derived": {
+        "how": "structure",
+        "matched": [
+          "mansion_house"
+        ]
+      }
+    },
+    {
+      "place": "the North Branch",
+      "resolution": "undecided",
+      "basis": "B4",
+      "what": "the Chicago River's north branch, running from the forks to the north",
+      "note": "the branch begins at the forks inside the town and runs out past Wabansia to Clybourne's place and the Skokie beyond. The string names no reach, and the two ends fall on opposite sides of this question, so it cannot be decided."
+    },
+    {
+      "place": "the Piers of the Chicago Harbor",
+      "resolution": "inside",
+      "basis": "B3",
+      "what": "the north and south piers of the harbour works begun 1833",
+      "note": "both piers are committed structures, at the river's mouth on the reservation. The plural names them together, which is why neither aka matches the string.",
+      "structures": [
+        "north_pier",
+        "south_pier"
+      ]
+    },
+    {
+      "place": "the Point",
+      "resolution": "inside",
+      "basis": "B3",
+      "what": "Wolf Point, the tongue of land at the forks",
+      "note": "the town's oldest inhabited corner and inside the plat; three committed structures stand on it. 'the Point' is what the papers call it when they have already said Wolf Point once.",
+      "structures": [
+        "james_kinzie_house",
+        "robinson_caldwell_cabins",
+        "wolf_point_tavern"
+      ]
+    },
+    {
+      "place": "the Post Office at Chicago",
+      "resolution": "inside",
+      "basis": "B3",
+      "what": "the same office, named with the town",
+      "note": "inside for the same reason as 'the Chicago post office'; the string fails the naive test only because 'at Chicago' is prose rather than a comma qualifier, which is the narrowness of D4 showing and not a real doubt.",
+      "structures": [
+        "hogan_store"
+      ]
+    },
+    {
+      "place": "the Public Square",
+      "resolution": "inside",
+      "basis": "B3",
+      "what": "the court-house square, Block 39 of the Thompson plat",
+      "note": "the block the 1835 court-house and the log gaol stand on, bounded by Randolph, Washington, Clark and LaSalle — inside the plat by construction, since the plat is what reserved it.",
+      "structures": [
+        "cook_county_courthouse_1835",
+        "log_jail"
+      ]
+    },
+    {
+      "place": "the Tremont House",
+      "resolution": "inside",
+      "derived": {
+        "how": "structure",
+        "matched": [
+          "tremont_house_1"
+        ]
+      }
+    },
+    {
+      "place": "the corner of Dearborn and Lake streets",
+      "resolution": "inside",
+      "derived": {
+        "how": "street",
+        "matched": [
+          "dearborn",
+          "lake"
+        ]
+      }
+    },
+    {
+      "place": "the corner of LaSalle and South Water streets",
+      "resolution": "inside",
+      "derived": {
+        "how": "street",
+        "matched": [
+          "lasalle",
+          "south_water"
+        ]
+      }
+    },
+    {
+      "place": "the corner of South Water and Clark streets",
+      "resolution": "inside",
+      "derived": {
+        "how": "street",
+        "matched": [
+          "south_water",
+          "clark"
+        ]
+      }
+    },
+    {
+      "place": "the corner of Water and Franklin streets, Chicago",
+      "resolution": "inside",
+      "derived": {
+        "how": "street",
+        "matched": [
+          "franklin"
+        ]
+      }
+    },
+    {
+      "place": "the east end of South Water Street",
+      "resolution": "inside",
+      "derived": {
+        "how": "street",
+        "matched": [
+          "south_water"
+        ]
+      }
+    },
+    {
+      "place": "the market square, Chicago",
+      "resolution": "inside",
+      "derived": {
+        "how": "town_qualifier",
+        "matched": []
+      }
+    },
+    {
+      "place": "the north branch of the Chicago river",
+      "resolution": "undecided",
+      "basis": "B4",
+      "what": "the same watercourse, named in full",
+      "note": "undecided for the same reason as 'the North Branch', and ruled with it: the reach is what would decide it and the string does not give one."
+    },
+    {
+      "place": "the store adjoining the Post Office",
+      "resolution": "inside",
+      "basis": "B3",
+      "what": "a store premises beside the town post office",
+      "note": "located by a town institution and by nothing else, so it is in the town. Which store it is would be an identity question and this file does not need one to answer the place.",
+      "structures": [
+        "hogan_store"
+      ]
+    }
+  ],
+  "counts": {
+    "persons": 2685,
+    "persons_with_a_place": 1285,
+    "distinct_places": 128,
+    "readings": 1395,
+    "strings": {
+      "inside": 48,
+      "outside": 71,
+      "undecided": 9
+    },
+    "readings_by_bucket": {
+      "inside": 1215,
+      "outside": 147,
+      "undecided": 33
+    },
+    "persons_by_bucket": {
+      "inside": 1119,
+      "outside": 141,
+      "undecided": 25
+    },
+    "persons_without_a_place": 1400,
+    "strings_by_basis": {
+      "bare_town": 1,
+      "street": 20,
+      "structure": 2,
+      "town_qualifier": 2,
+      "ruled": 103
+    }
+  }
+}

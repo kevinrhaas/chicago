@@ -1,0 +1,1002 @@
+{
+  "schema": 1,
+  "issue_id": "chicago_democrat_1834_12_03",
+  "extracted": "2026-08-29",
+  "extracted_by": "hand, T-0294 — the Democrat read, December 1834",
+  "note": "Vol. II No. 1, the first number of Volume II. THE BEST-TRANSCRIBED ISSUE OF THE MONTH for the town's own matter: page 3 column 4 and page 4 columns 1-2 are the Tesseract fallback and, unusually for this corpus, the fallback is the LEGIBLE reading here — one physical column per segmenter column, full sentences — while the Vision-set columns of page 3 alternate two physical columns line by line. Every claim below says which it is. The month's principal town documents stand in this issue: the fire ordinance of 3 November 1834 in its third and clearest printing, the Democrat's own imprint naming the building it is printed in, and John H. Kinzie's 90-by-45-foot floor in Kinzie's Addition. NO POST-OFFICE LETTER LIST OF ANY OFFICE STANDS IN THIS ISSUE. AMENDED BY T-0328 on 2026-08-29: D. Weaver's standing advertisement for the building on North Water street stands in this issue and was not claimed. It is c025, and it reads LOT 2 — one of the four printings of five that do.",
+  "claims": [
+    {
+      "id": "c001",
+      "kind": "infrastructure",
+      "reading": "transcription_mediated",
+      "quote": "Town Ordinance. 4\nAt & meoting of the President and Trustees J\nof the Town of Chicago, held at “the\nExchange,’ in said town, on the 3d day of| _\nNovember A. D. 1234:-The following Ordinance\nwas adopted, to wit:\nAn Ordinance for the further prevention of\nFires. —Whereas, it has been represented by y\nsundry citizens, house-holders and owners off li\nproperty in the town of Chicago, that great\ndanger of destruction to their property and to) 7\nthat of the eommunity at large exists, by moans| §\nofa practice too generally indulged, via: that] >\nof carrying fire trom one-house to another with. | la\nout care or caution, and whereas, tho President\n| and Trustecs of the Town of Chicago, have | ~\nbeen called upon vy their fellow citizens, to adopt\nmeasures for the prevention of the said practice]\nin faturo, Therotore\nBe it and it hereby is Ordained by the President (\nand Trustecs of the wen of Chicago, ‘That here- | ~\nafter it shall not be lawful for auy person or\n| persons to carry or convey firo brands or coals} @\nlof fire from one house or building to anot er\nwithin the limits of the corporation, unless the | 7\nsame be carried or conveyed in a covered earth- | 7\norn of fire proof yeascl. Any person offending\nagainat the provisions of this ordinance shall be f\nliable tos fine of Five Dollars for each and every\noffence to be recovered in complaint before any\n! Justice of the peace in like soanner as other Gres | |\nart by law recovorablg,\n\"This Ordinance to take effect and be in force\nfrom and after tho 12th day of Nov. A, D, 1834. |”\nINO, H. KINZIE,\nPres't. Bd. Trostecs of the Tawn of Chicago.\nee Attom—E. W. Casey, Clerk Prom. at",
+      "normalized": "Town Ordinance. At a meeting of the President and Trustees of the Town of Chicago, held at “the Exchange,” in said town, on the 3d day of November A. D. 183[4]: — The following Ordinance was adopted, to wit: An Ordinance for the further prevention of Fires. — Whereas, it has been represented by sundry citizens, house-holders and owners of property in the town of Chicago, that great danger of destruction to their property and to that of the community at large exists, by means of a practice too generally indulged, viz: that of carrying fire from one house to another without care or caution, and whereas, the President and Trustees of the Town of Chicago, have been called upon by their fellow citizens, to adopt measures for the prevention of the said practice in future, Therefore Be it and it hereby is Ordained by the President and Trustees of the [To]wn of Chicago, That hereafter it shall not be lawful for any person or persons to carry or convey fire brands or coals of fire from one house or building to another within the limits of the corporation, unless the same be carried or conveyed in a covered earthen or fire proof vessel. Any person offending against the provisions of this ordinance shall be liable to a fine of Five Dollars for each and every offence to be recovered in complaint before any Justice of the peace in like manner as other f[i]nes are by law recoverable. This Ordinance to take effect and be in force from and after the 12th day of Nov. A. D. 1834. JNO. H. KINZIE, Pres't. Bd. Trustees of the Town of Chicago. Attest — E. W. Casey, Clerk P[ro] t[em].",
+      "locator": {
+        "artifact_role": "primary",
+        "issue_page": 3,
+        "column": 4,
+        "lines": [
+          3347,
+          3383
+        ]
+      },
+      "entities": [
+        {
+          "as_printed": "INO, H. KINZIE,",
+          "normalized": "John H. Kinzie",
+          "role": "official",
+          "occupations": [
+            "President of the Board of Trustees of the Town of Chicago"
+          ]
+        },
+        {
+          "as_printed": "E. W. Casey,",
+          "normalized": "Edward W. Casey",
+          "role": "official",
+          "occupations": [
+            "Clerk pro tem. of the Board of Trustees"
+          ]
+        }
+      ],
+      "notes": "THE FIRE ORDINANCE OF 3 NOVEMBER 1834 IN ITS THIRD AND CLEAREST PRINTING. T-0293 claimed it from 1834-11-05 (c001) and again from 1834-11-12 (c001); this printing is kept beside them because it is the only one of the three that survives WHOLE — the five-dollar penalty clause, the recovery clause, the 12 November date of effect and both signatures all stand at name level here, and the two November transcriptions lose parts of each. No name is minted twice: John H. Kinzie and E. W. Casey are already in the gazetteer from the November printings, and this claim adds only the reading. THE PLACE IS THE POINT for a reconstruction: the Trustees met at “the Exchange” on 3 November, having met at the Tremont House on 29 September and 13 October (T-0292, 1834-10-01 c004 and 1834-10-29 c001) and at the Presbyterian church before that (1834-10-01 c001) — four meeting places for one board inside ten weeks, and every one of them a building this model has to stand somewhere."
+    },
+    {
+      "id": "c002",
+      "kind": "business",
+      "reading": "transcription_mediated",
+      "quote": "NEW Goops, x\nPETER CONEN, se\nWe beg feave to inform his old eus-\ntomers, and the public generally, that} |\nhe has just received by brig Indiana, and offers\nfor asle on the most reasonable toris, a large,\nconsplete and splendid assortment of ]\nDry Goods, Groceries, & |\"\nCLOTHING, v\nwell suited to this section of the country. All\nkinks of Liquors, at wholesnis and soln: He] ~\nrespeetfully requests the to call and ex-\nanton for themselves, at fin hore next door be- ]\nlow Mesars. Newborry and Dole's store house,\non south water street. bi\nCeeage; Noes, IES er89: ‘",
+      "normalized": "NEW GOODS. PETER COHEN, [w]ould beg leave to inform his old customers, and the public generally, that he has just received by brig Indiana, and offers for sale on the most reasonable ter[m]s, a large, complete and splendid assortment of Dry Goods, Groceries, & CLOTHING, well suited to this section of the country. All kin[d]s of Liquors, at wholesale and [retail]. He respectfully requests the [public] to call and examine for themselves, at [h]is [st]ore next door below Messrs. Newberry and Dole's store house, on south water street. C[hi]ca[g]o, Nov. 3, 1834. — 49.",
+      "locator": {
+        "artifact_role": "primary",
+        "issue_page": 3,
+        "column": 4,
+        "lines": [
+          3331,
+          3346
+        ]
+      },
+      "entities": [
+        {
+          "as_printed": "PETER CONEN,",
+          "normalized": "Peter Cohen",
+          "role": "proprietor",
+          "occupations": [
+            "merchant"
+          ]
+        }
+      ],
+      "notes": "COHEN'S STORE IS PLACED OFF NEWBERRY AND DOLE'S, AND THAT MATTERS TWICE OVER. It is a documented South Water Street frontage in its own right, and it is the anchor another documented storefront hangs on: L. W. Montgomery's boot and shoe shop advertises itself “next [door to Co]hen's Store” on page 4 of this same issue (c018), which T-0313 read as an unattributed “boot and shoe shop next door to P. Cohen's store” in April. So three frontages stand in a row on South Water street — Newberry & Dole's store house, Cohen next door below it, Montgomery next door to Cohen — and the row is documented, not arranged. “below” is the paper's own word and is left unresolved: it is not stated whether below means east or west along the street.",
+      "ad_copy_date": {
+        "verbatim": "Ceeage; Noes, IES er89:",
+        "iso": "1834-11-03"
+      },
+      "business": {
+        "name": "Peter Cohen",
+        "proprietors": [
+          "Peter Cohen"
+        ],
+        "trade": "dry goods, groceries and clothing",
+        "goods": [
+          "dry goods",
+          "groceries",
+          "clothing",
+          "liquors"
+        ],
+        "street": "South Water street",
+        "placement": {
+          "class": "relative",
+          "anchor": "Messrs. Newberry and Dole's store house",
+          "offset_text": "low Mesars. Newborry and Dole's store house,"
+        }
+      }
+    },
+    {
+      "id": "c003",
+      "kind": "building",
+      "reading": "transcription_mediated",
+      "quote": "For Sale, Ri\n4 he valuable LOT with the Building there | 8\non, formerly accupied as the office of the L\nDemocrat and W. Kimball, on tho cornor. of | 5!\nSouth Water and Clark streets. Possession |\ngiven on the first of June next. For torms ap-| 8\nply at this office. Noy. 5. 1834. 45 £",
+      "normalized": "For Sale, [T]he valuable LOT with the Building thereon, formerly occupied as the office of the Democrat and W. Kimball, on the corner of South Water and Clark streets. Possession given on the first of June next. For terms apply at this office. Nov. 5, 1834. 4[9]",
+      "locator": {
+        "artifact_role": "primary",
+        "issue_page": 3,
+        "column": 4,
+        "lines": [
+          3323,
+          3329
+        ]
+      },
+      "entities": [
+        {
+          "as_printed": "W. Kimball",
+          "normalized": "W. Kimball",
+          "role": "former occupant"
+        }
+      ],
+      "notes": "THE DEMOCRAT'S OWN OLD OFFICE, ON A CORNER, AND FOR SALE. The paper's imprint on page 4 of this issue (c022) says it is printed “in the building [at the] corner of South Water and Clark st[reets]” — the SAME corner this advertisement is selling with the building on it, and it is offered with possession on 1 June 1835, one month before the scene date. Two readings fit and this claim does not choose between them: the paper had moved off the corner already and is selling the lot it left, or it is on the corner still and selling out from under itself with a June handover. What is documented either way is a BUILDING on the corner lot of South Water and Clark, occupied in turn by the Democrat and by W. Kimball — an occupancy chain of exactly the kind the epic asks for.",
+      "ad_copy_date": {
+        "verbatim": "ply at this office. Noy. 5. 1834. 45",
+        "iso": "1834-11-05"
+      }
+    },
+    {
+      "id": "c004",
+      "kind": "business",
+      "reading": "transcription_mediated",
+      "quote": "RUISAL & CLUPR,\n[uncertain: ? to inform the citizens of Ch jicago]\nB neighboring villages, that their stock or\n_ Books & Stationary\nis received, which compri 4\nshape tra eo\nlogical and Medical Books, from Boston, New-\nYork and Philadelphia, many of them just pub-\nished and in elegant binding: Almanachs for\n1835; various descriptions of wriling, lester, | op,\nand other Paper, from the best manufactures; a| jy\"\nvarity of new Tracts; also, receipt, note, let- Hi\nter and day books; Maynard & Noyes’ superior\nbiack and red’ Ink and ink Powders: together! &\nwith steal pensand.ensea, quills, poncila; silver, |\nplain and embossed Pencil Cases; pen and pac| Ui\nsapere ‘Tooth and other Brushes, and fan-|\nAlso, a gord assortment of fashionable b\nand nap 1A TS; gentlemen's buck perigee\neuperfine silk and bombazine Stocks, &c.\n_figents for Morison's Vegetable Pills.",
+      "normalized": "[RUSSELL & CLIFT], […] to inform the citizens of Chicago [and the] neighboring villages, that their stock of Books & Stationary is received, which compri[ses ... Miscellaneous, School, Classical,] Theological and Medical Books, from Boston, New-York and Philadelphia, many of them just published and in elegant binding: Almanachs for 1835; various descriptions of writing, letter, and other Paper, from the best manufactures; a var[ie]ty of new Tracts; also, receipt, note, letter and day books; Maynard & Noyes' superior black and red Ink and ink Powders: together with steel pens and [cas]es, quills, pencils; silver, plain and embossed Pencil Cases; pen and pa[per ... ] Tooth and other Brushes, and fan[cy … ] Also, a good assortment of fashionable b[eaver] and nap HATS; gentlemen's buck [skin Gloves;] superfine silk and bombazine Stocks, &c. Agents for Morison's Vegetable Pills.",
+      "locator": {
+        "artifact_role": "primary",
+        "issue_page": 3,
+        "column": 4,
+        "lines": [
+          3287,
+          3307
+        ],
+        "interleaved": true
+      },
+      "entities": [],
+      "notes": "THE FIRM IS RUSSELL & CLIFT, READ OFF ITS OWN OTHER ADVERTISEMENTS RATHER THAN OFF THIS HEADING (T-0327). No printing of THIS advertisement recovers the display line: it sets as “RUISAL & CLUPR,” here (page 3 column 4), as “WVISMA S GLIBR,” on 1834-11-12 (page 3 column 2) and as “D s g By A ueitis and.” on 1834-11-19 (page 3 column 4); on 1834-11-26 (page 3 column 4) and 1834-12-10 (page 3 column 4) the heading is gone above “…inform the citizens of Chicago and”, and 1834-12-17 (page 3 column 3) and 1834-12-24 (page 3 column 4) both open at “[B]ooks & Stationary”. The name comes instead from a DIFFERENT advertisement of the same house standing in the same paper — the copartnership notice dated “Chicago, Aug. 26, 1834”, “A COPARTNERSHIP having been entered into between Aaron Russell, of Boston, and [—] Clift, from Philadelphia”, opening a store adjoining P. Carpenter's drug establishment in Water-street. It runs from 1834-08-27 to 1834-11-12 and is signed legibly in four printings: 1834-09-17 page 3 column 5 “RUSSELL & CLIFT.”, 1834-10-29 page 3 column 4 “WUSSELL & CLIFT.”, 1834-11-05 page 3 column 5 “RUSSELL & CLIFT,” and 1834-11-12 page 3 column 4 “RUSBELL & CLIFT,”. The firm's own 1835 card in the Chicago American reads “Chicago Book and Stationary STORE. [R]USSELL & CLIFT” (1835-06-08) and carries this advertisement's own unusual mix — books, stationery, hats and a patent-medicine agency. No second bookseller-and-stationer appears in the Democrat between 1834-08-27 and 1834-12-24; the other November–December occurrences of “Stationary” (1834-11-19 page 4 column 3, 1834-12-24 page 3 column 3) are general merchants listing it among dry goods. The reading is therefore a SUPPLY, marked “[RUSSELL & CLIFT]” in `normalized`, and `quote` keeps the type as it stands. The partner's forename is not settled and is not asserted here: the copartnership notice reads “Hon). 1. Clift” on 1834-09-03, “nj. H. Clif” on 1834-09-24 and “HE Clint” on 1834-11-12, which is why the gazetteer carries both “Benj. Clift” and “[H. H.] Clift” against one man (filed as T-0337). This advertisement names no proprietor at all, so it mints none. “beg leave”, supplied unbracketed by the earlier reading over the transcriber's own “?”, is returned to “[…]” in the same pass: a gap is not an invitation. WHAT IS DOCUMENTED regardless: a Chicago bookshop stocked out of Boston, New-York and Philadelphia, selling almanacs for 1835 beside hats, stocks and cast-steel axes. THE AXES ARE NOT THIS FIRM'S (T-0339). Lines 3308-3310 used to sit inside this claim; they are a separate advertisement, signed “Jones § King” under a rule at 1834-11-12 lines 2555-2557 and “donee & King” at 1834-12-24 line 3560, and the dateline Nov. 5, 1834 is theirs too. They are extracted as c024.",
+      "business": {
+        "name": "Russell & Clift",
+        "proprietors": [],
+        "trade": "booksellers and stationers",
+        "goods": [
+          "books",
+          "stationery",
+          "paper",
+          "ink",
+          "pens",
+          "hats",
+          "stocks",
+          "Morison's Vegetable Pills"
+        ],
+        "street": null,
+        "placement": {
+          "class": "none",
+          "anchor": null,
+          "offset_text": null
+        }
+      }
+    },
+    {
+      "id": "c005",
+      "kind": "business",
+      "reading": "transcription_mediated",
+      "quote": "\"Ko Tailors. w\n4 Wy or threo Journeymen Tailors will find | Oj\nemployment and good prices, by applying | Di\nee 8. LINCOLS.\n_Chicago, Nor, 4, 1834,—49,",
+      "normalized": "To Tailors. [T]wo or three Journeymen Tailors will find employment and good prices, by applying [to] S. LINCOLN. Chicago, Nov. 4, 1834. — 49.",
+      "locator": {
+        "artifact_role": "primary",
+        "issue_page": 3,
+        "column": 4,
+        "lines": [
+          3311,
+          3315
+        ]
+      },
+      "entities": [
+        {
+          "as_printed": "S. LINCOLS.",
+          "normalized": "S. Lincoln",
+          "role": "proprietor",
+          "occupations": [
+            "tailor"
+          ]
+        }
+      ],
+      "notes": "A THIRD TAILOR HIRING IN THE SAME MONTH. Andrews & Eells advertise one door north of the Tremont House (c016) and a fourth, unnamed “Fashionable Tailoring” notice runs on 1834-12-10 page 3 column 2 wanting competent journeymen; Lincoln wants two or three more. The trade is hiring faster than the paper can name shops, which is the shape of a town growing. No address is printed: applicants are told to apply “as above”, and above is the heading, so the placement is honestly none.",
+      "ad_copy_date": {
+        "verbatim": "_Chicago, Nor, 4, 1834,—49.",
+        "iso": "1834-11-04"
+      },
+      "business": {
+        "name": "S. Lincoln",
+        "proprietors": [
+          "S. Lincoln"
+        ],
+        "trade": "tailoring",
+        "goods": [],
+        "street": null,
+        "placement": {
+          "class": "none",
+          "anchor": null,
+          "offset_text": null
+        }
+      }
+    },
+    {
+      "id": "c006",
+      "kind": "business",
+      "reading": "transcription_mediated",
+      "quote": "LOT of Stone Ware, just received and for\nA nale, by JNO, 8. WILSON & CO. {1",
+      "normalized": "[A] LOT of Stone Ware, just received and for sale, by JNO. S. WILSON & CO.",
+      "locator": {
+        "artifact_role": "primary",
+        "issue_page": 3,
+        "column": 4,
+        "lines": [
+          3384,
+          3385
+        ]
+      },
+      "entities": [
+        {
+          "as_printed": "JNO, 8. WILSON & CO.",
+          "normalized": "Jno. S. Wilson & Co.",
+          "role": "advertiser",
+          "occupations": [
+            "merchant"
+          ]
+        }
+      ],
+      "notes": "Two lines, no address, and it is recorded because of T-0304: the gazetteer merges PERSONS by a declared rule and has no equivalent for FIRMS, so “Jno. S. Wilson & Co.” and any “J. Wilson & Co.” elsewhere in the corpus compile as two businesses. This claim is one of the pair that ticket will have to reconcile, and it is left uncorrected here rather than merged by hand.",
+      "business": {
+        "name": "Jno. S. Wilson & Co.",
+        "proprietors": [
+          "Jno. S. Wilson & Co."
+        ],
+        "trade": "merchant",
+        "goods": [
+          "stone ware"
+        ],
+        "street": null,
+        "placement": {
+          "class": "none",
+          "anchor": null,
+          "offset_text": null
+        }
+      }
+    },
+    {
+      "id": "c007",
+      "kind": "business",
+      "reading": "transcription_mediated",
+      "quote": "et 0 MA a Dare\ny by 9 and 8 by 10, Window Sash and Blinds,\nat sizes, at 4 cents, ,\nOct, 2, LESS. ONES & KING.",
+      "normalized": "[Glass, 8] by 9 and 8 by 10, Window Sash and Blinds, [of all] sizes, at 4 cents. Oct. 2, 18[34]. [J]ONES & KING.",
+      "locator": {
+        "artifact_role": "primary",
+        "issue_page": 3,
+        "column": 4,
+        "lines": [
+          3386,
+          3389
+        ]
+      },
+      "entities": [
+        {
+          "as_printed": "ONES & KING.",
+          "normalized": "Jones & King",
+          "role": "advertiser",
+          "occupations": [
+            "merchant"
+          ]
+        }
+      ],
+      "notes": "WINDOW SASH, BLINDS AND GLASS IN TWO SIZES, PRICED. This is a materials claim before it is a trade one: 8-by-9 and 8-by-10 lights at four cents are what the town's window openings were actually glazed with in 1834, and a sash-and-blind stock says the frame houses being raised were being finished, not merely closed in. The street comes from this issue's other Jones & King matter and from the Lyceum's book-drop notice of 1834-12-24 (c045), which puts their office on south water street; the advertisement itself prints no address, so the placement stays none.",
+      "ad_copy_date": {
+        "verbatim": "Oct, 2, LESS. ONES & KING.",
+        "iso": "1834-10-02"
+      },
+      "business": {
+        "name": "Jones & King",
+        "proprietors": [
+          "Jones & King"
+        ],
+        "trade": "hardware and building materials",
+        "goods": [
+          "window glass",
+          "window sash",
+          "blinds",
+          "iron ploughs",
+          "sole leather",
+          "boots",
+          "shoes",
+          "rifles",
+          "iron scrapers"
+        ],
+        "street": "South Water street",
+        "placement": {
+          "class": "none",
+          "anchor": null,
+          "offset_text": null
+        }
+      }
+    },
+    {
+      "id": "c008",
+      "kind": "notice",
+      "reading": "transcription_mediated",
+      "quote": "Caution. 1\nAt persons are cautioned not to cut oF)\ndraw away any wood or timber from the ||\nnorth half of section No. 4. Jewnablp 39, north |\n4 enst, It; the Jaw.\n[range Hest under penalty PEARSONS.\n| _ Oct, 29, 1834. ee palate f",
+      "normalized": "Caution. A[ll] persons are cautioned not to cut or draw away any wood or timber from the north half of section No. 4, [to]wnship 39, north [range] 1[4] east, under penalty [of] the law. [H.] PEARSONS. Oct. 29, 1834.",
+      "locator": {
+        "artifact_role": "primary",
+        "issue_page": 3,
+        "column": 4,
+        "lines": [
+          3390,
+          3396
+        ]
+      },
+      "entities": [
+        {
+          "as_printed": "PEARSONS.",
+          "normalized": "H. Pearsons",
+          "role": "advertiser"
+        }
+      ],
+      "notes": "TIMBER IS BEING TAKEN OFF PRIVATE SECTIONS AND THE OWNERS ARE PRINTING WARNINGS. The north half of section 4, township 39 north, is north of the town across the river; the range digit is cut and read as 14 from the section's position, and it is bracketed. Read beside Pearsons' own lots-for-sale notices in this issue (c012) it says what the standing timber near Chicago was worth by the winter of 1834 — worth advertising a penalty over.",
+      "ad_copy_date": {
+        "verbatim": "| _ Oct, 29, 1834. ee palate f",
+        "iso": "1834-10-29"
+      }
+    },
+    {
+      "id": "c009",
+      "kind": "notice",
+      "reading": "transcription_mediated",
+      "quote": "$20 Reavard.\n'TOLEN from the subscriber at the town ot\nSs Chicago, on the 28th inst. & black Horse,\n115 hands high, 8 years old, witha star in the)\n| forhead, with two spots on each side of the\n‘head where he has been burnt for the big bead, |,\n| fore fect shod, and a fresh mark on the night\nigh oceasioned by rubbing, with a long tail. |\n| thigh yy rubbing\nWhen takers he had a saddle and bridle on which\nwas taken with him.. Tho above reward will\nbe paid for the horse and thief or ON for the}.\nre roperenn lant at hs Saige\n; riber at Funk's Gro\nne ‘ABSOLQM FUNK.\n,] October 20, 1834.48",
+      "normalized": "$20 Reward. [S]TOLEN from the subscriber at the town of Chicago, on the 28th inst. a black Horse, 1[4]½ hands high, 8 years old, with a star in the fore[he]ad, with two spots on each side of the head where he has been burnt for the big head, fore feet shod, and a fresh mark on the [r]ight thigh occasioned by rubbing, with a long tail. When taken he had a saddle and bridle on which was taken with him. The above reward will be paid for the horse and thief or [$10] for the [horse alone …] at [the] subscriber at Funk's Gro[ve]. ABSOLOM FUNK. October 29, 1834. — 48.",
+      "locator": {
+        "artifact_role": "primary",
+        "issue_page": 3,
+        "column": 4,
+        "lines": [
+          3397,
+          3412
+        ]
+      },
+      "entities": [
+        {
+          "as_printed": "'ABSOLQM FUNK.",
+          "normalized": "Absolom Funk",
+          "role": "advertiser"
+        }
+      ],
+      "notes": "A HORSE STOLEN IN THE TOWN ITSELF, described down to the burn scars for the big head. Funk's Grove is a day's ride south and the notice runs in Chicago because Chicago is where the animal went; the same pattern as the Clybourn stray notices T-0293 read in November. The dateline is printed “October 20” and the body says “the 28th inst.”, which cannot both stand; the number 48 is the issue-number counter, and the reading taken is 29 October, matching the caution set beside it and the four-week run. The day is bracketed nowhere in the quote because the quote is verbatim — the judgement is here.",
+      "ad_copy_date": {
+        "verbatim": ",] October 20, 1834.48",
+        "iso": "1834-10-29"
+      }
+    },
+    {
+      "id": "c010",
+      "kind": "notice",
+      "reading": "transcription_mediated",
+      "quote": "Caution. *\n: ww: would e@ution all persons againat pur- |\n. chasing two notes ageinst us in favor of|\n*| Clark & Williaina, of White Pigeon, M. T. as\n| there is an unsettied secount on the contrast for\n| shiek they xem greasy we aro eae\nto pay the until it be settled,\naoe ey ne DAVID CARVER, & CO.\nOctober 22, 1834,—47.",
+      "normalized": "Caution. W[e] would caution all persons against purchasing two notes against us in favor of Clark & Willia[m]s, of White Pigeon, M. T. as there is an unsettled account on the contract for which they [were given], and we are [not holden] to pay them until it be settled. DAVID CARVER, & CO. October 22, 1834. — 47.",
+      "locator": {
+        "artifact_role": "primary",
+        "issue_page": 3,
+        "column": 4,
+        "lines": [
+          3413,
+          3421
+        ]
+      },
+      "entities": [
+        {
+          "as_printed": "DAVID CARVER, & CO.",
+          "normalized": "David Carver & Co.",
+          "role": "advertiser",
+          "occupations": [
+            "auction and commission merchant"
+          ]
+        },
+        {
+          "as_printed": "Clark & Williaina,",
+          "normalized": "Clark & Williams",
+          "role": "creditor"
+        }
+      ],
+      "notes": "CHICAGO'S CREDIT REACHES WHITE PIGEON, MICHIGAN TERRITORY, AND IT IS IN DISPUTE. Carver is the South Water Street auction and commission merchant of c019 in this issue; the notes are trade paper on a contract, and the caution is the 1834 way of stopping them circulating. White Pigeon is the town this paper names oftenest outside Illinois, which is why T-0293 refused to supply it into Mrs. Sherman's “White” — see c021 below, where the December printing settles that question.",
+      "ad_copy_date": {
+        "verbatim": "October 22, 1834,—47.",
+        "iso": "1834-10-22"
+      }
+    },
+    {
+      "id": "c011",
+      "kind": "business",
+      "reading": "transcription_mediated",
+      "quote": "EPWARD W. CASEY, lee\nATTORNEY & COUNSELLOR AT LAW, |~\npreice adjoining that of tho Clerk of the\nCircuit Court, 23 J",
+      "normalized": "EDWARD W. CASEY, ATTORNEY & COUNSELLOR AT LAW. O[f]fice adjoining that of the Clerk of the Circuit Court.",
+      "locator": {
+        "artifact_role": "primary",
+        "issue_page": 3,
+        "column": 5,
+        "lines": [
+          3519,
+          3522
+        ]
+      },
+      "entities": [
+        {
+          "as_printed": "EPWARD W. CASEY,",
+          "normalized": "Edward W. Casey",
+          "role": "proprietor",
+          "occupations": [
+            "attorney and counsellor at law"
+          ]
+        }
+      ],
+      "notes": "THE SAME MAN WHO ATTESTS THE FIRE ORDINANCE AS CLERK PRO TEM. IN c001 OF THIS ISSUE. The placement is unchanged from the printing T-0293 read at 1834-11-12 c009 and is repeated here because it is one of the few in the corpus anchored on a PUBLIC office rather than a shop: the Clerk of the Circuit Court's room, which the gazetteer already records as opposite Fort Dearborn. Casey therefore sits in the civic block, not the mercantile one.",
+      "business": {
+        "name": "Edward W. Casey",
+        "proprietors": [
+          "Edward W. Casey"
+        ],
+        "trade": "attorney and counsellor at law",
+        "goods": [],
+        "street": null,
+        "placement": {
+          "class": "relative",
+          "anchor": "the office of the Clerk of the Circuit Court",
+          "offset_text": "preice adjoining that of tho Clerk of the"
+        }
+      }
+    },
+    {
+      "id": "c012",
+      "kind": "business",
+      "reading": "transcription_mediated",
+      "quote": "ANTED immedeately two or three Indian\nWwW Jewelry Manufacturers, to whom I will\n[uncertain: ive as good, if not better wagos than can be got ?]\n4 any Hace in the eet h of\n| H. MU.FORD, | {n\nSept. 17, VU. SNe fat",
+      "normalized": "[W]ANTED imme[di]ately two or three Indian Jewelry Manufacturers, to whom I will [g]ive as good, if not better wages than can be got [at] any [p]lace in the [Wes]t. [J.] H. MU[L]FORD. Sept. 17, 18[34].",
+      "locator": {
+        "artifact_role": "primary",
+        "issue_page": 3,
+        "column": 5,
+        "lines": [
+          3526,
+          3531
+        ],
+        "interleaved": true
+      },
+      "entities": [
+        {
+          "as_printed": "H. MU.FORD,",
+          "normalized": "J. H. Mulford",
+          "role": "proprietor",
+          "occupations": [
+            "watchmaker and jeweller"
+          ]
+        }
+      ],
+      "notes": "A CHICAGO JEWELLER HIRING SILVERSMITHS TO MAKE INDIAN TRADE SILVER, AT ABOVE THE GOING RATE, IN SEPTEMBER 1834. Mulford's own long advertisement on page 4 column 2 of this issue closes with “Indian silver work manufactured [at the short]est notice”, so the want and the workshop are the same business; this is a manufacturing claim, not a retail one, and it says the trade with the Potawatomi was still being supplied out of the town in the autumn before the removal. The initials are read as J. H. from the page 4 signature; the want prints only “H. MULFORD”.",
+      "ad_copy_date": {
+        "verbatim": "Sept. 17, VU. SNe fat",
+        "iso": "1834-09-17"
+      },
+      "business": {
+        "name": "J. H. Mulford",
+        "proprietors": [
+          "J. H. Mulford"
+        ],
+        "trade": "watches, clocks, jewelry, silver ware and fancy articles",
+        "goods": [
+          "watches",
+          "clocks",
+          "jewelry",
+          "silver ware",
+          "music boxes",
+          "spectacles"
+        ],
+        "street": null,
+        "placement": {
+          "class": "none",
+          "anchor": null,
+          "offset_text": null
+        }
+      }
+    },
+    {
+      "id": "c013",
+      "kind": "business",
+      "reading": "transcription_mediated",
+      "quote": "Bacon! Bacon!!\nLARGE quantity of Prime cured Bacon,\nto be sold for G cents per Ib. at Mr, Ho-\ngau's Store, Bept. 10, 1034. 4l",
+      "normalized": "Bacon! Bacon!! [A] LARGE quantity of Prime cured Bacon, to be sold for 6 cents per lb. at Mr. Ho[g]an's Store. Sept. 10, 1834. 41",
+      "locator": {
+        "artifact_role": "primary",
+        "issue_page": 3,
+        "column": 5,
+        "lines": [
+          3540,
+          3543
+        ]
+      },
+      "entities": [
+        {
+          "as_printed": "Ho-\ngau's",
+          "normalized": "J. S. C. Hogan",
+          "role": "proprietor",
+          "occupations": [
+            "merchant",
+            "postmaster"
+          ]
+        }
+      ],
+      "notes": "A PRICE, AND THE POSTMASTER'S SHOP. Six cents a pound for prime cured bacon is one of the few unit prices the month prints. The placement does not come from this claim — it comes from Hogan's own standing advertisement, read at 1834-12-17 c035, which offers wholesale and retail “in South Water Street [at] the Post Office”. J. S. C. Hogan is the postmaster whose signature every Chicago letter list in this corpus carries, so his store and the post office are one address, and that is a placement the reconstruction can use.",
+      "ad_copy_date": {
+        "verbatim": "gau's Store, Bept. 10, 1034. 4l",
+        "iso": "1834-09-10"
+      },
+      "business": {
+        "name": "J. S. C. Hogan",
+        "proprietors": [
+          "J. S. C. Hogan"
+        ],
+        "trade": "wholesale and retail dry goods, groceries, hardware and crockery",
+        "goods": [
+          "bacon",
+          "dry goods",
+          "groceries",
+          "hardware",
+          "crockery",
+          "sole leather",
+          "nails"
+        ],
+        "street": "South Water street",
+        "placement": {
+          "class": "relative",
+          "anchor": "the Post Office",
+          "offset_text": "the Post Ofice"
+        }
+      }
+    },
+    {
+      "id": "c014",
+      "kind": "notice",
+      "reading": "transcription_mediated",
+      "quote": "Pocket Book Found. |\nN Indian founda Pocket Book containing},\nA sundry notes and other papers, anda Deed\ndated Nov. 1, 1831, cagcut by Hiram A. I\nAdama and Elizabeth his wife, to Jacob Enor, b\nfor alot of Military Lands in Minois. | The)?\nowner can have the same by paying for thie ad-\nvortisement and 60 cents peid the Indian.\nApply at this office, d\net, 20, 1834,",
+      "normalized": "Pocket Book Found. [A]n Indian found a Pocket Book containing sundry notes and other papers, and a Deed dated Nov. 1, 1831, [exec]u[t]ed by Hiram A. Adams and Elizabeth his wife, to Jacob Enor, for a lot of Military Lands in Illinois. The owner can have the same by paying for this advertisement and 50 cents [pa]id the Indian. Apply at this office. [O]ct. 20, 1834.",
+      "locator": {
+        "artifact_role": "primary",
+        "issue_page": 3,
+        "column": 5,
+        "lines": [
+          3550,
+          3559
+        ]
+      },
+      "entities": [
+        {
+          "as_printed": "Hiram A. I\nAdama",
+          "normalized": "Hiram A. Adams",
+          "role": "grantor"
+        },
+        {
+          "as_printed": "Elizabeth his wife",
+          "normalized": "Elizabeth Adams",
+          "role": "grantor"
+        },
+        {
+          "as_printed": "Jacob Enor,",
+          "normalized": "Jacob Enor",
+          "role": "grantee"
+        }
+      ],
+      "notes": "THE PAPER PAYS THE FINDER AND NAMES HIM ONLY AS “an Indian”. The reward is fifty cents and the cost of the advertisement, and the notice is recorded here for what it says about the town rather than about the deed: in the autumn of 1834 the Democrat's office is the lost-property counter, and an unnamed Potawatomi is a party to a transaction printed in it. The figure is read as 50 where the transcription has “60”, from the price the same column prints for other small services; the reading is stated, not laundered. The three names in the deed are minted as people of record though none of them need have been in Chicago.",
+      "ad_copy_date": {
+        "verbatim": "et, 20, 1834,",
+        "iso": "1834-10-20"
+      }
+    },
+    {
+      "id": "c015",
+      "kind": "building",
+      "reading": "transcription_mediated",
+      "quote": "To Rent, -\nLARGE and handsome-\nA ly Bailes Flor of 90 By j\n45 feet, inc! ig. Senn\nme suitable fa: aad 9 above re\nae ee ereteomek park of Chicago, (in| §\n“Kinzie's Addition” to this. town,) and by tar] p\nthe best finished rooms in the Lome For terma) 4]\napply to JOHN H. KINZIE,\nBe 1, 1834. ee e",
+      "normalized": "To Rent, [A] LARGE and handsome[ly] fi[nished] Floor of 90 by 45 feet, inc[lud]ing [rooms …] suitable for [a … in the … ] part of Chicago, (in “Kinzie's Addition” to this town,) and by far the best finished rooms in the [town]. For terms apply to JOHN H. KINZIE. [Dec.] 1, 1834.",
+      "locator": {
+        "artifact_role": "primary",
+        "issue_page": 3,
+        "column": 5,
+        "lines": [
+          3560,
+          3569
+        ],
+        "interleaved": true
+      },
+      "entities": [
+        {
+          "as_printed": "JOHN H. KINZIE,",
+          "normalized": "John H. Kinzie",
+          "role": "advertiser"
+        }
+      ],
+      "notes": "A NINETY-BY-FORTY-FIVE-FOOT FLOOR IN KINZIE'S ADDITION, AND THE OWNER SAYS IT IS THE BEST FINISHED IN THE TOWN. Dimensions in feet are the rarest thing this corpus gives a reconstruction and this is the largest interior the month names: 4,050 square feet on one floor, north of the river, advertised on 1 December 1834. The gazetteer already carries “J. H. Kinzie's New Building” as the anchor of Henry Moore's law office, and this is very likely the same structure seen from the landlord's side — but the advertisement does not say so, and the two are not merged here. The word before “part of Chicago” is cut away with the column edge; “north” fits the Addition and is NOT supplied, because Kinzie's Addition is itself the north side and the sentence does not need the word to be read.",
+      "ad_copy_date": {
+        "verbatim": "Be 1, 1834. ee e",
+        "iso": "1834-12-01"
+      }
+    },
+    {
+      "id": "c016",
+      "kind": "building",
+      "reading": "transcription_mediated",
+      "quote": "'lE nuberibere respectfully inform the cit-\narriage & Sleigh Making.\nizena of Chieago and ita vicinity, that\ng. for a shop, on Randoiph street, and are\ny have erected a large and commodious buil-\npared to execute all ordere in the Carriage\nd Sleigh making business, on the most ros-\nI REPAIRING done on short notice.\nnable terms.\nBRIGGS & HUMPHREY.\nAngrat 13, 1834.",
+      "normalized": "[C]arriage & Sleigh Making. [T]he [su]bscribers respectfully inform the citizens of Chicago and its vicinity, that [the]y have erected a large and commodious buil[din]g for a shop, on Randolph street, and are [pre]pared to execute all orders in the Carriage and Sleigh making business, on the most rea[so]nable terms. [ALL] REPAIRING done on short notice. BRIGGS & HUMPHREY. Aug[u]st 13, 1834.",
+      "locator": {
+        "artifact_role": "primary",
+        "issue_page": 3,
+        "column": 6,
+        "lines": [
+          3576,
+          3586
+        ],
+        "interleaved": true
+      },
+      "entities": [
+        {
+          "as_printed": "BRIGGS & HUMPHREY.",
+          "normalized": "Briggs & Humphrey",
+          "role": "proprietor",
+          "occupations": [
+            "carriage and sleigh maker"
+          ]
+        }
+      ],
+      "notes": "A BUILDING RAISED IN 1834 AND THE ADVERTISEMENT SAYS SO IN THE PAST TENSE — “have erected a large and commodious building for a shop, on Randolph street”. The gazetteer carries Briggs & Humphrey with street_only and no structure; this claim is the evidence that there IS a structure, that it is purpose-built for a shop, that it went up before 13 August 1834, and that it was large enough for the trade — a carriage shop needs a door a vehicle fits through and floor to turn one in. The street is documented; where on Randolph is not, and is not guessed.",
+      "ad_copy_date": {
+        "verbatim": "Angrat 13, 1834.",
+        "iso": "1834-08-13"
+      },
+      "business": {
+        "name": "Briggs & Humphrey",
+        "proprietors": [
+          "Briggs & Humphrey"
+        ],
+        "trade": "carriage and sleigh making",
+        "goods": [
+          "carriages",
+          "sleighs"
+        ],
+        "street": "Randolph street",
+        "placement": {
+          "class": "street_only",
+          "anchor": null,
+          "offset_text": "for a shop, on Randoiph street,",
+          "offset_normalized": "for a shop, on Rando[l]ph street",
+          "street": "Randolph Street"
+        }
+      }
+    },
+    {
+      "id": "c017",
+      "kind": "business",
+      "reading": "transcription_mediated",
+      "quote": "Fashionable Tailoring.\n*HE subseriber begs leave to inform the cit-\nizens of Chicago and ife vicinity, that\nita various branches, oue door north of Tre-\ny nave commenced the Tailoring businens in\nent House. Having had an experimental\nowledge in the beat establishments in the art,\npe by a striet attention to their business to\ntter themacives to be inferior to none, and\nrit a share of publie patronage.\nChicago, Oct. 22, 1634.\nANDREWS & EELLB.",
+      "normalized": "Fashionable Tailoring. [T]HE subscriber[s] beg[] leave to inform the cit[izens of] Chicago and it[s] vicinity, that [the]y have commenced the Tailoring business in [i]ts various branches, one door north of Tre[m]ont House. Having had an experimental [kn]owledge in the best establishments in the art, [they ho]pe by a strict attention to their business to [fla]tter themselves to be inferior to none, and [me]rit a share of public patronage. Chicago, Oct. 22, 183[4]. ANDREWS & EELL[S].",
+      "locator": {
+        "artifact_role": "primary",
+        "issue_page": 3,
+        "column": 6,
+        "lines": [
+          3598,
+          3609
+        ],
+        "interleaved": true
+      },
+      "entities": [
+        {
+          "as_printed": "ANDREWS & EELLB.",
+          "normalized": "Andrews & Eells",
+          "role": "proprietor",
+          "occupations": [
+            "tailor"
+          ]
+        }
+      ],
+      "notes": "ONE DOOR NORTH OF THE TREMONT HOUSE, AND THE SEGMENTER HAS PUT THE SENTENCE'S HALVES IN THE WRONG ORDER. The physical column is cut at its left edge and the lines arrive interleaved with their own continuations, so “its various branches, one door north of Tre-” stands ABOVE “they have commenced the Tailoring business in”; unshuffled by sense in `normalized`, kept as printed in `quote`. The offset text is quoted from the line that carries it. This corroborates the placement already in the gazetteer from an earlier printing and adds nothing to it except a second witness — which is what a standing advertisement read in a second month is for.",
+      "ad_copy_date": {
+        "verbatim": "Chicago, Oct. 22, 1634.",
+        "iso": "1834-10-22"
+      },
+      "business": {
+        "name": "Andrews & Eells",
+        "proprietors": [
+          "Andrews & Eells"
+        ],
+        "trade": "fashionable tailoring",
+        "goods": [
+          "ready made clothing"
+        ],
+        "street": null,
+        "placement": {
+          "class": "relative",
+          "anchor": "the Tremont House",
+          "offset_text": "ita various branches, oue door north of Tre-"
+        }
+      }
+    },
+    {
+      "id": "c018",
+      "kind": "notice",
+      "reading": "transcription_mediated",
+      "quote": "840 Reward.\nSTOLEN last Saturday night from the stable\nicago, a bright bay Horse, seventeen hande\nof the subscriber living one mile south of\ngh, well made, black main and tail both heavy?\nWaite on his lege recollected, a very noted\nout 10 inches down his left shoulder, remark-\nark on his weathers occasioned by the Fistols\nly high carriged, • firet rate racker and\na soldier, a deserter from Furt Dearborn.\ntter. Said hose is suppored to have been stolen\n0 reward will be paid for the horse and thief,\n$10 reward for the horse.\nOctober 22, 1434.\nJAMES HERRINGTON, Jn.",
+      "normalized": "$40 Reward. STOLEN last Saturday night from the stable of the subscriber living one mile south of [Ch]icago, a bright bay Horse, seventeen hands high, well made, black main and tail both heavy, [with] white on his legs [not] recollected, a very noted [scar ab]out 10 inches down his left shoulder, remark[able m]ark on his withers occasioned by the [fistula, and is very] highly carriaged, a first rate racker and [tro]tter. Said horse is supposed to have been stolen [by] a soldier, a deserter from F[o]rt Dearborn. [$40] reward will be paid for the horse and thief, [and] $10 reward for the horse. October 22, 1834. JAMES HERRINGTON, J[r].",
+      "locator": {
+        "artifact_role": "primary",
+        "issue_page": 3,
+        "column": 6,
+        "lines": [
+          3610,
+          3624
+        ],
+        "interleaved": true
+      },
+      "entities": [
+        {
+          "as_printed": "JAMES HERRINGTON, Jn.",
+          "normalized": "James Herrington, Jr.",
+          "role": "advertiser"
+        }
+      ],
+      "notes": "A DESERTER FROM FORT DEARBORN IS THE SUSPECT, WHICH IS A GARRISON FACT PRINTED IN A STRAY-HORSE COLUMN. The fort is still garrisoned in October 1834 and men are still leaving it without leave; the notice is one of the few in the month that names the post at all. The subscriber lives one mile south of Chicago, which puts a stable on the prairie edge of the settlement. The lines of this column alternate with their own continuations and are unshuffled by sense; the horse's height reads “seventeen hands”, which is enormous and almost certainly the printer's or the transcription's error for fifteen, and it is left exactly as printed because correcting it would be inventing.",
+      "ad_copy_date": {
+        "verbatim": "October 22, 1434.",
+        "iso": "1834-10-22"
+      }
+    },
+    {
+      "id": "c019",
+      "kind": "business",
+      "reading": "transcription_mediated",
+      "quote": "l'in, Sheet Iron and Stoce\n[uncertain: 1 ?Y ?OPOBI.]\nCORNER OF DEANSORN AND LAKE-STRETTS.\nTHE subscriber would respectfally inform\nhis friends and the public in general, that\nwill keep an assortment constantly on hand.\nbas commenced the aboverbusiness, and that\nand punctually attended to.\nI orders from the country, thankfully receiv-\nApril 22, 1834.\nJ. K. BOTSFORD.",
+      "normalized": "Tin, Sheet Iron and Stove [Manufactory.] CORNER OF DEARBORN AND LAKE-STREETS. THE subscriber would respectfully inform his friends and the public in general, that [he] has commenced the above business, and that [he] will keep an assortment constantly on hand. [Al]l orders from the country, thankfully received and punctually attended to. April 22, 1834. J. K. BOTSFORD.",
+      "locator": {
+        "artifact_role": "primary",
+        "issue_page": 3,
+        "column": 6,
+        "lines": [
+          3625,
+          3635
+        ],
+        "interleaved": true
+      },
+      "entities": [
+        {
+          "as_printed": "J. K. BOTSFORD.",
+          "normalized": "J. K. Botsford",
+          "role": "proprietor",
+          "occupations": [
+            "tinner",
+            "stove dealer"
+          ]
+        }
+      ],
+      "notes": "EVIDENCE FOR T-0324, WHICH ASKS WHICH OF BOTSFORD'S TWO ADDRESSES IS REAL. In December 1834 he prints ONE address and it is the corner of Dearborn and Lake, in capitals, as the advertisement's standing head — the same corner the gazetteer already carries for his tin, sheet iron and copper factory, and NOT the “Graves' Tavern” anchor his other gazetteer entry hangs on. This does not settle the ticket by itself: a man may keep a shop at a corner and a stall at a tavern, and the December run only shows which one he was advertising in the winter. It does mean the corner is the better documented of the two and has the earlier copy date, 22 April 1834.",
+      "ad_copy_date": {
+        "verbatim": "April 22, 1834.",
+        "iso": "1834-04-22"
+      },
+      "business": {
+        "name": "J. K. Botsford",
+        "proprietors": [
+          "J. K. Botsford"
+        ],
+        "trade": "tin, sheet iron and stove manufactory",
+        "goods": [
+          "tin ware",
+          "sheet iron ware",
+          "stoves"
+        ],
+        "street": null,
+        "placement": {
+          "class": "corner",
+          "anchor": "the corner of Dearborn and Lake streets",
+          "offset_text": "CORNER OF DEANSORN AND LAKE-STRETTS."
+        }
+      }
+    },
+    {
+      "id": "c020",
+      "kind": "shipping",
+      "reading": "transcription_mediated",
+      "quote": "MARINE LIST.\nPORT OF CHICAGO.\nSchr. Phillips, Howe\nARRIVED.\n[uncertain: Pc. 21]\nCLEARED.\nJoseph\nSeir. Phillips, Howe, St. Joseph.",
+      "normalized": "MARINE LIST. PORT OF CHICAGO. ARRIVED. [Dec. 2?] Schr. Phillips, Howe, [from] St. Joseph. CLEARED. Sch[oone]r Phillips, Howe, [for] St. Joseph.",
+      "locator": {
+        "artifact_role": "primary",
+        "issue_page": 3,
+        "column": 1,
+        "lines": [
+          2939,
+          2946
+        ],
+        "interleaved": true
+      },
+      "entities": [
+        {
+          "as_printed": "Schr. Phillips, Howe",
+          "normalized": "Howe",
+          "role": "master",
+          "occupations": [
+            "schooner master"
+          ]
+        }
+      ],
+      "notes": "THE PORT IS STILL OPEN ON 3 DECEMBER AND EXACTLY ONE VESSEL IS IN IT. The Marine List for this number carries a single arrival and a single clearance, both the schooner Phillips under Howe, both to and from St. Joseph across the lake — the packet whose own advertisement stands on page 4 of this issue (c020). Two segmenter lines of the list are woven with the Wabash and Erie Canal article above it and the date of arrival survives only as “[uncertain: Pc. 21]”, so the day is not read. What is documented is the traffic: at the start of December 1834 Chicago's harbour business is one small schooner shuttling to the Michigan shore."
+    },
+    {
+      "id": "c021",
+      "kind": "business",
+      "reading": "transcription_mediated",
+      "quote": "Millinary\nDress Making.\n[uncertain: ME]\n'RS. H. SHERMAN,\nformally of White\nladiea of Chieavo and ita vicinitr that whe\nCreek\n[uncertain: N.1.]\nburs lenvo 1o\nIntorm\ntall. two door\naken a room in the nouse occupied bø r\n[uncertain: w here ne]\nse happy to\n[uncertain: nat oi the wansion housi]\nwait upon\n[uncertain: Shotuay favor nee wit a en]\n[uncertain: keeline. cont]\n[uncertain: thoue]\nfail to please in all its various branches.\ndent that her experience in the business will not\nChicago, Nov. 25, 1634.-52",
+      "normalized": "Millinary [&] Dress Making. MRS. H. SHERMAN, form[er]ly of White Creek, [N.] Y., begs leave to inform the ladies of Chicago and its vicinity that she [has] taken a room in the [h]ouse occupied by [… ], two doors [… of the Mansion House, w]here [she will] be happy to wait upon [those who may] favor her with a call. Feeling confi[dent that her] experience in the business will not fail to please in all its various branches. Chicago, Nov. 25, 18[3]4. — 52.",
+      "locator": {
+        "artifact_role": "primary",
+        "issue_page": 3,
+        "column": 2,
+        "lines": [
+          3056,
+          3077
+        ],
+        "interleaved": true
+      },
+      "entities": [
+        {
+          "as_printed": "'RS. H. SHERMAN,",
+          "normalized": "Mrs. H. Sherman",
+          "role": "proprietor",
+          "occupations": [
+            "milliner",
+            "dress maker"
+          ]
+        }
+      ],
+      "notes": "THIS PRINTING CORRECTS T-0293's READING OF THE SAME ADVERTISEMENT, IN THREE PLACES. At 1834-11-26 c002 the milliner was read as “[Mrs.] HERMAN”, “formerly of White [Plains?] N.Y.” with a query, and the relation to the Mansion House was recorded as lost with the line. A week earlier the same standing advertisement set better: the name is MRS. H. SHERMAN, the place she came from is White Creek — a real Washington County, New York, town, so the query on White Plains falls — and the offset is TWO DOORS, which turns a bare anchor into a measurable one. The preposition is still cut away, so it is not known whether two doors is above or below the Mansion House; that is the one thing the November reading was right to leave open. The two claims are kept side by side rather than the earlier one amended, because both printings exist and the gazetteer should carry both spellings with their dates.",
+      "ad_copy_date": {
+        "verbatim": "Chicago, Nov. 25, 1634.-52",
+        "iso": "1834-11-25"
+      },
+      "business": {
+        "name": "Mrs. H. Sherman",
+        "proprietors": [
+          "Mrs. H. Sherman"
+        ],
+        "trade": "millinery and dress making",
+        "goods": [],
+        "street": null,
+        "placement": {
+          "class": "relative",
+          "anchor": "the Mansion House",
+          "offset_text": "tall. two door"
+        }
+      }
+    },
+    {
+      "id": "c022",
+      "kind": "building",
+      "reading": "transcription_mediated",
+      "quote": "For Rent,\nLARGE three story Store\n[uncertain: Hoasc o]\n60 feet, with a wharfsttached.\nAso, a handsome small Dwelling Hou\n[uncertain: wiw twO rOoms]\n[uncertain: inieied Store, on SouhOBN T: TEMPLI]\n[uncertain: 1450. 8 60 87 Da]\nChicago, Sept. 20, 1834.",
+      "normalized": "For Rent, [A] LARGE three story Store [Hous]e [of … by] 60 feet, with a wharf attached. Also, a handsome small Dwelling Hou[se with two rooms …] Also, a large and beautifully [fi]nished Store, on South [Water street.] T. TEMPLE. Chicago, Sept. 20, 1834.",
+      "locator": {
+        "artifact_role": "primary",
+        "issue_page": 3,
+        "column": 2,
+        "lines": [
+          3101,
+          3109
+        ],
+        "interleaved": true
+      },
+      "entities": [
+        {
+          "as_printed": "T: TEMPLI",
+          "normalized": "T. Temple",
+          "role": "advertiser"
+        }
+      ],
+      "notes": "A THREE-STOREY WAREHOUSE WITH A WHARF ATTACHED, SIXTY FEET IN ONE DIMENSION, TO LET IN CHICAGO IN SEPTEMBER 1834. Three storeys is the tallest commercial structure the month documents anywhere in the town, and the wharf makes it a river-frontage building rather than a street one. The other dimension is cut away with the line and is not supplied. Two further tenancies stand in the same notice — a small two-room dwelling house and a large and beautifully finished store on South Water street — so Temple is letting three separate structures at once. This is the fullest printing of the four; 1834-12-24 page 3 column 4 carries the same advertisement more heavily cut.",
+      "ad_copy_date": {
+        "verbatim": "Chicago, Sept. 20, 1834.",
+        "iso": "1834-09-20"
+      }
+    },
+    {
+      "id": "c023",
+      "kind": "notice",
+      "reading": "transcription_mediated",
+      "quote": "THE DEMOCRAT,\nmention:\"\na \"variety o\nost reasonable\nALL\nle publiehed every Wedusday, in the suar\nChieago, Cook co. Ill. in she building to t\n[uncertain: cat ander]\ncorner of South Water and Clark stavi\n, 1834.\nand exam-\n1. The Chieage Democrat is printed on an i\nTEAMS\nDOLLARsand FIFTY CEATs, payabic in ADVANCI\nperial sheet, and afforded to subveribers st ma",
+      "normalized": "THE DEMOCRAT [i]s published every Wednesday, in the [town of] Chicago, Cook co. Ill., in the building [at the] corner of South Water and Clark st[reets]. […] The Chicago Democrat is printed on an i[m]perial sheet, and afforded to subscribers at [TWO] DOLLARS and FIFTY CENTS, payable in ADVANCE.",
+      "locator": {
+        "artifact_role": "primary",
+        "issue_page": 4,
+        "column": 6,
+        "lines": [
+          4847,
+          4861
+        ],
+        "interleaved": true
+      },
+      "entities": [],
+      "notes": "THE PAPER SAYS WHICH BUILDING IT IS PRINTED IN, AND IT IS A CORNER. The imprint is the single most reliable placement in any issue, because a newspaper cannot be wrong about its own address and reprints it every week. It also stands in an unresolved relation to c003 of this issue, which offers for sale “the valuable LOT with the Building thereon, formerly occupied as the office of the Democrat and W. Kimball, on the corner of South Water and Clark streets” — same corner, and the word is FORMERLY. Both claims are recorded and neither is bent to fit the other. The imprint's own lines are woven with a hardware advertisement and the terms clause; only the imprint's lines are quoted.",
+      "business": {
+        "name": "Chicago Democrat",
+        "proprietors": [],
+        "trade": "newspaper printing office",
+        "goods": [
+          "newspaper",
+          "job printing",
+          "blank forms"
+        ],
+        "street": "South Water street",
+        "placement": {
+          "class": "corner",
+          "anchor": "the corner of South Water and Clark streets",
+          "offset_text": "corner of South Water and Clark stavi"
+        }
+      }
+    },
+    {
+      "id": "c024",
+      "kind": "business",
+      "reading": "transcription_mediated",
+      "quote": "G5 20%, of Silsry's gat steal “AXES, by\nlozen or singly. Bi ‘i\n[uncertain: Nor. 5 183k ee ? hee:]",
+      "normalized": "[20 doz.] of Silsby's ca[s]t ste[e]l AXES, by [the] dozen or singly. [Jones & King.] [Nov. 5, 1834.]",
+      "locator": {
+        "artifact_role": "primary",
+        "issue_page": 3,
+        "column": 4,
+        "lines": [
+          3308,
+          3310
+        ],
+        "interleaved": true
+      },
+      "entities": [],
+      "ad_copy_date": {
+        "verbatim": "[uncertain: Nor. 5 183k ee ? hee:]",
+        "iso": "1834-11-05"
+      },
+      "business": {
+        "name": "Jones & King",
+        "proprietors": [],
+        "trade": "hardware and building materials",
+        "goods": [
+          "axes"
+        ],
+        "street": null,
+        "placement": {
+          "class": "none",
+          "anchor": null,
+          "offset_text": null
+        }
+      },
+      "notes": "TWENTY DOZEN CAST STEEL AXES, AND THEY BELONG TO JONES & KING. This advertisement was read into c004 as part of the booksellers' stock, because in THIS printing the signature is crushed to “lozen or singly. Bi ‘i” and nothing separates the two blocks. Two other printings of the same standing pair separate them with a rule and sign this one: 1834-11-12 page 3 column 2 lines 2555-2557 reads “Gg DOZ. of Silaby'e cast stool AXES, by / the dozen or singly. Jones § King. / Now. 5, 1834,”, and 1834-12-24 page 3 column 5 lines 3559-3561 reads “the dozen or singly. donee & King.” The attribution is therefore INFERRED from the neighbouring printings and not read off this one, which is why the firm is bracketed in `normalized` and no proprietor is minted here. Jones & King already stand in the gazetteer for hardware and building materials at this very issue (c007, window glass, sash and blinds, South Water street); axes are a good the corpus had lost to the wrong shop. Silsby's is the maker, not a Chicago house, and is not minted."
+    },
+    {
+      "id": "c025",
+      "kind": "building",
+      "reading": "transcription_mediated",
+      "quote": "For Sale or To Let,\nSuE building on Lot 2, in block 1, on North\nChicago. Nor. 12, 1831. SO WEAVER.\nWater street.\nApply to",
+      "normalized": "For Sale or To Let, [T]HE building on Lot 2, in block 1, on North Water street. Apply to D. WEAVER. Chicago, No[v]. 12, 183[uncertain: 1 / 4]. — [5]0",
+      "locator": {
+        "artifact_role": "primary",
+        "issue_page": 3,
+        "column": 3,
+        "lines": [
+          3167,
+          3171
+        ],
+        "lines_of_claim": [
+          3167,
+          3168,
+          3169,
+          3170,
+          3171
+        ]
+      },
+      "entities": [
+        {
+          "as_printed": "D. WEAVER.",
+          "normalized": "D. Weaver",
+          "role": "advertiser"
+        }
+      ],
+      "notes": "THE SECOND OF FIVE PRINTINGS OF D. WEAVER'S ADVERTISEMENT, AND THE CLEANEST OF THEM AT THE DIGIT T-0328 ASKS ABOUT. The line reads 'SuE building on Lot 2, in block 1, on North' — the display capitals of THE are mangled and nothing else in the line is, the lot number least of all. Four of the five printings read Lot 2 and only 1834-12-17 reads Lot 9; the tally and the reasoning are on that claim. As at 1834-11-26, no `ad_copy_date` is recorded: this setting reads the copy date Nov. 12 and two later ones read it Nov. 19 and Nov. 13, which is a separate question and is ticketed rather than settled here.\n\nDECIDED BY T-0350 ON 2026-08-29, AND THIS IS THE CLEANEST OF THE FOUR SETTINGS THAT READ 12 — “Chicago. Nor. 12, 1831. SO WEAVER.”, whose only damage is the r for v, the 1 for 4 in the year and the S for 5 in the key. The note above says the day is “a separate question and is ticketed rather than settled here”; the ticket is T-0350 and it is settled, so the claim gains an `ad_copy_date` of 1834-11-12 with its verbatim dateline unchanged.\n\nTHE COPY DATE IS 12 NOVEMBER 1834, DECIDED BY T-0350 OVER SEVEN PRINTINGS AND BY THE PAPER'S OWN INSERTION KEY. The advertisement ran SEVEN times, not five: it opens in Vol. I No. 50 of 1834-11-12 (c015) and No. 51 of 1834-11-19 (c012), two settings T-0328's tally did not have because neither is findable by the advertiser's name — 1834-11-12 sets it “D. WEAVE.R” and the surviving span of 1834-11-19 prints no name at all. They were found by searching the run for the notice's own body text instead. The datelines across the seven: Nov. 12 at 1834-11-12, 1834-11-19, 1834-11-26 and 1834-12-03; Nov. 13 at 1834-12-17; Nov. 19 at 1834-12-24; and no legible day or month at 1834-12-10. Four to one to one.\n\nAND THE TALLY IS NOT WHAT DECIDES IT — THE ADVERTISEMENT'S OWN KEY DOES. Every legible setting tails its dateline with the figure 50: “1834.—50” at 1834-11-19 and “1881-50” at 1834-11-26, “1831. SO” at 1834-12-03, “1631.—00” at 1834-12-10, “1834-SD” at 1834-12-24 and “1831 -5)” at 1834-11-12. In this paper that trailing figure is not part of the date: it is THE NUMBER OF THE ISSUE THE COPY IS KEYED TO, the first number published on or after the dateline. It is checkable on other advertisers in the same columns — J. Bates's blacksmith-tools notice sets “Nov. 5, 1834.—49” and Vol. I No. 49 was published on 5 November; a For Sale notice sets “Nov. 26, 1834-52” against No. 52 of 26 November; two December notices set “Dec. 16, 1834.-3” and “Dec. 11, 1834.-3” against Vol. II No. 3, the first number published after either date. Vol. I No. 50 was published on 12 NOVEMBER 1834, so a key of 50 admits only a dateline falling after 5 November and on or before 12 November. Nov. 13 and Nov. 19 both fall outside it and would key 51; Nov. 12 is the only one of the three readings the key allows, and it is the reading four of the seven settings print.\n\nTHE KEY IS A FUNCTION OF THE DATELINE, NOT A CLAIM ABOUT FIRST APPEARANCE, and that distinction is kept because one of the four control notices breaks the looser version: Bates's “Nov. 5, 1834.—49” does not itself stand in No. 49 of 5 November, but first appears in No. 50. The key records the week the copy was handed in. For this notice the two coincide anyway — it is absent from No. 49 of 1834-11-05 and from No. 48 of 1834-10-29 (checked; the “For Sale or Rent” standing in both is G. Blanshard's, a different notice), and it first stands in No. 50.\n\nTHE TICKET'S DOUBT IS ANSWERED RATHER THAN OVERRIDDEN. T-0350 weighed 12 against 19 partly on the ground that Nov. 12 would be a fortnight before the notice's first appearance where Nov. 19 would be a week. Both halves rested on 1834-11-26 being the first appearance; it is the third. Dated 12 November the notice is dated the day it first ran, which is the same-day pattern “Nov. 5, 1834.—49” and “Nov. 26, 1834-52” show.\n\nNOTHING IS AMENDED TO AGREE WITH ANYTHING. Every printing keeps its own verbatim dateline, including the two that read 13 and 19, and each claim's `ad_copy_date.verbatim` is that setting's own text. The dossier is docs/RESEARCH/weaver_building_north_water_block_1.md.",
+      "ad_copy_date": {
+        "verbatim": "Chicago. Nor. 12, 1831. SO WEAVER.",
+        "iso": "1834-11-12"
+      }
+    }
+  ]
+}

@@ -1,0 +1,1068 @@
+{
+  "_doc": "What the wash is, between Wright's grey bank shading and his inked bank line\non the North Branch reach — read against the legend's own swatches (T-1082).\n\n    tools/read_north_branch_bank_wash.py --build             re-read both rasters, rewrite the record\n    tools/read_north_branch_bank_wash.py --check-properties  the gate: offline, re-derives every number\n    tools/read_north_branch_bank_wash.py --report            print the reading\n    tools/read_north_branch_bank_wash.py --self-test         the gate's assertions still fire when broken\n\nTHE QUESTION. `tools/trace_north_branch.py` publishes a reach whose boundary is\nshort of Wright's ink by more than 10 m on 51 east-bank rows (728-779) and stands\nOUTSIDE it on 34 west-bank rows, in five stretches. T-1078 measured both and filed\nthe cause as one thing — \"a coloured wash between the grey bank wash and the ink,\nbehind a colour the tract layer has not identified\" — and T-1082 asks which of\nWright's nine surveys washed that ground, because a bank drawn over NAMED ground\nis exactly the error `hue_tol` 7 exists to prevent.\n\nTHE SCAN PROBLEM, WHICH HAD TO BE SOLVED FIRST AND IS THE REASON THIS FILE EXISTS.\n`tools/read_wright_legend_swatches.py` read the nine legend chips on the NATIONAL\nARCHIVES / HISTORIC URBAN PLANS facsimile (`wright_1834_nara_hup`, 5050 x 6628),\nbecause at 600 dpi a chip is 54 px wide there. The disputed band is located on the\nBOSTON PUBLIC LIBRARY master (`wright_1834`, 4204 x 5166) and nowhere else: it is\n17 px wide, and the two sheets' committed affines carry 17.5 m and 16.0 m of RMS,\nso transferring a 17 px feature between them costs about 33 px of positional\nuncertainty — twice the feature. Neither the colours nor the position carry across:\n\n  * POSITION. Run offline here: of the 116 coloured BANDS the facsimile reading\n    committed, the nearest to ANY of these six stretches is 235 m away, and the\n    nearest to the east stretch — the one the ticket was opened on — is 481 m.\n    The facsimile's band map has nothing at all on this reach.\n  * COLOUR. The nine chips read DIFFERENT COLOURS on the two sheets — chip 1 is\n    deep blue on the facsimile (44, 65, 93) and bare paper on the master\n    (213, 194, 161); chip 8 is orange-brown there (180, 112, 39) and scarlet here\n    (217, 77, 64). Seven of the nine stand more than 100 RGB units apart and the\n    worst pair 223. The facsimile is a REPRINT, and its publisher's inks are not\n    Wright's washes.\n\nSo this file reads the nine chips AGAIN, on the master, off the same legend — and\nevery comparison below is then same-sheet arithmetic. It does not touch the\nfacsimile reading, which remains correct about the sheet it was taken from.\n\nHOW A WASH IS MATCHED TO A CHIP, AND WHY NOT BY DISTANCE. A legend chip is a\nsolid swatch; the ground is the same pigment laid thin. On the master the ground\nwashes sit 40 to 120 RGB units from their own chip simply for being diluted, so\nnearest-colour — the facsimile reading's rule, which its uniform reprint inks\njustify — matches nothing here. What survives dilution is DIRECTION: a wash of\nchip k over paper p lies on the ray p -> k, at a fraction t of the way along it.\nSo each band is projected onto every reference's ray and carries two numbers, the\nperpendicular residual (is it this pigment?) and t (how thin?).\n\nWHAT IT FINDS, and it is a correction to a committed claim. The five west\nstretches are NOT one fault with the east one:\n\n  * rows 728-779, EAST — matches nothing. No chip's ray comes within 21 RGB units,\n    and the one that comes closest needs t = 3.4, which is not a dilution at all.\n    It is not the reach's own bank wash either. REFUSED: the colour is not one of\n    the nine, and the reading stays that the sheet does not draw a bank there.\n  * rows 707-710, 715-717 and 948-951, WEST — the reach's OWN GREY BANK WASH,\n    residual 2.3 to 6.5 and t 1.05 to 1.19: Wright's bank shading laid a little\n    heavier, not a colour. These three are not the fault T-1078 filed.\n  * rows 922-939, WEST — a legend wash, residual 6.4 at t 0.40, of the master's\n    class {3, 6, 7}. Named ground, so the boundary stays off it.\n  * rows 1247-1251, WEST — three pixels on the splice row, where the boundary\n    stands 0.7 m outside the ink. Refused for having nothing to read: three\n    pixels, twice as dark as the bank wash (t 2.35), are an ink shoulder.\n\nNOTHING IN THE TRACE MOVES. Every stretch either refuses identification or lands\non ground with a name, and both answers keep the boundary where it is.\ndocs/RESEARCH/north_branch_wabansia.md § 5 carries the outcome.",
+  "ticket": "T-1082",
+  "confidence": "documented",
+  "source_id": "wright_1834",
+  "rasters": {
+    "master": {
+      "iiif": "https://iiif.digitalcommonwealth.org/iiif/2/commonwealth:js957744g",
+      "width": 4204,
+      "height": 5166,
+      "legend_region": [
+        2520,
+        2940,
+        420,
+        700
+      ],
+      "legend_region_sha256": "49004ba3a40decb9f37b05896848e8532b938aea57a7b337906e1176813c2714",
+      "reach_region": [
+        640,
+        0,
+        780,
+        1252
+      ],
+      "reach_region_sha256": "109d0a8b47f3e4d8d0e35bf659d8cf518be70064a9932991587ed13b46c88fe3"
+    },
+    "facsimile": {
+      "source_id": "wright_1834_nara_hup",
+      "read_by": "tools/read_wright_legend_swatches.py",
+      "note": "cited for its chips only; not re-read here"
+    }
+  },
+  "method": {
+    "class_threshold_rgb": 35.0,
+    "ray_perp_max_rgb": 12.0,
+    "t_range": [
+      0.05,
+      1.25
+    ],
+    "min_band_px": 20,
+    "chip_column_px": {
+      "x0": 2682,
+      "x1": 2733
+    },
+    "chip_erosion_px": {
+      "top": 5,
+      "bottom": 4
+    },
+    "map_scale_m_per_px": 0.7115,
+    "affine_rms_m": 17.46,
+    "affine_gcps": 8
+  },
+  "legend_chips_on_the_master": {
+    "chips": [
+      {
+        "chip": 1,
+        "legend": {
+          "text": "U. S. Military Reservation",
+          "reading": "U.S. Military Reservation",
+          "date": null
+        },
+        "box_px": {
+          "x0": 2682,
+          "y0": 3116,
+          "x1": 2733,
+          "y1": 3148
+        },
+        "sampled_px": 1173,
+        "median_rgb": [
+          213,
+          194,
+          161
+        ],
+        "sd_rgb": [
+          5.4,
+          6.8,
+          8.2
+        ],
+        "facsimile_median_rgb": [
+          44,
+          65,
+          93
+        ],
+        "against_the_facsimile_rgb": 223.2
+      },
+      {
+        "chip": 2,
+        "legend": {
+          "text": "Surveyed by Canal Com. in 1830",
+          "reading": "Surveyed by Canal Com. in 1830",
+          "date": 1830
+        },
+        "box_px": {
+          "x0": 2682,
+          "y0": 3166,
+          "x1": 2733,
+          "y1": 3197
+        },
+        "sampled_px": 1122,
+        "median_rgb": [
+          226,
+          179,
+          161
+        ],
+        "sd_rgb": [
+          4.8,
+          5.2,
+          5.3
+        ],
+        "facsimile_median_rgb": [
+          176,
+          68,
+          48
+        ],
+        "against_the_facsimile_rgb": 166.1
+      },
+      {
+        "chip": 3,
+        "legend": {
+          "text": "Wonbonsia Surveyed in 1831",
+          "reading": "Wabansia, surveyed in 1831",
+          "date": 1831
+        },
+        "box_px": {
+          "x0": 2682,
+          "y0": 3211,
+          "x1": 2733,
+          "y1": 3241
+        },
+        "sampled_px": 1071,
+        "median_rgb": [
+          100,
+          123,
+          129
+        ],
+        "sd_rgb": [
+          17.5,
+          16.7,
+          15.8
+        ],
+        "facsimile_median_rgb": [
+          145,
+          38,
+          14
+        ],
+        "against_the_facsimile_rgb": 149.9
+      },
+      {
+        "chip": 4,
+        "legend": {
+          "text": "Kinzies Addⁿ. Surveyed „ 1833",
+          "reading": "Kinzie's Addition, surveyed 1833",
+          "date": 1833
+        },
+        "box_px": {
+          "x0": 2682,
+          "y0": 3260,
+          "x1": 2733,
+          "y1": 3289
+        },
+        "sampled_px": 1020,
+        "median_rgb": [
+          186,
+          182,
+          124
+        ],
+        "sd_rgb": [
+          15.8,
+          16.9,
+          21.3
+        ],
+        "facsimile_median_rgb": [
+          54,
+          44,
+          29
+        ],
+        "against_the_facsimile_rgb": 213.3
+      },
+      {
+        "chip": 5,
+        "legend": {
+          "text": "School Section „ 1833",
+          "reading": "School Section, surveyed 1833",
+          "date": 1833
+        },
+        "box_px": {
+          "x0": 2682,
+          "y0": 3305,
+          "x1": 2733,
+          "y1": 3336
+        },
+        "sampled_px": 1122,
+        "median_rgb": [
+          223,
+          185,
+          78
+        ],
+        "sd_rgb": [
+          5.7,
+          7.3,
+          17.3
+        ],
+        "facsimile_median_rgb": [
+          218,
+          136,
+          26
+        ],
+        "against_the_facsimile_rgb": 71.6
+      },
+      {
+        "chip": 6,
+        "legend": {
+          "text": "Surveyed. ——— 1833",
+          "reading": "Surveyed 1833 — no tract named",
+          "date": 1833
+        },
+        "box_px": {
+          "x0": 2682,
+          "y0": 3348,
+          "x1": 2733,
+          "y1": 3374
+        },
+        "sampled_px": 867,
+        "median_rgb": [
+          115,
+          134,
+          113
+        ],
+        "sd_rgb": [
+          20.7,
+          19.7,
+          20.0
+        ],
+        "facsimile_median_rgb": [
+          70,
+          67,
+          40
+        ],
+        "against_the_facsimile_rgb": 108.8
+      },
+      {
+        "chip": 7,
+        "legend": {
+          "text": "Fractional Section 15",
+          "reading": "Fractional Section 15",
+          "date": null
+        },
+        "box_px": {
+          "x0": 2682,
+          "y0": 3389,
+          "x1": 2733,
+          "y1": 3415
+        },
+        "sampled_px": 867,
+        "median_rgb": [
+          102,
+          149,
+          144
+        ],
+        "sd_rgb": [
+          26.8,
+          12.8,
+          11.2
+        ],
+        "facsimile_median_rgb": [
+          135,
+          37,
+          11
+        ],
+        "against_the_facsimile_rgb": 177.0
+      },
+      {
+        "chip": 8,
+        "legend": {
+          "text": "Surveyed in 1833",
+          "reading": "Surveyed in 1833 — no tract named",
+          "date": 1833
+        },
+        "box_px": {
+          "x0": 2682,
+          "y0": 3434,
+          "x1": 2733,
+          "y1": 3460
+        },
+        "sampled_px": 867,
+        "median_rgb": [
+          217,
+          77,
+          64
+        ],
+        "sd_rgb": [
+          6.7,
+          8.4,
+          6.8
+        ],
+        "facsimile_median_rgb": [
+          180,
+          112,
+          39
+        ],
+        "against_the_facsimile_rgb": 56.7
+      },
+      {
+        "chip": 9,
+        "legend": {
+          "text": "Part of Canal Sec. No 9",
+          "reading": "Part of Canal Section No. 9",
+          "date": null
+        },
+        "box_px": {
+          "x0": 2682,
+          "y0": 3481,
+          "x1": 2733,
+          "y1": 3508
+        },
+        "sampled_px": 918,
+        "median_rgb": [
+          207,
+          133,
+          96
+        ],
+        "sd_rgb": [
+          12.2,
+          21.7,
+          23.5
+        ],
+        "facsimile_median_rgb": [
+          57,
+          50,
+          23
+        ],
+        "against_the_facsimile_rgb": 186.3
+      }
+    ],
+    "classes": [
+      [
+        1,
+        2
+      ],
+      [
+        3,
+        6,
+        7
+      ],
+      [
+        4
+      ],
+      [
+        5
+      ],
+      [
+        8
+      ],
+      [
+        9
+      ]
+    ],
+    "separation_rgb": [
+      [
+        0.0,
+        19.8,
+        137.2,
+        47.3,
+        84.1,
+        124.5,
+        121.0,
+        152.0,
+        89.3
+      ],
+      [
+        19.8,
+        0.0,
+        141.5,
+        54.6,
+        83.3,
+        129.0,
+        128.7,
+        141.0,
+        81.9
+      ],
+      [
+        137.2,
+        141.5,
+        0.0,
+        104.4,
+        146.9,
+        24.5,
+        30.1,
+        141.5,
+        112.4
+      ],
+      [
+        47.3,
+        54.6,
+        104.4,
+        0.0,
+        59.1,
+        86.4,
+        92.4,
+        124.8,
+        60.2
+      ],
+      [
+        84.1,
+        83.3,
+        146.9,
+        59.1,
+        0.0,
+        124.5,
+        142.5,
+        109.1,
+        57.3
+      ],
+      [
+        124.5,
+        129.0,
+        24.5,
+        86.4,
+        124.5,
+        0.0,
+        36.8,
+        126.7,
+        93.6
+      ],
+      [
+        121.0,
+        128.7,
+        30.1,
+        92.4,
+        142.5,
+        36.8,
+        0.0,
+        157.5,
+        116.6
+      ],
+      [
+        152.0,
+        141.0,
+        141.5,
+        124.8,
+        109.1,
+        126.7,
+        157.5,
+        0.0,
+        65.3
+      ],
+      [
+        89.3,
+        81.9,
+        112.4,
+        60.2,
+        57.3,
+        93.6,
+        116.6,
+        65.3,
+        0.0
+      ]
+    ],
+    "worst_against_the_facsimile_rgb": 223.2,
+    "finding": "The same nine chips read on the two sheets are not the same nine colours: the worst pair is more than 150 RGB units apart and chip 1 is bare paper on the master and deep blue on the facsimile. The facsimile is a reprint and its inks are the publisher's. A wash on the master must therefore be matched against THESE chips, and the facsimile reading stays correct about the sheet it was taken from."
+  },
+  "reach": {
+    "paper_rgb": [
+      227,
+      216,
+      189
+    ],
+    "bank_wash_rgb": [
+      176.0,
+      163.0,
+      143.0
+    ],
+    "bank_wash_px": 41893
+  },
+  "stretches": [
+    {
+      "side": "east",
+      "rows": [
+        728,
+        779
+      ],
+      "band_px": 886,
+      "mean_width_px": 17.0,
+      "centroid_px": [
+        907.3,
+        752.8
+      ],
+      "centroid_local_m": [
+        -368.2,
+        759.9
+      ],
+      "dark": {
+        "median": 41.7,
+        "min": 9.3,
+        "max": 87.7
+      },
+      "tint": {
+        "median": 26.1,
+        "min": 2.1,
+        "max": 70.8
+      },
+      "coloured_wash_share": 0.97,
+      "local_paper_rgb": [
+        222,
+        207,
+        183
+      ],
+      "median_rgb": [
+        182,
+        149,
+        121
+      ],
+      "rays": [
+        {
+          "ref": "chip1",
+          "perp": 21.0,
+          "t": 3.38
+        },
+        {
+          "ref": "bank_wash",
+          "perp": 21.3,
+          "t": 1.22
+        },
+        {
+          "ref": "chip9",
+          "perp": 28.9,
+          "t": 0.78
+        },
+        {
+          "ref": "chip4",
+          "perp": 29.5,
+          "t": 1.21
+        },
+        {
+          "ref": "chip6",
+          "perp": 34.4,
+          "t": 0.59
+        },
+        {
+          "ref": "chip8",
+          "perp": 38.2,
+          "t": 0.49
+        },
+        {
+          "ref": "chip3",
+          "perp": 43.6,
+          "t": 0.53
+        },
+        {
+          "ref": "chip2",
+          "perp": 50.8,
+          "t": 2.2
+        },
+        {
+          "ref": "chip7",
+          "perp": 54.8,
+          "t": 0.55
+        },
+        {
+          "ref": "chip5",
+          "perp": 60.0,
+          "t": 0.67
+        }
+      ],
+      "identified_as": null,
+      "why": "no reference's ray comes within 12 RGB units (nearest chip1 at 21.0)",
+      "nearest_facsimile_band": {
+        "distance_m": 481.3,
+        "class": [
+          8
+        ]
+      }
+    },
+    {
+      "side": "west",
+      "rows": [
+        707,
+        710
+      ],
+      "band_px": 49,
+      "mean_width_px": 12.2,
+      "centroid_px": [
+        758.4,
+        708.5
+      ],
+      "centroid_local_m": [
+        -472.3,
+        789.9
+      ],
+      "dark": {
+        "median": 22.9,
+        "min": 11.8,
+        "max": 69.0
+      },
+      "tint": {
+        "median": 8.0,
+        "min": 8.0,
+        "max": 8.0
+      },
+      "coloured_wash_share": 0.63,
+      "local_paper_rgb": [
+        215,
+        202,
+        178
+      ],
+      "median_rgb": [
+        172,
+        161,
+        143
+      ],
+      "rays": [
+        {
+          "ref": "bank_wash",
+          "perp": 2.7,
+          "t": 1.05
+        },
+        {
+          "ref": "chip6",
+          "perp": 10.2,
+          "t": 0.5
+        },
+        {
+          "ref": "chip3",
+          "perp": 16.5,
+          "t": 0.45
+        },
+        {
+          "ref": "chip7",
+          "perp": 26.7,
+          "t": 0.49
+        },
+        {
+          "ref": "chip4",
+          "perp": 31.4,
+          "t": 0.95
+        },
+        {
+          "ref": "chip9",
+          "perp": 39.9,
+          "t": 0.52
+        },
+        {
+          "ref": "chip1",
+          "perp": 43.6,
+          "t": 2.83
+        },
+        {
+          "ref": "chip8",
+          "perp": 43.7,
+          "t": 0.32
+        },
+        {
+          "ref": "chip5",
+          "perp": 57.6,
+          "t": 0.37
+        },
+        {
+          "ref": "chip2",
+          "perp": 59.6,
+          "t": 1.13
+        }
+      ],
+      "identified_as": "bank_wash",
+      "why": "the reach's own grey bank wash, residual 2.7 at t 1.05",
+      "nearest_facsimile_band": {
+        "distance_m": 583.8,
+        "class": [
+          8
+        ]
+      }
+    },
+    {
+      "side": "west",
+      "rows": [
+        715,
+        717
+      ],
+      "band_px": 21,
+      "mean_width_px": 7.0,
+      "centroid_px": [
+        757.0,
+        716.0
+      ],
+      "centroid_local_m": [
+        -473.3,
+        784.4
+      ],
+      "dark": {
+        "median": 24.3,
+        "min": 20.2,
+        "max": 56.9
+      },
+      "tint": {
+        "median": 8.1,
+        "min": 8.1,
+        "max": 8.1
+      },
+      "coloured_wash_share": 1.0,
+      "local_paper_rgb": [
+        215,
+        202,
+        178
+      ],
+      "median_rgb": [
+        167,
+        156,
+        138
+      ],
+      "rays": [
+        {
+          "ref": "bank_wash",
+          "perp": 2.3,
+          "t": 1.19
+        },
+        {
+          "ref": "chip6",
+          "perp": 11.8,
+          "t": 0.56
+        },
+        {
+          "ref": "chip3",
+          "perp": 19.3,
+          "t": 0.51
+        },
+        {
+          "ref": "chip7",
+          "perp": 30.6,
+          "t": 0.55
+        },
+        {
+          "ref": "chip4",
+          "perp": 34.8,
+          "t": 1.08
+        },
+        {
+          "ref": "chip9",
+          "perp": 44.4,
+          "t": 0.59
+        },
+        {
+          "ref": "chip1",
+          "perp": 48.5,
+          "t": 3.2
+        },
+        {
+          "ref": "chip8",
+          "perp": 48.7,
+          "t": 0.36
+        },
+        {
+          "ref": "chip5",
+          "perp": 64.4,
+          "t": 0.42
+        },
+        {
+          "ref": "chip2",
+          "perp": 66.8,
+          "t": 1.29
+        }
+      ],
+      "identified_as": "bank_wash",
+      "why": "the reach's own grey bank wash, residual 2.3 at t 1.19",
+      "nearest_facsimile_band": {
+        "distance_m": 581.6,
+        "class": [
+          8
+        ]
+      }
+    },
+    {
+      "side": "west",
+      "rows": [
+        922,
+        939
+      ],
+      "band_px": 74,
+      "mean_width_px": 4.1,
+      "centroid_px": [
+        972.3,
+        934.1
+      ],
+      "centroid_local_m": [
+        -322.0,
+        629.5
+      ],
+      "dark": {
+        "median": 36.4,
+        "min": 22.1,
+        "max": 96.6
+      },
+      "tint": {
+        "median": 41.3,
+        "min": 22.1,
+        "max": 45.4
+      },
+      "coloured_wash_share": 0.93,
+      "local_paper_rgb": [
+        218,
+        209,
+        186
+      ],
+      "median_rgb": [
+        170,
+        172,
+        169
+      ],
+      "rays": [
+        {
+          "ref": "chip3",
+          "perp": 6.4,
+          "t": 0.4
+        },
+        {
+          "ref": "chip7",
+          "perp": 11.0,
+          "t": 0.45
+        },
+        {
+          "ref": "chip6",
+          "perp": 15.5,
+          "t": 0.42
+        },
+        {
+          "ref": "bank_wash",
+          "perp": 22.5,
+          "t": 0.78
+        },
+        {
+          "ref": "chip4",
+          "perp": 40.8,
+          "t": 0.64
+        },
+        {
+          "ref": "chip1",
+          "perp": 47.5,
+          "t": 1.39
+        },
+        {
+          "ref": "chip9",
+          "perp": 47.6,
+          "t": 0.35
+        },
+        {
+          "ref": "chip8",
+          "perp": 49.4,
+          "t": 0.22
+        },
+        {
+          "ref": "chip2",
+          "perp": 55.9,
+          "t": 0.72
+        },
+        {
+          "ref": "chip5",
+          "perp": 58.8,
+          "t": 0.2
+        }
+      ],
+      "identified_as": "class 3+6+7",
+      "why": "a legend wash of class [3, 6, 7], residual 6.4 at t 0.4",
+      "nearest_facsimile_band": {
+        "distance_m": 373.7,
+        "class": [
+          8
+        ]
+      }
+    },
+    {
+      "side": "west",
+      "rows": [
+        948,
+        951
+      ],
+      "band_px": 22,
+      "mean_width_px": 5.5,
+      "centroid_px": [
+        966.4,
+        950.1
+      ],
+      "centroid_local_m": [
+        -326.0,
+        617.8
+      ],
+      "dark": {
+        "median": 45.6,
+        "min": 27.0,
+        "max": 82.4
+      },
+      "tint": {
+        "median": 3.8,
+        "min": 3.5,
+        "max": 15.3
+      },
+      "coloured_wash_share": 0.14,
+      "local_paper_rgb": [
+        219,
+        209,
+        187
+      ],
+      "median_rgb": [
+        164,
+        155,
+        140
+      ],
+      "rays": [
+        {
+          "ref": "bank_wash",
+          "perp": 6.5,
+          "t": 1.17
+        },
+        {
+          "ref": "chip6",
+          "perp": 11.9,
+          "t": 0.6
+        },
+        {
+          "ref": "chip3",
+          "perp": 19.5,
+          "t": 0.56
+        },
+        {
+          "ref": "chip7",
+          "perp": 31.7,
+          "t": 0.61
+        },
+        {
+          "ref": "chip4",
+          "perp": 37.9,
+          "t": 1.08
+        },
+        {
+          "ref": "chip1",
+          "perp": 46.9,
+          "t": 2.52
+        },
+        {
+          "ref": "chip9",
+          "perp": 48.9,
+          "t": 0.64
+        },
+        {
+          "ref": "chip8",
+          "perp": 54.3,
+          "t": 0.4
+        },
+        {
+          "ref": "chip2",
+          "perp": 66.6,
+          "t": 1.51
+        },
+        {
+          "ref": "chip5",
+          "perp": 71.2,
+          "t": 0.5
+        }
+      ],
+      "identified_as": "bank_wash",
+      "why": "the reach's own grey bank wash, residual 6.5 at t 1.17",
+      "nearest_facsimile_band": {
+        "distance_m": 372.6,
+        "class": [
+          8
+        ]
+      }
+    },
+    {
+      "side": "west",
+      "rows": [
+        1247,
+        1251
+      ],
+      "band_px": 3,
+      "mean_width_px": 0.6,
+      "centroid_px": [
+        1118.3,
+        1250.7
+      ],
+      "centroid_local_m": [
+        -218.7,
+        402.3
+      ],
+      "dark": {
+        "median": 90.2,
+        "min": 57.2,
+        "max": 93.7
+      },
+      "tint": {
+        "median": 8.9,
+        "min": 6.0,
+        "max": 8.9
+      },
+      "coloured_wash_share": 0.33,
+      "local_paper_rgb": [
+        217,
+        200,
+        169
+      ],
+      "median_rgb": [
+        120,
+        119,
+        101
+      ],
+      "rays": [
+        {
+          "ref": "bank_wash",
+          "perp": 9.1,
+          "t": 2.35
+        },
+        {
+          "ref": "chip6",
+          "perp": 17.9,
+          "t": 1.06
+        },
+        {
+          "ref": "chip3",
+          "perp": 34.1,
+          "t": 0.96
+        },
+        {
+          "ref": "chip7",
+          "perp": 55.3,
+          "t": 1.03
+        },
+        {
+          "ref": "chip1",
+          "perp": 57.1,
+          "t": 12.22
+        },
+        {
+          "ref": "chip4",
+          "perp": 59.0,
+          "t": 2.27
+        },
+        {
+          "ref": "chip9",
+          "perp": 87.1,
+          "t": 1.15
+        },
+        {
+          "ref": "chip8",
+          "perp": 97.0,
+          "t": 0.65
+        },
+        {
+          "ref": "chip5",
+          "perp": 123.1,
+          "t": 0.8
+        },
+        {
+          "ref": "chip2",
+          "perp": 131.8,
+          "t": 2.34
+        }
+      ],
+      "identified_as": null,
+      "why": "too few pixels to read a colour from (3)",
+      "nearest_facsimile_band": {
+        "distance_m": 234.7,
+        "class": [
+          8
+        ]
+      }
+    }
+  ],
+  "ruling": {
+    "trace_changed": false,
+    "statement": "No stretch moves the boundary. The east stretch's colour is not one of the nine at any dilution, so the reading stays that the sheet does not draw a bank there; rows 922-939 are a legend wash, which is ground with a name and is exactly what hue_tol 7 refuses; and rows 707-710, 715-717 and 948-951 are the reach's own bank wash laid heavier, where the boundary already stands outside the ink and there is nothing to carry across."
+  }
+}

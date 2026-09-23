@@ -1,0 +1,481 @@
+{
+  "schema": 1,
+  "issue_id": "chicago_democrat_1834_12_17",
+  "extracted": "2026-08-29",
+  "extracted_by": "hand, T-0294 — the Democrat read, December 1834",
+  "note": "Vol. II No. 3, and the issue that carries the month's NEW town matter: A. Garrett takes an auction store on South Water street near the bridge, the Lyceum opens a book drop for its library, a death and a marriage are printed, and the funeral sermon is preached at the Presbyterian church. Page 4 column 1 is the only Tesseract fallback in the issue and is, as elsewhere in this month, the more legible column. NO POST-OFFICE LETTER LIST OF ANY OFFICE STANDS IN THIS ISSUE. AMENDED BY T-0328 on 2026-08-29: c006 is the only one of five printings of D. Weaver's advertisement that reads Lot 9; the other four read Lot 2 and the lot is 2. The quote is untouched and the losing reading stays visible in `normalized`.",
+  "claims": [
+    {
+      "id": "c001",
+      "kind": "business",
+      "reading": "transcription_mediated",
+      "quote": "Ametima Votice.\nGARRETT,\nSPECTPULLY inforins\nthe citiznns of\n[uncertain: THTTia]\n[uncertain: -micago, ana tas agnicent towus, thet no]\n[uncertain: is aren astore tr]\n[uncertain: 3 FE1]\nSouth- Water street,\nlridge, for the parp\n[uncertain: uus tion aod Connimon]\nof carrvine on the Auc.",
+      "normalized": "A[uc]tio[n] Notice. [A.] GARRETT [re]SPECTFULLY informs the citizens of [Chicago, and the a]djacent towns, that [he] [has taken a store in] South-Water street, [near the b]ridge, for the purp[ose] of carrying on the Auc[tion and Commission business].",
+      "locator": {
+        "artifact_role": "primary",
+        "issue_page": 3,
+        "column": 2,
+        "lines": [
+          2689,
+          2700
+        ],
+        "interleaved": true
+      },
+      "entities": [
+        {
+          "as_printed": "GARRETT,",
+          "normalized": "A. Garrett",
+          "role": "proprietor",
+          "occupations": [
+            "auction and commission merchant"
+          ]
+        }
+      ],
+      "notes": "A NEW STOREFRONT OPENING IN DECEMBER 1834, SIX MONTHS BEFORE THE SCENE DATE, AND THE PAPER SAYS WHERE. The gazetteer already carries `a_garrett_auctioneer` with placement `none`; this is the placement — a store in South Water street, near the bridge. The fuller text of the same notice runs a week later (1834-12-24 c001) with the goods list, the twice-weekly sales and the copy date; this printing is the one that carries “near the bridge”, which the later setting loses. THE BRIDGE IS THE ANCHOR AND IT IS A GOOD ONE: it is a fixed, dated, modelled structure, unlike a shop that may move. It is NOT assumed that this is the unnamed store advertising “on South Water-st., near the bridge” a week earlier (1834-12-10 c004); the two are recorded apart.",
+      "business": {
+        "name": "A. Garrett",
+        "proprietors": [
+          "A. Garrett"
+        ],
+        "trade": "auction and commission",
+        "goods": [
+          "dry goods",
+          "groceries",
+          "hardware",
+          "crockery",
+          "boots and shoes",
+          "ready made clothing"
+        ],
+        "street": "South Water street",
+        "placement": {
+          "class": "relative",
+          "anchor": "the bridge",
+          "offset_text": "lridge, for the parp"
+        }
+      }
+    },
+    {
+      "id": "c002",
+      "kind": "event",
+      "reading": "transcription_mediated",
+      "quote": "a good fight, finisted his\nous fight of victory\ndeaih admonish erery\nLate 1s bot t shadow, woich\nseen ari then gone forever.\nCommunicaled.\nfuneral sermon will be delisered nt the\nterian Charch, on Sabbath af-ernoon",
+      "normalized": "[He has fought] a good fight, finished his [course … and has taken possession of the gl]orious [cr]ow[n] of victory […] [Let this] death admonish every [one to be ready …] [Life is but a] shadow, w[h]ich [is] seen a[nd] then gone forever. Communica[t]ed. [The] funeral sermon will be deli[v]ered at the [Presby]terian Church, on Sabbath af[t]ernoon.",
+      "locator": {
+        "artifact_role": "primary",
+        "issue_page": 3,
+        "column": 2,
+        "lines": [
+          2609,
+          2631
+        ],
+        "lines_of_claim": [
+          2613,
+          2615,
+          2621,
+          2624,
+          2626,
+          2627,
+          2628,
+          2629
+        ],
+        "interleaved": true
+      },
+      "entities": [],
+      "notes": "THE PRESBYTERIAN CHURCH IS USED FOR A FUNERAL, WHICH IS THE FOURTH DOCUMENTED USE OF THAT BUILDING IN SIX WEEKS. T-0293 recorded a temperance society meeting there on 1834-11-05, a library meeting on 1834-11-26, and the Trustees themselves met there before moving to the Tremont House and the Exchange (1834-10-01 c001). A reconstruction that puts a church on the ground has to decide how much of the town's public life happened inside it, and the answer this corpus keeps giving is: most of it. THE DEAD MAN IS NOT NAMED HERE and no person is minted: the obituary's opening, which carries his name, his age of twenty-seven and the eight days of his illness, stands in the previous segmenter column (page 3 column 1, lines 2594-2607) and is cut to fragments there. Only the part that is legible is claimed."
+    },
+    {
+      "id": "c003",
+      "kind": "event",
+      "reading": "transcription_mediated",
+      "quote": "MARRIED,\n* the Ilth inst\nHADDOCK, to Mis\n[uncertain: by Ine sland]",
+      "normalized": "MARRIED, [on] the 11th inst[ant … Mr. …] HADDOCK, to Mis[s … ] [by the Rev. …]",
+      "locator": {
+        "artifact_role": "primary",
+        "issue_page": 3,
+        "column": 1,
+        "lines": [
+          2590,
+          2593
+        ]
+      },
+      "entities": [
+        {
+          "as_printed": "HADDOCK, to Mis",
+          "normalized": "Haddock",
+          "role": "groom"
+        }
+      ],
+      "notes": "A MARRIAGE ON 11 DECEMBER 1834, AND ONE SURNAME SURVIVES OF THE THREE THE NOTICE MUST HAVE CARRIED. The bride's name and the officiating minister's are both gone with the column edge and are not guessed at. Haddock is minted on the surname alone because that is what the paper prints; the gazetteer keys on the whole normalized name, so a later “E. H. Haddock” will NOT coalesce with this by accident, and joining them would need a stated merge rule in identity.json. That is the identity policy working as designed and it is left to work."
+    },
+    {
+      "id": "c004",
+      "kind": "notice",
+      "reading": "transcription_mediated",
+      "quote": "Panted Immediately.\napprentice at this office to\nusiness.\nthe\nprinting\nrood opportunity is oflered.",
+      "normalized": "[W]anted Immediately. [An] apprentice at this office to the printing [b]usiness. [A] good opportunity is offered.",
+      "locator": {
+        "artifact_role": "primary",
+        "issue_page": 3,
+        "column": 2,
+        "lines": [
+          2632,
+          2640
+        ],
+        "lines_of_claim": [
+          2632,
+          2634,
+          2635,
+          2636,
+          2637,
+          2640
+        ]
+      },
+      "entities": [],
+      "notes": "THE DEMOCRAT IS SHORT AN APPRENTICE AND HAS BEEN SINCE THE FIRST NUMBER OF THE MONTH — the same want stands in 1834-12-03 page 3 column 1. It is a small thing and it is recorded because it sizes the shop: a four-page weekly on an imperial sheet being set by a staff that cannot spare a boy, in a town of a few hundred people, three years before incorporation as a city."
+    },
+    {
+      "id": "c005",
+      "kind": "business",
+      "reading": "transcription_mediated",
+      "quote": "NEW STORE.\n[uncertain: Dan eriter hare estohtislicoa new s ore]\n[uncertain: : Clybournaville,]\nabore Ottawa, near the\non the west side of Pox\n[uncertain: where tiy intend tCljboue. &]\non handa general assortinent ofep con-\nioods, Groceries Crockery 4: Baruteare\ner and Carpenter's\nnds of Farming Tools\nand Implasents,\nani Lambor:\nperasille, Dee. 11, 1631--3",
+      "normalized": "NEW STORE. [The subs]criber[s] ha[ve established a n]ew s[t]ore [at] Clybournsville, [… ] above Ottawa, near the [… ] on the west side of Fox [River, where they intend to keep] on hand a general assortment of [Dry] Goods, Groceries, Crockery & Hardware, [… Join]er and Carpenter's [Tools, all ki]nds of Farming Tools and Impl[e]ments, [… ] and Lumber. [Clybou]rnsville, Dec. 11, 183[4] — 3",
+      "locator": {
+        "artifact_role": "primary",
+        "issue_page": 3,
+        "column": 2,
+        "lines": [
+          2662,
+          2688
+        ],
+        "lines_of_claim": [
+          2662,
+          2665,
+          2666,
+          2667,
+          2668,
+          2669,
+          2671,
+          2673,
+          2674,
+          2675,
+          2676,
+          2682,
+          2688
+        ],
+        "interleaved": true
+      },
+      "entities": [],
+      "notes": "A STORE OPENING AT CLYBOURNSVILLE, WHICH IS NOT CHICAGO AND IS RECORDED FOR WHAT IT SAYS ABOUT CHICAGO. The place is on the west side of the Fox River above Ottawa, a good seventy miles out, and it advertises in the Chicago Democrat because the Democrat is the paper that reaches its customers. The name is the Clybourn family's, which is the same surname running through this month's stray-cattle and reward notices in the town itself (1834-12-24 c004, c008). No business is minted: the subscribers' names are cut away and the shop is outside the modelled ground, so this is a claim about the paper's reach and about the goods a frontier store carried, not a placement.",
+      "ad_copy_date": {
+        "verbatim": "perasille, Dee. 11, 1631--3",
+        "iso": "1834-12-11"
+      }
+    },
+    {
+      "id": "c006",
+      "kind": "building",
+      "reading": "transcription_mediated",
+      "quote": "or sate r To Let,\nbuilding on Lot 9, in block 1, on Norh\n3, Nor. 13, 131-D WEAVER.\nter street.\nApply to",
+      "normalized": "[F]or Sale [o]r To Let, [THE] building on Lot 9 [overruled: the lot is 2 — four of five printings, see notes], in block 1, on Nor[th Wa]ter street. Apply to [D.] WEAVER. [Chicago,] Nov. 1[uncertain: 3 / 9] [overruled: the copy date is Nov. 12 — four of seven printings and the notice's own insertion key, see notes], 183[4].",
+      "locator": {
+        "artifact_role": "primary",
+        "issue_page": 3,
+        "column": 3,
+        "lines": [
+          2955,
+          2963
+        ],
+        "lines_of_claim": [
+          2956,
+          2958,
+          2959,
+          2960,
+          2961
+        ]
+      },
+      "entities": [
+        {
+          "as_printed": "D WEAVER.",
+          "normalized": "D. Weaver",
+          "role": "advertiser"
+        }
+      ],
+      "notes": "A BUILDING WITH A LOT AND A BLOCK NUMBER, WHICH IS AS CLOSE TO A MAP REFERENCE AS THIS CORPUS EVER GETS — and the lot number is the one digit the two printings disagree about. This setting reads “Lot 9, in block 1”; the setting of 1834-12-24 page 3 column 3 reads “Lot 2, in block 1”. Both are Vision-set, neither is obviously the better witness, and 2 and 9 are not a confusable pair in clean type — which means one of the two transcriptions is wrong and the page images decide it. So the lot is recorded as `[uncertain: 9 / 2]` rather than picked, and the disagreement is filed as a ticket by this run. WHAT IS NOT IN DOUBT: block 1, North Water street, a building standing on it in November 1834, offered for sale or to let. North Water street is the river frontage on the north bank and block 1 is at its east end, so this is a documented structure inside the modelled town.\n\nOVERRULED BY T-0328 ON 2026-08-29, AND THE QUOTE ABOVE IS UNTOUCHED: THE LOT IS 2, AND THIS IS THE ONE SETTING OF FIVE THAT READS 9. This claim's own note said the page images decide it. They did not have to. The advertisement is a standing one and it ran three more times before this issue — 1834-11-26 c010, 1834-12-03 c025 and 1834-12-10 c012 — and every one of the three reads Lot 2, as does 1834-12-24 c012 after it. Four independent scans against one. This setting is also the weakest witness in its own line: 'building on Lot 9, in block 1, on Norh' loses the t out of North, where 1834-12-03 sets the same line with only its display capitals damaged. AND THE PREMISE THIS CLAIM RESTED ON IS WRONG. It reasoned that 2 and 9 are not a confusable pair in clean type, so one transcription must simply be wrong. The first half is true and the conclusion did not follow, because the type here is not clean: the copy DATELINE of this same advertisement is set '13' here, '19' at 1834-12-24 and '12' at both 1834-11-26 and 1834-12-03. The last digit of a small figure in this column is exactly what these scans lose, in the date as in the lot number — which is why the answer is a tally across printings and not a verdict about one glyph. The `normalized` reading is amended from `Lot [uncertain: 9 / 2]` to name the winner and keep the loser visible; the `quote` is verbatim and stays as printed.\n\nOVERRULED AGAIN ON THE DATELINE BY T-0350, 2026-08-29, AND THE QUOTE IS UNTOUCHED A SECOND TIME. This claim's `ad_copy_date.iso` read 1834-11-19 — a date its own type does not print, taken from 1834-12-24 before the earlier printings were known — and it now reads 1834-11-12. `verbatim` still holds this setting's own “3, Nor. 13, 131-D WEAVER.” and `normalized` still shows the losing 13. This is the second digit this column has lost: it is the one setting of seven that reads Lot 9, and the one setting of seven that reads the day as 13. The note above already said the last digit of a small figure is what this column loses, in the date as in the lot number; the date is now counted the same way the lot was.\n\nTHE COPY DATE IS 12 NOVEMBER 1834, DECIDED BY T-0350 OVER SEVEN PRINTINGS AND BY THE PAPER'S OWN INSERTION KEY. The advertisement ran SEVEN times, not five: it opens in Vol. I No. 50 of 1834-11-12 (c015) and No. 51 of 1834-11-19 (c012), two settings T-0328's tally did not have because neither is findable by the advertiser's name — 1834-11-12 sets it “D. WEAVE.R” and the surviving span of 1834-11-19 prints no name at all. They were found by searching the run for the notice's own body text instead. The datelines across the seven: Nov. 12 at 1834-11-12, 1834-11-19, 1834-11-26 and 1834-12-03; Nov. 13 at 1834-12-17; Nov. 19 at 1834-12-24; and no legible day or month at 1834-12-10. Four to one to one.\n\nAND THE TALLY IS NOT WHAT DECIDES IT — THE ADVERTISEMENT'S OWN KEY DOES. Every legible setting tails its dateline with the figure 50: “1834.—50” at 1834-11-19 and “1881-50” at 1834-11-26, “1831. SO” at 1834-12-03, “1631.—00” at 1834-12-10, “1834-SD” at 1834-12-24 and “1831 -5)” at 1834-11-12. In this paper that trailing figure is not part of the date: it is THE NUMBER OF THE ISSUE THE COPY IS KEYED TO, the first number published on or after the dateline. It is checkable on other advertisers in the same columns — J. Bates's blacksmith-tools notice sets “Nov. 5, 1834.—49” and Vol. I No. 49 was published on 5 November; a For Sale notice sets “Nov. 26, 1834-52” against No. 52 of 26 November; two December notices set “Dec. 16, 1834.-3” and “Dec. 11, 1834.-3” against Vol. II No. 3, the first number published after either date. Vol. I No. 50 was published on 12 NOVEMBER 1834, so a key of 50 admits only a dateline falling after 5 November and on or before 12 November. Nov. 13 and Nov. 19 both fall outside it and would key 51; Nov. 12 is the only one of the three readings the key allows, and it is the reading four of the seven settings print.\n\nTHE KEY IS A FUNCTION OF THE DATELINE, NOT A CLAIM ABOUT FIRST APPEARANCE, and that distinction is kept because one of the four control notices breaks the looser version: Bates's “Nov. 5, 1834.—49” does not itself stand in No. 49 of 5 November, but first appears in No. 50. The key records the week the copy was handed in. For this notice the two coincide anyway — it is absent from No. 49 of 1834-11-05 and from No. 48 of 1834-10-29 (checked; the “For Sale or Rent” standing in both is G. Blanshard's, a different notice), and it first stands in No. 50.\n\nTHE TICKET'S DOUBT IS ANSWERED RATHER THAN OVERRIDDEN. T-0350 weighed 12 against 19 partly on the ground that Nov. 12 would be a fortnight before the notice's first appearance where Nov. 19 would be a week. Both halves rested on 1834-11-26 being the first appearance; it is the third. Dated 12 November the notice is dated the day it first ran, which is the same-day pattern “Nov. 5, 1834.—49” and “Nov. 26, 1834-52” show.\n\nNOTHING IS AMENDED TO AGREE WITH ANYTHING. Every printing keeps its own verbatim dateline, including the two that read 13 and 19, and each claim's `ad_copy_date.verbatim` is that setting's own text. The dossier is docs/RESEARCH/weaver_building_north_water_block_1.md.",
+      "ad_copy_date": {
+        "verbatim": "3, Nor. 13, 131-D WEAVER.",
+        "iso": "1834-11-12"
+      }
+    },
+    {
+      "id": "c007",
+      "kind": "building",
+      "reading": "transcription_mediated",
+      "quote": "New Blacksmith\nDALLY & YOr:\nHEAVING erected the above\nTHE JAIL.\nwant work in their line of bu\nare now ready to secommo\nsone on the shotest notice\nchains, and manuficture\nmanner.\nEdge Tools with neatness and in\nWe will likewise\n[uncertain: Cheng hame 17, blin.]",
+      "normalized": "New Blacksmith [Shop.] DALLY & YO[UNGS,] HAVING erected the above [shop] [OPPOSITE] THE JAIL, [are now ready to accommodate those who] want work in their line of bu[siness … all work] done on the shortest notice[. We … wagon] chains, and manufacture [Prairie ploughs, cradle and grass scythes, and] Edge Tools with neatness and in [a workmanlike] manner. We will likewise [… ] [Chi]ca[go, J]une 1[5], 183[4].",
+      "locator": {
+        "artifact_role": "primary",
+        "issue_page": 4,
+        "column": 3,
+        "lines": [
+          4110,
+          4131
+        ],
+        "lines_of_claim": [
+          4110,
+          4112,
+          4114,
+          4116,
+          4117,
+          4118,
+          4120,
+          4122,
+          4123,
+          4126,
+          4127,
+          4129
+        ],
+        "interleaved": true
+      },
+      "entities": [
+        {
+          "as_printed": "DALLY & YOr:",
+          "normalized": "Dally & Youngs",
+          "role": "proprietor",
+          "occupations": [
+            "blacksmith"
+          ]
+        }
+      ],
+      "notes": "A SECOND SHOP BUILDING RAISED IN 1834 AND ADVERTISED IN THE PAST TENSE — “HAVING erected the above shop OPPOSITE THE JAIL”, in capitals, as the notice's standing head. With Briggs & Humphrey's carriage shop on Randolph street (1834-12-03 c015) that makes two purpose-built trade buildings documented as going up in the town in the summer of 1834, both by advertisements that mention the building only because it is new. THE ANCHOR IS A PUBLIC STRUCTURE, which is what makes it useful: the jail's position is fixed by the county's own record and not by a shopkeeper's memory, so “opposite the jail” places a forge to within a street width. The gazetteer already carries this anchor from an earlier read; this claim adds that the shop is NEW, and dates it before 15 June 1834.",
+      "ad_copy_date": {
+        "verbatim": "[uncertain: Cheng hame 17, blin.]",
+        "iso": "1834-06-15"
+      },
+      "business": {
+        "name": "Dally & Youngs",
+        "proprietors": [
+          "Dally & Youngs"
+        ],
+        "trade": "blacksmith",
+        "goods": [
+          "wagon chains",
+          "prairie ploughs",
+          "cradle scythes",
+          "grass scythes",
+          "edge tools"
+        ],
+        "street": null,
+        "placement": {
+          "class": "relative",
+          "anchor": "the Jail",
+          "offset_text": "THE JAIL."
+        }
+      }
+    },
+    {
+      "id": "c008",
+      "kind": "business",
+      "reading": "transcription_mediated",
+      "quote": "Blackemith W\nWRIGHT.\nRESPECTFULLA inform the\nPIERCE & FRENC\nown of Chieago and\nand Canal streets, oppor\nned by Pierce and Abbott.\nmaich business, in\nore to plas, chago, June 25,",
+      "normalized": "Blacksmith W[ork.] [J. …] WRIGHT[?] […] PIERCE & FRENC[H] RESPECTFULL[Y] inform the [citizens of the] [t]own of Chicago and [its neighbouring settlements and the] Public, [that they have taken the shop formerly occup]ied by Pierce and Abbott, [at the corner of … ] and Canal streets, oppos[ite … where they carry on the black]smith business, in [all its branches …] [Chi]cago, June 25, [1834].",
+      "locator": {
+        "artifact_role": "primary",
+        "issue_page": 4,
+        "column": 3,
+        "lines": [
+          4132,
+          4147
+        ],
+        "lines_of_claim": [
+          4132,
+          4133,
+          4135,
+          4136,
+          4137,
+          4139,
+          4140,
+          4141,
+          4145
+        ],
+        "interleaved": true
+      },
+      "entities": [
+        {
+          "as_printed": "PIERCE & FRENC",
+          "normalized": "Pierce & French",
+          "role": "proprietor",
+          "occupations": [
+            "blacksmith"
+          ]
+        },
+        {
+          "as_printed": "ned by Pierce and Abbott.",
+          "normalized": "Pierce and Abbott",
+          "role": "former occupant",
+          "occupations": [
+            "blacksmith"
+          ]
+        }
+      ],
+      "notes": "AN OCCUPANCY CHAIN AND A THIRD FORGE, ON THE WEST SIDE. “the shop formerly occupied by Pierce and Abbott” is the “building lately occupied by…” pattern the epic asks to be collected: one shop, two successive firms, and a partner's name carried across — Pierce is in both, Abbott is out, French is in. Canal street puts it on the west division, away from Dally & Youngs by the jail and from Matthias Mason, so December 1834 documents THREE separate blacksmithing establishments in and about the town. The word after “oppos” is cut in every printing, so the placement is street_only and the cross street is not supplied; the fragment “WRIGHT” on the neighbouring line belongs to the interleaved column and is quoted but not attributed.",
+      "ad_copy_date": {
+        "verbatim": "ore to plas, chago, June 25,",
+        "iso": "1834-06-25"
+      },
+      "business": {
+        "name": "Pierce & French",
+        "proprietors": [
+          "Pierce & French"
+        ],
+        "trade": "blacksmith",
+        "goods": [],
+        "street": "Canal street",
+        "placement": {
+          "class": "street_only",
+          "anchor": null,
+          "offset_text": "and Canal streets, oppor",
+          "offset_normalized": "[…] and Canal streets, oppo[site …]",
+          "street": "Canal Street",
+          "note": "THE CORNER IS NOT ON THIS IMPRESSION AND IS NOT TAKEN FROM ANOTHER. The type here carries neither the word \"corner\" nor the first street name: what survives is \"and Canal streets, oppor\", and the plural is the only trace of a junction. The same standing advertisement — one dateline, 25 June 1834 — does print it, four times (1834-06-25 c005, 1834-07-02 c051, 1834-09-10 c017, 1834-11-19 c007), and those readings carry the corner class on their own type. Reading THIS printing as a corner would take the word off its sister impressions rather than off this page, so it stays street_only, carrying the one street the page does print. What is repaired is the silence: the placement said nothing where the page says Canal street."
+        }
+      }
+    },
+    {
+      "id": "c009",
+      "kind": "business",
+      "reading": "transcription_mediated",
+      "quote": "J. S. C. HOGA\nFFERS at Whalesale and Reta\nin South Water Street,\nthe Fost Office\nDory Goods, Groc\nHardware, Crockery and G\n1lso-3 quantity of 8by 10, and\n200 sides Sole Leather;\n4 doz. corn BASKETS;",
+      "normalized": "J. S. C. HOGA[N] [O]FFERS at Wholesale and Retai[l,] in South Water Street, [at] the Post Office[, a well selected assortment of] Dry Goods, Groc[eries, … ] Hardware, Crockery and G[lass … ] [A]lso — a quantity of 8 by 10[, and … ] 200 sides Sole Leather; 4 doz. corn BASKETS[.]",
+      "locator": {
+        "artifact_role": "primary",
+        "issue_page": 4,
+        "column": 4,
+        "lines": [
+          4236,
+          4253
+        ],
+        "lines_of_claim": [
+          4236,
+          4238,
+          4239,
+          4240,
+          4242,
+          4244,
+          4248,
+          4250,
+          4251
+        ],
+        "interleaved": true
+      },
+      "entities": [
+        {
+          "as_printed": "J. S. C. HOGA",
+          "normalized": "J. S. C. Hogan",
+          "role": "proprietor",
+          "occupations": [
+            "merchant",
+            "postmaster"
+          ]
+        }
+      ],
+      "notes": "THE POST OFFICE IS ON SOUTH WATER STREET AND IT IS INSIDE THE POSTMASTER'S SHOP. Hogan signs every Chicago letter list in this corpus as P. M. and here advertises his own wholesale and retail stock “in South Water Street, [at] the Post Office” — so the building the town's mail was called for at is a store, and its street is documented. That matters well beyond one frontage: the letter lists T-0292, T-0310 and T-0313 mint residents from are lists of letters lying in THIS room, and a reconstruction that wants to show where four hundred people went to ask for their mail now has a street to put it on. The clause survives across three of the four December printings; this is the least cut.",
+      "business": {
+        "name": "J. S. C. Hogan",
+        "proprietors": [
+          "J. S. C. Hogan"
+        ],
+        "trade": "wholesale and retail dry goods, groceries, hardware and crockery",
+        "goods": [
+          "dry goods",
+          "groceries",
+          "hardware",
+          "crockery",
+          "glass",
+          "sole leather",
+          "corn baskets",
+          "stoves",
+          "nail rods"
+        ],
+        "street": "South Water street",
+        "placement": {
+          "class": "relative",
+          "anchor": "the Post Office",
+          "offset_text": "the Fost Office"
+        }
+      }
+    },
+    {
+      "id": "c010",
+      "kind": "business",
+      "reading": "transcription_mediated",
+      "quote": "To Blacksmiths.\nEST rate act of TOOLS,\nconsisting of\nquire of\n1.34.-49",
+      "normalized": "To Blacksmiths. [B]EST rate [s]et of TOOLS, consisting of [Hammers, Tongs, … En]quire of [this office. Nov. 5, 18]34. — 49",
+      "locator": {
+        "artifact_role": "primary",
+        "issue_page": 3,
+        "column": 3,
+        "lines": [
+          2971,
+          2976
+        ],
+        "lines_of_claim": [
+          2971,
+          2972,
+          2973,
+          2975,
+          2976
+        ]
+      },
+      "entities": [],
+      "notes": "A WHOLE SET OF SMITH'S TOOLS FOR SALE THROUGH THE NEWSPAPER OFFICE, IN A MONTH WITH THREE FORGES ADVERTISING. Hammers and tongs are named in the fuller printing at 1834-12-24 page 3 column 4; the rest of the list is cut. A set coming onto the market usually means a shop closing, and none of the three December smiths says he is closing — so the contradiction is recorded and not resolved, and no business is minted from an advertisement that names nobody.",
+      "ad_copy_date": {
+        "verbatim": "1.34.-49",
+        "iso": "1834-11-05"
+      }
+    },
+    {
+      "id": "c011",
+      "kind": "shipping",
+      "reading": "transcription_mediated",
+      "quote": "Por Sale,\nment of highly finished Shot Guna,\nnd single baris, by the first 2ngs\nNEWBERRY & DOLE.\ngood barrels, now unloading froia\noner, Mariah Antonette, and Ata-\nHUBBARD & Co.",
+      "normalized": "[F]or Sale, [an assort]ment of highly finished Shot Guns, [double a]nd single barrels, by the first Eng[lish makers.] NEWBERRY & DOLE. [… in] good barrels, now unloading from [the scho]oners Mariah Anto[i]nette, and Ata[lanta. For sa]le by HUBBARD & Co.",
+      "locator": {
+        "artifact_role": "primary",
+        "issue_page": 3,
+        "column": 6,
+        "lines": [
+          3416,
+          3423
+        ],
+        "lines_of_claim": [
+          3416,
+          3417,
+          3418,
+          3419,
+          3420,
+          3421,
+          3423
+        ]
+      },
+      "entities": [
+        {
+          "as_printed": "NEWBERRY & DOLE.",
+          "normalized": "Newberry & Dole",
+          "role": "advertiser",
+          "occupations": [
+            "merchant"
+          ]
+        },
+        {
+          "as_printed": "HUBBARD & Co.",
+          "normalized": "Hubbard & Co.",
+          "role": "advertiser",
+          "occupations": [
+            "forwarding and commission merchant"
+          ]
+        }
+      ],
+      "notes": "TWO NAMED SCHOONERS UNLOADING AT CHICAGO, AND THE CARGO IS IN BARRELS. The Mariah Antoinette and the Atalanta are vessels the harbour can be shown with; the notice is dated into July but stands unaltered in December, so the barrels are winter stock landed before the port closed. Newberry & Dole's English shot guns run in the same segmenter column and are quoted with them because the two notices are set as one block; the firm is already the corpus's most-used placement anchor (1834-12-03 c002, 1834-12-10 c010) and this is the only December claim that shows it as a MERCHANT rather than as a landmark."
+    }
+  ]
+}

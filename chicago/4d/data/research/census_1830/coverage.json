@@ -1,0 +1,61 @@
+{
+  "schema": 1,
+  "domain": "census_1830",
+  "generated_by": "hand — a reading pass declares the range it read, and the gate checks it",
+  "note": "An UNDECLARED item is not read yet and is not a fault. A DECLARED item nothing reaches is a hole, and that is what this file is for.",
+  "declarations": [
+    {
+      "ticket": "T-0605",
+      "unit": "image",
+      "source_id": "census_1830_peoria_county_chicago_precinct",
+      "item": "populationsc18300024unit",
+      "read_on": "2026-09-05",
+      "items": [
+        "n576",
+        "n578",
+        "n584"
+      ],
+      "what_was_read": "Every head of family in the names column of n576 (55), n578 (56) and n584 (22), in the enumerator's order, plus each leaf's totals row to its first nine male columns. 133 entries. The recapitulation leaf n586 was read too and is transcribed in text/peoria_putnam_1830_recapitulation_n586.txt — it is NOT declared here, because it carries no head of family and so no record in this domain can ever reach it; see below.",
+      "what_was_not_read": "The per-household age-band cells on n576, n578 and n584, as on n580 and n582 before them — twenty-eight columns per household is a pass of its own. On n586, the female half of the recapitulation grid beyond the columns transcribed, and the right-hand continuation half of every sheet (the odd leaves).",
+      "note": "This closes the division. n586's five page rows are the totals rows of n576, n578, n580, n582 and n584 — page 1's row carries the same six struck-and-rewritten cells as n576's — so the district is those five leaves, printed pages 299 to 303, and it ends at n584 because n586 is its recapitulation. T-0605 was opened believing the district ran ON past n584; it runs BACK to n576 instead, and the two leaves at the front of it were the unread ones."
+    },
+    {
+      "ticket": "T-0498",
+      "unit": "image",
+      "source_id": "census_1830_peoria_county_chicago_precinct",
+      "item": "populationsc18300024unit",
+      "read_on": "2026-09-03",
+      "items": [
+        "n580",
+        "n582"
+      ],
+      "what_was_read": "Every head of family in the names column of both leaves, in the enumerator's order, plus the county heading on n580 and the first five male columns of each leaf's totals row. 39 entries on n580, 28 on n582.",
+      "what_was_not_read": "The per-household age-band cells. They are on the page and legible in parts; reading twenty-eight columns for sixty-seven households is a pass of its own and half of it would be worse than none.",
+      "note": "These are the first two leaves of the enumeration district headed 'Peoria & Putnam Counties & Territory attached', which is where Chicago was enumerated in 1830."
+    }
+  ],
+  "not_declared_and_why": [
+    {
+      "items": [
+        "n586"
+      ],
+      "why": "Read in full on 2026-09-05 for T-0605 and transcribed at text/peoria_putnam_1830_recapitulation_n586.txt, but NOT declared: it is the division's recapitulation and carries five page-total rows and not one head of family, so nothing in this domain can reach it and declaring it would open a hole that no reading could ever close. It is the evidence that the names end at n584 and begin at n576, and it lives in the source record's access notes and in the domain README rather than here."
+    },
+    {
+      "items": [
+        "n577",
+        "n579",
+        "n581",
+        "n583",
+        "n585"
+      ],
+      "why": "The ODD leaves are the right-hand halves of the same sheets — the continuation columns (slaves, free coloured persons, aliens) that this project has not needed and has not read. The even leaves n576 and n578, which this same note used to consign to 'the county before this district', are read: T-0605 found them to be pages 1 and 2 of the division and declared them above. The claim they carried was a guess from an empty county cell and it was wrong."
+    },
+    {
+      "items": [
+        "the division's recapitulation, page 3 against n580"
+      ],
+      "why": "RE-MEASURED for T-0757 off the item's full-resolution derivative, twice the magnification the leaves were read at. n586's family column reads 55 / 56 / 88 / 28 / 22 and sums to 249 against its own written total of 199; the leaves carry 55 + 56 + 39 + 28 + 22 = 200, and both open leaf counts were re-derived head by head and stand. Page 1 is no longer a disagreement — it is 55, not the 53 T-0605 read, and agrees with n576. Page 3 is the one that remains: 88 written against 39 heads on n580. Neither figure is preferred here and no record is graded on it. Recorded and NOT adopted: page 3 taken as 38 would close the copyist's column on 199 exactly, but the ink is 88 and a page is not corrected to make a sum work."
+    }
+  ]
+}

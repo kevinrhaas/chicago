@@ -1,0 +1,1052 @@
+{
+ "schema": 2,
+ "schema_note": "schema 2 adds the cells: the column vocabulary, the per-column check against the printed totals, and per record `cells` (committed) beside `cells_first_pass` (read, unreconciled). Schema 1 records carried `cells: null` and no check.",
+ "familysearch_id": "33S7-9YYJ-9K3",
+ "image": "chicago/reference/census1840/33S7-9YYJ-9K3.jpg",
+ "printed_page": 219,
+ "sheet_side": "left",
+ "division": "S. W. Sherman (as written in the printed heading)",
+ "state": "Illinois",
+ "county": "Cook",
+ "reading": "scan_verified",
+ "read_pass": "names and cells (T-0585, piece 2 of 2 of T-0531)",
+ "lines_ruled": 31,
+ "lines_ruled_with_an_entry": 31,
+ "lines_ruled_and_blank": 0,
+ "line_count_note": "31 ruled lines, all 31 carrying a name, which RESTATES the coverage inventory's figure of 31 exactly rather than correcting it. The last entry is line 31 (Geo. Murray) and the table closes below it with the heavy foot rule and the enumerator's footing figures.",
+ "name_confidence": {
+  "high": 0,
+  "medium": 9,
+  "low": 22
+ },
+ "columns": [
+  {
+   "column": 1,
+   "group": "free white males",
+   "band": "Under 5"
+  },
+  {
+   "column": 2,
+   "group": "free white males",
+   "band": "5 under 10"
+  },
+  {
+   "column": 3,
+   "group": "free white males",
+   "band": "10 under 15"
+  },
+  {
+   "column": 4,
+   "group": "free white males",
+   "band": "15 under 20"
+  },
+  {
+   "column": 5,
+   "group": "free white males",
+   "band": "20 under 30"
+  },
+  {
+   "column": 6,
+   "group": "free white males",
+   "band": "30 under 40"
+  },
+  {
+   "column": 7,
+   "group": "free white males",
+   "band": "40 under 50"
+  },
+  {
+   "column": 8,
+   "group": "free white males",
+   "band": "50 under 60"
+  },
+  {
+   "column": 9,
+   "group": "free white males",
+   "band": "60 under 70"
+  },
+  {
+   "column": 10,
+   "group": "free white males",
+   "band": "70 under 80"
+  },
+  {
+   "column": 11,
+   "group": "free white males",
+   "band": "80 under 90"
+  },
+  {
+   "column": 12,
+   "group": "free white males",
+   "band": "90 under 100"
+  },
+  {
+   "column": 13,
+   "group": "free white males",
+   "band": "100 and upwards"
+  },
+  {
+   "column": 14,
+   "group": "free white females",
+   "band": "Under 5"
+  },
+  {
+   "column": 15,
+   "group": "free white females",
+   "band": "5 under 10"
+  },
+  {
+   "column": 16,
+   "group": "free white females",
+   "band": "10 under 15"
+  },
+  {
+   "column": 17,
+   "group": "free white females",
+   "band": "15 under 20"
+  },
+  {
+   "column": 18,
+   "group": "free white females",
+   "band": "20 under 30"
+  },
+  {
+   "column": 19,
+   "group": "free white females",
+   "band": "30 under 40"
+  },
+  {
+   "column": 20,
+   "group": "free white females",
+   "band": "40 under 50"
+  },
+  {
+   "column": 21,
+   "group": "free white females",
+   "band": "50 under 60"
+  },
+  {
+   "column": 22,
+   "group": "free white females",
+   "band": "60 under 70"
+  },
+  {
+   "column": 23,
+   "group": "free white females",
+   "band": "70 under 80"
+  },
+  {
+   "column": 24,
+   "group": "free white females",
+   "band": "80 under 90"
+  },
+  {
+   "column": 25,
+   "group": "free white females",
+   "band": "90 under 100"
+  },
+  {
+   "column": 26,
+   "group": "free white females",
+   "band": "100 and upwards"
+  },
+  {
+   "column": 27,
+   "group": "free colored males",
+   "band": "Under 10"
+  },
+  {
+   "column": 28,
+   "group": "free colored males",
+   "band": "10 under 24"
+  },
+  {
+   "column": 29,
+   "group": "free colored males",
+   "band": "24 under 36"
+  },
+  {
+   "column": 30,
+   "group": "free colored males",
+   "band": "36 under 55"
+  },
+  {
+   "column": 31,
+   "group": "free colored males",
+   "band": "55 under 100"
+  },
+  {
+   "column": 32,
+   "group": "free colored males",
+   "band": "100 and upwards"
+  },
+  {
+   "column": 33,
+   "group": "free colored females",
+   "band": "Under 10"
+  },
+  {
+   "column": 34,
+   "group": "free colored females",
+   "band": "10 under 24"
+  },
+  {
+   "column": 35,
+   "group": "free colored females",
+   "band": "24 under 36"
+  },
+  {
+   "column": 36,
+   "group": "free colored females",
+   "band": "36 under 55"
+  },
+  {
+   "column": 37,
+   "group": "free colored females",
+   "band": "55 under 100"
+  },
+  {
+   "column": 38,
+   "group": "free colored females",
+   "band": "100 and upwards"
+  }
+ ],
+ "grid_note": "HOW THE CELLS WERE LOCATED. The 39 vertical rules were detected across the body of the sheet as thin-line maxima of a high-passed darkness profile and fitted as a single pitch, x = 662.5 + 79.35 n — the same pitch printed page 215 carries, which is what a shared plate should give. THE TEMPLATE WAS THEN CHECKED AGAINST THE PRINTED HEADING BEFORE ANY CELL WAS READ, because that check is what catches the one-column slip that ages every mark: rendered over the heading it reads column 1 'Under 5' under MALES, column 13 '100 and upwards', column 14 'Under 5' under FEMALES and column 26 '100 and upwards'. The 31 writing lines were fitted off the names-column ink as y = 704 + 75.5 n, marks sitting above each baseline. Columns 5, 6 and 29 — the two that carry the page's weight and the one that does not close — were each read a second time as a montage of their own 31 cells, and that second read is what settled line 16: what the row band showed in column 5 is an INK BLOT and not a tally, and the column's own footing of 62 is what proves it. No cell value here is an OCR output.",
+ "cells_state": "partial",
+ "cells_note": "Thirty-seven of the thirty-eight columns balance against the figures the enumerator footed on this sheet, including the nineteen that are blank down the page and blank in the footing and are treated as balanced at zero. ONE DOES NOT: free colored males 24 under 36 (column 29) reads 4 — a 2 on line 18, a 1 on line 25 and a 1 on line 29, and the column was montaged and nothing else is in it — against a printed footing of two identical hooked diagonals, the form this hand foots column 1 with, i.e. 11. It is left standing rather than forced: `cells` omits column 29 and `cells_first_pass` carries the whole reading. It is NOT reconciled data and nothing downstream may treat it as such. THE SHAPE OF THIS SHEET IS ITS OWN FINDING and it is not the shape of printed page 215, which is 31 households of mostly single men: this page is BOARDING HOUSES. 195 free white persons stand on 31 lines and FOUR of those lines carry 104 of them — line 18 (S. M. Osterhoudt) 33, line 29 (G. W. Cook) 27, line 10 (Wm R. Miller) 22 and line 17 (Lyman Butterfield) 22 — each a stack in the young male bands with a woman or two beside it. Column 5, free white males 20 under 30, carries 62 of the page's 126 men on its own, and column 18, free white females 20 under 30, carries 30 of its 69 women. Against that, twelve of the 31 households hold two persons or fewer and ten of those hold one or none. The FREE COLORED block is filled on three lines only — 18, 25 and 29 — and line 25 (Oliver Henson) is the one household on the page with NO free white person in it at all: as read it is a boy under 10, a man 24 under 36 and a woman 24 under 36.",
+ "cells_columns_committed": 37,
+ "cells_column_check": [
+  {
+   "column": 1,
+   "band": "free white males Under 5",
+   "read_sum": 11,
+   "printed_total": 11,
+   "printed_total_reading": "high",
+   "balanced": true,
+   "residual": 0,
+   "committed": true
+  },
+  {
+   "column": 2,
+   "band": "free white males 5 under 10",
+   "read_sum": 7,
+   "printed_total": 7,
+   "printed_total_reading": "medium — one glyph, the hooked form this hand uses for 7",
+   "balanced": true,
+   "residual": 0,
+   "committed": true
+  },
+  {
+   "column": 3,
+   "band": "free white males 10 under 15",
+   "read_sum": 2,
+   "printed_total": 2,
+   "printed_total_reading": "high",
+   "balanced": true,
+   "residual": 0,
+   "committed": true
+  },
+  {
+   "column": 4,
+   "band": "free white males 15 under 20",
+   "read_sum": 10,
+   "printed_total": 10,
+   "printed_total_reading": "high",
+   "balanced": true,
+   "residual": 0,
+   "committed": true
+  },
+  {
+   "column": 5,
+   "band": "free white males 20 under 30",
+   "read_sum": 62,
+   "printed_total": 62,
+   "printed_total_reading": "high — two glyphs, 6 then 2",
+   "balanced": true,
+   "residual": 0,
+   "committed": true
+  },
+  {
+   "column": 6,
+   "band": "free white males 30 under 40",
+   "read_sum": 28,
+   "printed_total": 28,
+   "printed_total_reading": "high — two glyphs, 2 then 8",
+   "balanced": true,
+   "residual": 0,
+   "committed": true
+  },
+  {
+   "column": 7,
+   "band": "free white males 40 under 50",
+   "read_sum": 5,
+   "printed_total": 5,
+   "printed_total_reading": "high",
+   "balanced": true,
+   "residual": 0,
+   "committed": true
+  },
+  {
+   "column": 8,
+   "band": "free white males 50 under 60",
+   "read_sum": 1,
+   "printed_total": 1,
+   "printed_total_reading": "high",
+   "balanced": true,
+   "residual": 0,
+   "committed": true
+  },
+  {
+   "column": 9,
+   "band": "free white males 60 under 70",
+   "read_sum": 0,
+   "printed_total": 0,
+   "printed_total_reading": "blank, treated as zero",
+   "balanced": true,
+   "residual": 0,
+   "committed": true
+  },
+  {
+   "column": 10,
+   "band": "free white males 70 under 80",
+   "read_sum": 0,
+   "printed_total": 0,
+   "printed_total_reading": "blank, treated as zero",
+   "balanced": true,
+   "residual": 0,
+   "committed": true
+  },
+  {
+   "column": 11,
+   "band": "free white males 80 under 90",
+   "read_sum": 0,
+   "printed_total": 0,
+   "printed_total_reading": "blank, treated as zero",
+   "balanced": true,
+   "residual": 0,
+   "committed": true
+  },
+  {
+   "column": 12,
+   "band": "free white males 90 under 100",
+   "read_sum": 0,
+   "printed_total": 0,
+   "printed_total_reading": "blank, treated as zero",
+   "balanced": true,
+   "residual": 0,
+   "committed": true
+  },
+  {
+   "column": 13,
+   "band": "free white males 100 and upwards",
+   "read_sum": 0,
+   "printed_total": 0,
+   "printed_total_reading": "blank, treated as zero",
+   "balanced": true,
+   "residual": 0,
+   "committed": true
+  },
+  {
+   "column": 14,
+   "band": "free white females Under 5",
+   "read_sum": 14,
+   "printed_total": 14,
+   "printed_total_reading": "high",
+   "balanced": true,
+   "residual": 0,
+   "committed": true
+  },
+  {
+   "column": 15,
+   "band": "free white females 5 under 10",
+   "read_sum": 6,
+   "printed_total": 6,
+   "printed_total_reading": "medium — one glyph, read 6",
+   "balanced": true,
+   "residual": 0,
+   "committed": true
+  },
+  {
+   "column": 16,
+   "band": "free white females 10 under 15",
+   "read_sum": 7,
+   "printed_total": 7,
+   "printed_total_reading": "medium — one glyph, read 7",
+   "balanced": true,
+   "residual": 0,
+   "committed": true
+  },
+  {
+   "column": 17,
+   "band": "free white females 15 under 20",
+   "read_sum": 0,
+   "printed_total": 0,
+   "printed_total_reading": "blank, treated as zero",
+   "balanced": true,
+   "residual": 0,
+   "committed": true
+  },
+  {
+   "column": 18,
+   "band": "free white females 20 under 30",
+   "read_sum": 30,
+   "printed_total": 30,
+   "printed_total_reading": "high — two glyphs, 3 then 0",
+   "balanced": true,
+   "residual": 0,
+   "committed": true
+  },
+  {
+   "column": 19,
+   "band": "free white females 30 under 40",
+   "read_sum": 8,
+   "printed_total": 8,
+   "printed_total_reading": "high",
+   "balanced": true,
+   "residual": 0,
+   "committed": true
+  },
+  {
+   "column": 20,
+   "band": "free white females 40 under 50",
+   "read_sum": 2,
+   "printed_total": 2,
+   "printed_total_reading": "high",
+   "balanced": true,
+   "residual": 0,
+   "committed": true
+  },
+  {
+   "column": 21,
+   "band": "free white females 50 under 60",
+   "read_sum": 0,
+   "printed_total": 0,
+   "printed_total_reading": "blank, treated as zero",
+   "balanced": true,
+   "residual": 0,
+   "committed": true
+  },
+  {
+   "column": 22,
+   "band": "free white females 60 under 70",
+   "read_sum": 2,
+   "printed_total": 2,
+   "printed_total_reading": "high",
+   "balanced": true,
+   "residual": 0,
+   "committed": true
+  },
+  {
+   "column": 23,
+   "band": "free white females 70 under 80",
+   "read_sum": 0,
+   "printed_total": 0,
+   "printed_total_reading": "blank, treated as zero",
+   "balanced": true,
+   "residual": 0,
+   "committed": true
+  },
+  {
+   "column": 24,
+   "band": "free white females 80 under 90",
+   "read_sum": 0,
+   "printed_total": 0,
+   "printed_total_reading": "blank, treated as zero",
+   "balanced": true,
+   "residual": 0,
+   "committed": true
+  },
+  {
+   "column": 25,
+   "band": "free white females 90 under 100",
+   "read_sum": 0,
+   "printed_total": 0,
+   "printed_total_reading": "blank, treated as zero",
+   "balanced": true,
+   "residual": 0,
+   "committed": true
+  },
+  {
+   "column": 26,
+   "band": "free white females 100 and upwards",
+   "read_sum": 0,
+   "printed_total": 0,
+   "printed_total_reading": "blank, treated as zero",
+   "balanced": true,
+   "residual": 0,
+   "committed": true
+  },
+  {
+   "column": 27,
+   "band": "free colored males Under 10",
+   "read_sum": 1,
+   "printed_total": 1,
+   "printed_total_reading": "high",
+   "balanced": true,
+   "residual": 0,
+   "committed": true
+  },
+  {
+   "column": 28,
+   "band": "free colored males 10 under 24",
+   "read_sum": 0,
+   "printed_total": 0,
+   "printed_total_reading": "blank, treated as zero",
+   "balanced": true,
+   "residual": 0,
+   "committed": true
+  },
+  {
+   "column": 29,
+   "band": "free colored males 24 under 36",
+   "read_sum": 4,
+   "printed_total": 11,
+   "printed_total_reading": "medium — two identical hooked diagonals, the form this hand foots column 1 with (where the body confirms 11); a 4 would balance and the glyphs do not support one",
+   "balanced": false,
+   "residual": -7,
+   "committed": false
+  },
+  {
+   "column": 30,
+   "band": "free colored males 36 under 55",
+   "read_sum": 0,
+   "printed_total": 0,
+   "printed_total_reading": "blank, treated as zero",
+   "balanced": true,
+   "residual": 0,
+   "committed": true
+  },
+  {
+   "column": 31,
+   "band": "free colored males 55 under 100",
+   "read_sum": 0,
+   "printed_total": 0,
+   "printed_total_reading": "blank, treated as zero",
+   "balanced": true,
+   "residual": 0,
+   "committed": true
+  },
+  {
+   "column": 32,
+   "band": "free colored males 100 and upwards",
+   "read_sum": 0,
+   "printed_total": 0,
+   "printed_total_reading": "blank, treated as zero",
+   "balanced": true,
+   "residual": 0,
+   "committed": true
+  },
+  {
+   "column": 33,
+   "band": "free colored females Under 10",
+   "read_sum": 0,
+   "printed_total": 0,
+   "printed_total_reading": "blank, treated as zero",
+   "balanced": true,
+   "residual": 0,
+   "committed": true
+  },
+  {
+   "column": 34,
+   "band": "free colored females 10 under 24",
+   "read_sum": 0,
+   "printed_total": 0,
+   "printed_total_reading": "blank, treated as zero",
+   "balanced": true,
+   "residual": 0,
+   "committed": true
+  },
+  {
+   "column": 35,
+   "band": "free colored females 24 under 36",
+   "read_sum": 1,
+   "printed_total": 1,
+   "printed_total_reading": "high",
+   "balanced": true,
+   "residual": 0,
+   "committed": true
+  },
+  {
+   "column": 36,
+   "band": "free colored females 36 under 55",
+   "read_sum": 0,
+   "printed_total": 0,
+   "printed_total_reading": "blank, treated as zero",
+   "balanced": true,
+   "residual": 0,
+   "committed": true
+  },
+  {
+   "column": 37,
+   "band": "free colored females 55 under 100",
+   "read_sum": 0,
+   "printed_total": 0,
+   "printed_total_reading": "blank, treated as zero",
+   "balanced": true,
+   "residual": 0,
+   "committed": true
+  },
+  {
+   "column": 38,
+   "band": "free colored females 100 and upwards",
+   "read_sum": 0,
+   "printed_total": 0,
+   "printed_total_reading": "blank, treated as zero",
+   "balanced": true,
+   "residual": 0,
+   "committed": true
+  }
+ ],
+ "records": [
+  {
+   "line": 1,
+   "as_read": "Thomas e Nebats",
+   "normalized": "Thomas E. Nebats",
+   "name_confidence": "low",
+   "note": "surname capital reads N, H or W and the letters after it are open; Nebats / Nesbit / Hebard / Webster all fit the ink. The single looped letter between forename and surname is read as a middle initial e.",
+   "reading": "scan_verified",
+   "cells": {
+    "5": 1,
+    "6": 1
+   }
+  },
+  {
+   "line": 2,
+   "as_read": "B. S. Sherman",
+   "normalized": "B. S. Sherman",
+   "name_confidence": "low",
+   "note": "the surname is unambiguous; the initials are not — the first reads B or R, the second S or B. S. W. Sherman is the assistant marshal named in this page's printed heading and in the certificate on printed page 206, and this line is NOT read as him on letters this open.",
+   "reading": "scan_verified",
+   "cells": {
+    "5": 1
+   }
+  },
+  {
+   "line": 3,
+   "as_read": "Francis Neare",
+   "normalized": "Francis Neare",
+   "name_confidence": "low",
+   "note": "surname capital N or W; Neare / Neave / Weare all fit",
+   "reading": "scan_verified",
+   "cells": {
+    "5": 1
+   }
+  },
+  {
+   "line": 4,
+   "as_read": "M. K. Galton",
+   "normalized": "M. K. Galton",
+   "name_confidence": "low",
+   "note": "surname capital G or D; Galton / Dalton / Galten",
+   "reading": "scan_verified",
+   "cells": {
+    "1": 1,
+    "6": 1,
+    "14": 2,
+    "19": 1
+   }
+  },
+  {
+   "line": 5,
+   "as_read": "Wm R. O'Cannon",
+   "normalized": "William R. O'Cannon",
+   "name_confidence": "low",
+   "note": "O'Cannon / O'Connor; the middle initial reads R or B",
+   "reading": "scan_verified",
+   "cells": {
+    "1": 1,
+    "7": 1,
+    "14": 2,
+    "19": 1
+   }
+  },
+  {
+   "line": 6,
+   "as_read": "Jhn Wagner",
+   "normalized": "John Wagner",
+   "name_confidence": "medium",
+   "note": "Wagner / Wagoner. 'Jhn' is this hand's John — the same token stands on lines 11 and 20",
+   "reading": "scan_verified",
+   "cells": {
+    "1": 1,
+    "7": 1,
+    "14": 1,
+    "19": 1
+   }
+  },
+  {
+   "line": 7,
+   "as_read": "Michael C. Welch",
+   "normalized": "Michael C. Welch",
+   "name_confidence": "medium",
+   "note": "Welch / Welsh",
+   "reading": "scan_verified",
+   "cells": {
+    "5": 2,
+    "6": 2,
+    "14": 1,
+    "18": 2
+   }
+  },
+  {
+   "line": 8,
+   "as_read": "John K. Bogun",
+   "normalized": "John K. Bogun",
+   "name_confidence": "low",
+   "note": "Bogun / Bogan / Bogue",
+   "reading": "scan_verified",
+   "cells": {
+    "1": 1,
+    "3": 1,
+    "4": 2,
+    "5": 4,
+    "7": 1,
+    "16": 2,
+    "18": 2,
+    "20": 1
+   }
+  },
+  {
+   "line": 9,
+   "as_read": "Cornelius Norton",
+   "normalized": "Cornelius Norton",
+   "name_confidence": "low",
+   "note": "surname capital N or M; Norton / Morton / Marston",
+   "reading": "scan_verified",
+   "cells": {
+    "6": 1
+   }
+  },
+  {
+   "line": 10,
+   "as_read": "Wm R. Miller",
+   "normalized": "William R. Miller",
+   "name_confidence": "medium",
+   "note": "the surname is the clearest on the sheet",
+   "reading": "scan_verified",
+   "cells": {
+    "4": 1,
+    "5": 14,
+    "6": 3,
+    "14": 1,
+    "15": 1,
+    "18": 2
+   }
+  },
+  {
+   "line": 11,
+   "as_read": "Jhn Cleaver",
+   "normalized": "John Cleaver",
+   "name_confidence": "medium",
+   "note": "Cleaver / Cleaves. The forename token is the same 'Jhn' lines 6 and 20 carry, so this is not read as Chas Cleaver on the strength of the name being a known one",
+   "reading": "scan_verified",
+   "cells": {
+    "4": 1,
+    "5": 2,
+    "14": 1,
+    "18": 1
+   }
+  },
+  {
+   "line": 12,
+   "as_read": "Geo. G. Vail",
+   "normalized": "George G. Vail",
+   "name_confidence": "low",
+   "note": "middle initial G or Y; surname Vail / Nail / Ford",
+   "reading": "scan_verified",
+   "cells": {
+    "1": 1,
+    "2": 1,
+    "5": 1,
+    "14": 1,
+    "18": 1
+   }
+  },
+  {
+   "line": 13,
+   "as_read": "Patk Power",
+   "normalized": "Patrick Power",
+   "name_confidence": "medium",
+   "note": "Power / Powers",
+   "reading": "scan_verified",
+   "cells": {
+    "5": 1,
+    "15": 1,
+    "18": 1
+   }
+  },
+  {
+   "line": 14,
+   "as_read": "Jeremiah Price",
+   "normalized": "Jeremiah Price",
+   "name_confidence": "low",
+   "note": "surname capital P or B; Price / Brice / Bree",
+   "reading": "scan_verified",
+   "cells": {
+    "6": 1
+   }
+  },
+  {
+   "line": 15,
+   "as_read": "Susan McCord",
+   "normalized": "Susan McCord",
+   "name_confidence": "low",
+   "note": "forename Susan or Swan or Isaac; the 'Mc' is certain and the capital after it reads C, L or F — McCord / McLord / McFord. If Susan is right this is a woman heading a household, and the cells (one male 20 under 30, one female 5 under 10, one female 20 under 30) neither confirm nor refuse it",
+   "reading": "scan_verified",
+   "cells": {
+    "5": 1
+   }
+  },
+  {
+   "line": 16,
+   "as_read": "Robert Tobin",
+   "normalized": "Robert Tobin",
+   "name_confidence": "medium",
+   "note": "Tobin / Toben / Torin; the forename is unambiguous",
+   "reading": "scan_verified",
+   "cells": {
+    "6": 1
+   }
+  },
+  {
+   "line": 17,
+   "as_read": "Lyman Butterfield",
+   "normalized": "Lyman Butterfield",
+   "name_confidence": "medium",
+   "note": "Butterfield; the double-t is written through",
+   "reading": "scan_verified",
+   "cells": {
+    "2": 1,
+    "3": 1,
+    "5": 9,
+    "7": 1,
+    "14": 1,
+    "15": 2,
+    "16": 3,
+    "18": 1,
+    "19": 2,
+    "22": 1
+   }
+  },
+  {
+   "line": 18,
+   "as_read": "S. M. Osterhoudt",
+   "normalized": "S. M. Osterhoudt",
+   "name_confidence": "low",
+   "note": "the first token reads S. M. or G. M.; Osterhoudt / Osterhout",
+   "reading": "scan_verified",
+   "cells": {
+    "1": 1,
+    "2": 1,
+    "4": 2,
+    "5": 16,
+    "6": 4,
+    "14": 2,
+    "15": 1,
+    "18": 5,
+    "19": 1
+   },
+   "cells_first_pass": {
+    "1": 1,
+    "2": 1,
+    "4": 2,
+    "5": 16,
+    "6": 4,
+    "14": 2,
+    "15": 1,
+    "18": 5,
+    "19": 1,
+    "29": 2
+   }
+  },
+  {
+   "line": 19,
+   "as_read": "W. S. Roberts",
+   "normalized": "W. S. Roberts",
+   "name_confidence": "medium",
+   "note": "first initial W or H; the surname is clear",
+   "reading": "scan_verified",
+   "cells": {
+    "1": 1,
+    "4": 1,
+    "5": 2,
+    "6": 1,
+    "14": 1,
+    "18": 2
+   }
+  },
+  {
+   "line": 20,
+   "as_read": "Jhn B. Marr",
+   "normalized": "John B. Marr",
+   "name_confidence": "low",
+   "note": "Marr / Murr / Mun; the surname is short and the terminal is a flourish",
+   "reading": "scan_verified",
+   "cells": {
+    "2": 1,
+    "5": 1,
+    "18": 1
+   }
+  },
+  {
+   "line": 21,
+   "as_read": "Wm S. Kiteman",
+   "normalized": "William S. Kiteman",
+   "name_confidence": "low",
+   "note": "surname capital K or R; Kiteman / Kitteman / Ritenan",
+   "reading": "scan_verified",
+   "cells": {
+    "1": 2,
+    "6": 1,
+    "20": 1
+   }
+  },
+  {
+   "line": 22,
+   "as_read": "James Munroe",
+   "normalized": "James Munroe",
+   "name_confidence": "low",
+   "note": "Munroe / Munrow / Murray; line 31 may carry the same surname with a different terminal",
+   "reading": "scan_verified",
+   "cells": {
+    "5": 1
+   }
+  },
+  {
+   "line": 23,
+   "as_read": "Alexr Brand",
+   "normalized": "Alexander Brand",
+   "name_confidence": "medium",
+   "note": "the surname is clear; Alexr is the written abbreviation",
+   "reading": "scan_verified",
+   "cells": {
+    "5": 1
+   }
+  },
+  {
+   "line": 24,
+   "as_read": "Wm Peck",
+   "normalized": "William Peck",
+   "name_confidence": "low",
+   "note": "the capital is P; the final letters read ck or d — Peck / Pead / Peak",
+   "reading": "scan_verified",
+   "cells": {
+    "6": 1,
+    "22": 1
+   }
+  },
+  {
+   "line": 25,
+   "as_read": "Oliver Henson",
+   "normalized": "Oliver Henson",
+   "name_confidence": "low",
+   "note": "surname capital H or N; Henson / Nenson / Hanson",
+   "reading": "scan_verified",
+   "cells": {
+    "27": 1,
+    "35": 1
+   },
+   "cells_first_pass": {
+    "27": 1,
+    "29": 1,
+    "35": 1
+   }
+  },
+  {
+   "line": 26,
+   "as_read": "Elij. S. Prescot",
+   "normalized": "Elij[ah] S. Prescot",
+   "name_confidence": "low",
+   "note": "the forename token reads Elij, Eli or Elis; Prescot / Prescott / Pascoe",
+   "reading": "scan_verified",
+   "cells": {
+    "1": 1,
+    "5": 1,
+    "15": 1,
+    "18": 1,
+    "19": 1
+   }
+  },
+  {
+   "line": 27,
+   "as_read": "Wm H. Stevens",
+   "normalized": "William H. Stevens",
+   "name_confidence": "low",
+   "note": "middle initial H or B; Stevens / Stearns / Sterling",
+   "reading": "scan_verified",
+   "cells": {
+    "2": 1,
+    "6": 1,
+    "18": 2
+   }
+  },
+  {
+   "line": 28,
+   "as_read": "Mad Sara L. Hoare",
+   "normalized": "Mad[ame] Sara L. Hoare",
+   "name_confidence": "low",
+   "note": "'Mad' is an abbreviation and is read as Madame, which would make this the second woman heading a household on the page; the glyph before the surname reads L, K or &; Hoare / Hoane / Hearn",
+   "reading": "scan_verified",
+   "cells": {
+    "18": 1
+   }
+  },
+  {
+   "line": 29,
+   "as_read": "G. W. Cook",
+   "normalized": "G. W. Cook",
+   "name_confidence": "low",
+   "note": "first initial G, C or O; second W or M; the surname is clear",
+   "reading": "scan_verified",
+   "cells": {
+    "1": 1,
+    "2": 1,
+    "4": 3,
+    "5": 2,
+    "6": 10,
+    "7": 1,
+    "14": 1,
+    "16": 1,
+    "18": 7
+   },
+   "cells_first_pass": {
+    "1": 1,
+    "2": 1,
+    "4": 3,
+    "5": 2,
+    "6": 10,
+    "7": 1,
+    "14": 1,
+    "16": 1,
+    "18": 7,
+    "29": 1
+   }
+  },
+  {
+   "line": 30,
+   "as_read": "Adam Sholler",
+   "normalized": "Adam Sholler",
+   "name_confidence": "low",
+   "note": "Sholler / Shaller / Shollen",
+   "reading": "scan_verified",
+   "cells": {
+    "5": 1,
+    "16": 1,
+    "18": 1
+   }
+  },
+  {
+   "line": 31,
+   "as_read": "Geo. Murray",
+   "normalized": "George Murray",
+   "name_confidence": "low",
+   "note": "Murray / Munroy; line 22 may carry the same surname",
+   "reading": "scan_verified",
+   "cells": {
+    "2": 1,
+    "8": 1,
+    "19": 1
+   }
+  }
+ ]
+}

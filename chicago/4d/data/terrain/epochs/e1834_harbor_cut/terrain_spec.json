@@ -1,0 +1,1533 @@
+{
+  "_doc": "The AUTHORED half of the terrain for epoch e1834_harbor_cut. generators/terrain_gen.py reads this plus river.geojson, hydrology.geojson, shoreline.geojson and branches.geojson and writes heightfield.json + heightfield.bin + the terrain GLBs. Loading a vector file does not put its features in the ground: this spec names the ones the field reads, by id. Every elevation here traces to a numbered zone in docs/research/01-terrain-hydrology.md; nothing is invented to make the ground interesting. Elevations are in FEET above the summer-1835 lake and river water surface (the internal datum, data/datum.json) and are converted to metres at generation.",
+  "epoch": "e1834_harbor_cut",
+  "scope": "The forks AND the harbour: the Chicago River from the North and South Branches at Wolf Point east down the main stem, through the 1834 cut, past the sand bar and the decaying old southward channel, to open Lake Michigan — and, since T-1123, the North Branch above the forks to the north line of Wright's survey. Land is the three divisions the river separates, the Fort Dearborn reservation, the lakeshore sand-ridge belt east of State Street, the North Division ground Kinzie's Addition is platted on, and the bar itself.",
+  "critical_caveat": "No contour survey of the 1835 town site exists. The earliest systematic levels are the 1850s street-grade and Chesbrough sewerage surveys. Every land elevation below is a period narrative statement in feet, back-calculated from grade-raising records, or inferred from geology — so NO land elevation in this spec is better than 'inferred', and the generator refuses to emit a 'documented' confidence for any land vertex. The one documented surface is the water: the pre-reversal river was sluggish and outward-flowing with a near-zero surface gradient, standing at lake level through the whole downtown reach.",
+  "grid": {
+    "e_min_m": -320.0,
+    "e_max_m": 1700.0,
+    "n_min_m": -3800.0,
+    "n_max_m": 1120.0,
+    "cell_m": 2.5,
+    "encoding": "int16",
+    "scale_m": 0.005,
+    "note": "2020 x 4920 m, 2.5 m cells (8.2 ft — inside the dossier's 5-10 ft), quantised at 5 mm, which is 1/15 of the 0.25 ft the dossier asks for. 809 x 1969 = 1 592 921 samples, 3.19 MB. Row 0 is the SOUTH edge. This box is the union of two extensions that were open at once and could not be merged: T-0464 carried the south wall from Madison Street to Twenty-Second (N -530 -> -3800) and T-1123 carried the north wall from the North Branch's old traced end to the north line of Wright's survey (N +400 -> +1120). Two heightfields cannot be merged, so the field below is regenerated once against both walls rather than reconciled."
+  },
+  "box_derivation": {
+    "_doc": "Why these four numbers, each from evidence rather than from a round figure.",
+    "e_max": "+1700. The easternmost thing this scene contains is the north pier's 1835 head at about E +1510 (root E +1243.5 / N +311.9, bearing 103.36 deg, 900 ft adopted — docs/RESEARCH/north_pier.md sections 2 and 4), with a +/-30 m band on the length. The easternmost traced LAND is the sand bar's east edge at E +1497.5, and the traced water stops at E +1573.6, which is the edge of the tracing window and not a shore. +1700 clears the pier head by 190 m and its error bar by 160 m, clears the traced window by 126 m so the whole traced water body is inside the box, and stands 203 m (665 ft) off the bar — inside dossier zone 30's 600-1000 ft, where the lake reaches about -10 ft. It is deliberately NOT taken from the drafted pier ends at E +1588.8: Wright draws both piers at about 1165 ft, longer than the north pier was in 1834 and longer than the south pier ever was before 1837, so the drafted extent is an AUTHORISATION and not a length at any date this project models.",
+    "e_min": "-320. Unchanged. The forks trace's own western window.",
+    "n_min": "-3800. Was -530, and -530 was the PLAT's south line: Madison Street, where T-0219 stopped because the plat stopped. This box is no longer only the plat's. T-0464 carries it south far enough to CONTAIN the ground the 1812 and 1880s scene tickets stand on — the evacuation corridor and the Prairie Avenue district, both of them between Twelfth Street and Twenty-Second — so the bound is set on Twenty-Second Street (Cermak Road) and derived from the PLSS rather than from a round figure.\nTHE DERIVATION. Two committed section corners fix the mile. G1 of data/traces/gcp/wright_1834_gcps.json is State & Madison, the corner of sections 9/10/15/16, at local N -525.27. S-SE of data/traces/gcp/wright_1834_nara_hup_section_corners.json is State & Roosevelt — Twelfth Street — the corner of sections 15/16/21/22, at local N -2149.40. Those are the north and south lines of the School Section, one statute mile apart, and Twenty-Second Street is the next mile line south: the south line of sections 21/22. One statute mile (1609.344 m) below S-SE puts it at local N -3758.74.\nTHE BUFFER, MEASURED. -3800 stands 41.3 m south of that line. The uncertainty it has to clear is stated by the control itself: the square those OSM crossings make measures 1620.09 to 1624.23 m against the mile, a mean 12.73 m long, because Halsted and Twelfth were both widened after 1834 and a one-sided widening moves a centreline. Carry that measured spacing instead of the statute mile and Twenty-Second falls at N -3773.5; -3800 clears that reading too, by 26.5 m, and clears the picking spread (16.95 m at Halsted & Roosevelt) as well. So the street is inside the box on either derivation, which is what 'through Cermak' has to mean. -3800 also lands on the existing 2.5 m lattice (1308 rows below -530), so no sample the field already carried moves.\nWHAT IS DOWN THERE, AND IT IS NOT RECONSTRUCTION. Nothing in this corpus states ground south of Twelfth Street. The terrain dossier's own scope is 'south to about Van Buren/Madison'; its one southern statement is zone 3, the lakeshore sand-ridge belt, given as Chicago Ave to 12th St; Wright's sheet ends there; and both traced lines — the South Branch in branches.geojson and south_shore_harbor_reach — stop within 15 m of the same section line. So the 1650 m below it was FRAME and not reconstruction, and evidence_limit still marks every vertex there conjectural. What is no longer frame is the WATER. T-0465 split into the pieces that carry the river and the shore down into it, and two have landed off one acquired sheet, REES & RUCKER 1849: T-1150 traced the South Branch below Twelfth Street and deleted `southern_branch`, and T-1151 traced the pre-fill lake shore and deleted `southern_lake.beyond_the_trace`. Neither reach is held on an easting any more, and no code reads one. The LAND down here is still frame.",
+    "n_max": "+1120, AND IT IS THE TRACE THAT SETS IT, as it set +400 before. The old number was capped by \"the North Branch's traced water ends at N +401.6\", and that cap is spent: branches.geojson carries the North Branch and both its banks from the forks to the north line of Wright's survey — water to local N +1079.21, west bank +1075.48, east bank +1076.41 — and shoreline.geojson carries the north shore and the lake margin north of the harbour to N +1117.30, with the lake water polygon reaching +1121.00. +1120 is held to the same three tests the other three walls are. It clears the northernmost traced water by 1.0 m, so the whole traced body is inside the box as e_max requires of the lake. It clears Wolcott Street's north end at N +1029.71 — the northernmost committed street in data/streets/1835.json — by 90 m, and Superior Street, Kinzie's Addition's northernmost east-west line, at +1017.11 by 103 m. And it lands on the existing 2.5 m lattice, at row 660 counted from n_min, so every sample the field already carries keeps its own position and only its row index moves, which is the property the southern extension was careful to keep. WHAT IT COST, stated because T-1067 filed this as a separate piece of work: 809 x 373 = 301 757 samples become 809 x 661 = 534 749, a 77 % larger field and 1.02 MB of heightfield.bin against 590 KB, plus the ground mesh, the publish budget and the draw-call and triangle gates. WHAT THE NORTH WALL ACTUALLY CUTS, which is not what the trace's northern extents suggest: the North Branch runs north-WEST out of the forks and crosses this box's own west wall at about N +720, so above that row the branch is outside the box altogether and the north wall at +1120 stands on North Division land from E -320 east to the lake shore at about E +1225, and on lake beyond it. The 41 m between the branch's traced wash (+1079.21) and this wall is 166 m west of the box and never reaches the field. See `northern_lake` for the one thing the extension did break.",
+    "what_this_truncates": "The bar's southern hook below N -400 (34 m of a 660 m island) and the lake shore north of N +400. North of that wall stands the whole of Kinzie's Addition. 47 of the 49 platted, unopened street records in data/streets/1835.json stand off the modelled ground and draw nothing — renderers/web/js/streets.js compiles no ribbon for a record with track_width_m 0 — and the one DRAWN ribbon that leaves the box, Wolcott Street, runs 629.72 m of its 921.73 m on the renderer's fallback constant rather than on a measurement. tools/measure_north_of_box.mjs measures it, data/terrain/north_of_box_reading.json is the committed reading, and tools/check.sh holds the two against each other. The old southward channel's natural outlet at about Madison Street (local N -525) is now INSIDE the box, which is the second thing the southern extension buys. Below N -530 the South Branch and the lake shore both continue in branches.geojson, shoreline.geojson and data/traces/vectors/wright_1834_east.json as evidence; none of it is modelled ground.  AND SOUTH OF MADISON IT NOW TRUNCATES NOTHING ANY SOURCE HERE DESCRIBES (T-0464): the wall stands on Twenty-Second Street, a mile and a half below the last thing this corpus says about ground. What is truncated there is the EVIDENCE and not the ground, which is why every vertex below N -2149.4 is written conjectural rather than inferred — see `evidence_limit`."
+  },
+  "vertical": {
+    "datum": "Z = 0.0 ft at the summer-1835 lake and river water surface",
+    "ft_to_m": 0.3048,
+    "exaggeration": 1.0,
+    "exaggeration_note": "1.0 and it stays 1.0 in the data. Total natural relief on land inside this box is under 12 ft, which is what the dossier's 'under fifteen feet across the whole modeled area' allows. A vertical-exaggeration control may exist in a renderer, labelled, defaulting off — see docs/LIBERTIES.md L3."
+  },
+  "water": {
+    "surface_ft": 0.0,
+    "confidence": "attested",
+    "dossier_zone": 1,
+    "sources": [
+      "quaife_1913_swearingen",
+      "wikipedia_chicago_river"
+    ],
+    "note": "Flat. Pre-reversal flow was sluggish and outward into the lake with a near-zero surface gradient, so the water surface is effectively at lake level throughout the downtown reach; the river gradient is treated as zero. The lake is the same surface: the river stood at lake level, which is why a bar across its mouth could close it.",
+    "mesh": {
+      "surface_ft": "restated_in_code",
+      "dossier_zone": "record_only"
+    },
+    "mesh_note": "The water surface is the plane Z = 0 by the definition of this project's vertical datum, and terrain_gen.py emits it at a literal zero rather than reading this figure. dossier_zone is a record label for the panel, not a build input."
+  },
+  "water_polygons": [
+    {
+      "feature": "chicago_river_forks",
+      "from": "river.geojson",
+      "note": "The forks: main stem, North Branch and South Branch. Traced from Wright 1834 by tools/trace_river.py."
+    },
+    {
+      "feature": "harbor_reach_water",
+      "from": "shoreline.geojson",
+      "island_rings": [
+        1
+      ],
+      "note": "The harbour reach from the east edge of the forks window to the lake: the main stem, the 1834 cut between its piers, the old southward channel behind the bar, and the lake margin. Interior ring 1 is the SAND BAR, which is land the water goes round — the reason the field has to understand islands and not only banks. Traced by tools/trace_shoreline.py; the two windows overlap between E +314 and E +390 and agree there to 0.1-5.7 m."
+    },
+    {
+      "feature": "south_branch_school_section",
+      "from": "branches.geojson",
+      "note": "The South Branch below the forks window: from that window's own south edge (map row 2372, a declared splice rather than a tolerance — see tools/trace_south_branch.py) down through the School Section. Only its reach above N -530 is inside this box. Traced from Wright 1834 by tools/trace_south_branch.py."
+    },
+    {
+      "feature": "north_branch_wabansia",
+      "note": "The North Branch above the forks window: from that window's own north edge (BPL master row 1252, a declared splice rather than a tolerance — see docs/RESEARCH/north_branch_wabansia.md) up to the north line Wright ruled across the top of his sheet. It abuts river.geojson and moves no vertex of it. Only the reach below about N +720 is inside this box: the branch runs north-west and crosses the box's west wall at E -320 there, so what the field carries is roughly 320 m of channel above the forks and the two banks either side of it. The polygon's northern edge at N +1079.21 is the edge of a survey and not the end of a river — its own provenance says so — and it lies outside the box, so nothing here has to answer for it."
+    },
+    {
+      "feature": "south_branch_below_twelfth_water",
+      "from": "south_branch_below_twelfth.geojson",
+      "note": "The South Branch from Twelfth Street to the box floor, traced from REES & RUCKER 1849 by tools/trace_south_branch_rees_1849.py. THIS ENTRY REPLACES THE `southern_branch` RULE, which held a 45.3 m channel at a constant easting from N -2110 due south to the box wall because no sheet in the corpus reached past the School Section's south line. It is a trace and not a rule: the branch bends east to E +567 about Sixteenth Street and then swings south-west toward the portage, and by the box floor its centre stands 521 m west of where the held easting put it. The window's north edge is the declared row N -2110.0 -- the row the held rule carried from, and the last row Wright's trace draws two banks on rather than its closing hook -- so the two windows abut on a row both of them name, the same construction as the splice at map row 2372. Its south edge is 40 m PAST the box floor so that both perpendicular offsets cross the wall. Every vertex is INFERRED, and every vertex is also below `evidence_limit`, which writes it conjectural: the field carries the more conservative of the two."
+    }
+  ],
+  "splices": [
+    {
+      "id": "forks_to_north_branch",
+      "n_range": [
+        402.0,
+        403.2
+      ],
+      "west_runs": [
+        "west_division_shore",
+        "north_branch_west_bank"
+      ],
+      "east_runs": [
+        "north_division_shore",
+        "north_branch_east_bank"
+      ],
+      "confidence": "reconstructed",
+      "sources": [
+        "wright_1834"
+      ],
+      "note": "The forks window and the North Branch window are declared to ABUT on BPL master row 1252 — a splice and not a tolerance, so neither polygon moves a vertex of the other. As RINGS they do not quite close over each other: each ends in its own slanted chord across the channel, the forks at (E -214.7, N +401.38) to (-128.8, +403.15) and the branch at (-219.6, +402.0) through (-170.7, +403.01) to (-144.2, +403.56), and the lens between the two chords belongs to neither. At the one sampled row inside it, N +402.5, the forks ring covers E -160.3 to -128.6 and the branch ring E -219.7 to -195.4, leaving 35 m of mid-channel dry: a bar 2.5 m wide and 1.0 m high standing across the North Branch, and a sixth four-connected piece of land in a field that has four. Spanned from the BANKS instead — the two runs that meet on each side, each contributing the vertex nearest the band — which is where the trace actually speaks. The hull is E -219.59 to -128.81, 90.8 m against 86.0 m of traced channel at N +400 and 75.8 m at +405, so it is the wider of the two readings across one row and cannot remove a cell either ring claims."
+    },
+    {
+      "id": "forks_to_south_branch",
+      "n_range": [
+        -405.97,
+        -404.33
+      ],
+      "west_runs": [
+        "west_division_shore",
+        "south_branch_west_bank"
+      ],
+      "east_runs": [
+        "south_division_shore",
+        "south_branch_east_bank"
+      ],
+      "confidence": "reconstructed",
+      "sources": [
+        "wright_1834"
+      ],
+      "note": "The same seam at the other end, and the same bar: 12 cells of dry ground at E +5 to +32.5 on row N -405, standing across the South Branch since T-0219 spliced these two windows together. It went unseen because nothing looked — the field's dry land was counted in four connected pieces and a twelve-cell bar is not one of them at the threshold that count uses. T-1123 built the northern twin of it and found both. The geometry is the mirror image: the forks ring closes on the chord (E +35.9, N -404.33) to (-8.1, -405.24) and the South Branch ring opens on (-8.1, -405.97) to (+35.9, -405.06). The bank hull here is E -8.08 to +35.92, 44.0 m, which is the traced channel width at N -402.5 (43.9 m) and at N -407.5 (43.9 m) to a decimetre — the two windows agree at this splice and only the sampling fell between them."
+    }
+  ],
+  "open_lake": {
+    "rule": "east of the easternmost traced water in each row, water continues",
+    "east_of_m": 1200.0,
+    "dossier_zone": 30,
+    "confidence": "reconstructed",
+    "sources": [
+      "wright_1834"
+    ],
+    "note": "The harbour-reach polygon's EASTERN boundary is the tracing window, not a shore (its own provenance says so). Beyond it Wright's sheet is still lake wash. Treating that ground as LAND would invent a headland out in the lake — a false coast is the single largest claim available in this quadrant — so it is declared water instead. Stated as a rule against the trace rather than as a hand-drawn polygon, so it cannot drift if the trace is ever refit: in each row, everything east of the easternmost traced water cell is lake. The guard keeps the rule where the argument for it holds: it must stand east of anything that could let a row's easternmost traced water fall WEST of real land. It was +1400 while the box stopped at N -400, on the ground that the easternmost traced LAND is the sand bar at E +1497.5 and every row's traced water reaches further east than +1400. The southern extension (T-0219) breaks the second half of that: below about N -440 the harbour trace's east edge falls back to E +1235 to +1310, no row there reaches +1400, the rule did not fire, and 460 m of Lake Michigan came out as dry land walled off from the old southward channel by a 4.8 m cliff. The guard is therefore +1200, which is east of every traced shore in the box except the harbour mouth and the bar — and the bar is an island ring, subtracted after this rule rather than exposed to it. Lowering it changes NO row that already had traced water east of +1400, because the rule fills east of the row's EASTERNMOST traced water and a lower guard cannot move that maximum; it is a strict addition to the rows the old guard silenced, and the regenerated field proves it (the 259 689 samples of the old box come back with 181 cells changed, all of them in the West Division's south-west corner and all by one 5 mm quantisation step). This boundary is a RULE and not a waterline: generators/terrain_gen.py never measures shore distance to it, so no bank is raised along it. The bed under it is dossier zone 30, which the dossier itself tags conjectural."
+  },
+  "southern_lake": {
+    "rule": "south of N -400, east of the row's easternmost crossing of the traced lake shore, water continues",
+    "south_of_n_m": -400.0,
+    "shore_runs": [
+      "south_shore_harbor_reach",
+      "lake_shore_below_twelfth"
+    ],
+    "dossier_zone": 30,
+    "confidence": "reconstructed",
+    "sources": [
+      "wright_1834",
+      "rees_rucker_1849"
+    ],
+    "note": "open_lake's companion, and it exists because open_lake's per-row test measures from the traced WATER WASH. That test holds north of N -400, where the harbour trace covers a continuous lake margin and every row's wash reaches past the guard. South of it the wash is patches — the old southward channel here, a lobe of lake there — and the ground BETWEEN two patches is not east of the easternmost one, so it stood as land: 9.4 ft of South Division sand-ridge crest on a plateau at E +1240 to +1310 between N -405 and -480, walled off from the channel beside it by a 4.8 m cliff, which is a headland invented in Lake Michigan and the largest false claim available in this quadrant. What the trace DOES carry south of N -400 is the SHORE: south_shore_harbor_reach is the east edge of Fractional Section 15, a surveyed line, and it runs unbroken to the foot of the sheet. A fractional section is fractional because the lake takes the rest of it, so east of that line there is water, and the rule is stated on it. It is a RULE and not a waterline: terrain_gen.py measures shore distance to the run itself, which is a traced bank, so the bank face south of the fort is raised off the survey line and not off this rule. Islands are subtracted after it, so the sand bar's southern hook (traced to N -436) is unaffected. Applied south of N -400 and no further north because every row above that line is already covered by open_lake and this rule must not move a sample the field has already committed — the regenerated field is checked against the old one and the whole 259 689-sample overlap comes back with 181 cells changed, all in the West Division's south-west corner and all by one 5 mm step.\nTHE RULE NOW REACHES THE BOX FLOOR ON A TRACE, NOT ON A HELD EASTING (T-1151). Until this ticket the block carried `beyond_the_trace`: south of south_shore_harbor_reach's last vertex at N -2159.9 every row's edge was -inf, the rule could not fire, and 355 x 1640 m of Lake Michigan came out as dry land — so the edge was HELD at that vertex's easting, E +1347.4, for the whole 1 640 m to the floor. It was conjectural and it was the lake's half of L239. REES & RUCKER 1849 draws the pre-fill shore beside this reach; lake_shore_below_twelfth.geojson traces it (tools/trace_lake_shore_rees_1849.py) and the run is named above, so the ordinary per-row interpolation carries the rule to the floor and there is no held easting and no code behind one. The shore falls away SOUTH-EAST — E +1298.9 at the splice to E +1689.6 at the floor, 390 m of easting the held value denied — and at the floor it stands the water 342 m east of where the held easting stood it. TWO THINGS THE TRACE DOES NOT CLAIM. The sheet is fourteen years late and on a SHORE that is not neutral: the piers starved this coast of littoral drift and it eroded westward, so the traced line is a LOWER BOUND on the 1835 shore's easting, measured at 134 m of offset against Wright at N -1300 tapering to 50 m at N -2000 against about 107 m of erosion documented in docs/research/01-terrain-hydrology.md sec 4. And the two runs DISAGREE BY 49 M ON THE ROW THEY ABUT: Wright's edge at N -2159.9 is E +1347.5, this sheet's is E +1298.9. The step is left in the field rather than blended out, because a blend would be geometry from neither survey. See the geojson's `measured` block and L239."
+  },
+  "northern_lake": {
+    "rule": "north of N +1112.5, east of the row's easternmost crossing of the traced lake shore, water continues",
+    "north_of_n_m": 1112.5,
+    "shore_runs": [
+      "north_shore_harbor_reach"
+    ],
+    "dossier_zone": 30,
+    "confidence": "reconstructed",
+    "sources": [
+      "wright_1834"
+    ],
+    "note": "southern_lake's sentence at the other end of the same trace, and it exists for the identical reason: open_lake's per-row test measures from the traced WATER WASH, and at the very top of the harbour-reach polygon that wash frays. Its north edge runs (E +1288.1, N +1120.11) -> (+1311.2, +1114.79) -> (+1327.2, +1118.02) -> (+1344.0, +1113.3): two lobes with a notch between them, so at N +1117.5 the traced water reads as E +1222.0 to +1299.4 and again +1324.6 to +1329.1, and the 25 m between them is not east of the row's easternmost water. It stood as LAND — one cell of row, 8.2 ft of North Division sand-ridge crest standing in Lake Michigan a hundred metres off the beach, between lake floor at -1.71 m to its south and -1.73 m to its north. A causeway invented out of the top edge of a sheet. What the trace DOES carry up there is the SHORE: north_shore_harbor_reach runs unbroken to N +1117.30, so east of it there is water, and the rule is stated on that instead. Applied north of +1112.5 — the last row at which the polygon's north edge is a single unbroken span — and no further south, because every row below it is already covered by open_lake and this rule must not move a sample the field has already committed. It is a RULE and not a waterline: terrain_gen.py measures shore distance to the run itself, which is a traced bank. Above N +1117.30 the run has ended and this rule is silent; the box's last row is covered by open_lake, whose test the polygon's own north tip satisfies there."
+  },
+  "trace_carries": [
+    {
+      "run": "north_branch_west_bank",
+      "to_n_m": 1120.0,
+      "note": "The North Branch's west bank, from its last traced vertex at (E -486.87, N +1075.48) north to the box wall. Both bank carries are OUTSIDE the box in the east-west sense — the branch has crossed the west wall 350 m further south — and they are declared because the waterline is a distance field: without them the ground in the box's north-west corner measures its distance inland from the run's last VERTEX rather than from a bank that keeps going, which is 7.6 m of error at E -320 and about two quantisation steps of ground height. Small, real, and cheaper to state than to re-derive."
+    },
+    {
+      "run": "north_branch_east_bank",
+      "to_n_m": 1120.0,
+      "note": "The North Branch's east bank, from (E -441.48, N +1076.41) to the wall. This is the bank Kinzie's Addition's water lots front on; the note on the west bank above covers why it is carried."
+    },
+    {
+      "run": "north_shore_harbor_reach",
+      "to_n_m": 1120.0,
+      "note": "The lake shore north of the harbour, from (E +1221.8, N +1117.30) to the wall — 2.7 m, and the reason it matters is out of all proportion to its length: `northern_lake` reads this run PER ROW, so the two rows above its last vertex had no shore to measure from and the rule fell silent on exactly the row where the traced wash frays. Carried at its own easting, which is what the last 11 m of the run does anyway (E +1220.5 at N +1106.4 to +1221.8 at +1117.3)."
+    }
+  ],
+  "shore_runs": [
+    {
+      "id": "south_division_shore",
+      "from": "river.geojson",
+      "division": "south_division",
+      "note": "The forks window's south bank, E +36 to +390."
+    },
+    {
+      "id": "south_shore_harbor_reach",
+      "from": "shoreline.geojson",
+      "division": "south_division",
+      "note": "The same bank picked up at E +314 and carried east: main stem, the Fort Dearborn reservation's shore, and the west bank of the old southward channel. 2 466 m."
+    },
+    {
+      "id": "lake_shore_below_twelfth",
+      "from": "lake_shore_below_twelfth.geojson",
+      "division": "south_division",
+      "note": "The pre-fill lake shore picked up where south_shore_harbor_reach stops at N -2159.9 and carried to the box floor: 1 640 m off REES & RUCKER 1849, the one sheet in this corpus that reaches Cermak Road. The two runs abut on that declared row and do not agree on it — 49 m, which is this shore's documented post-pier erosion and not a fit failure. INFERRED, and below `evidence_limit` besides, so the field writes it conjectural."
+    },
+    {
+      "id": "north_division_shore",
+      "from": "river.geojson",
+      "division": "north_division",
+      "note": "The forks window's north bank."
+    },
+    {
+      "id": "north_shore_harbor_reach",
+      "from": "shoreline.geojson",
+      "division": "north_division",
+      "note": "North bank of the main stem, the pier's inner face as drafted through the cut, and the lake shore north of the harbour. 1 568 m. docs/RESEARCH/north_pier.md notes this run is good for the pier's ROOT (its vertex at E +1234.9 / N +314.7 sits 7 m from the raster reading) and wanders north of E +1250 where the channel wash merges with the lake wash; that stretch is a shore reading of a merged envelope and carries the shoreline trace's own +/-20 m and then some."
+    },
+    {
+      "id": "west_division_shore",
+      "from": "river.geojson",
+      "division": "west_division",
+      "note": "Wolf Point and the west bank of both branches."
+    },
+    {
+      "id": "south_branch_west_bank",
+      "from": "branches.geojson",
+      "division": "west_division",
+      "note": "The South Branch's west bank picked up where west_division_shore stops at N -404.3 and carried south: the Original Town west of Market Street and the School Section's blocks 69-71 and 78. The two runs abut on the tracing windows' shared row, so the West Division's waterline is continuous across the splice."
+    },
+    {
+      "id": "south_branch_east_bank",
+      "from": "branches.geojson",
+      "division": "south_division",
+      "note": "The South Branch's east bank picked up where south_division_shore stops at N -404.3 and carried south past Washington and Madison: the Original Town west of Wells Street and the School Section's blocks 83-88. This is the run that puts the plat's last tier in the South Division rather than leaving it to the nearest bank of a different one."
+    },
+    {
+      "id": "north_branch_west_bank",
+      "division": "west_division",
+      "note": "The North Branch's west bank picked up where west_division_shore stops at N +401.4 and carried north to N +1075.48: the west side of the branch opposite Kinzie's Addition, along the Wabansia tract's river front. The two runs abut on the tracing windows' shared row, so the West Division's waterline is continuous across the splice, exactly as it is across the southern one."
+    },
+    {
+      "id": "north_branch_east_bank",
+      "division": "north_division",
+      "note": "The North Branch's east bank picked up where north_division_shore stops at N +403.2 and carried north to N +1076.41. This is the run that puts Kinzie's Addition — its eleven committed streets and 54 blocks — in the North Division rather than leaving that ground to the nearest bank of a different one, and it is the bank the Addition's water lots front on."
+    },
+    {
+      "id": "south_branch_west_bank_below_twelfth",
+      "from": "south_branch_below_twelfth.geojson",
+      "division": "west_division",
+      "note": "The South Branch's west bank picked up at N -2110.0, where south_branch_west_bank's Wright window stops drawing two banks, and carried to past the box floor. Rees & Rucker 1849; the two sheets put this bank 6.1 m apart at the seam. Before T-1150 the waterline here was measured from a bank held at a constant easting for 1 690 m."
+    },
+    {
+      "id": "south_branch_east_bank_below_twelfth",
+      "from": "south_branch_below_twelfth.geojson",
+      "division": "south_division",
+      "note": "The same seam on the east bank: picked up at N -2110.0 where south_branch_east_bank stops, and carried to past the box floor. The two sheets put this bank 19.4 m apart at the seam, on a fit whose own RMS is 25.0 m."
+    }
+  ],
+  "shore_runs_note": "These runs, plus the island rings, ARE the waterline. Distance is never measured to the water polygons' own boundaries, because those close across the tracing windows and a window edge is where the tracing stopped, not a bank: measuring to one would raise a bank across open water at E +314, E +390 and out in the lake. Since T-0219 a division may also own a run from branches.geojson: the South Branch's two banks continue the forks window's two runs south of N -404.3, and division membership south of the forks is decided by them.",
+  "reaches": [
+    {
+      "id": "main_stem",
+      "anchor_e": 348.7,
+      "anchor_n": 79.7,
+      "bed_ft": -12.0,
+      "confidence": "inferred",
+      "dossier_zone": 20,
+      "sources": [
+        "wikipedia_chicago_river"
+      ],
+      "note": "Dossier zone 20 gives the main-stem thalweg at -12 to -18 ft. The shallow end of that range is used at the forks because they are the upstream end of the reach; the -18 ft pool is anchored separately at the bend below.",
+      "mesh": {
+        "dossier_zone": "record_only"
+      }
+    },
+    {
+      "id": "fort_bend_pool",
+      "anchor_e": 1000.0,
+      "anchor_n": 211.0,
+      "bed_ft": -18.0,
+      "confidence": "inferred",
+      "dossier_zone": 20,
+      "sources": [
+        "wikipedia_chicago_river"
+      ],
+      "note": "Swearingen sounded the river at Fort Dearborn in 1803 at 'upwards of 18 feet', and dossier zone 20 puts the deepest pool at the fort bend. The anchor is mid-channel where the stem swings north-east toward the cut. The 1803 sounding is thirty-two years before the scene and no later one was found, so this is inferred, not documented — but it is the one depth in this box that rests on a measurement rather than on a range.",
+      "mesh": {
+        "dossier_zone": "record_only"
+      }
+    },
+    {
+      "id": "harbour_cut_1834",
+      "anchor_e": 1230.0,
+      "anchor_n": 275.0,
+      "bed_ft": -5.0,
+      "e_fold_m": 6.0,
+      "confidence": "inferred",
+      "dossier_zone": 23,
+      "sources": [
+        "wikipedia_chicago_river",
+        "chicago_architecture_history_115"
+      ],
+      "note": "The 1834 cut as built: 200 ft wide, 3-7 ft deep. The width is a check on the trace rather than a value read from it — the two traced banks stand 62 m apart at the anchor against a documented 61.0 m. The midpoint of the depth range is taken; shoaling was chronic and no 1835 sounding was found, so the depth on any given week in that summer is not knowable from what is held here. The e-fold is shortened from the river's 9 m because a 61 m channel with a 9 m e-fold never reaches its bed.",
+      "mesh": {
+        "dossier_zone": "record_only"
+      }
+    },
+    {
+      "id": "old_south_channel",
+      "anchor_e": 1290.0,
+      "anchor_n": -100.0,
+      "bed_ft": -2.5,
+      "e_fold_m": 8.0,
+      "confidence": "reconstructed",
+      "dossier_zone": 26,
+      "sources": [
+        "chicagology_prefire274"
+      ],
+      "note": "The abandoned channel behind the spit, which the dossier puts at -1 to -4 ft and marks CONJECTURAL for its 1835 state: it was silting into a lagoon but still a mapped feature for decades, and Wright draws it narrowing with its flow arrow still running south. Midpoint taken. The traced channel is about 90 m wide here against the dossier's 80-150 ft (24-46 m); the trace is a wash boundary on a plat and the dossier's width is a narrative estimate, and neither is a survey.",
+      "mesh": {
+        "dossier_zone": "record_only"
+      }
+    },
+    {
+      "id": "open_lake_shelf",
+      "anchors": [
+        [
+          1620.0,
+          300.0
+        ],
+        [
+          1620.0,
+          0.0
+        ],
+        [
+          1620.0,
+          -300.0
+        ]
+      ],
+      "anchor_e": 1620.0,
+      "anchor_n": 0.0,
+      "bed_ft": -11.0,
+      "e_fold_m": 130.0,
+      "confidence": "reconstructed",
+      "dossier_zone": 30,
+      "sources": [],
+      "note": "The offshore lake bed, which the dossier tags conjectural outright: slope about 1:60 to 1:100, -10 ft at 600-1000 ft offshore. A -11 ft bed with a 130 m e-fold reproduces that band — about -8.7 ft at 200 m (656 ft) offshore and about -4 ft at 60 m — using the same law as every other reach rather than a second one. Three anchors down the box's east side, because one would let the old channel's -2.5 ft bleed into the lake south-east of the bar. STILL THREE after T-1123 put 720 m of new open lake north of the harbour, and that was a measurement rather than an omission: three more up the east side moved 52 000 samples of the committed field, most of them under the town's own main stem, because the bed blend's support is unbounded. Without them the new northern rows fall 1:25 to 1:30 over the first 25 m and reach -9.7 ft some 370 m offshore, which is the same shape as the committed rows south of the harbour (1:10 to 1:25 at the beach, -9.4 ft at 320 m) and inside dossier zone 30's band. The blend already answers for this water; nothing needed adding to make it. Nobody sounded this water for this project and nobody sounded it in 1835; it is here so the harbour opens into a lake instead of into a wall.",
+      "mesh": {
+        "dossier_zone": "record_only"
+      }
+    },
+    {
+      "id": "north_branch",
+      "note": "Dossier zone 21 gives -6 to -10 ft for the branch beds above the forks, itself inferred. Midpoint taken. No sounding of either branch was located, and the trace cannot supply one: branches.geojson states in its own provenance that NO BED DEPTH IS CLAIMED THERE AT ALL, because a cadastral plat gives planform and not soundings. ONE ANCHOR, AND T-1123 TRIED NINE AND WITHDREW THEM. The northern extension carries about 320 m of this branch into the box above the forks, and nine mid-channel anchors up the traced polygon looked like the obvious way to keep the main stem's -12 ft out of it. Measured, they moved 11 405 samples of the committed field that the extension had no business moving — the bed is an inverse-square blend with unbounded support, so an anchor placed 700 m up a branch pulls on the town's own river — while the single anchor already models the new stretch at -6.5 ft mid-channel at N +500, inside zone 21's own range. Withdrawn on that measurement.",
+      "anchor_e": -85.3,
+      "anchor_n": 244.6,
+      "bed_ft": -8.0,
+      "confidence": "inferred",
+      "dossier_zone": 21,
+      "sources": [],
+      "mesh": {
+        "dossier_zone": "record_only"
+      }
+    },
+    {
+      "id": "south_branch",
+      "anchor_e": 8.3,
+      "anchor_n": -217.2,
+      "bed_ft": -8.0,
+      "confidence": "inferred",
+      "dossier_zone": 21,
+      "sources": [],
+      "note": "As north_branch.",
+      "mesh": {
+        "dossier_zone": "record_only"
+      }
+    }
+  ],
+  "channel_profile": {
+    "shape": "depth = bed_ft * (1 - exp(-d_in / e_fold_m)), d_in = distance from the waterline into the channel",
+    "e_fold_m": 9.0,
+    "e_fold_note": "The default e-folding distance is the river's. A reach or a watercourse may override it: the 1834 cut is 61 m wide, the lake shelf is 200 m of gentle fall, and the north-side slough is 7 m wide where a 9 m e-fold would make a 1 ft channel 4 in deep and invisible.",
+    "bed_confidence": "reconstructed",
+    "note": "The cross-section shape is a smooth approach to the reach bed and carries no evidence at all — no cross-section of the Chicago River, the cut, the old channel or the lake bed exists for any date before dredging. It is under water and invisible; it is here so that the surface reaches Z=0 exactly at the traced bank line and so a boat draught question has an answer. Marked conjectural in the confidence channel.",
+    "mesh": {
+      "shape": "restated_in_code"
+    },
+    "mesh_note": "The formula is written here for a reader and implemented in terrain_gen.py. The mesh follows the code path, not this string."
+  },
+  "bank": {
+    "face_m": 6.0,
+    "profile": "ease_out_quadratic: h = level * (1 - (1 - d/face)^2), steepest at the waterline",
+    "note": "Default horizontal distance over which the ground rises from the waterline to the local crest. 6 m is what a natural low bank in river alluvium looks like at a 2-4 ft rise; each division overrides it with a face_profile that widens the face as the crest rises east, so the shore slope stays in the 1:6 to 1:10 band that the forks bank (1:8.2 south, 1:5.5 north) and the dossier's beach face (zone 4, about 1:10) both sit in. The ease-out is kept even on the sand faces, where the dossier's beach is a uniform 1:10: an ease-out is slightly steeper at the water than a straight ramp, and it is used because the surface's Z=0 contour IS the drawn waterline, which a straight ramp leaves badly conditioned. A stated approximation, not an oversight.",
+    "confidence": "reconstructed",
+    "dossier_zone": 13,
+    "mesh": {
+      "profile": "restated_in_code",
+      "dossier_zone": "record_only"
+    },
+    "mesh_note": "The eased ramp is implemented in terrain_gen.py rather than read from this string; dossier_zone is a record label only."
+  },
+  "divisions": [
+    {
+      "id": "south_division",
+      "label": "South Division — the low plain west of State Street, the sand-ridge belt east of it, and the Fort Dearborn reservation",
+      "crest_profile": [
+        [
+          -320.0,
+          2.4
+        ],
+        [
+          780.0,
+          2.4
+        ],
+        [
+          880.0,
+          8.0
+        ],
+        [
+          1180.0,
+          8.0
+        ],
+        [
+          1250.0,
+          9.5
+        ],
+        [
+          1700.0,
+          9.5
+        ]
+      ],
+      "plain_profile": [
+        [
+          -320.0,
+          2.9
+        ],
+        [
+          780.0,
+          2.9
+        ],
+        [
+          880.0,
+          7.6
+        ],
+        [
+          1230.0,
+          9.4
+        ],
+        [
+          1700.0,
+          9.4
+        ]
+      ],
+      "face_profile": [
+        [
+          -320.0,
+          6.0
+        ],
+        [
+          780.0,
+          6.0
+        ],
+        [
+          880.0,
+          20.0
+        ],
+        [
+          1085.0,
+          20.0
+        ],
+        [
+          1103.0,
+          8.0
+        ],
+        [
+          1180.0,
+          8.0
+        ],
+        [
+          1215.0,
+          21.0
+        ],
+        [
+          1250.0,
+          25.0
+        ],
+        [
+          1700.0,
+          25.0
+        ]
+      ],
+      "far_m": 300.0,
+      "dossier_zones": [
+        9,
+        10,
+        8,
+        12,
+        3
+      ],
+      "confidence": "inferred",
+      "sources": [
+        "chicago_architecture_history_115",
+        "wikipedia_chicago_river",
+        "chicagology_prefire273"
+      ],
+      "note": "The whole story of this division is one sentence: 'the elevation of the original topography east of State Street lay from nine to ten feet above the surface of the lake, whereas to the west of State Street, it sloped down to the river in a level plain elevated only two to three feet above the river'. So the plain holds 2.9 ft west of State (zone 9, unchanged from the first pass), drops through a break-of-slope band at State Street (zone 10), and stands 7.6 to 9.4 ft east of it (zone 8, '+7 to +9 gently falling west'), rising into the lakeshore sand-ridge belt at 9.4-9.5 ft (zone 3, '+9 to +10 crest'). The bank crest follows: 2.4 ft at the forks (zone 13) and 8.0 ft along the reservation, which is Swearingen's measured 8 ft south bank at Fort Dearborn in 1803 (zone 12) — the only bank height in this box that was ever measured.",
+      "state_street_note": "State Street's line is not estimated. Two of the eight ground-control points that fix this project's datum are on it: State & Madison (the PLSS section corner, local E +837.6) and Wolcott & Ohio, Wolcott being today's North State Street (local E +822.5). The break-of-slope band is centred on E +830 and runs E +780 to +880 — 100 m, which is 328 ft, inside dossier zone 10's 200-400 ft transition band. It falls 4.7 ft over 328 ft, against zone 10's stated 'drop ~5-6 ft over 300 ft'.",
+      "gradient_note": "Plain 7.6 -> 9.4 ft over E +880 to +1230 is 0.47 ft per 300 ft, inside the dossier's flatness rule with no exemption needed. The break band and the sand-ridge belt are declared in relief_bands below and are excluded from the rule by name.",
+      "mesh": {
+        "dossier_zones": "record_only"
+      },
+      "face_profile_note": "THE FORT'S RIVER FRONTAGE STANDS STEEPER THAN THE BANKS EITHER SIDE OF IT, and it has to: the traced 1834 waterline runs 4.5 m north of the stockade's north-west corner and 7 m north of its north-east corner, while the reach's own 20 m face needs four times that distance to bring ground to full height. Built at 20 m the ramp reached some 15 m INSIDE the fort and scaled the north wall's ground to 1.26 m against the parade's 3.65 m, sinking a twelve-foot stockade to four feet of visible picket (T-0125, on the owner's ruling of 2026-08-21 that the ground gives rather than the bake or the placement). Held at 8 m over E 1103-1180 the ground reaches the mound's level at the wall line and the fall happens OUTSIDE the stockade, which is what the source describes: the mound is 'formed by the curve of the river at its base on its three sides' - the river at the BASE of the mound, not partway up the fort's wall. The figure is not free invention: the 1834 harbour cut is a DREDGED channel, and the south edge of a made cut stands steeper than the alluvial bank upstream of it; 8 m carries the fort's 2.57 m of bank to the waterline over about 4.3 m, measured after the rebake - roughly 1:1.7, or 31 degrees, INSIDE the ~34 degree angle of repose for sand rather than past it, and the flattest face that fits the measured gap. The shoulders at 1085/1215 hold the neighbouring reach unchanged. Invented within those bounds and admitted at docs/LIBERTIES.md L155."
+    },
+    {
+      "id": "north_division",
+      "label": "North Division — timbered, better-drained sandy ground rising toward the lake",
+      "crest_profile": [
+        [
+          -320.0,
+          3.6
+        ],
+        [
+          390.0,
+          3.6
+        ],
+        [
+          1210.0,
+          5.0
+        ],
+        [
+          1330.0,
+          9.0
+        ],
+        [
+          1700.0,
+          9.0
+        ]
+      ],
+      "plain_profile": [
+        [
+          -320.0,
+          4.6
+        ],
+        [
+          390.0,
+          4.6
+        ],
+        [
+          1210.0,
+          6.0
+        ],
+        [
+          1330.0,
+          9.5
+        ],
+        [
+          1700.0,
+          9.5
+        ]
+      ],
+      "face_profile": [
+        [
+          -320.0,
+          6.0
+        ],
+        [
+          390.0,
+          6.0
+        ],
+        [
+          1210.0,
+          11.0
+        ],
+        [
+          1330.0,
+          25.0
+        ],
+        [
+          1700.0,
+          25.0
+        ]
+      ],
+      "far_m": 300.0,
+      "dossier_zones": [
+        19,
+        13,
+        12,
+        3
+      ],
+      "confidence": "inferred",
+      "sources": [
+        "chicagology_prefire273",
+        "wikipedia_chicago_river"
+      ],
+      "note": "Zone 19 gives the North Division +4 to +7 ft, rising to +9 near the lake; zone 13 gives the bank crest at the forks +2 to +4; zone 12 gives Swearingen's measured 6 ft north bank at the fort. The forks values (3.6 / 4.6) are held out to E +390, the east edge of the forks tracing window, so extending the box east does not move ground that was already modelled and already has buildings standing on it. East of there the crest rises to 6.0 ft at the fort reach — Swearingen's figure — and to 9.0 ft in the sand-ridge belt along the lake shore. There is NO break-of-slope on this side: the State Street break is a South Division feature (the dossier's modelling rule 3 makes State Street the drainage divide of the South Division), and zone 19 describes the north side as a gradual rise. HELD NORTHWARD UNCHANGED BY T-1123, and that is a decision rather than an oversight. These profiles are functions of EASTING alone — the division's ground is described by how far east of the river it stands, because that is the only axis any source here speaks on. Zone 19 is a statement about the North Division as a whole ('+4 to +7 ft, rising to +9 near the lake'), not about its southern end, and no source reached states a north-south trend across it: Kinzie's Addition and the ground the harbour's north shore stands on are the same division. Inventing a fall or a rise up the 720 m the box now carries would be relief drawn from the absence of a statement. What DOES change up there is drawn from the trace and not from this block: the lake shore runs back west from E +1375 at N +400 to E +1225 at the wall, so the sand-ridge belt's own easting band meets the water further and further west, and the ridge follows the shore because both are read off the same sheet.",
+      "gradient_note": "3.6 -> 5.0 ft over 490 m is 0.26 ft per 300 ft and 5.0 -> 6.0 over 330 m is 0.28; both inside the rule. Only the last 120 m into the sand ridge is steeper, and that band is declared in relief_bands.",
+      "mesh": {
+        "dossier_zones": "record_only"
+      }
+    },
+    {
+      "id": "west_division",
+      "label": "West Division — Wolf Point and the open wet prairie",
+      "crest_profile": [
+        [
+          -320.0,
+          3.2
+        ],
+        [
+          1700.0,
+          3.2
+        ]
+      ],
+      "plain_profile": [
+        [
+          -320.0,
+          4.3
+        ],
+        [
+          1700.0,
+          4.3
+        ]
+      ],
+      "face_profile": [
+        [
+          -320.0,
+          6.0
+        ],
+        [
+          1700.0,
+          6.0
+        ]
+      ],
+      "far_m": 300.0,
+      "dossier_zone": 18,
+      "range_ft": [
+        3.0,
+        6.0
+      ],
+      "confidence": "inferred",
+      "sources": [
+        "chicagology_prefire273"
+      ],
+      "note": "Unchanged by the eastward extension, and flat by construction: the West Division is west of BOTH branches — of the South Branch below the forks and, since T-1123, of the North Branch above them — and none of it is east of E +13. The northern extension adds very little of it: the branch's west bank runs from E -219.6 at the forks out to E -486.9 at the survey line, so west of the channel there is a sliver of Wabansia river front between E -320 and about E -230 for the first 150 m and then nothing, the bank having crossed the box's own west wall. Zone 18 gives the wet prairie +3 to +6 ft with 1-2 ft slough swales; zone 13 caps the bank at the point at +2 to +4. Reconciled as 3.2 ft at the bank rising to 4.3 ft at 300 m — 0.34 ft of fall across a 300 ft chord, inside the flatness rule with room for the micro-relief on top. The West Side is documented as open prairie entirely free from timber.",
+      "mesh": {
+        "dossier_zone": "record_only",
+        "range_ft": "record_only"
+      }
+    }
+  ],
+  "islands": [
+    {
+      "id": "sand_bar_1834",
+      "ring": {
+        "feature": "harbor_reach_water",
+        "ring": 1
+      },
+      "crest_ft": 4.0,
+      "face_m": 12.0,
+      "dossier_zone": 7,
+      "range_ft": [
+        4.0,
+        8.0
+      ],
+      "confidence": "reconstructed",
+      "sources": [
+        "chicagology_prefire274",
+        "chicago_architecture_history_115",
+        "wikipedia_chicago_river"
+      ],
+      "note": "THE HEIGHT OF THE BAR IS CHOSEN, NOT FOUND, AND IT IS THE ONLY LAND SURFACE IN THIS BOX THAT IS. The bar's PLANFORM is traced off Wright 1834 and carries the same +/-20 m as everything else here; no source gives its ELEVATION at any date. Dossier zone 7 offers '+4 to +8 ft crest' for the sand tongue and tags the heights inferred; the LOW end is taken, for four reasons stated so they can be argued with. (1) Fort Dearborn soldiers cut ditches through this bar repeatedly between 1816 and 1828 with hand tools, and a February 1834 storm breached it outright — a feature a work party trenches and one storm overtops is a low one. (2) CPL's reading of the 1839 Fort Dearborn Addition plat is that the ground east of Michigan Avenue 'at best was probably a low sandbar'. (3) The mid-1830s fall in a Lake Michigan high-water phase, so freeboard was small. (4) The direction of the error matters: 8 ft of sand would hide the harbour works behind a ridge and turn the cut into a canyon, which is a more misleading picture than a bar that is a foot too low. The surface is emitted CONJECTURAL in the confidence channel, so a visitor sees the bar dithered — its shape is evidence, its height is not. A 12 m face at a 4 ft crest is 1:9.8, which is dossier zone 4's beach slope. A FIFTH REASON, BROUGHT IN 2026-09-12 UNDER T-1065, AND IT IS THE DOSSIER'S OWN FIGURE FOR THE RIDGE THIS BAR BELONGS TO. Four of the reasons above argue from what happened to the bar; this one argues from what stands beside it. Dossier zone 3 — the lakeshore sand-ridge belt running north-south on about the Michigan Avenue line — is the mature end of the same littoral system, and its crest is given as +9.0 to +10.0 ft and graded DOCUMENTED, the only elevation in the whole table that is (docs/research/01-terrain-hydrology.md section 6, zone 3, on the 1.15 levelling). The bar is the young end of it: a spit tip still building, trenched by hand between 1816 and 1828 and breached outright in February 1834. A feature that is still being overtopped cannot stand at the height of a ridge that has stopped being. So a +4 ft crest sits 5 to 6 ft BELOW the documented ridge — which is the relation the evidence describes — where an +8 ft crest would bring the youngest sand to within a foot of the oldest, and imply the bar had finished growing at the moment every source shows it still moving. The dossier's zone 4 beach face, +9 ft falling to 0 over 60-100 ft, is the same slope this island's 12 m face already uses at 1:9.8, so the two ends of the comparison are drawn on one geometry. The height is still CHOSEN and the surface is still emitted conjectural; what this adds is that the choice is now bounded above by a documented number and not only by four arguments about the bar itself."
+    }
+  ],
+  "mounds": [
+    {
+      "id": "fort_dearborn_mound",
+      "centre_e": 1152.4,
+      "centre_n": 220.9,
+      "flat_radius_m": 45.0,
+      "outer_radius_m": 75.0,
+      "rise_ft": 3.8,
+      "dossier_zone": 6,
+      "confidence": "inferred",
+      "sources": [
+        "chicagology_prefire274",
+        "wright_1834"
+      ],
+      "note": "The fort 'stood upon a flattened mound, formed by the curve of the river at its base on its three sides', and was 'as high as any other point'. Dossier zone 6 puts it at +10 to +12 ft, apex +12, about 300 x 300 ft and flat-topped. Built here as a 90 m flat top with a 60 m skirt, rising 3.8 ft over the reservation's 8.2 ft — an apex at +12.0, which is the apex the zone itself states. The first pass took the mid-range +11.0; T-0004 (the owner's K8: the banks read too low against the fort views) re-read the evidence and moved to the zone's own apex, because 'as high as any other point' is a superlative and +11.0 left the mound under two feet over the sand ridge's +9.4-9.5 while zone 5 puts the dune hummocks at +10 to +14. The tier-5 fort views read higher still, 10-20 ft to the eye; they are RECORDED, NOT AVERAGED IN — docs/RESEARCH/fort_reach_bank_heights.md holds that disagreement, and Swearingen's and Hubbard's eight feet stay where they were measured, on the BANK (zone 12, the divisions crest, unchanged, as are the forks banks). The CENTRE is the Wright 1834 FORT DEARBORN banner, read at local E +1152.4 / N +220.9 and cross-checked against the modern Michigan Avenue bridge at E +1127 / N +195 — 35 m apart from methods sharing no input. Wright LABELS the reservation and draws no plan, so this locates a landform and says nothing whatever about the fort's footprint, which must come from elsewhere. The mound's skirt reaches the river bank on its north side, which is what the source describes; the bank ramp still carries it to Z=0 at the waterline, so the north face carries the full +12 ft over about a 25 m run — 1:6.8, inside the 1:6 to 1:10 band the bank block holds every shore to. CORRECTED 2026-08-21 (T-0125): the sentence above about the north face carrying the full +12 ft over about a 25 m run at 1:6.8 described ground this spec did not build. The traced waterline runs 4.5 m north of the stockade's north-west corner, so there is no 25 m run there to carry anything; the reach's 20 m bank face instead ramped the ground DOWN inside the fort's own footprint, to 1.26 m against the parade's 3.65 m, and the rigid stockade mesh - which anchors at the lowest ground beneath it - sank until four feet of a twelve-foot wall showed. On the owner's ruling the ground gave: the south division's face_profile is narrowed to 8 m across E 1103-1180 (see face_profile_note), which holds the mound's level out to the wall line and puts the fall outside the stockade at about 1:1.5. The mound's own numbers - centre, flat and outer radii, and the +3.8 ft rise to the zone's stated +12 apex - are UNCHANGED; what moved is the width of the face at the fort, not the height of the mound."
+    }
+  ],
+  "marsh_strips": [
+    {
+      "id": "south_division_marsh",
+      "applies_to": "south_division",
+      "width_m": 30.0,
+      "blend_m": 18.0,
+      "level_ft": 1.25,
+      "range_ft": [
+        0.5,
+        2.0
+      ],
+      "e_taper": [
+        [
+          -320.0,
+          1.0
+        ],
+        [
+          700.0,
+          1.0
+        ],
+        [
+          800.0,
+          0.0
+        ],
+        [
+          1700.0,
+          0.0
+        ]
+      ],
+      "dossier_zone": 11,
+      "confidence": "inferred",
+      "sources": [
+        "chicagology_prefire273"
+      ],
+      "note": "The South Division was 'generally low and marshy ground', with 'a strip along the river shore that was still more marshy, where land and water mingled, covered with tall grass, reeds and rushes'. Dossier zone 11 puts that strip 40-120 ft back from the bank at +0.5 to +2.0 ft. 30 m (98 ft) at +1.25 ft is the middle of both ranges. It is what makes the bank a crest rather than a ramp: the ground behind it is LOWER than the bank top, which is the natural-levee form a low alluvial bank takes. The e_taper is new with the eastward extension and is not a convenience: the same source that describes the marshy strip is describing the low plain, and the source that governs the ground east of State Street puts it at nine to ten feet above the lake with a measured 8 ft river bank. A marsh at +1.25 ft cannot coexist with that, so the strip fades out across State Street and the eastern shore gets the sand-ridge bank instead.",
+      "mesh": {
+        "range_ft": "record_only",
+        "dossier_zone": "record_only"
+      }
+    }
+  ],
+  "swales": [
+    {
+      "id": "west_prairie_swale_a",
+      "line": [
+        [
+          -320.0,
+          -120.0
+        ],
+        [
+          -150.0,
+          60.0
+        ],
+        [
+          -90.0,
+          250.0
+        ]
+      ],
+      "half_width_m": 30.0,
+      "depth_ft": 0.75,
+      "dossier_zone": 18,
+      "confidence": "reconstructed",
+      "sources": [],
+      "note": "Zone 18 says the West Division wet prairie carried 1-2 ft slough swales. That they existed is inferred from the dossier; WHERE they ran is not attested anywhere and this alignment is invented. Kept shallow (0.75 ft over a 30 m half-width, about 2.3 ft per 300 ft) and recorded as a liberty in docs/LIBERTIES.md. T-0795 WALKED THE WHOLE NA/HUP SHEET AND WRIGHT DRAWS NO WATERCOURSE ON THE WEST DIVISION'S PRAIRIE. The tiles covering this ground carry platted blocks, lot lines and the ward band and nothing else, so the one sheet that could have given this swale a source has been looked at and does not. 'No source found' and 'the sheet that would show it shows nothing' are different states and only the second is a finding. The grade does not move: reconstructed, as placed. docs/RESEARCH/wright_1834_watercourses.md.",
+      "mesh": {
+        "dossier_zone": "record_only"
+      }
+    },
+    {
+      "id": "west_prairie_swale_b",
+      "line": [
+        [
+          -320.0,
+          200.0
+        ],
+        [
+          -230.0,
+          300.0
+        ],
+        [
+          -200.0,
+          320.0
+        ]
+      ],
+      "half_width_m": 26.0,
+      "depth_ft": 0.6,
+      "dossier_zone": 18,
+      "confidence": "reconstructed",
+      "sources": [],
+      "note": "As west_prairie_swale_a. As west_prairie_swale_a, including T-0795's reading of the sheet's silence. docs/RESEARCH/wright_1834_watercourses.md.",
+      "mesh": {
+        "dossier_zone": "record_only"
+      }
+    },
+    {
+      "id": "lasalle_slough_lower",
+      "line": [
+        [
+          466.0,
+          10.0
+        ],
+        [
+          469.5,
+          -6.0
+        ],
+        [
+          475.0,
+          -30.0
+        ],
+        [
+          469.0,
+          -52.0
+        ],
+        [
+          482.0,
+          -74.0
+        ],
+        [
+          489.0,
+          -90.0
+        ],
+        [
+          482.0,
+          -110.0
+        ]
+      ],
+      "half_width_m": 4.0,
+      "depth_ft": 3.2,
+      "depth_profile": [
+        [
+          0.0,
+          3.2
+        ],
+        [
+          112.0,
+          3.2
+        ],
+        [
+          128.0,
+          2.2
+        ]
+      ],
+      "confidence": "reconstructed",
+      "sources": [
+        "wright_1834",
+        "conley_stelzer_1933"
+      ],
+      "note": "T-0005, amended T-0118. The second of the three Main Branch sloughs: the watercourse Wright 1834 draws dropping south off the main stem just east of La Salle Street, whose traced mouth is the south-shore re-entrant at E +462..+469 (docs/RESEARCH/clark_reach_bulge_1834.md section 4). EXISTENCE AND MOUTH are Wright's, drawn on the sheet this terrain is fitted to. THE COURSE INLAND is inferred from Conley/Stelzer 1933 (asset_use 'orientation'), which carries it up the west half of the La Salle-Clark block; its lower reach is washed as open water to about Lake Street, which is what the 3.2 ft cut expresses: on the 2.4-2.9 ft plain the bed sits about -0.6 ft and holds a narrow strip of standing backwater, the 'marshy, wet, little current' form the dossier gives these sloughs. WIDTH AND DEPTH ARE INVENTED - no source gives either; 8 m overall is inside the north-side slough's measured 7.1 m band and the 15-40 ft the dossier gives zone 14. THE CHANNEL USED TO START AT N -7, one grid cell SOUTH of the platted South Water Street corridor, because Wright draws the stream stopping at the street line ('the trace stops there with it') and the street was read as crossing on fill or a culvert nothing describes, so the corridor itself was left unbroken. T-0129 CARRIED IT THROUGH TO THE RIVER ON THE OWNER'S RULING (2026-08-21, from South Water Street looking west at 277 degrees): 'this slough has kind of a bulge of land and i would think that it would not have that and be a continous water drain into the river and have plank crossings for both the road and the sidewalk.' What he was looking at is what the unbroken corridor made - eleven metres of dry ground standing +0.37 m over datum between the drain's head and the river's traced re-entrant, two pools with a causeway between them rather than one watercourse. The head is now a vertex at (466, +10), inside that re-entrant, and the cut runs the same 3.2 ft and the same 4.0 m half-width as the rest of the lower reach through it: no new depth, no new width, 16.4 m more of the same channel. THE JUNCTION VERTEX MOVED WITH IT, from (467, -7) to (469.5, -6), and that 2.5 m is not cosmetic: carrying the full 3.2 ft cut north past the old vertex deepened the reach alongside blk_south_water_lasalle's north-west corner, which stood +0.14 m over datum and went under. A platted block with a corner in the water is refused outright by tools/generate_plat_lots.py, and it would have taken the block, its eight lots and the roofs standing on them out of the town to gain fifteen metres of water. Re-bending the reach 2.5 m east clears the corner instead - measured +0.32 m over datum afterwards, MORE margin than it had before this ticket - and moves the channel no further from Conley's west-half-of-the-block reading than the meander already swings. WHAT THAT COSTS IN EVIDENCE, said plainly: Wright's trace still stops at the street line, so the fifteen metres between the street line and the water are RECONSTRUCTED and not traced - the reasoning is that a drain drawn entering the river entered the river, and that a town which bridged the State Street slough where Water Street crossed it would have bridged this one too. The fill-or-culvert reading is not refuted by evidence; it is superseded by the owner's ruling, and the crossing the town needed instead is committed as `lasalle_slough_crossing`. Recorded in docs/LIBERTIES.md. T-0118 (the owner, against an 1830s engraving: the built line was 'too straight' and the join with the upper entry read as a dry sill) bent the invented alignment into the meander a prairie drain actually cuts - same traced mouth, same west-half-of-the-block corridor, swings of 7-10 m threading the committed roofs (old_bank_building cleared by 2.4 m at its nearest) - and added the depth_profile so the bed GRADES from the wet mouth reach up through the Lake Street crossing instead of stepping: 3.2 ft holds to about N -74, then shallows to 2.2 ft at the join, putting the water's edge about N -93, north of the Lake Street corridor, which stays dry. The join depth 2.2 ft is carried on by the upper entry at the same figure, so the two entries carve one continuous bed. Recorded in docs/LIBERTIES.md; see docs/RESEARCH/main_branch_sloughs_1833.md. T-0795 RE-CHECKED THE MOUTH ON THE WHOLE NA/HUP SHEET, which is the first time it has been read outside a tracing window. The V notched into the river's south bank at the west end of the South Water block numbered 50 picks at NA px (2403, 2495), E +449.9 through the eleven-point affine, against the E +462..+469 the traced 1834 waterline carries - 12.1 m, inside a fit whose own RMS is 16.02 m. The mouth is confirmed and nothing moves. The sheet draws NO inland course here, which is what this record has always said. docs/RESEARCH/wright_1834_watercourses.md."
+    },
+    {
+      "id": "lasalle_slough_upper",
+      "line": [
+        [
+          482.0,
+          -110.0
+        ],
+        [
+          489.0,
+          -128.0
+        ],
+        [
+          484.0,
+          -147.0
+        ],
+        [
+          477.0,
+          -166.0
+        ],
+        [
+          487.0,
+          -186.0
+        ],
+        [
+          493.0,
+          -208.0
+        ],
+        [
+          497.0,
+          -228.0
+        ]
+      ],
+      "half_width_m": 3.5,
+      "depth_ft": 2.2,
+      "depth_profile": [
+        [
+          0.0,
+          2.2
+        ],
+        [
+          20.0,
+          1.9
+        ],
+        [
+          39.0,
+          1.8
+        ],
+        [
+          82.0,
+          1.8
+        ],
+        [
+          104.0,
+          1.1
+        ],
+        [
+          125.0,
+          0.0
+        ]
+      ],
+      "confidence": "reconstructed",
+      "sources": [
+        "conley_stelzer_1933"
+      ],
+      "note": "T-0005, amended T-0118. The La Salle slough above its wet lower reach: Conley/Stelzer draws the watercourse continuing as a dark drain past Lake Street and TERMINATING JUST NORTH OF RANDOLPH STREET, which is the terminus this entry carries (position to inferred under the source's 'orientation' ceiling, read at about 20-30 m tolerance). The working cut of 1.8 ft through the middle reaches leaves the bed at roughly +0.8..+0.9 ft - a dry midsummer swale falling toward its own wet mouth, not open water, matching the map's change of rendering. Alignment between the mouth reach and the terminus is invented; it threads the committed reconstructed roofs, which is exactly as unattested as any other line here. T-0118 amended the invented parts three ways, all inside the same bounds: the line meanders instead of ruling a straight N-S course (the owner's engraving standard - a prairie drain crosses ground at an angle); the depth_profile opens at 2.2 ft to meet the lower entry's graded join at the same figure, so the watercourse is continuous with NO dry sill stepping across it - the deepest point of this entry, hence depth_ft 2.2, still leaving the join bed at about +0.4 ft, ABOVE datum, honouring the dossier's above-datum thalweg for these inland courses; and the last two knots FEATHER the cut to zero at the head, so the ground closes over the terminus instead of ending in an open trench (the visible hollow now dies out about 15-20 m short of the last vertex, well inside the terminus reading's own 20-30 m tolerance). Recorded in docs/LIBERTIES.md; see docs/RESEARCH/main_branch_sloughs_1833.md."
+    },
+    {
+      "id": "state_slough_course",
+      "line": [
+        [
+          596.0,
+          -340.0
+        ],
+        [
+          618.0,
+          -262.0
+        ],
+        [
+          641.0,
+          -235.0
+        ],
+        [
+          666.0,
+          -218.0
+        ],
+        [
+          702.0,
+          -190.0
+        ],
+        [
+          728.0,
+          -172.0
+        ],
+        [
+          752.0,
+          -152.0
+        ],
+        [
+          776.0,
+          -118.0
+        ],
+        [
+          788.0,
+          -84.0
+        ],
+        [
+          795.0,
+          -60.0
+        ]
+      ],
+      "half_width_m": 5.0,
+      "depth_ft": 2.2,
+      "depth_profile": [
+        [
+          0.0,
+          0.0
+        ],
+        [
+          30.0,
+          1.2
+        ],
+        [
+          58.0,
+          2.0
+        ],
+        [
+          81.0,
+          2.2
+        ]
+      ],
+      "dossier_zone": 14,
+      "confidence": "reconstructed",
+      "sources": [
+        "chicagology_prefire273",
+        "conley_stelzer_1933"
+      ],
+      "note": "T-0005, amended T-0118. The third Main Branch slough, dossier zone 14 - the South Division's natural drain, deferred by this spec since the box first covered it and now built. THE ROUTE IS DOCUMENTED: it drained the public-square pond and the Wells Street marsh, 'passed over the site of the Tremont House and entered the river at the end of State Street' (chicagology_prefire273, transcribed at docs/research/01-terrain-hydrology.md section 2.2). Conley/Stelzer 1933 draws the full winding course and supplies the waypoints this line carries to inferred: head just east of Clark between Washington and Randolph (the square's drain), a mid-block Dearborn crossing about N -190, then north-east under the ridge toe toward State. THE DEPTH IS THE DOSSIER'S: row 14 gives the thalweg as 1.5-3.0 ft below the adjacent plain at about +0.5..+1.5 ft absolute, and 2.2 ft off the 2.9 ft plain lands the bed at +0.7 - a damp swale in July, NOT open water, which is why this is a swale and not a watercourse cut below datum. WIDTH is the dossier's 15-40 ft band read near its top (10 m). The exact line between the documented waypoints is invented and threads the committed roofs. T-0118 added the depth_profile: the cut used to run its full 2.2 ft to the head vertex and stop, leaving an open-ended trench cut into level prairie, and the owner asked that it 'level out with the rest of the land'. The head now FEATHERS from zero at the first vertex to the full 2.2 ft over the first ~58 m, so the ground closes over the drain's head the way a watercourse actually rises out of the ground; the head vertex itself does not move, and the visible hollow dies out inside the head reading's own 20-30 m tolerance. Recorded in docs/LIBERTIES.md; see docs/RESEARCH/main_branch_sloughs_1833.md. T-0795 CONFIRMS THE SILENCE THIS RECORD ALREADY ASSUMED: walked whole, the NA/HUP sheet draws no watercourse anywhere along this course. That is not a fault in the route - this record cites chicagology and Conley/Stelzer and has never cited Wright - it is the audit finding the expected nothing. docs/RESEARCH/wright_1834_watercourses.md.",
+      "mesh": {
+        "dossier_zone": "record_only"
+      }
+    },
+    {
+      "id": "state_slough_mouth",
+      "line": [
+        [
+          795.0,
+          -60.0
+        ],
+        [
+          806.0,
+          -35.0
+        ],
+        [
+          810.0,
+          -12.0
+        ],
+        [
+          809.5,
+          6.0
+        ],
+        [
+          809.3,
+          14.5
+        ],
+        [
+          809.5,
+          28.0
+        ]
+      ],
+      "half_width_m": 3.0,
+      "depth_ft": 6.2,
+      "depth_profile": [
+        [
+          0.0,
+          2.2
+        ],
+        [
+          27.0,
+          4.0
+        ],
+        [
+          51.0,
+          5.6
+        ],
+        [
+          69.0,
+          6.2
+        ]
+      ],
+      "dossier_zone": 14,
+      "confidence": "reconstructed",
+      "sources": [
+        "chicagology_prefire273",
+        "wright_1834",
+        "conley_stelzer_1933"
+      ],
+      "note": "T-0005, remade by T-0118. Zone 14's last reach, from about N -60 into the river. AS FIRST BUILT this entry visited the Slough Log Bridge's committed deck and then turned east and ran ~35 m ALONG the shore to Wright's traced re-entrant at E +850..+856 - and the owner, against an 1830s engraving, read exactly what that shape is: a six-foot trench dug parallel to the bank fills as a BAY, not a mouth. A watercourse meets open water square, in one reach. The two pins the dogleg served cannot both be honoured by a straight entry, so ONE MOVED, and it is the TRACED RE-ENTRANT that this line no longer ends inside: the reach now runs straight north under the committed deck (E +805..+813, N +13..+16, whose approach cuts already grade the street to it and whose 8 m span was authored to cross a north-running channel - the deck ends now seat about 1 m outside the carve on either side) and crosses the waterline square at about E +809.5, N +25. WHY THE MOUTH MOVED AND NOT THE BRIDGE: the bridge is a committed structure whose position record carries its own reasoning and whose approach earthworks are committed grading of Water Street, and moving it east into the rising State ridge toe would demand street cuts twice as deep through ground the spec grades for the break-of-slope - a larger invention than the offset this accepts. The documentary mouth - 'entered the river at the end of State Street', which the State ground control puts at about E +827 at the bank - sits BETWEEN the two pins: the built mouth at +809.5 is ~18 m west of it, inside the sheet's own +/-20 m georeference band, while the traced notch was ~25 m east of it (docs/RESEARCH/main_branch_sloughs_1833.md section 3 accepted that offset in the other direction). The re-entrant itself is EVIDENCE and stays exactly as traced in the waterline - a small drawn notch in the bank 40 m east of the built mouth, no longer claimed as this drain's outfall. The depth_profile grades the cut from the course entry's 2.2 ft at the hand-over to the full 6.2 ft against the ridge toe, so the damp course falls smoothly into the backed-up pool (about N -25 to the river) instead of meeting it at an over-deepened joint; 6.2 ft is kept where the pool is deepest because the toe's own crest stands 4-6 ft over this reach. Under the pool the bed is invisible and its exact figure is a modelling convenience. Depth and width invented, bounded as the course entry's are. Recorded in docs/LIBERTIES.md; see docs/RESEARCH/main_branch_sloughs_1833.md. AS BUILT, MEASURED (T-0109): under the Slough Log Bridge's committed deck this cut is 6.0 m across the top and holds 3.30 m of open water, 0.53 m deep at the thalweg, leaving 2.35 m of dry abutment seat at each end of the 8 m span, and the reach runs unbroken from the planks to the river. That reading is what closed T-0109 - the ticket filed when the crossing still spanned solid ground - and tools/measure_slough_crossing.py takes it on every commit, so this line cannot wander out from under the deck with every other gate still green. T-0795 RE-CHECKED THE TRACED RE-ENTRANT ON THE WHOLE NA/HUP SHEET. The narrow inlet at the foot of State Street picks at NA px (2968, 2515), E +848.6, against the E +850..+856 this record quotes - 1.4 m. The re-entrant is real and where it was traced, so the offset between it and this reach's mouth is the deliberate one reasoned above and not a georeference error. docs/RESEARCH/wright_1834_watercourses.md.",
+      "mesh": {
+        "dossier_zone": "record_only"
+      }
+    }
+  ],
+  "watercourses": [
+    {
+      "id": "north_side_slough",
+      "from": "hydrology.geojson",
+      "bed_ft": -1.0,
+      "e_fold_m": 1.2,
+      "confidence": "reconstructed",
+      "sources": [
+        "wright_1834"
+      ],
+      "note": "Existence and course documented by Wright 1834; width measured off the drafted band; depth invented. A shallow, still, connected backwater is the form the sources describe for sloughs off the Main Branch: 'marshy, wet areas with little current'. T-0795 RE-MEASURED THIS CENTRELINE AGAINST THE WHOLE 600 dpi NA/HUP SHEET, the first time it has been read outside a tracing window. 41 of its 45 stations find the pair of inked strokes that bracket them; the centre of the pair departs from the committed line by 1.78 m median and 8.03 m at worst, against a fit whose own RMS is 16.02 m. A window on one scan and the whole of another agree about this watercourse to under two metres, and it is the ONLY watercourse that is not the river anywhere on the sheet. TWO THINGS THE RE-READING FOUND. The strokes stand 13.02 m apart (6.96-22.83 m), nearly twice the 7.1 m the width above was measured from - wash fragments are not the drafted channel, a hand-drawn double line carries no surveyed width, and no width is taken from the ink; both numbers are simply on the record now. AND THE SAME INK WAS BEING READ TWICE, NOW SETTLED IN THIS RECORD'S FAVOUR: T-1080 traced a ROAD down these strokes and its ribbon came out standing in water, because this watercourse is already carved along it. T-1080 withdrew the road. Five things decided it - the two traces agree to 1.54 m median (17.91 m worst) though they come off different scans under different registrations; the whole sheet holds exactly ONE watercourse that is not the river; at NA px (2033, 2270) the two strokes BECOME the river's north bank on either side of an opening, which is how a confluence is drawn and not how a road meets a bank; Thompson drew the same feature as water in 1830 across the same block; and the two readings agree on the stroke separation to 0.2 m. The road reading survives only as this record's cross-check, under this record's name: data/traces/north_side_slough_na_reread.json. Nothing here is regraded by it - a second reading corroborates, it does not promote. docs/RESEARCH/wright_1834_watercourses.md, docs/RESEARCH/michigan_st_tract.md.",
+      "mesh": {
+        "from": "record_only"
+      }
+    }
+  ],
+  "approaches_note": "T-0046. Every bridge deck in the dataset stands on the traced 1834 waterline, where the ground is Z = 0 by construction, so no bridge could be entered from its bank: the decks are 2.22 m (branch bridges, drawbridge) and 0.83 m (slough crossing) over the ground at their ends. The 1883 old-settlers statement (Andreas pp. 631-632) makes both branch bridges WAGON bridges - 'these were both wagon bridges' - and teams cannot climb a 2.2 m step, so approach earthworks existed; nothing reached describes their form, length or grade, which is why every entry below is graded reconstructed and admitted in docs/LIBERTIES.md. Geometry rule, restated from generators/terrain_gen.py: each entry's line runs from the deck-end centre inland; a 'fill' raises the ground to deck_ft at the deck end (less the generator's APPROACH_SEAT_FT, 0.06 ft - the fill packs under the plank line, so the last stride onto the boards is a small step, and the deck rather than the ground is what holds the walker up over its own outline), falling inland at 'grade' (1 in 12, a comfortable team haulage grade well inside period wagon-road practice), with a level crest half_width_m either side of the line and side slopes of side_slope (1 vertical in 2 horizontal, inside the angle of repose of loose fill), carried end_overhang_m past the deck end into the shallows as the fill the log abutment cribs retain; a 'cut' is the mirror - the ground is graded DOWN to deck_ft at the deck end, rising inland at the same grade, and carried the same end_overhang_m under the deck so the ends read down to the crossing rather than standing proud beside it. half_width_m is 4.0 rather than the deck's 1.524 m half-width because the ground grid is 2.5 m cells: the crest must hold every cell the bilinear sampler mixes into the deck-corner reading, or the sampled ground misses the deck it exists to meet. That allowance is part of the recorded liberty.",
+  "approaches": [
+    {
+      "id": "north_branch_west",
+      "bridge": "north_branch_bridge",
+      "mode": "fill",
+      "line": [
+        [
+          -117.5,
+          262.02
+        ],
+        [
+          -144.5,
+          262.02
+        ]
+      ],
+      "deck_ft": 7.283,
+      "grade": 0.0833,
+      "half_width_m": 4.0,
+      "side_slope": 0.5,
+      "end_overhang_m": 3.0,
+      "confidence": "reconstructed",
+      "sources": [],
+      "note": "The west (Canal Street) approach to the North Branch bridge, on the Kinzie Street alignment. That an approach existed is a necessity - the 1883 settlers' statement makes this a wagon bridge and its deck stands 2.22 m over a bank at the waterline - but its form is invented: an earth ramp at 1 in 12, meeting the deck at grade at the traced waterline. Deck height restated from the structure record's clearance stack; if that record moves, the ground-contact gate reopens the gap and fails, which is what holds the two files together.",
+      "mesh": {
+        "bridge": "record_only"
+      }
+    },
+    {
+      "id": "north_branch_east",
+      "bridge": "north_branch_bridge",
+      "mode": "fill",
+      "line": [
+        [
+          -45.67,
+          262.02
+        ],
+        [
+          -18.67,
+          262.02
+        ]
+      ],
+      "deck_ft": 7.283,
+      "grade": 0.0833,
+      "half_width_m": 4.0,
+      "side_slope": 0.5,
+      "end_overhang_m": 3.0,
+      "confidence": "reconstructed",
+      "sources": [],
+      "note": "The east approach to the North Branch bridge, carrying Kinzie Street onto the deck. Same footing as north_branch_west: existence necessary for a wagon bridge, form invented at 1 in 12.",
+      "mesh": {
+        "bridge": "record_only"
+      }
+    },
+    {
+      "id": "south_branch_west",
+      "bridge": "south_branch_raft_bridge",
+      "mode": "fill",
+      "line": [
+        [
+          6.87,
+          -176.55
+        ],
+        [
+          -20.13,
+          -176.41
+        ]
+      ],
+      "deck_ft": 7.283,
+      "grade": 0.0833,
+      "half_width_m": 4.0,
+      "side_slope": 0.5,
+      "end_overhang_m": 3.0,
+      "confidence": "reconstructed",
+      "sources": [],
+      "note": "The west approach to the South Branch bridge, between Lake and Randolph. The 1883 settlers' statement covers both branch bridges - 'these were both wagon bridges' - so the necessity argument is the same as the North Branch's; the form is invented at 1 in 12. Every entry's line runs deck-end first, inland toe second.",
+      "mesh": {
+        "bridge": "record_only"
+      }
+    },
+    {
+      "id": "south_branch_east",
+      "bridge": "south_branch_raft_bridge",
+      "mode": "fill",
+      "line": [
+        [
+          62.83,
+          -176.83
+        ],
+        [
+          89.83,
+          -176.97
+        ]
+      ],
+      "deck_ft": 7.283,
+      "grade": 0.0833,
+      "half_width_m": 4.0,
+      "side_slope": 0.5,
+      "end_overhang_m": 3.0,
+      "confidence": "reconstructed",
+      "sources": [],
+      "note": "The east approach to the South Branch bridge, toward the town side. Same footing as south_branch_west.",
+      "mesh": {
+        "bridge": "record_only"
+      }
+    },
+    {
+      "id": "dearborn_south",
+      "bridge": "dearborn_street_drawbridge",
+      "mode": "fill",
+      "line": [
+        [
+          697.65,
+          20.7
+        ],
+        [
+          697.95,
+          -6.3
+        ]
+      ],
+      "deck_ft": 7.283,
+      "grade": 0.0833,
+      "half_width_m": 4.0,
+      "side_slope": 0.5,
+      "end_overhang_m": 3.0,
+      "confidence": "reconstructed",
+      "sources": [],
+      "note": "The south approach to the Dearborn Street drawbridge, from the foot of Dearborn on South Water. Andreas describes about 300 ft of timber causeway with a 60 ft draw; the causeway itself is the committed deck, and this is the earthwork that gets a team from the street onto it. Form invented at 1 in 12.",
+      "mesh": {
+        "bridge": "record_only"
+      }
+    },
+    {
+      "id": "dearborn_north",
+      "bridge": "dearborn_street_drawbridge",
+      "mode": "fill",
+      "line": [
+        [
+          696.87,
+          97.03
+        ],
+        [
+          696.57,
+          124.03
+        ]
+      ],
+      "deck_ft": 7.283,
+      "grade": 0.0833,
+      "half_width_m": 4.0,
+      "side_slope": 0.5,
+      "end_overhang_m": 3.0,
+      "confidence": "reconstructed",
+      "sources": [],
+      "note": "The north approach to the Dearborn Street drawbridge, onto the Kinzie's Addition side. Same footing as dearborn_south.",
+      "mesh": {
+        "bridge": "record_only"
+      }
+    },
+    {
+      "id": "slough_west",
+      "bridge": "slough_log_bridge",
+      "mode": "cut",
+      "line": [
+        [
+          805.3,
+          14.2
+        ],
+        [
+          793.3,
+          14.2
+        ]
+      ],
+      "deck_ft": 2.723,
+      "grade": 0.0833,
+      "half_width_m": 4.0,
+      "side_slope": 0.5,
+      "end_overhang_m": 3.0,
+      "confidence": "reconstructed",
+      "sources": [],
+      "note": "The west approach to the slough crossing - the opposite problem from the river bridges: this low deck sits 0.35-0.49 m BELOW the banks at its ends, so the road is graded DOWN to it, a shallow cut rising inland at 1 in 12 until it meets the natural ground. A road descending to a low log crossing is the minimal reading of how anyone used it; the cut's form is invented.",
+      "mesh": {
+        "bridge": "record_only"
+      }
+    },
+    {
+      "id": "slough_east",
+      "bridge": "slough_log_bridge",
+      "mode": "cut",
+      "line": [
+        [
+          813.3,
+          14.2
+        ],
+        [
+          825.3,
+          14.2
+        ]
+      ],
+      "deck_ft": 2.723,
+      "grade": 0.0833,
+      "half_width_m": 4.0,
+      "side_slope": 0.5,
+      "end_overhang_m": 3.0,
+      "confidence": "reconstructed",
+      "sources": [],
+      "note": "The east approach to the slough crossing. Same footing as slough_west.",
+      "mesh": {
+        "bridge": "record_only"
+      }
+    },
+    {
+      "id": "lasalle_crossing_west",
+      "bridge": "lasalle_slough_crossing",
+      "mode": "fill",
+      "line": [
+        [
+          461.5,
+          5.135
+        ],
+        [
+          453.5,
+          5.135
+        ]
+      ],
+      "deck_ft": 2.756,
+      "grade": 0.0833,
+      "half_width_m": 4.0,
+      "side_slope": 0.5,
+      "end_overhang_m": 1.0,
+      "confidence": "reconstructed",
+      "sources": [],
+      "mesh": {
+        "bridge": "record_only"
+      },
+      "note": "T-0129. The west approach to the La Salle slough crossing, carrying South Water Street onto the deck. THIS ONE IS A FILL AND ITS SIBLING FOUR HUNDRED METRES EAST IS A CUT, and the difference is the ground rather than a change of mind: the State crossing's low deck sits 0.35-0.49 m BELOW its banks, so the road is graded down to it, while this deck stands 0.84 m over water on banks that reach only +0.37 m, so the road is graded UP. That an approach existed is the same necessity argument every entry here makes - a graded public street cannot end 0.47 m under its own crossing - and the form is invented at the same 1 in 12. THE ONE FIGURE THAT DEPARTS FROM THE HOUSE PATTERN IS end_overhang_m, 1.0 against the 3.0 every other approach uses, and it departs for the reason this whole ticket exists: the overhang is fill carried PAST the deck end into the shallows, and three metres of it at each end would take two thirds of the six-metre channel this work opened and put the owner's bulge of land back at a smaller scale. One metre keeps the fill inside the abutment seat (measured 2.65 m at the deck's south edge, 3.35 m at its north) and leaves the water running under the whole of the span. Deck height restated from the structure record's clearance stack (0.5 + 0.26 + 0.08 m = 2.756 ft); if that record moves, the ground-contact gate reopens the gap and fails, which is what holds the two files together."
+    },
+    {
+      "id": "lasalle_crossing_east",
+      "bridge": "lasalle_slough_crossing",
+      "mode": "fill",
+      "line": [
+        [
+          473.5,
+          5.135
+        ],
+        [
+          483.5,
+          5.135
+        ]
+      ],
+      "deck_ft": 2.756,
+      "grade": 0.0833,
+      "half_width_m": 4.0,
+      "side_slope": 0.5,
+      "end_overhang_m": 1.0,
+      "confidence": "reconstructed",
+      "sources": [],
+      "mesh": {
+        "bridge": "record_only"
+      },
+      "note": "T-0129. The east approach to the La Salle slough crossing, from the town side. Same footing as lasalle_crossing_west: a fill because the deck stands over its banks, form invented at 1 in 12, and the same one-metre overhang so the fill does not close the channel it crosses."
+    }
+  ],
+  "micro_relief": {
+    "amplitude_ft": 0.1,
+    "wavelengths_m": [
+      70.0,
+      38.0
+    ],
+    "seed": 18350701,
+    "confidence": "reconstructed",
+    "applies_to": "land above the waterline, faded out across the bank face",
+    "note": "Two octaves of value noise at +/- 0.10 ft (30 mm) — below the 0.25 ft the dossier asks the heightmap to be quantised at, and far below the resolution of any statement in the record. It exists so that a surface the sources describe as dead flat still reads as ground rather than as a rendering error, and so that walking gives motion parallax. It is a texture, not a claim. Set amplitude_ft to 0 for a perfectly flat plain.",
+    "mesh": {
+      "applies_to": "restated_in_code"
+    },
+    "mesh_note": "Where the noise applies is decided in terrain_gen.py — it is faded across the bank ramp and excluded from water — and this sentence describes that code path rather than driving it.",
+    "south_limit_n_m": -530.0,
+    "south_limit_note": "And it stops at Madison Street, which is where the town stops (T-0464). The note above states the two things this texture is for — that ground the sources call dead flat should still read as ground rather than as a rendering error, and that walking should give motion parallax — and neither of them survives south of the plat. Nobody walks there: there is no street, no structure and no scene south of Madison, and the field below it is the frame the 1812 and 1880s epochs will stand in. Nobody can see it either, in the only sense that matters to a +/- 0.10 ft texture: 30 mm at the 500 m where this ground starts subtends 0.0034 deg, against 0.06 deg for one pixel of a 60 deg field across 1000 px, so the texture is an order of magnitude under a pixel at the NEAREST it is ever drawn and falls away from there until world.js's haze closes at 1550 m. What it is NOT under is the planar dissolve: noise is the only thing making this surface non-planar, and carrying it over the extension costs 9.10 MB of master and 807 KiB of published payload — measured, 27,019,736 bytes of master against 17,919,344 and 2,646,392 of derivative against 1,819,896 — against a site budget this extension already had to raise once (tools/validate.py SITE_BUDGET_MB). Inside the plat nothing changes — the whole field north of -530 is bit-identical across this change."
+  },
+  "flatness_rule": {
+    "rule": "docs/research/01-terrain-hydrology.md modelling rule 1: outside the zones that earn relief, hold local gradients under 0.5 ft per 300-ft block.",
+    "checked_by": "generators/terrain_gen.py gradient_audit, whose result is written into heightfield.json as gradient_audit_ft_per_300ft and is a gate on this spec.",
+    "exempt": "The dossier's rule names zones 3-7 and the fort mound. This spec adds zone 10, the State Street break-of-slope, to the exemption because zone 10 states its own fall as 'drop ~5-6 ft over 300 ft (about 2% grade)' and cannot obey a 0.5 ft rule while doing that — the dossier's rule-1 list simply did not enumerate it. Every exemption is declared by name in relief_bands, islands and mounds below, and every one is reported with its own worst gradient in the audit rather than excused."
+  },
+  "relief_bands": [
+    {
+      "id": "state_street_break",
+      "applies_to": "south_division",
+      "e_range": [
+        770.0,
+        890.0
+      ],
+      "dossier_zone": 10,
+      "confidence": "inferred",
+      "sources": [
+        "chicago_architecture_history_115"
+      ],
+      "note": "The break-of-slope at State Street: the South Division falls from the nine-to-ten-foot ground east of State to the two-to-three-foot plain west of it. 4.7 ft over 328 ft here against the dossier's 5-6 ft over 300 ft."
+    },
+    {
+      "id": "south_sand_ridge",
+      "applies_to": "south_division",
+      "e_range": [
+        890.0,
+        1700.0
+      ],
+      "dossier_zone": 3,
+      "confidence": "inferred",
+      "sources": [
+        "chicago_architecture_history_115",
+        "chicagology_prefire274"
+      ],
+      "note": "The lakeshore sand-ridge belt on the reservation and along the old channel's west bank: the 'long low strip of land, a sandy beach and drifting sand bars' forming 'the barrier or dividing ridge' between lake and river. The crest rises from Swearingen's 8 ft river bank to 9.5 ft over the last 70 m, which the dossier's zone-3 belt (150-400 ft wide, +9 to +10 crest) licenses and rule 1 exempts. ITS WEST FLANK WAS ADDED BY T-0464, e_range 1160 -> 890. The band was drawn at 1160 when the box stopped at Madison Street, where the only ground east of the State Street break stands within a bank face of the harbour shore and is excluded per cell anyway. South of Madison it does not: the extension brought 1.6 km of the ridge's own back-slope into the box, a quarter-mile of it more than 300 m from any traced water, and the plain audit met the profile's 7.6 ft at E +880 rising to 9.4 ft at E +1230 as an unexcused 0.599 ft per 300 ft. That rise is not plain and never was — it is the approach to this same ridge, on the same zone-3 licence, and 890 is where it starts because 890 is where state_street_break stops. Nothing about the SURFACE changed: this declares an exemption the dossier's rule 1 already grants zone 3, so the slope is reported under this band's own worst gradient instead of being excused in silence."
+    },
+    {
+      "id": "north_sand_ridge",
+      "applies_to": "north_division",
+      "e_range": [
+        1200.0,
+        1700.0
+      ],
+      "dossier_zone": 3,
+      "confidence": "inferred",
+      "sources": [
+        "chicagology_prefire274"
+      ],
+      "note": "The same belt north of the harbour, where the North Division rises from +6 to +9 ft over its last 120 m (394 ft, inside zone 3's 150-400 ft width) to meet the lake shore."
+    }
+  ],
+  "surface_materials": [
+    {
+      "zone": "south_division west of State St",
+      "material": "black_loam_over_quicksand_over_blue_clay",
+      "dossier_zone": 9,
+      "confidence": "attested",
+      "sources": [
+        "chicago_architecture_history_115"
+      ],
+      "mesh": {
+        "material": "simplified",
+        "dossier_zone": "record_only"
+      },
+      "note": "The chip above this line is stronger than the evidence under it, and this sentence is the correction arriving ahead of the grade. The source page was opened at its own locator on 2026-08-11 (docs/RESEARCH/surface_materials_south_division.md) and it prints no footnote, endnote or reference of any kind. A named witness on the page, John Mills Van Osdel, attests saturated sand over impervious clay and the failure of the ground to drain, but he gives no black loam and no thickness. The top layer and all three dimensions are the 2022 author's unsupported synthesis. This value is over-graded and should become inferred; it remains documented only because confidence is baked into the committed ground mesh and the regrade requires the queued Blender rebuild."
+    },
+    {
+      "zone": "south_division east of State St",
+      "material": "beach_and_dune_sand_henry_fm",
+      "dossier_zone": 3,
+      "confidence": "attested",
+      "sources": [
+        "chicago_architecture_history_115"
+      ],
+      "mesh": {
+        "material": "simplified",
+        "dossier_zone": "record_only"
+      }
+    },
+    {
+      "zone": "north_division",
+      "material": "black_loam_over_quicksand_over_blue_clay",
+      "dossier_zone": 19,
+      "confidence": "inferred",
+      "mesh": {
+        "material": "simplified",
+        "dossier_zone": "record_only"
+      },
+      "note": "The profile itself is carried over from the dossier's grouping of this ground with the south-division section rather than from a north-side section measured on its own, so this remains inferred rather than documented."
+    },
+    {
+      "zone": "north_division near the lake",
+      "material": "beach_and_dune_sand_henry_fm",
+      "dossier_zone": 3,
+      "confidence": "inferred",
+      "mesh": {
+        "material": "simplified",
+        "dossier_zone": "record_only"
+      },
+      "note": "This is the sand-ridge and near-lake continuation of the north division, inferred from the same shoreline and ridge evidence that raises the ground there; no source describes a separate soil section at this exact spot."
+    },
+    {
+      "zone": "west_division",
+      "material": "black_loam_over_quicksand_over_blue_clay",
+      "dossier_zone": 18,
+      "confidence": "inferred",
+      "mesh": {
+        "material": "simplified",
+        "dossier_zone": "record_only"
+      },
+      "note": "The west-division material is inferred by extension from the dossier's grouped surface table rather than from a measured section in the wet prairie itself, which is why it is not documented."
+    },
+    {
+      "zone": "south_division_marsh",
+      "material": "peat_muck_with_sedge_reeds_rushes",
+      "dossier_zone": 11,
+      "confidence": "attested",
+      "sources": [
+        "chicagology_prefire273"
+      ],
+      "mesh": {
+        "material": "simplified",
+        "dossier_zone": "record_only"
+      }
+    },
+    {
+      "zone": "sand_bar_1834",
+      "material": "beach_and_dune_sand_henry_fm",
+      "dossier_zone": 7,
+      "confidence": "attested",
+      "sources": [
+        "chicagology_prefire274"
+      ],
+      "mesh": {
+        "material": "simplified",
+        "dossier_zone": "record_only"
+      }
+    },
+    {
+      "zone": "channel",
+      "material": "cahokia_alluvium_silt",
+      "dossier_zone": 20,
+      "confidence": "inferred",
+      "mesh": {
+        "material": "simplified",
+        "dossier_zone": "record_only"
+      },
+      "note": "Cahokia alluvium is a formation name carried onto this reach by regional mapping rather than by an 1835 bed observation here, so the claim is inferred."
+    },
+    {
+      "zone": "open_lake_shelf",
+      "material": "beach_and_dune_sand_henry_fm",
+      "dossier_zone": 30,
+      "confidence": "reconstructed",
+      "note": "No source describes the lake bed offshore of the 1835 beach. It is carried as the same Henry Formation sand that the shoreline and dune ridges are made of, because the beach is what is being continued underwater and a lake bed of some other material would be the stranger claim. Nothing rests on it: the shelf is below the water surface at every point and is never seen.",
+      "mesh": {
+        "material": "simplified",
+        "dossier_zone": "record_only"
+      }
+    }
+  ],
+  "vegetation_note": "For the flora parcel, not implemented here: the West Side is documented as open prairie entirely free from timber; the South Side carried a body of timber along the river extending east as far as Wells street; the North Side a thrifty heavy growth of timber; the river banks sedgy grass and abundant wild onions (chicagology_prefire273). The eastward extension puts the sand-ridge belt and the bar inside the box for the first time — sand prairie and beach, not the wet-prairie communities the forks carries. data/flora zones z08_lakeshore and z09_sand_prairie were written against a box that stopped at E +320 and now have modelled ground under them.",
+  "not_modelled_in_this_box": [
+    {
+      "dossier_zone": 5,
+      "why": "the 'white sand hills both to the north and south' of the fort are the only explicit dune reference and no source places a single one of them. Inventing hummocks in the quadrant where Fort Dearborn and the Beaubien houses stand would put relief under buildings on no evidence at all."
+    },
+    {
+      "dossier_zone": 15,
+      "why": "the public-square pond (Randolph/Washington, Clark/LaSalle, about E +550) is inside the box now. Deferred to parcel (c): existence documented, geometry conjectural. AND ITS DATE IS NOT ESTABLISHED, which is a different thing from its geometry and was never asked. The quotation dates nothing — 'was then a pond', a past tense set against an 1857 present, in a document this project records as built on Hubbard's Chicago of 1818 and Davis's 1832 drawing; the dossier row calls the pond SEASONAL and puts its water at 0.5-2 ft deep IN SPRING against a scene dated 1 July; and this project already stands the estray pen on the square's south-west corner from March 1832 and the log jail on its north-west corner from the fall of 1833. A pound is not built in a pond. Against all of that, the same page's slough sentence has the stream draining 'the pond' as a live feature. So the extent and the date are one question and neither is settled — data/terrain/1835_intown_water_dating.json zone 15."
+    },
+    {
+      "dossier_zone": 16,
+      "why": "the Frog Pond at Lake and LaSalle (about E +480) is inside the box now. Deferred to parcel (c). It is the only one of the four in-town waters with a day and a month on it, and the day is a year late: the Chicago American of 9 July 1836 complains of standing water inhabited by frogs at that corner. Same week of the same season, one year after the scene, and the step back to 1835 is an inference this project records as one — data/terrain/1835_intown_water_dating.json zone 16."
+    },
+    {
+      "dossier_zone": 17,
+      "why": "the Wells Street marsh (about E +600) is inside the box now. Deferred to parcel (c). It arrives in the same sentence as the slough and on the same terms — the stream drained 'the pond and the marsh extending up Wells Street' — so whatever dates the slough dates what the slough drains. What is missing here is the EXTENT and not the date: the dossier's own tag is 'documented qualitatively' and 'broad, ill-defined' is the whole of the geometry any source reached supplies — data/terrain/1835_intown_water_dating.json zone 17."
+    },
+    {
+      "dossier_zone": 24,
+      "why": "the north pier is a STRUCTURE with phases, not terrain — data/structures/north_pier.json. Its root at E +1243.5 is now inside the box."
+    },
+    {
+      "dossier_zone": 25,
+      "why": "the south pier is a structure — data/structures/south_pier.json."
+    },
+    {
+      "dossier_zone": 27,
+      "why": "residual bar shoals flanking the cut, -1 to -4 ft, 200-600 ft offshore, inferred. Not modelled as a named feature; the lake shelf happens to pass through -1 to -4 ft across that band, which is a coincidence of the profile and not a claim about shoals."
+    },
+    {
+      "dossier_zone": 28,
+      "why": "the fresh accretion wedge north of the north pier. The traced shore IS Wright's 1834 shore; adding a year of accretion on top of it would be editing the trace rather than reading it. It USED to be out of the box as well — 'the wedge lies mostly north of N +400' — and since T-1123 it is not: the box now reaches N +1120 and the whole of that shore is modelled ground. The reason it is not modelled is now the first sentence alone, which was always the load-bearing one."
+    },
+    {
+      "dossier_zone": 29,
+      "why": "the erosional scarp south of the cut, 'documented qualitatively' with no dimension. The bank face there already falls from the sand ridge; a 1-3 ft cut bank on top of it would be drawn from the adjective."
+    }
+  ],
+  "evidence_limit": {
+    "_doc": "The line below which this corpus says nothing about ground, and therefore below which the generator's own profiles are not an inference from a source. Every vertex south of it is written CONF_CONJECTURAL by generators/terrain_gen.py, land as well as water.",
+    "south_of_n_m": -2149.4,
+    "what_the_line_is": "Twelfth Street (Roosevelt Road), the School Section's south line, taken at the committed section corner State & Roosevelt (S-SE of data/traces/gcp/wright_1834_nara_hup_section_corners.json, local N -2149.40) — the northern of the two committed corners on that line, so the mask errs towards marking MORE as conjectural.",
+    "why_here": "Three independent things stop within 15 m of it. The terrain dossier's only statement south of Madison is zone 3, the lakeshore sand-ridge belt, 'Chicago Ave -> 12th St'. Wright's 1834 sheet ends at the foot of the School Section. And both traced lines carried south by T-0799 stop there: the South Branch at N -2149.6 and south_shore_harbor_reach at N -2159.9.",
+    "confidence": "documented",
+    "sources": [
+      "osm_streets_2026",
+      "wright_1834"
+    ],
+    "note": "This is a statement about the RECORD, not about the ground, which is why it is documented while everything it marks is conjectural. It does not stop the field being built down there — a frame the 1812 and 1880s epochs can stand in is what T-0464 was asked for — it stops the frame being read as a reconstruction."
+  }
+}

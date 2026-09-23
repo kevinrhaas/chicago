@@ -1,0 +1,18 @@
+{
+  "id": "white_1978_inai",
+  "type": "book",
+  "citation": "White, John. Illinois Natural Areas Inventory Technical Report, Volume 1: Survey Methods and Results. Illinois Natural Areas Inventory, Urbana, 1978.",
+  "author": "John White",
+  "date": "1978",
+  "repository": "Illinois Natural Areas Inventory / Illinois Department of Natural Resources",
+  "locator": "the natural-community classification: wet prairie, sand prairie, sedge meadow, marsh, savanna, flatwoods, foredune, panne",
+  "tier": 4,
+  "rights_status": "check_required",
+  "asset_use": "text_only",
+  "verified": false,
+  "access_notes": "A printed state report; no copy was retrieved in this session. Cited for the community classification as transcribed in the committed dossier docs/research/02-flora.md, not read at its locator.",
+  "note": "The classification the zone records use: the lake-plain community west and south of the town is INAI wet prairie, cross-walked to NVC CEGL002224 (Spartina pectinata - Carex spp. - Calamagrostis canadensis wet meadow) and to the USDA-NRCS ecological site Wet Lacustrine Prairie R108XB018IL.",
+  "what_it_does_not_supply": [
+    "any statement about Chicago in 1835; it classifies surviving natural areas surveyed in the 1970s, which is why species drawn from it are inferred for the site unless a period account names them"
+  ]
+}

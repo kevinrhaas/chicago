@@ -1,0 +1,151 @@
+{
+  "id": "robert_kinzie_store",
+  "phase": "store_1830",
+  "name": "Robert A. Kinzie's Store",
+  "aka": [
+    "Robert Kinzie's storehouse",
+    "R. A. Kinzie, Indian trader"
+  ],
+  "archetype": "log_dwelling",
+  "asset": "gltf/robert_kinzie_store__store_1830.glb",
+  "scene": "1835",
+  "target_date": "1835-07-01",
+  "documented_range": {
+    "from": "1830-01-01",
+    "to": "1835-12-31",
+    "confidence": "inferred",
+    "sources": [
+      "chicagology_prefire273",
+      "andreas_1884_v1"
+    ],
+    "note": "NEITHER END OF THIS RANGE IS ATTESTED. Two statements fix the middle of it. chicagology's Wolf Point narrative describes Robert A. Kinzie's storehouse dealing in groceries and Indian goods at Wolf Point, and the source record gives that account's describes_date as 1830-1835; Andreas's list of the town's traders (scan p. 235) gives 'Indian Traders — Robert A. Kinzie, near Wentworth's tavern', in a passage enumerating who was trading where, and Andreas separately records (scan p. 249) that Robert A. Kinzie was among those licensed to sell goods at that period. So the range opens at the start of 1830 as the earliest year the descriptions can be held to, NOT as a build date — the store is generally placed at Wolf Point from the later 1820s and this record does not adopt that because no source reached here states it. The range closes at the end of 1835 as the last date the record needs to claim. THE SURVIVAL TO 1835-07-01 IS THE WEAK JOINT: the Indian trade at Chicago was ending in exactly these years — the 1833 Treaty of Chicago ceded the land and the removal ran through the summer of 1835 — so a store whose business was 'groceries and Indian goods' had lost half its trade by the scene date. What that did to the BUILDING is not recorded either way, and this record claims only that the building stood."
+  },
+  "change_note": "The storehouse as the west-bank row carried it through the early 1830s. No change of fabric is documented inside the phase because no fabric is documented at all. The collapse of the Indian trade after the 1833 treaty is a change of BUSINESS, not of building, and does not open a phase.",
+  "placement": {
+    "local_e": -68.7,
+    "local_n": -62.8,
+    "rotation_deg": 90.0,
+    "position_confidence": "inferred",
+    "position_sources": [
+      "andreas_1884_v1",
+      "chicagology_prefire273",
+      "osm_streets_2026"
+    ],
+    "position_note": "PLACED 2026-08-11. THE ADJACENCY IS ATTESTED AND THE SIDE IS NOT. Andreas's trader list (scan p. 235) reads 'Indian Traders — Robert A. Kinzie, near Wentworth's tavern', which is a real locating statement and better than the dossier expected — docs/research/03-structures-north.md section 2.4 records the exact corner as unattested. 'Near' does not say which side, and BOTH SIDES OF THE TAVERN ARE ALREADY SPOKEN FOR IN THIS DATASET: the gap immediately north of the tavern carries robinson_caldwell_cabins, placed there from Wau-Bun's 'Near him were two or three log cabins occupied by Robinson', and the ground south of the tavern carries james_kinzie_house from chicagology's 'south of Wentworth's tavern'. So the store is set in the south gap, between the tavern and James Kinzie's residence, which keeps every attested adjacency intact — Robert Kinzie near the tavern, James Kinzie south of it, Robinson's cabins near it to the north, Walker's meeting house beyond them — and inserts nothing into a stated sequence. That is a choice among defensible arrangements, not a derivation, and it is the reason this position is inferred rather than documented. METHOD: the south face sits at local N -69.8, about 5.7 m south of the tavern's south face and about 10 m north of james_kinzie_house; the east face is set about 12 m back from the modern west-bank line read from OpenStreetMap water polygons at the north face, widening to about 19 m at the south face as the bank swings east, which is the same setback band the tavern's own record uses. UNCERTAINTY: about 40 m along the bank, inherited whole from the tavern (docs/LIBERTIES.md L7 — nothing fixes how far north of the Lake Street crossing the tavern stood), and about 20 m across it from the georeference, compounded by the modern bank not being the 1835 bank. Facade bearing 90, due east onto the water, following the row and Wau-Bun's 'Facing down the river from the west'; a storehouse trading goods off canoes has a positive reason to face the landing, but the bearing is the row's convention and not a finding.",
+    "symbolic_location": "West bank of the river at Wolf Point, immediately south of Wentworth's tavern (the Wolf Point Tavern) and north of James Kinzie's residence.",
+    "uncertainty_m": 20,
+    "placement_provisional": false,
+    "vertical_anchor": "terrain",
+    "walk_surface_m": null
+  },
+  "footprint": {
+    "polygon": [
+      [
+        0,
+        0
+      ],
+      [
+        7,
+        0
+      ],
+      [
+        7,
+        6
+      ],
+      [
+        0,
+        6
+      ]
+    ],
+    "confidence": "reconstructed",
+    "sources": [],
+    "note": "PLACEHOLDER — NO DIMENSION, PROPORTION OR PLAN FORM IS ATTESTED. 7 x 6 m is about 23 x 20 ft, a single-pen storehouse of the type and period; the 7 m runs north-south along the river frontage and the 6 m is the depth. Every number is invented and the polygon cites no sources. What the sources give is a TRADE and not a building: 'a storehouse dealing in groceries and Indian goods' names the stock, not the fabric, and Andreas's line names the trader and his neighbour, not his premises. To resolve: Andreas vol. 1 at page-image level around the Wolf Point material, or either of the retrospective Wolf Point views examined at plate level for the row's massing."
+  },
+  "attributes": {
+    "construction": {
+      "value": "log",
+      "confidence": "inferred",
+      "sources": [
+        "chicagology_prefire273"
+      ],
+      "note": "NOT ATTESTED FOR THIS BUILDING and inferred from the row, on the same terms as james_kinzie_house: every building described in the west-bank row at Wolf Point in these years is log or log-and-frame, and the frame buildings in the sources are singled out as exceptional. The archetype choice follows the inference and is no stronger than it."
+    },
+    "dock": {
+      "value": true,
+      "confidence": "reconstructed",
+      "geometry": "simplified",
+      "sources": [],
+      "note": "RECONSTRUCTED, AND IT IS THE FIRST LANDING THIS PROJECT HAS PUT ON THE WEST BANK. NO SOURCE STATES A DOCK, WHARF OR LANDING ANYWHERE AT WOLF POINT — that absence is why this value is reconstructed and not inferred, one tier below the two river warehouses whose dock the dossier states (docs/research/03-structures-north.md §3.10) and level with the five South Water merchant landings the owner's ruling of 2026-08-18 authorised (T-0062, docs/LIBERTIES.md L145). What bounds the invention: (1) THE TRADE, AND HERE IT IS THIS RECORD'S OWN — chicagology's Wolf Point narrative gives a storehouse 'dealing in groceries and Indian goods' and Andreas's trader list (scan p. 235) gives 'Indian Traders — Robert A. Kinzie, near Wentworth's tavern'. Groceries and trade goods at the forks in the early 1830s came in and went out on the water; this record's own position note already reasons from it in as many words — 'a storehouse trading goods off canoes has a positive reason to face the landing' — and the facade was set due east onto the river on that reading before any wharf layer existed. A store that faces the water to work cargo is the trade this layer's rule asks for. (2) THE REACH — the west bank at the forks, the one shore of the three this layer had never considered: the North Division shore already carries Kinzie & Hunter's attested dock and the South Division shore carries four stated landings, while the west bank had no candidate at all, not because it was measured and refused but because T-0062's rule named South Water merchants and stopped there. (3) THE WATER IS MEASURED, NOT ASSUMED — the traced 1834 bank runs 11.2 m off this building's river wall, and a standard-form deck at that foot stands in about 1.06 m of water for the whole 13.0 m of its face on the committed heightfield, with its heel about 0.5 m clear on dry bank. The boat layer independently floats a schooner in this same reach abreast this store and a skiff off the bank below it (data/boats/era_boats.json, T-0140), so the reach is one this project's own bed already carries a hull in. The landing itself is the wharf layer's standard form, every dimension of it invented within the bounds L132 states; geometry 'simplified' is the exact claim — a standard-form deck stands for a statement this record cannot make from evidence. WHAT THE SAME RULE REFUSES ON THIS BANK, and it is four of the five buildings in the row: Wentworth's tavern, James Kinzie's residence, the Robinson and Caldwell cabins and Father Walker's log meeting house state no dock and get none — lodging, dwelling and worship take nothing off a canoe, which is the Temple Building's exclusion carried across the river. WHAT THIS DOES NOT CLAIM: that the trade was still running on 1835-07-01. The 1833 Treaty of Chicago ceded the land and the removal ran through the summer of 1835, so the 'Indian goods' half of this business was ending as the scene opens; the record models a standing store and a standing landing and makes no claim about what crossed either. What would replace the invention: the Chicago Democrat's advertising columns, the 1833-1836 harbour reports, or either retrospective Wolf Point view examined at plate level for works along the west bank."
+    },
+    "function": {
+      "value": "store",
+      "confidence": "attested",
+      "sources": [
+        "chicagology_prefire273",
+        "andreas_1884_v1"
+      ],
+      "note": "A storehouse dealing in groceries and Indian goods (chicagology), its keeper listed by Andreas among the town's Indian traders (scan p. 235) and among those licensed to sell goods (scan p. 249). WHAT THE TRADE WAS ON 1835-07-01 IS NOT ATTESTED and there is a specific reason to doubt continuity: the 1833 Treaty of Chicago ceded the land and the removal was under way through the summer of 1835, so the 'Indian goods' half of this business was ending as the scene opens. The record models a standing store and makes no claim about what was on its shelves."
+    }
+  },
+  "residents": [
+    {
+      "household": "hh_kinzie_robert_a",
+      "name": "The Robert Kinzie household",
+      "division": "west",
+      "relation": "worked here",
+      "why": "The frame store on the west side, which this dataset places immediately south of Wentworth's tavern in the Wolf Point row.",
+      "sources": [
+        "andreas_1884_v1"
+      ],
+      "basis": "",
+      "persons": [
+        {
+          "name": "Robert Allen Kinzie",
+          "relationship": "head",
+          "grade": "attested",
+          "occupation": "merchant",
+          "note": "HE IS THE REASON CHARLES BUTLER AND ARTHUR BRONSON CAME WEST, which is the best-documented chain of causation in the whole 1833-35 record. Butler's letter of 1881: Bronson called on the New York Indian-goods merchant Daniel Jackson for information about Chicago, and Jackson 'said that he would then introduce him to a man from Chicago, who at that moment happened to be in his store making purchases of Indian goods. This was Robert A. Kinzie.' Kinzie offered them his quarter interest in the north fractional half of Section 10 - the ground Kinzie's Addition was laid out on. He was also a candidate at the first town election of 10 August 1833 and took nine votes, the highest of any unsuccessful candidate. THE TOWN'S OWN ROLLS, 1833-1835 — CORROBORATION, NOT A GRADE. The early Chicago voter and tax lists held by the Illinois Regional Archives Depository name this person 2 times: Poll list of the first election of the Board of Trustees of the Town of Chicago, 10 August 1833 — “Kinzie, R. A.” (poll_1833_018, line 39); Tax list of the Town of Chicago, 1833 — “Kinzie, Robert A.” (tax_1833_063, line 115). These are the town's own contemporary paper rather than a recollection of it, and each appearance says that a man of that name stood on that roll in that year — no more. The reading is twice mediated (Schulz's transcription, then Genealogy Trails' republication) and this project has not seen the IRAD originals. Under the ratified ladder (T-0513) the 1835 poll with a second independent source is attested, the 1835 poll alone or a 1833/1834 list with another source is inferred, and a single appearance with nothing else is a projected resident. This pass WRITES THE EVIDENCE AND MOVES NO GRADE — T-0515 applies the ladder against every source at once. Identity by the crosswalk's own rule: one resident of the surname 'Kinzie' agrees with the entry's forenames; 4 bearer(s) of the surname were considered. (data/research/civic/voter_crosswalk.json). FERGUS 1839'S LATER LISTS — 1837 AND 1839 EVIDENCE, NEVER AN 1835 FACT. Fergus' Chicago Directory for 1839 names this person 1 time in its two later lists: the poll of Chicago's first city election, 2 May 1837 — “Robert A. Kinzie” (f1839_v0652, printed page 46, ward 6, voting for John H. Kinzie). What a match may carry, and it is short: that the man was in Chicago on 2 May 1837 and in that ward. It is written as 1837 evidence with describes_date 1837-05-02, never as an 1835 fact, and the person's grade does not move on this alone. Under the ratified ladder a second contemporary source is what lifts projected_resident, and a poll twenty-two months after the scene date is a second source about CONTINUED RESIDENCE, not about July 1835. The ward is a location in the CITY of 1837, whose six wards are drawn on printed page 46; it is not a location in the town of 1835 and does not place a house. Identity by the crosswalk's own rule: Surname 'Kinzie' folds to the same string as the 1837 entry's, and the given name of both begins R. (data/research/directories/fergus_1839_election_crosswalk_1835.json and fergus_1839_register_crosswalk_1835.json). This pass WRITES THE EVIDENCE AND MOVES NO GRADE. Under the ratified ladder (T-0513) a second independent source is what lifts a projected resident, and a poll twenty-two months after the scene date — or a register four years after it — is a second source about CONTINUED RESIDENCE rather than about July 1835. T-0515 applies the ladder against every source at once; this pass hands it the evidence and not the verdict. THE FEDERAL LAND TRACT SALES — A PURCHASE, AND NEVER A RESIDENCE. The Illinois State Archives' Public Domain Land Tract Sales register enters this person 3 times, as “KINZIE ROBERT A”, “KINZIE ROBERT”, 1830-09-27 to 1831-05-07: 1 federal land entry — NFRSC sec 10 T39N R14E and 2 lots in the platted town — lot 3 of block 35 in the town the register codes CHIOT (L3BL35CHIOT, as printed); lot 5 of block 35 in the town the register codes CHIOT (L5BL35CHIOT, as printed), 102.29 acres stated in all, for $185.86 (ls0059, ls1315, ls1316). THE REGISTER'S OWN RESIDENCE COLUMN READS COOK, UNKNOWN on these rows: a county, a state or nothing, and never a town, which is why a purchase here places nobody. THE TOWN LOTS ARE THE PLAT ITSELF, AND THEY ARE NOT ACRES: Cook County's register describes them by lot and block in a platted town and gives them no section, no township and no acreage at all, so they add nothing to the acre figure above and $58.00 to the money. This project does not expand the register's town codes, so which addition a lot stands in is carried as the code and not as a name. It is still a purchase and it still places nobody. The register states this purchaser's residence as COOK, so the sale is contemporary evidence that a man of this name lived in Cook County on the date of sale. It is not evidence that he lived in the town. A purchase and nothing more. It dates and places a transaction; it proposes no residence, and under the ratified ladder it corroborates rather than mints. Identity by the crosswalk's own rule: KINZIE ROBERT A matches Robert Allen Kinzie: the forename names Robert Allen Kinzie of the 4 people of this surname, and the forename agrees in full. (data/research/land_sales/resident_crosswalk.json). This pass WRITES THE EVIDENCE AND MOVES NO GRADE. Under the ratified ladder (T-0513) a second independent source is what lifts a projected resident, and a land entry is a second source about a TRANSACTION rather than about who was living at Chicago on 1 July 1835 — a man may buy a quarter-section he never sees. T-0515 applies the ladder against every source at once; this pass hands it the evidence and not the verdict."
+        }
+      ],
+      "research_note": "A MERCHANT WHOSE BUYING TRIP TO NEW YORK PUT THE TOWN ON THE MAP. This household is worth its place less for the man than for the mechanism it documents: in the winter of 1832-33 a Chicago trader buying Indian goods in a New York store is how eastern capital first heard that Chicago was worth buying. The population curve K1 is reconstructing starts there."
+    }
+  ],
+  "citations": [
+    {
+      "source_id": "andreas_1884_v1",
+      "citation": "Andreas, A. T. History of Chicago: From the Earliest Period to the Present Time. Vol. 1. Chicago: A. T. Andreas, 1884.",
+      "url": "https://archive.org/details/historyofchicago01andr",
+      "archived_url": "",
+      "tier": 3,
+      "tier_label": "compiled secondary (Andreas)"
+    },
+    {
+      "source_id": "chicagology_prefire273",
+      "citation": "\"Wolf's Point and the Town of Chicago.\" Chicagology. Transcribing the Chicago Magazine of 15 May 1857 — the account of the Wolf's Point settlement built on George Davis's 1832 drawing and on Gurdon S. Hubbard's own description of the place as he found it in 1818 — with A. T. Andreas and modern editorial matter around it.",
+      "url": "https://chicagology.com/prefire/prefire273/",
+      "archived_url": "https://web.archive.org/web/20260217122628/https://chicagology.com/prefire/prefire273/",
+      "tier": 2,
+      "tier_label": "near-primary recollection",
+      "transcribes": [
+        {
+          "work": "Chicago Magazine, 'Wolf's Point' — the account of the settlement at the forks, engraved from George Davis's 1832 drawing and incorporating Gurdon S. Hubbard's description of Chicago as he first saw it in 1818",
+          "date": "1857-05-15",
+          "tier": 2,
+          "note": "Carries the Miller House's log construction ('a log structure partly sided') and the Wolf Point Tavern's ('partly log and partly frame'), the fact of a frame element on each, and — through Hubbard — the marshy river-shore strip that grades the south division's marsh surface in terrain_spec.json. Twenty-five years after the fact, from a resident's drawing and a named witness speaking to the writer: rung 2."
+        }
+      ]
+    },
+    {
+      "source_id": "osm_streets_2026",
+      "citation": "OpenStreetMap contributors. Street centerline intersection nodes for downtown Chicago, retrieved via the Overpass API, 2026-08-09.",
+      "url": "https://www.openstreetmap.org/",
+      "archived_url": "https://overpass-api.de/",
+      "tier": 4,
+      "tier_label": "later scholarship"
+    }
+  ],
+  "research_note": "The second of the two Kinzie buildings this parcel adds to the west-bank row, and the better attested of them: Andreas gives it a neighbour where the dossier had only 'at Wolf Point'. THE ARRANGEMENT OF THE ROW IS NOW THE RECORD'S LARGEST UNCERTAINTY, not the building. Five structures in this dataset — james_kinzie_house, this store, wolf_point_tavern, robinson_caldwell_cabins and walker_meeting_house — sit on about 130 m of west-bank frontage on the strength of four ordering statements and no measured distances, and every one of them hangs off the tavern's own position, which is the weakest placement in the parcel. If the tavern moves, the whole row moves with it; if a source ever gives one of the five a distance or a lot, the row can be re-derived from that instead. NOTE ALSO THE IDENTIFICATION RISK: John H. Kinzie, James Kinzie and Robert A. Kinzie are three different men who all traded at Chicago in this decade, and this dataset carries premises for all three (jh_kinzie_forwarding_store on South Water Street, james_kinzie_house here, this store). Andreas's 'Robert A. Kinzie, near Wentworth's tavern' is the sentence that keeps them apart at Wolf Point; do not merge them. See docs/research/03-structures-north.md section 2.4. REVIEW IS FLAGGED ON THIS RECORD, and until now the flag was the only thing on it that said so — the field was set when the record was written and no sentence anywhere in it gave the reason, which is the gap T-0025 was opened to close (ROADMAP K34 finding 3, K35). THE REASON IS THIS RECORD'S OWN ATTESTED BUSINESS. What Andreas and chicagology attest here is not a shop that happened to stand near Native people: it is a storehouse dealing in 'groceries and Indian goods' whose keeper is listed among the town's Indian traders (scan p. 235) and among those licensed to sell goods (scan p. 249), and the aka this record carries for him is the source's own — 'R. A. Kinzie, Indian trader'. The trade that names the building is the trade the 1833 Treaty of Chicago ended, and the removal it ended in was under way through the summer this scene is set in, six weeks after the scene date. AGENTS.md holds that Native presence and representation are not a research gap to be filled by inference but a subject requiring consultation, and a building whose function field cannot be stated without naming that trade is inside that subject however little is known about its walls. The row it stands in reads the same way: robinson_caldwell_cabins, forty-odd metres along the same west-bank frontage, carries the flag for the same reason. SO THIS RECORD STATES A STOREHOUSE AND A LICENCE AND STOPS — it asserts nothing about who came to the counter, what passed across it, or what the trade meant to anyone on either side of it, and review_required holds the 1835 scene short of release until the consultation this project has committed to has happened. Nothing about the flag changes here and no confidence is touched: what is added is the argument that was always behind it.",
+  "research_doc": "",
+  "review_required": true,
+  "review_reason": "SO THIS RECORD STATES A STOREHOUSE AND A LICENCE AND STOPS — it asserts nothing about who came to the counter, what passed across it, or what the trade meant to anyone on either side of it, and review_required holds the 1835 scene short of release until the consultation this project has committed to has happened."
+}

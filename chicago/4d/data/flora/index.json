@@ -1,0 +1,935 @@
+{
+  "_doc": "Manifest for the flora zone records, written by hand and kept in step with the zone files. A static host cannot be globbed, which is why this exists. extent, priority, plantable_in_scene and the ground_* / bare_soil_fraction values are DENORMALISED COPIES; the zone record is authoritative and tools/validate.py fails the build if they disagree. THE RENDERER READS extent, priority, ground_rgb, ground_wet_rgb AND plantable_in_scene. This line used to say it read extent and priority and nothing else, and cited ROADMAP K42's measurement that \"no renderer file fetches this manifest for the ground at all: terrain.js never opens data/flora\". That measurement was correct and is the whole of T-0940/T-1055: the sand bar and the beach ridges had been drawn in the prairie's green ever since they got ground under them, because the ground mesh is one material and it was not asking which community it was crossing. terrain.js now opens this manifest, takes the ground_* copies of every zone whose extent is a BOX, and paints that ground the colour the zone records. A box only: a polygon, a water buffer and an elevation band are not cheap to evaluate per fragment, and the elevation bands are already what the procedural path paints. plantable_in_scene is now read by the ground mesh too — a community the scene does not plant does not paint the ground it does not stand on —, as well as being a claim tools/validate.py gates. Zones 7, 8 and 9 are recorded but have no modelled ground in this scene, and the renderer matches nothing there because their extents do not meet the modelled ground — not because of the flag. T-1056 SETTLED TWO THINGS ABOUT THE COVER BLOCK AND THEY ARE RECORDED HERE, WHERE THE NEXT ZONE WILL READ THEM. (1) cover.bare_soil_fraction IS A RECORD-ONLY CLAIM AND DOES NOT GATE ANY STRATUM. cover.matrix_fraction does gate the matrix, and legitimately: it is an AREAL cover fraction, so reading it as the chance a lattice slot carries a tuft is unit-correct. bare_soil_fraction is not the mirror of it. The herb and woody strata are recorded as COUNTS — stems per square metre, clumps per hectare — and thinning a count by an area fraction adds an area to a number of plants, which is exactly the unit error ROADMAP K49(a) and K55 spent two parcels removing one level up. A shrub also stands OVER the herb layer rather than instead of it (K54), so bare soil beneath a sand cherry is not ground the sand cherry failed to take. bare_soil_fraction is therefore read by the ground shader and by the drawn census and by nothing else, and a future parcel that wants it to thin a stratum owes the unit conversion first. (2) woody_stratum IS AN OPTIONAL ZONE-LEVEL BLOCK stating the elevation band, in metres above the summer water surface, across which the roles it names establish. z08_lakeshore and z09_sand_prairie carry one; no other zone does, and a zone without one is unbounded exactly as before. renderers/web/js/flora.js reads it for the shrub stratum and renderers/web/js/trees.js for the dune timber, off the same record, so the two renderers cannot drift apart on it; tools/validate.py gates the range, the datum, the roles against vocabulary.roles and the grading, and refuses a band that binds no species its own zone records. It is NOT denormalised into this manifest: trees.js and flora.js both already fetch the zone file.",
+  "version": 1,
+  "scene_date": "1835-07-01",
+  "zones": [
+    {
+      "id": "z01_wet_prairie",
+      "zone": 1,
+      "file": "zones/z01_wet_prairie.json",
+      "palette": "july_wet_prairie",
+      "priority": 20,
+      "plantable_in_scene": true,
+      "extent": {
+        "kind": "elevation_band",
+        "elev_m": [
+          0.5,
+          1.45
+        ],
+        "exclude_polygons": [
+          [
+            [
+              -60,
+              340
+            ],
+            [
+              -52,
+              300
+            ],
+            [
+              -44,
+              262
+            ],
+            [
+              -32,
+              220
+            ],
+            [
+              -32,
+              180
+            ],
+            [
+              -30,
+              120
+            ],
+            [
+              -28,
+              60
+            ],
+            [
+              -20,
+              36
+            ],
+            [
+              -4,
+              10
+            ],
+            [
+              16,
+              -6
+            ],
+            [
+              48,
+              8
+            ],
+            [
+              80,
+              26
+            ],
+            [
+              112,
+              42
+            ],
+            [
+              138,
+              58
+            ],
+            [
+              152,
+              86
+            ],
+            [
+              172,
+              108
+            ],
+            [
+              230,
+              118
+            ],
+            [
+              340,
+              126
+            ],
+            [
+              340,
+              340
+            ]
+          ]
+        ],
+        "priority": 20,
+        "confidence": "inferred",
+        "sources": [
+          "chicagology_prefire273",
+          "white_1978_inai"
+        ],
+        "note": "Andreas: 'The West Side was an open prairie, entirely free from timber, except for a grove up the South Branch', and the South Side was 'low and marshy ground' under 'a free and boundless prospect of open prairie'. That is documented. The BOUNDARY is not: the community is placed by elevation against the committed heightfield, taking every land surface from 0.50 m above the datum water (above the marshy shore strip) up to the top of the plain, and the North Division is excluded by polygon because Andreas documents it as timbered. No survey drew these lines."
+      },
+      "ground_rgb": [
+        72,
+        84,
+        48
+      ],
+      "ground_wet_rgb": [
+        58,
+        60,
+        40
+      ],
+      "bare_soil_fraction": 0.0
+    },
+    {
+      "id": "z02_mesic_prairie",
+      "zone": 2,
+      "file": "zones/z02_mesic_prairie.json",
+      "palette": "july_mesic_prairie",
+      "priority": 22,
+      "plantable_in_scene": true,
+      "extent": {
+        "kind": "elevation_band",
+        "elev_m": [
+          1.18,
+          3.0
+        ],
+        "exclude_polygons": [
+          [
+            [
+              -60,
+              340
+            ],
+            [
+              -52,
+              300
+            ],
+            [
+              -44,
+              262
+            ],
+            [
+              -32,
+              220
+            ],
+            [
+              -32,
+              180
+            ],
+            [
+              -30,
+              120
+            ],
+            [
+              -28,
+              60
+            ],
+            [
+              -20,
+              36
+            ],
+            [
+              -4,
+              10
+            ],
+            [
+              16,
+              -6
+            ],
+            [
+              48,
+              8
+            ],
+            [
+              80,
+              26
+            ],
+            [
+              112,
+              42
+            ],
+            [
+              138,
+              58
+            ],
+            [
+              152,
+              86
+            ],
+            [
+              172,
+              108
+            ],
+            [
+              230,
+              118
+            ],
+            [
+              340,
+              126
+            ],
+            [
+              340,
+              340
+            ]
+          ]
+        ],
+        "priority": 22,
+        "confidence": "inferred",
+        "sources": [],
+        "note": "There is no survey of the wet/mesic boundary at the forks and no source distinguishes them here at all. This takes the highest ground in the committed heightfield (1.18 m and up, the inland crest of the West Division, about 3.9 ft above the water, at the top of the terrain spec's +3 to +6 ft range for that division) as the drier community. It is a reading of the terrain, not evidence, and a critic should treat the line as ours."
+      },
+      "ground_rgb": [
+        86,
+        92,
+        56
+      ],
+      "ground_wet_rgb": [
+        70,
+        72,
+        46
+      ],
+      "bare_soil_fraction": 0.02
+    },
+    {
+      "id": "z03_sedge_meadow",
+      "zone": 3,
+      "file": "zones/z03_sedge_meadow.json",
+      "palette": "july_sedge_meadow",
+      "priority": 55,
+      "plantable_in_scene": true,
+      "extent": {
+        "kind": "elevation_band",
+        "elev_m": [
+          0.18,
+          0.66
+        ],
+        "priority": 55,
+        "confidence": "inferred",
+        "sources": [
+          "chicagology_prefire273",
+          "white_1978_inai"
+        ],
+        "include_polygons": [
+          [
+            [
+              463.07,
+              -268.43
+            ],
+            [
+              562.04,
+              -269.23
+            ],
+            [
+              561.33,
+              -380.16
+            ],
+            [
+              462.41,
+              -379.36
+            ]
+          ]
+        ],
+        "note": "Inside the modelled box this band is the marshy shore strip of the South Division, which the terrain spec builds at +1.25 ft from Andreas's 'strip of land along the river shore that was still more marshy, where land and water mingled, covered with tall grass, reeds and rushes', plus the toe of the west and north banks. It ALSO now reaches the Public-Square-to-State-Street slough itself: this note used to read 'NOT MODELLED HERE ... runs about 480 to 840 m EAST of this 640 m box and has no ground in this scene', and both halves of that expired — the box was extended east to E +1700, and T-0005 and T-0118 carved zone 14 as the state_slough_course and state_slough_mouth swales, whose bed sits at about +0.7 ft and therefore inside this band. The north-side slough of Wright 1834 is inside the box but is a 7 m watercourse whose margin falls inside the marsh buffer of z04. The West Division swales are 0.6 to 0.8 ft deep and stay above this band, so they read as wet prairie with sedge patches rather than as sedge meadow. WHAT THE BAND STILL CANNOT REACH IS THE HEAD OF THE SLOUGH, which is why this extent also carries the ring in include_polygons. THE PUBLIC SQUARE — Randolph to Washington, Clark to LaSalle — planted as this community by name and not by height. docs/research/02-flora.md heads ZONE 3 'SLOUGH & SEDGE MEADOW (Public Square -> Tremont House site -> river at State St; river-shore strip)' and its section 1.2 lists the slough 'running from the Public Square area (Randolph/Clark/LaSalle/Washington)' as 'the single most important vegetation feature INSIDE the grid'. The square is the head of zone 3 in the dossier that authors zone 3, and the elevation band above had never planted a stem on it — not because anything refused the block, but because the band cannot SEE it: dossier zone 15, the pond basin, is deferred and unmodelled (data/terrain/epochs/e1834_harbor_cut/terrain_spec.json not_modelled_in_this_box, and data/terrain/1835_intown_water_dating.json zone 15), so the terrain draws the square at the South Division plain's +2.9 ft, a full 2.2 ft above the top of this band. Lowering the band to reach one address would have moved this community everywhere else in the box. NOT ONE COORDINATE HERE IS AUTHORED: the ring is the committed platted block blk_randolph_lasalle out of data/traces/vectors/thompson_lots.json, vertex for vertex, and tools/measure_public_square.py fails if it drifts from it — so no boundary is fitted, in particular not fitted around the three county buildings that stand on the block. AND IT DRAWS NO WATER. This zone's cover.standing_water_fraction of 0.10 describes the community in its trough and is NOT claimed here: measured on the committed heightfield at 0.5 m, 0 of 43,885 samples over this block stand at or below the water surface, and the same tool holds that at absolute zero. What is planted is the July sward of a seasonally ponded prairie basin — the dossier's row 15 calls the pond SEASONAL with its water 0.5-2 ft deep IN SPRING, and this scene is 1 July — and what is not claimed is the water itself, whose date remains not_established. THE GRADE. inferred, like the band: the community and the place are the dossier's, and what is invented is that the wet ground stopped at the platted block line rather than somewhere near it, which docs/LIBERTIES.md L188 records."
+      },
+      "ground_rgb": [
+        58,
+        64,
+        42
+      ],
+      "ground_wet_rgb": [
+        44,
+        46,
+        34
+      ],
+      "bare_soil_fraction": 0.05
+    },
+    {
+      "id": "z04_marsh",
+      "zone": 4,
+      "file": "zones/z04_marsh.json",
+      "palette": "july_marsh",
+      "priority": 70,
+      "plantable_in_scene": true,
+      "extent": {
+        "kind": "buffer",
+        "of": "water",
+        "distance_m": [
+          0,
+          8
+        ],
+        "priority": 70,
+        "confidence": "inferred",
+        "sources": [
+          "chicagology_prefire273"
+        ],
+        "note": "Andreas documents the marshy river-shore strip of tall grass, reeds and rushes and the wild onions among the sedge grass along the river shores. The 0-8 m band is a reading of the terrain, not of a source: the terrain spec builds a 6 m bank face, so this covers the shallow water and the wet toe of the bank and stops before the crest. It is the only zone permitted to plant over water, because its species stand in it."
+      },
+      "ground_rgb": [
+        50,
+        56,
+        40
+      ],
+      "ground_wet_rgb": [
+        38,
+        42,
+        32
+      ],
+      "bare_soil_fraction": 0.0
+    },
+    {
+      "id": "z05_riverbank_timber",
+      "zone": 5,
+      "file": "zones/z05_riverbank_timber.json",
+      "palette": "july_floodplain_timber",
+      "priority": 30,
+      "plantable_in_scene": true,
+      "extent": {
+        "kind": "buffer",
+        "of": "water",
+        "distance_m": [
+          8,
+          90
+        ],
+        "exclude_polygons": [
+          [
+            [
+              -340,
+              340
+            ],
+            [
+              -172,
+              340
+            ],
+            [
+              -152,
+              300
+            ],
+            [
+              -144,
+              262
+            ],
+            [
+              -136,
+              220
+            ],
+            [
+              -128,
+              182
+            ],
+            [
+              -120,
+              120
+            ],
+            [
+              -120,
+              40
+            ],
+            [
+              -112,
+              4
+            ],
+            [
+              -104,
+              -20
+            ],
+            [
+              -88,
+              -42
+            ],
+            [
+              -70,
+              -60
+            ],
+            [
+              -40,
+              -80
+            ],
+            [
+              -10,
+              -100
+            ],
+            [
+              -8,
+              -180
+            ],
+            [
+              -8,
+              -282
+            ],
+            [
+              -24,
+              -340
+            ],
+            [
+              -340,
+              -340
+            ]
+          ],
+          [
+            [
+              -60,
+              340
+            ],
+            [
+              -52,
+              300
+            ],
+            [
+              -44,
+              262
+            ],
+            [
+              -32,
+              220
+            ],
+            [
+              -32,
+              180
+            ],
+            [
+              -30,
+              120
+            ],
+            [
+              -28,
+              60
+            ],
+            [
+              -20,
+              36
+            ],
+            [
+              -4,
+              10
+            ],
+            [
+              16,
+              -6
+            ],
+            [
+              48,
+              8
+            ],
+            [
+              80,
+              26
+            ],
+            [
+              112,
+              42
+            ],
+            [
+              138,
+              58
+            ],
+            [
+              152,
+              86
+            ],
+            [
+              172,
+              108
+            ],
+            [
+              230,
+              118
+            ],
+            [
+              340,
+              126
+            ],
+            [
+              340,
+              340
+            ]
+          ]
+        ],
+        "priority": 30,
+        "confidence": "inferred",
+        "sources": [
+          "chicagology_prefire273"
+        ],
+        "note": "Andreas: 'On the South Side, a body of timber grew along the river, extending east as far as Wells Street, and following the bend of the river, crossed Clark Street, and extending south two or three miles', and the North Side carried a thrifty heavy growth of timber. CORRECTED 2026-08-16 (ROADMAP K45(b2)): this sentence used to read 'Wells Street is about 440 m east of this box's east edge, so the whole South Division frontage inside the box is inside that belt', and Wells Street is not there. Its committed centreline in data/streets/1835.json runs E +328.1 to +330.5, a mean of E +329.3 — nine metres EAST of this box's east edge, not 440. The conclusion happened to survive the error, because the box ends at E +320, but not for the reason written: the South Division frontage inside the 640 m box is inside the belt by nine metres of margin rather than by four hundred. The distinction stopped being academic when the heightfield was carried east to E +1700, because a belt read as running 440 m past the box would have licensed a gallery over the beach ridges. The woody renderer now reads the east end of this belt from the Wells Street record itself. The West Division is excluded by polygon because Andreas documents it as entirely free from timber; the one exception he names, the grove up the South Branch, is about 5 km away. The North Division is excluded too, not because it carries no timber but because the dossier treats the timber north-east of the forks as its own community (ZONE 6) with its own composition, and two records must not both claim the same ground. The 8-90 m band implements the dossier's '30-120 m wide irregular gallery' and is an inference; it is measured from the waterline, so it also keeps the gallery off the 7 m north-side slough, which is not a river."
+      },
+      "ground_rgb": [
+        62,
+        70,
+        44
+      ],
+      "ground_wet_rgb": [
+        50,
+        54,
+        38
+      ],
+      "bare_soil_fraction": 0.15
+    },
+    {
+      "id": "z06_dense_forest",
+      "zone": 6,
+      "file": "zones/z06_dense_forest.json",
+      "palette": "july_wet_woods",
+      "priority": 25,
+      "plantable_in_scene": true,
+      "extent": {
+        "kind": "polygon",
+        "polygon": [
+          [
+            -60,
+            340
+          ],
+          [
+            -52,
+            300
+          ],
+          [
+            -44,
+            262
+          ],
+          [
+            -32,
+            220
+          ],
+          [
+            -32,
+            180
+          ],
+          [
+            -30,
+            120
+          ],
+          [
+            -28,
+            60
+          ],
+          [
+            -20,
+            36
+          ],
+          [
+            -4,
+            10
+          ],
+          [
+            16,
+            -6
+          ],
+          [
+            48,
+            8
+          ],
+          [
+            80,
+            26
+          ],
+          [
+            112,
+            42
+          ],
+          [
+            138,
+            58
+          ],
+          [
+            152,
+            86
+          ],
+          [
+            172,
+            108
+          ],
+          [
+            230,
+            118
+          ],
+          [
+            340,
+            126
+          ],
+          [
+            340,
+            340
+          ]
+        ],
+        "priority": 25,
+        "confidence": "inferred",
+        "sources": [
+          "chicagology_prefire273"
+        ],
+        "note": "The polygon is the North Division inside the box: the land north of the main stem and east of the North Branch, traced off the waterline of the committed heightfield. Andreas documents the North Side as carrying 'a body of thrifty heavy growth of timber', excepting the sandy hills near the lake and the marshy places, which is why the whole division is timbered here. The 1821 surveyor's 'swampy timber thicket' note that gives the community its character is on the section 4-5 line about 2.5 km NORTH of this box, so the composition is carried down to this stand by inference, not by a survey of it."
+      },
+      "ground_rgb": [
+        52,
+        58,
+        38
+      ],
+      "ground_wet_rgb": [
+        40,
+        44,
+        32
+      ],
+      "bare_soil_fraction": 0.1
+    },
+    {
+      "id": "z07_bur_oak_savanna",
+      "zone": 7,
+      "file": "zones/z07_bur_oak_savanna.json",
+      "palette": "july_oak_savanna",
+      "priority": 10,
+      "plantable_in_scene": false,
+      "extent": {
+        "kind": "everywhere",
+        "box": {
+          "e": [
+            -2600,
+            -600
+          ],
+          "n": [
+            -6400,
+            -4400
+          ]
+        },
+        "priority": 10,
+        "confidence": "inferred",
+        "sources": [
+          "chicagology_prefire273"
+        ],
+        "note": "NOT PLANTABLE IN THIS SCENE. The box is a bounding rectangle for the grove up the South Branch at Hardscrabble (Lee's Place, later Bridgeport), the only West Side timber Andreas names, about 5.6 km SSW of the forks. It lies far outside the 640 m heightfield, so nothing matches it and the sward renderer plants nothing. The grove's real outline was never traced and this rectangle is not one; the horizon timber that this community actually supplies to the scene is placed by the tree renderer from the dossier's named-grove table by bearing and distance, not from this extent."
+      },
+      "ground_rgb": [
+        92,
+        96,
+        58
+      ],
+      "ground_wet_rgb": [
+        74,
+        78,
+        50
+      ],
+      "bare_soil_fraction": 0.05
+    },
+    {
+      "id": "z08_lakeshore",
+      "zone": 8,
+      "file": "zones/z08_lakeshore.json",
+      "palette": "july_lake_sand",
+      "priority": 45,
+      "plantable_in_scene": true,
+      "extent": {
+        "kind": "everywhere",
+        "box": {
+          "e": [
+            1400,
+            1700
+          ],
+          "n": [
+            -400,
+            400
+          ]
+        },
+        "priority": 45,
+        "confidence": "inferred",
+        "sources": [],
+        "note": "PRIORITY RAISED 12 -> 45, 2026-08-11. Planting this zone did nothing until now: at 12 it lost everywhere to z02_mesic_prairie (22) and z01_wet_prairie (20), which are ELEVATION BANDS matching the general plain, so the beach and the foredune were being rendered as mesic prairie. A zone defined by a specific geography and a specific SUBSTRATE has to outrank a band defined by height alone — the same reasoning that already puts the settled town (60) and the marsh (70) above both prairies. 45 keeps it below the marsh, the town and the sedge meadow, which is right: where the river mouth is marsh it is marsh, and where the fort stands it is settled ground, beach or no beach. PLANTABLE SINCE 2026-08-11. This community was written and then withheld: the ground it describes did not exist in the model. ROADMAP S2e has since extended the heightfield east from a 640 m square to E -320..+1700, and this zone's extent now matches 7,353 samples of the committed terrain, so it is planted. Nothing about the species, the July phenology or the confidence has changed — the records were always ready and the ground was not. WHAT THE ORIGINAL NOTE SAID, kept because it was correct when it was written: PLANTABLE SINCE 2026-08-11, when ROADMAP S2e parcel (b) carried the heightfield east to E +1700: the lake shore, the beach face and the sand bar are modelled ground now, so this community has something to stand on. The box is the belt east of the sand-ridge crest, bounded north and south by the scene's own span; the beach continues well beyond it. NOT FIXED HERE, for the flora parcel: at priority 12 this zone loses everywhere to z02_mesic_prairie (priority 22), whose 1.18-3.0 m elevation band now covers the whole sand belt, so the beach and the bar are currently planted as mesic prairie. The priorities were set when nothing east of E +320 had ground under it and the question could not arise."
+      },
+      "ground_rgb": [
+        198,
+        190,
+        166
+      ],
+      "ground_wet_rgb": [
+        156,
+        148,
+        130
+      ],
+      "bare_soil_fraction": 0.55
+    },
+    {
+      "id": "z09_sand_prairie",
+      "zone": 9,
+      "file": "zones/z09_sand_prairie.json",
+      "palette": "july_lake_sand",
+      "priority": 40,
+      "plantable_in_scene": true,
+      "extent": {
+        "kind": "everywhere",
+        "box": {
+          "e": [
+            840,
+            1400
+          ],
+          "n": [
+            -400,
+            400
+          ]
+        },
+        "priority": 40,
+        "confidence": "inferred",
+        "sources": [],
+        "note": "PRIORITY RAISED 11 -> 40, 2026-08-11. Same correction as z08 and for the same reason — the relict beach-ridge belt was losing to the mesic-prairie elevation band that runs across it. 40 sits just below the lakeshore at 45 so that where the two boxes meet at E +1400 the open beach wins over the older ridges, which is the seaward order. PLANTABLE SINCE 2026-08-11. This community was written and then withheld: the ground it describes did not exist in the model. ROADMAP S2e has since extended the heightfield east from a 640 m square to E -320..+1700, and this zone's extent now matches 14,577 samples of the committed terrain, so it is planted. Nothing about the species, the July phenology or the confidence has changed — the records were always ready and the ground was not. WHAT THE ORIGINAL NOTE SAID, kept because it was correct when it was written: PLANTABLE SINCE 2026-08-11, when ROADMAP S2e parcel (b) carried the heightfield east to E +1700. The relict beach-ridge belt runs from the State Street break-of-slope — the terrain spec builds that band between E +780 and +880, centred on the two State Street ground-control points at E +837.6 and +822.5 — east to the lakeshore sand ridges, and all of it is modelled ground now, standing at +7.6 to +9.5 ft above the water. The north-south bounds are the scene's own, not the belt's. NOT FIXED HERE, for the flora parcel: at priority 11 this zone loses everywhere to z02_mesic_prairie (priority 22), so the dry sand prairie is currently planted as mesic prairie — the opposite of the 10-25 per cent bare sand this record exists to state."
+      },
+      "ground_rgb": [
+        168,
+        158,
+        124
+      ],
+      "ground_wet_rgb": [
+        132,
+        124,
+        100
+      ],
+      "bare_soil_fraction": 0.18
+    },
+    {
+      "id": "z10_settled_town",
+      "zone": 10,
+      "file": "zones/z10_settled_town.json",
+      "palette": "july_town_ruderal",
+      "priority": 60,
+      "plantable_in_scene": true,
+      "extent": {
+        "kind": "polygon",
+        "polygon": [
+          [
+            -160,
+            -14
+          ],
+          [
+            -146,
+            -112
+          ],
+          [
+            -96,
+            -150
+          ],
+          [
+            20,
+            -176
+          ],
+          [
+            96,
+            -186
+          ],
+          [
+            164,
+            -152
+          ],
+          [
+            186,
+            -96
+          ],
+          [
+            168,
+            -38
+          ],
+          [
+            104,
+            2
+          ],
+          [
+            10,
+            16
+          ],
+          [
+            -72,
+            10
+          ]
+        ],
+        "priority": 60,
+        "confidence": "inferred",
+        "sources": [
+          "chicagology_prefire278",
+          "chicagology_prefire273"
+        ],
+        "note": "The polygon covers the settled river frontage at the forks, drawn around the eight structures the 1835 scene actually places (it spans the water between the two banks, which is harmless because no zone plants over water except the marsh buffer). The grazed halo is documented only as a process, not as an extent: the town's first code of 7 Nov 1833 forbade letting pigs wander in the streets, which is evidence that they did, and cattle grazed the unfenced commons. The dossier puts the halo 50-200 m beyond the built blocks and tags that extent inferred; this polygon uses the low end, because in July 1835 the built ground here is a scatter of taverns, not a continuous town. Isolated buildings outside the polygon stand in open prairie with only their own dooryard cleared."
+      },
+      "ground_rgb": [
+        92,
+        80,
+        62
+      ],
+      "ground_wet_rgb": [
+        62,
+        54,
+        44
+      ],
+      "bare_soil_fraction": 0.45
+    }
+  ],
+  "plantings": [
+    {
+      "id": "sauganash_yard_trees",
+      "file": "plantings/sauganash_yard.json",
+      "note": "Stems whose position is STATED rather than dealt — the trees kept behind the Sauganash's yard fence. renderers/web/js/trees.js reads exactly the files named here and never probes; the species each stem names must be one the zone records above already describe."
+    },
+    {
+      "id": "town_dooryard_plantings",
+      "file": "plantings/town_dooryard_plantings.json",
+      "note": "The dooryard pass (T-0074): trees and currant bushes kept or planted around the town's dwellings, dealt by the rule in tools/generate_dooryard_plantings.py and re-derived on every commit. Same contract as the record above: stems STATED, species bound to the zone records, read by renderers/web/js/trees.js through this manifest and never probed."
+    },
+    {
+      "id": "town_planted_rows",
+      "file": "plantings/town_planted_rows.json",
+      "note": "The planted rows (T-0117): files of Lombardy poplars on the river greens of the town's oldest houses, dealt by the rule in tools/generate_planted_rows.py and re-derived on every commit. The treatment is Wau-Bun's — 'a broad green space was inclosed between it and the river, and shaded by a row of Lombardy poplars' — and the count and rhythm are measured off the plates; which ground gets one is the rule's. Listed AFTER the dooryard pass because the rule reads the records above as ground already taken and yields to them."
+    },
+    {
+      "id": "fort_dearborn_wood",
+      "file": "plantings/fort_dearborn_wood.json",
+      "note": "The relict stand outside Fort Dearborn's west wall (T-0098), dealt by the rule in tools/generate_fort_trees.py off the palisade's own committed footprint and its apron, and re-derived on every commit. The plate settles the SIDE and the crown height and nothing else: tools/measure_fort_trees_plate.py measures the mass on the frame-RIGHT of the drawn stockade, which from p4_0's own stand is WEST — the ticket and T-0044's row 8 both said east, by eye. It does NOT settle the date: p4_0's flagstaff is excluded as first-fort and T-0095 reads its two tall works the same way, so existence here is reconstructed with empty sources and the stand is open where the plate's canopy closes."
+    }
+  ],
+  "palettes": [
+    {
+      "id": "july_wet_prairie",
+      "file": "palettes/july_wet_prairie.json"
+    },
+    {
+      "id": "july_mesic_prairie",
+      "file": "palettes/july_mesic_prairie.json"
+    },
+    {
+      "id": "july_sedge_meadow",
+      "file": "palettes/july_sedge_meadow.json"
+    },
+    {
+      "id": "july_marsh",
+      "file": "palettes/july_marsh.json"
+    },
+    {
+      "id": "july_floodplain_timber",
+      "file": "palettes/july_floodplain_timber.json"
+    },
+    {
+      "id": "july_wet_woods",
+      "file": "palettes/july_wet_woods.json"
+    },
+    {
+      "id": "july_oak_savanna",
+      "file": "palettes/july_oak_savanna.json"
+    },
+    {
+      "id": "july_lake_sand",
+      "file": "palettes/july_lake_sand.json"
+    },
+    {
+      "id": "july_town_ruderal",
+      "file": "palettes/july_town_ruderal.json"
+    }
+  ],
+  "vocabulary": {
+    "roles": [
+      "matrix",
+      "forb",
+      "emergent",
+      "shrub_low",
+      "ground",
+      "tree",
+      "thicket"
+    ],
+    "forms_flora": [
+      "grass_fine",
+      "grass_arching",
+      "grass_clump",
+      "sedge_tussock",
+      "rush_culm",
+      "cattail",
+      "forb_spike",
+      "forb_umbel",
+      "forb_daisy",
+      "forb_pompom",
+      "forb_globe",
+      "forb_basal_scape",
+      "shrub_low",
+      "mat_prostrate",
+      "scape_leafless"
+    ],
+    "forms_trees": [
+      "tree_open_crown",
+      "tree_gallery",
+      "tree_columnar",
+      "tree_leaning",
+      "thicket_clonal"
+    ],
+    "forms_unimplemented": [
+      "vine_drape"
+    ],
+    "substrates": [
+      "soil",
+      "saturated_soil",
+      "open_water"
+    ],
+    "phenology": [
+      "flowering",
+      "vegetative",
+      "budding",
+      "past_bloom",
+      "fruiting",
+      "leafless",
+      "senescent"
+    ],
+    "inflorescence_shapes": [
+      "berry_cluster",
+      "bulbil_umbel",
+      "burr_spherical",
+      "capsule_green",
+      "cherry",
+      "cluster_axillary",
+      "cluster_terminal",
+      "corymb_flat",
+      "head_button",
+      "head_globe",
+      "head_pompom",
+      "head_ray",
+      "head_ray_drooping",
+      "head_thimble",
+      "nut_husk",
+      "one_sided_spike",
+      "panicle_dense",
+      "panicle_open",
+      "raceme",
+      "spadix_brown",
+      "spike",
+      "spire_candelabra",
+      "umbel_compound",
+      "umbel_domed",
+      "umbel_flat",
+      "umbel_nodding"
+    ],
+    "_doc": "forms_unimplemented are forms deliberately outside the renderer's draw archetypes: the module should record them once as unimplemented and draw nothing, never substitute a different archetype. substrates say which side of the waterline a species may be planted on, because nothing else in a record does: 'soil' is rooted ground above the water and is the default when the field is absent; 'saturated_soil' is the emergent habit, rooted in wet ground OR standing water with the foliage carried above the surface, and is plantable on both sides; 'open_water' is rooted below the surface with the leaves floating ON it, and is plantable ONLY over water. A record whose role is 'emergent' must state one — 'the leaves float' and 'the culm stands in it' are different placements and were being drawn the same way."
+  }
+}

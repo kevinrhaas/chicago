@@ -1,0 +1,131 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://chicago4d/schemas/scene.schema.json",
+  "title": "4D Chicago Scene",
+  "description": "A scene names a date and a terrain epoch. Everything else in the dataset resolves against it. Adding a year is a new scene file, not a restructure.",
+  "type": "object",
+  "required": [
+    "id",
+    "title",
+    "target_date",
+    "terrain_epoch",
+    "layers"
+  ],
+  "additionalProperties": false,
+  "properties": {
+    "id": {
+      "type": "string",
+      "pattern": "^[a-z0-9_]+$"
+    },
+    "title": {
+      "type": "string"
+    },
+    "target_date": {
+      "type": "string",
+      "format": "date",
+      "description": "The single date this scene depicts. Enforced against every structure phase."
+    },
+    "terrain_epoch": {
+      "type": "string",
+      "description": "Must resolve in data/terrain/epochs.json, and its interval must cover target_date."
+    },
+    "lighting": {
+      "type": "object",
+      "additionalProperties": false,
+      "description": "A specific, documented moment \u2014 not a vibe. Sun azimuth and elevation are computed from this plus the datum lat/lon.",
+      "properties": {
+        "local_time": {
+          "type": "string",
+          "pattern": "^[0-2][0-9]:[0-5][0-9]$"
+        },
+        "note": {
+          "type": "string"
+        }
+      }
+    },
+    "spawn": {
+      "type": "object",
+      "required": [
+        "local_e",
+        "local_n"
+      ],
+      "additionalProperties": false,
+      "properties": {
+        "local_e": {
+          "type": "number"
+        },
+        "local_n": {
+          "type": "number"
+        },
+        "yaw_deg": {
+          "type": "number"
+        }
+      }
+    },
+    "anchors": {
+      "type": "array",
+      "description": "Named viewpoints. The smoke harness reads the same anchors the walkthrough uses, so screenshots and gameplay can never diverge.",
+      "items": {
+        "type": "object",
+        "required": [
+          "id",
+          "local_e",
+          "local_n"
+        ],
+        "additionalProperties": false,
+        "properties": {
+          "id": {
+            "type": "string",
+            "pattern": "^[a-z0-9_]+$"
+          },
+          "label": {
+            "type": "string"
+          },
+          "local_e": {
+            "type": "number"
+          },
+          "local_n": {
+            "type": "number"
+          },
+          "yaw_deg": {
+            "type": "number"
+          },
+          "altitude_m": {
+            "type": "number",
+            "minimum": 0,
+            "maximum": 900,
+            "description": "Metres above local ground. Present = this is an AERIAL viewpoint: arriving at it puts the visitor in free-fly at this height rather than on foot. Absent = a standing viewpoint, which is the historical default and stays so."
+          },
+          "pitch_deg": {
+            "type": "number",
+            "minimum": -85,
+            "maximum": 85,
+            "description": "Look angle, negative is downward. Only meaningful alongside altitude_m \u2014 a standing viewpoint looks at the horizon."
+          }
+        }
+      }
+    },
+    "layers": {
+      "type": "array",
+      "items": {
+        "type": "string",
+        "enum": [
+          "terrain",
+          "structures",
+          "flora",
+          "fauna",
+          "water"
+        ]
+      },
+      "minItems": 1
+    },
+    "released": {
+      "type": "boolean",
+      "default": false,
+      "description": "Cannot be true while any included structure carries review_required."
+    },
+    "note": {
+      "type": "string"
+    }
+  }
+}

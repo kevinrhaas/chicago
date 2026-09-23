@@ -1,0 +1,108 @@
+{
+  "schema": 1,
+  "_doc": "Town findings read out of the voter lists themselves (T-0493) — what the four lists say about the town, as against what they say about its people. The people are records/voter_lists_1833_1835.json.",
+  "source_id": "chicago_voter_lists_1833_1835_irad",
+  "reading_note": "Every quote is cut verbatim from data/research/civic/text/voter_lists_1833_1835.txt at the lines its locator names.",
+  "claims": [
+    {
+      "id": "v001",
+      "kind": "civic",
+      "reading": "transcription_mediated",
+      "quote": "Tax List of the Town of Chicago - 1833\nAllen, Lt. James\nBeaubien, John S.\nBeaubien, Mark\nBell, William A.",
+      "normalized": "The 1833 tax list of the Town of Chicago, as published, is a list of NAMES ONLY. No assessed valuation, no lot, no amount of tax and no rank stands beside any of its 115 entries.",
+      "locator": {
+        "list": "tax_1833",
+        "line": 52,
+        "lines": [
+          52,
+          56
+        ],
+        "text_file": "voter_lists_1833_1835.txt"
+      },
+      "describes_date": "1833",
+      "entities": [],
+      "town_finding": true,
+      "notes": "T-0493 asked for the tax list to be 'read as a ranked property list — it is the closest thing to a property roll the project has'. IT CANNOT BE, and that is the finding: the published transcription carries no figures at all, so it ranks nobody and supports no placement. What it does support is presence: 115 men were taxed by the town in 1833. If a ranked roll is wanted, the IRAD original is where the figures would be, and nobody in this project has seen it."
+    },
+    {
+      "id": "v002",
+      "kind": "notice",
+      "reading": "transcription_mediated",
+      "quote": "Transcription note: Text, names, spelling, abbreviations, and apparent source errors are preserved as printed in the supplied PDF. The ambiguous entry “S---?, Albert” is retained exactly as shown in the source.",
+      "normalized": "The transcription states that spelling, abbreviations and apparent source errors are preserved as printed, and that the ambiguous entry 'S---?, Albert' is retained exactly as shown.",
+      "locator": {
+        "list": "poll_1834",
+        "line": 4,
+        "lines": [
+          4,
+          4
+        ],
+        "text_file": "voter_lists_1833_1835.txt"
+      },
+      "describes_date": "1993",
+      "entities": [],
+      "town_finding": false,
+      "notes": "The transcriber's own statement of method, and the reason every as_read in this domain is kept unrepaired. 'S---?, Albert' stands at line 264, in the 1834 poll list, and is carried as a record like any other: a man whose surname the poll book itself could not be read for."
+    },
+    {
+      "id": "v003",
+      "kind": "civic",
+      "reading": "transcription_mediated",
+      "quote": "1835 Poll List\nAdams, William H.\nBailey, Amos\nBallard, Thomas\nBallingale, P.\nBeaubien, Col. J. B.",
+      "normalized": "THE 85-NAME '1835 POLL LIST' IS NOT THE POLL BOOK OF THE THIRD TOWN ELECTION. That election was held on Friday 10 July 1835 (claims/town_election_1835_democrat.json d002, d003), and the Democrat's return of it gives Walter Kimball 142 votes, Geo. W. Dole 142 and Hiram Hugunin 124. Eighty-five men cannot cast a hundred and twenty-four votes for one candidate, so this list is either a different poll or an incomplete printing of that one. IT IS A DIFFERENT POLL, on the evidence of who is missing: six of the ten men the return names as standing — Kimball, Loyd, Jackson, Dole, Kinzie and Davis — are absent from these 85, while the list runs unbroken from Adams to Wright, so no lost page or dropped column explains them. WHICH poll it is remains open. The nearest candidate is the county and state general election of Monday 3 August 1835, at which Cook County chose a Recorder; Peter Pruyne, the caucus candidate at that election, stands on this list.",
+      "locator": {
+        "list": "poll_1835",
+        "line": 285,
+        "lines": [
+          285,
+          290
+        ],
+        "text_file": "voter_lists_1833_1835.txt"
+      },
+      "describes_date": "1835",
+      "entities": [],
+      "town_finding": true,
+      "notes": "T-0542 was asked which of Andreas's two dates this list belongs to and the answer is NEITHER, which is a better outcome than choosing: the town election is now dated from the town's own paper, and this list is shown not to be its poll book. The list therefore does NOT put its 85 men in Chicago on 10 July 1835 by way of that election, and nothing here regrades any of them — T-0514 and T-0515 own that, and they inherit a sharper question than they were given. What would settle it is the IRAD original, which carries whatever heading the transcription dropped and which nobody in this project has seen. THE ARITHMETIC IS THE CLAIM AND THE MEMBERSHIP IS THE SUPPORT: if the return's figures were misread the arithmetic would fall, but the six absent candidates would still stand."
+    },
+    {
+      "id": "v004",
+      "kind": "civic",
+      "reading": "transcription_mediated",
+      "quote": "Poll List for the First Election of Board of Trustees of the Town of Chicago (10\nAugust 1833)\nAdams, W. H.\nBallard, C. A.",
+      "normalized": "The 1833 discrepancy is NOT resolved, and the search that failed to resolve it is recorded instead. Andreas writes of the first town election, 10 August 1833: 'It is believed that every legal voter of Chicago cast his vote on that occasion. They numbered twenty-eight.' This list prints thirty names. Nothing outside Andreas was found that counts the voters of that day.",
+      "locator": {
+        "list": "poll_1833",
+        "line": 20,
+        "lines": [
+          20,
+          23
+        ],
+        "text_file": "voter_lists_1833_1835.txt"
+      },
+      "describes_date": "1833-08-10",
+      "entities": [],
+      "town_finding": true,
+      "notes": "WHAT WAS READ, all of it negative. The Chicago Democrat did not exist on 10 August 1833 — its first number is 26 November 1833 — so the poll has no contemporary newspaper report, and the whole run to August 1835 was searched for a retrospective count of it and carries none. The first issue does print an election notice, over the name of a Judge of Election, for the choice of one Constable for the Chicago Magistrates District at the house of Chester Ingersoll; that is a magistrates-district office and not a town one, and it is noted only because it is the nearest thing the corpus holds. The board's own proceedings, printed in the Democrat of 31 December 1833, are ordinances and name no judges or clerks of the August poll. WHAT CAN BE SAID WITHOUT A NEW SOURCE is a point of source criticism, and it is offered as that and not as a resolution: Andreas's sentence is prefaced 'It is believed', it counts the LEGAL VOTERS of the town rather than the enrolments in the poll book, and it was written in 1884; the poll list is the record of who signed. On weight the thirty stand and the twenty-eight is an 1884 belief about an 1833 electorate. The 'judges and clerks among the voters' hypothesis is the weaker of the two the ticket offered: judges and clerks of an Illinois poll were themselves electors who voted, so their names belong in a poll book. Neither count is repaired and neither man is added or removed."
+    },
+    {
+      "id": "v005",
+      "kind": "civic",
+      "reading": "transcription_mediated",
+      "quote": "Williams, John L.\nWolcott, Alexander\nWoodworth, W.",
+      "normalized": "THE 1833 TAX LIST OF THE TOWN OF CHICAGO IS A PROPERTY ROLL AND NOT A CHECK ON RESIDENCE, and the list settles it out of its own membership. Entry 110 is 'Wolcott, Alexander'. This project's own reading of Fergus's old-settler death notices (fergus_1843_old_settler_death_notices, fdn0742) prints 'Wolcott, Dr. Alexander, Indian agent, died Oct. 25, 1830, aged 40; his will was the first probated in Cook County', and Andreas has his house on the north bank 'left unoccupied by the death of Dr. Wolcott'. A man three years dead was not taxed as a person in the town of 1833; the ground he left was, under the name the probate carried. The list therefore names OWNERS AND ESTATES, of whom some lived in the town and some did not, and it draws no line between them: v001 already established that the published transcription carries no valuation, no lot, no amount and no residence column, so the distinction is not on the page for any of the 115. Two further entries stand on this list and on no poll list of 1833, 1834 or 1835 — 'Allen, Lt. James' (entry 1) and 'Hunter, David' (entry 47) — and a third, 'Bronson, Arthur' (entry 9), is the New York capitalist whom Moses and Kirkland print a VISITOR to the settlement (bk_mose2_021). NOTHING HERE MAKES ANY OF THEM ABSENT: the list is simply silent on where its payers were, which is the finding.",
+      "locator": {
+        "list": "tax_1833",
+        "line": 162,
+        "lines": [
+          161,
+          163
+        ],
+        "text_file": "voter_lists_1833_1835.txt"
+      },
+      "describes_date": "1833",
+      "entities": [],
+      "town_finding": true,
+      "notes": "T-1117 asked whether the 1833 tax list distinguishes resident from non-resident payers, because thirteen cards rested their whole claim of presence on 1 July 1835 on its at-or-before leg. The answer reached by reading the list rather than by reasoning about tax law: it does not distinguish, and it demonstrably admits a man who was not there. THE OVERLAP TEST WAS TRIED AND IT DECIDES NOTHING, which is recorded rather than dropped — folding on surname and first initial, 15 of the 29 distinct names on the 1833 poll list also stand on this tax list, while only 13 of the same 29 stand on the 1834 poll list, so the tax list of that year captures the town's own voters BETTER than the next year's poll book does. These lists overlap each other poorly (18 of the 84 on the 1835 list are on the 1834 one) and no argument about who is a stranger can be built on them. The refutation is Wolcott alone. What this changes is presence and only presence: tools/mint_civic_residents.py refuses tax_1833 as a leg of the presence bracket, thirteen households move from `present` to `uncertain`, and no grade moves — the owner's ratified ladder spends this list at G2b to date and corroborate a NAME, which is exactly what it can still do. docs/RESEARCH/tax_list_1833_not_a_residence_check.md carries the reading, the count and what was NOT done."
+    }
+  ]
+}

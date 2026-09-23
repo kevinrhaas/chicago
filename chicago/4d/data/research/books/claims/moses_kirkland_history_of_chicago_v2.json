@@ -1,0 +1,618 @@
+{
+  "schema": 1,
+  "domain": "books",
+  "source_id": "moses_kirkland_history_of_chicago_v2",
+  "_doc": "T-0826. Moses and Kirkland, History of Chicago, Illinois, vol. 2 (Chicago and New York: Munsell, 1895) — THE HALF OF THE WORK T-0581 COULD NOT READ. That ticket read volume 1 and recorded, for each of the forty-nine lead surnames the Newberry index (T-0570) flagged against the WORK, what volume 1 says about it; but the Newberry cards do not say which volume they cite, so every ABSENT verdict it recorded was an absence from one book of two. This file and data/research/books/moses_kirkland_v2_lead_surnames.json close that: the same forty-nine surnames are searched across all 107,905 lines of volume 2 by the same instrument (tools/search_book_lead_surnames.py, whose --self-test re-derives every one of volume 1's 196 mechanical fields before it will run), and twenty passages earned a claim. WHAT VOLUME 2 IS: biographical memoirs and trade-by-trade chapters, compiled 1895, overwhelmingly about men who reached Chicago after 1850 — which is why 31 of the 49 surnames appear only outside the pre-1836 window. Its value to a town of July 1835 is concentrated in four things volume 1 does not give: two dated PRESENCE LISTS (the Baptist fourteen of 19 October 1833 and the Episcopal eleven of 1834), a brick yard and a tannery placed by street and by bank, a residence of Richard J. Hamilton with a block, and a second address for the Chicago Democrat's office. EVERY CLAIM IS transcription_mediated: this is the Internet Archive's machine OCR of the same UIUC copy volume 1 came from, no page image was read, and the quotes are committed WITH the OCR's faults because the gate rebuilds them character for character. The smoothed reading of each is in `normalized`. NO RECORD UNDER data/structures/, data/residents/, data/households/ OR data/businesses/ WAS EDITED BY THIS READING — the third acceptance clause of T-0581 binds T-0826 too: anything this volume dates and places before 1835-07-01 is offered to those layers under the ratified ladder IN THAT LAYER'S OWN PR.",
+  "generated_by": "hand — T-0826. The `quote` of every claim was filled programmatically from the committed text at its own locator so that no transcription step stands between the file and the gate; everything else in each claim is authored. The printed page of every locator comes from tools/derive_book_folios.py, which re-derives the folio rule for THIS volume rather than assuming volume 1's.",
+  "claims": [
+    {
+      "id": "bk_mose2_001",
+      "kind": "business",
+      "reading": "transcription_mediated",
+      "locator": {
+        "lines": [
+          1964,
+          1971
+        ],
+        "original": "Moses and Kirkland, History of Chicago, Illinois, vol. 2, on a page this derivation will not assert: carried between read folios the start of the volume and 10 at line 2330: the 1 head(s) between them carry no numeral this derivation can keep. The folio is READ off the running head and not counted, and the rule was re-derived for THIS volume rather than carried over from volume 1 (tools/derive_book_folios.py --audit): the page number stands alone on a line at the head of every verso, above \"HISTORY OF CHICAGO.\", and after the chapter title at the head of every recto; verso heads are even and recto heads are odd, and a numeral of the wrong parity for its side is refused and corrected inside its run where the run says which page it must be. T-1024 REBUILT THAT DERIVATION AND THIS LOCATOR IS ITS OUTPUT. Two faults had left the recto side unread: the verso head was searched for INSIDE a line rather than matched on the whole of one, so a sentence writing the phrase in prose (line 9941) was taken for a head and stole the recto numeral above it; and the recto head, which the rule always named, was never a head in its own right — it was consulted only to break a tie once the verso folio was already known. The volume prints 336 recto folios, 320 of them odd. Read as heads they carry the folio on 512 of 615 heads where the verso side alone carried 271 of 319.",
+        "text_file": "moses_kirkland_history_of_chicago_v2.txt",
+        "url": "https://archive.org/download/historyofchicagov2mose/historyofchicagov2mose_djvu.txt",
+        "list": "moses_kirkland_v2_lead_surname_sweep",
+        "page": null
+      },
+      "normalized": "About the end of the Chicago Democrat's first year of publication its office was removed to a room over the hardware store of Jones & King, a few doors from its first location. A few weeks later it was compelled to suspend publication for want of paper, and the suspension ran from January 1, 1835 to May 20 following, with the exception of two issues on January 21 and March 25.",
+      "describes_date": "the removal is \"about the end of its first year of publication\" — the Democrat began 26 November 1833, so late 1834; the suspension is dated 1 January to 20 May 1835, which is BEFORE the scene date of 1835-07-01",
+      "entities": [
+        "Chicago Democrat",
+        "Jones & King",
+        "John Calhoun"
+      ],
+      "town_finding": true,
+      "notes": "THE LEAD SURNAME IS `jones`. A SECOND ADDRESS FOR THE DEMOCRAT'S OFFICE, stated as a relation to a business the project can place: a room over Jones & King's hardware store, \"a few doors from its first location\". T-0403 is open on exactly this question — whether the Democrat kept its 1834 corner through the scene date — and this sentence says it did not, without naming the street. The firm is dated independently at bk_mose2_002: William Jones and Byron King formed the hardware partnership in 1834, so the room is over a shop that existed when the paper moved into it. The compiler gives no street and no number, and nothing here may be turned into a coordinate; what it fixes is a RELATION.",
+      "quote": "proprietor.  About  the  end  of  its  first  year \nof  publication,  the  office  was  removed  to \na  room  over  the  hardware  store  of  Jones  & \nKing,  a  few  doors  from  its  first  location, \nbut  a  few  weeks  later  it  was  compelled  to \nsuspend  publication  for  want  of  paper.  This \nsuspension  continued  from  January  1,  1835, \nto  May  20  following,  with  the  exception "
+    },
+    {
+      "id": "bk_mose2_002",
+      "kind": "business",
+      "reading": "transcription_mediated",
+      "locator": {
+        "lines": [
+          47383,
+          47395
+        ],
+        "page": 406,
+        "original": "Moses and Kirkland, History of Chicago, Illinois, vol. 2, printed page 406 (parity-corrected from the OCR's 405), read off the verso head at line 47360. The folio is READ off the running head and not counted, and the rule was re-derived for THIS volume rather than carried over from volume 1 (tools/derive_book_folios.py --audit): the page number stands alone on a line at the head of every verso, above \"HISTORY OF CHICAGO.\", and after the chapter title at the head of every recto; verso heads are even and recto heads are odd, and a numeral of the wrong parity for its side is refused and corrected inside its run where the run says which page it must be. T-1024 REBUILT THAT DERIVATION AND THIS LOCATOR IS ITS OUTPUT. Two faults had left the recto side unread: the verso head was searched for INSIDE a line rather than matched on the whole of one, so a sentence writing the phrase in prose (line 9941) was taken for a head and stole the recto numeral above it; and the recto head, which the rule always named, was never a head in its own right — it was consulted only to break a tie once the verso folio was already known. The volume prints 336 recto folios, 320 of them odd. Read as heads they carry the folio on 512 of 615 heads where the verso side alone carried 271 of 319.",
+        "text_file": "moses_kirkland_history_of_chicago_v2.txt",
+        "url": "https://archive.org/download/historyofchicagov2mose/historyofchicagov2mose_djvu.txt",
+        "list": "moses_kirkland_v2_lead_surname_sweep"
+      },
+      "normalized": "The first foundry in Chicago was erected in 1835. In 1834 William Jones and Byron King formed a partnership to deal in hardware; in 1835 W. B. Clarke became a partner and the firm name was changed to Jones, King & Co. The firm employed William Stow & Co. to erect a foundry, built on Polk street west of the south branch, and David Bradley of Syracuse came to Chicago as Stow's employee to assist in its construction. The first castings were made in December 1835.",
+      "describes_date": "1834 for the hardware partnership — BEFORE the scene date of 1835-07-01; 1835 for Clarke's admission and the foundry, with the first castings December 1835, which is AFTER it",
+      "entities": [
+        "William Jones",
+        "Byron King",
+        "W. B. Clarke",
+        "Jones, King & Co.",
+        "William Stow & Co.",
+        "David Bradley"
+      ],
+      "town_finding": true,
+      "notes": "THE LEAD SURNAME IS `jones`. TWO DATES AND THE SCENE DATE FALLS BETWEEN THEM, which is the whole value of the passage. The hardware partnership of Jones and King is 1834 and belongs in the town of July 1835; the foundry on Polk street west of the south branch does NOT — its first castings are December 1835, five months late, and it goes to data/exclusions.json rather than to the scene. W. B. Clarke's admission is \"1835\" with no month and cannot be placed either side of the scene date.",
+      "quote": "The  first  foundry  in  Chicago  was  erected \nin  1835.  In  1834,  William  Jones  and  Byron \nKing  formed  a  partnership  to  deal  in  hard- \nware. In  1835,  W.  B.  Clarke  became  a  part- \nner, and  the  firm  name  was  changed  to  Jones, \nKing  &  Co.  This  firm  employed  William \nStow  &  Co.  to  erect  a  foundry,  which  was \nbuilt  on  Polk  street,  west  of  the  south \nBranch.  David  Bradley,  of  Syracuse,  New \nYork,  came  to  Chicago  as  an  employee  of \nWilliam  Stow  to  assist  in  its  construction. \nThe  first  castings  were  made  in  December^ \n1835.  In  March,  1837,  the  old  firm  of "
+    },
+    {
+      "id": "bk_mose2_003",
+      "kind": "building",
+      "reading": "transcription_mediated",
+      "locator": {
+        "lines": [
+          10072,
+          10079
+        ],
+        "original": "Moses and Kirkland, History of Chicago, Illinois, vol. 2, printed page 79, read off the recto head at line 9934. The folio is READ off the running head and not counted, and the rule was re-derived for THIS volume rather than carried over from volume 1 (tools/derive_book_folios.py --audit): the page number stands alone on a line at the head of every verso, above \"HISTORY OF CHICAGO.\", and after the chapter title at the head of every recto; verso heads are even and recto heads are odd, and a numeral of the wrong parity for its side is refused and corrected inside its run where the run says which page it must be. T-1024 REBUILT THAT DERIVATION AND THIS LOCATOR IS ITS OUTPUT. Two faults had left the recto side unread: the verso head was searched for INSIDE a line rather than matched on the whole of one, so a sentence writing the phrase in prose (line 9941) was taken for a head and stole the recto numeral above it; and the recto head, which the rule always named, was never a head in its own right — it was consulted only to break a tie once the verso folio was already known. The volume prints 336 recto folios, 320 of them odd. Read as heads they carry the folio on 512 of 615 heads where the verso side alone carried 271 of 319.",
+        "text_file": "moses_kirkland_history_of_chicago_v2.txt",
+        "url": "https://archive.org/download/historyofchicagov2mose/historyofchicagov2mose_djvu.txt",
+        "list": "moses_kirkland_v2_lead_surname_sweep",
+        "page": 79
+      },
+      "normalized": "Mr. Granville T. Sproat arrived from Boston and established an English and classical school for boys, occupying for that purpose the First Baptist church, a small frame building located on South Water street near Franklin. Miss Sarah L. Warren, afterwards Mrs. Abel E. Carpenter, became an assistant in Mr. Sproat's school in the spring of 1834.",
+      "describes_date": "the spring of 1834 for Miss Warren joining the school; Sproat's arrival and the school's establishment are earlier and undated here — both BEFORE the scene date of 1835-07-01",
+      "entities": [
+        "Granville T. Sproat",
+        "Sarah L. Warren",
+        "First Baptist church"
+      ],
+      "town_finding": true,
+      "notes": "THE LEAD SURNAME IS `carpenter`, and it is a MARRIED NAME acquired later — \"afterwards Mrs. Abel E. Carpenter\" — so it reaches no Chicago man of 1835 and the row's verdict says so. THE PASSAGE IS THE FIND, not the surname: the First Baptist church is given as a small frame building ON SOUTH WATER STREET NEAR FRANKLIN, which is a street and a cross street, the form data/structures/ can use. It is also a DOUBLE USE of one building — a Baptist meeting house on Sunday and a boys' school on weekdays — and the same building is where Rev. Isaac W. Hallam held the first Episcopal services on 19 October 1834 (bk_mose2_009). Nothing here dates the building itself.",
+      "quote": "Sproat  arrived  from  Boston  and  established \nan  English  and  classical  school  for  boys,  oc- \ncupying for  that  purpose  the  First  Baptist \nchurch,  a  small  frame  building  located  on \nSouth  Water  street  near  Franklin.  Miss \nSarah  L.  Warren  (afterwards  Mrs.  Abel  E. \nCarpenter)  became  an  assistant  in  Mr. \nSproat's  school  in  the  spring  of  1834.  It "
+    },
+    {
+      "id": "bk_mose2_004",
+      "kind": "building",
+      "reading": "transcription_mediated",
+      "locator": {
+        "lines": [
+          18553,
+          18559
+        ],
+        "original": "Moses and Kirkland, History of Chicago, Illinois, vol. 2, printed page 153, read off the recto head at line 18524. The folio is READ off the running head and not counted, and the rule was re-derived for THIS volume rather than carried over from volume 1 (tools/derive_book_folios.py --audit): the page number stands alone on a line at the head of every verso, above \"HISTORY OF CHICAGO.\", and after the chapter title at the head of every recto; verso heads are even and recto heads are odd, and a numeral of the wrong parity for its side is refused and corrected inside its run where the run says which page it must be. T-1024 REBUILT THAT DERIVATION AND THIS LOCATOR IS ITS OUTPUT. Two faults had left the recto side unread: the verso head was searched for INSIDE a line rather than matched on the whole of one, so a sentence writing the phrase in prose (line 9941) was taken for a head and stole the recto numeral above it; and the recto head, which the rule always named, was never a head in its own right — it was consulted only to break a tie once the verso folio was already known. The volume prints 336 recto folios, 320 of them odd. Read as heads they carry the folio on 512 of 615 heads where the verso side alone carried 271 of 319.",
+        "text_file": "moses_kirkland_history_of_chicago_v2.txt",
+        "url": "https://archive.org/download/historyofchicagov2mose/historyofchicagov2mose_djvu.txt",
+        "list": "moses_kirkland_v2_lead_surname_sweep",
+        "page": 153
+      },
+      "normalized": "No term of court was held until 1834, and the first term was held not in the brick house in the fort — it is also denied that there was any brick house there — but in an unfinished loft in the \"Mansion House\", directly north of the present Tremont House; and the first case in that first term bore the name of John Dean Caton as attorney.",
+      "describes_date": "1834 for the first term of court, and bk_mose2_005 of the same chapter dates the trial to the spring of 1834 — BEFORE the scene date of 1835-07-01",
+      "entities": [
+        "Mansion House",
+        "Tremont House",
+        "John Dean Caton",
+        "Fort Dearborn"
+      ],
+      "town_finding": true,
+      "notes": "THE LEAD SURNAME IS `caton`. A USE AND A BEARING FOR A BUILDING THE PROJECT HOLDS: Cook county's first term of court sat in an unfinished loft of the Mansion House, and the Mansion House is placed by this sentence DIRECTLY NORTH OF THE TREMONT HOUSE. The Tremont of 1835 is not the Tremont of 1895 and the compiler writes \"the present Tremont House\", so the bearing is to the 1895 building and must not be resolved against the 1835 one without a second source; T-0385 is open on the 1835 Tremont's own position in Dearborn Street and this sentence does not settle it. The denial of the brick house in the fort is the compiler arguing with Governor Bross and is recorded as the disagreement it is, not adopted.",
+      "quote": "1834,  and  the  first  term  was  held,  not  in  the \nbrick  house  in  the  fort  (it  is  also  denied  that \nthere  was  any  brick  house  there)  but  in  an \nunfinished  loft  in  the  \"  Mansion  House,\" \ndirectly  north  of  the  present  Tremout  House; \nand  that  the  first  case  in  that  first  term  bore \nthe  name  of  John  Dean  Caton  as  attorney. "
+    },
+    {
+      "id": "bk_mose2_005",
+      "kind": "person",
+      "reading": "transcription_mediated",
+      "locator": {
+        "lines": [
+          18586,
+          18590
+        ],
+        "original": "Moses and Kirkland, History of Chicago, Illinois, vol. 2, printed page 153, read off the recto head at line 18524. The folio is READ off the running head and not counted, and the rule was re-derived for THIS volume rather than carried over from volume 1 (tools/derive_book_folios.py --audit): the page number stands alone on a line at the head of every verso, above \"HISTORY OF CHICAGO.\", and after the chapter title at the head of every recto; verso heads are even and recto heads are odd, and a numeral of the wrong parity for its side is refused and corrected inside its run where the run says which page it must be. T-1024 REBUILT THAT DERIVATION AND THIS LOCATOR IS ITS OUTPUT. Two faults had left the recto side unread: the verso head was searched for INSIDE a line rather than matched on the whole of one, so a sentence writing the phrase in prose (line 9941) was taken for a head and stole the recto numeral above it; and the recto head, which the rule always named, was never a head in its own right — it was consulted only to break a tie once the verso folio was already known. The volume prints 336 recto folios, 320 of them odd. Read as heads they carry the folio on 512 of 615 heads where the verso side alone carried 271 of 319.",
+        "text_file": "moses_kirkland_history_of_chicago_v2.txt",
+        "url": "https://archive.org/download/historyofchicagov2mose/historyofchicagov2mose_djvu.txt",
+        "list": "moses_kirkland_v2_lead_surname_sweep",
+        "page": 153
+      },
+      "normalized": "The one thing which is incontestible is that John Dean Caton, who arrived in 1833, brought the first suit begun in any court of record in Cook county, and that it was tried in the spring of 1834.",
+      "describes_date": "1833 for Caton's arrival and the spring of 1834 for the trial — both BEFORE the scene date of 1835-07-01",
+      "entities": [
+        "John Dean Caton"
+      ],
+      "town_finding": true,
+      "notes": "THE LEAD SURNAME IS `caton`. An ARRIVAL YEAR for a man the project already holds, agreeing with volume 1's reading of the 1833 spring arrivals, and a date for the first suit. Offered to data/residents/ as corroboration and not as a new person.",
+      "quote": "thing  which  is  incontestible  is  that  John \nDean  Caton,  who  arrived  in  1833,  brought \nthe  first  suit  begun  in  any  court  of  record \nin  Cook  county,  and  that  it  was  tried  in  the \nspring  of  1834. "
+    },
+    {
+      "id": "bk_mose2_006",
+      "kind": "building",
+      "reading": "transcription_mediated",
+      "locator": {
+        "lines": [
+          18773,
+          18781
+        ],
+        "original": "Moses and Kirkland, History of Chicago, Illinois, vol. 2, printed page 155, read off the recto head at line 18766. The folio is READ off the running head and not counted, and the rule was re-derived for THIS volume rather than carried over from volume 1 (tools/derive_book_folios.py --audit): the page number stands alone on a line at the head of every verso, above \"HISTORY OF CHICAGO.\", and after the chapter title at the head of every recto; verso heads are even and recto heads are odd, and a numeral of the wrong parity for its side is refused and corrected inside its run where the run says which page it must be. T-1024 REBUILT THAT DERIVATION AND THIS LOCATOR IS ITS OUTPUT. Two faults had left the recto side unread: the verso head was searched for INSIDE a line rather than matched on the whole of one, so a sentence writing the phrase in prose (line 9941) was taken for a head and stole the recto numeral above it; and the recto head, which the rule always named, was never a head in its own right — it was consulted only to break a tie once the verso folio was already known. The volume prints 336 recto folios, 320 of them odd. Read as heads they carry the folio on 512 of 615 heads where the verso side alone carried 271 of 319.",
+        "text_file": "moses_kirkland_history_of_chicago_v2.txt",
+        "url": "https://archive.org/download/historyofchicagov2mose/historyofchicagov2mose_djvu.txt",
+        "list": "moses_kirkland_v2_lead_surname_sweep",
+        "page": 155
+      },
+      "normalized": "Richard J. Hamilton lived first in the fort and, when that grew too crowded with the refugees, he moved to the Agency House; and in 1833, with Col. Owen, hired John Watkins to teach the little school in the old stable near by. At about this time he built his house on what is now Michigan street between Cass and Rush, where he lived for nineteen years.",
+      "describes_date": "1833 for the school in the old stable, and \"at about this time\" for the house — so 1833 or thereabouts, BEFORE the scene date of 1835-07-01, but a date the compiler himself hedges",
+      "entities": [
+        "Richard J. Hamilton",
+        "Col. Thomas J. V. Owen",
+        "John Watkins",
+        "the Agency House",
+        "Fort Dearborn"
+      ],
+      "town_finding": true,
+      "notes": "THE LEAD SURNAME IS `hall` (the passage above this one lists \"the families of Davis, Hall and Pettigrew\" at the Indian Creek killings of 1832, which is not Chicago and is not this claim). TWO THINGS THE PROJECT IS THIN IN, both here. A RESIDENCE WITH A BLOCK: Hamilton built his own house on what the compiler calls Michigan street between Cass and Rush, and lived in it nineteen years, which puts it in the town at the scene date. A SCHOOL IN A BUILDING ALREADY STANDING: the little school Watkins was hired to teach in 1833 sat in \"the old stable near by\" the Agency House, which is a use of an outbuilding and not a new structure. THE STREET NAMES ARE 1895 NAMES — the compiler says \"what is now\" — so the block must be resolved through the street-name history before any coordinate is derived, and the date is the compiler's own \"at about this time\" and not a stated year.",
+      "quote": "Pettigrew,  all  terribly  mangled.  He  lived \nfirst  in  the  fort,  and,  when  that  grew  too \ncrowded  with  the  refugees,  he  moved  to  the \nAgency  House;  and  in  1833,  with  Col.  Owen, \nhired  John  Watkins  to  teach  the  little  school \nin  the  old  stable  near  by.  At  about  this \ntime  lie  built  his  house  on  what  is  now  Mich- \nigan street  between  Cass  and  Rush,  where \nhe  lived  for  nineteen  years. "
+    },
+    {
+      "id": "bk_mose2_007",
+      "kind": "business",
+      "reading": "transcription_mediated",
+      "locator": {
+        "lines": [
+          26607,
+          26614
+        ],
+        "original": "Moses and Kirkland, History of Chicago, Illinois, vol. 2, on a page this derivation will not assert: carried between read folios 221 at line 25998 and 227 at line 26617: the 1 head(s) between them carry no numeral this derivation can keep. The folio is READ off the running head and not counted, and the rule was re-derived for THIS volume rather than carried over from volume 1 (tools/derive_book_folios.py --audit): the page number stands alone on a line at the head of every verso, above \"HISTORY OF CHICAGO.\", and after the chapter title at the head of every recto; verso heads are even and recto heads are odd, and a numeral of the wrong parity for its side is refused and corrected inside its run where the run says which page it must be. T-1024 REBUILT THAT DERIVATION AND THIS LOCATOR IS ITS OUTPUT. Two faults had left the recto side unread: the verso head was searched for INSIDE a line rather than matched on the whole of one, so a sentence writing the phrase in prose (line 9941) was taken for a head and stole the recto numeral above it; and the recto head, which the rule always named, was never a head in its own right — it was consulted only to break a tie once the verso folio was already known. The volume prints 336 recto folios, 320 of them odd. Read as heads they carry the folio on 512 of 615 heads where the verso side alone carried 271 of 319.",
+        "text_file": "moses_kirkland_history_of_chicago_v2.txt",
+        "url": "https://archive.org/download/historyofchicagov2mose/historyofchicagov2mose_djvu.txt",
+        "list": "moses_kirkland_v2_lead_surname_sweep",
+        "page": null
+      },
+      "normalized": "The first drug store established in the place was by Philo Carpenter in the latter part of 1832. The next drug store was established in the spring of 1833 by Dr. Edmund Stoughton.",
+      "describes_date": "the latter part of 1832 for Carpenter's and the spring of 1833 for Stoughton's — both BEFORE the scene date of 1835-07-01",
+      "entities": [
+        "Philo Carpenter",
+        "Dr. Edmund Stoughton"
+      ],
+      "town_finding": true,
+      "notes": "THE LEAD SURNAME IS `carpenter`. THE SECOND HALF IS NEW TO THIS PROJECT: volume 1 gives Carpenter as the town's first druggist and says nothing about a second drug store, and this names one — Dr. Edmund Stoughton's, spring 1833. A business with a proprietor, a trade and a year, and NO position at all: the sentence gives no street, no corner and no landmark, so it can reach data/businesses/ but not the scene. The surname is printed \"Stoughtou\" by the OCR and the smoothed reading is in `normalized`.",
+      "quote": "garrison.  In  this  connection  it  is  proper  to \nstate  that  the  first  drug  store  established  in \nthe  place  was  by  Philo  Carpenter  in  the \nlatter  part  of  1832.  A  complete  biography \nof  Mr,  Carpenter  appears  in  another  place. \n\nThe  next  drug  store  was  established  in \nthe  spring  of  1833  by  Dr.  Edmund  Stoughtou "
+    },
+    {
+      "id": "bk_mose2_008",
+      "kind": "building",
+      "reading": "transcription_mediated",
+      "locator": {
+        "lines": [
+          42734,
+          42747
+        ],
+        "page": 367,
+        "original": "Moses and Kirkland, History of Chicago, Illinois, vol. 2, printed page 367, read off the recto head at line 42676. The folio is READ off the running head and not counted, and the rule was re-derived for THIS volume rather than carried over from volume 1 (tools/derive_book_folios.py --audit): the page number stands alone on a line at the head of every verso, above \"HISTORY OF CHICAGO.\", and after the chapter title at the head of every recto; verso heads are even and recto heads are odd, and a numeral of the wrong parity for its side is refused and corrected inside its run where the run says which page it must be. T-1024 REBUILT THAT DERIVATION AND THIS LOCATOR IS ITS OUTPUT. Two faults had left the recto side unread: the verso head was searched for INSIDE a line rather than matched on the whole of one, so a sentence writing the phrase in prose (line 9941) was taken for a head and stole the recto numeral above it; and the recto head, which the rule always named, was never a head in its own right — it was consulted only to break a tie once the verso folio was already known. The volume prints 336 recto folios, 320 of them odd. Read as heads they carry the folio on 512 of 615 heads where the verso side alone carried 271 of 319.",
+        "text_file": "moses_kirkland_history_of_chicago_v2.txt",
+        "url": "https://archive.org/download/historyofchicagov2mose/historyofchicagov2mose_djvu.txt",
+        "list": "moses_kirkland_v2_lead_surname_sweep"
+      },
+      "normalized": "The first Sunday school in Chicago was organized on August 19, 1832 by Luther Childs, assisted by Mrs. Seth Johnson, Mrs. Charles Taylor, the Misses Noble and Philo Carpenter. Its first sessions were held in a small frame building erected by Mark Beaubien near Mr. Noble's house; when the school was first opened the house in which it was held had neither doors nor windows and was very imperfectly roofed. Later it assembled at the house of Rufus Brown, within the stockade of the fort.",
+      "describes_date": "19 August 1832 for the school's organization, and the two buildings in that order afterwards — all BEFORE the scene date of 1835-07-01, with no date for the move",
+      "entities": [
+        "Luther Childs",
+        "Mrs. Seth Johnson",
+        "Mrs. Charles Taylor",
+        "the Misses Noble",
+        "Philo Carpenter",
+        "Mark Beaubien",
+        "Rufus Brown"
+      ],
+      "town_finding": true,
+      "notes": "THE LEAD SURNAME IS `carpenter`. A BUILDING WITH A BUILDER, A NEIGHBOUR AND A CONDITION: a small frame building erected by Mark Beaubien near Mr. Noble's house, which in August 1832 had NEITHER DOORS NOR WINDOWS and was very imperfectly roofed. The project holds Mark Beaubien and it holds the Noble house, so the relation is placeable, and the condition is the kind of material fact the renderer can carry — but it is a condition of 1832 and says nothing about 1835, by which time the building may have been finished, moved or gone. Rufus Brown's house inside the stockade is a second structure the same sentence places.",
+      "quote": "The  first  Sunday  school  in   Chicago  was \n\n\norganized  on  August  19,  1832,  by  Luther \nChilds,  assisted  by  Mrs.  Seth  Johnson,  Mrs. \nCharles  Taylor,  the  Misses  Noble  and  Philo \nCarpenter.  The  first  sessions  of  this  school \nwere  held  in  a  small  frame  building,  erected \nby  Mark  Beaubien,  near  Mr.  Noble's  house. \nWhen  the  school  was  first  opened  the  house \nin  which  it  was  held  had  neither  doors  nor \nwindows,  and  was  very  imperfectly  roofed. \nLater  it  assembled  at  the  house  of  Rufus \nBrown,  within  the  stockade  of  the  fort,  and "
+    },
+    {
+      "id": "bk_mose2_009",
+      "kind": "building",
+      "reading": "transcription_mediated",
+      "locator": {
+        "lines": [
+          40623,
+          40631
+        ],
+        "page": 349,
+        "original": "Moses and Kirkland, History of Chicago, Illinois, vol. 2, printed page 349, read off the recto head at line 40591. The folio is READ off the running head and not counted, and the rule was re-derived for THIS volume rather than carried over from volume 1 (tools/derive_book_folios.py --audit): the page number stands alone on a line at the head of every verso, above \"HISTORY OF CHICAGO.\", and after the chapter title at the head of every recto; verso heads are even and recto heads are odd, and a numeral of the wrong parity for its side is refused and corrected inside its run where the run says which page it must be. T-1024 REBUILT THAT DERIVATION AND THIS LOCATOR IS ITS OUTPUT. Two faults had left the recto side unread: the verso head was searched for INSIDE a line rather than matched on the whole of one, so a sentence writing the phrase in prose (line 9941) was taken for a head and stole the recto numeral above it; and the recto head, which the rule always named, was never a head in its own right — it was consulted only to break a tie once the verso folio was already known. The volume prints 336 recto folios, 320 of them odd. Read as heads they carry the folio on 512 of 615 heads where the verso side alone carried 271 of 319.",
+        "text_file": "moses_kirkland_history_of_chicago_v2.txt",
+        "url": "https://archive.org/download/historyofchicagov2mose/historyofchicagov2mose_djvu.txt",
+        "list": "moses_kirkland_v2_lead_surname_sweep"
+      },
+      "normalized": "Episcopal services were later held in a building afterwards known as Tippecanoe Hall, situated at the southeast corner of Kinzie and State streets, which was fitted up for the purpose at the expense of John H. Kinzie. Subsequently Mr. Kinzie donated two lots as a site for a permanent church building, at the intersection of Cass and Illinois streets.",
+      "describes_date": "UNDATED. The paragraph before it is dated 19 October 1834 and the word is \"Later\", so the fitting-up is after that and before the brick church the same passage goes on to describe; whether it is before or after 1835-07-01 this sentence does not say",
+      "entities": [
+        "Tippecanoe Hall",
+        "John H. Kinzie",
+        "St. James' Episcopal church"
+      ],
+      "town_finding": true,
+      "notes": "THE LEAD SURNAME IS `hall`, and it is the BUILDING'S NAME and not a person — the row's verdict says so. A CORNER, WHICH IS THE FORM THE PROJECT WANTS, and a date the compiler does not give: the southeast corner of Kinzie and State streets, fitted up at John H. Kinzie's expense. THE DATE IS THE WHOLE QUESTION and it is open, so this claim may NOT be carried into the 1835 scene on its own; it is offered as a candidate that a second source must date. \"Afterwards known as Tippecanoe Hall\" is a name the building got later — the Tippecanoe campaign is 1840 — so the name is anachronistic for 1835 even if the building is not.",
+      "quote": "ample of  charity  set  by  Mr.  Porter.  Later, \nreligious  services  were  held  in  a  building \nafterwards  known  as  Tippecanoe  Hall,  situa- \nted at  the  southeast  corner  of  Kinzie  and \nState  streets,  which  was  fitted  up  for  the \npurpose  at  the  expense  of  John  II.  Kinzie. \nSubsequently,  Mr.  Kmzie  donated  two  lots \nas  a  site  for  a  permanent  church  building,  at \nthe  intersection  of  Cass  and  Illinois  streets. "
+    },
+    {
+      "id": "bk_mose2_010",
+      "kind": "person",
+      "reading": "transcription_mediated",
+      "locator": {
+        "page": 294,
+        "original": "Moses and Kirkland, History of Chicago, Illinois, vol. 2, printed page 294 — and this one is READ BY HAND rather than by the derivation, off the head at line 34254, whose running head the OCR set as \"niSTOET OF CHICAGO.\" and which tools/derive_book_folios.py still does not match. T-1024 rebuilt that derivation and this page is the one claim it did not reach: it reports the page carried between read folios 291 at line 33936 and 295 at line 34375, and the bare \"294\" at line 34253 above a head the pattern cannot see is what a human reads instead. The hand reading stands and the disagreement is written here rather than resolved by widening a pattern until it matched one line. The catalogue straddles that head, so the quote is taken as spans: the six lines before the page break and the line after it, with the running head and its folio left out. The folio is READ off the running head and not counted, and the rule was re-derived for THIS volume rather than carried over from volume 1 (tools/derive_book_folios.py --audit): the page number stands alone on a line at the head of every verso, above \"HISTORY OF CHICAGO.\", and after the chapter title at the head of every recto; verso heads are even and recto heads are odd, and a numeral of the wrong parity for its side is refused and corrected inside its run where the run says which page it must be. T-1024 REBUILT THAT DERIVATION AND THIS LOCATOR IS ITS OUTPUT. Two faults had left the recto side unread: the verso head was searched for INSIDE a line rather than matched on the whole of one, so a sentence writing the phrase in prose (line 9941) was taken for a head and stole the recto numeral above it; and the recto head, which the rule always named, was never a head in its own right — it was consulted only to break a tie once the verso folio was already known. The volume prints 336 recto folios, 320 of them odd. Read as heads they carry the folio on 512 of 615 heads where the verso side alone carried 271 of 319.",
+        "text_file": "moses_kirkland_history_of_chicago_v2.txt",
+        "url": "https://archive.org/download/historyofchicagov2mose/historyofchicagov2mose_djvu.txt",
+        "list": "moses_kirkland_v2_lead_surname_sweep",
+        "spans": [
+          {
+            "line": 34245,
+            "from": 0,
+            "to": 48
+          },
+          {
+            "line": 34246,
+            "from": 0,
+            "to": 47
+          },
+          {
+            "line": 34247,
+            "from": 0,
+            "to": 46
+          },
+          {
+            "line": 34248,
+            "from": 0,
+            "to": 47
+          },
+          {
+            "line": 34249,
+            "from": 0,
+            "to": 47
+          },
+          {
+            "line": 34250,
+            "from": 0,
+            "to": 43
+          },
+          {
+            "line": 34259,
+            "from": 0,
+            "to": 42
+          }
+        ]
+      },
+      "normalized": "At the date of the organization of the First Baptist society, October 19, 1833, there were twenty-five Baptists in the settlement, fourteen of whom were present and connected themselves with the new enterprise. The catalogue of those present is: Rev. Allen B. Freeman and Hannah C., his wife, S. T. Jackson, Martin D. Harmon, Peter Moore, Nathaniel Carpenter, John K. Sargent, Peter Warden, Willard Jones, Ebenezer and Betsey Crane, Susanna Rice, Samantha Harmon and Lucinda Jackson.",
+      "describes_date": "19 October 1833 — BEFORE the scene date of 1835-07-01",
+      "entities": [
+        "Rev. Allen B. Freeman",
+        "Hannah C. Freeman",
+        "S. T. Jackson",
+        "Martin D. Harmon",
+        "Peter Moore",
+        "Nathaniel Carpenter",
+        "John K. Sargent",
+        "Peter Warden",
+        "Willard Jones",
+        "Ebenezer Crane",
+        "Betsey Crane",
+        "Susanna Rice",
+        "Samantha Harmon",
+        "Lucinda Jackson"
+      ],
+      "town_finding": true,
+      "notes": "THE LEAD SURNAMES ARE `allen`, `carpenter` and `jones`, and all three are OTHER PEOPLE than the ones the Newberry cards point at: `allen` is Rev. Allen B. Freeman's FORENAME, `carpenter` here is Nathaniel and not Philo, and `jones` here is Willard and not William. A PRESENCE LIST OF FOURTEEN NAMED PEOPLE IN THE SETTLEMENT ON 19 OCTOBER 1833, with a denominator beside it — twenty-five Baptists in a town the same volume elsewhere counts in the hundreds. This is the strongest thing volume 2 offers the residents layer, and it is a LIST and not a merge: each name goes to data/residents/ through the ladder in that layer's own PR, and two of them (Samantha and Martin D. Harmon, Lucinda and S. T. Jackson) are surname pairs that a bare-surname merge must refuse. The compiler says twenty-five were in the settlement and names only the fourteen who were present, so the list is a floor and not the roll.",
+      "quote": "sent is  as  follows:  Rev.  Allen  B.  Freeman \nand  Hannah  C.,  his  wife,  S.  T.  Jackson, \nMartin  D.  Harmon,  Peter  Moore,  Nathaniel \nCarpenter,  John  K.  Sargent,  Peter  Warden, \nWillard  Jones,  Ebenezer  and  Betsey  Crane, \nSusanna  Rice,  Samantha  Harmon  and  Lu- \ncinda  Jacksou.  The  membership  of  the "
+    },
+    {
+      "id": "bk_mose2_011",
+      "kind": "person",
+      "reading": "transcription_mediated",
+      "locator": {
+        "lines": [
+          34220,
+          34226
+        ],
+        "original": "Moses and Kirkland, History of Chicago, Illinois, vol. 2, on a page this derivation will not assert: carried between read folios 291 at line 33933 and 295 at line 34372: the 1 head(s) between them carry no numeral this derivation can keep. The folio is READ off the running head and not counted, and the rule was re-derived for THIS volume rather than carried over from volume 1 (tools/derive_book_folios.py --audit): the page number stands alone on a line at the head of every verso, above \"HISTORY OF CHICAGO.\", and after the chapter title at the head of every recto; verso heads are even and recto heads are odd, and a numeral of the wrong parity for its side is refused and corrected inside its run where the run says which page it must be. T-1024 REBUILT THAT DERIVATION AND THIS LOCATOR IS ITS OUTPUT. Two faults had left the recto side unread: the verso head was searched for INSIDE a line rather than matched on the whole of one, so a sentence writing the phrase in prose (line 9941) was taken for a head and stole the recto numeral above it; and the recto head, which the rule always named, was never a head in its own right — it was consulted only to break a tie once the verso folio was already known. The volume prints 336 recto folios, 320 of them odd. Read as heads they carry the folio on 512 of 615 heads where the verso side alone carried 271 of 319.",
+        "text_file": "moses_kirkland_history_of_chicago_v2.txt",
+        "url": "https://archive.org/download/historyofchicagov2mose/historyofchicagov2mose_djvu.txt",
+        "list": "moses_kirkland_v2_lead_surname_sweep",
+        "page": null
+      },
+      "normalized": "The correspondence with the Mission society resulted in the Rev. Allen B. Freeman, a graduate of Hamilton Theological Seminary, being sent to the pioneer settlement from the East. He arrived with his wife on August 16, 1833 and found a building already erected and ready for use. He did not at once enter his own pulpit, having preached the first Sunday to the congregation of Rev. Mr. Porter.",
+      "describes_date": "16 August 1833 — BEFORE the scene date of 1835-07-01",
+      "entities": [
+        "Rev. Allen B. Freeman",
+        "Hannah C. Freeman",
+        "Rev. Jeremiah Porter",
+        "First Baptist church"
+      ],
+      "town_finding": true,
+      "notes": "THE LEAD SURNAME IS `allen`, AND IT IS A FORENAME AGAIN — Rev. Allen B. Freeman, the same man volume 1's row for `allen` already identified as a given name and claimed under Freeman. AN ARRIVAL DATE TO THE DAY, which is rare in this volume, and one fact about the town: a Baptist building was ALREADY ERECTED AND READY FOR USE on 16 August 1833. That dates the First Baptist church of bk_mose2_003 to before that day without dating its construction.",
+      "quote": "Rev.  Alien  B.  to  *>ne  pi°neer  settlement  from \nFreeman.  the  East,  the  Rev.  Allen  B.  Free- \nman, a  graduate  of  Hamilton  Theological \nSeminary.  That  gentleman  arrived,  with \nhis  wife,  on  August  16,  1833,  and  found  a \nbuilding  already  erected  and  ready  for  use. \nHe  did  not  at  once  enter  his  own  pulpit, "
+    },
+    {
+      "id": "bk_mose2_012",
+      "kind": "landscape",
+      "reading": "transcription_mediated",
+      "locator": {
+        "lines": [
+          34279,
+          34285
+        ],
+        "original": "Moses and Kirkland, History of Chicago, Illinois, vol. 2, on a page this derivation will not assert: carried between read folios 291 at line 33933 and 295 at line 34372: the 1 head(s) between them carry no numeral this derivation can keep. The folio is READ off the running head and not counted, and the rule was re-derived for THIS volume rather than carried over from volume 1 (tools/derive_book_folios.py --audit): the page number stands alone on a line at the head of every verso, above \"HISTORY OF CHICAGO.\", and after the chapter title at the head of every recto; verso heads are even and recto heads are odd, and a numeral of the wrong parity for its side is refused and corrected inside its run where the run says which page it must be. T-1024 REBUILT THAT DERIVATION AND THIS LOCATOR IS ITS OUTPUT. Two faults had left the recto side unread: the verso head was searched for INSIDE a line rather than matched on the whole of one, so a sentence writing the phrase in prose (line 9941) was taken for a head and stole the recto numeral above it; and the recto head, which the rule always named, was never a head in its own right — it was consulted only to break a tie once the verso folio was already known. The volume prints 336 recto folios, 320 of them odd. Read as heads they carry the folio on 512 of 615 heads where the verso side alone carried 271 of 319.",
+        "text_file": "moses_kirkland_history_of_chicago_v2.txt",
+        "url": "https://archive.org/download/historyofchicagov2mose/historyofchicagov2mose_djvu.txt",
+        "list": "moses_kirkland_v2_lead_surname_sweep",
+        "page": null
+      },
+      "normalized": "Rev. Allen B. Freeman was buried in a little burial ground near the north branch on the west side, on what was at that time an open prairie. A modest headboard marked his grave, which was surrounded by a picket fence built by Samuel S. Lathrop.",
+      "describes_date": "Freeman died of typhoid fever in December 1834 (line 34267 of the same passage), so the burial and the fence are December 1834 or shortly after — BEFORE the scene date of 1835-07-01",
+      "entities": [
+        "Rev. Allen B. Freeman",
+        "Samuel S. Lathrop"
+      ],
+      "town_finding": true,
+      "notes": "THE LEAD SURNAME IS `lathrop`, and this is its ONE pre-1836 appearance in the volume. A GROUND FEATURE AND A PIECE OF TOWN FURNITURE, both dated inside the scene year's reach: a little burial ground near the north branch on the west side, standing on open prairie in 1834-5, with one grave in it marked by a headboard and enclosed by a picket fence. The bearing is a side of a branch and not a street, so it bounds a region rather than fixing a point; nothing here may be turned into a coordinate. It is also the ONLY burial ground this project has been offered on the west side of the north branch.",
+      "quote": "had  been  organized  by  Mr.  Freeman.  He \nwas  buried  in  a  little  burial  ground  near  the \nnorth  branch  on  the  west  side,  on  what  was \nat  that  time  an  open  prairie.  A  modest \nheadboard  marked  his  grave,  which  was  sur- \nrounded by  a  picket  fence,  built  by  Samuel \nS.  Lathrop.  A  memorial  tablet  in  the  First "
+    },
+    {
+      "id": "bk_mose2_013",
+      "kind": "building",
+      "reading": "transcription_mediated",
+      "locator": {
+        "lines": [
+          52440,
+          52446
+        ],
+        "page": 441,
+        "original": "Moses and Kirkland, History of Chicago, Illinois, vol. 2, printed page 441, read off the recto head at line 52405. The folio is READ off the running head and not counted, and the rule was re-derived for THIS volume rather than carried over from volume 1 (tools/derive_book_folios.py --audit): the page number stands alone on a line at the head of every verso, above \"HISTORY OF CHICAGO.\", and after the chapter title at the head of every recto; verso heads are even and recto heads are odd, and a numeral of the wrong parity for its side is refused and corrected inside its run where the run says which page it must be. T-1024 REBUILT THAT DERIVATION AND THIS LOCATOR IS ITS OUTPUT. Two faults had left the recto side unread: the verso head was searched for INSIDE a line rather than matched on the whole of one, so a sentence writing the phrase in prose (line 9941) was taken for a head and stole the recto numeral above it; and the recto head, which the rule always named, was never a head in its own right — it was consulted only to break a tie once the verso folio was already known. The volume prints 336 recto folios, 320 of them odd. Read as heads they carry the folio on 512 of 615 heads where the verso side alone carried 271 of 319.",
+        "text_file": "moses_kirkland_history_of_chicago_v2.txt",
+        "url": "https://archive.org/download/historyofchicagov2mose/historyofchicagov2mose_djvu.txt",
+        "list": "moses_kirkland_v2_lead_surname_sweep"
+      },
+      "normalized": "In 1831 two brothers, John and Samuel Miller, built a tannery just north of the latter's tavern near the junction of the two branches of the Chicago river. In 1832 Benjamin Hall became a partner in the business, which was carried on for a number of years.",
+      "describes_date": "1831 for the tannery and 1832 for Hall's partnership — both BEFORE the scene date of 1835-07-01, and \"carried on for a number of years\" puts it in the town at that date",
+      "entities": [
+        "John Miller",
+        "Samuel Miller",
+        "Benjamin Hall",
+        "Miller's tavern"
+      ],
+      "town_finding": true,
+      "notes": "THE LEAD SURNAME IS `hall`, AND THIS VOLUME CONTRADICTS THE OTHER ONE. Volume 1 gives Benjamin Hall, on Blanchard's authority through a block quotation, as \"proprietor of the first tannery ever established there\", arriving 1830 (bk_mose1_019). Volume 2 says the tannery was BUILT BY THE MILLER BROTHERS IN 1831 and that Hall became a PARTNER in 1832. Both readings are recorded and NEITHER is adopted — this is the same work disagreeing with itself across its two volumes, which is the class of fault volume 1's own source record already lists for pages 89 and 570. What both agree on is that a tannery stood near the forks before the scene date, and volume 2 alone places it: JUST NORTH OF SAMUEL MILLER'S TAVERN, near the junction of the two branches. The project holds Miller's tavern, so the relation is placeable.",
+      "quote": "In  183],  two  brothers,  John  and  Samuel \nMiller,  built  a  tannery  just  north  of  the \nlatter's  tavern  near  the  junction  of \nthe  two  branches  of  the  Chicago \nriver.  In  1832,  Benjamin  Hall  became  a \npartner  in  the  business,  which  was  carried  on \nfor  a  number  of  years.  One  of  the  pioneers "
+    },
+    {
+      "id": "bk_mose2_014",
+      "kind": "business",
+      "reading": "transcription_mediated",
+      "locator": {
+        "lines": [
+          54035,
+          54042
+        ],
+        "original": "Moses and Kirkland, History of Chicago, Illinois, vol. 2, printed page 453, read off the recto head at line 53988. The folio is READ off the running head and not counted, and the rule was re-derived for THIS volume rather than carried over from volume 1 (tools/derive_book_folios.py --audit): the page number stands alone on a line at the head of every verso, above \"HISTORY OF CHICAGO.\", and after the chapter title at the head of every recto; verso heads are even and recto heads are odd, and a numeral of the wrong parity for its side is refused and corrected inside its run where the run says which page it must be. T-1024 REBUILT THAT DERIVATION AND THIS LOCATOR IS ITS OUTPUT. Two faults had left the recto side unread: the verso head was searched for INSIDE a line rather than matched on the whole of one, so a sentence writing the phrase in prose (line 9941) was taken for a head and stole the recto numeral above it; and the recto head, which the rule always named, was never a head in its own right — it was consulted only to break a tie once the verso folio was already known. The volume prints 336 recto folios, 320 of them odd. Read as heads they carry the folio on 512 of 615 heads where the verso side alone carried 271 of 319.",
+        "text_file": "moses_kirkland_history_of_chicago_v2.txt",
+        "url": "https://archive.org/download/historyofchicagov2mose/historyofchicagov2mose_djvu.txt",
+        "list": "moses_kirkland_v2_lead_surname_sweep",
+        "page": 453
+      },
+      "normalized": "In the spring of 1833 Tyler K. Blodgett established a brick yard on the north side, not far from the river bank, between Dearborn and Clark streets. He engaged Henry S. Lampman, then of Ann Arbor, as a workman. As Blodgett operated the first brick yard in the city, so Lampman was undoubtedly the first brick maker.",
+      "describes_date": "the spring of 1833 — BEFORE the scene date of 1835-07-01",
+      "entities": [
+        "Tyler K. Blodgett",
+        "Henry S. Lampman"
+      ],
+      "town_finding": true,
+      "notes": "THE LEAD SURNAME IS `blodgett`, and this is the only one of its four pre-1836 appearances that is about Chicago (the other three are the Blodgetts of Downers Grove). AN INDUSTRIAL SITE WITH A BLOCK AND A BANK: a brick yard on the north side, not far from the river bank, between Dearborn and Clark streets, from the spring of 1833. That is a side of the river, two cross streets and a distance from the water — enough to bound a parcel, and the project has no brick yard at all. A brick yard is a WORKED GROUND rather than a building, and the volume says nothing about what stood on it. Nothing here says the yard was still working in July 1835.",
+      "quote": "In  the  spring  of  1833,  Tyler  K.  Blodgett \nestablished  a  brick  yard  on  the  north  side, \nnot  far  from  the  river  bank,  between \nDearborn  and  Clark  streets.  He  en- \ngaged Henry  S.  Lampman,  then  of  Ann  Ar- \nbor, as  a  workman.  As  Mr.  Blodgett  operated \nthe  tirsE  brick  yard  in  the  city,  so  Mr.  Lamp- \nman  was  undoubtedly  the  first  brick  maker. "
+    },
+    {
+      "id": "bk_mose2_015",
+      "kind": "building",
+      "reading": "transcription_mediated",
+      "locator": {
+        "lines": [
+          79348,
+          79360
+        ],
+        "original": "Moses and Kirkland, History of Chicago, Illinois, vol. 2, printed page 624, read off the verso head at line 79300. The folio is READ off the running head and not counted, and the rule was re-derived for THIS volume rather than carried over from volume 1 (tools/derive_book_folios.py --audit): the page number stands alone on a line at the head of every verso, above \"HISTORY OF CHICAGO.\", and after the chapter title at the head of every recto; verso heads are even and recto heads are odd, and a numeral of the wrong parity for its side is refused and corrected inside its run where the run says which page it must be. T-1024 REBUILT THAT DERIVATION AND THIS LOCATOR IS ITS OUTPUT. Two faults had left the recto side unread: the verso head was searched for INSIDE a line rather than matched on the whole of one, so a sentence writing the phrase in prose (line 9941) was taken for a head and stole the recto numeral above it; and the recto head, which the rule always named, was never a head in its own right — it was consulted only to break a tie once the verso folio was already known. The volume prints 336 recto folios, 320 of them odd. Read as heads they carry the folio on 512 of 615 heads where the verso side alone carried 271 of 319.",
+        "text_file": "moses_kirkland_history_of_chicago_v2.txt",
+        "url": "https://archive.org/download/historyofchicagov2mose/historyofchicagov2mose_djvu.txt",
+        "list": "moses_kirkland_v2_lead_surname_sweep",
+        "page": 624
+      },
+      "normalized": "Dr. John T. Temple put in operation in 1834 a stage line from Chicago to Peoria which, according to its own advertisement, left Chicago at 4 a.m., reached \"Juliet\" at 2 p.m. and Ottawa the first day, completing the trip to Peoria in two days. The first passenger carried over the route was John D. Caton, between whom and Dr. Temple there grew up an intimacy, as the young lawyer obtained a desk in the office and a sleeping room in the attic of the Temple building, which Dr. Temple had put up in 1833.",
+      "describes_date": "1833 for the Temple building and 1834 for the stage line — both BEFORE the scene date of 1835-07-01; the stage line ran until 1837",
+      "entities": [
+        "Dr. John T. Temple",
+        "John D. Caton",
+        "the Temple building",
+        "the Chicago and Peoria stage line"
+      ],
+      "town_finding": true,
+      "notes": "THE LEAD SURNAME IS `caton`. A CONSTRUCTION YEAR FOR A BUILDING THE PROJECT HOLDS — the Temple building, put up in 1833 — and an independent corroboration of volume 1's bk_mose1_012, which has Caton renting the back room and attic from December 1833. The two differ in what he rented: volume 1 says the back room and the attic and has him sub-letting desk-room to Giles Spring, volume 2 says a desk in the office and a sleeping room in the attic. Both are recorded. The stage line is a BUSINESS WITH A TIMETABLE and no premises named beyond \"the office\", which is the Temple building of the same sentence.",
+      "quote": "He  also  put  in  operation  in  1834  a  stage  line \nfrom  Chicago  to  Peoria  which,  according  to \nthe  advertisement  of  the  line,  left  Chicago  at \n4  a.  m.,  arriving  at  \"Juliet,\" as  the  name  was \nthen  spelled,  at  2  p.  m.,  and  reaching  Ottawa \nthe  first  day,  completing  the  trip  to  Peoria \nin  two  days.  The  first  passenger  carried \nover  the  route  was  John  D.  Caton,  between \nwhom  and  Dr.  Temple  there  grew  up  an  in- \ntimacy, as  the  young  lawyer  obtained  a  desk \nin  the  office  and  a  sleeping  room  in  the  attic \nof  the  Temple  building,  which  Dr.  Temple \nhad  put  up  in  1833.  The  stage  line  was  op- "
+    },
+    {
+      "id": "bk_mose2_016",
+      "kind": "building",
+      "reading": "transcription_mediated",
+      "locator": {
+        "lines": [
+          43523,
+          43531
+        ],
+        "original": "Moses and Kirkland, History of Chicago, Illinois, vol. 2, printed page 374, read off the verso head at line 43506. The folio is READ off the running head and not counted, and the rule was re-derived for THIS volume rather than carried over from volume 1 (tools/derive_book_folios.py --audit): the page number stands alone on a line at the head of every verso, above \"HISTORY OF CHICAGO.\", and after the chapter title at the head of every recto; verso heads are even and recto heads are odd, and a numeral of the wrong parity for its side is refused and corrected inside its run where the run says which page it must be. T-1024 REBUILT THAT DERIVATION AND THIS LOCATOR IS ITS OUTPUT. Two faults had left the recto side unread: the verso head was searched for INSIDE a line rather than matched on the whole of one, so a sentence writing the phrase in prose (line 9941) was taken for a head and stole the recto numeral above it; and the recto head, which the rule always named, was never a head in its own right — it was consulted only to break a tie once the verso folio was already known. The volume prints 336 recto folios, 320 of them odd. Read as heads they carry the folio on 512 of 615 heads where the verso side alone carried 271 of 319.",
+        "text_file": "moses_kirkland_history_of_chicago_v2.txt",
+        "url": "https://archive.org/download/historyofchicagov2mose/historyofchicagov2mose_djvu.txt",
+        "list": "moses_kirkland_v2_lead_surname_sweep",
+        "page": 374
+      },
+      "normalized": "Through the sympathetic support of Major Fowle, the carpenter shop within the stockade was set apart for the holding of religious services, and on the following Sunday morning, May 19, 1833, the first sermon ever delivered in Chicago by a Presbyterian clergyman was preached by Rev. Jeremiah Porter.",
+      "describes_date": "19 May 1833 — BEFORE the scene date of 1835-07-01",
+      "entities": [
+        "Major John Fowle",
+        "Rev. Jeremiah Porter",
+        "the carpenter shop within the stockade"
+      ],
+      "town_finding": true,
+      "notes": "THE LEAD SURNAME IS `carpenter`, AND IT IS A TRADE AND A BUILDING AND NOT A PERSON — the carpenter shop inside Fort Dearborn's stockade. The row's verdict says so, and it is the same class of fault as volume 1's `black`, which is only ever the adjective. A USE FOR A FORT OUTBUILDING the project already holds: the garrison's carpenter shop served as the town's first Presbyterian meeting place from 19 May 1833. Whether it was still in that use at the scene date this does not say — the Presbyterians had their own building by 1834.",
+      "quote": "Through  the  sympathetic  support  of \nMajor  Fowle,  the  carpenter  shop  within  the \nstockade  was  set  apart  for  the  holding  of \nreligious  services,  and  on  the  following  Sun- \nday morning,  May  19,  1833,  the  first  sermon \never  delivered  in  Chicago  by  a  Presbyterian \nclergyman  was  preached  by  Rev.  Jeremiah \nPorter,  who  chose  for  his  text  the  passage \nfrom  the  gospel  according  to  St.  John,  fif- "
+    },
+    {
+      "id": "bk_mose2_017",
+      "kind": "building",
+      "reading": "transcription_mediated",
+      "locator": {
+        "lines": [
+          43678,
+          43692
+        ],
+        "page": 375,
+        "original": "Moses and Kirkland, History of Chicago, Illinois, vol. 2, printed page 375, read off the recto head at line 43618. The folio is READ off the running head and not counted, and the rule was re-derived for THIS volume rather than carried over from volume 1 (tools/derive_book_folios.py --audit): the page number stands alone on a line at the head of every verso, above \"HISTORY OF CHICAGO.\", and after the chapter title at the head of every recto; verso heads are even and recto heads are odd, and a numeral of the wrong parity for its side is refused and corrected inside its run where the run says which page it must be. T-1024 REBUILT THAT DERIVATION AND THIS LOCATOR IS ITS OUTPUT. Two faults had left the recto side unread: the verso head was searched for INSIDE a line rather than matched on the whole of one, so a sentence writing the phrase in prose (line 9941) was taken for a head and stole the recto numeral above it; and the recto head, which the rule always named, was never a head in its own right — it was consulted only to break a tie once the verso folio was already known. The volume prints 336 recto folios, 320 of them odd. Read as heads they carry the folio on 512 of 615 heads where the verso side alone carried 271 of 319.",
+        "text_file": "moses_kirkland_history_of_chicago_v2.txt",
+        "url": "https://archive.org/download/historyofchicagov2mose/historyofchicagov2mose_djvu.txt",
+        "list": "moses_kirkland_v2_lead_surname_sweep"
+      },
+      "normalized": "The chosen elders of the first Presbyterian organization were Philo Carpenter, John Wright and Major Wilcox. Owing to the fact that the Protestant settlers had come chiefly from New England, the membership of this first Presbyterian organization was made up for the greater part of Congregationalists; Philo Carpenter is said to have been the only one among the entire number who had always been a Presbyterian. The first administration of the Lord's supper ever held in Chicago in a place of Presbyterian worship occurred on Sunday, June 7, 1833, at Father Walker's log cabin.",
+      "describes_date": "7 June 1833 for the Lord's supper; the elders are of the same organization, founded 26 June 1833 — BEFORE the scene date of 1835-07-01",
+      "entities": [
+        "Philo Carpenter",
+        "John Wright",
+        "Major John L. Wilcox",
+        "Father Jesse Walker",
+        "Father Walker's log cabin"
+      ],
+      "town_finding": true,
+      "notes": "THE LEAD SURNAME IS `carpenter`, and here it IS Philo Carpenter, a man the project holds. An OFFICE — elder of the first Presbyterian organization — for three men, and a BUILDING USED FOR WORSHIP: Father Walker's log cabin. The cabin has no position in this sentence. \"Major Wilcox\" is a surname and a rank and no forename, so it may not be merged on its own; the project's own John L. Wilcox is a CANDIDATE and not a match, and bk_mose2_018 names a John L. Wilcox in the town in 1834, which is corroboration of the name and not of the identity.",
+      "quote": "and  Mrs.  Cynthia  Brown.  The  chosen \nelders  were  Philo  Carpenter,  John  Wright \nand  Major  Wilcox.  Owing  to  the  fact  that \nthe  Protestant  settlers  had  come  chiefly \nfrom  New  England,  the  membership  of  this \nfirst  Presbyterian  organization  was  made  up \nfor  the  greater  part  of  Congrecationalists.  In \nfact,  Philo  Carpenter  is  said  to  have  been \nthe  only  one  among  the  entire  number  who \nhad  been  always  a  Presbyterian. \n\nThe  first  administration  of  the  Lord's  sup- \nper ever  held  in  Chicago  in  a  place  of  Pres- \nbyterian worship  occurred  on  Sunday,  June \n7,  1833,  at  Father  Walker's  log  cabin.  Ma- "
+    },
+    {
+      "id": "bk_mose2_018",
+      "kind": "person",
+      "reading": "transcription_mediated",
+      "locator": {
+        "lines": [
+          40563,
+          40580
+        ],
+        "original": "Moses and Kirkland, History of Chicago, Illinois, vol. 2, printed page 348, read off the verso head at line 40479. The folio is READ off the running head and not counted, and the rule was re-derived for THIS volume rather than carried over from volume 1 (tools/derive_book_folios.py --audit): the page number stands alone on a line at the head of every verso, above \"HISTORY OF CHICAGO.\", and after the chapter title at the head of every recto; verso heads are even and recto heads are odd, and a numeral of the wrong parity for its side is refused and corrected inside its run where the run says which page it must be. T-1024 REBUILT THAT DERIVATION AND THIS LOCATOR IS ITS OUTPUT. Two faults had left the recto side unread: the verso head was searched for INSIDE a line rather than matched on the whole of one, so a sentence writing the phrase in prose (line 9941) was taken for a head and stole the recto numeral above it; and the recto head, which the rule always named, was never a head in its own right — it was consulted only to break a tie once the verso folio was already known. The volume prints 336 recto folios, 320 of them odd. Read as heads they carry the folio on 512 of 615 heads where the verso side alone carried 271 of 319.",
+        "text_file": "moses_kirkland_history_of_chicago_v2.txt",
+        "url": "https://archive.org/download/historyofchicagov2mose/historyofchicagov2mose_djvu.txt",
+        "list": "moses_kirkland_v2_lead_surname_sweep",
+        "page": 348
+      },
+      "normalized": "The first Episcopal congregation in the city was organized in 1834, eleven gentlemen participating: Dr. William B. Egan, Dr. Philip Maxwell, Giles Spring, John H. Kinzie, Dr. Clark, Gurdon S. Hubbard, John L. Wilcox, William Pettit, Eli B. Williams, Jacob Russell and Hans Crocker. The vestry was composed of eight of them: Egan, Maxwell, Spring, Kinzie, Clark, Hubbard, Wilcox and Pettit. The first clergyman of the denomination to conduct religious services here was Rev. Palmer Dyer, who arrived in Chicago October 10, 1834.",
+      "describes_date": "1834 for the organization, with no month; 10 October 1834 for Dyer's arrival — both BEFORE the scene date of 1835-07-01",
+      "entities": [
+        "Dr. William B. Egan",
+        "Dr. Philip Maxwell",
+        "Giles Spring",
+        "John H. Kinzie",
+        "Dr. Clark",
+        "Gurdon S. Hubbard",
+        "John L. Wilcox",
+        "William Pettit",
+        "Eli B. Williams",
+        "Jacob Russell",
+        "Hans Crocker",
+        "Rev. Palmer Dyer"
+      ],
+      "town_finding": true,
+      "notes": "THE LEAD SURNAME IS `hubbard`, and this is the only one of its four pre-1836 appearances in the volume that names Gurdon S. Hubbard rather than Harriette L. Hubbard. A PRESENCE LIST OF ELEVEN NAMED MEN IN CHICAGO IN 1834, eight of them serving as a vestry, and it is the second such list volume 2 gives (bk_mose2_010 is the Baptist fourteen of 1833). Eleven names with forenames or initials, which is what lets them reach data/residents/ through the ladder at all — except \"Dr. Clark\", which is a surname and a title and must be refused. Offered to that layer in its own PR.",
+      "quote": "first  Episcopal  congregation  in  the  city  was \norganized  in  1834,  eleven  gentlemen  par- \nticipating in  the  work.  Their  names  were \nas  follows:  Dr.  William  B  ;.Egan,  Dr.  Philip \nMaxwell,  Giles  Spring,  John  H.  Kinzie, \nDr.  Clark,  Gurdon  S.  Hubbard,  John  L. \nWilcox,  William  Pettit,  Eli  B.  Williams, \nJacob  Russell  and  Hans  Crocker.  The \nvestry  was  composed  of  eight  members,  as \nfollows:  William  B.  Egan,  Phillip  Max- \nwell, Giles  Spring,  John  H.  Kinzie,  Dr. \nClark,  Gurdon  S.  Hubbard,  John  L.  Wil- \ncox and  William  Pettit.  The  first  clergy- \nman of  this  denomination  to  conduct  relig- \nious services  here  was  Rev.  Palmer  Dyer; \n\nFirst  Episcopal  who  arrived  in  Chicago,  Octo- \nber 10,  1834.  A  striking "
+    },
+    {
+      "id": "bk_mose2_019",
+      "kind": "event",
+      "reading": "transcription_mediated",
+      "locator": {
+        "lines": [
+          12917,
+          12922
+        ],
+        "page": 103,
+        "original": "Moses and Kirkland, History of Chicago, Illinois, vol. 2, printed page 103, read off the recto head at line 12894. The folio is READ off the running head and not counted, and the rule was re-derived for THIS volume rather than carried over from volume 1 (tools/derive_book_folios.py --audit): the page number stands alone on a line at the head of every verso, above \"HISTORY OF CHICAGO.\", and after the chapter title at the head of every recto; verso heads are even and recto heads are odd, and a numeral of the wrong parity for its side is refused and corrected inside its run where the run says which page it must be. T-1024 REBUILT THAT DERIVATION AND THIS LOCATOR IS ITS OUTPUT. Two faults had left the recto side unread: the verso head was searched for INSIDE a line rather than matched on the whole of one, so a sentence writing the phrase in prose (line 9941) was taken for a head and stole the recto numeral above it; and the recto head, which the rule always named, was never a head in its own right — it was consulted only to break a tie once the verso folio was already known. The volume prints 336 recto folios, 320 of them odd. Read as heads they carry the folio on 512 of 615 heads where the verso side alone carried 271 of 319.",
+        "text_file": "moses_kirkland_history_of_chicago_v2.txt",
+        "url": "https://archive.org/download/historyofchicagov2mose/historyofchicagov2mose_djvu.txt",
+        "list": "moses_kirkland_v2_lead_surname_sweep"
+      },
+      "normalized": "In October 1833 the Chicago school section was sold under the administration of Richard J. Hamilton, in compliance with a petition of three-fourths of the legal voters of the township, realizing $38,895.",
+      "describes_date": "October 1833 — BEFORE the scene date of 1835-07-01",
+      "entities": [
+        "Richard J. Hamilton",
+        "the Chicago school section"
+      ],
+      "town_finding": true,
+      "notes": "THE LEAD SURNAME IS `black` and it is the BLACK HAWK WAR two paragraphs on, not a person — the same verdict volume 1 recorded for this surname. THE PASSAGE IS A CIVIC FACT WITH A FIGURE: section 16, the school section, sold in October 1833 for $38,895 on the petition of three-fourths of the township's legal voters. It bears on the land layer rather than the structures layer — the lots the town was built on in 1834-5 were sold at this auction — and the project holds no figure for it. The sum is a compiler's of 1895 and is quoted, not adopted.",
+      "quote": "In  October,  1833,  the  Chicago  school \nsection  was  sold  under  the  administration  of \nMr.  Hamilton,  in  compliance  with  a  petition \nof  three-fourths  of  the  legal  voters  of  the \ntownship  (as  explained  elsewhere  in  this \nchapter),  realizing  $38,895. "
+    },
+    {
+      "id": "bk_mose2_020",
+      "kind": "person",
+      "reading": "transcription_mediated",
+      "locator": {
+        "lines": [
+          19100,
+          19110
+        ],
+        "page": 157,
+        "original": "Moses and Kirkland, History of Chicago, Illinois, vol. 2, printed page 157, read off the recto head at line 19005. The folio is READ off the running head and not counted, and the rule was re-derived for THIS volume rather than carried over from volume 1 (tools/derive_book_folios.py --audit): the page number stands alone on a line at the head of every verso, above \"HISTORY OF CHICAGO.\", and after the chapter title at the head of every recto; verso heads are even and recto heads are odd, and a numeral of the wrong parity for its side is refused and corrected inside its run where the run says which page it must be. T-1024 REBUILT THAT DERIVATION AND THIS LOCATOR IS ITS OUTPUT. Two faults had left the recto side unread: the verso head was searched for INSIDE a line rather than matched on the whole of one, so a sentence writing the phrase in prose (line 9941) was taken for a head and stole the recto numeral above it; and the recto head, which the rule always named, was never a head in its own right — it was consulted only to break a tie once the verso folio was already known. The volume prints 336 recto folios, 320 of them odd. Read as heads they carry the folio on 512 of 615 heads where the verso side alone carried 271 of 319.",
+        "text_file": "moses_kirkland_history_of_chicago_v2.txt",
+        "url": "https://archive.org/download/historyofchicagov2mose/historyofchicagov2mose_djvu.txt",
+        "list": "moses_kirkland_v2_lead_surname_sweep"
+      },
+      "normalized": "James H. Collins came to Illinois in 1833 and settled on a pre-emption claim at Holderman's grove, some sixty or seventy miles southwest of Chicago. In 1834 his former student Caton found him in great distress and arranged that, as soon as he should recover the use of his feet, then badly frozen, he should come to Chicago and join Caton in the practice of law. The partnership lasted but about a year, and Collins then formed another with Justin Butterfield.",
+      "describes_date": "1834 for the arrangement; Collins's arrival in Chicago is \"as soon as he should recover\" and is NOT dated, so whether he was in the town on 1835-07-01 this passage does not settle",
+      "entities": [
+        "James H. Collins",
+        "John D. Caton",
+        "Justin Butterfield"
+      ],
+      "town_finding": true,
+      "notes": "THE LEAD SURNAME IS `caton`. A LAW PARTNERSHIP — Caton & Collins — that the project does not hold, and an arrival the compiler leaves open: Collins agreed in 1834 to come to Chicago when his frozen feet mended, and the sentence never says when he came. So this is a CANDIDATE for the town of July 1835 and not a resident of it, and the honest reading is that the partnership existed at some point between 1834 and about 1836. Recorded so that a later run with a dated source can close it rather than re-read the volume.",
+      "quote": "to  Illinois  in  1833  and  set- \ntled on  a  \"claim\"  (pre-emption)  at  Holder- \nman's  grove,  some  sixty  or  seventy  miles \nsouthwest  of  Chicago.  In  1834  his  former \nstudent,  Caton,  found  him  in  great  distress, \nand  arranged  with  him  that  as  soon  as  he \nshould  recover  the  use  of  his  feet,  then  badly \nfrozen,  he  should  come  to  Chicago  and  join \nCaton  in  the  practice  of  law.  The  partner- \nship lasted  but  about  a  year  and  Collins  then \nformed  another  with  Justin  Butterfield.  The "
+    },
+    {
+      "id": "bk_mose2_021",
+      "kind": "person",
+      "reading": "transcription_mediated",
+      "locator": {
+        "lines": [
+          42755,
+          42761
+        ],
+        "page": 367,
+        "original": "Moses and Kirkland, History of Chicago, Illinois, vol. 2, printed page 367, read off the recto head at line 42676 by tools/derive_book_folios.py --at 42757, the same derivation T-1024 rebuilt for this volume. THE VOLUME'S OWN INDEX AGREES AND WAS NOT USED TO GET THERE: its entry at line 97449 reads “Bronson, Arthur, 159. 367.”, and 367 is the page this passage stands on.",
+        "text_file": "moses_kirkland_history_of_chicago_v2.txt",
+        "url": "https://archive.org/download/historyofchicagov2mose/historyofchicagov2mose_djvu.txt",
+        "list": "moses_kirkland_v2_lead_surname_sweep"
+      },
+      "normalized": "The Chicago Lyceum's library, kept in a room over P. F. W. Peck's store, held about twenty volumes. Two visitors to the settlement from New York, Charles Butler and Arthur Bronson, were moved by the sight of it and on their return home sent a donation of two hundred volumes.",
+      "describes_date": "The Lyceum's early years, which the chapter sets in the first half of the 1830s; the visit itself is NOT dated by this passage. What it does fix is the pair's relation to the town — visitors from New York who went home — and not a day.",
+      "entities": [
+        "Charles Butler",
+        "Arthur Bronson",
+        "P. F. W. Peck",
+        "John S. Wright"
+      ],
+      "town_finding": true,
+      "notes": "READ FOR T-1017, which asked whether buying at the town's own school-section sale of October 1833 is itself a check that a name belonged to the town. ARTHUR BRONSON IS THE FOURTH LARGEST HAND AT THAT AUCTION — thirteen blocks under BRONSON and eight more under the register's spelling BROSON — and this is the town's own historians calling him a VISITOR FROM NEW YORK who went home again. That is what the ticket turned on: a sale whose biggest buyers travelled from New York to attend it cannot certify residence, so the purchase is corroboration and never an arm of the ruling rule (the arithmetic at data/research/land_sales/school_section_sale_1833.json, the ruling at resident_rulings.json -> questions_ruled -> T-1017, reasoned out at docs/RESEARCH/school_section_sale_1833.md). WHAT IT DOES NOT SAY, and the ruling does not make it say: it does not date the visit, it does not say Bronson was never at Chicago on 1 July 1835, and it does not identify this Arthur Bronson with the register's purchaser by anything but the name — that identification rests where it already rested, on the register's own BRONSON FREDERIC(K) beside him and on the old-settler death notices. It is evidence about the SALE, not about a card.",
+      "quote": "in  his  pocket  handkerchief.  Two  visitors  to \nthe  settlement  from  New  York — Charles \nButler  and  Arthur  Bronson — were  so  moved \nwith  commiseration  at  the  sight  of  this \napology  for  a  library,  that  on  their  return \nhome  they  sent  on  a  donation  of  two  hun- \ndred volumes. "
+    }
+  ]
+}

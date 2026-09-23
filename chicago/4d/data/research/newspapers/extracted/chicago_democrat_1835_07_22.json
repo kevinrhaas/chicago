@@ -1,0 +1,748 @@
+{
+  "schema": 1,
+  "issue_id": "chicago_democrat_1835_07_22",
+  "extracted": "2026-08-29",
+  "extracted_by": "hand, T-0296",
+  "note": "The Democrat of 1835-07-22, Vol. II No. 14, read through. A complete four-page scan, read from the committed derived text (`text/chicago_democrat_1835_07_22.txt`), which resolves on `dev`, so every quote here is machine-checked on this branch. THE TRANSCRIPTION'S GRAIN IS NOT ONE LINE PER PRINTED LINE: the docx rebuild delivers whole half-columns as single lines of up to 5,952 characters, so the claims on page 3 column 4 are cut with `locator.spans` — the character-level citation T-0261 added for the American — and the rest are whole short lines. The advertising of this issue is largely the advertising of 1835-07-08 standing on, which is why several claims here record a WINDOW rather than a new fact; the new matter is the dissolution of Wm. Hogue & Co. (c007, ruling 3's only veto in the four issues T-0296 reads), the Juliet letter list (c010) and Montgomery's Auction Room named and placed on South Water Street (c011). NO CHICAGO POST-OFFICE LETTER LIST: swept for every form the Democrat uses, for one hit, the Juliet return of 1 July 1835.",
+  "claims": [
+    {
+      "id": "c001",
+      "kind": "event",
+      "reading": "transcription_mediated",
+      "quote": "Catt Naper'a Sptilestent, on ther9th inst. Rew Mr Hisckwell, Mr STEPHEN E. DOW.",
+      "normalized": "[MARRIED] […] at Capt. Naper's Settlement, on the 9th inst. [by the] Rev[.] Mr[.] [Bl]ackwell, Mr. STEPHEN E. DOW[…]",
+      "locator": {
+        "artifact_role": "primary",
+        "issue_page": 3,
+        "column": 2,
+        "lines": [
+          311,
+          311
+        ],
+        "spans": [
+          {
+            "line": 311,
+            "from": 20,
+            "to": 99
+          }
+        ]
+      },
+      "entities": [
+        {
+          "as_printed": "Mr STEPHEN E. DOW",
+          "normalized": "Stephen E. Dow",
+          "role": "bridegroom",
+          "occupations": [],
+          "associated_places": [
+            "Naper's Settlement"
+          ]
+        },
+        {
+          "as_printed": "Rew Mr Hisckwell",
+          "normalized": "Rev. Mr. Blackwell",
+          "role": "officiating minister",
+          "occupations": [
+            "minister"
+          ],
+          "associated_places": [
+            "Naper's Settlement"
+          ]
+        }
+      ],
+      "notes": "A MARRIAGE AT NAPER'S SETTLEMENT, NOT IN CHICAGO, and the bride's name is not recoverable. The line the notice sits on is woven with an advertisement — the fragment '4 large #' stands between the bridegroom's name and 'NE ANPA TASKER', and whether that last is the bride ('Miss Anna Tasker') or the advertisement's own type cannot be told from this one witness, so the span stops at the bridegroom and NO bride is minted. OCR judgements, all recognition-class: 'Catt'→'Capt.', 'Sptilestent'→'Settlement', 'ther9th'→'the 9th', 'Hisckwell'→'Blackwell'. Recorded because it dates a minister and a settlement outside the town in the scene month."
+    },
+    {
+      "id": "c002",
+      "kind": "price",
+      "reading": "transcription_mediated",
+      "quote": "CHICAGO PRICES CURRENT,\nSOMRECTED WaRELT.\nt, bb! Ur and Menl= Shere Super fine Bui 8 00010 99 fine 8 00 Buckwheat four “none. Indsan oat bush 100 a1 59 bash none | \"1 We Bs, o Beef. fresh b. 4m G jo salt meas bb! {0 00.11 00 do do. prite ” 900 Pork, messno.1, \"20 00. lin 2 © ieo0 One hog prime Dried beef 12 12 Butter, kog pa Lard |” 3 Cheese 2 White beana bush — none, Potatoce \"1000 1 2% ws bh 9a 10 5. dry b Ba 9 les, box tallow Ib Ja 14 ing Materials— F, ast’ d 1000 f 2 v0095 00 do 4000450 re timber, length Q 5a Ga . per 1000 50026 0) 4 cord 60) 2 650 ; bbl 70 1 00 R cord 2 0) a? 50",
+      "normalized": "CHICAGO PRICES CURRENT, [COR]RECTED WEEKLY. [Flour and Meal—] Super fine [per bbl] 8 00 a 10 00 fine 8 00 Buckwheat flour none. Indian [meal per] bush 1 00 a 1 50 [corn per] bush none [Provisions—] Beef, fresh [per] lb. 4 a 6 do salt mess [per] bbl 10 00 a 11 00 do do. prime 9 00 Pork, mess no. 1, 20 00 [a] 21 [00] […] One hog prime […] Dried beef 12 [a] 12 Butter, keg […] Lard […] 3 Cheese 2 White beans [per] bush none, Potatoes 1 00 a 1 25 […] 9 a 10 […] dry [per] lb 8 a 9 [Candl]es, box tallow lb 12 a 14 [Build]ing Materials— [Lumber ass'd per] 1000 ft 20 00 a 25 00 do 4 00 a 4 50 [Squa]re timber, length […] 5 a 6 [Shingles per] 1000 5 00 a 6 00 [Wood per] cord 6 00 a 6 50 [Lime per] bbl 70 [a] 1 00 [Stone per] cord 2 00 a 2 50",
+      "locator": {
+        "artifact_role": "primary",
+        "issue_page": 3,
+        "column": 3,
+        "lines": [
+          321,
+          323
+        ]
+      },
+      "notes": "THE WEEK'S TABLE, AND THE FULLEST WITNESS TO IT IN THE FOUR ISSUES T-0296 READS. The 1835-07-08 deposit printing carries the same table cut down the middle and woven with the Hennepin letter list, so only its breadstuffs head could be quoted there (chicago_democrat_1835_07_08 c016); here the whole table arrives on one line and the pairing of article to figure is legible for most of it. WHAT IS NOT SUPPLIED: the article names in the left margin are cut at the crop edge on several rows ('t, bb! Ur and Menl=' for 'Flour and Meal', 'ing Materials—' for 'Building Materials'), and where a figure has no article the normalized reading marks the gap with '[…]' rather than assigning it. The numerals are read as printed: '8 00010 99' is read as the range 8 00 a 10 00, which the 1835-07-08 printing carries as '8 00 a 10 00' and confirms."
+    },
+    {
+      "id": "c003",
+      "kind": "business",
+      "reading": "transcription_mediated",
+      "quote": "JOHN DEAN CATON, ORNEY AND COUNSELLOR\n2D LAW, And Sollciter in Chancery, DEARAORN-ST., CHivago.",
+      "normalized": "JOHN DEAN CATON, [ATT]ORNEY AND COUNSELLOR [AT] LAW, And Solicitor in Chancery, DEARBORN-ST., CHicago.",
+      "locator": {
+        "artifact_role": "primary",
+        "issue_page": 3,
+        "column": 3,
+        "lines": [
+          324,
+          325
+        ]
+      },
+      "entities": [
+        {
+          "as_printed": "JOHN DEAN CATON",
+          "normalized": "John Dean Caton",
+          "role": "proprietor",
+          "occupations": [
+            "attorney at law",
+            "solicitor in chancery"
+          ],
+          "associated_places": [
+            "Dearborn Street"
+          ]
+        }
+      ],
+      "business": {
+        "name": "John Dean Caton",
+        "proprietors": [
+          "John Dean Caton"
+        ],
+        "trade": "attorney and counsellor at law, and solicitor in chancery",
+        "goods": [],
+        "street": "Dearborn Street",
+        "placement": {
+          "class": "street_only",
+          "street": "Dearborn Street"
+        }
+      },
+      "notes": "A STREET AND NO MORE, which is what `street_only` is for: the card gives Dearborn Street and no side, no number and no neighbour, so it can put Caton on Dearborn and cannot put him at a lot. The same card stands in the 1835-07-29 issue (page 3 column 4, lines 361-364) in the same three lines. OCR judgements: 'DEARAORN-ST.'→'DEARBORN-ST.', 'Sollciter'→'Solicitor', 'CHivago'→'Chicago'."
+    },
+    {
+      "id": "c004",
+      "kind": "business",
+      "reading": "transcription_mediated",
+      "quote": "For Sale,\nKegs of Frevh Butter. Also, » lot of Ube Hams, in prime order.\nJON 1. KINZIE, P21, TRIS,",
+      "normalized": "For Sale, […] Kegs of Fresh Butter. Also, a lot of [Ohio] Hams, in prime order. JO[H]N [H]. KINZIE, [July 21, 1835]",
+      "locator": {
+        "artifact_role": "primary",
+        "issue_page": 3,
+        "column": 3,
+        "lines": [
+          326,
+          328
+        ]
+      },
+      "entities": [
+        {
+          "as_printed": "JON 1. KINZIE",
+          "normalized": "John H. Kinzie",
+          "role": "advertiser",
+          "occupations": [
+            "merchant",
+            "railroad commissioner"
+          ],
+          "associated_places": [
+            "Chicago"
+          ]
+        }
+      ],
+      "business": {
+        "name": "John H. Kinzie",
+        "proprietors": [
+          "John H. Kinzie"
+        ],
+        "trade": "merchant — provisions offered for sale",
+        "goods": [
+          "Butter",
+          "Hams"
+        ],
+        "street": null,
+        "placement": {
+          "class": "none"
+        }
+      },
+      "notes": "NO ADDRESS, so `none` — the advertisement is a parcel of goods offered, not a storefront described. The 1835-07-29 printing (line 365) reads 'BWP Kees of Pres: Batter. Maw a jot at 3% +1) Ohio Had, in prane order 0 JOUN JL KINZIE.' and settles 'Ube Hams' as Ohio hams. The dateline 'P21, TRIS' is read as July 21, 1835 with no more confidence than that and is NOT recorded as an `ad_copy_date`."
+    },
+    {
+      "id": "c005",
+      "kind": "business",
+      "reading": "transcription_mediated",
+      "quote": "SAMUEL LEWIS, PECTFULLY inforins the ladies and gentlemen of Chicago and ite vicinity, hen 9 sufficient numberof scholars commencing a VOCAL PAL. MUSIC SCHOOL, room on auth mater alrest\nwill aiteed to the repairs and taning of Kurt # and other inetrujpents,\nayo, guns 22, VHB,",
+      "normalized": "SAMUEL LEWIS, [RES]PECTFULLY informs the ladies and gentlemen of Chicago and its vicinity, [that w]hen a sufficient number of scholars [offer them]s[elves, he intends] commencing a VOCAL [and INSTRUMENT]AL MUSIC SCHOOL, [in his] room on [so]uth [W]ater [st]re[e]t[.] [He] will attend to the repairs and tuning of [Piano] Fort[e]s and other instruments, [Chic]a[g]o, [J]un[e] 22, 1[83]5,",
+      "locator": {
+        "artifact_role": "primary",
+        "issue_page": 3,
+        "column": 3,
+        "lines": [
+          329,
+          331
+        ]
+      },
+      "entities": [
+        {
+          "as_printed": "SAMUEL LEWIS",
+          "normalized": "Samuel Lewis",
+          "role": "proprietor",
+          "occupations": [
+            "music teacher",
+            "piano tuner"
+          ],
+          "associated_places": [
+            "South Water Street"
+          ]
+        }
+      ],
+      "business": {
+        "name": "Samuel Lewis",
+        "proprietors": [
+          "Samuel Lewis"
+        ],
+        "trade": "vocal and instrumental music school, and the repair and tuning of piano fortes",
+        "goods": [],
+        "street": "South Water Street",
+        "placement": {
+          "class": "street_only",
+          "street": "South Water Street"
+        }
+      },
+      "notes": "A ROOM, ON A NAMED STREET, AND NOTHING FINER. 'in his room on south Water street' gives the street and says the premises are a room rather than a store — `street_only`, because no side, number or neighbour is named. The fuller 1835-07-29 printing (page 3 column 4, line 366) carries the sentences this one loses at the crop: 'when a sufficient number of scholars [offer] themselves, he intends commencing a VOCAL and INSTRUMENTAL MUSIC SCHOOL'. THE DATELINE is read as 22 June 1835 from 'guns 22, VHB' with the 07-29 printing's 'june 2' beside it; neither is firm enough for an `ad_copy_date`, so none is recorded. A MUSIC SCHOOL THAT HAD NOT YET OPENED: the copy is conditional — it commences when enough scholars offer — so this is evidence of a music teacher keeping a room on South Water Street in July 1835, not of a school standing there."
+    },
+    {
+      "id": "c006",
+      "kind": "business",
+      "reading": "transcription_mediated",
+      "quote": "ILORING BUS\nE Subscribers would give notice to the public, thet they have taken « shop, on rn Street, neatly opposite the Pagle House, where they will be happy (o wait howe who may hevor them with a call. ope by diligent attention to business, to share of putronage, Fashions received season, from New York,\nCOOLEY and HALSMAN,",
+      "normalized": "[TA]ILORING BUS[INESS.] [TH]E Subscribers would give notice to the public, that they have taken a shop, on [Dearbo]rn Street, nearly opposite the [E]agle House, where they will be happy to wait [on t]hose who may favor them with a call. [They h]ope by diligent attention to business, to [merit a] share of patronage. Fashions received [for the] season, from New York, COOLEY and HALSMAN,",
+      "locator": {
+        "artifact_role": "primary",
+        "issue_page": 3,
+        "column": 3,
+        "lines": [
+          332,
+          334
+        ]
+      },
+      "entities": [
+        {
+          "as_printed": "COOLEY and HALSMAN",
+          "normalized": "Cooley and Halsman",
+          "role": "proprietors",
+          "occupations": [
+            "tailors"
+          ],
+          "associated_places": [
+            "Dearborn Street"
+          ]
+        }
+      ],
+      "business": {
+        "name": "Cooley and Halsman",
+        "proprietors": [
+          "Cooley and Halsman"
+        ],
+        "trade": "tailors",
+        "goods": [],
+        "street": "Dearborn Street",
+        "placement": {
+          "class": "relative",
+          "anchor": "the Eagle House",
+          "offset_text": "they have taken « shop, on rn Street, neatly opposite the Pagle House",
+          "offset_normalized": "they have taken a shop, on [Dearbo]rn Street, nearly opposite the [E]agle House",
+          "street": "Dearborn Street"
+        }
+      },
+      "announces_opening": {
+        "verbatim": "they have taken a shop, on [Dearbo]rn Street",
+        "dating": "undated",
+        "iso": null,
+        "note": "The first printing of the tailors' notice carries no dateline; the 29 July printing of the same copy is dated 22 July 1835."
+      },
+      "notes": "THE BEST PLACEMENT IN THE FOUR ISSUES: a shop on Dearborn Street, nearly opposite the Eagle House — a street, a side implied by an anchor, and an anchor the town already carries, since the Democratic citizens of Chicago Precinct meet at the Eagle Coffee House two days after this issue (chicago_democrat_1835_07_15 c002). `class: relative`, anchor the Eagle House. ANNOUNCES AN OPENING: 'they have taken a shop' is the taking, not the standing, and the 1835-07-29 printing (line 368) still carries the same copy, so the shop is new in July 1835 and under the parent's rule this is NOT evidence of a tailor's shop standing there on 1 July. THE FIRM'S NAME IS TWO SURNAMES AND NO FORENAMES, so one entity is minted for the partnership and no partner is minted separately — the project never splits a firm into people it cannot name. 'HALSMAN' is as printed in both witnesses."
+    },
+    {
+      "id": "c007",
+      "kind": "notice",
+      "reading": "transcription_mediated",
+      "quote": "Dissolution. B firin of Fm, Hogua & co. haw been involved hy inutaal consent, All persone ungettle [accounts with, ur why ate in: to the coneern, are requested to call on larmon, es. who slone je authorized to to the business.\nCHAS. L. BRISTOL,\nJOHN HALE,\nWM. HOG! 530 ld",
+      "normalized": "Dissolution. [THE] fir[m] of [W]m. Hogu[e] & co. ha[s] been [d]i[ss]olved by mutual consent. All persons [having] unsettled accounts with, o[r] who a[r]e in[debted] to the concern, are requested to call on [Isaac] [H]armon, esq. who alone is authorized to [attend] to the business. CHAS. L. BRISTOL, JOHN HALE, WM. HOGU[E]",
+      "locator": {
+        "artifact_role": "primary",
+        "issue_page": 3,
+        "column": 3,
+        "lines": [
+          336,
+          339
+        ]
+      },
+      "entities": [
+        {
+          "as_printed": "CHAS. L. BRISTOL",
+          "normalized": "Chas. L. Bristol",
+          "role": "partner",
+          "occupations": [
+            "merchant"
+          ],
+          "associated_places": [
+            "Chicago"
+          ]
+        },
+        {
+          "as_printed": "JOHN HALE",
+          "normalized": "John Hale",
+          "role": "partner",
+          "occupations": [
+            "merchant"
+          ],
+          "associated_places": [
+            "Chicago"
+          ]
+        },
+        {
+          "as_printed": "WM. HOG!",
+          "normalized": "Wm. Hogue",
+          "role": "partner",
+          "occupations": [
+            "merchant"
+          ],
+          "associated_places": [
+            "Chicago"
+          ]
+        }
+      ],
+      "business": {
+        "name": "Wm. Hogue & Co.",
+        "proprietors": [
+          "Chas. L. Bristol",
+          "John Hale",
+          "Wm. Hogue"
+        ],
+        "trade": "mercantile firm, dissolved by mutual consent in July 1835",
+        "goods": [],
+        "street": null,
+        "placement": {
+          "class": "none"
+        }
+      },
+      "contradicts": true,
+      "notes": "RULING 3'S VETO, AND THE ONLY ONE IN THE FOUR ISSUES. A dissolution notice is the one thing that can stop a documented business being built at the scene date, and this is one: the firm of Wm. Hogue & Co. is dissolved by mutual consent, three partners signing. `contradicts: true` is set so the compiler carries it to the business rather than an author asserting the consequence by hand. THE DATE IS THE QUESTION THE NOTICE DOES NOT ANSWER: the dateline is sheared to 'Chirago. Jubii, 12¥i' in the 1835-07-29 printing (line 369) and to '530 ld' here, so whether the dissolution predates 1 July 1835 cannot be settled from these two witnesses; what is certain is that it was advertised inside the scene month. THE SETTLING AGENT: 'larmon, es.' is read as Isaac Harmon, esq. from the 07-29 printing's 'Isaae Hoeiion, en.' — the reading is marked in the normalized text and no person is minted for him, because two crop-edge witnesses disagreeing on a surname is not a name."
+    },
+    {
+      "id": "c008",
+      "kind": "infrastructure",
+      "reading": "transcription_mediated",
+      "quote": "PROCLAMATION!\nnoat Vandalia, thie 7th day of July, | - id of the padependesce of the United\nbe sixth, soscrH DUNCAN. {4\nGovernor: + 7 ee B. FIELD, Seo'y of 8",
+      "normalized": "[A] PROCLAMATION! […] [Done at] Vandalia, this 7th day of July, [and of the In]dependence of the United [States the] sixty[-]s[i]xth, [JO]SEPH DUNCAN. Governor[.] [A.] B. FIELD, Sec'y of S[tate]",
+      "locator": {
+        "artifact_role": "primary",
+        "issue_page": 3,
+        "column": 3,
+        "lines": [
+          340,
+          344
+        ],
+        "lines_of_claim": [
+          340,
+          342,
+          343,
+          344
+        ]
+      },
+      "entities": [
+        {
+          "as_printed": "soscrH DUNCAN",
+          "normalized": "Joseph Duncan",
+          "role": "Governor of Illinois",
+          "occupations": [
+            "Governor of Illinois"
+          ],
+          "associated_places": [
+            "Vandalia"
+          ]
+        },
+        {
+          "as_printed": "B. FIELD",
+          "normalized": "A. B. Field",
+          "role": "Secretary of State",
+          "occupations": [
+            "Secretary of State of Illinois"
+          ],
+          "associated_places": [
+            "Vandalia"
+          ]
+        }
+      ],
+      "notes": "THE STATE BANK OF ILLINOIS IS DECLARED OPEN FOR BUSINESS. The body of the proclamation (line 341, inside the cited range and not quoted here because it is a 1,973-character weave of two half-columns) recites the nineteenth section of the incorporating act of 12 February 1835: the Governor must appoint persons to count the money paid in by the stockholders, and when their return shows two hundred and fifty thousand dollars actually in the vaults he must proclaim that the institution may commence business. This is the proclamation. The 1835-07-29 issue reprints the same document (page 3 column 4, lines 369-375). Kept as `infrastructure` because what it carries for the town is a bank about to open, not a business standing in a street. Line 341 is excluded from `lines_of_claim` for the reason given."
+    },
+    {
+      "id": "c009",
+      "kind": "business",
+      "reading": "transcription_mediated",
+      "quote": "ardware, Stoves, &c. f : undersigned have formed s connection the merchantile business, ander the firm | / _ King & ta, They are receiving by | | nous, & large and general assortinent of | |\nHard Were, , tthery, Nails, Trop, Stoel, dec, ; and compléte assortment of ’\nSTOVER, §\nwhic! WRDLESALE OF RE- reich 7 SEW ALLIAM JONES, | BYRAM, KING, 4\n... H. Bh CLARKE.",
+      "normalized": "[H]ardware, Stoves, &c. [The] undersigned have formed a connection [in] the mercantile business, under the firm [of Jones,] King & [Co]. They are receiving by [Brig Illi]nois, a large and general assortment of Hard W[a]re, [Cu]tlery, Nails, Iron, Steel, &c, and complete assortment of STOVE[S], [and Stove Furniture, Iron Ware and Saw Mill Gearing,] whic[h they offer at] WHOLESALE OR RE[TAIL]. W[I]LLIAM JONES, BYRAM KING, H. B. CLARKE.",
+      "locator": {
+        "artifact_role": "primary",
+        "issue_page": 3,
+        "column": 3,
+        "lines": [
+          345,
+          349
+        ]
+      },
+      "entities": [
+        {
+          "as_printed": "ALLIAM JONES",
+          "normalized": "William Jones",
+          "role": "partner",
+          "occupations": [
+            "merchant",
+            "hardware merchant"
+          ],
+          "associated_places": [
+            "Chicago"
+          ]
+        },
+        {
+          "as_printed": "BYRAM, KING",
+          "normalized": "Byram King",
+          "role": "partner",
+          "occupations": [
+            "merchant",
+            "hardware merchant"
+          ],
+          "associated_places": [
+            "Chicago"
+          ]
+        },
+        {
+          "as_printed": "H. Bh CLARKE",
+          "normalized": "H. B. Clarke",
+          "role": "partner",
+          "occupations": [
+            "merchant",
+            "hardware merchant"
+          ],
+          "associated_places": [
+            "Chicago"
+          ]
+        }
+      ],
+      "business": {
+        "name": "Jones, King & Co.",
+        "proprietors": [
+          "William Jones",
+          "Byram King",
+          "H. B. Clarke"
+        ],
+        "trade": "hardware, cutlery, nails, iron, steel, stoves and saw mill gearing, wholesale and retail",
+        "goods": [
+          "Cutlery",
+          "Hardware",
+          "Iron",
+          "Nails",
+          "Saw mill gearing",
+          "Steel",
+          "Stoves"
+        ],
+        "street": null,
+        "placement": {
+          "class": "none"
+        }
+      },
+      "announces_opening": {
+        "verbatim": "[The] undersigned have formed a connection [in] the mercantile business",
+        "dating": "undated",
+        "iso": null,
+        "note": "The second printing of the Jones, King & Co. formation notice, again with no dateline."
+      },
+      "notes": "THE SAME FORMATION NOTICE AS chicago_democrat_1835_07_08 c009, standing a fortnight later and still carrying no address. Recorded rather than skipped because it fixes the window the firm advertised in — 8 July to 29 July at least, all three witnesses in this range — and because the three signatures are legible here where the 07-08 printing sheared the first ('WILLIAM JONES' survives whole in both)."
+    },
+    {
+      "id": "c010",
+      "kind": "person",
+      "reading": "transcription_mediated",
+      "quote": "List of Letters |} ern im the Post Uffice at Jul 9 @ et, 1. tos July, 1935, [Jona Atking 3 Ramuel R. Holcomb G | Ambroee: Blins Absalom Haworth 0 | Adam Brown Seth H. Hills Harvey Blakeley Rev, Wm, Kirby Henry Bone Hannah M, Kirby Wm. 8. Burgess Joseph Laeiy Michhel Boans Horace Miller q | Luther C.Chamberlain Sam'| McNiel 2 [Hamden A. Caywin3 Win, Mann. LM. & 0. Clayes Wa, Macay 5 | Thos. Cox Aanron Moore 9 | Lucius M, Casy Aurora Mount 2 | Levi Cotenil Peter Nicholson Jonathan E. Crows Francis Owens 5 1AM, Cane Samuel Pence } [James N. Campbell Wim. Peck 2 ) | Btin Dodge Wm. Rice Granville Davin James Rockwell ) | Ephrim Degyet ——Phalip Scot ) | Norman Dyer Win, Sizer | | Vm, Diidley eg, Jeremiah Stephenson | | Ricserd B. Davia Alexander H, Smith fd. W.. Frank Geo. W. Spitter Wn. Falter Chistes Sexton ohn Prazer +i Savage or = | Elijah Goodwin Win, Woodward Christian Gaui VY. Sharmaker R| Truman Gilbert J. HL. Seth David Gobble ©, C. Van Hom Ins. Griewald ——r Van Horn esq, Bliay Uaven Angustus Wyle ~|Josish R, Holden John C, Williame Jnmes Hart % Abijah B. Watson Sarnel Hester Henry Waikina of'Richard Hobby G.H, Woodruff Comstock Hanford AL W, BOWEN, P.M.",
+      "normalized": "List of Letters [R]EMAINING in the Post Office at Juli[e]t, [Illinois,] 1[st] [of] July, 1[8]35, […] A. W. BOWEN, P.M. — the list as printed, its two alphabetical columns arriving interleaved on one line.",
+      "locator": {
+        "artifact_role": "primary",
+        "issue_page": 3,
+        "column": 4,
+        "lines": [
+          353,
+          353
+        ],
+        "spans": [
+          {
+            "line": 353,
+            "from": 373,
+            "to": 1548
+          }
+        ]
+      },
+      "entities": [],
+      "letter_list_only": true,
+      "post_office": "Juliet, Illinois",
+      "notes": "RECORDED IN FULL AND NOT MINTED — Juliet is not Chicago, so under ruling 1 no name here mints a resident candidate for the town, exactly as the Hennepin, Plainfield and Du Page lists of the same quarter day are recorded and not minted (chicago_democrat_1835_07_08 c018-c020, following T-0292). AND THIS ONE IS LEGIBLE, which is why the whole of it is quoted rather than a fragment: unlike the three lists in the 07-08 deposit printing, both alphabetical columns survive here with their surnames whole. HAND COUNT: 91 names counted by hand off the printed block — 46 in the left alphabetical column, Jona. Atkins to Comstock Hanford, and 45 in the right, Samuel R. Holcomb to G. H. Woodruff — plus the postmaster A. W. Bowen, who is not minted either. Several carry a numeral for a second or third letter ('Jona Atking 3', 'Hamden A. Caywin3', 'Wa, Macay 5'), which is counted once per name. THE SAME LIST IS REPRINTED in the 1835-07-29 issue (page 4 column 2, line 497), so a run reading that issue is reading this list a second time and must not mint it twice (T-0299). Names in it that the town also carries — 'C. C. Van Hom' and 'r Van Horn esq' against the C. C. Van Horn who advertises Illinois and Michigan canal farms in every issue of this range — are left unresolved here rather than merged on a coincidence of surname."
+    },
+    {
+      "id": "c011",
+      "kind": "business",
+      "reading": "transcription_mediated",
+      "quote": "For Sale. or T private Sale. Lots tuated in Towns t| A «Siti and Ghicupat ee et “ W. MONTGOMERY, duc'r,\nNotice. - | PERSONS tevi-ous of having Lote dusposnd of either hy Public or Priyee@ Sale, can have tho same dono with puneraality and dee- | pateh, by i W, MONTGOMERY, Auc'r.\nSubscriptions o F’% the Saturday Evening Post, Casket, d and Book of Naturg, of Philadelphia, re- erived al Montgomery's Agction Room, South Water Street. W. MONTGOMERY, Agent,",
+      "normalized": "For Sale[, at] private Sale[,] Lots [si]tuated in Towns […] and Chicago […] W. MONTGOMERY, Auc'r, [J]uly [2]5, 1835, — Notice. PERSONS [des]i[r]ous of having Lots disposed of either by Public or Priv[at]e Sale, can have the same done with punctuality and des-patch, by W. MONTGOMERY, Auc'r. — Subscriptions [f]o[r] the Saturday Evening Post, Casket, and Book of Nature, of Philadelphia, re[c]eived a[t] Montgomery's A[u]ction Room, South Water Street. W. MONTGOMERY, Agent,",
+      "locator": {
+        "artifact_role": "primary",
+        "issue_page": 3,
+        "column": 4,
+        "lines": [
+          353,
+          353
+        ],
+        "spans": [
+          {
+            "line": 353,
+            "from": 1608,
+            "to": 1711
+          },
+          {
+            "line": 353,
+            "from": 1728,
+            "to": 1902
+          },
+          {
+            "line": 353,
+            "from": 1926,
+            "to": 2102
+          }
+        ]
+      },
+      "entities": [
+        {
+          "as_printed": "W. MONTGOMERY",
+          "normalized": "W. Montgomery",
+          "role": "proprietor",
+          "occupations": [
+            "auctioneer",
+            "commission merchant",
+            "land agent",
+            "newspaper agent"
+          ],
+          "associated_places": [
+            "South Water Street"
+          ]
+        }
+      ],
+      "business": {
+        "name": "W. Montgomery",
+        "proprietors": [
+          "W. Montgomery"
+        ],
+        "trade": "auction and commission house, town-lot sales, and agency for eastern periodicals",
+        "goods": [],
+        "street": "South Water Street",
+        "placement": {
+          "class": "street_only",
+          "street": "South Water Street"
+        }
+      },
+      "notes": "THE ROOM IS NAMED AND PLACED IN THE PAPER'S OWN WORDS: 'received at Montgomery's Auction Room, South Water Street.' That corroborates the placement taken from the 1835-07-08 printing (chicago_democrat_1835_07_08 c001), which put the house at David Carver's old stand on South Water Street — two independent insertions, three weeks apart, agreeing on the street. This claim's own class is `street_only` because these three insertions give the street and no anchor; the relative placement stays where the anchor is, on the 07-08 claim, and the compiler keeps that one because it reads the issues in date order. THREE INSERTIONS, ONE CLAIM, three spans of the same transcription line: lots for private sale, an offer to sell lots at public or private sale, and an agency for the Saturday Evening Post, the Casket and the Book of Nature of Philadelphia. WHAT THIS ADDS TO THE TOWN: an auctioneer on South Water Street who by late July was selling town lots and taking subscriptions for eastern magazines out of the same room."
+    },
+    {
+      "id": "c012",
+      "kind": "business",
+      "reading": "transcription_mediated",
+      "quote": "L. G. CURTISS, Deputy Surveyor of Cook Covnty. rdore lat at the Mansion House will be Ong, alinnded to.",
+      "normalized": "L. G. CURTISS, Deputy Surveyor of Cook Coun[t]y. [O]rd[e]r[s] l[ef]t at the Mansion House will be [punctu]ally a[tt]ended to.",
+      "locator": {
+        "artifact_role": "primary",
+        "issue_page": 3,
+        "column": 4,
+        "lines": [
+          353,
+          353
+        ],
+        "spans": [
+          {
+            "line": 353,
+            "from": 2281,
+            "to": 2384
+          }
+        ]
+      },
+      "entities": [
+        {
+          "as_printed": "L. G. CURTISS",
+          "normalized": "L. G. Curtiss",
+          "role": "proprietor",
+          "occupations": [
+            "deputy surveyor of Cook County",
+            "surveyor"
+          ],
+          "associated_places": [
+            "Chicago",
+            "the Mansion House"
+          ]
+        }
+      ],
+      "business": {
+        "name": "L. G. Curtiss",
+        "proprietors": [
+          "L. G. Curtiss"
+        ],
+        "trade": "deputy surveyor of Cook County",
+        "goods": [],
+        "street": null,
+        "placement": {
+          "class": "relative",
+          "anchor": "the Mansion House",
+          "offset_text": "rdore lat at the Mansion House will be Ong, alinnded to.",
+          "offset_normalized": "[O]rd[e]r[s] l[ef]t at the Mansion House will be [punctu]ally a[tt]ended to.",
+          "street": null
+        }
+      },
+      "notes": "A HOUSE USED AS AN ADDRESS, WHICH IS A PLACEMENT WITHOUT A STREET. The county's deputy surveyor keeps no office of his own and takes his orders at the Mansion House, so the anchor is a named Chicago building and the street is unknown — `class: relative` with a null street rather than a street guessed at from the anchor. THE OTHER WITNESS DISAGREES ON THE HOUSE: the 1835-07-29 printing (page 3 column 5, line 429) reads 'N Qa IE eh se Stenson Howse il be! I puuctually attended to', which is not the Mansion House and is not legible enough to be anything else, so this reading is taken from the better witness and the disagreement is recorded rather than smoothed away. That matters, because the anchor is the whole of the placement."
+    },
+    {
+      "id": "c013",
+      "kind": "business",
+      "reading": "transcription_mediated",
+      "quote": "On Consignment, : 500 BBLS. spperfine Ohio Flour, Yoru brands 2000Ib.auperior Bacon 10bbls, Mens Pork, 14) do. Rectified a bie- key. Sees DAVID CARVER.",
+      "normalized": "On Consignment, 500 BBLS. s[u]perfine Ohio Flour, [fav]or[i]te brands 2000 lb. [s]uperior Bacon 10 bbls. Me[s]s Pork, 1[0] do. Rectified [W]his-key. DAVID CARVER.",
+      "locator": {
+        "artifact_role": "primary",
+        "issue_page": 3,
+        "column": 4,
+        "lines": [
+          353,
+          353
+        ],
+        "spans": [
+          {
+            "line": 353,
+            "from": 2427,
+            "to": 2578
+          }
+        ]
+      },
+      "entities": [
+        {
+          "as_printed": "DAVID CARVER",
+          "normalized": "David Carver",
+          "role": "advertiser",
+          "occupations": [
+            "merchant",
+            "forwarding and commission merchant"
+          ],
+          "associated_places": [
+            "Chicago",
+            "South Water Street"
+          ]
+        }
+      ],
+      "business": {
+        "name": "David Carver",
+        "proprietors": [
+          "David Carver"
+        ],
+        "trade": "produce and provisions on consignment",
+        "goods": [
+          "Bacon",
+          "Flour",
+          "Pork",
+          "Whiskey"
+        ],
+        "street": "South Water Street",
+        "placement": {
+          "class": "none"
+        }
+      },
+      "notes": "CARVER IS STILL TRADING AFTER GIVING UP HIS STAND, which is the point of recording this. His old stand on South Water Street is what W. Montgomery took for the auction house (chicago_democrat_1835_07_08 c001), and here, three weeks later, Carver is advertising five hundred barrels of Ohio flour, bacon, mess pork and rectified whiskey on consignment over his own name. The advertisement gives no address, so the placement class is `none`; the street on the business is the one his old stand stood in and is carried for the record, not asserted as his address in July 1835. The same insertion stands on 1835-07-29 (page 3 column 5, lines 430-432)."
+    },
+    {
+      "id": "c014",
+      "kind": "notice",
+      "reading": "transcription_mediated",
+      "quote": "Wanted Imniediately. FIRST rate Journey inga Cabinet) Makers 4 10 whom ateady, imployment wall ae given pl p= Ce df mo Grumblin, eae ee ie ae Pens DEWEE, | _Clacone, fuly 1835.",
+      "normalized": "Wanted Imm[e]diately[,] FIRST rate Journey[men] Cabinet Makers[,] to whom steady [e]mployment w[i]ll [b]e given [and good prices] […] [and] no Grumbling. […] [D. S.] DEWE[Y], Chica[g]o, [J]uly 1835.",
+      "locator": {
+        "artifact_role": "primary",
+        "issue_page": 3,
+        "column": 4,
+        "lines": [
+          353,
+          353
+        ],
+        "spans": [
+          {
+            "line": 353,
+            "from": 2581,
+            "to": 2757
+          }
+        ]
+      },
+      "entities": [
+        {
+          "as_printed": "Pens DEWEE",
+          "normalized": "D. S. Dewey",
+          "role": "advertiser",
+          "occupations": [
+            "cabinet maker"
+          ],
+          "associated_places": [
+            "Chicago"
+          ]
+        }
+      ],
+      "notes": "A TRADE THE TOWN WAS SHORT OF, advertised twice in this range: first-rate journeymen cabinet makers wanted immediately, steady employment and good prices. THE NAME IS TAKEN FROM THE OTHER WITNESS: this printing sheares it to 'Pens DEWEE' and the 1835-07-29 printing (page 3 column 5, line 433) reads 'D\"8, DEWET' — neither alone is a name, and together they are 'D. S. Dewey', which is how it is minted and why the reasoning is written here rather than assumed. What the claim carries for the town is a cabinet-making shop in Chicago in July 1835 large enough to be hiring journeymen; it is given no address by either witness."
+    },
+    {
+      "id": "c015",
+      "kind": "business",
+      "reading": "transcription_mediated",
+      "quote": "Patent Medicines, USKINS', James’, and Seara’ celebrated M London and Paris Ingan Pills, muperior | to any yet offered to the public. Dr’ Scudder's celebrated Acoaatio Oi. Spoken’s Expectorant Syrap; c \"cure for Headackse ; Hygean tonic mizture and syrup; Elin of Lifer prosersing cardial: Jame’ caraioatlye balzn tnd heelth restore Hava’ liniment; inflamatory ecieutic; ! Toothache drops; anti-consumptive specific ; | Swain’s panacea and vermifuge. Abo, Les's pille, Bateman’s ropa, cough to- | yenges, Purlingson’a balsain, ofc, eyc, for sale by | : P. CARPENTER,",
+      "normalized": "Patent Medicines. [H]USKINS', James', and Sears' celebrated London and Paris [Indi]an Pills, superior to any yet offered to the public. Dr. Scudder's celebrated Aco[u]stic Oil[;] Spo[h]n's Expectorant Syr[u]p; [a] cure for Headache; Hygean tonic mi[x]ture and syrup; Eli[xi]r of Life[,] p[r]eserving cordial; Jame[s'] car[m]inative bal[s]m and health restor[er;] Ha[y]s' liniment; inflam[m]atory [sci]atic; Toothache drops; anti-consumptive specific; Swaim's panacea and vermifuge. Also, Lee's pills, Bateman's [d]rops, cough lozenges, [Bu]rlingson's balsam, &c, &c, for sale by P. CARPENTER,",
+      "locator": {
+        "artifact_role": "primary",
+        "issue_page": 3,
+        "column": 4,
+        "lines": [
+          353,
+          353
+        ],
+        "spans": [
+          {
+            "line": 353,
+            "from": 2760,
+            "to": 3326
+          }
+        ]
+      },
+      "entities": [
+        {
+          "as_printed": "P. CARPENTER",
+          "normalized": "Philo Carpenter",
+          "role": "proprietor",
+          "occupations": [
+            "druggist"
+          ],
+          "associated_places": [
+            "Chicago"
+          ]
+        }
+      ],
+      "business": {
+        "name": "Philo Carpenter",
+        "proprietors": [
+          "Philo Carpenter"
+        ],
+        "trade": "druggist — drugs, medicines, dye woods and dye stuffs, wholesale and retail",
+        "goods": [
+          "Cough lozenges",
+          "Liniment",
+          "Panacea",
+          "Patent medicines",
+          "Vermifuge"
+        ],
+        "street": null,
+        "placement": {
+          "class": "none"
+        }
+      },
+      "notes": "THE FULLEST PATENT-MEDICINE LIST IN THE RANGE, and it is quoted whole because the goods a druggist stocked are the kind of texture the parent asks for. NO ADDRESS, so `none`: Carpenter advertises heavily in all four issues and places himself in none of them, which is worth stating as a finding rather than leaving as a silence — the same is true of P. Pruyne & Co., his competitor, across some two dozen insertions. Minted as Philo Carpenter, the same house as chicago_democrat_1835_07_08 c011, on the initial and the trade together."
+    }
+  ]
+}

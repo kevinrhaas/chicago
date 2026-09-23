@@ -1,0 +1,102 @@
+{
+ "_doc": "T-1004. ONE CARD, TWO MEN: the written ruling on every town card that the name rules gathered a SECOND man's readings onto. This is card_merge_rulings.json's fault read backwards. That file rules on a cluster of cards the rules join and asks whether they are one man; this one rules on a SINGLE card and asks whether it is one man, because the derivation had no way to say no. tools/consolidate_resident_evidence.py has `declared_anchors`, which forces a reading ONTO a person a crosswalk has matched, and it had no opposite: nothing could force a reading OFF a person the surname-plus-forename rules had folded it into. So a card gathered two men silently, and every downstream reading of it — a tract purchase, a grade, a trade — was about whichever man the reader assumed. `declared_splits` is that opposite, and this file is what it reads. A ruling is a claim and carries its reasoning: `for` is why the reading names the other man, `against` is what would say otherwise, and both are written even where the answer is arithmetic, because the next pass reads this instead of re-asking.",
+ "ticket": "T-1004",
+ "ruled_on": "2026-09-13",
+ "rules": {
+  "X1": "ONE VOLUME PRINTS BOTH MEN. The same book sets two entries whose names differ only by the tokens the merge rules are allowed to ignore, and a directory does not enter one man twice under two spellings. This is the fact R6 already rests on — a fact about the PAGE, not about the shape of the name — applied to two men rather than to a wife and her husband.",
+  "X2": "THE ENTRY'S OWN QUALIFIER NAMES THE OTHER MAN. An initial-only reading carries a trade, an employer or an address, and another volume prints that same qualifier against a FULL forename of the surname. M2 attaches an initial to the one full forename the TOWN holds a card for, and a count of cards is a fact about the rest of the town rather than evidence about the reading (T-0697's own finding, in the other direction). Where the page supplies the expansion, the page decides.",
+  "X3": "THE ARITHMETIC REFUSES IT. A death notice or a register prints an age, the age fixes a birth year, and the birth year puts the man at an age on 1 July 1835 that the record folded onto him cannot describe. A man born about 1835 did not write to the post office in 1834.",
+  "X0": "RECORDED, NOT SPLIT. The evidence says a card gathers two men and does not say which reading belongs to which, or the fold is a LANDED adjudication that only the owner may reverse. The ruling is written anyway, with the question it leaves open, because the acceptance clause of T-1004 is explicit: a card that cannot be split on the evidence is RECORDED as gathering two men rather than quietly left. A recorded ruling changes no derivation and is gated the other way round — its readings must still be ON the card, so a later pass that splits them silently makes this ruling stale and the gate says so."
+ },
+ "cards": [
+  {
+   "card": "hh_bowen_erastus_selden",
+   "person_id": "bowen_erastus_selden",
+   "state": "split",
+   "holds": "Erastus Bowen, of B. & Cole, city collector of Chicago in 1839 — on the tax list of 1833, the poll of 1834, the Democrat's letter list of 4 March 1834, Fergus 1843 and Norris 1844, and the purchaser the federal tract register enters as BOWEN ERASTUS.",
+   "also_held": "Erastus Selden Bowen, veterinary surgeon, who died 19 October 1888 aged 69 and was therefore born about 1819 — SIXTEEN on the scene date.",
+   "name_as_ruled": "Erastus Bowen",
+   "name_note": "The name his own volumes print. Fergus 1839, Fergus 1843 and Norris 1844 each set him `Erastus` with no middle name; the `Selden` reached this card from the entry ruled off it below. THE ID IS NOT RENAMED. `bowen_erastus_selden` is a key, not a name: it is quoted in 27 committed files — the tract crosswalk, the land rulings, the 1835 register, the old-settlers people file, the grading proposal, the identity master — and a rename is a mechanical change to all of them that has nothing to do with settling which man is which. The card's NAME is what a reader sees and what the derivation clusters on, and that is what moves here. The id's disagreement with it is recorded rather than hidden.",
+   "off_the_card": [
+    {
+     "domain": "directories",
+     "record_id": "f1843_e0391",
+     "as_read": "Bowen, Erastus Selden [veterinary surgeon] [died Oct. 19,1888, a. 69]",
+     "belongs_to": "Erastus Selden Bowen, the veterinary surgeon",
+     "rule": "X1",
+     "for": "Fergus 1843 prints BOTH men, twelve entry numbers apart in one alphabetical run: e0390 `Bowen, Erastus (B. & Cole), res 40 Michigan ave [died. Aurora, Kane Co.. Ill.]` and e0391 `Bowen, Erastus Selden [veterinary surgeon] [died Oct. 19,1888, a. 69]`. A directory does not enter one man twice under two spellings, and the editorial brackets Fergus adds to each are different men's deaths — one at Aurora in Kane County, one at Chicago on 19 October 1888. X3 agrees independently: an age of 69 at that death puts the birth about 1819, which makes him sixteen years old on 1 July 1835 and fourteen when the 1833 tax list was taken.",
+     "against": "Nothing in the corpus says the two entries are one man, and nothing needs to: the fold was derived, not declared. It was M1 on the normalised strings — the card's own name `Erastus Selden Bowen` is letter for letter this entry's — and the `Erastus` readings then came up to it under the bare-forename rule. The card's name is the only thing that ever joined them, and this ruling is why the name was wrong."
+    }
+   ],
+   "ambiguous": [
+    {
+     "reading": "The Calumet Club's register of the settlers of Chicago prior to 1840, 27 May 1879: `Bowen, Erastus S. | 1833, | New York. | 64 | Chicago.`",
+     "why": "IT CANNOT BE ASSIGNED, AND SAYING SO IS THE RULING. It prints the middle initial `S.` — the younger man's, which the elder's own volumes never set — while the arrival it gives, 1833, is the elder's shape and would have the younger arriving at fourteen. Its age column puts the birth about 1815, four years off the death notice's 1819. And its last column is a Chicago address in 1879, against Fergus's note that the elder died at Aurora. Four columns, and they do not point one way. NOTHING MOVES: the old-settlers crosswalk matched os1879r017 onto this card and the reading STAYS on it, recorded as unassigned between the two men rather than quietly read as the elder's. That is X0's shape inside a split ruling, and it is deliberate — a reading this pass cannot settle is worse hidden than left in place with the doubt written beside it.",
+     "rule": "X0",
+     "record_id": "os1879r017",
+     "stays_on_the_card": true
+    }
+   ],
+   "second_man_in_the_layer": false,
+   "second_man_note": "He does not belong in it. Every reading that is his describes 1843 or later, so the ladder's own G0 grades the identity `not_1835_resident` and no card is minted. That is the acceptance clause's answer to `does the second man have any 1835 record at all` — none, and the gate re-proves it rather than this file asserting it."
+  },
+  {
+   "card": "hh_king_nehemiah",
+   "person_id": "king_nehemiah",
+   "state": "split",
+   "holds": "Nehemiah King, named in the Chicago Democrat of 6 August 1834.",
+   "also_held": "Nathaniel King, clerk to Tuthill King.",
+   "off_the_card": [
+    {
+     "domain": "directories",
+     "record_id": "n1844_e1022",
+     "as_read": "King, N. clerk, at T. King's, house 12 Lake st",
+     "belongs_to": "Nathaniel King",
+     "rule": "X2",
+     "for": "The entry's own qualifier expands its initial. Fergus 1839 prints `King, Nathaniel, clerk, Tuthill King` (leaf 020, the alphabetical run); Norris 1844 prints `King, N. clerk, at T. King's`. Same trade, same employer, and the volume five years earlier sets the forename in full. The town holds a card for Tuthill King, so the employer is not in doubt either.",
+     "against": "M2 attached the `N.` to Nehemiah, and on its own terms correctly: Nehemiah is the one full King forename of that initial the town holds a CARD for, and Nathaniel holds none. That is the count-of-namesakes reasoning T-0697 refused in the other direction — a fact about the rest of the town, not evidence about the reading in hand. Where a page prints the expansion, the page decides. Nehemiah's own reading, the Democrat of 6 August 1834, gives no trade and no employer, so nothing on his side answers the qualifier."
+    }
+   ],
+   "second_man_in_the_layer": false,
+   "second_man_note": "Nathaniel King is printed in 1839 and 1844 and nowhere in the scene window, so G0 grades him `not_1835_resident` and no card is minted. The two directory lines are a lead for a later pass that is allowed to write people, and this file is where that pass will find them."
+  },
+  {
+   "card": "hh_thompson_john",
+   "person_id": "thompson_john",
+   "state": "split",
+   "holds": "John Thompson, on the Chicago Democrat's letter list of 4 March 1834.",
+   "also_held": "Gen. John Leverett Thompson, lawyer, who died 31 January 1888 aged 53.",
+   "off_the_card": [
+    {
+     "domain": "old_settlers",
+     "record_id": "fdn0666",
+     "as_read": "Thompson, Gen. John Leverett, lawyer, died Jan. 31, 1888, a. 53.",
+     "belongs_to": "Gen. John Leverett Thompson",
+     "rule": "X3",
+     "for": "The register's own arithmetic. Fifty-three years old at a death on 31 January 1888 puts the birth about 1835 — so on 1 July 1835 he was at most an infant, and on 4 March 1834, when the Democrat held a letter for John Thompson, he was not born. A letter list names a man who can be written to.",
+     "against": "The fold was M1 on the bare forename: `John Thompson` came up to `John Leverett Thompson` under the rule that lifts a one-token signature into the one rival carrying it, and the identity took the general's name — `id_thompson_john_leverett`, with the town's own man inside it. Nothing else joined them. The rank is not the argument here and is deliberately not used as one: `Lieut J L Thompson` stands on his own card and card_merge_rulings.json already refuses that pair by R4, which this ruling leaves exactly where it is."
+    }
+   ],
+   "second_man_in_the_layer": false,
+   "second_man_note": "A man born about 1835 has no 1835 record by construction. The notice describes 1888, G0 grades the identity `not_1835_resident`, and no card is minted."
+  },
+  {
+   "card": "hh_taylor_anson",
+   "person_id": "taylor_anson_h",
+   "state": "recorded",
+   "rule": "X0",
+   "holds": "Anson H. Taylor, carpenter, who built the south branch raft bridge — the one Anson Taylor the town documents, named in full by the old-settlers death notice fdn0656 and initialled `A. H. Taylor` in the Democrat of 4 March 1834.",
+   "also_held": "Whoever the Democrat of 12 November 1834 means by `Anson W. Taylor`, and the Black Hawk enrolment of 1832 by `TAYLOR, A W`.",
+   "still_on_the_card": [
+    "person_anson_w_taylor",
+    "blackhawk_1832_110",
+    "tax_1833_101"
+   ],
+   "for": "Three middle initials stand on one card — H, N and W — and namesake.py's own rule 2 is that two middle initials which disagree refuse the pair. The W readings are the ones that sit hardest against the H: `Anson W. Taylor` is a PRINTED newspaper line of 12 November 1834, not a hand a clerk mis-set.",
+   "against": "THIS FOLD IS A LANDED ADJUDICATION, AND A DERIVED RULE MAY NOT OVERTURN ONE. card_merge_rulings.json's `taylor-anson` cluster merged taylor_anson_n and taylor_anson_w into taylor_anson_h under C4 — a contradicted middle initial over an anchor — and the merge reaches this tool as a D1 anchor, which outranks everything derived here by design. Reversing it would unfold two people back out of the town and is not a thing this pass may do on its own reading.",
+   "open_question_for_the_owner": "C4's own terms confine the variation to `manuscript lists that a copyist mis-set`, and name the poll list and the Black Hawk enrolment as the lists it was applied to. The Chicago Democrat of 12 November 1834 is neither: it is set type. So the C4 merge rests, for the W readings, on ground its own clause does not cover — is `Anson W. Taylor` a compositor's error for Anson H., or a second Anson Taylor? The tax list's `Anson N.` is squarely inside C4 and is not in question. Nothing is changed here pending the answer; this clause is the record that the question was asked and left to him.",
+   "second_man_in_the_layer": null,
+   "second_man_note": "Unanswerable until the question above is answered, and recorded as unanswerable rather than decided."
+  }
+ ]
+}

@@ -1,0 +1,2430 @@
+{
+  "schema": 1,
+  "generated_by": "tools/newspaper_corpus.py --build",
+  "deposit_root": "chicago/reference/newspapers/Transcriptions",
+  "workflow": "chicago/reference/newspapers/Transcriptions/Newspaper_Transcription_Workflow.md",
+  "issue_count": 86,
+  "publications": {
+    "chicago_american": {
+      "title": "The Chicago American",
+      "source_id": "chicago_american_1835",
+      "issues": 13
+    },
+    "chicago_democrat": {
+      "title": "The Chicago Democrat",
+      "source_id": "chicago_democrat_1833_1835",
+      "issues": 73
+    }
+  },
+  "issues": [
+    {
+      "id": "chicago_american_1835_06_08",
+      "publication": "chicago_american",
+      "source_id": "chicago_american_1835",
+      "date": "1835-06-08",
+      "volume": "I",
+      "number": "1",
+      "artifacts": [
+        {
+          "role": "primary",
+          "format": "docx",
+          "path": "chicago/reference/newspapers/Transcriptions/Chicago_American_1835-06_to_1835-08/Chicago_American_1835-06-08_Vol1_No1_Transcription.docx",
+          "path_kind": "deposit",
+          "sha256": "fed909fa65bbafb8ab774db0c66f922a2d169cf4724fa75ac9ce1999402e9511",
+          "text_path_kind": "derived",
+          "text_path": "chicago/4d/data/research/newspapers/text/chicago_american_1835_06_08.txt",
+          "text_sha256": "f5087a3057c158e2deb21d0a7d74029f04ff367ba2b6149f8ffd85065e87ee49",
+          "derived_by": "tools/docx_text.py",
+          "text_chars": 149420
+        }
+      ],
+      "text_path": "chicago/4d/data/research/newspapers/text/chicago_american_1835_06_08.txt",
+      "text_path_kind": "derived",
+      "completeness": "unstated",
+      "status": "OCR-assisted research transcription; each source page was segmented into six physical columns and independently reprocessed when confidence was low."
+    },
+    {
+      "id": "chicago_american_1835_06_13",
+      "publication": "chicago_american",
+      "source_id": "chicago_american_1835",
+      "date": "1835-06-13",
+      "volume": "I",
+      "number": "2",
+      "artifacts": [
+        {
+          "role": "primary",
+          "format": "docx",
+          "path": "chicago/reference/newspapers/Transcriptions/Chicago_American_1835-06_to_1835-08/Chicago_American_1835-06-13_Vol1_No2_Transcription.docx",
+          "path_kind": "deposit",
+          "sha256": "9ddc5b03eeba5b604b0421b9bfaddaeed174ad91f3f8fdd550f9abca6a6cfcec",
+          "text_path_kind": "derived",
+          "text_path": "chicago/4d/data/research/newspapers/text/chicago_american_1835_06_13.txt",
+          "text_sha256": "d8fa3560c9148b0e10a4bfd625133ac627ed0d7c1f20388d9a605387841148fb",
+          "derived_by": "tools/docx_text.py",
+          "text_chars": 116037
+        }
+      ],
+      "text_path": "chicago/4d/data/research/newspapers/text/chicago_american_1835_06_13.txt",
+      "text_path_kind": "derived",
+      "completeness": "unstated",
+      "status": "OCR-assisted research transcription; each source page was segmented into six physical columns and independently reprocessed when confidence was low."
+    },
+    {
+      "id": "chicago_american_1835_06_20",
+      "publication": "chicago_american",
+      "source_id": "chicago_american_1835",
+      "date": "1835-06-20",
+      "volume": "I",
+      "number": "3",
+      "artifacts": [
+        {
+          "role": "primary",
+          "format": "docx",
+          "path": "chicago/reference/newspapers/Transcriptions/Chicago_American_1835-06_to_1835-08/Chicago_American_1835-06-20_Vol1_No3_Transcription.docx",
+          "path_kind": "deposit",
+          "sha256": "b59158326318f9b479b19ae3d438d21cafa26e07e5758134b3212246b956e523",
+          "text_path_kind": "derived",
+          "text_path": "chicago/4d/data/research/newspapers/text/chicago_american_1835_06_20.txt",
+          "text_sha256": "56664b2802cccf656212dc852e5bee61c00d8d490fd90751b9a6fdc6d0f18d49",
+          "derived_by": "tools/docx_text.py",
+          "text_chars": 128266
+        }
+      ],
+      "text_path": "chicago/4d/data/research/newspapers/text/chicago_american_1835_06_20.txt",
+      "text_path_kind": "derived",
+      "completeness": "unstated",
+      "status": "OCR-assisted research transcription; each source page was segmented into six physical columns and independently reprocessed when confidence was low."
+    },
+    {
+      "id": "chicago_american_1835_06_27",
+      "publication": "chicago_american",
+      "source_id": "chicago_american_1835",
+      "date": "1835-06-27",
+      "volume": "I",
+      "number": "4",
+      "artifacts": [
+        {
+          "role": "primary",
+          "format": "docx",
+          "path": "chicago/reference/newspapers/Transcriptions/Chicago_American_1835-06_to_1835-08/Chicago_American_1835-06-27_Vol1_No4_Transcription.docx",
+          "path_kind": "deposit",
+          "sha256": "3c74a5aa4e82f90bb8f46750bf82127b2a29032dd9c2e46aab1ca972cb5148d6",
+          "text_path_kind": "derived",
+          "text_path": "chicago/4d/data/research/newspapers/text/chicago_american_1835_06_27.txt",
+          "text_sha256": "e45a510650aeb253342575611d04ebc7bdcce83124028f39090d8ad60adf46bc",
+          "derived_by": "tools/docx_text.py",
+          "text_chars": 116202
+        }
+      ],
+      "text_path": "chicago/4d/data/research/newspapers/text/chicago_american_1835_06_27.txt",
+      "text_path_kind": "derived",
+      "completeness": "unstated",
+      "status": "OCR-assisted research transcription; each source page was segmented into six physical columns and independently reprocessed when confidence was low."
+    },
+    {
+      "id": "chicago_american_1835_07_04",
+      "publication": "chicago_american",
+      "source_id": "chicago_american_1835",
+      "date": "1835-07-04",
+      "volume": "I",
+      "number": "5",
+      "artifacts": [
+        {
+          "role": "primary",
+          "format": "docx",
+          "path": "chicago/reference/newspapers/Transcriptions/Chicago_American_1835-06_to_1835-08/Chicago_American_1835-07-04_Vol1_No5_Transcription.docx",
+          "path_kind": "deposit",
+          "sha256": "8b61991a7e1d7c330c77a3e1ed888ed23fdb9c91d65d55b9e40071be89182433",
+          "text_path_kind": "derived",
+          "text_path": "chicago/4d/data/research/newspapers/text/chicago_american_1835_07_04.txt",
+          "text_sha256": "849eeb38af0a4e893b462037183822eade504199228c555fb35dc4e887021fb1",
+          "derived_by": "tools/docx_text.py",
+          "text_chars": 120934
+        }
+      ],
+      "text_path": "chicago/4d/data/research/newspapers/text/chicago_american_1835_07_04.txt",
+      "text_path_kind": "derived",
+      "completeness": "unstated",
+      "status": "OCR-assisted research transcription; each source page was segmented into six physical columns and independently reprocessed when confidence was low."
+    },
+    {
+      "id": "chicago_american_1835_07_11",
+      "publication": "chicago_american",
+      "source_id": "chicago_american_1835",
+      "date": "1835-07-11",
+      "volume": "I",
+      "number": "6",
+      "artifacts": [
+        {
+          "role": "primary",
+          "format": "docx",
+          "path": "chicago/reference/newspapers/Transcriptions/Chicago_American_1835-06_to_1835-08/Chicago_American_1835-07-11_Vol1_No6_Transcription.docx",
+          "path_kind": "deposit",
+          "sha256": "da9fbb492e6f07de6ad57939972ed5c8844865e3a6ea013551aac2638d2301d0",
+          "text_path_kind": "derived",
+          "text_path": "chicago/4d/data/research/newspapers/text/chicago_american_1835_07_11.txt",
+          "text_sha256": "9d68971d00f343a2a0597c8c0b44ce994ddb53c23c1276725eb0ab6e206a9b82",
+          "derived_by": "tools/docx_text.py",
+          "text_chars": 118504
+        }
+      ],
+      "text_path": "chicago/4d/data/research/newspapers/text/chicago_american_1835_07_11.txt",
+      "text_path_kind": "derived",
+      "completeness": "unstated",
+      "status": "OCR-assisted research transcription; each source page was segmented into six physical columns and independently reprocessed when confidence was low."
+    },
+    {
+      "id": "chicago_american_1835_07_18",
+      "publication": "chicago_american",
+      "source_id": "chicago_american_1835",
+      "date": "1835-07-18",
+      "volume": "I",
+      "number": "7",
+      "artifacts": [
+        {
+          "role": "primary",
+          "format": "docx",
+          "path": "chicago/reference/newspapers/Transcriptions/Chicago_American_1835-06_to_1835-08/Chicago_American_1835-07-18_Vol1_No7_Transcription.docx",
+          "path_kind": "deposit",
+          "sha256": "a7e0804886eba2165ef885797dfa6f8c60942a520cea39aa73a48eb71869ad28",
+          "text_path_kind": "derived",
+          "text_path": "chicago/4d/data/research/newspapers/text/chicago_american_1835_07_18.txt",
+          "text_sha256": "e14b182b9980d837814c72fa6663f22704956b3bb0ceaf456c926fd579a3c575",
+          "derived_by": "tools/docx_text.py",
+          "text_chars": 101225
+        }
+      ],
+      "text_path": "chicago/4d/data/research/newspapers/text/chicago_american_1835_07_18.txt",
+      "text_path_kind": "derived",
+      "completeness": "unstated",
+      "status": "OCR-assisted research transcription; each source page was segmented into six physical columns and independently reprocessed when confidence was low."
+    },
+    {
+      "id": "chicago_american_1835_07_25",
+      "publication": "chicago_american",
+      "source_id": "chicago_american_1835",
+      "date": "1835-07-25",
+      "volume": "I",
+      "number": "8",
+      "artifacts": [
+        {
+          "role": "primary",
+          "format": "docx",
+          "path": "chicago/reference/newspapers/Transcriptions/Chicago_American_1835-06_to_1835-08/Chicago_American_1835-07-25_Vol1_No8_Transcription.docx",
+          "path_kind": "deposit",
+          "sha256": "7aa5fc1c221ac1a529bf11272ec81d249267addb5dff60d378725b2583e332f0",
+          "text_path_kind": "derived",
+          "text_path": "chicago/4d/data/research/newspapers/text/chicago_american_1835_07_25.txt",
+          "text_sha256": "3ca223af6af1e8f226e44ea0b4cb33f38a670380535b411a4e313ecde561cacd",
+          "derived_by": "tools/docx_text.py",
+          "text_chars": 55585
+        }
+      ],
+      "text_path": "chicago/4d/data/research/newspapers/text/chicago_american_1835_07_25.txt",
+      "text_path_kind": "derived",
+      "completeness": "unstated",
+      "status": "OCR-assisted research transcription; each source page was segmented into six physical columns and independently reprocessed when confidence was low."
+    },
+    {
+      "id": "chicago_american_1835_08_01",
+      "publication": "chicago_american",
+      "source_id": "chicago_american_1835",
+      "date": "1835-08-01",
+      "volume": "I",
+      "number": "9",
+      "artifacts": [
+        {
+          "role": "primary",
+          "format": "docx",
+          "path": "chicago/reference/newspapers/Transcriptions/Chicago_American_1835-06_to_1835-08/Chicago_American_1835-08-01_Vol1_No9_Transcription.docx",
+          "path_kind": "deposit",
+          "sha256": "e4b8df7e0a2d8d54fb0b77401d1d0583a2ad755a98681eeb531de7d6a2021734",
+          "text_path_kind": "derived",
+          "text_path": "chicago/4d/data/research/newspapers/text/chicago_american_1835_08_01.txt",
+          "text_sha256": "a974b2947d5adcabb9fe8b89ad14cba3a6d2dbe7bd81640eb8e345c5d70a7990",
+          "derived_by": "tools/docx_text.py",
+          "text_chars": 81322
+        }
+      ],
+      "text_path": "chicago/4d/data/research/newspapers/text/chicago_american_1835_08_01.txt",
+      "text_path_kind": "derived",
+      "completeness": "unstated",
+      "status": "OCR-assisted research transcription; each source page was segmented into six physical columns and independently reprocessed when confidence was low."
+    },
+    {
+      "id": "chicago_american_1835_08_08",
+      "publication": "chicago_american",
+      "source_id": "chicago_american_1835",
+      "date": "1835-08-08",
+      "volume": "I",
+      "number": "10",
+      "artifacts": [
+        {
+          "role": "primary",
+          "format": "docx",
+          "path": "chicago/reference/newspapers/Transcriptions/Chicago_American_1835-06_to_1835-08/Chicago_American_1835-08-08_Vol1_No10_Transcription.docx",
+          "path_kind": "deposit",
+          "sha256": "bfe53ebd3ef5cb7361a9d16e8ee2d38eca528ce29c4f404ee7f3cc9204f44dac",
+          "text_path_kind": "derived",
+          "text_path": "chicago/4d/data/research/newspapers/text/chicago_american_1835_08_08.txt",
+          "text_sha256": "516365867adab062e8e70d8096a8e62ca644f5c4db6385cafc6b9a67266a098a",
+          "derived_by": "tools/docx_text.py",
+          "text_chars": 99156
+        }
+      ],
+      "text_path": "chicago/4d/data/research/newspapers/text/chicago_american_1835_08_08.txt",
+      "text_path_kind": "derived",
+      "completeness": "unstated",
+      "status": "OCR-assisted research transcription; each source page was segmented into six physical columns and independently reprocessed when confidence was low."
+    },
+    {
+      "id": "chicago_american_1835_08_15",
+      "publication": "chicago_american",
+      "source_id": "chicago_american_1835",
+      "date": "1835-08-15",
+      "volume": "I",
+      "number": "11",
+      "artifacts": [
+        {
+          "role": "primary",
+          "format": "docx",
+          "path": "chicago/reference/newspapers/Transcriptions/Chicago_American_1835-06_to_1835-08/Chicago_American_1835-08-15_Vol1_No11_Transcription.docx",
+          "path_kind": "deposit",
+          "sha256": "721d3ab0aada360a440e1024edda04699f2d707d35ae911907321c8b2c4c93a5",
+          "text_path_kind": "derived",
+          "text_path": "chicago/4d/data/research/newspapers/text/chicago_american_1835_08_15.txt",
+          "text_sha256": "a55b85671cde0d20cfb416137d0f33ff5e4dde2c36a39123666bcaac4c856287",
+          "derived_by": "tools/docx_text.py",
+          "text_chars": 66861
+        }
+      ],
+      "text_path": "chicago/4d/data/research/newspapers/text/chicago_american_1835_08_15.txt",
+      "text_path_kind": "derived",
+      "completeness": "unstated",
+      "status": "OCR-assisted research transcription; each source page was segmented into six physical columns and independently reprocessed when confidence was low."
+    },
+    {
+      "id": "chicago_american_1835_08_22",
+      "publication": "chicago_american",
+      "source_id": "chicago_american_1835",
+      "date": "1835-08-22",
+      "volume": "I",
+      "number": "12",
+      "artifacts": [
+        {
+          "role": "primary",
+          "format": "docx",
+          "path": "chicago/reference/newspapers/Transcriptions/Chicago_American_1835-06_to_1835-08/Chicago_American_1835-08-22_Vol1_No12_Transcription.docx",
+          "path_kind": "deposit",
+          "sha256": "459c60858e3b3f29fee179cf4493d7c173c98652029ddf59402e526265376677",
+          "text_path_kind": "derived",
+          "text_path": "chicago/4d/data/research/newspapers/text/chicago_american_1835_08_22.txt",
+          "text_sha256": "0bcce69ddabb0b96e1ef068f0fda6751304e74a3e6275b413474943d6a4fa8a8",
+          "derived_by": "tools/docx_text.py",
+          "text_chars": 114466
+        }
+      ],
+      "text_path": "chicago/4d/data/research/newspapers/text/chicago_american_1835_08_22.txt",
+      "text_path_kind": "derived",
+      "completeness": "unstated",
+      "status": "OCR-assisted research transcription; each source page was segmented into six physical columns and independently reprocessed when confidence was low."
+    },
+    {
+      "id": "chicago_american_1835_08_29",
+      "publication": "chicago_american",
+      "source_id": "chicago_american_1835",
+      "date": "1835-08-29",
+      "volume": "I",
+      "number": "12",
+      "artifacts": [
+        {
+          "role": "primary",
+          "format": "docx",
+          "path": "chicago/reference/newspapers/Transcriptions/Chicago_American_1835-06_to_1835-08/Chicago_American_1835-08-29_Vol1_No12_Transcription.docx",
+          "path_kind": "deposit",
+          "sha256": "481ce293b498497a5af90bd18189bb6e2dd7ff9f4b45bd7bebb69592276332d2",
+          "text_path_kind": "derived",
+          "text_path": "chicago/4d/data/research/newspapers/text/chicago_american_1835_08_29.txt",
+          "text_sha256": "0d5be8408a52fed4ca6bda00ea04fc8d77c9de1250167edc76f2861e4a18eaec",
+          "derived_by": "tools/docx_text.py",
+          "text_chars": 91005
+        }
+      ],
+      "text_path": "chicago/4d/data/research/newspapers/text/chicago_american_1835_08_29.txt",
+      "text_path_kind": "derived",
+      "completeness": "unstated",
+      "status": "OCR-assisted research transcription; each source page was segmented into six physical columns and independently reprocessed when confidence was low."
+    },
+    {
+      "id": "chicago_democrat_1833_11_26",
+      "publication": "chicago_democrat",
+      "source_id": "chicago_democrat_1833_1835",
+      "date": "1833-11-26",
+      "volume": "I",
+      "number": "1",
+      "artifacts": [
+        {
+          "role": "primary",
+          "format": "docx",
+          "path": "chicago/reference/newspapers/Transcriptions/Chicago_Democrat_1833-11_to_1835-08/Chicago_Democrat_1833-11-26_Vol1_No1_Transcription.docx",
+          "path_kind": "deposit",
+          "sha256": "6f9bb0a3805a79e6b819bff2778611e94f608d6978abb68a3273ac554a445cf2",
+          "text_path": "chicago/reference/newspapers/Transcriptions/Chicago_Democrat_1833-11_to_1835-08/Chicago_Democrat_1833-11-26_Vol1_No1_Transcription.txt",
+          "text_path_kind": "deposit",
+          "text_sha256": "b1d45795eb5ad053fc8237461fee9ffb4d7a91890aec885cb8e0db3bc62672df",
+          "text_chars": 133650
+        },
+        {
+          "role": "alternate",
+          "format": "docx",
+          "path": "chicago/reference/newspapers/Transcriptions/Chicago_Democrat_1833-11_to_1835-08/Chicago_Democrat_1833_11-16-Verified_Transcription.docx",
+          "path_kind": "deposit",
+          "sha256": "112b4dc68030c7d045013faf741895d96517e9c3e00b0ace3285fab849463d5c",
+          "text_path_kind": "derived",
+          "identification": "documented",
+          "identification_note": "SETTLED 2026-08-28 by the owner's ruling under T-0276, recorded verbatim: \"NOV. 26 is the first issue date I have scanned.\" The deposit's scan holdings begin at Vol. I No. 1, so there is no earlier 1833 Democrat scan set for this transcription to be a reading of. It is headed 'Best-effort verified reading transcription of the three supplied scan pages', and the three-image set is the one data/sources/chicago_democrat_1833_11_26.json describes and was verified against. The attachment is therefore documented by elimination against the deposit, not inferred from the heading alone. TWO NON-DATES SURVIVE ON THIS ARTIFACT AND ARE PRESERVED, NOT REPAIRED, per the corpus workflow's rule 2.3 ('Do not silently repair a visibly printed date or number; note the discrepancy'): the filename's '11-16', and the transcription's own first-page line 'Visible date at the top of this supplied page: NOV. 19, 1833'. The Democrat published under neither date. Both are artifacts of the transcription and its naming, not readings of 1830s type, and neither may be cited as evidence that any such issue existed. NOTE THE LIMIT OF THE RULING: it establishes where the scan holdings START, and nobody re-opened the page images to re-read that masthead — so the NOV. 19 line stands quarantined and unexplained rather than corrected, and a scan read would still outrank everything here.",
+          "text_path": "chicago/4d/data/research/newspapers/text/chicago_democrat_1833_11_26__alt_verified.txt",
+          "text_sha256": "3284e80ccad0b16ec67f9d3399be0584c31023064830e12d1d56da809a10a2ad",
+          "derived_by": "tools/docx_text.py",
+          "text_chars": 77858
+        }
+      ],
+      "manifest": "chicago/reference/newspapers/Transcriptions/Chicago_Democrat_1833-11_to_1835-08/Chicago_Democrat_1833_Issue_Manifest.csv",
+      "word_count": 22145,
+      "uncertainty_markers": 1317,
+      "completeness": "unstated",
+      "validation_notes": "chicago/reference/newspapers/Transcriptions/Chicago_Democrat_1833-11_to_1835-08/Chicago_Democrat_1833_Validation_Notes.md",
+      "text_path": "chicago/reference/newspapers/Transcriptions/Chicago_Democrat_1833-11_to_1835-08/Chicago_Democrat_1833-11-26_Vol1_No1_Transcription.txt",
+      "text_path_kind": "deposit"
+    },
+    {
+      "id": "chicago_democrat_1833_12_03",
+      "publication": "chicago_democrat",
+      "source_id": "chicago_democrat_1833_1835",
+      "date": "1833-12-03",
+      "volume": "I",
+      "number": "2",
+      "artifacts": [
+        {
+          "role": "primary",
+          "format": "docx",
+          "path": "chicago/reference/newspapers/Transcriptions/Chicago_Democrat_1833-11_to_1835-08/Chicago_Democrat_1833-12-03_Vol1_No2_Transcription.docx",
+          "path_kind": "deposit",
+          "sha256": "1f1c45cbafb77cbf5eb3d661391f054c68185e2a53ef7b30a5aaded3d067b0cc",
+          "text_path": "chicago/reference/newspapers/Transcriptions/Chicago_Democrat_1833-11_to_1835-08/Chicago_Democrat_1833-12-03_Vol1_No2_Transcription.txt",
+          "text_path_kind": "deposit",
+          "text_sha256": "d0c6d522ee915213235e9a41002c982790a49570d811fea00ec60e426b0e1994",
+          "text_chars": 133775
+        }
+      ],
+      "manifest": "chicago/reference/newspapers/Transcriptions/Chicago_Democrat_1833-11_to_1835-08/Chicago_Democrat_1833_Issue_Manifest.csv",
+      "word_count": 21873,
+      "uncertainty_markers": 1278,
+      "completeness": "unstated",
+      "validation_notes": "chicago/reference/newspapers/Transcriptions/Chicago_Democrat_1833-11_to_1835-08/Chicago_Democrat_1833_Validation_Notes.md",
+      "text_path": "chicago/reference/newspapers/Transcriptions/Chicago_Democrat_1833-11_to_1835-08/Chicago_Democrat_1833-12-03_Vol1_No2_Transcription.txt",
+      "text_path_kind": "deposit"
+    },
+    {
+      "id": "chicago_democrat_1833_12_10",
+      "publication": "chicago_democrat",
+      "source_id": "chicago_democrat_1833_1835",
+      "date": "1833-12-10",
+      "volume": "I",
+      "number": "3",
+      "artifacts": [
+        {
+          "role": "primary",
+          "format": "docx",
+          "path": "chicago/reference/newspapers/Transcriptions/Chicago_Democrat_1833-11_to_1835-08/Chicago_Democrat_1833-12-10_Vol1_No3_Transcription.docx",
+          "path_kind": "deposit",
+          "sha256": "399cb158a0cc81d90fc0817d15b66d45ed2a85c14f9918371951acfda54f41be",
+          "text_path": "chicago/reference/newspapers/Transcriptions/Chicago_Democrat_1833-11_to_1835-08/Chicago_Democrat_1833-12-10_Vol1_No3_Transcription.txt",
+          "text_path_kind": "deposit",
+          "text_sha256": "3e49f6e7ab8a415f7383dc598cbc039f78662b282c1b5b8882dd3a21e87a0228",
+          "text_chars": 135772
+        }
+      ],
+      "manifest": "chicago/reference/newspapers/Transcriptions/Chicago_Democrat_1833-11_to_1835-08/Chicago_Democrat_1833_Issue_Manifest.csv",
+      "word_count": 23432,
+      "uncertainty_markers": 275,
+      "completeness": "unstated",
+      "validation_notes": "chicago/reference/newspapers/Transcriptions/Chicago_Democrat_1833-11_to_1835-08/Chicago_Democrat_1833_Validation_Notes.md",
+      "text_path": "chicago/reference/newspapers/Transcriptions/Chicago_Democrat_1833-11_to_1835-08/Chicago_Democrat_1833-12-10_Vol1_No3_Transcription.txt",
+      "text_path_kind": "deposit"
+    },
+    {
+      "id": "chicago_democrat_1833_12_17",
+      "publication": "chicago_democrat",
+      "source_id": "chicago_democrat_1833_1835",
+      "date": "1833-12-17",
+      "volume": "I",
+      "number": "4",
+      "artifacts": [
+        {
+          "role": "primary",
+          "format": "docx",
+          "path": "chicago/reference/newspapers/Transcriptions/Chicago_Democrat_1833-11_to_1835-08/Chicago_Democrat_1833-12-17_Vol1_No4_Transcription.docx",
+          "path_kind": "deposit",
+          "sha256": "56a96c03fefe526e6651cdb1f527b2bca225f3fdd5b73d0ef10c3fdf28244f65",
+          "text_path": "chicago/reference/newspapers/Transcriptions/Chicago_Democrat_1833-11_to_1835-08/Chicago_Democrat_1833-12-17_Vol1_No4_Transcription.txt",
+          "text_path_kind": "deposit",
+          "text_sha256": "3b2a31f5a02ab043749e5a667c80e541711c3381f0deae98ab5a16a8968f973d",
+          "text_chars": 133765
+        }
+      ],
+      "manifest": "chicago/reference/newspapers/Transcriptions/Chicago_Democrat_1833-11_to_1835-08/Chicago_Democrat_1833_Issue_Manifest.csv",
+      "word_count": 23341,
+      "uncertainty_markers": 299,
+      "completeness": "unstated",
+      "validation_notes": "chicago/reference/newspapers/Transcriptions/Chicago_Democrat_1833-11_to_1835-08/Chicago_Democrat_1833_Validation_Notes.md",
+      "text_path": "chicago/reference/newspapers/Transcriptions/Chicago_Democrat_1833-11_to_1835-08/Chicago_Democrat_1833-12-17_Vol1_No4_Transcription.txt",
+      "text_path_kind": "deposit"
+    },
+    {
+      "id": "chicago_democrat_1833_12_24",
+      "publication": "chicago_democrat",
+      "source_id": "chicago_democrat_1833_1835",
+      "date": "1833-12-24",
+      "volume": "I",
+      "number": "5",
+      "artifacts": [
+        {
+          "role": "primary",
+          "format": "docx",
+          "path": "chicago/reference/newspapers/Transcriptions/Chicago_Democrat_1833-11_to_1835-08/Chicago_Democrat_1833-12-24_Vol1_No5_Transcription.docx",
+          "path_kind": "deposit",
+          "sha256": "1ee183b329a166b1c2ef6ed1ec3806078cfe9b733e3cd59f9ed2b47329287ba7",
+          "text_path": "chicago/reference/newspapers/Transcriptions/Chicago_Democrat_1833-11_to_1835-08/Chicago_Democrat_1833-12-24_Vol1_No5_Transcription.txt",
+          "text_path_kind": "deposit",
+          "text_sha256": "5b6f1f3d3be3e117c45578722d9110c2db918e0ea58bfe50f574a9ccd98d8c34",
+          "text_chars": 117342
+        }
+      ],
+      "manifest": "chicago/reference/newspapers/Transcriptions/Chicago_Democrat_1833-11_to_1835-08/Chicago_Democrat_1833_Issue_Manifest.csv",
+      "word_count": 21130,
+      "uncertainty_markers": 5,
+      "completeness": "unstated",
+      "validation_notes": "chicago/reference/newspapers/Transcriptions/Chicago_Democrat_1833-11_to_1835-08/Chicago_Democrat_1833_Validation_Notes.md",
+      "text_path": "chicago/reference/newspapers/Transcriptions/Chicago_Democrat_1833-11_to_1835-08/Chicago_Democrat_1833-12-24_Vol1_No5_Transcription.txt",
+      "text_path_kind": "deposit"
+    },
+    {
+      "id": "chicago_democrat_1833_12_31",
+      "publication": "chicago_democrat",
+      "source_id": "chicago_democrat_1833_1835",
+      "date": "1833-12-31",
+      "volume": "I",
+      "number": "6",
+      "artifacts": [
+        {
+          "role": "primary",
+          "format": "docx",
+          "path": "chicago/reference/newspapers/Transcriptions/Chicago_Democrat_1833-11_to_1835-08/Chicago_Democrat_1833-12-31_Vol1_No6_Transcription.docx",
+          "path_kind": "deposit",
+          "sha256": "6f792773e83761f1a61ac1976ca5cd1ce072c773c584d505f645883c996d43cc",
+          "text_path": "chicago/reference/newspapers/Transcriptions/Chicago_Democrat_1833-11_to_1835-08/Chicago_Democrat_1833-12-31_Vol1_No6_Transcription.txt",
+          "text_path_kind": "deposit",
+          "text_sha256": "3a98a5f3bc29918c294bd6ad1b437f78e646c3eead4c91f004e4611b4a999a16",
+          "text_chars": 132417
+        }
+      ],
+      "text_path": "chicago/reference/newspapers/Transcriptions/Chicago_Democrat_1833-11_to_1835-08/Chicago_Democrat_1833-12-31_Vol1_No6_Transcription.txt",
+      "text_path_kind": "deposit",
+      "completeness": "complete_per_transcriber",
+      "status": "Complete issue scan; six-column OCR rebuild with column-level uncertainty notices."
+    },
+    {
+      "id": "chicago_democrat_1834_01_07",
+      "publication": "chicago_democrat",
+      "source_id": "chicago_democrat_1833_1835",
+      "date": "1834-01-07",
+      "volume": "I",
+      "number": "7",
+      "artifacts": [
+        {
+          "role": "primary",
+          "format": "docx",
+          "path": "chicago/reference/newspapers/Transcriptions/Chicago_Democrat_1833-11_to_1835-08/Chicago_Democrat_1834-01-07_Vol1_No7_Transcription.docx",
+          "path_kind": "deposit",
+          "sha256": "c4835e9a00a6519f7b9402426cabcd5202490a7a3707e93e2dab2f765b796987",
+          "text_path": "chicago/reference/newspapers/Transcriptions/Chicago_Democrat_1833-11_to_1835-08/Chicago_Democrat_1834-01-07_Vol1_No7_Transcription.txt",
+          "text_path_kind": "deposit",
+          "text_sha256": "37b2d37a98d9d13ec5382897c78b6038e066ae30c8aab9e3016c78c6903dae48",
+          "text_chars": 121402
+        }
+      ],
+      "text_path": "chicago/reference/newspapers/Transcriptions/Chicago_Democrat_1833-11_to_1835-08/Chicago_Democrat_1834-01-07_Vol1_No7_Transcription.txt",
+      "text_path_kind": "deposit",
+      "completeness": "complete_per_transcriber",
+      "status": "Complete issue scan; six-column OCR rebuild with column-level uncertainty notices."
+    },
+    {
+      "id": "chicago_democrat_1834_01_14",
+      "publication": "chicago_democrat",
+      "source_id": "chicago_democrat_1833_1835",
+      "date": "1834-01-14",
+      "volume": "I",
+      "number": "8",
+      "artifacts": [
+        {
+          "role": "primary",
+          "format": "docx",
+          "path": "chicago/reference/newspapers/Transcriptions/Chicago_Democrat_1833-11_to_1835-08/Chicago_Democrat_1834-01-14_Vol1_No8_Transcription.docx",
+          "path_kind": "deposit",
+          "sha256": "c764db8da7bf1a155984497a5a911ac3b6740c0a7f759f366f3609f8c6bcd5fe",
+          "text_path": "chicago/reference/newspapers/Transcriptions/Chicago_Democrat_1833-11_to_1835-08/Chicago_Democrat_1834-01-14_Vol1_No8_Transcription.txt",
+          "text_path_kind": "deposit",
+          "text_sha256": "94289dd596c6bf4733a254eef4a68165fae455475290bb4c859f2921e275248d",
+          "text_chars": 133917
+        }
+      ],
+      "text_path": "chicago/reference/newspapers/Transcriptions/Chicago_Democrat_1833-11_to_1835-08/Chicago_Democrat_1834-01-14_Vol1_No8_Transcription.txt",
+      "text_path_kind": "deposit",
+      "completeness": "complete_per_transcriber",
+      "status": "Complete issue scan; six-column OCR rebuild with column-level uncertainty notices."
+    },
+    {
+      "id": "chicago_democrat_1834_01_21",
+      "publication": "chicago_democrat",
+      "source_id": "chicago_democrat_1833_1835",
+      "date": "1834-01-21",
+      "volume": "I",
+      "number": "9",
+      "artifacts": [
+        {
+          "role": "primary",
+          "format": "docx",
+          "path": "chicago/reference/newspapers/Transcriptions/Chicago_Democrat_1833-11_to_1835-08/Chicago_Democrat_1834-01-21_Vol1_No9_Transcription.docx",
+          "path_kind": "deposit",
+          "sha256": "b74b25bb5083d0eb11e19a5c9a383e9df93890c476cf09c7b6a59d9c665505d4",
+          "text_path": "chicago/reference/newspapers/Transcriptions/Chicago_Democrat_1833-11_to_1835-08/Chicago_Democrat_1834-01-21_Vol1_No9_Transcription.txt",
+          "text_path_kind": "deposit",
+          "text_sha256": "0b9d586bf72c90ee9d5a2053a9100ca5f2314d3267e1a0570529937ad99651f8",
+          "text_chars": 118340
+        }
+      ],
+      "text_path": "chicago/reference/newspapers/Transcriptions/Chicago_Democrat_1833-11_to_1835-08/Chicago_Democrat_1834-01-21_Vol1_No9_Transcription.txt",
+      "text_path_kind": "deposit",
+      "completeness": "complete_per_transcriber",
+      "status": "Complete issue scan; six-column OCR rebuild with column-level uncertainty notices."
+    },
+    {
+      "id": "chicago_democrat_1834_01_28",
+      "publication": "chicago_democrat",
+      "source_id": "chicago_democrat_1833_1835",
+      "date": "1834-01-28",
+      "volume": "I",
+      "number": "10",
+      "artifacts": [
+        {
+          "role": "primary",
+          "format": "docx",
+          "path": "chicago/reference/newspapers/Transcriptions/Chicago_Democrat_1833-11_to_1835-08/Chicago_Democrat_1834-01-28_Vol1_No10_Transcription.docx",
+          "path_kind": "deposit",
+          "sha256": "389da2c28d766cb3ec4713427d83149952d2fa5e736d7beba65ec74c22a84ab4",
+          "text_path": "chicago/reference/newspapers/Transcriptions/Chicago_Democrat_1833-11_to_1835-08/Chicago_Democrat_1834-01-28_Vol1_No10_Transcription.txt",
+          "text_path_kind": "deposit",
+          "text_sha256": "b02d7f2cff4ffb07810cd247f3a224545052ffcb136dc65e55a47a0042784309",
+          "text_chars": 114604
+        }
+      ],
+      "text_path": "chicago/reference/newspapers/Transcriptions/Chicago_Democrat_1833-11_to_1835-08/Chicago_Democrat_1834-01-28_Vol1_No10_Transcription.txt",
+      "text_path_kind": "deposit",
+      "completeness": "complete_per_transcriber",
+      "status": "Complete issue scan; six-column OCR rebuild with column-level uncertainty notices."
+    },
+    {
+      "id": "chicago_democrat_1834_02_04",
+      "publication": "chicago_democrat",
+      "source_id": "chicago_democrat_1833_1835",
+      "date": "1834-02-04",
+      "volume": "I",
+      "number": "11",
+      "artifacts": [
+        {
+          "role": "primary",
+          "format": "docx",
+          "path": "chicago/reference/newspapers/Transcriptions/Chicago_Democrat_1833-11_to_1835-08/Chicago_Democrat_1834-02-04_VolI_No11_Transcription.docx",
+          "path_kind": "deposit",
+          "sha256": "14fc352c51f92cf864b415c35eea1c70a360078d5e24b6641e3735add3234b9b",
+          "text_path": "chicago/reference/newspapers/Transcriptions/Chicago_Democrat_1833-11_to_1835-08/Chicago_Democrat_1834-02-04_VolI_No11_Transcription.txt",
+          "text_path_kind": "deposit",
+          "text_sha256": "d84f65a9b6e22b659aec7194fb9e1fdf7a8e459d27f30df0a9f19d595aeb32e2",
+          "text_chars": 119458
+        }
+      ],
+      "manifest": "chicago/reference/newspapers/Transcriptions/Chicago_Democrat_1833-11_to_1835-08/Chicago_Democrat_1834_Issue_Manifest.csv",
+      "word_count": 20172,
+      "uncertainty_markers": 198,
+      "completeness": "unstated",
+      "validation_notes": "chicago/reference/newspapers/Transcriptions/Chicago_Democrat_1833-11_to_1835-08/Chicago_Democrat_1834_Validation_Notes.md",
+      "text_path": "chicago/reference/newspapers/Transcriptions/Chicago_Democrat_1833-11_to_1835-08/Chicago_Democrat_1834-02-04_VolI_No11_Transcription.txt",
+      "text_path_kind": "deposit"
+    },
+    {
+      "id": "chicago_democrat_1834_02_11",
+      "publication": "chicago_democrat",
+      "source_id": "chicago_democrat_1833_1835",
+      "date": "1834-02-11",
+      "volume": "I",
+      "number": "12",
+      "artifacts": [
+        {
+          "role": "primary",
+          "format": "docx",
+          "path": "chicago/reference/newspapers/Transcriptions/Chicago_Democrat_1833-11_to_1835-08/Chicago_Democrat_1834-02-11_VolI_No12_Transcription.docx",
+          "path_kind": "deposit",
+          "sha256": "ae2d219da480e3cb8d9c8c9a43856961fe13820f5d13bcd6a8af8be922ef874f",
+          "text_path": "chicago/reference/newspapers/Transcriptions/Chicago_Democrat_1833-11_to_1835-08/Chicago_Democrat_1834-02-11_VolI_No12_Transcription.txt",
+          "text_path_kind": "deposit",
+          "text_sha256": "b20f4d42c0c9fe3d1e43d9f09d842ea371446ef120602d66f4685157a90a87a3",
+          "text_chars": 116763
+        }
+      ],
+      "manifest": "chicago/reference/newspapers/Transcriptions/Chicago_Democrat_1833-11_to_1835-08/Chicago_Democrat_1834_Issue_Manifest.csv",
+      "word_count": 20201,
+      "uncertainty_markers": 218,
+      "completeness": "unstated",
+      "validation_notes": "chicago/reference/newspapers/Transcriptions/Chicago_Democrat_1833-11_to_1835-08/Chicago_Democrat_1834_Validation_Notes.md",
+      "text_path": "chicago/reference/newspapers/Transcriptions/Chicago_Democrat_1833-11_to_1835-08/Chicago_Democrat_1834-02-11_VolI_No12_Transcription.txt",
+      "text_path_kind": "deposit"
+    },
+    {
+      "id": "chicago_democrat_1834_02_18",
+      "publication": "chicago_democrat",
+      "source_id": "chicago_democrat_1833_1835",
+      "date": "1834-02-18",
+      "volume": "I",
+      "number": "13",
+      "artifacts": [
+        {
+          "role": "primary",
+          "format": "docx",
+          "path": "chicago/reference/newspapers/Transcriptions/Chicago_Democrat_1833-11_to_1835-08/Chicago_Democrat_1834-02-18_VolI_No13_Transcription.docx",
+          "path_kind": "deposit",
+          "sha256": "5538d38f8824866f967e2e145cd97f3d9f31306a11c89f10dc5c92d258cb5b82",
+          "text_path": "chicago/reference/newspapers/Transcriptions/Chicago_Democrat_1833-11_to_1835-08/Chicago_Democrat_1834-02-18_VolI_No13_Transcription.txt",
+          "text_path_kind": "deposit",
+          "text_sha256": "c14d69e3bf2747bc2df53e7d5b569a9cb07cd8570929910db9347b33c60e925c",
+          "text_chars": 119212
+        }
+      ],
+      "manifest": "chicago/reference/newspapers/Transcriptions/Chicago_Democrat_1833-11_to_1835-08/Chicago_Democrat_1834_Issue_Manifest.csv",
+      "word_count": 20508,
+      "uncertainty_markers": 204,
+      "completeness": "unstated",
+      "validation_notes": "chicago/reference/newspapers/Transcriptions/Chicago_Democrat_1833-11_to_1835-08/Chicago_Democrat_1834_Validation_Notes.md",
+      "text_path": "chicago/reference/newspapers/Transcriptions/Chicago_Democrat_1833-11_to_1835-08/Chicago_Democrat_1834-02-18_VolI_No13_Transcription.txt",
+      "text_path_kind": "deposit"
+    },
+    {
+      "id": "chicago_democrat_1834_02_25",
+      "publication": "chicago_democrat",
+      "source_id": "chicago_democrat_1833_1835",
+      "date": "1834-02-25",
+      "volume": "I",
+      "number": "14",
+      "artifacts": [
+        {
+          "role": "primary",
+          "format": "docx",
+          "path": "chicago/reference/newspapers/Transcriptions/Chicago_Democrat_1833-11_to_1835-08/Chicago_Democrat_1834-02-25_VolI_No14_Transcription.docx",
+          "path_kind": "deposit",
+          "sha256": "180458a1b1ab2603b36f94c71e640976c6f06e945efcc267d51bea00f999c0c1",
+          "text_path": "chicago/reference/newspapers/Transcriptions/Chicago_Democrat_1833-11_to_1835-08/Chicago_Democrat_1834-02-25_VolI_No14_Transcription.txt",
+          "text_path_kind": "deposit",
+          "text_sha256": "ae29e776ecb6bc7ab704871d9a9070ff61cbc314903583c34c5ee8a1f2a74fd2",
+          "text_chars": 110234
+        }
+      ],
+      "manifest": "chicago/reference/newspapers/Transcriptions/Chicago_Democrat_1833-11_to_1835-08/Chicago_Democrat_1834_Issue_Manifest.csv",
+      "word_count": 19251,
+      "uncertainty_markers": 178,
+      "completeness": "unstated",
+      "validation_notes": "chicago/reference/newspapers/Transcriptions/Chicago_Democrat_1833-11_to_1835-08/Chicago_Democrat_1834_Validation_Notes.md",
+      "text_path": "chicago/reference/newspapers/Transcriptions/Chicago_Democrat_1833-11_to_1835-08/Chicago_Democrat_1834-02-25_VolI_No14_Transcription.txt",
+      "text_path_kind": "deposit"
+    },
+    {
+      "id": "chicago_democrat_1834_03_04",
+      "publication": "chicago_democrat",
+      "source_id": "chicago_democrat_1833_1835",
+      "date": "1834-03-04",
+      "volume": "I",
+      "number": "15",
+      "artifacts": [
+        {
+          "role": "primary",
+          "format": "docx",
+          "path": "chicago/reference/newspapers/Transcriptions/Chicago_Democrat_1833-11_to_1835-08/Chicago_Democrat_1834-03-04_VolI_No15_Transcription.docx",
+          "path_kind": "deposit",
+          "sha256": "5a0db4ce0e2f25f1290c0f7f6e78c01e6ada0a7b911a62ab3804ce00b25ef1f9",
+          "text_path": "chicago/reference/newspapers/Transcriptions/Chicago_Democrat_1833-11_to_1835-08/Chicago_Democrat_1834-03-04_VolI_No15_Transcription.txt",
+          "text_path_kind": "deposit",
+          "text_sha256": "dcc6b1649b0dcd6390c07c7550d5366aac993170036abfaff8cbb46fad6087f4",
+          "text_chars": 123901
+        }
+      ],
+      "manifest": "chicago/reference/newspapers/Transcriptions/Chicago_Democrat_1833-11_to_1835-08/Chicago_Democrat_1834_Issue_Manifest.csv",
+      "word_count": 21162,
+      "uncertainty_markers": 409,
+      "completeness": "unstated",
+      "validation_notes": "chicago/reference/newspapers/Transcriptions/Chicago_Democrat_1833-11_to_1835-08/Chicago_Democrat_1834_Validation_Notes.md",
+      "text_path": "chicago/reference/newspapers/Transcriptions/Chicago_Democrat_1833-11_to_1835-08/Chicago_Democrat_1834-03-04_VolI_No15_Transcription.txt",
+      "text_path_kind": "deposit"
+    },
+    {
+      "id": "chicago_democrat_1834_03_18",
+      "publication": "chicago_democrat",
+      "source_id": "chicago_democrat_1833_1835",
+      "date": "1834-03-18",
+      "volume": "I",
+      "number": "16",
+      "artifacts": [
+        {
+          "role": "primary",
+          "format": "docx",
+          "path": "chicago/reference/newspapers/Transcriptions/Chicago_Democrat_1833-11_to_1835-08/Chicago_Democrat_1834-03-18_VolI_No16_Transcription.docx",
+          "path_kind": "deposit",
+          "sha256": "a3f9fe0a74fb6f76732376a3721f2e23c21d16f57a639609a3b422a46d42482f",
+          "text_path": "chicago/reference/newspapers/Transcriptions/Chicago_Democrat_1833-11_to_1835-08/Chicago_Democrat_1834-03-18_VolI_No16_Transcription.txt",
+          "text_path_kind": "deposit",
+          "text_sha256": "56f0b670c4362af6859b1c345e0e024b50454cdacfb22ef897b7eb9cfb4a2f54",
+          "text_chars": 115786
+        }
+      ],
+      "manifest": "chicago/reference/newspapers/Transcriptions/Chicago_Democrat_1833-11_to_1835-08/Chicago_Democrat_1834_Issue_Manifest.csv",
+      "word_count": 19668,
+      "uncertainty_markers": 269,
+      "notes": "No March 11 issue is supplied; the printed sequence resumes with March 18, No. 16.",
+      "completeness": "unstated",
+      "validation_notes": "chicago/reference/newspapers/Transcriptions/Chicago_Democrat_1833-11_to_1835-08/Chicago_Democrat_1834_Validation_Notes.md",
+      "text_path": "chicago/reference/newspapers/Transcriptions/Chicago_Democrat_1833-11_to_1835-08/Chicago_Democrat_1834-03-18_VolI_No16_Transcription.txt",
+      "text_path_kind": "deposit"
+    },
+    {
+      "id": "chicago_democrat_1834_03_25",
+      "publication": "chicago_democrat",
+      "source_id": "chicago_democrat_1833_1835",
+      "date": "1834-03-25",
+      "volume": "I",
+      "number": "17",
+      "artifacts": [
+        {
+          "role": "primary",
+          "format": "docx",
+          "path": "chicago/reference/newspapers/Transcriptions/Chicago_Democrat_1833-11_to_1835-08/Chicago_Democrat_1834-03-25_VolI_No17_Transcription.docx",
+          "path_kind": "deposit",
+          "sha256": "de6e60486d059827582527bfd62bb05d421ced1eb7ce861440a2c8b0aec2de0f",
+          "text_path": "chicago/reference/newspapers/Transcriptions/Chicago_Democrat_1833-11_to_1835-08/Chicago_Democrat_1834-03-25_VolI_No17_Transcription.txt",
+          "text_path_kind": "deposit",
+          "text_sha256": "6b429e75edc37bb6b70b59263c439d5ead07d8ef405f13b1967e4d88a841e87c",
+          "text_chars": 115005
+        }
+      ],
+      "manifest": "chicago/reference/newspapers/Transcriptions/Chicago_Democrat_1833-11_to_1835-08/Chicago_Democrat_1834_Issue_Manifest.csv",
+      "word_count": 19404,
+      "uncertainty_markers": 324,
+      "completeness": "unstated",
+      "validation_notes": "chicago/reference/newspapers/Transcriptions/Chicago_Democrat_1833-11_to_1835-08/Chicago_Democrat_1834_Validation_Notes.md",
+      "text_path": "chicago/reference/newspapers/Transcriptions/Chicago_Democrat_1833-11_to_1835-08/Chicago_Democrat_1834-03-25_VolI_No17_Transcription.txt",
+      "text_path_kind": "deposit"
+    },
+    {
+      "id": "chicago_democrat_1834_04_01",
+      "publication": "chicago_democrat",
+      "source_id": "chicago_democrat_1833_1835",
+      "date": "1834-04-01",
+      "volume": "I",
+      "number": "18",
+      "artifacts": [
+        {
+          "role": "primary",
+          "format": "docx",
+          "path": "chicago/reference/newspapers/Transcriptions/Chicago_Democrat_1833-11_to_1835-08/Chicago_Democrat_1834-04-01_VolI_No18_Transcription.docx",
+          "path_kind": "deposit",
+          "sha256": "3726afff8ad8728893e7a3b23e2db70ddd8448c97e5b5ba5766706a166cfc108",
+          "text_path": "chicago/reference/newspapers/Transcriptions/Chicago_Democrat_1833-11_to_1835-08/Chicago_Democrat_1834-04-01_VolI_No18_Transcription.txt",
+          "text_path_kind": "deposit",
+          "text_sha256": "b65a1d6177cb314613f57e6a2a848c47b6bb7a194617e2b9f5e3688492e5d7dc",
+          "text_chars": 115757
+        }
+      ],
+      "manifest": "chicago/reference/newspapers/Transcriptions/Chicago_Democrat_1833-11_to_1835-08/Chicago_Democrat_1834_Issue_Manifest.csv",
+      "word_count": 21262,
+      "uncertainty_markers": 238,
+      "completeness": "unstated",
+      "validation_notes": "chicago/reference/newspapers/Transcriptions/Chicago_Democrat_1833-11_to_1835-08/Chicago_Democrat_1834_Validation_Notes.md",
+      "text_path": "chicago/reference/newspapers/Transcriptions/Chicago_Democrat_1833-11_to_1835-08/Chicago_Democrat_1834-04-01_VolI_No18_Transcription.txt",
+      "text_path_kind": "deposit"
+    },
+    {
+      "id": "chicago_democrat_1834_04_08",
+      "publication": "chicago_democrat",
+      "source_id": "chicago_democrat_1833_1835",
+      "date": "1834-04-08",
+      "volume": "I",
+      "number": "19",
+      "artifacts": [
+        {
+          "role": "primary",
+          "format": "docx",
+          "path": "chicago/reference/newspapers/Transcriptions/Chicago_Democrat_1833-11_to_1835-08/Chicago_Democrat_1834-04-08_VolI_No19_Transcription.docx",
+          "path_kind": "deposit",
+          "sha256": "535fd561f10130a76a4f723458b971832347637527a1508e7e93e61c897bc000",
+          "text_path": "chicago/reference/newspapers/Transcriptions/Chicago_Democrat_1833-11_to_1835-08/Chicago_Democrat_1834-04-08_VolI_No19_Transcription.txt",
+          "text_path_kind": "deposit",
+          "text_sha256": "d28e7908367a9a7d23c6d55148dfb5fb4e640ad2e2a3ad63c710b85c35f6acf0",
+          "text_chars": 101719
+        }
+      ],
+      "manifest": "chicago/reference/newspapers/Transcriptions/Chicago_Democrat_1833-11_to_1835-08/Chicago_Democrat_1834_Issue_Manifest.csv",
+      "word_count": 18619,
+      "uncertainty_markers": 236,
+      "completeness": "unstated",
+      "validation_notes": "chicago/reference/newspapers/Transcriptions/Chicago_Democrat_1833-11_to_1835-08/Chicago_Democrat_1834_Validation_Notes.md",
+      "text_path": "chicago/reference/newspapers/Transcriptions/Chicago_Democrat_1833-11_to_1835-08/Chicago_Democrat_1834-04-08_VolI_No19_Transcription.txt",
+      "text_path_kind": "deposit"
+    },
+    {
+      "id": "chicago_democrat_1834_04_16",
+      "publication": "chicago_democrat",
+      "source_id": "chicago_democrat_1833_1835",
+      "date": "1834-04-16",
+      "volume": "I",
+      "number": "20",
+      "artifacts": [
+        {
+          "role": "primary",
+          "format": "docx",
+          "path": "chicago/reference/newspapers/Transcriptions/Chicago_Democrat_1833-11_to_1835-08/Chicago_Democrat_1834-04-16_VolI_No20_Transcription.docx",
+          "path_kind": "deposit",
+          "sha256": "94c6a8a7b4a1be55840e589eb2912b9ea71f7f4e9d0be38266942b4cbf260f09",
+          "text_path": "chicago/reference/newspapers/Transcriptions/Chicago_Democrat_1833-11_to_1835-08/Chicago_Democrat_1834-04-16_VolI_No20_Transcription.txt",
+          "text_path_kind": "deposit",
+          "text_sha256": "bdfd26f8e524f32646ae2424ffbea6f889038e0faef201afe349818ad9598fef",
+          "text_chars": 117682
+        }
+      ],
+      "manifest": "chicago/reference/newspapers/Transcriptions/Chicago_Democrat_1833-11_to_1835-08/Chicago_Democrat_1834_Issue_Manifest.csv",
+      "word_count": 21549,
+      "uncertainty_markers": 240,
+      "notes": "The printed publication day changes from Tuesday to Wednesday after April 8.",
+      "completeness": "unstated",
+      "validation_notes": "chicago/reference/newspapers/Transcriptions/Chicago_Democrat_1833-11_to_1835-08/Chicago_Democrat_1834_Validation_Notes.md",
+      "text_path": "chicago/reference/newspapers/Transcriptions/Chicago_Democrat_1833-11_to_1835-08/Chicago_Democrat_1834-04-16_VolI_No20_Transcription.txt",
+      "text_path_kind": "deposit"
+    },
+    {
+      "id": "chicago_democrat_1834_04_23",
+      "publication": "chicago_democrat",
+      "source_id": "chicago_democrat_1833_1835",
+      "date": "1834-04-23",
+      "volume": "I",
+      "number": "21",
+      "artifacts": [
+        {
+          "role": "primary",
+          "format": "docx",
+          "path": "chicago/reference/newspapers/Transcriptions/Chicago_Democrat_1833-11_to_1835-08/Chicago_Democrat_1834-04-23_VolI_No21_Transcription.docx",
+          "path_kind": "deposit",
+          "sha256": "ae652307f7a595725abe68910af0c27cae9dc13d02319c216aaac2e332c34974",
+          "text_path": "chicago/reference/newspapers/Transcriptions/Chicago_Democrat_1833-11_to_1835-08/Chicago_Democrat_1834-04-23_VolI_No21_Transcription.txt",
+          "text_path_kind": "deposit",
+          "text_sha256": "b54fd8f79018344af58248a5feea58c5445c164253bf9c2e6a4b2c26191aead6",
+          "text_chars": 99018
+        }
+      ],
+      "manifest": "chicago/reference/newspapers/Transcriptions/Chicago_Democrat_1833-11_to_1835-08/Chicago_Democrat_1834_Issue_Manifest.csv",
+      "word_count": 18011,
+      "uncertainty_markers": 306,
+      "completeness": "unstated",
+      "validation_notes": "chicago/reference/newspapers/Transcriptions/Chicago_Democrat_1833-11_to_1835-08/Chicago_Democrat_1834_Validation_Notes.md",
+      "text_path": "chicago/reference/newspapers/Transcriptions/Chicago_Democrat_1833-11_to_1835-08/Chicago_Democrat_1834-04-23_VolI_No21_Transcription.txt",
+      "text_path_kind": "deposit"
+    },
+    {
+      "id": "chicago_democrat_1834_04_30",
+      "publication": "chicago_democrat",
+      "source_id": "chicago_democrat_1833_1835",
+      "date": "1834-04-30",
+      "volume": "I",
+      "number": "22",
+      "artifacts": [
+        {
+          "role": "primary",
+          "format": "docx",
+          "path": "chicago/reference/newspapers/Transcriptions/Chicago_Democrat_1833-11_to_1835-08/Chicago_Democrat_1834-04-30_VolI_No22_Transcription.docx",
+          "path_kind": "deposit",
+          "sha256": "f93d09a46f5aa012fbfa584dc637d739bd040c9939bd0cc187de533ea7a64ccd",
+          "text_path": "chicago/reference/newspapers/Transcriptions/Chicago_Democrat_1833-11_to_1835-08/Chicago_Democrat_1834-04-30_VolI_No22_Transcription.txt",
+          "text_path_kind": "deposit",
+          "text_sha256": "756c4690d95b044711f352c9b4fe7bb5b0c86638091ab271060411b034515b1d",
+          "text_chars": 116128
+        }
+      ],
+      "manifest": "chicago/reference/newspapers/Transcriptions/Chicago_Democrat_1833-11_to_1835-08/Chicago_Democrat_1834_Issue_Manifest.csv",
+      "word_count": 21072,
+      "uncertainty_markers": 340,
+      "completeness": "unstated",
+      "validation_notes": "chicago/reference/newspapers/Transcriptions/Chicago_Democrat_1833-11_to_1835-08/Chicago_Democrat_1834_Validation_Notes.md",
+      "text_path": "chicago/reference/newspapers/Transcriptions/Chicago_Democrat_1833-11_to_1835-08/Chicago_Democrat_1834-04-30_VolI_No22_Transcription.txt",
+      "text_path_kind": "deposit"
+    },
+    {
+      "id": "chicago_democrat_1834_05_07",
+      "publication": "chicago_democrat",
+      "source_id": "chicago_democrat_1833_1835",
+      "date": "1834-05-07",
+      "volume": "I",
+      "number": "23",
+      "artifacts": [
+        {
+          "role": "primary",
+          "format": "docx",
+          "path": "chicago/reference/newspapers/Transcriptions/Chicago_Democrat_1833-11_to_1835-08/Chicago_Democrat_1834-05-07_VolI_No23_Transcription.docx",
+          "path_kind": "deposit",
+          "sha256": "4f6a4a8620de47de1de6a1a9fe46656a6b89d4755b7e68cd9187de1a13f524b8",
+          "text_path": "chicago/reference/newspapers/Transcriptions/Chicago_Democrat_1833-11_to_1835-08/Chicago_Democrat_1834-05-07_VolI_No23_Transcription.txt",
+          "text_path_kind": "deposit",
+          "text_sha256": "641100aa3ac045693ae7ebc3ceb9968d04e28522bd5d332d98e3e16261f86ff4",
+          "text_chars": 111376
+        }
+      ],
+      "manifest": "chicago/reference/newspapers/Transcriptions/Chicago_Democrat_1833-11_to_1835-08/Chicago_Democrat_1834_Issue_Manifest.csv",
+      "word_count": 19934,
+      "uncertainty_markers": 523,
+      "notes": "PDF pages 25-26 are alternate witnesses associated with this vicinity of the scan sequence and were used only for comparison.",
+      "completeness": "unstated",
+      "validation_notes": "chicago/reference/newspapers/Transcriptions/Chicago_Democrat_1833-11_to_1835-08/Chicago_Democrat_1834_Validation_Notes.md",
+      "text_path": "chicago/reference/newspapers/Transcriptions/Chicago_Democrat_1833-11_to_1835-08/Chicago_Democrat_1834-05-07_VolI_No23_Transcription.txt",
+      "text_path_kind": "deposit"
+    },
+    {
+      "id": "chicago_democrat_1834_05_14",
+      "publication": "chicago_democrat",
+      "source_id": "chicago_democrat_1833_1835",
+      "date": "1834-05-14",
+      "volume": "I",
+      "number": "24",
+      "artifacts": [
+        {
+          "role": "primary",
+          "format": "docx",
+          "path": "chicago/reference/newspapers/Transcriptions/Chicago_Democrat_1833-11_to_1835-08/Chicago_Democrat_1834-05-14_VolI_No24_Transcription.docx",
+          "path_kind": "deposit",
+          "sha256": "ba5cbd647c0b5be0c0ecc37e12c37b8102592611789d5061e1c82edfea55c5c5",
+          "text_path": "chicago/reference/newspapers/Transcriptions/Chicago_Democrat_1833-11_to_1835-08/Chicago_Democrat_1834-05-14_VolI_No24_Transcription.txt",
+          "text_path_kind": "deposit",
+          "text_sha256": "abcbcbc38072c9f5dc3733af0401303b77f4658fcff7a9e7e53c22efd47964f1",
+          "text_chars": 115913
+        }
+      ],
+      "manifest": "chicago/reference/newspapers/Transcriptions/Chicago_Democrat_1833-11_to_1835-08/Chicago_Democrat_1834_Issue_Manifest.csv",
+      "word_count": 20841,
+      "uncertainty_markers": 263,
+      "completeness": "unstated",
+      "validation_notes": "chicago/reference/newspapers/Transcriptions/Chicago_Democrat_1833-11_to_1835-08/Chicago_Democrat_1834_Validation_Notes.md",
+      "text_path": "chicago/reference/newspapers/Transcriptions/Chicago_Democrat_1833-11_to_1835-08/Chicago_Democrat_1834-05-14_VolI_No24_Transcription.txt",
+      "text_path_kind": "deposit"
+    },
+    {
+      "id": "chicago_democrat_1834_05_21",
+      "publication": "chicago_democrat",
+      "source_id": "chicago_democrat_1833_1835",
+      "date": "1834-05-21",
+      "volume": "I",
+      "number": "25",
+      "artifacts": [
+        {
+          "role": "primary",
+          "format": "docx",
+          "path": "chicago/reference/newspapers/Transcriptions/Chicago_Democrat_1833-11_to_1835-08/Chicago_Democrat_1834-05-21_VolI_No25_Transcription.docx",
+          "path_kind": "deposit",
+          "sha256": "acc735689690a6b1338c3c27f881252fbc47b1b43432a9e2a3c12f51cd8bc2be",
+          "text_path": "chicago/reference/newspapers/Transcriptions/Chicago_Democrat_1833-11_to_1835-08/Chicago_Democrat_1834-05-21_VolI_No25_Transcription.txt",
+          "text_path_kind": "deposit",
+          "text_sha256": "2d256869c5cbfa9b41afc6c2cb825764982074722a2df6b89b97cd335f9eeed8",
+          "text_chars": 121650
+        }
+      ],
+      "manifest": "chicago/reference/newspapers/Transcriptions/Chicago_Democrat_1833-11_to_1835-08/Chicago_Democrat_1834_Issue_Manifest.csv",
+      "word_count": 22023,
+      "uncertainty_markers": 220,
+      "notes": "PDF pages 31-32 are alternate witnesses of the beginning of this issue; pages 33-36 form the complete canonical witness.",
+      "completeness": "unstated",
+      "validation_notes": "chicago/reference/newspapers/Transcriptions/Chicago_Democrat_1833-11_to_1835-08/Chicago_Democrat_1834_Validation_Notes.md",
+      "text_path": "chicago/reference/newspapers/Transcriptions/Chicago_Democrat_1833-11_to_1835-08/Chicago_Democrat_1834-05-21_VolI_No25_Transcription.txt",
+      "text_path_kind": "deposit"
+    },
+    {
+      "id": "chicago_democrat_1834_05_28",
+      "publication": "chicago_democrat",
+      "source_id": "chicago_democrat_1833_1835",
+      "date": "1834-05-28",
+      "volume": "I",
+      "number": "26",
+      "artifacts": [
+        {
+          "role": "primary",
+          "format": "docx",
+          "path": "chicago/reference/newspapers/Transcriptions/Chicago_Democrat_1833-11_to_1835-08/Chicago_Democrat_1834-05-28_VolI_No26_Transcription.docx",
+          "path_kind": "deposit",
+          "sha256": "20da843cbb097bff19fa336a8b979b3381b5c0c398e831317646d53b53af843a",
+          "text_path": "chicago/reference/newspapers/Transcriptions/Chicago_Democrat_1833-11_to_1835-08/Chicago_Democrat_1834-05-28_VolI_No26_Transcription.txt",
+          "text_path_kind": "deposit",
+          "text_sha256": "72e023dc64f7fd271560c25b805364b9ae004bf7030c8db4d0148e7e6a02d447",
+          "text_chars": 106938
+        }
+      ],
+      "manifest": "chicago/reference/newspapers/Transcriptions/Chicago_Democrat_1833-11_to_1835-08/Chicago_Democrat_1834_Issue_Manifest.csv",
+      "word_count": 19277,
+      "uncertainty_markers": 416,
+      "completeness": "unstated",
+      "validation_notes": "chicago/reference/newspapers/Transcriptions/Chicago_Democrat_1833-11_to_1835-08/Chicago_Democrat_1834_Validation_Notes.md",
+      "text_path": "chicago/reference/newspapers/Transcriptions/Chicago_Democrat_1833-11_to_1835-08/Chicago_Democrat_1834-05-28_VolI_No26_Transcription.txt",
+      "text_path_kind": "deposit"
+    },
+    {
+      "id": "chicago_democrat_1834_06_04",
+      "publication": "chicago_democrat",
+      "source_id": "chicago_democrat_1833_1835",
+      "date": "1834-06-04",
+      "volume": "I",
+      "number": "27",
+      "artifacts": [
+        {
+          "role": "primary",
+          "format": "docx",
+          "path": "chicago/reference/newspapers/Transcriptions/Chicago_Democrat_1833-11_to_1835-08/Chicago_Democrat_1834-06-04_VolI_No27_Transcription.docx",
+          "path_kind": "deposit",
+          "sha256": "11c89a29ef58116af0d182c273952ea7a3a7b2dd79c48717fdd5975d1d7fa693",
+          "text_path": "chicago/reference/newspapers/Transcriptions/Chicago_Democrat_1833-11_to_1835-08/Chicago_Democrat_1834-06-04_VolI_No27_Transcription.txt",
+          "text_path_kind": "deposit",
+          "text_sha256": "b2fd855a9ee240fe5a831d0767d6fb0984f6ad12f486635b8535f9224d7b5667",
+          "text_chars": 111294
+        }
+      ],
+      "manifest": "chicago/reference/newspapers/Transcriptions/Chicago_Democrat_1833-11_to_1835-08/Chicago_Democrat_1834_Issue_Manifest.csv",
+      "word_count": 19732,
+      "uncertainty_markers": 80,
+      "completeness": "unstated",
+      "validation_notes": "chicago/reference/newspapers/Transcriptions/Chicago_Democrat_1833-11_to_1835-08/Chicago_Democrat_1834_Validation_Notes.md",
+      "text_path": "chicago/reference/newspapers/Transcriptions/Chicago_Democrat_1833-11_to_1835-08/Chicago_Democrat_1834-06-04_VolI_No27_Transcription.txt",
+      "text_path_kind": "deposit"
+    },
+    {
+      "id": "chicago_democrat_1834_06_11",
+      "publication": "chicago_democrat",
+      "source_id": "chicago_democrat_1833_1835",
+      "date": "1834-06-11",
+      "volume": "I",
+      "number": "28",
+      "artifacts": [
+        {
+          "role": "primary",
+          "format": "docx",
+          "path": "chicago/reference/newspapers/Transcriptions/Chicago_Democrat_1833-11_to_1835-08/Chicago_Democrat_1834-06-11_VolI_No28_Transcription.docx",
+          "path_kind": "deposit",
+          "sha256": "79a514c925dfc672caa45144185c2fe838d0f3e9e70a91ad7960c411fd55f5e6",
+          "text_path": "chicago/reference/newspapers/Transcriptions/Chicago_Democrat_1833-11_to_1835-08/Chicago_Democrat_1834-06-11_VolI_No28_Transcription.txt",
+          "text_path_kind": "deposit",
+          "text_sha256": "7ae8ff91b2e29cdd91ea793d734afb5c0de465bcfacddf1a0f4f663dcd0bd330",
+          "text_chars": 102214
+        }
+      ],
+      "manifest": "chicago/reference/newspapers/Transcriptions/Chicago_Democrat_1833-11_to_1835-08/Chicago_Democrat_1834_Issue_Manifest.csv",
+      "word_count": 18581,
+      "uncertainty_markers": 182,
+      "completeness": "unstated",
+      "validation_notes": "chicago/reference/newspapers/Transcriptions/Chicago_Democrat_1833-11_to_1835-08/Chicago_Democrat_1834_Validation_Notes.md",
+      "text_path": "chicago/reference/newspapers/Transcriptions/Chicago_Democrat_1833-11_to_1835-08/Chicago_Democrat_1834-06-11_VolI_No28_Transcription.txt",
+      "text_path_kind": "deposit"
+    },
+    {
+      "id": "chicago_democrat_1834_06_18",
+      "publication": "chicago_democrat",
+      "source_id": "chicago_democrat_1833_1835",
+      "date": "1834-06-18",
+      "volume": "I",
+      "number": "29",
+      "artifacts": [
+        {
+          "role": "primary",
+          "format": "docx",
+          "path": "chicago/reference/newspapers/Transcriptions/Chicago_Democrat_1833-11_to_1835-08/Chicago_Democrat_1834-06-18_VolI_No29_Transcription.docx",
+          "path_kind": "deposit",
+          "sha256": "45541863876557a25babc2f6649493276171ac151aa895348b8db2bdd7d71001",
+          "text_path": "chicago/reference/newspapers/Transcriptions/Chicago_Democrat_1833-11_to_1835-08/Chicago_Democrat_1834-06-18_VolI_No29_Transcription.txt",
+          "text_path_kind": "deposit",
+          "text_sha256": "c14ccb60186e47140f4c467d0071d27ce24c8c44e9b1becbd80fa8f952ed50cc",
+          "text_chars": 125354
+        }
+      ],
+      "manifest": "chicago/reference/newspapers/Transcriptions/Chicago_Democrat_1833-11_to_1835-08/Chicago_Democrat_1834_Issue_Manifest.csv",
+      "word_count": 22555,
+      "uncertainty_markers": 198,
+      "completeness": "unstated",
+      "validation_notes": "chicago/reference/newspapers/Transcriptions/Chicago_Democrat_1833-11_to_1835-08/Chicago_Democrat_1834_Validation_Notes.md",
+      "text_path": "chicago/reference/newspapers/Transcriptions/Chicago_Democrat_1833-11_to_1835-08/Chicago_Democrat_1834-06-18_VolI_No29_Transcription.txt",
+      "text_path_kind": "deposit"
+    },
+    {
+      "id": "chicago_democrat_1834_06_25",
+      "publication": "chicago_democrat",
+      "source_id": "chicago_democrat_1833_1835",
+      "date": "1834-06-25",
+      "volume": "I",
+      "number": "30",
+      "artifacts": [
+        {
+          "role": "primary",
+          "format": "docx",
+          "path": "chicago/reference/newspapers/Transcriptions/Chicago_Democrat_1833-11_to_1835-08/Chicago_Democrat_1834-06-25_VolI_No30_Transcription.docx",
+          "path_kind": "deposit",
+          "sha256": "1c0e82112f9e05356933cef92296123039227a648f6867e362bed7b5ac3b5bcd",
+          "text_path": "chicago/reference/newspapers/Transcriptions/Chicago_Democrat_1833-11_to_1835-08/Chicago_Democrat_1834-06-25_VolI_No30_Transcription.txt",
+          "text_path_kind": "deposit",
+          "text_sha256": "2ce1142997b2a62c36783aa3788425dedd925b70da8e8a2caebf21abcaa4a922",
+          "text_chars": 115938
+        }
+      ],
+      "manifest": "chicago/reference/newspapers/Transcriptions/Chicago_Democrat_1833-11_to_1835-08/Chicago_Democrat_1834_Issue_Manifest.csv",
+      "word_count": 20893,
+      "uncertainty_markers": 266,
+      "completeness": "unstated",
+      "validation_notes": "chicago/reference/newspapers/Transcriptions/Chicago_Democrat_1833-11_to_1835-08/Chicago_Democrat_1834_Validation_Notes.md",
+      "text_path": "chicago/reference/newspapers/Transcriptions/Chicago_Democrat_1833-11_to_1835-08/Chicago_Democrat_1834-06-25_VolI_No30_Transcription.txt",
+      "text_path_kind": "deposit"
+    },
+    {
+      "id": "chicago_democrat_1834_07_02",
+      "publication": "chicago_democrat",
+      "source_id": "chicago_democrat_1833_1835",
+      "date": "1834-07-02",
+      "volume": "I",
+      "number": "31",
+      "artifacts": [
+        {
+          "role": "primary",
+          "format": "docx",
+          "path": "chicago/reference/newspapers/Transcriptions/Chicago_Democrat_1833-11_to_1835-08/Chicago_Democrat_1834-07-02_VolI_No31_Transcription.docx",
+          "path_kind": "deposit",
+          "sha256": "0794b3cab0158ec99b6e68aef74db2d2ca94dd63708d7b3fe28a0308c9895e02",
+          "text_path": "chicago/reference/newspapers/Transcriptions/Chicago_Democrat_1833-11_to_1835-08/Chicago_Democrat_1834-07-02_VolI_No31_Transcription.txt",
+          "text_path_kind": "deposit",
+          "text_sha256": "f3ba4cf8d8baf8409b14cd29709e302e29ac8ab642979c6fbe5315407086e5fa",
+          "text_chars": 135221
+        }
+      ],
+      "manifest": "chicago/reference/newspapers/Transcriptions/Chicago_Democrat_1833-11_to_1835-08/Chicago_Democrat_1834_Issue_Manifest.csv",
+      "word_count": 24171,
+      "uncertainty_markers": 163,
+      "completeness": "unstated",
+      "validation_notes": "chicago/reference/newspapers/Transcriptions/Chicago_Democrat_1833-11_to_1835-08/Chicago_Democrat_1834_Validation_Notes.md",
+      "text_path": "chicago/reference/newspapers/Transcriptions/Chicago_Democrat_1833-11_to_1835-08/Chicago_Democrat_1834-07-02_VolI_No31_Transcription.txt",
+      "text_path_kind": "deposit"
+    },
+    {
+      "id": "chicago_democrat_1834_07_09",
+      "publication": "chicago_democrat",
+      "source_id": "chicago_democrat_1833_1835",
+      "date": "1834-07-09",
+      "volume": "I",
+      "number": "32",
+      "artifacts": [
+        {
+          "role": "primary",
+          "format": "docx",
+          "path": "chicago/reference/newspapers/Transcriptions/Chicago_Democrat_1833-11_to_1835-08/Chicago_Democrat_1834-07-09_VolI_No32_Transcription.docx",
+          "path_kind": "deposit",
+          "sha256": "af5186fd5c38af56bf10e00ad7ee6948809ccb88b14813a000a8b28d6b610bff",
+          "text_path": "chicago/reference/newspapers/Transcriptions/Chicago_Democrat_1833-11_to_1835-08/Chicago_Democrat_1834-07-09_VolI_No32_Transcription.txt",
+          "text_path_kind": "deposit",
+          "text_sha256": "aa0ef908078435cb0f777af325ac89a90acd19ac414de3db00e44dbe873c0994",
+          "text_chars": 104714
+        }
+      ],
+      "manifest": "chicago/reference/newspapers/Transcriptions/Chicago_Democrat_1833-11_to_1835-08/Chicago_Democrat_1834_Issue_Manifest.csv",
+      "word_count": 18953,
+      "uncertainty_markers": 261,
+      "completeness": "unstated",
+      "validation_notes": "chicago/reference/newspapers/Transcriptions/Chicago_Democrat_1833-11_to_1835-08/Chicago_Democrat_1834_Validation_Notes.md",
+      "text_path": "chicago/reference/newspapers/Transcriptions/Chicago_Democrat_1833-11_to_1835-08/Chicago_Democrat_1834-07-09_VolI_No32_Transcription.txt",
+      "text_path_kind": "deposit"
+    },
+    {
+      "id": "chicago_democrat_1834_07_16",
+      "publication": "chicago_democrat",
+      "source_id": "chicago_democrat_1833_1835",
+      "date": "1834-07-16",
+      "volume": "I",
+      "number": "33",
+      "artifacts": [
+        {
+          "role": "primary",
+          "format": "docx",
+          "path": "chicago/reference/newspapers/Transcriptions/Chicago_Democrat_1833-11_to_1835-08/Chicago_Democrat_1834-07-16_VolI_No33_Transcription.docx",
+          "path_kind": "deposit",
+          "sha256": "97c96695bfc6560c12f6c381cfc4bf5f89e49ffa011a766b338d76d976c7cc49",
+          "text_path": "chicago/reference/newspapers/Transcriptions/Chicago_Democrat_1833-11_to_1835-08/Chicago_Democrat_1834-07-16_VolI_No33_Transcription.txt",
+          "text_path_kind": "deposit",
+          "text_sha256": "303886ea613eb5af14b0b34304d637eb63a95759168cc95371003719b4fa7c72",
+          "text_chars": 124903
+        }
+      ],
+      "manifest": "chicago/reference/newspapers/Transcriptions/Chicago_Democrat_1833-11_to_1835-08/Chicago_Democrat_1834_Issue_Manifest.csv",
+      "word_count": 22435,
+      "uncertainty_markers": 427,
+      "completeness": "unstated",
+      "validation_notes": "chicago/reference/newspapers/Transcriptions/Chicago_Democrat_1833-11_to_1835-08/Chicago_Democrat_1834_Validation_Notes.md",
+      "text_path": "chicago/reference/newspapers/Transcriptions/Chicago_Democrat_1833-11_to_1835-08/Chicago_Democrat_1834-07-16_VolI_No33_Transcription.txt",
+      "text_path_kind": "deposit"
+    },
+    {
+      "id": "chicago_democrat_1834_07_23",
+      "publication": "chicago_democrat",
+      "source_id": "chicago_democrat_1833_1835",
+      "date": "1834-07-23",
+      "volume": "I",
+      "number": "34",
+      "artifacts": [
+        {
+          "role": "primary",
+          "format": "docx",
+          "path": "chicago/reference/newspapers/Transcriptions/Chicago_Democrat_1833-11_to_1835-08/Chicago_Democrat_1834-07-23_VolI_No34_Transcription.docx",
+          "path_kind": "deposit",
+          "sha256": "1d78b6dcd60e11fb8f2b49e32b6e9d9ba085284c8c41ae721c2884a67c038f39",
+          "text_path": "chicago/reference/newspapers/Transcriptions/Chicago_Democrat_1833-11_to_1835-08/Chicago_Democrat_1834-07-23_VolI_No34_Transcription.txt",
+          "text_path_kind": "deposit",
+          "text_sha256": "f2a559f339a23809468c9c2bba9be5b91eafc36c88b686ff738b4f84a89eac00",
+          "text_chars": 128533
+        }
+      ],
+      "manifest": "chicago/reference/newspapers/Transcriptions/Chicago_Democrat_1833-11_to_1835-08/Chicago_Democrat_1834_Issue_Manifest.csv",
+      "word_count": 23415,
+      "uncertainty_markers": 123,
+      "completeness": "unstated",
+      "validation_notes": "chicago/reference/newspapers/Transcriptions/Chicago_Democrat_1833-11_to_1835-08/Chicago_Democrat_1834_Validation_Notes.md",
+      "text_path": "chicago/reference/newspapers/Transcriptions/Chicago_Democrat_1833-11_to_1835-08/Chicago_Democrat_1834-07-23_VolI_No34_Transcription.txt",
+      "text_path_kind": "deposit"
+    },
+    {
+      "id": "chicago_democrat_1834_07_30",
+      "publication": "chicago_democrat",
+      "source_id": "chicago_democrat_1833_1835",
+      "date": "1834-07-30",
+      "volume": "I",
+      "number": "35",
+      "artifacts": [
+        {
+          "role": "primary",
+          "format": "docx",
+          "path": "chicago/reference/newspapers/Transcriptions/Chicago_Democrat_1833-11_to_1835-08/Chicago_Democrat_1834-07-30_VolI_No35_Transcription.docx",
+          "path_kind": "deposit",
+          "sha256": "80945c08c8f2b6306185b86c284b86d094cb0253ec70083756acae718f988f73",
+          "text_path": "chicago/reference/newspapers/Transcriptions/Chicago_Democrat_1833-11_to_1835-08/Chicago_Democrat_1834-07-30_VolI_No35_Transcription.txt",
+          "text_path_kind": "deposit",
+          "text_sha256": "2080aee010cab5244bef9d956e1f90827da0807394cd0e05651b16606295d48d",
+          "text_chars": 131075
+        }
+      ],
+      "manifest": "chicago/reference/newspapers/Transcriptions/Chicago_Democrat_1833-11_to_1835-08/Chicago_Democrat_1834_Issue_Manifest.csv",
+      "word_count": 23646,
+      "uncertainty_markers": 587,
+      "completeness": "unstated",
+      "validation_notes": "chicago/reference/newspapers/Transcriptions/Chicago_Democrat_1833-11_to_1835-08/Chicago_Democrat_1834_Validation_Notes.md",
+      "text_path": "chicago/reference/newspapers/Transcriptions/Chicago_Democrat_1833-11_to_1835-08/Chicago_Democrat_1834-07-30_VolI_No35_Transcription.txt",
+      "text_path_kind": "deposit"
+    },
+    {
+      "id": "chicago_democrat_1834_08_06",
+      "publication": "chicago_democrat",
+      "source_id": "chicago_democrat_1833_1835",
+      "date": "1834-08-06",
+      "volume": "I",
+      "number": "36",
+      "artifacts": [
+        {
+          "role": "primary",
+          "format": "docx",
+          "path": "chicago/reference/newspapers/Transcriptions/Chicago_Democrat_1833-11_to_1835-08/Chicago_Democrat_1834-08-06_VolI_No36_Transcription.docx",
+          "path_kind": "deposit",
+          "sha256": "7ca625db8b35be53db189a8d9e1662cfebf3f97b0819557936bd7f631e0f3ab1",
+          "text_path": "chicago/reference/newspapers/Transcriptions/Chicago_Democrat_1833-11_to_1835-08/Chicago_Democrat_1834-08-06_VolI_No36_Transcription.txt",
+          "text_path_kind": "deposit",
+          "text_sha256": "8bc8b27a88fc17bc23533363fb88f85b7a3699138bbd42cf84c16756fae16222",
+          "text_chars": 88906
+        }
+      ],
+      "manifest": "chicago/reference/newspapers/Transcriptions/Chicago_Democrat_1833-11_to_1835-08/Chicago_Democrat_1834_Issue_Manifest.csv",
+      "word_count": 15959,
+      "uncertainty_markers": 398,
+      "completeness": "unstated",
+      "validation_notes": "chicago/reference/newspapers/Transcriptions/Chicago_Democrat_1833-11_to_1835-08/Chicago_Democrat_1834_Validation_Notes.md",
+      "text_path": "chicago/reference/newspapers/Transcriptions/Chicago_Democrat_1833-11_to_1835-08/Chicago_Democrat_1834-08-06_VolI_No36_Transcription.txt",
+      "text_path_kind": "deposit"
+    },
+    {
+      "id": "chicago_democrat_1834_08_13",
+      "publication": "chicago_democrat",
+      "source_id": "chicago_democrat_1833_1835",
+      "date": "1834-08-13",
+      "volume": "I",
+      "number": "37",
+      "artifacts": [
+        {
+          "role": "primary",
+          "format": "docx",
+          "path": "chicago/reference/newspapers/Transcriptions/Chicago_Democrat_1833-11_to_1835-08/Chicago_Democrat_1834-08-13_VolI_No37_Transcription.docx",
+          "path_kind": "deposit",
+          "sha256": "b854e2724219feeb3791c906665b26bbc907bb035dc76888fe496c9ef207ee73",
+          "text_path": "chicago/reference/newspapers/Transcriptions/Chicago_Democrat_1833-11_to_1835-08/Chicago_Democrat_1834-08-13_VolI_No37_Transcription.txt",
+          "text_path_kind": "deposit",
+          "text_sha256": "0401ae7aeb1494ddc4f8f64127d955f17d334dd000fd87a19284e002d818ea00",
+          "text_chars": 98394
+        }
+      ],
+      "manifest": "chicago/reference/newspapers/Transcriptions/Chicago_Democrat_1833-11_to_1835-08/Chicago_Democrat_1834_Issue_Manifest.csv",
+      "word_count": 17385,
+      "uncertainty_markers": 695,
+      "completeness": "unstated",
+      "validation_notes": "chicago/reference/newspapers/Transcriptions/Chicago_Democrat_1833-11_to_1835-08/Chicago_Democrat_1834_Validation_Notes.md",
+      "text_path": "chicago/reference/newspapers/Transcriptions/Chicago_Democrat_1833-11_to_1835-08/Chicago_Democrat_1834-08-13_VolI_No37_Transcription.txt",
+      "text_path_kind": "deposit"
+    },
+    {
+      "id": "chicago_democrat_1834_08_20",
+      "publication": "chicago_democrat",
+      "source_id": "chicago_democrat_1833_1835",
+      "date": "1834-08-20",
+      "volume": "I",
+      "number": "38",
+      "artifacts": [
+        {
+          "role": "primary",
+          "format": "docx",
+          "path": "chicago/reference/newspapers/Transcriptions/Chicago_Democrat_1833-11_to_1835-08/Chicago_Democrat_1834-08-20_VolI_No38_Transcription.docx",
+          "path_kind": "deposit",
+          "sha256": "9452fa84005709cc3ac7f84506079bb0be7acb09b713bfcfdc1d995d4a59ba5e",
+          "text_path": "chicago/reference/newspapers/Transcriptions/Chicago_Democrat_1833-11_to_1835-08/Chicago_Democrat_1834-08-20_VolI_No38_Transcription.txt",
+          "text_path_kind": "deposit",
+          "text_sha256": "0b4a7c511affc42daf510667aadb746d1c71433e97673d883347997eb3d37aab",
+          "text_chars": 104738
+        }
+      ],
+      "manifest": "chicago/reference/newspapers/Transcriptions/Chicago_Democrat_1833-11_to_1835-08/Chicago_Democrat_1834_Issue_Manifest.csv",
+      "word_count": 18618,
+      "uncertainty_markers": 725,
+      "completeness": "unstated",
+      "validation_notes": "chicago/reference/newspapers/Transcriptions/Chicago_Democrat_1833-11_to_1835-08/Chicago_Democrat_1834_Validation_Notes.md",
+      "text_path": "chicago/reference/newspapers/Transcriptions/Chicago_Democrat_1833-11_to_1835-08/Chicago_Democrat_1834-08-20_VolI_No38_Transcription.txt",
+      "text_path_kind": "deposit"
+    },
+    {
+      "id": "chicago_democrat_1834_08_27",
+      "publication": "chicago_democrat",
+      "source_id": "chicago_democrat_1833_1835",
+      "date": "1834-08-27",
+      "volume": "I",
+      "number": "39",
+      "artifacts": [
+        {
+          "role": "primary",
+          "format": "docx",
+          "path": "chicago/reference/newspapers/Transcriptions/Chicago_Democrat_1833-11_to_1835-08/Chicago_Democrat_1834-08-27_VolI_No39_Transcription.docx",
+          "path_kind": "deposit",
+          "sha256": "df7eb88f99a0ffd08e88359a74ed5c904f57bd86ddaacd248d0937d657472437",
+          "text_path": "chicago/reference/newspapers/Transcriptions/Chicago_Democrat_1833-11_to_1835-08/Chicago_Democrat_1834-08-27_VolI_No39_Transcription.txt",
+          "text_path_kind": "deposit",
+          "text_sha256": "36266d8b3282b87b2d7db7b689cb4e5a79d83818418e9ec6cde339fad07a81be",
+          "text_chars": 107930
+        }
+      ],
+      "manifest": "chicago/reference/newspapers/Transcriptions/Chicago_Democrat_1833-11_to_1835-08/Chicago_Democrat_1834_Issue_Manifest.csv",
+      "word_count": 18862,
+      "uncertainty_markers": 723,
+      "completeness": "unstated",
+      "validation_notes": "chicago/reference/newspapers/Transcriptions/Chicago_Democrat_1833-11_to_1835-08/Chicago_Democrat_1834_Validation_Notes.md",
+      "text_path": "chicago/reference/newspapers/Transcriptions/Chicago_Democrat_1833-11_to_1835-08/Chicago_Democrat_1834-08-27_VolI_No39_Transcription.txt",
+      "text_path_kind": "deposit"
+    },
+    {
+      "id": "chicago_democrat_1834_09_03",
+      "publication": "chicago_democrat",
+      "source_id": "chicago_democrat_1833_1835",
+      "date": "1834-09-03",
+      "volume": "I",
+      "number": "40",
+      "artifacts": [
+        {
+          "role": "primary",
+          "format": "docx",
+          "path": "chicago/reference/newspapers/Transcriptions/Chicago_Democrat_1833-11_to_1835-08/Chicago_Democrat_1834-09-03_VolI_No40_Transcription.docx",
+          "path_kind": "deposit",
+          "sha256": "46f1f554160f4b23a0ad2422c53e36690de72b467fe385c4049310a1c3c2c609",
+          "text_path": "chicago/reference/newspapers/Transcriptions/Chicago_Democrat_1833-11_to_1835-08/Chicago_Democrat_1834-09-03_VolI_No40_Transcription.txt",
+          "text_path_kind": "deposit",
+          "text_sha256": "9f27be9ab56cadca47e092de8a2a4156f08d3d36158d581586264cd2dfb8b34a",
+          "text_chars": 108308
+        }
+      ],
+      "manifest": "chicago/reference/newspapers/Transcriptions/Chicago_Democrat_1833-11_to_1835-08/Chicago_Democrat_1834_Issue_Manifest.csv",
+      "word_count": 19292,
+      "uncertainty_markers": 464,
+      "completeness": "unstated",
+      "validation_notes": "chicago/reference/newspapers/Transcriptions/Chicago_Democrat_1833-11_to_1835-08/Chicago_Democrat_1834_Validation_Notes.md",
+      "text_path": "chicago/reference/newspapers/Transcriptions/Chicago_Democrat_1833-11_to_1835-08/Chicago_Democrat_1834-09-03_VolI_No40_Transcription.txt",
+      "text_path_kind": "deposit"
+    },
+    {
+      "id": "chicago_democrat_1834_09_10",
+      "publication": "chicago_democrat",
+      "source_id": "chicago_democrat_1833_1835",
+      "date": "1834-09-10",
+      "volume": "I",
+      "number": "41",
+      "artifacts": [
+        {
+          "role": "primary",
+          "format": "docx",
+          "path": "chicago/reference/newspapers/Transcriptions/Chicago_Democrat_1833-11_to_1835-08/Chicago_Democrat_1834-09-10_VolI_No41_Transcription.docx",
+          "path_kind": "deposit",
+          "sha256": "00e5d0fc17f1ae385c032d427964cc3eb9786dfea5ad2e31c5a8defbd29a5fab",
+          "text_path": "chicago/reference/newspapers/Transcriptions/Chicago_Democrat_1833-11_to_1835-08/Chicago_Democrat_1834-09-10_VolI_No41_Transcription.txt",
+          "text_path_kind": "deposit",
+          "text_sha256": "1f3858133a49d079e26027e71258ae926e0708de829a8cb8c2d6726c9f2a76ce",
+          "text_chars": 110931
+        }
+      ],
+      "manifest": "chicago/reference/newspapers/Transcriptions/Chicago_Democrat_1833-11_to_1835-08/Chicago_Democrat_1834_Issue_Manifest.csv",
+      "word_count": 19552,
+      "uncertainty_markers": 507,
+      "completeness": "unstated",
+      "validation_notes": "chicago/reference/newspapers/Transcriptions/Chicago_Democrat_1833-11_to_1835-08/Chicago_Democrat_1834_Validation_Notes.md",
+      "text_path": "chicago/reference/newspapers/Transcriptions/Chicago_Democrat_1833-11_to_1835-08/Chicago_Democrat_1834-09-10_VolI_No41_Transcription.txt",
+      "text_path_kind": "deposit"
+    },
+    {
+      "id": "chicago_democrat_1834_09_17",
+      "publication": "chicago_democrat",
+      "source_id": "chicago_democrat_1833_1835",
+      "date": "1834-09-17",
+      "volume": "I",
+      "number": "42",
+      "artifacts": [
+        {
+          "role": "primary",
+          "format": "docx",
+          "path": "chicago/reference/newspapers/Transcriptions/Chicago_Democrat_1833-11_to_1835-08/Chicago_Democrat_1834-09-17_VolI_No42_Transcription.docx",
+          "path_kind": "deposit",
+          "sha256": "7fd5f9079bfcbb085f977f9ae714fe8d5f8c4cb77eddeaf06c00b3e63f9cbb7b",
+          "text_path": "chicago/reference/newspapers/Transcriptions/Chicago_Democrat_1833-11_to_1835-08/Chicago_Democrat_1834-09-17_VolI_No42_Transcription.txt",
+          "text_path_kind": "deposit",
+          "text_sha256": "b1ff4fcf169eb8ecffb101fcd20b897b25178650f687902c62166df9c5197108",
+          "text_chars": 110387
+        }
+      ],
+      "manifest": "chicago/reference/newspapers/Transcriptions/Chicago_Democrat_1833-11_to_1835-08/Chicago_Democrat_1834_Issue_Manifest.csv",
+      "word_count": 19495,
+      "uncertainty_markers": 623,
+      "completeness": "unstated",
+      "validation_notes": "chicago/reference/newspapers/Transcriptions/Chicago_Democrat_1833-11_to_1835-08/Chicago_Democrat_1834_Validation_Notes.md",
+      "text_path": "chicago/reference/newspapers/Transcriptions/Chicago_Democrat_1833-11_to_1835-08/Chicago_Democrat_1834-09-17_VolI_No42_Transcription.txt",
+      "text_path_kind": "deposit"
+    },
+    {
+      "id": "chicago_democrat_1834_09_24",
+      "publication": "chicago_democrat",
+      "source_id": "chicago_democrat_1833_1835",
+      "date": "1834-09-24",
+      "volume": "I",
+      "number": "43",
+      "artifacts": [
+        {
+          "role": "primary",
+          "format": "docx",
+          "path": "chicago/reference/newspapers/Transcriptions/Chicago_Democrat_1833-11_to_1835-08/Chicago_Democrat_1834-09-24_VolI_No43_Transcription.docx",
+          "path_kind": "deposit",
+          "sha256": "bd1a046b51c54ac104df0d6460840470b97065b6ff51a2cdfb3f55482e3d348c",
+          "text_path": "chicago/reference/newspapers/Transcriptions/Chicago_Democrat_1833-11_to_1835-08/Chicago_Democrat_1834-09-24_VolI_No43_Transcription.txt",
+          "text_path_kind": "deposit",
+          "text_sha256": "659f65d94fe6069ae2f1d98359f46943f7ff02355293f11aac246beaa2cc51be",
+          "text_chars": 100424
+        }
+      ],
+      "manifest": "chicago/reference/newspapers/Transcriptions/Chicago_Democrat_1833-11_to_1835-08/Chicago_Democrat_1834_Issue_Manifest.csv",
+      "word_count": 17839,
+      "uncertainty_markers": 578,
+      "completeness": "unstated",
+      "validation_notes": "chicago/reference/newspapers/Transcriptions/Chicago_Democrat_1833-11_to_1835-08/Chicago_Democrat_1834_Validation_Notes.md",
+      "text_path": "chicago/reference/newspapers/Transcriptions/Chicago_Democrat_1833-11_to_1835-08/Chicago_Democrat_1834-09-24_VolI_No43_Transcription.txt",
+      "text_path_kind": "deposit"
+    },
+    {
+      "id": "chicago_democrat_1834_10_01",
+      "publication": "chicago_democrat",
+      "source_id": "chicago_democrat_1833_1835",
+      "date": "1834-10-01",
+      "volume": "I",
+      "number": "44",
+      "artifacts": [
+        {
+          "role": "primary",
+          "format": "docx",
+          "path": "chicago/reference/newspapers/Transcriptions/Chicago_Democrat_1833-11_to_1835-08/Chicago_Democrat_1834-10-01_VolI_No44_Transcription.docx",
+          "path_kind": "deposit",
+          "sha256": "990c8327887bbdf039d1377d3b850ea5bd1d5feccec2c8f6dbf7d0555df7fdd7",
+          "text_path": "chicago/reference/newspapers/Transcriptions/Chicago_Democrat_1833-11_to_1835-08/Chicago_Democrat_1834-10-01_VolI_No44_Transcription.txt",
+          "text_path_kind": "deposit",
+          "text_sha256": "0af9f8ec6456b2f7d7408bc9d0c31ca85f524138b8baf9f91a95b8a858f895f1",
+          "text_chars": 102711
+        }
+      ],
+      "manifest": "chicago/reference/newspapers/Transcriptions/Chicago_Democrat_1833-11_to_1835-08/Chicago_Democrat_1834_Issue_Manifest.csv",
+      "word_count": 17983,
+      "uncertainty_markers": 803,
+      "notes": "A duplicate witness also appears as PDF pages 33-36 of Aug1834-Sep1834.pdf and was used for comparison.",
+      "completeness": "unstated",
+      "validation_notes": "chicago/reference/newspapers/Transcriptions/Chicago_Democrat_1833-11_to_1835-08/Chicago_Democrat_1834_Validation_Notes.md",
+      "text_path": "chicago/reference/newspapers/Transcriptions/Chicago_Democrat_1833-11_to_1835-08/Chicago_Democrat_1834-10-01_VolI_No44_Transcription.txt",
+      "text_path_kind": "deposit"
+    },
+    {
+      "id": "chicago_democrat_1834_10_08",
+      "publication": "chicago_democrat",
+      "source_id": "chicago_democrat_1833_1835",
+      "date": "1834-10-08",
+      "volume": "I",
+      "number": "45",
+      "artifacts": [
+        {
+          "role": "primary",
+          "format": "docx",
+          "path": "chicago/reference/newspapers/Transcriptions/Chicago_Democrat_1833-11_to_1835-08/Chicago_Democrat_1834-10-08_VolI_No45_Transcription.docx",
+          "path_kind": "deposit",
+          "sha256": "9b7a3e25687320b3cb6f1c747d9b3872b9677a27977a98f0f236e998eff14b7e",
+          "text_path": "chicago/reference/newspapers/Transcriptions/Chicago_Democrat_1833-11_to_1835-08/Chicago_Democrat_1834-10-08_VolI_No45_Transcription.txt",
+          "text_path_kind": "deposit",
+          "text_sha256": "0ed110fcdc99788b7f1e0555bb4ccfab4e60889fb41f69d156c48889c2bd566e",
+          "text_chars": 118261
+        }
+      ],
+      "manifest": "chicago/reference/newspapers/Transcriptions/Chicago_Democrat_1833-11_to_1835-08/Chicago_Democrat_1834_Issue_Manifest.csv",
+      "word_count": 21470,
+      "uncertainty_markers": 181,
+      "completeness": "unstated",
+      "validation_notes": "chicago/reference/newspapers/Transcriptions/Chicago_Democrat_1833-11_to_1835-08/Chicago_Democrat_1834_Validation_Notes.md",
+      "text_path": "chicago/reference/newspapers/Transcriptions/Chicago_Democrat_1833-11_to_1835-08/Chicago_Democrat_1834-10-08_VolI_No45_Transcription.txt",
+      "text_path_kind": "deposit"
+    },
+    {
+      "id": "chicago_democrat_1834_10_15",
+      "publication": "chicago_democrat",
+      "source_id": "chicago_democrat_1833_1835",
+      "date": "1834-10-15",
+      "volume": "I",
+      "number": "46",
+      "artifacts": [
+        {
+          "role": "primary",
+          "format": "docx",
+          "path": "chicago/reference/newspapers/Transcriptions/Chicago_Democrat_1833-11_to_1835-08/Chicago_Democrat_1834-10-15_VolI_No46_Transcription.docx",
+          "path_kind": "deposit",
+          "sha256": "81d4f54f94981cedcb61a2603328907fcf9af27d525a6a26250a0de6aed3aba3",
+          "text_path": "chicago/reference/newspapers/Transcriptions/Chicago_Democrat_1833-11_to_1835-08/Chicago_Democrat_1834-10-15_VolI_No46_Transcription.txt",
+          "text_path_kind": "deposit",
+          "text_sha256": "a3ae43d57dea8fa9c8278ceef41008df9e7cdccfe49e54721ca767dfd3dfe4dc",
+          "text_chars": 123233
+        }
+      ],
+      "manifest": "chicago/reference/newspapers/Transcriptions/Chicago_Democrat_1833-11_to_1835-08/Chicago_Democrat_1834_Issue_Manifest.csv",
+      "word_count": 22321,
+      "uncertainty_markers": 214,
+      "completeness": "unstated",
+      "validation_notes": "chicago/reference/newspapers/Transcriptions/Chicago_Democrat_1833-11_to_1835-08/Chicago_Democrat_1834_Validation_Notes.md",
+      "text_path": "chicago/reference/newspapers/Transcriptions/Chicago_Democrat_1833-11_to_1835-08/Chicago_Democrat_1834-10-15_VolI_No46_Transcription.txt",
+      "text_path_kind": "deposit"
+    },
+    {
+      "id": "chicago_democrat_1834_10_22",
+      "publication": "chicago_democrat",
+      "source_id": "chicago_democrat_1833_1835",
+      "date": "1834-10-22",
+      "volume": "I",
+      "number": "47",
+      "artifacts": [
+        {
+          "role": "primary",
+          "format": "docx",
+          "path": "chicago/reference/newspapers/Transcriptions/Chicago_Democrat_1833-11_to_1835-08/Chicago_Democrat_1834-10-22_VolI_No47_Transcription.docx",
+          "path_kind": "deposit",
+          "sha256": "16af5a2860d37ddfaf7b94e74654fddd066a6200a9ea677b95edce33e57af398",
+          "text_path": "chicago/reference/newspapers/Transcriptions/Chicago_Democrat_1833-11_to_1835-08/Chicago_Democrat_1834-10-22_VolI_No47_Transcription.txt",
+          "text_path_kind": "deposit",
+          "text_sha256": "f0f4e6280afb3dbcf1808815987cf47601b54cc7de194fb61e8bb27bbce187e5",
+          "text_chars": 127313
+        }
+      ],
+      "manifest": "chicago/reference/newspapers/Transcriptions/Chicago_Democrat_1833-11_to_1835-08/Chicago_Democrat_1834_Issue_Manifest.csv",
+      "word_count": 22936,
+      "uncertainty_markers": 190,
+      "completeness": "unstated",
+      "validation_notes": "chicago/reference/newspapers/Transcriptions/Chicago_Democrat_1833-11_to_1835-08/Chicago_Democrat_1834_Validation_Notes.md",
+      "text_path": "chicago/reference/newspapers/Transcriptions/Chicago_Democrat_1833-11_to_1835-08/Chicago_Democrat_1834-10-22_VolI_No47_Transcription.txt",
+      "text_path_kind": "deposit"
+    },
+    {
+      "id": "chicago_democrat_1834_10_29",
+      "publication": "chicago_democrat",
+      "source_id": "chicago_democrat_1833_1835",
+      "date": "1834-10-29",
+      "volume": "I",
+      "number": "48",
+      "artifacts": [
+        {
+          "role": "primary",
+          "format": "docx",
+          "path": "chicago/reference/newspapers/Transcriptions/Chicago_Democrat_1833-11_to_1835-08/Chicago_Democrat_1834-10-29_VolI_No48_Transcription.docx",
+          "path_kind": "deposit",
+          "sha256": "5ab36f293f5f9ed8dec02ce0853596397b701db028c302eaa43bf35c1f067d48",
+          "text_path": "chicago/reference/newspapers/Transcriptions/Chicago_Democrat_1833-11_to_1835-08/Chicago_Democrat_1834-10-29_VolI_No48_Transcription.txt",
+          "text_path_kind": "deposit",
+          "text_sha256": "52c82f7667b4b62beca8c7234c987fedaaad52133b66c72ebb66554d364aafd6",
+          "text_chars": 114795
+        }
+      ],
+      "manifest": "chicago/reference/newspapers/Transcriptions/Chicago_Democrat_1833-11_to_1835-08/Chicago_Democrat_1834_Issue_Manifest.csv",
+      "word_count": 20893,
+      "uncertainty_markers": 375,
+      "completeness": "unstated",
+      "validation_notes": "chicago/reference/newspapers/Transcriptions/Chicago_Democrat_1833-11_to_1835-08/Chicago_Democrat_1834_Validation_Notes.md",
+      "text_path": "chicago/reference/newspapers/Transcriptions/Chicago_Democrat_1833-11_to_1835-08/Chicago_Democrat_1834-10-29_VolI_No48_Transcription.txt",
+      "text_path_kind": "deposit"
+    },
+    {
+      "id": "chicago_democrat_1834_11_05",
+      "publication": "chicago_democrat",
+      "source_id": "chicago_democrat_1833_1835",
+      "date": "1834-11-05",
+      "volume": "I",
+      "number": "49",
+      "artifacts": [
+        {
+          "role": "primary",
+          "format": "docx",
+          "path": "chicago/reference/newspapers/Transcriptions/Chicago_Democrat_1833-11_to_1835-08/Chicago_Democrat_1834-11-05_VolI_No49_Transcription.docx",
+          "path_kind": "deposit",
+          "sha256": "98aa12519a8781e19bd8b3be59ecd0c544af8178f6ef457fd8f154bb668b0bee",
+          "text_path": "chicago/reference/newspapers/Transcriptions/Chicago_Democrat_1833-11_to_1835-08/Chicago_Democrat_1834-11-05_VolI_No49_Transcription.txt",
+          "text_path_kind": "deposit",
+          "text_sha256": "0b5ff8b7a795284f4f4b095872f5eaf4390a26c28bb574a72c4b01e19bdfa48a",
+          "text_chars": 113555
+        }
+      ],
+      "manifest": "chicago/reference/newspapers/Transcriptions/Chicago_Democrat_1833-11_to_1835-08/Chicago_Democrat_1834_Issue_Manifest.csv",
+      "word_count": 20448,
+      "uncertainty_markers": 325,
+      "completeness": "unstated",
+      "validation_notes": "chicago/reference/newspapers/Transcriptions/Chicago_Democrat_1833-11_to_1835-08/Chicago_Democrat_1834_Validation_Notes.md",
+      "text_path": "chicago/reference/newspapers/Transcriptions/Chicago_Democrat_1833-11_to_1835-08/Chicago_Democrat_1834-11-05_VolI_No49_Transcription.txt",
+      "text_path_kind": "deposit"
+    },
+    {
+      "id": "chicago_democrat_1834_11_12",
+      "publication": "chicago_democrat",
+      "source_id": "chicago_democrat_1833_1835",
+      "date": "1834-11-12",
+      "volume": "I",
+      "number": "50",
+      "artifacts": [
+        {
+          "role": "primary",
+          "format": "docx",
+          "path": "chicago/reference/newspapers/Transcriptions/Chicago_Democrat_1833-11_to_1835-08/Chicago_Democrat_1834-11-12_VolI_No50_Transcription.docx",
+          "path_kind": "deposit",
+          "sha256": "b9d3216c6a72ac32094178f6bdbe9723f6a83c7eb27f73615ed80c8f33a5f6d3",
+          "text_path": "chicago/reference/newspapers/Transcriptions/Chicago_Democrat_1833-11_to_1835-08/Chicago_Democrat_1834-11-12_VolI_No50_Transcription.txt",
+          "text_path_kind": "deposit",
+          "text_sha256": "1bee0eaa90bc12a68f0b9fdf6d24176624b9cc13615057b34cb0566366182180",
+          "text_chars": 117312
+        }
+      ],
+      "manifest": "chicago/reference/newspapers/Transcriptions/Chicago_Democrat_1833-11_to_1835-08/Chicago_Democrat_1834_Issue_Manifest.csv",
+      "word_count": 20987,
+      "uncertainty_markers": 483,
+      "completeness": "unstated",
+      "validation_notes": "chicago/reference/newspapers/Transcriptions/Chicago_Democrat_1833-11_to_1835-08/Chicago_Democrat_1834_Validation_Notes.md",
+      "text_path": "chicago/reference/newspapers/Transcriptions/Chicago_Democrat_1833-11_to_1835-08/Chicago_Democrat_1834-11-12_VolI_No50_Transcription.txt",
+      "text_path_kind": "deposit"
+    },
+    {
+      "id": "chicago_democrat_1834_11_19",
+      "publication": "chicago_democrat",
+      "source_id": "chicago_democrat_1833_1835",
+      "date": "1834-11-19",
+      "volume": "I",
+      "number": "51",
+      "artifacts": [
+        {
+          "role": "primary",
+          "format": "docx",
+          "path": "chicago/reference/newspapers/Transcriptions/Chicago_Democrat_1833-11_to_1835-08/Chicago_Democrat_1834-11-19_VolI_No51_Transcription.docx",
+          "path_kind": "deposit",
+          "sha256": "a02b0313ff385fb85b299b6dda3153844f79d6931fc5576857a7c5a25933e1a1",
+          "text_path": "chicago/reference/newspapers/Transcriptions/Chicago_Democrat_1833-11_to_1835-08/Chicago_Democrat_1834-11-19_VolI_No51_Transcription.txt",
+          "text_path_kind": "deposit",
+          "text_sha256": "9af3363fd5b5e769c78ef13dcfe92f54ec0e385b9b5b0f39267dc8f072c88a2b",
+          "text_chars": 124849
+        }
+      ],
+      "manifest": "chicago/reference/newspapers/Transcriptions/Chicago_Democrat_1833-11_to_1835-08/Chicago_Democrat_1834_Issue_Manifest.csv",
+      "word_count": 22550,
+      "uncertainty_markers": 228,
+      "completeness": "unstated",
+      "validation_notes": "chicago/reference/newspapers/Transcriptions/Chicago_Democrat_1833-11_to_1835-08/Chicago_Democrat_1834_Validation_Notes.md",
+      "text_path": "chicago/reference/newspapers/Transcriptions/Chicago_Democrat_1833-11_to_1835-08/Chicago_Democrat_1834-11-19_VolI_No51_Transcription.txt",
+      "text_path_kind": "deposit"
+    },
+    {
+      "id": "chicago_democrat_1834_11_26",
+      "publication": "chicago_democrat",
+      "source_id": "chicago_democrat_1833_1835",
+      "date": "1834-11-26",
+      "volume": "I",
+      "number": "52",
+      "artifacts": [
+        {
+          "role": "primary",
+          "format": "docx",
+          "path": "chicago/reference/newspapers/Transcriptions/Chicago_Democrat_1833-11_to_1835-08/Chicago_Democrat_1834-11-26_VolI_No52_Transcription.docx",
+          "path_kind": "deposit",
+          "sha256": "f9da73df8dea07438432ae43fc08241e62de83828d89925bab96ace0f5d9815b",
+          "text_path": "chicago/reference/newspapers/Transcriptions/Chicago_Democrat_1833-11_to_1835-08/Chicago_Democrat_1834-11-26_VolI_No52_Transcription.txt",
+          "text_path_kind": "deposit",
+          "text_sha256": "aaa9ede8788a143583352addacb58813b53ee1a59141d3d7439d2ad49094cc24",
+          "text_chars": 104702
+        }
+      ],
+      "manifest": "chicago/reference/newspapers/Transcriptions/Chicago_Democrat_1833-11_to_1835-08/Chicago_Democrat_1834_Issue_Manifest.csv",
+      "word_count": 18331,
+      "uncertainty_markers": 727,
+      "completeness": "unstated",
+      "validation_notes": "chicago/reference/newspapers/Transcriptions/Chicago_Democrat_1833-11_to_1835-08/Chicago_Democrat_1834_Validation_Notes.md",
+      "text_path": "chicago/reference/newspapers/Transcriptions/Chicago_Democrat_1833-11_to_1835-08/Chicago_Democrat_1834-11-26_VolI_No52_Transcription.txt",
+      "text_path_kind": "deposit"
+    },
+    {
+      "id": "chicago_democrat_1834_12_03",
+      "publication": "chicago_democrat",
+      "source_id": "chicago_democrat_1833_1835",
+      "date": "1834-12-03",
+      "volume": "II",
+      "number": "1",
+      "artifacts": [
+        {
+          "role": "primary",
+          "format": "docx",
+          "path": "chicago/reference/newspapers/Transcriptions/Chicago_Democrat_1833-11_to_1835-08/Chicago_Democrat_1834-12-03_VolII_No1_Transcription.docx",
+          "path_kind": "deposit",
+          "sha256": "82fa246dc13bcf6ef503efae539695015e5f7cb918ae4bd1c87bda0015943e01",
+          "text_path": "chicago/reference/newspapers/Transcriptions/Chicago_Democrat_1833-11_to_1835-08/Chicago_Democrat_1834-12-03_VolII_No1_Transcription.txt",
+          "text_path_kind": "deposit",
+          "text_sha256": "a2122f15f916b36c222e5f1585f4f8abc475769c28ffefa59510a776d2273ce0",
+          "text_chars": 107401
+        }
+      ],
+      "manifest": "chicago/reference/newspapers/Transcriptions/Chicago_Democrat_1833-11_to_1835-08/Chicago_Democrat_1834_Issue_Manifest.csv",
+      "word_count": 19371,
+      "uncertainty_markers": 368,
+      "completeness": "unstated",
+      "validation_notes": "chicago/reference/newspapers/Transcriptions/Chicago_Democrat_1833-11_to_1835-08/Chicago_Democrat_1834_Validation_Notes.md",
+      "text_path": "chicago/reference/newspapers/Transcriptions/Chicago_Democrat_1833-11_to_1835-08/Chicago_Democrat_1834-12-03_VolII_No1_Transcription.txt",
+      "text_path_kind": "deposit"
+    },
+    {
+      "id": "chicago_democrat_1834_12_10",
+      "publication": "chicago_democrat",
+      "source_id": "chicago_democrat_1833_1835",
+      "date": "1834-12-10",
+      "volume": "II",
+      "number": "2",
+      "artifacts": [
+        {
+          "role": "primary",
+          "format": "docx",
+          "path": "chicago/reference/newspapers/Transcriptions/Chicago_Democrat_1833-11_to_1835-08/Chicago_Democrat_1834-12-10_VolII_No2_Transcription.docx",
+          "path_kind": "deposit",
+          "sha256": "1577ffa068f91b0c5b3a1858954b2f876f64891d76bd8e70dcfc580b7db5cb7b",
+          "text_path": "chicago/reference/newspapers/Transcriptions/Chicago_Democrat_1833-11_to_1835-08/Chicago_Democrat_1834-12-10_VolII_No2_Transcription.txt",
+          "text_path_kind": "deposit",
+          "text_sha256": "37ab1d1c1418962a4992cc9ae37a490e5a65ea3068fc52f7f88ff6859d67785a",
+          "text_chars": 105876
+        }
+      ],
+      "manifest": "chicago/reference/newspapers/Transcriptions/Chicago_Democrat_1833-11_to_1835-08/Chicago_Democrat_1834_Issue_Manifest.csv",
+      "word_count": 19106,
+      "uncertainty_markers": 663,
+      "completeness": "unstated",
+      "validation_notes": "chicago/reference/newspapers/Transcriptions/Chicago_Democrat_1833-11_to_1835-08/Chicago_Democrat_1834_Validation_Notes.md",
+      "text_path": "chicago/reference/newspapers/Transcriptions/Chicago_Democrat_1833-11_to_1835-08/Chicago_Democrat_1834-12-10_VolII_No2_Transcription.txt",
+      "text_path_kind": "deposit"
+    },
+    {
+      "id": "chicago_democrat_1834_12_17",
+      "publication": "chicago_democrat",
+      "source_id": "chicago_democrat_1833_1835",
+      "date": "1834-12-17",
+      "volume": "II",
+      "number": "3",
+      "artifacts": [
+        {
+          "role": "primary",
+          "format": "docx",
+          "path": "chicago/reference/newspapers/Transcriptions/Chicago_Democrat_1833-11_to_1835-08/Chicago_Democrat_1834-12-17_VolII_No3_Transcription.docx",
+          "path_kind": "deposit",
+          "sha256": "5ad2a4b05bf772c6b014a30e3df5fc344d8e1a3ef6cac2bb176b520b44e0d744",
+          "text_path": "chicago/reference/newspapers/Transcriptions/Chicago_Democrat_1833-11_to_1835-08/Chicago_Democrat_1834-12-17_VolII_No3_Transcription.txt",
+          "text_path_kind": "deposit",
+          "text_sha256": "73740da775aa5ba10800c0d21d055408a178be4bd34b41b31524a681fda972aa",
+          "text_chars": 107440
+        }
+      ],
+      "manifest": "chicago/reference/newspapers/Transcriptions/Chicago_Democrat_1833-11_to_1835-08/Chicago_Democrat_1834_Issue_Manifest.csv",
+      "word_count": 18977,
+      "uncertainty_markers": 721,
+      "completeness": "unstated",
+      "validation_notes": "chicago/reference/newspapers/Transcriptions/Chicago_Democrat_1833-11_to_1835-08/Chicago_Democrat_1834_Validation_Notes.md",
+      "text_path": "chicago/reference/newspapers/Transcriptions/Chicago_Democrat_1833-11_to_1835-08/Chicago_Democrat_1834-12-17_VolII_No3_Transcription.txt",
+      "text_path_kind": "deposit"
+    },
+    {
+      "id": "chicago_democrat_1834_12_24",
+      "publication": "chicago_democrat",
+      "source_id": "chicago_democrat_1833_1835",
+      "date": "1834-12-24",
+      "volume": "II",
+      "number": "4",
+      "artifacts": [
+        {
+          "role": "primary",
+          "format": "docx",
+          "path": "chicago/reference/newspapers/Transcriptions/Chicago_Democrat_1833-11_to_1835-08/Chicago_Democrat_1834-12-24_VolII_No4_Transcription.docx",
+          "path_kind": "deposit",
+          "sha256": "6066d429b2afa80f25980255cdbabc341a1949c16f674004cc0549998aabc2b1",
+          "text_path": "chicago/reference/newspapers/Transcriptions/Chicago_Democrat_1833-11_to_1835-08/Chicago_Democrat_1834-12-24_VolII_No4_Transcription.txt",
+          "text_path_kind": "deposit",
+          "text_sha256": "fe93bec1e9fce1832c695f250d8ce30200a679cdd3e59a494a0eb9d9e5a42c62",
+          "text_chars": 110054
+        }
+      ],
+      "manifest": "chicago/reference/newspapers/Transcriptions/Chicago_Democrat_1833-11_to_1835-08/Chicago_Democrat_1834_Issue_Manifest.csv",
+      "word_count": 19286,
+      "uncertainty_markers": 493,
+      "completeness": "unstated",
+      "validation_notes": "chicago/reference/newspapers/Transcriptions/Chicago_Democrat_1833-11_to_1835-08/Chicago_Democrat_1834_Validation_Notes.md",
+      "text_path": "chicago/reference/newspapers/Transcriptions/Chicago_Democrat_1833-11_to_1835-08/Chicago_Democrat_1834-12-24_VolII_No4_Transcription.txt",
+      "text_path_kind": "deposit"
+    },
+    {
+      "id": "chicago_democrat_1835_01_21",
+      "publication": "chicago_democrat",
+      "source_id": "chicago_democrat_1833_1835",
+      "date": "1835-01-21",
+      "volume": "II",
+      "number": "5",
+      "artifacts": [
+        {
+          "role": "primary",
+          "format": "docx",
+          "path": "chicago/reference/newspapers/Transcriptions/Chicago_Democrat_1833-11_to_1835-08/Chicago_Democrat_1835-01-21_Vol2_No5_Transcription.docx",
+          "path_kind": "deposit",
+          "sha256": "9a158ecf35c10b024cb5c5a445c7d60309c686683e0d5af1115db2ba0d25dbb8",
+          "text_path": "chicago/reference/newspapers/Transcriptions/Chicago_Democrat_1833-11_to_1835-08/Chicago_Democrat_1835-01-21_Vol2_No5_Transcription.txt",
+          "text_path_kind": "deposit",
+          "text_sha256": "6bd8b401cf1c5f8c82e2bac5d7cc737f05f51523da823078333927a2fbb16f72",
+          "text_chars": 33073
+        }
+      ],
+      "manifest": "chicago/reference/newspapers/Transcriptions/Chicago_Democrat_1833-11_to_1835-08/Chicago_Democrat_1835_Jan-Jul_Issue_Manifest.csv",
+      "word_count": 5550,
+      "uncertainty_markers": 12,
+      "notes": "Printed masthead has no weekday in the inspected publication line; photographed pointer/hand and clipped type cause localized loss.",
+      "completeness": "complete",
+      "validation_notes": "chicago/reference/newspapers/Transcriptions/Chicago_Democrat_1833-11_to_1835-08/Chicago_Democrat_1835_Jan-Jul_Validation_Notes.md",
+      "text_path": "chicago/reference/newspapers/Transcriptions/Chicago_Democrat_1833-11_to_1835-08/Chicago_Democrat_1835-01-21_Vol2_No5_Transcription.txt",
+      "text_path_kind": "deposit"
+    },
+    {
+      "id": "chicago_democrat_1835_03_25",
+      "publication": "chicago_democrat",
+      "source_id": "chicago_democrat_1833_1835",
+      "date": "1835-03-25",
+      "volume": null,
+      "number": "Extra",
+      "artifacts": [
+        {
+          "role": "primary",
+          "format": "docx",
+          "path": "chicago/reference/newspapers/Transcriptions/Chicago_Democrat_1833-11_to_1835-08/Chicago_Democrat_1835-03-25_Extra_Transcription.docx",
+          "path_kind": "deposit",
+          "sha256": "fae9153a4d9cd798833e7603cfe4842e927dd73659f4540ce39029a8c03e192f",
+          "text_path": "chicago/reference/newspapers/Transcriptions/Chicago_Democrat_1833-11_to_1835-08/Chicago_Democrat_1835-03-25_Extra_Transcription.txt",
+          "text_path_kind": "deposit",
+          "text_sha256": "94784a2e9b8c18ec8750b2409d4e434252905d7474f18a10bd7889e2c7448232",
+          "text_chars": 28613
+        }
+      ],
+      "manifest": "chicago/reference/newspapers/Transcriptions/Chicago_Democrat_1833-11_to_1835-08/Chicago_Democrat_1835_Jan-Jul_Issue_Manifest.csv",
+      "word_count": 4868,
+      "uncertainty_markers": 11,
+      "notes": "Page 7 explicitly directs readers to the Subscription List on the last page, confirming page 8 belongs to this Extra.",
+      "completeness": "complete",
+      "validation_notes": "chicago/reference/newspapers/Transcriptions/Chicago_Democrat_1833-11_to_1835-08/Chicago_Democrat_1835_Jan-Jul_Validation_Notes.md",
+      "text_path": "chicago/reference/newspapers/Transcriptions/Chicago_Democrat_1833-11_to_1835-08/Chicago_Democrat_1835-03-25_Extra_Transcription.txt",
+      "text_path_kind": "deposit"
+    },
+    {
+      "id": "chicago_democrat_1835_05_20",
+      "publication": "chicago_democrat",
+      "source_id": "chicago_democrat_1833_1835",
+      "date": "1835-05-20",
+      "volume": "II",
+      "number": "5",
+      "artifacts": [
+        {
+          "role": "primary",
+          "format": "docx",
+          "path": "chicago/reference/newspapers/Transcriptions/Chicago_Democrat_1833-11_to_1835-08/Chicago_Democrat_1835-05-20_Vol2_No5_Transcription.docx",
+          "path_kind": "deposit",
+          "sha256": "9bc82f98011127778b5278681e86f3ded749419c704b9468562637db94825f97",
+          "text_path": "chicago/reference/newspapers/Transcriptions/Chicago_Democrat_1833-11_to_1835-08/Chicago_Democrat_1835-05-20_Vol2_No5_Transcription.txt",
+          "text_path_kind": "deposit",
+          "text_sha256": "22cf9333c19eada333a461dab3d2f318e2442148fcbabbab30343d14b1874b32",
+          "text_chars": 133027
+        }
+      ],
+      "manifest": "chicago/reference/newspapers/Transcriptions/Chicago_Democrat_1833-11_to_1835-08/Chicago_Democrat_1835_Jan-Jul_Issue_Manifest.csv",
+      "word_count": 23118,
+      "uncertainty_markers": 24,
+      "notes": "The source visibly repeats Vol. II No. 5; corrected six-column crops replaced a rejected seven-way split. Every column carries an OCR-assisted uncertainty notice pending further line-level review.",
+      "completeness": "complete",
+      "validation_notes": "chicago/reference/newspapers/Transcriptions/Chicago_Democrat_1833-11_to_1835-08/Chicago_Democrat_1835_Jan-Jul_Validation_Notes.md",
+      "text_path": "chicago/reference/newspapers/Transcriptions/Chicago_Democrat_1833-11_to_1835-08/Chicago_Democrat_1835-05-20_Vol2_No5_Transcription.txt",
+      "text_path_kind": "deposit",
+      "printed_metadata_note": "The source visibly repeats Vol. II, No. 5 after the January 21 issue; the printed number is preserved."
+    },
+    {
+      "id": "chicago_democrat_1835_05_27",
+      "publication": "chicago_democrat",
+      "source_id": "chicago_democrat_1833_1835",
+      "date": "1835-05-27",
+      "volume": "II",
+      "number": "6",
+      "artifacts": [
+        {
+          "role": "primary",
+          "format": "docx",
+          "path": "chicago/reference/newspapers/Transcriptions/Chicago_Democrat_1833-11_to_1835-08/Chicago_Democrat_1835-05-27_Vol2_No6_Transcription.docx",
+          "path_kind": "deposit",
+          "sha256": "9421cb65b19bafd9c855f5a3d7b9925090d74e81f4794d3cf918b18a08843d32",
+          "text_path": "chicago/reference/newspapers/Transcriptions/Chicago_Democrat_1833-11_to_1835-08/Chicago_Democrat_1835-05-27_Vol2_No6_Transcription.txt",
+          "text_path_kind": "deposit",
+          "text_sha256": "63c2d2568cd346584f1ab23a80ee9602320ef040ba812cccaeda21255dbe97e3",
+          "text_chars": 132677
+        }
+      ],
+      "manifest": "chicago/reference/newspapers/Transcriptions/Chicago_Democrat_1833-11_to_1835-08/Chicago_Democrat_1835_Jan-Jul_Issue_Manifest.csv",
+      "word_count": 23485,
+      "uncertainty_markers": 36,
+      "notes": "Curved outer columns were recropped and the most damaged front-page prose was manually reconciled.",
+      "completeness": "complete",
+      "validation_notes": "chicago/reference/newspapers/Transcriptions/Chicago_Democrat_1833-11_to_1835-08/Chicago_Democrat_1835_Jan-Jul_Validation_Notes.md",
+      "text_path": "chicago/reference/newspapers/Transcriptions/Chicago_Democrat_1833-11_to_1835-08/Chicago_Democrat_1835-05-27_Vol2_No6_Transcription.txt",
+      "text_path_kind": "deposit"
+    },
+    {
+      "id": "chicago_democrat_1835_06_04",
+      "publication": "chicago_democrat",
+      "source_id": "chicago_democrat_1833_1835",
+      "date": "1835-06-04",
+      "volume": "II",
+      "number": "7",
+      "artifacts": [
+        {
+          "role": "primary",
+          "format": "docx",
+          "path": "chicago/reference/newspapers/Transcriptions/Chicago_Democrat_1833-11_to_1835-08/Chicago_Democrat_1835-06-04_Vol2_No7_Transcription.docx",
+          "path_kind": "deposit",
+          "sha256": "f4d7a4c695e84fab53eb545a7d4bbfd1b74c6748b2f544bccfeed90ef60420fa",
+          "text_path": "chicago/reference/newspapers/Transcriptions/Chicago_Democrat_1833-11_to_1835-08/Chicago_Democrat_1835-06-04_Vol2_No7_Transcription.txt",
+          "text_path_kind": "deposit",
+          "text_sha256": "6ed3e6de349bc39570d4e49053ac13ab670cf23f09b4af4debfe051063e14536",
+          "text_chars": 120830
+        }
+      ],
+      "manifest": "chicago/reference/newspapers/Transcriptions/Chicago_Democrat_1833-11_to_1835-08/Chicago_Democrat_1835_Jan-Jul_Issue_Manifest.csv",
+      "word_count": 21606,
+      "uncertainty_markers": 16,
+      "notes": "Masthead visibly prints Wednesday June 4 1835 although June 4 was Thursday; printed wording is preserved.",
+      "completeness": "complete",
+      "validation_notes": "chicago/reference/newspapers/Transcriptions/Chicago_Democrat_1833-11_to_1835-08/Chicago_Democrat_1835_Jan-Jul_Validation_Notes.md",
+      "text_path": "chicago/reference/newspapers/Transcriptions/Chicago_Democrat_1833-11_to_1835-08/Chicago_Democrat_1835-06-04_Vol2_No7_Transcription.txt",
+      "text_path_kind": "deposit"
+    },
+    {
+      "id": "chicago_democrat_1835_06_10",
+      "publication": "chicago_democrat",
+      "source_id": "chicago_democrat_1833_1835",
+      "date": "1835-06-10",
+      "volume": "II",
+      "number": "8",
+      "artifacts": [
+        {
+          "role": "primary",
+          "format": "docx",
+          "path": "chicago/reference/newspapers/Transcriptions/Chicago_Democrat_1833-11_to_1835-08/Chicago_Democrat_1835-06-10_Vol2_No8_Transcription.docx",
+          "path_kind": "deposit",
+          "sha256": "e63f47a79a219779d8d7d4014adc42d779c4186f032773a03f46c2e73cbef2ca",
+          "text_path": "chicago/reference/newspapers/Transcriptions/Chicago_Democrat_1833-11_to_1835-08/Chicago_Democrat_1835-06-10_Vol2_No8_Transcription.txt",
+          "text_path_kind": "deposit",
+          "text_sha256": "5ac1798045a016edc53dc1817be092c142c1203d6442c69f99ef8b87853460f5",
+          "text_chars": 129286
+        }
+      ],
+      "manifest": "chicago/reference/newspapers/Transcriptions/Chicago_Democrat_1833-11_to_1835-08/Chicago_Democrat_1835_Jan-Jul_Issue_Manifest.csv",
+      "word_count": 23515,
+      "uncertainty_markers": 23,
+      "notes": "Outer curvature and small advertisements remain the principal residual risks.",
+      "completeness": "complete",
+      "validation_notes": "chicago/reference/newspapers/Transcriptions/Chicago_Democrat_1833-11_to_1835-08/Chicago_Democrat_1835_Jan-Jul_Validation_Notes.md",
+      "text_path": "chicago/reference/newspapers/Transcriptions/Chicago_Democrat_1833-11_to_1835-08/Chicago_Democrat_1835-06-10_Vol2_No8_Transcription.txt",
+      "text_path_kind": "deposit"
+    },
+    {
+      "id": "chicago_democrat_1835_06_17",
+      "publication": "chicago_democrat",
+      "source_id": "chicago_democrat_1833_1835",
+      "date": "1835-06-17",
+      "volume": "II",
+      "number": "9",
+      "artifacts": [
+        {
+          "role": "primary",
+          "format": "docx",
+          "path": "chicago/reference/newspapers/Transcriptions/Chicago_Democrat_1833-11_to_1835-08/Chicago_Democrat_1835-06-17_Vol2_No9_Transcription.docx",
+          "path_kind": "deposit",
+          "sha256": "75ceb1a998b05d0f93ab60d0d0f53156ba95978fd6ed5290f003114c79679cce",
+          "text_path": "chicago/reference/newspapers/Transcriptions/Chicago_Democrat_1833-11_to_1835-08/Chicago_Democrat_1835-06-17_Vol2_No9_Transcription.txt",
+          "text_path_kind": "deposit",
+          "text_sha256": "905bec2f2638b984b5080f1e82b69af86400c3205982955ee231e6375f3fdfff",
+          "text_chars": 117051
+        }
+      ],
+      "manifest": "chicago/reference/newspapers/Transcriptions/Chicago_Democrat_1833-11_to_1835-08/Chicago_Democrat_1835_Jan-Jul_Issue_Manifest.csv",
+      "word_count": 20883,
+      "uncertainty_markers": 11,
+      "notes": "A photographed hand physically covers lower portions of source page 25; recoverable upper text is retained and actual losses are marked. Issue page 2 visibly prints Chicago June 10 1835 internally and is preserved.",
+      "completeness": "complete",
+      "validation_notes": "chicago/reference/newspapers/Transcriptions/Chicago_Democrat_1833-11_to_1835-08/Chicago_Democrat_1835_Jan-Jul_Validation_Notes.md",
+      "text_path": "chicago/reference/newspapers/Transcriptions/Chicago_Democrat_1833-11_to_1835-08/Chicago_Democrat_1835-06-17_Vol2_No9_Transcription.txt",
+      "text_path_kind": "deposit"
+    },
+    {
+      "id": "chicago_democrat_1835_06_24",
+      "publication": "chicago_democrat",
+      "source_id": "chicago_democrat_1833_1835",
+      "date": "1835-06-24",
+      "volume": "II",
+      "number": "10",
+      "artifacts": [
+        {
+          "role": "primary",
+          "format": "docx",
+          "path": "chicago/reference/newspapers/Transcriptions/Chicago_Democrat_1833-11_to_1835-08/Chicago_Democrat_1835-06-24_Vol2_No10_Transcription.docx",
+          "path_kind": "deposit",
+          "sha256": "562936a55e1b7b45af3ac6ff6753cb0caa3dd59206b1315ea512c49ecf9b1aed",
+          "text_path": "chicago/reference/newspapers/Transcriptions/Chicago_Democrat_1833-11_to_1835-08/Chicago_Democrat_1835-06-24_Vol2_No10_Transcription.txt",
+          "text_path_kind": "deposit",
+          "text_sha256": "f7113456fff6c8140d314777dde867d492c01ba0790662235794fbf9ec110596",
+          "text_chars": 122231
+        }
+      ],
+      "manifest": "chicago/reference/newspapers/Transcriptions/Chicago_Democrat_1833-11_to_1835-08/Chicago_Democrat_1835_Jan-Jul_Issue_Manifest.csv",
+      "word_count": 22343,
+      "uncertainty_markers": 2,
+      "notes": "Dense small legal and advertising type remains the principal residual risk.",
+      "completeness": "complete",
+      "validation_notes": "chicago/reference/newspapers/Transcriptions/Chicago_Democrat_1833-11_to_1835-08/Chicago_Democrat_1835_Jan-Jul_Validation_Notes.md",
+      "text_path": "chicago/reference/newspapers/Transcriptions/Chicago_Democrat_1833-11_to_1835-08/Chicago_Democrat_1835-06-24_Vol2_No10_Transcription.txt",
+      "text_path_kind": "deposit"
+    },
+    {
+      "id": "chicago_democrat_1835_07_01",
+      "publication": "chicago_democrat",
+      "source_id": "chicago_democrat_1833_1835",
+      "date": "1835-07-01",
+      "volume": "II",
+      "number": "11",
+      "artifacts": [
+        {
+          "role": "primary",
+          "format": "docx",
+          "path": "chicago/reference/newspapers/Transcriptions/Chicago_Democrat_1833-11_to_1835-08/Chicago_Democrat_1835-07-01_Vol2_No11_Transcription.docx",
+          "path_kind": "deposit",
+          "sha256": "6f76516275d9b2ef6d6bddfae1cabcdae3869c2b939eb0e061e3b70e50bc07b8",
+          "text_path": "chicago/reference/newspapers/Transcriptions/Chicago_Democrat_1833-11_to_1835-08/Chicago_Democrat_1835-07-01_Vol2_No11_Transcription.txt",
+          "text_path_kind": "deposit",
+          "text_sha256": "36f6fdf47fb3305bcbbf02338c38881b490fcc999399e98a33845b7e54603e7d",
+          "text_chars": 122613
+        },
+        {
+          "role": "alternate",
+          "format": "docx",
+          "path": "chicago/reference/newspapers/Transcriptions/Chicago_Democrat_1833-11_to_1835-08/Chicago_Democrat_1835-07-01_Vol2_No11_Transcription-2.docx",
+          "path_kind": "deposit",
+          "sha256": "6ad2cd24618b3b18db883b68ad85104ea408d674388e43654876d0832fb2fe0c",
+          "text_path_kind": "derived",
+          "text_path": "chicago/4d/data/research/newspapers/text/chicago_democrat_1835_07_01__alt_transcription_2.txt",
+          "text_sha256": "a09a31acfa6756597c85bcb4eb68dc9a80900a78c859b93e986fcdb33fe82a63",
+          "derived_by": "tools/docx_text.py",
+          "text_chars": 131151
+        }
+      ],
+      "manifest": "chicago/reference/newspapers/Transcriptions/Chicago_Democrat_1833-11_to_1835-08/Chicago_Democrat_1835_Jan-Jul_Issue_Manifest.csv",
+      "word_count": 22435,
+      "uncertainty_markers": 5,
+      "notes": "Dense small legal and advertising type remains the principal residual risk.",
+      "completeness": "complete",
+      "validation_notes": "chicago/reference/newspapers/Transcriptions/Chicago_Democrat_1833-11_to_1835-08/Chicago_Democrat_1835_Jan-Jul_Validation_Notes.md",
+      "text_path": "chicago/reference/newspapers/Transcriptions/Chicago_Democrat_1833-11_to_1835-08/Chicago_Democrat_1835-07-01_Vol2_No11_Transcription.txt",
+      "text_path_kind": "deposit"
+    },
+    {
+      "id": "chicago_democrat_1835_07_08",
+      "publication": "chicago_democrat",
+      "source_id": "chicago_democrat_1833_1835",
+      "date": "1835-07-08",
+      "volume": "II",
+      "number": "12",
+      "artifacts": [
+        {
+          "role": "primary",
+          "format": "docx",
+          "path": "chicago/reference/newspapers/Transcriptions/Chicago_Democrat_1833-11_to_1835-08/Chicago_Democrat_1835-07-08_Vol2_No12_Partial_Transcription.docx",
+          "path_kind": "deposit",
+          "sha256": "2f775022cccecd0dd0fcb0f643f0d94ee73fe31cbc84209337e6f6f46f9e47a9",
+          "text_path": "chicago/reference/newspapers/Transcriptions/Chicago_Democrat_1833-11_to_1835-08/Chicago_Democrat_1835-07-08_Vol2_No12_Partial_Transcription.txt",
+          "text_path_kind": "deposit",
+          "text_sha256": "325e26d75fa2db93b66f990c946638c291e6dc46887e1906017f0e3d52ded775",
+          "text_chars": 90958
+        },
+        {
+          "role": "alternate",
+          "format": "docx",
+          "path": "chicago/reference/newspapers/Transcriptions/Chicago_Democrat_1833-11_to_1835-08/Chicago_Democrat_1835-07-08_Vol2_No12_Transcription-2.docx",
+          "path_kind": "deposit",
+          "sha256": "f027304a42dd3e318c7db1637b0a3f6503ba6874f94e237b2ba054361996e98e",
+          "text_path_kind": "derived",
+          "text_path": "chicago/4d/data/research/newspapers/text/chicago_democrat_1835_07_08__alt_transcription_2.txt",
+          "text_sha256": "8df156550e41b9ecfced5e6ceb40f210fe9ed4e11b7fe591c6a26d98a5db67c9",
+          "derived_by": "tools/docx_text.py",
+          "text_chars": 128426
+        }
+      ],
+      "manifest": "chicago/reference/newspapers/Transcriptions/Chicago_Democrat_1833-11_to_1835-08/Chicago_Democrat_1835_Jan-Jul_Issue_Manifest.csv",
+      "word_count": 16755,
+      "uncertainty_markers": 3,
+      "notes": "Only three scanned pages are present; expected issue page 4 is absent from the source PDF.",
+      "completeness": "partial",
+      "validation_notes": "chicago/reference/newspapers/Transcriptions/Chicago_Democrat_1833-11_to_1835-08/Chicago_Democrat_1835_Jan-Jul_Validation_Notes.md",
+      "text_path": "chicago/reference/newspapers/Transcriptions/Chicago_Democrat_1833-11_to_1835-08/Chicago_Democrat_1835-07-08_Vol2_No12_Partial_Transcription.txt",
+      "text_path_kind": "deposit"
+    },
+    {
+      "id": "chicago_democrat_1835_07_15",
+      "publication": "chicago_democrat",
+      "source_id": "chicago_democrat_1833_1835",
+      "date": "1835-07-15",
+      "volume": "II",
+      "number": "13",
+      "artifacts": [
+        {
+          "role": "primary",
+          "format": "docx",
+          "path": "chicago/reference/newspapers/Transcriptions/Chicago_Democrat_1833-11_to_1835-08/Chicago_Democrat_1835-07-15_Vol2_No13_Transcription-2.docx",
+          "path_kind": "deposit",
+          "sha256": "5016c38ada768e4b6bf712f6f4d025d010965886cfcfe83c5e8ed9295c97390d",
+          "text_path_kind": "derived",
+          "sole_witness_note": "The only transcription of this issue in the deposit, and it is a `-2` OCR rebuild — the run whose text is visibly poorer where the two can be compared (1835-07-01, 1835-07-08). Read it as the weakest tier of this corpus.",
+          "text_path": "chicago/4d/data/research/newspapers/text/chicago_democrat_1835_07_15.txt",
+          "text_sha256": "77586dc340110a9c3200c843bb4c55dfe55c3ac3df377784107d3f710e800b5b",
+          "derived_by": "tools/docx_text.py",
+          "text_chars": 124517
+        }
+      ],
+      "text_path": "chicago/4d/data/research/newspapers/text/chicago_democrat_1835_07_15.txt",
+      "text_path_kind": "derived",
+      "completeness": "complete_per_transcriber",
+      "status": "Complete four-page scan; six-column OCR rebuild with independent validation pass"
+    },
+    {
+      "id": "chicago_democrat_1835_07_22",
+      "publication": "chicago_democrat",
+      "source_id": "chicago_democrat_1833_1835",
+      "date": "1835-07-22",
+      "volume": "II",
+      "number": "14",
+      "artifacts": [
+        {
+          "role": "primary",
+          "format": "docx",
+          "path": "chicago/reference/newspapers/Transcriptions/Chicago_Democrat_1833-11_to_1835-08/Chicago_Democrat_1835-07-22_Vol2_No14_Transcription.docx",
+          "path_kind": "deposit",
+          "sha256": "e8372fab9a3b599806065ec6a11833b8ea216d40109d4427526b55ec2c8268b4",
+          "text_path_kind": "derived",
+          "text_path": "chicago/4d/data/research/newspapers/text/chicago_democrat_1835_07_22.txt",
+          "text_sha256": "a87ebcd0725fcfcc4a40621eb476031ae9b678e42dc6cb1e4eb71cb52b5c6a0e",
+          "derived_by": "tools/docx_text.py",
+          "text_chars": 133227
+        }
+      ],
+      "text_path": "chicago/4d/data/research/newspapers/text/chicago_democrat_1835_07_22.txt",
+      "text_path_kind": "derived",
+      "completeness": "complete_per_transcriber",
+      "status": "Complete four-page scan; six-column OCR rebuild with independent validation pass"
+    },
+    {
+      "id": "chicago_democrat_1835_07_29",
+      "publication": "chicago_democrat",
+      "source_id": "chicago_democrat_1833_1835",
+      "date": "1835-07-29",
+      "volume": "II",
+      "number": "15",
+      "artifacts": [
+        {
+          "role": "primary",
+          "format": "docx",
+          "path": "chicago/reference/newspapers/Transcriptions/Chicago_Democrat_1833-11_to_1835-08/Chicago_Democrat_1835-07-29_Vol2_No15_Transcription.docx",
+          "path_kind": "deposit",
+          "sha256": "6ebb0fd5143147dd85f7fdbaf7a108b680724c2c266d9df7f63e4e0fdb934918",
+          "text_path_kind": "derived",
+          "text_path": "chicago/4d/data/research/newspapers/text/chicago_democrat_1835_07_29.txt",
+          "text_sha256": "90d1947c99514c03cd5c12c540941c8d955ed2337b7bf6e23e71a3bbe88b1321",
+          "derived_by": "tools/docx_text.py",
+          "text_chars": 129625
+        }
+      ],
+      "text_path": "chicago/4d/data/research/newspapers/text/chicago_democrat_1835_07_29.txt",
+      "text_path_kind": "derived",
+      "completeness": "complete_per_transcriber",
+      "status": "Complete four-page scan; six-column OCR rebuild with independent validation pass"
+    },
+    {
+      "id": "chicago_democrat_1835_08_05",
+      "publication": "chicago_democrat",
+      "source_id": "chicago_democrat_1833_1835",
+      "date": "1835-08-05",
+      "volume": "II",
+      "number": "16",
+      "artifacts": [
+        {
+          "role": "primary",
+          "format": "docx",
+          "path": "chicago/reference/newspapers/Transcriptions/Chicago_Democrat_1833-11_to_1835-08/Chicago_Democrat_1835-08-05_Vol2_No16_Transcription.docx",
+          "path_kind": "deposit",
+          "sha256": "237bff562c5c24a37181b669097317684437c5c7f7b45f22efbfced99e94d88f",
+          "text_path_kind": "derived",
+          "text_path": "chicago/4d/data/research/newspapers/text/chicago_democrat_1835_08_05.txt",
+          "text_sha256": "6e5752ca8edb9ea561922c2323e6acffef65ced522b5176241816e840b557fa8",
+          "derived_by": "tools/docx_text.py",
+          "text_chars": 124601
+        }
+      ],
+      "text_path": "chicago/4d/data/research/newspapers/text/chicago_democrat_1835_08_05.txt",
+      "text_path_kind": "derived",
+      "completeness": "complete_per_transcriber",
+      "status": "Complete four-page scan; six-column OCR rebuild with independent validation pass"
+    },
+    {
+      "id": "chicago_democrat_1835_08_12",
+      "publication": "chicago_democrat",
+      "source_id": "chicago_democrat_1833_1835",
+      "date": "1835-08-12",
+      "volume": "II",
+      "number": "17",
+      "artifacts": [
+        {
+          "role": "primary",
+          "format": "docx",
+          "path": "chicago/reference/newspapers/Transcriptions/Chicago_Democrat_1833-11_to_1835-08/Chicago_Democrat_1835-08-12_Vol2_No17_Transcription.docx",
+          "path_kind": "deposit",
+          "sha256": "dda69256c75dcf92c4e4c8ce133051df88232affb82ef861e06ebb37087cbe5b",
+          "text_path_kind": "derived",
+          "text_path": "chicago/4d/data/research/newspapers/text/chicago_democrat_1835_08_12.txt",
+          "text_sha256": "788d7c694f2ec4358344a7f21908da0e544961d7fadce493a4a11be30a43daee",
+          "derived_by": "tools/docx_text.py",
+          "text_chars": 121244
+        }
+      ],
+      "text_path": "chicago/4d/data/research/newspapers/text/chicago_democrat_1835_08_12.txt",
+      "text_path_kind": "derived",
+      "completeness": "complete_per_transcriber",
+      "status": "Complete four-page scan; six-column OCR rebuild with independent validation pass"
+    },
+    {
+      "id": "chicago_democrat_1835_08_19",
+      "publication": "chicago_democrat",
+      "source_id": "chicago_democrat_1833_1835",
+      "date": "1835-08-19",
+      "volume": "II",
+      "number": "18",
+      "artifacts": [
+        {
+          "role": "primary",
+          "format": "docx",
+          "path": "chicago/reference/newspapers/Transcriptions/Chicago_Democrat_1833-11_to_1835-08/Chicago_Democrat_1835-08-19_Vol2_No18_Transcription.docx",
+          "path_kind": "deposit",
+          "sha256": "9d0d49e25f142565d88c1d0de335467ac3307aa57cfa80b08e4b77e3c8bf50f4",
+          "text_path_kind": "derived",
+          "text_path": "chicago/4d/data/research/newspapers/text/chicago_democrat_1835_08_19.txt",
+          "text_sha256": "f08db2c51869bdf248f6c66f571e338b568d796e6e9da8f12d35638eddad8fdb",
+          "derived_by": "tools/docx_text.py",
+          "text_chars": 130850
+        }
+      ],
+      "text_path": "chicago/4d/data/research/newspapers/text/chicago_democrat_1835_08_19.txt",
+      "text_path_kind": "derived",
+      "completeness": "complete_per_transcriber",
+      "status": "Complete four-page scan; six-column OCR rebuild with independent validation pass"
+    },
+    {
+      "id": "chicago_democrat_1835_08_26",
+      "publication": "chicago_democrat",
+      "source_id": "chicago_democrat_1833_1835",
+      "date": "1835-08-26",
+      "volume": "II",
+      "number": "18",
+      "artifacts": [
+        {
+          "role": "primary",
+          "format": "docx",
+          "path": "chicago/reference/newspapers/Transcriptions/Chicago_Democrat_1833-11_to_1835-08/Chicago_Democrat_1835-08-26_Vol2_No18_Transcription.docx",
+          "path_kind": "deposit",
+          "sha256": "2c18176256276e5623206a521bb1116a7126dc24b18b76a79090c978fd28e083",
+          "text_path_kind": "derived",
+          "text_path": "chicago/4d/data/research/newspapers/text/chicago_democrat_1835_08_26.txt",
+          "text_sha256": "bfbf1720f34950ea0f3bac685f7850fcde8bd93191d36ef44798d114b7af3e0e",
+          "derived_by": "tools/docx_text.py",
+          "text_chars": 124263
+        }
+      ],
+      "text_path": "chicago/4d/data/research/newspapers/text/chicago_democrat_1835_08_26.txt",
+      "text_path_kind": "derived",
+      "completeness": "complete_per_transcriber",
+      "status": "Complete four-page scan; six-column OCR rebuild with independent validation pass",
+      "printed_metadata_note": "The masthead visibly prints Vol. II, No. 18 again on August 26; the duplicate printed number is preserved rather than silently renumbered."
+    }
+  ]
+}

@@ -1,0 +1,38 @@
+{
+  "$note": "ROADMAP K25(a). Every form value in this project's reconstructed buildings that sits outside the family band its own note cites. This file is a RATCHET, not an allowance: tools/check.sh fails on any offender that is not here and on any listed offender whose value has moved. K25(b) empties it and deletes it. Regenerate with tools/measure_band_claims.py --write-baseline, and only ever to record a repair.",
+  "counts": {
+    "footprint": 2,
+    "levels": 2
+  },
+  "measured": "2026-08-15",
+  "offenders": {
+    "inf_laundry_north:footprint": {
+      "band": "6x8-12x16 ft",
+      "detail": "14.00 ft wide against 6-12; 20.00 ft deep against 8-16",
+      "family": "A5",
+      "marginal": false,
+      "value": "14.00x20.00 ft"
+    },
+    "inf_sawpit_shed:footprint": {
+      "band": "22x36-36x60 ft",
+      "detail": "20.00 ft wide against 22-36",
+      "family": "W5",
+      "marginal": false,
+      "value": "20.00x36.00 ft"
+    },
+    "inf_sawpit_shed:levels": {
+      "band": "'1' (=> 1-1)",
+      "detail": "the band authors no loft",
+      "family": "W5",
+      "marginal": false,
+      "value": "loft = true"
+    },
+    "recon_1835_west_021:levels": {
+      "band": "'1' (=> 1-1)",
+      "detail": "the band authors no loft",
+      "family": "W3",
+      "marginal": false,
+      "value": "loft = true"
+    }
+  }
+}

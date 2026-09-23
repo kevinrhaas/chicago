@@ -1,0 +1,33 @@
+{
+  "id": "andreas_1884_chicago_1830_map",
+  "type": "map",
+  "citation": "\"Map of Chicago in 1830.\" Engraved fold-out inset in Andreas, A. T., History of Chicago, vol. 1 (Chicago, 1884), facing pp. 112-113. Plate carries \"Copyright Secured by A. T. Andreas, 1884.\"",
+  "author": "compiled and published by Alfred Theodore Andreas; engraver's imprint on the plate (Rand McNally & Co.)",
+  "date": "1884",
+  "describes_date": "1830",
+  "repository": "Internet Archive scan of Andreas vol. 1 (historyofchicago01andr); the fold-out is imaged as leaf n240, its blank verso as n241",
+  "url": "https://archive.org/details/historyofchicago01andr/page/n240/mode/1up",
+  "locator": "Andreas vol. 1, inset facing pp. 112-113 = Internet Archive leaf n240; listed in that volume's own table of maps as \"Chicago in 1830 (inset) 112, 113\"",
+  "tier": 3,
+  "rights_status": "public_domain",
+  "asset_use": "inventory",
+  "verified": true,
+  "access_notes": "No Wayback snapshot exists for the Internet Archive item and none was created: the Internet Archive is itself the preservation repository, and the sibling plate from this same volume (harrison_1830_river_mouth) is cited the same way. Identification was made by opening the page image, not by inference: leaf n240 carries the title banner MAP OF CHICAGO IN 1830, and leaf n242 is p. 113 carrying the Harrison harbour map, which fixes the leaf-to-page offset independently.",
+  "note": "THIS IS A LAND-ENTRY MAP, NOT A SETTLEMENT MAP, AND THE PLATE SAYS SO ON ITS OWN FACE. The printed note reads: \"The names given on various tracts of land are those of the primary patentees, or persons by whom entry was made, entered or patented between the years 1828 and 1836. The Information is taken from 'Book of Original Entry.' Streets as shown were laid out subsequent to 1830.\" Two consequences govern every use of this sheet. FIRST, a name on a tract records who took TITLE, not who lived there and not that anything was built - so this sheet can never license a dwelling, and an anonymous roof may not be placed because a tract has a name on it. SECOND, the entry window runs to 1836, which is PAST this project's scene date of 1835-07-01: some names on the sheet belong to people who had not yet entered the land when the scene is set, and the sheet does not say which. IT IS AN 1884 COMPILATION ON AN 1830 BASE, AND IT LAYERS LATER FEATURES ONTO IT, LABELLING THEM \"PRESENT\" - meaning present in 1884, fifty-four years after the nominal date. Observed on the sheet: \"PRESENT CANAL\" beside a dashed line (the Illinois & Michigan Canal, not completed until 1848 and therefore absent from both 1830 and 1835); \"Present Court House Square\"; and on the coloured issue \"present outlet of river\". Every \"present\" on this plate is an anachronism of half a century. The printed note's own admission that the streets postdate 1830 is the same problem stated by the publisher. TWO DIFFERENT PLATES IN THIS VOLUME SHARE THE NAME \"Chicago in 1830\": this map (inset, pp. 112-113) and a pictorial VIEW at p. 164, listed separately in the volume's table of illustrations. Cite the leaf, never the name. A SECOND, SIMPLIFIED LINE-ART RENDERING of this map circulates (fewer trees, a decorative banner, a reduced label set). It is NOT this plate, its publication has not been identified, and it must not be cited as this source until it is.",
+  "what_it_supplies": [
+    "who entered or patented each tract of land around the town between 1828 and 1836, by name, from the Book of Original Entry",
+    "the extent of Canal Land and the School Section as distinct from privately entered ground - a real, mapped distinction between subdivided and unsubdivided land",
+    "township, range and section framing (Township 39 and 40 North, Range 14 East) with section numbers",
+    "the position of a small number of named structures it chooses to draw and label - among them Miller's house, Elijah Wentworth's cabin, Robinson's trading house, La Framboise's cabin and store, Mark Beaubien's, Billy Caldwell's frame house, the Kinzie house, Fort Dearborn and its garden and field",
+    "corroboration of the wooded and open ground pattern, drawn as timber stipple"
+  ],
+  "what_it_does_not_supply": [
+    "any evidence that a tract was built on or occupied - the names are title, not residence (the plate's own note)",
+    "a settlement state at 1835-07-01: the entry window runs 1828-1836, past the scene date, and the sheet does not date individual entries",
+    "street geometry for 1830 or 1835 - the plate states the streets shown were laid out subsequent to 1830; Thompson plat 1830 and Hathaway 1834 remain the drivers",
+    "the 1835 shoreline, sand bar or river mouth - it is an 1884 compilation and the harbour was cut in 1834; Wright 1834 drives shore, bar, cut and piers, and harrison_1830_river_mouth is the closer survey of the pre-cut bar",
+    "the Illinois & Michigan Canal as a feature of 1830 or 1835 - the sheet draws it as \"present\" (1884) and it was not completed until 1848",
+    "any building footprint, dimension, height, material or roof form",
+    "1812 events as features of 1835 - the memorial annotations on the coloured issue are later labels, not standing features"
+  ]
+}

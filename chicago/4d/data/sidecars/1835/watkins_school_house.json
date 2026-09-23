@@ -1,0 +1,152 @@
+{
+  "id": "watkins_school_house",
+  "phase": "house_1833",
+  "name": "Watkins school house",
+  "aka": [
+    "John Watkins' second school",
+    "the house on Michigan Street used as a school"
+  ],
+  "archetype": "frame_dwelling",
+  "asset": "gltf/watkins_school_house__house_1833.glb",
+  "scene": "1835",
+  "target_date": "1835-07-01",
+  "documented_range": {
+    "from": "1833-01-01",
+    "to": "1835-12-31",
+    "confidence": "inferred",
+    "sources": [
+      "andreas_1884_v1"
+    ],
+    "note": "WHAT IS DATED IS A TEACHER'S MOVE, NOT A BUILDING. Andreas has John Watkins employed by Cols. Hamilton and Owen in the spring of 1833 to teach near the old Indian agency-house, and 'later in a house on Michigan Street between Cass and Rush' (docs/research/04-structures-south.md section 9 and docs/research/03-structures-north.md, from Andreas I scan p. 305). The house therefore stood in 1833; how much earlier it was built, and how long it stood, is unattested. 1833-01-01 is the first day of the attested year and is a bound. 1835-12-31 IS AN INFERENCE ABOUT PERSISTENCE, NOT AN ATTESTATION - a house two years old in a town whose population was doubling was not pulled down - and the project's brief for this record states plainly that the building's 1835 status is unattested. If it had gone by the scene date, nothing in the sources would show it."
+  },
+  "change_note": "The house on the north side of Michigan Street between Cass and Rush that John Watkins used as his second school in 1833. It is modelled as a house, because a house is what it was: nothing about it was built for teaching and no source describes a school-room, a bench or a desk in it. Whether it was still standing, and whether anyone was still teaching in it, on 1835-07-01 is unattested.",
+  "placement": {
+    "local_e": 997.89,
+    "local_n": 386.71,
+    "rotation_deg": 180.0,
+    "position_confidence": "reconstructed",
+    "position_sources": [],
+    "position_note": "INVENTED WITHIN AN ATTESTED BLOCK FACE. Andreas gives a street, two cross streets and, per this project's dossier, the north side - which is a block face about 110 m long and no more. NO SOURCE PLACES THIS HOUSE ON A LOT, so the coordinate is the middle of that face and the confidence says so. METHOD, and the street names have all changed: Michigan Street on the north side is today's Hubbard Street, Cass Street is today's North Wabash Avenue, and Rush Street is unchanged - the equivalences this project's own ground control uses in data/traces/gcp/wright_1834_gcps.json, where GCP G6 is 'Cass St & Illinois St ... Cass is today's North Wabash Avenue'. The modern Hubbard Street / North Rush Street intersection centre was read from OpenStreetMap at EPSG:26916 E 448121.71, N 4637764.21 (OSM node 261149251, fetched 2026-08-11), which fixes both Rush's line and Michigan Street's; Cass/Wabash's line comes from the committed GCP G6 at E 448010.33. The mid-point of the block is E 448066.02; the north frontage line is 12.2 m north of Michigan Street's centre, half of an 80 ft street per Hathaway 1834; the footprint is centred on the block face and its south face set on that frontage. UNCERTAINTY: about 20 m from the georeference, plus about 55 m either way ALONG the block from the mid-block choice, plus an unknown setback. Facade bearing 180, due south onto Michigan Street, inferred from the street rather than from any statement. THIS IS A NORTH-SIDE BUILDING and was well outside the modelled terrain box when this note was written, standing on ground this project had not built. The e1834_harbor_cut heightfield was extended east on 2026-08-11 to local E -320..+1700, N -400..+400, and it has stood on traced ground at about +1.53 m above the summer-1835 water surface ever since (corrected 2026-08-22 under T-0010; walked in the real page by tools/measure_east_band.mjs).",
+    "symbolic_location": "North side of Michigan Street between Cass Street and Rush Street (today the north side of West Hubbard Street between North Wabash Avenue and North Rush Street), on the north bank in Kinzie's Addition; fronting south onto Michigan.",
+    "uncertainty_m": 20,
+    "placement_provisional": false,
+    "vertical_anchor": "terrain",
+    "walk_surface_m": null
+  },
+  "footprint": {
+    "polygon": [
+      [
+        0,
+        0
+      ],
+      [
+        9.144,
+        0
+      ],
+      [
+        9.144,
+        6.096
+      ],
+      [
+        0,
+        6.096
+      ]
+    ],
+    "confidence": "reconstructed",
+    "sources": [],
+    "note": "INVENTED. NO SOURCE REACHED GIVES THIS BUILDING A DIMENSION, A MATERIAL OR A FORM - Andreas says 'a house' and nothing else. 9.144 x 6.096 m is 30 x 20 ft, recorded converted with the original figures stated per data/datum.json's units rule: an ordinary two-room house of the period, large enough that a schoolmaster could take a class in one room of it, which is the only functional constraint the evidence supplies. Everything about the shape is this record's."
+  },
+  "attributes": {
+    "stories": {
+      "value": 1.5,
+      "confidence": "reconstructed",
+      "note": "INVENTED, AND IT IS THE ARCHETYPE'S OWN DEFAULT KEPT DELIBERATELY. Nothing attests a storey count. The frame_dwelling module argues that the story-and-a-half - a full storey with chambers in the roof lit from the gable ends over a low knee wall - 'is the characteristic form of these years', and defaults to it for that reason. Taking that default rather than inventing a fresh number is the same discipline docs/LIBERTIES.md L29 records about the bridge's pier spacing: a new figure would look like a finding and would not be one. The knee wall is left at the archetype's default too."
+    },
+    "construction": {
+      "value": "braced_frame",
+      "confidence": "reconstructed",
+      "note": "INVENTED, AND THE ARCHETYPE CHOICE RESTS ON IT. Andreas says 'a house'. Nothing says frame and nothing says log, and this project's dossier records the town's stock as 'overwhelmingly frame and log' without splitting it by division. Frame is adopted because the house stood in Kinzie's Addition, platted and selling in 1833, where the building going up was new building rather than the older log stock at the forks - which is an argument about a neighbourhood, not evidence about a house. Braced rather than balloon is the conservative reading for a building of unfixed date, the same argument peck_store makes. IF A SOURCE SAYS LOG, THIS RECORD MOVES TO THE log_dwelling ARCHETYPE, which is a bigger change than a value: the walls, the corners and the openings would all be different. That is stated here because the archetype is not itself a graded attribute and this is the only place the choice can be argued with."
+    },
+    "wall_height_m": {
+      "value": 3.6,
+      "confidence": "inferred",
+      "note": "No figure is attested. 3.6 m is about 11 ft 10 in to the plate for a story-and-a-half: a full storey built up from the Green Tree Tavern's attested 7 1/2 ft ceiling plus floor structure, with the knee wall above it. It is this archetype's own default for the storey count, kept for the reason the storey count itself is. What is inferred is that the height falls in this range, not that it is exactly 3.6 m."
+    },
+    "roof_type": {
+      "value": "gable",
+      "confidence": "inferred",
+      "note": "Not attested. Gable is the near-universal roof form for a frame house of this period and region, and the archetype refuses any other over a story-and-a-half, since the half storey IS the roof and its chambers are lit from the gable ends. Typological derivation."
+    },
+    "roof_pitch_deg": {
+      "value": 40.0,
+      "confidence": "inferred",
+      "note": "No pitch is attested. 40 degrees is this archetype's default and is steeper than the 38 the project uses elsewhere for exactly the reason the module gives: the chambers are in the roof and a shallow pitch puts the ridge too low to stand under. Inferred from construction practice, not measured."
+    },
+    "plan": {
+      "value": "hall_parlour",
+      "confidence": "reconstructed",
+      "note": "INVENTED, and it is the archetype's default kept deliberately. hall_parlour is the commonest vernacular plan of the period and produces the plainest and least regular front the archetype builds - the door two thirds of the way along the wall, openings unevenly spaced. Nothing about this house's plan is attested. The bay count is left to the archetype to derive from the frontage rather than stated, which at 30 ft gives three openings."
+    },
+    "paint": {
+      "value": "unpainted",
+      "confidence": "inferred",
+      "note": "Not attested. Unpainted weathered clapboard is the reading this project adopts for frame buildings whose finish is unrecorded, and it is positively supported nearby: white paint was remarkable enough at Chicago in 1831 to be worth recording of the Sauganash. Not attested either way."
+    },
+    "chimneys": {
+      "value": 1,
+      "confidence": "inferred",
+      "note": "Not attested. One is the minimum for a house lived in and taught in through Chicago winters. The COUNT is the inference; where the stack stands, how big it is and what it is made of are the archetype's - docs/LIBERTIES.md L26."
+    },
+    "siding_exposure_m": {
+      "value": 0.127,
+      "confidence": "reconstructed",
+      "note": "INVENTED WITHIN A STOCK SET, NOT DERIVED. No source states the exposed face of any Chicago building's siding. The value is one of four period mill sidings — 4.5, 5, 5.5 or 6 in to the weather; this record wears 5 in — dealt by tools/deal_siding_stock.py: keyed to the phase's construction season, because buildings sided from the same season's shipments of St Joseph sawn lumber tend toward one stock, then advanced so no frame building within 60 m shares this one's. The separation is the surface variety T-0049 reconstructs, not a claim about 1835. docs/LIBERTIES.md L148 owns the invention."
+    },
+    "function": {
+      "value": "dwelling; used as John Watkins' school in 1833, use on the scene date unattested",
+      "confidence": "inferred",
+      "sources": [
+        "andreas_1884_v1"
+      ],
+      "note": "Andreas describes a HOUSE that a school was held in, not a school-house, and the distinction is preserved here: the building's own function is domestic and the teaching is an occupancy. Watkins' school was the town's earliest and was set up by Cols. Hamilton and Owen; by 1834-35 the town had several schools in other buildings, and nothing reached says whether Watkins was still teaching here, or whether anyone was living here, on the scene date."
+    },
+    "occupants": {
+      "value": "John Watkins, schoolmaster, teaching here in 1833; occupants on the scene date unattested",
+      "confidence": "inferred",
+      "sources": [
+        "andreas_1884_v1"
+      ],
+      "note": "Watkins' use is attested for 1833 only and is not carried forward to the scene date. No source reached names a householder, a tenant or a teacher in this building in 1835."
+    },
+    "land_owner": {
+      "value": "The ground was entered by Robert A Kenzie, 7 May 1831",
+      "confidence": "inferred",
+      "sources": [
+        "isa_public_domain_land_tract_sales"
+      ],
+      "note": "KINZIE'S ADDITION. The north fraction of section 10 is the section north of the river, which is why the register prints 102.29 acres and not a quarter's 160. It is resolved as the section's own grid box clipped to the committed north bank of the main stem (`e1834_harbor_cut/shoreline.geojson`), so no boundary here is authored. The two rows the register carries for it — one plain, one with the school-section marker — are the same entry printed twice. THE REGISTER SPELLS THE PURCHASER MORE THAN ONE WAY for this same tract — Robert A Kenzie; Robert A Kinzie — and the spellings are carried rather than merged, which is the land_sales crosswalk's standing rule: tract agreement is where two spellings MIGHT be one man and is never proof that they are. THE MARGIN IS 130 m: this footprint stands that far inside the tract's nearest boundary, which is more than twice the working horizontal uncertainty of anything traced off the 1834 sheets (about 20 m), so the assignment survives the error the construction carries. WHAT THIS ROW CLAIMS AND WHAT IT DOES NOT. It claims that the tract the Illinois State Archives' land-sale register describes contains this structure's committed position — the patent for this ground was ENTERED by this man on this date. It does not claim he still held the ground on 1 July 1835, that he lived here, or that he ever stood on it: a sale is a transaction, and the register's only column about residence names a county. THE SECTION LINES ARE CONSTRUCTED, NOT TRACED (L219): the grid is carried from the single PLSS corner at State & Madison, on the plat's own east-west bearing, in nominal one-mile squares."
+    }
+  },
+  "residents": [],
+  "citations": [
+    {
+      "source_id": "andreas_1884_v1",
+      "citation": "Andreas, A. T. History of Chicago: From the Earliest Period to the Present Time. Vol. 1. Chicago: A. T. Andreas, 1884.",
+      "url": "https://archive.org/details/historyofchicago01andr",
+      "archived_url": "",
+      "tier": 3,
+      "tier_label": "compiled secondary (Andreas)"
+    },
+    {
+      "source_id": "isa_public_domain_land_tract_sales",
+      "citation": "Illinois State Archives, Illinois Public Domain Land Tract Sales Database (Springfield: Office of the Secretary of State).",
+      "url": "https://apps.ilsos.gov/isa/landSalesSearch.do",
+      "archived_url": "",
+      "tier": 1,
+      "tier_label": "period/eyewitness"
+    }
+  ],
+  "research_note": "THE THINNEST RECORD IN THIS PARCEL, AND IT IS THIN IN A SPECIFIC WAY: what is attested is a SENTENCE ABOUT A TEACHER'S MOVEMENTS - Watkins taught 'later in a house on Michigan Street between Cass and Rush' - and everything else, including whether the building existed two years later, is inference. It is built rather than omitted under the working policy for this parcel: the existence of the building in 1833 is documented, its street is documented, and an absent building is invisible while a conjectural one is legible and correctable. THE THREE THINGS A LATER SOURCE COULD LIFT INDEPENDENTLY are the material (see construction - a single word would move this record to a different archetype), the lot within the block face, and the 1835 status. THE STREET NAMES ARE ALL CHANGED and are worth restating because getting one wrong moves the building a block: Michigan Street on the north side is today's Hubbard Street - not Michigan Avenue, which is a different street on the other side of the river and was the reservation's lakeward frame; Cass Street is today's North Wabash Avenue; Rush Street is unchanged. This project's own ground control records the Cass/Wabash equivalence. DO NOT CONFLATE THIS BUILDING WITH THE OTHER TWO SCHOOLS ON THE NORTH BANK: Watkins' FIRST school, in the spring of 1833, was near the old Indian agency-house at the foot of State Street, which is Cobweb Castle's neighbourhood and about 300 m west of here; and the public school of 1833 stood on the river bank just east of Clark Street in the building erected by Cols. Hamilton and Owen. Both are separate structures and neither is this one. A NOTE ON SCOPE, as walker_meeting_house carries one: Watkins was employed by Col. Owen, the Indian agent, and his first school was beside the agency house in the year before the final removal; interpretive text about this building sits close to the project's standing constraint on Indigenous history even though the structure itself is a settler building. review_required is set false, consistent with walker_meeting_house, but the call is worth a second opinion. WHAT WOULD UPGRADE IT: Andreas vol. 1 at page-image level around scan p. 305; the 1833-35 Chicago Democrat, which carried school advertisements and would name the house or its owner; and the Kinzie's Addition plat and its early conveyances, which would give the lot.",
+  "research_doc": "",
+  "review_required": false
+}

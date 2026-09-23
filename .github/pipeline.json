@@ -1,0 +1,29 @@
+{
+  "_doc": "Promotion-pipeline manifest for the chicago/4d tenant of this monorepo. Its FIRST job is to exist: Manager's Pipeline view (manager.polecat.live/app/#pipeline) probes every fleet repo for .github/pipeline.json on main and draws a release card for each one it finds, so adopting the pipeline is what lights up the tile — no Manager change per repo. Its SECOND job is to say how this repo differs from the three-tier fleet pilot (kevinrhaas/jobtracker.polecat.live), because the card reads its shape from here rather than assuming the pilot's. Read chicago/4d/docs/PIPELINE.md for the runbook and the reasoning. Like the pilot's copy of this file, it is a DATA file: editing it is a sanctioned direct commit to main.",
+
+  "_doc_tiers": "TWO tiers, not three. The pilot has a stage tier because it promotes on a nightly cron and needs somewhere for a candidate to sit; production here moves only when the owner dispatches it, so a middle tier would be a queue with nobody in it. Manager measures each tier against the NEXT one in this order, so with two tiers the dev row reads 'N ahead' of main.",
+  "tiers": ["dev", "main"],
+
+  "_doc_paths": "Where each tier publishes, relative to this project's site root (Manager's project record for kevinrhaas/custom: https://kevinrhaas.github.io/custom/chicago/4d/). The pilot's app owns a domain root and needs no override; this one is a subtree of a monorepo of unrelated tenants — CAD, print models, a game, a landing site — and the pipeline covers chicago/4d and nothing else. ?year=1835 is the target date the walkthrough reconstructs; without it the app opens on its default year, which is not what the card is claiming to link to.",
+  "paths": {
+    "dev": "/dev/walk/?year=1835",
+    "main": "/walk/?year=1835"
+  },
+
+  "_doc_workflows": "The dispatch targets behind the card's buttons. Workflow files here are prefixed chicago-4d-* because this monorepo's .github/workflows/ is shared with every other tenant, so the pilot's bare promote-to-prod.yml name was never available. A null means the verb does not exist in this repo and Manager draws no button for it — better than a button that 404s: promoteToStage because there is no stage tier, rollbackProd because there is no rollback workflow yet (recovering production today means dispatching the promotion after reverting on dev, which is slower and deliberate — see docs/PIPELINE.md).",
+  "workflows": {
+    "promoteToStage": null,
+    "promoteToProd": "chicago-4d-promote-to-prod.yml",
+    "rollbackProd": null
+  },
+
+  "_doc_label": "The card title. The repo name 'custom' is meaningless on a fleet console — it is a monorepo, and this pipeline is one tenant inside it.",
+  "label": "Chicago 4D",
+
+  "gates": {
+    "devGate": "chicago/4d/tools/check.sh + node chicago/4d/tools/smoke_renderer.mjs at 390x780 AND 1280x800, zero pageerrors (chicago-4d-check.yml, on PRs into dev and pushes to dev)",
+    "prodPromotion": "chicago-4d-promote-to-prod.yml back-merges main into dev first (so a hotfix is never silently reverted), merges dev into main --no-ff, and re-runs the changelog contract check after BOTH merges because .gitattributes sets merge=union on changelog.js and a union merge can break a file both parents had green"
+  },
+
+  "_doc_no_schedule": "There is deliberately no promoteToStage schedule block. The pilot's is a cadence for its nightly dev->stage cron; nothing here reads a schedule, and Manager hides the schedule editor when promoteToStage is null rather than offering a cadence that no workflow would honour. The nightly here is the CONTENT bake (chicago-4d-bake.yml), which opens a PR into dev — it never promotes."
+}

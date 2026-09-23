@@ -1,0 +1,1048 @@
+{
+ "schema": 2,
+ "schema_note": "schema 2 adds the cells: the column vocabulary, the per-column check against the printed totals, and per record `cells` (committed) beside `cells_first_pass` (read, unreconciled). Schema 1 records carry names only.",
+ "familysearch_id": "33S7-9YYN-3CDH",
+ "image": "chicago/reference/census1840/33S7-9YYN-3CDH.jpg",
+ "printed_page": 239,
+ "sheet_side": "left",
+ "division": "S. W. Sherman (as written into the printed heading)",
+ "state": "Illinois",
+ "county": "Cook",
+ "reading": "scan_verified",
+ "read_pass": "names and cells (T-0527, piece 5 of 7 of T-0495)",
+ "lines_ruled": 31,
+ "lines_ruled_with_an_entry": 31,
+ "lines_ruled_and_blank": 0,
+ "line_count_note": "31 ruled lines, all 31 carrying a name. THE COVERAGE INVENTORY SAID 33 `to the nearest line` AND THE SHEET CARRIES 31, counted twice and then measured. The body is ruled vertically only; its two horizontal rules stand at y=577 (below the printed column heads) and y=2911 (the closing rule, which slants down to the right). 2911-577 = 2334 px divided by 31 lines is 75.3 px per line. Independently, a two-parameter grid was fitted by least squares to the y of 108 measured ink blobs in the cell columns -- the enumerator's tally marks, which are isolated and unambiguous, as against the name ink, whose ascenders and descenders bias a centroid -- and answers pitch 75.20 with line 1 at y=670, within a tenth of a pixel per line of the figure the rules give. An earlier fit made to the NAME ink alone answered 76.0 and put a thirty-first line at y=2962, below the closing rule; it is superseded, and the disagreement is recorded rather than hidden. The last two lines are crowded: line 30's marks stand at y~2828 and line 31's at y~2884, about 45 px above the uniform grid, which is what a last entry squeezed in above the closing rule looks like.",
+ "margin_annotation": {
+  "text_as_read": "Chicago Precinct",
+  "position": "written vertically up the LEFT margin of the leaf, outside the NAMES column, at x~170-260, spanning y~1450-2130 -- beside body lines about 11 to 20. Read by rotating the crop 90 degrees.",
+  "confidence": "high",
+  "why_it_matters": "this is the only thing anywhere on the exposure that names the place. The printed heading names the enumerator's division and the state blank is filled `Illinois`; neither says Chicago. T-0527 asked for the annotation to be recorded as a finding in its own right, and it reads `Chicago Precinct` -- the civil division, not the bare town name."
+ },
+ "header_note": "the printed heading reads `(No. 4.) SCHEDULE of the whole number of persons within the division allotted to ____` with `S. W. Sherman` written into the blank, and the printed page number `239` at the top right.",
+ "form_note": "The left (names) sheet of the 1840 population schedule. Columns as printed, left to right: NAMES OF HEADS OF FAMILIES; thirteen FREE WHITE PERSONS - MALES age bands; thirteen FREE WHITE PERSONS - FEMALES age bands; six FREE COLORED PERSONS - MALES bands; six FREE COLORED PERSONS - FEMALES bands.",
+ "grid_note": "HOW THE CELLS WERE LOCATED. The vertical rules on this exposure are far fainter than on 33SQ-GYYJ-6V and a single high-passed darkness profile returns them mixed with paper streaking. Twenty-five rules that stand clear were assigned their column index and fitted by least squares, answering x = 690.9 + 80.81 n with rms 3.29 px and a largest residual of 7.2 px; the same pitch carries on through the FREE COLORED block to the leaf's right edge, which the detected rules there confirm. Boundaries are therefore taken as x = 691 + 80.81 n for n = 0..38: the NAMES column closes at 691, the thirteen male bands run to 1741, the thirteen female bands to 2792, and the twelve coloured bands to 3762. Every reading was made on a grid overlay drawn at those boundaries and at the fitted line centres.",
+ "cells_state": "complete",
+ "cells_note": "Seventeen columns carry a footed figure and ALL SEVENTEEN CLOSE EXACTLY: males 13, 11, 4, 34, 10, 5, 1, 1, 1 and females 6, 7, 8, 9, 21, 2, 5, 1, 1. Two columns cannot be closed and are recorded as such rather than counted as closures. THE FOURTH MALE BAND (15 under 20) has a footing glyph so faded that at 8x it will not resolve between 4, 6 and 7; the line-by-line read is 6 and is committed unchecked. THE FIFTH FEMALE BAND (30 under 40) carries TWO figures: `26` on the footing line and `21` written immediately below it in the same ink. Read column-alone at 2x against the line grid the column carries 21 -- a 2 on line 1, seventeen single strokes, and a 2 on line 31 -- so `21` is the enumerator's own correction of `26`, and the reading reproduces the corrected figure independently. 147 persons on 31 lines.",
+ "cells_columns_committed": 38,
+ "free_colored_note": "The FREE COLORED block is blank on all 31 lines except ONE mark, on line 15, and its footing row is blank from column 27 to column 38 -- so the block carries no printed check at all. The mark itself is written hard against the printed rule at x=3358, which is the boundary between column 33 (free colored males, 24 under 36) and column 34 (free colored females, 10 under 24); its body lies to the RIGHT of the rule and it is committed to column 34, with column 33 recorded here as a live alternative that the sheet gives no way to settle. Everything else in the block is swept and empty, and that zero is committed as evidence rather than left absent.",
+ "name_confidence": {
+  "medium": 13,
+  "low": 17,
+  "high": 1
+ },
+ "name_note": "This sheet's ink is thinner and more faded than 33SQ-GYYJ-6V's, and the lower third (lines 22 to 27) is the faintest stretch of it. Where more than one surname fits, every candidate is named in the record's own note; `as_read` carries `[?]` at a letter POSITION that cannot be resolved (T-0397). Superscript abbreviations are transcribed as written (`Geo`, `Saml`) and expanded only in `normalized`. Lines 3 and 4 carry the same surname on consecutive lines, which is a neighbour relation in enumeration order and is NOT recorded as a household or family link.",
+ "ipums_serial": null,
+ "ipums_note": "No IPUMS serial is attached on this sheet; T-0504 does that across all three groups by the age-band fingerprint.",
+ "columns": [
+  {
+   "column": 1,
+   "group": "free white males",
+   "band": "Under 5"
+  },
+  {
+   "column": 2,
+   "group": "free white males",
+   "band": "5 under 10"
+  },
+  {
+   "column": 3,
+   "group": "free white males",
+   "band": "10 under 15"
+  },
+  {
+   "column": 4,
+   "group": "free white males",
+   "band": "15 under 20"
+  },
+  {
+   "column": 5,
+   "group": "free white males",
+   "band": "20 under 30"
+  },
+  {
+   "column": 6,
+   "group": "free white males",
+   "band": "30 under 40"
+  },
+  {
+   "column": 7,
+   "group": "free white males",
+   "band": "40 under 50"
+  },
+  {
+   "column": 8,
+   "group": "free white males",
+   "band": "50 under 60"
+  },
+  {
+   "column": 9,
+   "group": "free white males",
+   "band": "60 under 70"
+  },
+  {
+   "column": 10,
+   "group": "free white males",
+   "band": "70 under 80"
+  },
+  {
+   "column": 11,
+   "group": "free white males",
+   "band": "80 under 90"
+  },
+  {
+   "column": 12,
+   "group": "free white males",
+   "band": "90 under 100"
+  },
+  {
+   "column": 13,
+   "group": "free white males",
+   "band": "100 and upwards"
+  },
+  {
+   "column": 14,
+   "group": "free white females",
+   "band": "Under 5"
+  },
+  {
+   "column": 15,
+   "group": "free white females",
+   "band": "5 under 10"
+  },
+  {
+   "column": 16,
+   "group": "free white females",
+   "band": "10 under 15"
+  },
+  {
+   "column": 17,
+   "group": "free white females",
+   "band": "15 under 20"
+  },
+  {
+   "column": 18,
+   "group": "free white females",
+   "band": "20 under 30"
+  },
+  {
+   "column": 19,
+   "group": "free white females",
+   "band": "30 under 40"
+  },
+  {
+   "column": 20,
+   "group": "free white females",
+   "band": "40 under 50"
+  },
+  {
+   "column": 21,
+   "group": "free white females",
+   "band": "50 under 60"
+  },
+  {
+   "column": 22,
+   "group": "free white females",
+   "band": "60 under 70"
+  },
+  {
+   "column": 23,
+   "group": "free white females",
+   "band": "70 under 80"
+  },
+  {
+   "column": 24,
+   "group": "free white females",
+   "band": "80 under 90"
+  },
+  {
+   "column": 25,
+   "group": "free white females",
+   "band": "90 under 100"
+  },
+  {
+   "column": 26,
+   "group": "free white females",
+   "band": "100 and upwards"
+  },
+  {
+   "column": 27,
+   "group": "free colored males",
+   "band": "Under 10"
+  },
+  {
+   "column": 28,
+   "group": "free colored males",
+   "band": "10 under 24"
+  },
+  {
+   "column": 29,
+   "group": "free colored males",
+   "band": "24 under 36"
+  },
+  {
+   "column": 30,
+   "group": "free colored males",
+   "band": "36 under 55"
+  },
+  {
+   "column": 31,
+   "group": "free colored males",
+   "band": "55 under 100"
+  },
+  {
+   "column": 32,
+   "group": "free colored males",
+   "band": "100 and upwards"
+  },
+  {
+   "column": 33,
+   "group": "free colored females",
+   "band": "Under 10"
+  },
+  {
+   "column": 34,
+   "group": "free colored females",
+   "band": "10 under 24"
+  },
+  {
+   "column": 35,
+   "group": "free colored females",
+   "band": "24 under 36"
+  },
+  {
+   "column": 36,
+   "group": "free colored females",
+   "band": "36 under 55"
+  },
+  {
+   "column": 37,
+   "group": "free colored females",
+   "band": "55 under 100"
+  },
+  {
+   "column": 38,
+   "group": "free colored females",
+   "band": "100 and upwards"
+  }
+ ],
+ "cells_column_check": [
+  {
+   "column": 1,
+   "band": "free white males Under 5",
+   "read_sum": 13,
+   "printed_total": 13,
+   "printed_total_reading": "high",
+   "balanced": true,
+   "residual": 0,
+   "committed": true
+  },
+  {
+   "column": 2,
+   "band": "free white males 5 under 10",
+   "read_sum": 11,
+   "printed_total": 11,
+   "printed_total_reading": "high",
+   "balanced": true,
+   "residual": 0,
+   "committed": true
+  },
+  {
+   "column": 3,
+   "band": "free white males 10 under 15",
+   "read_sum": 4,
+   "printed_total": 4,
+   "printed_total_reading": "high",
+   "balanced": true,
+   "residual": 0,
+   "committed": true
+  },
+  {
+   "column": 4,
+   "band": "free white males 15 under 20",
+   "read_sum": 6,
+   "printed_total": null,
+   "printed_total_reading": "ILLEGIBLE - the footing cell carries a faded two-stroke glyph, read at 8x and still not resolvable between 4, 6 and 7. The read sum of 6 is recorded and is NOT claimed to close.",
+   "balanced": null,
+   "residual": null,
+   "committed": true
+  },
+  {
+   "column": 5,
+   "band": "free white males 20 under 30",
+   "read_sum": 34,
+   "printed_total": 34,
+   "printed_total_reading": "high",
+   "balanced": true,
+   "residual": 0,
+   "committed": true
+  },
+  {
+   "column": 6,
+   "band": "free white males 30 under 40",
+   "read_sum": 10,
+   "printed_total": 10,
+   "printed_total_reading": "high",
+   "balanced": true,
+   "residual": 0,
+   "committed": true
+  },
+  {
+   "column": 7,
+   "band": "free white males 40 under 50",
+   "read_sum": 5,
+   "printed_total": 5,
+   "printed_total_reading": "high",
+   "balanced": true,
+   "residual": 0,
+   "committed": true
+  },
+  {
+   "column": 8,
+   "band": "free white males 50 under 60",
+   "read_sum": 1,
+   "printed_total": 1,
+   "printed_total_reading": "high",
+   "balanced": true,
+   "residual": 0,
+   "committed": true
+  },
+  {
+   "column": 9,
+   "band": "free white males 60 under 70",
+   "read_sum": 1,
+   "printed_total": 1,
+   "printed_total_reading": "high",
+   "balanced": true,
+   "residual": 0,
+   "committed": true
+  },
+  {
+   "column": 10,
+   "band": "free white males 70 under 80",
+   "read_sum": 1,
+   "printed_total": 1,
+   "printed_total_reading": "high",
+   "balanced": true,
+   "residual": 0,
+   "committed": true
+  },
+  {
+   "column": 11,
+   "band": "free white males 80 under 90",
+   "read_sum": 0,
+   "printed_total": null,
+   "printed_total_reading": "the footing cell is blank, and the column is blank down the page",
+   "balanced": true,
+   "residual": 0,
+   "committed": true
+  },
+  {
+   "column": 12,
+   "band": "free white males 90 under 100",
+   "read_sum": 0,
+   "printed_total": null,
+   "printed_total_reading": "the footing cell is blank, and the column is blank down the page",
+   "balanced": true,
+   "residual": 0,
+   "committed": true
+  },
+  {
+   "column": 13,
+   "band": "free white males 100 and upwards",
+   "read_sum": 0,
+   "printed_total": null,
+   "printed_total_reading": "the footing cell is blank, and the column is blank down the page",
+   "balanced": true,
+   "residual": 0,
+   "committed": true
+  },
+  {
+   "column": 14,
+   "band": "free white females Under 5",
+   "read_sum": 6,
+   "printed_total": 6,
+   "printed_total_reading": "high",
+   "balanced": true,
+   "residual": 0,
+   "committed": true
+  },
+  {
+   "column": 15,
+   "band": "free white females 5 under 10",
+   "read_sum": 7,
+   "printed_total": 7,
+   "printed_total_reading": "high",
+   "balanced": true,
+   "residual": 0,
+   "committed": true
+  },
+  {
+   "column": 16,
+   "band": "free white females 10 under 15",
+   "read_sum": 8,
+   "printed_total": 8,
+   "printed_total_reading": "high",
+   "balanced": true,
+   "residual": 0,
+   "committed": true
+  },
+  {
+   "column": 17,
+   "band": "free white females 15 under 20",
+   "read_sum": 9,
+   "printed_total": 9,
+   "printed_total_reading": "high",
+   "balanced": true,
+   "residual": 0,
+   "committed": true
+  },
+  {
+   "column": 18,
+   "band": "free white females 20 under 30",
+   "read_sum": 21,
+   "printed_total": 21,
+   "printed_total_reading": "the cell carries `26`, struck by a second figure `21` written immediately below it in the same ink. `21` is taken as the enumerator's own correction and is the figure checked against; see cells_note.",
+   "balanced": true,
+   "residual": 0,
+   "committed": true
+  },
+  {
+   "column": 19,
+   "band": "free white females 30 under 40",
+   "read_sum": 2,
+   "printed_total": 2,
+   "printed_total_reading": "high",
+   "balanced": true,
+   "residual": 0,
+   "committed": true
+  },
+  {
+   "column": 20,
+   "band": "free white females 40 under 50",
+   "read_sum": 5,
+   "printed_total": 5,
+   "printed_total_reading": "high",
+   "balanced": true,
+   "residual": 0,
+   "committed": true
+  },
+  {
+   "column": 21,
+   "band": "free white females 50 under 60",
+   "read_sum": 0,
+   "printed_total": null,
+   "printed_total_reading": "the footing cell is blank, and the column is blank down the page",
+   "balanced": true,
+   "residual": 0,
+   "committed": true
+  },
+  {
+   "column": 22,
+   "band": "free white females 60 under 70",
+   "read_sum": 1,
+   "printed_total": 1,
+   "printed_total_reading": "high",
+   "balanced": true,
+   "residual": 0,
+   "committed": true
+  },
+  {
+   "column": 23,
+   "band": "free white females 70 under 80",
+   "read_sum": 1,
+   "printed_total": 1,
+   "printed_total_reading": "high",
+   "balanced": true,
+   "residual": 0,
+   "committed": true
+  },
+  {
+   "column": 24,
+   "band": "free white females 80 under 90",
+   "read_sum": 0,
+   "printed_total": null,
+   "printed_total_reading": "the footing cell is blank, and the column is blank down the page",
+   "balanced": true,
+   "residual": 0,
+   "committed": true
+  },
+  {
+   "column": 25,
+   "band": "free white females 90 under 100",
+   "read_sum": 0,
+   "printed_total": null,
+   "printed_total_reading": "the footing cell is blank, and the column is blank down the page",
+   "balanced": true,
+   "residual": 0,
+   "committed": true
+  },
+  {
+   "column": 26,
+   "band": "free white females 100 and upwards",
+   "read_sum": 0,
+   "printed_total": null,
+   "printed_total_reading": "the footing cell is blank, and the column is blank down the page",
+   "balanced": true,
+   "residual": 0,
+   "committed": true
+  },
+  {
+   "column": 27,
+   "band": "free colored males Under 10",
+   "read_sum": 0,
+   "printed_total": null,
+   "printed_total_reading": "the enumerator footed nothing anywhere in the FREE COLORED block; the whole footing row under columns 27-38 is blank. This column has no printed check.",
+   "balanced": null,
+   "residual": null,
+   "committed": true
+  },
+  {
+   "column": 28,
+   "band": "free colored males 10 under 24",
+   "read_sum": 0,
+   "printed_total": null,
+   "printed_total_reading": "the enumerator footed nothing anywhere in the FREE COLORED block; the whole footing row under columns 27-38 is blank. This column has no printed check.",
+   "balanced": null,
+   "residual": null,
+   "committed": true
+  },
+  {
+   "column": 29,
+   "band": "free colored males 24 under 36",
+   "read_sum": 0,
+   "printed_total": null,
+   "printed_total_reading": "the enumerator footed nothing anywhere in the FREE COLORED block; the whole footing row under columns 27-38 is blank. This column has no printed check.",
+   "balanced": null,
+   "residual": null,
+   "committed": true
+  },
+  {
+   "column": 30,
+   "band": "free colored males 36 under 55",
+   "read_sum": 0,
+   "printed_total": null,
+   "printed_total_reading": "the enumerator footed nothing anywhere in the FREE COLORED block; the whole footing row under columns 27-38 is blank. This column has no printed check.",
+   "balanced": null,
+   "residual": null,
+   "committed": true
+  },
+  {
+   "column": 31,
+   "band": "free colored males 55 under 100",
+   "read_sum": 0,
+   "printed_total": null,
+   "printed_total_reading": "the enumerator footed nothing anywhere in the FREE COLORED block; the whole footing row under columns 27-38 is blank. This column has no printed check.",
+   "balanced": null,
+   "residual": null,
+   "committed": true
+  },
+  {
+   "column": 32,
+   "band": "free colored males 100 and upwards",
+   "read_sum": 0,
+   "printed_total": null,
+   "printed_total_reading": "the enumerator footed nothing anywhere in the FREE COLORED block; the whole footing row under columns 27-38 is blank. This column has no printed check.",
+   "balanced": null,
+   "residual": null,
+   "committed": true
+  },
+  {
+   "column": 33,
+   "band": "free colored females Under 10",
+   "read_sum": 0,
+   "printed_total": null,
+   "printed_total_reading": "the enumerator footed nothing anywhere in the FREE COLORED block; the whole footing row under columns 27-38 is blank. This column has no printed check.",
+   "balanced": null,
+   "residual": null,
+   "committed": true
+  },
+  {
+   "column": 34,
+   "band": "free colored females 10 under 24",
+   "read_sum": 1,
+   "printed_total": null,
+   "printed_total_reading": "the enumerator footed nothing anywhere in the FREE COLORED block; the whole footing row under columns 27-38 is blank. This column has no printed check.",
+   "balanced": null,
+   "residual": null,
+   "committed": true
+  },
+  {
+   "column": 35,
+   "band": "free colored females 24 under 36",
+   "read_sum": 0,
+   "printed_total": null,
+   "printed_total_reading": "the enumerator footed nothing anywhere in the FREE COLORED block; the whole footing row under columns 27-38 is blank. This column has no printed check.",
+   "balanced": null,
+   "residual": null,
+   "committed": true
+  },
+  {
+   "column": 36,
+   "band": "free colored females 36 under 55",
+   "read_sum": 0,
+   "printed_total": null,
+   "printed_total_reading": "the enumerator footed nothing anywhere in the FREE COLORED block; the whole footing row under columns 27-38 is blank. This column has no printed check.",
+   "balanced": null,
+   "residual": null,
+   "committed": true
+  },
+  {
+   "column": 37,
+   "band": "free colored females 55 under 100",
+   "read_sum": 0,
+   "printed_total": null,
+   "printed_total_reading": "the enumerator footed nothing anywhere in the FREE COLORED block; the whole footing row under columns 27-38 is blank. This column has no printed check.",
+   "balanced": null,
+   "residual": null,
+   "committed": true
+  },
+  {
+   "column": 38,
+   "band": "free colored females 100 and upwards",
+   "read_sum": 0,
+   "printed_total": null,
+   "printed_total_reading": "the enumerator footed nothing anywhere in the FREE COLORED block; the whole footing row under columns 27-38 is blank. This column has no printed check.",
+   "balanced": null,
+   "residual": null,
+   "committed": true
+  }
+ ],
+ "records": [
+  {
+   "line": 1,
+   "as_read": "A J Seymour",
+   "normalized": "A. J. Seymour",
+   "name_confidence": "medium",
+   "reading": "scan_verified",
+   "cells": {
+    "1": 2,
+    "5": 2,
+    "6": 1,
+    "15": 2,
+    "16": 1,
+    "17": 1,
+    "18": 2
+   },
+   "note": "two initials before the surname; the second could be J or I. Seymour is legible."
+  },
+  {
+   "line": 2,
+   "as_read": "W R Cobb",
+   "normalized": "W. R. Cobb",
+   "name_confidence": "medium",
+   "reading": "scan_verified",
+   "cells": {
+    "5": 1,
+    "17": 1
+   },
+   "note": "two initials, then a short surname closing on a long flourish; Cobb and Cool both fit its terminal letters."
+  },
+  {
+   "line": 3,
+   "as_read": "W S Wilson",
+   "normalized": "W. S. Wilson",
+   "name_confidence": "medium",
+   "reading": "scan_verified",
+   "cells": {
+    "5": 1,
+    "18": 1
+   },
+   "note": "the first initial is a broad looped capital this hand uses for both W and B. Wilson is legible."
+  },
+  {
+   "line": 4,
+   "as_read": "John Wilson",
+   "normalized": "John Wilson",
+   "name_confidence": "medium",
+   "reading": "scan_verified",
+   "cells": {
+    "5": 1,
+    "18": 1
+   },
+   "note": "the same surname as line 3, in the same hand; the two are consecutive on the sheet, which is a neighbour relation and not an identity claim."
+  },
+  {
+   "line": 5,
+   "as_read": "Geo Moore",
+   "normalized": "George Moore",
+   "name_confidence": "low",
+   "reading": "scan_verified",
+   "cells": {
+    "6": 1,
+    "14": 1,
+    "18": 1
+   },
+   "note": "the forename is the abbreviation Geo. The surname is a capital M and three or four minims closing on a flourish: Moore, Morre and Mori all fit."
+  },
+  {
+   "line": 6,
+   "as_read": "R Kitcherman",
+   "normalized": "R. Kitcherman",
+   "name_confidence": "low",
+   "reading": "scan_verified",
+   "cells": {
+    "1": 1,
+    "5": 1,
+    "14": 1,
+    "15": 1,
+    "18": 1
+   },
+   "note": "the forename is a single initial, read R with S a live alternative. The surname's medial letters are crowded: Kitcherman, Ketcherman and Kileherman all fit."
+  },
+  {
+   "line": 7,
+   "as_read": "Edwin Freeman",
+   "normalized": "Edwin Freeman",
+   "name_confidence": "medium",
+   "reading": "scan_verified",
+   "cells": {
+    "5": 1,
+    "18": 1
+   },
+   "note": "forename reads Edwin, with Elwin a live alternative on the third letter. Freeman is legible."
+  },
+  {
+   "line": 8,
+   "as_read": "Geo Hurt",
+   "normalized": "George Hurt",
+   "name_confidence": "low",
+   "reading": "scan_verified",
+   "cells": {
+    "1": 1,
+    "6": 1,
+    "18": 1
+   },
+   "note": "forename Geo. The surname is short and its medial letter is open between r and n: Hurt and Hunt both fit."
+  },
+  {
+   "line": 9,
+   "as_read": "J Peacock",
+   "normalized": "J. Peacock",
+   "name_confidence": "low",
+   "reading": "scan_verified",
+   "cells": {
+    "1": 1,
+    "2": 2,
+    "3": 2,
+    "6": 2,
+    "17": 1,
+    "19": 1
+   },
+   "note": "one initial. The surname opens on a capital P or R and reads -eacock or -ascall; Peacock and Rascall both fit and neither is preferred."
+  },
+  {
+   "line": 10,
+   "as_read": "W Boyd",
+   "normalized": "W. Boyd",
+   "name_confidence": "medium",
+   "reading": "scan_verified",
+   "cells": {
+    "2": 1,
+    "5": 1,
+    "8": 1,
+    "16": 1,
+    "20": 1
+   },
+   "note": "one initial; Boyd is written large and is the clearest surname in this stretch."
+  },
+  {
+   "line": 11,
+   "as_read": "[?] [?] Howell",
+   "normalized": "Howell",
+   "name_confidence": "low",
+   "reading": "scan_verified",
+   "cells": {
+    "1": 1,
+    "4": 1,
+    "6": 1,
+    "18": 1
+   },
+   "note": "two initial-sized glyph groups precede the surname and neither resolves; the surname reads H-o-w-e-l-l with Hovell a live alternative."
+  },
+  {
+   "line": 12,
+   "as_read": "John M Chapman",
+   "normalized": "John M. Chapman",
+   "name_confidence": "high",
+   "reading": "scan_verified",
+   "cells": {
+    "5": 1,
+    "17": 1
+   },
+   "note": "forename, middle initial and surname all legible."
+  },
+  {
+   "line": 13,
+   "as_read": "Edward Simons",
+   "normalized": "Edward Simons",
+   "name_confidence": "medium",
+   "reading": "scan_verified",
+   "cells": {
+    "1": 1,
+    "5": 2,
+    "18": 1
+   },
+   "note": "forename Edward. The surname's terminal letters are crowded against the next line: Simons and Simero both fit."
+  },
+  {
+   "line": 14,
+   "as_read": "H[?] A Martin",
+   "normalized": "H. A. Martin",
+   "name_confidence": "low",
+   "reading": "scan_verified",
+   "cells": {
+    "1": 1,
+    "2": 1,
+    "5": 1,
+    "6": 1,
+    "14": 1,
+    "15": 1,
+    "16": 1,
+    "19": 1
+   },
+   "note": "the forename is written out but its body is faded; Harvey and Harold both fit. Martin is legible."
+  },
+  {
+   "line": 15,
+   "as_read": "[?]herman W Parr",
+   "normalized": "Sherman W. Parr",
+   "name_confidence": "low",
+   "reading": "scan_verified",
+   "cells": {
+    "2": 1,
+    "7": 1,
+    "16": 1,
+    "20": 1,
+    "34": 1
+   },
+   "note": "the forename ends -herman and its capital is unread: Sherman, Truman and Thurman all fit. Parr is legible."
+  },
+  {
+   "line": 16,
+   "as_read": "John Pearson",
+   "normalized": "John Pearson",
+   "name_confidence": "low",
+   "reading": "scan_verified",
+   "cells": {
+    "5": 1,
+    "18": 1
+   },
+   "note": "the surname's capital is open between P and H and its body between -earson and -anson: Pearson and Hanson both fit."
+  },
+  {
+   "line": 17,
+   "as_read": "Geo Merrick",
+   "normalized": "George Merrick",
+   "name_confidence": "low",
+   "reading": "scan_verified",
+   "cells": {
+    "1": 1,
+    "5": 1,
+    "9": 1,
+    "14": 1,
+    "18": 1,
+    "22": 1
+   },
+   "note": "forename Geo. The surname closes on a flourish that swallows its last letters: Merrick and Merrill both fit."
+  },
+  {
+   "line": 18,
+   "as_read": "[?] Rogers",
+   "normalized": "Rogers",
+   "name_confidence": "low",
+   "reading": "scan_verified",
+   "cells": {
+    "4": 1,
+    "5": 2,
+    "6": 1,
+    "18": 1
+   },
+   "note": "the forename is a short abbreviated group that does not resolve. Rogers is legible."
+  },
+  {
+   "line": 19,
+   "as_read": "W H J Armstrong",
+   "normalized": "W. H. J. Armstrong",
+   "name_confidence": "low",
+   "reading": "scan_verified",
+   "cells": {
+    "5": 2,
+    "18": 1
+   },
+   "note": "three initials before the surname, which closes on a very long terminal flourish; Armstrong and Constring both fit the letters under it, and the initials are crowded."
+  },
+  {
+   "line": 20,
+   "as_read": "Martin A Kimball",
+   "normalized": "Martin A. Kimball",
+   "name_confidence": "medium",
+   "reading": "scan_verified",
+   "cells": {
+    "1": 1,
+    "2": 1,
+    "5": 3,
+    "16": 1,
+    "18": 1
+   },
+   "note": "forename, middle initial and surname all read, though the surname's terminal letters run into the flourish."
+  },
+  {
+   "line": 21,
+   "as_read": "W Lyell",
+   "normalized": "W. Lyell",
+   "name_confidence": "low",
+   "reading": "scan_verified",
+   "cells": {
+    "1": 1,
+    "2": 1,
+    "3": 1,
+    "4": 3,
+    "7": 1,
+    "15": 1,
+    "17": 1,
+    "20": 1
+   },
+   "note": "one initial. The surname is a tall double-l form: Lyell and Lytle both fit."
+  },
+  {
+   "line": 22,
+   "as_read": "N[?] B[?]ck[?]dale",
+   "normalized": "Buckindale",
+   "name_confidence": "low",
+   "reading": "scan_verified",
+   "cells": {
+    "5": 2,
+    "10": 1,
+    "23": 1
+   },
+   "note": "the faintest name on the sheet. The forename is a short group beginning N; the surname is long, opens on B and closes -dale or -holst, with Buckindale and Brockholst both fitting. Recorded with its unread letter positions rather than resolved."
+  },
+  {
+   "line": 23,
+   "as_read": "F[?] Mi[?]er",
+   "normalized": "Fred Miller",
+   "name_confidence": "low",
+   "reading": "scan_verified",
+   "cells": {
+    "1": 1,
+    "5": 1,
+    "18": 1
+   },
+   "note": "the forename reads Fred or Ford; the surname's medial letters are faded, leaving Miller and Milner both live."
+  },
+  {
+   "line": 24,
+   "as_read": "[?] Harris",
+   "normalized": "Harris",
+   "name_confidence": "low",
+   "reading": "scan_verified",
+   "cells": {
+    "2": 1,
+    "5": 1,
+    "7": 1,
+    "14": 1,
+    "15": 1,
+    "16": 1,
+    "17": 1,
+    "20": 1
+   },
+   "note": "the forename does not resolve; the surname reads Harris with Hanson a live alternative on its medial letters."
+  },
+  {
+   "line": 25,
+   "as_read": "John Clarke",
+   "normalized": "John Clarke",
+   "name_confidence": "low",
+   "reading": "scan_verified",
+   "cells": {
+    "5": 3,
+    "18": 1
+   },
+   "note": "forename John. The surname reads Clarke, with Cooke fitting the terminal letters about as well."
+  },
+  {
+   "line": 26,
+   "as_read": "[?] McConnel",
+   "normalized": "McConnel",
+   "name_confidence": "medium",
+   "reading": "scan_verified",
+   "cells": {
+    "5": 2,
+    "17": 1
+   },
+   "note": "the Mc ligature is unmistakable and the body reads Connel; McConnel and McConnell differ only in a terminal letter under the flourish. The forename initials do not resolve."
+  },
+  {
+   "line": 27,
+   "as_read": "Barney Andrus",
+   "normalized": "Barney Andrus",
+   "name_confidence": "medium",
+   "reading": "scan_verified",
+   "cells": {
+    "1": 1,
+    "6": 1,
+    "18": 1
+   },
+   "note": "forename Barney; the surname reads Andrus, with Andrews fitting its terminal letters."
+  },
+  {
+   "line": 28,
+   "as_read": "Saml E Abbot",
+   "normalized": "Samuel E. Abbot",
+   "name_confidence": "medium",
+   "reading": "scan_verified",
+   "cells": {
+    "5": 1,
+    "17": 1
+   },
+   "note": "forename Sam closed by a superscript l, a middle initial E, and Abbot; Abbat fits the vowel about as well."
+  },
+  {
+   "line": 29,
+   "as_read": "P Nolen",
+   "normalized": "P. Nolen",
+   "name_confidence": "low",
+   "reading": "scan_verified",
+   "cells": {
+    "2": 1,
+    "5": 1,
+    "6": 1,
+    "15": 1,
+    "16": 2,
+    "20": 1
+   },
+   "note": "one initial; the surname reads Nolen with Noles a live alternative on its penultimate letter."
+  },
+  {
+   "line": 30,
+   "as_read": "Lyman Kittle",
+   "normalized": "Lyman Kittle",
+   "name_confidence": "medium",
+   "reading": "scan_verified",
+   "cells": {
+    "2": 2,
+    "3": 1,
+    "4": 1,
+    "7": 2,
+    "17": 1,
+    "18": 1
+   },
+   "note": "forename Lyman. The surname reads Kittle, with Kittel fitting the terminal letters."
+  },
+  {
+   "line": 31,
+   "as_read": "J Bailey",
+   "normalized": "J. Bailey",
+   "name_confidence": "medium",
+   "reading": "scan_verified",
+   "cells": {
+    "5": 2,
+    "14": 1,
+    "18": 2
+   },
+   "note": "the last line of the sheet, written crowded against the closing rule. One initial; Bailey is legible."
+  }
+ ]
+}

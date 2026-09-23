@@ -1,0 +1,154 @@
+{
+  "id": "mason_blacksmith_shop",
+  "name": "Matthias Mason & Co.'s Blacksmith Shop",
+  "archetype": "outbuilding",
+  "phases": [
+    {
+      "id": "documented_1835",
+      "documented_range": {
+        "from": "1835-01-01",
+        "to": "1835-12-31",
+        "confidence": "attested",
+        "sources": [
+          "chicago_democrat_1833_11_26",
+          "chicago_democrat_1833_1835",
+          "andreas_1884_v1"
+        ],
+        "note": "SELF-REPORTED IN THE CHICAGO DEMOCRAT, AND THE ADVERTISEMENT RAN FOR A YEAR. Mason & Co. advertise as blacksmiths in the issue of 26 November 1833, on 'Main-street, nearly opposite Graves' Tavern'. The '& Co.' says the shop employed more than one man. Eleven printings of that one notice are now read out of the Democrat, the last on 10 December 1834, all under the same copy date - so the firm is documented trading thirteen months and not one day, and the far end of the range is inferred from a shorter reach than it was: a working smithy in a town growing tenfold is far more likely to have continued than to have closed. THE NOTICE CHANGES ITS ANCHOR PART WAY THROUGH, and the position note is where that is set out."
+      },
+      "position": {
+        "utm_e": 447804.652,
+        "utm_n": 4637258.228,
+        "rotation_deg": 0.0,
+        "symbolic_location": "South Division, local ENU E 735 N -133",
+        "confidence": "reconstructed",
+        "sources": [
+          "chicago_democrat_1833_11_26",
+          "chicago_democrat_1833_1835",
+          "andreas_1884_v1"
+        ],
+        "note": "THE ADDRESS IS DOCUMENTED IN A STREET NAME NOBODY ELSE USES, AND THE CROSS-REFERENCE IS WHAT PLACES IT. 'Main-street' appears nowhere in data/traces/street_control.json, the Thompson plat module or either 1834 sheet. Graves' Tavern is Dexter Graves's log tavern, which this dataset models as mansion_house at what became 84-86 Lake Street, on the NORTH side of Lake near Dearborn. 'Nearly opposite' therefore puts the smithy on the SOUTH side of Lake Street facing north across it, and 'Main-street' in November 1833 is very probably Lake Street under a colloquial name. The northing is the Lake Street south frontage band this dataset's reconstruction recipes already use; the easting is set opposite mansion_house. WHAT IS INVENTED: the exact lot, the setback and the facade bearing. AND THE ADVERTISEMENT DOES NOT KEEP THIS ANCHOR. Seven printings to 11 June 1834 read 'nearly opposite Graves' Tavern'; from 10 September 1834 the same standing copy, word for word otherwise and under the same 26 November 1833 dateline, reads 'opposite the Tremont House' - four printings, the last on 10 December 1834. The Democrat carries no printing of it between those two dates, so the change is bracketed by 1834-06-11 and 1834-09-10 and no closer. The first Tremont House stands at the north-west corner of Lake and Dearborn in this dataset, about 36 m west of mansion_house and on the same north side of the street, so the later reading would put this shop the same distance west along the same south frontage. NOTHING PRINTED SAYS WHICH CHANGED - the shop may have moved, or the house across from it may have changed hands and name, or a compositor may have been handed fresh copy for a reason nobody printed; all three read exactly like this. THE POSITION HERE IS THE EARLIER READING'S AND HAS NOT BEEN MOVED, because moving it would decide that question on no evidence. The scene date is 1835-07-01, ten months after the later reading first ran, and the dated history of both anchors is carried in data/research/newspapers/register_1835.json under business_matthias_mason_co.",
+        "derivation": {
+          "method": "not_derivable",
+          "reason": "No source gives this building a lot. The placement is a frontage-band assignment tested for clearance and buildable ground, which is a production control and not a derivation from any line in the dataset."
+        }
+      },
+      "footprint": {
+        "polygon": [
+          [
+            0,
+            0
+          ],
+          [
+            6.096,
+            0
+          ],
+          [
+            6.096,
+            9.144
+          ],
+          [
+            0,
+            9.144
+          ]
+        ],
+        "confidence": "reconstructed",
+        "note": "PLACEHOLDER - NO DIMENSION IS ATTESTED. 20 x 30 ft is a two-fire shop: room for two hearths, an anvil each and a horse standing in, which is what '& Co.' implies. Every number is invented."
+      },
+      "form": {
+        "wall_height_m": {
+          "value": 3.1,
+          "confidence": "reconstructed",
+          "sources": [
+            "andreas_1884_v1"
+          ],
+          "note": "Type-level choice within the W1 band in the reconstruction specification; it is not evidence for this building."
+        },
+        "roof_type": {
+          "value": "gable",
+          "confidence": "reconstructed",
+          "sources": [
+            "andreas_1884_v1"
+          ],
+          "note": "Type-level choice within the W1 band in the reconstruction specification; it is not evidence for this building."
+        },
+        "roof_pitch_deg": {
+          "value": 32.0,
+          "confidence": "reconstructed",
+          "sources": [
+            "andreas_1884_v1"
+          ],
+          "note": "Type-level choice within the W1 band in the reconstruction specification; it is not evidence for this building."
+        },
+        "construction": {
+          "value": "light_frame",
+          "confidence": "reconstructed",
+          "sources": [
+            "andreas_1884_v1"
+          ],
+          "note": "Type-level choice within the W1 band in the reconstruction specification; it is not evidence for this building."
+        },
+        "door": {
+          "value": "stable",
+          "confidence": "reconstructed",
+          "sources": [
+            "andreas_1884_v1"
+          ],
+          "note": "Type-level choice within the W1 band in the reconstruction specification; it is not evidence for this building."
+        },
+        "door_side": {
+          "value": "front",
+          "confidence": "reconstructed",
+          "sources": [
+            "andreas_1884_v1"
+          ],
+          "note": "Type-level choice within the W1 band in the reconstruction specification; it is not evidence for this building."
+        },
+        "loft": {
+          "value": false,
+          "confidence": "reconstructed",
+          "sources": [
+            "andreas_1884_v1"
+          ],
+          "note": "Type-level choice within the W1 band in the reconstruction specification; it is not evidence for this building."
+        },
+        "board_gap_m": {
+          "value": 0.012,
+          "confidence": "reconstructed",
+          "sources": [
+            "andreas_1884_v1"
+          ],
+          "note": "Type-level choice within the W1 band in the reconstruction specification; it is not evidence for this building."
+        },
+        "paint": {
+          "value": "unpainted",
+          "confidence": "reconstructed",
+          "sources": [
+            "andreas_1884_v1"
+          ],
+          "note": "Type-level choice within the W1 band in the reconstruction specification; it is not evidence for this building."
+        }
+      },
+      "change_note": "The building as this dataset can state it on the scene date. Where the sources give a size, a plan or a fabric, the record carries it; where they do not, the note says so attribute by attribute."
+    }
+  ],
+  "function": {
+    "value": "blacksmith_shop",
+    "confidence": "attested",
+    "sources": [
+      "andreas_1884_v1"
+    ],
+    "note": "THE THIRD SMITHY, and the one phase one identified as a documented building with no record. This dataset already holds pierce_blacksmith_shop on the south side and blacksmith_shop_state_st at the Indian agency; DO NOT MERGE ANY OF THE THREE. The street name 'Main-street' is recorded as a finding for the streets layer in docs/RESEARCH/residents_1835.md section 7 and is not acted on beyond this placement."
+  },
+  "occupants": {
+    "value": "Matthias Mason & Co., blacksmiths",
+    "confidence": "attested",
+    "sources": [
+      "chicago_democrat_1833_11_26",
+      "chicago_democrat_1833_1835"
+    ],
+    "note": "Matthias Mason and at least one partner or journeyman - the firm advertises as 'Mason & Co.' (data/residents/households/hh_mason_matthias.json). No other name is given. The Democrat sets the style four ways across eleven printings of one notice - 'Matthias Mason & Co.', 'Matthias Mason & Co., blacksmiths', 'MA[T]HIAS MASON & CO.' where the impression drops a T, and 'MATTHIAS MA[SON & CO.]' where the line is damaged - and the newspaper gazetteer holds all four as one house under business_matthias_mason_co, with the reasoning written out in data/research/newspapers/identity.json."
+  },
+  "research_note": "THE THIRD SMITHY, and the one phase one identified as a documented building with no record. This dataset already holds pierce_blacksmith_shop on the south side and blacksmith_shop_state_st at the Indian agency; DO NOT MERGE ANY OF THE THREE. The street name 'Main-street' is recorded as a finding for the streets layer in docs/RESEARCH/residents_1835.md section 7 and is not acted on beyond this placement.",
+  "review_required": false
+}

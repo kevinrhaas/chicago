@@ -1,0 +1,60 @@
+{
+ "$schema_note": "AUTHORED, and it is a READING of a raster. It carries what the 1830 Harrison plan draws and letters about burial on Fort Dearborn's ground: the named parcel 'Fort Cemetery', measured line by line in pixels and resolved to local ground, and the labelled grave of Mrs Charles Jouett. It authors NO fabric. The parcel is refused as a built thing here and the reason is written out; the one burial that two sources give a form to is built, and it is data/enclosures/fort_dearborn_jouett_grave_pickets.json.",
+ "id": "harrison_1830_fort_burial_ground",
+ "source_id": "harrison_1830_river_mouth",
+ "ticket": "T-0882",
+ "why_this_file_exists": "T-0882 asked the question in its own title: a burial ground is not a building, and this model has no record type that can say what it is. It has three that come close and none that fits. data/structures/ takes fabric and an archetype that builds it, and the Fort Cemetery has no attested fabric at all. data/enclosures/ takes a perimeter and a fence, and the plan draws this parcel's boundaries the way it draws John Crafts's Lot beside it — as property lines, not as a fence. data/reconstruction/1835_no_build_ground.json takes ground that was never open to a private builder, which this parcel certainly was not, but every region in that file has its polygon RESOLVED from committed traces by tools/measure_no_build_ground.py rather than read off a plate, and a hand-typed ring would be the one thing that file exists to forbid. So the reading lands here, where a reading of a raster belongs, with the ground it resolves to stated in full — and the refusal to build is stated with it rather than left as a silence.",
+ "the_transform": {
+  "image": "Internet Archive leaf n242 of historyofchicago01andr (Andreas, History of Chicago, vol. 1, p. 113)",
+  "orientation": "rotated 90 degrees anticlockwise so the sheet's own true-north arrow stands vertical; 2715 x 2003 px in that orientation, +x east and +y south",
+  "anchor_px": [1445, 644],
+  "anchor_local_enu_m": [1152.0, 221.0],
+  "scale_m_per_px": 0.33528,
+  "note": "THE SAME TRANSFORM T-0883 STATED AND CHECKED, unchanged and not re-derived here. The stockade's ink runs x 1356 to 1535 and y 553 to 730, so the enclosure's centre is pixel (1445, 644), and the committed palisade hangs that centre on local E +1152, N +221. Pixels convert at 1.10 ft/px, the scale docs/RESEARCH/fort_dearborn.md section 3 derives from the commandant's quarters. The plate carries NO SCALE BAR and its source record says it is used for arrangement and proportion rather than absolute size, so every figure below carries the +/-20 percent on size and +/-25 m on position that every plate-derived record in this dataset carries."
+ },
+ "checks": [
+  {
+   "check": "the garrison garden's south-east side is the road's north-west edge",
+   "found": "The straight (non-zigzag) side of the committed garden's diamond fits y = -0.80048 x + 2159 in plate pixels, and the road band's other edge fits the same slope at intercept 2250.48 — the two parallel lines the sheet draws the Road between, 71.4 px or 23.9 m apart. The garden record already says, from its own reading in August, that the plan draws 'two sides of this plot as a continuous zigzag line and the other two as plain'. The plain side is a road frontage, and neither reading had sight of the other.",
+   "worth": "It is what makes Hubbard's 'west side of the road' a coordinate rather than a direction."
+  },
+  {
+   "check": "the Fort Cemetery's two boundaries are parallel, and they die on the road",
+   "found": "Fitted over 33 and 53 sample columns respectively: the north-east boundary (the one John Crafts's Lot lies beyond) is y = 1.23650 x - 123.17 with 0.72 px of scatter, the south-west boundary is y = 1.25098 x + 75.47 with 0.46 px. Both meet the road's south-east edge (y = -0.80048 x + 2250.48, 0.17 px of scatter) — at pixel (1165.3, 1317.7) and (1060.2, 1401.8) — and both run out at the drawn lake shore.",
+   "worth": "Three lines fitted independently and the two ends of the parcel close on the third. Nothing was nudged to make them."
+  }
+ ],
+ "fort_cemetery": {
+  "label_as_read": "Fort Cemetery",
+  "what_the_sheet_draws": "A named parcel and nothing else. Two straight boundary lines running south-east off the road down to the lake shore, with the words written across the ground between them. No fence, no gate, no wall, no marker, no grave, no path, no count and no extent of burials. The two lines are drawn in the same weight and the same manner as the lines that bound John Crafts's Lot immediately north-east of it, which is what they are: property lines on a parcel plan.",
+  "corners_px": [[1165.3, 1317.7], [1360.0, 1558.5], [1349.0, 1763.0], [1060.2, 1401.8]],
+  "corners_local_enu_m": [[1058.22, -4.88], [1123.5, -85.6], [1119.81, -154.19], [1022.99, -33.07]],
+  "corner_rule": "First and fourth are the intersections of the two boundaries with the road's south-east edge, computed from the three fitted lines. Second and third are where each boundary's ink runs out at the drawn shore, read at pixel (1360, 1558) and (1349, 1763) — the shore is a hatched band rather than a single line, so those two are the softest numbers on this record and carry perhaps +/-5 px (1.7 m) of their own on top of everything else.",
+  "extent": {
+   "area_m2": 5886,
+   "area_acres": 1.45,
+   "north_east_side_m": 103.8,
+   "south_west_side_m": 155.1,
+   "road_end_m": 45.1,
+   "shore_end_m": 68.7
+  },
+  "where_it_is": "South-south-east of the fort and outside everything this project has built: its nearest corner stands about 230 m south of the stockade's centre, its far corner about 375 m south, and the whole parcel lies east of local E 1020 between the road and the water. Nothing in data/structures/ stands inside it — the test was run over every committed phase position and returned nothing, inside the ring or within a 30 m skirt of it — so this reading displaces no building and contradicts no placement.",
+  "refused_as_fabric": {
+   "verdict": "READ, RESOLVED, AND NOT BUILT.",
+   "why": "A builder needs, at the least, something that was there. This parcel offers a boundary and a name. Nothing gives it a fence — and the sheet is not silent by accident, because it DOES draw the garrison garden's worm fence, the Factor House's ground and the stockade itself, so a fence here would have been drawn if the draughtsman had seen one. Nothing gives it a gate, a wall, a marker, a chapel or a path. Nothing says how many are buried in it, or where in it, or under what. Every one of those would have to be invented, and a burial ground furnished out of nothing is not a reconstruction of anything.",
+   "what_would_change_it": "A quartermaster return, a post return, a chaplain's register or a burial list for Fort Dearborn 1816-1836; a later plat or survey that draws the parcel again with a fence on it; or a removal record from the 1840s, when the town moved its burying grounds, naming what was lifted from here. Any one of those turns this from a polygon into a place.",
+   "and_the_ground_layer": "TAKEN, by T-0891. When this file was written the polygon could not enter data/reconstruction/1835_no_build_ground.json: every region in that file has its boundary resolved from committed traces by a tool, precisely so a hand-typed vertex cannot drift from the survey it claims to follow, and this ring comes off a plate instead. Teaching that tool to resolve a plate-read ring was left as its own ticket, and T-0891 is it. tools/measure_no_build_ground.py now rebuilds the ring from `fort_cemetery.corners_px` and `the_transform` above and checks `fort_cemetery.corners_local_enu_m` against what it gets, so the parcel is a region of that file with no vertex authored there. THE CORNER PIXELS AND THE TRANSFORM ARE NOW LOAD-BEARING: a ground corner edited without its pixel, or a transform moved under this reading, fails tools/check.sh rather than quietly re-siting the parcel."
+  }
+ },
+ "mrs_jouett_grave": {
+  "label_as_read": "Grave of Mrs Chas Jouett",
+  "what_the_sheet_draws": "The words, and nothing else. There is no cross, no dot, no drawn box and no symbol of any kind beside them — which is the difference between this and the Well, which the same sheet gives a small circle, or the Shop and the Wash house, which it gives drawn blocks. The label is written inside the road band, between the road's two edges.",
+  "label_ink_centre_px": [1335.0, 1140.0],
+  "resolved_px": [1310.8, 1109.7],
+  "resolved_local_enu_m": [1107.0, 64.84],
+  "rule": "The label's ink centre is 38.8 px (13.0 m) south-east of the garden's south-east side, inside a road band 23.9 m across. Hubbard puts the grave on the WEST side of that road and adjoining the garden, so the label's centre is dropped perpendicular onto the garden's line and the plot is set with its north-west face on it. The along-the-road coordinate is only as good as a draughtsman's choice of where to start writing; the across-the-road one is pinned to a drawn line.",
+  "check_against_the_committed_garden": "The resolved point stands 9.9 m outside the committed garrison garden's south-east face, on the far side of it. That gap is not a measurement of anything: it is the difference between this plate reading and the coarser one that placed the garden in August 2026, and both records carry +/-25 m. What matters is the SIGN — the plot falls outside the garden and on the road side of it, which is where both witnesses put it.",
+  "built_as": "data/enclosures/fort_dearborn_jouett_grave_pickets.json",
+  "who_she_was": "The wife of Charles Jouett, United States factor at Chicago from 1804 to about 1810 and Indian agent from 1816. Nothing reached this project gives her forename, her dates or the date of the burial. Her HUSBAND is not buried here and this file is where that is written down: the Fergus 1843 old-settler death notices print 'Jouett, Charles (first Indian agent at Fort Dearborn), died, Trigg Co., Kentucky, May 28, 1834, aged 62' (data/research/old_settlers/death_notices.json, record fdn0347). data/structures/fort_dearborn_garrison_garden.json had called this 'Charles Jouett's grave' since it was written, and is corrected in the same commit as this file."
+ }
+}

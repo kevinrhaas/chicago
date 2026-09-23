@@ -1,0 +1,227 @@
+{
+  "id": "new_york_house",
+  "phase": "frame_1834",
+  "name": "New York House",
+  "aka": [
+    "Johnson & Stevens's New York House"
+  ],
+  "archetype": "frame_tavern",
+  "asset": "gltf/new_york_house__frame_1834.glb",
+  "scene": "1835",
+  "target_date": "1835-07-01",
+  "documented_range": {
+    "from": "1834-01-01",
+    "to": "1839-12-31",
+    "confidence": "inferred",
+    "sources": [
+      "andreas_1884_v1",
+      "chicago_american_1835",
+      "drloih_hotels"
+    ],
+    "note": "THE RANGE IS THE REASON THIS BUILDING EXISTS AS A RECORD RATHER THAN AS AN EXCLUSION, so it is stated in full. Andreas p. 635: 'The New York House was built in 1834 and opened to the public the following year by Lathrop Johnson and George Stevens, who conducted it until the fall of 1839.' The BUILD YEAR and the CLOSING SEASON are both his; neither end carries a month, which is why the range is graded inferred rather than attested and why it is bounded to the calendar years rather than to invented dates inside them. THE OPENING MONTH WAS THE OPEN QUESTION AND THE AMERICAN CLOSES IT. Andreas says only 'the following year', which leaves 1835 open at both ends and would leave the scene date of 1835-07-01 an argument rather than a reading. Two advertisements in the Chicago American of 13 June 1835 give a professional address AT this house: Dr. J. B. Barnard, 'at the New York House, Lake street' (page 3 column 3, claim chicago_american_1835_06_13#c009), and J. C. Bradley, the travelling dentist, 'His office at the New York House, where he will remain until after the Land [S]ale' (page 3 column 2, claim chicago_american_1835_06_13#c008, repeated 1835-06-20#c001, dateline 'Chicago, June 14, 1835'). A house letting office rooms to two professional men and advertised as a landmark address was OPEN AND TRADING seventeen days before the scene date. That is contemporary evidence where Andreas is a recollection published in 1884, and it is the specific thing data/exclusions.json's falsified entry asked for. THE DISSENT IS RECORDED AND NOT RESOLVED BY PREFERENCE. drloihjournal's chronology of early Chicago hotels dates the New York House 1836, and that date is what put this building on this project's EXCLUDE list in the first place. It is departed from because Andreas states a build year plainly and a contemporary newspaper puts offices in the house eleven months before drloihjournal's date; a secondary chronology that disagrees with a named primary printing and with the earlier standard history is the reading this project drops. See docs/RESEARCH/new_york_house.md § 2. THE END OF THE RANGE IS NOT A DEMOLITION DATE. Andreas's 'fall of 1839' is when Johnson and Stevens stopped conducting the house, not when the building came down, and nothing reached follows it further. 1839-12-31 is a housekeeping bound on the tenancy, and the scene date sits four years inside it either way."
+  },
+  "change_note": "The two-storey frame hotel Lathrop Johnson and George Stevens kept on the north side of Lake Street near Wells, eaves to the street: raised in 1834, open and letting office rooms by June 1835. It is the address two of the American's advertisers give as their own.",
+  "placement": {
+    "local_e": 311.651,
+    "local_n": -90.9,
+    "rotation_deg": 180.47,
+    "position_confidence": "inferred",
+    "position_sources": [
+      "andreas_1884_v1",
+      "thompson_plat_1830",
+      "wright_1834"
+    ],
+    "position_note": "PLACED 2026-08-29 (T-0380), AND THE PLACEMENT IS THE WEAKEST HALF OF THIS RECORD — say so first. Andreas gives the address in six words: 'a frame building on the north side of Lake Street, near Wells' (Andreas I, scan pp. 913, 971; carried into this project's own dossier at docs/research/04-structures-south.md § 6). 'Near Wells' is a neighbourhood, not a corner, and this record does not upgrade it into one. WHAT THE COORDINATE IS DERIVED FROM. The north side of Lake Street between Franklin and Wells is the SOUTH tier of the committed platted block blk_south_water_franklin, whose lot grid is data/traces/vectors/thompson_lots.json — the same committed geometry tools/generate_block_infill.py stands every reconstructed roof on this face on, and the same geometry tools/generate_plat_lots.py builds the block edge from. Lot 7 of that grid is the south-tier lot at the WELLS end of the block: its east line is the Wells corridor edge, so it is the lot on the north side of Lake Street nearest Wells, and it is unoccupied — the block's committed deal (data/reconstruction/1835_platted_block_parcels.json) places its Lake-face roofs on lots 3 and 5 and leaves this one empty. The footprint is CENTRED on that lot's Lake frontage, its front wall set back 1.50 m from the committed frontage line — the same margin the generator gives every unit standing on a block face — which puts the front wall at local ENU (305.492, -98.470) and the polygon origin at (311.651, -90.900), i.e. UTM 16N E 447384.351 N 4637304.900. THE CORNER IS REFUSED, IN WRITING. The obvious temptation is to push the building east to the Wells corner and call it the corner of Lake and Wells: it would read better in the scene and it would give the two American offices below a smarter address. Andreas says 'near Wells' and this project's rule is that a placement inference never sharpens a source (T-0196). Centring on the Wells-end lot is the least specific placement that still satisfies the words; the residual is the lot, about 24 m of frontage, and it is smaller than the georeference's own working uncertainty. THE SIDE OF WELLS IS AN OPEN QUESTION AND IS NOT HIDDEN. 'Near Wells' is satisfied by the Lake frontage on EITHER side of Wells Street — the block west of it (this one) or blk_south_water_wells east of it — and nothing reached decides between them. The west block is chosen because its Wells-end lot on Lake is free while the east block's Lake face already carries three dealt roofs, so standing here displaces nothing; that is a reason about this dataset, not evidence about 1835, and it is recorded at docs/LIBERTIES.md rather than argued away. A source that names the side, or a lot number, moves this building one block east at no cost to anything else on the record. WORKING UNCERTAINTY ABOUT 30 M: the georeference's own residual (data/datum.json: 17.5 m RMS on Wright 1834) plus the half-lot the 'near Wells' reading leaves free along the frontage. FACADE BEARING 180.47 DEGREES, which is the outward normal of this lot's own committed Lake frontage line and not a claim about the building: a hotel with 'eaves to the street' fronts the street it is addressed from, and Lake Street lies south of it.",
+    "symbolic_location": "North side of Lake Street near Wells Street (today the north side of West Lake Street just west of North Wells Street), on the Lake Street face of the block between Franklin and Wells.",
+    "uncertainty_m": 20,
+    "placement_provisional": false,
+    "vertical_anchor": "terrain",
+    "walk_surface_m": null
+  },
+  "footprint": {
+    "polygon": [
+      [
+        0,
+        0
+      ],
+      [
+        12.192,
+        0
+      ],
+      [
+        12.192,
+        7.62
+      ],
+      [
+        0,
+        7.62
+      ]
+    ],
+    "confidence": "reconstructed",
+    "sources": [],
+    "note": "INVENTED. NO SOURCE REACHED GIVES THIS BUILDING A DIMENSION — Andreas describes it and never measures it. 12.192 x 7.62 m is 40 x 25 ft, and BOTH FIGURES ARE BORROWED FROM THIS DATASET RATHER THAN FRESHLY INVENTED, which is the same admission peck_store, carpenter_south_water_store and their neighbours make in the same words: 40 ft is the frontage attested for the Green Tree Tavern and for the Western Hotel's front, and 25 ft is the depth derived from the Green Tree's attested room module. They are the only period figures for a two-storey frame commercial building this project holds. So the rectangle is a claim about the TYPE and not about this building, and the repetition across records is the honest form of that admission, not an accident. THE ONE THING THE SHAPE DOES CLAIM IS THE PROPORTION, AND THAT IS DOCUMENTED. Andreas has 'a two-story building, with eaves to the street'. The frame_tavern archetype runs its ridge along the longer axis (ridge_along_x = width >= depth), so a footprint wider than it is deep is exactly what puts the eaves, not the gable, on Lake Street; a 25 x 40 ft rectangle would have turned the gable to the street and contradicted the one elevation fact the source states. The frontage also sits inside the committed lot: lot 7 of blk_south_water_franklin is 24.40 m wide, so a 12.19 m front leaves 6.1 m clear to each side line."
+  },
+  "attributes": {
+    "stories": {
+      "value": 2,
+      "confidence": "attested",
+      "sources": [
+        "andreas_1884_v1"
+      ],
+      "note": "Andreas, twice: 'a two-story building, with eaves to the street'."
+    },
+    "elevation_scheme": {
+      "value": "frontage",
+      "confidence": "attested",
+      "sources": [
+        "andreas_1884_v1"
+      ],
+      "note": "'With eaves to the street' is the one elevation fact any source states about this building, and it is the difference between the archetype's two dresses. 'frontage' laps the clapboard on the long street elevation and puts the door in it; 'gable_front' turns the gable to the street and moves the doors on to it, which is what the Green Tree wears. Taken with a footprint wider than it is deep, this is the archetype expressing Andreas's sentence rather than a taste applied over it."
+    },
+    "construction": {
+      "value": "braced_frame",
+      "confidence": "inferred",
+      "sources": [
+        "andreas_1884_v1"
+      ],
+      "note": "Andreas says 'a frame building' and no more, and the word does not distinguish the two methods available in Chicago in 1834. Balloon framing was developed here in 1832-33 and became the dominant local method within a few years, so a building raised in 1834 could be either; braced frame is the reading this project takes when a date sits on the cusp, the same argument peck_store and the Sauganash carry. The Western Hotel, raised the same year, is read the other way on a source that describes its framing — nothing describes this one's, which is why this is inferred and that one is not."
+    },
+    "cladding": {
+      "value": "clapboard",
+      "confidence": "inferred",
+      "note": "Not attested. Clapboard over a frame is the near-universal finish for the type, period and region.",
+      "geometry": "simplified"
+    },
+    "paint": {
+      "value": "unpainted",
+      "confidence": "inferred",
+      "note": "Nothing describes this building's colour. Unpainted is the dataset's default for a frame building whose finish no source states — the Sauganash is the exception precisely because Wau-Bun calls it white."
+    },
+    "wall_height_m": {
+      "value": 5.5,
+      "confidence": "inferred",
+      "note": "No figure is attested. 5.5 m is about 18 ft: two 8 ft storeys plus floor structure and a low sill course, the same reading and the same number this project gives the Western Hotel, which is the other two-storey frame hotel it models. What is inferred is that the height falls in this range, not that it is exactly 5.5 m."
+    },
+    "roof_type": {
+      "value": "gable",
+      "confidence": "inferred",
+      "note": "Not attested directly, but Andreas's 'eaves to the street' presupposes a roof with eaves and a ridge, which for a frame building of this type, period and region means a gable. Typological derivation with a documented constraint on its orientation, not a measurement."
+    },
+    "roof_pitch_deg": {
+      "value": 38.0,
+      "confidence": "inferred",
+      "note": "No pitch is attested. 38 degrees is the frame_tavern archetype's own figure for an inn, and it is the figure the Green Tree and the Western Hotel both carry; a hotel wants sleeping room under the roof, which is the argument the archetype makes for the steeper pitch over a store's 33."
+    },
+    "fenestration": {
+      "value": "regular_bays",
+      "confidence": "inferred",
+      "note": "Not attested. Regular bays are the type's arrangement and are what the archetype's frontage scheme draws; no source describes a window on this building.",
+      "geometry": "simplified"
+    },
+    "gallery": {
+      "value": false,
+      "confidence": "reconstructed",
+      "note": "Nothing says whether this house had a gallery or porch, and this record does not give it one. The absence is the weaker claim: a two-storey gallery is the kind of thing a description mentions, and none of the three sources that describe this building mentions one."
+    },
+    "chimneys": {
+      "value": 2,
+      "confidence": "inferred",
+      "note": "Not attested. Two is the archetype's figure for an inn and the count the Green Tree and the Western Hotel both carry — a house letting rooms through Chicago winters needed more than one stack. The COUNT is the inference; where the stacks stand, how big they are and what they are made of are the archetype's, which is the standing admission in docs/LIBERTIES.md L26."
+    },
+    "siding_exposure_m": {
+      "value": 0.127,
+      "confidence": "reconstructed",
+      "note": "INVENTED WITHIN A STOCK SET, NOT DERIVED. No source states the exposed face of any Chicago building's siding. The value is one of four period mill sidings — 4.5, 5, 5.5 or 6 in to the weather; this record wears 5 in — dealt by tools/deal_siding_stock.py: keyed to the phase's construction season, because buildings sided from the same season's shipments of St Joseph sawn lumber tend toward one stock, then advanced so no frame building within 60 m shares this one's. The separation is the surface variety T-0049 reconstructs, not a claim about 1835. docs/LIBERTIES.md L148 owns the invention."
+    },
+    "function": {
+      "value": "tavern_inn",
+      "confidence": "attested",
+      "sources": [
+        "andreas_1884_v1",
+        "chicago_american_1835"
+      ],
+      "note": "Andreas has it 'opened to the public' by two named proprietors and conducted by them for four years, which is a public house. The American adds what kind of public house it was in June 1835: one whose rooms a visiting dentist could take for a season and a physician could give as his professional address, which is the town hotel's ordinary double life in 1835 and is why the function is inn rather than tavern alone."
+    },
+    "occupants": {
+      "value": "Lathrop Johnson and George Stevens, proprietors; Dr. J. B. Barnard, physician, and J. C. Bradley, dentist, at their offices in the house",
+      "confidence": "attested",
+      "sources": [
+        "andreas_1884_v1",
+        "chicago_american_1835"
+      ],
+      "note": "THE PROPRIETORS ARE ANDREAS'S AND THE TENANTS ARE THE PAPER'S, and the two halves are attested independently. Andreas p. 635 names Lathrop Johnson and George Stevens as the men who opened the house in 1835 and conducted it until the fall of 1839, so both are proprietors at the scene date. THE TWO PROFESSIONAL TENANTS ARE DOCUMENTED IN THEIR OWN ADVERTISEMENTS, seventeen days before the scene date. First: 'DR. J. [B.] BARNARD, a[t] t[h]e New Yor[k] Ho[u]se, La[k]e [s]t[r]eet' — the Chicago American, 13 June 1835, page 3 column 3, claim chicago_american_1835_06_13#c009, a card tendering his professional services to the inhabitants of Chicago. Second: 'His office at the New York House, where he will remain until after the Land [S]ale' — J. C. Bradley, dentist, the same paper, 13 June 1835, page 3 column 2, claim chicago_american_1835_06_13#c008, repeated 1835-06-20 column 1, under the dateline 'Chicago, June 14, 1835'. BRADLEY IS A TRAVELLING PRACTITIONER AND HIS OWN COPY SAYS SO: he will remain until after the Land Sale. He is carried as an occupant on 1835-07-01 because the Land Sale ran into the summer and his notice was still running on 20 June, not because a dentist is claimed to have lived here. WHAT IS NOT CLAIMED. Nothing reached says how many rooms the house had, who else lodged in it, whether Johnson or Stevens slept under its roof, or where in the building either office was. No figure is drawn for any of them — the standing constraint in AGENTS.md holds and v1 ships no human figures. THE READING IS TRANSCRIPTION-MEDIATED AND SAYS SO. Under the owner's ruling of 2026-08-28 a claim read through this project's OCR-assisted transcriptions rather than off the page scan grades `attested` in this schema's vocabulary while carrying its own flag: reading = transcription_mediated, with the transcription's own uncertainty brackets preserved inside the quotation rather than tidied away. These two cards are among the most heavily damaged in the American's file — the transcription of Barnard's heading reads 'ar tie New Yous Horse, Lane atneet' — so the brackets are doing real work here and the page images would settle both. Where a scan is later read, the scan is the authority and this claim upgrades under it."
+    }
+  },
+  "residents": [],
+  "citations": [
+    {
+      "source_id": "andreas_1884_v1",
+      "citation": "Andreas, A. T. History of Chicago: From the Earliest Period to the Present Time. Vol. 1. Chicago: A. T. Andreas, 1884.",
+      "url": "https://archive.org/details/historyofchicago01andr",
+      "archived_url": "",
+      "tier": 3,
+      "tier_label": "compiled secondary (Andreas)"
+    },
+    {
+      "source_id": "chicago_american_1835",
+      "citation": "The Chicago American. Vol. I, No. 1 (June 8, 1835) through Vol. I, No. 12 (August 29, 1835). Chicago, Ill.: T. O. Davis. Thirteen issues, OCR-assisted research transcriptions from page scans.",
+      "url": "",
+      "archived_url": "",
+      "tier": 1,
+      "tier_label": "period/eyewitness",
+      "what_it_supplies": [
+        "a second, independent contemporary witness to the town in the twelve weeks around the scene date",
+        "advertisements and self-reported addresses from a different advertiser base than the Democrat's",
+        "attestation that needs no survival liberty: the whole run is within twelve weeks of 1835-07-01",
+        "corroboration or contradiction of a Democrat address, which is worth more than either paper alone",
+        "the paper's own correction of its first masthead date"
+      ],
+      "what_it_does_not_supply": [
+        "any building's form, material, storey count, fenestration or dimensions",
+        "a reliable reading of a dense body column — this run had no reconciled second pass",
+        "a word count or uncertainty-marker count: none was delivered, and corpus.json records null rather than zero",
+        "identification by volume and number: No. 12 is printed on two different issues",
+        "anything at all from an engraving — the cuts are the printer's stock",
+        "a citation without an issue page and column"
+      ]
+    },
+    {
+      "source_id": "drloih_hotels",
+      "citation": "\"A Chronology of Early Chicago Area Hotels.\" Digital Research Library of Illinois History Journal.",
+      "url": "https://drloihjournal.blogspot.com/2022/07/chronology-of-early-chicago-area-hotels.html",
+      "archived_url": "",
+      "tier": 4,
+      "tier_label": "later scholarship"
+    },
+    {
+      "source_id": "thompson_plat_1830",
+      "citation": "Thompson, James. Plat of the Town of Chicago. Illinois and Michigan Canal Commissioners, completed 4 August 1830.",
+      "url": "https://commons.wikimedia.org/wiki/File:Thompson_plat_of_Chicago_1830.png",
+      "archived_url": "",
+      "tier": 1,
+      "tier_label": "period/eyewitness"
+    },
+    {
+      "source_id": "wright_1834",
+      "citation": "Wright, J. S. Chicago, drawn by J. S. Wright according to survey. New York: P. A. Mesier's Lith., 1834.",
+      "url": "https://collections.leventhalmap.org/search/commonwealth:js9577436",
+      "archived_url": "",
+      "tier": 1,
+      "tier_label": "period/eyewitness",
+      "what_it_supplies": [
+        "street geometry",
+        "block and lot subdivision",
+        "shoreline",
+        "river channel and the 1834 cut",
+        "survey-date colouring"
+      ],
+      "what_it_does_not_supply": [
+        "building footprints",
+        "building locations"
+      ]
+    }
+  ],
+  "research_note": "THIS RECORD IS A RETRACTION, AND THAT IS THE FIRST THING TO KNOW ABOUT IT. The New York House stood on this project's EXCLUDE list from the first structures dossier (docs/research/04-structures-south.md § 13) on the strength of a secondary chronology dating it 1836. On 2026-08-11 that exclusion was FALSIFIED against Andreas p. 635 and data/exclusions.json's entry rewritten to say so in its own words — 'it stays here only until a structure record replaces it' — naming frame, north side of Lake near Wells, two storeys with eaves to the street, and the OPENING MONTH in 1835 as the open question. This is that record, and the opening month is answered from the other side: the Chicago American of 13 June 1835 carries two professional men advertising their offices AT the house. WHY IT MATTERS BEYOND ITS OWN ROOF. 'The New York House' is an ANCHOR in the American's advertising — the register compiled at data/research/newspapers/register_1835.json refuses two placeable businesses with the same sentence, 'The anchor \"the New York House\" names nothing the committed town holds'. Standing the house is what makes those two addresses resolvable, which is why T-0306 was split and this piece taken first. THE WEAK POINT IS THE SIDE OF WELLS, not the street and not the form. Andreas says 'near Wells' and Wells has two sides; the choice of the western block is a dataset argument, recorded as a liberty rather than dressed up as evidence, and it is the one reading a new source would most easily overturn. See docs/RESEARCH/new_york_house.md.",
+  "research_doc": "docs/RESEARCH/new_york_house.md",
+  "review_required": false
+}

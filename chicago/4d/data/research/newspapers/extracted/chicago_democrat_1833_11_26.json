@@ -1,0 +1,1362 @@
+{
+  "schema": 1,
+  "issue_id": "chicago_democrat_1833_11_26",
+  "extracted": "2026-08-28",
+  "extracted_by": "hand, T-0258 piece 1 — the Democrat read, November 1833 (Vol. I No. 1)",
+  "note": "Vol. I No. 1, the first number of the first newspaper printed in Chicago, and the earliest contemporary document this project holds. Pages 1 and 4 are national and foreign reprint, poetry and miscellany and carry no town claim; the town is on page 2 (the editorial page: the population figure, the schooner, the school) and page 3 (the advertisements, the election notice, the marriages, the village ordinances and the paper's own imprint). THE COLUMNS ARE NOT INTERLEAVED IN THIS ISSUE — unusually — so `lines_of_claim` is the whole cited range on every claim and no claim carries `interleaved`. What this transcription does instead is DUPLICATE lines: the segmenter reads a printed line twice and sets both copies, several times per column. Duplicates are quoted as they stand and dropped in the normalized reading, which is said in each claim's note. THIS ISSUE CARRIES NO POST-OFFICE LETTER LIST. Swept for every form the Democrat uses elsewhere — 'list of letters', 'letters remaining', 'remaining in the post office', 'uncalled for', a signature ending 'P. M.' — for no hit; the only post office reference is c021, an advertiser to be enquired for there. Across the whole of T-0258's thirty issues only four carry a letter list (1834-01-28, 1834-02-04, 1834-04-23, 1834-04-30), so the ticket's census-proxy clause has nothing to bite on here and is met by demonstrating absence, as T-0261 met it for the American. THE SCAN RECORD IS SENIOR TO THIS TRANSCRIPTION AND SEVEN CLAIMS SAY SO. data/sources/chicago_democrat_1833_11_26.json was verified against the page images on 2026-08-10 and corrected on 2026-08-11; where it and the transcription disagree or where it can read type the transcription cannot, the claim carries `reading: scan_verified` and its note names what the scan supplied — c002 (the schooner's master), c006 (the tavern keeper), c011 (Philo Carpenter's name), c012 (Kimball's address), c019 (Goss & Cobb's address), c033 (the imprint). c022 is the converse and is worth as much: the record warns that a transcription of this issue read 'C. & L. Harmon' for 'C. & I. HARMON', and THIS transcription reads the I correctly, so the warning attaches to a different artefact. TWO ADVERTISERS THE SCAN RECORD DOES NOT ENUMERATE are added by this pass: C. H. Chapman (c008) and S. Foot (c016). THREE TRAPS ARE QUARANTINED AND NONE OF THEM IS CLAIMED: the stock engraving over the 'Two Buildings to Let' notice (c010), the pencilled 'S. W.' in the margin beside the imprint (c033), and the estray notices, which are county filings from Du Page and Walker's Grove and not Chicago (c031).",
+  "claims": [
+    {
+      "id": "c001",
+      "kind": "event",
+      "reading": "transcription_mediated",
+      "quote": "[uncertain: The seality is before us. Chicago, n]\nthe very soot of ground whee reare now wi\n[uncertain: ting, a low months since was the abode of t]\n[uncertain: warages ind where 9'¢now seen a Tong lire]\n[uncertain: habitations for white men, & short time ago w]\n[uncertain: Croceupied save y the wigwam of the India]\n[uncertain: tthe cheage bea been wrought by magic, Mo]\nthan eight hundred souls may now be fou\n[uncertain: 'within the limite that within a few aliort mont]\nsince includes less than one tenth of that nu",
+      "normalized": "The reality is before us. Chicago, […] the very s[p]ot of ground whe[re we] are now wri[ting], a f[ew] months since was the abode of t[he] [s]avages […] where a[re] now seen a [l]ong li[ne of] habitations for white men, [a] short time ago w[as] [un]occupied save [b]y the wigwam of the India[n] […] [as if] the ch[an]ge [had] been wrought by magic. Mo[re] than eight hundred souls may now be fou[nd] within the limit[s] that within a few [sh]ort mont[hs] since include[d] less than one tenth of that nu[mber].",
+      "locator": {
+        "artifact_role": "primary",
+        "issue_page": 2,
+        "column": 1,
+        "lines": [
+          924,
+          933
+        ],
+        "interleaved": false
+      },
+      "notes": "THE POPULATION FIGURE, and it is the editor's own in his own first number, not a reprint: more than eight hundred souls inside the corporate limits in late November 1833, against under eighty a few months before. OCR judgements are all recognition-class or edge loss; every supply is bracketed and nothing is filled in that the line does not carry. 'a Tong lire' is 'a long line' — the segmenter reads l as T and n as r throughout this column. The sentence is rhetorical and the figure is a round one; it is evidence of ORDER OF MAGNITUDE and of rapid growth, not a census."
+    },
+    {
+      "id": "c002",
+      "kind": "shipping",
+      "reading": "scan_verified",
+      "quote": "The Schooner Austerlitz, Capt. Swift, May\nter, fron Buffalo, arrived at this port on the 1*th\n[uncertain: inst, freighted with a toll eargo of Merehiandize]\n[uncertain: Sec. for citizens of this village: and cleared o]\n[uncertain: the 2st in buulast. 4]",
+      "normalized": "The Schooner Austerlitz, Capt. S[m]i[th], Master, from Buffalo, arrived at this port on the 1[9]th inst., freighted with a [fu]ll cargo of Merchandize […] for citizens of this village; and cleared o[n] the 2[1]st in b[a]llast.",
+      "locator": {
+        "artifact_role": "primary",
+        "issue_page": 2,
+        "column": 3,
+        "lines": [
+          1159,
+          1163
+        ],
+        "interleaved": false
+      },
+      "entities": [
+        {
+          "as_printed": "Capt. Swift",
+          "normalized": "Smith, Capt.",
+          "role": "mentioned",
+          "occupations": [
+            "schooner master"
+          ]
+        }
+      ],
+      "notes": "THE TRANSCRIPTION AND THE SCAN RECORD DISAGREE ON THE MASTER'S NAME AND THE SCAN WINS. The transcription reads 'Capt. Swift'; data/sources/chicago_democrat_1833_11_26.json is a scan-verified reading of this issue's page images and outranks the transcription (T-0258, ruling 2 run backwards). and it reads 'Capt. Smith'. Both readings are set down here rather than one of them being quietly preferred — the quote is the transcription's 'Swift' verbatim, the normalized reading is the scan's 'S[m]i[th]', and neither is laundered away. THE TOWN FACT does not turn on the name: a lake schooner discharged a full cargo of merchandise for this village in November 1833 and left EMPTY, which is the trade running one way. The arrival date reads '1*th' in the transcription and 19th in the scan record."
+    },
+    {
+      "id": "c003",
+      "kind": "event",
+      "reading": "transcription_mediated",
+      "quote": "A school bas recently been 'established i\nfais village, By Mr. Sproat of Bostow 5 whic\n[uncertain: is ntended not enly to afford a Common Scho]\n[uncertain: adigation, bu. where particular attention wi]\nped to the higher branches of literati",
+      "normalized": "A school ha[s] recently been established i[n] [th]is village, By Mr. Sproat of Bos[t]o[n], whic[h] is [i]ntended not on[l]y to afford a Common Scho[ol] [e]d[u]cation, bu[t] where particular attention wi[ll be] [given] to the higher branches of literat[ure].",
+      "locator": {
+        "artifact_role": "primary",
+        "issue_page": 2,
+        "column": 3,
+        "lines": [
+          1186,
+          1190
+        ],
+        "interleaved": false
+      },
+      "entities": [
+        {
+          "as_printed": "Mr. Sproat of Bostow",
+          "normalized": "Sproat, Mr.",
+          "role": "mentioned",
+          "occupations": [
+            "schoolmaster"
+          ]
+        }
+      ],
+      "notes": "A SCHOOL ALREADY RUNNING IN THE VILLAGE ON 1833-11-26, and this is the item that says so — it is a correspondent's letter 'FOR THE DEMOCRAT', not an advertisement, so it carries no address and none is invented. 'Bostow' is 'Boston' (w/n), 'fais village' is 'this village'. What a schoolhouse looked like or where it stood is not in this document."
+    },
+    {
+      "id": "c004",
+      "kind": "building",
+      "reading": "transcription_mediated",
+      "quote": "NOTICE is hereby given, to the Electors 0\n[uncertain: he Shicago Mugistrates District, that an Elec:]\nion will be heli at the house of Chester Inger\nit be heid at the house ou\n[uncertain: er next, forthe. choice of one Constable fo]\naid District. Cl , Now, 22,\nDistrict Chicago Ft EACOCK,\n[uncertain: One of the Judges of Election.]",
+      "normalized": "NOTICE is hereby given, to the Electors o[f] [t]he [C]hicago Ma[g]istrates District, that an Elec[t]ion will be hel[d] at the house of Chester Inger[soll] […] [on the ninth day of Decemb]er next, for the choice of one Constable fo[r] said District. C[hicago], Nov. 22, [1833.] […] E. PEACOCK, One of the Judges of Election.",
+      "locator": {
+        "artifact_role": "primary",
+        "issue_page": 3,
+        "column": 3,
+        "lines": [
+          2033,
+          2040
+        ],
+        "interleaved": false
+      },
+      "entities": [
+        {
+          "as_printed": "Chester Inger[soll]",
+          "normalized": "Ingersoll, Chester",
+          "role": "mentioned",
+          "occupations": [
+            "tavern keeper"
+          ]
+        },
+        {
+          "as_printed": "E. PEACOCK",
+          "normalized": "Peacock, E.",
+          "role": "mentioned",
+          "occupations": [
+            "judge of election"
+          ]
+        }
+      ],
+      "notes": "CHESTER INGERSOLL'S HOUSE IS THE DISTRICT POLLING PLACE. That is what makes this a building claim rather than a notice: a house large enough and public enough to hold an election stood in the Chicago Magistrates District in December 1833, and the paper names its keeper. The date is edge-lost in the transcription and data/sources/chicago_democrat_1833_11_26.json is a scan-verified reading of this issue's page images and outranks the transcription (T-0258, ruling 2 run backwards). it reads 9 December 1833; the day is supplied inside brackets and marked. The duplicated line 2036 is the segmenter reading the same printed line twice, which it does throughout this column — it is quoted as it stands and unshuffled in the normalized reading. WHERE the house stood is not in this document."
+    },
+    {
+      "id": "c005",
+      "kind": "person",
+      "reading": "transcription_mediated",
+      "quote": "MARRIED,\nIn hie village, on Monday evening, the 26th\n• Monday evening, the 25t)\nof the Indian Department, 4\n[uncertain: Pricer Hovesixes, daucghter of Milew Hote}.]\naa of Kaskaskia, =\n714 this village, on the 17th inat. by the Rev\n[uncertain: vesaty Walker, Mr i Te crete to Diy]\n[uncertain: MIS ETA HODeL.]\nTe thie village, on Sunday the 13th lt, bj\nR., Hamilton, Fog, Mr. Joux Barss, jf ©\nNow-York, to Mies Hanna E. Brows, 0\n[uncertain: Spingfiel', Mase.]",
+      "normalized": "MARRIED, In [t]his village, on Monday evening, the 25t[h] […] [an officer] of the Indian Department, [to] […] [Miss] Ho[l]comb[e], daughter of Mil[e]s Ho[lcombe] […] of Kaskaskia. […] I[n] this village, on the 17th inst., by the Rev[.] […] Walker, Mr. […] […] In this village, on Sunday the 1[7]th [u]lt., b[y] R[ich'd] J. Hamilton, E[s]q., Mr. JOHN BATES, [Jr.] of New-York, to Mi[s]s Hanna E. Brow[n], o[f] S[pr]ingfiel[d], Mass.",
+      "locator": {
+        "artifact_role": "primary",
+        "issue_page": 3,
+        "column": 3,
+        "lines": [
+          2042,
+          2054
+        ],
+        "interleaved": false
+      },
+      "entities": [
+        {
+          "as_printed": "Mr. Joux Barss",
+          "normalized": "Bates, John, Jr.",
+          "role": "mentioned"
+        },
+        {
+          "as_printed": "Mies Hanna E. Brows",
+          "normalized": "Brown, Hanna E.",
+          "role": "mentioned"
+        },
+        {
+          "as_printed": "R., Hamilton, Fog",
+          "normalized": "Hamilton, Rich'd J.",
+          "role": "mentioned",
+          "occupations": [
+            "justice of the peace",
+            "clerk of the county commissioners' court"
+          ]
+        },
+        {
+          "as_printed": "Milew Hote",
+          "normalized": "Holcombe, Miles",
+          "role": "mentioned"
+        }
+      ],
+      "notes": "THE MARRIAGE COLUMN, and it is the only place in this issue where residents are named as residents rather than as advertisers. THREE marriages, all 'in this village'. The column is badly cut and the segmenter has woven the last notice's lines (2050-2054) above the first two, which is why the normalized reading reorders them and the quote does not. Only the names the type actually carries are minted: the second notice's groom and bride are edge-lost and are left as […], not guessed. 'Fog' is 'Esq.', 'Barss' is 'BATES' — the same J. BATES, Jr. who advertises at the post office in column 4 (c015) and whose store sells blasting powder (c014), and the merge is not asserted here because identity.json is where a merge is declared and this pass declares none."
+    },
+    {
+      "id": "c006",
+      "kind": "building",
+      "reading": "scan_verified",
+      "quote": "[uncertain: TRADAR MORE]\nKEPT BY\nChicago--Illinois.\n'The subscriber bas taken that noted 'Taye\nStud in Chicago, lately cccupied by Mr. I\n[uncertain: 1. Wattles, which We will wane, mary posal]\n[uncertain: 'xcition to Pender the 'ravelie.'s lanes]\n\"The patronage of the public",
+      "normalized": "[TAVERN STAND] KEPT BY [CHESTER INGERSOLL] Chicago--Illinois. The subscriber ha[s] taken that noted Tave[rn] Stand in Chicago, lately [o]ccupied by Mr. W[m.] W. Wattles, which [he] will [k]e[ep] […] [with every] [e]x[er]tion to [r]ender the trave[ll]e[r]'s […] The patronage of the public […]",
+      "locator": {
+        "artifact_role": "primary",
+        "issue_page": 3,
+        "column": 3,
+        "lines": [
+          2064,
+          2071
+        ],
+        "interleaved": false
+      },
+      "entities": [
+        {
+          "as_printed": "Mr. I 1. Wattles",
+          "normalized": "Wattles, Wm. W.",
+          "role": "predecessor",
+          "occupations": [
+            "tavern keeper"
+          ]
+        },
+        {
+          "as_printed": "[Chester Ingersoll]",
+          "normalized": "Ingersoll, Chester",
+          "role": "proprietor",
+          "occupations": [
+            "tavern keeper"
+          ]
+        }
+      ],
+      "business": {
+        "name": "Ingersoll's tavern stand",
+        "proprietors": [
+          "Chester Ingersoll"
+        ],
+        "trade": "tavern",
+        "goods": [],
+        "placement": {
+          "class": "none",
+          "note": "The notice names no street. Andreas is not used to supply one."
+        }
+      },
+      "ad_copy_date": {
+        "verbatim": "Oct. 4, 1833 (scan record; the dateline is edge-lost here)",
+        "iso": "1833-10-04"
+      },
+      "notes": "THE TAVERN STAND, AND THE PREDECESSOR'S NAME, WHICH IS THE THING THIS RECORD ONCE GOT WRONG. data/sources/chicago_democrat_1833_11_26.json is a scan-verified reading of this issue's page images and outranks the transcription (T-0258, ruling 2 run backwards). It carries a correction of 2026-08-11 stating that the keeper's predecessor reads Wm. W. WATTLES at 8x and that 'Wm. W. Barlow' — which an earlier draft of that record had — appears nowhere in the issue. The transcription independently reads 'Wattles' at line 2069, so the two witnesses now agree and the correction stands corroborated. THE KEEPER'S OWN NAME is edge-lost in the transcription's heading ('TRADAR MORE' at 2064 is the mangled tavern heading) and is supplied from the scan record as Chester Ingersoll, bracketed. 'a noted Tavern Stand' and 'lately occupied' say a house was already standing and already known before this notice; the ad is dated 4 October 1833 in the scan record. NOTHING here gives the tavern's street, size, storeys or material."
+    },
+    {
+      "id": "c007",
+      "kind": "business",
+      "reading": "transcription_mediated",
+      "quote": "lied For Sale, t\n12 KEGS BLASTING\n[uncertain: '1G heavy Stoel Pointed CROBARS]\n[uncertain: Egat ot F HATES, Je ef? Of,]\nio0. 26",
+      "normalized": "[Blasting Powder and Crowbars] For Sale, 12 KEGS BLASTING [POWDER] […] [1]6 heavy Steel Pointed C[R]OBARS […] [Enquire] o[f] J. BATES, J[r]. […] [Nov.] 26. [1833]",
+      "locator": {
+        "artifact_role": "primary",
+        "issue_page": 3,
+        "column": 4,
+        "lines": [
+          2075,
+          2079
+        ],
+        "interleaved": false
+      },
+      "entities": [
+        {
+          "as_printed": "J. BATES, Je",
+          "normalized": "Bates, J., Jr.",
+          "role": "proprietor",
+          "occupations": [
+            "merchant"
+          ]
+        }
+      ],
+      "business": {
+        "name": "J. Bates, Jr.",
+        "proprietors": [
+          "J. Bates, Jr."
+        ],
+        "trade": "merchant",
+        "goods": [
+          "Blasting Powder",
+          "Crowbars"
+        ],
+        "placement": {
+          "class": "none",
+          "note": "No street in this advertisement. c015 puts the same advertiser 'at the P. O[ffice]', which is a different notice."
+        }
+      },
+      "ad_copy_date": {
+        "verbatim": "io0. 26",
+        "iso": "1833-11-26"
+      },
+      "notes": "BLASTING POWDER AND STEEL-POINTED CROWBARS FOR SALE IN THE VILLAGE, which is a fact about what the town was DOING — there is nothing in Chicago to blast but the bar and the river margin, and the harbour works were cutting through it in 1833. The reading is bounded: 'CROBARS' is 'CROWBARS' (w dropped), '1G' is '16'. The trade is not named and none is inferred; the claim is that the goods were on sale, not that J. Bates Jr. kept a hardware store."
+    },
+    {
+      "id": "c008",
+      "kind": "business",
+      "reading": "transcription_mediated",
+      "quote": "For Sale, i\nA LOW PRICE OX\nquire of C. H. CHAPMAN.\nquire of\n[uncertain: 'Nev. 26, 1833. H]",
+      "normalized": "For Sale, A LOW PRICE [Y]O[K]E [of] OX[EN] […] [En]quire of C. H. CHAPMAN. [Nov.] 26, 1833.",
+      "locator": {
+        "artifact_role": "primary",
+        "issue_page": 3,
+        "column": 4,
+        "lines": [
+          2080,
+          2084
+        ],
+        "interleaved": false
+      },
+      "entities": [
+        {
+          "as_printed": "C. H. CHAPMAN",
+          "normalized": "Chapman, C. H.",
+          "role": "proprietor"
+        }
+      ],
+      "business": {
+        "name": "C. H. Chapman",
+        "proprietors": [
+          "C. H. Chapman"
+        ],
+        "trade": null,
+        "goods": [
+          "Oxen"
+        ],
+        "placement": {
+          "class": "none",
+          "note": "No street in the advertisement."
+        }
+      },
+      "ad_copy_date": {
+        "verbatim": "'Nev. 26, 1833. H",
+        "iso": "1833-11-26"
+      },
+      "notes": "A NAME THE SCAN-VERIFIED SOURCE RECORD DOES NOT CARRY: C. H. Chapman, advertising in his own right in the same column. The source record's what_it_supplies list names twelve advertisers and this is not among them, so the transcription pass adds a resident the scan pass did not enumerate. The trade is NOT stated — a man selling a yoke of oxen is not thereby an ox dealer — so the business carries no trade and no placement. 'A LOW PRICE OX' at 2081 is the segmenter's collapse of 'at a low price, a yoke of oxen'; the yoke is supplied in brackets from sense and marked."
+    },
+    {
+      "id": "c009",
+      "kind": "business",
+      "reading": "transcription_mediated",
+      "quote": "[uncertain: Cut Nails, :]\nFROM 3d to 20d, of superior quality, f\nere eaten\nJOHN WRIĞHT.\n[uncertain: « Nov, 26.]",
+      "normalized": "Cut Nails, FROM 3d to 20d, of superior quality, f[or sale by] […] JOHN WRIGHT. Nov. 26. [1833]",
+      "locator": {
+        "artifact_role": "primary",
+        "issue_page": 3,
+        "column": 4,
+        "lines": [
+          2085,
+          2089
+        ],
+        "interleaved": false
+      },
+      "entities": [
+        {
+          "as_printed": "JOHN WRIGHT",
+          "normalized": "Wright, John",
+          "role": "proprietor",
+          "occupations": [
+            "merchant"
+          ]
+        }
+      ],
+      "business": {
+        "name": "John Wright",
+        "proprietors": [
+          "John Wright"
+        ],
+        "trade": "general merchandise",
+        "goods": [
+          "Cut Nails"
+        ],
+        "placement": {
+          "class": "none",
+          "note": "No street in the advertisement."
+        }
+      },
+      "ad_copy_date": {
+        "verbatim": "« Nov, 26.",
+        "iso": "1833-11-26"
+      },
+      "notes": "CUT NAILS IN 3d TO 20d SIZES ON SALE IN NOVEMBER 1833 — a building-trades fact, not merely a merchant's. Cut nails are the machine-made kind and their presence in this quantity and range of size is what a town framing houses fast consumes. 'WRIĞHT' carries a spurious breve, which is a recognition artefact and not an 1830s spelling."
+    },
+    {
+      "id": "c010",
+      "kind": "building",
+      "reading": "transcription_mediated",
+      "quote": "[uncertain: Two Buildings to Let,]\nWILL the first day of June 183\n[uncertain: AE Bonacesign given inmodintl]\nBOR Enquire of JOHN WRIGHT.\nNor. 26.",
+      "normalized": "Two Buildings to Let, [UN]TIL the first day of June 183[4]. […] [Possession] given im[me]diat[ely]. […] Enquire of JOHN WRIGHT. No[v]. 26. [1833]",
+      "locator": {
+        "artifact_role": "primary",
+        "issue_page": 3,
+        "column": 4,
+        "lines": [
+          2090,
+          2094
+        ],
+        "interleaved": false
+      },
+      "entities": [
+        {
+          "as_printed": "JOHN WRIGHT",
+          "normalized": "Wright, John",
+          "role": "agent"
+        }
+      ],
+      "ad_copy_date": {
+        "verbatim": "Nor. 26.",
+        "iso": "1833-11-26"
+      },
+      "notes": "TWO BUILDINGS STANDING AND EMPTY IN CHICAGO ON 1833-11-26, lettable to 1 June 1834. It is a fact about STOCK: two tenantable buildings existed with nobody in them, in a town whose population had just gone past eight hundred. Where they stood, what they were built of and how big they were are not in the notice. THE ENGRAVING ABOVE THIS ADVERTISEMENT IS A TRAP and data/sources/chicago_democrat_1833_11_26.json is a scan-verified reading of this issue's page images and outranks the transcription (T-0258, ruling 2 run backwards). quarantines it: nineteenth-century jobbing printers kept generic stock cuts for property advertisements and the same block would be struck for any of them. No elevation, storey count or fenestration may be taken from it. 'BOR' at 2093 is the tail of the cut's caption line, not words."
+    },
+    {
+      "id": "c011",
+      "kind": "business",
+      "reading": "scan_verified",
+      "quote": "CHICAGO—ILL.\nVil.L. keep constantly on hand, a gener\nassortment of\n[uncertain: DRUGS, MEDICINES.]\nOils,\n[uncertain: Paints, Dye-Stulls,]\n&c. de.\n[uncertain: Dry Groceries, Glass, Nails, &c,]\n[uncertain: Nor. 22, 1833. .]",
+      "normalized": "[PHILO CARPENTER,] CHICAGO—ILL. WILL keep constantly on hand, a gener[al] assortment of DRUGS, MEDICINES, Oils, Paints, Dye-Stu[ff]s, &c. &c. […] Dry Groceries, Glass, Nails, &c. Nov. 22, 1833.",
+      "locator": {
+        "artifact_role": "primary",
+        "issue_page": 3,
+        "column": 4,
+        "lines": [
+          2095,
+          2103
+        ],
+        "interleaved": false
+      },
+      "entities": [
+        {
+          "as_printed": "[Philo Carpenter]",
+          "normalized": "Carpenter, Philo",
+          "role": "proprietor",
+          "occupations": [
+            "druggist"
+          ]
+        }
+      ],
+      "business": {
+        "name": "Philo Carpenter",
+        "proprietors": [
+          "Philo Carpenter"
+        ],
+        "trade": "drugs and medicines",
+        "goods": [
+          "Drugs",
+          "Medicines",
+          "Oils",
+          "Paints",
+          "Dye-Stuffs",
+          "Dry Groceries",
+          "Glass",
+          "Nails"
+        ],
+        "placement": {
+          "class": "none",
+          "note": "The advertisement carries no address. It therefore does NOT settle which of Carpenter's shops is meant."
+        }
+      },
+      "ad_copy_date": {
+        "verbatim": "[uncertain: Nor. 22, 1833. .]",
+        "iso": "1833-11-22"
+      },
+      "notes": "THE DRUGGIST, and the proprietor's name is edge-lost here and supplied from the scan record. data/sources/chicago_democrat_1833_11_26.json is a scan-verified reading of this issue's page images and outranks the transcription (T-0258, ruling 2 run backwards). It reads the advertiser as Philo Carpenter and records that the advertisement gives NO ADDRESS — which matters, because Carpenter is elsewhere associated with two different shops and this notice cannot disambiguate them. The placement is therefore `none` and stays none. 'Vil.L. keep' is 'WILL keep'."
+    },
+    {
+      "id": "c012",
+      "kind": "business",
+      "reading": "scan_verified",
+      "quote": "[uncertain: Just Opened and for Sale,]\nAn. New Store on the comer of Sout\nChicago\nneo and splendid assortment of Fancy and St\nDEX\n[uncertain: DRY Goops,]\n[uncertain: Grockery # Glass Ware,]\nWare,\nHARDWARE and CUTTLERY,\nMen's and Boys Fur and Cloth CARS\nCotton Batting, Tarn and Wicking,\nSheeting and Shirting, Blankets, &c. Ke.\n[uncertain: ai ¢%'which will be sold at the lowest prices {¢]\nCash or Country Produce.\n[uncertain: W. KIMBALL.]\nChicago, Not. 1833.",
+      "normalized": "Just Opened and for Sale, A[t the] New Store on the co[r]ner of Sout[h Water and Clark streets,] Chicago […] [a] ne[w] and splendid assortment of Fancy and St[aple] DRY GOODS, Crockery & Glass Ware, HARDWARE and CUTLERY, Men's and Boys['] Fur and Cloth CA[P]S, Cotton Batting, Ya[r]n and Wicking, Sheeting and Shirting, Blankets, &c. &c. […] all of which will be sold at the lowest prices f[or] Cash or Country Produce. W. KIMBALL. Chicago, No[v]. 1833.",
+      "locator": {
+        "artifact_role": "primary",
+        "issue_page": 3,
+        "column": 4,
+        "lines": [
+          2104,
+          2119
+        ],
+        "interleaved": false
+      },
+      "entities": [
+        {
+          "as_printed": "W. KIMBALL",
+          "normalized": "Kimball, W.",
+          "role": "proprietor",
+          "occupations": [
+            "dry goods merchant"
+          ],
+          "associated_places": [
+            "South Water Street",
+            "Clark Street"
+          ]
+        }
+      ],
+      "business": {
+        "name": "W. Kimball",
+        "proprietors": [
+          "W. Kimball"
+        ],
+        "trade": "dry goods, crockery, hardware and cutlery",
+        "goods": [
+          "Blankets",
+          "Caps",
+          "Cotton Batting",
+          "Crockery",
+          "Cutlery",
+          "Dry Goods",
+          "Glass Ware",
+          "Hardware",
+          "Sheeting",
+          "Shirting",
+          "Wicking",
+          "Yarn"
+        ],
+        "street": "South Water Street",
+        "placement": {
+          "class": "corner",
+          "anchor": "corner of South Water and Clark streets",
+          "offset_text": "An. New Store on the comer of Sout",
+          "offset_normalized": "At the New Store on the corner of South Water and Clark streets",
+          "street": "South Water Street",
+          "note": "The junction, not the corner. Which of the four is not in this document and is not supplied."
+        }
+      },
+      "ad_copy_date": {
+        "verbatim": "Chicago, Not. 1833.",
+        "iso": "1833-11-01"
+      },
+      "notes": "THE SECOND INDEPENDENT WITNESS TO THE SOUTH WATER AND CLARK JUNCTION IN THIS ONE ISSUE — the Democrat's own imprint (c024) is the first. The transcription's line 2105 breaks at 'on the comer of Sout', and the rest of the address is edge-lost; data/sources/chicago_democrat_1833_11_26.json is a scan-verified reading of this issue's page images and outranks the transcription (T-0258, ruling 2 run backwards). it reads the address as the corner of South Water and Clark, signed by W. Kimball, so the completion is a scan reading and not a guess and the claim is graded accordingly. WHICH OF THE FOUR CORNERS is not in the type — the same limit the imprint has — so `placement.corner` is the junction only. 'CUTTLERY' is 'CUTLERY', 'Tarn' is 'Yarn', 'CARS' is 'CAPS'."
+    },
+    {
+      "id": "c013",
+      "kind": "business",
+      "reading": "transcription_mediated",
+      "quote": "[uncertain: NEWBERRY & DOLE,]\nForwarding & Commission\n[uncertain: MERCHANTS,]\n\"AVE just received a1 tinent of DR\niW GOODS, HAKD-WARE, CROCK!\nRY, &e. Ke. which they will sell low for Cas\n[uncertain: Gash paid for Fur Pelirieg. Bees Wax and Tu]\nIme. Chicago Nor, 2° $3.",
+      "normalized": "NEWBERRY & DOLE, Forwarding & Commission MERCHANTS, [H]AVE just received a[n assor]t[me]nt of DR[Y] GOODS, HARDWARE, CROCKE[]RY, &c. &c. which they will sell low for Cas[h.] […] Ca[s]h paid for Fur[s], Pel[t]ries, Bees Wax and T[a]l[low]. Chicago, No[v]. 2[6, 18]33.",
+      "locator": {
+        "artifact_role": "primary",
+        "issue_page": 3,
+        "column": 4,
+        "lines": [
+          2120,
+          2127
+        ],
+        "interleaved": false
+      },
+      "entities": [
+        {
+          "as_printed": "NEWBERRY & DOLE",
+          "normalized": "Newberry & Dole",
+          "role": "proprietor",
+          "occupations": [
+            "forwarding merchant",
+            "commission merchant"
+          ]
+        }
+      ],
+      "business": {
+        "name": "Newberry & Dole",
+        "proprietors": [
+          "Newberry & Dole"
+        ],
+        "trade": "forwarding and commission merchants",
+        "goods": [
+          "Crockery",
+          "Dry Goods",
+          "Hardware"
+        ],
+        "placement": {
+          "class": "none",
+          "note": "No street in the advertisement. Nothing here puts this firm on the river."
+        }
+      },
+      "ad_copy_date": {
+        "verbatim": "Ime. Chicago Nor, 2° $3.",
+        "iso": "1833-11-26"
+      },
+      "notes": "NEWBERRY & DOLE FORWARDING AND COMMISSION, WITH NO ADDRESS — and the absence is the finding, because this firm is the one a later reading is most tempted to place on the river from other sources. The notice gives none, so the placement is `none`. THE SECOND HALF IS THE INTERESTING HALF: cash paid for furs, peltries, bees wax and tallow says the trade still ran INWARD from the country in 1833 as well as outward. 'HAKD-WARE' and 'CROCK!RY' are recognition-class; 'Bees Wax' is left as two words because the type has it so."
+    },
+    {
+      "id": "c014",
+      "kind": "business",
+      "reading": "transcription_mediated",
+      "quote": "Storage, Forwarding and\nCOMMISSION BUSINESS.\nB. NONES.\n[uncertain: FRESECTIULLY inde te publi, th]\n'ou the opening of the Navigation in ti\nSpring, he will be ready to receive and forwar\n[uncertain: af'priperty that way be consigned to. him.]\n[uncertain: Having made srrangowenta with one of the mo]\nimportant lines on the Erie Canal, be will be 3\nblew forward property to New-York on th\n[uncertain: Hie teres,]\nHe will also receive and vell any rty tha\n[uncertain: wiay be entrusted to him, on Cobineala,.0]\n[uncertain: the moet advantagious terme]\nCheng, Now. Bi, 1S.",
+      "normalized": "Storage, Forwarding and COMMISSION BUSINESS. B. JONES [R]ES[P]ECT[F]ULLY [informs] t[he] publi[c], th[at] [up]on the opening of the Navigation in t[he] Spring, he will be ready to receive and forwar[d] a[ny] pr[o]perty that ma[y] be consigned to him. Having made arrang[e]m[e]nt[s] with one of the mo[st] important lines on the Erie Canal, he will be [a]ble [to] forward property to New-York on th[e] [best] [t]er[m]s. He will also receive and sell any [prope]rty tha[t] [m]ay be entrusted to him, on Co[mm]i[ssio]n, [on] the most advanta[g]ious terms. Chi[ca]g[o], Nov. [26], 18[33].",
+      "locator": {
+        "artifact_role": "primary",
+        "issue_page": 3,
+        "column": 4,
+        "lines": [
+          2128,
+          2142
+        ],
+        "interleaved": false
+      },
+      "entities": [
+        {
+          "as_printed": "B. NONES",
+          "normalized": "Jones, B.",
+          "role": "proprietor",
+          "occupations": [
+            "forwarding merchant",
+            "commission merchant",
+            "storage keeper"
+          ]
+        }
+      ],
+      "business": {
+        "name": "B. Jones, storage and forwarding",
+        "proprietors": [
+          "B. Jones"
+        ],
+        "trade": "storage, forwarding and commission",
+        "goods": [],
+        "placement": {
+          "class": "none",
+          "note": "No street in the advertisement."
+        }
+      },
+      "ad_copy_date": {
+        "verbatim": "Cheng, Now. Bi, 1S.",
+        "iso": "1833-11-26"
+      },
+      "notes": "THE RIVER TRADE STATED AS A SEASON: 'upon the opening of the Navigation in the Spring'. Chicago's forwarding business is shut in November 1833 and the advertiser is soliciting for a season that has not started — which is a fact about the working year of the wharves, and it is why a scene set on 1835-07-01 shows them busy. The Erie Canal connection names the route the goods took. No address; placement `none'. B. Jones ALSO keeps a grocery and provision store (c018) and the two notices are extracted separately because the paper prints them separately and they are different trades at possibly different doors."
+    },
+    {
+      "id": "c015",
+      "kind": "business",
+      "reading": "transcription_mediated",
+      "quote": "PETER COHEN,\n[uncertain: BAST EXD OF SOETE WATER-STARET,]\nChicago,--Litinois,\n[uncertain: Rene informs the public, the]\nibe hay oo had a large and eplendid\n[uncertain: sortuent of]\nWINTER CLOTHING\n'ALSO, a fresh supply of\n[uncertain: Provisions, Groceries and Liquors.]\n[uncertain: which he offers for sale at pelaged pir sta]\n[uncertain: inmert in particular, hi temons mr tee]\n[uncertain: knowledprmants facpers core) and he indy]\nsea the belief, Usat hiv reduced prices will enw\na continuance of their patronage.",
+      "normalized": "PETER COHEN, [E]AST E[N]D OF SO[U]T[H] WATER-ST[RE]ET, Chicago,--I[ll]inois, [Respectfully] informs the public, tha[t] [he] ha[s] […] had a large and [s]plendid [as]sort[m]ent of WINTER CLOTHING. ALSO, a fresh supply of Provisions, Groceries and Liquors, which he offers for sale at [reduced] p[r]i[ce]s […] [and thanks] in particular, hi[s] […] [old customers for] […] [past favors] […] and he ind[ulge]s […] the belief, [th]at his reduced prices will e[ns]u[re] a continuance of their patronage.",
+      "locator": {
+        "artifact_role": "primary",
+        "issue_page": 3,
+        "column": 4,
+        "lines": [
+          2143,
+          2156
+        ],
+        "interleaved": false
+      },
+      "entities": [
+        {
+          "as_printed": "PETER COHEN",
+          "normalized": "Cohen, Peter",
+          "role": "proprietor",
+          "occupations": [
+            "clothier",
+            "grocer"
+          ],
+          "associated_places": [
+            "South Water Street"
+          ]
+        }
+      ],
+      "business": {
+        "name": "Peter Cohen",
+        "proprietors": [
+          "Peter Cohen"
+        ],
+        "trade": "clothier, grocer and liquor dealer",
+        "goods": [
+          "Groceries",
+          "Liquors",
+          "Provisions",
+          "Winter Clothing"
+        ],
+        "street": "South Water Street",
+        "placement": {
+          "class": "relative",
+          "anchor": "the east end of South Water Street",
+          "offset_text": "[uncertain: BAST EXD OF SOETE WATER-STARET,]",
+          "offset_normalized": "EAST END OF SOUTH WATER-STREET",
+          "street": "South Water Street",
+          "note": "A reach of one street with no cross street named. It narrows a frontage; it does not fix a lot."
+        }
+      },
+      "notes": "PETER COHEN, SELF-REPORTED AT THE EAST END OF SOUTH WATER STREET, and this is the placement in the issue that a reconstruction can most nearly stand a building on. 'east end of South Water-street' is a RELATIVE placement, not a corner: it names a reach of one street and no cross street, so it narrows the frontage without fixing a lot. THE SECOND FINDING IS THE DATE: 'old customers' and 'past favors' say Cohen was already trading in Chicago BEFORE November 1833, which is earlier than his own first advertisement. This is the same Peter Cohen the scene-date issue of 1835-07-01 carries (T-0257's worked fixture), and the two readings are nineteen months apart; no merge is asserted here — identity.json is where that judgement is declared."
+    },
+    {
+      "id": "c016",
+      "kind": "business",
+      "reading": "transcription_mediated",
+      "quote": "[uncertain: GROCERIES.]\nWin BRANDY, GIN, RUM, &e. &\n[uncertain: 20 Barrels Ohio Whiskey]\n[uncertain: 49 do. Obio Saperiine Flour.]\n; 4 do Back Wheat Flour.\n3 do Crackers.\n[uncertain: ; B do Mackinac White Fish,]\n[uncertain: 40 Bushels Dried Apples. :]\nTable Salt, Tin Ware, &¢\nfor vale by '§. FOOT.\n[uncertain: Chicago, Noe. 96, 1833.]",
+      "normalized": "GROCERIES. W[ines,] BRANDY, GIN, RUM, &c. &c. 20 Barrels Ohio Whiskey. 4[0] do. Ohio Sup[e]rfine Flour. 4 do. B[uc]k Wheat Flour. 3 do. Crackers. [1]8 do. Mackinac White Fish. 40 Bushels Dried Apples. Table Salt, Tin Ware, &c. for [s]ale by S. FOOT. Chicago, No[v]. [2]6, 1833.",
+      "locator": {
+        "artifact_role": "primary",
+        "issue_page": 3,
+        "column": 4,
+        "lines": [
+          2157,
+          2167
+        ],
+        "interleaved": false
+      },
+      "entities": [
+        {
+          "as_printed": "§. FOOT",
+          "normalized": "Foot, S.",
+          "role": "proprietor",
+          "occupations": [
+            "grocer"
+          ]
+        }
+      ],
+      "business": {
+        "name": "S. Foot",
+        "proprietors": [
+          "S. Foot"
+        ],
+        "trade": "grocer",
+        "goods": [
+          "Brandy",
+          "Buckwheat Flour",
+          "Crackers",
+          "Dried Apples",
+          "Gin",
+          "Mackinac White Fish",
+          "Ohio Superfine Flour",
+          "Ohio Whiskey",
+          "Rum",
+          "Table Salt",
+          "Tin Ware"
+        ],
+        "placement": {
+          "class": "none",
+          "note": "No street in the advertisement."
+        }
+      },
+      "ad_copy_date": {
+        "verbatim": "[uncertain: Chicago, Noe. 96, 1833.]",
+        "iso": "1833-11-26"
+      },
+      "notes": "A SECOND ADVERTISER THE SCAN-VERIFIED RECORD DOES NOT ENUMERATE: S. Foot, groceries. The source record's what_it_supplies list stops at twelve advertisers and this is not one of them, so the transcription pass is adding to the scan pass rather than merely reproducing it. THE STOCK LIST IS THE VALUE — barrels of Ohio whiskey and Ohio superfine flour, Mackinac white fish, dried apples: the goods came up the lakes and down the Ohio trade, and a barrel count is what a storefront actually held. 'for vale by' is 'for sale by'; '§. FOOT' is 'S. FOOT'. No street, so `none`."
+    },
+    {
+      "id": "c017",
+      "kind": "event",
+      "reading": "transcription_mediated",
+      "quote": "NOTICE.\nww be #old at Public Avetion, on Mo\ndiay. next, tho 2 of December, at Fi\n[uncertain: Dearborn, the fellowing articles of property]\nhe United States, to wit\nof OVEN.\n[uncertain: Come lev arides of antio's Clothing]\n[uncertain: One 'ox WAGGON, and]\n[uncertain: 'Some few articles of Soldier's Clothing.]\n'The Sale to commence at 11 o'clock, A- }\n[uncertain: Noe, 2, 18% h]",
+      "normalized": "NOTICE. [Will] be sold at Public Auction, on Mo[n]day next, th[e] 2[d] of December, at F[ort] Dearborn, the f[o]llowing articles of property [of] [t]he United States, to wit: […] [One yoke] of OXEN. One [o]x WAGGON, and Some few articles of Soldier's Clothing. The Sale to commence at 11 o'clock, A[.M.] No[v.] 2[6], 18[33].",
+      "locator": {
+        "artifact_role": "primary",
+        "issue_page": 3,
+        "column": 4,
+        "lines": [
+          2169,
+          2179
+        ],
+        "interleaved": false
+      },
+      "notes": "A PUBLIC SALE HELD AT FORT DEARBORN ON 2 DECEMBER 1833, advertised to the village at large. The fort is being used as a place the townspeople walk into for an auction at eleven in the morning, which is a fact about the fort's relation to the town and not only about the army. The duplicated 'articles of' lines are the segmenter reading one printed line twice. NOTHING here describes any structure at the fort."
+    },
+    {
+      "id": "c018",
+      "kind": "business",
+      "reading": "transcription_mediated",
+      "quote": "Grocery & Provision Stor\nB, JONES,\nCHICAGO—ILLINOIS,\nconstantly or\nhand,\n[uncertain: 'gar, Se. Se, and most kinds of PROVISION]\n[uncertain: Shh eof for sao at the Lowen price.]",
+      "normalized": "Grocery & Provision Stor[e]. B. JONES, CHICAGO—ILLINOIS, [keeps] constantly o[n] hand, […] [Su]gar, &c. &c., and most kinds of PROVISION[S,] [which he of]f[ers] for sa[l]e at the Lowes[t] price[s].",
+      "locator": {
+        "artifact_role": "primary",
+        "issue_page": 3,
+        "column": 5,
+        "lines": [
+          2226,
+          2232
+        ],
+        "interleaved": false
+      },
+      "entities": [
+        {
+          "as_printed": "B, JONES",
+          "normalized": "Jones, B.",
+          "role": "proprietor",
+          "occupations": [
+            "grocer"
+          ]
+        }
+      ],
+      "business": {
+        "name": "B. Jones, grocery and provision store",
+        "proprietors": [
+          "B. Jones"
+        ],
+        "trade": "grocery and provision store",
+        "goods": [
+          "Provisions",
+          "Sugar"
+        ],
+        "placement": {
+          "class": "none",
+          "note": "No street in the advertisement."
+        }
+      },
+      "notes": "B. JONES'S SECOND TRADE, printed as its own advertisement in a different column from his forwarding notice (c014). The two are extracted as two businesses because the paper sets them as two and nothing in either says they shared a door; a later pass with a second witness may merge them, and identity.json is where that would be declared. No address in either. The goods list is cut by the column edge and only what survives is claimed."
+    },
+    {
+      "id": "c019",
+      "kind": "business",
+      "reading": "scan_verified",
+      "quote": "\"Saddle & Harness Making\nGOs & COBB,\n[uncertain: anta of cepectilly infortu]\n[uncertain: c*Lemente, that they]\nved a stop i this villa\n[uncertain: Mualatrecte, where th]\nCant heed aed wall\n[uncertain: iufactare to order,]\nLaie' od Gentlemens\nBrass, Sico and Common Mounted\n[uncertain: ULAUATNSS iy]\nBallener\nind common TRUNK:\n[uncertain: Coaches, Chaises and Waggon 'Trimmed]\n[uncertain: style. Repuiring mediately 'attended to wh]\nbrought to\nS iy wert attention to business, 1\nhope for a",
+      "normalized": "Saddle & Harness Making. GO[SS] & COBB, [beg leave] […] [re]spectfully [to] in[f]or[m] […] [the citizens and the public generally, that they have opened a] [s]ho[p] i[n] this villa[ge] [on the corner of Lake and Ca]n[a]l [s]tree[t]s, where th[ey] […] [make] and w[i]ll […] [man]ufact[u]re to order, Ladie[s'] [an]d Gentlemen[']s […] Brass, S[il]ve[r] and Common Mounted H[ARNESS] […] Vali[ses] […] [a]nd common TRUNK[S,] […] Coaches, Chaises and Waggon[s] Trimmed […] [in the best] style. Repairing [im]mediately attended to wh[en] brought to […] [them.] [B]y [s]t[r]ict attention to business, [they] hope for a […] [share of public patronage.]",
+      "locator": {
+        "artifact_role": "primary",
+        "issue_page": 3,
+        "column": 4,
+        "lines": [
+          2180,
+          2197
+        ],
+        "interleaved": false
+      },
+      "entities": [
+        {
+          "as_printed": "GOs & COBB",
+          "normalized": "Goss & Cobb",
+          "role": "proprietor",
+          "occupations": [
+            "saddler",
+            "harness maker",
+            "trunk maker"
+          ],
+          "associated_places": [
+            "Lake Street",
+            "Canal Street"
+          ]
+        }
+      ],
+      "business": {
+        "name": "Goss & Cobb",
+        "proprietors": [
+          "Goss & Cobb"
+        ],
+        "trade": "saddle, harness and trunk making",
+        "goods": [
+          "Chaises trimmed",
+          "Coaches trimmed",
+          "Harness",
+          "Trunks",
+          "Valises",
+          "Waggons trimmed"
+        ],
+        "street": "Lake Street",
+        "placement": {
+          "class": "corner",
+          "anchor": "corner of Lake and Canal streets",
+          "offset_text": "[uncertain: Mualatrecte, where th]",
+          "offset_normalized": "on the corner of Lake and Canal streets",
+          "street": "Lake Street",
+          "note": "Supplied from the scan-verified source record; the transcription's address line is destroyed. The junction, not the corner."
+        }
+      },
+      "notes": "GOSS & COBB'S ADDRESS IS THE SCAN'S, NOT THE TRANSCRIPTION'S. The transcription's address line survives only as 'Mualatrecte, where th' at 2185 — the column rule has eaten the street names, and read alone it would place this firm nowhere. data/sources/chicago_democrat_1833_11_26.json is a scan-verified reading of this issue's page images and outranks the transcription (T-0258, ruling 2 run backwards). It reads the address as 'on the corner of Lake and Canal streets', self-reported. THIS IS THE SAME CORNER GOSS & COBB STILL ADVERTISE FROM IN JULY 1834 as 'their old stand' (T-0289, chicago_democrat_1834_07_02 c001), so the corner is attested at both ends of a twenty-month span and 'old stand' in 1834 now has a documented antecedent. WHICH of the four corners is not in either witness. The trade is unusually legible: saddles, harness, valises, trunks, and the trimming of coaches, chaises and waggons."
+    },
+    {
+      "id": "c020",
+      "kind": "business",
+      "reading": "transcription_mediated",
+      "quote": "Blacksmithing Business.\nBusiness\n[uncertain: MATTIAS MASON, & CO-]\n[uncertain: , JARILIES on the above business in all]\n; Cc Various branches, on Main-street, nea\nn opposite Graves' Tavern, where they Intend\nCho\nen rad arde alle on\ncone\n1833.",
+      "normalized": "Blacksmithing Business. MAT[T]HIAS MASON & CO. [CAR]RIES on the above business in all i[t]s various branches, on Main-street, nea[rly] opposite Graves' Tavern, where they intend […] [to attend to all orders] […] [1]833.",
+      "locator": {
+        "artifact_role": "primary",
+        "issue_page": 3,
+        "column": 4,
+        "lines": [
+          2198,
+          2207
+        ],
+        "interleaved": false
+      },
+      "entities": [
+        {
+          "as_printed": "MATTIAS MASON, & CO-",
+          "normalized": "Mason, Matthias, & Co.",
+          "role": "proprietor",
+          "occupations": [
+            "blacksmith"
+          ],
+          "associated_places": [
+            "Main Street"
+          ]
+        },
+        {
+          "as_printed": "Graves' Tavern",
+          "normalized": "Graves, [Mr.]",
+          "role": "mentioned",
+          "occupations": [
+            "tavern keeper"
+          ]
+        }
+      ],
+      "business": {
+        "name": "Matthias Mason & Co.",
+        "proprietors": [
+          "Matthias Mason & Co."
+        ],
+        "trade": "blacksmith",
+        "goods": [],
+        "street": "Main Street",
+        "placement": {
+          "class": "relative",
+          "anchor": "Graves' Tavern, on Main-street",
+          "offset_text": "n opposite Graves' Tavern, where they Intend",
+          "offset_normalized": "on Main-street, nearly opposite Graves' Tavern",
+          "street": "Main Street",
+          "note": "UNRESOLVED ANCHOR. Neither 'Main-street' nor 'Graves' Tavern' is a feature this reconstruction holds, and neither is mapped onto one that it does."
+        }
+      },
+      "notes": "TWO PLACE-NAMES THIS PROJECT DOES NOT OTHERWISE HOLD, in one line. 'Main-street' is not a street this reconstruction carries and is NOT silently mapped onto any street it does carry — the 1834 plat has no Main street in the divisions this model builds, and an 1833 usage may be colloquial. 'Graves' Tavern' is an anchor building named nowhere else in the issue. The placement is therefore `relative` on an anchor the model cannot yet resolve, which is the honest state: the paper says exactly where the smithy was and this project cannot yet say where that is. Resolving 'Main-street' is a question for a later pass with the plat in hand, not for this one. 'MATTIAS' is the type's own spelling and the scan record reads 'Matthias'; both are set down."
+    },
+    {
+      "id": "c021",
+      "kind": "business",
+      "reading": "transcription_mediated",
+      "quote": "For Sale,\n[uncertain: 1 NE large Englini BE:1.L., esitable]\n. 0 Ma aa 'ha, ae\n© TE do eta for a pubic hgneat Megs\n[uncertain: y Engoite of J, BATES, Jr, at P, OB]",
+      "normalized": "For Sale, [O]NE large Engli[sh] BELL, [su]itable […] [for a public house or a] [semi]na[r]y […] Enq[u]i[r]e of J. BATES, Jr., at [the] P. O[ffice.]",
+      "locator": {
+        "artifact_role": "primary",
+        "issue_page": 3,
+        "column": 4,
+        "lines": [
+          2208,
+          2212
+        ],
+        "interleaved": false
+      },
+      "entities": [
+        {
+          "as_printed": "J, BATES, Jr",
+          "normalized": "Bates, J., Jr.",
+          "role": "proprietor",
+          "occupations": [
+            "merchant"
+          ]
+        }
+      ],
+      "business": {
+        "name": "J. Bates, Jr.",
+        "proprietors": [
+          "J. Bates, Jr."
+        ],
+        "trade": "merchant",
+        "goods": [
+          "Bell"
+        ],
+        "placement": {
+          "class": "relative",
+          "anchor": "the Post Office",
+          "offset_text": "[uncertain: y Engoite of J, BATES, Jr, at P, OB]",
+          "offset_normalized": "Enquire of J. Bates, Jr., at the P[ost] O[ffice]",
+          "note": "The anchor is the Post Office, whose own position is not in this issue. It places the ADVERTISER, not the business."
+        }
+      },
+      "notes": "THE POST OFFICE IS A PLACE PEOPLE ARE SENT TO, and that is what this small advertisement supplies: 'Enquire of J. BATES, Jr, at P. O[ffice]' — the same advertiser as c007, here located at the post office rather than at a store of his own. It does not say the post office was his, or where it stood. The bell 'suitable for a public house or a seminary' is the only reference in this issue to either kind of building wanting one, and neither is named."
+    },
+    {
+      "id": "c022",
+      "kind": "business",
+      "reading": "transcription_mediated",
+      "quote": "ie done\n[uncertain: NOV. 18, 1823]\n©, & I, HARMON,\nHAVE recently received a large and get\nI assortment of\nBry Goods, Crrrkery,\nHardware, and Wet and Dry Groceri\nall of which they are desirous of selling a\nsmall advance from Cost.\n1\" 'They also have on commission, a large lot",
+      "normalized": "[Nov. 18, 1833.] C. & I. HARMON, HAVE recently received a large and gen[eral] assortment of Dry Goods, Cr[o]ckery, Hardware, and Wet and Dry Groceri[es,] all of which they are desirous of selling a[t a] small advance from Cost. They also have on commission, a large lot [of…]",
+      "locator": {
+        "artifact_role": "primary",
+        "issue_page": 3,
+        "column": 5,
+        "lines": [
+          2216,
+          2225
+        ],
+        "interleaved": false
+      },
+      "entities": [
+        {
+          "as_printed": "©, & I, HARMON",
+          "normalized": "Harmon, C. & I.",
+          "role": "proprietor",
+          "occupations": [
+            "dry goods merchant",
+            "grocer"
+          ]
+        }
+      ],
+      "business": {
+        "name": "C. & I. Harmon",
+        "proprietors": [
+          "C. & I. Harmon"
+        ],
+        "trade": "dry goods, crockery, hardware and groceries",
+        "goods": [
+          "Crockery",
+          "Dry Goods",
+          "Dry Groceries",
+          "Hardware",
+          "Wet Groceries"
+        ],
+        "placement": {
+          "class": "none",
+          "note": "No address in the advertisement. It does not corroborate Andreas's Clark/South Water corner."
+        }
+      },
+      "ad_copy_date": {
+        "verbatim": "[uncertain: NOV. 18, 1823]",
+        "iso": "1833-11-18"
+      },
+      "notes": "'C. & I. HARMON', AND THE INITIAL IS THE POINT. data/sources/chicago_democrat_1833_11_26.json is a scan-verified reading of this issue's page images and outranks the transcription (T-0258, ruling 2 run backwards). Its verification note records that a transcription of this issue rendered the firm 'C. & L. Harmon' where the scan plainly reads 'C. & I. HARMON' — that single letter is the example the record uses for why a scan read outranks a transcription read. THE DEPOSIT TRANSCRIPTION READ HERE AGREES WITH THE SCAN: line 2218 is '©, & I, HARMON', an I and not an L, so the error the record warns about is NOT in this artefact and the warning is now attached to a specific other transcription rather than to the transcriptions generally. NO ADDRESS: the advertisement gives none, so it does NOT corroborate the Clark and South Water corner Andreas assigns this firm, and the placement stays `none`. 'Wet and Dry Groceries' is the period's own distinction between liquor and dry stores."
+    },
+    {
+      "id": "c023",
+      "kind": "business",
+      "reading": "transcription_mediated",
+      "quote": "JOHN\n[uncertain: Now 26, 1633,]\nWEIGHT,\n[uncertain: QFFERS FOR SALE CHEAP Fv]\nCASH.\n[uncertain: Serine Clotlts, different qualities]\n[uncertain: do. Circassians, (colors;]\n[uncertain: Thibet, Valentin and Prussian Shawls:]\n[uncertain: Palmerine note G]\nBandanna, silk, Mag, and black, Utalian do\n[uncertain: Gawzo, goznitare and C. P, Ribbons]\n[uncertain: Mull, Jackonet and Boole Mustins]\n[uncertain: Fig'd and plain Bobinett Laces]\n[uncertain: Quillings and Blgings:]\nBlue.\nSteel-mix'd, dark and light bloc Sattinette;\n[uncertain: Whito, scarlet, and red Flannel;]\nDark and fancy colored Puntaloons;\n[uncertain: Indigo Apron Checks and Plaids;]\n[uncertain: 'Meraailes, Valentia and Swansdown Vesting]\nwe time canton cannes\nBrown and bleached Shirtings and Sheeting\n[uncertain: Beaverteeiliigent qualities; :]\n[uncertain: }Tanigip Cord De]\n\" Ready made Clothing—different kinds;\nWick and Wadding:\nand other Dry Goods which it is unnecessary\nparticularize:\n[uncertain: ALSO-I PRETTY GESERAL AMORTNEYT OF]\nHardware, Crockery,\n[uncertain: ' Groceries, Boots and Shoe]\n[uncertain: Statiouary, Tin Ware, de. dc.]\nall of which ho offers to the public ou the ma\n[uncertain: Teavonable terms.]\n[uncertain: Chicago, Nav. 26, 1883.]",
+      "normalized": "JOHN W[R]IGHT OFFERS FOR SALE CHEAP F[OR] CASH: [Su]perfine Cloths, different qualities; do. Circassians, [assorted colors;] Thibet, Valen[cia] and Prussian Shawls; [Palmerine …]; Bandanna, silk, [f]lag, and black Italian do.; Gauze, [fur]niture and C. P. Ribbons; Mull, Jaconet and Book Muslins; Fig'd and plain Bobinett Laces; Quillings and Ed[g]ings; Blue, Steel-mix'd, dark and light blue Sattinette; White, scarlet, and red Flannel; Dark and fancy colored Pantaloons; Indigo Apron Checks and Plaids; M[a]r[s]ailles, Valentia and Swansdown Vestings; […] Brown and bleached Shirtings and Sheeting[s]; Beaverteen[s, different] qualities; [Nankin] Cord[s]; Ready made Clothing—different kinds; Wick and Wadding; and other Dry Goods which it is unnecessary [to] particularize: ALSO, A PRETTY GENERAL ASSORTMENT OF Hardware, Crockery, Groceries, Boots and Shoe[s,] Stationary, Tin Ware, &c. &c., all of which he offers to the public on the mo[st] [r]easonable terms. Chicago, Nov. 26, 1833.",
+      "locator": {
+        "artifact_role": "primary",
+        "issue_page": 3,
+        "column": 5,
+        "lines": [
+          2233,
+          2267
+        ],
+        "interleaved": false
+      },
+      "entities": [
+        {
+          "as_printed": "JOHN WEIGHT",
+          "normalized": "Wright, John",
+          "role": "proprietor",
+          "occupations": [
+            "merchant"
+          ]
+        }
+      ],
+      "business": {
+        "name": "John Wright",
+        "proprietors": [
+          "John Wright"
+        ],
+        "trade": "general merchandise",
+        "goods": [
+          "Boots and Shoes",
+          "Crockery",
+          "Dry Goods",
+          "Flannel",
+          "Groceries",
+          "Hardware",
+          "Laces",
+          "Ready made Clothing",
+          "Ribbons",
+          "Shawls",
+          "Sheetings",
+          "Shirtings",
+          "Stationary",
+          "Tin Ware",
+          "Vestings"
+        ],
+        "placement": {
+          "class": "none",
+          "note": "No street in the advertisement."
+        }
+      },
+      "ad_copy_date": {
+        "verbatim": "[uncertain: Chicago, Nav. 26, 1883.]",
+        "iso": "1833-11-26"
+      },
+      "notes": "THE LONGEST STOCK LIST IN THE ISSUE, and stock lists are what a reconstruction can actually use: a store carrying superfine cloths, Thibet and Prussian shawls, bobbinet lace, swansdown vesting and ready-made clothing alongside hardware, crockery, boots and stationery is a GENERAL STORE and not a specialist's shop, and that is a fact about the size of the room it needed. Same proprietor as c009 (cut nails) and c010 (two buildings to let) — John Wright is the issue's busiest advertiser and still gives NO STREET in any of the three. The segmenter has split 'JOHN' (2233) from 'WEIGHT' (2235) across a duplicated dateline; the normalized reading rejoins them and the quote does not. Textile names are restored to their period spellings only where the recognition error is unambiguous."
+    },
+    {
+      "id": "c024",
+      "kind": "infrastructure",
+      "reading": "transcription_mediated",
+      "quote": "Village Ordinances.\n[uncertain: - rp E it Ordained by the Teusters of the To]\nof Chicago, that the following shay\n[uncertain: the bounds included withia the ioits a' 1]\nbounce bed said town, to wit\nof Jackson and Jetlersvi stree\n[uncertain: hefce novth along aaid last tmntionsslg cot]\n[uncertain: Mat boneh,]\nfrom\nTine to Ohio street, iu Kinzie's addition to\n[uncertain: }town of Chicago,\" theneo in a line castwar]\n[uncertain: }to the Lake shore, thenes wouthwardly with]\n[uncertain: Lake shire ¢o the uorthern United States: 1]\nthence westwardly along said pier to the\n[uncertain: ' Ininvtion thereof, thence (0 the channel of]\ncol sence tail coated o\n[uncertain: iver unuil IE intersects the easton bound]\nfine of the town of Chicago, as laid out by\n[uncertain: Canal Commissioners, thence eouthwarily']\n[uncertain: Said line until 1 teeta Jackson etzect, to.]\nPlace of beginning.",
+      "normalized": "Village Ordinances. [1.] B[e] it Ordained by the T[r]ustees of the To[wn] of Chicago, that the following sha[ll be] the bounds included with[in] the [lim]its o[f] [said] town, to wit: […] [beginning at the corner] of Jackson and Jeffers[on] stree[ts], [t]he[n]ce north along said last men[tione]d [street] […] [and its continuation] […] to Ohio street, in 'Kinzie's addition to [the] town of Chicago,' thence in a line eastwar[d] to the Lake shore, thence [s]outhwardly with [the] Lake sh[o]re [t]o the [n]orthern United States[' Pier,] thence westwardly along said pier to the [term]inat[ion] thereof, thence [to] the channel of [the] […] river until it intersects the easte[rn] bound[ary] line of the town of Chicago, as laid out by [the] Canal Commissioners, thence [s]outhwar[d]ly [along] said line until i[t] [in]te[rsec]ts Jackson [s]t[r]eet, to […] [the] place of beginning.",
+      "locator": {
+        "artifact_role": "primary",
+        "issue_page": 3,
+        "column": 5,
+        "lines": [
+          2269,
+          2289
+        ],
+        "interleaved": false
+      },
+      "notes": "THE CORPORATION'S OWN BOUNDARY, 7 NOVEMBER 1833, AND THE PIER INSIDE IT. The boundary is walked as a survey line and one leg of it runs ALONG the northern United States' Pier 'to the termination thereof' — so on 7 November 1833 the north pier existed, was walkable enough to be surveyed along, and had a definite landward end that a trustee could point to. That is a stronger statement about the pier than any retrospective plate this project holds. THE BOUNDARY ALSO NAMES Jackson and Jefferson streets, Ohio street, Kinzie's addition, the lake shore, the river channel and the Canal Commissioners' eastern line — the corporate limits of the town this model reconstructs, given by the corporation itself twenty months before the scene date. The transcription of this column is heavily damaged and every supply is bracketed; no leg of the boundary is completed beyond what the surviving type supports."
+    },
+    {
+      "id": "c025",
+      "kind": "street",
+      "reading": "transcription_mediated",
+      "quote": "[uncertain: (Pe Be it jurther Ordinal, That the fist ot]\nin said town routh of Washington-street,\n[uncertain: named Meglison-atreet; the second one shal]\n[uncertain: Tamed Mlgnroe-atreet; the thirdone sball be]\nited: Adamas-street; and ube fourth one sll\named Jackson-strect.",
+      "normalized": "2. Be it further Ordained, That the first [street] in said town [s]outh of Washington-street, [shall be] named M[a]d[i]son-street; the second one shal[l be] [n]amed M[o]nroe-street; the third one shall be [nam]ed Adams-street; and the fourth one s[ha]l[l be n]amed Jackson-street.",
+      "locator": {
+        "artifact_role": "primary",
+        "issue_page": 3,
+        "column": 5,
+        "lines": [
+          2290,
+          2295
+        ],
+        "interleaved": false
+      },
+      "notes": "THE FOUR SOUTH STREETS ARE NAMED HERE, ON 7 NOVEMBER 1833, AND THIS IS THE ACT THAT NAMES THEM. Madison, Monroe, Adams and Jackson south of Washington — in that order, by ordinance, presidents in sequence. It bears directly on T-0219 (the heightfield carried south to Madison, the plat's last tier): Madison is the FIRST street south of Washington by the corporation's own numbering, so a model that stops at Madison stops one street into a four-street tier and the remaining three are named and datable. 'Meglison' and 'Mlgnroe' are recognition-class; the ordinal words are legible and carry the order."
+    },
+    {
+      "id": "c026",
+      "kind": "notice",
+      "reading": "transcription_mediated",
+      "quote": "oy Neat further Ordainel, That from ans after\nf December next, every owner of\nfound running at largo i\ntown, without having a ring in its nore oF y\n[uncertain: omits neck, ahall ho fable to a fine of two.]\n• and every offence, wine\n*a foin said town",
+      "normalized": "3. Be it further Ordained, That from and after [the tenth day] of December next, every owner of [any hog] found running at larg[e] i[n said] town, without having a ring in its no[s]e o[r] [a yoke up]o[n] its neck, shall be liable to a fine of two [dollars] […] [for] [each] and every offence, […] [to be collected] […] [with]in said town.",
+      "locator": {
+        "artifact_role": "primary",
+        "issue_page": 3,
+        "column": 5,
+        "lines": [
+          2296,
+          2302
+        ],
+        "interleaved": false
+      },
+      "notes": "HOGS RUNNING LOOSE IN THE STREETS ARE LEGISLATED, NOT AN ESTRAY PEN — and the absence is the finding. data/sources/chicago_democrat_1833_11_26.json is a scan-verified reading of this issue's page images and outranks the transcription (T-0258, ruling 2 run backwards). It records a negative worth as much as a positive: there is NO mention of an estray pen anywhere in this issue, and the corporation's own November 1833 code legislates hogs at large in this detail while saying nothing whatever about impounding. Andreas's claim that the estray pen was Chicago's first public building gets no contemporary corroboration here. The ring in the nose and the yoke on the neck are the remedy the ordinance actually prescribes, which is a fact about what a Chicago street looked like in 1833."
+    },
+    {
+      "id": "c027",
+      "kind": "infrastructure",
+      "reading": "transcription_mediated",
+      "quote": "5. Bh it further Ordained, 'That frond and s\n_ the tenth day of December next, every per\nwho shall remove from either of the bridges\nfaid town, any plank or any piece of timber\n[uncertain: Jonging thereto, shall be Hiahle to a fine of]\n[uncertain: falters tur each and every offence, to bo col]\nfol in the manner above wpecitic",
+      "normalized": "5. B[e] it further Ordained, That from and [after] the tenth day of December next, every per[son] who shall remove from either of the bridges [in] said town, any plank or any piece of timber [be]longing thereto, shall be liable to a fine of […] [dollars] for each and every offence, to be col[lect]ed in the manner above [s]pecifi[ed].",
+      "locator": {
+        "artifact_role": "primary",
+        "issue_page": 3,
+        "column": 5,
+        "lines": [
+          2310,
+          2316
+        ],
+        "interleaved": false
+      },
+      "notes": "EXACTLY TWO BRIDGES IN CHICAGO ON 7 NOVEMBER 1833, AND THEY WERE MADE OF PLANK AND TIMBER. 'either of the bridges' is a two-term word — an ordinance drafted for three would say 'any of'; and the thing it forbids people to carry off is 'any plank or any piece of timber belonging thereto', which is a description of the structure as well as of the offence. Both facts come from the same clause and neither is inferred from the other. This is the corporation legislating against its own bridges being quietly dismantled for lumber, which says something about how scarce sawn timber was in the village that winter."
+    },
+    {
+      "id": "c028",
+      "kind": "building",
+      "reading": "transcription_mediated",
+      "quote": "6 Beit further Orainad, 'Tvak rows and a\nthe'tenth day of Deceanber next, it sisi! be\n[uncertain: jawial for any person within the limite of]\n[aten, to pass any stove pipe attached (0\n[uncertain: i iitove, within the building, throsgh the]\n[uncertain: + Gooden partition, lathe and plasser partition]\nunless the\n[uncertain: _ be raat y'eing pam tMauEh Pi]\nde of ried by\nXT ca unrough a pices of tin oF abet ston, the\nfides of which bal be a east Inchon sis\ntset the pipe, and tho pipe to be at lena\nEvery store pe the roof, and be\n[uncertain: may Paricon inchew abuve the root, an bey]\n[uncertain: Ge aS ofany Wailding through which ity]\nfae ty person fading to comply with hs\n[uncertain: ree. antinance, shall be liable. to © penalty]\ntie stress milan tone, mick, les 92l\n[uncertain: iro Millahertuoce, If any perma evinpltined]\n[uncertain: paths above offence, docx not within forty -t]\n[uncertain: Rare oun the fret couplaint, render the.]\n[uncertain: Peniition or aide, af hin, er 'or thei til]\nB mann abe spo by\n[uncertain: 7 {removal of suc pipe, such pervon ehall 0]\n[uncertain: Tenor or alent bo Uabla to a penalty of]\n[uncertain: ¥ oltars, t» bw collected as abore.]",
+      "normalized": "6. Be it further Ordained, That from and [after] the tenth day of December next, it sh[al]l be [un]lawful for any person within the limits of [said] [town] to pass any stove pipe attached [to] [any] [s]tove, within the building, throu[gh] the [wo]oden partition, lath[e] and plas[te]r partition […] unless the […] [pipe passes through] [a piece] of […] [fired] […] [earthenware,] […] [or] through a piece of tin or [shee]t [ir]on, the [s]ides of which [sh]al[l] be a[t] [l]east [six] inch[es] […] [from] the pipe, and the pipe to be at lea[st] […] [eighteen inches above] the roof, […] [or the side] of any [b]uilding through which it [passes]. […] [Any] person failing to comply with th[is] […] [ordinance] shall be liable to a penalty […] […] [stone-ware, brick, tin] […] [or sheet iron.] If any person complained […] [of for the] above offence, does not within forty-[eight] […] [hours from] the f[i]r[s]t complaint, r[e]nder the […] [partition or side of his or their building] […] [safe in the manner specified by] […] [the] removal of such pipe, such person shall b[e] […] [for each day of continuance] […] [l]iable to a penalty of […] [dollars], t[o] b[e] collected as abo[v]e.",
+      "locator": {
+        "artifact_role": "primary",
+        "issue_page": 3,
+        "column": 5,
+        "lines": [
+          2317,
+          2342
+        ],
+        "interleaved": false
+      },
+      "notes": "THE FIRE ORDINANCE, AND IT DESCRIBES THE HOUSES IT IS AFRAID OF. Read for what it assumes rather than what it forbids: Chicago's buildings in November 1833 are wooden, with wooden or lath-and-plaster partitions; they are heated by STOVES and not fireplaces; the stove pipe is run through a partition or out through the roof or the side wall rather than up a masonry chimney; and it must stand eighteen inches proud of the roof, guarded where it passes by stone-ware, brick, tin or sheet iron. That is a specification for the roofline of the whole town — a stove pipe, not a chimney stack — and it is the corporation's own, twenty months before the scene date. THE COLUMN IS THE WORST-DAMAGED IN THE ISSUE and roughly half of the clause is reconstructed inside brackets; the four guard materials, the forty-eight hours and the eighteen inches are each read from surviving type and data/sources/chicago_democrat_1833_11_26.json is a scan-verified reading of this issue's page images and outranks the transcription (T-0258, ruling 2 run backwards). corroborates all four materials and the eighteen inches. The penalty figures are NOT legible and are left as […]. Bears directly on T-0008 (199 chimneys painted roof colour): what this ordinance describes is not a chimney."
+    },
+    {
+      "id": "c029",
+      "kind": "street",
+      "reading": "transcription_mediated",
+      "quote": "[uncertain: Fae aie facthor Ordained, \"Chat from apd]\n— ue tenth day of December next, it shall be\nAen for aay person or persons t2 ein\n[uncertain: {hz streets withits tha Liits of the pair fe]\n[uncertain: Tun tay timber, stone, brigh, boxes, oF bar]\n[uncertain: ofany dead anima]\n[uncertain: SUT Ntrveta, under & penalty of one dolls]\nWel and every Utica, to by collected a8 8",
+      "normalized": "9. B[e] it further Ordained, That from a[nd] [after] [t]he tenth day of December next, it shall be [unlawful] for any person or persons t[o] [encumber] [t]h[e] streets with[in] the [l]i[m]its of the [town] […] [with] any timber, stone, bric[k], boxes, or bar[rels] […] [nor the carcase] of any dead anima[l] […] [in the] [s]t[r]eets, under a penalty of one dolla[r] […] [for] [ea]ch and every [of]f[en]ce, to be collected a[s] [above].",
+      "locator": {
+        "artifact_role": "primary",
+        "issue_page": 3,
+        "column": 5,
+        "lines": [
+          2357,
+          2364
+        ],
+        "interleaved": false
+      },
+      "notes": "WHAT WAS LYING IN THE STREETS, ITEMISED BY THE PEOPLE WHO HAD TO WALK PAST IT: timber, stone, brick, boxes, barrels, and the carcase of a dead animal. An ordinance forbidding a thing is evidence the thing was happening — a town building fast stacks its materials in the roadway because there is nowhere else, and the corporation is pricing that at a dollar an offence. It is the single best contemporary description in this issue of what the ground surface of a Chicago street actually carried, and it is a list a reconstruction can dress a street from. Bears on T-0009 (building bodies drawn out of the roadway) from the other side: the ordinance says the ENCUMBRANCES were in the roadway and were meant not to be."
+    },
+    {
+      "id": "c030",
+      "kind": "business",
+      "reading": "transcription_mediated",
+      "quote": "» Chicago Soap and Cand\n[uncertain: - MANUFACTOR]\nMess. DANIEL ELSTON &\nBs to inform aba conlie tiay Ahoy }\n[uncertain: commenced the Munyfuctre of Soap]\n[uncertain: Gales; and hope Ly punetuallty sul atm]\n[uncertain: - tothoir business as well as keeping constant]\n[uncertain: 'a band an asrortawat ofall Jeseriptionn of &]\nand Soft SOAP, W'rz and other Candies, to\n[uncertain: cf) oe the nub suppor, :]\nN. B. Cush paid for Tallow, in any quant\n[uncertain: AiG for good Vetey dot]",
+      "normalized": "Chicago Soap and Candle MANUFACTOR[Y.] Mess[rs]. DANIEL ELSTON & [Co.] [beg leave] to inform th[e] [p]u[b]li[c] tha[t] [t]hey [have] commenced the Manuf[a]ct[u]re of Soap [and] [C]a[nd]les; and hope by punctuality [and] att[ention] to their business as well as keeping constant[ly] [on] hand an assort[m]ent of all [d]escription[s] of [Hard] and Soft SOAP, W[ax] and other Candles, to [meri]t […] the pub[lic] support. N. B. Cash paid for Tallow, in any quant[ity] [and] for good [wood] [ashes.]",
+      "locator": {
+        "artifact_role": "primary",
+        "issue_page": 3,
+        "column": 6,
+        "lines": [
+          2377,
+          2388
+        ],
+        "interleaved": false
+      },
+      "entities": [
+        {
+          "as_printed": "Mess. DANIEL ELSTON &",
+          "normalized": "Elston, Daniel",
+          "role": "proprietor",
+          "occupations": [
+            "soap manufacturer",
+            "candle manufacturer"
+          ]
+        }
+      ],
+      "business": {
+        "name": "Daniel Elston & [Co.]",
+        "proprietors": [
+          "Daniel Elston"
+        ],
+        "trade": "soap and candle manufactory",
+        "goods": [
+          "Hard Soap",
+          "Soft Soap",
+          "Wax Candles"
+        ],
+        "placement": {
+          "class": "none",
+          "note": "No street in the advertisement. The word after the ampersand is destroyed by an ink blot and 'Co.' is an expansion, not a reading."
+        }
+      },
+      "notes": "A MANUFACTORY, WHICH IS NOT A STORE — the only one in this issue. Soap and candles were boiled, and a soap and candle manufactory implies a works with a fire and a kettle rather than a shop front, though this notice does not say so and nothing about its form is claimed. THE PARTNER'S NAME IS UNREADABLE AND STAYS UNREADABLE: data/sources/chicago_democrat_1833_11_26.json is a scan-verified reading of this issue's page images and outranks the transcription (T-0258, ruling 2 run backwards). It records that the word after the ampersand is OBLITERATED BY AN INK BLOT, and that 'Co.' is a reasonable expansion and NOT a reading. It is therefore bracketed here and the business is keyed on Daniel Elston. 'Cash paid for Tallow […] and for good wood ashes' names the two inputs, and both came from households in the village — the works was buying its raw material off the town it stood in."
+    },
+    {
+      "id": "c031",
+      "kind": "person",
+      "reading": "transcription_mediated",
+      "quote": "i Token Up.\n: ¥ Harry Joardn an, living 'y the Dupage\n[uncertain: gy 1 aceon et dee]\n[uncertain: lusts soli Mare spon tose four years old]\n+ te ede igh, he wear i ok whit, se\n[uncertain: thstond tal, 2he mene hassing upon the igh]\n[uncertain: sve, partly nieared off on fe top, appraised by]\nRichard M. Sweet and Thomas Parsons [uncertain: twenty-]\n[uncertain: S tg aeven dollars, before Stephen M. Salesbuc]\nJ. P. Attest—RICH'D I. HAMILTON,\n> } Clerk Gam, Ct. Cush e9. Me\n0 Taker Up a\nSee, at Walker a Grovein Co\nCook County Illinois, a brown Horse [uncertain: supposed]\n2 karo 16 eae 11 36 ban ig bn ed\n[uncertain: Suite ds brenda.\" seivatte . opprai]\nJeremiah Walker and Timothy J. Clark, to\n[uncertain: sixteen and a half hands high, black mane, tail]\n[uncertain: id jogs, ancve white hairs on his forebeat. App]\n[uncertain: Appraised by the same persons to fifty five dollars, before]\nJames Walker, J. P.\nAttest—RICH'D I. HAMILTON,\n[uncertain: ehh Clerk Com, Ch-Conke co, Tl]",
+      "normalized": "Taken Up. [By] Harry [Bo]ard[m]an, living [b]y the Dupage […] [one] […] [b]l[ack] Mare [colt] […] four years old, […] [fourteen] [hands] high, [with] [a] [s]ma[l]l white s[tar] […] [and short] tail, [t]he mane hanging upon the [right] side, partly [sh]eared off on [th]e top, appraised by Richard M. Sweet and Thomas Parsons [uncertain: twenty-] [uncertain: S tg aeven dollars, before Stephen M. Salesbuc] J. P. Attest—RICH'D I. HAMILTON, [Clerk Com. Ct. Cook co., Ill.] […] Taken Up […] at Walker['s] Grove in Co[ok] County, Illinois, a brown Horse [uncertain: supposed] […] [appraised by] Jeremiah Walker and Timothy J. Clark, to […] sixteen and a half hands high, black mane, tail [an]d [le]gs, [a few] white hairs on his forehea[d]. Appraised by the same persons to fifty five dollars, before James Walker, J. P. Attest—RICH'D I. HAMILTON, [Clerk Com. Ct., Cook co., Ill.]",
+      "locator": {
+        "artifact_role": "primary",
+        "issue_page": 3,
+        "column": 6,
+        "lines": [
+          2429,
+          2451
+        ],
+        "interleaved": false
+      },
+      "entities": [
+        {
+          "as_printed": "Harry Joardn an",
+          "normalized": "Boardman, Harry",
+          "role": "mentioned"
+        },
+        {
+          "as_printed": "Richard M. Sweet",
+          "normalized": "Sweet, Richard M.",
+          "role": "mentioned",
+          "occupations": [
+            "appraiser"
+          ]
+        },
+        {
+          "as_printed": "Thomas Parsons",
+          "normalized": "Parsons, Thomas",
+          "role": "mentioned",
+          "occupations": [
+            "appraiser"
+          ]
+        },
+        {
+          "as_printed": "Stephen M. Salesbuc",
+          "normalized": "Salisbury, Stephen M.",
+          "role": "mentioned",
+          "occupations": [
+            "justice of the peace"
+          ]
+        },
+        {
+          "as_printed": "Jeremiah Walker",
+          "normalized": "Walker, Jeremiah",
+          "role": "mentioned",
+          "occupations": [
+            "appraiser"
+          ]
+        },
+        {
+          "as_printed": "Timothy J. Clark",
+          "normalized": "Clark, Timothy J.",
+          "role": "mentioned",
+          "occupations": [
+            "appraiser"
+          ]
+        },
+        {
+          "as_printed": "James Walker, J. P.",
+          "normalized": "Walker, James",
+          "role": "mentioned",
+          "occupations": [
+            "justice of the peace"
+          ]
+        },
+        {
+          "as_printed": "RICH'D I. HAMILTON",
+          "normalized": "Hamilton, Rich'd J.",
+          "role": "mentioned",
+          "occupations": [
+            "clerk of the county commissioners' court"
+          ]
+        }
+      ],
+      "notes": "THE ESTRAY FILINGS, AND THEY ARE COUNTY BUSINESS, NOT VILLAGE BUSINESS. Both are taken up OUTSIDE the town — by the DuPage and at Walker's Grove — and both are attested by Rich'd J. Hamilton as Clerk of the County Commissioners' Court. data/sources/chicago_democrat_1833_11_26.json is a scan-verified reading of this issue's page images and outranks the transcription (T-0258, ruling 2 run backwards). Its fourth correction turns on exactly this: these notices are county-clerk estray filings from Du Page and Walker's Grove, NOT Chicago, and they must not be read as evidence of a Chicago estray pen. They are extracted here for the SEVEN NAMES they mint — Harry Boardman, Richard M. Sweet, Thomas Parsons, Stephen M. Salisbury, Jeremiah Walker, Timothy J. Clark and James Walker — and for the appraisal figures, which price a horse in Cook County in 1833 at fifty-five dollars. The two notices share a column and the segmenter has duplicated the second's appraisal line; the quote carries the duplication and the normalized reading does not. Two names are left inside their transcription brackets in the normalized reading too, because the reading is genuinely uncertain and the marker is the honesty."
+    },
+    {
+      "id": "c032",
+      "kind": "person",
+      "reading": "transcription_mediated",
+      "quote": "[uncertain: 4) 925 REWARD.]\n[uncertain: SE, froin the subscribes, at Chicag]\n: on Saturday, ib, Sly, 1899; Fo Bore\n[uncertain: fof Vio. following dexerimion, vi]\nOpe Bond hunt oe # yee ol\n[uncertain: UWhande high, delieate minde lu]\nlane and tail, a fe\nabout the loin' and dank, logn\nblack, natural trotter, shod ait round when\nOne Roon or Light Soml, aged 7 or\n[uncertain: years, about 16 hands high, atout well ad]\nwhite face, two white feat, trotter, heavily she\nforward, n emall brand of C_ on the left chee\n[uncertain: _ and shoulder. Toth horses have swiveh tal]\n[uncertain: faud will rack ander the saddle. I pre-ut]\n, thoy wold not separate, us they ween wont\n' together. 'The sorrel was purchased in Jun\n1 of Mz, Duncan of Springhieiiy Sangamon Onis\nty The bay was lately owned by Mfr. Tail\n[uncertain: tony near Danvilie,]\n[uncertain: 'Suy pervot who will ind said hoesen,]\n[uncertain: ceive the shove revrard, snd all reea0hp char]\nges for feeding, keeping, &c.\n[uncertain: P. MANWELL.]\n[uncertain: Chican, I, No. 0, 1: ALL.]",
+      "normalized": "$25 REWARD. [Strayed or stolen] from the subscriber, at Chicag[o] on Saturday, [the] […] [J]uly, 183[3], [two] [h]or[ses] [o]f [t]he following de[s]cri[p]tion, viz.: One [Bay] […] [seven] years old, […] [1]4 hands high, delicate ma[d]e, [b]l[ack] […] mane and tail, a f[ew] […] about the loin[s] and [fl]ank, leg[s] black, natural trotter, shod a[ll] round when […] One Roan or Light Sorr[el], aged 7 or [8] years, about 16 hands high, stout well [made,] white face, two white feet, trotter, heavily sho[d] forward, a small brand of C on the left chee[k] and shoulder. [Bo]th horses have switch tai[ls] [a]nd will rack under the saddle. I pre[s]u[me] th[e]y w[ou]ld not separate, as they we[re] [always] together. The sorrel was purchased in Jun[e] of M[r]. Duncan of Springfie[ld], Sangamon Coun[t]y. The bay was lately owned by M[r]. Tal[bo]t[t], near Danvil[l]e. [An]y perso[n] who will find said ho[r]ses [shall re]ceive the above reward, and all rea[so]n[a]b[le] char[g]es for feeding, keeping, &c. P. MA[X]WELL. Chica[go], I[ll.], No[v.] […] 1833.",
+      "locator": {
+        "artifact_role": "primary",
+        "issue_page": 3,
+        "column": 6,
+        "lines": [
+          2403,
+          2427
+        ],
+        "interleaved": false
+      },
+      "entities": [
+        {
+          "as_printed": "P. MANWELL",
+          "normalized": "Maxwell, P.",
+          "role": "proprietor"
+        },
+        {
+          "as_printed": "Mz, Duncan of Springhieiiy",
+          "normalized": "Duncan, Mr.",
+          "role": "mentioned"
+        },
+        {
+          "as_printed": "Mfr. Tail tony near Danvilie",
+          "normalized": "Talbott, Mr.",
+          "role": "mentioned"
+        }
+      ],
+      "ad_copy_date": {
+        "verbatim": "[uncertain: Chican, I, No. 0, 1: ALL.]",
+        "iso": "1833-11-26"
+      },
+      "notes": "TWENTY-FIVE DOLLARS FOR TWO HORSES, AND A DESCRIPTION GOOD ENOUGH TO PAINT FROM. This is the closest thing in the issue to a portrait of a living animal that stood in the town: fourteen hands and sixteen hands, bay and light sorrel, switch tails, both shod, one branded C on the near cheek and shoulder, both natural trotters that will rack under the saddle. A reconstruction that puts horses in these streets has here a contemporary specification of what two of them looked like, from their owner. P. Maxwell is Dr. Philip Maxwell in later sources and the expansion is NOT made here — the type says 'P. MANWELL', an N for an X, and the surname is normalized only that far. The trade route is incidentally recorded: the sorrel bought at Springfield in Sangamon County, the bay lately owned near Danville."
+    },
+    {
+      "id": "c033",
+      "kind": "business",
+      "reading": "scan_verified",
+      "quote": "THE DEMOCRAT,\n[uncertain: S Ts publiehed every Tuesday, in she village]\nChicago,\ncorner of South Water and Clark stree\nhe TERMS.\nny 1. The Chicago Demncrnt is printed on an\n[uncertain: perlal eheet, stud afforded to subscribers at]\n[uncertain: ks eansanelrarrycenspganabein ADVAN]\n[uncertain: i, Ost eteear peeetinng, six subscriber]\n[uncertain: ie oper, and Gsrwatditig the: mre fn]\n[uncertain: 178 soriptions for the same, will be entitled to a]\nDy gratia.\n[uncertain: er VEL Aovenrisemryts—For 17 lince of ts]\nho] $1 for the first, and 25 cents for every #0\nA liberal discount will be t\n10 to those who advertive by. the year.",
+      "normalized": "THE DEMOCRAT, Is published every Tuesday, in [t]he village [of] Chicago, [Cook co. Ill., in the building on the] corner of South Water and Clark stree[ts]. TERMS. 1. The Chicago Democrat is printed on an [im]perial [s]heet, and afforded to subscribers at [TWO DOLLARS AND FIFTY CENTS, payable in ADVAN[CE.] 2. [Any person p]r[o]c[uring] six subscriber[s] [or more], and f[o]rwa[r]d[in]g the [a]m[ou]nt [of the sub]scriptions for the same, will be entitled to a [cop]y gratis. 3. ADVERTISEMENTS—For 17 line[s] or [under,] $1 for the first, and 25 cents for every s[ub]s[equent insertion.] A liberal discount will be [ma]d[e] to those who advertise by the year.",
+      "locator": {
+        "artifact_role": "primary",
+        "issue_page": 3,
+        "column": 6,
+        "lines": [
+          2452,
+          2467
+        ],
+        "interleaved": false
+      },
+      "entities": [
+        {
+          "as_printed": "THE DEMOCRAT",
+          "normalized": "Calhoun, John",
+          "role": "publisher",
+          "occupations": [
+            "editor",
+            "printer"
+          ],
+          "associated_places": [
+            "South Water Street",
+            "Clark Street"
+          ]
+        }
+      ],
+      "business": {
+        "name": "The Chicago Democrat",
+        "proprietors": [
+          "John Calhoun"
+        ],
+        "trade": "newspaper printing and job printing",
+        "goods": [
+          "Advertisements",
+          "Job Printing",
+          "Subscriptions"
+        ],
+        "street": "South Water Street",
+        "placement": {
+          "class": "corner",
+          "anchor": "the corner of South Water and Clark streets",
+          "offset_text": "corner of South Water and Clark stree",
+          "offset_normalized": "in the building on the corner of South Water and Clark-streets",
+          "street": "South Water Street",
+          "note": "The JUNCTION only. 'on the corner of' does not say which of the four, and the pencilled 'S. W.' in the page margin is a later reader's gloss, quarantined."
+        }
+      },
+      "notes": "THE STRONGEST SINGLE ADDRESS IN THE ISSUE, because it is the paper's own and the paper knew where it was. data/sources/chicago_democrat_1833_11_26.json is a scan-verified reading of this issue's page images and outranks the transcription (T-0258, ruling 2 run backwards). It calls this the strongest item the source holds and quotes it in full from the scan: 'in the building on the corner of South Water and Clark-streets'. NOTE PRECISELY WHAT IT SETTLES — the JUNCTION, not the corner. It says 'on the corner of' and which of the four corners is not in the sentence; Andreas's 'SW corner' remains a separate, later and weaker claim. THE THIRD TRAP IN THIS SOURCE SITS BESIDE THIS VERY PARAGRAPH: a later reader has pencilled 'S. W.' in the right margin of the advertisement page, level with the imprint, in cursive, outside the column rule. It is a gloss by somebody who had probably read Andreas; if it were ever transcribed as part of the page it would look like contemporary corroboration and would silently promote this position from inferred to documented on no evidence. It is not in this transcription and it is not in this claim. 'FOUR PAGES' is also here: 'printed on an imperial sheet' is what makes the issue four pages, which is how the scan set's three pages are known to be incomplete."
+    }
+  ]
+}

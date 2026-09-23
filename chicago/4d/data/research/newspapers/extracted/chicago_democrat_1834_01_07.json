@@ -1,0 +1,538 @@
+{
+  "schema": 1,
+  "issue_id": "chicago_democrat_1834_01_07",
+  "extracted": "2026-08-28",
+  "extracted_by": "hand, T-0310 — the Democrat read, January 1834",
+  "note": "Vol. I No. 7, and the issue that carries the town's own ordinances. The Board of Trustees met at Dexter Graves's house on 4 December 1833 and passed, among others, the wharfing clause that reserves eighty feet of street along the Chicago River — which is the most consequential single sentence this reading pass has found. The ordinance column is set THROUGH the Chicago Academy's advertisement on the same lines, so five of these claims use character spans inside one 1,378-character line and each of them quotes the Academy's book list along with the ordinance; that is recorded in every claim rather than smoothed away.",
+  "claims": [
+    {
+      "id": "c001",
+      "kind": "event",
+      "reading": "transcription_mediated",
+      "quote": "the town of Chicago, held at the h eles Dexter Graver, on thé 4th day of L y & Charts, 5 00] ber, 1833, the following Ordinance: bra, Hooke adopted, to wit :",
+      "normalized": "[TOWN ORDINANCES. At a meeting of the Board of Trustees of] the town of Chicago, held at the h[ouse of Charl]es Dexter Grave[s], on th[e] 4th day of [Decem]ber, 1833, the following Ordinance[s were] adopted, to wit: [The line carries the Chicago Academy's price list through the middle of it — '4001', 'y & Charts, 5 00]', 'bra, Hooke' — which the quote keeps verbatim and the reading drops.]",
+      "locator": {
+        "artifact_role": "primary",
+        "issue_page": 4,
+        "column": 2,
+        "lines": [
+          1237,
+          1237
+        ],
+        "lines_of_claim": [
+          1237
+        ],
+        "interleaved": true,
+        "spans": [
+          {
+            "line": 1237,
+            "from": 10,
+            "to": 167
+          }
+        ]
+      },
+      "entities": [
+        {
+          "as_printed": "eles Dexter Graver",
+          "normalized": "Dexter Graves",
+          "role": "host of the Board of Trustees meeting",
+          "occupations": [
+            "tavern keeper"
+          ]
+        }
+      ],
+      "notes": "THE BOARD OF TRUSTEES MET AT DEXTER GRAVES'S HOUSE, 4 DECEMBER 1833. That is a building doing the town's public business six weeks after the town incorporated, and the reconstruction can say whose house it was. Everything in claims c002 to c005 was passed at this sitting, and this claim is what dates and places them. Graves's tavern is independently in this same issue as a landmark other advertisers navigate by ('nearly opposite Graves' Tavern', claim c008), so the house and the tavern are almost certainly one building; the identification is NOT asserted here, because the ordinance says 'the house of' and the advertisement says 'Tavern' and nothing in this issue joins them."
+    },
+    {
+      "id": "c002",
+      "kind": "person",
+      "reading": "transcription_mediated",
+      "quote": "E it ordained by the Board of ‘Tro: coe $00 B the town of Chicage: That Geo RR AY ‘Snow,be and he is herehy appointed Ass colony: Bot. ‘Surveyor for said town, for the term of o\n{fom this date, or until’ his successor.» appointed ‘and qualified to act, and t) lowed $3 00 per day for each days",
+      "normalized": "[B]e it ordained by the Board of [Trustees of] the town of Chicag[o]: That Geo[rge] [W.] Snow, be and he is hereby appointed Ass[essor and] Surveyor for said town, for the term of o[ne year] fro[m] this date, or until his successor [is] appointed and qualified to act, and t[hat he be al]lowed $3 00 per day for each day['s service] [ren]dered as such assessor and surveyor.",
+      "locator": {
+        "artifact_role": "primary",
+        "issue_page": 4,
+        "column": 2,
+        "lines": [
+          1239,
+          1241
+        ],
+        "lines_of_claim": [
+          1239,
+          1241
+        ],
+        "interleaved": true,
+        "spans": [
+          {
+            "line": 1239,
+            "from": 11,
+            "to": 188
+          },
+          {
+            "line": 1241,
+            "from": 7,
+            "to": 122
+          }
+        ]
+      },
+      "entities": [
+        {
+          "as_printed": "Geo RR AY ‘Snow",
+          "normalized": "George W. Snow",
+          "role": "assessor and surveyor of the town of Chicago",
+          "occupations": [
+            "surveyor",
+            "assessor"
+          ]
+        }
+      ],
+      "notes": "THE TOWN'S FIRST SURVEYOR, NAMED AND PRICED: George W. Snow, assessor and surveyor of the town of Chicago from 4 December 1833, at three dollars a day. Every street line, every lot corner and every assessment the corporation made in its first year passed through this man, which makes him the single most consequential name in the ordinance for a project whose whole subject is where things stood. He is also the 'G. W. Snow' who signs as clerk pro tem of the Board in the ordinance of 6 June 1834 already in this corpus (1834-07-02, claim c017), and the same name appears in the county election returns of August 1834 — one man across eight months of the town's administration. The initials 'Geo[rge] [W.]' are supplied from those later printings and bracketed; this line prints 'Geo RR AY Snow'."
+    },
+    {
+      "id": "c003",
+      "kind": "street",
+      "reading": "transcription_mediated",
+      "quote": "15, Be it further Ordained hy ‘the ih null] Trunter of tho town of Chicago, “hate every owner oF occupant of any lot i: i OAT, Preceptor. fronting upon the Chicago Rivet or its ts i, where thy atreet rune to said river, | Chicago Academy. hnitted to occupy the vacant ground on a : leaving vighty feot for a atreef; for w1 unetie, Parley’ ly; “And for tho purpose of j 7» Munay's Grain | tecing this right, each and every owner + Natioual Reader| cupant, desing such privilege, shall upo ing fifteen dollars ariaually fa adeateh Feeasurer of aid Board, be entitled to\" ates, Fy ",
+      "normalized": "15. Be it further Ordained b[y] the [Board of] Tru[s]t[ees] of the town of Chicago, [t]hat every owner or occupant of any lot fronting upon the Chicago River or its [branches], where th[e] street run[s] to said river, [be per]mitted to occupy the vacant ground on [it,] leaving [e]ighty fee[t] for a stree[t]; for w[hich] […] And for the purpose of [secur]ing this right, each and every owner [or oc]cupant, de[sir]ing such privilege, shall upo[n pay]ing fifteen dollars a[nn]ually [in advance to the] [T]reasurer of [s]aid Board, be entitled to [it]. [The Chicago Academy's book list is set through this line and is quoted with it — 'OAT, Preceptor.', 'Chicago Academy.', 'unetie, Parley', 'Munay\\'s Grain', 'Natioual Reader' — because the two columns are interleaved WITHIN the line and a character range cannot separate them.]",
+      "locator": {
+        "artifact_role": "primary",
+        "issue_page": 4,
+        "column": 2,
+        "lines": [
+          1249,
+          1249
+        ],
+        "lines_of_claim": [
+          1249
+        ],
+        "interleaved": true,
+        "spans": [
+          {
+            "line": 1249,
+            "from": 618,
+            "to": 1196
+          }
+        ]
+      },
+      "entities": [],
+      "notes": "THE WHARFING PRIVILEGE, AND EIGHTY FEET FOR A STREET. This is the legal instrument behind the whole South Water Street river frontage, passed 4 December 1833: an owner whose lot fronts the Chicago River may occupy the vacant ground between his lot and the water — but must LEAVE EIGHTY FEET FOR A STREET — and pays fifteen dollars a year in advance to the Treasurer for the privilege. Three separate things the reconstruction has had to decide are answered here by an ordinance rather than by inference: that the ground between the lots and the river was OCCUPIED by the abutters and not public open ground; that a street width of EIGHTY FEET was reserved along it by law; and that the arrangement was a paid, annual, revocable privilege rather than ownership. The wharf layer (T-0059) and every question about what stands between South Water Street and the water begin here. THE FIGURE IS THE POINT AND IT IS NOT SUPPLIED: 'leaving vighty feot for a atreef' is legible as eighty feet, and the fifteen dollars is legible as printed. What is NOT read is the rest of clause 15's conditions and clause 16, which continue past this line's end into text the column does not preserve."
+    },
+    {
+      "id": "c004",
+      "kind": "infrastructure",
+      "reading": "transcription_mediated",
+      "quote": "to soake a contract weg ete s CoM Se anus ib yt Leh AG contract with nome person, for Siamination of the) ing the Bridgos on the North and South Aten,",
+      "normalized": "[13. …] to [m]ake a contract […] contract with [s]ome person, for [build]ing the Bridg[e]s on the North and South [branches]. [Interleaved with the Academy column, which is quoted with it and dropped in the reading.]",
+      "locator": {
+        "artifact_role": "primary",
+        "issue_page": 4,
+        "column": 2,
+        "lines": [
+          1249,
+          1249
+        ],
+        "lines_of_claim": [
+          1249
+        ],
+        "interleaved": true,
+        "spans": [
+          {
+            "line": 1249,
+            "from": 150,
+            "to": 300
+          }
+        ]
+      },
+      "entities": [],
+      "notes": "THE TOWN CONTRACTS FOR BRIDGES ON BOTH BRANCHES, 4 DECEMBER 1833. The plural is in the print — 'the Bridges on the North and South' — so the Board is authorising more than one, and it is authorising them at the moment of incorporation rather than years later. For a reconstruction standing eighteen months downstream of this ordinance, it dates the intent that produced the crossings a visitor walks over. WHAT IS NOT CLAIMED: the word after 'South' is lost, so 'branches' is a supply from the sense of 'the North and South' in a town with two of them; and nothing here says a bridge was BUILT, only that the Trustees ordered a contract made for building them."
+    },
+    {
+      "id": "c005",
+      "kind": "person",
+      "reading": "transcription_mediated",
+      "quote": "Trustees of the totem: of Chae oo ne Dean Caton, be and he § PRO who are seeking for|torney for the corporation ofetd ee one omunited during the term of one year, or until his ",
+      "normalized": "[14. Be it further Ordained by the] Trustees of the to[wn] of Ch[icago, that J.] Dean Caton, be and he [is appointed at]torney for the corporation of [sai]d [town] during the term of one year, or until his [succes]sor shall be appointed a[n]d qualified to [act]. [Interleaved with the Academy column and quoted with it.]",
+      "locator": {
+        "artifact_role": "primary",
+        "issue_page": 4,
+        "column": 2,
+        "lines": [
+          1249,
+          1249
+        ],
+        "lines_of_claim": [
+          1249
+        ],
+        "interleaved": true,
+        "spans": [
+          {
+            "line": 1249,
+            "from": 360,
+            "to": 536
+          }
+        ]
+      },
+      "entities": [
+        {
+          "as_printed": "Dean Caton",
+          "normalized": "J. Dean Caton",
+          "role": "attorney for the corporation of the town of Chicago",
+          "occupations": [
+            "attorney"
+          ]
+        }
+      ],
+      "notes": "THE CORPORATION'S FIRST ATTORNEY: J. Dean Caton, appointed 4 December 1833 for one year. He is in this corpus already as half of Collins & Caton, whose office the issue of 1834-01-28 places 'at [the] door east of Brewster, Hogan & Co.' and whose advertising runs through 1834 — so the town's lawyer and a South Water Street storefront are the same man, and the professional class of this town is small enough that the corporation hired from it. The given name is printed only as 'Dean Caton' here and the 'J.' is supplied from his own advertisements in the same corpus."
+    },
+    {
+      "id": "c006",
+      "kind": "business",
+      "reading": "transcription_mediated",
+      "quote": "Is published overy Tucsas, se ills Giicago, Cook co. Ml. in the building on the corner of South Water and Clark: streets.",
+      "normalized": "[The Chicago Democrat] is published every Tues[day, in the villa]ge [of] Chicago, Cook co. Ill. in the building on the corner of South Water and Clark streets.",
+      "locator": {
+        "artifact_role": "primary",
+        "issue_page": 4,
+        "column": 6,
+        "lines": [
+          1537,
+          1537
+        ],
+        "lines_of_claim": [
+          1537
+        ],
+        "interleaved": true
+      },
+      "entities": [],
+      "business": {
+        "name": "the Chicago Democrat's printing office",
+        "proprietors": [],
+        "trade": "newspaper printing office",
+        "goods": [
+          "job printing"
+        ],
+        "street": "South Water Street",
+        "placement": {
+          "class": "corner",
+          "anchor": "the corner of South Water and Clark streets",
+          "offset_text": "in the building on the corner of South Water and Clark: streets.",
+          "offset_normalized": "in the building on the corner of South Water and Clark streets",
+          "street": "South Water Street"
+        }
+      },
+      "notes": "THE NEWSPAPER'S OWN BUILDING, ON A CORNER. The Democrat prints its imprint every week and it is an address: the building on the corner of South Water and Clark streets. That is a documented storefront for the one business whose existence the whole of this corpus depends on, and it is the earliest corner placement this reading pass has. It stands unchanged eight months later — the imprint of 1834-08-06 reads 'corner of South Water and' at the same point in the same setting — so the office did not move inside 1834. Two other businesses are advertised at this same corner in January (W. Kimball's New Store, 1834-01-21 and 1834-01-28), which says the corner carried more than one address."
+    },
+    {
+      "id": "c007",
+      "kind": "business",
+      "reading": "transcription_mediated",
+      "quote": "NEW BLACKSMITH HOR. :\nOULD respectfully inform. the inhabit-\nWV ants of Chicago aid the neighbo that they have commenced the abo ‘es inisail town, nearly opposite the Ch cage Hotel, wh ready to wait upon all those who t f work to dol ct, n the most liberal | ~°\nshortest notice. By fas, thoy hope to rective-a",
+      "normalized": "NEW BLACKSMITH [SH]O[P]. [W]OULD respectfully inform the inhabit[ants] of Chicago a[n]d the neighbo[ring settlements] that they have commenced the abo[ve business] in sai[d] town, nearly opposite the Ch[i]cago Hotel, wh[ere they are] ready to wait upon all those who [have] work to do […] on the most liberal [terms and at the] shortest notice.",
+      "locator": {
+        "artifact_role": "primary",
+        "issue_page": 3,
+        "column": 5,
+        "lines": [
+          977,
+          987
+        ],
+        "lines_of_claim": [
+          977,
+          979,
+          981,
+          987
+        ],
+        "interleaved": true
+      },
+      "entities": [],
+      "business": {
+        "name": "the new blacksmith shop opposite the Chicago Hotel",
+        "proprietors": [],
+        "trade": "blacksmith",
+        "goods": [
+          "blacksmith work"
+        ],
+        "street": null,
+        "placement": {
+          "class": "relative",
+          "anchor": "the Chicago Hotel",
+          "offset_text": "that they have commenced the abo ‘es inisail town, nearly opposite the Ch cage Hotel, wh ready to wait upon all those who t f work to dol ct, n the most liberal | ~°",
+          "offset_normalized": "in sai[d] town, nearly opposite the Ch[i]cago Hotel",
+          "street": null
+        }
+      },
+      "notes": "A SMITHY PLACED OFF THE CHICAGO HOTEL — 'nearly opposite the Chicago Hotel' — which does two things at once. It gives a blacksmith's shop a position, and it establishes the CHICAGO HOTEL as a landmark the town's advertising navigates by in January 1834, the same way Graves's Tavern is used in the shoe advertisement on the next page (claim c008). A hotel that other trades give their address against is a large building on a known street. The proprietors' names are lost with the heading and are not supplied; this is a `relative` placement with an anchor and no proprietor."
+    },
+    {
+      "id": "c008",
+      "kind": "business",
+      "reading": "transcription_mediated",
+      "quote": "chsmithing Busines: TTHIAS MASON & CO.\n|ARRIES on the above business in al\nvarious branches, on Main-atreet, ni pporite Graven’ Tavern, where they inten keep, ready made, all’ kinds of Shoes, Ch 3517 95] Ge. he. “Work done on the short 307 30) und most liberal terms,\nChicago, Nor, 26, 1833.",
+      "normalized": "[Bla]cksmithing Busines[s]. [MA]TTHIAS MASON & CO. [C]ARRIES on the above business in al[l its] various branches, on Main-[s]treet, n[early] [o]pposite Grave[s]' Tavern, where they inten[d to] keep, ready made, all kinds of Shoes, Ch[airs] &c. &c. Work done on the short[est notice] and most liberal terms. Chicago, No[v.] 26, 1833. [The boot-and-shoe advertisement beside it is set through these lines and its goods list — 'all kinds of Shoes' — may belong to it rather than to the smith; the reading keeps both and the note says so.]",
+      "locator": {
+        "artifact_role": "primary",
+        "issue_page": 4,
+        "column": 2,
+        "lines": [
+          1157,
+          1163
+        ],
+        "lines_of_claim": [
+          1157,
+          1159,
+          1161,
+          1163
+        ],
+        "interleaved": true
+      },
+      "entities": [
+        {
+          "as_printed": "TTHIAS MASON & CO.",
+          "normalized": "Matthias Mason",
+          "role": "proprietor",
+          "occupations": [
+            "blacksmith"
+          ]
+        }
+      ],
+      "business": {
+        "name": "Matthias Mason & Co., blacksmiths",
+        "proprietors": [
+          "Matthias Mason"
+        ],
+        "trade": "blacksmith",
+        "goods": [
+          "blacksmith work"
+        ],
+        "street": "Main street",
+        "placement": {
+          "class": "relative",
+          "anchor": "Graves' Tavern",
+          "offset_text": "various branches, on Main-atreet, ni pporite Graven’ Tavern, where they inten keep, ready made, all’ kinds of Shoes, Ch 3517 95] Ge. he. “Work done on the short 307 30) und most liberal terms,",
+          "offset_normalized": "on Main-[s]treet, n[early] [o]pposite Grave[s]' Tavern",
+          "street": "Main street"
+        }
+      },
+      "ad_copy_date": {
+        "verbatim": "Chicago, Nor, 26, 1833.",
+        "iso": "1833-11-26"
+      },
+      "notes": "MAIN STREET, NAMED, IN JANUARY 1834 — and that is why this claim is kept, because no street of that name survives in the town this project reconstructs. Either the Democrat's advertisers used 'Main-street' for a street the plat calls something else, or the OCR has taken a different name for it; nothing in this issue settles which, and the reading does not choose. THE ANCHOR IS THE USABLE PART: 'nearly opposite Graves' Tavern', the second business in this issue to place itself against a named public house (see claim c007), and the same Graves at whose house the Board of Trustees met a month earlier (claim c001). The advertisement is dated 26 November 1833 and is still running in January, and it runs again on 1834-01-14 (page 4) and 1834-01-21."
+    },
+    {
+      "id": "c009",
+      "kind": "business",
+      "reading": "transcription_mediated",
+      "quote": "PETER COHEN, RAST EXD OF SOUTH WATEE-STREET, neNaey Chicago,-cLllinojey 3 4ag7 18 Lt earn informs the public,",
+      "normalized": "PETER COHEN, [E]AST E[N]D OF SOUTH WATE[R]-STREET, Chicago, Illinois. […] informs the public […]",
+      "locator": {
+        "artifact_role": "primary",
+        "issue_page": 4,
+        "column": 2,
+        "lines": [
+          1165,
+          1165
+        ],
+        "lines_of_claim": [
+          1165
+        ],
+        "interleaved": true
+      },
+      "entities": [
+        {
+          "as_printed": "PETER COHEN,",
+          "normalized": "Peter Cohen",
+          "role": "proprietor",
+          "occupations": [
+            "merchant"
+          ],
+          "associated_places": [
+            "the east end of South Water Street"
+          ]
+        }
+      ],
+      "business": {
+        "name": "Peter Cohen's store",
+        "proprietors": [
+          "Peter Cohen"
+        ],
+        "trade": "merchant",
+        "goods": [],
+        "street": "South Water Street",
+        "placement": {
+          "class": "street_only",
+          "anchor": null,
+          "offset_text": null,
+          "offset_normalized": null,
+          "street": "South Water Street"
+        }
+      },
+      "notes": "A STOREFRONT AT THE EAST END OF SOUTH WATER STREET, set as a standing head in small capitals — which is how this paper prints an address it means to be read as one. 'East end of South Water-street' is a `street_only` placement with a direction, which is more than most of this corpus gives: it puts Cohen's store at the river-mouth end of the town's principal street, near Fort Dearborn rather than near the forks. He is corroborated as a landmark in his own right three weeks later — W. Montgomery's boot and shoe shop advertises itself 'next door to P. Cohen's Store' (1834-01-28, claim c008 there) — so the store was well enough known to give an address against."
+    },
+    {
+      "id": "c010",
+      "kind": "building",
+      "reading": "transcription_mediated",
+      "quote": "SER OF WATER AND F HIS Snstitution ts design } hate ‘youth of both 1 branches of science necessary for the business of active life swell adapted for the purpors, : > the reception of acholar: froin of pupilage, on through thei course of Academical study. rience which the Instructer lis for sevoral years past, in Bos ty, and from the epportunities $95 qualifying hisneelt for tha tters himself that he shall the inhabitants of tho rapid! ‘Chicago, with ax good a. x¢ mencement, ax is usually f Sern country. TERMS—erx qui PRIMARY DEPAR’ The alphabet, apeling, reed on black beard, spealing an ",
+      "normalized": "[CORN]ER OF WATER AND F[RANKLIN STREETS. T]HIS Institution is design[ed for] the youth of both [sexes … in those] branches of science necessary for the business of active life [… a room] well adapted for the purpose, [… for] the reception of scholars fro[m the beginning] of pupilage, on through their [whole] course of Academical study. [From the expe]rience which the Instructer h[a]s [had] for several years past, in Bos[ton …] and from the [o]pportunities [he has had of] qualifying himself for th[e work, he fla]tters himself that he shall [furnish] the inhabitants of the rapidl[y growing town of] Chicago with as good a s[chool, at its com]mencement, as is usually f[ound in the west]ern country. TERMS — [si]x qu[arters …] PRIMARY DEPAR[TMENT …]",
+      "locator": {
+        "artifact_role": "primary",
+        "issue_page": 4,
+        "column": 1,
+        "lines": [
+          1139,
+          1139
+        ],
+        "lines_of_claim": [
+          1139
+        ],
+        "interleaved": true,
+        "spans": [
+          {
+            "line": 1139,
+            "from": 0,
+            "to": 594
+          }
+        ]
+      },
+      "entities": [],
+      "business": {
+        "name": "the Chicago Academy",
+        "proprietors": [],
+        "trade": "academy",
+        "goods": [],
+        "street": "Water street",
+        "placement": {
+          "class": "corner",
+          "anchor": "the corner of Water and [Franklin] streets",
+          "offset_text": "SER OF WATER AND F",
+          "offset_normalized": "[CORN]ER OF WATER AND F[RANKLIN STREETS]",
+          "street": "Water street"
+        }
+      },
+      "notes": "A SCHOOL BUILDING ON A NAMED CORNER: the Chicago Academy, at the corner of Water and Franklin streets, advertising in January 1834 as a going institution with a primary and a high English department, a book list and a charge for room and fuel. THE CORNER IS THE CLAIM. 'ER OF WATER AND F' is the tail of a standing head set in capitals, and 'F' is read Franklin because Franklin is the cross street the same column names elsewhere in this issue (G. Spring's office, 'the corner of Franklin and South Water-streets'); the supply is bracketed and the alternative — that 'Water' here is North Water rather than South Water — is NOT excluded by anything printed. The preceptor's name survives only as 'OAT, Preceptor.' in the interleaved line 1249 and as 'T. SPR' at line 1143, and is not supplied. For the reconstruction this is an institution that has to stand somewhere in 1835 and now has an 1834 address."
+    },
+    {
+      "id": "c011",
+      "kind": "business",
+      "reading": "transcription_mediated",
+      "quote": "PUBLIC &HOOSE. E. WENTWORTH, ‘AS opened. a TAVERN on Flag’ Creek, 13 wiles South of Chicago, on the road ading to Ottawa, His house wi with the best the c . tnd solicits Uavellers to He intends to keep",
+      "normalized": "PUBLIC [H]O[U]SE. E. WENTWORTH, [H]AS opened a TAVERN on Flag Creek, 13 [m]iles South of Chicago, on the road [le]ading to Ottawa. His house wi[ll be furnished] with the best the c[ountry affords] and solicits [tr]avellers to [call. H]e intends to keep [on hand CORN and OATS].",
+      "locator": {
+        "artifact_role": "primary",
+        "issue_page": 3,
+        "column": 4,
+        "lines": [
+          829,
+          829
+        ],
+        "lines_of_claim": [
+          829
+        ],
+        "interleaved": true,
+        "spans": [
+          {
+            "line": 829,
+            "from": 0,
+            "to": 201
+          }
+        ]
+      },
+      "entities": [
+        {
+          "as_printed": "E. WENTWORTH,",
+          "normalized": "E. Wentworth",
+          "role": "proprietor",
+          "occupations": [
+            "tavern keeper"
+          ]
+        }
+      ],
+      "business": {
+        "name": "E. Wentworth's tavern on Flag Creek",
+        "proprietors": [
+          "E. Wentworth"
+        ],
+        "trade": "tavern",
+        "goods": [
+          "corn",
+          "oats"
+        ],
+        "street": null,
+        "placement": {
+          "class": "relative",
+          "anchor": "Flag Creek, on the road leading to Ottawa",
+          "offset_text": "AS opened. a TAVERN on Flag’ Creek, 13 wiles South of Chicago, on the road ading to Ottawa,",
+          "offset_normalized": "a TAVERN on Flag Creek, 13 [m]iles South of Chicago, on the road [le]ading to Ottawa",
+          "street": null
+        }
+      },
+      "notes": "A TAVERN ON THE OTTAWA ROAD, THIRTEEN MILES SOUTH — which is a fact about the road network rather than about the town. It fixes that the route south-west toward Ottawa was travelled enough in the winter of 1833-34 to carry a public house at a day's short stage out, and it names the creek it stood on. The same advertisement runs unchanged in every issue of the month (1834-01-28, page 4 column 4, line 1175) and again in August 1834, so it is a standing insertion of about eight months."
+    },
+    {
+      "id": "c012",
+      "kind": "business",
+      "reading": "transcription_mediated",
+      "quote": "Chicago Soap and Camaic st week, te) MANUFACTORY. ss incorrect: | Mesars. DANIEL ELSTON & CO, — EG to inform the pablic, that they he ASUas ‘commenced the ‘Manufuctere of Soap =| Candles ; and bope by punctuality and uttent | to Uieir businoys ae well aa keeping constant] Er | herd. sortment of all descriptions of f ui |nnd Soft SOAP, Wz and other Candles, to sure the publie :\nN. B. Cush pai for Talore, in'any quantt $7 210)4 30| also for good House Ashes. 117 25/4 35) —",
+      "normalized": "Chicago Soap and Ca[ndle] MANUFACTORY. Mes[s]rs. DANIEL ELSTON & CO. [B]EG to inform the p[u]blic, that they h[ave] commenced the Manufact[u]re of Soap [and] Candles; and hope by punctuality and attent[ion] to their business, as well as keeping constantl[y on] hand [an as]sortment of all descriptions of [Hard] and Soft SOAP, W[a]x and other Candles, to [en]sure the public [support]. N. B. Cash pai[d] for Tallow, in any quant[ity], also for good House Ashes.",
+      "locator": {
+        "artifact_role": "primary",
+        "issue_page": 4,
+        "column": 2,
+        "lines": [
+          1151,
+          1153
+        ],
+        "lines_of_claim": [
+          1151,
+          1153
+        ],
+        "interleaved": true,
+        "spans": [
+          {
+            "line": 1151,
+            "from": 14,
+            "to": 393
+          },
+          {
+            "line": 1153,
+            "from": 0,
+            "to": 95
+          }
+        ]
+      },
+      "entities": [
+        {
+          "as_printed": "DANIEL ELSTON & CO,",
+          "normalized": "Daniel Elston",
+          "role": "proprietor",
+          "occupations": [
+            "soap and candle manufacturer"
+          ]
+        }
+      ],
+      "business": {
+        "name": "the Chicago Soap and Candle Manufactory",
+        "proprietors": [
+          "Daniel Elston"
+        ],
+        "trade": "soap and candle manufactory",
+        "goods": [
+          "hard soap",
+          "soft soap",
+          "wax candles",
+          "candles"
+        ],
+        "street": null,
+        "placement": {
+          "class": "none",
+          "anchor": null,
+          "offset_text": null,
+          "offset_normalized": null,
+          "street": null
+        }
+      },
+      "notes": "A MANUFACTORY, NOT A STORE, AND IT BUYS ITS RAW MATERIAL IN THE TOWN. Elston & Co. make soap and candles and pay cash for tallow in any quantity and for good house ashes — ashes being the source of the lye, which is why a soap works and a town's hearths are economically joined. For a reconstruction this is a works with a rendering smell and a yard, and it is the earliest documented manufacturing in this reading pass after the saw-mill. It is still advertising in August 1834 (1834-08-06, page 4 column 1), so it survives the year. No site is given in this printing and none is inferred."
+    }
+  ]
+}

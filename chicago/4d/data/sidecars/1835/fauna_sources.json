@@ -1,0 +1,114 @@
+{
+  "scene": "1835",
+  "standard": "Every source the animal records cite, joined once so the wildlife section of the Evidence panel quotes a source exactly the way the building card and the exclusions list do.",
+  "citations": {
+    "andreas_1884_v1": {
+      "source_id": "andreas_1884_v1",
+      "citation": "Andreas, A. T. History of Chicago: From the Earliest Period to the Present Time. Vol. 1. Chicago: A. T. Andreas, 1884.",
+      "url": "https://archive.org/details/historyofchicago01andr",
+      "archived_url": "",
+      "tier": 3,
+      "tier_label": "compiled secondary (Andreas)"
+    },
+    "chicagology_lastwardance": {
+      "source_id": "chicagology_lastwardance",
+      "citation": "\"Chicago's Last Great War Dance.\" Chicagology, transcribing the Chicago Tribune of 14 August 1910, which prints John Dean Caton's written recollection of 18 August 1835, and, below it and unnamed, a first-person passage from an older book.",
+      "url": "https://chicagology.com/fortdearborn/lastwardance/",
+      "archived_url": "https://web.archive.org/web/20260517215531/https://chicagology.com/fortdearborn/lastwardance/",
+      "tier": 2,
+      "tier_label": "near-primary recollection",
+      "transcribes": [
+        {
+          "work": "Chicago Tribune, 'Chicago's Last Great War Dance' — printing the recollection of Judge John Dean Caton, who saw it in his youth and wrote it out in old age",
+          "date": "1910-08-14",
+          "tier": 2,
+          "note": "Carries the one thing this dataset takes: on 18 August 1835 the procession crossed the North Branch bridge on foot in a crowd, then went south along West Water Street past the Green Tree and Wolf's Point taverns to the log raft bridge over the South Branch. That is the bridge standing, the bridge loaded, and the route of two streets, six and a half weeks after the scene date — see data/structures/north_branch_bridge.json. An identified eyewitness's own words at seventy-five years' remove, printed by a newspaper that neither dates nor documents the writing: near-primary recollection, rung 2."
+        }
+      ],
+      "what_it_supplies": [
+        "the North Branch bridge standing and carrying a crowd on 18 August 1835",
+        "the raft bridge over the South Branch standing the same day, and its position relative to the Sauganash",
+        "the route west along the north bank and south along West Water Street past the Green Tree and Wolf's Point taverns"
+      ],
+      "what_it_does_not_supply": [
+        "any dimension, form or material of either bridge — Caton describes crossing them, not building them",
+        "a position for the North Branch bridge: the 'where the railroad bridge stands now' gloss is the 1910 newspaper's, not the witness's, and no placement here uses it",
+        "anything this project may depict of the event itself, which is under the AGENTS.md standing constraint"
+      ]
+    },
+    "chicagology_prefire062": {
+      "source_id": "chicagology_prefire062",
+      "citation": "\"South Water Street.\" Chicagology. Transcribing A. T. Andreas, History of Chicago, Volume I (1884), on the grading and paving of the streets — which quotes the Chicago American of 9 July 1836 for the Lake and La Salle frog pond.",
+      "url": "https://chicagology.com/prefire/prefire062/",
+      "archived_url": "https://web.archive.org/web/20260517212215/https://chicagology.com/prefire/prefire062/",
+      "tier": 3,
+      "tier_label": "compiled secondary (Andreas)",
+      "transcribes": [
+        {
+          "work": "A. T. Andreas, History of Chicago, Volume I — the passage on the grading, turnpiking and planking of the streets, quoting the Chicago American of 9 July 1836 on the pond at Lake and La Salle",
+          "date": "1884",
+          "tier": 3,
+          "note": "Carries the Frog Pond's existence, its corner and its July season — the standing-water and fauna fact S2 parcel (c) is queued to use for the pond at Lake and La Salle. Nothing rests on it yet. A compilation from pioneer testimony quoting a period newspaper: the rung is Andreas's, because Andreas is the document on this page and the American is not."
+        }
+      ],
+      "what_it_supplies": [
+        "the pond at Lake Street and La Salle, standing and stinking in July 1836",
+        "the sequence in which the streets were graded and turnpiked, 1833-1849",
+        "that South Water Street was ordered 'pitched' from the United States Reservation to Randolph before April 1834, and graduated in July 1834 so that water should flow from each cross street into the river"
+      ],
+      "what_it_does_not_supply": [
+        "the Chicago American itself — the quotation is Andreas's and the newspaper has not been opened",
+        "any dimension, depth or extent of the pond",
+        "anything about the street surface in 1835 beyond that it was graded earth: the planking on this page is 1849 and later"
+      ]
+    },
+    "chicagology_prefire273": {
+      "source_id": "chicagology_prefire273",
+      "citation": "\"Wolf's Point and the Town of Chicago.\" Chicagology. Transcribing the Chicago Magazine of 15 May 1857 — the account of the Wolf's Point settlement built on George Davis's 1832 drawing and on Gurdon S. Hubbard's own description of the place as he found it in 1818 — with A. T. Andreas and modern editorial matter around it.",
+      "url": "https://chicagology.com/prefire/prefire273/",
+      "archived_url": "https://web.archive.org/web/20260217122628/https://chicagology.com/prefire/prefire273/",
+      "tier": 2,
+      "tier_label": "near-primary recollection",
+      "transcribes": [
+        {
+          "work": "Chicago Magazine, 'Wolf's Point' — the account of the settlement at the forks, engraved from George Davis's 1832 drawing and incorporating Gurdon S. Hubbard's description of Chicago as he first saw it in 1818",
+          "date": "1857-05-15",
+          "tier": 2,
+          "note": "Carries the Miller House's log construction ('a log structure partly sided') and the Wolf Point Tavern's ('partly log and partly frame'), the fact of a frame element on each, and — through Hubbard — the marshy river-shore strip that grades the south division's marsh surface in terrain_spec.json. Twenty-five years after the fact, from a resident's drawing and a named witness speaking to the writer: rung 2."
+        }
+      ]
+    },
+    "chicagology_prefire278": {
+      "source_id": "chicagology_prefire278",
+      "citation": "\"Town of Chicago.\" Chicagology. Transcribing the Inter Ocean of 22 July 1883 — 'Old Chicago: The Town in 1833', which carries both the town's incorporation record and 'The Old Western Hotel', an interview feature with named old settlers who used the house.",
+      "url": "https://chicagology.com/prefire/prefire278/",
+      "archived_url": "https://web.archive.org/web/20260308051207/https://chicagology.com/prefire/prefire278/",
+      "tier": 2,
+      "tier_label": "near-primary recollection",
+      "transcribes": [
+        {
+          "work": "Inter Ocean, 'Old Chicago: The Town in 1833' — the section headed 'The Old Western Hotel: First Frame House on the West Side', with the reporter's description of the surviving fragment and interviews with old settlers and with the builder's son",
+          "date": "1883-07-22",
+          "tier": 2,
+          "note": "Carries all four Western Hotel claims in this dataset — the farmers' and teamsters' house, W. H. Stow as builder and proprietor, the original two storeys, and the large stable and wagon yard with entrances from both streets — and it carries the dispute over the build date that keeps the dated range at `inferred`. Men recalling a house they used: rung 2."
+        }
+      ]
+    },
+    "fpdcc_ecosystems": {
+      "source_id": "fpdcc_ecosystems",
+      "citation": "Forest Preserves of Cook County. A Tour of Our Ecosystems.",
+      "url": "https://fpdcc.com/nature/a-tour-of-our-ecosystems/",
+      "archived_url": "",
+      "tier": 4,
+      "tier_label": "later scholarship"
+    },
+    "kinzie_waubun_1856": {
+      "source_id": "kinzie_waubun_1856",
+      "citation": "Kinzie, Juliette A. M. Wau-Bun: The 'Early Day' in the North-West. New York: Derby & Jackson, 1856.",
+      "url": "https://www.authorama.com/wau-bun-19.html",
+      "archived_url": "https://archive.org/details/waubunearlydayin00kinzbyu",
+      "tier": 2,
+      "tier_label": "near-primary recollection"
+    }
+  }
+}

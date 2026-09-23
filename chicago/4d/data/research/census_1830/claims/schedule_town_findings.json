@@ -1,0 +1,100 @@
+{
+  "schema": 1,
+  "_doc": "Hand-authored for T-0498. What the 1830 schedule says about the TOWN rather than about a person — the owner's standing ask that a source read for residents be read for everything else it carries at the same time. This domain holds `records`, so the verbatim gate does not bind here; the quotes are nevertheless the committed reading's own lines, character for character, so it will bind if it is ever turned on.",
+  "source_id": "census_1830_peoria_county_chicago_precinct",
+  "ticket": "T-0498",
+  "describes_date": "1830",
+  "claims": [
+    {
+      "id": "census1830_town_001",
+      "kind": "civic",
+      "reading": "scan_verified",
+      "quote": "n582\t7\tU S Garrison Fort Dearborn — Maj John Fowle Commr",
+      "normalized": "The United States garrison of Fort Dearborn was enumerated in 1830 as a single household under Major John Fowle, commanding.",
+      "locator": {
+        "image": "n582",
+        "entry": 7,
+        "lines": [
+          65,
+          65
+        ],
+        "text_file": "peoria_putnam_1830_leaves_580_582.txt"
+      },
+      "describes_date": "1830",
+      "entities": [
+        "Fort Dearborn",
+        "Maj John Fowle"
+      ],
+      "town_finding": true,
+      "notes": "The enumerator braces two written lines together with a single '}' and enters one set of tallies against them, so the garrison is one line of the schedule and not a roll of soldiers: no soldier is named and the men are age-band marks. It is the only institution on either leaf. For the reconstruction the value is the FORM of the entry — in 1830 the fort is a household of the district, counted beside Clybourn and Wolcott, which is how the settlement was actually organised."
+    },
+    {
+      "id": "census1830_town_002",
+      "kind": "household",
+      "reading": "scan_verified",
+      "quote": "n580\t29\tJoseph LaFramboy\nn580\t30\tClouded L Framboy",
+      "normalized": "Two LaFramboise households stood at the forks in 1830, entered on consecutive lines: Joseph, and a second head the enumerator writes 'Clouded' for Claude.",
+      "locator": {
+        "image": "n580",
+        "entry": 29,
+        "lines": [
+          48,
+          49
+        ],
+        "text_file": "peoria_putnam_1830_leaves_580_582.txt"
+      },
+      "describes_date": "1830",
+      "entities": [
+        "Joseph LaFramboise",
+        "Claude LaFramboise"
+      ],
+      "town_finding": true,
+      "notes": "TWO households, not one: an enumerator writes two lines because he counted two fires. The town's 825 households carry NO LaFramboise at all — the surname reaches nothing in data/residents/households/ — so this is a trading family present at the mouth of the river five years before the scene and absent from the reconstruction. That is a question for T-0513, not an answer here: they may have gone, and the 1830 line alone never mints an 1835 resident."
+    },
+    {
+      "id": "census1830_town_003",
+      "kind": "civic",
+      "reading": "scan_verified",
+      "quote": "n580\t22\tWilliam See",
+      "normalized": "A heavy rule is drawn under William See on leaf n580 and the hand spaces wider after it: the enumerator marking a break in his round.",
+      "locator": {
+        "image": "n580",
+        "entry": 22,
+        "lines": [
+          41,
+          41
+        ],
+        "text_file": "peoria_putnam_1830_leaves_580_582.txt"
+      },
+      "describes_date": "1830",
+      "entities": [
+        "William See"
+      ],
+      "town_finding": true,
+      "notes": "The twenty-two entries above the rule are written tight and evenly; the seven below it are spaced nearly double. Something interrupted the round at that point — a day, a river crossing, a change of settlement. The schedule's order is a WALKING order and this is the only mark on either leaf that says where the walk paused, which is why it is recorded even though it names no place. It is not evidence of a boundary and must not be read as one."
+    },
+    {
+      "id": "census1830_town_004",
+      "kind": "civic",
+      "reading": "scan_verified",
+      "quote": "n580\t7\tHugh Walker",
+      "normalized": "In 1830 Chicago had no county of its own: the settlement was enumerated inside the district headed 'Peoria & Putnam Counties & Territory attached', and the schedule never writes the word Chicago.",
+      "locator": {
+        "image": "n580",
+        "entry": 7,
+        "lines": [
+          26,
+          26
+        ],
+        "text_file": "peoria_putnam_1830_leaves_580_582.txt"
+      },
+      "describes_date": "1830",
+      "entities": [
+        "Peoria County",
+        "Putnam County"
+      ],
+      "town_finding": true,
+      "notes": "The county cell is written once, against the first entry of leaf n580, and dittoed down; n582 leaves it empty and continues. Cook County was created in January 1831, five months after this enumeration. The quote is an ordinary household line rather than the heading because the heading is a marginal note in the county column and not a line of the reading — it is transcribed in the text file's preamble and in the district block of records/schedule_chicago_1830.json. The finding is that any later index which calls this 'the 1830 census of Chicago' has added the word."
+    }
+  ]
+}

@@ -1,0 +1,910 @@
+{
+  "id": "z01_wet_prairie",
+  "zone": 1,
+  "name": "Wet prairie (lake plain clay flat)",
+  "dossier": "docs/research/02-flora.md § ZONE 1",
+  "scene_date": "1835-07-01",
+  "palette": "july_wet_prairie",
+  "reads_as": "a coarse, dark-green, wind-combed sward with a scattered emergent forb layer; matrix cover about 100 per cent and no bare soil",
+  "plantable_in_scene": true,
+  "cover": {
+    "matrix_fraction": 1.0,
+    "bare_soil_fraction": 0.0,
+    "standing_water_fraction": 0.0
+  },
+  "ground": {
+    "rgb": [
+      72,
+      84,
+      48
+    ],
+    "wet_rgb": [
+      58,
+      60,
+      40
+    ]
+  },
+  "extent": {
+    "kind": "elevation_band",
+    "elev_m": [
+      0.5,
+      1.45
+    ],
+    "exclude_polygons": [
+      [
+        [
+          -60,
+          340
+        ],
+        [
+          -52,
+          300
+        ],
+        [
+          -44,
+          262
+        ],
+        [
+          -32,
+          220
+        ],
+        [
+          -32,
+          180
+        ],
+        [
+          -30,
+          120
+        ],
+        [
+          -28,
+          60
+        ],
+        [
+          -20,
+          36
+        ],
+        [
+          -4,
+          10
+        ],
+        [
+          16,
+          -6
+        ],
+        [
+          48,
+          8
+        ],
+        [
+          80,
+          26
+        ],
+        [
+          112,
+          42
+        ],
+        [
+          138,
+          58
+        ],
+        [
+          152,
+          86
+        ],
+        [
+          172,
+          108
+        ],
+        [
+          230,
+          118
+        ],
+        [
+          340,
+          126
+        ],
+        [
+          340,
+          340
+        ]
+      ]
+    ],
+    "priority": 20,
+    "confidence": "inferred",
+    "sources": [
+      "chicagology_prefire273",
+      "white_1978_inai"
+    ],
+    "note": "Andreas: 'The West Side was an open prairie, entirely free from timber, except for a grove up the South Branch', and the South Side was 'low and marshy ground' under 'a free and boundless prospect of open prairie'. That is documented. The BOUNDARY is not: the community is placed by elevation against the committed heightfield, taking every land surface from 0.50 m above the datum water (above the marshy shore strip) up to the top of the plain, and the North Division is excluded by polygon because Andreas documents it as timbered. No survey drew these lines."
+  },
+  "species": [
+    {
+      "id": "sporobolus_michauxianus",
+      "binomial": "Sporobolus michauxianus",
+      "common": "prairie cordgrass",
+      "role": "matrix",
+      "form": "grass_arching",
+      "synonym": "Spartina pectinata",
+      "abundance": {
+        "cover_fraction": [
+          0.4,
+          0.55
+        ]
+      },
+      "height_m": [
+        1.2,
+        2.0
+      ],
+      "width_m": [
+        0.5,
+        0.9
+      ],
+      "july": {
+        "phenology": "flowering",
+        "foliage_rgb": [
+          86,
+          104,
+          62
+        ],
+        "foliage_rgb_alt": [
+          112,
+          126,
+          78
+        ],
+        "inflorescence": {
+          "shape": "one_sided_spike",
+          "rgb": [
+            198,
+            194,
+            152
+          ],
+          "height_frac": 0.92,
+          "size_m": [
+            0.15,
+            0.3
+          ]
+        },
+        "appearance": "Coarse arching razor-edged blades; one-sided greenish-straw spikes on stiff culms. The tall element in July."
+      },
+      "confidence": "attested",
+      "sources": [
+        "white_1978_inai",
+        "swink_wilhelm_1994"
+      ]
+    },
+    {
+      "id": "calamagrostis_canadensis",
+      "binomial": "Calamagrostis canadensis",
+      "common": "bluejoint",
+      "role": "matrix",
+      "form": "grass_fine",
+      "abundance": {
+        "cover_fraction": [
+          0.15,
+          0.25
+        ]
+      },
+      "height_m": [
+        0.9,
+        1.3
+      ],
+      "width_m": [
+        0.2,
+        0.4
+      ],
+      "width_provenance": {
+        "confidence": "inferred",
+        "sources": [
+          "white_1978_inai"
+        ],
+        "note": "WHAT ONE DRAWN PLANT COVERS ON THE GROUND, added for ROADMAP K49(c) so this record's cover_fraction can be read as a count of plants. The only graminoid footprint measured anywhere in this project's flora dossier is Carex stricta's, at docs/research/02-flora.md § ZONE 3: \"tussocks 0.3-0.5 m tall x 0.3 m wide, 0.5-1.0 m apart\", which this dataset commits as [0.28, 0.34]. Bluejoint is listed in the same wet-meadow matrix (§ ZONE 1 and § ZONE 3) and is rhizomatous rather than tussock-forming, so a drawn shoot cluster is taken at or under that hummock: 0.20-0.40 m. The band is reasoned from the co-listed measurement, not stated by it."
+      },
+      "july": {
+        "phenology": "flowering",
+        "foliage_rgb": [
+          104,
+          122,
+          74
+        ],
+        "inflorescence": {
+          "shape": "panicle_open",
+          "rgb": [
+            150,
+            128,
+            138
+          ],
+          "height_frac": 0.86,
+          "size_m": [
+            0.12,
+            0.22
+          ]
+        },
+        "appearance": "Soft purplish-bronze open panicles that give the field a haze."
+      },
+      "confidence": "attested",
+      "sources": [
+        "white_1978_inai"
+      ]
+    },
+    {
+      "id": "andropogon_gerardii",
+      "binomial": "Andropogon gerardii",
+      "common": "big bluestem",
+      "role": "matrix",
+      "form": "grass_clump",
+      "abundance": {
+        "cover_fraction": [
+          0.15,
+          0.25
+        ]
+      },
+      "height_m": [
+        0.8,
+        1.2
+      ],
+      "width_m": [
+        0.3,
+        0.6
+      ],
+      "july": {
+        "phenology": "vegetative",
+        "foliage_rgb": [
+          96,
+          118,
+          88
+        ],
+        "inflorescence": null,
+        "appearance": "Blue-green leafy clumps, NO inflorescence. July height is about half the September height; the turkey-foot culm has not risen."
+      },
+      "confidence": "attested",
+      "sources": [
+        "white_1978_inai",
+        "swink_wilhelm_1994"
+      ]
+    },
+    {
+      "id": "carex_stricta",
+      "binomial": "Carex stricta",
+      "common": "tussock sedge",
+      "role": "matrix",
+      "form": "sedge_tussock",
+      "abundance": {
+        "cover_fraction": [
+          0.05,
+          0.15
+        ]
+      },
+      "height_m": [
+        0.5,
+        0.8
+      ],
+      "width_m": [
+        0.25,
+        0.4
+      ],
+      "july": {
+        "phenology": "past_bloom",
+        "foliage_rgb": [
+          78,
+          106,
+          56
+        ],
+        "inflorescence": {
+          "shape": "spike",
+          "rgb": [
+            124,
+            122,
+            88
+          ],
+          "height_frac": 0.75,
+          "size_m": [
+            0.03,
+            0.06
+          ],
+          "fruit": true
+        },
+        "appearance": "Fountain-like arching green tussocks on 20-40 cm pedestals; spikes already fruited and going over."
+      },
+      "confidence": "attested",
+      "sources": [
+        "white_1978_inai"
+      ]
+    },
+    {
+      "id": "panicum_virgatum",
+      "binomial": "Panicum virgatum",
+      "common": "switchgrass",
+      "role": "matrix",
+      "form": "grass_clump",
+      "abundance": {
+        "cover_fraction": [
+          0.03,
+          0.08
+        ]
+      },
+      "height_m": [
+        0.9,
+        1.4
+      ],
+      "width_m": [
+        0.3,
+        0.6
+      ],
+      "width_provenance": {
+        "confidence": "inferred",
+        "sources": [
+          "swink_wilhelm_1994"
+        ],
+        "note": "WHAT ONE DRAWN PLANT COVERS ON THE GROUND, added for ROADMAP K49(c) so this record's cover_fraction can be read as a count of plants. Reasoned from this dataset's own committed Andropogon gerardii clump, [0.30, 0.60] m in this same record. § ZONE 1 gives switchgrass 0.9-1.4 m in July against big bluestem's 0.8-1.2 m and lists both as warm-season bunchgrasses of the one matrix, so the two clumps are taken as the same size class. No source states either width."
+      },
+      "july": {
+        "phenology": "vegetative",
+        "foliage_rgb": [
+          90,
+          116,
+          70
+        ],
+        "inflorescence": null,
+        "appearance": "Upright leafy clumps; the airy panicle has not emerged."
+      },
+      "confidence": "inferred",
+      "sources": [
+        "swink_wilhelm_1994"
+      ],
+      "note": "Dossier tags this [I] for the site: switchgrass is on the regional wet-prairie list but no source names it at the forks. The dossier's July column reads 'vegetative to just-emerging panicle'; recorded as vegetative with a null inflorescence, which is the conservative reading of the global phenology rule."
+    },
+    {
+      "id": "liatris_pycnostachya",
+      "binomial": "Liatris pycnostachya",
+      "common": "prairie blazing star",
+      "role": "forb",
+      "form": "forb_spike",
+      "abundance": {
+        "density_per_ha": [
+          200,
+          600
+        ]
+      },
+      "height_m": [
+        1.0,
+        1.5
+      ],
+      "july": {
+        "phenology": "flowering",
+        "foliage_rgb": [
+          92,
+          116,
+          62
+        ],
+        "inflorescence": {
+          "shape": "spike",
+          "rgb": [
+            176,
+            72,
+            140
+          ],
+          "height_frac": 0.72,
+          "size_m": [
+            0.2,
+            0.4
+          ]
+        },
+        "appearance": "Bright rose-purple dense spikes opening top-down — the signature July colour of the wet prairie."
+      },
+      "confidence": "attested",
+      "sources": [
+        "swink_wilhelm_1994",
+        "illinois_wildflowers",
+        "idnr_tallgrass_plantlist"
+      ],
+      "note": "Sources disagree on timing and the disagreement is recorded rather than resolved silently: the dossier puts it in flower mid-July, Illinois Wildflowers gives its blooming period as 'late summer... about a month'. Kept flowering because L. pycnostachya is the earliest Liatris of the region and the dossier names it the signature July colour; if this is wrong it is early, not late."
+    },
+    {
+      "id": "vernonia_fasciculata",
+      "binomial": "Vernonia fasciculata",
+      "common": "common ironweed",
+      "role": "forb",
+      "form": "forb_umbel",
+      "abundance": {
+        "density_per_ha": [
+          150,
+          400
+        ]
+      },
+      "height_m": [
+        1.0,
+        1.5
+      ],
+      "july": {
+        "phenology": "flowering",
+        "foliage_rgb": [
+          80,
+          104,
+          54
+        ],
+        "inflorescence": {
+          "shape": "corymb_flat",
+          "rgb": [
+            122,
+            44,
+            110
+          ],
+          "height_frac": 0.9,
+          "size_m": [
+            0.1,
+            0.18
+          ]
+        },
+        "appearance": "Deep red-purple flat-topped corymbs over narrow dark leaves."
+      },
+      "confidence": "inferred",
+      "sources": [
+        "swink_wilhelm_1994"
+      ],
+      "note": "Dossier [I]: regional wet-prairie flora, not named for this site."
+    },
+    {
+      "id": "silphium_terebinthinaceum",
+      "binomial": "Silphium terebinthinaceum",
+      "common": "prairie dock",
+      "role": "forb",
+      "form": "forb_basal_scape",
+      "abundance": {
+        "density_per_ha": [
+          40,
+          120
+        ]
+      },
+      "height_m": [
+        2.0,
+        3.0
+      ],
+      "width_m": [
+        0.6,
+        1.0
+      ],
+      "july": {
+        "phenology": "flowering",
+        "foliage_rgb": [
+          88,
+          112,
+          54
+        ],
+        "inflorescence": {
+          "shape": "head_ray",
+          "rgb": [
+            222,
+            192,
+            60
+          ],
+          "height_frac": 0.94,
+          "size_m": [
+            0.06,
+            0.1
+          ]
+        },
+        "appearance": "Huge sandpapery vertical basal leaves to 0.4 m and a near-leafless scape carrying yellow heads. The strongest vertical accent in the zone."
+      },
+      "confidence": "inferred",
+      "sources": [
+        "swink_wilhelm_1994",
+        "idnr_tallgrass_plantlist"
+      ],
+      "note": "Dossier [I]: regional, not named at the forks."
+    },
+    {
+      "id": "asclepias_incarnata",
+      "binomial": "Asclepias incarnata",
+      "common": "swamp milkweed",
+      "role": "forb",
+      "form": "forb_umbel",
+      "abundance": {
+        "density_per_ha": [
+          150,
+          400
+        ]
+      },
+      "height_m": [
+        0.9,
+        1.3
+      ],
+      "july": {
+        "phenology": "flowering",
+        "foliage_rgb": [
+          92,
+          118,
+          66
+        ],
+        "inflorescence": {
+          "shape": "umbel_domed",
+          "rgb": [
+            214,
+            138,
+            152
+          ],
+          "height_frac": 0.88,
+          "size_m": [
+            0.07,
+            0.12
+          ]
+        },
+        "appearance": "Dusty-pink domed umbels held above opposite lance leaves."
+      },
+      "confidence": "attested",
+      "sources": [
+        "swink_wilhelm_1994",
+        "idnr_tallgrass_plantlist"
+      ]
+    },
+    {
+      "id": "pycnanthemum_virginianum",
+      "binomial": "Pycnanthemum virginianum",
+      "common": "mountain mint",
+      "role": "forb",
+      "form": "forb_umbel",
+      "abundance": {
+        "density_per_ha": [
+          300,
+          700
+        ]
+      },
+      "height_m": [
+        0.6,
+        0.9
+      ],
+      "july": {
+        "phenology": "flowering",
+        "foliage_rgb": [
+          124,
+          138,
+          106
+        ],
+        "inflorescence": {
+          "shape": "corymb_flat",
+          "rgb": [
+            226,
+            226,
+            214
+          ],
+          "height_frac": 0.9,
+          "size_m": [
+            0.05,
+            0.09
+          ]
+        },
+        "appearance": "Flat-topped dull-white heads over grey-green foliage."
+      },
+      "confidence": "attested",
+      "sources": [
+        "swink_wilhelm_1994"
+      ]
+    },
+    {
+      "id": "veronicastrum_virginicum",
+      "binomial": "Veronicastrum virginicum",
+      "common": "Culver's root",
+      "role": "forb",
+      "form": "forb_spike",
+      "abundance": {
+        "density_per_ha": [
+          80,
+          250
+        ]
+      },
+      "height_m": [
+        1.2,
+        1.8
+      ],
+      "july": {
+        "phenology": "flowering",
+        "foliage_rgb": [
+          84,
+          110,
+          60
+        ],
+        "inflorescence": {
+          "shape": "spire_candelabra",
+          "rgb": [
+            238,
+            238,
+            226
+          ],
+          "height_frac": 0.86,
+          "size_m": [
+            0.1,
+            0.2
+          ]
+        },
+        "appearance": "White candelabra spires over whorled leaves; at their best early-mid July and fading late."
+      },
+      "confidence": "attested",
+      "sources": [
+        "swink_wilhelm_1994",
+        "idnr_tallgrass_plantlist"
+      ]
+    },
+    {
+      "id": "lythrum_alatum",
+      "binomial": "Lythrum alatum",
+      "common": "winged loosestrife",
+      "role": "forb",
+      "form": "forb_spike",
+      "abundance": {
+        "density_per_ha": [
+          200,
+          500
+        ]
+      },
+      "height_m": [
+        0.5,
+        0.9
+      ],
+      "july": {
+        "phenology": "flowering",
+        "foliage_rgb": [
+          96,
+          120,
+          62
+        ],
+        "inflorescence": {
+          "shape": "cluster_axillary",
+          "rgb": [
+            180,
+            70,
+            132
+          ],
+          "height_frac": 0.65,
+          "size_m": [
+            0.02,
+            0.04
+          ]
+        },
+        "appearance": "Small magenta flowers in the leaf axils up a wiry four-angled stem."
+      },
+      "confidence": "attested",
+      "sources": [
+        "swink_wilhelm_1994"
+      ]
+    },
+    {
+      "id": "helianthus_grosseserratus",
+      "binomial": "Helianthus grosseserratus",
+      "common": "sawtooth sunflower",
+      "role": "forb",
+      "form": "forb_daisy",
+      "abundance": {
+        "density_per_ha": [
+          100,
+          300
+        ]
+      },
+      "height_m": [
+        1.5,
+        2.2
+      ],
+      "july": {
+        "phenology": "budding",
+        "foliage_rgb": [
+          86,
+          110,
+          56
+        ],
+        "inflorescence": null,
+        "appearance": "Tall smooth green stems and coarse toothed leaves only — it flowers in August."
+      },
+      "confidence": "inferred",
+      "sources": [
+        "white_1978_inai"
+      ],
+      "note": "Dossier [I]. Budding in mid-July, so the record carries no inflorescence at all: a sheet of yellow sunflowers here would be an August scene."
+    },
+    {
+      "id": "spiraea_alba",
+      "binomial": "Spiraea alba",
+      "common": "meadowsweet",
+      "role": "shrub_low",
+      "form": "shrub_low",
+      "abundance": {
+        "density_per_ha": [
+          20,
+          60
+        ]
+      },
+      "height_m": [
+        0.8,
+        1.2
+      ],
+      "width_m": [
+        0.5,
+        1.0
+      ],
+      "july": {
+        "phenology": "flowering",
+        "foliage_rgb": [
+          92,
+          114,
+          62
+        ],
+        "inflorescence": {
+          "shape": "panicle_dense",
+          "rgb": [
+            232,
+            230,
+            220
+          ],
+          "height_frac": 0.88,
+          "size_m": [
+            0.08,
+            0.14
+          ]
+        },
+        "appearance": "The only shrub standing in the matrix; fuzzy white terminal panicles."
+      },
+      "confidence": "inferred",
+      "sources": [
+        "swink_wilhelm_1994"
+      ],
+      "note": "Dossier [I]: regional wet-prairie shrub, not named at the forks."
+    },
+    {
+      "id": "zizia_aurea",
+      "binomial": "Zizia aurea",
+      "common": "golden Alexanders",
+      "role": "forb",
+      "form": "forb_umbel",
+      "abundance": {
+        "density_per_ha": [
+          100,
+          300
+        ]
+      },
+      "height_m": [
+        0.5,
+        0.7
+      ],
+      "july": {
+        "phenology": "past_bloom",
+        "foliage_rgb": [
+          96,
+          122,
+          64
+        ],
+        "inflorescence": {
+          "shape": "umbel_compound",
+          "rgb": [
+            140,
+            152,
+            86
+          ],
+          "height_frac": 0.88,
+          "size_m": [
+            0.05,
+            0.09
+          ],
+          "fruit": true
+        },
+        "appearance": "PAST BLOOM: green ribbed schizocarp umbels, not yellow flowers."
+      },
+      "confidence": "inferred",
+      "sources": [
+        "swink_wilhelm_1994"
+      ],
+      "note": "Dossier [I], and a phenology trap: Zizia is a May-June flower. Rendering it yellow in July puts the scene six weeks early."
+    },
+    {
+      "id": "cicuta_maculata",
+      "binomial": "Cicuta maculata",
+      "common": "water hemlock",
+      "role": "forb",
+      "form": "forb_umbel",
+      "abundance": {
+        "density_per_ha": [
+          30,
+          100
+        ]
+      },
+      "height_m": [
+        1.2,
+        1.8
+      ],
+      "july": {
+        "phenology": "flowering",
+        "foliage_rgb": [
+          88,
+          116,
+          62
+        ],
+        "inflorescence": {
+          "shape": "umbel_compound",
+          "rgb": [
+            236,
+            238,
+            228
+          ],
+          "height_frac": 0.92,
+          "size_m": [
+            0.08,
+            0.14
+          ]
+        },
+        "appearance": "Flat white compound umbels on a purple-mottled stem."
+      },
+      "confidence": "inferred",
+      "sources": [
+        "swink_wilhelm_1994"
+      ],
+      "note": "Dossier [I]: regional wet-prairie flora."
+    },
+    {
+      "id": "solidago_riddellii",
+      "binomial": "Solidago riddellii",
+      "common": "Riddell's goldenrod",
+      "role": "forb",
+      "form": "forb_daisy",
+      "abundance": {
+        "density_per_ha": [
+          50,
+          200
+        ]
+      },
+      "height_m": [
+        0.6,
+        1.0
+      ],
+      "july": {
+        "phenology": "budding",
+        "foliage_rgb": [
+          88,
+          114,
+          58
+        ],
+        "inflorescence": null,
+        "appearance": "Folded keeled leaves and a tight green bud cluster; it is a September flower."
+      },
+      "confidence": "inferred",
+      "sources": [
+        "swink_wilhelm_1994"
+      ],
+      "note": "Dossier [I] and gives only 'scattered' for density; the 50-200/ha range is this record's own reading of scattered against the named densities in the same table, not a figure the dossier states."
+    },
+    {
+      "id": "physostegia_virginiana",
+      "binomial": "Physostegia virginiana",
+      "common": "obedient plant",
+      "role": "forb",
+      "form": "forb_spike",
+      "abundance": {
+        "density_per_ha": [
+          50,
+          200
+        ]
+      },
+      "height_m": [
+        0.6,
+        1.0
+      ],
+      "july": {
+        "phenology": "budding",
+        "foliage_rgb": [
+          90,
+          116,
+          62
+        ],
+        "inflorescence": null,
+        "appearance": "Square stems in a dense leafy spike, the flower buds formed and stacked up the axis but not yet open."
+      },
+      "confidence": "inferred",
+      "sources": [
+        "swink_wilhelm_1994"
+      ],
+      "note": "Dossier [I] and gives only 'scattered'; the density range is this record's reading of scattered, not a stated figure. PHENOLOGY CORRECTED 2026-08-10: this record read 'flowering' with the appearance note 'flowers just opening up the spike', which was already hedging. Physostegia virginiana in northern Illinois opens from about mid-July into September, so on 1 July it is in bud at best. The source is cited for the species' presence in this community, not for the bloom date — the July-1 grade is this record's reading and is why the confidence is inferred. The visible consequence of the error was worse than the data: drawn as a smooth solid pink cone it read as a pink cattail."
+    }
+  ],
+  "confidence": "attested",
+  "sources": [
+    "chicagology_prefire273"
+  ],
+  "note": "Community classification is INAI wet prairie / NVC CEGL002224 (Spartina pectinata - Carex spp. - Calamagrostis canadensis wet meadow) on lacustrine clay. The species list is the dossier's ZONE 1 table; its [I] rows are regional flora rather than site records and are marked inferred here.",
+  "review_required": false
+}

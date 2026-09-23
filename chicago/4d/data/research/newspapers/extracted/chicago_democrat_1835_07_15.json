@@ -1,0 +1,238 @@
+{
+  "schema": 1,
+  "issue_id": "chicago_democrat_1835_07_15",
+  "extracted": "2026-08-29",
+  "extracted_by": "hand, T-0296",
+  "note": "The Democrat of 1835-07-15, Vol. II No. 13, read through — and it is the worst text in the corpus. The deposit holds ONE transcription of this issue, a `-2` OCR rebuild whose own QA note records a median cross-pass agreement of four per cent, so it is a SOLE WITNESS at the weakest tier: there is nothing to check it against and its own transcribers did not trust it. The reading is made accordingly. Seven claims are made where the type is legible enough to carry one, every uncertain reading stays inside `[uncertain: …]` or square brackets in `normalized`, and NO PERSON IS MINTED OUT OF A CROP-EDGE NAME — the Chicago Reading Room's committee (c001) and the secretary who signed its resolutions are left unminted for exactly that reason, as are the letter lists at c007. The issue's one substantial find is c001: the board of the Chicago Reading Room resolving to seek a two-thousand-dollar joint-stock building ON THE PUBLIC SQUARE, containing the reading room and usable as a meeting or lecture room. It is a building PROPOSED and not a building standing, and the claim says so. NO CHICAGO POST-OFFICE LETTER LIST: swept for every form the Democrat uses, for three hits, all of them the Hennepin, Plainfield and Du Page returns of 1 July 1835 reprinted from the previous week.",
+  "claims": [
+    {
+      "id": "c001",
+      "kind": "building",
+      "reading": "transcription_mediated",
+      "quote": "AGO MEADISG ROOM\nee AL maring of the tans of sitactore of a ie tn Chxago Keating Hoon, bei: at the oy Cal Treacot Uhese on Monday evening, July font, Garter se purjane of cuseuitiag upon ial sas fr obtaiuicg a bi) dig aumable ler\nfe Rating Rou, the follow sig preamble #0 feaSoMous were wlopted, yuz:\nWoerear it bay been suggested that a (ott stack ceanpany might be tore 10 Chn- Mage, Stat ouhd appropriate brow $2. for a beiiding com Deo witale lore Readiag Rous, as we 00 Yat tust igin pe used for a snestng © lecture room, and toe olber) public pur for, 3d La Gindexplond fnat esye can Prigite ba ablamei tor a company to place\nad\nsed Reba buidiag on the Public Syware tree\na ret; aed belie that euch a buriting MOS) be a great J chuvemence tu\nReaaing Rosie Avec ad wel an ty Be pobin genersiv; while ats pinprietur ™ Moy be euubled, Ide the rente § leasyoabic relat Jot they aves!\nis tear! da fully ap HOV wats for ablainoiy a bash thes wri), ae tae ms practicable 9M Mueir cota! aupgaitt aad co-opes\nited the tog,\nMen. Resives, Taat C. Petit Beae H Moore, be eprdiate! a comm\nLoar J\nUv Yo take act Tusther slets as may be ne\nae Sm (0. be Gohen uu the part of this boar Wik regard to the cont. mptater build Heme, ths ets mec by iting i Lat these remiebo lahal ee we eR os bé pat\nhe newapspere of this piace a Hra@ity Mucus, Decielary age, July Bio, 1535",
+      "normalized": "[CHIC]AGO [R]EADING ROOM. [At] a m[ee]ting of the [board] of [dire]ctors of the […] Chicago [R]eading Roo[m], he[ld] at the […] [uncertain: Tremont] H[ou]se on Monday evening, July [uncertain: 13th], [for the] purpose of consulting upon [ways and mean]s f[o]r obtaining a bu[il]ding suitable for [th]e [Re]ading Roo[m], the follow[in]g preamble [and] re[s]o[luti]ons were adopted, viz: Whereas it ha[s] been suggested that a [j]o[in]t stock company might be [formed] in Chicago, that [w]ould appropriate [about] $2[,000] for a building con[taining] […] [a] Reading Room, [and] as [it] […] [m]i[ght] be used for a meeting [or] lecture room, and [for] other public pur[poses]; [an]d [it is understood] that [a site] can [uncertain: be obtained] for a company to place [the propo]sed […] building on the Public Square […] [st]reet; a[n]d belie[ving] that such a b[ui]lding [would] be a great convenience to [the] Reading Roo[m] Assoc[iation] as well as to the pub[l]ic generally; while its p[ro]prietor[s] may be enabled, [by] the rents [at] reasonable rates […] [it is] ther[e]fore fully approv[ed …] […] Resolved, That C. Petit[…] [and …] H. Moore, be app[o]i[n]te[d] a comm[ittee …] to take [su]ch further steps as may be ne[cessary …] on the part of this boar[d] with regard to the contem[p]lated build[ing] […] that these resolutions be pu[blished in] the newspapers of this place. […] Secretary[.] [Chic]ago, July 1[3], 1835",
+      "locator": {
+        "artifact_role": "primary",
+        "issue_page": 3,
+        "column": 1,
+        "lines": [
+          289,
+          303
+        ]
+      },
+      "entities": [],
+      "notes": "A BUILDING PROPOSED, NOT A BUILDING STANDING, and the distinction is the whole of what may be taken from this claim. The board of directors of the Chicago Reading Room met, and resolved to seek a joint stock company that would appropriate about two thousand dollars for a building containing the Reading Room and usable as a meeting or lecture room, on the understanding that a site could be had ON THE PUBLIC SQUARE. Nothing here says such a building was ever put up, and nothing in the model may stand on it. WHY NO PERSON IS MINTED: this issue is the `-2` OCR rebuild, the weakest tier in the corpus, and the two committee names arrive as 'C. Petit' and 'Beae H Moore' with the secretary's signature reduced to 'a Hra@ity Mucus' — the ticket's own instruction is not to mint a person out of that, so none is minted. WHAT IS UNCERTAIN AND MARKED AS SUCH: the house the board met in reads 'the oy Cal Treacot Uhese', which is a Tremont House to the eye and is left inside `[uncertain: …]` rather than asserted; the meeting date reads 'July font' and is read as the Monday of that week, 13 July 1835, also marked. THE SUM AND THE SITE ARE THE LEGIBLE PART and are why the claim is made: '$2.' for '$2,000' is a crop of a printed figure, and 'buidiag on the Public Syware' is not ambiguous. The Public Square is already in the model, and a reading room proposed for it in the scene month is a fact about the square in July 1835 whether or not the building followed."
+    },
+    {
+      "id": "c002",
+      "kind": "event",
+      "reading": "transcription_mediated",
+      "quote": "A Mectem af the Demwerstic citizens of Chicago Preeduit, wil be held at the Eagle »| Cafe Houeey Friday Kvewng July si. 5ty TFnght eteleks Tim hop tees Me pe | ral and puactual attendance .Precinie officers {10 be mpported at tie; Auguay Election, wil | [beseleted at thin meshing, and auch oper _| business a6 nisy properly be brought ce the meeting.! ” hy carder uf tis Conbnitter.",
+      "normalized": "A M[ee]t[ing] of the Dem[o]cratic citizens of Chicago Pre[cin]ct, wil[l] be held at the Eagle C[o]f[fe]e House[,] Friday Ev[en]ing July [24,] [at e]ight o'clock[.] [It is hoped there will be a gene]ral and punctual attendance[.] Precinct officers to be [su]pported at the August Election, wil[l] be selected at th[is] meeting, and such o[the]r business as may properly be brought [before] the meeting. [B]y [o]rder of th[e] Committee.",
+      "locator": {
+        "artifact_role": "primary",
+        "issue_page": 3,
+        "column": 2,
+        "lines": [
+          323,
+          323
+        ],
+        "spans": [
+          {
+            "line": 323,
+            "from": 2,
+            "to": 385
+          }
+        ]
+      },
+      "entities": [],
+      "notes": "THE EAGLE COFFEE HOUSE, NAMED AS THE TOWN'S MEETING PLACE, and that is why this notice is worth a card. The same house is the anchor of the only relative placement in the four issues — Cooley and Halsman's tailoring shop stands on Dearborn Street 'nearly opposite the Eagle House' (chicago_democrat_1835_07_22 c006) — so the two claims corroborate each other: a coffee house prominent enough to hold a precinct meeting and to serve as a street anchor. NOT A PLACEMENT ITSELF: this notice gives the Eagle Coffee House no street, and none is inferred here. The notice is reprinted in the 1835-07-22 issue (page 3 column 2, lines 313-317), whose text is the poorer of the two; this printing is the witness. No person is minted — the notice is signed only 'By order of the Committee'."
+    },
+    {
+      "id": "c003",
+      "kind": "shipping",
+      "reading": "transcription_mediated",
+      "quote": "OF VESSELS: “| MEG ar CHICAGO, 1835.43 ARRIVED, (| dole eth, Schr, Hasnah—Uawega, Vie gS Sean, Gilbert St, Josephs | T} #9 © Brig dohn Kinz, Grover, Detron, \"| ot # tingin, Wagstafl Buffalo. | 11 Sehr, Antelope, Bimond, do. (fas 1a Grange, Chanebois Detroit, | £18 9 ewe len, Plaek, Br Joseph. | 445 © Gen, Warm, Allen, Dotroits + | of 43.0 [hram, Rathbourn, Sbipwagen. oni Neral (sen Bale ee | yo 71d Baizadeth, Ward, Avotin, Detroit.",
+      "normalized": "[LIST] OF VESSELS[, ARRIVED] a[t] CHICAGO, 1835. ARRIVED, [July] [9]th, Schr. Hannah[,] [O]s[w]ega[tchie…] [Schr.] Swan, Gilbert[,] St. Joseph[;] Brig John Kinz[ie], Grover, Detro[it]; [Schr. Wash]ingt[on], Wagstaff[,] Buffalo; Sch[r]. Antelope, [Ed]mond[s], do.; [Schr.] La Grange, Chanebois[,] Detroit; [Schr. Llew]el[l]y[n], [Cl]ark, S[t]. Joseph; Gen. Warr[en], Allen, Detroit; [Schr.] Hiram, Rathbourn, Shipwagen; […] [Schr.] Elizabeth, Ward, A[u]stin[?], Detroit.",
+      "locator": {
+        "artifact_role": "primary",
+        "issue_page": 3,
+        "column": 2,
+        "lines": [
+          325,
+          325
+        ],
+        "spans": [
+          {
+            "line": 325,
+            "from": 14,
+            "to": 449
+          }
+        ]
+      },
+      "entities": [],
+      "notes": "TEN ARRIVALS IN THE WEEK, and one of them names a Chicago vessel: the brig JOHN KINZIE, in from Detroit under Grover. The dates against the entries are largely lost in this rebuild and are not supplied; only the first, 'dole eth' read as July 9th, is legible enough to normalize, and it is marked by the bracket. The masters and ports are what the claim carries. Compare the 1835-07-08 deposit printing (chicago_democrat_1835_07_08 c017), where eleven arrivals are listed and the dates are cut away by the segmenter instead — neither witness in this range dates its own list."
+    },
+    {
+      "id": "c004",
+      "kind": "infrastructure",
+      "reading": "transcription_mediated",
+      "quote": "STATE OF ILLINOIS, ? | Fxscomy, forp. | ¢\nhe people eit State of Whnaie, tothe Sheriff\nof Cook County, Greeting, |\ny NERBAS, it has been ion\nto me that a vacaney has +\nthe office of Senator from the coum\nLua Satie, Putnain, Po and Jee Da\nthe resignation of Jainea W. Ss\nAnd whereas algo sis mace the uty of the |\nGovernor by the provisions of an At, reanta. |\nting clestions approved Inn. ith, 1.29. to |\ncanse an election tn be hold th flan varan. | © nay happen im any connty or /listeint\nin rexenintion to the Le\nAntarem |\nNes ‘um, 1 Jeweph Nanean, Gasemor at the Ste 2 Wy the authority af the |\nabove perish ac to herohy require pon cans) J of ptsetiony in thee cerers! | DrceMtets i Sony colnty, tay he aut iied ved an election hie hele in the'say) rannty of\nrst Monday ef Ad 1 next\n| oe ro fil) sad waeaney. And\nall thing said elvetion to be!con | sevod nev\nwheat Tnye Soon oripned ey ame ane! |\nthe weal nf State toy be a Juve nt Vandalia, the\nSherinas.\nCook, hereby goye petice to sil th of the Blvctions an allan Yo previnet in sand county, Us hold ay meciion and opens cise poll books for the eles place of Jutnos W. agreenble Yo the Proclamation of the\nJay above,\nj HILAS W. SHERMAN, Shan",
+      "normalized": "STATE OF ILLINOIS, [E]x[e]c[utive Department.] [T]he people [of the] State of I[lli]n[o]i[s], to the Sheriff of Cook County, Greeting[.] [WH]EREAS, it has been [made known] to me that a vacancy ha[s occurred in] the office of Senator from the coun[ties of] La Sa[ll]e, Putnam, [Cook] and [Iroquois?] [by] the resignation of Ja[m]e[s] W. S[tephenson…] And whereas [it is] al[s]o made the [d]uty of the Governor by the provisions of an A[c]t, [regula]ting el[e]ctions approved [Jan.] [2]th, 1[8]29, to cause an election t[o] be h[e]ld [when a] vacan[cy] may happen in any county or [d]istrict […] [I,] Joseph [Du]ncan, G[ov]ernor of the St[at]e[,] [b]y the authority [of the] above [recited act, do] hereby require [that the] […] election[…] in the several [precincts?] i[n] [Cook] co[u]nty, [that there] be a[n] election h[e]ld in the said county of […] [the fi]rst Monday of A[ugust] next[…] to fill said vacancy. And […] said el[e]ction to be con[du]cted […] [I have hereunt]o set my hand and […] the [s]eal of State to be a[ffixed at] Vandalia, the […] Sheriff [of Cook County,] hereby give[s] notice to all th[e judges] of the Elections [in] all [the] precinct[s] in said county, t[o] hold a[n] [el]ection and open [th]e[ir] poll books for the [election in] place of J[a]mes W. [Stephenson,] agreeable to the Proclamation of the [Governor, on the] day above[.] [S]ILAS W. SHERMAN, Sh[eriff]",
+      "locator": {
+        "artifact_role": "primary",
+        "issue_page": 3,
+        "column": 3,
+        "lines": [
+          330,
+          354
+        ]
+      },
+      "entities": [
+        {
+          "as_printed": "Jeweph Nanean",
+          "normalized": "Joseph Duncan",
+          "role": "Governor of Illinois",
+          "occupations": [
+            "Governor of Illinois"
+          ],
+          "associated_places": [
+            "Vandalia"
+          ]
+        },
+        {
+          "as_printed": "HILAS W. SHERMAN",
+          "normalized": "Silas W. Sherman",
+          "role": "Sheriff of Cook County",
+          "occupations": [
+            "Sheriff of Cook County"
+          ],
+          "associated_places": [
+            "Chicago",
+            "Cook County"
+          ]
+        }
+      ],
+      "notes": "AN ELECTION ORDERED INTO THE TOWN IN THE SCENE MONTH: a state senate seat covering La Salle, Putnam and Cook fell vacant on James W. Stephenson's resignation, the Governor issued his writ to the Sheriff of Cook County, and Silas W. Sherman gave notice that the judges of election in every precinct in the county were to open their poll books on the first Monday of August. That is a public event in Chicago on 3 August 1835, five weeks after the scene date, and the officers it names are county officers who were in place before it. THE TEXT IS THE WORST IN THE RANGE and the normalized reading is bracketed heavily to say so — twenty-five short crop-edge lines woven with a neighbouring column, in the rebuild the ticket rates the weakest tier of this corpus. TWO NAMES ARE MINTED AND NO MORE: 'Jeweph Nanean' is Joseph Duncan, who signs the State Bank proclamation in the next issue over a legible signature (chicago_democrat_1835_07_22 c008), and 'HILAS W. SHERMAN, Shan' is Silas W. Sherman, sheriff — both are read from office as much as from type, and the reasoning is written here rather than assumed. 'Jainea W. Ss' is NOT minted: the senator's surname is cut and Stephenson is a supposition, so it stays inside brackets in the normalized reading and mints nobody."
+    },
+    {
+      "id": "c005",
+      "kind": "business",
+      "reading": "transcription_mediated",
+      "quote": "Auction and Com\nsion Hous, TINUE wubesriiar ns\n$ Taken Unvid Oar 4 vers ih atid South n Wau restrcet, (or the purpose of tranaae th Advanres toade Upon Goons, —Lmmedt tor sales, all Coo-ignnients wil be settied— Cush up W. MONTGOMERY",
+      "normalized": "Auction and Com[mis]sion Hous[e]. T[HE] subscriber ha[s] Taken [David] Car[v]er['s Old Stand,] […] South [Water] str[e]et, for the purpose of transac[ting the above business.] Advan[c]es [m]ade Upon Goods,—Immedi[ately after] sales, all Con[s]ign[me]nts wil[l] be settled— Cash up[.] W. MONTGOMERY",
+      "locator": {
+        "artifact_role": "primary",
+        "issue_page": 3,
+        "column": 3,
+        "lines": [
+          362,
+          364
+        ]
+      },
+      "entities": [
+        {
+          "as_printed": "W. MONTGOMERY",
+          "normalized": "W. Montgomery",
+          "role": "proprietor",
+          "occupations": [
+            "auctioneer",
+            "commission merchant"
+          ],
+          "associated_places": [
+            "South Water Street"
+          ]
+        }
+      ],
+      "business": {
+        "name": "W. Montgomery",
+        "proprietors": [
+          "W. Montgomery"
+        ],
+        "trade": "auction and commission house",
+        "goods": [],
+        "street": "South Water Street",
+        "placement": {
+          "class": "relative",
+          "anchor": "David Carver's Old Stand",
+          "offset_text": "$ Taken Unvid Oar 4 vers ih atid South n Wau restrcet",
+          "offset_normalized": "Taken [David] Car[v]er['s Old Stand,] […] South [Water] str[e]et",
+          "street": "South Water Street"
+        }
+      },
+      "notes": "THE SAME STANDING ADVERTISEMENT AS chicago_democrat_1835_07_08 c001, a week on, and it is recorded because it is the second of three witnesses to the one relative placement this house has: David Carver's old stand, South Water Street. THE DATELINE MOVES BETWEEN WITNESSES: the 07-08 printing is dated 'July 6, 1835' and the line under this one (line 365) reads 'tengo, July 8, V=', which is the 8th; the difference is a compositor's date on a standing advertisement and neither is recorded as an `ad_copy_date` here because this claim's own span stops above it."
+    },
+    {
+      "id": "c006",
+      "kind": "infrastructure",
+      "reading": "transcription_mediated",
+      "quote": "Notice. HE Land Office at Chicago, will be open: for the eu Lande af Private Sale, on Yanilay the 3d of Auspant next, af 10° clo A.M. JAMES Wut Rag'r. : FD. PAYLOR Chicaue, duty % 19385 — Aw 2 Re",
+      "normalized": "Notice. [T]HE Land Office at Chicago, will be open[ed] for the e[ntry of] Land[s] a[t] Private Sale, on [Mo]nday the 3d of Au[g]ust next, a[t] 10 [o']clo[ck] A.M. JAMES W[hitlock,] R[e]g'r[,] [E.] D. [T]AYLOR[, Rec'r] Chica[g]o, [J]uly [3, 1]835 — 4w[1]2",
+      "locator": {
+        "artifact_role": "primary",
+        "issue_page": 3,
+        "column": 3,
+        "lines": [
+          371,
+          371
+        ]
+      },
+      "entities": [
+        {
+          "as_printed": "JAMES Wut",
+          "normalized": "James Whitlock",
+          "role": "register of the land office",
+          "occupations": [
+            "register, United States Land Office"
+          ],
+          "associated_places": [
+            "Chicago"
+          ]
+        },
+        {
+          "as_printed": "FD. PAYLOR",
+          "normalized": "E. D. Taylor",
+          "role": "receiver of the land office",
+          "occupations": [
+            "receiver, United States Land Office"
+          ],
+          "associated_places": [
+            "Chicago"
+          ]
+        }
+      ],
+      "ad_copy_date": {
+        "verbatim": "Chicaue, duty % 19385 — Aw 2 Re",
+        "iso": "1835-07-03"
+      },
+      "notes": "THE HOUR, AND WHY THIS PRINTING IS RECORDED AT ALL. Three witnesses in this range carry the Land Office notice and they do not agree on when the office opened: this one reads 'af 10° clo A.M.', the 1835-07-29 printing reads the same ten o'clock, and the 1835-07-08 deposit printing — the best text of the three — reads nine. Two against one, and the odd one out is the best witness, so nothing is settled and all three readings are on the record (see chicago_democrat_1835_07_08 c003). THE DATELINE is taken from the 07-08 printing's legible 'o. July 3, 1835.—4w12', which is the same insertion with the same four-week order; the verbatim here is the sheared form, as the schema requires it to be."
+    },
+    {
+      "id": "c007",
+      "kind": "person",
+      "reading": "transcription_mediated",
+      "quote": "List of Letters | dante in the Post Offre at Henne fin, Putnam county, UL July 1, 1535, Atwater, Theinae 2 Kee, Walla na Allen, Archibold Leonard, Bi | Akard, Ben) WH Mille, RG, Py | Basrdamn, Jun Milcheil, La. | Brewster, P. D, Mithany, J.D, j) Burt, Men). 2 Merritt, Stephen | Border RB. Mallary, ROW 2 jj Sruneey, Nathan Moore, Bli | Brnmevn, Jamnce, Marning. 1, j Baruch, 2. Mier, Henry 1 | aan Hive Martin, Wan Brown, Sany MiCurinas, 8 | are, Win, Ai iooney Aigghen 1 Cacey JW Real, Diana | Cowie, JD. Newel Juin [tea 8,\" Oded nie funn, Terrell Plaster Michael ever, Mary Fetes, Daniel | Doodue, Joba Vathon, Nathan. Hupbsr, Hice 2 ateninn Jomsthan jDurtey, Wand d, 5 Meeter Groen [Duseambs, Alene Robertean, James | Usage, Semis Raialarger DS. [Pay Edward! Sheplers, Ananda | Freeman, & Swin, Blaha (| Kyle Doct P. Smulley, Mr. [Gremnawatt, Jac ‘Vere, Voter ‘| Howard, Hey b. H. Triplett. Usiward [Moser Danse Vauzhow, Tom, P Mako, Win, Ay Voouin, TP. | Morea, Ly sian Voriey, Dayul eMicrwin Ew 2 Writ Piwand |fesaes, Blin Wijtigkes, donn Johnson, Over Weod Waans Moning, dW Warnnrk thigh Heaney, Nees W, Wilson & Gaittin 1H annson, Jeweete Weir, Job f heor, July Young Jack st THOS, GABAIE, yn PM | List of Letters rR MAISING onthe Vout Ones at Phan 2 ell, UE July deb. | deaaterd, Chaynesy D. Joiner, Ransom Hsrwitord, Hisrrt \"3 Kutieston, Paul 2 , | Mlnisaetl Woeskey Kanha, Jevathas Brae, Moary b Lew Wd | silue, Paap Vand, Benim Collin, Josinia 8 Marke, Prend | Cursor, Andrew Mary. Llphalet 1 Toawen, Alecoetor Wo Merk: Newton LOT Cariner, AGgQislis Persie. }ophraun & SG acmut, Haism | Radgoway Josbua M || Chupimin, Aneel Kalkorson Iythashan S Dycierit, Haney WT, Rubti, Ralls ans, Moalon or Shah ton U dalyha 1) Shanks, Benjouin Selleroerian, Barent Ging, Olver Shooloy, Sauned V)Aydlaghin, Sach Ge. Seda, seth | Stiga: Jems Sung. Josie Gireetvaoad, Sifted 2 Stine. Isaac Hone, paral Mun Vuthewort, James 2 Vitis beac Waetman Josiay B. J) Hougd, George Warren, Hirai yr Fugerwell, Caveter — Wilfiaine, John I | Iventspe, duis Ss Wathrus, Henry ri LF ARAOLD, 2M. ; | List od Letters , R) ZAIMING an thin Poet Ollice at Dipas July 1, eo. el gon Cheb Gelirge Spicer : | Asn Carpenter 2 Jolin Stevens j fara Champion Sauiuel Stavely [Koseph VY, Carrom David 1. Saebet LJosse Evret Anilrew ‘Thadhuner TSanfurd Anstwan “David Washame 1 inn G. Kampp Faward Wadlams Phoune J, Lang Seae Watson | Viwiothy C2 Parveen =I 1, GIDDINGS, P.M",
+      "normalized": "List of Letters [re]main[ing] in the Post Off[i]ce at Henne[p]in, Putnam county, Ill. July 1, 1[8]35 […] THOS. GA[L]A[H]E[R], [jr.] P.M. — List of Letters [RE]MA[IN]ING [in] the P[os]t O[ffic]e[…] at P[l]a[infi]el[d], Ill. July 1[, 1835] […] L. F. ARNOLD, P.M. — L[ist] of Le[tt]ers [RE]MA[IN]ING i[n] the Post Office at Dupag[e] […] July 1, 1[8]35 […] J. H. GIDDINGS, P.M.",
+      "locator": {
+        "artifact_role": "primary",
+        "issue_page": 3,
+        "column": 4,
+        "lines": [
+          399,
+          399
+        ],
+        "spans": [
+          {
+            "line": 399,
+            "from": 0,
+            "to": 2441
+          }
+        ]
+      },
+      "entities": [],
+      "letter_list_only": true,
+      "post_office": "Hennepin, Plainfield and Du Page, Illinois",
+      "notes": "A REPRINT, RECORDED AND NOT MINTED — and the reprint is the finding. These are the SAME three out-of-county returns of 1 July 1835 the 1835-07-08 issue printed (chicago_democrat_1835_07_08 c018-c020), standing a second week, over the same three postmasters' names. Under T-0299 one list makes one cohort of people however many times it is printed, so nothing is minted here on either ground: they are not Chicago lists, and they are not new. WHY THIS WITNESS IS WORTH QUOTING ANYWAY: the segmenter cut the 07-08 deposit printing down the middle and sheared the left alphabetical column's surnames off, while this rebuild delivers the whole block on one line with BOTH columns present ('Atwater, Theinae 2 Kee, Walla na Allen, Archibold Leonard, Bi'). The two witnesses are complementary — one is legible and half, the other is whole and mangled — and neither on its own is a list a person may be minted from. That is the reading, and it is why the 1 July 1835 Hennepin list is left unminted in this epic until a better witness turns up. The lists are reprinted a third time on 1835-07-22 (page 4, line 425)."
+    }
+  ]
+}

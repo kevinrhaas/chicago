@@ -1,0 +1,289 @@
+{
+  "id": "dearborn_street_drawbridge",
+  "phase": "draw_1834",
+  "name": "Dearborn Street Drawbridge",
+  "aka": [
+    "the draw-bridge",
+    "the first drawbridge across the Chicago River",
+    "Norton's bridge"
+  ],
+  "archetype": "bridge_timber",
+  "asset": "gltf/dearborn_street_drawbridge__draw_1834.glb",
+  "scene": "1835",
+  "target_date": "1835-07-01",
+  "documented_range": {
+    "from": "1834-08-01",
+    "to": "1839-07-31",
+    "confidence": "inferred",
+    "sources": [
+      "andreas_1884_v1",
+      "chicagology_dearborn_st_bridges"
+    ],
+    "note": "THE OPENING IS DISPUTED BY TEN WEEKS AND THE DISPUTE IS BETWEEN THE BUILDER AND HIS COMPILER. Nelson R. Norton, the ship-carpenter who built it, in a letter Andreas prints: 'I came to Chicago November 16, 1833. Soon after I arrived, I commenced cutting the lumber for a drawbridge... In March, 1834, I commenced building it, and I think it was completed by the 1st of June.' Andreas corrects him on the spot: 'Mr. Norton is evidently in error as to the time of the completion of the bridge, since the Democrat states that it was formally accepted by the Trustees in August, the first proposals having been received in February.' The range opens on the LATER of the two, 1 August 1834, because the question a range answers is when the structure certainly stood as a working public crossing, and 'I think it was completed by' is the weaker of the two claims even before Andreas contradicts it. Nothing turns on the choice for this scene: the bridge is standing eleven months before 1835-07-01 either way. THE CLOSE IS THE BEST-ATTESTED DATE ON THIS RECORD: 'the Common Council ordered its removal in July, 1839', and 'a large crowd gathered upon the river before daylight, the next morning, and going to work with a will, in a very short time chopped the bridge to pieces.' A structure destroyed within a day of a dated order is a rarity in this dataset. THE INFERRED TAG IS FOR THE OPENING AND NOT THE CLOSE. The August acceptance rests on an 1834 issue of the Chicago Democrat that this project does not hold, quoted by Andreas fifty years later; the paper itself is the thing that would move this to documented."
+  },
+  "change_note": "The single phase this structure has. Andreas records the bridge as repaired in 1835 and again in 1837, and the September 1834 payment of $166.67 for repairs shows it needed work within weeks of acceptance — so the structure standing on 1835-07-01 was patched and had been struck repeatedly by passing vessels. No source dates or describes any of those repairs closely enough to make a second phase, so the record models one state and says here that it was a worn one.",
+  "placement": {
+    "local_e": 699.17,
+    "local_n": 20.72,
+    "rotation_deg": 269.419,
+    "position_confidence": "inferred",
+    "position_sources": [
+      "andreas_1884_v1",
+      "wright_1834",
+      "osm_streets_2026"
+    ],
+    "position_note": "PLACED 2026-08-11, AND THE STREET IS BETTER EVIDENCE HERE THAN IT IS ANYWHERE ELSE IN THIS DATASET, because this crossing is named for the street it is on. Andreas has Norton cutting his lumber 'on the land adjoining Michigan Avenue' and the bridge in line with Dearborn; docs/research/04-structures-south.md section 12 puts the south abutment at the foot of Dearborn on South Water Street. METHOD, the same one the North Branch and South Branch records use. The modern Dearborn Street centreline was read from OpenStreetMap at its Randolph Street crossing (node 28290271) and its Kinzie Street crossing (node 4336042974) — two points 528 m apart, straddling the river, on a street that survives on its 1830s alignment; the line through them runs at 359.419 degrees from grid north. Its ends are set where the traced 1834 waterlines cross it: the south bank of the main stem at local E +699.17, N +20.72 and the north bank at local E +698.39, N +97.05, read off data/terrain/epochs/e1834_harbor_cut/shoreline.geojson, which carries the main stem east of the forks box. The value recorded here is the footprint polygon's own origin, which for this crossing is the deck's SOUTH end on its EAST side. Facade bearing 269.419: this archetype's convention is that a deck at rotation 0 runs due east with its upstream side facing north, so a deck running north up the Dearborn line has its upstream (west) elevation facing 269.419 degrees. THE STRUCTURE STANDS ON MODELLED GROUND, AND DID NOT WHEN THIS NOTE WAS WRITTEN. The 2026-08-11 text said, correctly at the time, that the committed heightfield was a 640 m box centred on the forks stopping at local E +320 while this bridge stands at E +699, so the terrain ended 380 m west of the south abutment. The box has since been extended east to E +1700 (data/terrain/epochs/e1834_harbor_cut/terrain_spec.json, grid), and T-0046 graded approach fills at both ends (approaches dearborn_south and dearborn_north), so the deck is reachable on foot from either bank. Corrected 2026-08-21; the superseded reading is recorded here rather than deleted, because a reader of an older render deserves to know why the crossing hung in the air. Working uncertainty about 20 m from the georeference, plus the trace's own; across the river the position is better constrained than along it, because the crossing has to meet both banks.",
+    "symbolic_location": "Across the main stem of the Chicago River in line with Dearborn Street, its south abutment at the foot of Dearborn on South Water Street.",
+    "uncertainty_m": 20,
+    "placement_provisional": false,
+    "vertical_anchor": "water",
+    "walk_surface_m": 2.22
+  },
+  "footprint": {
+    "polygon": [
+      [
+        0.0,
+        0.0
+      ],
+      [
+        76.33,
+        0.0
+      ],
+      [
+        76.33,
+        3.048
+      ],
+      [
+        0.0,
+        3.048
+      ]
+    ],
+    "confidence": "reconstructed",
+    "sources": [],
+    "note": "ONE AXIS IS MEASURED AND THE OTHER IS INVENTED, AND THE LEAST CONFIDENT WINS. The length, 76.33 m, is the distance between the two traced 1834 waterlines along the Dearborn alignment, read off shoreline.geojson at the crossing station (south bank local E +699.17, north bank local E +698.39, 76.33 m apart along the street line). That is 250.4 ft of water, and what it is worth is argued on form.overall_length_m, because it is the first independent evidence this project has been able to put against a hundred-and-ninety-year-old disagreement about how long this bridge was. The width, 3.048 m, is not evidence of anything — see form.width_m — so the polygon as a drawn shape is conjectural even though half of it was measured, on the same least-confident-wins rule the mesh uses. WHAT THE MEASUREMENT'S ERROR BAR ACTUALLY IS, and it is smaller than the georeference's headline number. The 20 m stated for anything traced from the 1834 sheets is dominated by a common-mode shift: an affine that puts the whole neighbourhood 20 m north puts both banks 20 m north and the distance between them does not move. What survives into a WIDTH is the sheet's local scale error — the fit records a 3.7 per cent difference between its two axis scales, which is real paper stretch — and the tracing tolerance of 1.78 m. Even a generous ten per cent leaves the water gap above 225 ft. NO SOURCE IS CITED ON THIS BLOCK, DELIBERATELY. The measured axis is argued in this note and cited on form.overall_length_m; a conjectural block carrying a source_id would claim the survey supports a shape it cannot."
+  },
+  "attributes": {
+    "construction": {
+      "value": "timber_crib",
+      "confidence": "inferred",
+      "sources": [
+        "andreas_1884_v1"
+      ],
+      "note": "SAWN AND FRAMED CARPENTRY, NOT THE ROUND LOGS OF THE BRANCH BRIDGES, and the archetype has only two words for it. Norton was a ship-carpenter who 'commenced cutting the lumber for a drawbridge' over the winter of 1833-34 and began building in March: that is a stocked and framed structure, built by a tradesman to a design that won a premium, and it is a different thing from the four heavy logs the settlers describe under the branch bridges. bridge_timber offers 'log' and 'timber_crib' and rejects anything else with the message that a framed bridge is not this archetype; 'timber_crib' is the nearer of the two and it is what the substructure of a low timber causeway across a navigable river in this decade would in fact have been. THE HONEST STATEMENT IS THAT THIS RECORD IS AT THE EDGE OF ITS ARCHETYPE. bridge_timber builds a fixed log stringer crossing; this was a framed timber causeway with a hoisted draw. What it can carry faithfully is the fixed part, and the rest of this form block says which parts of the real bridge are not here at all."
+    },
+    "overall_length_m": {
+      "value": 91.44,
+      "confidence": "attested",
+      "sources": [
+        "andreas_1884_v1",
+        "chicagology_dearborn_st_bridges"
+      ],
+      "geometry": "simplified",
+      "note": "ABOUT THREE HUNDRED FEET, AND THE RIVER AGREES WITH IT. Andreas, History of Chicago vol. 1 (read verbatim in the chicagology transcription; scan p. 415 per docs/research/04-structures-south.md section 4): 'From various sources it is learned that it was about three hundred feet long, and the opening for the passage of craft about sixty feet.' Andreas is hedging — 'from various sources it is learned' means he is reconciling second-hand reports, not reading a specification — which is why the value is recorded in its original unit as about 300 ft rather than as a figure to two decimal places, and 91.44 m is the exact conversion of a number that is itself approximate. THE MEASUREMENT, and it is this record's own contribution rather than another retelling. The distance between the two traced 1834 waterlines along the Dearborn Street alignment is 76.33 m, which is 250.4 ft of open water. That is independent of every text above: it comes from the Wright 1834 segmentation in data/terrain/epochs/e1834_harbor_cut/shoreline.geojson through the same fitted affine that fixes the datum. A bridge about three hundred feet long crossing two hundred and fifty feet of river has about fifty feet of timber over land, twenty-five at either end — which is exactly the long low causeway with approaches that docs/research/04-structures-south.md section 4 describes, and it is a convergence rather than a coincidence: two numbers from unrelated evidence that fit each other without adjustment. THE FIGURE THIS SUPERSEDES, recorded because the project believed it in one of its own dossiers and a reader deserves to know why it went. docs/research/03-structures-north.md section 5 gives the bridge as '200 ft long, 60-ft draw at one end'; its citation is the chicagology page 'The First Bridge Across the Chicago River, 1834', transcribing a 1902 promotional history — 'Chicago Pictorial', Historical Chicago National Bank — whose sentence reads 'The bridge at Dearborn Street was 200 feet long, with a draw of sixty feet at one end.' Two hundred feet is fifty feet SHORTER than the water it would have to cross, so it cannot be a bank-to-bank length, and it is not cited here because this project holds no source record for that 1902 text: naming a source_id that does not resolve would be inventing a citation. THE GEOMETRY DECLARATION says what the model does with all of this. It builds the 76.33 m between the traced waterlines and no approaches, so about a sixth of the length this attribute states is not in the mesh. That is the same missing approach the ground_contact block declares, seen from the other side, and it is admitted in docs/LIBERTIES.md."
+    },
+    "draw_span_m": {
+      "value": 18.288,
+      "confidence": "attested",
+      "sources": [
+        "andreas_1884_v1",
+        "chicagology_dearborn_st_bridges"
+      ],
+      "note": "SIXTY FEET, AND IT IS THE ONE DIMENSION EVERY TELLING AGREES ON. Andreas: 'the opening for the passage of craft about sixty feet.' The 1902 text that halves the bridge's length keeps the same draw: 'with a draw of sixty feet at one end.' Two accounts that disagree by fifty per cent on the length agree exactly on the opening, which is what a number looks like when it descends from a specification rather than from an estimate by eye. Andreas elsewhere (scan p. 301, per docs/research/04-structures-south.md section 4) records that a premium of twenty-five dollars had been offered for the best plan, 'the draw to be forty feet' — so the built opening was half again what the town asked for. That is a fact about the design competition, not a third figure for the draw. WHAT THE OPENING DOES IN THE MESH: it clears the intermediate supports out of itself and it stations the two gallows frames at its ends. A sixty-foot passage for craft with a pier standing in it is not a passage, so four of the sixteen evenly spaced supports of form.pier_count are dropped, twelve are built, and the deck crosses the opening in one clear run. WHAT IT DOES NOT DO IS OPEN. The draw is built CLOSED, and that is the choice that avoids picking a side in the one thing the sources do not settle — see form.draw_lifting_gear."
+    },
+    "gallows_frames": {
+      "value": 2,
+      "confidence": "attested",
+      "sources": [
+        "andreas_1884_v1",
+        "chicagology_dearborn_st_bridges"
+      ],
+      "note": "TWO TALL TIMBER FRAMES, ONE AT EITHER END OF THE DRAW, AND THEY ARE THE SILHOUETTE THIS BRIDGE IS REMEMBERED BY. Andreas: 'It was of the \"gallows pattern,\" and for five years, the frames, one at either end, stood like instruments of death to frighten the timid stranger at night.' And, of the occasion the machinery jammed: 'for forty-eight hours the gallows frames held the draw suspended in mid-air.' The count and the arrangement are as well attested as anything on this record, and 'either end' is either end of the DRAW rather than of the bridge — the same sentence pairs the frames with the draw hanging between them. THEY ARE BUILT, as of 2026-08-11, and the archetype grew a draw to do it: two heavy posts straddling the deck under a lapped cross-head, at the two ends of the sixty-foot opening. What is documented is how many and where. Everything about their SIZE is conjectural and the whole frame carries that confidence — see form.gallows_height_m — so the feature a visitor sees first is also the one the confidence view dithers hardest, which is the correct way round."
+    },
+    "gallows_height_m": {
+      "value": 6.4,
+      "confidence": "reconstructed",
+      "note": "HOW TALL THE GALLOWS STOOD IS THE MOST VISIBLE UNKNOWN IN THIS DATASET. No source gives the height, the section, the bracing or the tackle of these frames; what survives is that they were tall enough to be frightening at night and strong enough to hold a sixty-foot draw suspended for forty-eight hours. 6.4 m above the deck — about twenty-one feet — is the archetype's own number, chosen so that a frame is unmistakably a gallows against the sky and not a gatepost, and it is not a finding. THE REASON IT IS BUILT AT ALL, rather than declared absent: the confidence view exists exactly for this. A dithered translucent frame says 'this shape is ours' in a way no footnote can, and leaving the frames out would tell a visitor the town's one piece of engineering was a plain causeway, which is a stronger false claim than a tagged guess. The alternative reading was on this record for a few hours on 2026-08-11 and is recorded here because it is a real argument: build nothing, declare it, and let the liberties document carry the frames in prose. WHAT WOULD SETTLE IT: the February 1834 proposals Andreas mentions, the trustees' specification, the twenty-five-dollar premium drawing, or any period view of the river mouth looking west."
+    },
+    "draw_lifting_gear": {
+      "value": "chain_hoist",
+      "confidence": "inferred",
+      "sources": [
+        "dearborn_street_bridge_1834_engraving"
+      ],
+      "note": "CHAINS, FROM THE PLATES, AND THE THREE READINGS OF THE TEXTS STILL ALL STAND. This attribute read `false` from 2026-08-11 to 2026-08-21 and the note it carried then was right about the texts and is kept in substance below, because nothing in them has changed. WHAT CHANGED IS THAT THIS PROJECT NOW HOLDS PICTURES. The owner's brief of 2026-08-18 supplies two engravings of this crossing (data/sources/assets/owner_brief_2026_08_18/README.md, images 2 and 3) and both draw chains falling from the frames to the draw. ONE OF THE TWO IS NOW A SOURCE RECORD: T-0075 identified image 3 on 2026-08-22 as the wood engraving 'Old Dearborn Street (Old Point) Bridge', signed BAKER-CO, and this row cites it as `dearborn_street_bridge_1834_engraving`; the plate was retrieved and read, and the chains falling from the frame heads to the draw are on it. Image 2, the closer view, is a different plate and is still unidentified - see the identification table in the brief's README - so the phrase 'both engravings' above rests on one citation and one committed path. Those are TIER 5 PICTORIAL views — retrospective, drawn decades after 1835 — and the standing rule for one is that it may drive form as `inferred` and may never drive a coordinate. So the tag on this row is `inferred` and what it is inferred from is a picture, which is a weaker thing than the `attested` rows above it and a stronger thing than the silence it replaces. THE HONEST CAVEAT, STATED FIRST BECAUSE IT IS THE ONE A READER SHOULD CARRY: an engraver working in the 1880s had this project's problem and fewer scruples, and the chain he drew may be the 1834 bridge's or may be borrowed from a later one — the same contamination that put the words 'double-leaf' and 'chains' into every modern retelling from the 1890s bascule. That is why the mesh's chain is built and labelled rather than argued into the texts. THE TEXTS, UNCHANGED. Andreas gives 'gallows pattern', the frames 'one at either end', the draw 'hoisted', and the frames holding it 'suspended in mid-air'. Neither he nor the chicagology page transcribing him contains the word chain, rope, windlass or leaf about THIS bridge; on that page 'leaves' and 'double-leaf' belong only to the 1890s bascule and the 1907 and 1963 bridges. THREE READINGS STILL FIT EVERY WORD — one leaf hinged at one end and hoisted from both frames; two leaves, each hoisted by the frame at its own end; or the whole sixty-foot section lifted bodily between the two frames — and the texts do not choose. The plates do, and form.draw_leaves is where that choice is recorded and tagged. WHAT IS BUILT: one chain each side of the deck at each frame, running from the underside of the head timber down to the free end of that frame's leaf at the centre of the opening, outboard of the deck edge so nothing crosses the footway. Straight rather than slack, drawn as a run rather than as links. The count, the section, the anchorage and the taut line are the archetype's and are recorded in docs/LIBERTIES.md L163. THE DRAW IS STILL BUILT CLOSED. No leaf is raised, because that is the one thing neither text nor plate settles for a particular moment, and a raised leaf would put a guess in the most conspicuous position on the bridge."
+    },
+    "width_m": {
+      "value": 3.048,
+      "confidence": "reconstructed",
+      "note": "NOBODY EVER WROTE DOWN HOW WIDE THIS BRIDGE WAS. Andreas gives its length, its draw, its pattern, its frames, its repairs and its destruction, and not its width; the 1902 text gives length and draw and nothing else; the 1883 old-settlers statement that supplies ten feet for both BRANCH bridges is explicitly about those two and not about this one. THE VALUE IS THE ARCHETYPE'S DEFAULT, KEPT DELIBERATELY RATHER THAN REPLACED WITH A FRESH GUESS — the same choice docs/LIBERTIES.md L29 made about the North Branch bridge's pier spacing, and for the same reason: a new number chosen to look sensible would read as a finding and would not be one. bridge_timber's default is the branch bridges' documented ten feet, which is almost certainly too narrow for the main crossing of the town's principal street, carrying teams, on a structure a shipwright framed to a premium design. It is kept because being visibly the neighbour's number is more honest than being plausibly nobody's. The chip on this row is conjectural and the whole footprint inherits it. WHAT WOULD SETTLE IT: the town trustees' specification, the February 1834 proposals Andreas mentions, or the 1834-35 repair vouchers — the corporation paid $166.67 for repairs in September 1834 and the bridge was repaired again in 1835, and a repair account is the kind of document that states a deck width."
+    },
+    "clearance_m": {
+      "value": 1.83,
+      "confidence": "inferred",
+      "sources": [
+        "old_settlers_bridges_1883"
+      ],
+      "note": "SIX FEET, BORROWED FROM THE NEIGHBOURS AND LABELLED AS BORROWED. No source reached states how high this deck stood above the water. The only clearance figure this project holds for any Chicago river crossing of the decade is the 1883 old-settlers statement's 'about six feet above the water' for the two branch bridges, and it is adopted here as an inference from adjacent evidence rather than as evidence about this structure. TWO THINGS SUPPORT THE BORROWING AND ONE COMPLICATES IT. Supporting: the three crossings were built within two years of each other by or for the same corporation, and a bridge that needed a sixty-foot opening for the passage of craft cannot have been high — a high fixed deck is precisely the alternative to a draw, and this town chose the draw. Complicating: the main stem carried masted lake vessels where the branches carried scows and teams, so its bridge had more reason to be built up, and the branch bridges' six feet was set by a use this one did not have, the winter road passing underneath on the ice. The figure is kept because it is the only one there is and because both arguments point low rather than high, and the tag says it is a reading and not a measurement."
+    },
+    "deck_kind": {
+      "value": "plank",
+      "confidence": "inferred",
+      "sources": [
+        "andreas_1884_v1"
+      ],
+      "note": "SAWN PLANK RATHER THAN RIVEN PUNCHEON, AND IT IS THE FIRST RECORD IN THIS DATASET TO CARRY THE VALUE. The branch bridges' floor is documented as 'puncheons or split logs', which is what a crew lays without a sawyer. This bridge was different in the one way that decides the question: Norton 'commenced cutting the lumber' in the winter of 1833-34 and spent three months building from it, to a design that had won a premium, on a structure with a moving leaf. Riven stock of uneven width is not what a ship-carpenter frames a hoisted draw and its approaches from. The mesh differs accordingly — narrower boards, laid regularly, with the ends in line instead of the ragged butts a split floor gives. THE INFERENCE IS FROM THE BUILDER AND THE MATERIAL WORD, not from any statement about the deck, and 'cutting the lumber' could in principle describe felling rather than sawing. It is graded inferred for that reason."
+    },
+    "pier_count": {
+      "value": 16,
+      "confidence": "reconstructed",
+      "note": "SIXTEEN SUPPORTS IN THE RIVER, AND NOT ONE OF THEM IS ATTESTED. Nothing anybody wrote describes the middle of this bridge. Something had to hold up 76 m of crossing, so intermediate supports are not the invention; their number, their spacing and their form are. THE VALUE IS THE ARCHETYPE'S FALLBACK MADE VISIBLE. bridge_timber divides a span whose middle nobody described by a 4.5 m default spacing, which over 76.33 m gives seventeen bays and sixteen supports. That fallback exists because of docs/LIBERTIES.md L29, where the same arithmetic put fifteen cribs under the North Branch bridge and the number went unnoticed for a slice because it was hidden in the generator instead of stated on the record. Writing it here as a conjectural count is the repair L29 earned: the same invention, in the open, with a chip on it. Sixteen bents at 4.5 m under a low timber causeway is not an unreasonable trestle for 1834 — which is exactly what makes it dangerous, because a plausible invention is the kind a visitor believes. TWELVE OF THE SIXTEEN ARE ACTUALLY BUILT: four of the evenly spaced stations fall inside the sixty-foot draw and are dropped, because an opening for the passage of craft with a pier in it is not an opening. So the number on this chip is the count the arithmetic produced and not the count in the mesh, and the difference is documented evidence removing an invented support rather than a discrepancy. WHAT WOULD SETTLE IT: the February 1834 proposals, the trustees' specification, or the repair accounts of September 1834 and 1835."
+    },
+    "pier_kind": {
+      "value": "crib",
+      "confidence": "reconstructed",
+      "note": "NOBODY SAID. The branch bridges' supports are documented as bents of four heavy logs resting on the bottom, because four men who used them wrote it down; nothing equivalent exists for this crossing, and the sentence that would have settled it is the one Andreas did not write. Crib is chosen over the archetype's other two readings — bent and pile — on the ground that it is the archetype's own default and that the harbour works at the mouth of the same river were at that moment being built of timber cribs by federal engineers, in a town whose one shipwright had just framed this bridge. That is a reason to prefer it and not evidence for it, so the tag is conjectural rather than inferred, and the count beside it carries the same chip for the same reason."
+    },
+    "draw_leaves": {
+      "value": 2,
+      "confidence": "reconstructed",
+      "note": "TWO LEAVES, AND THIS IS THE PROJECT CHOOSING, WHICH IT SAID FOR TEN DAYS IT WOULD NOT DO. form.draw_lifting_gear enumerates three arrangements that fit every word of Andreas: one leaf, two leaves, or the whole opening lifted bodily. The two engravings in the 2026-08-18 owner brief (README images 2 and 3) draw a chain to each side of the draw from each frame, which is what a two-leaf draw looks like and is not what the other two look like. A tier-5 pictorial view is not strong enough to make that `inferred` about an 1834 mechanism — see the contamination argument on draw_lifting_gear — so the count is graded `reconstructed`: invented within bounds, the bounds being the plate. WHAT IT PUTS IN THE MESH, AND IT IS DELIBERATELY MODEST. Not a raised leaf and not a hinge: a bearing timber across the deck at each end of the opening, an edge beam down each side of each leaf, and the two leaves' ends butted at the centre of the draw with a finger of daylight between them. The deck boards run through underneath, so the crossing is exactly as walkable as it was and the timber stands 55 mm proud — a threshold, not a step. A visitor sees where the bridge opened; a visitor is not told it is open. WHAT WOULD SETTLE IT: the February 1834 proposals Andreas mentions, the trustees' specification, the twenty-five-dollar premium drawing, or the 1834-35 repair vouchers. Recorded in docs/LIBERTIES.md L163."
+    },
+    "gallows_braced": {
+      "value": true,
+      "confidence": "inferred",
+      "note": "THE FRAMES ARE AN A, NOT TWO BARE POSTS. Built from 2026-08-11 to 2026-08-21 as a plain portal — two uprights under a lapped head — because no text describes the bracing and the generator refused to invent it. Both engravings in the 2026-08-18 owner brief (README images 2 and 3) draw raking timber in the frames; the brief's own words are 'twin timber A-frames/gallows posts above the deck'. A tier-5 pictorial view may drive form as `inferred`, and the thing being inferred here is weak enough to carry it: that a frame tall enough to hold a sixty-foot draw suspended for forty-eight hours was braced is nearly carpentry rather than evidence, and the plate is what says it was braced VISIBLY, above the deck, where it reads. WHAT IS BUILT AND WHAT IS INVENTED IN IT: two knee braces per frame rising from the posts to the underside of the head, and one shore per post raking down the span away from the opening to the bearing line. The members' sections, angles, count and footing are the archetype's own — a plate shows a braced frame and not a schedule of scantlings — and are recorded in docs/LIBERTIES.md L163. The frames' HEIGHT is untouched and remains the most visible unknown on this record; see form.gallows_height_m."
+    },
+    "railing": {
+      "value": true,
+      "confidence": "inferred",
+      "note": "A RAILED DECK, AND THE ARCHETYPE'S DEFAULT SAYS NO. bridge_timber builds no railing unless a record asks for one, and the argument for that default is entirely about the two BRANCH bridges: the 1883 old-settlers statement has them 'about ten feet wide and without railings, for the first few years, after which guards, or railings, were added', and the only qualitative description of the North Branch crossing — 'formed of stringers', 'useless for teams' — describes something cruder than a piece of civil engineering. NONE OF THAT IS ABOUT THIS BRIDGE, and the same old-settlers paragraph is careful to say which two bridges it is describing. This one was framed by a ship-carpenter to a design that won a premium, cost the corporation $166.67 in repairs within weeks of acceptance, and carried the main street of the town across a navigable river six feet above the water. THE EVIDENCE IS THE PLATES: both engravings in the 2026-08-18 owner brief (README images 2 and 3) draw the deck railed. Tier-5 pictorial, so `inferred` and not `attested`. THE HEIGHT, THE POST SPACING AND THE POLE SECTION ARE THE ARCHETYPE'S — 0.95 m rails on posts at about 2.2 m — and no source gives any of the three; they are the same numbers the module has carried unused since 2026-08-10 and they are recorded in docs/LIBERTIES.md L163. WHAT WOULD SETTLE IT: the trustees' specification, the February 1834 proposals, or the repair accounts of September 1834 and 1835."
+    },
+    "function": {
+      "value": "river_crossing",
+      "confidence": "attested",
+      "sources": [
+        "andreas_1884_v1"
+      ],
+      "note": "A public crossing and the first movable bridge in Chicago: 'The first drawbridge thrown across the river was at Dearborn Street.' It replaced a trustee-established free ferry at the same street — a flat-bottomed boat on a cable, which was moved to Rush Street when the bridge opened — and it was the only fixed link between the North and South Divisions of the town. By the scene date it is also an address: the Chicago American set up its office in June 1835 'on Water Street, near the draw-bridge'."
+    }
+  },
+  "residents": [
+    {
+      "household": "hh_norton_nelson_r",
+      "name": "The Norton household",
+      "division": "north",
+      "relation": "worked here",
+      "why": "A BUILT-BY LINK RATHER THAN A WORKPLACE. He built the Dearborn Street drawbridge in March 1834, sixteen months before the scene date; what he was building on 1 July 1835 is not stated, and the sloop Clarissa was not launched until May 1836. The grade marks the difference.",
+      "sources": [
+        "andreas_1884_v1"
+      ],
+      "basis": "",
+      "persons": [
+        {
+          "name": "Nelson R. Norton",
+          "relationship": "head",
+          "grade": "attested",
+          "occupation": "ship_carpenter",
+          "note": "AN ARRIVAL DATED TO THE DAY - 16 NOVEMBER 1833 - which only four households in this parcel have, and a trade that ties a person to two dated artefacts. HE IS IN THE DATASET BECAUSE THE 1835 TOWN CANNOT BE BUILT WITHOUT HIS TRADE. Andreas's roster is the only list this project holds that names artisans at all, and every name on it is a documented alternative to an inferred one."
+        }
+      ],
+      "research_note": "THE ONLY SHIPWRIGHT IN THE DATASET, in a town whose whole future was a harbour. He is also the parcel's clearest example of a trade the structures layer already depends on: data/structures/dearborn_street_drawbridge.json models a bridge whose builder now has a name, an arrival date and a second, later vessel to his credit."
+    }
+  ],
+  "citations": [
+    {
+      "source_id": "andreas_1884_v1",
+      "citation": "Andreas, A. T. History of Chicago: From the Earliest Period to the Present Time. Vol. 1. Chicago: A. T. Andreas, 1884.",
+      "url": "https://archive.org/details/historyofchicago01andr",
+      "archived_url": "",
+      "tier": 3,
+      "tier_label": "compiled secondary (Andreas)"
+    },
+    {
+      "source_id": "chicagology_dearborn_st_bridges",
+      "citation": "\"Dearborn Street Bridges.\" Chicagology. The 1834 section transcribing A. T. Andreas, History of Chicago, Volume I (the page dates its Andreas text 1886), including the shipwright Nelson R. Norton's own letter.",
+      "url": "https://chicagology.com/harbor/riverbridges/dearbornstreetbridges/",
+      "archived_url": "https://web.archive.org/web/20260217032420/https://chicagology.com/harbor/riverbridges/dearbornstreetbridges/",
+      "tier": 4,
+      "tier_label": "later scholarship",
+      "what_it_supplies": [
+        "overall length about three hundred feet",
+        "draw opening for craft about sixty feet",
+        "\"gallows pattern\" with a frame at either end",
+        "the draw lifted (hoisted) rather than swung",
+        "built by the shipwright Nelson R. Norton; lumber cut from late 1833, construction begun March 1834",
+        "formally accepted by the Trustees in August 1834 per Andreas, correcting Norton's own 1 June",
+        "repaired in 1835 and in 1837",
+        "removal ordered July 1839 and the bridge chopped to pieces the next morning"
+      ],
+      "what_it_does_not_supply": [
+        "any statement that the bridge was double-leaf",
+        "any statement that it was raised by a chain hoist",
+        "the deck width, railing, pier or abutment construction",
+        "the number or spacing of bents",
+        "the height of the gallows frames or of the deck above the water",
+        "which bank the draw was hinged on"
+      ]
+    },
+    {
+      "source_id": "dearborn_street_bridge_1834_engraving",
+      "citation": "\"Old Dearborn Street (Old Point) Bridge\" — wood engraving, lettered in a panel across the foot of the plate and signed BAKER–CO at the lower right. Reproduced on Chicagology, \"Dearborn Street Bridges\", captioned \"First Dearborn Street bridge in 1834\".",
+      "url": "https://chicagology.com/harbor/riverbridges/dearbornstreetbridges/",
+      "archived_url": "http://web.archive.org/web/20260217032420/https://chicagology.com/harbor/riverbridges/dearbornstreetbridges/",
+      "tier": 5,
+      "tier_label": "modern retrospective illustration/reconstruction",
+      "what_it_supplies": [
+        "twin timber gallows frames standing above the deck, braced, with a chain falling from each head to the draw",
+        "a railed deck carried the length of the crossing on timber cribbing",
+        "the draw drawn as two leaves butted at the centre of the opening",
+        "schooner-rigged vessels moored in the reach immediately below the bridge, masts crowding it",
+        "a tapering light or beacon structure on the shore near the mouth",
+        "low warehouses and long shed roofs standing along the river bank"
+      ],
+      "what_it_does_not_supply": [
+        "any coordinate, footprint outline or dimension — including where on the bank any warehouse stood",
+        "a leaf raised: the plate draws the draw closed, and how the leaves were lifted is not shown",
+        "a date of its own, or the year of the scene it draws within the bridge's 1834-1839 life",
+        "the identity of the brief's other Dearborn drawbridge engraving, which this record does not claim"
+      ]
+    },
+    {
+      "source_id": "old_settlers_bridges_1883",
+      "citation": "Statement on the first bridges over the branches of the Chicago River, agreed at a meeting of old settlers held late in the fall of 1883 and signed J. D. Caton, John Bates, Charles Cleaver and John Noble; presented to the editors by John Bates and printed as a footnote in Andreas, History of Chicago, vol. 1 (Chicago: A. T. Andreas, 1884), pp. 631-632.",
+      "url": "https://archive.org/details/historyofchicago01andr",
+      "archived_url": "",
+      "tier": 2,
+      "tier_label": "near-primary recollection"
+    },
+    {
+      "source_id": "osm_streets_2026",
+      "citation": "OpenStreetMap contributors. Street centerline intersection nodes for downtown Chicago, retrieved via the Overpass API, 2026-08-09.",
+      "url": "https://www.openstreetmap.org/",
+      "archived_url": "https://overpass-api.de/",
+      "tier": 4,
+      "tier_label": "later scholarship"
+    },
+    {
+      "source_id": "wright_1834",
+      "citation": "Wright, J. S. Chicago, drawn by J. S. Wright according to survey. New York: P. A. Mesier's Lith., 1834.",
+      "url": "https://collections.leventhalmap.org/search/commonwealth:js9577436",
+      "archived_url": "",
+      "tier": 1,
+      "tier_label": "period/eyewitness",
+      "what_it_supplies": [
+        "street geometry",
+        "block and lot subdivision",
+        "shoreline",
+        "river channel and the 1834 cut",
+        "survey-date colouring"
+      ],
+      "what_it_does_not_supply": [
+        "building footprints",
+        "building locations"
+      ]
+    }
+  ],
+  "research_note": "CHICAGO'S FIRST MOVABLE BRIDGE, AND THE FIRST RECORD IN THIS DATASET WHOSE OWN MEASUREMENT SETTLES A DISAGREEMENT BETWEEN ITS SOURCES. THE LENGTH, AND WHAT THE RIVER SAYS ABOUT IT. Two figures have been in circulation for over a century: Andreas, 'about three hundred feet long', and a 1902 promotional history — 'Chicago Pictorial', Historical Chicago National Bank — 'The bridge at Dearborn Street was 200 feet long'. This project's own two dossiers took one each, 03 the two hundred and 04 the three hundred, so the disagreement was inside the research before it reached a record. The distance between the traced 1834 waterlines on the Dearborn Street alignment is 76.33 m, which is 250.4 ft of open water, and it is independent of both texts: it comes from the Wright 1834 segmentation through the same fitted affine that fixes the datum. A two-hundred-foot bridge cannot cross two hundred and fifty feet of river. A three-hundred-foot one crosses it with about twenty-five feet of approach at either end, which is what a low timber causeway on a marshy bank looks like. That is a convergence rather than a coincidence, and the value of it is that the two numbers come from evidence that shares nothing — a compiler's reconciliation of pioneer report, and a segmented wash edge on a survey. Recorded on form.overall_length_m; the 1902 text is quoted there and deliberately NOT cited, because this project holds no source record for it and inventing one to make a citation resolve is the worst thing an agent can do here. TWO THINGS EVERY MODERN RETELLING SAYS THAT NO SOURCE DOES, and this record was written with both of them in it before the underlying page was read. The bridge is described everywhere, including in docs/research/03-structures-north.md section 5, as DOUBLE-LEAF and as worked by CHAINS. Neither word is in Andreas's paragraph or in the 1902 text. On the chicagology page that transcribes Andreas, 'leaves' and 'double-leaf' belong only to the 1890s bascule and the 1907 and 1963 bridges, sixty to a hundred and thirty years later — a later bridge's mechanism attached to an 1834 one. What the evidence gives is 'gallows pattern', two frames 'one at either end', a draw 'hoisted', and the frames holding it 'suspended in mid-air': it lifted rather than swung, and that is all. Three arrangements fit every word — one leaf, two leaves, or the whole opening lifted bodily between the frames — and form.draw_lifting_gear records all three and asserts none. WHAT IS BUILT AND WHAT IS NOT. The archetype grew a draw for this record on 2026-08-11: the sixty-foot opening clears four invented supports out of itself, and the two gallows frames stand at its ends. The frames' HEIGHT is conjectural and the whole frame carries that confidence, so the most conspicuous object on the crossing is also the one the confidence view dithers hardest — which is the right way round, and is the reason for building them rather than declaring them absent. Not built: the leaf, the hinge and the tackle, because building any of them picks one of the three readings in the most visible position on the bridge; and the twenty-five feet of approach at either end, which is the same gap the ground_contact block declares. THAT PARAGRAPH IS SUPERSEDED IN HALF, 2026-08-21, AND THE HALF THAT SURVIVES IS THE IMPORTANT ONE. This project now holds PICTURES of this crossing: the owner's brief of 2026-08-18 supplies two engravings (data/sources/assets/owner_brief_2026_08_18/README.md, images 2 and 3) drawing braced A-frames, chains falling to the draw, and a railed deck. Tier-5 pictorial evidence may drive form as `inferred` and may never drive a coordinate, so four attributes were added or turned at that tier — form.gallows_braced, form.draw_lifting_gear (from `false` to `chain_hoist`), form.draw_leaves (reconstructed, because a plate is not strong enough to make a mechanism inferred) and form.railing — and every dimension inside them is the archetype's own, recorded in docs/LIBERTIES.md L163. WHAT STILL IS NOT BUILT IS A LEAF RAISED. The deck runs across the opening as it always did; what the leaf timber adds is the joint of a draw lying DOWN, which is a weaker claim than a hoisted span and is the one the plates actually show. The three readings of the TEXTS are undisturbed and are still recorded on form.draw_lifting_gear: a retrospective engraver is exactly the vector by which a later bridge's mechanism entered every modern retelling of this one, which is the reason the plate is labelled and not promoted. AND THE STRUCTURE NO LONGER STANDS OFF THE EDGE OF THE MODELLED WORLD. When this note was written the committed heightfield stopped at E +320 and this bridge stands at E +699; the box now reaches E +1700 and T-0046 graded approach fills at both abutments, so the crossing can be walked onto from either bank.",
+  "research_doc": "docs/RESEARCH/dearborn_street_drawbridge.md",
+  "review_required": false
+}

@@ -1,0 +1,76 @@
+table,column,type,nullable,description
+buildings.csv,building_id,text,yes,"See methodology and field name; empty values mean not yet established, never zero."
+buildings.csv,research_record_id,text,yes,"See methodology and field name; empty values mean not yet established, never zero."
+buildings.csv,canonical_name,text,yes,"See methodology and field name; empty values mean not yet established, never zero."
+buildings.csv,year_started,text,yes,"See methodology and field name; empty values mean not yet established, never zero."
+buildings.csv,year_completed,text,yes,"See methodology and field name; empty values mean not yet established, never zero."
+buildings.csv,completion_precision,text,yes,"See methodology and field name; empty values mean not yet established, never zero."
+buildings.csv,year_demolished,text,yes,"See methodology and field name; empty values mean not yet established, never zero."
+buildings.csv,demolition_precision,text,yes,"See methodology and field name; empty values mean not yet established, never zero."
+buildings.csv,demolition_cause,text,yes,"See methodology and field name; empty values mean not yet established, never zero."
+buildings.csv,status,text,yes,"See methodology and field name; empty values mean not yet established, never zero."
+buildings.csv,address_historical,text,yes,"See methodology and field name; empty values mean not yet established, never zero."
+buildings.csv,address_modern,text,yes,"See methodology and field name; empty values mean not yet established, never zero."
+buildings.csv,latitude,text,yes,"See methodology and field name; empty values mean not yet established, never zero."
+buildings.csv,longitude,text,yes,"See methodology and field name; empty values mean not yet established, never zero."
+buildings.csv,building_type,text,yes,"See methodology and field name; empty values mean not yet established, never zero."
+buildings.csv,original_use,text,yes,"See methodology and field name; empty values mean not yet established, never zero."
+buildings.csv,architect_or_builder,text,yes,"See methodology and field name; empty values mean not yet established, never zero."
+buildings.csv,owner_or_developer,text,yes,"See methodology and field name; empty values mean not yet established, never zero."
+buildings.csv,structural_system,text,yes,"See methodology and field name; empty values mean not yet established, never zero."
+buildings.csv,stories,text,yes,"See methodology and field name; empty values mean not yet established, never zero."
+buildings.csv,fire_fate_1871,text,yes,"See methodology and field name; empty values mean not yet established, never zero."
+buildings.csv,notes,text,yes,"See methodology and field name; empty values mean not yet established, never zero."
+buildings.csv,confidence,text,yes,"See methodology and field name; empty values mean not yet established, never zero."
+buildings.csv,needs_review,text,yes,"See methodology and field name; empty values mean not yet established, never zero."
+building_names.csv,building_name_id,text,yes,"See methodology and field name; empty values mean not yet established, never zero."
+building_names.csv,building_id,text,yes,"See methodology and field name; empty values mean not yet established, never zero."
+building_names.csv,name,text,yes,"See methodology and field name; empty values mean not yet established, never zero."
+building_names.csv,name_type,text,yes,"See methodology and field name; empty values mean not yet established, never zero."
+building_names.csv,sequence,text,yes,"See methodology and field name; empty values mean not yet established, never zero."
+building_sources.csv,building_source_id,text,yes,"See methodology and field name; empty values mean not yet established, never zero."
+building_sources.csv,building_id,text,yes,"See methodology and field name; empty values mean not yet established, never zero."
+building_sources.csv,source_key,text,yes,"See methodology and field name; empty values mean not yet established, never zero."
+building_sources.csv,relationship,text,yes,"See methodology and field name; empty values mean not yet established, never zero."
+building_events.csv,building_event_id,text,yes,"See methodology and field name; empty values mean not yet established, never zero."
+building_events.csv,building_id,text,yes,"See methodology and field name; empty values mean not yet established, never zero."
+building_events.csv,event_type,text,yes,"See methodology and field name; empty values mean not yet established, never zero."
+building_events.csv,event_date,text,yes,"See methodology and field name; empty values mean not yet established, never zero."
+building_events.csv,date_precision,text,yes,"See methodology and field name; empty values mean not yet established, never zero."
+building_events.csv,cause,text,yes,"See methodology and field name; empty values mean not yet established, never zero."
+building_events.csv,description,text,yes,"See methodology and field name; empty values mean not yet established, never zero."
+assertions.csv,assertion_id,text,yes,"See methodology and field name; empty values mean not yet established, never zero."
+assertions.csv,building_id,text,yes,"See methodology and field name; empty values mean not yet established, never zero."
+assertions.csv,field_name,text,yes,"See methodology and field name; empty values mean not yet established, never zero."
+assertions.csv,asserted_value,text,yes,"See methodology and field name; empty values mean not yet established, never zero."
+assertions.csv,source_keys,text,yes,"See methodology and field name; empty values mean not yet established, never zero."
+assertions.csv,confidence,text,yes,"See methodology and field name; empty values mean not yet established, never zero."
+assertions.csv,needs_review,text,yes,"See methodology and field name; empty values mean not yet established, never zero."
+assertions.csv,research_note,text,yes,"See methodology and field name; empty values mean not yet established, never zero."
+media.csv,media_id,text,yes,"See methodology and field name; empty values mean not yet established, never zero."
+media.csv,building_id,text,yes,"See methodology and field name; empty values mean not yet established, never zero."
+media.csv,media_type,text,yes,"See methodology and field name; empty values mean not yet established, never zero."
+media.csv,title,text,yes,"See methodology and field name; empty values mean not yet established, never zero."
+media.csv,depicted_year,text,yes,"See methodology and field name; empty values mean not yet established, never zero."
+media.csv,source_url,text,yes,"See methodology and field name; empty values mean not yet established, never zero."
+media.csv,local_path,text,yes,"See methodology and field name; empty values mean not yet established, never zero."
+media.csv,rights_statement,text,yes,"See methodology and field name; empty values mean not yet established, never zero."
+media.csv,credit_line,text,yes,"See methodology and field name; empty values mean not yet established, never zero."
+media.csv,notes,text,yes,"See methodology and field name; empty values mean not yet established, never zero."
+media.csv,created_date,text,yes,Date the image or media object was created or published; distinct from the historical period it depicts.
+media.csv,creator,text,yes,Artist photographer publisher or other responsible creator as stated by the source.
+media.csv,repository,text,yes,Archival institution or collection responsible for the source record or scan.
+media.csv,representation_type,text,yes,Controlled description such as historical_photograph retrospective_lithograph retrospective_illustration or retrospective_reconstruction.
+media.csv,accuracy_note,text,yes,Explicit warning about retrospective creation disputed attribution uncertain dating or limits on architectural inference.
+media_buildings.csv,media_building_id,text,no,Stable identifier for a media-to-building subject relationship.
+media_buildings.csv,media_id,text,no,Foreign key to media.csv.
+media_buildings.csv,building_id,text,no,Foreign key to buildings.csv.
+media_buildings.csv,relationship,text,no,How the media relates to the building such as depicts or depicts_contextually.
+media_buildings.csv,confidence,text,no,Confidence in the subject identification or relationship.
+media_buildings.csv,notes,text,yes,Evidence or caution supporting the subject relationship.
+media_checksums.csv,media_id,text,no,Foreign key to the locally stored media asset.
+media_checksums.csv,local_path,text,no,Repository-relative path to the local derivative.
+media_checksums.csv,sha256,text,no,SHA-256 digest used to verify file integrity.
+media_checksums.csv,byte_size,integer,no,Local file size in bytes.
+media_checksums.csv,width_px,integer,no,Pixel width of the local derivative.
+media_checksums.csv,height_px,integer,no,Pixel height of the local derivative.

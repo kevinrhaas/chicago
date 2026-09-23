@@ -1,0 +1,35 @@
+{
+  "id": "haas_2021_sagebrush_two_track",
+  "type": "photograph",
+  "citation": "Haas, Kevin. Earth two-track through sagebrush steppe. Photograph, 26 June 2021. Owner's own work, supplied for this project 2026-08-15.",
+  "author": "Kevin Haas",
+  "date": "2021-06-26",
+  "describes_date": "2021-06-26",
+  "repository": "the project owner",
+  "locator": "the full frame, 4032x3024; committed verbatim at data/sources/assets/haas_2021_sagebrush_two_track/sagebrush_two_track_2021-06-26.jpg (SHA-1 9fdb465d952b98adb6ada9356f21df8c76897bd1)",
+  "tier": 4,
+  "rights_status": "cleared",
+  "rights_note": "THE OWNER'S OWN PHOTOGRAPH, COMMITTED, AND DELIBERATELY NOT OPENLY LICENSED. Supplied by the owner for this project on 2026-08-15. It is committed to this public repository and is visible to anyone who reads it - that is intended, so the figures derived from it are checkable against the pixels they came from, which is this project's whole standard. What is NOT granted is a reuse licence: the owner ruled on 2026-08-15 that it is not for public reuse. ALL RIGHTS RESERVED. Visible is not the same as reusable, and the distinction is the point of this note: a reader may open it to check a measurement, and may not redistribute it, republish it, or derive an asset from it. It is the one entry in assets/LICENSES.md not under an open licence, and the exception is recorded there in those terms. tools/publish.sh does not copy data/sources/, so it is not served from the published site either.",
+  "rights_checked": {
+    "date": "2026-08-15",
+    "method": "Stated directly by the owner in conversation on 2026-08-15 - 'it's a photo I have' - in response to being asked for the provenance before it could be used. EXIF corroborates first-hand capture rather than a download: Apple iPhone XR, iOS 14.6, DateTimeOriginal 2021-06-26 09:07:31, no editing software field, orientation 1.",
+    "outcome": "cleared for commitment to this repository and for this project's own use and derivation, by the owner as the copyright holder; NOT licensed for reuse by anyone else - all rights reserved, ruled by the owner 2026-08-15."
+  },
+  "asset_use": "cross_check",
+  "verified": true,
+  "access_notes": "Supplied by the owner 2026-08-15 after the Kansas scan was committed and its limits recorded. VERIFIED BY EYE before committing: an unimproved earth two-track running from the camera's feet, curving, over a rise and on to the horizon, through low sagebrush and bunchgrass under a partly clouded blue sky, rolling ground, no built structure in frame. EXIF: Apple iPhone XR, 2021-06-26 09:07:31, 26 mm 35 mm-equivalent, f/1.8, 1/1916 s, ISO 25, orientation 1 (upright). No GPS in the file, so the location is not established and is not asserted here.",
+  "note": "THE FAR-BAND ROAD REFERENCE, for R-M1b, and the complement to samstone_2017_tallgrass_trail rather than its replacement. Each anchors what it is actually good for.\n\nWHY THIS ONE CARRIES THE FAR BANDS. The track is unbroken from the foreground to the horizon at 4032x3024, so a contrast can be read at every distance the gate scores - which the Kansas photograph cannot do past about twenty metres at 593x400. It is also a DIRECT DIGITAL CAPTURE, not a scan of a print, so its sRGB values are not mediated by film stock and scanner and absolute readings are defensible here in a way they are not there.\n\nTHE FRAME IS ALREADY SOLVED, by the same arithmetic as the sky reference and by coincidence of the same lens. 26 mm equivalent over 3024 px gives 53.1 deg vertical and 57.0 px/deg, so once the horizon row is found the elevation of any pixel is (horizon - row) / 57.0 degrees. saari_2018_dupage_tallgrass was shot at the same 26 mm equivalent, so the two references share a frame model.\n\nAND THE DATE IS FIVE DAYS OFF THE SCENE. 26 June against a scene date of 1 July - closer than any other reference this project holds, and it removes the season caveat that the September Kansas photograph carries.\n\nTHE BIAS THAT MUST NOT BE FORGOTTEN WHEN DERIVING FROM IT. This is SAGEBRUSH STEPPE, not tallgrass prairie: pale silver Artemisia and short bunchgrass on dry rolling ground. Pale dust against pale sage is a LOW-contrast pairing; dark earth against deep-green July tallgrass on the Chicago lake plain is a higher-contrast one. A threshold derived here therefore comes out LOWER than Chicago's true one, and a gate set from it would pass roads in the reconstruction that are genuinely too faint to see - which is the exact failure this whole bug is made of. Derive the far-band SHAPE from this file (how contrast falls with distance) and take the near-field MAGNITUDE from the tallgrass photograph, or state plainly that the bar is conservative and why.",
+  "what_it_supplies": [
+    "the fall of earth-track contrast with distance, from underfoot to the horizon, at a resolution that resolves the track in every band the road gate scores",
+    "a direct digital capture whose absolute sRGB is not mediated by film, print or scanner, unlike the Kansas scan",
+    "a frame model: 26 mm equivalent over 3024 px = 57.0 px/deg, the same lens geometry as the sky reference, so elevation per pixel is computable once the horizon row is found",
+    "a date five days from the scene date, 26 June against 1 July"
+  ],
+  "what_it_does_not_supply": [
+    "tallgrass prairie - it is sagebrush steppe, pale Artemisia and bunchgrass on dry ground; the earth-against-vegetation contrast here is LOWER than deep-green July tallgrass would give, so any threshold derived from it is conservative and must be labelled so",
+    "the flat lake plain - the ground is rolling, so a horizon here is a ridge line rather than the true horizon Chicago's sightlines have",
+    "a location - the file carries no GPS and none is asserted",
+    "wagon-road width - this is a single-vehicle two-track; an 1835 street was a platted corridor about ten metres wide, and only the surface contrast transfers",
+    "a reuse licence - it is committed so a reader can CHECK the figures against it, and that is all. All rights reserved by the owner; no redistribution, republication or derived asset."
+  ]
+}

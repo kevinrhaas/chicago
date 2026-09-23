@@ -1,0 +1,31 @@
+{
+  "id": "chicagology_southwaterstreet",
+  "type": "website",
+  "citation": "\"South Water Street.\" Chicagology. Reprinting the early-streets passage of A. T. Andreas, History of Chicago, Volume I (1884), with Chicago Illustrated (August 1866) by James W. Sheahan and later Chicago Chronicle (1895) and Chicago Tribune (1895) produce-market articles.",
+  "date": "accessed 2026-08-11",
+  "describes_date": "1833-1895",
+  "locator": "Section headed \"History of Chicago, Volume I, A. T. Andreas, 1884\", paragraphs 1-2 (the 1833-36 street orders) and the block quotation from Brass's History that follows.",
+  "url": "https://chicagology.com/chicagostreets/southwaterstreet/",
+  "archived_url": "https://web.archive.org/web/20260421023906/https://chicagology.com/chicagostreets/southwaterstreet/",
+  "tier": 4,
+  "rights_status": "check_required",
+  "asset_use": "cross_check",
+  "verified": true,
+  "note": "THIS PAGE AND chicagology_prefire233 ARE ONE WITNESS, NOT TWO. The Andreas early-streets passage is reprinted here word for word, including the same OCR damage - \"one of the orders of the Trustees was given to the first official orders of the Trustees was given to the Surveyor to 'pitch' South Water Street...\". Anything cited from this page for the 1830s is the same sentence available at chicagology_prefire233. Cite either; do NOT count them as corroborating each other, and do not let a claim look doubly attested because two URLs carry it.\n\nWHAT IT CARRIES FOR THE 1835 SCENE, which is the whole of its relevance: the August 1833 order to \"pitch\" South Water Street from the United States Reservation to Randolph Street on or before April 1834; the July 1834 order to graduate it \"so that water should flow from each cross street into the river\"; \"South Water and Lake streets were the two principal thoroughfares of the village, and therefore were early turnpiked and graded. Plank sluices were also built across Clark Street, to carry the drainage to the South Branch, and that street was somewhat improved in 1836\"; and \"By the winter of 1836 the leading thoroughfares were turnpiked.\" The pitch order stopping at the United States Reservation is the useful negative: it marks where the town's street work ended and the unplatted fort ground began.\n\nTHE SAME 1848 DATE TRAP IS HERE. The Brass's History block quotation opening \"I said we had no pavements in 1848\" - impassable spring streets, empty wagons and drays stuck on Lake and Water streets, the Common Council grade of two to six or eight feet - is reprinted here as well and describes 1848-49, not 1835. See chicagology_prefire233 for the full guard.\n\nTWO CLAIMS THE DOSSIER ATTRIBUTES TO THIS PAGE THAT ARE NOT ON IT. docs/research/04-structures-south.md line 118 cites \"chicagology/southwaterstreet\" for South Water being \"the first street\" and, in the same entry, for South Water lots being 55 ft wide. The \"first street\" sentence is on chicagology_prefire275's uncredited addendum, not here; the 55-foot lots are Andreas (scan p. 497) and the dossier already tags them so. The grading, the sluices and the turnpiking ARE here.\n\nEverything else on the page - the 1866 Chicago Illustrated view of South Water east of Clark looking west, and column after column of 1895 fruit, poultry and turkey trade - is thirty to sixty years past the scene date and has no bearing on it.\n\nTIER 4 GRADES THIS WEB PAGE, NOT THE MATERIAL IT REPRINTS. A modern compilation quoting an older text is still a modern compilation: the transcription is unpaginated, uncredited editorial prose sits beside the quoted matter with no typographic break, and nothing here can be collated against a printed page. Where a claim taken from this page is load-bearing, re-read it in the underlying volume and cite that record instead.",
+  "access_notes": "Site carries no license statement. Treat as a transcription aid, not a rights source; nothing may be derived from it as an asset.",
+  "what_it_supplies": [
+    "the August 1833 order to pitch South Water Street from the United States Reservation to Randolph Street by April 1834",
+    "the July 1834 order to graduate South Water Street so water flowed from each cross street into the river",
+    "South Water and Lake as the two principal thoroughfares, early turnpiked and graded",
+    "plank sluices across Clark Street draining to the South Branch",
+    "the leading thoroughfares turnpiked by the winter of 1836",
+    "that town street work stopped at the United States Reservation boundary"
+  ],
+  "what_it_does_not_supply": [
+    "any independent corroboration of the Andreas text it shares verbatim with chicagology_prefire233",
+    "the claim that South Water was the town's first street",
+    "South Water lot widths",
+    "any 1835 description of the street's surface, crown or profile",
+    "the mired wagons and drays as an 1835 observation - that passage is explicitly 1848"
+  ]
+}

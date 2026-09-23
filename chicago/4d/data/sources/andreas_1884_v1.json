@@ -1,0 +1,16 @@
+{
+  "id": "andreas_1884_v1",
+  "type": "book",
+  "citation": "Andreas, A. T. History of Chicago: From the Earliest Period to the Present Time. Vol. 1. Chicago: A. T. Andreas, 1884.",
+  "author": "Alfred Theodore Andreas",
+  "date": "1884",
+  "describes_date": "1673-1857",
+  "locator": "cite the page for every claim; scan pages via the archive.org full-text index run roughly 2x the printed page",
+  "url": "https://archive.org/details/historyofchicago01andr",
+  "tier": 3,
+  "rights_status": "public_domain",
+  "asset_use": "inventory",
+  "verified": true,
+  "note": "Pioneer recollection compiled fifty years after the fact — treat as secondary and always cite the page. Dense with building-level detail unavailable anywhere else. The archive.org OCR index is demonstrably lossy: a phrase visible in one returned snippet can fail on re-query, so 'not found' is not 'not present'.",
+  "access_notes": "Full-text search endpoint: https://ia601809.us.archive.org/fulltext/inside.php?item_id=historyofchicago01andr&doc=historyofchicago01andr&path=/30/items/historyofchicago01andr&q=PHRASE . The _djvu.txt is too large for most fetchers; read page images for anything load-bearing."
+}

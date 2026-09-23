@@ -1,0 +1,139 @@
+{
+ "id": "hh_watkins_john",
+ "name": "The Watkins household",
+ "division": "north",
+ "head": "watkins_john",
+ "arrival": {
+  "value": "1832",
+  "confidence": "attested",
+  "sources": [
+   "andreas_1884_v1"
+  ],
+  "note": "'Came in 1832' - year precision, stated twice.",
+  "precision": "year"
+ },
+ "party_size_on_arrival": {
+  "value": null,
+  "confidence": "reconstructed",
+  "note": "Not attested in anything this project holds."
+ },
+ "origin": {
+  "value": null,
+  "confidence": "reconstructed",
+  "note": "Not attested in anything this project holds."
+ },
+ "reason_for_coming": {
+  "value": null,
+  "confidence": "reconstructed",
+  "note": "Not attested in anything this project holds."
+ },
+ "lives_at": {
+  "value": null,
+  "confidence": "reconstructed",
+  "note": "Not attested in anything this project holds."
+ },
+ "works_at": {
+  "value": "north_side_school_1833",
+  "confidence": "attested",
+  "sources": [
+   "andreas_1884_v1"
+  ],
+  "note": "Andreas's account of the 1835 school year puts him teaching in exactly the building this record models - on the river bank just east of Clark Street, erected by Hamilton and Owen. data/structures/north_side_school_1833.json carries the doubt about whether that building was ever built; this household carries the man who is said to have taught in it."
+ },
+ "present_on_scene_date": {
+  "value": "present",
+  "confidence": "attested",
+  "sources": [
+   "andreas_1884_v1"
+  ],
+  "note": "Teaching the North Side public school in 1835, per Andreas's account of that school year."
+ },
+ "persons": [
+  {
+   "id": "watkins_john",
+   "name": "John Watkins",
+   "relationship": "head",
+   "grade": "attested",
+   "ladder_rule": "G1b",
+   "sex": "male",
+   "occupation": {
+    "value": "schoolteacher",
+    "confidence": "attested",
+    "sources": [
+     "andreas_1884_v1"
+    ],
+    "note": "'John Watkins, school-master, came in 1832'. Andreas: 'In the fall of 1832, Colonel Hamilton and Colonel Owen employed John Watkins to teach a small school in the North Division, near the old Indian agency-house'; and by 1835 'John Watkins was then teaching what had become a public school on the North Side, on the river bank just east of Clark Street, in the building erected by Colonels Hamilton and Owen'.",
+    "derived_from": "roles",
+    "roles_at_scene_date": [
+     "schoolteacher"
+    ]
+   },
+   "sources": [
+    "andreas_1884_v1",
+    "chicago_voter_lists_1833_1835_irad"
+   ],
+   "note": "THE ONLY TEACHER IN THIS PARCEL DOCUMENTED AT WORK IN THE SCENE YEAR ITSELF, and the only person in it who contradicts Andreas in his own book. Of the purpose-built schoolhouse Andreas says 'it is stated in Mr. Wells's report that these gentlemen afterwards built a house on the north bank of the river, just east of Clark Street, in which Mr. Watkins continued his school, and that it was the first house built for a school in Chicago. But this does not recur to Mr. Watkins's recollection.' Watkins wrote to the Calumet Club from Joliet in later life and Andreas quotes him directly on his first quarter: thirty scholars subscribed for but only twelve attending, 'only four of them were white: the others were quarter, half, and three-quarters Indians', and after the first quarter he moved the school into a double log house on the West Side owned by the Rev. Jesse Walker, who lived in one end while Watkins taught in the other and preached in the schoolroom on Sundays. Andreas vol. 1, printed p. 132 (scan p. 281), 'an imperfect list of the denizens of the town in the fall of 1833, not before named' - a name, a trade and usually an arrival year, compiled fifty years after the fact. It is the densest population passage this project holds and it is a retrospective, so a YEAR off it is documented and a MONTH is not. THE TOWN'S OWN ROLLS, 1833-1835 — CORROBORATION, NOT A GRADE. The early Chicago voter and tax lists held by the Illinois Regional Archives Depository name this person 1 time: Poll list of the first election of the Board of Trustees of the Town of Chicago, 10 August 1833 — “Watkins, John” (poll_1833_028, line 49). These are the town's own contemporary paper rather than a recollection of it, and each appearance says that a man of that name stood on that roll in that year — no more. The reading is twice mediated (Schulz's transcription, then Genealogy Trails' republication) and this project has not seen the IRAD originals. Under the ratified ladder (T-0513) the 1835 poll with a second independent source is attested, the 1835 poll alone or a 1833/1834 list with another source is inferred, and a single appearance with nothing else is a projected resident. This pass WRITES THE EVIDENCE AND MOVES NO GRADE — T-0515 applies the ladder against every source at once. Identity by the crosswalk's own rule: one resident of the surname 'Watkins' agrees with the entry's forenames; 1 bearer(s) of the surname were considered. (data/research/civic/voter_crosswalk.json).",
+   "resident_research": {
+    "programme": "resident-research-2026",
+    "ticket": "T-0493",
+    "outcome": "no_corroboration_yet",
+    "reviewed_on": "",
+    "asserted_identity": false,
+    "evidence_for": "forenames agree initial for initial: entry 'John Watkins' against resident 'John Watkins'",
+    "source_ids": [
+     "chicago_voter_lists_1833_1835_irad"
+    ]
+   },
+   "roles": [
+    {
+     "role": "schoolteacher",
+     "kind": "profession",
+     "as_printed": null,
+     "from": "1673",
+     "to": "1857",
+     "precision": "source_span",
+     "dated_by": "source_describes_date",
+     "covers_scene_date": true,
+     "confidence": "attested",
+     "sources": [
+      "andreas_1884_v1"
+     ],
+     "claim": null,
+     "note": "THE BOUND IS THE SOURCE'S, NOT THE MAN'S. This role is carried by the card's 1835 occupation block and is dated by what the cited source or sources are ABOUT, which is why `precision` can be no better than the span they cover. The span reaches 1835, so this role stands in the scene-date view. The printing the trade was read off is not on the card and is fetched by T-1254."
+    }
+   ]
+  }
+ ],
+ "touches_removal": false,
+ "review_required": false,
+ "research_note": "THE SCHOOLMASTER, AND THE PARCEL'S BEST WITNESS TO WHO ACTUALLY LIVED HERE. His own account of his first class - twelve children, four of them white - is the single most concrete statement about the composition of the settlement's population that this project has found, and it belongs to 1832 rather than to 1835. THREE BUILDINGS IN THIS DATASET ARE ATTACHED TO HIM and only one is linked: north_side_school_1833, where he was teaching in the scene year; watkins_school_house on Michigan Street, where he taught at some point and whose own record calls itself 'the thinnest record in this parcel'; and Jesse Walker's double log house on the West Side, which is probably this dataset's walker_meeting_house and is not linked because that record cannot even settle which bank it stood on.",
+ "old_settler_deaths": {
+  "the_header_admission": "Names, places * , dates, and ages at death\nof some of Chicago's Old Settlers, prior to 1843, and other well - known citizens who arrived after 1843, together\nwith others prominently connected with Illinois history:",
+  "note": "LATER EVIDENCE OF A DEATH, BESIDE THE 1835 CLAIMS AND NOT INSIDE THEM. Fergus's 1843 directory (1896) prints an obituary list of old settlers, and one of its entries meets somebody of this name. THE HEADER OF THE LIST IS QUOTED ABOVE, and it is the limit the whole reading turns on. It does not mean the person was in Chicago in 1835, and it does not mean they arrived before 1843 — the list's own header, quoted above, says it also names citizens who arrived later and others merely 'prominently connected with Illinois history'. A match means one thing: a name in the 1835 layer and a name in this list agree on surname and first initial, and the list gives that name a death date and an age. The date and the interval are the payload. Whatever is carried is carried as evidence of a DEATH and of an interval the birth falls in, never as an 1835 fact and never as a grade. T-0513 consolidates and T-0514/T-0515 apply; this file changes no record. This pass WRITES THE EVIDENCE AND MOVES NO GRADE. A death notice printed in 1896 says a person of this name died on a day; under the ratified ladder (T-0513) that is later evidence about a DEATH, and it is never an 1835 residence. T-0515 applies the ladder against every source at once; this pass hands it the evidence and not the verdict.",
+  "sources": [
+   "fergus_1843_old_settler_death_notices"
+  ],
+  "people": [
+   {
+    "person_id": "watkins_john",
+    "matched_as": "John Watkins",
+    "matched_by": "Surname 'Watkins' folds to the same string as the entry's, and the given name of both begins J.",
+    "matched_on_initial_only": false,
+    "resident_given_is_initial_only": false,
+    "entry_given_as_read": "John",
+    "entry_given_is_initial_only": false,
+    "the_agreement": "a surname and a forename spelled out on both sides",
+    "record_id": "fdn0710",
+    "trade_or_office": null,
+    "manner_of_death": "died",
+    "place_of_death": "Joliet, Will Co.. Ill.",
+    "death_date": "1887-03-01",
+    "age_as_printed": "aged 85",
+    "birth_year_earliest": 1801,
+    "birth_year_latest": 1802,
+    "birth_year_arithmetic": "The page prints the death as 'March 1, 1887' and the age as 'aged 85'. An age of 85 completed years means at least 85 and less than 86, so the birth falls between 1801-03-02 and 1802-03-01: the birth year is 1801 or 1802. The subtraction is this project's; the page states no year of birth.",
+    "as_read": "Watkins, John, died, Joliet, Will Co.. Ill., March 1, 1887, aged 85."
+   }
+  ]
+ }
+}

@@ -1,0 +1,19 @@
+{
+ "_doc": "ROADMAP R-BUG5. Bodies of far timber whose authored polyline crosses water inside the modelled heightfield, banked by name so the fault may shrink and may not grow. Written by tools/measure_far_timber.py --update; the renderer refuses to draw any of it, so nothing banked here is on screen. main_stem_belt_east left this file in T-0031, re-placed on the committed South Water centreline: 39 of 39 samples over water became 0 of 136.",
+ "epoch": "e1834_harbor_cut",
+ "sample_step_m": 2.0,
+ "bodies": {
+  "south_branch_belt": {
+   "wet": 57,
+   "samples": 2308,
+   "wet_length_m": 113.7,
+   "worst_depth_m": 1.511
+  },
+  "north_branch_belt": {
+   "wet": 8,
+   "samples": 2513,
+   "wet_length_m": 16.0,
+   "worst_depth_m": 1.38
+  }
+ }
+}

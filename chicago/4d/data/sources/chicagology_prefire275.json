@@ -1,0 +1,34 @@
+{
+  "id": "chicagology_prefire275",
+  "type": "website",
+  "citation": "\"Early Street Maps of Chicago.\" Chicagology. A gallery of reproduced early Chicago maps - Thompson 1830, the Kinzie manuscript map hand-dated 1833, Wright 1834, Wabonsia 1835, Andreas's 1830 landownership map, Wolf's Point 1853 and both states of the Conley/Stelzer map - with an uncredited editorial ADDENDUM on the town's first streets and roads.",
+  "date": "accessed 2026-08-11",
+  "describes_date": "1830-1853",
+  "locator": "The ADDENDUM at the foot of the page, second paragraph, beginning \"In 1833, when Chicago received its charter as a village\"; and the page's opening sentence on the Thompson plat above the gallery.",
+  "url": "https://chicagology.com/prefire/prefire275/",
+  "archived_url": "https://web.archive.org/web/20260517032650/https://chicagology.com/prefire/prefire275/",
+  "tier": 4,
+  "rights_status": "check_required",
+  "asset_use": "inventory",
+  "verified": true,
+  "note": "THE ONLY PLACE THOMAS CHURCH'S STORE HAS BEEN FOUND, and it is one sentence with no date. Verbatim from the ADDENDUM: \"In 1833, when Chicago received its charter as a village, Lake Street was the main street of the town.; in this same year the first Tremont House was erected at the northwest corner of Dearborn and Lake streets. The first store building on Lake Street, a two-story frame structure, was built by Thomas Church. The first Court House followed in 1835 and the City Hotel, later the Sherman House, in 1837.\" (the stray \"town.;\" is the page's).\n\nREAD EXACTLY WHAT THAT GIVES YOU. The store gets a FORM - two-storey, frame - and a STREET. It gets no year, no block, no lot and no corner. The sentences around it run 1833, then 1835, then 1837, which invites a reader to date the store to 1833 by position on the page; the sentence itself does not say so. docs/research/04-structures-south.md line 161 handles this correctly, tagging the date [CONJ] and treating it as c. 1833-35. Any placement of this building in the 1835 scene is inference about both its date and its position, and both have to be tagged.\n\nTHE ADDENDUM IS THE WEAKEST TEXT IN THIS WHOLE SET. It is uncredited modern editorial prose - not a transcription, no source named, no author - sitting under a gallery of genuine map scans, which lends it an authority it has not earned. It must never outrank Andreas, and it should not be used where Andreas speaks.\n\nSTREET WIDTHS: the page opens \"In 1830, commissioned to survey, James Thompson completed a plat of what was then known as the Town of Chicago, an area about 0.375 square miles with streets 80 feet wide and alleys 18 feet wide.\" That agrees with the 80-foot figure this project takes from Hathaway 1834 and disagrees with the 66-foot streets and 16-foot alleys that Currey gives (see chicagology_first_post_office). It is a THIRD statement, not a tiebreak: the page cites nothing for it and its alley figure agrees with neither.\n\nTHE MAP GALLERY IS A FINDING AID, NOT A SOURCE OF IMAGES. Re-source every map from its holding institution. The page's own captions on the Conley/Stelzer map are internally confused: it heads the map \"Town of Chicago as incorporated on February 11, 1833\" and says the original was \"recreated by The Chicago Tribune on February 11, 1933\", while the Tribune caption it prints is dated 11 August 1933 and conley_stelzer_1933 records incorporation as 5 August 1833. It also spells the artist \"Seltzer\" once and \"Stelzer\" once, and Conley \"Walter M.\" once and \"Walter H.\" once. Take nothing bibliographic about that map from here.\n\nTIER 4 GRADES THIS WEB PAGE, NOT THE MATERIAL IT REPRINTS. A modern compilation quoting an older text is still a modern compilation: the transcription is unpaginated, uncredited editorial prose sits beside the quoted matter with no typographic break, and nothing here can be collated against a printed page. Where a claim taken from this page is load-bearing, re-read it in the underlying volume and cite that record instead.",
+  "access_notes": "Site carries no license statement. Treat as a transcription aid, not a rights source; nothing may be derived from it as an asset.",
+  "what_it_supplies": [
+    "the existence of a first store building on Lake Street, a two-story frame structure, built by Thomas Church",
+    "the first Tremont House at the north-west corner of Dearborn and Lake, 1833",
+    "Lake Street as the main street of the town from 1833",
+    "the first Court House \"followed in 1835\"",
+    "South Water Street as the town's first street, \"a muddy, narrow trail running east and west along the south bank\"",
+    "the Milwaukee Trace / Northwest Plank Road and the Barry Point Trail and Nine-mile Swamp route out of town",
+    "a finding aid to the early Chicago map literature",
+    "Thompson 1830 street width 80 ft and alley width 18 ft, uncited"
+  ],
+  "what_it_does_not_supply": [
+    "a date for Thomas Church's store",
+    "a block, lot or corner for it",
+    "any dimension for it",
+    "usable reproductions of the maps it gathers - re-source from the holding institution",
+    "reliable bibliographic data for the Conley/Stelzer map",
+    "any citation whatever for its addendum"
+  ]
+}

@@ -1,0 +1,432 @@
+{
+ "id": "f08_lakeshore",
+ "zone": 8,
+ "name": "Lakeshore, foredune, sandbar and river mouth",
+ "habitat": "lakeshore",
+ "dossier": "docs/research/08-fauna.md \u00a7 ZONE 6",
+ "scene_date": "1835-07-01",
+ "reads_as": "an almost empty beach at the annual shorebird minimum \u2014 a few gulls and terns, two breeding shorebirds, one eagle, and a landed fish or two",
+ "in_modelled_extent": true,
+ "extent_from": {
+  "flora_zone": "z08_lakeshore"
+ },
+ "soundscape": {
+  "dawn_chorus": "none",
+  "hero": [
+   "charadrius_vociferus"
+  ],
+  "note": "There is no dawn chorus on a sand beach and there is no shorebird spectacle on 1 July: the spring flight is over and the southbound flight has not started. The soundscape is wind, water and killdeer."
+ },
+ "species": [
+  {
+   "id": "larus_argentatus",
+   "binomial": "Larus argentatus",
+   "common": "herring gull",
+   "class": "bird",
+   "activity": "diurnal",
+   "active_periods": [
+    "dawn",
+    "day",
+    "dusk"
+   ],
+   "july": {
+    "status": {
+     "value": "year_round_resident",
+     "confidence": "inferred",
+     "note": "The historic Great Lakes breeding gull, and the defensible choice for an 1835 river mouth. The dossier's citation is a Waterbirds paper on the rise and fall of ring-billed gulls, and The dossier's citation for this has no record in data/sources/, so nothing here is graded documented on it."
+    },
+    "presence": {
+     "value": "visible",
+     "confidence": "inferred",
+     "note": "Loafing on the bar and the piers."
+    },
+    "abundance": {
+     "value": "sparse",
+     "confidence": "inferred",
+     "note": "A few birds. NOT a flock: see the ring-billed gull record for the anachronism this number is guarding against."
+    },
+    "max_group": 6,
+    "vocalization": "call_only",
+    "behaviour": "A handful of large gulls loafing on the sandbar and the pier timbers, occasionally lifting off and settling again.",
+    "appearance": "Large pale-grey-backed gull with pink legs; the immature birds are mottled brown.",
+    "trace": null
+   },
+   "confidence": "inferred",
+   "note": "The choice of herring gull over ring-billed is the dossier's central gull argument and rests on a Waterbirds paper with no source record. No 1830s Chicago gull observation of any species was found."
+  },
+  {
+   "id": "sterna_hirundo",
+   "binomial": "Sterna hirundo",
+   "common": "common tern",
+   "class": "bird",
+   "activity": "diurnal",
+   "active_periods": [
+    "dawn",
+    "day",
+    "dusk"
+   ],
+   "july": {
+    "status": {
+     "value": "breeding_resident",
+     "confidence": "inferred",
+     "note": "The historic Great Lakes breeding tern; same unresolved citation as the herring gull."
+    },
+    "presence": {
+     "value": "visible",
+     "confidence": "inferred",
+     "note": "Plunge-diving offshore, in ones and twos."
+    },
+    "abundance": {
+     "value": "sparse",
+     "confidence": "inferred",
+     "note": "Small numbers only."
+    },
+    "max_group": 6,
+    "vocalization": "call_only",
+    "behaviour": "Terns hovering and plunge-diving just offshore, carrying small fish back along the bar.",
+    "appearance": "Slim, pale, black-capped, with a red bill and long forked tail \u2014 not a gull's shape.",
+    "trace": null
+   },
+   "confidence": "inferred",
+   "note": "The historic Great Lakes breeding tern, on the same unresolved citation as the herring gull. No Chicago record."
+  },
+  {
+   "id": "actitis_macularius",
+   "binomial": "Actitis macularius",
+   "common": "spotted sandpiper",
+   "class": "bird",
+   "activity": "diurnal",
+   "active_periods": [
+    "dawn",
+    "day",
+    "dusk"
+   ],
+   "july": {
+    "status": {
+     "value": "breeding_resident",
+     "confidence": "inferred",
+     "note": "A LOCAL BREEDER, which is the entire reason it is correct for 1 July when almost no other shorebird is."
+    },
+    "presence": {
+     "value": "visible",
+     "confidence": "inferred",
+     "note": "Working the waterline in the open."
+    },
+    "abundance": {
+     "value": "frequent",
+     "confidence": "inferred",
+     "note": "Singles and pairs along the shore, not a flock."
+    },
+    "max_group": 2,
+    "vocalization": "call_only",
+    "behaviour": "A small sandpiper teetering along the waterline, then flying off low with stiff shallow wingbeats close over the water, calling.",
+    "appearance": "Brown above, white below with round black spots \u2014 the spots are a breeding-season plumage and are correct for July.",
+    "trace": null
+   },
+   "confidence": "inferred",
+   "note": "Placed because it BREEDS on shorelines, which is what makes it one of the two shorebirds correct for 1 July. No Chicago record of any date reached."
+  },
+  {
+   "id": "charadrius_vociferus",
+   "binomial": "Charadrius vociferus",
+   "common": "killdeer",
+   "class": "bird",
+   "activity": "cathemeral",
+   "active_periods": [
+    "dawn",
+    "day",
+    "dusk",
+    "night"
+   ],
+   "july": {
+    "status": {
+     "value": "breeding_resident",
+     "confidence": "inferred",
+     "note": "Nests on bare sand and gravel; a local breeder, not a migrant."
+    },
+    "presence": {
+     "value": "visible_and_audible",
+     "confidence": "inferred",
+     "note": "Loud and obvious on open sand."
+    },
+    "abundance": {
+     "value": "common",
+     "confidence": "inferred",
+     "note": "Habitat reading."
+    },
+    "max_group": 4,
+    "vocalization": "call_only",
+    "behaviour": "Birds running and stopping on the bare sand, calling loudly, giving a broken-wing display near a scrape.",
+    "appearance": "Two black breast bands; rusty rump in flight.",
+    "trace": null
+   },
+   "confidence": "inferred",
+   "note": "A local breeder rather than a migrant, which is the whole reason it survives the July gate; no Chicago record of this period."
+  },
+  {
+   "id": "haliaeetus_leucocephalus",
+   "binomial": "Haliaeetus leucocephalus",
+   "common": "bald eagle",
+   "class": "bird",
+   "activity": "diurnal",
+   "active_periods": [
+    "dawn",
+    "day",
+    "dusk"
+   ],
+   "july": {
+    "status": {
+     "value": "breeding_resident",
+     "confidence": "inferred",
+     "note": "Once common in north-eastern Illinois; the last Cook County nests were recorded in 1896 and 1897, so in 1835 eagles are breeding-season residents of the region. The dossier found NO specific 1830s Chicago eagle sighting, and its citation has no source record."
+    },
+    "presence": {
+     "value": "visible",
+     "confidence": "inferred",
+     "note": "One bird, high, over the harbour and river mouth."
+    },
+    "abundance": {
+     "value": "rare",
+     "confidence": "inferred",
+     "note": "ONE bird. The dossier's instruction is 'use sparingly, one bird, high', and the record enforces it rather than leaving it to a renderer's taste."
+    },
+    "max_group": 1,
+    "vocalization": "silent",
+    "behaviour": "A single eagle, high, crossing over the river mouth without stopping.",
+    "appearance": "An adult with a white head and tail, or a wholly brown subadult \u2014 both are correct.",
+    "trace": null
+   },
+   "confidence": "inferred",
+   "note": "The dossier found NO specific 1830s Chicago eagle sighting. The regional inference rests on Cook County nesting records that run to 1896-97, from a source with no record here. One bird, high, is the whole of what this supports."
+  },
+  {
+   "id": "coregonus_clupeaformis",
+   "binomial": "Coregonus clupeaformis",
+   "common": "lake whitefish",
+   "class": "fish",
+   "activity": "cathemeral",
+   "active_periods": [
+    "dawn",
+    "day",
+    "dusk",
+    "night"
+   ],
+   "july": {
+    "status": {
+     "value": "year_round_resident",
+     "confidence": "attested",
+     "sources": [
+      "kinzie_waubun_1856"
+     ],
+     "note": "Wau-Bun calls trout and whitefish 'those treasures of the deep' at Chicago \u2014 the valued Lake Michigan food fishes, named for this place by a near-contemporary."
+    },
+    "presence": {
+     "value": "trace_only",
+     "confidence": "inferred",
+     "note": "Not visible in the lake at any render scale. The defensible appearance is a landed fish: a catch on the beach, on a drying rack or in a skiff."
+    },
+    "abundance": {
+     "value": "common",
+     "confidence": "inferred",
+     "note": "The lake's principal food fish; no 1835 catch figure for Chicago exists."
+    },
+    "max_group": 0,
+    "vocalization": "non_vocal",
+    "behaviour": "Static: landed fish on the sand or on a drying rack. Nothing swims.",
+    "appearance": "Deep-bodied silver fish with a small blunt head.",
+    "trace": "Landed fish on the sand, on drying racks, or in the bottom of a beached skiff."
+   },
+   "confidence": "attested",
+   "sources": [
+    "kinzie_waubun_1856"
+   ],
+   "note": "NOT A COMMERCIAL FISHERY. Great Lakes commercial fishing in the 1830s was centred on Mackinac, where about 1,200 barrels of whitefish and trout were taken in 1836, and the American Fur Company's large-scale venture of that decade FAILED. At Chicago on 1 July 1835 the correct picture is subsistence and small-market fishing \u2014 a shore seine, set lines, a skiff, fish drying \u2014 and not stacked barrels."
+  },
+  {
+   "id": "salvelinus_namaycush",
+   "binomial": "Salvelinus namaycush",
+   "common": "lake trout",
+   "class": "fish",
+   "activity": "cathemeral",
+   "active_periods": [
+    "dawn",
+    "day",
+    "dusk",
+    "night"
+   ],
+   "july": {
+    "status": {
+     "value": "year_round_resident",
+     "confidence": "attested",
+     "sources": [
+      "kinzie_waubun_1856"
+     ],
+     "note": "Named with whitefish in Wau-Bun as the lake's treasure."
+    },
+    "presence": {
+     "value": "trace_only",
+     "confidence": "inferred",
+     "note": "A landed fish, as for whitefish."
+    },
+    "abundance": {
+     "value": "frequent",
+     "confidence": "inferred",
+     "note": "No 1835 Chicago catch record exists."
+    },
+    "max_group": 0,
+    "vocalization": "non_vocal",
+    "behaviour": "Static: landed fish only.",
+    "appearance": "Long dark trout with pale spotting and a deeply forked tail.",
+    "trace": "Landed fish on the beach or in a skiff."
+   },
+   "confidence": "attested",
+   "sources": [
+    "kinzie_waubun_1856"
+   ],
+   "note": "Wau-Bun names trout and whitefish together as 'those treasures of the deep' at Chicago. That is a near-contemporary record of the fish; the landed-fish rendering and the small scale of the fishery are the inference."
+  },
+  {
+   "id": "acipenser_fulvescens",
+   "binomial": "Acipenser fulvescens",
+   "common": "lake sturgeon",
+   "class": "fish",
+   "activity": "cathemeral",
+   "active_periods": [
+    "dawn",
+    "day",
+    "dusk",
+    "night"
+   ],
+   "july": {
+    "status": {
+     "value": "year_round_resident",
+     "confidence": "inferred",
+     "note": "Abundant in Lake Michigan and its nearshore waters at settlement, spawning in all the major tributaries; the dossier's citations are Michigan Sea Grant and Illinois DNR, and The dossier's citation for this has no record in data/sources/, so nothing here is graded documented on it."
+    },
+    "presence": {
+     "value": "trace_only",
+     "confidence": "inferred",
+     "note": "A single landed fish as an ODDITY, not as a product: in the early 1800s fishermen did not think sturgeon worth eating and dried them for steamship fuel. Sturgeon only became valuable after the 1860s."
+    },
+    "abundance": {
+     "value": "uncommon",
+     "confidence": "inferred",
+     "note": "Present in the lake; rarely on the beach."
+    },
+    "max_group": 0,
+    "vocalization": "non_vocal",
+    "behaviour": "Static: at most one large landed fish, treated as a curiosity and not as a catch.",
+    "appearance": "Armoured scutes, a shark-like tail and a long snout with barbels; very large.",
+    "trace": "One landed fish on the sand."
+   },
+   "confidence": "inferred",
+   "note": "Abundance in Lake Michigan at settlement is well attested in modern fisheries literature that has no source record here; the 1835 Chicago beach is the inference."
+  },
+  {
+   "id": "larus_delawarensis",
+   "binomial": "Larus delawarensis",
+   "common": "ring-billed gull",
+   "class": "bird",
+   "activity": "diurnal",
+   "active_periods": [
+    "dawn",
+    "day",
+    "dusk"
+   ],
+   "july": {
+    "status": {
+     "value": "doubtful",
+     "confidence": "inferred",
+     "note": "THE BIGGEST ANACHRONISM RISK IN THE WHOLE DOSSIER. The default modern Chicago gull was rare and near-extirpated in eastern North America in the 19th century and only became the most abundant Great Lakes colonial waterbird after protection in 1916. Whether any were at this river mouth on 1 July 1835 is genuinely unknown, so the status is doubt, not presence and not absence."
+    },
+    "presence": {
+     "value": "absent",
+     "confidence": "inferred",
+     "note": "Nothing is placed. A modern parking-lot gull flock over the 1835 river mouth would be the single most visible error available in this zone. This is the one combination the schema allows only under a doubtful status: the animal MIGHT have been here and the scene shows none, which is neither an assertion of presence nor a finding of absence."
+    },
+    "abundance": {
+     "value": "absent",
+     "confidence": "inferred",
+     "note": "If this species is ever added, the abundance ceiling is 'rare' and the validator enforces it."
+    },
+    "max_group": 0,
+    "vocalization": "silent",
+    "behaviour": "Nothing is placed, drawn or sounded.",
+    "appearance": "Not shown.",
+    "trace": null
+   },
+   "confidence": "inferred",
+   "note": "Recorded as doubt rather than dropped, because a species that is genuinely uncertain and genuinely tempting needs to be visible in the dataset as uncertain."
+  },
+  {
+   "id": "calidris_flocks",
+   "binomial": "Calidris spp.",
+   "common": "migrant shorebird flocks",
+   "class": "bird",
+   "activity": "diurnal",
+   "active_periods": [
+    "day"
+   ],
+   "july": {
+    "status": {
+     "value": "absent_seasonal",
+     "confidence": "inferred",
+     "note": "The Chicago lakeshore is a documented shorebird corridor with 35+ species at the beaches, but overwhelmingly ON MIGRATION. 1 July is the annual shorebird MINIMUM: the spring flight is over and southbound adults do not arrive in numbers until mid-July. The dossier's ceiling for this date is zero to three individuals, so flocks are recorded as absent and the two local breeders \u2014 killdeer and spotted sandpiper \u2014 carry the shore instead."
+    },
+    "presence": {
+     "value": "absent",
+     "confidence": "inferred",
+     "note": "The Chicago lakeshore is a documented shorebird corridor with 35+ species at the beaches, but overwhelmingly ON MIGRATION. 1 July is the annual shorebird MINIMUM: the spring flight is over and southbound adults do not arrive in numbers until mid-July. The dossier's ceiling for this date is zero to three individuals, so flocks are recorded as absent and the two local breeders \u2014 killdeer and spotted sandpiper \u2014 carry the shore instead."
+    },
+    "abundance": {
+     "value": "absent",
+     "confidence": "inferred",
+     "note": "The Chicago lakeshore is a documented shorebird corridor with 35+ species at the beaches, but overwhelmingly ON MIGRATION. 1 July is the annual shorebird MINIMUM: the spring flight is over and southbound adults do not arrive in numbers until mid-July. The dossier's ceiling for this date is zero to three individuals, so flocks are recorded as absent and the two local breeders \u2014 killdeer and spotted sandpiper \u2014 carry the shore instead."
+    },
+    "max_group": 0,
+    "vocalization": "silent",
+    "behaviour": "Nothing is placed, drawn or sounded for this species.",
+    "appearance": "Recorded so the absence is a finding rather than an oversight.",
+    "trace": null
+   },
+   "confidence": "inferred",
+   "note": "A flock of peeps on this beach is the lakeshore equivalent of a booming prairie-chicken: right place, right species, wrong six weeks."
+  },
+  {
+   "id": "commercial_fishery_barrels",
+   "binomial": "Coregonus clupeaformis",
+   "common": "barrel-stacked commercial fishery",
+   "class": "fish",
+   "activity": "diurnal",
+   "active_periods": [
+    "day"
+   ],
+   "july": {
+    "status": {
+     "value": "absent_anachronism",
+     "confidence": "inferred",
+     "note": "Great Lakes commercial fishing in the 1830s was Mackinac-centred and the American Fur Company's large-scale venture of that decade failed; other operations followed only in the 1840s and 1850s. There is no barrel fishery at the Chicago river mouth on 1 July 1835."
+    },
+    "presence": {
+     "value": "absent",
+     "confidence": "inferred",
+     "note": "Great Lakes commercial fishing in the 1830s was Mackinac-centred and the American Fur Company's large-scale venture of that decade failed; other operations followed only in the 1840s and 1850s. There is no barrel fishery at the Chicago river mouth on 1 July 1835."
+    },
+    "abundance": {
+     "value": "absent",
+     "confidence": "inferred",
+     "note": "Great Lakes commercial fishing in the 1830s was Mackinac-centred and the American Fur Company's large-scale venture of that decade failed; other operations followed only in the 1840s and 1850s. There is no barrel fishery at the Chicago river mouth on 1 July 1835."
+    },
+    "max_group": 0,
+    "vocalization": "silent",
+    "behaviour": "Nothing is placed, drawn or sounded for this species.",
+    "appearance": "Recorded so the absence is a finding rather than an oversight.",
+    "trace": null
+   },
+   "confidence": "inferred",
+   "note": "The Encyclopedia of Chicago's Fishing article is the right authority for Chicago-specific fishery dates and returned HTTP 503 on three attempts, so this remains an open verification item as well as a negative finding."
+  }
+ ],
+ "confidence": "inferred",
+ "note": "This zone inherits its extent from flora zone z08_lakeshore and carries the fauna of z09_sand_prairie, the relict beach-ridge belt, as well \u2014 that belt has no fauna record of its own. Whether either has modelled ground under it is NOT stated here: in_modelled_extent is read from the flora manifest at build time, because the terrain epoch has already been extended once and a hand-copied answer would now be wrong. THE ZONE'S SINGLE LARGEST RISK IS THE GULLS: see the ring-billed gull record."
+}

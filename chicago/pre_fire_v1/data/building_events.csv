@@ -1,0 +1,759 @@
+building_event_id,building_id,event_type,event_date,date_precision,cause,description
+CHI-B1830-001-E01,CHI-B1830-001,demolition_or_loss,1831,exact,Collapsed during construction on October 30,destroyed
+CHI-B1830-001-E02,CHI-B1830-001,1871_fire_fate_assertion,1871-10-08/10,date_range,Great Chicago Fire,not exposed
+CHI-B1830-002-E01,CHI-B1830-002,completion,1832,exact,,Construction/completion evidence
+CHI-B1830-002-E02,CHI-B1830-002,demolition_or_loss,1852,exact,Replaced by a new lighthouse,demolished/replaced
+CHI-B1830-002-E03,CHI-B1830-002,1871_fire_fate_assertion,1871-10-08/10,date_range,Great Chicago Fire,not exposed
+CHI-B1830-003-E01,CHI-B1830-003,completion,1831,exact,,Construction/completion evidence
+CHI-B1830-003-E02,CHI-B1830-003,1871_fire_fate_assertion,1871-10-08/10,date_range,Great Chicago Fire,unknown
+CHI-B1830-004-E01,CHI-B1830-004,completion,1831,exact,,Construction/completion evidence
+CHI-B1830-004-E02,CHI-B1830-004,1871_fire_fate_assertion,1871-10-08/10,date_range,Great Chicago Fire,unknown
+CHI-B1830-005-E01,CHI-B1830-005,completion,1831,exact,,Construction/completion evidence
+CHI-B1830-005-E02,CHI-B1830-005,demolition_or_loss,1851,exact,Fire on March 4,destroyed
+CHI-B1830-005-E03,CHI-B1830-005,1871_fire_fate_assertion,1871-10-08/10,date_range,Great Chicago Fire,not exposed
+CHI-B1830-006-E01,CHI-B1830-006,completion,1831,exact,,Construction/completion evidence
+CHI-B1830-006-E02,CHI-B1830-006,1871_fire_fate_assertion,1871-10-08/10,date_range,Great Chicago Fire,unknown
+CHI-B1830-007-E01,CHI-B1830-007,completion,1832,exact,,Construction/completion evidence
+CHI-B1830-007-E02,CHI-B1830-007,1871_fire_fate_assertion,1871-10-08/10,date_range,Great Chicago Fire,not exposed
+CHI-B1830-008-E01,CHI-B1830-008,completion,1833,exact,,Construction/completion evidence
+CHI-B1830-008-E02,CHI-B1830-008,1871_fire_fate_assertion,1871-10-08/10,date_range,Great Chicago Fire,unknown
+CHI-B1830-009-E01,CHI-B1830-009,completion,1833,exact,,Construction/completion evidence
+CHI-B1830-009-E02,CHI-B1830-009,1871_fire_fate_assertion,1871-10-08/10,date_range,Great Chicago Fire,unknown
+CHI-B1830-010-E01,CHI-B1830-010,completion,1833,seasonal_exact,,Construction/completion evidence
+CHI-B1830-010-E02,CHI-B1830-010,1871_fire_fate_assertion,1871-10-08/10,date_range,Great Chicago Fire,unknown
+CHI-B1830-011-E01,CHI-B1830-011,completion,1833,seasonal_approximate,,Construction/completion evidence
+CHI-B1830-011-E02,CHI-B1830-011,1871_fire_fate_assertion,1871-10-08/10,date_range,Great Chicago Fire,not exposed
+CHI-B1830-012-E01,CHI-B1830-012,completion,1833,exact,,Construction/completion evidence
+CHI-B1830-012-E02,CHI-B1830-012,1871_fire_fate_assertion,1871-10-08/10,date_range,Great Chicago Fire,survived
+CHI-B1830-013-E01,CHI-B1830-013,completion,1833,exact,,Construction/completion evidence
+CHI-B1830-013-E02,CHI-B1830-013,demolition_or_loss,1839,exact,Fire on October 27,destroyed
+CHI-B1830-013-E03,CHI-B1830-013,1871_fire_fate_assertion,1871-10-08/10,date_range,Great Chicago Fire,not exposed
+CHI-B1830-014-E01,CHI-B1830-014,completion,1833,seasonal_exact,,Construction/completion evidence
+CHI-B1830-014-E02,CHI-B1830-014,1871_fire_fate_assertion,1871-10-08/10,date_range,Great Chicago Fire,not exposed
+CHI-B1830-015-E01,CHI-B1830-015,completion,1833,seasonal_exact,,Construction/completion evidence
+CHI-B1830-015-E02,CHI-B1830-015,1871_fire_fate_assertion,1871-10-08/10,date_range,Great Chicago Fire,unknown
+CHI-B1830-016-E01,CHI-B1830-016,completion,1833,active_by,,Construction/completion evidence
+CHI-B1830-016-E02,CHI-B1830-016,1871_fire_fate_assertion,1871-10-08/10,date_range,Great Chicago Fire,unknown
+CHI-B1830-017-E01,CHI-B1830-017,completion,1834,range,,Construction/completion evidence
+CHI-B1830-017-E02,CHI-B1830-017,1871_fire_fate_assertion,1871-10-08/10,date_range,Great Chicago Fire,not exposed
+CHI-B1830-018-E01,CHI-B1830-018,completion,1834,exact,,Construction/completion evidence
+CHI-B1830-018-E02,CHI-B1830-018,demolition_or_loss,1839,exact,Removed/demolished,demolished
+CHI-B1830-018-E03,CHI-B1830-018,1871_fire_fate_assertion,1871-10-08/10,date_range,Great Chicago Fire,not exposed
+CHI-B1830-019-E01,CHI-B1830-019,completion,1834,exact,,Construction/completion evidence
+CHI-B1830-019-E02,CHI-B1830-019,1871_fire_fate_assertion,1871-10-08/10,date_range,Great Chicago Fire,unknown
+CHI-B1830-020-E01,CHI-B1830-020,completion,1834,exact,,Construction/completion evidence
+CHI-B1830-020-E02,CHI-B1830-020,1871_fire_fate_assertion,1871-10-08/10,date_range,Great Chicago Fire,unknown
+CHI-B1830-021-E01,CHI-B1830-021,completion,1834,seasonal_exact,,Construction/completion evidence
+CHI-B1830-021-E02,CHI-B1830-021,1871_fire_fate_assertion,1871-10-08/10,date_range,Great Chicago Fire,unknown
+CHI-B1830-022-E01,CHI-B1830-022,completion,1834,exact,,Construction/completion evidence
+CHI-B1830-022-E02,CHI-B1830-022,1871_fire_fate_assertion,1871-10-08/10,date_range,Great Chicago Fire,unknown
+CHI-B1830-023-E01,CHI-B1830-023,completion,1835,exact,,Construction/completion evidence
+CHI-B1830-023-E02,CHI-B1830-023,1871_fire_fate_assertion,1871-10-08/10,date_range,Great Chicago Fire,not exposed
+CHI-B1830-024-E01,CHI-B1830-024,completion,1835,seasonal_exact,,Construction/completion evidence
+CHI-B1830-024-E02,CHI-B1830-024,1871_fire_fate_assertion,1871-10-08/10,date_range,Great Chicago Fire,not exposed
+CHI-B1830-025-E01,CHI-B1830-025,completion,1836,range,,Construction/completion evidence
+CHI-B1830-025-E02,CHI-B1830-025,1871_fire_fate_assertion,1871-10-08/10,date_range,Great Chicago Fire,not exposed
+CHI-B1830-026-E01,CHI-B1830-026,completion,1835,seasonal_exact,,Construction/completion evidence
+CHI-B1830-026-E02,CHI-B1830-026,1871_fire_fate_assertion,1871-10-08/10,date_range,Great Chicago Fire,unknown
+CHI-B1830-027-E01,CHI-B1830-027,completion,1835,circa,,Construction/completion evidence
+CHI-B1830-027-E02,CHI-B1830-027,1871_fire_fate_assertion,1871-10-08/10,date_range,Great Chicago Fire,survived
+CHI-B1830-028-E01,CHI-B1830-028,completion,1836,seasonal_exact,,Construction/completion evidence
+CHI-B1830-028-E02,CHI-B1830-028,demolition_or_loss,1845,circa,Sold and removed/reused after becoming dilapidated,demolished/removed
+CHI-B1830-028-E03,CHI-B1830-028,1871_fire_fate_assertion,1871-10-08/10,date_range,Great Chicago Fire,not exposed
+CHI-B1830-029-E01,CHI-B1830-029,completion,1836,seasonal_exact,,Construction/completion evidence
+CHI-B1830-029-E02,CHI-B1830-029,demolition_or_loss,1871,exact,Great Chicago Fire,destroyed
+CHI-B1830-029-E03,CHI-B1830-029,1871_fire_fate_assertion,1871-10-08/10,date_range,Great Chicago Fire,destroyed
+CHI-B1830-030-E01,CHI-B1830-030,completion,1836,active_by,,Construction/completion evidence
+CHI-B1830-030-E02,CHI-B1830-030,1871_fire_fate_assertion,1871-10-08/10,date_range,Great Chicago Fire,unknown
+CHI-B1830-031-E01,CHI-B1830-031,completion,1836,active_by,,Construction/completion evidence
+CHI-B1830-031-E02,CHI-B1830-031,1871_fire_fate_assertion,1871-10-08/10,date_range,Great Chicago Fire,unknown
+CHI-B1830-032-E01,CHI-B1830-032,completion,1837,range,,Construction/completion evidence
+CHI-B1830-032-E02,CHI-B1830-032,1871_fire_fate_assertion,1871-10-08/10,date_range,Great Chicago Fire,unknown
+CHI-B1830-033-E01,CHI-B1830-033,completion,1837,exact,,Construction/completion evidence
+CHI-B1830-033-E02,CHI-B1830-033,1871_fire_fate_assertion,1871-10-08/10,date_range,Great Chicago Fire,unknown
+CHI-B1830-034-E01,CHI-B1830-034,completion,1837,exact,,Construction/completion evidence
+CHI-B1830-034-E02,CHI-B1830-034,demolition_or_loss,1871,inferred,Great Chicago Fire,destroyed
+CHI-B1830-034-E03,CHI-B1830-034,1871_fire_fate_assertion,1871-10-08/10,date_range,Great Chicago Fire,destroyed
+CHI-B1830-035-E01,CHI-B1830-035,completion,1836,circa,,Construction/completion evidence
+CHI-B1830-035-E02,CHI-B1830-035,1871_fire_fate_assertion,1871-10-08/10,date_range,Great Chicago Fire,survived
+CHI-B1830-036-E01,CHI-B1830-036,completion,1837,exact,,Construction/completion evidence
+CHI-B1830-036-E02,CHI-B1830-036,demolition_or_loss,1857,approximate,Replaced by a new church building,demolished/replaced
+CHI-B1830-036-E03,CHI-B1830-036,1871_fire_fate_assertion,1871-10-08/10,date_range,Great Chicago Fire,not exposed
+CHI-B1830-037-E01,CHI-B1830-037,completion,1838,exact,,Construction/completion evidence
+CHI-B1830-037-E02,CHI-B1830-037,1871_fire_fate_assertion,1871-10-08/10,date_range,Great Chicago Fire,unknown
+CHI-B1830-038-E01,CHI-B1830-038,completion,1837,seasonal_exact,,Construction/completion evidence
+CHI-B1830-038-E02,CHI-B1830-038,demolition_or_loss,1852,exact,Fire,destroyed
+CHI-B1830-038-E03,CHI-B1830-038,1871_fire_fate_assertion,1871-10-08/10,date_range,Great Chicago Fire,not exposed
+CHI-B1830-039-E01,CHI-B1830-039,completion,1838,range,,Construction/completion evidence
+CHI-B1830-039-E02,CHI-B1830-039,demolition_or_loss,1842,exact,Fire in July,destroyed
+CHI-B1830-039-E03,CHI-B1830-039,1871_fire_fate_assertion,1871-10-08/10,date_range,Great Chicago Fire,not exposed
+CHI-B1830-040-E01,CHI-B1830-040,completion,1838,exact,,Construction/completion evidence
+CHI-B1830-040-E02,CHI-B1830-040,1871_fire_fate_assertion,1871-10-08/10,date_range,Great Chicago Fire,survived
+CHI-B1830-041-E01,CHI-B1830-041,completion,1838,range,,Construction/completion evidence
+CHI-B1830-041-E02,CHI-B1830-041,1871_fire_fate_assertion,1871-10-08/10,date_range,Great Chicago Fire,survived
+CHI-B1830-042-E01,CHI-B1830-042,completion,1837,active_by,,Construction/completion evidence
+CHI-B1830-042-E02,CHI-B1830-042,1871_fire_fate_assertion,1871-10-08/10,date_range,Great Chicago Fire,unknown
+CHI-B1830-043-E01,CHI-B1830-043,completion,1837,active_by,,Construction/completion evidence
+CHI-B1830-043-E02,CHI-B1830-043,1871_fire_fate_assertion,1871-10-08/10,date_range,Great Chicago Fire,unknown
+CHI-B1830-044-E01,CHI-B1830-044,completion,1837,active_by,,Construction/completion evidence
+CHI-B1830-044-E02,CHI-B1830-044,1871_fire_fate_assertion,1871-10-08/10,date_range,Great Chicago Fire,unknown
+CHI-B1830-045-E01,CHI-B1830-045,completion,1837,active_by,,Construction/completion evidence
+CHI-B1830-045-E02,CHI-B1830-045,1871_fire_fate_assertion,1871-10-08/10,date_range,Great Chicago Fire,unknown
+CHI-B1830-046-E01,CHI-B1830-046,completion,1837,active_by,,Construction/completion evidence
+CHI-B1830-046-E02,CHI-B1830-046,1871_fire_fate_assertion,1871-10-08/10,date_range,Great Chicago Fire,unknown
+CHI-B1830-047-E01,CHI-B1830-047,completion,1837,active_by,,Construction/completion evidence
+CHI-B1830-047-E02,CHI-B1830-047,1871_fire_fate_assertion,1871-10-08/10,date_range,Great Chicago Fire,unknown
+CHI-B1830-048-E01,CHI-B1830-048,completion,1837,active_by,,Construction/completion evidence
+CHI-B1830-048-E02,CHI-B1830-048,1871_fire_fate_assertion,1871-10-08/10,date_range,Great Chicago Fire,unknown
+CHI-B1830-049-E01,CHI-B1830-049,completion,1837,active_by,,Construction/completion evidence
+CHI-B1830-049-E02,CHI-B1830-049,1871_fire_fate_assertion,1871-10-08/10,date_range,Great Chicago Fire,unknown
+CHI-B1830-050-E01,CHI-B1830-050,completion,1837,active_by,,Construction/completion evidence
+CHI-B1830-050-E02,CHI-B1830-050,1871_fire_fate_assertion,1871-10-08/10,date_range,Great Chicago Fire,unknown
+CHI-B1830-051-E01,CHI-B1830-051,completion,1837,active_by,,Construction/completion evidence
+CHI-B1830-051-E02,CHI-B1830-051,1871_fire_fate_assertion,1871-10-08/10,date_range,Great Chicago Fire,unknown
+CHI-B1830-052-E01,CHI-B1830-052,completion,1837,active_by,,Construction/completion evidence
+CHI-B1830-052-E02,CHI-B1830-052,1871_fire_fate_assertion,1871-10-08/10,date_range,Great Chicago Fire,unknown
+CHI-B1830-053-E01,CHI-B1830-053,completion,1839,exact,,Construction/completion evidence
+CHI-B1830-053-E02,CHI-B1830-053,1871_fire_fate_assertion,1871-10-08/10,date_range,Great Chicago Fire,unknown
+CHI-B1830-054-E01,CHI-B1830-054,completion,1839,circa,,Construction/completion evidence
+CHI-B1830-054-E02,CHI-B1830-054,1871_fire_fate_assertion,1871-10-08/10,date_range,Great Chicago Fire,unknown
+CHI-B1830-055-E01,CHI-B1830-055,completion,1839,exact,,Construction/completion evidence
+CHI-B1830-055-E02,CHI-B1830-055,1871_fire_fate_assertion,1871-10-08/10,date_range,Great Chicago Fire,survived
+CHI-B1830-056-E01,CHI-B1830-056,completion,1840,exact,,Construction/completion evidence
+CHI-B1830-056-E02,CHI-B1830-056,demolition_or_loss,1849,exact,Fire on July 21,destroyed
+CHI-B1830-056-E03,CHI-B1830-056,1871_fire_fate_assertion,1871-10-08/10,date_range,Great Chicago Fire,not exposed
+CHI-CHI1840-001-E01,CHI-CHI1840-001,completion,1840,exact,,Construction/completion evidence
+CHI-CHI1840-001-E02,CHI-CHI1840-001,demolition_or_loss,1849,exact,fire,demolished
+CHI-CHI1840-001-E03,CHI-CHI1840-001,1871_fire_fate_assertion,1871-10-08/10,date_range,Great Chicago Fire,not present
+CHI-CHI1840-002-E01,CHI-CHI1840-002,completion,1840,exact,,Construction/completion evidence
+CHI-CHI1840-002-E02,CHI-CHI1840-002,1871_fire_fate_assertion,1871-10-08/10,date_range,Great Chicago Fire,uncertain
+CHI-CHI1840-003-E01,CHI-CHI1840-003,completion,1840,exact,,Construction/completion evidence
+CHI-CHI1840-003-E02,CHI-CHI1840-003,demolition_or_loss,1849,exact,ice and flood,demolished
+CHI-CHI1840-003-E03,CHI-CHI1840-003,1871_fire_fate_assertion,1871-10-08/10,date_range,Great Chicago Fire,not present
+CHI-CHI1840-004-E01,CHI-CHI1840-004,completion,1840,exact,,Construction/completion evidence
+CHI-CHI1840-004-E02,CHI-CHI1840-004,1871_fire_fate_assertion,1871-10-08/10,date_range,Great Chicago Fire,uncertain
+CHI-CHI1840-005-E01,CHI-CHI1840-005,completion,1840,approximate,,Construction/completion evidence
+CHI-CHI1840-005-E02,CHI-CHI1840-005,1871_fire_fate_assertion,1871-10-08/10,date_range,Great Chicago Fire,uncertain
+CHI-CHI1840-006-E01,CHI-CHI1840-006,completion,1840,approximate,,Construction/completion evidence
+CHI-CHI1840-006-E02,CHI-CHI1840-006,demolition_or_loss,1861,exact,redevelopment,demolished
+CHI-CHI1840-006-E03,CHI-CHI1840-006,1871_fire_fate_assertion,1871-10-08/10,date_range,Great Chicago Fire,not present
+CHI-CHI1840-007-E01,CHI-CHI1840-007,completion,1841,exact,,Construction/completion evidence
+CHI-CHI1840-007-E02,CHI-CHI1840-007,demolition_or_loss,1849,exact,ice and flood,demolished
+CHI-CHI1840-007-E03,CHI-CHI1840-007,1871_fire_fate_assertion,1871-10-08/10,date_range,Great Chicago Fire,not present
+CHI-CHI1840-008-E01,CHI-CHI1840-008,completion,1842,exact,,Construction/completion evidence
+CHI-CHI1840-008-E02,CHI-CHI1840-008,demolition_or_loss,1853,approximate,superseded by new waterworks,demolished
+CHI-CHI1840-008-E03,CHI-CHI1840-008,1871_fire_fate_assertion,1871-10-08/10,date_range,Great Chicago Fire,not present
+CHI-CHI1840-009-E01,CHI-CHI1840-009,completion,1842,exact,,Construction/completion evidence
+CHI-CHI1840-009-E02,CHI-CHI1840-009,demolition_or_loss,1854,approximate,loss of original water-power arrangement,demolished
+CHI-CHI1840-009-E03,CHI-CHI1840-009,1871_fire_fate_assertion,1871-10-08/10,date_range,Great Chicago Fire,not present
+CHI-CHI1840-010-E01,CHI-CHI1840-010,completion,1842,exact,,Construction/completion evidence
+CHI-CHI1840-010-E02,CHI-CHI1840-010,demolition_or_loss,1845,approximate,superseded by permanent school,demolished
+CHI-CHI1840-010-E03,CHI-CHI1840-010,1871_fire_fate_assertion,1871-10-08/10,date_range,Great Chicago Fire,not present
+CHI-CHI1840-011-E01,CHI-CHI1840-011,completion,1842,exact,,Construction/completion evidence
+CHI-CHI1840-011-E02,CHI-CHI1840-011,1871_fire_fate_assertion,1871-10-08/10,date_range,Great Chicago Fire,probably destroyed
+CHI-CHI1840-012-E01,CHI-CHI1840-012,completion,1842,unknown,,Construction/completion evidence
+CHI-CHI1840-012-E02,CHI-CHI1840-012,1871_fire_fate_assertion,1871-10-08/10,date_range,Great Chicago Fire,probably destroyed
+CHI-CHI1840-013-E01,CHI-CHI1840-013,completion,1843,approximate,,Construction/completion evidence
+CHI-CHI1840-013-E02,CHI-CHI1840-013,demolition_or_loss,1845,exact,fire,demolished
+CHI-CHI1840-013-E03,CHI-CHI1840-013,1871_fire_fate_assertion,1871-10-08/10,date_range,Great Chicago Fire,not present
+CHI-CHI1840-014-E01,CHI-CHI1840-014,completion,1843,exact,,Construction/completion evidence
+CHI-CHI1840-014-E02,CHI-CHI1840-014,demolition_or_loss,1851,exact,fire,demolished
+CHI-CHI1840-014-E03,CHI-CHI1840-014,1871_fire_fate_assertion,1871-10-08/10,date_range,Great Chicago Fire,not present
+CHI-CHI1840-015-E01,CHI-CHI1840-015,completion,1843,exact,,Construction/completion evidence
+CHI-CHI1840-015-E02,CHI-CHI1840-015,demolition_or_loss,1852,exact,relocated,relocated
+CHI-CHI1840-015-E03,CHI-CHI1840-015,1871_fire_fate_assertion,1871-10-08/10,date_range,Great Chicago Fire,not present
+CHI-CHI1840-016-E01,CHI-CHI1840-016,completion,1843,exact,,Construction/completion evidence
+CHI-CHI1840-016-E02,CHI-CHI1840-016,demolition_or_loss,1871,exact,Great Chicago Fire,demolished
+CHI-CHI1840-016-E03,CHI-CHI1840-016,1871_fire_fate_assertion,1871-10-08/10,date_range,Great Chicago Fire,destroyed
+CHI-CHI1840-017-E01,CHI-CHI1840-017,completion,1844,exact,,Construction/completion evidence
+CHI-CHI1840-017-E02,CHI-CHI1840-017,1871_fire_fate_assertion,1871-10-08/10,date_range,Great Chicago Fire,uncertain
+CHI-CHI1840-018-E01,CHI-CHI1840-018,completion,1842,exact,,Construction/completion evidence
+CHI-CHI1840-018-E02,CHI-CHI1840-018,1871_fire_fate_assertion,1871-10-08/10,date_range,Great Chicago Fire,not present
+CHI-CHI1840-019-E01,CHI-CHI1840-019,completion,1844,exact,,Construction/completion evidence
+CHI-CHI1840-019-E02,CHI-CHI1840-019,demolition_or_loss,1871,approximate,Great Chicago Fire,demolished
+CHI-CHI1840-019-E03,CHI-CHI1840-019,1871_fire_fate_assertion,1871-10-08/10,date_range,Great Chicago Fire,probably destroyed
+CHI-CHI1840-020-E01,CHI-CHI1840-020,completion,1844,exact,,Construction/completion evidence
+CHI-CHI1840-020-E02,CHI-CHI1840-020,demolition_or_loss,1871,approximate,Great Chicago Fire,demolished
+CHI-CHI1840-020-E03,CHI-CHI1840-020,1871_fire_fate_assertion,1871-10-08/10,date_range,Great Chicago Fire,probably destroyed
+CHI-CHI1840-021-E01,CHI-CHI1840-021,completion,1844,exact,,Construction/completion evidence
+CHI-CHI1840-021-E02,CHI-CHI1840-021,demolition_or_loss,1871,approximate,Great Chicago Fire,demolished
+CHI-CHI1840-021-E03,CHI-CHI1840-021,1871_fire_fate_assertion,1871-10-08/10,date_range,Great Chicago Fire,probably destroyed
+CHI-CHI1840-022-E01,CHI-CHI1840-022,completion,1844,exact,,Construction/completion evidence
+CHI-CHI1840-022-E02,CHI-CHI1840-022,demolition_or_loss,1871,approximate,Great Chicago Fire,demolished
+CHI-CHI1840-022-E03,CHI-CHI1840-022,1871_fire_fate_assertion,1871-10-08/10,date_range,Great Chicago Fire,probably destroyed
+CHI-CHI1840-023-E01,CHI-CHI1840-023,completion,1844,exact,,Construction/completion evidence
+CHI-CHI1840-023-E02,CHI-CHI1840-023,demolition_or_loss,1871,exact,Great Chicago Fire,demolished
+CHI-CHI1840-023-E03,CHI-CHI1840-023,1871_fire_fate_assertion,1871-10-08/10,date_range,Great Chicago Fire,destroyed
+CHI-CHI1840-024-E01,CHI-CHI1840-024,completion,1844,exact,,Construction/completion evidence
+CHI-CHI1840-024-E02,CHI-CHI1840-024,demolition_or_loss,1852,exact,fire,demolished
+CHI-CHI1840-024-E03,CHI-CHI1840-024,1871_fire_fate_assertion,1871-10-08/10,date_range,Great Chicago Fire,not present
+CHI-CHI1840-025-E01,CHI-CHI1840-025,completion,1844,exact,,Construction/completion evidence
+CHI-CHI1840-025-E02,CHI-CHI1840-025,1871_fire_fate_assertion,1871-10-08/10,date_range,Great Chicago Fire,probably destroyed
+CHI-CHI1840-026-E01,CHI-CHI1840-026,completion,1844,exact,,Construction/completion evidence
+CHI-CHI1840-026-E02,CHI-CHI1840-026,1871_fire_fate_assertion,1871-10-08/10,date_range,Great Chicago Fire,uncertain
+CHI-CHI1840-027-E01,CHI-CHI1840-027,completion,1845,exact,,Construction/completion evidence
+CHI-CHI1840-027-E02,CHI-CHI1840-027,demolition_or_loss,1871,exact,Great Chicago Fire,demolished
+CHI-CHI1840-027-E03,CHI-CHI1840-027,1871_fire_fate_assertion,1871-10-08/10,date_range,Great Chicago Fire,destroyed
+CHI-CHI1840-028-E01,CHI-CHI1840-028,completion,1846,approximate,,Construction/completion evidence
+CHI-CHI1840-028-E02,CHI-CHI1840-028,1871_fire_fate_assertion,1871-10-08/10,date_range,Great Chicago Fire,uncertain
+CHI-CHI1840-029-E01,CHI-CHI1840-029,completion,1845,exact,,Construction/completion evidence
+CHI-CHI1840-029-E02,CHI-CHI1840-029,demolition_or_loss,1871,exact,Great Chicago Fire,demolished
+CHI-CHI1840-029-E03,CHI-CHI1840-029,1871_fire_fate_assertion,1871-10-08/10,date_range,Great Chicago Fire,destroyed
+CHI-CHI1840-030-E01,CHI-CHI1840-030,completion,1846,approximate,,Construction/completion evidence
+CHI-CHI1840-030-E02,CHI-CHI1840-030,demolition_or_loss,1871,approximate,Great Chicago Fire,demolished
+CHI-CHI1840-030-E03,CHI-CHI1840-030,1871_fire_fate_assertion,1871-10-08/10,date_range,Great Chicago Fire,probably destroyed
+CHI-CHI1840-031-E01,CHI-CHI1840-031,completion,1845,exact,,Construction/completion evidence
+CHI-CHI1840-031-E02,CHI-CHI1840-031,1871_fire_fate_assertion,1871-10-08/10,date_range,Great Chicago Fire,uncertain
+CHI-CHI1840-032-E01,CHI-CHI1840-032,completion,1843,approximate,,Construction/completion evidence
+CHI-CHI1840-032-E02,CHI-CHI1840-032,1871_fire_fate_assertion,1871-10-08/10,date_range,Great Chicago Fire,not present
+CHI-CHI1840-033-E01,CHI-CHI1840-033,completion,1843,approximate,,Construction/completion evidence
+CHI-CHI1840-033-E02,CHI-CHI1840-033,demolition_or_loss,1855,approximate,superseded by new brick church,demolished
+CHI-CHI1840-033-E03,CHI-CHI1840-033,1871_fire_fate_assertion,1871-10-08/10,date_range,Great Chicago Fire,not present
+CHI-CHI1840-034-E01,CHI-CHI1840-034,completion,1846,exact,,Construction/completion evidence
+CHI-CHI1840-034-E02,CHI-CHI1840-034,1871_fire_fate_assertion,1871-10-08/10,date_range,Great Chicago Fire,survived outside main fire zone
+CHI-CHI1840-035-E01,CHI-CHI1840-035,completion,1846,exact,,Construction/completion evidence
+CHI-CHI1840-035-E02,CHI-CHI1840-035,demolition_or_loss,1853,exact,relocated,relocated
+CHI-CHI1840-035-E03,CHI-CHI1840-035,1871_fire_fate_assertion,1871-10-08/10,date_range,Great Chicago Fire,not present
+CHI-CHI1840-036-E01,CHI-CHI1840-036,completion,1846,approximate,,Construction/completion evidence
+CHI-CHI1840-036-E02,CHI-CHI1840-036,demolition_or_loss,1853,exact,relocated,relocated
+CHI-CHI1840-036-E03,CHI-CHI1840-036,1871_fire_fate_assertion,1871-10-08/10,date_range,Great Chicago Fire,not present
+CHI-CHI1840-037-E01,CHI-CHI1840-037,completion,1846,approximate,,Construction/completion evidence
+CHI-CHI1840-037-E02,CHI-CHI1840-037,demolition_or_loss,1853,exact,relocated,relocated
+CHI-CHI1840-037-E03,CHI-CHI1840-037,1871_fire_fate_assertion,1871-10-08/10,date_range,Great Chicago Fire,not present
+CHI-CHI1840-038-E01,CHI-CHI1840-038,completion,1846,exact,,Construction/completion evidence
+CHI-CHI1840-038-E02,CHI-CHI1840-038,1871_fire_fate_assertion,1871-10-08/10,date_range,Great Chicago Fire,uncertain
+CHI-CHI1840-039-E01,CHI-CHI1840-039,completion,1847,exact,,Construction/completion evidence
+CHI-CHI1840-039-E02,CHI-CHI1840-039,1871_fire_fate_assertion,1871-10-08/10,date_range,Great Chicago Fire,survived outside main fire zone
+CHI-CHI1840-040-E01,CHI-CHI1840-040,completion,1847,exact,,Construction/completion evidence
+CHI-CHI1840-040-E02,CHI-CHI1840-040,demolition_or_loss,1850,exact,fire,demolished
+CHI-CHI1840-040-E03,CHI-CHI1840-040,1871_fire_fate_assertion,1871-10-08/10,date_range,Great Chicago Fire,not present
+CHI-CHI1840-041-E01,CHI-CHI1840-041,completion,1847,approximate,,Construction/completion evidence
+CHI-CHI1840-041-E02,CHI-CHI1840-041,1871_fire_fate_assertion,1871-10-08/10,date_range,Great Chicago Fire,uncertain
+CHI-CHI1840-042-E01,CHI-CHI1840-042,completion,1848,exact,,Construction/completion evidence
+CHI-CHI1840-042-E02,CHI-CHI1840-042,demolition_or_loss,1871,approximate,Great Chicago Fire,demolished
+CHI-CHI1840-042-E03,CHI-CHI1840-042,1871_fire_fate_assertion,1871-10-08/10,date_range,Great Chicago Fire,probably destroyed
+CHI-CHI1840-043-E01,CHI-CHI1840-043,completion,1848,exact,,Construction/completion evidence
+CHI-CHI1840-043-E02,CHI-CHI1840-043,demolition_or_loss,1871,exact,Great Chicago Fire,demolished
+CHI-CHI1840-043-E03,CHI-CHI1840-043,1871_fire_fate_assertion,1871-10-08/10,date_range,Great Chicago Fire,destroyed
+CHI-CHI1840-044-E01,CHI-CHI1840-044,completion,1848,exact,,Construction/completion evidence
+CHI-CHI1840-044-E02,CHI-CHI1840-044,1871_fire_fate_assertion,1871-10-08/10,date_range,Great Chicago Fire,uncertain
+CHI-CHI1840-045-E01,CHI-CHI1840-045,completion,1848,exact,,Construction/completion evidence
+CHI-CHI1840-045-E02,CHI-CHI1840-045,1871_fire_fate_assertion,1871-10-08/10,date_range,Great Chicago Fire,survived outside main fire zone
+CHI-CHI1840-046-E01,CHI-CHI1840-046,completion,1848,approximate,,Construction/completion evidence
+CHI-CHI1840-046-E02,CHI-CHI1840-046,demolition_or_loss,1854,approximate,fire,demolished
+CHI-CHI1840-046-E03,CHI-CHI1840-046,1871_fire_fate_assertion,1871-10-08/10,date_range,Great Chicago Fire,not present
+CHI-CHI1840-047-E01,CHI-CHI1840-047,completion,1848,approximate,,Construction/completion evidence
+CHI-CHI1840-047-E02,CHI-CHI1840-047,1871_fire_fate_assertion,1871-10-08/10,date_range,Great Chicago Fire,survived outside main fire zone
+CHI-CHI1840-048-E01,CHI-CHI1840-048,completion,1848,approximate,,Construction/completion evidence
+CHI-CHI1840-048-E02,CHI-CHI1840-048,demolition_or_loss,1854,exact,fire,demolished
+CHI-CHI1840-048-E03,CHI-CHI1840-048,1871_fire_fate_assertion,1871-10-08/10,date_range,Great Chicago Fire,not present
+CHI-CHI1840-049-E01,CHI-CHI1840-049,completion,1848,exact,,Construction/completion evidence
+CHI-CHI1840-049-E02,CHI-CHI1840-049,1871_fire_fate_assertion,1871-10-08/10,date_range,Great Chicago Fire,uncertain
+CHI-CHI1840-050-E01,CHI-CHI1840-050,completion,1848,approximate,,Construction/completion evidence
+CHI-CHI1840-050-E02,CHI-CHI1840-050,demolition_or_loss,1856,exact,sold and superseded,demolished
+CHI-CHI1840-050-E03,CHI-CHI1840-050,1871_fire_fate_assertion,1871-10-08/10,date_range,Great Chicago Fire,not present
+CHI-CHI1840-051-E01,CHI-CHI1840-051,completion,1849,exact,,Construction/completion evidence
+CHI-CHI1840-051-E02,CHI-CHI1840-051,1871_fire_fate_assertion,1871-10-08/10,date_range,Great Chicago Fire,not present
+CHI-CHI1840-052-E01,CHI-CHI1840-052,completion,1849,exact,,Construction/completion evidence
+CHI-CHI1840-052-E02,CHI-CHI1840-052,demolition_or_loss,1864,approximate,superseded by new church,demolished
+CHI-CHI1840-052-E03,CHI-CHI1840-052,1871_fire_fate_assertion,1871-10-08/10,date_range,Great Chicago Fire,not present
+CHI-CHI1840-053-E01,CHI-CHI1840-053,completion,1849,exact,,Construction/completion evidence
+CHI-CHI1840-053-E02,CHI-CHI1840-053,1871_fire_fate_assertion,1871-10-08/10,date_range,Great Chicago Fire,probably destroyed
+CHI-CHI1840-054-E01,CHI-CHI1840-054,completion,1849,exact,,Construction/completion evidence
+CHI-CHI1840-054-E02,CHI-CHI1840-054,1871_fire_fate_assertion,1871-10-08/10,date_range,Great Chicago Fire,survived outside main fire zone
+CHI-CHI1840-055-E01,CHI-CHI1840-055,completion,1849,exact,,Construction/completion evidence
+CHI-CHI1840-055-E02,CHI-CHI1840-055,1871_fire_fate_assertion,1871-10-08/10,date_range,Great Chicago Fire,uncertain
+CHI-CHI1840-056-E01,CHI-CHI1840-056,completion,1849,exact,,Construction/completion evidence
+CHI-CHI1840-056-E02,CHI-CHI1840-056,demolition_or_loss,1855,approximate,lease ended and congregation relocated,demolished
+CHI-CHI1840-056-E03,CHI-CHI1840-056,1871_fire_fate_assertion,1871-10-08/10,date_range,Great Chicago Fire,not present
+CHI-CHI1840-057-E01,CHI-CHI1840-057,completion,1851,exact,,Construction/completion evidence
+CHI-CHI1840-057-E02,CHI-CHI1840-057,demolition_or_loss,1871,exact,Great Chicago Fire,demolished
+CHI-CHI1840-057-E03,CHI-CHI1840-057,1871_fire_fate_assertion,1871-10-08/10,date_range,Great Chicago Fire,destroyed
+CHI-CHI1840-058-E01,CHI-CHI1840-058,completion,1842,approximate,,Construction/completion evidence
+CHI-CHI1840-058-E02,CHI-CHI1840-058,demolition_or_loss,1849,exact,business relocated,demolished
+CHI-CHI1840-058-E03,CHI-CHI1840-058,1871_fire_fate_assertion,1871-10-08/10,date_range,Great Chicago Fire,not present
+CHI-CHI1840-059-E01,CHI-CHI1840-059,completion,1849,approximate,,Construction/completion evidence
+CHI-CHI1840-059-E02,CHI-CHI1840-059,demolition_or_loss,1851,exact,business relocated to Cleaverville,demolished
+CHI-CHI1840-059-E03,CHI-CHI1840-059,1871_fire_fate_assertion,1871-10-08/10,date_range,Great Chicago Fire,not present
+CHI-CHI1840-060-E01,CHI-CHI1840-060,completion,1844,exact,,Construction/completion evidence
+CHI-CHI1840-060-E02,CHI-CHI1840-060,1871_fire_fate_assertion,1871-10-08/10,date_range,Great Chicago Fire,uncertain
+CHI-CHI1850-001-E01,CHI-CHI1850-001,completion,1850,exact,,Construction/completion evidence
+CHI-CHI1850-001-E02,CHI-CHI1850-001,1871_fire_fate_assertion,1871-10-08/10,date_range,Great Chicago Fire,not established
+CHI-CHI1850-002-E01,CHI-CHI1850-002,completion,1850,exact,,Construction/completion evidence
+CHI-CHI1850-002-E02,CHI-CHI1850-002,demolition_or_loss,1871,exact,Great Chicago Fire,destroyed
+CHI-CHI1850-002-E03,CHI-CHI1850-002,1871_fire_fate_assertion,1871-10-08/10,date_range,Great Chicago Fire,"destroyed in Great Chicago Fire, 1871"
+CHI-CHI1850-003-E01,CHI-CHI1850-003,completion,1850,exact,,Construction/completion evidence
+CHI-CHI1850-003-E02,CHI-CHI1850-003,demolition_or_loss,1871,exact,Great Chicago Fire,destroyed
+CHI-CHI1850-003-E03,CHI-CHI1850-003,1871_fire_fate_assertion,1871-10-08/10,date_range,Great Chicago Fire,"destroyed in Great Chicago Fire, 1871"
+CHI-CHI1850-004-E01,CHI-CHI1850-004,completion,1851,year_range,,Construction/completion evidence
+CHI-CHI1850-004-E02,CHI-CHI1850-004,1871_fire_fate_assertion,1871-10-08/10,date_range,Great Chicago Fire,not established
+CHI-CHI1850-005-E01,CHI-CHI1850-005,completion,1851,exact,,Construction/completion evidence
+CHI-CHI1850-005-E02,CHI-CHI1850-005,1871_fire_fate_assertion,1871-10-08/10,date_range,Great Chicago Fire,not established
+CHI-CHI1850-006-E01,CHI-CHI1850-006,completion,1851,exact,,Construction/completion evidence
+CHI-CHI1850-006-E02,CHI-CHI1850-006,demolition_or_loss,1871,exact,Great Chicago Fire,destroyed
+CHI-CHI1850-006-E03,CHI-CHI1850-006,1871_fire_fate_assertion,1871-10-08/10,date_range,Great Chicago Fire,"destroyed in Great Chicago Fire, 1871"
+CHI-CHI1850-007-E01,CHI-CHI1850-007,completion,1851,exact (move/adaptation),,Construction/completion evidence
+CHI-CHI1850-007-E02,CHI-CHI1850-007,1871_fire_fate_assertion,1871-10-08/10,date_range,Great Chicago Fire,not established
+CHI-CHI1850-008-E01,CHI-CHI1850-008,completion,1852,exact,,Construction/completion evidence
+CHI-CHI1850-008-E02,CHI-CHI1850-008,1871_fire_fate_assertion,1871-10-08/10,date_range,Great Chicago Fire,not established
+CHI-CHI1850-009-E01,CHI-CHI1850-009,completion,1852,exact,,Construction/completion evidence
+CHI-CHI1850-009-E02,CHI-CHI1850-009,demolition_or_loss,1856,operational replacement,superseded,demolished
+CHI-CHI1850-009-E03,CHI-CHI1850-009,1871_fire_fate_assertion,1871-10-08/10,date_range,Great Chicago Fire,not applicable—superseded before 1871
+CHI-CHI1850-010-E01,CHI-CHI1850-010,completion,1852,exact,,Construction/completion evidence
+CHI-CHI1850-010-E02,CHI-CHI1850-010,demolition_or_loss,1871,exact,Great Chicago Fire,destroyed
+CHI-CHI1850-010-E03,CHI-CHI1850-010,1871_fire_fate_assertion,1871-10-08/10,date_range,Great Chicago Fire,"destroyed in Great Chicago Fire, 1871"
+CHI-CHI1850-011-E01,CHI-CHI1850-011,completion,1852,year (completion/refitting),,Construction/completion evidence
+CHI-CHI1850-011-E02,CHI-CHI1850-011,1871_fire_fate_assertion,1871-10-08/10,date_range,Great Chicago Fire,not established
+CHI-CHI1850-012-E01,CHI-CHI1850-012,completion,1852,exact,,Construction/completion evidence
+CHI-CHI1850-012-E02,CHI-CHI1850-012,1871_fire_fate_assertion,1871-10-08/10,date_range,Great Chicago Fire,not established
+CHI-CHI1850-013-E01,CHI-CHI1850-013,completion,1853,exact,,Construction/completion evidence
+CHI-CHI1850-013-E02,CHI-CHI1850-013,demolition_or_loss,1871,exact,Great Chicago Fire,destroyed
+CHI-CHI1850-013-E03,CHI-CHI1850-013,1871_fire_fate_assertion,1871-10-08/10,date_range,Great Chicago Fire,"destroyed in Great Chicago Fire, 1871"
+CHI-CHI1850-014-E01,CHI-CHI1850-014,completion,1853,exact,,Construction/completion evidence
+CHI-CHI1850-014-E02,CHI-CHI1850-014,demolition_or_loss,1871,exact,Great Chicago Fire,destroyed
+CHI-CHI1850-014-E03,CHI-CHI1850-014,1871_fire_fate_assertion,1871-10-08/10,date_range,Great Chicago Fire,"destroyed in Great Chicago Fire, 1871"
+CHI-CHI1850-015-E01,CHI-CHI1850-015,completion,1853,exact,,Construction/completion evidence
+CHI-CHI1850-015-E02,CHI-CHI1850-015,demolition_or_loss,1859,exact,demolished for McCormick Block,demolished
+CHI-CHI1850-015-E03,CHI-CHI1850-015,1871_fire_fate_assertion,1871-10-08/10,date_range,Great Chicago Fire,not applicable—demolished before 1871
+CHI-CHI1850-016-E01,CHI-CHI1850-016,completion,1853,exact,,Construction/completion evidence
+CHI-CHI1850-016-E02,CHI-CHI1850-016,demolition_or_loss,1871,exact,Great Chicago Fire,destroyed
+CHI-CHI1850-016-E03,CHI-CHI1850-016,1871_fire_fate_assertion,1871-10-08/10,date_range,Great Chicago Fire,"destroyed in Great Chicago Fire, 1871"
+CHI-CHI1850-017-E01,CHI-CHI1850-017,completion,1853,exact,,Construction/completion evidence
+CHI-CHI1850-017-E02,CHI-CHI1850-017,1871_fire_fate_assertion,1871-10-08/10,date_range,Great Chicago Fire,not established
+CHI-CHI1850-018-E01,CHI-CHI1850-018,completion,1853,year (occupied by organized church),,Construction/completion evidence
+CHI-CHI1850-018-E02,CHI-CHI1850-018,demolition_or_loss,1863,year,taken down and replaced,demolished
+CHI-CHI1850-018-E03,CHI-CHI1850-018,1871_fire_fate_assertion,1871-10-08/10,date_range,Great Chicago Fire,not applicable—demolished before 1871
+CHI-CHI1850-019-E01,CHI-CHI1850-019,completion,1853,exact (buildings); service 1854,,Construction/completion evidence
+CHI-CHI1850-019-E02,CHI-CHI1850-019,1871_fire_fate_assertion,1871-10-08/10,date_range,Great Chicago Fire,not established
+CHI-CHI1850-020-E01,CHI-CHI1850-020,completion,1854,exact,,Construction/completion evidence
+CHI-CHI1850-020-E02,CHI-CHI1850-020,demolition_or_loss,1871,exact,Great Chicago Fire,destroyed
+CHI-CHI1850-020-E03,CHI-CHI1850-020,1871_fire_fate_assertion,1871-10-08/10,date_range,Great Chicago Fire,"destroyed in Great Chicago Fire, 1871"
+CHI-CHI1850-021-E01,CHI-CHI1850-021,completion,1854,exact,,Construction/completion evidence
+CHI-CHI1850-021-E02,CHI-CHI1850-021,demolition_or_loss,1858,year (replacement),replaced,demolished
+CHI-CHI1850-021-E03,CHI-CHI1850-021,1871_fire_fate_assertion,1871-10-08/10,date_range,Great Chicago Fire,not applicable—replaced before 1871
+CHI-CHI1850-022-E01,CHI-CHI1850-022,completion,1854,year (completed after move),,Construction/completion evidence
+CHI-CHI1850-022-E02,CHI-CHI1850-022,1871_fire_fate_assertion,1871-10-08/10,date_range,Great Chicago Fire,not established
+CHI-CHI1850-023-E01,CHI-CHI1850-023,completion,1854,exact,,Construction/completion evidence
+CHI-CHI1850-023-E02,CHI-CHI1850-023,1871_fire_fate_assertion,1871-10-08/10,date_range,Great Chicago Fire,survived; outside 1871 burn area and then-city limits
+CHI-CHI1850-024-E01,CHI-CHI1850-024,completion,1855,exact,,Construction/completion evidence
+CHI-CHI1850-024-E02,CHI-CHI1850-024,1871_fire_fate_assertion,1871-10-08/10,date_range,Great Chicago Fire,not established
+CHI-CHI1850-025-E01,CHI-CHI1850-025,completion,1855,exact,,Construction/completion evidence
+CHI-CHI1850-025-E02,CHI-CHI1850-025,demolition_or_loss,1871,exact,Great Chicago Fire,destroyed
+CHI-CHI1850-025-E03,CHI-CHI1850-025,1871_fire_fate_assertion,1871-10-08/10,date_range,Great Chicago Fire,"destroyed in Great Chicago Fire, 1871"
+CHI-CHI1850-026-E01,CHI-CHI1850-026,completion,1856,year_range,,Construction/completion evidence
+CHI-CHI1850-026-E02,CHI-CHI1850-026,1871_fire_fate_assertion,1871-10-08/10,date_range,Great Chicago Fire,not established
+CHI-CHI1850-027-E01,CHI-CHI1850-027,completion,1856,exact,,Construction/completion evidence
+CHI-CHI1850-027-E02,CHI-CHI1850-027,demolition_or_loss,1871,exact,Great Chicago Fire,destroyed
+CHI-CHI1850-027-E03,CHI-CHI1850-027,1871_fire_fate_assertion,1871-10-08/10,date_range,Great Chicago Fire,"destroyed in Great Chicago Fire, 1871"
+CHI-CHI1850-028-E01,CHI-CHI1850-028,completion,1856,exact,,Construction/completion evidence
+CHI-CHI1850-028-E02,CHI-CHI1850-028,demolition_or_loss,1871,exact,Great Chicago Fire,destroyed
+CHI-CHI1850-028-E03,CHI-CHI1850-028,1871_fire_fate_assertion,1871-10-08/10,date_range,Great Chicago Fire,"destroyed in Great Chicago Fire, 1871"
+CHI-CHI1850-029-E01,CHI-CHI1850-029,completion,1856,exact,,Construction/completion evidence
+CHI-CHI1850-029-E02,CHI-CHI1850-029,1871_fire_fate_assertion,1871-10-08/10,date_range,Great Chicago Fire,outside documented 1871 burn area; survival not established
+CHI-CHI1850-030-E01,CHI-CHI1850-030,completion,1856,circa; projected October 1855,,Construction/completion evidence
+CHI-CHI1850-030-E02,CHI-CHI1850-030,demolition_or_loss,1871,exact,Great Chicago Fire,destroyed
+CHI-CHI1850-030-E03,CHI-CHI1850-030,1871_fire_fate_assertion,1871-10-08/10,date_range,Great Chicago Fire,"destroyed in Great Chicago Fire, 1871"
+CHI-CHI1850-031-E01,CHI-CHI1850-031,completion,1856,exact,,Construction/completion evidence
+CHI-CHI1850-031-E02,CHI-CHI1850-031,demolition_or_loss,1871,exact,Great Chicago Fire,destroyed
+CHI-CHI1850-031-E03,CHI-CHI1850-031,1871_fire_fate_assertion,1871-10-08/10,date_range,Great Chicago Fire,"destroyed in Great Chicago Fire, 1871"
+CHI-CHI1850-032-E01,CHI-CHI1850-032,completion,1856,year; sufficiently complete for use,,Construction/completion evidence
+CHI-CHI1850-032-E02,CHI-CHI1850-032,1871_fire_fate_assertion,1871-10-08/10,date_range,Great Chicago Fire,survived Great Chicago Fire
+CHI-CHI1850-033-E01,CHI-CHI1850-033,completion,1856,exact,,Construction/completion evidence
+CHI-CHI1850-033-E02,CHI-CHI1850-033,1871_fire_fate_assertion,1871-10-08/10,date_range,Great Chicago Fire,survived; west of main 1871 burn area
+CHI-CHI1850-034-E01,CHI-CHI1850-034,completion,1856,exact,,Construction/completion evidence
+CHI-CHI1850-034-E02,CHI-CHI1850-034,demolition_or_loss,1859,exact,"fire of September 15, 1859",destroyed
+CHI-CHI1850-034-E03,CHI-CHI1850-034,1871_fire_fate_assertion,1871-10-08/10,date_range,Great Chicago Fire,not applicable—destroyed before 1871
+CHI-CHI1850-035-E01,CHI-CHI1850-035,completion,1856,exact,,Construction/completion evidence
+CHI-CHI1850-035-E02,CHI-CHI1850-035,demolition_or_loss,1871,exact,Great Chicago Fire,destroyed
+CHI-CHI1850-035-E03,CHI-CHI1850-035,1871_fire_fate_assertion,1871-10-08/10,date_range,Great Chicago Fire,"destroyed in Great Chicago Fire, 1871"
+CHI-CHI1850-036-E01,CHI-CHI1850-036,completion,1856,exact,,Construction/completion evidence
+CHI-CHI1850-036-E02,CHI-CHI1850-036,1871_fire_fate_assertion,1871-10-08/10,date_range,Great Chicago Fire,not established
+CHI-CHI1850-037-E01,CHI-CHI1850-037,completion,1856,exact,,Construction/completion evidence
+CHI-CHI1850-037-E02,CHI-CHI1850-037,1871_fire_fate_assertion,1871-10-08/10,date_range,Great Chicago Fire,not established
+CHI-CHI1850-038-E01,CHI-CHI1850-038,completion,1856,exact,,Construction/completion evidence
+CHI-CHI1850-038-E02,CHI-CHI1850-038,demolition_or_loss,1863,exact,accident while driven over by cattle,destroyed
+CHI-CHI1850-038-E03,CHI-CHI1850-038,1871_fire_fate_assertion,1871-10-08/10,date_range,Great Chicago Fire,not applicable—destroyed before 1871
+CHI-CHI1850-039-E01,CHI-CHI1850-039,completion,1856,circa,,Construction/completion evidence
+CHI-CHI1850-039-E02,CHI-CHI1850-039,1871_fire_fate_assertion,1871-10-08/10,date_range,Great Chicago Fire,survived; outside 1871 burn area and then-city limits
+CHI-CHI1850-040-E01,CHI-CHI1850-040,completion,1857,exact,,Construction/completion evidence
+CHI-CHI1850-040-E02,CHI-CHI1850-040,demolition_or_loss,1871,exact,Great Chicago Fire,destroyed
+CHI-CHI1850-040-E03,CHI-CHI1850-040,1871_fire_fate_assertion,1871-10-08/10,date_range,Great Chicago Fire,"destroyed in Great Chicago Fire, 1871"
+CHI-CHI1850-041-E01,CHI-CHI1850-041,completion,1857,exact,,Construction/completion evidence
+CHI-CHI1850-041-E02,CHI-CHI1850-041,demolition_or_loss,1871,exact,Great Chicago Fire,destroyed
+CHI-CHI1850-041-E03,CHI-CHI1850-041,1871_fire_fate_assertion,1871-10-08/10,date_range,Great Chicago Fire,"destroyed in Great Chicago Fire, 1871"
+CHI-CHI1850-042-E01,CHI-CHI1850-042,completion,1857,exact,,Construction/completion evidence
+CHI-CHI1850-042-E02,CHI-CHI1850-042,demolition_or_loss,1871,exact,Great Chicago Fire,destroyed
+CHI-CHI1850-042-E03,CHI-CHI1850-042,1871_fire_fate_assertion,1871-10-08/10,date_range,Great Chicago Fire,"destroyed in Great Chicago Fire, 1871"
+CHI-CHI1850-043-E01,CHI-CHI1850-043,completion,1857,exact,,Construction/completion evidence
+CHI-CHI1850-043-E02,CHI-CHI1850-043,demolition_or_loss,1871,exact,Great Chicago Fire,destroyed
+CHI-CHI1850-043-E03,CHI-CHI1850-043,1871_fire_fate_assertion,1871-10-08/10,date_range,Great Chicago Fire,"destroyed in Great Chicago Fire, 1871"
+CHI-CHI1850-044-E01,CHI-CHI1850-044,completion,1857,exact,,Construction/completion evidence
+CHI-CHI1850-044-E02,CHI-CHI1850-044,1871_fire_fate_assertion,1871-10-08/10,date_range,Great Chicago Fire,not established
+CHI-CHI1850-045-E01,CHI-CHI1850-045,completion,1857,exact,,Construction/completion evidence
+CHI-CHI1850-045-E02,CHI-CHI1850-045,1871_fire_fate_assertion,1871-10-08/10,date_range,Great Chicago Fire,outside documented 1871 burn area; survival not established
+CHI-CHI1850-046-E01,CHI-CHI1850-046,completion,1857,exact,,Construction/completion evidence
+CHI-CHI1850-046-E02,CHI-CHI1850-046,1871_fire_fate_assertion,1871-10-08/10,date_range,Great Chicago Fire,survived; outside 1871 burn area and then-city limits
+CHI-CHI1850-047-E01,CHI-CHI1850-047,completion,1857,exact,,Construction/completion evidence
+CHI-CHI1850-047-E02,CHI-CHI1850-047,1871_fire_fate_assertion,1871-10-08/10,date_range,Great Chicago Fire,not established
+CHI-CHI1850-048-E01,CHI-CHI1850-048,completion,1857,year_range,,Construction/completion evidence
+CHI-CHI1850-048-E02,CHI-CHI1850-048,1871_fire_fate_assertion,1871-10-08/10,date_range,Great Chicago Fire,not established
+CHI-CHI1850-049-E01,CHI-CHI1850-049,completion,1857,year_range,,Construction/completion evidence
+CHI-CHI1850-049-E02,CHI-CHI1850-049,1871_fire_fate_assertion,1871-10-08/10,date_range,Great Chicago Fire,not established
+CHI-CHI1850-050-E01,CHI-CHI1850-050,completion,1857,year_range,,Construction/completion evidence
+CHI-CHI1850-050-E02,CHI-CHI1850-050,1871_fire_fate_assertion,1871-10-08/10,date_range,Great Chicago Fire,not established
+CHI-CHI1850-051-E01,CHI-CHI1850-051,completion,1858,exact,,Construction/completion evidence
+CHI-CHI1850-051-E02,CHI-CHI1850-051,1871_fire_fate_assertion,1871-10-08/10,date_range,Great Chicago Fire,not established
+CHI-CHI1850-052-E01,CHI-CHI1850-052,completion,1858,exact,,Construction/completion evidence
+CHI-CHI1850-052-E02,CHI-CHI1850-052,1871_fire_fate_assertion,1871-10-08/10,date_range,Great Chicago Fire,survived at edge of Great Fire; used as hospital and relief depot
+CHI-CHI1850-053-E01,CHI-CHI1850-053,completion,1858,first documented hotel use,,Construction/completion evidence
+CHI-CHI1850-053-E02,CHI-CHI1850-053,demolition_or_loss,1871,exact,Great Chicago Fire,destroyed
+CHI-CHI1850-053-E03,CHI-CHI1850-053,1871_fire_fate_assertion,1871-10-08/10,date_range,Great Chicago Fire,"destroyed in Great Chicago Fire, 1871"
+CHI-CHI1850-054-E01,CHI-CHI1850-054,completion,1858,exact,,Construction/completion evidence
+CHI-CHI1850-054-E02,CHI-CHI1850-054,1871_fire_fate_assertion,1871-10-08/10,date_range,Great Chicago Fire,not established
+CHI-CHI1850-055-E01,CHI-CHI1850-055,completion,1858,exact,,Construction/completion evidence
+CHI-CHI1850-055-E02,CHI-CHI1850-055,1871_fire_fate_assertion,1871-10-08/10,date_range,Great Chicago Fire,survived; within later North Side fire area but mausoleum remained
+CHI-CHI1850-056-E01,CHI-CHI1850-056,completion,1859,exact,,Construction/completion evidence
+CHI-CHI1850-056-E02,CHI-CHI1850-056,demolition_or_loss,1890,year,university closure and redevelopment,demolished
+CHI-CHI1850-056-E03,CHI-CHI1850-056,1871_fire_fate_assertion,1871-10-08/10,date_range,Great Chicago Fire,survived; south of Great Chicago Fire burn area
+CHI-CHI1850-057-E01,CHI-CHI1850-057,completion,1859,first directory appearance,,Construction/completion evidence
+CHI-CHI1850-057-E02,CHI-CHI1850-057,1871_fire_fate_assertion,1871-10-08/10,date_range,Great Chicago Fire,not established
+CHI-CHI1850-058-E01,CHI-CHI1850-058,completion,1859,opening year,,Construction/completion evidence
+CHI-CHI1850-058-E02,CHI-CHI1850-058,1871_fire_fate_assertion,1871-10-08/10,date_range,Great Chicago Fire,not established
+CHI-CHI1850-059-E01,CHI-CHI1850-059,completion,1851,exact,,Construction/completion evidence
+CHI-CHI1850-059-E02,CHI-CHI1850-059,demolition_or_loss,1861,exact,demolished for Rice's business block,demolished
+CHI-CHI1850-059-E03,CHI-CHI1850-059,1871_fire_fate_assertion,1871-10-08/10,date_range,Great Chicago Fire,not applicable—demolished before 1871
+CHI-CHI1850-060-E01,CHI-CHI1850-060,completion,1852,exact,,Construction/completion evidence
+CHI-CHI1850-060-E02,CHI-CHI1850-060,demolition_or_loss,1853,exact,fire,destroyed
+CHI-CHI1850-060-E03,CHI-CHI1850-060,1871_fire_fate_assertion,1871-10-08/10,date_range,Great Chicago Fire,not applicable—destroyed before 1871
+CHI-CHI1850-061-E01,CHI-CHI1850-061,completion,1855,exact (opened November 19),,Construction/completion evidence
+CHI-CHI1850-061-E02,CHI-CHI1850-061,1871_fire_fate_assertion,1871-10-08/10,date_range,Great Chicago Fire,not established
+CHI-CHI1850-062-E01,CHI-CHI1850-062,completion,1856,exact (opened April 19),,Construction/completion evidence
+CHI-CHI1850-062-E02,CHI-CHI1850-062,1871_fire_fate_assertion,1871-10-08/10,date_range,Great Chicago Fire,not established
+CHI-CHI1850-063-E01,CHI-CHI1850-063,completion,1851,"exact (move, addition, and remodel)",,Construction/completion evidence
+CHI-CHI1850-063-E02,CHI-CHI1850-063,demolition_or_loss,1868,exact,demolished,demolished
+CHI-CHI1850-063-E03,CHI-CHI1850-063,1871_fire_fate_assertion,1871-10-08/10,date_range,Great Chicago Fire,not applicable—demolished before 1871
+CHI-CHI1850-064-E01,CHI-CHI1850-064,completion,1855,exact,,Construction/completion evidence
+CHI-CHI1850-064-E02,CHI-CHI1850-064,demolition_or_loss,1871,exact,Great Chicago Fire,destroyed
+CHI-CHI1850-064-E03,CHI-CHI1850-064,1871_fire_fate_assertion,1871-10-08/10,date_range,Great Chicago Fire,"destroyed in Great Chicago Fire, 1871"
+CHI-CHI1850-065-E01,CHI-CHI1850-065,completion,1856,exact,,Construction/completion evidence
+CHI-CHI1850-065-E02,CHI-CHI1850-065,1871_fire_fate_assertion,1871-10-08/10,date_range,Great Chicago Fire,not established
+CHI-CHI1850-066-E01,CHI-CHI1850-066,completion,1856,exact,,Construction/completion evidence
+CHI-CHI1850-066-E02,CHI-CHI1850-066,1871_fire_fate_assertion,1871-10-08/10,date_range,Great Chicago Fire,not established
+CHI-CHI1850-067-E01,CHI-CHI1850-067,completion,1857,exact,,Construction/completion evidence
+CHI-CHI1850-067-E02,CHI-CHI1850-067,demolition_or_loss,1871,exact,Great Chicago Fire,destroyed
+CHI-CHI1850-067-E03,CHI-CHI1850-067,1871_fire_fate_assertion,1871-10-08/10,date_range,Great Chicago Fire,"destroyed in Great Chicago Fire, 1871"
+CHI-B1860-001-E01,CHI-B1860-001,completion,1860,exact,,Construction/completion evidence
+CHI-B1860-001-E02,CHI-B1860-001,demolition_or_loss,1869,range,Removed between 1867 and October 1871,demolished
+CHI-B1860-001-E03,CHI-B1860-001,1871_fire_fate_assertion,1871-10-08/10,date_range,Great Chicago Fire,not exposed
+CHI-B1860-002-E01,CHI-B1860-002,completion,1860,exact,,Construction/completion evidence
+CHI-B1860-002-E02,CHI-B1860-002,demolition_or_loss,1871,exact,Great Chicago Fire,destroyed
+CHI-B1860-002-E03,CHI-B1860-002,1871_fire_fate_assertion,1871-10-08/10,date_range,Great Chicago Fire,destroyed
+CHI-B1860-003-E01,CHI-B1860-003,completion,1860,exact,,Construction/completion evidence
+CHI-B1860-003-E02,CHI-B1860-003,1871_fire_fate_assertion,1871-10-08/10,date_range,Great Chicago Fire,survived
+CHI-B1860-004-E01,CHI-B1860-004,completion,1860,active_by,,Construction/completion evidence
+CHI-B1860-004-E02,CHI-B1860-004,demolition_or_loss,1871,exact,Great Chicago Fire,destroyed
+CHI-B1860-004-E03,CHI-B1860-004,1871_fire_fate_assertion,1871-10-08/10,date_range,Great Chicago Fire,destroyed
+CHI-B1860-005-E01,CHI-B1860-005,completion,1861,exact,,Construction/completion evidence
+CHI-B1860-005-E02,CHI-B1860-005,1871_fire_fate_assertion,1871-10-08/10,date_range,Great Chicago Fire,unknown
+CHI-B1860-006-E01,CHI-B1860-006,completion,1861,exact,,Construction/completion evidence
+CHI-B1860-006-E02,CHI-B1860-006,demolition_or_loss,1871,exact,Great Chicago Fire,destroyed
+CHI-B1860-006-E03,CHI-B1860-006,1871_fire_fate_assertion,1871-10-08/10,date_range,Great Chicago Fire,destroyed
+CHI-B1860-007-E01,CHI-B1860-007,completion,1861,seasonal_exact,,Construction/completion evidence
+CHI-B1860-007-E02,CHI-B1860-007,demolition_or_loss,1865,circa,Camp dismantling after Civil War,demolished
+CHI-B1860-007-E03,CHI-B1860-007,1871_fire_fate_assertion,1871-10-08/10,date_range,Great Chicago Fire,not exposed
+CHI-B1860-008-E01,CHI-B1860-008,completion,1864,phased,,Construction/completion evidence
+CHI-B1860-008-E02,CHI-B1860-008,demolition_or_loss,1865,range,Federal camp closed and structures removed/sold,demolished
+CHI-B1860-008-E03,CHI-B1860-008,1871_fire_fate_assertion,1871-10-08/10,date_range,Great Chicago Fire,not exposed
+CHI-B1860-009-E01,CHI-B1860-009,completion,1862,exact,,Construction/completion evidence
+CHI-B1860-009-E02,CHI-B1860-009,1871_fire_fate_assertion,1871-10-08/10,date_range,Great Chicago Fire,survived
+CHI-B1860-010-E01,CHI-B1860-010,completion,1862,exact,,Construction/completion evidence
+CHI-B1860-010-E02,CHI-B1860-010,demolition_or_loss,1871,exact,Great Chicago Fire,destroyed
+CHI-B1860-010-E03,CHI-B1860-010,1871_fire_fate_assertion,1871-10-08/10,date_range,Great Chicago Fire,destroyed
+CHI-B1860-011-E01,CHI-B1860-011,completion,1862,exact,,Construction/completion evidence
+CHI-B1860-011-E02,CHI-B1860-011,1871_fire_fate_assertion,1871-10-08/10,date_range,Great Chicago Fire,unknown
+CHI-B1860-012-E01,CHI-B1860-012,completion,1865,exact,,Construction/completion evidence
+CHI-B1860-012-E02,CHI-B1860-012,demolition_or_loss,1871,exact,Great Chicago Fire,destroyed
+CHI-B1860-012-E03,CHI-B1860-012,1871_fire_fate_assertion,1871-10-08/10,date_range,Great Chicago Fire,destroyed
+CHI-B1860-013-E01,CHI-B1860-013,completion,1863,exact,,Construction/completion evidence
+CHI-B1860-013-E02,CHI-B1860-013,1871_fire_fate_assertion,1871-10-08/10,date_range,Great Chicago Fire,unknown
+CHI-B1860-014-E01,CHI-B1860-014,completion,1863,exact,,Construction/completion evidence
+CHI-B1860-014-E02,CHI-B1860-014,1871_fire_fate_assertion,1871-10-08/10,date_range,Great Chicago Fire,survived
+CHI-B1860-015-E01,CHI-B1860-015,completion,1863,exact,,Construction/completion evidence
+CHI-B1860-015-E02,CHI-B1860-015,1871_fire_fate_assertion,1871-10-08/10,date_range,Great Chicago Fire,survived
+CHI-B1860-016-E01,CHI-B1860-016,completion,1864,exact,,Construction/completion evidence
+CHI-B1860-016-E02,CHI-B1860-016,1871_fire_fate_assertion,1871-10-08/10,date_range,Great Chicago Fire,survived
+CHI-B1860-017-E01,CHI-B1860-017,completion,1864,exact,,Construction/completion evidence
+CHI-B1860-017-E02,CHI-B1860-017,demolition_or_loss,1865,circa,War ended and temporary facility ceased operation,demolished
+CHI-B1860-017-E03,CHI-B1860-017,1871_fire_fate_assertion,1871-10-08/10,date_range,Great Chicago Fire,not exposed
+CHI-B1860-018-E01,CHI-B1860-018,completion,1866,phased,,Construction/completion evidence
+CHI-B1860-018-E02,CHI-B1860-018,1871_fire_fate_assertion,1871-10-08/10,date_range,Great Chicago Fire,survived
+CHI-B1860-019-E01,CHI-B1860-019,completion,1864,exact,,Construction/completion evidence
+CHI-B1860-019-E02,CHI-B1860-019,1871_fire_fate_assertion,1871-10-08/10,date_range,Great Chicago Fire,unknown
+CHI-B1860-020-E01,CHI-B1860-020,completion,1868,phased,,Construction/completion evidence
+CHI-B1860-020-E02,CHI-B1860-020,demolition_or_loss,1871,exact,Great Chicago Fire,destroyed
+CHI-B1860-020-E03,CHI-B1860-020,1871_fire_fate_assertion,1871-10-08/10,date_range,Great Chicago Fire,destroyed
+CHI-B1860-021-E01,CHI-B1860-021,completion,1864,exact,,Construction/completion evidence
+CHI-B1860-021-E02,CHI-B1860-021,1871_fire_fate_assertion,1871-10-08/10,date_range,Great Chicago Fire,survived
+CHI-B1860-022-E01,CHI-B1860-022,completion,1865,exact,,Construction/completion evidence
+CHI-B1860-022-E02,CHI-B1860-022,demolition_or_loss,1871,exact,Great Chicago Fire,destroyed
+CHI-B1860-022-E03,CHI-B1860-022,1871_fire_fate_assertion,1871-10-08/10,date_range,Great Chicago Fire,destroyed
+CHI-B1860-023-E01,CHI-B1860-023,completion,1865,exact,,Construction/completion evidence
+CHI-B1860-023-E02,CHI-B1860-023,demolition_or_loss,1971,exact,Facility closed; most structures later demolished,closed/redeveloped
+CHI-B1860-023-E03,CHI-B1860-023,1871_fire_fate_assertion,1871-10-08/10,date_range,Great Chicago Fire,survived
+CHI-B1860-024-E01,CHI-B1860-024,completion,1865,seasonal_exact,,Construction/completion evidence
+CHI-B1860-024-E02,CHI-B1860-024,demolition_or_loss,1871,exact,Great Chicago Fire,destroyed
+CHI-B1860-024-E03,CHI-B1860-024,1871_fire_fate_assertion,1871-10-08/10,date_range,Great Chicago Fire,destroyed
+CHI-B1860-025-E01,CHI-B1860-025,completion,1867,phased,,Construction/completion evidence
+CHI-B1860-025-E02,CHI-B1860-025,1871_fire_fate_assertion,1871-10-08/10,date_range,Great Chicago Fire,survived
+CHI-B1860-026-E01,CHI-B1860-026,completion,1865,exact,,Construction/completion evidence
+CHI-B1860-026-E02,CHI-B1860-026,1871_fire_fate_assertion,1871-10-08/10,date_range,Great Chicago Fire,survived
+CHI-B1860-027-E01,CHI-B1860-027,completion,1867,exact,,Construction/completion evidence
+CHI-B1860-027-E02,CHI-B1860-027,demolition_or_loss,1871,exact,Great Chicago Fire,destroyed
+CHI-B1860-027-E03,CHI-B1860-027,1871_fire_fate_assertion,1871-10-08/10,date_range,Great Chicago Fire,destroyed
+CHI-B1860-028-E01,CHI-B1860-028,completion,1867,exact,,Construction/completion evidence
+CHI-B1860-028-E02,CHI-B1860-028,1871_fire_fate_assertion,1871-10-08/10,date_range,Great Chicago Fire,unknown
+CHI-B1860-029-E01,CHI-B1860-029,completion,1865,exact,,Construction/completion evidence
+CHI-B1860-029-E02,CHI-B1860-029,1871_fire_fate_assertion,1871-10-08/10,date_range,Great Chicago Fire,unknown
+CHI-B1860-030-E01,CHI-B1860-030,completion,1866,exact,,Construction/completion evidence
+CHI-B1860-030-E02,CHI-B1860-030,1871_fire_fate_assertion,1871-10-08/10,date_range,Great Chicago Fire,survived
+CHI-B1860-031-E01,CHI-B1860-031,completion,1866,exact,,Construction/completion evidence
+CHI-B1860-031-E02,CHI-B1860-031,1871_fire_fate_assertion,1871-10-08/10,date_range,Great Chicago Fire,survived
+CHI-B1860-032-E01,CHI-B1860-032,completion,1866,seasonal_exact,,Construction/completion evidence
+CHI-B1860-032-E02,CHI-B1860-032,1871_fire_fate_assertion,1871-10-08/10,date_range,Great Chicago Fire,survived
+CHI-B1860-033-E01,CHI-B1860-033,completion,1867,exact,,Construction/completion evidence
+CHI-B1860-033-E02,CHI-B1860-033,1871_fire_fate_assertion,1871-10-08/10,date_range,Great Chicago Fire,survived
+CHI-B1860-034-E01,CHI-B1860-034,completion,1867,exact,,Construction/completion evidence
+CHI-B1860-034-E02,CHI-B1860-034,demolition_or_loss,1868,exact,Fire on January 7,destroyed
+CHI-B1860-034-E03,CHI-B1860-034,1871_fire_fate_assertion,1871-10-08/10,date_range,Great Chicago Fire,not exposed
+CHI-B1860-035-E01,CHI-B1860-035,completion,1867,exact,,Construction/completion evidence
+CHI-B1860-035-E02,CHI-B1860-035,1871_fire_fate_assertion,1871-10-08/10,date_range,Great Chicago Fire,survived
+CHI-B1860-036-E01,CHI-B1860-036,completion,1867,exact,,Construction/completion evidence
+CHI-B1860-036-E02,CHI-B1860-036,1871_fire_fate_assertion,1871-10-08/10,date_range,Great Chicago Fire,survived
+CHI-B1860-037-E01,CHI-B1860-037,completion,1867,active_by,,Construction/completion evidence
+CHI-B1860-037-E02,CHI-B1860-037,demolition_or_loss,1871,exact,Great Chicago Fire,destroyed
+CHI-B1860-037-E03,CHI-B1860-037,1871_fire_fate_assertion,1871-10-08/10,date_range,Great Chicago Fire,destroyed
+CHI-B1860-038-E01,CHI-B1860-038,completion,1867,exact,,Construction/completion evidence
+CHI-B1860-038-E02,CHI-B1860-038,demolition_or_loss,1871,exact,Great Chicago Fire,destroyed
+CHI-B1860-038-E03,CHI-B1860-038,1871_fire_fate_assertion,1871-10-08/10,date_range,Great Chicago Fire,destroyed
+CHI-B1860-039-E01,CHI-B1860-039,completion,1868,exact,,Construction/completion evidence
+CHI-B1860-039-E02,CHI-B1860-039,demolition_or_loss,1871,exact,Great Chicago Fire,destroyed
+CHI-B1860-039-E03,CHI-B1860-039,1871_fire_fate_assertion,1871-10-08/10,date_range,Great Chicago Fire,destroyed
+CHI-B1860-040-E01,CHI-B1860-040,completion,1868,exact,,Construction/completion evidence
+CHI-B1860-040-E02,CHI-B1860-040,demolition_or_loss,1871,exact,Great Chicago Fire; almost total loss,destroyed/reconstructed
+CHI-B1860-040-E03,CHI-B1860-040,1871_fire_fate_assertion,1871-10-08/10,date_range,Great Chicago Fire,destroyed
+CHI-B1860-041-E01,CHI-B1860-041,completion,1868,exact,,Construction/completion evidence
+CHI-B1860-041-E02,CHI-B1860-041,demolition_or_loss,1871,exact,Great Chicago Fire,destroyed
+CHI-B1860-041-E03,CHI-B1860-041,1871_fire_fate_assertion,1871-10-08/10,date_range,Great Chicago Fire,destroyed
+CHI-B1860-042-E01,CHI-B1860-042,completion,1868,exact,,Construction/completion evidence
+CHI-B1860-042-E02,CHI-B1860-042,1871_fire_fate_assertion,1871-10-08/10,date_range,Great Chicago Fire,survived
+CHI-B1860-043-E01,CHI-B1860-043,completion,1868,exact,,Construction/completion evidence
+CHI-B1860-043-E02,CHI-B1860-043,1871_fire_fate_assertion,1871-10-08/10,date_range,Great Chicago Fire,survived
+CHI-B1860-044-E01,CHI-B1860-044,completion,1868,exact,,Construction/completion evidence
+CHI-B1860-044-E02,CHI-B1860-044,1871_fire_fate_assertion,1871-10-08/10,date_range,Great Chicago Fire,survived
+CHI-B1860-045-E01,CHI-B1860-045,completion,1868,exact,,Construction/completion evidence
+CHI-B1860-045-E02,CHI-B1860-045,1871_fire_fate_assertion,1871-10-08/10,date_range,Great Chicago Fire,survived
+CHI-B1860-046-E01,CHI-B1860-046,completion,1869,exact,,Construction/completion evidence
+CHI-B1860-046-E02,CHI-B1860-046,1871_fire_fate_assertion,1871-10-08/10,date_range,Great Chicago Fire,survived
+CHI-B1860-047-E01,CHI-B1860-047,completion,1869,exact,,Construction/completion evidence
+CHI-B1860-047-E02,CHI-B1860-047,1871_fire_fate_assertion,1871-10-08/10,date_range,Great Chicago Fire,survived
+CHI-B1860-048-E01,CHI-B1860-048,completion,1869,exact,,Construction/completion evidence
+CHI-B1860-048-E02,CHI-B1860-048,demolition_or_loss,1871,exact,Great Chicago Fire,destroyed
+CHI-B1860-048-E03,CHI-B1860-048,1871_fire_fate_assertion,1871-10-08/10,date_range,Great Chicago Fire,destroyed
+CHI-B1860-049-E01,CHI-B1860-049,completion,1869,exact,,Construction/completion evidence
+CHI-B1860-049-E02,CHI-B1860-049,demolition_or_loss,1871,exact,Great Chicago Fire,destroyed
+CHI-B1860-049-E03,CHI-B1860-049,1871_fire_fate_assertion,1871-10-08/10,date_range,Great Chicago Fire,destroyed
+CHI-B1860-050-E01,CHI-B1860-050,completion,1869,exact,,Construction/completion evidence
+CHI-B1860-050-E02,CHI-B1860-050,1871_fire_fate_assertion,1871-10-08/10,date_range,Great Chicago Fire,survived
+CHI-B1860-051-E01,CHI-B1860-051,completion,1869,exact,,Construction/completion evidence
+CHI-B1860-051-E02,CHI-B1860-051,demolition_or_loss,1871,exact,Great Chicago Fire,destroyed
+CHI-B1860-051-E03,CHI-B1860-051,1871_fire_fate_assertion,1871-10-08/10,date_range,Great Chicago Fire,destroyed
+CHI-B1860-052-E01,CHI-B1860-052,completion,1869,exact,,Construction/completion evidence
+CHI-B1860-052-E02,CHI-B1860-052,1871_fire_fate_assertion,1871-10-08/10,date_range,Great Chicago Fire,survived
+CHI-B1860-053-E01,CHI-B1860-053,completion,1869,exact,,Construction/completion evidence
+CHI-B1860-053-E02,CHI-B1860-053,1871_fire_fate_assertion,1871-10-08/10,date_range,Great Chicago Fire,survived
+CHI-B1860-054-E01,CHI-B1860-054,completion,1869,exact,,Construction/completion evidence
+CHI-B1860-054-E02,CHI-B1860-054,1871_fire_fate_assertion,1871-10-08/10,date_range,Great Chicago Fire,survived
+CHI-B1860-055-E01,CHI-B1860-055,completion,1872,exact,,Construction/completion evidence
+CHI-B1860-055-E02,CHI-B1860-055,1871_fire_fate_assertion,1871-10-08/10,date_range,Great Chicago Fire,survived
+CHI-B1860-056-E01,CHI-B1860-056,completion,1869,exact,,Construction/completion evidence
+CHI-B1860-056-E02,CHI-B1860-056,demolition_or_loss,1871,exact,Great Chicago Fire,destroyed
+CHI-B1860-056-E03,CHI-B1860-056,1871_fire_fate_assertion,1871-10-08/10,date_range,Great Chicago Fire,destroyed
+CHI-B1860-057-E01,CHI-B1860-057,completion,1869,exact,,Construction/completion evidence
+CHI-B1860-057-E02,CHI-B1860-057,1871_fire_fate_assertion,1871-10-08/10,date_range,Great Chicago Fire,survived
+CHI-B1860-058-E01,CHI-B1860-058,completion,1870,exact,,Construction/completion evidence
+CHI-B1860-058-E02,CHI-B1860-058,1871_fire_fate_assertion,1871-10-08/10,date_range,Great Chicago Fire,survived
+CHI-B1860-059-E01,CHI-B1860-059,completion,1870,exact,,Construction/completion evidence
+CHI-B1860-059-E02,CHI-B1860-059,1871_fire_fate_assertion,1871-10-08/10,date_range,Great Chicago Fire,survived
+CHI-B1860-060-E01,CHI-B1860-060,completion,1867,exact,,Construction/completion evidence
+CHI-B1860-060-E02,CHI-B1860-060,1871_fire_fate_assertion,1871-10-08/10,date_range,Great Chicago Fire,survived
+CHI-CHI1870-001-E01,CHI-CHI1870-001,completion,1870,exact,,Construction/completion evidence
+CHI-CHI1870-001-E02,CHI-CHI1870-001,1871_fire_fate_assertion,1871-10-08/10,date_range,Great Chicago Fire,survived
+CHI-CHI1870-002-E01,CHI-CHI1870-002,completion,1870,exact,,Construction/completion evidence
+CHI-CHI1870-002-E02,CHI-CHI1870-002,demolition_or_loss,1871,exact,Great Chicago Fire,destroyed
+CHI-CHI1870-002-E03,CHI-CHI1870-002,1871_fire_fate_assertion,1871-10-08/10,date_range,Great Chicago Fire,destroyed
+CHI-CHI1870-003-E01,CHI-CHI1870-003,demolition_or_loss,1871,exact,Great Chicago Fire,destroyed
+CHI-CHI1870-003-E02,CHI-CHI1870-003,1871_fire_fate_assertion,1871-10-08/10,date_range,Great Chicago Fire,destroyed
+CHI-CHI1870-004-E01,CHI-CHI1870-004,completion,1871,exact,,Construction/completion evidence
+CHI-CHI1870-004-E02,CHI-CHI1870-004,demolition_or_loss,1871,exact,Great Chicago Fire,destroyed
+CHI-CHI1870-004-E03,CHI-CHI1870-004,1871_fire_fate_assertion,1871-10-08/10,date_range,Great Chicago Fire,destroyed
+CHI-CHI1870-005-E01,CHI-CHI1870-005,completion,1873,approximate,,Construction/completion evidence
+CHI-CHI1870-005-E02,CHI-CHI1870-005,1871_fire_fate_assertion,1871-10-08/10,date_range,Great Chicago Fire,survived-foundations
+CHI-CHI1870-006-E01,CHI-CHI1870-006,completion,1870,exact,,Construction/completion evidence
+CHI-CHI1870-006-E02,CHI-CHI1870-006,demolition_or_loss,1870,exact,fire,destroyed
+CHI-CHI1870-006-E03,CHI-CHI1870-006,1871_fire_fate_assertion,1871-10-08/10,date_range,Great Chicago Fire,not-present
+CHI-CHI1870-007-E01,CHI-CHI1870-007,completion,1871,exact,,Construction/completion evidence
+CHI-CHI1870-007-E02,CHI-CHI1870-007,demolition_or_loss,1871,exact,Great Chicago Fire,destroyed
+CHI-CHI1870-007-E03,CHI-CHI1870-007,1871_fire_fate_assertion,1871-10-08/10,date_range,Great Chicago Fire,destroyed
+CHI-CHI1870-008-E01,CHI-CHI1870-008,completion,1870,exact,,Construction/completion evidence
+CHI-CHI1870-008-E02,CHI-CHI1870-008,1871_fire_fate_assertion,1871-10-08/10,date_range,Great Chicago Fire,survived
+CHI-CHI1870-009-E01,CHI-CHI1870-009,completion,1870,exact,,Construction/completion evidence
+CHI-CHI1870-009-E02,CHI-CHI1870-009,1871_fire_fate_assertion,1871-10-08/10,date_range,Great Chicago Fire,survived
+CHI-CHI1870-010-E01,CHI-CHI1870-010,completion,1871,exact,,Construction/completion evidence
+CHI-CHI1870-010-E02,CHI-CHI1870-010,1871_fire_fate_assertion,1871-10-08/10,date_range,Great Chicago Fire,damaged-not-destroyed
+CHI-CHI1870-011-E01,CHI-CHI1870-011,completion,1871,range,,Construction/completion evidence
+CHI-CHI1870-011-E02,CHI-CHI1870-011,1871_fire_fate_assertion,1871-10-08/10,date_range,Great Chicago Fire,uncertain
+CHI-CHI1870-012-E01,CHI-CHI1870-012,completion,1871,range,,Construction/completion evidence
+CHI-CHI1870-012-E02,CHI-CHI1870-012,1871_fire_fate_assertion,1871-10-08/10,date_range,Great Chicago Fire,uncertain
+CHI-CHI1870-013-E01,CHI-CHI1870-013,completion,1871,range,,Construction/completion evidence
+CHI-CHI1870-013-E02,CHI-CHI1870-013,1871_fire_fate_assertion,1871-10-08/10,date_range,Great Chicago Fire,uncertain
+CHI-CHI1870-014-E01,CHI-CHI1870-014,completion,1870,exact,,Construction/completion evidence
+CHI-CHI1870-014-E02,CHI-CHI1870-014,demolition_or_loss,1871,exact,Great Chicago Fire,destroyed
+CHI-CHI1870-014-E03,CHI-CHI1870-014,1871_fire_fate_assertion,1871-10-08/10,date_range,Great Chicago Fire,destroyed
+CHI-CHI1870-015-E01,CHI-CHI1870-015,completion,1871,range,,Construction/completion evidence
+CHI-CHI1870-015-E02,CHI-CHI1870-015,1871_fire_fate_assertion,1871-10-08/10,date_range,Great Chicago Fire,no-destruction-reported
+CHI-CHI1870-016-E01,CHI-CHI1870-016,completion,1871,range,,Construction/completion evidence
+CHI-CHI1870-016-E02,CHI-CHI1870-016,1871_fire_fate_assertion,1871-10-08/10,date_range,Great Chicago Fire,no-destruction-reported
+CHI-CHI1870-017-E01,CHI-CHI1870-017,completion,1871,range,,Construction/completion evidence
+CHI-CHI1870-017-E02,CHI-CHI1870-017,1871_fire_fate_assertion,1871-10-08/10,date_range,Great Chicago Fire,no-destruction-reported
+CHI-CHI1870-018-E01,CHI-CHI1870-018,completion,1871,range,,Construction/completion evidence
+CHI-CHI1870-018-E02,CHI-CHI1870-018,1871_fire_fate_assertion,1871-10-08/10,date_range,Great Chicago Fire,no-destruction-reported
+CHI-CHI1870-019-E01,CHI-CHI1870-019,completion,1870,exact,,Construction/completion evidence
+CHI-CHI1870-019-E02,CHI-CHI1870-019,1871_fire_fate_assertion,1871-10-08/10,date_range,Great Chicago Fire,outside-fire-area
+CHI-CHI1870-020-E01,CHI-CHI1870-020,completion,1870,exact,,Construction/completion evidence
+CHI-CHI1870-020-E02,CHI-CHI1870-020,1871_fire_fate_assertion,1871-10-08/10,date_range,Great Chicago Fire,survived
+CHI-CHI1870-021-E01,CHI-CHI1870-021,1871_fire_fate_assertion,1871-10-08/10,date_range,Great Chicago Fire,survived
+CHI-CHI1870-022-E01,CHI-CHI1870-022,completion,1870,exact,,Construction/completion evidence
+CHI-CHI1870-022-E02,CHI-CHI1870-022,1871_fire_fate_assertion,1871-10-08/10,date_range,Great Chicago Fire,uncertain
+CHI-CHI1870-023-E01,CHI-CHI1870-023,completion,1871,exact,,Construction/completion evidence
+CHI-CHI1870-023-E02,CHI-CHI1870-023,demolition_or_loss,1871,exact,Great Chicago Fire,destroyed
+CHI-CHI1870-023-E03,CHI-CHI1870-023,1871_fire_fate_assertion,1871-10-08/10,date_range,Great Chicago Fire,destroyed
+CHI-CHI1870-024-E01,CHI-CHI1870-024,completion,1871,exact,,Construction/completion evidence
+CHI-CHI1870-024-E02,CHI-CHI1870-024,demolition_or_loss,1871,exact,Great Chicago Fire,destroyed
+CHI-CHI1870-024-E03,CHI-CHI1870-024,1871_fire_fate_assertion,1871-10-08/10,date_range,Great Chicago Fire,destroyed
+CHI-CHI1870-025-E01,CHI-CHI1870-025,completion,1870,exact,,Construction/completion evidence
+CHI-CHI1870-025-E02,CHI-CHI1870-025,1871_fire_fate_assertion,1871-10-08/10,date_range,Great Chicago Fire,survived
+CHI-CHI1870-026-E01,CHI-CHI1870-026,completion,1871,exact,,Construction/completion evidence
+CHI-CHI1870-026-E02,CHI-CHI1870-026,1871_fire_fate_assertion,1871-10-08/10,date_range,Great Chicago Fire,survived
+CHI-CHI1870-027-E01,CHI-CHI1870-027,completion,1871,exact,,Construction/completion evidence
+CHI-CHI1870-027-E02,CHI-CHI1870-027,1871_fire_fate_assertion,1871-10-08/10,date_range,Great Chicago Fire,survived
+CHI-CHI1870-028-E01,CHI-CHI1870-028,completion,1871,exact,,Construction/completion evidence
+CHI-CHI1870-028-E02,CHI-CHI1870-028,1871_fire_fate_assertion,1871-10-08/10,date_range,Great Chicago Fire,survived
+CHI-CHI1870-029-E01,CHI-CHI1870-029,completion,1872,exact,,Construction/completion evidence
+CHI-CHI1870-029-E02,CHI-CHI1870-029,1871_fire_fate_assertion,1871-10-08/10,date_range,Great Chicago Fire,survived-under-construction
+CHI-CHI1870-030-E01,CHI-CHI1870-030,completion,1870,exact,,Construction/completion evidence
+CHI-CHI1870-030-E02,CHI-CHI1870-030,1871_fire_fate_assertion,1871-10-08/10,date_range,Great Chicago Fire,survived
+CHI-CHI1870-031-E01,CHI-CHI1870-031,1871_fire_fate_assertion,1871-10-08/10,date_range,Great Chicago Fire,survived-under-construction
+CHI-CHI1870-032-E01,CHI-CHI1870-032,completion,1870,exact,,Construction/completion evidence
+CHI-CHI1870-032-E02,CHI-CHI1870-032,1871_fire_fate_assertion,1871-10-08/10,date_range,Great Chicago Fire,survived
+CHI-CHI1870-033-E01,CHI-CHI1870-033,completion,1870,approximate,,Construction/completion evidence
+CHI-CHI1870-033-E02,CHI-CHI1870-033,1871_fire_fate_assertion,1871-10-08/10,date_range,Great Chicago Fire,survived
+CHI-CHI1870-034-E01,CHI-CHI1870-034,completion,1871,approximate,,Construction/completion evidence
+CHI-CHI1870-034-E02,CHI-CHI1870-034,1871_fire_fate_assertion,1871-10-08/10,date_range,Great Chicago Fire,uncertain
+CHI-CHI1870-035-E01,CHI-CHI1870-035,completion,1871,approximate,,Construction/completion evidence
+CHI-CHI1870-035-E02,CHI-CHI1870-035,1871_fire_fate_assertion,1871-10-08/10,date_range,Great Chicago Fire,survived
+CHI-CHI1870-036-E01,CHI-CHI1870-036,completion,1870,exact,,Construction/completion evidence
+CHI-CHI1870-036-E02,CHI-CHI1870-036,1871_fire_fate_assertion,1871-10-08/10,date_range,Great Chicago Fire,survived
+CHI-CHI1870-037-E01,CHI-CHI1870-037,completion,1870,exact,,Construction/completion evidence
+CHI-CHI1870-037-E02,CHI-CHI1870-037,1871_fire_fate_assertion,1871-10-08/10,date_range,Great Chicago Fire,survived
+CHI-CHI1870-038-E01,CHI-CHI1870-038,completion,1871,exact,,Construction/completion evidence
+CHI-CHI1870-038-E02,CHI-CHI1870-038,1871_fire_fate_assertion,1871-10-08/10,date_range,Great Chicago Fire,outside-city-at-construction
+CHI-CHI1870-039-E01,CHI-CHI1870-039,completion,1870,exact,,Construction/completion evidence
+CHI-CHI1870-039-E02,CHI-CHI1870-039,1871_fire_fate_assertion,1871-10-08/10,date_range,Great Chicago Fire,survived
+CHI-CHI1870-040-E01,CHI-CHI1870-040,completion,1870,exact,,Construction/completion evidence
+CHI-CHI1870-040-E02,CHI-CHI1870-040,1871_fire_fate_assertion,1871-10-08/10,date_range,Great Chicago Fire,survived
+CHI-CHI1870-041-E01,CHI-CHI1870-041,completion,1870,exact,,Construction/completion evidence
+CHI-CHI1870-041-E02,CHI-CHI1870-041,1871_fire_fate_assertion,1871-10-08/10,date_range,Great Chicago Fire,survived
+CHI-PRE1830-001-E01,CHI-PRE1830-001,completion,1674,seasonal_approximate,,Construction/completion evidence
+CHI-PRE1830-001-E02,CHI-PRE1830-001,demolition_or_loss,1675,approximate,abandoned_or_dismantled,demolished
+CHI-PRE1830-001-E03,CHI-PRE1830-001,1871_fire_fate_assertion,1871-10-08/10,date_range,Great Chicago Fire,not_present
+CHI-PRE1830-002-E01,CHI-PRE1830-002,completion,1779,before_or_by,,Construction/completion evidence
+CHI-PRE1830-002-E02,CHI-PRE1830-002,1871_fire_fate_assertion,1871-10-08/10,date_range,Great Chicago Fire,not_present
+CHI-PRE1830-003-E01,CHI-PRE1830-003,completion,1800,before_or_by,,Construction/completion evidence
+CHI-PRE1830-003-E02,CHI-PRE1830-003,1871_fire_fate_assertion,1871-10-08/10,date_range,Great Chicago Fire,not_present
+CHI-PRE1830-004-E01,CHI-PRE1830-004,completion,1800,before_or_by,,Construction/completion evidence
+CHI-PRE1830-004-E02,CHI-PRE1830-004,1871_fire_fate_assertion,1871-10-08/10,date_range,Great Chicago Fire,not_present
+CHI-PRE1830-005-E01,CHI-PRE1830-005,completion,1800,before_or_by,,Construction/completion evidence
+CHI-PRE1830-005-E02,CHI-PRE1830-005,1871_fire_fate_assertion,1871-10-08/10,date_range,Great Chicago Fire,not_present
+CHI-PRE1830-006-E01,CHI-PRE1830-006,completion,1800,before_or_by,,Construction/completion evidence
+CHI-PRE1830-006-E02,CHI-PRE1830-006,1871_fire_fate_assertion,1871-10-08/10,date_range,Great Chicago Fire,not_present
+CHI-PRE1830-007-E01,CHI-PRE1830-007,completion,1800,before_or_by,,Construction/completion evidence
+CHI-PRE1830-007-E02,CHI-PRE1830-007,1871_fire_fate_assertion,1871-10-08/10,date_range,Great Chicago Fire,not_present
+CHI-PRE1830-008-E01,CHI-PRE1830-008,completion,1800,before_or_by,,Construction/completion evidence
+CHI-PRE1830-008-E02,CHI-PRE1830-008,1871_fire_fate_assertion,1871-10-08/10,date_range,Great Chicago Fire,not_present
+CHI-PRE1830-009-E01,CHI-PRE1830-009,completion,1800,before_or_by,,Construction/completion evidence
+CHI-PRE1830-009-E02,CHI-PRE1830-009,1871_fire_fate_assertion,1871-10-08/10,date_range,Great Chicago Fire,not_present
+CHI-PRE1830-010-E01,CHI-PRE1830-010,completion,1800,before_or_by,,Construction/completion evidence
+CHI-PRE1830-010-E02,CHI-PRE1830-010,1871_fire_fate_assertion,1871-10-08/10,date_range,Great Chicago Fire,not_present
+CHI-PRE1830-011-E01,CHI-PRE1830-011,completion,1800,before_or_by,,Construction/completion evidence
+CHI-PRE1830-011-E02,CHI-PRE1830-011,1871_fire_fate_assertion,1871-10-08/10,date_range,Great Chicago Fire,not_present
+CHI-PRE1830-012-E01,CHI-PRE1830-012,completion,1803,before_or_by,,Construction/completion evidence
+CHI-PRE1830-012-E02,CHI-PRE1830-012,1871_fire_fate_assertion,1871-10-08/10,date_range,Great Chicago Fire,not_present
+CHI-PRE1830-013-E01,CHI-PRE1830-013,completion,1803,before_or_by,,Construction/completion evidence
+CHI-PRE1830-013-E02,CHI-PRE1830-013,1871_fire_fate_assertion,1871-10-08/10,date_range,Great Chicago Fire,not_present
+CHI-PRE1830-014-E01,CHI-PRE1830-014,completion,1798,before_or_by,,Construction/completion evidence
+CHI-PRE1830-014-E02,CHI-PRE1830-014,1871_fire_fate_assertion,1871-10-08/10,date_range,Great Chicago Fire,not_present
+CHI-PRE1830-015-E01,CHI-PRE1830-015,completion,1804,year_range,,Construction/completion evidence
+CHI-PRE1830-015-E02,CHI-PRE1830-015,demolition_or_loss,1812,exact,burned_after_battle,destroyed
+CHI-PRE1830-015-E03,CHI-PRE1830-015,1871_fire_fate_assertion,1871-10-08/10,date_range,Great Chicago Fire,not_present
+CHI-PRE1830-016-E01,CHI-PRE1830-016,completion,1805,exact,,Construction/completion evidence
+CHI-PRE1830-016-E02,CHI-PRE1830-016,demolition_or_loss,1812,exact,burned_after_battle,destroyed
+CHI-PRE1830-016-E03,CHI-PRE1830-016,1871_fire_fate_assertion,1871-10-08/10,date_range,Great Chicago Fire,not_present
+CHI-PRE1830-017-E01,CHI-PRE1830-017,completion,1804,before_or_by,,Construction/completion evidence
+CHI-PRE1830-017-E02,CHI-PRE1830-017,1871_fire_fate_assertion,1871-10-08/10,date_range,Great Chicago Fire,not_present
+CHI-PRE1830-018-E01,CHI-PRE1830-018,completion,1812,before_or_by,,Construction/completion evidence
+CHI-PRE1830-018-E02,CHI-PRE1830-018,1871_fire_fate_assertion,1871-10-08/10,date_range,Great Chicago Fire,not_present
+CHI-PRE1830-019-E01,CHI-PRE1830-019,completion,1812,before_or_by,,Construction/completion evidence
+CHI-PRE1830-019-E02,CHI-PRE1830-019,1871_fire_fate_assertion,1871-10-08/10,date_range,Great Chicago Fire,not_present
+CHI-PRE1830-020-E01,CHI-PRE1830-020,completion,1816,exact,,Construction/completion evidence
+CHI-PRE1830-020-E02,CHI-PRE1830-020,demolition_or_loss,1857,approximate,decommissioned_and_demolished,demolished
+CHI-PRE1830-020-E03,CHI-PRE1830-020,1871_fire_fate_assertion,1871-10-08/10,date_range,Great Chicago Fire,not_present
+CHI-PRE1830-021-E01,CHI-PRE1830-021,completion,1816,exact,,Construction/completion evidence
+CHI-PRE1830-021-E02,CHI-PRE1830-021,1871_fire_fate_assertion,1871-10-08/10,date_range,Great Chicago Fire,not_present
+CHI-PRE1830-022-E01,CHI-PRE1830-022,completion,1815,exact,,Construction/completion evidence
+CHI-PRE1830-022-E02,CHI-PRE1830-022,1871_fire_fate_assertion,1871-10-08/10,date_range,Great Chicago Fire,not_present
+CHI-PRE1830-023-E01,CHI-PRE1830-023,completion,1818,exact,,Construction/completion evidence
+CHI-PRE1830-023-E02,CHI-PRE1830-023,1871_fire_fate_assertion,1871-10-08/10,date_range,Great Chicago Fire,not_present
+CHI-PRE1830-024-E01,CHI-PRE1830-024,completion,1812,before_or_by,,Construction/completion evidence
+CHI-PRE1830-024-E02,CHI-PRE1830-024,1871_fire_fate_assertion,1871-10-08/10,date_range,Great Chicago Fire,not_present
+CHI-PRE1830-025-E01,CHI-PRE1830-025,completion,1826,before_or_by,,Construction/completion evidence
+CHI-PRE1830-025-E02,CHI-PRE1830-025,1871_fire_fate_assertion,1871-10-08/10,date_range,Great Chicago Fire,not_present
+CHI-PRE1830-026-E01,CHI-PRE1830-026,completion,1826,before_or_by,,Construction/completion evidence
+CHI-PRE1830-026-E02,CHI-PRE1830-026,1871_fire_fate_assertion,1871-10-08/10,date_range,Great Chicago Fire,not_present
+CHI-PRE1830-027-E01,CHI-PRE1830-027,completion,1826,before_or_by,,Construction/completion evidence
+CHI-PRE1830-027-E02,CHI-PRE1830-027,1871_fire_fate_assertion,1871-10-08/10,date_range,Great Chicago Fire,not_present
+CHI-PRE1830-028-E01,CHI-PRE1830-028,completion,1826,before_or_by,,Construction/completion evidence
+CHI-PRE1830-028-E02,CHI-PRE1830-028,1871_fire_fate_assertion,1871-10-08/10,date_range,Great Chicago Fire,not_present
+CHI-PRE1830-029-E01,CHI-PRE1830-029,completion,1826,before_or_by,,Construction/completion evidence
+CHI-PRE1830-029-E02,CHI-PRE1830-029,1871_fire_fate_assertion,1871-10-08/10,date_range,Great Chicago Fire,not_present
+CHI-PRE1830-030-E01,CHI-PRE1830-030,completion,1826,before_or_by,,Construction/completion evidence
+CHI-PRE1830-030-E02,CHI-PRE1830-030,1871_fire_fate_assertion,1871-10-08/10,date_range,Great Chicago Fire,not_present
+CHI-PRE1830-031-E01,CHI-PRE1830-031,completion,1826,before_or_by,,Construction/completion evidence
+CHI-PRE1830-031-E02,CHI-PRE1830-031,1871_fire_fate_assertion,1871-10-08/10,date_range,Great Chicago Fire,not_present
+CHI-PRE1830-032-E01,CHI-PRE1830-032,completion,1827,before_or_by,,Construction/completion evidence
+CHI-PRE1830-032-E02,CHI-PRE1830-032,1871_fire_fate_assertion,1871-10-08/10,date_range,Great Chicago Fire,not_present
+CHI-PRE1830-033-E01,CHI-PRE1830-033,completion,1829,exact,,Construction/completion evidence
+CHI-PRE1830-033-E02,CHI-PRE1830-033,1871_fire_fate_assertion,1871-10-08/10,date_range,Great Chicago Fire,not_present
+CHI-PRE1830-034-E01,CHI-PRE1830-034,completion,1826,before_or_by,,Construction/completion evidence
+CHI-PRE1830-034-E02,CHI-PRE1830-034,1871_fire_fate_assertion,1871-10-08/10,date_range,Great Chicago Fire,not_present_or_unresolved
+CHI-PRE1830-035-E01,CHI-PRE1830-035,completion,1816,before_or_by,,Construction/completion evidence
+CHI-PRE1830-035-E02,CHI-PRE1830-035,1871_fire_fate_assertion,1871-10-08/10,date_range,Great Chicago Fire,not_present_or_unresolved
+CHI-PRE1830-036-E01,CHI-PRE1830-036,completion,1826,before_or_by,,Construction/completion evidence
+CHI-PRE1830-036-E02,CHI-PRE1830-036,1871_fire_fate_assertion,1871-10-08/10,date_range,Great Chicago Fire,not_present_or_unresolved
+CHI-PRE1830-037-E01,CHI-PRE1830-037,completion,1826,before_or_by,,Construction/completion evidence
+CHI-PRE1830-037-E02,CHI-PRE1830-037,1871_fire_fate_assertion,1871-10-08/10,date_range,Great Chicago Fire,not_present_or_unresolved
+CHI-PRE1830-038-E01,CHI-PRE1830-038,completion,1826,before_or_by,,Construction/completion evidence
+CHI-PRE1830-038-E02,CHI-PRE1830-038,1871_fire_fate_assertion,1871-10-08/10,date_range,Great Chicago Fire,not_present_or_unresolved
+CHI-PRE1830-039-E01,CHI-PRE1830-039,completion,1826,before_or_by,,Construction/completion evidence
+CHI-PRE1830-039-E02,CHI-PRE1830-039,1871_fire_fate_assertion,1871-10-08/10,date_range,Great Chicago Fire,not_present_or_unresolved
+CHI-PRE1830-040-E01,CHI-PRE1830-040,completion,1828,exact,,Construction/completion evidence
+CHI-PRE1830-040-E02,CHI-PRE1830-040,1871_fire_fate_assertion,1871-10-08/10,date_range,Great Chicago Fire,not_present_or_unresolved

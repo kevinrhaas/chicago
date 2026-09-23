@@ -1,0 +1,228 @@
+{
+ "id": "hh_couch_ira",
+ "name": "The Couch household",
+ "division": "south",
+ "head": "couch_ira",
+ "arrival": {
+  "value": "1834",
+  "confidence": "inferred",
+  "sources": [
+   "andreas_1884_v1",
+   "chicagology_prefire021"
+  ],
+  "note": "The year the Couches bought the Tremont, which is the earliest date either source puts them at Chicago. It is a purchase date standing in for an arrival date and it is graded accordingly.",
+  "precision": "year"
+ },
+ "party_size_on_arrival": {
+  "value": 2,
+  "confidence": "inferred",
+  "sources": [
+   "andreas_1884_v1"
+  ],
+  "note": "Two brothers are named in the purchase. Whether they travelled together, and whether either brought a family, is not stated."
+ },
+ "origin": {
+  "value": null,
+  "confidence": "reconstructed",
+  "note": "Not attested."
+ },
+ "reason_for_coming": {
+  "value": "To buy and run a hotel in a booming town",
+  "confidence": "inferred",
+  "sources": [
+   "andreas_1884_v1"
+  ],
+  "note": "The purchase itself is documented; the motive is the obvious reading of it."
+ },
+ "lives_at": {
+  "value": "tremont_house_1",
+  "confidence": "inferred",
+  "sources": [
+   "andreas_1884_v1"
+  ],
+  "note": "A hotel proprietor of this period lived in his house. Not stated."
+ },
+ "works_at": {
+  "value": "tremont_house_1",
+  "confidence": "attested",
+  "sources": [
+   "andreas_1884_v1",
+   "chicagology_prefire021"
+  ]
+ },
+ "present_on_scene_date": {
+  "value": "present",
+  "confidence": "attested",
+  "sources": [
+   "andreas_1884_v1"
+  ],
+  "note": "Running the house across the scene date."
+ },
+ "persons": [
+  {
+   "id": "couch_ira",
+   "name": "Ira Couch",
+   "relationship": "head",
+   "grade": "attested",
+   "sex": "male",
+   "occupation": {
+    "value": "hotel_keeper",
+    "confidence": "attested",
+    "sources": [
+     "andreas_1884_v1",
+     "chicagology_prefire021"
+    ],
+    "note": "Proprietor of the first Tremont House. Andreas: 'the Couch brothers purchased the property and Ira Couch opened it as a hotel. He ran it until 1836, when his brother James took control.'",
+    "derived_from": "roles",
+    "roles_at_scene_date": [
+     "hotel_keeper"
+    ]
+   },
+   "sources": [
+    "andreas_1884_v1",
+    "fergus_chicago_directory_1839",
+    "census_1840_chicago_familysearch_images",
+    "second_presbyterian_chicago_1892"
+   ],
+   "note": "1 JULY 1835 FALLS SQUARELY INSIDE HIS TENURE, on two sources that do not disagree: chicagology's 1874 letter has him becoming proprietor in 1834, and Andreas has him running the house until 1836. FERGUS 1839'S LATER LISTS — 1837 AND 1839 EVIDENCE, NEVER AN 1835 FACT. Fergus' Chicago Directory for 1839 names this person 1 time in its two later lists: the poll of Chicago's first city election, 2 May 1837 — “Ira Couch,” (f1839_v0087, printed page 41, ward 1, voting for William B. Ogden). What a match may carry, and it is short: that the man was in Chicago on 2 May 1837 and in that ward. It is written as 1837 evidence with describes_date 1837-05-02, never as an 1835 fact, and the person's grade does not move on this alone. Under the ratified ladder a second contemporary source is what lifts projected_resident, and a poll twenty-two months after the scene date is a second source about CONTINUED RESIDENCE, not about July 1835. The ward is a location in the CITY of 1837, whose six wards are drawn on printed page 46; it is not a location in the town of 1835 and does not place a house. Identity by the crosswalk's own rule: Surname 'Couch' folds to the same string as the 1837 entry's, and the given name of both begins I. (data/research/directories/fergus_1839_election_crosswalk_1835.json and fergus_1839_register_crosswalk_1835.json). This pass WRITES THE EVIDENCE AND MOVES NO GRADE. Under the ratified ladder (T-0513) a second independent source is what lifts a projected resident, and a poll twenty-two months after the scene date — or a register four years after it — is a second source about CONTINUED RESIDENCE rather than about July 1835. T-0515 applies the ladder against every source at once; this pass hands it the evidence and not the verdict. THE 1840 FEDERAL CENSUS — A HEAD FIVE YEARS AFTER THE SCENE, AND NEVER AN 1835 FACT. The 1840 federal census of Chicago, read line by line off the left sheets in this repository, carries 1 head of this name — “Ira Couch” (33SQ-GYYJ-97P, printed page 211, line 3). This project has ruled the head a MATCH for this person: the full name agrees, it is unique on both sides, and a discriminator independent of the name — directory persistence — separately places the same person in Chicago after the 1840 book was taken. Under the rule that decided it (L6 matched), by the crosswalk's own ladder (data/research/census_1840/resident_crosswalk.json). LATER EVIDENCE ONLY. The ratified grading ladder binds: an 1839 or 1840 appearance alone is never an 1835 resident, and 1840 household composition is never back-projected to the 1835-07-01 scene. This pass WRITES THE EVIDENCE AND MOVES NO GRADE. Under the ratified ladder (T-0513) a second independent source is what lifts a projected resident, and an 1840 head is a second source about CONTINUED RESIDENCE rather than about who was living at Chicago on 1 July 1835. T-0515 applies the ladder against every source at once; this pass hands it the evidence and not the verdict. THE SECOND PRESBYTERIAN ROLL — A NAME ON A CHURCH LIST THAT OPENS IN 1842, AND NEVER AN 1835 FACT. The 1892 printed membership roll of the Second Presbyterian Church of Chicago, read line by line into this repository, carries 1 line whose surname and given initial agree with this person's — “Couch, Ira H. | Letter. | August 6, 1842. | Deceased.” (second_presb_0526, printed page 183), admitted 1842-08-06 by letter. Under the rule that decided it: Surname 'Couch' folds to the same string as the roll line's, and the given name of both begins I. WHAT THE MATCH MINTS OR REGRADES: “NOTHING. A line on a roll that opens in June 1842 cannot place a person in the town of July 1835, and this file makes no proposal that it does. What a match IS: the same surname and initial, in Chicago, within seven years — a lead for a later pass that is allowed to write people.” This pass WRITES THE EVIDENCE AND MOVES NO GRADE: under the ratified ladder (T-0513) the roll is handed to the card as a thing a reader may weigh, and the verdict stays with T-0515, which applies the ladder against every source at once.",
+   "resident_research": {
+    "programme": "resident-research-2026",
+    "ticket": "T-0508",
+    "outcome": "corroborated",
+    "reviewed_on": "2026-09-05",
+    "asserted_identity": true,
+    "evidence_for": "Independent of the post office in books, 1840 census, directories and more.",
+    "notes": "Candidate facts remain unasserted until a source bridges the candidate to the historical record by more than name similarity.",
+    "source_ids": [
+     "chicagology_prefire021",
+     "chm_ira_couch_portrait",
+     "wttw_ira_couch",
+     "andreas_1884_v1"
+    ],
+    "summary": "Independently corroborated; confirmed, not moved."
+   },
+   "roles": [
+    {
+     "role": "hotel_keeper",
+     "kind": "trade",
+     "as_printed": null,
+     "from": "1673",
+     "to": "1871",
+     "precision": "source_span",
+     "dated_by": "source_describes_date",
+     "covers_scene_date": true,
+     "confidence": "attested",
+     "sources": [
+      "andreas_1884_v1",
+      "chicagology_prefire021"
+     ],
+     "claim": null,
+     "note": "THE BOUND IS THE SOURCE'S, NOT THE MAN'S. This role is carried by the card's 1835 occupation block and is dated by what the cited source or sources are ABOUT, which is why `precision` can be no better than the span they cover. The span reaches 1835, so this role stands in the scene-date view. The printing the trade was read off is not on the card and is fetched by T-1254."
+    }
+   ]
+  },
+  {
+   "id": "couch_james",
+   "name": "James Couch",
+   "relationship": "brother",
+   "grade": "inferred",
+   "sex": "male",
+   "occupation": {
+    "value": "hotel_keeper",
+    "confidence": "inferred",
+    "sources": [
+     "andreas_1884_v1"
+    ],
+    "note": "Andreas's phrase is 'the Couch brothers purchased the property', which makes James a partner in the house from the purchase; he did not take control until 1836. What he was doing in it on 1 July 1835 is not stated.",
+    "derived_from": "roles",
+    "roles_at_scene_date": [
+     "hotel_keeper"
+    ]
+   },
+   "sources": [
+    "andreas_1884_v1",
+    "calumet_club_early_chicago_1879"
+   ],
+   "note": "A REAL, NAMED MAN WHOSE PRESENCE ON THE SCENE DATE IS THE RECONSTRUCTED PART. Andreas names him twice - as one of 'the Couch brothers' who bought the property and as the brother who took control in 1836 - and quotes him directly on how crowded the house was in its early days ('every available space of floor room' occupied at night). That he was living at Chicago in July 1835 rather than joining later is this project's reading of a joint purchase, not a statement in the source. OLD SETTLERS, 1879 — A DATE THIS MAN GAVE FOR HIMSELF, AND STILL NOT A FACT ABOUT 1835. The Calumet Club's FIRST reception to the settlers of Chicago prior to 1840, 27 May 1879, printed its register in the proceedings (Early Chicago, Chicago, 1879, pages 84-90), and this man's entry reads “Couch, James, | 1836, | New York. | 79 | Chicago.” — name, his own date of arrival, his birthplace, his age and his 1879 post-office address, in the register's five columns. The date of arrival is HIS RECOLLECTION, set down forty to sixty years after the event; the address is where he lived in 1879 and is never read as an 1835 residence. Under the ratified ladder (T-0513) a later recollection corroborates, enriches and dates and cannot lift a rung by itself, so this record's GRADE IS UNCHANGED by it: T-0513 consolidates the identity and T-0515 regrades. Identity by rule OS1 — surname and spelled-out forename agree, one bearer (data/research/old_settlers/crosswalk.json).",
+   "resident_research": {
+    "programme": "resident-research-2026",
+    "ticket": "T-0508",
+    "outcome": "corroborated",
+    "reviewed_on": "2026-09-05",
+    "asserted_identity": true,
+    "evidence_for": "Independent of the post office in directories, county histories, Newberry index and more.",
+    "evidence_against": "Reviewed histories place the Couch hotel operation after the 1 July 1835 scene date.",
+    "notes": "Candidate facts remain unasserted until a source bridges the candidate to the historical record by more than name similarity.",
+    "source_ids": [
+     "andreas_1884_v1",
+     "calumet_club_early_chicago_1879",
+     "chicagology_prefire021",
+     "fergus_chicago_directory_1839"
+    ],
+    "candidate_ids": [
+     "cand_james_couch_later_tremont_house_proprietor__couch_james"
+    ],
+    "summary": "Independently corroborated; confirmed, not moved."
+   },
+   "roles": [
+    {
+     "role": "hotel_keeper",
+     "kind": "trade",
+     "as_printed": null,
+     "from": "1673",
+     "to": "1857",
+     "precision": "source_span",
+     "dated_by": "source_describes_date",
+     "covers_scene_date": true,
+     "confidence": "inferred",
+     "sources": [
+      "andreas_1884_v1"
+     ],
+     "claim": null,
+     "note": "THE BOUND IS THE SOURCE'S, NOT THE MAN'S. This role is carried by the card's 1835 occupation block and is dated by what the cited source or sources are ABOUT, which is why `precision` can be no better than the span they cover. The span reaches 1835, so this role stands in the scene-date view. The printing the trade was read off is not on the card and is fetched by T-1254."
+    }
+   ]
+  }
+ ],
+ "touches_removal": false,
+ "review_required": false,
+ "research_note": "THE TREMONT'S FIRST PROPRIETOR, AND A CLEAN EXAMPLE OF THE derived GRADE DOING WORK. Ira Couch is documented in the house across 1 July 1835 by two independent sources. His brother James is a real, named man, documented as a co-purchaser and later as the proprietor, whose residence at Chicago on the scene date is reconstructed from the joint purchase rather than stated. Two men, two grades, one household. THE BUILDING THIS HOUSEHOLD IS ATTACHED TO IS THE FIRST TREMONT at Lake and Dearborn, built in 1833 by Alanson Sweet - not the later houses of 1840 and 1850 that carry the same name.",
+ "directories": {
+  "note": "LATER EVIDENCE, BESIDE THE 1835 CLAIMS AND NOT INSIDE THEM. A Chicago directory of 1839, 1843 or 1844 meets somebody of this name and this pass records what it prints. Under the ratified ladder a directory read after 1835 can corroborate that a person attested here was still in Chicago and can print a trade or a street the 1835 record never had; on its own it makes nobody a resident of 1835. Nothing on this person's 1835 record was regraded, moved, dated or given an occupation by this entry. WHAT THIS PASS RULED ONTO THIS HOUSEHOLD, named so the ruling can be found again: each volume below is followed by the printed entries it set against this person and the status the crosswalk ruled them at — a single entry carries what its own `could_carry` declares, and an ambiguous or contested match carries nothing and is shown so that the silence is legible. couch_ira, Fergus's Chicago directory of 1839 — f1839_e0329 (a single entry); couch_ira, Fergus's Chicago directory of 1843 — f1843_e0710 (a single entry); couch_ira, Norris's Chicago directory of 1844 — n1844_e0415 (a single entry); couch_james, Fergus's Chicago directory of 1839 — f1839_e0331 (a single entry); couch_james, Fergus's Chicago directory of 1843 — f1843_e0711 (a single entry); couch_james, Norris's Chicago directory of 1844 — n1844_e0416 (a single entry).",
+  "sources": [
+   "fergus_chicago_directory_1839",
+   "fergus_chicago_directory_1843",
+   "norris_directory_1844"
+  ],
+  "people": [
+   {
+    "person_id": "couch_ira",
+    "address_later": {
+     "value": "Lake sts",
+     "confidence": "attested",
+     "describes_date": 1839,
+     "sources": [
+      "fergus_chicago_directory_1839"
+     ],
+     "note": "Fergus's Chicago directory of 1839 prints this address against this person, in the entry quoted on the card: 'Couch, Ira, hotel-keeper, Tremont House, n.-w. cor. Dearborn and Lake sts'. It is evidence about 1839, written here as 1839's and read back onto no 1835 claim. Under the ratified ladder a directory read after 1835 can corroborate that a person attested here was still in Chicago and can print a trade or a street the 1835 record never had; on its own it makes nobody a resident of 1835. Nothing on this person's 1835 record was regraded, moved, dated or given an occupation by this entry. The value is the volume's own line, split by its crosswalk on the entry's punctuation. These volumes set the trade first and its qualifiers after it on the same line, so the split may carry an employer, a market or a corner along with the trade. The printed entry is quoted beside the value for exactly that reason: the split is checkable against it, and neither is read into an 1835 claim."
+    },
+    "back_projection": {
+     "outcome": "already_better_placed",
+     "clause": "2",
+     "value": null,
+     "describes_date": 1839,
+     "read_back_years": 4,
+     "placement": null,
+     "position_local_enu_m": null,
+     "sources": [
+      "fergus_chicago_directory_1839"
+     ],
+     "note": "NOT READ BACK, BECAUSE SOMETHING BETTER ALREADY STANDS. Fergus's Chicago directory of 1839 prints an address against this name in 1839, and it is left where it is. An 1835 placement already stands: this household works at `tremont_house_1`, and clause 2 says an attested 1835 placement always beats a door printed 4 years later. The later address stays on the record as 1839's evidence and moves nothing."
+    }
+   },
+   {
+    "person_id": "couch_james"
+   }
+  ]
+ }
+}

@@ -1,0 +1,323 @@
+{
+  "_doc": "Features read off the Wright 1834 sheet EAST of the current terrain box, to scope and then build S2e (see docs/ROADMAP.md). Pixel readings are the evidence and are committed as such; local ENU is derived from them by tools/wright_px.py using the same fitted affine tools/rederive_datum.py checks the datum against, so nothing here is a second georeference. Read BY EYE at the stated resolution \u2014 these are fair estimates in the sense docs/PROVENANCE.md now licenses, not survey-grade traces. The sand bar and old channel were added 2026-08-10 in a second pass; their uncertainty is stated higher (30 m) than the shore's because they are read from ink lines over a wash rather than from a wash edge, and the bar's southern hook is the least certain part of the sheet in this area.",
+  "source": "wright_1834",
+  "raster": "commonwealth:js957744g (4204 x 5166)",
+  "read_on": "2026-08-10",
+  "cross_check": "The Fort Dearborn reading lands at local E +1152, N +221. An independent estimate from the modern successor landmark (Michigan Avenue bridge, via EPSG:26916) gives E +1127, N +195 \u2014 35 m apart, inside the sheet's own +/-20 m plus the ambiguity of which point either method names. Two methods that do not share an input agreeing at that distance is the reason this is tagged inferred rather than conjectural.",
+  "features": {
+    "lake_shore_north_of_harbour": {
+      "kind": "line",
+      "read_from": "IIIF region 2200,835,1955,1997 at native scale, 2026-08-10",
+      "what_was_read": "the WEST edge of the grey coastal wash. Wright shades the lake as a band that fades east, so the wash edge is the shoreline and the pale ground beyond it is still lake, not land.",
+      "confidence": "inferred",
+      "uncertainty_m": 25,
+      "px": [
+        [
+          3340,
+          835
+        ],
+        [
+          3352,
+          1035
+        ],
+        [
+          3368,
+          1235
+        ],
+        [
+          3385,
+          1395
+        ]
+      ],
+      "local_enu": [
+        [
+          1330.9,
+          735.5
+        ],
+        [
+          1340.1,
+          590.7
+        ],
+        [
+          1352.2,
+          446.1
+        ],
+        [
+          1364.7,
+          330.4
+        ]
+      ]
+    },
+    "harbour_north_pier": {
+      "kind": "line",
+      "confidence": "inferred",
+      "uncertainty_m": 20,
+      "what_was_read": "the inner of the two red pier lines running ENE from the river mouth.",
+      "px": [
+        [
+          3105,
+          1440
+        ],
+        [
+          3640,
+          1610
+        ]
+      ],
+      "local_enu": [
+        [
+          1169.4,
+          293.7
+        ],
+        [
+          1543.7,
+          178.3
+        ]
+      ]
+    },
+    "fort_dearborn_label": {
+      "kind": "point",
+      "confidence": "inferred",
+      "uncertainty_m": 40,
+      "what_was_read": "centre of the FORT DEARBORN banner. Wright LABELS the reservation and does not draw the fort's plan, so this fixes the place, not the footprint \u2014 the palisade outline must come from elsewhere.",
+      "px": [
+        [
+          3080,
+          1540
+        ]
+      ],
+      "local_enu": [
+        [
+          1152.4,
+          220.9
+        ]
+      ]
+    },
+    "river_mouth_south_bank": {
+      "kind": "point",
+      "confidence": "inferred",
+      "uncertainty_m": 25,
+      "what_was_read": "south bank at the cut, where the channel meets the harbour works.",
+      "px": [
+        [
+          3120,
+          1470
+        ]
+      ],
+      "local_enu": [
+        [
+          1180.0,
+          272.2
+        ]
+      ]
+    },
+    "old_south_channel_west_bank": {
+      "kind": "line",
+      "read_from": "IIIF region 3020,1400,720,1250 at 2x, 2026-08-10",
+      "what_was_read": "the WESTERN of the three ink lines: the mainland bank of the decaying old channel that ran south behind the bar before the 1834 cut. The arrow drawn in the channel shows the flow still heading south.",
+      "confidence": "inferred",
+      "uncertainty_m": 30,
+      "px": [
+        [
+          3175,
+          1470
+        ],
+        [
+          3235,
+          1600
+        ],
+        [
+          3225,
+          1800
+        ],
+        [
+          3215,
+          2000
+        ],
+        [
+          3225,
+          2200
+        ],
+        [
+          3290,
+          2400
+        ],
+        [
+          3230,
+          2560
+        ]
+      ],
+      "local_enu": [
+        [
+          1218.4,
+          273.0
+        ],
+        [
+          1260.9,
+          179.7
+        ],
+        [
+          1254.7,
+          34.6
+        ],
+        [
+          1248.6,
+          -110.4
+        ],
+        [
+          1256.5,
+          -255.2
+        ],
+        [
+          1302.7,
+          -399.2
+        ],
+        [
+          1261.5,
+          -516.0
+        ]
+      ]
+    },
+    "sand_bar_west_edge": {
+      "kind": "line",
+      "read_from": "IIIF region 3020,1400,720,1250 at 2x, 2026-08-10",
+      "what_was_read": "the MIDDLE ink line: the bar's channel-facing side.",
+      "confidence": "inferred",
+      "uncertainty_m": 30,
+      "px": [
+        [
+          3300,
+          1520
+        ],
+        [
+          3310,
+          1600
+        ],
+        [
+          3305,
+          1800
+        ],
+        [
+          3300,
+          2000
+        ],
+        [
+          3295,
+          2200
+        ],
+        [
+          3340,
+          2400
+        ],
+        [
+          3370,
+          2450
+        ]
+      ],
+      "local_enu": [
+        [
+          1305.9,
+          238.6
+        ],
+        [
+          1313.2,
+          180.8
+        ],
+        [
+          1310.6,
+          35.8
+        ],
+        [
+          1308.0,
+          -109.2
+        ],
+        [
+          1305.4,
+          -254.2
+        ],
+        [
+          1337.6,
+          -398.5
+        ],
+        [
+          1358.8,
+          -434.3
+        ]
+      ]
+    },
+    "sand_bar_east_edge": {
+      "kind": "line",
+      "read_from": "IIIF region 3020,1400,720,1250 at 2x, 2026-08-10",
+      "what_was_read": "the EASTERN ink line: the bar's lake-facing side, i.e. the open-water shoreline south of the harbour works.",
+      "confidence": "inferred",
+      "uncertainty_m": 30,
+      "px": [
+        [
+          3520,
+          1550
+        ],
+        [
+          3520,
+          1600
+        ],
+        [
+          3540,
+          1800
+        ],
+        [
+          3545,
+          2000
+        ],
+        [
+          3535,
+          2200
+        ],
+        [
+          3500,
+          2300
+        ],
+        [
+          3450,
+          2400
+        ],
+        [
+          3370,
+          2450
+        ]
+      ],
+      "local_enu": [
+        [
+          1459.7,
+          220.0
+        ],
+        [
+          1459.9,
+          183.8
+        ],
+        [
+          1474.7,
+          39.2
+        ],
+        [
+          1479.1,
+          -105.7
+        ],
+        [
+          1472.9,
+          -250.7
+        ],
+        [
+          1448.9,
+          -323.7
+        ],
+        [
+          1414.4,
+          -396.9
+        ],
+        [
+          1358.8,
+          -434.3
+        ]
+      ]
+    }
+  }
+}

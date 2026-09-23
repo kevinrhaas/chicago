@@ -1,0 +1,586 @@
+{
+ "ticket": "T-0638",
+ "what": "The 36 letter-list households whose id, household name or display name the corrected reading of a printed name moves. Generated once by tools/rename_household_ids.py --propose-t0638 and applied by --map; the tool re-derives every target id from the mint pass's own plain_fragment() before it writes, so this file cannot send a household somewhere its own tool would not.",
+ "faults": {
+  "A": "the printing put the SURNAME FIRST with no comma to say so, so the last token — a middle initial — took the family name's place in the id, the household name and the card's display name (T-0638 fault A)",
+  "B": "an apostrophe INSIDE one printed word was slugged as a separator, so M'Clintock sorted as m + clintock and Fred'k as fred + k (T-0638 fault B). The household name and the display name were already right; only the id moves."
+ },
+ "renames": [
+  {
+   "old_id": "hh_8_perry_a",
+   "new_id": "hh_perry_a_8",
+   "old_head": "8_perry_a",
+   "new_head": "perry_a_8",
+   "printed": "Perry A. 8.",
+   "fault": "A",
+   "household_name": {
+    "from": "The 8 household — a name from the post office's letter lists",
+    "to": "The Perry household — a name from the post office's letter lists"
+   },
+   "person_name": {
+    "from": "Perry A. 8.",
+    "to": "A. 8. Perry"
+   }
+  },
+  {
+   "old_id": "hh_a_mason_sabrina",
+   "new_id": "hh_mason_sabrina_a",
+   "old_head": "a_mason_sabrina",
+   "new_head": "mason_sabrina_a",
+   "printed": "Mason Sabrina A.",
+   "fault": "A",
+   "household_name": {
+    "from": "The A household — a name from the post office's letter lists",
+    "to": "The Mason household — a name from the post office's letter lists"
+   },
+   "person_name": {
+    "from": "Mason Sabrina A.",
+    "to": "Sabrina A. Mason"
+   }
+  },
+  {
+   "old_id": "hh_allison_tho_s",
+   "new_id": "hh_allison_thos",
+   "old_head": "allison_tho_s",
+   "new_head": "allison_thos",
+   "printed": "Allison, Tho's",
+   "fault": "B",
+   "household_name": {
+    "from": "The Allison household — a name from the post office's letter lists",
+    "to": "The Allison household — a name from the post office's letter lists"
+   },
+   "person_name": {
+    "from": "Tho's Allison",
+    "to": "Tho's Allison"
+   }
+  },
+  {
+   "old_id": "hh_b_merrich_j",
+   "new_id": "hh_merrich_j_b",
+   "old_head": "b_merrich_j",
+   "new_head": "merrich_j_b",
+   "printed": "merrich J. B.",
+   "fault": "A",
+   "household_name": {
+    "from": "The B household — a name from the post office's letter lists",
+    "to": "The Merrich household — a name from the post office's letter lists"
+   },
+   "person_name": {
+    "from": "merrich J. B.",
+    "to": "J. B. merrich"
+   }
+  },
+  {
+   "old_id": "hh_behan_tho_s",
+   "new_id": "hh_behan_thos",
+   "old_head": "behan_tho_s",
+   "new_head": "behan_thos",
+   "printed": "Behan, Tho's.",
+   "fault": "B",
+   "household_name": {
+    "from": "The Behan household — a name from the post office's letter lists",
+    "to": "The Behan household — a name from the post office's letter lists"
+   },
+   "person_name": {
+    "from": "Tho's. Behan",
+    "to": "Tho's. Behan"
+   }
+  },
+  {
+   "old_id": "hh_c_mills_joel",
+   "new_id": "hh_mills_joel_c",
+   "old_head": "c_mills_joel",
+   "new_head": "mills_joel_c",
+   "printed": "Mills Joel C.",
+   "fault": "A",
+   "household_name": {
+    "from": "The C household — a name from the post office's letter lists",
+    "to": "The Mills household — a name from the post office's letter lists"
+   },
+   "person_name": {
+    "from": "Mills Joel C.",
+    "to": "Joel C. Mills"
+   }
+  },
+  {
+   "old_id": "hh_curtenius_fred_k",
+   "new_id": "hh_curtenius_fredk",
+   "old_head": "curtenius_fred_k",
+   "new_head": "curtenius_fredk",
+   "printed": "Curtenius, Fred'k.",
+   "fault": "B",
+   "household_name": {
+    "from": "The Curtenius household — a name from the post office's letter lists",
+    "to": "The Curtenius household — a name from the post office's letter lists"
+   },
+   "person_name": {
+    "from": "Fred'k. Curtenius",
+    "to": "Fred'k. Curtenius"
+   }
+  },
+  {
+   "old_id": "hh_e_hhelps_theodore",
+   "new_id": "hh_hhelps_theodore_e",
+   "old_head": "e_hhelps_theodore",
+   "new_head": "hhelps_theodore_e",
+   "printed": "Hhelps Theodore E.",
+   "fault": "A",
+   "household_name": {
+    "from": "The E household — a name from the post office's letter lists",
+    "to": "The Hhelps household — a name from the post office's letter lists"
+   },
+   "person_name": {
+    "from": "Hhelps Theodore E.",
+    "to": "Theodore E. Hhelps"
+   }
+  },
+  {
+   "old_id": "hh_es_jones_high",
+   "new_id": "hh_jones_es_high",
+   "old_head": "es_jones_high",
+   "new_head": "jones_es_high",
+   "printed": "Es,Jones, High",
+   "fault": "A",
+   "household_name": {
+    "from": "The Es household — a name from the post office's letter lists",
+    "to": "The Jones household — a name from the post office's letter lists"
+   },
+   "person_name": {
+    "from": "Jones, High Es",
+    "to": "Jones, High Es"
+   }
+  },
+  {
+   "old_id": "hh_f_mabbet_benjamin",
+   "new_id": "hh_mabbet_benjamin_f",
+   "old_head": "f_mabbet_benjamin",
+   "new_head": "mabbet_benjamin_f",
+   "printed": "Mabbet Benjamin F.",
+   "fault": "A",
+   "household_name": {
+    "from": "The F household — a name from the post office's letter lists",
+    "to": "The Mabbet household — a name from the post office's letter lists"
+   },
+   "person_name": {
+    "from": "Mabbet Benjamin F.",
+    "to": "Benjamin F. Mabbet"
+   }
+  },
+  {
+   "old_id": "hh_g_willinm",
+   "new_id": "hh_willinm_g",
+   "old_head": "g_willinm",
+   "new_head": "willinm_g",
+   "printed": "Willinm G.",
+   "fault": "A",
+   "household_name": {
+    "from": "The G household — a name from the post office's letter lists",
+    "to": "The Willinm household — a name from the post office's letter lists"
+   },
+   "person_name": {
+    "from": "Willinm G.",
+    "to": "G. Willinm"
+   }
+  },
+  {
+   "old_id": "hh_h_norton_wm",
+   "new_id": "hh_norton_wm_h",
+   "old_head": "h_norton_wm",
+   "new_head": "norton_wm_h",
+   "printed": "Norton Wm. H.",
+   "fault": "A",
+   "household_name": {
+    "from": "The H household — a name from the post office's letter lists",
+    "to": "The Norton household — a name from the post office's letter lists"
+   },
+   "person_name": {
+    "from": "Norton Wm. H.",
+    "to": "Wm. H. Norton"
+   }
+  },
+  {
+   "old_id": "hh_i_mcloud",
+   "new_id": "hh_mcloud_i",
+   "old_head": "i_mcloud",
+   "new_head": "mcloud_i",
+   "printed": "McLoud I.",
+   "fault": "A",
+   "household_name": {
+    "from": "The I household — a name from the post office's letter lists",
+    "to": "The Mcloud household — a name from the post office's letter lists"
+   },
+   "person_name": {
+    "from": "McLoud I.",
+    "to": "I. McLoud"
+   }
+  },
+  {
+   "old_id": "hh_ii_preston_stephen",
+   "new_id": "hh_preston_stephen_ii",
+   "old_head": "ii_preston_stephen",
+   "new_head": "preston_stephen_ii",
+   "printed": "Preston Stephen II.",
+   "fault": "A",
+   "household_name": {
+    "from": "The Ii household — a name from the post office's letter lists",
+    "to": "The Preston household — a name from the post office's letter lists"
+   },
+   "person_name": {
+    "from": "Preston Stephen II.",
+    "to": "Stephen II. Preston"
+   }
+  },
+  {
+   "old_id": "hh_is_bobinson_george",
+   "new_id": "hh_bobinson_george_is",
+   "old_head": "is_bobinson_george",
+   "new_head": "bobinson_george_is",
+   "printed": "Bobinson George IS.",
+   "fault": "A",
+   "household_name": {
+    "from": "The Is household — a name from the post office's letter lists",
+    "to": "The Bobinson household — a name from the post office's letter lists"
+   },
+   "person_name": {
+    "from": "Bobinson George IS.",
+    "to": "George IS. Bobinson"
+   }
+  },
+  {
+   "old_id": "hh_k_pugsley_john",
+   "new_id": "hh_pugsley_john_k",
+   "old_head": "k_pugsley_john",
+   "new_head": "pugsley_john_k",
+   "printed": "Pugsley John K.",
+   "fault": "A",
+   "household_name": {
+    "from": "The K household — a name from the post office's letter lists",
+    "to": "The Pugsley household — a name from the post office's letter lists"
+   },
+   "person_name": {
+    "from": "Pugsley John K.",
+    "to": "John K. Pugsley"
+   }
+  },
+  {
+   "old_id": "hh_l_pixley_john",
+   "new_id": "hh_pixley_john_l",
+   "old_head": "l_pixley_john",
+   "new_head": "pixley_john_l",
+   "printed": "Pixley John L.",
+   "fault": "A",
+   "household_name": {
+    "from": "The L household — a name from the post office's letter lists",
+    "to": "The Pixley household — a name from the post office's letter lists"
+   },
+   "person_name": {
+    "from": "Pixley John L.",
+    "to": "John L. Pixley"
+   }
+  },
+  {
+   "old_id": "hh_m_clintock_thomas",
+   "new_id": "hh_mclintock_thomas",
+   "old_head": "m_clintock_thomas",
+   "new_head": "mclintock_thomas",
+   "printed": "M'Clintock, Thomas",
+   "fault": "B",
+   "household_name": {
+    "from": "The M'Clintock household — a name from the post office's letter lists",
+    "to": "The Mclintock household — a name from the post office's letter lists"
+   },
+   "person_name": {
+    "from": "Thomas M'Clintock",
+    "to": "Thomas M'Clintock"
+   }
+  },
+  {
+   "old_id": "hh_m_dolold_james",
+   "new_id": "hh_mdolold_james",
+   "old_head": "m_dolold_james",
+   "new_head": "mdolold_james",
+   "printed": "M'Dolold, James",
+   "fault": "B",
+   "household_name": {
+    "from": "The M'Dolold household — a name from the post office's letter lists",
+    "to": "The Mdolold household — a name from the post office's letter lists"
+   },
+   "person_name": {
+    "from": "James M'Dolold",
+    "to": "James M'Dolold"
+   }
+  },
+  {
+   "old_id": "hh_m_ewen_wm_b",
+   "new_id": "hh_mewen_wm_b",
+   "old_head": "m_ewen_wm_b",
+   "new_head": "mewen_wm_b",
+   "printed": "Wm. B. M'Ewen",
+   "fault": "B",
+   "household_name": {
+    "from": "The M'Ewen household — a name from the post office's letter lists",
+    "to": "The Mewen household — a name from the post office's letter lists"
+   },
+   "person_name": {
+    "from": "Wm. B. M'Ewen",
+    "to": "Wm. B. M'Ewen"
+   }
+  },
+  {
+   "old_id": "hh_m_fadin_james",
+   "new_id": "hh_mfadin_james",
+   "old_head": "m_fadin_james",
+   "new_head": "mfadin_james",
+   "printed": "James M'Fadin",
+   "fault": "B",
+   "household_name": {
+    "from": "The M'Fadin household — a name from the post office's letter lists",
+    "to": "The Mfadin household — a name from the post office's letter lists"
+   },
+   "person_name": {
+    "from": "James M'Fadin",
+    "to": "James M'Fadin"
+   }
+  },
+  {
+   "old_id": "hh_m_grigg_a_a",
+   "new_id": "hh_mgrigg_a_a",
+   "old_head": "m_grigg_a_a",
+   "new_head": "mgrigg_a_a",
+   "printed": "M'Grigg, A. A.",
+   "fault": "B",
+   "household_name": {
+    "from": "The M'Grigg household — a name from the post office's letter lists",
+    "to": "The Mgrigg household — a name from the post office's letter lists"
+   },
+   "person_name": {
+    "from": "A. A. M'Grigg",
+    "to": "A. A. M'Grigg"
+   }
+  },
+  {
+   "old_id": "hh_m_kean_joseph",
+   "new_id": "hh_mkean_joseph",
+   "old_head": "m_kean_joseph",
+   "new_head": "mkean_joseph",
+   "printed": "Joseph M'Kean",
+   "fault": "B",
+   "household_name": {
+    "from": "The M'Kean household — a name from the post office's letter lists",
+    "to": "The Mkean household — a name from the post office's letter lists"
+   },
+   "person_name": {
+    "from": "Joseph M'Kean",
+    "to": "Joseph M'Kean"
+   }
+  },
+  {
+   "old_id": "hh_m_lean_john_y",
+   "new_id": "hh_mlean_john_y",
+   "old_head": "m_lean_john_y",
+   "new_head": "mlean_john_y",
+   "printed": "John Y. M'Lean",
+   "fault": "B",
+   "household_name": {
+    "from": "The M'Lean household — a name from the post office's letter lists",
+    "to": "The Mlean household — a name from the post office's letter lists"
+   },
+   "person_name": {
+    "from": "John Y. M'Lean",
+    "to": "John Y. M'Lean"
+   }
+  },
+  {
+   "old_id": "hh_m_vaughton_angus",
+   "new_id": "hh_mvaughton_angus",
+   "old_head": "m_vaughton_angus",
+   "new_head": "mvaughton_angus",
+   "printed": "M'Vaughton, Angus",
+   "fault": "B",
+   "household_name": {
+    "from": "The M'Vaughton household — a name from the post office's letter lists",
+    "to": "The Mvaughton household — a name from the post office's letter lists"
+   },
+   "person_name": {
+    "from": "Angus M'Vaughton",
+    "to": "Angus M'Vaughton"
+   }
+  },
+  {
+   "old_id": "hh_o_ranwin",
+   "new_id": "hh_ranwin_o",
+   "old_head": "o_ranwin",
+   "new_head": "ranwin_o",
+   "printed": "Ranwin O.",
+   "fault": "A",
+   "household_name": {
+    "from": "The O household — a name from the post office's letter lists",
+    "to": "The Ranwin household — a name from the post office's letter lists"
+   },
+   "person_name": {
+    "from": "Ranwin O.",
+    "to": "O. Ranwin"
+   }
+  },
+  {
+   "old_id": "hh_p_aylor_john_o",
+   "new_id": "hh_paylor_john_o",
+   "old_head": "p_aylor_john_o",
+   "new_head": "paylor_john_o",
+   "printed": "P'aylor, John O.",
+   "fault": "B",
+   "household_name": {
+    "from": "The P'Aylor household — a name from the post office's letter lists",
+    "to": "The Paylor household — a name from the post office's letter lists"
+   },
+   "person_name": {
+    "from": "John O. P'aylor",
+    "to": "John O. P'aylor"
+   }
+  },
+  {
+   "old_id": "hh_p_clapp_a",
+   "new_id": "hh_clapp_a_p",
+   "old_head": "p_clapp_a",
+   "new_head": "clapp_a_p",
+   "printed": "Clapp. A. P.",
+   "fault": "A",
+   "household_name": {
+    "from": "The P household — a name from the post office's letter lists",
+    "to": "The Clapp household — a name from the post office's letter lists"
+   },
+   "person_name": {
+    "from": "Clapp. A. P.",
+    "to": "A. P. Clapp"
+   }
+  },
+  {
+   "old_id": "hh_r_norton_n",
+   "new_id": "hh_norton_n_r",
+   "old_head": "r_norton_n",
+   "new_head": "norton_n_r",
+   "printed": "Norton N. R.",
+   "fault": "A",
+   "household_name": {
+    "from": "The R household — a name from the post office's letter lists",
+    "to": "The Norton household — a name from the post office's letter lists"
+   },
+   "person_name": {
+    "from": "Norton N. R.",
+    "to": "N. R. Norton"
+   }
+  },
+  {
+   "old_id": "hh_s_page_elisha",
+   "new_id": "hh_page_elisha_s",
+   "old_head": "s_page_elisha",
+   "new_head": "page_elisha_s",
+   "printed": "Page Elisha S.",
+   "fault": "A",
+   "household_name": {
+    "from": "The S household — a name from the post office's letter lists",
+    "to": "The Page household — a name from the post office's letter lists"
+   },
+   "person_name": {
+    "from": "Page Elisha S.",
+    "to": "Elisha S. Page"
+   }
+  },
+  {
+   "old_id": "hh_selden_sam_l_l",
+   "new_id": "hh_selden_saml_l",
+   "old_head": "selden_sam_l_l",
+   "new_head": "selden_saml_l",
+   "printed": "Selden, Sam'l. L.",
+   "fault": "B",
+   "household_name": {
+    "from": "The Selden household — a name from the post office's letter lists",
+    "to": "The Selden household — a name from the post office's letter lists"
+   },
+   "person_name": {
+    "from": "Sam'l. L. Selden",
+    "to": "Sam'l. L. Selden"
+   }
+  },
+  {
+   "old_id": "hh_starkweather_rob_t",
+   "new_id": "hh_starkweather_robt",
+   "old_head": "starkweather_rob_t",
+   "new_head": "starkweather_robt",
+   "printed": "Starkweather, Rob't.",
+   "fault": "B",
+   "household_name": {
+    "from": "The Starkweather household — a name from the post office's letter lists",
+    "to": "The Starkweather household — a name from the post office's letter lists"
+   },
+   "person_name": {
+    "from": "Rob't. Starkweather",
+    "to": "Rob't. Starkweather"
+   }
+  },
+  {
+   "old_id": "hh_t_orinsbey_martin",
+   "new_id": "hh_orinsbey_martin_t",
+   "old_head": "t_orinsbey_martin",
+   "new_head": "orinsbey_martin_t",
+   "printed": "Orinsbey martin T.",
+   "fault": "A",
+   "household_name": {
+    "from": "The T household — a name from the post office's letter lists",
+    "to": "The Orinsbey household — a name from the post office's letter lists"
+   },
+   "person_name": {
+    "from": "Orinsbey martin T.",
+    "to": "martin T. Orinsbey"
+   }
+  },
+  {
+   "old_id": "hh_v_regera_john",
+   "new_id": "hh_regera_john_v",
+   "old_head": "v_regera_john",
+   "new_head": "regera_john_v",
+   "printed": "Regera John V.",
+   "fault": "A",
+   "household_name": {
+    "from": "The V household — a name from the post office's letter lists",
+    "to": "The Regera household — a name from the post office's letter lists"
+   },
+   "person_name": {
+    "from": "Regera John V.",
+    "to": "John V. Regera"
+   }
+  },
+  {
+   "old_id": "hh_w_oakley_benjamin",
+   "new_id": "hh_oakley_benjamin_w",
+   "old_head": "w_oakley_benjamin",
+   "new_head": "oakley_benjamin_w",
+   "printed": "Oakley Benjamin W.",
+   "fault": "A",
+   "household_name": {
+    "from": "The W household — a name from the post office's letter lists",
+    "to": "The Oakley household — a name from the post office's letter lists"
+   },
+   "person_name": {
+    "from": "Oakley Benjamin W.",
+    "to": "Benjamin W. Oakley"
+   }
+  },
+  {
+   "old_id": "hh_wm_nelts",
+   "new_id": "hh_nelts_wm",
+   "old_head": "wm_nelts",
+   "new_head": "nelts_wm",
+   "printed": "Nelts Wm.",
+   "fault": "A",
+   "household_name": {
+    "from": "The Wm household — a name from the post office's letter lists",
+    "to": "The Nelts household — a name from the post office's letter lists"
+   },
+   "person_name": {
+    "from": "Nelts Wm.",
+    "to": "Wm. Nelts"
+   }
+  }
+ ]
+}

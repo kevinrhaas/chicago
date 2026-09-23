@@ -1,0 +1,2027 @@
+{
+  "schema": 1,
+  "issue_id": "chicago_american_1835_06_20",
+  "extracted": "2026-08-28",
+  "extracted_by": "hand, T-0261 — the Chicago American read, June to August 1835",
+  "note": "Volume I, Number 3, and the most legible issue of the run so far: page 1 columns 1-2 and page 3 columns 5-6 set the advertising cleanly. Five identifications the first two issues could not make land here — the dentist is Dr. J. C. Bradley, the clothing store is Tuthill King's, Frederick Thomas's store is a little west of the bridge and TWO DOORS FROM THE AMERICAN'S OWN OFFICE, C. H. Chapman's third building is a stable, and Newberry & Dole are steamboat agents. It also carries the run's first Marine Journal and a sixty-three name passenger card, which is an arrival manifest and NOT a residents' list.",
+  "claims": [
+    {
+      "id": "c001",
+      "kind": "business",
+      "reading": "transcription_mediated",
+      "quote": "R. J.C, BRADLEY, PRCTFULLY venders hia\nwviona 2a BURGEON DENTIST, tc ° wad ‘of Chicago mad ius vi\nTo thane tomb have aly com. jecey, be promises s speedy and porta. eran. ‘And to thoes who have ter",
+      "normalized": "D[R]. J. C. BRADLEY, [RES]PECTFULLY [t]enders his [ser]vice[s] a[s] [S]URGEON DENTIST, t[o the citizens] of Chicago and its vi[cinity]. To th[o]se [who] have [de]cay[ed teeth] he promises a speedy and p[erm]a[nent cure]. And to those who have [entirely lost their teeth …]",
+      "locator": {
+        "artifact_role": "primary",
+        "issue_page": 1,
+        "column": 1,
+        "lines": [
+          25,
+          27
+        ],
+        "lines_of_claim": [
+          25,
+          26,
+          27
+        ],
+        "interleaved": true,
+        "spans": [
+          {
+            "line": 25,
+            "from": 0,
+            "to": 38
+          },
+          {
+            "line": 26,
+            "from": 0,
+            "to": 58
+          },
+          {
+            "line": 27,
+            "from": 0,
+            "to": 99
+          }
+        ]
+      },
+      "entities": [
+        {
+          "as_printed": "R. J.C, BRADLEY",
+          "normalized": "J. C. Bradley",
+          "role": "proprietor",
+          "occupations": [
+            "surgeon dentist"
+          ],
+          "associated_places": []
+        }
+      ],
+      "business": {
+        "name": "a travelling dentist at the New York House",
+        "proprietors": [
+          "J. C. Bradley"
+        ],
+        "trade": "dentistry",
+        "goods": [],
+        "street": null,
+        "placement": {
+          "class": "relative",
+          "anchor": "the New York House",
+          "offset_text": "wviona 2a BURGEON DENTIST, tc ° wad ‘of Chicago mad ius vi",
+          "offset_normalized": "[S]URGEON DENTIST, t[o the citizens] of Chicago and its vi[cinity]",
+          "street": null
+        }
+      },
+      "notes": "THE DENTIST FROM THE PREVIOUS ISSUE HAS A NAME: J. C. Bradley. It is the same advertisement — the rest of it, interleaved into line 28 of this same column, repeats 1835-06-13's wording sentence for sentence ('substitution of others, with but little pain', 'badly affected gums', 'office is at the New York House, where [he will re]main until after the Land Sale', 'Ladies visited at their residence, if requested', 'June 14, 1835'). 1835-06-13's claim declined to read the heading 'P | THOMAS' as his name and this is why that was right: the dentist is Bradley and Thomas is the druggist. The business keeps the name it was recorded under so the two printings compile into one entry, and the proprietor is now on it."
+    },
+    {
+      "id": "c002",
+      "kind": "business",
+      "reading": "transcription_mediated",
+      "quote": "fs INO. WILSON & co. ane 12, 1835.",
+      "normalized": "J[N]O. WILSON & CO. [June] 12, 1835.",
+      "locator": {
+        "artifact_role": "primary",
+        "issue_page": 1,
+        "column": 1,
+        "lines": [
+          33,
+          33
+        ],
+        "lines_of_claim": [
+          33
+        ],
+        "interleaved": true,
+        "spans": [
+          {
+            "line": 33,
+            "from": 0,
+            "to": 34
+          }
+        ]
+      },
+      "entities": [],
+      "ad_copy_date": {
+        "verbatim": "ane 12, 1835.",
+        "iso": "1835-06-12"
+      },
+      "business": {
+        "name": "Jno. Wilson & Co.",
+        "proprietors": [],
+        "trade": "dry goods, groceries and hardware",
+        "goods": [
+          "Dry Goods",
+          "Groceries",
+          "Hardware"
+        ],
+        "street": null,
+        "placement": {
+          "class": "none",
+          "anchor": null,
+          "offset_text": null,
+          "offset_normalized": null,
+          "street": null
+        }
+      },
+      "notes": "THE FIRM'S FORENAME, WHICH THE FIRST ISSUE GOT WRONG. 1835-06-08 line 407 reads 'L. Wilson & Go,' and this signature reads 'INO. WILSON & co.' — Jno., the standard contraction for John, misrecognised there as a bare initial. The gazetteer therefore carries TWO business entries for what is probably one firm, 'L. Wilson & Co.' and 'Jno. Wilson & Co.', and this project does not merge businesses on a reading: the identity policy's merge machinery is for PERSONS and requires a stated rule, and there is no equivalent for firms yet. Recorded here so the next pass can settle it against the page images rather than rediscover it. The trade is carried from the fuller June 8 printing of the same standing card."
+    },
+    {
+      "id": "c003",
+      "kind": "business",
+      "reading": "transcription_mediated",
+      "quote": "2AGO BREWERE. SSCRIBERG wi t 4000 bushels ae dsoenh Bellny ed at the Chiipago Brewery, fae market price will be given. Uaeise at\ni: fy CRAWFORD, june 13th, 1835.",
+      "normalized": "[CHI]CAGO BREWER[Y]. [The SUB]SCRIBER[S] w[an]t 4000 bushels [of barley, to be] deliver[ed] at the Chicago Brewery, [where the] fa[i]r market price will be given. [Enqu]i[r]e at […] CRAWFORD. June 13th, 1835.",
+      "locator": {
+        "artifact_role": "primary",
+        "issue_page": 1,
+        "column": 1,
+        "lines": [
+          34,
+          35
+        ],
+        "lines_of_claim": [
+          34,
+          35
+        ],
+        "interleaved": true,
+        "spans": [
+          {
+            "line": 34,
+            "from": 0,
+            "to": 128
+          },
+          {
+            "line": 35,
+            "from": 0,
+            "to": 32
+          }
+        ]
+      },
+      "entities": [
+        {
+          "as_printed": "fy CRAWFORD",
+          "normalized": "Crawford",
+          "role": "proprietor",
+          "occupations": [
+            "brewer"
+          ],
+          "associated_places": []
+        }
+      ],
+      "ad_copy_date": {
+        "verbatim": "june 13th, 1835.",
+        "iso": "1835-06-13"
+      },
+      "business": {
+        "name": "the Chicago Brewery",
+        "proprietors": [
+          "Crawford"
+        ],
+        "trade": "brewing",
+        "goods": [],
+        "street": null,
+        "placement": {
+          "class": "none",
+          "anchor": null,
+          "offset_text": null,
+          "offset_normalized": null,
+          "street": null
+        }
+      },
+      "notes": "A NAMED INDUSTRIAL BUILDING IN THE TOWN, THREE WEEKS BEFORE THE SCENE DATE — 'the Chicago Brewery', standing, working, and buying four thousand bushels of grain at market price. This project has no brewery and no evidence for one; this is the evidence. The grain is not named in what survives ('ae dsoenh Bellny' sits where 'of barley' would) and is NOT supplied — the quantity and the building are the claim. The proprietor's forename is cut before 'CRAWFORD' and only the surname is minted. NO ADDRESS: the notice says 'delivered at the Chicago Brewery' as though everyone knew where that was, which is exactly the kind of sentence that leaves a modern reader with nothing to place."
+    },
+    {
+      "id": "c004",
+      "kind": "business",
+      "reading": "transcription_mediated",
+      "quote": "reosived ion of Tatar ENGR, ome a ©. lene Bth, 1835. CONSIGNMEN', Y of Sarensc Window Gi ad Crown Glass, which wits wd nctarer's prifes, with the addidon of ¢ law article’ Hip on te be superior te a” own Gens, fn elearnoas, Iraeparec ails belog cheaper end stronger thas\nCARPEN\nune 12, 1635,",
+      "normalized": "[… re]ceived […] [Cream] o[f] Tatar […] [Ju]ne 8th, 1835. CONSIGNMEN[T …] of Saran[a]c Window G[lass a]nd Crown Glass, which wi[ll be sold at the manu]f[a]cturer's pri[c]es, with the add[it]ion of [freight … this] article [is said?] to be superior to […] [Cr]own G[la]ss in clearness [and] transpar[en]c[y], b[es]i[de]s being cheaper and stronger than […] CARPEN[TER] […] [J]une 12, 183[5].",
+      "locator": {
+        "artifact_role": "primary",
+        "issue_page": 1,
+        "column": 1,
+        "lines": [
+          37,
+          39
+        ],
+        "lines_of_claim": [
+          37,
+          38,
+          39
+        ],
+        "interleaved": true,
+        "spans": [
+          {
+            "line": 37,
+            "from": 0,
+            "to": 270
+          },
+          {
+            "line": 38,
+            "from": 0,
+            "to": 6
+          },
+          {
+            "line": 39,
+            "from": 0,
+            "to": 13
+          }
+        ]
+      },
+      "entities": [],
+      "ad_copy_date": {
+        "verbatim": "une 12, 1635,",
+        "iso": "1835-06-12"
+      },
+      "business": {
+        "name": "Carpenter, Chicago merchant",
+        "proprietors": [],
+        "trade": "general merchandise on consignment",
+        "goods": [
+          "Crown Glass",
+          "Window Glass"
+        ],
+        "street": null,
+        "placement": {
+          "class": "none",
+          "anchor": null,
+          "offset_text": null,
+          "offset_normalized": null,
+          "street": null
+        }
+      },
+      "notes": "SARANAC WINDOW GLASS AND CROWN GLASS, ON CONSIGNMENT, IN JUNE 1835 — a documented supply of the material this project's glazing depends on, and the advertisement argues for it on clearness and transparency against crown glass, which is a claim about what Chicago windows were actually being filled with. THE SELLER. 'CARPEN' is cut at the column edge and completed to Carpenter on the strength of the leather advertisement signed 'CABPRNTYS' in the previous issue's column of the same kind; the completion is bracketed in the normalized reading and no PERSON is minted from it, only a business."
+    },
+    {
+      "id": "c005",
+      "kind": "business",
+      "reading": "transcription_mediated",
+      "quote": "Fib0,a00 feat ban a ot byt) SH INZTE.\nAl lune 8, 1835, it a et, Nala nl aia asd Dil, for\nany J. A. KOWZIE. ‘ BARRELS Sah, for vale. +. In 1. H. KLYZIE.",
+      "normalized": "[uncertain: Fib0,a00 — a figure of lumber this column does not resolve] feet […] [J. H. K]INZ[I]E. June 8, 1835. […] Nail[s a]n[d …], for […] J. [H.] K[IN]ZIE. […] BARRELS Sa[lt], for [s]ale […] J. H. K[IN]ZIE.",
+      "locator": {
+        "artifact_role": "primary",
+        "issue_page": 1,
+        "column": 1,
+        "lines": [
+          41,
+          43
+        ],
+        "lines_of_claim": [
+          41,
+          42,
+          43
+        ],
+        "interleaved": true,
+        "spans": [
+          {
+            "line": 41,
+            "from": 0,
+            "to": 37
+          },
+          {
+            "line": 42,
+            "from": 0,
+            "to": 50
+          },
+          {
+            "line": 43,
+            "from": 0,
+            "to": 62
+          }
+        ]
+      },
+      "entities": [
+        {
+          "as_printed": "1. H. KLYZIE",
+          "normalized": "J. H. Kinzie",
+          "role": "proprietor",
+          "occupations": [
+            "merchant"
+          ],
+          "associated_places": []
+        }
+      ],
+      "ad_copy_date": {
+        "verbatim": "Al lune 8, 1835,",
+        "iso": "1835-06-08"
+      },
+      "business": {
+        "name": "J. H. Kinzie, merchant",
+        "proprietors": [
+          "J. H. Kinzie"
+        ],
+        "trade": "lumber, nails and salt",
+        "goods": [
+          "Lumber",
+          "Nails",
+          "Salt"
+        ],
+        "street": null,
+        "placement": {
+          "class": "none",
+          "anchor": null,
+          "offset_text": null,
+          "offset_normalized": null,
+          "street": null
+        }
+      },
+      "notes": "THE KINZIE THE FIRST ISSUE COULD ONLY SEE AS 'dM KINZ'. Three short cards run together in this column, signed across the three spellings 'SH INZTE', 'J. A. KOWZIE' and '1. H. KLYZIE'; the third is the clearest and the initials J. H. are taken from it. THE LUMBER FIGURE IS NOT READ. 'Fib0,a00 feat' is plainly a quantity of lumber in feet and the digits are not recoverable — a hundred and fifty thousand and a hundred thousand are equally consistent with the characters, so the figure stays inside `[uncertain: …]`. That matters: a lumber volume is exactly the sort of number this project would otherwise be tempted to reason from."
+    },
+    {
+      "id": "c006",
+      "kind": "business",
+      "reading": "transcription_mediated",
+      "quote": "AT WHOLESALE’ AND RETAIL ARMON, LOOMIS & CO. offer for thelr Btore in Bouts Water Stroet, nd Yory extensive swsoriment of new sing of\ncy and Sta) Geods; Wet wn ies Hantware aod Catlery 5. Cre lass Ware j Iron, Steal, Neila, Glass es\neats Imperial, Gunpowder, Youn ream Hyea Skin, und Roethong Te pil ‘Lamp, White Havanna!\njagare. da. Molasses. ~ nac and Amer. Brandy; 81. Croix ar Rum; Holland Gin; Maderla, Port, acal, abd Malaga Wines.\nPepper, Picmento,alaratas, Praita, Met received and for sal HARMON, LOOMIS & ¢",
+      "normalized": "AT WHOLESALE AND RETAIL. [H]ARMON, LOOMIS & CO. offer for [sale at] their Store in [S]out[h] Water Str[ee]t, [a … a]nd very extensive a[ss]ortment of new [goods consi]sting of [Fan]cy and Sta[ple] Goods; [… Ha]rdware and C[u]tlery; Cro[ckery and G]lass Ware; Iron, Ste[e]l, N[a]ils, Glass, &c. […] [Ch]e[s]ts Imperial, Gunpowder, Youn[g Hyson], H[y]son Skin and [S]ouchong Te[a]; […] Loaf, [L]ump, White Havanna[h] […] [su]gar[s]; d[o]. Molasses; [Cog]nac and Amer. Brandy; St. Croix [and Jamaica] Rum; Holland Gin; Made[i]ra, Port, [Mus]ca[t]el and Malaga Wines; […] Pepper, Pi[m]ento, [S]aleratus, Fr[u]it[s] […] [Jus]t received and for sal[e by] HARMON, LOOMIS & C[O.]",
+      "locator": {
+        "artifact_role": "primary",
+        "issue_page": 1,
+        "column": 2,
+        "lines": [
+          47,
+          52
+        ],
+        "lines_of_claim": [
+          47,
+          48,
+          50,
+          51,
+          52
+        ],
+        "interleaved": true,
+        "spans": [
+          {
+            "line": 47,
+            "from": 0,
+            "to": 133
+          },
+          {
+            "line": 48,
+            "from": 0,
+            "to": 98
+          },
+          {
+            "line": 50,
+            "from": 0,
+            "to": 88
+          },
+          {
+            "line": 51,
+            "from": 0,
+            "to": 115
+          },
+          {
+            "line": 52,
+            "from": 0,
+            "to": 78
+          }
+        ]
+      },
+      "entities": [],
+      "business": {
+        "name": "Harmon, Loomis & Co.",
+        "proprietors": [],
+        "trade": "wholesale and retail dry goods, groceries, hardware and crockery",
+        "goods": [
+          "Brandy",
+          "Crockery",
+          "Cutlery",
+          "Dry Goods",
+          "Glass Ware",
+          "Groceries",
+          "Hardware",
+          "Iron",
+          "Molasses",
+          "Nails",
+          "Rum",
+          "Saleratus",
+          "Steel",
+          "Sugar",
+          "Tea",
+          "Wines"
+        ],
+        "street": "South Water Street",
+        "placement": {
+          "class": "street_only",
+          "anchor": null,
+          "offset_text": "offer for thelr Btore in Bouts Water Stroet,",
+          "offset_normalized": "offer for [sale at] their Store in [S]out[h] Water Str[ee]t",
+          "street": "South Water Street"
+        }
+      },
+      "notes": "THE GOODS LIST 1835-06-08 COULD NOT SAFELY QUOTE, set clean here. The first issue's claim recorded the firm and the street and left the stock to a later pass because it was buried in an 8,024-character blob; this printing of the same standing advertisement gives it, and the gazetteer compiles the two into one business. WHAT A SOUTH WATER STREET WHOLESALE COUNTER HELD IN JUNE 1835, in the paper's own order: staple and fancy dry goods, hardware and cutlery, crockery and glass, iron, steel, nails and glass, then teas by grade, loaf and lump and Havannah sugars, molasses, brandy, rum, gin and four wines, pepper, pimento, saleratus and fruit."
+    },
+    {
+      "id": "c007",
+      "kind": "business",
+      "reading": "transcription_mediated",
+      "quote": "w York Ciothing Stor WHOLESALE AND RETAIL. B subscriber having established hin. 1 above business thrve doors north o at House, in Dearborn street, offer following articles: black Bumbexine Frock Coats, azermiar Pantaloota, Dal Pansaleons. Bombanine Vous, falancie do. of narrow pattern Maroeilion: = skin Homing Conte, - Pantalyona.\n*amialoons of various kinds.\ncory Merchams wonkd de well Baming the abve tock,\nTUTAILL ‘UNG. A\nJony 8, 1835,",
+      "normalized": "[Ne]w York Clothing Stor[e]. WHOLESALE AND RETAIL. [The] subscriber having established h[i]m[self in the] above business thr[e]e doors north o[f the uncertain: at House — a hotel this column does not name], in Dearborn street, offer[s the] following articles: black Bomb[a]zine Frock Coats, [C]a[ssi]m[e]r[e] Pantaloo[n]s, D[ril]l Pantaloons, Bomb[a]zine V[est]s, [V]alenc[ia] do. of narrow pattern[s], Marseille[s], [Mole]skin H[u]nting Coat[s], Pantaloons, […] Pantaloons of various kinds. […] [Coun]try Merchan[t]s wo[ul]d do well [to call and ex]amine the ab[o]ve [s]tock. TUT[H]ILL [K]ING. J[u]n[e] 8, 1835.",
+      "locator": {
+        "artifact_role": "primary",
+        "issue_page": 1,
+        "column": 2,
+        "lines": [
+          53,
+          63
+        ],
+        "lines_of_claim": [
+          53,
+          56,
+          61,
+          62,
+          63
+        ],
+        "interleaved": true,
+        "spans": [
+          {
+            "line": 53,
+            "from": 0,
+            "to": 332
+          },
+          {
+            "line": 56,
+            "from": 0,
+            "to": 28
+          },
+          {
+            "line": 61,
+            "from": 0,
+            "to": 49
+          },
+          {
+            "line": 62,
+            "from": 0,
+            "to": 15
+          },
+          {
+            "line": 63,
+            "from": 0,
+            "to": 13
+          }
+        ]
+      },
+      "entities": [
+        {
+          "as_printed": "TUTAILL ‘UNG",
+          "normalized": "Tuthill King",
+          "role": "proprietor",
+          "occupations": [
+            "clothier"
+          ],
+          "associated_places": [
+            "Dearborn Street"
+          ]
+        }
+      ],
+      "ad_copy_date": {
+        "verbatim": "Jony 8, 1835,",
+        "iso": "1835-06-08"
+      },
+      "business": {
+        "name": "New York Clothing Store",
+        "proprietors": [
+          "Tuthill King"
+        ],
+        "trade": "clothing, wholesale and retail",
+        "goods": [
+          "Coats",
+          "Frock Coats",
+          "Pantaloons",
+          "Vests"
+        ],
+        "street": "Dearborn Street",
+        "placement": {
+          "class": "relative",
+          "anchor": "an unnamed House, three doors south, in Dearborn Street",
+          "anchor_unread": true,
+          "offset_text": "1 above business thrve doors north o at House, in Dearborn street,",
+          "offset_normalized": "the above business three doors north o[f the … ] House, in Dearborn street",
+          "street": "Dearborn Street"
+        }
+      },
+      "notes": "THE CLOTHING STORE'S PROPRIETOR IS TUTHILL KING, which 1835-06-08 could see only as the bare word 'TUTHILL' floating in a blob and refused to attribute. The anchor is still short by one word: 'thrve doors north o[f the] at House' — a hotel whose name is destroyed, and this project will not name it, because Chicago in 1835 had several and choosing one would put a storefront three doors from the wrong building. What IS documented and usable: a Dearborn Street frontage, an offset of three doors, and a hotel to the south of it. The garment list is worth its space — bombazine frock coats, cassimere and drill pantaloons, Valencia and Marseilles vests, moleskin hunting coats — because it says what a Chicago shop counter carried in June 1835."
+    },
+    {
+      "id": "c008",
+      "kind": "business",
+      "reading": "transcription_mediated",
+      "quote": "rniture Warehouse. CKWELL contiquos w ianafnets inet Furniore ut the sand on ou ext lormerly wocupied by Cla\ndNew York fashions,\nthousand feet of veasoued lumber, kinds, wanied immediately, for whi be paid on delivery.\nJune 8, 1835.",
+      "normalized": "[Fu]rniture Warehouse. [RO]CKWELL contin[u]es [to] [m]an[u]fa[c]t[ur]e [Cab]inet Furni[t]ure at the [st]and on […] [str]e[e]t, formerly occupied by Cla[…] [French an]d New York fashions. [A few] thousand feet of [s]easo[n]ed lumber, [of different] kinds, wan[t]ed immediately, for whi[ch cash will] be paid on delivery. June 8, 1835.",
+      "locator": {
+        "artifact_role": "primary",
+        "issue_page": 1,
+        "column": 2,
+        "lines": [
+          63,
+          66
+        ],
+        "lines_of_claim": [
+          63,
+          64,
+          65,
+          66
+        ],
+        "interleaved": true,
+        "spans": [
+          {
+            "line": 63,
+            "from": 14,
+            "to": 122
+          },
+          {
+            "line": 64,
+            "from": 0,
+            "to": 19
+          },
+          {
+            "line": 65,
+            "from": 0,
+            "to": 89
+          },
+          {
+            "line": 66,
+            "from": 0,
+            "to": 13
+          }
+        ]
+      },
+      "entities": [],
+      "ad_copy_date": {
+        "verbatim": "June 8, 1835.",
+        "iso": "1835-06-08"
+      },
+      "business": {
+        "name": "Rockwell, cabinet furniture warehouse",
+        "proprietors": [],
+        "trade": "cabinet furniture",
+        "goods": [],
+        "street": null,
+        "placement": {
+          "class": "none",
+          "anchor": null,
+          "offset_text": null,
+          "offset_normalized": null,
+          "street": null
+        }
+      },
+      "notes": "THE THIRD PRINTING OF ROCKWELL'S CARD, and the placement is STILL not readable: 'at the stand on [?] street, formerly occupied by Cla[?]'. Both the street and the predecessor are cut in every printing so far, in three different places, which is worth recording as a fact about the transcription rather than a fact about the shop. The predecessor's name begins 'Cla' — Clark, Clarke and Clay are all consistent with three letters and none is taken. The standing demand for seasoned lumber paid in cash on delivery is the same in all three."
+    },
+    {
+      "id": "c009",
+      "kind": "business",
+      "reading": "transcription_mediated",
+      "quote": "New Drug. Medicin AND FAINT SPORE.\nERICK THOMAS, las of se cp\né, has taken 9 store's litle Went of t ge, Water street, (two doors from t ‘ffice) where he intends keoping « f al usaorttoent of articles ia the abo ther with Chemicals, Perfumery, & 3 and hopes, with bis expaance\ntwelve yenry jn the basins; esd a a of strict Dersinal attention, t0 me age of the citizens of Chicago » and\nPowders, ‘Waféry and Was, Beer, do, Letter Paper,\ndo, Black and Bod lok, Salis, ‘Tok Powders,\na Peoeils Lamon Brrep,\nma’ Prastriptions, and Fainily Racip Lasching, and Tooth Draw",
+      "normalized": "New Drug, Medicin[e] AND [P]AINT S[T]ORE. [FRED]ERICK THOMAS, la[te] of [New York?] […] has taken a store [a] li[t]tle West of t[he brid]ge, Water street, (two doors from t[he American o]ffice) where he intends ke[e]ping a f[ull gener]al a[ss]ort[m]ent of articles i[n] the abo[ve line, toge]ther with Chemicals, Perfumery, & [Dye Stuff]s; and hopes, with his exp[eri]e[n]ce [of more than] twelve ye[a]r[s] [i]n the busin[e]s[s], [and] a [determination] of strict [p]ers[o]nal attention, to me[rit the patron]age of the citizens of Chicago and [vicinity]. […] [Seidlitz] Powders, Wafers and Wa[x]; [Ginger] Beer, do.; Letter Paper; do., Black and [Re]d I[n]k; [Epsom] Salts; To[ot]h Powders; […] Pe[n]cils; L[e]mon [Sy]r[u]p; […] Prescriptions and Family Recip[es …] L[ee]ching and Tooth Draw[ing].",
+      "locator": {
+        "artifact_role": "primary",
+        "issue_page": 1,
+        "column": 2,
+        "lines": [
+          71,
+          79
+        ],
+        "lines_of_claim": [
+          71,
+          72,
+          73,
+          74,
+          76,
+          77,
+          78,
+          79
+        ],
+        "interleaved": true,
+        "spans": [
+          {
+            "line": 71,
+            "from": 0,
+            "to": 34
+          },
+          {
+            "line": 72,
+            "from": 0,
+            "to": 26
+          },
+          {
+            "line": 73,
+            "from": 0,
+            "to": 214
+          },
+          {
+            "line": 74,
+            "from": 0,
+            "to": 108
+          },
+          {
+            "line": 76,
+            "from": 0,
+            "to": 49
+          },
+          {
+            "line": 77,
+            "from": 0,
+            "to": 43
+          },
+          {
+            "line": 78,
+            "from": 0,
+            "to": 22
+          },
+          {
+            "line": 79,
+            "from": 0,
+            "to": 61
+          }
+        ]
+      },
+      "entities": [
+        {
+          "as_printed": "ERICK THOMAS",
+          "normalized": "Frederick Thomas",
+          "role": "proprietor",
+          "occupations": [
+            "druggist"
+          ],
+          "associated_places": [
+            "Water Street"
+          ]
+        }
+      ],
+      "business": {
+        "name": "Frederick Thomas, drugs and paints",
+        "proprietors": [
+          "Frederick Thomas"
+        ],
+        "trade": "drugs, paints, chemicals, perfumery and dye stuffs",
+        "goods": [
+          "Chemicals",
+          "Dye Stuffs",
+          "Epsom Salts",
+          "Ink",
+          "Letter Paper",
+          "Paints",
+          "Perfumery",
+          "Seidlitz Powders",
+          "Tooth Powders"
+        ],
+        "street": "Water Street",
+        "placement": {
+          "class": "relative",
+          "anchor": "the bridge, and the American office two doors off",
+          "offset_text": "é, has taken 9 store's litle Went of t ge, Water street, (two doors from t ‘ffice)",
+          "offset_normalized": "has taken a store a li[t]tle West of t[he brid]ge, Water street, (two doors from t[he American o]ffice)",
+          "street": "Water Street"
+        }
+      },
+      "notes": "THE BEST-DOCUMENTED PLACEMENT IN THE RUN SO FAR, AND IT PLACES THE NEWSPAPER TOO. 'A little West of the bridge, Water street, two doors from the American office' fixes Frederick Thomas's store against the drawbridge (the previous issue's printing says 'at the Drawbridge' outright) and, in the same sentence, puts the CHICAGO AMERICAN'S OWN OFFICE two doors from it. The ticket asks for the American's imprint as a scene-date fact and this is the only place in three issues that says where the office stood. WHICH WATER STREET IS STILL NOT DECIDED: 'Water street' unqualified, west of the bridge, is consistent with either bank, and the two Water streets face each other across the river. The street is recorded as 'Water Street' exactly as printed, and no bank is chosen. He also leeches and draws teeth, which the run's other dentist advertisement makes worth noticing."
+    },
+    {
+      "id": "c010",
+      "kind": "event",
+      "reading": "transcription_mediated",
+      "quote": "Ladine of “The Fei ‘Be 3 James ‘Pariohor Chagas i apd weledy the liberality ofthe publi a aig val fale\" om i ievening of Ue LEth iat\nwnt thele Shae to Me, W. By Ogden, che propiteinny of oe propeiay, i Wolesits siditsan, stmnok ‘off ut",
+      "normalized": "[The] Ladi[e]s of 'The F[emale …]' [of St.] James' Paris[h] o[f] C[hi]ca[go …] solicit the liberality of the publi[c at] a […] fa[i]r on [the] evening of [th]e 1[8]th i[ns]t[ant] […] [gr]ant the[i]r [th]a[nk]s to M[r]. W. B. Ogden, the propr[ietor] of […] proper[t]y […]",
+      "locator": {
+        "artifact_role": "primary",
+        "issue_page": 3,
+        "column": 4,
+        "lines": [
+          317,
+          318
+        ],
+        "lines_of_claim": [
+          317,
+          318
+        ],
+        "interleaved": true,
+        "spans": [
+          {
+            "line": 317,
+            "from": 0,
+            "to": 132
+          },
+          {
+            "line": 318,
+            "from": 0,
+            "to": 102
+          }
+        ]
+      },
+      "entities": [
+        {
+          "as_printed": "W. By Ogden",
+          "normalized": "W. B. Ogden",
+          "role": "mentioned",
+          "occupations": [],
+          "associated_places": []
+        }
+      ],
+      "notes": "ST. JAMES' PARISH AND W. B. OGDEN IN ONE PARAGRAPH, three weeks before the scene date: a parish organised enough to hold a ladies' fair on 1835-06-18, and Ogden thanked as the proprietor of some property connected with it. WHAT IS NOT CLAIMED: the sentence naming what Ogden's property WAS is destroyed ('che propiteinny of oe propeiay, i Wolesits siditsan, stmnok off ut'), so this claim does not say that he lent a room, a lot or a building, and no building claim is made. The parish's own premises are not named either — the fair's location is in the same wrecked sentence. Recorded because both names matter to the town and because the next pass should look here first."
+    },
+    {
+      "id": "c011",
+      "kind": "event",
+      "reading": "transcription_mediated",
+      "quote": "A CARD, ‘The passengers on board the Bi Telfarson, on her lute irip from Bue @?, take this method of expressing\nthe attentions of her libera\nl an Rropritat, Cal. C..M. Reed, and. perviaion of Capt, Thoma\nJune 1971835,\nIasiah \n‘Theodore Rameyn\nfabward E. Henthuy\nava A. Townsend\nHugh Robinson\nRobert Townsend\nJames li Murray\nBamnel Townsend\nGeorge Reed\nGeorge McWilliams\nS Bibley\nE.Sproa)\neames Sheldon\nH Leondis\nJR Weatcow\nH MeChud\nFaward N. Shelton\nHP Yau Cleve\nGT’ Campy\nJR Cary\nA Hayward\nHC Switt\nGeorge E'Hands\nLB Mizner\nGW Woodward\nIf Bower\nMartin Sct\nVA Wendell\nIW Louis\nR Cochrane\nVeter Wenttll\nJanes Stmth\nUL bhaldwin\nAsury Waters\nALP Weters\nAG Starrett\nThomae D Grant\nAll Friel\nEG Quek\nWin Reuse\nGC Bowe\nWa Brewster\nThomas Kip\n8 Mille\n4AJ Mend\nC1 Harringfon\n‘Thumye Buanet\nFW Miller\nAA Barber\n‘Theodore Mumer\nWin Burpet\nNG Sanford\nJEllis\nN Bird\nJohn L Cory\nJY Javkson\nin ft Maskell\nD Robinsun\nJ Farvon\nCharles Feleh\nGeorge M Brooks\nPierre Vap Cortland)\nHeary Ki\nAC Patesson",
+      "normalized": "A CARD. The passengers on board the [steamboat Thomas] Je[ff]erson, on her late [t]rip from Bu[ffalo], take this method of expressing [their obligations to her Proprietor and Captain] […] the attentions of her libera[l a]n[d …] Proprieto[r], Ca[p]t. C. M. Reed, and [the su]per[i]n[t]en[dence] of Capt. Thoma[s …] June 19, 1835. [and the sixty-three signatures that follow, each with the place its signer gives as his own]",
+      "locator": {
+        "artifact_role": "primary",
+        "issue_page": 3,
+        "column": 5,
+        "lines": [
+          321,
+          321
+        ],
+        "lines_of_claim": [
+          321
+        ],
+        "interleaved": true,
+        "spans": [
+          {
+            "line": 321,
+            "from": 0,
+            "to": 111
+          },
+          {
+            "line": 321,
+            "from": 347,
+            "to": 375
+          },
+          {
+            "line": 321,
+            "from": 375,
+            "to": 437
+          },
+          {
+            "line": 321,
+            "from": 541,
+            "to": 554
+          },
+          {
+            "line": 321,
+            "from": 555,
+            "to": 562
+          },
+          {
+            "line": 321,
+            "from": 573,
+            "to": 589
+          },
+          {
+            "line": 321,
+            "from": 591,
+            "to": 609
+          },
+          {
+            "line": 321,
+            "from": 610,
+            "to": 625
+          },
+          {
+            "line": 321,
+            "from": 635,
+            "to": 648
+          },
+          {
+            "line": 321,
+            "from": 650,
+            "to": 665
+          },
+          {
+            "line": 321,
+            "from": 667,
+            "to": 682
+          },
+          {
+            "line": 321,
+            "from": 693,
+            "to": 708
+          },
+          {
+            "line": 321,
+            "from": 725,
+            "to": 736
+          },
+          {
+            "line": 321,
+            "from": 753,
+            "to": 770
+          },
+          {
+            "line": 321,
+            "from": 783,
+            "to": 791
+          },
+          {
+            "line": 321,
+            "from": 801,
+            "to": 809
+          },
+          {
+            "line": 321,
+            "from": 827,
+            "to": 840
+          },
+          {
+            "line": 321,
+            "from": 857,
+            "to": 866
+          },
+          {
+            "line": 321,
+            "from": 881,
+            "to": 891
+          },
+          {
+            "line": 321,
+            "from": 910,
+            "to": 918
+          },
+          {
+            "line": 321,
+            "from": 938,
+            "to": 955
+          },
+          {
+            "line": 321,
+            "from": 968,
+            "to": 980
+          },
+          {
+            "line": 321,
+            "from": 1019,
+            "to": 1028
+          },
+          {
+            "line": 321,
+            "from": 1048,
+            "to": 1055
+          },
+          {
+            "line": 321,
+            "from": 1078,
+            "to": 1087
+          },
+          {
+            "line": 321,
+            "from": 1108,
+            "to": 1116
+          },
+          {
+            "line": 321,
+            "from": 1139,
+            "to": 1153
+          },
+          {
+            "line": 321,
+            "from": 1163,
+            "to": 1172
+          },
+          {
+            "line": 321,
+            "from": 1191,
+            "to": 1202
+          },
+          {
+            "line": 321,
+            "from": 1217,
+            "to": 1225
+          },
+          {
+            "line": 321,
+            "from": 1242,
+            "to": 1252
+          },
+          {
+            "line": 321,
+            "from": 1273,
+            "to": 1283
+          },
+          {
+            "line": 321,
+            "from": 1294,
+            "to": 1302
+          },
+          {
+            "line": 321,
+            "from": 1317,
+            "to": 1327
+          },
+          {
+            "line": 321,
+            "from": 1339,
+            "to": 1352
+          },
+          {
+            "line": 321,
+            "from": 1390,
+            "to": 1401
+          },
+          {
+            "line": 321,
+            "from": 1420,
+            "to": 1431
+          },
+          {
+            "line": 321,
+            "from": 1442,
+            "to": 1454
+          },
+          {
+            "line": 321,
+            "from": 1472,
+            "to": 1482
+          },
+          {
+            "line": 321,
+            "from": 1501,
+            "to": 1512
+          },
+          {
+            "line": 321,
+            "from": 1528,
+            "to": 1542
+          },
+          {
+            "line": 321,
+            "from": 1597,
+            "to": 1606
+          },
+          {
+            "line": 321,
+            "from": 1623,
+            "to": 1630
+          },
+          {
+            "line": 321,
+            "from": 1654,
+            "to": 1663
+          },
+          {
+            "line": 321,
+            "from": 1674,
+            "to": 1681
+          },
+          {
+            "line": 321,
+            "from": 1695,
+            "to": 1706
+          },
+          {
+            "line": 321,
+            "from": 1719,
+            "to": 1729
+          },
+          {
+            "line": 321,
+            "from": 1739,
+            "to": 1746
+          },
+          {
+            "line": 321,
+            "from": 1764,
+            "to": 1772
+          },
+          {
+            "line": 321,
+            "from": 1788,
+            "to": 1801
+          },
+          {
+            "line": 321,
+            "from": 1811,
+            "to": 1825
+          },
+          {
+            "line": 321,
+            "from": 1842,
+            "to": 1851
+          },
+          {
+            "line": 321,
+            "from": 1867,
+            "to": 1876
+          },
+          {
+            "line": 321,
+            "from": 1888,
+            "to": 1903
+          },
+          {
+            "line": 321,
+            "from": 1909,
+            "to": 1919
+          },
+          {
+            "line": 321,
+            "from": 1932,
+            "to": 1942
+          },
+          {
+            "line": 321,
+            "from": 1956,
+            "to": 1962
+          },
+          {
+            "line": 321,
+            "from": 1975,
+            "to": 1981
+          },
+          {
+            "line": 321,
+            "from": 2005,
+            "to": 2016
+          },
+          {
+            "line": 321,
+            "from": 2035,
+            "to": 2045
+          },
+          {
+            "line": 321,
+            "from": 2063,
+            "to": 2076
+          },
+          {
+            "line": 321,
+            "from": 2087,
+            "to": 2097
+          },
+          {
+            "line": 321,
+            "from": 2107,
+            "to": 2115
+          },
+          {
+            "line": 321,
+            "from": 2125,
+            "to": 2138
+          },
+          {
+            "line": 321,
+            "from": 2142,
+            "to": 2157
+          },
+          {
+            "line": 321,
+            "from": 2173,
+            "to": 2193
+          },
+          {
+            "line": 321,
+            "from": 2206,
+            "to": 2214
+          },
+          {
+            "line": 321,
+            "from": 2228,
+            "to": 2239
+          }
+        ]
+      },
+      "entities": [
+        {
+          "as_printed": "Iasiah ",
+          "normalized": "Isaiah Townsend",
+          "role": "passenger",
+          "occupations": [],
+          "associated_places": [
+            "Albany"
+          ]
+        },
+        {
+          "as_printed": "‘Theodore Rameyn",
+          "normalized": "Theodore Rameyn",
+          "role": "passenger",
+          "occupations": [],
+          "associated_places": [
+            "Albany"
+          ]
+        },
+        {
+          "as_printed": "fabward E. Henthuy",
+          "normalized": "Edward E. Henthuy",
+          "role": "passenger",
+          "occupations": [],
+          "associated_places": [
+            "Albany"
+          ]
+        },
+        {
+          "as_printed": "ava A. Townsend",
+          "normalized": "A. Townsend",
+          "role": "passenger",
+          "occupations": [],
+          "associated_places": [
+            "Albany"
+          ]
+        },
+        {
+          "as_printed": "Hugh Robinson",
+          "normalized": "Hugh Robinson",
+          "role": "passenger",
+          "occupations": [],
+          "associated_places": [
+            "Albany"
+          ]
+        },
+        {
+          "as_printed": "Robert Townsend",
+          "normalized": "Robert Townsend",
+          "role": "passenger",
+          "occupations": [],
+          "associated_places": [
+            "Albany"
+          ]
+        },
+        {
+          "as_printed": "James li Murray",
+          "normalized": "James H. Murray",
+          "role": "passenger",
+          "occupations": [],
+          "associated_places": [
+            "New York"
+          ]
+        },
+        {
+          "as_printed": "Bamnel Townsend",
+          "normalized": "Samuel Townsend",
+          "role": "passenger",
+          "occupations": [],
+          "associated_places": [
+            "Orange County"
+          ]
+        },
+        {
+          "as_printed": "George Reed",
+          "normalized": "George Reed",
+          "role": "passenger",
+          "occupations": [],
+          "associated_places": [
+            "Castleton, Vt."
+          ]
+        },
+        {
+          "as_printed": "George McWilliams",
+          "normalized": "George McWilliams",
+          "role": "passenger",
+          "occupations": [],
+          "associated_places": [
+            "Green Bay"
+          ]
+        },
+        {
+          "as_printed": "S Bibley",
+          "normalized": "S. Sibley",
+          "role": "passenger",
+          "occupations": [],
+          "associated_places": [
+            "Detroit"
+          ]
+        },
+        {
+          "as_printed": "E.Sproa)",
+          "normalized": "E. Sproat",
+          "role": "passenger",
+          "occupations": [],
+          "associated_places": [
+            "Plymouth, Mass."
+          ]
+        },
+        {
+          "as_printed": "eames Sheldon",
+          "normalized": "James Sheldon",
+          "role": "passenger",
+          "occupations": [],
+          "associated_places": [
+            "Munroe County"
+          ]
+        },
+        {
+          "as_printed": "H Leondis",
+          "normalized": "H. Loomis",
+          "role": "passenger",
+          "occupations": [],
+          "associated_places": [
+            "Ballston Spa"
+          ]
+        },
+        {
+          "as_printed": "JR Weatcow",
+          "normalized": "J. R. Westcott",
+          "role": "passenger",
+          "occupations": [],
+          "associated_places": [
+            "Saratoga Springs"
+          ]
+        },
+        {
+          "as_printed": "H MeChud",
+          "normalized": "H. McCloud",
+          "role": "passenger",
+          "occupations": [],
+          "associated_places": [
+            "Vienna, Ontario County"
+          ]
+        },
+        {
+          "as_printed": "Faward N. Shelton",
+          "normalized": "Edward N. Shelton",
+          "role": "passenger",
+          "occupations": [],
+          "associated_places": [
+            "Huntington"
+          ]
+        },
+        {
+          "as_printed": "HP Yau Cleve",
+          "normalized": "H. P. Van Cleve",
+          "role": "passenger",
+          "occupations": [],
+          "associated_places": [
+            "Port Winnebago"
+          ]
+        },
+        {
+          "as_printed": "GT’ Campy",
+          "normalized": "G. T. Camp",
+          "role": "passenger",
+          "occupations": [],
+          "associated_places": [
+            "Chautauque County"
+          ]
+        },
+        {
+          "as_printed": "JR Cary",
+          "normalized": "J. R. Cary",
+          "role": "passenger",
+          "occupations": [],
+          "associated_places": [
+            "Dutchess County"
+          ]
+        },
+        {
+          "as_printed": "A Hayward",
+          "normalized": "A. Hayward",
+          "role": "passenger",
+          "occupations": [],
+          "associated_places": [
+            "York, Livingston County"
+          ]
+        },
+        {
+          "as_printed": "HC Switt",
+          "normalized": "H. C. Swift",
+          "role": "passenger",
+          "occupations": [],
+          "associated_places": [
+            "Phelps, Ontario County"
+          ]
+        },
+        {
+          "as_printed": "George E'Hands",
+          "normalized": "George E. Hands",
+          "role": "passenger",
+          "occupations": [],
+          "associated_places": [
+            "Detroit"
+          ]
+        },
+        {
+          "as_printed": "LB Mizner",
+          "normalized": "L. B. Mizner",
+          "role": "passenger",
+          "occupations": [],
+          "associated_places": [
+            "Geneva, New York"
+          ]
+        },
+        {
+          "as_printed": "GW Woodward",
+          "normalized": "G. W. Woodward",
+          "role": "passenger",
+          "occupations": [],
+          "associated_places": [
+            "Boston"
+          ]
+        },
+        {
+          "as_printed": "If Bower",
+          "normalized": "H. Bower",
+          "role": "passenger",
+          "occupations": [],
+          "associated_places": [
+            "Galena, Illinois"
+          ]
+        },
+        {
+          "as_printed": "Martin Sct",
+          "normalized": "Martin Sct",
+          "role": "passenger",
+          "occupations": [],
+          "associated_places": [
+            "United States Army"
+          ]
+        },
+        {
+          "as_printed": "VA Wendell",
+          "normalized": "V. A. Wendell",
+          "role": "passenger",
+          "occupations": [],
+          "associated_places": [
+            "Mackinac"
+          ]
+        },
+        {
+          "as_printed": "IW Louis",
+          "normalized": "I. W. Louis",
+          "role": "passenger",
+          "occupations": [],
+          "associated_places": [
+            "Ballston Spa"
+          ]
+        },
+        {
+          "as_printed": "R Cochrane",
+          "normalized": "R. Cochrane",
+          "role": "passenger",
+          "occupations": [],
+          "associated_places": [
+            "Erie, Pa."
+          ]
+        },
+        {
+          "as_printed": "Veter Wenttll",
+          "normalized": "Peter Wendell",
+          "role": "passenger",
+          "occupations": [],
+          "associated_places": [
+            "Phelps, Ontario"
+          ]
+        },
+        {
+          "as_printed": "Janes Stmth",
+          "normalized": "James Smith",
+          "role": "passenger",
+          "occupations": [],
+          "associated_places": [
+            "Erie County, New York"
+          ]
+        },
+        {
+          "as_printed": "UL bhaldwin",
+          "normalized": "L. Baldwin",
+          "role": "passenger",
+          "occupations": [],
+          "associated_places": [
+            "Syracuse"
+          ]
+        },
+        {
+          "as_printed": "Asury Waters",
+          "normalized": "Asury Waters",
+          "role": "passenger",
+          "occupations": [],
+          "associated_places": [
+            "Chenango County"
+          ]
+        },
+        {
+          "as_printed": "ALP Weters",
+          "normalized": "A. L. P. Waters",
+          "role": "passenger",
+          "occupations": [],
+          "associated_places": [
+            "Chicago, Illinois"
+          ]
+        },
+        {
+          "as_printed": "AG Starrett",
+          "normalized": "A. G. Starrett",
+          "role": "passenger",
+          "occupations": [],
+          "associated_places": [
+            "Boston, Mass."
+          ]
+        },
+        {
+          "as_printed": "Thomae D Grant",
+          "normalized": "Thomas D. Grant",
+          "role": "passenger",
+          "occupations": [],
+          "associated_places": [
+            "Madison, New York"
+          ]
+        },
+        {
+          "as_printed": "All Friel",
+          "normalized": "A. H. Friel",
+          "role": "passenger",
+          "occupations": [],
+          "associated_places": [
+            "Monroe County"
+          ]
+        },
+        {
+          "as_printed": "EG Quek",
+          "normalized": "E. G. Quick",
+          "role": "passenger",
+          "occupations": [],
+          "associated_places": [
+            "Ontario County"
+          ]
+        },
+        {
+          "as_printed": "Win Reuse",
+          "normalized": "Wm. Reuse",
+          "role": "passenger",
+          "occupations": [],
+          "associated_places": [
+            "Erie, Pa."
+          ]
+        },
+        {
+          "as_printed": "GC Bowe",
+          "normalized": "G. C. Bowe",
+          "role": "passenger",
+          "occupations": [],
+          "associated_places": [
+            "Genesee County"
+          ]
+        },
+        {
+          "as_printed": "Wa Brewster",
+          "normalized": "Wm. Brewster",
+          "role": "passenger",
+          "occupations": [],
+          "associated_places": [
+            "Steuben County"
+          ]
+        },
+        {
+          "as_printed": "Thomas Kip",
+          "normalized": "Thomas Kip",
+          "role": "passenger",
+          "occupations": [],
+          "associated_places": [
+            "Buffalo"
+          ]
+        },
+        {
+          "as_printed": "8 Mille",
+          "normalized": "S. Mills",
+          "role": "passenger",
+          "occupations": [],
+          "associated_places": [
+            "Jefferson, Ohio"
+          ]
+        },
+        {
+          "as_printed": "4AJ Mend",
+          "normalized": "A. J. Mead",
+          "role": "passenger",
+          "occupations": [],
+          "associated_places": [
+            "Meadville, Pa."
+          ]
+        },
+        {
+          "as_printed": "C1 Harringfon",
+          "normalized": "C. Harrington",
+          "role": "passenger",
+          "occupations": [],
+          "associated_places": [
+            "Buffalo"
+          ]
+        },
+        {
+          "as_printed": "‘Thumye Buanet",
+          "normalized": "Thomas Bunnet",
+          "role": "passenger",
+          "occupations": [],
+          "associated_places": [
+            "Liverpool, England"
+          ]
+        },
+        {
+          "as_printed": "FW Miller",
+          "normalized": "F. W. Miller",
+          "role": "passenger",
+          "occupations": [],
+          "associated_places": [
+            "Pennsylvania"
+          ]
+        },
+        {
+          "as_printed": "AA Barber",
+          "normalized": "A. A. Barber",
+          "role": "passenger",
+          "occupations": [],
+          "associated_places": [
+            "Green Bay"
+          ]
+        },
+        {
+          "as_printed": "‘Theodore Mumer",
+          "normalized": "Theodore Mumer",
+          "role": "passenger",
+          "occupations": [],
+          "associated_places": [
+            "New York"
+          ]
+        },
+        {
+          "as_printed": "Win Burpet",
+          "normalized": "Wm. Burpet",
+          "role": "passenger",
+          "occupations": [],
+          "associated_places": [
+            "Ontario County"
+          ]
+        },
+        {
+          "as_printed": "NG Sanford",
+          "normalized": "N. G. Sanford",
+          "role": "passenger",
+          "occupations": [],
+          "associated_places": [
+            "Woodbridge"
+          ]
+        },
+        {
+          "as_printed": "JEllis",
+          "normalized": "J. Ellis",
+          "role": "passenger",
+          "occupations": [],
+          "associated_places": [
+            "New Jersey"
+          ]
+        },
+        {
+          "as_printed": "N Bird",
+          "normalized": "N. Bird",
+          "role": "passenger",
+          "occupations": [],
+          "associated_places": [
+            "Chautauque County, N.Y."
+          ]
+        },
+        {
+          "as_printed": "John L Cory",
+          "normalized": "John L. Cory",
+          "role": "passenger",
+          "occupations": [],
+          "associated_places": [
+            "Monroe County"
+          ]
+        },
+        {
+          "as_printed": "JY Javkson",
+          "normalized": "J. Y. Jackson",
+          "role": "passenger",
+          "occupations": [],
+          "associated_places": [
+            "Ontario County"
+          ]
+        },
+        {
+          "as_printed": "in ft Maskell",
+          "normalized": "Wm. R. Maskell",
+          "role": "passenger",
+          "occupations": [],
+          "associated_places": [
+            "New York"
+          ]
+        },
+        {
+          "as_printed": "D Robinsun",
+          "normalized": "D. Robinson",
+          "role": "passenger",
+          "occupations": [],
+          "associated_places": [
+            "Vermont"
+          ]
+        },
+        {
+          "as_printed": "J Farvon",
+          "normalized": "J. Farson",
+          "role": "passenger",
+          "occupations": [],
+          "associated_places": [
+            "Vermont"
+          ]
+        },
+        {
+          "as_printed": "Charles Feleh",
+          "normalized": "Charles Felch",
+          "role": "passenger",
+          "occupations": [],
+          "associated_places": [
+            "New York"
+          ]
+        },
+        {
+          "as_printed": "George M Brooks",
+          "normalized": "George M. Brooks",
+          "role": "passenger",
+          "occupations": [],
+          "associated_places": [
+            "United States"
+          ]
+        },
+        {
+          "as_printed": "Pierre Vap Cortland)",
+          "normalized": "Pierre Van Cortlandt",
+          "role": "passenger",
+          "occupations": [],
+          "associated_places": [
+            "Peekskill"
+          ]
+        },
+        {
+          "as_printed": "Heary Ki",
+          "normalized": "Henry K.",
+          "role": "passenger",
+          "occupations": [],
+          "associated_places": [
+            "Brooklyn, N.Y."
+          ]
+        },
+        {
+          "as_printed": "AC Patesson",
+          "normalized": "A. C. Paterson",
+          "role": "passenger",
+          "occupations": [],
+          "associated_places": [
+            "Buffalo, N.Y."
+          ]
+        }
+      ],
+      "ad_copy_date": {
+        "verbatim": "June 1971835,",
+        "iso": "1835-06-19"
+      },
+      "notes": "AN ARRIVAL MANIFEST, AND IT IS NOT A RESIDENTS' LIST — the distinction this claim exists to keep. Sixty-three men who came in on the steamboat Thomas Jefferson from Buffalo sign a card of thanks, and EVERY ONE OF THEM prints the place he calls his own: Albany, Buffalo, Detroit, Green Bay, Saratoga Springs, Liverpool. Exactly one gives Chicago — 'ALP Weters, Chicagn, [l]inais'. So each entity carries its signer's stated home in `associated_places` and nothing here mints a Chicago resident. The epic's first ruling makes a POST-OFFICE letter-list name a resident candidate; a passenger card is the opposite kind of list and must not be read as one. WHAT IT DOES DOCUMENT: a single lake steamer putting sixty-three named men into the town in the week before the June land sale, which is the same movement 1835-06-13's population paragraph describes from the shore. THE NAMES ARE SINGLE-PASS OCR and several are visibly damaged ('4AJ Mend', 'Heary Ki', 'Martin Sct'); `as_printed` keeps every one of them verbatim and the normalized readings correct only character confusions. None should be used to identify a person without the page image."
+    },
+    {
+      "id": "c012",
+      "kind": "shipping",
+      "reading": "transcription_mediated",
+      "quote": "\\ Marine Journal “PORT OF CHICAGO.\n‘ARRIVED. June 13. Sehr Philips, Howe, from\nwith asa, Se, Behr Llowoling, Cla; for srith pausengers, ae, + Hloop Weatward Ho, Bank Wwakee, with passengers, & Juno 14. Hisawboat Thomas Jeffers from Uulfalo via Groen Bay ‘chandize, passengers, &c. Juno 16. chr John Grant, 7 with merchandize, paasonge Kehr Hiram, Rathbourn, tr gan, wish lumber, &0, Jude 10, Hebr Swan, Oumean, (m St.. Passengara, &o. Jung 17. Hebr Llawelling, Clark, fron ‘with passangors, &o. June 19, Sehr’ Pyorideat, ———, fo with paseuigers, marchandi Behe Swan, Duncan, fin Bu panwengors, four, dec. CLEARED, june 15, Hels Liwelling, Cark, for Jane 16. Hohe Swan, Duneaa, for Bt. Hiram, Rathbeo June 17. Hiexmboat Tas fede ‘Buffalo, wits Bi oi",
+      "normalized": "Marine Journal. PORT OF CHICAGO. ARRIVED. June 13. Sch[r] Philips, Howe, from […] with […]; Sch[r] Llewel[l]in[g], Cla[rk], for[…] with passengers, &c.; Sloop Westward Ho, Bank[s, from Mil]waukee, with passengers, &c. June 14. [Ste]amboat Thomas Jeffers[on] from [B]uffalo via Green Bay, [with mer]chandize, passengers, &c. June 16. [S]chr John Grant, […] with merchandize, passenge[rs]; Schr Hiram, Rathbourn, [from Michi]gan, with lumber, &c. J[u]ne [16?], Schr Swan, [D]u[nc]an, [fro]m St. […] passengers, &c. June 17. [S]chr Llewelling, Clark, from […] with passengers, &c. June 19. Schr President, ———, fo[r/from …] with passengers, merchandi[ze]; Sch[r] Swan, Duncan, f[ro]m Bu[ffalo, with] passengers, flour, &c. CLEARED. June 15. Sch[r] L[le]welling, C[l]ark, for […] June 16. Sch[r] Swan, Duncan, for St. […]; [Schr] Hiram, Rathbo[urn …] June 17. [St]eamboat T[homa]s Je[ff]e[rson for] Buffalo […]",
+      "locator": {
+        "artifact_role": "primary",
+        "issue_page": 3,
+        "column": 5,
+        "lines": [
+          332,
+          334
+        ],
+        "lines_of_claim": [
+          332,
+          333,
+          334
+        ],
+        "interleaved": true,
+        "spans": [
+          {
+            "line": 332,
+            "from": 0,
+            "to": 34
+          },
+          {
+            "line": 333,
+            "from": 0,
+            "to": 43
+          },
+          {
+            "line": 334,
+            "from": 0,
+            "to": 669
+          }
+        ]
+      },
+      "entities": [],
+      "notes": "THE RUN'S FIRST PORT OF CHICAGO COLUMN, covering 1835-06-13 to 06-19 — the week before the land sale and a fortnight before the scene date. Seven arrivals and four clearances in six days: two schooners, a sloop from Milwaukee and a Buffalo steamer inbound, with passengers on nearly every one and LUMBER on the schooner Hiram from Michigan. That last is the useful one — this project builds a town made of sawn lumber and has had no shipping evidence for where it came in. THE CARGO AND DESTINATION COLUMNS ARE CUT down the right-hand edge throughout ('from' with nothing after it, 'for' with nothing after it), so no route is completed that the transcription does not carry, and the June 16 and 'Jude 10' dates disagree in the same paragraph — quoted as printed, with the second bracketed as unreadable rather than harmonised."
+    },
+    {
+      "id": "c013",
+      "kind": "business",
+      "reading": "transcription_mediated",
+      "quote": "HUBBARD & CO.\nForwarding and Commis\nMURORANTS,\nAarsts for the Now York & Ohio Ling} al the Eaxle sine, and Pilot & Traders? the Erie Canal,\nREFERENCES: NB. Moech & Con Naw York: MM. Meech & Co., Alany. J. Chappel & Cu, Rochsater; South & Mney, Peat, Thylor & Cs {Batite, Ward & Smith, Cleaveland) Jamen Abbot Bra Belvo 2 Goilfth d Co. He Jsop hy za June Qn, 1835,",
+      "normalized": "HUBBARD & CO. Forwarding and Commis[sion] M[E]R[CH]ANTS. A[ge]nts for the New York & Ohio Lin[e], the Ea[g]le [l]ine, and Pilot & Traders' [line on] the Erie Canal. REFERENCES: N[.] B. Meech & Co., New York; M[.] M. Meech & Co., Al[b]any; J. Chappel & C[o.], Roch[e]ster; South & M[a]cy, Pea[se], T[a]ylor & C[o.], [Buffa]l[o]; Ward & Smith, Cleaveland; James Abbot[t & B]ro[.], De[t]ro[it]; Griff[i]th & Co., […] June [20], 1835.",
+      "locator": {
+        "artifact_role": "primary",
+        "issue_page": 3,
+        "column": 6,
+        "lines": [
+          353,
+          357
+        ],
+        "lines_of_claim": [
+          353,
+          354,
+          355,
+          356,
+          357
+        ],
+        "interleaved": true,
+        "spans": [
+          {
+            "line": 353,
+            "from": 0,
+            "to": 13
+          },
+          {
+            "line": 354,
+            "from": 0,
+            "to": 21
+          },
+          {
+            "line": 355,
+            "from": 0,
+            "to": 10
+          },
+          {
+            "line": 356,
+            "from": 0,
+            "to": 92
+          },
+          {
+            "line": 357,
+            "from": 0,
+            "to": 223
+          }
+        ]
+      },
+      "entities": [],
+      "ad_copy_date": {
+        "verbatim": "June Qn, 1835,",
+        "iso": "1835-06-20"
+      },
+      "business": {
+        "name": "Hubbard & Co., forwarding and commission merchants",
+        "proprietors": [],
+        "trade": "forwarding and commission merchants",
+        "goods": [],
+        "street": null,
+        "placement": {
+          "class": "none",
+          "anchor": null,
+          "offset_text": null,
+          "offset_normalized": null,
+          "street": null
+        }
+      },
+      "notes": "A FORWARDING HOUSE WITH THREE LAKE-AND-CANAL LINE AGENCIES — New York & Ohio, the Eagle line, and Pilot & Traders' on the Erie Canal — and correspondents in New York, Albany, Rochester, Buffalo, Cleveland and Detroit. That is what the Chicago river's warehouse frontage was FOR, stated by one of the firms that used it. NO ADDRESS IS PRINTED in this card, which is the frustrating part: the North Water Street cards directly above it in the same column (Sabine's, and John Davi[s]'s) do give a street and this one does not, so the placement is `none` rather than inherited from its neighbours."
+    },
+    {
+      "id": "c014",
+      "kind": "shipping",
+      "reading": "transcription_mediated",
+      "quote": "The Steamboat Michiga\n{ Cop. C. REXRE will leave Cnicagy fi {ait and Budlilo'on tie wording - of thet r} | Juns, a9 o'clock. For freight or ply t0 the muster on board, orto NEWBERRY & bo Chicago, d).ne 8, 1835. ie",
+      "normalized": "The Steamboat Michiga[n], Ca[p]t. C. RE[E]D[E?] will leave C[hi]cag[o] f[or Detro]it and Bu[ffa]lo on t[h]e [m]orning of the […] Jun[e], a[t 9] o'clock. For freight or [passage ap]ply to the ma[s]ter on board, or to NEWBERRY & [D]O[LE]. Chicago, J[u]ne 8, 1835.",
+      "locator": {
+        "artifact_role": "primary",
+        "issue_page": 3,
+        "column": 6,
+        "lines": [
+          366,
+          367
+        ],
+        "lines_of_claim": [
+          366,
+          367
+        ],
+        "interleaved": true,
+        "spans": [
+          {
+            "line": 366,
+            "from": 0,
+            "to": 21
+          },
+          {
+            "line": 367,
+            "from": 0,
+            "to": 191
+          }
+        ]
+      },
+      "entities": [],
+      "ad_copy_date": {
+        "verbatim": "Chicago, d).ne 8, 1835.",
+        "iso": "1835-06-08"
+      },
+      "business": {
+        "name": "Newberry & Dole",
+        "proprietors": [],
+        "trade": "steamboat agents, forwarding",
+        "goods": [],
+        "street": null,
+        "placement": {
+          "class": "none",
+          "anchor": null,
+          "offset_text": null,
+          "offset_normalized": null,
+          "street": null
+        }
+      },
+      "notes": "WHAT NEWBERRY & DOLE DO, which 1835-06-08 could not say: they are the Chicago agents a shipper applies to for freight or passage on the steamboat Michigan, running to Detroit and Buffalo. The firm is the same one the Democrat uses as a street anchor on South Water Street (T-0257's fixture, claim c001), so the trade now attaches to that anchor. The sailing day is cut out of the middle of the sentence and is not supplied. 'Cop. C. REXRE' is read as Capt. C. Reed on the strength of the passenger card in the same issue, which names 'Cal. C..M. Reed' as the Thomas Jefferson's proprietor; whether the two are one man is NOT claimed here and no person is minted."
+    },
+    {
+      "id": "c015",
+      "kind": "business",
+      "reading": "transcription_mediated",
+      "quote": "; Fire Insuranee,\nTIP HE satrcriber baving been eppotand forthe Howard Fire Insuranee Ed ‘of the city of New York, for Chicago abd 5 inity, will inxare propery ugainst lana Hy\nof reamvaable terms, E. K. IUBBARD, Jume 29, 1885,",
+      "normalized": "Fire Insurance. THE su[bs]criber ha[v]ing been [a]p[poin]t[e]d [agent] for the Howard Fire Insurance [Company] of the city of New York, for Chicago a[n]d [v]i[c]inity, will in[s]ure prope[rt]y against l[oss b]y [fire] o[n] rea[so]nable terms. E. K. [H]UBBARD. J[u]ne 2[0], 18[3]5.",
+      "locator": {
+        "artifact_role": "primary",
+        "issue_page": 3,
+        "column": 6,
+        "lines": [
+          368,
+          370
+        ],
+        "lines_of_claim": [
+          368,
+          369,
+          370
+        ],
+        "interleaved": true,
+        "spans": [
+          {
+            "line": 368,
+            "from": 0,
+            "to": 17
+          },
+          {
+            "line": 369,
+            "from": 0,
+            "to": 157
+          },
+          {
+            "line": 370,
+            "from": 0,
+            "to": 50
+          }
+        ]
+      },
+      "entities": [
+        {
+          "as_printed": "E. K. IUBBARD",
+          "normalized": "E. K. Hubbard",
+          "role": "proprietor",
+          "occupations": [
+            "insurance agent"
+          ],
+          "associated_places": []
+        }
+      ],
+      "ad_copy_date": {
+        "verbatim": "Jume 29, 1885,",
+        "iso": "1835-06-20"
+      },
+      "business": {
+        "name": "E. K. Hubbard, agent for the Howard Fire Insurance Company",
+        "proprietors": [
+          "E. K. Hubbard"
+        ],
+        "trade": "fire insurance agency",
+        "goods": [],
+        "street": null,
+        "placement": {
+          "class": "none",
+          "anchor": null,
+          "offset_text": null,
+          "offset_normalized": null,
+          "street": null
+        }
+      },
+      "notes": "FIRE INSURANCE IS BEING SOLD IN CHICAGO IN JUNE 1835, by a New York company's local agent. Worth recording for what it implies about the building stock: there is property here worth insuring and a market for insuring it, in a town the same paper puts at 2500 to 3000 people. No address, so `none`. The surname is the same as the forwarding house Hubbard & Co. two columns away and NO connection is asserted between them — same surname is not identity, and this project's identity policy says so for persons and has no rule at all for firms."
+    },
+    {
+      "id": "c016",
+      "kind": "building",
+      "reading": "transcription_mediated",
+      "quote": "MEETING of tho intabitance of & 4, will be held on Trapde; July, ot 6 o'clock, P.M. in the Phethy Church, to take intd comlderatidd mieagure building a school-house m avid district; 4) Election ofa Trustive, and to (ranenct ey Dusingsd that may thea come before the tres eam HYRAM KING, Cly Chicago, June 20, 1835,",
+      "normalized": "[A] MEETING of th[e] i[nh]abitan[t]s of [School District No.] 4 will be held on T[ues]d[ay the …] July, at 6 o'clock P.M. in the P[r]e[sby]t[erian] Church, to take int[o] co[ns]iderati[on] measure[s for] building a school-house [in s]aid district; [the] Election of a Trust[ee], and to [t]ran[s]act [an]y [b]usin[es]s that may th[e]n come before the [meeting]. HYRAM KING, Cl[erk]. Chicago, June 20, 1835.",
+      "locator": {
+        "artifact_role": "primary",
+        "issue_page": 3,
+        "column": 6,
+        "lines": [
+          371,
+          371
+        ],
+        "lines_of_claim": [
+          371
+        ],
+        "interleaved": true,
+        "spans": [
+          {
+            "line": 371,
+            "from": 0,
+            "to": 314
+          }
+        ]
+      },
+      "entities": [
+        {
+          "as_printed": "HYRAM KING",
+          "normalized": "Hyram King",
+          "role": "signatory",
+          "occupations": [],
+          "associated_places": []
+        }
+      ],
+      "ad_copy_date": {
+        "verbatim": "Chicago, June 20, 1835,",
+        "iso": "1835-06-20"
+      },
+      "notes": "TWO BUILDINGS IN ONE NOTICE, and they sit on opposite sides of the scene date. THE PRESBYTERIAN CHURCH EXISTS AND IS USED FOR PUBLIC MEETINGS in June 1835 — a standing building this project can hold. THE SCHOOL-HOUSE DOES NOT: the inhabitants of the district are meeting in July to CONSIDER measures for building one, so at the scene date of 1835-07-01 there is no school-house in district 4 and anything that puts one there is wrong. A negative is a claim, and this is the clearest one the run has produced. The district number reads '&  4' and is taken as 4; the meeting's July date is cut."
+    },
+    {
+      "id": "c017",
+      "kind": "building",
+      "reading": "transcription_mediated",
+      "quote": "OW TO LET.\ni ‘Two Dwellings snd vie Sbbfe Rho of is\n{ dw ©, MO CHARM,",
+      "normalized": "[FOR SALE] OR TO LET. […] Two Dwellings and [o]ne S[ta]b[l]e […] C. [H.] CHA[P]M[AN]",
+      "locator": {
+        "artifact_role": "primary",
+        "issue_page": 3,
+        "column": 6,
+        "lines": [
+          362,
+          365
+        ],
+        "lines_of_claim": [
+          362,
+          364,
+          365
+        ],
+        "interleaved": true,
+        "spans": [
+          {
+            "line": 362,
+            "from": 0,
+            "to": 10
+          },
+          {
+            "line": 364,
+            "from": 0,
+            "to": 40
+          },
+          {
+            "line": 365,
+            "from": 0,
+            "to": 17
+          }
+        ]
+      },
+      "entities": [
+        {
+          "as_printed": "©, MO CHARM",
+          "normalized": "C. H. Chapman",
+          "role": "advertiser",
+          "occupations": [],
+          "associated_places": []
+        }
+      ],
+      "notes": "THE THIRD BUILDING IS A STABLE. 1835-06-08 read it as 'one idee' and left it unidentified; this printing of the same notice sets 'vie Sbbfe', which is 'one Stable', and the group is two dwellings and a stable offered together. That is a plausible yard: a dwelling pair with a stable behind, which is a shape this project's household layer builds and has had no documented instance of. The advertiser's name is worse here than in the first issue ('©, MO CHARM' against 'Cc. H. CHAPMA') and is read as C. H. Chapman on the strength of that first printing, not this one."
+    },
+    {
+      "id": "c018",
+      "kind": "notice",
+      "reading": "transcription_mediated",
+      "quote": "LOST}\nbound in red Calf. Whoever hiss f 10 the owner, marked inside, vball be rowarded for",
+      "normalized": "LOST […] bound in red Calf. Whoever h[a]s f[ound it and returns it] to the owner, marked inside, [s]hall be rewarded for [his trouble].",
+      "locator": {
+        "artifact_role": "primary",
+        "issue_page": 3,
+        "column": 6,
+        "lines": [
+          371,
+          372
+        ],
+        "lines_of_claim": [
+          371,
+          372
+        ],
+        "interleaved": true,
+        "spans": [
+          {
+            "line": 371,
+            "from": 317,
+            "to": 322
+          },
+          {
+            "line": 372,
+            "from": 0,
+            "to": 84
+          }
+        ]
+      },
+      "entities": [],
+      "notes": "A LOST BOOK, AND THE STREET IT WAS LOST IN. The head of the notice on line 371 reads 'OST, in Water sirest, A. Lath' — Water street, and a book bound in red calf — but that text sits inside the same line as the school-district meeting notice above and cannot be separated from it by any span that stays verbatim, so the quote here carries only the part that stands alone on line 372 and the street is described rather than claimed. Kept for a small reason: a notice that assumes readers walk a named street and might pick something up in it is evidence the street was in ordinary daily use."
+    }
+  ]
+}

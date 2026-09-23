@@ -1,0 +1,42 @@
+{
+
+ "schema": 1,
+ "domain": "newberry_index",
+ "generated_by": "hand — a reading pass declares the range it read, and the gate checks it",
+ "note": "The unit here is the VOLUME, not the page. Every page of a declared volume was cropped, laid out and walked; the cards kept are the ones whose body names Chicago, Cook County or Illinois, and the rest are read and not kept. Declaring the pages would be a lie in the other direction — it would report a hole on every page that carries no Illinois family, and there are hundreds of them. A volume declared here is READ; what the reading is WORTH is the per-volume precision figure in precision_sample.json, and the four now read 0.975, 0.975, 0.925 and 0.975. Coverage and quality are two different questions and this file only answers the first. The card figures for volumes 1-3 are net of the column slivers T-0601 marked — 8 of them (3, 1 and 4), each a card the crop overlap made the passes read twice; records/ keeps them, marked, and withholds them from every count. Volume 4's OCR re-read (T-0775) carries 0 column slivers, measured under T-0810: the byte-exact rule T-0601 wrote cannot hold across an OCR reading, whose two readings of the crop overlap come from two tesseract runs, so the volume was scanned again by positional character agreement over the common prefix of every column-boundary pair. That measure scores all eight slivers in volumes 1-3 at 1.000 and volume 4's 21 boundary pairs at 0.216 or below. Every volume's scan is now stated in records/ as sliver_scan and re-derived by --check, so a zero is a measured zero rather than an unasked question.",
+ "declarations": [
+  {
+   "unit": "list",
+   "items": [
+    "vol_01"
+   ],
+   "ticket": "T-0570",
+   "note": "Volume 1 (A-C), Internet Archive file FL2091539_CP-130151_01.pdf, 987 pages, read by its text layer in four cropped column passes. 58,488 cards assembled; 2,425 kept for naming Chicago, Cook County or Illinois, of which 3 are column slivers and 10 are bled-in bodies (T-0769), so 2,384 cards; 562 of those name Chicago or Cook County. (T-0601 marked the slivers; none of them names Chicago or Cook County. T-0769 marked the bled-in bodies; none of those names Chicago or Cook County either, and every one of them was kept for an Illinois abbreviation printed in the column to its left. The kept figure quoted above is the pre-T-0765 one; the committed records hold 2,397 rows today.) (2,579 and 581 until T-0600 struck 154 stanzas that name a locality and no work.) Forty were drawn and adjudicated against the page image at 0.975 precision."
+  },
+  {
+   "unit": "list",
+   "items": [
+    "vol_02"
+   ],
+   "ticket": "T-0578",
+   "note": "Volume 2 (C-H), Internet Archive file FL2091536_CP-130151_02.pdf, 1,016 pages, read by its text layer in the same four cropped column passes. 58,589 cards assembled; 1,886 kept for naming Chicago, Cook County or Illinois, of which 1 is a column sliver and 2 are bled-in bodies (T-0769), so 1,868 cards; 491 of those name Chicago or Cook County. (T-0601 marked the sliver, and it is a Chicago one.) (1,987 and 501 until T-0600 struck 101 stanzas.) Forty were drawn and adjudicated against the page image at 0.975 precision — 20 of 20 in the Chicago-and-Cook stratum, 19 of 20 in the Illinois-only one. It read 0.875 before the rules: all five bad keeps of that draw were struck. The one bad keep left — nbi_v02_0606, which was nbi_v02_0610 before T-0765's strike of 32 rows and T-0766's of 38 more renumbered it twice — was recorded here as a column sliver of the shape T-0601 carries and T-0601 measured that it is NOT one — it opens with the TAIL of the card in the column to its left, which contaminates a body instead of duplicating a card, and is a precision defect rather than a count one. T-0769 measured and ruled on that class: the README section carries the figures, and the rule does not reach this particular card because its shared run is eight characters, inside what the 27-point overlap carries on its own. Its verdict is not_demonstrated either way. (The kept figure quoted above is the pre-T-0765 one; the committed records hold 1,871 rows today.)"
+  },
+  {
+   "unit": "list",
+   "items": [
+    "vol_03"
+   ],
+   "ticket": "T-0579",
+   "note": "Volume 3 (H-P), Internet Archive file FL1982465_CP-130151_03.pdf, 1,003 pages, read by its text layer in the same four cropped column passes. 68,552 cards assembled; 2,004 kept for naming Chicago, Cook County or Illinois, of which 4 are column slivers and 3 are bled-in bodies (T-0769), so 1,973 cards; 502 of those name Chicago or Cook County. (T-0601 marked the slivers; T-0769 marked the bled-in bodies. The kept figure quoted above is the pre-T-0765 one; the committed records hold 1,980 rows today.) (2,131 and 520 until T-0600 struck 127 stanzas.) Forty were drawn and adjudicated against the page image at 0.925 precision, 0.900 before the rules — 20 of 20 in the Chicago-and-Cook stratum, 16 of 20 in the Illinois-only one; the four bad keeps are one old class (the regnal Calendarium, through the rule written to stop it) and three new ones, all of them text that is not on the card: a neighbouring column's sliver, a genealogy's index VOLUME cited in roman ('See index III.'), and a stray mark at the start of a line. T-0600 carries the rules."
+  },
+  {
+   "unit": "list",
+   "items": [
+    "vol_04"
+   ],
+   "ticket": "T-0580, re-read T-0775",
+   "note": "Volume 4 (P-Z), Internet Archive file 130151_04.pdf, 918 pages. READ TWICE. T-0580 read it by its text layer in the same four cropped column passes volumes 1-3 were read in and assembled 6,548 cards, keeping 247 (9 Chicago or Cook County) — 7 cards a page against 59, 58 and 68, on pages that carry about 100 — and measured that reading at 0.513 precision, 0.475 before T-0600. The crop geometry was measured and ruled out as the cause; the file is the one volume in the Archive item without the Newberry's scan id, and its text layer emits five times the characters of a good one and finds eight times fewer cards. T-0775 re-assembled the volume from the twelve tesseract shards T-0619, T-0620 and T-0769 committed, over the same crop boxes and into the same card assembly: 33,357 cards assembled, 413 kept, 207 of those naming Chicago or Cook County. A FRESH forty were drawn over the re-read volume and adjudicated against the page image at 0.975 precision — 20 of 20 in the Chicago-and-Cook stratum and 19 of 20 in the Illinois-only one, the volume's first 20/20 stratification, because it now holds 207 Chicago-or-Cook cards and 206 others. No verdict was carried across from the text-layer draw: that reading rewrote every card, and its figures are kept under `volumes.4.supersedes` in precision_sample.json where they measure the reader they belong to. The committed reading of this volume is the OCR one, and it is graded transcription_mediated exactly as the text-layer one was — a second machine reading a photostat is not a stronger witness, only a more legible one."
+  }
+ ],
+ "not_read": []
+}

@@ -1,0 +1,26 @@
+id: newspaper-chicago-democrat-1835
+title: Chicago Democrat, 1835
+description: >
+  Scanned issues of the Chicago Democrat newspaper, digitized as
+  overlapping multi-month batches (Jan-Jul and May-Aug both included,
+  as originally scanned). Typed transcriptions for this run are
+  committed separately under chicago/reference/newspapers/transcriptions/.
+redistribution_status: public
+copyright_status: public-domain
+internet_archive:
+  item: chicago1835-newspaper-chicago-democrat-1835
+  url: https://archive.org/details/chicago1835-newspaper-chicago-democrat-1835
+files:
+  - name: Jan1835-Jul1835.pdf
+    bytes: 202796537
+    sha256: 64a7a985dbf91b491316df3bef6205b51c2cb90566e540b350d6dbdd6394b990
+  - name: May1835-Aug1835.pdf
+    bytes: 349813629
+    sha256: 06e734eff06dd2e7c7a4234bea73960f692eb388944e3880e3e28b47582abefe
+  - name: Jul1835.pdf
+    bytes: 118289541
+    sha256: a6fcdcfc444b8a52d0fb1be67ae4009b94657008b826d9fbb432d69afe2bf0c8
+  - name: Aug1835.pdf
+    bytes: 96635774
+    sha256: dbae35915ce7b3401d031d4a2d095314360785795e4d0204a647bfae455b8bcf
+local_archive_path: projects/archive/data/chicago/reference/newspapers/ChicagoDemocrat/1835/

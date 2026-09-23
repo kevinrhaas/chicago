@@ -1,0 +1,68 @@
+{
+  "_doc": "Resident-research source-selection and identity-resolution ledger. It governs research reviews; it is not evidence about a resident.",
+  "tickets": [
+    "T-0442",
+    "T-0462",
+    "T-0463",
+    "T-0478",
+    "T-0479"
+  ],
+  "reviewed_on": "2026-09-02",
+  "ranked_source_types": [
+    {
+      "rank": 1,
+      "type": "contemporary named record",
+      "examples": [
+        "newspaper advertisement",
+        "letter",
+        "court or land record"
+      ],
+      "use": "May assert a fact when the record identifies the Chicago person."
+    },
+    {
+      "rank": 2,
+      "type": "government or institutional biographical record",
+      "examples": [
+        "court biography",
+        "library mayor biography"
+      ],
+      "use": "May corroborate biography; abbreviated-name links still require a second identifier."
+    },
+    {
+      "rank": 3,
+      "type": "scholarly or cited local history",
+      "examples": [
+        "edited papers",
+        "county history",
+        "historical encyclopedia"
+      ],
+      "use": "Useful for chronology and migration; weigh its distance from 1835."
+    },
+    {
+      "rank": 4,
+      "type": "index or genealogy finding aid",
+      "examples": [
+        "search index",
+        "family tree",
+        "cemetery index"
+      ],
+      "use": "Discovery only. Never assert lineage, ethnicity, household or identity from the name alone."
+    }
+  ],
+  "identity_rules": [
+    "Exact name alone is insufficient, especially for common names.",
+    "A candidate needs at least one independent discriminator such as occupation, partner, address, dated migration path, spouse or kin.",
+    "Conflicting geography is recorded as a rejected or competing candidate rather than hidden.",
+    "Surname form is a search lead only and is never evidence of heritage, ethnicity or immigration origin.",
+    "No-find means no reviewed corroborating record was found; it does not mean the person did not exist."
+  ],
+  "search_surfaces": [
+    "repository newspaper transcriptions and existing source records",
+    "institutional biographies from Illinois Courts and Chicago Public Library",
+    "Papers of Abraham Lincoln person and place records",
+    "court decisions, government treaty and statute volumes, and city directories",
+    "institutional finding aids, historic-site records and edited documentary projects",
+    "digitized county histories, memoirs and historical encyclopedias",
+    "broad web and genealogy indexes used only to locate candidate records"
+  ]
+}
